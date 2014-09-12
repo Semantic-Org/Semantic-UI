@@ -5,7 +5,7 @@ semantic.card.ready = function() {
 
   // selector cache
   var
-    $icon = $('.card .icon, .card .corner.label'),
+    $icon = $('.card .corner.label'),
     handler
   ;
 
@@ -13,6 +13,10 @@ semantic.card.ready = function() {
 
 
   };
+
+  $('.ui.rating')
+    .rating()
+  ;
 
   $icon
     .state()

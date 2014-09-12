@@ -33,7 +33,7 @@ themes      : ['Default']
     <p>A group of items.</p>
     <div class="ui items segment">
       <div class="item">
-        <div class="ui small image">
+        <div class="image">
           <img src="/images/movies/12years.jpg">
         </div>
         <div class="content">
@@ -56,7 +56,7 @@ themes      : ['Default']
         </div>
       </div>
       <div class="item">
-        <div class="ui small image">
+        <div class="image">
           <img src="/images/movies/totoro.jpg">
         </div>
         <div class="content">
@@ -81,7 +81,7 @@ themes      : ['Default']
         </div>
       </div>
       <div class="item">
-        <div class="ui small image">
+        <div class="image">
           <img src="/images/movies/watchmen.jpg">
         </div>
         <div class="content">
@@ -104,7 +104,6 @@ themes      : ['Default']
           </div>
         </div>
       </div>
-
     </div>
   </div>
 
@@ -116,26 +115,20 @@ themes      : ['Default']
     <div class="ui items segment">
       <div class="item">
         <div class="content">
-          <div class="header">Arrowhead Valley Camp</div>
-          <div class="description">
-            This camp in the Hudson Valley is perfect for teenagers from 10-14.
-          </div>
+          <div class="header">12 Amazing Secrets for Long Life</div>
+          <div class="description">You won't believe how well it works.</div>
         </div>
       </div>
       <div class="item">
         <div class="content">
-          <div class="header">Buck's Homebrew Stayaway</div>
-          <div class="description">
-            This adult stay away from home camp will teach you everything you need to know about  forestry and homebrew.
-          </div>
+          <div class="header">The Last Words of a Dying Astronaut</div>
+          <div class="description">Inspirational words shared by someone truly special.</div>
         </div>
       </div>
       <div class="item">
         <div class="content">
-          <div class="header">Astrology Camp</div>
-          <div class="description">
-            Learn astrology the old fashioned way in this stayaway camp for kids aged 8-17.
-          </div>
+          <div class="header">A Funny Trick to Becoming Rich</div>
+          <div class="description">This is an easy way anyone can become rich</div>
         </div>
       </div>
     </div>

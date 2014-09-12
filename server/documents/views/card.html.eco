@@ -273,9 +273,7 @@ themes      : ['Default', 'Basic']
   <div class="example">
     <h4 class="ui header">Link</h4>
     <p>A card can contain contain links as images, headers, or inside content</p>
-    <div class="ui yellow message">
-      <i class="star icon"></i>
-      To make the entire content of a card link, check out the link variation below
+    <div class="ui yellow message">To make the entire content of a card link, check out the link variation below
     </div>
     <div class="ui card">
       <a class="image" href="#">
@@ -309,9 +307,7 @@ themes      : ['Default', 'Basic']
             <i class="like icon"></i>
             Like
           </span>
-          <span class="star">
-            <i class="star icon"></i>
-            Favorite
+          <span class="star">Favorite
           </span>
         </div>
       </div>
@@ -448,66 +444,74 @@ themes      : ['Default', 'Basic']
     <div class="ui four cards">
       <div class="card">
         <div class="image">
-          <img src="/images/avatar/large/elliot.jpg">
+          <img src="/images/movies/12years.jpg">
         </div>
-        <div class="content">
-          <a class="header">Elliot Fu</a>
-        </div>
-      </div>
-      <div class="card">
-        <div class="image">
-          <img src="/images/avatar/large/helen.jpg">
-        </div>
-        <div class="content">
-          <a class="header">Helen Troy</a>
+        <div class="extra">
+          Rating:
+          <div class="ui star rating" data-rating="4"></div>
         </div>
       </div>
       <div class="card">
         <div class="image">
-          <img src="/images/avatar/large/jenny.jpg">
+          <img src="/images/movies/totoro.jpg">
         </div>
-        <div class="content">
-          <a class="header">Jenny Hess</a>
-        </div>
-      </div>
-      <div class="card">
-        <div class="image">
-          <img src="/images/avatar/large/veronika.jpg">
-        </div>
-        <div class="content">
-          <a class="header">Veronika Ossi</a>
+        <div class="extra">
+          Rating:
+          <div class="ui star rating" data-rating="2"></div>
         </div>
       </div>
       <div class="card">
         <div class="image">
-          <img src="/images/avatar/large/stevie.jpg">
+          <img src="/images/movies/watchmen.jpg">
         </div>
-        <div class="content">
-          <a class="header">Stevie Feliciano</a>
-        </div>
-      </div>
-      <div class="card">
-        <div class="image">
-          <img src="/images/avatar/large/steve.jpg">
-        </div>
-        <div class="content">
-          <a class="header">Steve Jobes</a>
+        <div class="extra">
+          Rating:
+          <div class="ui star rating" data-rating="3"></div>
         </div>
       </div>
       <div class="card">
         <div class="image">
-          <img src="/images/avatar/large/justen.jpg">
+          <img src="/images/movies/happiness.jpg">
         </div>
-        <div class="content">
-          <a class="header">Justen Kitsune</a>
+        <div class="extra">
+          Rating:
+          <div class="ui star rating" data-rating="4"></div>
         </div>
       </div>
       <div class="card">
         <div class="image">
-          <img src="/images/avatar/large/daniel.jpg">
+          <img src="/images/movies/adaptation.jpg">
         </div>
-        <div class="content">
-          <a class="header">Daniel Louise</a>
+        <div class="extra">
+          Rating:
+          <div class="ui star rating" data-rating="3"></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="image">
+          <img src="/images/movies/sherlock.jpg">
+        </div>
+        <div class="extra">
+          Rating:
+          <div class="ui star rating" data-rating="3"></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="image">
+          <img src="/images/movies/hemingway.jpg">
+        </div>
+        <div class="extra">
+          Rating:
+          <div class="ui star rating" data-rating="4"></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="image">
+          <img src="/images/movies/1942.jpg">
+        </div>
+        <div class="extra">
+          Rating:
+          <div class="ui star rating" data-rating="4"></div>
         </div>
       </div>
     </div>
