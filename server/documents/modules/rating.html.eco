@@ -33,23 +33,21 @@ themes      : ['Default']
     <div class="example">
       <h4 class="ui header">Rating</h4>
       <p>A basic rating </p>
-      <div class="ui rating"></div>
+      <div class="ui rating" data-max-rating="1"></div>
     </div>
 
     <div class="example">
       <h4 class="ui header">Star</h4>
       <p>A rating can use a set of star icons</p>
 
-      <div class="ui compact segment">
-        Rating
-        <div class="ui star rating"></div>
-      </div>
+      Rating
+      <div class="ui star rating" data-rating="3"></div>
     </div>
 
     <div class="example">
       <h4 class="ui header">Heart</h4>
       <p>A rating can use a set of heart icons</p>
-      <div class="ui heart rating"></div>
+      <div class="ui heart rating" data-rating="7" data-max-rating="10"></div>
     </div>
 
     <h2 class="ui dividing header">Variations</h2>
@@ -77,21 +75,24 @@ themes      : ['Default']
 
     <div class="example">
       <h3 class="ui header">Setting existing values</h3>
-      <p>Starting ratings can be set either using metadata values or the setting <code>initialRating</code>.</p>
-      <div class="ui ignored info message">If a metadata rating is specified it will automatically override any initial rating. This way you can set a default value but also allow it to be overridden.</div>
+      <p>The starting rating can be set either using metadata value <code>data-rating</code> or the setting <code>initialRating</code>.
+      <p>The maximum rating can be be set using the metadata value <code>data-max-rating</code> or the settings <code>maxRating</code>, or you can just include the icon html yourself on initialization to avoid the overhead of the <code>DOM template insertions</code>. </p>
+      <div class="ui ignored info message">If a metadata rating is specified it will automatically override the default value specified in javascript.</div>
+      <div class="code" data-type="javascript">
+      $('.toggle.example .rating')
+        .rating({
+          initialRating: 2,
+          maxRating: 4
+        })
+      ;
+      </div>
       <div class="ui very relaxed celled list">
         <div class="item">
           <img class="ui avatar image" src="/images/demo/avatar2.jpg">
           <div class="content">
             <div class="header">
               New York Dog Fair
-              <div class="ui heart rating" data-rating="2">
-                <i class="icon"></i>
-                <i class="icon"></i>
-                <i class="icon"></i>
-                <i class="icon"></i>
-                <i class="icon"></i>
-              </div>
+              <div class="ui heart rating" data-rating="2"></div>
             </div>
             A fun day at the fair
           </div>
@@ -101,13 +102,7 @@ themes      : ['Default']
           <div class="content">
             <div class="header">
               Dog Appreciation Day
-              <div class="ui heart rating" data-rating="2">
-                <i class="icon"></i>
-                <i class="icon"></i>
-                <i class="icon"></i>
-                <i class="icon"></i>
-                <i class="icon"></i>
-              </div>
+              <div class="ui heart rating" data-rating="2"></div>
             </div>
             I'd like to tell your dog he's great
           </div>
