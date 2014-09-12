@@ -260,22 +260,22 @@
 @keyframes fadeUp {
   0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(10%);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0%);
   }
 }
 
 @keyframes fadeUpOut {
   0% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0%);
   }
   100% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(10%);
   }
 }
 
@@ -283,21 +283,21 @@
 @keyframes fadeDown {
   0% {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(-10%);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0%);
   }
 }
 @keyframes fadeDownOut {
   0% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0%);
   }
   100% {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(-10%);
   }
 }
 
