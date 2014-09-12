@@ -56,7 +56,6 @@ $.fn.rating = function(parameters) {
         initialize: function() {
           module.verbose('Initializing rating module', settings);
 
-          console.log($module);
           if($icon.size() === 0) {
             module.setup.layout();
           }
@@ -196,7 +195,6 @@ $.fn.rating = function(parameters) {
               : 0,
             $activeIcon = $icon.eq(ratingIndex)
           ;
-          console.log(rating, ratingIndex, $icon);
           $module
             .removeClass(className.selected)
           ;
@@ -206,7 +204,6 @@ $.fn.rating = function(parameters) {
           ;
           if(rating > 0) {
             module.verbose('Setting current rating to', rating);
-            console.log($activeIcon.prevAll().andSelf());
             $activeIcon
               .prevAll()
               .andSelf()
