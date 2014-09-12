@@ -600,12 +600,15 @@
   background: @basicBackground !important;
   background-image: none;
   color: @textColor !important;
-  padding: @basicPadding;
   font-weight: @basicFontWeight;
   border-radius: @basicBorderRadius;
   text-transform: @basicTextTransform;
   text-shadow: none !important;
   box-shadow: @basicBoxShadow;
+}
+.ui.basic.buttons .button:not(.compact),
+.ui.basic.button:not(.compact) {
+  padding: @basicPadding;
 }
 .ui.basic.buttons {
   box-shadow: @basicGroupBoxShadow;
@@ -1097,16 +1100,23 @@
 /* Basic */
 .ui.basic.black.buttons .button,
 .ui.basic.black.button {
-  box-shadow: 0px 0px 0px @basicColoredBorderSize @black inset !important;
-  color: @black !important;
+  box-shadow: 0px 0px 0px @basicColoredBorderSize @solidBorderColor inset !important;
+  color: @textColor !important;
 }
 .ui.basic.black.buttons .button:hover,
 .ui.basic.black.button:hover {
+  background: transparent !important;
   box-shadow: 0px 0px 0px @basicColoredBorderSize @blackHover inset !important;
   color: @blackHover !important;
 }
 .ui.basic.black.buttons .button:active,
 .ui.basic.black.button:active {
+  box-shadow: 0px 0px 0px @basicColoredBorderSize @blackDown inset !important;
+  color: @blackDown !important;
+}
+.ui.basic.black.buttons .button.active,
+.ui.basic.black.button.active {
+  background: transparent !important;
   box-shadow: 0px 0px 0px @basicColoredBorderSize @blackDown inset !important;
   color: @blackDown !important;
 }
@@ -1176,16 +1186,23 @@
 /* Basic */
 .ui.basic.blue.buttons .button,
 .ui.basic.blue.button {
-  box-shadow: 0px 0px 0px @basicColoredBorderSize @blue inset !important;
-  color: @blue !important;
+  box-shadow: 0px 0px 0px @basicColoredBorderSize @solidBorderColor inset !important;
+  color: @textColor !important;
 }
 .ui.basic.blue.buttons .button:hover,
 .ui.basic.blue.button:hover {
+  background: transparent !important;
   box-shadow: 0px 0px 0px @basicColoredBorderSize @blueHover inset !important;
   color: @blueHover !important;
 }
 .ui.basic.blue.buttons .button:active,
 .ui.basic.blue.button:active {
+  box-shadow: 0px 0px 0px @basicColoredBorderSize @blueDown inset !important;
+  color: @blueDown !important;
+}
+.ui.basic.blue.buttons .button.active,
+.ui.basic.blue.button.active {
+  background: transparent !important;
   box-shadow: 0px 0px 0px @basicColoredBorderSize @blueDown inset !important;
   color: @blueDown !important;
 }
@@ -1253,16 +1270,23 @@
 /* Basic */
 .ui.basic.green.buttons .button,
 .ui.basic.green.button {
-  box-shadow: 0px 0px 0px @basicColoredBorderSize @green inset !important;
-  color: @green !important;
+  box-shadow: 0px 0px 0px @basicColoredBorderSize @solidBorderColor inset !important;
+  color: @textColor !important;
 }
 .ui.basic.green.buttons .button:hover,
 .ui.basic.green.button:hover {
+  background: transparent !important;
   box-shadow: 0px 0px 0px @basicColoredBorderSize @greenHover inset !important;
   color: @greenHover !important;
 }
 .ui.basic.green.buttons .button:active,
 .ui.basic.green.button:active {
+  box-shadow: 0px 0px 0px @basicColoredBorderSize @greenDown inset !important;
+  color: @greenDown !important;
+}
+.ui.basic.green.buttons .button.active,
+.ui.basic.green.button.active {
+  background: transparent !important;
   box-shadow: 0px 0px 0px @basicColoredBorderSize @greenDown inset !important;
   color: @greenDown !important;
 }
@@ -1329,16 +1353,23 @@
 /* Basic */
 .ui.basic.orange.buttons .button,
 .ui.basic.orange.button {
-  box-shadow: 0px 0px 0px @basicColoredBorderSize @orange inset !important;
-  color: @orange !important;
+  box-shadow: 0px 0px 0px @basicColoredBorderSize @solidBorderColor inset !important;
+  color: @textColor !important;
 }
 .ui.basic.orange.buttons .button:hover,
 .ui.basic.orange.button:hover {
+  background: transparent !important;
   box-shadow: 0px 0px 0px @basicColoredBorderSize @orangeHover inset !important;
   color: @orangeHover !important;
 }
 .ui.basic.orange.buttons .button:active,
 .ui.basic.orange.button:active {
+  box-shadow: 0px 0px 0px @basicColoredBorderSize @orangeDown inset !important;
+  color: @orangeDown !important;
+}
+.ui.basic.orange.buttons .button.active,
+.ui.basic.orange.button.active {
+  background: transparent !important;
   box-shadow: 0px 0px 0px @basicColoredBorderSize @orangeDown inset !important;
   color: @orangeDown !important;
 }
@@ -1405,16 +1436,23 @@
 /* Basic */
 .ui.basic.pink.buttons .button,
 .ui.basic.pink.button {
-  box-shadow: 0px 0px 0px @basicColoredBorderSize @pink inset !important;
-  color: @pink !important;
+  box-shadow: 0px 0px 0px @basicColoredBorderSize @solidBorderColor inset !important;
+  color: @textColor !important;
 }
 .ui.basic.pink.buttons .button:hover,
 .ui.basic.pink.button:hover {
+  background: transparent !important;
   box-shadow: 0px 0px 0px @basicColoredBorderSize @pinkHover inset !important;
   color: @pinkHover !important;
 }
 .ui.basic.pink.buttons .button:active,
 .ui.basic.pink.button:active {
+  box-shadow: 0px 0px 0px @basicColoredBorderSize @pinkDown inset !important;
+  color: @pinkDown !important;
+}
+.ui.basic.pink.buttons .button.active,
+.ui.basic.pink.button.active {
+  background: transparent !important;
   box-shadow: 0px 0px 0px @basicColoredBorderSize @pinkDown inset !important;
   color: @pinkDown !important;
 }
@@ -1481,16 +1519,23 @@
 /* Basic */
 .ui.basic.purple.buttons .button,
 .ui.basic.purple.button {
-  box-shadow: 0px 0px 0px @basicColoredBorderSize @purple inset !important;
-  color: @purple !important;
+  box-shadow: 0px 0px 0px @basicColoredBorderSize @solidBorderColor inset !important;
+  color: @textColor !important;
 }
 .ui.basic.purple.buttons .button:hover,
 .ui.basic.purple.button:hover {
+  background: transparent !important;
   box-shadow: 0px 0px 0px @basicColoredBorderSize @purpleHover inset !important;
   color: @purpleHover !important;
 }
 .ui.basic.purple.buttons .button:active,
 .ui.basic.purple.button:active {
+  box-shadow: 0px 0px 0px @basicColoredBorderSize @purpleDown inset !important;
+  color: @purpleDown !important;
+}
+.ui.basic.purple.buttons .button.active,
+.ui.basic.purple.button.active {
+  background: transparent !important;
   box-shadow: 0px 0px 0px @basicColoredBorderSize @purpleDown inset !important;
   color: @purpleDown !important;
 }
@@ -1557,16 +1602,23 @@
 /* Basic */
 .ui.basic.red.buttons .button,
 .ui.basic.red.button {
-  box-shadow: 0px 0px 0px @basicColoredBorderSize @red inset !important;
-  color: @red !important;
+  box-shadow: 0px 0px 0px @basicColoredBorderSize @solidBorderColor inset !important;
+  color: @textColor !important;
 }
 .ui.basic.red.buttons .button:hover,
 .ui.basic.red.button:hover {
+  background: transparent !important;
   box-shadow: 0px 0px 0px @basicColoredBorderSize @redHover inset !important;
   color: @redHover !important;
 }
 .ui.basic.red.buttons .button:active,
 .ui.basic.red.button:active {
+  box-shadow: 0px 0px 0px @basicColoredBorderSize @redDown inset !important;
+  color: @redDown !important;
+}
+.ui.basic.red.buttons .button.active,
+.ui.basic.red.button.active {
+  background: transparent !important;
   box-shadow: 0px 0px 0px @basicColoredBorderSize @redDown inset !important;
   color: @redDown !important;
 }
@@ -1634,16 +1686,23 @@
 /* Basic */
 .ui.basic.teal.buttons .button,
 .ui.basic.teal.button {
-  box-shadow: 0px 0px 0px @basicColoredBorderSize @teal inset !important;
-  color: @teal !important;
+  box-shadow: 0px 0px 0px @basicColoredBorderSize @solidBorderColor inset !important;
+  color: @textColor !important;
 }
 .ui.basic.teal.buttons .button:hover,
 .ui.basic.teal.button:hover {
+  background: transparent !important;
   box-shadow: 0px 0px 0px @basicColoredBorderSize @tealHover inset !important;
   color: @tealHover !important;
 }
 .ui.basic.teal.buttons .button:active,
 .ui.basic.teal.button:active {
+  box-shadow: 0px 0px 0px @basicColoredBorderSize @tealDown inset !important;
+  color: @tealDown !important;
+}
+.ui.basic.teal.buttons .button.active,
+.ui.basic.teal.button.active {
+  background: transparent !important;
   box-shadow: 0px 0px 0px @basicColoredBorderSize @tealDown inset !important;
   color: @tealDown !important;
 }
@@ -1711,16 +1770,23 @@
 /* Basic */
 .ui.basic.yellow.buttons .button,
 .ui.basic.yellow.button {
-  box-shadow: 0px 0px 0px @basicColoredBorderSize @yellow inset !important;
-  color: @yellow !important;
+  box-shadow: 0px 0px 0px @basicColoredBorderSize @solidBorderColor inset !important;
+  color: @textColor !important;
 }
 .ui.basic.yellow.buttons .button:hover,
 .ui.basic.yellow.button:hover {
+  background: transparent !important;
   box-shadow: 0px 0px 0px @basicColoredBorderSize @yellowHover inset !important;
   color: @yellowHover !important;
 }
 .ui.basic.yellow.buttons .button:active,
 .ui.basic.yellow.button:active {
+  box-shadow: 0px 0px 0px @basicColoredBorderSize @yellowDown inset !important;
+  color: @yellowDown !important;
+}
+.ui.basic.yellow.buttons .button.active,
+.ui.basic.yellow.button.active {
+  background: transparent !important;
   box-shadow: 0px 0px 0px @basicColoredBorderSize @yellowDown inset !important;
   color: @yellowDown !important;
 }
