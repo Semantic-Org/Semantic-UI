@@ -13,8 +13,6 @@ themes      : ['Default']
 ---
 
 <%- @partial('header') %>
-<script src="/javascript/icon js"></script>
-<!--link rel="stylesheet" type="text/css" href="/stylesheets/library/basic icon.css" !-->
 
 <div class="main container">
 

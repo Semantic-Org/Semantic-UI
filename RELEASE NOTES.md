@@ -45,6 +45,8 @@
 - **Popup** - A popup element can now be specified on initialization.
 - **Popup** - Positioned popups will now extend in the opposite direction to fit better with floated content
 - **Rating** - Rating now uses an embedded icon font to maximize compatibility
+- **Rating** - Rating can now automatically generate icons without including them
+- **Rating** - Rating can use data attributes to specify individual ratings
 - **Sidebar** - Sidebar now has tall / very tall variations for resizing top/bottom sidebars
 - **Steps** - Steps can now have icons, descriptions and titles. Step default theme has been modified significantly to be more flexible.
 - **Table** - Tables now have 'basic' and 'very' basic variations

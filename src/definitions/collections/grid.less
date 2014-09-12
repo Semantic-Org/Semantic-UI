@@ -35,11 +35,6 @@
   box-sizing: border-box;
 }
 
-body > .ui.grid:not(.page) {
-  margin-left: 0% !important;
-  margin-right: 0% !important;
-}
-
 .ui.grid:after,
 .ui.row:after {
   content: ".";
@@ -132,6 +127,50 @@ body > .ui.grid:not(.page) {
 -------------------------*/
 
 .ui.page.grid {
+  padding-left: @computerGutter;
+  padding-right: @computerGutter;
+  width: @computerWidth;
+  margin-left: 0em;
+  margin-right: 0em;
+}
+
+@media only screen and (max-width: (@largestMobileScreen)) {
+  .ui.page.grid {
+    width: @mobileWidth;
+    padding-left: @mobileGutter;
+    padding-right: @mobileGutter;
+  }
+}
+@media only screen and (min-width: @tabletBreakpoint) {
+  .ui.page.grid {
+    width: @tabletWidth;
+    padding-left: @tabletGutter;
+    padding-right: @tabletGutter;
+  }
+}
+@media only screen and (min-width: @computerBreakpoint) {
+  .ui.page.grid {
+    width: @computerWidth;
+    padding-left: @computerGutter;
+    padding-right: @computerGutter;
+  }
+}
+@media only screen and (min-width: @largeMonitorBreakpoint) {
+  .ui.page.grid {
+    width: @largeMonitorWidth;
+    padding-left: @largeMonitorGutter;
+    padding-right: @largeMonitorGutter;
+  }
+}
+@media only screen and (min-width: @widescreenMonitorBreakpoint) {
+  .ui.page.grid {
+    width: @widescreenMonitorWidth;
+    padding-left: @widescreenMonitorGutter;
+    padding-right: @widescreenMonitorGutter;
+  }
+}
+
+.ui.centered.page.grid {
   padding-left: 0%;
   padding-right: 0%;
   width: @computerWidth;
@@ -140,35 +179,35 @@ body > .ui.grid:not(.page) {
 }
 
 @media only screen and (max-width: (@largestMobileScreen)) {
-  .ui.page.grid {
+  .ui.centered.page.grid {
     width: @mobileWidth;
     margin-left: @mobileGutter;
     margin-right: @mobileGutter;
   }
 }
 @media only screen and (min-width: @tabletBreakpoint) {
-  .ui.page.grid {
+  .ui.centered.page.grid {
     width: @tabletWidth;
     margin-left: @tabletGutter;
     margin-right: @tabletGutter;
   }
 }
 @media only screen and (min-width: @computerBreakpoint) {
-  .ui.page.grid {
+  .ui.centered.page.grid {
     width: @computerWidth;
     margin-left: @computerGutter;
     margin-right: @computerGutter;
   }
 }
 @media only screen and (min-width: @largeMonitorBreakpoint) {
-  .ui.page.grid {
+  .ui.centered.page.grid {
     width: @largeMonitorWidth;
     margin-left: @largeMonitorGutter;
     margin-right: @largeMonitorGutter;
   }
 }
 @media only screen and (min-width: @widescreenMonitorBreakpoint) {
-  .ui.page.grid {
+  .ui.centered.page.grid {
     width: @widescreenMonitorWidth;
     margin-left: @widescreenMonitorGutter;
     margin-right: @widescreenMonitorGutter;
@@ -454,15 +493,15 @@ body > .ui.grid:not(.page) {
         Fitted
 -----------------------*/
 
-.ui.fitted.grid {
+.ui.grid {
   margin-left: -@gutterWidth;
   margin-right: -@gutterWidth;
 }
-.ui.relaxed.fitted.grid {
+.ui.relaxed.grid  {
   margin-left: -@relaxedGutterWidth;
   margin-right: -@relaxedGutterWidth;
 }
-.ui.very.relaxed.fitted.grid {
+.ui.very.relaxed.grid  {
   margin-left: -@veryRelaxedGutterWidth;
   margin-right: -@veryRelaxedGutterWidth;
 }
@@ -541,15 +580,6 @@ body > .ui.grid:not(.page) {
   margin-right: @veryRelaxedGutterWidth;
   width: (100% - (@veryRelaxedGutterWidth * 2));
 }
-
-/* Fitted */
-/*
-.ui.vertically.divided.fitted.grid > .row:before {
-  margin-left: 0%;
-  margin-right: 0%;
-  width: 100%;
-}
-*/
 
 /*----------------------
          Celled

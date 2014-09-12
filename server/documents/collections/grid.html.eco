@@ -29,13 +29,10 @@ themes      : ['Default']
   <h2 class="ui dividing header">Introduction</h2>
 
   <div class="highlighted example">
-    <h4 class="ui header">Grid</h4>
-    <p>A grid is made up of columns of content with gutters to provide negative space between columns.</p>
-
-    <div class="ui ignored message">
-    </div>
+    <h4 class="ui header">Grid Definition</h4>
+    <p>A grid is a structure, with a <a href="http://99designs.com/designer-blog/2013/03/21/history-of-the-grid-part-1/" target="_blank">very rich history</a> used to align negative space in your design.</p>
     <div class="ui ignored info message">
-      <p>All grid systems must assume an arbitrary amount of column rows. Semantic's default theme assumes <b>16 columns</b></p>
+      <p>All grid systems use an arbitrary column count. Semantic's default theme assumes <b>16 columns</b>. This number can be adjusted in your project by adjust the <code>@columnCount</code> value in <code>site.variables</code>.</p>
     </div>
 
      <div class="ui grid">
@@ -55,8 +52,25 @@ themes      : ['Default']
   </div>
 
   <div class="highlighted example">
-    <h4 class="ui header">Automatic Row Flow</h4>
-    <p>A grid does not necessarily need to specify rows. Content will automatically flow to the next row when all the grid columns are taken in the current row.</p>
+    <h4 class="ui header">Grids</h4>
+    <p>A page grid is designed to provide a responsive container suitable for displaying content on the web.</p>
+    <div class="ui info message">
+      <p>Semantic's default page grid, uses percentage values for page gutters. This means the gutters of your page container will <b>constantly adjust</b> as the browser width changes, giving you the largest possible space for each range</p>
+    </div>
+
+    <div class="ui page grid">
+      <div class="three wide column">
+        <div class="ui segment"></div>
+      </div>
+      <div class="thirteen wide column">
+        <div class="ui segment"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlighted example">
+    <h4 class="ui header">Automatic Rows</h4>
+    <p>A grid does not necessarily need to specify rows. If you include <code>columns</code> as direct children of your grid, and <b>not inside row containers</b> then <b>content will automatically flow to the next row when all the grid columns are taken in the current row</b>.</p>
 
      <div class="ui grid">
       <div class="four wide column">
@@ -89,13 +103,13 @@ themes      : ['Default']
   <div class="highlighted example">
     <h4 class="ui header">Specifying Rows</h4>
     <p>Specifying rows for your grid, allows the bottom and top rows to sit flush with the edge of the grid, and allows you to use row variations</p>
-    <div class="ui ignored message">
-      The bottom and top rows, when rows are specified will sit flush with the edge of the grid.</p>
-    </div>
-    <div class="ui ignored positive message">
-      <h3 class="ui header">The Benefits of Rows</h3>
-      <p>It's often easier to have dynamic content output without nested rows, but using row wrappers is the only way for variations like <code>equal height</code> and <code>vertically divided</code> to function correctly.</p>
-      <p>In addition, the bottom and top rows, when specified will sit flush with the edge of the grid.</p>
+    <div class="ui ignored info icon message">
+      <i class="help circle icon"></i>
+      <div class="content">
+        <h3 class="header">Why Include Row Markup?</h3>
+        <p>It's often easier to have dynamic content output without nested rows, but using row wrappers is the only way for variations like <code>equal height</code> and <code>vertically divided</code> to function correctly.</p>
+        <p>In addition, the bottom and top rows, when specified will sit flush with the edge of the grid.</p>
+      </div>
     </div>
 
     <div class="ui grid">
@@ -129,8 +143,7 @@ themes      : ['Default']
 
   <div class="highlighted example">
     <h4 class="ui header">Nested grids</h4>
-    <p>A grid can be placed inside another grid</p>
-
+    <p>A grid can include another grid inside it.</p>
     <div class="ui ignored message">
       <p>Any grid column can be broken up using a second grid, however for the content of the inner grid to align with the outter grid, you will need to use the <code>fitted grid</code> variation on the inner grid, removing the outer margins from the first and last element.</p>
     </div>
@@ -214,31 +227,23 @@ themes      : ['Default']
 
   </div>
 
-
   <div class="example">
     <h4 class="ui header">Divided Grid</h4>
     <p>A grid can have dividers between its columns</p>
-    <div class="ui six column divided grid">
+    <div class="ui three column divided grid">
       <div class="row">
         <div class="column">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+          <h5 class="ui header">How We Collect and Use Information</h5>
+          <p>We ask for certain information such as your username, real name, birthdate, address, phone number and e-mail address when you register for a Semantic UI account, or if you correspond with us. We may also retain any messages you send through the Service, and may collect information you provide in User Content you post to the Service. We use this information to operate, maintain, and provide to you the features and functionality of the Service. Your username and if you choose to disclose it, your real name, will be published publicly. Once published your username and / or real name may not be able to be removed.</p>
         </div>
         <div class="column">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+          <h5 class="ui header">
+            Information we may receive from third parties
+          </h5>
+          <p>We may receive information about you from third parties. For example, if you access our websites or Service through a third-party connection or log-in, for example, through Facebook Connect, by “following,” “liking,” adding the Semantic UI application, linking your account to the Semantic UI Service, etc., that third party may pass certain information about your use of its service to Semantic UI. This information could include, but is not limited to, the user ID associated with your account (for example, your Facebook UID), an access token necessary to access that service, any information that you have permitted the third party to share with us, and any information you have made public in connection with that service. </p>
         </div>
         <div class="column">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-        </div>
-        <div class="column">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-        </div>
-        <div class="column">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-        </div>
-        <div class="column">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+          <p>Semantic UI may, in its sole discretion, develop a feature that allows you to invite third parties to the Service. If you choose to use our invitation service to invite a third party to the Service through our “Invite friends” feature, you may directly choose a friend to invite through your mobile device’s native contact list – but we do not require that you import your contacts list to the Service, and we do not retain the information contained in your contacts list. You understand that by inviting a friend to Semantic UI through the “Invite friends” feature, you are directly sending a text or email from your personal accounts and that we are not storing your contact list. In addition, you understand and agree that normal carrier charges apply to communications sent from you phone. Since this invitation is coming directly from your email or phone, we do not have access to or control this communication.</p>
         </div>
       </div>
     </div>
@@ -561,12 +566,12 @@ themes      : ['Default']
   </div>
 
   <div class="example">
-    <h4 class="ui header">Fitted</h4>
-    <p>A fitted grid fits its outer columns against its container</p>
+    <h4 class="ui header">Spaced</h4>
+    <p>A spaced grid preserves the gutters on its first and last rows</p>
 
     <h3 class="ui header">Content Outside Grid</h3>
     <p>This paragraph of text will automatically align with the edges of the grid below because it is fitted to remove left and right margins.
-    <div class="ui two column fitted grid">
+    <div class="ui two column spaced grid">
       <div class="column">
         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>

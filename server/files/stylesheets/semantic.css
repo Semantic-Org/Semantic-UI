@@ -1201,7 +1201,7 @@ body#example.hide {
   cursor: pointer;
   position: absolute;
 
-  top: 2em;
+  top: 0em;
   right: 0px;
   opacity: 0.2;
 
@@ -1241,7 +1241,7 @@ body#example.hide {
   -webkit-animation: grid 15s ease infinite;
   -moz-animation: grid 15s ease infinite;
   animation: grid 15s ease infinite;
-  background-color: #F6F6F6;
+  background-color: #EFEFEF;
   box-shadow:
     0px 0px 0px 1px rgba(0, 0, 0, 0.1),
     0px 1px 2px 0px rgba(0, 0, 0, 0.1)
@@ -1255,7 +1255,9 @@ body#example.hide {
   -moz-animation: none;
   animation: none;
   box-shadow: none;
-  background-color: rgba(0, 0, 0, 0.02);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 #example .highlighted.example .grid .row,
 #example .ui.type.cards .image .grid .row {

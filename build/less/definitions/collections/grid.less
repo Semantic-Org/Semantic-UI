@@ -95,7 +95,7 @@ body > .ui.grid:not(.page) {
 
 
 /* Vertical padding when no rows */
-.ui.grid > .column:not(.row) {
+.ui.grid:not([attr] > .column:not(.row) {
   margin-top: (@rowSpacing / 2);
   margin-bottom: (@rowSpacing / 2);
 }
@@ -425,23 +425,27 @@ body > .ui.grid:not(.page) {
 -----------------------*/
 
 .ui.relaxed.grid > .column:not(.row),
-.ui.relaxed.grid > .row > .column {
+.ui.relaxed.grid > .row > .column,
+.ui.grid > .relaxed.row > .column {
   padding-left: @relaxedGutterWidth;
   padding-right: @relaxedGutterWidth;
 }
 
 .ui.very.relaxed.grid > .column:not(.row),
-.ui.very.relaxed.grid > .row > .column {
+.ui.very.relaxed.grid > .row > .column,
+.ui.grid > .very.relaxed.row > .column {
   padding-left: @veryRelaxedGutterWidth;
   padding-right: @veryRelaxedGutterWidth;
 }
 
 /* Coupling with UI Divider */
-.ui.relaxed.grid .row + .ui.divider {
+.ui.relaxed.grid .row + .ui.divider,
+.ui.grid .relaxed.row + .ui.divider {
   margin-left: @relaxedGutterWidth;
   margin-right: @relaxedGutterWidth;
 }
-.ui.very.relaxed.grid .row + .ui.divider {
+.ui.very.relaxed.grid .row + .ui.divider,
+.ui.grid .very.relaxed.row + .ui.divider {
   margin-left: @veryRelaxedGutterWidth;
   margin-right: @veryRelaxedGutterWidth;
 }
