@@ -32,38 +32,87 @@ themes      : ['Default']
     </h2>
 
     <div class="example">
-      <h3 class="ui header">Popup</h3>
-      <p>A standard popup</p>
+      <h4 class="ui header">Content</h4>
+      <p>An element can specify popup content to appear</p>
       <div class="ui icon button" data-content="Add users to your feed">
         <i class="add icon"></i>
       </div>
     </div>
 
     <div class="example">
-      <h3 class="ui header">Title</h3>
-      <p>A popup can be formatted with a title</p>
+      <h4 class="ui header">Title</h4>
+      <p>An element can specify popup content with a title</p>
       <img src="/images/avatar/small/elliot.jpg" data-title="Elliot Fu" data-content="Elliot has been a member since July 2012" class="ui avatar image">
       <img src="/images/avatar/small/stevie.jpg" data-title="Stevie Feliciano" data-content="Stevie has been a member since August 2013" class="ui avatar image">
       <img src="/images/avatar/small/matt.jpg" data-title="Matt" data-content="Matth has been a member since July 2014" class="ui avatar image">
     </div>
 
     <div class="example">
-      <h3 class="ui header">HTML</h3>
-      <p>A popup can be formatted with html</p>
-      <i class="circular heart icon link" data-html="Average Rating: <div class='ui star rating'><i class='active icon'></i><i class='active icon'></i><i class='active icon'></i><i class='icon'></i><i class='icon'></i></div>"></i>
+      <h4 class="ui header">HTML</h4>
+      <p>An element can specify html for a popup</p>
+
+      <div class="ui card" data-html="<div class='header'>User Rating</div><div class='content'><div class='ui star rating'><i class='active icon'></i><i class='active icon'></i><i class='active icon'></i><i class='icon'></i><i class='icon'></i></div></div>">
+        <div class="image">
+          <img src="/images/movies/totoro-horizontal.jpg">
+        </div>
+        <div class="content">
+          <div class="header">My Neighbor Totoro</div>
+          <div class="description">
+            Two sisters move to the country with their father in order to be closer to their hospitalized mother, and discover the surrounding trees are inhabited by Totoros, magical spirits of the forest. When the youngest runs away from home, the older sister seeks help from the spirits to find her.
+          </div>
+        </div>
+        <div class="ui two bottom attached buttons">
+          <div class="ui button">
+            <i class="add icon"></i>
+            Queue
+          </div>
+          <div class="ui primary button">
+            <i class="play icon"></i>
+            Watch
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="existing example">
+      <h4 class="ui header">Pre-Existing</h4>
+      <p>An element can display a pre-existing popup that is include after it</p>
+
+      <div class="ui card">
+        <div class="image">
+          <img src="/images/movies/watchmen-horizontal.jpg">
+        </div>
+        <div class="content">
+          <div class="header">Watchmen</div>
+        </div>
+        <div class="ui two buttons">
+          <div class="ui button">
+            <i class="add icon"></i>
+            Queue
+          </div>
+          <div class="ui primary button">
+            <i class="play icon"></i>
+            Watch
+          </div>
+        </div>
+      </div>
+      <div class="ui popup">
+        <div class='header'>User Rating</div>
+        <div class="ui star rating" data-rating="3"></div>
+      </div>
     </div>
 
     <h2 class="ui dividing header">Variations</h2>
 
     <div class="example">
-      <h3 class="ui header">Width</h3>
+      <h4 class="ui header">Width</h4>
       <p>A popup can be extra wide to allow for longer content</p>
       <i class="circular heart icon link" data-content="Hello. This is a wide pop-up which allows for lots of content with additional space. You can fit a lot of words here and the paragraphs will be pretty wide." data-variation="wide"></i>
       <i class="circular heart icon link" data-content="Hello. This is a very wide pop-up which allows for lots of content with additional space. You can fit a lot of words here and the paragraphs will be pretty wide." data-variation="very wide"></i>
     </div>
 
     <div class="fluid example">
-      <h3 class="ui header">Fluid</h3>
+      <h4 class="ui header">Fluid</h4>
       <p>A fluid popup will take up the entire width of its offset container</p>
       <div class="ui button">Show fluid popup</div>
       <div class="ui fluid popup">
@@ -77,7 +126,7 @@ themes      : ['Default']
     </div>
 
     <div class="example">
-      <h3 class="ui header">Size</h3>
+      <h4 class="ui header">Size</h4>
       <p>A popup can vary in size</p>
       <i class="circular heart icon link" data-content="Hello. This is a small popup" data-variation="small"></i>
       <i class="circular heart icon link" data-content="Hello. This is a large popup" data-variation="large"></i>
@@ -85,7 +134,7 @@ themes      : ['Default']
     </div>
 
     <div class="example">
-      <h3 class="ui header">Inverted</h3>
+      <h4 class="ui header">Inverted</h4>
       <p>A popup can have its colors inverted</p>
       <i class="circular heart icon link" data-content="Hello. This is an inverted popup" data-variation="inverted"></i>
     </div>

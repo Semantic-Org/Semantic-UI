@@ -1168,16 +1168,16 @@ body#example.hide {
 }
 
 #example .example:first-child,
-#example h2 ~ .example,
-#example h3 ~ .example,
-#example h4 ~ .example {
+#example h2 + .example,
+#example h3 + .example,
+#example h4 + .example {
   margin-top: 0px;
   padding-top: 0px;
   border-top: none;
 }
-#example h2 ~ .example i.code,
-#example h3 ~ .example i.code,
-#example h4 ~ .example i.code {
+#example h2 + .example i.code,
+#example h3 + .example i.code,
+#example h4 + .example i.code {
   top: 0px;
 }
 #example .example > h4 {
@@ -1188,8 +1188,8 @@ body#example.hide {
   clear: both;
 }
 #example .example {
-  margin: 1em 0em 1.5em;
-  padding: 1em 0em;
+  margin: 2em 0em;
+  padding: 0em;
 /*  clear: both;*/
   position: relative;
   -webkit-tap-highlight-color: transparent;
