@@ -1189,13 +1189,13 @@ body > .ui.grid {
   .ui.grid > .tablet:not(.mobile).only.row,
   .ui.grid > .tablet:not(.mobile).only.column,
   .ui.grid > .row > .tablet:not(.mobile).only.column {
-    display: none;
+    display: none !important;
   }
   .ui.computer:not(.mobile).only.grid,
   .ui.grid > .computer:not(.mobile).only.row,
   .ui.grid > .computer:not(.mobile).only.column,
   .ui.grid > .row > .computer:not(.mobile).only.column {
-    display: none;
+    display: none !important;
   }
 }
 /* Tablet Only Hide */
@@ -1204,13 +1204,13 @@ body > .ui.grid {
   .ui.grid > .mobile:not(.tablet).only.row,
   .ui.grid > .mobile:not(.tablet).only.column,
   .ui.grid > .row > .mobile:not(.tablet).only.column {
-    display: none;
+    display: none !important;
   }
   .ui.computer:not(.tablet).only.grid,
   .ui.grid > .computer:not(.tablet).only.row,
   .ui.grid > .computer:not(.tablet).only.column,
   .ui.grid > .row > .computer:not(.tablet).only.column {
-    display: none;
+    display: none !important;
   }
 }
 /* Computer Only Hide */
@@ -1219,13 +1219,13 @@ body > .ui.grid {
   .ui.grid > .mobile:not(.computer).only.row,
   .ui.grid > .mobile:not(.computer).only.column,
   .ui.grid > .row > .mobile:not(.computer).only.column {
-    display: none;
+    display: none !important;
   }
   .ui.tablet:not(.computer).only.grid,
   .ui.grid > .tablet:not(.computer).only.row,
   .ui.grid > .tablet:not(.computer).only.column,
   .ui.grid > .row > .tablet:not(.computer).only.column {
-    display: none;
+    display: none !important;
   }
 }
 /*-------------------

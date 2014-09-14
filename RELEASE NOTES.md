@@ -1,5 +1,11 @@
 ## RELEASE NOTES
 
+### Version 0.19.3 - Sep 11, 2014
+
+**Bug Fixes**
+
+- **Grid** - Fixes issue where some responsive grid stylings were being overridden by other variations (for example stackable overriding )
+
 ### Version 0.19.2 - Sep 11, 2014
 
 **Bug Fixes**
