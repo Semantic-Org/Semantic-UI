@@ -15,10 +15,9 @@
 *******************************/
 
 @minWidth: 320px;
-@gutterWidth: 1.5rem;
 
-@rowSpacing: 1rem;
-@firstRowSpacing: 0rem;
+@gutterWidth: 2rem;
+@rowSpacing: 2rem;
 
 @columnMaxImageWidth: 100%;
 
@@ -51,8 +50,8 @@
      Relaxed
 ---------------*/
 
-@relaxedGutterWidth: 2rem;
-@veryRelaxedGutterWidth: 3rem;
+@relaxedGutterWidth: 3rem;
+@veryRelaxedGutterWidth: 4rem;
 
 /*--------------
      Divided

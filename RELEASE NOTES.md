@@ -17,6 +17,7 @@
 - **Accordion** - Accordion now includes all icons in an embedded font instead of requiring icons
 - **Button** - Now has compact form, used for fitting into tight spaces
 - **Checkbox** - All styles have been redone. Standard checkboxes are now based around PX and not EM making sure there are no unusual circles or rounding issues. Checkboxes also now use a custom font for glyphs instead of CSS tricks.
+- **Checkbox** - Checkbox now have a ``fireOnInit`` setting for firing callbacks on page load
 - **Dropdown** - New dropdown type, searchable selection for large lists of choices
 - **Dropdown** - Dropdowns can now be initialized directly on a ``<select>`` element without any html
 - **Dropdown** - New action combo will change text of adjacent button, select will select element but not change text
@@ -28,6 +29,7 @@
 - **Form** - Inverted form now properly styles loader
 - **Form** - New field type ``required`` formats labels to show filling out field is mandatory
 - **Grid** - ``ui divider`` can now be used inside of row columns as well as ``vertically divided grid`` variation
+- **Grid** - Grid has been rewritten to automatically create row flow without row wrappers
 - **Grid** - Divided and celled grids can now be inverted for dark backgrounds
 - **Grid** - Elements inside a grid that are not rows or columns will now align properly
 - **Grid** - Fixed page grid allows for fixed pixel size containers used with a grid instead of percentage

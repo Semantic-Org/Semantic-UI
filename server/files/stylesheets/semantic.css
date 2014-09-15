@@ -151,6 +151,10 @@ a:hover {
   color: #00BAFF;
 }
 
+/*--------------
+     Sidebar
+---------------*/
+
 #example #menu .item {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
@@ -170,20 +174,10 @@ a:hover {
 #example #menu .menu .active.item {
   color: #6DFFFF !important;
 }
-
-#example .code .active.ui.modal {
-  display: none !important;
-}
-#example .existing.code {
-  display: none;
-}
-
 #example #menu .item .item {
   font-size: 0.875rem;
 }
-#example .segment > .dimmer {
-  z-index: 800;
-}
+
 
 /* segment headers */
 #example .header.segment,
@@ -206,11 +200,6 @@ a:hover {
 #example .tab.header.segment {
   padding-bottom: 0em;
   margin-bottom: 2em;
-}
-
-#example .tab.header.segment .fixed .tabular.menu {
-  position: fixed;
-  top: 50px;
 }
 #example .tab.header.segment .vertical.menu {
   display: none;
@@ -253,11 +242,80 @@ a:hover {
   font-weight: bold;
 }
 
+/*--------------
+  Advertisement
+---------------*/
+
 #example .advertisement {
   float: right;
   margin-left: 2em;
 }
+#example .advertisement {
+  float: none;
+  display: table-cell;
+  vertical-align: top;
+  padding-left: 2em;
+}
+#example #carbonads-container {
+  float: right;
+}
+#example .advertisement .carbonad {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+#example .advertisement .carbonad-text {
+  height: auto;
+  font-size: 12px;
+  line-height: 1.3;
+}
+#example .carbonad-tag {
+  text-align: left;
+}
+#example .inverted.advertisement .carbonad {
+  background-color: rgba(0, 31, 30, 0.5);
+  border: none;
+  overflow: hidden;
+  height: auto;
+  padding: 6px 0px 13px;
+}
+#example .inverted.advertisement .carbonad-text {
+  color: rgba(255, 255, 255, 0.6);
+}
+#example .inverted.advertisement .carbonad-tag {
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.4);
+}
+#example .inverted.advertisement .carbonad-tag a {
+  color: rgba(255, 255, 255, 0.8);
+}
+#example .inverted.advertisement .carbonad-tag a:hover {
+  color: #FFFFFF;
+}
 
+
+
+
+
+/*--------------
+  Fixed Columns
+---------------*/
+
+#example .tab.header.segment .fixed .tabular.menu {
+  position: fixed;
+  top: 50px;
+}
+#example .fixed .launch {
+  display: none;
+}
+
+#example .fixed.column {
+  position: relative;
+}
+#example .fixed.column .sticky {
+  padding-top: 3em;
+}
 
 /*--------------
      Intro
@@ -269,7 +327,6 @@ body.guide .main h3 {
 body.guide .main.container > * {
   max-width: 800px;
 }
-
 
 /*--------------
     Masthead
@@ -449,6 +506,16 @@ body#example.hide {
 #example.index .introduction {
   text-align: center;
 }
+#example.index .fixed.launch.button {
+  top: 96px;
+}
+#example.index .main.menu {
+  top: 0px;
+}
+#example.index pre.console {
+  height: 120px;
+}
+
 #example .masthead .grid {
   position: relative;
   z-index: 2;
@@ -474,52 +541,6 @@ body#example.hide {
   margin: -0.1em 0em 0em 0.5em;
   vertical-align: middle;
 }
-
-#example .advertisement {
-  float: none;
-  display: table-cell;
-  vertical-align: top;
-  padding-left: 2em;
-}
-#example #carbonads-container {
-  float: right;
-}
-#example .advertisement .carbonad {
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
-#example .advertisement .carbonad-text {
-  height: auto;
-  font-size: 12px;
-  line-height: 1.3;
-}
-#example .carbonad-tag {
-  text-align: left;
-}
-#example .inverted.advertisement .carbonad {
-  background-color: rgba(0, 31, 30, 0.5);
-  border: none;
-  overflow: hidden;
-  height: auto;
-  padding: 6px 0px 13px;
-}
-#example .inverted.advertisement .carbonad-text {
-  color: rgba(255, 255, 255, 0.6);
-}
-#example .inverted.advertisement .carbonad-tag {
-  margin-top: 10px;
-  color: rgba(255, 255, 255, 0.4);
-}
-#example .inverted.advertisement .carbonad-tag a {
-  color: rgba(255, 255, 255, 0.8);
-}
-#example .inverted.advertisement .carbonad-tag a:hover {
-  color: #FFFFFF;
-}
-
-
 #example .masthead .labeled.button {
   position: relative;
   left: 0px;
@@ -552,6 +573,12 @@ body#example.hide {
   margin: 1em 0em 1.5em;
   padding: 0px;
 }
+
+
+/*--------------
+     Footer
+---------------*/
+
 #example .footer.link.list {
   display: block;
   text-align: center;
@@ -669,9 +696,6 @@ body#example.hide {
 #example .fixed.launch.button:hover .text {
   opacity: 1;
 }
-#example.index .fixed.launch.button {
-  top: 96px;
-}
 
 
 #example .shortcuts {
@@ -681,12 +705,11 @@ body#example.hide {
 #example .launch.button .icon {
   margin-left: 0px;
 }
-#example.index .main.menu {
-  top: 0px;
-}
-#example.index pre.console {
-  height: 120px;
-}
+
+/*----------------
+    Containers
+-----------------*/
+
 #example .main.container {
   position: relative;
   padding-bottom: 2em;
@@ -698,30 +721,415 @@ body#example.hide {
   -ms-transition: 0.5s color ease;
   transition: 0.5s color ease;
 }
-#example .swap {
-  background: url(http://beta.myfav.es/images/themes/bg/subtle/subtle-handmade-paper.png) repeat;
-}
+
+
+/*----------------
+     Peek Menu
+-----------------*/
+
 #example .peek {
   display: none;
   position: absolute;
   top: 0px;
   left: -230px;
   width: 180px;
-/*
-  -webkit-transition: padding 0.3s ease;
-  -moz-transition: padding 0.3s ease;
-  -o-transition: padding 0.3s ease;
-  -ms-transition: padding 0.3s ease;
-  transition: padding 0.3s ease;*/
+}
+/* Peek Menu */
+#example .peek .menu .active:nth-child(1) {
+  border-right-color: #00B9F0;
+  color: #00B9F0;
+}
+#example .peek .menu .active:nth-child(2) {
+  border-right-color: #56BB73;
+  color: #56BB73;
+}
+#example .peek .menu .active:nth-child(3) {
+  border-right-color: #EF3F49;
+  color: #EF3F49;
+}
+#example .peek .menu .active:nth-child(4) {
+  border-right-color: #A24096;
+  color: #A24096;
+}
+#example .main h2.group {
+  color: #A24096;
 }
 
-#example .ui.tab.segment {
-  padding: 1.5em 2em;
+#example .peek > .menu {
+  margin-left: 0px;
+  width: 180px;
+}
+
+
+/*----------------
+   Overview Mode
+-----------------*/
+
+#example.overview h2.ui.header {
+  margin-bottom: 0em;
+}
+#example.overview .example {
+  display: table-row;
+  min-height: 0px !important;
+  overflow: hidden;
+}
+#example.overview .example .ui.header,
+#example.overview .example p {
+  display: table-cell;
+  font-size: 1em;
+  font-weight: bold;
+  padding: 0.5em 0em;
+}
+#example.overview .example p {
+  font-size: 1rem;
+  font-weight: normal;
+  padding: 0em 0em 0em 0.5em;
+  width: auto;
+}
+
+
+/*----------------
+  Settings Table
+-----------------*/
+
+#example .settings.table {
+  margin-bottom: 20px;
+}
+#example .settings.table td:first-child {
+  font-weight: bold;
+}
+#example .settings.table td:nth-child(2n) {
+  width: 100px;
+}
+
+#example table .instructive.segment {
+  background-color: transparent;
+  border: 0px;
+  box-shadow: none;
+  padding: 0em;
+  margin: -0.4em -0.7em;
+}
+#example table .instructive.segment .code {
+  margin: 0em;
+}
+#example table .instructive.segment div.code .ace_identifier,
+#example table .instructive.segment div.code .ace_line {
+  color: #555555;
+}
+
+#example .ui.label + .instructive.segment {
+  margin-top: 0em;
+}
+#example .instructive.segment em {
+  font-style: normal;
+  color: rgba(0, 0, 0, 0.4);
+}
+#example .instructive.segment .title + em {
+  float: right;
+}
+#example .label + div.code {
+  margin-top: 1.5em;
+}
+
+
+
+/*----------------
+    Examples
+-----------------*/
+
+#example .example {
+  margin: 2em 0em;
+  padding: 0em;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/*----------------
+  Example Types
+-----------------*/
+
+/* No Example */
+#example .no.example i.code {
+  display: none;
+}
+
+/* Requires Clear */
+#example .clearing.example {
+  overflow: hidden;
+  clear: both;
+  padding: 1px;
+}
+
+/* After Section Header */
+#example .example:first-child,
+#example h2 + .example,
+#example h3 + .example,
+#example h4 + .example {
+  margin-top: 0px;
+  padding-top: 0px;
+  border-top: none;
+}
+#example h2 + .example i.code,
+#example h3 + .example i.code,
+#example h4 + .example i.code {
+  top: 0px;
+}
+#example .example > h4 {
+  margin-bottom: 0em;
+}
+
+/* Spaced */
+#example .spaced.example .buttons,
+#example .spaced.example .button {
+  margin-bottom: 0.75em;
+}
+#example .spaced.example .buttons .button {
+  margin-bottom: 0em;
+}
+#example .example .toggle.button {
+  min-width: 200px;
+}
+
+/* Code Language */
+#example .example .language.label {
+  margin: 1em 0em 0.75em;
+}
+
+
+/*--------------
+   Code Button
+---------------*/
+
+#example .example i.code {
+  cursor: pointer;
+  position: absolute;
+
+  top: 0em;
+  right: 0px;
+  opacity: 0.2;
+
+  font-size: 18px;
+  color: #555555;
+
+  -webkit-transition: opacity 0.3s ease-out;
+  -moz-transition: opacity 0.3s ease-out;
+  -o-transition: opacity 0.3s ease-out;
+  -ms-transition: opacity 0.3s ease-out;
+  transition: opacity 0.3s ease-out;
+}
+
+#example .example i.code:before {
+  font-family: 'Docs';
+  content: "\f05f";
+}
+#example .example:hover i.code {
+  opacity: 0.7;
+}
+#example .example:hover i.code:hover {
+  opacity: 1;
+}
+#example .example .grid i.code {
+  right: 25%;
+}
+
+#example .existing.code {
+  display: none;
+}
+
+
+#example .transition.example .ui.button {
+  margin-bottom: 0.5em;
+}
+
+
+/* Fixes for UI */
+#example .segment > .dimmer {
+  z-index: 800;
+}
+#example .code .active.ui.modal {
+  display: none !important;
 }
 #example .example .circular.segment {
   width: 175px;
   height: 175px;
 }
+
+/*******************************
+           UI Pages
+*******************************/
+
+/*--------------
+      Grid
+---------------*/
+
+#example .highlighted.example .grid {
+  position: relative;
+}
+#example .highlighted.example .grid:before {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: #EFEFEF;
+  content: '';
+  width: calc(100% - 2rem);
+  height: calc(100% - 2rem);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+}
+/* Consecutive */
+#example .highlighted.example > .grid + .grid {
+  margin-top: 1rem;
+}
+
+#example .highlighted.example .grid .grid:before {
+  background-color: #E0E0E0;
+}
+
+#example .highlighted.example .grid > .column {
+  position: relative;
+  z-index: 11;
+}
+#example .highlighted.example .grid .column:not(.grid):first-child,
+#example .ui.type.cards .image .grid .column:not(.grid):first-child {
+  box-shadow: none;
+}
+#example .highlighted.example .grid .column:not(.grid),
+#example .ui.type.cards .image .grid .column:not(.grid) {
+  min-height: 50px;
+}
+#example .highlighted.example .grid .segment,
+#example .ui.type.cards .image .grid .segment {
+  min-height: 60px;
+  border-radius: 0px;
+  box-shadow: 0 0 0 1px #D4D4D4;
+}
+#example .negative.example > .button {
+  position: relative;
+  z-index: 10;
+}
+
+/* Animation */
+#example.animated .highlighted.example > .grid {
+  margin: -0.75rem auto;
+  -webkit-animation: grid 7s ease infinite;
+  -moz-animation: grid 7s ease infinite;
+  animation: grid 7s ease infinite;
+}
+/* Grid Inside Grid */
+#example.animated .highlighted.example .grid .grid {
+  -webkit-animation: none;
+  -moz-animation: none;
+  -ms-animation: none;
+  animation: none;
+}
+#example.animated .negative.example > .grid {
+  -webkit-animation: none;
+  -moz-animation: none;
+  -ms-animation: none;
+  animation: none;
+  background-color: #FFEEEE;
+}
+
+@-webkit-keyframes grid {
+  0% {
+    width: 100%;
+  }
+  45% {
+    width: 90%;
+  }
+  55% {
+    width: 90%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@-moz-keyframes grid {
+  0% {
+    width: 100%;
+  }
+  45% {
+    width: 90%;
+  }
+  55% {
+    width: 90%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes grid {
+  0% {
+    width: 100%;
+  }
+  45% {
+    width: 90%;
+  }
+  55% {
+    width: 90%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/*--------------
+      Card
+---------------*/
+
+body.card .even.example .card .description {
+  height: 35px;
+}
+
+/*--------------
+      Progress
+---------------*/
+
+body.progress .ui.progress .bar {
+  -webkit-animation: finish 10s ease-in-out infinite;
+  -moz-animation: finish 10s ease-in-out infinite;
+  -ms-animation: finish 10s ease-in-out infinite;
+  animation: finish 10s ease-in-out infinite;
+}
+
+@-webkit-keyframes finish {
+  0% {
+    width: 0%;
+  }
+  40% {
+    width: 100%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@-moz-keyframes finish {
+  0% {
+    width: 0%;
+  }
+  40% {
+    width: 100%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes finish {
+  0% {
+    width: 0%;
+  }
+  40% {
+    width: 100%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+
+
+/*--------------
+      Popup
+---------------*/
 
 #example.popup .inline.example .popup {
   color: #FF0000;
@@ -778,19 +1186,11 @@ body#example.hide {
 #example .main.ui.grid {
   position: relative;
 }
-#example .example .toggle.button {
-  min-width: 200px;
-}
-#example .example .language.label {
-  margin: 1em 0em 0.75em;
-}
-#example .spaced.example .buttons,
-#example .spaced.example .button {
-  margin-bottom: 0.75em;
-}
-#example .spaced.example .buttons .button {
-  margin-bottom: 0em;
-}
+
+/*--------------
+      Icon
+---------------*/
+
 #example .icon.example .grid {
   margin-top: 1.5rem;
   text-align: left;
@@ -879,132 +1279,39 @@ body#example.hide {
   color: transparent;
 }
 
-#example .peek .menu .active:nth-child(1) {
-  border-right-color: #00B9F0;
-  color: #00B9F0;
-}
-#example .peek .menu .active:nth-child(2) {
-  border-right-color: #56BB73;
-  color: #56BB73;
-}
-#example .peek .menu .active:nth-child(3) {
-  border-right-color: #EF3F49;
-  color: #EF3F49;
-}
-#example .peek .menu .active:nth-child(4) {
-  border-right-color: #A24096;
-  color: #A24096;
-}
-#example .main h2.group {
-  color: #A24096;
-}
+/*--------------
+    List Page
+---------------*/
 
-#example .peek > .menu {
-  margin-left: 0px;
-  width: 180px;
-}
-
-/* overview mode */
-
-#example.overview h2.ui.header {
-  margin-bottom: 0em;
-}
-/*
-#example .ui.header ~ .ui.message a,
-#example .ui.header ~ p a {
-  font-weight: bold;
-}
-*/
-#example.overview .example {
-  display: table-row;
-  min-height: 0px !important;
+#example .element.cards .image {
   overflow: hidden;
+  min-height: 100px;
 }
-#example.overview .example .ui.header,
-#example.overview .example p {
-  display: table-cell;
-  font-size: 1em;
-  font-weight: bold;
-  padding: 0.5em 0em;
+#example .collection.cards {
+  min-height: 350px;
 }
-#example.overview .example p {
-  font-size: 1rem;
-  font-weight: normal;
-  padding: 0em 0em 0em 0.5em;
-  width: auto;
+#example .ui.type.cards > .item {
+  min-height: 255px;
+}
+
+#example .ui.type.cards > .item > .image {
+  padding: 1em;
+  height: 165px;
+  vertical-align: middle;
+}
+
+/*--------------
+      Feed
+---------------*/
+
+#example.feed .example .segment {
+  max-width: 800px;
 }
 
 
-#example .sticky-wrapper.stuck {
-  height: 0px !important;
-  -webkit-transition:
-    margin-left 0.3s ease-out,
-    opacity 0.3s ease-out
-  ;
-  -moz-transition:
-    margin-left 0.3s ease-out,
-    opacity 0.3s ease-out
-  ;
-  -o-transition:
-    margin-left 0.3s ease-out,
-    opacity 0.3s ease-out
-  ;
-  -ms-transition:
-    margin-left 0.3s ease-out,
-    opacity 0.3s ease-out
-  ;
-  transition:
-    margin-left 0.3s ease-out,
-    opacity 0.3s ease-out
-  ;
-}
-#example .sticky-wrapper.stuck .peek {
-  position: fixed;
-  top: 75px;
-  left: 50%;
-  margin-left: -685px;
-}
-
-#example .settings.table {
-  margin-bottom: 20px;
-}
-#example .settings.table td:first-child {
-  font-weight: bold;
-}
-#example .settings.table td:nth-child(2n) {
-  width: 100px;
-}
-
-
-#example table .instructive.segment {
-  background-color: transparent;
-  border: 0px;
-  box-shadow: none;
-  padding: 0em;
-  margin: -0.4em -0.7em;
-}
-#example table .instructive.segment .code {
-  margin: 0em;
-}
-#example table .instructive.segment div.code .ace_identifier,
-#example table .instructive.segment div.code .ace_line {
-  color: #555555;
-}
-
-#example .ui.label + .instructive.segment {
-  margin-top: 0em;
-}
-#example .instructive.segment em {
-  font-style: normal;
-  color: rgba(0, 0, 0, 0.4);
-}
-#example .instructive.segment .title + em {
-  float: right;
-}
-#example .label + div.code {
-  margin-top: 1.5em;
-}
-
+/*----------------
+    Code Colors
+-----------------*/
 
 /* example code reskin */
 #example div.code.hide {
@@ -1030,29 +1337,10 @@ body#example.hide {
   background-color: rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
-/* #example div.code .ace_indent-guide:after {
-  content: '';
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  height: 100%;
-  border-left: 1px solid #ECF5F3;
-} */
-
 #example div.code .ace_indent-guide {
   position: relative;
   background: none;
 }
-/*#example div.code .ace_scroller {
-  position: relative;
-}
-#example div.code .ace_content {
-  height: auto !important;
-  position: relative;
-}
-#example div.code .ace_layer {
-  position: relative;
-}*/
 #example div.code .ace_gutter,
 #example div.code .ace_scroller {
   background-color: transparent;
@@ -1120,7 +1408,6 @@ body#example.hide {
 }
 
 /* Hovered Style */
-
 #example div.code:hover .ace_line {
   color: #555555;
 }
@@ -1155,268 +1442,6 @@ body#example.hide {
 }
 #example div.code:hover .ace_active_line {
   background-color: #FBFBE5;
-}
-
-
-
-/* examples */
-#example .no.example i.code {
-  display: none;
-}
-#example .clearing.example {
-  overflow: hidden;
-  padding: 1px;
-}
-
-#example .example:first-child,
-#example h2 + .example,
-#example h3 + .example,
-#example h4 + .example {
-  margin-top: 0px;
-  padding-top: 0px;
-  border-top: none;
-}
-#example h2 + .example i.code,
-#example h3 + .example i.code,
-#example h4 + .example i.code {
-  top: 0px;
-}
-#example .example > h4 {
-  margin-bottom: 0em;
-}
-
-#example .clearing.example {
-  clear: both;
-}
-#example .example {
-  margin: 2em 0em;
-  padding: 0em;
-/*  clear: both;*/
-  position: relative;
-  -webkit-tap-highlight-color: transparent;
-}
-#example .example .grid i.code {
-  right: 25%;
-}
-#example .example i.code {
-  cursor: pointer;
-  position: absolute;
-
-  top: 0em;
-  right: 0px;
-  opacity: 0.2;
-
-  font-size: 18px;
-  color: #555555;
-
-  -webkit-transition: opacity 0.3s ease-out;
-  -moz-transition: opacity 0.3s ease-out;
-  -o-transition: opacity 0.3s ease-out;
-  -ms-transition: opacity 0.3s ease-out;
-  transition: opacity 0.3s ease-out;
-}
-#example .example i.code:before {
-  font-family: 'Docs';
-  content: "\f05f";
-}
-
-#example .example:hover i.code {
-  opacity: 0.7;
-}
-#example .example:hover i.code:hover {
-  opacity: 1;
-}
-
-#example .highlighted.example {
-  min-height: 275px;
-}
-#example .element.cards .image {
-  overflow: hidden;
-  min-height: 100px;
-}
-#example .collection.cards {
-  min-height: 350px;
-}
-#example .highlighted.example .grid,
-#example .ui.type.cards .image .grid {
-  -webkit-animation: grid 15s ease infinite;
-  -moz-animation: grid 15s ease infinite;
-  animation: grid 15s ease infinite;
-  background-color: #EFEFEF;
-  box-shadow:
-    0px 0px 0px 1px rgba(0, 0, 0, 0.1),
-    0px 1px 2px 0px rgba(0, 0, 0, 0.1)
-  ;
-}
-#example .highlighted.example > .grid {
-  margin: 0em auto;
-}
-#example .highlighted.example .grid .grid {
-  -webkit-animation: none;
-  -moz-animation: none;
-  animation: none;
-  box-shadow: none;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: rgba(0, 0, 0, 0.1);
-}
-#example .highlighted.example .grid .row,
-#example .ui.type.cards .image .grid .row {
-  border-top: 1px solid #DDDDDD;
-}
-#example .highlighted.example .grid .row:first-child,
-#example .ui.type.cards .image .grid .row:first-child {
-  border-top: none;
-}
-#example .highlighted.example .grid .column:not(.grid):first-child,
-#example .ui.type.cards .image .grid .column:not(.grid):first-child {
-  box-shadow: none;
-}
-#example .highlighted.example .grid .column:not(.grid),
-#example .ui.type.cards .image .grid .column:not(.grid) {
-  min-height: 50px;
-  -webkit-box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1);
-  box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1);
-}
-#example .highlighted.example .grid .segment,
-#example .ui.type.cards .image .grid .segment {
-  min-height: 60px;
-  text-align: center;
-  padding-left: 0em;
-  padding-right: 0em;
-  border-radius: 0px;
-}
-
-@-webkit-keyframes grid {
-  0% {
-    width: 100%;
-  }
-  40% {
-    width: 70%;
-  }
-  60% {
-    width: 70%;
-  }
-  100% {
-    width: 100%;
-  }
-}
-@-moz-keyframes grid {
-  0% {
-    width: 100%;
-  }
-  40% {
-    width: 70%;
-  }
-  60% {
-    width: 70%;
-  }
-  100% {
-    width: 100%;
-  }
-}
-@keyframes grid {
-  0% {
-    width: 100%;
-  }
-  40% {
-    width: 70%;
-  }
-  60% {
-    width: 70%;
-  }
-  100% {
-    width: 100%;
-  }
-}
-
-#example .transition.example .ui.button {
-  margin-bottom: 0.5em;
-}
-
-#example .ui.type.cards > .item {
-  min-height: 255px;
-}
-
-#example .ui.type.cards > .item > .image {
-  padding: 1em;
-  height: 165px;
-  vertical-align: middle;
-}
-
-/* some demo formatting */
-.ui.menu p:only-child {
-  margin: 0px;
-}
-.ui.menu a {
-  cursor: pointer;
-}
-
-
-body.card .even.example .card .description {
-  height: 35px;
-}
-
-body.progress .ui.progress .bar {
-  -webkit-animation: finish 10s ease-in-out infinite;
-  -moz-animation: finish 10s ease-in-out infinite;
-  -ms-animation: finish 10s ease-in-out infinite;
-  animation: finish 10s ease-in-out infinite;
-}
-
-@-webkit-keyframes finish {
-  0% {
-    width: 0%;
-  }
-  40% {
-    width: 100%;
-  }
-  100% {
-    width: 100%;
-  }
-}
-@-moz-keyframes finish {
-  0% {
-    width: 0%;
-  }
-  40% {
-    width: 100%;
-  }
-  100% {
-    width: 100%;
-  }
-}
-@keyframes finish {
-  0% {
-    width: 0%;
-  }
-  40% {
-    width: 100%;
-  }
-  100% {
-    width: 100%;
-  }
-}
-
-#example.sink .inverted.button {
-  margin-bottom: 0.75em;
-}
-
-
-#example.feed .example .segment {
-  max-width: 800px;
-}
-
-#example .fixed .launch {
-  display: none;
-}
-
-#example .fixed.column {
-  position: relative;
-}
-#example .fixed.column .sticky {
-  padding-top: 3em;
 }
 
 
@@ -1548,7 +1573,6 @@ body.progress .ui.progress .bar {
     margin: 0 0.5em 0.5em 0;
   }
 }
-
 
 @media only screen and (max-width : 600px) {
   #example .icon.example .grid .column {

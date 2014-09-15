@@ -73,6 +73,15 @@ $.fn.checkbox = function(parameters) {
               .on('click' + eventNamespace, module.toggle)
             ;
           }
+          if(settings.fireOnInit) {
+            $.proxy(settings.onChange, $input.get())();
+            if( module.is.checked() ) {
+              $.proxy(settings.onChecked, $input.get())();
+            }
+            else {
+              $.proxy(settings.onUnchecked, $input.get())();
+            }
+          }
           module.instantiate();
         },
 
@@ -359,6 +368,8 @@ $.fn.checkbox.settings = {
   // delegated event context
   context     : false,
   required    : 'auto',
+
+  fireOnInit  : true,
 
   onChange    : function(){},
   onChecked   : function(){},
