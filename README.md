@@ -74,9 +74,7 @@ If you need help, come hang out in `#semantic-ui` on *irc.freenode.net*.  Click 
 
 ### Browser Support
 
-* Last 2 Versions FF, Chrome, IE (aka 10+)
-* Safari 6
-* Firefox 12
+* Last 2 Versions FF, Chrome, IE (aka 10+), Safari
 * IE 9+ (Browser prefix only)
 * Android 3
 * Blackberry 10
