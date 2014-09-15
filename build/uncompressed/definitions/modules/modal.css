@@ -313,7 +313,7 @@
     margin: 0em 0em 0em -28%;
   }
 }
-@media only screen and (min-width: 1900px) {
+@media only screen and (min-width: 1920px) {
   .ui.modal {
     width: 42%;
     margin: 0em 0em 0em -21%;
@@ -467,7 +467,7 @@
     margin: 0em 0em 0em -16.8%;
   }
 }
-@media only screen and (min-width: 1900px) {
+@media only screen and (min-width: 1920px) {
   .ui.small.modal {
     width: 25.2%;
     margin: 0em 0em 0em -12.6%;
@@ -501,7 +501,7 @@
     margin: 0em 0em 0em -33.6%;
   }
 }
-@media only screen and (min-width: 1900px) {
+@media only screen and (min-width: 1920px) {
   .ui.large.modal {
     width: 50.4%;
     margin: 0em 0em 0em -25.2%;

@@ -225,7 +225,7 @@
   border-radius: 0.25em;
   -webkit-transition: background-color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
           transition: background-color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid #dddddd;
 }
 /*--------------
     Checkmark
@@ -324,14 +324,16 @@
      Radio
 ---------------*/
 .ui.radio.checkbox {
-  height: 16px;
+  height: 14px;
 }
 /* Box */
 .ui.radio.checkbox .box:before,
 .ui.radio.checkbox label:before {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   border-radius: 500rem;
+  top: 1px;
+  left: 0px;
   -webkit-transform: none;
       -ms-transform: none;
           transform: none;
@@ -340,12 +342,23 @@
 .ui.radio.checkbox .box:after,
 .ui.radio.checkbox label:after {
   border: none;
-  width: 16px;
-  height: 16px;
-  line-height: 16px;
-  top: 0px;
+  width: 14px;
+  height: 14px;
+  line-height: 14px;
+  top: 1px;
   left: 0px;
   font-size: 9px;
+}
+/* Radio Checkbox */
+.ui.radio.checkbox .box:after,
+.ui.radio.checkbox label:after {
+  width: 14px;
+  height: 14px;
+  border-radius: 500rem;
+  -webkit-transform: scale(0.42857143);
+      -ms-transform: scale(0.42857143);
+          transform: scale(0.42857143);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 /*--------------
      Slider
@@ -534,50 +547,17 @@
   content: '\e800';
   /* '' */
 }
-/* Radio Checkbox */
-.ui.radio.checkbox .box:after,
-.ui.radio.checkbox label:after {
-  content: '';
-  /* '' */
-  -webkit-transform: scale(0.5);
-      -ms-transform: scale(0.5);
-          transform: scale(0.5);
-  width: 16px;
-  height: 16px;
-  border-radius: 500rem;
-  background-color: rgba(0, 0, 0, 0.8);
-}
-.icon-check:before {
-  content: '\e800';
-}
-.icon-circle:before {
-  content: '\e801';
-}
-/* '' */
-.icon-ok-circled:before {
-  content: '\e806';
-}
-/* '' */
-.icon-ok-circle:before {
-  content: '\e805';
-}
-/* '' */
-.icon-cancel-circle:before {
-  content: '\e807';
-}
-/* '' */
-.icon-cancel-circle-1:before {
-  content: '\e804';
-}
-/* '' */
-.icon-empty-circle:before {
-  content: '\e802';
-}
-/* '' */
-.icon-radio:before {
-  content: '\e803';
-}
-/* '' */
+/*  UTF Reference
+.check:before { content: '\e800'; }
+.circle:before { content: '\e801'; }
+.ok-circled:before { content: '\e806'; }
+.ok-circle:before { content: '\e805'; }
+.cancel-circle:before { content: '\e807'; }
+.cancel-circle-1:before { content: '\e804'; }
+.empty-circle:before { content: '\e802'; }
+.radio:before { content: '\e803'; }
+
+*/
 /*******************************
            Overrides
 *******************************/

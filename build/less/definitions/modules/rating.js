@@ -101,9 +101,12 @@ $.fn.rating = function(parameters) {
 
         setup: {
           layout: function() {
+            var
+              maxRating = $module.data(metadata.maxRating) || settings.maxRating
+            ;
             module.debug('Generating icon html dynamically');
             $module
-              .html($.fn.rating.settings.templates.icon(settings.maxRating))
+              .html($.fn.rating.settings.templates.icon(maxRating))
             ;
             module.refresh();
           }
@@ -414,7 +417,8 @@ $.fn.rating.settings = {
 
 
   metadata: {
-    rating: 'rating'
+    rating    : 'rating',
+    maxRating : 'maxRating'
   },
 
   className : {

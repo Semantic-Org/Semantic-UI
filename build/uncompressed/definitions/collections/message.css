@@ -200,9 +200,9 @@
 .ui.message .header {
   display: block;
   font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
-  margin: 0em 0em 0em 0em;
+  margin: 0em 0em 0em 0rem;
 }
 /* Paragraph */
 .ui.message p {
@@ -216,7 +216,7 @@
   margin-bottom: 0em;
 }
 .ui.message .header + p {
-  margin-top: 0em;
+  margin-top: 0.25em;
 }
 /* List */
 .ui.message ul.list {
@@ -332,7 +332,7 @@
   vertical-align: middle;
   font-size: 3em;
   opacity: 0.8;
-  width: auto;
+  width: 1em;
 }
 .ui.icon.message > .content {
   display: table-cell;

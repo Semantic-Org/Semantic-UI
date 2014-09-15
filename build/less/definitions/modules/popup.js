@@ -883,7 +883,6 @@ $.fn.popup.settings = {
   inline         : false,
   preserve       : true,
   hoverable      : false,
-  includeMargin  : false,
 
   duration       : 200,
   easing         : 'easeOutQuint',

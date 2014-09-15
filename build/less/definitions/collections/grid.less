@@ -24,15 +24,11 @@
 *******************************/
 
 .ui.grid {
-  position: relative;
   display: block;
   text-align: left;
 
   font-size: 0em;
-  margin: 0%;
-  padding: 0%;
-
-  box-sizing: border-box;
+  padding: 0em;
 }
 
 .ui.grid:after,
@@ -49,16 +45,23 @@
 -----------------------*/
 
 .ui.grid {
-  margin-left: -@gutterWidth;
-  margin-right: -@gutterWidth;
+  margin-top: -(@rowSpacing / 2);
+  margin-bottom: -(@rowSpacing / 2);
+  margin-left: -(@gutterWidth / 2);
+  margin-right: -(@gutterWidth / 2);
 }
 .ui.relaxed.grid  {
-  margin-left: -@relaxedGutterWidth;
-  margin-right: -@relaxedGutterWidth;
+  margin-left: -(@relaxedGutterWidth / 2);
+  margin-right: -(@relaxedGutterWidth / 2);
 }
 .ui.very.relaxed.grid  {
-  margin-left: -@veryRelaxedGutterWidth;
-  margin-right: -@veryRelaxedGutterWidth;
+  margin-left: -(@veryRelaxedGutterWidth / 2);
+  margin-right: -(@veryRelaxedGutterWidth / 2);
+}
+
+/* Collapse Margins on Consecutive Grids */
+.ui.grid + .grid {
+  margin-top: (@rowSpacing / 2);
 }
 
 /*-------------------
@@ -66,23 +69,21 @@
 --------------------*/
 
 /* Standard 16 column */
-.ui.grid > .column,
+.ui.grid > .column:not(.row),
 .ui.grid > .row > .column {
-
   display: inline-block;
   text-align: left;
   font-size: 1rem;
 
   width: @oneWide;
-  padding-left: @gutterWidth;
-  padding-right: @gutterWidth;
-  box-sizing: border-box;
+  padding-left: (@gutterWidth / 2);
+  padding-right: (@gutterWidth / 2);
   vertical-align: top;
 }
 
 .ui.grid > * {
-  padding-left: @gutterWidth;
-  padding-right: @gutterWidth;
+  padding-left: (@gutterWidth / 2);
+  padding-right: (@gutterWidth / 2);
 }
 
 /*-------------------
@@ -90,48 +91,43 @@
 --------------------*/
 
 .ui.grid > .row {
-  display: block;
+  display: inline-block;
   width: 100% !important;
-  margin-top: (@rowSpacing / 2);
-  padding: (@rowSpacing / 2) 0% 0%;
+  padding: 0rem;
   font-size: 0rem;
-}
-.ui.grid > :first-child {
-  padding-top: @firstRowSpacing;
-  margin-top: @firstRowSpacing;
+  padding-top: (@rowSpacing / 2);
+  padding-bottom: (@rowSpacing / 2);
 }
 
 /*-------------------
        Columns
 --------------------*/
 
-
 /* Vertical padding when no rows */
 .ui.grid > .column:not(.row) {
   margin-top: (@rowSpacing / 2);
   margin-bottom: (@rowSpacing / 2);
+}
+.ui.grid > .row > .column {
+  margin-top: 0em;
+  margin-bottom: 0em;
 }
 
 /*-------------------
       Content
 --------------------*/
 
-
 .ui.grid > .row > img,
 .ui.grid > .row > .column > img {
   max-width: @columnMaxImageWidth;
 }
-.ui.grid .column > .ui.segment:only-child {
-  margin: 0em;
-}
-
 
 /*-------------------
     Loose Coupling
 --------------------*/
 
 .ui.grid .row + .ui.divider {
-  margin: (@rowSpacing / 2) @gutterWidth;
+  margin: (@rowSpacing / 2) (@gutterWidth / 2);
 }
 
 /*******************************
@@ -149,6 +145,14 @@
   width: @computerWidth;
   margin-left: 0em;
   margin-right: 0em;
+}
+
+/* Collapse Margin */
+.ui.grid > .ui.grid:first-child {
+  margin-top: 0em;
+}
+.ui.grid > .ui.grid:last-child {
+  margin-bottom: 0em;
 }
 
 @media only screen and (max-width: (@largestMobileScreen)) {
@@ -188,8 +192,8 @@
 }
 
 .ui.centered.page.grid {
-  padding-left: 0%;
-  padding-right: 0%;
+  padding-left: 0em;
+  padding-right: 0em;
   width: @computerWidth;
   margin-left: @computerGutter;
   margin-right: @computerGutter;
@@ -483,37 +487,44 @@
 .ui.relaxed.grid > .column:not(.row),
 .ui.relaxed.grid > .row > .column,
 .ui.grid > .relaxed.row > .column {
-  padding-left: @relaxedGutterWidth;
-  padding-right: @relaxedGutterWidth;
+  padding-left: (@relaxedGutterWidth / 2);
+  padding-right: (@relaxedGutterWidth / 2);
 }
 
 .ui.very.relaxed.grid > .column:not(.row),
 .ui.very.relaxed.grid > .row > .column,
 .ui.grid > .very.relaxed.row > .column {
-  padding-left: @veryRelaxedGutterWidth;
-  padding-right: @veryRelaxedGutterWidth;
+  padding-left: (@veryRelaxedGutterWidth / 2);
+  padding-right: (@veryRelaxedGutterWidth / 2);
 }
 
 /* Coupling with UI Divider */
 .ui.relaxed.grid .row + .ui.divider,
 .ui.grid .relaxed.row + .ui.divider {
-  margin-left: @relaxedGutterWidth;
-  margin-right: @relaxedGutterWidth;
+  margin-left: (@relaxedGutterWidth / 2);
+  margin-right: (@relaxedGutterWidth / 2);
 }
 .ui.very.relaxed.grid .row + .ui.divider,
 .ui.grid .very.relaxed.row + .ui.divider {
-  margin-left: @veryRelaxedGutterWidth;
-  margin-right: @veryRelaxedGutterWidth;
+  margin-left: (@veryRelaxedGutterWidth / 2);
+  margin-right: (@veryRelaxedGutterWidth / 2);
 }
 
 
 /*----------------------
-        Spaced
+        Padded
 -----------------------*/
 
-.ui.spaced.grid {
+.ui.padded.grid:not(.horizontally):not(.vertically) {
+  margin: 0em !important;
+}
+.ui.horizontally.padded.grid {
   margin-left: 0em !important;
   margin-right: 0em !important;
+}
+.ui.vertically.padded.grid {
+  margin-top: 0em !important;
+  margin-bottom: 0em !important;
 }
 
 
@@ -558,13 +569,13 @@
 .ui.vertically.divided.grid > .row:before {
   position: absolute;
   content: '';
-  top: 0px;
+  top: 0em;
   left: 0px;
 
-  width: (100% - (@gutterWidth * 2));
+  width: ~"calc(100% - "@gutterWidth~")";
   height: 1px;
 
-  margin: 0% @gutterWidth;
+  margin: 0% (@gutterWidth / 2);
   box-shadow: @verticallyDividedBorder;
 }
 .ui.vertically.divided.grid > .row:first-child:before {
@@ -581,14 +592,14 @@
 
 /* Relaxed */
 .ui.relaxed.vertically.divided.grid > .row:before {
-  margin-left: @relaxedGutterWidth;
-  margin-right: @relaxedGutterWidth;
-  width: (100% - (@relaxedGutterWidth * 2));
+  margin-left: (@relaxedGutterWidth / 2);
+  margin-right: (@relaxedGutterWidth / 2);
+  width: ~"calc(100% - "@relaxedGutterWidth~")";
 }
 .ui.very.relaxed.vertically.divided.grid > .row:before {
   margin-left: @veryRelaxedGutterWidth;
   margin-right: @veryRelaxedGutterWidth;
-  width: (100% - (@veryRelaxedGutterWidth * 2));
+  width: ~"calc(100% - "@veryRelaxedGutterWidth~")";
 }
 
 /*----------------------
@@ -598,9 +609,8 @@
 .ui.celled.grid {
   display: table;
   table-layout: fixed;
-  width: 100%;
-  margin-left: 0%;
-  margin-right: 0%;
+  width: @tableWidth;
+  margin: @celledMargin;
   box-shadow: 0px 0px 0px @celledWidth @celledBorderColor;
 }
 .ui.celled.grid > .row,
@@ -609,8 +619,8 @@
   display: table;
   table-layout: fixed;
   width: 100%;
-  margin-top: 0em;
-  padding-top: 0em;
+  margin: 0em;
+  padding: 0em;
   box-shadow: 0px (-@celledWidth) 0px 0px @celledBorderColor;
 }
 .ui.celled.grid > .column:not(.row),
@@ -623,7 +633,6 @@
 .ui.celled.grid > .row > .column:first-child {
   box-shadow: none;
 }
-
 .ui.celled.page.grid {
   box-shadow: none;
 }
@@ -695,10 +704,14 @@
 /*----------------------
   Equal Height Columns
 -----------------------*/
-
-.ui.grid > .equal.height.row,
-.ui.equal.height.grid  {
+.ui.equal.height.grid {
   display: table;
+  table-layout: fixed;
+  width: @tableWidth;
+}
+.ui.equal.height.row  {
+  display: table;
+  table-layout: fixed;
   width: 100%;
 }
 .ui.equal.height.grid > .column,
@@ -718,13 +731,13 @@
   .ui.grid > .tablet:not(.mobile).only.row,
   .ui.grid > .tablet:not(.mobile).only.column,
   .ui.grid > .row > .tablet:not(.mobile).only.column {
-    display: none;
+    display: none !important;
   }
   .ui.computer:not(.mobile).only.grid,
   .ui.grid > .computer:not(.mobile).only.row,
   .ui.grid > .computer:not(.mobile).only.column,
   .ui.grid > .row > .computer:not(.mobile).only.column {
-    display: none;
+    display: none !important;
   }
 }
 /* Tablet Only Hide */
@@ -733,13 +746,13 @@
   .ui.grid > .mobile:not(.tablet).only.row,
   .ui.grid > .mobile:not(.tablet).only.column,
   .ui.grid > .row > .mobile:not(.tablet).only.column {
-    display: none;
+    display: none !important;
   }
   .ui.computer:not(.tablet).only.grid,
   .ui.grid > .computer:not(.tablet).only.row,
   .ui.grid > .computer:not(.tablet).only.column,
   .ui.grid > .row > .computer:not(.tablet).only.column {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -749,13 +762,13 @@
   .ui.grid > .mobile:not(.computer).only.row,
   .ui.grid > .mobile:not(.computer).only.column,
   .ui.grid > .row > .mobile:not(.computer).only.column {
-    display: none;
+    display: none !important;
   }
   .ui.tablet:not(.computer).only.grid,
   .ui.grid > .tablet:not(.computer).only.row,
   .ui.grid > .tablet:not(.computer).only.column,
   .ui.grid > .row > .tablet:not(.computer).only.column {
-    display: none;
+    display: none !important;
   }
 }
 

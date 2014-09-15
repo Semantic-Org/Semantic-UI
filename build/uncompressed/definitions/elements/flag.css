@@ -171,7 +171,11 @@ i.flag {
           backface-visibility: hidden;
 }
 i.flag:before {
+  display: inline-block;
+  content: '';
   background: url("../../themes/packages/default/assets/images/flags.png") no-repeat 0px 0px;
+  width: 16px;
+  height: 11px;
 }
 /*******************************
            Overrides

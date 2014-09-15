@@ -31,11 +31,11 @@
 ;
 
 /* Header */
-@headerFontSize: 1.2rem;
+@headerFontSize: 1rem;
 @headerFontWeight: bold;
 @headerDisplay: block;
-@headerHorizontalDistance: 0em;
-@headerParagraphDistance: 0em;
+@headerDistance: 0rem;
+@headerParagraphDistance: 0.25em;
 
 /* Paragraph */
 @messageTextOpacity: 0.85;

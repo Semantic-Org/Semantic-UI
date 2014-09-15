@@ -210,6 +210,8 @@
   width: @checkboxRadioSize;
   height: @checkboxRadioSize;
   border-radius: @circularRadius;
+  top: @checkboxRadioTop;
+  left: @checkboxRadioLeft;
   transform: none;
 }
 
@@ -224,6 +226,16 @@
   left: @checkboxRadioLeft;
   font-size: @checkboxRadioCircleSize;
 }
+/* Radio Checkbox */
+.ui.radio.checkbox .box:after,
+.ui.radio.checkbox label:after {
+  width: @checkboxRadioSize;
+  height: @checkboxRadioSize;
+  border-radius: @checkboxBulletRadius;
+  transform: scale(@checkboxBulletScale);
+  background-color: @checkboxBulletColor;
+}
+
 
 /*--------------
      Slider

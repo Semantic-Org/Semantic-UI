@@ -5625,6 +5625,15 @@ $.fn.checkbox = function(parameters) {
               .on('click' + eventNamespace, module.toggle)
             ;
           }
+          if(settings.fireOnInit) {
+            $.proxy(settings.onChange, $input.get())();
+            if( module.is.checked() ) {
+              $.proxy(settings.onChecked, $input.get())();
+            }
+            else {
+              $.proxy(settings.onUnchecked, $input.get())();
+            }
+          }
           module.instantiate();
         },
 
@@ -5911,6 +5920,8 @@ $.fn.checkbox.settings = {
   // delegated event context
   context     : false,
   required    : 'auto',
+
+  fireOnInit  : true,
 
   onChange    : function(){},
   onChecked   : function(){},
@@ -10084,7 +10095,6 @@ $.fn.popup.settings = {
   inline         : false,
   preserve       : true,
   hoverable      : false,
-  includeMargin  : false,
 
   duration       : 200,
   easing         : 'easeOutQuint',
@@ -10278,9 +10288,12 @@ $.fn.rating = function(parameters) {
 
         setup: {
           layout: function() {
+            var
+              maxRating = $module.data(metadata.maxRating) || settings.maxRating
+            ;
             module.debug('Generating icon html dynamically');
             $module
-              .html($.fn.rating.settings.templates.icon(settings.maxRating))
+              .html($.fn.rating.settings.templates.icon(maxRating))
             ;
             module.refresh();
           }
@@ -10591,7 +10604,8 @@ $.fn.rating.settings = {
 
 
   metadata: {
-    rating: 'rating'
+    rating    : 'rating',
+    maxRating : 'maxRating'
   },
 
   className : {
