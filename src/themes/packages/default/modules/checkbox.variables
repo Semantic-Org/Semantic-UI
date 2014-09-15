@@ -16,7 +16,7 @@
 /* Checkbox */
 @checkboxSize: 17px;
 @checkboxBackground: @white;
-@checkboxBorder: 1px solid @borderColor;
+@checkboxBorder: 1px solid @solidBorderColor;
 @checkboxBorderRadius: 0.25em;
 @checkboxTransition:
   background-color 0.3s ease,
@@ -60,10 +60,14 @@
 --------------------*/
 
 /* Radio */
-@checkboxRadioSize: 16px;
+@checkboxRadioSize: 14px;
 @checkboxRadioCircleSize: 9px;
-@checkboxRadioTop: 0px;
+@checkboxRadioTop: 1px;
 @checkboxRadioLeft: 0px;
+
+@checkboxBulletScale: 0.428571428;
+@checkboxBulletColor: @textColor;
+@checkboxBulletRadius: @circularRadius;
 
 /* Slider & Toggle Handle */
 @handleBackground: @white @subtleGradient;

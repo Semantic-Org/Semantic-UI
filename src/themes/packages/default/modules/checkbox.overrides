@@ -18,22 +18,14 @@
   content: '\e800'; /* '' */
 }
 
-/* Radio Checkbox */
-.ui.radio.checkbox .box:after,
-.ui.radio.checkbox label:after {
-  content: ''; /* '' */
-  transform: scale(0.5);
-  width: @checkboxRadioSize;
-  height: @checkboxRadioSize;
-  border-radius: @circularRadius;
-  background-color: @checkboxColor;
-}
+/*  UTF Reference
+.check:before { content: '\e800'; }
+.circle:before { content: '\e801'; }
+.ok-circled:before { content: '\e806'; }
+.ok-circle:before { content: '\e805'; }
+.cancel-circle:before { content: '\e807'; }
+.cancel-circle-1:before { content: '\e804'; }
+.empty-circle:before { content: '\e802'; }
+.radio:before { content: '\e803'; }
 
-.icon-check:before { content: '\e800'; }
-.icon-circle:before { content: '\e801'; } /* '' */
-.icon-ok-circled:before { content: '\e806'; } /* '' */
-.icon-ok-circle:before { content: '\e805'; } /* '' */
-.icon-cancel-circle:before { content: '\e807'; } /* '' */
-.icon-cancel-circle-1:before { content: '\e804'; } /* '' */
-.icon-empty-circle:before { content: '\e802'; } /* '' */
-.icon-radio:before { content: '\e803'; }/* '' */
+*/
