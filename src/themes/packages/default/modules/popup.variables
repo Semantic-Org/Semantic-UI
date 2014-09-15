@@ -10,15 +10,16 @@
 @background: @white;
 
 @maxWidth: 250px;
-@border: 1px solid rgba(0, 0, 0, 0.1);
-@boxShadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+@borderColor: #CCCCCC;
+@borderWidth: 1px;
+@boxShadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 @color: @textColor;
 
 @verticalPadding: 0.8em;
-@horizontalPadding: 1.2em;
+@horizontalPadding: 1em;
 @fontWeight: normal;
 @fontStyle: normal;
-@borderRadius: 0.2em;
+@borderRadius: 0.25em;
 
 /*-------------------
        Parts
@@ -38,18 +39,22 @@
 @headerDistance: 0.5em;
 @headerLineHeight: 1.2;
 
+/* Content Border */
+@border: @borderWidth solid @borderColor;
+
 /* Arrow */
 @arrowBackground: @white;
 @arrowZIndex: 2;
-@arrowOffset: -(@arrowSize / 2);
+@arrowJitter: 0.05em;
+@arrowOffset: -(@arrowSize / 2) + @arrowJitter;
 
-@arrowShadowColor: rgba(0, 0, 0, 0.2);
-@arrowStroke: 1px;
+@arrowStroke: @borderWidth;
+@arrowColor: darken(@borderColor, 10);
 
-@arrowBoxShadow: 1px 1px @arrowStroke @arrowShadowColor;
-@leftArrowBoxShadow: 1px -1px @arrowStroke @arrowShadowColor;
-@rightArrowBoxShadow: -1px 1px @arrowStroke @arrowShadowColor;
-@bottomArrowBoxShadow: -1px -1px @arrowStroke @arrowShadowColor;
+@arrowBoxShadow: @arrowStroke @arrowStroke 0px 0px @arrowColor;
+@leftArrowBoxShadow: @arrowStroke -@arrowStroke 0px 0px @arrowColor;
+@rightArrowBoxShadow: -@arrowStroke @arrowStroke 0px 0px @arrowColor;
+@bottomArrowBoxShadow: -@arrowStroke -@arrowStroke 0px 0px @arrowColor;
 
 /*-------------------
        Coupling

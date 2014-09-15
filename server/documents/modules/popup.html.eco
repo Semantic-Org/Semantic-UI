@@ -44,7 +44,7 @@ themes      : ['Default']
       <p>An element can specify popup content with a title</p>
       <img src="/images/avatar/small/elliot.jpg" data-title="Elliot Fu" data-content="Elliot has been a member since July 2012" class="ui avatar image">
       <img src="/images/avatar/small/stevie.jpg" data-title="Stevie Feliciano" data-content="Stevie has been a member since August 2013" class="ui avatar image">
-      <img src="/images/avatar/small/matt.jpg" data-title="Matt" data-content="Matth has been a member since July 2014" class="ui avatar image">
+      <img src="/images/avatar/small/matt.jpg" data-title="Matt" data-content="Matt has been a member since July 2014" class="ui avatar image">
     </div>
 
     <div class="example">
@@ -58,7 +58,11 @@ themes      : ['Default']
         <div class="content">
           <div class="header">My Neighbor Totoro</div>
           <div class="description">
+<<<<<<< HEAD
             Two sisters move to the country with their father in order to be closer to their hospitalized mother, and discover the surrounding trees are inhabited by magical spirits.
+=======
+            Two sisters move to the country with their father in order to be closer to their hospitalized mother, and discover the surrounding trees are inhabited by Totoros, magical spirits of the forest.
+>>>>>>> 343af40625cd7b6cfcac0d3e7d8eef21353c9f64
           </div>
         </div>
         <div class="ui two bottom attached buttons">
@@ -76,7 +80,7 @@ themes      : ['Default']
 
     <div class="existing example">
       <h4 class="ui header">Pre-Existing</h4>
-      <p>An element can display a pre-existing popup that is include after it</p>
+      <p>An element can display a popup that is already included in the page</p>
 
       <div class="ui card">
         <div class="image">
@@ -84,6 +88,9 @@ themes      : ['Default']
         </div>
         <div class="content">
           <div class="header">Watchmen</div>
+          <div class="description">
+            In a gritty and alternate 1985 the glory days of costumed vigilantes have been brought to a close by a government crackdown, but after one of the masked veterans is brutally murdered an investigation into the killer is initiated.
+          </div>
         </div>
         <div class="ui two buttons">
           <div class="ui button">

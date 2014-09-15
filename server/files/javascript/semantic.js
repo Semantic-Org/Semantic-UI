@@ -559,7 +559,7 @@ semantic.ready = function() {
     })
     .find('.button')
       .popup({
-        position  : 'top center',
+        position  : 'top right',
         variation : 'inverted'
       })
   ;

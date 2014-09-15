@@ -36,7 +36,11 @@ i.flag {
 }
 
 i.flag:before {
+  display: inline-block;
+  content: '';
   background: url(@spritePath) no-repeat 0px 0px;
+  width: @width;
+  height: @height;
 }
 
 .loadUIOverrides();
