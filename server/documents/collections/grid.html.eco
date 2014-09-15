@@ -67,64 +67,6 @@ themes      : ['Default']
       </div>
     </div>
 
-    <div class="animated example">
-      <h4 class="ui header">Content Inside Columns</h4>
-      <p>These examples are shaded to help show the physical layout of grids, but grids themselves do not provide any styles.</p>
-      <p>In order to create groups of content inside a grid you must specify individual <code>ui elements</code> inside columns, for example <a href="/elements/segment.html">ui segments</a></p>
-      <div class="ui five column grid">
-        <div class="column">
-          <div class="ui segment">
-            <img src="/images/avatar/large/elliot.jpg" class="ui fluid image">
-          </div>
-        </div>
-        <div class="column">
-          <div class="ui segment">
-            <img src="/images/avatar/large/matt.jpg" class="ui fluid image">
-          </div>
-        </div>
-        <div class="column">
-          <div class="ui segment">
-            <img src="/images/avatar/large/jenny.jpg" class="ui fluid image">
-          </div>
-        </div>
-        <div class="column">
-          <div class="ui segment">
-            <img src="/images/avatar/large/steve.jpg" class="ui fluid image">
-          </div>
-        </div>
-        <div class="column">
-          <div class="ui segment">
-            <img src="/images/avatar/large/stevie.jpg" class="ui fluid image">
-          </div>
-        </div>
-        <div class="column">
-          <div class="ui segment">
-            <img src="/images/avatar/large/veronika.jpg" class="ui fluid image">
-          </div>
-        </div>
-        <div class="column">
-          <div class="ui segment">
-            <img src="/images/avatar/large/justen.jpg" class="ui fluid image">
-          </div>
-        </div>
-        <div class="column">
-          <div class="ui segment">
-            <img src="/images/avatar/large/tom.jpg" class="ui fluid image">
-          </div>
-        </div>
-        <div class="column">
-          <div class="ui segment">
-            <img src="/images/avatar/large/helen.jpg" class="ui fluid image">
-          </div>
-        </div>
-        <div class="column">
-          <div class="ui segment">
-            <img src="/images/avatar/large/christian.jpg" class="ui fluid image">
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="highlighted example">
       <h4 class="ui header">Column Flow</h4>
       <p>A grid does not necessarily need to specify rows. If you include <code>columns</code> as direct child of <code>ui grid</code> content will automatically flow to the next row when all the grid columns are taken in the current row</b>.</p>
@@ -153,11 +95,12 @@ themes      : ['Default']
       </div>
 
       <div class="ui grid">
+        <div class="twelve wide column"></div>
         <div class="four column row">
           <div class="right floated column"></div>
-          <div class="left floated column column"></div>
+          <div class="left floated column"></div>
         </div>
-        <div class="divided row">
+        <div class="row">
           <div class="three wide column"></div>
           <div class="eight wide column"></div>
           <div class="five wide column"></div>
@@ -169,24 +112,16 @@ themes      : ['Default']
       <h4 class="ui header">Grid Row Spacing</h4>
       <p>Grid columns have vertical spacing above and below each column to create vertical flow between columns.</p>
       <div class="ui ignored warning message">
-        Grids use negative margins to ensure the first and last row of columns will set flush with the edge of the grid.  To allow first and last columns to have vertical padding use a <code>vertically spaced grid</code> variation.
+        Grids use negative margins to ensure the first and last row of columns will set flush with the edge of the grid. Consecutive grids will automatically preserve row spacing between grids. To allow first and last columns to have vertical padding use a <code>vertically padded grid</code> variation.
       </div>
        <div class="ui top attached button">Button before grid</div>
        <div class="ui grid">
-        <div class="sixteen wide column">
-          <div class="ui segment">
-            This content will sit flush against the content above it
-          </div>
-        </div>
+        <div class="sixteen wide column"></div>
         <div class="ten wide column"></div>
         <div class="six wide column"></div>
       </div>
       <div class="ui grid">
-        <div class="sixteen wide column">
-          <div class="ui segment">
-            Consecutive grids will collapse their negative margins to preserve equal row height between grids.
-          </div>
-        </div>
+        <div class="sixteen wide column"></div>
       </div>
       <div class="ui bottom attached button">Button after grid</div>
     </div>
@@ -235,7 +170,7 @@ themes      : ['Default']
       </div>
     </div>
 
-    <div class="highlighted example">
+    <div class="no example">
       <h4 class="ui header">Page Grid Breakpoints</h4>
       <p>Semantic's page grid, by default, uses percentage values for page gutters. This means your page container will <b>constantly adjust</b> as the browser width changes, giving you the largest possible space for each breakpoint</p>
       <p><code>grid</code> <code>row</code> and <code>column</code> all can receive responsive classes to make them appear only on a particular device.</p>
@@ -290,13 +225,98 @@ themes      : ['Default']
     </div>
 
     <h3 class="ui dividing header">Formatting Grids</h3>
+
+    <div class="animated example">
+      <h4 class="ui header">Content Inside Grids</h4>
+      <p>Previous examples were shaded to help show the physical layout of grids, but grids themselves do not provide any styles.</p>
+      <p class="ignored">In order to create content segments inside a grid you must specify individual <code>ui elements</code> for example <a href="/elements/segment.html">ui segments</a>.</p>
+      <div class="ui five column grid">
+        <div class="column">
+          <div class="ui segment">
+            <img src="/images/avatar/large/elliot.jpg" class="ui fluid image">
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            <img src="/images/avatar/large/matt.jpg" class="ui fluid image">
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            <img src="/images/avatar/large/jenny.jpg" class="ui fluid image">
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            <img src="/images/avatar/large/steve.jpg" class="ui fluid image">
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            <img src="/images/avatar/large/stevie.jpg" class="ui fluid image">
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            <img src="/images/avatar/large/veronika.jpg" class="ui fluid image">
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            <img src="/images/avatar/large/justen.jpg" class="ui fluid image">
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            <img src="/images/avatar/large/tom.jpg" class="ui fluid image">
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            <img src="/images/avatar/large/helen.jpg" class="ui fluid image">
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            <img src="/images/avatar/large/christian.jpg" class="ui fluid image">
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="example">
       <h4 class="ui header">Full Width Backgrounds</h4>
       <p>Grids use <b>negative margins</b> to remove first and last column margins, this means you cannot directly apply a background color on a grid. To add a background try wrapping your grid inside another container.</p>
-      <div class="ui warning message">
+      <div class="ui ignored warning message">
         Due to <a href="http://stackoverflow.com/questions/19718634/how-to-disable-margin-collapsing" target="_blank">collapsing margins</a> the parent container must have a clearfix, or <code>overflow:hidden</code> to prevent inheriting the grid's margins.
       </div>
-      <div class="my-container" style="background-color:#009FDA;color:#FFFFFF;margin: 1em 0em 0em;overflow:hidden;">
+      <div class="existing code">
+        <style type="text/css">
+        .my-container {
+          background-color: #39CCCC;
+          color: #FFFFFF;
+          margin: 1em 0em;
+          overflow: hidden;
+        }
+        </style>
+        <div class="my-container">
+          <div class="ui page grid">
+            <div class="column">
+              <h2 class="ui inverted header">Second Heading</h2>
+              <p>Second section of content</p>
+            </div>
+          </div>
+        </div>
+        <div class="my-container">
+          <div class="ui page grid">
+            <div class="column">
+              <h2 class="ui inverted header">Second Heading</h2>
+              <p>Second section of content</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="my-container" style="background-color:#39CCCC;color:#FFFFFF;margin: 1em 0em 0em;overflow:hidden;">
         <div class="ui page grid">
           <div class="column">
             <h2 class="ui inverted header">Second Heading</h2>
@@ -304,7 +324,7 @@ themes      : ['Default']
           </div>
         </div>
       </div>
-      <div class="my-container" style="background-color:#FF0000;color:#FFFFFF;overflow:hidden;">
+      <div class="my-container" style="background-color:#333333;color:#FFFFFF;overflow:hidden;">
         <div class="ui page grid">
           <div class="column">
             <h2 class="ui inverted header">Second Heading</h2>
@@ -317,15 +337,49 @@ themes      : ['Default']
     <div class="example">
       <h4 class="ui header">Container Backgrounds</h4>
       <p>If you need to specify a background on the container, and a full width background, you can use a nested grid.</p>
+      <div class="existing code">
+        <style type="text/css">
+        .my-container {
+          background-color: #39CCCC;
+          color: #FFFFFF;
+          margin: 1em 0em;
+          overflow: hidden;
+        }
+        .my-container .row:first-child {
+          background-color:#39CCCC;
+          color: #FFFFFF;
+        }
+        .my-container .row:last-child {
+          background-color:#333333;
+          color: #FFFFFF;
+        }
+        </style>
+        <div class="my-container">
+          <div class="ui page grid">
+            <div class="row">
+              <div class="column">
+                <h2 class="ui inverted header">First Heading</h2>
+                <p>First section of content</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="column">
+                <h2 class="ui inverted header">Second Heading</h2>
+                <p>Second section of content</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="my-container" style="background-color:#DDDDDD;color:#FFFFFF;margin: 1em 0em;overflow:hidden;">
         <div class="ui page grid">
-          <div class="row" style="background-color:#009FDA;color:#FFFFFF;">
+          <div class="row" style="background-color:#39CCCC;color:#FFFFFF;">
             <div class="column">
               <h2 class="ui inverted header">First Heading</h2>
               <p>First section of content</p>
             </div>
           </div>
-          <div class="row" style="background-color:#FF0000;color:#FFFFFF;">
+          <div class="row" style="background-color:#333333;color:#FFFFFF;">
             <div class="column">
               <h2 class="ui inverted header">Second Heading</h2>
               <p>Second section of content</p>
@@ -337,20 +391,38 @@ themes      : ['Default']
 
     <div class="example">
       <h4 class="ui header">Padded Grids</h4>
-      <p>When using grids with backgrounds you may not want the grid contents to sit flush with the edge of its parent containers, to fix this you need to use the <code>padded</code> grid variation.</p>
+      <p>When using grids with backgrounds you may not want the grid contents to sit flush with the edge of its parent containers, to fix this you need to use the <code>padded</code> grid variation, or specify a padding on your parent container.</p>
       <div class="my-container" style="background-color:#DDDDDD;color:#FFFFFF;margin: 1em 0em;overflow:hidden;">
         <div class="ui padded page grid">
-          <div class="row" style="background-color:#009FDA;color:#FFFFFF;">
+          <div class="row" style="background-color:#39CCCC;color:#FFFFFF;">
             <div class="column">
               <h2 class="ui inverted header">First Heading</h2>
               <p>First section of content</p>
             </div>
           </div>
-          <div class="row" style="background-color:#FF0000;color:#FFFFFF;">
+          <div class="row" style="background-color:#333333;color:#FFFFFF;">
             <div class="column">
               <h2 class="ui inverted header">Second Heading</h2>
               <p>Second section of content</p>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="another example">
+      <div class="my-container" style="background-color:#39CCCC;color:#FFFFFF;padding: 2em;overflow:hidden;">
+        <div class="ui page grid">
+          <div class="column">
+            <h2 class="ui inverted header">Second Heading</h2>
+            <p>Second section of content</p>
+          </div>
+        </div>
+      </div>
+      <div class="my-container" style="background-color:#333333;color:#FFFFFF;padding: 2em;overflow:hidden;">
+        <div class="ui page grid">
+          <div class="column">
+            <h2 class="ui inverted header">Second Heading</h2>
+            <p>Second section of content</p>
           </div>
         </div>
       </div>

@@ -983,6 +983,9 @@ body#example.hide {
 #example .highlighted.example .grid .grid:before {
   background-color: #E0E0E0;
 }
+#example .highlighted.example .row {
+  position: relative;
+}
 
 #example .highlighted.example .grid > .column {
   position: relative;
