@@ -28,8 +28,7 @@
   text-align: left;
 
   font-size: 0em;
-  margin: 0%;
-  padding: 0%;
+  padding: 0em;
 }
 
 .ui.grid:after,
@@ -96,8 +95,8 @@
   width: 100% !important;
   padding: 0rem;
   font-size: 0rem;
-  margin-top: (@rowSpacing / 2);
-  margin-bottom: (@rowSpacing / 2);
+  padding-top: (@rowSpacing / 2);
+  padding-bottom: (@rowSpacing / 2);
 }
 
 /*-------------------
@@ -148,6 +147,14 @@
   margin-right: 0em;
 }
 
+/* Collapse Margin */
+.ui.grid > .ui.grid:first-child {
+  margin-top: 0em;
+}
+.ui.grid > .ui.grid:last-child {
+  margin-bottom: 0em;
+}
+
 @media only screen and (max-width: (@largestMobileScreen)) {
   .ui.page.grid {
     width: @mobileWidth;
@@ -185,8 +192,8 @@
 }
 
 .ui.centered.page.grid {
-  padding-left: 0%;
-  padding-right: 0%;
+  padding-left: 0em;
+  padding-right: 0em;
   width: @computerWidth;
   margin-left: @computerGutter;
   margin-right: @computerGutter;
@@ -562,7 +569,7 @@
 .ui.vertically.divided.grid > .row:before {
   position: absolute;
   content: '';
-  top: -(@rowSpacing / 2);
+  top: 0em;
   left: 0px;
 
   width: ~"calc(100% - "@gutterWidth~")";
@@ -602,9 +609,8 @@
 .ui.celled.grid {
   display: table;
   table-layout: fixed;
-  width: 100%;
-  margin-left: 0%;
-  margin-right: 0%;
+  width: @tableWidth;
+  margin: @celledMargin;
   box-shadow: 0px 0px 0px @celledWidth @celledBorderColor;
 }
 .ui.celled.grid > .row,
@@ -698,10 +704,14 @@
 /*----------------------
   Equal Height Columns
 -----------------------*/
-
-.ui.grid > .equal.height.row,
-.ui.equal.height.grid  {
+.ui.equal.height.grid {
   display: table;
+  table-layout: fixed;
+  width: @tableWidth;
+}
+.ui.equal.height.row  {
+  display: table;
+  table-layout: fixed;
   width: 100%;
 }
 .ui.equal.height.grid > .column,

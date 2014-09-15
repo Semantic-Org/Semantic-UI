@@ -320,7 +320,13 @@ semantic.ready = function() {
           .each(function(){
             var $this = $(this).clone(false);
             if($this.not('br')) {
-              code += $this.removeAttr('style').get(0).outerHTML + "\n";
+              // allow inline styles only with this one class
+              if($this.is('.my-container')) {
+                code += $this.get(0).outerHTML + "\n";
+              }
+              else {
+                code += $this.removeAttr('style').get(0).outerHTML + "\n";
+              }
             }
           })
         ;

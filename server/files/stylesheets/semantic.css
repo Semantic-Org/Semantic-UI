@@ -875,7 +875,7 @@ body#example.hide {
   top: 0px;
 }
 #example .example > h4 {
-  margin-bottom: 0em;
+  margin: 0em;
 }
 
 /* Spaced */
@@ -988,6 +988,13 @@ body#example.hide {
   position: relative;
   z-index: 11;
 }
+#example .highlighted.example .grid .column:not(.row):not(.grid):after {
+  background-color: #FFFFFF;
+  box-shadow: 0px 0px 0px 1px #DADADA;
+  content: "";
+  display: block;
+  min-height: 50px;
+}
 #example .highlighted.example .grid .column:not(.grid):first-child,
 #example .ui.type.cards .image .grid .column:not(.grid):first-child {
   box-shadow: none;
@@ -998,7 +1005,6 @@ body#example.hide {
 }
 #example .highlighted.example .grid .segment,
 #example .ui.type.cards .image .grid .segment {
-  min-height: 60px;
   border-radius: 0px;
   box-shadow: 0 0 0 1px #D4D4D4;
 }
@@ -1006,16 +1012,22 @@ body#example.hide {
   position: relative;
   z-index: 10;
 }
+#example .highlighted.special.example .page.grid > .column:first-child:after,
+#example .highlighted.special.example .page.grid > .column:last-child:after {
+  display: none;
+}
 
 /* Animation */
-#example.animated .highlighted.example > .grid {
+#example.animated .highlighted.example > .grid,
+#example.animated .animated.example > .grid {
   margin: -0.75rem auto;
   -webkit-animation: grid 7s ease infinite;
   -moz-animation: grid 7s ease infinite;
   animation: grid 7s ease infinite;
 }
 /* Grid Inside Grid */
-#example.animated .highlighted.example .grid .grid {
+#example.animated .highlighted.example .grid .grid,
+#example.animated .animated.example .grid .grid {
   -webkit-animation: none;
   -moz-animation: none;
   -ms-animation: none;
