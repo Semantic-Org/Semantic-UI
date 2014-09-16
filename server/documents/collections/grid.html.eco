@@ -107,6 +107,44 @@ themes      : ['Default']
         </div>
       </div>
     </div>
+    <div class="example">
+      <h4 class="ui header">Specifying Alignment</h4>
+      <p>You can specify alignment using alignment variations on a grid, row, or column level.</p>
+      <div class="ui ignored info message">
+        <div class="header">Word Order Requirements</div>
+        <p>Keep in mind multi-word variations like <code>right floated</code> <b>require you to specify both class names side-by-side</b>, this helps preserve syntax when stacking variations like a <code>right floated left aligned column</code></p>
+      </div>
+
+      <div class="ui right aligned grid">
+        <div class="right floated left aligned six wide column">
+          <div class="ui segment">
+            Right floated left aligned
+          </div>
+        </div>
+        <div class="left floated right aligned six wide column">
+          <div class="ui segment">
+            Left floated right aligned
+          </div>
+        </div>
+        <div class="center aligned two column row">
+          <div class="column">
+            <div class="ui segment">
+            Center aligned row
+            </div>
+          </div>
+          <div class="column">
+            <div class="ui segment">
+            Center aligned row
+            </div>
+          </div>
+        </div>
+        <div class="sixteen wide column">
+          <div class="ui segment">
+            Right Aligned Grid
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="highlighted negative example">
       <h4 class="ui header">Grid Row Spacing</h4>
@@ -286,37 +324,11 @@ themes      : ['Default']
 
     <div class="example">
       <h4 class="ui header">Full Width Backgrounds</h4>
-      <p>Grids use <b>negative margins</b> to remove first and last column margins, this means you cannot directly apply a background color on a grid. To add a background try wrapping your grid inside another container.</p>
+      <p>Grids use <b>negative margins</b> to remove first and last column margins, this means you cannot directly apply a background color on a grid. To add a background try wrapping your grid inside another container, for example a <code>ui segment</code>.</p>
       <div class="ui ignored warning message">
         Due to <a href="http://stackoverflow.com/questions/19718634/how-to-disable-margin-collapsing" target="_blank">collapsing margins</a> the parent container must have a clearfix, or <code>overflow:hidden</code> to prevent inheriting the grid's margins.
       </div>
-      <div class="existing code">
-        <style type="text/css">
-        .my-container {
-          background-color: #39CCCC;
-          color: #FFFFFF;
-          margin: 1em 0em;
-          overflow: hidden;
-        }
-        </style>
-        <div class="my-container">
-          <div class="ui page grid">
-            <div class="column">
-              <h2 class="ui inverted header">Second Heading</h2>
-              <p>Second section of content</p>
-            </div>
-          </div>
-        </div>
-        <div class="my-container">
-          <div class="ui page grid">
-            <div class="column">
-              <h2 class="ui inverted header">Second Heading</h2>
-              <p>Second section of content</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="my-container" style="background-color:#39CCCC;color:#FFFFFF;margin: 1em 0em 0em;overflow:hidden;">
+      <div class="ui inverted teal vertical segment">
         <div class="ui page grid">
           <div class="column">
             <h2 class="ui inverted header">Second Heading</h2>
@@ -324,7 +336,7 @@ themes      : ['Default']
           </div>
         </div>
       </div>
-      <div class="my-container" style="background-color:#333333;color:#FFFFFF;overflow:hidden;">
+      <div class="ui inverted black vertical segment">
         <div class="ui page grid">
           <div class="column">
             <h2 class="ui inverted header">Second Heading</h2>
@@ -335,101 +347,40 @@ themes      : ['Default']
     </div>
 
     <div class="example">
-      <h4 class="ui header">Container Backgrounds</h4>
-      <p>If you need to specify a background on the container, and a full width background, you can use a nested grid.</p>
-      <div class="existing code">
-        <style type="text/css">
-        .my-container {
-          background-color: #39CCCC;
-          color: #FFFFFF;
-          margin: 1em 0em;
-          overflow: hidden;
-        }
-        .my-container .row:first-child {
-          background-color:#39CCCC;
-          color: #FFFFFF;
-        }
-        .my-container .row:last-child {
-          background-color:#333333;
-          color: #FFFFFF;
-        }
-        </style>
-        <div class="my-container">
-          <div class="ui page grid">
-            <div class="row">
-              <div class="column">
-                <h2 class="ui inverted header">First Heading</h2>
-                <p>First section of content</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="column">
-                <h2 class="ui inverted header">Second Heading</h2>
-                <p>Second section of content</p>
-              </div>
-            </div>
+      <h4 class="ui header">Row and Column Backgrounds</h4>
+      <p>If you need to specify colors on grid rows of columns, you can use a <b>color variation</b></p>
+      <div class="ui info message ignored">
+        <p>Using colored variations should use a <code>padded grid</code> variation to make sure that the grid knows to preserve column padding on colored backgrounds</p>
+      </div>
+      <div class="ui padded grid">
+        <div class="two column row">
+          <div class="white column">
+            <h2 class="ui header">First Heading</h2>
+            <p>First section of content</p>
+          </div>
+          <div class="teal column">
+            <h2 class="ui inverted header">First Heading</h2>
+            <p>First section of content</p>
           </div>
         </div>
-      </div>
-      <div class="my-container" style="background-color:#DDDDDD;color:#FFFFFF;margin: 1em 0em;overflow:hidden;">
-        <div class="ui page grid">
-          <div class="row" style="background-color:#39CCCC;color:#FFFFFF;">
-            <div class="column">
-              <h2 class="ui inverted header">First Heading</h2>
-              <p>First section of content</p>
-            </div>
-          </div>
-          <div class="row" style="background-color:#333333;color:#FFFFFF;">
-            <div class="column">
-              <h2 class="ui inverted header">Second Heading</h2>
-              <p>Second section of content</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="example">
-      <h4 class="ui header">Padded Grids</h4>
-      <p>When using grids with backgrounds you may not want the grid contents to sit flush with the edge of its parent containers, to fix this you need to use the <code>padded</code> grid variation, or specify a padding on your parent container.</p>
-      <div class="my-container" style="background-color:#DDDDDD;color:#FFFFFF;margin: 1em 0em;overflow:hidden;">
-        <div class="ui padded page grid">
-          <div class="row" style="background-color:#39CCCC;color:#FFFFFF;">
-            <div class="column">
-              <h2 class="ui inverted header">First Heading</h2>
-              <p>First section of content</p>
-            </div>
-          </div>
-          <div class="row" style="background-color:#333333;color:#FFFFFF;">
-            <div class="column">
-              <h2 class="ui inverted header">Second Heading</h2>
-              <p>Second section of content</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="another example">
-      <div class="my-container" style="background-color:#39CCCC;color:#FFFFFF;padding: 2em;overflow:hidden;">
-        <div class="ui page grid">
+        <div class="black row">
           <div class="column">
             <h2 class="ui inverted header">Second Heading</h2>
             <p>Second section of content</p>
           </div>
         </div>
-      </div>
-      <div class="my-container" style="background-color:#333333;color:#FFFFFF;padding: 2em;overflow:hidden;">
-        <div class="ui page grid">
-          <div class="column">
-            <h2 class="ui inverted header">Second Heading</h2>
-            <p>Second section of content</p>
-          </div>
+        <div class="eight wide teal column">
+          <h2 class="ui inverted header">Second Heading</h2>
+          <p>Second section of content</p>
+        </div>
+        <div class="eight wide white column">
+          <h2 class="ui inverted header">Second Heading</h2>
+          <p>Second section of content</p>
         </div>
       </div>
     </div>
 
   </div>
-
 
   <div class="ui tab" data-tab="definition">
 
