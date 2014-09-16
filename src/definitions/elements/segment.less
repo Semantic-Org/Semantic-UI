@@ -144,7 +144,8 @@
 
 .ui.piled.segment {
   margin: @piledMargin 0em;
-  box-shadow: @piledBoxShadow
+  box-shadow: @piledBoxShadow;
+  z-index: 1;
 }
 .ui.piled.segment:first-child {
   margin-top: 0em;
@@ -162,7 +163,7 @@
   left: -1px;
   position: absolute;
   width: 100%;
-  box-shadow: @piledBoxShadow
+  box-shadow: @piledBoxShadow;
 }
 .ui.piled.segment:after {
   transform: rotate(@piledDegrees);
