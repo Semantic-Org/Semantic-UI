@@ -46,34 +46,6 @@
     Load Default
 -------------------*/
 /*******************************
-             Popup
-*******************************/
-/*-------------------
-       Element
---------------------*/
-/*-------------------
-       Parts
---------------------*/
-/* Placement */
-/* Header */
-/* Content Border */
-/* Arrow */
-/*-------------------
-       Coupling
---------------------*/
-/*-------------------
-       States
---------------------*/
-/*-------------------
-       Variations
---------------------*/
-/* Wide */
-/* Inverted */
-/* Sizes */
-/*------------------
-     Load Theme
--------------------*/
-/*******************************
          Site Settings
 *******************************/
 /*-------------------
@@ -164,6 +136,34 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*******************************
+             Popup
+*******************************/
+/*-------------------
+       Element
+--------------------*/
+/*-------------------
+       Parts
+--------------------*/
+/* Placement */
+/* Header */
+/* Content Border */
+/* Arrow */
+/*-------------------
+       Coupling
+--------------------*/
+/*-------------------
+       States
+--------------------*/
+/*-------------------
+       Variations
+--------------------*/
+/* Wide */
+/* Inverted */
+/* Sizes */
+/*------------------
+     Load Theme
+-------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -185,7 +185,7 @@
   top: 0px;
   right: 0px;
   z-index: 900;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid #cccccc;
   max-width: 250px;
   background-color: #ffffff;
   padding: 0.8em 1em;
@@ -215,7 +215,7 @@
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
   z-index: 2;
-  box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 0px 0px #b3b3b3;
 }
 /*******************************
             Types
@@ -251,7 +251,7 @@
   left: 50%;
   right: auto;
   bottom: auto;
-  box-shadow: -1px -1px 0px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: -1px -1px 0px 0px #b3b3b3;
 }
 .ui.bottom.left.popup {
   margin-left: 0em;
@@ -262,7 +262,7 @@
   right: auto;
   bottom: auto;
   margin-left: 0em;
-  box-shadow: -1px -1px 0px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: -1px -1px 0px 0px #b3b3b3;
 }
 .ui.bottom.right.popup {
   margin-right: 0em;
@@ -273,7 +273,7 @@
   bottom: auto;
   left: auto;
   margin-left: 0em;
-  box-shadow: -1px -1px 0px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: -1px -1px 0px 0px #b3b3b3;
 }
 /*--- Above ---*/
 .ui.top.center.popup:before {
@@ -310,7 +310,7 @@
   bottom: auto;
   left: auto;
   margin-top: -0.325em;
-  box-shadow: 1px -1px 0px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px -1px 0px 0px #b3b3b3;
 }
 /*--- Right Center  ---*/
 .ui.right.center.popup:before {
@@ -319,7 +319,7 @@
   bottom: auto;
   right: auto;
   margin-top: -0.325em;
-  box-shadow: -1px 1px 0px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: -1px 1px 0px 0px #b3b3b3;
 }
 /*******************************
             States
@@ -376,16 +376,16 @@
      Sizes
 ---------------*/
 .ui.small.popup {
-  font-size: 0.875em;
+  font-size: 0.8rem;
 }
 .ui.popup {
-  font-size: 1em;
+  font-size: 0.875rem;
 }
 .ui.large.popup {
-  font-size: 1.125em;
+  font-size: 1rem;
 }
 .ui.huge.popup {
-  font-size: 1.375em;
+  font-size: 1.1rem;
 }
 /*******************************
            Overrides

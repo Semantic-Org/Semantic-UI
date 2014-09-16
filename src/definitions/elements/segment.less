@@ -152,7 +152,6 @@
 .ui.piled.segment {
   margin: @piledMargin 0em;
   box-shadow: @piledBoxShadow;
-  z-index: 1;
 }
 .ui.piled.segment:first-child {
   margin-top: 0em;
@@ -164,10 +163,10 @@
 .ui.piled.segment:before {
   background-color: @white;
   visibility: visible;
-  content: "";
+  content: '';
   display: block;
   height: 100%;
-  left: -1px;
+  left: 0px;
   position: absolute;
   width: 100%;
   box-shadow: @piledBoxShadow;

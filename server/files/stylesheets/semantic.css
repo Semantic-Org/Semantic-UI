@@ -225,7 +225,6 @@ a:hover {
   left: -1px;
   min-width: 320px;
   width: calc(100% + 1px);
-  z-index: 1004;
 }
 #example .main.menu iframe {
   margin: 0px 0px 0px 0px;
@@ -712,6 +711,7 @@ body#example.hide {
 
 #example .main.container {
   position: relative;
+  z-index: 1;
   padding-bottom: 2em;
 }
 #example .main.container > h2 {

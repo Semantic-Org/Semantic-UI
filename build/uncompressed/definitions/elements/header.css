@@ -155,6 +155,7 @@
 /* Icon Header */
 /* Divided */
 /* Block */
+/* Divided */
 /* Attached */
 /* Inverted */
 /* Floated */
@@ -324,82 +325,82 @@ h5.ui.header {
   color: #191919 !important;
 }
 a.ui.black.header:hover {
-  color: #2b2b2b;
+  color: #2b2b2b !important;
 }
 .ui.blue.header {
-  color: #0074d9 !important;
+  color: #0066c0 !important;
 }
 a.ui.blue.header:hover {
-  color: #0087fd;
+  color: #0087fd !important;
 }
 .ui.green.header {
-  color: #2ecc40 !important;
+  color: #1aa62a !important;
 }
 a.ui.green.header:hover {
-  color: #48d658;
+  color: #48d658 !important;
 }
 .ui.orange.header {
-  color: #ff851b !important;
+  color: #ff7701 !important;
 }
 a.ui.orange.header:hover {
-  color: #ff983f;
+  color: #ff983f !important;
 }
 .ui.pink.header {
-  color: #d9499a !important;
+  color: #d5348e !important;
 }
 a.ui.pink.header:hover {
-  color: #df67aa;
+  color: #df67aa !important;
 }
 .ui.purple.header {
-  color: #a24096 !important;
+  color: #903985 !important;
 }
 a.ui.purple.header:hover {
-  color: #b94dac;
+  color: #b94dac !important;
 }
 .ui.red.header {
-  color: #ff4136 !important;
+  color: #ff291c !important;
 }
 a.ui.red.header:hover {
-  color: #ff635a;
+  color: #ff635a !important;
 }
 .ui.teal.header {
-  color: #39cccc !important;
+  color: #0e8c8c !important;
 }
 a.ui.teal.header:hover {
-  color: #55d3d3;
+  color: #55d3d3 !important;
 }
 .ui.yellow.header {
   color: #ffcb08 !important;
 }
 a.ui.yellow.header:hover {
-  color: #ffd32c;
+  color: #ffd32c !important;
 }
 .ui.black.dividing.header {
-  border-bottom: 3px solid #191919;
+  border-bottom: 2px solid #191919;
 }
 .ui.blue.dividing.header {
-  border-bottom: 3px solid #0074d9;
+  border-bottom: 2px solid #0066c0;
 }
 .ui.green.dividing.header {
-  border-bottom: 3px solid #2ecc40;
+  border-bottom: 2px solid #1aa62a;
 }
 .ui.orange.dividing.header {
-  border-bottom: 3px solid #ff851b;
+  border-bottom: 2px solid #ff7701;
 }
 .ui.pink.dividing.header {
-  border-bottom: 3px solid #d9499a;
+  border-bottom: 2px solid #d5348e;
 }
 .ui.purple.dividing.header {
-  border-bottom: 3px solid #a24096;
+  border-bottom: 2px solid #903985;
 }
 .ui.red.dividing.header {
-  border-bottom: 3px solid #ff4136;
+  border-bottom: 2px solid #ff291c;
 }
 .ui.teal.dividing.header {
-  border-bottom: 3px solid #39cccc;
+  border-bottom: 2px solid #0e8c8c;
 }
 .ui.yellow.dividing.header {
-  border-bottom: 3px solid #ffcb08;
+  border-bottom: 2px solid #9c6f04;
 }
 /*-------------------
       Inverted

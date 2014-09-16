@@ -42,8 +42,10 @@
 @circularPadding: 2em;
 
 /* Stacked */
-@stackedPadding: @verticalPadding + (0.7em);
-@stackedHeight: 5px;
+@stackedHeight: 6px;
+@stackedPageBackground: @subtleTransparentBlack;
+@stackedPadding: @verticalPadding + (0.4em);
+@tallStackedPadding: @verticalPadding + (0.8em);
 
 /* Raised */
 @raisedShadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.15);

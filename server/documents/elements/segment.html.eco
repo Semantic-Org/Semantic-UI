@@ -33,39 +33,8 @@ themes      : ['default', 'GitHub']
   </div>
 
   <div class="example">
-    <h4 class="ui header">Piled</h4>
-    <p>A segment can be formatted to look like a pile of pages</p>
-    <div class="ui piled segment">
-      <h4 class="ui header">A header</h4>
-      <p>Te eum doming eirmod, nominati pertinacia argumentum ad his. Ex eam alia facete scriptorem, est autem aliquip detraxit at. Usu ocurreret referrentur at, cu epicurei appellantur vix. Cum ea laoreet recteque electram, eos choro alterum definiebas in. Vim dolorum definiebas an. Mei ex natum rebum iisque.</p>
-
-      <p>Audiam quaerendum eu sea, pro omittam definiebas ex. Te est latine definitiones. Quot wisi nulla ex duo. Vis sint solet expetenda ne, his te phaedrum referrentur consectetuer. Id vix fabulas oporteat, ei quo vide phaedrum, vim vivendum maiestatis in.</p>
-
-      <p>Eu quo homero blandit intellegebat. Incorrupte consequuntur mei id. Mei ut facer dolores adolescens, no illum aperiri quo, usu odio brute at. Qui te porro electram, ea dico facete utroque quo. Populo quodsi te eam, wisi everti eos ex, eum elitr altera utamur at. Quodsi convenire mnesarchum eu per, quas minimum postulant per id.</p>
-    </div>
-  </div>
-
-  <div class="example">
-    <h4 class="ui header">Stacked</h4>
-    <p>A segment can be formatted to show it contains multiple pages</p>
-    <div class="ui stacked segment">
-      <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-    </div>
-  </div>
-  <div class="another example">
-    <div class="ui tall stacked segment">
-      <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-    </div>
-  </div>
-
-  <div class="example">
     <h4 class="ui header">Vertical Segment</h4>
     <p>A vertical segment formats content to be aligned as part of a vertical group</p>
-    <div class="ui ignored info message">
-      <h3 class="ui header">When to use Directional Segments</h3>
-      <p>Horizontal and vertical segments, are most effectively used with grids, to allow for content to sit only certain columns in a row to receive borders, instead of setting all columns to bordered with <code>ui divided grid</code>.</p>
-      <p>A <code>vertical segment</code> for example, only adds vertical padding and a vertical border, while a <code>basic vertical segment</code> adds only the padding.</p>
-    </div>
     <div class="ui segment">
       <div class="ui vertical segment">
         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
@@ -82,6 +51,11 @@ themes      : ['default', 'GitHub']
   <div class="example">
     <h4 class="ui header">Horizontal Segment</h4>
     <p>A vertical segment formats content to be aligned as part of a horizontal group</p>
+    <div class="ui ignored info message">
+      <h3 class="ui header">When to Use Horizontal Segments</h3>
+      <p>Horizontal segments are most effectively used with grids, to allow for text groups that are aligned across grid rows or inside grid.</p>
+      <p>A <code>horizontal segment</code> adds horizontal padding and a horizontal border, while a <code>basic horizontal segment</code> adds only the padding <b>but not the border</b>.</p>
+    </div>
     <div class="ui three column grid">
       <div class="column">
         <div class="ui horizontal segment">
@@ -100,6 +74,36 @@ themes      : ['default', 'GitHub']
       </div>
     </div>
   </div>
+
+  <div class="example">
+    <h4 class="ui header">Stacked</h4>
+    <p>A segment can be formatted to show it contains multiple pages</p>
+    <div class="ui stacked segment">
+      <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui tall stacked segment">
+      <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Piled</h4>
+    <p>A segment can be formatted to look like a pile of pages</p>
+    <div class="ui ignored warning message">
+      Piled segments use <b>negative z-index</b> to format the additional pages below the segment. In order for them to appear correctly, your segment's offset container must have a z-index declared.
+    </div>
+    <div class="ui piled segment">
+      <h4 class="ui header">A header</h4>
+      <p>Te eum doming eirmod, nominati pertinacia argumentum ad his. Ex eam alia facete scriptorem, est autem aliquip detraxit at. Usu ocurreret referrentur at, cu epicurei appellantur vix. Cum ea laoreet recteque electram, eos choro alterum definiebas in. Vim dolorum definiebas an. Mei ex natum rebum iisque.</p>
+
+      <p>Audiam quaerendum eu sea, pro omittam definiebas ex. Te est latine definitiones. Quot wisi nulla ex duo. Vis sint solet expetenda ne, his te phaedrum referrentur consectetuer. Id vix fabulas oporteat, ei quo vide phaedrum, vim vivendum maiestatis in.</p>
+
+      <p>Eu quo homero blandit intellegebat. Incorrupte consequuntur mei id. Mei ut facer dolores adolescens, no illum aperiri quo, usu odio brute at. Qui te porro electram, ea dico facete utroque quo. Populo quodsi te eam, wisi everti eos ex, eum elitr altera utamur at. Quodsi convenire mnesarchum eu per, quas minimum postulant per id.</p>
+    </div>
+  </div>
+
 
   <h2 class="ui dividing header">States</h2>
 
@@ -126,7 +130,7 @@ themes      : ['default', 'GitHub']
     <p>A segment can be attached to other content on a page</p>
 
     <div class="ui ignored info message">
-      <div class="header">Adding section headers</div>
+      <div class="header">Adding Segment Headers</div>
       <p>Attached segments are designed to be used with <code>attached header</code> a variation of <a href="/elements/header.html">header</a> that can attach to segments.</p>
       <p>You can also attach <a href="/collections/message.html">ui messages</a> to segments as well</p>
     </div>
