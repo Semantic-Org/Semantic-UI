@@ -524,31 +524,32 @@ themes      : ['Default']
       <p>A grid can have rows divided into cells</p>
       <div class="ui celled grid">
         <div class="row">
-          <div class="two wide column" style="">
-            <p>Lorem ipsum do</p>
+          <div class="three wide column">
+            <img src="/images/leaves/2.png" class="ui fluid image">
           </div>
-          <div class="three wide column" style="">
-            <p>Lorem ipsum dolor </p>
+          <div class="three wide column">
+            <img src="/images/leaves/5.png" class="ui fluid image">
+          </div>
+          <div class="three wide column">
+            <img src="/images/leaves/6.png" class="ui fluid image">
           </div>
           <div class="seven wide column">
-            <p>Lorem ipsum dolor sitos. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+            <h3 class="ui dividing green header">What are Leaves?</h3>
+            <p>A leaf is an above-ground plant organ. Its main functions are photosynthesis and gas exchange. A leaf is often flat, so it absorbs the most light, and thin, so that the sunlight can get to the chloroplasts in the cells.</p>
           </div>
         </div>
         <div class="row">
-          <div class="five wide column">
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-          </div>
-
           <div class="three wide column">
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+            <img src="/images/leaves/4.png" class="ui fluid image">
           </div>
-
-          <div class="two wide column">
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-          </div>
-          <div class="two wide column">
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+          <div class="ten wide column">
+            <h3 class="ui dividing green header">Coloring Leaves</h3>
+            <p>Leaves come in many shapes and sizes. The biggest undivided leaf is that of a giant edible aroid. This lives in marshy parts of the tropical rain forest of Borneo.</p>
+            <p> One of its leaves can be ten feet across and have a surface area of over 30 square feet.
+          </p>
+        </div>
+          <div class="three wide column">
+            <img src="/images/leaves/7.png" class="ui fluid image">
           </div>
         </div>
       </div>

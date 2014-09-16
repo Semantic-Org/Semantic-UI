@@ -56,10 +56,13 @@ themes      : ['Default', 'Bookish', 'Chubby']
   <div class="example">
     <h4 class="ui header">Icon</h4>
     <p>A header can be formatted to emphasize an icon</p>
-    <div class="ui icon header">
-      <i class="circular question icon"></i>Questions
-      <div class="sub header">Have any questions? Contact Us</div>
-    </div>
+    <h2 class="ui icon header">
+      <i class="settings icon"></i>
+      <div class="content">
+        Account Settings
+        <div class="sub header">Manage your account settings and set e-mail preferences.</div>
+      </div>
+    </h2>
   </div>
 
 

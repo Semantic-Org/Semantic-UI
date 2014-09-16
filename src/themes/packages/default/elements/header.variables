@@ -65,7 +65,7 @@
 
 /* Divided */
 @dividedBorder: 1px solid rgba(0, 0, 0, 0.1);
-@dividedColoredBorderWidth: 3px;
+@dividedColoredBorderWidth: 2px;
 
 @dividedBorderPadding: 0.2rem;
 @dividedSubHeaderPadding: 0.5rem;
@@ -84,6 +84,17 @@
 @mediumBlock: 1.1em;
 @largeBlock: 1.2em;
 @hugeBlock: 1.33em;
+
+/* Divided */
+@blackDividedBorderColor: @black;
+@blueDividedBorderColor: @blueHeaderColor;
+@greenDividedBorderColor: @greenHeaderColor;
+@orangeDividedBorderColor: @orangeHeaderColor;
+@pinkDividedBorderColor: @pinkHeaderColor;
+@purpleDividedBorderColor: @purpleHeaderColor;
+@redDividedBorderColor: @redHeaderColor;
+@tealDividedBorderColor: @tealHeaderColor;
+@yellowDividedBorderColor: @yellowHeaderColor;
 
 /* Attached */
 @attachedOffset: 0px;
