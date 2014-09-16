@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -176,7 +176,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Standard
@@ -291,7 +291,7 @@
 .ui.items > .item > .content > .header {
   display: inline-block;
   margin: 0em;
-  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.85);
 }

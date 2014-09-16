@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -160,7 +160,7 @@
            Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
            Breadcrumb
@@ -299,7 +299,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -445,7 +445,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Elements
@@ -1133,7 +1133,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -1265,7 +1265,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Standard
@@ -2197,7 +2197,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -2353,7 +2353,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Standard
@@ -3795,7 +3795,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -3921,7 +3921,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Message
@@ -3951,7 +3951,7 @@
 /* Header */
 .ui.message .header {
   display: block;
-  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 1rem;
   font-weight: bold;
   margin: 0em 0em 0em 0rem;
@@ -4316,7 +4316,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -4459,7 +4459,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
              Table
@@ -5184,7 +5184,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -5335,7 +5335,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Button
@@ -5352,7 +5352,7 @@
   color: rgba(0, 0, 0, 0.6);
   margin: 0em 0.25em 0em 0em;
   padding: 0.8em 1.5em 0.8em;
-  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   text-transform: none;
   text-shadow: none;
   font-weight: bold;
@@ -7335,7 +7335,10 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
+-------------------*/
+/*------------------
+     Load Theme
 -------------------*/
 /*******************************
          Site Settings
@@ -7446,9 +7449,6 @@
 /* Inverted */
 /* Section */
 /*------------------
-     Load Theme
--------------------*/
-/*------------------
      Load Site
 -------------------*/
 /*******************************
@@ -7458,7 +7458,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Divider
@@ -7693,7 +7693,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -7805,7 +7805,7 @@
    Flag Variables
 --------------------*/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 i.flag {
   display: inline-block;
@@ -8852,7 +8852,7 @@ i.flag.zimbabwe:before {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -8980,7 +8980,7 @@ i.flag.zimbabwe:before {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Header
@@ -8988,7 +8988,7 @@ i.flag.zimbabwe:before {
 /* Standard */
 .ui.header {
   border: none;
-  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   margin: 1em 0em 1rem;
   padding: 0em 0em;
   font-weight: bold;
@@ -9488,7 +9488,7 @@ a.ui.inverted.yellow.header:hover {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -9600,7 +9600,7 @@ a.ui.inverted.yellow.header:hover {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
              Icon
@@ -11686,7 +11686,7 @@ i.icon.weixin:before {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -11808,7 +11808,7 @@ i.icon.weixin:before {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
              Image
@@ -12057,7 +12057,7 @@ img.ui.bordered.image {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -12187,7 +12187,7 @@ img.ui.bordered.image {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
            Standard
@@ -12501,7 +12501,7 @@ img.ui.bordered.image {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -12641,7 +12641,7 @@ img.ui.bordered.image {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Label
@@ -13521,7 +13521,7 @@ a.ui.yellow.label:hover:before {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -13669,7 +13669,7 @@ a.ui.yellow.label:hover:before {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             List
@@ -13808,7 +13808,7 @@ ol.ui.list ol,
 .ui.list .header {
   display: block;
   margin: 0em;
-  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.8);
 }
@@ -14344,7 +14344,7 @@ ol.ui.horizontal.list li:before,
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -14467,7 +14467,7 @@ ol.ui.horizontal.list li:before,
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Loader
@@ -14750,7 +14750,7 @@ ol.ui.horizontal.list li:before,
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -14871,7 +14871,7 @@ ol.ui.horizontal.list li:before,
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 .ui.progress {
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -15372,7 +15372,7 @@ ol.ui.horizontal.list li:before,
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -15498,7 +15498,7 @@ ol.ui.horizontal.list li:before,
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Segment
@@ -15940,7 +15940,7 @@ ol.ui.horizontal.list li:before,
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -16067,7 +16067,7 @@ ol.ui.horizontal.list li:before,
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Step
@@ -16109,7 +16109,7 @@ ol.ui.horizontal.list li:before,
 *******************************/
 /* Title */
 .ui.steps .step .title {
-  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 1.1em;
   font-weight: bold;
 }
@@ -16406,7 +16406,7 @@ ol.ui.horizontal.list li:before,
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -16515,7 +16515,7 @@ ol.ui.horizontal.list li:before,
      User Global Variables
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
              Reset
@@ -16848,6 +16848,7 @@ input[type="password"] {
            Overrides
 *******************************/
 
+@import 'http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic';
 /*
  * # Semantic - Site
  * http://github.com/semantic-org/semantic-ui/
@@ -16893,7 +16894,7 @@ input[type="password"] {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -16996,8 +16997,11 @@ input[type="password"] {
      User Global Variables
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
+/*******************************
+           Web Fonts
+*******************************/
 /*******************************
              Page
 *******************************/
@@ -17017,7 +17021,7 @@ body {
   padding: 0px;
   min-width: 320px;
   background: #f7f7f7;
-  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 14px;
   line-height: 1.33;
   color: rgba(0, 0, 0, 0.8);
@@ -17119,7 +17123,7 @@ a:hover {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -17241,7 +17245,7 @@ a:hover {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Accordion
@@ -17258,7 +17262,7 @@ a:hover {
 .ui.accordion .title,
 .ui.accordion .accordion .title {
   cursor: pointer;
-  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 1em;
   padding: 0.5em 0em;
   color: rgba(0, 0, 0, 0.8);
@@ -17452,7 +17456,7 @@ a:hover {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -17561,7 +17565,7 @@ a:hover {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
            Chat Room
@@ -17848,7 +17852,7 @@ a:hover {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -17977,7 +17981,7 @@ a:hover {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
            Checkbox
@@ -18412,7 +18416,7 @@ a:hover {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -18528,7 +18532,7 @@ a:hover {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Dimmer
@@ -18719,7 +18723,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -18865,7 +18869,7 @@ b        Types
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Dropdown
@@ -19607,7 +19611,7 @@ select.ui.dropdown {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -19734,7 +19738,7 @@ select.ui.dropdown {
            Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
              Modal
@@ -19794,7 +19798,7 @@ select.ui.dropdown {
 ---------------*/
 .ui.modal > .header {
   display: block;
-  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   background: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05)) #ffffff;
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.05)) #ffffff;
   margin: 0em;
@@ -20123,7 +20127,7 @@ select.ui.dropdown {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -20251,7 +20255,7 @@ select.ui.dropdown {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
              Nag
@@ -20410,7 +20414,35 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
+-------------------*/
+/*******************************
+             Popup
+*******************************/
+/*-------------------
+       Element
+--------------------*/
+/*-------------------
+       Parts
+--------------------*/
+/* Placement */
+/* Header */
+/* Content Border */
+/* Arrow */
+/*-------------------
+       Coupling
+--------------------*/
+/*-------------------
+       States
+--------------------*/
+/*-------------------
+       Variations
+--------------------*/
+/* Wide */
+/* Inverted */
+/* Sizes */
+/*------------------
+     Load Theme
 -------------------*/
 /*******************************
          Site Settings
@@ -20503,34 +20535,6 @@ a.ui.nag {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*******************************
-             Popup
-*******************************/
-/*-------------------
-       Element
---------------------*/
-/*-------------------
-       Parts
---------------------*/
-/* Placement */
-/* Header */
-/* Content Border */
-/* Arrow */
-/*-------------------
-       Coupling
---------------------*/
-/*-------------------
-       States
---------------------*/
-/*-------------------
-       Variations
---------------------*/
-/* Wide */
-/* Inverted */
-/* Sizes */
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -20541,7 +20545,7 @@ a.ui.nag {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Popup
@@ -20552,7 +20556,7 @@ a.ui.nag {
   top: 0px;
   right: 0px;
   z-index: 900;
-  border: 1px solid #cccccc;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   max-width: 250px;
   background-color: #ffffff;
   padding: 0.8em 1em;
@@ -20564,7 +20568,7 @@ a.ui.nag {
 }
 .ui.popup > .header {
   padding: 0em;
-  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 1.125em;
   line-height: 1.2;
   font-weight: bold;
@@ -20582,7 +20586,7 @@ a.ui.nag {
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
   z-index: 2;
-  box-shadow: 1px 1px 0px 0px #b3b3b3;
+  box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.1);
 }
 /*******************************
             Types
@@ -20618,7 +20622,7 @@ a.ui.nag {
   left: 50%;
   right: auto;
   bottom: auto;
-  box-shadow: -1px -1px 0px 0px #b3b3b3;
+  box-shadow: -1px -1px 0px 0px rgba(0, 0, 0, 0.1);
 }
 .ui.bottom.left.popup {
   margin-left: 0em;
@@ -20629,7 +20633,7 @@ a.ui.nag {
   right: auto;
   bottom: auto;
   margin-left: 0em;
-  box-shadow: -1px -1px 0px 0px #b3b3b3;
+  box-shadow: -1px -1px 0px 0px rgba(0, 0, 0, 0.1);
 }
 .ui.bottom.right.popup {
   margin-right: 0em;
@@ -20640,7 +20644,7 @@ a.ui.nag {
   bottom: auto;
   left: auto;
   margin-left: 0em;
-  box-shadow: -1px -1px 0px 0px #b3b3b3;
+  box-shadow: -1px -1px 0px 0px rgba(0, 0, 0, 0.1);
 }
 /*--- Above ---*/
 .ui.top.center.popup:before {
@@ -20677,7 +20681,7 @@ a.ui.nag {
   bottom: auto;
   left: auto;
   margin-top: -0.325em;
-  box-shadow: 1px -1px 0px 0px #b3b3b3;
+  box-shadow: 1px -1px 0px 0px rgba(0, 0, 0, 0.1);
 }
 /*--- Right Center  ---*/
 .ui.right.center.popup:before {
@@ -20686,7 +20690,7 @@ a.ui.nag {
   bottom: auto;
   right: auto;
   margin-top: -0.325em;
-  box-shadow: -1px 1px 0px 0px #b3b3b3;
+  box-shadow: -1px 1px 0px 0px rgba(0, 0, 0, 0.1);
 }
 /*******************************
             States
@@ -20743,16 +20747,16 @@ a.ui.nag {
      Sizes
 ---------------*/
 .ui.small.popup {
-  font-size: 0.8rem;
+  font-size: 0.875em;
 }
 .ui.popup {
-  font-size: 0.875rem;
+  font-size: 1em;
 }
 .ui.large.popup {
-  font-size: 1rem;
+  font-size: 1.125em;
 }
 .ui.huge.popup {
-  font-size: 1.1rem;
+  font-size: 1.375em;
 }
 /*******************************
            Overrides
@@ -20806,7 +20810,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -20926,7 +20930,7 @@ a.ui.nag {
            Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
            Rating
@@ -21178,7 +21182,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -21305,7 +21309,7 @@ a.ui.nag {
            Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
              Search
@@ -21345,7 +21349,7 @@ a.ui.nag {
     Result
 ---------------*/
 .ui.search .result {
-  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   cursor: pointer;
   overflow: hidden;
   font-size: 0.9em;
@@ -21377,7 +21381,7 @@ a.ui.nag {
   margin: 0em 6em 0em 0em;
 }
 .ui.search .result .title {
-  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.85);
 }
@@ -21395,7 +21399,7 @@ a.ui.nag {
   padding: 1em 1em;
 }
 .ui.search .message .header {
-  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 1.2em;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.8);
@@ -21487,7 +21491,7 @@ a.ui.nag {
   box-shadow: none;
 }
 .ui.search .results .category > .name {
-  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   float: 0.9em;
   float: left;
   padding: 0.4em 0em 0em 1em;
@@ -21561,7 +21565,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -21676,7 +21680,7 @@ a.ui.nag {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
               Shape
@@ -21838,7 +21842,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -21947,7 +21951,7 @@ a.ui.nag {
            Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Sidebar
@@ -22409,7 +22413,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -22518,7 +22522,7 @@ a.ui.nag {
            Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Sticky
@@ -22608,7 +22612,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -22719,7 +22723,7 @@ a.ui.nag {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
            UI Tabs
@@ -22816,7 +22820,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -22925,7 +22929,7 @@ a.ui.nag {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
           Transitions
@@ -23904,7 +23908,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -24010,7 +24014,7 @@ a.ui.nag {
      User Global Variables
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Video
@@ -24152,7 +24156,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -24289,7 +24293,7 @@ a.ui.nag {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Standard
@@ -24407,7 +24411,7 @@ a.ui.nag {
 .ui.card > .content > .header {
   display: block;
   margin: 0em;
-  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 1.2em;
   color: rgba(0, 0, 0, 0.85);
@@ -25013,7 +25017,7 @@ a.ui.card:hover,
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -25143,7 +25147,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Standard
@@ -25398,7 +25402,7 @@ a.ui.card:hover,
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -25534,7 +25538,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
          Activity Feed
@@ -25811,7 +25815,7 @@ a.ui.card:hover,
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -25944,7 +25948,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Standard
@@ -26059,7 +26063,7 @@ a.ui.card:hover,
 .ui.items > .item > .content > .header {
   display: inline-block;
   margin: 0em;
-  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.85);
 }
@@ -26319,7 +26323,7 @@ a.ui.card:hover,
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -26449,7 +26453,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
            Statistic
@@ -26506,7 +26510,7 @@ a.ui.card:hover,
 ---------------*/
 .ui.statistics .statistic > .value,
 .ui.statistic > .value {
-  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 4rem;
   font-weight: normal;
   line-height: 1em;
@@ -26519,7 +26523,7 @@ a.ui.card:hover,
 ---------------*/
 .ui.statistics .statistic > .label,
 .ui.statistic > .label {
-  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 1rem;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.4);

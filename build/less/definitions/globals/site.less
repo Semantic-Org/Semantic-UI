@@ -20,6 +20,15 @@
 @import '../../semantic.config';
 
 /*******************************
+           Web Fonts
+*******************************/
+
+.loadFonts() when (@useGoogleFonts) {
+  @import (css) 'http://fonts.googleapis.com/css?family=@{googleFontName}:@{googleFontSizes}';
+}
+.loadFonts();
+
+/*******************************
              Page
 *******************************/
 
@@ -48,6 +57,7 @@ body {
   line-height: @lineHeight;
   color: @textColor;
 }
+
 
 /*******************************
              Text
