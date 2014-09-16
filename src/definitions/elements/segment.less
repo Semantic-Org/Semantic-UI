@@ -45,14 +45,13 @@
   margin-bottom: 0em;
 }
 
-/* Testing removal
 .ui.segment:after {
   content: '';
   display: block;
   height: 0px;
   clear: both;
   visibility: hidden;
-}*/
+}
 
 .ui.vertical.segment {
   margin: 0em;
@@ -67,6 +66,10 @@
 .ui.vertical.segment:first-child {
   padding-top: 0em;
 }
+.ui.vertical.segment:last-child {
+  padding-bottom: 0em;
+  box-shadow: none;
+}
 
 .ui.horizontal.segment {
   margin: 0em;
@@ -80,6 +83,10 @@
 }
 .ui.horizontal.segment:first-child {
   padding-left: 0em;
+}
+.ui.horizontal.segment:last-child {
+  box-shadow: none;
+  padding-right: 0em;
 }
 
 /*-------------------
@@ -187,17 +194,23 @@
 .ui.stacked.segment:before {
   content: '';
   position: absolute;
-  bottom: -3px;
+  bottom: -(@stackedHeight / 2);
   left: 0%;
 
   border-top: 1px solid @borderColor;
-  background-color: @subtleTransparentBlack;
+  background-color: @stackedPageBackground;
 
   width: 100%;
   height: @stackedHeight;
   visibility: visible;
 }
 .ui.stacked.segment:before {
+  display: none;
+}
+
+/* Add additional page */
+.ui.tall.stacked.segment:before {
+  display: block;
   bottom: 0px;
 }
 
