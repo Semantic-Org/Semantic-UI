@@ -969,11 +969,11 @@ body#example.hide {
   position: absolute;
   top: 1rem;
   left: 1rem;
-  background-color: #EFEFEF;
+  background-color: #E0E0E0;
   content: '';
   width: calc(100% - 2rem);
   height: calc(100% - 2rem);
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px #DDDDDD inset;
 }
 /* Consecutive */
 #example .highlighted.example > .grid + .grid {
@@ -993,7 +993,7 @@ body#example.hide {
 }
 #example .highlighted.example .grid .column:not(.row):not(.grid):after {
   background-color: #FFFFFF;
-  box-shadow: 0px 0px 0px 1px #DADADA;
+  box-shadow: 0px 0px 0px 1px #DDDDDD inset;
   content: "";
   display: block;
   min-height: 50px;
@@ -1023,7 +1023,7 @@ body#example.hide {
 /* Animation */
 #example.animated .highlighted.example > .grid,
 #example.animated .animated.example > .grid {
-  margin: -0.75rem auto;
+  margin: -1rem auto;
   -webkit-animation: grid 7s ease infinite;
   -moz-animation: grid 7s ease infinite;
   animation: grid 7s ease infinite;

@@ -350,31 +350,31 @@ themes      : ['Default']
       <h4 class="ui header">Row and Column Backgrounds</h4>
       <p>If you need to specify colors on grid rows of columns, you can use a <b>color variation</b></p>
       <div class="ui info message ignored">
-        <p>Using colored variations should use a <code>padded grid</code> variation to make sure that the grid knows to preserve column padding on colored backgrounds</p>
+        <p>Using colored variations on grid columns will require you to use a <code>padded grid</code> variation to avoid coloring in the negative margins of the grid body.</p>
       </div>
       <div class="ui padded grid">
         <div class="two column row">
           <div class="white column">
-            <h2 class="ui header">First Heading</h2>
+            <h2 class="ui header">Features</h2>
             <p>First section of content</p>
           </div>
           <div class="teal column">
-            <h2 class="ui inverted header">First Heading</h2>
+            <h2 class="ui inverted header">Statistics</h2>
             <p>First section of content</p>
           </div>
         </div>
         <div class="black row">
           <div class="column">
-            <h2 class="ui inverted header">Second Heading</h2>
+            <h2 class="ui inverted header">Headline</h2>
             <p>Second section of content</p>
           </div>
         </div>
         <div class="eight wide teal column">
-          <h2 class="ui inverted header">Second Heading</h2>
+          <h2 class="ui inverted header">Sitemap</h2>
           <p>Second section of content</p>
         </div>
         <div class="eight wide white column">
-          <h2 class="ui inverted header">Second Heading</h2>
+          <h2 class="ui header">Contact Us</h2>
           <p>Second section of content</p>
         </div>
       </div>
@@ -485,7 +485,7 @@ themes      : ['Default']
             <img src="/images/leaves/6.png" class="ui fluid image">
           </div>
           <div class="seven wide column">
-            <h3 class="ui dividing green header">What are Leaves?</h3>
+            <h3 class="ui green header">What are Leaves?</h3>
             <p>A leaf is an above-ground plant organ. Its main functions are photosynthesis and gas exchange. A leaf is often flat, so it absorbs the most light, and thin, so that the sunlight can get to the chloroplasts in the cells.</p>
           </div>
         </div>
@@ -494,7 +494,7 @@ themes      : ['Default']
             <img src="/images/leaves/4.png" class="ui fluid image">
           </div>
           <div class="ten wide column">
-            <h3 class="ui dividing green header">Coloring Leaves</h3>
+            <h3 class="ui green header">Types of Leaves</h3>
             <p>Leaves come in many shapes and sizes. The biggest undivided leaf is that of a giant edible aroid. This lives in marshy parts of the tropical rain forest of Borneo.</p>
             <p> One of its leaves can be ten feet across and have a surface area of over 30 square feet.
           </p>
@@ -534,7 +534,7 @@ themes      : ['Default']
             </div>
           </div>
         </div>
-        <div class="five  column row">
+        <div class="five column row">
           <div class="column">
             <div class="ui segment">
              B

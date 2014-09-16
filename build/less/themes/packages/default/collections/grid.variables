@@ -20,7 +20,6 @@
 @rowSpacing: 2rem;
 
 @columnMaxImageWidth: 100%;
-
 @tableWidth: ~"calc(100% + "@gutterWidth~")";
 
 /*******************************

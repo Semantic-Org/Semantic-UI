@@ -29,6 +29,7 @@
 - **Form** - Inverted form now properly styles loader
 - **Form** - New field type ``required`` formats labels to show filling out field is mandatory
 - **Grid** - ``ui divider`` can now be used inside of row columns as well as ``vertically divided grid`` variation
+- **Grid** - Grid rows and columns now support color variations
 - **Grid** - Grid has been rewritten to automatically create row flow without row wrappers
 - **Grid** - Divided and celled grids can now be inverted for dark backgrounds
 - **Grid** - Elements inside a grid that are not rows or columns will now align properly
