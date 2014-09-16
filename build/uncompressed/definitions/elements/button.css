@@ -636,14 +636,14 @@
 /*-------------------
        Floated
 --------------------*/
-.ui.left.floated.buttons,
-.ui.left.floated.button {
+.ui[class*="left floated"].buttons,
+.ui[class*="left floated"].button {
   float: left;
   margin-left: 0em;
   margin-right: 0.25em;
 }
-.ui.right.floated.buttons,
-.ui.right.floated.button {
+.ui[class*="right floated"].buttons,
+.ui[class*="right floated"].button {
   float: right;
   margin-right: 0em;
   margin-left: 0.25em;
@@ -1023,40 +1023,40 @@
   border-radius: 0em 0em 0em 0em;
 }
 /* Bottom Side */
-.bottom.attached.ui.buttons {
+[class*="bottom attached"].ui.buttons {
   margin-top: -1px;
   border-radius: 0em 0em 0.25em 0.25em;
 }
-.bottom.attached.ui.buttons .button:first-child {
+[class*="bottom attached"].ui.buttons .button:first-child {
   border-radius: 0em 0em 0em 0.25em;
 }
-.bottom.attached.ui.buttons .button:last-child {
+[class*="bottom attached"].ui.buttons .button:last-child {
   border-radius: 0em 0em 0.25em 0em;
 }
 /* Left Side */
-.left.attached.ui.buttons {
+[class*="left attached"].ui.buttons {
   margin-left: -1px;
   border-radius: 0em 0.25em 0.25em 0em;
 }
-.left.attached.ui.buttons .button:first-child {
+[class*="left attached"].ui.buttons .button:first-child {
   margin-left: -1px;
   border-radius: 0em 0.25em 0em 0em;
 }
-.left.attached.ui.buttons .button:last-child {
+[class*="left attached"].ui.buttons .button:last-child {
   margin-left: -1px;
   border-radius: 0em 0em 0.25em 0em;
 }
 /* Right Side */
-.right.attached.ui.buttons,
-.right.attached.ui.buttons .button {
+[class*="right attached"].ui.buttons,
+[class*="right attached"].ui.buttons .button {
   margin-right: -1px;
   border-radius: 0.25em 0em 0em 0.25em;
 }
-.right.attached.ui.buttons .button:first-child {
+[class*="right attached"].ui.buttons .button:first-child {
   margin-left: -1px;
   border-radius: 0.25em 0em 0em 0em;
 }
-.right.attached.ui.buttons .button:last-child {
+[class*="right attached"].ui.buttons .button:last-child {
   margin-left: -1px;
   border-radius: 0em 0em 0em 0.25em;
 }

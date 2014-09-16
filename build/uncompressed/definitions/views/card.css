@@ -312,12 +312,12 @@
 /*--------------
      Floated
 ---------------*/
-.ui.cards > .card .left.floated,
-.ui.card .left.floated {
+.ui.cards > .card [class*="left floated"],
+.ui.card [class*="left floated"] {
   float: left;
 }
-.ui.cards > .card .right.floated,
-.ui.card .right.floated {
+.ui.cards > .card [class*="right floated"],
+.ui.card [class*="right floated"] {
   float: right;
 }
 /*--------------
@@ -372,8 +372,8 @@
 .ui.card .meta :last-child {
   margin-right: 0em;
 }
-.ui.cards > .card .meta .right.floated,
-.ui.card .meta .right.floated {
+.ui.cards > .card .meta [class*="right floated"],
+.ui.card .meta [class*="right floated"] {
   margin-right: 0em;
   margin-left: 0.3em;
 }

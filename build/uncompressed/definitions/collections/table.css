@@ -794,17 +794,17 @@
   background-color: rgba(0, 0, 0, 0.05) !important;
 }
 /* Very Basic */
-.ui.very.basic.table {
+.ui[class*="very basic"].table {
   border: none;
 }
-.ui.very.basic.table:not(.sortable):not(.striped) th,
-.ui.very.basic.table:not(.sortable):not(.striped) td {
+.ui[class*="very basic"].table:not(.sortable):not(.striped) th,
+.ui[class*="very basic"].table:not(.sortable):not(.striped) td {
   padding: 0.8em 0em;
 }
-.ui.very.basic.table:not(.sortable):not(.striped) thead th {
+.ui[class*="very basic"].table:not(.sortable):not(.striped) thead th {
   padding-top: 0em;
 }
-.ui.very.basic.table:not(.sortable):not(.striped) tbody tr:last-child td {
+.ui[class*="very basic"].table:not(.sortable):not(.striped) tbody tr:last-child td {
   padding-bottom: 0em;
 }
 /*--------------
@@ -819,11 +819,11 @@
   padding: 1em 1em;
 }
 /* Very */
-.ui.very.padded.table th {
+.ui[class*="very padded"].table th {
   padding-left: 1.5em;
   padding-right: 1.5em;
 }
-.ui.very.padded.table td {
+.ui[class*="very padded"].table td {
   padding: 1.5em 1.5em;
 }
 /*--------------
@@ -837,11 +837,11 @@
   padding: 0.5em 0.7em;
 }
 /* Very */
-.ui.very.compact.table th {
+.ui[class*="very compact"].table th {
   padding-left: 0.6em;
   padding-right: 0.6em;
 }
-.ui.very.compact.table td {
+.ui[class*="very compact"].table td {
   padding: 0.4em 0.6em;
 }
 /*--------------

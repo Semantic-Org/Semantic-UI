@@ -343,7 +343,7 @@
   width: 350px;
   max-width: 350px;
 }
-.ui.very.wide.popup {
+.ui[class*="very wide"].popup {
   width: 550px;
   max-width: 550px;
 }

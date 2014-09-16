@@ -308,7 +308,7 @@
 .ui.items > .item .left.floated {
   float: left;
 }
-.ui.items > .item .right.floated {
+.ui.items > .item [class*="right floated"] {
   float: right;
 }
 /*--------------
@@ -355,7 +355,7 @@
 .ui.items > .item .meta :last-child {
   margin-right: 0em;
 }
-.ui.items > .item .meta .right.floated {
+.ui.items > .item .meta [class*="right floated"] {
   margin-right: 0em;
   margin-left: 0.3em;
 }
@@ -439,7 +439,7 @@
 .ui.items > .item .extra > * {
   margin-right: 0.5em;
 }
-.ui.items > .item .extra > .right.floated {
+.ui.items > .item .extra > [class*="right floated"] {
   margin-left: 0.5em;
 }
 .ui.items > .item .extra:after {
@@ -456,13 +456,13 @@
 /*-------------------
        Aligned
 --------------------*/
-.ui.items > .item > .image + .top.aligned.content {
+.ui.items > .item > .image + [class*="top aligned"].content {
   vertical-align: top;
 }
-.ui.items > .item > .image + .middle.aligned.content {
+.ui.items > .item > .image + [class*="middle aligned"].content {
   vertical-align: middle;
 }
-.ui.items > .item > .image + .bottom.aligned.content {
+.ui.items > .item > .image + [class*="bottom aligned"].content {
   vertical-align: bottom;
 }
 /*-------------------
