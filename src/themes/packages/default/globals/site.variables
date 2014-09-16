@@ -13,9 +13,13 @@
        Fonts
 --------------------*/
 
-@headerFont    : "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
-@pageFont      : "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
-@fontSmoothing : antialiased;
+@headerFont      : 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+@pageFont        : 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+@fontSmoothing   : antialiased;
+
+@useGoogleFonts  : true;
+@googleFontName  : 'Lato';
+@googleFontSizes : '300,400,700,300italic,400italic,700italic';
 
 /*-------------------
       Site Colors
@@ -492,3 +496,4 @@
 @instagramActiveColor  : darken(@instagramColor, 5);
 @pinterestActiveColor  : darken(@pinterestColor, 5);
 @vkActiveColor         : darken(@vkColor, 5);
+
