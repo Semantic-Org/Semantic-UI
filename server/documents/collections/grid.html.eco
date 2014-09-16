@@ -644,7 +644,7 @@ themes      : ['Default']
     <h3 class="ui header">Grid</h3>
 
     <div class="example">
-      <h4 class="ui header">Specifying Column Count Per Row</h4>
+      <h4 class="ui header">Column Count</h4>
       <p>A grid can have a different number of columns per row</p>
       <div class="ui two column grid">
         <div class="column">
@@ -658,22 +658,18 @@ themes      : ['Default']
               <label>Password</label>
               <input type="password">
             </div>
-            <div class="ui blue submit button">Login</div>
+            <div class="inline field">
+              <div class="ui checkbox">
+                <input type="checkbox" id="remember" />
+                <label for="remember">Remember me</label>
+              </div>
+            </div>
+            <div class="ui submit button">Login</div>
           </div>
         </div>
         <div class="column">
           <div class="ui fluid form segment">
             <h3 class="ui header">Register</h3>
-            <div class="two fields">
-              <div class="field">
-                <label>First Name</label>
-                <input placeholder="First Name" type="text">
-              </div>
-              <div class="field">
-                <label>Last Name</label>
-                <input placeholder="Last Name" type="text">
-              </div>
-            </div>
             <div class="field">
               <label>Username</label>
               <input placeholder="Username" type="text">
@@ -696,9 +692,9 @@ themes      : ['Default']
 
     <div class="example">
       <h4 class="ui header">Padded</h4>
-      <p>A padded grid preserves the vertical and horizontal gutters</p>
+      <p>A grid can preserve its vertical and horizontal gutters on first and last columns</p>
 
-      <p>This paragraph of text will not align with the edges of the grid below because the grid preserves its outter gutters</p>
+      <p>This paragraph of text will not align with the edges of the first column below because the grid preserves its outter gutters</p>
       <div class="ui two column padded grid">
         <div class="column">
           <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
@@ -709,7 +705,7 @@ themes      : ['Default']
       </div>
     </div>
     <div class="another example">
-      <p>This paragraph of text will not align vertically with the edges of the grid below because the grid preserves its outter gutters</p>
+      <p>This paragraph of text will not align vertically with the edges of the first column below because the grid preserves its outter gutters</p>
       <div class="ui two column vertically padded grid">
         <div class="column">
           <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
@@ -720,7 +716,7 @@ themes      : ['Default']
       </div>
     </div>
     <div class="another example">
-      <p>This paragraph of text will not align horizontally with the edges of the grid below because the grid preserves its outter gutters</p>
+      <p>This paragraph of text will not align horizontally with the edges of the first column below because the grid preserves its outter gutters</p>
       <div class="ui two column horizontally padded grid">
         <div class="column">
           <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
@@ -832,7 +828,7 @@ themes      : ['Default']
     </div>
 
     <div class="example">
-      <h4 class="ui header">Doubling Grid</h4>
+      <h4 class="ui header">Doubling</h4>
       <p>A grid can double its column width on tablet and mobile sizes</p>
       <div class="ui text message info ignore">
         <i class="icon heart"></i> A grid will round its columns to the closest reasonable value when doubling, for example a <code>five column grid</code> will double <code>1 mobile, 3 tablet, 5 desktop</code>
