@@ -681,17 +681,17 @@
 }
 
 /* Very Basic */
-.ui.very.basic.table {
+.ui[class*="very basic"].table {
   border: none;
 }
-.ui.very.basic.table:not(.sortable):not(.striped) th,
-.ui.very.basic.table:not(.sortable):not(.striped) td {
+.ui[class*="very basic"].table:not(.sortable):not(.striped) th,
+.ui[class*="very basic"].table:not(.sortable):not(.striped) td {
   padding: @basicTableCellVerticalPadding @basicTableCellHorizontalPadding;
 }
-.ui.very.basic.table:not(.sortable):not(.striped) thead th {
+.ui[class*="very basic"].table:not(.sortable):not(.striped) thead th {
   padding-top: 0em;
 }
-.ui.very.basic.table:not(.sortable):not(.striped) tbody tr:last-child td {
+.ui[class*="very basic"].table:not(.sortable):not(.striped) tbody tr:last-child td {
   padding-bottom: 0em;
 }
 
@@ -709,11 +709,11 @@
 }
 
 /* Very */
-.ui.very.padded.table th {
+.ui[class*="very padded"].table th {
   padding-left: @veryPaddedHorizontalPadding;
   padding-right: @veryPaddedHorizontalPadding;
 }
-.ui.very.padded.table td {
+.ui[class*="very padded"].table td {
   padding: @veryPaddedVerticalPadding @veryPaddedHorizontalPadding;
 }
 
@@ -730,11 +730,11 @@
 }
 
 /* Very */
-.ui.very.compact.table th {
+.ui[class*="very compact"].table th {
   padding-left: @veryCompactHorizontalPadding;
   padding-right: @veryCompactHorizontalPadding;
 }
-.ui.very.compact.table td {
+.ui[class*="very compact"].table td {
   padding: @veryCompactVerticalPadding @veryCompactHorizontalPadding;
 }
 

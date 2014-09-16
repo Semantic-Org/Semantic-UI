@@ -100,7 +100,7 @@ ol.ui.list ol,
   vertical-align: @iconContentVerticalAlign;
   transition: @iconTransition;
 }
-.ui.list .item > .top.aligned.icon {
+.ui.list .item > [class*="top aligned"].icon {
   vertical-align: top;
 }
 .ui.list .item > .icon:only-child {
@@ -117,7 +117,7 @@ ol.ui.list ol,
   padding-right: @imageDistance;
   vertical-align: @imageAlign;
 }
-.ui.list .item > .top.aligned.image {
+.ui.list .item > [class*="top aligned"].image {
   vertical-align: top;
 }
 .ui.list .item > .image img {
@@ -672,14 +672,14 @@ ol.ui.horizontal.list li:before,
   padding-left: @relaxedHorizontalPadding;
   padding-right: @relaxedHorizontalPadding;
 }
-.ui.very.relaxed.list:not(.horizontal) .item {
+.ui[class*="very relaxed"].list:not(.horizontal) .item {
   padding-top: @veryRelaxedVerticalPadding;
   padding-bottom: @veryRelaxedVerticalPadding;
 }
-.ui.very.relaxed.list .header {
+.ui[class*="very relaxed"].list .header {
   /*margin-bottom: @veryRelaxedHeaderMargin;*/
 }
-.ui.horizontal.very.relaxed.list .item {
+.ui.horizontal[class*="very relaxed"].list .item {
   padding-left: @veryRelaxedHorizontalPadding;
   padding-right: @veryRelaxedHorizontalPadding;
 }

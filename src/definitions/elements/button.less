@@ -480,14 +480,14 @@
        Floated
 --------------------*/
 
-.ui.left.floated.buttons,
-.ui.left.floated.button {
+.ui[class*="left floated"].buttons,
+.ui[class*="left floated"].button {
   float: left;
   margin-left: 0em;
   margin-right: @floatedMargin;
 }
-.ui.right.floated.buttons,
-.ui.right.floated.button {
+.ui[class*="right floated"].buttons,
+.ui[class*="right floated"].button {
   float: right;
   margin-right: 0em;
   margin-left: @floatedMargin;
@@ -918,41 +918,41 @@
 }
 
 /* Bottom Side */
-.bottom.attached.ui.buttons {
+[class*="bottom attached"].ui.buttons {
   margin-top: @attachedOffset;
   border-radius: 0em 0em @borderRadius @borderRadius;
 }
-.bottom.attached.ui.buttons .button:first-child {
+[class*="bottom attached"].ui.buttons .button:first-child {
   border-radius: 0em 0em 0em @borderRadius;
 }
-.bottom.attached.ui.buttons .button:last-child {
+[class*="bottom attached"].ui.buttons .button:last-child {
   border-radius: 0em 0em @borderRadius 0em;
 }
 
 /* Left Side */
-.left.attached.ui.buttons {
+[class*="left attached"].ui.buttons {
   margin-left: @attachedOffset;
   border-radius: 0em @borderRadius @borderRadius 0em;
 }
-.left.attached.ui.buttons .button:first-child {
+[class*="left attached"].ui.buttons .button:first-child {
   margin-left: @attachedOffset;
   border-radius: 0em @borderRadius 0em 0em;
 }
-.left.attached.ui.buttons .button:last-child {
+[class*="left attached"].ui.buttons .button:last-child {
   margin-left: @attachedOffset;
   border-radius: 0em 0em @borderRadius 0em;
 }
 /* Right Side */
-.right.attached.ui.buttons,
-.right.attached.ui.buttons .button {
+[class*="right attached"].ui.buttons,
+[class*="right attached"].ui.buttons .button {
   margin-right: @attachedOffset;
   border-radius: @borderRadius 0em 0em @borderRadius;
 }
-.right.attached.ui.buttons .button:first-child {
+[class*="right attached"].ui.buttons .button:first-child {
   margin-left: @attachedOffset;
   border-radius: @borderRadius 0em 0em 0em;
 }
-.right.attached.ui.buttons .button:last-child {
+[class*="right attached"].ui.buttons .button:last-child {
   margin-left: @attachedOffset;
   border-radius: 0em 0em 0em @borderRadius;
 }
