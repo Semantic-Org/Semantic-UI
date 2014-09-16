@@ -130,6 +130,12 @@
   margin: (@rowSpacing / 2) (@gutterWidth / 2);
 }
 
+/* remove Border on last horizontal segment */
+.ui.grid > .row > .column:last-child > .horizontal.segment,
+.ui.grid > .column:last-child > .horizontal.segment {
+  box-shadow: none;
+}
+
 /*******************************
            Variations
 *******************************/
