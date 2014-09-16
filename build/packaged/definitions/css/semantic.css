@@ -46,6 +46,20 @@
     Load Default
 -------------------*/
 /*******************************
+          Breadcrumb
+*******************************/
+/*-------------------
+     Breadcrumb
+--------------------*/
+/* Coupling */
+/*-------------------
+       States
+--------------------*/
+/* Sizes */
+/*------------------
+     Load Theme
+-------------------*/
+/*******************************
          Site Settings
 *******************************/
 /*-------------------
@@ -136,20 +150,6 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*******************************
-          Breadcrumb
-*******************************/
-/*-------------------
-     Breadcrumb
---------------------*/
-/* Coupling */
-/*-------------------
-       States
---------------------*/
-/* Sizes */
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -224,25 +224,25 @@
            Variations
 *******************************/
 .ui.mini.breadcrumb {
-  font-size: 0.65em;
-}
-.ui.tiny.breadcrumb {
   font-size: 0.7em;
 }
+.ui.tiny.breadcrumb {
+  font-size: 0.8em;
+}
 .ui.small.breadcrumb {
-  font-size: 0.75em;
+  font-size: 0.875em;
 }
 .ui.breadcrumb {
   font-size: 1em;
 }
 .ui.large.breadcrumb {
-  font-size: 1.1em;
+  font-size: 1.125em;
 }
 .ui.big.breadcrumb {
-  font-size: 1.05em;
+  font-size: 1.25em;
 }
 .ui.huge.breadcrumb {
-  font-size: 1.3em;
+  font-size: 1.375em;
 }
 .ui.massive.breadcrumb {
   font-size: 1.5em;
@@ -1364,6 +1364,11 @@
 --------------------*/
 .ui.grid .row + .ui.divider {
   margin: 1rem 1rem;
+}
+/* remove Border on last horizontal segment */
+.ui.grid > .row > .column:last-child > .horizontal.segment,
+.ui.grid > .column:last-child > .horizontal.segment {
+  box-shadow: none;
 }
 /*******************************
            Variations
@@ -15679,7 +15684,6 @@ ol.ui.horizontal.list li:before,
   padding-left: 0em;
 }
 .ui.horizontal.segment:last-child {
-  box-shadow: none;
   padding-right: 0em;
 }
 /*-------------------
@@ -21794,9 +21798,6 @@ a.ui.nag {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*------------------
-     Load Theme
--------------------*/
 /*******************************
              Shape
 *******************************/
@@ -21806,6 +21807,9 @@ a.ui.nag {
       Types
 ---------------*/
 /* Cube */
+/*------------------
+     Load Theme
+-------------------*/
 /*------------------
      Load Site
 -------------------*/

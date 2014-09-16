@@ -269,6 +269,11 @@
 .ui.grid .row + .ui.divider {
   margin: 1rem 1rem;
 }
+/* remove Border on last horizontal segment */
+.ui.grid > .row > .column:last-child > .horizontal.segment,
+.ui.grid > .column:last-child > .horizontal.segment {
+  box-shadow: none;
+}
 /*******************************
            Variations
 *******************************/

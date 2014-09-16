@@ -53,7 +53,7 @@ themes      : ['default', 'GitHub']
     <p>A vertical segment formats content to be aligned as part of a horizontal group</p>
     <div class="ui ignored info message">
       <h3 class="ui header">When to Use Horizontal Segments</h3>
-      <p>Horizontal segments are most effectively used with grids, to allow for text groups that are aligned across grid rows or inside grid.</p>
+      <p>Horizontal segments are most effectively used with grids, to allow for text groups that are aligned across grid rows.</p>
       <p>A <code>horizontal segment</code> adds horizontal padding and a horizontal border, while a <code>basic horizontal segment</code> adds only the padding <b>but not the border</b>.</p>
     </div>
     <div class="ui three column grid">
