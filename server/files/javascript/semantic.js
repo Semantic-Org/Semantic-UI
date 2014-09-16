@@ -39,6 +39,9 @@ semantic.ready = function() {
     $sortTable        = $('.sortable.table'),
     $demo             = $('.demo'),
 
+    $container        = $('.main.container'),
+    $topHeaders       = $container.children('h2'),
+
     $menuPopup        = $('.ui.main.menu .popup.item'),
     $menuDropdown     = $('.ui.main.menu .dropdown'),
     $pageTabMenu      = $('.tab.header.segment .tabular.menu'),
@@ -93,6 +96,79 @@ semantic.ready = function() {
       }
     },
 
+    createMenu: function() {
+      // grab each h3
+      var
+        html = '',
+        $sticky,
+        $menu,
+        $rail
+      ;
+      $topHeaders
+        .each(function(index) {
+          var
+            $nextHeader   = $(this).nextAll('h2').eq(0),
+            $firstExample = $(this).nextAll('.example').eq(0),
+            $lastExample  = $nextHeader.prevAll('.example').eq(0),
+            $exampleSet   = $('.main.container .example'),
+            firstIndex    = $exampleSet.index($firstExample),
+            lastIndex     = ($lastExample.size() > 0)
+              ? $exampleSet.index($lastExample)
+              : $exampleSet.size(),
+            $examples     = $exampleSet.slice(firstIndex, lastIndex + 1),
+            activeClass   = (index == 0)
+              ? 'active '
+              : 'active '
+          ;
+          html += '<div class="item">';
+          html += ' <i class="dropdown icon"></i><a class="'+activeClass+'title"><b>' + $(this).text() + '</b></a>';
+          html += '<div class="'+activeClass+'content menu">';
+          $examples
+            .each(function() {
+              if($(this).children('h4').size() > 0) {
+                html += '<a class="item">' + $(this).children('h4').text() + '</a>';
+              }
+            })
+          ;
+          html += '</div></div>';
+        })
+      ;
+      $menu = $('<div />')
+        .addClass('ui secondary vertical following accordion menu')
+        .html(html)
+        .accordion({
+          exclusive: false,
+          onChange: function() {
+            $sticky.sticky('refresh');
+          }
+        })
+      ;
+      $sticky = $('<div />')
+        .addClass('ui sticky hidden transition')
+        .html($menu)
+      ;
+      $rail = $('<div />')
+        .addClass('ui right rail')
+        .html($sticky)
+        .prependTo($container)
+      ;
+      $menu
+        .accordion({
+          exclusive: false,
+          onChange: function() {
+            $sticky.sticky('refresh');
+          }
+        })
+      ;
+      $sticky
+        .transition('fade', function() {
+          $sticky.sticky({
+            context: $container
+          });
+        })
+      ;
+    },
+
     less: {
 
       parseFile: function(content) {
@@ -116,7 +192,6 @@ semantic.ready = function() {
             }
           }
         });
-        console.log(variables);
         return variables;
       },
 
@@ -684,6 +759,7 @@ semantic.ready = function() {
     })
   ;
 
+  handler.createMenu();
 
 };
 

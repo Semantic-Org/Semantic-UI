@@ -1,0 +1,15 @@
+/*******************************
+            Rail
+*******************************/
+
+/*-------------------
+       Element
+--------------------*/
+
+@railSizing: content-box;
+@railWidth: 300px;
+@railSize: 1em;
+
+@railDistance: 4em;
+
+@railBorder: 1px solid @borderColor;

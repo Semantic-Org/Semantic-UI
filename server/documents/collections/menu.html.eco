@@ -50,7 +50,6 @@ themes      : ['Default', 'GitHub']
     </div>
   </div>
 
-
   <div class="example">
     <h4 class="ui header">Vertical Menu</h4>
     <p>A vertical menu displays elements vertically..</p>

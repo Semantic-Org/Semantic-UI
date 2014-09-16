@@ -47,6 +47,7 @@
 @list        : 'default';
 @loader      : 'default';
 @progress    : 'default';
+@rail        : 'default';
 @reveal      : 'default';
 @segment     : 'default';
 @step        : 'default';

@@ -316,16 +316,6 @@ a:hover {
   padding-top: 3em;
 }
 
-/*--------------
-     Intro
----------------*/
-
-body.guide .main h3 {
-  margin: 2rem 0em 0.5rem;
-}
-body.guide .main.container > * {
-  max-width: 800px;
-}
 
 /*--------------
     Masthead
@@ -595,11 +585,6 @@ body#example.hide {
 
 
 /* content */
-#example .container {
-  width: 915px;
-  margin: 0px auto;
-}
-
 #example .solid,
 #example .stripe {
   padding: 50px 0px;
@@ -704,24 +689,6 @@ body#example.hide {
 #example .launch.button .icon {
   margin-left: 0px;
 }
-
-/*----------------
-    Containers
------------------*/
-
-#example .main.container {
-  position: relative;
-  z-index: 1;
-  padding-bottom: 2em;
-}
-#example .main.container > h2 {
-  -webkit-transition: 0.5s color ease;
-  -moz-transition: 0.5s color ease;
-  -o-transition: 0.5s color ease;
-  -ms-transition: 0.5s color ease;
-  transition: 0.5s color ease;
-}
-
 
 /*----------------
      Peek Menu
@@ -1460,6 +1427,104 @@ body.progress .ui.progress .bar {
 }
 
 
+/*******************************
+      Definition Container
+*******************************/
+
+
+#example .main.container {
+  z-index: 1;
+  padding-bottom: 2em;
+}
+#example .container {
+  position: relative;
+  right: 100px;
+  width: 915px;
+  margin: 0px auto;
+}
+#example .main.container .right.rail .sticky {
+  padding-top: 50px !important;
+}
+
+@media only screen and (max-width : 600px) {
+  #example .container {
+    width: auto;
+    margin: 0% 1em 0px;
+  }
+}
+@media only screen and (max-width : 1050px) {
+  #example .container {
+    width: auto;
+    margin: 0px 30px 0px;
+  }
+}
+
+@media only screen and (max-width : 1325px) {
+  #example .following.menu {
+    display: none;
+  }
+  #example .container {
+    width: auto;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 700px;
+  }
+  #example.index .container {
+    margin-left: 8em;
+    margin-right: 8em;
+  }
+}
+
+@media only screen and (min-width : 1325px) {
+  #example .container {
+    width: 850px;
+  }
+  #example.item .container,
+  #example.card .container {
+    width: 1100px;
+  }
+}
+
+
+/* Homepage */
+@media only screen and (max-width : 780px) {
+  #example.index .container {
+    margin-left: 2em;
+    margin-right: 2em;
+  }
+}
+@media only screen and (max-width : 998px) {
+  #example.index .main.menu .container {
+    width: auto;
+    padding: 0% 4%;
+  }
+}
+@media only screen and (min-width : 998px) {
+  #example.index .main.menu .container {
+    width: auto;
+    padding: 0% 8%;
+  }
+}
+@media only screen and (min-width : 1500px) {
+  #example.index .main.menu .container {
+    width: auto;
+    padding: 0% 13%;
+  }
+}
+@media only screen and (min-width : 1750px) {
+  #example.index .main.menu .container {
+    width: auto;
+    padding: 0% 18%;
+  }
+}
+@media only screen and (min-width : 2000px) {
+  #example.index .main.menu .container {
+    width: auto;
+    padding: 0% 23%;
+  }
+}
+
+
 
 /*******************************
           Responsive
@@ -1467,17 +1532,6 @@ body.progress .ui.progress .bar {
 
 
 @media only screen and (max-width : 1325px) {
-
-  #example .container {
-    width: auto;
-    margin-right: 100px;
-    margin-left: 325px;
-    max-width: 700px;
-  }
-  #example.index .container {
-    margin-left: 8em;
-    margin-right: 8em;
-  }
   #example .sticky-wrapper.stuck .peek {
     margin-left: 0px;
     left: 95px;
@@ -1511,10 +1565,6 @@ body.progress .ui.progress .bar {
   #example .sticky-wrapper {
     display: none;
   }
-  #example .container {
-    width: auto;
-    margin: 0% 30px 0px;
-  }
 }
 @media only screen and (max-width : 780px) {
   pre.console {
@@ -1541,10 +1591,6 @@ body.progress .ui.progress .bar {
   }
   #example.index .masthead p {
     font-size: 1.35em;
-  }
-  #example.index .container {
-    margin-left: 2em;
-    margin-right: 2em;
   }
   #example.index .icon.header .icon {
     font-size: 3em;
@@ -1593,10 +1639,6 @@ body.progress .ui.progress .bar {
   #example .icon.example .grid .column {
     width: 33.33%;
   }
-  #example .container {
-    width: auto;
-    margin: 0% 1em 0px;
-  }
 }
 
 
@@ -1633,16 +1675,6 @@ body.progress .ui.progress .bar {
   }
   #example .carbonad .carbonad-text {
     width: 90px;
-  }
-}
-
-@media only screen and (min-width : 1325px) {
-  #example .container {
-    width: 850px;
-  }
-  #example.item .container,
-  #example.card .container {
-    width: 1100px;
   }
 }
 
@@ -1683,11 +1715,6 @@ body.progress .ui.progress .bar {
   }
 }
 @media only screen and (max-width : 998px) {
-
-  #example.index .main.menu .container {
-    width: auto;
-    padding: 0% 4%;
-  }
   #example .examples {
     margin-right: 220px;
     padding: 1px;
@@ -1699,10 +1726,6 @@ body.progress .ui.progress .bar {
   }
 }
 @media only screen and (min-width : 998px) {
-  #example.index .main.menu .container {
-    width: auto;
-    padding: 0% 8%;
-  }
   #example .examples {
     margin-right: 330px;
     padding: 1px;
@@ -1714,10 +1737,6 @@ body.progress .ui.progress .bar {
   }
 }
 @media only screen and (min-width : 1500px) {
-  #example.index .main.menu .container {
-    width: auto;
-    padding: 0% 13%;
-  }
   #example .examples {
     margin-right: 500px;
   }
@@ -1725,17 +1744,5 @@ body.progress .ui.progress .bar {
   #example .fixed.column .fixed  {
     float: right;
     width: 400px;
-  }
-}
-@media only screen and (min-width : 1750px) {
-  #example.index .main.menu .container {
-    width: auto;
-    padding: 0% 18%;
-  }
-}
-@media only screen and (min-width : 2000px) {
-  #example.index .main.menu .container {
-    width: auto;
-    padding: 0% 23%;
   }
 }

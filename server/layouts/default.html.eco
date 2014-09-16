@@ -43,6 +43,7 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/label.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/list.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/loader.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/rail.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/reveal.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/progress.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/segment.css">
