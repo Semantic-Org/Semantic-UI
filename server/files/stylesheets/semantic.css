@@ -1434,6 +1434,18 @@ body.progress .ui.progress .bar {
       Definition Container
 *******************************/
 
+#example .pusher > .page {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+#example .pusher > .page > .full.height {
+  display: table-row;
+  height: 100%;
+}
+#example .pusher > .page > .footer {
+  clear: both;
+}
 
 #example .main.container {
   z-index: 1;
