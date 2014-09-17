@@ -10,6 +10,6 @@
 @railWidth: 300px;
 @railSize: 1em;
 
-@railDistance: 4em;
+@railDistance: 6em;
 
 @railBorder: 1px solid @borderColor;

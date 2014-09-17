@@ -265,7 +265,7 @@ $.fn.sticky = function(parameters) {
               possibleScroll = (currentScroll + delta),
               elementScroll
             ;
-            if(possibleScroll < 0) {
+            if(module.cache.fits || possibleScroll < 0) {
               elementScroll = 0;
             }
             else if (possibleScroll > maxScroll ) {
@@ -725,9 +725,9 @@ $.fn.sticky.settings = {
   name          : 'Sticky',
   namespace     : 'sticky',
 
-  verbose       : true,
-  debug         : true,
-  performance   : true,
+  debug         : false,
+  verbose       : false,
+  performance   : false,
 
   pushing       : false,
 
