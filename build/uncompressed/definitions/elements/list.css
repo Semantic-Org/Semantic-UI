@@ -445,7 +445,7 @@ ol.ui.list ol,
 }
 .ui.inverted.link.list a.item:hover,
 .ui.inverted.link.list .item a:hover {
-  color: rgba(255, 255, 255, 0.5);
+  color: #ffffff;
 }
 .ui.inverted.link.list a.item:active,
 .ui.inverted.link.list .item a:active {
@@ -481,7 +481,7 @@ ol.ui.list ol,
 /* Inverted */
 .ui.inverted.selection.list .item {
   background: transparent;
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(255, 255, 255, 0.5);
 }
 .ui.inverted.selection.list .item:hover {
   background: rgba(255, 255, 255, 0.01);

@@ -5359,9 +5359,6 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*------------------
-     Load Theme
--------------------*/
 /*******************************
             Button
 *******************************/
@@ -5407,6 +5404,9 @@
 /* Floated */
 /* Animated */
 /* Sizing */
+/*------------------
+     Load Theme
+-------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -14123,7 +14123,7 @@ ol.ui.list ol,
 }
 .ui.inverted.link.list a.item:hover,
 .ui.inverted.link.list .item a:hover {
-  color: rgba(255, 255, 255, 0.5);
+  color: #ffffff;
 }
 .ui.inverted.link.list a.item:active,
 .ui.inverted.link.list .item a:active {
@@ -14159,7 +14159,7 @@ ol.ui.list ol,
 /* Inverted */
 .ui.inverted.selection.list .item {
   background: transparent;
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(255, 255, 255, 0.5);
 }
 .ui.inverted.selection.list .item:hover {
   background: rgba(255, 255, 255, 0.01);
@@ -15969,6 +15969,10 @@ ol.ui.horizontal.list li:before,
 .ui.pointing.menu + .ui.attached.segment {
   top: 1px;
 }
+/* Header */
+.ui.inverted.segment > .ui.header {
+  color: #ffffff;
+}
 /* Label */
 .ui[class*="bottom attached"].segment > [class*="top attached"].label {
   border-top-left-radius: 0em;
@@ -17640,6 +17644,9 @@ a:hover {
 /* Child Accordion */
 /* Content */
 /*-------------------
+       States
+--------------------*/
+/*-------------------
       Variations
 --------------------*/
 /* Styled */
@@ -17704,6 +17711,18 @@ a:hover {
   -webkit-transition: -webkit-transform 0.2s ease, opacity 0.2s ease;
           transition: transform 0.2s ease, opacity 0.2s ease;
   vertical-align: baseline;
+  -webkit-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+/*******************************
+            States
+*******************************/
+.ui.accordion .active.title .dropdown.icon,
+.ui.accordion .accordion .active.title .dropdown.icon {
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
 }
 /*******************************
             Types
@@ -17809,19 +17828,6 @@ a:hover {
 .ui.accordion .title .dropdown.icon:before,
 .ui.accordion .accordion .title .dropdown.icon:before {
   content: '\f0da' /*rtl:'\f0d9'*/;
-}
-/* Icon Rotation */
-.ui.accordion .title .dropdown.icon,
-.ui.accordion .accordion .title .dropdown.icon {
-  -webkit-transform: rotate(0deg);
-      -ms-transform: rotate(0deg);
-          transform: rotate(0deg);
-}
-.ui.accordion .active.title .dropdown.icon,
-.ui.accordion .accordion .active.title .dropdown.icon {
-  -webkit-transform: rotate(90deg);
-      -ms-transform: rotate(90deg);
-          transform: rotate(90deg);
 }
 /*******************************
         User Overrides

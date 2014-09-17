@@ -86,8 +86,8 @@
 
 /* Inverted Link List */
 @invertedLinkListItemColor: @invertedUnselectedTextColor;
-@invertedLinkListItemHoverColor: @invertedUnselectedTextColor;
-@invertedLinkListItemDownColor: @invertedTextColor;
+@invertedLinkListItemHoverColor: @invertedHoveredTextColor;
+@invertedLinkListItemDownColor: @invertedPressedTextColor;
 @invertedLinkListItemActiveColor: @invertedSelectedTextColor;
 
 /* Selection List */
@@ -114,7 +114,7 @@
 @invertedSelectionListHoverBackground: @subtleTransparentWhite;
 @invertedSelectionListHoverColor: @invertedHoveredTextColor;
 @invertedSelectionListDownBackground: @transparentWhite;
-@invertedSelectionListDownColor: @invertedHoveredTextColor;
+@invertedSelectionListDownColor: @invertedPressedTextColor;
 @invertedSelectionListActiveBackground: @transparentWhite;
 @invertedSelectionListActiveColor: @invertedSelectedTextColor;
 

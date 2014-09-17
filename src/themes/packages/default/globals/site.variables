@@ -61,6 +61,8 @@
 @lineHeight          : 1.33;
 @pageMinWidth        : 320px;
 
+@pageOverflowX       : hidden;
+
 @fontSize            : 14px;
 @textColor           : rgba(0, 0, 0, 0.8);
 
@@ -132,7 +134,6 @@
 
 @defaultEasing: ease;
 
-
 /*---   Neutrals  ---*/
 @fullBlack        : #000000;
 @lightBlack       : #333333;
@@ -171,7 +172,6 @@
 @redHeaderColor    : darken(@redTextColor, 5);
 @tealHeaderColor   : darken(@tealTextColor, 5);
 @yellowHeaderColor : darken(@yellowTextColor, 5);
-
 
 
 /*-------------------

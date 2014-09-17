@@ -289,29 +289,29 @@ themes      : ['Default']
       <div class="item">
         <i class="map marker icon"></i>
         <div class="content">
-          <a class="header">New York City</a>
-          <div class="description">A lovely city</div>
+          <a class="header">Krowlewskie Jadlo</a>
+          <div class="description">An excellent polish restaurant, quick delivery and hearty, filling meals.</div>
         </div>
       </div>
       <div class="item">
         <i class="map marker icon"></i>
         <div class="content">
-          <a class="header">Chicago</a>
-          <div class="description">A lovely city</div>
+          <a class="header">Xian Famous Foods</a>
+          <div class="description">A taste of Shaanxi's delicious culinary traditions, with delights like spicy cold noodles and lamb burgers.</div>
         </div>
       </div>
       <div class="item">
         <i class="map marker icon"></i>
         <div class="content">
-          <a class="header">Los Angeles</a>
-          <div class="description">A lovely city</div>
+          <a class="header">Sapporo Haru</a>
+          <div class="description">Greenpoint's best choice for quick and delicious sushi.</div>
         </div>
       </div>
       <div class="item">
         <i class="map marker icon"></i>
         <div class="content">
-          <a class="header">San Francisco</a>
-          <div class="description">A lovely city</div>
+          <a class="header">Enid's</a>
+          <div class="description">At night a bar, during the day a delicious brunch spot.</div>
         </div>
       </div>
     </div>

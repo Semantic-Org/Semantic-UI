@@ -234,6 +234,10 @@
 .ui.pointing.menu + .ui.attached.segment {
   top: 1px;
 }
+/* Header */
+.ui.inverted.segment > .ui.header {
+  color: #ffffff;
+}
 /* Label */
 .ui[class*="bottom attached"].segment > [class*="top attached"].label {
   border-top-left-radius: 0em;

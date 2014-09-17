@@ -144,6 +144,9 @@
 /* Child Accordion */
 /* Content */
 /*-------------------
+       States
+--------------------*/
+/*-------------------
       Variations
 --------------------*/
 /* Styled */
@@ -208,6 +211,18 @@
   -webkit-transition: -webkit-transform 0.2s ease, opacity 0.2s ease;
           transition: transform 0.2s ease, opacity 0.2s ease;
   vertical-align: baseline;
+  -webkit-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+/*******************************
+            States
+*******************************/
+.ui.accordion .active.title .dropdown.icon,
+.ui.accordion .accordion .active.title .dropdown.icon {
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
 }
 /*******************************
             Types
@@ -313,19 +328,6 @@
 .ui.accordion .title .dropdown.icon:before,
 .ui.accordion .accordion .title .dropdown.icon:before {
   content: '\f0da' /*rtl:'\f0d9'*/;
-}
-/* Icon Rotation */
-.ui.accordion .title .dropdown.icon,
-.ui.accordion .accordion .title .dropdown.icon {
-  -webkit-transform: rotate(0deg);
-      -ms-transform: rotate(0deg);
-          transform: rotate(0deg);
-}
-.ui.accordion .active.title .dropdown.icon,
-.ui.accordion .accordion .active.title .dropdown.icon {
-  -webkit-transform: rotate(90deg);
-      -ms-transform: rotate(90deg);
-          transform: rotate(90deg);
 }
 /*******************************
         User Overrides

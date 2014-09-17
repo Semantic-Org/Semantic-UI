@@ -62,9 +62,17 @@
   margin: @iconMargin;
   transition: @iconTransition;
   vertical-align: @iconVerticalAlign;
+  transform: @iconTransform;
 }
 
+/*******************************
+            States
+*******************************/
 
+.ui.accordion .active.title .dropdown.icon,
+.ui.accordion .accordion .active.title .dropdown.icon {
+  transform: @activeIconTransform;
+}
 
 /*******************************
             Types
