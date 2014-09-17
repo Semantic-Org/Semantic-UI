@@ -34,23 +34,20 @@
   box-shadow: @boxShadow;
   border-radius: @borderRadius;
 }
+
+.ui.menu:after {
+  content: '';
+  display: block;
+  height: 0px;
+  clear: both;
+  visibility: hidden;
+}
+
 .ui.menu:first-child {
   margin-top: 0rem;
 }
 .ui.menu:last-child {
   margin-bottom: 0rem;
-}
-
-.ui.menu:after {
-  content: ".";
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden;
-}
-
-.ui.menu > .item:first-child {
-  border-radius: @borderRadius 0px 0px @borderRadius;
 }
 
 /*--------------
@@ -98,6 +95,9 @@
 }
 
 /* Floated Content */
+.ui.menu > .item:first-child {
+  border-radius: @borderRadius 0px 0px @borderRadius;
+}
 .ui.menu:not(.vertical) .item.left,
 .ui.menu:not(.vertical) .menu.left {
   float: left;

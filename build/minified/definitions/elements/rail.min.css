@@ -1,0 +1,14 @@
+/*
+* # Semantic UI
+* Version: 0.16.1
+* http://github.com/jlukic/semantic-ui
+*
+*
+* Copyright 2014 Contributors
+* Released under the MIT license
+* http://opensource.org/licenses/MIT
+*
+* Released: 09/16/2014
+*/
+
+.ui.rail{position:absolute;top:0;width:300px;box-sizing:content-box}.ui.left.rail{left:auto;right:100%;padding:0 2em 0 0;margin:0 2em 0 0}.ui.right.rail{left:100%;right:auto;padding:0 0 0 2em;margin:0 0 0 2em}.ui.left.divided.rail{border-right:1px solid rgba(0,0,0,.1)}.ui.right.divided.rail{border-left:1px solid rgba(0,0,0,.1)}.ui.rail{font-size:1em}

@@ -4480,8 +4480,8 @@ $.fn.accordion = function(parameters) {
                   .addClass(className.active)
                 ;
                 $.proxy(module.reset.display, this)();
-                $.proxy(settings.onOpen, $activeContent)();
-                $.proxy(settings.onChange, $activeContent)();
+                $.proxy(settings.onOpen, element)();
+                $.proxy(settings.onChange, element)();
               })
             ;
           }
@@ -4510,8 +4510,8 @@ $.fn.accordion = function(parameters) {
               .end()
             .slideUp(settings.duration, settings.easing, function() {
               $.proxy(module.reset.display, this)();
-              $.proxy(settings.onClose, $activeContent)();
-              $.proxy(settings.onChange, $activeContent)();
+              $.proxy(settings.onClose, element)();
+              $.proxy(settings.onChange, element)();
             })
           ;
         },

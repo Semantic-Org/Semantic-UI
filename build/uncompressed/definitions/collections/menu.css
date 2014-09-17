@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -199,7 +199,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Standard
@@ -215,21 +215,18 @@
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
   border-radius: 0.1875rem;
 }
+.ui.menu:after {
+  content: '';
+  display: block;
+  height: 0px;
+  clear: both;
+  visibility: hidden;
+}
 .ui.menu:first-child {
   margin-top: 0rem;
 }
 .ui.menu:last-child {
   margin-bottom: 0rem;
-}
-.ui.menu:after {
-  content: ".";
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden;
-}
-.ui.menu > .item:first-child {
-  border-radius: 0.1875rem 0px 0px 0.1875rem;
 }
 /*--------------
      Colors
@@ -271,6 +268,9 @@
   margin: 0em;
 }
 /* Floated Content */
+.ui.menu > .item:first-child {
+  border-radius: 0.1875rem 0px 0px 0.1875rem;
+}
 .ui.menu:not(.vertical) .item.left,
 .ui.menu:not(.vertical) .menu.left {
   float: left;
