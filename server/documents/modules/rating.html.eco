@@ -66,8 +66,10 @@ themes      : ['Default']
 
   <div class="ui tab" data-tab="examples">
 
+    <h2 class="ui dividing header">Examples</h2>
+
     <div class="example">
-      <h3 class="ui header">Setting existing values</h3>
+      <h4 class="ui header">Setting existing values</h4>
       <p>The starting rating can be set either using metadata value <code>data-rating</code> or the setting <code>initialRating</code>.
       <p>The maximum rating can be be set using the metadata value <code>data-max-rating</code> or the settings <code>maxRating</code>, or you can just include the icon html yourself on initialization to avoid the overhead of the <code>DOM template insertions</code>. </p>
       <div class="ui ignored info message">If a metadata rating is specified it will automatically override the default value specified in javascript.</div>
@@ -104,7 +106,7 @@ themes      : ['Default']
     </div>
 
     <div class="toggle no example">
-      <h3 class="ui header">Read-Only Ratings</h3>
+      <h4 class="ui header">Read-Only Ratings</h4>
       <p>You can disable or enable interactive rating</p>
       <div class="code" data-type="javascript" data-demo="true">
       $('.toggle.example .rating')
@@ -126,7 +128,7 @@ themes      : ['Default']
     </div>
 
     <div class="clearing no example">
-      <h3 class="ui header">Clearing Ratings</h3>
+      <h4 class="ui header">Clearing Ratings</h4>
       <p>When clearable is set to <code>true</code> you can clear the rating by clicking on the current start rating.</p>
       <div class="evaluated code" data-type="javascript">
       $('.clearing.example .rating')
@@ -146,17 +148,37 @@ themes      : ['Default']
   <div class="ui tab" data-tab="usage">
 
     <h2 class="ui dividing header">Initializing</h2>
-    <p>To change the range of your rating, simply adjust the number of icons in the initialized html</p>
-    <div class="code" data-type="javascript">
-      $('.ui.rating')
-        .rating()
-      ;
-    </div>
-    <div class="code" data-type="html">
-      <div class="ui rating"></div>
+
+    <div class="ui example">
+      <h4 class="ui header">Metadata</h4>
+      <p>You can specify the starting rating, and max rating in metadata.
+      <div class="code" data-type="javascript">
+        $('.ui.rating')
+          .rating()
+        ;
+      </div>
+      <div class="code" data-type="html">
+        <div class="ui rating" data-rating="3" data-max-rating="5"></div>
+      </div>
     </div>
 
-    <h2 class="ui dividing header">Behavior</h2>
+    <div class="example">
+      <h4 class="ui header">Javascript</h4>
+      <p>You can specify the rating values in javascript</p>
+      <div class="code" data-type="javascript">
+        $('.ui.rating')
+          .rating({
+            rating: 3,
+            maxRating: 5
+          })
+        ;
+      </div>
+      <div class="code" data-type="html">
+        <div class="ui rating"></div>
+      </div>
+    </div>
+
+    <h2 class="ui dividing header">Behaviors</h2>
 
     <p>All the following <a href="/module.html#/behavior">behaviors</a> can be called using the syntax:</p>
     <div class="code">

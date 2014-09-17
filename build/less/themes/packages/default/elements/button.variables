@@ -25,7 +25,6 @@
 @backgroundColor: #FAFAFA;
 @backgroundImage: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.09));
 @boxShadow:
-  @subtleShadow,
   0px 0px 0px 1px @borderColor inset,
   @shadowBoxShadow
 ;
@@ -60,7 +59,7 @@
         Group
 --------------------*/
 
-@groupBoxShadow: @subtleShadow;
+@groupBoxShadow: none;
 @groupButtonBoxShadow:
   0px 0px 0px 1px @borderColor inset,
   @shadowBoxShadow
@@ -215,7 +214,7 @@
 --------------------*/
 
 /* Colors */
-@coloredBackgroundImage: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
+@coloredBackgroundImage: none;
 @coloredBoxShadow: @shadowBoxShadow;
 
 /* Compact */

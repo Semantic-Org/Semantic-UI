@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -180,7 +180,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
             Standard
@@ -221,7 +221,7 @@
 .ui.card {
   position: relative;
   display: block;
-  width: 300px;
+  width: 290px;
   min-height: 0px;
   background: #ffffff;
   padding: 0em;

@@ -719,6 +719,7 @@ body#example.hide {
 -----------------*/
 
 #example .page > .footer {
+  margin-top: 5em;
   padding: 5em 0em 8em;
 }
 

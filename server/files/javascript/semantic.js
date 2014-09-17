@@ -41,8 +41,9 @@ semantic.ready = function() {
 
     $container        = $('.main.container'),
     $sectionHeaders   = $container.children('h2'),
-    $exampleHeaders   = $container.find('.example').children('h4'),
     $followMenu       = $container.find('.following.menu'),
+    $sectionExample   = $container.find('.example'),
+    $exampleHeaders   = $sectionExample.children('h4'),
 
     $menuPopup        = $('.ui.main.menu .popup.item'),
     $menuDropdown     = $('.ui.main.menu .dropdown'),
@@ -98,6 +99,26 @@ semantic.ready = function() {
       }
     },
 
+    createWaypoints: function() {
+      $sectionHeaders
+        .visibility({
+          offset: 80,
+          once: false,
+          onTopPassed: handler.activate.section,
+          onTopPassedReverse: handler.activate.previous
+        })
+      ;
+
+      $sectionExample
+        .visibility({
+          once: false,
+          offset: 80,
+          onTopPassed: handler.activate.example,
+          onBottomPassedReverse: handler.activate.examplet
+        })
+      ;
+    },
+
     activate: {
       previous: function() {
         var
@@ -140,6 +161,24 @@ semantic.ready = function() {
           $followSection = $followMenu.find('.menu > .item'),
           $activeSection = $followSection.eq(index)
         ;
+        //console.log('top passed', this);
+        if($(this).not('.another.example').size() > 0) {
+          $followSection
+            .removeClass('active')
+          ;
+          $activeSection
+            .addClass('active')
+          ;
+        }
+      },
+      examplet: function() {
+        var
+          $section       = $(this).children('h4').eq(0),
+          index          = $exampleHeaders.index($section),
+          $followSection = $followMenu.find('.menu > .item'),
+          $activeSection = $followSection.eq(index)
+        ;
+        //console.log('bottom passed reverse', this);
         if($(this).not('.another.example').size() > 0) {
           $followSection
             .removeClass('active')
@@ -164,14 +203,14 @@ semantic.ready = function() {
             $nextHeader   = $(this).nextAll('h2').eq(0),
             $firstExample = $(this).nextAll('.example').eq(0),
             $lastExample  = $nextHeader.prevAll('.example').eq(0),
-            $exampleSet   = $('.main.container .example'),
+            $exampleSet   = $container.find('.example'),
             firstIndex    = $exampleSet.index($firstExample),
             lastIndex     = ($lastExample.size() > 0)
               ? $exampleSet.index($lastExample)
               : $exampleSet.size(),
             $examples     = $exampleSet.slice(firstIndex, lastIndex + 1),
             activeClass   = (index === 0)
-              ? ''
+              ? 'active '
               : ''
           ;
           html += '<div class="item">';
@@ -678,7 +717,6 @@ semantic.ready = function() {
   };
 
 
-  handler.createMenu();
 
   if( $pageTabs.size() > 0 ) {
     $pageTabs
@@ -692,8 +730,12 @@ semantic.ready = function() {
           // create follow menu
           $container        = $(this);
           $sectionHeaders   = $container.children('h2');
-          $exampleHeaders   = $container.find('.example').children('h4');
+          $sectionExample   = $container.find('.example');
+          $exampleHeaders   = $sectionExample.children('h4');
+
+          handler.createMenu();
           $followMenu       = $container.find('.following.menu');
+          handler.createWaypoints();
         },
         onTabLoad    : function() {
           $sticky.filter(':visible').sticky('refresh');
@@ -702,26 +744,9 @@ semantic.ready = function() {
     ;
   }
   else {
-
     handler.makeCode();
-    $sectionHeaders
-      .visibility({
-        offset: 80,
-        once: false,
-        onTopPassed: handler.activate.section,
-        onTopPassedReverse: handler.activate.previous
-      })
-    ;
-
-    $example
-      .visibility({
-        once: false,
-        offset: 80,
-        onTopPassed: handler.activate.example,
-        onBottomPassedReverse: handler.activate.example
-      })
-    ;
-
+    handler.createMenu();
+    handler.createWaypoints();
   }
   $sticky
     .sticky({

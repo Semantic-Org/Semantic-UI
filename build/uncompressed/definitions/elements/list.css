@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -156,6 +156,9 @@
 /* Header */
 /* Description */
 /*-------------------
+        States
+--------------------*/
+/*-------------------
       Variations
 --------------------*/
 /* Float */
@@ -191,7 +194,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
             List
@@ -397,6 +400,13 @@ ol.ui.list ol,
              States
 *******************************/
 /*-------------------
+        Disabled
+--------------------*/
+.ui.list .disabled.item {
+  pointer-events: none;
+  color: rgba(0, 0, 0, 0.2);
+}
+/*-------------------
         Hover
 --------------------*/
 .ui.list a:hover .icon {
@@ -424,6 +434,8 @@ ol.ui.list ol,
 .ui.link.list a.item,
 .ui.link.list .item a {
   color: rgba(0, 0, 0, 0.4);
+  -webkit-transition: 0.2s color ease;
+          transition: 0.2s color ease;
 }
 .ui.link.list a.item:hover,
 .ui.link.list .item a:hover {
@@ -462,9 +474,14 @@ ol.ui.list ol,
   cursor: pointer;
   background: transparent;
   padding: 0.5em 0.5em;
+  margin: 0em 0em 0.3em 0em;
   color: rgba(0, 0, 0, 0.4);
+  border-radius: 0.5em;
   -webkit-transition: 0.2s color ease, 0.2s padding-left ease, 0.2s background-color ease;
           transition: 0.2s color ease, 0.2s padding-left ease, 0.2s background-color ease;
+}
+.ui.selection.list .item:last-child {
+  margin-bottom: 0em;
 }
 .ui.selection.list .item:hover {
   background: rgba(0, 0, 0, 0.03);

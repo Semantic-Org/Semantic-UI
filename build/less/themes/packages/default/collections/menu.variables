@@ -60,7 +60,7 @@
 /* Sub Menu */
 @subMenuMargin: 0.5em;
 @subMenuFontSize: 0.875rem;
-@subMenuTextColor: @textColor;
+@subMenuTextColor: rgba(0, 0, 0, 0.5);
 
 @subMenuHorizontalPadding: 0.5rem;
 @subMenuVerticalPadding: 1.5rem;

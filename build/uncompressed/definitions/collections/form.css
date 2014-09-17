@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -189,7 +189,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
             Elements
@@ -465,9 +465,9 @@
 .ui.form .field.error input[type="tel"]:focus {
   background: #fae8e8;
   border-color: #dbb1b1;
-  color: #ff635a;
+  color: #ff7169;
   -webkit-appearance: none;
-  box-shadow: 2px 0em 0em 0em #ff635a inset;
+  box-shadow: 2px 0em 0em 0em #ff7169 inset;
 }
 /*------------------
     Dropdown Error

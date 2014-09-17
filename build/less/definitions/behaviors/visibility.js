@@ -168,7 +168,7 @@ $.fn.visibility = function(parameters) {
         set: {
           image: function(src) {
             var
-              offScreen = (module.cache.screen.bottom + settings.offset < module.cache.element.top)
+              offScreen = (module.cache.screen.bottom < module.cache.element.top)
             ;
             $module
               .attr('src', src)
@@ -210,13 +210,20 @@ $.fn.visibility = function(parameters) {
           module.save.direction();
           module.save.screenCalculations();
           module.save.elementCalculations();
-
+          // percentage
           module.passed();
+          // one time
           module.passing();
           module.topVisible();
           module.bottomVisible();
           module.topPassed();
           module.bottomPassed();
+          // reverse
+          module.passingReverse();
+          module.topVisibleReverse();
+          module.bottomVisibleReverse();
+          module.topPassedReverse();
+          module.bottomPassedReverse();
         },
 
         passed: function(amount, newCallback) {
@@ -324,7 +331,7 @@ $.fn.visibility = function(parameters) {
             module.remove.occurred(callbackName);
           }
           if(newCallback === undefined) {
-            return calculations.topPassed;
+            return calculations.onTopPassed;
           }
         },
 
@@ -346,6 +353,112 @@ $.fn.visibility = function(parameters) {
           }
           if(newCallback === undefined) {
             return calculations.bottomPassed;
+          }
+        },
+
+        passingReverse: function(newCallback) {
+          var
+            calculations = module.get.elementCalculations(),
+            callback     = newCallback || settings.onPassingReverse,
+            callbackName = 'passingReverse'
+          ;
+          if(newCallback) {
+            module.debug('Adding callback for passing reverse', newCallback);
+            settings.onPassingReverse = newCallback;
+          }
+          if(callback && !calculations.passing) {
+            module.execute(callback, callbackName);
+          }
+          else if(!settings.once) {
+            module.remove.occurred(callbackName);
+          }
+          if(newCallback !== undefined) {
+            return !calculations.passing;
+          }
+        },
+
+
+        topVisibleReverse: function(newCallback) {
+          var
+            calculations = module.get.elementCalculations(),
+            callback     = newCallback || settings.onTopVisibleReverse,
+            callbackName = 'topVisibleReverse'
+          ;
+          if(newCallback) {
+            module.debug('Adding callback for top visible reverse', newCallback);
+            settings.onTopVisibleReverse = newCallback;
+          }
+          if(callback && !calculations.topVisible) {
+            module.execute(callback, callbackName);
+          }
+          else if(!settings.once) {
+            module.remove.occurred(callbackName);
+          }
+          if(newCallback === undefined) {
+            return !calculations.topVisible;
+          }
+        },
+
+        bottomVisibleReverse: function(newCallback) {
+          var
+            calculations = module.get.elementCalculations(),
+            callback     = newCallback || settings.onBottomVisibleReverse,
+            callbackName = 'bottomVisibleReverse'
+          ;
+          if(newCallback) {
+            module.debug('Adding callback for bottom visible reverse', newCallback);
+            settings.onBottomVisibleReverse = newCallback;
+          }
+          if(callback && !calculations.bottomVisible) {
+            module.execute(callback, callbackName);
+          }
+          else if(!settings.once) {
+            module.remove.occurred(callbackName);
+          }
+          if(newCallback === undefined) {
+            return !calculations.bottomVisible;
+          }
+        },
+
+        topPassedReverse: function(newCallback) {
+          var
+            calculations = module.get.elementCalculations(),
+            callback     = newCallback || settings.onTopPassedReverse,
+            callbackName = 'topPassedReverse'
+          ;
+          if(newCallback) {
+            module.debug('Adding callback for top passed reverse', newCallback);
+            settings.onTopPassedReverse = newCallback;
+          }
+          if(callback && !calculations.topPassed) {
+            module.execute(callback, callbackName);
+          }
+          else if(!settings.once) {
+            module.remove.occurred(callbackName);
+          }
+          if(newCallback === undefined) {
+            return !calculations.onTopPassed;
+          }
+        },
+
+        bottomPassedReverse: function(newCallback) {
+          var
+            calculations = module.get.elementCalculations(),
+            callback     = newCallback || settings.onBottomPassedReverse,
+            callbackName = 'bottomPassedReverse'
+          ;
+          if(newCallback) {
+            module.debug('Adding callback for bottom passed reverse', newCallback);
+            settings.onBottomPassedReverse = newCallback;
+          }
+          if(callback && !calculations.bottomPassed) {
+            module.execute(callback, callbackName);
+          }
+          else if(!settings.once) {
+            module.remove.occurred(callbackName);
+          }
+          if(newCallback === undefined) {
+            return !calculations.bottomPassed;
           }
         },
 
@@ -461,15 +574,15 @@ $.fn.visibility = function(parameters) {
           },
           screenCalculations: function() {
             var
-              scroll = $context.scrollTop()
+              scroll = $context.scrollTop() + settings.offset
             ;
             if(module.cache.scroll === undefined) {
-              module.cache.scroll = $context.scrollTop();
+              module.cache.scroll = $context.scrollTop() + settings.offset;
             }
             module.save.direction();
             $.extend(module.cache.screen, {
-              top    : scroll - settings.offset,
-              bottom : scroll - settings.offset + module.cache.screen.height
+              top    : scroll,
+              bottom : scroll + module.cache.screen.height
             });
             return module.cache.screen;
           },
@@ -723,52 +836,49 @@ $.fn.visibility = function(parameters) {
 
 $.fn.visibility.settings = {
 
-  name              : 'Visibility',
-  namespace         : 'visibility',
+  name                   : 'Visibility',
+  namespace              : 'visibility',
 
-  debug             : false,
-  verbose           : false,
-  performance       : true,
+  debug                  : false,
+  verbose                : false,
+  performance            : true,
 
-  offset            : 0,
-  includeMargin     : false,
+  offset                 : 0,
+  includeMargin          : false,
 
-  context           : window,
+  context                : window,
 
   // visibility check delay in ms
-  throttle          : false,
+  throttle               : false,
 
   // special visibility type
-  type              : false,
-  transition        : 'fade in',
-  duration          : 500,
+  type                   : false,
+  transition             : 'fade in',
+  duration               : 500,
 
-  // array of callbacks
-  onPassed          : {},
+  // array of callbacks for percentage
+  onPassed               : {},
 
   // standard callbacks
-  onPassing         : false,
-  onTopVisible      : false,
-  onBottomVisible   : false,
-  onTopPassed       : false,
-  onBottomPassed    : false,
+  onPassing              : false,
+  onTopVisible           : false,
+  onBottomVisible        : false,
+  onTopPassed            : false,
+  onBottomPassed         : false,
 
-  once              : true,
-  continuous        : false,
+  // reverse callbacks
+  onPassingReverse       : false,
+  onTopVisibleReverse    : false,
+  onBottomVisibleReverse : false,
+  onTopPassedReverse     : false,
+  onBottomPassedReverse  : false,
+
+  once                   : true,
+  continuous             : false,
 
   // utility callbacks
-  onRefresh         : function(){},
-  onScroll          : function(){},
-
-  // not used currently waiting for (DOM Mutations API adoption)
-  // https://dvcs.w3.org/hg/domcore/raw-file/tip/Overview.html#mutation-observers
-  watch             : true,
-  watchedProperties : [
-    'offsetWidth',
-    'offsetHeight',
-    'top',
-    'left'
-  ],
+  onRefresh              : function(){},
+  onScroll               : function(){},
 
   error : {
     method   : 'The method you called is not defined.'

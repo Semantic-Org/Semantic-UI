@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -170,7 +170,7 @@
            Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
              Modal
@@ -260,18 +260,20 @@
 }
 .ui.modal > .content > .description {
   display: table-cell;
-  min-width: '';
   vertical-align: top;
 }
 .ui.modal > .content > .icon + .description,
 .ui.modal > .content > .image + .description {
-  padding-left: 1em;
+  min-width: '';
+  width: 80%;
+  padding-left: 2em;
 }
 /*rtl:ignore*/
 .ui.modal > .content > .image > i.icon {
   font-size: 8rem;
   margin: 0em;
   opacity: 1;
+  width: auto;
 }
 /*--------------
      Actions

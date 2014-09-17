@@ -2700,7 +2700,7 @@ $.fn.visibility = function(parameters) {
         set: {
           image: function(src) {
             var
-              offScreen = (module.cache.screen.bottom + settings.offset < module.cache.element.top)
+              offScreen = (module.cache.screen.bottom < module.cache.element.top)
             ;
             $module
               .attr('src', src)
@@ -2742,13 +2742,20 @@ $.fn.visibility = function(parameters) {
           module.save.direction();
           module.save.screenCalculations();
           module.save.elementCalculations();
-
+          // percentage
           module.passed();
+          // one time
           module.passing();
           module.topVisible();
           module.bottomVisible();
           module.topPassed();
           module.bottomPassed();
+          // reverse
+          module.passingReverse();
+          module.topVisibleReverse();
+          module.bottomVisibleReverse();
+          module.topPassedReverse();
+          module.bottomPassedReverse();
         },
 
         passed: function(amount, newCallback) {
@@ -2856,7 +2863,7 @@ $.fn.visibility = function(parameters) {
             module.remove.occurred(callbackName);
           }
           if(newCallback === undefined) {
-            return calculations.topPassed;
+            return calculations.onTopPassed;
           }
         },
 
@@ -2878,6 +2885,112 @@ $.fn.visibility = function(parameters) {
           }
           if(newCallback === undefined) {
             return calculations.bottomPassed;
+          }
+        },
+
+        passingReverse: function(newCallback) {
+          var
+            calculations = module.get.elementCalculations(),
+            callback     = newCallback || settings.onPassingReverse,
+            callbackName = 'passingReverse'
+          ;
+          if(newCallback) {
+            module.debug('Adding callback for passing reverse', newCallback);
+            settings.onPassingReverse = newCallback;
+          }
+          if(callback && !calculations.passing) {
+            module.execute(callback, callbackName);
+          }
+          else if(!settings.once) {
+            module.remove.occurred(callbackName);
+          }
+          if(newCallback !== undefined) {
+            return !calculations.passing;
+          }
+        },
+
+
+        topVisibleReverse: function(newCallback) {
+          var
+            calculations = module.get.elementCalculations(),
+            callback     = newCallback || settings.onTopVisibleReverse,
+            callbackName = 'topVisibleReverse'
+          ;
+          if(newCallback) {
+            module.debug('Adding callback for top visible reverse', newCallback);
+            settings.onTopVisibleReverse = newCallback;
+          }
+          if(callback && !calculations.topVisible) {
+            module.execute(callback, callbackName);
+          }
+          else if(!settings.once) {
+            module.remove.occurred(callbackName);
+          }
+          if(newCallback === undefined) {
+            return !calculations.topVisible;
+          }
+        },
+
+        bottomVisibleReverse: function(newCallback) {
+          var
+            calculations = module.get.elementCalculations(),
+            callback     = newCallback || settings.onBottomVisibleReverse,
+            callbackName = 'bottomVisibleReverse'
+          ;
+          if(newCallback) {
+            module.debug('Adding callback for bottom visible reverse', newCallback);
+            settings.onBottomVisibleReverse = newCallback;
+          }
+          if(callback && !calculations.bottomVisible) {
+            module.execute(callback, callbackName);
+          }
+          else if(!settings.once) {
+            module.remove.occurred(callbackName);
+          }
+          if(newCallback === undefined) {
+            return !calculations.bottomVisible;
+          }
+        },
+
+        topPassedReverse: function(newCallback) {
+          var
+            calculations = module.get.elementCalculations(),
+            callback     = newCallback || settings.onTopPassedReverse,
+            callbackName = 'topPassedReverse'
+          ;
+          if(newCallback) {
+            module.debug('Adding callback for top passed reverse', newCallback);
+            settings.onTopPassedReverse = newCallback;
+          }
+          if(callback && !calculations.topPassed) {
+            module.execute(callback, callbackName);
+          }
+          else if(!settings.once) {
+            module.remove.occurred(callbackName);
+          }
+          if(newCallback === undefined) {
+            return !calculations.onTopPassed;
+          }
+        },
+
+        bottomPassedReverse: function(newCallback) {
+          var
+            calculations = module.get.elementCalculations(),
+            callback     = newCallback || settings.onBottomPassedReverse,
+            callbackName = 'bottomPassedReverse'
+          ;
+          if(newCallback) {
+            module.debug('Adding callback for bottom passed reverse', newCallback);
+            settings.onBottomPassedReverse = newCallback;
+          }
+          if(callback && !calculations.bottomPassed) {
+            module.execute(callback, callbackName);
+          }
+          else if(!settings.once) {
+            module.remove.occurred(callbackName);
+          }
+          if(newCallback === undefined) {
+            return !calculations.bottomPassed;
           }
         },
 
@@ -2993,15 +3106,15 @@ $.fn.visibility = function(parameters) {
           },
           screenCalculations: function() {
             var
-              scroll = $context.scrollTop()
+              scroll = $context.scrollTop() + settings.offset
             ;
             if(module.cache.scroll === undefined) {
-              module.cache.scroll = $context.scrollTop();
+              module.cache.scroll = $context.scrollTop() + settings.offset;
             }
             module.save.direction();
             $.extend(module.cache.screen, {
-              top    : scroll - settings.offset,
-              bottom : scroll - settings.offset + module.cache.screen.height
+              top    : scroll,
+              bottom : scroll + module.cache.screen.height
             });
             return module.cache.screen;
           },
@@ -3255,52 +3368,49 @@ $.fn.visibility = function(parameters) {
 
 $.fn.visibility.settings = {
 
-  name              : 'Visibility',
-  namespace         : 'visibility',
+  name                   : 'Visibility',
+  namespace              : 'visibility',
 
-  debug             : false,
-  verbose           : false,
-  performance       : true,
+  debug                  : false,
+  verbose                : false,
+  performance            : true,
 
-  offset            : 0,
-  includeMargin     : false,
+  offset                 : 0,
+  includeMargin          : false,
 
-  context           : window,
+  context                : window,
 
   // visibility check delay in ms
-  throttle          : false,
+  throttle               : false,
 
   // special visibility type
-  type              : false,
-  transition        : 'fade in',
-  duration          : 500,
+  type                   : false,
+  transition             : 'fade in',
+  duration               : 500,
 
-  // array of callbacks
-  onPassed          : {},
+  // array of callbacks for percentage
+  onPassed               : {},
 
   // standard callbacks
-  onPassing         : false,
-  onTopVisible      : false,
-  onBottomVisible   : false,
-  onTopPassed       : false,
-  onBottomPassed    : false,
+  onPassing              : false,
+  onTopVisible           : false,
+  onBottomVisible        : false,
+  onTopPassed            : false,
+  onBottomPassed         : false,
 
-  once              : true,
-  continuous        : false,
+  // reverse callbacks
+  onPassingReverse       : false,
+  onTopVisibleReverse    : false,
+  onBottomVisibleReverse : false,
+  onTopPassedReverse     : false,
+  onBottomPassedReverse  : false,
+
+  once                   : true,
+  continuous             : false,
 
   // utility callbacks
-  onRefresh         : function(){},
-  onScroll          : function(){},
-
-  // not used currently waiting for (DOM Mutations API adoption)
-  // https://dvcs.w3.org/hg/domcore/raw-file/tip/Overview.html#mutation-observers
-  watch             : true,
-  watchedProperties : [
-    'offsetWidth',
-    'offsetHeight',
-    'top',
-    'left'
-  ],
+  onRefresh              : function(){},
+  onScroll               : function(){},
 
   error : {
     method   : 'The method you called is not defined.'
@@ -4431,7 +4541,7 @@ $.fn.accordion = function(parameters) {
 
         toggle: function(index) {
           var
-            $activeTitle = (index)
+            $activeTitle = (index !== undefined)
               ? $title.eq(index)
               : $(this),
             $activeContent = $activeTitle.next($content),
@@ -4453,13 +4563,14 @@ $.fn.accordion = function(parameters) {
 
         open: function(index) {
           var
-            $activeTitle = (index)
+            $activeTitle = (index !== undefined)
               ? $title.eq(index)
               : $(this),
             $activeContent     = $activeTitle.next($content),
-            currentlyAnimating = $activeContent.is(':animated')
+            currentlyAnimating = $activeContent.is(':animated'),
+            currentlyActive    = $activeContent.hasClass(className.active)
           ;
-          if(!currentlyAnimating) {
+          if(!currentlyAnimating && !currentlyActive) {
             module.debug('Opening accordion content', $activeTitle);
             if(settings.exclusive) {
               $.proxy(module.closeOthers, $activeTitle)();
@@ -4489,36 +4600,39 @@ $.fn.accordion = function(parameters) {
 
         close: function(index) {
           var
-            $activeTitle = (index)
+            $activeTitle = (index !== undefined)
               ? $title.eq(index)
               : $(this),
-            $activeContent = $activeTitle.next($content)
+            $activeContent = $activeTitle.next($content),
+            isActive       = $activeContent.hasClass(className.active)
           ;
-          module.debug('Closing accordion content', $activeContent);
-          $activeTitle
-            .removeClass(className.active)
-          ;
-          $activeContent
-            .removeClass(className.active)
-            .show()
-            .stop()
-            .children()
+          if(isActive) {
+            module.debug('Closing accordion content', $activeContent);
+            $activeTitle
+              .removeClass(className.active)
+            ;
+            $activeContent
+              .removeClass(className.active)
+              .show()
               .stop()
-              .animate({
-                opacity: 0
-              }, settings.duration, module.reset.opacity)
-              .end()
-            .slideUp(settings.duration, settings.easing, function() {
-              $.proxy(module.reset.display, this)();
-              $.proxy(settings.onClose, element)();
-              $.proxy(settings.onChange, element)();
-            })
-          ;
+              .children()
+                .stop()
+                .animate({
+                  opacity: 0
+                }, settings.duration, module.reset.opacity)
+                .end()
+              .slideUp(settings.duration, settings.easing, function() {
+                $.proxy(module.reset.display, this)();
+                $.proxy(settings.onClose, element)();
+                $.proxy(settings.onChange, element)();
+              })
+            ;
+          }
         },
 
         closeOthers: function(index) {
           var
-            $activeTitle = (index)
+            $activeTitle = (index !== undefined)
               ? $title.eq(index)
               : $(this),
             $parentTitles    = $activeTitle.parents(selector.content).prev(selector.title),
@@ -4527,7 +4641,6 @@ $.fn.accordion = function(parameters) {
             $openContents    = $openTitles.next($content),
             contentIsOpen    = ($openTitles.size() > 0)
           ;
-
           if(contentIsOpen) {
             module.debug('Exclusive enabled, closing other content', $openTitles);
             $openTitles
@@ -13274,7 +13387,10 @@ $.fn.sticky = function(parameters) {
 
         event: {
           resize: function() {
-            requestAnimationFrame(module.refresh);
+            requestAnimationFrame(function() {
+              module.refresh();
+              module.stick();
+            });
           },
           scroll: function() {
             requestAnimationFrame(function() {
@@ -13390,13 +13506,12 @@ $.fn.sticky = function(parameters) {
               element        = module.cache.element,
               window         = module.cache.window,
               delta          = module.get.scrollChange(scroll),
-              maxScroll      = (element.height - window.height),
+              maxScroll      = (element.height - window.height + settings.offset),
               currentScroll  = module.get.currentElementScroll(),
               possibleScroll = (currentScroll + delta),
               elementScroll
             ;
-            console.log(currentScroll, maxScroll);
-            if(possibleScroll < 0) {
+            if(module.cache.fits || possibleScroll < 0) {
               elementScroll = 0;
             }
             else if (possibleScroll > maxScroll ) {
@@ -13409,7 +13524,17 @@ $.fn.sticky = function(parameters) {
           }
         },
 
+        remove: {
+          offset: function() {
+            $module.css('margin-top', '');
+          }
+        },
+
         set: {
+          offset: function() {
+            module.verbose('Setting offset on element', settings.offset);
+            $module.css('margin-top', settings.offset);
+          },
           containerSize: function() {
             var
               tagName = $container.get(0).tagName
@@ -13424,13 +13549,16 @@ $.fn.sticky = function(parameters) {
             }
           },
           scroll: function(scroll) {
+            module.debug('Setting scroll on element', scroll);
             if( module.is.top() ) {
               $module
+                .css('bottom', '')
                 .css('top', -scroll)
               ;
             }
             if( module.is.bottom() ) {
               $module
+                .css('top', '')
                 .css('bottom', scroll)
               ;
             }
@@ -13475,13 +13603,12 @@ $.fn.sticky = function(parameters) {
             element        = cache.element,
             window         = cache.window,
             context        = cache.context,
-            scrollTop      = $scroll.scrollTop() + settings.offset,
             scroll         = {
-              top    : scrollTop,
-              bottom : scrollTop + window.height
+              top    : $scroll.scrollTop() + settings.offset,
+              bottom : $scroll.scrollTop() + settings.offset + window.height
             },
-            direction      = module.get.direction(scrollTop),
-            elementScroll  = module.get.elementScroll(scrollTop),
+            direction      = module.get.direction(scroll.top),
+            elementScroll  = module.get.elementScroll(scroll.top),
 
             // shorthand
             doesntFit      = !fits,
@@ -13489,7 +13616,7 @@ $.fn.sticky = function(parameters) {
           ;
 
           // save current scroll for next run
-          module.save.scroll(scrollTop);
+          module.save.scroll(scroll.top);
 
           if(elementVisible) {
 
@@ -13503,47 +13630,52 @@ $.fn.sticky = function(parameters) {
 
               // currently fixed top
               if( module.is.top() ) {
-
                 if( scroll.top < element.top ) {
                   module.debug('Fixed element reached top of container');
                   module.setInitialPosition();
                 }
-                else if( (element.height + scroll.top) > context.bottom ) {
+                else if( (element.height + scroll.top - elementScroll) > context.bottom ) {
                   module.debug('Fixed element reached bottom of container');
                   module.bindBottom();
+                }
+                // scroll element if larger than screen
+                else if(doesntFit) {
+                  module.set.scroll(elementScroll);
                 }
               }
 
               // currently fixed bottom
-              if(module.is.bottom() ) {
+              else if(module.is.bottom() ) {
 
                 // top edge
-                if( (screen.bottom - element.height) < element.top) {
+                if( (scroll.bottom - element.height) < element.top) {
+                  module.debug('Bottom fixed rail has reached top of container');
                   module.setInitialPosition();
                 }
                 // bottom edge
-                else if(screen.bottom > context.bottom) {
-                  module.debug('Bottom attached rail has reached bottom of container');
+                else if(scroll.bottom > context.bottom) {
+                  module.debug('Bottom fixed rail has reached bottom of container');
                   module.bindBottom();
                 }
+                // scroll element if larger than screen
+                else if(doesntFit) {
+                  module.set.scroll(elementScroll);
+                }
 
-              }
-
-              // scroll element if larger than screen
-              if(doesntFit) {
-                module.set.scroll(elementScroll);
               }
             }
             else if( module.is.bottom() ) {
               // fix to bottom of screen on way back up
               if( module.is.bottom() ) {
                 if(settings.pushing) {
-                  if(module.is.bound() && screen.bottom < context.bottom ) {
+                  if(module.is.bound() && scroll.bottom < context.bottom ) {
+                    module.debug('Fixing bottom attached element to bottom of browser.');
                     module.fixBottom();
                   }
                 }
                 else {
-                  if(module.is.bound() && screen.top < context.bottom - element.height) {
+                  if(module.is.bound() && (scroll.top < context.bottom - element.height) ) {
+                    module.debug('Fixing bottom attached element to top of browser.');
                     module.fixTop();
                   }
                 }
@@ -13554,8 +13686,11 @@ $.fn.sticky = function(parameters) {
 
         bindTop: function() {
           module.debug('Binding element to top of parent container');
+          module.remove.offset();
           $module
             .css('left' , '')
+            .css('top' , '')
+            .css('bottom' , '')
             .removeClass(className.fixed)
             .removeClass(className.bottom)
             .addClass(className.bound)
@@ -13566,8 +13701,11 @@ $.fn.sticky = function(parameters) {
         },
         bindBottom: function() {
           module.debug('Binding element to bottom of parent container');
+          module.remove.offset();
           $module
             .css('left' , '')
+            .css('top' , '')
+            .css('bottom' , '')
             .removeClass(className.fixed)
             .removeClass(className.top)
             .addClass(className.bound)
@@ -13585,6 +13723,7 @@ $.fn.sticky = function(parameters) {
 
         fixTop: function() {
           module.debug('Fixing element to top of page');
+          module.set.offset();
           $module
             .css('left', module.cache.element.left)
             .removeClass(className.bound)
@@ -13597,6 +13736,7 @@ $.fn.sticky = function(parameters) {
 
         fixBottom: function() {
           module.debug('Sticking element to bottom of page');
+          module.set.offset();
           $module
             .css('left', module.cache.element.left)
             .removeClass(className.bound)
@@ -13609,6 +13749,7 @@ $.fn.sticky = function(parameters) {
 
         unbind: function() {
           module.debug('Removing absolute position on element');
+          module.remove.offset();
           $module
             .removeClass(className.bound)
             .removeClass(className.top)
@@ -13618,6 +13759,7 @@ $.fn.sticky = function(parameters) {
 
         unfix: function() {
           module.debug('Removing fixed position on element');
+          module.remove.offset();
           $module
             .removeClass(className.fixed)
             .removeClass(className.top)
@@ -13829,8 +13971,8 @@ $.fn.sticky.settings = {
   name          : 'Sticky',
   namespace     : 'sticky',
 
-  verbose       : false,
   debug         : false,
+  verbose       : false,
   performance   : false,
 
   pushing       : false,

@@ -6,10 +6,14 @@
        Element
 --------------------*/
 
-@railSizing: content-box;
-@railWidth: 300px;
-@railSize: 1em;
+@contentSizing: content-box;
+@width: 300px;
+@size: 1em;
+@distance: 4em;
 
-@railDistance: 6em;
+/*-------------------
+      Variations
+--------------------*/
 
-@railBorder: 1px solid @borderColor;
+@dividedBorder: 1px solid @borderColor;
+@dividedDistance: 6em;

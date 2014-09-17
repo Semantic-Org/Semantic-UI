@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -160,7 +160,7 @@
            Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
            Breadcrumb
@@ -299,7 +299,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -445,7 +445,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
             Elements
@@ -721,9 +721,9 @@
 .ui.form .field.error input[type="tel"]:focus {
   background: #fae8e8;
   border-color: #dbb1b1;
-  color: #ff635a;
+  color: #ff7169;
   -webkit-appearance: none;
-  box-shadow: 2px 0em 0em 0em #ff635a inset;
+  box-shadow: 2px 0em 0em 0em #ff7169 inset;
 }
 /*------------------
     Dropdown Error
@@ -1139,7 +1139,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -1271,7 +1271,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
             Standard
@@ -1380,8 +1380,6 @@
   padding-left: 13%;
   padding-right: 13%;
   width: auto;
-  margin-left: 0em;
-  margin-right: 0em;
 }
 /* Collapse Margin */
 .ui.grid > .ui.grid:first-child {
@@ -1714,7 +1712,7 @@
 -----------------------*/
 .ui.divided.grid:not(.vertically) > .column:not(.row),
 .ui.divided.grid:not(.vertically) > .row > .column {
-  box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1), -2px 0px 0px 0px rgba(255, 255, 255, 0.3);
+  box-shadow: -1px 0px 0px 0px rgba(255, 255, 255, 0.1), -2px 0px 0px 0px rgba(0, 0, 0, 0.3);
 }
 .ui.divided.grid:not(.vertically) > .column:first-child,
 .ui.divided.grid:not(.vertically) > .row > .column:first-child {
@@ -1722,7 +1720,7 @@
 }
 /* Divided Row */
 .ui.grid > .divided.row > .column {
-  box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1), -2px 0px 0px 0px rgba(255, 255, 255, 0.3);
+  box-shadow: -1px 0px 0px 0px rgba(255, 255, 255, 0.1), -2px 0px 0px 0px rgba(0, 0, 0, 0.3);
 }
 .ui.grid > .divided.row > .column:first-child {
   box-shadow: none;
@@ -1746,11 +1744,16 @@
   box-shadow: none;
 }
 /* Inverted Divided */
-.ui.inverted.divided.grid > .row {
-  box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.15), -2px 0px 0px 0px rgba(0, 0, 0, 0.15);
+.ui.inverted.divided.grid:not(.vertical) > .column,
+.ui.inverted.divided.grid:not(.vertical) > .row > .column {
+  box-shadow: -1px 0px 0px 0px rgba(255, 255, 255, 0.15), -2px 0px 0px 0px rgba(0, 0, 0, 0.15);
+}
+.ui.inverted.divided.grid:not(.vertical) > .column:first-child,
+.ui.inverted.divided.grid:not(.vertical) > .row > .column:first-child {
+  box-shadow: none;
 }
 .ui.inverted[class*="vertically divided"].grid > .row {
-  box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.15), 0px -2px 0px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.15), 0px -2px 0px 0px rgba(255, 255, 255, 0.15);
 }
 /* Relaxed */
 .ui.relaxed[class*="vertically divided"].grid > .row:before {
@@ -2279,7 +2282,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -2435,7 +2438,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
             Standard
@@ -2472,7 +2475,7 @@
   color: rgba(0, 0, 0, 0.8);
 }
 .ui.menu .item .item {
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.5);
 }
 /* Hover */
 .ui.menu .item .menu a.item:hover,
@@ -3877,7 +3880,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -4003,7 +4006,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
             Message
@@ -4398,7 +4401,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -4541,7 +4544,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
              Table
@@ -5266,7 +5269,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -5417,7 +5420,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
             Button
@@ -5445,7 +5448,7 @@
   background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.09));
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.09));
   border-radius: 0.25em;
-  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset, 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset, 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -5521,7 +5524,7 @@
   color: transparent !important;
   -webkit-transition: all 0s linear;
           transition: all 0s linear;
-  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset, 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset, 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.loading.button:after {
   position: absolute;
@@ -5560,7 +5563,7 @@
 .ui.animated.button {
   position: relative;
   overflow: hidden;
-  padding-right: 0em;
+  padding-right: 0em !important;
 }
 .ui.animated.button .content {
   will-change: transform, opacity;
@@ -5699,17 +5702,16 @@
   background-color: #3b579d;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-  background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
+  background-image: none;
   box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.facebook.button:hover {
-  background-color: #4565b7;
+  background-color: #4e6ebd;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.facebook.button:active {
-  background-color: #314983;
+  background-color: #2d4278;
   color: #ffffff;
   text-shadow: none;
 }
@@ -5718,17 +5720,16 @@
   background-color: #4092cc;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-  background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
+  background-image: none;
   box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.twitter.button:hover {
-  background-color: #5ca2d4;
+  background-color: #68a9d7;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.twitter.button:active {
-  background-color: #3180b7;
+  background-color: #2e77ab;
   color: #ffffff;
   text-shadow: none;
 }
@@ -5737,17 +5738,16 @@
   background-color: #d34836;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-  background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
+  background-image: none;
   box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.google.plus.button:hover {
-  background-color: #d96353;
+  background-color: #dc6e60;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.google.plus.button:active {
-  background-color: #bc3a29;
+  background-color: #b03626;
   color: #ffffff;
   text-shadow: none;
 }
@@ -5758,12 +5758,12 @@
   text-shadow: none;
 }
 .ui.linkedin.button:hover {
-  background-color: #259edb;
+  background-color: #32a3de;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.linkedin.button:active {
-  background-color: #1a729f;
+  background-color: #186992;
   color: #ffffff;
   text-shadow: none;
 }
@@ -5772,17 +5772,16 @@
   background-color: #cc181e;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-  background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
+  background-image: none;
   box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.youtube.button:hover {
-  background-color: #e52329;
+  background-color: #e73036;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.youtube.button:active {
-  background-color: #ac1419;
+  background-color: #9e1317;
   color: #ffffff;
   text-shadow: none;
 }
@@ -5791,17 +5790,16 @@
   background-color: #49769c;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-  background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
+  background-image: none;
   box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.instagram.button:hover {
-  background-color: #5888b1;
+  background-color: #6290b6;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.instagram.button:active {
-  background-color: #3e6484;
+  background-color: #395c79;
   color: #ffffff;
   text-shadow: none;
 }
@@ -5810,17 +5808,16 @@
   background-color: #00aced;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-  background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
+  background-image: none;
   box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.pinterest.button:hover {
-  background-color: #12beff;
+  background-color: #21c2ff;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.pinterest.button:active {
-  background-color: #0092c9;
+  background-color: #0087ba;
   color: #ffffff;
   text-shadow: none;
 }
@@ -5828,16 +5825,15 @@
 .ui.vk.button {
   background-color: #4D7198;
   color: #ffffff;
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-  background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
+  background-image: none;
   box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.vk.button:hover {
-  background-color: #5c83ad;
+  background-color: #668ab2;
   color: #ffffff;
 }
 .ui.vk.button:active {
-  background-color: #415f80;
+  background-color: #3c5876;
   color: #ffffff;
 }
 /*--------------
@@ -6142,7 +6138,7 @@
   color: #ffffff !important;
 }
 .ui.button.toggle.active:hover {
-  background-color: #48d658 !important;
+  background-color: #54d964 !important;
   text-shadow: none;
   color: #ffffff !important;
 }
@@ -6438,21 +6434,20 @@
   background-color: #191919;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-  background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
+  background-image: none;
 }
 .ui.black.button {
   box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.black.buttons .button:hover,
 .ui.black.button:hover {
-  background-color: #2b2b2b;
+  background-color: #333333;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.black.buttons .button:active,
 .ui.black.button:active {
-  background-color: #070707;
+  background-color: #000000;
   color: #ffffff;
   text-shadow: none;
 }
@@ -6460,7 +6455,7 @@
 .ui.black.buttons .button.active:active,
 .ui.black.button.active,
 .ui.black.button .button.active:active {
-  background-color: #0c0c0c;
+  background-color: #070707;
   color: #ffffff;
   text-shadow: none;
 }
@@ -6473,19 +6468,19 @@
 .ui.basic.black.buttons .button:hover,
 .ui.basic.black.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #2b2b2b inset !important;
-  color: #2b2b2b !important;
+  box-shadow: 0px 0px 0px 2px #333333 inset !important;
+  color: #333333 !important;
 }
 .ui.basic.black.buttons .button:active,
 .ui.basic.black.button:active {
-  box-shadow: 0px 0px 0px 2px #070707 inset !important;
-  color: #070707 !important;
+  box-shadow: 0px 0px 0px 2px #000000 inset !important;
+  color: #000000 !important;
 }
 .ui.basic.black.buttons .button.active,
 .ui.basic.black.button.active {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #070707 inset !important;
-  color: #070707 !important;
+  box-shadow: 0px 0px 0px 2px #000000 inset !important;
+  color: #000000 !important;
 }
 /* Inverted */
 .ui.inverted.black.buttons .button,
@@ -6502,9 +6497,9 @@
 }
 .ui.inverted.black.buttons .button:active,
 .ui.inverted.black.button:active {
-  box-shadow: 0px 0px 0px 2px #212121 inset !important;
-  background-color: #212121;
-  color: #191919;
+  box-shadow: 0px 0px 0px 2px #1a1a1a inset !important;
+  background-color: #1a1a1a;
+  color: #ffffff;
 }
 /* Inverted Basic */
 .ui.inverted.black.basic.buttons .button,
@@ -6523,8 +6518,8 @@
 .ui.inverted.black.basic.buttons .button:active,
 .ui.inverted.black.buttons .basic.button:active,
 .ui.inverted.black.basic.button:active {
-  box-shadow: 0px 0px 0px 2px #212121 inset !important;
-  color: #212121 !important;
+  box-shadow: 0px 0px 0px 2px #1a1a1a inset !important;
+  color: #ffffff !important;
 }
 /*--- Blue ---*/
 .ui.blue.buttons .button,
@@ -6532,21 +6527,20 @@
   background-color: #0074d9;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-  background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
+  background-image: none;
 }
 .ui.blue.button {
   box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.blue.buttons .button:hover,
 .ui.blue.button:hover {
-  background-color: #0087fd;
+  background-color: #0d8eff;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.blue.buttons .button:active,
 .ui.blue.button:active {
-  background-color: #0061b5;
+  background-color: #0059a6;
   color: #ffffff;
   text-shadow: none;
 }
@@ -6554,7 +6548,7 @@
 .ui.blue.buttons .button.active:active,
 .ui.blue.button.active,
 .ui.blue.button .button.active:active {
-  background-color: #0066c0;
+  background-color: #0061b5;
   color: #ffffff;
   text-shadow: none;
 }
@@ -6567,19 +6561,19 @@
 .ui.basic.blue.buttons .button:hover,
 .ui.basic.blue.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #0087fd inset !important;
-  color: #0087fd !important;
+  box-shadow: 0px 0px 0px 2px #0d8eff inset !important;
+  color: #0d8eff !important;
 }
 .ui.basic.blue.buttons .button:active,
 .ui.basic.blue.button:active {
-  box-shadow: 0px 0px 0px 2px #0061b5 inset !important;
-  color: #0061b5 !important;
+  box-shadow: 0px 0px 0px 2px #0059a6 inset !important;
+  color: #0059a6 !important;
 }
 .ui.basic.blue.buttons .button.active,
 .ui.basic.blue.button.active {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #0061b5 inset !important;
-  color: #0061b5 !important;
+  box-shadow: 0px 0px 0px 2px #0059a6 inset !important;
+  color: #0059a6 !important;
 }
 /* Inverted */
 .ui.inverted.blue.buttons .button,
@@ -6596,8 +6590,8 @@
 }
 .ui.inverted.blue.buttons .button:active,
 .ui.inverted.blue.button:active {
-  box-shadow: 0px 0px 0px 2px #30bdff inset !important;
-  background-color: #30bdff;
+  box-shadow: 0px 0px 0px 2px #21b8ff inset !important;
+  background-color: #21b8ff;
   color: #191919;
 }
 /* Inverted Basic */
@@ -6617,8 +6611,8 @@
 .ui.inverted.blue.basic.buttons .button:active,
 .ui.inverted.blue.buttons .basic.button:active,
 .ui.inverted.blue.basic.button:active {
-  box-shadow: 0px 0px 0px 2px #30bdff inset !important;
-  color: #30bdff !important;
+  box-shadow: 0px 0px 0px 2px #21b8ff inset !important;
+  color: #21b8ff !important;
 }
 /*--- Green ---*/
 .ui.green.buttons .button,
@@ -6626,21 +6620,20 @@
   background-color: #2ecc40;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-  background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
+  background-image: none;
 }
 .ui.green.button {
   box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.green.buttons .button:hover,
 .ui.green.button:hover {
-  background-color: #48d658;
+  background-color: #54d964;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.green.buttons .button:active,
 .ui.green.button:active {
-  background-color: #27af37;
+  background-color: #25a233;
   color: #ffffff;
   text-shadow: none;
 }
@@ -6648,7 +6641,7 @@
 .ui.green.buttons .button.active:active,
 .ui.green.button.active,
 .ui.green.button .button.active:active {
-  background-color: #29b739;
+  background-color: #27af37;
   color: #ffffff;
   text-shadow: none;
 }
@@ -6661,19 +6654,19 @@
 .ui.basic.green.buttons .button:hover,
 .ui.basic.green.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #48d658 inset !important;
-  color: #48d658 !important;
+  box-shadow: 0px 0px 0px 2px #54d964 inset !important;
+  color: #54d964 !important;
 }
 .ui.basic.green.buttons .button:active,
 .ui.basic.green.button:active {
-  box-shadow: 0px 0px 0px 2px #27af37 inset !important;
-  color: #27af37 !important;
+  box-shadow: 0px 0px 0px 2px #25a233 inset !important;
+  color: #25a233 !important;
 }
 .ui.basic.green.buttons .button.active,
 .ui.basic.green.button.active {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #27af37 inset !important;
-  color: #27af37 !important;
+  box-shadow: 0px 0px 0px 2px #25a233 inset !important;
+  color: #25a233 !important;
 }
 /* Inverted */
 .ui.inverted.green.buttons .button,
@@ -6690,8 +6683,8 @@
 }
 .ui.inverted.green.buttons .button:active,
 .ui.inverted.green.button:active {
-  box-shadow: 0px 0px 0px 2px #27af37 inset !important;
-  background-color: #27af37;
+  box-shadow: 0px 0px 0px 2px #25a233 inset !important;
+  background-color: #25a233;
   color: #191919;
 }
 /* Inverted Basic */
@@ -6711,8 +6704,8 @@
 .ui.inverted.green.basic.buttons .button:active,
 .ui.inverted.green.buttons .basic.button:active,
 .ui.inverted.green.basic.button:active {
-  box-shadow: 0px 0px 0px 2px #27af37 inset !important;
-  color: #27af37 !important;
+  box-shadow: 0px 0px 0px 2px #25a233 inset !important;
+  color: #25a233 !important;
 }
 /*--- Orange ---*/
 .ui.orange.buttons .button,
@@ -6720,21 +6713,20 @@
   background-color: #ff851b;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-  background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
+  background-image: none;
 }
 .ui.orange.button {
   box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.orange.buttons .button:hover,
 .ui.orange.button:hover {
-  background-color: #ff983f;
+  background-color: #ffa04e;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.orange.buttons .button:active,
 .ui.orange.button:active {
-  background-color: #f67300;
+  background-color: #e76b00;
   color: #ffffff;
   text-shadow: none;
 }
@@ -6742,7 +6734,7 @@
 .ui.orange.buttons .button.active:active,
 .ui.orange.button.active,
 .ui.orange.button .button.active:active {
-  background-color: #0c0c0c;
+  background-color: #070707;
   color: #ffffff;
   text-shadow: none;
 }
@@ -6755,19 +6747,19 @@
 .ui.basic.orange.buttons .button:hover,
 .ui.basic.orange.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #ff983f inset !important;
-  color: #ff983f !important;
+  box-shadow: 0px 0px 0px 2px #ffa04e inset !important;
+  color: #ffa04e !important;
 }
 .ui.basic.orange.buttons .button:active,
 .ui.basic.orange.button:active {
-  box-shadow: 0px 0px 0px 2px #f67300 inset !important;
-  color: #f67300 !important;
+  box-shadow: 0px 0px 0px 2px #e76b00 inset !important;
+  color: #e76b00 !important;
 }
 .ui.basic.orange.buttons .button.active,
 .ui.basic.orange.button.active {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #f67300 inset !important;
-  color: #f67300 !important;
+  box-shadow: 0px 0px 0px 2px #e76b00 inset !important;
+  color: #e76b00 !important;
 }
 /* Inverted */
 .ui.inverted.orange.buttons .button,
@@ -6784,8 +6776,8 @@
 }
 .ui.inverted.orange.buttons .button:active,
 .ui.inverted.orange.button:active {
-  box-shadow: 0px 0px 0px 2px #f67300 inset !important;
-  background-color: #f67300;
+  box-shadow: 0px 0px 0px 2px #e76b00 inset !important;
+  background-color: #e76b00;
   color: #191919;
 }
 /* Inverted Basic */
@@ -6805,8 +6797,8 @@
 .ui.inverted.orange.basic.buttons .button:active,
 .ui.inverted.orange.buttons .basic.button:active,
 .ui.inverted.orange.basic.button:active {
-  box-shadow: 0px 0px 0px 2px #f67300 inset !important;
-  color: #f67300 !important;
+  box-shadow: 0px 0px 0px 2px #e76b00 inset !important;
+  color: #e76b00 !important;
 }
 /*--- Pink ---*/
 .ui.pink.buttons .button,
@@ -6814,21 +6806,20 @@
   background-color: #d9499a;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-  background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
+  background-image: none;
 }
 .ui.pink.button {
   box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.pink.buttons .button:hover,
 .ui.pink.button:hover {
-  background-color: #df67aa;
+  background-color: #e273b1;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.pink.buttons .button:active,
 .ui.pink.button:active {
-  background-color: #d22c8a;
+  background-color: #c62981;
   color: #ffffff;
   text-shadow: none;
 }
@@ -6836,7 +6827,7 @@
 .ui.pink.buttons .button.active:active,
 .ui.pink.button.active,
 .ui.pink.button .button.active:active {
-  background-color: #d5348e;
+  background-color: #d22c8a;
   color: #ffffff;
   text-shadow: none;
 }
@@ -6849,19 +6840,19 @@
 .ui.basic.pink.buttons .button:hover,
 .ui.basic.pink.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #df67aa inset !important;
-  color: #df67aa !important;
+  box-shadow: 0px 0px 0px 2px #e273b1 inset !important;
+  color: #e273b1 !important;
 }
 .ui.basic.pink.buttons .button:active,
 .ui.basic.pink.button:active {
-  box-shadow: 0px 0px 0px 2px #d22c8a inset !important;
-  color: #d22c8a !important;
+  box-shadow: 0px 0px 0px 2px #c62981 inset !important;
+  color: #c62981 !important;
 }
 .ui.basic.pink.buttons .button.active,
 .ui.basic.pink.button.active {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #d22c8a inset !important;
-  color: #d22c8a !important;
+  box-shadow: 0px 0px 0px 2px #c62981 inset !important;
+  color: #c62981 !important;
 }
 /* Inverted */
 .ui.inverted.pink.buttons .button,
@@ -6878,8 +6869,8 @@
 }
 .ui.inverted.pink.buttons .button:active,
 .ui.inverted.pink.button:active {
-  box-shadow: 0px 0px 0px 2px #ff6ad5 inset !important;
-  background-color: #ff6ad5;
+  box-shadow: 0px 0px 0px 2px #ff5bd1 inset !important;
+  background-color: #ff5bd1;
   color: #191919;
 }
 /* Inverted Basic */
@@ -6899,8 +6890,8 @@
 .ui.inverted.pink.basic.buttons .button:active,
 .ui.inverted.pink.buttons .basic.button:active,
 .ui.inverted.pink.basic.button:active {
-  box-shadow: 0px 0px 0px 2px #ff6ad5 inset !important;
-  color: #ff6ad5 !important;
+  box-shadow: 0px 0px 0px 2px #ff5bd1 inset !important;
+  color: #ff5bd1 !important;
 }
 /*--- Purple ---*/
 .ui.purple.buttons .button,
@@ -6908,21 +6899,20 @@
   background-color: #a24096;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-  background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
+  background-image: none;
 }
 .ui.purple.button {
   box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.purple.buttons .button:hover,
 .ui.purple.button:hover {
-  background-color: #b94dac;
+  background-color: #bd58b1;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.purple.buttons .button:active,
 .ui.purple.button:active {
-  background-color: #88367e;
+  background-color: #7d3274;
   color: #ffffff;
   text-shadow: none;
 }
@@ -6930,7 +6920,7 @@
 .ui.purple.buttons .button.active:active,
 .ui.purple.button.active,
 .ui.purple.button .button.active:active {
-  background-color: #903985;
+  background-color: #88367e;
   color: #ffffff;
   text-shadow: none;
 }
@@ -6943,19 +6933,19 @@
 .ui.basic.purple.buttons .button:hover,
 .ui.basic.purple.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #b94dac inset !important;
-  color: #b94dac !important;
+  box-shadow: 0px 0px 0px 2px #bd58b1 inset !important;
+  color: #bd58b1 !important;
 }
 .ui.basic.purple.buttons .button:active,
 .ui.basic.purple.button:active {
-  box-shadow: 0px 0px 0px 2px #88367e inset !important;
-  color: #88367e !important;
+  box-shadow: 0px 0px 0px 2px #7d3274 inset !important;
+  color: #7d3274 !important;
 }
 .ui.basic.purple.buttons .button.active,
 .ui.basic.purple.button.active {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #88367e inset !important;
-  color: #88367e !important;
+  box-shadow: 0px 0px 0px 2px #7d3274 inset !important;
+  color: #7d3274 !important;
 }
 /* Inverted */
 .ui.inverted.purple.buttons .button,
@@ -6972,8 +6962,8 @@
 }
 .ui.inverted.purple.buttons .button:active,
 .ui.inverted.purple.button:active {
-  box-shadow: 0px 0px 0px 2px #aea2ff inset !important;
-  background-color: #aea2ff;
+  box-shadow: 0px 0px 0px 2px #a093ff inset !important;
+  background-color: #a093ff;
   color: #191919;
 }
 /* Inverted Basic */
@@ -6993,8 +6983,8 @@
 .ui.inverted.purple.basic.buttons .button:active,
 .ui.inverted.purple.buttons .basic.button:active,
 .ui.inverted.purple.basic.button:active {
-  box-shadow: 0px 0px 0px 2px #aea2ff inset !important;
-  color: #aea2ff !important;
+  box-shadow: 0px 0px 0px 2px #a093ff inset !important;
+  color: #a093ff !important;
 }
 /*--- Red ---*/
 .ui.red.buttons .button,
@@ -7002,21 +6992,20 @@
   background-color: #ff4136;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-  background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
+  background-image: none;
 }
 .ui.red.button {
   box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.red.buttons .button:hover,
 .ui.red.button:hover {
-  background-color: #ff635a;
+  background-color: #ff7169;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.red.buttons .button:active,
 .ui.red.button:active {
-  background-color: #ff1f12;
+  background-color: #ff1103;
   color: #ffffff;
   text-shadow: none;
 }
@@ -7024,7 +7013,7 @@
 .ui.red.buttons .button.active:active,
 .ui.red.button.active,
 .ui.red.button .button.active:active {
-  background-color: #ff291c;
+  background-color: #ff1f12;
   color: #ffffff;
   text-shadow: none;
 }
@@ -7037,19 +7026,19 @@
 .ui.basic.red.buttons .button:hover,
 .ui.basic.red.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #ff635a inset !important;
-  color: #ff635a !important;
+  box-shadow: 0px 0px 0px 2px #ff7169 inset !important;
+  color: #ff7169 !important;
 }
 .ui.basic.red.buttons .button:active,
 .ui.basic.red.button:active {
-  box-shadow: 0px 0px 0px 2px #ff1f12 inset !important;
-  color: #ff1f12 !important;
+  box-shadow: 0px 0px 0px 2px #ff1103 inset !important;
+  color: #ff1103 !important;
 }
 .ui.basic.red.buttons .button.active,
 .ui.basic.red.button.active {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #ff1f12 inset !important;
-  color: #ff1f12 !important;
+  box-shadow: 0px 0px 0px 2px #ff1103 inset !important;
+  color: #ff1103 !important;
 }
 /* Inverted */
 .ui.inverted.red.buttons .button,
@@ -7066,8 +7055,8 @@
 }
 .ui.inverted.red.buttons .button:active,
 .ui.inverted.red.button:active {
-  box-shadow: 0px 0px 0px 2px #ff483a inset !important;
-  background-color: #ff483a;
+  box-shadow: 0px 0px 0px 2px #ff392b inset !important;
+  background-color: #ff392b;
   color: #191919;
 }
 /* Inverted Basic */
@@ -7087,8 +7076,8 @@
 .ui.inverted.red.basic.buttons .button:active,
 .ui.inverted.red.buttons .basic.button:active,
 .ui.inverted.red.basic.button:active {
-  box-shadow: 0px 0px 0px 2px #ff483a inset !important;
-  color: #ff483a !important;
+  box-shadow: 0px 0px 0px 2px #ff392b inset !important;
+  color: #ff392b !important;
 }
 /*--- Teal ---*/
 .ui.teal.buttons .button,
@@ -7096,21 +7085,20 @@
   background-color: #39cccc;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-  background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
+  background-image: none;
 }
 .ui.teal.button {
   box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.teal.buttons .button:hover,
 .ui.teal.button:hover {
-  background-color: #55d3d3;
+  background-color: #62d6d6;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.teal.buttons .button:active,
 .ui.teal.button:active {
-  background-color: #2eb3b3;
+  background-color: #2ba7a7;
   color: #ffffff;
   text-shadow: none;
 }
@@ -7118,7 +7106,7 @@
 .ui.teal.buttons .button.active:active,
 .ui.teal.button.active,
 .ui.teal.button .button.active:active {
-  background-color: #30bbbb;
+  background-color: #2eb3b3;
   color: #ffffff;
   text-shadow: none;
 }
@@ -7131,19 +7119,19 @@
 .ui.basic.teal.buttons .button:hover,
 .ui.basic.teal.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #55d3d3 inset !important;
-  color: #55d3d3 !important;
+  box-shadow: 0px 0px 0px 2px #62d6d6 inset !important;
+  color: #62d6d6 !important;
 }
 .ui.basic.teal.buttons .button:active,
 .ui.basic.teal.button:active {
-  box-shadow: 0px 0px 0px 2px #2eb3b3 inset !important;
-  color: #2eb3b3 !important;
+  box-shadow: 0px 0px 0px 2px #2ba7a7 inset !important;
+  color: #2ba7a7 !important;
 }
 .ui.basic.teal.buttons .button.active,
 .ui.basic.teal.button.active {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #2eb3b3 inset !important;
-  color: #2eb3b3 !important;
+  box-shadow: 0px 0px 0px 2px #2ba7a7 inset !important;
+  color: #2ba7a7 !important;
 }
 /* Inverted */
 .ui.inverted.teal.buttons .button,
@@ -7160,8 +7148,8 @@
 }
 .ui.inverted.teal.buttons .button:active,
 .ui.inverted.teal.button:active {
-  box-shadow: 0px 0px 0px 2px #49ffff inset !important;
-  background-color: #49ffff;
+  box-shadow: 0px 0px 0px 2px #3affff inset !important;
+  background-color: #3affff;
   color: #191919;
 }
 /* Inverted Basic */
@@ -7181,8 +7169,8 @@
 .ui.inverted.teal.basic.buttons .button:active,
 .ui.inverted.teal.buttons .basic.button:active,
 .ui.inverted.teal.basic.button:active {
-  box-shadow: 0px 0px 0px 2px #49ffff inset !important;
-  color: #49ffff !important;
+  box-shadow: 0px 0px 0px 2px #3affff inset !important;
+  color: #3affff !important;
 }
 /*--- Yellow ---*/
 .ui.yellow.buttons .button,
@@ -7190,21 +7178,20 @@
   background-color: #ffcb08;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-  background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
+  background-image: none;
 }
 .ui.yellow.button {
   box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.yellow.buttons .button:hover,
 .ui.yellow.button:hover {
-  background-color: #ffd32c;
+  background-color: #ffd63b;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.yellow.buttons .button:active,
 .ui.yellow.button:active {
-  background-color: #e3b300;
+  background-color: #d4a700;
   color: #ffffff;
   text-shadow: none;
 }
@@ -7212,7 +7199,7 @@
 .ui.yellow.buttons .button.active:active,
 .ui.yellow.button.active,
 .ui.yellow.button .button.active:active {
-  background-color: #edbb00;
+  background-color: #e3b300;
   color: #ffffff;
   text-shadow: none;
 }
@@ -7225,19 +7212,19 @@
 .ui.basic.yellow.buttons .button:hover,
 .ui.basic.yellow.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #ffd32c inset !important;
-  color: #ffd32c !important;
+  box-shadow: 0px 0px 0px 2px #ffd63b inset !important;
+  color: #ffd63b !important;
 }
 .ui.basic.yellow.buttons .button:active,
 .ui.basic.yellow.button:active {
-  box-shadow: 0px 0px 0px 2px #e3b300 inset !important;
-  color: #e3b300 !important;
+  box-shadow: 0px 0px 0px 2px #d4a700 inset !important;
+  color: #d4a700 !important;
 }
 .ui.basic.yellow.buttons .button.active,
 .ui.basic.yellow.button.active {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #e3b300 inset !important;
-  color: #e3b300 !important;
+  box-shadow: 0px 0px 0px 2px #d4a700 inset !important;
+  color: #d4a700 !important;
 }
 /* Inverted */
 .ui.inverted.yellow.buttons .button,
@@ -7254,8 +7241,8 @@
 }
 .ui.inverted.yellow.buttons .button:active,
 .ui.inverted.yellow.button:active {
-  box-shadow: 0px 0px 0px 2px #fada00 inset !important;
-  background-color: #fada00;
+  box-shadow: 0px 0px 0px 2px #ebcd00 inset !important;
+  background-color: #ebcd00;
   color: #191919;
 }
 /* Inverted Basic */
@@ -7275,8 +7262,8 @@
 .ui.inverted.yellow.basic.buttons .button:active,
 .ui.inverted.yellow.buttons .basic.button:active,
 .ui.inverted.yellow.basic.button:active {
-  box-shadow: 0px 0px 0px 2px #fada00 inset !important;
-  color: #fada00 !important;
+  box-shadow: 0px 0px 0px 2px #ebcd00 inset !important;
+  color: #ebcd00 !important;
 }
 /*-------------------
        Primary
@@ -7286,27 +7273,26 @@
   background-color: #0074d9;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-  background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
+  background-image: none;
 }
 .ui.primary.button {
   box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.primary.buttons .button:hover,
 .ui.primary.button:hover {
-  background-color: #0087fd;
+  background-color: #0d8eff;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.primary.buttons .button:active,
 .ui.primary.button:active {
-  background-color: #0061b5;
+  background-color: #0059a6;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.primary.buttons .active.button,
 .ui.primary.button.active {
-  background-color: #0066c0;
+  background-color: #0061b5;
   color: #ffffff;
   text-shadow: none;
 }
@@ -7318,27 +7304,26 @@
   background-color: #191919;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-  background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
+  background-image: none;
 }
 .ui.secondary.button {
   box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.secondary.buttons .button:hover,
 .ui.secondary.button:hover {
-  background-color: #2b2b2b;
+  background-color: #333333;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.secondary.buttons .button:active,
 .ui.secondary.button:active {
-  background-color: #070707;
+  background-color: #000000;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.secondary.buttons .active.button,
 .ui.secondary.button.active {
-  background-color: #0c0c0c;
+  background-color: #070707;
   color: #ffffff;
   text-shadow: none;
 }
@@ -7350,8 +7335,7 @@
   background-color: #2ecc40 !important;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-  background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
+  background-image: none;
 }
 .ui.positive.button {
   box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
@@ -7360,13 +7344,13 @@
 .ui.positive.button:hover,
 .ui.positive.buttons .active.button,
 .ui.positive.button.active {
-  background-color: #48d658 !important;
+  background-color: #54d964 !important;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.positive.buttons .button:active,
 .ui.positive.button:active {
-  background-color: #27af37 !important;
+  background-color: #25a233 !important;
   color: #ffffff;
   text-shadow: none;
 }
@@ -7374,7 +7358,7 @@
 .ui.positive.buttons .button.active:active,
 .ui.positive.button.active,
 .ui.positive.button .button.active:active {
-  background-color: #29b739;
+  background-color: #27af37;
   color: #ffffff;
   text-shadow: none;
 }
@@ -7386,8 +7370,7 @@
   background-color: #ff4136 !important;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-  background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
+  background-image: none;
 }
 .ui.negative.button {
   box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
@@ -7396,13 +7379,13 @@
 .ui.negative.button:hover,
 .ui.negative.buttons .active.button,
 .ui.negative.button.active {
-  background-color: #ff635a !important;
+  background-color: #ff7169 !important;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.negative.buttons .button:active,
 .ui.negative.button:active {
-  background-color: #ff1f12 !important;
+  background-color: #ff1103 !important;
   color: #ffffff;
   text-shadow: none;
 }
@@ -7410,7 +7393,7 @@
 .ui.negative.buttons .button.active:active,
 .ui.negative.button.active,
 .ui.negative.button .button.active:active {
-  background-color: #ff291c;
+  background-color: #ff1f12;
   color: #ffffff;
   text-shadow: none;
 }
@@ -7433,7 +7416,7 @@
   border-left: none;
 }
 .ui.buttons:not(.basic):not(.inverted) {
-  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: none;
 }
 .ui.buttons > .ui.button:not(.basic):not(.inverted),
 .ui.buttons:not(.basic):not(.inverted) > .button {
@@ -7534,7 +7517,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -7657,7 +7640,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
             Divider
@@ -7892,7 +7875,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -8004,7 +7987,7 @@
    Flag Variables
 --------------------*/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 i.flag {
   display: inline-block;
@@ -9051,7 +9034,7 @@ i.flag.zimbabwe:before {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -9180,7 +9163,7 @@ i.flag.zimbabwe:before {
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
             Header
@@ -9333,55 +9316,55 @@ h5.ui.header {
   color: #191919 !important;
 }
 a.ui.black.header:hover {
-  color: #2b2b2b !important;
+  color: #333333 !important;
 }
 .ui.blue.header {
   color: #0066c0 !important;
 }
 a.ui.blue.header:hover {
-  color: #0087fd !important;
+  color: #0d8eff !important;
 }
 .ui.green.header {
   color: #1aa62a !important;
 }
 a.ui.green.header:hover {
-  color: #48d658 !important;
+  color: #54d964 !important;
 }
 .ui.orange.header {
   color: #ff7701 !important;
 }
 a.ui.orange.header:hover {
-  color: #ff983f !important;
+  color: #ffa04e !important;
 }
 .ui.pink.header {
   color: #d5348e !important;
 }
 a.ui.pink.header:hover {
-  color: #df67aa !important;
+  color: #e273b1 !important;
 }
 .ui.purple.header {
   color: #903985 !important;
 }
 a.ui.purple.header:hover {
-  color: #b94dac !important;
+  color: #bd58b1 !important;
 }
 .ui.red.header {
   color: #ff291c !important;
 }
 a.ui.red.header:hover {
-  color: #ff635a !important;
+  color: #ff7169 !important;
 }
 .ui.teal.header {
   color: #0e8c8c !important;
 }
 a.ui.teal.header:hover {
-  color: #55d3d3 !important;
+  color: #62d6d6 !important;
 }
 .ui.yellow.header {
   color: #9c6f04 !important;
 }
 a.ui.yellow.header:hover {
-  color: #ffd32c !important;
+  color: #ffd63b !important;
 }
 .ui.black.dividing.header {
   border-bottom: 2px solid #191919;
@@ -9436,55 +9419,55 @@ a.ui.yellow.header:hover {
   color: #aaaaaa !important;
 }
 a.ui.inverted.black.header:hover {
-  color: #bcbcbc !important;
+  color: #c3c3c3 !important;
 }
 .ui.inverted.blue.header {
   color: #54c8ff !important;
 }
 a.ui.inverted.blue.header:hover {
-  color: #78d3ff !important;
+  color: #87d8ff !important;
 }
 .ui.inverted.green.header {
   color: #2ecc40 !important;
 }
 a.ui.inverted.green.header:hover {
-  color: #48d658 !important;
+  color: #54d964 !important;
 }
 .ui.inverted.orange.header {
   color: #ff851b !important;
 }
 a.ui.inverted.orange.header:hover {
-  color: #ff983f !important;
+  color: #ffa04e !important;
 }
 .ui.inverted.pink.header {
   color: #ff8edf !important;
 }
 a.ui.inverted.pink.header:hover {
-  color: #ffb2e9 !important;
+  color: #ffc1ed !important;
 }
 .ui.inverted.purple.header {
   color: #cdc6ff !important;
 }
 a.ui.inverted.purple.header:hover {
-  color: #eceaff !important;
+  color: #faf9ff !important;
 }
 .ui.inverted.red.header {
   color: #ff695e !important;
 }
 a.ui.inverted.red.header:hover {
-  color: #ff8a82 !important;
+  color: #ff9991 !important;
 }
 .ui.inverted.teal.header {
   color: #6dffff !important;
 }
 a.ui.inverted.teal.header:hover {
-  color: #91ffff !important;
+  color: #a0ffff !important;
 }
 .ui.inverted.yellow.header {
   color: #ffe21f !important;
 }
 a.ui.inverted.yellow.header:hover {
-  color: #ffe743 !important;
+  color: #ffe952 !important;
 }
 .ui.inverted.block.header {
   border-bottom: none;
@@ -9688,7 +9671,7 @@ a.ui.inverted.yellow.header:hover {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -9800,7 +9783,7 @@ a.ui.inverted.yellow.header:hover {
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
              Icon
@@ -11886,7 +11869,7 @@ i.icon.weixin:before {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -12008,7 +11991,7 @@ i.icon.weixin:before {
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
              Image
@@ -12257,7 +12240,7 @@ img.ui.bordered.image {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -12387,7 +12370,7 @@ img.ui.bordered.image {
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
            Standard
@@ -12701,7 +12684,7 @@ img.ui.bordered.image {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -12841,7 +12824,7 @@ img.ui.bordered.image {
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
             Label
@@ -13251,13 +13234,13 @@ a.ui.label:hover:before {
 }
 a.ui.black.labels .label:hover,
 a.ui.black.label:hover {
-  background-color: #2b2b2b !important;
-  border-color: #2b2b2b !important;
+  background-color: #333333 !important;
+  border-color: #333333 !important;
 }
 .ui.labels a.black.label:hover:before,
 .ui.black.labels a.label:hover:before,
 a.ui.black.label:hover:before {
-  background-color: #2b2b2b !important;
+  background-color: #333333 !important;
 }
 .ui.black.corner.label,
 .ui.black.corner.label:hover {
@@ -13281,14 +13264,14 @@ a.ui.black.label:hover:before {
 a.ui.blue.labels .label:hover,
 .ui.blue.labels a.label:hover,
 a.ui.blue.label:hover {
-  background-color: #0087fd !important;
-  border-color: #0087fd !important;
+  background-color: #0d8eff !important;
+  border-color: #0d8eff !important;
   color: #ffffff !important;
 }
 .ui.labels a.blue.label:hover:before,
 .ui.blue.labels a.label:hover:before,
 a.ui.blue.label:hover:before {
-  background-color: #0087fd !important;
+  background-color: #0d8eff !important;
 }
 .ui.blue.corner.label,
 .ui.blue.corner.label:hover {
@@ -13311,13 +13294,13 @@ a.ui.blue.label:hover:before {
 }
 a.ui.green.labels .label:hover,
 a.ui.green.label:hover {
-  background-color: #48d658 !important;
-  border-color: #48d658 !important;
+  background-color: #54d964 !important;
+  border-color: #54d964 !important;
 }
 .ui.labels a.green.label:hover:before,
 .ui.green.labels a.label:hover:before,
 a.ui.green.label:hover:before {
-  background-color: #48d658 !important;
+  background-color: #54d964 !important;
 }
 .ui.green.corner.label,
 .ui.green.corner.label:hover {
@@ -13341,14 +13324,14 @@ a.ui.green.label:hover:before {
 a.ui.orange.labels .label:hover,
 .ui.orange.labels a.label:hover,
 a.ui.orange.label:hover {
-  background-color: #ff983f !important;
-  border-color: #ff983f !important;
+  background-color: #ffa04e !important;
+  border-color: #ffa04e !important;
   color: #ffffff !important;
 }
 .ui.labels a.orange.label:hover:before,
 .ui.orange.labels a.label:hover:before,
 a.ui.orange.label:hover:before {
-  background-color: #ff983f !important;
+  background-color: #ffa04e !important;
 }
 .ui.orange.corner.label,
 .ui.orange.corner.label:hover {
@@ -13372,14 +13355,14 @@ a.ui.orange.label:hover:before {
 a.ui.pink.labels .label:hover,
 .ui.pink.labels a.label:hover,
 a.ui.pink.label:hover {
-  background-color: #df67aa !important;
-  border-color: #df67aa !important;
+  background-color: #e273b1 !important;
+  border-color: #e273b1 !important;
   color: #ffffff !important;
 }
 .ui.labels a.pink.label:hover:before,
 .ui.pink.labels a.label:hover:before,
 a.ui.pink.label:hover:before {
-  background-color: #df67aa !important;
+  background-color: #e273b1 !important;
 }
 .ui.pink.corner.label,
 .ui.pink.corner.label:hover {
@@ -13403,14 +13386,14 @@ a.ui.pink.label:hover:before {
 a.ui.purple.labels .label:hover,
 .ui.purple.labels a.label:hover,
 a.ui.purple.label:hover {
-  background-color: #b94dac !important;
-  border-color: #b94dac !important;
+  background-color: #bd58b1 !important;
+  border-color: #bd58b1 !important;
   color: #ffffff !important;
 }
 .ui.labels a.purple.label:hover:before,
 .ui.purple.labels a.label:hover:before,
 a.ui.purple.label:hover:before {
-  background-color: #b94dac !important;
+  background-color: #bd58b1 !important;
 }
 .ui.purple.corner.label,
 .ui.purple.corner.label:hover {
@@ -13437,14 +13420,14 @@ a.ui.purple.label:hover:before {
 }
 a.ui.red.labels .label:hover,
 a.ui.red.label:hover {
-  background-color: #ff635a !important;
-  border-color: #ff635a !important;
+  background-color: #ff7169 !important;
+  border-color: #ff7169 !important;
   color: #ffffff !important;
 }
 .ui.labels a.red.label:hover:before,
 .ui.red.labels a.label:hover:before,
 a.ui.red.label:hover:before {
-  background-color: #ff635a !important;
+  background-color: #ff7169 !important;
 }
 .ui.red.ribbon.label {
   border-color: #ff4136 !important;
@@ -13464,14 +13447,14 @@ a.ui.red.label:hover:before {
 a.ui.teal.labels .label:hover,
 .ui.teal.labels a.label:hover,
 a.ui.teal.label:hover {
-  background-color: #55d3d3 !important;
-  border-color: #55d3d3 !important;
+  background-color: #62d6d6 !important;
+  border-color: #62d6d6 !important;
   color: #ffffff !important;
 }
 .ui.labels a.teal.label:hover:before,
 .ui.teal.labels a.label:hover:before,
 a.ui.teal.label:hover:before {
-  background-color: #55d3d3 !important;
+  background-color: #62d6d6 !important;
 }
 .ui.teal.corner.label,
 .ui.teal.corner.label:hover {
@@ -13495,14 +13478,14 @@ a.ui.teal.label:hover:before {
 a.ui.yellow.labels .label:hover,
 .ui.yellow.labels a.label:hover,
 a.ui.yellow.label:hover {
-  background-color: #ffd32c !important;
-  border-color: #ffd32c !important;
+  background-color: #ffd63b !important;
+  border-color: #ffd63b !important;
   color: #ffffff !important;
 }
 .ui.labels a.yellow.label:hover:before,
 .ui.yellow.labels a.label:hover:before,
 a.ui.yellow.label:hover:before {
-  background-color: #ffd32c !important;
+  background-color: #ffd63b !important;
 }
 .ui.yellow.corner.label,
 .ui.yellow.corner.label:hover {
@@ -13721,7 +13704,7 @@ a.ui.yellow.label:hover:before {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -13834,6 +13817,9 @@ a.ui.yellow.label:hover:before {
 /* Header */
 /* Description */
 /*-------------------
+        States
+--------------------*/
+/*-------------------
       Variations
 --------------------*/
 /* Float */
@@ -13869,7 +13855,7 @@ a.ui.yellow.label:hover:before {
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
             List
@@ -14075,6 +14061,13 @@ ol.ui.list ol,
              States
 *******************************/
 /*-------------------
+        Disabled
+--------------------*/
+.ui.list .disabled.item {
+  pointer-events: none;
+  color: rgba(0, 0, 0, 0.2);
+}
+/*-------------------
         Hover
 --------------------*/
 .ui.list a:hover .icon {
@@ -14102,6 +14095,8 @@ ol.ui.list ol,
 .ui.link.list a.item,
 .ui.link.list .item a {
   color: rgba(0, 0, 0, 0.4);
+  -webkit-transition: 0.2s color ease;
+          transition: 0.2s color ease;
 }
 .ui.link.list a.item:hover,
 .ui.link.list .item a:hover {
@@ -14140,9 +14135,14 @@ ol.ui.list ol,
   cursor: pointer;
   background: transparent;
   padding: 0.5em 0.5em;
+  margin: 0em 0em 0.3em 0em;
   color: rgba(0, 0, 0, 0.4);
+  border-radius: 0.5em;
   -webkit-transition: 0.2s color ease, 0.2s padding-left ease, 0.2s background-color ease;
           transition: 0.2s color ease, 0.2s padding-left ease, 0.2s background-color ease;
+}
+.ui.selection.list .item:last-child {
+  margin-bottom: 0em;
 }
 .ui.selection.list .item:hover {
   background: rgba(0, 0, 0, 0.03);
@@ -14544,7 +14544,7 @@ ol.ui.horizontal.list li:before,
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -14667,7 +14667,7 @@ ol.ui.horizontal.list li:before,
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
             Loader
@@ -14950,7 +14950,7 @@ ol.ui.horizontal.list li:before,
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -15071,7 +15071,7 @@ ol.ui.horizontal.list li:before,
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 .ui.progress {
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -15314,7 +15314,7 @@ ol.ui.horizontal.list li:before,
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -15413,6 +15413,9 @@ ol.ui.horizontal.list li:before,
 /*-------------------
        Element
 --------------------*/
+/*-------------------
+      Variations
+--------------------*/
 /*------------------
      Load Theme
 -------------------*/
@@ -15426,7 +15429,7 @@ ol.ui.horizontal.list li:before,
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
              Rails
@@ -15457,10 +15460,14 @@ ol.ui.horizontal.list li:before,
      Divided
 ---------------*/
 .ui.left.divided.rail {
+  padding: 0em 3em 0em 0em;
+  margin: 0em 3em 0em 0em;
   border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
 .ui.right.divided.rail {
   border-left: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0em 0em 0em 3em;
+  margin: 0em 0em 0em 3em;
 }
 /*--------------
      Sizing
@@ -15778,7 +15785,7 @@ ol.ui.horizontal.list li:before,
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -15904,7 +15911,7 @@ ol.ui.horizontal.list li:before,
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
             Segment
@@ -16360,7 +16367,7 @@ ol.ui.horizontal.list li:before,
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -16487,7 +16494,7 @@ ol.ui.horizontal.list li:before,
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
             Step
@@ -16826,7 +16833,7 @@ ol.ui.horizontal.list li:before,
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -16935,7 +16942,7 @@ ol.ui.horizontal.list li:before,
      User Global Variables
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
              Reset
@@ -17314,7 +17321,7 @@ input[type="password"] {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -17417,7 +17424,7 @@ input[type="password"] {
      User Global Variables
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
            Web Fonts
@@ -17445,6 +17452,7 @@ body {
   font-size: 14px;
   line-height: 1.33;
   color: rgba(0, 0, 0, 0.8);
+  overflow-x: hidden;
 }
 /*******************************
              Text
@@ -17543,7 +17551,7 @@ a:hover {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -17668,7 +17676,7 @@ a:hover {
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
             Accordion
@@ -17878,7 +17886,7 @@ a:hover {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -17987,7 +17995,7 @@ a:hover {
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
            Chat Room
@@ -18274,7 +18282,7 @@ a:hover {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -18403,7 +18411,7 @@ a:hover {
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
            Checkbox
@@ -18838,7 +18846,7 @@ a:hover {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -18954,7 +18962,7 @@ a:hover {
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
             Dimmer
@@ -19145,7 +19153,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -19291,7 +19299,7 @@ b        Types
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
             Dropdown
@@ -20033,7 +20041,7 @@ select.ui.dropdown {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -20160,7 +20168,7 @@ select.ui.dropdown {
            Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
              Modal
@@ -20250,18 +20258,20 @@ select.ui.dropdown {
 }
 .ui.modal > .content > .description {
   display: table-cell;
-  min-width: '';
   vertical-align: top;
 }
 .ui.modal > .content > .icon + .description,
 .ui.modal > .content > .image + .description {
-  padding-left: 1em;
+  min-width: '';
+  width: 80%;
+  padding-left: 2em;
 }
 /*rtl:ignore*/
 .ui.modal > .content > .image > i.icon {
   font-size: 8rem;
   margin: 0em;
   opacity: 1;
+  width: auto;
 }
 /*--------------
      Actions
@@ -20549,7 +20559,7 @@ select.ui.dropdown {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -20677,7 +20687,7 @@ select.ui.dropdown {
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
              Nag
@@ -20836,7 +20846,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -20967,7 +20977,7 @@ a.ui.nag {
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
             Popup
@@ -21232,7 +21242,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -21352,7 +21362,7 @@ a.ui.nag {
            Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
            Rating
@@ -21604,7 +21614,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -21731,7 +21741,7 @@ a.ui.nag {
            Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
              Search
@@ -21987,7 +21997,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -22102,7 +22112,7 @@ a.ui.nag {
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
               Shape
@@ -22264,7 +22274,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -22373,7 +22383,7 @@ a.ui.nag {
            Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
             Sidebar
@@ -22835,7 +22845,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -22944,7 +22954,7 @@ a.ui.nag {
            Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
             Sticky
@@ -23034,7 +23044,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -23145,7 +23155,7 @@ a.ui.nag {
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
            UI Tabs
@@ -23242,7 +23252,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -23351,7 +23361,7 @@ a.ui.nag {
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
           Transitions
@@ -24330,7 +24340,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -24436,7 +24446,7 @@ a.ui.nag {
      User Global Variables
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
             Video
@@ -24578,7 +24588,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -24715,7 +24725,7 @@ a.ui.nag {
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
             Standard
@@ -24756,7 +24766,7 @@ a.ui.nag {
 .ui.card {
   position: relative;
   display: block;
-  width: 300px;
+  width: 290px;
   min-height: 0px;
   background: #ffffff;
   padding: 0em;
@@ -25439,7 +25449,7 @@ a.ui.card:hover,
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -25569,7 +25579,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
             Standard
@@ -25824,7 +25834,7 @@ a.ui.card:hover,
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -25960,7 +25970,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
          Activity Feed
@@ -26237,7 +26247,7 @@ a.ui.card:hover,
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -26370,7 +26380,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
             Standard
@@ -26745,7 +26755,7 @@ a.ui.card:hover,
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -26875,7 +26885,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
            Statistic

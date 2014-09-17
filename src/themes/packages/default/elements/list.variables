@@ -61,6 +61,12 @@
 /* Description */
 @itemDescriptionColor: @textColor;
 
+/*-------------------
+        States
+--------------------*/
+
+@disabledColor: @disabledTextColor;
+@invertedDisabledColor: @invertedDisabledTextColor;
 
 /*-------------------
       Variations

@@ -59,6 +59,7 @@
   margin-right: -(@veryRelaxedGutterWidth / 2);
 }
 
+
 /* Collapse Margins on Consecutive Grids */
 .ui.grid + .grid {
   margin-top: (@rowSpacing / 2);
@@ -149,8 +150,6 @@
   padding-left: @computerGutter;
   padding-right: @computerGutter;
   width: @computerWidth;
-  margin-left: 0em;
-  margin-right: 0em;
 }
 
 /* Collapse Margin */
@@ -545,8 +544,13 @@
 }
 
 /* Inverted Divided */
-.ui.inverted.divided.grid > .row {
+.ui.inverted.divided.grid:not(.vertical) > .column,
+.ui.inverted.divided.grid:not(.vertical) > .row > .column {
   box-shadow: @dividedInvertedBorder;
+}
+.ui.inverted.divided.grid:not(.vertical) > .column:first-child,
+.ui.inverted.divided.grid:not(.vertical) > .row > .column:first-child {
+  box-shadow: none;
 }
 .ui.inverted[class*="vertically divided"].grid > .row {
   box-shadow: @verticallyDividedInvertedBorder;

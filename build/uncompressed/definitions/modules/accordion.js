@@ -118,7 +118,7 @@ $.fn.accordion = function(parameters) {
 
         toggle: function(index) {
           var
-            $activeTitle = (index)
+            $activeTitle = (index !== undefined)
               ? $title.eq(index)
               : $(this),
             $activeContent = $activeTitle.next($content),
@@ -140,13 +140,14 @@ $.fn.accordion = function(parameters) {
 
         open: function(index) {
           var
-            $activeTitle = (index)
+            $activeTitle = (index !== undefined)
               ? $title.eq(index)
               : $(this),
             $activeContent     = $activeTitle.next($content),
-            currentlyAnimating = $activeContent.is(':animated')
+            currentlyAnimating = $activeContent.is(':animated'),
+            currentlyActive    = $activeContent.hasClass(className.active)
           ;
-          if(!currentlyAnimating) {
+          if(!currentlyAnimating && !currentlyActive) {
             module.debug('Opening accordion content', $activeTitle);
             if(settings.exclusive) {
               $.proxy(module.closeOthers, $activeTitle)();
@@ -176,36 +177,39 @@ $.fn.accordion = function(parameters) {
 
         close: function(index) {
           var
-            $activeTitle = (index)
+            $activeTitle = (index !== undefined)
               ? $title.eq(index)
               : $(this),
-            $activeContent = $activeTitle.next($content)
+            $activeContent = $activeTitle.next($content),
+            isActive       = $activeContent.hasClass(className.active)
           ;
-          module.debug('Closing accordion content', $activeContent);
-          $activeTitle
-            .removeClass(className.active)
-          ;
-          $activeContent
-            .removeClass(className.active)
-            .show()
-            .stop()
-            .children()
+          if(isActive) {
+            module.debug('Closing accordion content', $activeContent);
+            $activeTitle
+              .removeClass(className.active)
+            ;
+            $activeContent
+              .removeClass(className.active)
+              .show()
               .stop()
-              .animate({
-                opacity: 0
-              }, settings.duration, module.reset.opacity)
-              .end()
-            .slideUp(settings.duration, settings.easing, function() {
-              $.proxy(module.reset.display, this)();
-              $.proxy(settings.onClose, element)();
-              $.proxy(settings.onChange, element)();
-            })
-          ;
+              .children()
+                .stop()
+                .animate({
+                  opacity: 0
+                }, settings.duration, module.reset.opacity)
+                .end()
+              .slideUp(settings.duration, settings.easing, function() {
+                $.proxy(module.reset.display, this)();
+                $.proxy(settings.onClose, element)();
+                $.proxy(settings.onChange, element)();
+              })
+            ;
+          }
         },
 
         closeOthers: function(index) {
           var
-            $activeTitle = (index)
+            $activeTitle = (index !== undefined)
               ? $title.eq(index)
               : $(this),
             $parentTitles    = $activeTitle.parents(selector.content).prev(selector.title),
@@ -214,7 +218,6 @@ $.fn.accordion = function(parameters) {
             $openContents    = $openTitles.next($content),
             contentIsOpen    = ($openTitles.size() > 0)
           ;
-
           if(contentIsOpen) {
             module.debug('Exclusive enabled, closing other content', $openTitles);
             $openTitles

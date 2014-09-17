@@ -120,12 +120,13 @@
 .ui.modal > .content > .description {
   display: table-cell;
   vertical-align: top;
-  min-width: @descriptionMinWidth;
   vertical-align: @descriptionVerticalAlign;
 }
 
 .ui.modal > .content > .icon + .description,
 .ui.modal > .content > .image + .description {
+  min-width: @descriptionMinWidth;
+  width: @descriptionWidth;
   padding-left: @descriptionDistance;
 }
 
@@ -134,6 +135,7 @@
   font-size: @imageIconSize;
   margin: 0em;
   opacity: 1;
+  width: auto;
 }
 
 /*--------------

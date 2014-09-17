@@ -139,18 +139,20 @@ themes      : ['Default']
 
     <h2 class="ui dividing header">Usage</h2>
 
-    <h3 class="ui header">Initializing A Popup</h3>
-    <p>A popup is initialized on an activating element</p>
-    <div class="code">
-    $('.activating.element')
-      .popup()
-    ;
+    <div class="no example">
+      <h4 class="ui header">Initializing A Popup</h4>
+      <p>A popup is initialized on an activating element</p>
+      <div class="code">
+      $('.activating.element')
+        .popup()
+      ;
+      </div>
     </div>
 
     <div class="no example">
-      <h3 class="ui header">Using a Pre-existing Popup</h3>
+      <h4 class="ui header">Using a Pre-existing Popup</h4>
       <p>Using a pre-existing popup allows for you to include complex html inside your popup.<p>
-      <h4>As a sibling element</h4>
+      <h5>As a sibling element</h5>
       <p>If you include your popup on page load as an adjacent sibling element to your activating element it can be found automatically.</p>
       <p>To instruct popup to look inline for your popup element you can initialize it with the <code>inline</code> parameter</p>
       <div class="code" data-type="javascript">
@@ -169,7 +171,7 @@ themes      : ['Default']
       </div>
     </div>
     <div class="no example">
-      <h4>Anywhere on the page</h4>
+      <h5>Anywhere on the page</h5>
       <p>If you cannot include your popup element as a sibling element, you can specify a custom selector to retrieve your popup</p>
       <div class="code" data-type="javascript">
         $('.button')
@@ -181,7 +183,7 @@ themes      : ['Default']
     </div>
 
     <div class="no example">
-      <h3 class="ui header">Specifying Content In Metadata</h3>
+      <h4 class="ui header">Specifying Content In Metadata</h4>
       <p>Frequently used settings like, title, content, html, or offset or variation, can be included in html metadata<p>
       <div class="ui info icon ignored message">
         <i class="info icon"></i>
@@ -208,7 +210,7 @@ themes      : ['Default']
       </div>
     </div>
     <div class="no example">
-      <h3 class="ui header">Specifying Content In Javascript</h3>
+      <h4 class="ui header">Specifying Content In Javascript</h4>
       <div class="code">
       $('.ui.popup')
         .popup({
@@ -360,7 +362,7 @@ themes      : ['Default']
         })
       ;
       </div>
-      <div class="arbitrary container">
+      <div class="some-wrapping-div">
         <div class="ui custom button">Show custom popup</div>
       </div>
       <div class="ui custom popup">

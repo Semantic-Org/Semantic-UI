@@ -42,8 +42,9 @@
 @imageIconSize: 8rem;
 @imageVerticalAlign: top;
 
-@descriptionDistance: 1em;
+@descriptionDistance: 2em;
 @descriptionMinWidth: '';
+@descriptionWidth: 80%;
 @descriptionVerticalAlign: top;
 
 /* Modal Actions */

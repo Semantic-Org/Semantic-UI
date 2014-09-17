@@ -452,7 +452,10 @@ $.fn.visibility = function(parameters) {
             settings.onBottomPassedReverse = newCallback;
           }
           if(callback && !calculations.bottomPassed) {
-            module.execute(callback, callbackName);
+            console.log(module.get.occurred('bottomPassed'));
+            if(module.get.occurred('bottomPassed')) {
+              module.execute(callback, callbackName);
+            }
           }
           else if(!settings.once) {
             module.remove.occurred(callbackName);
@@ -468,20 +471,25 @@ $.fn.visibility = function(parameters) {
             screen       = module.get.screenCalculations()
           ;
           if(settings.continuous) {
-            module.debug('Callback called continuously on valid', callbackName, calculations);
+            module.debug('Callback being called continuously', callbackName, calculations);
             $.proxy(callback, element)(calculations, screen);
           }
           else if(!module.get.occurred(callbackName)) {
-            module.debug('Callback conditions met', callbackName, calculations);
+            module.debug('Conditions met', callbackName, calculations);
             $.proxy(callback, element)(calculations, screen);
           }
+          console.log(callbackName);
           module.save.occurred(callbackName);
         },
 
         remove: {
           occurred: function(callback) {
             if(callback) {
-              module.cache.occurred[callback] = false;
+              if(module.cache.occurred[callback] !== undefined && module.cache.occurred[callback] === true) {
+                console.log(callback, element);
+                module.debug('Callback can now be called again', callback);
+                module.cache.occurred[callback] = false;
+              }
             }
             else {
               module.cache.occurred = {};
@@ -492,6 +500,7 @@ $.fn.visibility = function(parameters) {
         save: {
           occurred: function(callback) {
             if(callback) {
+              if(module.cache.occurred[callback] !== undefined)
               module.cache.occurred[callback] = true;
             }
           },

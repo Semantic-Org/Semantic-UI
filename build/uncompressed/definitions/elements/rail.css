@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -142,6 +142,9 @@
 /*-------------------
        Element
 --------------------*/
+/*-------------------
+      Variations
+--------------------*/
 /*------------------
      Load Theme
 -------------------*/
@@ -155,7 +158,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
              Rails
@@ -186,10 +189,14 @@
      Divided
 ---------------*/
 .ui.left.divided.rail {
+  padding: 0em 3em 0em 0em;
+  margin: 0em 3em 0em 0em;
   border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
 .ui.right.divided.rail {
   border-left: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0em 0em 0em 3em;
+  margin: 0em 0em 0em 3em;
 }
 /*--------------
      Sizing

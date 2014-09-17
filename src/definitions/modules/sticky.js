@@ -144,7 +144,10 @@ $.fn.sticky = function(parameters) {
 
         event: {
           resize: function() {
-            requestAnimationFrame(module.refresh);
+            requestAnimationFrame(function() {
+              module.refresh();
+              module.stick();
+            });
           },
           scroll: function() {
             requestAnimationFrame(function() {

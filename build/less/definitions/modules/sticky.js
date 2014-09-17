@@ -144,7 +144,10 @@ $.fn.sticky = function(parameters) {
 
         event: {
           resize: function() {
-            requestAnimationFrame(module.refresh);
+            requestAnimationFrame(function() {
+              module.refresh();
+              module.stick();
+            });
           },
           scroll: function() {
             requestAnimationFrame(function() {
@@ -260,13 +263,12 @@ $.fn.sticky = function(parameters) {
               element        = module.cache.element,
               window         = module.cache.window,
               delta          = module.get.scrollChange(scroll),
-              maxScroll      = (element.height - window.height),
+              maxScroll      = (element.height - window.height + settings.offset),
               currentScroll  = module.get.currentElementScroll(),
               possibleScroll = (currentScroll + delta),
               elementScroll
             ;
-            console.log(currentScroll, maxScroll);
-            if(possibleScroll < 0) {
+            if(module.cache.fits || possibleScroll < 0) {
               elementScroll = 0;
             }
             else if (possibleScroll > maxScroll ) {
@@ -279,7 +281,17 @@ $.fn.sticky = function(parameters) {
           }
         },
 
+        remove: {
+          offset: function() {
+            $module.css('margin-top', '');
+          }
+        },
+
         set: {
+          offset: function() {
+            module.verbose('Setting offset on element', settings.offset);
+            $module.css('margin-top', settings.offset);
+          },
           containerSize: function() {
             var
               tagName = $container.get(0).tagName
@@ -294,13 +306,16 @@ $.fn.sticky = function(parameters) {
             }
           },
           scroll: function(scroll) {
+            module.debug('Setting scroll on element', scroll);
             if( module.is.top() ) {
               $module
+                .css('bottom', '')
                 .css('top', -scroll)
               ;
             }
             if( module.is.bottom() ) {
               $module
+                .css('top', '')
                 .css('bottom', scroll)
               ;
             }
@@ -345,13 +360,12 @@ $.fn.sticky = function(parameters) {
             element        = cache.element,
             window         = cache.window,
             context        = cache.context,
-            scrollTop      = $scroll.scrollTop() + settings.offset,
             scroll         = {
-              top    : scrollTop,
-              bottom : scrollTop + window.height
+              top    : $scroll.scrollTop() + settings.offset,
+              bottom : $scroll.scrollTop() + settings.offset + window.height
             },
-            direction      = module.get.direction(scrollTop),
-            elementScroll  = module.get.elementScroll(scrollTop),
+            direction      = module.get.direction(scroll.top),
+            elementScroll  = module.get.elementScroll(scroll.top),
 
             // shorthand
             doesntFit      = !fits,
@@ -359,7 +373,7 @@ $.fn.sticky = function(parameters) {
           ;
 
           // save current scroll for next run
-          module.save.scroll(scrollTop);
+          module.save.scroll(scroll.top);
 
           if(elementVisible) {
 
@@ -373,47 +387,52 @@ $.fn.sticky = function(parameters) {
 
               // currently fixed top
               if( module.is.top() ) {
-
                 if( scroll.top < element.top ) {
                   module.debug('Fixed element reached top of container');
                   module.setInitialPosition();
                 }
-                else if( (element.height + scroll.top) > context.bottom ) {
+                else if( (element.height + scroll.top - elementScroll) > context.bottom ) {
                   module.debug('Fixed element reached bottom of container');
                   module.bindBottom();
+                }
+                // scroll element if larger than screen
+                else if(doesntFit) {
+                  module.set.scroll(elementScroll);
                 }
               }
 
               // currently fixed bottom
-              if(module.is.bottom() ) {
+              else if(module.is.bottom() ) {
 
                 // top edge
-                if( (screen.bottom - element.height) < element.top) {
+                if( (scroll.bottom - element.height) < element.top) {
+                  module.debug('Bottom fixed rail has reached top of container');
                   module.setInitialPosition();
                 }
                 // bottom edge
-                else if(screen.bottom > context.bottom) {
-                  module.debug('Bottom attached rail has reached bottom of container');
+                else if(scroll.bottom > context.bottom) {
+                  module.debug('Bottom fixed rail has reached bottom of container');
                   module.bindBottom();
                 }
+                // scroll element if larger than screen
+                else if(doesntFit) {
+                  module.set.scroll(elementScroll);
+                }
 
-              }
-
-              // scroll element if larger than screen
-              if(doesntFit) {
-                module.set.scroll(elementScroll);
               }
             }
             else if( module.is.bottom() ) {
               // fix to bottom of screen on way back up
               if( module.is.bottom() ) {
                 if(settings.pushing) {
-                  if(module.is.bound() && screen.bottom < context.bottom ) {
+                  if(module.is.bound() && scroll.bottom < context.bottom ) {
+                    module.debug('Fixing bottom attached element to bottom of browser.');
                     module.fixBottom();
                   }
                 }
                 else {
-                  if(module.is.bound() && screen.top < context.bottom - element.height) {
+                  if(module.is.bound() && (scroll.top < context.bottom - element.height) ) {
+                    module.debug('Fixing bottom attached element to top of browser.');
                     module.fixTop();
                   }
                 }
@@ -424,8 +443,11 @@ $.fn.sticky = function(parameters) {
 
         bindTop: function() {
           module.debug('Binding element to top of parent container');
+          module.remove.offset();
           $module
             .css('left' , '')
+            .css('top' , '')
+            .css('bottom' , '')
             .removeClass(className.fixed)
             .removeClass(className.bottom)
             .addClass(className.bound)
@@ -436,8 +458,11 @@ $.fn.sticky = function(parameters) {
         },
         bindBottom: function() {
           module.debug('Binding element to bottom of parent container');
+          module.remove.offset();
           $module
             .css('left' , '')
+            .css('top' , '')
+            .css('bottom' , '')
             .removeClass(className.fixed)
             .removeClass(className.top)
             .addClass(className.bound)
@@ -455,6 +480,7 @@ $.fn.sticky = function(parameters) {
 
         fixTop: function() {
           module.debug('Fixing element to top of page');
+          module.set.offset();
           $module
             .css('left', module.cache.element.left)
             .removeClass(className.bound)
@@ -467,6 +493,7 @@ $.fn.sticky = function(parameters) {
 
         fixBottom: function() {
           module.debug('Sticking element to bottom of page');
+          module.set.offset();
           $module
             .css('left', module.cache.element.left)
             .removeClass(className.bound)
@@ -479,6 +506,7 @@ $.fn.sticky = function(parameters) {
 
         unbind: function() {
           module.debug('Removing absolute position on element');
+          module.remove.offset();
           $module
             .removeClass(className.bound)
             .removeClass(className.top)
@@ -488,6 +516,7 @@ $.fn.sticky = function(parameters) {
 
         unfix: function() {
           module.debug('Removing fixed position on element');
+          module.remove.offset();
           $module
             .removeClass(className.fixed)
             .removeClass(className.top)
@@ -699,8 +728,8 @@ $.fn.sticky.settings = {
   name          : 'Sticky',
   namespace     : 'sticky',
 
-  verbose       : false,
   debug         : false,
+  verbose       : false,
   performance   : false,
 
   pushing       : false,

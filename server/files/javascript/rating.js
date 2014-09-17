@@ -1,11 +1,16 @@
-semantic.dropdown = {};
+semantic.rating = {};
 
 // ready event
-semantic.dropdown.ready = function() {
-
+semantic.rating.ready = function() {
   $('.ui.rating')
-    .rating({
-      initialRating: 3
+    .each(function() {
+      if( $(this).closest('.code').size() === 0) {
+        $(this)
+          .rating({
+            initialRating: 3
+          })
+        ;
+      }
     })
   ;
 
@@ -14,5 +19,5 @@ semantic.dropdown.ready = function() {
 
 // attach ready event
 $(document)
-  .ready(semantic.dropdown.ready)
+  .ready(semantic.rating.ready)
 ;
