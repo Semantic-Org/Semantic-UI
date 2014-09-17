@@ -20,14 +20,14 @@ themes      : ['Default', 'Fixed-width']
 
   <div class="ui basic modal">
     <div class="header">
-      Change Your Homepage
+      Archive Old Messages
     </div>
     <div class="content">
       <div class="image">
-        <i class="home icon"></i>
+        <i class="acrhive icon"></i>
       </div>
       <div class="description">
-        <p>Are you sure you want to change your homepage to <b>Poodle.com</b>?</p>
+        <p>Your inbox is getting full, would you like us to enable automatic archiving of old messages?</p>
       </div>
     </div>
     <div class="actions">
@@ -115,20 +115,20 @@ themes      : ['Default', 'Fixed-width']
     </div>
     <div class="content">
       <div class="ui medium image">
-        <img src="/images/demo/highres2.jpg">
+        <img src="/images/avatar/large/chris.jpg">
       </div>
       <div class="description">
-        <div class="ui header">Are you sure you want to upload that?</div>
-        <p>I mean it's not really the best profile photo.</p>
-        <p>It's resampled to like two times the size it's suppose to be. Our image detection software also says it might even be inappropriate.</p>
+        <div class="ui header">We've auto-chosen a profile image for you.</div>
+        <p>We've grabbed the following image from the <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
+        <p>Is it okay to use this photo?</p>
       </div>
     </div>
     <div class="actions">
       <div class="ui black button">
-        Cancel
+        Nope
       </div>
       <div class="ui positive right labeled icon button">
-        Add Photo
+        Yep, that's me
         <i class="checkmark icon"></i>
       </div>
     </div>
