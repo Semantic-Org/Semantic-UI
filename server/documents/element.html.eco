@@ -11,11 +11,6 @@ type        : 'Semantic'
 
 <div class="main container">
 
-  <div class="peek">
-    <div class="ui vertical pointing secondary menu">
-      <a class="active item">Types</a>
-    </div>
-  </div>
 <!--
   <h2 class="ui dividing header">Definition</h2>
   <p>UI Elements are the smallest useful unit for describing page content, and do not contain other elements inside themselves.</p>

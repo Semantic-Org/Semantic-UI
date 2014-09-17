@@ -32,14 +32,6 @@ themes      : ['Default']
 
   <div class="active ui tab" data-tab="definition">
 
-    <div class="peek">
-      <div class="ui vertical pointing secondary menu">
-        <a class="item">Types</a>
-        <a class="item">States</a>
-        <a class="item">Variations</a>
-      </div>
-    </div>
-
     <h2 class="ui dividing header">Types</h2>
 
     <div class="example">

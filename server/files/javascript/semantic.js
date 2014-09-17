@@ -40,7 +40,9 @@ semantic.ready = function() {
     $demo             = $('.demo'),
 
     $container        = $('.main.container'),
-    $topHeaders       = $container.children('h2'),
+    $sectionHeaders   = $container.children('h2'),
+    $exampleHeaders   = $container.find('.example').children('h4'),
+    $followMenu       = $container.find('.following.menu'),
 
     $menuPopup        = $('.ui.main.menu .popup.item'),
     $menuDropdown     = $('.ui.main.menu .dropdown'),
@@ -88,11 +90,64 @@ semantic.ready = function() {
       callback = callback || function(){};
       if(url) {
         $.ajax({
-          method: 'get',
-          url: url,
-          type: 'json',
-          complete: callback
+          method   : 'get',
+          url      : url,
+          type     : 'json',
+          complete : callback
         });
+      }
+    },
+
+    activate: {
+      previous: function() {
+        var
+          $menuItems  = $followMenu.children('.item'),
+          $section    = $menuItems.filter('.active'),
+          index       = $menuItems.index($section)
+        ;
+        if($section.prev().size() > 0) {
+          $section
+            .removeClass('active')
+            .prev('.item')
+            .addClass('active')
+          ;
+          $followMenu
+            .accordion('open', index - 1)
+          ;
+        }
+      },
+      section: function() {
+        var
+          $section       = $(this),
+          index          = $sectionHeaders.index($section),
+          $followSection = $followMenu.children('.item'),
+          $activeSection = $followSection.eq(index)
+        ;
+        $followSection
+          .removeClass('active')
+        ;
+        $activeSection
+          .addClass('active')
+        ;
+        $followMenu
+          .accordion('open', index)
+        ;
+      },
+      example: function() {
+        var
+          $section       = $(this).children('h4').eq(0),
+          index          = $exampleHeaders.index($section),
+          $followSection = $followMenu.find('.menu > .item'),
+          $activeSection = $followSection.eq(index)
+        ;
+        if($(this).not('.another.example').size() > 0) {
+          $followSection
+            .removeClass('active')
+          ;
+          $activeSection
+            .addClass('active')
+          ;
+        }
       }
     },
 
@@ -101,10 +156,9 @@ semantic.ready = function() {
       var
         html = '',
         $sticky,
-        $menu,
         $rail
       ;
-      $topHeaders
+      $sectionHeaders
         .each(function(index) {
           var
             $nextHeader   = $(this).nextAll('h2').eq(0),
@@ -117,7 +171,7 @@ semantic.ready = function() {
               : $exampleSet.size(),
             $examples     = $exampleSet.slice(firstIndex, lastIndex + 1),
             activeClass   = (index === 0)
-              ? 'active '
+              ? ''
               : ''
           ;
           html += '<div class="item">';
@@ -133,26 +187,20 @@ semantic.ready = function() {
           html += '</div></div>';
         })
       ;
-      $menu = $('<div />')
-        .addClass('ui secondary vertical following accordion menu')
+      $followMenu = $('<div />')
+        .addClass('ui secondary vertical following fluid accordion menu')
         .html(html)
-        .accordion({
-          exclusive: false,
-          onChange: function() {
-            $sticky.sticky('refresh');
-          }
-        })
       ;
       $sticky = $('<div />')
         .addClass('ui sticky hidden transition')
-        .html($menu)
+        .html($followMenu)
       ;
       $rail = $('<div />')
         .addClass('ui right rail')
         .html($sticky)
         .prependTo($container)
       ;
-      $menu
+      $followMenu
         .accordion({
           exclusive: false,
           onChange: function() {
@@ -629,21 +677,75 @@ semantic.ready = function() {
     }
   };
 
-  $('.masthead')
-    .visibility({
-      once: false
-    })
-    .visibility('bottom visible', function(){
-      $('.main.menu').removeClass('filled');
-    })
-    .visibility('bottom passed', function(){
-      $('.main.menu').addClass('filled');
-    })
-    .find('.button')
-      .popup({
-        position  : 'top right',
-        variation : 'inverted'
+
+  handler.createMenu();
+
+  if( $pageTabs.size() > 0 ) {
+    $pageTabs
+      .tab({
+        context      : '.main.container',
+        childrenOnly : true,
+        history      : true,
+        onTabInit    : function() {
+          // create code
+          handler.makeCode();
+          // create follow menu
+          $container        = $(this);
+          $sectionHeaders   = $container.children('h2');
+          $exampleHeaders   = $container.find('.example').children('h4');
+          $followMenu       = $container.find('.following.menu');
+        },
+        onTabLoad    : function() {
+          $sticky.filter(':visible').sticky('refresh');
+        }
       })
+    ;
+  }
+  else {
+
+    handler.makeCode();
+    $sectionHeaders
+      .visibility({
+        offset: 80,
+        once: false,
+        onTopPassed: handler.activate.section,
+        onTopPassedReverse: handler.activate.previous
+      })
+    ;
+
+    $example
+      .visibility({
+        once: false,
+        offset: 80,
+        onTopPassed: handler.activate.example,
+        onBottomPassedReverse: handler.activate.example
+      })
+    ;
+
+  }
+  $sticky
+    .sticky({
+      context : '.main.container',
+      pushing : true
+    })
+  ;
+
+  $menu
+    .sidebar('attach events', '.launch.button, .view-ui.button, .launch.item')
+    .sidebar('attach events', $hideMenu, 'hide')
+  ;
+
+  handler.createIcon();
+  $example
+    .each(function() {
+      $.proxy(handler.generateCode, this)();
+    })
+    .find('i.code')
+      .on('click', handler.createCode)
+  ;
+
+  $shownExample
+    .each(handler.createCode)
   ;
 
   $(window)
@@ -660,50 +762,6 @@ semantic.ready = function() {
     })
   ;
 
-  // attach events
-  if($.fn.tablesort !== undefined) {
-    $sortTable
-      .tablesort()
-    ;
-  }
-
-
-  if( $pageTabs.size() > 0 ) {
-    $pageTabs
-      .tab({
-        context      : '.main.container',
-        childrenOnly : true,
-        history      : true,
-        onTabInit    : function() {
-          handler.makeCode();
-        },
-        onTabLoad    : function() {
-          $sticky.filter(':visible').sticky('refresh');
-        }
-      })
-    ;
-  }
-  else {
-    handler.makeCode();
-  }
-
-  $menu
-    .sidebar()
-    .sidebar('attach events', '.launch.button, .view-ui.button, .launch.item')
-    .sidebar('attach events', $hideMenu, 'hide')
-  ;
-
-
-  handler.createIcon();
-
-  $example
-    .each(function() {
-      $.proxy(handler.generateCode, this)();
-    })
-    .find('i.code')
-      .on('click', handler.createCode)
-  ;
-
   $themeDropdown
     .dropdown({
       action: 'select',
@@ -711,9 +769,11 @@ semantic.ready = function() {
     })
   ;
 
-  $shownExample
-    .each(handler.createCode)
-  ;
+  if($.fn.tablesort !== undefined && $sortTable.size() > 0) {
+    $sortTable
+      .tablesort()
+    ;
+  }
 
   $helpPopup
     .popup()
@@ -735,32 +795,39 @@ semantic.ready = function() {
 
   $menuPopup
     .popup({
-      position   : 'bottom center',
-      className: {
+      position  : 'bottom center',
+      className : {
         popup: 'ui popup'
       }
     })
   ;
-  $sortableTables
-    .tablesort()
-  ;
 
   $menuDropdown
     .dropdown({
-      on         : 'hover',
-      action     : 'nothing',
-      allowTab   : false
+      on       : 'hover',
+      action   : 'nothing',
+      allowTab : false
     })
   ;
 
-  $sticky
-    .sticky({
-      context : '.main.container',
-      pushing : true
-    })
-  ;
-
-  handler.createMenu();
+  if($('body').hasClass('index') ) {
+    $('.masthead')
+      .visibility({
+        once: false
+      })
+      .visibility('bottom visible', function(){
+        $('.main.menu').removeClass('filled');
+      })
+      .visibility('bottom passed', function(){
+        $('.main.menu').addClass('filled');
+      })
+      .find('.button')
+        .popup({
+          position  : 'top right',
+          variation : 'inverted'
+        })
+    ;
+  }
 
 };
 

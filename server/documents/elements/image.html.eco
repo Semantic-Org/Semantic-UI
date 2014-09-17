@@ -16,15 +16,6 @@ themes      : ['Default']
 
 <div class="main container">
 
-  <div class="peek">
-    <div class="ui vertical pointing secondary menu">
-      <a class="active item">Standard</a>
-      <a class="item">States</a>
-      <a class="item">Variations</a>
-      <a class="item">Groups</a>
-    </div>
-  </div>
-
   <h2 class="ui dividing header">Types</h2>
   <div class="example">
     <h4 class="ui header">Image</h4>

@@ -686,42 +686,6 @@ body#example.hide {
   margin-left: 0px;
 }
 
-/*----------------
-     Peek Menu
------------------*/
-
-#example .peek {
-  display: none;
-  position: absolute;
-  top: 0px;
-  left: -230px;
-  width: 180px;
-}
-/* Peek Menu */
-#example .peek .menu .active:nth-child(1) {
-  border-right-color: #00B9F0;
-  color: #00B9F0;
-}
-#example .peek .menu .active:nth-child(2) {
-  border-right-color: #56BB73;
-  color: #56BB73;
-}
-#example .peek .menu .active:nth-child(3) {
-  border-right-color: #EF3F49;
-  color: #EF3F49;
-}
-#example .peek .menu .active:nth-child(4) {
-  border-right-color: #A24096;
-  color: #A24096;
-}
-#example .main h2.group {
-  color: #A24096;
-}
-
-#example .peek > .menu {
-  margin-left: 0px;
-  width: 180px;
-}
 
 
 /*----------------
@@ -755,7 +719,7 @@ body#example.hide {
 -----------------*/
 
 #example .page > .footer {
-  padding: 4em 0em;
+  padding: 5em 0em 8em;
 }
 
 /*----------------
@@ -1062,7 +1026,7 @@ body#example.hide {
 ---------------*/
 
 body.card .even.example .card .description {
-  height: 35px;
+  height: 55px;
 }
 
 /*--------------

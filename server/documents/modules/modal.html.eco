@@ -24,7 +24,7 @@ themes      : ['Default', 'Fixed-width']
     </div>
     <div class="content">
       <div class="image">
-        <i class="acrhive icon"></i>
+        <i class="archive icon"></i>
       </div>
       <div class="description">
         <p>Your inbox is getting full, would you like us to enable automatic archiving of old messages?</p>
@@ -135,14 +135,6 @@ themes      : ['Default', 'Fixed-width']
   </div>
 
   <div class="ui active tab" data-tab="definition">
-
-    <div class="peek">
-      <div class="ui vertical pointing secondary menu">
-        <a class="item">Types</a>
-        <a class="item">Variations</a>
-        <a class="item">States</a>
-      </div>
-    </div>
 
     <h2 class="ui dividing header">Types</h2>
 

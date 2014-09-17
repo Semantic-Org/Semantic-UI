@@ -258,7 +258,12 @@
       </div>
       <div class="ui vertical inverted black footer segment">
         <div class="ui stackable inverted divided page grid">
-          <div class="three wide right floated column">
+          <div class="eight wide column">
+            <h3 class="ui inverted header">Contribute to Our Growth</h3>
+            <p>Only you can help preserve the future development of Semantic UI, donate today</p>
+            <div class="ui inverted blue button">Donate Today</div>
+          </div>
+          <div class="four wide column">
             <h5 class="ui inverted header">Contribute</h5>
             <div class="ui inverted link list">
               <a class="item">Translate</a>
@@ -266,18 +271,13 @@
               <a class="item">Create Themes</a>
             </div>
           </div>
-          <div class="three wide right floated column">
+          <div class="four wide column">
             <h5 class="ui inverted header">Semantic Network</h5>
             <div class="ui inverted link list">
               <a class="item">Semantic UI</a>
               <a class="item">Learn Semantic</a>
               <a class="item">Semantic Themes</a>
             </div>
-          </div>
-          <div class="eight wide column">
-            <h3 class="ui inverted header">Contribute to Our Growth</h3>
-            <p>Only you can help preserve the future development of Semantic UI, donate today</p>
-            <div class="ui inverted blue button">Donate</div>
           </div>
         </div>
       </div>

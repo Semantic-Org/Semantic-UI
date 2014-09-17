@@ -10,11 +10,6 @@ type        : 'UI Introduction'
 <%- @partial('header') %>
 
 <div class="main container">
-  <div class="peek">
-    <div class="ui vertical pointing secondary menu">
-      <a class="active item">Philosophy</a>
-    </div>
-  </div>
 
     <h2 class="ui header">
       Build Responsive Layouts Easier
