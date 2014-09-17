@@ -116,12 +116,12 @@ semantic.ready = function() {
               ? $exampleSet.index($lastExample)
               : $exampleSet.size(),
             $examples     = $exampleSet.slice(firstIndex, lastIndex + 1),
-            activeClass   = (index == 0)
+            activeClass   = (index === 0)
               ? 'active '
               : 'active '
           ;
           html += '<div class="item">';
-          html += ' <i class="dropdown icon"></i><a class="'+activeClass+'title"><b>' + $(this).text() + '</b></a>';
+          html += '<a class="'+activeClass+'title"><i class="dropdown icon"></i> <b>' + $(this).text() + '</b></a>';
           html += '<div class="'+activeClass+'content menu">';
           $examples
             .each(function() {

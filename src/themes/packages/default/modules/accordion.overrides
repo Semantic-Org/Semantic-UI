@@ -26,13 +26,3 @@
 .ui.accordion .accordion .title .dropdown.icon:before {
   content: '\f0da'/*rtl:'\f0d9'*/;
 }
-
-/* Icon Rotation */
-.ui.accordion .title .dropdown.icon,
-.ui.accordion .accordion .title .dropdown.icon {
-  transform: rotate(0deg);
-}
-.ui.accordion .active.title .dropdown.icon,
-.ui.accordion .accordion .active.title .dropdown.icon {
-  transform: rotate(90deg);
-}
