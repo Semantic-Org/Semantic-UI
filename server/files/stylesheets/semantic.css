@@ -161,7 +161,6 @@ a:hover {
   border-radius: 0px;
 }
 #example #menu .inverted.header {
-  margin-bottom: 0em;
   color: rgba(255, 255, 255, 0.8);
 }
 #example #menu a.inverted.header.active,
@@ -173,9 +172,6 @@ a:hover {
 }
 #example #menu .menu .active.item {
   color: #6DFFFF !important;
-}
-#example #menu .item .item {
-  font-size: 0.875rem;
 }
 
 
@@ -754,6 +750,13 @@ body#example.hide {
   width: auto;
 }
 
+/*----------------
+      Footer
+-----------------*/
+
+#example .page > .footer {
+  padding: 4em 0em;
+}
 
 /*----------------
   Settings Table
@@ -1438,44 +1441,46 @@ body.progress .ui.progress .bar {
 }
 #example .container {
   position: relative;
-  right: 100px;
   width: 915px;
   margin: 0px auto;
 }
 #example .main.container .right.rail .sticky {
-  padding-top: 50px !important;
+  padding-bottom: 30px;
 }
 
 @media only screen and (max-width : 600px) {
   #example .container {
     width: auto;
-    margin: 0% 1em 0px;
+    margin: 0em 1rem;
   }
 }
-@media only screen and (max-width : 1050px) {
+@media only screen and (min-width : 600px) and (max-width : 1000px) {
   #example .container {
     width: auto;
-    margin: 0px 30px 0px;
+    margin: 0em 3rem;
   }
 }
-
-@media only screen and (max-width : 1325px) {
-  #example .following.menu {
-    display: none;
-  }
+@media only screen and (min-width : 1000px) and (max-width: 1325px) {
   #example .container {
     width: auto;
     margin-right: auto;
     margin-left: auto;
     max-width: 700px;
   }
-  #example.index .container {
-    margin-left: 8em;
-    margin-right: 8em;
+}
+@media only screen and (max-width : 1325px) {
+  #example .following.menu {
+    display: none;
   }
 }
 
 @media only screen and (min-width : 1325px) {
+  #example .container {
+    right: 100px;
+  }
+  #example .following.menu {
+    display: block;
+  }
   #example .container {
     width: 850px;
   }

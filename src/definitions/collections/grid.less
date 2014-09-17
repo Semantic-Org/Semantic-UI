@@ -545,8 +545,13 @@
 }
 
 /* Inverted Divided */
-.ui.inverted.divided.grid > .row {
+.ui.inverted.divided.grid:not(.vertical) > .column,
+.ui.inverted.divided.grid:not(.vertical) > .row > .column {
   box-shadow: @dividedInvertedBorder;
+}
+.ui.inverted.divided.grid:not(.vertical) > .column:first-child,
+.ui.inverted.divided.grid:not(.vertical) > .row > .column:first-child {
+  box-shadow: none;
 }
 .ui.inverted[class*="vertically divided"].grid > .row {
   box-shadow: @verticallyDividedInvertedBorder;

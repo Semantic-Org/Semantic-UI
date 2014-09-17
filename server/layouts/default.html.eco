@@ -254,6 +254,30 @@
   <div class="pusher">
     <div class="page">
       <%- @content %>
+      <div class="ui vertical inverted black footer segment">
+        <div class="ui stackable page grid">
+          <div class="eight wide column">
+            <h3 class="ui inverted header">Keep Semantic UI Alive</h3>
+            <p>Donate money today to help fund the costs of development for Semantic UI</p>
+            <div class="ui inverted blue button">Donate</div>
+          </div>
+          <div class="four wide column">
+            <h5 class="ui inverted header">Contribute</h5>
+            <div class="ui inverted link list">
+              <a class="item">Translate</a>
+              <a class="item">Fix Bugs</a>
+              <a class="item">Create Themes</a>
+            </div>
+          </div>
+          <div class="four wide column">
+            <h5 class="ui inverted header">Semantic Network</h5>
+            <div class="ui inverted link list">
+              <a class="item">Semantic UI</a>
+              <a class="item">Learn Semantic</a>
+              <a class="item">Semantic Themes</a>
+            </div>
+          </div>
+      </div>
     </div>
   </div>
   <script src="/javascript/library/less.js"></script>

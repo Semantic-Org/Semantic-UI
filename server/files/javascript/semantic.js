@@ -118,7 +118,7 @@ semantic.ready = function() {
             $examples     = $exampleSet.slice(firstIndex, lastIndex + 1),
             activeClass   = (index === 0)
               ? 'active '
-              : 'active '
+              : ''
           ;
           html += '<div class="item">';
           html += '<a class="'+activeClass+'title"><i class="dropdown icon"></i> <b>' + $(this).text() + '</b></a>';
@@ -163,7 +163,8 @@ semantic.ready = function() {
       $sticky
         .transition('fade', function() {
           $sticky.sticky({
-            context: $container
+            context: $container,
+            offset: 50
           });
         })
       ;

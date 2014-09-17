@@ -282,14 +282,15 @@ ol.ui.list ol,
 .ui.link.list a.item,
 .ui.link.list .item a {
   color: @linkListItemColor;
+  transition: @linkListTransition;
 }
 .ui.link.list a.item:hover,
 .ui.link.list .item a:hover {
-  color:@linkListItemHoverColor;
+  color: @linkListItemHoverColor;
 }
 .ui.link.list a.item:active,
 .ui.link.list .item a:active {
-  color:@linkListItemDownColor;
+  color: @linkListItemDownColor;
 }
 .ui.link.list .active.item,
 .ui.link.list .active.item a {
@@ -323,8 +324,13 @@ ol.ui.list ol,
   cursor: pointer;
   background: @selectionListBackground;
   padding: @selectionListItemVerticalPadding @selectionListItemHorizontalPadding;
+  margin: @selectionListItemMargin;
   color: @selectionListColor;
+  border-radius: @selectionListItemBorderRadius;
   transition: @selectionListTransition;
+}
+.ui.selection.list .item:last-child {
+  margin-bottom: 0em;
 }
 .ui.selection.list .item:hover {
   background: @selectionListHoverBackground;
@@ -343,7 +349,7 @@ ol.ui.list ol,
 
 .ui.inverted.selection.list .item {
   background: @invertedSelectionListBackground;
-  color: @selectionListColor;
+  color: @invertedSelectionListColor;
 }
 .ui.inverted.selection.list .item:hover {
   background: @invertedSelectionListHoverBackground;

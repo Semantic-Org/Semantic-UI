@@ -83,20 +83,25 @@
 @linkListItemHoverColor: @hoveredTextColor;
 @linkListItemDownColor: @pressedTextColor;
 @linkListItemActiveColor: @selectedTextColor;
+@linkListTransition:
+  0.2s color @defaultEasing
+;
 
 /* Inverted Link List */
 @invertedLinkListItemColor: @invertedUnselectedTextColor;
-@invertedLinkListItemHoverColor: @invertedUnselectedTextColor;
-@invertedLinkListItemDownColor: @invertedTextColor;
+@invertedLinkListItemHoverColor: @invertedHoveredTextColor;
+@invertedLinkListItemDownColor: @invertedPressedTextColor;
 @invertedLinkListItemActiveColor: @invertedSelectedTextColor;
 
 /* Selection List */
+@selectionListItemMargin: 0em 0em 0.3em 0em;
+@selectionListItemBorderRadius: 0.5em;
 @selectionListItemVerticalPadding: 0.5em;
 @selectionListItemHorizontalPadding: 0.5em;
 @selectionListTransition:
-  0.2s color ease,
-  0.2s padding-left ease,
-  0.2s background-color ease
+  0.2s color @defaultEasing,
+  0.2s padding-left @defaultEasing,
+  0.2s background-color @defaultEasing
 ;
 /* Selection List States */
 @selectionListBackground: transparent;
@@ -114,7 +119,7 @@
 @invertedSelectionListHoverBackground: @subtleTransparentWhite;
 @invertedSelectionListHoverColor: @invertedHoveredTextColor;
 @invertedSelectionListDownBackground: @transparentWhite;
-@invertedSelectionListDownColor: @invertedHoveredTextColor;
+@invertedSelectionListDownColor: @invertedPressedTextColor;
 @invertedSelectionListActiveBackground: @transparentWhite;
 @invertedSelectionListActiveColor: @invertedSelectedTextColor;
 
