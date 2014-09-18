@@ -349,7 +349,7 @@ themes      : ['Default', 'Classic', 'Basic', 'Raised', 'Chubby', 'Round', 'Amaz
     <p>A button can be attached to the top or bottom of other content</p>
     <div class="ui top attached button">Top</div>
     <div class="ui attached segment"></div>
-    <div class="bottom attached ui button">Bottom</div>
+    <div class="ui bottom attached button">Bottom</div>
   </div>
 
   <div class="example">
