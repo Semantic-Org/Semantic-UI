@@ -31,7 +31,7 @@
 ;
 
 /* Header */
-@headerFontSize: 1rem;
+@headerFontSize: 1.1rem;
 @headerFontWeight: bold;
 @headerDisplay: block;
 @headerDistance: 0rem;
@@ -70,7 +70,7 @@
 
 /* Attached */
 @attachedXOffset: -1px;
-@attachedYOffset: 0px;
+@attachedYOffset: -1px;
 @attachedBoxShadow: 0em 0em 0em 1px rgba(0, 0, 0, 0.1) inset;
 @attachedBottomBoxShadow:
   @attachedBoxShadow,
