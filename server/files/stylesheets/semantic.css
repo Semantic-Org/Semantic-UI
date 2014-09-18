@@ -884,6 +884,9 @@ body#example.hide {
 #example .existing.code {
   display: none;
 }
+#example .another.example .annotation {
+  margin: 2em 0em 0em;
+}
 
 
 #example .transition.example .ui.button {
@@ -918,7 +921,7 @@ body#example.hide {
   position: absolute;
   top: 1rem;
   left: 1rem;
-  background-color: #E0E0E0;
+  background-color: #F0F0F0;
   content: '';
   width: calc(100% - 2rem);
   height: calc(100% - 2rem);
