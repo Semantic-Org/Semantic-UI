@@ -59,21 +59,17 @@
 ---------------*/
 
 @dividedBorder:
-  -1px 0px 0px 0px rgba(255, 255, 255, 0.1),
-  -2px 0px 0px 0px rgba(0, 0, 0, 0.3)
+  -1px 0px 0px 0px rgba(0, 0, 0, 0.1)
 ;
 @verticallyDividedBorder:
-  0px -1px 0px 0px rgba(0, 0, 0, 0.1),
-  0px -2px 0px 0px rgba(255, 255, 255, 0.3)
+  0px -1px 0px 0px rgba(0, 0, 0, 0.1)
 ;
 
 @dividedInvertedBorder:
-  -1px 0px 0px 0px rgba(255, 255, 255, 0.15),
-  -2px 0px 0px 0px rgba(0, 0, 0, 0.15)
+  -1px 0px 0px 0px rgba(255, 255, 255, 0.15)
 ;
 @verticallyDividedInvertedBorder:
-  0px -1px 0px 0px rgba(0, 0, 0, 0.15),
-  0px -2px 0px 0px rgba(255, 255, 255, 0.15)
+  0px -1px 0px 0px rgba(255, 255, 255, 0.15)
 ;
 
 /*--------------
