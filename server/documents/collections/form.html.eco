@@ -610,19 +610,6 @@ themes      : ['Default', 'Flat', 'Chubby', 'GitHub']
     </div>
   </div>
 
-
-  <div class="example">
-    <h4 class="ui header">Date</h4>
-    <p>A field can let users know they are for dates</p>
-    <div class="ui form">
-      <div class="date field">
-        <label>Birthday</label>
-        <input type="text" placeholder="xx/xx/xxxx">
-      </div>
-    </div>
-  </div>
-
-
   <h2 class="ui dividing header">Groups</h2>
 
   <div class="example">

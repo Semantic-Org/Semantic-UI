@@ -151,7 +151,6 @@ $.fn.accordion = function(parameters) {
             currentlyAnimating = $activeContent.is(':animated'),
             currentlyActive    = $activeContent.hasClass(className.active)
           ;
-          console.log($activeTitle, $activeContent);
           if(!currentlyAnimating && !currentlyActive) {
             module.debug('Opening accordion content', $activeTitle);
             if(settings.exclusive) {

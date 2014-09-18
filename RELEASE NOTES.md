@@ -4,6 +4,7 @@
 
 **Breaking Changes**
 - **Word Order** - Many multi word variations now require proper word order, for example ``left aligned`` or ``right floated`` classnames must be adjacent. This is to prevent conflicts with other multiple word variations
+- **Form** - Date field has been removed, use a ``ui icon input`` with a ``calendar icon`` instead
 - **Label** - Corner labels no longer support text, only icons.
 - **Form** - Standard grids now have gutters on left and right of first and last column. ``ui fitted grid`` can be used to remove these margins
 - **Checkbox** - Checkbox "enable" and "disable" have been replaced with "check" and "uncheck"
