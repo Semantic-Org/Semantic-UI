@@ -8,5 +8,4 @@
 
 /* Shadow */
 @shadowDistance: 0.2em;
-@shadowOffset: (@shadowDistance / 2);
-@shadowBoxShadow: 0px -@shadowDistance 0px 0px @borderColor inset;
+@borderBoxShadowColor: @borderColor;
