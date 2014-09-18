@@ -18,8 +18,11 @@ semantic.popup.ready = function() {
   ;
 
   $('.fluid.example .button')
+    .popup()
+  ;
+  $('.fitted.example .button')
     .popup({
-      inline: true
+      on: 'click'
     })
   ;
 

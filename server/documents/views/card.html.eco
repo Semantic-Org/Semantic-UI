@@ -269,15 +269,54 @@ themes      : ['Default', 'Basic']
     </div>
     <div class="ui card">
       <a class="image" href="#">
-        <img src="/images/demo/highres.jpg">
+        <img src="/images/avatar/large/steve.jpg">
       </a>
       <div class="content">
-        <a class="header" href="#">Cute Dog</a>
+        <a class="header" href="#">Steve Jobes</a>
         <div class="meta">
-          <a class="time">2 days ago</a>
+          <a class="time">Last Seen 2 days ago</a>
         </div>
-        <div class="description">
-          Check our this <a href="http://www.dogs.com"> excellent resource</a> on dogs.
+      </div>
+    </div>
+  </div>
+  <div class="even example">
+    <h4 class="ui header">Buttons</h4>
+    <p>A card can contain buttons</p>
+    <div class="ui cards">
+      <div class="card">
+        <div class="content">
+          <div class="header">Elliot Fu</div>
+          <div class="description">
+            Elliot Fu is a film-maker from New York.
+          </div>
+        </div>
+        <div class="ui bottom attached button">
+          <i class="add icon"></i>
+          Add Friend
+        </div>
+      </div>
+      <div class="card">
+        <div class="content">
+          <div class="header">Veronika Ossi</div>
+          <div class="description">
+            Veronika Ossi is a set designer living in New York who enjoys kittens, music, and partying.
+          </div>
+        </div>
+        <div class="ui bottom attached button">
+          <i class="add icon"></i>
+          Add Friend
+        </div>
+      </div>
+      <div class="card">
+        <div class="content">
+          <div class="header">Jenny Hess</div>
+          <div class="description">
+            Jenny is a student studying Media Management at the New School
+          </div>
+        </div>
+        <div class="ui bottom attached button">
+          <i class="add icon"></i>
+          Add Friend
         </div>
       </div>
     </div>

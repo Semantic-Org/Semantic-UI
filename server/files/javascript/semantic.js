@@ -79,7 +79,7 @@ semantic.ready = function() {
         .each(function(){
           $('<i/>')
             .addClass('icon code')
-            .prependTo( $(this) )
+            .appendTo( $(this) )
           ;
         })
       ;
@@ -255,9 +255,9 @@ semantic.ready = function() {
         .html($followMenu)
       ;
       $rail = $('<div />')
-        .addClass('ui right dividing rail')
+        .addClass('ui close right rail')
         .html($sticky)
-        .prependTo($container)
+        .appendTo($container)
       ;
       $followMenu
         .accordion({
@@ -343,7 +343,7 @@ semantic.ready = function() {
             url      : variableURL,
             dataType : 'text',
             urlData  : urlData,
-            success: function(content) {
+            onSuccess: function(content) {
               less.modifyVars( handler.less.parseFile(content) );
               $themeDropdown
                 .api({
@@ -351,7 +351,7 @@ semantic.ready = function() {
                   url      : overrideURL,
                   dataType : 'text',
                   urlData  : urlData,
-                  success: function(content) {
+                  onSuccess: function(content) {
                     if( $('style.override').size() > 0 ) {
                       $('style.override').remove();
                     }
@@ -519,7 +519,7 @@ semantic.ready = function() {
         $annotation = $example.find('.annotation'),
         $code       = $annotation.find('.code'),
         $header     = $example.not('.another').children('.ui.header:first-of-type').eq(0).add('p:first-of-type'),
-        $ignored    = $('i.code:first-child, .code, .existing, .pointing.below.label, .instructive, .language.label, .annotation, br, .ignore, .ignored'),
+        $ignored    = $('i.code:last-child, .code, .existing, .pointing.below.label, .instructive, .language.label, .annotation, br, .ignore, .ignored'),
         $demo       = $example.children().not($header).not($ignored),
         code        = ''
       ;
@@ -548,7 +548,7 @@ semantic.ready = function() {
         $header         = $example.children('.ui.header:first-of-type').eq(0).add('p:first-of-type'),
         $annotation     = $example.find('.annotation'),
         $code           = $annotation.find('.code'),
-        $ignoredContent = $('.ui.popup, i.code:first-child, .code, .existing.segment, .instructive, .language.label, .annotation, br, .ignore, .ignored'),
+        $ignoredContent = $('.ui.popup, i.code:last-child, .code, .existing.segment, .instructive, .language.label, .annotation, br, .ignore, .ignored'),
         $demo           = $example.children().not($header).not($ignoredContent),
         code            = $example.data('code') || $.proxy(handler.generateCode, this)()
       ;
@@ -901,8 +901,7 @@ semantic.ready = function() {
       })
       .find('.button')
         .popup({
-          position  : 'top right',
-          variation : 'inverted'
+          position  : 'top center'
         })
     ;
   }

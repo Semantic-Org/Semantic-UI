@@ -179,12 +179,32 @@ a:hover {
 #example .header.segment,
 #example > .content > .page > .segment,
 #example > .header.segment {
-  margin: 0px 0px 3em;
+  position: relative;
+  z-index: 2;
+  margin: 0em;
   padding-top: 70px;
   padding-bottom: 30px;
   background-color: #FFFFFF;
   border-bottom: 1px solid #DDDDDD;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
+#example .tab.header.segment {
+  padding-bottom: 0em;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1) inset;
+}
+#example .tab.header.segment .vertical.menu {
+  display: none;
+  margin: 2rem 0em 1rem;
+}
+#example .tab.header.segment .tabular.menu {
+  margin: 2rem -1px 0em;
+  border-bottom: none;
+}
+#example .tab.header.segment .tabular.menu .active.item {
+  background-color: #FFFFFF;
+  border-bottom-color: #FFFFFF;
+}
+
 #example.legacy .main.menu,
 #example.legacy .launch.button {
   left: auto !important;
@@ -195,23 +215,6 @@ a:hover {
 
 #example.divider .ui.grid {
   position: relative;
-}
-
-#example .tab.header.segment {
-  padding-bottom: 0em;
-  margin-bottom: 2em;
-}
-#example .tab.header.segment .vertical.menu {
-  display: none;
-  margin: 2rem 0em 1rem;
-}
-#example .tab.header.segment .tabular.menu {
-  margin: 2rem 0em 0em;
-  border-bottom: none;
-}
-#example .tab.header.segment .tabular.menu .active.item {
-  background-color: #F7F7F7;
-  border-bottom-color: #F7F7F7;
 }
 
 
@@ -529,7 +532,7 @@ body#example.hide {
 #example .introduction .label {
   position: absolute;
   margin-left: 2em;
-  top: 1em
+  top: 2em
 }
 
 #example .introduction .theme.buttons {
@@ -730,7 +733,6 @@ body#example.hide {
 -----------------*/
 
 #example .page > .footer {
-  margin-top: 5em;
   padding: 5em 0em 6em;
 }
 
@@ -788,6 +790,7 @@ body#example.hide {
 
 #example .example {
   margin: 1em 0em;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   padding: 1em 0em;
   position: relative;
   -webkit-tap-highlight-color: transparent;
@@ -811,6 +814,9 @@ body#example.hide {
 
 #example .main.container > h2 {
   position: relative;
+}
+#example .main.container > h2:first-child {
+  margin-top: 0em;
 }
 
 /* After Section Header */
@@ -852,10 +858,10 @@ body#example.hide {
   cursor: pointer;
   position: absolute;
 
-  top: auto;
+  top: 1em;
   right: 0px;
   margin: 0;
-  opacity: 0;
+  opacity: 0.1;
 
   font-size: 18px;
   color: #555555;
@@ -1427,16 +1433,25 @@ body.progress .ui.progress .bar {
 }
 
 #example .main.container {
+  background-color: #FFFFFF;
+  margin: 2em auto 4em;
+  box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 0.325em;
+  padding: 1em 2em 2em;
   z-index: 1;
-  padding-bottom: 2em;
+}
+#example .main.container {
+  margin-top: 0em;
+  padding-top: 2em;
+  border-radius: 0em 0em 0.25em 0.25em;
+}
+#example .main.container .right.rail .sticky {
+  padding-top: 2em;
 }
 #example .container {
   position: relative;
   width: 915px;
   margin: 0px auto;
-}
-#example .main.container .right.rail .sticky {
-  padding-bottom: 30px;
 }
 
 #example .following.menu .menu .active.item {
@@ -1445,7 +1460,6 @@ body.progress .ui.progress .bar {
 
 @media only screen and (max-width : 600px) {
   #example .page > .footer {
-    margin-top: 3em;
     padding: 2em 0em;
   }
   #example .container {
@@ -1490,6 +1504,10 @@ body.progress .ui.progress .bar {
 @media only screen and (min-width : 1355px) {
   #example .container {
     width: 850px;
+  }
+  #example.item .container,
+  #example.card .container {
+    width: 955px;
   }
 }
 

@@ -80,7 +80,7 @@ themes      : ['Default']
             In a gritty and alternate 1985 the glory days of costumed vigilantes have been brought to a close by a government crackdown, but after one of the masked veterans is brutally murdered an investigation into the killer is initiated.
           </div>
         </div>
-        <div class="ui two buttons">
+        <div class="ui two bottom attached buttons">
           <div class="ui button">
             <i class="add icon"></i>
             Queue
@@ -111,7 +111,7 @@ themes      : ['Default']
       <p>A fluid popup will take up the entire width of its offset container</p>
       <div class="ui button">Show fluid popup</div>
       <div class="ui fluid popup">
-        <div class="ui four column fitted divided center aligned grid">
+        <div class="ui four column divided center aligned grid">
           <div class="column">1</div>
           <div class="column">2</div>
           <div class="column">3</div>
@@ -126,6 +126,31 @@ themes      : ['Default']
       <i class="circular heart icon link" data-content="Hello. This is a small popup" data-variation="small"></i>
       <i class="circular heart icon link" data-content="Hello. This is a large popup" data-variation="large"></i>
       <i class="circular heart icon link" data-content="Hello. This is a huge popup" data-variation="huge"></i>
+    </div>
+
+    <div class="fitted example">
+      <h4 class="ui header">Flowing</h4>
+      <p>A popup can have no maximum width and continue to flow to fit its content</p>
+      <div class="ui button">Show flowing popup</div>
+      <div class="ui flowing popup">
+        <div class="ui three column padded divided center aligned grid">
+          <div class="column">
+            <h4 class="ui header">Basic Plan</h4>
+            <p><b>2</b> projects, $10 a month</p>
+            <div class="ui button">Choose</div>
+          </div>
+          <div class="column">
+            <h4 class="ui header">Business Plan</h4>
+            <p><b>5</b> projects, $20 a month</p>
+            <div class="ui button">Choose</div>
+          </div>
+          <div class="column">
+            <h4 class="ui header">Premium Plan</h4>
+            <p><b>8</b> projects, $25 a month</p>
+            <div class="ui button">Choose</div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="example">
@@ -312,7 +337,7 @@ themes      : ['Default']
           Browse
         </a>
         <div class="ui very wide popup">
-          <div class="ui four column fitted grid">
+          <div class="ui four column grid">
             <div class="ui column">
               <h5 class="ui header">Fabrics</h5>
               <div class="ui link list">

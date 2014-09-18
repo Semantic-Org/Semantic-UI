@@ -133,26 +133,17 @@ themes      : ['Default']
     <a class="ui teal tag label">Featured</a>
   </div>
 
-  <div class="clearing example">
+  <div class="example">
     <h4 class="ui header">Ribbon</h4>
     <p>A label can appear as a ribbon attaching itself to an element.</p>
-    <div class="ui two column grid">
-      <div class="row">
-        <div class="column">
-          <div class="ui raised segment">
-            <a class="ui ribbon label">Dogs</a>
-            <p>Pretty nice animals.</p>
-            <a class="ui teal ribbon label">Cats</a>
-            <p>Also pretty nice animals, but can prefer solitude.</p>
-            <a class="ui red ribbon label">Ogres and monsters</a>
-            <p>Never seen one as a pet before, but I imagine they'd make pretty terrible companions.</p>
-          </div>
-        </div>
-      </div>
+    <div class="ui raised segment">
+      <a class="ui ribbon label">Dogs</a>
+      <p>Pretty nice animals.</p>
+      <a class="ui teal ribbon label">Cats</a>
+      <p>Also pretty nice animals, but can prefer solitude.</p>
+      <a class="ui red ribbon label">Ogres and monsters</a>
+      <p>Never seen one as a pet before, but I imagine they'd make pretty terrible companions.</p>
     </div>
-      <div class="existing code">
-      <div class="ui ribbon label">Dogs</div>
-      </div>
   </div>
 
   <div class="example">

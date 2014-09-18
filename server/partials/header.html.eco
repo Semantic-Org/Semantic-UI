@@ -28,7 +28,10 @@
         <div class="menu ui transition hidden">
           <% for id, name of @document.themes: %>
             <div class="item" data-value="<%= name %>"><%= (name.charAt(0).toUpperCase() + name.slice(1)) %></div>
-          <% end %>
+          <% end %><!--
+          <div class='divider'></div>
+          <div class="header">Create Your Own</div>
+          <a class="item" href="#">Submit Theme</a> -->
         </div>
       </div>
       <% end %>

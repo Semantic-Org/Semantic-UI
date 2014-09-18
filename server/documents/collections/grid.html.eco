@@ -425,20 +425,18 @@ themes      : ['Default']
       <h4 class="ui header">Divided Grid</h4>
       <p>A grid can have dividers between its columns</p>
       <div class="ui three column divided grid">
-        <div class="row">
-          <div class="column">
-            <h5 class="ui header">How We Collect and Use Information</h5>
-            <p>We ask for certain information such as your username, real name, birthdate, address, phone number and e-mail address when you register for a Semantic UI account, or if you correspond with us. We may also retain any messages you send through the Service, and may collect information you provide in User Content you post to the Service. We use this information to operate, maintain, and provide to you the features and functionality of the Service. Your username and if you choose to disclose it, your real name, will be published publicly. Once published your username and / or real name may not be able to be removed.</p>
-          </div>
-          <div class="column">
-            <h5 class="ui header">
-              Information we may receive from third parties
-            </h5>
-            <p>We may receive information about you from third parties. For example, if you access our websites or Service through a third-party connection or log-in, for example, through Facebook Connect, by “following,” “liking,” adding the Semantic UI application, linking your account to the Semantic UI Service, etc., that third party may pass certain information about your use of its service to Semantic UI. This information could include, but is not limited to, the user ID associated with your account (for example, your Facebook UID), an access token necessary to access that service, any information that you have permitted the third party to share with us, and any information you have made public in connection with that service. </p>
-          </div>
-          <div class="column">
-            <p>Semantic UI may, in its sole discretion, develop a feature that allows you to invite third parties to the Service. If you choose to use our invitation service to invite a third party to the Service through our “Invite friends” feature, you may directly choose a friend to invite through your mobile device’s native contact list – but we do not require that you import your contacts list to the Service, and we do not retain the information contained in your contacts list. You understand that by inviting a friend to Semantic UI through the “Invite friends” feature, you are directly sending a text or email from your personal accounts and that we are not storing your contact list. In addition, you understand and agree that normal carrier charges apply to communications sent from you phone. Since this invitation is coming directly from your email or phone, we do not have access to or control this communication.</p>
-          </div>
+        <div class="column">
+          <h5 class="ui header">How We Collect and Use Information</h5>
+          <p>We ask for certain information such as your username, real name, birthdate, address, phone number and e-mail address when you register for a Semantic UI account, or if you correspond with us. We may also retain any messages you send through the Service, and may collect information you provide in User Content you post to the Service. We use this information to operate, maintain, and provide to you the features and functionality of the Service. Your username and if you choose to disclose it, your real name, will be published publicly. Once published your username and / or real name may not be able to be removed.</p>
+        </div>
+        <div class="column">
+          <h5 class="ui header">
+            Information we may receive from third parties
+          </h5>
+          <p>We may receive information about you from third parties. For example, if you access our websites or Service through a third-party connection or log-in, for example, through Facebook Connect, by “following,” “liking,” adding the Semantic UI application, linking your account to the Semantic UI Service, etc., that third party may pass certain information about your use of its service to Semantic UI. This information could include, but is not limited to, the user ID associated with your account (for example, your Facebook UID), an access token necessary to access that service, any information that you have permitted the third party to share with us, and any information you have made public in connection with that service. </p>
+        </div>
+        <div class="column">
+          <p>Semantic UI may, in its sole discretion, develop a feature that allows you to invite third parties to the Service. If you choose to use our invitation service to invite a third party to the Service through our “Invite friends” feature, you may directly choose a friend to invite through your mobile device’s native contact list – but we do not require that you import your contacts list to the Service, and we do not retain the information contained in your contacts list. You understand that by inviting a friend to Semantic UI through the “Invite friends” feature, you are directly sending a text or email from your personal accounts and that we are not storing your contact list. In addition, you understand and agree that normal carrier charges apply to communications sent from you phone. Since this invitation is coming directly from your email or phone, we do not have access to or control this communication.</p>
         </div>
       </div>
     </div>

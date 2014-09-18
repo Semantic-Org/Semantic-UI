@@ -23,7 +23,7 @@ themes      : ['Default']
   <div class="even example">
     <h4 class="ui header">Items</h4>
     <p>A group of items.</p>
-    <div class="ui items segment">
+    <div class="ui items">
       <div class="item">
         <div class="image">
           <img src="/images/movies/12years.jpg">
@@ -104,7 +104,7 @@ themes      : ['Default']
   <div class="example">
     <h4 class="ui header">Header</h4>
     <p>A item can contain a header</p>
-    <div class="ui items segment">
+    <div class="ui items">
       <div class="item">
         <div class="content">
           <div class="header">12 Amazing Secrets for Long Life</div>
@@ -133,7 +133,7 @@ themes      : ['Default']
       <i class="info icon"></i>
       You can include an arbitrary amount of metadata using your own class conventions, all child elements will automatically be spaced
     </div>
-    <div class="ui items segment">
+    <div class="ui items">
       <div class="item">
         <div class="content">
           <div class="header">Arrowhead Valley Camp</div>
@@ -180,7 +180,7 @@ themes      : ['Default']
       <i class="star icon"></i>
       To make the entire content of a item link, check out the link variation below
     </div>
-    <div class="ui items segment">
+    <div class="ui items">
       <div class="item">
         <a class="ui tiny image">
           <img src="/images/avatar/large/stevie.jpg">
@@ -226,7 +226,7 @@ themes      : ['Default']
     <div class="ui info message">
       Common actions may contain special formatting, like "star" or "heart". To attach events, on a user action, please check out the <a href="#">state behavior</a>.
     </div>
-    <div class="ui items segment">
+    <div class="ui items">
       <div class="item">
         <div class="content">
           <i class="right floated like icon"></i>
@@ -240,7 +240,7 @@ themes      : ['Default']
   <div class="example">
     <h4 class="ui header">Description</h4>
     <p>A item can contain a description with a single or multiple paragraphs</p>
-    <div class="ui items segment">
+    <div class="ui items">
       <div class="item">
         <div class="content">
           <a class="header">Cute Dog</a>
@@ -257,7 +257,7 @@ themes      : ['Default']
   <div class="example">
     <h4 class="ui header">Extra Content</h4>
     <p>A item can contain extra content meant to be formatted separately from the main content</p>
-    <div class="ui items segment">
+    <div class="ui items">
       <div class="item">
         <div class="content">
           <a class="header">Cute Dog</a>
@@ -279,7 +279,7 @@ themes      : ['Default']
   <div class="example">
     <h4 class="ui header">Image</h4>
     <p>A item can contain an image</p>
-    <div class="ui items segment">
+    <div class="ui items">
       <div class="item">
         <div class="image">
           <img src="/images/demo/highres.jpg">
@@ -308,7 +308,7 @@ themes      : ['Default']
       <i class="info icon"></i>
       The following example uses <a href="/elements/segment.html">ui</a> for legibility only. This is not necessary for using <code>ui items</code>
     </div>
-    <div class="ui items segment">
+    <div class="ui items">
       <div class="item">
         <div class="image">
           <img src="/images/logos/arrowhead.png">
@@ -391,7 +391,7 @@ themes      : ['Default']
   <div class="example">
     <h4 class="ui header">Link Item</h4>
     <p>A item can be formatted so that the entire contents link to another page</p>
-    <div class="ui items segment">
+    <div class="ui items">
       <a class="item" href="http://www.dog.com">
         <div class="image">
           <img src="/images/demo/highres.jpg">
@@ -460,7 +460,7 @@ themes      : ['Default']
       <i class="info icon"></i>
       You can include an arbitrary amount of metadata using your own class conventions, all child elements will automatically be spaced
     </div>
-    <div class="ui items segment">
+    <div class="ui items">
       <div class="item">
         <div class="content">
           <a class="header">Cute Dog</a>

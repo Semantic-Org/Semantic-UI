@@ -16,7 +16,7 @@ type   : 'Semantic'
     <div class="column">
       <div class="introduction">
         <h1 class="ui inverted header">Semantic UI
-          <a class="ui tag label" href="https://github.com/semantic-org/Semantic-UI/blob/css/RELEASE%20NOTES.md">
+          <a class="ui teal tag label" href="https://github.com/semantic-org/Semantic-UI/blob/css/RELEASE%20NOTES.md">
             1.0.0
           </a>
         </h1>
