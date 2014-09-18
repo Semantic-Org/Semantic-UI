@@ -37,7 +37,7 @@ themes      : ['Default']
   <h2 class="ui dividing header">Elements</h2>
 
   <div class="example">
-    <h4 class="ui header">A divider</h4>
+    <h4 class="ui header">Divider</h4>
     <p>A breadcrumb can contain a divider to show the relationship between sections, this can be formatted as an icon or text.</p>
     <div class="ui breadcrumb">
       <a class="section">Home</a>
@@ -49,7 +49,7 @@ themes      : ['Default']
   </div>
 
   <div class="example">
-    <h4 class="ui header">A section</h4>
+    <h4 class="ui header">Section</h4>
     <p>A breadcrumb can contain sections that can either be formatted as a link or text</p>
     <div class="ui breadcrumb">
       <a class="section">Home</a>

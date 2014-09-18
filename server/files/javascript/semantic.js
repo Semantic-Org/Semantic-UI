@@ -791,8 +791,10 @@ semantic.ready = function() {
   }
   else {
     handler.makeCode();
-    handler.createMenu();
-    handler.createWaypoints();
+    handler.tryCreateMenu();
+    $(window).on('resize.menu', function() {
+      handler.tryCreateMenu();
+    });
   }
 
 
