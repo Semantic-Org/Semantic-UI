@@ -617,7 +617,11 @@
 -----------------------*/
 .ui.divided.grid:not(.vertically) > .column:not(.row),
 .ui.divided.grid:not(.vertically) > .row > .column {
-  box-shadow: -1px 0px 0px 0px rgba(255, 255, 255, 0.1), -2px 0px 0px 0px rgba(0, 0, 0, 0.3);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1);
 }
 .ui.divided.grid:not(.vertically) > .column:first-child,
 .ui.divided.grid:not(.vertically) > .row > .column:first-child {
@@ -625,7 +629,7 @@
 }
 /* Divided Row */
 .ui.grid > .divided.row > .column {
-  box-shadow: -1px 0px 0px 0px rgba(255, 255, 255, 0.1), -2px 0px 0px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1);
 }
 .ui.grid > .divided.row > .column:first-child {
   box-shadow: none;
@@ -643,7 +647,7 @@
   width: calc(100% -  2rem );
   height: 1px;
   margin: 0% 1rem;
-  box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1), 0px -2px 0px 0px rgba(255, 255, 255, 0.3);
+  box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1);
 }
 .ui[class*="vertically divided"].grid > .row:first-child:before {
   box-shadow: none;
@@ -651,14 +655,14 @@
 /* Inverted Divided */
 .ui.inverted.divided.grid:not(.vertical) > .column,
 .ui.inverted.divided.grid:not(.vertical) > .row > .column {
-  box-shadow: -1px 0px 0px 0px rgba(255, 255, 255, 0.15), -2px 0px 0px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: -1px 0px 0px 0px rgba(255, 255, 255, 0.15);
 }
 .ui.inverted.divided.grid:not(.vertical) > .column:first-child,
 .ui.inverted.divided.grid:not(.vertical) > .row > .column:first-child {
   box-shadow: none;
 }
 .ui.inverted[class*="vertically divided"].grid > .row {
-  box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.15), 0px -2px 0px 0px rgba(255, 255, 255, 0.15);
+  box-shadow: 0px -1px 0px 0px rgba(255, 255, 255, 0.15);
 }
 /* Relaxed */
 .ui.relaxed[class*="vertically divided"].grid > .row:before {
@@ -759,7 +763,7 @@
 }
 .ui.grid > .black.row,
 .ui.grid .black.column {
-  background-color: #17181d !important;
+  background-color: #1b1c1d !important;
   color: #ffffff;
 }
 .ui.grid > .row > .black.column {

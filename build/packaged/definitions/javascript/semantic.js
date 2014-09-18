@@ -13427,6 +13427,7 @@ $.fn.sticky = function(parameters) {
             $container = $module.offsetParent();
           }
           module.save.positions();
+          module.stick();
           $.proxy(settings.onReposition, element)();
         },
 

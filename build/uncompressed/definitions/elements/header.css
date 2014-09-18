@@ -323,10 +323,10 @@ h5.ui.header {
        Colors
 --------------------*/
 .ui.black.header {
-  color: #17181d !important;
+  color: #1b1c1d !important;
 }
 a.ui.black.header:hover {
-  color: #272831 !important;
+  color: #2c2e2f !important;
 }
 .ui.blue.header {
   color: #3576ac !important;
@@ -377,7 +377,7 @@ a.ui.yellow.header:hover {
   color: #ecc637 !important;
 }
 .ui.black.dividing.header {
-  border-bottom: 2px solid #17181d;
+  border-bottom: 2px solid #1b1c1d;
 }
 .ui.blue.dividing.header {
   border-bottom: 2px solid #3b83c0;

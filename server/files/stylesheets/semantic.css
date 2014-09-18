@@ -1434,19 +1434,13 @@ body.progress .ui.progress .bar {
 
 #example .main.container {
   background-color: #FFFFFF;
-  margin: 2em auto 4em;
+  margin: 0em auto;
   box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.1);
-  border-radius: 0.325em;
-  padding: 1em 2em 2em;
+  padding: 2em 2em 2em;
   z-index: 1;
 }
-#example .main.container {
-  margin-top: 0em;
-  padding-top: 2em;
-  border-radius: 0em 0em 0.25em 0.25em;
-}
 #example .main.container .right.rail .sticky {
-  padding-top: 2em;
+  padding: 2em 0em;
 }
 #example .container {
   position: relative;
@@ -1466,11 +1460,17 @@ body.progress .ui.progress .bar {
     width: auto;
     margin: 0em 1rem;
   }
+  #example .main.container {
+    padding: 1em;
+  }
 }
 @media only screen and (min-width : 600px) and (max-width : 998px) {
   #example .container {
     width: auto;
     margin: 0em 3rem;
+  }
+  #example .main.container {
+    padding: 1em;
   }
 }
 @media only screen and (max-width : 998px) {

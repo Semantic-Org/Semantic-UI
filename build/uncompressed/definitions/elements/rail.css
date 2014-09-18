@@ -146,6 +146,8 @@
 /*-------------------
       Variations
 --------------------*/
+/* Close */
+/* Divided */
 /*------------------
      Load Theme
 -------------------*/
@@ -198,6 +200,25 @@
   border-left: 1px solid rgba(0, 0, 0, 0.1);
   padding: 0em 0em 0em 2.5rem;
   margin: 0em 0em 0em 2.5rem;
+}
+/*--------------
+    Distance
+---------------*/
+.ui.close.left.rail {
+  padding: 0em 1em 0em 0em;
+  margin: 0em 1em 0em 0em;
+}
+.ui.close.right.rail {
+  padding: 0em 0em 0em 1em;
+  margin: 0em 0em 0em 1em;
+}
+.ui.very.close.left.rail {
+  padding: 0em 0.5em 0em 0em;
+  margin: 0em 0.5em 0em 0em;
+}
+.ui.very.close.right.rail {
+  padding: 0em 0em 0em 0.5em;
+  margin: 0em 0em 0em 0.5em;
 }
 /*--------------
      Sizing

@@ -411,6 +411,13 @@
   color: rgba(0, 0, 0, 0.8);
 }
 /*--------------
+     Buttons
+---------------*/
+.ui.cards > .card > .button:last-child,
+.ui.card > .button:last-child {
+  margin-bottom: -1px;
+}
+/*--------------
      Labels
 ---------------*/
 /*-----Star----- */

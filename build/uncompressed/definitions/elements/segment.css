@@ -403,7 +403,7 @@
        Colors
 --------------------*/
 .ui.black.segment:not(.inverted) {
-  border-top: 2px solid #17181d;
+  border-top: 2px solid #1b1c1d;
   border-radius: 0em 0em 0.25em 0.25em !important;
 }
 .ui.blue.segment:not(.inverted) {
@@ -443,7 +443,7 @@
 --------------------*/
 .ui.inverted.segment,
 .ui.inverted.black.segment {
-  background-color: #17181d !important;
+  background-color: #1b1c1d !important;
   color: #ffffff !important;
 }
 .ui.inverted.blue.segment {
@@ -515,7 +515,7 @@
 }
 .ui.inverted.segment,
 .ui.primary.inverted.segment {
-  background-color: #17181d;
+  background-color: #1b1c1d;
   color: #ffffff;
 }
 .ui.inverted.block.segment,

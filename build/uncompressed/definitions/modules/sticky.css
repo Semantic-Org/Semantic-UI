@@ -160,6 +160,8 @@
 *******************************/
 .ui.sticky {
   position: static;
+  -webkit-transition: width 0.2s ease, height 0.2s ease, margin 0.2s ease, top 0.2s ease;
+          transition: width 0.2s ease, height 0.2s ease, margin 0.2s ease, top 0.2s ease;
 }
 /*******************************
             States
@@ -197,3 +199,9 @@
   position: -o-sticky;
   position: sticky;
 }
+/*******************************
+           Overrides
+*******************************/
+/*******************************
+           Overrides
+*******************************/

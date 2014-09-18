@@ -360,7 +360,7 @@ themes      : ['Default', 'Classic', 'Basic', 'Raised', 'Chubby', 'Round', 'Amaz
   </div>
 
 
-  <h3 class="ui dividing header">Group Variations</h3>
+  <h2 class="ui dividing header">Groups</h2>
 
   <div class="example">
     <h4 class="ui header">Vertical Group</h4>
@@ -412,7 +412,7 @@ themes      : ['Default', 'Classic', 'Basic', 'Raised', 'Chubby', 'Round', 'Amaz
   <div class="example">
     <h4 class="ui header">Evenly Divided</h4>
     <p>Groups can be divided evenly to fit parent</p>
-    <div class="ui message">Evenly divided elements can either use the number or the word, i.e. 2 or "two"</div>
+    <div class="ui ignored info message">Evenly divided elements can either use the number or the word, i.e. 2 or "two"</div>
     <div class="3 fluid ui buttons">
       <div class="ui button">Overview</div>
       <div class="ui button">Specs</div>

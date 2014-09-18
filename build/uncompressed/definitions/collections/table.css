@@ -461,7 +461,7 @@
        Colors
 --------------------*/
 .ui.black.table {
-  border-top: 0.2em solid #17181d;
+  border-top: 0.2em solid #1b1c1d;
   border-radius: 0em 0em 0.25rem 0.25rem;
 }
 .ui.blue.table {
@@ -501,7 +501,7 @@
 --------------------*/
 .ui.inverted.table,
 .ui.inverted.black.table {
-  background-color: #17181d !important;
+  background-color: #1b1c1d !important;
   border-radius: 0.25rem;
   color: #ffffff !important;
 }

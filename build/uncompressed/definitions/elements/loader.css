@@ -232,7 +232,7 @@
   z-index: 2;
 }
 .ui.flipping.loader .shape:after {
-  background-color: #17181d;
+  background-color: #1b1c1d;
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
 }

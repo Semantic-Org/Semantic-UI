@@ -484,10 +484,10 @@ a.ui.label {
   left: 0%;
   background-color: transparent !important;
   border-top: 0em solid transparent;
-  border-right-width: 1.3em;
+  border-right-width: 1.2em;
   border-right-color: inherit;
   border-right-style: solid;
-  border-bottom: 1.3em solid transparent;
+  border-bottom: 1.2em solid transparent;
   border-left: 0em solid transparent;
   width: 0em;
   height: 0em;
@@ -583,31 +583,31 @@ a.ui.label:hover:before {
 /*--- Black ---*/
 .ui.black.labels .label,
 .ui.black.label {
-  background-color: #17181d !important;
-  border-color: #17181d !important;
+  background-color: #1b1c1d !important;
+  border-color: #1b1c1d !important;
   color: #ffffff !important;
 }
 .ui.labels .black.label:before,
 .ui.black.labels .label:before,
 .ui.black.label:before {
-  background-color: #17181d !important;
+  background-color: #1b1c1d !important;
 }
 a.ui.black.labels .label:hover,
 a.ui.black.label:hover {
-  background-color: #272831 !important;
-  border-color: #272831 !important;
+  background-color: #2c2e2f !important;
+  border-color: #2c2e2f !important;
 }
 .ui.labels a.black.label:hover:before,
 .ui.black.labels a.label:hover:before,
 a.ui.black.label:hover:before {
-  background-color: #272831 !important;
+  background-color: #2c2e2f !important;
 }
 .ui.black.corner.label,
 .ui.black.corner.label:hover {
   background-color: transparent !important;
 }
 .ui.black.ribbon.label {
-  border-color: #17181d !important;
+  border-color: #020203 !important;
 }
 /*--- Blue ---*/
 .ui.blue.labels .label,
@@ -638,7 +638,7 @@ a.ui.blue.label:hover:before {
   background-color: transparent !important;
 }
 .ui.blue.ribbon.label {
-  border-color: #3b83c0 !important;
+  border-color: #2f6899 !important;
 }
 /*--- Green ---*/
 .ui.green.labels .label,
@@ -667,7 +667,7 @@ a.ui.green.label:hover:before {
   background-color: transparent !important;
 }
 .ui.green.ribbon.label {
-  border-color: #5bbd72 !important;
+  border-color: #42a359 !important;
 }
 /*--- Orange ---*/
 .ui.orange.labels .label,
@@ -698,7 +698,7 @@ a.ui.orange.label:hover:before {
   background-color: transparent !important;
 }
 .ui.orange.ribbon.label {
-  border-color: #e07b53 !important;
+  border-color: #d85a28 !important;
 }
 /*--- Pink ---*/
 .ui.pink.labels .label,
@@ -729,7 +729,7 @@ a.ui.pink.label:hover:before {
   background-color: transparent !important;
 }
 .ui.pink.ribbon.label {
-  border-color: #d9499a !important;
+  border-color: #c62981 !important;
 }
 /*--- Purple ---*/
 .ui.purple.labels .label,
@@ -760,7 +760,7 @@ a.ui.purple.label:hover:before {
   background-color: transparent !important;
 }
 .ui.purple.ribbon.label {
-  border-color: #564f8a !important;
+  border-color: #423c6a !important;
 }
 /*--- Red ---*/
 .ui.red.labels .label,
@@ -790,7 +790,7 @@ a.ui.red.label:hover:before {
   background-color: #e07979 !important;
 }
 .ui.red.ribbon.label {
-  border-color: #d95c5c !important;
+  border-color: #cf3333 !important;
 }
 /*--- Teal ---*/
 .ui.teal.labels .label,
@@ -821,7 +821,7 @@ a.ui.teal.label:hover:before {
   background-color: transparent !important;
 }
 .ui.teal.ribbon.label {
-  border-color: #00b5ad !important;
+  border-color: #00827c !important;
 }
 /*--- Yellow ---*/
 .ui.yellow.labels .label,
@@ -852,7 +852,7 @@ a.ui.yellow.label:hover:before {
   background-color: transparent !important;
 }
 .ui.yellow.ribbon.label {
-  border-color: #e9bd16 !important;
+  border-color: #ba9712 !important;
 }
 /*-------------------
        Fluid

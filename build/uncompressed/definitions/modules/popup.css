@@ -239,9 +239,6 @@
 .ui.popup.right.center {
   margin: 0em 0em 0em 0.75em;
 }
-.ui.popup.center {
-  margin-left: -1.25em;
-}
 /*--------------
      Pointer
 ---------------*/
@@ -360,7 +357,7 @@
 ---------------*/
 /* Inverted colors  */
 .ui.inverted.popup {
-  background: #17181d;
+  background: #1b1c1d;
   color: #ffffff;
   border: none;
   box-shadow: none;
@@ -370,8 +367,14 @@
   color: #ffffff;
 }
 .ui.inverted.popup:before {
-  background-color: #17181d;
+  background-color: #1b1c1d;
   box-shadow: none;
+}
+/*--------------
+     Flowing
+---------------*/
+.ui.flowing.popup {
+  max-width: 9999px;
 }
 /*--------------
      Sizes

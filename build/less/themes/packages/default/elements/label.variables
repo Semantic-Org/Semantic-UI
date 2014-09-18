@@ -86,8 +86,18 @@
 /* Ribbon */
 @ribbonDistance: 2rem;
 @ribbonMargin: 1em;
-@ribbonTriangleSize: 1.3em;
+@ribbonTriangleSize: 1.2em;
 @ribbonShadowColor: rgba(0, 0, 0, 0.15);
+
+@blackRibbonShadow: darken(@black, 10);
+@blueRibbonShadow: darken(@blue, 10);
+@greenRibbonShadow: darken(@green, 10);
+@orangeRibbonShadow: darken(@orange, 10);
+@pinkRibbonShadow: darken(@pink, 10);
+@purpleRibbonShadow: darken(@purple, 10);
+@redRibbonShadow: darken(@red, 10);
+@tealRibbonShadow: darken(@teal, 10);
+@yellowRibbonShadow: darken(@yellow, 10);
 
 /* Attached */
 @attachedSegmentPadding: 2rem;
