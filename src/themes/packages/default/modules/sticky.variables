@@ -1,3 +1,11 @@
 /*******************************
             Sticky
 *******************************/
+
+@transitionDuration: 0.2s;
+@transition:
+  width @transitionDuration @defaultEasing,
+  height @transitionDuration @defaultEasing,
+  margin @transitionDuration @defaultEasing,
+  top @transitionDuration @defaultEasing
+;
