@@ -66,6 +66,7 @@
 --------------------*/
 
 @disabledColor: @disabledTextColor;
+@invertedDisabledColor: @invertedDisabledTextColor;
 
 /*-------------------
       Variations

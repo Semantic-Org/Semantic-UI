@@ -248,12 +248,15 @@ ol.ui.list ol,
 *******************************/
 
 /*-------------------
-        Disabled
+       Disabled
 --------------------*/
 
 .ui.list .disabled.item {
   pointer-events: none;
-  color: @disabledColor;
+  color: @disabledColor !important;
+}
+.ui.inverted.list .disabled.item {
+  color: @invertedDisabledColor !important;
 }
 
 /*-------------------

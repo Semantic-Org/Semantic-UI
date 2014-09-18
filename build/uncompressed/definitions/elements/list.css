@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -194,7 +194,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             List
@@ -400,11 +400,14 @@ ol.ui.list ol,
              States
 *******************************/
 /*-------------------
-        Disabled
+       Disabled
 --------------------*/
 .ui.list .disabled.item {
   pointer-events: none;
-  color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.2) !important;
+}
+.ui.inverted.list .disabled.item {
+  color: rgba(255, 255, 255, 0.2) !important;
 }
 /*-------------------
         Hover

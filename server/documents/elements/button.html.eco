@@ -363,7 +363,7 @@ themes      : ['Default', 'Basic', 'Chubby', 'Flat', 'Amazon', 'GitHub']
   <h3 class="ui dividing header">Group Variations</h3>
 
   <div class="example">
-    <h4 class="ui header">Vertical</h4>
+    <h4 class="ui header">Vertical Group</h4>
     <p>Groups can be formatted to appear vertically</p>
     <div class="ui vertical buttons">
       <div class="ui button">Feed</div>
@@ -374,7 +374,7 @@ themes      : ['Default', 'Basic', 'Chubby', 'Flat', 'Amazon', 'GitHub']
   </div>
 
   <div class="example">
-    <h4 class="ui header">Icon</h4>
+    <h4 class="ui header">Icon Group</h4>
     <p>Groups can be formatted as icons</p>
     <div class="ui icon buttons">
       <div class="ui button">
@@ -390,7 +390,7 @@ themes      : ['Default', 'Basic', 'Chubby', 'Flat', 'Amazon', 'GitHub']
   </div>
 
   <div class="example">
-    <h4 class="ui header">Labeled Icon</h4>
+    <h4 class="ui header">Labeled Icon Group</h4>
     <p>Groups can be formatted as labeled icons</p>
     <div class="ui vertical labeled icon buttons">
       <div class="ui button">
@@ -410,7 +410,7 @@ themes      : ['Default', 'Basic', 'Chubby', 'Flat', 'Amazon', 'GitHub']
 
 
   <div class="example">
-    <h4 class="ui header">Fluid</h4>
+    <h4 class="ui header">Evenly Divided</h4>
     <p>Groups can be divided evenly to fit parent</p>
     <div class="ui message">Evenly divided elements can either use the number or the word, i.e. 2 or "two"</div>
     <div class="3 fluid ui buttons">
@@ -442,7 +442,7 @@ themes      : ['Default', 'Basic', 'Chubby', 'Flat', 'Amazon', 'GitHub']
 
 
   <div class="example">
-    <h4 class="ui header">Colors</h4>
+    <h4 class="ui header">Colored Group</h4>
     <p>Groups can have a shared color</p>
     <div class="blue ui buttons">
       <div class="ui button">One</div>
@@ -452,7 +452,7 @@ themes      : ['Default', 'Basic', 'Chubby', 'Flat', 'Amazon', 'GitHub']
   </div>
 
   <div class="example">
-    <h4 class="ui header">Basic</h4>
+    <h4 class="ui header">Basic Group</h4>
     <p>A button group can be formatted to remove extra formatting</p>
     <div class="ui basic buttons">
       <div class="ui button">One</div>
@@ -462,7 +462,7 @@ themes      : ['Default', 'Basic', 'Chubby', 'Flat', 'Amazon', 'GitHub']
   </div>
 
   <div class="example">
-    <h4 class="ui header">Sizes</h4>
+    <h4 class="ui header">Group Sizes</h4>
     <p>Groups can have a shared size</p>
     <div class="huge ui buttons">
       <div class="ui button">One</div>

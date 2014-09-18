@@ -102,7 +102,7 @@ semantic.ready = function() {
     createWaypoints: function() {
       $sectionHeaders
         .visibility({
-          offset: 80,
+          offset: 70,
           once: false,
           onTopPassed: handler.activate.section,
           onTopPassedReverse: handler.activate.previous
@@ -112,9 +112,9 @@ semantic.ready = function() {
       $sectionExample
         .visibility({
           once: false,
-          offset: 80,
+          offset: 70,
           onTopPassed: handler.activate.example,
-          onBottomPassedReverse: handler.activate.examplet
+          onBottomPassedReverse: handler.activate.example
         })
       ;
     },
@@ -161,24 +161,6 @@ semantic.ready = function() {
           $followSection = $followMenu.find('.menu > .item'),
           $activeSection = $followSection.eq(index)
         ;
-        //console.log('top passed', this);
-        if($(this).not('.another.example').size() > 0) {
-          $followSection
-            .removeClass('active')
-          ;
-          $activeSection
-            .addClass('active')
-          ;
-        }
-      },
-      examplet: function() {
-        var
-          $section       = $(this).children('h4').eq(0),
-          index          = $exampleHeaders.index($section),
-          $followSection = $followMenu.find('.menu > .item'),
-          $activeSection = $followSection.eq(index)
-        ;
-        //console.log('bottom passed reverse', this);
         if($(this).not('.another.example').size() > 0) {
           $followSection
             .removeClass('active')
@@ -200,30 +182,47 @@ semantic.ready = function() {
       $sectionHeaders
         .each(function(index) {
           var
-            $nextHeader   = $(this).nextAll('h2').eq(0),
-            $firstExample = $(this).nextAll('.example').eq(0),
-            $lastExample  = $nextHeader.prevAll('.example').eq(0),
-            $exampleSet   = $container.find('.example'),
-            firstIndex    = $exampleSet.index($firstExample),
-            lastIndex     = ($lastExample.size() > 0)
-              ? $exampleSet.index($lastExample)
-              : $exampleSet.size(),
-            $examples     = $exampleSet.slice(firstIndex, lastIndex + 1),
-            activeClass   = (index === 0)
+            $currentHeader = $(this),
+            $nextElements  = $currentHeader.nextUntil('h2'),
+            $examples      = $nextElements.find('.example').andSelf().filter('.example'),
+            activeClass    = (index === 0)
               ? 'active '
-              : ''
+              : '',
+            safeName = $currentHeader.text().replace(/\s+/g, '-').toLowerCase(),
+            id       = window.escape(safeName),
+            $anchor  = $('<a />').addClass('anchor').attr('id', id)
+          ;
+          $currentHeader
+            .append($anchor)
           ;
           html += '<div class="item">';
-          html += '<a class="'+activeClass+'title"><i class="dropdown icon"></i> <b>' + $(this).text() + '</b></a>';
-          html += '<div class="'+activeClass+'content menu">';
-          $examples
-            .each(function() {
-              if($(this).children('h4').size() > 0) {
-                html += '<a class="item">' + $(this).children('h4').text() + '</a>';
-              }
-            })
-          ;
-          html += '</div></div>';
+          if($examples.size() === 0) {
+            html += '<a class="'+activeClass+'title" href="'+id+'"><b>' + $(this).text() + '</b></a>';
+          }
+          else {
+            html += '<a class="'+activeClass+'title"><i class="dropdown icon"></i> <b>' + $(this).text() + '</b></a>';
+          }
+          if($examples.size() > 0) {
+            html += '<div class="'+activeClass+'content menu">';
+            $examples
+              .each(function() {
+                var
+                  $title   = $(this).children('h4').eq(0),
+                  safeName = $title.text().replace(/\s+/g, '-').toLowerCase(),
+                  id       = window.escape(safeName),
+                  $anchor  = $('<a />').addClass('anchor').attr('id', id)
+                ;
+                $title
+                  .after($anchor)
+                ;
+                if($title.size() > 0) {
+                  html += '<a class="item" href="#'+id+'">' + $(this).children('h4').text() + '</a>';
+                }
+              })
+            ;
+            html += '</div>';
+          }
+          html += '</div>';
         })
       ;
       $followMenu = $('<div />')
@@ -246,6 +245,8 @@ semantic.ready = function() {
             $sticky.sticky('refresh');
           }
         })
+        .find('.menu a[href], .title[href]')
+          .on('click', handler.scrollTo)
       ;
       $sticky
         .transition('fade', function() {
@@ -255,6 +256,34 @@ semantic.ready = function() {
           });
         })
       ;
+    },
+
+    scrollTo: function(event) {
+      var
+        id       = $(this).attr('href').replace('#', ''),
+        $element = $('#'+id),
+        position = $element.offset().top
+      ;
+      $followMenu
+        .find('.menu .item.active')
+          .removeClass('active')
+      ;
+      $element
+        .addClass('active')
+      ;
+      $('html, body')
+        .animate({
+          scrollTop: position
+        }, 500, function() {
+          $element
+            .addClass('active')
+          ;
+        })
+      ;
+      location.hash = '#' + id;
+      event.stopImmediatePropagation();
+      event.preventDefault();
+      return false;
     },
 
     less: {
@@ -728,10 +757,14 @@ semantic.ready = function() {
           // create code
           handler.makeCode();
           // create follow menu
-          $container        = $(this);
-          $sectionHeaders   = $container.children('h2');
-          $sectionExample   = $container.find('.example');
-          $exampleHeaders   = $sectionExample.children('h4');
+          $container = ($('.fixed.column').size() > 0 )
+            ? $(this).find('.examples')
+            : $(this)
+          ;
+          $sectionHeaders = $container.children('h2');
+          $sectionExample = $container.find('.example');
+          $exampleHeaders = $sectionExample.children('h4');
+
 
           handler.createMenu();
           $followMenu       = $container.find('.following.menu');

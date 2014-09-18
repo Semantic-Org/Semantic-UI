@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -172,7 +172,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Header
@@ -325,55 +325,55 @@ h5.ui.header {
   color: #191919 !important;
 }
 a.ui.black.header:hover {
-  color: #333333 !important;
+  color: #2b2b2b !important;
 }
 .ui.blue.header {
   color: #0066c0 !important;
 }
 a.ui.blue.header:hover {
-  color: #0d8eff !important;
+  color: #0087fd !important;
 }
 .ui.green.header {
   color: #1aa62a !important;
 }
 a.ui.green.header:hover {
-  color: #54d964 !important;
+  color: #48d658 !important;
 }
 .ui.orange.header {
   color: #ff7701 !important;
 }
 a.ui.orange.header:hover {
-  color: #ffa04e !important;
+  color: #ff983f !important;
 }
 .ui.pink.header {
   color: #d5348e !important;
 }
 a.ui.pink.header:hover {
-  color: #e273b1 !important;
+  color: #df67aa !important;
 }
 .ui.purple.header {
   color: #903985 !important;
 }
 a.ui.purple.header:hover {
-  color: #bd58b1 !important;
+  color: #b94dac !important;
 }
 .ui.red.header {
   color: #ff291c !important;
 }
 a.ui.red.header:hover {
-  color: #ff7169 !important;
+  color: #ff635a !important;
 }
 .ui.teal.header {
   color: #0e8c8c !important;
 }
 a.ui.teal.header:hover {
-  color: #62d6d6 !important;
+  color: #55d3d3 !important;
 }
 .ui.yellow.header {
   color: #9c6f04 !important;
 }
 a.ui.yellow.header:hover {
-  color: #ffd63b !important;
+  color: #ffd32c !important;
 }
 .ui.black.dividing.header {
   border-bottom: 2px solid #191919;
@@ -428,55 +428,55 @@ a.ui.yellow.header:hover {
   color: #aaaaaa !important;
 }
 a.ui.inverted.black.header:hover {
-  color: #c3c3c3 !important;
+  color: #bcbcbc !important;
 }
 .ui.inverted.blue.header {
   color: #54c8ff !important;
 }
 a.ui.inverted.blue.header:hover {
-  color: #87d8ff !important;
+  color: #78d3ff !important;
 }
 .ui.inverted.green.header {
   color: #2ecc40 !important;
 }
 a.ui.inverted.green.header:hover {
-  color: #54d964 !important;
+  color: #48d658 !important;
 }
 .ui.inverted.orange.header {
   color: #ff851b !important;
 }
 a.ui.inverted.orange.header:hover {
-  color: #ffa04e !important;
+  color: #ff983f !important;
 }
 .ui.inverted.pink.header {
   color: #ff8edf !important;
 }
 a.ui.inverted.pink.header:hover {
-  color: #ffc1ed !important;
+  color: #ffb2e9 !important;
 }
 .ui.inverted.purple.header {
   color: #cdc6ff !important;
 }
 a.ui.inverted.purple.header:hover {
-  color: #faf9ff !important;
+  color: #eceaff !important;
 }
 .ui.inverted.red.header {
   color: #ff695e !important;
 }
 a.ui.inverted.red.header:hover {
-  color: #ff9991 !important;
+  color: #ff8a82 !important;
 }
 .ui.inverted.teal.header {
   color: #6dffff !important;
 }
 a.ui.inverted.teal.header:hover {
-  color: #a0ffff !important;
+  color: #91ffff !important;
 }
 .ui.inverted.yellow.header {
   color: #ffe21f !important;
 }
 a.ui.inverted.yellow.header:hover {
-  color: #ffe952 !important;
+  color: #ffe743 !important;
 }
 .ui.inverted.block.header {
   border-bottom: none;

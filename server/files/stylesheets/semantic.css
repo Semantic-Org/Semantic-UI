@@ -193,6 +193,10 @@ a:hover {
   padding-top: 30px;
 }
 
+#example.divider .ui.grid {
+  position: relative;
+}
+
 #example .tab.header.segment {
   padding-bottom: 0em;
   margin-bottom: 2em;
@@ -290,7 +294,13 @@ a:hover {
 }
 
 
-
+#example .main.container a.anchor {
+  height: 1px;
+  position: absolute;
+  right: 100%;
+  top: -55px;
+  width: 1px;
+}
 
 
 /*--------------
@@ -755,6 +765,9 @@ body#example.hide {
 #example .ui.label + .instructive.segment {
   margin-top: 0em;
 }
+#example .instructive.segment:after {
+  display: none;
+}
 #example .instructive.segment em {
   font-style: normal;
   color: rgba(0, 0, 0, 0.4);
@@ -793,6 +806,10 @@ body#example.hide {
   overflow: hidden;
   clear: both;
   padding: 1px;
+}
+
+#example .main.container > h2 {
+  position: relative;
 }
 
 /* After Section Header */
@@ -841,6 +858,7 @@ body#example.hide {
 
   top: 0em;
   right: 0px;
+  margin: 0;
   opacity: 0.2;
 
   font-size: 18px;
@@ -1425,6 +1443,10 @@ body.progress .ui.progress .bar {
   padding-bottom: 30px;
 }
 
+#example .following.menu .menu .active.item {
+  font-weight: bold;
+}
+
 @media only screen and (max-width : 600px) {
   #example .container {
     width: auto;
@@ -1437,7 +1459,7 @@ body.progress .ui.progress .bar {
     margin: 0em 3rem;
   }
 }
-@media only screen and (min-width : 1000px) and (max-width: 1325px) {
+@media only screen and (min-width : 1000px) and (max-width: 1355px) {
   #example .container {
     width: auto;
     margin-right: auto;
@@ -1445,13 +1467,13 @@ body.progress .ui.progress .bar {
     max-width: 700px;
   }
 }
-@media only screen and (max-width : 1325px) {
+@media only screen and (max-width : 1355px) {
   #example .following.menu {
     display: none;
   }
 }
 
-@media only screen and (min-width : 1325px) {
+@media only screen and (min-width : 1355px) {
   #example .container {
     right: 100px;
   }
@@ -1513,7 +1535,7 @@ body.progress .ui.progress .bar {
 *******************************/
 
 
-@media only screen and (max-width : 1325px) {
+@media only screen and (max-width : 1365px) {
   #example .sticky-wrapper.stuck .peek {
     margin-left: 0px;
     left: 95px;

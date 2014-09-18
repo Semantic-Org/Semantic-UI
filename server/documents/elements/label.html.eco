@@ -325,7 +325,7 @@ themes      : ['Default']
   <h2 class="ui dividing header">Groups</h2>
 
   <div class="example">
-    <h4 class="ui header">Size</h4>
+    <h4 class="ui header">Group Size</h4>
     <p>Labels can share sizes together</p>
     <div class="ui large labels">
       <div class="ui label">
@@ -343,7 +343,7 @@ themes      : ['Default']
     </div>
   </div>
   <div class="example">
-    <h4 class="ui header">Colors</h4>
+    <h4 class="ui header">Colored Group</h4>
     <p>Labels can share colors together</p>
     <div class="ui blue labels">
       <a class="ui label">
@@ -366,7 +366,7 @@ themes      : ['Default']
   </div>
 
   <div class="example">
-    <h4 class="ui header">Tag</h4>
+    <h4 class="ui header">Tag Group</h4>
     <p>Labels can share tag formatting</p>
     <div class="ui tag labels">
       <a class="ui label">
@@ -388,7 +388,7 @@ themes      : ['Default']
   </div>
 
   <div class="example">
-    <h4 class="ui header">Circular</h4>
+    <h4 class="ui header">Circular Group</h4>
     <p>Labels can share shapes</p>
     <div class="ui circular labels">
       <a class="ui label">

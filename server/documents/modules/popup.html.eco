@@ -152,7 +152,6 @@ themes      : ['Default']
     <div class="no example">
       <h4 class="ui header">Using a Pre-existing Popup</h4>
       <p>Using a pre-existing popup allows for you to include complex html inside your popup.<p>
-      <h5>As a sibling element</h5>
       <p>If you include your popup on page load as an adjacent sibling element to your activating element it can be found automatically.</p>
       <p>To instruct popup to look inline for your popup element you can initialize it with the <code>inline</code> parameter</p>
       <div class="code" data-type="javascript">
@@ -171,7 +170,7 @@ themes      : ['Default']
       </div>
     </div>
     <div class="no example">
-      <h5>Anywhere on the page</h5>
+      <h4 class="ui header">Using a Pre-existing Popup Anywhere</h4>
       <p>If you cannot include your popup element as a sibling element, you can specify a custom selector to retrieve your popup</p>
       <div class="code" data-type="javascript">
         $('.button')
@@ -279,8 +278,11 @@ themes      : ['Default']
 
 
   <div class="ui tab" data-tab="examples">
+
+    <h2 class="ui dividing header">Examples</h2>
+
     <div class="example">
-      <h3 class="ui header">Wide Popup Menu</h3>
+      <h4 class="ui header">Wide Popup Menu</h4>
       <div class="ignored">
         <p>An easier way to display complex content, like a wide popup menu is to have the popup content as a pre-  existing part of your page's html.</p>
         <p>Using the setting <code>inline: true</code> will let Semantic know to display the next sibling <code>ui  popup</code> element after the activator.</p>
@@ -349,10 +351,11 @@ themes      : ['Default']
           </div>
         </div>
       </div>
+
     </div>
 
     <div class="example">
-      <h3 class="ui header">Specifying a selector for a popup</h3>
+      <h4 class="ui header">Specifying a selector for a popup</h4>
       <p>If its not possible to include the popup content as the next sibling, you can also specify a custom selector to help link the popup contents to its activator.</p>
       <div class="evaluated code">
       $('.example .custom.button')
@@ -372,7 +375,7 @@ themes      : ['Default']
 
 
     <div class="example">
-      <h3 class="ui header">Specifying a trigger event</h3>
+      <h4 class="ui header">Specifying a trigger event</h4>
       <p>A popup trigger event can be specified</p>
       <div class="evaluated code">
     $('.example .teal.button')
@@ -394,7 +397,7 @@ themes      : ['Default']
     </div>
 
     <div class="example">
-      <h3 class="ui header">Target Element</h3>
+      <h4 class="ui header">Target Element</h4>
       <p>A popup can specify a different target element than itself to show a popup</p>
       <div class="evaluated code">
     $('.test.button')
@@ -411,7 +414,7 @@ themes      : ['Default']
       <img class="medium ui test image" src="/images/demo/photo.jpg">
     </div>
     <div class="inline example">
-      <h3 class="ui header">Inline or relative to page</h3>
+      <h4 class="ui header">Inline or relative to page</h4>
       <p>A popup can either be inserted directly after an element, or added as a child element to the page's <code>body</code>.</p>
       <div class="ui positive message">
         Using inline will allow your popups to go places other popups can't go, like inside <code>fixed</code> or <code>absolutely</code> positioned elements
@@ -437,7 +440,7 @@ themes      : ['Default']
 
     </div>
     <div class="position example">
-      <h3 class="ui header">Positioning</h3>
+      <h4 class="ui header">Positioning</h4>
       <p>A popup can be positioned to any side of an element. If space is not available, it will automatically search for a similar alternative position to use.</p>
       <div class="ui segment">
         <i class="square inverted red heart icon link" data-content="Top Left" data-position="top left"></i>
@@ -452,7 +455,7 @@ themes      : ['Default']
     </div>
 
     <div class="example">
-      <h3 class="ui header">Specifying an offset</h3>
+      <h4 class="ui header">Specifying an offset</h4>
       <p>A popup position can be adjusted manually by specifying an offset property using <code>data-offset="value"</code></p>
 
       <i class="heart circular icon link" data-offset="50" data-content="As expected this popup is way off to the right"></i>
@@ -460,7 +463,7 @@ themes      : ['Default']
 
 
     <div class="no example">
-      <h3 class="ui header">Transitions</h3>
+      <h4 class="ui header">Transitions</h4>
       <p>A popup can use any named ui transition.</p>
       <i class="large demo home circular link icon" data-title="Home" data-content="The place where you keep your dog"></i> Home
 

@@ -257,32 +257,34 @@
         <%- @content %>
       </div>
       <div class="ui vertical inverted black footer segment">
-        <div class="ui stackable inverted divided relaxed page grid">
-          <div class="eight wide column">
-            <h3 class="ui inverted header">We Need Your Help</h3>
-            <p>Maintaining an open source UI library is no small task. Support for the continued development of Semantic UI comes directly from the community.</p>
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-              <input type="hidden" name="cmd" value="_s-xclick">
-              <input type="hidden" name="hosted_button_id" value="7ZAF2Q8DBZAQL">
-              <button type="submit" class="ui red button">Donate Today</button>
-            </form>
-          </div>
-          <div class="four wide column">
-            <h5 class="ui teal inverted header">Contribute</h5>
-            <div class="ui inverted link list">
-              <a class="item" href="mailto:jack@semantic-ui.com?subject=Help Translating">Translate</a>
-              <a class="item" href="https://github.com/Semantic-Org/Semantic-UI" target="_blank">Issue Tracker</a>
-              <a class="item" href="https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aopen+is%3Aissue+label%3ABug" target="_blank">Known Bugs</a>
-              <a class="disabled item">Create Themes</a>
+        <div class="container">
+          <div class="ui stackable inverted divided relaxed grid">
+            <div class="eight wide column">
+              <h3 class="ui inverted header">We Need Your Help</h3>
+              <p>Maintaining an open source UI library is no small task. Support for the continued development of Semantic UI comes directly from the community.</p>
+              <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="7ZAF2Q8DBZAQL">
+                <button type="submit" class="ui red button">Donate Today</button>
+              </form>
             </div>
-          </div>
-          <div class="four wide column">
-            <h5 class="ui teal inverted header">Semantic Network</h5>
-            <div class="ui inverted link list">
-              <a class="item" href="https://www.transifex.com/projects/p/semantic-ui-beta/" target="_blank">Translation Hub</a>
-              <a class="disabled item">Semantic UI</a>
-              <a class="disabled item">Learn Semantic</a>
-              <a class="disabled item">Semantic Themes</a>
+            <div class="four wide column">
+              <h5 class="ui teal inverted header">Contribute</h5>
+              <div class="ui inverted link list">
+                <a class="item" href="mailto:jack@semantic-ui.com?subject=Help Translating">Translate</a>
+                <a class="item" href="https://github.com/Semantic-Org/Semantic-UI" target="_blank">Issue Tracker</a>
+                <a class="item" href="https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aopen+is%3Aissue+label%3ABug" target="_blank">Known Bugs</a>
+                <a class="disabled item">Create Themes</a>
+              </div>
+            </div>
+            <div class="four wide column">
+              <h5 class="ui teal inverted header">Semantic Network</h5>
+              <div class="ui inverted link list">
+                <a class="item" href="https://www.transifex.com/projects/p/semantic-ui-beta/" target="_blank">Translation Hub</a>
+                <a class="disabled item">Semantic UI</a>
+                <a class="disabled item">Learn Semantic</a>
+                <a class="disabled item">Semantic Themes</a>
+              </div>
             </div>
           </div>
         </div>

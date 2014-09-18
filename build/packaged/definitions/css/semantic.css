@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -160,7 +160,7 @@
            Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
            Breadcrumb
@@ -299,7 +299,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -445,7 +445,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Elements
@@ -721,9 +721,9 @@
 .ui.form .field.error input[type="tel"]:focus {
   background: #fae8e8;
   border-color: #dbb1b1;
-  color: #ff7169;
+  color: #ff635a;
   -webkit-appearance: none;
-  box-shadow: 2px 0em 0em 0em #ff7169 inset;
+  box-shadow: 2px 0em 0em 0em #ff635a inset;
 }
 /*------------------
     Dropdown Error
@@ -1139,7 +1139,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -1271,7 +1271,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Standard
@@ -2282,7 +2282,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -2438,7 +2438,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Standard
@@ -3442,7 +3442,7 @@
 }
 .ui.inverted.menu .item.disabled,
 .ui.inverted.menu .item.disabled:hover {
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.2);
 }
 /*--- Border ---*/
 .ui.inverted.menu .item:before {
@@ -3880,7 +3880,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -4006,7 +4006,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Message
@@ -4401,7 +4401,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -4544,7 +4544,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
              Table
@@ -5269,7 +5269,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -5420,7 +5420,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Button
@@ -5706,7 +5706,7 @@
   box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.facebook.button:hover {
-  background-color: #4e6ebd;
+  background-color: #4565b7;
   color: #ffffff;
   text-shadow: none;
 }
@@ -5724,7 +5724,7 @@
   box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.twitter.button:hover {
-  background-color: #68a9d7;
+  background-color: #5ca2d4;
   color: #ffffff;
   text-shadow: none;
 }
@@ -5742,7 +5742,7 @@
   box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.google.plus.button:hover {
-  background-color: #dc6e60;
+  background-color: #d96353;
   color: #ffffff;
   text-shadow: none;
 }
@@ -5758,7 +5758,7 @@
   text-shadow: none;
 }
 .ui.linkedin.button:hover {
-  background-color: #32a3de;
+  background-color: #259edb;
   color: #ffffff;
   text-shadow: none;
 }
@@ -5776,7 +5776,7 @@
   box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.youtube.button:hover {
-  background-color: #e73036;
+  background-color: #e52329;
   color: #ffffff;
   text-shadow: none;
 }
@@ -5794,7 +5794,7 @@
   box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.instagram.button:hover {
-  background-color: #6290b6;
+  background-color: #5888b1;
   color: #ffffff;
   text-shadow: none;
 }
@@ -5812,7 +5812,7 @@
   box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.pinterest.button:hover {
-  background-color: #21c2ff;
+  background-color: #12beff;
   color: #ffffff;
   text-shadow: none;
 }
@@ -5829,7 +5829,7 @@
   box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.vk.button:hover {
-  background-color: #668ab2;
+  background-color: #5c83ad;
   color: #ffffff;
 }
 .ui.vk.button:active {
@@ -6018,7 +6018,7 @@
 .ui.basic.inverted.button {
   background-color: transparent !important;
   color: #fafafa !important;
-  box-shadow: 0px 0px 0px 2px #999999 inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
 }
 .ui.basic.inverted.buttons .button:hover,
 .ui.basic.inverted.button:hover {
@@ -6029,14 +6029,14 @@
 .ui.basic.inverted.button:active {
   background-color: rgba(255, 255, 255, 0.05) !important;
   color: #ffffff !important;
-  box-shadow: 0px 0px 0px 2px #cccccc inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.9) inset !important;
 }
 .ui.basic.inverted.buttons .button.active,
 .ui.basic.inverted.button.active {
   background-color: rgba(255, 255, 255, 0.05);
   color: #ffffff;
   text-shadow: none;
-  box-shadow: 0px 0px 0px 2px #dadada inset;
+  box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.7) inset;
 }
 .ui.basic.inverted.buttons .button.active:hover,
 .ui.basic.inverted.button.active:hover {
@@ -6138,7 +6138,7 @@
   color: #ffffff !important;
 }
 .ui.button.toggle.active:hover {
-  background-color: #54d964 !important;
+  background-color: #48d658 !important;
   text-shadow: none;
   color: #ffffff !important;
 }
@@ -6441,7 +6441,7 @@
 }
 .ui.black.buttons .button:hover,
 .ui.black.button:hover {
-  background-color: #333333;
+  background-color: #2b2b2b;
   color: #ffffff;
   text-shadow: none;
 }
@@ -6468,8 +6468,8 @@
 .ui.basic.black.buttons .button:hover,
 .ui.basic.black.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #333333 inset !important;
-  color: #333333 !important;
+  box-shadow: 0px 0px 0px 2px #2b2b2b inset !important;
+  color: #2b2b2b !important;
 }
 .ui.basic.black.buttons .button:active,
 .ui.basic.black.button:active {
@@ -6506,7 +6506,7 @@
 .ui.inverted.black.buttons .basic.button,
 .ui.inverted.black.basic.button {
   background-color: transparent;
-  box-shadow: 0px 0px 0px 2px #999999 inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
   color: #ffffff !important;
 }
 .ui.inverted.black.basic.buttons .button:hover,
@@ -6534,7 +6534,7 @@
 }
 .ui.blue.buttons .button:hover,
 .ui.blue.button:hover {
-  background-color: #0d8eff;
+  background-color: #0087fd;
   color: #ffffff;
   text-shadow: none;
 }
@@ -6561,8 +6561,8 @@
 .ui.basic.blue.buttons .button:hover,
 .ui.basic.blue.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #0d8eff inset !important;
-  color: #0d8eff !important;
+  box-shadow: 0px 0px 0px 2px #0087fd inset !important;
+  color: #0087fd !important;
 }
 .ui.basic.blue.buttons .button:active,
 .ui.basic.blue.button:active {
@@ -6599,7 +6599,7 @@
 .ui.inverted.blue.buttons .basic.button,
 .ui.inverted.blue.basic.button {
   background-color: transparent;
-  box-shadow: 0px 0px 0px 2px #999999 inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
   color: #ffffff !important;
 }
 .ui.inverted.blue.basic.buttons .button:hover,
@@ -6627,7 +6627,7 @@
 }
 .ui.green.buttons .button:hover,
 .ui.green.button:hover {
-  background-color: #54d964;
+  background-color: #48d658;
   color: #ffffff;
   text-shadow: none;
 }
@@ -6654,8 +6654,8 @@
 .ui.basic.green.buttons .button:hover,
 .ui.basic.green.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #54d964 inset !important;
-  color: #54d964 !important;
+  box-shadow: 0px 0px 0px 2px #48d658 inset !important;
+  color: #48d658 !important;
 }
 .ui.basic.green.buttons .button:active,
 .ui.basic.green.button:active {
@@ -6692,7 +6692,7 @@
 .ui.inverted.green.buttons .basic.button,
 .ui.inverted.green.basic.button {
   background-color: transparent;
-  box-shadow: 0px 0px 0px 2px #999999 inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
   color: #ffffff !important;
 }
 .ui.inverted.green.basic.buttons .button:hover,
@@ -6720,7 +6720,7 @@
 }
 .ui.orange.buttons .button:hover,
 .ui.orange.button:hover {
-  background-color: #ffa04e;
+  background-color: #ff983f;
   color: #ffffff;
   text-shadow: none;
 }
@@ -6747,8 +6747,8 @@
 .ui.basic.orange.buttons .button:hover,
 .ui.basic.orange.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #ffa04e inset !important;
-  color: #ffa04e !important;
+  box-shadow: 0px 0px 0px 2px #ff983f inset !important;
+  color: #ff983f !important;
 }
 .ui.basic.orange.buttons .button:active,
 .ui.basic.orange.button:active {
@@ -6785,7 +6785,7 @@
 .ui.inverted.orange.buttons .basic.button,
 .ui.inverted.orange.basic.button {
   background-color: transparent;
-  box-shadow: 0px 0px 0px 2px #999999 inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
   color: #ffffff !important;
 }
 .ui.inverted.orange.basic.buttons .button:hover,
@@ -6813,7 +6813,7 @@
 }
 .ui.pink.buttons .button:hover,
 .ui.pink.button:hover {
-  background-color: #e273b1;
+  background-color: #df67aa;
   color: #ffffff;
   text-shadow: none;
 }
@@ -6840,8 +6840,8 @@
 .ui.basic.pink.buttons .button:hover,
 .ui.basic.pink.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #e273b1 inset !important;
-  color: #e273b1 !important;
+  box-shadow: 0px 0px 0px 2px #df67aa inset !important;
+  color: #df67aa !important;
 }
 .ui.basic.pink.buttons .button:active,
 .ui.basic.pink.button:active {
@@ -6878,7 +6878,7 @@
 .ui.inverted.pink.buttons .basic.button,
 .ui.inverted.pink.basic.button {
   background-color: transparent;
-  box-shadow: 0px 0px 0px 2px #999999 inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
   color: #ffffff !important;
 }
 .ui.inverted.pink.basic.buttons .button:hover,
@@ -6906,7 +6906,7 @@
 }
 .ui.purple.buttons .button:hover,
 .ui.purple.button:hover {
-  background-color: #bd58b1;
+  background-color: #b94dac;
   color: #ffffff;
   text-shadow: none;
 }
@@ -6933,8 +6933,8 @@
 .ui.basic.purple.buttons .button:hover,
 .ui.basic.purple.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #bd58b1 inset !important;
-  color: #bd58b1 !important;
+  box-shadow: 0px 0px 0px 2px #b94dac inset !important;
+  color: #b94dac !important;
 }
 .ui.basic.purple.buttons .button:active,
 .ui.basic.purple.button:active {
@@ -6971,7 +6971,7 @@
 .ui.inverted.purple.buttons .basic.button,
 .ui.inverted.purple.basic.button {
   background-color: transparent;
-  box-shadow: 0px 0px 0px 2px #999999 inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
   color: #ffffff !important;
 }
 .ui.inverted.purple.basic.buttons .button:hover,
@@ -6999,7 +6999,7 @@
 }
 .ui.red.buttons .button:hover,
 .ui.red.button:hover {
-  background-color: #ff7169;
+  background-color: #ff635a;
   color: #ffffff;
   text-shadow: none;
 }
@@ -7026,8 +7026,8 @@
 .ui.basic.red.buttons .button:hover,
 .ui.basic.red.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #ff7169 inset !important;
-  color: #ff7169 !important;
+  box-shadow: 0px 0px 0px 2px #ff635a inset !important;
+  color: #ff635a !important;
 }
 .ui.basic.red.buttons .button:active,
 .ui.basic.red.button:active {
@@ -7064,7 +7064,7 @@
 .ui.inverted.red.buttons .basic.button,
 .ui.inverted.red.basic.button {
   background-color: transparent;
-  box-shadow: 0px 0px 0px 2px #999999 inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
   color: #ffffff !important;
 }
 .ui.inverted.red.basic.buttons .button:hover,
@@ -7092,7 +7092,7 @@
 }
 .ui.teal.buttons .button:hover,
 .ui.teal.button:hover {
-  background-color: #62d6d6;
+  background-color: #55d3d3;
   color: #ffffff;
   text-shadow: none;
 }
@@ -7119,8 +7119,8 @@
 .ui.basic.teal.buttons .button:hover,
 .ui.basic.teal.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #62d6d6 inset !important;
-  color: #62d6d6 !important;
+  box-shadow: 0px 0px 0px 2px #55d3d3 inset !important;
+  color: #55d3d3 !important;
 }
 .ui.basic.teal.buttons .button:active,
 .ui.basic.teal.button:active {
@@ -7157,7 +7157,7 @@
 .ui.inverted.teal.buttons .basic.button,
 .ui.inverted.teal.basic.button {
   background-color: transparent;
-  box-shadow: 0px 0px 0px 2px #999999 inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
   color: #ffffff !important;
 }
 .ui.inverted.teal.basic.buttons .button:hover,
@@ -7185,7 +7185,7 @@
 }
 .ui.yellow.buttons .button:hover,
 .ui.yellow.button:hover {
-  background-color: #ffd63b;
+  background-color: #ffd32c;
   color: #ffffff;
   text-shadow: none;
 }
@@ -7212,8 +7212,8 @@
 .ui.basic.yellow.buttons .button:hover,
 .ui.basic.yellow.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #ffd63b inset !important;
-  color: #ffd63b !important;
+  box-shadow: 0px 0px 0px 2px #ffd32c inset !important;
+  color: #ffd32c !important;
 }
 .ui.basic.yellow.buttons .button:active,
 .ui.basic.yellow.button:active {
@@ -7250,7 +7250,7 @@
 .ui.inverted.yellow.buttons .basic.button,
 .ui.inverted.yellow.basic.button {
   background-color: transparent;
-  box-shadow: 0px 0px 0px 2px #999999 inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
   color: #ffffff !important;
 }
 .ui.inverted.yellow.basic.buttons .button:hover,
@@ -7280,7 +7280,7 @@
 }
 .ui.primary.buttons .button:hover,
 .ui.primary.button:hover {
-  background-color: #0d8eff;
+  background-color: #0087fd;
   color: #ffffff;
   text-shadow: none;
 }
@@ -7311,7 +7311,7 @@
 }
 .ui.secondary.buttons .button:hover,
 .ui.secondary.button:hover {
-  background-color: #333333;
+  background-color: #2b2b2b;
   color: #ffffff;
   text-shadow: none;
 }
@@ -7344,7 +7344,7 @@
 .ui.positive.button:hover,
 .ui.positive.buttons .active.button,
 .ui.positive.button.active {
-  background-color: #54d964 !important;
+  background-color: #48d658 !important;
   color: #ffffff;
   text-shadow: none;
 }
@@ -7379,7 +7379,7 @@
 .ui.negative.button:hover,
 .ui.negative.buttons .active.button,
 .ui.negative.button.active {
-  background-color: #ff7169 !important;
+  background-color: #ff635a !important;
   color: #ffffff;
   text-shadow: none;
 }
@@ -7517,7 +7517,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -7640,7 +7640,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Divider
@@ -7875,7 +7875,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -7987,7 +7987,7 @@
    Flag Variables
 --------------------*/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 i.flag {
   display: inline-block;
@@ -9034,7 +9034,7 @@ i.flag.zimbabwe:before {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -9163,7 +9163,7 @@ i.flag.zimbabwe:before {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Header
@@ -9316,55 +9316,55 @@ h5.ui.header {
   color: #191919 !important;
 }
 a.ui.black.header:hover {
-  color: #333333 !important;
+  color: #2b2b2b !important;
 }
 .ui.blue.header {
   color: #0066c0 !important;
 }
 a.ui.blue.header:hover {
-  color: #0d8eff !important;
+  color: #0087fd !important;
 }
 .ui.green.header {
   color: #1aa62a !important;
 }
 a.ui.green.header:hover {
-  color: #54d964 !important;
+  color: #48d658 !important;
 }
 .ui.orange.header {
   color: #ff7701 !important;
 }
 a.ui.orange.header:hover {
-  color: #ffa04e !important;
+  color: #ff983f !important;
 }
 .ui.pink.header {
   color: #d5348e !important;
 }
 a.ui.pink.header:hover {
-  color: #e273b1 !important;
+  color: #df67aa !important;
 }
 .ui.purple.header {
   color: #903985 !important;
 }
 a.ui.purple.header:hover {
-  color: #bd58b1 !important;
+  color: #b94dac !important;
 }
 .ui.red.header {
   color: #ff291c !important;
 }
 a.ui.red.header:hover {
-  color: #ff7169 !important;
+  color: #ff635a !important;
 }
 .ui.teal.header {
   color: #0e8c8c !important;
 }
 a.ui.teal.header:hover {
-  color: #62d6d6 !important;
+  color: #55d3d3 !important;
 }
 .ui.yellow.header {
   color: #9c6f04 !important;
 }
 a.ui.yellow.header:hover {
-  color: #ffd63b !important;
+  color: #ffd32c !important;
 }
 .ui.black.dividing.header {
   border-bottom: 2px solid #191919;
@@ -9419,55 +9419,55 @@ a.ui.yellow.header:hover {
   color: #aaaaaa !important;
 }
 a.ui.inverted.black.header:hover {
-  color: #c3c3c3 !important;
+  color: #bcbcbc !important;
 }
 .ui.inverted.blue.header {
   color: #54c8ff !important;
 }
 a.ui.inverted.blue.header:hover {
-  color: #87d8ff !important;
+  color: #78d3ff !important;
 }
 .ui.inverted.green.header {
   color: #2ecc40 !important;
 }
 a.ui.inverted.green.header:hover {
-  color: #54d964 !important;
+  color: #48d658 !important;
 }
 .ui.inverted.orange.header {
   color: #ff851b !important;
 }
 a.ui.inverted.orange.header:hover {
-  color: #ffa04e !important;
+  color: #ff983f !important;
 }
 .ui.inverted.pink.header {
   color: #ff8edf !important;
 }
 a.ui.inverted.pink.header:hover {
-  color: #ffc1ed !important;
+  color: #ffb2e9 !important;
 }
 .ui.inverted.purple.header {
   color: #cdc6ff !important;
 }
 a.ui.inverted.purple.header:hover {
-  color: #faf9ff !important;
+  color: #eceaff !important;
 }
 .ui.inverted.red.header {
   color: #ff695e !important;
 }
 a.ui.inverted.red.header:hover {
-  color: #ff9991 !important;
+  color: #ff8a82 !important;
 }
 .ui.inverted.teal.header {
   color: #6dffff !important;
 }
 a.ui.inverted.teal.header:hover {
-  color: #a0ffff !important;
+  color: #91ffff !important;
 }
 .ui.inverted.yellow.header {
   color: #ffe21f !important;
 }
 a.ui.inverted.yellow.header:hover {
-  color: #ffe952 !important;
+  color: #ffe743 !important;
 }
 .ui.inverted.block.header {
   border-bottom: none;
@@ -9671,7 +9671,7 @@ a.ui.inverted.yellow.header:hover {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -9783,7 +9783,7 @@ a.ui.inverted.yellow.header:hover {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
              Icon
@@ -11869,7 +11869,7 @@ i.icon.weixin:before {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -11991,7 +11991,7 @@ i.icon.weixin:before {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
              Image
@@ -12240,7 +12240,7 @@ img.ui.bordered.image {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -12370,7 +12370,7 @@ img.ui.bordered.image {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
            Standard
@@ -12684,7 +12684,7 @@ img.ui.bordered.image {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -12824,7 +12824,7 @@ img.ui.bordered.image {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Label
@@ -13234,13 +13234,13 @@ a.ui.label:hover:before {
 }
 a.ui.black.labels .label:hover,
 a.ui.black.label:hover {
-  background-color: #333333 !important;
-  border-color: #333333 !important;
+  background-color: #2b2b2b !important;
+  border-color: #2b2b2b !important;
 }
 .ui.labels a.black.label:hover:before,
 .ui.black.labels a.label:hover:before,
 a.ui.black.label:hover:before {
-  background-color: #333333 !important;
+  background-color: #2b2b2b !important;
 }
 .ui.black.corner.label,
 .ui.black.corner.label:hover {
@@ -13264,14 +13264,14 @@ a.ui.black.label:hover:before {
 a.ui.blue.labels .label:hover,
 .ui.blue.labels a.label:hover,
 a.ui.blue.label:hover {
-  background-color: #0d8eff !important;
-  border-color: #0d8eff !important;
+  background-color: #0087fd !important;
+  border-color: #0087fd !important;
   color: #ffffff !important;
 }
 .ui.labels a.blue.label:hover:before,
 .ui.blue.labels a.label:hover:before,
 a.ui.blue.label:hover:before {
-  background-color: #0d8eff !important;
+  background-color: #0087fd !important;
 }
 .ui.blue.corner.label,
 .ui.blue.corner.label:hover {
@@ -13294,13 +13294,13 @@ a.ui.blue.label:hover:before {
 }
 a.ui.green.labels .label:hover,
 a.ui.green.label:hover {
-  background-color: #54d964 !important;
-  border-color: #54d964 !important;
+  background-color: #48d658 !important;
+  border-color: #48d658 !important;
 }
 .ui.labels a.green.label:hover:before,
 .ui.green.labels a.label:hover:before,
 a.ui.green.label:hover:before {
-  background-color: #54d964 !important;
+  background-color: #48d658 !important;
 }
 .ui.green.corner.label,
 .ui.green.corner.label:hover {
@@ -13324,14 +13324,14 @@ a.ui.green.label:hover:before {
 a.ui.orange.labels .label:hover,
 .ui.orange.labels a.label:hover,
 a.ui.orange.label:hover {
-  background-color: #ffa04e !important;
-  border-color: #ffa04e !important;
+  background-color: #ff983f !important;
+  border-color: #ff983f !important;
   color: #ffffff !important;
 }
 .ui.labels a.orange.label:hover:before,
 .ui.orange.labels a.label:hover:before,
 a.ui.orange.label:hover:before {
-  background-color: #ffa04e !important;
+  background-color: #ff983f !important;
 }
 .ui.orange.corner.label,
 .ui.orange.corner.label:hover {
@@ -13355,14 +13355,14 @@ a.ui.orange.label:hover:before {
 a.ui.pink.labels .label:hover,
 .ui.pink.labels a.label:hover,
 a.ui.pink.label:hover {
-  background-color: #e273b1 !important;
-  border-color: #e273b1 !important;
+  background-color: #df67aa !important;
+  border-color: #df67aa !important;
   color: #ffffff !important;
 }
 .ui.labels a.pink.label:hover:before,
 .ui.pink.labels a.label:hover:before,
 a.ui.pink.label:hover:before {
-  background-color: #e273b1 !important;
+  background-color: #df67aa !important;
 }
 .ui.pink.corner.label,
 .ui.pink.corner.label:hover {
@@ -13386,14 +13386,14 @@ a.ui.pink.label:hover:before {
 a.ui.purple.labels .label:hover,
 .ui.purple.labels a.label:hover,
 a.ui.purple.label:hover {
-  background-color: #bd58b1 !important;
-  border-color: #bd58b1 !important;
+  background-color: #b94dac !important;
+  border-color: #b94dac !important;
   color: #ffffff !important;
 }
 .ui.labels a.purple.label:hover:before,
 .ui.purple.labels a.label:hover:before,
 a.ui.purple.label:hover:before {
-  background-color: #bd58b1 !important;
+  background-color: #b94dac !important;
 }
 .ui.purple.corner.label,
 .ui.purple.corner.label:hover {
@@ -13420,14 +13420,14 @@ a.ui.purple.label:hover:before {
 }
 a.ui.red.labels .label:hover,
 a.ui.red.label:hover {
-  background-color: #ff7169 !important;
-  border-color: #ff7169 !important;
+  background-color: #ff635a !important;
+  border-color: #ff635a !important;
   color: #ffffff !important;
 }
 .ui.labels a.red.label:hover:before,
 .ui.red.labels a.label:hover:before,
 a.ui.red.label:hover:before {
-  background-color: #ff7169 !important;
+  background-color: #ff635a !important;
 }
 .ui.red.ribbon.label {
   border-color: #ff4136 !important;
@@ -13447,14 +13447,14 @@ a.ui.red.label:hover:before {
 a.ui.teal.labels .label:hover,
 .ui.teal.labels a.label:hover,
 a.ui.teal.label:hover {
-  background-color: #62d6d6 !important;
-  border-color: #62d6d6 !important;
+  background-color: #55d3d3 !important;
+  border-color: #55d3d3 !important;
   color: #ffffff !important;
 }
 .ui.labels a.teal.label:hover:before,
 .ui.teal.labels a.label:hover:before,
 a.ui.teal.label:hover:before {
-  background-color: #62d6d6 !important;
+  background-color: #55d3d3 !important;
 }
 .ui.teal.corner.label,
 .ui.teal.corner.label:hover {
@@ -13478,14 +13478,14 @@ a.ui.teal.label:hover:before {
 a.ui.yellow.labels .label:hover,
 .ui.yellow.labels a.label:hover,
 a.ui.yellow.label:hover {
-  background-color: #ffd63b !important;
-  border-color: #ffd63b !important;
+  background-color: #ffd32c !important;
+  border-color: #ffd32c !important;
   color: #ffffff !important;
 }
 .ui.labels a.yellow.label:hover:before,
 .ui.yellow.labels a.label:hover:before,
 a.ui.yellow.label:hover:before {
-  background-color: #ffd63b !important;
+  background-color: #ffd32c !important;
 }
 .ui.yellow.corner.label,
 .ui.yellow.corner.label:hover {
@@ -13704,7 +13704,7 @@ a.ui.yellow.label:hover:before {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -13855,7 +13855,7 @@ a.ui.yellow.label:hover:before {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             List
@@ -14061,11 +14061,14 @@ ol.ui.list ol,
              States
 *******************************/
 /*-------------------
-        Disabled
+       Disabled
 --------------------*/
 .ui.list .disabled.item {
   pointer-events: none;
-  color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.2) !important;
+}
+.ui.inverted.list .disabled.item {
+  color: rgba(255, 255, 255, 0.2) !important;
 }
 /*-------------------
         Hover
@@ -14544,7 +14547,7 @@ ol.ui.horizontal.list li:before,
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -14667,7 +14670,7 @@ ol.ui.horizontal.list li:before,
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Loader
@@ -14950,7 +14953,7 @@ ol.ui.horizontal.list li:before,
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -15071,7 +15074,7 @@ ol.ui.horizontal.list li:before,
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 .ui.progress {
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -15314,7 +15317,7 @@ ol.ui.horizontal.list li:before,
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -15429,7 +15432,7 @@ ol.ui.horizontal.list li:before,
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
              Rails
@@ -15785,7 +15788,7 @@ ol.ui.horizontal.list li:before,
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -15911,7 +15914,7 @@ ol.ui.horizontal.list li:before,
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Segment
@@ -16367,7 +16370,7 @@ ol.ui.horizontal.list li:before,
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -16494,7 +16497,7 @@ ol.ui.horizontal.list li:before,
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Step
@@ -16833,7 +16836,7 @@ ol.ui.horizontal.list li:before,
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -16942,7 +16945,7 @@ ol.ui.horizontal.list li:before,
      User Global Variables
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
              Reset
@@ -17321,7 +17324,7 @@ input[type="password"] {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -17424,7 +17427,7 @@ input[type="password"] {
      User Global Variables
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
            Web Fonts
@@ -17551,7 +17554,7 @@ a:hover {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -17676,7 +17679,7 @@ a:hover {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Accordion
@@ -17886,7 +17889,7 @@ a:hover {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -17995,7 +17998,7 @@ a:hover {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
            Chat Room
@@ -18282,7 +18285,7 @@ a:hover {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -18411,7 +18414,7 @@ a:hover {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
            Checkbox
@@ -18846,7 +18849,7 @@ a:hover {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -18962,7 +18965,7 @@ a:hover {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Dimmer
@@ -19153,7 +19156,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -19299,7 +19302,7 @@ b        Types
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Dropdown
@@ -20041,7 +20044,7 @@ select.ui.dropdown {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -20168,7 +20171,7 @@ select.ui.dropdown {
            Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
              Modal
@@ -20559,7 +20562,7 @@ select.ui.dropdown {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -20687,7 +20690,7 @@ select.ui.dropdown {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
              Nag
@@ -20846,7 +20849,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -20977,7 +20980,7 @@ a.ui.nag {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Popup
@@ -21242,7 +21245,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -21362,7 +21365,7 @@ a.ui.nag {
            Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
            Rating
@@ -21614,7 +21617,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -21741,7 +21744,7 @@ a.ui.nag {
            Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
              Search
@@ -21997,7 +22000,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -22112,7 +22115,7 @@ a.ui.nag {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
               Shape
@@ -22274,7 +22277,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -22383,7 +22386,7 @@ a.ui.nag {
            Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Sidebar
@@ -22845,7 +22848,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -22954,7 +22957,7 @@ a.ui.nag {
            Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Sticky
@@ -23044,7 +23047,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -23155,7 +23158,7 @@ a.ui.nag {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
            UI Tabs
@@ -23252,7 +23255,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -23361,7 +23364,7 @@ a.ui.nag {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
           Transitions
@@ -24340,7 +24343,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -24446,7 +24449,7 @@ a.ui.nag {
      User Global Variables
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Video
@@ -24588,7 +24591,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -24725,7 +24728,7 @@ a.ui.nag {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Standard
@@ -25449,7 +25452,7 @@ a.ui.card:hover,
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -25579,7 +25582,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Standard
@@ -25834,7 +25837,7 @@ a.ui.card:hover,
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -25970,7 +25973,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
          Activity Feed
@@ -26247,7 +26250,7 @@ a.ui.card:hover,
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -26380,7 +26383,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
             Standard
@@ -26755,7 +26758,7 @@ a.ui.card:hover,
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -26885,7 +26888,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
            Statistic

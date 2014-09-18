@@ -35,6 +35,16 @@
 @contentPadding: 0.5em 0em 1em;
 
 /*-------------------
+       Coupling
+--------------------*/
+
+@menuTitlePadding: 0em;
+@menuIconFloat: right;
+@menuIconMargin: @lineHeightOffset 0em 0em 1em;
+@menuIconTransform: rotate(180deg);
+
+
+/*-------------------
        States
 --------------------*/
 

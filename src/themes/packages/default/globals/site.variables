@@ -76,6 +76,8 @@
 @highlightBackground : #FFFFCC;
 @highlightColor      : @textColor;
 
+/* Used to match floats with text */
+@lineHeightOffset    : ((@lineHeight - 1em) / 2);
 
 
 /*-------------------
