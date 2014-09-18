@@ -62,6 +62,7 @@
 /*-------------------
         Page
 --------------------*/
+/* Used to match floats with text */
 /*-------------------
   Background Colors
 --------------------*/
@@ -251,7 +252,7 @@
 }
 .ui.search .result .price {
   float: right;
-  color: #2ecc40;
+  color: #5bbd72;
 }
 /*--------------
     Message

@@ -62,6 +62,7 @@
 /*-------------------
         Page
 --------------------*/
+/* Used to match floats with text */
 /*-------------------
   Background Colors
 --------------------*/
@@ -356,7 +357,7 @@
 /* Completed */
 .ui.steps .step.completed > .icon:before,
 .ui.ordered.steps .step.completed:before {
-  color: #2ecc40;
+  color: #5bbd72;
 }
 /* Disabled */
 .ui.steps .disabled.step {

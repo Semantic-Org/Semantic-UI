@@ -62,6 +62,7 @@
 /*-------------------
         Page
 --------------------*/
+/* Used to match floats with text */
 /*-------------------
   Background Colors
 --------------------*/
@@ -189,7 +190,7 @@
   Successful
 ---------------*/
 .ui.successful.progress .bar {
-  background-color: #2ecc40 !important;
+  background-color: #5bbd72 !important;
 }
 .ui.successful.progress .bar,
 .ui.successful.progress .bar::after {
@@ -197,7 +198,7 @@
           animation: none !important;
 }
 .ui.warning.progress .bar {
-  background-color: #ffcb08 !important;
+  background-color: #e9bd16 !important;
 }
 .ui.warning.progress .bar,
 .ui.warning.progress .bar::after {
@@ -208,7 +209,7 @@
      Failed
 ---------------*/
 .ui.failed.progress .bar {
-  background-color: #ff4136 !important;
+  background-color: #d95c5c !important;
 }
 .ui.failed.progress .bar,
 .ui.failed.progress .bar::after {
@@ -306,22 +307,22 @@
      Colors
 ---------------*/
 .ui.blue.progress .bar {
-  background-color: #0074d9;
+  background-color: #3b83c0;
 }
 .ui.black.progress .bar {
-  background-color: #191919;
+  background-color: #17181d;
 }
 .ui.green.progress .bar {
-  background-color: #2ecc40;
+  background-color: #5bbd72;
 }
 .ui.red.progress .bar {
-  background-color: #ff4136;
+  background-color: #d95c5c;
 }
 .ui.purple.progress .bar {
-  background-color: #a24096;
+  background-color: #564f8a;
 }
 .ui.teal.progress .bar {
-  background-color: #39cccc;
+  background-color: #00b5ad;
 }
 /*--------------
     Striped

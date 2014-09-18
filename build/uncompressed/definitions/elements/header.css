@@ -62,6 +62,7 @@
 /*-------------------
         Page
 --------------------*/
+/* Used to match floats with text */
 /*-------------------
   Background Colors
 --------------------*/
@@ -322,28 +323,28 @@ h5.ui.header {
        Colors
 --------------------*/
 .ui.black.header {
-  color: #191919 !important;
+  color: #17181d !important;
 }
 a.ui.black.header:hover {
-  color: #2b2b2b !important;
+  color: #272831 !important;
 }
 .ui.blue.header {
-  color: #0066c0 !important;
+  color: #3576ac !important;
 }
 a.ui.blue.header:hover {
-  color: #0087fd !important;
+  color: #5494cb !important;
 }
 .ui.green.header {
   color: #1aa62a !important;
 }
 a.ui.green.header:hover {
-  color: #48d658 !important;
+  color: #74c788 !important;
 }
 .ui.orange.header {
-  color: #ff7701 !important;
+  color: #dc6a3d !important;
 }
 a.ui.orange.header:hover {
-  color: #ff983f !important;
+  color: #e59271 !important;
 }
 .ui.pink.header {
   color: #d5348e !important;
@@ -352,55 +353,55 @@ a.ui.pink.header:hover {
   color: #df67aa !important;
 }
 .ui.purple.header {
-  color: #903985 !important;
+  color: #4c467a !important;
 }
 a.ui.purple.header:hover {
-  color: #b94dac !important;
+  color: #645ca1 !important;
 }
 .ui.red.header {
-  color: #ff291c !important;
+  color: #d44747 !important;
 }
 a.ui.red.header:hover {
-  color: #ff635a !important;
+  color: #e07979 !important;
 }
 .ui.teal.header {
   color: #0e8c8c !important;
 }
 a.ui.teal.header:hover {
-  color: #55d3d3 !important;
+  color: #00d9cf !important;
 }
 .ui.yellow.header {
   color: #9c6f04 !important;
 }
 a.ui.yellow.header:hover {
-  color: #ffd32c !important;
+  color: #ecc637 !important;
 }
 .ui.black.dividing.header {
-  border-bottom: 2px solid #191919;
+  border-bottom: 2px solid #17181d;
 }
 .ui.blue.dividing.header {
-  border-bottom: 2px solid #0066c0;
+  border-bottom: 2px solid #3b83c0;
 }
 .ui.green.dividing.header {
-  border-bottom: 2px solid #1aa62a;
+  border-bottom: 2px solid #5bbd72;
 }
 .ui.orange.dividing.header {
-  border-bottom: 2px solid #ff7701;
+  border-bottom: 2px solid #e07b53;
 }
 .ui.pink.dividing.header {
-  border-bottom: 2px solid #d5348e;
+  border-bottom: 2px solid #d9499a;
 }
 .ui.purple.dividing.header {
-  border-bottom: 2px solid #903985;
+  border-bottom: 2px solid #564f8a;
 }
 .ui.red.dividing.header {
-  border-bottom: 2px solid #ff291c;
+  border-bottom: 2px solid #d95c5c;
 }
 .ui.teal.dividing.header {
-  border-bottom: 2px solid #0e8c8c;
+  border-bottom: 2px solid #00b5ad;
 }
 .ui.yellow.dividing.header {
-  border-bottom: 2px solid #9c6f04;
+  border-bottom: 2px solid #e9bd16;
 }
 /*-------------------
       Inverted

@@ -62,6 +62,7 @@
 /*-------------------
         Page
 --------------------*/
+/* Used to match floats with text */
 /*-------------------
   Background Colors
 --------------------*/
@@ -761,11 +762,6 @@
 .ui.tabular.menu ~ .bottom.attached.segment {
   margin: 0px 0px 0px 1px;
 }
-/* Coupling with accordion */
-.ui.accordion.menu .item .title > i.dropdown.icon {
-  float: right;
-  margin-left: 1em;
-}
 /*--------------
    Pagination
 ---------------*/
@@ -1137,18 +1133,18 @@
 /*--- Light Colors  ---*/
 .ui.menu .blue.active.item,
 .ui.blue.menu .active.item {
-  border-color: #0074d9 !important;
-  color: #0074d9 !important;
+  border-color: #3b83c0 !important;
+  color: #3b83c0 !important;
 }
 .ui.menu .green.active.item,
 .ui.green.menu .active.item {
-  border-color: #2ecc40 !important;
-  color: #2ecc40 !important;
+  border-color: #5bbd72 !important;
+  color: #5bbd72 !important;
 }
 .ui.menu .orange.active.item,
 .ui.orange.menu .active.item {
-  border-color: #ff851b !important;
-  color: #ff851b !important;
+  border-color: #e07b53 !important;
+  color: #e07b53 !important;
 }
 .ui.menu .pink.active.item,
 .ui.pink.menu .active.item {
@@ -1157,29 +1153,29 @@
 }
 .ui.menu .purple.active.item,
 .ui.purple.menu .active.item {
-  border-color: #a24096 !important;
-  color: #a24096 !important;
+  border-color: #564f8a !important;
+  color: #564f8a !important;
 }
 .ui.menu .red.active.item,
 .ui.red.menu .active.item {
-  border-color: #ff4136 !important;
-  color: #ff4136 !important;
+  border-color: #d95c5c !important;
+  color: #d95c5c !important;
 }
 .ui.menu .teal.active.item,
 .ui.teal.menu .active.item {
-  border-color: #39cccc !important;
-  color: #39cccc !important;
+  border-color: #00b5ad !important;
+  color: #00b5ad !important;
 }
 .ui.menu .yellow.active.item,
 .ui.yellow.menu .active.item {
-  border-color: #ffcb08 !important;
-  color: #ffcb08 !important;
+  border-color: #e9bd16 !important;
+  color: #e9bd16 !important;
 }
 /*--------------
     Inverted
 ---------------*/
 .ui.inverted.menu {
-  background: #191919;
+  background: #17181d;
   box-shadow: none;
 }
 .ui.inverted.menu .header.item {
@@ -1295,24 +1291,24 @@
 /*--- Inverted Colors  ---*/
 /* Blue */
 .ui.inverted.blue.menu {
-  background-color: #0074d9;
+  background-color: #3b83c0;
 }
 .ui.inverted.blue.pointing.menu .active.item:after {
-  background-color: #0074d9;
+  background-color: #3b83c0;
 }
 /* Green */
 .ui.inverted.green.menu {
-  background-color: #2ecc40;
+  background-color: #5bbd72;
 }
 .ui.inverted.green.pointing.menu .active.item:after {
-  background-color: #2ecc40;
+  background-color: #5bbd72;
 }
 /* Orange */
 .ui.inverted.orange.menu {
-  background-color: #ff851b;
+  background-color: #e07b53;
 }
 .ui.inverted.orange.pointing.menu .active.item:after {
-  background-color: #ff851b;
+  background-color: #e07b53;
 }
 /* Pink */
 .ui.inverted.pink.menu {
@@ -1323,31 +1319,31 @@
 }
 /* Purple */
 .ui.inverted.purple.menu {
-  background-color: #a24096;
+  background-color: #564f8a;
 }
 .ui.inverted.purple.pointing.menu .active.item:after {
-  background-color: #a24096;
+  background-color: #564f8a;
 }
 /* Red */
 .ui.inverted.red.menu {
-  background-color: #ff4136;
+  background-color: #d95c5c;
 }
 .ui.inverted.red.pointing.menu .active.item:after {
-  background-color: #ff4136;
+  background-color: #d95c5c;
 }
 /* Teal */
 .ui.inverted.teal.menu {
-  background-color: #39cccc;
+  background-color: #00b5ad;
 }
 .ui.inverted.teal.pointing.menu .active.item:after {
-  background-color: #39cccc;
+  background-color: #00b5ad;
 }
 /* Yellow */
 .ui.inverted.yellow.menu {
-  background-color: #ffcb08;
+  background-color: #e9bd16;
 }
 .ui.inverted.yellow.pointing.menu .active.item:after {
-  background-color: #ffcb08;
+  background-color: #e9bd16;
 }
 /*--------------
      Fitted

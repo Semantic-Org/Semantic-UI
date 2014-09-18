@@ -26,16 +26,16 @@
 --------------------*/
 
 /*---  Colors  ---*/
-@blue             : #0074D9;
-@green            : #2ECC40;
-@orange           : #FF851B;
+@blue             : #3B83C0;
+@green            : #5BBD72;
+@orange           : #E07B53;
 @pink             : #D9499A;
-@purple           : #A24096;
-@red              : #FF4136;
-@teal             : #39CCCC;
-@yellow           : #FFCB08;
+@purple           : #564F8A;
+@red              : #D95C5C;
+@teal             : #00B5AD;
+@yellow           : #E9BD16;
 
-@black            : #191919;
+@black            : #17181D;
 @grey             : #CCCCCC;
 @white            : #FFFFFF;
 
@@ -76,6 +76,8 @@
 @highlightBackground : #FFFFCC;
 @highlightColor      : @textColor;
 
+/* Used to match floats with text */
+@lineHeightOffset    : ((@lineHeight - 1em) / 2);
 
 
 /*-------------------

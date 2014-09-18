@@ -62,6 +62,7 @@
 /*-------------------
         Page
 --------------------*/
+/* Used to match floats with text */
 /*-------------------
   Background Colors
 --------------------*/
@@ -144,6 +145,9 @@
 /* Child Accordion */
 /* Content */
 /*-------------------
+       Coupling
+--------------------*/
+/*-------------------
        States
 --------------------*/
 /*-------------------
@@ -215,11 +219,28 @@
       -ms-transform: rotate(0deg);
           transform: rotate(0deg);
 }
+/* Coupling with accordion */
+.ui.accordion.menu .item .title {
+  display: block;
+  padding: 0em;
+}
+.ui.accordion.menu .item .title > .dropdown.icon {
+  float: right;
+  margin: 0.165em 0em 0em 1em;
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
 /*******************************
             States
 *******************************/
 .ui.accordion .active.title .dropdown.icon,
 .ui.accordion .accordion .active.title .dropdown.icon {
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+.ui.accordion.menu .item .active.title > .dropdown.icon {
   -webkit-transform: rotate(90deg);
       -ms-transform: rotate(90deg);
           transform: rotate(90deg);

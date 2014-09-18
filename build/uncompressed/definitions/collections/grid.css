@@ -62,6 +62,7 @@
 /*-------------------
         Page
 --------------------*/
+/* Used to match floats with text */
 /*-------------------
   Background Colors
 --------------------*/
@@ -758,7 +759,7 @@
 }
 .ui.grid > .black.row,
 .ui.grid .black.column {
-  background-color: #191919 !important;
+  background-color: #17181d !important;
   color: #ffffff;
 }
 .ui.grid > .row > .black.column {
@@ -769,7 +770,7 @@
 }
 .ui.grid > .blue.row,
 .ui.grid .blue.column {
-  background-color: #0074d9 !important;
+  background-color: #3b83c0 !important;
   color: #ffffff;
 }
 .ui.grid > .row > .blue.column {
@@ -780,7 +781,7 @@
 }
 .ui.grid > .green.row,
 .ui.grid .green.column {
-  background-color: #2ecc40 !important;
+  background-color: #5bbd72 !important;
   color: #ffffff;
 }
 .ui.grid > .row > .green.column {
@@ -791,7 +792,7 @@
 }
 .ui.grid > .orange.row,
 .ui.grid .orange.column {
-  background-color: #ff851b !important;
+  background-color: #e07b53 !important;
   color: #ffffff;
 }
 .ui.grid > .row > .orange.column {
@@ -813,7 +814,7 @@
 }
 .ui.grid > .purple.row,
 .ui.grid .purple.column {
-  background-color: #a24096 !important;
+  background-color: #564f8a !important;
   color: #ffffff;
 }
 .ui.grid > .row > .purple.column {
@@ -824,7 +825,7 @@
 }
 .ui.grid > .red.row,
 .ui.grid .red.column {
-  background-color: #ff4136 !important;
+  background-color: #d95c5c !important;
   color: #ffffff;
 }
 .ui.grid > .row > .red.column {
@@ -835,7 +836,7 @@
 }
 .ui.grid > .teal.row,
 .ui.grid .teal.column {
-  background-color: #39cccc !important;
+  background-color: #00b5ad !important;
   color: #ffffff;
 }
 .ui.grid > .row > .teal.column {
@@ -846,7 +847,7 @@
 }
 .ui.grid > .yellow.row,
 .ui.grid .yellow.column {
-  background-color: #ffcb08 !important;
+  background-color: #e9bd16 !important;
   color: #ffffff;
 }
 .ui.grid > .row > .yellow.column {
@@ -1109,9 +1110,17 @@
     padding: 1rem 0em 0em !important;
     box-shadow: none !important;
   }
+  .ui.stackable.celled.grid > .column,
+  .ui.stackable.celled.grid > .row > .column,
   .ui.stackable.divided.grid > .column,
-  .ui.stackable.celled.grid > .row > .column {
+  .ui.stackable.divided.grid > .row > .column {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .ui.inverted.stackable.celled.grid > .column,
+  .ui.inverted.stackable.celled.grid > .row > .column,
+  .ui.inverted.stackable.divided.grid > .column,
+  .ui.inverted.stackable.divided.grid > .row > .column {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
   }
   .ui.stackable.grid > .row:first-child > .column:first-child,
   .ui.stackable.grid > .column:first-child {

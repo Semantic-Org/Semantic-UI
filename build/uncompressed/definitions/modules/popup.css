@@ -62,6 +62,7 @@
 /*-------------------
         Page
 --------------------*/
+/* Used to match floats with text */
 /*-------------------
   Background Colors
 --------------------*/
@@ -359,7 +360,7 @@
 ---------------*/
 /* Inverted colors  */
 .ui.inverted.popup {
-  background: #191919;
+  background: #17181d;
   color: #ffffff;
   border: none;
   box-shadow: none;
@@ -369,7 +370,7 @@
   color: #ffffff;
 }
 .ui.inverted.popup:before {
-  background-color: #191919;
+  background-color: #17181d;
   box-shadow: none;
 }
 /*--------------

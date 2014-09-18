@@ -11,8 +11,7 @@
 @verticalPadding: 0.8em;
 @horizontalPadding: 1em;
 @lineHeight: 1.2em;
-@lineOffset: ((@lineHeight - 1em) / 2);
-@padding: (@verticalPadding - @lineOffset) @horizontalPadding;
+@padding: (@verticalPadding - @lineHeightOffset) @horizontalPadding;
 
 @background: #FFFFFF;
 @borderWidth: 1px;

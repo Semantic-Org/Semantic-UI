@@ -255,7 +255,7 @@ semantic.ready = function() {
         .html($followMenu)
       ;
       $rail = $('<div />')
-        .addClass('ui right rail')
+        .addClass('ui right dividing rail')
         .html($sticky)
         .prependTo($container)
       ;
@@ -458,6 +458,7 @@ semantic.ready = function() {
         });
         $example.filter('.another').show();
       }
+      $('.sticky').sticky('refresh');
     },
     developerMode: function() {
       var
@@ -470,6 +471,7 @@ semantic.ready = function() {
           $.proxy(handler.createCode, $(this))('developer');
         })
       ;
+      $('.sticky').sticky('refresh');
     },
     designerMode: function() {
       var
@@ -482,6 +484,7 @@ semantic.ready = function() {
           $.proxy(handler.createCode, $(this))('designer');
         })
       ;
+      $('.sticky').sticky('refresh');
     },
 
     getIndent: function(text) {

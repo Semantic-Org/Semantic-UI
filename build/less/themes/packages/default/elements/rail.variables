@@ -9,11 +9,11 @@
 @contentSizing: content-box;
 @width: 300px;
 @size: 1em;
-@distance: 4em;
+@distance: 4rem;
 
 /*-------------------
       Variations
 --------------------*/
 
 @dividedBorder: 1px solid @borderColor;
-@dividedDistance: 6em;
+@dividedDistance: 5rem;

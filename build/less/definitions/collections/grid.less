@@ -1034,9 +1034,17 @@
 
     box-shadow: none !important;
   }
+  .ui.stackable.celled.grid > .column,
+  .ui.stackable.celled.grid > .row > .column,
   .ui.stackable.divided.grid > .column,
-  .ui.stackable.celled.grid > .row > .column {
+  .ui.stackable.divided.grid > .row > .column {
     border-top: @stackableMobileBorder;
+  }
+  .ui.inverted.stackable.celled.grid > .column,
+  .ui.inverted.stackable.celled.grid > .row > .column,
+  .ui.inverted.stackable.divided.grid > .column,
+  .ui.inverted.stackable.divided.grid > .row > .column {
+    border-top: @stackableInvertedMobileBorder;
   }
   .ui.stackable.grid > .row:first-child > .column:first-child,
   .ui.stackable.grid > .column:first-child {

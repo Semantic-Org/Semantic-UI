@@ -62,6 +62,7 @@
 /*-------------------
         Page
 --------------------*/
+/* Used to match floats with text */
 /*-------------------
   Background Colors
 --------------------*/
@@ -354,7 +355,7 @@
      Colors
 ---------------*/
 .ui.black.message {
-  background-color: #191919;
+  background-color: #17181d;
   color: #ffffff;
 }
 /*--------------
@@ -435,15 +436,15 @@
 /* Colors */
 .ui.inverted.message,
 .ui.black.message {
-  background-color: #191919;
+  background-color: #17181d;
   color: #ffffff;
 }
 .ui.blue.message {
   background-color: #d3e4f3;
-  color: #0074d9;
+  color: #3b83c0;
 }
 .ui.blue.message .header {
-  color: #0066c0;
+  color: #3576ac;
 }
 .ui.green.message {
   background-color: #def2e0;
@@ -454,10 +455,10 @@
 }
 .ui.orange.message {
   background-color: #f7e5d6;
-  color: #ff851b;
+  color: #e07b53;
 }
 .ui.orange.message .header {
-  color: #ff7701;
+  color: #dc6a3d;
 }
 .ui.pink.message {
   background-color: #f9cee6;
@@ -468,17 +469,17 @@
 }
 .ui.purple.message {
   background-color: #e0ddf5;
-  color: #a24096;
+  color: #564f8a;
 }
 .ui.purple.message .header {
-  color: #903985;
+  color: #4c467a;
 }
 .ui.red.message {
   background-color: #f8d5d3;
-  color: #ff4136;
+  color: #d95c5c;
 }
 .ui.red.message .header {
-  color: #ff291c;
+  color: #d44747;
 }
 .ui.teal.message {
   background-color: #d2f5f5;

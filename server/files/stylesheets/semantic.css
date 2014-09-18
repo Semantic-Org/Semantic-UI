@@ -714,6 +714,7 @@ body#example.hide {
 #example.overview .example p {
   display: table-cell;
   font-size: 1em;
+  min-width: 170px;
   font-weight: bold;
   padding: 0.5em 0em;
 }
@@ -786,8 +787,8 @@ body#example.hide {
 -----------------*/
 
 #example .example {
-  margin: 2em 0em;
-  padding: 0em;
+  margin: 1em 0em;
+  padding: 1em 0em;
   position: relative;
   -webkit-tap-highlight-color: transparent;
 }
@@ -821,11 +822,6 @@ body#example.hide {
   padding-top: 0px;
   border-top: none;
 }
-#example h2 + .example i.code,
-#example h3 + .example i.code,
-#example h4 + .example i.code {
-  top: 0px;
-}
 #example .example > h4 {
   margin: 0em;
 }
@@ -856,10 +852,10 @@ body#example.hide {
   cursor: pointer;
   position: absolute;
 
-  top: 0em;
+  top: auto;
   right: 0px;
   margin: 0;
-  opacity: 0.2;
+  opacity: 0;
 
   font-size: 18px;
   color: #555555;
@@ -1233,9 +1229,6 @@ body.progress .ui.progress .bar {
   margin-top: -1em;
   padding-top: 2em;
   border-top: none;
-}
-#example .another.example i.code {
-  top: 0px;
 }
 #example .another.example i.code ~ .ignored.message {
   margin-top: 0em;

@@ -22,10 +22,9 @@
 @shadowOffset: (@shadowDistance / 2);
 @shadowBoxShadow: 0px -@shadowDistance 0px 0px @borderColor inset;
 
-@backgroundColor: #FAFAFA;
-@backgroundImage: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.09));
+@backgroundColor: #E0E0E0;
+@backgroundImage: none;
 @boxShadow:
-  0px 0px 0px 1px @borderColor inset,
   @shadowBoxShadow
 ;
 
@@ -61,7 +60,6 @@
 
 @groupBoxShadow: none;
 @groupButtonBoxShadow:
-  0px 0px 0px 1px @borderColor inset,
   @shadowBoxShadow
 ;
 @verticalBoxShadow: 0px 0px 0px 1px @borderColor inset;
@@ -73,8 +71,8 @@
 --------------------*/
 
 /* Hovered */
-@hoverBackgroundColor: '';
-@hoverBackgroundImage: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.13));
+@hoverBackgroundColor: #E8E8E8;
+@hoverBackgroundImage: none;
 @hoverBoxShadow: '';
 @hoverColor: @hoveredTextColor;
 @iconHoverOpacity: 0.85;
@@ -90,30 +88,23 @@
 @iconFocusOpacity: 0.85;
 
 /* Pressed Down */
-@downBackgroundColor: #F1F1F1;
+@downBackgroundColor: #CCCCCC;
 @downBackgroundImage: '';
 @downBoxShadow:
-  0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset,
   0px 1px 4px 0px rgba(0, 0, 0, 0.1) inset !important
 ;
 @downColor: @pressedTextColor;
 
 /* Active */
-@activeBackgroundColor: #DADADA;
+@activeBackgroundColor: #D0D0D0;
 @activeBackgroundImage: none;
 @activeColor: @selectedTextColor;
-@activeBoxShadow:
-  0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset,
-  0px 1px 4px 0px rgba(0, 0, 0, 0.1) inset !important
-;
+@activeBoxShadow: none;
 
 /* Active + Hovered */
-@activeHoverBackgroundColor: #DADADA;
+@activeHoverBackgroundColor: #D0D0D0;
 @activeHoverBackgroundImage: none;
-@activeHoverBoxShadow:
-  0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset,
-  0px 1px 4px 0px rgba(0, 0, 0, 0.1) inset !important
-;
+@activeHoverBoxShadow: none;
 @activeHoverColor: @selectedTextColor;
 
 /* Loading */
@@ -147,7 +138,7 @@
 @labeledIconWidth: 1em + (@verticalPadding * 2);
 @labeledIconBackgroundColor: rgba(0, 0, 0, 0.05);
 @labeledIconPadding: (@horizontalPadding + @labeledIconWidth);
-@labeledIconBorder: rgba(0, 0, 0, 0.05);
+@labeledIconBorder: transparent;
 @labeledIconColor: '';
 
 @labeledIconLeftShadow: -1px 0px 0px 0px @labeledIconBorder inset;
@@ -161,15 +152,16 @@
 @invertedVerticalGroupButtonOffset: 0px 0px -(@invertedBorderSize) 0px;
 
 /* Basic */
+@basicBorderRadius: @borderRadius;
 @basicBorderSize: 1px;
 @basicColoredBorderSize: 2px;
 @basicPadding: @verticalPadding @horizontalPadding;
+
 @basicBackground: transparent;
 @basicFontWeight: normal;
 @basicBoxShadow: 0px 0px 0px @basicBorderSize rgba(0, 0, 0, 0.1) inset;
 @iconOffset: 0.05em;
 @basicLoadingColor: #FFFFFF;
-@basicBorderRadius: @borderRadius;
 @basicTextTransform: none;
 
 /* Basic Hover */

@@ -2744,18 +2744,20 @@ $.fn.visibility = function(parameters) {
           module.save.elementCalculations();
           // percentage
           module.passed();
+
+          // reverse (must be first)
+          module.passingReverse();
+          module.topVisibleReverse();
+          module.bottomVisibleReverse();
+          module.topPassedReverse();
+          module.bottomPassedReverse();
+
           // one time
           module.passing();
           module.topVisible();
           module.bottomVisible();
           module.topPassed();
           module.bottomPassed();
-          // reverse
-          module.passingReverse();
-          module.topVisibleReverse();
-          module.bottomVisibleReverse();
-          module.topPassedReverse();
-          module.bottomPassedReverse();
         },
 
         passed: function(amount, newCallback) {
@@ -2792,7 +2794,7 @@ $.fn.visibility = function(parameters) {
             module.debug('Adding callback for passing', newCallback);
             settings.onPassing = newCallback;
           }
-          if(callback && calculations.passing) {
+          if(calculations.passing) {
             module.execute(callback, callbackName);
           }
           else if(!settings.once) {
@@ -2814,7 +2816,7 @@ $.fn.visibility = function(parameters) {
             module.debug('Adding callback for top visible', newCallback);
             settings.onTopVisible = newCallback;
           }
-          if(callback && calculations.topVisible) {
+          if(calculations.topVisible) {
             module.execute(callback, callbackName);
           }
           else if(!settings.once) {
@@ -2835,7 +2837,7 @@ $.fn.visibility = function(parameters) {
             module.debug('Adding callback for bottom visible', newCallback);
             settings.onBottomVisible = newCallback;
           }
-          if(callback && calculations.bottomVisible) {
+          if(calculations.bottomVisible) {
             module.execute(callback, callbackName);
           }
           else if(!settings.once) {
@@ -2856,7 +2858,7 @@ $.fn.visibility = function(parameters) {
             module.debug('Adding callback for top passed', newCallback);
             settings.onTopPassed = newCallback;
           }
-          if(callback && calculations.topPassed) {
+          if(calculations.topPassed) {
             module.execute(callback, callbackName);
           }
           else if(!settings.once) {
@@ -2877,7 +2879,7 @@ $.fn.visibility = function(parameters) {
             module.debug('Adding callback for bottom passed', newCallback);
             settings.onBottomPassed = newCallback;
           }
-          if(callback && calculations.bottomPassed) {
+          if(calculations.bottomPassed) {
             module.execute(callback, callbackName);
           }
           else if(!settings.once) {
@@ -2898,8 +2900,10 @@ $.fn.visibility = function(parameters) {
             module.debug('Adding callback for passing reverse', newCallback);
             settings.onPassingReverse = newCallback;
           }
-          if(callback && !calculations.passing) {
-            module.execute(callback, callbackName);
+          if(!calculations.passing) {
+            if(module.get.occurred('passing')) {
+              module.execute(callback, callbackName);
+            }
           }
           else if(!settings.once) {
             module.remove.occurred(callbackName);
@@ -2920,8 +2924,10 @@ $.fn.visibility = function(parameters) {
             module.debug('Adding callback for top visible reverse', newCallback);
             settings.onTopVisibleReverse = newCallback;
           }
-          if(callback && !calculations.topVisible) {
-            module.execute(callback, callbackName);
+          if(!calculations.topVisible) {
+            if(module.get.occurred('topVisible')) {
+              module.execute(callback, callbackName);
+            }
           }
           else if(!settings.once) {
             module.remove.occurred(callbackName);
@@ -2941,8 +2947,10 @@ $.fn.visibility = function(parameters) {
             module.debug('Adding callback for bottom visible reverse', newCallback);
             settings.onBottomVisibleReverse = newCallback;
           }
-          if(callback && !calculations.bottomVisible) {
-            module.execute(callback, callbackName);
+          if(!calculations.bottomVisible) {
+            if(module.get.occurred('bottomVisible')) {
+              module.execute(callback, callbackName);
+            }
           }
           else if(!settings.once) {
             module.remove.occurred(callbackName);
@@ -2962,8 +2970,10 @@ $.fn.visibility = function(parameters) {
             module.debug('Adding callback for top passed reverse', newCallback);
             settings.onTopPassedReverse = newCallback;
           }
-          if(callback && !calculations.topPassed) {
-            module.execute(callback, callbackName);
+          if(!calculations.topPassed) {
+            if(module.get.occurred('topPassed')) {
+              module.execute(callback, callbackName);
+            }
           }
           else if(!settings.once) {
             module.remove.occurred(callbackName);
@@ -2983,7 +2993,7 @@ $.fn.visibility = function(parameters) {
             module.debug('Adding callback for bottom passed reverse', newCallback);
             settings.onBottomPassedReverse = newCallback;
           }
-          if(callback && !calculations.bottomPassed) {
+          if(!calculations.bottomPassed) {
             if(module.get.occurred('bottomPassed')) {
               module.execute(callback, callbackName);
             }
@@ -3001,16 +3011,16 @@ $.fn.visibility = function(parameters) {
             calculations = module.get.elementCalculations(),
             screen       = module.get.screenCalculations()
           ;
-          if(callbackName == 'bottomPassed') {
-            console.log('bottom passed');
-          }
-          if(settings.continuous) {
-            module.debug('Callback being called continuously', callbackName, calculations);
-            $.proxy(callback, element)(calculations, screen);
-          }
-          else if(!module.get.occurred(callbackName)) {
-            module.debug('Conditions met', callbackName, calculations);
-            $.proxy(callback, element)(calculations, screen);
+          callback     = callback || false;
+          if(callback) {
+            if(settings.continuous) {
+              module.debug('Callback being called continuously', callbackName, calculations);
+              $.proxy(callback, element)(calculations, screen);
+            }
+            else if(!module.get.occurred(callbackName)) {
+              module.debug('Conditions met', callbackName, calculations);
+              $.proxy(callback, element)(calculations, screen);
+            }
           }
           module.save.occurred(callbackName);
         },
@@ -3019,7 +3029,6 @@ $.fn.visibility = function(parameters) {
           occurred: function(callback) {
             if(callback) {
               if(module.cache.occurred[callback] !== undefined && module.cache.occurred[callback] === true) {
-                console.log(callback, element);
                 module.debug('Callback can now be called again', callback);
                 module.cache.occurred[callback] = false;
               }
@@ -3033,8 +3042,10 @@ $.fn.visibility = function(parameters) {
         save: {
           occurred: function(callback) {
             if(callback) {
-              if(module.cache.occurred[callback] !== undefined)
-              module.cache.occurred[callback] = true;
+              if(module.cache.occurred[callback] === undefined || (module.cache.occurred[callback] !== true)) {
+                module.verbose('Saving callback occurred', callback);
+                module.cache.occurred[callback] = true;
+              }
             }
           },
           scroll: function() {
@@ -14278,6 +14289,7 @@ $.tab = $.fn.tab = function(parameters) {
               isLastIndex        = (index + 1 == pathArray.length),
 
               $tab               = module.get.tabElement(currentPath),
+              $anchor,
               nextPathArray,
               nextPath,
               isLastTab
@@ -14328,7 +14340,21 @@ $.tab = $.fn.tab = function(parameters) {
               }
             }
             else {
-              if(!settings.history) {
+              // look for in page anchor
+              $anchor     = $('#' + tabPath + ', a[name="' + tabPath + '"]');
+              currentPath = $anchor.closest('[data-tab]').data('tab');
+              $tab        = module.get.tabElement(currentPath);
+              // if anchor exists use parent tab
+              if($anchor.size() > 0 && currentPath) {
+                module.debug('No tab found, but deep anchor link present, opening parent tab');
+                module.activate.all(currentPath);
+                if( !module.cache.read(currentPath) ) {
+                  module.cache.add(currentPath, true);
+                  module.debug('First time tab loaded calling tab init');
+                  $.proxy(settings.onTabInit, $tab)(currentPath, parameterArray, historyEvent);
+                }
+              }
+              else {
                 module.error(error.missingTab, $module, currentPath);
               }
               return false;

@@ -62,6 +62,7 @@
 /*-------------------
         Page
 --------------------*/
+/* Used to match floats with text */
 /*-------------------
   Background Colors
 --------------------*/
@@ -460,19 +461,19 @@
        Colors
 --------------------*/
 .ui.black.table {
-  border-top: 0.2em solid #191919;
+  border-top: 0.2em solid #17181d;
   border-radius: 0em 0em 0.25rem 0.25rem;
 }
 .ui.blue.table {
-  border-top: 0.2em solid #0074d9;
+  border-top: 0.2em solid #3b83c0;
   border-radius: 0em 0em 0.25rem 0.25rem;
 }
 .ui.green.table {
-  border-top: 0.2em solid #2ecc40;
+  border-top: 0.2em solid #5bbd72;
   border-radius: 0em 0em 0.25rem 0.25rem;
 }
 .ui.orange.table {
-  border-top: 0.2em solid #ff851b;
+  border-top: 0.2em solid #e07b53;
   border-radius: 0em 0em 0.25rem 0.25rem;
 }
 .ui.pink.table {
@@ -480,19 +481,19 @@
   border-radius: 0em 0em 0.25rem 0.25rem;
 }
 .ui.purple.table {
-  border-top: 0.2em solid #a24096;
+  border-top: 0.2em solid #564f8a;
   border-radius: 0em 0em 0.25rem 0.25rem;
 }
 .ui.red.table {
-  border-top: 0.2em solid #ff4136;
+  border-top: 0.2em solid #d95c5c;
   border-radius: 0em 0em 0.25rem 0.25rem;
 }
 .ui.teal.table {
-  border-top: 0.2em solid #39cccc;
+  border-top: 0.2em solid #00b5ad;
   border-radius: 0em 0em 0.25rem 0.25rem;
 }
 .ui.yellow.table {
-  border-top: 0.2em solid #ffcb08;
+  border-top: 0.2em solid #e9bd16;
   border-radius: 0em 0em 0.25rem 0.25rem;
 }
 /*-------------------
@@ -500,22 +501,22 @@
 --------------------*/
 .ui.inverted.table,
 .ui.inverted.black.table {
-  background-color: #191919 !important;
+  background-color: #17181d !important;
   border-radius: 0.25rem;
   color: #ffffff !important;
 }
 .ui.inverted.blue.table {
-  background-color: #0074d9 !important;
+  background-color: #3b83c0 !important;
   border-radius: 0.25rem;
   color: #ffffff !important;
 }
 .ui.inverted.green.table {
-  background-color: #2ecc40 !important;
+  background-color: #5bbd72 !important;
   border-radius: 0.25rem;
   color: #ffffff !important;
 }
 .ui.inverted.orange.table {
-  background-color: #ff851b !important;
+  background-color: #e07b53 !important;
   border-radius: 0.25rem;
   color: #ffffff !important;
 }
@@ -525,22 +526,22 @@
   color: #ffffff !important;
 }
 .ui.inverted.purple.table {
-  background-color: #a24096 !important;
+  background-color: #564f8a !important;
   border-radius: 0.25rem;
   color: #ffffff !important;
 }
 .ui.inverted.red.table {
-  background-color: #ff4136 !important;
+  background-color: #d95c5c !important;
   border-radius: 0.25rem;
   color: #ffffff !important;
 }
 .ui.inverted.teal.table {
-  background-color: #39cccc !important;
+  background-color: #00b5ad !important;
   border-radius: 0.25rem;
   color: #ffffff !important;
 }
 .ui.inverted.yellow.table {
-  background-color: #ffcb08 !important;
+  background-color: #e9bd16 !important;
   border-radius: 0.25rem;
   color: #ffffff !important;
 }

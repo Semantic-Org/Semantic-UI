@@ -65,12 +65,28 @@
   transform: @iconTransform;
 }
 
+
+/* Coupling with accordion */
+.ui.accordion.menu .item .title {
+  display: block;
+  padding: @menuTitlePadding;
+}
+.ui.accordion.menu .item .title > .dropdown.icon {
+  float: @menuIconFloat;
+  margin: @menuIconMargin;
+  transform: @menuIconTransform;
+}
+
 /*******************************
             States
 *******************************/
 
 .ui.accordion .active.title .dropdown.icon,
 .ui.accordion .accordion .active.title .dropdown.icon {
+  transform: @activeIconTransform;
+}
+
+.ui.accordion.menu .item .active.title > .dropdown.icon {
   transform: @activeIconTransform;
 }
 

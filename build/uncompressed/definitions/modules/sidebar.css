@@ -62,6 +62,7 @@
 /*-------------------
         Page
 --------------------*/
+/* Used to match floats with text */
 /*-------------------
   Background Colors
 --------------------*/
@@ -172,7 +173,7 @@
   overflow-y: auto !important;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
-  background: #191919;
+  background: #17181d;
   width: 260px !important;
 }
 /*--------------

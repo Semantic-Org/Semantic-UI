@@ -62,6 +62,7 @@
 /*-------------------
         Page
 --------------------*/
+/* Used to match floats with text */
 /*-------------------
   Background Colors
 --------------------*/
@@ -582,122 +583,122 @@ a.ui.label:hover:before {
 /*--- Black ---*/
 .ui.black.labels .label,
 .ui.black.label {
-  background-color: #191919 !important;
-  border-color: #191919 !important;
+  background-color: #17181d !important;
+  border-color: #17181d !important;
   color: #ffffff !important;
 }
 .ui.labels .black.label:before,
 .ui.black.labels .label:before,
 .ui.black.label:before {
-  background-color: #191919 !important;
+  background-color: #17181d !important;
 }
 a.ui.black.labels .label:hover,
 a.ui.black.label:hover {
-  background-color: #2b2b2b !important;
-  border-color: #2b2b2b !important;
+  background-color: #272831 !important;
+  border-color: #272831 !important;
 }
 .ui.labels a.black.label:hover:before,
 .ui.black.labels a.label:hover:before,
 a.ui.black.label:hover:before {
-  background-color: #2b2b2b !important;
+  background-color: #272831 !important;
 }
 .ui.black.corner.label,
 .ui.black.corner.label:hover {
   background-color: transparent !important;
 }
 .ui.black.ribbon.label {
-  border-color: #191919 !important;
+  border-color: #17181d !important;
 }
 /*--- Blue ---*/
 .ui.blue.labels .label,
 .ui.blue.label {
-  background-color: #0074d9 !important;
-  border-color: #0074d9 !important;
+  background-color: #3b83c0 !important;
+  border-color: #3b83c0 !important;
   color: #ffffff !important;
 }
 .ui.labels .blue.label:before,
 .ui.blue.labels .label:before,
 .ui.blue.label:before {
-  background-color: #0074d9 !important;
+  background-color: #3b83c0 !important;
 }
 a.ui.blue.labels .label:hover,
 .ui.blue.labels a.label:hover,
 a.ui.blue.label:hover {
-  background-color: #0087fd !important;
-  border-color: #0087fd !important;
+  background-color: #5494cb !important;
+  border-color: #5494cb !important;
   color: #ffffff !important;
 }
 .ui.labels a.blue.label:hover:before,
 .ui.blue.labels a.label:hover:before,
 a.ui.blue.label:hover:before {
-  background-color: #0087fd !important;
+  background-color: #5494cb !important;
 }
 .ui.blue.corner.label,
 .ui.blue.corner.label:hover {
   background-color: transparent !important;
 }
 .ui.blue.ribbon.label {
-  border-color: #0074d9 !important;
+  border-color: #3b83c0 !important;
 }
 /*--- Green ---*/
 .ui.green.labels .label,
 .ui.green.label {
-  background-color: #2ecc40 !important;
-  border-color: #2ecc40 !important;
+  background-color: #5bbd72 !important;
+  border-color: #5bbd72 !important;
   color: #ffffff !important;
 }
 .ui.labels .green.label:before,
 .ui.green.labels .label:before,
 .ui.green.label:before {
-  background-color: #2ecc40 !important;
+  background-color: #5bbd72 !important;
 }
 a.ui.green.labels .label:hover,
 a.ui.green.label:hover {
-  background-color: #48d658 !important;
-  border-color: #48d658 !important;
+  background-color: #74c788 !important;
+  border-color: #74c788 !important;
 }
 .ui.labels a.green.label:hover:before,
 .ui.green.labels a.label:hover:before,
 a.ui.green.label:hover:before {
-  background-color: #48d658 !important;
+  background-color: #74c788 !important;
 }
 .ui.green.corner.label,
 .ui.green.corner.label:hover {
   background-color: transparent !important;
 }
 .ui.green.ribbon.label {
-  border-color: #2ecc40 !important;
+  border-color: #5bbd72 !important;
 }
 /*--- Orange ---*/
 .ui.orange.labels .label,
 .ui.orange.label {
-  background-color: #ff851b !important;
-  border-color: #ff851b !important;
+  background-color: #e07b53 !important;
+  border-color: #e07b53 !important;
   color: #ffffff !important;
 }
 .ui.labels .orange.label:before,
 .ui.orange.labels .label:before,
 .ui.orange.label:before {
-  background-color: #ff851b !important;
+  background-color: #e07b53 !important;
 }
 a.ui.orange.labels .label:hover,
 .ui.orange.labels a.label:hover,
 a.ui.orange.label:hover {
-  background-color: #ff983f !important;
-  border-color: #ff983f !important;
+  background-color: #e59271 !important;
+  border-color: #e59271 !important;
   color: #ffffff !important;
 }
 .ui.labels a.orange.label:hover:before,
 .ui.orange.labels a.label:hover:before,
 a.ui.orange.label:hover:before {
-  background-color: #ff983f !important;
+  background-color: #e59271 !important;
 }
 .ui.orange.corner.label,
 .ui.orange.corner.label:hover {
   background-color: transparent !important;
 }
 .ui.orange.ribbon.label {
-  border-color: #ff851b !important;
+  border-color: #e07b53 !important;
 }
 /*--- Pink ---*/
 .ui.pink.labels .label,
@@ -733,45 +734,45 @@ a.ui.pink.label:hover:before {
 /*--- Purple ---*/
 .ui.purple.labels .label,
 .ui.purple.label {
-  background-color: #a24096 !important;
-  border-color: #a24096 !important;
+  background-color: #564f8a !important;
+  border-color: #564f8a !important;
   color: #ffffff !important;
 }
 .ui.labels .purple.label:before,
 .ui.purple.labels .label:before,
 .ui.purple.label:before {
-  background-color: #a24096 !important;
+  background-color: #564f8a !important;
 }
 a.ui.purple.labels .label:hover,
 .ui.purple.labels a.label:hover,
 a.ui.purple.label:hover {
-  background-color: #b94dac !important;
-  border-color: #b94dac !important;
+  background-color: #645ca1 !important;
+  border-color: #645ca1 !important;
   color: #ffffff !important;
 }
 .ui.labels a.purple.label:hover:before,
 .ui.purple.labels a.label:hover:before,
 a.ui.purple.label:hover:before {
-  background-color: #b94dac !important;
+  background-color: #645ca1 !important;
 }
 .ui.purple.corner.label,
 .ui.purple.corner.label:hover {
   background-color: transparent !important;
 }
 .ui.purple.ribbon.label {
-  border-color: #a24096 !important;
+  border-color: #564f8a !important;
 }
 /*--- Red ---*/
 .ui.red.labels .label,
 .ui.red.label {
-  background-color: #ff4136 !important;
-  border-color: #ff4136 !important;
+  background-color: #d95c5c !important;
+  border-color: #d95c5c !important;
   color: #ffffff !important;
 }
 .ui.labels .red.label:before,
 .ui.red.labels .label:before,
 .ui.red.label:before {
-  background-color: #ff4136 !important;
+  background-color: #d95c5c !important;
 }
 .ui.red.corner.label,
 .ui.red.corner.label:hover {
@@ -779,79 +780,79 @@ a.ui.purple.label:hover:before {
 }
 a.ui.red.labels .label:hover,
 a.ui.red.label:hover {
-  background-color: #ff635a !important;
-  border-color: #ff635a !important;
+  background-color: #e07979 !important;
+  border-color: #e07979 !important;
   color: #ffffff !important;
 }
 .ui.labels a.red.label:hover:before,
 .ui.red.labels a.label:hover:before,
 a.ui.red.label:hover:before {
-  background-color: #ff635a !important;
+  background-color: #e07979 !important;
 }
 .ui.red.ribbon.label {
-  border-color: #ff4136 !important;
+  border-color: #d95c5c !important;
 }
 /*--- Teal ---*/
 .ui.teal.labels .label,
 .ui.teal.label {
-  background-color: #39cccc !important;
-  border-color: #39cccc !important;
+  background-color: #00b5ad !important;
+  border-color: #00b5ad !important;
   color: #ffffff !important;
 }
 .ui.labels .teal.label:before,
 .ui.teal.labels .label:before,
 .ui.teal.label:before {
-  background-color: #39cccc !important;
+  background-color: #00b5ad !important;
 }
 a.ui.teal.labels .label:hover,
 .ui.teal.labels a.label:hover,
 a.ui.teal.label:hover {
-  background-color: #55d3d3 !important;
-  border-color: #55d3d3 !important;
+  background-color: #00d9cf !important;
+  border-color: #00d9cf !important;
   color: #ffffff !important;
 }
 .ui.labels a.teal.label:hover:before,
 .ui.teal.labels a.label:hover:before,
 a.ui.teal.label:hover:before {
-  background-color: #55d3d3 !important;
+  background-color: #00d9cf !important;
 }
 .ui.teal.corner.label,
 .ui.teal.corner.label:hover {
   background-color: transparent !important;
 }
 .ui.teal.ribbon.label {
-  border-color: #39cccc !important;
+  border-color: #00b5ad !important;
 }
 /*--- Yellow ---*/
 .ui.yellow.labels .label,
 .ui.yellow.label {
-  background-color: #ffcb08 !important;
-  border-color: #ffcb08 !important;
+  background-color: #e9bd16 !important;
+  border-color: #e9bd16 !important;
   color: #ffffff !important;
 }
 .ui.labels .yellow.label:before,
 .ui.yellow.labels .label:before,
 .ui.yellow.label:before {
-  background-color: #ffcb08 !important;
+  background-color: #e9bd16 !important;
 }
 a.ui.yellow.labels .label:hover,
 .ui.yellow.labels a.label:hover,
 a.ui.yellow.label:hover {
-  background-color: #ffd32c !important;
-  border-color: #ffd32c !important;
+  background-color: #ecc637 !important;
+  border-color: #ecc637 !important;
   color: #ffffff !important;
 }
 .ui.labels a.yellow.label:hover:before,
 .ui.yellow.labels a.label:hover:before,
 a.ui.yellow.label:hover:before {
-  background-color: #ffd32c !important;
+  background-color: #ecc637 !important;
 }
 .ui.yellow.corner.label,
 .ui.yellow.corner.label:hover {
   background-color: transparent !important;
 }
 .ui.yellow.ribbon.label {
-  border-color: #ffcb08 !important;
+  border-color: #e9bd16 !important;
 }
 /*-------------------
        Fluid

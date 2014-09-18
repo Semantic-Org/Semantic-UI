@@ -75,6 +75,7 @@
 /*-------------------
         Page
 --------------------*/
+/* Used to match floats with text */
 /*-------------------
   Background Colors
 --------------------*/
@@ -331,31 +332,31 @@ i.white.icon {
   color: #ffffff !important;
 }
 i.black.icon {
-  color: #191919 !important;
+  color: #17181d !important;
 }
 i.blue.icon {
-  color: #0074d9 !important;
+  color: #3b83c0 !important;
 }
 i.green.icon {
-  color: #2ecc40 !important;
+  color: #5bbd72 !important;
 }
 i.orange.icon {
-  color: #ff851b !important;
+  color: #e07b53 !important;
 }
 i.pink.icon {
   color: #d9499a !important;
 }
 i.purple.icon {
-  color: #a24096 !important;
+  color: #564f8a !important;
 }
 i.red.icon {
-  color: #ff4136 !important;
+  color: #d95c5c !important;
 }
 i.teal.icon {
-  color: #39cccc !important;
+  color: #00b5ad !important;
 }
 i.yellow.icon {
-  color: #ffcb08 !important;
+  color: #e9bd16 !important;
 }
 /*-------------------
       Inverted
@@ -396,19 +397,19 @@ i.inverted.circular.icon {
   color: #FFFFFF !important;
 }
 i.inverted.circular.black.icon {
-  background-color: #191919 !important;
+  background-color: #17181d !important;
   color: #FFFFFF !important;
 }
 i.inverted.circular.blue.icon {
-  background-color: #0074d9 !important;
+  background-color: #3b83c0 !important;
   color: #FFFFFF !important;
 }
 i.inverted.circular.green.icon {
-  background-color: #2ecc40 !important;
+  background-color: #5bbd72 !important;
   color: #FFFFFF !important;
 }
 i.inverted.circular.orange.icon {
-  background-color: #ff851b !important;
+  background-color: #e07b53 !important;
   color: #FFFFFF !important;
 }
 i.inverted.circular.pink.icon {
@@ -416,19 +417,19 @@ i.inverted.circular.pink.icon {
   color: #FFFFFF !important;
 }
 i.inverted.circular.purple.icon {
-  background-color: #a24096 !important;
+  background-color: #564f8a !important;
   color: #FFFFFF !important;
 }
 i.inverted.circular.red.icon {
-  background-color: #ff4136 !important;
+  background-color: #d95c5c !important;
   color: #FFFFFF !important;
 }
 i.inverted.circular.teal.icon {
-  background-color: #39cccc !important;
+  background-color: #00b5ad !important;
   color: #FFFFFF !important;
 }
 i.inverted.circular.yellow.icon {
-  background-color: #ffcb08 !important;
+  background-color: #e9bd16 !important;
   color: #FFFFFF !important;
 }
 /*-------------------
