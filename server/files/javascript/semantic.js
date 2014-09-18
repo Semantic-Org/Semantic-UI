@@ -40,6 +40,7 @@ semantic.ready = function() {
     $demo             = $('.demo'),
 
     $container        = $('.main.container'),
+    $allHeaders       = $('.main.container > h2, .main.container > .tab > h2, .main.container > .tab > .examples h2'),
     $sectionHeaders   = $container.children('h2'),
     $followMenu       = $container.find('.following.menu'),
     $sectionExample   = $container.find('.example'),
@@ -84,27 +85,13 @@ semantic.ready = function() {
       ;
     },
 
-    getSpecification: function(callback) {
-      var
-        url = $(this).data('url') || false
-      ;
-      callback = callback || function(){};
-      if(url) {
-        $.ajax({
-          method   : 'get',
-          url      : url,
-          type     : 'json',
-          complete : callback
-        });
-      }
-    },
-
     createWaypoints: function() {
       $sectionHeaders
         .visibility({
-          offset: 70,
           once: false,
+          offset: 70,
           onTopPassed: handler.activate.section,
+          onBottomPassed: handler.activate.section,
           onTopPassedReverse: handler.activate.previous
         })
       ;
@@ -172,6 +159,46 @@ semantic.ready = function() {
       }
     },
 
+    tryCreateMenu: function(event) {
+      if($(window).width() > 1000) {
+        if($container.find('.following.menu').size() === 0) {
+          handler.createMenu();
+          handler.createWaypoints();
+          $(window).off('resize.menu');
+        }
+      }
+    },
+
+    createAnchors: function() {
+      $allHeaders
+        .each(function() {
+          var
+            $section = $(this),
+            safeName = $section.text().trim().replace(/\s+/g, '-').toLowerCase(),
+            id       = window.escape(safeName),
+            $anchor  = $('<a />').addClass('anchor').attr('id', id)
+          ;
+          $section
+            .append($anchor)
+          ;
+        })
+      ;
+      $example
+        .each(function() {
+          var
+            $title   = $(this).children('h4').eq(0),
+            safeName = $title.text().trim().replace(/\s+/g, '-').toLowerCase(),
+            id       = window.escape(safeName),
+            $anchor  = $('<a />').addClass('anchor').attr('id', id)
+          ;
+          if($title.size() > 0) {
+            $title.prepend($anchor);
+          }
+        })
+      ;
+
+    },
+
     createMenu: function() {
       // grab each h3
       var
@@ -188,12 +215,9 @@ semantic.ready = function() {
             activeClass    = (index === 0)
               ? 'active '
               : '',
-            safeName = $currentHeader.text().replace(/\s+/g, '-').toLowerCase(),
+            safeName = $currentHeader.text().trim().replace(/\s+/g, '-').toLowerCase(),
             id       = window.escape(safeName),
             $anchor  = $('<a />').addClass('anchor').attr('id', id)
-          ;
-          $currentHeader
-            .append($anchor)
           ;
           html += '<div class="item">';
           if($examples.size() === 0) {
@@ -208,12 +232,9 @@ semantic.ready = function() {
               .each(function() {
                 var
                   $title   = $(this).children('h4').eq(0),
-                  safeName = $title.text().replace(/\s+/g, '-').toLowerCase(),
+                  safeName = $title.text().trim().replace(/\s+/g, '-').toLowerCase(),
                   id       = window.escape(safeName),
                   $anchor  = $('<a />').addClass('anchor').attr('id', id)
-                ;
-                $title
-                  .after($anchor)
                 ;
                 if($title.size() > 0) {
                   html += '<a class="item" href="#'+id+'">' + $(this).children('h4').text() + '</a>';
@@ -264,21 +285,13 @@ semantic.ready = function() {
         $element = $('#'+id),
         position = $element.offset().top
       ;
-      $followMenu
-        .find('.menu .item.active')
-          .removeClass('active')
-      ;
       $element
         .addClass('active')
       ;
       $('html, body')
         .animate({
           scrollTop: position
-        }, 500, function() {
-          $element
-            .addClass('active')
-          ;
-        })
+        }, 500)
       ;
       location.hash = '#' + id;
       event.stopImmediatePropagation();
@@ -746,6 +759,7 @@ semantic.ready = function() {
   };
 
 
+  handler.createAnchors();
 
   if( $pageTabs.size() > 0 ) {
     $pageTabs
@@ -754,9 +768,8 @@ semantic.ready = function() {
         childrenOnly : true,
         history      : true,
         onTabInit    : function() {
-          // create code
           handler.makeCode();
-          // create follow menu
+
           $container = ($('.fixed.column').size() > 0 )
             ? $(this).find('.examples')
             : $(this)
@@ -764,13 +777,13 @@ semantic.ready = function() {
           $sectionHeaders = $container.children('h2');
           $sectionExample = $container.find('.example');
           $exampleHeaders = $sectionExample.children('h4');
-
-
-          handler.createMenu();
-          $followMenu       = $container.find('.following.menu');
-          handler.createWaypoints();
+          // create code
+          handler.tryCreateMenu();
+          $(window).on('resize.menu', function() {
+            handler.tryCreateMenu();
+          });
         },
-        onTabLoad    : function() {
+        onTabLoad : function() {
           $sticky.filter(':visible').sticky('refresh');
         }
       })
@@ -781,6 +794,8 @@ semantic.ready = function() {
     handler.createMenu();
     handler.createWaypoints();
   }
+
+
   $sticky
     .sticky({
       context : '.main.container',

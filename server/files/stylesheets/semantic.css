@@ -730,7 +730,7 @@ body#example.hide {
 
 #example .page > .footer {
   margin-top: 5em;
-  padding: 5em 0em 8em;
+  padding: 5em 0em 6em;
 }
 
 /*----------------
@@ -1448,46 +1448,55 @@ body.progress .ui.progress .bar {
 }
 
 @media only screen and (max-width : 600px) {
+  #example .page > .footer {
+    margin-top: 3em;
+    padding: 2em 0em;
+  }
   #example .container {
     width: auto;
     margin: 0em 1rem;
   }
 }
-@media only screen and (min-width : 600px) and (max-width : 1000px) {
+@media only screen and (min-width : 600px) and (max-width : 998px) {
   #example .container {
     width: auto;
     margin: 0em 3rem;
   }
 }
-@media only screen and (min-width : 1000px) and (max-width: 1355px) {
-  #example .container {
-    width: auto;
-    margin-right: auto;
-    margin-left: auto;
-    max-width: 700px;
-  }
-}
-@media only screen and (max-width : 1355px) {
+@media only screen and (max-width : 998px) {
   #example .following.menu {
     display: none;
   }
 }
-
-@media only screen and (min-width : 1355px) {
-  #example .container {
-    right: 100px;
-  }
+@media only screen and (min-width : 998px) {
   #example .following.menu {
     display: block;
   }
   #example .container {
-    width: 850px;
-  }
-  #example.item .container,
-  #example.card .container {
-    width: 1100px;
+    right: 100px;
   }
 }
+@media only screen and (min-width : 998px) and (max-width: 1200px) {
+  #example .container {
+    width: 650px;
+    margin: 0em auto;
+  }
+  #example .container .right.rail {
+    width: 200px;
+  }
+}
+@media only screen and (min-width : 1200px) and (max-width: 1355px) {
+  #example .container {
+    width: 700px;
+    margin: 0em auto;
+  }
+}
+@media only screen and (min-width : 1355px) {
+  #example .container {
+    width: 850px;
+  }
+}
+
 
 
 /* Homepage */
@@ -1534,20 +1543,7 @@ body.progress .ui.progress .bar {
           Responsive
 *******************************/
 
-
-@media only screen and (max-width : 1365px) {
-  #example .sticky-wrapper.stuck .peek {
-    margin-left: 0px;
-    left: 95px;
-  }
-}
-@media only screen and (max-width : 1500px) {
-  #example.index .icon.header .icon {
-    font-size: 3em;
-  }
-}
-
-@media only screen and (max-width : 1050px) {
+@media only screen and (max-width : 998px) {
   #example .fixed .section,
   #example .fixed .title b {
     display: none;
@@ -1566,10 +1562,14 @@ body.progress .ui.progress .bar {
   #example .fixed .launch {
     display: inline-block;
   }
-  #example .sticky-wrapper {
-    display: none;
+}
+
+@media only screen and (max-width : 1500px) {
+  #example.index .icon.header .icon {
+    font-size: 3em;
   }
 }
+
 @media only screen and (max-width : 780px) {
   pre.console {
     height: 150px;

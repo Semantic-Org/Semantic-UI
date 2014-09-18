@@ -312,7 +312,8 @@ $.tab = $.fn.tab = function(parameters) {
               // look for in page anchor
               $anchor     = $('#' + tabPath + ', a[name="' + tabPath + '"]');
               currentPath = $anchor.closest('[data-tab]').data('tab');
-
+              $tab        = module.get.tabElement(currentPath);
+              // if anchor exists use parent tab
               if($anchor.size() > 0 && currentPath) {
                 module.debug('No tab found, but deep anchor link present, opening parent tab');
                 module.activate.all(currentPath);
