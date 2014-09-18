@@ -828,6 +828,13 @@ body#example.hide {
   padding-top: 0px;
   border-top: none;
 }
+#example .another.example i.code,
+#example .example:first-child i.code,
+#example h2 + .example i.code,
+#example h3 + .example i.code,
+#example h4 + .example i.code {
+  top: 0em;
+}
 #example .example > h4 {
   margin: 0em;
 }
@@ -858,7 +865,7 @@ body#example.hide {
   cursor: pointer;
   position: absolute;
 
-  top: 1em;
+  top: 1rem;
   right: 0px;
   margin: 0;
   opacity: 0.1;
@@ -1462,6 +1469,17 @@ body.progress .ui.progress .bar {
   }
   #example .main.container {
     padding: 1em;
+    box-shadow: none;
+  }
+  #example .header.segment {
+    padding-top: 60px;
+    padding-bottom: 20px;
+  }
+  #example .example i.code {
+    opacity: 0.3;
+  }
+  #example .example i.code:hover {
+    opacity: 1;
   }
 }
 @media only screen and (min-width : 600px) and (max-width : 998px) {

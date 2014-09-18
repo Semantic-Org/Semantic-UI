@@ -13817,6 +13817,9 @@ a.ui.yellow.label:hover:before {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*------------------
+     Load Theme
+-------------------*/
 /*******************************
              List
 *******************************/
@@ -13862,9 +13865,6 @@ a.ui.yellow.label:hover:before {
 /* Relaxed */
 /* Very Relaxed */
 /* Sizes */
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -17497,7 +17497,7 @@ body {
 body {
   margin: 0px;
   padding: 0px;
-  min-width: 320px;
+  min-width: 250px;
   background: #f7f7f7;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 14px;
