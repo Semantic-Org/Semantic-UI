@@ -258,6 +258,7 @@ $.tab = $.fn.tab = function(parameters) {
               isLastIndex        = (index + 1 == pathArray.length),
 
               $tab               = module.get.tabElement(currentPath),
+              $anchor,
               nextPathArray,
               nextPath,
               isLastTab
@@ -308,7 +309,20 @@ $.tab = $.fn.tab = function(parameters) {
               }
             }
             else {
-              if(!settings.history) {
+              // look for in page anchor
+              $anchor     = $('#' + tabPath + ', a[name="' + tabPath + '"]');
+              currentPath = $anchor.closest('[data-tab]').data('tab');
+
+              if($anchor.size() > 0 && currentPath) {
+                module.debug('No tab found, but deep anchor link present, opening parent tab');
+                module.activate.all(currentPath);
+                if( !module.cache.read(currentPath) ) {
+                  module.cache.add(currentPath, true);
+                  module.debug('First time tab loaded calling tab init');
+                  $.proxy(settings.onTabInit, $tab)(currentPath, parameterArray, historyEvent);
+                }
+              }
+              else {
                 module.error(error.missingTab, $module, currentPath);
               }
               return false;
