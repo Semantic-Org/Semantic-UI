@@ -45,6 +45,7 @@ semantic.ready = function() {
     $followMenu       = $container.find('.following.menu'),
     $sectionExample   = $container.find('.example'),
     $exampleHeaders   = $sectionExample.children('h4'),
+    $footer           = $('.page > .footer'),
 
     $menuPopup        = $('.ui.main.menu .popup.item'),
     $menuDropdown     = $('.ui.main.menu .dropdown'),
@@ -102,6 +103,19 @@ semantic.ready = function() {
           offset: 70,
           onTopPassed: handler.activate.example,
           onBottomPassedReverse: handler.activate.example
+        })
+      ;
+      $footer
+        .visibility({
+          once: false,
+          onTopVisible: function() {
+            var
+              $title = $followMenu.find('> .item > .title').last()
+            ;
+            $followMenu
+              .accordion('open', $title)
+            ;
+          }
         })
       ;
     },

@@ -116,10 +116,12 @@ $.fn.accordion = function(parameters) {
           }
         },
 
-        toggle: function(index) {
+        toggle: function(query) {
           var
-            $activeTitle = (index !== undefined)
-              ? $title.eq(index)
+            $activeTitle = (query !== undefined)
+              ? (typeof query === 'number')
+                ? $title.eq(query)
+                : $(query)
               : $(this),
             $activeContent = $activeTitle.next($content),
             contentIsOpen  = $activeContent.is(':visible')
@@ -138,15 +140,18 @@ $.fn.accordion = function(parameters) {
           }
         },
 
-        open: function(index) {
+        open: function(query) {
           var
-            $activeTitle = (index !== undefined)
-              ? $title.eq(index)
+            $activeTitle = (query !== undefined)
+              ? (typeof query === 'number')
+                ? $title.eq(query)
+                : $(query)
               : $(this),
             $activeContent     = $activeTitle.next($content),
             currentlyAnimating = $activeContent.is(':animated'),
             currentlyActive    = $activeContent.hasClass(className.active)
           ;
+          console.log($activeTitle, $activeContent);
           if(!currentlyAnimating && !currentlyActive) {
             module.debug('Opening accordion content', $activeTitle);
             if(settings.exclusive) {
@@ -175,10 +180,12 @@ $.fn.accordion = function(parameters) {
           }
         },
 
-        close: function(index) {
+        close: function(query) {
           var
-            $activeTitle = (index !== undefined)
-              ? $title.eq(index)
+            $activeTitle = (query !== undefined)
+              ? (typeof query === 'number')
+                ? $title.eq(query)
+                : $(query)
               : $(this),
             $activeContent = $activeTitle.next($content),
             isActive       = $activeContent.hasClass(className.active)

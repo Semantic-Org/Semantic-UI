@@ -56,16 +56,21 @@
         Labels
 ---------------------*/
 
-.ui.form .grouped.fields > label,
-.ui.form .inline.fields > label,
 .ui.form .field > label {
-  margin: 0em 0em @labelDistance 0em;
   display: block;
-
+  margin: @labelMargin;
   color: @labelColor;
   font-size: @labelFontSize;
   font-weight: @labelFontWeight;
   text-transform: @labelTextTransform;
+}
+.ui.form .grouped.fields > label,
+.ui.form .inline.fields > label {
+  margin: @groupedLabelMargin;
+  color: @groupedLabelColor;
+  font-size: @groupedLabelFontSize;
+  font-weight: @groupedLabelFontWeight;
+  text-transform: @groupedLabelTextTransform;
 }
 
 /*--------------------
@@ -114,24 +119,20 @@
 .ui.textarea,
 .ui.form textarea {
   margin: 0em;
-  padding: @inputVerticalPadding @inputHorizontalPadding;
-  font-size: @inputFontSize;
-
-  background: @inputBackground;
-  border: @inputBorder;
-  outline: none;
-
-  color: @inputColor;
-  border-radius: @inputBorderRadius;
-  box-shadow: @inputBoxShadow;
-
   -webkit-appearance: none;
   -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
   box-sizing: border-box;
-  transition: @inputTransition;
 
+  padding: @textAreaPadding;
   font-size: @textAreaFontSize;
-
+  background: @textAreaBackground;
+  border: @textAreaBorder;
+  outline: none;
+  color: @inputColor;
+  border-radius: @inputBorderRadius;
+  box-shadow: @inputBoxShadow;
+  transition: @textAreaTransition;
+  font-size: @textAreaFontSize;
   height: @textAreaHeight;
   min-height: @textAreaMinHeight;
   max-height: @textAreaMaxHeight;
@@ -263,13 +264,19 @@
 .ui.form input[type="password"]:focus,
 .ui.form input[type="number"]:focus,
 .ui.form input[type="url"]:focus,
-.ui.form input[type="tel"]:focus,
-.ui.form textarea:focus{
+.ui.form input[type="tel"]:focus {
   color: @inputFocusColor;
   border-color: @inputFocusBorderColor;
   border-radius: @inputFocusBorderRadius;
   background: @inputFocusBackground;
   box-shadow: @inputFocusBoxShadow;
+}
+.ui.form textarea:focus {
+  color: @textAreaFocusColor;
+  border-color: @textAreaFocusBorderColor;
+  border-radius: @textAreaFocusBorderRadius;
+  background: @textAreaFocusBackground;
+  box-shadow: @textAreaFocusBoxShadow;
   -webkit-appearance: none;
 }
 
@@ -522,9 +529,6 @@
   margin: @groupedFieldMargin;
   padding: 0em;
 }
-.ui.form .inline.grouped.fields > label {
-  margin-bottom: @inlineGroupedFieldLabelDistance;
-}
 
 /*--------------------
         Fields
@@ -546,8 +550,8 @@
   clear: none;
   float: left;
   box-sizing: border-box;
-  padding-left: @gutterWidth;
-  padding-right: @gutterWidth;
+  padding-left: (@gutterWidth / 2);
+  padding-right: (@gutterWidth / 2);
 }
 .ui.form .fields > .field:first-child {
   border-left: none;
@@ -600,8 +604,8 @@
 
 .ui.form .fields .wide.field {
   width: @oneWide;
-  padding-left: @gutterWidth;
-  padding-right: @gutterWidth;
+  padding-left: (@gutterWidth / 2);
+  padding-right: (@gutterWidth / 2);
 }
 .ui.form .fields .wide.field:first-child {
   padding-left: 0%;

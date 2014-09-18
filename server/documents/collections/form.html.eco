@@ -9,7 +9,7 @@ title       : 'Form'
 description : 'A form is a collection of user input elements'
 type        : 'UI Collection'
 
-themes      : ['Default', 'Chubby', 'GitHub']
+themes      : ['Default', 'Flat', 'Chubby', 'GitHub']
 ---
 <link rel="stylesheet/less" type="text/css" href="/build/less/definitions/collections/form.less" />
 <script src="/javascript/form.js"></script>
@@ -33,7 +33,8 @@ themes      : ['Default', 'Chubby', 'GitHub']
     <div class="ui ignored info attached message"><p>Validation messages use <a href="/collections/message.html">messages</a> which are formatted for use inside forms.</p>
     <p>This example also uses <a href="/elements/segment.html">ui segment</a> to group the form. This is not required.
     </div>
-    <div class="ui form segment">
+    <div class="ui ignored hidden divider"></div>
+    <div class="ui form">
       <h4 class="ui dividing header">Personal Information</h4>
       <div class="two fields">
         <div class="field">
