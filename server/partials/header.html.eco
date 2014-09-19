@@ -19,19 +19,8 @@
         <i class="help icon" data-title="What are Modules?" data-content="Modules are UI elements that include behaviors as part of their definition. Modules require some knowledge of Javascript to trigger."></i>
       </a>
       <% end %>
-      <div class="ui right floated basic button floating mode dropdown">
-        Change View
-        <div class="menu">
-          <a class="overview item">
-            Definition
-          </a>
-          <a class="designer item">
-            Designer
-          </a>
-          <a class="developer item">
-            Developer
-          </a>
-        </div>
+      <div class="ui right floated basic overview button">
+        Definition
       </div>
       <% if @document.themes?: %>
       <div class="ui floating dropdown theme basic button" data-element="<%= @document.element %>" data-type="<%= @document.elementType %>">

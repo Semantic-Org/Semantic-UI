@@ -62,10 +62,9 @@ semantic.ready = function() {
     $example          = $('.example'),
     $shownExample     = $example.filter('.shown'),
 
-    $mode             = $('.header .mode.button'),
-    $developer        = $('.header .developer.item'),
-    $overview         = $('.header .overview.item'),
-    $designer         = $('.header .designer.item'),
+    $overview         = $('.overview.button'),
+    //$developer        = $('.header .developer.item'),
+    //$designer         = $('.header .designer.item'),
 
     $sidebarButton    = $('.fixed.launch.button'),
     $code             = $('div.code').not('.existing'),
@@ -461,16 +460,12 @@ semantic.ready = function() {
       $body.toggleClass('overview');
       $button.toggleClass('active');
       if($body.hasClass('overview')) {
-        $developer.addClass('disabled').popup('destroy');
-        $designer.addClass('disabled').popup('destroy');
         $example.each(function() {
           $(this).children().not('.ui.header:eq(0), .example p:eq(0), .annotation').hide();
         });
         $example.filter('.another').hide();
       }
       else {
-        $developer.removeClass('disabled').popup();
-        $designer.removeClass('disabled').popup();
         $example.each(function() {
           $(this).children().not('.ui.header:eq(0), .example p:eq(0), .annotation').show();
         });
@@ -480,8 +475,12 @@ semantic.ready = function() {
     },
     developerMode: function() {
       var
+        $body    = $('body'),
         $example = $('.example').not('.no')
       ;
+      if($body.hasClass('overview')) {
+        handler.overviewMode();
+      }
       $developer.addClass('active');
       $designer.removeClass('active');
       $example
@@ -493,8 +492,12 @@ semantic.ready = function() {
     },
     designerMode: function() {
       var
+        $body    = $('body'),
         $example = $('.example').not('.no')
       ;
+      if($body.hasClass('overview')) {
+        handler.overviewMode();
+      }
       $designer.addClass('active');
       $developer.removeClass('active');
       $example
@@ -882,16 +885,13 @@ semantic.ready = function() {
   $swap
     .on('click', handler.swapStyle)
   ;
-
-  $mode
-    .dropdown()
-  ;
+/*
   $developer
     .on('click', handler.developerMode)
   ;
   $designer
     .on('click', handler.designerMode)
-  ;
+  ;*/
   $overview
     .on('click', handler.overviewMode)
   ;

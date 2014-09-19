@@ -48,7 +48,6 @@ body#example {
   margin: 0px;
   padding: 0px;
   color: #555555;
-  min-width: 320px;
   font-family: "Lato", "Helvetica Neue", Arial, sans-serif;
 }
 body > .content  {
@@ -226,7 +225,6 @@ a:hover {
 #example .main.menu {
   top: 0px;
   left: -1px;
-  min-width: 320px;
   width: calc(100% + 1px);
 }
 #example .main.menu iframe {
@@ -1490,10 +1488,13 @@ body.progress .ui.progress .bar {
 @media only screen and (min-width : 600px) and (max-width : 998px) {
   #example .container {
     width: auto;
-    margin: 0em 3rem;
+    margin: 0em 2rem;
+  }
+  #example .header .button {
+    margin-bottom: 0.5em;
   }
   #example .main.container {
-    padding: 1em;
+    padding: 1em 2em;
   }
 }
 @media only screen and (max-width : 998px) {
@@ -1504,6 +1505,16 @@ body.progress .ui.progress .bar {
 @media only screen and (min-width : 998px) {
   #example .following.menu {
     display: block;
+  }
+  #example .introduction {
+    display: block;
+  }
+  #example .advertisement {
+    left: 100%;
+    padding-left: 0em;
+    position: absolute;
+    top: 0em;
+    vertical-align: top;
   }
   #example .container {
     right: 100px;
@@ -1597,6 +1608,7 @@ body.progress .ui.progress .bar {
     display: none;
   }
   #example .fixed .launch {
+    cursor: pointer;
     display: inline-block;
   }
 }
@@ -1706,7 +1718,7 @@ body.progress .ui.progress .bar {
     display: none;
   }
   #example .main.menu .github.item {
-    display: block;
+    display: inline-block;
   }
   #example .main.menu .github.item:before {
     display: none;
