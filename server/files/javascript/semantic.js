@@ -924,7 +924,7 @@ semantic.ready = function() {
           percent = $choice.data('percent') || 0
         ;
         window.Transifex.live.translateTo(value, true);
-        /*if(percent < 100) {
+        if(percent < 100) {
           $('.language.modal')
             .find('.header .name')
               .html(text)
@@ -936,7 +936,7 @@ semantic.ready = function() {
               $('.language.modal .progress .bar').css('width', percent + '%');
             })
           ;
-        }*/
+        }
       }
     })
 
