@@ -31,61 +31,21 @@ $(document).ready(function() {
 
 <div class="main container">
 
-  <!-- TEST HTML HERE !-->
-  <div class="ui button">Trigger Popup</div>
-  <div class="ui popup">
-    <div class="header">Hello World</div>
-    <div class="content">My custom content</div>
-  </div>
+<h3>ui grid works ok</h3>
+<div class="ui grid">
+    <div class="eight wide computer only column">computer only</div>
+    <div class="eight wide tablet only column">tablet only</div>
+    <div class="eight wide mobile only column">mobile only</div>
+    <div class="eight wide column">all</div>
+</div>
+<h3>should ui stackable grid override the "x only" grid column styles?</h3>
+<div class="ui stackable grid">
+    <div class="eight wide computer only column">computer only</div>
+    <div class="eight wide tablet only column">tablet only</div>
+    <div class="eight wide mobile only column">mobile only</div>
+    <div class="eight wide column">all</div>
+</div>
 
-  <div class="ui button">Trigger Wide Popup</div>
-  <div class="ui wide popup">
-    <div class="ui four column center aligned divided grid">
-      <div class="column">
-        <div class="ui selection list">
-            <a class="item">1</a>
-            <a class="item">2</a>
-            <a class="item">3</a>
-            <a class="item">4</a>
-            <a class="item">5</a>
-            <a class="item">6</a>
-            <a class="item">7</a>
-        </div>
-      </div>
-      <div class="column">
-        <div class="ui selection list">
-            <a class="item">1</a>
-            <a class="item">2</a>
-            <a class="item">3</a>
-            <a class="item">4</a>
-            <a class="item">5</a>
-            <a class="item">6</a>
-            <a class="item">7</a>
-        </div>
-      </div>
-      <div class="column">
-        <div class="ui selection list">
-            <a class="item">1</a>
-            <a class="item">2</a>
-            <a class="item">3</a>
-            <a class="item">4</a>
-            <a class="item">5</a>
-            <a class="item">6</a>
-            <a class="item">7</a>
-        </div>
-      </div>
-      <div class="column">
-        <div class="ui selection list">
-            <a class="item">1</a>
-            <a class="item">2</a>
-            <a class="item">3</a>
-            <a class="item">4</a>
-            <a class="item">5</a>
-            <a class="item">6</a>
-            <a class="item">7</a>
-        </div>
-      </div>
-    </div>
-  </div>
+
 </div>
 </body>
