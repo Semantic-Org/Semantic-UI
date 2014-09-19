@@ -31,7 +31,6 @@ themes      : ['Default', 'Flat', 'Chubby', 'GitHub']
       <p>If you are looking for form validation, you should check out <a href="/modules/form.html">form validation</a>.</p>
     </div>
     <div class="ui ignored info attached message"><p>Validation messages use <a href="/collections/message.html">messages</a> which are formatted for use inside forms.</p>
-    <p>This example also uses <a href="/elements/segment.html">ui segment</a> to group the form. This is not required.
     </div>
     <div class="ui ignored hidden divider"></div>
     <div class="ui form">
@@ -205,7 +204,7 @@ themes      : ['Default', 'Flat', 'Chubby', 'GitHub']
       .dropdown()
     ;
     </div>
-    <div class="ui form segment">
+    <div class="ui form">
       <div class="ui selection dropdown">
         <input type="hidden" name="gender">
         <div class="default text">Gender</div>
@@ -226,7 +225,7 @@ themes      : ['Default', 'Flat', 'Chubby', 'GitHub']
       .checkbox()
     ;
     </div>
-    <div class="ui form segment">
+    <div class="ui form">
       <div class="inline fields">
         <label for="fruit">Select your favorite fruit:</label>
         <div class="field">
@@ -441,7 +440,7 @@ themes      : ['Default', 'Flat', 'Chubby', 'GitHub']
     <h4 class="ui header">Error</h4>
     <p>Individual fields may contain an error state</p>
 
-    <div class="ui form segment">
+    <div class="ui form">
       <div class="two fields">
         <div class="field error">
           <label>First Name</label>
@@ -477,7 +476,7 @@ themes      : ['Default', 'Flat', 'Chubby', 'GitHub']
     <h4 class="ui header">Disabled</h4>
     <p>Individual fields may be disabled or read only</p>
 
-    <div class="ui form segment">
+    <div class="ui form">
       <div class="two fields">
         <div class="field">
           <label>First Name</label>

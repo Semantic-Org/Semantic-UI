@@ -7,5 +7,12 @@
 --------------------*/
 
 /* Shadow */
-@shadowDistance: 0.2em;
+@backgroundColor: #F8F8F8;
+@backgroundImage: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+@shadowDistance: 0.25em;
 @borderBoxShadowColor: @borderColor;
+
+@verticalPadding: 0.9em;
+@horizontalPadding: 2em;
+
+@borderRadius: 0.4em;

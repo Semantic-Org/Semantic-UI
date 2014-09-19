@@ -80,7 +80,7 @@ semantic.ready = function() {
         .each(function(){
           $('<i/>')
             .addClass('icon code')
-            .appendTo( $(this) )
+            .insertAfter( $(this).children(':first-child') )
           ;
         })
       ;

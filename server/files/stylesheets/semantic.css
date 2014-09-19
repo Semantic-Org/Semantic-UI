@@ -894,6 +894,10 @@ body#example.hide {
   right: 25%;
 }
 
+#example .pointing.label + .existing.segment {
+  margin-top: 0em;
+}
+
 #example .existing.code {
   display: none;
 }

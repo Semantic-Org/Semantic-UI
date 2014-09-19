@@ -361,9 +361,9 @@ $.fn.checkbox.settings = {
   name        : 'Checkbox',
   namespace   : 'checkbox',
 
-  verbose     : false,
   debug       : false,
-  performance : false,
+  verbose     : true,
+  performance : true,
 
   // delegated event context
   context     : false,
