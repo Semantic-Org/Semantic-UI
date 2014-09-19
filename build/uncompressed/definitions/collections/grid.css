@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -176,7 +176,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
             Standard
@@ -617,12 +617,21 @@
 -----------------------*/
 .ui.divided.grid:not(.vertically) > .column:not(.row),
 .ui.divided.grid:not(.vertically) > .row > .column {
+  box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1);
+}
+/* Swap from padding to margin on columns to have dividers align */
+.ui.divided.grid:not(.vertically) > .column:not(.row),
+.ui.divided.grid:not(.vertically) > .row > .column {
   margin-top: 1rem;
   margin-bottom: 1rem;
   padding-top: 0rem;
   padding-bottom: 0rem;
-  box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1);
 }
+.ui.divided.grid:not(.vertically) > .row {
+  margin-top: 0em;
+  margin-bottom: 0em;
+}
+/* No divider on first column on row */
 .ui.divided.grid:not(.vertically) > .column:first-child,
 .ui.divided.grid:not(.vertically) > .row > .column:first-child {
   box-shadow: none;
@@ -904,54 +913,6 @@
 .ui.grid > [class*="equal height"].row > .column {
   display: table-cell;
 }
-/*----------------------
-     Only (Device)
------------------------*/
-/* Mobile Only Hide */
-@media only screen and (max-width: 767px) {
-  .ui.tablet:not(.mobile).only.grid,
-  .ui.grid > [class*="tablet only"].row:not(.mobile),
-  .ui.grid > [class*="tablet only"].column:not(.mobile),
-  .ui.grid > .row > [class*="tablet only"].column:not(.mobile) {
-    display: none !important;
-  }
-  .ui[class*="computer only"].grid:not(.mobile),
-  .ui.grid > [class*="computer only"].row:not(.mobile),
-  .ui.grid > [class*="computer only"].column:not(.mobile),
-  .ui.grid > .row > [class*="computer only"].column:not(.mobile) {
-    display: none !important;
-  }
-}
-/* Tablet Only Hide */
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  .ui[class*="mobile only"].grid:not(.tablet),
-  .ui.grid > [class*="mobile only"].row:not(.tablet),
-  .ui.grid > [class*="mobile only"].column:not(.tablet),
-  .ui.grid > .row > [class*="mobile only"].column:not(.tablet) {
-    display: none !important;
-  }
-  .ui[class*="computer only"].grid:not(.tablet),
-  .ui.grid > [class*="computer only"].row:not(.tablet),
-  .ui.grid > [class*="computer only"].column:not(.tablet),
-  .ui.grid > .row > [class*="computer only"].column:not(.tablet) {
-    display: none !important;
-  }
-}
-/* Computer Only Hide */
-@media only screen and (min-width: 992px) {
-  .ui[class*="mobile only"].grid:not(.computer),
-  .ui.grid > [class*="mobile only"].row:not(.computer),
-  .ui.grid > [class*="mobile only"].column:not(.computer),
-  .ui.grid > .row > [class*="mobile only"].column:not(.computer) {
-    display: none !important;
-  }
-  .ui[class*="tablet only"].grid:not(.computer),
-  .ui.grid > [class*="tablet only"].row:not(.computer),
-  .ui.grid > [class*="tablet only"].column:not(.computer),
-  .ui.grid > .row > [class*="tablet only"].column:not(.computer) {
-    display: none !important;
-  }
-}
 /*-------------------
       Doubling
 --------------------*/
@@ -1145,6 +1106,55 @@
   /* Remove pointers from vertical menus */
   .ui.stackable.grid .vertical.pointing.menu .item:after {
     display: none;
+  }
+}
+/*----------------------
+     Only (Device)
+-----------------------*/
+/* These include arbitrary class repetitions for forced specificity */
+/* Mobile Only Hide */
+@media only screen and (max-width: 767px) {
+  .ui.tablet:not(.mobile).only.grid.grid.grid,
+  .ui.grid.grid.grid > [class*="tablet only"].row:not(.mobile),
+  .ui.grid.grid.grid > [class*="tablet only"].column:not(.mobile),
+  .ui.grid.grid.grid > .row > [class*="tablet only"].column:not(.mobile) {
+    display: none !important;
+  }
+  .ui[class*="computer only"].grid.grid.grid:not(.mobile),
+  .ui.grid.grid.grid > [class*="computer only"].row:not(.mobile),
+  .ui.grid.grid.grid > [class*="computer only"].column:not(.mobile),
+  .ui.grid.grid.grid > .row > [class*="computer only"].column:not(.mobile) {
+    display: none !important;
+  }
+}
+/* Tablet Only Hide */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .ui[class*="mobile only"].grid.grid.grid:not(.tablet),
+  .ui.grid.grid.grid > [class*="mobile only"].row:not(.tablet),
+  .ui.grid.grid.grid > [class*="mobile only"].column:not(.tablet),
+  .ui.grid.grid.grid > .row > [class*="mobile only"].column:not(.tablet) {
+    display: none !important;
+  }
+  .ui[class*="computer only"].grid.grid.grid:not(.tablet),
+  .ui.grid.grid.grid > [class*="computer only"].row:not(.tablet),
+  .ui.grid.grid.grid > [class*="computer only"].column:not(.tablet),
+  .ui.grid.grid.grid > .row > [class*="computer only"].column:not(.tablet) {
+    display: none !important;
+  }
+}
+/* Computer Only Hide */
+@media only screen and (min-width: 992px) {
+  .ui[class*="mobile only"].grid.grid.grid:not(.computer),
+  .ui.grid.grid.grid > [class*="mobile only"].row:not(.computer),
+  .ui.grid.grid.grid > [class*="mobile only"].column:not(.computer),
+  .ui.grid.grid.grid > .row > [class*="mobile only"].column:not(.computer) {
+    display: none !important;
+  }
+  .ui[class*="tablet only"].grid.grid.grid:not(.computer),
+  .ui.grid.grid.grid > [class*="tablet only"].row:not(.computer),
+  .ui.grid.grid.grid > [class*="tablet only"].column:not(.computer),
+  .ui.grid.grid.grid > .row > [class*="tablet only"].column:not(.computer) {
+    display: none !important;
   }
 }
 /*******************************

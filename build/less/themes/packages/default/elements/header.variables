@@ -79,11 +79,11 @@
 @blockVerticalPadding: 0.75rem;
 @blockBorderRadius: 0.3125rem;
 
-@tinyBlock: 0.9em;
-@smallBlock: 1em;
-@mediumBlock: 1.1em;
-@largeBlock: 1.2em;
-@hugeBlock: 1.33em;
+@tinyBlock: 0.875em;
+@smallBlock: 0.9em;
+@mediumBlock: 1em;
+@largeBlock: 1.1em;
+@hugeBlock: 1.2em;
 
 /* Divided */
 @blackDividedBorderColor: @black;

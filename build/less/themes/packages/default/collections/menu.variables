@@ -121,7 +121,7 @@
 
 /* Dropdown */
 @dropdownBackground: #FFFFFF;
-@dropdownMenuOffset: 1px;
+@dropdownMenuOffset: 0px;
 @dropdownPointingDistance: 0px;
 
 @dropdownTextColor: @textColor;

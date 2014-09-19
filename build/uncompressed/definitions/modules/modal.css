@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -171,7 +171,7 @@
            Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
              Modal
@@ -254,11 +254,19 @@
   padding: 2rem;
   background: #ffffff;
 }
+/* Image */
 .ui.modal > .content > .image {
   display: table-cell;
   width: '';
   vertical-align: top;
 }
+.ui.modal > .content > .image[class*="top aligned"] {
+  vertical-align: top;
+}
+.ui.modal > .content > .image[class*="top aligned"] {
+  vertical-align: middle;
+}
+/* Description */
 .ui.modal > .content > .description {
   display: table-cell;
   vertical-align: top;

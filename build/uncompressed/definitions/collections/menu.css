@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -200,7 +200,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
             Standard
@@ -407,7 +407,7 @@
 .ui.menu .dropdown.item .menu {
   background: #ffffff;
   left: 0px;
-  margin: 1px 0px 0px;
+  margin: 0px 0px 0px;
   min-width: -webkit-calc(100% - 1px);
   min-width: calc(100% - 1px);
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
@@ -607,7 +607,7 @@
 .ui.vertical.menu .dropdown.item .menu {
   top: 0% !important;
   left: 100%;
-  margin: 1px 0px 0px 1px;
+  margin: 0px 0px 0px 0px;
   box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.08);
 }
 .ui.vertical.menu .dropdown.item.active {

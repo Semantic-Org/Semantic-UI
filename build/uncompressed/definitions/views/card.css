@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -181,7 +181,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
             Standard
@@ -413,7 +413,8 @@
 /*--------------
      Buttons
 ---------------*/
-.ui.cards > .card > .button:last-child,
+.ui.cards > .card > .buttons:last-child,
+.ui.card > .buttons:last-child .ui.cards > .card > .button:last-child,
 .ui.card > .button:last-child {
   margin-bottom: -1px;
 }

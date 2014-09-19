@@ -112,11 +112,21 @@
   padding: @contentPadding;
   background: @contentBackground;
 }
+
+/* Image */
 .ui.modal > .content > .image {
   display: table-cell;
   width: @imageWidth;
   vertical-align: @imageVerticalAlign;
 }
+.ui.modal > .content > .image[class*="top aligned"] {
+  vertical-align: top;
+}
+.ui.modal > .content > .image[class*="top aligned"] {
+  vertical-align: middle;
+}
+
+/* Description */
 .ui.modal > .content > .description {
   display: table-cell;
   vertical-align: top;

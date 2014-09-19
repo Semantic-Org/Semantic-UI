@@ -139,7 +139,7 @@ $.fn.popup = function(parameters) {
             ;
             clearTimeout(module.hideTimer);
             module.showTimer = setTimeout(function() {
-              if( module.is.hidden() ) {
+              if( module.is.hidden() && !( module.is.active() && module.is.dropdown()) ) {
                 module.show();
               }
             }, delay);
@@ -647,11 +647,17 @@ $.fn.popup = function(parameters) {
         },
 
         is: {
+          active: function() {
+            return $module.hasClass(className.active);
+          },
           animating: function() {
             return ( $popup && $popup.is(':animated') || $popup.hasClass(className.animating) );
           },
           visible: function() {
             return $popup && $popup.is(':visible');
+          },
+          dropdown: function() {
+            return $module.hasClass(className.dropdown);
           },
           hidden: function() {
             return !module.is.visible();
@@ -909,11 +915,13 @@ $.fn.popup.settings = {
   },
 
   className   : {
-    animating   : 'animating',
-    loading     : 'loading',
-    popup       : 'ui popup',
-    position    : 'top left center bottom right',
-    visible     : 'visible'
+    active    : 'active',
+    animating : 'animating',
+    dropdown  : 'dropdown',
+    loading   : 'loading',
+    popup     : 'ui popup',
+    position  : 'top left center bottom right',
+    visible   : 'visible'
   },
 
   selector    : {

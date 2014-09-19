@@ -383,11 +383,6 @@ select.ui.dropdown {
   color: @selectionVisibleTextColor;
 }
 
-/*
-.ui.selection.dropdown .menu .active.item {
-  display: none;
-}*/
-
 
 /* Connecting Border */
 .ui.active.selection.dropdown,
@@ -423,10 +418,6 @@ select.ui.dropdown {
             States
 *******************************/
 
-/* Dropdown Visible */
-.ui.visible.dropdown > .menu {
-  display: block;
-}
 
 /*--------------------
         Hover
@@ -581,7 +572,10 @@ select.ui.dropdown {
   overflow: hidden;
 }
 
-
+/* Visible */
+.ui.simple.visible.dropdown > .menu {
+  display: block;
+}
 
 /*--------------
       Fluid

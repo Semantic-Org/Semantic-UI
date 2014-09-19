@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -173,7 +173,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
             Header
@@ -551,19 +551,19 @@ a.ui.inverted.yellow.header:hover {
   border-radius: 0.3125rem;
 }
 .ui.tiny.block.header {
-  font-size: 0.9em;
+  font-size: 0.875em;
 }
 .ui.small.block.header {
-  font-size: 1em;
+  font-size: 0.9em;
 }
 .ui.block.header {
-  font-size: 1.1em;
+  font-size: 1em;
 }
 .ui.large.block.header {
-  font-size: 1.2em;
+  font-size: 1.1em;
 }
 .ui.huge.block.header {
-  font-size: 1.33em;
+  font-size: 1.2em;
 }
 /*-------------------
        Attached
@@ -596,19 +596,19 @@ a.ui.inverted.yellow.header:hover {
 }
 /* Attached Sizes */
 .ui.tiny.attached.header {
-  font-size: 0.9em;
+  font-size: 0.875em;
 }
 .ui.small.attached.header {
-  font-size: 1em;
+  font-size: 0.9em;
 }
 .ui.attached.header {
-  font-size: 1.1em;
+  font-size: 1em;
 }
 .ui.large.attached.header {
-  font-size: 1.2em;
+  font-size: 1.1em;
 }
 .ui.huge.attached.header {
-  font-size: 1.33em;
+  font-size: 1.2em;
 }
 /*-------------------
         Sizing

@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -195,7 +195,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
             Button
@@ -1268,6 +1268,12 @@
   background-color: #333333;
   color: #ffffff;
 }
+.ui.inverted.black.buttons .button.active,
+.ui.inverted.black.button.active {
+  box-shadow: 0px 0px 0px 2px #333333 inset !important;
+  background-color: #333333;
+  color: #ffffff;
+}
 .ui.inverted.black.buttons .button:active,
 .ui.inverted.black.button:active {
   box-shadow: 0px 0px 0px 2px #1a1a1a inset !important;
@@ -1285,6 +1291,12 @@
 .ui.inverted.black.basic.buttons .button:hover,
 .ui.inverted.black.buttons .basic.button:hover,
 .ui.inverted.black.basic.button:hover {
+  box-shadow: 0px 0px 0px 2px #333333 inset !important;
+  color: #ffffff !important;
+}
+.ui.inverted.black.basic.buttons .button.active,
+.ui.inverted.black.buttons .basic.button.active,
+.ui.inverted.black.basic.button.active {
   box-shadow: 0px 0px 0px 2px #333333 inset !important;
   color: #ffffff !important;
 }
@@ -1359,13 +1371,19 @@
 .ui.inverted.blue.button:hover {
   box-shadow: 0px 0px 0px 2px #54c8ff inset !important;
   background-color: #54c8ff;
-  color: #1b1c1d;
+  color: #ffffff;
+}
+.ui.inverted.blue.buttons .button.active,
+.ui.inverted.blue.button.active {
+  box-shadow: 0px 0px 0px 2px #54c8ff inset !important;
+  background-color: #54c8ff;
+  color: #ffffff;
 }
 .ui.inverted.blue.buttons .button:active,
 .ui.inverted.blue.button:active {
   box-shadow: 0px 0px 0px 2px #21b8ff inset !important;
   background-color: #21b8ff;
-  color: #1b1c1d;
+  color: #ffffff;
 }
 /* Inverted Basic */
 .ui.inverted.blue.basic.buttons .button,
@@ -1381,11 +1399,17 @@
   box-shadow: 0px 0px 0px 2px #54c8ff inset !important;
   color: #54c8ff !important;
 }
+.ui.inverted.blue.basic.buttons .button.active,
+.ui.inverted.blue.buttons .basic.button.active,
+.ui.inverted.blue.basic.button.active {
+  box-shadow: 0px 0px 0px 2px #54c8ff inset !important;
+  color: #54c8ff !important;
+}
 .ui.inverted.blue.basic.buttons .button:active,
 .ui.inverted.blue.buttons .basic.button:active,
 .ui.inverted.blue.basic.button:active {
   box-shadow: 0px 0px 0px 2px #21b8ff inset !important;
-  color: #21b8ff !important;
+  color: #54c8ff !important;
 }
 /*--- Green ---*/
 .ui.green.buttons .button,
@@ -1452,13 +1476,19 @@
 .ui.inverted.green.button:hover {
   box-shadow: 0px 0px 0px 2px #2ecc40 inset !important;
   background-color: #2ecc40;
-  color: #1b1c1d;
+  color: #ffffff;
+}
+.ui.inverted.green.buttons .button.active,
+.ui.inverted.green.button.active {
+  box-shadow: 0px 0px 0px 2px #2ecc40 inset !important;
+  background-color: #2ecc40;
+  color: #ffffff;
 }
 .ui.inverted.green.buttons .button:active,
 .ui.inverted.green.button:active {
   box-shadow: 0px 0px 0px 2px #25a233 inset !important;
   background-color: #25a233;
-  color: #1b1c1d;
+  color: #ffffff;
 }
 /* Inverted Basic */
 .ui.inverted.green.basic.buttons .button,
@@ -1474,11 +1504,17 @@
   box-shadow: 0px 0px 0px 2px #2ecc40 inset !important;
   color: #2ecc40 !important;
 }
+.ui.inverted.green.basic.buttons .button.active,
+.ui.inverted.green.buttons .basic.button.active,
+.ui.inverted.green.basic.button.active {
+  box-shadow: 0px 0px 0px 2px #2ecc40 inset !important;
+  color: #2ecc40 !important;
+}
 .ui.inverted.green.basic.buttons .button:active,
 .ui.inverted.green.buttons .basic.button:active,
 .ui.inverted.green.basic.button:active {
   box-shadow: 0px 0px 0px 2px #25a233 inset !important;
-  color: #25a233 !important;
+  color: #2ecc40 !important;
 }
 /*--- Orange ---*/
 .ui.orange.buttons .button,
@@ -1545,13 +1581,19 @@
 .ui.inverted.orange.button:hover {
   box-shadow: 0px 0px 0px 2px #ff851b inset !important;
   background-color: #ff851b;
-  color: #1b1c1d;
+  color: #ffffff;
+}
+.ui.inverted.orange.buttons .button.active,
+.ui.inverted.orange.button.active {
+  box-shadow: 0px 0px 0px 2px #ff851b inset !important;
+  background-color: #ff851b;
+  color: #ffffff;
 }
 .ui.inverted.orange.buttons .button:active,
 .ui.inverted.orange.button:active {
   box-shadow: 0px 0px 0px 2px #e76b00 inset !important;
   background-color: #e76b00;
-  color: #1b1c1d;
+  color: #ffffff;
 }
 /* Inverted Basic */
 .ui.inverted.orange.basic.buttons .button,
@@ -1567,11 +1609,17 @@
   box-shadow: 0px 0px 0px 2px #ff851b inset !important;
   color: #ff851b !important;
 }
+.ui.inverted.orange.basic.buttons .button.active,
+.ui.inverted.orange.buttons .basic.button.active,
+.ui.inverted.orange.basic.button.active {
+  box-shadow: 0px 0px 0px 2px #ff851b inset !important;
+  color: #ff851b !important;
+}
 .ui.inverted.orange.basic.buttons .button:active,
 .ui.inverted.orange.buttons .basic.button:active,
 .ui.inverted.orange.basic.button:active {
   box-shadow: 0px 0px 0px 2px #e76b00 inset !important;
-  color: #e76b00 !important;
+  color: #ff851b !important;
 }
 /*--- Pink ---*/
 .ui.pink.buttons .button,
@@ -1638,13 +1686,19 @@
 .ui.inverted.pink.button:hover {
   box-shadow: 0px 0px 0px 2px #ff8edf inset !important;
   background-color: #ff8edf;
-  color: #1b1c1d;
+  color: #ffffff;
+}
+.ui.inverted.pink.buttons .button.active,
+.ui.inverted.pink.button.active {
+  box-shadow: 0px 0px 0px 2px #ff8edf inset !important;
+  background-color: #ff8edf;
+  color: #ffffff;
 }
 .ui.inverted.pink.buttons .button:active,
 .ui.inverted.pink.button:active {
   box-shadow: 0px 0px 0px 2px #ff5bd1 inset !important;
   background-color: #ff5bd1;
-  color: #1b1c1d;
+  color: #ffffff;
 }
 /* Inverted Basic */
 .ui.inverted.pink.basic.buttons .button,
@@ -1660,11 +1714,17 @@
   box-shadow: 0px 0px 0px 2px #ff8edf inset !important;
   color: #ff8edf !important;
 }
+.ui.inverted.pink.basic.buttons .button.active,
+.ui.inverted.pink.buttons .basic.button.active,
+.ui.inverted.pink.basic.button.active {
+  box-shadow: 0px 0px 0px 2px #ff8edf inset !important;
+  color: #ff8edf !important;
+}
 .ui.inverted.pink.basic.buttons .button:active,
 .ui.inverted.pink.buttons .basic.button:active,
 .ui.inverted.pink.basic.button:active {
   box-shadow: 0px 0px 0px 2px #ff5bd1 inset !important;
-  color: #ff5bd1 !important;
+  color: #ff8edf !important;
 }
 /*--- Purple ---*/
 .ui.purple.buttons .button,
@@ -1733,6 +1793,12 @@
   background-color: #cdc6ff;
   color: #1b1c1d;
 }
+.ui.inverted.purple.buttons .button.active,
+.ui.inverted.purple.button.active {
+  box-shadow: 0px 0px 0px 2px #cdc6ff inset !important;
+  background-color: #cdc6ff;
+  color: #1b1c1d;
+}
 .ui.inverted.purple.buttons .button:active,
 .ui.inverted.purple.button:active {
   box-shadow: 0px 0px 0px 2px #a093ff inset !important;
@@ -1753,11 +1819,17 @@
   box-shadow: 0px 0px 0px 2px #cdc6ff inset !important;
   color: #cdc6ff !important;
 }
+.ui.inverted.purple.basic.buttons .button.active,
+.ui.inverted.purple.buttons .basic.button.active,
+.ui.inverted.purple.basic.button.active {
+  box-shadow: 0px 0px 0px 2px #cdc6ff inset !important;
+  color: #cdc6ff !important;
+}
 .ui.inverted.purple.basic.buttons .button:active,
 .ui.inverted.purple.buttons .basic.button:active,
 .ui.inverted.purple.basic.button:active {
   box-shadow: 0px 0px 0px 2px #a093ff inset !important;
-  color: #a093ff !important;
+  color: #cdc6ff !important;
 }
 /*--- Red ---*/
 .ui.red.buttons .button,
@@ -1824,13 +1896,19 @@
 .ui.inverted.red.button:hover {
   box-shadow: 0px 0px 0px 2px #ff695e inset !important;
   background-color: #ff695e;
-  color: #1b1c1d;
+  color: #ffffff;
+}
+.ui.inverted.red.buttons .button.active,
+.ui.inverted.red.button.active {
+  box-shadow: 0px 0px 0px 2px #ff695e inset !important;
+  background-color: #ff695e;
+  color: #ffffff;
 }
 .ui.inverted.red.buttons .button:active,
 .ui.inverted.red.button:active {
   box-shadow: 0px 0px 0px 2px #ff392b inset !important;
   background-color: #ff392b;
-  color: #1b1c1d;
+  color: #ffffff;
 }
 /* Inverted Basic */
 .ui.inverted.red.basic.buttons .button,
@@ -1846,11 +1924,17 @@
   box-shadow: 0px 0px 0px 2px #ff695e inset !important;
   color: #ff695e !important;
 }
+.ui.inverted.red.basic.buttons .button.active,
+.ui.inverted.red.buttons .basic.button.active,
+.ui.inverted.red.basic.button.active {
+  box-shadow: 0px 0px 0px 2px #ff695e inset !important;
+  color: #ff695e !important;
+}
 .ui.inverted.red.basic.buttons .button:active,
 .ui.inverted.red.buttons .basic.button:active,
 .ui.inverted.red.basic.button:active {
   box-shadow: 0px 0px 0px 2px #ff392b inset !important;
-  color: #ff392b !important;
+  color: #ff695e !important;
 }
 /*--- Teal ---*/
 .ui.teal.buttons .button,
@@ -1919,6 +2003,12 @@
   background-color: #6dffff;
   color: #1b1c1d;
 }
+.ui.inverted.teal.buttons .button.active,
+.ui.inverted.teal.button.active {
+  box-shadow: 0px 0px 0px 2px #6dffff inset !important;
+  background-color: #6dffff;
+  color: #1b1c1d;
+}
 .ui.inverted.teal.buttons .button:active,
 .ui.inverted.teal.button:active {
   box-shadow: 0px 0px 0px 2px #3affff inset !important;
@@ -1939,11 +2029,17 @@
   box-shadow: 0px 0px 0px 2px #6dffff inset !important;
   color: #6dffff !important;
 }
+.ui.inverted.teal.basic.buttons .button.active,
+.ui.inverted.teal.buttons .basic.button.active,
+.ui.inverted.teal.basic.button.active {
+  box-shadow: 0px 0px 0px 2px #6dffff inset !important;
+  color: #6dffff !important;
+}
 .ui.inverted.teal.basic.buttons .button:active,
 .ui.inverted.teal.buttons .basic.button:active,
 .ui.inverted.teal.basic.button:active {
   box-shadow: 0px 0px 0px 2px #3affff inset !important;
-  color: #3affff !important;
+  color: #6dffff !important;
 }
 /*--- Yellow ---*/
 .ui.yellow.buttons .button,
@@ -2012,6 +2108,12 @@
   background-color: #ffe21f;
   color: #1b1c1d;
 }
+.ui.inverted.yellow.buttons .button.active,
+.ui.inverted.yellow.button.active {
+  box-shadow: 0px 0px 0px 2px #ffe21f inset !important;
+  background-color: #ffe21f;
+  color: #1b1c1d;
+}
 .ui.inverted.yellow.buttons .button:active,
 .ui.inverted.yellow.button:active {
   box-shadow: 0px 0px 0px 2px #ebcd00 inset !important;
@@ -2032,11 +2134,17 @@
   box-shadow: 0px 0px 0px 2px #ffe21f inset !important;
   color: #ffe21f !important;
 }
+.ui.inverted.yellow.basic.buttons .button.active,
+.ui.inverted.yellow.buttons .basic.button.active,
+.ui.inverted.yellow.basic.button.active {
+  box-shadow: 0px 0px 0px 2px #ffe21f inset !important;
+  color: #ffe21f !important;
+}
 .ui.inverted.yellow.basic.buttons .button:active,
 .ui.inverted.yellow.buttons .basic.button:active,
 .ui.inverted.yellow.basic.button:active {
   box-shadow: 0px 0px 0px 2px #ebcd00 inset !important;
-  color: #ebcd00 !important;
+  color: #ffe21f !important;
 }
 /*-------------------
        Primary

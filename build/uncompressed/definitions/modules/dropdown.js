@@ -139,19 +139,35 @@ $.fn.dropdown = function(parameters) {
             }
           },
           select: function() {
-            module.debug('Dropdown initialized on a select, generating html');
-            // redefine module as wrapped element
-            $input  = $module;
-            $module = $('<div />')
-              .attr('class', $input.attr('class') )
-              .addClass(className.selection)
-              .html( settings.templates.select(module.get.selectValues()))
-              .insertBefore($input)
+            var
+              selectValues = module.get.selectValues()
             ;
-            $input
-              .removeAttr('class')
-              .prependTo($module)
-            ;
+            module.debug('Dropdown initialized on a select', selectValues);
+            // see if select exists inside a dropdown
+            $input = $module;
+
+            if($module.closest(className.dropdown) > 0) {
+              module.debug('Creating dropdown menu only from template');
+              $module = $module.closest(className.dropdown);
+              $('<div />')
+                .addClass(className.menu)
+                .html( settings.templates.menu( selectValues ))
+                .appendTo($module)
+              ;
+            }
+            else {
+              module.debug('Creating entire dropdown from template');
+              $module = $('<div />')
+                .attr('class', $input.attr('class') )
+                .addClass(className.selection)
+                .html( settings.templates.dropdown(selectValues) )
+                .insertBefore($input)
+              ;
+              $input
+                .removeAttr('class')
+                .prependTo($module)
+              ;
+            }
             module.refresh();
           }
         },
@@ -483,7 +499,7 @@ $.fn.dropdown = function(parameters) {
                 callback = function() {
                   $search.val('');
                   module.determine.selectAction(text, value);
-                  $.proxy(settings.onChange, element)(value, text);
+                  $.proxy(settings.onChange, element)(value, text, $choice);
                 },
                 openingSubMenu = ($choice.find(selector.menu).size() > 0)
               ;
@@ -1323,7 +1339,9 @@ $.fn.dropdown.settings = {
   className : {
     active      : 'active',
     disabled    : 'disabled',
+    dropdown    : 'ui dropdown',
     filtered    : 'filtered',
+    menu        : 'menu',
     placeholder : 'default',
     search      : 'search',
     selected    : 'selected',
@@ -1334,7 +1352,24 @@ $.fn.dropdown.settings = {
 };
 
 $.fn.dropdown.settings.templates = {
-  select: function(select) {
+  menu: function(select) {
+    var
+      placeholder = select.placeholder || false,
+      values      = select.values || {},
+      html        = ''
+    ;
+    html += '<div class="menu">';
+    $.each(select.values, function(value, name) {
+      if(value === name) {
+        html += '<div class="item">' + name + '</div>';
+      }
+      else {
+        html += '<div class="item" data-value="' + value + '">' + name + '</div>';
+      }
+    });
+    return html;
+  },
+  dropdown: function(select) {
     var
       placeholder = select.placeholder || false,
       values      = select.values || {},

@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -156,7 +156,7 @@
    Flag Variables
 --------------------*/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 i.flag {
   display: inline-block;

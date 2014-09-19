@@ -6,6 +6,6 @@
 @transition:
   width @transitionDuration @defaultEasing,
   height @transitionDuration @defaultEasing,
-  margin @transitionDuration @defaultEasing,
-  top @transitionDuration @defaultEasing
+  top @transitionDuration @defaultEasing,
+  bottom @transitionDuration @defaultEasing
 ;

@@ -782,10 +782,10 @@ $.fn.transition.settings = {
   debug       : false,
 
   // verbose debug output
-  verbose     : true,
+  verbose     : false,
 
   // performance data output
-  performance : true,
+  performance : false,
 
   // event namespace
   namespace   : 'transition',

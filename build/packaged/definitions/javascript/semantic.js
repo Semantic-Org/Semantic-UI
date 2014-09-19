@@ -4560,10 +4560,12 @@ $.fn.accordion = function(parameters) {
           }
         },
 
-        toggle: function(index) {
+        toggle: function(query) {
           var
-            $activeTitle = (index !== undefined)
-              ? $title.eq(index)
+            $activeTitle = (query !== undefined)
+              ? (typeof query === 'number')
+                ? $title.eq(query)
+                : $(query)
               : $(this),
             $activeContent = $activeTitle.next($content),
             contentIsOpen  = $activeContent.is(':visible')
@@ -4582,10 +4584,12 @@ $.fn.accordion = function(parameters) {
           }
         },
 
-        open: function(index) {
+        open: function(query) {
           var
-            $activeTitle = (index !== undefined)
-              ? $title.eq(index)
+            $activeTitle = (query !== undefined)
+              ? (typeof query === 'number')
+                ? $title.eq(query)
+                : $(query)
               : $(this),
             $activeContent     = $activeTitle.next($content),
             currentlyAnimating = $activeContent.is(':animated'),
@@ -4619,10 +4623,12 @@ $.fn.accordion = function(parameters) {
           }
         },
 
-        close: function(index) {
+        close: function(query) {
           var
-            $activeTitle = (index !== undefined)
-              ? $title.eq(index)
+            $activeTitle = (query !== undefined)
+              ? (typeof query === 'number')
+                ? $title.eq(query)
+                : $(query)
               : $(this),
             $activeContent = $activeTitle.next($content),
             isActive       = $activeContent.hasClass(className.active)
@@ -6047,8 +6053,8 @@ $.fn.checkbox.settings = {
   name        : 'Checkbox',
   namespace   : 'checkbox',
 
+  debug       : false,
   verbose     : true,
-  debug       : true,
   performance : true,
 
   // delegated event context
@@ -6812,19 +6818,35 @@ $.fn.dropdown = function(parameters) {
             }
           },
           select: function() {
-            module.debug('Dropdown initialized on a select, generating html');
-            // redefine module as wrapped element
-            $input  = $module;
-            $module = $('<div />')
-              .attr('class', $input.attr('class') )
-              .addClass(className.selection)
-              .html( settings.templates.select(module.get.selectValues()))
-              .insertBefore($input)
+            var
+              selectValues = module.get.selectValues()
             ;
-            $input
-              .removeAttr('class')
-              .prependTo($module)
-            ;
+            module.debug('Dropdown initialized on a select', selectValues);
+            // see if select exists inside a dropdown
+            $input = $module;
+
+            if($module.closest(className.dropdown) > 0) {
+              module.debug('Creating dropdown menu only from template');
+              $module = $module.closest(className.dropdown);
+              $('<div />')
+                .addClass(className.menu)
+                .html( settings.templates.menu( selectValues ))
+                .appendTo($module)
+              ;
+            }
+            else {
+              module.debug('Creating entire dropdown from template');
+              $module = $('<div />')
+                .attr('class', $input.attr('class') )
+                .addClass(className.selection)
+                .html( settings.templates.dropdown(selectValues) )
+                .insertBefore($input)
+              ;
+              $input
+                .removeAttr('class')
+                .prependTo($module)
+              ;
+            }
             module.refresh();
           }
         },
@@ -7156,7 +7178,7 @@ $.fn.dropdown = function(parameters) {
                 callback = function() {
                   $search.val('');
                   module.determine.selectAction(text, value);
-                  $.proxy(settings.onChange, element)(value, text);
+                  $.proxy(settings.onChange, element)(value, text, $choice);
                 },
                 openingSubMenu = ($choice.find(selector.menu).size() > 0)
               ;
@@ -7996,7 +8018,9 @@ $.fn.dropdown.settings = {
   className : {
     active      : 'active',
     disabled    : 'disabled',
+    dropdown    : 'ui dropdown',
     filtered    : 'filtered',
+    menu        : 'menu',
     placeholder : 'default',
     search      : 'search',
     selected    : 'selected',
@@ -8007,7 +8031,24 @@ $.fn.dropdown.settings = {
 };
 
 $.fn.dropdown.settings.templates = {
-  select: function(select) {
+  menu: function(select) {
+    var
+      placeholder = select.placeholder || false,
+      values      = select.values || {},
+      html        = ''
+    ;
+    html += '<div class="menu">';
+    $.each(select.values, function(value, name) {
+      if(value === name) {
+        html += '<div class="item">' + name + '</div>';
+      }
+      else {
+        html += '<div class="item" data-value="' + value + '">' + name + '</div>';
+      }
+    });
+    return html;
+  },
+  dropdown: function(select) {
     var
       placeholder = select.placeholder || false,
       values      = select.values || {},
@@ -8535,6 +8576,16 @@ $.fn.modal = function(parameters) {
                 .on('click' + eventNamespace, module.event.click)
               ;
             }
+            if(settings.autofocus) {
+              var
+                $inputs    = $module.find(':input:visible'),
+                $autofocus = $inputs.filter('[autofocus]'),
+                $input     = ($autofocus.size() > 0)
+                  ? $autofocus
+                  : $inputs
+              ;
+              $input.first().focus();
+            }
           },
           scrolling: function() {
             $dimmable.addClass(className.scrolling);
@@ -8759,6 +8810,8 @@ $.fn.modal.settings = {
   allowMultiple : true,
   detachable    : true,
   closable      : true,
+  autofocus     : true,
+
   context       : 'body',
 
   duration      : 500,
@@ -9485,7 +9538,7 @@ $.fn.popup = function(parameters) {
             ;
             clearTimeout(module.hideTimer);
             module.showTimer = setTimeout(function() {
-              if( module.is.hidden() ) {
+              if( module.is.hidden() && !( module.is.active() && module.is.dropdown()) ) {
                 module.show();
               }
             }, delay);
@@ -9993,11 +10046,17 @@ $.fn.popup = function(parameters) {
         },
 
         is: {
+          active: function() {
+            return $module.hasClass(className.active);
+          },
           animating: function() {
             return ( $popup && $popup.is(':animated') || $popup.hasClass(className.animating) );
           },
           visible: function() {
             return $popup && $popup.is(':visible');
+          },
+          dropdown: function() {
+            return $module.hasClass(className.dropdown);
           },
           hidden: function() {
             return !module.is.visible();
@@ -10255,11 +10314,13 @@ $.fn.popup.settings = {
   },
 
   className   : {
-    animating   : 'animating',
-    loading     : 'loading',
-    popup       : 'ui popup',
-    position    : 'top left center bottom right',
-    visible     : 'visible'
+    active    : 'active',
+    animating : 'animating',
+    dropdown  : 'dropdown',
+    loading   : 'loading',
+    popup     : 'ui popup',
+    position  : 'top left center bottom right',
+    visible   : 'visible'
   },
 
   selector    : {
@@ -15609,10 +15670,10 @@ $.fn.transition.settings = {
   debug       : false,
 
   // verbose debug output
-  verbose     : true,
+  verbose     : false,
 
   // performance data output
-  performance : true,
+  performance : false,
 
   // event namespace
   namespace   : 'transition',

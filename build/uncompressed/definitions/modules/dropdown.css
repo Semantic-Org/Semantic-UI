@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -190,7 +190,7 @@ b        Types
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
             Dropdown
@@ -512,10 +512,6 @@ select.ui.dropdown {
   font-weight: normal;
   color: rgba(0, 0, 0, 0.8);
 }
-/*
-.ui.selection.dropdown .menu .active.item {
-  display: none;
-}*/
 /* Connecting Border */
 .ui.active.selection.dropdown,
 .ui.visible.selection.dropdown {
@@ -545,10 +541,6 @@ select.ui.dropdown {
 /*******************************
             States
 *******************************/
-/* Dropdown Visible */
-.ui.visible.dropdown > .menu {
-  display: block;
-}
 /*--------------------
         Hover
 ----------------------*/
@@ -674,6 +666,10 @@ select.ui.dropdown {
   height: 0px;
   width: 0px;
   overflow: hidden;
+}
+/* Visible */
+.ui.simple.visible.dropdown > .menu {
+  display: block;
 }
 /*--------------
       Fluid

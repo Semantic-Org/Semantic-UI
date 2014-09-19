@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -153,15 +153,15 @@
            Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+ Override Mix-in
 -------------------*/
 /*******************************
             Sticky
 *******************************/
 .ui.sticky {
   position: static;
-  -webkit-transition: width 0.2s ease, height 0.2s ease, margin 0.2s ease, top 0.2s ease;
-          transition: width 0.2s ease, height 0.2s ease, margin 0.2s ease, top 0.2s ease;
+  -webkit-transition: width 0.2s ease, height 0.2s ease, top 0.2s ease, bottom 0.2s ease;
+          transition: width 0.2s ease, height 0.2s ease, top 0.2s ease, bottom 0.2s ease;
 }
 /*******************************
             States
