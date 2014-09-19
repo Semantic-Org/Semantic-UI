@@ -499,7 +499,7 @@ $.fn.dropdown = function(parameters) {
                 callback = function() {
                   $search.val('');
                   module.determine.selectAction(text, value);
-                  $.proxy(settings.onChange, $choice[0])(value, text);
+                  $.proxy(settings.onChange, element)(value, text, $choice);
                 },
                 openingSubMenu = ($choice.find(selector.menu).size() > 0)
               ;
