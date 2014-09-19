@@ -148,6 +148,20 @@
   ga('send', 'pageview');
 
   </script>
+  <script type="text/javascript">
+    window.liveSettings = {
+      api_key    : '9ede3015b9f84c1aabc81ab839c55d74',
+      parse_attr : [
+        'data-title',
+        'data-content'
+      ],
+      detectlang   : true,
+      autocollect  : true,
+      ignore_tags  : ['i'],
+      ignore_class : ["code", "ace_editor"]
+    };
+  </script>
+  <script type="text/javascript" src="//cdn.transifex.com/live.js"></script>
 </head>
 <body id="example" class="pushable <%= @document.css %>" ontouchstart="">
   <div class="ui vertical inverted labeled icon sidebar menu" id="menu">
@@ -210,12 +224,12 @@
       <% else: %>
       <div class="disabled icon item"><i class="left chevron icon"></i></div>
       <% end %>
-      <div class="section ui dropdown link item">
+      <div class="section ui page dropdown link item">
         <span class="count"><%= "#{pageNumber} of #{pageCount}" %></span>
         <div class="menu">
           <% for element, index in currentCollection: %>
             <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
-              <%= (index+1) %>. <%= element.title %>
+              <%= element.title %>
             </a>
           <% end %>
         </div>
@@ -230,20 +244,28 @@
           <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic-ui&type=watch&count=true"
   allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
         </div>
-        <% if @document.type is 'UI Element' or @document.type is 'UI View' or @document.type is 'UI Collection' or @document.type is 'UI Module': %>
-        <a class="popup designer icon item" data-content="Designer Mode">
-          <i class="docs designer icon"></i>
-        </a>
-        <a class="popup developer icon item" data-content="Developer Mode">
-          <i class="docs developer icon"></i>
-        </a>
-        <% end %>
         <a class="popup icon github item" data-content="View project on GitHub" href="https://github.com/quirkyinc/semantic">
           <i class="alternate github icon"></i>
         </a>
-      <!--   <a class="popup localization icon item" data-content="International">
-          <i class="docs globe icon"></i>
-        </a> -->
+        <div class="ui language dropdown item" id="languages" data-content="Select Language">
+          <i class="world icon"></i>
+          <div class="menu">
+            <div class="item" data-percent="100" data-value="en">English</div>
+            <div class="item" data-percent="19" data-value="nl">Nederlands</div>
+            <div class="item" data-percent="19" data-value="hu">Magyar</div>
+            <div class="item" data-percent="8" data-value="ar">العربية</div>
+            <div class="item" data-percent="0" data-value="pt_BR">Português</div>
+            <div class="item" data-percent="0" data-value="tr">Türkçe</div>
+            <div class="item" data-percent="0" data-value="es">Español</div>
+            <div class="item" data-percent="0" data-value="ru">Русский</div>
+            <div class="item" data-percent="0" data-value="de">Deutsch</div>
+            <div class="item" data-percent="0" data-value="fr">Français</div>
+            <div class="item" data-percent="0" data-value="ja">日本語</div>
+            <div class="item" data-percent="0" data-value="en">简体中文</div>
+            <div class="item" data-percent="0" data-value="kr">한국어</div>
+            <div class="item" data-percent="0" data-value="it">Italiano</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -289,6 +311,31 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="ui basic language modal">
+    <i class="close icon"></i>
+    <div class="header">The <span class="name"></span> Translation Needs Your Help</div>
+    <div class="content">
+      <div class="middle aligned image">
+        <i class="world icon"></i>
+      </div>
+      <div class="description">
+        <p>This translation is only <b><span class="complete"></span>%</b> complete!</p>
+        <div class="ui teal active striped progress">
+          <div class="bar"></div>
+        </div>
+        <p>We need your help to make Semantic available to  people who speak your language.</p>
+        <p>Our translation tools are easy to use and allow you to translate text without having to leave the site. If you are interested in joining our translation team, please <a href="mailto:jack@semantic-ui.com?subject=Localization%20Help">e-mail me</a> for access to our translation hub.
+        </p>
+      </div>
+    </div>
+    <div class="actions">
+      <div class="ui inverted cancel button">No Thanks</div>
+      <a href="mailto:jack@semantic-ui.com?subject=Localization%20Help" target="_blank" class="ui inverted approve teal button">
+        <i class="mail icon"></i>
+        Help Translate
+      </a>
     </div>
   </div>
   <script src="/javascript/library/less.js"></script>

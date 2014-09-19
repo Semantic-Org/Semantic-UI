@@ -1421,9 +1421,9 @@ themes      : ['Default']
       </thead>
       <tbody>
         <tr>
-          <td>onChange(value, text)</td>
+          <td>onChange(value, text, $choice)</td>
           <td>Dropdown</td>
-          <td>Is called after a dropdown item is selected. receives the name and value of selection.</td>
+          <td>Is called after a dropdown item is selected. receives the name and value of selection and the active menu element</td>
         </tr>
         <tr>
           <td>onShow</td>

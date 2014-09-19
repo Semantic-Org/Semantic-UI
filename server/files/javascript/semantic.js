@@ -48,9 +48,12 @@ semantic.ready = function() {
     $footer           = $('.page > .footer'),
 
     $menuPopup        = $('.ui.main.menu .popup.item'),
-    $menuDropdown     = $('.ui.main.menu .dropdown'),
+    $pageDropdown     = $('.ui.main.menu .page.dropdown'),
     $pageTabMenu      = $('.tab.header.segment .tabular.menu'),
     $pageTabs         = $('.tab.header.segment .menu .item'),
+
+    $languageDropdown = $('.ui.main.menu .language.dropdown'),
+    $languageModal    = $('.language.modal'),
 
     $downloadDropdown = $('.download.buttons .dropdown'),
 
@@ -59,9 +62,10 @@ semantic.ready = function() {
     $example          = $('.example'),
     $shownExample     = $example.filter('.shown'),
 
-    $developer        = $('.developer.item'),
-    $overview         = $('.overview.item, .overview.button'),
-    $designer         = $('.designer.item'),
+    $mode             = $('.header .mode.button'),
+    $developer        = $('.header .developer.item'),
+    $overview         = $('.header .overview.item'),
+    $designer         = $('.header .designer.item'),
 
     $sidebarButton    = $('.fixed.launch.button'),
     $code             = $('div.code').not('.existing'),
@@ -822,6 +826,10 @@ semantic.ready = function() {
     })
   ;
 
+  $languageModal.modal({
+    detachable: false
+  });
+
   $menu
     .sidebar('attach events', '.launch.button, .view-ui.button, .launch.item')
     .sidebar('attach events', $hideMenu, 'hide')
@@ -875,6 +883,9 @@ semantic.ready = function() {
     .on('click', handler.swapStyle)
   ;
 
+  $mode
+    .dropdown()
+  ;
   $developer
     .on('click', handler.developerMode)
   ;
@@ -894,13 +905,43 @@ semantic.ready = function() {
     })
   ;
 
-  $menuDropdown
+  $pageDropdown
     .dropdown({
       on       : 'hover',
       action   : 'nothing',
       allowTab : false
     })
   ;
+  $languageDropdown
+    .popup()
+    .dropdown({
+      on       : 'click',
+      onShow: function() {
+        $(this).popup('hide');
+      },
+      onChange: function(value, text, $choice) {
+        var
+          percent = $choice.data('percent') || 0
+        ;
+        window.Transifex.live.translateTo(value, true);
+        if(percent < 100) {
+          $('.language.modal')
+            .find('.header .name')
+              .html(text)
+              .end()
+            .find('.complete')
+              .html(percent)
+              .end()
+            .modal('show', function() {
+              $('.language.modal .progress .bar').css('width', percent + '%');
+            })
+          ;
+        }
+      }
+    })
+
+  ;
+
 
   if($('body').hasClass('index') ) {
     $('.masthead')

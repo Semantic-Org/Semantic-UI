@@ -706,7 +706,7 @@ body#example.hide {
 -----------------*/
 
 #example.overview h2.ui.header {
-  margin-bottom: 0em;
+  margin-bottom: 0.5em;
 }
 #example.overview .example {
   display: table-row;
@@ -726,6 +726,7 @@ body#example.hide {
   font-weight: normal;
   padding: 0em 0em 0em 0.5em;
   width: auto;
+  line-height: 1.4;
 }
 
 /*----------------
@@ -1731,8 +1732,8 @@ body.progress .ui.progress .bar {
   #example .masthead .mobile.buttons {
     display: block;
   }
-  #example.button .ui.buttons,
-  #example.button :not(.buttons) .ui.button {
+  #example.button-page .ui.buttons,
+  #example.button-page :not(.buttons) .ui.button {
     margin-bottom: 0.5em;
   }
   #example .masthead:before {

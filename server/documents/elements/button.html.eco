@@ -1,6 +1,6 @@
 ---
 layout      : 'default'
-css         : 'button'
+css         : 'button-page'
 element     : 'button'
 elementType : 'element'
 
