@@ -826,9 +826,9 @@ semantic.ready = function() {
     })
   ;
 
-  $languageModal.modal({
-    detachable: false
-  });
+  $languageModal
+    .modal()
+  ;
 
   $menu
     .sidebar('attach events', '.launch.button, .view-ui.button, .launch.item')
