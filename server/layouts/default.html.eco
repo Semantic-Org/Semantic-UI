@@ -313,7 +313,7 @@
       </div>
     </div>
   </div>
-  <div class="ui basic language modal">
+  <!-- <div class="ui basic language modal">
     <i class="close icon"></i>
     <div class="header">The <span class="name"></span> Translation Needs Your Help</div>
     <div class="content">
@@ -337,7 +337,7 @@
         Help Translate
       </a>
     </div>
-  </div>
+  </div> -->
   <script src="/javascript/library/less.js"></script>
 </body>
 
