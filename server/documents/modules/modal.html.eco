@@ -18,7 +18,7 @@ themes      : ['Default', 'Fixed-width']
 
 <div class="main container">
 
-  <div class="ui basic modal">
+  <div class="ui basic test modal">
     <div class="header">
       Archive Old Messages
     </div>
@@ -108,7 +108,7 @@ themes      : ['Default', 'Fixed-width']
     </div>
   </div>
 
-  <div class="ui test modal">
+  <div class="ui standard test modal">
     <i class="close icon"></i>
     <div class="header">
       Profile Picture
@@ -138,23 +138,77 @@ themes      : ['Default', 'Fixed-width']
 
     <h2 class="ui dividing header">Types</h2>
 
-    <div class="no example">
+    <div class="example">
       <h4 class="ui header">Standard</h4>
       <p>A standard modal</p>
       <div class="code" data-demo="true">
-      $('.test.modal')
+      $('.standard.test.modal')
         .modal('show')
       ;
       </div>
+      <div class="existing code" data-type="html">
+        <div class="ui modal">
+          <i class="close icon"></i>
+          <div class="header">
+            Profile Picture
+          </div>
+          <div class="content">
+            <div class="ui medium image">
+              <img src="/images/avatar/large/chris.jpg">
+            </div>
+            <div class="description">
+              <div class="ui header">We've auto-chosen a profile image for you.</div>
+              <p>We've grabbed the following image from the <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
+              <p>Is it okay to use this photo?</p>
+            </div>
+          </div>
+          <div class="actions">
+            <div class="ui black button">
+              Nope
+            </div>
+            <div class="ui positive right labeled icon button">
+              Yep, that's me
+              <i class="checkmark icon"></i>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="no example">
+    <div class="example">
       <h4 class="ui header">Basic</h4>
       <p>A modal can reduce its complexity</p>
       <div class="code" data-demo="true">
-      $('.basic.modal')
+      $('.basic.test.modal')
         .modal('show')
       ;
+      </div>
+      <div class="existing code">
+        <div class="ui basic modal">
+          <div class="header">
+            Archive Old Messages
+          </div>
+          <div class="content">
+            <div class="image">
+              <i class="archive icon"></i>
+            </div>
+            <div class="description">
+              <p>Your inbox is getting full, would you like us to enable automatic archiving of old messages?</p>
+            </div>
+          </div>
+          <div class="actions">
+            <div class="two fluid ui inverted buttons">
+              <div class="ui red basic inverted button">
+                <i class="remove icon"></i>
+                No
+              </div>
+              <div class="ui green basic inverted button">
+                <i class="checkmark icon"></i>
+                Yes
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -203,7 +257,7 @@ themes      : ['Default', 'Fixed-width']
       <h4 class="ui header">Forcing a Choice</h4>
       <p>You can disable a modal's dimmer from being closed by click to force a user to make a choice</p>
       <div class="code" data-demo="true">
-      $('.basic.modal')
+      $('.basic.test.modal')
         .modal('setting', 'closable', false)
         .modal('show')
       ;
@@ -214,7 +268,7 @@ themes      : ['Default', 'Fixed-width']
       <h4 class="ui header">Approve / Deny Callbacks</h4>
       <p>Modals will automatically tie approve deny callbacks to any positive/approve, negative/deny or ok/cancel buttons. If a callback returns false it will prevent the modal from closing</p>
       <div class="code" data-demo="true">
-      $('.basic.modal')
+      $('.basic.test.modal')
         .modal('setting', {
           closable  : false,
           onDeny    : function(){
@@ -250,7 +304,7 @@ themes      : ['Default', 'Fixed-width']
       $('.selection')
         .dropdown({
           onChange: function(value) {
-            $('.test.modal')
+            $('.standard.test.modal')
               .modal('setting', 'transition', value)
               .modal('show')
             ;
@@ -264,7 +318,7 @@ themes      : ['Default', 'Fixed-width']
       <h4 class="ui header">Attach events</h4>
       <p>A modal can attach events to another element</p>
       <div class="code" data-demo="true">
-      $('.test.modal')
+      $('.standard.test.modal')
         .modal('attach events', '.test.button', 'show')
       ;
       </div>
