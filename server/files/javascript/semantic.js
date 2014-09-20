@@ -198,7 +198,7 @@ semantic.ready = function() {
         .each(function() {
           var
             $section = $(this),
-            safeName = $section.text().trim().replace(/\s+/g, '-').toLowerCase(),
+            safeName = $section.text().trim().replace(/\s+/g, '-').replace(/[^-,'A-Za-z0-9]+/g, '').toLowerCase(),
             id       = window.escape(safeName),
             $anchor  = $('<a />').addClass('anchor').attr('id', id)
           ;
@@ -211,7 +211,7 @@ semantic.ready = function() {
         .each(function() {
           var
             $title   = $(this).children('h4').eq(0),
-            safeName = $title.text().trim().replace(/\s+/g, '-').toLowerCase(),
+            safeName = $title.text().trim().replace(/\s+/g, '-').replace(/[^-,'A-Za-z0-9]+/g, '').toLowerCase(),
             id       = window.escape(safeName),
             $anchor  = $('<a />').addClass('anchor').attr('id', id)
           ;
@@ -239,7 +239,7 @@ semantic.ready = function() {
             activeClass    = (index === 0)
               ? 'active '
               : '',
-            safeName = $currentHeader.text().trim().replace(/\s+/g, '-').toLowerCase(),
+            safeName = $currentHeader.text().trim().replace(/\s+/g, '-').replace(/[^-,'A-Za-z0-9]+/g, '').toLowerCase(),
             id       = window.escape(safeName),
             $anchor  = $('<a />').addClass('anchor').attr('id', id)
           ;
@@ -256,7 +256,7 @@ semantic.ready = function() {
               .each(function() {
                 var
                   $title   = $(this).children('h4').eq(0),
-                  safeName = $title.text().trim().replace(/\s+/g, '-').toLowerCase(),
+                  safeName = $title.text().trim().replace(/\s+/g, '-').replace(/[^-,'A-Za-z0-9]+/g, '').toLowerCase(),
                   id       = window.escape(safeName),
                   $anchor  = $('<a />').addClass('anchor').attr('id', id)
                 ;
