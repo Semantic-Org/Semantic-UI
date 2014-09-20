@@ -196,6 +196,7 @@ a:hover {
   margin: 2rem 0em 1rem;
 }
 #example .tab.header.segment .tabular.menu {
+  clear: both;
   margin: 2rem -1px 0em;
   border-bottom: none;
 }
@@ -810,7 +811,7 @@ body#example.hide {
   clear: both;
   padding: 1px;
 }
-
+#example .main.container .examples > h2,
 #example .main.container > h2 {
   position: relative;
 }
@@ -1788,22 +1789,12 @@ body.progress .ui.progress .bar {
 }
 @media only screen and (min-width : 998px) {
   #example .examples {
-    margin-right: 330px;
+    margin-right: 320px;
     padding: 1px;
   }
   #example .fixed.column,
   #example .fixed.column .fixed {
     float: right;
     width: 300px;
-  }
-}
-@media only screen and (min-width : 1500px) {
-  #example .examples {
-    margin-right: 500px;
-  }
-  #example .fixed.column,
-  #example .fixed.column .fixed  {
-    float: right;
-    width: 400px;
   }
 }

@@ -28,7 +28,7 @@ type        : 'UI Module'
         <h4 class="ui header">Flash</h4>
         <p>An element can flash to draw attention to itself</p>
         <div class="code" data-demo="true">
-        $('.leaf.image')
+        $('.autumn.leaf')
           .transition('flash')
         ;
         </div>
@@ -37,7 +37,7 @@ type        : 'UI Module'
         <h4 class="ui header">Shake</h4>
         <p>An element can shake to draw attention to its position</p>
         <div class="code" data-demo="true">
-        $('.leaf.image')
+        $('.autumn.leaf')
           .transition('shake')
         ;
         </div>
@@ -46,7 +46,7 @@ type        : 'UI Module'
         <h4 class="ui header">Pulse</h4>
         <p>An element can pulse to draw attention to its visibility</p>
         <div class="code" data-demo="true">
-        $('.leaf.image')
+        $('.autumn.leaf')
           .transition('pulse')
         ;
         </div>
@@ -55,7 +55,7 @@ type        : 'UI Module'
         <h4 class="ui header">Tada</h4>
         <p>An element can give user positive feedback for an action</p>
         <div class="code" data-demo="true">
-        $('.leaf.image')
+        $('.autumn.leaf')
           .transition('tada')
         ;
         </div>
@@ -64,7 +64,7 @@ type        : 'UI Module'
         <h4 class="ui header">Bounce</h4>
         <p>An element can bounce to politely remind you of itself</p>
         <div class="code" data-demo="true">
-        $('.leaf.image')
+        $('.autumn.leaf')
           .transition('bounce')
         ;
         </div>
@@ -75,7 +75,7 @@ type        : 'UI Module'
         <h4 class="ui header">Drop <span class="ui small horizontal pink label">New</span></h4>
         <p>An element can drop into view from above </p>
         <div class="code" data-demo="true">
-        $('.leaf.image')
+        $('.autumn.leaf')
           .transition('drop')
         ;
         </div>
@@ -85,12 +85,12 @@ type        : 'UI Module'
 
         <p>An element can appear and disappear as part of a series</p>
         <div class="code" data-demo="true">
-        $('.leaf.image')
+        $('.autumn.leaf')
           .transition('browse')
         ;
         </div>
         <div class="code" data-demo="true">
-        $('.leaf.image')
+        $('.autumn.leaf')
           .transition('browse out right')
         ;
         </div>
@@ -100,12 +100,12 @@ type        : 'UI Module'
         <h4 class="ui header">Flip</h4>
         <p>An element can flip into or out of view vertically or horizontally</p>
         <div class="code" data-demo="true">
-        $('.leaf.image')
+        $('.autumn.leaf')
           .transition('horizontal flip')
         ;
         </div>
         <div class="code" data-demo="true">
-        $('.leaf.image')
+        $('.autumn.leaf')
           .transition('vertical flip')
         ;
         </div>
@@ -115,17 +115,17 @@ type        : 'UI Module'
         <h4 class="ui header">Fade</h4>
         <p>An element can fade into or out of view descending and ascending</p>
         <div class="code" data-demo="true">
-        $('.leaf.image')
+        $('.autumn.leaf')
           .transition('fade')
         ;
         </div>
         <div class="code" data-demo="true">
-        $('.leaf.image')
+        $('.autumn.leaf')
           .transition('fade up')
         ;
         </div>
         <div class="code" data-demo="true">
-        $('.leaf.image')
+        $('.autumn.leaf')
           .transition('fade down')
         ;
         </div>
@@ -134,7 +134,7 @@ type        : 'UI Module'
         <h4 class="ui header">Scale</h4>
         <p>An element can scale into or out of view</p>
         <div class="code" data-demo="true">
-        $('.leaf.image')
+        $('.autumn.leaf')
           .transition('scale')
         ;
         </div>
@@ -144,12 +144,12 @@ type        : 'UI Module'
         <h4 class="ui header">Slide</h4>
         <p>An element can appear to slide in from above or below
         <div class="code" data-demo="true">
-        $('.leaf.image')
+        $('.autumn.leaf')
           .transition('slide down')
         ;
         </div>
         <div class="code" data-demo="true">
-        $('.leaf.image')
+        $('.autumn.leaf')
           .transition('slide up')
         ;
         </div>
@@ -159,7 +159,7 @@ type        : 'UI Module'
   <div class="ui tab" data-tab="usage">
     <div class="fixed column">
       <div class="ui sticky">
-        <img src="/images/dog.png" class="ui dog image">
+        <img src="/images/leaves/4.png" class="ui green leaf image">
       </div>
     </div>
     <div class="examples">
@@ -178,7 +178,7 @@ type        : 'UI Module'
       <p>If a transition is called without any arguments all default settings will be used.</p>
 
       <div class="code" data-demo="true" data-title="Initializing a transition">
-      $('.dog.image')
+      $('.green.leaf')
         // default everything
         .transition()
       ;
@@ -187,7 +187,7 @@ type        : 'UI Module'
       <h3 class="ui header">Passing in settings</h3>
       <p>Transitions use similar argument shorthand as <a href="http://api.jquery.com/animate/">animate</a>. You can specify callback functions, animation duration, and other settings using the same arguments. Durations can be specified as strings with css shorthand, or with numbers.</p>
       <div class="code" data-demo="true" data-title="Settings objects">
-      $('.dog.image')
+      $('.green.leaf')
         .transition({
           animation : 'scale',
           duration  : '2s',
@@ -215,7 +215,7 @@ type        : 'UI Module'
 
       <p>Animations called in sequence will be queued. Any queued animation will automatically determine the transition direction if none is specified.</p>
       <div class="code" data-demo="true" data-title="Queueing animations">
-      $('.dog.image')
+      $('.green.leaf')
         .transition('horizontal flip', '500ms')
         .transition('horizontal flip', 500, function() {
           alert('done!');
@@ -319,14 +319,14 @@ type        : 'UI Module'
   <div class="ui tab" data-tab="examples">
     <div class="fixed column">
       <div class="ui sticky">
-        <img src="/images/cat.png" class="ui kitten image">
+        <img src="/images/leaves/3.png" class="ui leaf image">
       </div>
     </div>
     <div class="examples">
       <h3 class="ui header">Visibility</h3>
       <p>After the animation queue finishes for an element, its final visibility state is determined. If an animation is an outward transition, the final visibility status will be hidden. If an animation is inward the element will be visible after the animation finishes.</p>
       <div class="code" data-demo="true" data-title="Disapearing element">
-      $('.kitten.image')
+      $('.stick.image')
         .transition('scale')
       ;
       </div>
@@ -336,7 +336,7 @@ type        : 'UI Module'
       <p>If an animation direction is not specified it will automatically be determined based on the elements current visibility. For no example, if the element is visible the animation "fade out" will be called, if the animation is not visible "fade in".</p>
 
       <div class="code" data-demo="true" data-title="Automatically choosing direction">
-      $('.kitten.image')
+      $('.stick.image')
         // fade up out is used if available
         .transition('fade up')
         // this is now fade up in
@@ -344,7 +344,7 @@ type        : 'UI Module'
       ;
       </div>
       <div class="code" data-demo="true" data-title="Specifying a direction">
-      $('.kitten.image')
+      $('.stick.image')
         // if a direction if specified it will be obeyed
         .transition('horizontal flip in')
         .transition('vertical flip in')
@@ -354,7 +354,7 @@ type        : 'UI Module'
       <h3 class="ui header">Static Animations</h3>
       <p>Animations that do not have an in or out animation defined, will maintain their current visibility after running</p>
       <div class="code" data-demo="true" data-title="Static transitions">
-      $('.kitten.image')
+      $('.stick.image')
         .transition('pulse')
       ;
       </div>
@@ -362,13 +362,13 @@ type        : 'UI Module'
       <h3 class="ui header">Looping</h3>
       <p>Animation loops can be controlled by setting looping. Callbacks will occur after each loop cycle</p>
       <div class="code" data-demo="true" data-title="Starting looping">
-      $('.kitten.image')
+      $('.stick.image')
         .transition('set looping')
         .transition('bounce', '2000ms')
       ;
       </div>
       <div class="code" data-demo="true" data-title="Ending looping">
-      $('.kitten.image')
+      $('.stick.image')
         .transition('remove looping')
       ;
       </div>

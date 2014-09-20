@@ -20,12 +20,12 @@ themes      : ['Default']
 
   <div class="ui active tab" data-tab="overview">
 
-    <h3 class="ui dividing header">Grids</h3>
+    <h2 class="ui dividing header">Overview</h2>
 
     <div class="highlighted example">
       <h4 class="ui header">Why Use Grids?</h4>
       <div class="ignored">
-        <p>A grid is a structure, with a <a href="http://99designs.com/designer-blog/2013/03/21/history-of-the- grid-part-1/" target="_blank">very rich history</a> used to align negative space in your design.</p>
+        <p>A grid is a structure, with a <a href="http://99designs.com/designer-blog/2013/03/21/history-of-the-grid-part-1/" target="_blank">very rich history</a> used to align negative space in your design.</p>
         <p>Using a grid makes content appear to flow naturally on your page, and allows you to quickly adjust layouts without assigning specific sizes directly to content elements, letting you rapidly prototype and design your page.</p>
         <div class="ui toggle animation checkbox">
           <input type="checkbox" name="animation" />
