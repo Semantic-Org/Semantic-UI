@@ -1461,6 +1461,11 @@ body.progress .ui.progress .bar {
 #example .following.menu .menu .active.item {
   font-weight: bold;
 }
+@media only screen and (max-width : 320px) {
+  #example .example {
+    max-width: 290px;
+  }
+}
 
 @media only screen and (max-width : 600px) {
   #example .page > .footer {
