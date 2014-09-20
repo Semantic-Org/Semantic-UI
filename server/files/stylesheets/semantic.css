@@ -1462,6 +1462,9 @@ body.progress .ui.progress .bar {
   font-weight: bold;
 }
 @media only screen and (max-width : 320px) {
+  #example .advertisement {
+    max-width: 290px;
+  }
   #example .example {
     max-width: 290px;
   }

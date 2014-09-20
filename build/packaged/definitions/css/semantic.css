@@ -1231,6 +1231,9 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*------------------
+     Load Theme
+-------------------*/
 /*******************************
              Grid
 *******************************/
@@ -1257,9 +1260,6 @@
 /*--------------
     Stackable
 ---------------*/
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -2021,131 +2021,131 @@
   .ui[class*="two column"].doubling.grid > .row > .column,
   .ui[class*="two column"].doubling.grid > .column,
   .ui.grid > [class*="two column"].doubling.row > .column {
-    width: 100%;
+    width: 100% !important;
   }
   .ui[class*="three column"].doubling.grid > .row > .column,
   .ui[class*="three column"].doubling.grid > .column,
   .ui.grid > [class*="three column"].doubling.row > .column {
-    width: 50%;
+    width: 50% !important;
   }
   .ui[class*="four column"].doubling.grid > .row > .column,
   .ui[class*="four column"].doubling.grid > .column,
   .ui.grid > [class*="four column"].doubling.row > .column {
-    width: 50%;
+    width: 50% !important;
   }
   .ui[class*="five column"].doubling.grid > .row > .column,
   .ui[class*="five column"].doubling.grid > .column,
   .ui.grid > [class*="five column"].doubling.row > .column {
-    width: 50%;
+    width: 50% !important;
   }
   .ui[class*="six column"].doubling.grid > .row > .column,
   .ui[class*="six column"].doubling.grid > .column,
   .ui.grid > [class*="six column"].doubling.row > .column {
-    width: 50%;
+    width: 50% !important;
   }
   .ui[class*="seven column"].doubling.grid > .row > .column,
   .ui[class*="seven column"].doubling.grid > .column,
   .ui.grid > [class*="seven column"].doubling.row > .column {
-    width: 33.33333333%;
+    width: 33.33333333% !important;
   }
   .ui[class*="eight column"].doubling.grid > .row > .column,
   .ui[class*="eight column"].doubling.grid > .column,
   .ui.grid > [class*="eight column"].doubling.row > .column {
-    width: 33.33333333%;
+    width: 33.33333333% !important;
   }
   .ui[class*="nine column"].doubling.grid > .row > .column,
   .ui[class*="nine column"].doubling.grid > .column,
   .ui.grid > [class*="nine column"].doubling.row > .column {
-    width: 33.33333333%;
+    width: 33.33333333% !important;
   }
   .ui[class*="ten column"].doubling.grid > .row > .column,
   .ui[class*="ten column"].doubling.grid > .column,
   .ui.grid > [class*="ten column"].doubling.row > .column {
-    width: 33.33333333%;
+    width: 33.33333333% !important;
   }
   .ui[class*="twelve column"].doubling.grid > .row > .column,
   .ui[class*="twelve column"].doubling.grid > .column,
   .ui.grid > [class*="twelve column"].doubling.row > .column {
-    width: 25%;
+    width: 25% !important;
   }
   .ui[class*="fourteen column"].doubling.grid > .row > .column,
   .ui[class*="fourteen column"].doubling.grid > .column,
   .ui.grid > [class*="fourteen column"].doubling.row > .column {
-    width: 25%;
+    width: 25% !important;
   }
   .ui[class*="sixteen column"].doubling.grid > .row > .column,
   .ui[class*="sixteen column"].doubling.grid > .column,
   .ui.grid > [class*="sixteen column"].doubling.row > .column {
-    width: 25%;
+    width: 25% !important;
   }
 }
 /* Tablet Only */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .ui.doubling.grid > .row {
-    display: inline;
+    display: inline !important;
   }
   .ui.doubling.grid > .row > .column {
-    margin-bottom: 2rem;
+    margin-bottom: 2rem !important;
   }
   .ui[class*="two column"].doubling.grid > .row > .column,
   .ui[class*="two column"].doubling.grid > .column,
   .ui.grid > [class*="two column"].doubling.row > .column {
-    width: 100%;
+    width: 100% !important;
   }
   .ui[class*="three column"].doubling.grid > .row > .column,
   .ui[class*="three column"].doubling.grid > .column,
   .ui.grid > [class*="three column"].doubling.row > .column {
-    width: 50%;
+    width: 50% !important;
   }
   .ui[class*="four column"].doubling.grid > .row > .column,
   .ui[class*="four column"].doubling.grid > .column,
   .ui.grid > [class*="four column"].doubling.row > .column {
-    width: 50%;
+    width: 50% !important;
   }
   .ui[class*="five column"].doubling.grid > .row > .column,
   .ui[class*="five column"].doubling.grid > .column,
   .ui.grid > [class*="five column"].doubling.row > .column {
-    width: 33.33333333%;
+    width: 33.33333333% !important;
   }
   .ui[class*="six column"].doubling.grid > .row > .column,
   .ui[class*="six column"].doubling.grid > .column,
   .ui.grid > [class*="six column"].doubling.row > .column {
-    width: 33.33333333%;
+    width: 33.33333333% !important;
   }
   .ui[class*="eight column"].doubling.grid > .row > .column,
   .ui[class*="eight column"].doubling.grid > .column,
   .ui.grid > [class*="eight column"].doubling.row > .column {
-    width: 33.33333333%;
+    width: 33.33333333% !important;
   }
   .ui[class*="eight column"].doubling.grid > .row > .column,
   .ui[class*="eight column"].doubling.grid > .column,
   .ui.grid > [class*="eight column"].doubling.row > .column {
-    width: 25%;
+    width: 25% !important;
   }
   .ui[class*="nine column"].doubling.grid > .row > .column,
   .ui[class*="nine column"].doubling.grid > .column,
   .ui.grid > [class*="nine column"].doubling.row > .column {
-    width: 25%;
+    width: 25% !important;
   }
   .ui[class*="ten column"].doubling.grid > .row > .column,
   .ui[class*="ten column"].doubling.grid > .column,
   .ui.grid > [class*="ten column"].doubling.row > .column {
-    width: 20%;
+    width: 20% !important;
   }
   .ui[class*="twelve column"].doubling.grid > .row > .column,
   .ui[class*="twelve column"].doubling.grid > .column,
   .ui.grid > [class*="twelve column"].doubling.row > .column {
-    width: 16.66666667%;
+    width: 16.66666667% !important;
   }
   .ui[class*="fourteen column"].doubling.grid > .row > .column,
   .ui[class*="fourteen column"].doubling.grid > .column,
   .ui.grid > [class*="fourteen column"].doubling.row > .column {
-    width: 14.28571429%;
+    width: 14.28571429% !important;
   }
   .ui[class*="sixteen column"].doubling.grid > .row > .column,
   .ui[class*="sixteen column"].doubling.grid > .column,
   .ui.grid > [class*="sixteen column"].doubling.row > .column {
-    width: 12.5%;
+    width: 12.5% !important;
   }
 }
 /*-------------------
@@ -3900,6 +3900,29 @@
     Load Default
 -------------------*/
 /*******************************
+            Message
+*******************************/
+/*-------------------
+       Elements
+--------------------*/
+/* Header */
+/* Paragraph */
+/* List */
+/* Icon */
+/* Close Icon */
+/*-------------------
+        Types
+--------------------*/
+/* Icon Message */
+/* Attached */
+/* Floating */
+/*-------------------
+      Variations
+--------------------*/
+/*------------------
+     Load Theme
+-------------------*/
+/*******************************
          Site Settings
 *******************************/
 /*-------------------
@@ -3991,29 +4014,6 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*******************************
-            Message
-*******************************/
-/*-------------------
-       Elements
---------------------*/
-/* Header */
-/* Paragraph */
-/* List */
-/* Icon */
-/* Close Icon */
-/*-------------------
-        Types
---------------------*/
-/* Icon Message */
-/* Attached */
-/* Floating */
-/*-------------------
-      Variations
---------------------*/
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -4035,7 +4035,7 @@
   margin: 1em 0em;
   background: #efefef;
   padding: 1em 1.5em;
-  line-height: 1.3;
+  line-height: 1.33;
   color: rgba(0, 0, 0, 0.8);
   -webkit-transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
           transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
@@ -4362,10 +4362,10 @@
   font-size: 1.125em;
 }
 .ui.huge.message {
-  font-size: 1.5em;
+  font-size: 1.375em;
 }
 .ui.massive.message {
-  font-size: 2em;
+  font-size: 1.5em;
 }
 /*******************************
            Overrides
