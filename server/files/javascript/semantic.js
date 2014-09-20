@@ -70,6 +70,13 @@ semantic.ready = function() {
     $code             = $('div.code').not('.existing'),
     $existingCode     = $('.existing.code'),
 
+
+    requestAnimationFrame = window.requestAnimationFrame
+      || window.mozRequestAnimationFrame
+      || window.webkitRequestAnimationFrame
+      || window.msRequestAnimationFrame
+      || function(callback) { setTimeout(callback, 0); },
+
     // alias
     handler
   ;
@@ -932,10 +939,14 @@ semantic.ready = function() {
             .find('.complete')
               .html(percent)
               .end()
-            .modal('show', function() {
-              $('.language.modal .progress .bar').css('width', percent + '%');
-            })
           ;
+          requestAnimationFrame(function() {
+            $('.language.modal')
+              .modal('show', function() {
+                $('.language.modal .progress .bar').css('width', percent + '%');
+              })
+            ;
+          });
         }
       }
     })
