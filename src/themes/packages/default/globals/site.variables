@@ -59,12 +59,13 @@
 
 @pageBackground      : #F7F7F7;
 @lineHeight          : 1.33;
-@pageMinWidth        : 250px;
 
 @pageOverflowX       : hidden;
 
 @fontSize            : 14px;
 @textColor           : rgba(0, 0, 0, 0.8);
+
+@pageMinWidth        : (320px - (@fontSize * 2));
 
 @headerMargin        : 1em 0em 1rem;
 @paragraphMargin     : 0em 0em 1em;

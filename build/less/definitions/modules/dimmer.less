@@ -23,7 +23,7 @@
             Dimmer
 *******************************/
 
-.ui.dimmable {
+.dimmable {
   position: @dimmablePosition;
 }
 
@@ -75,12 +75,12 @@
             States
 *******************************/
 
-.ui.dimmed.dimmable:not(body) {
+.dimmed.dimmable:not(body) {
   overflow: @overflow;
 }
 
-.ui.dimmed.dimmable > .ui.animating.dimmer,
-.ui.dimmed.dimmable > .ui.visible.dimmer,
+.dimmed.dimmable > .ui.animating.dimmer,
+.dimmed.dimmable > .ui.visible.dimmer,
 .ui.active.dimmer {
   display: block;
   width: 100%;
@@ -108,14 +108,14 @@
   transform-origin: center center;
 }
 
-body.ui.dimmed.dimmable {
+body.dimmed.dimmable {
   overflow: hidden;
 }
-body.ui.dimmable > .dimmer {
+body.dimmable > .dimmer {
   position: fixed;
 }
 
-body.ui.dimmed.dimmable > :not(.dimmer){
+body.dimmed.dimmable > :not(.dimmer){
   filter: @elementFilter;
 }
 
@@ -153,7 +153,7 @@ body.ui.dimmed.dimmable > :not(.dimmer){
   z-index: -100;
   background-color: @simpleStartBackground;
 }
-.ui.dimmed.dimmable > .ui.simple.dimmer {
+.dimmed.dimmable > .ui.simple.dimmer {
   overflow: visible;
   opacity: 1;
   width: 100%;
@@ -165,7 +165,7 @@ body.ui.dimmed.dimmable > :not(.dimmer){
 .ui.simple.inverted.dimmer {
   background: @simpleInvertedStartBackground;
 }
-.ui.dimmed.dimmable > .ui.simple.inverted.dimmer {
+.dimmed.dimmable > .ui.simple.inverted.dimmer {
   background: @simpleInvertedEndBackground;
 }
 

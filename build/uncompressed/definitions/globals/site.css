@@ -44,7 +44,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -148,7 +148,7 @@
      User Global Variables
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
            Web Fonts
@@ -170,7 +170,7 @@ body {
 body {
   margin: 0px;
   padding: 0px;
-  min-width: 250px;
+  min-width: 292px;
   background: #f7f7f7;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 14px;

@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -165,7 +165,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 .ui.progress {
   border: 1px solid rgba(0, 0, 0, 0.1);

@@ -6652,7 +6652,7 @@ $.fn.dimmer.settings = {
   },
 
   selector: {
-    dimmable : '.ui.dimmable',
+    dimmable : '.dimmable',
     dimmer   : '.ui.dimmer',
     content  : '.ui.dimmer > .content, .ui.dimmer > .content > .center'
   },
@@ -6665,7 +6665,7 @@ $.fn.dimmer.settings = {
 
   className : {
     active     : 'active',
-    dimmable   : 'ui dimmable',
+    dimmable   : 'dimmable',
     dimmed     : 'dimmed',
     disabled   : 'disabled',
     pageDimmer : 'page',

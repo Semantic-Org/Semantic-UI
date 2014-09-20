@@ -94,6 +94,7 @@
   box-shadow: @headerBoxShadow;
 
   font-size: @headerFontSize;
+  line-height: @headerLineHeight;
   font-weight: @headerFontWeight;
   color: @headerColor;
   border-bottom: @headerBorder;
@@ -198,32 +199,6 @@
   }
 }
 
-
-/* Position Adjustments */
-@media only screen and (max-width : @largestMobileScreen) {
-   /*rtl:ignore*/
-  .ui.modal .content > .image {
-    display: block;
-    padding: @mobileImagePadding;
-  }
-  /*rtl:ignore*/
-  .ui.modal .content > .description {
-    display: block;
-    padding: @mobileDescriptionPadding;
-    box-shadow: none;
-  }
-  .ui.modal .content .image {
-    width: auto !important;
-    max-width: 100%;
-  }
-  .ui.modal .actions {
-    padding-bottom: 0em
-  }
-  .ui.modal .actions > .buttons,
-  .ui.modal .actions > .button {
-    margin-bottom: @mobileButtonDistance;
-  }
-}
 /* Tablet and Mobile */
 @media only screen and (max-width : @computerBreakpoint) {
   .ui.modal > .header {
@@ -232,11 +207,56 @@
   .ui.modal > .close {
     top: @innerCloseTop;
     right: @innerCloseRight;
-
     color: @innerCloseColor;
   }
 }
 
+/* Mobile */
+@media only screen and (max-width : @largestMobileScreen) {
+
+  .ui.modal > .header {
+    padding: @mobileHeaderPadding !important;
+    padding-right: @closeHitbox !important;
+  }
+  .ui.modal > .content {
+    display: block;
+    padding: @mobileContentPadding !important;
+  }
+  .ui.modal > .close {
+    top: @mobileCloseTop !important;
+    right: @mobileCloseRight !important;
+  }
+
+  /*rtl:ignore*/
+  .ui.modal .content > .image {
+    display: block;
+    max-width: 100%;
+    margin: 0em auto !important;
+    text-align: center;
+    padding: @mobileImagePadding !important;
+  }
+  .ui.modal > .content > .image > i.icon {
+    font-size: @mobileImageIconSize;
+    text-align: center;
+  }
+
+  /*rtl:ignore*/
+  .ui.modal .content > .description {
+    display: block;
+    width: 100% !important;
+    margin: 0em !important;
+    padding: @mobileDescriptionPadding !important;
+    box-shadow: none;
+  }
+
+  .ui.modal > .actions {
+    padding: @mobileActionPadding !important;
+  }
+  .ui.modal .actions > .buttons,
+  .ui.modal .actions > .button {
+    margin-bottom: @mobileButtonDistance;
+  }
+}
 
 /*******************************
              Types
@@ -261,21 +281,30 @@
   right: @basicModalCloseRight;
 }
 
+/* Tablet and Mobile */
+@media only screen and (max-width : @computerBreakpoint) {
+
+  .ui.basic.modal > .close {
+    color: @basicInnerCloseColor;
+  }
+}
+
 /*******************************
             Variations
 *******************************/
 
 /* A modal that cannot fit on the page */
-.ui.scrolling.dimmable.dimmed {
+.scrolling.dimmable.dimmed {
   overflow: hidden;
 }
-.ui.scrolling.dimmable.dimmed > .dimmer {
+.scrolling.dimmable.dimmed > .dimmer {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
-.ui.scrolling.dimmable > .dimmer {
+.scrolling.dimmable > .dimmer {
   position: fixed;
 }
+
 .ui.scrolling.modal {
   position: static;
   margin: @scrollingMargin auto;

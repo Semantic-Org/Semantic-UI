@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -145,8 +145,8 @@
 /* Content */
 /* Image / Description */
 /* Modal Actions */
+/* Inner Close Position (Tablet/Mobile) */
 /* Mobile Positions */
-/* Inner Close Position (Responsive) */
 /* Responsive Widths */
 /*-------------------
         Types
@@ -171,7 +171,7 @@
            Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Mix-in
 -------------------*/
 /*******************************
              Modal
@@ -213,15 +213,15 @@
 .ui.modal > .close {
   cursor: pointer;
   position: absolute;
-  top: -2.5em;
-  right: -2.5em;
+  top: -2.5rem;
+  right: -2.5rem;
   z-index: 1;
   opacity: 0.8;
   font-size: 1.25em;
   color: #ffffff;
-  width: 2.25em;
-  height: 2.25em;
-  padding: 0.625em 0em 0em 0em;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0.625rem 0rem 0rem 0rem;
 }
 .ui.modal > .close:hover {
   opacity: 1;
@@ -235,9 +235,10 @@
   background: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05)) #ffffff;
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.05)) #ffffff;
   margin: 0em;
-  padding: 1.5rem 2rem;
+  padding: 1.2rem 2rem;
   box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
   font-size: 1.6em;
+  line-height: 1.3em;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.85);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -330,40 +331,57 @@
     margin: 0em 0em 0em -21%;
   }
 }
-/* Position Adjustments */
+/* Tablet and Mobile */
+@media only screen and (max-width: 992px) {
+  .ui.modal > .header {
+    padding-right: 2.25rem;
+  }
+  .ui.modal > .close {
+    top: 0.905rem;
+    right: 1rem;
+    color: rgba(0, 0, 0, 0.8);
+  }
+}
+/* Mobile */
 @media only screen and (max-width: 767px) {
+  .ui.modal > .header {
+    padding: 0.75rem 1rem !important;
+    padding-right: 2.25rem !important;
+  }
+  .ui.modal > .content {
+    display: block;
+    padding: 1rem !important;
+  }
+  .ui.modal > .close {
+    top: 0.5rem !important;
+    right: 0.5rem !important;
+  }
   /*rtl:ignore*/
   .ui.modal .content > .image {
     display: block;
-    padding: 0em 0em 1em;
+    max-width: 100%;
+    margin: 0em auto !important;
+    text-align: center;
+    padding: 0rem 0rem 1rem !important;
+  }
+  .ui.modal > .content > .image > i.icon {
+    font-size: 5rem;
+    text-align: center;
   }
   /*rtl:ignore*/
   .ui.modal .content > .description {
     display: block;
-    padding: 0em 0em 1em;
+    width: 100% !important;
+    margin: 0em !important;
+    padding: 1rem 0rem !important;
     box-shadow: none;
   }
-  .ui.modal .content .image {
-    width: auto !important;
-    max-width: 100%;
-  }
-  .ui.modal .actions {
-    padding-bottom: 0em;
+  .ui.modal > .actions {
+    padding: 1rem 1rem 0rem !important;
   }
   .ui.modal .actions > .buttons,
   .ui.modal .actions > .button {
-    margin-bottom: 1em;
-  }
-}
-/* Tablet and Mobile */
-@media only screen and (max-width: 992px) {
-  .ui.modal > .header {
-    padding-right: 2.25em;
-  }
-  .ui.modal > .close {
-    top: 1rem;
-    right: 1rem;
-    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 1rem;
   }
 }
 /*******************************
@@ -384,21 +402,27 @@
   color: #ffffff;
 }
 .ui.basic.modal > .close {
-  top: 1.5rem;
-  right: 1rem;
+  top: 1rem;
+  right: 1.5rem;
+}
+/* Tablet and Mobile */
+@media only screen and (max-width: 992px) {
+  .ui.basic.modal > .close {
+    color: #ffffff;
+  }
 }
 /*******************************
             Variations
 *******************************/
 /* A modal that cannot fit on the page */
-.ui.scrolling.dimmable.dimmed {
+.scrolling.dimmable.dimmed {
   overflow: hidden;
 }
-.ui.scrolling.dimmable.dimmed > .dimmer {
+.scrolling.dimmable.dimmed > .dimmer {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
-.ui.scrolling.dimmable > .dimmer {
+.scrolling.dimmable > .dimmer {
   position: fixed;
 }
 .ui.scrolling.modal {
@@ -428,10 +452,10 @@
   margin: 1em 0em 1em -47.5%;
 }
 .ui.fullscreen.modal > .header {
-  padding-right: 2.25em;
+  padding-right: 2.25rem;
 }
 .ui.fullscreen.modal > .close {
-  top: 1rem;
+  top: 0.905rem;
   right: 1rem;
   color: rgba(0, 0, 0, 0.8);
 }

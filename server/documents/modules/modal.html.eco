@@ -19,6 +19,7 @@ themes      : ['Default', 'Fixed-width']
 <div class="main container">
 
   <div class="ui basic test modal">
+    <i class="close icon"></i>
     <div class="header">
       Archive Old Messages
     </div>
@@ -185,6 +186,7 @@ themes      : ['Default', 'Fixed-width']
       </div>
       <div class="existing code">
         <div class="ui basic modal">
+          <i class="close icon"></i>
           <div class="header">
             Archive Old Messages
           </div>

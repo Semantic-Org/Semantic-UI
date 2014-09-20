@@ -215,7 +215,7 @@
 
    <div class="ui fixed inverted main menu">
     <div class="container">
-      <a class="launch item"><i class="content icon"></i> Content</a>
+      <a class="launch item"><i class="content icon"></i></a>
       <div class="title item">
         <b><%= @document.type %>:</b> <%= @document.title %>
       </div>
