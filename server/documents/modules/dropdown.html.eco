@@ -911,7 +911,10 @@ themes      : ['Default']
       </div>
     </div>
 
-    <h4 class="ui header">Simple Dropdown (No Javascript)</h4>
+    <h4 class="ui header">Simple Dropdown States</h4>
+    <div class="ui ignored info message">
+      Adding state classes only affects simple dropdowns, to trigger states
+    </div>
     <div class="example">
       <h4 class="ui header">Active</h4>
       <p>An active dropdown has its menu open</p>
@@ -944,22 +947,143 @@ themes      : ['Default']
   <div class="ui tab" data-tab="usage">
     <h2 class="ui dividing header">Initializing</h2>
 
-    <h3 class="ui header">Initializing a dropdown</h3>
-    <div class="code" data-label="HTML" data-type="html">
-      <div class="ui dropdown">
-        <div class="text">Select</div>
-        <i class="dropdown icon"></i>
-        <div class="menu">
-          <div class="item" data-value="option1">Option 1</div>
-          <div class="item" data-value="option2">Option 2</div>
+    <div class="no example">
+      <h4 class="ui header">Simple</h4>
+      <p>Initializing a dropdown with pre-existing html allows for the greatest performance, and most formatting flexibilty</p>
+      <div class="ui info message">A <code>ui dropdown</code> select element will be hidden until javascript can create html, this is to avoid the flash of unstyled content, and the change in element height adjusting page flow</div>
+      <div class="code" data-label="HTML" data-type="html">
+        <div class="ui dropdown">
+          <input type="hidden" name="gender">
+          <div class="default text">Gender</div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item" data-value="male">Male</div>
+            <div class="item" data-value="female">Female</div>
+          </div>
         </div>
       </div>
+      <div class="code" data-label="Javascript" data-type="javascript">
+        $('.ui.dropdown')
+          .dropdown()
+        ;
+      </div>
     </div>
-    <div class="code" data-label="Javascript" data-type="javascript">
-      $('.ui.dropdown')
-        .dropdown()
-      ;
+    <div class="no example">
+      <h4 class="ui header">Converting form elements</h4>
+      <p>For convenience, <code>select</code> elements can automatically be converted to <code>selection dropdown</code>. A select options with blank string values will be converted to prompt text.</p>
+      <div class="code" data-label="HTML" data-type="html">
+        <select name="gender" class="ui dropdown" id="select">
+          <option value="">Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+      <div class="code" data-type="javascript" data-demo="true">
+        $('#select')
+          .dropdown()
+        ;
+      </div>
+      <select class="ui dropdown" name="gender" id="select">
+        <option value="">Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
     </div>
+
+    <div class="no example">
+      <h4 class="ui header">Searching Dropdowns</h4>
+      <p>Using a <code>search selection dropdown</code> will allow you users to search more easily through large lists. This can also be converted directly from a form select element.</p>
+      <div class="code" data-type="javascript" data-demo="true">
+        $('#search-select')
+          .dropdown()
+        ;
+      </div>
+      <select class="ui search selection dropdown" id="search-select">
+        <option value="">State</option>
+        <option value="AL">Alabama</option>
+        <option value="AL">Alabama</option>
+        <option value="AK">Alaska</option>
+        <option value="AZ">Arizona</option>
+        <option value="AR">Arkansas</option>
+        <option value="CA">California</option>
+        <option value="CO">Colorado</option>
+        <option value="CT">Connecticut</option>
+        <option value="DE">Delaware</option>
+        <option value="DC">District Of Columbia</option>
+        <option value="FL">Florida</option>
+        <option value="GA">Georgia</option>
+        <option value="HI">Hawaii</option>
+        <option value="ID">Idaho</option>
+        <option value="IL">Illinois</option>
+        <option value="IN">Indiana</option>
+        <option value="IA">Iowa</option>
+        <option value="KS">Kansas</option>
+        <option value="KY">Kentucky</option>
+        <option value="LA">Louisiana</option>
+        <option value="ME">Maine</option>
+        <option value="MD">Maryland</option>
+        <option value="MA">Massachusetts</option>
+        <option value="MI">Michigan</option>
+        <option value="MN">Minnesota</option>
+        <option value="MS">Mississippi</option>
+        <option value="MO">Missouri</option>
+        <option value="MT">Montana</option>
+        <option value="NE">Nebraska</option>
+        <option value="NV">Nevada</option>
+        <option value="NH">New Hampshire</option>
+        <option value="NJ">New Jersey</option>
+        <option value="NM">New Mexico</option>
+        <option value="NY">New York</option>
+        <option value="NC">North Carolina</option>
+        <option value="ND">North Dakota</option>
+        <option value="OH">Ohio</option>
+        <option value="OK">Oklahoma</option>
+        <option value="OR">Oregon</option>
+        <option value="PA">Pennsylvania</option>
+        <option value="RI">Rhode Island</option>
+        <option value="SC">South Carolina</option>
+        <option value="SD">South Dakota</option>
+        <option value="TN">Tennessee</option>
+        <option value="TX">Texas</option>
+        <option value="UT">Utah</option>
+        <option value="VT">Vermont</option>
+        <option value="VA">Virginia</option>
+        <option value="WA">Washington</option>
+        <option value="WV">West Virginia</option>
+        <option value="WI">Wisconsin</option>
+        <option value="WY">Wyoming</option>
+      </select>
+      <div class="ui ignored hidden divider"></div>
+      <div class="code" data-label="HTML" data-type="html">
+        <select class="ui search selection dropdown" id="search-select">
+          <option value="">State</option>
+          <option value="AL">Alabama</option>
+          <option value="AL">Alabama</option>
+          <option value="AK">Alaska</option>
+          <option value="AZ">Arizona</option>
+          <option value="AR">Arkansas</option>
+          <option value="CA">California</option>
+          <!-- Saving your scroll sanity !-->
+          <option value="OH">Ohio</option>
+          <option value="OK">Oklahoma</option>
+          <option value="OR">Oregon</option>
+          <option value="PA">Pennsylvania</option>
+          <option value="RI">Rhode Island</option>
+          <option value="SC">South Carolina</option>
+          <option value="SD">South Dakota</option>
+          <option value="TN">Tennessee</option>
+          <option value="TX">Texas</option>
+          <option value="UT">Utah</option>
+          <option value="VT">Vermont</option>
+          <option value="VA">Virginia</option>
+          <option value="WA">Washington</option>
+          <option value="WV">West Virginia</option>
+          <option value="WI">Wisconsin</option>
+          <option value="WY">Wyoming</option>
+        </select>
+      </div>
+    </div>
+
 
     <h2 class="ui dividing header">Behavior</h2>
 
@@ -1280,13 +1404,14 @@ themes      : ['Default']
         <p>A <a href="/elements/button.html">button</a> can be formatted with a dropdown.</p>
         <p>You can change the default action that occurs on selection to different presets built into <em>ui dropdown</em>.</p>
         <p>For example, using the <code>combo</code> preset will change the preceding buttons text value to the current selected alue</p>
-        <div class="evaluated code" data-type="javascript">
-        $('.combo.dropdown')
-          .dropdown({
-            action: 'combo'
-          })
-        ;
-        </div>
+      </div>
+      <div class="evaluated code" data-type="javascript">
+      $('.combo.dropdown')
+        .dropdown({
+          action: 'combo'
+        })
+      ;
+      </div>
 
       <div class="ui teal buttons">
         <div class="ui button">Save</div>
@@ -1300,6 +1425,7 @@ themes      : ['Default']
         </div>
       </div>
     </div>
+
     <div class="link example">
       <h4 class="ui header">Link Dropdowns</h4>
       <div class="ignored">
@@ -1311,6 +1437,7 @@ themes      : ['Default']
           })
         ;
         </div>
+      </div>
 
       <div class="ui dropdown icon button">
         <div class="text">Go to</div>
@@ -1547,3 +1674,4 @@ themes      : ['Default']
   </div>
 
 </div>
+
