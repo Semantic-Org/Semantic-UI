@@ -234,6 +234,13 @@ b        Types
   will-change: transform, opacity;
 }
 /*--------------
+  Hidden Input
+---------------*/
+.ui.dropdown > input[type="hidden"],
+.ui.dropdown > select {
+  display: none !important;
+}
+/*--------------
  Dropdown Icon
 ---------------*/
 .ui.dropdown > .dropdown.icon {
@@ -398,10 +405,6 @@ select.ui.dropdown {
   padding: 0em;
   margin: 0em;
   visibility: hidden;
-}
-.ui.selection.dropdown > input[type="hidden"],
-.ui.selection.dropdown > select {
-  display: none !important;
 }
 .ui.selection.dropdown > .text {
   margin-right: 2em;

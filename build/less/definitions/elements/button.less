@@ -26,12 +26,12 @@
 .ui.button {
   cursor: pointer;
   display: inline-block;
-  vertical-align: baseline;
 
   min-height: 1em;
 
   outline: none;
   border: none;
+  vertical-align: @verticalAlign;
   background-color: @backgroundColor;
   color: @textColor;
 
@@ -133,7 +133,7 @@
   position: relative;
   cursor: default;
 
-  background-color: @loadingBackgroundColor !important;
+  background: @loadingBackground !important;
   text-shadow: none !important;
   color: transparent !important;
   transition: all 0s linear;

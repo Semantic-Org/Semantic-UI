@@ -5459,10 +5459,10 @@
 .ui.button {
   cursor: pointer;
   display: inline-block;
-  vertical-align: baseline;
   min-height: 1em;
   outline: none;
   border: none;
+  vertical-align: baseline;
   background-color: #e0e0e0;
   color: rgba(0, 0, 0, 0.6);
   margin: 0em 0.25em 0em 0em;
@@ -5547,7 +5547,7 @@
 .ui.loading.button {
   position: relative;
   cursor: default;
-  background-color: #ffffff !important;
+  background: rgba(0, 0, 0, 0.04) !important;
   text-shadow: none !important;
   color: transparent !important;
   -webkit-transition: all 0s linear;
@@ -19544,6 +19544,13 @@ b        Types
   will-change: transform, opacity;
 }
 /*--------------
+  Hidden Input
+---------------*/
+.ui.dropdown > input[type="hidden"],
+.ui.dropdown > select {
+  display: none !important;
+}
+/*--------------
  Dropdown Icon
 ---------------*/
 .ui.dropdown > .dropdown.icon {
@@ -19708,10 +19715,6 @@ select.ui.dropdown {
   padding: 0em;
   margin: 0em;
   visibility: hidden;
-}
-.ui.selection.dropdown > input[type="hidden"],
-.ui.selection.dropdown > select {
-  display: none !important;
 }
 .ui.selection.dropdown > .text {
   margin-right: 2em;

@@ -18,6 +18,7 @@
 @borderRadius: 0.25em;
 @borderBoxShadowColor: transparent;
 @borderBoxShadowWidth: 1px;
+@verticalAlign: baseline;
 
 /* Shadow */
 @shadowDistance: 0em;
@@ -113,7 +114,7 @@
 @activeHoverColor: @selectedTextColor;
 
 /* Loading */
-@loadingBackgroundColor: #FFFFFF;
+@loadingBackground: rgba(0, 0, 0, 0.04);
 
 /*-------------------
         Types
