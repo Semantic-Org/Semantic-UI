@@ -161,7 +161,7 @@
       ignore_class : ["code", "ace_editor"]
     };
   </script>
-  <script type="text/javascript" src="//cdn.transifex.com/live.js"></script>
+  <script type="text/javascript" src="http://cdn.transifex.com/live.js"></script>
 </head>
 <body id="example" class="pushable <%= @document.css %>" ontouchstart="">
   <div class="ui vertical inverted labeled icon sidebar menu" id="menu">

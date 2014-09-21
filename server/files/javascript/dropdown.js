@@ -8,7 +8,7 @@ semantic.dropdown.ready = function() {
     $examples         = $('.example'),
     $hoverDropdown    = $examples.filter('.hover').find('.ui.dropdown'),
     $buttonDropdown   = $examples.filter('.button.example').find('.ui.dropdown'),
-    $dropdown         = $examples.filter('.dropdown').find('> .ui.dropdown:not(.simple)'),
+    $dropdown         = $examples.filter('.dropdown').find('> .ui.dropdown:not(.simple), .inline.dropdown, .icon.buttons .button, .form .dropdown.selection'),
     $transition       = $examples.filter('.transition').find('.ui.dropdown'),
     $transitionButton = $examples.filter('.transition').find('.ui.button').first(),
     // alias

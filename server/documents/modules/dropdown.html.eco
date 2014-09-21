@@ -954,8 +954,8 @@ themes      : ['Default']
       <div class="code" data-label="HTML" data-type="html">
         <div class="ui dropdown">
           <input type="hidden" name="gender">
-          <div class="default text">Gender</div>
           <i class="dropdown icon"></i>
+          <div class="default text">Gender</div>
           <div class="menu">
             <div class="item" data-value="male">Male</div>
             <div class="item" data-value="female">Female</div>
@@ -993,29 +993,58 @@ themes      : ['Default']
       <h4 class="ui header">Hybrid Option</h4>
       <p>As a third option, you can include a wrapper around your <code>select</code> so that it will appear correctly on page load, but will then <b>populate the hidden menu</b> when javascript fires. In this case, the <code>select</code> element does not receive the <code>ui dropdown</code> class.</p>
       <div class="code" data-label="HTML" data-type="html">
-        <div class="ui dropdown">
-          <select name="gender" id="hybrid-select">
-            <option value="">Gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-          </select>
-          <div class="default text">Gender</div>
-          <i class="dropdown icon"></i>
+        <div class="ui vertical menu" id="hybrid">
+          <div class="ui dropdown item">
+            <i class="dropdown icon"></i>
+            Colors
+            <select>
+              <option>Red</option>
+              <option>Black</option>
+              <option>Blue</option>
+              <option>Green</option>
+            </select>
+          </div>
+          <div class="ui dropdown item">
+            <i class="dropdown icon"></i>
+            Sizes
+            <select>
+              <option>Small</option>
+              <option>Medium</option>
+              <option>Large</option>
+              <option>Huge</option>
+            </select>
+          </div>
         </div>
       </div>
       <div class="code" data-type="javascript" data-demo="true">
-        $('#hybrid-select')
-          .dropdown()
+        $('#hybrid select')
+          .dropdown({
+            on: 'hover'
+          })
         ;
       </div>
-      <div class="ui dropdown">
-        <select name="gender" id="hybrid-select">
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-        </select>
-        <div class="default text">Gender</div>
-        <i class="dropdown icon"></i>
-      </div>
+      <div class="ui vertical menu" id="hybrid">
+          <div class="ui dropdown item">
+            <i class="dropdown icon"></i>
+            Colors
+            <select>
+              <option>Red</option>
+              <option>Black</option>
+              <option>Blue</option>
+              <option>Green</option>
+            </select>
+          </div>
+          <div class="ui dropdown item">
+            <i class="dropdown icon"></i>
+            Sizes
+            <select>
+              <option>Small</option>
+              <option>Medium</option>
+              <option>Large</option>
+              <option>Huge</option>
+            </select>
+          </div>
+        </div>
     </div>
 
     <div class="no example">
@@ -1467,7 +1496,7 @@ themes      : ['Default']
         </div>
       </div>
 
-      <div class="ui dropdown icon button">
+      <div class="ui dropdown button">
         <div class="text">Go to</div>
         <i class="dropdown icon"></i>
         <div class="menu">
