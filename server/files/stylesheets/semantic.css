@@ -300,7 +300,7 @@ a:hover {
   height: 1px;
   position: absolute;
   right: 100%;
-  top: -55px;
+  top: -30px;
   width: 1px;
 }
 
@@ -703,6 +703,10 @@ body#example.hide {
 /*----------------
    Overview Mode
 -----------------*/
+
+#example .right.floated.overview.button {
+  margin-bottom: 0.5em;
+}
 
 #example.overview h2.ui.header {
   margin-bottom: 0.5em;
