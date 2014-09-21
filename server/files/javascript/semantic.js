@@ -216,7 +216,7 @@ semantic.ready = function() {
             $anchor  = $('<a />').addClass('anchor').attr('id', id)
           ;
           if($title.size() > 0) {
-            $title.prepend($anchor);
+            $title.after($anchor);
           }
         })
       ;
@@ -261,7 +261,7 @@ semantic.ready = function() {
                   $anchor  = $('<a />').addClass('anchor').attr('id', id)
                 ;
                 if($title.size() > 0) {
-                  html += '<a class="item" href="#'+id+'">' + $(this).children('h4').text() + '</a>';
+                  html += '<a class="item" href="#'+id+'">' + $(this).children('h4').html() + '</a>';
                 }
               })
             ;

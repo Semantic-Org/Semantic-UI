@@ -1231,9 +1231,6 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*------------------
-     Load Theme
--------------------*/
 /*******************************
              Grid
 *******************************/
@@ -1260,6 +1257,9 @@
 /*--------------
     Stackable
 ---------------*/
+/*------------------
+     Load Theme
+-------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -3900,29 +3900,6 @@
     Load Default
 -------------------*/
 /*******************************
-            Message
-*******************************/
-/*-------------------
-       Elements
---------------------*/
-/* Header */
-/* Paragraph */
-/* List */
-/* Icon */
-/* Close Icon */
-/*-------------------
-        Types
---------------------*/
-/* Icon Message */
-/* Attached */
-/* Floating */
-/*-------------------
-      Variations
---------------------*/
-/*------------------
-     Load Theme
--------------------*/
-/*******************************
          Site Settings
 *******************************/
 /*-------------------
@@ -4014,6 +3991,29 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*******************************
+            Message
+*******************************/
+/*-------------------
+       Elements
+--------------------*/
+/* Header */
+/* Paragraph */
+/* List */
+/* Icon */
+/* Close Icon */
+/*-------------------
+        Types
+--------------------*/
+/* Icon Message */
+/* Attached */
+/* Floating */
+/*-------------------
+      Variations
+--------------------*/
+/*------------------
+     Load Theme
+-------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -4035,7 +4035,7 @@
   margin: 1em 0em;
   background: #efefef;
   padding: 1em 1.5em;
-  line-height: 1.33;
+  line-height: 1.3;
   color: rgba(0, 0, 0, 0.8);
   -webkit-transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
           transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
@@ -4362,10 +4362,10 @@
   font-size: 1.125em;
 }
 .ui.huge.message {
-  font-size: 1.375em;
+  font-size: 1.5em;
 }
 .ui.massive.message {
-  font-size: 1.5em;
+  font-size: 2em;
 }
 /*******************************
            Overrides
@@ -17720,6 +17720,31 @@ a:hover {
     Load Default
 -------------------*/
 /*******************************
+           Accordion
+*******************************/
+/* Title */
+/* Icon */
+/* Child Accordion */
+/* Content */
+/*-------------------
+       Coupling
+--------------------*/
+/*-------------------
+       States
+--------------------*/
+/*-------------------
+      Variations
+--------------------*/
+/* Styled */
+/* Content */
+/* Child Content */
+/* Styled Title */
+/* Styled Title States */
+/* Styled Child Title States */
+/*------------------
+     Load Theme
+-------------------*/
+/*******************************
          Site Settings
 *******************************/
 /*-------------------
@@ -17811,31 +17836,6 @@ a:hover {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*******************************
-           Accordion
-*******************************/
-/* Title */
-/* Icon */
-/* Child Accordion */
-/* Content */
-/*-------------------
-       Coupling
---------------------*/
-/*-------------------
-       States
---------------------*/
-/*-------------------
-      Variations
---------------------*/
-/* Styled */
-/* Content */
-/* Child Content */
-/* Styled Title */
-/* Styled Title States */
-/* Styled Child Title States */
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -17854,7 +17854,7 @@ a:hover {
 .ui.accordion,
 .ui.accordion .accordion {
   max-width: 100%;
-  font-size: 1em;
+  font-size: 14px;
 }
 .ui.accordion .accordion {
   margin: 1em 0em 0em;
@@ -17883,7 +17883,7 @@ a:hover {
   display: inline-block;
   float: none;
   opacity: 0.75;
-  width: 1.25em;
+  width: 1.23em;
   height: 1em;
   margin: 0em 0.25em 0em -0.25em;
   -webkit-transition: -webkit-transform 0.2s ease, opacity 0.2s ease;
@@ -19129,6 +19129,9 @@ a:hover {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*------------------
+     Load Theme
+-------------------*/
 /*******************************
             Dimmer
 *******************************/
@@ -19139,9 +19142,6 @@ a:hover {
       Variations
 --------------------*/
 /* Simple */
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
