@@ -145,15 +145,16 @@ $.fn.dropdown = function(parameters) {
             module.debug('Dropdown initialized on a select', selectValues);
             // see if select exists inside a dropdown
             $input = $module;
-
-            if($module.closest(className.dropdown) > 0) {
+            if($input.parents(selector.dropdown).size() > 0) {
               module.debug('Creating dropdown menu only from template');
-              $module = $module.closest(className.dropdown);
-              $('<div />')
-                .addClass(className.menu)
-                .html( settings.templates.menu( selectValues ))
-                .appendTo($module)
-              ;
+              $module = $input.closest(selector.dropdown);
+              if($module.find('.' + className.dropdown).size() === 0) {
+                $('<div />')
+                  .addClass(className.menu)
+                  .html( settings.templates.menu( selectValues ))
+                  .appendTo($module)
+                ;
+              }
             }
             else {
               module.debug('Creating entire dropdown from template');
@@ -1330,11 +1331,12 @@ $.fn.dropdown.settings = {
   },
 
   selector : {
-    text   : '> .text:not(.icon)',
-    input  : '> input[type="hidden"], > select',
-    search : '> .search',
-    menu   : '.menu',
-    item   : '.item'
+    dropdown : '.ui.dropdown',
+    text     : '> .text:not(.icon)',
+    input    : '> input[type="hidden"], > select',
+    search   : '> .search',
+    menu     : '.menu',
+    item     : '.item'
   },
 
   className : {
@@ -1359,7 +1361,6 @@ $.fn.dropdown.settings.templates = {
       values      = select.values || {},
       html        = ''
     ;
-    html += '<div class="menu">';
     $.each(select.values, function(value, name) {
       if(value === name) {
         html += '<div class="item">' + name + '</div>';
