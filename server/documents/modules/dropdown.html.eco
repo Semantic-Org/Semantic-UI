@@ -989,6 +989,34 @@ themes      : ['Default']
         <option value="female">Female</option>
       </select>
     </div>
+    <div class="no example">
+      <h4 class="ui header">Hybrid Option</h4>
+      <p>As a third option, you can include a wrapper around your <code>select</code> so that it will appear correctly on page load, but will then <b>populate the hidden menu</b> when javascript fires. In this case, the <code>select</code> element does not receive the <code>ui dropdown</code> class.</p>
+      <div class="code" data-label="HTML" data-type="html">
+        <div class="ui dropdown">
+          <select name="gender" id="hybrid-select">
+            <option value="">Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+          <div class="default text">Gender</div>
+          <i class="dropdown icon"></i>
+        </div>
+      </div>
+      <div class="code" data-type="javascript" data-demo="true">
+        $('#hybrid-select')
+          .dropdown()
+        ;
+      </div>
+      <div class="ui dropdown">
+        <select name="gender" id="hybrid-select">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+        <div class="default text">Gender</div>
+        <i class="dropdown icon"></i>
+      </div>
+    </div>
 
     <div class="no example">
       <h4 class="ui header">Searching Dropdowns</h4>
