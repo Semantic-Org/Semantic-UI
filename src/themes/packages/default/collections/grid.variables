@@ -90,4 +90,3 @@
 @stackableMobileBorder: 1px solid @borderColor;
 @stackableInvertedMobileBorder: 1px solid @whiteBorderColor;
 
-@doublingRowSpacing: @rowSpacing;
