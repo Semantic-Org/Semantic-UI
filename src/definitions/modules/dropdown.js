@@ -70,7 +70,6 @@ $.fn.dropdown = function(parameters) {
         initialize: function() {
           module.debug('Initializing dropdown', settings);
           module.setup.layout();
-
           module.save.defaults();
           module.set.selected();
 
@@ -94,6 +93,9 @@ $.fn.dropdown = function(parameters) {
         destroy: function() {
           module.verbose('Destroying previous dropdown for', $module);
           $item
+            .off(eventNamespace)
+          ;
+          $search
             .off(eventNamespace)
           ;
           $module
@@ -727,9 +729,11 @@ $.fn.dropdown = function(parameters) {
                   }
                   else {
                     if( optionValue == value ) {
+                      module.verbose('Found select item by value', optionValue, value);
                       $selectedItem = $(this);
                     }
                     else if( !$selectedItem && optionText == value ) {
+                      module.verbose('Found select item by text', optionText, value);
                       $selectedItem = $(this);
                     }
                   }
@@ -1334,7 +1338,7 @@ $.fn.dropdown.settings = {
     dropdown : '.ui.dropdown',
     text     : '> .text:not(.icon)',
     input    : '> input[type="hidden"], > select',
-    search   : '> .search',
+    search   : '> .search, .menu > .search',
     menu     : '.menu',
     item     : '.item'
   },
