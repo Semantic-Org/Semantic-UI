@@ -160,6 +160,7 @@ $.fn.dropdown = function(parameters) {
               $module = $('<div />')
                 .attr('class', $input.attr('class') )
                 .addClass(className.selection)
+                .addClass(className.dropdown)
                 .html( settings.templates.dropdown(selectValues) )
                 .insertBefore($input)
               ;
