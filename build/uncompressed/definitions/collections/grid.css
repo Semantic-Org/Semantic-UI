@@ -918,11 +918,16 @@
 --------------------*/
 /* Mobily Only */
 @media only screen and (max-width: 767px) {
+  .ui.grid > .doubling.row,
   .ui.doubling.grid > .row {
-    display: inline;
+    margin: 0em;
+    padding: 0em;
   }
+  .ui.grid > .doubling.row > .column,
   .ui.doubling.grid > .row > .column {
-    margin-bottom: 2rem;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+    margin: 0em;
   }
   .ui[class*="two column"].doubling.grid > .row > .column,
   .ui[class*="two column"].doubling.grid > .column,
@@ -987,11 +992,16 @@
 }
 /* Tablet Only */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+  .ui.grid > .doubling.row,
   .ui.doubling.grid > .row {
-    display: inline !important;
+    margin: 0em;
+    padding: 0em;
   }
+  .ui.grid > .doubling.row > .column,
   .ui.doubling.grid > .row > .column {
-    margin-bottom: 2rem !important;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+    margin: 0em;
   }
   .ui[class*="two column"].doubling.grid > .row > .column,
   .ui[class*="two column"].doubling.grid > .column,

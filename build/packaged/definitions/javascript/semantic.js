@@ -2614,12 +2614,6 @@ $.fn.visibility = function(parameters) {
 
         destroy: function() {
           module.verbose('Destroying previous module');
-          $window
-            .off(eventNamespace)
-          ;
-          $context
-            .off(eventNamespace)
-          ;
           $module
             .off(eventNamespace)
             .removeData(moduleNamespace)

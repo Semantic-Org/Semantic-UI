@@ -835,11 +835,16 @@
 
 /* Mobily Only */
 @media only screen and (max-width: @largestMobileScreen) {
+  .ui.grid > .doubling.row,
   .ui.doubling.grid > .row {
-    display: inline;
+    margin: 0em;
+    padding: 0em;
   }
+  .ui.grid > .doubling.row > .column,
   .ui.doubling.grid > .row > .column {
-    margin-bottom: @doublingRowSpacing;
+    padding-top: (@rowSpacing / 2) !important;
+    padding-bottom: (@rowSpacing / 2) !important;
+    margin: 0em;
   }
   .ui[class*="two column"].doubling.grid > .row > .column,
   .ui[class*="two column"].doubling.grid > .column,
@@ -905,11 +910,16 @@
 
 /* Tablet Only */
 @media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
+  .ui.grid > .doubling.row,
   .ui.doubling.grid > .row {
-    display: inline !important;
+    margin: 0em;
+    padding: 0em;
   }
+  .ui.grid > .doubling.row > .column,
   .ui.doubling.grid > .row > .column {
-    margin-bottom: @doublingRowSpacing !important;
+    padding-top: (@rowSpacing / 2) !important;
+    padding-bottom: (@rowSpacing / 2) !important;
+    margin: 0em;
   }
   .ui[class*="two column"].doubling.grid > .row > .column,
   .ui[class*="two column"].doubling.grid > .column,

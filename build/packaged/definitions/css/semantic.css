@@ -2012,11 +2012,16 @@
 --------------------*/
 /* Mobily Only */
 @media only screen and (max-width: 767px) {
+  .ui.grid > .doubling.row,
   .ui.doubling.grid > .row {
-    display: inline;
+    margin: 0em;
+    padding: 0em;
   }
+  .ui.grid > .doubling.row > .column,
   .ui.doubling.grid > .row > .column {
-    margin-bottom: 2rem;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+    margin: 0em;
   }
   .ui[class*="two column"].doubling.grid > .row > .column,
   .ui[class*="two column"].doubling.grid > .column,
@@ -2081,11 +2086,16 @@
 }
 /* Tablet Only */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+  .ui.grid > .doubling.row,
   .ui.doubling.grid > .row {
-    display: inline !important;
+    margin: 0em;
+    padding: 0em;
   }
+  .ui.grid > .doubling.row > .column,
   .ui.doubling.grid > .row > .column {
-    margin-bottom: 2rem !important;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+    margin: 0em;
   }
   .ui[class*="two column"].doubling.grid > .row > .column,
   .ui[class*="two column"].doubling.grid > .column,
@@ -17720,31 +17730,6 @@ a:hover {
     Load Default
 -------------------*/
 /*******************************
-           Accordion
-*******************************/
-/* Title */
-/* Icon */
-/* Child Accordion */
-/* Content */
-/*-------------------
-       Coupling
---------------------*/
-/*-------------------
-       States
---------------------*/
-/*-------------------
-      Variations
---------------------*/
-/* Styled */
-/* Content */
-/* Child Content */
-/* Styled Title */
-/* Styled Title States */
-/* Styled Child Title States */
-/*------------------
-     Load Theme
--------------------*/
-/*******************************
          Site Settings
 *******************************/
 /*-------------------
@@ -17836,6 +17821,31 @@ a:hover {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*******************************
+           Accordion
+*******************************/
+/* Title */
+/* Icon */
+/* Child Accordion */
+/* Content */
+/*-------------------
+       Coupling
+--------------------*/
+/*-------------------
+       States
+--------------------*/
+/*-------------------
+      Variations
+--------------------*/
+/* Styled */
+/* Content */
+/* Child Content */
+/* Styled Title */
+/* Styled Title States */
+/* Styled Child Title States */
+/*------------------
+     Load Theme
+-------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -17854,7 +17864,7 @@ a:hover {
 .ui.accordion,
 .ui.accordion .accordion {
   max-width: 100%;
-  font-size: 14px;
+  font-size: 1em;
 }
 .ui.accordion .accordion {
   margin: 1em 0em 0em;
@@ -17883,7 +17893,7 @@ a:hover {
   display: inline-block;
   float: none;
   opacity: 0.75;
-  width: 1.23em;
+  width: 1.25em;
   height: 1em;
   margin: 0em 0.25em 0em -0.25em;
   -webkit-transition: -webkit-transform 0.2s ease, opacity 0.2s ease;
@@ -19129,9 +19139,6 @@ a:hover {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*------------------
-     Load Theme
--------------------*/
 /*******************************
             Dimmer
 *******************************/
@@ -19142,6 +19149,9 @@ a:hover {
       Variations
 --------------------*/
 /* Simple */
+/*------------------
+     Load Theme
+-------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -25200,7 +25210,8 @@ a.ui.nag {
      Buttons
 ---------------*/
 .ui.cards > .card > .buttons:last-child,
-.ui.card > .buttons:last-child .ui.cards > .card > .button:last-child,
+.ui.card > .buttons:last-child,
+.ui.cards > .card > .button:last-child,
 .ui.card > .button:last-child {
   margin-bottom: -1px;
 }
