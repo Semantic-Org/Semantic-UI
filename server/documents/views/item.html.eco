@@ -15,6 +15,7 @@ themes      : ['Default']
 <%- @partial('header') %>
 
 <link rel="stylesheet/less" type="text/css" href="/build/less/definitions/views/item.less" />
+<script src="/javascript/item.js"></script>
 
 <div class="main container">
 
@@ -301,16 +302,25 @@ themes      : ['Default']
 
   <div class="example">
     <h4 class="ui header">Icons</h4>
-    <p>A item can contain icons to denote user actions.</p>
+    <p>A item can contain icons signifying a 'like' or 'favorite' action</p>
     <div class="ui info message">
-      Common actions may contain special formatting, like "star" or "heart". To attach events, on a user action, please check out the <a href="#">state behavior</a>.
+      It's recommended to use <code>ui rating</code>
     </div>
     <div class="ui items">
       <div class="item">
         <div class="content">
-          <i class="right floated like icon"></i>
-          <i class="right floated star icon"></i>
-          <a class="header">Cute Dog</a>
+          <i class="like icon"></i>
+          <a class="header">Veronika Ossi</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui items">
+      <div class="item">
+        <div class="content">
+          <i class="favorite icon"></i>
+          <a class="header">Justen Kitsune</a>
         </div>
       </div>
     </div>

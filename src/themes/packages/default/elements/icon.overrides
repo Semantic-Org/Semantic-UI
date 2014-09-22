@@ -531,6 +531,7 @@ i.icon.wechat:before { content: "\f1d7"; }
 *******************************/
 
 i.icon.like:before { content: "\f004"; }
+i.icon.favorite:before { content: "\f005"; }
 i.icon.video:before { content: "\f008"; }
 i.icon.sidebar:before { content: "\f00b"; }
 i.icon.check:before { content: "\f00c"; }

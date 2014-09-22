@@ -30,7 +30,7 @@
   table-layout: fixed;
 
   display: @display;
-  margin: @margin;
+  margin: @itemSpacing 0em;
   width: @width;
   min-height: @minHeight;
   background: @background;
@@ -51,14 +51,14 @@
 ---------------*/
 
 .ui.items {
-  margin: @itemsMargin;
+  margin: @groupMargin;
 }
 
 .ui.items:first-child {
-  margin-top: 0em;
+  margin-top: 0em !important;
 }
 .ui.items:last-child {
-  margin-bottom: 0em;
+  margin-bottom: 0em !important;
 }
 
 /*--------------
@@ -110,11 +110,6 @@
   border-radius: @borderRadius;
 }
 
-/* Default Image Width */
-.ui.items > .item > .image:not(.ui) {
-  width: @imageWidth;
-}
-
 
 /*--------------
      Content
@@ -144,7 +139,7 @@
   display: @contentDisplay;
   margin-left: @contentOffset;
   vertical-align: @contentVerticalAlign;
-  padding-left: @contentImagePadding;
+  padding-left: @contentImageDistance;
 }
 
 .ui.items > .item > .content > .header {
@@ -197,6 +192,7 @@
 ---------------*/
 
 .ui.items > .item > .content > .description {
+  max-width: @descriptionMaxWidth;
   font-size: @descriptionFontSize;
   line-height: @descriptionLineHeight;
   color: @descriptionColor;
@@ -219,6 +215,7 @@
 
 .ui.items > .item .meta {
   font-size: @metaFontSize;
+  line-height: @metaLineHeight;
   color: @metaColor;
 }
 .ui.items > .item .meta * {
@@ -319,10 +316,10 @@
   border-top: @extraDivider;
 }
 .ui.items > .item .extra > * {
-  margin-right: @extraSpacing;
+  margin: @extraRowSpacing @extraSpacing 0em 0em;
 }
 .ui.items > .item .extra > [class*="right floated"] {
-  margin-left: @extraSpacing;
+  margin: @extraRowSpacing 0em 0em @extraSpacing;
 }
 
 .ui.items > .item .extra:after {
@@ -332,6 +329,55 @@
   clear: both;
   overflow: hidden;
   visibility: hidden;
+}
+
+
+/*******************************
+          Responsive
+*******************************/
+
+/* Default Image Width */
+.ui.items > .item > .image:not(.ui) {
+  width: @imageWidth;
+}
+
+
+/* Tablet Only */
+@media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
+  .ui.items > .item {
+    margin: @tabletItemSpacing 0em;
+  }
+  .ui.items > .item > .image:not(.ui) {
+    width: @tabletImageWidth;
+  }
+  .ui.items > .item > .image + .content {
+    display: block;
+    padding: 0em 0em 0em @tabletContentImageDistance;
+  }
+
+}
+
+/* Mobily Only */
+@media only screen and (max-width: @largestMobileScreen) {
+  .ui.items > .item {
+    margin: @mobileItemSpacing 0em;
+  }
+  .ui.items > .item > .image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .ui.items > .item > .image,
+  .ui.items > .item > .image > img {
+    max-width: 100% !important;
+    width: @mobileImageWidth !important;
+    max-height: @mobileImageMaxHeight !important;
+  }
+  .ui.items > .item > .image + .content {
+    display: block;
+    padding: @mobileContentImageDistance 0em 0em;
+  }
+
 }
 
 
@@ -378,12 +424,12 @@
 --------------------*/
 
 .ui.items a.item:hover,
-.ui.link.item > .item:hover {
+.ui.link.items > .item:hover {
   cursor: pointer;
 }
 
 .ui.items a.item:hover .content .header,
-.ui.link.item > .item:hover .content .header {
+.ui.link.items > .item:hover .content .header {
   color: @headerLinkHoverColor;
 }
 

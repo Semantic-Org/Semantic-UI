@@ -143,8 +143,9 @@
 /*-------------------
          View
 --------------------*/
-/* Items */
+/* Group */
 /* Item */
+/* Responsive */
 /*-------------------
        Content
 --------------------*/
@@ -210,10 +211,10 @@
   margin: 1.5em 0em;
 }
 .ui.items:first-child {
-  margin-top: 0em;
+  margin-top: 0em !important;
 }
 .ui.items:last-child {
-  margin-bottom: 0em;
+  margin-bottom: 0em !important;
 }
 /*--------------
       Item
@@ -257,10 +258,6 @@
 .ui.items > .item > .image:only-child > img {
   border-radius: 0rem;
 }
-/* Default Image Width */
-.ui.items > .item > .image:not(.ui) {
-  width: 175px;
-}
 /*--------------
      Content
 ---------------*/
@@ -291,7 +288,7 @@
 }
 .ui.items > .item > .content > .header {
   display: inline-block;
-  margin: 0em;
+  margin: -0.165em 0em 0em;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.85);
@@ -330,8 +327,9 @@
    Description
 ---------------*/
 .ui.items > .item > .content > .description {
-  font-size: 1.1em;
-  line-height: 1.2;
+  max-width: 550px;
+  font-size: 1em;
+  line-height: 1.33;
   color: rgba(0, 0, 0, 0.8);
 }
 /*--------------
@@ -348,6 +346,7 @@
 ---------------*/
 .ui.items > .item .meta {
   font-size: 1em;
+  line-height: 1em;
   color: rgba(0, 0, 0, 0.6);
 }
 .ui.items > .item .meta * {
@@ -426,9 +425,9 @@
   display: block;
   position: relative;
   background: none;
-  margin: 1em 0em 0em;
+  margin: 0.5rem 0em 0em;
   width: 100%;
-  padding: 0.25em 0em 0em;
+  padding: 0em 0em 0em;
   top: 0em;
   left: 0em;
   color: rgba(0, 0, 0, 0.4);
@@ -438,10 +437,10 @@
   border-top: none;
 }
 .ui.items > .item .extra > * {
-  margin-right: 0.5em;
+  margin: 0.5rem 0.5rem 0em 0em;
 }
 .ui.items > .item .extra > [class*="right floated"] {
-  margin-left: 0.5em;
+  margin: 0.5rem 0em 0em 0.5rem;
 }
 .ui.items > .item .extra:after {
   display: block;
@@ -450,6 +449,47 @@
   clear: both;
   overflow: hidden;
   visibility: hidden;
+}
+/*******************************
+          Responsive
+*******************************/
+/* Default Image Width */
+.ui.items > .item > .image:not(.ui) {
+  width: 175px;
+}
+/* Tablet Only */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .ui.items > .item {
+    margin: 1em 0em;
+  }
+  .ui.items > .item > .image:not(.ui) {
+    width: 150px;
+  }
+  .ui.items > .item > .image + .content {
+    display: block;
+    padding: 0em 0em 0em 1em;
+  }
+}
+/* Mobily Only */
+@media only screen and (max-width: 767px) {
+  .ui.items > .item {
+    margin: 2em 0em;
+  }
+  .ui.items > .item > .image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .ui.items > .item > .image,
+  .ui.items > .item > .image > img {
+    max-width: 100% !important;
+    width: auto !important;
+    max-height: 250px !important;
+  }
+  .ui.items > .item > .image + .content {
+    display: block;
+    padding: 1.5em 0em 0em;
+  }
 }
 /*******************************
            Variations
@@ -487,11 +527,11 @@
         Link
 --------------------*/
 .ui.items a.item:hover,
-.ui.link.item > .item:hover {
+.ui.link.items > .item:hover {
   cursor: pointer;
 }
 .ui.items a.item:hover .content .header,
-.ui.link.item > .item:hover .content .header {
+.ui.link.items > .item:hover .content .header {
   color: #00b2f3;
 }
 /*--------------
