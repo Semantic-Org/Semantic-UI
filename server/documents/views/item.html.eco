@@ -20,7 +20,7 @@ themes      : ['Default']
 
   <h2 class="ui dividing header">Types</h2>
 
-  <div class="even example">
+  <div class="example">
     <h4 class="ui header">Items</h4>
     <p>A group of items.</p>
     <div class="ui items">
@@ -88,6 +88,97 @@ themes      : ['Default']
   </div>
 
   <h2 class="ui dividing header">Content</h2>
+
+
+  <div class="example">
+    <h4 class="ui header">Image</h4>
+    <p>A item can contain an image</p>
+    <div class="ui warning message">
+      Item images default to item <code>@imageWidth</code>, but you can also manually set the image width using a size variation of <code>ui image</code> for example <code>ui tiny image</code>
+    </div>
+    <div class="ui info message">
+      In addition, default image sizes will adjust for both tablet and mobile views. The default theme will force content to stack at mobile views
+    </div>
+    <div class="ui items">
+      <div class="item">
+        <div class="image">
+          <img src="/images/movies/12years-horizontal.jpg">
+        </div>
+      </div>
+      <div class="item">
+        <div class="image">
+          <img src="/images/movies/totoro-horizontal.jpg">
+        </div>
+      </div>
+      <div class="item">
+        <div class="image">
+          <img src="/images/movies/watchmen-horizontal.jpg">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui items">
+      <div class="item">
+        <a class="ui tiny image">
+          <img src="/images/avatar/large/stevie.jpg">
+        </a>
+      </div>
+      <div class="item">
+        <a class="ui tiny image">
+          <img src="/images/avatar/large/veronika.jpg">
+        </a>
+      </div>
+      <div class="item">
+        <a class="ui tiny image">
+          <img src="/images/avatar/large/jenny.jpg">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Content</h4>
+    <p>A item can contain a group of content</p>
+    <div class="ui info message">
+      Grouping content in a wrapping div is necessary to make sure that content flow does not wrap below the item's image
+    </div>
+    <div class="ui items">
+      <div class="item">
+        <div class="image">
+          <img src="/images/movies/12years-horizontal.jpg">
+        </div>
+        <div class="content">
+          <a class="header">12 Years a Slave</a>
+          <div class="meta">
+            <span class="cinema">Union Square 14</span>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="image">
+          <img src="/images/movies/totoro-horizontal.jpg">
+        </div>
+        <div class="content">
+          <a class="header">My Neighbor Totoro</a>
+          <div class="meta">
+            <span class="cinema">IFC Cinema</span>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="image">
+          <img src="/images/movies/watchmen-horizontal.jpg">
+        </div>
+        <div class="content">
+          <a class="header">Watchmen</a>
+          <div class="meta">
+            <span class="cinema">IFC</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="example">
     <h4 class="ui header">Header</h4>
@@ -261,31 +352,6 @@ themes      : ['Default']
         </div>
       </div>
     </div>
-
-  </div>
-
-  <div class="example">
-    <h4 class="ui header">Image</h4>
-    <p>A item can contain an image</p>
-    <div class="ui items">
-      <div class="item">
-        <div class="image">
-          <img src="/images/demo/highres.jpg">
-        </div>
-        <div class="content">
-          <a class="header">Cute Dog</a>
-          <div class="meta">2 days ago</div>
-          <div class="description">
-            <p>Cute dogs come in a variety of shapes and sizes. Some cute dogs are cute for their adorable faces, others for their tiny stature, and even others for their massive size.</p>
-            <p>Many people also have their own barometers for what makes a cute dog.</p>
-          </div>
-          <div class="extra">
-            <i class="green check icon"></i>
-            121 Votes
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 
   <h2 class="ui dividing header">Variations</h2>
@@ -298,56 +364,35 @@ themes      : ['Default']
     </div>
     <div class="ui divided items">
       <div class="item">
-        <div class="middle aligned content">
-          <a class="header">Arrowhead Valley Camp</a>
+        <div class="image">
+          <img src="/images/movies/12years-horizontal.jpg">
+        </div>
+        <div class="content">
+          <a class="header">12 Years a Slave</a>
           <div class="meta">
-            <span class="price">$1200</span>
-            <span class="stay">1 Month</span>
-          </div>
-          <div class="description">
-            This camp in the Hudson Valley is perfect for teenagers from 10-14.
-          </div>
-          <div class="extra">
-            <span class="right floated amenities ui label">
-              <i class="child icon"></i>
-              Child Friendly
-            </span>
+            <span class="cinema">Union Square 14</span>
           </div>
         </div>
       </div>
       <div class="item">
-        <div class="middle aligned content">
-          <a class="header">Buck's Homebrew Stayaway</a>
+        <div class="image">
+          <img src="/images/movies/totoro-horizontal.jpg">
+        </div>
+        <div class="content">
+          <a class="header">My Neighbor Totoro</a>
           <div class="meta">
-            <span class="price">$1000</span>
-            <span class="stay">2 Weeks</span>
-          </div>
-          <div class="description">
-            This adult stay away from home camp will teach you everything you need to know about forestry and homebrew.
-          </div>
-          <div class="extra">
-            <span class="right floated amenities ui label">
-              <i class="male icon"></i>
-              Adults-Only
-            </span>
+            <span class="cinema">IFC Cinema</span>
           </div>
         </div>
       </div>
       <div class="item">
-        <div class="middle aligned content">
-          <a class="header">Greek Astrology Camp</a>
+        <div class="image">
+          <img src="/images/movies/watchmen-horizontal.jpg">
+        </div>
+        <div class="content">
+          <a class="header">Watchmen</a>
           <div class="meta">
-            <span class="price">$1600</span>
-            <span class="stay">6 Weeks</span>
-          </div>
-          <div class="description">
-            Learn astrology the old fashioned way in this stayaway camp for kids aged 8-17.
-          </div>
-          <div class="extra">
-            <span class="right floated amenities ui label">
-              <i class="child icon"></i>
-              Child Friendly
-            </span>
+            <span class="cinema">IFC</span>
           </div>
         </div>
       </div>
@@ -358,52 +403,47 @@ themes      : ['Default']
   <div class="example">
     <h4 class="ui header">Link Item</h4>
     <p>A item can be formatted so that the entire contents link to another page</p>
-    <div class="ui items">
-      <a class="item" href="http://www.dog.com">
-        <div class="image">
-          <img src="/images/demo/highres.jpg">
+    <div class="ui link items">
+      <div class="item">
+        <div class="ui tiny image">
+          <img src="/images/avatar/large/stevie.jpg">
         </div>
         <div class="content">
-          <div class="header">Cute Dog</div>
-          <div class="meta">
-            <span class="category">Animals</span>
-          </div>
+          <div class="header">Stevie Feliciano</div>
           <div class="description">
-            Click to view more information about this dog at dog.com
-          </div>
-          <div class="extra">
-            <div class="author">
-              <img class="ui avatar image" src="/images/demo/photo2.jpg"> Dog Doggington
-            </div>
+            <p>Stevie Feliciano is a library scientist living in New York City. She likes to spend her time reading, running, and writing.</p>
           </div>
         </div>
-      </a>
-      <a class="item" href="http://www.dog.com">
-        <div class="image">
-          <img src="/images/demo/highres3.jpg">
+      </div>
+      <div class="item">
+        <div class="ui tiny image">
+          <img src="/images/avatar/large/veronika.jpg">
         </div>
         <div class="content">
-          <div class="header">Magic Dog</div>
-          <div class="meta">
-            <span class="category">Animals</span>
-          </div>
+          <div class="header">Veronika Ossi</div>
           <div class="description">
-            Click to view more information about a magic dog at dog.com
-          </div>
-          <div class="extra">
-            <div class="author">
-              <img class="ui avatar image" src="/images/demo/photo.jpg"> Dog Doggington
-            </div>
+            <p>Veronika Ossi is a set designer living in New York who enjoys kittens, music, and partying.</p>
           </div>
         </div>
-      </a>
+      </div>
+      <div class="item">
+        <div class="ui tiny image">
+          <img src="/images/avatar/large/jenny.jpg">
+        </div>
+        <div class="content">
+          <div class="header">Jenny Hess</div>
+          <div class="description">
+            <p>Jenny is a student studying Media Management at the New School.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="another example">
-    <div class="ui link items">
-      <div class="item">
+    <div class="ui items">
+      <a class="item">
         <div class="content">
-          <a class="header">Cute Dog</a>
+          <div class="header">Cute Dog</div>
           <div class="meta">
             <span class="category">Animals</span>
           </div>
@@ -417,7 +457,7 @@ themes      : ['Default']
           </span>
         </div>
       </div>
-    </div>
+    </a>
   </div>
 
   <div class="example">
