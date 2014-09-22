@@ -373,14 +373,6 @@ select.ui.dropdown {
   opacity: @selectionVisibleIconOpacity;
 }
 
-/* Filtered Item */
-.ui.selection.dropdown .filtered.text {
-  visibility: hidden;
-}
-.ui.selection.dropdown .filtered.item {
-  display: none;
-}
-
 /* Active Item */
 .ui.selection.active.dropdown .text:not(.default),
 .ui.selection.visible.dropdown .text:not(.default) {
@@ -470,6 +462,19 @@ select.ui.dropdown {
 .ui.dropdown .menu .selected.item {
   background: @selectedBackground;
   color: @selectedColor;
+}
+
+
+/*--------------------
+    Search Filtered
+----------------------*/
+
+/* Filtered Item */
+.ui.dropdown .filtered.text {
+  visibility: hidden;
+}
+.ui.dropdown .filtered.item {
+  display: none;
 }
 
 
