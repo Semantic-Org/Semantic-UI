@@ -415,6 +415,41 @@ themes      : ['Default']
       </div>
     </div>
 
+    <div class="dropdown example">
+      <h4 class="ui header">In-Menu Searchable</h4>
+      <p>A dropdown can include a search prompt inside its menu</p>
+      <div class="ui searchable floating dropdown labeled icon button">
+        <i class="filter icon"></i>
+        <span class="text">Filter Posts</span>
+        <div class="menu">
+          <div class="ui icon search input">
+            <i class="search icon"></i>
+            <input type="text" name="search" placeholder="Search issues...">
+          </div>
+          <div class="divider"></div>
+          <div class="header">
+            <i class="tags icon"></i>
+            Filter by tag
+          </div>
+          <div class="item">
+            <div class="ui red empty circular label"></div>
+            Important
+          </div>
+          <div class="item">
+            <div class="ui blue empty circular label"></div>
+            Announcement
+          </div>
+          <div class="item">
+            <div class="ui black empty circular label"></div>
+            Cannot Fix
+          </div>
+          <div class="item">
+            <div class="ui green empty circular label"></div>
+            Discussion
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="dropdown example">
       <h4 class="ui header">Inline</h4>
