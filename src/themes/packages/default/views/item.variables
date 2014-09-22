@@ -6,14 +6,13 @@
          View
 --------------------*/
 
-/* Items */
-@itemsMargin: 1.5em 0em;
+/* Group */
+@groupMargin: 1.5em 0em;
 
 /* Item */
 @display: table;
 @background: transparent;
 @borderRadius: 0rem;
-@margin: 1em 0em;
 @minHeight: 0px;
 @padding: 0em;
 @width: 100%;
@@ -22,6 +21,19 @@
 @zIndex: '';
 @transition: box-shadow @transitionDuration @transitionEasing;
 
+/* Responsive */
+@itemSpacing: 1em;
+@imageWidth: 175px;
+@contentImageDistance: 1.5em;
+
+@tabletItemSpacing: 1em;
+@tabletImageWidth: 150px;
+@tabletContentImageDistance: 1em;
+
+@mobileItemSpacing: 2em;
+@mobileImageWidth: auto;
+@mobileImageMaxHeight: 250px;
+@mobileContentImageDistance: 1.5em;
 
 /*-------------------
        Content
@@ -30,7 +42,6 @@
 /* Image */
 @imageDisplay: table-cell;
 @imageFloat: none;
-@imageWidth: 175px;
 @imageMaxHeight: '';
 @imageVerticalAlign: top;
 @imageMargin: 0em;
@@ -43,7 +54,6 @@
 /* Content */
 @contentDisplay: table-cell;
 @contentVerticalAlign: top;
-@contentImagePadding: 1.5em;
 
 @contentOffset: 0em;
 @contentBackground: none;
@@ -55,13 +65,14 @@
 @contentBoxShadow: none;
 
 /* Header */
-@headerMargin: 0em;
+@headerMargin: -@lineHeightOffset 0em 0em;
 @headerFontWeight: bold;
 @headerFontSize: 1.2em;
 @headerColor: @darkTextColor;
 
 /* Metadata */
 @metaFontSize: 1em;
+@metaLineHeight: 1em;
 @metaSpacing: 0.3em;
 @metaColor: rgba(0, 0, 0, 0.6);
 
@@ -85,8 +96,9 @@
 
 /* Description */
 @descriptionDistance: 0.6em;
-@descriptionFontSize: 1.1em;
-@descriptionLineHeight: 1.2;
+@descriptionMaxWidth: 550px;
+@descriptionFontSize: 1em;
+@descriptionLineHeight: 1.33;
 @descriptionColor: @textColor;
 
 /* Content Image */
@@ -103,16 +115,17 @@
 
 /* Additional Content */
 @extraDivider: none;
-@extraSpacing: 0.5em;
+@extraSpacing: 0.5rem;
+@extraRowSpacing: 0.5rem;
 
 @extraBackground: none;
 @extraDisplay: block;
 @extraPosition: relative;
-@extraMargin: 1em 0em 0em;
+@extraMargin: (1rem - @extraRowSpacing) 0em 0em;
 @extraTop: 0em;
 @extraLeft: 0em;
 @extraWidth: 100%;
-@extraPadding: 0.25em 0em 0em;
+@extraPadding: 0em 0em 0em;
 @extraBoxShadow: none;
 @extraColor: @lightTextColor;
 @extraTransition: color @transitionDuration @transitionEasing;
