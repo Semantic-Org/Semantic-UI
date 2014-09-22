@@ -547,7 +547,7 @@ semantic.ready = function() {
         $annotation = $example.find('.annotation'),
         $code       = $annotation.find('.code'),
         $header     = $example.not('.another').children('.ui.header:first-of-type').eq(0).add('p:first-of-type'),
-        $ignored    = $('i.code:last-child, .code, .existing, .pointing.below.label, .instructive, .language.label, .annotation, br, .ignore, .ignored'),
+        $ignored    = $('i.code:last-child, .anchor, .code, .existing, .pointing.below.label, .instructive, .language.label, .annotation, br, .ignore, .ignored'),
         $demo       = $example.children().not($header).not($ignored),
         code        = ''
       ;
@@ -576,7 +576,7 @@ semantic.ready = function() {
         $header         = $example.children('.ui.header:first-of-type').eq(0).add('p:first-of-type'),
         $annotation     = $example.find('.annotation'),
         $code           = $annotation.find('.code'),
-        $ignoredContent = $('.ui.popup, i.code:last-child, .code, .existing.segment, .instructive, .language.label, .annotation, br, .ignore, .ignored'),
+        $ignoredContent = $('.ui.popup, i.code:last-child, .anchor, .code, .existing.segment, .instructive, .language.label, .annotation, br, .ignore, .ignored'),
         $demo           = $example.children().not($header).not($ignoredContent),
         code            = $example.data('code') || $.proxy(handler.generateCode, this)()
       ;

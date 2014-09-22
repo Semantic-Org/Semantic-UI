@@ -26,7 +26,7 @@ themes      : ['Default']
     <div class="ui items">
       <div class="item">
         <div class="image">
-          <img src="/images/movies/12years.jpg">
+          <img src="/images/movies/12years-horizontal.jpg">
         </div>
         <div class="content">
           <a class="header">12 Years a Slave</a>
@@ -40,16 +40,12 @@ themes      : ['Default']
             <div class="ui right floated disabled red button">Sold Out</div>
             <div class="ui horizontal label">IMAX</div>
             <div class="ui horizontal label"><i class="globe icon"></i> Additional Languages</div>
-            <span class="available">
-              <i class="red remove icon"></i>
-              Tickets Unavailable
-            </span>
           </div>
         </div>
       </div>
       <div class="item">
         <div class="image">
-          <img src="/images/movies/totoro.jpg">
+          <img src="/images/movies/totoro-horizontal.jpg">
         </div>
         <div class="content">
           <a class="header">My Neighbor Totoro</a>
@@ -65,16 +61,12 @@ themes      : ['Default']
               <i class="right chevron icon"></i>
             </div>
             <div class="ui horizontal label">Limited</div>
-            <span class="available">
-              <i class="green check icon"></i>
-              10 Seats Avaiable
-            </span>
           </div>
         </div>
       </div>
       <div class="item">
         <div class="image">
-          <img src="/images/movies/watchmen.jpg">
+          <img src="/images/movies/watchmen-horizontal.jpg">
         </div>
         <div class="content">
           <a class="header">Watchmen</a>
@@ -89,10 +81,6 @@ themes      : ['Default']
               Buy tickets
               <i class="right chevron icon"></i>
             </div>
-            <span class="available">
-              <i class="green check icon"></i>
-              40 Seats Avaiable
-            </span>
           </div>
         </div>
       </div>
@@ -308,11 +296,8 @@ themes      : ['Default']
       <i class="info icon"></i>
       The following example uses <a href="/elements/segment.html">ui</a> for legibility only. This is not necessary for using <code>ui items</code>
     </div>
-    <div class="ui items">
+    <div class="ui divided items">
       <div class="item">
-        <div class="image">
-          <img src="/images/logos/arrowhead.png">
-        </div>
         <div class="middle aligned content">
           <a class="header">Arrowhead Valley Camp</a>
           <div class="meta">
@@ -327,17 +312,10 @@ themes      : ['Default']
               <i class="child icon"></i>
               Child Friendly
             </span>
-            <span class="available">
-              <i class="red check icon"></i>
-              0 Spots Available
-            </span>
           </div>
         </div>
       </div>
       <div class="item">
-        <div class="image">
-          <img src="/images/logos/big-buck.png">
-        </div>
         <div class="middle aligned content">
           <a class="header">Buck's Homebrew Stayaway</a>
           <div class="meta">
@@ -352,17 +330,10 @@ themes      : ['Default']
               <i class="male icon"></i>
               Adults-Only
             </span>
-            <span class="available">
-              <i class="green check icon"></i>
-              2 Spots Available
-            </span>
           </div>
         </div>
       </div>
       <div class="item">
-        <div class="image">
-          <img src="/images/logos/sunset.png">
-        </div>
         <div class="middle aligned content">
           <a class="header">Greek Astrology Camp</a>
           <div class="meta">
@@ -376,10 +347,6 @@ themes      : ['Default']
             <span class="right floated amenities ui label">
               <i class="child icon"></i>
               Child Friendly
-            </span>
-            <span class="available">
-              <i class="green check icon"></i>
-              25 Spots Available
             </span>
           </div>
         </div>
