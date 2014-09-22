@@ -344,7 +344,7 @@ $.fn.search = function(source, parameters) {
               }
             }
             else {
-              html = module.message(error.noResults, 'empty');
+              html = module.message(settings.noResults, 'empty');
             }
             $.proxy(settings.onResults, $module)(response);
             return html;
