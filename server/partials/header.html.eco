@@ -6,7 +6,7 @@
 
       <h1 class="ui header">
         <%=@document.title %>
-        <% if @document.status?: %><span class="ui label"><%= @document.status %></span><% end %>
+        <% if @document.status?: %><span class="ui red label"><%= @document.status %></span><% end %>
       </h1>
 
       <p><%=@document.description %></p>
@@ -51,12 +51,12 @@
     <% if @tabs?: %>
     <% index = 0 %>
     <% tabCount = 0 %>
-    <% numbers = ['zero', 'one', 'two', 'three', 'four', 'five', 'six'] %>
+    <% numbers = ['', '', 'two item', 'three item', 'four item', 'five item', 'six item'] %>
     <% colors = ['red', 'teal', 'blue', 'purple', 'black', 'orange'] %>
       <% for id, name of @tabs: %>
         <% tabCount++ %>
       <% end %>
-      <div class="<%= numbers[tabCount] %> item tabular ui menu">
+      <div class="<%= numbers[tabCount] %> tabular ui menu">
         <% for id, name of @tabs: %>
           <a class="<%= if index == 0 then 'active ' %>item" data-tab="<%= id %>"><%= name %></a>
           <% index++ %>

@@ -1,0 +1,34 @@
+---
+layout      : 'default'
+css         : 'flag-page'
+element     : 'flag'
+elementType : 'element'
+
+title       : 'Flag'
+description : 'A flag is is used to represent a political state'
+status      : 'Undocumented'
+type        : 'UI Element'
+
+---
+<link rel="stylesheet/less" type="text/css" href="/build/less/definitions/elements/flag.less" />
+
+<%- @partial('header') %>
+
+<div class="main container">
+
+  <h2 class="ui dividing header">What Can I Use This For?</h2>
+  <div class="no example">
+    <p>Flag sprites are useful for designating political states for everything from sports matches to localization dropdowns. Just be sure not to use them to represent languages or you might get a visit from the UX police.</p>
+
+    <p>Semantic UI's flag sprite is based on <a href="http://www.famfamfam.com/lab/icons/flags/" target="_blank">Fam Fam Fam's</a> image sprite</p>
+  </div>
+
+  <h2 class="ui dividing header">Development Progress</h2>
+  <div class="no example">
+    <p>This is an undocumented component, but is <b>near complete</b>.</p>
+
+    <p>You can help support the future development of the Semantic UI project, and help boost the priority of this component by donating to Semantic UI development.</p>
+
+    <p>Please be sure to leave a note in the comments to indicate that you are interested in the development of this particular component.</p>
+  </div>
+</div>

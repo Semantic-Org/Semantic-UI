@@ -22,7 +22,7 @@ themes      : ['Default', 'Timeline']
   <div class="example">
     <h4 class="ui header">Feed</h4>
     <p>A feed</p>
-    <div class="ui feed segment">
+    <div class="ui feed">
       <div class="event">
         <div class="label">
           <img src="/images/avatar/small/elliot.jpg">
@@ -157,7 +157,7 @@ themes      : ['Default', 'Timeline']
   <div class="example">
     <h4 class="ui header">Label</h4>
     <p>An event can contain an image or icon label</p>
-    <div class="ui feed segment">
+    <div class="ui feed">
       <div class="event">
         <div class="label">
           <img src="/images/avatar/small/elliot.jpg">
@@ -169,7 +169,7 @@ themes      : ['Default', 'Timeline']
     </div>
   </div>
   <div class="another example">
-    <div class="ui feed segment">
+    <div class="ui feed">
       <div class="event">
         <div class="label">
           <i class="pencil icon"></i>
@@ -188,7 +188,7 @@ themes      : ['Default', 'Timeline']
   <div class="example">
     <h4 class="ui header">Date</h4>
     <p>An event or an event summary can contain a date</p>
-    <div class="ui feed segment">
+    <div class="ui feed">
       <div class="event">
         <div class="label">
           <img src="/images/avatar/small/jenny.jpg">
@@ -205,7 +205,7 @@ themes      : ['Default', 'Timeline']
     </div>
   </div>
   <div class="another example">
-    <div class="ui feed segment">
+    <div class="ui feed">
       <div class="event">
         <div class="label">
           <img src="/images/avatar/small/jenny.jpg">
@@ -225,7 +225,7 @@ themes      : ['Default', 'Timeline']
   <div class="example">
     <h4 class="ui header">Additional information</h4>
     <p>An event can contain additional information like a set of images or text</p>
-    <div class="ui feed segment">
+    <div class="ui feed">
       <div class="event">
         <div class="label">
           <img src="/images/avatar/small/helen.jpg">
@@ -245,14 +245,14 @@ themes      : ['Default', 'Timeline']
       </div>
       <div class="event">
         <div class="label">
-          <img src="/images/avatar/small/jill.jpg">
+          <img src="/images/avatar/small/laura.jpg">
         </div>
         <div class="content">
           <div class="date">
             3 days ago
           </div>
           <div class="summary">
-             <a>Jill Kronkite</a> created a post
+             <a>Laura Faucet</a> created a post
           </div>
           <div class="extra text">
             Have you seen what's going on in Israel? Can you believe it.
@@ -268,7 +268,7 @@ themes      : ['Default', 'Timeline']
     <h4 class="ui header">Sizes</h4>
     <p>A feed can have different sizes</p>
 
-    <div class="ui small feed segment">
+    <div class="ui small feed">
       <h4 class="ui header">Followers Activity</h4>
       <div class="event">
         <div class="content">
@@ -302,7 +302,7 @@ themes      : ['Default', 'Timeline']
     >
   </div>
   <div class="another example">
-    <div class="ui large feed segment">
+    <div class="ui large feed">
       <div class="event">
         <div class="label">
           <img src="/images/avatar/small/elliot.jpg">

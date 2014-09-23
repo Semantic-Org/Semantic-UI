@@ -4,6 +4,7 @@
 <% uiIntroduction    = @getCollection("documents").findAll({type: $in: ['UI Introduction']},[{title: 1}]).toJSON() %>
 <% uiProject         = @getCollection("documents").findAll({type: $in: ['Semantic Project']},[{title: 1}]).toJSON() %>
 <% uiGuide           = @getCollection("documents").findAll({type: $in: ['UI Guide']},[{title: 1}]).toJSON() %>
+<% uiGlobals         = @getCollection("documents").findAll({type: $in: ['UI Global']},[{title: 1}]).toJSON() %>
 <% uiElements        = @getCollection("documents").findAll({type: $in: ['UI Element']},[{title: 1}]).toJSON() %>
 <% uiCollections     = @getCollection("documents").findAll({type: $in: ['UI Collection']},[{title: 1}]).toJSON() %>
 <% uiViews           = @getCollection("documents").findAll({type: $in: ['UI View']},[{title: 1}]).toJSON() %>
@@ -74,6 +75,7 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/checkbox.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/dimmer.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/transition.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/video.css">
   <% else: %>
   <link rel="stylesheet" type="text/css" class="ui" href="/build/packaged/definitions/css/semantic.min.css">
   <% end %>
@@ -134,6 +136,7 @@
   <script src="/build/uncompressed/definitions/modules/sticky.js"></script>
   <script src="/build/uncompressed/definitions/modules/tab.js"></script>
   <script src="/build/uncompressed/definitions/modules/transition.js"></script>
+  <script src="/build/uncompressed/definitions/modules/video.js"></script>
   <% else: %>
   <script src="/build/packaged/definitions/javascript/semantic.min.js"></script>
   <% end %>
@@ -173,7 +176,15 @@
       <i class="download icon"></i> <b>Download</b>
     </a>
     <div class="item">
-      <a href="/element.html" class="ui small <%= if @document.elementType is 'element' then 'active ' %>inverted header">Elements</a>
+      <div class="ui small <%= if @document.elementType is 'global' then 'active ' %> inverted header">Globals</div>
+      <div class="menu">
+        <% for element in uiGlobals: %>
+          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
+        <% end %>
+      </div>
+    </div>
+    <div class="item">
+      <div class="ui small <%= if @document.elementType is 'element' then 'active ' %> inverted header">Elements</div>
       <div class="menu">
         <% for element in uiElements: %>
           <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
@@ -181,7 +192,7 @@
       </div>
     </div>
     <div class="item">
-      <a href="/collection.html" class="ui small <%= if @document.elementType is 'collection' then 'active ' %> inverted header">Collections</a>
+      <div class="ui small <%= if @document.elementType is 'collection' then 'active ' %> inverted header">Collections</div>
       <div class="menu">
         <% for element in uiCollections: %>
           <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
@@ -205,7 +216,7 @@
       </div>
     </div>
     <div class="item">
-      <a href="/module.html" class="ui small <%= if @document.elementType is 'behavior' then 'active ' %> inverted header">Behavior</a>
+      <div class="ui small <%= if @document.elementType is 'behavior' then 'active ' %> inverted header">Behaviors</div>
       <div class="menu">
         <% for element in uiBehavior: %>
           <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>

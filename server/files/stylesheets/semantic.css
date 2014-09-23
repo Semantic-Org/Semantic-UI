@@ -92,7 +92,7 @@ h1 {
   padding: 50px 0px 5px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
-h4 + p {
+#example .example .anchor + p {
   margin: 0px 0px 1em;
 }
 pre {
@@ -161,6 +161,7 @@ a:hover {
 }
 #example #menu .inverted.header {
   color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0.5em;
 }
 #example #menu a.inverted.header.active,
 #example #menu a.inverted.header:hover {
@@ -471,7 +472,7 @@ body#example.hide {
    background-position: 0% 0%;
  }
  100% {
-   background-position: 0% -410px;
+ background-position: 0% -410px;
  }
 }
 
@@ -484,6 +485,16 @@ body#example.hide {
  }
 
 }
+
+#example.index .introduction .buttons {
+  margin-top: 3em;
+}
+#example.index .introduction .label {
+  position: absolute;
+  margin-left: 2em;
+  top: 2em
+}
+
 #example.index .main.menu {
   background-color: rgba(0, 0, 0, 0.3);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
@@ -525,15 +536,6 @@ body#example.hide {
   vertical-align: top;
   width: 100%;
 }
-#example .introduction .buttons {
-  margin-top: 3em;
-}
-#example .introduction .label {
-  position: absolute;
-  margin-left: 2em;
-  top: 2em
-}
-
 #example .introduction .theme.buttons {
   margin: -0.1em 0em 0em 0.5em;
   vertical-align: middle;
