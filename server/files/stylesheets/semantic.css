@@ -1075,47 +1075,15 @@ body.card .even.example .card .description {
 ---------------*/
 
 body.progress .ui.progress .bar {
+  width: 35%;
+}
+
+body.progress.animated .ui.progress .bar {
   -webkit-animation: finish 10s ease-in-out infinite;
   -moz-animation: finish 10s ease-in-out infinite;
   -ms-animation: finish 10s ease-in-out infinite;
   animation: finish 10s ease-in-out infinite;
 }
-
-@-webkit-keyframes finish {
-  0% {
-    width: 0%;
-  }
-  40% {
-    width: 100%;
-  }
-  100% {
-    width: 100%;
-  }
-}
-@-moz-keyframes finish {
-  0% {
-    width: 0%;
-  }
-  40% {
-    width: 100%;
-  }
-  100% {
-    width: 100%;
-  }
-}
-@keyframes finish {
-  0% {
-    width: 0%;
-  }
-  40% {
-    width: 100%;
-  }
-  100% {
-    width: 100%;
-  }
-}
-
-
 
 /*--------------
       Popup

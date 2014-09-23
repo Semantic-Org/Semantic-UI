@@ -6,10 +6,10 @@
        Element
 --------------------*/
 
-@background: @darkWhite;
+@background: @offWhite;
 @border: 1px solid @borderColor;
 @boxShadow: none;
-@padding: 0.25em;
+@padding: 0.325em;
 @borderRadius: 0.325em;
 
 /* Bar */
