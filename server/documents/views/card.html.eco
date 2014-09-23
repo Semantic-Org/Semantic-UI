@@ -195,6 +195,87 @@ themes      : ['Default', 'Basic', 'GitHub']
 
   <h2 class="ui dividing header">Content</h2>
 
+  <div class="example">
+    <h4 class="ui header">Image</h4>
+    <p>A card can contain an image</p>
+    <div class="ui info message">Cards can use <a href="/elements/reveal.html">reveal</a> or <a href="/modules/dimmer.html">dimmers</a> to easily show additional content, or options on hover</div>
+    <div class="ui card">
+      <div class="ui slide masked reveal image">
+        <img src="/images/avatar/large/jenny.jpg" class="visible content">
+        <img src="/images/avatar/large/elliot.jpg" class="hidden content">
+      </div>
+      <div class="content">
+        <a class="header">Team Fu & Hess</a>
+        <div class="meta">
+          <span class="date">Create in Sep 2014</span>
+        </div>
+      </div>
+      <div class="extra content">
+        <a>
+          <i class="users icon"></i>
+          2 Members
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="evaluated code" data-type="javascript">
+    $('.special.cards .image').dimmer({
+      on: 'hover'
+    });
+    </div>
+    <div class="ui special cards">
+      <div class="card">
+        <div class="dimmable image">
+          <div class="ui dimmer">
+            <div class="content">
+              <div class="center">
+                <div class="ui inverted button">Add Friend</div>
+              </div>
+            </div>
+          </div>
+          <img src="/images/avatar/large/elliot.jpg">
+        </div>
+        <div class="content">
+          <a class="header">Team Fu</a>
+          <div class="meta">
+            <span class="date">Create in Sep 2014</span>
+          </div>
+        </div>
+        <div class="extra content">
+          <a>
+            <i class="users icon"></i>
+            2 Members
+          </a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="dimmable image">
+          <div class="ui inverted dimmer">
+            <div class="content">
+              <div class="center">
+                <div class="ui primary button">Add Friend</div>
+              </div>
+            </div>
+          </div>
+          <img src="/images/avatar/large/jenny.jpg">
+        </div>
+        <div class="content">
+          <a class="header">Team Hess</a>
+          <div class="meta">
+            <span class="date">Create in Aug 2014</span>
+          </div>
+        </div>
+        <div class="extra content">
+          <a>
+            <i class="users icon"></i>
+            2 Members
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="even example">
     <h4 class="ui header">Header</h4>
     <p>A card can contain a header</p>
@@ -378,28 +459,6 @@ themes      : ['Default', 'Basic', 'GitHub']
       </div>
     </div>
 
-  </div>
-
-  <div class="example">
-    <h4 class="ui header">Image</h4>
-    <p>A card can contain an image</p>
-    <div class="ui card">
-      <div class="image">
-        <img src="/images/demo/highres.jpg">
-      </div>
-      <div class="content">
-        <div class="header">Cute Dog</div>
-        <div class="meta">2 days ago</div>
-        <div class="description">
-          <p>Cute dogs come in a variety of shapes and sizes. Some cute dogs are cute for their adorable faces, others for their tiny stature, and even others for their massive size.</p>
-          <p>Many people also have their own barometers for what makes a cute dog.</p>
-        </div>
-      </div>
-      <div class="extra content">
-        <i class="check icon"></i>
-        121 Votes
-      </div>
-    </div>
   </div>
 
   <h2 class="ui dividing header">Variations</h2>
