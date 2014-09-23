@@ -4,7 +4,9 @@
   "homepage"    : "http://www.semantic-ui.com",
   "main": [
     "build/packaged/css/semantic.css",
-    "build/packaged/javascript/semantic.js"
+    "build/packaged/javascript/semantic.js",
+    "build/packaged/fonts/*",
+    "build/packaged/images/*"
   ],
   "author": {
     "name" : "Jack Lukic",
