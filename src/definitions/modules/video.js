@@ -525,7 +525,7 @@ $.fn.video.settings.templates = {
     ;
     if(image) {
       html += ''
-        + '<i class="play sign icon"></i>'
+        + '<i class="video play icon"></i>'
         + '<img class="placeholder" src="' + image + '">'
       ;
     }
