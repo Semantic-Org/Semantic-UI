@@ -121,20 +121,25 @@
 --------------------*/
 
 /* Or */
-@orWidth: 0.3em;
-@orHeight: 1.1em;
+@orGap: 0.3em;
+@orHeight: (@verticalPadding * 2) + 1em;
 
-@orVerticalOffset: -0.1em;
-@orHorizontalOffset: -0.9em;
+@orCircleDistanceToEdge: (@verticalPadding);
+@orCircleSize: @orHeight - @orCircleDistanceToEdge;
+@orLineHeight: (@orCircleSize - 0.2em);
+@orBoxShadow: @borderBoxShadow;
 
+@orVerticalOffset: -(@orCircleSize / 2);
+@orHorizontalOffset: -(@orCircleSize / 2);
+
+@orBackgroundColor: @white;
+@orTextShadow: @invertedTextShadow;
 @orTextStyle: normal;
 @orTextWeight: bold;
+@orTextColor: @lightTextColor;
 
-@orCircleSize: 1.8em;
-@orLineHeight: 1.6;
-@orBoxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
 
-@orSpacerHeight: 0.5em;
+@orSpacerHeight: @verticalPadding;
 @orSpacerColor: transparent;
 
 /* Icon */
@@ -232,6 +237,7 @@
 @animationEasing: ease;
 @fadeScaleHigh: 1.5;
 @fadeScaleLow: 0.75;
+
 
 /* Sizing */
 @mini: 0.7rem;
