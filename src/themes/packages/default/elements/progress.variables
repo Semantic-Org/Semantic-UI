@@ -6,11 +6,26 @@
        Element
 --------------------*/
 
+@background: @darkWhite;
+@border: 1px solid @borderColor;
+@boxShadow: none;
+@padding: 0.25em;
+@borderRadius: 0.325em;
 
+/* Bar */
+@barHeight: 1.5em;
+@barBackground: #CCCCCC;
+@barBorderRadius: @borderRadius;
+@barTransition:
+  width 1s ease-in-out,
+  background-color 1s ease-out
+;
 
 /*-------------------
         States
 --------------------*/
+
+@activePulseColor: @white;
 
 
 /*-------------------
