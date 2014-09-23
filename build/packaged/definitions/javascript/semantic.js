@@ -10390,7 +10390,7 @@ $.extend( $.easing, {
 })( jQuery, window , document );
 
 /*
- * # Semantic - Dropdown
+ * # Semantic - Progress
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -10449,6 +10449,9 @@ $.fn.progress = function(parameters) {
 
         initialize: function() {
           module.debug('Initializing progress', settings);
+          module.read.metadata();
+          module.set.initials();
+          module.instantiate();
         },
 
         instantiate: function() {
@@ -10457,6 +10460,164 @@ $.fn.progress = function(parameters) {
           $module
             .data(moduleNamespace, module)
           ;
+        },
+
+        read: {
+          metadata: function() {
+            if( $module.data(metadata.percent) ) {
+              module.verbose('Current percent value set from metadata');
+              module.percent = $module.data(metadata.percent);
+            }
+            if( $module.data(metadata.total) ) {
+              module.verbose('Total value set from metadata');
+              module.total = $module.data(metadata.total);
+            }
+            if( $module.data(metadata.value) ) {
+              module.verbose('Current value set from metadata');
+              module.value = $module.data(metadata.value);
+            }
+          },
+          currentValue: function() {
+            return (module.value !== undefined)
+              ? module.value
+              : false
+            ;
+          }
+        },
+
+        increment: function(incrementValue) {
+          var
+            total          = module.total || false,
+            edgeValue,
+            startValue,
+            newValue
+          ;
+          if(total) {
+            startValue     = module.value || 0;
+            incrementValue = incrementValue || 1;
+            newValue       = startValue + incrementValue;
+            edgeValue      = module.total;
+            module.debug('Incrementing completed by value', incrementValue, startValue, edgeValue);
+            if(newValue > edgeValue ) {
+              module.debug('Value cannot decrement above total', edgeValue);
+              newValue = edgeValue;
+            }
+            module.set.progress(newValue);
+          }
+          else {
+            startValue     = module.percent || 0;
+            incrementValue = incrementValue || module.get.randomValue();
+            newValue       = startValue + incrementValue;
+            edgeValue      = 0;
+            module.debug('Incrementing percentage by value', incrementValue, startValue);
+            if(newValue < edgeValue ) {
+              module.debug('Value cannot decrement below zero');
+              newValue = edgeValue;
+            }
+            module.set.progress(newValue);
+          }
+        },
+        decrement: function(decrementValue) {
+          var
+            total          = module.total || false,
+            startValue,
+            newValue
+          ;
+          if(total) {
+            startValue     =  module.value   || 0;
+            decrementValue = -decrementValue || -1;
+            newValue       =  startValue + decrementValue;
+            module.debug('Decrementing completed by value', decrementValue, startValue);
+            if(newValue > module.total ) {
+              newValue = module.total;
+            }
+            module.set.progress(newValue);
+          }
+          else {
+            startValue     =  module.percent || 0;
+            decrementValue = -decrementValue || -module.get.randomValue();
+            newValue       =  startValue + decrementValue;
+            module.debug('Decrementing percentage by value', decrementValue, startValue);
+            module.set.progress(newValue);
+          }
+        },
+
+        get: {
+          randomValue: function() {
+            module.debug('Generating random increment percentage');
+            return Math.floor((Math.random() * settings.random.max) + settings.random.min);
+          },
+          percent: function() {
+            return module.percent || 0;
+          },
+          value: function() {
+            return module.value || false;
+          },
+          total: function() {
+            return module.total || false;
+          }
+        },
+
+        set: {
+          complete: function() {
+            module.set.percent(100);
+          },
+          initials: function() {
+            if(settings.value) {
+              module.verbose('Current value set in settings', settings.value);
+              module.value = settings.value;
+            }
+            if(settings.total) {
+              module.verbose('Current total set in settings', settings.total);
+              module.total = settings.total;
+            }
+            if(settings.percent) {
+              module.verbose('Current percent set in settings', settings.percent);
+              module.percent = settings.percent;
+            }
+          },
+          percent: function(value) {
+            value = (typeof value == 'string')
+              ? +(value.replace('%', ''))
+              : value
+            ;
+            console.log(value);
+            if(value > 0 && value < 1) {
+              module.verbose('Module percentage passed as decimal, converting');
+              value = value * 100;
+            }
+            module.percent = value;
+            $bar
+              .css('width', value + '%')
+            ;
+          },
+          total: function(totalValue) {
+            module.total = totalValue;
+          },
+          progress: function(value) {
+            var
+              numericValue = (typeof value === 'string')
+                ? (value.replace(/[^\d.]/g, '') !== '')
+                  ? +(value.replace(/[^\d.]/g, ''))
+                  : false
+                : value,
+              percentComplete
+            ;
+            if(!numericValue) {
+              module.error(error.nonNumeric);
+            }
+            if(module.total) {
+              module.value    = numericValue;
+              percentComplete = (numericValue / module.total);
+              module.debug('Calculating percent complete from total', percentComplete);
+              module.set.percent( percentComplete );
+            }
+            else {
+              percentComplete = numericValue;
+              module.debug('Setting value to exact percentage value', percentComplete);
+              module.set.percent( percentComplete );
+            }
+          }
         },
 
         setting: function(name, value) {
@@ -10638,20 +10799,35 @@ $.fn.progress = function(parameters) {
 
 $.fn.progress.settings = {
 
-  name           : 'Dropdown',
-  namespace      : 'progress',
+  name        : 'Progress',
+  namespace   : 'progress',
 
-  debug          : false,
-  verbose        : true,
-  performance    : true,
+  debug       : true,
+  verbose     : true,
+  performance : true,
 
-  onChange   : function(value){},
+  random : {
+    min: 1,
+    max: 3
+  },
 
-  error   : {
-    method     : 'The method you called is not defined.'
+  label       : 'percent',
+
+  percent     : false,
+  total       : false,
+  value       : false,
+
+  onChange    : function(value){},
+
+  error       : {
+    method          : 'The method you called is not defined.',
+    nonNumeric      : 'Progress value is non numeric'
   },
 
   metadata: {
+    percent : 'percent',
+    total   : 'total',
+    value   : 'value'
   },
 
   selector : {

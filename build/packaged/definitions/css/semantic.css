@@ -5101,6 +5101,7 @@
   display: inline-block;
   content: '';
   width: 1em;
+  height: 1em;
   opacity: 0.8;
   margin: 0em 0em 0em 0.5em;
   font-family: 'Icons';
@@ -21442,11 +21443,17 @@ a.ui.nag {
 .ui.progress:last-child {
   margin: 0em 0em 1.75em;
 }
+/* Indicating Variation
+
 .ui.progress .bar[style^="width:1"],
 .ui.progress .bar[style^="width:2"],
-.ui.progress .bar[style^="width:3"] {
+.ui.progress .bar[style^="width:3"],
+.ui.progress .bar[style^="width: 1"],
+.ui.progress .bar[style^="width: 2"],
+.ui.progress .bar[style^="width: 3"], {
   background-color: #F43114;
 }
+*/
 /*******************************
             Content
 *******************************/
@@ -21459,8 +21466,8 @@ a.ui.nag {
   height: 1.75em;
   background: #888888;
   border-radius: 0.325em;
-  -webkit-transition: width 1s ease-in-out, background-color 1s ease-out;
-          transition: width 1s ease-in-out, background-color 1s ease-out;
+  -webkit-transition: width 0.3s ease-in-out, background-color 1s ease-out;
+          transition: width 0.3s ease-in-out, background-color 1s ease-out;
 }
 /* Percent Complete */
 .ui.progress .bar > .progress {
