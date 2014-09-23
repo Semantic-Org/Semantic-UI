@@ -92,7 +92,6 @@
     Emotive Colors
 --------------------*/
 /* Mood */
-/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -220,6 +219,7 @@
 ---------------*/
 .ui.cards > .card,
 .ui.card {
+  max-width: 100%;
   position: relative;
   display: block;
   width: 290px;
@@ -463,11 +463,13 @@
 -----------------*/
 .ui.cards > .card > .extra,
 .ui.card > .extra {
-  min-height: 0px !important;
+  max-width: 100%;
+  min-height: 0em !important;
   position: static;
   background: none;
-  width: 100%;
-  padding: 0.75em 1em;
+  width: auto;
+  margin: 0em 1em;
+  padding: 0.75em 0em;
   top: 0em;
   left: 0em;
   color: rgba(0, 0, 0, 0.4);

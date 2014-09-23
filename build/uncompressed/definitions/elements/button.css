@@ -92,7 +92,6 @@
     Emotive Colors
 --------------------*/
 /* Mood */
-/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -674,6 +673,7 @@
   font-size: 0.875rem;
 }
 .ui.buttons .button,
+.ui.buttons .or,
 .ui.button {
   font-size: 1rem;
 }
@@ -956,7 +956,7 @@
   position: relative;
   float: left;
   width: 0.3em;
-  height: 1.1em;
+  height: 2.6em;
   z-index: 3;
 }
 .ui.buttons .or:before {
@@ -966,29 +966,18 @@
   content: 'or';
   background-color: #ffffff;
   text-shadow: none;
-  margin-top: -0.1em;
+  margin-top: -0.9em;
   margin-left: -0.9em;
   width: 1.8em;
   height: 1.8em;
-  line-height: 1.6;
+  line-height: 1.6em;
   color: rgba(0, 0, 0, 0.4);
   font-style: normal;
   font-weight: bold;
   text-align: center;
   border-radius: 500em;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px transparent inset;
   box-sizing: border-box;
-}
-.ui.buttons .or:after {
-  position: absolute;
-  top: 0em;
-  left: 0em;
-  content: ' ';
-  background-color: transparent;
-  width: 0.3em;
-  height: 2.1em;
-  border-top: 0.5em solid transparent;
-  border-bottom: 0.5em solid transparent;
 }
 /* Fluid Or */
 .ui.fluid.buttons .or {

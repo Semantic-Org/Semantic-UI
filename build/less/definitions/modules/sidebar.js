@@ -783,8 +783,8 @@ $.fn.sidebar.settings = {
       bottom : 'overlay'
     },
     mobile: {
-      left   : 'uncover',
-      right  : 'uncover',
+      left   : 'overlay',
+      right  : 'overlay',
       top    : 'overlay',
       bottom : 'overlay'
     }

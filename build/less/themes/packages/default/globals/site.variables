@@ -182,21 +182,25 @@
 --------------------*/
 
 /* Mood */
+@positiveColor           : @green;
+@negativeColor           : @red;
+
 @positiveBackgroundColor : #E4F5DD;
 @negativeBackgroundColor : #FAE8E8;
 
 @positiveBorderColor     : #B7CAA7;
 @negativeBorderColor     : #DBB1B1;
 
-/* Solid Background Color */
-@positiveColor           : @green;
-@negativeColor           : @red;
-
 @positiveTextColor       : #3C763D;
 @negativeTextColor       : #A94442;
 
 
 /* Status */
+@infoColor              : #31CCEC;
+@warningColor           : #F2C037;
+@successColor           : @positiveColor;
+@errorColor             : @negativeColor;
+
 @infoBackgroundColor    : #E5F6FB;
 @warningBackgroundColor : #FCF8E3;
 @successBackgroundColor : @positiveBackgroundColor;

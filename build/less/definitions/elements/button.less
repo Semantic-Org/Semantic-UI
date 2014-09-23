@@ -530,6 +530,7 @@
   font-size: @small;
 }
 .ui.buttons .button,
+.ui.buttons .or,
 .ui.button {
   font-size: @medium;
 }
@@ -847,7 +848,7 @@
 .ui.buttons .or {
   position: relative;
   float: left;
-  width: @orWidth;
+  width: @orGap;
   height: @orHeight;
   z-index: 3;
 }
@@ -856,8 +857,8 @@
   top: 50%;
   left: 50%;
   content: 'or';
-  background-color: @white;
-  text-shadow: @invertedTextShadow;
+  background-color: @orBackgroundColor;
+  text-shadow: @orTextShadow;
 
   margin-top: @orVerticalOffset;
   margin-left: @orHorizontalOffset;
@@ -866,7 +867,7 @@
   height: @orCircleSize;
 
   line-height: @orLineHeight;
-  color: @lightTextColor;
+  color: @orTextColor;
 
   font-style: @orTextStyle;
   font-weight: @orTextWeight;
@@ -875,18 +876,6 @@
   border-radius: 500em;
   box-shadow: @orBoxShadow;
   box-sizing: border-box;
-}
-.ui.buttons .or:after {
-  position: absolute;
-  top: 0em;
-  left: 0em;
-  content: ' ';
-  background-color: transparent;
-
-  width: @orWidth;
-  height: (@orHeight + (@orSpacerHeight * 2));
-  border-top: @orSpacerHeight solid @orSpacerColor;
-  border-bottom: @orSpacerHeight solid @orSpacerColor;
 }
 
 /* Fluid Or */

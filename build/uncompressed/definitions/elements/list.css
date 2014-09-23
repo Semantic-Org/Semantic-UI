@@ -92,7 +92,6 @@
     Emotive Colors
 --------------------*/
 /* Mood */
-/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -679,6 +678,11 @@ ol.ui.horizontal.list li:before,
 }
 .ui.divided.ordered.list .item .list .item {
   padding-left: 2em;
+}
+/* Divided Selection */
+.ui.divided.selection.list .item {
+  margin: 0em;
+  border-radius: 0em;
 }
 /* Divided horizontal */
 .ui.divided.horizontal.list {
