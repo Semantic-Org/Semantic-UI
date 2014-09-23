@@ -72,20 +72,18 @@ module.exports = function(grunt) {
     ],
 
     setWatchFiles = function(action, filePath) {
+      var
+        outputPath = filePath.replace(paths.source.definitions, paths.output.uncompressed + 'definitions/'),
+        regExp     = new RegExp(paths.source.themes + '.*\/([^\/]*\/[^\/]*)\.(?:overrides|variables)$')
+      ;
       // convert backslashes to slashes for Windows compatibility
       if(process.platform === 'win32') {
         filePath = filePath.replace(/\\/g, '/');
       }
-      var
-        re = new RegExp(paths.source.themes + '.*\/([^\/]*\/[^\/]*)\.(?:overrides|variables)$')
-      ;
       // find relevant .less file for each modified .overrides or .variables file
-      if(filePath.search(re) !== -1) {
-        filePath = filePath.replace(re, paths.source.definitions + '$1.less');
+      if(filePath.search(regExp) !== -1) {
+        filePath = filePath.replace(regExp, paths.source.definitions + '$1.less');
       }
-      var
-        outputPath = filePath.replace(paths.source.definitions, paths.output.uncompressed + 'definitions/')
-      ;
       // build less and prefix
       if(filePath.search('.less') !== -1) {
         outputPath = outputPath.replace('less', 'css');
