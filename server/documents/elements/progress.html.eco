@@ -3,15 +3,15 @@ layout      : 'default'
 css         : 'progress'
 
 element     : 'progress'
-elementType : 'element'
+elementType : 'module'
 
 title       : 'Progress'
 description : 'A progress bar shows the progression of a task'
-type        : 'UI Element'
+type        : 'UI Module'
 
-themes      : ['Default']
+themes      : ['Default', 'Striped']
 ---
-<link rel="stylesheet/less" type="text/css" href="/build/less/definitions/elements/progress.less" />
+<link rel="stylesheet/less" type="text/css" href="/build/less/definitions/modules/progress.less" />
 
 <%- @partial('header') %>
 
@@ -23,7 +23,41 @@ themes      : ['Default']
     <h4 class="ui header">Progress Bar</h4>
     <p>A standard progress bar</p>
     <div class="ui progress">
+      <div class="bar">
+        <div class="progress"></div>
+      </div>
+      <div class="label">Uploading Files</div>
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Content</h2>
+
+  <div class="example">
+    <h4 class="ui header">Bar</h4>
+    <p>A progress element can contain a bar to indicate the current level of progress</p>
+    <div class="ui progress">
       <div class="bar"></div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Current Progress</h4>
+    <p>A progress bar can contain a reading of the current progress</p>
+    <div class="ui progress">
+      <div class="bar">
+        <div class="progress">22%</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Label</h4>
+    <p>A progress element can contain a label</p>
+    <div class="ui progress">
+      <div class="bar">
+        <div class="progress">22%</div>
+      </div>
+      <div class="label">Uploading Files</div>
     </div>
   </div>
 
@@ -33,7 +67,10 @@ themes      : ['Default']
     <h4 class="ui header">Active</h4>
     <p>A progress bar can show activity</p>
     <div class="ui active progress">
-      <div class="bar"></div>
+      <div class="bar">
+        <div class="progress">22%</div>
+      </div>
+      <div class="label">Uploading Files</div>
     </div>
   </div>
 
@@ -42,7 +79,7 @@ themes      : ['Default']
   <h4 class="ui header">Successful</h4>
   <p>A progress bar can show success</p>
     <div class="ui successful progress">
-      <div class="bar" style="width:100%"></div>
+      <div class="bar"></div>
     </div>
   </div>
 
@@ -50,7 +87,7 @@ themes      : ['Default']
   <h4 class="ui header">Warning</h4>
   <p>A progress bar can show a warning state</p>
     <div class="ui warning progress">
-      <div class="bar" style="width:100%"></div>
+      <div class="bar"></div>
     </div>
   </div>
 
@@ -58,7 +95,7 @@ themes      : ['Default']
   <h4 class="ui header">Failed</h4>
   <p>A progress bar can show failure</p>
     <div class="ui failed progress">
-      <div class="bar" style="width:100%"></div>
+      <div class="bar"></div>
     </div>
   </div>
 
@@ -66,7 +103,7 @@ themes      : ['Default']
   <h4 class="ui header">Disabled</h4>
   <p>A progress bar can be disabled</p>
     <div class="ui disabled progress">
-      <div class="bar" style="width:100%"></div>
+      <div class="bar"></div>
     </div>
   </div>
 
@@ -91,25 +128,31 @@ themes      : ['Default']
   <div class="example">
     <h4 class="ui header">Color</h4>
     <p>Can have different colors:</p>
-    <div class="ui blue progress">
+    <div class="ui black progress">
       <div class="bar"></div>
     </div>
-    <div class="ui black progress">
+    <div class="ui blue progress">
       <div class="bar"></div>
     </div>
     <div class="ui green progress">
       <div class="bar"></div>
     </div>
-    <div class="ui red progress">
+    <div class="ui orange progress">
       <div class="bar"></div>
     </div>
-    <div class="ui blue progress">
+    <div class="ui pink progress">
       <div class="bar"></div>
     </div>
     <div class="ui purple progress">
       <div class="bar"></div>
     </div>
+    <div class="ui red progress">
+      <div class="bar"></div>
+    </div>
     <div class="ui teal progress">
+      <div class="bar"></div>
+    </div>
+    <div class="ui yellow progress">
       <div class="bar"></div>
     </div>
   </div>

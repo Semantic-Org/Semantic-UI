@@ -1,0 +1,267 @@
+ /*
+ * # Semantic - Progress Bar
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Copyright 2014 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+/*******************************
+            Theme
+*******************************/
+
+@type    : 'module';
+@element : 'progress';
+
+@import '../../semantic.config';
+
+.ui.progress {
+  position: relative;
+  display: block;
+  max-width: 100%;
+  border: @border;
+  margin: @margin;
+  box-shadow: @boxShadow;
+  background: @background;
+  padding: @padding;
+  border-radius: @borderRadius;
+}
+
+.ui.progress:first-child {
+  margin: @firstMargin;
+}
+.ui.progress:last-child {
+  margin: @lastMargin;
+}
+
+/* Indicating Variation
+
+.ui.progress .bar[style^="width:1"],
+.ui.progress .bar[style^="width:2"],
+.ui.progress .bar[style^="width:3"],
+.ui.progress .bar[style^="width: 1"],
+.ui.progress .bar[style^="width: 2"],
+.ui.progress .bar[style^="width: 3"], {
+  background-color: #F43114;
+}
+*/
+
+/*******************************
+            Content
+*******************************/
+
+/* Activity Bar */
+.ui.progress .bar {
+  display: block;
+  line-height: 1;
+  position: @barPosition;
+  width: 0%;
+  height: @barHeight;
+  background: @barBackground;
+  border-radius: @barBorderRadius;
+  transition: @barTransition;
+}
+
+/* Percent Complete */
+.ui.progress .bar > .progress {
+  position: absolute;
+  width: @progressWidth;
+  font-size: @progressSize;
+  top: @progressTop;
+  right: @progressRight;
+  left: @progressLeft;
+  bottom: @progressBottom;
+  color: @progressColor;
+  text-shadow: @progressTextShadow;
+  margin-top: @progressOffset;
+  text-align: @progressTextAlign;
+}
+
+/* Label */
+.ui.progress > .label {
+  position: absolute;
+  width: @labelWidth;
+  font-size: @labelSize;
+  top: @labelTop;
+  right: @labelRight;
+  left: @labelLeft;
+  bottom: @labelBottom;
+  color: @labelColor;
+  text-shadow: @labelTextShadow;
+  margin-top: @labelOffset;
+  text-align: @labelTextAlign;
+}
+
+
+/*******************************
+            States
+*******************************/
+
+
+/*--------------
+   Successful
+---------------*/
+
+.ui.successful.progress .bar {
+  background-color: @successColor !important;
+}
+.ui.successful.progress .bar,
+.ui.successful.progress .bar::after {
+  animation: none !important;
+}
+
+/*--------------
+     Warning
+---------------*/
+
+.ui.warning.progress .bar {
+  background-color: @warningColor !important;
+}
+.ui.warning.progress .bar,
+.ui.warning.progress .bar::after {
+  animation: none !important;
+}
+
+/*--------------
+     Failed
+---------------*/
+
+.ui.failed.progress .bar {
+  background-color: @errorColor !important;
+}
+.ui.failed.progress .bar,
+.ui.failed.progress .bar::after {
+  animation: none !important;
+}
+
+/*--------------
+     Active
+---------------*/
+
+.ui.active.progress .bar {
+  position: relative;
+}
+.ui.active.progress .bar::after {
+  content: '';
+  opacity: 0;
+
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: @activePulseColor;
+
+  border-radius: @barBorderRadius;
+
+  animation: progress-active @activePulseDuration @defaultEasing infinite;
+}
+@keyframes progress-active {
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+  50% {
+    opacity: @activePulseMaxOpacity;
+  }
+  100% {
+    opacity: 0;
+    width: 100%;
+  }
+}
+
+/*--------------
+    Disabled
+---------------*/
+
+.ui.disabled.progress {
+  opacity: 0.35;
+}
+.ui.disabled.progress .bar,
+.ui.disabled.progress .bar::after {
+  animation: none !important;
+}
+
+
+
+/*******************************
+           Variations
+*******************************/
+
+
+/*--------------
+    Attached
+---------------*/
+
+/* bottom attached */
+.ui.progress.attached {
+  background-color: transparent;
+  position: relative;
+  border: none;
+  margin: 0em;
+}
+.ui.progress.attached,
+.ui.progress.attached .bar {
+  display: block;
+  height: @attachedHeight;
+  padding: 0px;
+  overflow: hidden;
+  border-radius: 0em 0em @attachedBorderRadius @attachedBorderRadius;
+}
+.ui.progress.attached .bar {
+  border-radius: 0em;
+}
+
+/* top attached */
+.ui.progress.top.attached,
+.ui.progress.top.attached .bar {
+  top: 0px;
+  border-radius: @attachedBorderRadius @attachedBorderRadius 0em 0em;
+}
+.ui.progress.top.attached .bar {
+  border-radius: 0em;
+}
+
+
+/*--------------
+     Colors
+---------------*/
+
+.ui.black.progress .bar {
+  background-color: @black;
+}
+.ui.blue.progress .bar {
+  background-color: @blue;
+}
+.ui.green.progress .bar {
+  background-color: @green;
+}
+.ui.orange.progress .bar {
+  background-color: @orange;
+}
+.ui.pink.progress .bar {
+  background-color: @pink;
+}
+.ui.purple.progress .bar {
+  background-color: @purple;
+}
+.ui.red.progress .bar {
+  background-color: @red;
+}
+.ui.teal.progress .bar {
+  background-color: @teal;
+}
+.ui.yellow.progress .bar {
+  background-color: @yellow;
+}
+
+/*--------------
+     Sizes
+---------------*/
+
+.ui.small.progress .bar {
+  height: 14px;
+}

@@ -1,0 +1,76 @@
+/*******************************
+            Progress
+*******************************/
+
+/*-------------------
+       Element
+--------------------*/
+
+@verticalSpacing: 1em;
+
+@margin: @verticalSpacing 0em (@labelHeight + @verticalSpacing);
+@firstMargin: 0em 0em (@labelHeight + @verticalSpacing);
+@lastMargin: 0em 0em (@labelHeight);
+
+@background: @offWhite;
+@border: 1px solid @borderColor;
+@boxShadow: none;
+@padding: 0.325em;
+@borderRadius: 0.325em;
+
+/* Bar */
+@barPosition: relative;
+@barHeight: 1.75em;
+@barBackground: #888888;
+@barBorderRadius: @borderRadius;
+@barTransition:
+  width 0.3s ease-in-out,
+  background-color 1s ease-out
+;
+
+
+@progressWidth: auto;
+@progressSize: 0.9em;
+@progressPosition: absolute;
+@progressTop: 50%;
+@progressRight: 1em;
+@progressLeft: auto;
+@progressBottom: auto;
+@progressOffset: -0.5em;
+@progressColor: @invertedLightTextColor;
+@progressTextShadow: none;
+@progressTextAlign: left;
+
+@labelWidth: 100%;
+@labelHeight: 1.75em;
+@labelSize: 1em;
+@labelPosition: absolute;
+@labelTop: auto;
+@labelRight: auto;
+@labelLeft: 0%;
+@labelBottom: -@labelHeight;
+@labelOffset: 0em;
+@labelColor: @textColor;
+@labelTextShadow: none;
+@labelTextAlign: center;
+
+/*-------------------
+        States
+--------------------*/
+
+@activePulseColor: @white;
+@activePulseMaxOpacity: 0.3;
+@activePulseDuration: 2s;
+
+
+/*-------------------
+        Types
+--------------------*/
+
+@attachedHeight: 0.25em;
+@attachedBorderRadius: @borderRadius;
+
+
+/*-------------------
+      Variations
+--------------------*/

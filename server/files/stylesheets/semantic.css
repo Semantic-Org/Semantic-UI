@@ -159,6 +159,11 @@ a:hover {
   -moz-border-radius: 0px;
   border-radius: 0px;
 }
+#example #menu .item .circular.label {
+  position: absolute;
+  top: 0.75rem;
+  right: 1
+}
 #example #menu .inverted.header {
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 0.5em;
@@ -1074,9 +1079,6 @@ body.card .even.example .card .description {
       Progress
 ---------------*/
 
-body.progress .ui.progress .bar {
-  width: 35%;
-}
 
 body.progress.animated .ui.progress .bar {
   -webkit-animation: finish 10s ease-in-out infinite;

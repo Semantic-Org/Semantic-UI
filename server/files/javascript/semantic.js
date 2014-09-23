@@ -101,6 +101,7 @@ semantic.ready = function() {
         .visibility({
           once: false,
           offset: 70,
+          onTopVisible: handler.activate.accordion,
           onTopPassed: handler.activate.section,
           onBottomPassed: handler.activate.section,
           onTopPassedReverse: handler.activate.previous
@@ -148,6 +149,17 @@ semantic.ready = function() {
           ;
         }
       },
+      accordion: function() {
+        var
+          $section       = $(this),
+          index          = $sectionHeaders.index($section),
+          $followSection = $followMenu.children('.item'),
+          $activeSection = $followSection.eq(index)
+        ;
+        $followMenu
+          .accordion('open', index)
+        ;
+      },
       section: function() {
         var
           $section       = $(this),
@@ -160,9 +172,6 @@ semantic.ready = function() {
         ;
         $activeSection
           .addClass('active')
-        ;
-        $followMenu
-          .accordion('open', index)
         ;
       },
       example: function() {
@@ -841,6 +850,10 @@ semantic.ready = function() {
   ;
 
   $menu
+    .sidebar({
+      transition       : 'uncover',
+      mobileTransition : 'scale down'
+    })
     .sidebar('attach events', '.launch.button, .view-ui.button, .launch.item')
     .sidebar('attach events', $hideMenu, 'hide')
   ;

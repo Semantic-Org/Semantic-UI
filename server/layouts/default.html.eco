@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-<% uiIntroduction    = @getCollection("documents").findAll({type: $in: ['UI Introduction']},[{title: 1}]).toJSON() %>
-<% uiProject         = @getCollection("documents").findAll({type: $in: ['Semantic Project']},[{title: 1}]).toJSON() %>
-<% uiGuide           = @getCollection("documents").findAll({type: $in: ['UI Guide']},[{title: 1}]).toJSON() %>
-<% uiGlobals         = @getCollection("documents").findAll({type: $in: ['UI Global']},[{title: 1}]).toJSON() %>
-<% uiElements        = @getCollection("documents").findAll({type: $in: ['UI Element']},[{title: 1}]).toJSON() %>
-<% uiCollections     = @getCollection("documents").findAll({type: $in: ['UI Collection']},[{title: 1}]).toJSON() %>
-<% uiViews           = @getCollection("documents").findAll({type: $in: ['UI View']},[{title: 1}]).toJSON() %>
-<% uiModules         = @getCollection("documents").findAll({type: $in: ['UI Module']},[{title: 1}]).toJSON() %>
-<% uiBehavior        = @getCollection("documents").findAll({type: $in: ['UI Behavior']},[{title: 1}]).toJSON() %>
-<% uiSpecification   = @getCollection("documents").findAll({type: $in: ['UI Specification']},[{title: 1}]).toJSON() %>
-<% currentCollection = @getCollection("documents").findAll({type: $in: [@document.type]},[{title: 1}]).toJSON() %>
-<% pageCount         = @pageCount(currentCollection) %>
-<% pageNumber        = @getPage(currentCollection, @document.id) %>
-<% pageCollection    = @getPageCollection(currentCollection, @document.id) %>
+
+  <% uiIntroduction    = @getCollection("documents").findAll({type: $in: ['UI Introduction']},[{title: 1}]).toJSON() %>
+  <% uiProject         = @getCollection("documents").findAll({type: $in: ['Semantic Project']},[{title: 1}]).toJSON() %>
+  <% uiGuide           = @getCollection("documents").findAll({type: $in: ['UI Guide']},[{title: 1}]).toJSON() %>
+  <% uiGlobals         = @getCollection("documents").findAll({type: $in: ['UI Global']},[{title: 1}]).toJSON() %>
+  <% uiElements        = @getCollection("documents").findAll({type: $in: ['UI Element']},[{title: 1}]).toJSON() %>
+  <% uiCollections     = @getCollection("documents").findAll({type: $in: ['UI Collection']},[{title: 1}]).toJSON() %>
+  <% uiViews           = @getCollection("documents").findAll({type: $in: ['UI View']},[{title: 1}]).toJSON() %>
+  <% uiModules         = @getCollection("documents").findAll({type: $in: ['UI Module']},[{title: 1}]).toJSON() %>
+  <% uiBehavior        = @getCollection("documents").findAll({type: $in: ['UI Behavior']},[{title: 1}]).toJSON() %>
+  <% uiSpecification   = @getCollection("documents").findAll({type: $in: ['UI Specification']},[{title: 1}]).toJSON() %>
+  <% currentCollection = @getCollection("documents").findAll({type: $in: [@document.type]},[{title: 1}]).toJSON() %>
+  <% pageCount         = @pageCount(currentCollection) %>
+  <% pageNumber        = @getPage(currentCollection, @document.id) %>
+  <% pageCollection    = @getPageCollection(currentCollection, @document.id) %>
+
   <!-- Standard Meta -->
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -46,7 +48,6 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/loader.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/rail.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/reveal.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/progress.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/segment.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/step.css">
 
@@ -67,6 +68,7 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/accordion.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/dropdown.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/popup.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/progress.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/rating.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/sidebar.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/shape.css">
@@ -130,6 +132,7 @@
   <script src="/build/uncompressed/definitions/modules/dropdown.js"></script>
   <script src="/build/uncompressed/definitions/modules/modal.js"></script>
   <script src="/build/uncompressed/definitions/modules/popup.js"></script>
+  <script src="/build/uncompressed/definitions/modules/progress.js"></script>
   <script src="/build/uncompressed/definitions/modules/rating.js"></script>
   <script src="/build/uncompressed/definitions/modules/shape.js"></script>
   <script src="/build/uncompressed/definitions/modules/sidebar.js"></script>
@@ -179,7 +182,11 @@
       <div class="ui small <%= if @document.elementType is 'global' then 'active ' %> inverted header">Globals</div>
       <div class="menu">
         <% for element in uiGlobals: %>
-          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
+          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %>
+          </a>
+          <% if element.status? is 'Undocumented': %>
+          <div class="ui mini empty yellow ui label"></div>
+          <% end %>
         <% end %>
       </div>
     </div>
@@ -187,7 +194,11 @@
       <div class="ui small <%= if @document.elementType is 'element' then 'active ' %> inverted header">Elements</div>
       <div class="menu">
         <% for element in uiElements: %>
-          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
+          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %>
+          </a>
+          <% if element.status? is 'Undocumented': %>
+          <div class="ui mini empty yellow ui label"></div>
+          <% end %>
         <% end %>
       </div>
     </div>
@@ -195,7 +206,11 @@
       <div class="ui small <%= if @document.elementType is 'collection' then 'active ' %> inverted header">Collections</div>
       <div class="menu">
         <% for element in uiCollections: %>
-          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
+          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %>
+          </a>
+          <% if element.status? is 'Undocumented': %>
+          <div class="ui mini empty yellow ui label"></div>
+          <% end %>
         <% end %>
       </div>
     </div>
@@ -203,7 +218,11 @@
       <div class="ui small <%= if @document.elementType is 'view' then 'active ' %> inverted header">Views</div>
       <div class="menu">
         <% for element in uiViews: %>
-          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
+          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %>
+          </a>
+          <% if element.status? is 'Undocumented': %>
+          <div class="ui mini empty yellow ui label"></div>
+          <% end %>
         <% end %>
       </div>
     </div>
@@ -211,7 +230,11 @@
       <a href="/module.html" class="ui small <%= if @document.elementType is 'module' then 'active ' %> inverted header">Modules</a>
       <div class="menu">
         <% for element in uiModules: %>
-          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
+          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %>
+          </a>
+          <% if element.status? is 'Undocumented': %>
+          <div class="ui mini empty yellow ui label"></div>
+          <% end %>
       <% end %>
       </div>
     </div>
@@ -219,7 +242,11 @@
       <div class="ui small <%= if @document.elementType is 'behavior' then 'active ' %> inverted header">Behaviors</div>
       <div class="menu">
         <% for element in uiBehavior: %>
-          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
+          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %>
+          </a>
+          <% if element.status? is 'Undocumented': %>
+          <div class="ui mini empty yellow ui label"></div>
+          <% end %>
         <% end %>
       </div>
     </div>
