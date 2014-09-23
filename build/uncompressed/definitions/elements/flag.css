@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -156,7 +156,7 @@
    Flag Variables
 --------------------*/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 i.flag {
   display: inline-block;
@@ -178,6 +178,7 @@ i.flag:before {
   width: 16px;
   height: 11px;
 }
+/* Flag Sprite Based On http://www.famfamfam.com/lab/icons/flags/ */
 /*******************************
            Overrides
 *******************************/

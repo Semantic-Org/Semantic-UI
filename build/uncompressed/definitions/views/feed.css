@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -180,13 +180,13 @@
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
          Activity Feed
 *******************************/
 .ui.feed {
-  margin: 1em;
+  margin: 1em 0em;
 }
 .ui.feed:first-child {
   margin-top: 0em;

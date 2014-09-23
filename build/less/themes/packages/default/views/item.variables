@@ -80,10 +80,12 @@
 @actionOpacity: 0.75;
 @actionHoverOpacity: 1;
 @actionTransition: color @transitionDuration @transitionEasing;
-@starColor: #AC9400;
-@starActiveColor: #E9B539;
-@likeColor: #FFADAE;
-@likeActiveColor: #EF404A;
+
+/* Actions */
+@favoriteColor: #FFB70A;
+@favoriteActiveColor: #FFB70A;
+@likeColor: #FF2733;
+@likeActiveColor: #FF2733;
 
 /* Links */
 @contentLinkTransition: color @transitionDuration @transitionEasing;

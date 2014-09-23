@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -154,6 +154,7 @@
 /* Header */
 /* Metadata */
 /* Icons */
+/* Actions */
 /* Links */
 /* Description */
 /* Content Image */
@@ -178,7 +179,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Standard
@@ -390,18 +391,18 @@
 ---------------*/
 /*-----Star----- */
 /* Icon */
-.ui.items > .item > .content .star.icon {
+.ui.items > .item > .content .favorite.icon {
   cursor: pointer;
   opacity: 0.75;
   -webkit-transition: color 0.25s ease;
           transition: color 0.25s ease;
 }
-.ui.items > .item > .content .star.icon:hover {
+.ui.items > .item > .content .favorite.icon:hover {
   opacity: 1;
-  color: #ac9400;
+  color: #ffb70a;
 }
-.ui.items > .item > .content .active.star.icon {
-  color: #e9b539;
+.ui.items > .item > .content .active.favorite.icon {
+  color: #ffb70a;
 }
 /*-----Like----- */
 /* Icon */
@@ -413,10 +414,10 @@
 }
 .ui.items > .item > .content .like.icon:hover {
   opacity: 1;
-  color: #ffadae;
+  color: #ff2733;
 }
 .ui.items > .item > .content .active.like.icon {
-  color: #ef404a;
+  color: #ff2733;
 }
 /*----------------
   Extra Content

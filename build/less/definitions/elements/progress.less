@@ -19,29 +19,23 @@
 @import '../../semantic.config';
 
 .ui.progress {
-  border: 1px solid rgba(0, 0, 0, 0.1);
-
+  display: block;
   width: 100%;
-  height: 35px;
-
-  background-color: #FAFAFA;
-  padding: 5px;
-  border-radius: 0.3125em;
+  border: @border;
+  box-shadow: @boxShadow;
+  background: @background;
+  padding: @padding;
+  border-radius: @borderRadius;
 
 }
 
 .ui.progress .bar {
-  display: inline-block;
+  display: block;
   width: 0%;
-  height: 100%;
-
-  background-color: #CCCCCC;
-  border-radius: 3px;
-
-  transition:
-    width 1s ease-in-out,
-    background-color 1s ease-out
-  ;
+  height: @barHeight;
+  background: @barBackground;
+  border-radius: @barBorderRadius;
+  transition: @barTransition;
 }
 
 
@@ -98,11 +92,9 @@
   left: 0px;
   right: 0px;
   bottom: 0px;
-  background: #FFFFFF;
+  background: @activePulseColor;
 
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
+  border-radius: @barBorderRadius;
 
   animation: progress-active 2s ease-out infinite;
 }

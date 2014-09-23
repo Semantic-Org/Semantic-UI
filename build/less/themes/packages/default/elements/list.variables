@@ -100,7 +100,7 @@
 @invertedLinkListItemActiveColor: @invertedSelectedTextColor;
 
 /* Selection List */
-@selectionListItemMargin: 0em 0em 0.3em 0em;
+@selectionListItemMargin: 0em;
 @selectionListItemBorderRadius: 0.5em;
 @selectionListItemVerticalPadding: 0.5em;
 @selectionListItemHorizontalPadding: 0.5em;

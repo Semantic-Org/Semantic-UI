@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -190,7 +190,7 @@ b        Types
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Dropdown
@@ -502,13 +502,6 @@ select.ui.dropdown {
 .ui.visible.selection.dropdown > .dropdown.icon {
   opacity: 1;
 }
-/* Filtered Item */
-.ui.selection.dropdown .filtered.text {
-  visibility: hidden;
-}
-.ui.selection.dropdown .filtered.item {
-  display: none;
-}
 /* Active Item */
 .ui.selection.active.dropdown .text:not(.default),
 .ui.selection.visible.dropdown .text:not(.default) {
@@ -582,6 +575,16 @@ select.ui.dropdown {
 .ui.dropdown .menu .selected.item {
   background: rgba(0, 0, 0, 0.03);
   color: rgba(0, 0, 0, 0.8);
+}
+/*--------------------
+    Search Filtered
+----------------------*/
+/* Filtered Item */
+.ui.dropdown .filtered.text {
+  visibility: hidden;
+}
+.ui.dropdown .filtered.item {
+  display: none;
 }
 /*--------------------
         Error

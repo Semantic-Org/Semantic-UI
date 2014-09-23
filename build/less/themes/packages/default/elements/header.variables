@@ -10,7 +10,7 @@
 @fontWeight: bold;
 @textTransform: none;
 
-@topMargin: 1em;
+@topMargin: 2rem;
 @bottomMargin: 1rem;
 
 @horizontalPadding: 0em;

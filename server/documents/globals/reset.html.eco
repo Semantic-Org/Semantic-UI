@@ -5,7 +5,7 @@ element     : 'reset'
 elementType : 'global'
 
 title       : 'Reset'
-description : 'A reset is a set of normalized values for HTML elements that are handled improperly by browsers'
+description : 'A reset is a set of normalized values for CSS properties that correct for abberations in browser defaults'
 status      : 'Undocumented'
 type        : 'UI Global'
 

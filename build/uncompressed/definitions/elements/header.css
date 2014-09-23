@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -173,7 +173,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Header
@@ -182,7 +182,7 @@
 .ui.header {
   border: none;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  margin: 1em 0em 1rem;
+  margin: 2rem 0em 1rem;
   padding: 0em 0em;
   font-weight: bold;
   line-height: 1.33em;

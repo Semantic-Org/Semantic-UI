@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -143,6 +143,7 @@
 /*-------------------
        Element
 --------------------*/
+/* Bar */
 /*-------------------
         States
 --------------------*/
@@ -165,22 +166,23 @@
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 .ui.progress {
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: block;
   width: 100%;
-  height: 35px;
-  background-color: #FAFAFA;
-  padding: 5px;
-  border-radius: 0.3125em;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: none;
+  background: #fafafa;
+  padding: 0.325em;
+  border-radius: 0.325em;
 }
 .ui.progress .bar {
-  display: inline-block;
+  display: block;
   width: 0%;
-  height: 100%;
-  background-color: #CCCCCC;
-  border-radius: 3px;
+  height: 1.5em;
+  background: #cccccc;
+  border-radius: 0.325em;
   -webkit-transition: width 1s ease-in-out, background-color 1s ease-out;
           transition: width 1s ease-in-out, background-color 1s ease-out;
 }
@@ -231,8 +233,8 @@
   left: 0px;
   right: 0px;
   bottom: 0px;
-  background: #FFFFFF;
-  border-radius: 3px;
+  background: #ffffff;
+  border-radius: 0.325em;
   -webkit-animation: progress-active 2s ease-out infinite;
           animation: progress-active 2s ease-out infinite;
 }

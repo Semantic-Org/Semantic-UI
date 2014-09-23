@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -181,7 +181,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Standard
@@ -225,10 +225,10 @@
   width: 290px;
   min-height: 0px;
   background: #ffffff;
-  padding: 0em;
+  padding: 0.5em;
   border: none;
   border-radius: 0.325rem;
-  box-shadow: 0px 0em 0px 0px #dddddd, 0px 0px 0px 1px #dddddd;
+  box-shadow: 0px 0.2em 0px 0px #dddddd, 0px 0px 0px 1px #dddddd;
   -webkit-transition: box-shadow 0.25s ease;
           transition: box-shadow 0.25s ease;
   z-index: '';
@@ -465,14 +465,13 @@
 .ui.card > .extra {
   min-height: 0px !important;
   position: static;
-  background: #fafafa -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  background: #fafafa linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: none;
   width: 100%;
   padding: 0.75em 1em;
   top: 0em;
   left: 0em;
   color: rgba(0, 0, 0, 0.4);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: none;
   -webkit-transition: color 0.25s ease;
           transition: color 0.25s ease;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
@@ -499,7 +498,7 @@ a.ui.card:hover,
   z-index: 5;
   background: '';
   border: none;
-  box-shadow: 0px 0em 0px 0px #b0b0b0, 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0.2em 0px 0px #b0b0b0, 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
 }
 /*--------------
    Card Count

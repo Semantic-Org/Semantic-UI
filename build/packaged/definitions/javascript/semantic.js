@@ -6865,9 +6865,13 @@ $.fn.dropdown = function(parameters) {
             ;
             if( module.is.searchable() ) {
               $search
+                .on( module.get.inputEvent(), module.event.input)
+              ;
+            }
+            if( module.is.searchSelection() ) {
+              $search
                 .on('focus' + eventNamespace, module.event.searchFocus)
                 .on('blur' + eventNamespace, module.event.blur)
-                .on( module.get.inputEvent(), module.event.input)
               ;
             }
             else {
@@ -6881,7 +6885,7 @@ $.fn.dropdown = function(parameters) {
           },
           touchEvents: function() {
             module.debug('Touch device detected binding touch events');
-            if( !module.is.searchable() ) {
+            if( !module.is.searchSelection() ) {
               $module
                 .on('touchstart' + eventNamespace, module.event.test.toggle)
               ;
@@ -6893,7 +6897,7 @@ $.fn.dropdown = function(parameters) {
           },
           mouseEvents: function() {
             module.verbose('Mouse detected binding mouse events');
-            if( !module.is.searchable() ) {
+            if( !module.is.searchSelection() ) {
               if(settings.on == 'click') {
                 $module
                   .on('click' + eventNamespace, module.event.test.toggle)
@@ -6953,6 +6957,7 @@ $.fn.dropdown = function(parameters) {
             fullTextRegExp = new RegExp(searchTerm, 'i'),
             $filteredItems
           ;
+          console.log(query);
           $item
             .each(function(){
               var
@@ -7019,6 +7024,7 @@ $.fn.dropdown = function(parameters) {
             var
               query = $search.val()
             ;
+            console.log($search, query);
             $text.addClass(className.filtered);
             module.filter(query);
           },
@@ -7575,6 +7581,9 @@ $.fn.dropdown = function(parameters) {
           searchable: function() {
             return ($search.size() > 0);
           },
+          searchSelection: function() {
+            return ( module.is.searchable() && $search.parent().is($module) );
+          },
           selection: function() {
             return $module.hasClass(className.selection);
           },
@@ -7995,8 +8004,8 @@ $.fn.dropdown.settings = {
   onHide     : function(){},
 
   error   : {
-    action    : 'You called a dropdown action that was not defined',
-    method    : 'The method you called is not defined.',
+    action     : 'You called a dropdown action that was not defined',
+    method     : 'The method you called is not defined.',
     transition : 'The requested transition was not found'
   },
 
@@ -8011,7 +8020,7 @@ $.fn.dropdown.settings = {
     dropdown : '.ui.dropdown',
     text     : '> .text:not(.icon)',
     input    : '> input[type="hidden"], > select',
-    search   : '> .search, .menu > .search',
+    search   : '> .search, .menu > .search > input, .menu > input.search',
     menu     : '.menu',
     item     : '.item'
   },
@@ -16245,7 +16254,7 @@ $.fn.video.settings.templates = {
     ;
     if(image) {
       html += ''
-        + '<i class="play sign icon"></i>'
+        + '<i class="video play icon"></i>'
         + '<img class="placeholder" src="' + image + '">'
       ;
     }

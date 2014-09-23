@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -137,6 +137,9 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*------------------
+     Load Theme
+-------------------*/
 /*******************************
           Breadcrumb
 *******************************/
@@ -149,9 +152,6 @@
 --------------------*/
 /* Sizes */
 /*------------------
-     Load Theme
--------------------*/
-/*------------------
      Load Site
 -------------------*/
 /*******************************
@@ -161,7 +161,7 @@
            Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
            Breadcrumb
@@ -300,7 +300,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -450,7 +450,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Elements
@@ -1137,7 +1137,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -1270,7 +1270,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Standard
@@ -2339,7 +2339,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -2496,7 +2496,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Standard
@@ -3933,7 +3933,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -4060,7 +4060,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Message
@@ -4455,7 +4455,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -4599,7 +4599,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
              Table
@@ -5324,7 +5324,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -5476,7 +5476,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Button
@@ -7679,7 +7679,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -7803,7 +7803,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Divider
@@ -8038,7 +8038,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -8151,7 +8151,7 @@
    Flag Variables
 --------------------*/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 i.flag {
   display: inline-block;
@@ -8173,6 +8173,7 @@ i.flag:before {
   width: 16px;
   height: 11px;
 }
+/* Flag Sprite Based On http://www.famfamfam.com/lab/icons/flags/ */
 /*******************************
            Overrides
 *******************************/
@@ -9198,7 +9199,7 @@ i.flag.zimbabwe:before {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -9328,7 +9329,7 @@ i.flag.zimbabwe:before {
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Header
@@ -9337,7 +9338,7 @@ i.flag.zimbabwe:before {
 .ui.header {
   border: none;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  margin: 1em 0em 1rem;
+  margin: 2rem 0em 1rem;
   padding: 0em 0em;
   font-weight: bold;
   line-height: 1.33em;
@@ -9836,7 +9837,7 @@ a.ui.inverted.yellow.header:hover {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -9949,7 +9950,7 @@ a.ui.inverted.yellow.header:hover {
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
              Icon
@@ -11619,6 +11620,9 @@ i.icon.wechat:before {
 i.icon.like:before {
   content: "\f004";
 }
+i.icon.favorite:before {
+  content: "\f005";
+}
 i.icon.video:before {
   content: "\f008";
 }
@@ -12035,7 +12039,7 @@ i.icon.weixin:before {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -12158,7 +12162,7 @@ i.icon.weixin:before {
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
              Image
@@ -12407,7 +12411,7 @@ img.ui.bordered.image {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -12538,7 +12542,7 @@ img.ui.bordered.image {
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
            Standard
@@ -12852,7 +12856,7 @@ img.ui.bordered.image {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -12993,7 +12997,7 @@ img.ui.bordered.image {
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Label
@@ -13873,7 +13877,7 @@ a.ui.yellow.label:hover:before {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -14025,7 +14029,7 @@ a.ui.yellow.label:hover:before {
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             List
@@ -14308,7 +14312,7 @@ ol.ui.list ol,
   cursor: pointer;
   background: transparent;
   padding: 0.5em 0.5em;
-  margin: 0em 0em 0.3em 0em;
+  margin: 0em;
   color: rgba(0, 0, 0, 0.4);
   border-radius: 0.5em;
   -webkit-transition: 0.2s color ease, 0.2s padding-left ease, 0.2s background-color ease;
@@ -14717,7 +14721,7 @@ ol.ui.horizontal.list li:before,
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -14841,7 +14845,7 @@ ol.ui.horizontal.list li:before,
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Loader
@@ -15124,7 +15128,7 @@ ol.ui.horizontal.list li:before,
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -15224,6 +15228,7 @@ ol.ui.horizontal.list li:before,
 /*-------------------
        Element
 --------------------*/
+/* Bar */
 /*-------------------
         States
 --------------------*/
@@ -15246,22 +15251,23 @@ ol.ui.horizontal.list li:before,
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 .ui.progress {
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: block;
   width: 100%;
-  height: 35px;
-  background-color: #FAFAFA;
-  padding: 5px;
-  border-radius: 0.3125em;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: none;
+  background: #fafafa;
+  padding: 0.325em;
+  border-radius: 0.325em;
 }
 .ui.progress .bar {
-  display: inline-block;
+  display: block;
   width: 0%;
-  height: 100%;
-  background-color: #CCCCCC;
-  border-radius: 3px;
+  height: 1.5em;
+  background: #cccccc;
+  border-radius: 0.325em;
   -webkit-transition: width 1s ease-in-out, background-color 1s ease-out;
           transition: width 1s ease-in-out, background-color 1s ease-out;
 }
@@ -15312,8 +15318,8 @@ ol.ui.horizontal.list li:before,
   left: 0px;
   right: 0px;
   bottom: 0px;
-  background: #FFFFFF;
-  border-radius: 3px;
+  background: #ffffff;
+  border-radius: 0.325em;
   -webkit-animation: progress-active 2s ease-out infinite;
           animation: progress-active 2s ease-out infinite;
 }
@@ -15490,7 +15496,7 @@ ol.ui.horizontal.list li:before,
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -15608,7 +15614,7 @@ ol.ui.horizontal.list li:before,
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
              Rails
@@ -15691,20 +15697,160 @@ ol.ui.horizontal.list li:before,
  *
  */
 /*******************************
+            Theme
+*******************************/
+/*
+
+███████╗███████╗███╗   ███╗ █████╗ ███╗   ██╗████████╗██╗ ██████╗    ██╗   ██╗██╗
+██╔════╝██╔════╝████╗ ████║██╔══██╗████╗  ██║╚══██╔══╝██║██╔════╝    ██║   ██║██║
+███████╗█████╗  ██╔████╔██║███████║██╔██╗ ██║   ██║   ██║██║         ██║   ██║██║
+╚════██║██╔══╝  ██║╚██╔╝██║██╔══██║██║╚██╗██║   ██║   ██║██║         ██║   ██║██║
+███████║███████╗██║ ╚═╝ ██║██║  ██║██║ ╚████║   ██║   ██║╚██████╗    ╚██████╔╝██║
+╚══════╝╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝ ╚═════╝     ╚═════╝ ╚═╝
+
+*/
+/*******************************
+           Folders
+*******************************/
+/* Path to theme packages */
+/* Path to site override folder */
+/*******************************
+            Themes
+*******************************/
+/* To override a theme for an individual element
+   specify theme name below
+
+   Be sure to update the user folder name (see README)
+*/
+/* Global */
+/* Elements */
+/* Collections */
+/* Modules */
+/* Views */
+/*******************************
+        Import Directives
+*******************************/
+/*------------------
+    Load Defaults
+-------------------*/
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+        Paths
+--------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*-------------------
+        Page
+--------------------*/
+/* Used to match floats with text */
+/*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating neutrals */
+/* Used for differentiating layers */
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+       Icons
+--------------------*/
+/* Max Width of Icon */
+/*-------------------
+       Easing
+--------------------*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Mood */
+/* Solid Background Color */
+/* Status */
+/* Darkened Headers */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+        Sizes
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*******************************
+           States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Standard  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*******************************
+            Reveal
+*******************************/
+/*------------------
+     Load Theme
+-------------------*/
+/*------------------
+     Load Site
+-------------------*/
+/*******************************
+     User Global Variables
+*******************************/
+/*******************************
+    User Variable Overrides
+*******************************/
+/*------------------
+   Override Loader
+-------------------*/
+/*******************************
             Reveal
 *******************************/
 .ui.reveal {
   display: inline-block;
   position: relative !important;
-  z-index: 2 !important;
+  z-index: 3 !important;
   font-size: 0em !important;
-}
-.ui.reveal > .content {
-  font-size: 1rem !important;
-}
-.ui.reveal > .visible.content {
-  -webkit-transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
-  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
 }
 .ui.reveal > .visible.content {
   position: absolute !important;
@@ -15712,17 +15858,11 @@ ol.ui.horizontal.list li:before,
   left: 0em !important;
   z-index: 4 !important;
   -webkit-transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
-  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
+          transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
 }
 .ui.reveal > .hidden.content {
   position: relative !important;
   z-index: 3 !important;
-}
-/*------------------
-   Loose Coupling
--------------------*/
-.ui.reveal.button {
-  overflow: hidden;
 }
 /*******************************
               Types
@@ -15739,11 +15879,9 @@ ol.ui.horizontal.list li:before,
 .ui.slide.reveal > .content {
   display: block;
   float: left;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
   margin: 0em;
   -webkit-transition: top 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s, left 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s, right 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s, bottom 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
-  transition: top 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s, left 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s, right 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s, bottom 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
+          transition: top 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s, left 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s, right 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s, bottom 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
 }
 .ui.slide.reveal > .visible.content {
   position: relative !important;
@@ -15869,32 +16007,32 @@ ol.ui.horizontal.list li:before,
 ---------------*/
 .ui.rotate.reveal > .visible.content {
   -webkit-transition-duration: 0.8s;
-  transition-duration: 0.8s;
+          transition-duration: 0.8s;
   -webkit-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
 }
 .ui.rotate.reveal > .visible.content,
 .ui.rotate.right.reveal > .visible.content {
   -webkit-transform-origin: bottom right;
-  -ms-transform-origin: bottom right;
-  transform-origin: bottom right;
+      -ms-transform-origin: bottom right;
+          transform-origin: bottom right;
 }
 .ui.rotate.reveal:hover > .visible.content,
 .ui.rotate.right.reveal:hover > .visible.content {
   -webkit-transform: rotate(110deg);
-  -ms-transform: rotate(110deg);
-  transform: rotate(110deg);
+      -ms-transform: rotate(110deg);
+          transform: rotate(110deg);
 }
 .ui.rotate.left.reveal > .visible.content {
   -webkit-transform-origin: bottom left;
-  -ms-transform-origin: bottom left;
-  transform-origin: bottom left;
+      -ms-transform-origin: bottom left;
+          transform-origin: bottom left;
 }
 .ui.rotate.left.reveal:hover > .visible.content {
   -webkit-transform: rotate(-110deg);
-  -ms-transform: rotate(-110deg);
-  transform: rotate(-110deg);
+      -ms-transform: rotate(-110deg);
+          transform: rotate(-110deg);
 }
 /*******************************
               States
@@ -15904,7 +16042,7 @@ ol.ui.horizontal.list li:before,
 }
 .ui.disabled.reveal > .content {
   -webkit-transition: none !important;
-  transition: none !important;
+          transition: none !important;
 }
 .ui.disabled.reveal:hover > .visible.content {
   position: static !important;
@@ -15935,7 +16073,13 @@ ol.ui.horizontal.list li:before,
 ---------------*/
 .ui.instant.reveal > .content {
   -webkit-transition-delay: 0s !important;
-  transition-delay: 0s !important;
+          transition-delay: 0s !important;
+}
+/*--------------
+     Sizing
+---------------*/
+.ui.reveal > .content {
+  font-size: 1rem !important;
 }
 
 /*
@@ -15983,7 +16127,7 @@ ol.ui.horizontal.list li:before,
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -16110,7 +16254,7 @@ ol.ui.horizontal.list li:before,
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Segment
@@ -16566,7 +16710,7 @@ ol.ui.horizontal.list li:before,
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -16694,7 +16838,7 @@ ol.ui.horizontal.list li:before,
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Step
@@ -16997,7 +17141,6 @@ ol.ui.horizontal.list li:before,
  * http://opensource.org/licenses/MIT
  *
  */
-/*! normalize.css v2.1.3 | MIT License | git.io/normalize */
 /*******************************
             Theme
 *******************************/
@@ -17033,7 +17176,7 @@ ol.ui.horizontal.list li:before,
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -17143,52 +17286,34 @@ ol.ui.horizontal.list li:before,
      User Global Variables
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
              Reset
 *******************************/
+/* Border-Box */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+/* iPad Input Shadows */
+input[type="text"],
+input[type="email"],
+input[type="search"],
+input[type="password"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  /* mobile firefox too! */
+}
+/*******************************
+           Overrides
+*******************************/
+/*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 /**
  * Correct `block` display not defined in IE 8/9.
  */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-nav,
-section,
-summary {
-  display: block;
-}
-/**
- * Correct `inline-block` display not defined in IE 8/9.
- */
-audio,
-canvas,
-video {
-  display: inline-block;
-}
-/**
- * Prevent modern browsers from displaying `audio` without controls.
- * Remove excess height in iOS 5 devices.
- */
-audio:not([controls]) {
-  display: none;
-  height: 0;
-}
-/**
- * Address `[hidden]` styling not present in IE 8/9.
- * Hide the `template` element in IE, Safari, and Firefox < 22.
- */
-[hidden],
-template {
-  display: none;
-}
+/*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
  * 2. Prevent iOS text size adjust after orientation change, without disabling
@@ -17208,17 +17333,63 @@ html {
 body {
   margin: 0;
 }
+/* HTML5 display definitions
+   ========================================================================== */
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  /* 1 */
+  vertical-align: baseline;
+  /* 2 */
+}
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ */
+[hidden],
+template {
+  display: none;
+}
+/* Links
+   ========================================================================== */
 /**
  * Remove the gray background color from active links in IE 10.
  */
 a {
   background: transparent;
-}
-/**
- * Address `outline` inconsistency between Chrome and other browsers.
- */
-a:focus {
-  outline: thin dotted;
 }
 /**
  * Improve readability when focused and also mouse hovered in all browsers.
@@ -17227,39 +17398,34 @@ a:active,
 a:hover {
   outline: 0;
 }
+/* Text-level semantics
+   ========================================================================== */
 /**
- * Address variable `h1` font-size and margin within `section` and `article`
- * contexts in Firefox 4+, Safari 5, and Chrome.
- */
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
-/**
- * Address styling not present in IE 8/9, Safari 5, and Chrome.
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
  */
 abbr[title] {
   border-bottom: 1px dotted;
 }
 /**
- * Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
  */
 b,
 strong {
   font-weight: bold;
 }
 /**
- * Address styling not present in Safari 5 and Chrome.
+ * Address styling not present in Safari and Chrome.
  */
 dfn {
   font-style: italic;
 }
 /**
- * Address differences between Firefox and other browsers.
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
  */
-hr {
-  box-sizing: content-box;
-  height: 0;
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
 }
 /**
  * Address styling not present in IE 8/9.
@@ -17267,28 +17433,6 @@ hr {
 mark {
   background: #ff0;
   color: #000;
-}
-/**
- * Correct font family set oddly in Safari 5 and Chrome.
- */
-code,
-kbd,
-pre,
-samp {
-  font-family: monospace, serif;
-  font-size: 1em;
-}
-/**
- * Improve readability of pre-formatted text in all browsers.
- */
-pre {
-  white-space: pre-wrap;
-}
-/**
- * Set consistent quote types.
- */
-q {
-  quotes: "\201C" "\201D" "\2018" "\2019";
 }
 /**
  * Address inconsistent and variable font size in all browsers.
@@ -17312,71 +17456,86 @@ sup {
 sub {
   bottom: -0.25em;
 }
+/* Embedded content
+   ========================================================================== */
 /**
- * Remove border when inside `a` element in IE 8/9.
+ * Remove border when inside `a` element in IE 8/9/10.
  */
 img {
   border: 0;
 }
 /**
- * Correct overflow displayed oddly in IE 9.
+ * Correct overflow not hidden in IE 9/10/11.
  */
 svg:not(:root) {
   overflow: hidden;
 }
+/* Grouping content
+   ========================================================================== */
 /**
- * Address margin not present in IE 8/9 and Safari 5.
+ * Address margin not present in IE 8/9 and Safari.
  */
 figure {
-  margin: 0;
+  margin: 1em 40px;
 }
 /**
- * Define consistent border, margin, and padding.
+ * Address differences between Firefox and other browsers.
  */
-fieldset {
-  border: 1px solid #c0c0c0;
-  margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em;
+hr {
+  box-sizing: content-box;
+  height: 0;
 }
 /**
- * 1. Correct `color` not being inherited in IE 8/9.
- * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ * Contain overflow in all browsers.
  */
-legend {
-  border: 0;
-  /* 1 */
-  padding: 0;
-  /* 2 */
+pre {
+  overflow: auto;
 }
 /**
- * 1. Correct font family not being inherited in all browsers.
- * 2. Correct font size not being inherited in all browsers.
- * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+/* Forms
+   ========================================================================== */
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
  */
 button,
 input,
+optgroup,
 select,
 textarea {
-  font-family: inherit;
+  color: inherit;
   /* 1 */
-  font-size: 100%;
+  font: inherit;
   /* 2 */
   margin: 0;
   /* 3 */
 }
 /**
- * Address Firefox 4+ setting `line-height` on `input` using `!important` in
- * the UA stylesheet.
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
  */
-button,
-input {
-  line-height: normal;
+button {
+  overflow: visible;
 }
 /**
  * Address inconsistent `text-transform` inheritance for `button` and `select`.
  * All other form control elements do not inherit `text-transform` values.
- * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
- * Correct `select` style inheritance in Firefox 4+ and Opera.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
  */
 button,
 select {
@@ -17406,6 +17565,24 @@ html input[disabled] {
   cursor: default;
 }
 /**
+ * Remove inner padding and border in Firefox 4+.
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+input {
+  line-height: normal;
+}
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
  * 1. Address box sizing set to `content-box` in IE 8/9/10.
  * 2. Remove excess padding in IE 8/9/10.
  */
@@ -17417,8 +17594,17 @@ input[type="radio"] {
   /* 2 */
 }
 /**
- * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
- * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
  *    (include `-moz` to future-proof).
  */
 input[type="search"] {
@@ -17428,31 +17614,47 @@ input[type="search"] {
   box-sizing: content-box;
 }
 /**
- * Remove inner padding and search cancel button in Safari 5 and Chrome
- * on OS X.
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
  */
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 /**
- * Remove inner padding and border in Firefox 4+.
+ * Define consistent border, margin, and padding.
  */
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-  border: 0;
-  padding: 0;
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
 }
 /**
- * 1. Remove default vertical scrollbar in IE 8/9.
- * 2. Improve readability and alignment in all browsers.
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
  */
 textarea {
   overflow: auto;
-  /* 1 */
-  vertical-align: top;
-  /* 2 */
 }
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+optgroup {
+  font-weight: bold;
+}
+/* Tables
+   ========================================================================== */
 /**
  * Remove most spacing between table cells.
  */
@@ -17460,17 +17662,9 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-/*******************************
-           Overrides
-*******************************/
-/* Remove iPad input shadows */
-input[type="text"],
-input[type="email"],
-input[type="search"],
-input[type="password"] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  /* mobile firefox too! */
+td,
+th {
+  padding: 0;
 }
 /*******************************
            Overrides
@@ -17522,7 +17716,7 @@ input[type="password"] {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -17626,7 +17820,7 @@ input[type="password"] {
      User Global Variables
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
            Web Fonts
@@ -17753,7 +17947,7 @@ a:hover {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -17882,7 +18076,7 @@ a:hover {
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Accordion
@@ -18109,7 +18303,7 @@ a:hover {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -18219,7 +18413,7 @@ a:hover {
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
            Chat Room
@@ -18506,7 +18700,7 @@ a:hover {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -18636,7 +18830,7 @@ a:hover {
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
            Checkbox
@@ -19071,7 +19265,7 @@ a:hover {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -19188,7 +19382,7 @@ a:hover {
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Dimmer
@@ -19379,7 +19573,7 @@ body.dimmed.dimmable > :not(.dimmer) {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -19526,7 +19720,7 @@ b        Types
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Dropdown
@@ -19838,13 +20032,6 @@ select.ui.dropdown {
 .ui.visible.selection.dropdown > .dropdown.icon {
   opacity: 1;
 }
-/* Filtered Item */
-.ui.selection.dropdown .filtered.text {
-  visibility: hidden;
-}
-.ui.selection.dropdown .filtered.item {
-  display: none;
-}
 /* Active Item */
 .ui.selection.active.dropdown .text:not(.default),
 .ui.selection.visible.dropdown .text:not(.default) {
@@ -19918,6 +20105,16 @@ select.ui.dropdown {
 .ui.dropdown .menu .selected.item {
   background: rgba(0, 0, 0, 0.03);
   color: rgba(0, 0, 0, 0.8);
+}
+/*--------------------
+    Search Filtered
+----------------------*/
+/* Filtered Item */
+.ui.dropdown .filtered.text {
+  visibility: hidden;
+}
+.ui.dropdown .filtered.item {
+  display: none;
 }
 /*--------------------
         Error
@@ -20267,7 +20464,7 @@ select.ui.dropdown {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -20395,7 +20592,7 @@ select.ui.dropdown {
            Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
              Modal
@@ -20818,7 +21015,7 @@ select.ui.dropdown {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -20947,7 +21144,7 @@ select.ui.dropdown {
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
              Nag
@@ -21106,7 +21303,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -21238,7 +21435,7 @@ a.ui.nag {
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Popup
@@ -21506,7 +21703,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -21627,7 +21824,7 @@ a.ui.nag {
            Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
            Rating
@@ -21879,7 +22076,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -22007,7 +22204,7 @@ a.ui.nag {
            Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
              Search
@@ -22263,7 +22460,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -22379,7 +22576,7 @@ a.ui.nag {
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
               Shape
@@ -22541,7 +22738,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -22651,7 +22848,7 @@ a.ui.nag {
            Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Sidebar
@@ -23113,7 +23310,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -23223,7 +23420,7 @@ a.ui.nag {
            Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Sticky
@@ -23321,7 +23518,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -23433,7 +23630,7 @@ a.ui.nag {
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
            UI Tabs
@@ -23530,7 +23727,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -23640,7 +23837,7 @@ a.ui.nag {
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
           Transitions
@@ -24619,7 +24816,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -24726,7 +24923,7 @@ a.ui.nag {
      User Global Variables
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Video
@@ -24868,7 +25065,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -25006,7 +25203,7 @@ a.ui.nag {
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Standard
@@ -25050,10 +25247,10 @@ a.ui.nag {
   width: 290px;
   min-height: 0px;
   background: #ffffff;
-  padding: 0em;
+  padding: 0.5em;
   border: none;
   border-radius: 0.325rem;
-  box-shadow: 0px 0em 0px 0px #dddddd, 0px 0px 0px 1px #dddddd;
+  box-shadow: 0px 0.2em 0px 0px #dddddd, 0px 0px 0px 1px #dddddd;
   -webkit-transition: box-shadow 0.25s ease;
           transition: box-shadow 0.25s ease;
   z-index: '';
@@ -25290,14 +25487,13 @@ a.ui.nag {
 .ui.card > .extra {
   min-height: 0px !important;
   position: static;
-  background: #fafafa -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  background: #fafafa linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: none;
   width: 100%;
   padding: 0.75em 1em;
   top: 0em;
   left: 0em;
   color: rgba(0, 0, 0, 0.4);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: none;
   -webkit-transition: color 0.25s ease;
           transition: color 0.25s ease;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
@@ -25324,7 +25520,7 @@ a.ui.card:hover,
   z-index: 5;
   background: '';
   border: none;
-  box-shadow: 0px 0em 0px 0px #b0b0b0, 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0.2em 0px 0px #b0b0b0, 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
 }
 /*--------------
    Card Count
@@ -25739,7 +25935,7 @@ a.ui.card:hover,
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -25870,7 +26066,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Standard
@@ -26125,7 +26321,7 @@ a.ui.card:hover,
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -26262,13 +26458,13 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
          Activity Feed
 *******************************/
 .ui.feed {
-  margin: 1em;
+  margin: 1em 0em;
 }
 .ui.feed:first-child {
   margin-top: 0em;
@@ -26539,7 +26735,7 @@ a.ui.card:hover,
         Import Directives
 *******************************/
 /*------------------
-    Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -26650,6 +26846,7 @@ a.ui.card:hover,
 /* Header */
 /* Metadata */
 /* Icons */
+/* Actions */
 /* Links */
 /* Description */
 /* Content Image */
@@ -26674,7 +26871,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Standard
@@ -26886,18 +27083,18 @@ a.ui.card:hover,
 ---------------*/
 /*-----Star----- */
 /* Icon */
-.ui.items > .item > .content .star.icon {
+.ui.items > .item > .content .favorite.icon {
   cursor: pointer;
   opacity: 0.75;
   -webkit-transition: color 0.25s ease;
           transition: color 0.25s ease;
 }
-.ui.items > .item > .content .star.icon:hover {
+.ui.items > .item > .content .favorite.icon:hover {
   opacity: 1;
-  color: #ac9400;
+  color: #ffb70a;
 }
-.ui.items > .item > .content .active.star.icon {
-  color: #e9b539;
+.ui.items > .item > .content .active.favorite.icon {
+  color: #ffb70a;
 }
 /*-----Like----- */
 /* Icon */
@@ -26909,10 +27106,10 @@ a.ui.card:hover,
 }
 .ui.items > .item > .content .like.icon:hover {
   opacity: 1;
-  color: #ffadae;
+  color: #ff2733;
 }
 .ui.items > .item > .content .active.like.icon {
-  color: #ef404a;
+  color: #ff2733;
 }
 /*----------------
   Extra Content
@@ -27088,34 +27285,7 @@ a.ui.card:hover,
         Import Directives
 *******************************/
 /*------------------
-    Load Default
--------------------*/
-/*******************************
-           Statistic
-*******************************/
-/*-------------------
-         View
---------------------*/
-/* Group */
-/* Group Element */
-/*-------------------
-       Content
---------------------*/
-/* Value */
-/* Label */
-/* Text */
-/* Label Image */
-/*-------------------
-      Types
---------------------*/
-/*-------------------
-      Variations
---------------------*/
-/* Floated */
-/* Inverted */
-/* Size */
-/*------------------
-     Load Theme
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -27209,6 +27379,33 @@ a.ui.card:hover,
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*******************************
+           Statistic
+*******************************/
+/*-------------------
+         View
+--------------------*/
+/* Group */
+/* Group Element */
+/*-------------------
+       Content
+--------------------*/
+/* Value */
+/* Label */
+/* Text */
+/* Label Image */
+/*-------------------
+      Types
+--------------------*/
+/*-------------------
+      Variations
+--------------------*/
+/* Floated */
+/* Inverted */
+/* Size */
+/*------------------
+     Load Theme
+-------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -27219,7 +27416,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
            Statistic
