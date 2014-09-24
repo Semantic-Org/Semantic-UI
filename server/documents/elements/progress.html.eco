@@ -9,7 +9,7 @@ title       : 'Progress'
 description : 'A progress bar shows the progression of a task'
 type        : 'UI Module'
 
-themes      : ['Default', 'Striped']
+themes      : ['Default', 'Basic', 'Striped']
 ---
 <link rel="stylesheet/less" type="text/css" href="/build/less/definitions/modules/progress.less" />
 <script src="/javascript/progress.js"></script>
