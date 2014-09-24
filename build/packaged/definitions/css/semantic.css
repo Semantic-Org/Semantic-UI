@@ -4543,9 +4543,6 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*------------------
-     Load Theme
--------------------*/
 /*******************************
              Table
 *******************************/
@@ -4583,6 +4580,9 @@
 /* Padded */
 /* Compact */
 /* Sizes */
+/*------------------
+     Load Theme
+-------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -12135,9 +12135,6 @@ i.icon.weixin:before {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*------------------
-     Load Theme
--------------------*/
 /*******************************
             Image
 *******************************/
@@ -12154,6 +12151,9 @@ i.icon.weixin:before {
 /* Floated */
 /* Sizing */
 /* Size */
+/*------------------
+     Load Theme
+-------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -12416,33 +12416,6 @@ img.ui.bordered.image {
      Load Default
 -------------------*/
 /*******************************
-            Input
-*******************************/
-/*-------------------
-      Element
---------------------*/
-/*-------------------
-        Types
---------------------*/
-/* Icon Input */
-/* Circular Icon Input */
-/* Labeled Input */
-/*-------------------
-        States
---------------------*/
-/* Placeholder */
-/* Down */
-/* Focus */
-/* Error */
-/* Loading */
-/*-------------------
-      Variations
---------------------*/
-/* Sizing */
-/*------------------
-     Load Theme
--------------------*/
-/*******************************
          Site Settings
 *******************************/
 /*-------------------
@@ -12533,6 +12506,33 @@ img.ui.bordered.image {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*******************************
+            Input
+*******************************/
+/*-------------------
+      Element
+--------------------*/
+/*-------------------
+        Types
+--------------------*/
+/* Icon Input */
+/* Circular Icon Input */
+/* Labeled Input */
+/*-------------------
+        States
+--------------------*/
+/* Placeholder */
+/* Down */
+/* Focus */
+/* Error */
+/* Loading */
+/*-------------------
+      Variations
+--------------------*/
+/* Sizing */
+/*------------------
+     Load Theme
+-------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -12560,9 +12560,9 @@ img.ui.bordered.image {
   margin: 0em;
   width: 100%;
   outline: none;
-  line-height: 1.33;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  padding: 0.635em 1em;
+  line-height: 1.2em;
+  font-family: "Helvetica Neue", "Helvetica", Arial;
+  padding: 0.7em 1em;
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.15);
   color: rgba(0, 0, 0, 0.8);
@@ -12668,7 +12668,7 @@ img.ui.bordered.image {
   top: 0px;
   right: 0px;
   margin: 0em;
-  width: 1.23em;
+  width: 2.85em;
   height: 100%;
   text-align: center;
   border-radius: 0em 0.325em 0.325em 0em;
@@ -12689,7 +12689,7 @@ img.ui.bordered.image {
   cursor: pointer;
 }
 .ui.icon.input input {
-  padding-right: 1.23em !important;
+  padding-right: 2.85em !important;
 }
 .ui.icon.input > .circular.icon {
   top: 0.35em;
@@ -12706,7 +12706,7 @@ img.ui.bordered.image {
   left: 0.5em;
 }
 .ui.left.icon.input > input {
-  padding-left: 1.23em !important;
+  padding-left: 2.85em !important;
   padding-right: 1em !important;
 }
 /* Transparent Icon */
@@ -20778,11 +20778,11 @@ select.ui.dropdown {
   position: relative;
   top: 0em;
   left: 0px;
-  z-index: 101;
+  z-index: 999;
   min-height: 0em;
   width: 100%;
   margin: 0em;
-  padding: 0.5em 1em;
+  padding: 0.75em 1em;
   background: #555555;
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
   font-size: 1rem;
@@ -21455,7 +21455,7 @@ a.ui.nag {
   position: relative;
   display: block;
   max-width: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   margin: 1em 0em 2.25em;
   box-shadow: none;
   background: rgba(0, 0, 0, 0.03);

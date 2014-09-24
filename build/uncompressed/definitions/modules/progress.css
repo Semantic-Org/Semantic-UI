@@ -173,7 +173,7 @@
   position: relative;
   display: block;
   max-width: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   margin: 1em 0em 2.25em;
   box-shadow: none;
   background: rgba(0, 0, 0, 0.03);

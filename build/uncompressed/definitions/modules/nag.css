@@ -182,11 +182,11 @@
   position: relative;
   top: 0em;
   left: 0px;
-  z-index: 101;
+  z-index: 999;
   min-height: 0em;
   width: 100%;
   margin: 0em;
-  padding: 0.5em 1em;
+  padding: 0.75em 1em;
   background: #555555;
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
   font-size: 1rem;

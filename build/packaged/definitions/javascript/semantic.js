@@ -3955,7 +3955,7 @@ $.fn.visit.settings = {
 
   expires       : 30,
   domain        : false,
-  path          : false,
+  path          : '/',
 
   onLimit       : function() {},
   onChange      : function() {},
@@ -3970,6 +3970,8 @@ $.fn.visit.settings = {
 
 })( jQuery, window , document );
 
+/*! jquery.cookie v1.4.1 | MIT */
+!function(a){"function"==typeof define&&define.amd?define(["jquery"],a):"object"==typeof exports?a(require("jquery")):a(jQuery)}(function(a){function b(a){return h.raw?a:encodeURIComponent(a)}function c(a){return h.raw?a:decodeURIComponent(a)}function d(a){return b(h.json?JSON.stringify(a):String(a))}function e(a){0===a.indexOf('"')&&(a=a.slice(1,-1).replace(/\\"/g,'"').replace(/\\\\/g,"\\"));try{return a=decodeURIComponent(a.replace(g," ")),h.json?JSON.parse(a):a}catch(b){}}function f(b,c){var d=h.raw?b:e(b);return a.isFunction(c)?c(d):d}var g=/\+/g,h=a.cookie=function(e,g,i){if(void 0!==g&&!a.isFunction(g)){if(i=a.extend({},h.defaults,i),"number"==typeof i.expires){var j=i.expires,k=i.expires=new Date;k.setTime(+k+864e5*j)}return document.cookie=[b(e),"=",d(g),i.expires?"; expires="+i.expires.toUTCString():"",i.path?"; path="+i.path:"",i.domain?"; domain="+i.domain:"",i.secure?"; secure":""].join("")}for(var l=e?void 0:{},m=document.cookie?document.cookie.split("; "):[],n=0,o=m.length;o>n;n++){var p=m[n].split("="),q=c(p.shift()),r=p.join("=");if(e&&e===q){l=f(r,g);break}e||void 0===(r=f(r))||(l[q]=r)}return l};h.defaults={},a.removeCookie=function(b,c){return void 0===a.cookie(b)?!1:(a.cookie(b,"",a.extend({},c,{expires:-1})),!a.cookie(b))}});
 /*
  * # Semantic - Site
  * http://github.com/semantic-org/semantic-ui/
@@ -8897,21 +8899,23 @@ $.fn.modal.settings = {
 
 $.fn.nag = function(parameters) {
   var
-    $allModules     = $(this),
-    moduleSelector  = $allModules.selector || '',
+    $allModules    = $(this),
+    moduleSelector = $allModules.selector || '',
 
-    time            = new Date().getTime(),
-    performance     = [],
+    time           = new Date().getTime(),
+    performance    = [],
 
-    query           = arguments[0],
-    methodInvoked   = (typeof query == 'string'),
-    queryArguments  = [].slice.call(arguments, 1),
+    query          = arguments[0],
+    methodInvoked  = (typeof query == 'string'),
+    queryArguments = [].slice.call(arguments, 1),
     returnedValue
   ;
-  $(this)
+  $allModules
     .each(function() {
       var
-        settings        = $.extend(true, {}, $.fn.nag.settings, parameters),
+        settings          = ( $.isPlainObject(parameters) )
+          ? $.extend(true, {}, $.fn.nag.settings, parameters)
+          : $.extend({}, $.fn.nag.settings),
 
         className       = settings.className,
         selector        = settings.selector,
@@ -8924,8 +8928,9 @@ $.fn.nag = function(parameters) {
         $module         = $(this),
 
         $close          = $module.find(selector.close),
-        $context        = $(settings.context),
-
+        $context        = (settings.context)
+          ? $(settings.context)
+          : $('body'),
 
         element         = this,
         instance        = $module.data(moduleNamespace),
@@ -8953,12 +8958,6 @@ $.fn.nag = function(parameters) {
 
         initialize: function() {
           module.verbose('Initializing element');
-          // calculate module offset once
-          moduleOffset  = $module.offset();
-          moduleHeight  = $module.outerHeight();
-          contextWidth  = $context.outerWidth();
-          contextHeight = $context.outerHeight();
-          contextOffset = $context.offset();
 
           $module
             .data(moduleNamespace, module)
@@ -8966,43 +8965,18 @@ $.fn.nag = function(parameters) {
           $close
             .on('click' + eventNamespace, module.dismiss)
           ;
-          // lets avoid javascript if we dont need to reposition
-          if(settings.context == window && settings.position == 'fixed') {
+
+          if(settings.detachable && $module.parent()[0] !== $context[0]) {
             $module
-              .addClass(className.fixed)
+              .detach()
+              .prependTo($context)
             ;
-          }
-          if(settings.sticky) {
-            module.verbose('Adding scroll events');
-            // retrigger on scroll for absolute
-            if(settings.position == 'absolute') {
-              $context
-                .on('scroll' + eventNamespace, module.event.scroll)
-                .on('resize' + eventNamespace, module.event.scroll)
-              ;
-            }
-            // fixed is always relative to window
-            else {
-              $(window)
-                .on('scroll' + eventNamespace, module.event.scroll)
-                .on('resize' + eventNamespace, module.event.scroll)
-              ;
-            }
-            // fire once to position on init
-            $.proxy(module.event.scroll, this)();
           }
 
           if(settings.displayTime > 0) {
             setTimeout(module.hide, settings.displayTime);
           }
-          if(module.should.show()) {
-            if( !$module.is(':visible') ) {
-              module.show();
-            }
-          }
-          else {
-            module.hide();
-          }
+          module.show();
         },
 
         destroy: function() {
@@ -9011,33 +8985,21 @@ $.fn.nag = function(parameters) {
             .removeData(moduleNamespace)
             .off(eventNamespace)
           ;
-          if(settings.sticky) {
-            $context
-              .off(eventNamespace)
-            ;
-          }
-        },
-
-        refresh: function() {
-          module.debug('Refreshing cached calculations');
-          moduleOffset  = $module.offset();
-          moduleHeight  = $module.outerHeight();
-          contextWidth  = $context.outerWidth();
-          contextHeight = $context.outerHeight();
-          contextOffset = $context.offset();
         },
 
         show: function() {
-          module.debug('Showing nag', settings.animation.show);
-          if(settings.animation.show == 'fade') {
-            $module
-              .fadeIn(settings.duration, settings.easing)
-            ;
-          }
-          else {
-            $module
-              .slideDown(settings.duration, settings.easing)
-            ;
+          if( module.should.show() && !$module.is(':visible') ) {
+            module.debug('Showing nag', settings.animation.show);
+            if(settings.animation.show == 'fade') {
+              $module
+                .fadeIn(settings.duration, settings.easing)
+              ;
+            }
+            else {
+              $module
+                .slideDown(settings.duration, settings.easing)
+              ;
+            }
           }
         },
 
@@ -9063,43 +9025,9 @@ $.fn.nag = function(parameters) {
           }
         },
 
-        stick: function() {
-          module.refresh();
-
-          if(settings.position == 'fixed') {
-            var
-              windowScroll = $(window).prop('pageYOffset') || $(window).scrollTop(),
-              fixedOffset = ( $module.hasClass(className.bottom) )
-                ? contextOffset.top + (contextHeight - moduleHeight) - windowScroll
-                : contextOffset.top - windowScroll
-            ;
-            $module
-              .css({
-                position : 'fixed',
-                top      : fixedOffset,
-                left     : contextOffset.left,
-                width    : contextWidth - settings.scrollBarWidth
-              })
-            ;
-          }
-          else {
-            $module
-              .css({
-                top : yPosition
-              })
-            ;
-          }
-        },
-        unStick: function() {
-          $module
-            .css({
-              top : ''
-            })
-          ;
-        },
         dismiss: function(event) {
           if(settings.storageMethod) {
-            module.storage.set(settings.storedKey, settings.storedValue);
+            module.storage.set(settings.key, settings.value);
           }
           module.hide();
           event.stopImmediatePropagation();
@@ -9112,76 +9040,91 @@ $.fn.nag = function(parameters) {
               module.debug('Persistent nag is set, can show nag');
               return true;
             }
-            if(module.storage.get(settings.storedKey) != settings.storedValue) {
-              module.debug('Stored value is not set, can show nag', module.storage.get(settings.storedKey));
+            if( module.storage.get(settings.key) != settings.value.toString() ) {
+              module.debug('Stored value is not set, can show nag', module.storage.get(settings.key));
               return true;
             }
-            module.debug('Stored value is set, cannot show nag', module.storage.get(settings.storedKey));
-            return false;
-          },
-          stick: function() {
-            yOffset   = $context.prop('pageYOffset') || $context.scrollTop();
-            yPosition = ( $module.hasClass(className.bottom) )
-              ? (contextHeight - $module.outerHeight() ) + yOffset
-              : yOffset
-            ;
-            // absolute position calculated when y offset met
-            if(yPosition > moduleOffset.top) {
-              return true;
-            }
-            else if(settings.position == 'fixed') {
-              return true;
-            }
+            module.debug('Stored value is set, cannot show nag', module.storage.get(settings.key));
             return false;
           }
+        },
+
+        get: {
+          storageOptions: function() {
+            var
+              options = {}
+            ;
+            if(settings.expires) {
+              options.expires = settings.expires;
+            }
+            if(settings.domain) {
+              options.domain = settings.domain;
+            }
+            if(settings.path) {
+              options.path = settings.path;
+            }
+            return options;
+          }
+        },
+
+        clear: function() {
+          module.storage.remove(settings.key);
         },
 
         storage: {
-
           set: function(key, value) {
-            module.debug('Setting stored value', key, value, settings.storageMethod);
-            if(settings.storageMethod == 'local' && window.store !== undefined) {
-              window.store.set(key, value);
+            var
+              options = module.get.storageOptions()
+            ;
+            if(settings.storageMethod == 'localstorage' && window.localStorage !== undefined) {
+              window.localStorage.setItem(key, value);
+              module.debug('Value stored using local storage', key, value);
             }
-            // store by cookie
             else if($.cookie !== undefined) {
-              $.cookie(key, value);
+              $.cookie(key, value, options);
+              module.debug('Value stored using cookie', key, value, options);
             }
             else {
-              module.error(error.noStorage);
+              module.error(error.noCookieStorage);
+              return;
             }
           },
-          get: function(key) {
-            module.debug('Getting stored value', key, settings.storageMethod);
-            if(settings.storageMethod == 'local' && window.store !== undefined) {
-              return window.store.get(key);
+          get: function(key, value) {
+            var
+              storedValue
+            ;
+            if(settings.storageMethod == 'localstorage' && window.localStorage !== undefined) {
+              storedValue = window.localStorage.getItem(key);
             }
             // get by cookie
             else if($.cookie !== undefined) {
-              return $.cookie(key);
+              storedValue = $.cookie(key);
+            }
+            else {
+              module.error(error.noCookieStorage);
+            }
+            if(storedValue == 'undefined' || storedValue == 'null' || storedValue === undefined || storedValue === null) {
+              storedValue = undefined;
+            }
+            return storedValue;
+          },
+          remove: function(key) {
+            var
+              options = module.get.storageOptions()
+            ;
+            if(settings.storageMethod == 'local' && window.store !== undefined) {
+              window.localStorage.removeItem(key);
+            }
+            // store by cookie
+            else if($.cookie !== undefined) {
+              $.removeCookie(key, options);
             }
             else {
               module.error(error.noStorage);
             }
           }
-
         },
 
-        event: {
-          scroll: function() {
-            if(timer !== undefined) {
-              clearTimeout(timer);
-            }
-            timer = setTimeout(function() {
-              if(module.should.stick() ) {
-                requestAnimationFrame(module.stick);
-              }
-              else {
-                module.unStick();
-              }
-            }, settings.lag);
-          }
-        },
         setting: function(name, value) {
           module.debug('Changing setting', name, value);
           if( $.isPlainObject(name) ) {
@@ -9195,14 +9138,11 @@ $.fn.nag = function(parameters) {
           }
         },
         internal: function(name, value) {
-          module.debug('Changing internal', name, value);
-          if(value !== undefined) {
-            if( $.isPlainObject(name) ) {
-              $.extend(true, module, name);
-            }
-            else {
-              module[name] = value;
-            }
+          if( $.isPlainObject(name) ) {
+            $.extend(true, module, name);
+          }
+          else if(value !== undefined) {
+            module[name] = value;
           }
           else {
             return module[name];
@@ -9270,9 +9210,6 @@ $.fn.nag = function(parameters) {
             if(moduleSelector) {
               title += ' \'' + moduleSelector + '\'';
             }
-            if($allModules.size() > 1) {
-              title += ' ' + '(' + $allModules.size() + ')';
-            }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
               console.groupCollapsed(title);
               if(console.table) {
@@ -9320,6 +9257,7 @@ $.fn.nag = function(parameters) {
                 return false;
               }
               else {
+                module.error(error.method, query);
                 return false;
               }
             });
@@ -9342,6 +9280,7 @@ $.fn.nag = function(parameters) {
           return found;
         }
       };
+
       if(methodInvoked) {
         if(instance === undefined) {
           module.initialize();
@@ -9354,9 +9293,9 @@ $.fn.nag = function(parameters) {
         }
         module.initialize();
       }
-
     })
   ;
+
   return (returnedValue !== undefined)
     ? returnedValue
     : this
@@ -9376,46 +9315,40 @@ $.fn.nag.settings = {
   // allows cookie to be overriden
   persist     : false,
 
-  // set to zero to manually dismiss, otherwise hides on its own
+  // set to zero to require manually dismissal, otherwise hides on its own
   displayTime : 0,
 
   animation   : {
-    show: 'slide',
-    hide: 'slide'
+    show : 'slide',
+    hide : 'slide'
   },
 
-  // method of stickyness
-  position       : 'fixed',
-  scrollBarWidth : 18,
+  context       : false,
+  detachable    : false,
+
+  expires       : 30,
+  domain        : false,
+  path          : '/',
 
   // type of storage to use
-  storageMethod  : 'cookie',
+  storageMethod : 'cookie',
 
   // value to store in dismissed localstorage/cookie
-  storedKey      : 'nag',
-  storedValue    : 'dismiss',
-
-  // need to calculate stickyness on scroll
-  sticky         : false,
-
-  // how often to check scroll event
-  lag            : 0,
-
-  // context for scroll event
-  context        : window,
+  key           : 'nag',
+  value         : 'dismiss',
 
   error: {
-    noStorage  : 'Neither $.cookie or store is defined. A storage solution is required for storing state',
+    noStorage : 'Neither $.cookie or store is defined. A storage solution is required for storing state',
     method    : 'The method you called is not defined.'
   },
 
   className     : {
-    bottom      : 'bottom',
-    fixed       : 'fixed'
+    bottom : 'bottom',
+    fixed  : 'fixed'
   },
 
   selector      : {
-    close: '.icon.close'
+    close : '.close.icon'
   },
 
   speed         : 500,
@@ -9427,6 +9360,8 @@ $.fn.nag.settings = {
 
 })( jQuery, window , document );
 
+/*! jquery.cookie v1.4.1 | MIT */
+!function(a){"function"==typeof define&&define.amd?define(["jquery"],a):"object"==typeof exports?a(require("jquery")):a(jQuery)}(function(a){function b(a){return h.raw?a:encodeURIComponent(a)}function c(a){return h.raw?a:decodeURIComponent(a)}function d(a){return b(h.json?JSON.stringify(a):String(a))}function e(a){0===a.indexOf('"')&&(a=a.slice(1,-1).replace(/\\"/g,'"').replace(/\\\\/g,"\\"));try{return a=decodeURIComponent(a.replace(g," ")),h.json?JSON.parse(a):a}catch(b){}}function f(b,c){var d=h.raw?b:e(b);return a.isFunction(c)?c(d):d}var g=/\+/g,h=a.cookie=function(e,g,i){if(void 0!==g&&!a.isFunction(g)){if(i=a.extend({},h.defaults,i),"number"==typeof i.expires){var j=i.expires,k=i.expires=new Date;k.setTime(+k+864e5*j)}return document.cookie=[b(e),"=",d(g),i.expires?"; expires="+i.expires.toUTCString():"",i.path?"; path="+i.path:"",i.domain?"; domain="+i.domain:"",i.secure?"; secure":""].join("")}for(var l=e?void 0:{},m=document.cookie?document.cookie.split("; "):[],n=0,o=m.length;o>n;n++){var p=m[n].split("="),q=c(p.shift()),r=p.join("=");if(e&&e===q){l=f(r,g);break}e||void 0===(r=f(r))||(l[q]=r)}return l};h.defaults={},a.removeCookie=function(b,c){return void 0===a.cookie(b)?!1:(a.cookie(b,"",a.extend({},c,{expires:-1})),!a.cookie(b))}});
 /*
  * # Semantic - Popup
  * http://github.com/jlukic/semantic-ui/
@@ -11776,7 +11711,6 @@ $.fn.search = function(parameters) {
               searchFields    = $.isArray(settings.searchFields)
                 ? settings.searchFields
                 : [settings.searchFields],
-
               searchRegExp   = new RegExp('(?:\s|^)' + searchTerm, 'i'),
               fullTextRegExp = new RegExp(searchTerm, 'i'),
               searchHTML
@@ -11786,13 +11720,17 @@ $.fn.search = function(parameters) {
             ;
             // iterate through search fields in array order
             $.each(searchFields, function(index, field) {
-              $.each(settings.source, function(label, thing) {
-                if(typeof thing[field] == 'string' && ($.inArray(thing, results) == -1) && ($.inArray(thing, fullTextResults) == -1) ) {
-                  if( searchRegExp.test( thing[field] ) ) {
-                    results.push(thing);
+              $.each(settings.source, function(label, content) {
+                var
+                  fieldExists = (typeof content[field] == 'string'),
+                  notAlreadyResult = ($.inArray(content, results) == -1 && $.inArray(content, fullTextResults) == -1)
+                ;
+                if(fieldExists && notAlreadyResult) {
+                  if( searchRegExp.test( content[field] ) ) {
+                    results.push(content);
                   }
-                  else if( fullTextRegExp.test( thing[field] ) ) {
-                    fullTextResults.push(thing);
+                  else if( fullTextRegExp.test( content[field] ) ) {
+                    fullTextResults.push(content);
                   }
                 }
               });
