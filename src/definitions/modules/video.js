@@ -101,6 +101,7 @@ $.fn.video = function(parameters) {
 
         destroy: function() {
           module.verbose('Destroying previous instance of video');
+          module.reset();
           $module
             .removeData(moduleNamespace)
             .off(eventNamespace)
