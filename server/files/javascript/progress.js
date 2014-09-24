@@ -12,6 +12,7 @@ semantic.progress.ready = function() {
 
     $progress
       .progress({
+        showActivity: false,
         random: {
           min: 10,
           max: 90

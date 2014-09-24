@@ -9,7 +9,7 @@ title       : 'Progress'
 description : 'A progress bar shows the progression of a task'
 type        : 'UI Module'
 
-themes      : ['Default', 'Basic', 'Striped']
+themes      : ['Default', 'Classic', 'Basic', 'Striped']
 ---
 <link rel="stylesheet/less" type="text/css" href="/build/less/definitions/modules/progress.less" />
 <script src="/javascript/progress.js"></script>
@@ -121,6 +121,36 @@ themes      : ['Default', 'Basic', 'Striped']
 
     <h2 class="ui dividing header">Variations</h2>
 
+    <div class="example">
+      <h4 class="ui header">Inverted</h4>
+      <p>A progress bar can have its colors inverted</p>
+      <div class="ui inverted segment">
+        <div class="ui inverted progress">
+          <div class="bar">
+            <div class="progress"></div>
+          </div>
+          <div class="label">Uploading Files</div>
+        </div>
+        <div class="ui inverted progress success">
+          <div class="bar">
+            <div class="progress"></div>
+          </div>
+          <div class="label">Success</div>
+        </div>
+        <div class="ui inverted progress warning">
+          <div class="bar">
+            <div class="progress"></div>
+          </div>
+          <div class="label">Warning</div>
+        </div>
+        <div class="ui inverted progress error">
+          <div class="bar">
+            <div class="progress"></div>
+          </div>
+          <div class="label">Error</div>
+        </div>
+      </div>
+    </div>
 
     <div class="example">
       <h4 class="ui header">Attached</h4>
@@ -177,29 +207,29 @@ themes      : ['Default', 'Basic', 'Striped']
 
     <div class="example">
       <h4 class="ui header">With metadata</h4>
-      <p>A progress bar can be initialized with its</p>
+      <p>A progress bar can be initialized with metadata</p>
       <div class="code" data-type="javascript" data-demo="true">
         $('#example1').progress();
       </div>
       <div class="code" data-type="html" data-preview="true">
-        <div class="ui progress" data-percent="74" id="example1">
+        <div class="ui teal progress" data-percent="74" id="example1">
           <div class="bar"></div>
-          <div class="label">Creating Profile</div>
+          <div class="label">74% Funded</div>
         </div>
       </div>
     </div>
     <div class="example">
       <h4 class="ui header">With javascript</h4>
-      <p>A progress bar can be initialized with its</p>
+      <p>A progress bar can be initialized with a javascript settings object</p>
       <div class="code" data-type="javascript" data-demo="true">
         $('#example2').progress({
           percent: 22
         });
       </div>
       <div class="code" data-type="html" data-preview="true">
-        <div class="ui progress" id="example2">
+        <div class="ui teal progress" id="example2">
           <div class="bar"></div>
-          <div class="label">Creating Profile</div>
+          <div class="label">22% Earned</div>
         </div>
       </div>
     </div>
@@ -216,7 +246,7 @@ themes      : ['Default', 'Basic', 'Striped']
         ;
       </div>
       <div class="code" data-type="html" data-preview="true">
-        <div class="ui progress" id="example3">
+        <div class="ui teal progress" id="example3">
           <div class="bar">
             <div class="progress"></div>
           </div>
@@ -243,7 +273,7 @@ themes      : ['Default', 'Basic', 'Striped']
         ;
       </div>
       <div class="code" data-type="html" data-preview="true">
-        <div class="ui progress" data-value="15" data-total="20" id="example4">
+        <div class="ui teal progress" data-value="15" data-total="20" id="example4">
           <div class="bar">
             <div class="progress"></div>
           </div>
@@ -272,7 +302,7 @@ themes      : ['Default', 'Basic', 'Striped']
         ;
       </div>
       <div class="code" data-type="html" data-preview="true">
-        <div class="ui progress" data-value="15" data-total="20" id="example5">
+        <div class="ui teal progress" data-value="15" data-total="20" id="example5">
           <div class="bar">
             <div class="progress"></div>
           </div>

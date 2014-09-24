@@ -7,7 +7,6 @@
 --------------------*/
 
 @verticalSpacing: 1em;
-
 @margin: @verticalSpacing 0em (@labelHeight + @verticalSpacing);
 @firstMargin: 0em 0em (@labelHeight + @verticalSpacing);
 @lastMargin: 0em 0em (@labelHeight);
@@ -28,7 +27,7 @@
   background-color 1s @defaultEasing
 ;
 
-
+/* Progress Bar Label */
 @progressWidth: auto;
 @progressSize: 0.9em;
 @progressPosition: absolute;
@@ -42,6 +41,7 @@
 @progressFontWeight: bold;
 @progressTextAlign: left;
 
+/* Label */
 @labelWidth: 100%;
 @labelHeight: 1.25em;
 @labelSize: 1em;
@@ -61,6 +61,7 @@
         States
 --------------------*/
 
+/* Active */
 @activePulseColor: @white;
 @activePulseMaxOpacity: 0.3;
 @activePulseDuration: 2s;
@@ -70,10 +71,13 @@
         Types
 --------------------*/
 
+/* Attached */
 @attachedHeight: 0.25em;
 @attachedBorderRadius: @borderRadius;
 
-
-/*-------------------
-      Variations
---------------------*/
+/* Inverted */
+@invertedBackground: @transparentWhite;
+@invertedBorder: none;
+@invertedBarBackground: @offWhite;
+@invertedProgressColor: @textColor;
+@invertedLabelColor: @white;
