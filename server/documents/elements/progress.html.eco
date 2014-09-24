@@ -32,6 +32,21 @@ themes      : ['Default', 'Classic', 'Basic', 'Striped']
         <div class="label">Uploading Files</div>
       </div>
     </div>
+    <div class="indicating example">
+      <h4 class="ui header">Indicating Progress Bar</h4>
+      <p>An indicating progress bar visually indicates the current level of progress of a task</p>
+      <div class="ui indicating progress">
+        <div class="bar"></div>
+        <div class="label">Funding</div>
+      </div>
+      <div class="ignored">
+
+        <div class="ui icon buttons">
+          <div class="increment ui button"><i class="plus icon"></i></div>
+          <div class="decrement ui button"><i class="minus icon"></i></div>
+        </div>
+      </div>
+    </div>
 
     <h2 class="ui dividing header">Content</h2>
 
@@ -273,7 +288,7 @@ themes      : ['Default', 'Classic', 'Basic', 'Striped']
         ;
       </div>
       <div class="code" data-type="html" data-preview="true">
-        <div class="ui teal progress" data-value="15" data-total="20" id="example4">
+        <div class="ui indicating progress" data-value="1" data-total="20" id="example4">
           <div class="bar">
             <div class="progress"></div>
           </div>
