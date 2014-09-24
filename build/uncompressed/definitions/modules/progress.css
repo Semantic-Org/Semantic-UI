@@ -173,7 +173,7 @@
   position: relative;
   display: block;
   max-width: 100%;
-  border: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   margin: 1em 0em 2.25em;
   box-shadow: none;
   background: rgba(0, 0, 0, 0.03);
@@ -228,6 +228,7 @@
   line-height: 1;
   position: relative;
   width: 0%;
+  min-width: 0.25em;
   height: 1.75em;
   background: #888888;
   border-radius: 0.325em;
@@ -241,7 +242,7 @@
   width: auto;
   font-size: 0.9em;
   top: 50%;
-  right: 1em;
+  right: 0.5em;
   left: auto;
   bottom: auto;
   color: rgba(255, 255, 255, 0.8);

@@ -36,11 +36,11 @@
 
 /* transitions */
 @transition:
-  opacity @transitionDuration @transitionEasing,
-  background-color @transitionDuration @transitionEasing,
-  color @transitionDuration @transitionEasing,
-  box-shadow @transitionDuration @transitionEasing,
-  background @transitionDuration @transitionEasing
+  opacity 0.1s @transitionEasing,
+  background-color 0.1s @transitionEasing,
+  color 0.1s @transitionEasing,
+  box-shadow 0.1s @transitionEasing,
+  background 0.1s @transitionEasing
 ;
 
 /* Padding */
@@ -166,7 +166,6 @@
 @basicBorderRadius: @borderRadius;
 @basicBorderSize: 1px;
 @basicColoredBorderSize: 2px;
-@basicPadding: @verticalPadding @horizontalPadding;
 
 @basicBackground: transparent;
 @basicFontWeight: normal;

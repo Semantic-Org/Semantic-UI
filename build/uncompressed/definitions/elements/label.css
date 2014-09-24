@@ -222,8 +222,8 @@ a.ui.label {
   cursor: pointer;
   color: inherit;
   opacity: 0.8;
-  -webkit-transition: 0.25s opacity ease;
-          transition: 0.25s opacity ease;
+  -webkit-transition: 0.2s opacity ease;
+          transition: 0.2s opacity ease;
 }
 .ui.label a:hover {
   opacity: 1;
@@ -358,8 +358,8 @@ a.ui.label {
   height: 3.25em;
   padding: 0em;
   text-align: center;
-  -webkit-transition: color 0.25s ease;
-          transition: color 0.25s ease;
+  -webkit-transition: color 0.2s ease;
+          transition: color 0.2s ease;
 }
 /* Icon Label */
 .ui.corner.label {
@@ -379,8 +379,8 @@ a.ui.label {
   border-bottom: 3.25em solid transparent;
   border-left: 0em solid transparent;
   border-right-color: inherit;
-  -webkit-transition: border-color 0.25s ease;
-          transition: border-color 0.25s ease;
+  -webkit-transition: border-color 0.2s ease;
+          transition: border-color 0.2s ease;
 }
 .ui.corner.label .icon {
   position: relative;

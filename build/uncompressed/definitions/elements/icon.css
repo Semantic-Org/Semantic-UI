@@ -259,8 +259,8 @@ i.icon.disabled {
 i.link.icon {
   cursor: pointer;
   opacity: 0.75;
-  -webkit-transition: opacity 0.25s ease;
-          transition: opacity 0.25s ease;
+  -webkit-transition: opacity 0.2s ease;
+          transition: opacity 0.2s ease;
 }
 i.link.icon:hover {
   opacity: 1 !important;

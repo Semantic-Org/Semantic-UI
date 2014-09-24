@@ -10993,8 +10993,8 @@ $.fn.progress.settings = {
   performance : true,
 
   random      : {
-    min : 1,
-    max : 3
+    min : 2,
+    max : 5
   },
 
   autoSuccess  : true,

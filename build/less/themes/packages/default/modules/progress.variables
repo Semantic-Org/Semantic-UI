@@ -12,7 +12,7 @@
 @lastMargin: 0em 0em (@labelHeight);
 
 @background: @subtleTransparentBlack;
-@border: none;
+@border: 1px solid @borderColor;
 @boxShadow: none;
 @padding: 0.325em;
 @borderRadius: 0.325em;
@@ -26,13 +26,15 @@
   width 0.5s @defaultEasing,
   background-color 1s @defaultEasing
 ;
+@barInitialWidth: 0%;
+@barMinWidth: 0.25em;
 
 /* Progress Bar Label */
 @progressWidth: auto;
 @progressSize: 0.9em;
 @progressPosition: absolute;
 @progressTop: 50%;
-@progressRight: 1em;
+@progressRight: 0.5em;
 @progressLeft: auto;
 @progressBottom: auto;
 @progressOffset: -0.5em;

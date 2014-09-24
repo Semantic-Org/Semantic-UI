@@ -604,10 +604,6 @@
   text-shadow: none !important;
   box-shadow: @basicBoxShadow;
 }
-.ui.basic.buttons .button:not(.compact),
-.ui.basic.button:not(.compact) {
-  padding: @basicPadding;
-}
 .ui.basic.buttons {
   box-shadow: @basicGroupBoxShadow;
   border-radius: @borderRadius;
@@ -1165,6 +1161,9 @@
   box-shadow: 0px 0px 0px @basicColoredBorderSize @blackDown inset !important;
   color: @blackDown !important;
 }
+.ui.buttons > .basic.black.button:not(:first-child) {
+  margin-left: -@basicColoredBorderSize;
+}
 
 /* Inverted */
 .ui.inverted.black.buttons .button,
@@ -1277,6 +1276,9 @@
   box-shadow: 0px 0px 0px @basicColoredBorderSize @blueDown inset !important;
   color: @blueDown !important;
 }
+.ui.buttons > .basic.blue.button:not(:first-child) {
+  margin-left: -@basicColoredBorderSize;
+}
 
 /* Inverted */
 .ui.inverted.blue.buttons .button,
@@ -1387,6 +1389,9 @@
   box-shadow: 0px 0px 0px @basicColoredBorderSize @greenDown inset !important;
   color: @greenDown !important;
 }
+.ui.buttons > .basic.green.button:not(:first-child) {
+  margin-left: -@basicColoredBorderSize;
+}
 
 /* Inverted */
 .ui.inverted.green.buttons .button,
@@ -1495,6 +1500,9 @@
   background: transparent !important;
   box-shadow: 0px 0px 0px @basicColoredBorderSize @orangeDown inset !important;
   color: @orangeDown !important;
+}
+.ui.buttons > .basic.orange.button:not(:first-child) {
+  margin-left: -@basicColoredBorderSize;
 }
 
 /* Inverted */
@@ -1605,6 +1613,9 @@
   box-shadow: 0px 0px 0px @basicColoredBorderSize @pinkDown inset !important;
   color: @pinkDown !important;
 }
+.ui.buttons > .basic.pink.button:not(:first-child) {
+  margin-left: -@basicColoredBorderSize;
+}
 
 /* Inverted */
 .ui.inverted.pink.buttons .button,
@@ -1714,6 +1725,9 @@
   box-shadow: 0px 0px 0px @basicColoredBorderSize @purpleDown inset !important;
   color: @purpleDown !important;
 }
+.ui.buttons > .basic.purple.button:not(:first-child) {
+  margin-left: -@basicColoredBorderSize;
+}
 
 /* Inverted */
 .ui.inverted.purple.buttons .button,
@@ -1822,6 +1836,9 @@
   background: transparent !important;
   box-shadow: 0px 0px 0px @basicColoredBorderSize @redDown inset !important;
   color: @redDown !important;
+}
+.ui.buttons > .basic.red.button:not(:first-child) {
+  margin-left: -@basicColoredBorderSize;
 }
 
 /* Inverted */
@@ -1933,6 +1950,9 @@
   box-shadow: 0px 0px 0px @basicColoredBorderSize @tealDown inset !important;
   color: @tealDown !important;
 }
+.ui.buttons > .basic.teal.button:not(:first-child) {
+  margin-left: -@basicColoredBorderSize;
+}
 
 /* Inverted */
 .ui.inverted.teal.buttons .button,
@@ -2042,6 +2062,9 @@
   background: transparent !important;
   box-shadow: 0px 0px 0px @basicColoredBorderSize @yellowDown inset !important;
   color: @yellowDown !important;
+}
+.ui.buttons > .basic.yellow.button:not(:first-child) {
+  margin-left: -@basicColoredBorderSize;
 }
 
 /* Inverted */
@@ -2247,6 +2270,9 @@
   display: inline-block;
   vertical-align: middle;
   margin: @verticalMargin @horizontalMargin 0em 0em;
+}
+.ui.buttons > .button:hover {
+  position: relative;
 }
 .ui.buttons:after {
   content: ".";

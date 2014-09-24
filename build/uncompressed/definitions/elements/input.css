@@ -46,6 +46,33 @@
      Load Default
 -------------------*/
 /*******************************
+            Input
+*******************************/
+/*-------------------
+      Element
+--------------------*/
+/*-------------------
+        Types
+--------------------*/
+/* Icon Input */
+/* Circular Icon Input */
+/* Labeled Input */
+/*-------------------
+        States
+--------------------*/
+/* Placeholder */
+/* Down */
+/* Focus */
+/* Error */
+/* Loading */
+/*-------------------
+      Variations
+--------------------*/
+/* Sizing */
+/*------------------
+     Load Theme
+-------------------*/
+/*******************************
          Site Settings
 *******************************/
 /*-------------------
@@ -136,33 +163,6 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*******************************
-            Input
-*******************************/
-/*-------------------
-      Element
---------------------*/
-/*-------------------
-        Types
---------------------*/
-/* Icon Input */
-/* Circular Icon Input */
-/* Labeled Input */
-/*-------------------
-        States
---------------------*/
-/* Placeholder */
-/* Down */
-/* Focus */
-/* Error */
-/* Loading */
-/*-------------------
-      Variations
---------------------*/
-/* Sizing */
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -190,9 +190,9 @@
   margin: 0em;
   width: 100%;
   outline: none;
-  line-height: 1.2em;
-  font-family: "Helvetica Neue", "Helvetica", Arial;
-  padding: 0.7em 1em;
+  line-height: 1.33;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  padding: 0.635em 1em;
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.15);
   color: rgba(0, 0, 0, 0.8);
@@ -298,7 +298,7 @@
   top: 0px;
   right: 0px;
   margin: 0em;
-  width: 2.85em;
+  width: 1.23em;
   height: 100%;
   text-align: center;
   border-radius: 0em 0.325em 0.325em 0em;
@@ -319,7 +319,7 @@
   cursor: pointer;
 }
 .ui.icon.input input {
-  padding-right: 2.85em !important;
+  padding-right: 1.23em !important;
 }
 .ui.icon.input > .circular.icon {
   top: 0.35em;
@@ -336,7 +336,7 @@
   left: 0.5em;
 }
 .ui.left.icon.input > input {
-  padding-left: 2.85em !important;
+  padding-left: 1.23em !important;
   padding-right: 1em !important;
 }
 /* Transparent Icon */
