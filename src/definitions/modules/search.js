@@ -271,7 +271,6 @@ $.fn.search = function(parameters) {
               searchFields    = $.isArray(settings.searchFields)
                 ? settings.searchFields
                 : [settings.searchFields],
-
               searchRegExp   = new RegExp('(?:\s|^)' + searchTerm, 'i'),
               fullTextRegExp = new RegExp(searchTerm, 'i'),
               searchHTML
@@ -281,13 +280,17 @@ $.fn.search = function(parameters) {
             ;
             // iterate through search fields in array order
             $.each(searchFields, function(index, field) {
-              $.each(settings.source, function(label, thing) {
-                if(typeof thing[field] == 'string' && ($.inArray(thing, results) == -1) && ($.inArray(thing, fullTextResults) == -1) ) {
-                  if( searchRegExp.test( thing[field] ) ) {
-                    results.push(thing);
+              $.each(settings.source, function(label, content) {
+                var
+                  fieldExists = (typeof content[field] == 'string'),
+                  notAlreadyResult = ($.inArray(content, results) == -1 && $.inArray(content, fullTextResults) == -1)
+                ;
+                if(fieldExists && notAlreadyResult) {
+                  if( searchRegExp.test( content[field] ) ) {
+                    results.push(content);
                   }
-                  else if( fullTextRegExp.test( thing[field] ) ) {
-                    fullTextResults.push(thing);
+                  else if( fullTextRegExp.test( content[field] ) ) {
+                    fullTextResults.push(content);
                   }
                 }
               });

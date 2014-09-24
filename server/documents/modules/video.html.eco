@@ -8,7 +8,7 @@ title       : 'Video'
 description : 'A video provides a wrapper for video embeds from common 3rd party sources.'
 type        : 'UI Module'
 
-themes      : ['Default']
+status      : 'Undocumented'
 ---
 
 <script src="/javascript/video.js"></script>
@@ -20,7 +20,15 @@ themes      : ['Default']
 
   <div class="ui active tab" data-tab="overview">
 
-    <h2 class="ui dividing header">What Can I Use This For?</h2>
+    <h2 class="ui dividing header">Current Progress</h2>
+    <div class="ui indicating progress">
+      <div class="bar" style="width: 90%;">
+        <div class="progress">90%</div>
+      </div>
+      <div class="label">Needs Documentation</div>
+    </div>
+
+    <h2 class="ui dividing header">Usage</h2>
     <div class="no example">
       <h4 class="ui header">Many Networks One API</h4>
       <p>Semantic's video component provides a wrapper around APIs for two popular sites for hosting multimedia content, Youtube and Vimeo, allowing you to use a single embed and unified set of javascript parameters, to control javascript callbacks, HD and UI display settings, autoplay etc.</p>
@@ -54,20 +62,13 @@ themes      : ['Default']
     </div>
 
     <h2 class="ui dividing header">Development Progress</h2>
+
     <div class="no example">
       <p>This is an undocumented component, but is <b>mostly complete</b>.</p>
-
-      <div class="ui teal active progress">
-        <div class="bar" style="width: 75%;"></div>
-      </div>
-
       <p>You can help support the future development of the Semantic UI project, and help boost the priority of this component by donating to Semantic UI development.</p>
-
       <p>Please be sure to leave a note in the comments to indicate that you are interested in the development of this particular component.</p>
     </div>
 
   </div>
 
 </div>
-</body>
-</html>

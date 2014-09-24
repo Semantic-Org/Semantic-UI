@@ -16,7 +16,15 @@ type        : 'UI Element'
 
 <div class="main container">
 
-  <h2 class="ui dividing header">What Can I Use This For?</h2>
+  <h2 class="ui dividing header">Current Progress</h2>
+  <div class="ui indicating progress">
+    <div class="bar" style="width: 90%;">
+      <div class="progress">90%</div>
+    </div>
+    <div class="label">Needs Documentation</div>
+  </div>
+
+  <h2 class="ui dividing header">Usage</h2>
   <div class="no example">
     <p>Flag sprites are useful for designating political states for everything from sports matches to localization dropdowns. Just be sure not to use them to represent languages or you might get a visit from the UX police.</p>
 

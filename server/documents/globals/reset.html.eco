@@ -16,7 +16,15 @@ type        : 'UI Global'
 
 <div class="main container">
 
-  <h2 class="ui dividing header">What Can I Use This For?</h2>
+  <h2 class="ui dividing header">Current Progress</h2>
+  <div class="ui indicating progress">
+    <div class="bar" style="width: 90%;">
+      <div class="progress">95%</div>
+    </div>
+    <div class="label">Needs Documentation</div>
+  </div>
+
+  <h2 class="ui dividing header">Usage</h2>
   <div class="no example">
     <p>Semantic's default theme includes the latest Normalize css to provide a base line. In addition somewhat uniquely, Semantic UI requires a <b>Box-sizing</b> reset, to make sure that all elements handle width definitions in the same way.</p>
   </div>

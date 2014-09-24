@@ -67,10 +67,12 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/modal.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/accordion.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/dropdown.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/nag.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/popup.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/progress.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/rating.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/sidebar.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/search.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/shape.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/sticky.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/tab.css">
@@ -131,9 +133,11 @@
   <script src="/build/uncompressed/definitions/modules/dimmer.js"></script>
   <script src="/build/uncompressed/definitions/modules/dropdown.js"></script>
   <script src="/build/uncompressed/definitions/modules/modal.js"></script>
+  <script src="/build/uncompressed/definitions/modules/nag.js"></script>
   <script src="/build/uncompressed/definitions/modules/popup.js"></script>
   <script src="/build/uncompressed/definitions/modules/progress.js"></script>
   <script src="/build/uncompressed/definitions/modules/rating.js"></script>
+  <script src="/build/uncompressed/definitions/modules/search.js"></script>
   <script src="/build/uncompressed/definitions/modules/shape.js"></script>
   <script src="/build/uncompressed/definitions/modules/sidebar.js"></script>
   <script src="/build/uncompressed/definitions/modules/sticky.js"></script>
@@ -182,11 +186,12 @@
       <div class="ui small <%= if @document.elementType is 'global' then 'active ' %> inverted header">Globals</div>
       <div class="menu">
         <% for element in uiGlobals: %>
-          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %>
+          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
+            <%= element.title %>
+            <% if element.status?: %>
+            <span class="ui mini empty yellow circular ui label"></span>
+            <% end %>
           </a>
-          <% if element.status? is 'Undocumented': %>
-          <div class="ui mini empty yellow ui label"></div>
-          <% end %>
         <% end %>
       </div>
     </div>
@@ -194,11 +199,12 @@
       <div class="ui small <%= if @document.elementType is 'element' then 'active ' %> inverted header">Elements</div>
       <div class="menu">
         <% for element in uiElements: %>
-          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %>
+          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
+            <%= element.title %>
+            <% if element.status?: %>
+            <span class="ui mini empty yellow circular ui label"></span>
+            <% end %>
           </a>
-          <% if element.status? is 'Undocumented': %>
-          <div class="ui mini empty yellow ui label"></div>
-          <% end %>
         <% end %>
       </div>
     </div>
@@ -206,11 +212,12 @@
       <div class="ui small <%= if @document.elementType is 'collection' then 'active ' %> inverted header">Collections</div>
       <div class="menu">
         <% for element in uiCollections: %>
-          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %>
+          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
+            <%= element.title %>
+            <% if element.status?: %>
+            <span class="ui mini empty yellow circular ui label"></span>
+            <% end %>
           </a>
-          <% if element.status? is 'Undocumented': %>
-          <div class="ui mini empty yellow ui label"></div>
-          <% end %>
         <% end %>
       </div>
     </div>
@@ -218,11 +225,12 @@
       <div class="ui small <%= if @document.elementType is 'view' then 'active ' %> inverted header">Views</div>
       <div class="menu">
         <% for element in uiViews: %>
-          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %>
+          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
+            <%= element.title %>
+            <% if element.status?: %>
+            <span class="ui mini empty yellow circular ui label"></span>
+            <% end %>
           </a>
-          <% if element.status? is 'Undocumented': %>
-          <div class="ui mini empty yellow ui label"></div>
-          <% end %>
         <% end %>
       </div>
     </div>
@@ -230,11 +238,12 @@
       <a href="/module.html" class="ui small <%= if @document.elementType is 'module' then 'active ' %> inverted header">Modules</a>
       <div class="menu">
         <% for element in uiModules: %>
-          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %>
+          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
+            <%= element.title %>
+            <% if element.status?: %>
+            <span class="ui mini empty yellow circular ui label"></span>
+            <% end %>
           </a>
-          <% if element.status? is 'Undocumented': %>
-          <div class="ui mini empty yellow ui label"></div>
-          <% end %>
       <% end %>
       </div>
     </div>
@@ -242,11 +251,12 @@
       <div class="ui small <%= if @document.elementType is 'behavior' then 'active ' %> inverted header">Behaviors</div>
       <div class="menu">
         <% for element in uiBehavior: %>
-          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %>
+          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
+            <%= element.title %>
+            <% if element.status?: %>
+            <span class="ui mini empty yellow circular ui label"></span>
+            <% end %>
           </a>
-          <% if element.status? is 'Undocumented': %>
-          <div class="ui mini empty yellow ui label"></div>
-          <% end %>
         <% end %>
       </div>
     </div>
@@ -334,7 +344,7 @@
               <div class="ui inverted link list">
                 <a class="item" href="mailto:jack@semantic-ui.com?subject=Help Translating">Translate</a>
                 <a class="item" href="https://github.com/Semantic-Org/Semantic-UI" target="_blank">Issue Tracker</a>
-                <a class="item" href="cla.html" target="_blank">Contributor License Agreement</a>
+                <a class="item" href="cla.html" target="_blank">CLA</a>
                 <a class="disabled item">Create Themes</a>
               </div>
             </div>

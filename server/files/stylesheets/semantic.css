@@ -155,6 +155,7 @@ a:hover {
 ---------------*/
 
 #example #menu .item {
+  position: relative;
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
@@ -162,8 +163,15 @@ a:hover {
 #example #menu .item .circular.label {
   position: absolute;
   top: 0.75rem;
-  right: 1
+  right: 1em;
+  opacity: 0.2;
+  transition: background 0.3s ease;
 }
+#example #menu .item.active > .circular.label,
+#example #menu .item:hover > .circular.label {
+  opacity: 0.8;
+}
+
 #example #menu .inverted.header {
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 0.5em;
