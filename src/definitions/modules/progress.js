@@ -197,6 +197,18 @@ $.fn.progress = function(parameters) {
           }
         },
 
+        is: {
+          success: function() {
+            return $module.hasClass(className.success);
+          },
+          warning: function() {
+            return $module.hasClass(className.warning);
+          },
+          error: function() {
+            return $module.hasClass(className.error);
+          }
+        },
+
         set: {
           barWidth: function(value) {
             $bar
@@ -245,7 +257,7 @@ $.fn.progress = function(parameters) {
             }
             module.set.barWidth(percent);
             module.set.barLabel();
-            if(percent === 100 && settings.autoSuccess) {
+            if(percent === 100 && settings.autoSuccess && !(module.is.warning() || module.is.error())) {
               module.debug('Automatically triggering success at 100%');
               module.set.success();
             }
@@ -279,6 +291,8 @@ $.fn.progress = function(parameters) {
             text = text || settings.text.success;
             module.debug('Setting success state');
             $module.addClass(className.success);
+            $module.removeClass(className.warning);
+            $module.removeClass(className.error);
             module.complete();
             if(text) {
               module.set.label(text);
@@ -288,6 +302,8 @@ $.fn.progress = function(parameters) {
             text = text || settings.text.warning;
             module.debug('Setting warning state');
             $module.addClass(className.warning);
+            $module.removeClass(className.success);
+            $module.removeClass(className.error);
             module.complete();
             if(text) {
               module.set.label(text);
@@ -297,6 +313,8 @@ $.fn.progress = function(parameters) {
             text = text || settings.text.error;
             module.debug('Setting error state');
             $module.addClass(className.error);
+            $module.removeClass(className.success);
+            $module.removeClass(className.warning);
             module.complete();
             if(text) {
               module.set.label(text);
