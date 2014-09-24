@@ -24,8 +24,8 @@
 @barBackground: #888888;
 @barBorderRadius: @borderRadius;
 @barTransition:
-  width 0.3s ease-in-out,
-  background-color 1s ease-out
+  width 0.5s @defaultEasing,
+  background-color 1s @defaultEasing
 ;
 
 
@@ -39,6 +39,7 @@
 @progressOffset: -0.5em;
 @progressColor: @invertedLightTextColor;
 @progressTextShadow: none;
+@progressFontWeight: bold;
 @progressTextAlign: left;
 
 @labelWidth: 100%;
@@ -52,7 +53,9 @@
 @labelOffset: 0em;
 @labelColor: @textColor;
 @labelTextShadow: none;
+@labelFontWeight: bold;
 @labelTextAlign: center;
+@labelTransition: color 1s @defaultEasing;
 
 /*-------------------
         States
