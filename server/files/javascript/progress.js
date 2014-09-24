@@ -4,8 +4,8 @@ semantic.progress = {};
 semantic.progress.ready = function() {
 
   var
-    $progress      = $('.ui.progress').not('.success, .error, .warning'),
-    $stateProgress = $('.ui.success.progress, .ui.warning.progress, .ui.error.progress')
+    $progress      = $('.definition  .ui.progress').not('.success, .error, .warning'),
+    $stateProgress = $('.definition .ui.success.progress, .ui.warning.progress, .ui.error.progress')
   ;
 
   setTimeout(function() {

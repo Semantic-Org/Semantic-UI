@@ -18,7 +18,7 @@ themes      : ['Default', 'Striped']
 
 <div class="main container">
 
-  <div class="ui tab" data-tab="definition">
+  <div class="ui definition tab" data-tab="definition">
 
     <h2 class="ui dividing header">Types</h2>
 
