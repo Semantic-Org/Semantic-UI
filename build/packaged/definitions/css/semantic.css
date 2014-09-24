@@ -5999,10 +5999,7 @@
 .ui.icon.button > .icon {
   opacity: 0.9;
   margin: 0em;
-  vertical-align: top;
-}
-.ui.icon.buttons .button > .icon,
-.ui.icon.button > .icon {
+  vertical-align: baseline;
   height: 0em;
 }
 /*-------------------
@@ -17557,31 +17554,6 @@ a:hover {
     Load Defaults
 -------------------*/
 /*******************************
-           Accordion
-*******************************/
-/* Title */
-/* Icon */
-/* Child Accordion */
-/* Content */
-/*-------------------
-       Coupling
---------------------*/
-/*-------------------
-       States
---------------------*/
-/*-------------------
-      Variations
---------------------*/
-/* Styled */
-/* Content */
-/* Child Content */
-/* Styled Title */
-/* Styled Title States */
-/* Styled Child Title States */
-/*------------------
-     Load Theme
--------------------*/
-/*******************************
          Site Settings
 *******************************/
 /*-------------------
@@ -17672,6 +17644,31 @@ a:hover {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*******************************
+           Accordion
+*******************************/
+/* Title */
+/* Icon */
+/* Child Accordion */
+/* Content */
+/*-------------------
+       Coupling
+--------------------*/
+/*-------------------
+       States
+--------------------*/
+/*-------------------
+      Variations
+--------------------*/
+/* Styled */
+/* Content */
+/* Child Content */
+/* Styled Title */
+/* Styled Title States */
+/* Styled Child Title States */
+/*------------------
+     Load Theme
+-------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -17690,7 +17687,7 @@ a:hover {
 .ui.accordion,
 .ui.accordion .accordion {
   max-width: 100%;
-  font-size: 14px;
+  font-size: 1em;
 }
 .ui.accordion .accordion {
   margin: 1em 0em 0em;
@@ -17719,7 +17716,7 @@ a:hover {
   display: inline-block;
   float: none;
   opacity: 0.75;
-  width: 1.23em;
+  width: 1.25em;
   height: 1em;
   margin: 0em 0.25em 0em -0.25em;
   -webkit-transition: -webkit-transform 0.2s ease, opacity 0.2s ease;
@@ -21445,17 +21442,39 @@ a.ui.nag {
 .ui.progress:last-child {
   margin: 0em 0em 1.25em;
 }
-/* Indicating Variation
-
-.ui.progress .bar[style^="width:1"],
-.ui.progress .bar[style^="width:2"],
-.ui.progress .bar[style^="width:3"],
-.ui.progress .bar[style^="width: 1"],
-.ui.progress .bar[style^="width: 2"],
-.ui.progress .bar[style^="width: 3"], {
-  background-color: #F43114;
+/* Indicating */
+.ui.indicating.progress .bar[style^="width: 3"] {
+  background-color: #D9A65C;
 }
-*/
+.ui.indicating.progress .bar[style^="width: 4"],
+.ui.indicating.progress .bar[style^="width: 5"] {
+  background-color: #E6BB48;
+}
+.ui.indicating.progress .bar[style^="width: 6"] {
+  background-color: #DDC928;
+}
+.ui.indicating.progress .bar[style^="width: 7"],
+.ui.indicating.progress .bar[style^="width: 8"] {
+  background-color: #B4D95C;
+}
+.ui.indicating.progress .bar[style^="width: 9"],
+.ui.indicating.progress .bar[style^="width: 100"] {
+  background-color: #66DA81;
+}
+/* Single Digits Last */
+.ui.indicating.progress .bar[style^="width: 1%"],
+.ui.indicating.progress .bar[style^="width: 2%"],
+.ui.indicating.progress .bar[style^="width: 3%"],
+.ui.indicating.progress .bar[style^="width: 4%"],
+.ui.indicating.progress .bar[style^="width: 5%"],
+.ui.indicating.progress .bar[style^="width: 6%"],
+.ui.indicating.progress .bar[style^="width: 7%"],
+.ui.indicating.progress .bar[style^="width: 8%"],
+.ui.indicating.progress .bar[style^="width: 9%"],
+.ui.indicating.progress .bar[style^="width: 1"],
+.ui.indicating.progress .bar[style^="width: 2"] {
+  background-color: #D95C5C;
+}
 /*******************************
             Content
 *******************************/

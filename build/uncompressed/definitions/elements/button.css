@@ -723,10 +723,7 @@
 .ui.icon.button > .icon {
   opacity: 0.9;
   margin: 0em;
-  vertical-align: top;
-}
-.ui.icon.buttons .button > .icon,
-.ui.icon.button > .icon {
+  vertical-align: baseline;
   height: 0em;
 }
 /*-------------------

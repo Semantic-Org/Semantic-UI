@@ -186,17 +186,39 @@
 .ui.progress:last-child {
   margin: 0em 0em 1.25em;
 }
-/* Indicating Variation
-
-.ui.progress .bar[style^="width:1"],
-.ui.progress .bar[style^="width:2"],
-.ui.progress .bar[style^="width:3"],
-.ui.progress .bar[style^="width: 1"],
-.ui.progress .bar[style^="width: 2"],
-.ui.progress .bar[style^="width: 3"], {
-  background-color: #F43114;
+/* Indicating */
+.ui.indicating.progress .bar[style^="width: 3"] {
+  background-color: #D9A65C;
 }
-*/
+.ui.indicating.progress .bar[style^="width: 4"],
+.ui.indicating.progress .bar[style^="width: 5"] {
+  background-color: #E6BB48;
+}
+.ui.indicating.progress .bar[style^="width: 6"] {
+  background-color: #DDC928;
+}
+.ui.indicating.progress .bar[style^="width: 7"],
+.ui.indicating.progress .bar[style^="width: 8"] {
+  background-color: #B4D95C;
+}
+.ui.indicating.progress .bar[style^="width: 9"],
+.ui.indicating.progress .bar[style^="width: 100"] {
+  background-color: #66DA81;
+}
+/* Single Digits Last */
+.ui.indicating.progress .bar[style^="width: 1%"],
+.ui.indicating.progress .bar[style^="width: 2%"],
+.ui.indicating.progress .bar[style^="width: 3%"],
+.ui.indicating.progress .bar[style^="width: 4%"],
+.ui.indicating.progress .bar[style^="width: 5%"],
+.ui.indicating.progress .bar[style^="width: 6%"],
+.ui.indicating.progress .bar[style^="width: 7%"],
+.ui.indicating.progress .bar[style^="width: 8%"],
+.ui.indicating.progress .bar[style^="width: 9%"],
+.ui.indicating.progress .bar[style^="width: 1"],
+.ui.indicating.progress .bar[style^="width: 2"] {
+  background-color: #D95C5C;
+}
 /*******************************
             Content
 *******************************/
