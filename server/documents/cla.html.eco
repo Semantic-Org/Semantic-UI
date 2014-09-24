@@ -23,7 +23,7 @@ type        : 'Legal'
 
     <p>This contributor agreement ("Agreement") documents the rights granted by contributors to Us. To make this document effective, please sign it and send it to Us by email or electronic submission, following the instructions at . This is a legally binding document, so please read it carefully before agreeing to it. The Agreement may cover more than one software project managed by Us.</p>
 
-    <h2>1. Definitions</h2>
+    <h2 class="ui header">1. Definitions</h2>
 
     <p>"You" means the individual who Submits a Contribution to Us.</p>
 
@@ -41,7 +41,7 @@ type        : 'Legal'
 
     <p>"Media" means any portion of a Contribution which is not software.</p>
 
-    <h2>2. Grant of Rights</h2>
+    <h2 class="ui header">2. Grant of Rights</h2>
 
     <h3>2.1 Copyright License</h3>
 
@@ -67,7 +67,7 @@ type        : 'Legal'
 
     <p><span class="heading">2.6 Reservation of Rights.</span> Any rights not expressly  licensed under this section are expressly reserved by You.</p>
 
-    <h2>3. Agreement</h2>
+    <h2 class="ui header">3. Agreement</h2>
 
     <p>You confirm that:</p>
 
@@ -79,15 +79,15 @@ type        : 'Legal'
 
     <p>(d) You have followed the instructions in , if You do not own the Copyright in the entire work of authorship Submitted.</p>
 
-    <h2>4. Disclaimer</h2>
+    <h2 class="ui header">4. Disclaimer</h2>
 
     <p>EXCEPT FOR THE EXPRESS WARRANTIES IN SECTION 3, THE CONTRIBUTION IS PROVIDED "AS IS". MORE PARTICULARLY, ALL EXPRESS OR IMPLIED WARRANTIES INCLUDING, WITHOUT LIMITATION, ANY IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT ARE EXPRESSLY DISCLAIMED BY YOU TO US. TO THE EXTENT THAT ANY SUCH WARRANTIES CANNOT BE DISCLAIMED, SUCH WARRANTY IS LIMITED IN DURATION TO THE MINIMUM PERIOD PERMITTED BY LAW.</p>
 
-    <h2>5. Consequential Damage Waiver</h2>
+    <h2 class="ui header">5. Consequential Damage Waiver</h2>
 
     <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT WILL YOU  BE LIABLE FOR ANY LOSS OF PROFITS, LOSS OF ANTICIPATED SAVINGS, LOSS OF DATA, INDIRECT, SPECIAL, INCIDENTAL, CONSEQUENTIAL AND EXEMPLARY DAMAGES ARISING OUT OF THIS AGREEMENT REGARDLESS OF THE LEGAL OR EQUITABLE THEORY (CONTRACT, TORT OR OTHERWISE) UPON WHICH THE CLAIM IS BASED.</p>
 
-    <h2>6. Miscellaneous</h2>
+    <h2 class="ui header">6. Miscellaneous</h2>
 
     <p>6.1 This Agreement will be governed by and construed in accordance with the laws of United States of America excluding its conflicts of law provisions. Under certain circumstances, the governing law in this section might be superseded by the United Nations Convention on Contracts for the International Sale of Goods ("UN Convention") and the parties intend to avoid the application of the UN Convention to this Agreement and, thus, exclude the application of the UN Convention in its entirety to this Agreement.</p>
 
@@ -105,7 +105,7 @@ type        : 'Legal'
 
     <p>This contributor agreement ("Agreement") documents the rights granted by contributors to Us. To make this document effective, please sign it and send it to Us by email or electronic submission, following the instructions at . This is a legally binding document, so please read it carefully before agreeing to it. The Agreement may cover more than one software project managed by Us.</p>
 
-    <h2>1. Definitions</h2>
+    <h2 class="ui header">1. Definitions</h2>
 
     <p>"You" means any Legal Entity on behalf of whom a Contribution has been received by Us. "Legal Entity" means an entity which is not a natural person. "Affiliates" means other Legal Entities that control, are controlled by, or under common control with that Legal Entity. For the purposes of this definition, "control" means (i) the power, direct or indirect, to cause the direction or management of such Legal Entity, whether by contract or otherwise, (ii) ownership of fifty percent (50%) or more of the outstanding shares or securities which vote to elect the management or other persons who direct such Legal Entity or (iii) beneficial ownership of such entity.</p>
 
@@ -123,7 +123,7 @@ type        : 'Legal'
 
     <p>"Media" means any portion of a Contribution which is not software.</p>
 
-    <h2>2. Grant of Rights</h2>
+    <h2 class="ui header">2. Grant of Rights</h2>
 
     <h3>2.1 Copyright License</h3>
 
@@ -149,7 +149,7 @@ type        : 'Legal'
 
     <p><span class="heading">2.6 Reservation of Rights.</span> Any rights not expressly  licensed under this section are expressly reserved by You.</p>
 
-    <h2>3. Agreement</h2>
+    <h2 class="ui header">3. Agreement</h2>
 
     <p>You confirm that:</p>
 
@@ -162,15 +162,15 @@ type        : 'Legal'
 
     <p>(d) You have followed the instructions in , if You do not own the Copyright in the entire work of authorship Submitted.</p>
 
-    <h2>4. Disclaimer</h2>
+    <h2 class="ui header">4. Disclaimer</h2>
 
     <p>EXCEPT FOR THE EXPRESS WARRANTIES IN SECTION 3, THE CONTRIBUTION IS PROVIDED "AS IS". MORE PARTICULARLY, ALL EXPRESS OR IMPLIED WARRANTIES INCLUDING, WITHOUT LIMITATION, ANY IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT ARE EXPRESSLY DISCLAIMED BY YOU TO US. TO THE EXTENT THAT ANY SUCH WARRANTIES CANNOT BE DISCLAIMED, SUCH WARRANTY IS LIMITED IN DURATION TO THE MINIMUM PERIOD PERMITTED BY LAW.</p>
 
-    <h2>5. Consequential Damage Waiver</h2>
+    <h2 class="ui header">5. Consequential Damage Waiver</h2>
 
     <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT WILL YOU  BE LIABLE FOR ANY LOSS OF PROFITS, LOSS OF ANTICIPATED SAVINGS, LOSS OF DATA, INDIRECT, SPECIAL, INCIDENTAL, CONSEQUENTIAL AND EXEMPLARY DAMAGES ARISING OUT OF THIS AGREEMENT REGARDLESS OF THE LEGAL OR EQUITABLE THEORY (CONTRACT, TORT OR OTHERWISE) UPON WHICH THE CLAIM IS BASED.</p>
 
-    <h2>6. Miscellaneous</h2>
+    <h2 class="ui header">6. Miscellaneous</h2>
 
     <p>6.1 This Agreement will be governed by and construed in accordance with the laws of United States of America excluding its conflicts of law provisions. Under certain circumstances, the governing law in this section might be superseded by the United Nations Convention on Contracts for the International Sale of Goods ("UN Convention") and the parties intend to avoid the application of the UN Convention to this Agreement and, thus, exclude the application of the UN Convention in its entirety to this Agreement.</p>
 

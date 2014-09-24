@@ -823,7 +823,8 @@ body#example.hide {
   padding: 1px;
 }
 #example .main.container .examples > h2,
-#example .main.container > h2 {
+#example .main.container > h2,
+#example .main.container > .tab > h2{
   position: relative;
 }
 #example .main.container > h2:first-child {

@@ -24,6 +24,13 @@ themes      : ['Default']
   <div class="example">
     <h4 class="ui header">Items</h4>
     <p>A group of items.</p>
+    <div class="ui ignored positive icon message">
+      <i class="mobile icon"></i>
+      <div class="content">
+        <h3 class="header">Responsive Element</h3>
+        <p>Item views are designed to be responsive with images stacking at mobile resolutions.</p>
+      </div>
+    </div>
     <div class="ui items">
       <div class="item">
         <div class="image">

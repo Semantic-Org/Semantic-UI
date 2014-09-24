@@ -6,13 +6,13 @@ semantic.progress.ready = function() {
   var
     $progress         = $('.definition  .ui.progress').not('.success, .error, .warning, .indicating'),
     $indicating       = $('.definition .ui.indicating.progress'),
-    $indicatingButton = $('.definition .indicating.example .button'),
+    $buttons          = $('.example .increment.button, .example .decrement.button'),
     $stateProgress    = $('.definition .ui.success.progress, .ui.warning.progress, .ui.error.progress')
   ;
 
   setTimeout(function() {
 
-    $indicatingButton
+    $buttons
       .on('click', function() {
         var
           $progress = $(this).closest('.example').find('.progress')
@@ -28,24 +28,29 @@ semantic.progress.ready = function() {
 
     $indicating
       .progress({
-        label : false,
-        total : 10,
-        text  : {
-          active: '{percent}% Funded',
-          success: 'Project Funded!'
+        label   : false,
+        total   : 10,
+        value   : Math.floor(Math.random() * 5) + 1,
+        text    : {
+          active  : '{percent}% Funded',
+          success : 'Project Funded!'
         }
       })
     ;
 
     $progress
-      .progress({
-        showActivity: false,
-        random: {
-          min: 10,
-          max: 90
-        }
+      .each(function() {
+        $(this)
+          .progress({
+            showActivity : false,
+            random       : {
+              min : 5,
+              max : 15
+            },
+            percent      : Math.floor(Math.random() * 60) + 5
+          })
+        ;
       })
-      .progress('increment')
     ;
 
     $stateProgress

@@ -23,7 +23,7 @@ themes      : ['Default', 'Classic', 'Basic', 'Striped']
     <h2 class="ui dividing header">Types</h2>
 
     <div class="example">
-      <h4 class="ui header">Progress Bar</h4>
+      <h4 class="ui header">Standard</h4>
       <p>A standard progress bar</p>
       <div class="ui progress">
         <div class="bar">
@@ -31,19 +31,24 @@ themes      : ['Default', 'Classic', 'Basic', 'Striped']
         </div>
         <div class="label">Uploading Files</div>
       </div>
+      <div class="ignored">
+        <div class="ui icon buttons">
+          <div class="increment ui basic green button"><i class="plus icon"></i></div>
+          <div class="decrement ui basic red button"><i class="minus icon"></i></div>
+        </div>
+      </div>
     </div>
     <div class="indicating example">
-      <h4 class="ui header">Indicating Progress Bar</h4>
+      <h4 class="ui header">Indicating</h4>
       <p>An indicating progress bar visually indicates the current level of progress of a task</p>
       <div class="ui indicating progress">
         <div class="bar"></div>
         <div class="label">Funding</div>
       </div>
       <div class="ignored">
-
         <div class="ui icon buttons">
-          <div class="increment ui button"><i class="plus icon"></i></div>
-          <div class="decrement ui button"><i class="minus icon"></i></div>
+          <div class="increment ui basic green button"><i class="plus icon"></i></div>
+          <div class="decrement ui basic red button"><i class="minus icon"></i></div>
         </div>
       </div>
     </div>

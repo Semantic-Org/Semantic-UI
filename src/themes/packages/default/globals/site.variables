@@ -332,7 +332,7 @@
      Transitions
 --------------------*/
 
-@transitionDuration : 0.25s;
+@transitionDuration : 0.2s;
 @transitionEasing   : ease;
 
 
