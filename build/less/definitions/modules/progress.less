@@ -106,7 +106,7 @@
 
 
 /*--------------
-    Success
+     Success
 ---------------*/
 
 .ui.progress.success .bar {
@@ -174,11 +174,10 @@
 }
 @keyframes progress-active {
   0% {
-    opacity: 0;
+    opacity: @activePulseMaxOpacity;
     width: 0;
   }
-  50% {
-    opacity: @activePulseMaxOpacity;
+  90% {
   }
   100% {
     opacity: 0;
@@ -199,11 +198,38 @@
 }
 
 
-
 /*******************************
            Variations
 *******************************/
 
+
+/*--------------
+    Inverted
+---------------*/
+
+/* bottom attached */
+.ui.inverted.progress {
+  background: @invertedBackground;
+  border: @invertedBorder;
+}
+.ui.inverted.progress .bar {
+  background: @invertedBarBackground;
+}
+.ui.inverted.progress .bar > .progress {
+  color: @invertedProgressColor;
+}
+.ui.inverted.progress > .label {
+  color: @invertedLabelColor;
+}
+.ui.inverted.progress.success > .label {
+  color: @successColor;
+}
+.ui.inverted.progress.warning > .label {
+  color: @warningColor;
+}
+.ui.inverted.progress.error > .label {
+  color: @errorColor;
+}
 
 /*--------------
     Attached
@@ -211,7 +237,7 @@
 
 /* bottom attached */
 .ui.progress.attached {
-  background-color: transparent;
+  background: none transparent;
   position: relative;
   border: none;
   margin: 0em;
@@ -269,6 +295,34 @@
 }
 .ui.yellow.progress .bar {
   background-color: @yellow;
+}
+
+.ui.black.inverted.progress .bar {
+  background-color: @lightBlack;
+}
+.ui.blue.inverted.progress .bar {
+  background-color: @lightBlue;
+}
+.ui.green.inverted.progress .bar {
+  background-color: @lightGreen;
+}
+.ui.orange.inverted.progress .bar {
+  background-color: @lightOrange;
+}
+.ui.pink.inverted.progress .bar {
+  background-color: @lightPink;
+}
+.ui.purple.inverted.progress .bar {
+  background-color: @lightPurple;
+}
+.ui.red.inverted.progress .bar {
+  background-color: @lightRed;
+}
+.ui.teal.inverted.progress .bar {
+  background-color: @lightTeal;
+}
+.ui.yellow.inverted.progress .bar {
+  background-color: @lightYellow;
 }
 
 /*--------------

@@ -123,7 +123,7 @@ $.fn.progress = function(parameters) {
             edgeValue      = module.total;
             module.debug('Incrementing value by', incrementValue, startValue, edgeValue);
             if(newValue > edgeValue ) {
-              module.debug('Value cannot decrement above total', edgeValue);
+              module.debug('Value cannot increment above total', edgeValue);
               newValue = edgeValue;
             }
             module.set.progress(newValue);
@@ -132,10 +132,10 @@ $.fn.progress = function(parameters) {
             startValue     = module.percent || 0;
             incrementValue = incrementValue || module.get.randomValue();
             newValue       = startValue + incrementValue;
-            edgeValue      = 0;
-            module.debug('Incrementing percentage by value', incrementValue, startValue);
-            if(newValue < edgeValue ) {
-              module.debug('Value cannot decrement below zero');
+            edgeValue      = 100;
+            module.debug('Incrementing percentage by', incrementValue, startValue);
+            if(newValue > edgeValue ) {
+              module.debug('Value cannot increment above 100 percent');
               newValue = edgeValue;
             }
             module.set.progress(newValue);
@@ -143,27 +143,29 @@ $.fn.progress = function(parameters) {
         },
         decrement: function(decrementValue) {
           var
-            total          = module.total || false,
+            total     = module.total || false,
+            edgeValue = 0,
             startValue,
             newValue
           ;
           if(total) {
             startValue     =  module.value   || 0;
-            decrementValue = -decrementValue || -1;
-            newValue       =  startValue + decrementValue;
+            decrementValue =  decrementValue || 1;
+            newValue       =  startValue - decrementValue;
             module.debug('Decrementing value by', decrementValue, startValue);
-            if(newValue > module.total ) {
-              newValue = module.total;
-            }
-            module.set.progress(newValue);
           }
           else {
             startValue     =  module.percent || 0;
-            decrementValue = -decrementValue || -module.get.randomValue();
-            newValue       =  startValue + decrementValue;
-            module.debug('Decrementing percentage by value', decrementValue, startValue);
-            module.set.progress(newValue);
+            decrementValue =  decrementValue || module.get.randomValue();
+            newValue       =  startValue - decrementValue;
+            module.debug('Decrementing percentage by', decrementValue, startValue);
           }
+
+          if(newValue < edgeValue) {
+            module.debug('Value cannot decrement below 0');
+            newValue = 0;
+          }
+          module.set.progress(newValue);
         },
 
         get: {
@@ -197,8 +199,42 @@ $.fn.progress = function(parameters) {
           }
         },
 
+        is: {
+          success: function() {
+            return $module.hasClass(className.success);
+          },
+          warning: function() {
+            return $module.hasClass(className.warning);
+          },
+          error: function() {
+            return $module.hasClass(className.error);
+          }
+        },
+
+        remove: {
+          active: function() {
+            module.verbose('Removing active state');
+            $module.removeClass(className.active);
+          },
+          success: function() {
+            module.verbose('Removing success state');
+            $module.removeClass(className.success);
+          },
+          warning: function() {
+            module.verbose('Removing warning state');
+            $module.removeClass(className.warning);
+          },
+          error: function() {
+            module.verbose('Removing error state');
+            $module.removeClass(className.error);
+          }
+        },
+
         set: {
           barWidth: function(value) {
+            if(value > 100) {
+              module.error(error.tooHigh, value);
+            }
             $bar
               .css('width', value + '%')
             ;
@@ -245,12 +281,17 @@ $.fn.progress = function(parameters) {
             }
             module.set.barWidth(percent);
             module.set.barLabel();
-            if(percent === 100 && settings.autoSuccess) {
-              module.debug('Automatically triggering success at 100%');
-              module.set.success();
+            if(percent === 100) {
+              if(settings.autoSuccess && !(module.is.warning() || module.is.error())) {
+                module.set.success();
+                module.debug('Automatically triggering success at 100%');
+              }
+              else {
+                module.remove.active();
+              }
             }
-            else if(settings.text.active) {
-              module.set.label(settings.text.active);
+            else {
+              module.set.active();
             }
             $.proxy(settings.onChange, element)(percent, module.value, module.total);
           },
@@ -275,10 +316,26 @@ $.fn.progress = function(parameters) {
               $progress.text( module.get.text(settings.text.percent) );
             }
           },
+          active: function(text) {
+            text = text || settings.text.active;
+            module.debug('Setting active state');
+            if(settings.showActivity) {
+              $module.addClass(className.active);
+            }
+            module.remove.warning();
+            module.remove.error();
+            module.remove.success();
+            if(text) {
+              module.set.label(text);
+            }
+          },
           success : function(text) {
             text = text || settings.text.success;
             module.debug('Setting success state');
             $module.addClass(className.success);
+            module.remove.active();
+            module.remove.warning();
+            module.remove.error();
             module.complete();
             if(text) {
               module.set.label(text);
@@ -288,6 +345,9 @@ $.fn.progress = function(parameters) {
             text = text || settings.text.warning;
             module.debug('Setting warning state');
             $module.addClass(className.warning);
+            module.remove.active();
+            module.remove.success();
+            module.remove.error();
             module.complete();
             if(text) {
               module.set.label(text);
@@ -297,6 +357,9 @@ $.fn.progress = function(parameters) {
             text = text || settings.text.error;
             module.debug('Setting error state');
             $module.addClass(className.error);
+            module.remove.active();
+            module.remove.success();
+            module.remove.warning();
             module.complete();
             if(text) {
               module.set.label(text);
@@ -513,7 +576,7 @@ $.fn.progress.settings = {
   name        : 'Progress',
   namespace   : 'progress',
 
-  debug       : false,
+  debug       : true,
   verbose     : true,
   performance : true,
 
@@ -522,15 +585,17 @@ $.fn.progress.settings = {
     max : 3
   },
 
-  label       : 'percent',
-  autoSuccess : true,
-  precision   : 1,
+  autoSuccess  : true,
+  showActivity : true,
 
-  percent     : false,
-  total       : false,
-  value       : false,
+  label        : 'percent',
+  precision    : 1,
 
-  onChange    : function(percent, value, total){},
+  percent      : false,
+  total        : false,
+  value        : false,
+
+  onChange     : function(percent, value, total){},
 
   error    : {
     method     : 'The method you called is not defined.',
@@ -564,6 +629,7 @@ $.fn.progress.settings = {
   },
 
   className : {
+    active  : 'active',
     error   : 'error',
     success : 'success',
     warning : 'warning'

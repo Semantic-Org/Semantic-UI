@@ -143,15 +143,17 @@
        Element
 --------------------*/
 /* Bar */
+/* Progress Bar Label */
+/* Label */
 /*-------------------
         States
 --------------------*/
+/* Active */
 /*-------------------
         Types
 --------------------*/
-/*-------------------
-      Variations
---------------------*/
+/* Attached */
+/* Inverted */
 /*------------------
      Load Theme
 -------------------*/
@@ -171,18 +173,18 @@
   position: relative;
   display: block;
   max-width: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  margin: 1em 0em 2.75em;
+  border: none;
+  margin: 1em 0em 2.25em;
   box-shadow: none;
-  background: #fafafa;
+  background: rgba(0, 0, 0, 0.03);
   padding: 0.325em;
   border-radius: 0.325em;
 }
 .ui.progress:first-child {
-  margin: 0em 0em 2.75em;
+  margin: 0em 0em 2.25em;
 }
 .ui.progress:last-child {
-  margin: 0em 0em 1.75em;
+  margin: 0em 0em 1.25em;
 }
 /* Indicating Variation
 
@@ -231,14 +233,14 @@
   position: absolute;
   width: 100%;
   font-size: 1em;
-  top: auto;
+  top: 100%;
   right: auto;
   left: 0%;
-  bottom: -1.75em;
+  bottom: auto;
   color: rgba(0, 0, 0, 0.8);
   font-weight: bold;
   text-shadow: none;
-  margin-top: 0em;
+  margin-top: 0.25em;
   text-align: center;
   -webkit-transition: color 1s ease;
           transition: color 1s ease;
@@ -247,7 +249,7 @@
             States
 *******************************/
 /*--------------
-    Success
+     Success
 ---------------*/
 .ui.progress.success .bar {
   background-color: #5bbd72 !important;
@@ -309,11 +311,8 @@
 }
 @-webkit-keyframes progress-active {
   0% {
-    opacity: 0;
-    width: 0;
-  }
-  50% {
     opacity: 0.3;
+    width: 0;
   }
   100% {
     opacity: 0;
@@ -322,11 +321,8 @@
 }
 @keyframes progress-active {
   0% {
-    opacity: 0;
-    width: 0;
-  }
-  50% {
     opacity: 0.3;
+    width: 0;
   }
   100% {
     opacity: 0;
@@ -348,11 +344,37 @@
            Variations
 *******************************/
 /*--------------
+    Inverted
+---------------*/
+/* bottom attached */
+.ui.inverted.progress {
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+}
+.ui.inverted.progress .bar {
+  background: #fafafa;
+}
+.ui.inverted.progress .bar > .progress {
+  color: rgba(0, 0, 0, 0.8);
+}
+.ui.inverted.progress > .label {
+  color: #ffffff;
+}
+.ui.inverted.progress.success > .label {
+  color: #5bbd72;
+}
+.ui.inverted.progress.warning > .label {
+  color: #f2c037;
+}
+.ui.inverted.progress.error > .label {
+  color: #d95c5c;
+}
+/*--------------
     Attached
 ---------------*/
 /* bottom attached */
 .ui.progress.attached {
-  background-color: transparent;
+  background: none transparent;
   position: relative;
   border: none;
   margin: 0em;
@@ -406,6 +428,33 @@
 }
 .ui.yellow.progress .bar {
   background-color: #e9bd16;
+}
+.ui.black.inverted.progress .bar {
+  background-color: #333333;
+}
+.ui.blue.inverted.progress .bar {
+  background-color: #54c8ff;
+}
+.ui.green.inverted.progress .bar {
+  background-color: #2ecc40;
+}
+.ui.orange.inverted.progress .bar {
+  background-color: #ff851b;
+}
+.ui.pink.inverted.progress .bar {
+  background-color: #ff8edf;
+}
+.ui.purple.inverted.progress .bar {
+  background-color: #cdc6ff;
+}
+.ui.red.inverted.progress .bar {
+  background-color: #ff695e;
+}
+.ui.teal.inverted.progress .bar {
+  background-color: #6dffff;
+}
+.ui.yellow.inverted.progress .bar {
+  background-color: #ffe21f;
 }
 /*--------------
      Sizes

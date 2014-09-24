@@ -16878,12 +16878,12 @@ ol.ui.horizontal.list li:before,
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*------------------
-     Load Theme
--------------------*/
 /*******************************
              Reset
 *******************************/
+/*------------------
+     Load Theme
+-------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -17557,6 +17557,31 @@ a:hover {
     Load Defaults
 -------------------*/
 /*******************************
+           Accordion
+*******************************/
+/* Title */
+/* Icon */
+/* Child Accordion */
+/* Content */
+/*-------------------
+       Coupling
+--------------------*/
+/*-------------------
+       States
+--------------------*/
+/*-------------------
+      Variations
+--------------------*/
+/* Styled */
+/* Content */
+/* Child Content */
+/* Styled Title */
+/* Styled Title States */
+/* Styled Child Title States */
+/*------------------
+     Load Theme
+-------------------*/
+/*******************************
          Site Settings
 *******************************/
 /*-------------------
@@ -17647,31 +17672,6 @@ a:hover {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*******************************
-           Accordion
-*******************************/
-/* Title */
-/* Icon */
-/* Child Accordion */
-/* Content */
-/*-------------------
-       Coupling
---------------------*/
-/*-------------------
-       States
---------------------*/
-/*-------------------
-      Variations
---------------------*/
-/* Styled */
-/* Content */
-/* Child Content */
-/* Styled Title */
-/* Styled Title States */
-/* Styled Child Title States */
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -17690,7 +17690,7 @@ a:hover {
 .ui.accordion,
 .ui.accordion .accordion {
   max-width: 100%;
-  font-size: 1em;
+  font-size: 14px;
 }
 .ui.accordion .accordion {
   margin: 1em 0em 0em;
@@ -17719,7 +17719,7 @@ a:hover {
   display: inline-block;
   float: none;
   opacity: 0.75;
-  width: 1.25em;
+  width: 1.23em;
   height: 1em;
   margin: 0em 0.25em 0em -0.25em;
   -webkit-transition: -webkit-transform 0.2s ease, opacity 0.2s ease;
@@ -21402,15 +21402,17 @@ a.ui.nag {
        Element
 --------------------*/
 /* Bar */
+/* Progress Bar Label */
+/* Label */
 /*-------------------
         States
 --------------------*/
+/* Active */
 /*-------------------
         Types
 --------------------*/
-/*-------------------
-      Variations
---------------------*/
+/* Attached */
+/* Inverted */
 /*------------------
      Load Theme
 -------------------*/
@@ -21430,18 +21432,18 @@ a.ui.nag {
   position: relative;
   display: block;
   max-width: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  margin: 1em 0em 2.75em;
+  border: none;
+  margin: 1em 0em 2.25em;
   box-shadow: none;
-  background: #fafafa;
+  background: rgba(0, 0, 0, 0.03);
   padding: 0.325em;
   border-radius: 0.325em;
 }
 .ui.progress:first-child {
-  margin: 0em 0em 2.75em;
+  margin: 0em 0em 2.25em;
 }
 .ui.progress:last-child {
-  margin: 0em 0em 1.75em;
+  margin: 0em 0em 1.25em;
 }
 /* Indicating Variation
 
@@ -21490,14 +21492,14 @@ a.ui.nag {
   position: absolute;
   width: 100%;
   font-size: 1em;
-  top: auto;
+  top: 100%;
   right: auto;
   left: 0%;
-  bottom: -1.75em;
+  bottom: auto;
   color: rgba(0, 0, 0, 0.8);
   font-weight: bold;
   text-shadow: none;
-  margin-top: 0em;
+  margin-top: 0.25em;
   text-align: center;
   -webkit-transition: color 1s ease;
           transition: color 1s ease;
@@ -21506,7 +21508,7 @@ a.ui.nag {
             States
 *******************************/
 /*--------------
-    Success
+     Success
 ---------------*/
 .ui.progress.success .bar {
   background-color: #5bbd72 !important;
@@ -21568,11 +21570,8 @@ a.ui.nag {
 }
 @-webkit-keyframes progress-active {
   0% {
-    opacity: 0;
-    width: 0;
-  }
-  50% {
     opacity: 0.3;
+    width: 0;
   }
   100% {
     opacity: 0;
@@ -21581,11 +21580,8 @@ a.ui.nag {
 }
 @keyframes progress-active {
   0% {
-    opacity: 0;
-    width: 0;
-  }
-  50% {
     opacity: 0.3;
+    width: 0;
   }
   100% {
     opacity: 0;
@@ -21607,11 +21603,37 @@ a.ui.nag {
            Variations
 *******************************/
 /*--------------
+    Inverted
+---------------*/
+/* bottom attached */
+.ui.inverted.progress {
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+}
+.ui.inverted.progress .bar {
+  background: #fafafa;
+}
+.ui.inverted.progress .bar > .progress {
+  color: rgba(0, 0, 0, 0.8);
+}
+.ui.inverted.progress > .label {
+  color: #ffffff;
+}
+.ui.inverted.progress.success > .label {
+  color: #5bbd72;
+}
+.ui.inverted.progress.warning > .label {
+  color: #f2c037;
+}
+.ui.inverted.progress.error > .label {
+  color: #d95c5c;
+}
+/*--------------
     Attached
 ---------------*/
 /* bottom attached */
 .ui.progress.attached {
-  background-color: transparent;
+  background: none transparent;
   position: relative;
   border: none;
   margin: 0em;
@@ -21665,6 +21687,33 @@ a.ui.nag {
 }
 .ui.yellow.progress .bar {
   background-color: #e9bd16;
+}
+.ui.black.inverted.progress .bar {
+  background-color: #333333;
+}
+.ui.blue.inverted.progress .bar {
+  background-color: #54c8ff;
+}
+.ui.green.inverted.progress .bar {
+  background-color: #2ecc40;
+}
+.ui.orange.inverted.progress .bar {
+  background-color: #ff851b;
+}
+.ui.pink.inverted.progress .bar {
+  background-color: #ff8edf;
+}
+.ui.purple.inverted.progress .bar {
+  background-color: #cdc6ff;
+}
+.ui.red.inverted.progress .bar {
+  background-color: #ff695e;
+}
+.ui.teal.inverted.progress .bar {
+  background-color: #6dffff;
+}
+.ui.yellow.inverted.progress .bar {
+  background-color: #ffe21f;
 }
 /*--------------
      Sizes
