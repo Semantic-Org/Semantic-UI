@@ -21466,11 +21466,12 @@ a.ui.nag {
   height: 1.75em;
   background: #888888;
   border-radius: 0.325em;
-  -webkit-transition: width 0.3s ease-in-out, background-color 1s ease-out;
-          transition: width 0.3s ease-in-out, background-color 1s ease-out;
+  -webkit-transition: width 0.5s ease, background-color 1s ease;
+          transition: width 0.5s ease, background-color 1s ease;
 }
 /* Percent Complete */
 .ui.progress .bar > .progress {
+  white-space: nowrap;
   position: absolute;
   width: auto;
   font-size: 0.9em;
@@ -21481,6 +21482,7 @@ a.ui.nag {
   color: rgba(255, 255, 255, 0.8);
   text-shadow: none;
   margin-top: -0.5em;
+  font-weight: bold;
   text-align: left;
 }
 /* Label */
@@ -21493,45 +21495,57 @@ a.ui.nag {
   left: 0%;
   bottom: -1.75em;
   color: rgba(0, 0, 0, 0.8);
+  font-weight: bold;
   text-shadow: none;
   margin-top: 0em;
   text-align: center;
+  -webkit-transition: color 1s ease;
+          transition: color 1s ease;
 }
 /*******************************
             States
 *******************************/
 /*--------------
-   Successful
+    Success
 ---------------*/
-.ui.successful.progress .bar {
+.ui.progress.success .bar {
   background-color: #5bbd72 !important;
 }
-.ui.successful.progress .bar,
-.ui.successful.progress .bar::after {
+.ui.progress.success .bar,
+.ui.progress.success .bar::after {
   -webkit-animation: none !important;
           animation: none !important;
+}
+.ui.progress.success > .label {
+  color: #336534;
 }
 /*--------------
      Warning
 ---------------*/
-.ui.warning.progress .bar {
+.ui.progress.warning .bar {
   background-color: #f2c037 !important;
 }
-.ui.warning.progress .bar,
-.ui.warning.progress .bar::after {
+.ui.progress.warning .bar,
+.ui.progress.warning .bar::after {
   -webkit-animation: none !important;
           animation: none !important;
+}
+.ui.progress.warning > .label {
+  color: #785f33;
 }
 /*--------------
-     Failed
+     Error
 ---------------*/
-.ui.failed.progress .bar {
+.ui.progress.error .bar {
   background-color: #d95c5c !important;
 }
-.ui.failed.progress .bar,
-.ui.failed.progress .bar::after {
+.ui.progress.error .bar,
+.ui.progress.error .bar::after {
   -webkit-animation: none !important;
           animation: none !important;
+}
+.ui.progress.error > .label {
+  color: #973d3b;
 }
 /*--------------
      Active

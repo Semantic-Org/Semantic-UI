@@ -126,6 +126,12 @@ $.fn.state = function(parameters) {
           inactive: function() {
             return !( $module.hasClass(className.active) );
           },
+          state: function(state) {
+            if(className[state] === undefined) {
+              return false;
+            }
+            return $module.hasClass( className[state] );
+          },
 
           enabled: function() {
             return !( $module.is(settings.filter.active) );
@@ -143,6 +149,9 @@ $.fn.state = function(parameters) {
           },
           input: function() {
             return $module.is('input');
+          },
+          progress: function() {
+            return $module.is('.ui.progress');
           }
         },
 
@@ -631,7 +640,10 @@ $.fn.state.settings = {
   className: {
     active   : 'active',
     disabled : 'disabled',
-    loading  : 'loading'
+    error    : 'error',
+    loading  : 'loading',
+    success  : 'success',
+    warning  : 'warning'
   },
 
   selector: {
@@ -648,14 +660,23 @@ $.fn.state.settings = {
     button: {
       disabled : true,
       loading  : true,
-      active   : true
+      active   : true,
+    },
+    progress: {
+      active   : true,
+      success  : true,
+      warning  : true,
+      error    : true
     }
   },
 
   states     : {
-    disabled: true,
-    loading : true,
-    active  : true
+    active   : true,
+    disabled : true,
+    error    : true,
+    loading  : true,
+    success  : true,
+    warning  : true
   },
 
   text     : {

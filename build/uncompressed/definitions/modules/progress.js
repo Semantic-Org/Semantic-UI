@@ -48,6 +48,7 @@ $.fn.progress = function(parameters) {
         $module         = $(this),
         $bar            = $(this).find(selector.bar),
         $progress       = $(this).find(selector.progress),
+        $label          = $(this).find(selector.label),
 
         element         = this,
         instance        = $module.data(moduleNamespace),
@@ -69,6 +70,20 @@ $.fn.progress = function(parameters) {
           $module
             .data(moduleNamespace, module)
           ;
+        },
+
+        destroy: function() {
+          module.verbose('Destroying previous dropdown for', $module);
+          $module
+            .removeData(moduleNamespace)
+          ;
+          instance = undefined;
+        },
+
+        complete: function() {
+          if(module.percent === undefined || module.percent < 100) {
+            module.set.percent(100);
+          }
         },
 
         read: {
@@ -106,7 +121,7 @@ $.fn.progress = function(parameters) {
             incrementValue = incrementValue || 1;
             newValue       = startValue + incrementValue;
             edgeValue      = module.total;
-            module.debug('Incrementing completed by value', incrementValue, startValue, edgeValue);
+            module.debug('Incrementing value by', incrementValue, startValue, edgeValue);
             if(newValue > edgeValue ) {
               module.debug('Value cannot decrement above total', edgeValue);
               newValue = edgeValue;
@@ -136,7 +151,7 @@ $.fn.progress = function(parameters) {
             startValue     =  module.value   || 0;
             decrementValue = -decrementValue || -1;
             newValue       =  startValue + decrementValue;
-            module.debug('Decrementing completed by value', decrementValue, startValue);
+            module.debug('Decrementing value by', decrementValue, startValue);
             if(newValue > module.total ) {
               newValue = module.total;
             }
@@ -152,6 +167,21 @@ $.fn.progress = function(parameters) {
         },
 
         get: {
+          text: function(templateText) {
+            var
+              value   = module.value || 0,
+              total   = module.total || 0,
+              percent = module.percent || 0
+            ;
+            templateText = templateText || '';
+            templateText = templateText
+              .replace('{value}', value)
+              .replace('{total}', total)
+              .replace('{percent}', percent)
+            ;
+            module.debug('Adding variables to progress bar text', templateText);
+            return templateText;
+          },
           randomValue: function() {
             module.debug('Generating random increment percentage');
             return Math.floor((Math.random() * settings.random.max) + settings.random.min);
@@ -168,8 +198,10 @@ $.fn.progress = function(parameters) {
         },
 
         set: {
-          complete: function() {
-            module.set.percent(100);
+          barWidth: function(value) {
+            $bar
+              .css('width', value + '%')
+            ;
           },
           initials: function() {
             if(settings.value) {
@@ -184,21 +216,91 @@ $.fn.progress = function(parameters) {
               module.verbose('Current percent set in settings', settings.percent);
               module.percent = settings.percent;
             }
-          },
-          percent: function(value) {
-            value = (typeof value == 'string')
-              ? +(value.replace('%', ''))
-              : value
-            ;
-            console.log(value);
-            if(value > 0 && value < 1) {
-              module.verbose('Module percentage passed as decimal, converting');
-              value = value * 100;
+            if(module.percent) {
+              module.set.percent(module.percent);
             }
-            module.percent = value;
-            $bar
-              .css('width', value + '%')
+            else if(module.value) {
+              module.set.progress(module.value);
+            }
+          },
+          percent: function(percent) {
+            percent = (typeof percent == 'string')
+              ? +(percent.replace('%', ''))
+              : percent
             ;
+            if(percent > 0 && percent < 1) {
+              module.verbose('Module percentage passed as decimal, converting');
+              percent = percent * 100;
+            }
+            // round percentage
+            if(settings.precision === 0) {
+              percent = Math.round(percent);
+            }
+            else {
+              percent = Math.round(percent * (10 * settings.precision) / (10 * settings.precision) );
+            }
+            module.percent = percent;
+            if(module.total) {
+              module.value = Math.round( (percent / 100) * module.total);
+            }
+            module.set.barWidth(percent);
+            module.set.barLabel();
+            if(percent === 100 && settings.autoSuccess) {
+              module.debug('Automatically triggering success at 100%');
+              module.set.success();
+            }
+            else if(settings.text.active) {
+              module.set.label(settings.text.active);
+            }
+            $.proxy(settings.onChange, element)(percent, module.value, module.total);
+          },
+          label: function(text) {
+            text = text || '';
+            if(text) {
+              text = module.get.text(text);
+              module.debug('Setting label to text', text);
+              $label.text(text);
+            }
+          },
+          barLabel: function(text) {
+            if(text !== undefined) {
+              $progress.text( module.get.text(text) );
+            }
+            else if(settings.label == 'ratio' && module.total) {
+              module.debug('Adding ratio to bar label');
+              $progress.text( module.get.text(settings.text.ratio) );
+            }
+            else if(settings.label == 'percent') {
+              module.debug('Adding percentage to bar label');
+              $progress.text( module.get.text(settings.text.percent) );
+            }
+          },
+          success : function(text) {
+            text = text || settings.text.success;
+            module.debug('Setting success state');
+            $module.addClass(className.success);
+            module.complete();
+            if(text) {
+              module.set.label(text);
+            }
+          },
+          warning : function(text) {
+            text = text || settings.text.warning;
+            module.debug('Setting warning state');
+            $module.addClass(className.warning);
+            module.complete();
+            if(text) {
+              module.set.label(text);
+            }
+          },
+          error : function(text) {
+            text = text || settings.text.error;
+            module.debug('Setting error state');
+            $module.addClass(className.error);
+            module.complete();
+            if(text) {
+              module.set.label(text);
+            }
           },
           total: function(totalValue) {
             module.total = totalValue;
@@ -217,7 +319,7 @@ $.fn.progress = function(parameters) {
             }
             if(module.total) {
               module.value    = numericValue;
-              percentComplete = (numericValue / module.total);
+              percentComplete = (numericValue / module.total) * 100;
               module.debug('Calculating percent complete from total', percentComplete);
               module.set.percent( percentComplete );
             }
@@ -411,26 +513,32 @@ $.fn.progress.settings = {
   name        : 'Progress',
   namespace   : 'progress',
 
-  debug       : true,
+  debug       : false,
   verbose     : true,
   performance : true,
 
-  random : {
-    min: 1,
-    max: 3
+  random      : {
+    min : 1,
+    max : 3
   },
 
   label       : 'percent',
+  autoSuccess : true,
+  precision   : 1,
 
   percent     : false,
   total       : false,
   value       : false,
 
-  onChange    : function(value){},
+  onChange    : function(percent, value, total){},
 
-  error       : {
-    method          : 'The method you called is not defined.',
-    nonNumeric      : 'Progress value is non numeric'
+  error    : {
+    method     : 'The method you called is not defined.',
+    nonNumeric : 'Progress value is non numeric'
+  },
+
+  regExp: {
+    variable: /\{\$*[A-z0-9]+\}/g
   },
 
   metadata: {
@@ -439,12 +547,26 @@ $.fn.progress.settings = {
     value   : 'value'
   },
 
+
   selector : {
     bar      : '> .bar',
+    label    : '> .label',
     progress : '.bar > .progress'
   },
 
+  text : {
+    active  : false,
+    error   : false,
+    success : false,
+    warning : false,
+    percent : '{percent}%',
+    ratio   : '{value} of {total}'
+  },
+
   className : {
+    error   : 'error',
+    success : 'success',
+    warning : 'warning'
   }
 
 };

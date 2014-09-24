@@ -67,6 +67,7 @@
 
 /* Percent Complete */
 .ui.progress .bar > .progress {
+  white-space: nowrap;
   position: absolute;
   width: @progressWidth;
   font-size: @progressSize;
@@ -77,6 +78,7 @@
   color: @progressColor;
   text-shadow: @progressTextShadow;
   margin-top: @progressOffset;
+  font-weight: @progressFontWeight;
   text-align: @progressTextAlign;
 }
 
@@ -90,9 +92,11 @@
   left: @labelLeft;
   bottom: @labelBottom;
   color: @labelColor;
+  font-weight: @labelFontWeight;
   text-shadow: @labelTextShadow;
   margin-top: @labelOffset;
   text-align: @labelTextAlign;
+  transition: @labelTransition;
 }
 
 
@@ -102,39 +106,48 @@
 
 
 /*--------------
-   Successful
+    Success
 ---------------*/
 
-.ui.successful.progress .bar {
+.ui.progress.success .bar {
   background-color: @successColor !important;
 }
-.ui.successful.progress .bar,
-.ui.successful.progress .bar::after {
+.ui.progress.success .bar,
+.ui.progress.success .bar::after {
   animation: none !important;
+}
+.ui.progress.success > .label {
+  color: @successHeaderColor;
 }
 
 /*--------------
      Warning
 ---------------*/
 
-.ui.warning.progress .bar {
+.ui.progress.warning .bar {
   background-color: @warningColor !important;
 }
-.ui.warning.progress .bar,
-.ui.warning.progress .bar::after {
+.ui.progress.warning .bar,
+.ui.progress.warning .bar::after {
   animation: none !important;
+}
+.ui.progress.warning > .label {
+  color: @warningHeaderColor;
 }
 
 /*--------------
-     Failed
+     Error
 ---------------*/
 
-.ui.failed.progress .bar {
+.ui.progress.error .bar {
   background-color: @errorColor !important;
 }
-.ui.failed.progress .bar,
-.ui.failed.progress .bar::after {
+.ui.progress.error .bar,
+.ui.progress.error .bar::after {
   animation: none !important;
+}
+.ui.progress.error > .label {
+  color: @errorHeaderColor;
 }
 
 /*--------------
