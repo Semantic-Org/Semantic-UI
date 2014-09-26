@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -167,7 +167,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 .ui.progress {
   position: relative;
@@ -450,7 +450,7 @@
   background-color: #00b5ad;
 }
 .ui.yellow.progress .bar {
-  background-color: #e9bd16;
+  background-color: #f2c61f;
 }
 .ui.black.inverted.progress .bar {
   background-color: #333333;

@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -199,7 +199,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Standard
@@ -1167,8 +1167,8 @@
 }
 .ui.menu .yellow.active.item,
 .ui.yellow.menu .active.item {
-  border-color: #e9bd16 !important;
-  color: #e9bd16 !important;
+  border-color: #f2c61f !important;
+  color: #f2c61f !important;
 }
 /*--------------
     Inverted
@@ -1339,10 +1339,10 @@
 }
 /* Yellow */
 .ui.inverted.yellow.menu {
-  background-color: #e9bd16;
+  background-color: #f2c61f;
 }
 .ui.inverted.yellow.pointing.menu .active.item:after {
-  background-color: #e9bd16;
+  background-color: #f2c61f;
 }
 /*--------------
      Fitted

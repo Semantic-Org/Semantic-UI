@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -172,7 +172,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Header
@@ -373,7 +373,7 @@ a.ui.teal.header:hover {
   color: #9c6f04 !important;
 }
 a.ui.yellow.header:hover {
-  color: #ecc637 !important;
+  color: #f4cf41 !important;
 }
 .ui.black.dividing.header {
   border-bottom: 2px solid #1b1c1d;
@@ -400,7 +400,7 @@ a.ui.yellow.header:hover {
   border-bottom: 2px solid #00b5ad;
 }
 .ui.yellow.dividing.header {
-  border-bottom: 2px solid #e9bd16;
+  border-bottom: 2px solid #f2c61f;
 }
 /*-------------------
       Inverted
