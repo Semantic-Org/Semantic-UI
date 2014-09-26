@@ -46,3 +46,6 @@
 /* Section */
 @sectionMargin: 2rem;
 
+
+/* Sizes */
+@medium: 1rem;

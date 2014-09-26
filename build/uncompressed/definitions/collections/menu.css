@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -199,7 +199,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Standard
@@ -657,7 +657,7 @@
 .ui.tiered.menu .sub.menu {
   background-color: #fcfcfc;
   border-radius: 0em;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
   box-shadow: none;
 }
 .ui.tiered.menu > .sub.menu > .item {

@@ -731,7 +731,7 @@ $.api.settings = {
   name            : 'API',
   namespace       : 'api',
 
-  debug           : true,
+  debug           : false,
   verbose         : true,
   performance     : true,
 
@@ -2659,7 +2659,7 @@ $.fn.visibility = function(parameters) {
             module.verbose('Scroll position changed');
             if(settings.throttle) {
               clearTimeout(module.timer);
-              module.timer = setTimeout(module.checkVisibility, 200);
+              module.timer = setTimeout(module.checkVisibility, settings.throttle);
             }
             else {
               requestAnimationFrame(module.checkVisibility);
@@ -3121,10 +3121,10 @@ $.fn.visibility = function(parameters) {
             }
             // visibility
             $.extend(module.cache.element, {
-              topVisible       : (screen.bottom > element.top),
-              topPassed        : (screen.top > element.top),
-              bottomVisible    : (screen.bottom > element.bottom),
-              bottomPassed     : (screen.top > element.bottom),
+              topVisible       : (screen.bottom >= element.top),
+              topPassed        : (screen.top >= element.top),
+              bottomVisible    : (screen.bottom >= element.bottom),
+              bottomPassed     : (screen.top >= element.bottom),
               pixelsPassed     : 0,
               percentagePassed : 0
             });
@@ -7297,38 +7297,6 @@ $.fn.dropdown = function(parameters) {
           },
 
           combo: function(text, value) {
-            value = (value !== undefined)
-              ? value
-              : text
-            ;
-            module.set.selected(value);
-            module.set.value(value);
-            module.hide();
-          },
-
-          /* Deprecated */
-          auto: function(text, value) {
-            value = (value !== undefined)
-              ? value
-              : text
-            ;
-            module.set.selected(value);
-            module.set.value(value);
-            module.hide();
-          },
-
-          /* Deprecated */
-          changeText: function(text, value) {
-            value = (value !== undefined)
-              ? value
-              : text
-            ;
-            module.set.selected(value);
-            module.hide();
-          },
-
-          /* Deprecated */
-          updateForm: function(text, value) {
             value = (value !== undefined)
               ? value
               : text
@@ -15736,7 +15704,7 @@ $.fn.transition = function() {
           },
 
           direction: function() {
-            if($module.is(':visible')) {
+            if($module.is(':visible') && !module.is.hidden()) {
               module.debug('Automatically determining the direction of animation', 'Outward');
               $module
                 .removeClass(className.inward)
@@ -15778,18 +15746,20 @@ $.fn.transition = function() {
           },
 
           hidden: function() {
-            $module
-              .addClass(className.transition)
-              .addClass(className.hidden)
-            ;
-            requestAnimationFrame(function() {
-              if($module.css('display') !== 'none') {
-                module.verbose('Overriding default display to hide element');
-                $module
-                  .css('display', 'none')
-                ;
-              }
-            });
+            if(!module.is.hidden()) {
+              $module
+                .addClass(className.transition)
+                .addClass(className.hidden)
+              ;
+              requestAnimationFrame(function() {
+                if($module.css('display') !== 'none') {
+                  module.verbose('Overriding default display to hide element');
+                  $module
+                    .css('display', 'none')
+                  ;
+                }
+              });
+            }
           },
 
           visible: function() {
@@ -16067,6 +16037,9 @@ $.fn.transition = function() {
           },
           visible: function() {
             return $module.is(':visible');
+          },
+          hidden: function() {
+            return $module.css('visibility') === 'hidden';
           },
           supported: function() {
             return(animationName !== false && animationEnd !== false);
@@ -16430,6 +16403,7 @@ $.fn.video = function(parameters) {
 
         destroy: function() {
           module.verbose('Destroying previous instance of video');
+          module.reset();
           $module
             .removeData(moduleNamespace)
             .off(eventNamespace)

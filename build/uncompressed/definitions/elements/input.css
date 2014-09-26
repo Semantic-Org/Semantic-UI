@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -173,7 +173,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
            Standard
@@ -190,6 +190,7 @@
   margin: 0em;
   width: 100%;
   outline: none;
+  text-align: left;
   line-height: 1.2em;
   font-family: "Helvetica Neue", "Helvetica", Arial;
   padding: 0.7em 1em;

@@ -302,7 +302,7 @@
 
 @circularRadius                : 500rem;
 
-@borderColor                   : rgba(0, 0, 0, 0.1);
+@borderColor                   : rgba(0, 0, 0, 0.15);
 @selectedBorderColor           : rgba(0, 0, 0, 0.2);
 
 @solidBorderColor              : #DDDDDD;

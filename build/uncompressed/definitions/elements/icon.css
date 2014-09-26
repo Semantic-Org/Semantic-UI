@@ -56,7 +56,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -168,7 +168,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
              Icon
@@ -1844,9 +1844,6 @@ i.icon.favorite:before {
 i.icon.video:before {
   content: "\f008";
 }
-i.icon.sidebar:before {
-  content: "\f00b";
-}
 i.icon.check:before {
   content: "\f00c";
 }
@@ -2038,6 +2035,9 @@ i.icon.group:before {
 }
 i.icon.flask:before {
   content: "\f0c3";
+}
+i.icon.sidebar:before {
+  content: "\f0c9";
 }
 i.icon.bars:before {
   content: "\f0c9";

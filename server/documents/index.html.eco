@@ -20,22 +20,6 @@ type   : 'Semantic'
         Version 1.0.0 Beta
       </a>
       <div class="ui large inverted right floated secondary menu">
-        <a class="view-ui item">
-          <i class="cube icon"></i>
-          UI Library
-        </a>
-        <a class="disabled item" data-title="Coming Soon">
-          <i class="help circle icon"></i>
-          Learn
-        </a>
-        <a class="disabled item" data-title="Coming Soon">
-          <i class="theme icon"></i>
-          Themes
-        </a>
-        <a class="disabled item" data-title="Coming Soon">
-          <i class="cubes icon"></i>
-          Layouts
-        </a>
         <div class="ui language top right pointing dropdown item" id="languages">
           <i class="world icon"></i>
           <div class="text">English</div>
@@ -69,6 +53,18 @@ type   : 'Semantic'
         <h2 class="ui inverted header">
           <b>UI</b> is the vocabulary of the web.
         </h2>
+        <div class="ui hidden divider"></div>
+        <div class="ui huge inverted buttons">
+          <a class="ui basic pink inverted view-ui button"><i class="cube icon"></i>UI Library</a>
+          <a class="ui basic red inverted button" data-title="Coming Soon">
+            <i class="theme icon"></i>
+            Themes
+          </a>
+          <a class="ui basic green inverted button" data-title="Coming Soon">
+            <i class="cubes icon"></i>
+            Layouts
+          </a>
+        </div>
         <div class="ui hidden divider"></div>
         <a class="ui huge basic inverted teal button" href="build/semantic.zip">
           <i class="download icon"></i> Customize &amp; Download

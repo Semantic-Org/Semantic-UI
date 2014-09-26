@@ -608,38 +608,6 @@ $.fn.dropdown = function(parameters) {
             module.set.selected(value);
             module.set.value(value);
             module.hide();
-          },
-
-          /* Deprecated */
-          auto: function(text, value) {
-            value = (value !== undefined)
-              ? value
-              : text
-            ;
-            module.set.selected(value);
-            module.set.value(value);
-            module.hide();
-          },
-
-          /* Deprecated */
-          changeText: function(text, value) {
-            value = (value !== undefined)
-              ? value
-              : text
-            ;
-            module.set.selected(value);
-            module.hide();
-          },
-
-          /* Deprecated */
-          updateForm: function(text, value) {
-            value = (value !== undefined)
-              ? value
-              : text
-            ;
-            module.set.selected(value);
-            module.set.value(value);
-            module.hide();
           }
 
         },

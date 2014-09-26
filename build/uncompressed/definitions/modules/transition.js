@@ -239,7 +239,7 @@ $.fn.transition = function() {
           },
 
           direction: function() {
-            if($module.is(':visible')) {
+            if($module.is(':visible') && !module.is.hidden()) {
               module.debug('Automatically determining the direction of animation', 'Outward');
               $module
                 .removeClass(className.inward)
@@ -281,18 +281,20 @@ $.fn.transition = function() {
           },
 
           hidden: function() {
-            $module
-              .addClass(className.transition)
-              .addClass(className.hidden)
-            ;
-            requestAnimationFrame(function() {
-              if($module.css('display') !== 'none') {
-                module.verbose('Overriding default display to hide element');
-                $module
-                  .css('display', 'none')
-                ;
-              }
-            });
+            if(!module.is.hidden()) {
+              $module
+                .addClass(className.transition)
+                .addClass(className.hidden)
+              ;
+              requestAnimationFrame(function() {
+                if($module.css('display') !== 'none') {
+                  module.verbose('Overriding default display to hide element');
+                  $module
+                    .css('display', 'none')
+                  ;
+                }
+              });
+            }
           },
 
           visible: function() {
@@ -570,6 +572,9 @@ $.fn.transition = function() {
           },
           visible: function() {
             return $module.is(':visible');
+          },
+          hidden: function() {
+            return $module.css('visibility') === 'hidden';
           },
           supported: function() {
             return(animationName !== false && animationEnd !== false);

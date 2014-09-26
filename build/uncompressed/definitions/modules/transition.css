@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -152,7 +152,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
           Transitions
@@ -180,6 +180,7 @@
           backface-visibility: hidden;
   -webkit-transform: translateZ(0);
           transform: translateZ(0);
+  visibility: visible !important;
 }
 /* Loading */
 .loading.transition {
@@ -194,7 +195,7 @@
 /* Visible */
 .visible.transition {
   display: block !important;
-  visibility: visible;
+  visibility: visible !important;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   -webkit-transform: translateZ(0);

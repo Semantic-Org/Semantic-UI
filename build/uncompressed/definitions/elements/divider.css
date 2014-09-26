@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -153,6 +153,7 @@
 /* Horizontal / Vertical */
 /* Inverted */
 /* Section */
+/* Sizes */
 /*------------------
      Load Theme
 -------------------*/
@@ -166,7 +167,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Divider
@@ -348,6 +349,12 @@
 .ui.section.divider {
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+/*--------------
+     Sizes
+---------------*/
+.ui.divider {
+  font-size: 1rem;
 }
 /*******************************
            Overrides
