@@ -362,6 +362,7 @@ semantic.ready = function() {
 
       changeTheme: function(theme) {
         var
+          $themeDropdown = $(this),
           variableURL = '/build/less/themes/packages/{$theme}/{$type}s/{$element}.variables',
           overrideURL = '/build/less/themes/packages/{$theme}/{$type}s/{$element}.overrides',
           urlData     = {
@@ -856,7 +857,7 @@ semantic.ready = function() {
       transition       : 'uncover',
       mobileTransition : 'scale down'
     })
-    .sidebar('attach events', '.launch.button, .view-ui.button, .launch.item')
+    .sidebar('attach events', '.launch.button, .view-ui, .launch.item')
     .sidebar('attach events', $hideMenu, 'hide')
   ;
 
@@ -970,21 +971,24 @@ semantic.ready = function() {
 
 
   if($('body').hasClass('index') ) {
-    $('.masthead')
-      .visibility({
-        once: false
+    $(window)
+      .one('scroll', function() {
+        $('.masthead').addClass('zoomed');
       })
-      .visibility('bottom visible', function(){
-        $('.main.menu').removeClass('filled');
-      })
-      .visibility('bottom passed', function(){
-        $('.main.menu').addClass('filled');
-      })
-      .find('.button')
-        .popup({
-          position  : 'top center'
-        })
     ;
+    $('.fixed.launch.button')
+      .visibility({
+        offset: 50,
+        once: false,
+        onTopPassed: function() {
+          $(this).addClass('stuck');
+        },
+        onTopPassedReverse: function() {
+          $(this).removeClass('stuck');
+        }
+      })
+    ;
+
   }
 
 };

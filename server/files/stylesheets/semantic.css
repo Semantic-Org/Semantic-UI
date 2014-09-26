@@ -405,15 +405,29 @@ body#example.hide {
   animation-iteration-count: infinite;
 }
 
-#example .masthead:before {
+#example.index .pusher > .page {
+  background-color: #FFFFFF;
+}
+#example.index .masthead {
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+
+  -moz-perspective: 1000px;
+  -o-perspective: 1000px;
+  -ms-perspective: 1000px;
+  perspective: 1000px;
+}
+#example.index .masthead:before {
   position: absolute;
   z-index: 1;
-  width: 100%;
-  height: 150%;
-  top: 0px;
+  width: 150%;
+  height: 200%;
+  top: -25%;
   left: 0px;
   content: '';
-  background: url(../images/icons.png);
+  background: url(../images/icons-inverted.png);
 
   -moz-transform-origin: 50% 50%;
   -o-transform-origin: 50% 50%;
@@ -425,7 +439,12 @@ body#example.hide {
   -o-animation-name: masthead;
   animation-name: masthead;
 
-  opacity: 0.7;
+  -ms-transition: transform 3s ease-in-out;
+  -webkit-transition: transform 3s ease-in-out;
+  -moz-transition: transform 3s ease-in-out;
+  transition: transform 3s ease-in-out;
+
+  opacity: 0.12;
 
   -webkit-animation-duration: 30s;
   -moz-animation-duration: 30s;
@@ -448,8 +467,15 @@ body#example.hide {
   -o-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 
-  transform: rotateZ(1deg);
+  -webkit-transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg) translateZ(0px);
+  transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg) translateZ(0px);
 }
+#example .masthead.zoomed:before {
+  -webkit-transform: rotateX(50deg) rotateZ(0deg) rotateY(0deg) translateZ(200px);
+  -moz-transform: rotateX(50deg) rotateZ(0deg) rotateY(0deg) translateZ(200px);
+  transform: rotateX(50deg) rotateZ(0deg) rotateY(0deg) translateZ(200px);
+}
+
 @keyframes masthead {
  0% {
     background-position: 0% 0%;
@@ -498,6 +524,52 @@ body#example.hide {
  }
 
 }
+#example.index .masthead {
+  position: relative;
+  overflow: hidden;
+  background: #191919;
+  padding: 3em 0px 3em;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0px;
+  border-bottom: none;
+}
+#example.index .masthead.segment h1 {
+  font-size: 5em;
+  color: #FFFFFF;
+  line-height: 1.2;
+  margin: -20px 0px 0px;
+  padding-bottom: 0px;
+}
+#example.index .masthead strike {
+  color: rgba(0, 0, 0, 0.2);
+}
+#example.index .masthead h2 {
+  font-weight: normal;
+  margin: 0px 0 16px 0px;
+  font-size: 1.75em;
+  border-bottom: none;
+  line-height: 1;
+}
+#example.index .masthead p {
+  font-size: 1.5em;
+  margin: 1em 0em 1.5em;
+  padding: 0px;
+}
+
+#example.index .masthead .secondary.menu {
+  float: right;
+  margin: 0.1rem 0rem 0rem 1rem;
+}
+
+#example.index .introduction {
+  position: relative;
+  clear: both;
+  margin: 7rem 0rem 3rem;
+}
+#example.index .logo {
+  float: left;
+  width: 35px;
+}
 
 #example.index .introduction .buttons {
   margin-top: 3em;
@@ -507,28 +579,16 @@ body#example.hide {
   margin-left: 2em;
   top: 2em
 }
-
-#example.index .main.menu {
-  background-color: rgba(0, 0, 0, 0.3);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
-  -webkit-transition:
-    opacity 0.5s ease,
-    transform 0.5s ease
-  ;
-  transition:
-    opacity 0.5s ease,
-    transform 0.5s ease
-  ;
-}
-#example.index .filled.main.menu {
-  background-color: rgba(0, 0, 0, 0.9);
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
-}
 #example.index .introduction {
   text-align: center;
 }
 #example.index .fixed.launch.button {
-  top: 96px;
+  top: 438px;
+  position: absolute;
+}
+#example.index .fixed.launch.button.stuck {
+  position: fixed;
+  top: 50px;
 }
 #example.index .main.menu {
   top: 0px;
@@ -560,32 +620,6 @@ body#example.hide {
   width: auto !important;
   margin-right: 1em;
 }
-#example .masthead.segment h1 {
-  font-size: 5em;
-  color: #FFFFFF;
-  line-height: 1.2;
-  margin: -20px 0px 0px;
-  padding-bottom: 0px;
-}
-#example .masthead strike {
-  color: rgba(0, 0, 0, 0.2);
-}
-#example .masthead h2 {
-  font-weight: normal;
-  margin: 0px 0 16px 0px;
-  font-size: 1.75em;
-  border-bottom: none;
-  line-height: 1;
-}
-#example .masthead .menu {
-  width: 375px;
-}
-#example .masthead p {
-  font-size: 1.5em;
-  margin: 1em 0em 1.5em;
-  padding: 0px;
-}
-
 
 /*--------------
      Footer
@@ -606,11 +640,61 @@ body#example.hide {
   opacity: 0.95;
 }
 
+/*--------------
+    Homepage
+---------------*/
+
+
+#example.index .following.bar {
+  position: absolute;
+  top: 50px;
+  z-index: 1;
+  left: 0%;
+  width: 100%;
+}
+#example.index .stripe .grid .row {
+  padding: 5rem 0rem;
+}
+#example.index .inverted.stripe {
+  background-color: #1B1C1D;
+}
+#example.index .inverted.stripe p {
+  color: #FFFFFF;
+}
+#example.index .final.stripe {
+  border-top: 1px solid #DDDDDD;
+  background-color: #F8F8F8;
+}
+#example .alternate.stripe {
+  background-color: #F2F3F5;
+}
 
 /* content */
 #example .solid,
 #example .stripe {
-  padding: 50px 0px;
+  padding: 6em 0px;
+}
+
+#example .stripe h1 {
+  font-size: 40px;
+}
+#example .stripe h2 {
+  font-size: 26px;
+}
+#example .stripe h3 {
+  font-size: 20px;
+}
+#example .stripe .button {
+  margin-bottom: 0.5em;
+}
+#example .stripe p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 2em 0em;
+}
+#example .stripe .grid .grid p {
+  font-size: 15px;
+  line-height: 1.4;
 }
 
 #example .dark.stripe {
@@ -652,7 +736,7 @@ body#example.hide {
   left: -1px;
 
   width: 55px;
-  height: 50px;
+  height: auto;
   overflow: hidden;
   -webkit-transition:
     0.3s width ease,

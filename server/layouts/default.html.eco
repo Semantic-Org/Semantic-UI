@@ -175,6 +175,7 @@
   <script type="text/javascript" src="http://cdn.transifex.com/live.js"></script>
 </head>
 <body id="example" class="pushable <%= @document.css %>" ontouchstart="">
+
   <div class="ui vertical inverted labeled icon sidebar menu" id="menu">
     <a class="hide item">
       <i class="close icon"></i> Close Menu
@@ -261,8 +262,8 @@
       </div>
     </div>
   </div>
-
-   <div class="ui fixed inverted main menu">
+    <% if @document.title isnt 'Introduction': %>
+    <div class="ui fixed inverted main menu">
     <div class="container">
       <a class="launch item"><i class="content icon"></i></a>
       <div class="title item">
@@ -318,10 +319,13 @@
       </div>
     </div>
   </div>
+  <% end %>
+
   <div class="ui black huge launch right attached fixed button">
     <i class="content icon"></i>
     <span class="text">Menu</span>
   </div>
+
   <div class="pusher">
     <div class="page">
       <div class="full height">

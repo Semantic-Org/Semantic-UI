@@ -10,7 +10,33 @@ type   : 'Semantic'
 <% uiViews       = @getCollection("uiViews").toJSON() %>
 <% uiModules     = @getCollection("uiModules").toJSON() %>
 <script src="/javascript/home.js"></script>
+<link rel="stylesheet/less" type="text/css" href="/build/less/definitions/elements/button.less" />
 
+<div class="following bar">
+  <div class="ui page grid">
+    <div class="column">
+      <img src="images/share.png" class="logo">
+      <div class="ui large inverted right floated secondary menu">
+        <a class="view-ui item">
+          <i class="cube icon"></i>
+          UI Library
+        </a>
+        <a class="item" data-title="Coming Soon">
+          <i class="theme icon"></i>
+          Themes
+        </a>
+        <a class="item" data-title="Coming Soon">
+          <i class="cubes icon"></i>
+          Layouts
+        </a>
+        <a class="item" data-title="Coming Soon">
+          <i class="help circle icon"></i>
+          Help
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="masthead segment">
   <div class="ui page grid">
     <div class="column">
@@ -20,29 +46,9 @@ type   : 'Semantic'
             1.0.0
           </a>
         </h1>
-        <h2 class="ui inverted header">UI is the vocabulary of the web.</h2>
-        <div class="mobile buttons">
-          <a class="ui basic pink inverted view-ui button"><i class="cube icon"></i>UI Library</a>
-          <a class="ui basic red inverted button" data-title="Coming Soon">
-            <i class="theme icon"></i>
-            Themes
-          </a>
-          <a class="ui basic green inverted button" data-title="Coming Soon">
-            <i class="cubes icon"></i>
-            Layouts
-          </a>
-        </div>
-        <div class="ui huge inverted buttons">
-          <a class="ui basic pink inverted view-ui button"><i class="cube icon"></i>UI Library</a>
-          <a class="ui basic red inverted button" data-title="Coming Soon">
-            <i class="theme icon"></i>
-            Themes
-          </a>
-          <a class="ui basic green inverted button" data-title="Coming Soon">
-            <i class="cubes icon"></i>
-            Layouts
-          </a>
-        </div>
+        <h2 class="ui inverted header">
+          <b>UI</b> is the vocabulary of the web.
+        </h2>
         <div class="ui hidden divider"></div>
         <a class="ui huge basic inverted teal button" href="build/semantic.zip">
           <i class="download icon"></i> Customize &amp; Download
@@ -61,75 +67,114 @@ type   : 'Semantic'
     </div>
   </div>
 </div>
-<!-- <div class="stripe" >
-  <div class="ui three column center aligned page grid">
+<div class="stripe">
+  <div class="ui three column relaxed stackable page grid">
     <div class="column">
-      <div class="ui statistic">
-        <div class="value">3362</div>
-        <div class="label">CSS Variables</div>
-      </div>
+      <h2 class="ui icon header">
+        <img class="ui icon image" src="/images/icons/Book-2.png">
+        50+ Components
+      </h2>
+      <p>Everything you need to make a website on your own without being a UI designer.</p>
     </div>
     <div class="column">
-      <div class="ui statistic">
-        <div class="value">51</div>
-        <div class="label">UI Components</div>
-      </div>
+      <h2 class="ui icon header">
+        <img class="ui icon image" src="/images/icons/Brush.png">
+        3000+ CSS Variables
+      </h2>
+      <p>Semantic provides neutral defaults and enough customization options to make every design look fresh.</p>
     </div>
     <div class="column">
-      <div class="ui statistic">
-        <div class="value">1</div>
-        <div class="label">Coding Style</div>
+      <h2 class="ui icon header">
+        <img class="ui icon image" src="/images/icons/crown.png">
+        2+ Years in the Making
+      </h2>
+      <p>Semantic is a mature tool, used in multiple large scale production environments like <a href="http://www.newrepublic.com" target="_blank">The New Republic</a> magazine.</p>
+    </div>
+  </div>
+</div>
+<div class="alternate stripe">
+  <div class="ui stackable page grid">
+    <div class="eight wide column">
+      <h1 class="ui header">Unbelievable Theming</h1>
+      <p>Do more than just change the colors. Semantic provides true freedom. Change the look and feel of your components with just a few variables.</p>
+    </div>
+    <div class="eight wide column">
+      <div data-type="element" data-element="button" class="ui theme selection dropdown">
+        <input name="theme" type="hidden">
+        <span class="default text">Select Theme</span>
+        <i class="dropdown icon"></i>
+        <div class="menu ui transition hidden" tabindex="-1">
+          <div data-value="Default" class="item">Default</div>
+          <div data-value="Classic" class="item">Classic</div>
+          <div data-value="Basic" class="item">Basic</div>
+          <div data-value="Raised" class="item">Raised</div>
+          <div data-value="Chubby" class="item">Chubby</div>
+          <div data-value="Round" class="item">Round</div>
+          <div data-value="Amazon" class="item">Amazon</div>
+          <div data-value="GitHub" class="item">GitHub</div>
+        </div>
+      </div>
+
+      <div class="ui divider"></div>
+
+      <div class="ui button">
+        Follow
+      </div>
+      <div class="ui primary button">
+        <i class="shop icon"></i> Add to Cart
+      </div>
+      <div class="ui secondary button">
+        <i class="save icon"></i> Save
+      </div>
+      <div class="ui labeled icon button">
+        <i class="pause icon"></i>
+        Pause
       </div>
     </div>
   </div>
-</div> -->
-<div class="final stripe">
-  <div class="ui page grid">
-    <div class="column">
-      <div class="ui stackable grid" data-demo="true">
-        <div class="four column center aligned row">
-          <div class="column">
-            <div class="ui piled segment">
-              <h4 class="ui header">Elements</h4>
-              <div class="ui divided selection list">
-                <% for element in uiElements: %>
-                  <a class="item" href="<%= element.url %>"><%= element.title %></a>
-                <% end %>
-              </div>
-            </div>
+</div>
+<div class="inverted stripe">
+  <div class="ui stackable page grid">
+    <div class="ten wide column">
+      <div class="code" data-type="html">
+        <div class="ui stackable page grid">
+          <div class="ten wide column">
+            <!-- Recursion Omitted !-->
           </div>
-          <div class="column">
-            <div class="ui piled segment">
-              <h4 class="ui header">Collections</h4>
-              <div class="ui divided selection list">
-                <% for element in uiCollections: %>
-                  <a class="item" href="<%= element.url %>"><%= element.title %></a>
-                <% end %>
-              </div>
-            </div>
-          </div>
-          <div class="column">
-            <div class="ui piled segment">
-              <h4 class="ui header">Views</h4>
-              <div class="ui divided selection list">
-                <% for element in uiViews: %>
-                  <a class="item" href="<%= element.url %>"><%= element.title %></a>
-                <% end %>
-              </div>
-            </div>
-          </div>
-          <div class="column">
-            <div class="ui piled segment">
-              <h4 class="ui header">Modules</h4>
-              <div class="ui divided selection list">
-                <% for element in uiModules: %>
-                  <a class="item" href="<%= element.url %>"><%= element.title %></a>
-                <% end %>
-              </div>
-            </div>
+          <div class="five wide right floated column">
+            <h1 class="ui inverted header">Code Intuitively</h1>
+            <p>Use concepts like plurality, adjective/noun relation, and word-order to create meaning</p>
           </div>
         </div>
       </div>
+    </div>
+    <div class="five wide right floated column">
+      <h1 class="ui inverted header">Code Intuitively</h1>
+      <p>Use concepts like plurality, adjective/noun relation, and word-order to create meaning</p>
+    </div>
+  </div>
+</div>
+<div class="stripe">
+  <div class="ui stackable page grid">
+    <div class="ten wide column">
+      <h1 class="ui header">
+        <img class="ui inline image" src="/images/icons/Medal.png">
+        Liberate your Development
+      </h1>
+      <p></p>
+      <div class="ui two column vertically padded grid">
+        <div class="column">
+          <h3 class="ui header">Enterprise Ready</h3>
+          <p>Build tools, performance logging, support for custom definitions, multiple-levels of theme inheritanceance—a developer's wet dream.</p>
+        </div>
+        <div class="column">
+          <h3 class="ui header">Beginner Friendly</h3>
+          <p>Don't feel comfortable tweaking everything? Download free community designed themes and use our customizer to build a package fit for your needs.</p>
+        </div>
+      </div>
+    </div>
+    <div class="six wide column">
+
     </div>
   </div>
 </div>
