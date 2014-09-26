@@ -533,7 +533,6 @@ i.icon.wechat:before { content: "\f1d7"; }
 i.icon.like:before { content: "\f004"; }
 i.icon.favorite:before { content: "\f005"; }
 i.icon.video:before { content: "\f008"; }
-i.icon.sidebar:before { content: "\f00b"; }
 i.icon.check:before { content: "\f00c"; }
 i.icon.remove:before { content: "\f00d"; }
 i.icon.close:before { content: "\f00d"; }
@@ -598,6 +597,7 @@ i.icon.wrench:before { content: "\f0ad"; }
 i.icon.briefcase:before { content: "\f0b1"; }
 i.icon.group:before { content: "\f0c0"; }
 i.icon.flask:before { content: "\f0c3"; }
+i.icon.sidebar:before { content: "\f0c9"; }
 i.icon.bars:before { content: "\f0c9"; }
 i.icon.list.ul:before { content: "\f0ca"; }
 i.icon.list.ol:before { content: "\f0cb"; }

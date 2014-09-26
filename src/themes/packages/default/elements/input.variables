@@ -13,6 +13,7 @@
 @lineHeight: 1.2em;
 @padding: (@verticalPadding - @lineHeightOffset) @horizontalPadding;
 
+@textAlign: left;
 @background: #FFFFFF;
 @borderWidth: 1px;
 @border: @borderWidth solid rgba(0, 0, 0, 0.15);
