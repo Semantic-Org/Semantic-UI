@@ -411,7 +411,7 @@
   min-width: calc(100% - 1px);
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
 }
-.ui.menu .pointing.dropdown.item .menu {
+.ui.menu:not(.secondary) .pointing.dropdown.item .menu {
   margin-top: 0px;
   border-top-left-radius: 0em;
   border-top-right-radius: 0em;
@@ -1167,8 +1167,8 @@
 }
 .ui.menu .yellow.active.item,
 .ui.yellow.menu .active.item {
-  border-color: #e9bd16 !important;
-  color: #e9bd16 !important;
+  border-color: #f2c61f !important;
+  color: #f2c61f !important;
 }
 /*--------------
     Inverted
@@ -1339,10 +1339,10 @@
 }
 /* Yellow */
 .ui.inverted.yellow.menu {
-  background-color: #e9bd16;
+  background-color: #f2c61f;
 }
 .ui.inverted.yellow.pointing.menu .active.item:after {
-  background-color: #e9bd16;
+  background-color: #f2c61f;
 }
 /*--------------
      Fitted

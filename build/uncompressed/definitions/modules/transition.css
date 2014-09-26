@@ -174,8 +174,8 @@
 /*******************************
             States
 *******************************/
+/* Animating */
 .animating.transition {
-  display: block !important;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   -webkit-transform: translateZ(0);

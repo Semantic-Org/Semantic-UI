@@ -562,6 +562,12 @@
 .ui.grid .centered.row > .column:not(.aligned) {
   text-align: left;
 }
+.ui.grid > .centered.column,
+.ui.grid > .row > .centered.column {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 /*----------------------
         Relaxed
 -----------------------*/
@@ -910,7 +916,7 @@
 }
 .ui.grid > .yellow.row,
 .ui.grid .yellow.column {
-  background-color: #e9bd16 !important;
+  background-color: #f2c61f !important;
   color: #ffffff;
 }
 .ui.grid > .row > .yellow.column {

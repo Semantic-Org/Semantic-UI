@@ -17,7 +17,8 @@ themes      : ['default', 'Basic', 'GitHub']
 
 <div class="main container">
 
-  <h2 class="ui dividing header">Groups</h2>
+  <h2 class="ui dividing header">Types</h2>
+
   <div class="example">
     <h4 class="ui header">Steps</h4>
     <p>A set of step</p>
@@ -46,7 +47,61 @@ themes      : ['default', 'Basic', 'GitHub']
     </div>
   </div>
 
-  <h2 class="ui dividing header">Standard</h2>
+  <div class="example">
+    <h4 class="ui header">Ordered</h4>
+    <p>A step can show a numerically ordered sequence of steps</p>
+    <div class="ui ordered steps">
+      <div class="completed step">
+        <div class="content">
+          <div class="title">Shipping</div>
+          <div class="description">Choose your shipping options</div>
+        </div>
+      </div>
+      <div class="active step">
+        <div class="content">
+          <div class="title">Billing</div>
+          <div class="description">Enter billing information</div>
+        </div>
+      </div>
+      <div class="disabled step">
+        <div class="content">
+          <div class="title">Confirm Order</div>
+          <div class="description">Verify order details</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Vertical</h4>
+    <p>Vertical steps display each step stacked vertically</p>
+    <div class="ui vertical steps">
+      <div class="step">
+        <i class="truck icon"></i>
+        <div class="content">
+          <div class="title">Shipping</div>
+          <div class="description">Choose your shipping options</div>
+        </div>
+      </div>
+      <div class="active step">
+        <i class="payment icon"></i>
+        <div class="content">
+          <div class="title">Billing</div>
+          <div class="description">Enter billing information</div>
+        </div>
+      </div>
+      <div class="disabled step">
+        <i class="info icon"></i>
+        <div class="content">
+          <div class="title">Confirm Order</div>
+          <div class="description">Verify order details</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <h2 class="ui dividing header">Content</h2>
   <div class="example">
     <h4 class="ui header">Step</h4>
     <p>A step</p>
@@ -104,61 +159,6 @@ themes      : ['default', 'Basic', 'GitHub']
     </div>
   </div>
 
-
-  <h2 class="ui dividing header">Types</h2>
-
-  <div class="example">
-    <h4 class="ui header">Ordered Steps</h4>
-    <p>A step can show a sequence of events</p>
-    <div class="ui ordered steps">
-      <div class="completed step">
-        <div class="content">
-          <div class="title">Shipping</div>
-          <div class="description">Choose your shipping options</div>
-        </div>
-      </div>
-      <div class="active step">
-        <div class="content">
-          <div class="title">Billing</div>
-          <div class="description">Enter billing information</div>
-        </div>
-      </div>
-      <div class="disabled step">
-        <div class="content">
-          <div class="title">Confirm Order</div>
-          <div class="description">Verify order details</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="example">
-    <h4 class="ui header">Vertical</h4>
-    <p>Vertical steps display each step stacked vertically</p>
-    <div class="ui vertical steps">
-      <div class="step">
-        <i class="truck icon"></i>
-        <div class="content">
-          <div class="title">Shipping</div>
-          <div class="description">Choose your shipping options</div>
-        </div>
-      </div>
-      <div class="active step">
-        <i class="payment icon"></i>
-        <div class="content">
-          <div class="title">Billing</div>
-          <div class="description">Enter billing information</div>
-        </div>
-      </div>
-      <div class="disabled step">
-        <i class="info icon"></i>
-        <div class="content">
-          <div class="title">Confirm Order</div>
-          <div class="description">Verify order details</div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <h2 class="ui dividing header">States</h2>
 

@@ -825,33 +825,33 @@ a.ui.teal.label:hover:before {
 /*--- Yellow ---*/
 .ui.yellow.labels .label,
 .ui.yellow.label {
-  background-color: #e9bd16 !important;
-  border-color: #e9bd16 !important;
+  background-color: #f2c61f !important;
+  border-color: #f2c61f !important;
   color: #ffffff !important;
 }
 .ui.labels .yellow.label:before,
 .ui.yellow.labels .label:before,
 .ui.yellow.label:before {
-  background-color: #e9bd16 !important;
+  background-color: #f2c61f !important;
 }
 a.ui.yellow.labels .label:hover,
 .ui.yellow.labels a.label:hover,
 a.ui.yellow.label:hover {
-  background-color: #ecc637 !important;
-  border-color: #ecc637 !important;
+  background-color: #f4cf41 !important;
+  border-color: #f4cf41 !important;
   color: #ffffff !important;
 }
 .ui.labels a.yellow.label:hover:before,
 .ui.yellow.labels a.label:hover:before,
 a.ui.yellow.label:hover:before {
-  background-color: #ecc637 !important;
+  background-color: #f4cf41 !important;
 }
 .ui.yellow.corner.label,
 .ui.yellow.corner.label:hover {
   background-color: transparent !important;
 }
 .ui.yellow.ribbon.label {
-  border-color: #ba9712 !important;
+  border-color: #d2a90c !important;
 }
 /*-------------------
        Fluid

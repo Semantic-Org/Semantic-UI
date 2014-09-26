@@ -14,12 +14,13 @@
     "url": "git://github.com/Semantic-Org/Semantic-UI.git"
   },
   "dependencies": {
+    "docpad": "~6.69.1",
     "docpad-plugin-ghpages": "~2.4.3",
     "jquery": "x.x.x"
   },
   "devDependencies": {
     "docpad": "x.x.x",
-    "docpad-plugin-eco": "~2.0.3",
+    "docpad-plugin-eco": "~2.1.0",
     "docpad-plugin-ghpages": "~2.4.3",
     "docpad-plugin-partials": "~2.9.1",
     "grunt": "0.4.3",

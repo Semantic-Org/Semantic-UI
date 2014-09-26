@@ -435,7 +435,7 @@
   border-radius: 0em 0em 0.25em 0.25em !important;
 }
 .ui.yellow.segment:not(.inverted) {
-  border-top: 2px solid #e9bd16;
+  border-top: 2px solid #f2c61f;
   border-radius: 0em 0em 0.25em 0.25em !important;
 }
 /*-------------------
@@ -475,7 +475,7 @@
   color: #ffffff !important;
 }
 .ui.inverted.yellow.segment {
-  background-color: #e9bd16 !important;
+  background-color: #f2c61f !important;
   color: #ffffff !important;
 }
 /*-------------------

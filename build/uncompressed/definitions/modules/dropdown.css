@@ -541,7 +541,8 @@ select.ui.dropdown {
 ----------------------*/
 /* Menu Item Hover */
 .ui.dropdown .menu > .item:hover {
-  background-color: rgba(0, 0, 0, 0.03);
+  background: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.8);
   z-index: 12;
 }
 /*--------------------

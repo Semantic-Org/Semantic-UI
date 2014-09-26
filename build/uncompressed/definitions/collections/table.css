@@ -492,7 +492,7 @@
   border-radius: 0em 0em 0.25rem 0.25rem;
 }
 .ui.yellow.table {
-  border-top: 0.2em solid #e9bd16;
+  border-top: 0.2em solid #f2c61f;
   border-radius: 0em 0em 0.25rem 0.25rem;
 }
 /*-------------------
@@ -540,7 +540,7 @@
   color: #ffffff !important;
 }
 .ui.inverted.yellow.table {
-  background-color: #e9bd16 !important;
+  background-color: #f2c61f !important;
   border-radius: 0.25rem;
   color: #ffffff !important;
 }

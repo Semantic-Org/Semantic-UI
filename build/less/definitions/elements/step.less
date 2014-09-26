@@ -81,13 +81,12 @@
 .ui.steps .step > .icon,
 .ui.steps .step > .icon ~ .content {
   display: table-cell;
-  vertical-align: top;
+  vertical-align: @iconVerticalAlign;
 }
 .ui.steps .step > .icon {
   font-size: @iconSize;
   margin: 0em;
   padding-right: @iconDistance;
-  vertical-align: @iconVerticalAlign;
 }
 
 /* Link */
@@ -136,12 +135,10 @@
 }
 .ui.vertical.steps .step:first-child {
   padding: @verticalPadding @horizontalPadding;
-  border-top-left-radius: @stepsBorderRadius;
-  border-top-right-radius: @stepsBorderRadius;
+  border-radius: @stepsBorderRadius @stepsBorderRadius 0em 0em;
 }
 .ui.vertical.steps .step:last-child {
-  border-bottom-left-radius: @stepsBorderRadius;
-  border-bottom-right-radius: @stepsBorderRadius;
+  border-radius: 0em 0em @stepsBorderRadius @stepsBorderRadius;
 }
 
 /* Arrow */
@@ -254,6 +251,11 @@
 /*******************************
            Variations
 *******************************/
+
+/* Fluid */
+.ui.fluid.steps {
+  width: 100%;
+}
 
 /* Attached */
 .attached.ui.steps {

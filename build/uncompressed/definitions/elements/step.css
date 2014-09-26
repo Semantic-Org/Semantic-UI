@@ -219,23 +219,22 @@
 /* Description */
 .ui.steps .step .description {
   font-weight: normal;
-  font-size: 1em;
+  font-size: 0.9em;
   color: rgba(0, 0, 0, 0.8);
 }
 .ui.steps .step .title ~ .description {
-  margin-top: 0.2em;
+  margin-top: 0.1em;
 }
 /* Icon */
 .ui.steps .step > .icon,
 .ui.steps .step > .icon ~ .content {
   display: table-cell;
-  vertical-align: top;
+  vertical-align: middle;
 }
 .ui.steps .step > .icon {
   font-size: 2em;
   margin: 0em;
   padding-right: 0.6em;
-  vertical-align: middle;
 }
 /* Link */
 .ui.steps .link.step,
@@ -276,12 +275,10 @@
 }
 .ui.vertical.steps .step:first-child {
   padding: 0.8em 1.75em;
-  border-top-left-radius: 0.3125rem;
-  border-top-right-radius: 0.3125rem;
+  border-radius: 0.3125rem 0.3125rem 0em 0em;
 }
 .ui.vertical.steps .step:last-child {
-  border-bottom-left-radius: 0.3125rem;
-  border-bottom-right-radius: 0.3125rem;
+  border-radius: 0em 0em 0.3125rem 0.3125rem;
 }
 /* Arrow */
 .ui.vertical.steps .step:after {
@@ -374,6 +371,10 @@
 /*******************************
            Variations
 *******************************/
+/* Fluid */
+.ui.fluid.steps {
+  width: 100%;
+}
 /* Attached */
 .attached.ui.steps {
   margin: 0em;

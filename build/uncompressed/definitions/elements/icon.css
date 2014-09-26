@@ -355,7 +355,7 @@ i.teal.icon {
   color: #00b5ad !important;
 }
 i.yellow.icon {
-  color: #e9bd16 !important;
+  color: #f2c61f !important;
 }
 /*-------------------
       Inverted
@@ -428,7 +428,7 @@ i.inverted.circular.teal.icon {
   color: #FFFFFF !important;
 }
 i.inverted.circular.yellow.icon {
-  background-color: #e9bd16 !important;
+  background-color: #f2c61f !important;
   color: #FFFFFF !important;
 }
 /*-------------------

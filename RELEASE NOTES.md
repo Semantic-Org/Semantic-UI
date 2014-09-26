@@ -56,6 +56,7 @@
 - **Sidebar** - Sidebar now has tall / very tall variations for resizing top/bottom sidebars
 - **Steps** - Steps can now have icons, descriptions and titles. Step default theme has been modified significantly to be more flexible.
 - **Table** - Tables now have 'basic' and 'very' basic variations
+- **Transition** - Transition will now keep block position of elements hidden with visibility hidden
 
 ** Bug Fixes **
 - **Rating** - Vertical alignment has been improved

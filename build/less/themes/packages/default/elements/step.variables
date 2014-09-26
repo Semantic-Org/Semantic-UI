@@ -40,8 +40,8 @@
 @titleColor: @darkTextColor;
 
 /* Description */
-@descriptionDistance: 0.2em;
-@descriptionFontSize: 1em;
+@descriptionDistance: 0.1em;
+@descriptionFontSize: 0.9em;
 @descriptionFontWeight: normal;
 @descriptionColor: @textColor;
 
