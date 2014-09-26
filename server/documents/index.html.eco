@@ -16,23 +16,46 @@ type   : 'Semantic'
   <div class="ui page grid">
     <div class="column">
       <img src="images/share.png" class="logo">
+      <a class="ui pointing left teal version label" href="https://github.com/semantic-org/Semantic-UI/blob/css/RELEASE%20NOTES.md">
+        Version 1.0.0 Beta
+      </a>
       <div class="ui large inverted right floated secondary menu">
         <a class="view-ui item">
           <i class="cube icon"></i>
           UI Library
         </a>
-        <a class="item" data-title="Coming Soon">
+        <a class="disabled item" data-title="Coming Soon">
+          <i class="help circle icon"></i>
+          Learn
+        </a>
+        <a class="disabled item" data-title="Coming Soon">
           <i class="theme icon"></i>
           Themes
         </a>
-        <a class="item" data-title="Coming Soon">
+        <a class="disabled item" data-title="Coming Soon">
           <i class="cubes icon"></i>
           Layouts
         </a>
-        <a class="item" data-title="Coming Soon">
-          <i class="help circle icon"></i>
-          Help
-        </a>
+        <div class="ui language top right pointing dropdown item" id="languages">
+          <i class="world icon"></i>
+          <div class="text">English</div>
+          <div class="menu">
+            <div class="item" data-percent="100" data-value="en">English</div>
+            <div class="item" data-percent="19" data-value="nl">Nederlands</div>
+            <div class="item" data-percent="19" data-value="hu">Magyar</div>
+            <div class="item" data-percent="8" data-value="ar">العربية</div>
+            <div class="item" data-percent="0" data-value="pt_BR">Português</div>
+            <div class="item" data-percent="0" data-value="tr">Türkçe</div>
+            <div class="item" data-percent="0" data-value="es">Español</div>
+            <div class="item" data-percent="0" data-value="ru">Русский</div>
+            <div class="item" data-percent="0" data-value="de">Deutsch</div>
+            <div class="item" data-percent="0" data-value="fr">Français</div>
+            <div class="item" data-percent="0" data-value="ja">日本語</div>
+            <div class="item" data-percent="0" data-value="zh">简体中文</div>
+            <div class="item" data-percent="0" data-value="kr">한국어</div>
+            <div class="item" data-percent="0" data-value="it">Italiano</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -42,9 +65,6 @@ type   : 'Semantic'
     <div class="column">
       <div class="introduction">
         <h1 class="ui inverted header">Semantic UI
-          <a class="ui teal tag label" href="https://github.com/semantic-org/Semantic-UI/blob/css/RELEASE%20NOTES.md">
-            1.0.0
-          </a>
         </h1>
         <h2 class="ui inverted header">
           <b>UI</b> is the vocabulary of the web.
@@ -72,7 +92,7 @@ type   : 'Semantic'
     <div class="column">
       <h2 class="ui icon header">
         <img class="ui icon image" src="/images/icons/Book-2.png">
-        50+ Components
+        50+ UI Definitions
       </h2>
       <p>Everything you need to make a website on your own without being a UI designer.</p>
     </div>
@@ -81,11 +101,11 @@ type   : 'Semantic'
         <img class="ui icon image" src="/images/icons/Brush.png">
         3000+ CSS Variables
       </h2>
-      <p>Semantic provides neutral defaults and enough customization options to make every design look fresh.</p>
+      <p>Everything arbitrary is changable. Three levels of theming inheritance.</p>
     </div>
     <div class="column">
       <h2 class="ui icon header">
-        <img class="ui icon image" src="/images/icons/crown.png">
+        <img class="ui icon image" src="/images/icons/Glasses.png">
         2+ Years in the Making
       </h2>
       <p>Semantic is a mature tool, used in multiple large scale production environments like <a href="http://www.newrepublic.com" target="_blank">The New Republic</a> magazine.</p>
@@ -93,15 +113,17 @@ type   : 'Semantic'
   </div>
 </div>
 <div class="alternate stripe">
-  <div class="ui stackable page grid">
-    <div class="eight wide column">
-      <h1 class="ui header">Unbelievable Theming</h1>
-      <p>Do more than just change the colors. Semantic provides true freedom. Change the look and feel of your components with just a few variables.</p>
+  <div class="ui stackable very relaxed two column page grid">
+    <div class="column">
+      <h1 class="ui icon header">
+        <img src="/images/icons/Love.png" class="ui icon image">
+        Unbelievable Theming
+      </h1>
+      <p>Semantic provides true design freedom. Change the look and feel of your components with just a few variables.</p>
     </div>
-    <div class="eight wide column">
-      <div data-type="element" data-element="button" class="ui theme selection dropdown">
-        <input name="theme" type="hidden">
-        <span class="default text">Select Theme</span>
+    <div class="column">
+      <div data-type="element" data-element="button" class="ui theme dropdown button">
+        <span class="text">Select Theme</span>
         <i class="dropdown icon"></i>
         <div class="menu ui transition hidden" tabindex="-1">
           <div data-value="Default" class="item">Default</div>
@@ -118,39 +140,47 @@ type   : 'Semantic'
       <div class="ui divider"></div>
 
       <div class="ui button">
-        Follow
+        View
       </div>
       <div class="ui primary button">
         <i class="shop icon"></i> Add to Cart
       </div>
       <div class="ui secondary button">
-        <i class="save icon"></i> Save
+        <i class="save icon"></i> Save for Later
       </div>
       <div class="ui labeled icon button">
-        <i class="pause icon"></i>
-        Pause
+        <i class="star icon"></i>
+        Rate
+      </div>
+      <div class="ui buttons">
+        <div class="ui button">1</div>
+        <div class="ui button">2</div>
+        <div class="ui button">3</div>
       </div>
     </div>
   </div>
 </div>
 <div class="inverted stripe">
-  <div class="ui stackable page grid">
-    <div class="ten wide column">
+  <div class="ui stackable two column very relaxed page grid">
+    <div class="column">
       <div class="code" data-type="html">
-        <div class="ui stackable page grid">
-          <div class="ten wide column">
+        <div class="ui stackable two column very relaxed page grid">
+          <div class="column">
             <!-- Recursion Omitted !-->
           </div>
-          <div class="five wide right floated column">
+          <div class="column">
             <h1 class="ui inverted header">Code Intuitively</h1>
-            <p>Use concepts like plurality, adjective/noun relation, and word-order to create meaning</p>
+            <p>Semantic uses concepts like nouns (types), adjectives (variations), and tense (states) to create UI definitions</p>
           </div>
         </div>
       </div>
     </div>
-    <div class="five wide right floated column">
-      <h1 class="ui inverted header">Code Intuitively</h1>
-      <p>Use concepts like plurality, adjective/noun relation, and word-order to create meaning</p>
+    <div class="column">
+      <h1 class="ui inverted icon header">
+        <i class="conversation icon"></i>
+        Code Intuitively
+      </h1>
+      <p>Semantic uses concepts like nouns (types), adjectives (variations), and tense (states) to create UI definitions</p>
     </div>
   </div>
 </div>
@@ -158,7 +188,7 @@ type   : 'Semantic'
   <div class="ui stackable page grid">
     <div class="ten wide column">
       <h1 class="ui header">
-        <img class="ui inline image" src="/images/icons/Medal.png">
+        <img class="ui inline image" src="/images/icons/Spaceship.png">
         Liberate your Development
       </h1>
       <p></p>

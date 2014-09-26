@@ -574,10 +574,8 @@ body#example.hide {
 #example.index .introduction .buttons {
   margin-top: 3em;
 }
-#example.index .introduction .label {
-  position: absolute;
-  margin-left: 2em;
-  top: 2em
+#example.index .following .version.label {
+  margin: 0.25em 0px 0px 1em;
 }
 #example.index .introduction {
   text-align: center;
@@ -653,7 +651,7 @@ body#example.hide {
   width: 100%;
 }
 #example.index .stripe .grid .row {
-  padding: 5rem 0rem;
+  margin: 2rem 0rem;
 }
 #example.index .inverted.stripe {
   background-color: #1B1C1D;
@@ -667,6 +665,12 @@ body#example.hide {
 }
 #example .alternate.stripe {
   background-color: #F2F3F5;
+}
+#example .stripe .ui.vertical.divider {
+  font-size: 1rem;
+}
+#example.index .stripe .icon.header i.icon {
+  font-size: 2em;
 }
 
 /* content */
@@ -683,6 +687,9 @@ body#example.hide {
 }
 #example .stripe h3 {
   font-size: 20px;
+}
+#example .stripe .buttons {
+  vertical-align: top;
 }
 #example .stripe .button {
   margin-bottom: 0.5em;

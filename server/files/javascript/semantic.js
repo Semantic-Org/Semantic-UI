@@ -52,7 +52,7 @@ semantic.ready = function() {
     $pageTabMenu      = $('.tab.header.segment .tabular.menu'),
     $pageTabs         = $('.tab.header.segment .menu .item'),
 
-    $languageDropdown = $('.ui.main.menu .language.dropdown'),
+    $languageDropdown = $('.language.dropdown'),
     $languageModal    = $('.language.modal'),
 
     $downloadDropdown = $('.download.buttons .dropdown'),
@@ -189,6 +189,30 @@ semantic.ready = function() {
             .addClass('active')
           ;
         }
+      }
+    },
+
+    showLanguageModal: function(value, text, $choice) {
+      var
+        percent = $choice.data('percent') || 0
+      ;
+      window.Transifex.live.translateTo(value, true);
+      if(percent < 100) {
+        $('.language.modal')
+          .find('.header .name')
+            .html(text)
+            .end()
+          .find('.complete')
+            .html(percent)
+            .end()
+        ;
+        requestAnimationFrame(function() {
+          $('.language.modal')
+            .modal('show', function() {
+              $('.language.modal .progress .bar').css('width', percent + '%');
+            })
+          ;
+        });
       }
     },
 
@@ -381,6 +405,16 @@ semantic.ready = function() {
             urlData  : urlData,
             onSuccess: function(content) {
               less.modifyVars( handler.less.parseFile(content) );
+              /*if($('.less.column').size() > 0) {
+                var $code = $('<div />')
+                  .addClass('code')
+                  .attr('data-type', 'less')
+                  .attr('data-title', 'button.variables')
+                  .html(content)
+                ;
+                $('.less.column').html($code);
+                $.proxy(handler.initializeCode, $code)();
+              }*/
               $themeDropdown
                 .api({
                   on       : 'now',
@@ -500,8 +534,6 @@ semantic.ready = function() {
       if($body.hasClass('overview')) {
         handler.overviewMode();
       }
-      $developer.addClass('active');
-      $designer.removeClass('active');
       $example
         .each(function() {
           $.proxy(handler.createCode, $(this))('developer');
@@ -517,8 +549,6 @@ semantic.ready = function() {
       if($body.hasClass('overview')) {
         handler.overviewMode();
       }
-      $designer.addClass('active');
-      $developer.removeClass('active');
       $example
         .each(function() {
           $.proxy(handler.createCode, $(this))('designer');
@@ -908,13 +938,7 @@ semantic.ready = function() {
   $swap
     .on('click', handler.swapStyle)
   ;
-/*
-  $developer
-    .on('click', handler.developerMode)
-  ;
-  $designer
-    .on('click', handler.designerMode)
-  ;*/
+
   $overview
     .on('click', handler.overviewMode)
   ;
@@ -942,38 +966,28 @@ semantic.ready = function() {
       onShow: function() {
         $(this).popup('hide');
       },
-      onChange: function(value, text, $choice) {
-        var
-          percent = $choice.data('percent') || 0
-        ;
-        window.Transifex.live.translateTo(value, true);
-        if(percent < 100) {
-          $('.language.modal')
-            .find('.header .name')
-              .html(text)
-              .end()
-            .find('.complete')
-              .html(percent)
-              .end()
-          ;
-          requestAnimationFrame(function() {
-            $('.language.modal')
-              .modal('show', function() {
-                $('.language.modal .progress .bar').css('width', percent + '%');
-              })
-            ;
-          });
-        }
-      }
+      onChange: handler.showLanguageModal
     })
 
   ;
 
 
   if($('body').hasClass('index') ) {
+
+    $themeDropdown
+      .dropdown('setting', 'action', 'activate')
+    ;
     $(window)
       .one('scroll', function() {
         $('.masthead').addClass('zoomed');
+      })
+    ;
+    $('.masthead')
+      .visibility({
+        continuous: true,
+        onPassing: function(calculations) {
+          //$(this).css('opacity', 1 - calculations.percentagePassed);
+        }
       })
     ;
     $('.fixed.launch.button')
