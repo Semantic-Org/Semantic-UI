@@ -22,7 +22,7 @@ type   : 'Semantic'
       <div class="ui large inverted right floated secondary menu">
         <div class="ui language top right pointing dropdown item" id="languages">
           <i class="world icon"></i>
-          <div class="text">English</div>
+          <div class="text">Language</div>
           <div class="menu">
             <div class="item" data-percent="100" data-value="en">English</div>
             <div class="item" data-percent="19" data-value="nl">Nederlands</div>
@@ -48,26 +48,14 @@ type   : 'Semantic'
   <div class="ui page grid">
     <div class="column">
       <div class="introduction">
-        <h1 class="ui inverted header">Semantic UI
+        <h1 class="ui inverted header">
+          <b>UI</b>
+          <span class="text">is the DNA of the web.</span>
         </h1>
-        <h2 class="ui inverted header">
-          <b>UI</b> is the vocabulary of the web.
-        </h2>
         <div class="ui hidden divider"></div>
-        <div class="ui huge inverted buttons">
-          <a class="ui basic pink inverted view-ui button"><i class="cube icon"></i>UI Library</a>
-          <a class="ui basic red inverted button" data-title="Coming Soon">
-            <i class="theme icon"></i>
-            Themes
-          </a>
-          <a class="ui basic green inverted button" data-title="Coming Soon">
-            <i class="cubes icon"></i>
-            Layouts
-          </a>
-        </div>
-        <div class="ui hidden divider"></div>
-        <a class="ui huge basic inverted teal button" href="build/semantic.zip">
-          <i class="download icon"></i> Customize &amp; Download
+        <a href="build/semantic.zip" class="ui huge basic inverted teal download button">
+          Download Now
+          <i class="right chevron icon"></i>
         </a>
       </div>
       <div class="inverted advertisement">
@@ -83,28 +71,31 @@ type   : 'Semantic'
     </div>
   </div>
 </div>
-<div class="stripe">
-  <div class="ui three column relaxed stackable page grid">
-    <div class="column">
-      <h2 class="ui icon header">
-        <img class="ui icon image" src="/images/icons/Book-2.png">
-        50+ UI Definitions
-      </h2>
-      <p>Everything you need to make a website on your own without being a UI designer.</p>
-    </div>
+<div class="feature stripe">
+  <div class="ui three column equal height center aligned divided relaxed stackable page grid">
     <div class="column">
       <h2 class="ui icon header">
         <img class="ui icon image" src="/images/icons/Brush.png">
         3000+ CSS Variables
       </h2>
-      <p>Everything arbitrary is changable. Three levels of theming inheritance.</p>
+      <p>The only dogma from this framework: everything arbitrary is mutable.</p>
+      <div class="ui disabled button">View Themes</div>
+    </div>
+    <div class="column">
+      <h2 class="ui icon header">
+        <img class="ui icon image" src="/images/icons/Book-2.png">
+        50+ UI Definitions
+      </h2>
+      <p>Build your entire site with one UI stack. Extend using a common style.</p>
+      <div class="ui primary button">Browse UI</div>
     </div>
     <div class="column">
       <h2 class="ui icon header">
         <img class="ui icon image" src="/images/icons/Glasses.png">
-        2+ Years in the Making
+        2200+ Commits
       </h2>
-      <p>Semantic is a mature tool, used in multiple large scale production environments like <a href="http://www.newrepublic.com" target="_blank">The New Republic</a> magazine.</p>
+      <p>Developed over several years. Already used in multiple large scale production environments you <a href="http://www.quirky.com" target="_blank">may</a> have <a href="http://www.newrepublic.com" target="_blank">heard</a> of.</p>
+      <a href="https://github.com/Semantic-Org/Semantic-UI/issues" class="ui button">Visit GitHub</a>
     </div>
   </div>
 </div>
@@ -132,9 +123,7 @@ type   : 'Semantic'
           <div data-value="GitHub" class="item">GitHub</div>
         </div>
       </div>
-
       <div class="ui divider"></div>
-
       <div class="ui button">
         View
       </div>
@@ -156,51 +145,69 @@ type   : 'Semantic'
     </div>
   </div>
 </div>
-<div class="inverted stripe">
-  <div class="ui stackable two column very relaxed page grid">
+<div class="email stripe">
+  <div class="ui center aligned page grid">
     <div class="column">
-      <div class="code" data-type="html">
-        <div class="ui stackable two column very relaxed page grid">
-          <div class="column">
-            <!-- Recursion Omitted !-->
-          </div>
-          <div class="column">
-            <h1 class="ui inverted header">Code Intuitively</h1>
-            <p>Semantic uses concepts like nouns (types), adjectives (variations), and tense (states) to create UI definitions</p>
-          </div>
+      <h2 class="ui header">
+        Get Updates
+      </h2>
+      <p>
+        Semantic is growing fast. Want to see just how much? Sign up and we'll let you know</p>
+      <form method="post" action="http://www.nogo.com">
+        <div class="ui huge input" style="margin:0 auto">
+          <input type="text" placeholder="E-mail">
         </div>
-      </div>
+        <button type="submit" class="ui huge secondary submit button">
+          Sign-up
+        </button>
+      </form>
     </div>
+  </div>
+</div>
+<div class="inverted stripe">
+  <div class="ui stackable one column center aligned very relaxed page grid">
     <div class="column">
       <h1 class="ui inverted icon header">
         <i class="conversation icon"></i>
         Code Intuitively
       </h1>
-      <p>Semantic uses concepts like nouns (types), adjectives (variations), and tense (states) to create UI definitions</p>
+      <p>Semantic uses concepts similar to nouns, adjectives , and tense to create UI definitions. Making your code highly scannable.</p>
+      <div class="code" data-type="html">
+        <div class="ui stackable one column center aligned very relaxed page grid">
+          <div class="column">
+            <h1 class="ui inverted icon header">
+              <i class="conversation icon"></i>
+              Code Intuitively
+            </h1>
+            <p>
+              Semantic uses concepts like nouns (types), adjectives (variations), and tense (states) to create UI definitions
+            </p>
+            <!-- Recursion Omitted (Turtles all the way down) !-->
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 <div class="stripe">
-  <div class="ui stackable page grid">
+  <div class="ui stackable center aligned page grid">
     <div class="ten wide column">
-      <h1 class="ui header">
-        <img class="ui inline image" src="/images/icons/Spaceship.png">
+      <h1 class="ui icon header">
+        <img class="ui inline icon image" src="/images/icons/Spaceship.png">
         Liberate your Development
       </h1>
-      <p></p>
-      <div class="ui two column vertically padded grid">
+      <div class="ui two column center aligned vertically padded grid">
         <div class="column">
           <h3 class="ui header">Enterprise Ready</h3>
           <p>Build tools, performance logging, support for custom definitions, multiple-levels of theme inheritanceance—a developer's wet dream.</p>
+          <a class="ui large button">View Expert Guide</a>
         </div>
         <div class="column">
           <h3 class="ui header">Beginner Friendly</h3>
           <p>Don't feel comfortable tweaking everything? Download free community designed themes and use our customizer to build a package fit for your needs.</p>
+          <a class="ui large button">View Basic Guide</a>
         </div>
       </div>
-    </div>
-    <div class="six wide column">
-
     </div>
   </div>
 </div>

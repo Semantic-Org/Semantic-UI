@@ -439,18 +439,18 @@ body#example.hide {
   -o-animation-name: masthead;
   animation-name: masthead;
 
-  -ms-transition: transform 3s ease-in-out;
-  -webkit-transition: transform 3s ease-in-out;
-  -moz-transition: transform 3s ease-in-out;
-  transition: transform 3s ease-in-out;
+  -ms-transition: transform 5s ease-in-out;
+  -webkit-transition: transform 5s ease-in-out;
+  -moz-transition: transform 5s ease-in-out;
+  transition: transform 5s ease-in-out;
 
-  opacity: 0.12;
+  opacity: 0.15;
 
-  -webkit-animation-duration: 30s;
-  -moz-animation-duration: 30s;
-  -ms-animation-duration: 30s;
-  -o-animation-duration: 30s;
-  animation-duration: 30s;
+  -webkit-animation-duration: 15s;
+  -moz-animation-duration: 15s;
+  -ms-animation-duration: 15s;
+  -o-animation-duration: 15s;
+  animation-duration: 15s;
 
   -webkit-animation-fill-mode: both;
   -moz-animation-fill-mode: both;
@@ -467,13 +467,14 @@ body#example.hide {
   -o-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 
-  -webkit-transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg) translateZ(0px);
-  transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg) translateZ(0px);
+  -webkit-transform: rotateX(50deg) rotateZ(0deg) rotateY(0deg) translateY(-14%) translateX(-2%) translateZ(300px);
+  -moz-transform: rotateX(50deg) rotateZ(0deg) rotateY(0deg) translateY(-14%) translateX(-2%) translateZ(300px);
+  transform: rotateX(50deg) rotateZ(0deg) rotateY(0deg) translateY(-14%) translateX(-2%) translateZ(300px);
 }
 #example .masthead.zoomed:before {
-  -webkit-transform: rotateX(50deg) rotateZ(0deg) rotateY(0deg) translateZ(200px);
-  -moz-transform: rotateX(50deg) rotateZ(0deg) rotateY(0deg) translateZ(200px);
-  transform: rotateX(50deg) rotateZ(0deg) rotateY(0deg) translateZ(200px);
+  -webkit-transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg) translateZ(0px);
+  -moz-transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg) translateZ(0px);
+  transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg) translateZ(0px);
 }
 
 @keyframes masthead {
@@ -524,24 +525,35 @@ body#example.hide {
  }
 
 }
+#example.index .masthead.segment h1 .text,
+#example.index .masthead.segment h1 b,
+#example.index .masthead.segment .download.button {
+  visibility: hidden;
+}
 #example.index .masthead {
   position: relative;
   overflow: hidden;
-  background: #191919;
+  background: linear-gradient(#081919, #001c1c) #191919;
+  background-color: #191919;
   padding: 3em 0px 3em;
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 0px;
   border-bottom: none;
 }
 #example.index .masthead.segment h1 {
-  font-size: 5em;
-  color: #FFFFFF;
+  font-size: 3em;
+  color: rgba(255, 255, 255, 0.5);
   line-height: 1.2;
-  margin: -20px 0px 0px;
+  margin: 0px 0px 0px;
   padding-bottom: 0px;
 }
-#example.index .masthead strike {
-  color: rgba(0, 0, 0, 0.2);
+#example.index .masthead.segment h1 b {
+  display: inline-block;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+#example.index .masthead.segment h1 .text {
+  display: inline-block;
 }
 #example.index .masthead h2 {
   font-weight: normal;
@@ -564,11 +576,14 @@ body#example.hide {
 #example.index .introduction {
   position: relative;
   clear: both;
-  margin: 7rem 0rem 3rem;
+  margin: 15rem 0rem;
 }
 #example.index .logo {
   float: left;
   width: 35px;
+}
+#example.index .ui.header {
+  font-weight: normal;
 }
 
 #example.index .introduction .buttons {
@@ -594,7 +609,6 @@ body#example.hide {
 #example.index pre.console {
   height: 120px;
 }
-
 #example .masthead .grid {
   position: relative;
   z-index: 2;
@@ -653,6 +667,9 @@ body#example.hide {
 #example.index .stripe .grid .row {
   margin: 2rem 0rem;
 }
+#example.index .feature.stripe p {
+  min-height: 100px;
+}
 #example.index .inverted.stripe {
   background-color: #1B1C1D;
 }
@@ -671,6 +688,19 @@ body#example.hide {
 }
 #example.index .stripe .icon.header i.icon {
   font-size: 2em;
+}
+
+#example.index .email.stripe {
+  padding: 2em 0em;
+}
+#example.index .email.stripe p {
+  margin: -0.5em 0em 1em;
+}
+#example.index .email.stripe .input {
+  width: 450px;
+}
+#example.index .email.stripe .submit.button {
+  margin-left: 1em;
 }
 
 /* content */

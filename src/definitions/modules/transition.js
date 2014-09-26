@@ -509,6 +509,7 @@ $.fn.transition = function() {
           transition: function() {
             var
               elementClass     = $module.attr('class'),
+              tagName          = $module.prop('tagName'),
               animation        = settings.animation,
               transitionExists = module.get.transitionExists(settings.animation),
               $clone,
@@ -518,7 +519,7 @@ $.fn.transition = function() {
             ;
             if( transitionExists === undefined || instance.displayType === undefined) {
               module.verbose('Determining whether animation exists');
-              $clone = $('<div>').addClass( elementClass ).appendTo($('body'));
+              $clone = $('<' + tagName + ' />').addClass( elementClass ).insertAfter($module);
               currentAnimation = $clone
                 .removeClass(className.inward)
                 .removeClass(className.outward)
@@ -536,6 +537,7 @@ $.fn.transition = function() {
                 .show()
                 .css('display')
               ;
+              console.log($clone, $clone.parent(), $clone.attr('class'), displayType);
               module.verbose('Determining final display state', displayType);
               if(currentAnimation != inAnimation) {
                 module.debug('Transition exists for animation', animation);

@@ -977,19 +977,21 @@ semantic.ready = function() {
     $themeDropdown
       .dropdown('setting', 'action', 'activate')
     ;
-    $(window)
-      .one('scroll', function() {
-        $('.masthead').addClass('zoomed');
-      })
-    ;
-    $('.masthead')
-      .visibility({
-        continuous: true,
-        onPassing: function(calculations) {
-          //$(this).css('opacity', 1 - calculations.percentagePassed);
-        }
-      })
-    ;
+    $('.masthead').addClass('zoomed');
+    setTimeout(function() {
+      $('.masthead h1 b')
+        .transition('fade in', 2500)
+      ;
+    }, 0);
+    setTimeout(function() {
+      $('.masthead h1 span')
+        .transition('fade in', 1000)
+      ;
+      $('.masthead .download')
+        .transition('fade in', 1500)
+      ;
+    }, 2000);
+
     $('.fixed.launch.button')
       .visibility({
         offset: 50,
