@@ -971,42 +971,6 @@ semantic.ready = function() {
 
   ;
 
-
-  if($('body').hasClass('index') ) {
-
-    $themeDropdown
-      .dropdown('setting', 'action', 'activate')
-    ;
-    $('.masthead').addClass('zoomed');
-    setTimeout(function() {
-      $('.masthead h1 b')
-        .transition('fade in', 2500)
-      ;
-    }, 0);
-    setTimeout(function() {
-      $('.masthead h1 span')
-        .transition('fade in', 1000)
-      ;
-      $('.masthead .download')
-        .transition('fade in', 1500)
-      ;
-    }, 2000);
-
-    $('.fixed.launch.button')
-      .visibility({
-        offset: 50,
-        once: false,
-        onTopPassed: function() {
-          $(this).addClass('stuck');
-        },
-        onTopPassedReverse: function() {
-          $(this).removeClass('stuck');
-        }
-      })
-    ;
-
-  }
-
 };
 
 

@@ -3,34 +3,45 @@ semantic.home = {};
 // ready event
 semantic.home.ready = function() {
 
-  // selector cache
   var
-    $navigationItem = $('.demo .menu .item'),
-    $oddballItem    = $navigationItem.filter('.oddball')
-  ;
-  $.fn.transition.settings.debug = true;
-  $('.kitten.image')
-    .transition('internal', 'debug', function() {
-      $('.console')
-        .append(arguments[0] + "\n")
-        // scroll to bottom
-        .prop('scrollTop', $('.console').prop('scrollHeight') )
-      ;
-    })
+    $themeDropdown = $('.theme.dropdown'),
+    $header        = $('.masthead'),
+    $ui            = $header.find('h1 b'),
+    $phrase        = $header.find('h1 span'),
+    $download      = $header.find('.download')
   ;
 
-  $navigationItem
-    .tab()
+  $themeDropdown
+    .dropdown('setting', 'action', 'activate')
   ;
-  $oddballItem
-    .on('click', function() {
-      $(this)
-        .tab('deactivate all')
-        .tab('activate tab', 'third')
-        .tab('activate navigation', 'third')
-      ;
-    })
+
+  // zoom out
+  $header
+    .removeClass('zoomed')
   ;
+
+  setTimeout(function() {
+    $ui.typed({
+      replaceBaseText : true,
+      strings         : window.semantic.config.type,
+      showCursor      : false,
+      typeSpeed       : 100,
+      backSpeed       : 100,
+      backDelay       : 1000
+    });
+  }, 0);
+
+  $('.demo .ui.accordion')
+    .accordion()
+  ;
+
+  $('.demo .ui.dropdown')
+    .dropdown()
+  ;
+  $('.demo .ui.checkbox')
+    .checkbox()
+  ;
+
 };
 
 

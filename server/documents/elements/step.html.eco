@@ -209,7 +209,34 @@ themes      : ['default', 'Basic', 'GitHub']
     </div>
   </div>
 
-  <h2 class="ui dividing header">Variations</h2>
+  <div class="example">
+    <h4 class="ui header">Fluid Card</h4>
+    <p>A fluid card takes up the width of its container</p>
+    <div class="ui two column grid">
+      <div class="column">
+        <div class="ui fluid vertical steps">
+          <div class="completed step">
+            <i class="truck icon"></i>
+            <div class="content">
+              <div class="title">Shipping</div>
+              <div class="description">Choose your shipping options</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui fluid vertical steps">
+          <div class="completed step">
+            <i class="payment icon"></i>
+            <div class="content">
+              <div class="title">Billing</div>
+              <div class="description">Enter billing information</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div></h2>
 
   <div class="example">
     <h4 class="ui header">Size</h4>
@@ -245,21 +272,12 @@ themes      : ['default', 'Basic', 'GitHub']
         <i class="truck icon"></i>
         <div class="content">
           <div class="title">Shipping</div>
-          <div class="description">Choose your shipping options</div>
         </div>
       </div>
       <div class="active step">
         <i class="payment icon"></i>
         <div class="content">
           <div class="title">Billing</div>
-          <div class="description">Enter billing information</div>
-        </div>
-      </div>
-      <div class="disabled step">
-        <i class="info icon"></i>
-        <div class="content">
-          <div class="title">Confirm Order</div>
-          <div class="description">Verify order details</div>
         </div>
       </div>
     </div>
@@ -274,21 +292,18 @@ themes      : ['default', 'Basic', 'GitHub']
         <i class="truck icon"></i>
         <div class="content">
           <div class="title">Shipping</div>
-          <div class="description">Choose your shipping options</div>
         </div>
       </div>
       <div class="active step">
         <i class="payment icon"></i>
         <div class="content">
           <div class="title">Billing</div>
-          <div class="description">Enter billing information</div>
         </div>
       </div>
       <div class="disabled step">
         <i class="info icon"></i>
         <div class="content">
           <div class="title">Confirm Order</div>
-          <div class="description">Verify order details</div>
         </div>
       </div>
     </div>
@@ -299,14 +314,12 @@ themes      : ['default', 'Basic', 'GitHub']
         <i class="payment icon"></i>
         <div class="content">
           <div class="title">Billing</div>
-          <div class="description">Enter billing information</div>
         </div>
       </div>
       <div class="disabled step">
         <i class="info icon"></i>
         <div class="content">
           <div class="title">Confirm Order</div>
-          <div class="description">Verify order details</div>
         </div>
       </div>
     </div>

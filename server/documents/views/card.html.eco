@@ -464,6 +464,32 @@ themes      : ['Default', 'Basic', 'GitHub']
   <h2 class="ui dividing header">Variations</h2>
 
   <div class="example">
+    <h4 class="ui header">Fluid Card</h4>
+    <p>A fluid card takes up the width of its container</p>
+    <div class="ui two column grid">
+      <div class="column">
+        <div class="ui fluid card">
+          <div class="image">
+            <img src="/images/avatar/large/helen.jpg">
+          </div>
+          <div class="content">
+            <a class="header">Helen Troy</a>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui fluid card">
+          <div class="image">
+            <img src="/images/avatar/large/elliot.jpg">
+          </div>
+          <div class="content">
+            <a class="header">Elliot Fu</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="example">
     <h4 class="ui header">Link Card</h4>
     <p>A card can be formatted so that the entire contents link to another page</p>
     <a class="ui card" href="http://www.dog.com">

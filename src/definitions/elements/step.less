@@ -81,13 +81,12 @@
 .ui.steps .step > .icon,
 .ui.steps .step > .icon ~ .content {
   display: table-cell;
-  vertical-align: top;
+  vertical-align: @iconVerticalAlign;
 }
 .ui.steps .step > .icon {
   font-size: @iconSize;
   margin: 0em;
   padding-right: @iconDistance;
-  vertical-align: @iconVerticalAlign;
 }
 
 /* Link */
@@ -254,6 +253,11 @@
 /*******************************
            Variations
 *******************************/
+
+/* Fluid */
+.ui.fluid.steps {
+  width: 100%;
+}
 
 /* Attached */
 .attached.ui.steps {

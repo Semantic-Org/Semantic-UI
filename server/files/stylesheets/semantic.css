@@ -289,7 +289,7 @@ a:hover {
   text-align: left;
 }
 #example .inverted.advertisement .carbonad {
-  background-color: rgba(0, 31, 30, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
   border: none;
   overflow: hidden;
   height: auto;
@@ -525,11 +525,34 @@ body#example.hide {
  }
 
 }
-#example.index .masthead.segment h1 .text,
-#example.index .masthead.segment h1 b,
-#example.index .masthead.segment .download.button {
-  visibility: hidden;
+
+
+#example.index .masthead.segment .typed-cursor {
+  position: relative;
+  top: -0.05em;
+  left: -0.25em;
+  opacity: 1;
+  -webkit-animation: blink 0.7s infinite;
+  -moz-animation: blink 0.7s infinite;
+  animation: blink 0.7s infinite;
 }
+@keyframes blink {
+  0% { opacity:1; }
+  50% { opacity:0; }
+  100% { opacity:1; }
+}
+@-webkit-keyframes blink {
+  0% { opacity:1; }
+  50% { opacity:0; }
+  100% { opacity:1; }
+}
+@-moz-keyframes blink {
+  0% { opacity:1; }
+  50% { opacity:0; }
+  100% { opacity:1; }
+}
+
+
 #example.index .masthead {
   position: relative;
   overflow: hidden;
@@ -546,14 +569,28 @@ body#example.hide {
   line-height: 1.2;
   margin: 0px 0px 0px;
   padding-bottom: 0px;
+  -moz-perspective: 500px;
+  -webkit-perspective: 500px;
+  perspective: 500px;
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+#example.index .masthead.segment h1 > .library {
+  display: block;
+  font-size: 1.75em;
+  color: #FFFFFF;
+  font-weight: bold;
 }
 #example.index .masthead.segment h1 b {
   display: inline-block;
-  font-weight: bold;
+  font-weight: 300;
   color: #FFFFFF;
 }
 #example.index .masthead.segment h1 .text {
   display: inline-block;
+  font-weight: 300;
+  margin-left: -0.4em;
 }
 #example.index .masthead h2 {
   font-weight: normal;
@@ -596,12 +633,7 @@ body#example.hide {
   text-align: center;
 }
 #example.index .fixed.launch.button {
-  top: 438px;
-  position: absolute;
-}
-#example.index .fixed.launch.button.stuck {
-  position: fixed;
-  top: 50px;
+  background-color: #303D3D;
 }
 #example.index .main.menu {
   top: 0px;
@@ -625,14 +657,6 @@ body#example.hide {
   margin: -0.1em 0em 0em 0.5em;
   vertical-align: middle;
 }
-#example .masthead .labeled.button {
-  position: relative;
-  left: 0px;
-  top: 0px;
-  width: auto !important;
-  margin-right: 1em;
-}
-
 /*--------------
      Footer
 ---------------*/
@@ -702,6 +726,10 @@ body#example.hide {
 #example.index .email.stripe .submit.button {
   margin-left: 1em;
 }
+#example.index .demo h4 {
+  font-weight: bold !important;
+  margin: 0em 0em 1em !important;
+}
 
 /* content */
 #example .solid,
@@ -724,7 +752,7 @@ body#example.hide {
 #example .stripe .button {
   margin-bottom: 0.5em;
 }
-#example .stripe p {
+#example .stripe .column > p {
   font-size: 16px;
   line-height: 1.6;
   margin: 2em 0em;
@@ -739,7 +767,7 @@ body#example.hide {
   background: url(/images/dark-bg.png) repeat;
   color: #FFFFFF;
 }
-#example .stripe .column .label {
+#example .stripe .column > .label {
   margin-bottom: 1em;
 }
 

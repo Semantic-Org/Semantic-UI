@@ -121,7 +121,7 @@
   <script src="/javascript/library/easing.js"></script>
   <script src="/javascript/library/ace/ace.js"></script>
   <script src="/javascript/library/tablesort.js"></script>
-  <script src="/javascript/library/waypoints.js"></script>
+  <script src="/javascript/library/typing.js"></script>
 
   <% if 'development' in @getEnvironments(): %>
   <script src="/build/uncompressed/definitions/globals/site.js"></script>

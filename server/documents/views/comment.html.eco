@@ -28,7 +28,7 @@ themes      : ['Default', 'Chubby']
     <div class="ui ignored bottom attached warning message">
       <p><b>UI Views</b> provide structured layouts, but do not hook up site specific code. You will need to add your own javascript behaviors to hide and show the appropriate forms. For example, having a reply button open a reply form<p>
     </div>
-    <div class="ui comments segment">
+    <div class="ui comments">
       <h3 class="ui dividing header">Comments</h3>
       <div class="comment">
         <a class="avatar">
@@ -117,7 +117,7 @@ themes      : ['Default', 'Chubby']
   <div class="example">
     <h4 class="ui header">Avatar</h4>
     <p>A comment can contain an image or avatar</p>
-    <div class="ui comments segment">
+    <div class="ui comments">
       <div class="comment">
         <a class="avatar">
           <img src="/images/avatar/small/elliot.jpg">
@@ -132,7 +132,7 @@ themes      : ['Default', 'Chubby']
   <div class="example">
     <h4 class="ui header">Metadata</h4>
     <p>A comment can contain metadata about the comment, an arbitrary amount of metadata may be defined.</p>
-    <div class="ui comments segment">
+    <div class="ui comments">
       <div class="comment">
         <a class="avatar">
           <img src="/images/avatar/small/stevie.jpg">
@@ -157,7 +157,7 @@ themes      : ['Default', 'Chubby']
   <div class="example">
     <h4 class="ui header">Actions</h4>
     <p>A comment can contain an list of actions a user may perform related to this comment.</p>
-    <div class="ui comments segment">
+    <div class="ui comments">
       <div class="comment">
         <a class="avatar">
           <img src="/images/avatar/small/joe.jpg">
@@ -187,7 +187,7 @@ themes      : ['Default', 'Chubby']
     <div class="ui info message">
       <p>If a comment form is located inside a <code> ui comment</code> it will be formatted as an nested reply form. If the comment form is included after all comments, it will be formatted as a normal reply form.</p>
     </div>
-    <div class="ui comments segment">
+    <div class="ui comments">
       <div class="comment">
         <a class="avatar">
           <img src="/images/avatar/small/steve.jpg">
@@ -216,7 +216,7 @@ themes      : ['Default', 'Chubby']
     </div>
   </div>
   <div class="another example">
-    <div class="ui comments segment">
+    <div class="ui comments">
       <div class="comment">
         <a class="avatar">
           <img src="/images/avatar/small/joe.jpg">
@@ -268,7 +268,7 @@ themes      : ['Default', 'Chubby']
   <div class="example">
     <h4 class="ui header">Collapsed</h4>
     <p>Comments can be collapsed, or hidden from view</p>
-    <div class="ui comments segment">
+    <div class="ui comments">
       <div class="comment">
         <a class="avatar">
           <img src="/images/avatar/small/christian.jpg">
@@ -333,7 +333,7 @@ themes      : ['Default', 'Chubby']
   <div class="example">
     <h4 class="ui header">Threaded</h4>
     <p>A comment list can be threaded to showing the relationship between conversations</p>
-    <div class="ui threaded comments segment">
+    <div class="ui threaded comments">
       <h3 class="ui dividing header">Comments</h3>
       <div class="comment">
         <a class="avatar">
@@ -419,7 +419,7 @@ themes      : ['Default', 'Chubby']
   <div class="example">
     <h4 class="ui header">Minimal</h4>
     <p>Comments can hide extra information unless a user shows intent to interact with a comment.</p>
-    <div class="ui minimal comments segment">
+    <div class="ui minimal comments">
       <h3 class="ui dividing header">Comments</h3>
       <div class="comment">
         <a class="avatar">

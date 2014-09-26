@@ -49,6 +49,7 @@
   display: none;
   outline: none;
   top: 100%;
+  transition: @menuTransition;
 
   margin: @menuMargin;
   padding: @menuPadding;
@@ -422,7 +423,8 @@ select.ui.dropdown {
 
 /* Menu Item Hover */
 .ui.dropdown .menu > .item:hover {
-  background-color: rgba(0, 0, 0, 0.03);
+  background: @hoveredItemBackground;
+  color: @hoveredItemColor;
   z-index: 12;
 }
 

@@ -30,6 +30,7 @@
 @menuTop: 100%;
 @menuWrap: nowrap;
 @menuTextAlign: left;
+@menuTransition: none;
 
 @menuBorder: 1px solid @borderColor;
 @menuBoxShadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.15);
@@ -156,6 +157,9 @@ b        Types
 /*-------------------
        States
 --------------------*/
+
+@hoveredItemBackground: @transparentBlack;
+@hoveredItemColor: @selectedTextColor;
 
 /* Default Text */
 @defaultTextColor: rgba(179, 179, 179, 0.7);
