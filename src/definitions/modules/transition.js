@@ -100,7 +100,7 @@ $.fn.transition = function() {
 
         refresh: function() {
           module.verbose('Refreshing display type on next animation');
-          delete instance.displayType;
+          delete module.displayType;
         },
 
         forceRepaint: function() {
@@ -132,7 +132,7 @@ $.fn.transition = function() {
           }
           module.debug('Preparing animation', settings.animation);
           if(module.is.animating() && settings.queue) {
-            if(!settings.allowRepeats && module.has.direction() && module.is.occuring() && instance.queuing !== true) {
+            if(!settings.allowRepeats && module.has.direction() && module.is.occuring() && module.queuing !== true) {
               module.error(error.repeated);
             }
             else {
@@ -158,10 +158,10 @@ $.fn.transition = function() {
 
         queue: function(animation) {
           module.debug('Queueing animation of', animation);
-          instance.queuing = true;
+          module.queuing = true;
           $module
             .one(animationEnd, function() {
-              instance.queuing = false;
+              module.queuing = false;
               module.repaint();
               module.animate.apply(this, settings);
             })
@@ -226,16 +226,14 @@ $.fn.transition = function() {
 
           display: function() {
             var
-              style         = $module.css('style'),
+              style         = $module.attr('style') || '',
               displayType   = module.get.displayType(),
               overrideStyle = style + ';display: ' + displayType + ' !important;'
             ;
-            if(displayType !== 'block') {
-              module.verbose('Setting final visibility to', displayType);
-              $module
-                .attr('style', overrideStyle)
-              ;
-            }
+            module.verbose('Setting final visibility to', displayType);
+            $module
+              .attr('style', overrideStyle)
+            ;
           },
 
           direction: function() {
@@ -307,44 +305,46 @@ $.fn.transition = function() {
 
         save: {
           displayType: function(displayType) {
-            instance.displayType = displayType;
+            module.displayType = displayType;
           },
           transitionExists: function(animation, exists) {
             $.fn.transition.exists[animation] = exists;
             module.verbose('Saving existence of transition', animation, exists);
           },
           conditions: function() {
-            instance.cache = {
+            module.cache = {
               className : $module.attr('class'),
               style     : $module.attr('style')
             };
-            module.verbose('Saving original attributes', instance.cache);
+            module.verbose('Saving original attributes', module.cache);
           }
         },
 
         restore: {
           conditions: function() {
-            if(instance.cache === undefined) {
+            if(module.cache === undefined) {
               return false;
             }
-            if(instance.cache.className) {
-              $module.attr('class', instance.cache.className);
+            if(module.cache.className) {
+              $module.attr('class', module.cache.className);
             }
             else {
               $module.removeAttr('class');
             }
-            if(instance.cache.style) {
-              $module.attr('style', instance.cache.style);
+            if(module.cache.style) {
+              module.verbose('Restoring original style attribute', module.cache.style);
+              $module.attr('style', module.cache.style);
             }
             else {
               if(module.get.displayType() === 'block') {
+                module.verbose('Removing inline block style, element defaults to block');
                 $module.removeAttr('style');
               }
             }
             if(module.is.looping()) {
               module.remove.looping();
             }
-            module.verbose('Restoring original attributes', instance.cache);
+            module.verbose('Restoring original attributes', module.cache);
           }
         },
 
@@ -355,7 +355,7 @@ $.fn.transition = function() {
           },
 
           display: function() {
-            if(instance.displayType !== undefined) {
+            if(module.displayType !== undefined) {
               $module.css('display', '');
             }
           },
@@ -442,11 +442,11 @@ $.fn.transition = function() {
           },
 
           displayType: function() {
-            if(instance.displayType === undefined) {
+            if(module.displayType === undefined) {
               // create fake element to determine display state
               module.can.transition();
             }
-            return instance.displayType;
+            return module.displayType;
           },
 
           transitionExists: function(animation) {
@@ -517,7 +517,7 @@ $.fn.transition = function() {
               inAnimation,
               displayType
             ;
-            if( transitionExists === undefined || instance.displayType === undefined) {
+            if( transitionExists === undefined || module.displayType === undefined) {
               module.verbose('Determining whether animation exists');
               $clone = $('<' + tagName + ' />').addClass( elementClass ).insertAfter($module);
               currentAnimation = $clone
@@ -534,10 +534,11 @@ $.fn.transition = function() {
               ;
               displayType = $clone
                 .attr('class', elementClass)
+                .removeAttr('style')
+                .removeClass(className.visible)
                 .show()
                 .css('display')
               ;
-              console.log($clone, $clone.parent(), $clone.attr('class'), displayType);
               module.verbose('Determining final display state', displayType);
               if(currentAnimation != inAnimation) {
                 module.debug('Transition exists for animation', animation);
