@@ -106,7 +106,7 @@ $.fn.visibility = function(parameters) {
             module.verbose('Scroll position changed');
             if(settings.throttle) {
               clearTimeout(module.timer);
-              module.timer = setTimeout(module.checkVisibility, 200);
+              module.timer = setTimeout(module.checkVisibility, settings.throttle);
             }
             else {
               requestAnimationFrame(module.checkVisibility);
@@ -568,10 +568,10 @@ $.fn.visibility = function(parameters) {
             }
             // visibility
             $.extend(module.cache.element, {
-              topVisible       : (screen.bottom > element.top),
-              topPassed        : (screen.top > element.top),
-              bottomVisible    : (screen.bottom > element.bottom),
-              bottomPassed     : (screen.top > element.bottom),
+              topVisible       : (screen.bottom >= element.top),
+              topPassed        : (screen.top >= element.top),
+              bottomVisible    : (screen.bottom >= element.bottom),
+              bottomPassed     : (screen.top >= element.bottom),
               pixelsPassed     : 0,
               percentagePassed : 0
             });
