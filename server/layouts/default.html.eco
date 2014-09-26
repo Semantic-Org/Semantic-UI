@@ -300,17 +300,18 @@
           <i class="world icon"></i>
           <div class="menu">
             <div class="item" data-percent="100" data-value="en">English</div>
-            <div class="item" data-percent="19" data-value="nl">Nederlands</div>
-            <div class="item" data-percent="19" data-value="hu">Magyar</div>
+            <div class="item" data-percent="17" data-value="nl">Nederlands</div>
+            <div class="item" data-percent="18" data-value="hu">Magyar</div>
             <div class="item" data-percent="8" data-value="ar">العربية</div>
-            <div class="item" data-percent="0" data-value="pt_BR">Português</div>
+            <div class="item" data-percent="2" data-value="pt_BR">Português</div>
+            <div class="item" data-percent="8" data-value="lt">Lietuvių</div>
+            <div class="item" data-percent="2" data-value="zh">简体中文</div>
             <div class="item" data-percent="0" data-value="tr">Türkçe</div>
             <div class="item" data-percent="0" data-value="es">Español</div>
             <div class="item" data-percent="0" data-value="ru">Русский</div>
             <div class="item" data-percent="0" data-value="de">Deutsch</div>
             <div class="item" data-percent="0" data-value="fr">Français</div>
             <div class="item" data-percent="0" data-value="ja">日本語</div>
-            <div class="item" data-percent="0" data-value="zh">简体中文</div>
             <div class="item" data-percent="0" data-value="kr">한국어</div>
             <div class="item" data-percent="0" data-value="it">Italiano</div>
           </div>
