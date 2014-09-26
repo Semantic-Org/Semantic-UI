@@ -947,19 +947,23 @@ semantic.ready = function() {
         ;
         window.Transifex.live.translateTo(value, true);
         if(percent < 100) {
-          $('.language.modal')
-            .find('.header .name')
-              .html(text)
-              .end()
-            .find('.complete')
-              .html(percent)
-              .end()
-          ;
+
           requestAnimationFrame(function() {
             $('.language.modal')
-              .modal('show', function() {
-                $('.language.modal .progress .bar').css('width', percent + '%');
+              .modal({
+                onShow: function() {
+                  $(this).find('.progress').progress('set percent', percent);
+                }
               })
+              .find('.header .name')
+                .html(text)
+                .end()
+              .find('.complete')
+                .html(percent)
+                .end()
+            ;
+            $('.language.modal')
+              .modal('show')
             ;
           });
         }

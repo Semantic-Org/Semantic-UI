@@ -46,6 +46,59 @@
     Load Defaults
 -------------------*/
 /*******************************
+             Menu
+*******************************/
+/*-------------------
+    Globals Used
+--------------------*/
+/*-------------------
+      Collection
+--------------------*/
+/* Sub Menu */
+/*--------------
+    Elements
+---------------*/
+/* Icon */
+/* Header */
+/*--------------
+    Couplings
+---------------*/
+/* Button */
+/* Input */
+/* Label */
+/* Dropdown */
+/* Pointing Arrow */
+/*--------------
+     States
+---------------*/
+/*--------------
+     Types
+---------------*/
+/* Vertical */
+/* Secondary */
+/* Pointing */
+/* Tiered */
+/* Tabular */
+/* Pagination */
+/* Labeled Icon */
+/* Text */
+/*--------------
+   Variations
+---------------*/
+/* Inverted */
+/* Inverted Sub Menu */
+/* Inverted Hover */
+/* Pressed */
+/* Inverted Active */
+/* Inverted Secondary */
+/* Inverted Menu Divider */
+/* Fixed */
+/* Attached */
+/* Sizes */
+/*------------------
+     Load Theme
+-------------------*/
+/*******************************
          Site Settings
 *******************************/
 /*-------------------
@@ -136,59 +189,6 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*******************************
-             Menu
-*******************************/
-/*-------------------
-    Globals Used
---------------------*/
-/*-------------------
-      Collection
---------------------*/
-/* Sub Menu */
-/*--------------
-    Elements
----------------*/
-/* Icon */
-/* Header */
-/*--------------
-    Couplings
----------------*/
-/* Button */
-/* Input */
-/* Label */
-/* Dropdown */
-/* Pointing Arrow */
-/*--------------
-     States
----------------*/
-/*--------------
-     Types
----------------*/
-/* Vertical */
-/* Secondary */
-/* Pointing */
-/* Tiered */
-/* Tabular */
-/* Pagination */
-/* Labeled Icon */
-/* Text */
-/*--------------
-   Variations
----------------*/
-/* Inverted */
-/* Inverted Sub Menu */
-/* Inverted Hover */
-/* Pressed */
-/* Inverted Active */
-/* Inverted Secondary */
-/* Inverted Menu Divider */
-/* Fixed */
-/* Attached */
-/* Sizes */
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -1559,21 +1559,21 @@
 ---------------*/
 /* Small */
 .ui.small.menu .item {
-  font-size: 0.875rem;
+  font-size: 0.875em;
 }
 .ui.small.vertical.menu {
   width: 13rem;
 }
 /* Medium */
 .ui.menu .item {
-  font-size: 1rem;
+  font-size: 1em;
 }
 .ui.vertical.menu {
   width: 15rem;
 }
 /* Large */
 .ui.large.menu .item {
-  font-size: 1.125rem;
+  font-size: 1.125em;
 }
 .ui.large.menu .item .item {
   font-size: 0.875rem;

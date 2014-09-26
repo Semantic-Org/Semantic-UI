@@ -1138,6 +1138,35 @@
     Load Defaults
 -------------------*/
 /*******************************
+             Grid
+*******************************/
+/* Inherited From Site */
+/*******************************
+            Grid
+*******************************/
+/*******************************
+           Variations
+*******************************/
+/*--------------
+     Page
+---------------*/
+/* Column Gutters */
+/*--------------
+     Relaxed
+---------------*/
+/*--------------
+     Divided
+---------------*/
+/*--------------
+    Celled
+---------------*/
+/*--------------
+    Stackable
+---------------*/
+/*------------------
+     Load Theme
+-------------------*/
+/*******************************
          Site Settings
 *******************************/
 /*-------------------
@@ -1228,35 +1257,6 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*******************************
-             Grid
-*******************************/
-/* Inherited From Site */
-/*******************************
-            Grid
-*******************************/
-/*******************************
-           Variations
-*******************************/
-/*--------------
-     Page
----------------*/
-/* Column Gutters */
-/*--------------
-     Relaxed
----------------*/
-/*--------------
-     Divided
----------------*/
-/*--------------
-    Celled
----------------*/
-/*--------------
-    Stackable
----------------*/
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -2339,6 +2339,59 @@
     Load Defaults
 -------------------*/
 /*******************************
+             Menu
+*******************************/
+/*-------------------
+    Globals Used
+--------------------*/
+/*-------------------
+      Collection
+--------------------*/
+/* Sub Menu */
+/*--------------
+    Elements
+---------------*/
+/* Icon */
+/* Header */
+/*--------------
+    Couplings
+---------------*/
+/* Button */
+/* Input */
+/* Label */
+/* Dropdown */
+/* Pointing Arrow */
+/*--------------
+     States
+---------------*/
+/*--------------
+     Types
+---------------*/
+/* Vertical */
+/* Secondary */
+/* Pointing */
+/* Tiered */
+/* Tabular */
+/* Pagination */
+/* Labeled Icon */
+/* Text */
+/*--------------
+   Variations
+---------------*/
+/* Inverted */
+/* Inverted Sub Menu */
+/* Inverted Hover */
+/* Pressed */
+/* Inverted Active */
+/* Inverted Secondary */
+/* Inverted Menu Divider */
+/* Fixed */
+/* Attached */
+/* Sizes */
+/*------------------
+     Load Theme
+-------------------*/
+/*******************************
          Site Settings
 *******************************/
 /*-------------------
@@ -2429,59 +2482,6 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*******************************
-             Menu
-*******************************/
-/*-------------------
-    Globals Used
---------------------*/
-/*-------------------
-      Collection
---------------------*/
-/* Sub Menu */
-/*--------------
-    Elements
----------------*/
-/* Icon */
-/* Header */
-/*--------------
-    Couplings
----------------*/
-/* Button */
-/* Input */
-/* Label */
-/* Dropdown */
-/* Pointing Arrow */
-/*--------------
-     States
----------------*/
-/*--------------
-     Types
----------------*/
-/* Vertical */
-/* Secondary */
-/* Pointing */
-/* Tiered */
-/* Tabular */
-/* Pagination */
-/* Labeled Icon */
-/* Text */
-/*--------------
-   Variations
----------------*/
-/* Inverted */
-/* Inverted Sub Menu */
-/* Inverted Hover */
-/* Pressed */
-/* Inverted Active */
-/* Inverted Secondary */
-/* Inverted Menu Divider */
-/* Fixed */
-/* Attached */
-/* Sizes */
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -3852,21 +3852,21 @@
 ---------------*/
 /* Small */
 .ui.small.menu .item {
-  font-size: 0.875rem;
+  font-size: 0.875em;
 }
 .ui.small.vertical.menu {
   width: 13rem;
 }
 /* Medium */
 .ui.menu .item {
-  font-size: 1rem;
+  font-size: 1em;
 }
 .ui.vertical.menu {
   width: 15rem;
 }
 /* Large */
 .ui.large.menu .item {
-  font-size: 1.125rem;
+  font-size: 1.125em;
 }
 .ui.large.menu .item .item {
   font-size: 0.875rem;
@@ -21455,17 +21455,17 @@ a.ui.nag {
   display: block;
   max-width: 100%;
   border: 1px solid rgba(0, 0, 0, 0.05);
-  margin: 1em 0em 2.25em;
+  margin: 1em 0em 2.5em;
   box-shadow: none;
   background: rgba(0, 0, 0, 0.03);
   padding: 0.325em;
   border-radius: 0.325em;
 }
 .ui.progress:first-child {
-  margin: 0em 0em 2.25em;
+  margin: 0em 0em 2.5em;
 }
 .ui.progress:last-child {
-  margin: 0em 0em 1.25em;
+  margin: 0em 0em 1.5em;
 }
 /* Indicating */
 .ui.indicating.progress .bar[style^="width: 3"] {
@@ -21544,7 +21544,7 @@ a.ui.nag {
   color: rgba(0, 0, 0, 0.8);
   font-weight: bold;
   text-shadow: none;
-  margin-top: 0.25em;
+  margin-top: 0.2em;
   text-align: center;
   -webkit-transition: color 1s ease;
           transition: color 1s ease;
@@ -21656,10 +21656,10 @@ a.ui.nag {
   border: none;
 }
 .ui.inverted.progress .bar {
-  background: #fafafa;
+  background: #888888;
 }
 .ui.inverted.progress .bar > .progress {
-  color: rgba(0, 0, 0, 0.8);
+  color: #fafafa;
 }
 .ui.inverted.progress > .label {
   color: #ffffff;

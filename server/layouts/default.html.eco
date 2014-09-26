@@ -372,7 +372,7 @@
       </div>
       <div class="description">
         <p>This translation is only <b><span class="complete"></span>%</b> complete!</p>
-        <div class="ui teal active progress">
+        <div class="ui inverted indicating progress">
           <div class="bar"></div>
         </div>
         <p>We need your help to make Semantic available to  people who speak your language.</p>
