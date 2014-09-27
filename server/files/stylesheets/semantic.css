@@ -1647,6 +1647,9 @@ body.progress.animated .ui.progress .bar {
 }
 
 @media only screen and (max-width : 600px) {
+  #example.index .feature.stripe p {
+    min-height: 0px;
+  }
   #example.index .following.bar .column {
     text-align: center;
   }
