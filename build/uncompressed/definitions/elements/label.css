@@ -46,6 +46,43 @@
     Load Defaults
 -------------------*/
 /*******************************
+             Label
+*******************************/
+/*-------------------
+       Element
+--------------------*/
+/* Group */
+/*-------------------
+        Parts
+--------------------*/
+/*-------------------
+        Types
+--------------------*/
+/* Image Label */
+/* Computed Values */
+/*-------------------
+        States
+--------------------*/
+/*-------------------
+      Variations
+--------------------*/
+/* Tag */
+/* Ribbon */
+/* Attached */
+/* Corner */
+/* Corner Text */
+/* Horizontal */
+/* Circular Padding */
+/* Pointing */
+/* Floating */
+/*-------------------
+        Group
+--------------------*/
+/* Sizing */
+/*------------------
+     Load Theme
+-------------------*/
+/*******************************
          Site Settings
 *******************************/
 /*-------------------
@@ -136,43 +173,6 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*******************************
-             Label
-*******************************/
-/*-------------------
-       Element
---------------------*/
-/* Group */
-/*-------------------
-        Parts
---------------------*/
-/*-------------------
-        Types
---------------------*/
-/* Image Label */
-/* Computed Values */
-/*-------------------
-        States
---------------------*/
-/*-------------------
-      Variations
---------------------*/
-/* Tag */
-/* Ribbon */
-/* Attached */
-/* Corner */
-/* Corner Text */
-/* Horizontal */
-/* Circular Padding */
-/* Pointing */
-/* Floating */
-/*-------------------
-        Group
---------------------*/
-/* Sizing */
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -989,27 +989,27 @@ a.ui.yellow.label:hover:before {
 --------------------*/
 .ui.mini.labels .label,
 .ui.mini.label {
-  font-size: 0.7rem;
+  font-size: 0.7em;
 }
 .ui.tiny.labels .label,
 .ui.tiny.label {
-  font-size: 0.75rem;
+  font-size: 0.8em;
 }
 .ui.small.labels .label,
 .ui.small.label {
-  font-size: 0.8rem;
+  font-size: 0.875em;
 }
 .ui.labels .label,
 .ui.label {
-  font-size: 0.875rem;
+  font-size: 1em;
 }
 .ui.large.labels .label,
 .ui.large.label {
-  font-size: 1rem;
+  font-size: 1.125em;
 }
 .ui.huge.labels .label,
 .ui.huge.label {
-  font-size: 1.25rem;
+  font-size: 1.375em;
 }
 /*******************************
            Overrides

@@ -72,7 +72,7 @@
 @completedColor: @positiveColor;
 
 /* Hover */
-@hoverBackground: #FFFFFF;
+@hoverBackground: #FAFAFA;
 @hoverColor: @hoveredTextColor;
 
 /* Down */
@@ -85,7 +85,7 @@
 @activeIconColor: @darkTextColor;
 
 /* Active + Hover */
-@activeHoverBackground: #FAFAFA;
+@activeHoverBackground: #ECECEC;
 @activeHoverColor: @textColor;
 
 

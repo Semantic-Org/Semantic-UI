@@ -136,9 +136,6 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*------------------
-     Load Theme
--------------------*/
 /*******************************
              Step
 *******************************/
@@ -161,6 +158,9 @@
 /* Active */
 /* Active + Hover */
 /* Disabled */
+/*------------------
+     Load Theme
+-------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -325,7 +325,7 @@
 .ui.steps .link.step:hover,
 .ui.steps a.step:hover::after,
 .ui.steps a.step:hover {
-  background: #ffffff;
+  background: #fafafa;
   color: rgba(0, 0, 0, 0.8);
 }
 /* Link Down */
@@ -357,7 +357,7 @@
 .ui.steps a.active.step:hover::after,
 .ui.steps a.active.step:hover {
   cursor: pointer;
-  background: #fafafa;
+  background: #ececec;
   color: rgba(0, 0, 0, 0.8);
 }
 /* Completed */

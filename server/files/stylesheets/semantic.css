@@ -558,7 +558,7 @@ body#example.hide {
   position: relative;
   overflow: hidden;
   /*background: linear-gradient(#081919, #001c1c) #191919;*/
-  /*background: radial-gradient(farthest-corner, #073a3a, rgba(0, 0, 0, 0.1)) repeat scroll 0 0 #191919;*/
+  background: radial-gradient(farthest-corner, #053B3B, #151818) repeat scroll 0 0 #191919;
   background-color: #191919;
   padding: 3em 0px 3em;
   color: rgba(255, 255, 255, 0.9);
