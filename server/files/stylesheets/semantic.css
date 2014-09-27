@@ -359,7 +359,7 @@ a:hover {
   background: #111111 url(../images/bg-sky.jpg);
   background-size: cover;
   text-align: center;
-  padding: 7em 0px;
+  padding: 0em;
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 0px;
   border-bottom: none;
