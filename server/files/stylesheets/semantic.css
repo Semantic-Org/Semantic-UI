@@ -756,7 +756,7 @@ body#example.hide {
   font-weight: bold !important;
   margin: 0em 0em 1em !important;
 }
-#example.index .demo .ui.label {
+#example.index .demo .ui.label:not(.empty) {
   margin-bottom: 1em;
 }
 
