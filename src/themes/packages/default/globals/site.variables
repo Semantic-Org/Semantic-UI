@@ -65,7 +65,7 @@
 @fontSize            : 14px;
 @textColor           : rgba(0, 0, 0, 0.8);
 
-@pageMinWidth        : (320px - (@fontSize * 2));
+@pageMinWidth        : (320px - (@fontSize * 3));
 
 @headerMargin        : 1em 0em 1rem;
 @paragraphMargin     : 0em 0em 1em;

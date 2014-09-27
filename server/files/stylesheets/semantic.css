@@ -1608,7 +1608,7 @@ body.progress.animated .ui.progress .bar {
 }
 @media only screen and (max-width : 320px) {
   #example .advertisement {
-    max-width: 290px;
+    max-width: 260px;
   }
   #example .example {
     max-width: 290px;
@@ -1616,6 +1616,25 @@ body.progress.animated .ui.progress .bar {
 }
 
 @media only screen and (max-width : 600px) {
+  #example.index .introduction {
+    margin: 4rem 0rem;
+  }
+  #example.index .masthead.segment h1 {
+    font-size: 2.25em;
+  }
+  #example.index .email.stripe .input {
+    width: auto;
+  }
+  #example.index .following .secondary.menu {
+    display: none;
+  }
+  #example.index .email.stripe .submit.button {
+    margin-top: 0.5em;
+  }
+
+  #example .solid, #example .stripe {
+    padding: 4em 0em;
+  }
   #example .page > .footer {
     padding: 2em 0em;
   }
@@ -1638,6 +1657,17 @@ body.progress.animated .ui.progress .bar {
     opacity: 1;
   }
 }
+
+@media only screen and (min-width : 600px) {
+
+  #example.index .main.menu {
+    display: none;
+  }
+
+
+}
+
+
 @media only screen and (min-width : 600px) and (max-width : 998px) {
   #example .container {
     width: auto;
@@ -1816,7 +1846,7 @@ body.progress.animated .ui.progress .bar {
     font-size: 1em !important;
   }
   #example .inverted.advertisement .carbonad {
-    height: 109px;
+    height: 144px;
   }
   #example .inverted.advertisement .carbonad-img {
     margin-top: 0px;

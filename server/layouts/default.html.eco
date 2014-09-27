@@ -263,7 +263,6 @@
       </div>
     </div>
   </div>
-    <% if @document.title isnt 'Introduction': %>
     <div class="ui fixed inverted main menu">
     <div class="container">
       <a class="launch item"><i class="content icon"></i></a>
@@ -321,7 +320,6 @@
       </div>
     </div>
   </div>
-  <% end %>
 
   <div class="ui black huge launch right attached fixed button">
     <i class="content icon"></i>
