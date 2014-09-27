@@ -754,6 +754,9 @@ body#example.hide {
   font-weight: bold !important;
   margin: 0em 0em 1em !important;
 }
+#example.index .demo .ui.label {
+  margin-bottom: 1em;
+}
 
 /* content */
 #example .solid,
@@ -1621,7 +1624,11 @@ body.progress.animated .ui.progress .bar {
   font-weight: bold;
 }
 @media only screen and (max-width : 400px) {
+  #example.index .following.bar {
+    display: none;
+  }
   #example.index .advertisement {
+    display: none;
     margin-left: -130px !important;
   }
   #example.index .carbonad {
