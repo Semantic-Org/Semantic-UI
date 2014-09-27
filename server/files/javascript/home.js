@@ -31,8 +31,8 @@ semantic.home.ready = function() {
       $ui.data('text')
     ],
     showCursor      : false,
-    typeSpeed       : 100,
-    backSpeed       : 100,
+    typeSpeed       : 120,
+    backSpeed       : 120,
     backDelay       : 2000
   });
 
