@@ -483,6 +483,17 @@ body#example.hide {
   -moz-transform: rotateX(50deg) rotateZ(0deg) rotateY(0deg) translateY(-14%) translateX(-2%) translateZ(300px);
   transform: rotateX(50deg) rotateZ(0deg) rotateY(0deg) translateY(-14%) translateX(-2%) translateZ(300px);
 }
+#example.index .masthead {
+  -ms-transition: background-color 3s ease-in-out 2s;
+  -moz-transition: background-color 3s ease-in-out 2s;
+  -webkit-transition: background-color 3s ease-in-out 2s;
+  transition: background-color 3s ease-in-out 2s;
+  background-color: #00B5AD;
+  background-image: radial-gradient(farthest-corner, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.95));
+}
+#example.index .masthead.zoomed {
+  background-color: #444444;
+}
 #example .masthead.zoomed:before {
   opacity: 0.15;
   -webkit-transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg) translateZ(0px);
@@ -569,9 +580,6 @@ body#example.hide {
 #example.index .masthead {
   position: relative;
   overflow: hidden;
-  /*background: linear-gradient(#081919, #001c1c) #191919;*/
-  background: radial-gradient(farthest-corner, #053B3B, #151818) repeat scroll 0 0 #191919;
-  background-color: #191919;
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 0px;
   border-bottom: none;
@@ -590,6 +598,7 @@ body#example.hide {
   transform-style: preserve-3d;
 }
 #example.index .masthead.segment h1 > .library {
+  visibility: hidden;
   display: block;
   font-size: 1.75em;
   color: #FFFFFF;
@@ -1661,7 +1670,7 @@ body.progress.animated .ui.progress .bar {
     margin-top: 0em;
   }
   #example.index .introduction {
-    margin: 8rem 0rem 14rem;
+    margin: 5rem 0rem;
   }
   #example.index .masthead.segment h1 {
     font-size: 2.25em;

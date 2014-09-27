@@ -12,6 +12,8 @@ semantic.home.ready = function() {
   ;
 
   $themeDropdown
+    .dropdown('setting', 'transition', 'drop')
+    .dropdown('setting', 'duration', 350)
     .dropdown('setting', 'action', 'activate')
   ;
 
@@ -33,8 +35,11 @@ semantic.home.ready = function() {
     showCursor      : false,
     typeSpeed       : 120,
     backSpeed       : 120,
-    backDelay       : 2000
+    backDelay       : 500
   });
+  setTimeout(function() {
+    $('.masthead .library').transition('scale up', 1000);
+  }, 5000);
 
   $('.demo .ui.accordion')
     .accordion()

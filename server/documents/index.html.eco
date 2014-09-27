@@ -58,7 +58,7 @@ type   : 'Semantic'
       <div class="introduction">
         <h1 class="ui inverted header">
           <span class="library">
-            Semantic
+            Semantic UI
           </span>
           <b data-text="User Interface">HTML</b>
           <span class="typed-cursor">|</span>
@@ -704,7 +704,7 @@ type   : 'Semantic'
     <div class="twelve wide column">
       <h1 class="ui inverted icon header">
         <i class="docs code icon"></i>
-        Lose the Heiroglpyhics
+        Lose the Hieroglyphics
       </h1>
       <p>Semantic's naming conventions are based around <em>common usage</em>, not arbitrarily prescribed standards—a practice borrowed from <a href="https://www.princeton.edu/~achaney/tmve/wiki100k/docs/Descriptive_linguistics.html" target="_blank">descriptive linguistics</a>.</p>
       <div class="hidden code" data-type="html">
