@@ -227,6 +227,16 @@
   color: @activeIconColor;
 }
 
+/* Active Hover */
+.ui.steps .link.active.step:hover::after,
+.ui.steps .link.active.step:hover,
+.ui.steps a.active.step:hover::after,
+.ui.steps a.active.step:hover {
+  cursor: pointer;
+  background: @activeHoverBackground;
+  color: @activeHoverColor;
+}
+
 /* Completed */
 .ui.steps .step.completed > .icon:before,
 .ui.ordered.steps .step.completed:before {
@@ -237,6 +247,7 @@
 .ui.steps .disabled.step {
   cursor: auto;
   background: @disabledBackground;
+  pointer-events: none;
 }
 .ui.steps .disabled.step,
 .ui.steps .disabled.step .title,

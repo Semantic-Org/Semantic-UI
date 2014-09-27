@@ -20,16 +20,21 @@ semantic.home.ready = function() {
     .removeClass('zoomed')
   ;
 
-  setTimeout(function() {
-    $ui.typed({
-      replaceBaseText : true,
-      strings         : window.semantic.config.type,
-      showCursor      : false,
-      typeSpeed       : 100,
-      backSpeed       : 100,
-      backDelay       : 1000
-    });
-  }, 0);
+  window.Transifex.live.onTranslatePage(function(name){
+    name = $('.language.dropdown .item[data-value=' + name + ']').text();
+    $('.language.dropdown > .text').html(name);
+  });
+
+  $ui.typed({
+    replaceBaseText : true,
+    strings         : [
+      $ui.data('text')
+    ],
+    showCursor      : false,
+    typeSpeed       : 100,
+    backSpeed       : 100,
+    backDelay       : 2000
+  });
 
   $('.demo .ui.accordion')
     .accordion()

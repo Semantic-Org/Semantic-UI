@@ -80,11 +80,14 @@
 @downColor: @pressedTextColor;
 
 /* Active */
-@activeBackgroundColor: #F0F0F0;
-@activeBackground: @activeBackgroundColor;
-
+@activeBackground: #F0F0F0;
 @activeColor: @linkColor;
 @activeIconColor: @darkTextColor;
+
+/* Active + Hover */
+@activeHoverBackground: #FAFAFA;
+@activeHoverColor: @textColor;
+
 
 /* Disabled */
 @disabledBackground: '';

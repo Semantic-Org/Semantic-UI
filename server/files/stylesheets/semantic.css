@@ -356,7 +356,7 @@ a:hover {
 #example .masthead {
   position: relative;
   overflow: hidden;
-  background: #111111 url(../images/bg-moonlight.jpg);
+  background: #111111 url(../images/bg-sky.jpg);
   background-size: cover;
   text-align: center;
   padding: 7em 0px;
@@ -439,12 +439,12 @@ body#example.hide {
   -o-animation-name: masthead;
   animation-name: masthead;
 
-  -ms-transition: transform 5s ease-in-out;
-  -webkit-transition: transform 5s ease-in-out;
-  -moz-transition: transform 5s ease-in-out;
-  transition: transform 5s ease-in-out;
+  -ms-transition: opacity 5s ease-in-out, transform 5s ease-in-out;
+  -webkit-transition: opacity 5s ease-in-out, transform 5s ease-in-out;
+  -moz-transition: opacity 5s ease-in-out, transform 5s ease-in-out;
+  transition: opacity 5s ease-in-out, transform 5s ease-in-out;
 
-  opacity: 0.15;
+  opacity: 0.08;
 
   -webkit-animation-duration: 15s;
   -moz-animation-duration: 15s;
@@ -472,6 +472,7 @@ body#example.hide {
   transform: rotateX(50deg) rotateZ(0deg) rotateY(0deg) translateY(-14%) translateX(-2%) translateZ(300px);
 }
 #example .masthead.zoomed:before {
+  opacity: 0.15;
   -webkit-transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg) translateZ(0px);
   -moz-transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg) translateZ(0px);
   transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg) translateZ(0px);
@@ -556,7 +557,8 @@ body#example.hide {
 #example.index .masthead {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(#081919, #001c1c) #191919;
+  /*background: linear-gradient(#081919, #001c1c) #191919;*/
+  /*background: radial-gradient(farthest-corner, #073a3a, rgba(0, 0, 0, 0.1)) repeat scroll 0 0 #191919;*/
   background-color: #191919;
   padding: 3em 0px 3em;
   color: rgba(255, 255, 255, 0.9);
@@ -633,7 +635,8 @@ body#example.hide {
   text-align: center;
 }
 #example.index .fixed.launch.button {
-  background-color: #303D3D;
+  top: 275px;
+  background-color: #333333;
 }
 #example.index .main.menu {
   top: 0px;

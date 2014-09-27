@@ -136,6 +136,9 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*------------------
+     Load Theme
+-------------------*/
 /*******************************
              Step
 *******************************/
@@ -156,10 +159,8 @@
 /* Hover */
 /* Down */
 /* Active */
+/* Active + Hover */
 /* Disabled */
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -350,6 +351,15 @@
 .ui.steps .active.step .icon {
   color: rgba(0, 0, 0, 0.85);
 }
+/* Active Hover */
+.ui.steps .link.active.step:hover::after,
+.ui.steps .link.active.step:hover,
+.ui.steps a.active.step:hover::after,
+.ui.steps a.active.step:hover {
+  cursor: pointer;
+  background: #fafafa;
+  color: rgba(0, 0, 0, 0.8);
+}
 /* Completed */
 .ui.steps .step.completed > .icon:before,
 .ui.ordered.steps .step.completed:before {
@@ -359,6 +369,7 @@
 .ui.steps .disabled.step {
   cursor: auto;
   background: '';
+  pointer-events: none;
 }
 .ui.steps .disabled.step,
 .ui.steps .disabled.step .title,

@@ -10,12 +10,6 @@ type   : 'Semantic'
 <% uiViews       = @getCollection("uiViews").toJSON() %>
 <% uiModules     = @getCollection("uiModules").toJSON() %>
 <script src="/javascript/home.js"></script>
-<script type="text/javascript">
-  semantic.config = {};
-  semantic.config.type = [
-    "User interface"
-  ];
-</script>
 <link rel="stylesheet/less" type="text/css" href="/build/less/definitions/elements/button.less" />
 
 <div class="following bar">
@@ -28,7 +22,7 @@ type   : 'Semantic'
       <div class="ui large inverted right floated secondary menu">
         <div class="ui language top right pointing dropdown item" id="languages">
           <i class="world icon"></i>
-          <div class="text">Language</div>
+          <div class="text">Select Language</div>
           <div class="menu">
             <div class="item" data-percent="100" data-value="en">English</div>
             <div class="item" data-percent="19" data-value="nl">Nederlands</div>
@@ -58,7 +52,7 @@ type   : 'Semantic'
           <span class="library">
             Semantic
           </span>
-          <b>HTML</b>
+          <b data-text="User Interface">HTML</b>
           <span class="typed-cursor">|</span>
           <span class="text">is the vocabulary of the web.</span>
         </h1>
@@ -91,7 +85,7 @@ type   : 'Semantic'
       <p>Semantic provides true design freedom. Change the look and feel of your components with just a few variables.</p>
     </div>
     <div class="column">
-      <div data-type="element" data-element="button" class="ui theme dropdown button">
+      <div data-type="element" data-element="button" class="ui theme floating dropdown button">
         <span class="text">Select Theme</span>
         <i class="dropdown icon"></i>
         <div class="menu ui transition hidden" tabindex="-1">
@@ -293,7 +287,7 @@ type   : 'Semantic'
             </div>
             <div class="extra content">
               <a class="right floated created">
-                Joined in 2014
+                Joined in 1998
               </a>
               <a class="friends">
                 <i class="user icon"></i>
@@ -662,14 +656,14 @@ type   : 'Semantic'
         <div class="column">
           <h3 class="ui header">Enterprise Ready</h3>
           <p>Build tools, performance logging, support for custom definitions, multiple-levels of theme inheritanceance—a developer's wet dream.</p>
-          <a class="ui large labeled icon button">
+          <a class="ui disabled large right labeled icon button">
             <i class="right chevron icon"></i>
             View Expert Guide</a>
         </div>
         <div class="column">
           <h3 class="ui header">Beginner Friendly</h3>
           <p>Don't feel comfortable tweaking everything? Download free community designed themes and use our customizer to build a package fit for your needs.</p>
-          <a class="ui large labeled icon button">
+          <a class="ui disabled large right labeled icon button">
             <i class="right chevron icon"></i>
             View Basic Guide</a>
         </div>

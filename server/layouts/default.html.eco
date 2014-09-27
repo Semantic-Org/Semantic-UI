@@ -169,6 +169,7 @@
       detectlang   : true,
       autocollect  : true,
       ignore_tags  : ['i'],
+      parse_attr   : ['data-title', 'data-content', 'data-text'],
       ignore_class : ["code", "ace_editor"]
     };
   </script>
