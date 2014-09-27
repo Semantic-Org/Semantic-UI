@@ -85,7 +85,7 @@ type   : 'Semantic'
       <p>Semantic provides true design freedom. Change the look and feel of your components with just a few variables.</p>
     </div>
     <div class="column">
-      <div data-type="element" data-element="button" class="ui theme floating dropdown button">
+      <div data-type="element" data-element="button" class="ui theme basic fluid floating dropdown button">
         <span class="text">Select Theme</span>
         <i class="dropdown icon"></i>
         <div class="menu ui transition hidden" tabindex="-1">
@@ -163,7 +163,7 @@ type   : 'Semantic'
           <h4 class="ui header">
             <a href="/modules/accordion.html">Accordion</a>
           </h4>
-          <div class="ui vertical accordion menu">
+          <div class="ui vertical fluid accordion menu">
             <div class="item">
               <a class="active title">
                 <i class="dropdown icon"></i>
@@ -242,7 +242,7 @@ type   : 'Semantic'
           <h4 class="ui header">
             <a href="/element/step.html">Step</a>
           </h4>
-          <div class="ui vertical steps">
+          <div class="ui fluid vertical steps">
             <a class="step">
               <i class="truck icon"></i>
               <div class="content">
@@ -602,7 +602,7 @@ type   : 'Semantic'
     </div>
   </div>
 </div>
-<div class="ui vertical email stripe segment">
+<!-- <div class="ui vertical email stripe segment">
   <div class="ui center aligned page grid">
     <div class="column">
       <p>
@@ -617,7 +617,7 @@ type   : 'Semantic'
       </form>
     </div>
   </div>
-</div>
+</div> -->
 <div class="ui vertical inverted stripe segment">
   <div class="ui stackable center aligned very relaxed page grid">
     <div class="twelve wide column">

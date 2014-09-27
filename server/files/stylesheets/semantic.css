@@ -265,6 +265,10 @@ a:hover {
   float: right;
   margin-left: 2em;
 }
+#example .index.advertisement {
+  display: block;
+  position: absolute;
+}
 #example .advertisement {
   float: none;
   display: table-cell;
@@ -289,7 +293,7 @@ a:hover {
   text-align: left;
 }
 #example .inverted.advertisement .carbonad {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.25);
   border: none;
   overflow: hidden;
   height: auto;
@@ -639,7 +643,17 @@ body#example.hide {
   margin: 0.25em 0px 0px 1em;
 }
 #example.index .introduction {
+  display: block;
   text-align: center;
+}
+#example.index .advertisement {
+  padding-left: 0;
+  position: absolute;
+  left: auto;
+  right: 6em;
+  top: 50%;
+  transform: translateY(-50%);
+  vertical-align: top;
 }
 #example.index .fixed.launch.button {
   top: 275px;
@@ -1606,18 +1620,36 @@ body.progress.animated .ui.progress .bar {
 #example .following.menu .menu .active.item {
   font-weight: bold;
 }
-@media only screen and (max-width : 320px) {
+@media only screen and (max-width : 400px) {
+  #example.index .advertisement {
+    margin-left: -130px !important;
+  }
+  #example.index .carbonad {
+    width: 260px !important;
+  }
   #example .advertisement {
     max-width: 260px;
   }
+}
+@media only screen and (max-width : 400px) {
   #example .example {
     max-width: 290px;
   }
 }
 
 @media only screen and (max-width : 600px) {
+  #example.index .following.bar .column {
+    text-align: center;
+  }
+  #example.index .following .logo {
+    float: none;
+  }
+  #example.index .following .version.label {
+    vertical-align: top;
+    margin-top: 0em;
+  }
   #example.index .introduction {
-    margin: 4rem 0rem;
+    margin: 8rem 0rem 14rem;
   }
   #example.index .masthead.segment h1 {
     font-size: 2.25em;
@@ -1739,8 +1771,7 @@ body.progress.animated .ui.progress .bar {
 }
 @media only screen and (max-width : 998px) {
   #example.index .main.menu .container {
-    width: auto;
-    padding: 0% 4%;
+    padding: 0em;
   }
 }
 @media only screen and (min-width : 998px) {
@@ -1801,42 +1832,47 @@ body.progress.animated .ui.progress .bar {
     font-size: 3em;
   }
 }
+@media only screen and (max-width: 1200px) {
+  #example.index .advertisement {
+    position: absolute;
+    top: auto;
+    left: 50%;
+    bottom: 2rem;
+    margin-left: -175px;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+  #example.index .inverted.advertisement .carbonad-img {
+    margin-top: 0px;
+  }
+  #example.index #carbonads-container {
+    float: none;
+  }
+  #example.index .carbonad {
+    width: 340px;
+  }
+  #example.index .carbonad-text,
+  #example.index .carbonad-tag {
+    float: none;
+    display: block;
+    text-align: left;
+    margin-left: 160px;
+    width: 170px;
+  }
+}
 
 @media only screen and (max-width : 780px) {
   pre.console {
     height: 150px;
-  }
-  #example.index .masthead {
-    text-align: center;
-    padding: 50px 0px 15px;
-  }
-  #example.index .masthead h1 {
-    font-size: 3em;
-    margin-top: 0em;
-  }
-  #example.index .masthead h1 .icon {
-    display: none;
-  }
-  #example.index .masthead .button {
-    font-size: 1.1em;
-    margin-bottom: 0.5em;
-  }
-  #example.index .masthead h2 {
-    font-size: 1.25em;
-    margin: 0em 0em 1em;
-  }
-  #example.index .masthead p {
-    font-size: 1.35em;
-  }
-  #example.index .icon.header .icon {
-    font-size: 3em;
   }
   #example .introduction {
     display: block;
   }
   #example .advertisement {
     display: block;
-    margin: 1em 0em;
+    margin: 1em auto;
     padding: 0em;
   }
   #example #menu .hide.item {
@@ -1844,9 +1880,6 @@ body.progress.animated .ui.progress .bar {
   }
   #example #menu .item > .icon {
     font-size: 1em !important;
-  }
-  #example .inverted.advertisement .carbonad {
-    height: 144px;
   }
   #example .inverted.advertisement .carbonad-img {
     margin-top: 0px;
