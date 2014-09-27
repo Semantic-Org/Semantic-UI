@@ -368,7 +368,7 @@
 /* Disabled */
 .ui.steps .disabled.step {
   cursor: auto;
-  background: '';
+  background: #ffffff;
   pointer-events: none;
 }
 .ui.steps .disabled.step,
@@ -377,7 +377,7 @@
   color: rgba(0, 0, 0, 0.2);
 }
 .ui.steps .disabled.step:after {
-  background: '';
+  background: #ffffff;
 }
 /*******************************
            Variations

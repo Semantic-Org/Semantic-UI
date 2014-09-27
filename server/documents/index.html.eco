@@ -134,7 +134,7 @@ type   : 'Semantic'
         <img class="ui icon image" src="/images/icons/Brush.png">
         3000+ CSS Variables
       </h2>
-      <p>The only dogma from this framework: everything arbitrary is mutable.</p>
+      <p>The only dogma from this framework: <em>everything arbitrary is mutable</em>.</p>
       <div class="ui disabled button">View Themes</div>
     </div>
     <div class="column">
@@ -142,15 +142,17 @@ type   : 'Semantic'
         <img class="ui icon image" src="/images/icons/Book-2.png">
         50+ UI Definitions
       </h2>
-      <p>Build your entire site with one UI stack. Extend using a common style.</p>
-      <div class="ui primary button">Browse UI</div>
+      <p>Build your entire site with one UI stack. Share your UI between multiple projects.</p>
+      <div class="ui primary view-ui button">Browse UI</div>
     </div>
     <div class="column">
       <h2 class="ui icon header">
         <img class="ui icon image" src="/images/icons/Glasses.png">
         2200+ Commits
       </h2>
-      <p>Developed over several years. Already used in multiple large scale production environments you <a href="http://www.quirky.com" target="_blank">may</a> have <a href="http://www.newrepublic.com" target="_blank">heard</a> of.</p>
+      <p>
+        Semantic UI is a <b>free open source</b> project already used in multiple <a href="http://www.quirky.com" target="_blank">large</a> scale <a href="http://www.newrepublic.com" target="_blank">production</a> environments.
+      </p>
       <a href="https://github.com/Semantic-Org/Semantic-UI/issues" class="ui button">Visit GitHub</a>
     </div>
   </div>
@@ -676,40 +678,12 @@ type   : 'Semantic'
             <input type="checkbox" name="public">
             <label>Make my dog's profile public</label>
           </div>
-        </div></div>
+        </div>
       </div>
     </div>
   </div>
 </div>
-<div class="feature alternate ui vertical stripe segment">
-  <div class="ui three column equal height center aligned divided relaxed stackable page grid">
-    <div class="column">
-      <h2 class="ui icon header">
-        <img class="ui icon image" src="/images/icons/Brush.png">
-        3000+ CSS Variables
-      </h2>
-      <p>The only dogma from this framework: everything arbitrary is mutable.</p>
-      <div class="ui disabled button">View Themes</div>
-    </div>
-    <div class="column">
-      <h2 class="ui icon header">
-        <img class="ui icon image" src="/images/icons/Book-2.png">
-        50+ UI Definitions
-      </h2>
-      <p>Build your entire site with one UI stack. Extend using a common style.</p>
-      <div class="ui primary button">Browse UI</div>
-    </div>
-    <div class="column">
-      <h2 class="ui icon header">
-        <img class="ui icon image" src="/images/icons/Glasses.png">
-        2200+ Commits
-      </h2>
-      <p>Developed over several years. Already used in multiple large scale production environments you <a href="http://www.quirky.com" target="_blank">may</a> have <a href="http://www.newrepublic.com" target="_blank">heard</a> of.</p>
-      <a href="https://github.com/Semantic-Org/Semantic-UI/issues" class="ui button">Visit GitHub</a>
-    </div>
-  </div>
-</div>
-<div class="ui vertical email stripe segment">
+<!-- <div class="ui vertical email stripe segment">
   <div class="ui center aligned page grid">
     <div class="column">
       <p>
@@ -724,16 +698,16 @@ type   : 'Semantic'
       </form>
     </div>
   </div>
-</div>
+</div> -->
 <div class="ui vertical inverted stripe segment">
   <div class="ui stackable center aligned very relaxed page grid">
     <div class="twelve wide column">
       <h1 class="ui inverted icon header">
         <i class="docs code icon"></i>
-        Decodified Code
+        Lose the Heiroglpyhics
       </h1>
       <p>Semantic's naming conventions are based around <em>common usage</em>, not arbitrarily prescribed standards—a practice borrowed from <a href="https://www.princeton.edu/~achaney/tmve/wiki100k/docs/Descriptive_linguistics.html" target="_blank">descriptive linguistics</a>.</p>
-      <div class="code" data-type="html">
+      <div class="hidden code" data-type="html">
         <div class="ui stackable center aligned very relaxed page grid">
           <div class="twelve wide column">
             <h1 class="ui inverted icon header">
@@ -763,16 +737,18 @@ type   : 'Semantic'
         <div class="column">
           <h3 class="ui header">Enterprise Ready</h3>
           <p>Build tools, performance logging, support for custom definitions, multiple-levels of theme inheritanceance—a developer's wet dream.</p>
-          <a class="ui large labeled icon button">
+          <a class="ui large right disabled labeled icon button">
             <i class="right chevron icon"></i>
-            View Expert Guide</a>
+            View Expert Guide
+          </a>
         </div>
         <div class="column">
           <h3 class="ui header">Beginner Friendly</h3>
           <p>Don't feel comfortable tweaking everything? Download free community designed themes and use our customizer to build a package fit for your needs.</p>
-          <a class="ui large labeled icon button">
+          <a class="ui large right disabled labeled icon button">
             <i class="right chevron icon"></i>
-            View Basic Guide</a>
+            View Basic Guide
+          </a>
         </div>
       </div>
     </div>

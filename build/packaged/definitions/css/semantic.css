@@ -2236,6 +2236,9 @@
     padding-left: 1.5em !important;
     padding-right: 1.5em !important;
   }
+  .ui[class*="equal height"].stackable.page.grid {
+    width: 100%;
+  }
   /* Remove pointers from vertical menus */
   .ui.stackable.grid .vertical.pointing.menu .item:after {
     display: none;
@@ -12875,43 +12878,6 @@ img.ui.bordered.image {
     Load Defaults
 -------------------*/
 /*******************************
-             Label
-*******************************/
-/*-------------------
-       Element
---------------------*/
-/* Group */
-/*-------------------
-        Parts
---------------------*/
-/*-------------------
-        Types
---------------------*/
-/* Image Label */
-/* Computed Values */
-/*-------------------
-        States
---------------------*/
-/*-------------------
-      Variations
---------------------*/
-/* Tag */
-/* Ribbon */
-/* Attached */
-/* Corner */
-/* Corner Text */
-/* Horizontal */
-/* Circular Padding */
-/* Pointing */
-/* Floating */
-/*-------------------
-        Group
---------------------*/
-/* Sizing */
-/*------------------
-     Load Theme
--------------------*/
-/*******************************
          Site Settings
 *******************************/
 /*-------------------
@@ -13002,6 +12968,43 @@ img.ui.bordered.image {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*******************************
+             Label
+*******************************/
+/*-------------------
+       Element
+--------------------*/
+/* Group */
+/*-------------------
+        Parts
+--------------------*/
+/*-------------------
+        Types
+--------------------*/
+/* Image Label */
+/* Computed Values */
+/*-------------------
+        States
+--------------------*/
+/*-------------------
+      Variations
+--------------------*/
+/* Tag */
+/* Ribbon */
+/* Attached */
+/* Corner */
+/* Corner Text */
+/* Horizontal */
+/* Circular Padding */
+/* Pointing */
+/* Floating */
+/*-------------------
+        Group
+--------------------*/
+/* Sizing */
+/*------------------
+     Load Theme
+-------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -13818,27 +13821,27 @@ a.ui.yellow.label:hover:before {
 --------------------*/
 .ui.mini.labels .label,
 .ui.mini.label {
-  font-size: 0.7em;
+  font-size: 0.7rem;
 }
 .ui.tiny.labels .label,
 .ui.tiny.label {
-  font-size: 0.8em;
+  font-size: 0.75rem;
 }
 .ui.small.labels .label,
 .ui.small.label {
-  font-size: 0.875em;
+  font-size: 0.8rem;
 }
 .ui.labels .label,
 .ui.label {
-  font-size: 1em;
+  font-size: 0.875rem;
 }
 .ui.large.labels .label,
 .ui.large.label {
-  font-size: 1.125em;
+  font-size: 1rem;
 }
 .ui.huge.labels .label,
 .ui.huge.label {
-  font-size: 1.375em;
+  font-size: 1.25rem;
 }
 /*******************************
            Overrides
@@ -16683,7 +16686,7 @@ ol.ui.horizontal.list li:before,
 /* Disabled */
 .ui.steps .disabled.step {
   cursor: auto;
-  background: '';
+  background: #ffffff;
   pointer-events: none;
 }
 .ui.steps .disabled.step,
@@ -16692,7 +16695,7 @@ ol.ui.horizontal.list li:before,
   color: rgba(0, 0, 0, 0.2);
 }
 .ui.steps .disabled.step:after {
-  background: '';
+  background: #ffffff;
 }
 /*******************************
            Variations
@@ -17499,7 +17502,7 @@ body {
 body {
   margin: 0px;
   padding: 0px;
-  min-width: 292px;
+  min-width: 278px;
   background: #f7f7f7;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 14px;

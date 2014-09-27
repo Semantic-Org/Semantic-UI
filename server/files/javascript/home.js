@@ -46,6 +46,9 @@ semantic.home.ready = function() {
   $('.demo .ui.checkbox')
     .checkbox()
   ;
+  $('.ui.sidebar')
+    .sidebar('setting', 'transition', 'scale down')
+  ;
 
 };
 

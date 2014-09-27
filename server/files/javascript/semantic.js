@@ -737,6 +737,7 @@ semantic.ready = function() {
         codeHeight
       ;
 
+
       // trim whitespace
       whiteSpace = new RegExp('\\n\\s{' + indent + '}', 'g');
       code = $.trim(code).replace(whiteSpace, '\n');
@@ -772,6 +773,7 @@ semantic.ready = function() {
         .height(codeHeight + 'px')
         .wrap('<div class="ui ' + name + ' segment">')
       ;
+
       // add label
       if(title) {
         $('<div>')
@@ -805,6 +807,9 @@ semantic.ready = function() {
         ;
       }
       editor.resize();
+
+      $code.removeClass('hidden');
+
     },
 
     swapStyle: function() {

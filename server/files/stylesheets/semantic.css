@@ -656,8 +656,8 @@ body#example.hide {
   vertical-align: top;
 }
 #example.index .fixed.launch.button {
-  top: 275px;
-  background-color: #333333;
+  background-color: #00b5ad;
+  top: 45px;
 }
 #example.index .main.menu {
   top: 0px;
@@ -704,7 +704,9 @@ body#example.hide {
     Homepage
 ---------------*/
 
-
+#example.index .hidden.code {
+  visibility: hidden;
+}
 #example.index .following.bar {
   position: absolute;
   top: 50px;

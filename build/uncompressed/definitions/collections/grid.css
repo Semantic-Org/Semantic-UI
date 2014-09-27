@@ -1144,6 +1144,9 @@
     padding-left: 1.5em !important;
     padding-right: 1.5em !important;
   }
+  .ui[class*="equal height"].stackable.page.grid {
+    width: 100%;
+  }
   /* Remove pointers from vertical menus */
   .ui.stackable.grid .vertical.pointing.menu .item:after {
     display: none;
