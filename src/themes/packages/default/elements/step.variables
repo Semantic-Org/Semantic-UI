@@ -90,7 +90,7 @@
 
 
 /* Disabled */
-@disabledBackground: '';
+@disabledBackground: @white;
 @disabledColor: @disabledTextColor;
 
 @small: 0.9rem;
