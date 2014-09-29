@@ -45,23 +45,24 @@ type        : 'Semantic'
     <div class="content">
       <div class="header">Choosing a package</div>
       <p>
-        Semantic is not a stand-alone library, but many separate components.</code>
+        Semantic is designed to be used as part of a front-end build system like <code>Grunt</code> or <code>Gulp</code> so that you can modify themes, site-specific variables, and UI overrides during development.
       </p>
+      <!-- <div class="ui button">Read more</div> -->
     </div>
   </div>
   <div class="ui basic segment">
     <div class="ui two item secondary pointing menu">
-      <div class="link item">
-        <div class="ui header">
-          Basic
-        </div>
-        1 Theme, CSS Only
-      </div>
       <div class="active link item">
         <div class="ui header">
           Pro
         </div>
         LESS + Build System
+      </div>
+      <div class="link item">
+        <div class="ui header">
+          Basic
+        </div>
+        CSS Only
       </div>
     </div>
   </div>
@@ -75,7 +76,7 @@ type        : 'Semantic'
       Elements
     </h3>
     <div class="ui active content">
-      <div class="ui download divided selection list">
+      <div class="ui download selection list">
         <% for element in uiElements: %>
         <div class="item">
           <div class="ui checkbox">
@@ -106,7 +107,7 @@ type        : 'Semantic'
       Collections
     </h3>
     <div class="ui active content">
-      <div class="ui download divided selection list">
+      <div class="ui download selection list">
         <% for collection in uiCollections: %>
         <div class="item">
           <div class="ui checkbox">
@@ -137,7 +138,7 @@ type        : 'Semantic'
       Views
     </h3>
     <div class="ui active content">
-      <div class="ui download divided selection list">
+      <div class="ui download selection list">
         <% for view in uiViews: %>
         <div class="item">
           <div class="ui checkbox">
@@ -168,7 +169,7 @@ type        : 'Semantic'
       Modules
     </h3>
     <div class="ui active content">
-      <div class="ui download divided selection list">
+      <div class="ui download selection list">
       <% for module in uiModules: %>
         <div class="item">
           <div class="ui checkbox">

@@ -3,8 +3,7 @@
 *******************************/
 
 #example.custom .download.list {
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 0.25em;
+  margin: 1em -0.8em;
 }
 
 #example.custom .download.list .checkbox + .content {
@@ -16,6 +15,14 @@
   font-weight: normal;
 }
 
+#example.custom .main.container > h2 {
+  text-align: center;
+  font-size: 2em;
+  margin: 2em 0em;
+}
+#example.custom .main.container > h2:first-child {
+  margin-top: 0em;
+}
 #example.custom .download.list .checkbox.checked + .content {
   opacity: 1;
 }

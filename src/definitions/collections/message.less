@@ -51,9 +51,13 @@
 .ui.message .header {
   display: @headerDisplay;
   font-family: @headerFont;
-  font-size: @headerFontSize;
   font-weight: @headerFontWeight;
   margin: 0em 0em 0em @headerDistance;
+}
+
+/* Default font size */
+.ui.message .header:not(.ui) {
+  font-size: @headerFontSize;
 }
 
 /* Paragraph */
