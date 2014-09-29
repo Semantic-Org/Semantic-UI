@@ -6,7 +6,7 @@ element     : 'loader'
 elementType : 'element'
 
 title       : 'Loader'
-description : 'Loaders lets a user know to wait for activity to finish'
+description : 'A loader alerts a user to wait for an activity to complete'
 type        : 'UI Element'
 
 themes      : ['Default']

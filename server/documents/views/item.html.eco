@@ -6,7 +6,7 @@ element     : 'item'
 elementType : 'view'
 
 title       : 'Item'
-description : 'An item view formats large collections of content for display vertically'
+description : 'An item view presents large collections of site content for display'
 type        : 'UI View'
 
 themes      : ['Default']

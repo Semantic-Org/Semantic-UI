@@ -6,7 +6,7 @@ element     : 'modal'
 elementType : 'module'
 
 title       : 'Modal'
-description : 'A modal displays content that temporarily blocks interactions with other content'
+description : 'A modal displays content that temporarily blocks interactions with the main view of a site'
 type        : 'UI Module'
 
 themes      : ['Default', 'Fixed-width']

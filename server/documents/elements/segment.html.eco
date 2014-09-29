@@ -6,7 +6,7 @@ element     : 'segment'
 elementType : 'element'
 
 title       : 'Segment'
-description : 'A segment is used to create a grouping of related content.'
+description : 'A segment is used to create a grouping of related content'
 type        : 'UI Element'
 themes      : ['default', 'GitHub']
 ---

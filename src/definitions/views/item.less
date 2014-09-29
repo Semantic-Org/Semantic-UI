@@ -385,6 +385,7 @@
            Variations
 *******************************/
 
+
 /*-------------------
        Aligned
 --------------------*/
@@ -400,6 +401,18 @@
 }
 
 
+/*--------------
+     Relaxed
+---------------*/
+
+.ui.relaxed.items > .item {
+  margin: @relaxedItemSpacing 0em;
+}
+.ui[class*="very relaxed"].items > .item {
+  margin: @veryRelaxedItemSpacing 0em;
+}
+
+
 /*-------------------
       Divided
 --------------------*/
@@ -411,13 +424,24 @@
 }
 .ui.divided.items > .item:first-child {
   border-top: none;
-  margin-top: @dividedFirstLastMargin;
-  padding-top: @dividedFirstLastPadding;
+  margin-top: @dividedFirstLastMargin !important;
+  padding-top: @dividedFirstLastPadding !important;
 }
 .ui.divided.items > .item:last-child {
-  margin-bottom: @dividedFirstLastMargin;
-  padding-bottom: @dividedFirstLastPadding;
+  margin-bottom: @dividedFirstLastMargin !important;
+  padding-bottom: @dividedFirstLastPadding !important;
 }
+
+/* Relaxed Divided */
+.ui.relaxed.divided.items > .item {
+  margin: 0em;
+  padding: @relaxedItemSpacing 0em;
+}
+.ui[class*="very relaxed"].divided.items > .item {
+  margin: 0em;
+  padding: @veryRelaxedItemSpacing 0em;
+}
+
 
 /*-------------------
         Link

@@ -6,7 +6,7 @@ element     : 'label'
 elementType : 'element'
 
 title       : 'Label'
-description : 'Labels give descriptions to pieces of content'
+description : 'A label displays content classification'
 type        : 'UI Element'
 
 themes      : ['Default']

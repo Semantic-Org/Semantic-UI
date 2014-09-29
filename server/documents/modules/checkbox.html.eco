@@ -5,7 +5,7 @@ element     : 'checkbox'
 elementType : 'module'
 
 title       : 'Checkbox'
-description : "A checkbox indicates the current value of a selection"
+description : "A checkbox allows a user to select a value from a small set of options, often binary"
 type        : 'UI Module'
 
 themes      : ['Default']

@@ -5,7 +5,7 @@ element     : 'tab'
 elementType : 'module'
 
 title       : 'Tab'
-description : 'A tab is a section of content tied to a navigation menu'
+description : 'A tab is a hidden section of content activated by a menu'
 type        : 'UI Module'
 
 themes      : ['Default']

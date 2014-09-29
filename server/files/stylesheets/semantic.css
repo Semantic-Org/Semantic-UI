@@ -444,64 +444,6 @@ body#example.hide {
   opacity: 0.95;
 }
 
-/* content */
-#example .solid,
-#example .stripe {
-  padding: 6em 0px;
-}
-
-#example .stripe h1 {
-  font-size: 40px;
-}
-#example .stripe h2 {
-  font-size: 26px;
-}
-#example .stripe h3 {
-  font-size: 20px;
-}
-#example .stripe .buttons {
-  vertical-align: top;
-}
-#example .stripe .button {
-  margin-bottom: 0.5em;
-}
-#example .stripe .column > p {
-  font-size: 16px;
-  line-height: 1.6;
-  margin: 2em 0em;
-}
-#example .stripe .grid .grid p {
-  font-size: 15px;
-  line-height: 1.4;
-}
-
-#example .dark.stripe {
-  background-color: #333333;
-  background: url(/images/dark-bg.png) repeat;
-  color: #FFFFFF;
-}
-#example .stripe .column > .label {
-  margin-bottom: 1em;
-}
-
-#example .solid {
-  background-color: #FFFFFF;
-  -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
-}
-#example .solid .column {
-  color: #555555;
-}
-#example .solid .column p b {
-  color: rgba(0, 0, 0, 0.9);
-}
-#example .solid .column p {
-  color: rgba(0, 0, 0, 0.5);
-}
-#example .stripe .message {
-  margin: 2em 0em;
-}
 #example.pushable.left.overlay .fixed.launch.button {
   transform: translate3d(0, 0, 0);
 }

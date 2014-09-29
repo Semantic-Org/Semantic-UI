@@ -5,15 +5,9 @@ title  : 'Introduction'
 type   : 'Semantic'
 ---
 
-<% uiElements    = @getCollection("uiElements").toJSON() %>
-<% uiCollections = @getCollection("uiCollections").toJSON() %>
-<% uiViews       = @getCollection("uiViews").toJSON() %>
-<% uiModules     = @getCollection("uiModules").toJSON() %>
 <script src="/javascript/home.js"></script>
 <link rel="stylesheet" type="text/css" href="/stylesheets/home.css">
 <link rel="stylesheet/less" type="text/css" href="/build/less/definitions/elements/button.less" />
-
-
 
 <div class="following bar">
   <div class="ui page grid">
@@ -60,7 +54,7 @@ type   : 'Semantic'
           <span class="text">is the vocabulary of the web.</span>
         </h1>
         <div class="ui hidden divider"></div>
-        <a href="build/semantic.zip" class="ui huge basic inverted teal download button">
+        <a href="customize.html" class="ui huge basic inverted teal download button">
           Download Now
           <i class="right chevron icon"></i>
         </a>

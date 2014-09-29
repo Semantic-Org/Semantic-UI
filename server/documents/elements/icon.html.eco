@@ -6,7 +6,7 @@ element     : 'icon'
 elementType : 'element'
 
 title       : 'Icon'
-description : 'An icon is a glyph used to represent a concept'
+description : 'An icon is a glyph used to respresent something else'
 type        : 'UI Element'
 
 themes      : ['Default']

@@ -6,7 +6,7 @@ element     : 'header'
 elementType : 'element'
 
 title       : 'Header'
-description : 'Headers provide a short summary of content'
+description : 'A header provides a short summary of content'
 type        : 'UI Element'
 
 themes      : ['Default', 'Bookish', 'Chubby']

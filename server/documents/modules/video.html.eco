@@ -5,7 +5,7 @@ element     : 'video'
 elementType : 'module'
 
 title       : 'Video'
-description : 'A video provides a wrapper for video embeds from common 3rd party sources.'
+description : 'A video is used to display moving visual images and related playback options'
 type        : 'UI Module'
 
 status      : 'Undocumented'

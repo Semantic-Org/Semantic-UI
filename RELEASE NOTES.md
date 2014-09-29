@@ -21,6 +21,7 @@
 - **Button** - Now has compact form, used for fitting into tight spaces
 - **Checkbox** - All styles have been redone. Standard checkboxes are now based around PX and not EM making sure there are no unusual circles or rounding issues. Checkboxes also now use a custom font for glyphs instead of CSS tricks.
 - **Checkbox** - Checkbox now have a ``fireOnInit`` setting for firing callbacks on page load
+- **Checkbox** - Checkbox now receive a ``checked`` class when checked, making it easier to write css selectors on checked checkboxes, for example when using sibling selectors ``.ui.checked.checkbox + .content { // style }``
 - **Dropdown** - New dropdown type, searchable selection for large lists of choices
 - **Dropdown** - Dropdowns can now be initialized directly on a ``<select>`` element without any html
 - **Dropdown** - New action combo will change text of adjacent button, select will select element but not change text

@@ -5,7 +5,7 @@ element     : 'search'
 elementType : 'module'
 
 title       : 'Search'
-description : 'A search module is used to allow a user to query a large selection of values.'
+description : 'A search module allows a user to query for results from a selection of data'
 type        : 'UI Module'
 
 status      : 'Undocumented'

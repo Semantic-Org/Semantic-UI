@@ -6,7 +6,7 @@ element     : 'divider'
 elementType : 'element'
 
 title       : 'Divider'
-description : 'A divider visually segments content into separate groups'
+description : 'A divider visually segments content into groups'
 type        : 'UI Element'
 
 themes      : ['default']

@@ -1,0 +1,198 @@
+---
+layout      : 'default'
+css         : 'custom'
+title       : 'Download'
+description : 'Create a custom build of Semantic for your website'
+type        : 'Semantic'
+---
+
+<script src="/javascript/customize.js"></script>
+<link rel="stylesheet" type="text/css" href="/stylesheets/customize.css">
+
+<% uiElements    = @getCollection("uiElements").toJSON() %>
+<% uiCollections = @getCollection("uiCollections").toJSON() %>
+<% uiViews       = @getCollection("uiViews").toJSON() %>
+<% uiModules     = @getCollection("uiModules").toJSON() %>
+
+<%- @partial('header') %>
+
+<script type="text/javascript">
+  if(window.semantic === undefined) {
+    window.semantic = {};
+  }
+  if(window.semantic.config === undefined) {
+    window.semantic.config = {};
+  }
+
+  window.semantic.config.packages = {
+    basic: {
+
+    },
+    standard: {
+
+    },
+    premium: {
+
+    }
+  }
+
+</script>
+
+<div class="main container">
+  <h2 class="ui header">Configurations</h2>
+  <div class="ui info icon message">
+    <i class="circle help icon"></i>
+    <div class="content">
+      <div class="header">Choosing a package</div>
+      <p>
+        Semantic is not a stand-alone library, but many separate components.</code>
+      </p>
+    </div>
+  </div>
+  <div class="ui basic segment">
+    <div class="ui two item secondary pointing menu">
+      <div class="link item">
+        <div class="ui header">
+          Basic
+        </div>
+        1 Theme, CSS Only
+      </div>
+      <div class="active link item">
+        <div class="ui header">
+          Pro
+        </div>
+        LESS + Build System
+      </div>
+    </div>
+  </div>
+
+  <h2 class="ui header">Components</h2>
+
+  <div class="ui basic accordion segment">
+
+    <h3 class="ui header active title">
+      <i class="dropdown icon"></i>
+      Elements
+    </h3>
+    <div class="ui active content">
+      <div class="ui download divided selection list">
+        <% for element in uiElements: %>
+        <div class="item">
+          <div class="ui checkbox">
+            <input type="checkbox" checked="checked" name="<%= element.element %>" />
+            <label></label>
+          </div>
+          <div class="content">
+            <a class="ui right floated compact basic icon button" href="<%= element.url %>" target="_blank" data-content="View definition">
+              <i class="docs book icon"></i>
+            </a>
+            <div class="ui small header">
+              <%= element.title %>
+              <% if element.status?: %>
+              <span class="ui empty circular yellow label" data-content="This module is undocumented"></span>
+              <% end %>
+            </div>
+            <div class="description">
+              <%= element.description  %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+
+    <h3 class="ui header active title">
+      <i class="dropdown icon"></i>
+      Collections
+    </h3>
+    <div class="ui active content">
+      <div class="ui download divided selection list">
+        <% for collection in uiCollections: %>
+        <div class="item">
+          <div class="ui checkbox">
+            <input type="checkbox" checked="checked" name="<%= collection.element %>" />
+            <label></label>
+          </div>
+          <div class="content">
+            <a class="ui right floated compact basic icon button" href="<%= collection.url %>target="_blank" " data-content="View definition">
+              <i class="docs book icon"></i>
+            </a>
+            <div class="ui small header">
+              <%= collection.title %>
+              <% if collection.status?: %>
+              <span class="ui empty circular yellow label" data-content="This module is undocumented"></span>
+              <% end %>
+            </div>
+            <div class="description">
+              <%= collection.description  %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+
+    <h3 class="ui header active title">
+      <i class="dropdown icon"></i>
+      Views
+    </h3>
+    <div class="ui active content">
+      <div class="ui download divided selection list">
+        <% for view in uiViews: %>
+        <div class="item">
+          <div class="ui checkbox">
+            <input type="checkbox" checked="checked" name="<%= view.element %>" />
+            <label></label>
+          </div>
+          <div class="content">
+            <a class="ui right floated compact basic icon button" href="<%= view.url %>" target="_blank" data-content="View definition">
+              <i class="docs book icon"></i>
+            </a>
+            <div class="ui small header">
+              <%= view.title %>
+              <% if view.status?: %>
+              <span class="ui empty circular yellow label" data-content="This module is undocumented"></span>
+              <% end %>
+            </div>
+            <div class="description">
+              <%= view.description  %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+
+    <h3 class="ui header active title">
+      <i class="dropdown icon"></i>
+      Modules
+    </h3>
+    <div class="ui active content">
+      <div class="ui download divided selection list">
+      <% for module in uiModules: %>
+        <div class="item">
+          <div class="ui checkbox">
+            <input type="checkbox" checked="checked" name="<%= module.element %>" />
+            <label></label>
+          </div>
+          <div class="content">
+            <a class="ui right floated compact basic icon button" href="<%= module.url %>" target="_blank" data-content="View definition">
+              <i class="docs book icon"></i>
+            </a>
+            <div class="ui small header">
+              <%= module.title %>
+              <% if module.status?: %>
+              <span class="ui empty circular yellow label" data-content="This module is undocumented"></span>
+              <% end %>
+            </div>
+            <div class="description">
+              <%= module.description  %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -6,7 +6,7 @@ element     : 'card'
 elementType : 'view'
 
 title       : 'Card'
-description : 'A card view lists site content as playing cards'
+description : 'A card displays site content in a manner similar to a playing card'
 type        : 'UI View'
 
 themes      : ['Default', 'Basic', 'GitHub']

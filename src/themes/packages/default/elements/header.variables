@@ -79,11 +79,11 @@
 @blockVerticalPadding: 0.75rem;
 @blockBorderRadius: 0.3125rem;
 
-@tinyBlock: 0.875em;
-@smallBlock: 0.9em;
-@mediumBlock: 1em;
-@largeBlock: 1.1em;
-@hugeBlock: 1.2em;
+@tinyBlock: @tiny;
+@smallBlock: @small;
+@mediumBlock: @medium;
+@largeBlock: @large;
+@hugeBlock: @huge;
 
 /* Divided */
 @blackDividedBorderColor: @black;
@@ -105,11 +105,11 @@
 @attachedBorder: none;
 @attachedBorderRadius: @blockBorderRadius;
 
-@tinyAttached: @tinyBlock;
-@smallAttached: @smallBlock;
-@mediumAttached: @mediumBlock;
-@largeAttached: @largeBlock;
-@hugeAttached: @hugeBlock;
+@tinyAttached: 0.875em;
+@smallAttached: 0.9em;
+@mediumAttached: 1em;
+@largeAttached: 1.1em;
+@hugeAttached: 1.2em;
 
 /* Inverted */
 @invertedColor: @white;

@@ -6,7 +6,7 @@ element     : 'reveal'
 elementType : 'element'
 
 title       : 'Reveal'
-description : 'A reveal hides additional content until a user engages content'
+description : 'A reveal displays additional content in place of previous content when activated'
 type        : 'UI Element'
 
 themes      : ['Default']

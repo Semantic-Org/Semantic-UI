@@ -6,7 +6,7 @@ element     : 'rating'
 elementType : 'module'
 
 title       : 'Rating'
-description : 'A rating allows a user to indicate interest in content'
+description : 'A rating indicates user interest in content'
 type        : 'UI Module'
 
 themes      : ['Default']

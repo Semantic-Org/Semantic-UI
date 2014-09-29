@@ -6,7 +6,7 @@ element     : 'input'
 elementType : 'element'
 
 title       : 'Input'
-description : 'An input allows a site to elicit user input'
+description : 'An input is a field used to elicit a response from a user'
 type        : 'UI Element'
 
 themes      : ['Default']

@@ -6,7 +6,7 @@ element     : 'menu'
 elementType : 'collection'
 
 title       : 'Menu'
-description : 'A menu is a collection of elements showing related user actions'
+description : 'A menu displays grouped navigation actions'
 type        : 'UI Collection'
 
 themes      : ['Default', 'GitHub']

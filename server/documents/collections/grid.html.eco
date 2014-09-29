@@ -6,7 +6,7 @@ element     : 'grid'
 elementType : 'collection'
 
 title       : 'Grid'
-description : 'A grid is a structure used to harmonize negative space in a layout'
+description : 'A grid is used to harmonize negative space in a layout'
 type        : 'UI Collection'
 
 themes      : ['Default']

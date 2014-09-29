@@ -890,7 +890,7 @@ semantic.ready = function() {
   $menu
     .sidebar({
       transition       : 'uncover',
-      mobileTransition : 'scale down'
+      mobileTransition : 'overlay'
     })
     .sidebar('attach events', '.launch.button, .view-ui, .launch.item')
     .sidebar('attach events', $hideMenu, 'hide')

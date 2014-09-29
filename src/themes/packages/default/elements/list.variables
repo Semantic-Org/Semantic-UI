@@ -109,6 +109,7 @@
   0.2s padding-left @defaultEasing,
   0.2s background-color @defaultEasing
 ;
+
 /* Selection List States */
 @selectionListBackground: transparent;
 @selectionListColor: @unselectedTextColor;
@@ -128,7 +129,6 @@
 @invertedSelectionListDownColor: @invertedPressedTextColor;
 @invertedSelectionListActiveBackground: @transparentWhite;
 @invertedSelectionListActiveColor: @invertedSelectedTextColor;
-
 
 /* Animated List */
 @animatedListTransition:

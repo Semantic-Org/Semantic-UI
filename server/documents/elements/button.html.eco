@@ -5,7 +5,7 @@ element     : 'button'
 elementType : 'element'
 
 title       : 'Button'
-description : 'Buttons indicate a possible user action.'
+description : 'A button indicates a possible user action'
 type        : 'UI Element'
 
 themes      : ['Default', 'Classic', 'Basic', 'Raised', 'Chubby', 'Round', 'Amazon', 'GitHub']

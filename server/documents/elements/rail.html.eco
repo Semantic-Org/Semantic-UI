@@ -5,7 +5,7 @@ element     : 'rail'
 elementType : 'element'
 
 title       : 'Rail'
-description : 'A rail is used to show accompanying content outside the borders of the main content of a site'
+description : 'A rail is used to show accompanying content outside the boundaries of the main view of a site'
 status      : 'Undocumented'
 type        : 'UI Element'
 

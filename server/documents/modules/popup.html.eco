@@ -6,7 +6,7 @@ element     : 'popup'
 elementType : 'module'
 
 title       : 'Popup'
-description : 'A popup displays additional information on top of a page element'
+description : 'A popup displays additional information on top of a page'
 type        : 'UI Module'
 
 themes      : ['Default']

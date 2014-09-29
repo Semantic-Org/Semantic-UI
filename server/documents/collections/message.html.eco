@@ -6,7 +6,7 @@ element     : 'message'
 elementType : 'collection'
 
 title       : 'Message'
-description : 'A message displays information that should be read before proceeding to other nearby content.'
+description : 'A message displays information that explains nearby content'
 type        : 'UI Collection'
 
 themes      : ['Default', 'GitHub', 'Google']

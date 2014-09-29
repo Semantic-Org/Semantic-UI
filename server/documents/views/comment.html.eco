@@ -3,7 +3,7 @@ layout      : 'default'
 css         : 'comment'
 
 title       : 'Comment'
-description : 'A comment is used to display user feedback to site content'
+description : 'A comment displays user feedback to site content'
 type        : 'UI View'
 
 element     : 'comment'

@@ -5,7 +5,7 @@ element     : 'sticky'
 elementType : 'module'
 
 title       : 'Sticky'
-description : 'A sticky provides a wrapper for sticky embeds from common 3rd party sources.'
+description : 'A sticky element sticks to the browsers viewport as page content is scrolled'
 type        : 'UI Module'
 
 status      : 'Undocumented'

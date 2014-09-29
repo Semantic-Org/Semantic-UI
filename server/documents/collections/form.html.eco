@@ -6,7 +6,7 @@ element     : 'form'
 elementType : 'collection'
 
 title       : 'Form'
-description : 'A form is a collection of user input elements'
+description : 'A form displays a set of related user input fields in a structured way'
 type        : 'UI Collection'
 
 themes      : ['Default', 'Flat', 'Chubby', 'GitHub']

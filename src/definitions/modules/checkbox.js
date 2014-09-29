@@ -73,12 +73,16 @@ $.fn.checkbox = function(parameters) {
               .on('click' + eventNamespace, module.toggle)
             ;
           }
-          if(settings.fireOnInit) {
-            $.proxy(settings.onChange, $input.get())();
-            if( module.is.checked() ) {
+
+          if( module.is.checked() ) {
+            module.set.checked();
+            if(settings.fireOnInit) {
               $.proxy(settings.onChecked, $input.get())();
             }
-            else {
+          }
+          else {
+            module.remove.checked();
+            if(settings.fireOnInit) {
               $.proxy(settings.onUnchecked, $input.get())();
             }
           }
@@ -151,12 +155,25 @@ $.fn.checkbox = function(parameters) {
           }
         },
 
+        set: {
+          checked: function() {
+            $module.addClass(className.checked);
+          }
+        },
+
+        remove: {
+          checked: function() {
+            $module.removeClass(className.checked);
+          }
+        },
+
         check: function() {
           module.debug('Enabling checkbox', $input);
           $input
             .prop('checked', true)
             .trigger('change')
           ;
+          module.set.checked();
           $.proxy(settings.onChange, $input.get())();
           $.proxy(settings.onChecked, $input.get())();
         },
@@ -167,6 +184,7 @@ $.fn.checkbox = function(parameters) {
             .prop('checked', false)
             .trigger('change')
           ;
+          module.remove.checked();
           $.proxy(settings.onChange, $input.get())();
           $.proxy(settings.onUnchecked, $input.get())();
         },
@@ -371,6 +389,11 @@ $.fn.checkbox.settings = {
 
   fireOnInit  : true,
 
+  className: {
+    checked : 'checked',
+    radio  : 'radio'
+  },
+
   onChange    : function(){},
   onChecked   : function(){},
   onUnchecked : function(){},
@@ -383,10 +406,6 @@ $.fn.checkbox.settings = {
     input  : 'input[type=checkbox], input[type=radio]',
     label  : 'label'
   },
-
-  className : {
-    radio  : 'radio'
-  }
 
 };
 

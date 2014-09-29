@@ -6,7 +6,7 @@ element     : 'list'
 elementType : 'element'
 
 title       : 'List'
-description : 'A list is used to group descriptions of related content'
+description : 'A list is used to group related content'
 type        : 'UI Element'
 
 themes      : ['Default']

@@ -6,7 +6,7 @@ element     : 'table'
 elementType : 'collection'
 
 title       : 'Table'
-description : 'Tables display collections of related data grouped into rows'
+description : 'A table displays a collections of data grouped into rows'
 type        : 'UI Collection'
 
 themes      : ['Default']
