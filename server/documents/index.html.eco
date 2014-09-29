@@ -10,14 +10,9 @@ type   : 'Semantic'
 <% uiViews       = @getCollection("uiViews").toJSON() %>
 <% uiModules     = @getCollection("uiModules").toJSON() %>
 <script src="/javascript/home.js"></script>
-<script type="text/javascript">
-  semantic.config = {};
-  semantic.config.type = [
-    "User interface",
-    "Polar Bear"
-  ];
-</script>
+<link rel="stylesheet" type="text/css" href="/stylesheets/home.css">
 <link rel="stylesheet/less" type="text/css" href="/build/less/definitions/elements/button.less" />
+
 
 
 <div class="following bar">
@@ -314,6 +309,13 @@ type   : 'Semantic'
           </h4>
           <div class="ui fluid card">
             <div class="image">
+              <div class="ui dimmer">
+                <div class="content">
+                  <div class="center">
+                    <div class="ui inverted button">Add Friend</div>
+                  </div>
+                </div>
+              </div>
               <img src="/images/avatar/large/steve.jpg">
             </div>
             <div class="content">

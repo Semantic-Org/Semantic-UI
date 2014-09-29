@@ -409,271 +409,6 @@ body#example.hide {
   animation-iteration-count: infinite;
 }
 
-#example.index .pusher > .page {
-  background-color: #FFFFFF;
-}
-#example.index .masthead {
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -o-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-
-  -webkit-perspective: 1000px;
-  -moz-perspective: 1000px;
-  -o-perspective: 1000px;
-  -ms-perspective: 1000px;
-  perspective: 1000px;
-}
-#example.index .masthead:before {
-  position: absolute;
-  z-index: 1;
-  width: 150%;
-  height: 200%;
-  top: -25%;
-  left: 0px;
-  content: '';
-  background: url(../images/icons-inverted.png);
-
-  -moz-transform-origin: 50% 50%;
-  -o-transform-origin: 50% 50%;
-  -ms-transform-origin: 50% 50%;
-  transform-origin: 50% 50%;
-
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -o-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-
-  -webkit-animation-name: masthead;
-  -moz-animation-name: masthead;
-  -o-animation-name: masthead;
-  animation-name: masthead;
-
-  -ms-transition: opacity 5s ease-in-out, transform 5s ease-in-out;
-  -webkit-transition: opacity 5s ease-in-out, transform 5s ease-in-out;
-  -moz-transition: opacity 5s ease-in-out, transform 5s ease-in-out;
-  transition: opacity 5s ease-in-out, transform 5s ease-in-out;
-
-  opacity: 0.08;
-
-  -webkit-animation-duration: 15s;
-  -moz-animation-duration: 15s;
-  -ms-animation-duration: 15s;
-  -o-animation-duration: 15s;
-  animation-duration: 15s;
-
-  -webkit-animation-fill-mode: both;
-  -moz-animation-fill-mode: both;
-  -ms-animation-fill-mode: both;
-  -o-animation-fill-mode: both;
-  animation-fill-mode: both;
-
-  animation-timing-function: linear;
-  -webkit-animation-timing-function: linear;
-
-  -webkit-animation-iteration-count: infinite;
-  -moz-animation-iteration-count: infinite;
-  -ms-animation-iteration-count: infinite;
-  -o-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-
-  -webkit-transform: rotateX(50deg) rotateZ(0deg) rotateY(0deg) translateY(-14%) translateX(-2%) translateZ(300px);
-  -moz-transform: rotateX(50deg) rotateZ(0deg) rotateY(0deg) translateY(-14%) translateX(-2%) translateZ(300px);
-  transform: rotateX(50deg) rotateZ(0deg) rotateY(0deg) translateY(-14%) translateX(-2%) translateZ(300px);
-}
-#example.index .masthead {
-  -ms-transition: background-color 3s ease-in-out 2s;
-  -moz-transition: background-color 3s ease-in-out 2s;
-  -webkit-transition: background-color 3s ease-in-out 2s;
-  transition: background-color 3s ease-in-out 2s;
-  background-color: #00B5AD;
-  background-image: radial-gradient(farthest-corner, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.95));
-}
-#example.index .masthead.zoomed {
-  background-color: #444444;
-}
-#example .masthead.zoomed:before {
-  opacity: 0.15;
-  -webkit-transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg) translateZ(0px);
-  -moz-transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg) translateZ(0px);
-  transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg) translateZ(0px);
-}
-
-@keyframes masthead {
- 0% {
-    background-position: 0% 0%;
- }
- 100% {
-    background-position: 0% -410px;
- }
-
-}
-
-@-moz-keyframes masthead {
- 0% {
-   background-position: 0% 0%;
- }
- 100% {
-   background-position: 0% -410px;
- }
-
-}
-
-@-webkit-keyframes masthead {
- 0% {
-   background-position: 0% 0%;
- }
- 100% {
-   background-position: 0% -410px;
- }
-
-}
-
-@-ms-keyframes masthead {
- 0% {
-   background-position: 0% 0%;
- }
- 100% {
- background-position: 0% -410px;
- }
-}
-
-@-o-keyframes masthead {
- 0% {
-   background-position: 0% 0%;
- }
- 100% {
-   background-position: 0% -410px;
- }
-
-}
-
-
-#example.index .masthead.segment .typed-cursor {
-  position: relative;
-  top: -0.05em;
-  left: -0.25em;
-  opacity: 1;
-  -webkit-animation: blink 0.7s infinite;
-  -moz-animation: blink 0.7s infinite;
-  animation: blink 0.7s infinite;
-}
-@keyframes blink {
-  0% { opacity:1; }
-  50% { opacity:0; }
-  100% { opacity:1; }
-}
-@-webkit-keyframes blink {
-  0% { opacity:1; }
-  50% { opacity:0; }
-  100% { opacity:1; }
-}
-@-moz-keyframes blink {
-  0% { opacity:1; }
-  50% { opacity:0; }
-  100% { opacity:1; }
-}
-
-
-#example.index .masthead {
-  position: relative;
-  overflow: hidden;
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 0px;
-  border-bottom: none;
-}
-#example.index .masthead.segment h1 {
-  font-size: 3em;
-  color: rgba(255, 255, 255, 0.5);
-  line-height: 1.2;
-  margin: 0px 0px 0px;
-  padding-bottom: 0px;
-  -moz-perspective: 500px;
-  -webkit-perspective: 500px;
-  perspective: 500px;
-  -moz-transform-style: preserve-3d;
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-}
-#example.index .masthead.segment h1 > .library {
-  visibility: hidden;
-  display: block;
-  font-size: 1.75em;
-  color: #FFFFFF;
-  font-weight: bold;
-}
-#example.index .masthead.segment h1 b {
-  display: inline-block;
-  font-weight: 300;
-  color: #FFFFFF;
-}
-#example.index .masthead.segment h1 .text {
-  display: inline-block;
-  font-weight: 300;
-  margin-left: -0.4em;
-}
-#example.index .masthead h2 {
-  font-weight: normal;
-  margin: 0px 0 16px 0px;
-  font-size: 1.75em;
-  border-bottom: none;
-  line-height: 1;
-}
-#example.index .masthead p {
-  font-size: 1.5em;
-  margin: 1em 0em 1.5em;
-  padding: 0px;
-}
-
-#example.index .masthead .secondary.menu {
-  float: right;
-  margin: 0.1rem 0rem 0rem 1rem;
-}
-
-#example.index .introduction {
-  position: relative;
-  clear: both;
-  margin: 15rem 0rem;
-}
-#example.index .logo {
-  float: left;
-  width: 35px;
-}
-#example.index .ui.header {
-  font-weight: normal;
-}
-
-#example.index .introduction .buttons {
-  margin-top: 3em;
-}
-#example.index .following .version.label {
-  margin: 0.25em 0px 0px 1em;
-}
-#example.index .introduction {
-  display: block;
-  text-align: center;
-}
-#example.index .advertisement {
-  padding-left: 0;
-  position: absolute;
-  left: auto;
-  right: 6em;
-  top: 50%;
-  transform: translateY(-50%);
-  vertical-align: top;
-}
-#example.index .fixed.launch.button {
-  background-color: #00b5ad;
-  top: 45px;
-}
-#example.index .main.menu {
-  top: 0px;
-}
-#example.index pre.console {
-  height: 120px;
-}
 #example .masthead .grid {
   position: relative;
   z-index: 2;
@@ -707,66 +442,6 @@ body#example.hide {
 
 .ui.transparent.menu {
   opacity: 0.95;
-}
-
-/*--------------
-    Homepage
----------------*/
-
-#example.index .hidden.code {
-  visibility: hidden;
-}
-#example.index .following.bar {
-  position: absolute;
-  top: 50px;
-  z-index: 1;
-  left: 0%;
-  width: 100%;
-}
-#example.index .stripe .grid .row {
-  margin: 2rem 0rem;
-}
-#example.index .feature.stripe p {
-  min-height: 100px;
-}
-#example.index .inverted.stripe {
-  background-color: #1B1C1D;
-}
-#example.index .inverted.stripe p {
-  color: #FFFFFF;
-}
-#example.index .final.stripe {
-  border-top: 1px solid #DDDDDD;
-  background-color: #F8F8F8;
-}
-#example .alternate.stripe {
-  background-color: #F2F3F5;
-}
-#example .stripe .ui.vertical.divider {
-  font-size: 1rem;
-}
-#example.index .stripe .icon.header i.icon {
-  font-size: 2em;
-}
-
-#example.index .email.stripe {
-  padding: 2em 0em;
-}
-#example.index .email.stripe p {
-  margin: -0.5em 0em 1em;
-}
-#example.index .email.stripe .input {
-  width: 450px;
-}
-#example.index .email.stripe .submit.button {
-  margin-left: 1em;
-}
-#example.index .demo h4 {
-  font-weight: bold !important;
-  margin: 0em 0em 1em !important;
-}
-#example.index .demo .ui.label:not(.empty) {
-  margin-bottom: 1em;
 }
 
 /* content */
@@ -1635,16 +1310,6 @@ body.progress.animated .ui.progress .bar {
   font-weight: bold;
 }
 @media only screen and (max-width : 400px) {
-  #example.index .following.bar {
-    display: none;
-  }
-  #example.index .advertisement {
-    display: none;
-    margin-left: -130px !important;
-  }
-  #example.index .carbonad {
-    width: 260px !important;
-  }
   #example .advertisement {
     max-width: 260px;
   }
@@ -1656,35 +1321,6 @@ body.progress.animated .ui.progress .bar {
 }
 
 @media only screen and (max-width : 600px) {
-  #example.index .feature.stripe p {
-    min-height: 0px;
-  }
-  #example.index .following.bar .column {
-    text-align: center;
-  }
-  #example.index .following .logo {
-    float: none;
-  }
-  #example.index .following .version.label {
-    vertical-align: top;
-    margin-top: 0em;
-  }
-  #example.index .introduction {
-    margin: 5rem 0rem;
-  }
-  #example.index .masthead.segment h1 {
-    font-size: 2.25em;
-  }
-  #example.index .email.stripe .input {
-    width: auto;
-  }
-  #example.index .following .secondary.menu {
-    display: none;
-  }
-  #example.index .email.stripe .submit.button {
-    margin-top: 0.5em;
-  }
-
   #example .solid, #example .stripe {
     padding: 4em 0em;
   }
@@ -1711,16 +1347,6 @@ body.progress.animated .ui.progress .bar {
   }
 }
 
-@media only screen and (min-width : 600px) {
-
-  #example.index .main.menu {
-    display: none;
-  }
-
-
-}
-
-
 @media only screen and (min-width : 600px) and (max-width : 998px) {
   #example .container {
     width: auto;
@@ -1733,11 +1359,13 @@ body.progress.animated .ui.progress .bar {
     padding: 1em 2em;
   }
 }
+
 @media only screen and (max-width : 998px) {
   #example .following.menu {
     display: none;
   }
 }
+
 @media only screen and (min-width : 998px) {
   #example .following.menu {
     display: block;
@@ -1783,45 +1411,6 @@ body.progress.animated .ui.progress .bar {
 
 
 
-/* Homepage */
-@media only screen and (max-width : 780px) {
-  #example.index .container {
-    margin-left: 2em;
-    margin-right: 2em;
-  }
-}
-@media only screen and (max-width : 998px) {
-  #example.index .main.menu .container {
-    padding: 0em;
-  }
-}
-@media only screen and (min-width : 998px) {
-  #example.index .main.menu .container {
-    width: auto;
-    padding: 0% 8%;
-  }
-}
-@media only screen and (min-width : 1500px) {
-  #example.index .main.menu .container {
-    width: auto;
-    padding: 0% 13%;
-  }
-}
-@media only screen and (min-width : 1750px) {
-  #example.index .main.menu .container {
-    width: auto;
-    padding: 0% 18%;
-  }
-}
-@media only screen and (min-width : 2000px) {
-  #example.index .main.menu .container {
-    width: auto;
-    padding: 0% 23%;
-  }
-}
-
-
-
 /*******************************
           Responsive
 *******************************/
@@ -1829,9 +1418,6 @@ body.progress.animated .ui.progress .bar {
 @media only screen and (max-width : 998px) {
   #example .fixed .section,
   #example .fixed .title b {
-    display: none;
-  }
-  #example .stripe .header .code.icon {
     display: none;
   }
   #example .fixed .container {
@@ -1848,41 +1434,6 @@ body.progress.animated .ui.progress .bar {
   }
 }
 
-@media only screen and (max-width : 1500px) {
-  #example.index .icon.header .icon {
-    font-size: 3em;
-  }
-}
-@media only screen and (max-width: 1200px) {
-  #example.index .advertisement {
-    position: absolute;
-    top: auto;
-    left: 50%;
-    bottom: 2rem;
-    margin-left: -175px;
-    -webkit-transform: none;
-    -moz-transform: none;
-    -ms-transform: none;
-    transform: none;
-  }
-  #example.index .inverted.advertisement .carbonad-img {
-    margin-top: 0px;
-  }
-  #example.index #carbonads-container {
-    float: none;
-  }
-  #example.index .carbonad {
-    width: 340px;
-  }
-  #example.index .carbonad-text,
-  #example.index .carbonad-tag {
-    float: none;
-    display: block;
-    text-align: left;
-    margin-left: 160px;
-    width: 170px;
-  }
-}
 
 @media only screen and (max-width : 780px) {
   pre.console {

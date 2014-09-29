@@ -39,7 +39,7 @@ semantic.home.ready = function() {
   });
   setTimeout(function() {
     $('.masthead .library').transition('scale up', 1000);
-  }, 5000);
+  }, 5400);
 
   $('.demo .ui.accordion')
     .accordion()
