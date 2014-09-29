@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Defaults
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -175,7 +175,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Loader
+ Override Mix-in
 -------------------*/
 /*******************************
             Standard
@@ -1145,7 +1145,8 @@
     padding-right: 1.5em !important;
   }
   .ui[class*="equal height"].stackable.page.grid {
-    width: 100%;
+    display: block !important;
+    width: 100% !important;
   }
   /* Remove pointers from vertical menus */
   .ui.stackable.grid .vertical.pointing.menu .item:after {
