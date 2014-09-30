@@ -672,7 +672,7 @@ $.fn.dropdown = function(parameters) {
                 ? module.get.value()
                 : module.get.text()
             ;
-            strict = (value === '')
+            strict = (value === '' || value === 0)
               ? true
               : strict || false
             ;
@@ -692,6 +692,7 @@ $.fn.dropdown = function(parameters) {
                         ? optionText.toLowerCase()
                         : optionText
                   ;
+                  console.log(strict, optionValue, value);
                   if(strict) {
                     module.debug('Ambiguous dropdown value using strict type check', value);
                     if( optionValue === value ) {
