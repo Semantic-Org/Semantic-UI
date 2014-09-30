@@ -76,7 +76,7 @@ type   : 'Semantic'
   <div class="ui stackable very relaxed two column page grid">
     <div class="column">
       <h1 class="ui icon header">
-        <img src="/images/icons/Tool.png" class="ui icon image">
+        <img src="/images/icons/theming.png" class="ui icon image">
         Unbelievable Theming
       </h1>
       <p>Semantic provides true design freedom. Change the look and feel of your components with just a few variables.</p>
@@ -120,7 +120,7 @@ type   : 'Semantic'
   <div class="ui three column equal height center aligned divided relaxed stackable page grid">
     <div class="column">
       <h2 class="ui icon header">
-        <img class="ui icon image" src="/images/icons/Brush.png">
+        <img class="ui icon image" src="/images/icons/paint.png">
         3000+ CSS Variables
       </h2>
       <p>The only dogma from this framework: <em>everything arbitrary is mutable</em>.</p>
@@ -128,7 +128,7 @@ type   : 'Semantic'
     </div>
     <div class="column">
       <h2 class="ui icon header">
-        <img class="ui icon image" src="/images/icons/Book-2.png">
+        <img class="ui icon image" src="/images/icons/book.png">
         50+ UI Definitions
       </h2>
       <p>Build your entire site with one UI stack. Share your UI between multiple projects.</p>
@@ -136,7 +136,7 @@ type   : 'Semantic'
     </div>
     <div class="column">
       <h2 class="ui icon header">
-        <img class="ui icon image" src="/images/icons/Glasses.png">
+        <img class="ui icon image" src="/images/icons/glasses.png">
         2200+ Commits
       </h2>
       <p>
@@ -150,7 +150,7 @@ type   : 'Semantic'
   <div class="ui stackable very relaxed page grid">
     <div class="twelve wide center aligned centered column">
       <h1 class="ui icon header">
-        <img src="/images/icons/Tools-Box.png" class="ui icon image">
+        <img src="/images/icons/toolbox.png" class="ui icon image">
         Unbelievable Breadth
       </h1>
       <p>Definitions aren't limited to just buttons on a page. Semantic's components fall into four categories, elements, collections, modules, and views which cover the gamut of interface design.</p>
@@ -207,26 +207,26 @@ type   : 'Semantic'
                 <div class="ui form">
                   <div class="grouped fields">
                     <div class="field">
-                      <div class="ui checkbox">
-                        <input type="checkbox" name="small">
+                      <div class="ui radio checkbox">
+                        <input type="checkbox" name="color">
                         <label>Red</label>
                       </div>
                     </div>
                     <div class="field">
-                      <div class="ui checkbox">
-                        <input type="checkbox" name="medium">
+                      <div class="ui radio checkbox">
+                        <input type="checkbox" name="color">
                         <label>Orange</label>
                       </div>
                     </div>
                     <div class="field">
-                      <div class="ui checkbox">
-                        <input type="checkbox" name="large">
+                      <div class="ui radio checkbox">
+                        <input type="checkbox" name="color">
                         <label>Green</label>
                       </div>
                     </div>
                     <div class="field">
-                      <div class="ui checkbox">
-                        <input type="checkbox" name="x-large">
+                      <div class="ui radio checkbox">
+                        <input type="checkbox" name="color">
                         <label>Blue</label>
                       </div>
                     </div>
@@ -236,7 +236,7 @@ type   : 'Semantic'
             </div>
           </div>
         </div>
-        <div class="no example">
+   <!--      <div class="no example">
           <h4 class="ui header">
             <a href="/elements/step.html">Step</a>
           </h4>
@@ -263,7 +263,7 @@ type   : 'Semantic'
               </div>
             </a>
           </div>
-        </div>
+        </div> -->
         <div class="no example">
           <h4 class="ui header">
             <a href="/elements/input.html">Input</a>
@@ -271,7 +271,7 @@ type   : 'Semantic'
           <div class="ui action left icon input">
             <i class="search icon"></i>
             <input type="text" placeholder="Search...">
-            <div class="ui button">Search</div>
+            <div class="ui teal button">Search</div>
           </div>
           <div class="ui hidden divider"></div>
           <div class="ui labeled input">
@@ -290,10 +290,19 @@ type   : 'Semantic'
             jkitsune@newrepublic.com
             <i class="delete icon"></i>
           </div>
-          <div class="ui label">
+          <a class="ui teal label">
             <i class="mail icon"></i> 23 New
-          </div>
+          </a>
           <a class="ui tag label">Dresses</a>
+        </div>
+        <div class="no example">
+          <h4 class="ui header">
+            <a href="/collections/message.html">Message</a>
+          </h4>
+          <div class="ui message">
+            <div class="header">We're creating your profile page</div>
+            <p>It will be ready in just a second.</p>
+          </div>
         </div>
       </div>
       <div class="column">
@@ -318,7 +327,7 @@ type   : 'Semantic'
                 <a class="group">Acquaintances</a>
               </div>
               <div class="description">
-                Stevie Jobes is a fictional character designed to resemble someone familiar to readers.
+                Steve Jobes is a fictional character designed to resemble someone familiar to readers.
               </div>
             </div>
             <div class="extra content">
@@ -645,16 +654,11 @@ type   : 'Semantic'
         </div>
         <div class="no example">
           <h4 class="ui header">
-            <a href="/collections/message.html">Message</a>
+            <a href="/elements/segment.html">Segment</a>
           </h4>
-          <div class="ui message">
-            <div class="header">We're loading your new page</div>
-            <p>Hold on a sec</p>
-          </div>
-          <div class="ui info message">
-            <div class="header">We're loading your new page</div>
-            <p>Hold on a sec</p>
-          </div>
+          <div class="ui piled segment"></div>
+          <div class="ui stacked segment"></div>
+          <div class="ui raised segment"></div>
         </div>
         <div class="no example">
           <h4 class="ui header">
@@ -699,7 +703,7 @@ type   : 'Semantic'
   <div class="ui stackable center aligned very relaxed page grid">
     <div class="twelve wide column">
       <h1 class="ui inverted icon header">
-        <i class="docs code icon"></i>
+        <img src="/images/icons/pen.png" class="ui icon image">
         Lose the Hieroglyphics
       </h1>
       <p>Semantic's naming conventions are based around <em>common usage</em>, not arbitrarily prescribed standards—a practice borrowed from <a href="https://www.princeton.edu/~achaney/tmve/wiki100k/docs/Descriptive_linguistics.html" target="_blank">descriptive linguistics</a>.</p>
@@ -726,7 +730,7 @@ type   : 'Semantic'
   <div class="ui stackable center aligned page grid">
     <div class="twelve wide column">
       <h1 class="ui icon header">
-        <img class="ui inline icon image" src="/images/icons/Spaceship.png">
+        <img class="ui inline icon image" src="/images/icons/rocket.png">
         Liberate your Development
       </h1>
       <div class="ui two column stackable center aligned vertically padded grid">

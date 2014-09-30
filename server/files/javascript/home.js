@@ -8,9 +8,40 @@ semantic.home.ready = function() {
     $header        = $('.masthead'),
     $ui            = $header.find('h1 b'),
     $phrase        = $header.find('h1 span'),
-    $download      = $header.find('.download')
+    $download      = $header.find('.download'),
+    handler
   ;
 
+  handler = {
+    introduction: function() {
+      // zoom out
+      setTimeout(function() {
+        $header
+          .removeClass('zoomed')
+        ;
+      }, 1500);
+      $ui.typed({
+        replaceBaseText : true,
+        strings         : [
+          $ui.data('text')
+        ],
+        showCursor      : false,
+        typeSpeed       : 120,
+        backSpeed       : 120,
+        backDelay       : 500
+      });
+      setTimeout(function() {
+        $('.masthead .library').transition('scale up', 1000);
+      }, 6400);
+    }
+  };
+
+
+  $('.masthead')
+    .visibility({
+      onPassing: handler.introduction
+    })
+  ;
 
   $themeDropdown
     .dropdown('setting', 'transition', 'drop')
@@ -24,31 +55,11 @@ semantic.home.ready = function() {
     })
   ;
 
-  // zoom out
-  setTimeout(function() {
-    $header
-      .removeClass('zoomed')
-    ;
-  }, 1500);
-
   window.Transifex.live.onTranslatePage(function(name){
     name = $('.language.dropdown .item[data-value=' + name + ']').text();
     $('.language.dropdown > .text').html(name);
   });
 
-  $ui.typed({
-    replaceBaseText : true,
-    strings         : [
-      $ui.data('text')
-    ],
-    showCursor      : false,
-    typeSpeed       : 120,
-    backSpeed       : 120,
-    backDelay       : 500
-  });
-  setTimeout(function() {
-    $('.masthead .library').transition('scale up', 1000);
-  }, 6400);
 
   $('.demo .ui.accordion')
     .accordion()

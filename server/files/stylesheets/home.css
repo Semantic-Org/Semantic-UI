@@ -384,6 +384,13 @@
 #example .stripe .ui.vertical.divider {
   font-size: 1rem;
 }
+#example.index .feature.stripe .icon.header .icon.image {
+  width: auto;
+  height: 50px;
+}
+#example.index .stripe .icon.header .icon.image {
+  width: 64px;
+}
 #example.index .stripe .icon.header i.icon {
   font-size: 2em;
 }
