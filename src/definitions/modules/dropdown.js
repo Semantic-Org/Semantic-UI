@@ -284,7 +284,6 @@ $.fn.dropdown = function(parameters) {
             fullTextRegExp = new RegExp(searchTerm, 'i'),
             $filteredItems
           ;
-          console.log(query);
           $item
             .each(function(){
               var
@@ -351,7 +350,6 @@ $.fn.dropdown = function(parameters) {
             var
               query = $search.val()
             ;
-            console.log($search, query);
             $text.addClass(className.filtered);
             module.filter(query);
           },
@@ -692,7 +690,6 @@ $.fn.dropdown = function(parameters) {
                         ? optionText.toLowerCase()
                         : optionText
                   ;
-                  console.log(strict, optionValue, value);
                   if(strict) {
                     module.debug('Ambiguous dropdown value using strict type check', value);
                     if( optionValue === value ) {
