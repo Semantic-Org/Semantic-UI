@@ -266,7 +266,7 @@ $.fn.sidebar = function(parameters) {
 
         toggle: function() {
           module.verbose('Determining toggled direction');
-          if(module.is.closed()) {
+          if(module.is.closed() || module.is.outward()) {
             module.show();
           }
           else {
