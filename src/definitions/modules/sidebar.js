@@ -313,7 +313,7 @@ $.fn.sidebar = function(parameters) {
             requestAnimationFrame(animate);
           }
           else {
-            if(module.is.mobile()) {
+            if(settings.transition == 'scale down' || module.is.mobile()) {
               $module.scrollTop(0);
               currentScroll = $(window).scrollTop();
               window.scrollTo(0, 0);
@@ -347,8 +347,12 @@ $.fn.sidebar = function(parameters) {
                 module.remove.direction();
                 module.remove.outward();
                 module.remove.visible();
-                if(module.is.mobile() && settings.returnScroll) {
-                  window.scrollTo(0, currentScroll);
+                if(transition == 'scale down' || (module.is.mobile() && settings.returnScroll) ) {
+                  $page
+                    .animate({
+                      scrollTop: currentScroll
+                    }, 500)
+                  ;
                 }
                 $.proxy(callback, element)();
               }
