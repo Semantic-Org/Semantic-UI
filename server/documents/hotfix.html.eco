@@ -10,42 +10,30 @@ type   : 'Library'
 <!-- TEST JS HERE !-->
 <script>
 $(document).ready(function() {
-  $('.button')
-      .popup({
-          on: 'click',
-          inline: true,
-          preserve: true
-      })
-  ;
+
+
+$.fn.modal.settings.debug = true;
+var $m = $('#modal');
+$m.modal({duration: 3000}).modal('show')
+setTimeout(function(){
+    $m.modal('hide');
+}, 1500);
+
+
 });
 </script>
 
 <!-- TEST CSS HERE !-->
 <style type="text/css">
-.wide.popup {
-  max-width: 500px;
-  padding: 0em;
-}
 </style>
-
 
 <div class="main container">
 
-<h3>ui grid works ok</h3>
-<div class="ui grid">
-    <div class="eight wide computer only column">computer only</div>
-    <div class="eight wide tablet only column">tablet only</div>
-    <div class="eight wide mobile only column">mobile only</div>
-    <div class="eight wide column">all</div>
-</div>
-<h3>should ui stackable grid override the "x only" grid column styles?</h3>
-<div class="ui stackable grid">
-    <div class="eight wide computer only column">computer only</div>
-    <div class="eight wide tablet only column">tablet only</div>
-    <div class="eight wide mobile only column">mobile only</div>
-    <div class="eight wide column">all</div>
+<div class="ui modal" id="modal">
+    hey
 </div>
 
 
 </div>
+
 </body>

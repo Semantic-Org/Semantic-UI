@@ -30,11 +30,52 @@
   -ms-transform-style: preserve-3d;
   transform-style: preserve-3d;
 
+  -ms-transition: background-color 3s ease-in-out 2s;
+  -moz-transition: background-color 3s ease-in-out 2s;
+  -webkit-transition: background-color 3s ease-in-out 2s;
+  transition: background-color 3s ease-in-out 2s;
+
+  background-color: #00B5AD;
+  background-image: radial-gradient(farthest-corner, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.95));
+
   -webkit-perspective: 1000px;
   -moz-perspective: 1000px;
   -o-perspective: 1000px;
   -ms-perspective: 1000px;
   perspective: 1000px;
+}
+#example.index .masthead.colored {
+  -webkit-animation-name: colors;
+  -moz-animation-name: colors;
+  -o-animation-name: colors;
+  animation-name: colors;
+
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -ms-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+
+  -webkit-animation-duration: 120s;
+  -moz-animation-duration: 120s;
+  -ms-animation-duration: 120s;
+  -o-animation-duration: 120s;
+  animation-duration: 120s;
+
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -ms-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+
+  animation-timing-function: linear;
+  -webkit-animation-timing-function: linear;
+
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
 }
 #example.index .masthead:before {
   position: absolute;
@@ -152,14 +193,8 @@
   -moz-transform: rotateX(50deg) rotateZ(0deg) rotateY(0deg) translateY(-14%) translateX(-2%) translateZ(300px);
   transform: rotateX(50deg) rotateZ(0deg) rotateY(0deg) translateY(-14%) translateX(-2%) translateZ(300px);
 }
-#example.index .masthead {
-  -ms-transition: background-color 3s ease-in-out 2s;
-  -moz-transition: background-color 3s ease-in-out 2s;
-  -webkit-transition: background-color 3s ease-in-out 2s;
-  transition: background-color 3s ease-in-out 2s;
-  background-color: #00B5AD;
-  background-image: radial-gradient(farthest-corner, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.95));
-}
+
+/* Zoomed Out */
 #example.index .masthead.zoomed {
   background-color: #444444;
 }
@@ -181,7 +216,7 @@
     background-position: 0% 0%;
  }
  100% {
-    background-position: 0% -400px;
+    background-position: 0% -475px;
  }
 
 }
@@ -191,7 +226,7 @@
    background-position: 0% 0%;
  }
  100% {
-   background-position: 0% -400px;
+   background-position: 0% -475px;
  }
 
 }
@@ -201,7 +236,7 @@
    background-position: 0% 0%;
  }
  100% {
-   background-position: 0% -400px;
+   background-position: 0% -475px;
  }
 
 }
@@ -211,7 +246,7 @@
    background-position: 0% 0%;
  }
  100% {
- background-position: 0% -400px;
+  background-position: 0% -475px;
  }
 }
 
@@ -220,9 +255,167 @@
    background-position: 0% 0%;
  }
  100% {
-   background-position: 0% -400px;
+   background-position: 0% -475px;
  }
 
+}
+
+
+@keyframes colors {
+  0% {
+    background-color: #00B5AD;
+  }
+  12% {
+    background-color: #3B83C0;
+  }
+  25% {
+    background-color: #E07B53;
+  }
+  37% {
+    background-color: #D9499A;
+  }
+  50% {
+    background-color: #564F8A;
+  }
+  62% {
+    background-color: #F2C61F;
+  }
+  75% {
+    background-color: #D95C5C;
+  }
+  87% {
+    background-color: #5BBD72;
+  }
+  100% {
+    background-color: #F2C61F;
+  }
+}
+
+@-moz-keyframes colors {
+  0% {
+    background-color: #00B5AD;
+  }
+  12% {
+    background-color: #3B83C0;
+  }
+  25% {
+    background-color: #E07B53;
+  }
+  37% {
+    background-color: #D9499A;
+  }
+  50% {
+    background-color: #564F8A;
+  }
+  62% {
+    background-color: #F2C61F;
+  }
+  75% {
+    background-color: #D95C5C;
+  }
+  87% {
+    background-color: #5BBD72;
+  }
+  100% {
+    background-color: #F2C61F;
+  }
+}
+
+@-webkit-keyframes colors {
+  0% {
+    background-color: #00B5AD;
+  }
+  12% {
+    background-color: #3B83C0;
+  }
+  25% {
+    background-color: #E07B53;
+  }
+  37% {
+    background-color: #D9499A;
+  }
+  50% {
+    background-color: #564F8A;
+  }
+  62% {
+    background-color: #F2C61F;
+  }
+  75% {
+    background-color: #D95C5C;
+  }
+  87% {
+    background-color: #5BBD72;
+  }
+  100% {
+    background-color: #F2C61F;
+  }
+}
+
+@-ms-keyframes colors {
+  0% {
+    background-color: #00B5AD;
+  }
+  12% {
+    background-color: #3B83C0;
+  }
+  25% {
+    background-color: #E07B53;
+  }
+  37% {
+    background-color: #D9499A;
+  }
+  50% {
+    background-color: #564F8A;
+  }
+  62% {
+    background-color: #F2C61F;
+  }
+  75% {
+    background-color: #D95C5C;
+  }
+  87% {
+    background-color: #5BBD72;
+  }
+  100% {
+    background-color: #F2C61F;
+  }
+}
+@-o-keyframes colors {
+  0% {
+    background-color: #00B5AD;
+  }
+  12% {
+    background-color: #3B83C0;
+  }
+  25% {
+    background-color: #E07B53;
+  }
+  37% {
+    background-color: #D9499A;
+  }
+  50% {
+    background-color: #564F8A;
+  }
+  62% {
+    background-color: #F2C61F;
+  }
+  75% {
+    background-color: #D95C5C;
+  }
+  87% {
+    background-color: #5BBD72;
+  }
+  100% {
+    background-color: #F2C61F;
+  }
+}
+
+
+#example.index .masthead.stopped:after {
+  -webkit-animation-name: none;
+  -moz-animation-name: none;
+  -o-animation-name: none;
+  animation-name: none;
 }
 
 
@@ -553,9 +746,17 @@
   }
 }
 
+@media only screen and (max-width : 600px) {
+  #example.index .fixed.launch.button {
+    display: none;
+  }
+}
 @media only screen and (min-width : 600px) {
   #example.index .main.menu {
     display: none;
+  }
+  #example.index .fixed.launch.button {
+    display: block;
   }
 }
 

@@ -13,6 +13,11 @@ semantic.home.ready = function() {
   ;
 
   handler = {
+    endAnimation: function() {
+      $header
+        .addClass('stopped')
+      ;
+    },
     introduction: function() {
       // zoom out
       setTimeout(function() {
@@ -20,6 +25,12 @@ semantic.home.ready = function() {
           .removeClass('zoomed')
         ;
       }, 1500);
+
+     /* setTimeout(function() {
+        $header
+          .addClass('colored')
+        ;
+      }, 10000);*/
       $ui.typed({
         replaceBaseText : true,
         strings         : [
@@ -39,7 +50,8 @@ semantic.home.ready = function() {
 
   $('.masthead')
     .visibility({
-      onPassing: handler.introduction
+      onPassing      : handler.introduction,
+      onBottomPassed : handler.endAnimation
     })
   ;
 
@@ -72,7 +84,7 @@ semantic.home.ready = function() {
     .checkbox()
   ;
   $('.ui.sidebar')
-    .sidebar('setting', 'transition', 'scale down')
+    .sidebar('setting', 'transition', 'slide along')
   ;
 
 };
