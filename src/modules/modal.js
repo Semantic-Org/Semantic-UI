@@ -31,7 +31,8 @@ $.fn.modal = function(parameters) {
       || window.msRequestAnimationFrame
       || function(callback) { setTimeout(callback, 0); },
 
-    returnedValue
+    returnedValue,
+    bodyOldHeight
   ;
 
 
@@ -440,7 +441,7 @@ $.fn.modal = function(parameters) {
             if(module.cache.height > module.cache.pageHeight) {
               module.debug('Removing page height');
               $body
-                .css('height', '')
+                .css('height', bodyOldHeight)
               ;
             }
           },
@@ -494,6 +495,7 @@ $.fn.modal = function(parameters) {
           screenHeight: function() {
             if(module.cache.height > module.cache.pageHeight) {
               module.debug('Modal is taller than page content, resizing page height');
+              bodyOldHeight = $body.get(0).style.height || $body.css('height');
               $body
                 .css('height', module.cache.height + settings.padding)
               ;
