@@ -2,10 +2,19 @@
           Customizer
 *******************************/
 
-#example.custom .download.list {
-  margin: 1em -0.8em;
+#example.custom .accordion .title + .content {
+  padding: 0em;
 }
-
+#example.custom .download.list {
+  margin: 0em;
+}
+#example.custom .header {
+  position: relative;
+}
+#example.custom .header .all {
+  position: absolute;
+  right: 1em;
+}
 #example.custom .download.list .checkbox + .content {
   opacity: 0.6;
   transition: opacity 0.3s ease;
@@ -14,12 +23,11 @@
   transition: color 0.3s ease;
   font-weight: normal;
 }
-
-#example.custom .main.container > h2 {
-  text-align: center;
-  font-size: 2em;
-  margin: 2em 0em;
+#example.custom .download.list .content .description {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 0.9em;
 }
+
 #example.custom .main.container > h2:first-child {
   margin-top: 0em;
 }

@@ -26,7 +26,6 @@ semantic.customize.ready = function() {
 
   $accordion
     .accordion({
-      duration: 0,
       exclusive: false,
       onChange: function() {
         $('.ui.sticky').sticky('refresh');

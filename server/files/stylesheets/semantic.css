@@ -201,6 +201,9 @@ a:hover {
   border-bottom: 1px solid #DDDDDD;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
+#example .header.segment h1 {
+  margin-bottom: 0em;
+}
 #example .tab.header.segment {
   padding-bottom: 0em;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1) inset;
@@ -347,33 +350,8 @@ a:hover {
     Masthead
 ---------------*/
 
-#example .error.masthead {
-  position: absolute;
-  margin-top: -290px;
-  top: 50%;
-  width: 100%;
-}
-#example .error.masthead .container {
-  position: relative;
-  z-index: 100;
-}
-#example .masthead {
-  position: relative;
-  overflow: hidden;
-  background: #111111 url(../images/bg-sky.jpg);
-  background-size: cover;
-  text-align: center;
-  padding: 0em;
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 0px;
-  border-bottom: none;
-}
-#example .masthead .ui.tag.label:after {
-  background-color: #000000 !important;
-}
 body#example {
   background: #2C2C2C url(../images/icons.png) !important;
-
 }
 body#example.pushed,
 body#example.hide {
@@ -973,7 +951,6 @@ body.progress.animated .ui.progress .bar {
 }
 #example .icon.example .grid .column {
   opacity: 0.8;
-  margin-bottom: 2em;
   text-align: center;
   color: #888888;
 

@@ -12,6 +12,18 @@
 ---------------*/
 
 #example.index .masthead {
+  position: relative;
+  overflow: hidden;
+  /*background: #111111 url(../images/bg-sky.jpg);*/
+  background-size: cover;
+  text-align: center;
+  padding: 0em;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0px;
+  border-bottom: none;
+}
+
+#example.index .masthead {
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   -o-transform-style: preserve-3d;
@@ -32,7 +44,7 @@
   top: -25%;
   left: 0px;
   content: '';
-  background: url(../images/icons-inverted.png);
+  background: url(/images/before.jpg);
 
   -moz-transform-origin: 50% 50%;
   -o-transform-origin: 50% 50%;
@@ -50,12 +62,70 @@
   -o-animation-name: masthead;
   animation-name: masthead;
 
-  -ms-transition: opacity 5s ease-in-out, transform 5s ease-in-out;
-  -webkit-transition: opacity 5s ease-in-out, transform 5s ease-in-out;
-  -moz-transition: opacity 5s ease-in-out, transform 5s ease-in-out;
-  transition: opacity 5s ease-in-out, transform 5s ease-in-out;
+  -ms-transition: opacity 2.5s ease-in-out, transform 5s ease-in-out;
+  -webkit-transition: opacity 2.5s ease-in-out, transform 5s ease-in-out;
+  -moz-transition: opacity 2.5s ease-in-out, transform 5s ease-in-out;
+  transition: opacity 2.5s ease-in-out, transform 5s ease-in-out;
 
-  opacity: 0.08;
+  opacity: 0;
+
+  -webkit-animation-duration: 15s;
+  -moz-animation-duration: 15s;
+  -ms-animation-duration: 15s;
+  -o-animation-duration: 15s;
+  animation-duration: 15s;
+
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -ms-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+
+  animation-timing-function: linear;
+  -webkit-animation-timing-function: linear;
+
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+
+  -webkit-transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg) translateY(0%) translateX(0) translateZ(-500px);
+  -moz-transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg) translateY(0%) translateX(0) translateZ(-500px);
+  transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg) translateY(0%) translateX(0) translateZ(-500px);
+}
+#example.index .masthead:after {
+  position: absolute;
+  z-index: 1;
+  width: 150%;
+  height: 200%;
+  top: -25%;
+  left: 0px;
+  content: '';
+  background: url(/images/ui.png);
+
+  -moz-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+
+  -webkit-animation-name: masthead;
+  -moz-animation-name: masthead;
+  -o-animation-name: masthead;
+  animation-name: masthead;
+
+  -ms-transition: opacity 3s ease-in-out, transform 5s ease-in-out;
+  -webkit-transition: opacity 3s ease-in-out, transform 5s ease-in-out;
+  -moz-transition: opacity 3s ease-in-out, transform 5s ease-in-out;
+  transition: opacity 3s ease-in-out, transform 5s ease-in-out;
+
+  opacity: 0.06;
 
   -webkit-animation-duration: 15s;
   -moz-animation-duration: 15s;
@@ -94,7 +164,13 @@
   background-color: #444444;
 }
 #example .masthead.zoomed:before {
-  opacity: 0.15;
+  opacity: 0.1;
+  -webkit-transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg) translateZ(0px);
+  -moz-transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg) translateZ(0px);
+  transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg) translateZ(0px);
+}
+#example.index .masthead.zoomed:after {
+  opacity: 0;
   -webkit-transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg) translateZ(0px);
   -moz-transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg) translateZ(0px);
   transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg) translateZ(0px);
@@ -105,7 +181,7 @@
     background-position: 0% 0%;
  }
  100% {
-    background-position: 0% -410px;
+    background-position: 0% -400px;
  }
 
 }
@@ -115,7 +191,7 @@
    background-position: 0% 0%;
  }
  100% {
-   background-position: 0% -410px;
+   background-position: 0% -400px;
  }
 
 }
@@ -125,7 +201,7 @@
    background-position: 0% 0%;
  }
  100% {
-   background-position: 0% -410px;
+   background-position: 0% -400px;
  }
 
 }
@@ -135,7 +211,7 @@
    background-position: 0% 0%;
  }
  100% {
- background-position: 0% -410px;
+ background-position: 0% -400px;
  }
 }
 
@@ -144,7 +220,7 @@
    background-position: 0% 0%;
  }
  100% {
-   background-position: 0% -410px;
+   background-position: 0% -400px;
  }
 
 }
@@ -242,6 +318,7 @@
 
 
 #example.index .advertisement {
+  display: none !important;
   padding-left: 0;
   position: absolute;
   left: auto;
@@ -251,7 +328,6 @@
   vertical-align: top;
 }
 #example.index .fixed.launch.button {
-  background-color: #00b5ad;
   top: 45px;
 }
 #example.index .main.menu {
@@ -280,6 +356,9 @@
 #example.index .following .logo {
   float: left;
   width: 35px;
+}
+#example .masthead .version.label:after {
+  background-color: #000000 !important;
 }
 #example.index .following .version.label {
   margin: 0.25em 0px 0px 1em;
@@ -416,9 +495,6 @@
 
 
 @media only screen and (max-width : 400px) {
-  #example.index .following.bar {
-    display: none;
-  }
   #example.index .advertisement {
     display: none;
     margin-left: -130px !important;
@@ -426,11 +502,20 @@
   #example.index .carbonad {
     width: 260px !important;
   }
+  #example.index .masthead.segment h1 > .library {
+    font-size: 1.5em;
+  }
 }
 
 
 
 @media only screen and (max-width : 600px) {
+  #example.index .following.bar {
+    display: none;
+  }
+  #example.index .masthead:before {
+    display: none;
+  }
   #example.index .feature.stripe p {
     min-height: 0px;
   }
@@ -445,7 +530,7 @@
     margin-top: 0em;
   }
   #example.index .introduction {
-    margin: 5rem 0rem;
+    margin: 7.5rem 0rem;
   }
   #example.index .masthead.segment h1 {
     font-size: 2.25em;
@@ -477,7 +562,7 @@
   }
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1300px) {
   #example.index .advertisement {
     position: absolute;
     top: auto;

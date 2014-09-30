@@ -11,16 +11,25 @@ semantic.home.ready = function() {
     $download      = $header.find('.download')
   ;
 
+
   $themeDropdown
     .dropdown('setting', 'transition', 'drop')
     .dropdown('setting', 'duration', 350)
     .dropdown('setting', 'action', 'activate')
   ;
 
-  // zoom out
-  $header
-    .removeClass('zoomed')
+  $('.card .dimmer')
+    .dimmer({
+      on: 'hover'
+    })
   ;
+
+  // zoom out
+  setTimeout(function() {
+    $header
+      .removeClass('zoomed')
+    ;
+  }, 1500);
 
   window.Transifex.live.onTranslatePage(function(name){
     name = $('.language.dropdown .item[data-value=' + name + ']').text();
@@ -39,7 +48,7 @@ semantic.home.ready = function() {
   });
   setTimeout(function() {
     $('.masthead .library').transition('scale up', 1000);
-  }, 5400);
+  }, 6400);
 
   $('.demo .ui.accordion')
     .accordion()

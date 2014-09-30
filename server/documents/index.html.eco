@@ -238,7 +238,7 @@ type   : 'Semantic'
         </div>
         <div class="no example">
           <h4 class="ui header">
-            <a href="/element/step.html">Step</a>
+            <a href="/elements/step.html">Step</a>
           </h4>
           <div class="ui fluid vertical steps">
             <a class="step">
@@ -266,7 +266,7 @@ type   : 'Semantic'
         </div>
         <div class="no example">
           <h4 class="ui header">
-            <a href="/element/input.html">Input</a>
+            <a href="/elements/input.html">Input</a>
           </h4>
           <div class="ui action left icon input">
             <i class="search icon"></i>
@@ -283,7 +283,7 @@ type   : 'Semantic'
         </div>
         <div class="no example">
           <h4 class="ui header">
-            <a href="/element/label.html">Label</a>
+            <a href="/elements/label.html">Label</a>
           </h4>
           <div class="ui image label">
             <img src="/images/avatar/small/justen.jpg">

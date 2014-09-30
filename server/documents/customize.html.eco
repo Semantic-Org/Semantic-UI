@@ -2,7 +2,6 @@
 layout      : 'default'
 css         : 'custom'
 title       : 'Download'
-description : 'Create a custom build of Semantic for your website'
 type        : 'Semantic'
 ---
 
@@ -40,6 +39,20 @@ type        : 'Semantic'
 
 <div class="main container">
   <h2 class="ui header">Configurations</h2>
+  <div class="ui two buttons">
+    <div class="ui active button">
+      <div class="ui header">
+        Pro
+      </div>
+      LESS + Build System
+    </div>
+    <div class="ui button">
+      <div class="ui header">
+        Basic
+      </div>
+      CSS Only
+    </div>
+  </div>
   <div class="ui info icon message">
     <i class="circle help icon"></i>
     <div class="content">
@@ -50,32 +63,18 @@ type        : 'Semantic'
       <!-- <div class="ui button">Read more</div> -->
     </div>
   </div>
-  <div class="ui basic segment">
-    <div class="ui two item secondary pointing menu">
-      <div class="active link item">
-        <div class="ui header">
-          Pro
-        </div>
-        LESS + Build System
-      </div>
-      <div class="link item">
-        <div class="ui header">
-          Basic
-        </div>
-        CSS Only
-      </div>
-    </div>
-  </div>
 
-  <h2 class="ui header">Components</h2>
+  <h2 class="ui header">
+    Components
+  </h2>
 
-  <div class="ui basic accordion segment">
-
-    <h3 class="ui header active title">
+  <div class="ui accordion">
+    <h3 class="ui small block header active title">
+      <a class="all">Select All</a>
       <i class="dropdown icon"></i>
       Elements
     </h3>
-    <div class="ui active content">
+    <div class="active content">
       <div class="ui download selection list">
         <% for element in uiElements: %>
         <div class="item">
@@ -102,11 +101,12 @@ type        : 'Semantic'
       </div>
     </div>
 
-    <h3 class="ui header active title">
+    <h3 class="ui small block header active title">
+      <a class="all">Select All</a>
       <i class="dropdown icon"></i>
       Collections
     </h3>
-    <div class="ui active content">
+    <div class="active content">
       <div class="ui download selection list">
         <% for collection in uiCollections: %>
         <div class="item">
@@ -133,11 +133,12 @@ type        : 'Semantic'
       </div>
     </div>
 
-    <h3 class="ui header active title">
+    <h3 class="ui small block header active title">
+      <a class="all">Select All</a>
       <i class="dropdown icon"></i>
       Views
     </h3>
-    <div class="ui active content">
+    <div class="active content">
       <div class="ui download selection list">
         <% for view in uiViews: %>
         <div class="item">
@@ -163,12 +164,12 @@ type        : 'Semantic'
         <% end %>
       </div>
     </div>
-
-    <h3 class="ui header active title">
+    <h3 class="ui small block header active title">
+      <a class="all">Select All</a>
       <i class="dropdown icon"></i>
       Modules
     </h3>
-    <div class="ui active content">
+    <div class="active content">
       <div class="ui download selection list">
       <% for module in uiModules: %>
         <div class="item">
@@ -194,6 +195,5 @@ type        : 'Semantic'
       <% end %>
       </div>
     </div>
-
   </div>
 </div>
