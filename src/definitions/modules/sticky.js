@@ -298,7 +298,8 @@ $.fn.sticky = function(parameters) {
               tagName = $container.get(0).tagName
             ;
             if(tagName === 'HTML' || tagName == 'body') {
-              module.error(error.container, tagName, $module);
+              // this can trigger for too many reasons
+              //module.error(error.container, tagName, $module);
               $container = $module.offsetParent();
             }
             else {
