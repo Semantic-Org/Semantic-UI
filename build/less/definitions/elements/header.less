@@ -459,7 +459,7 @@ a.ui.inverted.yellow.header:hover {
 .ui.small.block.header {
   font-size: @smallBlock;
 }
-.ui.block.header {
+.ui.block.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
   font-size: @mediumBlock;
 }
 .ui.large.block.header {
@@ -475,7 +475,6 @@ a.ui.inverted.yellow.header:hover {
 
 .ui.attached.header {
   background: @attachedBackground;
-  margin: 0em;
   padding: @attachedVerticalPadding @attachedHorizontalPadding;
   box-shadow: @attachedBoxShadow;
   border: @attachedBorder;
@@ -506,7 +505,7 @@ a.ui.inverted.yellow.header:hover {
 .ui.small.attached.header {
   font-size: @smallAttached;
 }
-.ui.attached.header {
+.ui.attached.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
   font-size: @mediumAttached;
 }
 .ui.large.attached.header {

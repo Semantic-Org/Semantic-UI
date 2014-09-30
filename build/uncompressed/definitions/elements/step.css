@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -171,7 +171,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Step
@@ -261,7 +261,7 @@
 }
 .ui.ordered.steps .step > * {
   display: table-cell;
-  vertical-align: top;
+  vertical-align: middle;
 }
 /*--------------
     Vertical

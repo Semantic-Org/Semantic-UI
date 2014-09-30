@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -189,7 +189,7 @@ b        Types
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Dropdown

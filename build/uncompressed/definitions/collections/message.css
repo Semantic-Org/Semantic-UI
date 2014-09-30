@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -169,7 +169,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Message
@@ -200,9 +200,12 @@
 .ui.message .header {
   display: block;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  font-size: 1.1rem;
   font-weight: bold;
   margin: 0em 0em 0em 0rem;
+}
+/* Default font size */
+.ui.message .header:not(.ui) {
+  font-size: 1.1rem;
 }
 /* Paragraph */
 .ui.message p {

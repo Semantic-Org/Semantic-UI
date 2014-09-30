@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -160,7 +160,7 @@
            Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
            Breadcrumb
@@ -299,7 +299,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -448,7 +448,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Elements
@@ -1135,7 +1135,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -1267,7 +1267,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Standard
@@ -2346,7 +2346,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -2502,7 +2502,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Standard
@@ -3939,7 +3939,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -4065,7 +4065,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Message
@@ -4096,9 +4096,12 @@
 .ui.message .header {
   display: block;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  font-size: 1.1rem;
   font-weight: bold;
   margin: 0em 0em 0em 0rem;
+}
+/* Default font size */
+.ui.message .header:not(.ui) {
+  font-size: 1.1rem;
 }
 /* Paragraph */
 .ui.message p {
@@ -4460,7 +4463,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -4603,7 +4606,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
              Table
@@ -5329,7 +5332,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -5480,7 +5483,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Button
@@ -7697,7 +7700,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -7821,7 +7824,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Divider
@@ -8062,7 +8065,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -8174,7 +8177,7 @@
    Flag Variables
 --------------------*/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 i.flag {
   display: inline-block;
@@ -9222,7 +9225,7 @@ i.flag.zimbabwe:before {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -9351,7 +9354,7 @@ i.flag.zimbabwe:before {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Header
@@ -9729,19 +9732,19 @@ a.ui.inverted.yellow.header:hover {
   border-radius: 0.3125rem;
 }
 .ui.tiny.block.header {
-  font-size: 0.875em;
-}
-.ui.small.block.header {
-  font-size: 0.9em;
-}
-.ui.block.header {
   font-size: 1em;
 }
-.ui.large.block.header {
+.ui.small.block.header {
   font-size: 1.1em;
 }
+.ui.block.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+  font-size: 1.3em;
+}
+.ui.large.block.header {
+  font-size: 1.5em;
+}
 .ui.huge.block.header {
-  font-size: 1.2em;
+  font-size: 2em;
 }
 /*-------------------
        Attached
@@ -9749,7 +9752,6 @@ a.ui.inverted.yellow.header:hover {
 .ui.attached.header {
   background: #fafafa -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   background: #fafafa linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  margin: 0em;
   padding: 0.75rem 1rem;
   box-shadow: 0px 0px 0px 1px #dddddd;
   border: none;
@@ -9779,7 +9781,7 @@ a.ui.inverted.yellow.header:hover {
 .ui.small.attached.header {
   font-size: 0.9em;
 }
-.ui.attached.header {
+.ui.attached.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
   font-size: 1em;
 }
 .ui.large.attached.header {
@@ -9859,7 +9861,7 @@ a.ui.inverted.yellow.header:hover {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -9971,7 +9973,7 @@ a.ui.inverted.yellow.header:hover {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
              Icon
@@ -12060,7 +12062,7 @@ i.icon.weixin:before {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -12182,7 +12184,7 @@ i.icon.weixin:before {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
              Image
@@ -12431,7 +12433,7 @@ img.ui.bordered.image {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -12561,7 +12563,7 @@ img.ui.bordered.image {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
            Standard
@@ -12876,7 +12878,7 @@ img.ui.bordered.image {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -13016,7 +13018,7 @@ img.ui.bordered.image {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Label
@@ -13896,7 +13898,7 @@ a.ui.yellow.label:hover:before {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -14047,7 +14049,7 @@ a.ui.yellow.label:hover:before {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             List
@@ -14367,6 +14369,11 @@ ol.ui.list ol,
 .ui.inverted.selection.list .item.active {
   background: rgba(255, 255, 255, 0.05);
   color: #ffffff;
+}
+/* Celled / Divided Selection List */
+.ui.celled.selection.list .item,
+.ui.divided.selection.list .item {
+  border-radius: 0em;
 }
 /*-------------------
        Animated
@@ -14744,7 +14751,7 @@ ol.ui.horizontal.list li:before,
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -14867,7 +14874,7 @@ ol.ui.horizontal.list li:before,
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Loader
@@ -15150,7 +15157,7 @@ ol.ui.horizontal.list li:before,
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -15267,7 +15274,7 @@ ol.ui.horizontal.list li:before,
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
              Rails
@@ -15384,7 +15391,7 @@ ol.ui.horizontal.list li:before,
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -15493,7 +15500,7 @@ ol.ui.horizontal.list li:before,
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Reveal
@@ -15779,7 +15786,7 @@ ol.ui.horizontal.list li:before,
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -15905,7 +15912,7 @@ ol.ui.horizontal.list li:before,
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Segment
@@ -16362,7 +16369,7 @@ ol.ui.horizontal.list li:before,
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -16490,7 +16497,7 @@ ol.ui.horizontal.list li:before,
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Step
@@ -16580,7 +16587,7 @@ ol.ui.horizontal.list li:before,
 }
 .ui.ordered.steps .step > * {
   display: table-cell;
-  vertical-align: top;
+  vertical-align: middle;
 }
 /*--------------
     Vertical
@@ -16839,7 +16846,7 @@ ol.ui.horizontal.list li:before,
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -16948,7 +16955,7 @@ ol.ui.horizontal.list li:before,
      User Global Variables
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
              Reset
@@ -17378,7 +17385,7 @@ th {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -17481,7 +17488,7 @@ th {
      User Global Variables
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
            Web Fonts
@@ -17608,7 +17615,7 @@ a:hover {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -17736,7 +17743,7 @@ a:hover {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Accordion
@@ -17750,21 +17757,30 @@ a:hover {
   margin: 1em 0em 0em;
   padding: 0em;
 }
+/* Title */
 .ui.accordion .title,
 .ui.accordion .accordion .title {
   cursor: pointer;
+}
+/* Default Styling */
+.ui.accordion .title:not(.ui) {
+  padding: 0.5em 0em;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 1em;
-  padding: 0.5em 0em;
   color: rgba(0, 0, 0, 0.8);
 }
-.ui.accordion .content,
-.ui.accordion .accordion .content {
+/* Content */
+.ui.accordion .title ~ .content,
+.ui.accordion .accordion .title ~ .content {
   display: none;
+}
+/* Default Styling */
+.ui.accordion .title ~ .content:not(.ui),
+.ui.accordion .accordion .title ~ .content:not(.ui) {
   margin: 0em;
   padding: 0.5em 0em 1em;
 }
-.ui.accordion .content:last-child {
+.ui.accordion .title ~ .content:not(.ui):last-child {
   padding-bottom: 0em;
 }
 /* Arrow */
@@ -17775,7 +17791,7 @@ a:hover {
   opacity: 0.75;
   width: 1.25em;
   height: 1em;
-  margin: 0em 0.25em 0em -0.25em;
+  margin: 0em 0.25rem 0em 0rem;
   -webkit-transition: -webkit-transform 0.2s ease, opacity 0.2s ease;
           transition: transform 0.2s ease, opacity 0.2s ease;
   vertical-align: baseline;
@@ -17963,7 +17979,7 @@ a:hover {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -18072,7 +18088,7 @@ a:hover {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
            Chat Room
@@ -18359,7 +18375,7 @@ a:hover {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -18488,7 +18504,7 @@ a:hover {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
            Checkbox
@@ -18923,7 +18939,7 @@ a:hover {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -19039,7 +19055,7 @@ a:hover {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Dimmer
@@ -19230,7 +19246,7 @@ body.dimmed.dimmable > :not(.dimmer) {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -19376,7 +19392,7 @@ b        Types
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Dropdown
@@ -20121,7 +20137,7 @@ select.ui.dropdown {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -20248,7 +20264,7 @@ select.ui.dropdown {
            Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
              Modal
@@ -20671,7 +20687,7 @@ select.ui.dropdown {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -20799,7 +20815,7 @@ select.ui.dropdown {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
              Nag
@@ -20958,7 +20974,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -21089,7 +21105,7 @@ a.ui.nag {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Popup
@@ -21357,7 +21373,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -21481,7 +21497,7 @@ a.ui.nag {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 .ui.progress {
   position: relative;
@@ -21845,7 +21861,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -21965,7 +21981,7 @@ a.ui.nag {
            Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
            Rating
@@ -22217,7 +22233,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -22344,7 +22360,7 @@ a.ui.nag {
            Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
              Search
@@ -22600,7 +22616,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -22715,7 +22731,7 @@ a.ui.nag {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
               Shape
@@ -22877,7 +22893,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -22986,7 +23002,7 @@ a.ui.nag {
            Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Sidebar
@@ -23448,7 +23464,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -23557,7 +23573,7 @@ a.ui.nag {
            Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Sticky
@@ -23655,7 +23671,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -23766,7 +23782,7 @@ a.ui.nag {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
            UI Tabs
@@ -23863,7 +23879,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -23972,7 +23988,7 @@ a.ui.nag {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
           Transitions
@@ -24952,7 +24968,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -25058,7 +25074,7 @@ a.ui.nag {
      User Global Variables
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Video
@@ -25200,7 +25216,7 @@ a.ui.nag {
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -25337,7 +25353,7 @@ a.ui.nag {
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Standard
@@ -26079,7 +26095,7 @@ a.ui.card:hover,
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -26209,7 +26225,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Standard
@@ -26464,7 +26480,7 @@ a.ui.card:hover,
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -26600,7 +26616,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
          Activity Feed
@@ -26877,7 +26893,7 @@ a.ui.card:hover,
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -26997,6 +27013,7 @@ a.ui.card:hover,
 /*-------------------
       Variations
 --------------------*/
+/* Relaxed */
 /* Divided */
 /* Sizes */
 /*------------------
@@ -27012,7 +27029,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Standard
@@ -27340,6 +27357,15 @@ a.ui.card:hover,
 .ui.items > .item > .image + [class*="bottom aligned"].content {
   vertical-align: bottom;
 }
+/*--------------
+     Relaxed
+---------------*/
+.ui.relaxed.items > .item {
+  margin: 1.5em 0em;
+}
+.ui[class*="very relaxed"].items > .item {
+  margin: 2em 0em;
+}
 /*-------------------
       Divided
 --------------------*/
@@ -27350,12 +27376,21 @@ a.ui.card:hover,
 }
 .ui.divided.items > .item:first-child {
   border-top: none;
-  margin-top: 0em;
-  padding-top: 0em;
+  margin-top: 0em !important;
+  padding-top: 0em !important;
 }
 .ui.divided.items > .item:last-child {
-  margin-bottom: 0em;
-  padding-bottom: 0em;
+  margin-bottom: 0em !important;
+  padding-bottom: 0em !important;
+}
+/* Relaxed Divided */
+.ui.relaxed.divided.items > .item {
+  margin: 0em;
+  padding: 1.5em 0em;
+}
+.ui[class*="very relaxed"].divided.items > .item {
+  margin: 0em;
+  padding: 2em 0em;
 }
 /*-------------------
         Link
@@ -27426,7 +27461,7 @@ a.ui.card:hover,
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -27556,7 +27591,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
            Statistic

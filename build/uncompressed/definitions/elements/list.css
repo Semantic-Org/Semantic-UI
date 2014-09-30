@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -194,7 +194,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             List
@@ -514,6 +514,11 @@ ol.ui.list ol,
 .ui.inverted.selection.list .item.active {
   background: rgba(255, 255, 255, 0.05);
   color: #ffffff;
+}
+/* Celled / Divided Selection List */
+.ui.celled.selection.list .item,
+.ui.divided.selection.list .item {
+  border-radius: 0em;
 }
 /*-------------------
        Animated

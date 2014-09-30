@@ -136,6 +136,10 @@
       Variations
 --------------------*/
 
+/* Relaxed */
+@relaxedItemSpacing: 1.5em;
+@veryRelaxedItemSpacing: 2em;
+
 /* Divided */
 @dividedBorder: 1px solid @borderColor;
 @dividedMargin: 0em;

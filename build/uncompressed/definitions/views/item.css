@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -163,6 +163,7 @@
 /*-------------------
       Variations
 --------------------*/
+/* Relaxed */
 /* Divided */
 /* Sizes */
 /*------------------
@@ -178,7 +179,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Standard
@@ -506,6 +507,15 @@
 .ui.items > .item > .image + [class*="bottom aligned"].content {
   vertical-align: bottom;
 }
+/*--------------
+     Relaxed
+---------------*/
+.ui.relaxed.items > .item {
+  margin: 1.5em 0em;
+}
+.ui[class*="very relaxed"].items > .item {
+  margin: 2em 0em;
+}
 /*-------------------
       Divided
 --------------------*/
@@ -516,12 +526,21 @@
 }
 .ui.divided.items > .item:first-child {
   border-top: none;
-  margin-top: 0em;
-  padding-top: 0em;
+  margin-top: 0em !important;
+  padding-top: 0em !important;
 }
 .ui.divided.items > .item:last-child {
-  margin-bottom: 0em;
-  padding-bottom: 0em;
+  margin-bottom: 0em !important;
+  padding-bottom: 0em !important;
+}
+/* Relaxed Divided */
+.ui.relaxed.divided.items > .item {
+  margin: 0em;
+  padding: 1.5em 0em;
+}
+.ui[class*="very relaxed"].divided.items > .item {
+  margin: 0em;
+  padding: 2em 0em;
 }
 /*-------------------
         Link

@@ -494,7 +494,6 @@
   margin-bottom: 0em !important;
 }
 
-
 /*----------------------
        "Floated"
 -----------------------*/
@@ -517,16 +516,18 @@
 }
 
 /* Swap from padding to margin on columns to have dividers align */
-.ui.divided.grid:not(.vertically) > .column:not(.row),
-.ui.divided.grid:not(.vertically) > .row > .column {
+.ui[class*="vertically divided"].grid > .column:not(.row),
+.ui[class*="vertically divided"].grid > .row > .column {
   margin-top: (@rowSpacing / 2);
   margin-bottom: (@rowSpacing / 2);
   padding-top: 0rem;
   padding-bottom: 0rem;
 }
-.ui.divided.grid:not(.vertically) > .row {
+.ui[class*="vertically divided"].grid > .row {
   margin-top: 0em;
   margin-bottom: 0em;
+  padding-top: 0em;
+  padding-bottom: 0em;
 }
 
 /* No divider on first column on row */
@@ -559,6 +560,14 @@
   margin: 0% (@gutterWidth / 2);
   box-shadow: @verticallyDividedBorder;
 }
+
+/* Padded Horizontally Divided */
+[class*="horizontally padded"].ui.divided.grid,
+.ui.padded.divided.grid:not(.vertically):not(.horizontally) {
+  width: 100%;
+}
+
+/* First Row Vertically Divided */
 .ui[class*="vertically divided"].grid > .row:first-child:before {
   box-shadow: none;
 }
