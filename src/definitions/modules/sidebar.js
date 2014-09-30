@@ -214,7 +214,7 @@ $.fn.sidebar = function(parameters) {
             ? callback
             : function(){}
           ;
-          if(module.is.closed()) {
+          if(module.is.closed() || module.is.outward()) {
             if(settings.overlay)  {
               module.error(error.overlay);
               settings.transition = 'overlay';
@@ -244,7 +244,7 @@ $.fn.sidebar = function(parameters) {
             ? callback
             : function(){}
           ;
-          if(module.is.visible()) {
+          if(module.is.visible() || module.is.inward()) {
             module.debug('Hiding sidebar', callback);
             animateMethod(function() {
               $.proxy(callback, element)();
@@ -289,6 +289,7 @@ $.fn.sidebar = function(parameters) {
             : function(){}
           ;
           animate = function() {
+            module.remove.outward();
             module.set.visible();
             module.set.transition();
             module.set.direction();
@@ -298,6 +299,7 @@ $.fn.sidebar = function(parameters) {
             });
           };
           $transition
+            .off(transitionEnd)
             .on(transitionEnd, function(event) {
               if( event.target == $transition[0] ) {
                 $transition.off(transitionEnd);
@@ -340,6 +342,7 @@ $.fn.sidebar = function(parameters) {
           module.unbind.clickaway();
 
           $transition
+            .off(transitionEnd)
             .on(transitionEnd, function(event) {
               if( event.target == $transition[0] ) {
                 $transition.off(transitionEnd);
@@ -347,18 +350,15 @@ $.fn.sidebar = function(parameters) {
                 module.remove.direction();
                 module.remove.outward();
                 module.remove.visible();
-                if(transition == 'scale down' || (module.is.mobile() && settings.returnScroll) ) {
-                  $page
-                    .animate({
-                      scrollTop: currentScroll
-                    }, 500)
-                  ;
+                if(transition == 'scale down' || (settings.returnScroll && transition !== 'overlay' && module.is.mobile()) ) {
+                  window.scrollTo(0, currentScroll);
                 }
                 $.proxy(callback, element)();
               }
             })
           ;
           requestAnimationFrame(function() {
+            module.remove.inward();
             module.set.outward();
             module.remove.active();
             module.remove.pushed();
@@ -799,7 +799,7 @@ $.fn.sidebar.settings = {
 
   dimPage           : true,
   scrollLock        : false,
-  returnScroll      : false,
+  returnScroll      : true,
 
   useLegacy         : false,
   duration          : 500,
