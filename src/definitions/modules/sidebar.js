@@ -299,10 +299,10 @@ $.fn.sidebar = function(parameters) {
             });
           };
           $transition
-            .off(transitionEnd)
-            .on(transitionEnd, function(event) {
+            .off(transitionEnd + eventNamespace)
+            .on(transitionEnd + eventNamespace, function(event) {
               if( event.target == $transition[0] ) {
-                $transition.off(transitionEnd);
+                $transition.off(transitionEnd + eventNamespace);
                 module.remove.inward();
                 module.bind.clickaway();
                 module.set.active();
@@ -342,10 +342,10 @@ $.fn.sidebar = function(parameters) {
           module.unbind.clickaway();
 
           $transition
-            .off(transitionEnd)
-            .on(transitionEnd, function(event) {
+            .off(transitionEnd + eventNamespace)
+            .on(transitionEnd + eventNamespace, function(event) {
               if( event.target == $transition[0] ) {
-                $transition.off(transitionEnd);
+                $transition.off(transitionEnd + eventNamespace);
                 module.remove.transition();
                 module.remove.direction();
                 module.remove.outward();
