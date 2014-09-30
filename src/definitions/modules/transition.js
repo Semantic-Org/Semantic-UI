@@ -52,6 +52,7 @@ $.fn.transition = function() {
 
         namespace,
         moduleNamespace,
+        eventNamespace,
         module
       ;
 
@@ -68,6 +69,7 @@ $.fn.transition = function() {
           namespace       = settings.namespace;
           metadata        = settings.metadata;
           moduleNamespace = 'module-' + namespace;
+          eventNamespace  = '.' + settings.namespace;
 
           animationEnd    = module.get.animationEvent();
           animationName   = module.get.animationName();
@@ -133,7 +135,7 @@ $.fn.transition = function() {
           module.debug('Preparing animation', settings.animation);
           if(module.is.animating() && settings.queue) {
             if(!settings.allowRepeats && module.has.direction() && module.is.occuring() && module.queuing !== true) {
-              module.error(error.repeated);
+              module.error(error.repeated, settings.animation);
             }
             else {
               module.queue(settings.animation);
@@ -160,7 +162,7 @@ $.fn.transition = function() {
           module.debug('Queueing animation of', animation);
           module.queuing = true;
           $module
-            .one(animationEnd, function() {
+            .one(animationEnd + eventNamespace, function() {
               module.queuing = false;
               module.repaint();
               module.animate.apply(this, settings);
@@ -218,7 +220,7 @@ $.fn.transition = function() {
               .addClass(className.animating)
               .addClass(className.transition)
               .addClass(animation)
-              .one(animationEnd, module.complete)
+              .one(animationEnd + eventNamespace, module.complete)
             ;
             module.set.duration(settings.duration);
             module.debug('Starting tween', settings.animation, $module.attr('class'));
@@ -675,10 +677,10 @@ $.fn.transition = function() {
               executionTime = currentTime - previousTime;
               time          = currentTime;
               performance.push({
-                'Element'        : element,
                 'Name'           : message[0],
                 'Arguments'      : [].slice.call(message, 1) || '',
-                'Execution Time' : executionTime
+                'Execution Time' : executionTime,
+                'Element'        : element
               });
             }
             clearTimeout(module.performance.timer);
@@ -790,10 +792,10 @@ $.fn.transition.settings = {
   debug       : false,
 
   // verbose debug output
-  verbose     : false,
+  verbose     : true,
 
   // performance data output
-  performance : false,
+  performance : true,
 
   // event namespace
   namespace   : 'transition',
