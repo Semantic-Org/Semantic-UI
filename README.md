@@ -13,7 +13,7 @@ Semantic may still be officially 'pre-release', but is already used in productio
 
 Although the pre-release branch ``0.x.x`` is actively being maintained, most important features like better theming support, and new components will land in ``1.0``.
 
-Beta documentation are available at [http://beta.semantic-ui.com](http://beta.semantic-ui.com) for testers and early adopters. Beta channel is currently available in [branch css](https://github.com/Semantic-Org/Semantic-UI/tree/css)
+Beta documentation are available at [http://beta.semantic-ui.com](http://beta.semantic-ui.com) for testers and early adopters. Beta channel is currently available in [branch 1.0](https://github.com/Semantic-Org/Semantic-UI/tree/1.0)
 
 Check out [this GitHub Issue thread](https://github.com/Semantic-Org/Semantic-UI/issues/691) for progress updates on 1.0 development.
 
