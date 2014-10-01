@@ -50,14 +50,11 @@ body {
        Inbox
 --------------------*/
 
-#feed .inbox.tab {
+#feed .page {
   background-color: #FFFFFF;
+  padding: 2em 0em;
 }
 
-#feed .inbox.tab .item {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
 
 #feed .inbox.tab .item .rating {
   margin-top: 0.2rem;
@@ -67,9 +64,9 @@ body {
   margin-left: 2em;
 }
 
-#feed .page {
+#feed .current {
   float: right;
-  margin-top: 0.9em;
+  margin: 0.5em 0em 0em 1em;
 }
 
 #feed .middle.column {
@@ -82,7 +79,7 @@ body {
 
 #feed .right.column {
   padding: 1em 2em;
-  background-color: #FAFAFA;
+  background-color: #FFFFFF;
 }
 
 /*******************************

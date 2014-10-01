@@ -78,57 +78,47 @@ html {
 /* Mobile Only */
 
 @media only screen and (max-width : 768px) {
-  .ui.page.grid.segment {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
 
-  .menu .right.menu > .item {
+  #home .menu .right.menu > .item {
     display: none;
   }
 
-  .menu .right.menu > .mobile.item {
+  #home .menu .right.menu > .mobile.item {
     display: block;
   }
 
-  h1.ui.header {
+  #home h1 {
     font-size: 1.5em;
   }
-
-  .masthead.segment {
-    background-size: auto;
+  #home .masthead.segment .information {
+    margin-left: 170px;
   }
 
-  .masthead.segment .information {
-    margin-left: 190px;
+  #home .masthead.segment .image {
+    width: 170px;
   }
 
-  .masthead.segment .image {
-    bottom: -65px;
-    width: 150px;
-  }
-
-  .masthead.segment .button {
+  #home .masthead.segment .button {
     font-size: 1rem;
   }
 
-  .overview .divided.grid .header .icon {
+  #home .overview .divided.grid .header .icon {
     font-size: 1.5em;
   }
 
-  .overview .divided.grid .header + p {
+  #home .overview .divided.grid .header + p {
     min-height: 0px;
   }
 
-  .masthead.segment .column {
+  #home .masthead.segment .column {
     font-size: 0.7rem;
   }
 
-  .masthead.segment .column p {
+  #home .masthead.segment .column p {
     display: none;
   }
 
-  .selection.list .right.floated {
+  #home .selection.list .right.floated {
     display: none;
   }
 }

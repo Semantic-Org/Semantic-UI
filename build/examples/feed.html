@@ -10,11 +10,11 @@
   <title>Feed Example - Semantic</title>
 
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="../packaged/css/semantic.css">
+  <link rel="stylesheet" type="text/css" href="../packaged/definitions/css/semantic.css">
 
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.js"></script>
-  <script src="../packaged/javascript/semantic.js"></script>
+  <script src="../packaged/definitions/javascript/semantic.js"></script>
 
   <link rel="stylesheet" type="text/css" href="feed.css">
   <script src="feed.js"></script>
@@ -50,7 +50,7 @@
       </div>
     </div>
   </div>
-  <div class="ui celled grid">
+  <div class="ui divided grid">
     <div class="seven wide middle column">
       <div class="ui right floated black launch button">
         <i class="list layout icon"></i> Menu
@@ -66,56 +66,76 @@
       </div>
       <div class="ui divided inbox selection list active tab" data-tab="unread">
         <a class="active item">
-          <div class="left floated ui star rating"><i class="icon"></i></div>
+          <div class="left floated ui star rating">
+            <i class="icon"></i>
+          </div>
           <div class="right floated date">Sep 14, 2013</div>
           <div class="description">Weekly Webcomic Wrapup fought the law, and the law won</div>
         </a>
         <a class="item">
-          <div class="left floated ui star rating"><i class="icon"></i></div>
+          <div class="left floated ui star rating">
+            <i class="icon"></i>
+          </div>
           <div class="right floated date">Sep 14, 2013</div>
           <div class="description">Scientists discover new breed of dog</div>
         </a>
         <a class="item">
-          <div class="left floated ui star rating"><i class="icon"></i></div>
+          <div class="left floated ui star rating">
+            <i class="icon"></i>
+          </div>
           <div class="right floated date">Sep 10, 2013</div>
           <div class="description">Dogs colony in Antarctica</div>
         </a>
         <a class="item">
-          <div class="left floated ui star rating"><i class="icon"></i></div>
+          <div class="left floated ui star rating">
+            <i class="icon"></i>
+          </div>
           <div class="right floated date">Sep 09, 2013</div>
           <div class="description">Famous dog whisperer Chakotay dies today at 104</div>
         </a>
         <a class="item">
-          <div class="left floated ui star rating"><i class="icon"></i></div>
+          <div class="left floated ui star rating">
+            <i class="icon"></i>
+          </div>
           <div class="right floated date">Sep 07, 2013</div>
           <div class="description">Top 10 Things to Know about Labradoodles</div>
         </a>
         <a class="item">
-          <div class="left floated ui star rating"><i class="icon"></i></div>
+          <div class="left floated ui star rating">
+            <i class="icon"></i>
+          </div>
           <div class="right floated date">Sep 05, 2013</div>
           <div class="description">Study shows children enjoy the company of animals</div>
         </a>
       </div>
       <div class="ui divided inbox selection list tab" data-tab="saved">
         <a class="item">
-          <div class="left floated ui star rating"><i class="icon"></i></div>
+          <div class="left floated ui star rating">
+            <i class="icon"></i>
+          </div>
           <div class="right floated date">Sep 14, 2013</div>
           <div class="description">Your favorite saved article</div>
         </a>
         <a class="item">
-          <div class="left floated ui star rating"><i class="icon"></i></div>
+          <div class="left floated ui star rating">
+            <i class="icon"></i>
+          </div>
           <div class="right floated date">Sep 14, 2013</div>
           <div class="description">Your favorite saved article</div>
         </a>
         <a class="item">
-          <div class="left floated ui star rating"><i class="icon"></i></div>
+          <div class="left floated ui star rating">
+            <i class="icon"></i>
+          </div>
           <div class="right floated date">Sep 14, 2013</div>
           <div class="description">Your favorite saved article</div>
         </a>
       </div>
       <div class="ui divided inbox selection list tab" data-tab="all">
         <a class="item">
-          <div class="left floated ui star rating"><i class="link icon"></i></div>
+          <div class="left floated ui star rating">
+            <i class="link icon"></i>
+          </div>
           <div class="right floated date">Sep 14, 2013</div>
           <div class="description">There turns out there is only one article under all.</div>
         </a>
@@ -123,7 +143,7 @@
 
       <div class="ui divider"></div>
 
-      <div class="page">Showing <b>6</b> of 213</div>
+      <div class="current">Showing <b>6</b> of 213</div>
       <div class="ui pagination menu">
         <a class="icon item"><i class="icon left arrow"></i></a>
         <a class="active item">1</a>
@@ -136,7 +156,11 @@
     </div>
     <div class="nine wide right column">
       <h1 class="ui header">Weekly Webcomic Wrapup fought the law, and the law won</h1>
-      Tags: <a class="ui teal label">Unread</a> <a class="ui teal label">Comics</a>
+
+      <a class="ui label">Unread</a>
+      <a class="ui label">Comics</a>
+
+      <div class="ui divider"></div>
       <p>So there's this video game coming out Tuesday called Grand Theft Auto 5. Don't know if you've heard of it. Anyways, it's all about crime and gangs and some roughneck ne'er-do-wells, so I thought this would be the perfect time to talk about times when we've been... well, less than perfect.</p>
       <p>When I was a young'un, I was a frequent visitor to the local swimming pool. I was also a frequent lover of AirHeads candy, which the pool happened to sell. Waiting, watching, stalking the counter like a big cat in the savannah, I waited for the perfect opportunity to strike. While the lifeguards were busy, I snuck through the gate, reached up and took both cherry and "mystery white" AirHeads. I quickly ran out to the sidewalk and reveled in my sweet, delicious victory... for all of ten seconds, before I felt guilty enough to sneak back in and return the .20 worth of candy I had stolen.</p>
       <p>While you confess your crimes - hopefully minor, and nothing you can be persecuted for - take a moment to enjoy this week's webcomics, and vote for your favorite after the jump.</p>
