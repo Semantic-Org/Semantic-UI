@@ -201,7 +201,7 @@ themes      : ['Default', 'GitHub', 'Google']
     <p>A message may be formatted to display a positive message.</p>
     <b class="ignored">
       <i class="attention icon"></i>
-      Positive/Success and Negative/Error nessages by default use similar colors, but each has their own color  variables that can be distinguished in your theme.
+      Positive/Success and Negative/Error messages by default use similar colors, but each has their own color  variables that can be distinguished in your theme.
     </b>
     <div class="ui positive message">
       <i class="close icon"></i>

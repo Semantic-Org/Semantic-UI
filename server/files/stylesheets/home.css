@@ -189,9 +189,9 @@
   -o-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 
-  -webkit-transform: rotateX(50deg) rotateZ(0deg) rotateY(0deg) translateY(-14%) translateX(-2%) translateZ(300px);
-  -moz-transform: rotateX(50deg) rotateZ(0deg) rotateY(0deg) translateY(-14%) translateX(-2%) translateZ(300px);
-  transform: rotateX(50deg) rotateZ(0deg) rotateY(0deg) translateY(-14%) translateX(-2%) translateZ(300px);
+  -webkit-transform: rotateX(50deg) rotateZ(0deg) rotateY(0deg) translateY(-10%) translateX(-2%) translateZ(370px);
+  -moz-transform: rotateX(50deg) rotateZ(0deg) rotateY(0deg) translateY(-10%) translateX(-2%) translateZ(370px);
+  transform: rotateX(50deg) rotateZ(0deg) rotateY(0deg) translateY(-10%) translateX(-2%) translateZ(370px);
 }
 
 /* Zoomed Out */
@@ -541,7 +541,7 @@
 
 #example.index .following.bar {
   position: absolute;
-  top: 50px;
+  top: 53px;
   z-index: 1;
   left: 0%;
   width: 100%;
@@ -555,6 +555,10 @@
 }
 #example.index .following .version.label {
   margin: 0.25em 0px 0px 1em;
+}
+
+#example.index .introduction .version.label {
+  visibility: hidden;
 }
 
 /*--------------

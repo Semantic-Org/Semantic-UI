@@ -13,11 +13,8 @@ type   : 'Semantic'
   <div class="ui page grid">
     <div class="column">
       <img src="images/share.png" class="logo">
-      <a class="ui pointing left teal version label" href="https://github.com/semantic-org/Semantic-UI/blob/css/RELEASE%20NOTES.md">
-        Version 1.0.0 Beta
-      </a>
       <div class="ui large inverted right floated secondary menu">
-        <div class="ui language top right pointing dropdown item" id="languages">
+        <div class="ui language floating dropdown item" id="languages">
           <i class="world icon"></i>
           <div class="text">Select Language</div>
           <div class="menu">
@@ -45,6 +42,9 @@ type   : 'Semantic'
   <div class="ui page grid">
     <div class="column">
       <div class="introduction">
+        <a class="ui black version label" href="https://github.com/semantic-org/Semantic-UI/blob/css/RELEASE%20NOTES.md">
+          1.0.0 Beta
+        </a>
         <h1 class="ui inverted header">
           <span class="library">
             Semantic UI
@@ -54,7 +54,7 @@ type   : 'Semantic'
           <span class="text">is the vocabulary of the web.</span>
         </h1>
         <div class="ui hidden divider"></div>
-        <a href="customize.html" class="ui huge basic inverted teal download button">
+        <a href="/build/semantic.zip" class="ui huge basic inverted teal download button">
           Download Now
           <i class="right chevron icon"></i>
         </a>
@@ -704,10 +704,9 @@ type   : 'Semantic'
     <div class="twelve wide column">
       <h1 class="ui inverted icon header">
         <img src="/images/icons/pen.png" class="ui icon image">
-        Lose the Hieroglyphics
+        Simplify Your Codebase
       </h1>
-      <p>Semantic's naming conventions are based around <em>common usage</em>, not arbitrarily prescribed standards—a practice borrowed from <a href="https://www.princeton.edu/~achaney/tmve/wiki100k/docs/Descriptive_linguistics.html" target="_blank">descriptive linguistics</a>.</p>
-      <div class="hidden code" data-type="html">
+      <p>Semantic's design is based around <a target="_blank" href="https://www.princeton.edu/~achaney/tmve/wiki100k/docs/Descriptive_linguistics.html"><em>common usage</em></a>, using features of natural language like, plurality, tense, and word order to make your code self-explanatory.</p>
         <div class="ui stackable center aligned very relaxed page grid">
           <div class="twelve wide column">
             <h1 class="ui inverted icon header">
@@ -715,9 +714,8 @@ type   : 'Semantic'
               Decodified Code
             </h1>
             <p>
-              Semantic's naming conventions are based around <em>common usage</em>, not arbitrarily prescribed standards—a practice borrowed from
-              <a>descriptive linguistics</a>
-              .
+              <p>Semantic's design is based around <a target="_blank"><em>common usage</em></a>, using features of natural language like, plurality, tense, and word order to make your code self-explanatory.
+              </p>
             </p>
             <!-- Recursion Omitted (Turtles all the way down) !-->
           </div>

@@ -9,6 +9,8 @@ semantic.home.ready = function() {
     $ui            = $header.find('h1 b'),
     $phrase        = $header.find('h1 span'),
     $download      = $header.find('.download'),
+    $library       = $header.find('.library'),
+    $version       = $header.find('.version'),
     handler
   ;
 
@@ -26,11 +28,6 @@ semantic.home.ready = function() {
         ;
       }, 1500);
 
-     /* setTimeout(function() {
-        $header
-          .addClass('colored')
-        ;
-      }, 10000);*/
       $ui.typed({
         replaceBaseText : true,
         strings         : [
@@ -42,8 +39,11 @@ semantic.home.ready = function() {
         backDelay       : 500
       });
       setTimeout(function() {
-        $('.masthead .library').transition('scale up', 1000);
+        $library.transition('scale in', 1000);
       }, 6400);
+      setTimeout(function() {
+        $version.transition('fade', 600);
+      }, 7000);
     }
   };
 

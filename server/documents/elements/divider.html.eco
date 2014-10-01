@@ -70,23 +70,25 @@ themes      : ['default']
     <p>A divider can segment content horizontally</p>
     <div class="ui ignored positive message">Horizontal dividers can also be used in combination with <a href="/elements/header.html">header</a> and <a href="/elements/icon.html">icons</a> to create different styles of dividers.
     </div>
-    <div class="ui ignored message">Dividers in Semantic <code>1.0</code> will automatically vary the size of their rules to match the length of your text</div>
-    <div class="ui tertiary form segment">
-      <div class="field">
-        <label>Lookup Order</label>
-        <div class="ui left labeled icon input">
-          <i class="search icon"></i>
-          <input type="text" placeholder="Order #">
+    <div class="ui ignored message">Dividers  will automatically vary the size of their dividing rules to match the length of your text</div>
+    <div class="ui segment">
+      <div class="ui form">
+        <div class="field">
+          <label>Lookup Order</label>
+          <div class="ui left labeled icon input">
+            <i class="search icon"></i>
+            <input type="text" placeholder="Order #">
+          </div>
         </div>
+        <div class="ui blue submit button">Search</div>
       </div>
-      <div class="ui blue submit button">Search</div>
-    </div>
-    <div class="ui horizontal divider">
-      Or
-    </div>
-    <div class="ui teal labeled icon button">
-      Create New Order
-      <i class="add icon"></i>
+      <div class="ui horizontal divider">
+        Or
+      </div>
+      <div class="ui teal labeled icon button">
+        Create New Order
+        <i class="add icon"></i>
+      </div>
     </div>
   </div>
   <div class="another example">
