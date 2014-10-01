@@ -89,9 +89,9 @@
 @transparentBlack       : rgba(0, 0, 0, 0.05);
 @strongTransparentBlack : rgba(0, 0, 0, 0.10);
 
-@subtleTransparentWhite : rgba(255, 255, 255, 0.01);
+@subtleTransparentWhite : rgba(255, 255, 255, 0.03);
 @transparentWhite       : rgba(255, 255, 255, 0.05);
-@strongTransparentWhite : rgba(255, 255, 255, 0.01);
+@strongTransparentWhite : rgba(255, 255, 255, 0.08);
 
 /* Used for differentiating neutrals */
 @subtleGradient: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
