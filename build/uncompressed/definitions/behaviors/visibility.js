@@ -60,7 +60,7 @@ $.fn.visibility = function(parameters) {
         initialize: function() {
           module.verbose('Initializing visibility', settings);
 
-          module.reset();
+          module.setup.cache();
           module.save.position();
           module.bindEvents();
           module.instantiate();
@@ -142,6 +142,13 @@ $.fn.visibility = function(parameters) {
         },
 
         setup: {
+          cache: function() {
+            module.cache = {
+              occurred : {},
+              screen   : {},
+              element  : {},
+            };
+          },
           image: function() {
             var
               src = $module.data('src')
@@ -191,11 +198,16 @@ $.fn.visibility = function(parameters) {
 
         reset: function() {
           module.verbose('Reseting all cached values');
-          module.cache = {
-            occurred: {},
-            screen  : {},
-            element : {}
-          };
+          if( $.isPlainObject(module.cache) ) {
+            module.cache.screen = {};
+            module.cache.element = {};
+            if(!settings.once) {
+              module.cache.occurred = {};
+            }
+          }
+          else {
+
+          }
         },
 
         checkVisibility: function() {

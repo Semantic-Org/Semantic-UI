@@ -325,9 +325,13 @@ $.fn.popup = function(parameters) {
             ;
             if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
               $popup
-                .transition(settings.transition + ' in', settings.duration, function() {
-                  module.bind.close();
-                  $.proxy(callback, element)();
+                .transition({
+                  animation : settings.transition + ' in',
+                  duration  : settings.duration,
+                  complete  : function() {
+                    module.bind.close();
+                    $.proxy(callback, element)();
+                  }
                 })
               ;
             }
@@ -347,9 +351,13 @@ $.fn.popup = function(parameters) {
             module.debug('Hiding pop-up');
             if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
               $popup
-                .transition(settings.transition + ' out', settings.duration, function() {
-                  module.reset();
-                  callback();
+                .transition({
+                  animation : settings.transition + ' out',
+                  duration  : settings.duration,
+                  complete  : function() {
+                    module.reset();
+                    callback();
+                  }
                 })
               ;
             }

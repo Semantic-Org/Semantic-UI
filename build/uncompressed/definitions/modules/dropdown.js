@@ -284,7 +284,6 @@ $.fn.dropdown = function(parameters) {
             fullTextRegExp = new RegExp(searchTerm, 'i'),
             $filteredItems
           ;
-          console.log(query);
           $item
             .each(function(){
               var
@@ -351,7 +350,6 @@ $.fn.dropdown = function(parameters) {
             var
               query = $search.val()
             ;
-            console.log($search, query);
             $text.addClass(className.filtered);
             module.filter(query);
           },
@@ -672,7 +670,7 @@ $.fn.dropdown = function(parameters) {
                 ? module.get.value()
                 : module.get.text()
             ;
-            strict = (value === '')
+            strict = (value === '' || value === 0)
               ? true
               : strict || false
             ;

@@ -214,7 +214,7 @@ $.fn.sidebar = function(parameters) {
             ? callback
             : function(){}
           ;
-          if(module.is.closed()) {
+          if(module.is.closed() || module.is.outward()) {
             if(settings.overlay)  {
               module.error(error.overlay);
               settings.transition = 'overlay';
@@ -244,7 +244,7 @@ $.fn.sidebar = function(parameters) {
             ? callback
             : function(){}
           ;
-          if(module.is.visible()) {
+          if(module.is.visible() || module.is.inward()) {
             module.debug('Hiding sidebar', callback);
             animateMethod(function() {
               $.proxy(callback, element)();
@@ -266,7 +266,7 @@ $.fn.sidebar = function(parameters) {
 
         toggle: function() {
           module.verbose('Determining toggled direction');
-          if(module.is.closed()) {
+          if(module.is.closed() || module.is.outward()) {
             module.show();
           }
           else {
@@ -289,6 +289,7 @@ $.fn.sidebar = function(parameters) {
             : function(){}
           ;
           animate = function() {
+            module.remove.outward();
             module.set.visible();
             module.set.transition();
             module.set.direction();
@@ -298,9 +299,10 @@ $.fn.sidebar = function(parameters) {
             });
           };
           $transition
-            .on(transitionEnd, function(event) {
+            .off(transitionEnd + eventNamespace)
+            .on(transitionEnd + eventNamespace, function(event) {
               if( event.target == $transition[0] ) {
-                $transition.off(transitionEnd);
+                $transition.off(transitionEnd + eventNamespace);
                 module.remove.inward();
                 module.bind.clickaway();
                 module.set.active();
@@ -313,7 +315,7 @@ $.fn.sidebar = function(parameters) {
             requestAnimationFrame(animate);
           }
           else {
-            if(module.is.mobile()) {
+            if(settings.transition == 'scale down' || module.is.mobile()) {
               $module.scrollTop(0);
               currentScroll = $(window).scrollTop();
               window.scrollTo(0, 0);
@@ -340,14 +342,15 @@ $.fn.sidebar = function(parameters) {
           module.unbind.clickaway();
 
           $transition
-            .on(transitionEnd, function(event) {
+            .off(transitionEnd + eventNamespace)
+            .on(transitionEnd + eventNamespace, function(event) {
               if( event.target == $transition[0] ) {
-                $transition.off(transitionEnd);
+                $transition.off(transitionEnd + eventNamespace);
                 module.remove.transition();
                 module.remove.direction();
                 module.remove.outward();
                 module.remove.visible();
-                if(module.is.mobile() && settings.returnScroll) {
+                if(transition == 'scale down' || (settings.returnScroll && transition !== 'overlay' && module.is.mobile()) ) {
                   window.scrollTo(0, currentScroll);
                 }
                 $.proxy(callback, element)();
@@ -355,6 +358,7 @@ $.fn.sidebar = function(parameters) {
             })
           ;
           requestAnimationFrame(function() {
+            module.remove.inward();
             module.set.outward();
             module.remove.active();
             module.remove.pushed();
@@ -795,7 +799,7 @@ $.fn.sidebar.settings = {
 
   dimPage           : true,
   scrollLock        : false,
-  returnScroll      : false,
+  returnScroll      : true,
 
   useLegacy         : false,
   duration          : 500,
@@ -824,7 +828,7 @@ $.fn.sidebar.settings = {
 
   selector: {
     fixed   : '.ui.fixed',
-    omitted : 'script, link, style, .ui.modal, .ui.nag, .ui.fixed',
+    omitted : 'script, link, style, .ui.modal, .ui.dimmer, .ui.nag, .ui.fixed',
     page    : '.page',
     pusher  : '.pusher',
     sidebar : '.ui.sidebar'

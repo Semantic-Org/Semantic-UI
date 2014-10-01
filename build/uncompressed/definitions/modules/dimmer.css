@@ -172,8 +172,8 @@
   position: absolute;
   top: 0em !important;
   left: 0em !important;
-  width: 0%;
-  height: 0%;
+  width: 100%;
+  height: 100%;
   text-align: center;
   vertical-align: middle;
   background: rgba(0, 0, 0, 0.85);
@@ -221,8 +221,6 @@
 .dimmed.dimmable > .ui.visible.dimmer,
 .ui.active.dimmer {
   display: block;
-  width: 100%;
-  height: 100%;
   opacity: 1;
 }
 .ui.disabled.dimmer {
@@ -281,6 +279,8 @@ body.dimmed.dimmable > :not(.dimmer) {
   display: block;
   overflow: hidden;
   opacity: 1;
+  width: 0%;
+  height: 0%;
   z-index: -100;
   background-color: rgba(0, 0, 0, 0);
 }

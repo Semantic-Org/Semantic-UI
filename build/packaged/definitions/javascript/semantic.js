@@ -2613,7 +2613,7 @@ $.fn.visibility = function(parameters) {
         initialize: function() {
           module.verbose('Initializing visibility', settings);
 
-          module.reset();
+          module.setup.cache();
           module.save.position();
           module.bindEvents();
           module.instantiate();
@@ -2695,6 +2695,13 @@ $.fn.visibility = function(parameters) {
         },
 
         setup: {
+          cache: function() {
+            module.cache = {
+              occurred : {},
+              screen   : {},
+              element  : {},
+            };
+          },
           image: function() {
             var
               src = $module.data('src')
@@ -2744,11 +2751,16 @@ $.fn.visibility = function(parameters) {
 
         reset: function() {
           module.verbose('Reseting all cached values');
-          module.cache = {
-            occurred: {},
-            screen  : {},
-            element : {}
-          };
+          if( $.isPlainObject(module.cache) ) {
+            module.cache.screen = {};
+            module.cache.element = {};
+            if(!settings.once) {
+              module.cache.occurred = {};
+            }
+          }
+          else {
+
+          }
         },
 
         checkVisibility: function() {
@@ -6999,7 +7011,6 @@ $.fn.dropdown = function(parameters) {
             fullTextRegExp = new RegExp(searchTerm, 'i'),
             $filteredItems
           ;
-          console.log(query);
           $item
             .each(function(){
               var
@@ -7066,7 +7077,6 @@ $.fn.dropdown = function(parameters) {
             var
               query = $search.val()
             ;
-            console.log($search, query);
             $text.addClass(className.filtered);
             module.filter(query);
           },
@@ -7387,7 +7397,7 @@ $.fn.dropdown = function(parameters) {
                 ? module.get.value()
                 : module.get.text()
             ;
-            strict = (value === '')
+            strict = (value === '' || value === 0)
               ? true
               : strict || false
             ;
@@ -8328,7 +8338,7 @@ $.fn.modal = function(parameters) {
         },
 
         toggle: function() {
-          if( module.is.active() ) {
+          if( module.is.active() || module.is.animating() ) {
             module.hide();
           }
           else {
@@ -8365,10 +8375,14 @@ $.fn.modal = function(parameters) {
               if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
                 module.debug('Showing modal with css animations');
                 $module
-                  .transition(settings.transition + ' in', settings.duration, function() {
-                    $.proxy(settings.onVisible, element)();
-                    module.set.active();
-                    callback();
+                  .transition({
+                    animation : settings.transition + ' in',
+                    duration  : settings.duration,
+                    complete  : function() {
+                      $.proxy(settings.onVisible, element)();
+                      module.set.active();
+                      callback();
+                    }
                   })
                 ;
               }
@@ -8411,7 +8425,7 @@ $.fn.modal = function(parameters) {
         },
 
         hideDimmer: function() {
-          if( !module.is.active() ) {
+          if( !($dimmable.dimmer('is active') || $dimmable.dimmer('is animating')) ) {
             module.debug('Dimmer is not visible cannot hide');
             return;
           }
@@ -8423,9 +8437,6 @@ $.fn.modal = function(parameters) {
           }
           $dimmable.dimmer('hide', function() {
             if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
-              $module
-                .transition('reset')
-              ;
               module.remove.screenHeight();
             }
             module.remove.active();
@@ -8437,7 +8448,7 @@ $.fn.modal = function(parameters) {
             ? callback
             : function(){}
           ;
-          if( !module.is.active() ) {
+          if( !(module.is.active() || module.is.animating()) ) {
             module.debug('Cannot hide modal it is not active');
             return;
           }
@@ -8446,11 +8457,15 @@ $.fn.modal = function(parameters) {
           $.proxy(settings.onHide, element)();
           if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
             $module
-              .transition(settings.transition + ' out', settings.duration, function() {
-                $.proxy(settings.onHidden, element)();
-                module.remove.active();
-                module.restore.focus();
-                callback();
+              .transition({
+                animation : settings.transition + ' out',
+                duration  : settings.duration,
+                complete  : function() {
+                  $.proxy(settings.onHidden, element)();
+                  module.remove.active();
+                  module.restore.focus();
+                  callback();
+                }
               })
             ;
           }
@@ -8567,6 +8582,12 @@ $.fn.modal = function(parameters) {
         is: {
           active: function() {
             return $module.hasClass(className.active);
+          },
+          animating: function() {
+            return $module.transition('is supported')
+              ? $module.transition('is animating')
+              : $module.is(':visible')
+            ;
           },
           modernBrowser: function() {
             // appName for IE11 reports 'Netscape' can no longer use
@@ -9676,9 +9697,13 @@ $.fn.popup = function(parameters) {
             ;
             if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
               $popup
-                .transition(settings.transition + ' in', settings.duration, function() {
-                  module.bind.close();
-                  $.proxy(callback, element)();
+                .transition({
+                  animation : settings.transition + ' in',
+                  duration  : settings.duration,
+                  complete  : function() {
+                    module.bind.close();
+                    $.proxy(callback, element)();
+                  }
                 })
               ;
             }
@@ -9698,9 +9723,13 @@ $.fn.popup = function(parameters) {
             module.debug('Hiding pop-up');
             if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
               $popup
-                .transition(settings.transition + ' out', settings.duration, function() {
-                  module.reset();
-                  callback();
+                .transition({
+                  animation : settings.transition + ' out',
+                  duration  : settings.duration,
+                  complete  : function() {
+                    module.reset();
+                    callback();
+                  }
                 })
               ;
             }
@@ -13284,7 +13313,7 @@ $.fn.sidebar = function(parameters) {
             ? callback
             : function(){}
           ;
-          if(module.is.closed()) {
+          if(module.is.closed() || module.is.outward()) {
             if(settings.overlay)  {
               module.error(error.overlay);
               settings.transition = 'overlay';
@@ -13314,7 +13343,7 @@ $.fn.sidebar = function(parameters) {
             ? callback
             : function(){}
           ;
-          if(module.is.visible()) {
+          if(module.is.visible() || module.is.inward()) {
             module.debug('Hiding sidebar', callback);
             animateMethod(function() {
               $.proxy(callback, element)();
@@ -13336,7 +13365,7 @@ $.fn.sidebar = function(parameters) {
 
         toggle: function() {
           module.verbose('Determining toggled direction');
-          if(module.is.closed()) {
+          if(module.is.closed() || module.is.outward()) {
             module.show();
           }
           else {
@@ -13359,6 +13388,7 @@ $.fn.sidebar = function(parameters) {
             : function(){}
           ;
           animate = function() {
+            module.remove.outward();
             module.set.visible();
             module.set.transition();
             module.set.direction();
@@ -13368,9 +13398,10 @@ $.fn.sidebar = function(parameters) {
             });
           };
           $transition
-            .on(transitionEnd, function(event) {
+            .off(transitionEnd + eventNamespace)
+            .on(transitionEnd + eventNamespace, function(event) {
               if( event.target == $transition[0] ) {
-                $transition.off(transitionEnd);
+                $transition.off(transitionEnd + eventNamespace);
                 module.remove.inward();
                 module.bind.clickaway();
                 module.set.active();
@@ -13383,7 +13414,7 @@ $.fn.sidebar = function(parameters) {
             requestAnimationFrame(animate);
           }
           else {
-            if(module.is.mobile()) {
+            if(settings.transition == 'scale down' || module.is.mobile()) {
               $module.scrollTop(0);
               currentScroll = $(window).scrollTop();
               window.scrollTo(0, 0);
@@ -13410,14 +13441,15 @@ $.fn.sidebar = function(parameters) {
           module.unbind.clickaway();
 
           $transition
-            .on(transitionEnd, function(event) {
+            .off(transitionEnd + eventNamespace)
+            .on(transitionEnd + eventNamespace, function(event) {
               if( event.target == $transition[0] ) {
-                $transition.off(transitionEnd);
+                $transition.off(transitionEnd + eventNamespace);
                 module.remove.transition();
                 module.remove.direction();
                 module.remove.outward();
                 module.remove.visible();
-                if(module.is.mobile() && settings.returnScroll) {
+                if(transition == 'scale down' || (settings.returnScroll && transition !== 'overlay' && module.is.mobile()) ) {
                   window.scrollTo(0, currentScroll);
                 }
                 $.proxy(callback, element)();
@@ -13425,6 +13457,7 @@ $.fn.sidebar = function(parameters) {
             })
           ;
           requestAnimationFrame(function() {
+            module.remove.inward();
             module.set.outward();
             module.remove.active();
             module.remove.pushed();
@@ -13865,7 +13898,7 @@ $.fn.sidebar.settings = {
 
   dimPage           : true,
   scrollLock        : false,
-  returnScroll      : false,
+  returnScroll      : true,
 
   useLegacy         : false,
   duration          : 500,
@@ -13894,7 +13927,7 @@ $.fn.sidebar.settings = {
 
   selector: {
     fixed   : '.ui.fixed',
-    omitted : 'script, link, style, .ui.modal, .ui.nag, .ui.fixed',
+    omitted : 'script, link, style, .ui.modal, .ui.dimmer, .ui.nag, .ui.fixed',
     page    : '.page',
     pusher  : '.pusher',
     sidebar : '.ui.sidebar'
@@ -14219,7 +14252,8 @@ $.fn.sticky = function(parameters) {
               tagName = $container.get(0).tagName
             ;
             if(tagName === 'HTML' || tagName == 'body') {
-              module.error(error.container, tagName, $module);
+              // this can trigger for too many reasons
+              //module.error(error.container, tagName, $module);
               $container = $module.offsetParent();
             }
             else {
@@ -15536,26 +15570,25 @@ $.fn.transition = function() {
 
         namespace,
         moduleNamespace,
+        eventNamespace,
         module
       ;
 
       module = {
 
         initialize: function() {
-          // get settings
-          settings        = module.get.settings.apply(element, moduleArguments);
-          module.verbose('Converted arguments into settings object', settings);
 
-          // set shortcuts
-          error           = settings.error;
-          className       = settings.className;
-          namespace       = settings.namespace;
-          metadata        = settings.metadata;
+          // get full settings
           moduleNamespace = 'module-' + namespace;
+          settings        = module.get.settings.apply(element, moduleArguments);
+          className       = settings.className;
+          metadata        = settings.metadata;
 
           animationEnd    = module.get.animationEvent();
           animationName   = module.get.animationName();
-
+          error           = settings.error;
+          namespace       = settings.namespace;
+          eventNamespace  = '.' + settings.namespace;
           instance        = $module.data(moduleNamespace) || module;
 
           if(methodInvoked) {
@@ -15563,6 +15596,7 @@ $.fn.transition = function() {
           }
           // no internal method was found matching query or query not made
           if(methodInvoked === false) {
+            module.verbose('Converted arguments into settings object', settings);
             module.animate();
             module.instantiate();
           }
@@ -15634,7 +15668,7 @@ $.fn.transition = function() {
 
         reset: function() {
           module.debug('Resetting animation to beginning conditions');
-          $module.off(animationEnd);
+          $module.off(animationEnd + eventNamespace);
           module.restore.conditions();
           module.hide();
           module.remove.animating();
@@ -15644,7 +15678,7 @@ $.fn.transition = function() {
           module.debug('Queueing animation of', animation);
           module.queuing = true;
           $module
-            .one(animationEnd, function() {
+            .one(animationEnd + eventNamespace, function() {
               module.queuing = false;
               module.repaint();
               module.animate.apply(this, settings);
@@ -15665,6 +15699,7 @@ $.fn.transition = function() {
             else if( module.is.inward() ) {
               module.verbose('Animation is outward, showing element');
               module.restore.conditions();
+              module.set.display();
               module.show();
               $.proxy(settings.onShow, this)();
             }
@@ -15689,7 +15724,6 @@ $.fn.transition = function() {
         },
 
         set: {
-
           animating: function(animation) {
             animation = animation || settings.animation;
             module.save.conditions();
@@ -15702,24 +15736,24 @@ $.fn.transition = function() {
               .addClass(className.animating)
               .addClass(className.transition)
               .addClass(animation)
-              .one(animationEnd, module.complete)
+              .one(animationEnd + eventNamespace, module.complete)
             ;
             module.set.duration(settings.duration);
             module.debug('Starting tween', settings.animation, $module.attr('class'));
           },
-
           display: function() {
             var
               style         = $module.attr('style') || '',
               displayType   = module.get.displayType(),
               overrideStyle = style + ';display: ' + displayType + ' !important;'
             ;
-            module.verbose('Setting final visibility to', displayType);
-            $module
-              .attr('style', overrideStyle)
-            ;
+            if( $module.css('display') !== displayType ) {
+              module.verbose('Setting inline visibility to', displayType);
+              $module
+                .attr('style', overrideStyle)
+              ;
+            }
           },
-
           direction: function() {
             if($module.is(':visible') && !module.is.hidden()) {
               module.debug('Automatically determining the direction of animation', 'Outward');
@@ -15736,14 +15770,12 @@ $.fn.transition = function() {
               ;
             }
           },
-
           looping: function() {
             module.debug('Transition set to loop');
             $module
               .addClass(className.looping)
             ;
           },
-
           duration: function(duration) {
             duration = duration || settings.duration;
             duration = (typeof duration == 'number')
@@ -15761,24 +15793,20 @@ $.fn.transition = function() {
               })
             ;
           },
-
           hidden: function() {
             if(!module.is.hidden()) {
               $module
                 .addClass(className.transition)
                 .addClass(className.hidden)
               ;
-              requestAnimationFrame(function() {
-                if($module.css('display') !== 'none') {
-                  module.verbose('Overriding default display to hide element');
-                  $module
-                    .css('display', 'none')
-                  ;
-                }
-              });
+              if($module.css('display') !== 'none') {
+                module.verbose('Overriding default display to hide element');
+                $module
+                  .css('display', 'none')
+                ;
+              }
             }
           },
-
           visible: function() {
             $module
               .addClass(className.transition)
@@ -15821,7 +15849,7 @@ $.fn.transition = function() {
             }
             else {
               if(module.get.displayType() === 'block') {
-                module.verbose('Removing inline block style, element defaults to block');
+                module.verbose('Removing inline style override, element defaults to block');
                 $module.removeAttr('style');
               }
             }
@@ -15833,17 +15861,14 @@ $.fn.transition = function() {
         },
 
         remove: {
-
           animating: function() {
             $module.removeClass(className.animating);
           },
-
           display: function() {
             if(module.displayType !== undefined) {
               $module.css('display', '');
             }
           },
-
           duration: function() {
             $module
               .css({
@@ -15855,15 +15880,12 @@ $.fn.transition = function() {
               })
             ;
           },
-
           hidden: function() {
             $module.removeClass(className.hidden);
           },
-
           visible: function() {
             $module.removeClass(className.visible);
           },
-
           looping: function() {
             module.debug('Transitions are no longer looping');
             $module
@@ -15871,18 +15893,14 @@ $.fn.transition = function() {
             ;
             module.forceRepaint();
           },
-
           transition: function() {
             $module
               .removeClass(className.visible)
               .removeClass(className.hidden)
             ;
           }
-
         },
-
         get: {
-
           settings: function(animation, duration, complete) {
             // single settings object
             if(typeof animation == 'object') {
@@ -15924,7 +15942,6 @@ $.fn.transition = function() {
             }
             return $.fn.transition.settings;
           },
-
           displayType: function() {
             if(module.displayType === undefined) {
               // create fake element to determine display state
@@ -15932,11 +15949,9 @@ $.fn.transition = function() {
             }
             return module.displayType;
           },
-
           transitionExists: function(animation) {
             return $.fn.transition.exists[animation];
           },
-
           animationName: function() {
             var
               element     = document.createElement('div'),
@@ -15950,13 +15965,11 @@ $.fn.transition = function() {
             ;
             for(animation in animations){
               if( element.style[animation] !== undefined ){
-                module.verbose('Determined animation vendor name property', animations[animation]);
                 return animations[animation];
               }
             }
             return false;
           },
-
           animationEvent: function() {
             var
               element     = document.createElement('div'),
@@ -15970,7 +15983,6 @@ $.fn.transition = function() {
             ;
             for(animation in animations){
               if( element.style[animation] !== undefined ){
-                module.verbose('Determined animation vendor end event', animations[animation]);
                 return animations[animation];
               }
             }
@@ -16034,7 +16046,9 @@ $.fn.transition = function() {
               }
               $clone.remove();
               module.save.displayType(displayType);
-              module.save.transitionExists(animation, transitionExists);
+              if(transitionExists === undefined) {
+                module.save.transitionExists(animation, transitionExists);
+              }
             }
             return transitionExists;
           }
@@ -16159,14 +16173,14 @@ $.fn.transition = function() {
               executionTime = currentTime - previousTime;
               time          = currentTime;
               performance.push({
-                'Element'        : element,
                 'Name'           : message[0],
                 'Arguments'      : [].slice.call(message, 1) || '',
+                'Element'        : element,
                 'Execution Time' : executionTime
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 600);
           },
           display: function() {
             var
@@ -16200,6 +16214,7 @@ $.fn.transition = function() {
             performance = [];
           }
         },
+        // modified for transition to return invoke success
         invoke: function(query, passedArguments, context) {
           var
             object = instance,
@@ -16242,6 +16257,7 @@ $.fn.transition = function() {
           else if(found !== undefined) {
             response = found;
           }
+
           if($.isArray(returnedValue)) {
             returnedValue.push(response);
           }
@@ -16251,7 +16267,10 @@ $.fn.transition = function() {
           else if(response !== undefined) {
             returnedValue = response;
           }
-          return found || false;
+          return (found !== undefined)
+            ? found
+            : false
+          ;
         }
       };
       module.initialize();
@@ -16263,6 +16282,7 @@ $.fn.transition = function() {
   ;
 };
 
+// Records if CSS transition is available
 $.fn.transition.exists = {};
 
 $.fn.transition.settings = {
@@ -16274,10 +16294,10 @@ $.fn.transition.settings = {
   debug       : false,
 
   // verbose debug output
-  verbose     : false,
+  verbose     : true,
 
   // performance data output
-  performance : false,
+  performance : true,
 
   // event namespace
   namespace   : 'transition',
@@ -16287,7 +16307,7 @@ $.fn.transition.settings = {
   onShow      : function() {},
   onHide      : function() {},
 
-  // whether animation can occur twice in a row
+  // whether EXACT animation can occur twice in a row
   allowRepeats : false,
 
   // animation duration

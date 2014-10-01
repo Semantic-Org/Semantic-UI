@@ -899,6 +899,18 @@
   border-radius: 0em 0em 0em 0em;
 }
 
+/* Top Side */
+[class*="top attached"].ui.buttons {
+  margin-bottom: @attachedOffset;
+  border-radius: @borderRadius @borderRadius 0em 0em;
+}
+[class*="top attached"].ui.buttons .button:first-child {
+  border-radius: @borderRadius 0em 0em 0em;
+}
+[class*="top attached"].ui.buttons .button:last-child {
+  border-radius: 0em @borderRadius 0em 0em;
+}
+
 /* Bottom Side */
 [class*="bottom attached"].ui.buttons {
   margin-top: @attachedOffset;

@@ -191,10 +191,10 @@
 /* Hidden */
 .hidden.transition {
   display: none;
+  visibility: hidden;
 }
 /* Visible */
 .visible.transition {
-  display: block !important;
   visibility: visible !important;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;

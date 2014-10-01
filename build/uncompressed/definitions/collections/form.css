@@ -480,9 +480,9 @@
 .ui.form .field.error input[type="tel"]:focus {
   background: #fae8e8;
   border-color: #dbb1b1;
-  color: #e07979;
+  color: #dc6868;
   -webkit-appearance: none;
-  box-shadow: 2px 0em 0em 0em #e07979 inset;
+  box-shadow: 2px 0em 0em 0em #dc6868 inset;
 }
 /*------------------
     Dropdown Error

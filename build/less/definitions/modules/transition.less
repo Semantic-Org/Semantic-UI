@@ -28,7 +28,6 @@
   https://github.com/daneden/animate.css
 */
 
-
 .transition {
   animation-iteration-count: 1;
   animation-duration: @transitionDefaultDuration;
@@ -58,11 +57,11 @@
 /* Hidden */
 .hidden.transition {
   display: none;
+  visibility: hidden;
 }
 
 /* Visible */
 .visible.transition {
-  display: block !important;
   visibility: visible !important;
   backface-visibility: @backfaceVisibility;
   transform: @use3DAcceleration;

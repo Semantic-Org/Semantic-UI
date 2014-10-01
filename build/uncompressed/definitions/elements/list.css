@@ -504,7 +504,7 @@ ol.ui.list ol,
   color: rgba(255, 255, 255, 0.5);
 }
 .ui.inverted.selection.list .item:hover {
-  background: rgba(255, 255, 255, 0.01);
+  background: rgba(255, 255, 255, 0.02);
   color: #ffffff;
 }
 .ui.inverted.selection.list .item:active {
