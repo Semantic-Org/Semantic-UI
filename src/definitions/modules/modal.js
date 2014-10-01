@@ -341,7 +341,6 @@ $.fn.modal = function(parameters) {
           module.remove.keyboardShortcuts();
           $.proxy(settings.onHide, element)();
           if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
-            console.log('hiding');
             $module
               .transition({
                 animation : settings.transition + ' out',
@@ -729,7 +728,7 @@ $.fn.modal.settings = {
   name          : 'Modal',
   namespace     : 'modal',
 
-  debug         : true,
+  debug         : false,
   verbose       : true,
   performance   : true,
 
