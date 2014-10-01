@@ -1035,6 +1035,14 @@ body.progress.animated .ui.progress .bar {
 }
 
 /*--------------
+      Flag
+---------------*/
+
+#example.flag .basic.table tbody td:first-child {
+  width: 20px;
+}
+
+/*--------------
       Feed
 ---------------*/
 
