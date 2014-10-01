@@ -764,6 +764,7 @@ $.fn.transition = function() {
   ;
 };
 
+// Records if CSS transition is available
 $.fn.transition.exists = {};
 
 $.fn.transition.settings = {
