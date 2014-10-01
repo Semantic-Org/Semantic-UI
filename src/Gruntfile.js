@@ -19,19 +19,19 @@ module.exports = function(grunt) {
       // copy js
       'copy:file',
 
-      // auto prefix outputted file
+      // auto prefix modified file
       'autoprefixer:prefixFile',
 
-      // creates minified js of outputted file if it is js
+      // creates minified js of modified file if it is js
       'newer:uglify:minifyOutput',
 
-      // creates minified css of outputted file if it is css
+      // creates minified css of modified file if it is css
       'newer:cssmin:minifyOutput',
 
-      // create concatenated css release if outputted file is css
+      // create concatenated css release if modified file is css
       'newer:concat:createCSSPackage',
 
-      // create concatenated js release if outputted file is js
+      // create concatenated js release if modified file is js
       'newer:concat:createJSPackage'
     ],
 
@@ -55,7 +55,7 @@ module.exports = function(grunt) {
       // copy javascript definitions
       'copy:javascript',
 
-      // auto prefix all outputted files
+      // auto prefix all modified files
       'autoprefixer:prefixOutput',
 
       // creates minified js of each output file
