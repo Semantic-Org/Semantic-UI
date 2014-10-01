@@ -444,6 +444,9 @@
   100% { opacity:1; }
 }
 
+#example.index .vertical.segment {
+  box-shadow: none;
+}
 
 #example.index .masthead {
   position: relative;

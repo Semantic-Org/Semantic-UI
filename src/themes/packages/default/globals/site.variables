@@ -91,7 +91,7 @@
 
 @subtleTransparentWhite : rgba(255, 255, 255, 0.02);
 @transparentWhite       : rgba(255, 255, 255, 0.05);
-@strongTransparentWhite : rgba(255, 255, 255, 0.08);
+@strongTransparentWhite : rgba(255, 255, 255, 0.07);
 
 /* Used for differentiating neutrals */
 @subtleGradient: linear-gradient(transparent, rgba(0, 0, 0, 0.05));

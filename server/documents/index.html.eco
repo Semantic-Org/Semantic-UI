@@ -703,19 +703,18 @@ type   : 'Semantic'
   <div class="ui stackable center aligned very relaxed page grid">
     <div class="twelve wide column">
       <h1 class="ui inverted icon header">
-        <img src="/images/icons/pen.png" class="ui icon image">
+        <img src="/images/icons/pen.png" class="icon image">
         Simplify Your Codebase
       </h1>
       <p>Semantic's design is based around <a target="_blank" href="https://www.princeton.edu/~achaney/tmve/wiki100k/docs/Descriptive_linguistics.html"><em>common usage</em></a>, using features of natural language like, plurality, tense, and word order to make your code self-explanatory.</p>
+      <div class="hidden code" data-type="html">
         <div class="ui stackable center aligned very relaxed page grid">
           <div class="twelve wide column">
             <h1 class="ui inverted icon header">
-              <i class="code icon"></i>
-              Decodified Code
+              <img src="/images/icons/pen.png" class="icon image">
+              Simplify Your Codebase
             </h1>
-            <p>
-              <p>Semantic's design is based around <a target="_blank"><em>common usage</em></a>, using features of natural language like, plurality, tense, and word order to make your code self-explanatory.
-              </p>
+            <p>Semantic's design is based around <a target="_blank"><em>common usage</em></a>, using features of natural language like, plurality, tense, and word order to make your code self-explanatory.
             </p>
             <!-- Recursion Omitted (Turtles all the way down) !-->
           </div>
