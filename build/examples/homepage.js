@@ -48,7 +48,7 @@ $(document)
     ;
 
     $('.masthead .information')
-      .transition('scale in')
+      .transition('scale in', 1000)
     ;
 
     setInterval(changeSides, 3000);

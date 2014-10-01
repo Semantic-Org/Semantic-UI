@@ -2,125 +2,74 @@
             Global
 *******************************/
 
-html,
-body {
-  font-size: 15px;
-  height: 100%;
+html {
+  font-size: 14px;
 }
 
-body {
-  font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  background: #FFFFFF;
-  margin: 0px;
-  padding: 0px;
-  color: #555555;
-  text-rendering: optimizeLegibility;
-  min-width: 320px;
-}
-
-/*******************************
-          UI Overrides
-*******************************/
-
-.ui.header {
-  font-family: 'Source Sans Pro', "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-}
-
-.ui.header,
-h1,
-h2 {
-  font-weight: normal !important;
-}
-
-h1.ui.header {
-  font-size: 3em;
-}
-
-h4.ui.header,
-h5.ui.header,
-.ui.icon.header {
-  font-weight: bold !important;
-}
-
-.ui.button {
-  font-weight: normal;
-  text-decoration: none;
-}
-
-a {
-  color: #009FDA;
-  text-decoration: none;
-  -webkit-transition: color 0.3s ease;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: #00BAFF;
-}
-
-p a {
-  font-weight: bold;
-}
 
 /*******************************
             Global
 *******************************/
 
-.menu .right.menu > .mobile.item {
+#home .menu .right.menu > .mobile.item {
   display: none;
 }
 
-.ui.page.grid.segment {
-  padding-top: 3.5rem;
-  padding-bottom: 3.5rem;
-}
+/*--------------
+    Masthead
+---------------*/
 
-.masthead.segment {
+#home .masthead {
   background-image: url(images/bg.jpg);
-  background-size: cover;
   margin: 0em;
-  padding-top: 4rem;
-  overflow: hidden;
-  box-shadow: 0 -20px 10px 0 rgba(0, 0, 0, 0.1) inset !important;
+  padding: 5rem 0rem;
 }
-
-.masthead.segment .column {
+#home .masthead .column {
   position: relative;
 }
-
-.masthead.segment .information {
-  margin: 3em 1em 1em 280px;
+#home .masthead .information {
+  margin: 10em 1em 1em 350px;
 }
-
-.masthead.segment .information p {
+#home .masthead .information p {
   max-width: 600px;
-  margin: 0em 0px 2em 0em;
-  font-size: 1.2em;
 }
-
-.masthead.segment h1.ui.header .sub {
-  font-size: 0.7em;
-}
-
-.masthead.segment .image {
+#home .masthead .image {
   position: absolute;
   left: 0%;
   bottom: -110px;
 }
 
-.overview .divided.grid .header + p {
-  min-height: 100px;
+/*--------------
+    Ribbons
+---------------*/
+
+#home .vertical.segment {
+  padding: 6rem 0rem;
 }
 
-.ui.shape .icon,
-.link.list .icon {
-  margin: 0em;
-  padding: 0em;
+#home .feature.segment {
+  padding: 2rem 0rem;
+}
+#home .feature.segment p {
+  min-height: 50px;
 }
 
-.ui.cube.shape .side {
-  background-color: transparent;
+#home .selection.list {
+  margin: 0em -0.5em;
 }
+
+#home .logo.row {
+  height: 10rem;
+}
+
+/*--------------
+    Footer
+---------------*/
+
+#home .footer {
+  background-color: #000000;
+}
+
 
 /*******************************
           Responsive
