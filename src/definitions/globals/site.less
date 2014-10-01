@@ -22,7 +22,7 @@
            Web Fonts
 *******************************/
 
-.loadFonts() when (@useGoogleFonts) {
+.loadFonts() when (@importGoogleFonts) {
   @import (css) 'http://fonts.googleapis.com/css?family=@{googleFontName}:@{googleFontSizes}';
 }
 .loadFonts();

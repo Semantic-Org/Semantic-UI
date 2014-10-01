@@ -2,19 +2,6 @@
         Highlighted Colors
 *******************************/
 
-::-webkit-selection {
-  background-color: #FFFFCC;
-  color: #555555;
-}
-::-moz-selection {
-  background-color: #FFFFCC;
-  color: #555555;
-}
-::selection {
-  background-color: #FFFFCC;
-  color: #555555;
-}
-
 h1::-moz-selection,
 h2::-moz-selection,
 h3::-moz-selection {
