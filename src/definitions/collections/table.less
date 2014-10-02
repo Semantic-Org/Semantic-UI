@@ -199,7 +199,7 @@
    Definition
 ---------------*/
 
-.ui.definition.table th:first-child {
+.ui.definition.table thead th:first-child {
   pointer-events: none;
   background: @definitionHeaderBackground;
   font-weight: @definitionHeaderFontWeight;
@@ -208,7 +208,7 @@
 }
 
 /* Remove Border */
-.ui.celled.definition.table th:first-child {
+.ui.celled.definition.table thead th:first-child {
   box-shadow: 0px -1px 0px @borderWidth @definitionPageBackground;
 }
 
@@ -346,6 +346,66 @@
 /*******************************
           Variations
 *******************************/
+
+/*--------------
+     Aligned
+---------------*/
+
+.ui.table[class*="left aligned"],
+.ui.table [class*="left aligned"] {
+  text-align: left;
+}
+.ui.table[class*="center aligned"],
+.ui.table [class*="center aligned"] {
+  text-align: center;
+}
+.ui.table[class*="right aligned"],
+.ui.table [class*="right aligned"] {
+  text-align: right;
+}
+
+/*--------------
+    Collapsing
+---------------*/
+
+.ui.table th.collapsing,
+.ui.table td.collapsing {
+  width: 1px;
+  white-space: nowrap;
+}
+
+
+/*--------------
+     Attached
+---------------*/
+
+
+/* All */
+.ui.attached.table {
+  width: @attachedTableWidth;
+  margin: 0em @attachedHorizontalOffset;
+  border-radius: 0px;
+  box-shadow: @attachedBoxShadow;
+}
+
+/* Top */
+.ui[class*="top attached"].table {
+  margin-top: @margin;
+  border-radius: @borderRadius @borderRadius 0em 0em;
+}
+.ui.table[class*="top attached"]:first-child {
+  margin-top: 0em;
+}
+
+/* Bottom */
+.ui.table[class*="bottom attached"] {
+  margin-top: 0em;
+  margin-bottom: @margin;
+  border-radius: 0em 0em @borderRadius @borderRadius;
+}
+.ui.table[class*="bottom attached"]:last-child {
+  margin-bottom: 0em;
+}
 
 /*--------------
      Striped

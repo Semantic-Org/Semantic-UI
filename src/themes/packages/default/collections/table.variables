@@ -121,6 +121,11 @@
      Types
 ---------------*/
 
+/* Attached */
+@attachedHorizontalOffset: -1px;
+@attachedBoxShadow: none;
+@attachedTableWidth: ~"calc(100% + "-@attachedHorizontalOffset * 2~")";
+
 /* Striped */
 @stripedBackground: rgba(0, 0, 50, 0.03);
 @invertedStripedBackground: rgba(255, 255, 255, 0.06);
