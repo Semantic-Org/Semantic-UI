@@ -405,16 +405,6 @@ semantic.ready = function() {
             urlData  : urlData,
             onSuccess: function(content) {
               less.modifyVars( handler.less.parseFile(content) );
-              /*if($('.less.column').size() > 0) {
-                var $code = $('<div />')
-                  .addClass('code')
-                  .attr('data-type', 'less')
-                  .attr('data-title', 'button.variables')
-                  .html(content)
-                ;
-                $('.less.column').html($code);
-                $.proxy(handler.initializeCode, $code)();
-              }*/
               $themeDropdown
                 .api({
                   on       : 'now',
@@ -673,29 +663,8 @@ semantic.ready = function() {
       ;
     },
 
-    resizeCode: function() {
-      $('.ace_editor')
-        .each(function() {
-          var
-            $code = $(this),
-            padding     = 50,
-            editor,
-            editorSession,
-            codeHeight
-          ;
-          $code.css('height', 'auto');
-          editor        = ace.edit($code[0]);
-          editorSession = editor.getSession();
-
-          codeHeight = editorSession.getScreenLength() * editor.renderer.lineHeight + padding;
-          $code.css('height', codeHeight);
-          editor.resize();
-        })
-      ;
-    },
-
     makeCode: function() {
-      if(window.ace !== undefined) {
+      if(window.hljs !== undefined) {
         $code
           .filter(':visible')
           .each(handler.initializeCode)
@@ -703,6 +672,9 @@ semantic.ready = function() {
         $existingCode
           .each(handler.createAnnotation)
         ;
+      }
+      else {
+        console.log('Syntax highlighting not found');
       }
     },
 
@@ -730,23 +702,24 @@ semantic.ready = function() {
         name = (evaluatedCode)
           ? 'existing'
           : 'instructive',
+        formattedCode = code,
         whiteSpace,
         $label,
-        editor,
-        editorSession,
         codeHeight
       ;
+      var entityMap = {
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': '&quot;',
+        "'": '&#39;',
+        "/": '&#x2F;'
+      };
 
-
-      // trim whitespace
-      whiteSpace = new RegExp('\\n\\s{' + indent + '}', 'g');
-      code = $.trim(code).replace(whiteSpace, '\n');
-
-      if(contentType == 'html') {
-        $code.text(code);
-      }
-      else {
-        $code.html(code);
+      function escapeHTML(string) {
+        return String(string).replace(/[&<>"'\/]/g, function (s) {
+          return entityMap[s];
+        });
       }
 
       // evaluate if specified
@@ -754,39 +727,35 @@ semantic.ready = function() {
         eval(code);
       }
 
-      // initialize
-      editor        = ace.edit($code[0]);
-      editorSession = editor.getSession();
+      // trim whitespace & escape
+      whiteSpace = new RegExp('\\n\\s{' + indent + '}', 'g');
+      formattedCode = $.trim(code).replace(whiteSpace, '\n');
+      formattedCode = escapeHTML(formattedCode);
 
-      //editor.setTheme('ace/theme/tomorrow');
-      editor.setTheme('ace/theme/github');
-      editor.setShowPrintMargin(false);
-      editor.setReadOnly(true);
-      editor.renderer.setShowGutter(false);
-      editor.setHighlightActiveLine(false);
-      editorSession.setMode('ace/mode/'+ contentType);
-      editorSession.setUseWrapMode(true);
-      editorSession.setTabSize(2);
-      editorSession.setUseSoftTabs(true);
-      codeHeight = editorSession.getScreenLength() * editor.renderer.lineHeight + padding;
-      $(this)
-        .height(codeHeight + 'px')
-        .wrap('<div class="ui ' + name + ' segment">')
+      $code.html(formattedCode);
+
+      // wrap
+      $code = $code
+        .wrap('<div class="ui ' + name + ' segment"></div>')
+        .wrap('<pre></pre>')
       ;
+
+      // color code
+      window.hljs.highlightBlock($code[0]);
 
       // add label
       if(title) {
         $('<div>')
           .addClass('ui attached top label')
           .html('<span class="title">' + title + '</span>' + '<em>' + (displayType[contentType] || contentType) + '</em>')
-          .prependTo( $(this).parent() )
+          .prependTo( $(this).closest('.segment') )
         ;
       }
       if(label) {
         $('<div>')
           .addClass('ui pointing below label')
           .html(displayType[contentType] || contentType)
-          .insertBefore ( $(this).parent() )
+          .insertBefore ( $(this).closest('.segment') )
         ;
       }
       // add run code button
@@ -797,16 +766,15 @@ semantic.ready = function() {
           .on('click', function() {
             eval(code);
           })
-          .insertBefore ( $(this).parent() )
+          .insertBefore ( $(this).closest('.segment') )
         ;
       }
       // add preview if specified
       if(preview) {
         $(code)
-          .insertAfter( $(this).parent() )
+          .insertAfter( $(this).closest('.segment') )
         ;
       }
-      editor.resize();
 
       $code.removeClass('hidden');
 
@@ -883,6 +851,14 @@ semantic.ready = function() {
     })
   ;
 
+  window.hljs.configure({
+    languages: [
+      'xml',
+      'css',
+      'javascript'
+    ]
+  });
+
   $languageModal
     .modal()
   ;
@@ -907,13 +883,6 @@ semantic.ready = function() {
 
   $shownExample
     .each(handler.createCode)
-  ;
-
-  $(window)
-    .on('resize', function() {
-      clearTimeout(handler.timer);
-      handler.timer = setTimeout(handler.resizeCode, 500);
-    })
   ;
 
   $downloadDropdown

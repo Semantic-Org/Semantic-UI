@@ -84,7 +84,6 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/build/packaged/definitions/css/semantic.min.css">
   <% end %>
 
-  <!-- <link rel="stylesheet/less" type="text/css" href="/build/less/definitions/site.less" /> -->
   <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,700italic' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" type="text/css" href="/stylesheets/doc-icon.css">
@@ -117,9 +116,10 @@
   }());
   </script>
   <% end %>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
   <script src="/javascript/library/history.js"></script>
   <script src="/javascript/library/easing.js"></script>
-  <script src="/javascript/library/ace/ace.js"></script>
   <script src="/javascript/library/tablesort.js"></script>
   <script src="/javascript/library/typing.js"></script>
 

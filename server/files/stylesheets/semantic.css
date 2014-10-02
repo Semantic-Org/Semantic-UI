@@ -49,6 +49,18 @@ h5 {
   font-family: "Lato", "Helvetica Neue", "Helvetica", "Arial", sans-serif/*rtl:prepend:"Droid Arabic Kufi","Droid Sans", */;
 }
 
+pre {
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+pre {
+  background-color: #FFFFFF;
+  text-align: left;
+}
+
 p:first-child {
   margin-top: 0em;
 }
@@ -81,9 +93,6 @@ h1 {
 }
 #example .example .anchor + p {
   margin: 0px 0px 1em;
-}
-pre {
-  background-color: #F0F0F0;
 }
 /*rtl:ignore*/
 pre.console {
@@ -538,19 +547,24 @@ body#example.hide {
   width: 100px;
 }
 
+
+#example .segment pre {
+  margin: 0em;
+  padding: 0em;
+}
+#example .segment pre .code {
+  margin: 0em;
+  padding: 0em;
+  max-height: 610px;
+  font-family:  'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+}
+
 #example table .instructive.segment {
   background-color: transparent;
   border: 0px;
   box-shadow: none;
   padding: 0em;
   margin: -0.4em -0.7em;
-}
-#example table .instructive.segment .code {
-  margin: 0em;
-}
-#example table .instructive.segment div.code .ace_identifier,
-#example table .instructive.segment div.code .ace_line {
-  color: #555555;
 }
 
 #example .ui.label + .instructive.segment {
@@ -1009,9 +1023,6 @@ body.progress.animated .ui.progress .bar {
 #example .example > p {
   color: #555555;
 }
-#example .example div.code[data-demo] {
-  color: transparent;
-}
 
 /*--------------
     List Page
@@ -1051,139 +1062,192 @@ body.progress.animated .ui.progress .bar {
 }
 
 
-/*----------------
-    Code Colors
------------------*/
+/*******************************
+         Code Samples
+*******************************/
 
-/* example code reskin */
-#example div.code.hide {
-  display: none;
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0em;
+  color: #666;
+  background-color: transparent;
+  -webkit-text-size-adjust: none;
 }
-/*rtl:ignore*/
-#example div.code {
-  position: relative;
-  width: 100%;
-  text-align: left;
-  direction:ltr;
+
+/*--------------
+    Hover Only
+---------------*/
+
+.hljs,
+.hljs span {
+  -moz-transition: 0.5s color ease;
+  -webkit-transition: 0.5s color ease;
+  -ms-transition: 0.5s color ease;
+  transition: 0.5s color ease;
 }
-#example div.code .ace_gutter {
-  background-color: #FAFAFA;
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
+.hljs {
+  color: #333333;
+}
+
+/* Class Name */
+.hljs-string,
+.hljs-tag .hljs-value,
+.hljs-phpdoc,
+.hljs-dartdoc,
+.tex .hljs-formula {
+  color: #009991;
+}
+.code:hover .hljs-string,
+.code:hover .hljs-tag .hljs-value,
+.code:hover .hljs-phpdoc,
+.code:hover .hljs-dartdoc,
+.code:hover .tex .hljs-formula {
+  color: #009991;
+}
+
+/* Comment */
+.hljs-comment,
+.hljs-template_comment,
+.diff .hljs-header,
+.hljs-javadoc {
+  color: #AAAAAA;
+  font-style: italic;
+}
+
+
+/* Properties */
+.hljs-tag,
+.hljs-rules .hljs-property,
+.django .hljs-tag .hljs-keyword {
   color: #999999;
-}
-#example div.code .ace_gutter-cell {
-  padding-right: 20px;
-  padding-left: 10px;
-}
-#example div.code .ace_bracket {
-  background-color: rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
-#example div.code .ace_indent-guide {
-  position: relative;
-  background: none;
-}
-#example div.code .ace_gutter,
-#example div.code .ace_scroller {
-  background-color: transparent;
-  overflow: visible;
-  margin: 14px 10px;
-}
-#example div.code .ace_scrollbar {
-  overflow: hidden;
-  background-color: transparent;
-}
-#example div.code {
-  margin: -1em;
-  font-size: 14px;
-  padding: 5px 0px;
-  background-color: transparent;
-}
-#example div.code .ace_line,
-#example div.code .ace_line span {
-  -webkit-transition:
-    color 1s ease-out
-  ;
-  -moz-transition:
-    color 1s ease-out
-  ;
-  -o-transition:
-    color 1s ease-out
-  ;
-  -ms-transition:
-    color 1s ease-out
-  ;
-  transition:
-    color 1s ease-out
-  ;
-}
-#example div.code .ace_line {
-
-  color: #555555;
-}
-#example div.code .ace_tag {
-  color: #DCBCD3;
-}
-#example div.code .ace_attribute-name {
-  color: #F4C5C5;
-}
-#example div.code .ace_string {
-  color: #00A59D;
-}
-#example div.code .ace_cursor {
-  border-left: none;
-}
-#example div.code .ace_paren {
-  color: #CCCCCC;
-}
-#example div.code .ace_keyword {
-  color: #CCCCCC;
-}
-#example div.code .ace_identifier {
-  color: #CCCCCC;
-}
-#example div.code .ace_punctuation {
-  color: #CCCCCC;
-}
-#example div.code .ace_active_line {
-  background-color: #FBFBE5;
+  font-weight: normal;
 }
 
-/* Hovered Style */
-#example div.code:hover .ace_line {
-  color: #555555;
+.code:hover .hljs-tag,
+.code:hover .hljs-rules .hljs-property,
+.code:hover .django .hljs-tag .hljs-keyword {
+  color: #892A6F;
+  font-weight: normal;
 }
-#example div.code:hover .ace_tag {
+
+/* HTML Tag */
+.hljs-tag .hljs-title {
+  color: #884E75;
+  font-weight: normal;
+}
+.code:hover .hljs-tag .hljs-title {
   color: #892A6F;
 }
-#example div.code:hover .ace_attribute-name {
+
+/* Attribute */
+.hljs-attribute,
+.hljs-variable,
+.lisp .hljs-body {
+  color: #8E6E6E;
+  transition: color 0.3s;
+}
+.code:hover .hljs-attribute,
+.code:hover .hljs-variable,
+.code:hover .lisp .hljs-body {
   color: #934E4E;
 }
-#example div.code:hover .ace_content {
+
+/* CSS ID */
+.hljs-title,
+.hljs-id,
+.scss .hljs-preprocessor {
+  color: #009FDA;
+  font-weight: bold;
 }
-#example div.code:hover .ace_string {
-  color: #00A59D;
+
+/* CSS Attribute */
+.hljs-rule .hljs-attribute {
+  color: #892A6F;
 }
-#example div.code:hover .ace_cursor {/*
-  border-left: 1px solid #AAAAAA;*/
+.code:hover .hljs-rule .hljs-attribute {
+  color: #892A6F;
 }
-#example div.code:hover .ace_paren {
-  color: #555555;
+
+/* CSS Value */
+.hljs-number,
+.hljs-hexcolor,
+.ruby .hljs-constant {
+  color: #666666;
 }
-#example div.code:hover .ace_keyword {
-  color: #555555;
+
+.code:hover .hljs-number,
+.code:hover .hljs-hexcolor,
+.code:hover .ruby .hljs-constant {
+  color: #333333;
 }
-#example div.code:hover .ace_identifier {
-  color: #555555;
+
+
+
+/*--------------
+      Normal
+---------------*/
+
+.hljs-keyword,
+.css .rule .hljs-keyword,
+.hljs-winutils,
+.javascript .hljs-title,
+.nginx .hljs-title,
+.hljs-subst,
+.hljs-request,
+.hljs-status {
+  color: #333;
+  font-weight: bold;
 }
-#example div.code:hover .ace_scrollbar {
-  overflow: hidden !important;
+
+.javascript .hljs-title,
+.hljs-list .hljs-keyword,
+.hljs-subst {
+  font-weight: normal;
 }
-#example div.code:hover .ace_punctuation {
-  color: #555555;
+
+.hljs-class .hljs-title,
+.hljs-type,
+.vhdl .hljs-literal,
+.tex .hljs-command {
+  color: #458;
+  font-weight: bold;
 }
-#example div.code:hover .ace_active_line {
-  background-color: #FBFBE5;
+
+
+.hljs-regexp {
+  color: #009926;
+}
+
+.hljs-built_in {
+  color: #0086b3;
+}
+
+.hljs-preprocessor,
+.hljs-pragma,
+.hljs-pi,
+.hljs-doctype,
+.hljs-shebang,
+.hljs-cdata {
+  color: #999;
+  font-weight: bold;
+}
+
+.hljs-deletion {
+  background: #fdd;
+}
+
+.hljs-addition {
+  background: #dfd;
+}
+
+.diff .hljs-change {
+  background: #0086b3;
+}
+
+.hljs-chunk {
+  color: #aaa;
 }
 
 

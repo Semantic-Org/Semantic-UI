@@ -67,9 +67,9 @@ semantic.home.ready = function() {
     })
   ;
 
-  window.Transifex.live.onTranslatePage(function(name){
-    name = $('.language.dropdown .item[data-value=' + name + ']').text();
-    $('.language.dropdown > .text').html(name);
+  window.Transifex.live.onTranslatePage(function(countryCode){
+    var fullName = $('.language.dropdown .item[data-value=' + countryCode + ']').eq(0).text();
+    $('.language.dropdown > .text').html(fullName);
   });
 
 
