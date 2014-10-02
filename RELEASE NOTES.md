@@ -7,6 +7,7 @@
 - **Form** - Date field has been removed, use a ``ui icon input`` with a ``calendar icon`` instead
 - **Label** - Corner labels no longer support text, only icons.
 - **Form** - Standard grids now have gutters on left and right of first and last column. ``ui fitted grid`` can be used to remove these margins
+- **Header** - Headers now do not automatically resize based on h1-h6
 - **Checkbox** - Checkbox "enable" and "disable" have been replaced with "check" and "uncheck"
 - **Modal** - Modal ``left`` and ``right`` sections are now replaced with ``image`` and ``description``
 - **Accordion** - Accordions are not unstyled by default allowing for more compatability with other modules without having to override styles. Styled accordions are now included as a variation ``ui styled accordion``
@@ -17,8 +18,10 @@
 
 **Enhancements**
 - **General** - CSS animations now hint with will change properties to increase performance in supported browsers
+- **General** - Many modules now use DOM Mutations and event delegation to allow content adjustment after initialization
 - **Accordion** - Accordion now includes all icons in an embedded font instead of requiring icons
 - **Button** - Now has compact form, used for fitting into tight spaces
+- **Checkbox** - Now correctly handles read-only and disabled, has read-only and disabled states
 - **Checkbox** - All styles have been redone. Standard checkboxes are now based around PX and not EM making sure there are no unusual circles or rounding issues. Checkboxes also now use a custom font for glyphs instead of CSS tricks.
 - **Checkbox** - Checkbox now have a ``fireOnInit`` setting for firing callbacks on page load
 - **Checkbox** - Checkbox now receive a ``checked`` class when checked, making it easier to write css selectors on checked checkboxes, for example when using sibling selectors ``.ui.checked.checkbox + .content { // style }``
