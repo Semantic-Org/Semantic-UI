@@ -348,7 +348,7 @@
               <div class="ui inverted link list">
                 <a class="item" href="mailto:jack@semantic-ui.com?subject=Help Translating">Translate</a>
                 <a class="item" href="https://github.com/Semantic-Org/Semantic-UI" target="_blank">Issue Tracker</a>
-                <a class="item" href="cla.html" target="_blank">CLA</a>
+                <a class="item" href="/cla.html" target="_blank">CLA</a>
                 <a class="disabled item">Create Themes</a>
               </div>
             </div>
