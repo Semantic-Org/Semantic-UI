@@ -52,8 +52,8 @@
 @labelSelectedColor: @selectedTextColor;
 
 /* Disabled */
-@disabledCheckboxOpacity: @disabledOpacity;
-@disabledCheckboxLabelColor: rgba(0, 0, 0, 0.3);
+@disabledCheckboxOpacity: 0.5;
+@disabledCheckboxLabelColor: rgba(0, 0, 0, 1);
 
 /*-------------------
         Types
@@ -77,6 +77,7 @@
 ;
 
 /* Slider */
+@sliderHeight: 1rem;
 @sliderSize: 1.5rem;
 @sliderHandleSize: @sliderSize;
 

@@ -115,12 +115,9 @@
   padding-top: @pageGridMargin;
   padding-bottom: @pageGridMargin;
 }
-.ui.grid.segment,
-.ui.grid .ui.segment.row,
-.ui.grid .ui.segment.column {
-  border-radius: 0em;
-  box-shadow: none;
-  border: none;
+.ui.grid.segment {
+  margin: @margin 0rem;
+  border-radius: @borderRadius;
 }
 
 /* Table */
@@ -412,6 +409,7 @@
 .ui.inverted.block.segment,
 .ui.inverted.attached.segment {
   box-shadow: none !important;
+  border: none !important;
 }
 
 /*-------------------
@@ -445,15 +443,18 @@
 .ui.segment.attached {
   top: 0px;
   bottom: 0px;
-  margin: 0em;
+  margin: 0em @attachedHorizontalOffset;
   border-radius: 0px;
   box-shadow: @attachedBoxShadow;
+  border: @attachedBorder;
 }
 
+/* Top */
 .ui[class*="top attached"].segment {
   top: @attachedTopOffset;
   bottom: 0px;
 
+  border-bottom: none;
   margin-top: @margin;
   margin-bottom: 0em;
   border-radius: @borderRadius @borderRadius 0em 0em;
@@ -462,7 +463,9 @@
   margin-top: 0em;
 }
 
+/* Bottom */
 .ui.segment[class*="bottom attached"] {
+  border-top: none;
   top: @attachedBottomOffset;
   bottom: 0px;
   margin-top: 0em;

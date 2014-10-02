@@ -356,9 +356,9 @@ $.visit = $.fn.visit = function(parameters) {
               executionTime = currentTime - previousTime;
               time          = currentTime;
               performance.push({
-                'Element'        : element,
                 'Name'           : message[0],
                 'Arguments'      : [].slice.call(message, 1) || '',
+                'Element'        : element,
                 'Execution Time' : executionTime
               });
             }

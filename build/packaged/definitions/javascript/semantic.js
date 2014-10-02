@@ -612,9 +612,9 @@ $.api = $.fn.api = function(parameters) {
               executionTime = currentTime - previousTime;
               time          = currentTime;
               performance.push({
-                'Element'        : element,
                 'Name'           : message[0],
                 'Arguments'      : [].slice.call(message, 1) || '',
+                'Element'        : element,
                 'Execution Time' : executionTime
               });
             }
@@ -1598,9 +1598,9 @@ $.fn.form = function(fields, parameters) {
               executionTime = currentTime - previousTime;
               time          = currentTime;
               performance.push({
-                'Element'        : element,
                 'Name'           : message[0],
                 'Arguments'      : [].slice.call(message, 1) || '',
+                'Element'        : element,
                 'Execution Time' : executionTime
               });
             }
@@ -2321,9 +2321,9 @@ $.fn.state = function(parameters) {
               executionTime = currentTime - previousTime;
               time          = currentTime;
               performance.push({
-                'Element'        : element,
                 'Name'           : message[0],
                 'Arguments'      : [].slice.call(message, 1) || '',
+                'Element'        : element,
                 'Execution Time' : executionTime
               });
             }
@@ -3300,9 +3300,9 @@ $.fn.visibility = function(parameters) {
               executionTime = currentTime - previousTime;
               time          = currentTime;
               performance.push({
-                'Element'        : element,
                 'Name'           : message[0],
                 'Arguments'      : [].slice.call(message, 1) || '',
+                'Element'        : element,
                 'Execution Time' : executionTime
               });
             }
@@ -3826,9 +3826,9 @@ $.visit = $.fn.visit = function(parameters) {
               executionTime = currentTime - previousTime;
               time          = currentTime;
               performance.push({
-                'Element'        : element,
                 'Name'           : message[0],
                 'Arguments'      : [].slice.call(message, 1) || '',
+                'Element'        : element,
                 'Execution Time' : executionTime
               });
             }
@@ -4817,9 +4817,9 @@ $.fn.accordion = function(parameters) {
               executionTime = currentTime - previousTime;
               time          = currentTime;
               performance.push({
-                'Element'        : element,
                 'Name'           : message[0],
                 'Arguments'      : [].slice.call(message, 1) || '',
+                'Element'        : element,
                 'Execution Time' : executionTime
               });
             }
@@ -5789,18 +5789,19 @@ $.fn.checkbox = function(parameters) {
 
         className       = settings.className,
         namespace       = settings.namespace,
+        selector        = settings.selector,
         error           = settings.error,
 
         eventNamespace  = '.' + namespace,
         moduleNamespace = 'module-' + namespace,
 
         $module         = $(this),
-        $label          = $(this).next(settings.selector.label).first(),
-        $input          = $(this).find(settings.selector.input),
+        $label          = $(this).next(selector.label).first(),
+        $input          = $(this).find(selector.input),
 
-        selector        = $module.selector || '',
         instance        = $module.data(moduleNamespace),
 
+        observer,
         element         = this,
         module
       ;
@@ -5809,24 +5810,10 @@ $.fn.checkbox = function(parameters) {
 
         initialize: function() {
           module.verbose('Initializing checkbox', settings);
-          if(settings.context && selector !== '') {
-            module.verbose('Adding delegated events');
-            $(element, settings.context)
-              .on(selector, 'click' + eventNamespace, module.toggle)
-              .on(selector + ' + ' + settings.selector.label, 'click' + eventNamespace, module.toggle)
-            ;
-          }
-          else {
-            $module
-              .on('click' + eventNamespace, module.toggle)
-            ;
-            $input
-              .on('keydown' + eventNamespace, module.event.keydown)
-            ;
-            $label
-              .on('click' + eventNamespace, module.toggle)
-            ;
-          }
+          $module
+            .on('click'   + eventNamespace, module.toggle)
+            .on('keydown' + eventNamespace, selector.input, module.event.keydown)
+          ;
           if( module.is.checked() ) {
             module.set.checked();
             if(settings.fireOnInit) {
@@ -5839,6 +5826,8 @@ $.fn.checkbox = function(parameters) {
               $.proxy(settings.onUnchecked, $input.get())();
             }
           }
+          module.observeChanges();
+
           module.instantiate();
         },
 
@@ -5862,6 +5851,45 @@ $.fn.checkbox = function(parameters) {
           $label
             .off(eventNamespace)
           ;
+        },
+
+        refresh: function() {
+          $module = $(this);
+          $label  = $(this).next(selector.label).first();
+          $input  = $(this).find(selector.input);
+        },
+
+        observeChanges: function() {
+          if(MutationObserver !== undefined) {
+            observer = new MutationObserver(function(mutations) {
+              module.debug('DOM tree modified, updating selector cache');
+              module.refresh();
+            });
+            observer.observe(element, {
+              childList : true,
+              subtree   : true
+            });
+            module.debug('Setting up mutation observer', observer);
+          }
+        },
+
+        attachEvents: function(selector, event) {
+          var
+            $toggle = $(selector)
+          ;
+          event = $.isFunction(module[event])
+            ? module[event]
+            : module.toggle
+          ;
+          if($toggle.size() > 0) {
+            module.debug('Attaching checkbox events to element', selector, event);
+            $toggle
+              .on('click' + eventNamespace, event)
+            ;
+          }
+          else {
+            module.error(error.notFound);
+          }
         },
 
         event: {
@@ -5900,9 +5928,12 @@ $.fn.checkbox = function(parameters) {
         },
 
         can: {
+          change: function() {
+            return !( $module.hasClass(className.disabled) || $module.hasClass(className.readOnly) || $input.prop('disabled') );
+          },
           uncheck: function() {
-            return (typeof settings.required === 'boolean')
-              ? settings.required
+            return (typeof settings.uncheckable === 'boolean')
+              ? settings.uncheckable
               : !module.is.radio()
             ;
           }
@@ -5918,6 +5949,20 @@ $.fn.checkbox = function(parameters) {
           checked: function() {
             $module.removeClass(className.checked);
           }
+        },
+
+        disable: function() {
+          module.debug('Enabling checkbox functionality');
+          $module.addClass(className.disabled);
+          $input.removeProp('disabled');
+          $.proxy(settings.onDisabled, $input.get())();
+        },
+
+        enable: function() {
+          module.debug('Disabling checkbox functionality');
+          $module.removeClass(className.disabled);
+          $input.prop('disabled', 'disabled');
+          $.proxy(settings.onEnabled, $input.get())();
         },
 
         check: function() {
@@ -5943,6 +5988,11 @@ $.fn.checkbox = function(parameters) {
         },
 
         toggle: function(event) {
+          if( !module.can.change() ) {
+            console.log(module.can.change());
+            module.debug('Checkbox is read-only or disabled, ignoring toggle');
+            return;
+          }
           module.verbose('Determining new checkbox state');
           if( module.is.unchecked() ) {
             module.check();
@@ -6013,9 +6063,9 @@ $.fn.checkbox = function(parameters) {
               executionTime = currentTime - previousTime;
               time          = currentTime;
               performance.push({
-                'Element'        : element,
                 'Name'           : message[0],
                 'Arguments'      : [].slice.call(message, 1) || '',
+                'Element'        : element,
                 'Execution Time' : executionTime
               });
             }
@@ -6137,19 +6187,21 @@ $.fn.checkbox.settings = {
   performance : true,
 
   // delegated event context
-  context     : false,
-  required    : 'auto',
-
+  uncheckable : 'auto',
   fireOnInit  : true,
-
-  className: {
-    checked : 'checked',
-    radio   : 'radio'
-  },
 
   onChange    : function(){},
   onChecked   : function(){},
   onUnchecked : function(){},
+  onEnabled   : function(){},
+  onDisabled  : function(){},
+
+  className   : {
+    checked  : 'checked',
+    disabled : 'disabled',
+    radio    : 'radio',
+    readOnly : 'read-only'
+  },
 
   error     : {
     method   : 'The method you called is not defined.'
@@ -6158,7 +6210,7 @@ $.fn.checkbox.settings = {
   selector : {
     input  : 'input[type=checkbox], input[type=radio]',
     label  : 'label'
-  },
+  }
 
 };
 
@@ -6585,9 +6637,9 @@ $.fn.dimmer = function(parameters) {
               executionTime = currentTime - previousTime;
               time          = currentTime;
               performance.push({
-                'Element'        : element,
                 'Name'           : message[0],
                 'Arguments'      : [].slice.call(message, 1) || '',
+                'Element'        : element,
                 'Execution Time' : executionTime
               });
             }
@@ -7918,9 +7970,9 @@ $.fn.dropdown = function(parameters) {
               executionTime = currentTime - previousTime;
               time          = currentTime;
               performance.push({
-                'Element'        : element,
                 'Name'           : message[0],
                 'Arguments'      : [].slice.call(message, 1) || '',
+                'Element'        : element,
                 'Execution Time' : executionTime
               });
             }
@@ -8763,9 +8815,9 @@ $.fn.modal = function(parameters) {
               executionTime = currentTime - previousTime;
               time          = currentTime;
               performance.push({
-                'Element'        : element,
                 'Name'           : message[0],
                 'Arguments'      : [].slice.call(message, 1) || '',
+                'Element'        : element,
                 'Execution Time' : executionTime
               });
             }
@@ -9234,9 +9286,9 @@ $.fn.nag = function(parameters) {
               executionTime = currentTime - previousTime;
               time          = currentTime;
               performance.push({
-                'Element'        : element,
                 'Name'           : message[0],
                 'Arguments'      : [].slice.call(message, 1) || '',
+                'Element'        : element,
                 'Execution Time' : executionTime
               });
             }
@@ -10160,9 +10212,9 @@ $.fn.popup = function(parameters) {
               executionTime = currentTime - previousTime;
               time          = currentTime;
               performance.push({
-                'Element'        : element,
                 'Name'           : message[0],
                 'Arguments'      : [].slice.call(message, 1) || '',
+                'Element'        : element,
                 'Execution Time' : executionTime
               });
             }
@@ -10857,9 +10909,9 @@ $.fn.progress = function(parameters) {
               executionTime = currentTime - previousTime;
               time          = currentTime;
               performance.push({
-                'Element'        : element,
                 'Name'           : message[0],
                 'Arguments'      : [].slice.call(message, 1) || '',
+                'Element'        : element,
                 'Execution Time' : executionTime
               });
             }
@@ -11320,9 +11372,9 @@ $.fn.rating = function(parameters) {
               executionTime = currentTime - previousTime;
               time          = currentTime;
               performance.push({
-                'Element'        : element,
                 'Name'           : message[0],
                 'Arguments'      : [].slice.call(message, 1) || '',
+                'Element'        : element,
                 'Execution Time' : executionTime
               });
             }
@@ -12006,9 +12058,9 @@ $.fn.search = function(parameters) {
               executionTime = currentTime - previousTime;
               time          = currentTime;
               performance.push({
-                'Element'        : element,
                 'Name'           : message[0],
                 'Arguments'      : [].slice.call(message, 1) || '',
+                'Element'        : element,
                 'Execution Time' : executionTime
               });
             }
@@ -12970,9 +13022,9 @@ $.fn.shape = function(parameters) {
               executionTime = currentTime - previousTime;
               time          = currentTime;
               performance.push({
-                'Element'        : element,
                 'Name'           : message[0],
                 'Arguments'      : [].slice.call(message, 1) || '',
+                'Element'        : element,
                 'Execution Time' : executionTime
               });
             }
@@ -13332,7 +13384,6 @@ $.fn.sidebar = function(parameters) {
           if($toggle.size() > 0) {
             module.debug('Attaching sidebar events to element', selector, event);
             $toggle
-              .off(eventNamespace)
               .on('click' + eventNamespace, event)
             ;
           }
@@ -13788,9 +13839,9 @@ $.fn.sidebar = function(parameters) {
               executionTime = currentTime - previousTime;
               time          = currentTime;
               performance.push({
-                'Element'        : element,
                 'Name'           : message[0],
                 'Arguments'      : [].slice.call(message, 1) || '',
+                'Element'        : element,
                 'Execution Time' : executionTime
               });
             }
@@ -14603,9 +14654,9 @@ $.fn.sticky = function(parameters) {
               executionTime = currentTime - previousTime;
               time          = currentTime;
               performance.push({
-                'Element'        : element,
                 'Name'           : message[0],
                 'Arguments'      : [].slice.call(message, 1) || '',
+                'Element'        : element,
                 'Execution Time' : executionTime
               });
             }
@@ -15359,9 +15410,9 @@ $.tab = $.fn.tab = function(parameters) {
               executionTime = currentTime - previousTime;
               time          = currentTime;
               performance.push({
-                'Element'        : element,
                 'Name'           : message[0],
                 'Arguments'      : [].slice.call(message, 1) || '',
+                'Element'        : element,
                 'Execution Time' : executionTime
               });
             }
@@ -16725,9 +16776,9 @@ $.fn.video = function(parameters) {
               executionTime = currentTime - previousTime;
               time          = currentTime;
               performance.push({
-                'Element'        : element,
                 'Name'           : message[0],
                 'Arguments'      : [].slice.call(message, 1) || '',
+                'Element'        : element,
                 'Execution Time' : executionTime
               });
             }

@@ -18,8 +18,8 @@
 @verticalPadding: 1em;
 @horizontalPadding: 1em;
 
-@margin: 1em;
-@borderRadius: 0.25em;
+@margin: 1rem;
+@borderRadius: 0.25rem;
 
 /*-------------------
        Coupling
@@ -58,7 +58,9 @@
 /* Attached */
 @attachedTopOffset: 0px;
 @attachedBottomOffset: 0px;
-@attachedBoxShadow: 0px 0px 0px 1px @solidBorderColor;
+@attachedHorizontalOffset: -1px;
+@attachedBoxShadow: none;
+@attachedBorder: 1px solid @solidBorderColor;
 @attachedBottomBoxShadow:
   @attachedBoxShadow,
   @subtleShadow

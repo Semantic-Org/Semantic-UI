@@ -46,7 +46,7 @@
   position: absolute;
   top: 0px;
   left: 0px;
-  opacity: 0;
+  opacity: 0 !important;
   outline: none;
   z-index: -1;
 }
@@ -179,6 +179,16 @@
 }
 
 /*--------------
+    Read-Only
+---------------*/
+
+.ui.read-only.checkbox,
+.ui.read-only.checkbox label {
+  cursor: default;
+}
+
+
+/*--------------
      Disabled
 ---------------*/
 
@@ -186,6 +196,7 @@
 .ui.disabled.checkbox label,
 .ui.checkbox input[disabled] ~ .box:after,
 .ui.checkbox input[disabled] ~ label {
+  cursor: default;
   opacity: @disabledCheckboxOpacity;
   color: @disabledCheckboxLabelColor;
 }
@@ -243,7 +254,7 @@
 
 .ui.slider.checkbox {
   cursor: pointer;
-  height: @sliderSize;
+  height: @sliderHeight;
 }
 
 .ui.slider.checkbox .box,

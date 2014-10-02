@@ -318,7 +318,7 @@
   position: absolute;
   top: 0px;
   left: 0px;
-  opacity: 0;
+  opacity: 0 !important;
   outline: none;
   z-index: -1;
 }
@@ -430,14 +430,22 @@
   opacity: 1;
 }
 /*--------------
+    Read-Only
+---------------*/
+.ui.read-only.checkbox,
+.ui.read-only.checkbox label {
+  cursor: default;
+}
+/*--------------
      Disabled
 ---------------*/
 .ui.disabled.checkbox .box:after,
 .ui.disabled.checkbox label,
 .ui.checkbox input[disabled] ~ .box:after,
 .ui.checkbox input[disabled] ~ label {
-  opacity: 0.3;
-  color: rgba(0, 0, 0, 0.3);
+  cursor: default;
+  opacity: 0.5;
+  color: #000000;
 }
 /*******************************
              Types
@@ -487,7 +495,7 @@
 ---------------*/
 .ui.slider.checkbox {
   cursor: pointer;
-  height: 1.5rem;
+  height: 1rem;
 }
 .ui.slider.checkbox .box,
 .ui.slider.checkbox label {

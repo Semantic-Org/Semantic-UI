@@ -297,9 +297,9 @@
   position: relative;
   background-color: #ffffff;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
-  margin: 1em 0em;
+  margin: 1rem 0em;
   padding: 1em 1em;
-  border-radius: 0.25em;
+  border-radius: 0.25rem;
   border: none;
 }
 .ui.segment:first-child {
@@ -374,12 +374,9 @@
   padding-top: 2em;
   padding-bottom: 2em;
 }
-.ui.grid.segment,
-.ui.grid .ui.segment.row,
-.ui.grid .ui.segment.column {
-  border-radius: 0em;
-  box-shadow: none;
-  border: none;
+.ui.grid.segment {
+  margin: 1rem 0rem;
+  border-radius: 0.25rem;
 }
 /* Table */
 .ui.basic.table.segment {
@@ -517,39 +514,39 @@
 --------------------*/
 .ui.black.segment:not(.inverted) {
   border-top: 2px solid #1b1c1d;
-  border-radius: 0em 0em 0.25em 0.25em !important;
+  border-radius: 0em 0em 0.25rem 0.25rem !important;
 }
 .ui.blue.segment:not(.inverted) {
   border-top: 2px solid #3b83c0;
-  border-radius: 0em 0em 0.25em 0.25em !important;
+  border-radius: 0em 0em 0.25rem 0.25rem !important;
 }
 .ui.green.segment:not(.inverted) {
   border-top: 2px solid #5bbd72;
-  border-radius: 0em 0em 0.25em 0.25em !important;
+  border-radius: 0em 0em 0.25rem 0.25rem !important;
 }
 .ui.orange.segment:not(.inverted) {
   border-top: 2px solid #e07b53;
-  border-radius: 0em 0em 0.25em 0.25em !important;
+  border-radius: 0em 0em 0.25rem 0.25rem !important;
 }
 .ui.pink.segment:not(.inverted) {
   border-top: 2px solid #d9499a;
-  border-radius: 0em 0em 0.25em 0.25em !important;
+  border-radius: 0em 0em 0.25rem 0.25rem !important;
 }
 .ui.purple.segment:not(.inverted) {
   border-top: 2px solid #564f8a;
-  border-radius: 0em 0em 0.25em 0.25em !important;
+  border-radius: 0em 0em 0.25rem 0.25rem !important;
 }
 .ui.red.segment:not(.inverted) {
   border-top: 2px solid #d95c5c;
-  border-radius: 0em 0em 0.25em 0.25em !important;
+  border-radius: 0em 0em 0.25rem 0.25rem !important;
 }
 .ui.teal.segment:not(.inverted) {
   border-top: 2px solid #00b5ad;
-  border-radius: 0em 0em 0.25em 0.25em !important;
+  border-radius: 0em 0em 0.25rem 0.25rem !important;
 }
 .ui.yellow.segment:not(.inverted) {
   border-top: 2px solid #f2c61f;
-  border-radius: 0em 0em 0.25em 0.25em !important;
+  border-radius: 0em 0em 0.25rem 0.25rem !important;
 }
 /*-------------------
    Inverted Colors
@@ -634,6 +631,7 @@
 .ui.inverted.block.segment,
 .ui.inverted.attached.segment {
   box-shadow: none !important;
+  border: none !important;
 }
 /*-------------------
      Ordinality
@@ -662,27 +660,32 @@
 .ui.segment.attached {
   top: 0px;
   bottom: 0px;
-  margin: 0em;
+  margin: 0em -1px;
   border-radius: 0px;
-  box-shadow: 0px 0px 0px 1px #dddddd;
+  box-shadow: none;
+  border: 1px solid #dddddd;
 }
+/* Top */
 .ui[class*="top attached"].segment {
   top: 0px;
   bottom: 0px;
-  margin-top: 1em;
+  border-bottom: none;
+  margin-top: 1rem;
   margin-bottom: 0em;
-  border-radius: 0.25em 0.25em 0em 0em;
+  border-radius: 0.25rem 0.25rem 0em 0em;
 }
 .ui.segment[class*="top attached"]:first-child {
   margin-top: 0em;
 }
+/* Bottom */
 .ui.segment[class*="bottom attached"] {
+  border-top: none;
   top: 0px;
   bottom: 0px;
   margin-top: 0em;
-  margin-bottom: 1em;
-  box-shadow: 0px 0px 0px 1px #dddddd, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
-  border-radius: 0em 0em 0.25em 0.25em;
+  margin-bottom: 1rem;
+  box-shadow: none, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 0em 0em 0.25rem 0.25rem;
 }
 .ui.segment[class*="bottom attached"]:last-child {
   margin-bottom: 0em;

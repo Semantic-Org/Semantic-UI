@@ -311,7 +311,7 @@
   color: rgba(0, 0, 0, 0.8);
 }
 .ui.header .sub.header {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: normal;
   margin: 0em;
   padding: 0em;
@@ -661,42 +661,18 @@ a.ui.inverted.yellow.header:hover {
   border-bottom-color: rgba(255, 255, 255, 0.2);
 }
 /*-------------------
-        Block
---------------------*/
-.ui.block.header {
-  background: #fafafa -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  background: #fafafa linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  padding: 0.75rem 1rem;
-  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
-  border: 1px solid #dddddd;
-  border-radius: 0.3125rem;
-}
-.ui.tiny.block.header {
-  font-size: 1em;
-}
-.ui.small.block.header {
-  font-size: 1.1em;
-}
-.ui.block.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
-  font-size: 1.3em;
-}
-.ui.large.block.header {
-  font-size: 1.5em;
-}
-.ui.huge.block.header {
-  font-size: 2em;
-}
-/*-------------------
        Attached
 --------------------*/
 .ui.attached.header {
-  background: #fafafa -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  background: #fafafa linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: #ffffff;
   padding: 0.75rem 1rem;
-  box-shadow: 0px 0px 0px 1px #dddddd;
-  border: none;
-  margin-left: 0px;
-  margin-right: 0px;
+  margin-left: -1px;
+  margin-right: -1px;
+}
+.ui.attached.header,
+.ui.attached.block.header {
+  box-shadow: none;
+  border: 1px solid #dddddd;
 }
 .ui.attached:not(.top):not(.bottom).header {
   margin-top: 0em;
@@ -729,6 +705,31 @@ a.ui.inverted.yellow.header:hover {
 }
 .ui.huge.attached.header {
   font-size: 1.2em;
+}
+/*-------------------
+        Block
+--------------------*/
+.ui.block.header {
+  background: #f0f0f0;
+  padding: 0.75rem 1rem;
+  box-shadow: none;
+  border: 1px solid #dddddd;
+  border-radius: 0.3125rem;
+}
+.ui.tiny.block.header {
+  font-size: 1em;
+}
+.ui.small.block.header {
+  font-size: 1.1em;
+}
+.ui.block.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+  font-size: 1.3em;
+}
+.ui.large.block.header {
+  font-size: 1.5em;
+}
+.ui.huge.block.header {
+  font-size: 2em;
 }
 /*-------------------
         Sizing

@@ -725,6 +725,7 @@
   clear: both;
   margin: 0em 0em 1em;
 }
+.ui.form .fields:last-child .field,
 .ui.form :not(.fields) .field:last-child {
   margin-bottom: 0em;
 }
@@ -1167,6 +1168,26 @@
 .ui.form .five.fields > .fields,
 .ui.form .five.fields > .field {
   width: 20%;
+}
+.ui.form .six.fields > .fields,
+.ui.form .six.fields > .field {
+  width: 16.66666667%;
+}
+.ui.form .seven.fields > .fields,
+.ui.form .seven.fields > .field {
+  width: 14.28571429%;
+}
+.ui.form .eight.fields > .fields,
+.ui.form .eight.fields > .field {
+  width: 12.5%;
+}
+.ui.form .nine.fields > .fields,
+.ui.form .nine.fields > .field {
+  width: 11.11111111%;
+}
+.ui.form .ten.fields > .fields,
+.ui.form .ten.fields > .field {
+  width: 10%;
 }
 /* Swap to full width on mobile */
 @media only screen and (max-width: 767px) {
@@ -10691,7 +10712,7 @@ i.flag.zimbabwe:before {
   color: rgba(0, 0, 0, 0.8);
 }
 .ui.header .sub.header {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: normal;
   margin: 0em;
   padding: 0em;
@@ -11041,42 +11062,18 @@ a.ui.inverted.yellow.header:hover {
   border-bottom-color: rgba(255, 255, 255, 0.2);
 }
 /*-------------------
-        Block
---------------------*/
-.ui.block.header {
-  background: #fafafa -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  background: #fafafa linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  padding: 0.75rem 1rem;
-  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
-  border: 1px solid #dddddd;
-  border-radius: 0.3125rem;
-}
-.ui.tiny.block.header {
-  font-size: 1em;
-}
-.ui.small.block.header {
-  font-size: 1.1em;
-}
-.ui.block.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
-  font-size: 1.3em;
-}
-.ui.large.block.header {
-  font-size: 1.5em;
-}
-.ui.huge.block.header {
-  font-size: 2em;
-}
-/*-------------------
        Attached
 --------------------*/
 .ui.attached.header {
-  background: #fafafa -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  background: #fafafa linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: #ffffff;
   padding: 0.75rem 1rem;
-  box-shadow: 0px 0px 0px 1px #dddddd;
-  border: none;
-  margin-left: 0px;
-  margin-right: 0px;
+  margin-left: -1px;
+  margin-right: -1px;
+}
+.ui.attached.header,
+.ui.attached.block.header {
+  box-shadow: none;
+  border: 1px solid #dddddd;
 }
 .ui.attached:not(.top):not(.bottom).header {
   margin-top: 0em;
@@ -11109,6 +11106,31 @@ a.ui.inverted.yellow.header:hover {
 }
 .ui.huge.attached.header {
   font-size: 1.2em;
+}
+/*-------------------
+        Block
+--------------------*/
+.ui.block.header {
+  background: #f0f0f0;
+  padding: 0.75rem 1rem;
+  box-shadow: none;
+  border: 1px solid #dddddd;
+  border-radius: 0.3125rem;
+}
+.ui.tiny.block.header {
+  font-size: 1em;
+}
+.ui.small.block.header {
+  font-size: 1.1em;
+}
+.ui.block.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+  font-size: 1.3em;
+}
+.ui.large.block.header {
+  font-size: 1.5em;
+}
+.ui.huge.block.header {
+  font-size: 2em;
 }
 /*-------------------
         Sizing
@@ -18342,9 +18364,9 @@ ol.ui.horizontal.list li:before,
   position: relative;
   background-color: #ffffff;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
-  margin: 1em 0em;
+  margin: 1rem 0em;
   padding: 1em 1em;
-  border-radius: 0.25em;
+  border-radius: 0.25rem;
   border: none;
 }
 .ui.segment:first-child {
@@ -18419,12 +18441,9 @@ ol.ui.horizontal.list li:before,
   padding-top: 2em;
   padding-bottom: 2em;
 }
-.ui.grid.segment,
-.ui.grid .ui.segment.row,
-.ui.grid .ui.segment.column {
-  border-radius: 0em;
-  box-shadow: none;
-  border: none;
+.ui.grid.segment {
+  margin: 1rem 0rem;
+  border-radius: 0.25rem;
 }
 /* Table */
 .ui.basic.table.segment {
@@ -18562,39 +18581,39 @@ ol.ui.horizontal.list li:before,
 --------------------*/
 .ui.black.segment:not(.inverted) {
   border-top: 2px solid #1b1c1d;
-  border-radius: 0em 0em 0.25em 0.25em !important;
+  border-radius: 0em 0em 0.25rem 0.25rem !important;
 }
 .ui.blue.segment:not(.inverted) {
   border-top: 2px solid #3b83c0;
-  border-radius: 0em 0em 0.25em 0.25em !important;
+  border-radius: 0em 0em 0.25rem 0.25rem !important;
 }
 .ui.green.segment:not(.inverted) {
   border-top: 2px solid #5bbd72;
-  border-radius: 0em 0em 0.25em 0.25em !important;
+  border-radius: 0em 0em 0.25rem 0.25rem !important;
 }
 .ui.orange.segment:not(.inverted) {
   border-top: 2px solid #e07b53;
-  border-radius: 0em 0em 0.25em 0.25em !important;
+  border-radius: 0em 0em 0.25rem 0.25rem !important;
 }
 .ui.pink.segment:not(.inverted) {
   border-top: 2px solid #d9499a;
-  border-radius: 0em 0em 0.25em 0.25em !important;
+  border-radius: 0em 0em 0.25rem 0.25rem !important;
 }
 .ui.purple.segment:not(.inverted) {
   border-top: 2px solid #564f8a;
-  border-radius: 0em 0em 0.25em 0.25em !important;
+  border-radius: 0em 0em 0.25rem 0.25rem !important;
 }
 .ui.red.segment:not(.inverted) {
   border-top: 2px solid #d95c5c;
-  border-radius: 0em 0em 0.25em 0.25em !important;
+  border-radius: 0em 0em 0.25rem 0.25rem !important;
 }
 .ui.teal.segment:not(.inverted) {
   border-top: 2px solid #00b5ad;
-  border-radius: 0em 0em 0.25em 0.25em !important;
+  border-radius: 0em 0em 0.25rem 0.25rem !important;
 }
 .ui.yellow.segment:not(.inverted) {
   border-top: 2px solid #f2c61f;
-  border-radius: 0em 0em 0.25em 0.25em !important;
+  border-radius: 0em 0em 0.25rem 0.25rem !important;
 }
 /*-------------------
    Inverted Colors
@@ -18679,6 +18698,7 @@ ol.ui.horizontal.list li:before,
 .ui.inverted.block.segment,
 .ui.inverted.attached.segment {
   box-shadow: none !important;
+  border: none !important;
 }
 /*-------------------
      Ordinality
@@ -18707,27 +18727,32 @@ ol.ui.horizontal.list li:before,
 .ui.segment.attached {
   top: 0px;
   bottom: 0px;
-  margin: 0em;
+  margin: 0em -1px;
   border-radius: 0px;
-  box-shadow: 0px 0px 0px 1px #dddddd;
+  box-shadow: none;
+  border: 1px solid #dddddd;
 }
+/* Top */
 .ui[class*="top attached"].segment {
   top: 0px;
   bottom: 0px;
-  margin-top: 1em;
+  border-bottom: none;
+  margin-top: 1rem;
   margin-bottom: 0em;
-  border-radius: 0.25em 0.25em 0em 0em;
+  border-radius: 0.25rem 0.25rem 0em 0em;
 }
 .ui.segment[class*="top attached"]:first-child {
   margin-top: 0em;
 }
+/* Bottom */
 .ui.segment[class*="bottom attached"] {
+  border-top: none;
   top: 0px;
   bottom: 0px;
   margin-top: 0em;
-  margin-bottom: 1em;
-  box-shadow: 0px 0px 0px 1px #dddddd, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
-  border-radius: 0em 0em 0.25em 0.25em;
+  margin-bottom: 1rem;
+  box-shadow: none, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 0em 0em 0.25rem 0.25rem;
 }
 .ui.segment[class*="bottom attached"]:last-child {
   margin-bottom: 0em;
@@ -21804,7 +21829,7 @@ a:hover {
   position: absolute;
   top: 0px;
   left: 0px;
-  opacity: 0;
+  opacity: 0 !important;
   outline: none;
   z-index: -1;
 }
@@ -21916,14 +21941,22 @@ a:hover {
   opacity: 1;
 }
 /*--------------
+    Read-Only
+---------------*/
+.ui.read-only.checkbox,
+.ui.read-only.checkbox label {
+  cursor: default;
+}
+/*--------------
      Disabled
 ---------------*/
 .ui.disabled.checkbox .box:after,
 .ui.disabled.checkbox label,
 .ui.checkbox input[disabled] ~ .box:after,
 .ui.checkbox input[disabled] ~ label {
-  opacity: 0.3;
-  color: rgba(0, 0, 0, 0.3);
+  cursor: default;
+  opacity: 0.5;
+  color: #000000;
 }
 /*******************************
              Types
@@ -21973,7 +22006,7 @@ a:hover {
 ---------------*/
 .ui.slider.checkbox {
   cursor: pointer;
-  height: 1.5rem;
+  height: 1rem;
 }
 .ui.slider.checkbox .box,
 .ui.slider.checkbox label {
