@@ -99,7 +99,7 @@ themes      : ['Default']
       <h4 class="ui header">Disabled</h4>
       <p>A checkbox can be read-only and unable to change states</p>
       <div class="ui info message">
-        A checkbox can be disabled by either setting disabled on the hidden input, or class <code>disabled</code> on the <code>ui checkbox</code>
+        A checkbox can be disabled by either setting the disabled attribute on the hidden input, or class <code>disabled</code> on the <code>ui checkbox</code>
       </div>
       <div class="ui disabled checkbox">
         <input type="checkbox" disabled="disabled" />
@@ -163,46 +163,43 @@ themes      : ['Default']
       <div class="ui toggle button">Toggle</div>
       <div class="ui positive check button">Check</div>
       <div class="ui negative uncheck button">Uncheck</div>
-      <br><br>
-      <div class="ui test slider checkbox">
-        <input type="checkbox" />
-        <div class="box"></div>
-      </div>
-      <div class="ui test slider checkbox">
-        <input type="checkbox" checked="checked" />
-        <div class="box"></div>
-      </div>
-      <div class="ui test slider checkbox">
-        <input type="checkbox" />
-        <div class="box"></div>
-      </div>
-      <div class="ui test slider checkbox">
-        <input type="checkbox" checked="checked" />
-        <div class="box"></div>
-      </div>
-      <div class="ui test slider checkbox">
-        <input type="checkbox" />
-        <div class="box"></div>
-      </div>
-      <div class="ui test slider checkbox">
-        <input type="checkbox" />
-        <div class="box"></div>
-      </div>
-      <div class="ui test slider checkbox">
-        <input type="checkbox" checked="checked" />
-        <div class="box"></div>
-      </div>
-      <div class="ui test slider checkbox">
-        <input type="checkbox" />
-        <div class="box"></div>
-      </div>
-      <div class="ui test slider checkbox">
-        <input type="checkbox" checked="checked" />
-        <div class="box"></div>
-      </div>
-      <div class="ui test slider checkbox">
-        <input type="checkbox" />
-        <div class="box"></div>
+      <div class="ui six column center aligned stackable divided grid segment">
+        <div class="column">
+          <div class="ui test slider checkbox">
+            <input type="checkbox" />
+            <label>1</label>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui test toggle checkbox">
+            <input type="checkbox" checked="checked" />
+            <label>2</label>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui test checkbox">
+            <input type="checkbox" />
+            <label>3</label>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui test slider checkbox">
+            <input type="checkbox" checked="checked" />
+            <label>4</label>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui test toggle checkbox">
+            <input type="checkbox" />
+            <label>5</label>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui test checkbox">
+            <input type="checkbox" />
+            <label>6</label>
+          </div>
+        </div>
       </div>
     </div>
   </div>
