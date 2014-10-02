@@ -442,45 +442,21 @@ a.ui.inverted.yellow.header:hover {
 
 
 /*-------------------
-        Block
---------------------*/
-
-.ui.block.header {
-  background: @blockBackground;
-  padding: @blockVerticalPadding @blockHorizontalPadding;
-  box-shadow: @blockBoxShadow;
-  border: @blockBorder;
-  border-radius: @blockBorderRadius;
-}
-
-.ui.tiny.block.header {
-  font-size: @tinyBlock;
-}
-.ui.small.block.header {
-  font-size: @smallBlock;
-}
-.ui.block.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
-  font-size: @mediumBlock;
-}
-.ui.large.block.header {
-  font-size: @largeBlock;
-}
-.ui.huge.block.header {
-  font-size: @hugeBlock;
-}
-
-/*-------------------
        Attached
 --------------------*/
 
 .ui.attached.header {
   background: @attachedBackground;
   padding: @attachedVerticalPadding @attachedHorizontalPadding;
-  box-shadow: @attachedBoxShadow;
-  border: @attachedBorder;
   margin-left: @attachedOffset;
   margin-right: @attachedOffset;
 }
+.ui.attached.header,
+.ui.attached.block.header {
+  box-shadow: @attachedBoxShadow;
+  border: @attachedBorder;
+}
+
 .ui.attached:not(.top):not(.bottom).header {
   margin-top: 0em;
   margin-bottom: 0em;
@@ -513,6 +489,34 @@ a.ui.inverted.yellow.header:hover {
 }
 .ui.huge.attached.header {
   font-size: @hugeAttached;
+}
+
+/*-------------------
+        Block
+--------------------*/
+
+.ui.block.header {
+  background: @blockBackground;
+  padding: @blockVerticalPadding @blockHorizontalPadding;
+  box-shadow: @blockBoxShadow;
+  border: @blockBorder;
+  border-radius: @blockBorderRadius;
+}
+
+.ui.tiny.block.header {
+  font-size: @tinyBlock;
+}
+.ui.small.block.header {
+  font-size: @smallBlock;
+}
+.ui.block.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+  font-size: @mediumBlock;
+}
+.ui.large.block.header {
+  font-size: @largeBlock;
+}
+.ui.huge.block.header {
+  font-size: @hugeBlock;
 }
 
 /*-------------------
