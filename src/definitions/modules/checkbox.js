@@ -64,7 +64,6 @@ $.fn.checkbox = function(parameters) {
           else {
             $module
               .on('click' + eventNamespace, module.toggle)
-              .data(moduleNamespace, module)
             ;
             $input
               .on('keydown' + eventNamespace, module.event.keydown)
@@ -73,7 +72,6 @@ $.fn.checkbox = function(parameters) {
               .on('click' + eventNamespace, module.toggle)
             ;
           }
-
           if( module.is.checked() ) {
             module.set.checked();
             if(settings.fireOnInit) {
@@ -391,7 +389,7 @@ $.fn.checkbox.settings = {
 
   className: {
     checked : 'checked',
-    radio  : 'radio'
+    radio   : 'radio'
   },
 
   onChange    : function(){},
