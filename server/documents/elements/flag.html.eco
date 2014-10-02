@@ -33,9 +33,9 @@ type        : 'UI Element'
     <div class="ui info message">
       <p>Many flag sets use SVG to render flags at multiple sizes. However svg flags usually appear blurry or render improperly at smaller sizes. Semantic's default theme uses an image sprite solution which provides crisper icons, but without the ability to resize</p>
     </div>
-    <table class="ui sortable table">
+    <table class="ui sortable definition table">
       <thead>
-        <th>Flag</th>
+        <th class="one wide">Flag</th>
         <th>Name</th>
         <th>ISO 3166-2 Code <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">?</a></th>
         <th>Additional Aliases</th>

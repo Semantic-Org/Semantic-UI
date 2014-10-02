@@ -621,6 +621,13 @@ body#example.hide {
   clear: both;
   padding: 1px;
 }
+#example .main.container:after {
+  content: '';
+  display: block;
+  height: 0px;
+  clear: both;
+  visibility: hidden;
+}
 #example .main.container .examples > h2,
 #example .main.container > h2,
 #example .main.container > .tab > h2{

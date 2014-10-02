@@ -27,7 +27,7 @@ themes      : ['Default']
       <p>A standard checkbox</p>
       <div class="ui checkbox">
         <input type="checkbox" name="fun" />
-        <label>I enjoy having fun</label>
+        <label>Make my profile visible</label>
       </div>
     </div>
 
@@ -36,7 +36,7 @@ themes      : ['Default']
       <p>A checkbox can be formatted to emphasize the current selection state</p>
       <div class="ui slider checkbox">
         <input type="checkbox" name="newsletter" />
-        <label>Receive weekly poodle newsletter</label>
+        <label>Accept terms and conditions</label>
       </div>
     </div>
 
@@ -45,7 +45,7 @@ themes      : ['Default']
       <p>A checkbox can be formatted to show an on or off choice</p>
       <div class="ui toggle checkbox">
         <input type="checkbox" name="public" />
-        <label>Make my dog's profile public</label>
+        <label>Subscribe to weekly newsletter</label>
       </div>
     </div>
 
@@ -59,25 +59,25 @@ themes      : ['Default']
           <div class="field">
             <div class="ui radio checkbox">
               <input type="radio" name="fruit" checked="checked" />
-              <label>Apples</label>
+              <label>Once a week</label>
             </div>
           </div>
           <div class="field">
             <div class="ui radio checkbox">
               <input type="radio" name="fruit" />
-              <label>Oranges</label>
+              <label>2-3 times a week</label>
             </div>
           </div>
           <div class="field">
             <div class="ui radio checkbox">
               <input type="radio" name="fruit" />
-              <label>Pears</label>
+              <label>Once a day</label>
             </div>
           </div>
           <div class="field">
             <div class="ui radio checkbox">
               <input type="radio" name="fruit" />
-              <label>Grapefruit</label>
+              <label>Twice a day</label>
             </div>
           </div>
         </div>
@@ -112,6 +112,32 @@ themes      : ['Default']
         <label>Disabled</label>
       </div>
     </div>
+
+    <h2 class="ui dividing header">Variations</h2>
+
+    <div class="example">
+      <h4 class="ui header">Fitted</h4>
+      <p>A fitted checkbox does not leave padding for a label</p>
+      <div class="ui left floated segment">
+        <div class="ui fitted checkbox">
+          <input type="checkbox"/>
+          <label></label>
+        </div>
+      </div>
+      <div class="ui left floated segment">
+        <div class="ui fitted slider checkbox">
+          <input type="checkbox"/>
+          <label></label>
+        </div>
+      </div>
+      <div class="ui left floated segment">
+        <div class="ui fitted toggle checkbox">
+          <input type="checkbox"/>
+          <label></label>
+        </div>
+      </div>
+    </div>
+
 
   </div>
 

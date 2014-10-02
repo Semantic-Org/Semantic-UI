@@ -70,6 +70,48 @@ themes      : ['Default', 'Classic']
       </tfoot>
     </table>
   </div>
+  <div class="another example">
+    <div class="ui top attached header">Git Repository</div>
+    <table class="ui bottom attached celled striped table">
+      <tbody>
+        <tr>
+          <td class="collapsing disabled">
+            <i class="folder icon"></i> node_modules
+          </td>
+          <td>Initial commit</td>
+          <td class="right aligned collapsing">10 hours ago</td>
+        </tr>
+        <tr>
+          <td>
+            <i class="folder icon"></i> test
+          </td>
+          <td>Initial commit</td>
+          <td class="right aligned">10 hours ago</td>
+        </tr>
+        <tr>
+          <td>
+            <i class="folder icon"></i> build
+          </td>
+          <td>Initial commit</td>
+          <td class="right aligned">10 hours ago</td>
+        </tr>
+        <tr>
+          <td>
+            <i class="file outline icon"></i> package.json
+          </td>
+          <td>Initial commit</td>
+          <td class="right aligned">10 hours ago</td>
+        </tr>
+        <tr>
+          <td>
+            <i class="file outline icon"></i> Gruntfile.js
+          </td>
+          <td>Initial commit</td>
+          <td class="right aligned">10 hours ago</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <div class="example">
     <h4 class="ui header">Definition</h4>
@@ -91,6 +133,70 @@ themes      : ['Default', 'Classic']
           <td>rating (integer)</td>
           <td>Sets the current star rating to specified value</td>
         </tr>
+    </table>
+  </div>
+  <div class="another example">
+    <table class="ui compact celled definition table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Registration Date</th>
+          <th>E-mail address</th>
+          <th>Premium Plan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="collapsing">
+            <div class="ui fitted slider checkbox">
+              <input type="checkbox"> <label></label>
+            </div>
+          </td>
+          <td>John Lilki</td>
+          <td>September 14, 2013</td>
+          <td>jhlilk22@yahoo.com</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td class="collapsing">
+            <div class="ui fitted slider checkbox">
+              <input type="checkbox"> <label></label>
+            </div>
+          </td>
+          <td>Jamie Harington</td>
+          <td>January 11, 2014</td>
+          <td>jamieharingonton@yahoo.com</td>
+          <td>Yes</td>
+        </tr>
+        <tr>
+          <td class="collapsing">
+            <div class="ui fitted slider checkbox">
+              <input type="checkbox"> <label></label>
+            </div>
+          </td>
+          <td>Jill Lewis</td>
+          <td>May 11, 2014</td>
+          <td>jilsewris22@yahoo.com</td>
+          <td>Yes</td>
+        </tr>
+      </tbody>
+      <tfoot class="full-width">
+        <tr>
+          <th></th>
+          <th colspan="4">
+            <div class="ui right floated small primary labeled icon button">
+              <i class="user icon"></i> Add User
+            </div>
+            <div class="ui small  button">
+              Approve
+            </div>
+            <div class="ui small  disabled button">
+              Approve All
+            </div>
+          </th>
+        </tr>
+      </tfoot>
     </table>
   </div>
 
@@ -281,6 +387,37 @@ themes      : ['Default', 'Classic']
   <h2 class="ui dividing header">Variations</h2>
 
   <div class="example">
+    <h4 class="ui header">Text Alignment</h4>
+    <p>A table header, row, or cell can adjust its text alignment</p>
+    <table class="ui striped table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Status</th>
+          <th class="right aligned">Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="center aligned">
+          <td>John</td>
+          <td>Approved</td>
+          <td class="right aligned">None</td>
+        </tr>
+        <tr>
+          <td>Jamie</td>
+          <td>Approved</td>
+          <td class="right aligned">Requires call</td>
+        </tr>
+        <tr>
+          <td>Jill</td>
+          <td>Denied</td>
+          <td class="right aligned">None</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="example">
     <h4 class="ui header">Striped</h4>
     <p>A table can stripe alternate rows of content with a darker color to increase contrast</p>
     <table class="ui striped table">
@@ -411,6 +548,42 @@ themes      : ['Default', 'Classic']
     </table>
   </div>
 
+  <div class="example">
+    <h4 class="ui header">Collapsing Cell</h4>
+    <p>A cell can be collapsing so that it only uses as much space as required</p>
+    <div class="ui ignored warning icon message">
+      <i class="warning icon"></i>
+      <div class="content">
+        To ensure icons don't wrap to a seperate line you must either specify collapsing on the widest row in the collapsing column, or on all rows
+      </div>
+    </div>
+
+    <table class="ui table">
+      <tbody>
+        <tr>
+          <td class="collapsing disabled">
+            <i class="folder icon"></i> node_modules
+          </td>
+          <td>Initial commit</td>
+          <td>10 hours ago</td>
+        </tr>
+        <tr>
+          <td>
+            <i class="folder icon"></i> test
+          </td>
+          <td>Initial commit</td>
+          <td>10 hours ago</td>
+        </tr>
+        <tr>
+          <td>
+            <i class="folder icon"></i> build
+          </td>
+          <td>Initial commit</td>
+          <td>10 hours ago</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <div class="example">
     <h4 class="ui header">Even Width</h4>
@@ -664,6 +837,72 @@ themes      : ['Default', 'Classic']
         <th>3 People</th>
         <th>2 Approved</th>
         <th></th>
+      </tfoot>
+    </table>
+  </div>
+  <div class="example">
+    <h4 class="ui header">Full-Width Header / Footer </h4>
+    <p>A definition table can have a full width header or footer, filling in the gap left by the first column</p>
+    <table class="ui compact celled definition table">
+      <thead class="full-width">
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Registration Date</th>
+          <th>E-mail address</th>
+          <th>Premium Plan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="collapsing">
+            <div class="ui fitted slider checkbox">
+              <input type="checkbox"> <label></label>
+            </div>
+          </td>
+          <td>John Lilki</td>
+          <td>September 14, 2013</td>
+          <td>jhlilk22@yahoo.com</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td class="collapsing">
+            <div class="ui fitted slider checkbox">
+              <input type="checkbox"> <label></label>
+            </div>
+          </td>
+          <td>Jamie Harington</td>
+          <td>January 11, 2014</td>
+          <td>jamieharingonton@yahoo.com</td>
+          <td>Yes</td>
+        </tr>
+        <tr>
+          <td class="collapsing">
+            <div class="ui fitted slider checkbox">
+              <input type="checkbox"> <label></label>
+            </div>
+          </td>
+          <td>Jill Lewis</td>
+          <td>May 11, 2014</td>
+          <td>jilsewris22@yahoo.com</td>
+          <td>Yes</td>
+        </tr>
+      </tbody>
+      <tfoot class="full-width">
+        <tr>
+          <th></th>
+          <th colspan="4">
+            <div class="ui right floated small primary labeled icon button">
+              <i class="user icon"></i> Add User
+            </div>
+            <div class="ui small  button">
+              Approve
+            </div>
+            <div class="ui small  disabled button">
+              Approve All
+            </div>
+          </th>
+        </tr>
       </tfoot>
     </table>
   </div>

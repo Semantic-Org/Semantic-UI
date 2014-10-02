@@ -274,6 +274,12 @@ themes      : ['default', 'GitHub']
     <div class="ui right floated segment">
       <p>This segment will appear to the right
     </div>
+    <div class="ui right floated segment">
+      <p>This segment will appear to the right
+    </div>
+    <div class="ui left floated segment">
+      This segment will appear to the left
+    </div>
     <div class="ui left floated segment">
       This segment will appear to the left
     </div>

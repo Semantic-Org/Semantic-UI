@@ -9,6 +9,12 @@ semantic.table.ready = function() {
     handler
   ;
 
+  $('.ui.checkbox').checkbox({
+    onChecked: function() {
+      $(this).closest('.table').find('.button').removeClass('disabled');
+    }
+  });
+
 
 };
 
