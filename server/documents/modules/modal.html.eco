@@ -303,9 +303,10 @@ themes      : ['Default', 'Fixed-width']
       </div>
       <div class="ui clearing divider"></div>
       <div class="code">
-      $('.selection')
+      $('.selection.dropdown')
         .dropdown({
           onChange: function(value) {
+            alert($('.standard.test.modal').size());
             $('.standard.test.modal')
               .modal('setting', 'transition', value)
               .modal('show')

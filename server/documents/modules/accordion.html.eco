@@ -115,7 +115,7 @@ themes      : ['Default', 'Chubby']
     <h2 class="ui dividing header">Examples</h2>
 
     <div class="example">
-      <h3 class="ui header">Nested</h3>
+      <h4 class="ui header">Nested</h4>
       <p>An accordion can have multiple levels of nested content. This content can either be in a nested <code>accordion</code> or simply another level of <code>title</code> and <code>content</code></p>
       <div class="ui styled accordion">
         <div class="active title">
@@ -123,7 +123,7 @@ themes      : ['Default', 'Chubby']
           Level 1
         </div>
         <div class="active content">
-          Welcome to level 1 where sub content formatted as its own accordion.
+          Welcome to level 1
           <div class="accordion">
             <div class="active title">
                 <i class="dropdown icon"></i>
@@ -169,48 +169,52 @@ themes      : ['Default', 'Chubby']
           Level 2
         </div>
         <div class="content">
-          <p>Welcome to level 2 where content is formatted without nested accordions</p>
-          <div class="active title">
-            <i class="dropdown icon"></i>
-            Level 2A
-          </div>
-          <div class="active content">
-            <p>Level 2A Contents</p>
+          <p>Welcome to level 2</p>
+          <div class="accordion">
+            <div class="active title">
+              <i class="dropdown icon"></i>
+              Level 2A
+            </div>
+            <div class="active content">
+              <p>Level 2A Contents</p>
+              <div class="accordion">
+                <div class="title">
+                    <i class="dropdown icon"></i>
+                    Level 2A-A
+                </div>
+                <div class="content">
+                    Level 2A-A Contents
+                </div>
+                <div class="title">
+                    <i class="dropdown icon"></i>
+                    Level 2A-B
+                </div>
+                <div class="content">
+                    Level 2A-B Contents
+                </div>
+              </div>
+            </div>
             <div class="title">
                 <i class="dropdown icon"></i>
-                Level 2A-A
+                Level 2B
             </div>
             <div class="content">
-                Level 2A-A Contents
+                Level 2B Contents
             </div>
             <div class="title">
                 <i class="dropdown icon"></i>
-                Level 2A-B
+                Level 2C
             </div>
             <div class="content">
-                Level 2A-B Contents
+                Level 2C Contents
             </div>
-          </div>
-          <div class="title">
-              <i class="dropdown icon"></i>
-              Level 2B
-          </div>
-          <div class="content">
-              Level 2B Contents
-          </div>
-          <div class="title">
-              <i class="dropdown icon"></i>
-              Level 2C
-          </div>
-          <div class="content">
-              Level 2C Contents
           </div>
         </div>
       </div>
     </div>
 
     <div class="example">
-      <h3 class="ui header">Form</h3>
+      <h4 class="ui header">Form</h4>
       <p>An accordion can be used anywhere where content can be shown or hidden. For example, to show optional form fields.</p>
       <div class="ui segment">
         <div class="ui fluid form">
@@ -239,7 +243,7 @@ themes      : ['Default', 'Chubby']
       </div>
     </div>
     <div class="example">
-      <h3 class="ui header">Menu</h3>
+      <h4 class="ui header">Menu</h4>
       <p>An accordion can be used to create content drawers inside a menu</p>
       <div class="ui vertical accordion menu">
         <div class="item">
@@ -320,11 +324,25 @@ themes      : ['Default', 'Chubby']
   <div class="ui tab" data-tab="usage">
 
     <h2 class="ui dividing header">Initializing</h2>
-    <h3 class="ui header">Initializing an accordion</h3>
-    <div class="test code">
-    $('.ui.accordion')
-      .accordion()
-    ;
+
+    <div class="no example">
+      <h4 class="ui header">Initializing an accordion</h4>
+      <p>Accordion is initialized on pre-existing markup</p>
+      <div class="test code">
+      $('.ui.accordion')
+        .accordion()
+      ;
+      </div>
+    </div>
+
+    <div class="no example">
+      <h4 class="ui header">AJAX Content</h4>
+      <p>Accordions use <a href="https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver" target="_blank">DOM Mutation Observers</a> and delegated events to allow for easy compataibility with AJAX content, or content added after initialization.</p>
+      <p>If the DOM tree changes the module will automatically call <code>module.refresh</code> and update the selector cache. Because events are bound on the parent module using delegated events, events will automatically fire on content added after initialization.</p>
+      <p>If you change other attributes of the module without DOM insertion and need to update the cache you can do so by calling this module's <code>refresh</code> behavior.
+      <div class="code" data-type="javascript">
+        $('.ui.accordion').accordion('refresh');
+      </div>
     </div>
 
     <h2 class="ui dividing header">Behaviors</h2>
@@ -334,10 +352,14 @@ themes      : ['Default', 'Chubby']
     $('.ui.accordion').accordion('behavior', argumentOne, argumentTwo...);
     </div>
 
-    <table class="ui definition celled table segment">
+    <table class="ui definition celled table">
       <tr>
         <td>open (index)</td>
         <td>Opens accordion content at index</td>
+      </tr>
+      <tr>
+        <td>close others</td>
+        <td>Closes accordion content that are not active</td>
       </tr>
       <tr>
         <td>close (index)</td>
@@ -352,27 +374,34 @@ themes      : ['Default', 'Chubby']
   </div>
 
   <div class="ui tab" data-tab="settings">
+    <h2 class="ui dividing header">
+      Accordion
+    </h2>
 
-    <h3 class="ui header">
-      Accordion Settings
-      <div class="sub header">Accordion settings modify its behavior</div>
-    </h3>
-    <table class="ui sortable celled definition table segment">
+    <h4 class="ui header">
+      Behavior
+    </h4>
+    <table class="ui basic sortable celled definition table">
       <thead>
-        <th>Setting</th>
-        <th class="four wide">Default</th>
+        <th class="three wide">Setting</th>
+        <th class="three wide">Default</th>
         <th>Description</th>
       </thead>
       <tbody>
         <tr>
           <td>exclusive</td>
           <td>true</td>
-          <td>Set to false to allow multiple sections to be open at the same time</td>
+          <td>Only allow one section open at a time</td>
+        </tr>
+        <tr>
+          <td>close nested</td>
+          <td>true</td>
+          <td>Allow active sections to collapse</td>
         </tr>
         <tr>
           <td>collapsible</td>
           <td>true</td>
-          <td>Set to false to require an accordion to always have a section open</td>
+          <td>Allow active sections to collapse</td>
         </tr>
         <tr>
           <td>duration</td>
@@ -382,20 +411,19 @@ themes      : ['Default', 'Chubby']
         <tr>
           <td>easing</td>
           <td>easeInOutQuint</td>
-          <td>EaseInOutQuint is included with accordion, for additional options consider <a href="http://gsgd.co.uk/sandbox/jquery/easing/">jQuery easing</a>)</td>
+          <td>Easing of opening animation. EaseInOutQuint is included with accordion, for additional options you must include <a href="http://gsgd.co.uk/sandbox/jquery/easing/">easing equations</a>.</td>
         </tr>
       </tbody>
     </table>
 
-    <h3 class="ui header">
+    <h4 class="ui header">
       Callbacks
-      <div class="sub header">Callbacks specify a function to occur after a specific behavior.</div>
-    </h3>
+    </h4>
 
-    <table class="ui sortable celled definition table segment">
+    <table class="ui basic sortable celled definition table">
       <thead>
-        <th class="four wide">Setting</th>
-        <th>Context</th>
+        <th class="three wide">Setting</th>
+        <th class="three wide">Context</th>
         <th>Description</th>
       </thead>
       <tbody>
@@ -417,11 +445,16 @@ themes      : ['Default', 'Chubby']
       </tbody>
     </table>
 
-    <h3 class="ui header">
-      DOM Settings
-      <div class="sub header">DOM settings specify how this module should interface with the DOM</div>
-    </h3>
-    <table class="ui sortable celled definition table segment">
+    <h2 class="ui dividing header">
+      Module
+    </h2>
+
+    <p>These settings are native to all modules, and define how the component ties content to DOM attributes, and debugging settings for the module.</p>
+
+    <h4 class="ui header">
+      DOM
+    </h4>
+    <table class="ui basic sortable celled definition table">
       <thead>
         <th>Setting</th>
         <th class="six wide">Default</th>
@@ -437,13 +470,14 @@ themes      : ['Default', 'Chubby']
           <td>selector</td>
           <td>
             <div class="code" data-type="css">
-            {
-              title   : '.title',
-              content : '.content'
+            selector    : {
+              accordion : '.accordion',
+              title     : '.title',
+              content   : '.content'
             }
             </div>
           </td>
-          <td>Object containing selectors used by module.</td>
+          <td>Selectors used to find parts of a module</td>
         </tr>
         <tr>
           <td>className</td>
@@ -454,17 +488,16 @@ themes      : ['Default', 'Chubby']
             }
             </div>
           </td>
-          <td>Class names used to attach style to state</td>
+          <td>Class names used to determine element state</td>
         </tr>
       </tbody>
     </table>
 
-    <h3 class="ui header">
-      Debug Settings
-      <div class="sub header">Debug settings controls debug output to the console</div>
-    </h3>
+    <h4 class="ui header">
+      Debug
+    </h4>
 
-    <table class="ui sortable celled definition table segment">
+    <table class="ui basic sortable celled definition table">
       <thead>
         <th>Setting</th>
         <th class="four wide">Default</th>
@@ -474,30 +507,29 @@ themes      : ['Default', 'Chubby']
         <tr>
           <td>name</td>
           <td>Accordion</td>
-          <td>Name used in debug logs</td>
+          <td>Name used in log statements</td>
         </tr>
         <tr>
           <td>debug</td>
-          <td>True</td>
-          <td>Provides standard debug output to console</td>
+          <td>true</td>
+          <td>Debug output to console</td>
         </tr>
         <tr>
           <td>performance</td>
-          <td>True</td>
-          <td>Provides standard debug output to console</td>
+          <td>true</td>
+          <td>Show <code>console.table</code> output with performance metrics</td>
         </tr>
         <tr>
           <td>verbose</td>
-          <td>True</td>
-          <td>Provides ancillary debug output to console</td>
+          <td>true</td>
+          <td>Debug output includes all internal behaviors</td>
         </tr>
         <tr>
           <td>errors</td>
           <td colspan="2">
             <div class="code">
             error   : {
-              method   : 'The method you called is not defined.',
-              notFound : 'There were no elements that matched the specified selector'
+              method   : 'The method you called is not defined.'
             }
             </div>
           </td>

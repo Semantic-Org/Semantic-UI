@@ -89,7 +89,7 @@ themes      : ['Default']
 
   <div class="ui tab" data-tab="usage">
 
-    <h3 class="ui header">Check Box</h3>
+    <h3 class="ui header">Checkbox</h3>
     <p>A checkbox can be initialized with javascript for increase programmatic control</p>
 
     <div class="code">
@@ -104,7 +104,7 @@ themes      : ['Default']
       </div>
     </div>
 
-    <h3 class="ui header">Check Box without Javascript</h3>
+    <h3 class="ui header">Checkbox without Javascript</h3>
     <p>A checkbox can also be used without using javascript by matching the <code>id</code> attribute of the input field to the <code>for</code> attribute of the accompanying label</p>
     <div class="code" data-type="html">
       <div class="ui checkbox">

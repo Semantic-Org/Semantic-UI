@@ -9,7 +9,7 @@ title       : 'Table'
 description : 'A table displays a collections of data grouped into rows'
 type        : 'UI Collection'
 
-themes      : ['Default']
+themes      : ['Default', 'Classic']
 ---
 
 <link rel="stylesheet/less" type="text/css" href="/build/less/definitions/collections/table.less" />
@@ -70,6 +70,30 @@ themes      : ['Default']
       </tfoot>
     </table>
   </div>
+
+  <div class="example">
+    <h4 class="ui header">Definition</h4>
+    <p>A table may be formatted to emphasize a first column that defines a rows content</p>
+    <table class="ui definition table">
+      <thead>
+        <th></th>
+        <th>Arguments</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>reset rating</td>
+          <td>None</td>
+          <td>Resets rating to default value</td>
+        </tr>
+        <tr>
+          <td>set rating</td>
+          <td>rating (integer)</td>
+          <td>Sets the current star rating to specified value</td>
+        </tr>
+    </table>
+  </div>
+
 
   <h2 class="ui dividing header">States</h2>
 
@@ -601,29 +625,6 @@ themes      : ['Default']
         <th>2 Approved</th>
         <th></th>
       </tfoot>
-    </table>
-  </div>
-
-  <div class="example">
-    <h4 class="ui header">Definition</h4>
-    <p>A table may be formatted specifically to provide definitions</p>
-    <table class="ui definition table">
-      <thead>
-        <th>Behavior</th>
-        <th>Arguments</th>
-        <th>Description</th>
-      </thead>
-      <tbody>
-        <tr>
-          <td>reset rating</td>
-          <td>None</td>
-          <td>Resets rating to default value</td>
-        </tr>
-        <tr>
-          <td>set rating</td>
-          <td>rating (integer)</td>
-          <td>Sets the current star rating to specified value</td>
-        </tr>
     </table>
   </div>
 

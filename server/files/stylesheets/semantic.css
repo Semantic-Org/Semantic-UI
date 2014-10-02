@@ -94,6 +94,9 @@ h1 {
 #example .example .anchor + p {
   margin: 0px 0px 1em;
 }
+#example .no.example .anchor + p {
+  margin: 0.5em 0px 1em;
+}
 /*rtl:ignore*/
 pre.console {
   background-color: transparent;
@@ -105,17 +108,19 @@ pre.console {
 }
 code {
   background-color: rgba(0, 0, 0, 0.02);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.2em;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+  color: #333333;
+  font-weight: bold;
   display: inline-block;
-  font-family:  'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+  font-family: "Monaco","Menlo","Ubuntu Mono","Consolas","source-code-pro",monospace;
   font-size: 14px;
-  margin: 0 0.25em;
-  padding: 0.125em 0.5em;
+  margin: 0;
+  padding: 0.1em 0.2em;
   vertical-align: baseline;
 }
 .ui.message code {
   background-color: rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 pre code {
@@ -138,10 +143,14 @@ p:last-child {
   margin-bottom: 0em;
 }
 /* links */
+code a,
+a code,
 a {
   color: #009FDA;
   text-decoration: none;
 }
+code a:hover,
+a:hover code,
 a:hover {
   color: #00BAFF;
 }
@@ -210,7 +219,7 @@ a:hover {
 }
 #example .tab.header.segment .tabular.menu {
   clear: both;
-  margin: 2rem -1px 0em;
+  margin: 2rem 0px 0em;
   border-bottom: none;
 }
 #example .tab.header.segment .tabular.menu .active.item {
@@ -564,7 +573,6 @@ body#example.hide {
   border: 0px;
   box-shadow: none;
   padding: 0em;
-  margin: -0.4em -0.7em;
 }
 
 #example .ui.label + .instructive.segment {
@@ -592,7 +600,7 @@ body#example.hide {
 
 #example .example {
   margin: 1em 0em;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  /*border-top: 1px solid rgba(0, 0, 0, 0.1);*/
   padding: 1em 0em;
   position: relative;
   -webkit-tap-highlight-color: transparent;
@@ -617,6 +625,7 @@ body#example.hide {
 #example .main.container > h2,
 #example .main.container > .tab > h2{
   position: relative;
+  margin-bottom: 1em;
 }
 #example .main.container > h2:first-child {
   margin-top: 0em;
@@ -1091,6 +1100,13 @@ body.progress.animated .ui.progress .bar {
   color: #333333;
 }
 
+.hljs.xml {
+  color: #555555;
+}
+.hljs.xml:hover {
+  color: #333333;
+}
+
 /* Class Name */
 .hljs-string,
 .hljs-tag .hljs-value,
@@ -1134,7 +1150,7 @@ body.progress.animated .ui.progress .bar {
 
 /* HTML Tag */
 .hljs-tag .hljs-title {
-  color: #884E75;
+  color: #7E7079;
   font-weight: normal;
 }
 .code:hover .hljs-tag .hljs-title {
@@ -1271,8 +1287,10 @@ body.progress.animated .ui.progress .bar {
 #example .main.container {
   background-color: #FFFFFF;
   margin: 0em auto;
-  box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.1);
-  padding: 2em 2em 2em;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.05);
+  border-left: 1px solid #DDDDDD;
+  border-right: 1px solid #DDDDDD;
+  padding: 2em 3em 2em;
   z-index: 1;
 }
 #example .main.container .right.rail .sticky {
