@@ -1385,21 +1385,24 @@ body.progress.animated .ui.progress .bar {
     vertical-align: top;
   }
   #example .container {
-    right: 100px;
+    right: 110px;
   }
 }
 @media only screen and (min-width : 998px) and (max-width: 1200px) {
   #example .container {
-    width: 650px;
+    width: 680px;
+    right: 75px;
     margin: 0em auto;
   }
   #example .container .right.rail {
     width: 200px;
+    padding-left: 0em;
   }
 }
 @media only screen and (min-width : 1200px) and (max-width: 1355px) {
   #example .container {
-    width: 700px;
+    width: 765px;
+    right: 128px;
     margin: 0em auto;
   }
 }

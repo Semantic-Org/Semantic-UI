@@ -10,7 +10,7 @@
 @horizontalMargin: 0em;
 
 @verticalPadding: 0.8em;
-@horizontalPadding: 1.75em;
+@horizontalPadding: 1.5em;
 @leftPadding: @horizontalPadding + (@arrowSize /2);
 
 @transition:
