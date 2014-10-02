@@ -84,32 +84,6 @@ $.fn.accordion = function(parameters) {
           ;
         },
 
-        reset: {
-
-          display: function() {
-            module.verbose('Removing inline display from element', this);
-            $(this).css('display', '');
-            if( $(this).attr('style') === '') {
-              $(this)
-                .attr('style', '')
-                .removeAttr('style')
-              ;
-            }
-          },
-
-          opacity: function() {
-            module.verbose('Removing inline opacity from element', this);
-            $(this).css('opacity', '');
-            if( $(this).attr('style') === '') {
-              $(this)
-                .attr('style', '')
-                .removeAttr('style')
-              ;
-            }
-          },
-
-        },
-
         event: {
           click: function() {
             $.proxy(module.toggle, this)();
@@ -220,11 +194,23 @@ $.fn.accordion = function(parameters) {
               : $(this),
             $parentTitles    = $activeTitle.parents(selector.content).prev(selector.title),
             $activeAccordion = $activeTitle.closest(selector.accordion),
-            $openTitles      = $activeAccordion.find(selector.title + '.' + className.active + ':visible').not($parentTitles),
-            $openContents    = $openTitles.next($content),
-            contentIsOpen    = ($openTitles.size() > 0)
+            activeSelector   = selector.title + '.' + className.active + ':visible',
+            activeContent    = selector.content + '.' + className.active + ':visible',
+            $openTitles,
+            $nestedTitles,
+            $openContents
           ;
-          if(contentIsOpen) {
+          if(settings.closeNested) {
+            $openTitles   = $activeAccordion.find(activeSelector).not($parentTitles);
+            $openContents = $openTitles.next($content);
+          }
+          else {
+            $openTitles   = $activeAccordion.find(activeSelector).not($parentTitles);
+            $nestedTitles = $activeAccordion.find(activeContent).find(activeSelector).not($parentTitles);
+            $openTitles = $openTitles.not($nestedTitles);
+            $openContents = $openTitles.next($content);
+          }
+          if( ($openTitles.size() > 0) ) {
             module.debug('Exclusive enabled, closing other content', $openTitles);
             $openTitles
               .removeClass(className.active)
@@ -243,6 +229,32 @@ $.fn.accordion = function(parameters) {
               })
             ;
           }
+        },
+
+        reset: {
+
+          display: function() {
+            module.verbose('Removing inline display from element', this);
+            $(this).css('display', '');
+            if( $(this).attr('style') === '') {
+              $(this)
+                .attr('style', '')
+                .removeAttr('style')
+              ;
+            }
+          },
+
+          opacity: function() {
+            module.verbose('Removing inline opacity from element', this);
+            $(this).css('opacity', '');
+            if( $(this).attr('style') === '') {
+              $(this)
+                .attr('style', '')
+                .removeAttr('style')
+              ;
+            }
+          },
+
         },
 
         setting: function(name, value) {
@@ -432,8 +444,8 @@ $.fn.accordion.settings = {
 
   exclusive   : true,
   collapsible : true,
+  closeNested : false,
 
-  closeNested : true,
   duration    : 500,
   easing      : 'easeInOutQuint',
 
