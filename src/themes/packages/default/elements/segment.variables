@@ -18,8 +18,8 @@
 @verticalPadding: 1em;
 @horizontalPadding: 1em;
 
-@margin: 1em;
-@borderRadius: 0.25em;
+@margin: 1rem;
+@borderRadius: 0.25rem;
 
 /*-------------------
        Coupling
