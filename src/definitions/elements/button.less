@@ -704,6 +704,19 @@
   padding-right: @horizontalPadding !important;
 }
 
+/* Right Labeled */
+.ui[class*="right labeled"].icon.button {
+  padding-right: @labeledIconPadding !important;
+  padding-left: @horizontalPadding !important;
+}
+.ui[class*="right labeled"].icon.button > .icon {
+  left: auto;
+  right: 0em;
+  border-radius: 0em @borderRadius @borderRadius 0em;
+  box-shadow: @labeledIconRightShadow;
+}
+
+
 .ui.labeled.icon.buttons > .button > .icon,
 .ui.labeled.icon.button > .icon {
   position: absolute;
@@ -754,22 +767,13 @@
   border-bottom-left-radius: @borderRadius;
 }
 
-.ui.right.labeled.icon.button {
-  padding-right: @labeledIconPadding !important;
-  padding-left: @horizontalPadding !important;
-}
-.ui.left.fluid.labeled.icon.button,
-.ui.right.fluid.labeled.icon.button {
+/* Fluid Labeled */
+.ui.fluid[class*="left labeled"].icon.button,
+.ui.fluid[class*="right labeled"].icon.button {
   padding-left: @horizontalPadding !important;
   padding-right: @horizontalPadding !important;
 }
 
-.ui.right.labeled.icon.button > .icon {
-  left: auto;
-  right: 0em;
-  border-radius: 0em @borderRadius @borderRadius 0em;
-  box-shadow: @labeledIconRightShadow;
-}
 
 
 
