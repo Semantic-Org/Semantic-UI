@@ -4,7 +4,7 @@ semantic.dropdown = {};
 semantic.dropdown.ready = function() {
 
   // selector cache
-  var 
+  var
     $checkbox = $('.example').not('.static').find('.ui.checkbox'),
     // alias
     handler
@@ -12,13 +12,13 @@ semantic.dropdown.ready = function() {
 
   // event handlers
   handler = {
-    
+
   };
 
   $checkbox
     .checkbox()
   ;
-  
+
 };
 
 

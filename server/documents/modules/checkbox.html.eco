@@ -84,6 +84,34 @@ themes      : ['Default']
       </div>
     </div>
 
+    <h2 class="ui dividing header">States</h2>
+
+    <div class="example">
+      <h4 class="ui header">Read-only</h4>
+      <p>A checkbox can be read-only and unable to change states</p>
+      <div class="ui read-only checkbox">
+        <input type="checkbox" />
+        <label>Read Only</label>
+      </div>
+    </div>
+
+    <div class="example">
+      <h4 class="ui header">Disabled</h4>
+      <p>A checkbox can be read-only and unable to change states</p>
+      <div class="ui info message">
+        A checkbox can be disabled by either setting disabled on the hidden input, or class <code>disabled</code> on the <code>ui checkbox</code>
+      </div>
+      <div class="ui disabled checkbox">
+        <input type="checkbox" disabled="disabled" />
+        <label>Disabled</label>
+      </div>
+      <br>
+      <br>
+      <div class="ui toggle checkbox">
+        <input type="checkbox" disabled="disabled" />
+        <label>Disabled</label>
+      </div>
+    </div>
 
   </div>
 
@@ -104,7 +132,7 @@ themes      : ['Default']
       </div>
     </div>
 
-    <h3 class="ui header">Checkbox without Javascript</h3>
+    <h3 class="ui header">Basic Checkbox</h3>
     <p>A checkbox can also be used without using javascript by matching the <code>id</code> attribute of the input field to the <code>for</code> attribute of the accompanying label</p>
     <div class="code" data-type="html">
       <div class="ui checkbox">
@@ -135,76 +163,89 @@ themes      : ['Default']
   <div class="ui tab" data-tab="examples">
 
     <h2>Examples</h2>
+    <div class="example">
+      <h4 class="ui header">Disabled / Read Only / Forced</h4>
+      <p>To disable a checkbox, add the property <code>disabled</code> to your input.</p>
+      <p>To make a checkbox read-only do not initialize it, or include the <code>read-only</code> class which will not allow events even if initialized.</p>
+      <p>To make a user able to check a box, but unable to uncheck it, use the <code>uncheckable</code> setting.</p>
+      <div class="evaluated code" data-type="javascript">
+        $('#demo3')
+          .checkbox({
+            uncheckable: true
+          })
+        ;
+      </div>
+      <div class="ui form">
+        <div class="field">
+          <div class="ui checkbox" id="demo1">
+            <input type="checkbox" disabled="disabled" checked="checked" />
+            <label> Disabled</label>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui read-only checkbox" id="demo2">
+            <input type="checkbox" checked="checked" />
+            <label> Read Only</label>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui checkbox" id="demo3">
+            <input type="checkbox" />
+            <label> Cannot Be Unchecked</label>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="example">
-      <p>Example of using checkbox states to alter multiple checkboxes</p>
+      <h4 class="ui header">Attaching Events to other Elements</h4>
+      <p>Checkbox can use the <code>attach events</code> behavior to attach events easily to other activating elements. This defaults to toggling, but other behaviors can be used as well.</p>
       <div class="evaluated code">
-      $('.check.button')
-        .on('click', function() {
-          $(this)
-            .nextAll('.checkbox')
-              .checkbox('check')
-          ;
-        })
-      ;
-      $('.uncheck.button')
-        .on('click', function() {
-          $(this)
-            .nextAll('.checkbox')
-              .checkbox('uncheck')
-          ;
-        })
-      ;
-      $('.toggle.button')
-        .on('click', function() {
-          $(this)
-            .nextAll('.checkbox')
-              .checkbox('toggle')
-          ;
-        })
-      ;
+        $('.test.checkbox').checkbox('attach events', '.toggle.button');
+        $('.test.checkbox').checkbox('attach events', '.check.button', 'check');
+        $('.test.checkbox').checkbox('attach events', '.uncheck.button', 'uncheck');
       </div>
       <div class="ui toggle button">Toggle</div>
       <div class="ui positive check button">Check</div>
       <div class="ui negative uncheck button">Uncheck</div>
       <br><br>
-      <div class="ui slider checkbox">
+      <div class="ui test slider checkbox">
         <input type="checkbox" />
         <div class="box"></div>
       </div>
-      <div class="ui slider checkbox">
+      <div class="ui test slider checkbox">
         <input type="checkbox" checked="checked" />
         <div class="box"></div>
       </div>
-      <div class="ui slider checkbox">
+      <div class="ui test slider checkbox">
         <input type="checkbox" />
         <div class="box"></div>
       </div>
-      <div class="ui slider checkbox">
+      <div class="ui test slider checkbox">
         <input type="checkbox" checked="checked" />
         <div class="box"></div>
       </div>
-      <div class="ui slider checkbox">
+      <div class="ui test slider checkbox">
         <input type="checkbox" />
         <div class="box"></div>
       </div>
-      <div class="ui slider checkbox">
+      <div class="ui test slider checkbox">
         <input type="checkbox" />
         <div class="box"></div>
       </div>
-      <div class="ui slider checkbox">
+      <div class="ui test slider checkbox">
         <input type="checkbox" checked="checked" />
         <div class="box"></div>
       </div>
-      <div class="ui slider checkbox">
+      <div class="ui test slider checkbox">
         <input type="checkbox" />
         <div class="box"></div>
       </div>
-      <div class="ui slider checkbox">
+      <div class="ui test slider checkbox">
         <input type="checkbox" checked="checked" />
         <div class="box"></div>
       </div>
-      <div class="ui slider checkbox">
+      <div class="ui test slider checkbox">
         <input type="checkbox" />
         <div class="box"></div>
       </div>

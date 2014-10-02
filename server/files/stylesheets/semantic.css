@@ -110,7 +110,7 @@ code {
   background-color: rgba(0, 0, 0, 0.02);
   border-radius: 0.2em;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
-  color: #333333;
+  color: rgba(0, 0, 0, 0.75);
   font-weight: bold;
   display: inline-block;
   font-family: "Monaco","Menlo","Ubuntu Mono","Consolas","source-code-pro",monospace;
@@ -1290,6 +1290,7 @@ body.progress.animated .ui.progress .bar {
   box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.05);
   border-left: 1px solid #DDDDDD;
   border-right: 1px solid #DDDDDD;
+  border-bottom: 1px solid #DDDDDD;
   padding: 2em 3em 2em;
   z-index: 1;
 }
