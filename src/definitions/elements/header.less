@@ -478,11 +478,11 @@ a.ui.inverted.yellow.header:hover {
   padding: @attachedVerticalPadding @attachedHorizontalPadding;
   margin-left: @attachedOffset;
   margin-right: @attachedOffset;
-}
-.ui.attached.header,
-.ui.attached.block.header {
   box-shadow: @attachedBoxShadow;
   border: @attachedBorder;
+}
+.ui.attached.block.header {
+  background: @blockBackground;
 }
 
 .ui.attached:not(.top):not(.bottom).header {
@@ -490,6 +490,7 @@ a.ui.inverted.yellow.header:hover {
   margin-bottom: 0em;
   border-top: none;
   border-bottom: none;
+  border-radius: 0em;
 }
 .ui.top.attached.header {
   margin-bottom: 0em;
