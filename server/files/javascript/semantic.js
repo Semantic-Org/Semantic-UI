@@ -753,7 +753,7 @@ semantic.ready = function() {
       }
       if(label) {
         $('<div>')
-          .addClass('ui pointing below label')
+          .addClass('ui pointing below language label')
           .html(displayType[contentType] || contentType)
           .insertBefore ( $(this).closest('.segment') )
         ;
