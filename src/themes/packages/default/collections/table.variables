@@ -13,7 +13,9 @@
 @borderRadius: 0.25rem;
 @background: #FFFFFF;
 @color: @textColor;
-@border: 1px solid #D0D0D0;
+@borderWidth: 1px;
+@borderColor: #D0D0D0;
+@border: @borderWidth solid @borderColor;
 @boxShadow: none;
 
 /*--------------
@@ -32,7 +34,7 @@
 /* Table Header */
 @headerBorder: 1px solid @solidBorderColor;
 @headerDivider: none;
-@headerBackground: @subtleGradient;
+@headerBackground: @darkWhite;
 @headerAlign: left;
 @headerVerticalAlign: middle;
 @headerColor: @textColor;
@@ -41,13 +43,13 @@
 @headerFontStyle: none;
 @headerFontWeight: bold;
 @headerTextTransform: none;
-@headerBoxShadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.05);
+@headerBoxShadow: none;
 
 /* Table Footer */
-@footerBoxShadow: 0px -1px 1px 0px rgba(0, 0, 0, 0.05);
+@footerBoxShadow: none;
 @footerBorder: 1px solid @solidBorderColor;
 @footerDivider: none;
-@footerBackground: rgba(0, 0, 0, 0.05);
+@footerBackground: @white;
 @footerAlign: left;
 @footerVerticalAlign: middle;
 @footerColor: @textColor;
@@ -136,10 +138,14 @@
 @sortableIconDescending: '\f0d8';
 @sortableDisabledColor: @disabledTextColor;
 
-@sortableHoverBackground: @subtleTransparentBlack @subtleGradient;
+@sortableHoverBackground: @transparentBlack;
 @sortableHoverColor: @hoveredTextColor;
-@sortableActiveBackground: @transparentBlack @subtleGradient;
+
+@sortableActiveBackground: @transparentBlack;
 @sortableActiveColor: @selectedTextColor;
+
+@sortableActiveHoverBackground: @transparentBlack;
+@sortableActiveHoverColor: @selectedTextColor;
 
 @sortableInvertedBorderColor: transparent;
 @sortableInvertedHoverBackground: @transparentWhite @subtleGradient;
@@ -160,9 +166,16 @@
 @invertedHeaderColor: rgba(255, 255, 255, 0.9);
 
 /* Definition */
-@definitionBackground: '';
-@definitionColor: @selectedTextColor;
-@definitionFontWeight: bold;
+@definitionPageBackground: @white;
+
+@definitionHeaderBackground: transparent;
+@definitionHeaderColor: @unselectedTextColor;
+@definitionHeaderFontWeight: normal;
+
+
+@definitionColumnBackground: @subtleTransparentBlack;
+@definitionColumnColor: @selectedTextColor;
+@definitionColumnFontWeight: bold;
 
 /* Basic */
 @basicTableBackground: transparent;
