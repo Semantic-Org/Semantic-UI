@@ -200,16 +200,16 @@
 }
 
 /* Left Icon Input */
-.ui.left.icon.input > .icon {
+.ui[class*="left icon"].input > .icon {
   right: auto;
   left: @borderWidth;
   border-radius: @borderRadius 0em 0em @borderRadius;
 }
-.ui.left.icon.input > .circular.icon {
+.ui[class*="left icon"].input > .circular.icon {
   right: auto;
   left: @circularIconHorizontalOffset;
 }
-.ui.left.icon.input > input {
+.ui[class*="left icon"].input > input {
   padding-left: @iconMargin !important;
   padding-right: @horizontalPadding !important;
 }
@@ -222,7 +222,7 @@
   padding-left: 0em !important;
   padding-right: @transparentIconMargin !important;
 }
-.ui.transparent.left.icon.input > input {
+.ui.transparent[class*="left icon"].input > input {
   padding-left: 0em !important;
   padding-left: @transparentIconMargin !important;
 }
@@ -266,16 +266,11 @@
 .ui.action.input > input {
   display: table-cell;
   vertical-align: top;
-  border-top-right-radius: 0px !important;
-  border-bottom-right-radius: 0px !important;
-  border-right: none;
 }
 .ui.action.input > .button,
 .ui.action.input > .buttons {
   display: table-cell;
   vertical-align: top;
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
   white-space: nowrap;
 }
 .ui.action.input > .button > .icon,
@@ -290,6 +285,30 @@
 }
 .ui.fluid.action.input > .button {
   width: 0.01%;
+}
+
+/* Button on Right */
+.ui.action.input:not([class*="left action"]) > input {
+  border-right: none;
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+.ui.action.input:not([class*="left action"]) > .button,
+.ui.action.input:not([class*="left action"]) > .buttons {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+/* Button on Left */
+.ui[class*="left action"].input > .button,
+.ui[class*="left action"].input > .buttons {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.ui[class*="left action"].input  > input {
+  border-left: none;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 
 /*--------------------

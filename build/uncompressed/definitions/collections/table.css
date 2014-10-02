@@ -62,7 +62,6 @@
 /*-------------------
         Page
 --------------------*/
-/* Used to match floats with text */
 /*-------------------
   Background Colors
 --------------------*/
@@ -93,15 +92,11 @@
 --------------------*/
 /* Mood */
 /* Status */
-/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
---------------------*/
-/*-------------------
-    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -112,6 +107,15 @@
 /*-------------------
      Transitions
 --------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Makes sure padded grid can fit at 320px */
+/* Used to match floats with text */
+/* Positive / Negative Dupes */
+/* Header Colors */
+/* Responsive */
+/* Columns */
 /*******************************
            States
 *******************************/
@@ -176,6 +180,138 @@
 /*------------------
      Load Theme
 -------------------*/
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+        Paths
+--------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating neutrals */
+/* Used for differentiating layers */
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+       Icons
+--------------------*/
+/* Max Width of Icon */
+/*-------------------
+       Easing
+--------------------*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Mood */
+/* Status */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+        Sizes
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Makes sure padded grid can fit at 320px */
+/* Used to match floats with text */
+/* Positive / Negative Dupes */
+/* Header Colors */
+/* Responsive */
+/* Columns */
+/*******************************
+           States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Standard  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*******************************
+             Table
+*******************************/
+/*-------------------
+       Element
+--------------------*/
+/*--------------
+     Parts
+---------------*/
+/* Table Row */
+/* Table Cell */
+/* Table Header */
+/* Table Footer */
+/* Responsive Size */
+/*--------------
+    Couplings
+---------------*/
+/*--------------
+     States
+---------------*/
+/* Positive */
+/* Negative */
+/* Error */
+/* Warning */
+/* Active */
+/*--------------
+     Types
+---------------*/
+/* Striped */
+/* Sortable */
+/* Colors */
+/* Inverted */
+/* Definition */
+/* Basic */
+/* Padded */
+/* Compact */
+/* Sizes */
 /*------------------
      Load Site
 -------------------*/
@@ -220,12 +356,11 @@
 }
 /* Headers */
 .ui.table thead {
-  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: none;
 }
 .ui.table thead th {
   cursor: auto;
-  background: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: #f0f0f0;
   text-align: left;
   color: rgba(0, 0, 0, 0.8);
   padding: 0.7em 0.8em;
@@ -243,14 +378,17 @@
 .ui.table thead th:last-child {
   border-radius: 0em 0.25rem 0em 0em;
 }
+.ui.table thead th:only-child {
+  border-radius: 0.25rem 0.25rem 0em 0em;
+}
 /* Footer */
 .ui.table tfoot {
-  box-shadow: 0px -1px 1px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: none;
 }
 .ui.table tfoot th {
   cursor: auto;
   border-top: 1px solid #dddddd;
-  background: rgba(0, 0, 0, 0.05);
+  background: #ffffff;
   text-align: left;
   color: rgba(0, 0, 0, 0.8);
   padding: 0.7em 0.8em;
@@ -264,6 +402,9 @@
 }
 .ui.table tfoot th:last-child {
   border-radius: 0em 0em 0.25rem 0em;
+}
+.ui.table tfoot th:only-child {
+  border-radius: 0em 0em 0.25rem 0.25rem;
 }
 /* Table Row */
 .ui.table tr td {
@@ -339,6 +480,36 @@
   .ui.table tr > td.negative {
     background-color: transparent !important;
   }
+}
+/*******************************
+             Types
+*******************************/
+/*--------------
+   Definition
+---------------*/
+.ui.definition.table th:first-child {
+  pointer-events: none;
+  background: transparent;
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.4);
+  box-shadow: -1px -1px 0px 1px #ffffff;
+}
+/* Remove Border */
+.ui.celled.definition.table th:first-child {
+  box-shadow: 0px -1px 0px 1px #ffffff;
+}
+/* Highlight Defining Column */
+.ui.definition.table tr td:first-child {
+  background: rgba(0, 0, 0, 0.03);
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.8);
+}
+/* Fix 2nd Column */
+.ui.definition.table thead th:nth-child(2) {
+  border-left: 1px solid #d0d0d0;
+}
+.ui.definition.table td:nth-child(2) {
+  border-left: 1px solid #d0d0d0;
 }
 /*******************************
              States
@@ -438,6 +609,7 @@
 .ui.table tr td.disabled,
 .ui.table tr.disabled:hover td,
 .ui.table tr:hover td.disabled {
+  pointer-events: none;
   color: rgba(150, 150, 150, 0.3);
 }
 /*******************************
@@ -662,23 +834,13 @@
   width: 100%;
 }
 /*--------------
-     Celled
----------------*/
-.ui.celled.table th,
-.ui.celled.table td {
-  border-left: 1px solid #dddddd;
-}
-.ui.celled.table th:first-child,
-.ui.celled.table td:first-child {
-  border-left: none;
-}
-/*--------------
     Sortable
 ---------------*/
 .ui.sortable.table thead th {
   cursor: pointer;
   white-space: nowrap;
-  border-left: 1px solid rgba(0, 0, 0, 0.15);
+  border-left: 1px solid #d0d0d0;
+  color: rgba(0, 0, 0, 0.8);
 }
 .ui.sortable.table thead th:first-child {
   border-left: none;
@@ -708,20 +870,23 @@
 .ui.sortable.table thead th.descending:after {
   content: '\f0d8';
 }
-/* Sorted */
-.ui.sortable.table thead th.sorted {
-  background: rgba(0, 0, 0, 0.05) -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  background: rgba(0, 0, 0, 0.05) linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  color: rgba(0, 0, 0, 0.8);
-}
 /* Hover */
 .ui.sortable.table th.disabled:hover {
   cursor: auto;
   color: rgba(0, 0, 0, 0.2);
 }
 .ui.sortable.table thead th:hover {
-  background: rgba(0, 0, 0, 0.03) -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  background: rgba(0, 0, 0, 0.03) linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.8);
+}
+/* Sorted */
+.ui.sortable.table thead th.sorted {
+  background: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.8);
+}
+/* Sorted Hover */
+.ui.sortable.table thead th.sorted:hover {
+  background: rgba(0, 0, 0, 0.05);
   color: rgba(0, 0, 0, 0.8);
 }
 /* Inverted */
@@ -756,14 +921,6 @@
   border-color: rgba(0, 0, 0, 0.2);
 }
 /*--------------
-   Definition
----------------*/
-.ui.definition.table td:first-child {
-  background: '';
-  font-weight: bold;
-  color: rgba(0, 0, 0, 0.8);
-}
-/*--------------
    Collapsing
 ---------------*/
 .ui.collapsing.table {
@@ -774,7 +931,7 @@
 ---------------*/
 .ui.basic.table {
   background: transparent;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  border: 1px solid #d0d0d0;
   box-shadow: none;
 }
 .ui.basic.table thead,
@@ -807,6 +964,17 @@
 }
 .ui[class*="very basic"].table:not(.sortable):not(.striped) tbody tr:last-child td {
   padding-bottom: 0em;
+}
+/*--------------
+     Celled
+---------------*/
+.ui.celled.table th,
+.ui.celled.table td {
+  border-left: 1px solid #dddddd;
+}
+.ui.celled.table th:first-child,
+.ui.celled.table td:first-child {
+  border-left: none;
 }
 /*--------------
      Padded

@@ -4527,6 +4527,7 @@ $.fn.accordion = function(parameters) {
 
         element  = this,
         instance = $module.data(moduleNamespace),
+        observer,
         module
       ;
 
@@ -4534,9 +4535,10 @@ $.fn.accordion = function(parameters) {
 
         initialize: function() {
           module.debug('Initializing accordion with bound events', $module);
-          $title
-            .on('click' + eventNamespace, module.event.click)
+          $module
+            .on('click' + eventNamespace, selector.title, module.event.click)
           ;
+          module.observeChanges();
           module.instantiate();
         },
 
@@ -4557,31 +4559,25 @@ $.fn.accordion = function(parameters) {
           ;
         },
 
-        reset: {
-
-          display: function() {
-            module.verbose('Removing inline display from element', this);
-            $(this).css('display', '');
-            if( $(this).attr('style') === '') {
-              $(this)
-                .attr('style', '')
-                .removeAttr('style')
-              ;
-            }
-          },
-
-          opacity: function() {
-            module.verbose('Removing inline opacity from element', this);
-            $(this).css('opacity', '');
-            if( $(this).attr('style') === '') {
-              $(this)
-                .attr('style', '')
-                .removeAttr('style')
-              ;
-            }
-          },
-
+        refresh: function() {
+          $title   = $module.find(selector.title);
+          $content = $module.find(selector.content);
         },
+
+        observeChanges: function() {
+          if(MutationObserver !== undefined) {
+            observer = new MutationObserver(function(mutations) {
+              module.debug('DOM tree modified, updating selector cache');
+              module.refresh();
+            });
+            observer.observe(element, {
+              childList : true,
+              subtree   : true
+            });
+            module.debug('Setting up mutation observer', observer);
+          }
+        },
+
 
         event: {
           click: function() {
@@ -4645,8 +4641,8 @@ $.fn.accordion = function(parameters) {
                   .addClass(className.active)
                 ;
                 $.proxy(module.reset.display, this)();
-                $.proxy(settings.onOpen, element)();
-                $.proxy(settings.onChange, element)();
+                $.proxy(settings.onOpen, this)();
+                $.proxy(settings.onChange, this)();
               })
             ;
           }
@@ -4679,8 +4675,8 @@ $.fn.accordion = function(parameters) {
                 .end()
               .slideUp(settings.duration, settings.easing, function() {
                 $.proxy(module.reset.display, this)();
-                $.proxy(settings.onClose, element)();
-                $.proxy(settings.onChange, element)();
+                $.proxy(settings.onClose, this)();
+                $.proxy(settings.onChange, this)();
               })
             ;
           }
@@ -4693,11 +4689,23 @@ $.fn.accordion = function(parameters) {
               : $(this),
             $parentTitles    = $activeTitle.parents(selector.content).prev(selector.title),
             $activeAccordion = $activeTitle.closest(selector.accordion),
-            $openTitles      = $activeAccordion.find(selector.title + '.' + className.active + ':visible').not($parentTitles),
-            $openContents    = $openTitles.next($content),
-            contentIsOpen    = ($openTitles.size() > 0)
+            activeSelector   = selector.title + '.' + className.active + ':visible',
+            activeContent    = selector.content + '.' + className.active + ':visible',
+            $openTitles,
+            $nestedTitles,
+            $openContents
           ;
-          if(contentIsOpen) {
+          if(settings.closeNested) {
+            $openTitles   = $activeAccordion.find(activeSelector).not($parentTitles);
+            $openContents = $openTitles.next($content);
+          }
+          else {
+            $openTitles   = $activeAccordion.find(activeSelector).not($parentTitles);
+            $nestedTitles = $activeAccordion.find(activeContent).find(activeSelector).not($parentTitles);
+            $openTitles = $openTitles.not($nestedTitles);
+            $openContents = $openTitles.next($content);
+          }
+          if( ($openTitles.size() > 0) ) {
             module.debug('Exclusive enabled, closing other content', $openTitles);
             $openTitles
               .removeClass(className.active)
@@ -4716,6 +4724,32 @@ $.fn.accordion = function(parameters) {
               })
             ;
           }
+        },
+
+        reset: {
+
+          display: function() {
+            module.verbose('Removing inline display from element', this);
+            $(this).css('display', '');
+            if( $(this).attr('style') === '') {
+              $(this)
+                .attr('style', '')
+                .removeAttr('style')
+              ;
+            }
+          },
+
+          opacity: function() {
+            module.verbose('Removing inline opacity from element', this);
+            $(this).css('opacity', '');
+            if( $(this).attr('style') === '') {
+              $(this)
+                .attr('style', '')
+                .removeAttr('style')
+              ;
+            }
+          },
+
         },
 
         setting: function(name, value) {
@@ -4896,6 +4930,7 @@ $.fn.accordion = function(parameters) {
 };
 
 $.fn.accordion.settings = {
+
   name        : 'Accordion',
   namespace   : 'accordion',
 
@@ -4905,8 +4940,8 @@ $.fn.accordion.settings = {
 
   exclusive   : true,
   collapsible : true,
+  closeNested : false,
 
-  closeNested : true,
   duration    : 500,
   easing      : 'easeInOutQuint',
 
@@ -4927,7 +4962,6 @@ $.fn.accordion.settings = {
     title     : '.title',
     content   : '.content'
   }
-
 
 };
 
@@ -5785,7 +5819,6 @@ $.fn.checkbox = function(parameters) {
           else {
             $module
               .on('click' + eventNamespace, module.toggle)
-              .data(moduleNamespace, module)
             ;
             $input
               .on('keydown' + eventNamespace, module.event.keydown)
@@ -5794,7 +5827,6 @@ $.fn.checkbox = function(parameters) {
               .on('click' + eventNamespace, module.toggle)
             ;
           }
-
           if( module.is.checked() ) {
             module.set.checked();
             if(settings.fireOnInit) {
@@ -6112,7 +6144,7 @@ $.fn.checkbox.settings = {
 
   className: {
     checked : 'checked',
-    radio  : 'radio'
+    radio   : 'radio'
   },
 
   onChange    : function(){},
@@ -6224,7 +6256,7 @@ $.fn.dimmer = function(parameters) {
             module.set.pageDimmer();
           }
 
-          if(settings.closable) {
+          if(settings.on == 'click' && settings.closable) {
             module.verbose('Adding dimmer close event', $dimmer);
             $dimmer
               .on(clickEvent + eventNamespace, module.event.click)
@@ -6789,6 +6821,7 @@ $.fn.dropdown = function(parameters) {
         selectionCache  = false,
         element         = this,
         instance        = $module.data(moduleNamespace),
+        observer,
         module
       ;
 
@@ -6803,7 +6836,7 @@ $.fn.dropdown = function(parameters) {
           if(hasTouch) {
             module.bind.touchEvents();
           }
-
+          module.observeChanges();
           module.bind.mouseEvents();
           module.bind.keyboardEvents();
           module.instantiate();
@@ -6819,16 +6852,24 @@ $.fn.dropdown = function(parameters) {
 
         destroy: function() {
           module.verbose('Destroying previous dropdown for', $module);
-          $item
-            .off(eventNamespace)
-          ;
-          $search
-            .off(eventNamespace)
-          ;
           $module
             .off(eventNamespace)
             .removeData(moduleNamespace)
           ;
+        },
+
+        observeChanges: function() {
+          if(MutationObserver !== undefined) {
+            observer = new MutationObserver(function(mutations) {
+              module.debug('DOM tree modified, updating selector cache');
+              module.refresh();
+            });
+            observer.observe(element, {
+              childList : true,
+              subtree   : true
+            });
+            module.debug('Setting up mutation observer', observer);
+          }
         },
 
         setup: {
@@ -6918,14 +6959,14 @@ $.fn.dropdown = function(parameters) {
               .on('keydown' + eventNamespace, module.event.keydown)
             ;
             if( module.is.searchable() ) {
-              $search
-                .on( module.get.inputEvent(), module.event.input)
+              $module
+                .on(module.get.inputEvent(), selector.search, module.event.input)
               ;
             }
             if( module.is.searchSelection() ) {
-              $search
-                .on('focus' + eventNamespace, module.event.searchFocus)
-                .on('blur' + eventNamespace, module.event.blur)
+              $module
+                .on('focus' + eventNamespace, selector.search, module.event.searchFocus)
+                .on('blur' + eventNamespace, selector.search, module.event.blur)
               ;
             }
             else {
@@ -6944,9 +6985,9 @@ $.fn.dropdown = function(parameters) {
                 .on('touchstart' + eventNamespace, module.event.test.toggle)
               ;
             }
-            $item
-              .on('touchstart' + eventNamespace, module.event.item.mouseenter)
-              .on('touchstart' + eventNamespace, module.event.item.click)
+            $module
+              .on('touchstart' + eventNamespace, selector.item, module.event.item.mouseenter)
+              .on('touchstart' + eventNamespace, selector.item, module.event.item.click)
             ;
           },
           mouseEvents: function() {
@@ -6969,10 +7010,10 @@ $.fn.dropdown = function(parameters) {
                 ;
               }
             }
-            $item
-              .on('mouseenter' + eventNamespace, module.event.item.mouseenter)
-              .on('mouseleave' + eventNamespace, module.event.item.mouseleave)
-              .on('click'      + eventNamespace, module.event.item.click)
+            $module
+              .on('mouseenter' + eventNamespace, selector.item, module.event.item.mouseenter)
+              .on('mouseleave' + eventNamespace, selector.item, module.event.item.mouseleave)
+              .on('click'      + eventNamespace, selector.item, module.event.item.click)
             ;
           },
           intent: function() {
@@ -8153,7 +8194,6 @@ $.fn.modal = function(parameters) {
     returnedValue
   ;
 
-
   $allModules
     .each(function() {
       var
@@ -8183,7 +8223,6 @@ $.fn.modal = function(parameters) {
         instance     = $module.data(moduleNamespace),
         module
       ;
-
       module  = {
 
         initialize: function() {
@@ -9585,7 +9624,7 @@ $.fn.popup = function(parameters) {
             module.refresh();
           }
           else {
-            module.error(error.content, element);
+            module.debug('No content specified skipping display', element);
           }
         },
 
@@ -10279,7 +10318,6 @@ $.fn.popup.settings = {
   maxSearchDepth : 10,
 
   error: {
-    content         : 'Your popup has no content specified',
     invalidPosition : 'The position you specified is not a valid position',
     method          : 'The method you called is not defined.',
     recursion       : 'Popup attempted to reposition element to fit, but could not find an adequate position.'

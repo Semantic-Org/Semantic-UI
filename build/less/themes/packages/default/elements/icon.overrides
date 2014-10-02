@@ -564,6 +564,7 @@ i.icon.minimize:before { content: "\f066"; }
 i.icon.add:before { content: "\f067"; }
 i.icon.eye:before { content: "\f06e"; }
 i.icon.attention:before { content: "\f06a"; }
+i.icon.cart:before { content: "\f07a"; }
 i.icon.plane:before { content: "\f072"; }
 i.icon.shuffle:before { content: "\f074"; }
 i.icon.talk:before { content: "\f075"; }

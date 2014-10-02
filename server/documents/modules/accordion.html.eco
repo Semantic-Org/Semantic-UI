@@ -347,6 +347,8 @@ themes      : ['Default', 'Chubby']
 
     <h2 class="ui dividing header">Behaviors</h2>
 
+    <p>Behaviors are short english phrases used for accessing specific functionality in
+
     <p>Behaviors are accessible with javascript using the syntax:<p>
     <div class="code">
     $('.ui.accordion').accordion('behavior', argumentOne, argumentTwo...);
@@ -381,9 +383,9 @@ themes      : ['Default', 'Chubby']
     <h4 class="ui header">
       Behavior
     </h4>
-    <table class="ui basic sortable celled definition table">
+    <table class="ui sortable celled definition table">
       <thead>
-        <th class="three wide">Setting</th>
+        <th class="three wide"></th>
         <th class="three wide">Default</th>
         <th>Description</th>
       </thead>
@@ -420,9 +422,9 @@ themes      : ['Default', 'Chubby']
       Callbacks
     </h4>
 
-    <table class="ui basic sortable celled definition table">
+    <table class="ui sortable celled definition table">
       <thead>
-        <th class="three wide">Setting</th>
+        <th class="three wide"></th>
         <th class="three wide">Context</th>
         <th>Description</th>
       </thead>
@@ -451,16 +453,18 @@ themes      : ['Default', 'Chubby']
 
     <p>These settings are native to all modules, and define how the component ties content to DOM attributes, and debugging settings for the module.</p>
 
-    <h4 class="ui header">
-      DOM
-    </h4>
-    <table class="ui basic sortable celled definition table">
+    <table class="ui sortable celled definition table">
       <thead>
-        <th>Setting</th>
+        <th></th>
         <th class="six wide">Default</th>
         <th>Description</th>
       </thead>
       <tbody>
+        <tr>
+          <td>name</td>
+          <td>Accordion</td>
+          <td>Name used in log statements</td>
+        </tr>
         <tr>
           <td>namespace</td>
           <td>accordion</td>
@@ -489,25 +493,6 @@ themes      : ['Default', 'Chubby']
             </div>
           </td>
           <td>Class names used to determine element state</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h4 class="ui header">
-      Debug
-    </h4>
-
-    <table class="ui basic sortable celled definition table">
-      <thead>
-        <th>Setting</th>
-        <th class="four wide">Default</th>
-        <th>Description</th>
-      </thead>
-      <tbody>
-        <tr>
-          <td>name</td>
-          <td>Accordion</td>
-          <td>Name used in log statements</td>
         </tr>
         <tr>
           <td>debug</td>

@@ -213,7 +213,7 @@ $.fn.popup = function(parameters) {
             module.refresh();
           }
           else {
-            module.error(error.content, element);
+            module.debug('No content specified skipping display', element);
           }
         },
 
@@ -907,7 +907,6 @@ $.fn.popup.settings = {
   maxSearchDepth : 10,
 
   error: {
-    content         : 'Your popup has no content specified',
     invalidPosition : 'The position you specified is not a valid position',
     method          : 'The method you called is not defined.',
     recursion       : 'Popup attempted to reposition element to fit, but could not find an adequate position.'

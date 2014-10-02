@@ -38,7 +38,6 @@ $.fn.modal = function(parameters) {
     returnedValue
   ;
 
-
   $allModules
     .each(function() {
       var
@@ -68,7 +67,6 @@ $.fn.modal = function(parameters) {
         instance     = $module.data(moduleNamespace),
         module
       ;
-
       module  = {
 
         initialize: function() {

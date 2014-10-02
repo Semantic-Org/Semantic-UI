@@ -62,6 +62,7 @@ $.fn.dropdown = function(parameters) {
         selectionCache  = false,
         element         = this,
         instance        = $module.data(moduleNamespace),
+        observer,
         module
       ;
 
@@ -76,7 +77,7 @@ $.fn.dropdown = function(parameters) {
           if(hasTouch) {
             module.bind.touchEvents();
           }
-
+          module.observeChanges();
           module.bind.mouseEvents();
           module.bind.keyboardEvents();
           module.instantiate();
@@ -92,16 +93,24 @@ $.fn.dropdown = function(parameters) {
 
         destroy: function() {
           module.verbose('Destroying previous dropdown for', $module);
-          $item
-            .off(eventNamespace)
-          ;
-          $search
-            .off(eventNamespace)
-          ;
           $module
             .off(eventNamespace)
             .removeData(moduleNamespace)
           ;
+        },
+
+        observeChanges: function() {
+          if(MutationObserver !== undefined) {
+            observer = new MutationObserver(function(mutations) {
+              module.debug('DOM tree modified, updating selector cache');
+              module.refresh();
+            });
+            observer.observe(element, {
+              childList : true,
+              subtree   : true
+            });
+            module.debug('Setting up mutation observer', observer);
+          }
         },
 
         setup: {
@@ -191,14 +200,14 @@ $.fn.dropdown = function(parameters) {
               .on('keydown' + eventNamespace, module.event.keydown)
             ;
             if( module.is.searchable() ) {
-              $search
-                .on( module.get.inputEvent(), module.event.input)
+              $module
+                .on(module.get.inputEvent(), selector.search, module.event.input)
               ;
             }
             if( module.is.searchSelection() ) {
-              $search
-                .on('focus' + eventNamespace, module.event.searchFocus)
-                .on('blur' + eventNamespace, module.event.blur)
+              $module
+                .on('focus' + eventNamespace, selector.search, module.event.searchFocus)
+                .on('blur' + eventNamespace, selector.search, module.event.blur)
               ;
             }
             else {
@@ -217,9 +226,9 @@ $.fn.dropdown = function(parameters) {
                 .on('touchstart' + eventNamespace, module.event.test.toggle)
               ;
             }
-            $item
-              .on('touchstart' + eventNamespace, module.event.item.mouseenter)
-              .on('touchstart' + eventNamespace, module.event.item.click)
+            $module
+              .on('touchstart' + eventNamespace, selector.item, module.event.item.mouseenter)
+              .on('touchstart' + eventNamespace, selector.item, module.event.item.click)
             ;
           },
           mouseEvents: function() {
@@ -242,10 +251,10 @@ $.fn.dropdown = function(parameters) {
                 ;
               }
             }
-            $item
-              .on('mouseenter' + eventNamespace, module.event.item.mouseenter)
-              .on('mouseleave' + eventNamespace, module.event.item.mouseleave)
-              .on('click'      + eventNamespace, module.event.item.click)
+            $module
+              .on('mouseenter' + eventNamespace, selector.item, module.event.item.mouseenter)
+              .on('mouseleave' + eventNamespace, selector.item, module.event.item.mouseleave)
+              .on('click'      + eventNamespace, selector.item, module.event.item.click)
             ;
           },
           intent: function() {

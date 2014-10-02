@@ -34,7 +34,7 @@
 *******************************/
 
 /* Piled */
-@piledZIndex: 1;
+@piledZIndex: auto;
 @piledMargin: 2em;
 @piledBoxShadow: 0px 0px 1px 1px @borderColor;
 @piledDegrees: 1.2deg;

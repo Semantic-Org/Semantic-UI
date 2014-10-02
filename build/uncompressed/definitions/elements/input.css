@@ -62,7 +62,6 @@
 /*-------------------
         Page
 --------------------*/
-/* Used to match floats with text */
 /*-------------------
   Background Colors
 --------------------*/
@@ -93,15 +92,11 @@
 --------------------*/
 /* Mood */
 /* Status */
-/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
---------------------*/
-/*-------------------
-    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -112,6 +107,15 @@
 /*-------------------
      Transitions
 --------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Makes sure padded grid can fit at 320px */
+/* Used to match floats with text */
+/* Positive / Negative Dupes */
+/* Header Colors */
+/* Responsive */
+/* Columns */
 /*******************************
            States
 *******************************/
@@ -163,6 +167,125 @@
 /*------------------
      Load Theme
 -------------------*/
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+        Paths
+--------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating neutrals */
+/* Used for differentiating layers */
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+       Icons
+--------------------*/
+/* Max Width of Icon */
+/*-------------------
+       Easing
+--------------------*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Mood */
+/* Status */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+        Sizes
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Makes sure padded grid can fit at 320px */
+/* Used to match floats with text */
+/* Positive / Negative Dupes */
+/* Header Colors */
+/* Responsive */
+/* Columns */
+/*******************************
+           States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Standard  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*******************************
+            Input
+*******************************/
+/*-------------------
+      Element
+--------------------*/
+/*-------------------
+        Types
+--------------------*/
+/* Icon Input */
+/* Circular Icon Input */
+/* Labeled Input */
+/*-------------------
+        States
+--------------------*/
+/* Placeholder */
+/* Down */
+/* Focus */
+/* Error */
+/* Loading */
+/*-------------------
+      Variations
+--------------------*/
+/* Sizing */
 /*------------------
      Load Site
 -------------------*/
@@ -327,16 +450,16 @@
   right: 0.5em;
 }
 /* Left Icon Input */
-.ui.left.icon.input > .icon {
+.ui[class*="left icon"].input > .icon {
   right: auto;
   left: 1px;
   border-radius: 0.325em 0em 0em 0.325em;
 }
-.ui.left.icon.input > .circular.icon {
+.ui[class*="left icon"].input > .circular.icon {
   right: auto;
   left: 0.5em;
 }
-.ui.left.icon.input > input {
+.ui[class*="left icon"].input > input {
   padding-left: 2.85em !important;
   padding-right: 1em !important;
 }
@@ -348,7 +471,7 @@
   padding-left: 0em !important;
   padding-right: 1.75em !important;
 }
-.ui.transparent.left.icon.input > input {
+.ui.transparent[class*="left icon"].input > input {
   padding-left: 0em !important;
   padding-left: 1.75em !important;
 }
@@ -384,16 +507,11 @@
 .ui.action.input > input {
   display: table-cell;
   vertical-align: top;
-  border-top-right-radius: 0px !important;
-  border-bottom-right-radius: 0px !important;
-  border-right: none;
 }
 .ui.action.input > .button,
 .ui.action.input > .buttons {
   display: table-cell;
   vertical-align: top;
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
   white-space: nowrap;
 }
 .ui.action.input > .button > .icon,
@@ -407,6 +525,28 @@
 }
 .ui.fluid.action.input > .button {
   width: 0.01%;
+}
+/* Button on Right */
+.ui.action.input:not([class*="left action"]) > input {
+  border-right: none;
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+.ui.action.input:not([class*="left action"]) > .button,
+.ui.action.input:not([class*="left action"]) > .buttons {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+/* Button on Left */
+.ui[class*="left action"].input > .button,
+.ui[class*="left action"].input > .buttons {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.ui[class*="left action"].input > input {
+  border-left: none;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 /*--------------------
         Fluid

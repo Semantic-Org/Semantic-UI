@@ -90,7 +90,7 @@ $.fn.dimmer = function(parameters) {
             module.set.pageDimmer();
           }
 
-          if(settings.closable) {
+          if(settings.on == 'click' && settings.closable) {
             module.verbose('Adding dimmer close event', $dimmer);
             $dimmer
               .on(clickEvent + eventNamespace, module.event.click)

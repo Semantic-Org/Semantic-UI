@@ -13,13 +13,13 @@
        Fonts
 --------------------*/
 
-@headerFont      : 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-@pageFont        : 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-@fontSmoothing   : antialiased;
+@headerFont        : 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+@pageFont          : 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+@fontSmoothing     : antialiased;
 
-@useGoogleFonts  : true;
-@googleFontName  : 'Lato';
-@googleFontSizes : '300,400,700,300italic,400italic,700italic';
+@importGoogleFonts : true;
+@googleFontName    : 'Lato';
+@googleFontSizes   : '300,400,700,300italic,400italic,700italic';
 
 /*-------------------
       Site Colors
@@ -52,7 +52,6 @@
 @primaryColor     : @blue;
 @secondaryColor   : @black;
 
-
 /*-------------------
         Page
 --------------------*/
@@ -65,8 +64,6 @@
 @fontSize            : 14px;
 @textColor           : rgba(0, 0, 0, 0.8);
 
-@pageMinWidth        : (320px - (@fontSize * 3));
-
 @headerMargin        : 1em 0em 1rem;
 @paragraphMargin     : 0em 0em 1em;
 
@@ -74,12 +71,8 @@
 @linkUnderline       : none;
 @linkHoverColor      : lighten( @linkColor, 5);
 
-@highlightBackground : #FFFFCC;
+@highlightBackground : rgba(255, 255, 160, 0.4);
 @highlightColor      : @textColor;
-
-/* Used to match floats with text */
-@lineHeightOffset    : ((@lineHeight - 1em) / 2);
-
 
 /*-------------------
   Background Colors
@@ -115,9 +108,6 @@
 @computerBreakpoint          : 992px;
 @largeMonitorBreakpoint      : 1400px;
 @widescreenMonitorBreakpoint : 1920px;
-
-@largestMobileScreen         : (@tabletBreakpoint - 1px);
-@largestTabletScreen         : (@computerBreakpoint - 1px);
 
 
 /*******************************
@@ -203,26 +193,13 @@
 
 @infoBackgroundColor    : #E5F6FB;
 @warningBackgroundColor : #FCF8E3;
-@successBackgroundColor : @positiveBackgroundColor;
-@errorBackgroundColor   : @negativeBackgroundColor;
 
 @infoBorderColor        : #AAD6DF;
 @warningBorderColor     : #D3C4A5;
-@successBorderColor     : @positiveBorderColor;
-@errorBorderColor       : @negativeBorderColor;
+@warningTextColor       : #8A6D3B;
 
 @infoTextColor          : #337B92;
-@warningTextColor       : #8A6D3B;
-@successTextColor       : @positiveTextColor;
-@errorTextColor         : @negativeTextColor;
 
-/* Darkened Headers */
-@positiveHeaderColor : darken(@positiveTextColor, 5);
-@negativeHeaderColor : darken(@negativeTextColor, 5);
-@infoHeaderColor     : darken(@infoTextColor, 5);
-@warningHeaderColor  : darken(@warningTextColor, 5);
-@successHeaderColor  : darken(@successTextColor, 5);
-@errorHeaderColor    : darken(@errorTextColor, 5);
 
 /*-------------------
      Neutral Text
@@ -257,44 +234,6 @@
 @instagramColor  : #49769C;
 @pinterestColor  : #00ACED;
 @vkColor         : #4D7198;
-
-/*-------------------
-    Grid Columns
---------------------*/
-
-@oneWide        : (1 / @columnCount * 100%);
-@twoWide        : (2 / @columnCount * 100%);
-@threeWide      : (3 / @columnCount * 100%);
-@fourWide       : (4 / @columnCount * 100%);
-@fiveWide       : (5 / @columnCount * 100%);
-@sixWide        : (6 / @columnCount * 100%);
-@sevenWide      : (7 / @columnCount * 100%);
-@eightWide      : (8 / @columnCount * 100%);
-@nineWide       : (9 / @columnCount * 100%);
-@tenWide        : (10 / @columnCount * 100%);
-@elevenWide     : (11 / @columnCount * 100%);
-@twelveWide     : (12 / @columnCount * 100%);
-@thirteenWide   : (13 / @columnCount * 100%);
-@fourteenWide   : (14 / @columnCount * 100%);
-@fifteenWide    : (15 / @columnCount * 100%);
-@sixteenWide    : (16 / @columnCount * 100%);
-
-@oneColumn      : (1 / 1 * 100%);
-@twoColumn      : (1 / 2 * 100%);
-@threeColumn    : (1 / 3 * 100%);
-@fourColumn     : (1 / 4 * 100%);
-@fiveColumn     : (1 / 5 * 100%);
-@sixColumn      : (1 / 6 * 100%);
-@sevenColumn    : (1 / 7 * 100%);
-@eightColumn    : (1 / 8 * 100%);
-@nineColumn     : (1 / 9 * 100%);
-@tenColumn      : (1 / 10 * 100%);
-@elevenColumn   : (1 / 11 * 100%);
-@twelveColumn   : (1 / 12 * 100%);
-@thirteenColumn : (1 / 13 * 100%);
-@fourteenColumn : (1 / 14 * 100%);
-@fifteenColumn  : (1 / 15 * 100%);
-@sixteenColumn  : (1 / 16 * 100%);
 
 /*-------------------
       Borders
@@ -334,6 +273,72 @@
 
 @transitionDuration : 0.2s;
 @transitionEasing   : ease;
+
+
+/*-------------------
+    Derived Values
+--------------------*/
+
+/* Makes sure padded grid can fit at 320px */
+@pageMinWidth        : (320px - (@fontSize * 3));
+
+/* Used to match floats with text */
+@lineHeightOffset    : ((@lineHeight - 1em) / 2);
+
+/* Positive / Negative Dupes */
+@successBackgroundColor : @positiveBackgroundColor;
+@errorBackgroundColor   : @negativeBackgroundColor;
+@successTextColor       : @positiveTextColor;
+@errorTextColor         : @negativeTextColor;
+@successBorderColor     : @positiveBorderColor;
+@errorBorderColor       : @negativeBorderColor;
+
+/* Header Colors */
+@positiveHeaderColor : darken(@positiveTextColor, 5);
+@negativeHeaderColor : darken(@negativeTextColor, 5);
+@infoHeaderColor     : darken(@infoTextColor, 5);
+@warningHeaderColor  : darken(@warningTextColor, 5);
+@successHeaderColor  : darken(@successTextColor, 5);
+@errorHeaderColor    : darken(@errorTextColor, 5);
+
+/* Responsive */
+@largestMobileScreen : (@tabletBreakpoint - 1px);
+@largestTabletScreen : (@computerBreakpoint - 1px);
+
+/* Columns */
+@oneWide        : (1 / @columnCount * 100%);
+@twoWide        : (2 / @columnCount * 100%);
+@threeWide      : (3 / @columnCount * 100%);
+@fourWide       : (4 / @columnCount * 100%);
+@fiveWide       : (5 / @columnCount * 100%);
+@sixWide        : (6 / @columnCount * 100%);
+@sevenWide      : (7 / @columnCount * 100%);
+@eightWide      : (8 / @columnCount * 100%);
+@nineWide       : (9 / @columnCount * 100%);
+@tenWide        : (10 / @columnCount * 100%);
+@elevenWide     : (11 / @columnCount * 100%);
+@twelveWide     : (12 / @columnCount * 100%);
+@thirteenWide   : (13 / @columnCount * 100%);
+@fourteenWide   : (14 / @columnCount * 100%);
+@fifteenWide    : (15 / @columnCount * 100%);
+@sixteenWide    : (16 / @columnCount * 100%);
+
+@oneColumn      : (1 / 1 * 100%);
+@twoColumn      : (1 / 2 * 100%);
+@threeColumn    : (1 / 3 * 100%);
+@fourColumn     : (1 / 4 * 100%);
+@fiveColumn     : (1 / 5 * 100%);
+@sixColumn      : (1 / 6 * 100%);
+@sevenColumn    : (1 / 7 * 100%);
+@eightColumn    : (1 / 8 * 100%);
+@nineColumn     : (1 / 9 * 100%);
+@tenColumn      : (1 / 10 * 100%);
+@elevenColumn   : (1 / 11 * 100%);
+@twelveColumn   : (1 / 12 * 100%);
+@thirteenColumn : (1 / 13 * 100%);
+@fourteenColumn : (1 / 14 * 100%);
+@fifteenColumn  : (1 / 15 * 100%);
+@sixteenColumn  : (1 / 16 * 100%);
 
 
 /*******************************

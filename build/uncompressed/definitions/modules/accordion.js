@@ -54,6 +54,7 @@ $.fn.accordion = function(parameters) {
 
         element  = this,
         instance = $module.data(moduleNamespace),
+        observer,
         module
       ;
 
@@ -61,9 +62,10 @@ $.fn.accordion = function(parameters) {
 
         initialize: function() {
           module.debug('Initializing accordion with bound events', $module);
-          $title
-            .on('click' + eventNamespace, module.event.click)
+          $module
+            .on('click' + eventNamespace, selector.title, module.event.click)
           ;
+          module.observeChanges();
           module.instantiate();
         },
 
@@ -84,31 +86,25 @@ $.fn.accordion = function(parameters) {
           ;
         },
 
-        reset: {
-
-          display: function() {
-            module.verbose('Removing inline display from element', this);
-            $(this).css('display', '');
-            if( $(this).attr('style') === '') {
-              $(this)
-                .attr('style', '')
-                .removeAttr('style')
-              ;
-            }
-          },
-
-          opacity: function() {
-            module.verbose('Removing inline opacity from element', this);
-            $(this).css('opacity', '');
-            if( $(this).attr('style') === '') {
-              $(this)
-                .attr('style', '')
-                .removeAttr('style')
-              ;
-            }
-          },
-
+        refresh: function() {
+          $title   = $module.find(selector.title);
+          $content = $module.find(selector.content);
         },
+
+        observeChanges: function() {
+          if(MutationObserver !== undefined) {
+            observer = new MutationObserver(function(mutations) {
+              module.debug('DOM tree modified, updating selector cache');
+              module.refresh();
+            });
+            observer.observe(element, {
+              childList : true,
+              subtree   : true
+            });
+            module.debug('Setting up mutation observer', observer);
+          }
+        },
+
 
         event: {
           click: function() {
@@ -172,8 +168,8 @@ $.fn.accordion = function(parameters) {
                   .addClass(className.active)
                 ;
                 $.proxy(module.reset.display, this)();
-                $.proxy(settings.onOpen, element)();
-                $.proxy(settings.onChange, element)();
+                $.proxy(settings.onOpen, this)();
+                $.proxy(settings.onChange, this)();
               })
             ;
           }
@@ -206,8 +202,8 @@ $.fn.accordion = function(parameters) {
                 .end()
               .slideUp(settings.duration, settings.easing, function() {
                 $.proxy(module.reset.display, this)();
-                $.proxy(settings.onClose, element)();
-                $.proxy(settings.onChange, element)();
+                $.proxy(settings.onClose, this)();
+                $.proxy(settings.onChange, this)();
               })
             ;
           }
@@ -220,11 +216,23 @@ $.fn.accordion = function(parameters) {
               : $(this),
             $parentTitles    = $activeTitle.parents(selector.content).prev(selector.title),
             $activeAccordion = $activeTitle.closest(selector.accordion),
-            $openTitles      = $activeAccordion.find(selector.title + '.' + className.active + ':visible').not($parentTitles),
-            $openContents    = $openTitles.next($content),
-            contentIsOpen    = ($openTitles.size() > 0)
+            activeSelector   = selector.title + '.' + className.active + ':visible',
+            activeContent    = selector.content + '.' + className.active + ':visible',
+            $openTitles,
+            $nestedTitles,
+            $openContents
           ;
-          if(contentIsOpen) {
+          if(settings.closeNested) {
+            $openTitles   = $activeAccordion.find(activeSelector).not($parentTitles);
+            $openContents = $openTitles.next($content);
+          }
+          else {
+            $openTitles   = $activeAccordion.find(activeSelector).not($parentTitles);
+            $nestedTitles = $activeAccordion.find(activeContent).find(activeSelector).not($parentTitles);
+            $openTitles = $openTitles.not($nestedTitles);
+            $openContents = $openTitles.next($content);
+          }
+          if( ($openTitles.size() > 0) ) {
             module.debug('Exclusive enabled, closing other content', $openTitles);
             $openTitles
               .removeClass(className.active)
@@ -243,6 +251,32 @@ $.fn.accordion = function(parameters) {
               })
             ;
           }
+        },
+
+        reset: {
+
+          display: function() {
+            module.verbose('Removing inline display from element', this);
+            $(this).css('display', '');
+            if( $(this).attr('style') === '') {
+              $(this)
+                .attr('style', '')
+                .removeAttr('style')
+              ;
+            }
+          },
+
+          opacity: function() {
+            module.verbose('Removing inline opacity from element', this);
+            $(this).css('opacity', '');
+            if( $(this).attr('style') === '') {
+              $(this)
+                .attr('style', '')
+                .removeAttr('style')
+              ;
+            }
+          },
+
         },
 
         setting: function(name, value) {
@@ -423,6 +457,7 @@ $.fn.accordion = function(parameters) {
 };
 
 $.fn.accordion.settings = {
+
   name        : 'Accordion',
   namespace   : 'accordion',
 
@@ -432,8 +467,8 @@ $.fn.accordion.settings = {
 
   exclusive   : true,
   collapsible : true,
+  closeNested : false,
 
-  closeNested : true,
   duration    : 500,
   easing      : 'easeInOutQuint',
 
@@ -454,7 +489,6 @@ $.fn.accordion.settings = {
     title     : '.title',
     content   : '.content'
   }
-
 
 };
 
