@@ -178,7 +178,7 @@ $.fn.checkbox = function(parameters) {
           },
           uncheck: function() {
             return (typeof settings.uncheckable === 'boolean')
-              ? !settings.uncheckable
+              ? settings.uncheckable
               : !module.is.radio()
             ;
           }
@@ -199,10 +199,15 @@ $.fn.checkbox = function(parameters) {
         disable: function() {
           module.debug('Enabling checkbox functionality');
           $module.addClass(className.disabled);
+          $input.removeProp('disabled');
+          $.proxy(settings.onDisabled, $input.get())();
         },
+
         enable: function() {
           module.debug('Disabling checkbox functionality');
           $module.removeClass(className.disabled);
+          $input.prop('disabled', 'disabled');
+          $.proxy(settings.onEnabled, $input.get())();
         },
 
         check: function() {
@@ -427,21 +432,21 @@ $.fn.checkbox.settings = {
   performance : true,
 
   // delegated event context
-  context     : false,
   uncheckable : 'auto',
-
   fireOnInit  : true,
-
-  className   : {
-    checked  : 'checked',
-    radio    : 'radio',
-    disabled : 'disabled',
-    readOnly : 'read-only'
-  },
 
   onChange    : function(){},
   onChecked   : function(){},
   onUnchecked : function(){},
+  onEnabled   : function(){},
+  onDisabled  : function(){},
+
+  className   : {
+    checked  : 'checked',
+    disabled : 'disabled',
+    radio    : 'radio',
+    readOnly : 'read-only'
+  },
 
   error     : {
     method   : 'The method you called is not defined.'

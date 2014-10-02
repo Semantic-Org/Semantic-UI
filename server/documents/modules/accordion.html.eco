@@ -496,17 +496,17 @@ themes      : ['Default', 'Chubby']
         </tr>
         <tr>
           <td>debug</td>
-          <td>true</td>
+          <td>false</td>
           <td>Debug output to console</td>
         </tr>
         <tr>
           <td>performance</td>
-          <td>true</td>
+          <td>false</td>
           <td>Show <code>console.table</code> output with performance metrics</td>
         </tr>
         <tr>
           <td>verbose</td>
-          <td>true</td>
+          <td>false</td>
           <td>Debug output includes all internal behaviors</td>
         </tr>
         <tr>
