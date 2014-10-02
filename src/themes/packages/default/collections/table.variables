@@ -177,6 +177,10 @@
 @definitionHeaderColor: @unselectedTextColor;
 @definitionHeaderFontWeight: normal;
 
+@definitionFooterBackground: @definitionHeaderBackground;
+@definitionFooterColor: @definitionHeaderColor;
+@definitionFooterFontWeight: @definitionHeaderFontWeight;
+
 
 @definitionColumnBackground: @subtleTransparentBlack;
 @definitionColumnColor: @selectedTextColor;
