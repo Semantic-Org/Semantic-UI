@@ -960,13 +960,13 @@ body.progress.animated .ui.progress .bar {
 ---------------*/
 
 #example .icon.example .grid {
-  margin-top: 1.5rem;
   text-align: left;
 }
 #example .icon.example .grid .code {
   position: static;
 }
-#example .icon.example .grid .column {
+#example .icon.example .grid > .row > .column {
+  height: 6em;
   opacity: 0.8;
   text-align: center;
   color: #888888;
@@ -1016,7 +1016,7 @@ body.progress.animated .ui.progress .bar {
     all 0.2s ease-out
   ;
 }
-#example .icon.example .grid .column:hover .icon {
+#example .icon.example .grid > .row > .column:hover .icon {
   color: #009FDA;
   -webkit-transform: scale(1.5);
   -moz-transform: scale(1.5);
@@ -1482,13 +1482,6 @@ body.progress.animated .ui.progress .bar {
     margin: 0 0.5em 0.5em 0;
   }
 }
-
-@media only screen and (max-width : 600px) {
-  #example .icon.example .grid .column {
-    width: 33.33%;
-  }
-}
-
 
 @media only screen and (max-width : 600px) {
   #example .main.menu .borderless.item {

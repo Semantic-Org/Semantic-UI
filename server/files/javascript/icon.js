@@ -5,19 +5,40 @@ semantic.icon.ready = function() {
 
   // selector cache
   var
-    $tab = $('.tabular.menu .item'),
+    $grid         = $('.ui.six.column.doubling.grid'),
+    // alias
     handler
   ;
 
   // event handlers
   handler = {
-
+    createTable: function() {
+      var
+        $grid = $(this),
+        columnCount = 6
+      ;
+      $grid
+        .find('.column:nth-child('+columnCount+'n+1)')
+          .each(function() {
+            var
+              $group = $(this)
+                .nextAll(':lt('+ (columnCount - 1) +')')
+                .andSelf()
+              ;
+              $group.wrapAll('<div class="row"></div>');
+              $group.filter('[data-content]').popup({
+                position: 'top center',
+                variation: 'large inverted',
+                delay: 300
+              });
+          })
+          .end()
+        .addClass('middle aligned internally celled')
+      ;
+    }
   };
 
-
-  $tab
-    .tab()
-  ;
+  $grid.each(handler.createTable);
 
 };
 

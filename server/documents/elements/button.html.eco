@@ -343,6 +343,20 @@ themes      : ['Default', 'Classic', 'Basic', 'Raised', 'Chubby', 'Round', 'Amaz
       <i class="icon settings"></i>
     </div>
   </div>
+  <div class="another example">
+    <div class="ui circular facebook icon button">
+      <i class="facebook icon"></i>
+    </div>
+    <div class="ui circular twitter icon button">
+      <i class="twitter icon"></i>
+    </div>
+    <div class="ui circular linkedin icon button">
+      <i class="linkedin icon"></i>
+    </div>
+    <div class="ui circular google plus icon button">
+      <i class="google plus icon"></i>
+    </div>
+  </div>
 
   <div class="example">
     <h4 class="ui header">Vertically Attached</h4>
@@ -404,6 +418,24 @@ themes      : ['Default', 'Classic', 'Basic', 'Raised', 'Chubby', 'Round', 'Amaz
       <div class="ui button">
         <i class="shuffle icon"></i>
         Shuffle
+      </div>
+    </div>
+  </div>
+  <div class="example">
+    <h4 class="ui header">Mixed Group</h4>
+    <p>Groups can be formatted to use multiple button types together</p>
+    <div class="ui buttons">
+      <div class="ui labeled icon button">
+        <i class="left chevron icon"></i>
+        Back
+      </div>
+      <div class="ui button">
+        <i class="stop icon"></i>
+        Stop
+      </div>
+      <div class="ui right labeled icon button">
+        Forward
+        <i class="right chevron icon"></i>
       </div>
     </div>
   </div>
