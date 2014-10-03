@@ -354,7 +354,7 @@
 .ui.table tr.disabled:hover td,
 .ui.table tr:hover td.disabled {
   pointer-events: none;
-  color: rgba(150, 150, 150, 0.3);
+  color: @disabledTextColor;
 }
 
 /*******************************
@@ -444,39 +444,30 @@
 
 .ui.black.table {
   border-top: @coloredBorderSize solid @black;
-  border-radius: @coloredBorderRadius;
 }
 .ui.blue.table {
   border-top: @coloredBorderSize solid @blue;
-  border-radius: @coloredBorderRadius;
 }
 .ui.green.table {
   border-top: @coloredBorderSize solid @green;
-  border-radius: @coloredBorderRadius;
 }
 .ui.orange.table {
   border-top: @coloredBorderSize solid @orange;
-  border-radius: @coloredBorderRadius;
 }
 .ui.pink.table {
   border-top: @coloredBorderSize solid @pink;
-  border-radius: @coloredBorderRadius;
 }
 .ui.purple.table {
   border-top: @coloredBorderSize solid @purple;
-  border-radius: @coloredBorderRadius;
 }
 .ui.red.table {
   border-top: @coloredBorderSize solid @red;
-  border-radius: @coloredBorderRadius;
 }
 .ui.teal.table {
   border-top: @coloredBorderSize solid @teal;
-  border-radius: @coloredBorderRadius;
 }
 .ui.yellow.table {
   border-top: @coloredBorderSize solid @yellow;
-  border-radius: @coloredBorderRadius;
 }
 
 /*-------------------
@@ -486,47 +477,38 @@
 .ui.inverted.table,
 .ui.inverted.black.table {
   background-color: @black !important;
-  border-radius: @borderRadius;
   color: @white !important;
 }
 .ui.inverted.blue.table {
   background-color: @blue !important;
-  border-radius: @borderRadius;
   color: @white !important;
 }
 .ui.inverted.green.table {
   background-color: @green !important;
-  border-radius: @borderRadius;
   color: @white !important;
 }
 .ui.inverted.orange.table {
   background-color: @orange !important;
-  border-radius: @borderRadius;
   color: @white !important;
 }
 .ui.inverted.pink.table {
   background-color: @pink !important;
-  border-radius: @borderRadius;
   color: @white !important;
 }
 .ui.inverted.purple.table {
   background-color: @purple !important;
-  border-radius: @borderRadius;
   color: @white !important;
 }
 .ui.inverted.red.table {
   background-color: @red !important;
-  border-radius: @borderRadius;
   color: @white !important;
 }
 .ui.inverted.teal.table {
   background-color: @teal !important;
-  border-radius: @borderRadius;
   color: @white !important;
 }
 .ui.inverted.yellow.table {
   background-color: @yellow !important;
-  border-radius: @borderRadius;
   color: @white !important;
 }
 
@@ -738,13 +720,30 @@
 }
 .ui.inverted.table th {
   background-color: @invertedHeaderBackground;
-  border-color: @invertedCellBorderColor;
+  border-color: @invertedCellBorderColor !important;
   color: @invertedHeaderColor;
 }
 .ui.inverted.table tr td {
-  border-color: @invertedCellBorderColor;
+  border-color: @invertedCellBorderColor !important;
 }
 
+.ui.inverted.table tr.disabled td,
+.ui.inverted.table tr td.disabled,
+.ui.inverted.table tr.disabled:hover td,
+.ui.inverted.table tr:hover td.disabled {
+  pointer-events: none;
+  color: @invertedDisabledTextColor;
+}
+
+/* Definition */
+.ui.inverted.definition.table tfoot:not(.full-width) th:first-child,
+.ui.inverted.definition.table thead:not(.full-width) th:first-child {
+  background: @definitionPageBackground;
+}
+.ui.inverted.definition.table tr td:first-child {
+  background: @invertedDefinitionColumnBackground;
+  color: @invertedDefinitionColumnColor;
+}
 
 /*--------------
    Collapsing
