@@ -723,9 +723,6 @@
   #example.index .masthead:before {
     display: none;
   }
-  #example.index .feature.stripe p {
-    min-height: 0px;
-  }
   #example.index .following.bar .column {
     text-align: center;
   }
@@ -771,6 +768,10 @@
 
 /* Homepage */
 @media only screen and (max-width : 780px) {
+  #example.index .feature.stripe p {
+    height: auto;
+    min-height: 0px;
+  }
   #example.index .container {
     margin-left: 2em;
     margin-right: 2em;

@@ -29,7 +29,7 @@ semantic.icon.ready = function() {
               $group.filter('[data-content]').popup({
                 position: 'top center',
                 variation: 'large inverted',
-                delay: 300
+                delay: 100
               });
           })
           .end()

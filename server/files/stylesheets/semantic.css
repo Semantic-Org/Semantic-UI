@@ -159,6 +159,9 @@ a:hover {
      Sidebar
 ---------------*/
 
+#example #menu .logo.image {
+  width: 35px;
+}
 #example #menu .item {
   position: relative;
   -webkit-border-radius: 0px;
