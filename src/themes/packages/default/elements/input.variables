@@ -49,9 +49,10 @@
 @circularIconHorizontalOffset: 0.5em;
 
 /* Labeled Input */
-@labelTop: @borderWidth;
-@labelRight: @borderWidth;
-@labelSize: 0.75em;
+@labelCornerTop: @borderWidth;
+@labelCornerRight: @borderWidth;
+@labelCornerSize: 0.75em;
+@labelSize: 1em;
 
 @labeledMargin: 2.5em;
 @labeledIconInputMargin: 3.25em;
