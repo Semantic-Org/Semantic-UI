@@ -867,7 +867,6 @@
   opacity: 0.9;
   margin: 0em;
   vertical-align: top;
-  height: 0em;
 }
 /*-------------------
         Basic
@@ -1062,6 +1061,10 @@
 ---------------*/
 .ui.circular.button {
   border-radius: 10em;
+}
+.ui.circular.button > .icon {
+  width: 1em;
+  vertical-align: baseline;
 }
 /*--------------
      Attached

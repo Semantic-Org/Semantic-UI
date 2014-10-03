@@ -42,7 +42,7 @@ type   : 'Semantic'
   <div class="ui page grid">
     <div class="column">
       <div class="introduction">
-        <a class="ui black version label" href="https://github.com/semantic-org/Semantic-UI/blob/css/RELEASE%20NOTES.md">
+        <a class="ui black version label" href="https://github.com/semantic-org/Semantic-UI/blob/1.0/RELEASE%20NOTES.md">
           1.0.0 Beta
         </a>
         <h1 class="ui inverted header">

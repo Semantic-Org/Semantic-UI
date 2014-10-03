@@ -455,6 +455,11 @@
 /*-------------------
      Column Count
 --------------------*/
+/* Assume full width with one column */
+.ui.grid > .column:only-child,
+.ui.grid > .row > .column:only-child {
+  width: 100%;
+}
 /* Grid Based */
 .ui[class*="one column"].grid > .row > .column,
 .ui[class*="one column"].grid > .column {
@@ -568,11 +573,6 @@
 }
 .ui.grid > [class*="sixteen column"].row > .column {
   width: 6.25% !important;
-}
-/* Assume full width with one column */
-.ui.grid > .column:only-child,
-.ui.grid > .row > .column:only-child {
-  width: 100%;
 }
 /*-------------------
     Column Width
@@ -745,8 +745,8 @@
 /*----------------------
         Divided
 -----------------------*/
-.ui.divided.grid:not(.vertically) > .column:not(.row),
-.ui.divided.grid:not(.vertically) > .row > .column {
+.ui.divided.grid:not([class*="vertically divided"]) > .column:not(.row),
+.ui.divided.grid:not([class*="vertically divided"]) > .row > .column {
   box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1);
 }
 /* Swap from padding to margin on columns to have dividers align */
@@ -764,8 +764,8 @@
   padding-bottom: 0em;
 }
 /* No divider on first column on row */
-.ui.divided.grid:not(.vertically) > .column:first-child,
-.ui.divided.grid:not(.vertically) > .row > .column:first-child {
+.ui.divided.grid:not([class*="vertically divided"]) > .column:first-child,
+.ui.divided.grid:not([class*="vertically divided"]) > .row > .column:first-child {
   box-shadow: none;
 }
 /* Divided Row */
@@ -800,12 +800,12 @@
   box-shadow: none;
 }
 /* Inverted Divided */
-.ui.inverted.divided.grid:not(.vertical) > .column,
-.ui.inverted.divided.grid:not(.vertical) > .row > .column {
+.ui.inverted.divided.grid:not([class*="vertically divided"]) > .column,
+.ui.inverted.divided.grid:not([class*="vertically divided"]) > .row > .column {
   box-shadow: -1px 0px 0px 0px rgba(255, 255, 255, 0.15);
 }
-.ui.inverted.divided.grid:not(.vertical) > .column:first-child,
-.ui.inverted.divided.grid:not(.vertical) > .row > .column:first-child {
+.ui.inverted.divided.grid:not([class*="vertically divided"]) > .column:first-child,
+.ui.inverted.divided.grid:not([class*="vertically divided"]) > .row > .column:first-child {
   box-shadow: none;
 }
 .ui.inverted[class*="vertically divided"].grid > .row {
@@ -840,7 +840,7 @@
 .ui.celled.grid > .column.row:first-child {
   display: table;
   table-layout: fixed;
-  width: 100%;
+  width: 100% !important;
   margin: 0em;
   padding: 0em;
   box-shadow: 0px -1px 0px 0px #dddddd;
@@ -856,6 +856,16 @@
   box-shadow: none;
 }
 .ui.celled.page.grid {
+  box-shadow: none;
+}
+/* Internally Celled */
+.ui[class*="internally celled"].grid {
+  box-shadow: none;
+}
+.ui[class*="internally celled"].grid > .row:first-child {
+  box-shadow: none;
+}
+.ui[class*="internally celled"].grid > .row > .column:first-child {
   box-shadow: none;
 }
 /*----------------------
@@ -1067,10 +1077,11 @@
   width: -webkit-calc(100% +  2rem );
   width: calc(100% +  2rem );
 }
+.ui[class*="equal height"].grid > .row,
 .ui[class*="equal height"].row {
   display: table;
   table-layout: fixed;
-  width: 100%;
+  width: 100% !important;
 }
 .ui[class*="equal height"].grid > .column,
 .ui[class*="equal height"].grid > .row > .column,
@@ -1082,16 +1093,21 @@
 --------------------*/
 /* Mobily Only */
 @media only screen and (max-width: 767px) {
+  .ui.doubling.grid {
+    width: 100% !important;
+  }
   .ui.grid > .doubling.row,
   .ui.doubling.grid > .row {
-    margin: 0em;
-    padding: 0em;
+    display: block !important;
+    margin: 0em !important;
+    padding: 0em !important;
   }
   .ui.grid > .doubling.row > .column,
   .ui.doubling.grid > .row > .column {
+    display: inline-block !important;
     padding-top: 1rem !important;
     padding-bottom: 1rem !important;
-    margin: 0em;
+    margin: 0em !important;
   }
   .ui[class*="two column"].doubling:not(.stackable).grid > .row > .column,
   .ui[class*="two column"].doubling:not(.stackable).grid > .column,
@@ -1156,13 +1172,17 @@
 }
 /* Tablet Only */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+  .ui.doubling.grid {
+    width: 100% !important;
+  }
   .ui.grid > .doubling.row,
   .ui.doubling.grid > .row {
-    margin: 0em;
-    padding: 0em;
+    margin: 0em !important;
+    padding: 0em !important;
   }
   .ui.grid > .doubling.row > .column,
   .ui.doubling.grid > .row > .column {
+    display: inline-block !important;
     padding-top: 1rem !important;
     padding-bottom: 1rem !important;
     margin: 0em;
@@ -1234,6 +1254,7 @@
 @media only screen and (max-width: 767px) {
   .ui.stackable.grid {
     display: block !important;
+    width: 100%;
     padding: 0em;
     margin: 0em !important;
   }
