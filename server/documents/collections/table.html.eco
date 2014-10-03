@@ -59,15 +59,6 @@ themes      : ['Default', 'Classic']
           <td>Yes</td>
         </tr>
       </tbody>
-      <tfoot>
-        <tr>
-          <th colspan="4">
-            <div class="ui primary labeled icon button">
-              <i class="user icon"></i> Add User
-            </div>
-          </th>
-        </tr>
-      </tfoot>
     </table>
   </div>
   <div class="another example">
