@@ -10,7 +10,10 @@
 
 @verticalPadding: 0.8em;
 @horizontalPadding: 1em;
+
 @lineHeight: 1.2em;
+@lineHeightOffset: ((@lineHeight - 1em) / 2);
+
 @padding: (@verticalPadding - @lineHeightOffset) @horizontalPadding;
 
 @textAlign: left;
@@ -34,11 +37,14 @@
 
 /* Icon Input */
 @glyphWidth: 1.25em;
+
 @iconWidth: (@verticalPadding * 2) + @glyphWidth;
 @iconOpacity: 0.5;
 @iconFocusOpacity: 1;
-@iconSpacing: 0em;
-@iconMargin: @iconWidth + @iconSpacing;
+/*@iconOffset: @lineHeightOffset;*/
+
+@iconDistance: 0em;
+@iconMargin: @iconWidth + @iconDistance;
 @iconTransition: opacity 0.3s @defaultEasing;
 
 @transparentIconWidth: @glyphWidth;

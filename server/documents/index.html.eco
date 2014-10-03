@@ -12,7 +12,7 @@ type   : 'Semantic'
 <div class="following bar">
   <div class="ui page grid">
     <div class="column">
-      <img src="images/logo.png" class="logo">
+      <img src="/images/logo.png" class="logo">
       <div class="ui large inverted right floated secondary menu">
         <div class="ui language floating dropdown item" id="languages">
           <i class="world icon"></i>
@@ -156,18 +156,6 @@ type   : 'Semantic'
         </div>
         <div class="no example">
           <h4 class="ui header">
-            <a href="/elements/input.html">Input</a>
-          </h4>
-          <%- @partial('examples/input') %>
-        </div>
-        <div class="no example">
-          <h4 class="ui header">
-            <a href="/elements/label.html">Label</a>
-          </h4>
-          <%- @partial('examples/label') %>
-        </div>
-        <div class="no example">
-          <h4 class="ui header">
             <a href="/collections/message.html">Message</a>
           </h4>
           <%- @partial('examples/message') %>
@@ -186,6 +174,12 @@ type   : 'Semantic'
           </h4>
           <%- @partial('examples/feed') %>
         </div>
+        <div class="no example">
+          <h4 class="ui header">
+            <a href="/elements/label.html">Label</a>
+          </h4>
+          <%- @partial('examples/label') %>
+        </div>
       </div>
       <div class="column">
         <div class="no example">
@@ -199,6 +193,12 @@ type   : 'Semantic'
             <a href="/elements/segment.html">Segment</a>
           </h4>
           <%- @partial('examples/segment') %>
+        </div>
+        <div class="no example">
+          <h4 class="ui header">
+            <a href="/elements/input.html">Input</a>
+          </h4>
+          <%- @partial('examples/input') %>
         </div>
         <div class="no example">
           <h4 class="ui header">
