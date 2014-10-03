@@ -196,24 +196,24 @@ semantic.ready = function() {
       var
         percent = $choice.data('percent') || 0
       ;
-      window.Transifex.live.translateTo(value, true);
-      if(percent < 100) {
-        $('.language.modal')
-          .find('.header .name')
-            .html(text)
-            .end()
-          .find('.complete')
-            .html(percent)
-            .end()
-        ;
-        requestAnimationFrame(function() {
-          $('.language.modal')
+      window.Transifex.live.onTranslatePage(function(value) {
+        if(percent < 100) {
+          $languageModal
+            .find('.header .name')
+              .html(text)
+              .end()
+            .find('.complete')
+              .html(percent)
+              .end()
+          ;
+          $languageModal
             .modal('show', function() {
               $('.language.modal .progress .bar').css('width', percent + '%');
             })
           ;
-        });
-      }
+        }
+      });
+      window.Transifex.live.translateTo(value, true);
     },
 
     tryCreateMenu: function(event) {
@@ -858,10 +858,6 @@ semantic.ready = function() {
       'javascript'
     ]
   });
-
-  $languageModal
-    .modal()
-  ;
 
   $menu
     .sidebar({

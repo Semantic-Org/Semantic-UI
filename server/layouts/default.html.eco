@@ -22,7 +22,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-  <link rel="image_src" type="image/jpeg" href="images/share.png" />
+  <link rel="image_src" type="image/jpeg" href="/images/share.png" />
 
   <!-- Site Properities -->
   <%- @getBlock('meta').toHTML() %>
@@ -181,6 +181,11 @@
     <a class="hide item">
       <i class="close icon"></i> Close Menu
     </a>
+    <div class="item">
+      <a style="width:50px" class="ui tiny image" href="/">
+        <img src="images/share.png">
+      </a>
+    </div>
     <a class="item" href="/build/semantic.zip">
       <i class="download icon"></i> <b>Download</b>
     </a>

@@ -86,10 +86,26 @@ themes      : ['Default']
   <div class="example">
     <h4 class="ui header">Labeled</h4>
     <p>An input can be formatted with a label</p>
-    <div class="ui labeled input">
+    <div class="ui corner labeled input">
       <input type="text" placeholder="Search...">
       <div class="ui corner label">
         <i class="asterisk icon"></i>
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui labeled input">
+      <div class="ui label">
+        http://
+      </div>
+      <input type="text" placeholder="mysite.com">
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui right labeled input">
+      <input type="text" placeholder="Enter categories">
+      <div class="ui tag label">
+        Tags
       </div>
     </div>
   </div>
