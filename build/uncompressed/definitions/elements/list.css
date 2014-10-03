@@ -548,10 +548,10 @@ ol.ui.list ol,
 --------------------*/
 .ui.list .disabled.item {
   pointer-events: none;
-  color: rgba(0, 0, 0, 0.2) !important;
+  color: rgba(40, 40, 40, 0.3) !important;
 }
 .ui.inverted.list .disabled.item {
-  color: rgba(255, 255, 255, 0.2) !important;
+  color: rgba(225, 225, 225, 0.3) !important;
 }
 /*-------------------
         Hover

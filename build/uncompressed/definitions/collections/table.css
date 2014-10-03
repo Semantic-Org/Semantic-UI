@@ -146,6 +146,10 @@
 /*-------------------
        Element
 --------------------*/
+/*-------------------
+       Types
+--------------------*/
+/* Definition */
 /*--------------
      Parts
 ---------------*/
@@ -168,11 +172,11 @@
 /*--------------
      Types
 ---------------*/
+/* Attached */
 /* Striped */
 /* Sortable */
 /* Colors */
 /* Inverted */
-/* Definition */
 /* Basic */
 /* Padded */
 /* Compact */
@@ -281,6 +285,10 @@
 /*-------------------
        Element
 --------------------*/
+/*-------------------
+       Types
+--------------------*/
+/* Definition */
 /*--------------
      Parts
 ---------------*/
@@ -303,11 +311,11 @@
 /*--------------
      Types
 ---------------*/
+/* Attached */
 /* Striped */
 /* Sortable */
 /* Colors */
 /* Inverted */
-/* Definition */
 /* Basic */
 /* Padded */
 /* Compact */
@@ -487,16 +495,26 @@
 /*--------------
    Definition
 ---------------*/
-.ui.definition.table th:first-child {
+.ui.definition.table thead:not(.full-width) th:first-child {
   pointer-events: none;
   background: transparent;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.4);
   box-shadow: -1px -1px 0px 1px #ffffff;
 }
+.ui.definition.table tfoot:not(.full-width) th:first-child {
+  pointer-events: none;
+  background: transparent;
+  font-weight: rgba(0, 0, 0, 0.4);
+  color: normal;
+  box-shadow: 1px 1px 0px 1px #ffffff;
+}
 /* Remove Border */
-.ui.celled.definition.table th:first-child {
+.ui.celled.definition.table thead:not(.full-width) th:first-child {
   box-shadow: 0px -1px 0px 1px #ffffff;
+}
+.ui.celled.definition.table tfoot:not(.full-width) th:first-child {
+  box-shadow: 0px 1px 0px 1px #ffffff;
 }
 /* Highlight Defining Column */
 .ui.definition.table tr td:first-child {
@@ -505,7 +523,10 @@
   color: rgba(0, 0, 0, 0.8);
 }
 /* Fix 2nd Column */
-.ui.definition.table thead th:nth-child(2) {
+.ui.definition.table thead:not(.full-width) th:nth-child(2) {
+  border-left: 1px solid #d0d0d0;
+}
+.ui.definition.table tfoot:not(.full-width) th:nth-child(2) {
   border-left: 1px solid #d0d0d0;
 }
 .ui.definition.table td:nth-child(2) {
@@ -610,11 +631,62 @@
 .ui.table tr.disabled:hover td,
 .ui.table tr:hover td.disabled {
   pointer-events: none;
-  color: rgba(150, 150, 150, 0.3);
+  color: rgba(40, 40, 40, 0.3);
 }
 /*******************************
           Variations
 *******************************/
+/*--------------
+     Aligned
+---------------*/
+.ui.table[class*="left aligned"],
+.ui.table [class*="left aligned"] {
+  text-align: left;
+}
+.ui.table[class*="center aligned"],
+.ui.table [class*="center aligned"] {
+  text-align: center;
+}
+.ui.table[class*="right aligned"],
+.ui.table [class*="right aligned"] {
+  text-align: right;
+}
+/*--------------
+    Collapsing
+---------------*/
+.ui.table th.collapsing,
+.ui.table td.collapsing {
+  width: 1px;
+  white-space: nowrap;
+}
+/*--------------
+     Attached
+---------------*/
+/* All */
+.ui.attached.table {
+  width: -webkit-calc(100% +  2px );
+  width: calc(100% +  2px );
+  margin: 0em -1px;
+  border-radius: 0px;
+  box-shadow: none;
+}
+/* Top */
+.ui[class*="top attached"].table {
+  margin-top: 1em 0em;
+  border-radius: 0.25rem 0.25rem 0em 0em;
+}
+.ui.table[class*="top attached"]:first-child {
+  margin-top: 0em;
+}
+/* Bottom */
+.ui.table[class*="bottom attached"] {
+  margin-top: 0em;
+  margin-bottom: 1em 0em;
+  border-radius: 0em 0em 0.25rem 0.25rem;
+}
+.ui.table[class*="bottom attached"]:last-child {
+  margin-bottom: 0em;
+}
 /*--------------
      Striped
 ---------------*/
@@ -633,39 +705,30 @@
 --------------------*/
 .ui.black.table {
   border-top: 0.2em solid #1b1c1d;
-  border-radius: 0em 0em 0.25rem 0.25rem;
 }
 .ui.blue.table {
   border-top: 0.2em solid #3b83c0;
-  border-radius: 0em 0em 0.25rem 0.25rem;
 }
 .ui.green.table {
   border-top: 0.2em solid #5bbd72;
-  border-radius: 0em 0em 0.25rem 0.25rem;
 }
 .ui.orange.table {
   border-top: 0.2em solid #e07b53;
-  border-radius: 0em 0em 0.25rem 0.25rem;
 }
 .ui.pink.table {
   border-top: 0.2em solid #d9499a;
-  border-radius: 0em 0em 0.25rem 0.25rem;
 }
 .ui.purple.table {
   border-top: 0.2em solid #564f8a;
-  border-radius: 0em 0em 0.25rem 0.25rem;
 }
 .ui.red.table {
   border-top: 0.2em solid #d95c5c;
-  border-radius: 0em 0em 0.25rem 0.25rem;
 }
 .ui.teal.table {
   border-top: 0.2em solid #00b5ad;
-  border-radius: 0em 0em 0.25rem 0.25rem;
 }
 .ui.yellow.table {
   border-top: 0.2em solid #f2c61f;
-  border-radius: 0em 0em 0.25rem 0.25rem;
 }
 /*-------------------
    Inverted Colors
@@ -673,47 +736,38 @@
 .ui.inverted.table,
 .ui.inverted.black.table {
   background-color: #1b1c1d !important;
-  border-radius: 0.25rem;
   color: #ffffff !important;
 }
 .ui.inverted.blue.table {
   background-color: #3b83c0 !important;
-  border-radius: 0.25rem;
   color: #ffffff !important;
 }
 .ui.inverted.green.table {
   background-color: #5bbd72 !important;
-  border-radius: 0.25rem;
   color: #ffffff !important;
 }
 .ui.inverted.orange.table {
   background-color: #e07b53 !important;
-  border-radius: 0.25rem;
   color: #ffffff !important;
 }
 .ui.inverted.pink.table {
   background-color: #d9499a !important;
-  border-radius: 0.25rem;
   color: #ffffff !important;
 }
 .ui.inverted.purple.table {
   background-color: #564f8a !important;
-  border-radius: 0.25rem;
   color: #ffffff !important;
 }
 .ui.inverted.red.table {
   background-color: #d95c5c !important;
-  border-radius: 0.25rem;
   color: #ffffff !important;
 }
 .ui.inverted.teal.table {
   background-color: #00b5ad !important;
-  border-radius: 0.25rem;
   color: #ffffff !important;
 }
 .ui.inverted.yellow.table {
   background-color: #f2c61f !important;
-  border-radius: 0.25rem;
   color: #ffffff !important;
 }
 /*--------------
@@ -873,7 +927,7 @@
 /* Hover */
 .ui.sortable.table th.disabled:hover {
   cursor: auto;
-  color: rgba(0, 0, 0, 0.2);
+  color: rgba(40, 40, 40, 0.3);
 }
 .ui.sortable.table thead th:hover {
   background: rgba(0, 0, 0, 0.05);
@@ -914,11 +968,27 @@
 }
 .ui.inverted.table th {
   background-color: rgba(0, 0, 0, 0.15);
-  border-color: rgba(0, 0, 0, 0.2);
+  border-color: rgba(0, 0, 0, 0.2) !important;
   color: rgba(255, 255, 255, 0.9);
 }
 .ui.inverted.table tr td {
-  border-color: rgba(0, 0, 0, 0.2);
+  border-color: rgba(0, 0, 0, 0.2) !important;
+}
+.ui.inverted.table tr.disabled td,
+.ui.inverted.table tr td.disabled,
+.ui.inverted.table tr.disabled:hover td,
+.ui.inverted.table tr:hover td.disabled {
+  pointer-events: none;
+  color: rgba(225, 225, 225, 0.3);
+}
+/* Definition */
+.ui.inverted.definition.table tfoot:not(.full-width) th:first-child,
+.ui.inverted.definition.table thead:not(.full-width) th:first-child {
+  background: #ffffff;
+}
+.ui.inverted.definition.table tr td:first-child {
+  background: rgba(255, 255, 255, 0.02);
+  color: #ffffff;
 }
 /*--------------
    Collapsing

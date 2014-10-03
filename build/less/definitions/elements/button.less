@@ -52,7 +52,6 @@
   box-shadow: @boxShadow;
 
   user-select: none;
-  box-sizing: border-box;
   transition: @transition;
 
   -webkit-tap-highlight-color: @tapColor;
@@ -704,13 +703,10 @@
   padding-right: @horizontalPadding !important;
 }
 
+/* Left Labeled */
 .ui.labeled.icon.buttons > .button > .icon,
 .ui.labeled.icon.button > .icon {
   position: absolute;
-  top: 0em;
-  left: 0em;
-  box-sizing: border-box;
-
   width: @labeledIconWidth;
   height: 100%;
 
@@ -722,6 +718,27 @@
   line-height: 1;
   box-shadow: @labeledIconLeftShadow;
 }
+
+/* Left Labeled */
+.ui.labeled.icon.buttons > .button > .icon,
+.ui.labeled.icon.button > .icon {
+  top: 0em;
+  left: 0em;
+}
+
+/* Right Labeled */
+.ui[class*="right labeled"].icon.button {
+  padding-right: @labeledIconPadding !important;
+  padding-left: @horizontalPadding !important;
+}
+.ui[class*="right labeled"].icon.button > .icon {
+  left: auto;
+  right: 0em;
+  border-radius: 0em @borderRadius @borderRadius 0em;
+  box-shadow: @labeledIconRightShadow;
+}
+
+
 .ui.labeled.icon.buttons > .button > .icon:before,
 .ui.labeled.icon.button > .icon:before,
 .ui.labeled.icon.buttons > .button > .icon:after,
@@ -754,22 +771,13 @@
   border-bottom-left-radius: @borderRadius;
 }
 
-.ui.right.labeled.icon.button {
-  padding-right: @labeledIconPadding !important;
-  padding-left: @horizontalPadding !important;
-}
-.ui.left.fluid.labeled.icon.button,
-.ui.right.fluid.labeled.icon.button {
+/* Fluid Labeled */
+.ui.fluid[class*="left labeled"].icon.button,
+.ui.fluid[class*="right labeled"].icon.button {
   padding-left: @horizontalPadding !important;
   padding-right: @horizontalPadding !important;
 }
 
-.ui.right.labeled.icon.button > .icon {
-  left: auto;
-  right: 0em;
-  border-radius: 0em @borderRadius @borderRadius 0em;
-  box-shadow: @labeledIconRightShadow;
-}
 
 
 
@@ -868,7 +876,6 @@
 
   border-radius: 500em;
   box-shadow: @orBoxShadow;
-  box-sizing: border-box;
 }
 
 /* Fluid Or */
@@ -1065,7 +1072,6 @@
 .ui.fluid.vertical.buttons > .button {
   display: block;
   width: auto;
-  box-sizing: border-box;
 }
 
 .ui.\32.vertical.buttons > .button,

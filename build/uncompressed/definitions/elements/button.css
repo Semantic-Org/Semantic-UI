@@ -184,7 +184,7 @@
 /* Attached */
 /* Floated */
 /* Animated */
-/* Sizing */
+/* Sizing (Uses Defaults) */
 /*------------------
      Load Theme
 -------------------*/
@@ -327,7 +327,7 @@
 /* Attached */
 /* Floated */
 /* Animated */
-/* Sizing */
+/* Sizing (Uses Defaults) */
 /*------------------
      Load Site
 -------------------*/
@@ -370,7 +370,6 @@
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  box-sizing: border-box;
   -webkit-transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
           transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
   -webkit-tap-highlight-color: transparent;
@@ -804,42 +803,42 @@
 .ui.mini.buttons .button,
 .ui.mini.buttons .or,
 .ui.mini.button {
-  font-size: 0.7rem;
+  font-size: 0.7142em;
 }
 .ui.tiny.buttons .button,
 .ui.tiny.buttons .or,
 .ui.tiny.button {
-  font-size: 0.8rem;
+  font-size: 0.8571em;
 }
 .ui.small.buttons .button,
 .ui.small.buttons .or,
 .ui.small.button {
-  font-size: 0.875rem;
+  font-size: 0.9285em;
 }
 .ui.buttons .button,
 .ui.buttons .or,
 .ui.button {
-  font-size: 1rem;
+  font-size: 1em;
 }
 .ui.large.buttons .button,
 .ui.large.buttons .or,
 .ui.large.button {
-  font-size: 1.125rem;
+  font-size: 1.1428em;
 }
 .ui.big.buttons .button,
 .ui.big.buttons .or,
 .ui.big.button {
-  font-size: 1.25rem;
+  font-size: 1.2857em;
 }
 .ui.huge.buttons .button,
 .ui.huge.buttons .or,
 .ui.huge.button {
-  font-size: 1.375rem;
+  font-size: 1.4285em;
 }
 .ui.massive.buttons .button,
 .ui.massive.buttons .or,
 .ui.massive.button {
-  font-size: 1.5rem;
+  font-size: 1.7142em;
 }
 /* Loading Resize */
 .ui.huge.loading.button:after,
@@ -975,12 +974,10 @@
   padding-left: 4.1em !important;
   padding-right: 1.5em !important;
 }
+/* Left Labeled */
 .ui.labeled.icon.buttons > .button > .icon,
 .ui.labeled.icon.button > .icon {
   position: absolute;
-  top: 0em;
-  left: 0em;
-  box-sizing: border-box;
   width: 2.6em;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.05);
@@ -989,6 +986,23 @@
   border-radius: 0.25em 0px 0px 0.25em;
   line-height: 1;
   box-shadow: -1px 0px 0px 0px transparent inset;
+}
+/* Left Labeled */
+.ui.labeled.icon.buttons > .button > .icon,
+.ui.labeled.icon.button > .icon {
+  top: 0em;
+  left: 0em;
+}
+/* Right Labeled */
+.ui[class*="right labeled"].icon.button {
+  padding-right: 4.1em !important;
+  padding-left: 1.5em !important;
+}
+.ui[class*="right labeled"].icon.button > .icon {
+  left: auto;
+  right: 0em;
+  border-radius: 0em 0.25em 0.25em 0em;
+  box-shadow: 1px 0px 0px 0px transparent inset;
 }
 .ui.labeled.icon.buttons > .button > .icon:before,
 .ui.labeled.icon.button > .icon:before,
@@ -1020,20 +1034,11 @@
   border-radius: 0em;
   border-bottom-left-radius: 0.25em;
 }
-.ui.right.labeled.icon.button {
-  padding-right: 4.1em !important;
-  padding-left: 1.5em !important;
-}
-.ui.left.fluid.labeled.icon.button,
-.ui.right.fluid.labeled.icon.button {
+/* Fluid Labeled */
+.ui.fluid[class*="left labeled"].icon.button,
+.ui.fluid[class*="right labeled"].icon.button {
   padding-left: 1.5em !important;
   padding-right: 1.5em !important;
-}
-.ui.right.labeled.icon.button > .icon {
-  left: auto;
-  right: 0em;
-  border-radius: 0em 0.25em 0.25em 0em;
-  box-shadow: 1px 0px 0px 0px transparent inset;
 }
 /*--------------
      Toggle
@@ -1114,7 +1119,6 @@
   text-align: center;
   border-radius: 500em;
   box-shadow: 0px 0px 0px 1px transparent inset;
-  box-sizing: border-box;
 }
 /* Fluid Or */
 .ui.fluid.buttons .or {
@@ -1289,7 +1293,6 @@
 .ui.fluid.vertical.buttons > .button {
   display: block;
   width: auto;
-  box-sizing: border-box;
 }
 .ui.\32.vertical.buttons > .button,
 .ui.two.vertical.buttons > .button {

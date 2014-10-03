@@ -301,7 +301,7 @@
   display: inline-block;
   position: relative;
   margin: 0em 0em;
-  padding: 0.8em 1.75em 0.8em 2.5em;
+  padding: 0.8em 1.5em 0.8em 2.25em;
   vertical-align: top;
   background: #ffffff;
   color: rgba(0, 0, 0, 0.8);
@@ -393,10 +393,10 @@
 .ui.vertical.steps .step {
   display: block;
   border-radius: 0em;
-  padding: 0.8em 1.75em;
+  padding: 0.8em 1.5em;
 }
 .ui.vertical.steps .step:first-child {
-  padding: 0.8em 1.75em;
+  padding: 0.8em 1.5em;
   border-radius: 0.3125rem 0.3125rem 0em 0em;
 }
 .ui.vertical.steps .step:last-child {
@@ -423,7 +423,7 @@
   border-radius: 0.3125rem;
 }
 .ui.steps .step:first-child {
-  padding-left: 1.75em;
+  padding-left: 1.5em;
   border-radius: 0.3125rem 0em 0em 0.3125rem;
 }
 .ui.steps .step:last-child {
@@ -495,7 +495,7 @@
 .ui.steps .disabled.step,
 .ui.steps .disabled.step .title,
 .ui.steps .disabled.step .description {
-  color: rgba(0, 0, 0, 0.2);
+  color: rgba(40, 40, 40, 0.3);
 }
 .ui.steps .disabled.step:after {
   background: #ffffff;

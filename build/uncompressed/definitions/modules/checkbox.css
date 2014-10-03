@@ -660,6 +660,24 @@
   left: 2.05rem;
 }
 /*******************************
+            Variations
+*******************************/
+/*--------------
+     Fitted
+---------------*/
+.ui.fitted.checkbox .box,
+.ui.fitted.checkbox label {
+  padding-left: 0em !important;
+}
+.ui.fitted.toggle.checkbox,
+.ui.fitted.toggle.checkbox {
+  width: 3.5rem;
+}
+.ui.fitted.slider.checkbox,
+.ui.fitted.slider.checkbox {
+  width: 3.5rem;
+}
+/*******************************
            Overrides
 *******************************/
 @font-face {

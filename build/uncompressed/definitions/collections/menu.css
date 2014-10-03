@@ -673,7 +673,7 @@
 .ui.menu .item.disabled,
 .ui.menu .item.disabled:hover {
   cursor: default;
-  color: rgba(0, 0, 0, 0.2);
+  color: rgba(40, 40, 40, 0.3);
   background-color: transparent !important;
 }
 /*--------------------
@@ -1347,7 +1347,7 @@
 }
 .ui.inverted.menu .item.disabled,
 .ui.inverted.menu .item.disabled:hover {
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(225, 225, 225, 0.3);
 }
 /*--- Border ---*/
 .ui.inverted.menu .item:before {

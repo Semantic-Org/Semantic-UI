@@ -349,12 +349,12 @@
 
 .ui.toggle.checkbox {
   cursor: pointer;
-  height: @toggleSize;
+  height: @toggleHeight;
 }
 
 .ui.toggle.checkbox .box,
 .ui.toggle.checkbox label {
-  height: @toggleSize;
+  height: @toggleHandleSize;
   padding-left: @toggleLabelDistance;
   line-height: @toggleLabelLineHeight;
   color: @toggleOffLabelColor;
@@ -435,5 +435,27 @@
   left: @toggleOnOffset;
 }
 
+/*******************************
+            Variations
+*******************************/
+
+/*--------------
+     Fitted
+---------------*/
+
+.ui.fitted.checkbox .box,
+.ui.fitted.checkbox label {
+  padding-left: 0em !important;
+}
+
+.ui.fitted.toggle.checkbox,
+.ui.fitted.toggle.checkbox {
+  width: @toggleWidth;
+}
+
+.ui.fitted.slider.checkbox,
+.ui.fitted.slider.checkbox {
+  width: @sliderWidth;
+}
 
 .loadUIOverrides();
