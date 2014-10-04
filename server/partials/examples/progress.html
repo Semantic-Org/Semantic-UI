@@ -11,7 +11,7 @@
   <div class="label">Funding</div>
 </div>
 
-<div class="ui teal file demo progress" data-value="3" data-total="20">
+<div class="ui teal file demo progress" data-value="6" data-total="20">
   <div class="bar">
     <div class="progress"></div>
   </div>
@@ -33,7 +33,7 @@ $(document)
     ;
     $('.indicating.progress')
       .progress({
-        label   : false,
+        label   : true,
         total   : 10,
         value   : Math.floor(Math.random() * 5) + 1,
         text    : {
@@ -44,7 +44,7 @@ $(document)
     ;
     $('.file.progress')
       .progress({
-        label: 'ratio',
+        label: false,
         text: {
           active  : 'Adding {value} of {total} photos',
           success : '{total} Photos Uploaded!'

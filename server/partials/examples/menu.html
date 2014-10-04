@@ -1,4 +1,4 @@
-<div class="ui vertical menu">
+<div class="ui vertical demo menu">
   <a class="active teal item">
     Inbox
     <div class="ui teal label">1</div>
@@ -14,7 +14,7 @@
     </div>
   </div>
 </div>
-<div class="ui secondary vertical menu">
+<div class="ui secondary vertical demo menu">
   <a class="active item">
     Inbox
   </a>
@@ -25,7 +25,7 @@
     Trash
   </a>
 </div>
-<div class="ui secondary pointing vertical menu">
+<div class="ui secondary pointing vertical demo menu">
   <a class="active item">
     Inbox
   </a>
@@ -36,3 +36,23 @@
     Trash
   </a>
 </div>
+
+<script type="text/javascript">
+$(document)
+  .ready(function(){
+    $('.demo.menu .item')
+      .on('click', function() {
+        if(!$(this).hasClass('dropdown')) {
+          $(this)
+            .addClass('active')
+            .closest('.ui.menu')
+            .find('.item')
+              .not($(this))
+              .removeClass('active')
+          ;
+        }
+      })
+    ;
+  })
+;
+</script>
