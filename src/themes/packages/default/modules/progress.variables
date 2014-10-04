@@ -67,6 +67,7 @@
 @activePulseColor: @white;
 @activePulseMaxOpacity: 0.3;
 @activePulseDuration: 2s;
+@activeMinWidth: 3em;
 
 
 /*-------------------
