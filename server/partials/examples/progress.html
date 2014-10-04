@@ -1,4 +1,4 @@
-<div class="ui basic progress">
+<div class="ui basic demo progress">
   <div class="bar">
     <div class="progress"></div>
   </div>
@@ -6,12 +6,12 @@
 </div>
 
 
-<div class="ui indicating progress">
+<div class="ui indicating demo progress">
   <div class="bar"></div>
   <div class="label">Funding</div>
 </div>
 
-<div class="ui teal file progress" data-value="3" data-total="20">
+<div class="ui teal file demo progress" data-value="3" data-total="20">
   <div class="bar">
     <div class="progress"></div>
   </div>
@@ -52,13 +52,13 @@ $(document)
       })
     ;
     var progress = function() {
-      $('.ui.progress').progress('increment');
+      $('.demo.progress').progress('increment');
       setTimeout(progress, (Math.random() * 2000) + 300);
     };
     setTimeout(progress, 1000);
 
     setInterval(function() {
-      $('.ui.progress').progress('reset');
+      $('.demo.progress').progress('reset');
     }, 30000);
 
   })

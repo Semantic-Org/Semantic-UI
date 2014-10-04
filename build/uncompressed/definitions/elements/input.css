@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -167,6 +167,125 @@
 /*------------------
      Load Theme
 -------------------*/
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+        Paths
+--------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating neutrals */
+/* Used for differentiating layers */
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+       Icons
+--------------------*/
+/* Max Width of Icon */
+/*-------------------
+       Easing
+--------------------*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Mood */
+/* Status */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+        Sizes
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Makes sure padded grid can fit at 320px */
+/* Used to match floats with text */
+/* Positive / Negative Dupes */
+/* Header Colors */
+/* Responsive */
+/* Columns */
+/*******************************
+           States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Standard  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*******************************
+            Input
+*******************************/
+/*-------------------
+      Element
+--------------------*/
+/*-------------------
+        Types
+--------------------*/
+/* Icon Input */
+/* Circular Icon Input */
+/* Labeled Input */
+/*-------------------
+        States
+--------------------*/
+/* Placeholder */
+/* Down */
+/* Focus */
+/* Error */
+/* Loading */
+/*-------------------
+      Variations
+--------------------*/
+/* Sizing */
 /*------------------
      Load Site
 -------------------*/
@@ -177,7 +296,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
            Standard
@@ -363,6 +482,53 @@
 /*--------------------
         Labeled
 ---------------------*/
+/* Adjacent Label */
+.ui.labeled.input {
+  display: table;
+}
+.ui.labeled.input > input {
+  display: table-cell;
+  vertical-align: top;
+}
+.ui.labeled.input > .label {
+  display: table-cell;
+  vertical-align: middle;
+  white-space: nowrap;
+  font-size: 1em;
+}
+.ui.labeled.input > .label > .icon {
+  display: inline;
+  vertical-align: top;
+}
+/* Fluid Labeled */
+.ui.fluid.labeled.input {
+  display: table;
+  width: 100%;
+}
+.ui.fluid.labeled.input > .label {
+  width: 0.01%;
+}
+/* Label on Left */
+.ui.labeled.input:not([class*="corner labeled"]):not([class*="right labeled"]) > input {
+  border-left: none;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.ui.labeled.input:not([class*="corner labeled"]):not([class*="right labeled"]) > .label {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+/* Label on Right */
+.ui[class*="right labeled"].input > input {
+  border-right: none;
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+.ui[class*="right labeled"].input > .label {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+/* Corner Label */
 .ui.labeled.input .corner.label {
   top: 1px;
   right: 1px;
@@ -373,10 +539,16 @@
   padding-right: 2.5em !important;
 }
 /* Spacing with corner label */
-.ui.labeled.icon.input:not(.left) > input {
+.ui[class*="corner labeled"].input {
+  display: inline-block;
+}
+.ui[class*="corner labeled"].input > input {
+  display: block;
+}
+.ui[class*="corner labeled"].icon.input:not(.left) > input {
   padding-right: 3.25em !important;
 }
-.ui.labeled.icon.input:not(.left) > .icon {
+.ui[class*="corner labeled"].icon.input:not(.left) > .icon {
   margin-right: 1.25em;
 }
 /*--------------------

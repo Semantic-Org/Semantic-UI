@@ -186,7 +186,7 @@
   text-align: center;
   top: 50%;
   width: 100%;
-  margin-top: -0.5em;
+  margin-top: @iconOffset;
 }
 .ui.icon.input > .link.icon {
   cursor: pointer;
@@ -236,10 +236,63 @@
         Labeled
 ---------------------*/
 
+
+/* Adjacent Label */
+.ui.labeled.input {
+  display: table;
+}
+.ui.labeled.input > input {
+  display: table-cell;
+  vertical-align: top;
+}
+.ui.labeled.input > .label {
+  display: table-cell;
+  vertical-align: middle;
+  white-space: nowrap;
+  font-size: 1em;
+}
+.ui.labeled.input > .label > .icon {
+  display: inline;
+  vertical-align: top;
+}
+
+/* Fluid Labeled */
+.ui.fluid.labeled.input {
+  display: table;
+  width: 100%;
+}
+.ui.fluid.labeled.input > .label {
+  width: 0.01%;
+}
+
+/* Label on Left */
+.ui.labeled.input:not([class*="corner labeled"]):not([class*="right labeled"]) > input {
+  border-left: none;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.ui.labeled.input:not([class*="corner labeled"]):not([class*="right labeled"]) > .label {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+/* Label on Right */
+.ui[class*="right labeled"].input  > input {
+  border-right: none;
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+.ui[class*="right labeled"].input > .label {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+
+/* Corner Label */
 .ui.labeled.input .corner.label {
-  top: @labelTop;
-  right: @labelRight;
-  font-size: @labelSize;
+  top: @labelCornerTop;
+  right: @labelCornerRight;
+  font-size: @labelCornerSize;
   border-radius: 0em @borderRadius 0em 0em;
 }
 .ui.labeled.input input {
@@ -247,13 +300,18 @@
 }
 
 /* Spacing with corner label */
-.ui.labeled.icon.input:not(.left) > input {
+.ui[class*="corner labeled"].input {
+  display: inline-block;
+}
+.ui[class*="corner labeled"].input > input {
+  display: block;
+}
+.ui[class*="corner labeled"].icon.input:not(.left) > input {
   padding-right: @labeledIconInputMargin !important;
 }
-.ui.labeled.icon.input:not(.left) > .icon {
+.ui[class*="corner labeled"].icon.input:not(.left) > .icon {
   margin-right: @labeledIconMargin;
 }
-
 
 /*--------------------
         Action

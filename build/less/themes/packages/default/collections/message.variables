@@ -14,8 +14,9 @@
 
 @background: #EFEFEF;
 @lineHeight: 1.3;
-@borderRadius: 0.25em;
+@lineHeightOffset: ((@lineHeight - 1em) / 2);
 
+@borderRadius: 0.25em;
 @borderWidth: 1px;
 @borderShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset;
 @boxShadow:
@@ -52,7 +53,7 @@
 @iconDistance: 0.6em;
 
 /* Close Icon */
-@closeTopDistance: 1em;
+@closeTopDistance: (1em + @lineHeightOffset);
 @closeRightDistance: 0.5em;
 @closeOpacity: 0.7;
 

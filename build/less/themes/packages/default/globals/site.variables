@@ -19,7 +19,7 @@
 
 @importGoogleFonts : true;
 @googleFontName    : 'Lato';
-@googleFontSizes   : '300,400,700,300italic,400italic,700italic';
+@googleFontSizes   : '400,700,400italic,700italic';
 
 /*-------------------
       Site Colors
@@ -57,11 +57,10 @@
 --------------------*/
 
 @pageBackground      : #F7F7F7;
-@lineHeight          : 1.33;
-
 @pageOverflowX       : hidden;
 
 @fontSize            : 14px;
+@lineHeight          : 1.33;
 @textColor           : rgba(0, 0, 0, 0.8);
 
 @headerMargin        : 1em 0em 1rem;
