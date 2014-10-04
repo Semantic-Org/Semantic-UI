@@ -80,6 +80,10 @@ $.fn.progress = function(parameters) {
           instance = undefined;
         },
 
+        reset: function() {
+          module.set.percent(0);
+        },
+
         complete: function() {
           if(module.percent === undefined || module.percent < 100) {
             module.set.percent(100);
