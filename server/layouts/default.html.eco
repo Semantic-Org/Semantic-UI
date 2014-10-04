@@ -170,7 +170,7 @@
       autocollect  : true,
       ignore_tags  : ['i'],
       parse_attr   : ['data-title', 'data-content', 'data-text'],
-      ignore_class : ["code", "ace_editor"]
+      ignore_class : ["code", "anchor"]
     };
   </script>
   <script type="text/javascript" src="http://cdn.transifex.com/live.js"></script>
