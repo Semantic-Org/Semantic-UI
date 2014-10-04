@@ -162,6 +162,13 @@ themes      : ['default', 'GitHub']
     </div>
   </div>
 
+  <div class="example">
+    <h4 class="ui header">Compact</h4>
+    <p>A segment may take up only as much space as is necessary</p>
+    <div class="ui compact segment">
+      <p>Pellentesque habitant morbi</p>
+    </div>
+  </div>
 
   <div class="example">
     <h4 class="ui header">Raised</h4>

@@ -144,15 +144,21 @@ type   : 'Semantic'
       <div class="column">
         <div class="no example">
           <h4 class="ui header">
-            <a href="/modules/accordion.html">Accordion</a>
+            <a href="/collections/menu.html">Menu</a>
           </h4>
-          <%- @partial('examples/accordion') %>
+          <%- @partial('examples/menu') %>
         </div>
         <div class="no example">
           <h4 class="ui header">
-            <a href="/elements/step.html">Step</a>
+            <a href="/modules/accordion.html">Divider</a>
           </h4>
-          <%- @partial('examples/step') %>
+          <%- @partial('examples/divider') %>
+        </div>
+        <div class="no example">
+          <h4 class="ui header">
+            <a href="/modules/accordion.html">Accordion</a>
+          </h4>
+          <%- @partial('examples/accordion') %>
         </div>
         <div class="no example">
           <h4 class="ui header">
@@ -180,6 +186,12 @@ type   : 'Semantic'
           </h4>
           <%- @partial('examples/label') %>
         </div>
+        <div class="no example">
+          <h4 class="ui header">
+            <a href="/elements/step.html">Step</a>
+          </h4>
+          <%- @partial('examples/step') %>
+        </div>
       </div>
       <div class="column">
         <div class="no example">
@@ -187,6 +199,12 @@ type   : 'Semantic'
             <a href="/modules/dropdown.html">Dropdown</a>
           </h4>
           <%- @partial('examples/dropdown') %>
+        </div>
+        <div class="no example">
+          <h4 class="ui header">
+            <a href="/elements/progress.html">Progress</a>
+          </h4>
+          <%- @partial('examples/progress') %>
         </div>
         <div class="no example">
           <h4 class="ui header">

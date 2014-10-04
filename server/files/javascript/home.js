@@ -61,6 +61,7 @@ semantic.home.ready = function() {
     .dropdown('setting', 'action', 'activate')
   ;
 
+
   $('.card .dimmer')
     .dimmer({
       on: 'hover'

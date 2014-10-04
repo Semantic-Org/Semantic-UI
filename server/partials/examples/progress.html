@@ -1,0 +1,66 @@
+<div class="ui basic progress">
+  <div class="bar">
+    <div class="progress"></div>
+  </div>
+  <div class="label">Uploading Files</div>
+</div>
+
+
+<div class="ui indicating progress">
+  <div class="bar"></div>
+  <div class="label">Funding</div>
+</div>
+
+<div class="ui teal file progress" data-value="3" data-total="20">
+  <div class="bar">
+    <div class="progress"></div>
+  </div>
+  <div class="label"></div>
+</div>
+
+<script type="text/javascript">
+$(document)
+  .ready(function(){
+    $('.basic.progress')
+      .progress({
+        label   : false,
+        value   : Math.floor(Math.random() * 5) + 1,
+        text    : {
+          active  : '{percent}% Complete',
+          success : 'Done!'
+        }
+      })
+    ;
+    $('.indicating.progress')
+      .progress({
+        label   : false,
+        total   : 10,
+        value   : Math.floor(Math.random() * 5) + 1,
+        text    : {
+          active  : '{percent}% Funded',
+          success : 'Project Funded!'
+        }
+      })
+    ;
+    $('.file.progress')
+      .progress({
+        label: 'ratio',
+        text: {
+          active  : 'Adding {value} of {total} photos',
+          success : '{total} Photos Uploaded!'
+        }
+      })
+    ;
+    var progress = function() {
+      $('.ui.progress').progress('increment');
+      setTimeout(progress, (Math.random() * 2000) + 300);
+    };
+    setTimeout(progress, 1000);
+
+    setInterval(function() {
+      $('.ui.progress').progress('reset');
+    }, 30000);
+
+  })
+;
+</script>

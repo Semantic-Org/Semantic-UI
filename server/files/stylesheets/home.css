@@ -574,13 +574,6 @@
 #example.index .feature.stripe p {
   min-height: 100px;
 }
-#example.index .demo h4 {
-  font-weight: bold !important;
-  margin: 0em 0em 1em !important;
-}
-#example.index .demo .ui.label:not(.empty) {
-  margin-bottom: 1em;
-}
 #example .stripe .ui.vertical.divider {
   font-size: 1rem;
 }

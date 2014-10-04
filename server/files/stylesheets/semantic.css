@@ -878,6 +878,32 @@ body#example.hide {
   }
 }
 
+
+/*--------------
+      Demo
+---------------*/
+
+
+#example .demo.row {
+  margin: 0 auto;
+  max-width: 1100px;
+}
+#example .demo.row .menu,
+#example .demo.row .card {
+  width: 100%;
+}
+#example .demo.row h4 {
+  font-weight: bold !important;
+  margin: 0em 0em 1em !important;
+}
+#example .demo.row .example {
+  clear: both;
+  z-index: 1;
+}
+#example .demo.row .ui.label:not(.empty) {
+  margin-bottom: 1em;
+}
+
 /*--------------
       Card
 ---------------*/

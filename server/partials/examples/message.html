@@ -22,3 +22,16 @@
 <div class="ui bottom attached message">
   Bottom attached
 </div>
+
+<script type="text/javascript">
+$(document)
+  .ready(function(){
+    $('.message .close')
+      .on('click', function() {
+        $(this).closest('.message').transition('scale');
+      })
+    ;
+
+  })
+;
+</script>
