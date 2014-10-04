@@ -11033,7 +11033,7 @@ $.fn.progress.settings = {
   name        : 'Progress',
   namespace   : 'progress',
 
-  debug       : true,
+  debug       : false,
   verbose     : true,
   performance : true,
 

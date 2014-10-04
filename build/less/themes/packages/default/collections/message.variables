@@ -32,7 +32,7 @@
 ;
 
 /* Header */
-@headerFontSize: 1.1rem;
+@headerFontSize: 1.1em;
 @headerFontWeight: bold;
 @headerDisplay: block;
 @headerDistance: 0rem;
@@ -84,13 +84,3 @@
   @floatingShadow,
   @borderShadow
 ;
-
-/*-------------------
-      Variations
---------------------*/
-
-@small: 0.875em;
-@medium: 1em;
-@large: 1.125em;
-@huge: 1.5em;
-@massive: 2em;
