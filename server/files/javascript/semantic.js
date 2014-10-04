@@ -27,48 +27,50 @@ semantic.ready = function() {
   // selector cache
   var
 
-    $sortableTables   = $('.sortable.table'),
-    $sticky           = $('.ui.sticky'),
+    $sortableTables      = $('.sortable.table'),
+    $sticky              = $('.ui.sticky'),
 
-    $themeDropdown    = $('.theme.dropdown'),
+    $themeDropdown       = $('.theme.dropdown'),
 
-    $ui               = $('.ui').not('.hover, .down'),
-    $swap             = $('.theme.menu .item'),
-    $menu             = $('#menu'),
-    $hideMenu         = $('#menu .hide.item'),
-    $sortTable        = $('.sortable.table'),
-    $demo             = $('.demo'),
+    $ui                  = $('.ui').not('.hover, .down'),
+    $swap                = $('.theme.menu .item'),
+    $menu                = $('#menu'),
+    $hideMenu            = $('#menu .hide.item'),
+    $sortTable           = $('.sortable.table'),
+    $demo                = $('.demo'),
 
-    $container        = $('.main.container'),
-    $allHeaders       = $('.main.container > h2, .main.container > .tab > h2, .main.container > .tab > .examples h2'),
-    $sectionHeaders   = $container.children('h2'),
-    $followMenu       = $container.find('.following.menu'),
-    $sectionExample   = $container.find('.example'),
-    $exampleHeaders   = $sectionExample.children('h4'),
-    $footer           = $('.page > .footer'),
+    $container           = $('.main.container'),
+    $allHeaders          = $('.main.container > h2, .main.container > .tab > h2, .main.container > .tab > .examples h2'),
+    $sectionHeaders      = $container.children('h2'),
+    $followMenu          = $container.find('.following.menu'),
+    $sectionExample      = $container.find('.example'),
+    $exampleHeaders      = $sectionExample.children('h4'),
+    $footer              = $('.page > .footer'),
 
-    $menuPopup        = $('.ui.main.menu .popup.item'),
-    $pageDropdown     = $('.ui.main.menu .page.dropdown'),
-    $pageTabMenu      = $('.tab.header.segment .tabular.menu'),
-    $pageTabs         = $('.tab.header.segment .menu .item'),
+    $menuPopup           = $('.ui.main.menu .popup.item'),
+    $pageDropdown        = $('.ui.main.menu .page.dropdown'),
+    $pageTabMenu         = $('.tab.header.segment .tabular.menu'),
+    $pageTabs            = $('.tab.header.segment .menu .item'),
 
-    $languageDropdown = $('.language.dropdown'),
-    $languageModal    = $('.language.modal'),
+    $languageDropdown    = $('.language.dropdown'),
+    $languageModal       = $('.language.modal'),
 
-    $downloadDropdown = $('.download.buttons .dropdown'),
+    $downloadDropdown    = $('.download.buttons .dropdown'),
 
-    $helpPopup        = $('.header .help.icon'),
+    $helpPopup           = $('.header .help.icon'),
 
-    $example          = $('.example'),
-    $shownExample     = $example.filter('.shown'),
+    $example             = $('.example'),
+    $shownExample        = $example.filter('.shown'),
 
-    $overview         = $('.overview.button'),
-    //$developer        = $('.header .developer.item'),
-    //$designer         = $('.header .designer.item'),
+    $overview            = $('.overview.button'),
+    //$developer         = $('.header .developer.item'),
+    //$designer          = $('.header .designer.item'),
 
-    $sidebarButton    = $('.fixed.launch.button'),
-    $code             = $('div.code').not('.existing'),
-    $existingCode     = $('.existing.code'),
+    $sidebarButton       = $('.fixed.launch.button'),
+    $code                = $('div.code').not('.existing'),
+    $existingCode        = $('.existing.code'),
+
+    languageDropdownUsed = false,
 
 
     requestAnimationFrame = window.requestAnimationFrame
@@ -192,28 +194,32 @@ semantic.ready = function() {
       }
     },
 
-    showLanguageModal: function(value, text, $choice) {
+    translatePage: function(languageCode, text, $choice) {
+      languageDropdownUsed = true;
+      window.Transifex.live.translateTo(languageCode, true);
+    },
+
+    showLanguageModal: function(languageCode) {
       var
-        percent = $choice.data('percent') || 0
+        $choice = $languageDropdown.find('[data-value="' + languageCode + '"]').eq(0),
+        percent = $choice.data('percent') || 0,
+        text    = $choice.text()
       ;
-      window.Transifex.live.onTranslatePage(function(value) {
-        if(percent < 100) {
-          $languageModal
-            .find('.header .name')
-              .html(text)
-              .end()
-            .find('.complete')
-              .html(percent)
-              .end()
-          ;
-          $languageModal
-            .modal('show', function() {
-              $('.language.modal .progress .bar').css('width', percent + '%');
-            })
-          ;
-        }
-      });
-      window.Transifex.live.translateTo(value, true);
+      if(percent < 100 && languageDropdownUsed) {
+        $languageModal
+          .find('.header .name')
+            .html(text)
+            .end()
+          .find('.complete')
+            .html(percent)
+            .end()
+        ;
+        $languageModal
+          .modal('show', function() {
+            $('.language.modal .progress .bar').css('width', percent + '%');
+          })
+        ;
+      }
     },
 
     tryCreateMenu: function(event) {
@@ -936,10 +942,12 @@ semantic.ready = function() {
       onShow: function() {
         $(this).popup('hide');
       },
-      onChange: handler.showLanguageModal
+      onChange: handler.translatePage
     })
-
   ;
+
+
+  window.Transifex.live.onTranslatePage(handler.showLanguageModal);
 
 };
 
