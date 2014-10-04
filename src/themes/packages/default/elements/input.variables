@@ -41,7 +41,7 @@
 @iconWidth: (@verticalPadding * 2) + @glyphWidth;
 @iconOpacity: 0.5;
 @iconFocusOpacity: 1;
-/*@iconOffset: @lineHeightOffset;*/
+@iconOffset: -0.5em;
 
 @iconDistance: 0em;
 @iconMargin: @iconWidth + @iconDistance;

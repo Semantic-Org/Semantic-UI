@@ -179,9 +179,6 @@
   box-sizing: border-box;
   transition: @iconTransition;
 }
-.ui.icon.input > .icon {
-  top: @iconOffset;
-}
 .ui.icon.input > .icon:before,
 .ui.icon.input > .icon:after {
   left: 0;
@@ -189,7 +186,7 @@
   text-align: center;
   top: 50%;
   width: 100%;
-  margin-top: -0.5em;
+  margin-top: @iconOffset;
 }
 .ui.icon.input > .link.icon {
   cursor: pointer;
