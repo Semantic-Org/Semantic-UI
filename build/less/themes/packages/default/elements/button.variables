@@ -108,10 +108,10 @@
 @activeBoxShadow: @borderBoxShadow;
 
 /* Active + Hovered */
-@activeHoverBackgroundColor: #D0D0D0;
+@activeHoverBackgroundColor: @activeBackgroundColor;
 @activeHoverBackgroundImage: none;
-@activeHoverBoxShadow: @borderBoxShadow;
-@activeHoverColor: @selectedTextColor;
+@activeHoverColor: @activeColor;
+@activeHoverBoxShadow: @activeBoxShadow;
 
 /* Loading */
 @loadingBackground: rgba(0, 0, 0, 0.04);
@@ -218,6 +218,17 @@
 /* Colors */
 @coloredBackgroundImage: none;
 @coloredBoxShadow: @shadowBoxShadow;
+
+/* Ordinality */
+@primaryBackgroundImage: @coloredBackgroundImage;
+@primaryTextColor: @invertedTextColor;
+@primaryTextShadow: @invertedTextShadow;
+@primaryBoxShadow: @coloredBoxShadow;
+
+@secondaryBackgroundImage: @coloredBackgroundImage;
+@secondaryTextColor: @invertedTextColor;
+@secondaryTextShadow: @invertedTextShadow;
+@secondaryBoxShadow: @coloredBoxShadow;
 
 /* Compact */
 @compactVerticalPadding: (@verticalPadding * 0.75);

@@ -898,6 +898,8 @@ body#example.hide {
 }
 #example .demo.row .example {
   clear: both;
+}
+#example .demo.row .segment.example {
   z-index: 1;
 }
 #example .demo.row .ui.label:not(.empty) {

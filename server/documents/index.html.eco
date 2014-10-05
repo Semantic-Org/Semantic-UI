@@ -73,6 +73,7 @@ type   : 'Semantic'
         <div class="menu ui transition hidden" tabindex="-1">
           <div data-value="Default" class="item">Default</div>
           <div data-value="Amazon" class="item">Amazon</div>
+          <div data-value="Google" class="item">Google</div>
           <div data-value="GitHub" class="item">GitHub</div>
           <div data-value="Raised" class="item">Raised</div>
           <div data-value="Chubby" class="item">Chubby</div>
@@ -206,7 +207,7 @@ type   : 'Semantic'
           </h4>
           <%- @partial('examples/progress') %>
         </div>
-        <div class="no example">
+        <div class="no segment example">
           <h4 class="ui header">
             <a href="/elements/segment.html">Segment</a>
           </h4>
