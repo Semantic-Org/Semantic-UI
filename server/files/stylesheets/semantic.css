@@ -888,8 +888,8 @@ body#example.hide {
   margin: 0 auto;
   max-width: 1100px;
 }
-#example .demo.row .menu,
-#example .demo.row .card {
+#example .demo.row .ui.menu,
+#example .demo.row .ui.card {
   width: 100%;
 }
 #example .demo.row h4 {
