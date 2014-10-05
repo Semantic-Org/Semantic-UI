@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Defaults
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -157,127 +157,9 @@
 /* Icon Message */
 /* Attached */
 /* Floating */
-/*-------------------
-      Variations
---------------------*/
 /*------------------
      Load Theme
 -------------------*/
-/*******************************
-         Site Settings
-*******************************/
-/*-------------------
-        Paths
---------------------*/
-/*-------------------
-       Fonts
---------------------*/
-/*-------------------
-      Site Colors
---------------------*/
-/*---  Colors  ---*/
-/*---  Light Colors  ---*/
-/*-------------------
-        Page
---------------------*/
-/*-------------------
-  Background Colors
---------------------*/
-/* Used for differentiating neutrals */
-/* Used for differentiating layers */
-/*-------------------
-        Grid
---------------------*/
-/*-------------------
-     Breakpoints
---------------------*/
-/*******************************
-           Power-User
-*******************************/
-/*-------------------
-       Icons
---------------------*/
-/* Max Width of Icon */
-/*-------------------
-       Easing
---------------------*/
-/*---   Neutrals  ---*/
-/*--- Colored Backgrounds ---*/
-/*--- Colored Text ---*/
-/*--- Colored Headers ---*/
-/*-------------------
-    Emotive Colors
---------------------*/
-/* Mood */
-/* Status */
-/*-------------------
-     Neutral Text
---------------------*/
-/*-------------------
-     Brand Colors
---------------------*/
-/*-------------------
-      Borders
---------------------*/
-/*-------------------
-        Sizes
---------------------*/
-/*-------------------
-     Transitions
---------------------*/
-/*-------------------
-    Derived Values
---------------------*/
-/* Makes sure padded grid can fit at 320px */
-/* Used to match floats with text */
-/* Positive / Negative Dupes */
-/* Header Colors */
-/* Responsive */
-/* Columns */
-/*******************************
-           States
-*******************************/
-/*-------------------
-      Disabled
---------------------*/
-/*-------------------
-        Hover
---------------------*/
-/*---  Colors  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*-------------------
-    Down (:active)
---------------------*/
-/*---  Colors  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*-------------------
-        Active
---------------------*/
-/*---  Standard  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*******************************
-            Message
-*******************************/
-/*-------------------
-       Elements
---------------------*/
-/* Header */
-/* Paragraph */
-/* List */
-/* Icon */
-/* Close Icon */
-/*-------------------
-        Types
---------------------*/
-/* Icon Message */
-/* Attached */
-/* Floating */
-/*-------------------
-      Variations
---------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -288,7 +170,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Loader
+ Override Mix-in
 -------------------*/
 /*******************************
             Message
@@ -324,7 +206,7 @@
 }
 /* Default font size */
 .ui.message .header:not(.ui) {
-  font-size: 1.1rem;
+  font-size: 1.1em;
 }
 /* Paragraph */
 .ui.message p {
@@ -620,19 +502,19 @@
      Sizes
 ---------------*/
 .ui.small.message {
-  font-size: 0.875em;
+  font-size: 0.9285em;
 }
 .ui.message {
   font-size: 1em;
 }
 .ui.large.message {
-  font-size: 1.125em;
+  font-size: 1.1428em;
 }
 .ui.huge.message {
-  font-size: 1.5em;
+  font-size: 1.4285em;
 }
 .ui.massive.message {
-  font-size: 2em;
+  font-size: 1.7142em;
 }
 /*******************************
            Overrides
