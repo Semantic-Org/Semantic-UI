@@ -8,7 +8,7 @@ title       : 'Button'
 description : 'A button indicates a possible user action'
 type        : 'UI Element'
 
-themes      : ['Default', 'Classic', 'Basic', 'Raised', 'Chubby', 'Round', 'Amazon', 'GitHub']
+themes      : ['Default', 'Classic', 'Basic', 'Raised', 'Chubby', 'Round', 'Amazon', 'Google', 'GitHub']
 ---
 <link rel="stylesheet/less" type="text/css" href="/build/less/definitions/elements/button.less" />
 <script src="/javascript/button.js"></script>
@@ -32,10 +32,17 @@ themes      : ['Default', 'Classic', 'Basic', 'Raised', 'Chubby', 'Round', 'Amaz
     <div class="ui info message">Setting your brand colors to primary and secondary color variables in <code>site.variables</code>, will allow you to use consistent color theming for UI elements</div>
     <p>A button can be formatted to show different levels of emphasis</p>
     <div class="ui primary button">
-      <i class="shop icon"></i> Add to Cart
+      Save
     </div>
+    <div class="ui button">
+      Discard
+    </div>
+    <div class="ui ignored hidden divider"></div>
     <div class="ui secondary button">
-      <i class="save icon"></i> Save
+      Okay
+    </div>
+    <div class="ui button">
+      Cancel
     </div>
   </div>
 
