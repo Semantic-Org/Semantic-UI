@@ -72,13 +72,13 @@
 
 /* Positioning */
 .ui.header:first-child {
-  margin-top: 0em;
+  margin-top: @firstMargin;
 }
 .ui.header:last-child {
-  margin-bottom: 0em;
+  margin-bottom: @lastMargin;
 }
 .ui.header + p {
-  margin-top: @precedingParagraphMargin;
+  margin-top: @nextParagraphTopMargin;
 }
 
 
