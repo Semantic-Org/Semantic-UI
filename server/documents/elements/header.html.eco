@@ -26,6 +26,7 @@ themes      : ['Default', 'Classic', 'Bookish', 'Chubby']
     <h2 class="ui header">
       Account Settings
     </h2>
+    <img class="ui disabled ignored image" src="/images/wireframe/short-paragraph.png">
   </div>
 
   <div class="example">
@@ -35,6 +36,7 @@ themes      : ['Default', 'Classic', 'Bookish', 'Chubby']
       Account Settings
       <div class="sub header">Manage your account settings and set e-mail preferences.</div>
     </h2>
+    <img class="ui disabled ignored image" src="/images/wireframe/short-paragraph.png">
   </div>
   <div class="another example">
     <h2 class="ui header">
@@ -44,6 +46,7 @@ themes      : ['Default', 'Classic', 'Bookish', 'Chubby']
         <div class="sub header">Manage your account settings and set e-mail preferences.</div>
       </div>
     </h2>
+    <img class="ui disabled ignored image" src="/images/wireframe/short-paragraph.png">
   </div>
 
   <div class="example">
@@ -56,6 +59,7 @@ themes      : ['Default', 'Classic', 'Bookish', 'Chubby']
         <div class="sub header">Manage your account settings and set e-mail preferences.</div>
       </div>
     </h2>
+    <img class="ui disabled ignored image" src="/images/wireframe/centered-paragraph.png">
   </div>
 
 
@@ -64,20 +68,20 @@ themes      : ['Default', 'Classic', 'Bookish', 'Chubby']
     <p class="header">Headers may be oriented to give the heirarchy of a section in the context of the page</p>
     <div class="ignored info ui message">Page headings size themselves relative to the base font of the entire page not the surrounding text.</div>
     <div class="ui ignored two fluid font buttons">
-      <a class="increase ui button"> <i class="icon green plus"></i> Base Font</a>
-      <a class="decrease ui button"> <i class="icon red minus"></i> Base Font</a>
+      <a class="increase ui button"> <i class="plus icon"></i> Base Font</a>
+      <a class="decrease ui button"> <i class="minus icon"></i> Base Font</a>
     </div>
-    <div class="ui segment">
+    <div class="sizer">
       <h1 class="ui header">First header</h1>
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+      <img class="ui disabled ignored image" src="/images/wireframe/short-paragraph.png">
       <h2 class="ui header">Second header</h2>
-      <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
+      <img class="ui disabled ignored image" src="/images/wireframe/short-paragraph.png">
       <h3 class="ui header">Third header</h3>
-      <p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</p>
+      <img class="ui disabled ignored image" src="/images/wireframe/short-paragraph.png">
       <h4 class="ui header">Fourth header</h4>
-      <p>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
+      <img class="ui disabled ignored image" src="/images/wireframe/short-paragraph.png">
       <h5 class="ui header">Fifth header</h5>
-      <p>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</p>
+      <img class="ui disabled ignored image" src="/images/wireframe/short-paragraph.png">
     </div>
   </div>
 
@@ -86,20 +90,20 @@ themes      : ['Default', 'Classic', 'Bookish', 'Chubby']
     <p>Headers may be oriented to give the importance of a section in the context of the content that surrounds it</p>
     <div class="ignored info ui message">Content headings size themselves relative to the base font of the surrounding text</div>
     <div class="ui ignored two fluid font buttons">
-      <a class="increase ui button"> <i class="icon green plus"></i> Base Font</a>
-      <a class="decrease ui button"> <i class="icon red minus"></i> Base Font</a>
+      <a class="increase ui button"> <i class="plus icon"></i> Base Font</a>
+      <a class="decrease ui button"> <i class="minus icon"></i> Base Font</a>
     </div>
-    <div class="ui segment">
+    <div class="sizer">
       <div class="ui huge header">Huge Header</div>
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+      <img class="ui disabled ignored image" src="/images/wireframe/short-paragraph.png">
       <div class="ui large header">Large Header</div>
-      <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
+      <img class="ui disabled ignored image" src="/images/wireframe/short-paragraph.png">
       <div class="ui medium header">Medium Header</div>
-      <p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</p>
+      <img class="ui disabled ignored image" src="/images/wireframe/short-paragraph.png">
       <div class="ui small header">Small Header</div>
-      <p>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
+      <img class="ui disabled ignored image" src="/images/wireframe/short-paragraph.png">
       <div class="ui tiny header">Tiny Header</div>
-      <p>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</p>
+      <img class="ui disabled ignored image" src="/images/wireframe/short-paragraph.png">
     </div>
   </div>
 
@@ -111,6 +115,7 @@ themes      : ['Default', 'Classic', 'Bookish', 'Chubby']
     <div class="ui disabled header">
       Disabled Header
     </div>
+    <img class="ui disabled ignored image" src="/images/wireframe/short-paragraph.png">
   </div>
 
   <h2 class="ui dividing header">Variations</h2>
@@ -119,12 +124,11 @@ themes      : ['Default', 'Classic', 'Bookish', 'Chubby']
   <div class="example">
     <h4 class="ui header">Dividing</h4>
     <p>A header can be formatted to divide itself from the content below it</p>
+    <img class="ui disabled ignored image" src="/images/wireframe/short-paragraph.png">
     <h3 class="ui dividing header">
-      The nature of dogs
+      Dividing Header
     </h3>
-    <p>Understanding how dogs behave in nature can help us to better fulfill their needs when we bring them into our homes.</p>
-    <p>When a puppy enters the world, his first pack leader is his mother. Canine moms teach rules, boundaries, and limitations from day one!</p>
-    <p>Newborn puppies don't get a name like we do. The closest thing to a personality is a dog's status within the pack. In the animal world, there are two positions: the leader and the follower.</p>
+    <img class="ui disabled ignored image" src="/images/wireframe/short-paragraph.png">
   </div>
 
 
@@ -134,29 +138,28 @@ themes      : ['Default', 'Classic', 'Bookish', 'Chubby']
     <h3 class="ui black block header">
       Block Header
     </h3>
-    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+    <img class="ui disabled ignored image" src="/images/wireframe/media-paragraph.png">
+
   </div>
 
   <div class="example">
     <h4 class="ui header">Attached</h4>
     <p>A header can be attached to other content, like a <a href="/elements/segment.html">segment</a></p>
-    <h5 class="ui top attached header">
-      Bulldog
-    </h5>
+    <h3 class="ui top attached header">
+      Top Attached
+    </h3>
     <div class="ui attached segment">
-      <p>Bulldog is the name for a breed of dog commonly referred to as the English Bulldog. Other Bulldog breeds include the American Bulldog, Old English Bulldog (now extinct), Olde English Bulldogge, and the French Bulldog. The Bulldog is a muscular, heavy dog with a wrinkled face and a distinctive pushed-in nose.</p>
-      <p>The American Kennel Club (AKC), The Kennel Club (UK), and the United Kennel Club (UKC) oversee breeding standards. Bulldogs are the 5th most popular purebreed in the United States in 2013 according to the American Kennel Club.</p>
+      <img class="ui disabled ignored image" src="/images/wireframe/paragraph.png">
     </div>
-    <h5 class="ui attached header">
-      Catahoula Cur
-    </h5>
+    <h3 class="ui attached header">
+      Attached
+    </h3>
     <div class="ui attached segment">
-    <p>The Catahoula Cur is an American dog breed named after Catahoula Parish, in the state of Louisiana, in the United States. After becoming the state dog of Louisiana in 1979, its name was officially changed to Louisiana Catahoula Leopard Dog. The Catahoula is believed to be the first dog breed developed in North America.</p>
-    <p>The breed is sometimes referred to as the "Catahoula Hound" or "Catahoula Leopard Hound", although it is not a true hound, but a cur. It is also called the "Catahoula Hog Dog", reflecting its traditional use in hunting wild boar.</p>
+      <img class="ui disabled ignored image" src="/images/wireframe/paragraph.png">
     </div>
-    <h5 class="ui bottom attached header">
-      Thanks for reading
-    </h5>
+    <h3 class="ui bottom attached header">
+      Bottom Attached
+    </h3>
   </div>
 
   <div class="example">
@@ -195,27 +198,21 @@ themes      : ['Default', 'Classic', 'Bookish', 'Chubby']
     <p>A header can be formatted with different colors</p>
     <h3 class="ui black header">
       Black
-      <div class="sub header">An excellent color</div>
     </h3>
     <h3 class="ui blue header">
       Blue
-      <div class="sub header">An excellent color</div>
     </h3>
     <h3 class="ui red header">
       Red
-      <div class="sub header">An excellent color</div>
     </h3>
     <h3 class="ui green header">
       Green
-      <div class="sub header">An excellent color</div>
     </h3>
     <h3 class="ui purple header">
       Purple
-      <div class="sub header">An excellent color</div>
     </h3>
     <h3 class="ui teal header">
       Teal
-      <div class="sub header">An excellent color</div>
     </h3>
   </div>
 

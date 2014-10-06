@@ -223,7 +223,7 @@ semantic.ready = function() {
     },
 
     tryCreateMenu: function(event) {
-      if($(window).width() > 1000) {
+      if($(window).width() > 640) {
         if($container.find('.following.menu').size() === 0) {
           handler.createMenu();
           handler.createWaypoints();

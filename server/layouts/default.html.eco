@@ -185,7 +185,7 @@
       <a class="ui logo icon image" href="/">
         <img src="/images/logo.png">
       </a>
-      UI Docs
+      <a href="/"><b>UI Docs</b></a>
     </div>
     <a class="item" href="/build/semantic.zip">
       <i class="download icon"></i> <b>Download</b>

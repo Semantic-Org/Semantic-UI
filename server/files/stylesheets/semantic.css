@@ -1091,6 +1091,13 @@ body.progress.animated .ui.progress .bar {
   height: 165px;
   vertical-align: middle;
 }
+/*--------------
+      Header
+---------------*/
+
+#example.header .sizer {
+  padding: 1rem 0em;
+}
 
 /*--------------
       Flag
