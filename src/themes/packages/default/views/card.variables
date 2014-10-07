@@ -16,7 +16,7 @@
 @display: block;
 @margin: 1em 0em;
 @minHeight: 0px;
-@padding: 0.5em;
+@padding: 0em;
 @width: 290px;
 @borderWidth: 1px;
 @borderShadow: 0px 0px 0px @borderWidth @solidBorderColor;
@@ -49,8 +49,8 @@
 @imageBorder: none;
 
 /* Content */
-@contentBackground: none;
 @contentMargin: 0em;
+@contentBackground: none;
 @contentPadding: 1em 1em;
 @contentFontSize: 1em;
 @contentBorder: none;
@@ -61,6 +61,8 @@
 @headerMargin: 0em;
 @headerFontWeight: bold;
 @headerFontSize: 1.2em;
+@headerLineHeight: 1.33em;
+@headerLineHeightOffset: -(@lineHeight - 1em) / 2;
 @headerColor: @darkTextColor;
 
 /* Metadata */
@@ -108,8 +110,8 @@
 @extraWidth: auto;
 @extraTop: 0em;
 @extraLeft: 0em;
-@extraMargin: 0em 1em;
-@extraPadding: 0.75em 0em;
+@extraMargin: 0em 0em;
+@extraPadding: 0.75em 1em;
 @extraBoxShadow: none;
 @extraColor: @lightTextColor;
 @extraTransition: color @transitionDuration @transitionEasing;
