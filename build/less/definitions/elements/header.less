@@ -47,6 +47,7 @@
 /* Icon and Content Together */
 .ui.header > .icon {
   display: table-cell;
+  opacity: @iconOpacity;
   font-size: @iconSize;
   padding-top: @iconOffset;
 
@@ -150,10 +151,12 @@ h5.ui.header {
 .ui.icon.header .icon {
   float: none;
   display: block;
+  width: auto;
+  height: auto;
+  padding: 0em;
   font-size: @iconHeaderSize;
   margin: 0em auto @iconHeaderMargin;
   opacity: @iconHeaderOpacity;
-  padding: 0em;
 }
 .ui.icon.header .content {
   display: block;

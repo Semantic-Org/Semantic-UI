@@ -1053,10 +1053,10 @@ themes      : ['Default']
       <h4 class="ui header">Floating</h4>
       <p>A column can be "floated" to either the left or right of its row.</p>
       <div class="ui grid">
-        <div class="left floated four wide column">
+        <div class="left floated five wide column">
           <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
         </div>
-        <div class="right floated four wide column">
+        <div class="right floated five wide column">
           <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
         </div>
       </div>
@@ -1065,14 +1065,14 @@ themes      : ['Default']
       <h4 class="ui header">Column Width</h4>
       <p>A column can vary in width taking up more than a single grid column.</p>
       <div class="ui grid">
-        <div class="three wide column">
+        <div class="four wide column">
+          <img class="ui wireframe image" src="/images/wireframe/image.png">
+        </div>
+        <div class="nine wide column">
           <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
         </div>
-        <div class="six wide column">
-          <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
-        </div>
         <div class="three wide column">
-          <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
+          <img class="ui wireframe image" src="/images/wireframe/media-paragraph.png">
         </div>
       </div>
     </div>

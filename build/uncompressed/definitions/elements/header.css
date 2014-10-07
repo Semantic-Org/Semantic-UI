@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -79,7 +79,7 @@
 /*-------------------
        Icons
 --------------------*/
-/* Max Width of Icon */
+/* Maximum Glyph Width of Icon */
 /*-------------------
        Easing
 --------------------*/
@@ -166,6 +166,124 @@
 /*------------------
      Load Theme
 -------------------*/
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+        Paths
+--------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating neutrals */
+/* Used for differentiating layers */
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+       Icons
+--------------------*/
+/* Maximum Glyph Width of Icon */
+/*-------------------
+       Easing
+--------------------*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Mood */
+/* Status */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+        Sizes
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Makes sure padded grid can fit at 320px */
+/* Used to match floats with text */
+/* Positive / Negative Dupes */
+/* Header Colors */
+/* Responsive */
+/* Columns */
+/*******************************
+           States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Standard  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*******************************
+            Header
+*******************************/
+/*-------------------
+       Element
+--------------------*/
+/* HTML Headings */
+/* Sizing */
+/* Sub Header */
+/* Icon */
+/* Label */
+/* Content */
+/* Paragraph after Header */
+/*-------------------
+      Variations
+--------------------*/
+/* Icon Header */
+/* Divided */
+/* Block */
+/* Divided */
+/* Attached */
+/* Inverted */
+/* Floated */
 /*------------------
      Load Site
 -------------------*/
@@ -176,7 +294,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Header
@@ -185,8 +303,8 @@
 .ui.header {
   border: none;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  margin: -webkit-calc(2rem +  -0.165em ) 0em 1rem;
-  margin: calc(2rem +  -0.165em ) 0em 1rem;
+  margin: -webkit-calc(2rem -  0.165em ) 0em 1rem;
+  margin: calc(2rem -  0.165em ) 0em 1rem;
   padding: 0em 0em;
   font-weight: bold;
   line-height: 1.33em;
@@ -204,20 +322,21 @@
 /* Icon and Content Together */
 .ui.header > .icon {
   display: table-cell;
-  font-size: 1em;
-  padding-top: -0.165em;
+  opacity: 1;
+  font-size: 1.5em;
+  padding-top: 0.165em;
   vertical-align: middle;
-  padding-right: 0.5em;
+  padding-right: 0.5rem;
 }
 .ui.header > .icon + .content {
-  padding-left: 0.5em;
+  padding-left: 0.5rem;
   display: table-cell;
 }
 /* Only One */
 .ui.header .icon:only-child {
   display: inline-block;
   padding: 0em;
-  margin-right: 0.5em;
+  margin-right: 0.5rem;
   vertical-align: baseline;
 }
 .ui.header .content {
@@ -226,7 +345,7 @@
 }
 /* Positioning */
 .ui.header:first-child {
-  margin-top: -0.165em;
+  margin-top: 0.165em;
 }
 .ui.header:last-child {
   margin-bottom: 0em;
@@ -292,10 +411,12 @@ h5.ui.header {
 .ui.icon.header .icon {
   float: none;
   display: block;
-  font-size: 3em;
-  margin: 0em auto 0.2em;
-  opacity: 1;
+  width: auto;
+  height: auto;
   padding: 0em;
+  font-size: 3em;
+  margin: 0em auto 0.25rem;
+  opacity: 1;
 }
 .ui.icon.header .content {
   display: block;
