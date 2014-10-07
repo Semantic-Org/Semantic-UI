@@ -15,7 +15,7 @@
 @topMargin: ~"calc(2rem - "@lineHeightOffset~")";
 @bottomMargin: 1rem;
 
-@firstMargin: @lineHeightOffset;
+@firstMargin: -@lineHeightOffset;
 @lastMargin: 0em;
 
 @horizontalPadding: 0em;
@@ -23,16 +23,16 @@
 
 /* HTML Headings */
 @h1: 2rem;
-@h2: 1.5rem;
-@h3: 1.3rem;
-@h4: 1.1rem;
+@h2: 1.714rem;
+@h3: 1.28rem;
+@h4: 1.071rem;
 @h5: 1rem;
 
 /* Sizing */
 @tiny: 1em;
-@small: 1.1em;
-@medium: 1.3em;
-@large: 1.5em;
+@small: 1.071em;
+@medium: 1.285em;
+@large: 1.714em;
 @huge: 2em;
 
 /* Sub Header */
@@ -72,7 +72,7 @@
 @dividedBorder: 1px solid rgba(0, 0, 0, 0.1);
 @dividedColoredBorderWidth: 2px;
 
-@dividedBorderPadding: 0.2rem;
+@dividedBorderPadding: 0.5rem;
 @dividedSubHeaderPadding: 0.5rem;
 @dividedIconPadding: 0.2em;
 

@@ -412,7 +412,7 @@ semantic.ready = function() {
             dataType : 'text',
             urlData  : urlData,
             onSuccess: function(content) {
-              less.modifyVars( handler.less.parseFile(content) );
+              window.less.modifyVars( handler.less.parseFile(content) );
               $themeDropdown
                 .api({
                   on       : 'now',
@@ -428,6 +428,7 @@ semantic.ready = function() {
                       .addClass('override')
                       .appendTo('body')
                     ;
+                    $('.sticky').sticky('refresh');
                   }
                 })
               ;

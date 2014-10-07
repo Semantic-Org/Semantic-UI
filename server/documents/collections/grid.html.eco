@@ -18,7 +18,7 @@ themes      : ['Default']
 
 <div class="main container">
 
-  <div class="ui active tab" data-tab="overview">
+  <div class="ui active intro tab" data-tab="overview">
 
     <h2 class="ui dividing header">Overview</h2>
     <div class="ui toggle animation checkbox">
@@ -115,12 +115,9 @@ themes      : ['Default']
     <div class="example">
       <h4 class="ui header">Specifying Alignment</h4>
       <p>You can specify alignment using alignment variations on a grid, row, or column level.</p>
-      <div class="ui ignored warning message">
-        <p>When multiple floats are used in consecutive rows, you may under some circumstances need to include <code>row</code> wrappers to ensure proper content float</p>
-      </div>
       <div class="ui ignored info message">
         <div class="header">Word Order Requirements</div>
-        <p>Keep in mind multi-word variations like <code>right floated</code> <b>require you to specify both class names side-by-side</b>, this helps preserve syntax when stacking variations like a <code>right floated left aligned column</code></p>
+        <p>Multi-word variations like <code>right floated</code> <b>require you to specify both class names side-by-side</b>, this helps preserve syntax when stacking variations like a <code>right floated left aligned column</code></p>
       </div>
 
       <div class="ui right aligned grid">
@@ -159,8 +156,7 @@ themes      : ['Default']
     <div class="highlighted example">
       <h4 class="ui header">Using Rows</h4>
       <p>Specifying wrapping <code>row</code> elements allows you to manually control line breaks for rows, and use additional row variations.</p>
-      <div class="ui ignored info icon message">
-        <i class="help circle icon"></i>
+      <div class="ui ignored info message">
         <div class="content">
           <div class="header">Why Include Row Markup?</div>
           <p>It's often easier to have dynamic content output without nested rows, but using row wrappers is the only way for variations like <code>equal height</code> and <code>vertically divided</code> to function correctly.</p>

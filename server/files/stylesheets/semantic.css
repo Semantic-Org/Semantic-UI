@@ -91,25 +91,7 @@ h1 {
   padding: 50px 0px 5px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
-#example .example .wireframe.image {
-  opacity: 0.5;
-}
-#example .example .wireframe.image {
-  margin: 1rem 0em;
-}
-#example .example .wireframe.image:first-child {
-  margin-top: 0em;
-}
-#example .example .wireframe.image:last-child {
-  margin-bottom: 0em;
-}
 
-#example .example .anchor + p {
-  margin: 0px 0px 1em;
-}
-#example .no.example .anchor + p {
-  margin: 0.5em 0px 1em;
-}
 /*rtl:ignore*/
 pre.console {
   background-color: transparent;
@@ -129,7 +111,7 @@ code {
   font-family: "Monaco","Menlo","Ubuntu Mono","Consolas","source-code-pro",monospace;
   font-size: 14px;
   margin: 0;
-  padding: 0.1em 0.2em;
+  padding: 0.1em 0.4em;
   vertical-align: baseline;
 }
 .ui.message code {
@@ -615,11 +597,73 @@ body#example.hide {
 -----------------*/
 
 #example .example {
-  margin: 1em 0em;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 1em 0em;
   position: relative;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 3em 0em 0em;
+  padding: 3em 0em 0em;
   -webkit-tap-highlight-color: transparent;
+}
+
+/* Header */
+#example .example > h4:first-child {
+  margin: -0.2em 0em 0em;
+}
+
+/* Wireframe Image */
+#example .example .wireframe.image {
+  opacity: 0.5;
+}
+#example .example .wireframe.image {
+  margin: 1rem 0em;
+}
+#example .example .wireframe.image:first-child {
+  margin-top: 0em;
+}
+#example .example .wireframe.image:last-child {
+  margin-bottom: 0em;
+}
+
+/* Description */
+#example .example .anchor + p {
+  margin: 0.25em 0px 1.5em;
+}
+#example .no.example .anchor + p {
+  margin: 0em 0px 1em;
+}
+#example .example > p {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* Message */
+#example .example .anchor + p + .ignored.message,
+#example .example .anchor + p + .ignored.message + .ignored.message {
+  margin: -0.5em 0em 2em;
+}
+
+
+/* Another */
+#example .another.example {
+  margin-top: 0em;
+  border-top: none;
+}
+
+/* Spaced */
+#example .spaced.example .buttons,
+#example .spaced.example .button {
+  margin-bottom: 0.75em;
+}
+#example .spaced.example .buttons .button {
+  margin-bottom: 0em;
+}
+#example .example .toggle.button {
+  min-width: 200px;
+}
+
+
+#example .intro .example h4 ~ p,
+#example .intro .example h4 ~ .ignored {
+  margin: 1em 0em !important;
+  font-size: 14px;
 }
 
 /*----------------
@@ -648,7 +692,7 @@ body#example.hide {
 #example .main.container > h2,
 #example .main.container > .tab > h2{
   position: relative;
-  margin-bottom: 1em;
+  margin: 5rem 0rem 3rem;
 }
 #example .main.container > h2:first-child {
   margin-top: 0em;
@@ -669,9 +713,6 @@ body#example.hide {
 #example h3 + .example i.code,
 #example h4 + .example i.code {
   top: 0em;
-}
-#example .example > h4:first-child {
-  margin: 0em;
 }
 
 /* Spaced */
@@ -1091,16 +1132,8 @@ body.progress.animated .ui.progress .bar {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-#example .another.example {
-  margin-top: -1em;
-  padding-top: 2em;
-  border-top: none;
-}
 #example .another.example i.code ~ .ignored.message {
   margin-top: 0em;
-}
-#example .example > p {
-  color: #555555;
 }
 
 /*--------------
@@ -1368,7 +1401,7 @@ body.progress.animated .ui.progress .bar {
   border-left: 1px solid #DDDDDD;
   border-right: 1px solid #DDDDDD;
   border-bottom: 1px solid #DDDDDD;
-  padding: 2em 2em 2em;
+  padding: 2em 2em 8em;
   z-index: 1;
 }
 #example .main.container .right.rail .sticky {

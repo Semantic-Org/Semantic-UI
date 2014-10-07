@@ -29,8 +29,8 @@ themes      : ['Default', 'Classic', 'Basic', 'Raised', 'Chubby', 'Round', 'Amaz
 
   <div class="example">
     <h4 class="ui header">Ordinality</h4>
-    <div class="ui info message">Setting your brand colors to primary and secondary color variables in <code>site.variables</code>, will allow you to use consistent color theming for UI elements</div>
     <p>A button can be formatted to show different levels of emphasis</p>
+    <div class="ui ignored info message">Setting your brand colors to primary and secondary color variables in <code>site.variables</code>, will allow you to use consistent color theming for UI elements</div>
     <div class="ui primary button">
       Save
     </div>

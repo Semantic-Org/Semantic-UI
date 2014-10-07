@@ -41,7 +41,7 @@ status      : 'Undocumented'
     ;
     </div>
     <div class="code" data-type="javascript" data-demo="true">
-    // Clears cookie so above example works again
+    // Clears cookie so nag shows again
     $('.cookie.nag')
       .nag('clear')
     ;
