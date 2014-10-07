@@ -80,6 +80,9 @@
 @celledWidth: 1px;
 @celledBorderColor: @solidBorderColor;
 
+@celledPadding: 0.75em;
+@celledRelaxedPadding: 1em;
+@celledVeryRelaxedPadding: 2em;
 
 /*--------------
     Stackable

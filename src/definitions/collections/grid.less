@@ -622,7 +622,6 @@
 .ui.celled.grid > .column:not(.row),
 .ui.celled.grid > .row > .column {
   display: table-cell;
-  padding: 0.75em;
   box-shadow: (-@celledWidth) 0px 0px 0px @celledBorderColor;
 }
 .ui.celled.grid > .column:first-child,
@@ -631,6 +630,19 @@
 }
 .ui.celled.page.grid {
   box-shadow: none;
+}
+
+.ui.celled.grid > .column:not(.row),
+.ui.celled.grid > .row > .column {
+  padding: @celledPadding;
+}
+.ui.relaxed.celled.grid > .column:not(.row),
+.ui.relaxed.celled.grid > .row > .column {
+  padding: @celledRelaxedPadding;
+}
+.ui[class*="very relaxed"].celled.grid > .column:not(.row),
+.ui[class*="very relaxed"].celled.grid > .row > .column {
+  padding: @celledVeryRelaxedPadding;
 }
 
 /* Internally Celled */
