@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Defaults
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -166,124 +166,6 @@
 /*------------------
      Load Theme
 -------------------*/
-/*******************************
-         Site Settings
-*******************************/
-/*-------------------
-        Paths
---------------------*/
-/*-------------------
-       Fonts
---------------------*/
-/*-------------------
-      Site Colors
---------------------*/
-/*---  Colors  ---*/
-/*---  Light Colors  ---*/
-/*-------------------
-        Page
---------------------*/
-/*-------------------
-  Background Colors
---------------------*/
-/* Used for differentiating neutrals */
-/* Used for differentiating layers */
-/*-------------------
-        Grid
---------------------*/
-/*-------------------
-     Breakpoints
---------------------*/
-/*******************************
-           Power-User
-*******************************/
-/*-------------------
-       Icons
---------------------*/
-/* Max Width of Icon */
-/*-------------------
-       Easing
---------------------*/
-/*---   Neutrals  ---*/
-/*--- Colored Backgrounds ---*/
-/*--- Colored Text ---*/
-/*--- Colored Headers ---*/
-/*-------------------
-    Emotive Colors
---------------------*/
-/* Mood */
-/* Status */
-/*-------------------
-     Neutral Text
---------------------*/
-/*-------------------
-     Brand Colors
---------------------*/
-/*-------------------
-      Borders
---------------------*/
-/*-------------------
-        Sizes
---------------------*/
-/*-------------------
-     Transitions
---------------------*/
-/*-------------------
-    Derived Values
---------------------*/
-/* Makes sure padded grid can fit at 320px */
-/* Used to match floats with text */
-/* Positive / Negative Dupes */
-/* Header Colors */
-/* Responsive */
-/* Columns */
-/*******************************
-           States
-*******************************/
-/*-------------------
-      Disabled
---------------------*/
-/*-------------------
-        Hover
---------------------*/
-/*---  Colors  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*-------------------
-    Down (:active)
---------------------*/
-/*---  Colors  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*-------------------
-        Active
---------------------*/
-/*---  Standard  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*******************************
-            Header
-*******************************/
-/*-------------------
-       Element
---------------------*/
-/* HTML Headings */
-/* Sizing */
-/* Sub Header */
-/* Icon */
-/* Label */
-/* Content */
-/* Paragraph after Header */
-/*-------------------
-      Variations
---------------------*/
-/* Icon Header */
-/* Divided */
-/* Block */
-/* Divided */
-/* Attached */
-/* Inverted */
-/* Floated */
 /*------------------
      Load Site
 -------------------*/
@@ -294,7 +176,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Loader
+ Override Mix-in
 -------------------*/
 /*******************************
             Header
@@ -303,7 +185,8 @@
 .ui.header {
   border: none;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  margin: 2rem 0em 1rem;
+  margin: -webkit-calc(2rem +  -0.165em ) 0em 1rem;
+  margin: calc(2rem +  -0.165em ) 0em 1rem;
   padding: 0em 0em;
   font-weight: bold;
   line-height: 1.33em;
@@ -322,7 +205,7 @@
 .ui.header > .icon {
   display: table-cell;
   font-size: 1em;
-  padding-top: 0.165em;
+  padding-top: -0.165em;
   vertical-align: middle;
   padding-right: 0.5em;
 }
@@ -343,7 +226,7 @@
 }
 /* Positioning */
 .ui.header:first-child {
-  margin-top: 0em;
+  margin-top: -0.165em;
 }
 .ui.header:last-child {
   margin-bottom: 0em;

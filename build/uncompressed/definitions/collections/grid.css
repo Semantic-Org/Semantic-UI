@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Defaults
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -169,127 +169,6 @@
 /*------------------
      Load Theme
 -------------------*/
-/*******************************
-         Site Settings
-*******************************/
-/*-------------------
-        Paths
---------------------*/
-/*-------------------
-       Fonts
---------------------*/
-/*-------------------
-      Site Colors
---------------------*/
-/*---  Colors  ---*/
-/*---  Light Colors  ---*/
-/*-------------------
-        Page
---------------------*/
-/*-------------------
-  Background Colors
---------------------*/
-/* Used for differentiating neutrals */
-/* Used for differentiating layers */
-/*-------------------
-        Grid
---------------------*/
-/*-------------------
-     Breakpoints
---------------------*/
-/*******************************
-           Power-User
-*******************************/
-/*-------------------
-       Icons
---------------------*/
-/* Max Width of Icon */
-/*-------------------
-       Easing
---------------------*/
-/*---   Neutrals  ---*/
-/*--- Colored Backgrounds ---*/
-/*--- Colored Text ---*/
-/*--- Colored Headers ---*/
-/*-------------------
-    Emotive Colors
---------------------*/
-/* Mood */
-/* Status */
-/*-------------------
-     Neutral Text
---------------------*/
-/*-------------------
-     Brand Colors
---------------------*/
-/*-------------------
-      Borders
---------------------*/
-/*-------------------
-        Sizes
---------------------*/
-/*-------------------
-     Transitions
---------------------*/
-/*-------------------
-    Derived Values
---------------------*/
-/* Makes sure padded grid can fit at 320px */
-/* Used to match floats with text */
-/* Positive / Negative Dupes */
-/* Header Colors */
-/* Responsive */
-/* Columns */
-/*******************************
-           States
-*******************************/
-/*-------------------
-      Disabled
---------------------*/
-/*-------------------
-        Hover
---------------------*/
-/*---  Colors  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*-------------------
-    Down (:active)
---------------------*/
-/*---  Colors  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*-------------------
-        Active
---------------------*/
-/*---  Standard  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*******************************
-             Grid
-*******************************/
-/* Inherited From Site */
-/*******************************
-            Grid
-*******************************/
-/*******************************
-           Variations
-*******************************/
-/*--------------
-     Page
----------------*/
-/* Column Gutters */
-/*--------------
-     Relaxed
----------------*/
-/*--------------
-     Divided
----------------*/
-/*--------------
-    Celled
----------------*/
-/*--------------
-    Stackable
----------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -300,7 +179,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Loader
+ Override Mix-in
 -------------------*/
 /*******************************
             Standard
@@ -333,8 +212,8 @@
   margin-right: -1.5rem;
 }
 .ui[class*="very relaxed"].grid {
-  margin-left: -2rem;
-  margin-right: -2rem;
+  margin-left: -2.5rem;
+  margin-right: -2.5rem;
 }
 /* Collapse Margins on Consecutive Grids */
 .ui.grid + .grid {
@@ -705,8 +584,8 @@
 .ui[class*="very relaxed"].grid > .column:not(.row),
 .ui[class*="very relaxed"].grid > .row > .column,
 .ui.grid > [class*="very relaxed"].row > .column {
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
 }
 /* Coupling with UI Divider */
 .ui.relaxed.grid .row + .ui.divider,
@@ -716,8 +595,8 @@
 }
 .ui[class*="very relaxed"].grid .row + .ui.divider,
 .ui.grid [class*="very relaxed"].row + .ui.divider {
-  margin-left: 2rem;
-  margin-right: 2rem;
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
 }
 /*----------------------
         Padded
@@ -819,10 +698,10 @@
   width: calc(100% -  3rem );
 }
 .ui[class*="very relaxed"][class*="vertically divided"].grid > .row:before {
-  margin-left: 4rem;
-  margin-right: 4rem;
-  width: -webkit-calc(100% -  4rem );
-  width: calc(100% -  4rem );
+  margin-left: 5rem;
+  margin-right: 5rem;
+  width: -webkit-calc(100% -  5rem );
+  width: calc(100% -  5rem );
 }
 /*----------------------
          Celled
@@ -830,8 +709,7 @@
 .ui.celled.grid {
   display: table;
   table-layout: fixed;
-  width: -webkit-calc(100% +  2rem );
-  width: calc(100% +  2rem );
+  width: 100%;
   margin: 1em 0em;
   box-shadow: 0px 0px 0px 1px #dddddd;
 }

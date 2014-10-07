@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Defaults
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -174,132 +174,6 @@
 /*------------------
      Load Theme
 -------------------*/
-/*******************************
-         Site Settings
-*******************************/
-/*-------------------
-        Paths
---------------------*/
-/*-------------------
-       Fonts
---------------------*/
-/*-------------------
-      Site Colors
---------------------*/
-/*---  Colors  ---*/
-/*---  Light Colors  ---*/
-/*-------------------
-        Page
---------------------*/
-/*-------------------
-  Background Colors
---------------------*/
-/* Used for differentiating neutrals */
-/* Used for differentiating layers */
-/*-------------------
-        Grid
---------------------*/
-/*-------------------
-     Breakpoints
---------------------*/
-/*******************************
-           Power-User
-*******************************/
-/*-------------------
-       Icons
---------------------*/
-/* Max Width of Icon */
-/*-------------------
-       Easing
---------------------*/
-/*---   Neutrals  ---*/
-/*--- Colored Backgrounds ---*/
-/*--- Colored Text ---*/
-/*--- Colored Headers ---*/
-/*-------------------
-    Emotive Colors
---------------------*/
-/* Mood */
-/* Status */
-/*-------------------
-     Neutral Text
---------------------*/
-/*-------------------
-     Brand Colors
---------------------*/
-/*-------------------
-      Borders
---------------------*/
-/*-------------------
-        Sizes
---------------------*/
-/*-------------------
-     Transitions
---------------------*/
-/*-------------------
-    Derived Values
---------------------*/
-/* Makes sure padded grid can fit at 320px */
-/* Used to match floats with text */
-/* Positive / Negative Dupes */
-/* Header Colors */
-/* Responsive */
-/* Columns */
-/*******************************
-           States
-*******************************/
-/*-------------------
-      Disabled
---------------------*/
-/*-------------------
-        Hover
---------------------*/
-/*---  Colors  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*-------------------
-    Down (:active)
---------------------*/
-/*---  Colors  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*-------------------
-        Active
---------------------*/
-/*---  Standard  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*******************************
-             Card
-*******************************/
-/*-------------------
-         View
---------------------*/
-/* Shadow */
-/* Item */
-/* Item Group */
-/*-------------------
-       Content
---------------------*/
-/* Image */
-/* Content */
-/* Header */
-/* Metadata */
-/* Icons */
-/* Links */
-/* Description */
-/* Content Image */
-/* Avatar Image */
-/* Paragraph */
-/* Additional Content */
-/* Extra Links */
-/*-------------------
-      Variations
---------------------*/
-/* Link */
-/* Card Count */
-/* Stackable */
-/* Sizes */
 /*------------------
      Load Site
 -------------------*/
@@ -310,7 +184,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Loader
+ Override Mix-in
 -------------------*/
 /*******************************
             Standard
@@ -355,7 +229,7 @@
   width: 290px;
   min-height: 0px;
   background: #ffffff;
-  padding: 0.5em;
+  padding: 0em;
   border: none;
   border-radius: 0.325rem;
   box-shadow: 0px 0.2em 0px 0px #dddddd, 0px 0px 0px 1px #dddddd;
@@ -430,9 +304,15 @@
   display: block;
   margin: 0em;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  color: rgba(0, 0, 0, 0.85);
+}
+/* Default Header Size */
+.ui.cards > .card > .content > .header:not(.ui),
+.ui.card > .content > .header:not(.ui) {
   font-weight: bold;
   font-size: 1.2em;
-  color: rgba(0, 0, 0, 0.85);
+  margin-top: -0.165em;
+  line-height: 1.33em;
 }
 .ui.cards > .card > .content > .meta + .description,
 .ui.cards > .card > .content > .header + .description,
@@ -598,8 +478,8 @@
   position: static;
   background: none;
   width: auto;
-  margin: 0em 1em;
-  padding: 0.75em 0em;
+  margin: 0em 0em;
+  padding: 0.75em 1em;
   top: 0em;
   left: 0em;
   color: rgba(0, 0, 0, 0.4);

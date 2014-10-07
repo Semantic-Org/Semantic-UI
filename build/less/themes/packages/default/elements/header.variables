@@ -6,16 +6,20 @@
        Element
 --------------------*/
 
-@pageFont : Source Sans Pro, Helvetica Neue, Helvetica, Arial, sans-serif;
 @fontWeight: bold;
 @textTransform: none;
 
-@topMargin: 2rem;
+@lineHeight: 1.33em;
+@lineHeightOffset: -(@lineHeight - 1em) / 2;
+
+@topMargin: ~"calc(2rem + "@lineHeightOffset~")";
 @bottomMargin: 1rem;
+
+@firstMargin: @lineHeightOffset;
+@lastMargin: 0em;
 
 @horizontalPadding: 0em;
 @verticalPadding: 0em;
-@lineHeight: 1.33em;
 
 /* HTML Headings */
 @h1: 2rem;
@@ -50,7 +54,7 @@
 @contentAlignment: top;
 
 /* Paragraph after Header */
-@precedingParagraphMargin: 0em;
+@nextParagraphTopMargin: 0em;
 
 /*-------------------
       Variations
