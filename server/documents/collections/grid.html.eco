@@ -584,35 +584,33 @@ themes      : ['Default']
       <div class="ui grid">
         <div class="four column row">
           <div class="column">
-            <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+            <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
           </div>
           <div class="column">
-            <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+            <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
           </div>
           <div class="column">
-            <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+            <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
           </div>
           <div class="column">
-            <div class="ui segment">
-              A
-            </div>
+            <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
           </div>
         </div>
         <div class="five column row">
           <div class="column">
-            <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+            <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
           </div>
           <div class="column">
-            <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+            <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
           </div>
           <div class="column">
-            <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+            <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
           </div>
           <div class="column">
-            <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+            <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
           </div>
           <div class="column">
-            <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+            <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
           </div>
         </div>
       </div>
@@ -622,24 +620,16 @@ themes      : ['Default']
       <p>Columns each contain gutters giving them equal spacing from other columns.</p>
       <div class="ui three column grid">
         <div class="column">
-          <div class="ui segment">
-            1
-          </div>
+          <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
         </div>
         <div class="column">
-          <div class="ui segment">
-            2
-          </div>
+          <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
         </div>
         <div class="column">
-          <div class="ui segment">
-            3
-          </div>
+          <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
         </div>
         <div class="column">
-          <div class="ui segment">
-            4
-          </div>
+          <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
         </div>
       </div>
     </div>
