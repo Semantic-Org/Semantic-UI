@@ -52,7 +52,7 @@
 ---------------*/
 
 @relaxedGutterWidth: 3rem;
-@veryRelaxedGutterWidth: 4rem;
+@veryRelaxedGutterWidth: 5rem;
 
 /*--------------
      Divided
