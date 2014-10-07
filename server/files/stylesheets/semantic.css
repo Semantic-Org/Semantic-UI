@@ -694,7 +694,9 @@ body#example.hide {
   position: relative;
   margin: 5rem 0rem 3rem;
 }
-#example .main.container > h2:first-child {
+#example .main.container .examples > h2:first-child,
+#example .main.container > h2:first-child,
+#example .main.container > .tab > h2:first-child{
   margin-top: 0em;
 }
 
