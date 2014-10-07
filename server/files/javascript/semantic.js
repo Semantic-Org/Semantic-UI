@@ -181,9 +181,11 @@ semantic.ready = function() {
           $section       = $(this).children('h4').eq(0),
           index          = $exampleHeaders.index($section),
           $followSection = $followMenu.find('.menu > .item'),
-          $activeSection = $followSection.eq(index)
+          $activeSection = $followSection.eq(index),
+          inClosedTab    = ($(this).closest('.tab:not(.active)').size() > 0),
+          anotherExample = ($(this).filter('.another.example').size() > 0)
         ;
-        if($(this).not('.another.example').size() > 0) {
+        if(!inClosedTab && !anotherExample) {
           $followSection
             .removeClass('active')
           ;

@@ -29,7 +29,11 @@ semantic.icon.ready = function() {
               $group.filter('[data-content]').popup({
                 position: 'top center',
                 variation: 'large inverted',
-                delay: 100
+                transition: 'fade up',
+                delay: {
+                  show: 200,
+                  hide: 0
+                }
               });
           })
           .end()

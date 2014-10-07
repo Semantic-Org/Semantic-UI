@@ -547,7 +547,7 @@ themes      : ['Default']
         </div>
       </div>
     </div>
-    <div class="another example">
+    <div class="example">
       <h4 class="ui header">Internally Celled Grid</h4>
       <p>A grid can have rows divisions only between internal rows</p>
       <div class="ui internally celled grid">
@@ -1017,7 +1017,7 @@ themes      : ['Default']
         </div>
         <div class="justified row">
           <div class="sixteen wide column">
-            <p>Justified content fits exactly inside the grid column, taking up the entire width from one side to the other.</p>
+            <p>Justified content fits exactly inside the grid column, taking up the entire width from one side to the other. Justified content fits exactly inside the grid column, taking up the entire width from one side to the other. Justified content fits exactly inside the grid column, taking up the entire width from one side to the other. Justified content fits exactly inside the grid column, taking up the entire width from one side to the other. Justified content fits exactly inside the grid column, taking up the entire width from one side to the other.</p>
           </div>
         </div>
         <div class="middle aligned row">

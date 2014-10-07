@@ -95,7 +95,7 @@ h1 {
   opacity: 0.5;
 }
 #example .example .wireframe.image {
-  margin: 1em 0em;
+  margin: 1rem 0em;
 }
 #example .example .wireframe.image:first-child {
   margin-top: 0em;
@@ -616,7 +616,7 @@ body#example.hide {
 
 #example .example {
   margin: 1em 0em;
-  /*border-top: 1px solid rgba(0, 0, 0, 0.1);*/
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   padding: 1em 0em;
   position: relative;
   -webkit-tap-highlight-color: transparent;
@@ -670,7 +670,7 @@ body#example.hide {
 #example h4 + .example i.code {
   top: 0em;
 }
-#example .example > h4 {
+#example .example > h4:first-child {
   margin: 0em;
 }
 
@@ -1019,24 +1019,24 @@ body.progress.animated .ui.progress .bar {
   color: #888888;
 
   -webkit-transition:
-    margin-left 0.3s ease-out,
-    opacity 0.3s ease-out
+    color 0.3s ease,
+    opacity 0.3s ease
   ;
   -moz-transition:
-    margin-left 0.3s ease-out,
-    opacity 0.3s ease-out
+    color 0.3s ease,
+    opacity 0.3s ease
   ;
   -o-transition:
-    margin-left 0.3s ease-out,
-    opacity 0.3s ease-out
+    color 0.3s ease,
+    opacity 0.3s ease
   ;
   -ms-transition:
-    margin-left 0.3s ease-out,
-    opacity 0.3s ease-out
+    color 0.3s ease,
+    opacity 0.3s ease
   ;
   transition:
-    margin-left 0.3s ease-out,
-    opacity 0.3s ease-out
+    color 0.3s ease,
+    opacity 0.3s ease
   ;
 }
 #example .icon.example .column .icon {
@@ -1048,28 +1048,44 @@ body.progress.animated .ui.progress .bar {
   font-size: 2em;
 
   -webkit-transition:
-    all 0.2s ease-out
+    color 0.6s ease,
+    transform 0.2s ease
   ;
   -moz-transition:
-    all 0.2s ease-out
+    color 0.6s ease,
+    transform 0.2s ease
   ;
   -o-transition:
-    all 0.2s ease-out
+    color 0.6s ease,
+    transform 0.2s ease
   ;
   -ms-transition:
-    all 0.2s ease-out
+    color 0.6s ease,
+    transform 0.2s ease
   ;
   transition:
-    all 0.2s ease-out
+    color 0.6s ease,
+    transform 0.2s ease
   ;
 }
+#example .icon.example .grid:hover > .row > .column {
+  color: #CCCCCC;
+}
+#example .icon.example .grid:hover > .row > .column .icon {
+  color: #888888;
+}
+
 #example .icon.example .grid > .row > .column:hover .icon {
-  color: #009FDA;
+  color: #000000;
   -webkit-transform: scale(1.5);
   -moz-transform: scale(1.5);
   -o-transform: scale(1.5);
   -ms-transform: scale(1.5);
   transform: scale(1.5);
+}
+#example .icon.example .grid > .row > .column:hover {
+  opacity: 1;
+  color: #444444;
 }
 #example .another.icon.example {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
@@ -1352,7 +1368,7 @@ body.progress.animated .ui.progress .bar {
   border-left: 1px solid #DDDDDD;
   border-right: 1px solid #DDDDDD;
   border-bottom: 1px solid #DDDDDD;
-  padding: 2em 3em 2em;
+  padding: 2em 2em 2em;
   z-index: 1;
 }
 #example .main.container .right.rail .sticky {
