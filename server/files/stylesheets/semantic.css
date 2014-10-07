@@ -699,6 +699,11 @@ body#example.hide {
 #example .main.container > .tab > h2:first-child{
   margin-top: 0em;
 }
+#example .main.container .examples > h2 + p,
+#example .main.container > h2 + p,
+#example .main.container > .tab > h2 + p {
+  margin: -2.5rem 0 2em;
+}
 
 /* After Section Header */
 #example .example:first-child,
