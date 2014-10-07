@@ -381,7 +381,7 @@ themes      : ['Default', 'Classic', 'Basic', 'Raised', 'Chubby', 'Round', 'Amaz
   </div>
 
 
-  <h2 class="ui dividing header">Groups</h2>
+  <h2 class="ui dividing header">Group Variations</h2>
 
   <div class="example">
     <h4 class="ui header">Vertical Group</h4>
