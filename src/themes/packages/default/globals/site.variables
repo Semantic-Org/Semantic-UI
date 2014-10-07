@@ -117,8 +117,8 @@
        Icons
 --------------------*/
 
-/* Max Width of Icon */
-@iconWidth : 1.23em;
+/* Maximum Glyph Width of Icon */
+@iconWidth : 1.18em;
 
 /*-------------------
        Easing

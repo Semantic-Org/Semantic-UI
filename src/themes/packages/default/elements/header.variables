@@ -10,9 +10,9 @@
 @textTransform: none;
 
 @lineHeight: 1.33em;
-@lineHeightOffset: -(@lineHeight - 1em) / 2;
+@lineHeightOffset: (@lineHeight - 1em) / 2;
 
-@topMargin: ~"calc(2rem + "@lineHeightOffset~")";
+@topMargin: ~"calc(2rem - "@lineHeightOffset~")";
 @bottomMargin: 1rem;
 
 @firstMargin: @lineHeightOffset;
@@ -41,9 +41,10 @@
 @subHeaderColor: rgba(0, 0, 0, 0.5);
 
 /* Icon */
-@iconSize: 1em;
+@iconOpacity: 1;
+@iconSize: 1.5em;
 @iconOffset: @lineHeightOffset;
-@iconMargin: 1em;
+@iconMargin: 1rem;
 @iconAlignment: middle;
 
 /* Label */
@@ -63,7 +64,7 @@
 /* Icon Header */
 @iconHeaderSize: 3em;
 @iconHeaderOpacity: 1;
-@iconHeaderMargin: 0.2em;
+@iconHeaderMargin: 0.25rem;
 @circularHeaderIconSize: 2em;
 @squareHeaderIconSize: 2em;
 
