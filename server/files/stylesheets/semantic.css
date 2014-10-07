@@ -91,6 +91,19 @@ h1 {
   padding: 50px 0px 5px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
+#example .example .wireframe.image {
+  opacity: 0.5;
+}
+#example .example .wireframe.image {
+  margin: 1em 0em;
+}
+#example .example .wireframe.image:first-child {
+  margin-top: 0em;
+}
+#example .example .wireframe.image:last-child {
+  margin-bottom: 0em;
+}
+
 #example .example .anchor + p {
   margin: 0px 0px 1em;
 }
@@ -810,6 +823,10 @@ body#example.hide {
 #example .highlighted.special.example .page.grid > .column:last-child:after {
   display: none;
 }
+#example.animated .negative.example > .grid {
+  margin: -1rem !important;
+  background-color: #FFEEEE;
+}
 
 /* Animation */
 #example.animated .highlighted.example > .grid,
@@ -819,6 +836,12 @@ body#example.hide {
   -moz-animation: grid 7s ease infinite;
   animation: grid 7s ease infinite;
 }
+#example.animated .negative.example > .grid {
+  -webkit-animation: none;
+  -moz-animation: none;
+  -ms-animation: none;
+  animation: none;
+}
 /* Grid Inside Grid */
 #example.animated .highlighted.example .grid .grid,
 #example.animated .animated.example .grid .grid {
@@ -826,13 +849,6 @@ body#example.hide {
   -moz-animation: none;
   -ms-animation: none;
   animation: none;
-}
-#example.animated .negative.example > .grid {
-  -webkit-animation: none;
-  -moz-animation: none;
-  -ms-animation: none;
-  animation: none;
-  background-color: #FFEEEE;
 }
 
 @-webkit-keyframes grid {
@@ -1403,6 +1419,15 @@ body.progress.animated .ui.progress .bar {
 }
 
 @media only screen and (max-width : 998px) {
+
+  #example .pusher > .page {
+    display: block;
+    width: 100%;
+  }
+  #example .pusher > .page > .full.height {
+    display: block;
+    height: 100%;
+  }
   #example .following.menu {
     display: none;
   }

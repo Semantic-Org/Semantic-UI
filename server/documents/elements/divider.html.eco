@@ -22,15 +22,15 @@ themes      : ['default']
     <h4 class="ui header">Divider</h4>
     <div class="ignored ui warning message">If you are looking to add a divider in between grid rows, you can use the <code>ui divided grid</code> variation. For more information check out <a href="/collections/grid.html">the grid definition</a></div>
     <p>A standard divider</p>
-    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+    <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
     <div class="ui divider"></div>
-    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+    <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
   </div>
 
   <div class="example">
     <h4 class="ui header">Vertical Divider</h4>
-    <div class="ui info message">
-      If you use a vertical divider inside a <a href="/collections/grid.html">stackable grid</a> it will automatically adjust from a <code>vertical divider</code> to a <code>horizontal divider</code> at mobile resolutions.
+    <div class="ui info ignored message">
+      A vertical divider will automatically adjust to a horizontal divider at mobile resolutions when used inside a <a href="/collections/grid.html">stackable grid</a>
     </div>
     <p>A divider can segment content vertically</p>
     <div class="ui two column middle aligned relaxed fitted stackable grid">
@@ -127,9 +127,9 @@ themes      : ['default']
     <h4 class="ui header">Inverted</h4>
     <p>A divider can have its colors inverted</p>
     <div class="ui inverted segment">
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
       <div class="ui inverted divider"></div>
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
     </div>
   </div>
 
@@ -147,30 +147,29 @@ themes      : ['default']
     <h4 class="ui header">Hidden</h4>
     <p>A hidden divider divides content without creating a dividing line</p>
     <h3 class="ui header">Section One</h3>
-    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+    <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
     <div class="ui hidden divider"></div>
     <h3 class="ui header">Section Two</h3>
-    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+    <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
   </div>
 
   <div class="example">
     <h4 class="ui header">Section</h4>
     <p>A divider can provide greater margins to divide sections of content</p>
     <h3 class="ui header">Section One</h3>
-    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+    <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
     <div class="ui section divider"></div>
     <h3 class="ui header">Section Two</h3>
-    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+    <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
   </div>
 
   <div class="example">
     <h4 class="ui header">Clearing</h4>
     <p>A divider can clear the contents above it</p>
     <div class="ui segment">
-      <h2 class="ui left floated header">Left Header</h2>
-      <h2 class="ui right floated header">Right Header</h2>
+      <h2 class="ui right floated header">Floated Content</h2>
       <div class="ui clearing divider"></div>
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
     </div>
   </div>
 

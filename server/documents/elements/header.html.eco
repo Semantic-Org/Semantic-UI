@@ -26,7 +26,7 @@ themes      : ['Default', 'Classic', 'Bookish', 'Chubby']
     <h2 class="ui header">
       Account Settings
     </h2>
-    <img class="ui disabled ignored image" src="/images/wireframe/short-paragraph.png">
+    <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
   </div>
 
   <div class="example">
@@ -36,7 +36,7 @@ themes      : ['Default', 'Classic', 'Bookish', 'Chubby']
       Account Settings
       <div class="sub header">Manage your account settings and set e-mail preferences.</div>
     </h2>
-    <img class="ui disabled ignored image" src="/images/wireframe/short-paragraph.png">
+    <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
   </div>
   <div class="another example">
     <h2 class="ui header">
@@ -46,7 +46,7 @@ themes      : ['Default', 'Classic', 'Bookish', 'Chubby']
         <div class="sub header">Manage your account settings and set e-mail preferences.</div>
       </div>
     </h2>
-    <img class="ui disabled ignored image" src="/images/wireframe/short-paragraph.png">
+    <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
   </div>
 
   <div class="example">
@@ -59,7 +59,7 @@ themes      : ['Default', 'Classic', 'Bookish', 'Chubby']
         <div class="sub header">Manage your account settings and set e-mail preferences.</div>
       </div>
     </h2>
-    <img class="ui disabled ignored image" src="/images/wireframe/centered-paragraph.png">
+    <img class="ui wireframe image" src="/images/wireframe/centered-paragraph.png">
   </div>
 
 
@@ -73,15 +73,15 @@ themes      : ['Default', 'Classic', 'Bookish', 'Chubby']
     </div>
     <div class="sizer">
       <h1 class="ui header">First header</h1>
-      <img class="ui disabled ignored image" src="/images/wireframe/short-paragraph.png">
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
       <h2 class="ui header">Second header</h2>
-      <img class="ui disabled ignored image" src="/images/wireframe/short-paragraph.png">
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
       <h3 class="ui header">Third header</h3>
-      <img class="ui disabled ignored image" src="/images/wireframe/short-paragraph.png">
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
       <h4 class="ui header">Fourth header</h4>
-      <img class="ui disabled ignored image" src="/images/wireframe/short-paragraph.png">
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
       <h5 class="ui header">Fifth header</h5>
-      <img class="ui disabled ignored image" src="/images/wireframe/short-paragraph.png">
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
     </div>
   </div>
 
@@ -95,15 +95,15 @@ themes      : ['Default', 'Classic', 'Bookish', 'Chubby']
     </div>
     <div class="sizer">
       <div class="ui huge header">Huge Header</div>
-      <img class="ui disabled ignored image" src="/images/wireframe/short-paragraph.png">
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
       <div class="ui large header">Large Header</div>
-      <img class="ui disabled ignored image" src="/images/wireframe/short-paragraph.png">
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
       <div class="ui medium header">Medium Header</div>
-      <img class="ui disabled ignored image" src="/images/wireframe/short-paragraph.png">
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
       <div class="ui small header">Small Header</div>
-      <img class="ui disabled ignored image" src="/images/wireframe/short-paragraph.png">
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
       <div class="ui tiny header">Tiny Header</div>
-      <img class="ui disabled ignored image" src="/images/wireframe/short-paragraph.png">
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
     </div>
   </div>
 
@@ -115,7 +115,7 @@ themes      : ['Default', 'Classic', 'Bookish', 'Chubby']
     <div class="ui disabled header">
       Disabled Header
     </div>
-    <img class="ui disabled ignored image" src="/images/wireframe/short-paragraph.png">
+    <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
   </div>
 
   <h2 class="ui dividing header">Variations</h2>
@@ -124,11 +124,11 @@ themes      : ['Default', 'Classic', 'Bookish', 'Chubby']
   <div class="example">
     <h4 class="ui header">Dividing</h4>
     <p>A header can be formatted to divide itself from the content below it</p>
-    <img class="ui disabled ignored image" src="/images/wireframe/short-paragraph.png">
+    <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
     <h3 class="ui dividing header">
       Dividing Header
     </h3>
-    <img class="ui disabled ignored image" src="/images/wireframe/short-paragraph.png">
+    <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
   </div>
 
 
@@ -138,7 +138,7 @@ themes      : ['Default', 'Classic', 'Bookish', 'Chubby']
     <h3 class="ui black block header">
       Block Header
     </h3>
-    <img class="ui disabled ignored image" src="/images/wireframe/media-paragraph.png">
+    <img class="ui wireframe image" src="/images/wireframe/media-paragraph.png">
 
   </div>
 
@@ -149,13 +149,13 @@ themes      : ['Default', 'Classic', 'Bookish', 'Chubby']
       Top Attached
     </h3>
     <div class="ui attached segment">
-      <img class="ui disabled ignored image" src="/images/wireframe/paragraph.png">
+      <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
     </div>
     <h3 class="ui attached header">
       Attached
     </h3>
     <div class="ui attached segment">
-      <img class="ui disabled ignored image" src="/images/wireframe/paragraph.png">
+      <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
     </div>
     <h3 class="ui bottom attached header">
       Bottom Attached

@@ -18,7 +18,7 @@ semantic.header.ready = function() {
 
       increase: function() {
         var
-          $container = $(this).parent().next('.ui.segment'),
+          $container = $(this).parent().next('.sizer'),
           fontSize   = parseInt( $container.css('font-size'), 10)
         ;
         $container
@@ -27,7 +27,7 @@ semantic.header.ready = function() {
       },
       decrease: function() {
         var
-          $container = $(this).parent().next('.ui.segment'),
+          $container = $(this).parent().next('.sizer'),
           fontSize   = parseInt( $container.css('font-size'), 10)
         ;
         $container

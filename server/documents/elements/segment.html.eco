@@ -21,7 +21,7 @@ themes      : ['default', 'GitHub']
     <h4 class="ui header">Segment</h4>
     <p>A segment of content</p>
     <div class="ui segment">
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
     </div>
   </div>
 
@@ -30,13 +30,13 @@ themes      : ['default', 'GitHub']
     <p>A vertical segment formats content to be aligned as part of a vertical group</p>
     <div class="ui segment">
       <div class="ui vertical segment">
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+        <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
       </div>
       <div class="ui vertical segment">
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+        <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
       </div>
       <div class="ui vertical segment">
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+        <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
       </div>
     </div>
   </div>
@@ -52,17 +52,17 @@ themes      : ['default', 'GitHub']
     <div class="ui three column grid">
       <div class="column">
         <div class="ui horizontal segment">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+          <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
         </div>
       </div>
       <div class="column">
         <div class="ui horizontal segment">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+          <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
         </div>
       </div>
       <div class="column">
         <div class="ui horizontal segment">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+          <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
         </div>
       </div>
     </div>
@@ -104,7 +104,7 @@ themes      : ['default', 'GitHub']
     <h4 class="ui header">Disabled</h4>
     <p>A segment may show its content is disabled
     <div class="ui disabled segment">
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
     </div>
   </div>
 
@@ -182,17 +182,17 @@ themes      : ['default', 'GitHub']
     <h4 class="ui header">Colored</h4>
     <p>A segment can be colored</p>
     <div class="ui blue segment">
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
       <div class="ui orange segment">
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+        <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
         <div class="ui green segment">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+          <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
           <div class="ui red segment">
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+            <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
             <div class="ui purple segment">
-              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+              <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
               <div class="ui teal segment">
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+                <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
               </div>
             </div>
           </div>
@@ -203,22 +203,22 @@ themes      : ['default', 'GitHub']
   <div class="another example">
     <p>These colors can be inverted</p>
     <div class="ui blue inverted segment">
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
     </div>
     <div class="ui orange inverted segment">
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
     </div>
     <div class="ui green inverted segment">
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
     </div>
     <div class="ui red inverted segment">
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
     </div>
     <div class="ui purple inverted segment">
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
     </div>
     <div class="ui teal inverted segment">
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
     </div>
   </div>
 

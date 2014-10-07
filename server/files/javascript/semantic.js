@@ -585,15 +585,37 @@ semantic.ready = function() {
         $annotation = $example.find('.annotation'),
         $code       = $annotation.find('.code'),
         $header     = $example.not('.another').children('.ui.header:first-of-type').eq(0).add('p:first-of-type'),
-        $ignored    = $('i.code:last-child, .anchor, .code, .existing, .pointing.below.label, .instructive, .language.label, .annotation, br, .ignore, .ignored'),
+        $ignored    = $('i.code:last-child, .wireframe, .anchor, .code, .existing, .pointing.below.label, .instructive, .language.label, .annotation, br, .ignore, .ignored'),
         $demo       = $example.children().not($header).not($ignored),
         code        = ''
       ;
       if( $code.size() === 0) {
         $demo
-          .each(function(){
-            var $this = $(this).clone(false);
-            if($this.not('br')) {
+          .each(function() {
+            var
+              $this = $(this).clone(false),
+              $wireframe = $this.find('.wireframe').add($this.filter('.wireframe'))
+            ;
+            $wireframe
+              .each(function() {
+                var
+                  src = $(this).attr('src'),
+                  image = (src.search('image') !== -1),
+                  paragraph = (src.search('paragraph') !== -1)
+                ;
+                if(paragraph) {
+                  $(this).replaceWith('<p></p>')
+                }
+                else if(image) {
+                  $(this).replaceWith('<img>');
+                }
+              })
+            ;
+
+            // remove wireframe images
+            $this.find('.wireframe').remove();
+
+            if($this.not('br').not('.wireframe')) {
               // allow inline styles only with this one class
               if($this.is('.my-container')) {
                 code += $this.get(0).outerHTML + "\n";

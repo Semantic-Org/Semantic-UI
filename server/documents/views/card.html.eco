@@ -9,7 +9,7 @@ title       : 'Card'
 description : 'A card displays site content in a manner similar to a playing card'
 type        : 'UI View'
 
-themes      : ['Default', 'Basic', 'GitHub']
+themes      : ['Default', 'Basic', 'Classic']
 ---
 
 <%- @partial('header') %>
