@@ -376,7 +376,7 @@
   font-style: none;
   font-weight: bold;
   text-transform: none;
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid #d4d4d5;
   border-left: none;
 }
 .ui.table thead th:first-child {
@@ -395,7 +395,7 @@
 }
 .ui.table tfoot th {
   cursor: auto;
-  border-top: 1px solid #dddddd;
+  border-top: 1px solid #d4d4d5;
   background: #ffffff;
   text-align: left;
   color: rgba(0, 0, 0, 0.8);
@@ -416,7 +416,7 @@
 }
 /* Table Row */
 .ui.table tr td {
-  border-top: 1px solid #dddddd;
+  border-top: 1px solid #d4d4d5;
 }
 .ui.table tr:first-child td {
   border-top: none;
@@ -1040,7 +1040,7 @@
 ---------------*/
 .ui.celled.table th,
 .ui.celled.table td {
-  border-left: 1px solid #dddddd;
+  border-left: 1px solid #d4d4d5;
 }
 .ui.celled.table th:first-child,
 .ui.celled.table td:first-child {

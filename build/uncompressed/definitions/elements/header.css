@@ -345,7 +345,7 @@
 }
 /* Positioning */
 .ui.header:first-child {
-  margin-top: 0.165em;
+  margin-top: -0.165em;
 }
 .ui.header:last-child {
   margin-bottom: 0em;
@@ -361,13 +361,13 @@ h1.ui.header {
   font-size: 2rem;
 }
 h2.ui.header {
-  font-size: 1.5rem;
+  font-size: 1.714rem;
 }
 h3.ui.header {
-  font-size: 1.3rem;
+  font-size: 1.28rem;
 }
 h4.ui.header {
-  font-size: 1.1rem;
+  font-size: 1.071rem;
 }
 h5.ui.header {
   font-size: 1rem;
@@ -379,13 +379,13 @@ h5.ui.header {
   font-size: 1em;
 }
 .ui.small.header {
-  font-size: 1.1em;
+  font-size: 1.071em;
 }
 .ui.medium.header {
-  font-size: 1.3em;
+  font-size: 1.285em;
 }
 .ui.large.header {
-  font-size: 1.5em;
+  font-size: 1.714em;
 }
 .ui.huge.header {
   min-height: 1em;
@@ -652,7 +652,7 @@ a.ui.inverted.yellow.header:hover {
       Dividing
 --------------------*/
 .ui.dividing.header {
-  padding-bottom: 0.2rem;
+  padding-bottom: 0.5rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 .ui.dividing.header .sub.header {
@@ -671,20 +671,20 @@ a.ui.inverted.yellow.header:hover {
   background: #f0f0f0;
   padding: 0.75rem 1rem;
   box-shadow: none;
-  border: 1px solid #dddddd;
+  border: 1px solid #d4d4d5;
   border-radius: 0.3125rem;
 }
 .ui.tiny.block.header {
   font-size: 1em;
 }
 .ui.small.block.header {
-  font-size: 1.1em;
+  font-size: 1.071em;
 }
 .ui.block.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
-  font-size: 1.3em;
+  font-size: 1.285em;
 }
 .ui.large.block.header {
-  font-size: 1.5em;
+  font-size: 1.714em;
 }
 .ui.huge.block.header {
   font-size: 2em;
@@ -698,7 +698,7 @@ a.ui.inverted.yellow.header:hover {
   margin-left: -1px;
   margin-right: -1px;
   box-shadow: none;
-  border: 1px solid #dddddd;
+  border: 1px solid #d4d4d5;
 }
 .ui.attached.block.header {
   background: #f0f0f0;
@@ -740,7 +740,7 @@ a.ui.inverted.yellow.header:hover {
         Sizing
 --------------------*/
 .ui.header {
-  font-size: 1.3em;
+  font-size: 1.285em;
 }
 /*******************************
            Overrides

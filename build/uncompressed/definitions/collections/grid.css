@@ -832,7 +832,7 @@
   table-layout: fixed;
   width: 100%;
   margin: 1em 0em;
-  box-shadow: 0px 0px 0px 1px #dddddd;
+  box-shadow: 0px 0px 0px 1px #d4d4d5;
 }
 .ui.celled.grid > .row,
 .ui.celled.grid > .column.row,
@@ -842,13 +842,12 @@
   width: 100% !important;
   margin: 0em;
   padding: 0em;
-  box-shadow: 0px -1px 0px 0px #dddddd;
+  box-shadow: 0px -1px 0px 0px #d4d4d5;
 }
 .ui.celled.grid > .column:not(.row),
 .ui.celled.grid > .row > .column {
   display: table-cell;
-  padding: 0.75em;
-  box-shadow: -1px 0px 0px 0px #dddddd;
+  box-shadow: -1px 0px 0px 0px #d4d4d5;
 }
 .ui.celled.grid > .column:first-child,
 .ui.celled.grid > .row > .column:first-child {
@@ -856,6 +855,18 @@
 }
 .ui.celled.page.grid {
   box-shadow: none;
+}
+.ui.celled.grid > .column:not(.row),
+.ui.celled.grid > .row > .column {
+  padding: 0.75em;
+}
+.ui.relaxed.celled.grid > .column:not(.row),
+.ui.relaxed.celled.grid > .row > .column {
+  padding: 1em;
+}
+.ui[class*="very relaxed"].celled.grid > .column:not(.row),
+.ui[class*="very relaxed"].celled.grid > .row > .column {
+  padding: 2em;
 }
 /* Internally Celled */
 .ui[class*="internally celled"].grid {
@@ -1273,7 +1284,7 @@
   .ui.stackable.celled.grid > .row > .column,
   .ui.stackable.divided.grid > .column,
   .ui.stackable.divided.grid > .row > .column {
-    border-top: 1px solid rgba(0, 0, 0, 0.15);
+    border-top: 1px solid rgba(39, 41, 43, 0.2);
   }
   .ui.inverted.stackable.celled.grid > .column,
   .ui.inverted.stackable.celled.grid > .row > .column,

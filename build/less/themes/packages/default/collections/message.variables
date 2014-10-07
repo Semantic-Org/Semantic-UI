@@ -9,6 +9,7 @@
 --------------------*/
 
 @verticalMargin: 1em;
+
 @verticalPadding: 1em;
 @horizontalPadding: 1.5em;
 

@@ -649,7 +649,7 @@
       Divided
 --------------------*/
 .ui.divided.items > .item {
-  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  border-top: 1px solid rgba(39, 41, 43, 0.2);
   margin: 0em;
   padding: 1em 0em;
 }

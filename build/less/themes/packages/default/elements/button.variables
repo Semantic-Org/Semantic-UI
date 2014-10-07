@@ -97,7 +97,7 @@
 @downBackgroundImage: '';
 @downBoxShadow:
   @borderBoxShadow,
-  0px 1px 4px 0px rgba(0, 0, 0, 0.1) inset !important
+  0px 1px 4px 0px @borderColor inset !important
 ;
 @downColor: @pressedTextColor;
 
@@ -169,22 +169,22 @@
 
 @basicBackground: transparent;
 @basicFontWeight: normal;
-@basicBoxShadow: 0px 0px 0px @basicBorderSize rgba(0, 0, 0, 0.1) inset;
+@basicBoxShadow: 0px 0px 0px @basicBorderSize @borderColor inset;
 @iconOffset: 0.05em;
-@basicLoadingColor: #FFFFFF;
+@basicLoadingColor: @offWhite;
 @basicTextTransform: none;
 
 /* Basic Hover */
 @basicHoverBackground: #FAFAFA;
 @basicHoverBoxShadow:
-  0px 0px 0px @basicBorderSize rgba(0, 0, 0, 0.1) inset,
-  0px 0px 0px 0px rgba(0, 0, 0, 0.1) inset
+  0px 0px 0px @basicBorderSize @borderColor inset,
+  0px 0px 0px 0px @borderColor inset
 ;
 /* Basic Down */
 @basicDownBackground: #F8F8F8;
 @basicDownBoxShadow:
   0px 0px 0px @basicBorderSize rgba(0, 0, 0, 0.15) inset,
-  0px 1px 4px 0px rgba(0, 0, 0, 0.1) inset
+  0px 1px 4px 0px @borderColor inset
 ;
 /* Basic Active */
 @basicActiveBackground: @transparentBlack;
@@ -236,7 +236,7 @@
 
 /* Attached */
 @attachedOffset: -1px;
-@attachedBoxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+@attachedBoxShadow: 0px 0px 0px 1px @borderColor;
 @attachedHorizontalPadding: 0.75em;
 
 /* Floated */

@@ -240,11 +240,11 @@
 
 @circularRadius                : 500rem;
 
-@borderColor                   : rgba(0, 0, 0, 0.15);
-@selectedBorderColor           : rgba(0, 0, 0, 0.2);
+@borderColor                   : rgba(39, 41, 43, 0.2);
+@selectedBorderColor           : rgba(39, 41, 43, 0.3);
 
-@solidBorderColor              : #DDDDDD;
-@solidSelectedBorderColor      : #B0B0B0;
+@solidBorderColor              : #D4D4D5;
+@solidSelectedBorderColor      : #BEBEBF;
 
 @whiteBorderColor              : rgba(255, 255, 255, 0.2);
 @selectedWhiteBorderColor      : rgba(255, 255, 255, 0.8);

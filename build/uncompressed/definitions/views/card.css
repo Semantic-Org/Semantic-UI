@@ -358,7 +358,7 @@
   padding: 0em;
   border: none;
   border-radius: 0.325rem;
-  box-shadow: 0px 0.2em 0px 0px #dddddd, 0px 0px 0px 1px #dddddd;
+  box-shadow: 0px 0.2em 0px 0px #d4d4d5, 0px 0px 0px 1px #d4d4d5;
   -webkit-transition: box-shadow 0.2s ease;
           transition: box-shadow 0.2s ease;
   z-index: '';
@@ -643,7 +643,7 @@ a.ui.card:hover,
   z-index: 5;
   background: '';
   border: none;
-  box-shadow: 0px 0.2em 0px 0px #b0b0b0, 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0.2em 0px 0px #bebebf, 0px 0px 0px 1px rgba(39, 41, 43, 0.3);
 }
 /*--------------
    Card Count

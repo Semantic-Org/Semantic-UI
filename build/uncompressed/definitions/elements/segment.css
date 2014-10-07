@@ -296,7 +296,7 @@
 .ui.segment {
   position: relative;
   background-color: #ffffff;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.2), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
   margin: 1rem 0em;
   padding: 1em 1em;
   border-radius: 0.25rem;
@@ -322,7 +322,7 @@
   background-color: transparent;
   border-radius: 0px;
   border: none;
-  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 1px 0px rgba(39, 41, 43, 0.2);
 }
 .ui.vertical.segment:first-child {
   padding-top: 0em;
@@ -338,7 +338,7 @@
   background-color: transparent;
   border-radius: 0px;
   border: none;
-  box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 1px 0px 0px rgba(39, 41, 43, 0.2);
 }
 /*-------------------
     Loose Coupling
@@ -382,7 +382,7 @@
 .ui.basic.table.segment {
   background: #ffffff;
   border: none;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.2), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 .ui[class*="very basic"].table.segment {
   padding: 1em 1em;
@@ -395,7 +395,7 @@
 --------------------*/
 .ui.piled.segment {
   margin: 2em 0em;
-  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 1px 1px rgba(39, 41, 43, 0.2);
   z-index: auto;
 }
 .ui.piled.segment:first-child {
@@ -414,7 +414,7 @@
   left: 0px;
   position: absolute;
   width: 100%;
-  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 1px 1px rgba(39, 41, 43, 0.2);
 }
 .ui.piled.segment:after {
   -webkit-transform: rotate(1.2deg);
@@ -442,7 +442,7 @@
   position: absolute;
   bottom: -3px;
   left: 0%;
-  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  border-top: 1px solid rgba(39, 41, 43, 0.2);
   background-color: rgba(0, 0, 0, 0.03);
   width: 100%;
   height: 6px;
@@ -460,7 +460,7 @@
 .ui.stacked.inverted.segment:after,
 .ui.stacked.inverted.segment:before {
   background-color: rgba(0, 0, 0, 0.03);
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(39, 41, 43, 0.3);
 }
 /*-------------------
        Compact
@@ -482,7 +482,7 @@
        Raised
 --------------------*/
 .ui.raised.segment {
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15), 0px 1px 4px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.2), 0px 1px 4px 0px rgba(0, 0, 0, 0.15);
 }
 /*******************************
             States
@@ -671,7 +671,7 @@
   margin: 0em -1px;
   border-radius: 0px;
   box-shadow: none;
-  border: 1px solid #dddddd;
+  border: 1px solid #d4d4d5;
 }
 /* Top */
 .ui[class*="top attached"].segment {
