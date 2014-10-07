@@ -361,7 +361,7 @@
   background: #ffffff;
   font-size: 0px;
   font-weight: normal;
-  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.2), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
   border-radius: 0.1875rem;
 }
 .ui.menu:after {
@@ -806,7 +806,7 @@
 .ui.tiered.menu .sub.menu {
   background-color: #fcfcfc;
   border-radius: 0em;
-  border-top: 1px solid rgba(39, 41, 43, 0.2);
+  border-top: 1px solid rgba(39, 41, 43, 0.15);
   box-shadow: none;
 }
 .ui.tiered.menu > .sub.menu > .item {

@@ -411,7 +411,7 @@
   padding: 0.7em 1em;
   font-size: 1em;
   background: #ffffff;
-  border: 1px solid rgba(39, 41, 43, 0.2);
+  border: 1px solid rgba(39, 41, 43, 0.15);
   color: rgba(0, 0, 0, 0.8);
   border-radius: 0.3125em;
   box-shadow: 0em 0em 0em 0em transparent inset;
@@ -427,7 +427,7 @@
   box-sizing: border-box;
   padding: 0.8em 1em;
   background: #ffffff;
-  border: 1px solid rgba(39, 41, 43, 0.2);
+  border: 1px solid rgba(39, 41, 43, 0.15);
   outline: none;
   color: rgba(0, 0, 0, 0.8);
   border-radius: 0.3125em;

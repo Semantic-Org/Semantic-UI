@@ -1284,7 +1284,7 @@
   .ui.stackable.celled.grid > .row > .column,
   .ui.stackable.divided.grid > .column,
   .ui.stackable.divided.grid > .row > .column {
-    border-top: 1px solid rgba(39, 41, 43, 0.2);
+    border-top: 1px solid rgba(39, 41, 43, 0.15);
   }
   .ui.inverted.stackable.celled.grid > .column,
   .ui.inverted.stackable.celled.grid > .row > .column,

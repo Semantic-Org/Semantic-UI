@@ -777,7 +777,7 @@
   padding: 0.7em 1em;
   font-size: 1em;
   background: #ffffff;
-  border: 1px solid rgba(39, 41, 43, 0.2);
+  border: 1px solid rgba(39, 41, 43, 0.15);
   color: rgba(0, 0, 0, 0.8);
   border-radius: 0.3125em;
   box-shadow: 0em 0em 0em 0em transparent inset;
@@ -793,7 +793,7 @@
   box-sizing: border-box;
   padding: 0.8em 1em;
   background: #ffffff;
-  border: 1px solid rgba(39, 41, 43, 0.2);
+  border: 1px solid rgba(39, 41, 43, 0.15);
   outline: none;
   color: rgba(0, 0, 0, 0.8);
   border-radius: 0.3125em;
@@ -2649,7 +2649,7 @@
   .ui.stackable.celled.grid > .row > .column,
   .ui.stackable.divided.grid > .column,
   .ui.stackable.divided.grid > .row > .column {
-    border-top: 1px solid rgba(39, 41, 43, 0.2);
+    border-top: 1px solid rgba(39, 41, 43, 0.15);
   }
   .ui.inverted.stackable.celled.grid > .column,
   .ui.inverted.stackable.celled.grid > .row > .column,
@@ -3101,7 +3101,7 @@
   background: #ffffff;
   font-size: 0px;
   font-weight: normal;
-  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.2), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
   border-radius: 0.1875rem;
 }
 .ui.menu:after {
@@ -3546,7 +3546,7 @@
 .ui.tiered.menu .sub.menu {
   background-color: #fcfcfc;
   border-radius: 0em;
-  border-top: 1px solid rgba(39, 41, 43, 0.2);
+  border-top: 1px solid rgba(39, 41, 43, 0.15);
   box-shadow: none;
 }
 .ui.tiered.menu > .sub.menu > .item {
@@ -6593,7 +6593,7 @@
   text-decoration: none;
   background-image: none;
   border-radius: 0.25em;
-  box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(39, 41, 43, 0.2) inset;
+  box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -6637,7 +6637,7 @@
   background-color: #cccccc;
   background-image: '';
   color: rgba(0, 0, 0, 0.8);
-  box-shadow: 0px 0px 0px 1px transparent inset, 0px 1px 4px 0px rgba(39, 41, 43, 0.2) inset;
+  box-shadow: 0px 0px 0px 1px transparent inset, 0px 1px 4px 0px rgba(39, 41, 43, 0.15) inset;
 }
 /*--------------
      Active
@@ -6669,7 +6669,7 @@
   color: transparent !important;
   -webkit-transition: all 0s linear;
           transition: all 0s linear;
-  box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(39, 41, 43, 0.2) inset;
+  box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
 }
 .ui.loading.button:after {
   position: absolute;
@@ -6848,7 +6848,7 @@
   color: #ffffff;
   text-shadow: none;
   background-image: none;
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.2) inset;
+  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
 }
 .ui.facebook.button:hover {
   background-color: #3f5da8;
@@ -6866,7 +6866,7 @@
   color: #ffffff;
   text-shadow: none;
   background-image: none;
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.2) inset;
+  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
 }
 .ui.twitter.button:hover {
   background-color: #4c99cf;
@@ -6884,7 +6884,7 @@
   color: #ffffff;
   text-shadow: none;
   background-image: none;
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.2) inset;
+  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
 }
 .ui.google.plus.button:hover {
   background-color: #d65343;
@@ -6918,7 +6918,7 @@
   color: #ffffff;
   text-shadow: none;
   background-image: none;
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.2) inset;
+  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
 }
 .ui.youtube.button:hover {
   background-color: #da1a20;
@@ -6936,7 +6936,7 @@
   color: #ffffff;
   text-shadow: none;
   background-image: none;
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.2) inset;
+  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
 }
 .ui.instagram.button:hover {
   background-color: #4e7ea6;
@@ -6954,7 +6954,7 @@
   color: #ffffff;
   text-shadow: none;
   background-image: none;
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.2) inset;
+  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
 }
 .ui.pinterest.button:hover {
   background-color: #00b7fc;
@@ -6971,7 +6971,7 @@
   background-color: #4D7198;
   color: #ffffff;
   background-image: none;
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.2) inset;
+  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
 }
 .ui.vk.button:hover {
   background-color: #5279a2;
@@ -7110,10 +7110,10 @@
   border-radius: 0.25em;
   text-transform: none;
   text-shadow: none !important;
-  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.2) inset;
+  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15) inset;
 }
 .ui.basic.buttons {
-  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.2);
+  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15);
   border-radius: 0.25em;
 }
 .ui.basic.buttons .button {
@@ -7123,13 +7123,13 @@
 .ui.basic.button:hover {
   background: #fafafa !important;
   color: rgba(0, 0, 0, 0.8) !important;
-  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.2) inset, 0px 0px 0px 0px rgba(39, 41, 43, 0.2) inset;
+  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15) inset, 0px 0px 0px 0px rgba(39, 41, 43, 0.15) inset;
 }
 .ui.basic.buttons .button:active,
 .ui.basic.button:active {
   background: #f8f8f8 !important;
   color: rgba(0, 0, 0, 0.8) !important;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset, 0px 1px 4px 0px rgba(39, 41, 43, 0.2) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset, 0px 1px 4px 0px rgba(39, 41, 43, 0.15) inset;
 }
 .ui.basic.buttons .button.active,
 .ui.basic.button.active {
@@ -7143,10 +7143,10 @@
 }
 /* Vertical */
 .ui.basic.buttons .button:hover {
-  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.2) inset, 0px 0px 0px 0px rgba(39, 41, 43, 0.2) inset inset;
+  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15) inset, 0px 0px 0px 0px rgba(39, 41, 43, 0.15) inset inset;
 }
 .ui.basic.buttons .button:active {
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset, 0px 1px 4px 0px rgba(39, 41, 43, 0.2) inset inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset, 0px 1px 4px 0px rgba(39, 41, 43, 0.15) inset inset;
 }
 .ui.basic.buttons .button.active {
   box-shadow: rgba(39, 41, 43, 0.3) inset;
@@ -7188,7 +7188,7 @@
 }
 /* Basic Group */
 .ui.basic.buttons .button {
-  border-left: 1px solid rgba(39, 41, 43, 0.2);
+  border-left: 1px solid rgba(39, 41, 43, 0.15);
   box-shadow: none;
 }
 .ui.basic.vertical.buttons .button {
@@ -7302,7 +7302,7 @@
 .ui.attached.button {
   display: block;
   margin: 0em;
-  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.2) !important;
+  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15) !important;
   border-radius: 0em;
 }
 .ui.attached.top.button {
@@ -7583,7 +7583,7 @@
   background-image: none;
 }
 .ui.black.button {
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.2) inset;
+  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
 }
 .ui.black.buttons .button:hover,
 .ui.black.button:hover {
@@ -7608,7 +7608,7 @@
 /* Basic */
 .ui.basic.black.buttons .button,
 .ui.basic.black.button {
-  box-shadow: 0px 0px 0px 2px rgba(39, 41, 43, 0.2) inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(39, 41, 43, 0.15) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 .ui.basic.black.buttons .button:hover,
@@ -7691,7 +7691,7 @@
   background-image: none;
 }
 .ui.blue.button {
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.2) inset;
+  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
 }
 .ui.blue.buttons .button:hover,
 .ui.blue.button:hover {
@@ -7716,7 +7716,7 @@
 /* Basic */
 .ui.basic.blue.buttons .button,
 .ui.basic.blue.button {
-  box-shadow: 0px 0px 0px 2px rgba(39, 41, 43, 0.2) inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(39, 41, 43, 0.15) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 .ui.basic.blue.buttons .button:hover,
@@ -7799,7 +7799,7 @@
   background-image: none;
 }
 .ui.green.button {
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.2) inset;
+  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
 }
 .ui.green.buttons .button:hover,
 .ui.green.button:hover {
@@ -7824,7 +7824,7 @@
 /* Basic */
 .ui.basic.green.buttons .button,
 .ui.basic.green.button {
-  box-shadow: 0px 0px 0px 2px rgba(39, 41, 43, 0.2) inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(39, 41, 43, 0.15) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 .ui.basic.green.buttons .button:hover,
@@ -7907,7 +7907,7 @@
   background-image: none;
 }
 .ui.orange.button {
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.2) inset;
+  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
 }
 .ui.orange.buttons .button:hover,
 .ui.orange.button:hover {
@@ -7932,7 +7932,7 @@
 /* Basic */
 .ui.basic.orange.buttons .button,
 .ui.basic.orange.button {
-  box-shadow: 0px 0px 0px 2px rgba(39, 41, 43, 0.2) inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(39, 41, 43, 0.15) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 .ui.basic.orange.buttons .button:hover,
@@ -8015,7 +8015,7 @@
   background-image: none;
 }
 .ui.pink.button {
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.2) inset;
+  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
 }
 .ui.pink.buttons .button:hover,
 .ui.pink.button:hover {
@@ -8040,7 +8040,7 @@
 /* Basic */
 .ui.basic.pink.buttons .button,
 .ui.basic.pink.button {
-  box-shadow: 0px 0px 0px 2px rgba(39, 41, 43, 0.2) inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(39, 41, 43, 0.15) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 .ui.basic.pink.buttons .button:hover,
@@ -8123,7 +8123,7 @@
   background-image: none;
 }
 .ui.purple.button {
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.2) inset;
+  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
 }
 .ui.purple.buttons .button:hover,
 .ui.purple.button:hover {
@@ -8148,7 +8148,7 @@
 /* Basic */
 .ui.basic.purple.buttons .button,
 .ui.basic.purple.button {
-  box-shadow: 0px 0px 0px 2px rgba(39, 41, 43, 0.2) inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(39, 41, 43, 0.15) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 .ui.basic.purple.buttons .button:hover,
@@ -8231,7 +8231,7 @@
   background-image: none;
 }
 .ui.red.button {
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.2) inset;
+  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
 }
 .ui.red.buttons .button:hover,
 .ui.red.button:hover {
@@ -8256,7 +8256,7 @@
 /* Basic */
 .ui.basic.red.buttons .button,
 .ui.basic.red.button {
-  box-shadow: 0px 0px 0px 2px rgba(39, 41, 43, 0.2) inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(39, 41, 43, 0.15) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 .ui.basic.red.buttons .button:hover,
@@ -8339,7 +8339,7 @@
   background-image: none;
 }
 .ui.teal.button {
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.2) inset;
+  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
 }
 .ui.teal.buttons .button:hover,
 .ui.teal.button:hover {
@@ -8364,7 +8364,7 @@
 /* Basic */
 .ui.basic.teal.buttons .button,
 .ui.basic.teal.button {
-  box-shadow: 0px 0px 0px 2px rgba(39, 41, 43, 0.2) inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(39, 41, 43, 0.15) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 .ui.basic.teal.buttons .button:hover,
@@ -8447,7 +8447,7 @@
   background-image: none;
 }
 .ui.yellow.button {
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.2) inset;
+  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
 }
 .ui.yellow.buttons .button:hover,
 .ui.yellow.button:hover {
@@ -8472,7 +8472,7 @@
 /* Basic */
 .ui.basic.yellow.buttons .button,
 .ui.basic.yellow.button {
-  box-shadow: 0px 0px 0px 2px rgba(39, 41, 43, 0.2) inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(39, 41, 43, 0.15) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 .ui.basic.yellow.buttons .button:hover,
@@ -8557,7 +8557,7 @@
   background-image: none;
 }
 .ui.primary.button {
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.2) inset;
+  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
 }
 .ui.primary.buttons .button:hover,
 .ui.primary.button:hover {
@@ -8588,7 +8588,7 @@
   background-image: none;
 }
 .ui.secondary.button {
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.2) inset;
+  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
 }
 .ui.secondary.buttons .button:hover,
 .ui.secondary.button:hover {
@@ -8619,7 +8619,7 @@
   background-image: none;
 }
 .ui.positive.button {
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.2) inset;
+  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
 }
 .ui.positive.buttons .button:hover,
 .ui.positive.button:hover,
@@ -8654,7 +8654,7 @@
   background-image: none;
 }
 .ui.negative.button {
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.2) inset;
+  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
 }
 .ui.negative.buttons .button:hover,
 .ui.negative.button:hover,
@@ -8705,7 +8705,7 @@
 }
 .ui.buttons > .ui.button:not(.basic):not(.inverted),
 .ui.buttons:not(.basic):not(.inverted) > .button {
-  box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(39, 41, 43, 0.2) inset;
+  box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
 }
 .ui.buttons .button {
   margin: 0em;
@@ -16656,7 +16656,7 @@ ol.ui.horizontal.list li:before,
        Divided
 --------------------*/
 .ui.divided.list .item {
-  border-top: 1px solid rgba(39, 41, 43, 0.2);
+  border-top: 1px solid rgba(39, 41, 43, 0.15);
 }
 .ui.divided.list .list .item {
   border-top: none;
@@ -16712,7 +16712,7 @@ ol.ui.horizontal.list li:before,
 }
 .ui.divided.horizontal.list > .item {
   border-top: none;
-  border-left: 1px solid rgba(39, 41, 43, 0.2);
+  border-left: 1px solid rgba(39, 41, 43, 0.15);
   margin: 0em;
   padding-left: 0.5em;
   padding-right: 0.5em;
@@ -16732,12 +16732,12 @@ ol.ui.horizontal.list li:before,
 --------------------*/
 .ui.celled.list > .item,
 .ui.celled.list > .list {
-  border-top: 1px solid rgba(39, 41, 43, 0.2);
+  border-top: 1px solid rgba(39, 41, 43, 0.15);
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
 .ui.celled.list > .item:last-child {
-  border-bottom: 1px solid rgba(39, 41, 43, 0.2);
+  border-bottom: 1px solid rgba(39, 41, 43, 0.15);
 }
 /* Padding on all elements */
 .ui.celled.list > .item:first-child,
@@ -16791,7 +16791,7 @@ ol.ui.horizontal.list li:before,
 }
 .ui.horizontal.celled.list .item {
   border-top: none;
-  border-left: 1px solid rgba(39, 41, 43, 0.2);
+  border-left: 1px solid rgba(39, 41, 43, 0.15);
   margin: 0em;
   padding-left: 0.5em;
   padding-right: 0.5em;
@@ -16799,7 +16799,7 @@ ol.ui.horizontal.list li:before,
 }
 .ui.horizontal.celled.list .item:last-child {
   border-bottom: none;
-  border-right: 1px solid rgba(39, 41, 43, 0.2);
+  border-right: 1px solid rgba(39, 41, 43, 0.15);
 }
 /* Inverted */
 .ui.celled.inverted.list > .item,
@@ -17695,10 +17695,10 @@ ol.ui.horizontal.list li:before,
 .ui.left.dividing.rail {
   padding: 0em 2.5rem 0em 0em;
   margin: 0em 2.5rem 0em 0em;
-  border-right: 1px solid rgba(39, 41, 43, 0.2);
+  border-right: 1px solid rgba(39, 41, 43, 0.15);
 }
 .ui.right.dividing.rail {
-  border-left: 1px solid rgba(39, 41, 43, 0.2);
+  border-left: 1px solid rgba(39, 41, 43, 0.15);
   padding: 0em 0em 0em 2.5rem;
   margin: 0em 0em 0em 2.5rem;
 }
@@ -18529,7 +18529,7 @@ ol.ui.horizontal.list li:before,
 .ui.segment {
   position: relative;
   background-color: #ffffff;
-  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.2), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
   margin: 1rem 0em;
   padding: 1em 1em;
   border-radius: 0.25rem;
@@ -18555,7 +18555,7 @@ ol.ui.horizontal.list li:before,
   background-color: transparent;
   border-radius: 0px;
   border: none;
-  box-shadow: 0px 1px 0px rgba(39, 41, 43, 0.2);
+  box-shadow: 0px 1px 0px rgba(39, 41, 43, 0.15);
 }
 .ui.vertical.segment:first-child {
   padding-top: 0em;
@@ -18571,7 +18571,7 @@ ol.ui.horizontal.list li:before,
   background-color: transparent;
   border-radius: 0px;
   border: none;
-  box-shadow: 1px 0px 0px rgba(39, 41, 43, 0.2);
+  box-shadow: 1px 0px 0px rgba(39, 41, 43, 0.15);
 }
 /*-------------------
     Loose Coupling
@@ -18615,7 +18615,7 @@ ol.ui.horizontal.list li:before,
 .ui.basic.table.segment {
   background: #ffffff;
   border: none;
-  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.2), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 .ui[class*="very basic"].table.segment {
   padding: 1em 1em;
@@ -18628,7 +18628,7 @@ ol.ui.horizontal.list li:before,
 --------------------*/
 .ui.piled.segment {
   margin: 2em 0em;
-  box-shadow: 0px 0px 1px 1px rgba(39, 41, 43, 0.2);
+  box-shadow: 0px 0px 1px 1px rgba(39, 41, 43, 0.15);
   z-index: auto;
 }
 .ui.piled.segment:first-child {
@@ -18647,7 +18647,7 @@ ol.ui.horizontal.list li:before,
   left: 0px;
   position: absolute;
   width: 100%;
-  box-shadow: 0px 0px 1px 1px rgba(39, 41, 43, 0.2);
+  box-shadow: 0px 0px 1px 1px rgba(39, 41, 43, 0.15);
 }
 .ui.piled.segment:after {
   -webkit-transform: rotate(1.2deg);
@@ -18675,7 +18675,7 @@ ol.ui.horizontal.list li:before,
   position: absolute;
   bottom: -3px;
   left: 0%;
-  border-top: 1px solid rgba(39, 41, 43, 0.2);
+  border-top: 1px solid rgba(39, 41, 43, 0.15);
   background-color: rgba(0, 0, 0, 0.03);
   width: 100%;
   height: 6px;
@@ -18715,7 +18715,7 @@ ol.ui.horizontal.list li:before,
        Raised
 --------------------*/
 .ui.raised.segment {
-  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.2), 0px 1px 4px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15), 0px 1px 4px 0px rgba(0, 0, 0, 0.15);
 }
 /*******************************
             States
@@ -21089,7 +21089,7 @@ a:hover {
 .ui.styled.accordion .accordion {
   border-radius: 0.3125em;
   background: #ffffff;
-  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(39, 41, 43, 0.2);
+  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(39, 41, 43, 0.15);
 }
 .ui.styled.accordion .title,
 .ui.styled.accordion .accordion .title {
@@ -21097,7 +21097,7 @@ a:hover {
   padding: 0.75em 1em;
   color: rgba(0, 0, 0, 0.4);
   font-weight: bold;
-  border-top: 1px solid rgba(39, 41, 43, 0.2);
+  border-top: 1px solid rgba(39, 41, 43, 0.15);
   -webkit-transition: background 0.2s ease, color 0.2s ease;
           transition: background 0.2s ease, color 0.2s ease;
 }
@@ -22221,7 +22221,7 @@ a:hover {
   opacity: 1;
   z-index: 2;
   border: none;
-  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(39, 41, 43, 0.2) inset;
+  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(39, 41, 43, 0.15) inset;
   width: 1.5rem;
   height: 1.5rem;
   top: -0.25rem;
@@ -22302,7 +22302,7 @@ a:hover {
   opacity: 1;
   z-index: 2;
   border: none;
-  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(39, 41, 43, 0.2) inset;
+  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(39, 41, 43, 0.15) inset;
   width: 1.5rem;
   height: 1.5rem;
   top: 0rem;
@@ -23178,7 +23178,7 @@ b        Types
   text-shadow: none;
   text-align: left;
   box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.15);
-  border: 1px solid rgba(39, 41, 43, 0.2);
+  border: 1px solid rgba(39, 41, 43, 0.15);
   border-radius: 0em 0em 0.325em 0.325em;
   -webkit-transition: opacity 0.2s ease;
           transition: opacity 0.2s ease;
@@ -23342,7 +23342,7 @@ b        Types
   padding: 0.8em 1.1em;
   color: rgba(0, 0, 0, 0.8);
   box-shadow: none;
-  border: 1px solid rgba(39, 41, 43, 0.2);
+  border: 1px solid rgba(39, 41, 43, 0.15);
   border-radius: 0.325em;
   -webkit-transition: border-radius 0.1s ease, width 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
           transition: border-radius 0.1s ease, width 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
@@ -23447,7 +23447,7 @@ select.ui.dropdown {
 }
 /* Visible */
 .ui.selection.dropdown.visible {
-  border-color: rgba(39, 41, 43, 0.2);
+  border-color: rgba(39, 41, 43, 0.15);
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
 }
 .ui.visible.selection.dropdown > .dropdown.icon {
@@ -24205,7 +24205,7 @@ select.ui.dropdown {
   line-height: 1.3em;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.85);
-  border-bottom: 1px solid rgba(39, 41, 43, 0.2);
+  border-bottom: 1px solid rgba(39, 41, 43, 0.15);
 }
 /*--------------
      Content
@@ -24255,7 +24255,7 @@ select.ui.dropdown {
 .ui.modal .actions {
   background: #efefef;
   padding: 1rem 2rem;
-  border-top: 1px solid rgba(39, 41, 43, 0.2);
+  border-top: 1px solid rgba(39, 41, 43, 0.15);
   text-align: right;
 }
 .ui.modal .actions > .button {
@@ -31744,7 +31744,7 @@ a.ui.card:hover,
 .ui.threaded.comments .comment .comments {
   margin: -1.5em 0 -1em 1.25em;
   padding: 3em 0em 2em 2.25em;
-  box-shadow: -1px 0px 0px rgba(39, 41, 43, 0.2);
+  box-shadow: -1px 0px 0px rgba(39, 41, 43, 0.15);
 }
 /*--------------------
         Minimal
@@ -32978,7 +32978,7 @@ a.ui.card:hover,
       Divided
 --------------------*/
 .ui.divided.items > .item {
-  border-top: 1px solid rgba(39, 41, 43, 0.2);
+  border-top: 1px solid rgba(39, 41, 43, 0.15);
   margin: 0em;
   padding: 1em 0em;
 }
