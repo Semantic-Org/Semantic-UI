@@ -51,6 +51,15 @@
 ;
 @inputBoxShadow: 0em 0em 0em 0em transparent inset;
 
+/* Select */
+@selectBackground: @white;
+@selectBorderRadius: @inputBorderRadius;
+@selectBorder: @inputBorder;
+@selectPadding: 0.62em @inputHorizontalPadding;
+@selectBoxShadow: @inputBoxShadow;
+@selectTransition: @inputTransition;
+@selectColor: @inputColor;
+
 /* Text Area */
 @textAreaPadding: @inputVerticalPadding @inputHorizontalPadding;
 @textAreaHeight: 12em;
