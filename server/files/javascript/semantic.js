@@ -288,7 +288,7 @@ semantic.ready = function() {
           ;
           html += '<div class="item">';
           if($examples.size() === 0) {
-            html += '<a class="'+activeClass+'title" href="'+id+'"><b>' + $(this).text() + '</b></a>';
+            html += '<a class="'+activeClass+'title" href="#'+id+'"><b>' + $(this).text() + '</b></a>';
           }
           else {
             html += '<a class="'+activeClass+'title"><i class="dropdown icon"></i> <b>' + $(this).text() + '</b></a>';
@@ -683,6 +683,9 @@ semantic.ready = function() {
           $demo.fadeIn(500);
         }
       }
+      $sectionHeaders.visibility('refresh');
+      $sectionExample.visibility('refresh');
+      $footer.visibility('refresh');
     },
 
     createAnnotation: function() {
