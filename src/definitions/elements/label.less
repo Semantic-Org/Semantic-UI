@@ -80,8 +80,9 @@ a.ui.label {
 /* Detail */
 .ui.label .detail {
   display: inline-block;
+  vertical-align: top;
+  font-weight: @detailFontWeight;
   margin-left: @detailMargin;
-  font-weight: bold;
   opacity: @detailOpacity;
 }
 .ui.label .detail .icon {
@@ -948,9 +949,17 @@ a.ui.yellow.label:hover:before {
 .ui.large.label {
   font-size: @large;
 }
+.ui.big.labels .label,
+.ui.big.label {
+  font-size: @big;
+}
 .ui.huge.labels .label,
 .ui.huge.label {
   font-size: @huge;
+}
+.ui.massive.labels .label,
+.ui.massive.label {
+  font-size: @massive;
 }
 
 .loadUIOverrides();
