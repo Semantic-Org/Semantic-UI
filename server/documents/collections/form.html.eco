@@ -68,14 +68,14 @@ themes      : ['Default', 'Flat', 'Chubby', 'GitHub']
       <div class="two fields">
         <div class="required field">
           <label>Username</label>
-          <div class="ui left labeled icon input">
+          <div class="ui icon input">
             <input type="text" placeholder="Username">
             <i class="user icon"></i>
           </div>
         </div>
         <div class="required field">
           <label>Password</label>
-          <div class="ui left labeled icon input">
+          <div class="ui icon input">
             <input type="password">
             <i class="lock icon"></i>
           </div>
@@ -128,6 +128,7 @@ themes      : ['Default', 'Flat', 'Chubby', 'GitHub']
           <label>Hot Deals</label>
         </div>
       </div>
+      <div class="ui hidden divider"></div>
       <div class="field">
         <div class="ui checkbox">
           <input type="checkbox" name="hot-deals">

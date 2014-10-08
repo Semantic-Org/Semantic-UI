@@ -209,6 +209,8 @@ themes      : ['default', 'Basic', 'GitHub']
     </div>
   </div>
 
+  <h2 class="ui dividing header">Variations</h2>
+
   <div class="example">
     <h4 class="ui header">Fluid Card</h4>
     <p>A fluid card takes up the width of its container</p>
@@ -236,7 +238,7 @@ themes      : ['default', 'Basic', 'GitHub']
         </div>
       </div>
     </div>
-  </div></h2>
+  </div>
 
   <div class="example">
     <h4 class="ui header">Size</h4>
