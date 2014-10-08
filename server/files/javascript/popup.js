@@ -17,12 +17,22 @@ semantic.popup.ready = function() {
     })
   ;
 
-  $('.fluid.example .button')
-    .popup()
-  ;
-  $('.fitted.example .button')
+  $('.fluid.example > .button')
     .popup({
-      on: 'click'
+      hoverable: true,
+      delay: {
+        show: 100,
+        hide: 500
+      }
+    })
+  ;
+  $('.fitted.example > .button')
+    .popup({
+      hoverable: true,
+      delay: {
+        show: 100,
+        hide: 500
+      }
     })
   ;
 
