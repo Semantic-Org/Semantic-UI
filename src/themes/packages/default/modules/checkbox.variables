@@ -78,17 +78,17 @@
 
 /* Slider */
 @sliderHandleSize: 1.5rem;
+@sliderHandleOffset: (1rem - @sliderHandleSize) / 2;
 @sliderLineWidth: 3.5rem;
 
 @sliderWidth: @sliderLineWidth;
-@sliderHeight: 1rem;
+@sliderHeight: (@sliderHandleSize + @sliderHandleOffset);
 
 @sliderLineHeight: 0.25rem;
 @sliderLineVerticalOffset: 0.4rem;
 @sliderLineColor: @neutralCheckbox;
 @sliderLineRadius: @circularRadius;
 
-@sliderHandleOffset: (1rem - @sliderHandleSize) / 2;
 @sliderTravelDistance: @sliderLineWidth - @sliderHandleSize;
 
 @sliderLabelDistance: @sliderLineWidth + 1rem;
