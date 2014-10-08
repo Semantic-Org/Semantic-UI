@@ -119,10 +119,10 @@ a.ui.label {
 --------------------*/
 
 /* Padding on next content after a label */
-.ui.top.attached.label:first-child + :not(.label) {
+.ui.top.attached.label:first-child + :not(.attached) {
   margin-top: @attachedSegmentPadding !important;
 }
-.ui.bottom.attached.label:first-child ~ :last-child {
+.ui.bottom.attached.label:first-child ~ :last-child:not(.attached) {
   margin-top: 0em;
   margin-bottom: @attachedSegmentPadding !important;
 }
