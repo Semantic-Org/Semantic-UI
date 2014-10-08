@@ -221,13 +221,13 @@ $.fn.transition = function() {
               .one(animationEnd + eventNamespace, module.complete)
             ;
             module.set.duration(settings.duration);
-            module.debug('Starting tween', settings.animation, $module.attr('class'));
+            module.debug('Starting tween', animation, $module.attr('class'));
           },
           display: function() {
             var
-              style         = $module.attr('style') || '',
+              style         = module.get.style(),
               displayType   = module.get.displayType(),
-              overrideStyle = style + ';display: ' + displayType + ' !important;'
+              overrideStyle = style + 'display: ' + displayType + ' !important;'
             ;
             if( $module.css('display') !== displayType ) {
               module.verbose('Setting inline visibility to', displayType);
@@ -306,9 +306,13 @@ $.fn.transition = function() {
             module.verbose('Saving existence of transition', animation, exists);
           },
           conditions: function() {
+            var
+              clasName = $module.attr('class') || false,
+              style = $module.attr('style') || ''
+            ;
             module.cache = {
               className : $module.attr('class'),
-              style     : $module.attr('style')
+              style     : module.get.style()
             };
             module.verbose('Saving original attributes', module.cache);
           }
@@ -328,12 +332,6 @@ $.fn.transition = function() {
             if(module.cache.style) {
               module.verbose('Restoring original style attribute', module.cache.style);
               $module.attr('style', module.cache.style);
-            }
-            else {
-              if(module.get.displayType() === 'block') {
-                module.verbose('Removing inline style override, element defaults to block');
-                $module.removeAttr('style');
-              }
             }
             if(module.is.looping()) {
               module.remove.looping();
@@ -431,6 +429,12 @@ $.fn.transition = function() {
             }
             return module.displayType;
           },
+          style: function() {
+            var
+               style = $module.attr('style') || ''
+            ;
+            return style.replace(/display.*?;/, '');
+          },
           transitionExists: function(animation) {
             return $.fn.transition.exists[animation];
           },
@@ -499,11 +503,11 @@ $.fn.transition = function() {
               module.verbose('Determining whether animation exists');
               $clone = $('<' + tagName + ' />').addClass( elementClass ).insertAfter($module);
               currentAnimation = $clone
+                .addClass(animation)
                 .removeClass(className.inward)
                 .removeClass(className.outward)
                 .addClass(className.animating)
                 .addClass(className.transition)
-                .addClass(animation)
                 .css(animationName)
               ;
               inAnimation = $clone
