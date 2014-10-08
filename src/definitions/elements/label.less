@@ -119,7 +119,7 @@ a.ui.label {
 --------------------*/
 
 /* Padding on next content after a label */
-.ui.top.attached.label:first-child + * {
+.ui.top.attached.label:first-child + :not(.label) {
   margin-top: @attachedSegmentPadding !important;
 }
 .ui.bottom.attached.label:first-child ~ :last-child {
@@ -440,7 +440,6 @@ a.ui.label {
 .ui.label.disabled {
   opacity: 0.5;
 }
-
 
 /*-------------------
         Hover
