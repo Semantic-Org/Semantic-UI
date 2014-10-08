@@ -164,7 +164,7 @@ type        : 'UI Module'
     <div class="examples">
       <h2 class="ui dividing header">Visibility</h2>
       <p>After the animation queue finishes for an element, its final visibility state is determined. If an animation is an outward transition, the final visibility status will be hidden. If an animation is inward the element will be visible after the animation finishes.</p>
-      <div class="code" data-demo="true" data-title="Disapearing element">
+      <div class="code" data-type="javascript" data-demo="true" data-title="Disapearing element">
       $('.stick.image')
         .transition('scale')
       ;

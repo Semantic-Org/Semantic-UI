@@ -208,7 +208,9 @@ semantic.ready = function() {
         text    = $choice.text()
       ;
       if(percent < 100 && languageDropdownUsed) {
+        languageDropdownUsed = false;
         $languageModal
+          .modal()
           .find('.header .name')
             .html(text)
             .end()
