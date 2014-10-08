@@ -757,6 +757,36 @@ $.fn.form.settings = {
         urlRegExp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
       ;
       return urlRegExp.test(value);
+    },
+    integer: function(value, range) {
+      var
+        intRegExp = /^\-?\d+$/,
+        min,
+        max,
+        parts
+      ;
+      if (range === undefined || range === '' || range === '..') {
+        // do nothing
+      }
+      else if (range.indexOf('..') == -1) {
+        if (intRegExp.test(range)) {
+          min = max = range - 0;
+        }
+      }
+      else {
+        parts = range.split('..', 2);
+        if (intRegExp.test(parts[0])) {
+          min = parts[0] - 0;
+        }
+        if (intRegExp.test(parts[1])) {
+          max = parts[1] - 0;
+        }
+      }
+      return (
+        intRegExp.test(value) &&
+        (min === undefined || value >= min) &&
+        (max === undefined || value <= max)
+      );
     }
   }
 
