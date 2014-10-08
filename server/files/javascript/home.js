@@ -62,28 +62,11 @@ semantic.home.ready = function() {
   ;
 
 
-  $('.card .dimmer')
-    .dimmer({
-      on: 'hover'
-    })
-  ;
-
   window.Transifex.live.onTranslatePage(function(countryCode){
     var fullName = $('.language.dropdown .item[data-value=' + countryCode + ']').eq(0).text();
     $('.language.dropdown > .text').html(fullName);
   });
 
-
-  $('.demo .ui.accordion')
-    .accordion()
-  ;
-
-  $('.demo .ui.dropdown')
-    .dropdown()
-  ;
-  $('.demo .ui.checkbox')
-    .checkbox()
-  ;
   $('.ui.sidebar')
     .sidebar('setting', 'transition', 'slide along')
   ;

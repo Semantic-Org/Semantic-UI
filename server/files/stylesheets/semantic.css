@@ -156,6 +156,7 @@ a:hover {
 
 #example #menu .logo.image {
   width: 35px;
+  margin-right: 0.5em;
 }
 #example #menu .item {
   position: relative;
@@ -176,6 +177,8 @@ a:hover {
 }
 
 #example #menu .inverted.header {
+  font-size: 1em;
+  font-weight: normal;
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 0.5em;
 }
@@ -950,7 +953,7 @@ body#example.hide {
 
 #example .demo.row {
   margin: 0 auto;
-  max-width: 1100px;
+  max-width: 1140px;
 }
 #example .demo.row .ui.menu,
 #example .demo.row .ui.card {
@@ -962,12 +965,21 @@ body#example.hide {
 }
 #example .demo.row .example {
   clear: both;
+  padding-top: 1.5em;
+  margin-top: 1.5em;
+}
+#example .demo.row .example:first-child {
+  margin-top: 0;
+  padding-top: 0;
 }
 #example .demo.row .segment.example {
   z-index: 1;
 }
 #example .demo.row .ui.label:not(.empty) {
   margin-bottom: 1em;
+}
+#example .demo.row .segment .ui.label {
+  margin-bottom: 0em;
 }
 
 /*--------------
@@ -1411,6 +1423,13 @@ body.progress.animated .ui.progress .bar {
   padding: 2em 2em 8em;
   z-index: 1;
 }
+#example .wide.main.container {
+  width: 80%;
+  margin: 0 auto;
+  right: 0;
+  max-width: 1140px;
+}
+
 #example .main.container .right.rail .sticky {
   padding: 2em 0em;
 }

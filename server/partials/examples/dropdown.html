@@ -1,7 +1,7 @@
 <div class="ui fluid search selection dropdown">
   <input type="hidden" name="country">
   <i class="dropdown icon"></i>
-  <div class="default text">Select Country</div>
+  <div class="default text">Select country</div>
   <div class="menu">
     <div data-value="ad" class="item"><i class="ad flag"></i>Andorra</div>
     <div data-value="ae" class="item"><i class="ae flag"></i>United Arab Emirates</div>
@@ -249,28 +249,37 @@
 </div>
 
 <div class="ui divider"></div>
-<div class="ui searchable floating dropdown labeled icon button" tabindex="0">
+<div class="ui searchable floating dropdown labeled icon button">
   <i class="filter icon"></i>
   <span class="text">Filter Posts</span>
-  <div class="menu" tabindex="-1">
+  <div class="menu">
     <div class="header">
-      Filter by Tag
+      Filter
     </div>
     <div class="item">
       <div class="ui red empty circular label"></div>
-      Important
+      Tag A
     </div>
     <div class="item">
       <div class="ui blue empty circular label"></div>
-      Announcement
+      Tag B
     </div>
     <div class="item">
       <div class="ui black empty circular label"></div>
-      Cannot Fix
+      Tag C
     </div>
     <div class="item">
       <div class="ui green empty circular label"></div>
-      Discussion
+      Tag D
     </div>
   </div>
 </div>
+<script type="text/javascript">
+$(document)
+  .ready(function(){
+    $('.demo .ui.dropdown')
+      .dropdown()
+    ;
+  })
+;
+</script>

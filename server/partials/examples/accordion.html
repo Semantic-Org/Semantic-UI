@@ -2,33 +2,33 @@
   <div class="item">
     <a class="active title">
       <i class="dropdown icon"></i>
-      Size
+      Menu Item
     </a>
     <div class="active content">
       <div class="ui form">
         <div class="grouped fields">
           <div class="field">
             <div class="ui radio checkbox">
-              <input type="radio" value="small" name="size">
-              <label>Small</label>
+              <input type="radio" value="small">
+              <label>Choice</label>
             </div>
           </div>
           <div class="field">
             <div class="ui radio checkbox">
-              <input type="radio" value="medium" name="size">
-              <label>Medium</label>
+              <input type="radio" value="medium">
+              <label>Choice</label>
             </div>
           </div>
           <div class="field">
             <div class="ui radio checkbox">
-              <input type="radio" value="large" name="size">
-              <label>Large</label>
+              <input type="radio" value="large">
+              <label>Choice</label>
             </div>
           </div>
           <div class="field">
             <div class="ui radio checkbox">
-              <input type="radio" value="x-large" name="size">
-              <label>X-Large</label>
+              <input type="radio" value="x-large">
+              <label>Choice</label>
             </div>
           </div>
         </div>
@@ -38,33 +38,33 @@
   <div class="item">
     <a class="title">
       <i class="dropdown icon"></i>
-      Colors
+      Menu Item
     </a>
     <div class="content">
       <div class="ui form">
         <div class="grouped fields">
           <div class="field">
             <div class="ui radio checkbox">
-              <input type="radio" name="color">
-              <label>Red</label>
+              <input type="radio" value="small">
+              <label>Choice</label>
             </div>
           </div>
           <div class="field">
             <div class="ui radio checkbox">
-              <input type="radio" name="color">
-              <label>Orange</label>
+              <input type="radio" value="medium">
+              <label>Choice</label>
             </div>
           </div>
           <div class="field">
             <div class="ui radio checkbox">
-              <input type="radio" name="color">
-              <label>Green</label>
+              <input type="radio" value="large">
+              <label>Choice</label>
             </div>
           </div>
           <div class="field">
             <div class="ui radio checkbox">
-              <input type="radio" name="color">
-              <label>Blue</label>
+              <input type="radio" value="x-large">
+              <label>Choice</label>
             </div>
           </div>
         </div>
@@ -72,3 +72,37 @@
     </div>
   </div>
 </div>
+
+<div class="ui styled accordion">
+  <div class="active title">
+    <i class="dropdown icon"></i>
+    Title
+  </div>
+  <div class="active content">
+    <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
+  </div>
+  <div class="title">
+    <i class="dropdown icon"></i>
+    Title
+  </div>
+  <div class="content">
+    <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
+  </div>
+  <div class="title">
+    <i class="dropdown icon"></i>
+    Title
+  </div>
+  <div class="content">
+    <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
+  </div>
+</div>
+
+<script type="text/javascript">
+$(document)
+  .ready(function(){
+    $('.demo .ui.accordion')
+      .accordion()
+    ;
+  })
+;
+</script>

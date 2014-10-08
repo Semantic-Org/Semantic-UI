@@ -628,10 +628,10 @@
 #example .stripe h3 {
   font-size: 20px;
 }
-#example .stripe .buttons {
+#example .theming.stripe .buttons {
   vertical-align: top;
 }
-#example .stripe .button {
+#example .theming.stripe .button {
   margin-bottom: 0.5em;
 }
 #example .stripe .column > p {
