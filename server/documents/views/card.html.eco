@@ -49,7 +49,7 @@ themes      : ['Default', 'Basic', 'Classic']
   <div class="even example">
     <h4 class="ui header">Cards</h4>
     <p>A group of cards. </p>
-    <div class="ui info message">
+    <div class="ui ignored info message">
       <h3 class="header">Customizing your views</h3>
       <p>Cards are designed to be flexible to your content. Meta content can include custom elements related to your content. Each child element inside the <code>extra content</code> or <code>meta</code> group will be automatically formatted to be spaced appropriately.</p>
       <p>This example includes a category group, a sign-up date, and a friend count which are arbitrary class names used to format users as cards.</p>
@@ -198,7 +198,7 @@ themes      : ['Default', 'Basic', 'Classic']
   <div class="example">
     <h4 class="ui header">Image</h4>
     <p>A card can contain an image</p>
-    <div class="ui info message">Cards can use <a href="/elements/reveal.html">reveal</a> or <a href="/modules/dimmer.html">dimmers</a> to easily show additional content, or options on hover</div>
+    <div class="ui ignored info message">Cards can use <a href="/elements/reveal.html">reveal</a> or <a href="/modules/dimmer.html">dimmers</a> to easily show additional content, or options on hover</div>
     <div class="ui card">
       <div class="ui slide masked reveal image">
         <img src="/images/avatar/large/jenny.jpg" class="visible content">

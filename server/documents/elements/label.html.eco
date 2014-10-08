@@ -22,7 +22,7 @@ themes      : ['Default']
 
   <div class="example">
     <h4 class="ui header">Label</h4>
-    <p>A basic label</p>
+    <p>A label</p>
     <div class="ui label">
       <i class="mail icon"></i> 23
     </div>
@@ -303,13 +303,19 @@ themes      : ['Default']
       Small
     </div>
     <div class="ui label">
-      Standard
+      Medium
     </div>
     <div class="ui large label">
       Large
     </div>
+    <div class="ui large label">
+      Big
+    </div>
     <div class="ui huge label">
       Huge
+    </div>
+    <div class="ui huge label">
+      Massive
     </div>
   </div>
 
