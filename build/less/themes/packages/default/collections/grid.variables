@@ -31,7 +31,7 @@
 ---------------*/
 
 /* Column Gutters */
-@mobileWidth: auto;
+@mobileWidth: 100%;
 @mobileGutter: 1rem;
 
 @tabletWidth: auto;

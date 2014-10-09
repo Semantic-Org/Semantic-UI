@@ -427,7 +427,7 @@
 }
 @media only screen and (max-width: 767px) {
   .ui.page.grid {
-    width: auto;
+    width: 100%;
     padding-left: 1rem;
     padding-right: 1rem;
   }

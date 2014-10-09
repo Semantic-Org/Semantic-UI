@@ -956,7 +956,7 @@ body#example.hide {
 
 
 #example .demo.row {
-  margin: 0 auto;
+  margin: 0 auto !important;
   max-width: 1140px;
 }
 #example .demo.row .ui.menu,

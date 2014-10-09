@@ -1826,7 +1826,7 @@
 }
 @media only screen and (max-width: 767px) {
   .ui.page.grid {
-    width: auto;
+    width: 100%;
     padding-left: 1rem;
     padding-right: 1rem;
   }
@@ -26056,7 +26056,7 @@ a.ui.nag {
   position: relative;
   display: block;
   max-width: 100%;
-  border: 1px solid 0.2857rem;
+  border: 1px solid rgba(39, 41, 43, 0.15);
   margin: 1em 0em 2.5em;
   box-shadow: none;
   background: rgba(0, 0, 0, 0.03);
