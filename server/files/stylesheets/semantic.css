@@ -154,9 +154,12 @@ a:hover {
      Sidebar
 ---------------*/
 
+#example #menu > :last-child {
+  padding-bottom: 2em;
+}
 #example #menu .logo.image {
   width: 35px;
-  margin-right: 0.5em;
+  margin-right: 1em;
 }
 #example #menu .item {
   position: relative;
@@ -1499,10 +1502,11 @@ body.progress.animated .ui.progress .bar {
   #example .pusher > .page {
     display: block;
     width: 100%;
+    height: auto;
   }
   #example .pusher > .page > .full.height {
     display: block;
-    height: 100%;
+    height: auto;
   }
   #example .following.menu {
     display: none;

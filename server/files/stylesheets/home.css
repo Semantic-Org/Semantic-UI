@@ -685,6 +685,7 @@
 ---------------*/
 
 #example.index .email.stripe {
+  border-top: 1px solid #DDDDDD;
   padding: 2em 0em;
 }
 #example.index .email.stripe p {

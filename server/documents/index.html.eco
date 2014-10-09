@@ -102,6 +102,23 @@ type   : 'Semantic'
     </div>
   </div>
 </div>
+<div class="ui vertical email stripe segment">
+  <div class="ui center aligned page grid">
+    <div class="column">
+      <h3 class="ui header">
+        Semantic is growing fast. Want to see just how much? Sign up and we'll let you know
+      </h3>
+      <form method="post" action="//semantic-ui.us9.list-manage.com/subscribe/post?u=1bb099283b001a74133a94364&amp;id=1b77a619a7">
+        <div class="ui huge input">
+          <input type="text" name="EMAIL" placeholder="E-mail">
+        </div>
+        <button type="submit" class="ui huge secondary submit button">
+          Sign-up
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
 <div class="feature alternate ui vertical stripe segment">
   <div class="ui three column equal height center aligned divided relaxed stackable page grid">
     <div class="column">
@@ -861,22 +878,6 @@ type   : 'Semantic'
     </div>
   </div>
 </div>
-<!-- <div class="ui vertical email stripe segment">
-  <div class="ui center aligned page grid">
-    <div class="column">
-      <p>
-        Semantic is growing fast. Want to see just how much? Sign up and we'll let you know</p>
-      <form method="post" action="http://www.nogo.com">
-        <div class="ui huge input" style="margin:0 auto">
-          <input type="text" placeholder="E-mail">
-        </div>
-        <button type="submit" class="ui huge secondary submit button">
-          Sign-up
-        </button>
-      </form>
-    </div>
-  </div>
-</div> -->
 <div class="ui vertical inverted stripe segment">
   <div class="ui stackable center aligned very relaxed page grid">
     <div class="twelve wide column">
@@ -901,7 +902,7 @@ type   : 'Semantic'
     </div>
   </div>
 </div>
-<div class="ui vertical stripe segment">
+<div class="ui vertical alternate stripe segment">
   <div class="ui stackable center aligned page grid">
     <div class="twelve wide column">
       <h1 class="ui icon header">
