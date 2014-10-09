@@ -1,5 +1,14 @@
-semantic.api = {};
 
+/* Define API endpoints once globally */
+$.fn.api.settings.debug = true;
+$.fn.api.settings.api = {
+  'get user'      : '/user/{id}',
+  'get followers' : '/followers/{id}?results={count}',
+  'follow user'   : '/follow/{id}',
+  'add user'      : '/add/{id}',
+};
+
+semantic.api = {};
 // ready event
 semantic.api.ready = function() {
 
@@ -17,7 +26,7 @@ semantic.api.ready = function() {
   server.autoRespondAfter = 500;
 
   server
-    .respondWith(method, '/api/follow/5209', [responseCode, headers, body])
+    .respondWith(/\/follow\/(\d+)/, [responseCode, headers, body])
   ;
 };
 

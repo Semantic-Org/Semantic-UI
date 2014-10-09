@@ -4,7 +4,7 @@ css         : 'api'
 
 title       : 'API'
 description : 'API allows UI elements to send events to the server'
-type        : 'Draft'
+type        : 'UI Behavior'
 ---
 
 <script src="/javascript/library/sinon.js"></script>
@@ -30,8 +30,7 @@ type        : 'Draft'
         <div class="column">
           <div class="content">
             <div class="ui header"><i class="green check icon"></i>Deal with resources not URLs</div>
-            <p> Store all your API endpoints as templated URLs in one place inside your code, and then trigger named <em>human readable</em> API actions like <code>'get tweet'</code>. </p>
-            <div class="ui button">See example</div>
+            <p>Create named actions like <code>'follow user'</code> and have API handle URL templating, parameters, and other annoyances for you.</p>
           </div>
         </div>
       </div>
@@ -45,265 +44,217 @@ type        : 'Draft'
         <div class="column">
           <div class="content">
             <div class="ui header"><i class="green check icon"></i>Server Traces For Humans</div>
-            <p>View your API request as it occurs, get errors if required url variables are missing, and other useful performance metrics.</p>
+            <p>View your API request as it occurs in your web console, get errors if required url variables are missing, and useful performance metrics.</p>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="ui tab" data-tab="usage">
+  <div class="ui intro tab" data-tab="usage">
     <div class="fixed column">
-      <div class="content">
-        <h2 class="ui header">Demo</h2>
-        <div class="ui items">
-          <div class="item">
-            <div class="image">
-              <img src="/images/demo/highres3.jpg">
-            </div>
-            <div class="content">
-              <div class="ui fluid adopt toggle button" data-id="5209">
-                <i class="checkmark icon"></i>
-                <span class="text">Adopt</span>
-              </div>
+      <div class="demo content ui sticky">
+        <div class="ui fluid card">
+          <div class="image">
+            <img src="/images/avatar/large/stevie.jpg">
+          </div>
+          <div class="content">
+            <a class="header">Stevie Feliciano</a>
+            <div class="meta">
+              <span class="date">Joined in Sep 2014</span>
             </div>
           </div>
+          <div class="ui bottom attached follow button" data-id="22">Follow</div>
         </div>
       </div>
     </div>
     <div class="examples">
 
-      <h3 class="ui header">1. Define Your API</h3>
-      <p><b>API</b> works best when using a named list of endpoints. This means you can maintain all of your website's API endpoints in a single location, without having to update them across the site.</p>
-      <p>To do this you must include a list of named endpoints before calling <code>$.api</code> on any page. The easiest way to do this is to have it available in a stand-alone configuration file.</p>
+      <h2 class="ui dividing header">Creating an API</h2>
 
-      <p>For the sake of this example we will use Github's public API as an example</p>
-      <div class="evaluated code">
-        /* "Config.js" - Define API endpoints once globally */
-        $.fn.api.settings.api = {
-          'follow user' : '/api/follow/{$id}',
-          'user info'   : '/api/user/{$id}'
-        };
-      </div>
-      <div class="code" data-type="html">
-        <!-- Include on any page using API !-->
-        <script src="/config.js"></script>
-      </div>
+      <div class="no example">
+        <h4 class="ui header">Define Your API</h4>
+        <p><b>API</b> works best by defining named API actions which can be converted to URLs for each request/</p>
+        <p>To do this you must define your endpoints once in your application before making requests. Usually this is done in a central configuration file included on each page.</p>
+        <p>URLs listed in your API can include <b>required parameters</b> and <b>optional parameters</b> which may be adjusted for each call.</p>
+        <p><b>Required Parameters</b> will abort the request if they cannot be replaced when triggered.</p>
+        <p><b>Optional Parameters</b> will be removed from the url if are not included when triggered. In addition, any trailing slashes before an optional parameter will also be removed from the URL, allowing you to include them in resource paths.</p>
+        <div class="code">
+          $.fn.api.settings.api = {
+            'endpoint': 'api/{required}/{/optional}/{/optional2}'
+          };
+        </div>
 
-      <h3 class="ui header">2. Attach an API event to an element</h3>
-
-      <p>Any element can have an API action attached, by default the action will occur on the most relevant event for the type of element. For example a button will use on <code>click</code> or an input <code>oninputchange</code></p>
-
-      <div class="evaluated code">
-      $('.adopt.button')
-        .api({
-          action: 'follow user'
-        })
-      ;
+        <div class="code" data-type="javascript">
+          /* Define API endpoints once globally */
+          $.fn.api.settings.api = {
+            'get user'      : '/user/{id}',
+            'get followers' : '/followers/{id}?results={count}',
+            'follow user'   : '/follow/{id}',
+            'add user'      : '/add/{id}',
+          };
+        </div>
       </div>
 
-      <h3 class="ui header">2. Specify state changes to text or appearance (optional)</h3>
-      <p>API couples well with <a href="#">ui state</a>, a component used for managing text state and class names of elements.</p>
-      <p>State will automatically apply the class <code>active</code> on API success, and update any text nodes with new values specified. This example updates the text of a follow button to "following" when the API action is successful, after flashing the text success.</p>
-      <div class="evaluated code">
-      $('.adopt.button')
-        .state({
-          text: {
-            inactive   : 'Adopt',
-            active     : 'Adopted',
-            deactivate : 'Undo',
-            flash      : 'Success'
-          }
-        })
-      ;
+      <h2 class="ui dividing header">Calling API Actions</h2>
+
+      <div class="no example">
+        <h4 class="ui header">Automatic Events</h4>
+
+        <p>Any element can have an API action attached, by default the action will occur on the most relevant event for the type of element. For example a button will use <code>onclick</code> or an input <code>oninput</code>.</p>
+
+        <div class="ui info message">
+          AJAX requests for the following demos have been faked using <a href="http://sinonjs.org/">SinonJS</a> to avoid rate throttling from public APIs.
+        </div>
+
+        <div class="evaluated code">
+        $('.follow.button')
+          .api({
+            action: 'follow user'
+          })
+        ;
+        </div>
       </div>
 
-      <h3 class="ui header">4. Make sure metadata is set for an element before event occurs</h3>
-
-      <p>When an API action occurs, templated url data is replaced with data you specify to be sent to the server.</p>
-      <div class="code" data-type="html">
-        <div class="ui adopt button" data-id="5209"></div>
+      <div class="no example">
+        <h4 class="ui header">Manual Events</h4>
+        <p>If you need to manually override what action an API event occurs on you can use the <code>on</code> parameter. In addition, using the special parameter <code>on: 'now'</code> will trigger the api event immediately.</p>
+        <div class="code" data-demo="true">
+        $('.follow.button')
+          .api({
+            action: 'get user',
+            on: 'hover'
+          })
+        ;
+        </div>
       </div>
-      <div class="ui horizontal divider">Or</div>
-      <p>Alternatively you can modify the data before sending to server</p>
-      <div class="code">
-      $('.adopt.button')
-        .api('setting', 'beforeSend', function(settings) {
-          settings.urlData.id = 5209;
-          return settings;
-        })
-      ;
+
+      <div class="no example">
+        <h4 class="ui header">Calling Immediately</h4>
+        <p>If you need to manually override what action an API event occurs on you can use the <code>on</code> parameter. In addition, using the special parameter <code>on: 'now'</code> will trigger the api event immediately.</p>
+        <div class="code" data-demo="true">
+        $('.follow.button')
+          .api({
+            action: 'follow user',
+            on: 'now'
+          })
+        ;
+        </div>
+      </div>
+
+      <h2 class="ui dividing header">Setting Conditions</h2>
+
+      <div class="no example">
+        <h4 class="ui header">URL Variables For API Request</h4>
+        <p>Templated variables set in your API are replaced during your request in three different ways.</p>
+
+        <h5 class="ui header">...by Data Attributes</h5>
+        <p>If many elements trigger a similar function, it is often easiest to include data attribute for each instance with the specific url variables</p>
+        <div class="code" data-type="html">
+          <div class="ui follow button" data-id="11">Follow User1</div>
+          <div class="ui follow button" data-id="22">Follow User2</div>
+        </div>
+        <h5 class="ui header">....in Javascript</h5>
+        <p>URL variables can be specified at run-time in the javascript object</p>
+        <div class="code" data-type="javascript">
+          $('.follow.button')
+            .api({
+              action: 'follow user',
+              urlData: {
+                id: 22
+              }
+            })
+          ;
+        </div>
+        <h5 class="ui header">...returned values from beforeSend Callback</h5>
+        <p>In addition all parameters can be adjusted in a special callback <code>beforeSend</code> which occurs, quite intuitively, before the API request is sent.</p>
+        <p>You can also use this callback to adjust other settings before each API call</p>
+        <div class="code" data-type="javascript">
+          $('.follow.button')
+            .api({
+              action: 'follow user',
+              beforeSend: function(settings) {
+                settings.urlData = {
+                  id: 22
+                };
+                return settings;
+              }
+            })
+          ;
+        </div>
+      </div>
+
+      <div class="no example">
+        <h4 class="ui header">3. Defining UI State</h4>
+
+        <p>Many elements like <a href="/elements/button.html">button</a>, <a href="/elements/input.html">input</a>, and <a href="/collections/form.html">form</a> have loading, disabled, and active states defined.</p>
+
+        <div class="ui disabled button">Learn more about states</div>
+
+        <p>API will automatically attach a <b>Loading</b> state when an API request is triggered, additional states can be attached using state behaviors, an optional component that couples well with API behaviors.</p>
+
+        <p>If state is initialized, it will automatically apply the class <code>active</code> on API success, and update any text nodes with new values specified.</p>
+
+        <p>State also includes other states:</p>
+        <ul class="ui list">
+          <li><b>Inactive</b> - Default state</li>
+          <li><b>Active</b> - API request is completed succesfully</li>
+          <li><b>Enable</b> - Text on hover if currently in inactive state</li>
+          <li><b>Deactivate</b> - Text on hover if currently in active state</li>
+          <li><b>Hover</b> - Text appears on hover regardless of state</li>
+          <li><b>Flash</b> - Text appears on element for time duration set by <code>flashDuration</code>
+        </ul>
+
+        <div class="code" data-demo="true">
+        $('.follow.button')
+          .state({
+            text: {
+              inactive   : 'Adopt',
+              active     : 'Adopted',
+              deactivate : 'Undo',
+              flash      : 'Success'
+            }
+          })
+        ;
+        </div>
+      </div>
+
+      <div class="no example">
+        <h4 class="ui header">4. Make sure metadata is set for an element before event occurs</h4>
+
+        <p>When an API action occurs, templated url data is replaced with data you specify to be sent to the server.</p>
+        <div class="code" data-type="html">
+          <div class="ui adopt button" data-id="5209"></div>
+        </div>
+        <div class="ui horizontal divider">Or</div>
+        <p>Alternatively you can modify the data before sending to server</p>
+        <div class="code">
+        $('.adopt.button')
+          .api('setting', 'beforeSend', function(settings) {
+            settings.urlData.id = 5209;
+            return settings;
+          })
+        ;
+        </div>
       </div>
     </div>
 
   </div>
 
   <div class="ui tab" data-tab="examples">
+    <!-- Search Example !-->
 
-    <div class="no example">
-      <h4 class="ui header">Overlay</h4>
-      <p>A api can overlay page content instead of pushing it to the side</p>
-      <div class="code" data-demo="true">
-      $('.overlay.api')
-        .api({
-          overlay: true
-        })
-        .api('toggle')
-      ;
-      </div>
-    </div>
+
+    <!-- Tab Manual Example !-->
+
+
+    <!-- Tab Auto Example !-->
+
 
   </div>
 
   <div class="ui tab" data-tab="settings">
 
-    <h3 class="ui header">
-      API Settings
-      <div class="sub header">Form settings modify the api behavior</div>
-    </h3>
-    <table class="ui celled sortable definition table segment">
-      <thead>
-        <th>Setting</th>
-        <th class="four wide">Default</th>
-        <th>Description</th>
-      </thead>
-      <tbody>
-        <tr>
-          <td>overlay</td>
-          <td>false</td>
-          <td>Whether api should overlay page instead of pushing page to the side</td>
-        </tr>
-        <tr>
-          <td>exclusive</td>
-          <td>true</td>
-          <td>Whether multiple apis can be open at once</td>
-        </tr>
-        <tr>
-          <td>useCSS</td>
-          <td>true</td>
-          <td>Whether to use css animations or fallback javascript animations</td>
-        </tr>
-        <tr>
-          <td>duration</td>
-          <td>300</td>
-          <td>Duration of side bar transition animation</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="ui horizontal section icon divider"><i class="icon setting"></i></div>
-    <h4 class="ui header">Callbacks</h4>
-    <p>Callbacks specify a function to occur after a specific behavior.</p>
-
-    <table class="ui celled sortable definition table segment">
-      <thead>
-        <th class="four wide">Setting</th>
-        <th>Context</th>
-        <th>Description</th>
-      </thead>
-      <tbody>
-        <tr>
-          <td>onShow</td>
-          <td>API</td>
-          <td>Is called when a api is shown.</td>
-        </tr>
-        <tr>
-          <td>onHide</td>
-          <td>API</td>
-          <td>Is called when a api is hidden.</td>
-        </tr>
-        <tr>
-          <td>onChange</td>
-          <td>API</td>
-          <td>Is called after a api changes visibility</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="ui horizontal divider"><i class="icon setting"></i></div>
-
-    <h3 class="ui header">
-      DOM Settings
-      <div class="sub header">DOM settings specify how this module should interface with the DOM</div>
-    </h3>
-    <table class="ui celled definition table segment">
-      <thead>
-        <th>Setting</th>
-        <th class="six wide">Default</th>
-        <th>Description</th>
-      </thead>
-      <tbody>
-        <tr>
-          <td>namespace</td>
-          <td>api</td>
-          <td>Event namespace. Makes sure module teardown does not effect other events attached to an element.</td>
-        </tr>
-        <tr>
-          <td>className</td>
-          <td>
-            <div class="code">
-      className: {
-        active : 'active',
-        pushed : 'pushed',
-        top    : 'top',
-        left   : 'left',
-        right  : 'right',
-        bottom : 'bottom'
-      }
-            </div>
-          </td>
-          <td>Class names used to attach style to state</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="ui horizontal divider"><i class="icon setting"></i></div>
-
-    <h3 class="ui header">
-      Debug Settings
-      <div class="sub header">Debug settings controls debug output to the console</div>
-    </h3>
-
-    <table class="ui celled sortable definition table segment">
-      <thead>
-        <th>Setting</th>
-        <th class="four wide">Default</th>
-        <th>Description</th>
-      </thead>
-      <tbody>
-        <tr>
-          <td>name</td>
-          <td>API</td>
-          <td>Name used in debug logs</td>
-        </tr>
-        <tr>
-          <td>debug</td>
-          <td>True</td>
-          <td>Provides standard debug output to console</td>
-        </tr>
-        <tr>
-          <td>performance</td>
-          <td>True</td>
-          <td>Provides standard debug output to console</td>
-        </tr>
-        <tr>
-          <td>verbose</td>
-          <td>True</td>
-          <td>Provides ancillary debug output to console</td>
-        </tr>
-        <tr>
-          <td>errors</td>
-          <td colspan="2">
-            <div class="code">
-      error   : {
-        method   : 'The method you called is not defined.',
-        notFound : 'There were no elements that matched the specified selector'
-      }
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
   </div>
 
 </div>
