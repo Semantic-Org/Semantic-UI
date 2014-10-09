@@ -41,7 +41,7 @@
 @inputPadding: (@inputVerticalPadding + ((1em - @inputLineHeight) / 2)) @inputHorizontalPadding;
 @inputBackground: #FFFFFF;
 @inputBorder: 1px solid @borderColor;
-@inputBorderRadius: 0.3125em;
+@inputBorderRadius: @absoluteBorderRadius;
 @inputColor: @textColor;
 @inputTransition:
   background-color 0.2s ease,

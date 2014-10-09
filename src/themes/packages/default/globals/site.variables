@@ -85,6 +85,16 @@
 @transparentWhite       : rgba(255, 255, 255, 0.05);
 @strongTransparentWhite : rgba(255, 255, 255, 0.07);
 
+
+/*-------------------
+       Accents
+--------------------*/
+
+/* 4px @ 14px */
+@relativeBorderRadius: 0.2857em;
+@absoluteBorderRadius: 0.2857rem;
+@defaultBorderRadius: @absoluteBorderRadius;
+
 /* Used for differentiating neutrals */
 @subtleGradient: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
 

@@ -35,7 +35,7 @@
   background 0.2s ease,
   box-shadow 0.2s ease
 ;
-@borderRadius: 0.1875rem;
+@borderRadius: @defaultBorderRadius;
 
 @dividerSize: 1px;
 @dividerBackground: linear-gradient(
@@ -186,7 +186,7 @@
 
 @secondaryTransition: color 0.2s ease;
 
-@secondaryBorderRadius: 0.3125em;
+@secondaryBorderRadius: @defaultBorderRadius;
 
 @secondaryMargin: 0.25em;
 @secondaryVerticalMargin: 0.3em;

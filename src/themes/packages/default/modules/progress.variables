@@ -12,10 +12,10 @@
 @lastMargin: 0em 0em (@labelHeight);
 
 @background: @subtleTransparentBlack;
-@border: 1px solid rgba(0, 0, 0, 0.05);
+@border: 1px solid @borderRadius;
 @boxShadow: none;
-@padding: 0.325em;
-@borderRadius: 0.325em;
+@padding: 0.2857em;
+@borderRadius: @defaultBorderRadius;
 
 /* Bar */
 @barPosition: relative;

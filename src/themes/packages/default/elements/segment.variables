@@ -19,7 +19,7 @@
 @horizontalPadding: 1em;
 
 @margin: 1rem;
-@borderRadius: 0.25rem;
+@borderRadius: @defaultBorderRadius;
 
 /*-------------------
        Coupling

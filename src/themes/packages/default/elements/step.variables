@@ -19,7 +19,7 @@
   color 0.1s ease,
   box-shadow 0.1s ease
 ;
-@borderRadius: 0.3125rem;
+@borderRadius: @defaultBorderRadius;
 @lineHeight: 1.2;
 
 @backgroundColor: #FFFFFF;
@@ -59,7 +59,7 @@
        Group
 --------------------*/
 
-@stepsBorderRadius: 0.3125rem;
+@stepsBorderRadius: @defaultBorderRadius;
 @stepsBackground: '';
 @stepsBoxShadow: '';
 
