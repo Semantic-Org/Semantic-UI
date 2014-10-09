@@ -56,6 +56,10 @@
   background: @menuBackground;
   min-width: 100%;
 
+  overflow-y: auto;
+  backface-visibility: hidden;
+  -webkit-overflow-scrolling: touch;
+
   white-space: @menuWrap;
   font-size: 1rem;
   text-shadow: none;
@@ -68,6 +72,32 @@
   z-index: @menuZIndex;
   will-change: transform, opacity;
 }
+
+/*--------------
+   Responsive
+---------------*/
+
+@media only screen and (max-width : @largestMobileScreen) {
+  .ui.dropdown .menu {
+    max-height: @mobileMaxMenuHeight;
+  }
+}
+@media only screen and (min-width: @tabletBreakpoint) {
+  .ui.dropdown .menu {
+    max-height: @tabletMaxMenuHeight;
+  }
+}
+@media only screen and (min-width: @computerBreakpoint) {
+  .ui.dropdown .menu {
+    max-height: @computerMaxMenuHeight;
+  }
+}
+@media only screen and (min-width: @widescreenMonitorBreakpoint) {
+  .ui.dropdown .menu {
+    max-height: @widescreenMaxMenuHeight;
+  }
+}
+
 
 /*--------------
   Hidden Input

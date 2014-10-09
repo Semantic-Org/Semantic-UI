@@ -47,9 +47,21 @@
 @itemVerticalPadding: 0.65rem;
 @itemHorizontalPadding: 1.25rem;
 @itemFontWeight: normal;
-@itemLineHeight: 1.2;
+@itemLineHeight: 1.2em;
 @itemTextTransform: none;
 @itemBoxShadow: none;
+
+/* Responsive */
+@itemActualHeight: (@itemVerticalPadding * 2) + @itemLineHeight;
+
+@mobileMaxItems: 6;
+@tabletMaxItems: 8;
+@computerMaxItems: 12;
+@mobileMaxMenuHeight: (@itemActualHeight * @mobileMaxItems);
+@tabletMaxMenuHeight: (@itemActualHeight * @tabletMaxItems);
+@computerMaxMenuHeight: (@itemActualHeight * @computerMaxItems);
+@widescreenMaxMenuHeight: 9999px;
+
 
 /* Menu Header */
 @menuHeaderColor: @darkTextColor;
