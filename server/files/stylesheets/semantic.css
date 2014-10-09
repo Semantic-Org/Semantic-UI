@@ -633,12 +633,13 @@ body#example.hide {
 /* Description */
 #example .example .anchor + p {
   margin: 0.25em 0px 1.5em;
+  color: rgba(0, 0, 0, 0.6);
 }
 #example .no.example .anchor + p {
   margin: 0em 0px 1em;
 }
 #example .example > p {
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 /* Message */
@@ -671,6 +672,16 @@ body#example.hide {
 #example .intro .example h4 ~ .ignored {
   margin: 1em 0em !important;
   font-size: 14px;
+}
+
+#example .intro .example p {
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+#example .existing.segment:after,
+#example .instructive.segment:after {
+  display: none;
 }
 
 /*----------------
