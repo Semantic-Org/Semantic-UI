@@ -56,10 +56,6 @@
   background: @menuBackground;
   min-width: 100%;
 
-  overflow-y: auto;
-  backface-visibility: hidden;
-  -webkit-overflow-scrolling: touch;
-
   white-space: @menuWrap;
   font-size: 1rem;
   text-shadow: none;
@@ -72,32 +68,6 @@
   z-index: @menuZIndex;
   will-change: transform, opacity;
 }
-
-/*--------------
-   Responsive
----------------*/
-
-@media only screen and (max-width : @largestMobileScreen) {
-  .ui.dropdown .menu {
-    max-height: @mobileMaxMenuHeight;
-  }
-}
-@media only screen and (min-width: @tabletBreakpoint) {
-  .ui.dropdown .menu {
-    max-height: @tabletMaxMenuHeight;
-  }
-}
-@media only screen and (min-width: @computerBreakpoint) {
-  .ui.dropdown .menu {
-    max-height: @computerMaxMenuHeight;
-  }
-}
-@media only screen and (min-width: @widescreenMonitorBreakpoint) {
-  .ui.dropdown .menu {
-    max-height: @widescreenMaxMenuHeight;
-  }
-}
-
 
 /*--------------
   Hidden Input
@@ -362,7 +332,6 @@ select.ui.dropdown {
   min-width: ~"calc(100% + 2px)";
   outline: none;
 
-  max-height: @selectionMenuMaxHeight;
   box-shadow: @selectionMenuBoxShadow;
   transition: @selectionMenuTransition;
 }
@@ -370,6 +339,29 @@ select.ui.dropdown {
 .ui.selection.dropdown .menu:before {
   display: none;
 }
+
+@media only screen and (max-width : @largestMobileScreen) {
+  .ui.selection.dropdown .menu {
+    max-height: @selectionMobileMaxMenuHeight;
+  }
+}
+@media only screen and (min-width: @tabletBreakpoint) {
+  .ui.selection.dropdown .menu {
+    max-height: @selectionTabletMaxMenuHeight;
+  }
+}
+@media only screen and (min-width: @computerBreakpoint) {
+  .ui.selection.dropdown .menu {
+    max-height: @selectionComputerMaxMenuHeight;
+  }
+}
+@media only screen and (min-width: @widescreenMonitorBreakpoint) {
+  .ui.selection.dropdown .menu {
+    max-height: @selectionWidescreenMaxMenuHeight;
+  }
+}
+
+/* Menu Item */
 .ui.selection.dropdown .menu > .item {
   border-top: @selectionItemDivider;
   padding-left: @selectionHorizontalPadding !important;
