@@ -4,7 +4,7 @@ css         : 'api'
 
 title       : 'API'
 description : 'API allows elements to trigger actions on a server'
-type        : 'Draft'
+type        : 'UI Behavior'
 ---
 
 <script src="/javascript/library/sinon.js"></script>
