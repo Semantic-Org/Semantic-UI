@@ -1847,6 +1847,36 @@ $.fn.form.settings = {
         urlRegExp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
       ;
       return urlRegExp.test(value);
+    },
+    integer: function(value, range) {
+      var
+        intRegExp = /^\-?\d+$/,
+        min,
+        max,
+        parts
+      ;
+      if (range === undefined || range === '' || range === '..') {
+        // do nothing
+      }
+      else if (range.indexOf('..') == -1) {
+        if (intRegExp.test(range)) {
+          min = max = range - 0;
+        }
+      }
+      else {
+        parts = range.split('..', 2);
+        if (intRegExp.test(parts[0])) {
+          min = parts[0] - 0;
+        }
+        if (intRegExp.test(parts[1])) {
+          max = parts[1] - 0;
+        }
+      }
+      return (
+        intRegExp.test(value) &&
+        (min === undefined || value >= min) &&
+        (max === undefined || value <= max)
+      );
     }
   }
 
@@ -8286,6 +8316,7 @@ $.fn.modal = function(parameters) {
           }
           $dimmable = $context
             .dimmer({
+              debug    : settings.debug,
               closable : false,
               useCSS   : true,
               duration : {
@@ -8467,6 +8498,7 @@ $.fn.modal = function(parameters) {
                 module.debug('Showing modal with css animations');
                 $module
                   .transition({
+                    debug     : settings.debug,
                     animation : settings.transition + ' in',
                     duration  : settings.duration,
                     complete  : function() {
@@ -8549,6 +8581,7 @@ $.fn.modal = function(parameters) {
           if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
             $module
               .transition({
+                debug     : settings.debug,
                 animation : settings.transition + ' out',
                 duration  : settings.duration,
                 complete  : function() {
@@ -9665,7 +9698,7 @@ $.fn.popup = function(parameters) {
                 .appendTo( $context )
               ;
             }
-            if(settings.hoverable && module.cache === undefined ) {
+            if(settings.hoverable) {
               module.bind.popup();
             }
             $.proxy(settings.onCreate, $popup)();
@@ -9674,6 +9707,9 @@ $.fn.popup = function(parameters) {
             module.verbose('Pre-existing popup found, reverting to inline');
             settings.inline = true;
             module.refresh();
+            if(settings.hoverable) {
+              module.bind.popup();
+            }
           }
           else {
             module.debug('No content specified skipping display', element);
@@ -10085,13 +10121,11 @@ $.fn.popup = function(parameters) {
 
         bind: {
           popup: function() {
-            if(settings.hoverable) {
-              module.verbose('Allowing hover events on popup to prevent closing');
-              $popup
-                .on('mouseenter', module.event.start)
-                .on('mouseleave', module.event.end)
-              ;
-            }
+            module.verbose('Allowing hover events on popup to prevent closing');
+            $popup
+              .on('mouseenter', module.event.start)
+              .on('mouseleave', module.event.end)
+            ;
           },
           close:function() {
             if(settings.on == 'click' && settings.closable) {
@@ -15832,13 +15866,13 @@ $.fn.transition = function() {
               .one(animationEnd + eventNamespace, module.complete)
             ;
             module.set.duration(settings.duration);
-            module.debug('Starting tween', settings.animation, $module.attr('class'));
+            module.debug('Starting tween', animation, $module.attr('class'));
           },
           display: function() {
             var
-              style         = $module.attr('style') || '',
+              style         = module.get.style(),
               displayType   = module.get.displayType(),
-              overrideStyle = style + ';display: ' + displayType + ' !important;'
+              overrideStyle = style + 'display: ' + displayType + ' !important;'
             ;
             if( $module.css('display') !== displayType ) {
               module.verbose('Setting inline visibility to', displayType);
@@ -15917,9 +15951,13 @@ $.fn.transition = function() {
             module.verbose('Saving existence of transition', animation, exists);
           },
           conditions: function() {
+            var
+              clasName = $module.attr('class') || false,
+              style = $module.attr('style') || ''
+            ;
             module.cache = {
               className : $module.attr('class'),
-              style     : $module.attr('style')
+              style     : module.get.style()
             };
             module.verbose('Saving original attributes', module.cache);
           }
@@ -15939,12 +15977,6 @@ $.fn.transition = function() {
             if(module.cache.style) {
               module.verbose('Restoring original style attribute', module.cache.style);
               $module.attr('style', module.cache.style);
-            }
-            else {
-              if(module.get.displayType() === 'block') {
-                module.verbose('Removing inline style override, element defaults to block');
-                $module.removeAttr('style');
-              }
             }
             if(module.is.looping()) {
               module.remove.looping();
@@ -16042,6 +16074,12 @@ $.fn.transition = function() {
             }
             return module.displayType;
           },
+          style: function() {
+            var
+               style = $module.attr('style') || ''
+            ;
+            return style.replace(/display.*?;/, '');
+          },
           transitionExists: function(animation) {
             return $.fn.transition.exists[animation];
           },
@@ -16110,11 +16148,11 @@ $.fn.transition = function() {
               module.verbose('Determining whether animation exists');
               $clone = $('<' + tagName + ' />').addClass( elementClass ).insertAfter($module);
               currentAnimation = $clone
+                .addClass(animation)
                 .removeClass(className.inward)
                 .removeClass(className.outward)
                 .addClass(className.animating)
                 .addClass(className.transition)
-                .addClass(animation)
                 .css(animationName)
               ;
               inAnimation = $clone

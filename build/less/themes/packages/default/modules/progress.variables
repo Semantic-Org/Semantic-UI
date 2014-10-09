@@ -60,6 +60,18 @@
 @labelTransition: color 1s @defaultEasing;
 
 /*-------------------
+        Types
+--------------------*/
+
+@indicatingFirstColor: #D95C5C;
+@indicatingSecondColor: #D9A65C;
+@indicatingThirdColor: #E6BB48;
+@indicatingFourthColor: #DDC928;
+@indicatingFifthColor: #B4D95C;
+@indicatingSixthColor: #66DA81;
+
+
+/*-------------------
         States
 --------------------*/
 

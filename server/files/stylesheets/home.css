@@ -541,6 +541,15 @@
   visibility: hidden;
 }
 
+#example.index .demo.row .example {
+  clear: both;
+  padding-top: 1.5em;
+  margin-top: 1.5em;
+}
+#example.index .demo.row .example:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
 
 #example.index .following.bar {
   position: absolute;

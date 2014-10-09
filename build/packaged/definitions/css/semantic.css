@@ -518,6 +518,7 @@
 /* Form Label */
 /* Grouped / Inline Labels */
 /* Input */
+/* Select */
 /* Text Area */
 /* Checkbox */
 /* Divider */
@@ -659,6 +660,7 @@
 /* Form Label */
 /* Grouped / Inline Labels */
 /* Input */
+/* Select */
 /* Text Area */
 /* Checkbox */
 /* Divider */
@@ -816,6 +818,22 @@
 ---------------------------*/
 .ui.form input.attached {
   width: auto;
+}
+/*--------------------
+     Basic Select
+---------------------*/
+.ui.form select {
+  display: block;
+  height: auto;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid rgba(39, 41, 43, 0.15);
+  border-radius: 0.3125em;
+  box-shadow: 0em 0em 0em 0em transparent inset;
+  padding: 0.62em 1em;
+  color: rgba(0, 0, 0, 0.8);
+  -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+          transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 /*--------------------
        Dropdown
@@ -13975,7 +13993,7 @@ img.ui.bordered.image {
 .ui.avatar.images img,
 .ui.avatar.image img,
 .ui.avatar.image {
-  margin-right: 0.25rem;
+  margin-right: 0.25em;
   display: inline-block;
   width: 2.5em;
   height: 2.5em;
@@ -15087,8 +15105,9 @@ a.ui.label {
 /* Detail */
 .ui.label .detail {
   display: inline-block;
-  margin-left: 1em;
+  vertical-align: top;
   font-weight: bold;
+  margin-left: 1em;
   opacity: 0.8;
 }
 .ui.label .detail .icon {
@@ -15119,12 +15138,12 @@ a.ui.label {
        Coupling
 --------------------*/
 /* Padding on next content after a label */
-.ui.top.attached.label:first-child + * {
-  margin-top: 2rem;
+.ui.top.attached.label:first-child + :not(.attached) {
+  margin-top: 2rem !important;
 }
-.ui.bottom.attached.label:first-child ~ :last-child {
+.ui.bottom.attached.label:first-child ~ :last-child:not(.attached) {
   margin-top: 0em;
-  margin-bottom: 2rem;
+  margin-bottom: 2rem !important;
 }
 /*******************************
              Types
@@ -15842,27 +15861,35 @@ a.ui.yellow.label:hover:before {
 --------------------*/
 .ui.mini.labels .label,
 .ui.mini.label {
-  font-size: 0.7rem;
+  font-size: 0.6428em;
 }
 .ui.tiny.labels .label,
 .ui.tiny.label {
-  font-size: 0.75rem;
+  font-size: 0.7142em;
 }
 .ui.small.labels .label,
 .ui.small.label {
-  font-size: 0.8rem;
+  font-size: 0.7857em;
 }
 .ui.labels .label,
 .ui.label {
-  font-size: 0.875rem;
+  font-size: 0.8571em;
 }
 .ui.large.labels .label,
 .ui.large.label {
-  font-size: 1rem;
+  font-size: 1em;
+}
+.ui.big.labels .label,
+.ui.big.label {
+  font-size: 1.1428em;
 }
 .ui.huge.labels .label,
 .ui.huge.label {
-  font-size: 1.25rem;
+  font-size: 1.2857em;
+}
+.ui.massive.labels .label,
+.ui.massive.label {
+  font-size: 1.4285em;
 }
 /*******************************
            Overrides
@@ -18906,11 +18933,13 @@ ol.ui.horizontal.list li:before,
   box-shadow: none;
   border: 1px solid #d4d4d5;
 }
+.ui.segment.attached + .ui.segment.attached {
+  border-top: none;
+}
 /* Top */
 .ui[class*="top attached"].segment {
   top: 0px;
   bottom: 0px;
-  border-bottom: none;
   margin-top: 1rem;
   margin-bottom: 0em;
   border-radius: 0.25rem 0.25rem 0em 0em;
@@ -18920,7 +18949,6 @@ ol.ui.horizontal.list li:before,
 }
 /* Bottom */
 .ui.segment[class*="bottom attached"] {
-  border-top: none;
   top: 0px;
   bottom: 0px;
   margin-top: 0em;
@@ -22180,7 +22208,7 @@ a:hover {
 ---------------*/
 .ui.slider.checkbox {
   cursor: pointer;
-  height: 1rem;
+  height: 1.25rem;
 }
 .ui.slider.checkbox .box,
 .ui.slider.checkbox label {
@@ -22695,7 +22723,7 @@ a:hover {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  will-transform: opacity;
+  will-change: opacity;
   z-index: 1000;
 }
 /* Dimmer Content */
@@ -25596,6 +25624,9 @@ a.ui.nag {
 /* Progress Bar Label */
 /* Label */
 /*-------------------
+        Types
+--------------------*/
+/*-------------------
         States
 --------------------*/
 /* Active */
@@ -25712,6 +25743,9 @@ a.ui.nag {
 /* Progress Bar Label */
 /* Label */
 /*-------------------
+        Types
+--------------------*/
+/*-------------------
         States
 --------------------*/
 /* Active */
@@ -25751,24 +25785,23 @@ a.ui.nag {
 }
 /* Indicating */
 .ui.indicating.progress .bar[style^="width: 3"] {
-  background-color: #D9A65C;
+  background-color: #d9a65c;
 }
 .ui.indicating.progress .bar[style^="width: 4"],
 .ui.indicating.progress .bar[style^="width: 5"] {
-  background-color: #E6BB48;
+  background-color: #e6bb48;
 }
 .ui.indicating.progress .bar[style^="width: 6"] {
-  background-color: #DDC928;
+  background-color: #ddc928;
 }
 .ui.indicating.progress .bar[style^="width: 7"],
 .ui.indicating.progress .bar[style^="width: 8"] {
-  background-color: #B4D95C;
+  background-color: #b4d95c;
 }
 .ui.indicating.progress .bar[style^="width: 9"],
 .ui.indicating.progress .bar[style^="width: 100"] {
-  background-color: #66DA81;
+  background-color: #66da81;
 }
-/* Single Digits Last */
 .ui.indicating.progress .bar[style^="width: 1%"],
 .ui.indicating.progress .bar[style^="width: 2%"],
 .ui.indicating.progress .bar[style^="width: 3%"],
@@ -25780,7 +25813,39 @@ a.ui.nag {
 .ui.indicating.progress .bar[style^="width: 9%"],
 .ui.indicating.progress .bar[style^="width: 1"],
 .ui.indicating.progress .bar[style^="width: 2"] {
-  background-color: #D95C5C;
+  background-color: #d95c5c;
+}
+/* Single Digits Last */
+.ui.indicating.progress .bar[style^="width: 1%"] + .label,
+.ui.indicating.progress .bar[style^="width: 2%"] + .label,
+.ui.indicating.progress .bar[style^="width: 3%"] + .label,
+.ui.indicating.progress .bar[style^="width: 4%"] + .label,
+.ui.indicating.progress .bar[style^="width: 5%"] + .label,
+.ui.indicating.progress .bar[style^="width: 6%"] + .label,
+.ui.indicating.progress .bar[style^="width: 7%"] + .label,
+.ui.indicating.progress .bar[style^="width: 8%"] + .label,
+.ui.indicating.progress .bar[style^="width: 9%"] + .label,
+.ui.indicating.progress .bar[style^="width: 1"] + .label,
+.ui.indicating.progress .bar[style^="width: 2"] + .label {
+  color: #d95c5c;
+}
+.ui.indicating.progress .bar[style^="width: 3"] + .label {
+  color: #d9a65c;
+}
+.ui.indicating.progress .bar[style^="width: 4"] + .label,
+.ui.indicating.progress .bar[style^="width: 5"] + .label {
+  color: #e6bb48;
+}
+.ui.indicating.progress .bar[style^="width: 6"] + .label {
+  color: #ddc928;
+}
+.ui.indicating.progress .bar[style^="width: 7"] + .label,
+.ui.indicating.progress .bar[style^="width: 8"] + .label {
+  color: #b4d95c;
+}
+.ui.indicating.progress .bar[style^="width: 9"] + .label,
+.ui.indicating.progress .bar[style^="width: 100"] + .label {
+  color: #66da81;
 }
 /*******************************
             Content
@@ -29269,8 +29334,8 @@ a.ui.nag {
      Slide
 ---------------*/
 .slide.down.transition.in {
-  -webkit-animation-name: slide;
-          animation-name: slide;
+  -webkit-animation-name: slideIn;
+          animation-name: slideIn;
   transform-origin: 50% 0%;
   -ms-transform-origin: 50% 0%;
   -webkit-transform-origin: 50% 0%;
@@ -29283,8 +29348,8 @@ a.ui.nag {
           transform-origin: 50% 0%;
 }
 .slide.up.transition.in {
-  -webkit-animation-name: slide;
-          animation-name: slide;
+  -webkit-animation-name: slideIn;
+          animation-name: slideIn;
   -webkit-transform-origin: 50% 100%;
       -ms-transform-origin: 50% 100%;
           transform-origin: 50% 100%;
@@ -29296,7 +29361,7 @@ a.ui.nag {
       -ms-transform-origin: 50% 100%;
           transform-origin: 50% 100%;
 }
-@-webkit-keyframes slide {
+@-webkit-keyframes slideIn {
   0% {
     opacity: 0;
     -webkit-transform: scaleY(0);
@@ -29308,7 +29373,7 @@ a.ui.nag {
             transform: scaleY(1);
   }
 }
-@keyframes slide {
+@keyframes slideIn {
   0% {
     opacity: 0;
     -webkit-transform: scaleY(0);
@@ -29354,8 +29419,8 @@ a.ui.nag {
 }
 .horizontal.flip.transition.in,
 .horizontal.flip.transition.out {
-  -webkit-animation-name: horizontalFlip;
-          animation-name: horizontalFlip;
+  -webkit-animation-name: horizontalFlipIn;
+          animation-name: horizontalFlipIn;
 }
 .horizontal.flip.transition.out {
   -webkit-animation-name: horizontalFlipOut;
@@ -29363,15 +29428,15 @@ a.ui.nag {
 }
 .vertical.flip.transition.in,
 .vertical.flip.transition.out {
-  -webkit-animation-name: verticalFlip;
-          animation-name: verticalFlip;
+  -webkit-animation-name: verticalFlipIn;
+          animation-name: verticalFlipIn;
 }
 .vertical.flip.transition.out {
   -webkit-animation-name: verticalFlipOut;
           animation-name: verticalFlipOut;
 }
 /* Horizontal */
-@-webkit-keyframes horizontalFlip {
+@-webkit-keyframes horizontalFlipIn {
   0% {
     -webkit-transform: rotateY(-90deg);
             transform: rotateY(-90deg);
@@ -29383,7 +29448,7 @@ a.ui.nag {
     opacity: 1;
   }
 }
-@keyframes horizontalFlip {
+@keyframes horizontalFlipIn {
   0% {
     -webkit-transform: rotateY(-90deg);
             transform: rotateY(-90deg);
@@ -29421,7 +29486,7 @@ a.ui.nag {
   }
 }
 /* Vertical */
-@-webkit-keyframes verticalFlip {
+@-webkit-keyframes verticalFlipIn {
   0% {
     -webkit-transform: rotateX(-90deg);
             transform: rotateX(-90deg);
@@ -29433,7 +29498,7 @@ a.ui.nag {
     opacity: 1;
   }
 }
-@keyframes verticalFlip {
+@keyframes verticalFlipIn {
   0% {
     -webkit-transform: rotateX(-90deg);
             transform: rotateX(-90deg);
@@ -29473,31 +29538,31 @@ a.ui.nag {
       Fades
 ---------------*/
 .fade.transition.in {
-  -webkit-animation-name: fade;
-          animation-name: fade;
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
 }
 .fade.transition.out {
   -webkit-animation-name: fadeOut;
           animation-name: fadeOut;
 }
 .fade.up.transition.in {
-  -webkit-animation-name: fadeUp;
-          animation-name: fadeUp;
+  -webkit-animation-name: fadeUpIn;
+          animation-name: fadeUpIn;
 }
 .fade.up.transition.out {
   -webkit-animation-name: fadeUpOut;
           animation-name: fadeUpOut;
 }
 .fade.down.transition.in {
-  -webkit-animation-name: fadeDown;
-          animation-name: fadeDown;
+  -webkit-animation-name: fadeDownIn;
+          animation-name: fadeDownIn;
 }
 .fade.down.transition.out {
   -webkit-animation-name: fadeDownOut;
           animation-name: fadeDownOut;
 }
 /* Fade */
-@-webkit-keyframes fade {
+@-webkit-keyframes fadeIn {
   0% {
     opacity: 0;
   }
@@ -29505,7 +29570,7 @@ a.ui.nag {
     opacity: 1;
   }
 }
-@keyframes fade {
+@keyframes fadeIn {
   0% {
     opacity: 0;
   }
@@ -29530,7 +29595,7 @@ a.ui.nag {
   }
 }
 /* Fade Up */
-@-webkit-keyframes fadeUp {
+@-webkit-keyframes fadeUpIn {
   0% {
     opacity: 0;
     -webkit-transform: translateY(10%);
@@ -29542,7 +29607,7 @@ a.ui.nag {
             transform: translateY(0%);
   }
 }
-@keyframes fadeUp {
+@keyframes fadeUpIn {
   0% {
     opacity: 0;
     -webkit-transform: translateY(10%);
@@ -29579,7 +29644,7 @@ a.ui.nag {
   }
 }
 /* Fade Down */
-@-webkit-keyframes fadeDown {
+@-webkit-keyframes fadeDownIn {
   0% {
     opacity: 0;
     -webkit-transform: translateY(-10%);
@@ -29591,7 +29656,7 @@ a.ui.nag {
             transform: translateY(0%);
   }
 }
-@keyframes fadeDown {
+@keyframes fadeDownIn {
   0% {
     opacity: 0;
     -webkit-transform: translateY(-10%);
@@ -29631,15 +29696,15 @@ a.ui.nag {
       Scale
 ---------------*/
 .scale.transition.in {
-  -webkit-animation-name: scale;
-          animation-name: scale;
+  -webkit-animation-name: scaleIn;
+          animation-name: scaleIn;
 }
 .scale.transition.out {
   -webkit-animation-name: scaleOut;
           animation-name: scaleOut;
 }
 /* Scale */
-@-webkit-keyframes scale {
+@-webkit-keyframes scaleIn {
   0% {
     opacity: 0;
     -webkit-transform: scale(0.7);
@@ -29651,7 +29716,7 @@ a.ui.nag {
             transform: scale(1);
   }
 }
-@keyframes scale {
+@keyframes scaleIn {
   0% {
     opacity: 0;
     -webkit-transform: scale(0.7);

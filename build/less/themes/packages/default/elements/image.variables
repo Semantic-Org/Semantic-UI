@@ -20,7 +20,7 @@
 
 /* Avatar */
 @avatarSize: 2.5em;
-@avatarMargin: @imageHorizontalMargin;
+@avatarMargin: 0.25em;
 
 
 /*-------------------

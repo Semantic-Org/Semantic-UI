@@ -673,11 +673,13 @@
   box-shadow: none;
   border: 1px solid #d4d4d5;
 }
+.ui.segment.attached + .ui.segment.attached {
+  border-top: none;
+}
 /* Top */
 .ui[class*="top attached"].segment {
   top: 0px;
   bottom: 0px;
-  border-bottom: none;
   margin-top: 1rem;
   margin-bottom: 0em;
   border-radius: 0.25rem 0.25rem 0em 0em;
@@ -687,7 +689,6 @@
 }
 /* Bottom */
 .ui.segment[class*="bottom attached"] {
-  border-top: none;
   top: 0px;
   bottom: 0px;
   margin-top: 0em;

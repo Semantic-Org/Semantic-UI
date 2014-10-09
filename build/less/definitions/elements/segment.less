@@ -458,13 +458,14 @@
   box-shadow: @attachedBoxShadow;
   border: @attachedBorder;
 }
+.ui.segment.attached + .ui.segment.attached {
+  border-top: none;
+}
 
 /* Top */
 .ui[class*="top attached"].segment {
   top: @attachedTopOffset;
   bottom: 0px;
-
-  border-bottom: none;
   margin-top: @margin;
   margin-bottom: 0em;
   border-radius: @borderRadius @borderRadius 0em 0em;
@@ -475,7 +476,6 @@
 
 /* Bottom */
 .ui.segment[class*="bottom attached"] {
-  border-top: none;
   top: @attachedBottomOffset;
   bottom: 0px;
   margin-top: 0em;

@@ -101,7 +101,7 @@
 ---------------*/
 
 .slide.down.transition.in {
-  animation-name: slide;
+  animation-name: slideIn;
   transform-origin: 50% 0%;
   -ms-transform-origin: 50% 0%;
   -webkit-transform-origin: 50% 0%;
@@ -112,7 +112,7 @@
 }
 
 .slide.up.transition.in {
-  animation-name: slide;
+  animation-name: slideIn;
   transform-origin: 50% 100%;
 }
 .slide.up.transition.out {
@@ -120,7 +120,7 @@
   transform-origin: 50% 100%;
 }
 
-@keyframes slide {
+@keyframes slideIn {
   0% {
     opacity: 0;
     transform: scaleY(0);
@@ -153,21 +153,21 @@
 }
 .horizontal.flip.transition.in,
 .horizontal.flip.transition.out {
-  animation-name: horizontalFlip;
+  animation-name: horizontalFlipIn;
 }
 .horizontal.flip.transition.out {
   animation-name: horizontalFlipOut;
 }
 .vertical.flip.transition.in,
 .vertical.flip.transition.out {
-  animation-name: verticalFlip;
+  animation-name: verticalFlipIn;
 }
 .vertical.flip.transition.out {
   animation-name: verticalFlipOut;
 }
 
 /* Horizontal */
-@keyframes horizontalFlip {
+@keyframes horizontalFlipIn {
   0% {
     transform: rotateY(-90deg);
     opacity: 0;
@@ -190,7 +190,7 @@
 }
 
 /* Vertical */
-@keyframes verticalFlip {
+@keyframes verticalFlipIn {
   0% {
     transform: rotateX(-90deg);
     opacity: 0;
@@ -216,21 +216,21 @@
 ---------------*/
 
 .fade.transition.in {
-  animation-name: fade;
+  animation-name: fadeIn;
 }
 .fade.transition.out {
   animation-name: fadeOut;
 }
 
 .fade.up.transition.in {
-  animation-name: fadeUp;
+  animation-name: fadeUpIn;
 }
 .fade.up.transition.out {
   animation-name: fadeUpOut;
 }
 
 .fade.down.transition.in {
-  animation-name: fadeDown;
+  animation-name: fadeDownIn;
 }
 .fade.down.transition.out {
   animation-name: fadeDownOut;
@@ -238,7 +238,7 @@
 
 
 /* Fade */
-@keyframes fade {
+@keyframes fadeIn {
   0% {
     opacity: 0;
   }
@@ -257,7 +257,7 @@
 }
 
 /* Fade Up */
-@keyframes fadeUp {
+@keyframes fadeUpIn {
   0% {
     opacity: 0;
     transform: translateY(10%);
@@ -280,7 +280,7 @@
 }
 
 /* Fade Down */
-@keyframes fadeDown {
+@keyframes fadeDownIn {
   0% {
     opacity: 0;
     transform: translateY(-10%);
@@ -306,14 +306,14 @@
 ---------------*/
 
 .scale.transition.in {
-  animation-name: scale;
+  animation-name: scaleIn;
 }
 .scale.transition.out {
   animation-name: scaleOut;
 }
 
 /* Scale */
-@keyframes scale {
+@keyframes scaleIn {
   0% {
     opacity: 0;
     transform: scale(0.7);

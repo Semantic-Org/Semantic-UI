@@ -202,7 +202,7 @@ $.fn.popup = function(parameters) {
                 .appendTo( $context )
               ;
             }
-            if(settings.hoverable && module.cache === undefined ) {
+            if(settings.hoverable) {
               module.bind.popup();
             }
             $.proxy(settings.onCreate, $popup)();
@@ -211,6 +211,9 @@ $.fn.popup = function(parameters) {
             module.verbose('Pre-existing popup found, reverting to inline');
             settings.inline = true;
             module.refresh();
+            if(settings.hoverable) {
+              module.bind.popup();
+            }
           }
           else {
             module.debug('No content specified skipping display', element);
@@ -622,13 +625,11 @@ $.fn.popup = function(parameters) {
 
         bind: {
           popup: function() {
-            if(settings.hoverable) {
-              module.verbose('Allowing hover events on popup to prevent closing');
-              $popup
-                .on('mouseenter', module.event.start)
-                .on('mouseleave', module.event.end)
-              ;
-            }
+            module.verbose('Allowing hover events on popup to prevent closing');
+            $popup
+              .on('mouseenter', module.event.start)
+              .on('mouseleave', module.event.end)
+            ;
           },
           close:function() {
             if(settings.on == 'click' && settings.closable) {

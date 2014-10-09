@@ -78,6 +78,7 @@ $.fn.modal = function(parameters) {
           }
           $dimmable = $context
             .dimmer({
+              debug    : settings.debug,
               closable : false,
               useCSS   : true,
               duration : {
@@ -259,6 +260,7 @@ $.fn.modal = function(parameters) {
                 module.debug('Showing modal with css animations');
                 $module
                   .transition({
+                    debug     : settings.debug,
                     animation : settings.transition + ' in',
                     duration  : settings.duration,
                     complete  : function() {
@@ -341,6 +343,7 @@ $.fn.modal = function(parameters) {
           if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
             $module
               .transition({
+                debug     : settings.debug,
                 animation : settings.transition + ' out',
                 duration  : settings.duration,
                 complete  : function() {

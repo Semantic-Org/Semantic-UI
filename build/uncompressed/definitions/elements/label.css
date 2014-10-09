@@ -369,8 +369,9 @@ a.ui.label {
 /* Detail */
 .ui.label .detail {
   display: inline-block;
-  margin-left: 1em;
+  vertical-align: top;
   font-weight: bold;
+  margin-left: 1em;
   opacity: 0.8;
 }
 .ui.label .detail .icon {
@@ -401,12 +402,12 @@ a.ui.label {
        Coupling
 --------------------*/
 /* Padding on next content after a label */
-.ui.top.attached.label:first-child + * {
-  margin-top: 2rem;
+.ui.top.attached.label:first-child + :not(.attached) {
+  margin-top: 2rem !important;
 }
-.ui.bottom.attached.label:first-child ~ :last-child {
+.ui.bottom.attached.label:first-child ~ :last-child:not(.attached) {
   margin-top: 0em;
-  margin-bottom: 2rem;
+  margin-bottom: 2rem !important;
 }
 /*******************************
              Types
@@ -1124,27 +1125,35 @@ a.ui.yellow.label:hover:before {
 --------------------*/
 .ui.mini.labels .label,
 .ui.mini.label {
-  font-size: 0.7rem;
+  font-size: 0.6428em;
 }
 .ui.tiny.labels .label,
 .ui.tiny.label {
-  font-size: 0.75rem;
+  font-size: 0.7142em;
 }
 .ui.small.labels .label,
 .ui.small.label {
-  font-size: 0.8rem;
+  font-size: 0.7857em;
 }
 .ui.labels .label,
 .ui.label {
-  font-size: 0.875rem;
+  font-size: 0.8571em;
 }
 .ui.large.labels .label,
 .ui.large.label {
-  font-size: 1rem;
+  font-size: 1em;
+}
+.ui.big.labels .label,
+.ui.big.label {
+  font-size: 1.1428em;
 }
 .ui.huge.labels .label,
 .ui.huge.label {
-  font-size: 1.25rem;
+  font-size: 1.2857em;
+}
+.ui.massive.labels .label,
+.ui.massive.label {
+  font-size: 1.4285em;
 }
 /*******************************
            Overrides

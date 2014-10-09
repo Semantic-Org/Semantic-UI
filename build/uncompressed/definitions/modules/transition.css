@@ -546,8 +546,8 @@
      Slide
 ---------------*/
 .slide.down.transition.in {
-  -webkit-animation-name: slide;
-          animation-name: slide;
+  -webkit-animation-name: slideIn;
+          animation-name: slideIn;
   transform-origin: 50% 0%;
   -ms-transform-origin: 50% 0%;
   -webkit-transform-origin: 50% 0%;
@@ -560,8 +560,8 @@
           transform-origin: 50% 0%;
 }
 .slide.up.transition.in {
-  -webkit-animation-name: slide;
-          animation-name: slide;
+  -webkit-animation-name: slideIn;
+          animation-name: slideIn;
   -webkit-transform-origin: 50% 100%;
       -ms-transform-origin: 50% 100%;
           transform-origin: 50% 100%;
@@ -573,7 +573,7 @@
       -ms-transform-origin: 50% 100%;
           transform-origin: 50% 100%;
 }
-@-webkit-keyframes slide {
+@-webkit-keyframes slideIn {
   0% {
     opacity: 0;
     -webkit-transform: scaleY(0);
@@ -585,7 +585,7 @@
             transform: scaleY(1);
   }
 }
-@keyframes slide {
+@keyframes slideIn {
   0% {
     opacity: 0;
     -webkit-transform: scaleY(0);
@@ -631,8 +631,8 @@
 }
 .horizontal.flip.transition.in,
 .horizontal.flip.transition.out {
-  -webkit-animation-name: horizontalFlip;
-          animation-name: horizontalFlip;
+  -webkit-animation-name: horizontalFlipIn;
+          animation-name: horizontalFlipIn;
 }
 .horizontal.flip.transition.out {
   -webkit-animation-name: horizontalFlipOut;
@@ -640,15 +640,15 @@
 }
 .vertical.flip.transition.in,
 .vertical.flip.transition.out {
-  -webkit-animation-name: verticalFlip;
-          animation-name: verticalFlip;
+  -webkit-animation-name: verticalFlipIn;
+          animation-name: verticalFlipIn;
 }
 .vertical.flip.transition.out {
   -webkit-animation-name: verticalFlipOut;
           animation-name: verticalFlipOut;
 }
 /* Horizontal */
-@-webkit-keyframes horizontalFlip {
+@-webkit-keyframes horizontalFlipIn {
   0% {
     -webkit-transform: rotateY(-90deg);
             transform: rotateY(-90deg);
@@ -660,7 +660,7 @@
     opacity: 1;
   }
 }
-@keyframes horizontalFlip {
+@keyframes horizontalFlipIn {
   0% {
     -webkit-transform: rotateY(-90deg);
             transform: rotateY(-90deg);
@@ -698,7 +698,7 @@
   }
 }
 /* Vertical */
-@-webkit-keyframes verticalFlip {
+@-webkit-keyframes verticalFlipIn {
   0% {
     -webkit-transform: rotateX(-90deg);
             transform: rotateX(-90deg);
@@ -710,7 +710,7 @@
     opacity: 1;
   }
 }
-@keyframes verticalFlip {
+@keyframes verticalFlipIn {
   0% {
     -webkit-transform: rotateX(-90deg);
             transform: rotateX(-90deg);
@@ -750,31 +750,31 @@
       Fades
 ---------------*/
 .fade.transition.in {
-  -webkit-animation-name: fade;
-          animation-name: fade;
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
 }
 .fade.transition.out {
   -webkit-animation-name: fadeOut;
           animation-name: fadeOut;
 }
 .fade.up.transition.in {
-  -webkit-animation-name: fadeUp;
-          animation-name: fadeUp;
+  -webkit-animation-name: fadeUpIn;
+          animation-name: fadeUpIn;
 }
 .fade.up.transition.out {
   -webkit-animation-name: fadeUpOut;
           animation-name: fadeUpOut;
 }
 .fade.down.transition.in {
-  -webkit-animation-name: fadeDown;
-          animation-name: fadeDown;
+  -webkit-animation-name: fadeDownIn;
+          animation-name: fadeDownIn;
 }
 .fade.down.transition.out {
   -webkit-animation-name: fadeDownOut;
           animation-name: fadeDownOut;
 }
 /* Fade */
-@-webkit-keyframes fade {
+@-webkit-keyframes fadeIn {
   0% {
     opacity: 0;
   }
@@ -782,7 +782,7 @@
     opacity: 1;
   }
 }
-@keyframes fade {
+@keyframes fadeIn {
   0% {
     opacity: 0;
   }
@@ -807,7 +807,7 @@
   }
 }
 /* Fade Up */
-@-webkit-keyframes fadeUp {
+@-webkit-keyframes fadeUpIn {
   0% {
     opacity: 0;
     -webkit-transform: translateY(10%);
@@ -819,7 +819,7 @@
             transform: translateY(0%);
   }
 }
-@keyframes fadeUp {
+@keyframes fadeUpIn {
   0% {
     opacity: 0;
     -webkit-transform: translateY(10%);
@@ -856,7 +856,7 @@
   }
 }
 /* Fade Down */
-@-webkit-keyframes fadeDown {
+@-webkit-keyframes fadeDownIn {
   0% {
     opacity: 0;
     -webkit-transform: translateY(-10%);
@@ -868,7 +868,7 @@
             transform: translateY(0%);
   }
 }
-@keyframes fadeDown {
+@keyframes fadeDownIn {
   0% {
     opacity: 0;
     -webkit-transform: translateY(-10%);
@@ -908,15 +908,15 @@
       Scale
 ---------------*/
 .scale.transition.in {
-  -webkit-animation-name: scale;
-          animation-name: scale;
+  -webkit-animation-name: scaleIn;
+          animation-name: scaleIn;
 }
 .scale.transition.out {
   -webkit-animation-name: scaleOut;
           animation-name: scaleOut;
 }
 /* Scale */
-@-webkit-keyframes scale {
+@-webkit-keyframes scaleIn {
   0% {
     opacity: 0;
     -webkit-transform: scale(0.7);
@@ -928,7 +928,7 @@
             transform: scale(1);
   }
 }
-@keyframes scale {
+@keyframes scaleIn {
   0% {
     opacity: 0;
     -webkit-transform: scale(0.7);

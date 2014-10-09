@@ -383,7 +383,7 @@ img.ui.bordered.image {
 .ui.avatar.images img,
 .ui.avatar.image img,
 .ui.avatar.image {
-  margin-right: 0.25rem;
+  margin-right: 0.25em;
   display: inline-block;
   width: 2.5em;
   height: 2.5em;

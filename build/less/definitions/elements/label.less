@@ -80,8 +80,9 @@ a.ui.label {
 /* Detail */
 .ui.label .detail {
   display: inline-block;
+  vertical-align: top;
+  font-weight: @detailFontWeight;
   margin-left: @detailMargin;
-  font-weight: bold;
   opacity: @detailOpacity;
 }
 .ui.label .detail .icon {
@@ -118,12 +119,12 @@ a.ui.label {
 --------------------*/
 
 /* Padding on next content after a label */
-.ui.top.attached.label:first-child + * {
-  margin-top: @attachedSegmentPadding;
+.ui.top.attached.label:first-child + :not(.attached) {
+  margin-top: @attachedSegmentPadding !important;
 }
-.ui.bottom.attached.label:first-child ~ :last-child {
+.ui.bottom.attached.label:first-child ~ :last-child:not(.attached) {
   margin-top: 0em;
-  margin-bottom: @attachedSegmentPadding;
+  margin-bottom: @attachedSegmentPadding !important;
 }
 
 
@@ -439,7 +440,6 @@ a.ui.label {
 .ui.label.disabled {
   opacity: 0.5;
 }
-
 
 /*-------------------
         Hover
@@ -948,9 +948,17 @@ a.ui.yellow.label:hover:before {
 .ui.large.label {
   font-size: @large;
 }
+.ui.big.labels .label,
+.ui.big.label {
+  font-size: @big;
+}
 .ui.huge.labels .label,
 .ui.huge.label {
   font-size: @huge;
+}
+.ui.massive.labels .label,
+.ui.massive.label {
+  font-size: @massive;
 }
 
 .loadUIOverrides();
