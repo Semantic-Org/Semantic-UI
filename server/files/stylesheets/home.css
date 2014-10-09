@@ -715,6 +715,9 @@
 
 
 @media only screen and (max-width : 600px) {
+  #example.index .masthead.segment h1 .text {
+    margin-left: 0em;
+  }
   #example.index .following.bar {
     display: none;
   }
@@ -732,7 +735,7 @@
     margin-top: 0em;
   }
   #example.index .introduction {
-    margin: 7.5rem 0rem;
+    margin: 7rem 0rem;
   }
   #example.index .masthead.segment h1 {
     font-size: 2.25em;
