@@ -64,6 +64,7 @@ $.api = $.fn.api = function(parameters) {
 
         // standard module
         element         = this,
+        context         = $context.get(),
         instance        = $module.data(moduleNamespace),
         module
       ;
@@ -121,7 +122,6 @@ $.api = $.fn.api = function(parameters) {
           if(settings.defaultData) {
             $.extend(true, settings.urlData, module.get.defaultData());
           }
-          console.log(settings.urlData);
 
           // Add form content
           if(settings.serializeForm !== false || $module.is('form')) {
@@ -334,27 +334,27 @@ $.api = $.fn.api = function(parameters) {
           request: {
             complete: function(response) {
               module.remove.loading();
-              $.proxy(settings.onComplete, $context)(response, $module);
+              $.proxy(settings.onComplete, context)(response, $module);
             },
             done: function(response) {
-              module.debug('API request received', response);
+              module.debug('API Response Received', response);
               if(settings.dataType == 'json') {
                 if( $.isFunction(settings.successTest) ) {
-                  module.debug('Checking JSON', settings.successTest, response);
-                  if( settings.onSuccess(response) ) {
-                    $.proxy(settings.onSuccess, $context)(response, $module);
+                  module.debug('Checking JSON returned success', settings.successTest, response);
+                  if( settings.successTest(response) ) {
+                    $.proxy(settings.onSuccess, context)(response, $module);
                   }
                   else {
                     module.debug('JSON test specified by user and response failed', response);
-                    $.proxy(settings.onFailure, $context)(response, $module);
+                    $.proxy(settings.onFailure, context)(response, $module);
                   }
                 }
                 else {
-                  $.proxy(settings.onSuccess, $context)(response, $module);
+                  $.proxy(settings.onSuccess, context)(response, $module);
                 }
               }
               else {
-                $.proxy(settings.onSuccess, $context)(response, $module);
+                $.proxy(settings.onSuccess, context)(response, $module);
               }
             },
             error: function(xhr, status, httpMessage) {
@@ -393,10 +393,10 @@ $.api = $.fn.api = function(parameters) {
                     setTimeout(module.remove.error, settings.errorDuration);
                   }
                   module.debug('API Request error:', errorMessage);
-                  $.proxy(settings.onFailure, $context)(errorMessage, $module);
+                  $.proxy(settings.onFailure, context)(errorMessage, $module);
                 }
                 else {
-                  $.proxy(settings.onAbort, $context)(errorMessage, $module);
+                  $.proxy(settings.onAbort, context)(errorMessage, $module);
                   module.debug('Request Aborted (Most likely caused by page change or CORS Policy)', status, httpMessage);
                 }
               }
@@ -775,7 +775,6 @@ $.api.settings = {
   method          : 'get',
   data            : {},
   dataType        : 'json',
-  cache           : true,
 
   // callbacks
   beforeSend  : function(settings) { return settings; },
@@ -786,7 +785,7 @@ $.api.settings = {
   onFailure   : function(errorMessage, $module) {},
   onAbort     : function(errorMessage, $module) {},
 
-  successTest : function(response) { return true; },
+  successTest : false,
 
   // errors
   error : {

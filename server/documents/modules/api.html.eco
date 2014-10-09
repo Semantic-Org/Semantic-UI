@@ -14,12 +14,7 @@ type        : 'Draft'
 
 <div class="main container">
   <div class="ui active tab" data-tab="overview">
-    <div class="ui two column stackable grid">
-      <div class="row">
-        <div class="sixteen wide column">
-          <p>There a few key features which make API more useful then jQuery AJAX or and simpler than MVC patterns.</p>
-        </div>
-      </div>
+    <div class="ui two column internally celled very relaxed stackable grid">
       <div class="row">
         <div class="column">
           <div class="content">
@@ -91,7 +86,7 @@ type        : 'Draft'
               <div class="item">Uses format <code>{/variable}</code></div>
               <div class="item">Will abort the request if they cannot be found.</div>
               <div class="item">Will be removed from the url automatically if not available.</div>
-              <div class="item">Any trailing slashes before optional parameters will also be removed from the URL, allowing you to include them in resource paths.</div>
+              <div class="item">Any preceding slash before an optional parameter will be removed from the URL, allowing you to include them in resource paths.</div>
             </div>
           </div>
         </div>
@@ -261,21 +256,53 @@ type        : 'Draft'
         </div>
       </div>
 
+      <h2 class="ui dividing header">Server Responses</h2>
+
+      <div class="no example">
+        <h4 class="ui header">Determining Success</h4>
+        <p>API is designed to work with APIs that return <code>JSON</code> objects. Instead of providiing success and failure callbacks based on the HTTP response of the request. A request is considered succesful only if the returned JSON value passes a <code>successTest</code>.</p>
+        <p>For example you might expect all successful JSON responses to return a top level property signifying the success of the response<p>
+        <div class="code" data-type="json" data-title="Server Response">
+        {
+          success: true
+          data: {
+            proprietaryData:
+          }
+        }
+        </div>
+        <p>Your success test recieves the servers json response, and should return true or false on whether the result should be considered successful. Succesful results will trigger <code>onSuccess</code> unsuccesful results <code>onFailure</code> but not <code>onError</code>, this is reserved for responses which return <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest">XHR</a> errors.</p>
+        <div class="code" data-type="javascript">
+        $('.follow.button')
+          .api({
+            successTest: function(response) {
+              return response.success || false;
+            }
+            onSuccess: function() {
+              // valid response and action succeeded
+            },
+            onFailure: function() {
+              // valid response but action failed
+            },
+            onError: function() {
+              // invalid response
+            }
+          })
+        ;
+        </div>
+      </div>
+
+
       <h2 class="ui dividing header">Controlling State</h2>
 
       <div class="no example">
-        <h4 class="ui header">UI State</h4>
+        <h4 class="ui header">API State Management</h4>
 
         <p>Many elements like <a href="/elements/button.html">button</a>, <a href="/elements/input.html">input</a>, and <a href="/collections/form.html">form</a> have loading, disabled, and active states defined.</p>
 
-        <p>API will automatically attach a <b>loading</b> state when an API request is triggered, but makes no other assumptions about states.</p>
-      </div>
+        <p>States adjust class names on the triggering element or on the element specified by <code>settings.stateContext</code>.</p>
+        <p>Using <code>stateContext</code> allows you to easily do things like, trigger a loading state on a form when a submit button is pressed.</p>
 
-      <div class="no example">
-        <h4 class="ui header">State Management</h4>
-        <p>If <code>state()</code> is invoked after an API event is attached to an element, it will automatically toggle an active state on the element after a successful API request.</p>
-        <p>Basic included states</p>
-
+        <h5 class="ui header">States Included in API Module</h5>
         <table class="ui definition table">
           <thead>
             <tr>
@@ -293,16 +320,36 @@ type        : 'Draft'
             <tr>
               <td>error</td>
               <td>Indicates an error has occurred</td>
-              <td>Request returns error (does not trigger onAbort caused by page change) </td>
+              <td>XHR Request returns error (does not trigger onAbort caused by page change, or if successTest fails). Stays visible for <code>settings.errorDuration</code></td>
             </tr>
           </tbody>
         </table>
       </div>
 
       <div class="no example">
-        <h4 class="ui header">UI State</h4>
+        <h4 class="ui header">Coupling with State Module</h4>
+        <p>Initializing an API action with the state module gives you more granular control over UI states, like setting an activated or de-activated state and the ability to adjust text values for each state:</p>
 
-        <p>Invoking state also includes additional states which can adjust text values:</p>
+        <p>
+          For additional examples of the possibilities available with state behaviors check the <a href="#">state module documentation</a>
+        </p>
+
+        <div class="code" data-demo="true">
+        $('.follow.button')
+          .state({
+            text: {
+              inactive   : 'Follow',
+              active     : 'Followed',
+              deactivate : 'Unfollow',
+              flash      : 'Added follower!'
+            }
+          })
+          .state('setting', 'onActivate', function() {
+            $(this).state('flash text');
+          })
+        ;
+        </div>
+        <h5 class="ui header">States Included in State Module</h5>
         <table class="ui definition table">
           <thead>
             <tr>
@@ -314,71 +361,57 @@ type        : 'Draft'
           <tbody>
             <tr>
               <td>inactive</td>
-              <td>User has not selected</td>
+              <td>Default state</td>
             </tr>
             <tr>
               <td>active</td>
-              <td>User has selected</td>
+              <td>Selected state</td>
               <td>Toggled on succesful API request</td>
             </tr>
             <tr>
               <td>activate</td>
-              <td>Text explaining activating action</td>
+              <td>Explains activating action</td>
               <td>On hover if inactive</td>
             </tr>
             <tr>
               <td>deactivate</td>
-              <td>default state</td>
+              <td>Explains deactivating action</td>
+              <td>On hover if active</td>
             </tr>
             <tr>
               <td>hover</td>
-              <td>Text-only state explaining interaction</td>
-              <td>On hover if inactive or active</td>
+              <td>Explains interaction</td>
+              <td>On hover in all states, overrides activate/deactivate</td>
             </tr>
             <tr>
               <td>disabled</td>
-              <td>Indicates element is disabled</td>
-              <td>Only triggered programatically</td>
+              <td>Indicates element cannot be interacted</td>
+              <td>Triggered programatically. Blocks API requests.</td>
             </tr>
             <tr>
-              <td>Flash</td>
+              <td>flash</td>
               <td>Text-only state used to display a temporary message</td>
-              <td>Only triggered programatically</td>
+              <td>Triggered programatically</td>
             </tr>
             <tr>
-              <td>Disabled</td>
-              <td>Cannot receive user interaction</td>
+              <td>success</td>
+              <td>Indicates user action was a success</td>
+              <td>Triggered programatically</td>
+            </tr>
+            <tr>
+              <td>warning</td>
+              <td>Indicates there was an issue with a user action</td>
+              <td>Triggered programatically</td>
             </tr>
           </tbody>
         </table>
-        <ul class="ui list">
-          <li><b>Inactive</b> - Default state</li>
-          <li><b>Active</b> - API request is completed succesfully</li>
-          <li><b>Enable</b> - Text on hover if currently in inactive state</li>
-          <li><b>Disable</b> - Text on hover if currently in inactive state</li>
-          <li><b>Deactivate</b> - Text on hover if currently in active state</li>
-          <li><b>Hover</b> - Text appears on hover regardless of state</li>
-          <li><b>Flash</b> - Text appears on element for time duration set by <code>flashDuration</code>
-        </ul>
-
-        <div class="code" data-demo="true">
-        $('.follow.button')
-          .state({
-            text: {
-              inactive   : 'Follow',
-              active     : 'Followed',
-              deactivate : 'Unfollow',
-              flash      : 'Updated!'
-            }
-          })
-        ;
-        </div>
       </div>
     </div>
 
   </div>
 
   <div class="ui tab" data-tab="examples">
+    <p>Needs to be written still...</p>
     <!-- Search Example !-->
 
 
@@ -391,6 +424,7 @@ type        : 'Draft'
   </div>
 
   <div class="ui tab" data-tab="settings">
+    <p>Needs to be written still...</p>
 
   </div>
 

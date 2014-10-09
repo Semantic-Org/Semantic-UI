@@ -199,7 +199,7 @@ $.fn.sidebar = function(parameters) {
             ;
           }
           else {
-            module.error(error.notFound);
+            module.error(error.notFound, selector);
           }
         },
 
@@ -786,8 +786,8 @@ $.fn.sidebar.settings = {
       bottom : 'overlay'
     },
     mobile: {
-      left   : 'overlay',
-      right  : 'overlay',
+      left   : 'uncover',
+      right  : 'uncover',
       top    : 'overlay',
       bottom : 'overlay'
     }

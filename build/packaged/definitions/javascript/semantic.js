@@ -18,20 +18,23 @@ $.api = $.fn.api = function(parameters) {
     $allModules     = $.isFunction(this)
         ? $(window)
         : $(this),
-    moduleSelector  = $allModules.selector || '',
-    time            = new Date().getTime(),
-    performance     = [],
+    moduleSelector = $allModules.selector || '',
+    time           = new Date().getTime(),
+    performance    = [],
 
-    query           = arguments[0],
-    methodInvoked   = (typeof query == 'string'),
-    queryArguments  = [].slice.call(arguments, 1),
+    query          = arguments[0],
+    methodInvoked  = (typeof query == 'string'),
+    queryArguments = [].slice.call(arguments, 1),
+
     returnedValue
   ;
 
   $allModules
     .each(function() {
       var
-        settings        = $.extend(true, {}, $.fn.api.settings, parameters),
+        settings          = ( $.isPlainObject(parameters) )
+          ? $.extend(true, {}, $.fn.api.settings, parameters)
+          : $.extend({}, $.fn.api.settings),
 
         // internal aliases
         namespace       = settings.namespace,
@@ -145,7 +148,7 @@ $.api = $.fn.api = function(parameters) {
           else {
             // otherwise find url from api endpoints
             url = module.add.urlData( module.get.templateURL() );
-            module.debug('API url resolved to', url);
+            module.debug('Added URL Data to url', url);
           }
 
           // exit conditions reached, missing url parameters
@@ -155,7 +158,7 @@ $.api = $.fn.api = function(parameters) {
               url = $module.attr('action');
             }
             else {
-              module.error(error.missingURL);
+              module.error(error.missingURL, settings.action);
               return;
             }
           }
@@ -532,13 +535,13 @@ $.api = $.fn.api = function(parameters) {
             ;
             action = action || $module.data(settings.metadata.action) || settings.action || false;
             if(action) {
-              module.debug('Looking up url for action', action);
+              module.debug('Looking up url for action', action, settings.api);
               if(settings.api[action] !== undefined) {
                 url = settings.api[action];
                 module.debug('Found template url', url);
               }
               else {
-                module.error(error.missingAction, settings.action);
+                module.error(error.missingAction, settings.action, settings.api);
               }
             }
             return url;
@@ -552,6 +555,7 @@ $.api = $.fn.api = function(parameters) {
         },
 
         setting: function(name, value) {
+          module.debug('Changing setting', name, value);
           if( $.isPlainObject(name) ) {
             $.extend(true, settings, name);
           }
@@ -626,7 +630,7 @@ $.api = $.fn.api = function(parameters) {
               title = settings.name + ':',
               totalTime = 0
             ;
-            time = new Date().getTime();
+            time = false;
             clearTimeout(module.performance.timer);
             $.each(performance, function(index, data) {
               totalTime += data['Execution Time'];
@@ -652,13 +656,14 @@ $.api = $.fn.api = function(parameters) {
         },
         invoke: function(query, passedArguments, context) {
           var
+            object = instance,
             maxDepth,
             found,
             response
           ;
           passedArguments = passedArguments || queryArguments;
           context         = element         || context;
-          if(typeof query == 'string' && instance !== undefined) {
+          if(typeof query == 'string' && object !== undefined) {
             query    = query.split(/[\. ]/);
             maxDepth = query.length - 1;
             $.each(query, function(depth, value) {
@@ -666,18 +671,18 @@ $.api = $.fn.api = function(parameters) {
                 ? value + query[depth + 1].charAt(0).toUpperCase() + query[depth + 1].slice(1)
                 : query
               ;
-              if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
-                instance = instance[value];
+              if( $.isPlainObject( object[camelCaseValue] ) && (depth != maxDepth) ) {
+                object = object[camelCaseValue];
               }
-              else if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
-                instance = instance[camelCaseValue];
-              }
-              else if( instance[value] !== undefined ) {
-                found = instance[value];
+              else if( object[camelCaseValue] !== undefined ) {
+                found = object[camelCaseValue];
                 return false;
               }
-              else if( instance[camelCaseValue] !== undefined ) {
-                found = instance[camelCaseValue];
+              else if( $.isPlainObject( object[value] ) && (depth != maxDepth) ) {
+                object = object[value];
+              }
+              else if( object[value] !== undefined ) {
+                found = object[value];
                 return false;
               }
               else {
@@ -743,6 +748,8 @@ $.api.settings = {
 
   // templating
   action          : false,
+
+  base            : false,
 
   regExp  : {
     required: /\{\$*[A-z0-9]+\}/g,
@@ -8393,7 +8400,7 @@ $.fn.modal = function(parameters) {
             ;
           }
           else {
-            module.error(error.notFound);
+            module.error(error.notFound, selector);
           }
         },
 
@@ -13426,7 +13433,7 @@ $.fn.sidebar = function(parameters) {
             ;
           }
           else {
-            module.error(error.notFound);
+            module.error(error.notFound, selector);
           }
         },
 
@@ -14013,8 +14020,8 @@ $.fn.sidebar.settings = {
       bottom : 'overlay'
     },
     mobile: {
-      left   : 'overlay',
-      right  : 'overlay',
+      left   : 'uncover',
+      right  : 'uncover',
       top    : 'overlay',
       bottom : 'overlay'
     }

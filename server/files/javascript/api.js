@@ -23,7 +23,7 @@ semantic.api.ready = function() {
   ;
 
   server.autoRespond = true;
-  server.autoRespondAfter = 500;
+  server.autoRespondAfter = 300;
 
   server
     .respondWith(/\/follow\/(\d+)/, [responseCode, headers, body])

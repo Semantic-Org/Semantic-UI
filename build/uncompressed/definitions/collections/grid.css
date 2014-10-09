@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Defaults
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -173,131 +173,6 @@
 /*------------------
      Load Theme
 -------------------*/
-/*******************************
-         Site Settings
-*******************************/
-/*-------------------
-        Paths
---------------------*/
-/*-------------------
-       Fonts
---------------------*/
-/*-------------------
-      Site Colors
---------------------*/
-/*---  Colors  ---*/
-/*---  Light Colors  ---*/
-/*-------------------
-        Page
---------------------*/
-/*-------------------
-  Background Colors
---------------------*/
-/*-------------------
-       Accents
---------------------*/
-/* 4px @ 14px */
-/* Used for differentiating neutrals */
-/* Used for differentiating layers */
-/*-------------------
-        Grid
---------------------*/
-/*-------------------
-     Breakpoints
---------------------*/
-/*******************************
-           Power-User
-*******************************/
-/*-------------------
-       Icons
---------------------*/
-/* Maximum Glyph Width of Icon */
-/*-------------------
-       Easing
---------------------*/
-/*---   Neutrals  ---*/
-/*--- Colored Backgrounds ---*/
-/*--- Colored Text ---*/
-/*--- Colored Headers ---*/
-/*-------------------
-    Emotive Colors
---------------------*/
-/* Mood */
-/* Status */
-/*-------------------
-     Neutral Text
---------------------*/
-/*-------------------
-     Brand Colors
---------------------*/
-/*-------------------
-      Borders
---------------------*/
-/*-------------------
-        Sizes
---------------------*/
-/*-------------------
-     Transitions
---------------------*/
-/*-------------------
-    Derived Values
---------------------*/
-/* Makes sure padded grid can fit at 320px */
-/* Used to match floats with text */
-/* Positive / Negative Dupes */
-/* Header Colors */
-/* Responsive */
-/* Columns */
-/*******************************
-           States
-*******************************/
-/*-------------------
-      Disabled
---------------------*/
-/*-------------------
-        Hover
---------------------*/
-/*---  Colors  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*-------------------
-    Down (:active)
---------------------*/
-/*---  Colors  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*-------------------
-        Active
---------------------*/
-/*---  Standard  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*******************************
-             Grid
-*******************************/
-/* Inherited From Site */
-/*******************************
-            Grid
-*******************************/
-/*******************************
-           Variations
-*******************************/
-/*--------------
-     Page
----------------*/
-/* Column Gutters */
-/*--------------
-     Relaxed
----------------*/
-/*--------------
-     Divided
----------------*/
-/*--------------
-    Celled
----------------*/
-/*--------------
-    Stackable
----------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -308,7 +183,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Loader
+ Override Mix-in
 -------------------*/
 /*******************************
             Standard
@@ -427,9 +302,10 @@
 }
 @media only screen and (max-width: 767px) {
   .ui.page.grid {
-    width: 100%;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    width: auto;
+    padding-left: 0em;
+    padding-right: 0em;
+    margin: 0em;
   }
 }
 @media only screen and (min-width: 768px) {
@@ -1285,7 +1161,7 @@
     display: block !important;
     width: auto !important;
     margin: 1rem 0em 0em !important;
-    padding: 1rem 0em 0em !important;
+    padding: 1rem 1rem 0em !important;
     box-shadow: none !important;
   }
   .ui.stackable.celled.grid > .column,
@@ -1310,11 +1186,6 @@
   .ui.stackable.divided.grid > .column:first-child,
   .ui.stackable.celled.grid > .column:first-child {
     border-top: none !important;
-  }
-  .ui.stackable.page.grid > .row > .column,
-  .ui.stackable.page.grid > .column {
-    padding-left: 1.5em !important;
-    padding-right: 1.5em !important;
   }
   .ui[class*="equal height"].stackable.page.grid {
     display: block !important;

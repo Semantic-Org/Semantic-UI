@@ -163,8 +163,9 @@
 @media only screen and (max-width: (@largestMobileScreen)) {
   .ui.page.grid {
     width: @mobileWidth;
-    padding-left: @mobileGutter;
-    padding-right: @mobileGutter;
+    padding-left: 0em;
+    padding-right: 0em;
+    margin: 0em;
   }
 }
 @media only screen and (min-width: @tabletBreakpoint) {
@@ -1079,7 +1080,7 @@
     width: auto !important;
 
     margin: (@stackableRowSpacing / 2) 0em 0em !important;
-    padding: (@stackableRowSpacing / 2) 0em 0em !important;
+    padding: (@stackableRowSpacing / 2) (@stackableGutter / 2) 0em !important;
 
     box-shadow: none !important;
   }
@@ -1107,11 +1108,6 @@
     border-top: none !important;
   }
 
-  .ui.stackable.page.grid > .row > .column,
-  .ui.stackable.page.grid > .column {
-    padding-left: @stackableGutterWidth !important;
-    padding-right: @stackableGutterWidth !important;
-  }
   .ui[class*="equal height"].stackable.page.grid {
     display: block !important;
     width: 100% !important;

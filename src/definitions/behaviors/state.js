@@ -198,7 +198,6 @@ $.fn.state = function(parameters) {
               module.refresh();
               if($.fn.api !== undefined) {
                 apiRequest = $module.api('get request');
-                console.log(apiRequest, $module);
                 if(apiRequest) {
                   module.listenTo(apiRequest);
                   return;
@@ -294,8 +293,8 @@ $.fn.state = function(parameters) {
               .addClass(className.active)
             ;
             module.update.text(text.active);
+            $.proxy(settings.onActivate, element)();
           }
-          $.proxy(settings.onActivate, element)();
         },
 
         deactivate: function() {
@@ -305,8 +304,8 @@ $.fn.state = function(parameters) {
               .removeClass(className.active)
             ;
             module.update.text(text.inactive);
+            $.proxy(settings.onDeactivate, element)();
           }
-          $.proxy(settings.onDeactivate, element)();
         },
 
         sync: function() {
@@ -610,7 +609,7 @@ $.fn.state.settings = {
   sync          : false,
 
   // default flash text duration, used for temporarily changing text of an element
-  flashDuration : 3000,
+  flashDuration : 1000,
 
   // selector filter
   filter     : {
