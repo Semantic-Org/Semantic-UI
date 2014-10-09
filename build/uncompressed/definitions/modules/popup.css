@@ -65,6 +65,10 @@
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -188,6 +192,10 @@
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -316,7 +324,7 @@
   font-weight: normal;
   font-style: normal;
   color: rgba(0, 0, 0, 0.8);
-  border-radius: 0.25em;
+  border-radius: 0.2857rem;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 .ui.popup > .header {

@@ -68,6 +68,11 @@
 @circularHeaderIconSize: 2em;
 @squareHeaderIconSize: 2em;
 
+/* No Line Height Offset */
+@iconHeaderTopMargin: 2rem;
+@iconHeaderBottomMargin: @bottomMargin;
+@iconHeaderFirstMargin: 0em;
+
 /* Divided */
 @dividedBorder: 1px solid rgba(0, 0, 0, 0.1);
 @dividedColoredBorderWidth: 2px;

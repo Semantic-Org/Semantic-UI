@@ -179,9 +179,9 @@
 <body id="example" class="pushable <%= @document.css %>" ontouchstart="">
 
   <div class="ui vertical inverted sidebar menu" id="menu">
-    <a class="hide item">
+<!--     <a class="hide item">
       <i class="close icon"></i> Close Menu
-    </a>
+    </a> -->
     <div class="item">
       <a class="ui logo icon image" href="/">
         <img src="/images/logo.png">
@@ -192,7 +192,7 @@
       <i class="download icon"></i> <b>Download</b>
     </a>
     <a class="item" href="/kitchen-sink.html">
-      <i class="cubes icon"></i> <b>Kitchen Sink</b>
+      <i class="food icon"></i> <b>Kitchen Sink</b>
     </a>
     <div class="item">
       <div class="ui small <%= if @document.elementType is 'global' then 'active ' %> inverted header">Globals</div>

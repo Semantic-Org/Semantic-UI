@@ -65,6 +65,10 @@
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -164,6 +168,8 @@
 b        Types
 --------------------*/
 /* Selection */
+/* Responsive */
+/* Derived */
 /* Hover */
 /* Visible */
 /* Visible Hover */
@@ -203,6 +209,10 @@ b        Types
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -302,6 +312,8 @@ b        Types
 b        Types
 --------------------*/
 /* Selection */
+/* Responsive */
+/* Derived */
 /* Hover */
 /* Visible */
 /* Visible Hover */
@@ -366,7 +378,7 @@ b        Types
   text-align: left;
   box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.15);
   border: 1px solid rgba(39, 41, 43, 0.15);
-  border-radius: 0em 0em 0.325em 0.325em;
+  border-radius: 0em 0em 0.2857rem 0.2857rem;
   -webkit-transition: opacity 0.2s ease;
           transition: opacity 0.2s ease;
   z-index: 11;
@@ -409,7 +421,7 @@ b        Types
   border: none;
   height: auto;
   border-top: none;
-  line-height: 1.2;
+  line-height: 1.2em;
   color: rgba(0, 0, 0, 0.8);
   padding: 0.65rem 1.25rem !important;
   font-size: 1rem;
@@ -468,7 +480,7 @@ b        Types
   left: 100% !important;
   right: auto !important;
   margin: 0em 0em 0em -0.5em !important;
-  border-radius: 0em 0.325em 0.325em 0em !important;
+  border-radius: 0em 0.2857rem 0.2857rem 0em !important;
 }
 /* Hide Arrow */
 .ui.dropdown .menu .menu:after {
@@ -530,7 +542,7 @@ b        Types
   color: rgba(0, 0, 0, 0.8);
   box-shadow: none;
   border: 1px solid rgba(39, 41, 43, 0.15);
-  border-radius: 0.325em;
+  border-radius: 0.2857rem;
   -webkit-transition: border-radius 0.1s ease, width 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
           transition: border-radius 0.1s ease, width 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
 }
@@ -600,7 +612,6 @@ select.ui.dropdown {
   min-width: -webkit-calc(100% + 2px);
   min-width: calc(100% + 2px);
   outline: none;
-  max-height: 245px;
   box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.08);
   -webkit-transition: box-shadow 0.2s ease, border 0.2s ease;
           transition: box-shadow 0.2s ease, border 0.2s ease;
@@ -609,6 +620,27 @@ select.ui.dropdown {
 .ui.selection.dropdown .menu:before {
   display: none;
 }
+@media only screen and (max-width: 767px) {
+  .ui.selection.dropdown .menu {
+    max-height: 7.7142rem;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .ui.selection.dropdown .menu {
+    max-height: 10.2856rem;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .ui.selection.dropdown .menu {
+    max-height: 15.4284rem;
+  }
+}
+@media only screen and (min-width: 1920px) {
+  .ui.selection.dropdown .menu {
+    max-height: 20.5712rem;
+  }
+}
+/* Menu Item */
 .ui.selection.dropdown .menu > .item {
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   padding-left: 1.1em !important;
@@ -670,7 +702,7 @@ select.ui.dropdown {
 .ui.inline.dropdown .menu {
   cursor: auto;
   margin-top: 0.25em;
-  border-radius: 0.325em;
+  border-radius: 0.2857rem;
 }
 /*******************************
             States
@@ -835,7 +867,7 @@ select.ui.dropdown {
   right: auto;
   margin-top: 0.5em !important;
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
-  border-radius: 0.325em;
+  border-radius: 0.2857rem;
 }
 /*--------------
      Pointing
@@ -843,7 +875,7 @@ select.ui.dropdown {
 .ui.pointing.dropdown > .menu {
   top: 100%;
   margin-top: 0.75em;
-  border-radius: 0.325em;
+  border-radius: 0.2857rem;
 }
 .ui.pointing.dropdown > .menu:after {
   display: block;

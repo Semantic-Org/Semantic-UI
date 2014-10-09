@@ -1446,6 +1446,10 @@ body.progress.animated .ui.progress .bar {
 #example .following.menu .menu .active.item {
   font-weight: bold;
 }
+#example .following.menu .menu .item {
+  padding: 0.5rem 0.25rem;
+}
+
 @media only screen and (max-width : 400px) {
   #example .advertisement {
     max-width: 260px;
@@ -1688,6 +1692,13 @@ body.progress.animated .ui.progress .bar {
 }
 
 @media only screen and (max-width : 640px) {
+  #example .language.dropdown .menu {
+    overflow-x: hidden;
+    overflow-y: auto;
+    backface-visibility: hidden;
+    -webkit-overflow-scrolling: touch;
+    max-height: 316px;
+  }
   #example.transition .fixed.column {
     display: none;
   }

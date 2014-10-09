@@ -59,7 +59,7 @@
 /* Top / Bottom */
 @top: 0em;
 @bottom: 0em;
-@borderRadius: 0.25em;
+@borderRadius: @defaultBorderRadius;
 @topBorderRadius: 0em 0em @borderRadius @borderRadius;
 @bottomBorderRadius: @borderRadius @borderRadius 0em 0em;
 

@@ -65,6 +65,10 @@
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -213,6 +217,10 @@
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -362,7 +370,7 @@
   font-size: 0px;
   font-weight: normal;
   box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
-  border-radius: 0.1875rem;
+  border-radius: 0.2857rem;
 }
 .ui.menu:after {
   content: '';
@@ -418,7 +426,7 @@
 }
 /* Floated Content */
 .ui.menu > .item:first-child {
-  border-radius: 0.1875rem 0px 0px 0.1875rem;
+  border-radius: 0.2857rem 0px 0px 0.2857rem;
 }
 .ui.menu:not(.vertical) .item.left,
 .ui.menu:not(.vertical) .menu.left {
@@ -645,13 +653,13 @@
   box-shadow: 2px 0em 0em inset;
 }
 .ui.vertical.menu > .active.item:first-child {
-  border-radius: 0em 0.1875rem 0em 0em;
+  border-radius: 0em 0.2857rem 0em 0em;
 }
 .ui.vertical.menu > .active.item:last-child {
-  border-radius: 0em 0em 0.1875rem 0em;
+  border-radius: 0em 0em 0.2857rem 0em;
 }
 .ui.vertical.menu > .active.item:only-child {
-  border-radius: 0em 0.1875rem 0.1875rem 0em;
+  border-radius: 0em 0.2857rem 0.2857rem 0em;
 }
 .ui.vertical.menu .active.item .menu .active.item {
   border-left: none;
@@ -712,10 +720,10 @@
   border-right: none;
 }
 .ui.vertical.menu > .item:first-child {
-  border-radius: 0.1875rem 0.1875rem 0px 0px;
+  border-radius: 0.2857rem 0.2857rem 0px 0px;
 }
 .ui.vertical.menu > .item:last-child {
-  border-radius: 0px 0px 0.1875rem 0.1875rem;
+  border-radius: 0px 0px 0.2857rem 0.2857rem;
 }
 /*--- Label ---*/
 .ui.vertical.menu .item > .label {
@@ -951,7 +959,7 @@
   background: none;
   margin: 0em 0.25em;
   padding: 0.5em 1em;
-  border-radius: 0.3125em;
+  border-radius: 0.2857rem;
 }
 .ui.secondary.menu > .menu > .item:before,
 .ui.secondary.menu > .item:before {
@@ -985,7 +993,7 @@
   box-shadow: none;
 }
 .ui.secondary.vertical.menu > .active.item {
-  border-radius: 0.3125em;
+  border-radius: 0.2857rem;
 }
 /* Inverted */
 .ui.secondary.inverted.menu .link.item,
@@ -1012,7 +1020,7 @@
 .ui.secondary.vertical.menu > .item {
   border: none;
   margin: 0em 0em 0.3em;
-  border-radius: 0.1875rem;
+  border-radius: 0.2857rem;
 }
 .ui.secondary.vertical.menu > .header.item {
   border-radius: 0em;
@@ -1554,7 +1562,7 @@
   text-align: center;
 }
 .ui.item.menu > .item:last-child {
-  border-radius: 0px 0.1875rem 0.1875rem 0px;
+  border-radius: 0px 0.2857rem 0.2857rem 0px;
 }
 .ui.menu.two.item .item {
   width: 50%;
@@ -1698,10 +1706,10 @@
   box-shadow: 0px 0px 0px 1px #dddddd;
 }
 .ui.top.attached.menu {
-  border-radius: 0.1875rem 0.1875rem 0em 0em;
+  border-radius: 0.2857rem 0.2857rem 0em 0em;
 }
 .ui.menu.bottom.attached {
-  border-radius: 0em 0em 0.1875rem 0.1875rem;
+  border-radius: 0em 0em 0.2857rem 0.2857rem;
 }
 /*--------------
      Sizes

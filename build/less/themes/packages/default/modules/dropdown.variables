@@ -11,7 +11,7 @@
   border-radius 0.1s ease,
   width 0.2s ease
 ;
-@borderRadius: 0.325em;
+@borderRadius: @defaultBorderRadius;
 
 /*-------------------
        Content
@@ -47,9 +47,10 @@
 @itemVerticalPadding: 0.65rem;
 @itemHorizontalPadding: 1.25rem;
 @itemFontWeight: normal;
-@itemLineHeight: 1.2;
+@itemLineHeight: 1.2em;
 @itemTextTransform: none;
 @itemBoxShadow: none;
+
 
 /* Menu Header */
 @menuHeaderColor: @darkTextColor;
@@ -114,7 +115,6 @@ b        Types
 @selectionBorderRadius: @borderRadius;
 @selectionIconOpacity: 0.8;
 @selectionIconTransition: opacity 0.2s ease;
-@selectionMenuMaxHeight: 245px;
 @selectionMenuBoxShadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.08);
 @selectionMenuItemBoxShadow: none;
 
@@ -127,6 +127,20 @@ b        Types
   box-shadow 0.2s @defaultEasing,
   border 0.2s @defaultEasing
 ;
+
+/* Responsive */
+@selectionMobileMaxItems: 3;
+@selectionTabletMaxItems: 4;
+@selectionComputerMaxItems: 6;
+@selectionWidescreenMaxItems: 8;
+
+/* Derived */
+@selectedBorderEMWidth: 0.0714em;
+@selectionItemActualHeight: (@itemVerticalPadding * 2) + @itemLineHeight + @selectedBorderEMWidth;
+@selectionMobileMaxMenuHeight: (@selectionItemActualHeight * @selectionMobileMaxItems);
+@selectionTabletMaxMenuHeight: (@selectionItemActualHeight * @selectionTabletMaxItems);
+@selectionComputerMaxMenuHeight: (@selectionItemActualHeight * @selectionComputerMaxItems);
+@selectionWidescreenMaxMenuHeight: (@selectionItemActualHeight * @selectionWidescreenMaxItems);
 
 /* Hover */
 @selectionHoverBorderColor: @selectedBorderColor;

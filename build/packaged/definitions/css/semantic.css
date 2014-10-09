@@ -65,6 +65,10 @@
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -174,6 +178,10 @@
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -431,6 +439,10 @@
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -573,6 +585,10 @@
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -781,7 +797,7 @@
   background: #ffffff;
   border: 1px solid rgba(39, 41, 43, 0.15);
   color: rgba(0, 0, 0, 0.8);
-  border-radius: 0.3125em;
+  border-radius: 0.2857rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
   box-sizing: border-box;
   -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
@@ -798,7 +814,7 @@
   border: 1px solid rgba(39, 41, 43, 0.15);
   outline: none;
   color: rgba(0, 0, 0, 0.8);
-  border-radius: 0.3125em;
+  border-radius: 0.2857rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
   -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
           transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
@@ -828,7 +844,7 @@
   width: 100%;
   background: #ffffff;
   border: 1px solid rgba(39, 41, 43, 0.15);
-  border-radius: 0.3125em;
+  border-radius: 0.2857rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
   padding: 0.62em 1em;
   color: rgba(0, 0, 0, 0.8);
@@ -930,14 +946,14 @@
 .ui.form input[type="tel"]:focus {
   color: rgba(0, 0, 0, 0.85);
   border-color: rgba(39, 41, 43, 0.3);
-  border-radius: 0em 0.3125em 0.3125em 0em;
+  border-radius: 0em 0.2857rem 0.2857rem 0em;
   background: #ffffff;
   box-shadow: 1px 0em 0em 0em rgba(39, 41, 43, 0.3) inset;
 }
 .ui.form textarea:focus {
   color: rgba(0, 0, 0, 0.85);
   border-color: rgba(39, 41, 43, 0.3);
-  border-radius: 0em 0.3125em 0.3125em 0em;
+  border-radius: 0em 0.2857rem 0.2857rem 0em;
   background: #ffffff;
   box-shadow: 1px 0em 0em 0em rgba(39, 41, 43, 0.3) inset;
   -webkit-appearance: none;
@@ -994,7 +1010,7 @@
   background: #fae8e8;
   border-color: #dbb1b1;
   color: #d95c5c;
-  border-radius: 0em 0.3125em 0.3125em 0em;
+  border-radius: 0em 0.2857rem 0.2857rem 0em;
   box-shadow: 2px 0em 0em 0em #d95c5c inset;
 }
 .ui.form .field.error textarea:focus,
@@ -1448,6 +1464,10 @@
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -1572,6 +1592,10 @@
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -2823,6 +2847,10 @@
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -2971,6 +2999,10 @@
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -3120,7 +3152,7 @@
   font-size: 0px;
   font-weight: normal;
   box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
-  border-radius: 0.1875rem;
+  border-radius: 0.2857rem;
 }
 .ui.menu:after {
   content: '';
@@ -3176,7 +3208,7 @@
 }
 /* Floated Content */
 .ui.menu > .item:first-child {
-  border-radius: 0.1875rem 0px 0px 0.1875rem;
+  border-radius: 0.2857rem 0px 0px 0.2857rem;
 }
 .ui.menu:not(.vertical) .item.left,
 .ui.menu:not(.vertical) .menu.left {
@@ -3403,13 +3435,13 @@
   box-shadow: 2px 0em 0em inset;
 }
 .ui.vertical.menu > .active.item:first-child {
-  border-radius: 0em 0.1875rem 0em 0em;
+  border-radius: 0em 0.2857rem 0em 0em;
 }
 .ui.vertical.menu > .active.item:last-child {
-  border-radius: 0em 0em 0.1875rem 0em;
+  border-radius: 0em 0em 0.2857rem 0em;
 }
 .ui.vertical.menu > .active.item:only-child {
-  border-radius: 0em 0.1875rem 0.1875rem 0em;
+  border-radius: 0em 0.2857rem 0.2857rem 0em;
 }
 .ui.vertical.menu .active.item .menu .active.item {
   border-left: none;
@@ -3470,10 +3502,10 @@
   border-right: none;
 }
 .ui.vertical.menu > .item:first-child {
-  border-radius: 0.1875rem 0.1875rem 0px 0px;
+  border-radius: 0.2857rem 0.2857rem 0px 0px;
 }
 .ui.vertical.menu > .item:last-child {
-  border-radius: 0px 0px 0.1875rem 0.1875rem;
+  border-radius: 0px 0px 0.2857rem 0.2857rem;
 }
 /*--- Label ---*/
 .ui.vertical.menu .item > .label {
@@ -3709,7 +3741,7 @@
   background: none;
   margin: 0em 0.25em;
   padding: 0.5em 1em;
-  border-radius: 0.3125em;
+  border-radius: 0.2857rem;
 }
 .ui.secondary.menu > .menu > .item:before,
 .ui.secondary.menu > .item:before {
@@ -3743,7 +3775,7 @@
   box-shadow: none;
 }
 .ui.secondary.vertical.menu > .active.item {
-  border-radius: 0.3125em;
+  border-radius: 0.2857rem;
 }
 /* Inverted */
 .ui.secondary.inverted.menu .link.item,
@@ -3770,7 +3802,7 @@
 .ui.secondary.vertical.menu > .item {
   border: none;
   margin: 0em 0em 0.3em;
-  border-radius: 0.1875rem;
+  border-radius: 0.2857rem;
 }
 .ui.secondary.vertical.menu > .header.item {
   border-radius: 0em;
@@ -4312,7 +4344,7 @@
   text-align: center;
 }
 .ui.item.menu > .item:last-child {
-  border-radius: 0px 0.1875rem 0.1875rem 0px;
+  border-radius: 0px 0.2857rem 0.2857rem 0px;
 }
 .ui.menu.two.item .item {
   width: 50%;
@@ -4456,10 +4488,10 @@
   box-shadow: 0px 0px 0px 1px #dddddd;
 }
 .ui.top.attached.menu {
-  border-radius: 0.1875rem 0.1875rem 0em 0em;
+  border-radius: 0.2857rem 0.2857rem 0em 0em;
 }
 .ui.menu.bottom.attached {
-  border-radius: 0em 0em 0.1875rem 0.1875rem;
+  border-radius: 0em 0em 0.2857rem 0.2857rem;
 }
 /*--------------
      Sizes
@@ -4565,6 +4597,10 @@
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -4680,6 +4716,10 @@
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -5202,6 +5242,10 @@
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -5341,6 +5385,10 @@
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -6309,6 +6357,10 @@
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -6453,6 +6505,10 @@
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -6610,7 +6666,7 @@
   text-align: center;
   text-decoration: none;
   background-image: none;
-  border-radius: 0.25em;
+  border-radius: 0.2857rem;
   box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -7125,14 +7181,14 @@
   background-image: none;
   color: rgba(0, 0, 0, 0.6) !important;
   font-weight: normal;
-  border-radius: 0.25em;
+  border-radius: 0.2857rem;
   text-transform: none;
   text-shadow: none !important;
   box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15) inset;
 }
 .ui.basic.buttons {
   box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15);
-  border-radius: 0.25em;
+  border-radius: 0.2857rem;
 }
 .ui.basic.buttons .button {
   border-radius: 0em;
@@ -7202,7 +7258,7 @@
 /* Loading */
 .ui.basic.loading.button:after {
   background-color: #fafafa;
-  border-radius: 0.25em;
+  border-radius: 0.2857rem;
 }
 /* Basic Group */
 .ui.basic.buttons .button {
@@ -7230,7 +7286,7 @@
   background-color: rgba(0, 0, 0, 0.05);
   text-align: center;
   color: '';
-  border-radius: 0.25em 0px 0px 0.25em;
+  border-radius: 0.2857rem 0px 0px 0.2857rem;
   line-height: 1;
   box-shadow: -1px 0px 0px 0px transparent inset;
 }
@@ -7248,7 +7304,7 @@
 .ui[class*="right labeled"].icon.button > .icon {
   left: auto;
   right: 0em;
-  border-radius: 0em 0.25em 0.25em 0em;
+  border-radius: 0em 0.2857rem 0.2857rem 0em;
   box-shadow: 1px 0px 0px 0px transparent inset;
 }
 .ui.labeled.icon.buttons > .button > .icon:before,
@@ -7266,20 +7322,20 @@
   border-radius: 0em;
 }
 .ui.labeled.icon.buttons .button:first-child > .icon {
-  border-top-left-radius: 0.25em;
-  border-bottom-left-radius: 0.25em;
+  border-top-left-radius: 0.2857rem;
+  border-bottom-left-radius: 0.2857rem;
 }
 .ui.labeled.icon.buttons .button:last-child > .icon {
-  border-top-right-radius: 0.25em;
-  border-bottom-right-radius: 0.25em;
+  border-top-right-radius: 0.2857rem;
+  border-bottom-right-radius: 0.2857rem;
 }
 .ui.vertical.labeled.icon.buttons .button:first-child > .icon {
   border-radius: 0em;
-  border-top-left-radius: 0.25em;
+  border-top-left-radius: 0.2857rem;
 }
 .ui.vertical.labeled.icon.buttons .button:last-child > .icon {
   border-radius: 0em;
-  border-bottom-left-radius: 0.25em;
+  border-bottom-left-radius: 0.2857rem;
 }
 /* Fluid Labeled */
 .ui.fluid[class*="left labeled"].icon.button,
@@ -7324,23 +7380,23 @@
   border-radius: 0em;
 }
 .ui.attached.top.button {
-  border-radius: 0.25em 0.25em 0em 0em;
+  border-radius: 0.2857rem 0.2857rem 0em 0em;
 }
 .ui.attached.bottom.button {
-  border-radius: 0em 0em 0.25em 0.25em;
+  border-radius: 0em 0em 0.2857rem 0.2857rem;
 }
 .ui.attached.left.button {
   display: inline-block;
   border-left: none;
   padding-right: 0.75em;
   text-align: right;
-  border-radius: 0.25em 0em 0em 0.25em;
+  border-radius: 0.2857rem 0em 0em 0.2857rem;
 }
 .ui.attached.right.button {
   display: inline-block;
   padding-left: 0.75em;
   text-align: left;
-  border-radius: 0em 0.25em 0.25em 0em;
+  border-radius: 0em 0.2857rem 0.2857rem 0em;
 }
 /*-------------------
       Or Buttons
@@ -7398,51 +7454,51 @@
 /* Top Side */
 [class*="top attached"].ui.buttons {
   margin-bottom: -1px;
-  border-radius: 0.25em 0.25em 0em 0em;
+  border-radius: 0.2857rem 0.2857rem 0em 0em;
 }
 [class*="top attached"].ui.buttons .button:first-child {
-  border-radius: 0.25em 0em 0em 0em;
+  border-radius: 0.2857rem 0em 0em 0em;
 }
 [class*="top attached"].ui.buttons .button:last-child {
-  border-radius: 0em 0.25em 0em 0em;
+  border-radius: 0em 0.2857rem 0em 0em;
 }
 /* Bottom Side */
 [class*="bottom attached"].ui.buttons {
   margin-top: -1px;
-  border-radius: 0em 0em 0.25em 0.25em;
+  border-radius: 0em 0em 0.2857rem 0.2857rem;
 }
 [class*="bottom attached"].ui.buttons .button:first-child {
-  border-radius: 0em 0em 0em 0.25em;
+  border-radius: 0em 0em 0em 0.2857rem;
 }
 [class*="bottom attached"].ui.buttons .button:last-child {
-  border-radius: 0em 0em 0.25em 0em;
+  border-radius: 0em 0em 0.2857rem 0em;
 }
 /* Left Side */
 [class*="left attached"].ui.buttons {
   margin-left: -1px;
-  border-radius: 0em 0.25em 0.25em 0em;
+  border-radius: 0em 0.2857rem 0.2857rem 0em;
 }
 [class*="left attached"].ui.buttons .button:first-child {
   margin-left: -1px;
-  border-radius: 0em 0.25em 0em 0em;
+  border-radius: 0em 0.2857rem 0em 0em;
 }
 [class*="left attached"].ui.buttons .button:last-child {
   margin-left: -1px;
-  border-radius: 0em 0em 0.25em 0em;
+  border-radius: 0em 0em 0.2857rem 0em;
 }
 /* Right Side */
 [class*="right attached"].ui.buttons,
 [class*="right attached"].ui.buttons .button {
   margin-right: -1px;
-  border-radius: 0.25em 0em 0em 0.25em;
+  border-radius: 0.2857rem 0em 0em 0.2857rem;
 }
 [class*="right attached"].ui.buttons .button:first-child {
   margin-left: -1px;
-  border-radius: 0.25em 0em 0em 0em;
+  border-radius: 0.2857rem 0em 0em 0em;
 }
 [class*="right attached"].ui.buttons .button:last-child {
   margin-left: -1px;
-  border-radius: 0em 0em 0em 0.25em;
+  border-radius: 0em 0em 0em 0.2857rem;
 }
 /* Fluid */
 .ui.fluid.buttons,
@@ -8733,12 +8789,12 @@
 }
 .ui.buttons .button:first-child {
   margin-left: 0em;
-  border-top-left-radius: 0.25em;
-  border-bottom-left-radius: 0.25em;
+  border-top-left-radius: 0.2857rem;
+  border-bottom-left-radius: 0.2857rem;
 }
 .ui.buttons .button:last-child {
-  border-top-right-radius: 0.25em;
-  border-bottom-right-radius: 0.25em;
+  border-top-right-radius: 0.2857rem;
+  border-bottom-right-radius: 0.2857rem;
 }
 /* Vertical  Style */
 .ui.vertical.buttons {
@@ -8756,7 +8812,7 @@
 .ui.vertical.buttons .small.button:first-child,
 .ui.vertical.buttons .massive.button:first-child,
 .ui.vertical.buttons .huge.button:first-child {
-  border-radius: 0.25em 0.25em 0px 0px;
+  border-radius: 0.2857rem 0.2857rem 0px 0px;
 }
 .ui.vertical.buttons .button:last-child,
 .ui.vertical.buttons .mini.button:last-child,
@@ -8766,7 +8822,7 @@
 .ui.vertical.buttons .huge.button:last-child,
 .ui.vertical.buttons .gigantic.button:last-child {
   margin-bottom: 0px;
-  border-radius: 0px 0px 0.25em 0.25em;
+  border-radius: 0px 0px 0.2857rem 0.2857rem;
 }
 /*******************************
            Overrides
@@ -8842,6 +8898,10 @@
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -8958,6 +9018,10 @@
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -9327,6 +9391,10 @@
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -9431,6 +9499,10 @@
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -10592,6 +10664,10 @@ i.flag.zimbabwe:before {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -10684,6 +10760,7 @@ i.flag.zimbabwe:before {
       Variations
 --------------------*/
 /* Icon Header */
+/* No Line Height Offset */
 /* Divided */
 /* Block */
 /* Divided */
@@ -10713,6 +10790,10 @@ i.flag.zimbabwe:before {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -10805,6 +10886,7 @@ i.flag.zimbabwe:before {
       Variations
 --------------------*/
 /* Icon Header */
+/* No Line Height Offset */
 /* Divided */
 /* Block */
 /* Divided */
@@ -10934,6 +11016,10 @@ h5.ui.header {
 .ui.icon.header {
   display: block;
   text-align: center;
+  margin: 2rem 0em 1rem;
+}
+.ui.icon.header:first-child {
+  margin-top: 0em;
 }
 .ui.icon.header .icon {
   float: none;
@@ -11356,6 +11442,10 @@ a.ui.inverted.yellow.header:hover {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -11460,6 +11550,10 @@ a.ui.inverted.yellow.header:hover {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -13675,6 +13769,10 @@ i.icon.weixin:before {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -13789,6 +13887,10 @@ i.icon.weixin:before {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -14161,6 +14263,10 @@ img.ui.bordered.image {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -14283,6 +14389,10 @@ img.ui.bordered.image {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -14416,7 +14526,7 @@ img.ui.bordered.image {
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.15);
   color: rgba(0, 0, 0, 0.8);
-  border-radius: 0.325em;
+  border-radius: 0.2857rem;
   -webkit-transition: background-color 0.3s ease-out, box-shadow 0.2s ease, border-color 0.2s ease;
           transition: background-color 0.3s ease-out, box-shadow 0.2s ease, border-color 0.2s ease;
   box-shadow: none;
@@ -14521,7 +14631,7 @@ img.ui.bordered.image {
   width: 2.85em;
   height: 100%;
   text-align: center;
-  border-radius: 0em 0.325em 0.325em 0em;
+  border-radius: 0em 0.2857rem 0.2857rem 0em;
   box-sizing: border-box;
   -webkit-transition: opacity 0.3s ease;
           transition: opacity 0.3s ease;
@@ -14549,7 +14659,7 @@ img.ui.bordered.image {
 .ui[class*="left icon"].input > .icon {
   right: auto;
   left: 1px;
-  border-radius: 0.325em 0em 0em 0.325em;
+  border-radius: 0.2857rem 0em 0em 0.2857rem;
 }
 .ui[class*="left icon"].input > .circular.icon {
   right: auto;
@@ -14629,7 +14739,7 @@ img.ui.bordered.image {
   top: 1px;
   right: 1px;
   font-size: 0.75em;
-  border-radius: 0em 0.325em 0em 0em;
+  border-radius: 0em 0.2857rem 0em 0em;
 }
 .ui.labeled.input input {
   padding-right: 2.5em !important;
@@ -14801,6 +14911,10 @@ img.ui.bordered.image {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -14933,6 +15047,10 @@ img.ui.bordered.image {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -15965,6 +16083,10 @@ a.ui.yellow.label:hover:before {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -16108,6 +16230,10 @@ a.ui.yellow.label:hover:before {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -16962,6 +17088,10 @@ ol.ui.horizontal.list li:before,
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -17077,6 +17207,10 @@ ol.ui.horizontal.list li:before,
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -17484,6 +17618,10 @@ ol.ui.horizontal.list li:before,
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -17593,6 +17731,10 @@ ol.ui.horizontal.list li:before,
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -17828,6 +17970,10 @@ ol.ui.horizontal.list li:before,
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -17929,6 +18075,10 @@ ol.ui.horizontal.list li:before,
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -18325,6 +18475,10 @@ ol.ui.horizontal.list li:before,
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -18443,6 +18597,10 @@ ol.ui.horizontal.list li:before,
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -18559,7 +18717,7 @@ ol.ui.horizontal.list li:before,
   box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
   margin: 1rem 0em;
   padding: 1em 1em;
-  border-radius: 0.25rem;
+  border-radius: 0.2857rem;
   border: none;
 }
 .ui.segment:first-child {
@@ -18636,7 +18794,7 @@ ol.ui.horizontal.list li:before,
 }
 .ui.grid.segment {
   margin: 1rem 0rem;
-  border-radius: 0.25rem;
+  border-radius: 0.2857rem;
 }
 /* Table */
 .ui.basic.table.segment {
@@ -18780,39 +18938,39 @@ ol.ui.horizontal.list li:before,
 --------------------*/
 .ui.black.segment:not(.inverted) {
   border-top: 2px solid #1b1c1d;
-  border-radius: 0em 0em 0.25rem 0.25rem !important;
+  border-radius: 0em 0em 0.2857rem 0.2857rem !important;
 }
 .ui.blue.segment:not(.inverted) {
   border-top: 2px solid #3b83c0;
-  border-radius: 0em 0em 0.25rem 0.25rem !important;
+  border-radius: 0em 0em 0.2857rem 0.2857rem !important;
 }
 .ui.green.segment:not(.inverted) {
   border-top: 2px solid #5bbd72;
-  border-radius: 0em 0em 0.25rem 0.25rem !important;
+  border-radius: 0em 0em 0.2857rem 0.2857rem !important;
 }
 .ui.orange.segment:not(.inverted) {
   border-top: 2px solid #e07b53;
-  border-radius: 0em 0em 0.25rem 0.25rem !important;
+  border-radius: 0em 0em 0.2857rem 0.2857rem !important;
 }
 .ui.pink.segment:not(.inverted) {
   border-top: 2px solid #d9499a;
-  border-radius: 0em 0em 0.25rem 0.25rem !important;
+  border-radius: 0em 0em 0.2857rem 0.2857rem !important;
 }
 .ui.purple.segment:not(.inverted) {
   border-top: 2px solid #564f8a;
-  border-radius: 0em 0em 0.25rem 0.25rem !important;
+  border-radius: 0em 0em 0.2857rem 0.2857rem !important;
 }
 .ui.red.segment:not(.inverted) {
   border-top: 2px solid #d95c5c;
-  border-radius: 0em 0em 0.25rem 0.25rem !important;
+  border-radius: 0em 0em 0.2857rem 0.2857rem !important;
 }
 .ui.teal.segment:not(.inverted) {
   border-top: 2px solid #00b5ad;
-  border-radius: 0em 0em 0.25rem 0.25rem !important;
+  border-radius: 0em 0em 0.2857rem 0.2857rem !important;
 }
 .ui.yellow.segment:not(.inverted) {
   border-top: 2px solid #f2c61f;
-  border-radius: 0em 0em 0.25rem 0.25rem !important;
+  border-radius: 0em 0em 0.2857rem 0.2857rem !important;
 }
 /*-------------------
    Inverted Colors
@@ -18942,7 +19100,7 @@ ol.ui.horizontal.list li:before,
   bottom: 0px;
   margin-top: 1rem;
   margin-bottom: 0em;
-  border-radius: 0.25rem 0.25rem 0em 0em;
+  border-radius: 0.2857rem 0.2857rem 0em 0em;
 }
 .ui.segment[class*="top attached"]:first-child {
   margin-top: 0em;
@@ -18954,7 +19112,7 @@ ol.ui.horizontal.list li:before,
   margin-top: 0em;
   margin-bottom: 1rem;
   box-shadow: none, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
-  border-radius: 0em 0em 0.25rem 0.25rem;
+  border-radius: 0em 0em 0.2857rem 0.2857rem;
 }
 .ui.segment[class*="bottom attached"]:last-child {
   margin-bottom: 0em;
@@ -19033,6 +19191,10 @@ ol.ui.horizontal.list li:before,
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -19153,6 +19315,10 @@ ol.ui.horizontal.list li:before,
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -19365,10 +19531,10 @@ ol.ui.horizontal.list li:before,
 }
 .ui.vertical.steps .step:first-child {
   padding: 0.8em 1.5em;
-  border-radius: 0.3125rem 0.3125rem 0em 0em;
+  border-radius: 0.2857rem 0.2857rem 0em 0em;
 }
 .ui.vertical.steps .step:last-child {
-  border-radius: 0em 0em 0.3125rem 0.3125rem;
+  border-radius: 0em 0em 0.2857rem 0.2857rem;
 }
 /* Arrow */
 .ui.vertical.steps .step:after {
@@ -19388,17 +19554,17 @@ ol.ui.horizontal.list li:before,
   box-shadow: '';
   line-height: 1.2;
   box-sizing: border-box;
-  border-radius: 0.3125rem;
+  border-radius: 0.2857rem;
 }
 .ui.steps .step:first-child {
   padding-left: 1.5em;
-  border-radius: 0.3125rem 0em 0em 0.3125rem;
+  border-radius: 0.2857rem 0em 0em 0.2857rem;
 }
 .ui.steps .step:last-child {
-  border-radius: 0em 0.3125rem 0.3125rem 0em;
+  border-radius: 0em 0.2857rem 0.2857rem 0em;
 }
 .ui.steps .step:only-child {
-  border-radius: 0.3125rem;
+  border-radius: 0.2857rem;
 }
 .ui.steps .step:last-child {
   margin-right: 0em;
@@ -19478,24 +19644,24 @@ ol.ui.horizontal.list li:before,
 /* Attached */
 .attached.ui.steps {
   margin: 0em;
-  border-radius: 0.3125rem 0.3125rem 0em 0em;
+  border-radius: 0.2857rem 0.2857rem 0em 0em;
 }
 .attached.ui.steps .step:first-child {
-  border-radius: 0.3125rem 0em 0em 0em;
+  border-radius: 0.2857rem 0em 0em 0em;
 }
 .attached.ui.steps .step:last-child {
-  border-radius: 0em 0.3125rem 0em 0em;
+  border-radius: 0em 0.2857rem 0em 0em;
 }
 /* Bottom Side */
 .bottom.attached.ui.steps {
   margin-top: -1px;
-  border-radius: 0em 0em 0.3125rem 0.3125rem;
+  border-radius: 0em 0em 0.2857rem 0.2857rem;
 }
 .bottom.attached.ui.steps .step:first-child {
-  border-radius: 0em 0em 0em 0.3125rem;
+  border-radius: 0em 0em 0em 0.2857rem;
 }
 .bottom.attached.ui.steps .step:last-child {
-  border-radius: 0em 0em 0.3125rem 0em;
+  border-radius: 0em 0em 0.2857rem 0em;
 }
 /* Evenly divided  */
 .ui.one.steps,
@@ -19631,6 +19797,10 @@ ol.ui.horizontal.list li:before,
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -19732,6 +19902,10 @@ ol.ui.horizontal.list li:before,
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -20272,6 +20446,10 @@ th {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -20367,6 +20545,10 @@ th {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -20465,6 +20647,10 @@ th {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -20560,6 +20746,10 @@ th {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -20794,6 +20984,10 @@ a:hover {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -20914,6 +21108,10 @@ a:hover {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -21115,7 +21313,7 @@ a:hover {
 }
 .ui.styled.accordion,
 .ui.styled.accordion .accordion {
-  border-radius: 0.3125em;
+  border-radius: 0.2857rem;
   background: #ffffff;
   box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(39, 41, 43, 0.15);
 }
@@ -21280,6 +21478,10 @@ a:hover {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -21381,6 +21583,10 @@ a:hover {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -21778,6 +21984,10 @@ a:hover {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -21899,6 +22109,10 @@ a:hover {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -22490,6 +22704,10 @@ a:hover {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -22598,6 +22816,10 @@ a:hover {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -22906,6 +23128,10 @@ body.dimmed.dimmable > :not(.dimmer) {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -23005,6 +23231,8 @@ body.dimmed.dimmable > :not(.dimmer) {
 b        Types
 --------------------*/
 /* Selection */
+/* Responsive */
+/* Derived */
 /* Hover */
 /* Visible */
 /* Visible Hover */
@@ -23044,6 +23272,10 @@ b        Types
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -23143,6 +23375,8 @@ b        Types
 b        Types
 --------------------*/
 /* Selection */
+/* Responsive */
+/* Derived */
 /* Hover */
 /* Visible */
 /* Visible Hover */
@@ -23207,7 +23441,7 @@ b        Types
   text-align: left;
   box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.15);
   border: 1px solid rgba(39, 41, 43, 0.15);
-  border-radius: 0em 0em 0.325em 0.325em;
+  border-radius: 0em 0em 0.2857rem 0.2857rem;
   -webkit-transition: opacity 0.2s ease;
           transition: opacity 0.2s ease;
   z-index: 11;
@@ -23250,7 +23484,7 @@ b        Types
   border: none;
   height: auto;
   border-top: none;
-  line-height: 1.2;
+  line-height: 1.2em;
   color: rgba(0, 0, 0, 0.8);
   padding: 0.65rem 1.25rem !important;
   font-size: 1rem;
@@ -23309,7 +23543,7 @@ b        Types
   left: 100% !important;
   right: auto !important;
   margin: 0em 0em 0em -0.5em !important;
-  border-radius: 0em 0.325em 0.325em 0em !important;
+  border-radius: 0em 0.2857rem 0.2857rem 0em !important;
 }
 /* Hide Arrow */
 .ui.dropdown .menu .menu:after {
@@ -23371,7 +23605,7 @@ b        Types
   color: rgba(0, 0, 0, 0.8);
   box-shadow: none;
   border: 1px solid rgba(39, 41, 43, 0.15);
-  border-radius: 0.325em;
+  border-radius: 0.2857rem;
   -webkit-transition: border-radius 0.1s ease, width 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
           transition: border-radius 0.1s ease, width 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
 }
@@ -23441,7 +23675,6 @@ select.ui.dropdown {
   min-width: -webkit-calc(100% + 2px);
   min-width: calc(100% + 2px);
   outline: none;
-  max-height: 245px;
   box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.08);
   -webkit-transition: box-shadow 0.2s ease, border 0.2s ease;
           transition: box-shadow 0.2s ease, border 0.2s ease;
@@ -23450,6 +23683,27 @@ select.ui.dropdown {
 .ui.selection.dropdown .menu:before {
   display: none;
 }
+@media only screen and (max-width: 767px) {
+  .ui.selection.dropdown .menu {
+    max-height: 7.7142rem;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .ui.selection.dropdown .menu {
+    max-height: 10.2856rem;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .ui.selection.dropdown .menu {
+    max-height: 15.4284rem;
+  }
+}
+@media only screen and (min-width: 1920px) {
+  .ui.selection.dropdown .menu {
+    max-height: 20.5712rem;
+  }
+}
+/* Menu Item */
 .ui.selection.dropdown .menu > .item {
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   padding-left: 1.1em !important;
@@ -23511,7 +23765,7 @@ select.ui.dropdown {
 .ui.inline.dropdown .menu {
   cursor: auto;
   margin-top: 0.25em;
-  border-radius: 0.325em;
+  border-radius: 0.2857rem;
 }
 /*******************************
             States
@@ -23676,7 +23930,7 @@ select.ui.dropdown {
   right: auto;
   margin-top: 0.5em !important;
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
-  border-radius: 0.325em;
+  border-radius: 0.2857rem;
 }
 /*--------------
      Pointing
@@ -23684,7 +23938,7 @@ select.ui.dropdown {
 .ui.pointing.dropdown > .menu {
   top: 100%;
   margin-top: 0.75em;
-  border-radius: 0.325em;
+  border-radius: 0.2857rem;
 }
 .ui.pointing.dropdown > .menu:after {
   display: block;
@@ -23938,6 +24192,10 @@ select.ui.dropdown {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -24057,6 +24315,10 @@ select.ui.dropdown {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -24180,7 +24442,7 @@ select.ui.dropdown {
   background: #ffffff;
   border: none;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.8);
-  border-radius: 0.25rem;
+  border-radius: 0.2857rem;
   -webkit-user-select: text;
      -moz-user-select: text;
       -ms-user-select: text;
@@ -24189,12 +24451,12 @@ select.ui.dropdown {
 }
 .ui.modal > :first-child:not(.icon),
 .ui.modal > .icon:first-child + * {
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
+  border-top-left-radius: 0.2857rem;
+  border-top-right-radius: 0.2857rem;
 }
 .ui.modal > :last-child {
-  border-bottom-left-radius: 0.25rem;
-  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.2857rem;
+  border-bottom-right-radius: 0.2857rem;
 }
 /*******************************
             Content
@@ -24608,6 +24870,10 @@ select.ui.dropdown {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -24728,6 +24994,10 @@ select.ui.dropdown {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -24856,7 +25126,7 @@ select.ui.dropdown {
   font-size: 1rem;
   text-align: center;
   color: rgba(0, 0, 0, 0.8);
-  border-radius: 0em 0em 0.25em 0.25em;
+  border-radius: 0em 0em 0.2857rem 0.2857rem;
   -webkit-transition: 0.2s background ease;
           transition: 0.2s background ease;
 }
@@ -24912,7 +25182,7 @@ a.ui.nag {
 ---------------*/
 .ui.bottom.nags,
 .ui.bottom.nag {
-  border-radius: 0.25em 0.25em 0em 0em;
+  border-radius: 0.2857rem 0.2857rem 0em 0em;
   top: auto;
   bottom: 0em;
 }
@@ -24937,10 +25207,10 @@ a.ui.nag {
   border-radius: 0em !important;
 }
 .ui.nags .nag:last-child {
-  border-radius: 0em 0em 0.25em 0.25em;
+  border-radius: 0em 0em 0.2857rem 0.2857rem;
 }
 .ui.bottom.nags .nag:last-child {
-  border-radius: 0.25em 0.25em 0em 0em;
+  border-radius: 0.2857rem 0.2857rem 0em 0em;
 }
 /*******************************
            Overrides
@@ -25016,6 +25286,10 @@ a.ui.nag {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -25139,6 +25413,10 @@ a.ui.nag {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -25267,7 +25545,7 @@ a.ui.nag {
   font-weight: normal;
   font-style: normal;
   color: rgba(0, 0, 0, 0.8);
-  border-radius: 0.25em;
+  border-radius: 0.2857rem;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 .ui.popup > .header {
@@ -25539,6 +25817,10 @@ a.ui.nag {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -25658,6 +25940,10 @@ a.ui.nag {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -25770,12 +26056,12 @@ a.ui.nag {
   position: relative;
   display: block;
   max-width: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid 0.2857rem;
   margin: 1em 0em 2.5em;
   box-shadow: none;
   background: rgba(0, 0, 0, 0.03);
-  padding: 0.325em;
-  border-radius: 0.325em;
+  padding: 0.2857em;
+  border-radius: 0.2857rem;
 }
 .ui.progress:first-child {
   margin: 0em 0em 2.5em;
@@ -25859,7 +26145,7 @@ a.ui.nag {
   min-width: 0.25em;
   height: 1.75em;
   background: #888888;
-  border-radius: 0.325em;
+  border-radius: 0.2857rem;
   -webkit-transition: width 0.5s ease, background-color 1s ease;
           transition: width 0.5s ease, background-color 1s ease;
 }
@@ -25957,7 +26243,7 @@ a.ui.nag {
   right: 0px;
   bottom: 0px;
   background: #ffffff;
-  border-radius: 0.325em;
+  border-radius: 0.2857rem;
   -webkit-animation: progress-active 2s ease infinite;
           animation: progress-active 2s ease infinite;
 }
@@ -26037,7 +26323,7 @@ a.ui.nag {
   height: 0.25em;
   padding: 0px;
   overflow: hidden;
-  border-radius: 0em 0em 0.325em 0.325em;
+  border-radius: 0em 0em 0.2857rem 0.2857rem;
 }
 .ui.progress.attached .bar {
   border-radius: 0em;
@@ -26046,7 +26332,7 @@ a.ui.nag {
 .ui.progress.top.attached,
 .ui.progress.top.attached .bar {
   top: 0px;
-  border-radius: 0.325em 0.325em 0em 0em;
+  border-radius: 0.2857rem 0.2857rem 0em 0em;
 }
 .ui.progress.top.attached .bar {
   border-radius: 0em;
@@ -26182,6 +26468,10 @@ a.ui.nag {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -26294,6 +26584,10 @@ a.ui.nag {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -26667,6 +26961,10 @@ a.ui.nag {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -26786,6 +27084,10 @@ a.ui.nag {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -27170,6 +27472,10 @@ a.ui.nag {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -27277,6 +27583,10 @@ a.ui.nag {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -27559,6 +27869,10 @@ a.ui.nag {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -27660,6 +27974,10 @@ a.ui.nag {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -28232,6 +28550,10 @@ a.ui.nag {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -28333,6 +28655,10 @@ a.ui.nag {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -28541,6 +28867,10 @@ a.ui.nag {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -28644,6 +28974,10 @@ a.ui.nag {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -28853,6 +29187,10 @@ a.ui.nag {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -28954,6 +29292,10 @@ a.ui.nag {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -29085,6 +29427,7 @@ a.ui.nag {
 }
 /* Visible */
 .visible.transition {
+  display: block;
   visibility: visible !important;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
@@ -30044,6 +30387,10 @@ a.ui.nag {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -30145,6 +30492,10 @@ a.ui.nag {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -30394,6 +30745,10 @@ a.ui.nag {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -30523,6 +30878,10 @@ a.ui.nag {
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -30686,7 +31045,7 @@ a.ui.nag {
   background: #ffffff;
   padding: 0em;
   border: none;
-  border-radius: 0.325rem;
+  border-radius: 0.2857rem;
   box-shadow: 0px 0.2em 0px 0px #d4d4d5, 0px 0px 0px 1px #d4d4d5;
   -webkit-transition: box-shadow 0.2s ease;
           transition: box-shadow 0.2s ease;
@@ -30704,11 +31063,11 @@ a.ui.nag {
 ---------------*/
 .ui.cards > .card > :first-child,
 .ui.card > :first-child {
-  border-radius: 0.325rem 0.325rem 0em 0em !important;
+  border-radius: 0.2857rem 0.2857rem 0em 0em !important;
 }
 .ui.cards > .card > :last-child,
 .ui.card > :last-child {
-  border-radius: 0em 0em 0.325rem 0.325rem !important;
+  border-radius: 0em 0em 0.2857rem 0.2857rem !important;
 }
 /*--------------
      Images
@@ -30725,12 +31084,12 @@ a.ui.nag {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 0.325rem 0.325rem 0em 0em;
+  border-radius: 0.2857rem 0.2857rem 0em 0em;
   border: none;
 }
 .ui.cards > .card > .image:only-child > img,
 .ui.card > .image:only-child > img {
-  border-radius: 0.325rem;
+  border-radius: 0.2857rem;
 }
 /*--------------
      Content
@@ -31409,6 +31768,10 @@ a.ui.card:hover,
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -31531,6 +31894,10 @@ a.ui.card:hover,
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -31917,6 +32284,10 @@ a.ui.card:hover,
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -32045,6 +32416,10 @@ a.ui.card:hover,
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -32459,6 +32834,10 @@ a.ui.card:hover,
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -32587,6 +32966,10 @@ a.ui.card:hover,
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -33156,6 +33539,10 @@ a.ui.card:hover,
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -33278,6 +33665,10 @@ a.ui.card:hover,
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------

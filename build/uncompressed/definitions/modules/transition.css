@@ -65,6 +65,10 @@
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -166,6 +170,10 @@
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -297,6 +305,7 @@
 }
 /* Visible */
 .visible.transition {
+  display: block;
   visibility: visible !important;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;

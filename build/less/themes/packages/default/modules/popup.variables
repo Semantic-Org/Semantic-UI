@@ -19,7 +19,7 @@
 @horizontalPadding: 1em;
 @fontWeight: normal;
 @fontStyle: normal;
-@borderRadius: 0.25em;
+@borderRadius: @defaultBorderRadius;
 
 /*-------------------
        Parts

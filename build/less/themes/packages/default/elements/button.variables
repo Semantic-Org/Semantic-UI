@@ -15,7 +15,7 @@
 @textColor: rgba(0, 0, 0, 0.6);
 @textShadow: none;
 @invertedTextShadow: none;
-@borderRadius: 0.25em;
+@borderRadius: @defaultBorderRadius;
 @borderBoxShadowColor: transparent;
 @borderBoxShadowWidth: 1px;
 @verticalAlign: baseline;

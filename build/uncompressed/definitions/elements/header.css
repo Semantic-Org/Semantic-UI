@@ -65,6 +65,10 @@
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -157,6 +161,7 @@
       Variations
 --------------------*/
 /* Icon Header */
+/* No Line Height Offset */
 /* Divided */
 /* Block */
 /* Divided */
@@ -186,6 +191,10 @@
 /*-------------------
   Background Colors
 --------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
 /* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
@@ -278,6 +287,7 @@
       Variations
 --------------------*/
 /* Icon Header */
+/* No Line Height Offset */
 /* Divided */
 /* Block */
 /* Divided */
@@ -407,6 +417,10 @@ h5.ui.header {
 .ui.icon.header {
   display: block;
   text-align: center;
+  margin: 2rem 0em 1rem;
+}
+.ui.icon.header:first-child {
+  margin-top: 0em;
 }
 .ui.icon.header .icon {
   float: none;
