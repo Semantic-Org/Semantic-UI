@@ -47,6 +47,24 @@ semantic.home.ready = function() {
     }
   };
 
+  $('.email.stripe form')
+    .form({
+      email: {
+        identifier : 'email',
+        rules: [
+          {
+            type   : 'empty',
+            prompt : 'Please enter an e-mail'
+          },
+          {
+            type   : 'email',
+            prompt : 'Please enter a valid e-mail address'
+          }
+        ]
+      }
+    })
+  ;
+
 
   $('.masthead')
     .visibility({

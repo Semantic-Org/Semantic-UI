@@ -108,13 +108,15 @@ type   : 'Semantic'
       <h3 class="ui header">
         Semantic is growing fast. Want to see just how much? Sign up and we'll let you know
       </h3>
-      <form method="post" action="//semantic-ui.us9.list-manage.com/subscribe/post?u=1bb099283b001a74133a94364&amp;id=1b77a619a7">
-        <div class="ui huge input">
-          <input type="text" name="EMAIL" placeholder="E-mail">
+      <form class="ui form" method="post" action="//semantic-ui.us9.list-manage.com/subscribe/post?u=1bb099283b001a74133a94364&amp;id=1b77a619a7">
+        <div class="field">
+          <div class="ui huge input">
+            <input type="text" name="EMAIL" data-validate="email" placeholder="E-mail">
+          </div>
+          <button type="submit" class="ui huge secondary submit button">
+            Sign-up
+          </button>
         </div>
-        <button type="submit" class="ui huge secondary submit button">
-          Sign-up
-        </button>
       </form>
     </div>
   </div>
