@@ -116,10 +116,12 @@ $.api = $.fn.api = function(parameters) {
             module.debug('Request cancelled previous request is still pending');
             return;
           }
+
           // pass element metadata to url (value, text)
           if(settings.defaultData) {
             $.extend(true, settings.urlData, module.get.defaultData());
           }
+          console.log(settings.urlData);
 
           // Add form content
           if(settings.serializeForm !== false || $module.is('form')) {
@@ -379,7 +381,7 @@ $.api = $.fn.api = function(parameters) {
                           errorMessage = response.error;
                         }
                       }
-                      catch(er) {
+                      catch(e) {
                         module.error(error.JSONParse);
                       }
                     }
@@ -742,14 +744,13 @@ $.api.settings = {
 
   // event binding
   on              : 'auto',
-  filter          : '.disabled, .loading',
+  filter          : '.disabled',
   context         : false,
   stateContext    : false,
 
   // templating
   action          : false,
-
-  base            : false,
+  url             : false,
 
   regExp  : {
     required: /\{\$*[A-z0-9]+\}/g,
@@ -757,12 +758,12 @@ $.api.settings = {
   },
 
   // data
-  url             : false,
-  urlData         : false,
-  serializeForm   : false,
+  urlData         : {},
+
 
   // ui
   defaultData     : true,
+  serializeForm   : false,
   throttle        : 100,
   allowMultiple   : false,
 
@@ -785,7 +786,7 @@ $.api.settings = {
   onFailure   : function(errorMessage, $module) {},
   onAbort     : function(errorMessage, $module) {},
 
-  successText : function(response) { return true; },
+  successTest : function(response) { return true; },
 
   // errors
   error : {

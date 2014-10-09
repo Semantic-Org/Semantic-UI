@@ -14,7 +14,6 @@
 $.fn.state = function(parameters) {
   var
     $allModules     = $(this),
-    settings        = $.extend(true, {}, $.fn.state.settings, parameters),
 
     moduleSelector  = $allModules.selector || '',
 
@@ -26,27 +25,29 @@ $.fn.state = function(parameters) {
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
 
-    // shortcuts
-    error           = settings.error,
-    metadata        = settings.metadata,
-    className       = settings.className,
-    namespace       = settings.namespace,
-    states          = settings.states,
-    text            = settings.text,
-
-    eventNamespace  = '.' + namespace,
-    moduleNamespace = namespace + '-module',
-
-
     returnedValue
   ;
   $allModules
     .each(function() {
       var
-        $module       = $(this),
+        settings          = ( $.isPlainObject(parameters) )
+          ? $.extend(true, {}, $.fn.state.settings, parameters)
+          : $.extend({}, $.fn.state.settings),
 
-        element       = this,
-        instance      = $module.data(moduleNamespace),
+        error           = settings.error,
+        metadata        = settings.metadata,
+        className       = settings.className,
+        namespace       = settings.namespace,
+        states          = settings.states,
+        text            = settings.text,
+
+        eventNamespace  = '.' + namespace,
+        moduleNamespace = namespace + '-module',
+
+        $module         = $(this),
+
+        element         = this,
+        instance        = $module.data(moduleNamespace),
 
         module
       ;
@@ -197,6 +198,7 @@ $.fn.state = function(parameters) {
               module.refresh();
               if($.fn.api !== undefined) {
                 apiRequest = $module.api('get request');
+                console.log(apiRequest, $module);
                 if(apiRequest) {
                   module.listenTo(apiRequest);
                   return;
@@ -265,19 +267,19 @@ $.fn.state = function(parameters) {
                   module.verbose('Changing text to hover text', text.hover);
                   module.update.text(text.hover);
                 }
-                else if(text.disable) {
-                  module.verbose('Changing text to disable text', text.disable);
-                  module.update.text(text.disable);
+                else if(text.deactivate) {
+                  module.verbose('Changing text to deactivating text', text.deactivate);
+                  module.update.text(text.deactivate);
                 }
               }
               else {
                 if(text.hover) {
-                  module.verbose('Changing text to hover text', text.disable);
+                  module.verbose('Changing text to hover text', text.hover);
                   module.update.text(text.hover);
                 }
-                else if(text.enable){
-                  module.verbose('Changing text to enable text', text.enable);
-                  module.update.text(text.enable);
+                else if(text.activate){
+                  module.verbose('Changing text to activating text', text.activate);
+                  module.update.text(text.activate);
                 }
               }
             }
@@ -400,27 +402,22 @@ $.fn.state = function(parameters) {
 
         setting: function(name, value) {
           module.debug('Changing setting', name, value);
-          if(value !== undefined) {
-            if( $.isPlainObject(name) ) {
-              $.extend(true, settings, name);
-            }
-            else {
-              settings[name] = value;
-            }
+          if( $.isPlainObject(name) ) {
+            $.extend(true, settings, name);
+          }
+          else if(value !== undefined) {
+            settings[name] = value;
           }
           else {
             return settings[name];
           }
         },
         internal: function(name, value) {
-          module.debug('Changing internal', name, value);
-          if(value !== undefined) {
-            if( $.isPlainObject(name) ) {
-              $.extend(true, module, name);
-            }
-            else {
-              module[name] = value;
-            }
+          if( $.isPlainObject(name) ) {
+            $.extend(true, module, name);
+          }
+          else if(value !== undefined) {
+            module[name] = value;
           }
           else {
             return module[name];
@@ -488,9 +485,6 @@ $.fn.state = function(parameters) {
             if(moduleSelector) {
               title += ' \'' + moduleSelector + '\'';
             }
-            if($allModules.size() > 1) {
-              title += ' ' + '(' + $allModules.size() + ')';
-            }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
               console.groupCollapsed(title);
               if(console.table) {
@@ -538,6 +532,7 @@ $.fn.state = function(parameters) {
                 return false;
               }
               else {
+                module.error(error.method, query);
                 return false;
               }
             });
@@ -560,6 +555,7 @@ $.fn.state = function(parameters) {
           return found;
         }
       };
+
       if(methodInvoked) {
         if(instance === undefined) {
           module.initialize();
@@ -572,7 +568,6 @@ $.fn.state = function(parameters) {
         }
         module.initialize();
       }
-
     })
   ;
 
@@ -680,13 +675,13 @@ $.fn.state.settings = {
   },
 
   text     : {
-    disabled : false,
-    flash    : false,
-    hover    : false,
-    active   : false,
-    inactive : false,
-    enable   : false,
-    disable  : false
+    disabled   : false,
+    flash      : false,
+    hover      : false,
+    active     : false,
+    inactive   : false,
+    activate   : false,
+    deactivate : false
   }
 
 };

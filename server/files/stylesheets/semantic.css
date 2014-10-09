@@ -340,6 +340,13 @@ a:hover {
   Fixed Columns
 ---------------*/
 
+#example .fixed.column {
+  position: absolute;
+  right: 2em;
+  top: 0px;
+  width: 300px;
+}
+
 #example .tab.header.segment .fixed .tabular.menu {
   position: fixed;
   top: 50px;
@@ -347,12 +354,8 @@ a:hover {
 #example .fixed .launch {
   display: none;
 }
-
-#example .fixed.column {
-  position: relative;
-}
 #example .fixed.column .sticky {
-  padding-top: 3em;
+  padding-top: 4em;
 }
 
 
@@ -668,8 +671,11 @@ body#example.hide {
 }
 
 
-#example .intro .example h4 ~ p,
-#example .intro .example h4 ~ .ignored {
+#example .intro .example > h4 {
+  font-size: 1.2em;
+}
+#example .intro .example > h4 ~ p,
+#example .intro .example > h4 ~ .ignored {
   margin: 1em 0em !important;
   font-size: 14px;
 }
@@ -705,6 +711,9 @@ body#example.hide {
   height: 0px;
   clear: both;
   visibility: hidden;
+}
+#example .example-group {
+  position: relative;
 }
 #example .main.container .examples > h2,
 #example .main.container > h2,
@@ -1722,23 +1731,21 @@ body.progress.animated .ui.progress .bar {
 }
 @media only screen and (max-width : 998px) {
   #example .examples {
-    margin-right: 220px;
+    margin-right: 230px;
     padding: 1px;
   }
   #example .fixed.column,
   #example .fixed.column .fixed {
-    float: right;
     width: 200px;
   }
 }
 @media only screen and (min-width : 998px) {
   #example .examples {
-    margin-right: 320px;
+    margin-right: 280px;
     padding: 1px;
   }
   #example .fixed.column,
   #example .fixed.column .fixed {
-    float: right;
-    width: 300px;
+    width: 250px;
   }
 }

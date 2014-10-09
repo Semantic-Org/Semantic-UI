@@ -198,7 +198,7 @@ themes      : ['Default']
       <h4 class="ui header">Page Grid Breakpoints</h4>
       <p>Semantic's page grid, by default, uses percentage values for page gutters. This means your page container will <b>constantly adjust</b> as the browser width changes, giving you the largest possible space for each breakpoint.</p>
       <p>Grids, rows, and columns can receive responsive classes to make them appear only on a particular device.</p>
-      <table class="ui black celled table">
+      <table class="ui definition table">
         <thead>
           <tr>
             <th>Name</th>

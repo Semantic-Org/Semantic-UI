@@ -1,11 +1,11 @@
 
 /* Define API endpoints once globally */
 $.fn.api.settings.debug = true;
+/* Define API endpoints once globally */
 $.fn.api.settings.api = {
-  'get user'      : '/user/{id}',
   'get followers' : '/followers/{id}?results={count}',
   'follow user'   : '/follow/{id}',
-  'add user'      : '/add/{id}',
+  'search'        : '/search/?query={value}'
 };
 
 semantic.api = {};
@@ -27,6 +27,9 @@ semantic.api.ready = function() {
 
   server
     .respondWith(/\/follow\/(\d+)/, [responseCode, headers, body])
+  ;
+  server
+    .respondWith(/\/search\/(.*)/, [responseCode, headers, body])
   ;
 };
 

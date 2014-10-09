@@ -901,7 +901,6 @@ semantic.ready = function() {
       mobileTransition : 'uncover'
     })
     .sidebar('attach events', '.launch.button, .view-ui, .launch.item')
-    .sidebar('attach events', $hideMenu, 'hide')
   ;
 
   handler.createIcon();
