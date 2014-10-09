@@ -31,8 +31,7 @@
 ---------------*/
 
 /* Column Gutters */
-@mobileWidth: 100%;
-@mobileGutter: 1rem;
+@mobileWidth: auto;
 
 @tabletWidth: auto;
 @tabletGutter: 8%;
@@ -89,7 +88,7 @@
 ---------------*/
 
 @stackableRowSpacing: @rowSpacing;
-@stackableGutterWidth: 1.5em;
+@stackableGutter: @gutterWidth;
 @stackableMobileBorder: 1px solid @borderColor;
 @stackableInvertedMobileBorder: 1px solid @whiteBorderColor;
 
