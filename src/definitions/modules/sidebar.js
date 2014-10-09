@@ -199,7 +199,7 @@ $.fn.sidebar = function(parameters) {
             ;
           }
           else {
-            module.error(error.notFound);
+            module.error(error.notFound, selector);
           }
         },
 
