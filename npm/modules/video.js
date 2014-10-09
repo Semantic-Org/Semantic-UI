@@ -11,6 +11,8 @@
 ;(function ($, window, document, undefined) {
 
 module.exports = function(parameters) {
+  var _module = module;
+
 
   var
     $allModules     = $(this),
@@ -31,8 +33,8 @@ module.exports = function(parameters) {
     .each(function() {
       var
         settings        = ( $.isPlainObject(parameters) )
-          ? $.extend(true, {}, module.exports.settings, parameters)
-          : $.extend({}, module.exports.settings),
+          ? $.extend(true, {}, _module.exports.settings, parameters)
+          : $.extend({}, _module.exports.settings),
 
         selector        = settings.selector,
         className       = settings.className,

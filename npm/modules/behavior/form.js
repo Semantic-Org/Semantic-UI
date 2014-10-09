@@ -11,12 +11,12 @@
 
 ;(function ( $, window, document, undefined ) {
 
-module.exports = function(fields, parameters) {
+$.fn.form = function(fields, parameters) {
   var
     $allModules     = $(this),
 
-    settings        = $.extend(true, {}, module.exports.settings, parameters),
-    validation      = $.extend({}, module.exports.settings.defaults, fields),
+    settings        = $.extend(true, {}, _module.exports.settings, parameters),
+    validation      = $.extend({}, _module.exports.settings.defaults, fields),
 
     namespace       = settings.namespace,
     metadata        = settings.metadata,
@@ -282,7 +282,7 @@ module.exports = function(fields, parameters) {
                 .html(errors[0])
               ;
               if(!promptExists) {
-                if(settings.transition && module.exports !== undefined && $module.transition('is supported')) {
+                if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
                   module.verbose('Displaying error with css transition', settings.transition);
                   $prompt.transition(settings.transition + ' in', settings.duration);
                 }
@@ -318,7 +318,7 @@ module.exports = function(fields, parameters) {
             ;
             if(settings.inline && $prompt.is(':visible')) {
               module.verbose('Removing prompt for field', field);
-              if(settings.transition && module.exports !== undefined && $module.transition('is supported')) {
+              if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
                 $prompt.transition(settings.transition + ' out', settings.duration, function() {
                   $prompt.remove();
                 });

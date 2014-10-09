@@ -12,6 +12,8 @@
 ;(function ( $, window, document, undefined ) {
 
 module.exports = function(parameters) {
+  var _module = module;
+
   var
     $allModules = $(this),
     $window     = $(window),
@@ -39,8 +41,8 @@ module.exports = function(parameters) {
     .each(function() {
       var
         settings    = ( $.isPlainObject(parameters) )
-          ? $.extend(true, {}, module.exports.settings, parameters)
-          : $.extend({}, module.exports.settings),
+          ? $.extend(true, {}, _module.exports.settings, parameters)
+          : $.extend({}, _module.exports.settings),
 
         selector        = settings.selector,
         className       = settings.className,
@@ -71,7 +73,7 @@ module.exports = function(parameters) {
         initialize: function() {
           module.verbose('Initializing dimmer', $context);
 
-          if(module.exports === undefined) {
+          if($.fn.dimmer === undefined) {
             module.error(error.dimmer);
             return;
           }
@@ -285,7 +287,7 @@ module.exports = function(parameters) {
               callback();
             };
 
-            if(settings.transition && module.exports !== undefined && $module.transition('is supported')) {
+            if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
               module.debug('Showing modal with css animations');
               $module
                 .transition(settings.transition + ' in', settings.duration, transitionCallback)
@@ -334,7 +336,7 @@ module.exports = function(parameters) {
             ;
           }
           $dimmable.dimmer('hide', function() {
-            if(settings.transition && module.exports !== undefined && $module.transition('is supported')) {
+            if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
               $module
                 .transition('reset')
               ;
@@ -366,7 +368,7 @@ module.exports = function(parameters) {
             callback();
           };
 
-          if(settings.transition && module.exports !== undefined && $module.transition('is supported')) {
+          if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
             module.debug('Hiding modal with css animations');
             $module
               .transition(settings.transition + ' out', settings.duration, transitionCallback)

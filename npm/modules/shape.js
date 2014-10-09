@@ -12,6 +12,8 @@
 ;(function ( $, window, document, undefined ) {
 
 module.exports = function(parameters) {
+  var _module = module;
+
   var
     $allModules     = $(this),
     $body           = $('body'),
@@ -29,7 +31,7 @@ module.exports = function(parameters) {
     .each(function() {
       var
         moduleSelector  = $allModules.selector || '',
-        settings        = $.extend(true, {}, module.exports.settings, parameters),
+        settings        = $.extend(true, {}, _module.exports.settings, parameters),
 
         // internal aliases
         namespace     = settings.namespace,

@@ -12,6 +12,8 @@
 ;(function ( $, window, document, undefined ) {
 
   $.api = module.exports = function(parameters) {
+  var _module = module;
+
 
     var
       settings       = $.extend(true, {}, $.api.settings, parameters),
@@ -524,6 +526,8 @@
 
   // handle DOM attachment to API functionality
   module.exports = function(parameters) {
+  var _module = module;
+
     $(this)
       .each(function(){
         var
@@ -532,8 +536,8 @@
           selector = $(this).selector || '',
 
           settings = ( $.isFunction(parameters) )
-            ? $.extend(true, {}, $.api.settings, module.exports.settings, { stateContext: this, success: parameters })
-            : $.extend(true, {}, $.api.settings, module.exports.settings, { stateContext: this}, parameters),
+            ? $.extend(true, {}, $.api.settings, _module.exports.settings, { stateContext: this, success: parameters })
+            : $.extend(true, {}, $.api.settings, _module.exports.settings, { stateContext: this}, parameters),
           module
         ;
         module = {

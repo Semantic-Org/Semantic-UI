@@ -12,9 +12,11 @@
 ;(function ( $, window, document, undefined ) {
 
 module.exports = function(parameters) {
+  var _module = module;
+
   var
     $allModules     = $(this),
-    settings        = $.extend(true, {}, module.exports.settings, parameters),
+    settings        = $.extend(true, {}, _module.exports.settings, parameters),
 
     moduleSelector  = $allModules.selector || '',
 
