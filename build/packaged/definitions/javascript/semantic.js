@@ -64,6 +64,7 @@ $.api = $.fn.api = function(parameters) {
 
         // standard module
         element         = this,
+        context         = $context.get(),
         instance        = $module.data(moduleNamespace),
         module
       ;
@@ -116,6 +117,7 @@ $.api = $.fn.api = function(parameters) {
             module.debug('Request cancelled previous request is still pending');
             return;
           }
+
           // pass element metadata to url (value, text)
           if(settings.defaultData) {
             $.extend(true, settings.urlData, module.get.defaultData());
@@ -332,27 +334,27 @@ $.api = $.fn.api = function(parameters) {
           request: {
             complete: function(response) {
               module.remove.loading();
-              $.proxy(settings.onComplete, $context)(response, $module);
+              $.proxy(settings.onComplete, context)(response, $module);
             },
             done: function(response) {
-              module.debug('API request received', response);
+              module.debug('API Response Received', response);
               if(settings.dataType == 'json') {
                 if( $.isFunction(settings.successTest) ) {
-                  module.debug('Checking JSON', settings.successTest, response);
-                  if( settings.onSuccess(response) ) {
-                    $.proxy(settings.onSuccess, $context)(response, $module);
+                  module.debug('Checking JSON returned success', settings.successTest, response);
+                  if( settings.successTest(response) ) {
+                    $.proxy(settings.onSuccess, context)(response, $module);
                   }
                   else {
                     module.debug('JSON test specified by user and response failed', response);
-                    $.proxy(settings.onFailure, $context)(response, $module);
+                    $.proxy(settings.onFailure, context)(response, $module);
                   }
                 }
                 else {
-                  $.proxy(settings.onSuccess, $context)(response, $module);
+                  $.proxy(settings.onSuccess, context)(response, $module);
                 }
               }
               else {
-                $.proxy(settings.onSuccess, $context)(response, $module);
+                $.proxy(settings.onSuccess, context)(response, $module);
               }
             },
             error: function(xhr, status, httpMessage) {
@@ -379,7 +381,7 @@ $.api = $.fn.api = function(parameters) {
                           errorMessage = response.error;
                         }
                       }
-                      catch(er) {
+                      catch(e) {
                         module.error(error.JSONParse);
                       }
                     }
@@ -391,10 +393,10 @@ $.api = $.fn.api = function(parameters) {
                     setTimeout(module.remove.error, settings.errorDuration);
                   }
                   module.debug('API Request error:', errorMessage);
-                  $.proxy(settings.onFailure, $context)(errorMessage, $module);
+                  $.proxy(settings.onFailure, context)(errorMessage, $module);
                 }
                 else {
-                  $.proxy(settings.onAbort, $context)(errorMessage, $module);
+                  $.proxy(settings.onAbort, context)(errorMessage, $module);
                   module.debug('Request Aborted (Most likely caused by page change or CORS Policy)', status, httpMessage);
                 }
               }
@@ -742,14 +744,13 @@ $.api.settings = {
 
   // event binding
   on              : 'auto',
-  filter          : '.disabled, .loading',
+  filter          : '.disabled',
   context         : false,
   stateContext    : false,
 
   // templating
   action          : false,
-
-  base            : false,
+  url             : false,
 
   regExp  : {
     required: /\{\$*[A-z0-9]+\}/g,
@@ -757,12 +758,12 @@ $.api.settings = {
   },
 
   // data
-  url             : false,
-  urlData         : false,
-  serializeForm   : false,
+  urlData         : {},
+
 
   // ui
   defaultData     : true,
+  serializeForm   : false,
   throttle        : 100,
   allowMultiple   : false,
 
@@ -774,7 +775,6 @@ $.api.settings = {
   method          : 'get',
   data            : {},
   dataType        : 'json',
-  cache           : true,
 
   // callbacks
   beforeSend  : function(settings) { return settings; },
@@ -785,7 +785,7 @@ $.api.settings = {
   onFailure   : function(errorMessage, $module) {},
   onAbort     : function(errorMessage, $module) {},
 
-  successText : function(response) { return true; },
+  successTest : false,
 
   // errors
   error : {
@@ -1907,7 +1907,6 @@ $.fn.form.settings = {
 $.fn.state = function(parameters) {
   var
     $allModules     = $(this),
-    settings        = $.extend(true, {}, $.fn.state.settings, parameters),
 
     moduleSelector  = $allModules.selector || '',
 
@@ -1919,27 +1918,29 @@ $.fn.state = function(parameters) {
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
 
-    // shortcuts
-    error           = settings.error,
-    metadata        = settings.metadata,
-    className       = settings.className,
-    namespace       = settings.namespace,
-    states          = settings.states,
-    text            = settings.text,
-
-    eventNamespace  = '.' + namespace,
-    moduleNamespace = namespace + '-module',
-
-
     returnedValue
   ;
   $allModules
     .each(function() {
       var
-        $module       = $(this),
+        settings          = ( $.isPlainObject(parameters) )
+          ? $.extend(true, {}, $.fn.state.settings, parameters)
+          : $.extend({}, $.fn.state.settings),
 
-        element       = this,
-        instance      = $module.data(moduleNamespace),
+        error           = settings.error,
+        metadata        = settings.metadata,
+        className       = settings.className,
+        namespace       = settings.namespace,
+        states          = settings.states,
+        text            = settings.text,
+
+        eventNamespace  = '.' + namespace,
+        moduleNamespace = namespace + '-module',
+
+        $module         = $(this),
+
+        element         = this,
+        instance        = $module.data(moduleNamespace),
 
         module
       ;
@@ -2158,19 +2159,19 @@ $.fn.state = function(parameters) {
                   module.verbose('Changing text to hover text', text.hover);
                   module.update.text(text.hover);
                 }
-                else if(text.disable) {
-                  module.verbose('Changing text to disable text', text.disable);
-                  module.update.text(text.disable);
+                else if(text.deactivate) {
+                  module.verbose('Changing text to deactivating text', text.deactivate);
+                  module.update.text(text.deactivate);
                 }
               }
               else {
                 if(text.hover) {
-                  module.verbose('Changing text to hover text', text.disable);
+                  module.verbose('Changing text to hover text', text.hover);
                   module.update.text(text.hover);
                 }
-                else if(text.enable){
-                  module.verbose('Changing text to enable text', text.enable);
-                  module.update.text(text.enable);
+                else if(text.activate){
+                  module.verbose('Changing text to activating text', text.activate);
+                  module.update.text(text.activate);
                 }
               }
             }
@@ -2185,8 +2186,8 @@ $.fn.state = function(parameters) {
               .addClass(className.active)
             ;
             module.update.text(text.active);
+            $.proxy(settings.onActivate, element)();
           }
-          $.proxy(settings.onActivate, element)();
         },
 
         deactivate: function() {
@@ -2196,8 +2197,8 @@ $.fn.state = function(parameters) {
               .removeClass(className.active)
             ;
             module.update.text(text.inactive);
+            $.proxy(settings.onDeactivate, element)();
           }
-          $.proxy(settings.onDeactivate, element)();
         },
 
         sync: function() {
@@ -2293,27 +2294,22 @@ $.fn.state = function(parameters) {
 
         setting: function(name, value) {
           module.debug('Changing setting', name, value);
-          if(value !== undefined) {
-            if( $.isPlainObject(name) ) {
-              $.extend(true, settings, name);
-            }
-            else {
-              settings[name] = value;
-            }
+          if( $.isPlainObject(name) ) {
+            $.extend(true, settings, name);
+          }
+          else if(value !== undefined) {
+            settings[name] = value;
           }
           else {
             return settings[name];
           }
         },
         internal: function(name, value) {
-          module.debug('Changing internal', name, value);
-          if(value !== undefined) {
-            if( $.isPlainObject(name) ) {
-              $.extend(true, module, name);
-            }
-            else {
-              module[name] = value;
-            }
+          if( $.isPlainObject(name) ) {
+            $.extend(true, module, name);
+          }
+          else if(value !== undefined) {
+            module[name] = value;
           }
           else {
             return module[name];
@@ -2381,9 +2377,6 @@ $.fn.state = function(parameters) {
             if(moduleSelector) {
               title += ' \'' + moduleSelector + '\'';
             }
-            if($allModules.size() > 1) {
-              title += ' ' + '(' + $allModules.size() + ')';
-            }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
               console.groupCollapsed(title);
               if(console.table) {
@@ -2431,6 +2424,7 @@ $.fn.state = function(parameters) {
                 return false;
               }
               else {
+                module.error(error.method, query);
                 return false;
               }
             });
@@ -2453,6 +2447,7 @@ $.fn.state = function(parameters) {
           return found;
         }
       };
+
       if(methodInvoked) {
         if(instance === undefined) {
           module.initialize();
@@ -2465,7 +2460,6 @@ $.fn.state = function(parameters) {
         }
         module.initialize();
       }
-
     })
   ;
 
@@ -2508,7 +2502,7 @@ $.fn.state.settings = {
   sync          : false,
 
   // default flash text duration, used for temporarily changing text of an element
-  flashDuration : 3000,
+  flashDuration : 1000,
 
   // selector filter
   filter     : {
@@ -2573,13 +2567,13 @@ $.fn.state.settings = {
   },
 
   text     : {
-    disabled : false,
-    flash    : false,
-    hover    : false,
-    active   : false,
-    inactive : false,
-    enable   : false,
-    disable  : false
+    disabled   : false,
+    flash      : false,
+    hover      : false,
+    active     : false,
+    inactive   : false,
+    activate   : false,
+    deactivate : false
   }
 
 };
