@@ -148,9 +148,22 @@ type        : 'UI Behavior'
           })
         ;
         </div>
+        <p>Keep in mind passing a new settings object will destroy all previously attached events. If you want to preserve the events, you can trigger a new request with the the <code>query</code> behavior</p>
+        <div class="code" data-demo="true">
+        // set-up API button with events
+        $('.follow.button')
+          .api({
+            action: 'follow user'
+          })
+        ;
+        // do an immediate query
+        $('.follow.button')
+          .api('query')
+        ;
+        </div>
       </div>
 
-      <h2 class="ui dividing header">Providing Data</h2>
+      <h2 class="ui dividing header">Setting URL Variables</h2>
 
       <div class="no example">
         <h4 class="ui header">URL Variables</h4>
@@ -161,8 +174,8 @@ type        : 'UI Behavior'
       </div>
 
       <div class="no example">
-        <h4 class="ui header">...automatically Routed Data</h4>
-        <p>Some useful values are automatically included in every request</p>
+        <h4 class="ui header">Automatically Routed Data</h4>
+        <p>Some special values are available for routing without additional set-up</p>
         <table class="ui definition table">
           <thead>
             <tr>
@@ -191,7 +204,9 @@ type        : 'UI Behavior'
           </div>
         </div>
         <div class="evaluated code" data-type="javascript">
-          // replaces /search?query={value}
+          $.fn.api.settings.api = {
+            'search'        : '/search/?query={value}'
+          };
           $('.search input')
             .api({
               action: 'search',
@@ -203,8 +218,9 @@ type        : 'UI Behavior'
       </div>
 
       <div class="no example">
-        <h4 class="ui header">...by Data Attributes</h4>
-        <p>If many elements trigger a similar function, it is often easiest to include unique url data in each triggering element. For example, many follow buttons will trigger the same endpoint, but each will have its own user id.</p>
+        <h4 class="ui header">Data Attributes</h4>
+        <p>You can include url values as metadata inside the DOM.
+        <p>This is often easiest to include unique url data for each triggering element. For example, many follow buttons will trigger the same endpoint, but each will have its own user id.</p>
         <div class="code" data-type="html">
           <div class="ui follow button" data-id="11">
             User 1
@@ -238,8 +254,29 @@ type        : 'UI Behavior'
       </div>
 
       <div class="no example">
-        <h4 class="ui header">...returned values from beforeSend Callback</h4>
-        <p>In addition all parameters can be adjusted in a special callback <code>beforeSend</code> which occurs, quite intuitively, before the API request is sent.</p>
+        <h4 class="ui header">...specified in beforeSend Callback</h4>
+        <p>All run settings, not just url data, can be adjusted in a special callback <code>beforeSend</code> which occurs before the API request is sent.</p>
+        <p>You can also use this callback to adjust other settings before each API call</p>
+        <div class="code" data-type="javascript">
+          $('.follow.button')
+            .api({
+              action: 'follow user',
+              beforeSend: function(settings) {
+                settings.urlData = {
+                  id: 22
+                };
+                return settings;
+              }
+            })
+          ;
+        </div>
+      </div>
+
+      <h2 class="ui dividing header">Routing GET/POST Data</h2>
+
+      <div class="no example">
+        <h4 class="ui header">...specified in beforeSend Callback</h4>
+        <p>All run settings, not just url data, can be adjusted in a special callback <code>beforeSend</code> which occurs before the API request is sent.</p>
         <p>You can also use this callback to adjust other settings before each API call</p>
         <div class="code" data-type="javascript">
           $('.follow.button')
@@ -264,13 +301,14 @@ type        : 'UI Behavior'
         <p>For example you might expect all successful JSON responses to return a top level property signifying the success of the response<p>
         <div class="code" data-type="json" data-title="Server Response">
         {
-          success: true
-          data: {
-            proprietaryData:
+          "success": true,
+          "message": "We've retreived your data from the server"
+          "data": {
+            // payload here
           }
         }
         </div>
-        <p>Your success test recieves the servers json response, and should return true or false on whether the result should be considered successful. Succesful results will trigger <code>onSuccess</code> unsuccesful results <code>onFailure</code> but not <code>onError</code>, this is reserved for responses which return <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest">XHR</a> errors.</p>
+        <p>The success test function recieves the servers json response, and returns whether the result should be considered successful. Succesful results will trigger <code>onSuccess</code> unsuccesful results <code>onFailure</code> but not <code>onError</code>, this is reserved for responses which return <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest">XHR</a> errors.</p>
         <div class="code" data-type="javascript">
         $('.follow.button')
           .api({
@@ -336,6 +374,7 @@ type        : 'UI Behavior'
 
         <div class="code" data-demo="true">
         $('.follow.button')
+          .api('setting', 'on', 'auto')
           .state({
             text: {
               inactive   : 'Follow',
@@ -423,9 +462,238 @@ type        : 'UI Behavior'
 
   </div>
 
-  <div class="ui tab" data-tab="settings">
-    <p>Needs to be written still...</p>
 
+  <div class="ui tab" data-tab="settings">
+    <h2 class="ui dividing header">
+      API
+    </h2>
+
+    <h4 class="ui header">
+      Behavior
+    </h4>
+    <table class="ui sortable celled definition table">
+      <thead>
+        <th class="three wide"></th>
+        <th class="three wide">Default</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>on</td>
+          <td>auto</td>
+          <td>When API event should occur</td>
+        </tr>
+        <tr>
+          <td>filter</td>
+          <td>
+            <div class="code">
+              .disabled
+            </div>
+          </td>
+          <td>Selector filter for elements that should not be triggerable</td>
+        </tr>
+        <tr>
+          <td>stateContext</td>
+          <td>this (selector/DOM element)</td>
+          <td>UI state will be applied to this element, defaults to triggering element.</td>
+        </tr>
+        <tr>
+          <td>defaultData</td>
+          <td>true</td>
+          <td>Whether to include default data like {value} and {text}</td>
+        </tr>
+        <tr>
+          <td>serializeForm</td>
+          <td>(true, false)</td>
+          <td>Whether to serialize closest form and include in request</td>
+        </tr>
+        <tr>
+          <td>throttle</td>
+          <td>0</td>
+          <td>If a request is pending, additional requests will be throttled by this duration in ms. (Setting above 0 will allow multiple simultaneous requests)</td>
+        </tr>
+        <tr>
+          <td>regExp</td>
+          <td>
+            <div class="code" data-type="css">
+            regExp  : {
+              required: /\{\$*[A-z0-9]+\}/g,
+              optional: /\{\/\$*[A-z0-9]+\}/g,
+            }
+            </div>
+          </td>
+          <td>Regular expressions used for finding variables in templated urls</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4 class="ui header">
+      Request Settings
+    </h4>
+    <table class="ui sortable celled definition table">
+      <thead>
+        <th class="three wide"></th>
+        <th class="three wide">Default</th>
+        <th>Description</th>
+        <th>Possible Values</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>action</td>
+          <td></td>
+          <td>Named API action for query, originally specified in $.fn.settings.api</td>
+          <td>String or false</td>
+        </tr>
+        <tr>
+          <td>url</td>
+          <td>false</td>
+          <td>Templated URL for query, will override specified action</td>
+          <td>String or false</td>
+        </tr>
+        <tr>
+          <td>urlData</td>
+          <td>false</td>
+          <td>Variables to use for replacement</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>method</td>
+          <td>get</td>
+          <td>Method for transmitting request to server</td>
+          <td>post, get</td>
+        </tr>
+        <tr>
+          <td>dataType</td>
+          <td>JSON</td>
+          <td>Expected data type of response </td>
+          <td>xml, json, jsonp, script, html, text</td>
+        </tr>
+        <tr>
+          <td>data</td>
+          <td>{}</td>
+          <td>POST/GET Data to Send with Request</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>filter</td>
+          <td>
+            <div class="code">
+              .disabled
+            </div>
+          </td>
+          <td>Selector filter for elements that should not be triggerable</td>
+        </tr>
+        <tr>
+          <td>stateContext</td>
+          <td>this (selector/DOM element)</td>
+          <td>UI state will be applied to this element, defaults to triggering element.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4 class="ui header">
+      Callbacks
+    </h4>
+
+    <table class="ui sortable celled definition table">
+      <thead>
+        <th class="three wide"></th>
+        <th class="three wide">Context</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>onOpen</td>
+          <td>active content</td>
+          <td>Callback on element open</td>
+        </tr>
+        <tr>
+          <td>onClose</td>
+          <td>active content</td>
+          <td>Callback on element close</td>
+        </tr>
+        <tr>
+          <td>onChange</td>
+          <td>active content</td>
+          <td>Callback on element open or close</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="ui dividing header">
+      Module
+    </h2>
+
+    <p>These settings are native to all modules, and define how the component ties content to DOM attributes, and debugging settings for the module.</p>
+
+    <table class="ui sortable celled definition table">
+      <thead>
+        <th></th>
+        <th class="six wide">Default</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>name</td>
+          <td>Accordion</td>
+          <td>Name used in log statements</td>
+        </tr>
+        <tr>
+          <td>namespace</td>
+          <td>accordion</td>
+          <td>Event namespace. Makes sure module teardown does not effect other events attached to an element.</td>
+        </tr>
+        <tr>
+          <td>selector</td>
+          <td>
+            <div class="code" data-type="css">
+            selector    : {
+              accordion : '.accordion',
+              title     : '.title',
+              content   : '.content'
+            }
+            </div>
+          </td>
+          <td>Selectors used to find parts of a module</td>
+        </tr>
+        <tr>
+          <td>className</td>
+          <td>
+            <div class="code">
+            className : {
+              active : 'active'
+            }
+            </div>
+          </td>
+          <td>Class names used to determine element state</td>
+        </tr>
+        <tr>
+          <td>debug</td>
+          <td>false</td>
+          <td>Debug output to console</td>
+        </tr>
+        <tr>
+          <td>performance</td>
+          <td>false</td>
+          <td>Show <code>console.table</code> output with performance metrics</td>
+        </tr>
+        <tr>
+          <td>verbose</td>
+          <td>false</td>
+          <td>Debug output includes all internal behaviors</td>
+        </tr>
+        <tr>
+          <td>errors</td>
+          <td colspan="2">
+            <div class="code">
+            error   : {
+              method   : 'The method you called is not defined.'
+            }
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
 </div>

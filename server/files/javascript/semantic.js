@@ -324,7 +324,7 @@ semantic.ready = function() {
       $rail = $('<div />')
         .addClass('ui close right rail')
         .html($sticky)
-        .appendTo($container)
+        .prependTo($container)
       ;
       $followMenu
         .accordion({

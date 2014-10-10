@@ -113,8 +113,8 @@ $.api = $.fn.api = function(parameters) {
             return;
           }
           // determine if an api event already occurred
-          if(module.is.loading() && !settings.allowMultiple) {
-            module.debug('Request cancelled previous request is still pending');
+          if(module.is.loading() && settings.throttle === 0 ) {
+            module.debug('Cancelling request, previous request is still pending');
             return;
           }
 
@@ -181,9 +181,17 @@ $.api = $.fn.api = function(parameters) {
 
           module.verbose('Creating AJAX request with settings', ajaxSettings);
 
-          // request provides a wrapper around xhr
-          module.request = module.create.request();
-          module.xhr = module.create.xhr();
+          if( !module.is.loading() ) {
+            module.request = module.create.request();
+            module.xhr = module.create.xhr();
+          }
+          else {
+            // throttle additional requests
+            module.timer = setTimeout(function() {
+              module.request = module.create.request();
+              module.xhr = module.create.xhr();
+            }, settings.throttle);
+          }
 
         },
 
@@ -745,31 +753,28 @@ $.api.settings = {
   // event binding
   on              : 'auto',
   filter          : '.disabled',
-  context         : false,
   stateContext    : false,
 
   // templating
   action          : false,
   url             : false,
 
-  regExp  : {
-    required: /\{\$*[A-z0-9]+\}/g,
-    optional: /\{\/\$*[A-z0-9]+\}/g,
-  },
-
   // data
   urlData         : {},
-
 
   // ui
   defaultData     : true,
   serializeForm   : false,
-  throttle        : 100,
-  allowMultiple   : false,
+  throttle        : 0,
 
   // state
   loadingDuration : 0,
   errorDuration   : 2000,
+
+  regExp  : {
+    required: /\{\$*[A-z0-9]+\}/g,
+    optional: /\{\/\$*[A-z0-9]+\}/g,
+  },
 
   // jQ ajax
   method          : 'get',

@@ -613,6 +613,9 @@ body#example.hide {
   padding: 3em 0em 0em;
   -webkit-tap-highlight-color: transparent;
 }
+#example .example:last-child {
+  margin-bottom: 5em;
+}
 
 /* Header */
 #example .example > h4:first-child {
@@ -1444,7 +1447,7 @@ body.progress.animated .ui.progress .bar {
   border-left: 1px solid #DDDDDD;
   border-right: 1px solid #DDDDDD;
   border-bottom: 1px solid #DDDDDD;
-  padding: 2em 2em 8em;
+  padding: 2em 2em;
   z-index: 1;
 }
 #example .wide.main.container {

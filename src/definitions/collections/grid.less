@@ -882,6 +882,13 @@
   table-layout: fixed;
   width: @tableWidth;
 }
+.ui[class*="equal height"].relaxed.grid {
+  width: @relaxedTableWidth;
+}
+.ui[class*="equal height"][class*="very relaxed"].grid {
+  width: @veryRelaxedTableWidth;
+}
+
 .ui[class*="equal height"].grid > .row,
 .ui[class*="equal height"].row  {
   display: table;
