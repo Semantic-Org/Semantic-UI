@@ -62,7 +62,7 @@ semantic.ready = function() {
     $example             = $('.example'),
     $shownExample        = $example.filter('.shown'),
 
-    $overview            = $('.overview.button'),
+    $overview            = $('.header.segment .overview'),
     //$developer         = $('.header .developer.item'),
     //$designer          = $('.header .designer.item'),
 
@@ -505,26 +505,45 @@ semantic.ready = function() {
         return $element;
       }
     },
-    overviewMode: function() {
+    changeMode: function(value) {
+      if(value == 'overview') {
+        handler.showOverview();
+      }
+      else {
+        handler.hideOverview();
+        if(value == 'design') {
+          handler.designerMode();
+        }
+        if(value == 'code') {
+          handler.developerMode();
+        }
+      }
+      $sectionHeaders.visibility('refresh');
+      $sectionExample.visibility('refresh');
+      $footer.visibility('refresh');
+    },
+    showOverview: function() {
       var
-        $button  = $(this),
         $body    = $('body'),
         $example = $('.example')
       ;
-      $body.toggleClass('overview');
-      $button.toggleClass('active');
-      if($body.hasClass('overview')) {
-        $example.each(function() {
-          $(this).children().not('.ui.header:eq(0), .example p:eq(0), .annotation').hide();
-        });
-        $example.filter('.another').hide();
-      }
-      else {
-        $example.each(function() {
-          $(this).children().not('.ui.header:eq(0), .example p:eq(0), .annotation').show();
-        });
-        $example.filter('.another').show();
-      }
+      $body.addClass('overview');
+      $example.each(function() {
+        $(this).children().not('.ui.header:eq(0), .example p:eq(0)').hide();
+      });
+      $example.filter('.another').css('display', 'none');
+      $('.sticky').sticky('refresh');
+    },
+    hideOverview:  function() {
+      var
+        $body    = $('body'),
+        $example = $('.example')
+      ;
+      $body.removeClass('overview');
+      $example.each(function() {
+        $(this).children().not('.ui.header:eq(0), .example p:eq(0)').show();
+      });
+      $example.filter('.another').removeAttr('style');
       $('.sticky').sticky('refresh');
     },
     developerMode: function() {
@@ -532,9 +551,6 @@ semantic.ready = function() {
         $body    = $('body'),
         $example = $('.example').not('.no')
       ;
-      if($body.hasClass('overview')) {
-        handler.overviewMode();
-      }
       $example
         .each(function() {
           $.proxy(handler.createCode, $(this))('developer');
@@ -547,9 +563,6 @@ semantic.ready = function() {
         $body    = $('body'),
         $example = $('.example').not('.no')
       ;
-      if($body.hasClass('overview')) {
-        handler.overviewMode();
-      }
       $example
         .each(function() {
           $.proxy(handler.createCode, $(this))('designer');
@@ -683,9 +696,11 @@ semantic.ready = function() {
           $demo.fadeIn(500);
         }
       }
-      $sectionHeaders.visibility('refresh');
-      $sectionExample.visibility('refresh');
-      $footer.visibility('refresh');
+      if(type === undefined) {
+        $sectionHeaders.visibility('refresh');
+        $sectionExample.visibility('refresh');
+        $footer.visibility('refresh');
+      }
     },
 
     createAnnotation: function() {
@@ -937,7 +952,9 @@ semantic.ready = function() {
   }
 
   $helpPopup
-    .popup()
+    .popup({
+      position: 'bottom right'
+    })
   ;
 
   $swap
@@ -945,7 +962,10 @@ semantic.ready = function() {
   ;
 
   $overview
-    .on('click', handler.overviewMode)
+    .dropdown({
+      action: 'select',
+      onChange: handler.changeMode
+    })
   ;
 
   $menuPopup

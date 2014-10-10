@@ -454,16 +454,18 @@ themes      : ['Default']
     <div class="dropdown example">
       <h4 class="ui header">Inline</h4>
       <p>A dropdown can be formatted to appear inline in other content</p>
-      Show me posts trending
-      <div class="ui inline dropdown">
-        <div class="text">today</div>
-        <i class="dropdown icon"></i>
-        <div class="menu">
-          <div class="item" data-text="today">Today</div>
-          <div class="item" data-text="this week">This Week</div>
-          <div class="item" data-text="this month">This Month</div>
+      <span>
+        Show me posts trending
+        <div class="ui inline dropdown">
+          <div class="text">today</div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item" data-text="today">Today</div>
+            <div class="item" data-text="this week">This Week</div>
+            <div class="item" data-text="this month">This Month</div>
+          </div>
         </div>
-      </div>
+      </span>
     </div>
 
     <div class="hover example">
@@ -476,12 +478,12 @@ themes      : ['Default']
           </a>
           <div class="ui pointing dropdown link item">
             <i class="dropdown icon"></i>
-            Shopping
+            <span class="text">Shopping</span>
             <div class="menu">
               <div class="header">Categories</div>
               <div class="item">
                 <i class="dropdown icon"></i>
-                Clothing
+                <span class="text">Clothing</span>
                 <div class="menu">
                   <div class="header">Mens</div>
                   <div class="item">Shirts</div>
@@ -552,7 +554,7 @@ themes      : ['Default']
           <div class="item">Settings</div>
           <div class="item">
             <i class="dropdown icon"></i>
-            Upload Settings
+            <span class="text">Upload Settings</span>
             <div class="menu">
               <div class="item">
                 <i class="check icon"></i>
@@ -899,6 +901,21 @@ themes      : ['Default']
 
 
     <h2 class="ui dividing header">Variations</h2>
+
+    <div class="dropdown example">
+      <h4 class="ui header">Compact</h4>
+      <p>A compact dropdown has no minimum width</p>
+      <div class="ui compact selection dropdown">
+        <div class="text">Compact</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">A</div>
+          <div class="item">B</div>
+          <div class="item">C</div>
+        </div>
+      </div>
+    </div>
+
 
     <div class="dropdown example">
       <h4 class="ui header">Fluid</h4>
@@ -1347,7 +1364,7 @@ themes      : ['Default']
         <div class="menu">
           <div class="item">
             <i class="dropdown icon"></i>
-            Dogs
+            <span class="text">Dogs</span>
             <div class="menu">
               <div class="item">Shiba Inu</div>
               <div class="item">Poodle</div>
@@ -1356,7 +1373,7 @@ themes      : ['Default']
           </div>
           <div class="item">
             <i class="dropdown icon"></i>
-            Cats
+            <span class="text">Cats</span>
             <div class="menu">
               <div class="item">Aegean</div>
               <div class="item">Balinese</div>
@@ -1436,7 +1453,7 @@ themes      : ['Default']
               <div class="menu">
                 <div class="item">
                   <i class="dropdown icon"></i>
-                  Categories
+                  <span class="text">Categories</span>
                   <div class="menu">
                     <div class="item">Unread</div>
                     <div class="item">Promotions</div>
@@ -1507,7 +1524,7 @@ themes      : ['Default']
 
       <div class="ui teal buttons">
         <div class="ui button">Save</div>
-        <div class="ui combo dropdown icon button">
+        <div class="ui combo top right pointing dropdown icon button">
           <i class="dropdown icon"></i>
           <div class="menu">
             <div class="item"><i class="edit icon"></i> Edit</div>
@@ -1531,7 +1548,7 @@ themes      : ['Default']
         </div>
       </div>
 
-      <div class="ui dropdown button">
+      <div class="ui floating dropdown button">
         <div class="text">Go to</div>
         <i class="dropdown icon"></i>
         <div class="menu">

@@ -425,14 +425,14 @@ themes      : ['Default']
       <h4 class="ui header">Target Element</h4>
       <p>A popup can specify a different target element than itself to show a popup</p>
       <div class="evaluated code">
-    $('.test.button')
-      .popup({
-        position : 'right center',
-        target   : '.test.image',
-        title    : 'My favorite dog',
-        content  : 'My favorite dog would like other dogs as much as themselves'
-      })
-    ;
+      $('.test.button')
+        .popup({
+          position : 'top right',
+          target   : '.test.image',
+          title    : 'My favorite dog',
+          content  : 'My favorite dog would like other dogs as much as themselves'
+        })
+      ;
       </div>
       <div class="ui green test button">Hover Me</div>
       <div class="ui divider"></div>

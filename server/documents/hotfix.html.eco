@@ -11,14 +11,7 @@ type   : 'Library'
 <script>
 $(document).ready(function() {
 
-
-$.fn.modal.settings.debug = true;
-var $m = $('#modal');
-$m.modal({duration: 3000}).modal('show')
-setTimeout(function(){
-    $m.modal('hide');
-}, 1500);
-
+  $('.ui.dropdown').dropdown();
 
 });
 </script>
@@ -26,14 +19,99 @@ setTimeout(function(){
 <!-- TEST CSS HERE !-->
 <style type="text/css">
 </style>
+<!--
+<div class="main container"> -->
 
-<div class="main container">
-
-<div class="ui modal" id="modal">
-    hey
-</div>
-
-
-</div>
+<div class="ui rp-property modal scrolling transition visible active" style="top: 0px;display: block !important;">
+    <i class="close icon"></i>
+    <div class="header">
+      Create new property
+    </div>
+    <div class="content">
+      <div class="description">
+      <form accept-charset="UTF-8" action="/projects/1/properties" class="ui form" id="new_property" method="post"><div style="display:none"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="MkWt3fScBFfJ5jTKvFjpTVUnM4mcrzi0JKWMXCBDnHg="></div>  <!-- /Error handling -->
+        <div class="ui stackable grid">
+          <div class="eight wide column">
+            <div class="field">
+              <label for="property_title">Title</label>
+              <div class="ui corner labeled icon input">
+                <input id="property_title" name="property[title]" placeholder="Title of your property" type="text">
+                <i class="fa-font icon"></i>
+              </div>
+            </div>
+            <div class="field">
+              <label for="property_description">Description</label>
+              <div class="ui corner labeled icon input">
+                <input id="property_description" name="property[description]" placeholder="Description of your property" type="text">
+                <i class="fa-info icon"></i>
+              </div>
+            </div>
+            <div class="ui stackable grid">
+              <div class="nine wide column">
+                <div class="field">
+                  <label for="property_price">Price</label>
+                  <div class="ui action input rp-bug">
+                    <input id="property_price" name="property[price]" type="text">
+                    <div class="ui button">INR</div>
+                  </div>
+                </div>
+              </div>
+              <div class="seven wide column">
+                <div class="field">
+                  <label for="property_area">Area</label>
+                  <div class="ui action input rp-bug">
+                    <input id="property_area" name="property[area]" type="text">
+                    <div class="ui button">Sq.ft</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="eight wide column">
+            <div class="field">
+              <label for="property_property_status">Property status</label>
+              <div class="ui fluid dropdown select selection" tabindex="0"><select id="property_property_status_id" name="property[property_status_id]"><option value="">Select...</option><option selected="selected" value="1">Available</option>
+              <option value="3">Sold</option>
+              <option value="2">Blocked</option></select><i class="dropdown icon"></i><div class="text">Available</div><div class="menu" tabindex="-1"><div class="item active selected" data-value="1">Available</div><div class="item" data-value="2">Blocked</div><div class="item" data-value="3">Sold</div></div></div>
+            </div>
+            <div class="ui two column stackable grid">
+              <div class="column">
+                <div class="field">
+                  <label for="property_bedrooms">Bedrooms</label>
+                  <input id="property_bedrooms" name="property[bedrooms]" type="number">
+                </div>
+                <div class="field">
+                  <label for="property_bathrooms">Bathrooms</label>
+                  <input id="property_bathrooms" name="property[bathrooms]" type="number">
+                </div>
+              </div>
+              <div class="column">
+                <div class="field">
+                  <label for="property_halls">Halls</label>
+                  <input id="property_halls" name="property[halls]" type="number">
+                </div>
+                <div class="field">
+                  <label for="property_kitchens">Kitchens</label>
+                  <input id="property_kitchens" name="property[kitchens]" type="number">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sixteen wide right aligned column">
+            <div class="ui buttons">
+              <div class="ui button rp-property-hide-modal-button">Cancel</div>
+              <div class="or"></div>
+              <button class="ui blue labeled icon button right floated" name="button" type="submit"><i class="fa-plus icon"></i>
+              Create property
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  </div>
+<!--
+</div> -->
 
 </body>

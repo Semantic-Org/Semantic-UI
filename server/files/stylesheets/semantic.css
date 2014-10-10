@@ -746,7 +746,7 @@ body#example.hide {
 #example h2 + .example i.code,
 #example h3 + .example i.code,
 #example h4 + .example i.code {
-  top: 0em;
+  top: 1em;
 }
 
 /* Spaced */
