@@ -163,8 +163,8 @@
    Item Image
 ---------------*/
 
-.ui.dropdown .text > img,
-.ui.dropdown .text > .image,
+.ui.dropdown > .text > img,
+.ui.dropdown > .text > .image,
 .ui.dropdown .menu > .item > .image,
 .ui.dropdown .menu > .item > img {
   display: inline-block;
@@ -199,16 +199,20 @@
 
 /* Icons / Flags / Labels */
 .ui.dropdown > .text > .icon,
-.ui.dropdown .menu > .item .icon {
+.ui.dropdown .menu > .item > .icon {
   margin: @itemIconMargin;
 }
 .ui.dropdown > .text > .label,
-.ui.dropdown .menu > .item .label {
+.ui.dropdown .menu > .item > .label {
   margin: @itemLabelMargin;
 }
 .ui.dropdown > .text > .flag,
-.ui.dropdown .menu > .item .flag {
+.ui.dropdown .menu > .item > .flag {
   margin: @itemFlagMargin;
+}
+.ui.dropdown .menu > .item > .icon + .text {
+  display: block;
+  margin-right: @dropdownSubMenuIconDistance;
 }
 
 
@@ -226,6 +230,11 @@
 /* No Margin On Icon Button */
 .ui.dropdown.icon.button > .dropdown.icon {
   margin: 0em;
+}
+.ui.dropdown.button:not(.pointing):not(.floating).active,
+.ui.dropdown.button:not(.pointing):not(.floating).visible {
+  border-bottom-left-radius: 0em;
+  border-bottom-right-radius: 0em;
 }
 
 /* Automatically float dropdown menu right on last menu item */
@@ -287,6 +296,11 @@ select.ui.dropdown {
   right: @selectionHorizontalPadding;
   opacity: @selectionIconOpacity;
   transition: @selectionIconTransition;
+}
+
+/* Compact */
+.ui.compact.selection.dropdown {
+  min-width:  0px;
 }
 
 /* Remove Selection */
@@ -397,8 +411,8 @@ select.ui.dropdown {
 }
 
 /* Active Item */
-.ui.selection.active.dropdown .text:not(.default),
-.ui.selection.visible.dropdown .text:not(.default) {
+.ui.selection.active.dropdown > .text:not(.default),
+.ui.selection.visible.dropdown > .text:not(.default) {
   font-weight: @selectionVisibleTextFontWeight;
   color: @selectionVisibleTextColor;
 }
@@ -424,7 +438,7 @@ select.ui.dropdown {
   margin: @inlineIconMargin;
   vertical-align: top;
 }
-.ui.inline.dropdown .text {
+.ui.inline.dropdown > .text {
   font-weight: @inlineTextFontWeight;
 }
 .ui.inline.dropdown .menu {
@@ -494,7 +508,7 @@ select.ui.dropdown {
 ----------------------*/
 
 /* Filtered Item */
-.ui.dropdown .filtered.text {
+.ui.dropdown > .filtered.text {
   visibility: hidden;
 }
 .ui.dropdown .filtered.item {
