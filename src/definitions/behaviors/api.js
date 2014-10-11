@@ -124,7 +124,7 @@ $.api = $.fn.api = function(parameters) {
           }
 
           // Add form content
-          if(settings.serializeForm !== false || $module.is('form')) {
+          if(settings.serializeForm !== false || $context.is('form')) {
             if(settings.serializeForm == 'json') {
               $.extend(true, settings.data, module.get.formData());
             }
@@ -401,10 +401,10 @@ $.api = $.fn.api = function(parameters) {
                     setTimeout(module.remove.error, settings.errorDuration);
                   }
                   module.debug('API Request error:', errorMessage);
-                  $.proxy(settings.onFailure, context)(errorMessage, $module);
+                  $.proxy(settings.onError, context)(errorMessage, context);
                 }
                 else {
-                  $.proxy(settings.onAbort, context)(errorMessage, $module);
+                  $.proxy(settings.onAbort, context)(errorMessage, context);
                   module.debug('Request Aborted (Most likely caused by page change or CORS Policy)', status, httpMessage);
                 }
               }
@@ -463,22 +463,30 @@ $.api = $.fn.api = function(parameters) {
               runSettings
             ;
             runSettings = $.proxy(settings.beforeSend, $module)(settings);
-            if(runSettings.success !== undefined) {
-              module.debug('Legacy success callback detected', runSettings);
-              module.error(error.legacyParameters);
-              runSettings.onSuccess = runSettings.success;
+            if(runSettings) {
+              if(runSettings.success !== undefined) {
+                module.debug('Legacy success callback detected', runSettings);
+                module.error(error.legacyParameters);
+                runSettings.onSuccess = runSettings.success;
+              }
+              if(runSettings.failure !== undefined) {
+                module.debug('Legacy failure callback detected', runSettings);
+                module.error(error.legacyParameters);
+                runSettings.onFailure = runSettings.failure;
+              }
+              if(runSettings.complete !== undefined) {
+                module.debug('Legacy complete callback detected', runSettings);
+                module.error(error.legacyParameters);
+                runSettings.onComplete = runSettings.complete;
+              }
             }
-            if(runSettings.failure !== undefined) {
-              module.debug('Legacy failure callback detected', runSettings);
-              module.error(error.legacyParameters);
-              runSettings.onFailure = runSettings.failure;
+            if(runSettings === undefined) {
+              module.error(error.noReturnedValue);
             }
-            if(runSettings.complete !== undefined) {
-              module.debug('Legacy complete callback detected', runSettings);
-              module.error(error.legacyParameters);
-              runSettings.onComplete = runSettings.complete;
-            }
-            return runSettings;
+            return (runSettings !== undefined)
+              ? runSettings
+              : settings
+            ;
           },
           defaultData: function() {
             var
@@ -526,17 +534,14 @@ $.api = $.fn.api = function(parameters) {
             var
               formData
             ;
-            if(settings.serializeForm == 'json') {
-              if($(this).toJSON === undefined ) {
-                module.error(error.missingSerialize);
-                return;
-              }
-              formData = $form.toJSON();
+            if($(this).serializeObject() !== undefined) {
+              formData = $form.serializeObject();
             }
             else {
+              module.error(error.missingSerialize);
               formData = $form.serialize();
             }
-            module.debug('Retrieving form data', formData);
+            module.debug('Retrieved form data', formData);
             return formData;
           },
           templateURL: function(action) {
@@ -628,7 +633,7 @@ $.api = $.fn.api = function(parameters) {
               performance.push({
                 'Name'           : message[0],
                 'Arguments'      : [].slice.call(message, 1) || '',
-                'Element'        : element,
+                //'Element'        : element,
                 'Execution Time' : executionTime
               });
             }
@@ -755,6 +760,10 @@ $.api.settings = {
   filter          : '.disabled',
   stateContext    : false,
 
+  // state
+  loadingDuration : 0,
+  errorDuration   : 2000,
+
   // templating
   action          : false,
   url             : false,
@@ -766,15 +775,6 @@ $.api.settings = {
   defaultData     : true,
   serializeForm   : false,
   throttle        : 0,
-
-  // state
-  loadingDuration : 0,
-  errorDuration   : 2000,
-
-  regExp  : {
-    required: /\{\$*[A-z0-9]+\}/g,
-    optional: /\{\/\$*[A-z0-9]+\}/g,
-  },
 
   // jQ ajax
   method          : 'get',
@@ -788,6 +788,7 @@ $.api.settings = {
   onSuccess   : function(response, $module) {},
   onComplete  : function(response, $module) {},
   onFailure   : function(errorMessage, $module) {},
+  onError     : function(errorMessage, $module) {},
   onAbort     : function(errorMessage, $module) {},
 
   successTest : false,
@@ -800,12 +801,18 @@ $.api.settings = {
     JSONParse         : 'JSON could not be parsed during error handling',
     legacyParameters  : 'You are using legacy API success callback names',
     missingAction     : 'API action used but no url was defined',
-    missingSerialize  : 'Serializing a Form requires toJSON to be included',
+    missingSerialize  : 'Required dependency jquery-serialize-object missing, using basic serialize',
     missingURL        : 'No URL specified for api event',
+    noReturnedValue   : 'The beforeSend callback must return a settings object, beforeSend ignored.',
     parseError        : 'There was an error parsing your request',
     requiredParameter : 'Missing a required URL parameter: ',
     statusMessage     : 'Server gave an error: ',
     timeout           : 'Your request timed out'
+  },
+
+  regExp  : {
+    required: /\{\$*[A-z0-9]+\}/g,
+    optional: /\{\/\$*[A-z0-9]+\}/g,
   },
 
   className: {
