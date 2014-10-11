@@ -188,6 +188,7 @@
 ;
 /* Basic Active */
 @basicActiveBackground: @transparentBlack;
+@basicActiveBoxShadow: '';
 @basicActiveColor: @selectedTextColor;
 
 /* Basic Inverted */

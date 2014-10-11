@@ -32,7 +32,6 @@
   box-shadow 0.3s @transitionEasing,
   background 0.3s @transitionEasing
 ;
-
 /*-------------------
         State
 --------------------*/
@@ -51,10 +50,20 @@
 @activeBackgroundColor: #F0F0F0;
 @activeBoxShadow: 0px 0px 0px 1px #DDDDDD;
 
-
 /*-------------------
       Variations
 --------------------*/
+
+@basicBorderSize: 0px;
+@basicBorderRadius: 4px;
+@basicColoredBorderSize: 1px;
+@basicHoverBackground: @white;
+@basicHoverBoxShadow: @hoverBoxShadow;
+@basicDownBackground: @white;
+@basicDownBoxShadow: @downBoxShadow;
+
+@basicActiveBackground: #FFFFFF;
+@basicActiveBoxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
 
 @labeledIconBackgroundColor: transparent;
 @labeledIconWidth: 2em;
