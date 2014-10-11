@@ -7,6 +7,7 @@ description : 'API allows elements to trigger actions on a server'
 type        : 'UI Behavior'
 ---
 
+<script src="/javascript/library/serialize-object.js"></script>
 <script src="/javascript/library/sinon.js"></script>
 <script src="/javascript/api.js"></script>
 
@@ -68,49 +69,55 @@ type        : 'UI Behavior'
       <h2 class="ui dividing header">Defining Your API</h2>
 
       <div class="no example">
-        <h4 class="ui header">Creating Server Actions</h4>
+        <h4 class="ui header">Setting API Endpoints</h4>
         <p><b>API</b> works best by defining named API actions which can be converted to URLs for each request.</p>
         <p>You must define your endpoints once in your application before making requests. Usually this is done in a central configuration file included on each page.</p>
         <p>URLs listed in your API can include <b>required parameters</b> and <b>optional parameters</b> which may be adjusted for each call.</p>
-        <div class="ui relaxed list">
-          <div class="item">
-            <div class="header">Required Parameters</div>
-            <div class="list">
-              <div class="item">Uses format <code>{variable}</code></div>
-              <div class="item">Will abort the request if they cannot be found.</div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="header">Optional Parameters</div>
-            <div class="list">
-              <div class="item">Uses format <code>{/variable}</code></div>
-              <div class="item">Will abort the request if they cannot be found.</div>
-              <div class="item">Will be removed from the url automatically if not available.</div>
-              <div class="item">Any preceding slash before an optional parameter will be removed from the URL, allowing you to include them in resource paths.</div>
-            </div>
-          </div>
+        <h5 class="ui header">Required Parameters</h5>
+        <div class="ui bulleted list">
+          <div class="item">Uses format <code>{variable}</code></div>
+          <div class="item">Will abort the request if they cannot be found.</div>
+        </div>
+        <h5 class="ui header">Optional Parameters</h5>
+        <div class="ui bulleted list">
+          <div class="item">Uses format <code>{/variable}</code></div>
+          <div class="item">Will abort the request if they cannot be found.</div>
+          <div class="item">Will be removed from the url automatically if not available.</div>
+          <div class="item">Any preceding slash before an optional parameter will be removed from the URL, allowing you to include them in resource paths.</div>
         </div>
         <div class="code" data-type="javascript">
           /* Define API endpoints once globally */
           $.fn.api.settings.api = {
             'get followers' : '/followers/{id}?results={count}',
+            'create user'   : '/create',
             'follow user'   : '/follow/{id}',
             'search'        : '/search/?query={value}'
           };
         </div>
       </div>
+      <div class="no example">
+        <h4 class="ui header">Working with URLs</h4>
+        <p>Named API actions are offered for convenience and maintanability, but are not required. You can also specify the url in each request, templated or not.</p>
+        <div class="code">
+        $('.search.button')
+          .api({
+            url: 'http://www.google.com?q={value}'
+          })
+        ;
+        </div>
+      </div>
 
       <h2 class="ui dividing header">Querying API Actions</h2>
 
-      <div class="ui info message">
+      <div class="ui top attached info message">
         <div class="ui header">Open Your Web Console</div>
         The following examples work best while viewing logs in your web console.  This experienced is optimized for Firebug, but will also appear in webkit browsers <a href="https://code.google.com/p/chromium/issues/detail?id=306120" target="_blank">with minor issues.</a>
       </div>
-      <div class="ui message">
+      <div class="ui bottom attached message">
         API requests for the following demos have been faked using <a href="http://sinonjs.org/">SinonJS</a> to avoid rate throttling from public APIs. No actual data is returned.
       </div>
       <div class="no example">
-        <h4 class="ui header">Attaching API to UI</h4>
+        <h4 class="ui header">Attaching API Events</h4>
 
         <p>Any element can have an API action attached directly to it. By default the action will occur on the most appropriate event for the type of element. For example a button will assume <code>onclick</code> or an input <code>oninput</code>, or a form <code>onsubmit</code>.</p>
 
@@ -121,10 +128,21 @@ type        : 'UI Behavior'
           })
         ;
         </div>
+        <div class="ui horizontal divider">Or</div>
+        <div class="code" data-type="html">
+          <div class="ui follow button" data-action="follow user">
+            Follow
+          </div>
+        </div>
+        <div class="code">
+        $('.follow.button')
+          .api()
+        ;
+        </div>
       </div>
 
       <div class="no example">
-        <h4 class="ui header">Specifying Events</h4>
+        <h4 class="ui header">Specifying DOM Events</h4>
         <p>If you need to override what action an API event occurs on you can use the <code>on</code> parameter.</p>
         <div class="code" data-demo="true">
         $('.follow.button')
@@ -168,9 +186,6 @@ type        : 'UI Behavior'
       <div class="no example">
         <h4 class="ui header">URL Variables</h4>
         <p>If your API urls include templated variables they will be replaced during your request by one of four possible ways (listed in order of inheritance).</p>
-        <div class="ui ignored warning message">
-          Only variables specified in your URL will be searched for in metadata. Adding metadata attributes will not be automatically included in GET or POST values.
-        </div>
       </div>
 
       <div class="no example">
@@ -204,13 +219,12 @@ type        : 'UI Behavior'
           </div>
         </div>
         <div class="evaluated code" data-type="javascript">
-          $.fn.api.settings.api = {
-            'search'        : '/search/?query={value}'
-          };
+          $.fn.api.settings.api.search = '/search/?query={value}';
+
           $('.search input')
             .api({
               action: 'search',
-              // this setting will be explained later
+              // what receives state class names
               stateContext: '.ui.input'
             })
           ;
@@ -221,6 +235,9 @@ type        : 'UI Behavior'
         <h4 class="ui header">Data Attributes</h4>
         <p>You can include url values as metadata inside the DOM.
         <p>This is often easiest to include unique url data for each triggering element. For example, many follow buttons will trigger the same endpoint, but each will have its own user id.</p>
+        <div class="ui ignored warning message">
+          Only variables specified in your API's URL will be searched for in metadata.
+        </div>
         <div class="code" data-type="html">
           <div class="ui follow button" data-id="11">
             User 1
@@ -239,14 +256,20 @@ type        : 'UI Behavior'
       </div>
 
       <div class="no example">
-        <h4 class="ui header">....in Javascript</h4>
-        <p>URL variables can be specified at run-time in the javascript object </p>
+        <h4 class="ui header">Data specified in Javascript</h4>
+        <p>URL variable, and GET/POST data can be specified at run-time in the javascript object </p>
         <div class="code" data-type="javascript">
           $('.follow.button')
             .api({
-              action: 'follow user',
+              action : 'follow user',
+              method : 'POST',
+              // Substituted into URL
               urlData: {
                 id: 22
+              },
+              // passed via POST
+              data: {
+                name: 'Joe Henderson'
               }
             })
           ;
@@ -254,9 +277,11 @@ type        : 'UI Behavior'
       </div>
 
       <div class="no example">
-        <h4 class="ui header">...specified in beforeSend Callback</h4>
+        <h4 class="ui header">Modifying Data and Settings Just Before Sending</h4>
         <p>All run settings, not just url data, can be adjusted in a special callback <code>beforeSend</code> which occurs before the API request is sent.</p>
-        <p>You can also use this callback to adjust other settings before each API call</p>
+        <div class="ui info message">
+          An additional callback <code>beforeXHR</code> lets you modify the XHR object before sending. This is different than beforeSend.
+        </div>
         <div class="code" data-type="javascript">
           $('.follow.button')
             .api({
@@ -267,25 +292,123 @@ type        : 'UI Behavior'
                 };
                 return settings;
               }
+              // basic auth login
+              beforeXHR: function(xhr) {
+                xhr.setRequestHeader ('Authorization', 'Basic XXXXXX');
+              }
             })
           ;
         </div>
       </div>
 
-      <h2 class="ui dividing header">Routing GET/POST Data</h2>
-
       <div class="no example">
-        <h4 class="ui header">...specified in beforeSend Callback</h4>
-        <p>All run settings, not just url data, can be adjusted in a special callback <code>beforeSend</code> which occurs before the API request is sent.</p>
-        <p>You can also use this callback to adjust other settings before each API call</p>
-        <div class="code" data-type="javascript">
+        <h4 class="ui header">Cancelling Requests</h4>
+        <p>BeforeSend can also be used to check for special conditions for a request to be made. It the <code>beforeSend</code> callback returns false, the request will be cancelled.</p>
+        <div class="code" data-type="javascript" data-demo="true">
+          // set somewhere in your code
+          window.isLoggedIn = false;
+
           $('.follow.button')
             .api({
               action: 'follow user',
+              // cancels request
               beforeSend: function(settings) {
-                settings.urlData = {
-                  id: 22
-                };
+                return isLoggedIn;
+              }
+            })
+          ;
+        </div>
+      </div>
+
+      <h2 class="ui dividing header">Including Server Data</h2>
+
+      <div class="example">
+        <h4 class="ui header">Automatically Routed</h4>
+        <p>Calling API on any element inside of a form, will automatically include serialized form content in your request when using a special setting <code>serializeForm</code>, or using a form as the <code>stateContext</code>.</p>
+        <div class="ui ignored message">
+          Using <code>serializeForm</code> requires including the serialize-object dependency.
+        </div>
+        <p>Unlike jQuery's serialize, data will be serialized as a javascript object using  <a href="https://github.com/macek/jquery-serialize-object" target="_blank">macek's serialize object</a>.
+        <h5 class="ui header">Benefits of Structured Data</h5>
+        <ul class="ui list">
+          <li>Serialized Form Data can be modified in javascript in <code>beforeSend</code></li>
+          <li>Structured data can be used by using names like <code>name="user[name]"</code> in your form</li>
+          <li>Form data will automatically be converted to useful values, for instance, checkbox to to <code>boolean</code> values.</li>
+        <p>
+        <form class="ui form">
+          <div class="two fields">
+            <div class="field">
+              <label>Name</label>
+              <div class="two fields">
+                <div class="field">
+                  <input type="text" name="name[first]" placeholder="First Name">
+                </div>
+                <div class="field">
+                  <input type="text" name="name[last]" placeholder="Last Name">
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label>Gender</label>
+              <div class="ui selection dropdown">
+                <input type="hidden" name="gender">
+                <div class="default text">Gender</div>
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                  <div class="item" data-value="male">Male</div>
+                  <div class="item" data-value="female">Female</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="two fields">
+            <div class="required field">
+              <label>Username</label>
+              <div class="ui icon input">
+                <input type="text" name="username" placeholder="Username">
+                <i class="user icon"></i>
+              </div>
+            </div>
+            <div class="required field">
+              <label>Password</label>
+              <div class="ui icon input">
+                <input type="password" name="password">
+                <i class="lock icon"></i>
+              </div>
+            </div>
+          </div>
+          <div class="ui submit button">Submit</div>
+        </form>
+        <div class="evaluated code" data-type="javascript">
+          $('form .submit.button')
+            .api({
+              action: 'create user',
+              serializeForm: true,
+              beforeSend: function(settings) {
+                // open console to inspect object
+                console.log(settings.data);
+                return settings;
+              }
+            })
+          ;
+        </div>
+      </div>
+
+
+      <div class="no example">
+        <h4 class="ui header">Included in Javascript</h4>
+        <p>POST or GET data can be included, when setting up API requests, through automatic inclusion, or during the beforeSend callback. This data will be joined together</p>
+        <div class="code" data-type="javascript">
+          $('.form .submit')
+            .api({
+              action: 'create user',
+              serializeForm: true,
+              data: {
+                sessionID: '232'
+              },
+              beforeSend: function(settings) {
+                settings.data.token = window.generateToken();
+                // will include serialized data, session id, and token
                 return settings;
               }
             })
@@ -299,7 +422,7 @@ type        : 'UI Behavior'
         <h4 class="ui header">Determining Success</h4>
         <p>API is designed to work with APIs that return <code>JSON</code> objects. Instead of providiing success and failure callbacks based on the HTTP response of the request. A request is considered succesful only if the returned JSON value passes a <code>successTest</code>.</p>
         <p>For example you might expect all successful JSON responses to return a top level property signifying the success of the response<p>
-        <div class="code" data-type="json" data-title="Server Response">
+        <div class="code" data-type="json" data-title="Example Server Response">
         {
           "success": true,
           "message": "We've retreived your data from the server"
@@ -308,7 +431,8 @@ type        : 'UI Behavior'
           }
         }
         </div>
-        <p>The success test function recieves the servers json response, and returns whether the result should be considered successful. Succesful results will trigger <code>onSuccess</code> unsuccesful results <code>onFailure</code> but not <code>onError</code>, this is reserved for responses which return <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest">XHR</a> errors.</p>
+        <p>The success test function recieves the servers json response, and returns whether the result should be considered successful. Succesful results will trigger <code>onSuccess</code>, invalid results <code>onFailure</code>.<p>
+        <p><code>onError</code> will only trigger on <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest">XHR</a> errors (except due to page navigation like clicking a link), but not invalid JSON responses.</p>
         <div class="code" data-type="javascript">
         $('.follow.button')
           .api({
@@ -316,13 +440,16 @@ type        : 'UI Behavior'
               return response.success || false;
             }
             onSuccess: function() {
-              // valid response and action succeeded
+              // valid response and response.success = true
             },
             onFailure: function() {
-              // valid response but action failed
+              // valid response but response.success = false
             },
             onError: function() {
               // invalid response
+            },
+            onAbort: function() {
+              // user cancelled request
             }
           })
         ;
@@ -374,7 +501,9 @@ type        : 'UI Behavior'
 
         <div class="code" data-demo="true">
         $('.follow.button')
-          .api('setting', 'on', 'auto')
+          .api({
+            action: 'follow user'
+          })
           .state({
             text: {
               inactive   : 'Follow',
@@ -401,6 +530,7 @@ type        : 'UI Behavior'
             <tr>
               <td>inactive</td>
               <td>Default state</td>
+              <td></td>
             </tr>
             <tr>
               <td>active</td>
@@ -494,35 +624,28 @@ type        : 'UI Behavior'
         </tr>
         <tr>
           <td>stateContext</td>
-          <td>this (selector/DOM element)</td>
+          <td>this</td>
           <td>UI state will be applied to this element, defaults to triggering element.</td>
         </tr>
         <tr>
           <td>defaultData</td>
           <td>true</td>
-          <td>Whether to include default data like {value} and {text}</td>
+          <td>Whether to automatically include default data like {value} and {text}</td>
         </tr>
         <tr>
           <td>serializeForm</td>
-          <td>(true, false)</td>
+          <td>false</td>
           <td>Whether to serialize closest form and include in request</td>
         </tr>
         <tr>
-          <td>throttle</td>
+          <td>loadingDuration</td>
           <td>0</td>
-          <td>If a request is pending, additional requests will be throttled by this duration in ms. (Setting above 0 will allow multiple simultaneous requests)</td>
+          <td>Minimum duration to show loading indication</td>
         </tr>
         <tr>
-          <td>regExp</td>
-          <td>
-            <div class="code" data-type="css">
-            regExp  : {
-              required: /\{\$*[A-z0-9]+\}/g,
-              optional: /\{\/\$*[A-z0-9]+\}/g,
-            }
-            </div>
-          </td>
-          <td>Regular expressions used for finding variables in templated urls</td>
+          <td>errorDuration</td>
+          <td>2000</td>
+          <td>Duration in milliseconds to show error state after request error.</td>
         </tr>
       </tbody>
     </table>
@@ -574,20 +697,6 @@ type        : 'UI Behavior'
           <td>POST/GET Data to Send with Request</td>
           <td></td>
         </tr>
-        <tr>
-          <td>filter</td>
-          <td>
-            <div class="code">
-              .disabled
-            </div>
-          </td>
-          <td>Selector filter for elements that should not be triggerable</td>
-        </tr>
-        <tr>
-          <td>stateContext</td>
-          <td>this (selector/DOM element)</td>
-          <td>UI state will be applied to this element, defaults to triggering element.</td>
-        </tr>
       </tbody>
     </table>
 
@@ -603,19 +712,39 @@ type        : 'UI Behavior'
       </thead>
       <tbody>
         <tr>
-          <td>onOpen</td>
-          <td>active content</td>
-          <td>Callback on element open</td>
+          <td>beforeSend(settings)</td>
+          <td>initialized element</td>
+          <td>Allows modifying settings before request, or cancelling request</td>
         </tr>
         <tr>
-          <td>onClose</td>
-          <td>active content</td>
-          <td>Callback on element close</td>
+          <td>beforeXHR(xhrObject)</td>
+          <td></td>
+          <td>Allows modifying XHR object for request</td>
         </tr>
         <tr>
-          <td>onChange</td>
-          <td>active content</td>
-          <td>Callback on element open or close</td>
+          <td>onSuccess(response, element)</td>
+          <td>state context</td>
+          <td>Callback on response object that passed <code>successTest</code></td>
+        </tr>
+        <tr>
+          <td>onFailure(response, element)</td>
+          <td>state context</td>
+          <td>Callback on response object that fails <code>successTest</code></td>
+        </tr>
+        <tr>
+          <td>onError(errorMessage, element)</td>
+          <td>state context</td>
+          <td>Callback on server error from returned status code, or XHR failure.</td>
+        </tr>
+        <tr>
+          <td>onAbort(errorMessage, element)</td>
+          <td>state context</td>
+          <td>Callback on abort caused by user clicking a link or manually cancelling request</td>
+        </tr>
+        <tr>
+          <td>onComplete(response, element)</td>
+          <td>state context</td>
+          <td>Callback on request complete regardless of conditions</td>
         </tr>
       </tbody>
     </table>
@@ -635,22 +764,32 @@ type        : 'UI Behavior'
       <tbody>
         <tr>
           <td>name</td>
-          <td>Accordion</td>
+          <td>API</td>
           <td>Name used in log statements</td>
         </tr>
         <tr>
           <td>namespace</td>
-          <td>accordion</td>
+          <td>api</td>
           <td>Event namespace. Makes sure module teardown does not effect other events attached to an element.</td>
+        </tr>
+        <tr>
+          <td>regExp</td>
+          <td>
+            <div class="code" data-type="css">
+            regExp  : {
+              required: /\{\$*[A-z0-9]+\}/g,
+              optional: /\{\/\$*[A-z0-9]+\}/g,
+            }
+            </div>
+          </td>
+          <td>Regular expressions used for template matching</td>
         </tr>
         <tr>
           <td>selector</td>
           <td>
             <div class="code" data-type="css">
-            selector    : {
-              accordion : '.accordion',
-              title     : '.title',
-              content   : '.content'
+            selector: {
+              form: 'form'
             }
             </div>
           </td>
@@ -660,12 +799,26 @@ type        : 'UI Behavior'
           <td>className</td>
           <td>
             <div class="code">
-            className : {
-              active : 'active'
+            className: {
+              loading : 'loading',
+              error   : 'error'
             }
             </div>
           </td>
           <td>Class names used to determine element state</td>
+        </tr>
+        <tr>
+          <td>metadata</td>
+          <td>
+            <div class="code">
+            metadata: {
+              action  : 'action',
+              request : 'request',
+              xhr     : 'xhr'
+            }
+            </div>
+          </td>
+          <td>Metadata used to store xhr and response promise</td>
         </tr>
         <tr>
           <td>debug</td>
@@ -686,8 +839,21 @@ type        : 'UI Behavior'
           <td>errors</td>
           <td colspan="2">
             <div class="code">
-            error   : {
-              method   : 'The method you called is not defined.'
+            // errors
+            error : {
+              beforeSend        : 'The before send function has aborted the request',
+              error             : 'There was an error with your request',
+              exitConditions    : 'API Request Aborted. Exit conditions met',
+              JSONParse         : 'JSON could not be parsed during error handling',
+              legacyParameters  : 'You are using legacy API success callback names',
+              missingAction     : 'API action used but no url was defined',
+              missingSerialize  : 'Required dependency jquery-serialize-object missing, using basic serialize',
+              missingURL        : 'No URL specified for api event',
+              noReturnedValue   : 'The beforeSend callback must return a settings object, beforeSend ignored.',
+              parseError        : 'There was an error parsing your request',
+              requiredParameter : 'Missing a required URL parameter: ',
+              statusMessage     : 'Server gave an error: ',
+              timeout           : 'Your request timed out'
             }
             </div>
           </td>

@@ -103,15 +103,13 @@ pre.console {
 }
 code {
   background-color: rgba(0, 0, 0, 0.02);
-  border-radius: 0.2em;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
-  color: rgba(0, 0, 0, 0.75);
-  font-weight: bold;
   display: inline-block;
   font-family: "Monaco","Menlo","Ubuntu Mono","Consolas","source-code-pro",monospace;
-  font-size: 14px;
-  margin: 0;
-  padding: 0.1em 0.4em;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0 2px 0px 0px;
+  padding: 2px 4px;
   vertical-align: baseline;
 }
 .ui.message code {
@@ -121,12 +119,6 @@ code {
 pre code {
   border: none;
   padding: 0px;
-}
-table pre,
-table code {
-  margin: 0px !important;
-  padding: 0px;
-  background-color: transparent;
 }
 p {
   margin: 1em 0em;
@@ -724,9 +716,12 @@ body#example.hide {
   position: relative;
   margin: 5rem 0rem 3rem;
 }
+#example .main.container .examples > .rail + h2,
+#example .main.container > .rail + h2,
+#example .main.container > .tab > .rail + h2,
 #example .main.container .examples > h2:first-child,
 #example .main.container > h2:first-child,
-#example .main.container > .tab > h2:first-child{
+#example .main.container > .tab > h2:first-child {
   margin-top: 0em;
 }
 #example .main.container .examples > h2 + p,
