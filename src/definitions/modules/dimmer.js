@@ -90,7 +90,7 @@ $.fn.dimmer = function(parameters) {
             module.set.pageDimmer();
           }
 
-          if(settings.on == 'click' && settings.closable) {
+          if( module.is.closable() ) {
             module.verbose('Adding dimmer close event', $dimmer);
             $dimmer
               .on(clickEvent + eventNamespace, module.event.click)
@@ -144,7 +144,21 @@ $.fn.dimmer = function(parameters) {
         },
 
         create: function() {
-          return $( settings.template.dimmer() ).appendTo($dimmable);
+          var
+            $element = $( settings.template.dimmer() )
+          ;
+          if(settings.variation) {
+            module.debug('Creating dimmer with variation', settings.variation);
+            $element.addClass(className.variation);
+          }
+          if(settings.dimmerName) {
+            module.debug('Creating named dimmer', settings.dimmerName);
+            $element.addClass(settings.dimmerName);
+          }
+          $element
+            .appendTo($dimmable)
+          ;
+          return $element;
         },
 
         animate: {
@@ -238,7 +252,12 @@ $.fn.dimmer = function(parameters) {
 
         has: {
           dimmer: function() {
-            return ( $module.children(selector.dimmer).size() > 0 );
+            if(settings.dimmerName) {
+              return ($module.children(selector.dimmer).filter('.' + settings.dimmerName).size() > 0);
+            }
+            else {
+              return ( $module.children(selector.dimmer).size() > 0 );
+            }
           }
         },
 
@@ -248,6 +267,15 @@ $.fn.dimmer = function(parameters) {
           },
           animating: function() {
             return ( $dimmer.is(':animated') || $dimmer.hasClass(className.transition) );
+          },
+          closable: function() {
+            if(settings.closable == 'auto') {
+              if(settings.on == 'hover') {
+                return false;
+              }
+              return true;
+            }
+            return settings.closable;
           },
           dimmer: function() {
             return $module.is(selector.dimmer);
@@ -547,7 +575,9 @@ $.fn.dimmer.settings = {
   verbose     : true,
   performance : true,
 
-  closable    : true,
+  dimmerName  : false,
+  variation   : false,
+  closable    : 'auto',
   transition  : 'fade',
   useCSS      : true,
   on          : false,
