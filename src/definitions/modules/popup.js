@@ -896,7 +896,7 @@ $.fn.popup.settings = {
   context        : 'body',
   position       : 'top left',
   delay          : {
-    show : 50,
+    show : 30,
     hide : 0
   },
 
