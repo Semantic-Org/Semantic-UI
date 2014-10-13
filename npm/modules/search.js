@@ -11,7 +11,7 @@
 
 ;(function ($, window, document, undefined) {
 
-module.exports = function(source, parameters) {
+$.fn.search = function(source, parameters) {
   var
     $allModules     = $(this),
     moduleSelector  = $allModules.selector || '',
@@ -27,7 +27,7 @@ module.exports = function(source, parameters) {
   $(this)
     .each(function() {
       var
-        settings        = $.extend(true, {}, module.exports.settings, parameters),
+        settings        = $.extend(true, {}, _module.exports.settings, parameters),
 
         className       = settings.className,
         selector        = settings.selector,

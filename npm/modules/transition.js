@@ -11,7 +11,7 @@
 
 ;(function ( $, window, document, undefined ) {
 
-module.exports = function() {
+$.fn.transition = function() {
   var
     $allModules     = $(this),
     moduleSelector  = $allModules.selector || '',
@@ -298,7 +298,7 @@ module.exports = function() {
             instance.displayType = displayType;
           },
           transitionExists: function(animation, exists) {
-            module.exports.exists[animation] = exists;
+            $.fn.transition.exists[animation] = exists;
             module.verbose('Saving existence of transition', animation, exists);
           },
           conditions: function() {
@@ -383,11 +383,11 @@ module.exports = function() {
           settings: function(animation, duration, complete) {
             // single settings object
             if(typeof animation == 'object') {
-              return $.extend(true, {}, module.exports.settings, animation);
+              return $.extend(true, {}, _module.exports.settings, animation);
             }
             // all arguments provided
             else if(typeof complete == 'function') {
-              return $.extend({}, module.exports.settings, {
+              return $.extend({}, _module.exports.settings, {
                 animation : animation,
                 complete  : complete,
                 duration  : duration
@@ -395,31 +395,31 @@ module.exports = function() {
             }
             // only duration provided
             else if(typeof duration == 'string' || typeof duration == 'number') {
-              return $.extend({}, module.exports.settings, {
+              return $.extend({}, _module.exports.settings, {
                 animation : animation,
                 duration  : duration
               });
             }
             // duration is actually settings object
             else if(typeof duration == 'object') {
-              return $.extend({}, module.exports.settings, duration, {
+              return $.extend({}, _module.exports.settings, duration, {
                 animation : animation
               });
             }
             // duration is actually callback
             else if(typeof duration == 'function') {
-              return $.extend({}, module.exports.settings, {
+              return $.extend({}, _module.exports.settings, {
                 animation : animation,
                 complete  : duration
               });
             }
             // only animation provided
             else {
-              return $.extend({}, module.exports.settings, {
+              return $.extend({}, _module.exports.settings, {
                 animation : animation
               });
             }
-            return module.exports.settings;
+            return _module.exports.settings;
           },
 
           displayType: function() {
@@ -431,7 +431,7 @@ module.exports = function() {
           },
 
           transitionExists: function(animation) {
-            return module.exports.exists[animation];
+            return $.fn.transition.exists[animation];
           },
 
           animationName: function() {
@@ -753,7 +753,7 @@ module.exports = function() {
   ;
 };
 
-module.exports.exists = {};
+$.fn.transition.exists = {};
 
 module.exports.settings = {
 

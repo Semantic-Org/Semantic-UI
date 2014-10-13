@@ -11,6 +11,8 @@
 ;(function ( $, window, document, undefined ) {
 
 module.exports = function(parameters) {
+  var _module = module;
+
     var
     $allModules    = $(this),
     $document      = $(document),
@@ -31,8 +33,8 @@ module.exports = function(parameters) {
     .each(function() {
       var
         settings          = ( $.isPlainObject(parameters) )
-          ? $.extend(true, {}, module.exports.settings, parameters)
-          : $.extend({}, module.exports.settings),
+          ? $.extend(true, {}, _module.exports.settings, parameters)
+          : $.extend({}, _module.exports.settings),
 
         className       = settings.className,
         metadata        = settings.metadata,
@@ -605,7 +607,7 @@ module.exports = function(parameters) {
               if(settings.transition == 'none') {
                 callback();
               }
-              else if(module.exports !== undefined && $module.transition('is supported')) {
+              else if($.fn.transition !== undefined && $module.transition('is supported')) {
                 $currentMenu
                   .transition({
                     animation : settings.transition + ' in',
@@ -655,7 +657,7 @@ module.exports = function(parameters) {
             callback = callback || function(){};
             if(module.is.visible($currentMenu) ) {
               module.verbose('Doing menu hide animation', $currentMenu);
-              if(module.exports !== undefined && $module.transition('is supported')) {
+              if($.fn.transition !== undefined && $module.transition('is supported')) {
                 $currentMenu
                   .transition({
                     animation : settings.transition + ' out',
