@@ -323,14 +323,17 @@ $.fn.popup = function(parameters) {
         animate: {
           show: function(callback) {
             callback = callback || function(){};
-            $module
-              .addClass(className.visible)
-            ;
             if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
               $popup
                 .transition({
                   animation : settings.transition + ' in',
+                  queue     : false,
                   duration  : settings.duration,
+                  start: function() {
+                    $module
+                      .addClass(className.visible)
+                    ;
+                  },
                   complete  : function() {
                     module.bind.close();
                     $.proxy(callback, element)();
@@ -339,6 +342,9 @@ $.fn.popup = function(parameters) {
               ;
             }
             else {
+              $module
+                .addClass(className.visible)
+              ;
               $popup
                 .stop()
                 .fadeIn(settings.duration, settings.easing, function() {
@@ -356,6 +362,7 @@ $.fn.popup = function(parameters) {
               $popup
                 .transition({
                   animation : settings.transition + ' out',
+                  queue     : false,
                   duration  : settings.duration,
                   complete  : function() {
                     module.reset();
