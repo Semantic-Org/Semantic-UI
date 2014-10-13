@@ -8,44 +8,36 @@
 
 @verticalMargin: 0em;
 @horizontalMargin: 0.25em;
+
+/* Style */
+@backgroundColor: #E0E0E0;
+@backgroundImage: none;
+@verticalPadding: 0.8em;
+@horizontalPadding: 1.5em;
+
+/* Text */
 @textTransform: none;
 @tapColor: transparent;
-
 @fontWeight: bold;
 @textColor: rgba(0, 0, 0, 0.6);
 @textShadow: none;
 @invertedTextShadow: none;
 @borderRadius: @defaultBorderRadius;
-@borderBoxShadowColor: transparent;
-@borderBoxShadowWidth: 1px;
 @verticalAlign: baseline;
 
-/* Shadow */
+/* Internal Shadow */
 @shadowDistance: 0em;
 @shadowOffset: (@shadowDistance / 2);
-
 @shadowBoxShadow: 0px -@shadowDistance 0px 0px @borderColor inset;
-@borderBoxShadow: 0px 0px 0px @borderBoxShadowWidth @borderBoxShadowColor inset;
 
-@backgroundColor: #E0E0E0;
-@backgroundImage: none;
+/* Box Shadow */
+@borderBoxShadowColor: transparent;
+@borderBoxShadowWidth: 1px;
+@borderBoxShadow: 0px 0px 0px @borderBoxShadowWidth @borderBoxShadowColor inset;
 @boxShadow:
   @borderBoxShadow,
   @shadowBoxShadow
 ;
-
-/* transitions */
-@transition:
-  opacity 0.1s @transitionEasing,
-  background-color 0.1s @transitionEasing,
-  color 0.1s @transitionEasing,
-  box-shadow 0.1s @transitionEasing,
-  background 0.1s @transitionEasing
-;
-
-/* Padding */
-@verticalPadding: 0.8em;
-@horizontalPadding: 1.5em;
 
 /* Icon */
 @iconOpacity: 0.8;
@@ -59,6 +51,14 @@
 @loaderPath: "@{imagePath}/loader-mini.gif";
 @hugeLoaderPath: "@{imagePath}/loader-small.gif";
 @massiveLoaderPath: "@{imagePath}/loader-medium.gif";
+
+@transition:
+  opacity 0.1s @transitionEasing,
+  background-color 0.1s @transitionEasing,
+  color 0.1s @transitionEasing,
+  box-shadow 0.1s @transitionEasing,
+  background 0.1s @transitionEasing
+;
 
 /*-------------------
         Group
