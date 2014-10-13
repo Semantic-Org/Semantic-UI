@@ -1276,15 +1276,7 @@ $.fn.dropdown = function(parameters) {
 
 $.fn.dropdown.settings = {
 
-  name           : 'Dropdown',
-  namespace      : 'dropdown',
-
-  debug          : false,
-  verbose        : true,
-  performance    : true,
-
-  type           : false,
-
+  /* Behavior */
   on             : 'click',
   action         : 'activate',
 
@@ -1301,9 +1293,18 @@ $.fn.dropdown.settings = {
   transition : 'slide down',
   duration   : 250,
 
+  /* Callbacks */
   onChange   : function(value, text){},
   onShow     : function(){},
   onHide     : function(){},
+
+  /* Component */
+  name           : 'Dropdown',
+  namespace      : 'dropdown',
+
+  debug          : false,
+  verbose        : true,
+  performance    : true,
 
   error   : {
     action     : 'You called a dropdown action that was not defined',
@@ -1342,6 +1343,7 @@ $.fn.dropdown.settings = {
 
 };
 
+/* Templates */
 $.fn.dropdown.settings.templates = {
   menu: function(select) {
     var
@@ -1386,7 +1388,8 @@ $.fn.dropdown.settings.templates = {
   }
 };
 
-// Adds easing
+
+/* Dependencies */
 $.extend( $.easing, {
   easeOutQuad: function (x, t, b, c, d) {
     return -c *(t/=d)*(t-2) + b;

@@ -78,10 +78,11 @@ $.fn.modal = function(parameters) {
           }
           $dimmable = $context
             .dimmer({
-              debug    : settings.debug,
-              closable : false,
-              useCSS   : true,
-              duration : {
+              debug      : settings.debug,
+              dimmerName : 'modals',
+              closable   : false,
+              useCSS     : true,
+              duration   : {
                 show     : settings.duration * 0.9,
                 hide     : settings.duration * 1.1
               }
@@ -388,7 +389,7 @@ $.fn.modal = function(parameters) {
             : function(){}
           ;
           if( $otherModals.is(':visible') ) {
-            module.debug('Hiding other modals');
+            module.debug('Hiding other modals', $otherModals);
             $otherModals
               .filter(':visible')
                 .modal('hide modal', callback)

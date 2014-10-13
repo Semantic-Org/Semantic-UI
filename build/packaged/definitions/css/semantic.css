@@ -6454,9 +6454,10 @@
 /*-------------------
        Element
 --------------------*/
-/* Shadow */
-/* transitions */
-/* Padding */
+/* Style */
+/* Text */
+/* Internal Shadow */
+/* Box Shadow */
 /* Icon */
 /* Loader */
 /*-------------------
@@ -6602,9 +6603,10 @@
 /*-------------------
        Element
 --------------------*/
-/* Shadow */
-/* transitions */
-/* Padding */
+/* Style */
+/* Text */
+/* Internal Shadow */
+/* Box Shadow */
 /* Icon */
 /* Loader */
 /*-------------------
@@ -14085,6 +14087,10 @@ img.ui.bordered.image {
 /*--------------
     Circular
 ---------------*/
+.ui.circular.images,
+.ui.circular.image {
+  overflow: hidden;
+}
 .ui.circular.images .image,
 .ui.circular.images img,
 .ui.circular.image img,
@@ -22983,6 +22989,7 @@ a:hover {
 /*******************************
             States
 *******************************/
+.animating.dimmable:not(body),
 .dimmed.dimmable:not(body) {
   overflow: hidden;
 }
@@ -23012,6 +23019,7 @@ a:hover {
       -ms-transform-origin: center center;
           transform-origin: center center;
 }
+body.animating.in.dimmable,
 body.dimmed.dimmable {
   overflow: hidden;
 }

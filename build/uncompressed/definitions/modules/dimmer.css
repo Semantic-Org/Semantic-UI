@@ -331,6 +331,7 @@
 /*******************************
             States
 *******************************/
+.animating.dimmable:not(body),
 .dimmed.dimmable:not(body) {
   overflow: hidden;
 }
@@ -360,6 +361,7 @@
       -ms-transform-origin: center center;
           transform-origin: center center;
 }
+body.animating.in.dimmable,
 body.dimmed.dimmable {
   overflow: hidden;
 }
