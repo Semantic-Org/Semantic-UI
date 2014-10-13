@@ -32,6 +32,9 @@
 - **Dropdown** - New action combo will change text of adjacent button, select will select element but not change text
 - **Dropdown** - Many new content types now work inside dropdowns, headers, dividers, images, inputs, labels and more
 - **Form** - Form now has a success state which will automatically display success messages
+- **Dimmer** - Dimmer will now automatically determine whether click-to-close is enabled by ``settings.on``
+- **Dimmer** - Multiple dimmers can now be used on the same context with ``dimmerName``
+- **Dimmer** - Dimmer variations can be specified when creating a dimmer from javascript using ``variation`` setting.
 - **Form** - Grouped fields and inline fields can now have labels
 - **Form** - Forms in 'success' state will now show success messages inside
 - **Form** - Inputs now use 1em font size and correctly match selection dropdown height
@@ -63,9 +66,12 @@
 - **Steps** - Steps can now have icons, descriptions and titles. Step default theme has been modified significantly to be more flexible.
 - **Table** - Tables now have 'basic' and 'very' basic variations
 - **Transition** - Transition will now keep block position of elements hidden with visibility hidden
+- **Transition** - Transitions now will handle multiple display types more consistently
+- **Transition** - Transition now has a new ``start`` callback, before animation starts
+- **Transition** - Complete callback now does not occur if animation is interrupted before completing
 
 ** Bug Fixes **
-- **Rating** - Vertical alignment has been improved
+- See Closed GitHub Issues
 
 ### Version 0.15.0 - Mar 14, 2014
 

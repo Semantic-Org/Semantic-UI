@@ -367,6 +367,11 @@ themes      : ['Default']
       </thead>
       <tbody>
         <tr>
+          <td>dimmerName</td>
+          <td class="six wide">false</td>
+          <td>If initializing a dimmer on a <code>dimmable</code> context, you can use <code>dimmerName</code> to distinguish between multiple dimmers in that context.</td>
+        </tr>
+        <tr>
           <td>closable</td>
           <td class="six wide">auto</td>
           <td>Whether clicking on the dimmer should hide the dimmer (Defaults to true when <code>settings.on</code> is not <code>hover</code></td>
