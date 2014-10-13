@@ -547,10 +547,10 @@ $.fn.dimmer.settings = {
   verbose     : true,
   performance : true,
 
+  closable    : true,
   transition  : 'fade',
   useCSS      : true,
   on          : false,
-  closable    : true,
 
   duration    : {
     show : 500,
