@@ -7,6 +7,7 @@
 - **Form** - Date field has been removed, use a ``ui icon input`` with a ``calendar icon`` instead
 - **Label** - Corner labels no longer support text, only icons.
 - **Form** - Standard grids now have gutters on left and right of first and last column. ``ui fitted grid`` can be used to remove these margins
+- **Dropdown** - Sub menus inside dropdowns now need a wrapping div **text** around sub-menu descriptions
 - **Header** - Headers now do not automatically resize based on h1-h6
 - **Checkbox** - Checkbox "enable" and "disable" have been replaced with "check" and "uncheck"
 - **Modal** - Modal ``left`` and ``right`` sections are now replaced with ``image`` and ``description``

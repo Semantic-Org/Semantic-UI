@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -170,6 +170,128 @@
 /*------------------
      Load Theme
 -------------------*/
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+        Paths
+--------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+  Background Colors
+--------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
+/* Used for differentiating neutrals */
+/* Used for differentiating layers */
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+       Icons
+--------------------*/
+/* Maximum Glyph Width of Icon */
+/*-------------------
+       Easing
+--------------------*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Mood */
+/* Status */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+        Sizes
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Makes sure padded grid can fit at 320px */
+/* Used to match floats with text */
+/* Positive / Negative Dupes */
+/* Header Colors */
+/* Responsive */
+/* Columns */
+/*******************************
+           States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Standard  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*******************************
+            Checkbox
+*******************************/
+/* Label */
+/* Checkbox */
+/* Checkmark */
+/*-------------------
+      Coupling
+--------------------*/
+/*-------------------
+        States
+--------------------*/
+/* Disabled */
+/*-------------------
+        Types
+--------------------*/
+/* Radio */
+/* Slider & Toggle Handle */
+/* Slider */
+/* Toggle */
+/*-------------------
+      Variations
+--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -180,7 +302,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
            Checkbox
@@ -280,7 +402,7 @@
 .ui.checkbox .box:hover::before,
 .ui.checkbox label:hover::before {
   background: #ffffff;
-  border: 1px solid rgba(39, 41, 43, 0.3);
+  border: 1px solid rgba(39, 41, 43, 0.2);
 }
 .ui.checkbox label:hover,
 .ui.checkbox + label:hover {
@@ -292,7 +414,7 @@
 .ui.checkbox .box:active::before,
 .ui.checkbox label:active::before {
   background: #f5f5f5;
-  border: 1px solid 1px solid rgba(39, 41, 43, 0.3);
+  border: 1px solid 1px solid rgba(39, 41, 43, 0.2);
 }
 .ui.checkbox input:active ~ label {
   color: rgba(0, 0, 0, 0.8);
@@ -303,7 +425,7 @@
 .ui.checkbox input:focus ~ .box:before,
 .ui.checkbox input:focus ~ label:before {
   background: #f5f5f5;
-  border: 1px solid 1px solid rgba(39, 41, 43, 0.3);
+  border: 1px solid 1px solid rgba(39, 41, 43, 0.2);
 }
 .ui.checkbox input:focus ~ label {
   color: rgba(0, 0, 0, 0.8);

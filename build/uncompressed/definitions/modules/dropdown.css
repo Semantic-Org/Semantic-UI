@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -144,9 +144,150 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*******************************
+            Dropdown
+*******************************/
+/*-------------------
+       Element
+--------------------*/
+/*-------------------
+       Content
+--------------------*/
+/* Icon */
+/* Current Text */
+/* Menu */
+/* Menu Item */
+/* Menu Header */
+/* Menu Divider */
+/* Menu Input */
+/* Menu Image */
+/* Sub Menu Pointer Icon */
+/* Menu Item Icon */
+/* Sub Menu */
+/*-------------------
+b        Types
+--------------------*/
+/* Selection */
+/* Responsive */
+/* Derived */
+/* Hover */
+/* Visible */
+/* Visible Hover */
+/* Inline */
+/*-------------------
+       States
+--------------------*/
+/* Default Text */
+/* Active Menu Item */
+/* Error */
+/*-------------------
+      Variations
+--------------------*/
+/* Simple */
+/* Floating */
+/* Pointing */
 /*------------------
      Load Theme
 -------------------*/
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+        Paths
+--------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+  Background Colors
+--------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
+/* Used for differentiating neutrals */
+/* Used for differentiating layers */
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+       Icons
+--------------------*/
+/* Maximum Glyph Width of Icon */
+/*-------------------
+       Easing
+--------------------*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Mood */
+/* Status */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+        Sizes
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Makes sure padded grid can fit at 320px */
+/* Used to match floats with text */
+/* Positive / Negative Dupes */
+/* Header Colors */
+/* Responsive */
+/* Columns */
+/*******************************
+           States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Standard  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
 /*******************************
             Dropdown
 *******************************/
@@ -199,7 +340,7 @@ b        Types
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Dropdown
@@ -260,7 +401,7 @@ b        Types
 .ui.dropdown .menu > .item .dropdown.icon {
   width: auto;
   float: right;
-  margin: 0.2em 0em 0em 0.5em;
+  margin: 0.2em 0em 0em;
 }
 /*--------------
       Text
@@ -321,8 +462,8 @@ b        Types
 /*--------------
    Item Image
 ---------------*/
-.ui.dropdown .text > img,
-.ui.dropdown .text > .image,
+.ui.dropdown > .text > img,
+.ui.dropdown > .text > .image,
 .ui.dropdown .menu > .item > .image,
 .ui.dropdown .menu > .item > img {
   display: inline-block;
@@ -350,16 +491,20 @@ b        Types
 *******************************/
 /* Icons / Flags / Labels */
 .ui.dropdown > .text > .icon,
-.ui.dropdown .menu > .item .icon {
+.ui.dropdown .menu > .item > .icon {
   margin: 0em 0.75em 0em 0em;
 }
 .ui.dropdown > .text > .label,
-.ui.dropdown .menu > .item .label {
+.ui.dropdown .menu > .item > .label {
   margin: 0em 0.75em 0em 0em;
 }
 .ui.dropdown > .text > .flag,
-.ui.dropdown .menu > .item .flag {
+.ui.dropdown .menu > .item > .flag {
   margin: 0em 0.75em 0em 0em;
+}
+.ui.dropdown .menu > .item > .icon + .text {
+  display: block;
+  margin-right: 1em;
 }
 /* Remove Menu Item Divider */
 .ui.dropdown .ui.menu > .item:before,
@@ -373,6 +518,11 @@ b        Types
 /* No Margin On Icon Button */
 .ui.dropdown.icon.button > .dropdown.icon {
   margin: 0em;
+}
+.ui.dropdown.button:not(.pointing):not(.floating).active,
+.ui.dropdown.button:not(.pointing):not(.floating).visible {
+  border-bottom-left-radius: 0em;
+  border-bottom-right-radius: 0em;
 }
 /* Automatically float dropdown menu right on last menu item */
 .ui.menu .right.menu .dropdown:last-child .menu,
@@ -430,6 +580,10 @@ select.ui.dropdown {
   -webkit-transition: opacity 0.2s ease;
           transition: opacity 0.2s ease;
 }
+/* Compact */
+.ui.compact.selection.dropdown {
+  min-width: 0px;
+}
 /* Remove Selection */
 .ui.selection.dropdown > .delete.icon {
   opacity: 0.6;
@@ -471,7 +625,7 @@ select.ui.dropdown {
   min-width: -webkit-calc(100% + 2px);
   min-width: calc(100% + 2px);
   outline: none;
-  box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
   -webkit-transition: box-shadow 0.2s ease, border 0.2s ease;
           transition: box-shadow 0.2s ease, border 0.2s ease;
 }
@@ -511,16 +665,16 @@ select.ui.dropdown {
 }
 /* Hover */
 .ui.selection.dropdown:hover {
-  border-color: rgba(39, 41, 43, 0.3);
+  border-color: rgba(39, 41, 43, 0.2);
   box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.05);
 }
 /* Visible Hover */
 .ui.selection.visible.dropdown:hover {
-  border-color: rgba(39, 41, 43, 0.3);
+  border-color: rgba(39, 41, 43, 0.2);
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
 }
 .ui.selection.visible.dropdown:hover .menu {
-  border: 1px solid rgba(39, 41, 43, 0.3);
+  border: 1px solid rgba(39, 41, 43, 0.2);
   box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.08);
 }
 /* Visible */
@@ -532,8 +686,8 @@ select.ui.dropdown {
   opacity: 1;
 }
 /* Active Item */
-.ui.selection.active.dropdown .text:not(.default),
-.ui.selection.visible.dropdown .text:not(.default) {
+.ui.selection.active.dropdown > .text:not(.default),
+.ui.selection.visible.dropdown > .text:not(.default) {
   font-weight: normal;
   color: rgba(0, 0, 0, 0.8);
 }
@@ -555,7 +709,7 @@ select.ui.dropdown {
   margin: 0em 0.5em 0em 0.25em;
   vertical-align: top;
 }
-.ui.inline.dropdown .text {
+.ui.inline.dropdown > .text {
   font-weight: bold;
 }
 .ui.inline.dropdown .menu {
@@ -610,7 +764,7 @@ select.ui.dropdown {
     Search Filtered
 ----------------------*/
 /* Filtered Item */
-.ui.dropdown .filtered.text {
+.ui.dropdown > .filtered.text {
   visibility: hidden;
 }
 .ui.dropdown .filtered.item {

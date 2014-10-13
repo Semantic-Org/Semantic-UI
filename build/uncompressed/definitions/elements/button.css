@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-     Load Default
+    Load Defaults
 -------------------*/
 /*******************************
          Site Settings
@@ -193,6 +193,151 @@
 /*------------------
      Load Theme
 -------------------*/
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+        Paths
+--------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+  Background Colors
+--------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* 4px @ 14px */
+/* Used for differentiating neutrals */
+/* Used for differentiating layers */
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+       Icons
+--------------------*/
+/* Maximum Glyph Width of Icon */
+/*-------------------
+       Easing
+--------------------*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Mood */
+/* Status */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+        Sizes
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Makes sure padded grid can fit at 320px */
+/* Used to match floats with text */
+/* Positive / Negative Dupes */
+/* Header Colors */
+/* Responsive */
+/* Columns */
+/*******************************
+           States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Standard  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*******************************
+            Button
+*******************************/
+/*-------------------
+       Element
+--------------------*/
+/* Shadow */
+/* transitions */
+/* Padding */
+/* Icon */
+/* Loader */
+/*-------------------
+        Group
+--------------------*/
+/*-------------------
+        States
+--------------------*/
+/* Hovered */
+/* Focused */
+/* Pressed Down */
+/* Active */
+/* Active + Hovered */
+/* Loading */
+/*-------------------
+        Types
+--------------------*/
+/* Or */
+/* Icon */
+/* Labeled Icon */
+/* Inverted */
+/* Basic */
+/* Basic Hover */
+/* Basic Down */
+/* Basic Active */
+/* Basic Inverted */
+/* Basic Group */
+/*-------------------
+      Variations
+--------------------*/
+/* Colors */
+/* Ordinality */
+/* Compact */
+/* Attached */
+/* Floated */
+/* Animated */
+/* Sizing (Uses Defaults) */
 /*------------------
      Load Site
 -------------------*/
@@ -203,7 +348,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
- Override Mix-in
+   Override Loader
 -------------------*/
 /*******************************
             Button
@@ -771,8 +916,9 @@
 .ui.basic.buttons .button.active,
 .ui.basic.button.active {
   background: rgba(0, 0, 0, 0.05) !important;
+  box-shadow: '' !important;
   color: rgba(0, 0, 0, 0.8);
-  box-shadow: rgba(39, 41, 43, 0.3);
+  box-shadow: rgba(39, 41, 43, 0.2);
 }
 .ui.basic.buttons .button.active:hover,
 .ui.basic.button.active:hover {
@@ -786,7 +932,7 @@
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset, 0px 1px 4px 0px rgba(39, 41, 43, 0.15) inset inset;
 }
 .ui.basic.buttons .button.active {
-  box-shadow: rgba(39, 41, 43, 0.3) inset;
+  box-shadow: rgba(39, 41, 43, 0.2) inset;
 }
 /* Standard Basic Inverted */
 .ui.basic.inverted.buttons .button,

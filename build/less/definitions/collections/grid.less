@@ -882,6 +882,13 @@
   table-layout: fixed;
   width: @tableWidth;
 }
+.ui[class*="equal height"].relaxed.grid {
+  width: @relaxedTableWidth;
+}
+.ui[class*="equal height"][class*="very relaxed"].grid {
+  width: @veryRelaxedTableWidth;
+}
+
 .ui[class*="equal height"].grid > .row,
 .ui[class*="equal height"].row  {
   display: table;
@@ -1066,9 +1073,13 @@
 @media only screen and (max-width: @largestMobileScreen) {
   .ui.stackable.grid {
     display: block !important;
-    width: 100%;
+    width: auto;
     padding: 0em;
-    margin: 0em !important;
+    margin-top: 0em;
+    margin-bottom: 0em;
+  }
+  :not(.column) > .ui.stackable.grid {
+    margin: 0em;
   }
   .ui.stackable.grid > .row > .wide.column,
   .ui.stackable.grid > .wide.column,
@@ -1079,16 +1090,20 @@
     display: block !important;
     width: auto !important;
 
-    margin: (@stackableRowSpacing / 2) 0em 0em !important;
-    padding: (@stackableRowSpacing / 2) (@stackableGutter / 2) 0em !important;
+    margin: (@stackableRowSpacing / 4) 0em !important;
+    padding: (@stackableRowSpacing / 4) (@stackableGutter / 2) 0em !important;
 
     box-shadow: none !important;
   }
+
   .ui.stackable.celled.grid > .column,
   .ui.stackable.celled.grid > .row > .column,
   .ui.stackable.divided.grid > .column,
   .ui.stackable.divided.grid > .row > .column {
     border-top: @stackableMobileBorder;
+    box-shadow: none !important;
+    margin: (@stackableRowSpacing) 0em !important;
+    padding: (@stackableRowSpacing) (@stackableGutter / 2) 0em !important;
   }
   .ui.inverted.stackable.celled.grid > .column,
   .ui.inverted.stackable.celled.grid > .row > .column,
