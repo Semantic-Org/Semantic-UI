@@ -112,14 +112,16 @@ code {
   padding: 2px 4px;
   vertical-align: baseline;
 }
+pre code {
+  border: none;
+  padding: 0px;
+  font-size: 1em;
+}
+/* Code block */
 .ui.message code {
   background-color: rgba(255, 255, 255, 0.6);
 }
 
-pre code {
-  border: none;
-  padding: 0px;
-}
 p {
   margin: 1em 0em;
 }
@@ -440,6 +442,7 @@ body#example.hide {
 
   width: 55px;
   height: auto;
+  white-space: nowrap;
   overflow: hidden;
   -webkit-transition:
     0.3s width ease,
@@ -465,7 +468,8 @@ body#example.hide {
 
 #example .fixed.launch.button .text {
   position: absolute;
-  top: 15px;
+  white-space: nowrap;
+  top: auto;
   left: 54px;
   opacity: 0;
   -webkit-transition:
@@ -588,7 +592,7 @@ body#example.hide {
 #example .instructive.segment .title + em {
   float: right;
 }
-#example .label + div.code {
+#example .label + .code {
   margin-top: 1.5em;
 }
 
@@ -976,6 +980,12 @@ body#example.hide {
 #example .demo.row {
   margin: 0 auto !important;
   max-width: 1140px;
+}
+
+#example .demo.row .button.demo > .buttons,
+#example .demo.row .button.demo > .button,
+#example .demo.row .button.demo > .segment > .button {
+  margin-bottom: 0.5em;
 }
 #example .demo.row .ui.menu,
 #example .demo.row .ui.card {

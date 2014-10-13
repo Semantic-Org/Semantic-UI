@@ -15,6 +15,12 @@ description : 'This a work in progress and currently only includes a portion of 
       <div class="column">
         <div class="no example">
           <h4 class="ui header">
+            <a href="/collections/menu.html">Button</a>
+          </h4>
+          <%- @partial('examples/button') %>
+        </div>
+        <div class="no example">
+          <h4 class="ui header">
             <a href="/collections/menu.html">Menu</a>
           </h4>
           <%- @partial('examples/menu') %>

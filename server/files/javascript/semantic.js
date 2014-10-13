@@ -733,6 +733,7 @@ semantic.ready = function() {
     initializeCode: function() {
       var
         $code        = $(this).show(),
+        $codeTag     = $('<code></code>'),
         code         = $code.html(),
         existingCode = $code.hasClass('existing'),
         evaluatedCode = $code.hasClass('evaluated'),
@@ -783,7 +784,21 @@ semantic.ready = function() {
       formattedCode = $.trim(code).replace(whiteSpace, '\n');
       formattedCode = escapeHTML(formattedCode);
 
-      $code.html(formattedCode);
+      // replace with <code>
+      $codeTag
+        .addClass($code.attr('class'))
+        .html(formattedCode)
+      ;
+
+      $code
+        .replaceWith($codeTag)
+      ;
+      $code = $codeTag;
+
+      console.log($code, formattedCode);
+      $code
+        .html(formattedCode)
+      ;
 
       // wrap
       $code = $code
@@ -799,14 +814,14 @@ semantic.ready = function() {
         $('<div>')
           .addClass('ui attached top label')
           .html('<span class="title">' + title + '</span>' + '<em>' + (displayType[contentType] || contentType) + '</em>')
-          .prependTo( $(this).closest('.segment') )
+          .prependTo( $code.closest('.segment') )
         ;
       }
       if(label) {
         $('<div>')
           .addClass('ui pointing below language label')
           .html(displayType[contentType] || contentType)
-          .insertBefore ( $(this).closest('.segment') )
+          .insertBefore ( $code.closest('.segment') )
         ;
       }
       // add run code button
@@ -817,13 +832,13 @@ semantic.ready = function() {
           .on('click', function() {
             eval(code);
           })
-          .insertBefore ( $(this).closest('.segment') )
+          .insertBefore ( $code.closest('.segment') )
         ;
       }
       // add preview if specified
       if(preview) {
         $(code)
-          .insertAfter( $(this).closest('.segment') )
+          .insertAfter( $code.closest('.segment') )
         ;
       }
 

@@ -915,7 +915,7 @@ type   : 'Semantic'
         <div class="column">
           <h3 class="ui header">Enterprise Ready</h3>
           <p>Build tools, performance logging, support for custom definitions, multiple-levels of theme inheritanceance—a developer's wet dream.</p>
-          <a class="ui large right disabled labeled icon button">
+          <a class="ui large disabled right labeled icon button">
             <i class="right chevron icon"></i>
             View Expert Guide
           </a>
@@ -923,7 +923,7 @@ type   : 'Semantic'
         <div class="column">
           <h3 class="ui header">Beginner Friendly</h3>
           <p>Don't feel comfortable tweaking everything? Download free community designed themes and use our customizer to build a package fit for your needs.</p>
-          <a class="ui large right disabled labeled icon button">
+          <a class="ui large disabled right labeled icon button">
             <i class="right chevron icon"></i>
             View Basic Guide
           </a>
