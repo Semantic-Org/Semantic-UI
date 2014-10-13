@@ -64,7 +64,12 @@ $.fn.dimmer = function(parameters) {
           else {
             $dimmable = $module;
             if( module.has.dimmer() ) {
-              $dimmer = $dimmable.children(selector.dimmer).first();
+              if(settings.dimmerName) {
+                $dimmer = $dimmable.children(selector.dimmer).filter('.' + settings.dimmerName);
+              }
+              else {
+                $dimmer = $dimmable.children(selector.dimmer);
+              }
             }
             else {
               $dimmer = module.create();
