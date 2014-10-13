@@ -213,13 +213,13 @@ $.fn.transition = function() {
         set: {
           animating: function(animation) {
             animation = animation || settings.animation;
-            module.save.conditions();
+            if(!module.is.animating()) {
+              module.save.conditions();
+            }
+            module.remove.direction();
+            $module.off('.complete');
             if(module.can.transition() && !module.has.direction()) {
               module.set.direction();
-            }
-            if(module.is.animating()) {
-              module.remove.direction();
-              $module.off('.complete');
             }
             module.remove.hidden();
             module.set.display();
@@ -320,6 +320,8 @@ $.fn.transition = function() {
               clasName = $module.attr('class') || false,
               style = $module.attr('style') || ''
             ;
+            $module.removeClass(settings.animation);
+            module.remove.direction();
             module.cache = {
               className : $module.attr('class'),
               style     : module.get.style()

@@ -216,6 +216,7 @@ $.fn.dimmer = function(parameters) {
               $dimmer
                 .transition({
                   animation : settings.transition + ' in',
+                  queue       : false,
                   duration  : module.get.duration(),
                   start     : function() {
                     module.set.dimmed();
@@ -258,11 +259,14 @@ $.fn.dimmer = function(parameters) {
               module.verbose('Hiding dimmer with css');
               $dimmer
                 .transition({
-                  animation : settings.transition + ' out',
-                  duration  : module.get.duration(),
+                  animation   : settings.transition + ' out',
+                  queue       : false,
+                  duration    : module.get.duration(),
+                  start: function() {
+                    module.remove.dimmed();
+                  },
                   complete  : function() {
                     if( !module.is.animating() ) {
-                      module.remove.dimmed();
                       module.remove.active();
                     }
                     callback();
@@ -272,11 +276,11 @@ $.fn.dimmer = function(parameters) {
             }
             else {
               module.verbose('Hiding dimmer with javascript');
+              module.remove.dimmed();
               $dimmer
                 .stop()
                 .fadeOut(module.get.duration(), function() {
                   if( !module.is.animating() ) {
-                    module.remove.dimmed();
                     module.remove.active();
                   }
                   $dimmer.removeAttr('style');
