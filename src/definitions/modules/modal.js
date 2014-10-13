@@ -389,7 +389,7 @@ $.fn.modal = function(parameters) {
             : function(){}
           ;
           if( $otherModals.is(':visible') ) {
-            module.debug('Hiding other modals');
+            module.debug('Hiding other modals', $otherModals);
             $otherModals
               .filter(':visible')
                 .modal('hide modal', callback)
