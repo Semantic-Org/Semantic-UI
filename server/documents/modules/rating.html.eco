@@ -326,7 +326,7 @@ themes      : ['Default']
         </tr>
         <tr>
           <td>debug</td>
-          <td>True</td>
+          <td>False</td>
           <td>Provides standard debug output to console</td>
         </tr>
         <tr>

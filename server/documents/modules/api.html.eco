@@ -15,7 +15,7 @@ type        : 'UI Behavior'
 
 <div class="main container">
   <div class="ui active tab" data-tab="overview">
-    <div class="ui two column internally celled very relaxed stackable grid">
+    <div class="ui two column very relaxed stackable grid">
       <div class="row">
         <div class="column">
           <div class="content">
@@ -90,6 +90,7 @@ type        : 'UI Behavior'
           $.fn.api.settings.api = {
             'get followers' : '/followers/{id}?results={count}',
             'create user'   : '/create',
+            'add user'      : '/add/{id}',
             'follow user'   : '/follow/{id}',
             'search'        : '/search/?query={value}'
           };
@@ -181,7 +182,7 @@ type        : 'UI Behavior'
         </div>
       </div>
 
-      <h2 class="ui dividing header">Setting URL Variables</h2>
+      <h2 class="ui dividing header">Setting-up Requests</h2>
 
       <div class="no example">
         <h4 class="ui header">URL Variables</h4>
@@ -232,25 +233,30 @@ type        : 'UI Behavior'
       </div>
 
       <div class="no example">
-        <h4 class="ui header">Data Attributes</h4>
-        <p>You can include url values as metadata inside the DOM.
-        <p>This is often easiest to include unique url data for each triggering element. For example, many follow buttons will trigger the same endpoint, but each will have its own user id.</p>
+        <h4 class="ui header">Request Information in Data Attributes</h4>
+        <p>You can include url values as html5 metadata attributes</p>
+        <p>This is often easiest to include unique url data for each triggering element, for example, many follow buttons will trigger the same endpoint, but each will have its own user id.</p>
+        <p>As a convenience, you can also specify your API action in metadata, to allow you to instantiate multiple types of api actions in one statement.</p>
         <div class="ui ignored warning message">
           Only variables specified in your API's URL will be searched for in metadata.
         </div>
         <div class="code" data-type="html">
-          <div class="ui follow button" data-id="11">
-            User 1
+          <div class="ui button" data-action="follow user" data-id="11">
+            Follow 1
           </div>
-          <div class="ui follow button" data-id="22">
-            User 2
+          <div class="ui button" data-action="add user" data-id="11">
+            Add Stevie
+          </div>
+          <div class="ui button" data-action="follow user" data-id="22">
+            Follow Jenny
+          </div>
+          <div class="ui button" data-action="add user" data-id="22">
+            Add Jennie
           </div>
         </div>
         <div class="code" data-type="javascript">
           $('.follow.button')
-            .api({
-              action: 'follow user'
-            })
+            .api()
           ;
         </div>
       </div>
@@ -277,7 +283,7 @@ type        : 'UI Behavior'
       </div>
 
       <div class="no example">
-        <h4 class="ui header">Modifying Data and Settings Just Before Sending</h4>
+        <h4 class="ui header">Adjusting Request in Before Send</h4>
         <p>All run settings, not just url data, can be adjusted in a special callback <code>beforeSend</code> which occurs before the API request is sent.</p>
         <div class="ui info message">
           An additional callback <code>beforeXHR</code> lets you modify the XHR object before sending. This is different than beforeSend.
@@ -320,10 +326,10 @@ type        : 'UI Behavior'
         </div>
       </div>
 
-      <h2 class="ui dividing header">Including Server Data</h2>
+      <h2 class="ui dividing header">Sending Data</h2>
 
       <div class="example">
-        <h4 class="ui header">Automatically Routed</h4>
+        <h4 class="ui header">Automatically Routed Data</h4>
         <p>Calling API on any element inside of a form, will automatically include serialized form content in your request when using a special setting <code>serializeForm</code>, or using a form as the <code>stateContext</code>.</p>
         <div class="ui ignored message">
           Using <code>serializeForm</code> requires including the serialize-object dependency.

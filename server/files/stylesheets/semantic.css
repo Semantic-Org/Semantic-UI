@@ -569,6 +569,7 @@ body#example.hide {
   margin: 0em;
   padding: 0em;
   max-height: 610px;
+  font-weight: normal;
   font-family:  'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
 }
 
