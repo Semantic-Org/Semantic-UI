@@ -222,9 +222,7 @@ $.fn.dimmer = function(parameters) {
                     module.set.dimmed();
                   },
                   complete  : function() {
-                    if( !module.is.animating() ) {
-                      module.set.active();
-                    }
+                    module.set.active();
                     callback();
                   }
                 })
@@ -242,9 +240,7 @@ $.fn.dimmer = function(parameters) {
                 })
                 .fadeTo(module.get.duration(), 1, function() {
                   $dimmer.removeAttr('style');
-                  if( !module.is.animating() ) {
-                    module.set.active();
-                  }
+                  module.set.active();
                   callback();
                 })
               ;
@@ -266,9 +262,7 @@ $.fn.dimmer = function(parameters) {
                     module.remove.dimmed();
                   },
                   complete  : function() {
-                    if( !module.is.animating() ) {
-                      module.remove.active();
-                    }
+                    module.remove.active();
                     callback();
                   }
                 })
@@ -280,9 +274,7 @@ $.fn.dimmer = function(parameters) {
               $dimmer
                 .stop()
                 .fadeOut(module.get.duration(), function() {
-                  if( !module.is.animating() ) {
-                    module.remove.active();
-                  }
+                  module.remove.active();
                   $dimmer.removeAttr('style');
                   callback();
                 })
