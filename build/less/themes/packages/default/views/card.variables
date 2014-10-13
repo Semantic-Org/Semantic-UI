@@ -120,6 +120,10 @@
 @extraLinkColor: @unselectedTextColor;
 @extraLinkHoverColor: @linkHoverColor;
 
+/* Buttons */
+@buttonMargin: 0em -@borderWidth -@shadowDistance;
+@buttonWidth: ~"calc(100% + "(@borderWidth * 2)~")";
+
 /*-------------------
       Variations
 --------------------*/

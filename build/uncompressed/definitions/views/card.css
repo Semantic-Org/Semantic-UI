@@ -168,6 +168,7 @@
 /* Paragraph */
 /* Additional Content */
 /* Extra Links */
+/* Buttons */
 /*-------------------
       Variations
 --------------------*/
@@ -301,6 +302,7 @@
 /* Paragraph */
 /* Additional Content */
 /* Extra Links */
+/* Buttons */
 /*-------------------
       Variations
 --------------------*/
@@ -561,7 +563,9 @@
 .ui.card > .buttons:last-child,
 .ui.cards > .card > .button:last-child,
 .ui.card > .button:last-child {
-  margin-bottom: -1px;
+  margin: 0em -1px -0.2em;
+  width: -webkit-calc(100% +  2px );
+  width: calc(100% +  2px );
 }
 /*--------------
      Labels
