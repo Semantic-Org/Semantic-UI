@@ -5,6 +5,7 @@ semantic.dimmer.ready = function() {
 
   // selector cache
   var
+    $pageDimmer = $('.demo.page.dimmer'),
     $examples   = $('.example'),
     $showButton = $examples.find('.show.button'),
     $pageButton = $examples.find('.page.button'),
@@ -18,24 +19,28 @@ semantic.dimmer.ready = function() {
     show: function() {
       $(this)
         .closest('.example')
-        .find('.segment')
+        .children('.segment:not(.instructive)')
           .dimmer('show')
       ;
     },
     hide: function() {
       $(this)
         .closest('.example')
-        .find('.segment')
+        .children('.segment:not(.instructive)')
           .dimmer('hide')
       ;
     },
     page: function() {
-      $('body > .page')
+      $('body > .demo.page.dimmer')
         .dimmer('show')
       ;
     }
   };
-  
+
+  $pageDimmer
+    .dimmer()
+  ;
+
   $pageButton
     .on('click', handler.page)
   ;

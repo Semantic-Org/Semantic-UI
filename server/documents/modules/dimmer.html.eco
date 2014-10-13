@@ -1,6 +1,6 @@
 ---
 layout      : 'default'
-css         : ''
+css         : 'dim'
 
 element     : 'dimmer'
 elementType : 'module'
@@ -14,17 +14,6 @@ themes      : ['Default']
 <link rel="stylesheet/less" type="text/css" href="/build/less/definitions/modules/dimmer.less" />
 <script src="/javascript/dimmer.js"></script>
 
-<div class="ui page dimmer">
-  <div class="content">
-    <div class="center">
-      <h2 class="ui inverted icon header">
-        <i class="icon circular inverted emphasized green mail"></i>
-        You're all signed up for the weekly dog tips newsletter!
-        <div class="sub header">Your first edition will be sent on January 22</div>
-      </h2>
-    </div>
-  </div>
-</div>
 
 <%- @partial('header', { tabs: 'module' }) %>
 
@@ -35,6 +24,34 @@ themes      : ['Default']
     <h2 class="ui dividing header">Types</h2>
 
     <div class="example">
+      <h4 class="ui header">Simple Dimmer</h4>
+      <p>A simple dimmer displays no content</p>
+      <div class="code">
+        // left button
+        $('.segment').dimmer('show');
+        // right button
+        $('.segment').dimmer('hide');
+      </div>
+      <div class="ui ignored info message">A dimmer will automatically be created when a dimming behavior is triggered on an element.
+      </div>
+      <div class="ui segment">
+        <h3 class="ui header">
+          Overlayable Section
+        </h3>
+        <div class="ui small images">
+          <img src="/images/wireframe/image.png">
+          <img src="/images/wireframe/image.png">
+          <img src="/images/wireframe/image.png">
+        </div>
+        <img class="ui medium wireframe image" src="/images/wireframe/media-paragraph.png">
+      </div>
+      <div class="ui ignored icon buttons">
+        <div class="ui show button"><i class="plus icon"></i></div>
+        <div class="ui hide button"><i class="minus icon"></i></div>
+      </div>
+    </div>
+
+    <div class="example">
       <h4 class="ui header">Content Dimmer</h4>
       <p>A dimmer can display content</p>
       <div class="ui ignored info message">Content must be included inside <code>.content .center</code> to display centered correctly in the modal.</div>
@@ -42,13 +59,17 @@ themes      : ['Default']
         <h3 class="ui header">
           Overlayable Section
         </h3>
-        <img src="/images/wireframe/text-image.png">
-        <img src="/images/wireframe/text-image.png">
+        <div class="ui small images">
+          <img src="/images/wireframe/image.png">
+          <img src="/images/wireframe/image.png">
+          <img src="/images/wireframe/image.png">
+        </div>
+        <img class="ui medium wireframe image" src="/images/wireframe/media-paragraph.png">
         <div class="ui dimmer">
           <div class="content">
             <div class="center">
               <h2 class="ui inverted icon header">
-                <i class="circular red heart icon"></i>
+                <i class="heart icon"></i>
                 Dimmed Message!
               </h2>
             </div>
@@ -59,31 +80,21 @@ themes      : ['Default']
         <div class="ui show button"><i class="plus icon"></i></div>
         <div class="ui hide button"><i class="minus icon"></i></div>
       </div>
-      <div class="existing code">
-        <div class="ui dimmer">
-          <div class="content">
-            <div class="center">
-              <h2 class="ui inverted icon header">
-                <i class="icon circular inverted emphasized red heart"></i>
-                Your poodle photo uploaded successfully!
-              </h2>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 
     <div class="example">
       <h4 class="ui header">Page Dimmer</h4>
       <p>A dimmer can be formatted to be fixed to the page</p>
-      <div class="existing code">
-      <div class="ui page dimmer">
-        <div class="content">
-          <div class="center">Hello</div>
+      <div class="existing code" data-preview="true">
+        <div class="ui page dimmer">
+          <div class="content">
+            <div class="center">Hello</div>
+          </div>
         </div>
       </div>
+      <div class="ui page button">
+        <i class="plus icon"></i>Show
       </div>
-      <div class="ui page button"><i class="plus icon"></i> Show</div>
     </div>
 
 
@@ -357,8 +368,8 @@ themes      : ['Default']
       <tbody>
         <tr>
           <td>closable</td>
-          <td class="six wide">true</td>
-          <td>Whether clicking on the dimmer should close it automatically</td>
+          <td class="six wide">auto</td>
+          <td>Whether clicking on the dimmer should hide the dimmer (Defaults to true when <code>settings.on</code> is not <code>hover</code></td>
         </tr>
         <tr>
           <td>on</td>

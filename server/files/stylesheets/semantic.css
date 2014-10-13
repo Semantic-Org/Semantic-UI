@@ -237,6 +237,9 @@ a:hover {
 #example.divider .ui.grid {
   position: relative;
 }
+#example.dim .segment .wireframe.image {
+  margin-bottom: 0em;
+}
 
 
 #example .download.menu {

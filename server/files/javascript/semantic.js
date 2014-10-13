@@ -795,7 +795,6 @@ semantic.ready = function() {
       ;
       $code = $codeTag;
 
-      console.log($code, formattedCode);
       $code
         .html(formattedCode)
       ;

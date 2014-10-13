@@ -440,6 +440,11 @@ type        : 'UI Module'
           <td>Callback on each transition that changes visibility to hidden</td>
         </tr>
         <tr>
+          <td>start</td>
+          <td>transitioned element</td>
+          <td>Callback on animation start, useful for queued animations</td>
+        </tr>
+        <tr>
           <td>complete</td>
           <td>transitioned element</td>
           <td>Callback on each transition complete</td>
