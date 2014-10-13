@@ -221,6 +221,7 @@ $.fn.transition = function() {
               .one(animationEnd + eventNamespace, module.complete)
             ;
             module.set.duration(settings.duration);
+            $.proxy(settings.start, this)();
             module.debug('Starting tween', animation, $module.attr('class'));
           },
           display: function() {
@@ -789,6 +790,7 @@ $.fn.transition.settings = {
   namespace   : 'transition',
 
   // animation complete event
+  start       : function() {},
   complete    : function() {},
   onShow      : function() {},
   onHide      : function() {},
