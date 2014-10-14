@@ -1,8 +1,0 @@
-/*-------------------
-   Form Variables
---------------------*/
-
-.ui.form .selection.dropdown {
-  padding: 1.1em 1.2em;
-  border-width: 2px;
-}

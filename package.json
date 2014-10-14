@@ -1,31 +1,27 @@
 {
-  "name": "semantic",
-  "version": "0.16.1",
-  "title": "Semantic UI",
-  "description": "Semantic empowers designers and developers by creating a shared vocabulary for UI.",
-  "homepage": "http://www.semantic-ui.com",
-  "author": "Jack Lukic <jacklukic@gmail.com>",
-  "license": "MIT",
-  "scripts": {
+  "name"        : "semantic",
+  "version"     : "1.0",
+  "title"       : "Semantic UI",
+  "description" : "Semantic empowers designers and developers by creating a shared vocabulary for UI.",
+  "homepage"    : "http://www.semantic-ui.com",
+  "author"      : "Jack Lukic <jacklukic@gmail.com>",
+  "license"     : "MIT",
+  "scripts"     : {
     "test": "grunt test"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/Semantic-Org/Semantic-UI.git"
   },
+  "bugs": {
+    "url": "https://github.com/Semantic-Org/Semantic-UI/issues"
+  },
   "dependencies": {
-    "docpad": "x.x.x",
-    "docpad-plugin-ghpages": "x.x.x",
     "jquery": "x.x.x"
   },
   "devDependencies": {
-    "docpad": "x.x.x",
-    "docpad-plugin-eco": "x.x.x",
-    "docpad-plugin-ghpages": "x.x.x",
-    "docpad-plugin-partials": "x.x.x",
     "grunt": "x.x.x",
     "grunt-autoprefixer": "x.x.x",
-    "grunt-bower-task": "x.x.x",
     "grunt-clear": "x.x.x",
     "grunt-contrib-clean": "x.x.x",
     "grunt-contrib-compress": "x.x.x",
@@ -36,12 +32,8 @@
     "grunt-contrib-uglify": "x.x.x",
     "grunt-contrib-watch": "x.x.x",
     "grunt-css": "x.x.x",
-    "grunt-docco": "x.x.x",
-    "grunt-docco-multi": "x.x.x",
     "grunt-karma": "x.x.x",
     "grunt-karma-coveralls": "x.x.x",
-    "grunt-replace": "x.x.x",
-    "grunt-rtlcss": "x.x.x",
     "karma": "x.x.x",
     "karma-coverage": "x.x.x",
     "karma-jasmine": "x.x.x",
