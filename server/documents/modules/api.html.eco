@@ -98,7 +98,8 @@ type        : 'UI Behavior'
       </div>
       <div class="no example">
         <h4 class="ui header">Working with URLs</h4>
-        <p>Named API actions are offered for convenience and maintanability, but are not required. You can also specify the url in each request, templated or not.</p>
+        <p>Named API actions are offered for convenience and maintanability, but are not required.</p>
+        <p>You can also specify the url in each request, templated or not:</p>
         <div class="code">
         $('.search.button')
           .api({
@@ -112,7 +113,7 @@ type        : 'UI Behavior'
 
       <div class="ui top attached info message">
         <div class="ui header">Open Your Web Console</div>
-        The following examples work best while viewing logs in your web console.  This experienced is optimized for Firebug, but will also appear in webkit browsers <a href="https://code.google.com/p/chromium/issues/detail?id=306120" target="_blank">with minor issues.</a>
+        <p>The following examples work best while viewing logs in your web console.  This experienced is optimized for Firebug, but will also appear in webkit browsers <a href="https://code.google.com/p/chromium/issues/detail?id=306120" target="_blank">with minor issues.</a></p>
       </div>
       <div class="ui bottom attached message">
         API requests for the following demos have been faked using <a href="http://sinonjs.org/">SinonJS</a> to avoid rate throttling from public APIs. No actual data is returned.
@@ -233,36 +234,31 @@ type        : 'UI Behavior'
       </div>
 
       <div class="no example">
-        <h4 class="ui header">Request Information in Data Attributes</h4>
+        <h4 class="ui header">Data Specified in Data Attributes</h4>
         <p>You can include url values as html5 metadata attributes</p>
         <p>This is often easiest to include unique url data for each triggering element, for example, many follow buttons will trigger the same endpoint, but each will have its own user id.</p>
-        <p>As a convenience, you can also specify your API action in metadata, to allow you to instantiate multiple types of api actions in one statement.</p>
         <div class="ui ignored warning message">
           Only variables specified in your API's URL will be searched for in metadata.
         </div>
         <div class="code" data-type="html">
-          <div class="ui button" data-action="follow user" data-id="11">
+          <div class="ui button" data-id="11">
             Follow 1
           </div>
-          <div class="ui button" data-action="add user" data-id="11">
-            Add Stevie
-          </div>
-          <div class="ui button" data-action="follow user" data-id="22">
+          <div class="ui button" data-id="22">
             Follow Jenny
-          </div>
-          <div class="ui button" data-action="add user" data-id="22">
-            Add Jennie
           </div>
         </div>
         <div class="code" data-type="javascript">
           $('.follow.button')
-            .api()
+            .api({
+              action: 'follow user'
+            })
           ;
         </div>
       </div>
 
       <div class="no example">
-        <h4 class="ui header">Data specified in Javascript</h4>
+        <h4 class="ui header">Data Specified in Javascript</h4>
         <p>URL variable, and GET/POST data can be specified at run-time in the javascript object </p>
         <div class="code" data-type="javascript">
           $('.follow.button')
@@ -329,17 +325,17 @@ type        : 'UI Behavior'
       <h2 class="ui dividing header">Sending Data</h2>
 
       <div class="example">
-        <h4 class="ui header">Automatically Routed Data</h4>
+        <h4 class="ui header">Serializing Form Data</h4>
         <p>Calling API on any element inside of a form, will automatically include serialized form content in your request when using a special setting <code>serializeForm</code>, or using a form as the <code>stateContext</code>.</p>
+        <p>Unlike jQuery's serialize, Form data is serialized as a <b>javascript object</b>.
         <div class="ui ignored message">
-          Using <code>serializeForm</code> requires including the serialize-object dependency.
+          Using <code>serializeForm</code> requires including <a href="https://github.com/macek/jquery-serialize-object" target="_blank">macek's serialize object</a> converter.
         </div>
-        <p>Unlike jQuery's serialize, data will be serialized as a javascript object using  <a href="https://github.com/macek/jquery-serialize-object" target="_blank">macek's serialize object</a>.
         <h5 class="ui header">Benefits of Structured Data</h5>
         <ul class="ui list">
           <li>Serialized Form Data can be modified in javascript in <code>beforeSend</code></li>
-          <li>Structured data can be used by using names like <code>name="user[name]"</code> in your form</li>
-          <li>Form data will automatically be converted to useful values, for instance, checkbox to to <code>boolean</code> values.</li>
+          <li>You can send structured data by using form names like <code>name="name[first]"</code> in your form</li>
+          <li>Form data will automatically be converted to their javascript equivalents, for instance, checkboxes will be converted to <code>boolean</code> values.</li>
         <p>
         <form class="ui form">
           <div class="two fields">
@@ -391,6 +387,10 @@ type        : 'UI Behavior'
               action: 'create user',
               serializeForm: true,
               beforeSend: function(settings) {
+                // form data is editable in before send
+                if(username == '') {
+                  settings.data.username = 'New User';
+                }
                 // open console to inspect object
                 console.log(settings.data);
                 return settings;
@@ -402,19 +402,24 @@ type        : 'UI Behavior'
 
 
       <div class="no example">
-        <h4 class="ui header">Included in Javascript</h4>
-        <p>POST or GET data can be included, when setting up API requests, through automatic inclusion, or during the beforeSend callback. This data will be joined together</p>
+        <h4 class="ui header">Specifying Data in Javascript</h4>
+        <p>POST or GET data can be specified directly when initializing an API requests, or included in Before Send</p>
         <div class="code" data-type="javascript">
           $('.form .submit')
             .api({
               action: 'create user',
               serializeForm: true,
+              // manually specified POST/GET data across all requests
               data: {
-                sessionID: '232'
+                session: generateSession()
               },
               beforeSend: function(settings) {
-                settings.data.token = window.generateToken();
-                // will include serialized data, session id, and token
+                // cancel request if no id
+                if( !$(this).data('id') ) {
+                  return false;
+                }
+                // server POST/GET data for EACH request
+                settings.data.userID = $(this).data('id');
                 return settings;
               }
             })

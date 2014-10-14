@@ -737,7 +737,7 @@ semantic.ready = function() {
         code         = $code.html(),
         existingCode = $code.hasClass('existing'),
         evaluatedCode = $code.hasClass('evaluated'),
-        contentType  = $code.data('type')    || 'javascript',
+        contentType  = $code.data('type')    || 'html',
         title        = $code.data('title')   || false,
         demo         = $code.data('demo')    || false,
         preview      = $code.data('preview') || false,
@@ -768,6 +768,8 @@ semantic.ready = function() {
         "/": '&#x2F;'
       };
 
+      contentType = contentType.toLowerCase();
+
       function escapeHTML(string) {
         return String(string).replace(/[&<>"'\/]/g, function (s) {
           return entityMap[s];
@@ -782,7 +784,10 @@ semantic.ready = function() {
       // trim whitespace & escape
       whiteSpace = new RegExp('\\n\\s{' + indent + '}', 'g');
       formattedCode = $.trim(code).replace(whiteSpace, '\n');
-      formattedCode = escapeHTML(formattedCode);
+
+      if(contentType != 'javascript') {
+        formattedCode = escapeHTML(formattedCode);
+      }
 
       // replace with <code>
       $codeTag

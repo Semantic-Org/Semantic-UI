@@ -58,7 +58,7 @@ themes      : ['Default', 'GitHub', 'Google']
   </div>
   <div class="another example">
     <div class="ui icon message">
-      <i class="circular notched circle loading icon"></i>
+      <i class="notched circle loading icon"></i>
       <div class="content">
         <div class="header">
           Just one second

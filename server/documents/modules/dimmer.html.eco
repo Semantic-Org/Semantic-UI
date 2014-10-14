@@ -39,18 +39,19 @@ themes      : ['Default']
           Overlayable Section
         </h3>
         <div class="ui small images">
-          <img src="/images/wireframe/image.png">
-          <img src="/images/wireframe/image.png">
-          <img src="/images/wireframe/image.png">
+          <img class="ui wireframe image" src="/images/wireframe/image.png">
+          <img class="ui wireframe image" src="/images/wireframe/image.png">
+          <img class="ui wireframe image" src="/images/wireframe/image.png">
         </div>
         <img class="ui medium wireframe image" src="/images/wireframe/media-paragraph.png">
       </div>
-      <div class="ui ignored icon buttons">
+      <div class="ui ignored ignored icon buttons">
         <div class="ui show button"><i class="plus icon"></i></div>
         <div class="ui hide button"><i class="minus icon"></i></div>
       </div>
       <div class="ui existing code">
         <div class="ui segment">
+          <!-- Dimmer Generated Automatically No Need to Include !-->
           <h3 class="ui header">
             Overlayable Section
           </h3>
@@ -73,9 +74,9 @@ themes      : ['Default']
           Overlayable Section
         </h3>
         <div class="ui small images">
-          <img src="/images/wireframe/image.png">
-          <img src="/images/wireframe/image.png">
-          <img src="/images/wireframe/image.png">
+          <img class="ui wireframe image" src="/images/wireframe/image.png">
+          <img class="ui wireframe image" src="/images/wireframe/image.png">
+          <img class="ui wireframe image" src="/images/wireframe/image.png">
         </div>
         <img class="ui medium wireframe image" src="/images/wireframe/media-paragraph.png">
         <div class="ui dimmer">
@@ -89,7 +90,7 @@ themes      : ['Default']
           </div>
         </div>
       </div>
-      <div class="ui icon buttons">
+      <div class="ui ignored icon buttons">
         <div class="ui show button"><i class="plus icon"></i></div>
         <div class="ui hide button"><i class="minus icon"></i></div>
       </div>
@@ -155,13 +156,15 @@ themes      : ['Default']
         <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
         <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
       </div>
-      <div class="ignore ui icon buttons">
+      <div class="ignored ui icon buttons">
         <div class="ui show button"><i class="plus icon"></i></div>
         <div class="ui hide button"><i class="minus icon"></i></div>
       </div>
     </div>
   </div>
   <div class="ui tab" data-tab="examples">
+
+    <h2 class="ui dividing header">Examples</h2>
 
     <div class="event example">
       <h4 class="ui header">Dimmer Events</h4>
@@ -183,7 +186,7 @@ themes      : ['Default']
             </div>
           </div>
         </div>
-        <img src="/images/wireframe/image.png">
+        <img class="ui wireframe image" src="/images/wireframe/image.png">
       </div>
       <div class="ui circular image">
         <div class="ui dimmer">
@@ -208,7 +211,7 @@ themes      : ['Default']
         <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
         <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
       </div>
-      <div class="ignore ui icon buttons">
+      <div class="ignored ui icon buttons">
         <div class="ui show button"><i class="plus icon"></i></div>
         <div class="ui hide button"><i class="minus icon"></i></div>
       </div>
@@ -223,7 +226,7 @@ themes      : ['Default']
     <div class="no example">
       <h4 class="ui header">Display</h4>
       <p>You can display a dimmer by either invoking .dimmer('show') on a section or a dimmer itself. If you choose to  dim a dimmable section, a dimmer will automatically be created.</p>
-      <div class="ignore code">
+      <div class="ignored code">
       // these two are the same
       $('.ui.dimmable)
         .dimmer('show')
@@ -454,7 +457,7 @@ themes      : ['Default']
     <table class="ui sortable celled definition table">
       <thead>
         <th></th>
-        <th class="six wide">Default</th>
+        <th class="eight wide">Default</th>
         <th>Description</th>
       </thead>
 
@@ -530,13 +533,14 @@ themes      : ['Default']
         </tr>
         <tr>
           <td>errors</td>
-          <td colspan="2">
+          <td>
             <div class="code">
             error   : {
               method   : 'The method you called is not defined.'
             }
             </div>
           </td>
+          <td>Error messages displayed to console</td>
         </tr>
       </tbody>
     </table>

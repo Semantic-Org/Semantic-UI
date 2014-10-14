@@ -626,13 +626,13 @@ body#example.hide {
 #example .example .wireframe.image {
   opacity: 0.5;
 }
-#example .example .wireframe.image {
+#example .example :not(.images) > .wireframe.image {
   margin: 1rem 0em;
 }
-#example .example .wireframe.image:first-child {
+#example .example :not(.images) > .wireframe.image:first-child {
   margin-top: 0em;
 }
-#example .example .wireframe.image:last-child {
+#example .example :not(.images) > .wireframe.image:last-child {
   margin-bottom: 0em;
 }
 

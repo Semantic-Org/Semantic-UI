@@ -30,6 +30,9 @@ semantic.api.ready = function() {
     .respondWith(/\/follow\/(\d+)/, [responseCode, headers, body])
   ;
   server
+    .respondWith(/\/create\/(.*)/, [responseCode, headers, body])
+  ;
+  server
     .respondWith(/\/search\/(.*)/, [responseCode, headers, body])
   ;
 
