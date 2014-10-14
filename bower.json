@@ -3,7 +3,7 @@
   "description" : "Semantic empowers designers and developers by creating a shared vocabulary for UI.",
   "homepage"    : "http://www.semantic-ui.com",
   "main": [
-    "build/**/*"
+    "src/**/*"
   ],
   "author": {
     "name" : "Jack Lukic",
@@ -22,8 +22,11 @@
     "http://semantic-ui.mit-license.org/"
   ],
   "ignore": [
+    "docs",
     "node",
+    "server",
+    "spec",
     "src",
-    "docs"
+    "test"
   ]
 }
