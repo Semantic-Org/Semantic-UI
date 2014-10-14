@@ -22,7 +22,7 @@ themes      : ['Default', 'Classic', 'Basic', 'Raised', 'Chubby', 'Round', 'Amaz
   <div class="follow example">
     <h4 class="ui header">Button</h4>
     <p>A standard button</p>
-    <div class="ui loading button">
+    <div class="ui button">
       Follow
     </div>
   </div>
