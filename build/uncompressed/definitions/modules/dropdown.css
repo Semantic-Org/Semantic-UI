@@ -481,6 +481,7 @@ b        Types
   right: auto !important;
   margin: 0em 0em 0em -0.5em !important;
   border-radius: 0em 0.2857rem 0.2857rem 0em !important;
+  z-index: 21 !important;
 }
 /* Hide Arrow */
 .ui.dropdown .menu .menu:after {

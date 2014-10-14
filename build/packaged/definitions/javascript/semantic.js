@@ -7080,6 +7080,63 @@ $.fn.dropdown = function(parameters) {
           $item   = $menu.find(selector.item);
         },
 
+        toggle: function() {
+          module.verbose('Toggling menu visibility');
+          console.log(module.is.active());
+          if( !module.is.active() ) {
+            module.show();
+          }
+          else {
+            module.hide();
+          }
+        },
+
+        show: function() {
+          module.debug('Checking if dropdown can show');
+          if( !module.is.active() ) {
+            module.animate.show(function() {
+              if( module.can.click() ) {
+                module.bind.intent();
+              }
+              module.set.visible();
+            });
+            $.proxy(settings.onShow, element)();
+          }
+        },
+
+        hide: function() {
+          if( module.is.active() ) {
+            module.debug('Hiding dropdown');
+            module.animate.hide(function() {
+              module.remove.filteredItem();
+              module.remove.visible();
+            });
+            $.proxy(settings.onHide, element)();
+          }
+        },
+
+        hideOthers: function() {
+          module.verbose('Finding other dropdowns to hide');
+          $allModules
+            .not($module)
+              .has(selector.menu + ':visible:not(.' + className.animating + ')')
+                .dropdown('hide')
+          ;
+        },
+
+        hideSubMenus: function() {
+          var
+            $subMenus = $menu.find(selector.menu),
+            $activeSubMenu = $subMenus.has(selector.item + '.' + className.active)
+          ;
+          console.log($subMenus.not($activeSubMenu));
+          $subMenus
+            .not($activeSubMenu)
+              .removeClass(className.visible)
+              .removeAttr('style')
+          ;
+        },
+
         bind: {
           keyboardEvents: function() {
             module.debug('Binding keyboard events');
@@ -7094,7 +7151,7 @@ $.fn.dropdown = function(parameters) {
             if( module.is.searchSelection() ) {
               $module
                 .on('focus' + eventNamespace, selector.search, module.event.searchFocus)
-                .on('blur' + eventNamespace, selector.search, module.event.blur)
+                .on('blur' + eventNamespace, selector.search, module.event.searchBlur)
               ;
             }
             else {
@@ -7206,10 +7263,8 @@ $.fn.dropdown = function(parameters) {
             })
           ;
           $filteredItems = $item.not($results);
-          $item
-            .removeClass(className.filtered)
-            .removeClass(className.selected)
-          ;
+          module.remove.filteredItem();
+          module.remove.selectedItem();
           $filteredItems
             .addClass(className.filtered)
           ;
@@ -7221,7 +7276,7 @@ $.fn.dropdown = function(parameters) {
         },
 
         event: {
-          // prevents focus from occuring on mousedown
+          // prevents focus callback from occuring on mousedown
           mousedown: function() {
             activated = true;
           },
@@ -7233,14 +7288,17 @@ $.fn.dropdown = function(parameters) {
               module.show();
             }
           },
-          searchFocus: function() {
-            activated = true;
-            module.show();
-          },
           blur: function(event) {
             if(!activated) {
               module.hide();
             }
+          },
+          searchFocus: function() {
+            activated = true;
+            module.show();
+          },
+          searchBlur: function(event) {
+            module.hide();
           },
           input: function(event) {
             var
@@ -7741,10 +7799,8 @@ $.fn.dropdown = function(parameters) {
                   ? $selectedItem.html()
                   : $selectedItem.text()
               ;
-              $item
-                .removeClass(className.active)
-                .removeClass(className.selected)
-              ;
+              module.remove.activeItem();
+              module.remove.selectedItem();
               $selectedItem
                 .addClass(className.active)
                 .addClass(className.selected)
@@ -7760,6 +7816,15 @@ $.fn.dropdown = function(parameters) {
           },
           visible: function() {
             $module.removeClass(className.visible);
+          },
+          activeItem: function() {
+            $item.removeClass(className.active);
+          },
+          filteredItem: function() {
+            $item.removeClass(className.filtered);
+          },
+          selectedItem: function() {
+            $item.removeClass(className.selected);
           }
         },
 
@@ -7781,6 +7846,9 @@ $.fn.dropdown = function(parameters) {
               ? $subMenu.is(':animated') || $subMenu.transition && $subMenu.transition('is animating')
               : $menu.is(':animated') || $menu.transition && $menu.transition('is animating')
             ;
+          },
+          active: function() {
+            return $module.hasClass(className.active);
           },
           visible: function($subMenu) {
             return ($subMenu)
@@ -7808,20 +7876,29 @@ $.fn.dropdown = function(parameters) {
         animate: {
           show: function(callback, $subMenu) {
             var
-              $currentMenu = $subMenu || $menu
+              $currentMenu = $subMenu || $menu,
+              start = ($subMenu)
+                ? function() {}
+                : function() {
+                  module.hideOthers();
+                  module.set.active();
+                  module.set.scrollPosition();
+                }
             ;
             callback = callback || function(){};
+            module.verbose('Doing menu show animation', $currentMenu);
             if( module.is.hidden($currentMenu) ) {
-              module.verbose('Doing menu show animation', $currentMenu);
               if(settings.transition == 'none') {
                 $.proxy(callback, element)();
               }
               else if($.fn.transition !== undefined && $module.transition('is supported')) {
+                console.log('showing menu');
                 $currentMenu
                   .transition({
                     animation : settings.transition + ' in',
                     duration  : settings.duration,
                     queue     : true,
+                    start     : start,
                     complete  : function() {
                       $.proxy(callback, element)();
                     }
@@ -7829,6 +7906,7 @@ $.fn.dropdown = function(parameters) {
                 ;
               }
               else if(settings.transition == 'slide down') {
+                start();
                 $currentMenu
                   .hide()
                   .clearQueue()
@@ -7847,6 +7925,7 @@ $.fn.dropdown = function(parameters) {
                 ;
               }
               else if(settings.transition == 'fade') {
+                start();
                 $currentMenu
                   .hide()
                   .clearQueue()
@@ -7863,7 +7942,16 @@ $.fn.dropdown = function(parameters) {
           },
           hide: function(callback, $subMenu) {
             var
-              $currentMenu = $subMenu || $menu
+              $currentMenu = $subMenu || $menu,
+              start = ($subMenu)
+                ? function() {}
+                : function() {
+                  if( module.can.click() ) {
+                    module.unbind.intent();
+                  }
+                  module.hideSubMenus();
+                  module.remove.active();
+                }
             ;
             callback = callback || function(){};
             if( module.is.visible($currentMenu) ) {
@@ -7878,6 +7966,7 @@ $.fn.dropdown = function(parameters) {
                     animation : settings.transition + ' out',
                     duration  : settings.duration,
                     queue     : true,
+                    start     : start,
                     complete  : function() {
                       $.proxy(callback, element)();
                     }
@@ -7885,6 +7974,7 @@ $.fn.dropdown = function(parameters) {
                 ;
               }
               else if(settings.transition == 'slide down') {
+                start();
                 $currentMenu
                   .show()
                   .clearQueue()
@@ -7903,6 +7993,7 @@ $.fn.dropdown = function(parameters) {
                 ;
               }
               else if(settings.transition == 'fade') {
+                start();
                 $currentMenu
                   .show()
                   .clearQueue()
@@ -7919,39 +8010,6 @@ $.fn.dropdown = function(parameters) {
           }
         },
 
-        show: function() {
-          module.debug('Checking if dropdown can show');
-          if( module.is.hidden() ) {
-            module.hideOthers();
-            module.set.active();
-            module.set.scrollPosition();
-            module.animate.show(function() {
-              if( module.can.click() ) {
-                module.bind.intent();
-              }
-              module.set.visible();
-            });
-            $.proxy(settings.onShow, element)();
-          }
-        },
-
-        hide: function() {
-          if( !module.is.animated() && module.is.visible() ) {
-            module.debug('Hiding dropdown');
-            if( module.can.click() ) {
-              module.unbind.intent();
-            }
-            module.remove.active();
-            module.animate.hide(function() {
-              $item
-                .removeClass(className.filtered)
-              ;
-              module.remove.visible();
-            });
-            $.proxy(settings.onHide, element)();
-          }
-        },
-
         delay: {
           show: function() {
             module.verbose('Delaying show event to ensure user intent');
@@ -7962,25 +8020,6 @@ $.fn.dropdown = function(parameters) {
             module.verbose('Delaying hide event to ensure user intent');
             clearTimeout(module.timer);
             module.timer = setTimeout(module.hide, settings.delay.hide);
-          }
-        },
-
-        hideOthers: function() {
-          module.verbose('Finding other dropdowns to hide');
-          $allModules
-            .not($module)
-              .has(selector.menu + ':visible')
-              .dropdown('hide')
-          ;
-        },
-
-        toggle: function() {
-          module.verbose('Toggling menu visibility');
-          if( module.is.hidden() ) {
-            module.show();
-          }
-          else {
-            module.hide();
           }
         },
 
@@ -8217,6 +8256,7 @@ $.fn.dropdown.settings = {
 
   className : {
     active      : 'active',
+    animating   : 'animating',
     disabled    : 'disabled',
     dropdown    : 'ui dropdown',
     filtered    : 'filtered',
@@ -8533,10 +8573,6 @@ $.fn.modal = function(parameters) {
             : function(){}
           ;
           if( !module.is.active() ) {
-            module.cacheSizes();
-            module.set.position();
-            module.set.screenHeight();
-            module.set.type();
 
             if( $otherModals.filter(':visible').size() > 0 && !settings.allowMultiple) {
               module.debug('Other modals visible, queueing show animation');
@@ -8550,10 +8586,21 @@ $.fn.modal = function(parameters) {
                   .transition({
                     debug     : settings.debug,
                     animation : settings.transition + ' in',
+                    queue     : false,
                     duration  : settings.duration,
+                    start     : function() {
+                      module.cacheSizes();
+                      module.set.position();
+                      module.set.screenHeight();
+                      module.set.type();
+                      module.set.clickaway();
+                    },
                     complete  : function() {
                       $.proxy(settings.onVisible, element)();
+                      module.add.keyboardShortcuts();
+                      module.save.focus();
                       module.set.active();
+                      module.set.autofocus();
                       callback();
                     }
                   })
@@ -8564,6 +8611,8 @@ $.fn.modal = function(parameters) {
                 $module
                   .fadeIn(settings.duration, settings.easing, function() {
                     $.proxy(settings.onVisible, element)();
+                    module.add.keyboardShortcuts();
+                    module.save.focus();
                     module.set.active();
                     callback();
                   })
@@ -8603,11 +8652,7 @@ $.fn.modal = function(parameters) {
             return;
           }
           module.debug('Hiding dimmer');
-          if(settings.closable) {
-            $dimmer
-              .off('click' + eventNamespace)
-            ;
-          }
+          module.remove.clickaway();
           $dimmable.dimmer('hide', function() {
             if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
               module.remove.screenHeight();
@@ -8621,19 +8666,18 @@ $.fn.modal = function(parameters) {
             ? callback
             : function(){}
           ;
-          if( !(module.is.active() || module.is.animating()) ) {
-            module.debug('Cannot hide modal it is not active');
-            return;
-          }
           module.debug('Hiding modal');
-          module.remove.keyboardShortcuts();
           $.proxy(settings.onHide, element)();
           if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
             $module
               .transition({
                 debug     : settings.debug,
                 animation : settings.transition + ' out',
+                queue     : false,
                 duration  : settings.duration,
+                start     : function() {
+                  module.remove.keyboardShortcuts();
+                },
                 complete  : function() {
                   $.proxy(settings.onHidden, element)();
                   module.remove.active();
@@ -8644,6 +8688,7 @@ $.fn.modal = function(parameters) {
             ;
           }
           else {
+            module.remove.keyboardShortcuts();
             $module
               .fadeOut(settings.duration, settings.easing, function() {
                 $.proxy(settings.onHidden, element)();
@@ -8711,6 +8756,13 @@ $.fn.modal = function(parameters) {
           active: function() {
             $module.removeClass(className.active);
           },
+          clickaway: function() {
+            if(settings.closable) {
+              $dimmer
+                .off('click' + eventNamespace)
+              ;
+            }
+          },
           screenHeight: function() {
             if(module.cache.height > module.cache.pageHeight) {
               module.debug('Removing page height');
@@ -8770,26 +8822,7 @@ $.fn.modal = function(parameters) {
         },
 
         set: {
-          screenHeight: function() {
-            if(module.cache.height > module.cache.pageHeight) {
-              module.debug('Modal is taller than page content, resizing page height');
-              $body
-                .css('height', module.cache.height + settings.padding)
-              ;
-            }
-          },
-          active: function() {
-            module.add.keyboardShortcuts();
-            module.save.focus();
-            $module
-              .addClass(className.active)
-            ;
-            if(settings.closable) {
-              $dimmer
-                .off('click' + eventNamespace)
-                .on('click' + eventNamespace, module.event.click)
-              ;
-            }
+          autofocus: function() {
             if(settings.autofocus) {
               var
                 $inputs    = $module.find(':input:visible'),
@@ -8800,6 +8833,25 @@ $.fn.modal = function(parameters) {
               ;
               $input.first().focus();
             }
+          },
+          clickaway: function() {
+            if(settings.closable) {
+              $dimmer
+                .off('click' + eventNamespace)
+                .on('click' + eventNamespace, module.event.click)
+              ;
+            }
+          },
+          screenHeight: function() {
+            if(module.cache.height > module.cache.pageHeight) {
+              module.debug('Modal is taller than page content, resizing page height');
+              $body
+                .css('height', module.cache.height + settings.padding)
+              ;
+            }
+          },
+          active: function() {
+            $module.addClass(className.active);
           },
           scrolling: function() {
             $dimmable.addClass(className.scrolling);
