@@ -22,7 +22,7 @@ themes      : ['Default', 'Classic', 'Basic', 'Raised', 'Chubby', 'Round', 'Amaz
   <div class="follow example">
     <h4 class="ui header">Button</h4>
     <p>A standard button</p>
-    <div class="ui button">
+    <div class="ui loading button">
       Follow
     </div>
   </div>
@@ -224,7 +224,10 @@ themes      : ['Default', 'Classic', 'Basic', 'Raised', 'Chubby', 'Round', 'Amaz
   <div class="example">
     <h4 class="ui header">Loading</h4>
     <p>A button can show a loading indicator</p>
-    <div class="ui loading button">Loading Button</div>
+    <div class="ui loading button">Loading</div>
+    <div class="ui basic loading button">Loading</div>
+    <div class="ui primary loading button">Loading</div>
+    <div class="ui secondary loading button">Loading</div>
   </div>
 
   <h2 class="ui dividing header">Variations</h2>

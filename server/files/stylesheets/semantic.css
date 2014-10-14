@@ -680,11 +680,9 @@ body#example.hide {
 #example .intro .example > h4 ~ p,
 #example .intro .example > h4 ~ .ignored {
   margin: 1em 0em !important;
-  font-size: 14px;
 }
 
-#example .intro .example p {
-  font-size: 15px;
+#example .intro .example > p {
   color: rgba(0, 0, 0, 0.8);
 }
 

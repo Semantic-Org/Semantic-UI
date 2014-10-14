@@ -20,11 +20,13 @@ themes      : ['Default']
 
   <div class="ui active intro tab" data-tab="overview">
 
-    <h2 class="ui dividing header">Overview</h2>
     <div class="ui toggle animation checkbox">
       <input type="checkbox" name="animation" />
       <label>Toggle Animation</label>
     </div>
+
+    <h2 class="ui dividing header">Introduction</h2>
+
     <div class="highlighted example">
       <h4 class="ui header">Why Use Grids?</h4>
       <div class="ignored">
@@ -357,7 +359,7 @@ themes      : ['Default']
       <div class="ui ignored info message">
         <div class="ui header">Matching Column Widths on Nested Grids</div>
         <p>Each grid is divided into 16 columns, so a grid inside another grid column <b>sub-divides that column into sixteen more columns</b>.</p>
-        <p>This means, an <code>eight wide column</code> in grid located inside a <code>two wide column</code>, is the same width as a <code>one wide column</code> on the outer grid.</p>
+        <p>This means, an <code>eight wide column</code> in a nested grid located inside a <code>two wide column</code>, is the same width as a <code>one wide column</code> on the outer grid.</p>
       </div>
 
       <div class="ui two column page grid">
