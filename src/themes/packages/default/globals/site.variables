@@ -180,34 +180,33 @@
     Emotive Colors
 --------------------*/
 
-/* Mood */
+/* Positive */
 @positiveColor           : @green;
-@negativeColor           : @red;
-
-@positiveBackgroundColor : #E4F5DD;
-@negativeBackgroundColor : #FAE8E8;
-
+@positiveBackgroundColor : #EEFFE7;
 @positiveBorderColor     : #B7CAA7;
-@negativeBorderColor     : #DBB1B1;
-
+@positiveHeaderColor     : #356E36;
 @positiveTextColor       : #3C763D;
+
+/* Negative */
+@negativeColor           : @red;
+@negativeBackgroundColor : #FFF0F0;
+@negativeBorderColor     : #DBB1B1;
+@negativeHeaderColor     : #912D2B;
 @negativeTextColor       : #A94442;
 
-
-/* Status */
+/* Info */
 @infoColor              : #31CCEC;
-@warningColor           : #F2C037;
-@successColor           : @positiveColor;
-@errorColor             : @negativeColor;
-
-@infoBackgroundColor    : #E5F6FB;
-@warningBackgroundColor : #FCF8E3;
-
+@infoBackgroundColor    : #E9FAFF;
 @infoBorderColor        : #AAD6DF;
-@warningBorderColor     : #D3C4A5;
-@warningTextColor       : #8A6D3B;
-
+@infoHeaderColor        : #297187;
 @infoTextColor          : #337B92;
+
+/* Warning */
+@warningColor           : #F2C037;
+@warningBorderColor     : #D9CAAB;
+@warningBackgroundColor : #FFFBE6;
+@warningHeaderColor     : #825C01;
+@warningTextColor       : #876A38;
 
 
 /*-------------------
@@ -295,20 +294,16 @@
 @lineHeightOffset    : ((@lineHeight - 1em) / 2);
 
 /* Positive / Negative Dupes */
+@successColor           : @positiveColor;
+@errorColor             : @negativeColor;
 @successBackgroundColor : @positiveBackgroundColor;
 @errorBackgroundColor   : @negativeBackgroundColor;
 @successTextColor       : @positiveTextColor;
 @errorTextColor         : @negativeTextColor;
 @successBorderColor     : @positiveBorderColor;
 @errorBorderColor       : @negativeBorderColor;
-
-/* Header Colors */
-@positiveHeaderColor : darken(@positiveTextColor, 5);
-@negativeHeaderColor : darken(@negativeTextColor, 5);
-@infoHeaderColor     : darken(@infoTextColor, 5);
-@warningHeaderColor  : darken(@warningTextColor, 5);
-@successHeaderColor  : darken(@successTextColor, 5);
-@errorHeaderColor    : darken(@errorTextColor, 5);
+@successHeaderColor     : @positiveHeaderColor;
+@errorHeaderColor       : @negativeHeaderColor;
 
 /* Responsive */
 @largestMobileScreen : (@tabletBreakpoint - 1px);
