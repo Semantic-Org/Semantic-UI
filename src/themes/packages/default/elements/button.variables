@@ -114,7 +114,7 @@
 @activeHoverBoxShadow: @activeBoxShadow;
 
 /* Loading */
-@loadingBackground: rgba(0, 0, 0, 0.04);
+@loadingBackground: @offWhite;
 
 /*-------------------
         Types

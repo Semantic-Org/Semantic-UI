@@ -154,7 +154,6 @@
 @tealBackground   : #E9FFFF;
 @yellowBackground : #FFF8DB;
 
-
 /*--- Colored Text ---*/
 @blueTextColor    : @blue;
 @orangeTextColor  : @orange;
