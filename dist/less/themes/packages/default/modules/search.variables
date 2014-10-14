@@ -1,0 +1,102 @@
+/*******************************
+            Search
+*******************************/
+
+@promptBorderRadius: @circularRadius;
+
+/* Result Box */
+@resultsBackground: #FFFFFF;
+@resultsDistance: 0.5em;
+@resultsWidth: 380px;
+@resultsBorderRadius: 0.25em;
+@resultsBoxShadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.2);
+
+/* Result */
+@resultFontSize: 0.9em;
+@resultVerticalPadding: 0.5em;
+@resultHorizontalPadding: 1em;
+@resultTextColor: @textColor;
+@resultLineHeight: 1.33;
+
+/* Result Image */
+@resultImageFloat: right;
+@resultImageBackground: none;
+@resultImageWidth: 5em;
+@resultImageHeight: 3em;
+@resultImageBorderRadius: 0.25em;
+@resultImageMargin: 0em 6em 0em 0em;
+
+/* Result Content */
+@resultTitleFont: @headerFont;
+@resultTitleFontWeight: normal;
+@resultTitleColor: @darkTextColor;
+@resultDescriptionColor: @textColor;
+@resultPriceFloat: right;
+@resultPriceColor: @green;
+
+/* Special Message */
+@messageVerticalPadding: 1em;
+@messageHorizontalPadding: 1em;
+@messageHeaderFontSize: 1.2em;
+@messageHeaderFontWeight: bold;
+@messageHeaderColor: @textColor;
+@messageDescriptionDistance: 0.25rem;
+@messageDescriptionFontSize: 1rem;
+@messageDescriptionColor: @textColor;
+
+/* All Results Link */
+@allResultsBorder: 1px solid rgba(0, 0, 0, 0.1);
+@allResultsBackground: #F0F0F0;
+@allResultsHeight: 2em;
+@allResultsColor: @textColor;
+@allResultsFontWeight: bold;
+@allResultsAlign: center;
+
+
+/*******************************
+            States
+*******************************/
+
+/* Hover */
+@resultHoverBackground: #FAFAFA;
+@allResultsHoverBackground: #FAFAFA;
+
+/* Loading */
+@loaderPath: "@{imagePath}/loader-mini.gif";
+
+/* Active Category */
+@categoryActiveBackground: #F1F1F1;
+@categoryNameActiveColor: @textColor;
+
+/* Active Result */
+@resultActiveBorderLeft: transparent;
+@resultActiveBackground: #F0F0F0;
+@resultActiveBoxShadow: 2px 0px 2px 0px rgba(0, 0, 0, 0.2);
+@resultActiveTitleColor: @darkTextColor;
+@resultActiveDescriptionColor: @darkTextColor;
+
+
+/*******************************
+            Types
+*******************************/
+
+/* Category */
+@categoryBackground: #F0F0F0;
+@categoryBoxShadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1);
+@categoryResultTransition: background 0.2s ease, border-color 0.2s ease;
+
+@categoryNameFont: @pageFont;
+@categoryNameFontSize: 0.9em;
+@categoryNameFloat: left;
+@categoryNamePadding: 0.4em 0em 0em 1em;
+@categoryNameFontWeight: bold;
+@categoryNameColor: @lightTextColor;
+
+@categoryResultBackground: #FFFFFF;
+@categoryNameWidth: 100px;
+@categoryResultLeftBorder: 1px solid rgba(0, 0, 0, 0.1);
+@categoryResultTopBorder: 1px solid rgba(0, 0, 0, 0.1);
+
+/* Sizes */
+@medium: 1em;
+@large: 1.1em;

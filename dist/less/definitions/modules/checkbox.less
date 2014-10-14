@@ -1,0 +1,461 @@
+/*
+ * # Semantic - Checkbox
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Copyright 2014 Contributor
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+/*******************************
+            Theme
+*******************************/
+
+@type    : 'module';
+@element : 'checkbox';
+
+@import '../../semantic.config';
+
+
+/*******************************
+           Checkbox
+*******************************/
+
+
+/*--------------
+    Content
+---------------*/
+
+.ui.checkbox {
+  position: relative;
+  display: inline-block;
+
+  height: @checkboxSize;
+
+  font-size: 1rem;
+  line-height: @checkboxLineHeight;
+  min-width: @checkboxSize;
+  backface-visibility: hidden;
+
+  outline: none;
+  vertical-align: middle;
+}
+.ui.checkbox input {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  opacity: 0 !important;
+  outline: none;
+  z-index: -1;
+}
+
+
+/*--------------
+      Box
+---------------*/
+
+
+.ui.checkbox .box,
+.ui.checkbox label {
+  cursor: pointer;
+  padding-left: @labelPadding;
+  outline: none;
+}
+.ui.checkbox label {
+  font-size: @fontSize;
+}
+
+.ui.checkbox .box:before,
+.ui.checkbox label:before {
+  position: absolute;
+
+  line-height: 1;
+  width: @checkboxSize;
+  height: @checkboxSize;
+  top: 0em;
+  left: 0em;
+  content: '';
+
+  background: @checkboxBackground;
+  border-radius: @checkboxBorderRadius;
+
+  transition: @checkboxTransition;
+  border: @checkboxBorder;
+}
+
+/*--------------
+    Checkmark
+---------------*/
+
+.ui.checkbox .box:after,
+.ui.checkbox label:after {
+  position: absolute;
+  top: @checkboxCheckTop;
+  left: @checkboxCheckLeft;
+  line-height: @checkboxSize;
+  width: @checkboxSize;
+  height: @checkboxSize;
+  text-align: center;
+
+  opacity: 0;
+  color: @checkboxColor;
+  transition: all 0.1s ease;
+}
+
+/*--------------
+      Label
+---------------*/
+
+/* Inside */
+.ui.checkbox label,
+.ui.checkbox + label {
+  cursor: pointer;
+  color: @labelColor;
+  transition: color 0.2s ease;
+  user-select: none;
+}
+
+/* Outside */
+.ui.checkbox + label {
+  vertical-align: middle;
+}
+
+
+/*******************************
+           States
+*******************************/
+
+
+/*--------------
+      Hover
+---------------*/
+
+.ui.checkbox .box:hover::before,
+.ui.checkbox label:hover::before {
+  background: @checkboxHoverBackground;
+  border: @checkboxHoverBorder;
+}
+.ui.checkbox label:hover,
+.ui.checkbox + label:hover {
+  color: @labelHoverColor;
+}
+
+/*--------------
+      Down
+---------------*/
+
+.ui.checkbox .box:active::before,
+.ui.checkbox label:active::before {
+  background: @checkboxSelectedBackground;
+  border: 1px solid @checkboxSelectedBorder;
+}
+.ui.checkbox input:active ~ label {
+  color: @labelSelectedColor;
+}
+
+/*--------------
+      Focus
+---------------*/
+
+.ui.checkbox input:focus ~ .box:before,
+.ui.checkbox input:focus ~ label:before {
+  background: @checkboxSelectedBackground;
+  border: 1px solid @checkboxSelectedBorder;
+}
+.ui.checkbox input:focus ~ label {
+  color: @labelSelectedColor;
+}
+
+
+/*--------------
+     Active
+---------------*/
+
+.ui.checkbox input:checked ~ .box:after,
+.ui.checkbox input:checked ~ label:after {
+  opacity: 1;
+}
+
+/*--------------
+    Read-Only
+---------------*/
+
+.ui.read-only.checkbox,
+.ui.read-only.checkbox label {
+  cursor: default;
+}
+
+
+/*--------------
+     Disabled
+---------------*/
+
+.ui.disabled.checkbox .box:after,
+.ui.disabled.checkbox label,
+.ui.checkbox input[disabled] ~ .box:after,
+.ui.checkbox input[disabled] ~ label {
+  cursor: default;
+  opacity: @disabledCheckboxOpacity;
+  color: @disabledCheckboxLabelColor;
+}
+
+
+/*******************************
+             Types
+*******************************/
+
+
+/*--------------
+     Radio
+---------------*/
+
+.ui.radio.checkbox {
+  height: @checkboxRadioSize;
+}
+
+/* Box */
+.ui.radio.checkbox .box:before,
+.ui.radio.checkbox label:before {
+  width: @checkboxRadioSize;
+  height: @checkboxRadioSize;
+  border-radius: @circularRadius;
+  top: @checkboxRadioTop;
+  left: @checkboxRadioLeft;
+  transform: none;
+}
+
+/* Circle */
+.ui.radio.checkbox .box:after,
+.ui.radio.checkbox label:after {
+  border: none;
+  width: @checkboxRadioSize;
+  height: @checkboxRadioSize;
+  line-height: @checkboxRadioSize;
+  top: @checkboxRadioTop;
+  left: @checkboxRadioLeft;
+  font-size: @checkboxRadioCircleSize;
+}
+/* Radio Checkbox */
+.ui.radio.checkbox .box:after,
+.ui.radio.checkbox label:after {
+  width: @checkboxRadioSize;
+  height: @checkboxRadioSize;
+  border-radius: @checkboxBulletRadius;
+  transform: scale(@checkboxBulletScale);
+  background-color: @checkboxBulletColor;
+}
+
+
+/*--------------
+     Slider
+---------------*/
+
+.ui.slider.checkbox {
+  cursor: pointer;
+  height: @sliderHeight;
+}
+
+.ui.slider.checkbox .box,
+.ui.slider.checkbox label {
+  padding-left: @sliderLabelDistance;
+  line-height: @sliderLabelLineHeight;
+  color: @sliderOffLabelColor;
+}
+
+/* Line */
+.ui.slider.checkbox .box:before,
+.ui.slider.checkbox label:before {
+  cursor: pointer;
+  display: block;
+
+  position: absolute;
+  content: '';
+  top: @sliderLineVerticalOffset;
+  left: 0em;
+  z-index: 1;
+  border: none !important;
+
+  background-color: @sliderLineColor;
+  width: @sliderLineWidth;
+  height: @sliderLineHeight;
+
+  transform: none;
+  border-radius: @sliderLineRadius;
+  transition:
+    background 0.3s ease
+  ;
+}
+
+/* Handle */
+.ui.slider.checkbox .box:after,
+.ui.slider.checkbox label:after {
+  background: @handleBackground;
+  position: absolute;
+  content: '';
+  opacity: 1;
+  z-index: 2;
+
+  border: none;
+  box-shadow: @handleBoxShadow;
+  width: @sliderHandleSize;
+  height: @sliderHandleSize;
+  top: @sliderHandleOffset;
+  left: 0em;
+  transform: none;
+
+  border-radius: @circularRadius;
+  transition:
+    left 0.3s ease 0s
+  ;
+}
+
+/* Focus */
+.ui.slider.checkbox input:focus ~ .box:before,
+.ui.slider.checkbox input:focus ~ label:before {
+  background-color: @toggleFocusColor;
+  border: none;
+}
+
+/* Hover */
+.ui.slider.checkbox .box:hover,
+.ui.slider.checkbox label:hover {
+  color: @sliderHoverLabelColor;
+}
+.ui.slider.checkbox .box:hover::before,
+.ui.slider.checkbox label:hover::before {
+  background: @sliderHoverLaneBackground;
+}
+
+/* Active */
+.ui.slider.checkbox input:checked ~ .box,
+.ui.slider.checkbox input:checked ~ label {
+  color: @sliderOnLabelColor;
+}
+.ui.slider.checkbox input:checked ~ .box:before,
+.ui.slider.checkbox input:checked ~ label:before {
+  background-color: @sliderOnLineColor;
+}
+.ui.slider.checkbox input:checked ~ .box:after,
+.ui.slider.checkbox input:checked ~ label:after {
+  left: @sliderTravelDistance;
+}
+
+
+/*--------------
+     Toggle
+---------------*/
+
+.ui.toggle.checkbox {
+  cursor: pointer;
+  height: @toggleHeight;
+}
+
+.ui.toggle.checkbox .box,
+.ui.toggle.checkbox label {
+  height: @toggleHandleSize;
+  padding-left: @toggleLabelDistance;
+  line-height: @toggleLabelLineHeight;
+  color: @toggleOffLabelColor;
+}
+
+/* Switch */
+.ui.toggle.checkbox .box:before,
+.ui.toggle.checkbox label:before {
+  cursor: pointer;
+  display: block;
+
+  position: absolute;
+  content: '';
+
+  top: @toggleLaneVerticalOffset;
+  z-index: 1;
+  border: none;
+
+  background-color: @neutralCheckbox;
+  width: @toggleLaneWidth;
+  height: @toggleLaneHeight;
+  border-radius: @toggleHandleRadius;
+}
+
+/* Handle */
+.ui.toggle.checkbox .box:after,
+.ui.toggle.checkbox label:after {
+  background: @handleBackground;
+  position: absolute;
+  content: '';
+  opacity: 1;
+  z-index: 2;
+
+  border: none;
+  box-shadow: @handleBoxShadow;
+  width: @toggleHandleSize;
+  height: @toggleHandleSize;
+  top: @toggleHandleOffset;
+  left: 0em;
+
+  border-radius: @circularRadius;
+  transition:
+    background 0.3s ease 0s,
+    left 0.3s ease 0s
+  ;
+}
+
+.ui.toggle.checkbox input ~ .box:after,
+.ui.toggle.checkbox input ~ label:after {
+  left: @toggleOffOffset;
+}
+
+/* Focus */
+.ui.toggle.checkbox input:focus ~ .box:before,
+.ui.toggle.checkbox input:focus ~ label:before {
+  background-color: @toggleFocusColor;
+  border: none;
+}
+
+/* Hover */
+.ui.toggle.checkbox .box:hover::before,
+.ui.toggle.checkbox label:hover::before {
+  background-color: @toggleHoverColor;
+  border: none;
+}
+
+/* Active */
+.ui.toggle.checkbox input:checked ~ .box,
+.ui.toggle.checkbox input:checked ~ label {
+  color: @toggleOnLabelColor;
+}
+.ui.toggle.checkbox input:checked ~ .box:before,
+.ui.toggle.checkbox input:checked ~ label:before {
+  background-color: @toggleOnLaneColor;
+}
+.ui.toggle.checkbox input:checked ~ .box:after,
+.ui.toggle.checkbox input:checked ~ label:after {
+  left: @toggleOnOffset;
+}
+
+/*******************************
+            Variations
+*******************************/
+
+/*--------------
+     Fitted
+---------------*/
+
+.ui.fitted.checkbox .box,
+.ui.fitted.checkbox label {
+  padding-left: 0em !important;
+}
+
+.ui.fitted.toggle.checkbox,
+.ui.fitted.toggle.checkbox {
+  width: @toggleWidth;
+}
+
+.ui.fitted.slider.checkbox,
+.ui.fitted.slider.checkbox {
+  width: @sliderWidth;
+}
+
+.loadUIOverrides();

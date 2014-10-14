@@ -1,0 +1,34 @@
+/*******************************
+             Card
+*******************************/
+
+/*-------------------
+         View
+--------------------*/
+
+@width: 250px;
+@background: transparent;
+@border: none;
+@boxShadow: none;
+
+@contentPadding: 1em 0em;
+
+@rowSpacing: 1.5em;
+@groupCardMargin: 0em @horizontalSpacing @rowSpacing;
+
+@extraBackground: transparent;
+@extraDivider: none;
+@extraBoxShadow: none;
+@extraPadding: 0.5em 0em;
+
+@extraLinkColor: @linkColor;
+@extraLinkHoverColor: @linkColor;
+
+@headerFontSize: 1.2em;
+@headerLinkColor: @linkColor;
+
+@imageBorderRadius: @borderRadius;
+@imageBorder: 1px solid @borderColor;
+
+
+

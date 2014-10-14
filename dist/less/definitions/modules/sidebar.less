@@ -1,0 +1,457 @@
+/*
+ * # Semantic - Sidebar
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Copyright 2014 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+
+/*******************************
+            Theme
+*******************************/
+
+@type    : 'module';
+@element : 'sidebar';
+
+@import '../../semantic.config';
+
+
+/*******************************
+            Sidebar
+*******************************/
+
+/* Sidebar Menu */
+.ui.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  backface-visibility: hidden;
+  height: 100% !important;
+  border-radius: 0em !important;
+  margin: 0 !important;
+  transition: none;
+  will-change: transform;
+  overflow-y: auto !important;
+  backface-visibility: hidden;
+
+  background: @sidebarBackground;
+  width: @sidebarWidth !important;
+}
+
+/*--------------
+   Direction
+---------------*/
+
+.ui.top.sidebar,
+.ui.bottom.sidebar {
+  width: 100% !important;
+  height: auto !important;
+  overflow-y: visible !important;
+}
+
+.ui.top.sidebar {
+  top: 0px !important;
+  bottom: auto !important;
+}
+.ui.right.sidebar {
+  right: 0px !important;
+  left: auto !important;
+}
+.ui.bottom.sidebar {
+  top: auto !important;
+  bottom: 0px !important;
+}
+
+
+
+/*--------------
+     Body
+---------------*/
+
+/* Sets 3D Perspective */
+.pushable {
+  background: @canvasBackground !important;
+  position: relative;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/*--------------
+     Fixed
+---------------*/
+
+.pushable > .ui.fixed {
+  position: fixed;
+  transition: transform @duration @easing;
+  z-index: @fixedLayer;
+}
+
+/*--------------
+     Pusher
+---------------*/
+
+.pushable > .pusher {
+  background: @canvasBackground;
+  height: 100%;
+  z-index: @middleLayer;
+  transition: transform @duration @easing;
+}
+
+/*--------------
+     Page
+---------------*/
+
+.pushable > .pusher > .page {
+  position: relative;
+  min-height: 100%;
+  background: @pageBackground;
+}
+
+/*--------------
+     Dimmer
+---------------*/
+
+.pushable > .pusher > .page:after {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  content: '';
+  background-color: @dimmerColor;
+  width: 0px;
+  height: 0px;
+  overflow: hidden;
+  opacity: 0;
+  z-index: @dimmerLayer;
+  transition: opacity @duration;
+  will-change: opacity;
+}
+
+/*--------------
+    Coupling
+---------------*/
+
+.ui.sidebar.menu .item {
+  border-radius: 0em !important;
+}
+
+/*******************************
+            States
+*******************************/
+
+/*--------------
+     Pushed
+---------------*/
+
+.pushable.pushed {
+  overflow-x: hidden;
+}
+
+
+.pushable.pushed > .fixed,
+.pushable.pushed > .pusher {
+  backface-visibility: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.pushable.active > .visible.sidebar {
+  -webkit-overflow-scrolling: touch;
+  backface-visibility: hidden;
+  z-index: @topLayer;
+}
+
+/*--------------
+     Dimmed
+---------------*/
+
+.pushable > .pusher > .page.dimmed:after {
+  width: 100% !important;
+  height: 100% !important;
+  opacity: 1 !important;
+}
+
+
+/*--------------
+    Animation
+---------------*/
+
+.pushable.show > .pusher,
+.pushable.hide > .pusher {
+  backface-visibility: hidden;
+}
+.pushable.show > .visible.sidebar,
+.pushable.hide > .visible.sidebar {
+  backface-visibility: hidden;
+}
+
+/*--------------
+     Visible
+---------------*/
+
+.pushable > .visible.ui.sidebar {
+  visibility: visible;
+}
+
+/*******************************
+          Variations
+*******************************/
+
+/*--------------
+    Styled
+---------------*/
+
+.ui.styled.sidebar {
+  background-color: #FFFFFF;
+  padding: 1em 1.25em;
+  border-right: 1px solid #DDDDDD;
+}
+
+
+/*******************************
+          Animations
+*******************************/
+
+/*--------------
+    Overlay
+---------------*/
+
+/* Set-up */
+.pushable.overlay > .visible.ui.sidebar {
+  z-index: @topLayer;
+}
+/* Animation */
+.pushable.overlay.show > .visible.ui.sidebar,
+.pushable.overlay.hide > .visible.ui.sidebar {
+  transition: transform @duration @easing;
+}
+
+/*--- Left ---*/
+
+/* Set-up */
+.left.pushable.overlay > .visible.ui.sidebar {
+  transform: translate3d(-100%, 0, 0);
+}
+/* Pushed */
+.left.pushable.overlay.pushed .visible.ui.sidebar {
+  transform: translate3d(0%, 0, 0);
+}
+
+/*--- Right ---*/
+
+/* Set-up */
+.right.pushable.overlay > .visible.ui.sidebar {
+  transform: translate3d(100%, 0, 0);
+}
+/* Pushed */
+.right.pushable.overlay.pushed .visible.ui.sidebar {
+  transform: translate3d(0%, 0, 0);
+}
+
+/*--- Top ---*/
+
+/* Set-up */
+.top.pushable.overlay > .visible.ui.sidebar {
+  transform: translate3d(0%, -100%, 0);
+}
+/* Pushed */
+.top.pushable.overlay.pushed .visible.ui.sidebar {
+  transform: translate3d(0%, 0%, 0);
+}
+
+/*--- Bottom ---*/
+
+/* Set-up */
+.bottom.pushable.overlay > .visible.ui.sidebar {
+  transform: translate3d(0%, 100%, 0);
+}
+/* Pushed */
+.bottom.pushable.overlay.pushed .visible.ui.sidebar {
+  transform: translate3d(0%, 0%, 0);
+}
+
+/*--------------
+      Push
+---------------*/
+
+/* Set-Up */
+.pushable.push > .fixed,
+.pushable.push > .pusher {
+  transform: translate3d(0px, 0, 0);
+}
+.pushable.push > .visible.ui.sidebar {
+  transform: translate3d(-100%, 0, 0);
+}
+
+/* Pushed */
+.pushable.push.pushed > .visible.ui.sidebar {
+  transform: translate3d(0%, 0, 0);
+}
+.pushable.push.pushed > .fixed,
+.pushable.push.pushed > .pusher {
+  transform: translate3d(@sidebarWidth, 0, 0);
+}
+
+.pushable.push.show > .visible.ui.sidebar,
+.pushable.push.hide > .visible.ui.sidebar {
+  transition: transform @duration @easing;
+}
+
+
+/*--------------
+    Uncover
+---------------*/
+
+/* Set-up */
+.pushable.uncover > .fixed,
+.pushable.uncover > .pusher {
+  transform: translate3d(0px, 0px, 0px);
+}
+.pushable.uncover > .pusher {
+  z-index: @bottomLayer;
+}
+.pushable.uncover > .visible.ui.sidebar {
+  transition: none;
+}
+
+/* Pushed */
+
+/*--- Left ---*/
+.pushable.left.uncover.pushed > .fixed,
+.pushable.left.uncover.pushed > .pusher {
+  transform: translate3d(@sidebarWidth, 0, 0);
+}
+
+/*--- Right ---*/
+.pushable.right.uncover.pushed > .fixed,
+.pushable.right.uncover.pushed > .pusher {
+  transform: translate3d(-@sidebarWidth, 0, 0);
+}
+
+/*--------------
+   Slide Along
+---------------*/
+
+/* Set-up */
+.pushable.slide.along > .fixed,
+.pushable.slide.along > .pusher {
+  transform: translate3d(0px, 0, 0);
+}
+.pushable.slide.along > .pusher {
+  z-index: @bottomLayer;
+}
+.pushable.slide.along > .visible.ui.sidebar {
+  transform: translate3d(-50%, 0, 0);
+}
+
+/* Pushed */
+.pushable.slide.along.pushed > .fixed,
+.pushable.slide.along.pushed > .pusher {
+  transform: translate3d(@sidebarWidth, 0, 0);
+}
+.pushable.slide.along.pushed > .visible.ui.sidebar {
+  transform: translate3d(0%, 0, 0);
+}
+
+.pushable.slide.along.show > .visible.ui.sidebar,
+.pushable.slide.along.hide > .visible.ui.sidebar {
+  transition: transform @duration @easing;
+}
+
+
+/*--------------
+   Slide Out
+---------------*/
+
+/* Set-up */
+.pushable.slide.out > .fixed,
+.pushable.slide.out > .pusher {
+  transform: translate3d(0px, 0, 0);
+}
+.pushable.slide.out > .visible.ui.sidebar {
+  transform: translate3d(50%, 0, 0);
+}
+
+/* Pushed */
+.pushable.slide.out.pushed > .fixed,
+.pushable.slide.out.pushed > .pusher {
+  transform: translate3d(@sidebarWidth, 0, 0);
+}
+.pushable.slide.out.pushed .visible.ui.sidebar {
+  transform: translate3d(0%, 0, 0);
+}
+
+.pushable.slide.out.show > .visible.ui.sidebar,
+.pushable.slide.out.hide > .visible.ui.sidebar {
+  transition: transform @duration @easing;
+}
+
+/*--------------
+   Scale Down
+---------------*/
+
+/* Set-up */
+.pushable.scale.down > .fixed {
+  transform: translate3d(0px, 0, 0);
+}
+.pushable.scale.down > .pusher {
+  z-index: @bottomLayer;
+  transform-origin: 75% 50%;
+  overflow: hidden;
+}
+.pushable.scale.down > .visible.ui.sidebar {
+  transform: translate3d(-100%, 0, 0);
+  z-index: @topLayer;
+}
+
+/* Pushed */
+.pushable.scale.down.pushed > .pusher {
+  transform: scale(0.75);
+}
+.pushable.scale.down.pushed > .visible.ui.sidebar {
+  transform: translate3d(0, 0, 0);
+}
+.pushable.scale.down.pushed > .fixed {
+  transform: translate3d(@sidebarWidth, 0, 0);
+}
+
+/* 3D transition cant have duration set until animation */
+.pushable.scale.down.show > .visible.ui.sidebar,
+.pushable.scale.down.hide > .visible.ui.sidebar {
+  transition: transform @duration @easing;
+}
+
+/*--------------
+    Safe Mode
+---------------*/
+
+/* Set-Up */
+.pushable.safe > .pusher {
+  position: relative;
+  transform: none !important;
+  transition: none !important;
+}
+.pushable.safe > .pusher {
+  transform: none !important;
+  transition: none !important;
+}
+
+/* Pushed */
+.pushable.safe.pushed  {
+  margin-left: @sidebarWidth !important;
+}
+.pushable.safe.pushed > .visible.ui.sidebar {
+  margin-left: -@sidebarWidth;
+}
+.pushable.safe.pushed > .fixed {
+  margin-left: @sidebarWidth !important;
+}
+.pushable.safe.show,
+.pushable.safe.hide,
+.pushable.safe.show > .fixed,
+.pushable.safe.hide > .fixed {
+  transition: margin @duration @easing !important;
+}

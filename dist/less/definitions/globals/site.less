@@ -1,0 +1,115 @@
+/*
+ * # Semantic - Site
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Copyright 2014 Contributor
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+/*******************************
+            Theme
+*******************************/
+
+@type    : 'global';
+@element : 'site';
+
+@import '../../semantic.config';
+
+/*******************************
+           Web Fonts
+*******************************/
+
+.loadFonts() when (@importGoogleFonts) {
+  @import (css) 'http://fonts.googleapis.com/css?family=@{googleFontName}:@{googleFontSizes}';
+}
+.loadFonts();
+
+/*******************************
+             Page
+*******************************/
+
+/* UI requires Border-Box */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-smoothing: @fontSmoothing;
+}
+
+
+body {
+  margin: 0px;
+  padding: 0px;
+  min-width: @pageMinWidth;
+  background: @pageBackground;
+
+  font-family: @pageFont;
+  font-size: @fontSize;
+  line-height: @lineHeight;
+  color: @textColor;
+  overflow-x: @pageOverflowX;
+}
+
+
+/*******************************
+             Text
+*******************************/
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: @headerMargin;
+  padding: 0em;
+}
+
+p {
+  margin: @paragraphMargin;
+}
+p:first-child {
+  margin-top: 0em;
+}
+p:last-child {
+  margin-bottom: 0em;
+}
+
+/*-------------------
+        Links
+--------------------*/
+
+a {
+  color: @linkColor;
+  text-decoration: @linkUnderline;
+}
+a:hover {
+  color: @linkHoverColor;
+}
+
+
+/*******************************
+          Highlighting
+*******************************/
+
+::-webkit-selection {
+  background-color: @highlightBackground;
+  color: @highlightColor;
+}
+::-moz-selection {
+  background-color: @highlightBackground;
+  color: @highlightColor;
+}
+::selection {
+  background-color: @highlightBackground;
+  color: @highlightColor;
+}
+
+.loadUIOverrides();

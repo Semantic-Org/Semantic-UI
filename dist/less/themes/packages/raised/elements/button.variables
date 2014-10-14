@@ -1,0 +1,27 @@
+/*******************************
+            Button
+*******************************/
+
+/*-------------------
+       Element
+--------------------*/
+
+/* Shadow */
+@verticalAlign: middle;
+@backgroundColor: #F8F8F8;
+@backgroundImage: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+@shadowDistance: 0.3em;
+@borderBoxShadowColor: @borderColor;
+
+@verticalPadding: 1em;
+@horizontalPadding: 2em;
+
+@borderRadius: 0.4em;
+/* transitions */
+@transition:
+  opacity @transitionDuration @transitionEasing,
+  background-color @transitionDuration @transitionEasing,
+  box-shadow @transitionDuration @transitionEasing,
+  color @transitionDuration @transitionEasing,
+  background @transitionDuration @transitionEasing
+;
