@@ -94,8 +94,10 @@
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -117,7 +119,6 @@
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -216,8 +217,10 @@
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -239,7 +242,6 @@
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -677,6 +679,10 @@
   top: 0px;
   bottom: 0px;
   margin: 0em -1px;
+  width: -webkit-calc(100% +  2px );
+  width: calc(100% +  2px );
+  max-width: -webkit-calc(100% +  2px );
+  max-width: calc(100% +  2px );
   border-radius: 0px;
   box-shadow: none;
   border: 1px solid #d4d4d5;

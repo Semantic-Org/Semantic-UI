@@ -94,8 +94,10 @@
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -117,7 +119,6 @@
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -240,8 +241,10 @@
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -263,7 +266,6 @@
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -634,7 +636,7 @@
 .ui.form .field.error input[type="number"],
 .ui.form .field.error input[type="url"],
 .ui.form .field.error input[type="tel"] {
-  background: #fae8e8;
+  background: #fff0f0;
   border-color: #dbb1b1;
   color: #d95c5c;
   border-radius: 0em 0.2857rem 0.2857rem 0em;
@@ -648,7 +650,7 @@
 .ui.form .field.error input[type="number"]:focus,
 .ui.form .field.error input[type="url"]:focus,
 .ui.form .field.error input[type="tel"]:focus {
-  background: #fae8e8;
+  background: #fff0f0;
   border-color: #dbb1b1;
   color: #dc6868;
   -webkit-appearance: none;
@@ -662,7 +664,7 @@
 .ui.form .field.error .ui.dropdown,
 .ui.form .field.error .ui.dropdown .text,
 .ui.form .field.error .ui.dropdown .item {
-  background: #fae8e8;
+  background: #fff0f0;
   color: #d95c5c;
 }
 .ui.form .fields.error .field .ui.dropdown,
@@ -700,7 +702,7 @@
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) label:before,
 .ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) .box:before,
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) .box:before {
-  background: #fae8e8;
+  background: #fff0f0;
   border-color: #dbb1b1;
 }
 .ui.form .fields.error .field .checkbox label:after,

@@ -94,8 +94,10 @@
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -117,7 +119,6 @@
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -213,8 +214,10 @@
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -236,7 +239,6 @@
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -305,8 +307,8 @@
   color: rgba(0, 0, 0, 0.8);
   -webkit-transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
           transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-  border-radius: 0.25em;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 0.2857rem;
+  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15) inset, 0px 0px 0px 0px transparent;
 }
 .ui.message:first-child {
   margin-top: 0em;
@@ -423,7 +425,7 @@
 ---------------*/
 .ui.attached.message {
   margin-bottom: -1px;
-  border-radius: 0.25em 0.25em 0em 0em;
+  border-radius: 0.2857rem 0.2857rem 0em 0em;
   box-shadow: 0em 0em 0em 1px rgba(0, 0, 0, 0.1) inset;
   margin-left: -1px;
   margin-right: -1px;
@@ -434,7 +436,7 @@
 }
 .ui.bottom.attached.message {
   margin-top: -1px;
-  border-radius: 0em 0em 0.25em 0.25em;
+  border-radius: 0em 0em 0.2857rem 0.2857rem;
   box-shadow: 0em 0em 0em 1px rgba(0, 0, 0, 0.1) inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 .ui.bottom.attached.message:not(:last-child) {
@@ -472,7 +474,7 @@
     Floating
 ---------------*/
 .ui.floating.message {
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15), 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15), 0px 0px 0px 1px rgba(39, 41, 43, 0.15) inset;
 }
 /*--------------
      Colors
@@ -486,7 +488,7 @@
 ---------------*/
 /* Positive */
 .ui.positive.message {
-  background-color: #e4f5dd;
+  background-color: #eeffe7;
   color: #3c763d;
 }
 .ui.positive.message,
@@ -494,11 +496,11 @@
   box-shadow: 0px 0px 0px 1px #b7caa7 inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 .ui.positive.message .header {
-  color: #336534;
+  color: #356e36;
 }
 /* Negative */
 .ui.negative.message {
-  background-color: #fae8e8;
+  background-color: #fff0f0;
   color: #a94442;
 }
 .ui.negative.message,
@@ -506,11 +508,11 @@
   box-shadow: 0px 0px 0px 1px #dbb1b1 inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 .ui.negative.message .header {
-  color: #973d3b;
+  color: #912d2b;
 }
 /* Info */
 .ui.info.message {
-  background-color: #e5f6fb;
+  background-color: #e9faff;
   color: #337b92;
 }
 .ui.info.message,
@@ -518,23 +520,23 @@
   box-shadow: 0px 0px 0px 1px #aad6df inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 .ui.info.message .header {
-  color: #2c6b7f;
+  color: #297187;
 }
 /* Warning */
 .ui.warning.message {
-  background-color: #fcf8e3;
-  color: #8a6d3b;
+  background-color: #fffbe6;
+  color: #876a38;
 }
 .ui.warning.message,
 .ui.attached.warning.message {
-  box-shadow: 0px 0px 0px 1px #d3c4a5 inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 0px 0px 1px #d9caab inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 .ui.warning.message .header {
-  color: #785f33;
+  color: #825c01;
 }
 /* Error */
 .ui.error.message {
-  background-color: #fae8e8;
+  background-color: #fff0f0;
   color: #a94442;
 }
 .ui.error.message,
@@ -542,11 +544,11 @@
   box-shadow: 0px 0px 0px 1px #dbb1b1 inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 .ui.error.message .header {
-  color: #973d3b;
+  color: #912d2b;
 }
 /* Success */
 .ui.success.message {
-  background-color: #e4f5dd;
+  background-color: #eeffe7;
   color: #3c763d;
 }
 .ui.success.message,
@@ -554,7 +556,7 @@
   box-shadow: 0px 0px 0px 1px #b7caa7 inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 .ui.success.message .header {
-  color: #336534;
+  color: #356e36;
 }
 /* Colors */
 .ui.inverted.message,

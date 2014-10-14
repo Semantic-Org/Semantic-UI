@@ -94,8 +94,10 @@
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -117,7 +119,6 @@
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -207,8 +208,10 @@
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -230,7 +233,6 @@
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -468,8 +470,10 @@
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -491,7 +495,6 @@
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -614,8 +617,10 @@
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -637,7 +642,6 @@
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -1008,7 +1012,7 @@
 .ui.form .field.error input[type="number"],
 .ui.form .field.error input[type="url"],
 .ui.form .field.error input[type="tel"] {
-  background: #fae8e8;
+  background: #fff0f0;
   border-color: #dbb1b1;
   color: #d95c5c;
   border-radius: 0em 0.2857rem 0.2857rem 0em;
@@ -1022,7 +1026,7 @@
 .ui.form .field.error input[type="number"]:focus,
 .ui.form .field.error input[type="url"]:focus,
 .ui.form .field.error input[type="tel"]:focus {
-  background: #fae8e8;
+  background: #fff0f0;
   border-color: #dbb1b1;
   color: #dc6868;
   -webkit-appearance: none;
@@ -1036,7 +1040,7 @@
 .ui.form .field.error .ui.dropdown,
 .ui.form .field.error .ui.dropdown .text,
 .ui.form .field.error .ui.dropdown .item {
-  background: #fae8e8;
+  background: #fff0f0;
   color: #d95c5c;
 }
 .ui.form .fields.error .field .ui.dropdown,
@@ -1074,7 +1078,7 @@
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) label:before,
 .ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) .box:before,
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) .box:before {
-  background: #fae8e8;
+  background: #fff0f0;
   border-color: #dbb1b1;
 }
 .ui.form .fields.error .field .checkbox label:after,
@@ -1494,8 +1498,10 @@
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -1517,7 +1523,6 @@
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -1622,8 +1627,10 @@
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -1645,7 +1652,6 @@
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -2888,8 +2894,10 @@
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -2911,7 +2919,6 @@
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -3040,8 +3047,10 @@
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -3063,7 +3072,6 @@
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -4638,8 +4646,10 @@
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -4661,7 +4671,6 @@
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -4757,8 +4766,10 @@
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -4780,7 +4791,6 @@
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -4849,8 +4859,8 @@
   color: rgba(0, 0, 0, 0.8);
   -webkit-transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
           transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-  border-radius: 0.25em;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 0.2857rem;
+  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15) inset, 0px 0px 0px 0px transparent;
 }
 .ui.message:first-child {
   margin-top: 0em;
@@ -4967,7 +4977,7 @@
 ---------------*/
 .ui.attached.message {
   margin-bottom: -1px;
-  border-radius: 0.25em 0.25em 0em 0em;
+  border-radius: 0.2857rem 0.2857rem 0em 0em;
   box-shadow: 0em 0em 0em 1px rgba(0, 0, 0, 0.1) inset;
   margin-left: -1px;
   margin-right: -1px;
@@ -4978,7 +4988,7 @@
 }
 .ui.bottom.attached.message {
   margin-top: -1px;
-  border-radius: 0em 0em 0.25em 0.25em;
+  border-radius: 0em 0em 0.2857rem 0.2857rem;
   box-shadow: 0em 0em 0em 1px rgba(0, 0, 0, 0.1) inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 .ui.bottom.attached.message:not(:last-child) {
@@ -5016,7 +5026,7 @@
     Floating
 ---------------*/
 .ui.floating.message {
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15), 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15), 0px 0px 0px 1px rgba(39, 41, 43, 0.15) inset;
 }
 /*--------------
      Colors
@@ -5030,7 +5040,7 @@
 ---------------*/
 /* Positive */
 .ui.positive.message {
-  background-color: #e4f5dd;
+  background-color: #eeffe7;
   color: #3c763d;
 }
 .ui.positive.message,
@@ -5038,11 +5048,11 @@
   box-shadow: 0px 0px 0px 1px #b7caa7 inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 .ui.positive.message .header {
-  color: #336534;
+  color: #356e36;
 }
 /* Negative */
 .ui.negative.message {
-  background-color: #fae8e8;
+  background-color: #fff0f0;
   color: #a94442;
 }
 .ui.negative.message,
@@ -5050,11 +5060,11 @@
   box-shadow: 0px 0px 0px 1px #dbb1b1 inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 .ui.negative.message .header {
-  color: #973d3b;
+  color: #912d2b;
 }
 /* Info */
 .ui.info.message {
-  background-color: #e5f6fb;
+  background-color: #e9faff;
   color: #337b92;
 }
 .ui.info.message,
@@ -5062,23 +5072,23 @@
   box-shadow: 0px 0px 0px 1px #aad6df inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 .ui.info.message .header {
-  color: #2c6b7f;
+  color: #297187;
 }
 /* Warning */
 .ui.warning.message {
-  background-color: #fcf8e3;
-  color: #8a6d3b;
+  background-color: #fffbe6;
+  color: #876a38;
 }
 .ui.warning.message,
 .ui.attached.warning.message {
-  box-shadow: 0px 0px 0px 1px #d3c4a5 inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 0px 0px 1px #d9caab inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 .ui.warning.message .header {
-  color: #785f33;
+  color: #825c01;
 }
 /* Error */
 .ui.error.message {
-  background-color: #fae8e8;
+  background-color: #fff0f0;
   color: #a94442;
 }
 .ui.error.message,
@@ -5086,11 +5096,11 @@
   box-shadow: 0px 0px 0px 1px #dbb1b1 inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 .ui.error.message .header {
-  color: #973d3b;
+  color: #912d2b;
 }
 /* Success */
 .ui.success.message {
-  background-color: #e4f5dd;
+  background-color: #eeffe7;
   color: #3c763d;
 }
 .ui.success.message,
@@ -5098,7 +5108,7 @@
   box-shadow: 0px 0px 0px 1px #b7caa7 inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 .ui.success.message .header {
-  color: #336534;
+  color: #356e36;
 }
 /* Colors */
 .ui.inverted.message,
@@ -5283,8 +5293,10 @@
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -5306,7 +5318,6 @@
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -5426,8 +5437,10 @@
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -5449,7 +5462,6 @@
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -6398,8 +6410,10 @@
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -6421,7 +6435,6 @@
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -6547,8 +6560,10 @@
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -6570,7 +6585,6 @@
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -8942,8 +8956,10 @@
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -8965,7 +8981,6 @@
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -9062,8 +9077,10 @@
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -9085,7 +9102,6 @@
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -9435,8 +9451,10 @@
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -9458,7 +9476,6 @@
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -9543,8 +9560,10 @@
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -9566,7 +9585,6 @@
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -10708,8 +10726,10 @@ i.flag.zimbabwe:before {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -10731,7 +10751,6 @@ i.flag.zimbabwe:before {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -10834,8 +10853,10 @@ i.flag.zimbabwe:before {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -10857,7 +10878,6 @@ i.flag.zimbabwe:before {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -11486,8 +11506,10 @@ a.ui.inverted.yellow.header:hover {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -11509,7 +11531,6 @@ a.ui.inverted.yellow.header:hover {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -11594,8 +11615,10 @@ a.ui.inverted.yellow.header:hover {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -11617,7 +11640,6 @@ a.ui.inverted.yellow.header:hover {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -13813,8 +13835,10 @@ i.icon.weixin:before {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -13836,7 +13860,6 @@ i.icon.weixin:before {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -13931,8 +13954,10 @@ i.icon.weixin:before {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -13954,7 +13979,6 @@ i.icon.weixin:before {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -14311,8 +14335,10 @@ img.ui.bordered.image {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -14334,7 +14360,6 @@ img.ui.bordered.image {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -14437,8 +14462,10 @@ img.ui.bordered.image {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -14460,7 +14487,6 @@ img.ui.bordered.image {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -14959,8 +14985,10 @@ img.ui.bordered.image {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -14982,7 +15010,6 @@ img.ui.bordered.image {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -15095,8 +15122,10 @@ img.ui.bordered.image {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -15118,7 +15147,6 @@ img.ui.bordered.image {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -16131,8 +16159,10 @@ a.ui.yellow.label:hover:before {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -16154,7 +16184,6 @@ a.ui.yellow.label:hover:before {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -16278,8 +16307,10 @@ a.ui.yellow.label:hover:before {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -16301,7 +16332,6 @@ a.ui.yellow.label:hover:before {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -17136,8 +17166,10 @@ ol.ui.horizontal.list li:before,
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -17159,7 +17191,6 @@ ol.ui.horizontal.list li:before,
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -17255,8 +17286,10 @@ ol.ui.horizontal.list li:before,
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -17278,7 +17311,6 @@ ol.ui.horizontal.list li:before,
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -17666,8 +17698,10 @@ ol.ui.horizontal.list li:before,
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -17689,7 +17723,6 @@ ol.ui.horizontal.list li:before,
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -17779,8 +17812,10 @@ ol.ui.horizontal.list li:before,
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -17802,7 +17837,6 @@ ol.ui.horizontal.list li:before,
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -18018,8 +18052,10 @@ ol.ui.horizontal.list li:before,
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -18041,7 +18077,6 @@ ol.ui.horizontal.list li:before,
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -18123,8 +18158,10 @@ ol.ui.horizontal.list li:before,
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -18146,7 +18183,6 @@ ol.ui.horizontal.list li:before,
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -18523,8 +18559,10 @@ ol.ui.horizontal.list li:before,
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -18546,7 +18584,6 @@ ol.ui.horizontal.list li:before,
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -18645,8 +18682,10 @@ ol.ui.horizontal.list li:before,
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -18668,7 +18707,6 @@ ol.ui.horizontal.list li:before,
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -19106,6 +19144,10 @@ ol.ui.horizontal.list li:before,
   top: 0px;
   bottom: 0px;
   margin: 0em -1px;
+  width: -webkit-calc(100% +  2px );
+  width: calc(100% +  2px );
+  max-width: -webkit-calc(100% +  2px );
+  max-width: calc(100% +  2px );
   border-radius: 0px;
   box-shadow: none;
   border: 1px solid #d4d4d5;
@@ -19239,8 +19281,10 @@ ol.ui.horizontal.list li:before,
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -19262,7 +19306,6 @@ ol.ui.horizontal.list li:before,
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -19363,8 +19406,10 @@ ol.ui.horizontal.list li:before,
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -19386,7 +19431,6 @@ ol.ui.horizontal.list li:before,
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -19845,8 +19889,10 @@ ol.ui.horizontal.list li:before,
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -19868,7 +19914,6 @@ ol.ui.horizontal.list li:before,
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -19950,8 +19995,10 @@ ol.ui.horizontal.list li:before,
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -19973,7 +20020,6 @@ ol.ui.horizontal.list li:before,
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -20494,8 +20540,10 @@ th {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -20517,7 +20565,6 @@ th {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -20593,8 +20640,10 @@ th {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -20616,7 +20665,6 @@ th {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -20695,8 +20743,10 @@ th {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -20718,7 +20768,6 @@ th {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -20794,8 +20843,10 @@ th {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -20817,7 +20868,6 @@ th {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -21032,8 +21082,10 @@ a:hover {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -21055,7 +21107,6 @@ a:hover {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -21156,8 +21207,10 @@ a:hover {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -21179,7 +21232,6 @@ a:hover {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -21526,8 +21578,10 @@ a:hover {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -21549,7 +21603,6 @@ a:hover {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -21631,8 +21684,10 @@ a:hover {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -21654,7 +21709,6 @@ a:hover {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -22032,8 +22086,10 @@ a:hover {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -22055,7 +22111,6 @@ a:hover {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -22157,8 +22212,10 @@ a:hover {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -22180,7 +22237,6 @@ a:hover {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -22752,8 +22808,10 @@ a:hover {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -22775,7 +22833,6 @@ a:hover {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -22864,8 +22921,10 @@ a:hover {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -22887,7 +22946,6 @@ a:hover {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -23178,8 +23236,10 @@ body.dimmed.dimmable > :not(.dimmer) {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -23201,7 +23261,6 @@ body.dimmed.dimmable > :not(.dimmer) {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -23322,8 +23381,10 @@ b        Types
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -23345,7 +23406,6 @@ b        Types
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -23864,7 +23924,7 @@ select.ui.dropdown {
   color: #a94442;
 }
 .ui.selection.dropdown.error {
-  background: #fae8e8;
+  background: #fff0f0;
   border-color: #dbb1b1;
 }
 .ui.selection.dropdown.error:hover {
@@ -24256,8 +24316,10 @@ select.ui.dropdown {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -24279,7 +24341,6 @@ select.ui.dropdown {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -24379,8 +24440,10 @@ select.ui.dropdown {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -24402,7 +24465,6 @@ select.ui.dropdown {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -24934,8 +24996,10 @@ select.ui.dropdown {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -24957,7 +25021,6 @@ select.ui.dropdown {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -25058,8 +25121,10 @@ select.ui.dropdown {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -25081,7 +25146,6 @@ select.ui.dropdown {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -25350,8 +25414,10 @@ a.ui.nag {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -25373,7 +25439,6 @@ a.ui.nag {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -25477,8 +25542,10 @@ a.ui.nag {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -25500,7 +25567,6 @@ a.ui.nag {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -25881,8 +25947,10 @@ a.ui.nag {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -25904,7 +25972,6 @@ a.ui.nag {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -26004,8 +26071,10 @@ a.ui.nag {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -26027,7 +26096,6 @@ a.ui.nag {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -26232,7 +26300,7 @@ a.ui.nag {
           animation: none !important;
 }
 .ui.progress.success > .label {
-  color: #336534;
+  color: #356e36;
 }
 /*--------------
      Warning
@@ -26246,7 +26314,7 @@ a.ui.nag {
           animation: none !important;
 }
 .ui.progress.warning > .label {
-  color: #785f33;
+  color: #825c01;
 }
 /*--------------
      Error
@@ -26260,7 +26328,7 @@ a.ui.nag {
           animation: none !important;
 }
 .ui.progress.error > .label {
-  color: #973d3b;
+  color: #912d2b;
 }
 /*--------------
      Active
@@ -26532,8 +26600,10 @@ a.ui.nag {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -26555,7 +26625,6 @@ a.ui.nag {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -26648,8 +26717,10 @@ a.ui.nag {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -26671,7 +26742,6 @@ a.ui.nag {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -27025,8 +27095,10 @@ a.ui.nag {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -27048,7 +27120,6 @@ a.ui.nag {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -27148,8 +27219,10 @@ a.ui.nag {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -27171,7 +27244,6 @@ a.ui.nag {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -27536,8 +27608,10 @@ a.ui.nag {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -27559,7 +27633,6 @@ a.ui.nag {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -27647,8 +27720,10 @@ a.ui.nag {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -27670,7 +27745,6 @@ a.ui.nag {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -27933,8 +28007,10 @@ a.ui.nag {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -27956,7 +28032,6 @@ a.ui.nag {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -28038,8 +28113,10 @@ a.ui.nag {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -28061,7 +28138,6 @@ a.ui.nag {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -28614,8 +28690,10 @@ a.ui.nag {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -28637,7 +28715,6 @@ a.ui.nag {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -28719,8 +28796,10 @@ a.ui.nag {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -28742,7 +28821,6 @@ a.ui.nag {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -28931,8 +29009,10 @@ a.ui.nag {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -28954,7 +29034,6 @@ a.ui.nag {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -29038,8 +29117,10 @@ a.ui.nag {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -29061,7 +29142,6 @@ a.ui.nag {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -29251,8 +29331,10 @@ a.ui.nag {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -29274,7 +29356,6 @@ a.ui.nag {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -29356,8 +29437,10 @@ a.ui.nag {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -29379,7 +29462,6 @@ a.ui.nag {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -30451,8 +30533,10 @@ a.ui.nag {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -30474,7 +30558,6 @@ a.ui.nag {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -30556,8 +30639,10 @@ a.ui.nag {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -30579,7 +30664,6 @@ a.ui.nag {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -30809,8 +30893,10 @@ a.ui.nag {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -30832,7 +30918,6 @@ a.ui.nag {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -30943,8 +31028,10 @@ a.ui.nag {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -30966,7 +31053,6 @@ a.ui.nag {
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -31836,8 +31922,10 @@ a.ui.card:hover,
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -31859,7 +31947,6 @@ a.ui.card:hover,
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -31962,8 +32049,10 @@ a.ui.card:hover,
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -31985,7 +32074,6 @@ a.ui.card:hover,
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -32352,8 +32440,10 @@ a.ui.card:hover,
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -32375,7 +32465,6 @@ a.ui.card:hover,
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -32484,8 +32573,10 @@ a.ui.card:hover,
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -32507,7 +32598,6 @@ a.ui.card:hover,
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -32902,8 +32992,10 @@ a.ui.card:hover,
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -32925,7 +33017,6 @@ a.ui.card:hover,
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -33034,8 +33125,10 @@ a.ui.card:hover,
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -33057,7 +33150,6 @@ a.ui.card:hover,
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -33607,8 +33699,10 @@ a.ui.card:hover,
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -33630,7 +33724,6 @@ a.ui.card:hover,
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************
@@ -33733,8 +33826,10 @@ a.ui.card:hover,
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Mood */
-/* Status */
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -33756,7 +33851,6 @@ a.ui.card:hover,
 /* Makes sure padded grid can fit at 320px */
 /* Used to match floats with text */
 /* Positive / Negative Dupes */
-/* Header Colors */
 /* Responsive */
 /* Columns */
 /*******************************

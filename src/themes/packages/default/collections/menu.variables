@@ -233,7 +233,7 @@
 @tieredInvertedSubMenuBackground: rgba(0, 0, 0, 0.2);
 
 /* Tabular */
-@tabularBorderColor: #DCDDDE;
+@tabularBorderColor: @solidBorderColor;
 @tabularBackgroundColor: #FFFFFF;
 @tabularBorderWidth: 1px;
 @tabularHorizontalPadding: 1.4em;
