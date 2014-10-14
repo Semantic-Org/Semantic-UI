@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Defaults
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -198,156 +198,6 @@
 /*------------------
      Load Theme
 -------------------*/
-/*******************************
-         Site Settings
-*******************************/
-/*-------------------
-        Paths
---------------------*/
-/*-------------------
-       Fonts
---------------------*/
-/*-------------------
-      Site Colors
---------------------*/
-/*---  Colors  ---*/
-/*---  Light Colors  ---*/
-/*-------------------
-        Page
---------------------*/
-/*-------------------
-  Background Colors
---------------------*/
-/*-------------------
-       Accents
---------------------*/
-/* 4px @ 14px */
-/* Used for differentiating neutrals */
-/* Used for differentiating layers */
-/*-------------------
-        Grid
---------------------*/
-/*-------------------
-     Breakpoints
---------------------*/
-/*******************************
-           Power-User
-*******************************/
-/*-------------------
-       Icons
---------------------*/
-/* Maximum Glyph Width of Icon */
-/*-------------------
-       Easing
---------------------*/
-/*---   Neutrals  ---*/
-/*--- Colored Backgrounds ---*/
-/*--- Colored Text ---*/
-/*--- Colored Headers ---*/
-/*-------------------
-    Emotive Colors
---------------------*/
-/* Positive */
-/* Negative */
-/* Info */
-/* Warning */
-/*-------------------
-     Neutral Text
---------------------*/
-/*-------------------
-     Brand Colors
---------------------*/
-/*-------------------
-      Borders
---------------------*/
-/*-------------------
-        Sizes
---------------------*/
-/*-------------------
-     Transitions
---------------------*/
-/*-------------------
-    Derived Values
---------------------*/
-/* Makes sure padded grid can fit at 320px */
-/* Used to match floats with text */
-/* Positive / Negative Dupes */
-/* Responsive */
-/* Columns */
-/*******************************
-           States
-*******************************/
-/*-------------------
-      Disabled
---------------------*/
-/*-------------------
-        Hover
---------------------*/
-/*---  Colors  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*-------------------
-    Down (:active)
---------------------*/
-/*---  Colors  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*-------------------
-        Active
---------------------*/
-/*---  Standard  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*******************************
-             Menu
-*******************************/
-/*-------------------
-    Globals Used
---------------------*/
-/*-------------------
-      Collection
---------------------*/
-/* Sub Menu */
-/*--------------
-    Elements
----------------*/
-/* Icon */
-/* Header */
-/*--------------
-    Couplings
----------------*/
-/* Button */
-/* Input */
-/* Label */
-/* Dropdown */
-/* Pointing Arrow */
-/*--------------
-     States
----------------*/
-/*--------------
-     Types
----------------*/
-/* Vertical */
-/* Secondary */
-/* Pointing */
-/* Tiered */
-/* Tabular */
-/* Pagination */
-/* Labeled Icon */
-/* Text */
-/*--------------
-   Variations
----------------*/
-/* Inverted */
-/* Inverted Sub Menu */
-/* Inverted Hover */
-/* Pressed */
-/* Inverted Active */
-/* Inverted Secondary */
-/* Inverted Menu Divider */
-/* Fixed */
-/* Attached */
-/* Sizes */
 /*------------------
      Load Site
 -------------------*/
@@ -358,7 +208,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Loader
+   Override Mix-in
 -------------------*/
 /*******************************
             Standard
@@ -879,7 +729,7 @@
 ---------------*/
 .ui.tabular.menu {
   background-color: transparent;
-  border-bottom: 1px solid #dcddde;
+  border-bottom: 1px solid #d4d4d5;
   border-radius: 0em;
   box-shadow: none !important;
 }
@@ -905,7 +755,7 @@
   position: relative;
   background-color: #ffffff;
   color: rgba(0, 0, 0, 0.8);
-  border-color: #dcddde;
+  border-color: #d4d4d5;
   font-weight: bold;
   margin-bottom: -1px;
   border-bottom: 1px solid #ffffff;
@@ -918,7 +768,7 @@
   z-index: 2;
 }
 .ui.tabular.menu ~ .bottom.attached.segment {
-  margin: 0px 0px 0px 1px;
+  margin: -1px 0px 0px;
 }
 /*--------------
    Pagination

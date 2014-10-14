@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Defaults
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -195,153 +195,6 @@
 /*------------------
      Load Theme
 -------------------*/
-/*******************************
-         Site Settings
-*******************************/
-/*-------------------
-        Paths
---------------------*/
-/*-------------------
-       Fonts
---------------------*/
-/*-------------------
-      Site Colors
---------------------*/
-/*---  Colors  ---*/
-/*---  Light Colors  ---*/
-/*-------------------
-        Page
---------------------*/
-/*-------------------
-  Background Colors
---------------------*/
-/*-------------------
-       Accents
---------------------*/
-/* 4px @ 14px */
-/* Used for differentiating neutrals */
-/* Used for differentiating layers */
-/*-------------------
-        Grid
---------------------*/
-/*-------------------
-     Breakpoints
---------------------*/
-/*******************************
-           Power-User
-*******************************/
-/*-------------------
-       Icons
---------------------*/
-/* Maximum Glyph Width of Icon */
-/*-------------------
-       Easing
---------------------*/
-/*---   Neutrals  ---*/
-/*--- Colored Backgrounds ---*/
-/*--- Colored Text ---*/
-/*--- Colored Headers ---*/
-/*-------------------
-    Emotive Colors
---------------------*/
-/* Positive */
-/* Negative */
-/* Info */
-/* Warning */
-/*-------------------
-     Neutral Text
---------------------*/
-/*-------------------
-     Brand Colors
---------------------*/
-/*-------------------
-      Borders
---------------------*/
-/*-------------------
-        Sizes
---------------------*/
-/*-------------------
-     Transitions
---------------------*/
-/*-------------------
-    Derived Values
---------------------*/
-/* Makes sure padded grid can fit at 320px */
-/* Used to match floats with text */
-/* Positive / Negative Dupes */
-/* Responsive */
-/* Columns */
-/*******************************
-           States
-*******************************/
-/*-------------------
-      Disabled
---------------------*/
-/*-------------------
-        Hover
---------------------*/
-/*---  Colors  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*-------------------
-    Down (:active)
---------------------*/
-/*---  Colors  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*-------------------
-        Active
---------------------*/
-/*---  Standard  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*******************************
-            Button
-*******************************/
-/*-------------------
-       Element
---------------------*/
-/* Style */
-/* Text */
-/* Internal Shadow */
-/* Box Shadow */
-/* Icon */
-/* Loader */
-/*-------------------
-        Group
---------------------*/
-/*-------------------
-        States
---------------------*/
-/* Hovered */
-/* Focused */
-/* Pressed Down */
-/* Active */
-/* Active + Hovered */
-/* Loading */
-/*-------------------
-        Types
---------------------*/
-/* Or */
-/* Icon */
-/* Labeled Icon */
-/* Inverted */
-/* Basic */
-/* Basic Hover */
-/* Basic Down */
-/* Basic Active */
-/* Basic Inverted */
-/* Basic Group */
-/*-------------------
-      Variations
---------------------*/
-/* Colors */
-/* Ordinality */
-/* Compact */
-/* Attached */
-/* Floated */
-/* Animated */
-/* Sizing (Uses Defaults) */
 /*------------------
      Load Site
 -------------------*/
@@ -352,7 +205,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Loader
+   Override Mix-in
 -------------------*/
 /*******************************
             Button
@@ -446,29 +299,71 @@
 /*--------------
     Loading
 ---------------*/
-.ui.loading.button {
+/* Specificity hack */
+.ui.loading.loading.loading.loading.loading.loading.button {
   position: relative;
   cursor: default;
   point-events: none;
-  background: rgba(0, 0, 0, 0.04) !important;
   text-shadow: none !important;
   color: transparent !important;
   -webkit-transition: all 0s linear;
           transition: all 0s linear;
-  box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
+}
+.ui.loading.button:before {
+  position: absolute;
+  content: '';
+  top: 50%;
+  left: 50%;
+  margin: -0.64285em 0em 0em -0.64285em;
+  width: 1.2857em;
+  height: 1.2857em;
+  border-radius: 500rem;
+  border: 3px solid rgba(0, 0, 0, 0.15);
 }
 .ui.loading.button:after {
   position: absolute;
-  top: 0em;
-  left: 0em;
-  width: 100%;
-  height: 100%;
   content: '';
-  background: transparent url("../../themes/packages/default/assets/images/loader-mini.gif") no-repeat 50% 50%;
+  top: 50%;
+  left: 50%;
+  margin: -0.64285em 0em 0em -0.64285em;
+  width: 1.2857em;
+  height: 1.2857em;
+  -webkit-animation: button-spin 0.75s linear;
+          animation: button-spin 0.75s linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  border-radius: 500rem;
+  border-color: rgba(255, 255, 255, 0.8) transparent transparent;
+  border-style: solid;
+  border-width: 3px;
+  box-shadow: 0px 0px 0px 1px transparent;
 }
 .ui.labeled.icon.loading.button .icon {
   background-color: transparent;
   box-shadow: none;
+}
+@-webkit-keyframes button-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes button-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+.ui.basic.loading.button:not(.inverted):after {
+  border-color: #aaaaaa transparent transparent;
 }
 /*-------------------
       Disabled
@@ -856,21 +751,6 @@
 .ui.massive.button {
   font-size: 1.7142em;
 }
-/* Loading Resize */
-.ui.huge.loading.button:after,
-.ui.huge.loading.button.active:after {
-  background-image: url("../../themes/packages/default/assets/images/loader-small.gif");
-}
-.ui.massive.buttons .loading.button:after,
-.ui.gigantic.buttons .loading.button:after,
-.ui.massive.loading.button:after,
-.ui.gigantic.loading.button:after,
-.ui.massive.buttons .loading.button.active:after,
-.ui.gigantic.buttons .loading.button.active:after,
-.ui.massive.loading.button.active:after,
-.ui.gigantic.loading.button.active:after {
-  background-image: url("../../themes/packages/default/assets/images/loader-medium.gif");
-}
 /*--------------
     Icon Only
 ---------------*/
@@ -967,11 +847,6 @@
 .ui.basic.inverted.button.active:hover {
   background-color: rgba(255, 255, 255, 0.07);
   box-shadow: 0px 0px 0px 2px #ffffff inset !important;
-}
-/* Loading */
-.ui.basic.loading.button:after {
-  background-color: #fafafa;
-  border-radius: 0.2857rem;
 }
 /* Basic Group */
 .ui.basic.buttons .button {

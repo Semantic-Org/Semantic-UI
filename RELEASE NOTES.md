@@ -23,6 +23,7 @@
 - **General** - Many modules now use DOM Mutations and event delegation to allow content adjustment after initialization
 - **Accordion** - Accordion now includes all icons in an embedded font instead of requiring icons
 - **Button** - Now has compact form, used for fitting into tight spaces
+- **Button** - Now has CSS loaders to allow loading state to maintain other styles
 - **Checkbox** - Now correctly handles read-only and disabled, has read-only and disabled states
 - **Checkbox** - All styles have been redone. Standard checkboxes are now based around PX and not EM making sure there are no unusual circles or rounding issues. Checkboxes also now use a custom font for glyphs instead of CSS tricks.
 - **Checkbox** - Checkbox now have a ``fireOnInit`` setting for firing callbacks on page load

@@ -145,15 +145,14 @@
 @darkWhite        : #F0F0F0;
 
 /*--- Colored Backgrounds ---*/
-@blueBackground   : #D3E4F3;
-@greenBackground  : #DEF2E0;
-@orangeBackground : #F7E5D6;
-@pinkBackground   : #F9CEE6;
-@purpleBackground : #E0DDF5;
-@redBackground    : #F8D5D3;
-@tealBackground   : #D2F5F5;
-@yellowBackground : #FCF5D8;
-
+@blueBackground   : #DFF0FF;
+@greenBackground  : #EBFFED;
+@orangeBackground : #FFEDDE;
+@pinkBackground   : #FFE3FB;
+@purpleBackground : #EAE7FF;
+@redBackground    : #FFE8E6;
+@tealBackground   : #E9FFFF;
+@yellowBackground : #FFF8DB;
 
 /*--- Colored Text ---*/
 @blueTextColor    : @blue;

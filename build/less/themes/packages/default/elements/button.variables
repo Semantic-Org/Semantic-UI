@@ -48,9 +48,15 @@
 @iconVerticalAlign: baseline;
 
 /* Loader */
-@loaderPath: "@{imagePath}/loader-mini.gif";
-@hugeLoaderPath: "@{imagePath}/loader-small.gif";
-@massiveLoaderPath: "@{imagePath}/loader-medium.gif";
+@loaderSize: 1.2857em;
+@loaderOffset: -(@loaderSize / 2);
+@loaderMargin: @loaderOffset 0em 0em @loaderOffset;
+@loaderLineWidth: 3px;
+@loaderSpeed: 0.75s;
+
+@loaderFillColor: rgba(0, 0, 0, 0.15);
+@loaderLineColor: rgba(255, 255, 255, 0.8);
+@invertedLoaderLineColor: @darkGrey;
 
 @transition:
   opacity 0.1s @transitionEasing,
@@ -114,7 +120,7 @@
 @activeHoverBoxShadow: @activeBoxShadow;
 
 /* Loading */
-@loadingBackground: rgba(0, 0, 0, 0.04);
+@loadingBackground: @offWhite;
 
 /*-------------------
         Types

@@ -43,7 +43,7 @@
         Import Directives
 *******************************/
 /*------------------
-    Load Defaults
+     Load Default
 -------------------*/
 /*******************************
          Site Settings
@@ -165,123 +165,6 @@
 /*------------------
      Load Theme
 -------------------*/
-/*******************************
-         Site Settings
-*******************************/
-/*-------------------
-        Paths
---------------------*/
-/*-------------------
-       Fonts
---------------------*/
-/*-------------------
-      Site Colors
---------------------*/
-/*---  Colors  ---*/
-/*---  Light Colors  ---*/
-/*-------------------
-        Page
---------------------*/
-/*-------------------
-  Background Colors
---------------------*/
-/*-------------------
-       Accents
---------------------*/
-/* 4px @ 14px */
-/* Used for differentiating neutrals */
-/* Used for differentiating layers */
-/*-------------------
-        Grid
---------------------*/
-/*-------------------
-     Breakpoints
---------------------*/
-/*******************************
-           Power-User
-*******************************/
-/*-------------------
-       Icons
---------------------*/
-/* Maximum Glyph Width of Icon */
-/*-------------------
-       Easing
---------------------*/
-/*---   Neutrals  ---*/
-/*--- Colored Backgrounds ---*/
-/*--- Colored Text ---*/
-/*--- Colored Headers ---*/
-/*-------------------
-    Emotive Colors
---------------------*/
-/* Positive */
-/* Negative */
-/* Info */
-/* Warning */
-/*-------------------
-     Neutral Text
---------------------*/
-/*-------------------
-     Brand Colors
---------------------*/
-/*-------------------
-      Borders
---------------------*/
-/*-------------------
-        Sizes
---------------------*/
-/*-------------------
-     Transitions
---------------------*/
-/*-------------------
-    Derived Values
---------------------*/
-/* Makes sure padded grid can fit at 320px */
-/* Used to match floats with text */
-/* Positive / Negative Dupes */
-/* Responsive */
-/* Columns */
-/*******************************
-           States
-*******************************/
-/*-------------------
-      Disabled
---------------------*/
-/*-------------------
-        Hover
---------------------*/
-/*---  Colors  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*-------------------
-    Down (:active)
---------------------*/
-/*---  Colors  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*-------------------
-        Active
---------------------*/
-/*---  Standard  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*******************************
-            Message
-*******************************/
-/*-------------------
-       Elements
---------------------*/
-/* Header */
-/* Paragraph */
-/* List */
-/* Icon */
-/* Close Icon */
-/*-------------------
-        Types
---------------------*/
-/* Icon Message */
-/* Attached */
-/* Floating */
 /*------------------
      Load Site
 -------------------*/
@@ -292,7 +175,7 @@
     User Variable Overrides
 *******************************/
 /*------------------
-   Override Loader
+   Override Mix-in
 -------------------*/
 /*******************************
             Message
@@ -455,19 +338,24 @@
 }
 .ui.icon.message > .icon:not(.close) {
   display: table-cell;
+  width: auto;
   vertical-align: middle;
   font-size: 3em;
   opacity: 0.8;
-  width: 1em;
 }
 .ui.icon.message > .content {
   display: table-cell;
+  width: 100%;
   vertical-align: middle;
 }
 .ui.icon.message .icon:not(.close) + .content {
   padding-left: 1.5rem;
 }
+.ui.icon.message .circular.icon {
+  width: 1em;
+}
 .ui.icon.message .circular.icon + .content {
+  width: auto;
   padding-left: 2em;
 }
 /*--------------
@@ -565,56 +453,56 @@
   color: #ffffff;
 }
 .ui.blue.message {
-  background-color: #d3e4f3;
+  background-color: #dff0ff;
   color: #3b83c0;
 }
 .ui.blue.message .header {
   color: #3576ac;
 }
 .ui.green.message {
-  background-color: #def2e0;
+  background-color: #ebffed;
   color: #1ebc30;
 }
 .ui.green.message .header {
   color: #1aa62a;
 }
 .ui.orange.message {
-  background-color: #f7e5d6;
+  background-color: #ffedde;
   color: #e07b53;
 }
 .ui.orange.message .header {
   color: #dc6a3d;
 }
 .ui.pink.message {
-  background-color: #f9cee6;
+  background-color: #ffe3fb;
   color: #d9499a;
 }
 .ui.pink.message .header {
   color: #d5348e;
 }
 .ui.purple.message {
-  background-color: #e0ddf5;
+  background-color: #eae7ff;
   color: #564f8a;
 }
 .ui.purple.message .header {
   color: #4c467a;
 }
 .ui.red.message {
-  background-color: #f8d5d3;
+  background-color: #ffe8e6;
   color: #d95c5c;
 }
 .ui.red.message .header {
   color: #d44747;
 }
 .ui.teal.message {
-  background-color: #d2f5f5;
+  background-color: #e9ffff;
   color: #10a3a3;
 }
 .ui.teal.message .header {
   color: #0e8c8c;
 }
 .ui.yellow.message {
-  background-color: #fcf5d8;
+  background-color: #fff8db;
   color: #b58105;
 }
 .ui.yellow.message .header {
