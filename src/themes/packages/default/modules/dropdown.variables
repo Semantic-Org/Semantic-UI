@@ -92,6 +92,7 @@
 @subMenuDistanceAway: -0.5em;
 @subMenuMargin: 0em 0em 0em @subMenuDistanceAway;
 @subMenuBorderRadius: 0em @borderRadius @borderRadius 0em;
+@subMenuZIndex: 21;
 
 /*-------------------
 b        Types
