@@ -49,6 +49,19 @@ themes      : ['Default']
         <div class="ui show button"><i class="plus icon"></i></div>
         <div class="ui hide button"><i class="minus icon"></i></div>
       </div>
+      <div class="ui existing code">
+        <div class="ui segment">
+          <h3 class="ui header">
+            Overlayable Section
+          </h3>
+          <div class="ui small images">
+            <img>
+            <img>
+            <img>
+          </div>
+          <p></p>
+        </div>
+      </div>
     </div>
 
     <div class="example">
