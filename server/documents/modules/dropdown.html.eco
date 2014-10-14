@@ -579,7 +579,7 @@ themes      : ['Default']
         <div class="menu">
           <div class="item">
             <i class="dropdown icon"></i>
-            New
+            <span class="text">New</span>
             <div class="menu">
               <div class="item">Document</div>
               <div class="item">Image</div>
@@ -594,7 +594,7 @@ themes      : ['Default']
         <div class="menu">
           <div class="item">
             <i class="dropdown icon"></i>
-            New
+            <span class="text">New</span>
             <div class="menu">
               <div class="item">Document</div>
               <div class="item">Image</div>
