@@ -209,7 +209,7 @@
   color: rgba(0, 0, 0, 0.6);
   text-transform: none;
   font-weight: bold;
-  border-radius: 0.325em;
+  border-radius: 0.2857rem;
   box-sizing: border-box;
   -webkit-transition: background 0.1s linear
   ;
@@ -297,7 +297,7 @@ a.ui.label {
   text-transform: none;
   background: #e8e8e8;
   padding: 0.6em 0.8em 0.6em 0.5em;
-  border-radius: 0.325em;
+  border-radius: 0.2857rem;
   box-shadow: none;
 }
 .ui.image.label img {
@@ -305,13 +305,13 @@ a.ui.label {
   vertical-align: top;
   height: 2.2em;
   margin: -0.6em 0.5em -0.6em -0.5em;
-  border-radius: 0.325em;
+  border-radius: 0.2857rem;
 }
 .ui.image.label .detail {
   background: rgba(0, 0, 0, 0.1);
   margin: -0.6em -0.8em -0.6em 0.5em;
   padding: 0.6em 0.8em;
-  border-radius: 0em 0.325em 0.325em 0em;
+  border-radius: 0em 0.2857rem 0.2857rem 0em;
 }
 /*-------------------
          Tag
@@ -322,7 +322,7 @@ a.ui.label {
   position: relative;
   padding-left: 1.5em;
   padding-right: 1.5em;
-  border-radius: 0em 0.325em 0.325em 0em;
+  border-radius: 0em 0.2857rem 0.2857rem 0em;
 }
 .ui.tag.labels .label:before,
 .ui.tag.label:before {
@@ -483,7 +483,7 @@ a.ui.label {
   margin: 0em;
   left: -2rem;
   padding-left: 2rem;
-  border-radius: 0em 0.325em 0.325em 0em;
+  border-radius: 0em 0.2857rem 0.2857rem 0em;
   border-color: rgba(0, 0, 0, 0.15);
 }
 .ui.ribbon.label:after {
@@ -512,29 +512,29 @@ a.ui.label {
   top: 0em;
   left: 0em;
   padding: 0.75em 1em;
-  border-radius: 0.325em 0.325em 0em 0em;
+  border-radius: 0.2857rem 0.2857rem 0em 0em;
 }
 .ui.bottom.attached.label {
   top: auto;
   bottom: 0em;
-  border-radius: 0em 0em 0.325em 0.325em;
+  border-radius: 0em 0em 0.2857rem 0.2857rem;
 }
 .ui.top.left.attached.label {
   width: auto;
   margin-top: 0em !important;
-  border-radius: 0.325em 0em 0.325em 0em;
+  border-radius: 0.2857rem 0em 0.2857rem 0em;
 }
 .ui.top.right.attached.label {
   width: auto;
   left: auto;
   right: 0em;
-  border-radius: 0em 0.325em 0em 0.325em;
+  border-radius: 0em 0.2857rem 0em 0.2857rem;
 }
 .ui.bottom.left.attached.label {
   width: auto;
   top: auto;
   bottom: 0em;
-  border-radius: 0em 0em 0.325em 0.325em;
+  border-radius: 0em 0em 0.2857rem 0.2857rem;
 }
 .ui.bottom.right.attached.label {
   top: auto;
@@ -542,7 +542,7 @@ a.ui.label {
   left: auto;
   right: 0em;
   width: auto;
-  border-radius: 0.325em 0em 0.325em 0em;
+  border-radius: 0.2857rem 0em 0.2857rem 0em;
 }
 /*******************************
              States

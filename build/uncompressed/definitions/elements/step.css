@@ -46,6 +46,31 @@
      Load Default
 -------------------*/
 /*******************************
+             Step
+*******************************/
+/*-------------------
+      Element
+--------------------*/
+/* Icon */
+/* Title */
+/* Description */
+/* Arrow */
+/*-------------------
+       Group
+--------------------*/
+/*-------------------
+       States
+--------------------*/
+/* Completed */
+/* Hover */
+/* Down */
+/* Active */
+/* Active + Hover */
+/* Disabled */
+/*------------------
+     Load Theme
+-------------------*/
+/*******************************
          Site Settings
 *******************************/
 /*-------------------
@@ -145,31 +170,6 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*******************************
-             Step
-*******************************/
-/*-------------------
-      Element
---------------------*/
-/* Icon */
-/* Title */
-/* Description */
-/* Arrow */
-/*-------------------
-       Group
---------------------*/
-/*-------------------
-       States
---------------------*/
-/* Completed */
-/* Hover */
-/* Down */
-/* Active */
-/* Active + Hover */
-/* Disabled */
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -306,7 +306,7 @@
   font-size: 0em;
   background: '';
   box-shadow: '';
-  line-height: 1.2;
+  line-height: 1.33;
   box-sizing: border-box;
   border-radius: 0.2857rem;
 }
@@ -457,15 +457,15 @@
 *******************************/
 .ui.small.step,
 .ui.small.steps .step {
-  font-size: 0.9rem;
+  font-size: 0.9285em;
 }
 .ui.step,
 .ui.steps .step {
-  font-size: 1rem;
+  font-size: 1em;
 }
 .ui.large.step,
 .ui.large.steps .step {
-  font-size: 1.1rem;
+  font-size: 1.1428em;
 }
 /*******************************
            Overrides
