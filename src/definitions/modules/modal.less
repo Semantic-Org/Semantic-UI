@@ -1,0 +1,439 @@
+/*
+ * # Semantic - Modal
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Copyright 2014 Contributor
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+/*******************************
+            Theme
+*******************************/
+
+@type    : 'module';
+@element : 'modal';
+
+@import '../../semantic.config';
+
+/*******************************
+             Modal
+*******************************/
+
+.ui.modal {
+  display: none;
+  position: fixed;
+  z-index: 1001;
+
+  top: 50%;
+  left: 50%;
+  text-align: left;
+
+  width: @width;
+  margin-left: @xOffset;
+
+  background: @background;
+  border: @border;
+  box-shadow: @boxShadow;
+
+  border-radius: @borderRadius;
+  user-select: text;
+  will-change: top, left, margin, transform, opacity;
+}
+
+.ui.modal > :first-child:not(.icon),
+.ui.modal > .icon:first-child + * {
+  border-top-left-radius: @borderRadius;
+  border-top-right-radius: @borderRadius;
+}
+
+.ui.modal > :last-child {
+  border-bottom-left-radius: @borderRadius;
+  border-bottom-right-radius: @borderRadius;
+}
+
+/*******************************
+            Content
+*******************************/
+
+/*--------------
+     Close
+---------------*/
+
+.ui.modal > .close {
+  cursor: pointer;
+  position: absolute;
+  top: @closeTop;
+  right: @closeRight;
+  z-index: 1;
+
+  opacity: @closeOpacity;
+  font-size: @closeSize;
+  color: @closeColor;
+
+  width: @closeHitbox;
+  height: @closeHitbox;
+  padding: @closePadding;
+}
+.ui.modal > .close:hover {
+  opacity: 1;
+}
+
+/*--------------
+     Header
+---------------*/
+
+.ui.modal > .header {
+  display: block;
+  font-family: @headerFontFamily;
+  background: @headerBackground;
+  margin: @headerMargin;
+  padding: @headerPadding;
+  box-shadow: @headerBoxShadow;
+
+  font-size: @headerFontSize;
+  line-height: @headerLineHeight;
+  font-weight: @headerFontWeight;
+  color: @headerColor;
+  border-bottom: @headerBorder;
+}
+
+/*--------------
+     Content
+---------------*/
+
+.ui.modal > .content {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  font-size: @contentFontSize;
+  line-height: @contentLineHeight;
+  padding: @contentPadding;
+  background: @contentBackground;
+}
+
+/* Image */
+.ui.modal > .content > .image {
+  display: table-cell;
+  width: @imageWidth;
+  vertical-align: @imageVerticalAlign;
+}
+.ui.modal > .content > .image[class*="top aligned"] {
+  vertical-align: top;
+}
+.ui.modal > .content > .image[class*="top aligned"] {
+  vertical-align: middle;
+}
+
+/* Description */
+.ui.modal > .content > .description {
+  display: table-cell;
+  vertical-align: top;
+  vertical-align: @descriptionVerticalAlign;
+}
+
+.ui.modal > .content > .icon + .description,
+.ui.modal > .content > .image + .description {
+  min-width: @descriptionMinWidth;
+  width: @descriptionWidth;
+  padding-left: @descriptionDistance;
+}
+
+/*rtl:ignore*/
+.ui.modal > .content > .image > i.icon {
+  font-size: @imageIconSize;
+  margin: 0em;
+  opacity: 1;
+  width: auto;
+}
+
+/*--------------
+     Actions
+---------------*/
+
+.ui.modal .actions {
+  background: @actionBackground;
+  padding: @actionPadding;
+  border-top: @actionBorder;
+  text-align: @actionAlign;
+}
+.ui.modal .actions > .button {
+  margin-left: @buttonDistance;
+}
+
+/*-------------------
+       Responsive
+--------------------*/
+
+/* Modal Width */
+@media only screen and (max-width : @largestMobileScreen) {
+  .ui.modal {
+    width: @mobileWidth;
+    margin: @mobileMargin;
+  }
+}
+@media only screen and (min-width : @tabletBreakpoint) {
+  .ui.modal {
+    width: @tabletWidth;
+    margin: @tabletMargin;
+  }
+}
+@media only screen and (min-width : @computerBreakpoint) {
+  .ui.modal {
+    width: @computerWidth;
+    margin: @computerMargin;
+  }
+}
+@media only screen and (min-width : @largeMonitorBreakpoint) {
+  .ui.modal {
+    width: @largeMonitorWidth;
+    margin: @largeMonitorMargin;
+  }
+}
+@media only screen and (min-width : @widescreenMonitorBreakpoint) {
+  .ui.modal {
+    width: @widescreenMonitorWidth;
+    margin: @widescreenMonitorMargin;
+  }
+}
+
+/* Tablet and Mobile */
+@media only screen and (max-width : @computerBreakpoint) {
+  .ui.modal > .header {
+    padding-right: @closeHitbox;
+  }
+  .ui.modal > .close {
+    top: @innerCloseTop;
+    right: @innerCloseRight;
+    color: @innerCloseColor;
+  }
+}
+
+/* Mobile */
+@media only screen and (max-width : @largestMobileScreen) {
+
+  .ui.modal > .header {
+    padding: @mobileHeaderPadding !important;
+    padding-right: @closeHitbox !important;
+  }
+  .ui.modal > .content {
+    display: block;
+    padding: @mobileContentPadding !important;
+  }
+  .ui.modal > .close {
+    top: @mobileCloseTop !important;
+    right: @mobileCloseRight !important;
+  }
+
+  /*rtl:ignore*/
+  .ui.modal .content > .image {
+    display: block;
+    max-width: 100%;
+    margin: 0em auto !important;
+    text-align: center;
+    padding: @mobileImagePadding !important;
+  }
+  .ui.modal > .content > .image > i.icon {
+    font-size: @mobileImageIconSize;
+    text-align: center;
+  }
+
+  /*rtl:ignore*/
+  .ui.modal .content > .description {
+    display: block;
+    width: 100% !important;
+    margin: 0em !important;
+    padding: @mobileDescriptionPadding !important;
+    box-shadow: none;
+  }
+
+  .ui.modal > .actions {
+    padding: @mobileActionPadding !important;
+  }
+  .ui.modal .actions > .buttons,
+  .ui.modal .actions > .button {
+    margin-bottom: @mobileButtonDistance;
+  }
+}
+
+/*******************************
+             Types
+*******************************/
+
+.ui.basic.modal {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  color: @basicModalColor;
+}
+.ui.basic.modal > .header,
+.ui.basic.modal > .content,
+.ui.basic.modal > .actions {
+  background-color: transparent;
+}
+.ui.basic.modal > .header {
+  color: @basicModalHeaderColor;
+}
+.ui.basic.modal > .close {
+  top: @basicModalCloseTop;
+  right: @basicModalCloseRight;
+}
+
+/* Tablet and Mobile */
+@media only screen and (max-width : @computerBreakpoint) {
+
+  .ui.basic.modal > .close {
+    color: @basicInnerCloseColor;
+  }
+}
+
+/*******************************
+            Variations
+*******************************/
+
+/* A modal that cannot fit on the page */
+.scrolling.dimmable.dimmed {
+  overflow: hidden;
+}
+.scrolling.dimmable.dimmed > .dimmer {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.scrolling.dimmable > .dimmer {
+  position: fixed;
+}
+
+.ui.scrolling.modal {
+  position: static;
+  margin: @scrollingMargin auto;
+}
+
+@media only screen and (max-width : @computerBreakpoint) {
+  .ui.scrolling.modal {
+    margin-top: @mobileScrollingMargin;
+    margin-bottom: @mobileScrollingMargin;
+  }
+}
+
+/*******************************
+             States
+*******************************/
+
+.ui.active.modal {
+  display: block;
+}
+
+/*******************************
+           Variations
+*******************************/
+
+/*--------------
+   Full Screen
+---------------*/
+
+.ui.fullscreen.modal {
+  width: @fullScreenWidth !important;
+  margin: @fullScreenMargin;
+}
+.ui.fullscreen.modal > .header {
+  padding-right: @closeHitbox;
+}
+.ui.fullscreen.modal > .close {
+  top: @innerCloseTop;
+  right: @innerCloseRight;
+  color: @innerCloseColor;
+}
+
+@media only screen and (max-width : @largestMobileScreen) {
+  .ui.fullscreen.modal {
+    width: auto !important;
+    margin: @fullScreenMobileMargin !important;
+    top: 0% !important;
+    left: 0% !important;
+  }
+}
+
+/*--------------
+      Size
+---------------*/
+
+.ui.modal {
+  font-size: @medium;
+}
+
+/* Small */
+.ui.small.modal > .header {
+  font-size: @smallHeaderSize;
+}
+
+/* Small Modal Width */
+@media only screen and (max-width : @largestMobileScreen) {
+  .ui.small.modal {
+    width: @smallMobileWidth;
+    margin: @smallMobileMargin;
+  }
+}
+@media only screen and (min-width : @tabletBreakpoint) {
+  .ui.small.modal {
+    width: @smallTabletWidth;
+    margin: @smallTabletMargin;
+  }
+}
+@media only screen and (min-width : @computerBreakpoint) {
+  .ui.small.modal {
+    width: @smallComputerWidth;
+    margin: @smallComputerMargin;
+  }
+}
+@media only screen and (min-width : @largeMonitorBreakpoint) {
+  .ui.small.modal {
+    width: @smallLargeMonitorWidth;
+    margin: @smallLargeMonitorMargin;
+  }
+}
+@media only screen and (min-width : @widescreenMonitorBreakpoint) {
+  .ui.small.modal {
+    width: @smallWidescreenMonitorWidth;
+    margin: @smallWidescreenMonitorMargin;
+  }
+}
+
+/* Large Modal Width */
+.ui.large.modal > .header {
+  font-size: @largeHeaderSize;
+}
+@media only screen and (max-width : @largestMobileScreen) {
+  .ui.large.modal {
+    width: @largeMobileWidth;
+    margin: @largeMobileMargin;
+  }
+}
+@media only screen and (min-width : @tabletBreakpoint) {
+  .ui.large.modal {
+    width: @largeTabletWidth;
+    margin: @largeTabletMargin;
+  }
+}
+@media only screen and (min-width : @computerBreakpoint) {
+  .ui.large.modal {
+    width: @largeComputerWidth;
+    margin: @largeComputerMargin;
+  }
+}
+@media only screen and (min-width : @largeMonitorBreakpoint) {
+  .ui.large.modal {
+    width: @largeLargeMonitorWidth;
+    margin: @largeLargeMonitorMargin;
+  }
+}
+@media only screen and (min-width : @widescreenMonitorBreakpoint) {
+  .ui.large.modal {
+    width: @largeWidescreenMonitorWidth;
+    margin: @largeWidescreenMonitorMargin;
+  }
+}
+
+
+.loadUIOverrides();

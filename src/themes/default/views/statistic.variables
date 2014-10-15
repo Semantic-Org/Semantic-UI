@@ -1,0 +1,97 @@
+/*******************************
+           Statistic
+*******************************/
+
+/*-------------------
+         View
+--------------------*/
+
+@display: inline-block;
+@margin: 1em 0em;
+@textAlign: center;
+@maxWidth: 175px;
+
+/* Group */
+@groupDisplay: block;
+@groupMargin: 1em -@horizontalSpacing;
+@horizontalSpacing: 1em;
+@rowSpacing: 2em;
+
+/* Group Element */
+@elementFloat: left;
+@elementDisplay: block;
+@elementMargin: 0em @horizontalSpacing @rowSpacing;
+@elementMaxWidth: 175px;
+
+/*-------------------
+       Content
+--------------------*/
+
+/* Value */
+@valueFont: @pageFont;
+@valueFontWeight: normal;
+@valueLineHeight: 1em;
+@valueColor: @black;
+@valueTextTransform: uppercase;
+
+/* Label */
+@labelSize: 1rem;
+@topLabelDistance: 0rem;
+@bottomLabelDistance: 0.25rem;
+@labelFont: @headerFont;
+@labelFontWeight: normal;
+@labelColor: @unselectedTextColor;
+@labelLineHeight: 1.33em;
+@labelTextTransform: none;
+
+/* Text */
+@textLabelLineHeight: 1em;
+@textLabelMinHeight: 2em;
+
+/* Label Image */
+@imageHeight: 3rem;
+@imageVerticalAlign: baseline;
+
+/*-------------------
+      Types
+--------------------*/
+
+@horizontalGroupElementMargin: 1em 0em;
+@horizontalLabelDistance: 0.75em;
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Floated */
+@leftFloatedMargin: 0em 2em 1em 0em;
+@rightFloatedMargin: 0em 0em 1em 2em;
+
+/* Inverted */
+@invertedValueColor: @invertedTextColor;
+@invertedLabelColor: @invertedLightTextColor;
+
+/* Size */
+@miniValueSize: 1.5rem;
+@miniTextLabelSize: 1rem;
+@miniHorizontalValueSize: 1.5rem;
+
+@tinyValueSize: 2rem;
+@tinyTextLabelSize: 1rem;
+@tinyHorizontalValueSize: 2rem;
+
+@smallValueSize: 3rem;
+@smallTextLabelSize: 1.5rem;
+@smallHorizontalValueSize: 2rem;
+
+@valueSize: 4rem;
+@textLabelSize: 2rem;
+@horizontalValueSize: 3rem;
+
+@largeValueSize: 5rem;
+@largeTextLabelSize: 2.5rem;
+@largeHorizontalValueSize: 4rem;
+
+@hugeValueSize: 6rem;
+@hugeTextLabelSize: 2.5rem;
+@hugeHorizontalValueSize: 5rem;

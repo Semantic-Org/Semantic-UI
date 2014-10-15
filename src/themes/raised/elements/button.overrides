@@ -1,0 +1,9 @@
+/*******************************
+           Overrides
+*******************************/
+
+.ui.button.active:not(.basic),
+.ui.button:active {
+  padding-top: @verticalPadding + (@shadowOffset / 2);
+  padding-bottom: @verticalPadding + (@shadowOffset / 2);
+}

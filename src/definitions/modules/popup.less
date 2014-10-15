@@ -1,0 +1,272 @@
+/*
+ * # Semantic - Popup
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Copyright 2014 Contributor
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+/*******************************
+            Theme
+*******************************/
+
+@type    : 'module';
+@element : 'popup';
+
+@import '../../semantic.config';
+
+/*******************************
+            Popup
+*******************************/
+
+.ui.popup {
+  display: none;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: @zIndex;
+
+  border: @border;
+  max-width: @maxWidth;
+  background-color: @background;
+
+  padding: @verticalPadding @horizontalPadding;
+  font-weight: @fontWeight;
+  font-style: @fontStyle;
+  color: @color;
+
+  border-radius: @borderRadius;
+  box-shadow: @boxShadow;
+}
+.ui.popup > .header {
+  padding: 0em;
+
+  font-family: @headerFont;
+  font-size: @headerFontSize;
+  line-height: @headerLineHeight;
+  font-weight: bold;
+}
+.ui.popup > .header + .content {
+  padding-top: @headerDistance;
+}
+
+.ui.popup:before {
+  position: absolute;
+  content: '';
+  width: @arrowSize;
+  height: @arrowSize;
+
+  background: @arrowBackground;
+  transform: rotate(45deg);
+
+  z-index: @arrowZIndex;
+  box-shadow: @arrowBoxShadow;
+}
+
+/*******************************
+            Types
+*******************************/
+
+/*--------------
+     Spacing
+---------------*/
+
+.ui.popup {
+  margin: 0em;
+}
+.ui.popup.bottom {
+  margin: @popupDistanceAway 0em 0em;
+}
+.ui.popup.top {
+  margin: 0em 0em @popupDistanceAway;
+}
+.ui.popup.left.center {
+  margin: 0em @popupDistanceAway 0em 0em;
+}
+.ui.popup.right.center {
+  margin: 0em 0em 0em @popupDistanceAway;
+}
+
+/*--------------
+     Pointer
+---------------*/
+
+/*--- Below ---*/
+.ui.bottom.center.popup:before {
+  margin-left: @arrowOffset;
+  top: @arrowOffset;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  box-shadow: @bottomArrowBoxShadow;
+}
+
+.ui.bottom.left.popup {
+  margin-left: @boxArrowOffset;
+}
+.ui.bottom.left.popup:before {
+  top: @arrowOffset;
+  left: @arrowDistanceFromEdge;
+  right: auto;
+  bottom: auto;
+  margin-left: 0em;
+  box-shadow: @bottomArrowBoxShadow;
+}
+
+.ui.bottom.right.popup {
+  margin-right: @boxArrowOffset;
+}
+.ui.bottom.right.popup:before {
+  top: @arrowOffset;
+  right: @arrowDistanceFromEdge;
+  bottom: auto;
+  left: auto;
+  margin-left: 0em;
+  box-shadow: @bottomArrowBoxShadow;
+}
+
+/*--- Above ---*/
+.ui.top.center.popup:before {
+  top: auto;
+  right: auto;
+  bottom: @arrowOffset;
+  left: 50%;
+  margin-left: @arrowOffset;
+}
+.ui.top.left.popup {
+  margin-left: @boxArrowOffset;
+}
+.ui.top.left.popup:before {
+  bottom: @arrowOffset;
+  left: @arrowDistanceFromEdge;
+  top: auto;
+  right: auto;
+  margin-left: 0em;
+}
+.ui.top.right.popup {
+  margin-right: @boxArrowOffset;
+}
+.ui.top.right.popup:before {
+  bottom: @arrowOffset;
+  right: @arrowDistanceFromEdge;
+  top: auto;
+  left: auto;
+  margin-left: 0em;
+}
+
+/*--- Left Center ---*/
+.ui.left.center.popup:before {
+  top: 50%;
+  right: @arrowOffset;
+  bottom: auto;
+  left: auto;
+  margin-top: @arrowOffset;
+  box-shadow: @leftArrowBoxShadow;
+}
+
+/*--- Right Center  ---*/
+.ui.right.center.popup:before {
+  top: 50%;
+  left: @arrowOffset;
+  bottom: auto;
+  right: auto;
+  margin-top: @arrowOffset;
+  box-shadow: @rightArrowBoxShadow;
+}
+
+/*******************************
+            States
+*******************************/
+
+.ui.loading.popup {
+  display: block;
+  visibility: hidden;
+  z-index: @loadingZIndex;
+}
+
+.ui.animating.popup,
+.ui.visible.popup {
+  display: block;
+}
+
+
+/*******************************
+            Variations
+*******************************/
+
+
+/*--------------
+     Wide
+---------------*/
+
+.ui.wide.popup {
+  width: @wideWidth;
+  max-width: @wideWidth;
+}
+.ui[class*="very wide"].popup {
+  width: @veryWideWidth;
+  max-width: @veryWideWidth;
+}
+
+
+/*--------------
+     Fluid
+---------------*/
+
+.ui.fluid.popup {
+  width: 100%;
+  max-width: 99999px;
+}
+
+
+/*--------------
+     Colors
+---------------*/
+
+/* Inverted colors  */
+.ui.inverted.popup {
+  background: @invertedBackground;
+  color: @invertedColor;
+  border: @invertedBorder;
+  box-shadow: @invertedBoxShadow;
+}
+.ui.inverted.popup .header {
+  background-color: @invertedHeaderBackground;
+  color: @invertedHeaderColor;
+}
+.ui.inverted.popup:before {
+  background-color: @invertedArrowColor;
+  box-shadow: none;
+}
+
+/*--------------
+     Flowing
+---------------*/
+
+.ui.flowing.popup {
+  max-width: 9999px;
+}
+
+
+/*--------------
+     Sizes
+---------------*/
+
+.ui.small.popup {
+  font-size: @small;
+}
+.ui.popup {
+  font-size: @medium;
+}
+.ui.large.popup {
+  font-size: @large;
+}
+.ui.huge.popup {
+  font-size: @huge;
+}
+
+
+.loadUIOverrides();

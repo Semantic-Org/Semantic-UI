@@ -1,0 +1,50 @@
+/*******************************
+            Dimmer
+*******************************/
+
+@dimmablePosition: relative;
+@dimmerPosition: absolute;
+
+@background: rgba(0, 0, 0 , 0.85);
+@lineHeight: 1;
+@transformStyle: preserve-3d;
+@perspective: 2000px;
+
+@duration: 0.5s;
+@transition:
+  background-color @duration linear
+;
+@zIndex: 1000;
+@textAlign: center;
+@verticalAlign: middle;
+@textColor: @white;
+@overflow: hidden;
+
+// @elementFilter: ~"blur(15px) grayscale(0.7)";
+@elementFilter: '';
+
+/* Hidden (Default) */
+@hiddenOpacity: 0;
+
+/* Content */
+@contentDisplay: table;
+@contentChildDisplay: table-cell;
+
+/* Visible */
+@visibleOpacity: 1;
+@pageDimmerPosition: fixed;
+
+
+/*-------------------
+      Variations
+--------------------*/
+
+@invertedBackground: rgba(255, 255, 255, 0.85);
+@invertedTextColor: @textColor;
+
+/* Simple */
+@simpleZIndex: 1;
+@simpleStartBackground: rgba(0, 0, 0, 0);
+@simpleEndBackground: @background;
+@simpleInvertedStartBackground: rgba(255, 255, 255, 0);
+@simpleInvertedEndBackground: @invertedBackground;

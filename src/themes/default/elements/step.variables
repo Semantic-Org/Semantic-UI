@@ -1,0 +1,98 @@
+/*******************************
+             Step
+*******************************/
+
+/*-------------------
+      Element
+--------------------*/
+
+@verticalMargin: 0em;
+@horizontalMargin: 0em;
+
+@verticalPadding: 0.8em;
+@horizontalPadding: 1.5em;
+@leftPadding: @horizontalPadding + (@arrowSize /2);
+
+@transition:
+  background-color 0.1s ease,
+  opacity 0.1s ease,
+  color 0.1s ease,
+  box-shadow 0.1s ease
+;
+@borderRadius: @defaultBorderRadius;
+@lineHeight: 1.2;
+
+@backgroundColor: #FFFFFF;
+@background: @backgroundColor;
+@borderRadius: 0em;
+
+@boxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15);
+
+/* Icon */
+@iconDistance: 0.6em;
+@iconSize: 2em;
+@iconVerticalAlign: middle;
+
+/* Title */
+@titleFontFamily: @headerFont;
+@titleFontWeight: bold;
+@titleFontSize: 1.1em;
+@titleColor: @darkTextColor;
+
+/* Description */
+@descriptionDistance: 0.1em;
+@descriptionFontSize: 0.9em;
+@descriptionFontWeight: normal;
+@descriptionColor: @textColor;
+
+
+/* Arrow */
+@arrowWidth: 1em;
+@arrowSize: 1.5em;
+@arrowBackgroundColor: @backgroundColor;
+@arrowTopOffset: 50%;
+@arrowRightOffset: 0em;
+@arrowBorderColor: rgba(0, 0, 0, 0.1);
+
+
+/*-------------------
+       Group
+--------------------*/
+
+@stepsBorderRadius: @defaultBorderRadius;
+@stepsBackground: '';
+@stepsBoxShadow: '';
+
+
+/*-------------------
+       States
+--------------------*/
+
+/* Completed */
+@completedColor: @positiveColor;
+
+/* Hover */
+@hoverBackground: #FAFAFA;
+@hoverColor: @hoveredTextColor;
+
+/* Down */
+@downBackground: #F0F0F0;
+@downColor: @pressedTextColor;
+
+/* Active */
+@activeBackground: #F0F0F0;
+@activeColor: @linkColor;
+@activeIconColor: @darkTextColor;
+
+/* Active + Hover */
+@activeHoverBackground: #ECECEC;
+@activeHoverColor: @textColor;
+
+
+/* Disabled */
+@disabledBackground: @white;
+@disabledColor: @disabledTextColor;
+
+@small: 0.9rem;
+@medium: 1rem;
+@large: 1.1rem;
