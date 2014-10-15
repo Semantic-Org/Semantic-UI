@@ -1,13 +1,9 @@
-docs/
-node_modules
-node/server.json
+node_modules/
 test/coverage/
 coverage/
-build/**/**/site/
-src/build/
 src/**/site/
+dist/
 src/semantic.config
-build/**/**/semantic.config
 semantic.config
 
 # Numerous always-ignore extensions

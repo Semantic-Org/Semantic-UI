@@ -8,41 +8,83 @@
 */
 
 var
-  gulp    = require('gulp'),
-
-  // required components
-  batch   = require('gulp-batch'),
-  concat  = require('gulp-concat'),
-  gutil   = require('gulp-util'),
-  notify  = require('gulp-notify'),
-  plumber = require('gulp-plumber'),
-  sass    = require('gulp-less'),
-  uglify  = require('gulp-uglify'),
-  watch   = require('gulp-watch')
+  gulp             = require('gulp'),
 
   // read settings file
-  config = require('build.config')
+  config           = require('./build.json'),
+
+  // formats comments in output
+  variableComments = /[\s\S]+\/\* End Config \*\//m,
+  largeComment     = /(\/\*\*\*\*[\s\S]+?\*\/)/mg,
+  smallComment     = /(\/\*---[\s\S]+?\*\/)/mg,
+
+  // shorthand
+  base             = config.base,
+  source           = config.paths.source,
+  output           = config.paths.output,
+
+  // required node components
+  del              = require('del'),
+  fs               = require('fs'),
+
+  // required gulp components
+  autoprefixer     = require('gulp-autoprefixer'),
+  batch            = require('gulp-batch'),
+  concat           = require('gulp-concat'),
+  copy             = require('gulp-copy'),
+  csscomb          = require('gulp-csscomb'),
+  karma            = require('gulp-karma'),
+  less             = require('gulp-less'),
+  notify           = require('gulp-notify'),
+  plumber          = require('gulp-plumber'),
+  replace          = require('gulp-replace'),
+  sourcemaps       = require('gulp-sourcemaps'),
+  uglify           = require('gulp-uglify'),
+  util             = require('gulp-util'),
+  watch            = require('gulp-watch'),
+
+  settings         = {
+    prefix: {
+      browsers: config.browsers
+    }
+  }
+
 ;
 
+// Add base to all paths
+for(var path in source) {
+  if(source.hasOwnProperty(path)) {
+    source[path] = base + source[path];
+  }
+}
+for(var path in output) {
+  if(output.hasOwnProperty(path)) {
+    output[path] = base + output[path];
+  }
+}
 
 /*******************************
             Commands
 *******************************/
 
-// Watches for changes to site and recompiles
+
+/*--------------
+      User
+---------------*/
+
+// Watches for changes to site and recompilesz
 gulp.task('default', [
-  'watch site',
-  'watch themes'
+  'watch src'
 ]);
 
 // Rebuilds all files
-gulp.task('default', [
+gulp.task('build', [
   'build files'
 ]);
 
 // Rebuilds all files
 gulp.task('clean', [
-  'clean output'
+  'clean dist'
 ]);
 
 
@@ -70,69 +112,55 @@ gulp.task('release', [
       User
 ---------------*/
 
-// recompile from site change
-gulp.task('site changed', function(files) {
-  console.log('site changed', files);
+// cleans distribution files
+gulp.task('clean dist', function(callback) {
+  del([
+    config.output.compressed,
+    config.output.minified,
+    config.output.packaged
+  ], callback);
 });
 
-// recompile from packaged theme change
-gulp.task('theme changed', function(files) {
-  console.log(files);
-});
 
-// recompile less from definition change
-gulp.task('library definition changed', function(files) {
-  console.log(files);
+gulp.task('watch src', function () {
 
-  // compile less
+  // watch for changes in site
 
-  // prefix css file
+  gulp.watch(source.site + '**/*.{overrides,variables}', function(file) {
+    var path;
 
-  // update concat file
+    // recompile definition
+    path = util.replaceExtension(file.path, '.less');
+    path = path.replace(source.site, source.definitions);
+
+    if( fs.existsSync(path) ) {
+      console.log('Creating file', path);
+      return gulp.src(path)
+        .pipe(plumber())
+        .pipe(less())
+        .pipe(autoprefixer(settings.prefix))
+        .pipe(replace(variableComments, ''))
+        .pipe(replace(largeComment, '\n\n$1\n'))
+        .pipe(csscomb())
+        .pipe(gulp.dest(output.uncompressed))
+      ;
+    }
+    else {
+      console.log('Definition file not found', path);
+    }
+  });
 
 
-});
 
-// clean output directory
-gulp.task('clean output', function(files) {
-  console.log(files);
 
 });
 
 
 /*--------------
-    Library
+     Library
 ---------------*/
 
 /* These tasks are designed for updates to the core library */
-
-// recompile from library changed
-gulp.task('library module changed', function () {
-  // console.log("Warning: Edited Library File. I hope you know what you're doing")
-
-});
-
-// Build release
-gulp.task('build release', function () {
-
-});
-
-
-/*--------------
-     Watch
----------------*/
-
-gulp.task('watch site', function () {
-  watch('src/_site/**/*(.overrides|.variables)', function (files, callback) {
-    gulp.start('site files changed', callback);
-  });
-});
-
-gulp.task('watch themes', function () {
-  watch('themes/**/*(.overrides|.variables)', function (files, callback) {
-    gulp.start('theme files changed', callback);
-  });
-});
 
 gulp.task('watch module definition', function () {
   watch('src/definitions/**/*.js', function (files, callback) {
@@ -145,3 +173,13 @@ gulp.task('watch definitions', function () {
     gulp.start('library definition changed', callback);
   });
 });
+
+// Build release
+gulp.task('build release', function () {
+
+});
+
+
+/*--------------
+     Watch
+---------------*/

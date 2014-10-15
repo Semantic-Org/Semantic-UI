@@ -10,14 +10,14 @@
 */
 
 /*******************************
-           Folders
+            Folders
 *******************************/
 
 /* Path to theme packages */
-@packagesFolder : 'themes/packages';
+@packagesFolder : 'themes/';
 
 /* Path to site override folder */
-@userFolder  : 'themes/_site';
+@userFolder  : '_site/';
 
 
 /*******************************
@@ -121,3 +121,5 @@
   @import "@{packagesFolder}/@{theme}/@{type}s/@{element}.overrides";
   @import "@{userFolder}/@{type}s/@{element}.overrides";
 }
+
+/* End Config */
