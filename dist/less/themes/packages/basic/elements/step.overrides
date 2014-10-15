@@ -1,7 +1,0 @@
-/*******************************
-           Overrides
-*******************************/
-
-.ui.steps .step:after {
-  display: none !important;
-}
