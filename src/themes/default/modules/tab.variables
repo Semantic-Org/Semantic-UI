@@ -6,7 +6,8 @@
 @loadingMinHeight: 250px;
 @loadingText: 'Loading...';
 @loadingTextDistance: 50px;
-@loadingBackground: url(../../themes/packages/default/assets/images/loader-large.gif) no-repeat 50% 0px;
+
+@loadingBackground: url("@{imagePath}/loader-large.gif") no-repeat 50% 0px;
 @loadingTextColor: @lightTextColor;
 @loadingAlign: center;
 

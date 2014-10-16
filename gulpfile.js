@@ -8,15 +8,10 @@
 */
 
 var
-  gulp             = require('gulp'),
+  gulp             = require('gulp-help')(require('gulp')),
 
   // read settings file
   config           = require('./build.json'),
-
-  // formats comments in output
-  variableComments = /[\s\S]+\/\* End Config \*\//m,
-  largeComment     = /(\/\*\*\*\*[\s\S]+?\*\/)/mg,
-  smallComment     = /(\/\*---[\s\S]+?\*\/)/mg,
 
   // shorthand
   base             = config.base,
@@ -26,17 +21,19 @@ var
   // required node components
   del              = require('del'),
   fs               = require('fs'),
+  path             = require('path'),
 
   // required gulp components
   autoprefixer     = require('gulp-autoprefixer'),
-  batch            = require('gulp-batch'),
   concat           = require('gulp-concat'),
   copy             = require('gulp-copy'),
   csscomb          = require('gulp-csscomb'),
   karma            = require('gulp-karma'),
   less             = require('gulp-less'),
+  minifyCSS        = require('gulp-minify-css'),
   notify           = require('gulp-notify'),
   plumber          = require('gulp-plumber'),
+  rename           = require('gulp-rename'),
   replace          = require('gulp-replace'),
   sourcemaps       = require('gulp-sourcemaps'),
   uglify           = require('gulp-uglify'),
@@ -44,65 +41,69 @@ var
   watch            = require('gulp-watch'),
 
   settings         = {
+    minify: {
+      processImport: false,
+      keepSpecialComments: 0
+    },
     prefix: {
-      browsers: config.browsers
+      browsers: [
+        "last 2 version",
+        "> 1%",
+        "opera 12.1",
+        "safari 6",
+        "ie 9",
+        "bb 10",
+        "android 4"
+      ]
+    },
+    minJS: {
+      extname: '.min.js'
+    },
+    minCSS: {
+      extname: '.min.css'
     }
+  },
+
+  comments = {
+    // remove variable comments from css
+    variables : {
+      in  : /[\s\S]+\/\* End Config \*\//m,
+      out : '',
+    },
+    // adds spacing around comments
+    large: {
+      in  : /(\/\*\*\*\*[\s\S]+?\*\/)/mg,
+      out : '\n\n$1\n'
+    },
+    small: {
+      in  : /(\/\*---[\s\S]+?\*\/)/mg,
+      out : '\n$1\n'
+    },
+    tiny: {
+      in  : /(\/\* [\s\S]+? \*\/)/mg,
+      out : '\n$1'
+    }
+  },
+
+  assetPaths = {
+    uncompressed : path.relative(output.uncompressed, output.themes),
+    compressed   : path.relative(output.compressed, output.themes),
+    packaged     : path.relative(output.packaged, output.themes)
   }
 
 ;
 
 // Add base to all paths
-for(var path in source) {
-  if(source.hasOwnProperty(path)) {
-    source[path] = base + source[path];
+for(var folder in source) {
+  if(source.hasOwnProperty(folder)) {
+    source[folder] = base + source[folder];
   }
 }
-for(var path in output) {
-  if(output.hasOwnProperty(path)) {
-    output[path] = base + output[path];
+for(var folder in output) {
+  if(output.hasOwnProperty(folder)) {
+    output[folder] = base + output[folder];
   }
 }
-
-/*******************************
-            Commands
-*******************************/
-
-
-/*--------------
-      User
----------------*/
-
-// Watches for changes to site and recompilesz
-gulp.task('default', [
-  'watch src'
-]);
-
-// Rebuilds all files
-gulp.task('build', [
-  'build files'
-]);
-
-// Rebuilds all files
-gulp.task('clean', [
-  'clean dist'
-]);
-
-
-/*--------------
-    Maintainer
----------------*/
-
-gulp.task('watch all', [
-  'watch site',
-  'watch themes',
-  'watch definitions',
-  'watch module definitions'
-]);
-
-gulp.task('release', [
-  'build release'
-]);
-
 
 /*******************************
              Tasks
@@ -112,8 +113,13 @@ gulp.task('release', [
       User
 ---------------*/
 
+gulp.task('default', 'Defaults task is watch', [
+  'watch'
+]);
+
+
 // cleans distribution files
-gulp.task('clean dist', function(callback) {
+gulp.task('clean', 'Clean dist folder', function(callback) {
   del([
     config.output.compressed,
     config.output.minified,
@@ -122,36 +128,64 @@ gulp.task('clean dist', function(callback) {
 });
 
 
-gulp.task('watch src', function () {
+gulp.task('watch', 'Watch source directory for changes', function () {
 
-  // watch for changes in site
+  gulp.watch([
+    source.definitions   + '**/*.less',
+    source.site          + '**/*.{overrides,variables}',
+    source.themes        + '**/*.{overrides,variables}'
+  ], function(file) {
 
-  gulp.watch(source.site + '**/*.{overrides,variables}', function(file) {
-    var path;
+    var
+      path,
+      css,
+      uncompressed,
+      compressed,
+      assets
+    ;
 
-    // recompile definition
+    // recompile related definition file
     path = util.replaceExtension(file.path, '.less');
+
+    path = path.replace(source.themes, source.definitions);
     path = path.replace(source.site, source.definitions);
 
+    console.log(path);
+
     if( fs.existsSync(path) ) {
-      console.log('Creating file', path);
-      return gulp.src(path)
+
+      // copy assets
+      assets = gulp.src(source.assets)
+        .pipe(gulp.dest(output.themes))
+      ;
+
+      // replace paths
+
+      // build less
+      css = gulp.src(path)
         .pipe(plumber())
-        .pipe(less())
+        .pipe(less(settings.less))
+        .pipe(replace(comments.variables.in, comments.variables.out))
+        .pipe(replace(comments.large.in, comments.large.out))
+        .pipe(replace(comments.small.in, comments.small.out))
+        .pipe(replace(comments.tiny.in, comments.tiny.out))
         .pipe(autoprefixer(settings.prefix))
-        .pipe(replace(variableComments, ''))
-        .pipe(replace(largeComment, '\n\n$1\n'))
-        .pipe(csscomb())
+      ;
+      uncompressed = css
+        .pipe(replace(comments.tiny.in, comments.tiny.out))
         .pipe(gulp.dest(output.uncompressed))
       ;
+      compressed = css
+        .pipe(minifyCSS(settings.minify))
+        .pipe(rename(settings.minCSS))
+        .pipe(gulp.dest(output.compressed))
+      ;
+
     }
     else {
       console.log('Definition file not found', path);
     }
   });
-
-
-
 
 });
 
@@ -162,7 +196,7 @@ gulp.task('watch src', function () {
 
 /* These tasks are designed for updates to the core library */
 
-gulp.task('watch module definition', function () {
+gulp.task('rtl', 'Create RTL Release', function () {
   watch('src/definitions/**/*.js', function (files, callback) {
     gulp.start('library module changed', callback);
   });
@@ -176,6 +210,10 @@ gulp.task('watch definitions', function () {
 
 // Build release
 gulp.task('build release', function () {
+
+  // create RTL release
+
+  // create bower releases
 
 });
 

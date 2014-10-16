@@ -3,13 +3,6 @@
 *******************************/
 
 /*-------------------
-        Paths
---------------------*/
-
-@imagePath : "../../themes/packages/default/assets/images";
-@fontPath  : "../../themes/packages/default/assets/fonts";
-
-/*-------------------
        Fonts
 --------------------*/
 
@@ -122,6 +115,13 @@
 /*******************************
            Power-User
 *******************************/
+
+/*-------------------
+        Paths
+--------------------*/
+
+@imagePath : "../../themes/default/assets/images";
+@fontPath  : "../../themes/default/assets/fonts";
 
 /*-------------------
        Icons

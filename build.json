@@ -4,13 +4,15 @@
   "paths": {
     "source": {
       "definitions" : "src/definitions/",
+      "site"        : "src/_site/",
       "themes"      : "src/themes/",
-      "site"        : "src/_site/"
+      "assets"      : "src/themes/**/assets/**"
     },
     "output": {
-      "uncompressed" : "dist/uncompressed/",
-      "minified"     : "dist/minified/",
-      "packaged"     : "dist/packaged/"
+      "uncompressed" : "dist/elements/",
+      "compressed"   : "dist/elements/",
+      "packaged"     : "dist/packaged/",
+      "themes"       : "dist/themes"
     }
   },
 
