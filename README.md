@@ -49,6 +49,7 @@ If you prefer to download the whole kit as a zip, it is so conveniently packaged
 ### CDN Resources
 
 Semantic is also available from CDN
+* [Hosted on cdnjs](https://cdnjs.com/libraries/semantic-ui)
 * [Hosted on JSDelivr](http://www.jsdelivr.com/#!semantic-ui)
 * [BootCDN](http://open.bootcss.com/semantic-ui/) (Chinese)
 
