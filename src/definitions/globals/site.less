@@ -17,14 +17,6 @@
 @element : 'site';
 
 @import '../../semantic.config';
-
-/*******************************
-           Web Fonts
-*******************************/
-
-.loadFonts() when (@importGoogleFonts) {
-  @import (css) 'http://fonts.googleapis.com/css?family=@{googleFontName}:@{googleFontSizes}';
-}
 .loadFonts();
 
 /*******************************
@@ -112,4 +104,7 @@ a:hover {
   color: @highlightColor;
 }
 
+.loadFonts() when (@importGoogleFonts) {
+  @import (css) 'http://fonts.googleapis.com/css?family=@{googleFontName}:@{googleFontSizes}';
+}
 .loadUIOverrides();

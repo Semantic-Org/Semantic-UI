@@ -3,17 +3,18 @@
 
   "paths": {
     "source": {
+      "config"      : "src/semantic.config",
       "definitions" : "src/definitions/",
       "site"        : "src/_site/",
-      "themes"      : "src/themes/",
-      "assets"      : "src/themes/**/assets/**"
+      "themes"      : "src/themes/"
     },
     "output": {
-      "uncompressed" : "dist/elements/",
-      "compressed"   : "dist/elements/",
-      "packaged"     : "dist/packaged/",
+      "packaged"     : "dist/",
+      "uncompressed" : "dist/components/",
+      "compressed"   : "dist/components/",
       "themes"       : "dist/themes"
-    }
+    },
+    "clean"        : "dist/"
   }
 
 }
