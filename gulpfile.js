@@ -93,7 +93,7 @@ var
 
 ;
 
-// Add base to all paths
+// Add base value to all paths
 for(var folder in source) {
   if(source.hasOwnProperty(folder)) {
     source[folder] = base + source[folder];
@@ -109,26 +109,7 @@ for(var folder in output) {
              Tasks
 *******************************/
 
-/*--------------
-      User
----------------*/
-
-gulp.task('default', 'Defaults task is watch', [
-  'watch'
-]);
-
-
-// cleans distribution files
-gulp.task('clean', 'Clean dist folder', function(callback) {
-  del([
-    config.output.compressed,
-    config.output.minified,
-    config.output.packaged
-  ], callback);
-});
-
-
-gulp.task('watch', 'Watch source directory for changes', function () {
+gulp.task('watch', 'Watch source directory for changes (Default Task)', function () {
 
   gulp.watch([
     source.definitions   + '**/*.less',
@@ -144,13 +125,15 @@ gulp.task('watch', 'Watch source directory for changes', function () {
       assets
     ;
 
-    // recompile related definition file
+    // recompile only definition file
     path = util.replaceExtension(file.path, '.less');
-
     path = path.replace(source.themes, source.definitions);
     path = path.replace(source.site, source.definitions);
 
-    console.log(path);
+    // find asset path
+    assetPaths.source = path.relative(output.uncompressed, output.themes);
+
+    console.log(assetPaths.source);
 
     if( fs.existsSync(path) ) {
 
@@ -158,8 +141,6 @@ gulp.task('watch', 'Watch source directory for changes', function () {
       assets = gulp.src(source.assets)
         .pipe(gulp.dest(output.themes))
       ;
-
-      // replace paths
 
       // build less
       css = gulp.src(path)
@@ -189,31 +170,57 @@ gulp.task('watch', 'Watch source directory for changes', function () {
 
 });
 
+// Builds all files
+gulp.task('build', 'Builds all files from source to dist', function(callback) {
+
+});
+
+
+
+// cleans distribution files
+gulp.task('clean', 'Clean dist folder', function(callback) {
+  del([
+    config.output.compressed,
+    config.output.minified,
+    config.output.packaged
+  ], callback);
+});
+
+gulp.task('version', 'Displays current version of Semantic', function(callback) {
+
+});
+
+gulp.task('default', false, [
+  'watch'
+]);
+
 
 /*--------------
-     Library
+   Maintainer
 ---------------*/
 
-/* These tasks are designed for updates to the core library */
+/* Bump Version */
+gulp.task('bump', false, function () {
 
-gulp.task('rtl', 'Create RTL Release', function () {
-  watch('src/definitions/**/*.js', function (files, callback) {
-    gulp.start('library module changed', callback);
-  });
+  // Create RTL Release
+
+  // Create Node Release
+
+
 });
 
-gulp.task('watch definitions', function () {
-  watch('src/definitions/**/*.less', function (files, callback) {
-    gulp.start('library definition changed', callback);
-  });
-});
+/* Release */
+gulp.task('release', false, function () {
 
-// Build release
-gulp.task('build release', function () {
+  // Create SCSS Version
 
-  // create RTL release
+  // Create RTL Release
 
-  // create bower releases
+  // Create Node Release
+
+  // Create Bower Releases
+
+
 
 });
 
