@@ -305,7 +305,7 @@ gulp.task('version', 'Displays current version of Semantic', function(callback) 
 ---------------*/
 
 gulp.task('check install', false, function () {
-  if(0) {
+  if(1) {
     setTimeout(function() {
       gulp.start('install');
     }, 100);
@@ -322,10 +322,12 @@ gulp.task('install', 'Set-up project for first time', function () {
     gulp
       .src(defaults.paths.source.config)
       .pipe(prompt.prompt(questions.setup, function( answers ) {
-        console.log(answers);
         console.info('Creating site folder');
         console.info('Creating theme config file (semantic.config)');
         console.info('Creating build config file (semantic.json)');
+      }))
+      .pipe(prompt.prompt(questions.site, function( answers ) {
+        console.info('Creating site variables file');
       }))
     ;
 
