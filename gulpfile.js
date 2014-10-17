@@ -7,37 +7,32 @@
             Set-up
 *******************************/
 
+
 var
-  gulp             = require('gulp-help')(require('gulp')),
+  gulp         = require('gulp-help')(require('gulp')),
 
-  // read settings file
-  config           = require('./build.json'),
+  // node components & oddballs
+  del          = require('del'),
+  fs           = require('fs'),
+  path         = require('path'),
+  console      = require('better-console'),
 
-  // shorthand
-  base             = config.base,
-  source           = config.paths.source,
-  output           = config.paths.output,
-  clean            = config.paths.clean,
-
-  // required node components (& oddballs)
-  del   = require('del'),
-  fs    = require('fs'),
-  path  = require('path'),
-  clone = require('gulp-clone'),
-
-  // required gulp components
+  // gulp dependencies
   autoprefixer = require('gulp-autoprefixer'),
+  clone        = require('gulp-clone'),
   concat       = require('gulp-concat'),
   concatCSS    = require('gulp-concat-css'),
   copy         = require('gulp-copy'),
   debug        = require('gulp-debug'),
   flatten      = require('gulp-flatten'),
+  header       = require('gulp-header'),
   karma        = require('gulp-karma'),
   less         = require('gulp-less'),
   minifyCSS    = require('gulp-minify-css'),
   notify       = require('gulp-notify'),
   plumber      = require('gulp-plumber'),
   print        = require('gulp-print'),
+  prompt       = require('gulp-prompt'),
   rename       = require('gulp-rename'),
   replace      = require('gulp-replace'),
   sourcemaps   = require('gulp-sourcemaps'),
@@ -45,71 +40,33 @@ var
   util         = require('gulp-util'),
   watch        = require('gulp-watch'),
 
-  settings         = {
-    del: {
-      silent: true
-    },
-    minify: {
-      processImport: false,
-      keepSpecialComments: 0
-    },
-    prefix: {
-      browsers: [
-        "last 2 version",
-        "> 1%",
-        "opera 12.1",
-        "safari 6",
-        "ie 9",
-        "bb 10",
-        "android 4"
-      ]
-    },
-    minJS: {
-      extname: '.min.js'
-    },
-    minCSS: {
-      extname: '.min.css'
-    }
-  },
+  // settings
+  config       = require('./semantic.json'),
+  package      = require('./package.json'),
 
-  comments = {
-    // remove variable comments from css
-    variables : {
-      in  : /\/\*[\s\S]+\/\* End Config \*\//m,
-      out : '',
-    },
-    // adds spacing around comments
-    large: {
-      in  : /(\/\*\*\*\*[\s\S]+?\*\/)/mg,
-      out : '\n\n$1\n'
-    },
-    small: {
-      in  : /(\/\*---[\s\S]+?\*\/)/mg,
-      out : '\n$1\n'
-    },
-    tiny: {
-      in  : /(\/\* [\s\S]+? \*\/)/mg,
-      out : '\n$1'
-    }
-  },
+  // config
+  banner       = require('./tasks/banner'),
+  comments     = require('./tasks/comments'),
+  defaults     = require('./tasks/defaults'),
+  log          = require('./tasks/log'),
+  questions    = require('./tasks/questions'),
+  settings     = require('./tasks/settings'),
 
-  log = {
-    created: function(file) {
-      return "Created: " + file;
-    },
-    modified: function(file) {
-      return "Modified: " + file;
-    }
-  },
+  // shorthand
+  base         = config.base,
+  clean        = config.paths.clean,
+  output       = config.paths.output,
+  source       = config.paths.source,
 
+  // derived
   assetPaths = {
     uncompressed : path.relative(output.uncompressed, output.themes),
     compressed   : path.relative(output.compressed, output.themes),
     packaged     : path.relative(output.packaged, output.themes)
   },
 
+  // temporary
   folder
-
 ;
 
 // Add base directory
@@ -127,13 +84,22 @@ for(folder in output) {
 
 clean = base + clean;
 
+
+
 /*******************************
              Tasks
 *******************************/
 
+gulp.task('default', false, [
+  'check install'
+]);
+
 gulp.task('watch', 'Watch for site/theme changes (Default Task)', function () {
 
-  return gulp
+  console.log('Watching source files');
+
+  // watching changes in style
+  gulp
     .watch([
       source.config,
       source.definitions   + '**/*.less',
@@ -162,15 +128,10 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function () {
 
       if( fs.existsSync(srcPath) ) {
 
-        // copy assets
-        gulp.src(source.themes + '**/assets/**')
-          .pipe(gulp.dest(output.themes))
-        ;
-
         // unified css stream
         stream = gulp.src(srcPath)
           .pipe(plumber())
-          .pipe(sourcemaps.init())
+          //.pipe(sourcemaps.init())
           .pipe(less(settings.less))
           .pipe(replace(comments.variables.in, comments.variables.out))
           .pipe(replace(comments.large.in, comments.large.out))
@@ -183,22 +144,10 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function () {
         uncompressedStream = stream.pipe(clone());
         compressedStream   = stream.pipe(clone());
 
-        compressedStream = stream
-          .pipe(clone())
-          .pipe(replace(assetPaths.source, assetPaths.compressed))
-          .pipe(minifyCSS(settings.minify))
-          .pipe(rename(settings.minCSS))
-          .pipe(sourcemaps.write('/', {includeContent: true, sourceRoot: '/src'}))
-          .pipe(gulp.dest(output.compressed))
-          .pipe(print(log.created))
-          .on('end', function() {
-            gulp.start('package compressed css');
-          })
-        ;
-
         uncompressedStream
           .pipe(replace(assetPaths.source, assetPaths.uncompressed))
-          .pipe(sourcemaps.write('/', {includeContent: true, sourceRoot: '/src'}))
+          //.pipe(sourcemaps.write('/', settings.sourcemap))
+          .pipe(header(banner, settings.header))
           .pipe(gulp.dest(output.uncompressed))
           .pipe(print(log.created))
           .on('end', function() {
@@ -206,10 +155,58 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function () {
           })
         ;
 
+        compressedStream = stream
+          .pipe(clone())
+          .pipe(replace(assetPaths.source, assetPaths.compressed))
+          .pipe(minifyCSS(settings.minify))
+          .pipe(rename(settings.minCSS))
+          //.pipe(sourcemaps.write('/', settings.sourcemap))
+          .pipe(header(banner, settings.header))
+          .pipe(gulp.dest(output.compressed))
+          .pipe(print(log.created))
+          .on('end', function() {
+            gulp.start('package compressed css');
+          })
+        ;
+
       }
       else {
-        console.log('Definition file not found', path);
+        console.error('Definition file not found', path);
       }
+    })
+  ;
+
+  // watch changes in assets
+  gulp
+    .watch([
+      source.themes   + '**/assets/**'
+    ], function(file) {
+      // copy assets
+      gulp.src(file.path, { base: source.themes })
+        .pipe(gulp.dest(output.themes))
+        .pipe(print(log.created))
+      ;
+    })
+  ;
+
+  // watch changes in js
+  gulp
+    .watch([
+      source.definitions   + '**/*.js'
+    ], function(file) {
+      gulp.src(file.path)
+        .pipe(gulp.dest(output.uncompressed))
+        .pipe(print(log.created))
+        .pipe(sourcemaps.init())
+        .pipe(uglify(settings.uglify))
+        .pipe(rename(settings.minJS))
+        .pipe(gulp.dest(output.compressed))
+        .pipe(print(log.created))
+        .on('end', function() {
+          gulp.start('package compressed js');
+          gulp.start('package uncompressed js');
+        })
+      ;
     })
   ;
 
@@ -223,29 +220,34 @@ gulp.task('build', 'Builds all files from source', function(callback) {
     uncompressedStream
   ;
 
+  console.info('Building Semantic');
+
   // copy assets
   gulp.src(source.themes + '**/assets/**')
     .pipe(gulp.dest(output.themes))
   ;
 
   // javascript stream
-  stream = gulp.src(source.definitions + '**/*.js')
+  gulp.src(source.definitions + '**/*.js')
     .pipe(flatten())
-    .pipe(sourcemaps.init())
     .pipe(gulp.dest(output.uncompressed))
-    .pipe(uglify())
+    .pipe(print(log.created))
+    // .pipe(sourcemaps.init())
+    .pipe(uglify(settings.uglify))
     .pipe(rename(settings.minJS))
-    .pipe(sourcemaps.write('/', {includeContent: true, sourceRoot: '/src'}))
+    .pipe(header(banner, settings.header))
     .pipe(gulp.dest(output.compressed))
+    .pipe(print(log.created))
     .on('end', function() {
-      gulp.start('package js');
+      gulp.start('package compressed js');
+      gulp.start('package uncompressed js');
     })
   ;
 
   // unified css stream
   stream = gulp.src(source.definitions + '**/*.less')
     .pipe(plumber())
-    .pipe(sourcemaps.init())
+    //.pipe(sourcemaps.init())
     .pipe(less(settings.less))
     .pipe(flatten())
     .pipe(replace(comments.variables.in, comments.variables.out))
@@ -259,22 +261,10 @@ gulp.task('build', 'Builds all files from source', function(callback) {
   uncompressedStream = stream.pipe(clone());
   compressedStream   = stream.pipe(clone());
 
-  compressedStream = stream
-    .pipe(clone())
-    .pipe(replace(assetPaths.source, assetPaths.compressed))
-    .pipe(minifyCSS(settings.minify))
-    .pipe(rename(settings.minCSS))
-    .pipe(sourcemaps.write('/', {includeContent: true, sourceRoot: '/src'}))
-    .pipe(gulp.dest(output.compressed))
-    .pipe(print(log.created))
-    .on('end', function() {
-      gulp.start('package compressed css');
-    })
-  ;
-
   uncompressedStream
     .pipe(replace(assetPaths.source, assetPaths.uncompressed))
-    .pipe(sourcemaps.write('/', {includeContent: true, sourceRoot: '/src'}))
+    //.pipe(sourcemaps.write('/', settings.sourcemap))
+    .pipe(header(banner, settings.header))
     .pipe(gulp.dest(output.uncompressed))
     .pipe(print(log.created))
     .on('end', function() {
@@ -282,9 +272,22 @@ gulp.task('build', 'Builds all files from source', function(callback) {
     })
   ;
 
+  compressedStream = stream
+    .pipe(clone())
+    .pipe(replace(assetPaths.source, assetPaths.compressed))
+    .pipe(minifyCSS(settings.minify))
+    .pipe(rename(settings.minCSS))
+    //.pipe(sourcemaps.write('/', settings.sourcemap))
+    .pipe(header(banner, settings.header))
+    .pipe(gulp.dest(output.compressed))
+    .pipe(print(log.created))
+    .on('end', function() {
+      gulp.start('package compressed css');
+    })
+  ;
+
+
 });
-
-
 
 // cleans distribution files
 gulp.task('clean', 'Clean dist folder', function(callback) {
@@ -293,8 +296,48 @@ gulp.task('clean', 'Clean dist folder', function(callback) {
 });
 
 gulp.task('version', 'Displays current version of Semantic', function(callback) {
-  var package = require('./package.json');
   console.log('Semantic UI ' + package.version);
+});
+
+
+/*--------------
+     Config
+---------------*/
+
+gulp.task('check install', false, function () {
+  if(0) {
+    setTimeout(function() {
+      gulp.start('install');
+    }, 100);
+  }
+  else {
+    gulp.start('watch');
+  }
+});
+
+gulp.task('install', 'Set-up project for first time', function () {
+  if( !fs.existsSync(source.config) || !fs.existsSync(source.site) ) {
+
+    console.clear();
+    gulp
+      .src(defaults.paths.source.config)
+      .pipe(prompt.prompt(questions.setup, function( answers ) {
+        console.log(answers);
+        console.info('Creating site folder');
+        console.info('Creating theme config file (semantic.config)');
+        console.info('Creating build config file (semantic.json)');
+      }))
+    ;
+
+  }
+  else {
+    console.log('has config');
+  }
+  // !
+
+});
+gulp.task('config', 'Configure basic site settings', function () {
+
 });
 
 
@@ -302,9 +345,9 @@ gulp.task('version', 'Displays current version of Semantic', function(callback) 
     Internal
 ---------------*/
 
+
 gulp.task('package uncompressed css', false, function() {
-  return gulp.src(output.uncompressed + '**/!(*.min|*.map)')
-    .pipe(debug({verbose: true}))
+  return gulp.src(output.uncompressed + '**/!(*.min|*.map).css')
     .pipe(replace(assetPaths.uncompressed, assetPaths.packaged))
     .pipe(concatCSS('semantic.css'))
       .pipe(gulp.dest(output.packaged))
@@ -312,36 +355,35 @@ gulp.task('package uncompressed css', false, function() {
   ;
 });
 gulp.task('package compressed css', false, function() {
-  return gulp.src(output.compressed + '**/**.min.css')
-    .pipe(debug({verbose: true}))
-    .pipe(replace(assetPaths.compressed, assetPaths.packaged))
-    .pipe(concatCSS('semantic.min.css'))
-      .pipe(gulp.dest(output.packaged))
-      .pipe(print(log.created))
-  ;
-});
-
-gulp.task('package uncompressed javascript', false, function() {
-  return gulp.src(output.uncompressed + '**/*.js')
+  return gulp.src(output.uncompressed + '**/!(*.min|*.map).css')
     .pipe(replace(assetPaths.uncompressed, assetPaths.packaged))
-    .pipe(concatCSS('semantic.js'))
-      .pipe(gulp.dest(output.packaged))
-      .pipe(print(log.created))
-  ;
-});
-gulp.task('package compressed javascript', false, function() {
-  return gulp.src(output.compressed + '**/*.min.js')
-    .pipe(replace(assetPaths.compressed, assetPaths.packaged))
-    .pipe(concatCSS('semantic.min.js'))
+    .pipe(concatCSS('semantic.min.css'))
+      .pipe(minifyCSS(settings.minify))
+      .pipe(header(banner, settings.header))
       .pipe(gulp.dest(output.packaged))
       .pipe(print(log.created))
   ;
 });
 
-
-gulp.task('default', false, [
-  'watch'
-]);
+gulp.task('package uncompressed js', false, function() {
+  return gulp.src(output.uncompressed + '**/!(*.min|*.map).js')
+    .pipe(replace(assetPaths.uncompressed, assetPaths.packaged))
+    .pipe(concat('semantic.js'))
+      .pipe(header(banner, settings.header))
+      .pipe(gulp.dest(output.packaged))
+      .pipe(print(log.created))
+  ;
+});
+gulp.task('package compressed js', false, function() {
+  return gulp.src(output.uncompressed + '**/!(*.min|*.map).js')
+    .pipe(replace(assetPaths.uncompressed, assetPaths.packaged))
+    .pipe(concat('semantic.min.js'))
+      .pipe(uglify(settings.uglify))
+      .pipe(header(banner, settings.header))
+      .pipe(gulp.dest(output.packaged))
+      .pipe(print(log.created))
+  ;
+});
 
 
 /*--------------
