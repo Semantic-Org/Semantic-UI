@@ -58,7 +58,8 @@ var
   output       = config.paths.output,
   source       = config.paths.source,
 
-  // derived
+  // local
+  overwrite  = false,
   assetPaths = {
     uncompressed : path.relative(output.uncompressed, output.themes),
     compressed   : path.relative(output.compressed, output.themes),
@@ -305,7 +306,7 @@ gulp.task('version', 'Displays current version of Semantic', function(callback) 
 ---------------*/
 
 gulp.task('check install', false, function () {
-  if(1) {
+  if( !fs.existsSync(source.config) || !fs.existsSync(source.site) ) {
     setTimeout(function() {
       gulp.start('install');
     }, 100);
@@ -316,27 +317,25 @@ gulp.task('check install', false, function () {
 });
 
 gulp.task('install', 'Set-up project for first time', function () {
-  if( !fs.existsSync(source.config) || !fs.existsSync(source.site) ) {
-
-    console.clear();
-    gulp
-      .src(defaults.paths.source.config)
-      .pipe(prompt.prompt(questions.setup, function( answers ) {
-        console.info('Creating site folder');
-        console.info('Creating theme config file (semantic.config)');
-        console.info('Creating build config file (semantic.json)');
-      }))
-      .pipe(prompt.prompt(questions.site, function( answers ) {
-        console.info('Creating site variables file');
-      }))
-    ;
-
-  }
-  else {
-    console.log('has config');
-  }
-  // !
-
+  console.clear();
+  gulp
+    .src(defaults.paths.source.config)
+    .pipe(prompt.prompt(questions.setup, function( answers ) {
+      console.clear();
+      console.log(answers);
+      console.log('Beginning install script...');
+      console.info('Creating site folder');
+      console.info('Creating theme config file (semantic.config)');
+      console.info('Creating build config file (semantic.json)');
+      console.log('');
+      console.log('');
+    }))
+    .pipe(prompt.prompt(questions.site, function( answers ) {
+      console.clear();
+      console.log('Creating site theme file');
+      console.info('Creating site variables file');
+    }))
+  ;
 });
 gulp.task('config', 'Configure basic site settings', function () {
 

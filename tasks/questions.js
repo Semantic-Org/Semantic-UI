@@ -1,5 +1,5 @@
 /*******************************
-         Set-up Questions
+        Install Questions
 *******************************/
 
 var defaults, when;
@@ -34,14 +34,14 @@ module.exports = {
     {
       type: 'list',
       name: 'install',
-      message: 'Set-up Semantic UI',
+      message: 'Set-up Themed Semantic UI (First-Run)',
       choices: [
         {
-          name: 'Automatic (Use defaults locations and all packages)',
+          name: 'Automatic (Use defaults locations and include all packages)',
           value: 'auto'
         },
         {
-          name: 'Express (Set components and output folder)',
+          name: 'Express (Set component list and output folder)',
           value: 'express'
         },
         {
