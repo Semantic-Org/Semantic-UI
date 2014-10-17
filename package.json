@@ -29,6 +29,7 @@
     "gulp-concat-css": "^1.0.0",
     "gulp-copy": "0.0.2",
     "gulp-csscomb": "^3.0.3",
+    "gulp-debug": "^1.0.1",
     "gulp-flatten": "0.0.4",
     "gulp-help": "^1.2.0",
     "gulp-karma": "0.0.4",
@@ -43,6 +44,7 @@
     "gulp-uglify": "^1.0.1",
     "gulp-util": "^3.0.1",
     "gulp-watch": "^1.1.0",
+    "require-dir": "^0.1.0",
     "rtlcss": "^1.4.0"
   }
 }

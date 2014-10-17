@@ -30,6 +30,7 @@ var
   concat       = require('gulp-concat'),
   concatCSS    = require('gulp-concat-css'),
   copy         = require('gulp-copy'),
+  debug        = require('gulp-debug'),
   flatten      = require('gulp-flatten'),
   karma        = require('gulp-karma'),
   less         = require('gulp-less'),
@@ -178,7 +179,7 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function () {
           .pipe(autoprefixer(settings.prefix))
         ;
 
-        // split compressed/uncompressed streams
+        // use 2 concurrent streams from same source
         uncompressedStream = stream.pipe(clone());
         compressedStream   = stream.pipe(clone());
 
@@ -227,6 +228,20 @@ gulp.task('build', 'Builds all files from source', function(callback) {
     .pipe(gulp.dest(output.themes))
   ;
 
+  // javascript stream
+  stream = gulp.src(source.definitions + '**/*.js')
+    .pipe(flatten())
+    .pipe(sourcemaps.init())
+    .pipe(gulp.dest(output.uncompressed))
+    .pipe(uglify())
+    .pipe(rename(settings.minJS))
+    .pipe(sourcemaps.write('/', {includeContent: true, sourceRoot: '/src'}))
+    .pipe(gulp.dest(output.compressed))
+    .on('end', function() {
+      gulp.start('package js');
+    })
+  ;
+
   // unified css stream
   stream = gulp.src(source.definitions + '**/*.less')
     .pipe(plumber())
@@ -240,7 +255,7 @@ gulp.task('build', 'Builds all files from source', function(callback) {
     .pipe(autoprefixer(settings.prefix))
   ;
 
-  // split compressed/uncompressed streams
+  // use 2 concurrent streams from same source
   uncompressedStream = stream.pipe(clone());
   compressedStream   = stream.pipe(clone());
 
@@ -288,7 +303,8 @@ gulp.task('version', 'Displays current version of Semantic', function(callback) 
 ---------------*/
 
 gulp.task('package uncompressed css', false, function() {
-  return gulp.src(output.uncompressed + '**/*.css')
+  return gulp.src(output.uncompressed + '**/!(*.min|*.map)')
+    .pipe(debug({verbose: true}))
     .pipe(replace(assetPaths.uncompressed, assetPaths.packaged))
     .pipe(concatCSS('semantic.css'))
       .pipe(gulp.dest(output.packaged))
@@ -296,7 +312,8 @@ gulp.task('package uncompressed css', false, function() {
   ;
 });
 gulp.task('package compressed css', false, function() {
-  return gulp.src(output.compressed + '**/*.min.css')
+  return gulp.src(output.compressed + '**/**.min.css')
+    .pipe(debug({verbose: true}))
     .pipe(replace(assetPaths.compressed, assetPaths.packaged))
     .pipe(concatCSS('semantic.min.css'))
       .pipe(gulp.dest(output.packaged))
