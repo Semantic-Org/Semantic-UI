@@ -318,11 +318,11 @@ gulp.task('check install', false, function () {
 
 gulp.task('install', 'Set-up project for first time', function () {
   console.clear();
-  gulp
+  return gulp
     .src(defaults.paths.source.config)
     .pipe(prompt.prompt(questions.setup, function( answers ) {
       console.clear();
-      console.log(answers);
+      // console.log(answers);
       console.log('Beginning install script...');
       console.info('Creating site folder');
       console.info('Creating theme config file (semantic.config)');
