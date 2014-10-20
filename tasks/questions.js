@@ -86,7 +86,7 @@ module.exports = {
     {
       type: 'checkbox',
       name: 'components',
-      message: 'What components should we include in the package? (Toggle with spacebar)',
+      message: 'What components should we include in the package?',
       choices: [
         { name: "button", checked: true },
         { name: "divider", checked: true },
