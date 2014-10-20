@@ -26,6 +26,7 @@ var
   debug        = require('gulp-debug'),
   flatten      = require('gulp-flatten'),
   header       = require('gulp-header'),
+  jeditor      = require('gulp-json-editor'),
   karma        = require('gulp-karma'),
   less         = require('gulp-less'),
   minifyCSS    = require('gulp-minify-css'),
@@ -40,52 +41,86 @@ var
   util         = require('gulp-util'),
   watch        = require('gulp-watch'),
 
-  // settings
-  config       = require('./semantic.json'),
-  package      = require('./package.json'),
-
   // config
   banner       = require('./tasks/banner'),
   comments     = require('./tasks/comments'),
   defaults     = require('./tasks/defaults'),
   log          = require('./tasks/log'),
   questions    = require('./tasks/questions'),
-  settings     = require('./tasks/settings'),
-
-  // shorthand
-  base         = config.base,
-  clean        = config.paths.clean,
-  output       = config.paths.output,
-  source       = config.paths.source,
+  settings     = require('./tasks/gulp-settings'),
 
   // local
   overwrite  = false,
-  assetPaths = {
-    uncompressed : path.relative(output.uncompressed, output.themes),
-    compressed   : path.relative(output.compressed, output.themes),
-    packaged     : path.relative(output.packaged, output.themes)
-  },
+
+  // derived
+  config,
+  package,
+  compiledFilter,
+  assetPaths,
 
   // temporary
   folder
 ;
 
-// Add base directory
-for(folder in source) {
-  if(source.hasOwnProperty(folder)) {
-    source[folder] = base + source[folder];
-  }
+
+/*******************************
+          Read Settings
+*******************************/
+
+try {
+  // settings
+  var
+    config  = require('./semantic.json'),
+    package = require('./package.json')
+  ;
+}
+catch(error) {
+  var config = false;
 }
 
-for(folder in output) {
-  if(output.hasOwnProperty(folder)) {
-    output[folder] = base + output[folder];
+/*******************************
+   Values Derived From Config
+*******************************/
+
+if(config) {
+
+  var
+    // shorthand
+    base    = config.base,
+    clean   = config.paths.clean,
+    output  = config.paths.output,
+    source  = config.paths.source
+  ;
+
+  // create glob for matching filenames from selected components
+  compiledFilter = (typeof config.components == 'object')
+    ? (config.components.length > 1)
+      ? '{' + config.components.join(',') + '}'
+      : config.components[0]
+    : ''
+  ;
+
+  // relative paths
+  assetPaths = {
+    uncompressed : path.relative(output.uncompressed, output.themes),
+    compressed   : path.relative(output.compressed, output.themes),
+    packaged     : path.relative(output.packaged, output.themes)
+  };
+
+  // paths with base
+  for(folder in source) {
+    if(source.hasOwnProperty(folder)) {
+      source[folder] = base + source[folder];
+    }
   }
+  for(folder in output) {
+    if(output.hasOwnProperty(folder)) {
+      output[folder] = base + output[folder];
+    }
+  }
+  clean = base + clean;
+
 }
-
-clean = base + clean;
-
-
 
 /*******************************
              Tasks
@@ -97,6 +132,7 @@ gulp.task('default', false, [
 
 gulp.task('watch', 'Watch for site/theme changes (Default Task)', function () {
 
+  console.clear();
   console.log('Watching source files');
 
   // watching changes in style
@@ -160,7 +196,7 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function () {
           .pipe(clone())
           .pipe(replace(assetPaths.source, assetPaths.compressed))
           .pipe(minifyCSS(settings.minify))
-          .pipe(rename(settings.minCSS))
+          .pipe(rename(settings.rename.minCSS))
           //.pipe(sourcemaps.write('/', settings.sourcemap))
           .pipe(header(banner, settings.header))
           .pipe(gulp.dest(output.compressed))
@@ -200,7 +236,7 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function () {
         .pipe(print(log.created))
         .pipe(sourcemaps.init())
         .pipe(uglify(settings.uglify))
-        .pipe(rename(settings.minJS))
+        .pipe(rename(settings.rename.minJS))
         .pipe(gulp.dest(output.compressed))
         .pipe(print(log.created))
         .on('end', function() {
@@ -235,7 +271,7 @@ gulp.task('build', 'Builds all files from source', function(callback) {
     .pipe(print(log.created))
     // .pipe(sourcemaps.init())
     .pipe(uglify(settings.uglify))
-    .pipe(rename(settings.minJS))
+    .pipe(rename(settings.rename.minJS))
     .pipe(header(banner, settings.header))
     .pipe(gulp.dest(output.compressed))
     .pipe(print(log.created))
@@ -277,7 +313,7 @@ gulp.task('build', 'Builds all files from source', function(callback) {
     .pipe(clone())
     .pipe(replace(assetPaths.source, assetPaths.compressed))
     .pipe(minifyCSS(settings.minify))
-    .pipe(rename(settings.minCSS))
+    .pipe(rename(settings.rename.minCSS))
     //.pipe(sourcemaps.write('/', settings.sourcemap))
     .pipe(header(banner, settings.header))
     .pipe(gulp.dest(output.compressed))
@@ -306,14 +342,14 @@ gulp.task('version', 'Displays current version of Semantic', function(callback) 
 ---------------*/
 
 gulp.task('check install', false, function () {
-  if( !fs.existsSync(source.config) || !fs.existsSync(source.site) ) {
-    setTimeout(function() {
+  setTimeout(function() {
+    if( !config ) {
       gulp.start('install');
-    }, 100);
-  }
-  else {
-    gulp.start('watch');
-  }
+    }
+    else {
+      gulp.start('watch');
+    }
+  }, 50);
 });
 
 gulp.task('install', 'Set-up project for first time', function () {
@@ -321,20 +357,53 @@ gulp.task('install', 'Set-up project for first time', function () {
   return gulp
     .src(defaults.paths.source.config)
     .pipe(prompt.prompt(questions.setup, function( answers ) {
-      console.clear();
-      // console.log(answers);
-      console.log('Beginning install script...');
-      console.info('Creating site folder');
-      console.info('Creating theme config file (semantic.config)');
-      console.info('Creating build config file (semantic.json)');
+      var json;
+      console.info('Creating build.json (build config)');
+
+      // message: 'Where should we output Semantic UI?',
+      // update semantic.json
+
+
+      // message: 'Where should we put your site folder?',
+      // update semantic.json
+      // move file from src/_site to (value)
+      console.info('Creating site theme folder');
+
+      // message: 'Where should we put your theme.config file?',
+      console.info('Creating theme.config (theme config)');
+      // update semantic.json
+      // move theme.config.example to (value)
+
+      // message: 'Where should we output a packaged version?',
+      // update semantic.json
+
+      // message: 'Where should we output each compressed component?',
+      // update semantic.json
+      // message: 'Where should we output each uncompressed component?',
+      // update semantic.json
+      if(answers.install == 'auto') {
+        json = {};
+      }
+      else if(answers.install == 'express') {
+
+      }
+      console.log(answers);
+      gulp.src('semantic.json.example')
+        .pipe(plumber())
+        .pipe(rename(settings.rename.json))
+        .pipe(jeditor(answers))
+        .pipe(debug())
+        // .pipe(gulp.dest('./'))
+      ;
+      // del('semantic.json.example');
       console.log('');
       console.log('');
     }))
-    .pipe(prompt.prompt(questions.site, function( answers ) {
+/*    .pipe(prompt.prompt(questions.site, function( answers ) {
       console.clear();
       console.log('Creating site theme file');
       console.info('Creating site variables file');
-    }))
+    }))*/
   ;
 });
 gulp.task('config', 'Configure basic site settings', function () {
@@ -348,7 +417,7 @@ gulp.task('config', 'Configure basic site settings', function () {
 
 
 gulp.task('package uncompressed css', false, function() {
-  return gulp.src(output.uncompressed + '**/!(*.min|*.map).css')
+  return gulp.src(output.uncompressed + '**/' + compiledFilter + '!(*.min|*.map).css')
     .pipe(replace(assetPaths.uncompressed, assetPaths.packaged))
     .pipe(concatCSS('semantic.css'))
       .pipe(gulp.dest(output.packaged))
@@ -356,7 +425,7 @@ gulp.task('package uncompressed css', false, function() {
   ;
 });
 gulp.task('package compressed css', false, function() {
-  return gulp.src(output.uncompressed + '**/!(*.min|*.map).css')
+  return gulp.src(output.uncompressed + '**/' + compiledFilter + '!(*.min|*.map).css')
     .pipe(replace(assetPaths.uncompressed, assetPaths.packaged))
     .pipe(concatCSS('semantic.min.css'))
       .pipe(minifyCSS(settings.minify))
@@ -367,7 +436,7 @@ gulp.task('package compressed css', false, function() {
 });
 
 gulp.task('package uncompressed js', false, function() {
-  return gulp.src(output.uncompressed + '**/!(*.min|*.map).js')
+  return gulp.src(output.uncompressed + '**/' + compiledFilter + '!(*.min|*.map).js')
     .pipe(replace(assetPaths.uncompressed, assetPaths.packaged))
     .pipe(concat('semantic.js'))
       .pipe(header(banner, settings.header))
@@ -376,7 +445,7 @@ gulp.task('package uncompressed js', false, function() {
   ;
 });
 gulp.task('package compressed js', false, function() {
-  return gulp.src(output.uncompressed + '**/!(*.min|*.map).js')
+  return gulp.src(output.uncompressed + '**/' + compiledFilter + '!(*.min|*.map).js')
     .pipe(replace(assetPaths.uncompressed, assetPaths.packaged))
     .pipe(concat('semantic.min.js'))
       .pipe(uglify(settings.uglify))

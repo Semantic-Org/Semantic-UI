@@ -37,15 +37,15 @@ module.exports = {
       message: 'Set-up Themed Semantic UI (First-Run)',
       choices: [
         {
-          name: 'Automatic (Use defaults locations and include all packages)',
+          name: 'Automatic (Use defaults locations and all components)',
           value: 'auto'
         },
         {
-          name: 'Express (Set component list and output folder)',
+          name: 'Express (Set components and output folder)',
           value: 'express'
         },
         {
-          name: 'Custom (Customize all config values)',
+          name: 'Custom (Customize all src/dist values)',
           value: 'custom'
         }
       ]
@@ -113,13 +113,6 @@ module.exports = {
       name: 'site',
       message: 'Where should we put your site folder?',
       default: defaults.paths.source.site,
-      when: when.custom
-    },
-    {
-      type: 'input',
-      name: 'config',
-      message: 'Where should we put your semantic.config file?',
-      default: defaults.paths.source.config,
       when: when.custom
     },
     {

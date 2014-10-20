@@ -1,7 +1,7 @@
 
 var package = require('../package.json');
 
-module.export = {
+module.exports = {
   del: {
     silent: true
   },
@@ -27,13 +27,12 @@ module.export = {
     package: package
   },
   sourcemap: {
-    includeContent: true,
-    sourceRoot: '/src'
+    includeContent : true,
+    sourceRoot     : '/src'
   },
-  minJS: {
-    extname: '.min.js'
-  },
-  minCSS: {
-    extname: '.min.css'
+  rename: {
+    json   : { extname : '' },
+    minJS  : { extname : '.min.js' },
+    minCSS : { extname : '.min.css' }
   }
 };
