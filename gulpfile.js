@@ -405,7 +405,7 @@ gulp.task('install', 'Set-up project for first time', function () {
     .src(defaults.paths.source.config)
     .pipe(prompt.prompt(questions.setup, function( answers ) {
       var
-        trailingSlash = /(\/$)+/mg,
+        trailingSlash = /(\/$|\\$)+/mg,
         templates = {
           theme : './src/theme.config.example',
           json  : './semantic.json.example',
@@ -458,7 +458,7 @@ gulp.task('install', 'Set-up project for first time', function () {
         json.components = answers.components;
       }
       if(answers.dist) {
-        answers.dist.replace(trailingSlash, '');
+        answers.dist = answers.dist.replace(trailingSlash, '');
         json.paths.output = {
           packaged     : answers.dist + '/',
           uncompressed : answers.dist + '/components/',
@@ -467,19 +467,19 @@ gulp.task('install', 'Set-up project for first time', function () {
         };
       }
       if(answers.site) {
-        answers.site.replace(trailingSlash, '');
+        answers.site = answers.site.replace(trailingSlash, '');
         json.paths.source.site = answers.site + '/';
       }
       if(answers.packaged) {
-        answers.packaged.replace(trailingSlash, '');
+        answers.packaged = answers.packaged.replace(trailingSlash, '');
         json.paths.output.packaged = answers.packaged + '/';
       }
       if(answers.compressed) {
-        answers.compressed.replace(trailingSlash, '');
+        answers.compressed = answers.compressed.replace(trailingSlash, '');
         json.paths.output.compressed = answers.compressed + '/';
       }
       if(answers.uncompressed) {
-        answers.uncompressed.replace(trailingSlash, '');
+        answers.uncompressed = answers.uncompressed.replace(trailingSlash, '');
         json.paths.output.uncompressed = answers.uncompressed + '/';
       }
       if(configExists) {
