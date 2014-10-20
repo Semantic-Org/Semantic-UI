@@ -100,6 +100,7 @@ if(config) {
       : config.components[0]
     : ''
   ;
+  console.log(compiledFilter);
 
   // relative paths
   assetPaths = {
@@ -349,6 +350,7 @@ gulp.task('version', 'Displays current version of Semantic', function(callback) 
 ---------------*/
 
 gulp.task('package uncompressed css', false, function() {
+  console.log(output.uncompressed + '**/' + compiledFilter + '!(*.min|*.map).css');
   return gulp.src(output.uncompressed + '**/' + compiledFilter + '!(*.min|*.map).css')
     .pipe(replace(assetPaths.uncompressed, assetPaths.packaged))
     .pipe(concatCSS('semantic.css'))
@@ -396,7 +398,7 @@ gulp.task('package compressed js', false, function() {
 
 gulp.task('check install', false, function () {
   setTimeout(function() {
-    if( !config ) {
+    if( !config || !fs.existsSync('./src/theme.config')) {
       console.log('No semantic.json file found. Starting install...');
       gulp.start('install');
     }
@@ -407,21 +409,23 @@ gulp.task('check install', false, function () {
 });
 
 gulp.task('install', 'Set-up project for first time', function () {
+  console.clear();
   gulp
-    .src(defaults.paths.source.config)
+    .src('gulpfile.js')
     .pipe(prompt.prompt(questions.setup, function(answers) {
       var
-        siteVariable  = /@siteFolder .*\'(.*)\'/mg,
+        siteVariable  = /@siteFolder .*\'(.*)/mg,
         templates     = {
-          theme : './src/theme.config.example',
-          json  : './semantic.json.example',
-          site  : './src/_site'
+          themeConfig : './src/theme.config.example',
+          jsonConfig  : './semantic.json.example',
+          site        : './src/_site'
         },
 
         siteDestination   = answers.site || './src/site',
-        themeDestination  = './src/theme.config',
+        themeDestination  = './src/',
 
         pathToSite        = path.relative(path.resolve('./src'), path.resolve(siteDestination)),
+        sitePathReplace   = "@siteFolder   : '" + pathToSite + "/';",
 
         configExists      = fs.existsSync('./semantic.json'),
         themeConfigExists = fs.existsSync('./src/theme.config'),
@@ -457,22 +461,23 @@ gulp.task('install', 'Set-up project for first time', function () {
       // copy recursively without overwrite
       wrench.copyDirSyncRecursive(templates.site, siteDestination, settings.wrench.recursive);
 
+      // adjust less variable for site folder location
+      console.info('Adjusting @siteFolder', defaults.paths.source.config, themeDestination);
       if(themeConfigExists) {
-        console.error('./src/theme.config already exists, skipping');
+        gulp.src('./src/theme.config')
+          .pipe(replace(siteVariable, sitePathReplace))
+          .pipe(gulp.dest(themeDestination))
+        ;
       }
       else {
         console.info('Creating src/theme.config (LESS config)');
-        gulp.src(templates.theme)
+        gulp.src(templates.themeConfig)
+          .pipe(rename({ extname : '' }))
+          .pipe(replace(siteVariable, sitePathReplace))
           .pipe(gulp.dest(themeDestination))
         ;
       }
 
-      // adjust less variable for site folder location
-      console.info('Adjusting @siteFolder', pathToSite);
-      gulp.src(themeDestination)
-        .pipe(replace(siteVariable, pathToSite))
-        .pipe(gulp.dest(themeDestination))
-      ;
 
       // determine semantic.json config
       if(answers.components) {
