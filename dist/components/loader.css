@@ -194,7 +194,7 @@
   width: 16px;
   height: 16px;
   font-size: 0.8em;
-  background-image: url("../../themes/default/assets/images/loader-mini.gif");
+  background-image: url("../themes/default/assets/images/loader-mini.gif");
 }
 
 /* Small Size */
@@ -203,14 +203,14 @@
   width: 24px;
   height: 24px;
   font-size: 0.875em;
-  background-image: url("../../themes/default/assets/images/loader-small.gif");
+  background-image: url("../themes/default/assets/images/loader-small.gif");
 }
 .ui.inverted.dimmer .ui.loader,
 .ui.loader {
   width: 32px;
   height: 32px;
   font-size: 1em;
-  background: url("../../themes/default/assets/images/loader-medium.gif") no-repeat;
+  background: url("../themes/default/assets/images/loader-medium.gif") no-repeat;
   background-position: 50% 0px;
 }
 
@@ -220,7 +220,7 @@
   width: 64px;
   height: 64px;
   font-size: 1.2em;
-  background-image: url("../../themes/default/assets/images/loader-large.gif");
+  background-image: url("../themes/default/assets/images/loader-large.gif");
 }
 
 /*-------------------
@@ -234,25 +234,25 @@
 /* Tiny Size */
 .ui.dimmer .mini.ui.loader,
 .ui.inverted .mini.ui.loader {
-  background-image: url("../../themes/default/assets/images/loader-mini-inverted.gif");
+  background-image: url("../themes/default/assets/images/loader-mini-inverted.gif");
 }
 
 /* Small Size */
 .ui.dimmer .small.ui.loader,
 .ui.inverted .small.ui.loader {
-  background-image: url("../../themes/default/assets/images/loader-small-inverted.gif");
+  background-image: url("../themes/default/assets/images/loader-small-inverted.gif");
 }
 
 /* Standard Size */
 .ui.dimmer .ui.loader,
 .ui.inverted.loader {
-  background-image: url("../../themes/default/assets/images/loader-medium-inverted.gif");
+  background-image: url("../themes/default/assets/images/loader-medium-inverted.gif");
 }
 
 /* Large Size */
 .ui.dimmer .large.ui.loader,
 .ui.inverted .large.ui.loader {
-  background-image: url("../../themes/default/assets/images/loader-large-inverted.gif");
+  background-image: url("../themes/default/assets/images/loader-large-inverted.gif");
 }
 
 /*-------------------

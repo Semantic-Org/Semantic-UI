@@ -80,7 +80,7 @@
 ---------------------*/
 
 .ui.loading.input > .icon {
-  background: url("../../themes/default/assets/images/loader-mini.gif") no-repeat 50% 50%;
+  background: url("../themes/default/assets/images/loader-mini.gif") no-repeat 50% 50%;
 }
 .ui.loading.input > .icon:before,
 .ui.loading.input > .icon:after {

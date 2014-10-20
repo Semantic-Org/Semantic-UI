@@ -35,7 +35,7 @@
 
 .ui.divider:not(.vertical):not(.horizontal) {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 /*--------------
@@ -67,7 +67,7 @@
   top: 50%;
   height: 0px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 .ui.horizontal.divider:before {
   margin-left: -51.5%;
@@ -102,7 +102,7 @@
   content: '';
   z-index: 3;
   border-left: 1px solid rgba(0, 0, 0, 0.1);
-  border-right: 1px solid rgba(0, 0, 0, 0.8);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
   width: 0%;
   height: -webkit-calc(100% -  1rem );
   height: calc(100% -  1rem );
@@ -139,7 +139,7 @@
     top: 50%;
     height: 0px;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   }
   .ui.stackable.grid .ui.vertical.divider:before,
   .ui.grid .stackable.row .ui.vertical.divider:before {
@@ -226,7 +226,7 @@
 ---------------*/
 
 .ui.divider {
-  font-size: 1em;
+  font-size: 1rem;
 }
 
 

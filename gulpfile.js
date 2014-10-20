@@ -131,7 +131,6 @@ var
 
 getDerivedValues();
 
-
 /*******************************
              Tasks
 *******************************/
@@ -170,12 +169,8 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function () {
       srcPath = srcPath.replace(source.site, source.definitions);
 
       // get relative asset path (path returns wrong path? hardcoded)
-      assetPaths.source = path.relative(path.resolve(srcPath), path.resolve(source.themes));
-      console.log(srcPath);
-      console.log(source.themes);
-      console.log(assetPaths.source);
+      // assetPaths.source = path.relative(srcPath, path.resolve(source.themes));
       assetPaths.source = '../../themes';
-      console.log(assetPaths.source);
 
       if( fs.existsSync(srcPath) ) {
 
@@ -272,6 +267,10 @@ gulp.task('build', 'Builds all files from source', function(callback) {
   ;
 
   console.info('Building Semantic');
+
+  // get relative asset path (path returns wrong path? hardcoded)
+  // assetPaths.source = path.relative(srcPath, path.resolve(source.themes));
+  assetPaths.source = '../../themes';
 
   // copy assets
   gulp.src(source.themes + '**/assets/**')
@@ -426,7 +425,7 @@ gulp.task('install', 'Set-up project for first time', function () {
         siteDestination   = answers.site || './src/site',
         themeDestination  = './src/',
 
-        pathToSite        = path.relative(path.resolve('./src'), path.resolve(siteDestination)),
+        pathToSite        = path.relative(path.resolve('./src'), path.resolve('./' + siteDestination)),
         sitePathReplace   = "@siteFolder   : '" + pathToSite + "/';",
 
         configExists      = fs.existsSync('./semantic.json'),

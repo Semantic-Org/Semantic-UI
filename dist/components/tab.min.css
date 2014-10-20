@@ -8,4 +8,4 @@
  * http://opensource.org/licenses/MIT
  *
  */
-.ui.tab{display:none}.ui.tab.active,.ui.tab.open{display:block}.ui.tab.loading{position:relative;overflow:hidden;display:block;min-height:250px}.ui.tab.loading *{position:relative!important;left:-10000px!important}.ui.tab.loading:after{border:none;position:absolute;top:50px;left:0;content:'Loading...';color:rgba(0,0,0,.4);width:100%;height:100%;padding-top:50px;text-align:center;background:url(../../themes/default/assets/images/loader-large.gif) 50% 0 no-repeat;visibility:visible}
+.ui.tab{display:none}.ui.tab.active,.ui.tab.open{display:block}.ui.tab.loading{position:relative;overflow:hidden;display:block;min-height:250px}.ui.tab.loading *{position:relative!important;left:-10000px!important}.ui.tab.loading:after{border:none;position:absolute;top:50px;left:0;content:'Loading...';color:rgba(0,0,0,.4);width:100%;height:100%;padding-top:50px;text-align:center;background:url(../themes/default/assets/images/loader-large.gif) 50% 0 no-repeat;visibility:visible}

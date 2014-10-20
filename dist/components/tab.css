@@ -59,7 +59,7 @@
   height: 100%;
   padding-top: 50px;
   text-align: center;
-  background: url("../../themes/default/assets/images/loader-large.gif") no-repeat 50% 0px;
+  background: url("../themes/default/assets/images/loader-large.gif") no-repeat 50% 0px;
   visibility: visible;
 }
 

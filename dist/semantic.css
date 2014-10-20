@@ -5252,7 +5252,7 @@ body.dimmed.dimmable > :not(.dimmer) {
 
 .ui.divider:not(.vertical):not(.horizontal) {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 /*--------------
@@ -5285,7 +5285,7 @@ body.dimmed.dimmable > :not(.dimmer) {
   top: 50%;
   height: 0px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .ui.horizontal.divider:before {
@@ -5323,7 +5323,7 @@ body.dimmed.dimmable > :not(.dimmer) {
   content: '';
   z-index: 3;
   border-left: 1px solid rgba(0, 0, 0, 0.1);
-  border-right: 1px solid rgba(0, 0, 0, 0.8);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
   width: 0%;
   height: -webkit-calc(100% -  1rem );
   height: calc(100% -  1rem );
@@ -5364,7 +5364,7 @@ body.dimmed.dimmable > :not(.dimmer) {
     top: 50%;
     height: 0px;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   }
 
   .ui.stackable.grid .ui.vertical.divider:before,
@@ -5453,7 +5453,7 @@ body.dimmed.dimmable > :not(.dimmer) {
 ---------------*/
 
 .ui.divider {
-  font-size: 1em;
+  font-size: 1rem;
 }
 
 /*******************************
@@ -6712,7 +6712,7 @@ i.flag:not(.icon) {
 i.flag:not(.icon):before {
   display: inline-block;
   content: '';
-  background: url("../themes/default/assets/images/flags.png") no-repeat 0px 0px;
+  background: url("themes/default/assets/images/flags.png") no-repeat 0px 0px;
   width: 16px;
   height: 11px;
 }
@@ -8427,7 +8427,7 @@ i.flag.zimbabwe:before {
   content: '';
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.6) url("../themes/default/assets/images/loader-large.gif") no-repeat 50% 50%;
+  background: rgba(255, 255, 255, 0.6) url("themes/default/assets/images/loader-large.gif") no-repeat 50% 50%;
   visibility: visible;
 }
 
@@ -8467,7 +8467,7 @@ i.flag.zimbabwe:before {
 }
 
 .ui.inverted.form.loading:after {
-  background: rgba(0, 0, 0, 0.8) url("../themes/default/assets/images/loader-large-inverted.gif") no-repeat 50% 50%;
+  background: rgba(0, 0, 0, 0.8) url("themes/default/assets/images/loader-large-inverted.gif") no-repeat 50% 50%;
 }
 
 /*--------------------
@@ -10749,8 +10749,8 @@ a.ui.inverted.yellow.header:hover {
 
 @font-face {
   font-family: 'Icons';
-  src: url("../themes/default/assets/fonts/icons.eot");
-  src: url("../themes/default/assets/fonts/icons.eot?#iefix") format('embedded-opentype'), url("../themes/default/assets/fonts/icons.svg#icons") format('svg'), url("../themes/default/assets/fonts/icons.woff") format('woff'), url("../themes/default/assets/fonts/icons.ttf") format('truetype');
+  src: url("themes/default/assets/fonts/icons.eot");
+  src: url("themes/default/assets/fonts/icons.eot?#iefix") format('embedded-opentype'), url("themes/default/assets/fonts/icons.svg#icons") format('svg'), url("themes/default/assets/fonts/icons.woff") format('woff'), url("themes/default/assets/fonts/icons.ttf") format('truetype');
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -13794,7 +13794,7 @@ img.ui.bordered.image {
 ---------------------*/
 
 .ui.loading.input > .icon {
-  background: url("../themes/default/assets/images/loader-mini.gif") no-repeat 50% 50%;
+  background: url("themes/default/assets/images/loader-mini.gif") no-repeat 50% 50%;
 }
 
 .ui.loading.input > .icon:before,
@@ -16727,7 +16727,7 @@ ol.ui.horizontal.list li:before,
   width: 16px;
   height: 16px;
   font-size: 0.8em;
-  background-image: url("../themes/default/assets/images/loader-mini.gif");
+  background-image: url("themes/default/assets/images/loader-mini.gif");
 }
 
 /* Small Size */
@@ -16737,7 +16737,7 @@ ol.ui.horizontal.list li:before,
   width: 24px;
   height: 24px;
   font-size: 0.875em;
-  background-image: url("../themes/default/assets/images/loader-small.gif");
+  background-image: url("themes/default/assets/images/loader-small.gif");
 }
 
 .ui.inverted.dimmer .ui.loader,
@@ -16745,7 +16745,7 @@ ol.ui.horizontal.list li:before,
   width: 32px;
   height: 32px;
   font-size: 1em;
-  background: url("../themes/default/assets/images/loader-medium.gif") no-repeat;
+  background: url("themes/default/assets/images/loader-medium.gif") no-repeat;
   background-position: 50% 0px;
 }
 
@@ -16756,7 +16756,7 @@ ol.ui.horizontal.list li:before,
   width: 64px;
   height: 64px;
   font-size: 1.2em;
-  background-image: url("../themes/default/assets/images/loader-large.gif");
+  background-image: url("themes/default/assets/images/loader-large.gif");
 }
 
 /*-------------------
@@ -16771,28 +16771,28 @@ ol.ui.horizontal.list li:before,
 
 .ui.dimmer .mini.ui.loader,
 .ui.inverted .mini.ui.loader {
-  background-image: url("../themes/default/assets/images/loader-mini-inverted.gif");
+  background-image: url("themes/default/assets/images/loader-mini-inverted.gif");
 }
 
 /* Small Size */
 
 .ui.dimmer .small.ui.loader,
 .ui.inverted .small.ui.loader {
-  background-image: url("../themes/default/assets/images/loader-small-inverted.gif");
+  background-image: url("themes/default/assets/images/loader-small-inverted.gif");
 }
 
 /* Standard Size */
 
 .ui.dimmer .ui.loader,
 .ui.inverted.loader {
-  background-image: url("../themes/default/assets/images/loader-medium-inverted.gif");
+  background-image: url("themes/default/assets/images/loader-medium-inverted.gif");
 }
 
 /* Large Size */
 
 .ui.dimmer .large.ui.loader,
 .ui.inverted .large.ui.loader {
-  background-image: url("../themes/default/assets/images/loader-large-inverted.gif");
+  background-image: url("themes/default/assets/images/loader-large-inverted.gif");
 }
 
 /*-------------------
@@ -17257,7 +17257,7 @@ ol.ui.horizontal.list li:before,
   content: '';
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.8) url("../themes/default/assets/images/loader-large.gif") no-repeat 50% 50%;
+  background: rgba(255, 255, 255, 0.8) url("themes/default/assets/images/loader-large.gif") no-repeat 50% 50%;
   visibility: visible;
 }
 
@@ -21755,7 +21755,7 @@ th {
 ---------------*/
 
 .ui.search.loading .input .icon {
-  background: url("../themes/default/assets/images/loader-mini.gif") no-repeat 50% 50%;
+  background: url("themes/default/assets/images/loader-mini.gif") no-repeat 50% 50%;
 }
 
 .ui.search.loading .input .icon:before,
@@ -24171,7 +24171,7 @@ a:hover {
   height: 100%;
   padding-top: 50px;
   text-align: center;
-  background: url("../themes/default/assets/images/loader-large.gif") no-repeat 50% 0px;
+  background: url("themes/default/assets/images/loader-large.gif") no-repeat 50% 0px;
   visibility: visible;
 }
 

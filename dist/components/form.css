@@ -455,7 +455,7 @@
   content: '';
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.6) url("../../themes/default/assets/images/loader-large.gif") no-repeat 50% 50%;
+  background: rgba(255, 255, 255, 0.6) url("../themes/default/assets/images/loader-large.gif") no-repeat 50% 50%;
   visibility: visible;
 }
 
@@ -498,7 +498,7 @@
   color: #ffffff;
 }
 .ui.inverted.form.loading:after {
-  background: rgba(0, 0, 0, 0.8) url("../../themes/default/assets/images/loader-large-inverted.gif") no-repeat 50% 50%;
+  background: rgba(0, 0, 0, 0.8) url("../themes/default/assets/images/loader-large-inverted.gif") no-repeat 50% 50%;
 }
 
 /*--------------------
