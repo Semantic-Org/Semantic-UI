@@ -13,17 +13,21 @@ Translations are available directly [in the docs](http://www.semantic-ui.com), u
 
 ## Getting Started
 
-Semantic uses ``Gulp`` to automate build tasks. The first time you get Semantic, run ``npm install`` to grab our gulp dependencies so that you can build the project.
+Semantic is best used actively during development. We have included build tools for maintaining changes to Semantic as you work.
+
+![Getting Started](https://dl.dropboxusercontent.com/u/2657007/install.gif)
+
 
 ```
 npm install
+gulp
 ```
 
 Running gulp for the first time will start the interactive set-up.
 
-This helps you create two important files ``semantic.json`` which is used by gulp to build your project, and ``themes.config`` a central file for choosing each components theme.
+This helps you create two important files ``semantic.json`` which stores your folder set-up, and ``themes.config`` a central file for setting ui themes.
 
-You can also set-up which components you want to include in your packaged release, ignoring parts of Semantic you may not use.
+The install utility will also help you set-up which components you want to include in your packaged release, ignoring parts of Semantic you may not use.
 
 ```nodejs
 gulp
