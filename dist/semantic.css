@@ -5252,7 +5252,7 @@ body.dimmed.dimmable > :not(.dimmer) {
 
 .ui.divider:not(.vertical):not(.horizontal) {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
 }
 
 /*--------------
@@ -5285,7 +5285,7 @@ body.dimmed.dimmable > :not(.dimmer) {
   top: 50%;
   height: 0px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
 }
 
 .ui.horizontal.divider:before {
@@ -5323,7 +5323,7 @@ body.dimmed.dimmable > :not(.dimmer) {
   content: '';
   z-index: 3;
   border-left: 1px solid rgba(0, 0, 0, 0.1);
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-right: 1px solid rgba(0, 0, 0, 0.8);
   width: 0%;
   height: -webkit-calc(100% -  1rem );
   height: calc(100% -  1rem );
@@ -5364,7 +5364,7 @@ body.dimmed.dimmable > :not(.dimmer) {
     top: 50%;
     height: 0px;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.8);
   }
 
   .ui.stackable.grid .ui.vertical.divider:before,
@@ -5453,7 +5453,7 @@ body.dimmed.dimmable > :not(.dimmer) {
 ---------------*/
 
 .ui.divider {
-  font-size: 1rem;
+  font-size: 1em;
 }
 
 /*******************************
@@ -5978,6 +5978,15 @@ select.ui.dropdown {
 .ui.dropdown:hover > .default.text,
 .ui.default.dropdown:hover > .text {
   color: rgba(140, 140, 140, 0.7);
+}
+
+/*--------------------
+        Loading
+----------------------*/
+
+.ui.loading.dropdown > .text {
+  -webkit-transition: none;
+  transition: none;
 }
 
 /*--------------------
@@ -13003,198 +13012,12 @@ i.icon.time:before {
   content: "\f017";
 }
 
-<<<<<<< HEAD:build/packaged/definitions/css/semantic.css
-   Be sure to update the user folder name (see README)
-*/
-/* Global */
-/* Elements */
-/* Collections */
-/* Modules */
-/* Views */
-/*******************************
-        Import Directives
-*******************************/
-/*------------------
-     Load Default
--------------------*/
-/*******************************
-         Site Settings
-*******************************/
-/*-------------------
-        Paths
---------------------*/
-/*-------------------
-       Fonts
---------------------*/
-/*-------------------
-      Site Colors
---------------------*/
-/*---  Colors  ---*/
-/*---  Light Colors  ---*/
-/*-------------------
-        Page
---------------------*/
-/*-------------------
-  Background Colors
---------------------*/
-/*-------------------
-       Accents
---------------------*/
-/* 4px @ 14px */
-/* Used for differentiating neutrals */
-/* Used for differentiating layers */
-/*-------------------
-        Grid
---------------------*/
-/*-------------------
-     Breakpoints
---------------------*/
-/*******************************
-           Power-User
-*******************************/
-/*-------------------
-       Icons
---------------------*/
-/* Maximum Glyph Width of Icon */
-/*-------------------
-       Easing
---------------------*/
-/*---   Neutrals  ---*/
-/*--- Colored Backgrounds ---*/
-/*--- Colored Text ---*/
-/*--- Colored Headers ---*/
-/*-------------------
-    Emotive Colors
---------------------*/
-/* Positive */
-/* Negative */
-/* Info */
-/* Warning */
-/*-------------------
-     Neutral Text
---------------------*/
-/*-------------------
-     Brand Colors
---------------------*/
-/*-------------------
-      Borders
---------------------*/
-/*-------------------
-        Sizes
---------------------*/
-/*-------------------
-     Transitions
---------------------*/
-/*-------------------
-    Derived Values
---------------------*/
-/* Makes sure padded grid can fit at 320px */
-/* Used to match floats with text */
-/* Positive / Negative Dupes */
-/* Responsive */
-/* Columns */
-/*******************************
-           States
-*******************************/
-/*-------------------
-      Disabled
---------------------*/
-/*-------------------
-        Hover
---------------------*/
-/*---  Colors  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*-------------------
-    Down (:active)
---------------------*/
-/*---  Colors  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*-------------------
-        Active
---------------------*/
-/*---  Standard  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*******************************
-             Label
-*******************************/
-/*-------------------
-       Element
---------------------*/
-/* Group */
-/*-------------------
-        Parts
---------------------*/
-/*-------------------
-        Types
---------------------*/
-/* Image Label */
-/* Computed Values */
-/*-------------------
-        States
---------------------*/
-/*-------------------
-      Variations
---------------------*/
-/* Tag */
-/* Ribbon */
-/* Attached */
-/* Corner */
-/* Corner Text */
-/* Horizontal */
-/* Circular Padding */
-/* Pointing */
-/* Floating */
-/*-------------------
-        Group
---------------------*/
-/* Sizing */
-/*------------------
-     Load Theme
--------------------*/
-/*------------------
-     Load Site
--------------------*/
-/*******************************
-     User Global Variables
-*******************************/
-/*******************************
-    User Variable Overrides
-*******************************/
-/*------------------
-   Override Mix-in
--------------------*/
-/*******************************
-            Label
-*******************************/
-.ui.label {
-  display: inline-block;
-  vertical-align: baseline;
-  line-height: 1;
-  margin: 0em 0.125em;
-  background-color: #e8e8e8;
-  border-color: #e8e8e8;
-  background-image: none;
-  padding: 0.6em 0.8em;
-  color: rgba(0, 0, 0, 0.6);
-  text-transform: none;
-  font-weight: bold;
-  border-radius: 0.2857rem;
-  box-sizing: border-box;
-  -webkit-transition: background 0.1s linear
-  ;
-          transition: background 0.1s linear
-  ;
-=======
 i.icon.play.circle.outline:before {
   content: "\f01d";
 }
 
 i.icon.clockwise:before {
   content: "\f01e";
->>>>>>> c10dce7d125ca211a6d757550cf416d10381ff44:dist/semantic.css
 }
 
 i.icon.headphone:before {
@@ -13248,46 +13071,6 @@ i.icon.minus.circle:before {
 i.icon.dont:before {
   content: "\f05e";
 }
-<<<<<<< HEAD:build/packaged/definitions/css/semantic.css
-/*******************************
-             Types
-*******************************/
-.ui.image.label {
-  width: auto !important;
-  margin-top: 0em;
-  margin-bottom: 0em;
-  max-width: 9999px;
-  vertical-align: baseline;
-  text-transform: none;
-  background: #e8e8e8;
-  padding: 0.6em 0.8em 0.6em 0.5em;
-  border-radius: 0.2857rem;
-  box-shadow: none;
-}
-.ui.image.label img {
-  display: inline-block;
-  vertical-align: top;
-  height: 2.2em;
-  margin: -0.6em 0.5em -0.6em -0.5em;
-  border-radius: 0.2857rem;
-}
-.ui.image.label .detail {
-  background: rgba(0, 0, 0, 0.1);
-  margin: -0.6em -0.8em -0.6em 0.5em;
-  padding: 0.6em 0.8em;
-  border-radius: 0em 0.2857rem 0.2857rem 0em;
-}
-/*-------------------
-         Tag
---------------------*/
-.ui.tag.labels .label,
-.ui.tag.label {
-  margin-left: 1em;
-  position: relative;
-  padding-left: 1.5em;
-  padding-right: 1.5em;
-  border-radius: 0em 0.2857rem 0.2857rem 0em;
-=======
 
 i.icon.minimize:before {
   content: "\f066";
@@ -13303,7 +13086,6 @@ i.icon.eye:before {
 
 i.icon.attention:before {
   content: "\f06a";
->>>>>>> c10dce7d125ca211a6d757550cf416d10381ff44:dist/semantic.css
 }
 
 i.icon.cart:before {
@@ -13465,71 +13247,14 @@ i.icon.numbered.list:before {
 i.icon.magic:before {
   content: "\f0d0";
 }
-<<<<<<< HEAD:build/packaged/definitions/css/semantic.css
-/*-------------------
-       Ribbon
---------------------*/
-.ui.ribbon.label {
-  position: relative;
-  margin: 0em;
-  left: -2rem;
-  padding-left: 2rem;
-  border-radius: 0em 0.2857rem 0.2857rem 0em;
-  border-color: rgba(0, 0, 0, 0.15);
-=======
 
 i.icon.truck:before {
   content: "\f0d1";
->>>>>>> c10dce7d125ca211a6d757550cf416d10381ff44:dist/semantic.css
 }
 
 i.icon.currency:before {
   content: "\f0d6";
 }
-<<<<<<< HEAD:build/packaged/definitions/css/semantic.css
-/*-------------------
-       Attached
---------------------*/
-.ui.top.attached.label,
-.ui.attached.label {
-  width: 100%;
-  position: absolute;
-  margin: 0em;
-  top: 0em;
-  left: 0em;
-  padding: 0.75em 1em;
-  border-radius: 0.2857rem 0.2857rem 0em 0em;
-}
-.ui.bottom.attached.label {
-  top: auto;
-  bottom: 0em;
-  border-radius: 0em 0em 0.2857rem 0.2857rem;
-}
-.ui.top.left.attached.label {
-  width: auto;
-  margin-top: 0em !important;
-  border-radius: 0.2857rem 0em 0.2857rem 0em;
-}
-.ui.top.right.attached.label {
-  width: auto;
-  left: auto;
-  right: 0em;
-  border-radius: 0em 0.2857rem 0em 0.2857rem;
-}
-.ui.bottom.left.attached.label {
-  width: auto;
-  top: auto;
-  bottom: 0em;
-  border-radius: 0em 0em 0.2857rem 0.2857rem;
-}
-.ui.bottom.right.attached.label {
-  top: auto;
-  bottom: 0em;
-  left: auto;
-  right: 0em;
-  width: auto;
-  border-radius: 0.2857rem 0em 0.2857rem 0em;
-=======
 
 i.icon.triangle.down:before {
   content: "\f0d7";
@@ -13553,7 +13278,6 @@ i.icon.triangle.right:before {
 
 i.icon.envelope:before {
   content: "\f0e0";
->>>>>>> c10dce7d125ca211a6d757550cf416d10381ff44:dist/semantic.css
 }
 
 i.icon.conversation:before {
@@ -14957,7 +14681,7 @@ img.ui.bordered.image {
   color: rgba(0, 0, 0, 0.6);
   text-transform: none;
   font-weight: bold;
-  border-radius: 0.325em;
+  border-radius: 0.2857rem;
   box-sizing: border-box;
   -webkit-transition: background 0.1s linear;
   transition: background 0.1s linear;
@@ -15064,7 +14788,7 @@ a.ui.label {
   text-transform: none;
   background: #e8e8e8;
   padding: 0.6em 0.8em 0.6em 0.5em;
-  border-radius: 0.325em;
+  border-radius: 0.2857rem;
   box-shadow: none;
 }
 
@@ -15073,14 +14797,14 @@ a.ui.label {
   vertical-align: top;
   height: 2.2em;
   margin: -0.6em 0.5em -0.6em -0.5em;
-  border-radius: 0.325em;
+  border-radius: 0.2857rem;
 }
 
 .ui.image.label .detail {
   background: rgba(0, 0, 0, 0.1);
   margin: -0.6em -0.8em -0.6em 0.5em;
   padding: 0.6em 0.8em;
-  border-radius: 0em 0.325em 0.325em 0em;
+  border-radius: 0em 0.2857rem 0.2857rem 0em;
 }
 
 /*-------------------
@@ -15093,7 +14817,7 @@ a.ui.label {
   position: relative;
   padding-left: 1.5em;
   padding-right: 1.5em;
-  border-radius: 0em 0.325em 0.325em 0em;
+  border-radius: 0em 0.2857rem 0.2857rem 0em;
 }
 
 .ui.tag.labels .label:before,
@@ -15273,7 +14997,7 @@ a.ui.label {
   margin: 0em;
   left: -2rem;
   padding-left: 2rem;
-  border-radius: 0em 0.325em 0.325em 0em;
+  border-radius: 0em 0.2857rem 0.2857rem 0em;
   border-color: rgba(0, 0, 0, 0.15);
 }
 
@@ -15305,33 +15029,33 @@ a.ui.label {
   top: 0em;
   left: 0em;
   padding: 0.75em 1em;
-  border-radius: 0.325em 0.325em 0em 0em;
+  border-radius: 0.2857rem 0.2857rem 0em 0em;
 }
 
 .ui.bottom.attached.label {
   top: auto;
   bottom: 0em;
-  border-radius: 0em 0em 0.325em 0.325em;
+  border-radius: 0em 0em 0.2857rem 0.2857rem;
 }
 
 .ui.top.left.attached.label {
   width: auto;
   margin-top: 0em !important;
-  border-radius: 0.325em 0em 0.325em 0em;
+  border-radius: 0.2857rem 0em 0.2857rem 0em;
 }
 
 .ui.top.right.attached.label {
   width: auto;
   left: auto;
   right: 0em;
-  border-radius: 0em 0.325em 0em 0.325em;
+  border-radius: 0em 0.2857rem 0em 0.2857rem;
 }
 
 .ui.bottom.left.attached.label {
   width: auto;
   top: auto;
   bottom: 0em;
-  border-radius: 0em 0em 0.325em 0.325em;
+  border-radius: 0em 0em 0.2857rem 0.2857rem;
 }
 
 .ui.bottom.right.attached.label {
@@ -15340,7 +15064,7 @@ a.ui.label {
   left: auto;
   right: 0em;
   width: auto;
-  border-radius: 0.325em 0em 0.325em 0em;
+  border-radius: 0.2857rem 0em 0.2857rem 0em;
 }
 
 /*******************************
@@ -16454,163 +16178,6 @@ ul.ui.horizontal.bulleted.list li:first-child::before,
   display: none;
 }
 
-<<<<<<< HEAD:build/packaged/definitions/css/semantic.css
-   Be sure to update the user folder name (see README)
-*/
-/* Global */
-/* Elements */
-/* Collections */
-/* Modules */
-/* Views */
-/*******************************
-        Import Directives
-*******************************/
-/*------------------
-     Load Default
--------------------*/
-/*******************************
-             Step
-*******************************/
-/*-------------------
-      Element
---------------------*/
-/* Icon */
-/* Title */
-/* Description */
-/* Arrow */
-/*-------------------
-       Group
---------------------*/
-/*-------------------
-       States
---------------------*/
-/* Completed */
-/* Hover */
-/* Down */
-/* Active */
-/* Active + Hover */
-/* Disabled */
-/*------------------
-     Load Theme
--------------------*/
-/*******************************
-         Site Settings
-*******************************/
-/*-------------------
-        Paths
---------------------*/
-/*-------------------
-       Fonts
---------------------*/
-/*-------------------
-      Site Colors
---------------------*/
-/*---  Colors  ---*/
-/*---  Light Colors  ---*/
-/*-------------------
-        Page
---------------------*/
-/*-------------------
-  Background Colors
---------------------*/
-/*-------------------
-       Accents
---------------------*/
-/* 4px @ 14px */
-/* Used for differentiating neutrals */
-/* Used for differentiating layers */
-/*-------------------
-        Grid
---------------------*/
-/*-------------------
-     Breakpoints
---------------------*/
-/*******************************
-           Power-User
-*******************************/
-/*-------------------
-       Icons
---------------------*/
-/* Maximum Glyph Width of Icon */
-/*-------------------
-       Easing
---------------------*/
-/*---   Neutrals  ---*/
-/*--- Colored Backgrounds ---*/
-/*--- Colored Text ---*/
-/*--- Colored Headers ---*/
-/*-------------------
-    Emotive Colors
---------------------*/
-/* Positive */
-/* Negative */
-/* Info */
-/* Warning */
-/*-------------------
-     Neutral Text
---------------------*/
-/*-------------------
-     Brand Colors
---------------------*/
-/*-------------------
-      Borders
---------------------*/
-/*-------------------
-        Sizes
---------------------*/
-/*-------------------
-     Transitions
---------------------*/
-/*-------------------
-    Derived Values
---------------------*/
-/* Makes sure padded grid can fit at 320px */
-/* Used to match floats with text */
-/* Positive / Negative Dupes */
-/* Responsive */
-/* Columns */
-/*******************************
-           States
-*******************************/
-/*-------------------
-      Disabled
---------------------*/
-/*-------------------
-        Hover
---------------------*/
-/*---  Colors  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*-------------------
-    Down (:active)
---------------------*/
-/*---  Colors  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*-------------------
-        Active
---------------------*/
-/*---  Standard  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*------------------
-     Load Site
--------------------*/
-/*******************************
-     User Global Variables
-*******************************/
-/*******************************
-    User Variable Overrides
-*******************************/
-/*------------------
-   Override Mix-in
--------------------*/
-/*******************************
-            Step
-*******************************/
-.ui.steps .step {
-  display: inline-block;
-=======
 /*-------------------
        Ordered
 --------------------*/
@@ -16627,7 +16194,6 @@ ol.ui.list ol {
 ol.ui.list li,
 .ui.ordered.list .item {
   list-style-type: none;
->>>>>>> c10dce7d125ca211a6d757550cf416d10381ff44:dist/semantic.css
   position: relative;
 }
 
@@ -16729,23 +16295,9 @@ ol.ui.horizontal.list li:before,
   margin-right: 0em;
   padding-bottom: 0.3em;
 }
-<<<<<<< HEAD:build/packaged/definitions/css/semantic.css
-/*******************************
-            Group
-*******************************/
-.ui.steps {
-  display: inline-block;
-  font-size: 0em;
-  background: '';
-  box-shadow: '';
-  line-height: 1.33;
-  box-sizing: border-box;
-  border-radius: 0.2857rem;
-=======
 
 .ui.divided.ordered.list .item .list .item {
   padding-left: 2em;
->>>>>>> c10dce7d125ca211a6d757550cf416d10381ff44:dist/semantic.css
 }
 
 /* Divided Selection */
@@ -16933,22 +16485,6 @@ ol.ui.horizontal.list li:before,
 .ui.tiny.list .item {
   font-size: 0.8rem;
 }
-<<<<<<< HEAD:build/packaged/definitions/css/semantic.css
-/*******************************
-             Sizes
-*******************************/
-.ui.small.step,
-.ui.small.steps .step {
-  font-size: 0.9285em;
-}
-.ui.step,
-.ui.steps .step {
-  font-size: 1em;
-}
-.ui.large.step,
-.ui.large.steps .step {
-  font-size: 1.1428em;
-=======
 
 .ui.small.list .item {
   font-size: 0.9rem;
@@ -16960,7 +16496,6 @@ ol.ui.horizontal.list li:before,
 
 .ui.large.list .item {
   font-size: 1.1rem;
->>>>>>> c10dce7d125ca211a6d757550cf416d10381ff44:dist/semantic.css
 }
 
 .ui.big.list .item {
@@ -19214,66 +18749,10 @@ ol.ui.horizontal.list li:before,
 /*******************************
             States
 *******************************/
-<<<<<<< HEAD:build/packaged/definitions/css/semantic.css
-/*--------------------
-        Hover
-----------------------*/
-/* Menu Item Hover */
-.ui.dropdown .menu > .item:hover {
-  background: rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.8);
-  z-index: 12;
-}
-/*--------------------
-        Active
-----------------------*/
-/* Menu Item Active */
-.ui.dropdown .menu .active.item {
-  background: transparent;
-  font-weight: bold;
-  color: rgba(0, 0, 0, 0.8);
-  box-shadow: none;
-  z-index: 12;
-}
-/*--------------------
-     Default Text
-----------------------*/
-.ui.dropdown > .default.text,
-.ui.default.dropdown > .text {
-  color: rgba(179, 179, 179, 0.7);
-}
-.ui.dropdown:hover > .default.text,
-.ui.default.dropdown:hover > .text {
-  color: rgba(140, 140, 140, 0.7);
-}
-/*--------------------
-        Loading
-----------------------*/
-.ui.loading.dropdown > .text {
-  -webkit-transition: none;
-          transition: none;
-}
-/*--------------------
-    Keyboard Select
-----------------------*/
-/* Selected Item */
-.ui.dropdown.selected,
-.ui.dropdown .menu .selected.item {
-  background: rgba(0, 0, 0, 0.03);
-  color: rgba(0, 0, 0, 0.8);
-}
-/*--------------------
-    Search Filtered
-----------------------*/
-/* Filtered Item */
-.ui.dropdown > .filtered.text {
-  visibility: hidden;
-=======
 
 .ui.message.visible,
 .ui.header.visible {
   display: block !important;
->>>>>>> c10dce7d125ca211a6d757550cf416d10381ff44:dist/semantic.css
 }
 
 .ui.message.hidden,

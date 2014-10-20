@@ -10,172 +10,7 @@
  */
 
 
-<<<<<<< HEAD:build/uncompressed/definitions/elements/step.css
-*/
-/*******************************
-           Folders
-*******************************/
-/* Path to theme packages */
-/* Path to site override folder */
-/*******************************
-            Themes
-*******************************/
-/* To override a theme for an individual element
-   specify theme name below
 
-   Be sure to update the user folder name (see README)
-*/
-/* Global */
-/* Elements */
-/* Collections */
-/* Modules */
-/* Views */
-/*******************************
-        Import Directives
-*******************************/
-/*------------------
-     Load Default
--------------------*/
-/*******************************
-             Step
-*******************************/
-/*-------------------
-      Element
---------------------*/
-/* Icon */
-/* Title */
-/* Description */
-/* Arrow */
-/*-------------------
-       Group
---------------------*/
-/*-------------------
-       States
---------------------*/
-/* Completed */
-/* Hover */
-/* Down */
-/* Active */
-/* Active + Hover */
-/* Disabled */
-/*------------------
-     Load Theme
--------------------*/
-/*******************************
-         Site Settings
-*******************************/
-/*-------------------
-        Paths
---------------------*/
-/*-------------------
-       Fonts
---------------------*/
-/*-------------------
-      Site Colors
---------------------*/
-/*---  Colors  ---*/
-/*---  Light Colors  ---*/
-/*-------------------
-        Page
---------------------*/
-/*-------------------
-  Background Colors
---------------------*/
-/*-------------------
-       Accents
---------------------*/
-/* 4px @ 14px */
-/* Used for differentiating neutrals */
-/* Used for differentiating layers */
-/*-------------------
-        Grid
---------------------*/
-/*-------------------
-     Breakpoints
---------------------*/
-/*******************************
-           Power-User
-*******************************/
-/*-------------------
-       Icons
---------------------*/
-/* Maximum Glyph Width of Icon */
-/*-------------------
-       Easing
---------------------*/
-/*---   Neutrals  ---*/
-/*--- Colored Backgrounds ---*/
-/*--- Colored Text ---*/
-/*--- Colored Headers ---*/
-/*-------------------
-    Emotive Colors
---------------------*/
-/* Positive */
-/* Negative */
-/* Info */
-/* Warning */
-/*-------------------
-     Neutral Text
---------------------*/
-/*-------------------
-     Brand Colors
---------------------*/
-/*-------------------
-      Borders
---------------------*/
-/*-------------------
-        Sizes
---------------------*/
-/*-------------------
-     Transitions
---------------------*/
-/*-------------------
-    Derived Values
---------------------*/
-/* Makes sure padded grid can fit at 320px */
-/* Used to match floats with text */
-/* Positive / Negative Dupes */
-/* Responsive */
-/* Columns */
-/*******************************
-           States
-*******************************/
-/*-------------------
-      Disabled
---------------------*/
-/*-------------------
-        Hover
---------------------*/
-/*---  Colors  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*-------------------
-    Down (:active)
---------------------*/
-/*---  Colors  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*-------------------
-        Active
---------------------*/
-/*---  Standard  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*------------------
-     Load Site
--------------------*/
-/*******************************
-     User Global Variables
-*******************************/
-/*******************************
-    User Variable Overrides
-*******************************/
-/*------------------
-   Override Mix-in
--------------------*/
-=======
-
->>>>>>> c10dce7d125ca211a6d757550cf416d10381ff44:dist/components/step.css
 /*******************************
             Step
 *******************************/
@@ -320,7 +155,7 @@
   font-size: 0em;
   background: '';
   box-shadow: '';
-  line-height: 1.33;
+  line-height: 1.2;
   box-sizing: border-box;
   border-radius: 0.2857rem;
 }
@@ -490,15 +325,15 @@
 
 .ui.small.step,
 .ui.small.steps .step {
-  font-size: 0.9285em;
+  font-size: 0.9rem;
 }
 .ui.step,
 .ui.steps .step {
-  font-size: 1em;
+  font-size: 1rem;
 }
 .ui.large.step,
 .ui.large.steps .step {
-  font-size: 1.1428em;
+  font-size: 1.1rem;
 }
 
 

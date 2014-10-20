@@ -53,11 +53,17 @@ var
   // local
   overwrite  = true,
 
+  // default settings
+  base    = defaults.base,
+  clean   = defaults.paths.clean,
+  output  = defaults.paths.output,
+  source  = defaults.paths.source,
+
   // derived
   config,
   package,
-  compiledFilter,
   assetPaths,
+  componentGlob,
 
   // temporary
   folder
@@ -74,6 +80,13 @@ try {
     config  = require('./semantic.json'),
     package = require('./package.json')
   ;
+
+  // shorthand
+  base    = config.base;
+  clean   = config.paths.clean;
+  output  = config.paths.output;
+  source  = config.paths.source;
+
 }
 catch(error) {
   var config = false;
@@ -83,54 +96,41 @@ catch(error) {
    Values Derived From Config
 *******************************/
 
-if(config) {
+var
+  getDerivedValues = function() {
 
-  var
-    // shorthand
-    base    = config.base,
-    clean   = config.paths.clean,
-    output  = config.paths.output,
-    source  = config.paths.source
-  ;
+    // create glob for matching filenames from selected components
+    componentGlob = (typeof config.components == 'object')
+      ? (config.components.length > 1)
+        ? '{' + config.components.join(',') + '}'
+        : config.components[0]
+      : ''
+    ;
 
-  // create glob for matching filenames from selected components
-  compiledFilter = (typeof config.components == 'object')
-    ? (config.components.length > 1)
-      ? '{' + config.components.join(',') + '}'
-      : config.components[0]
-    : ''
-  ;
+    // relative paths
+    assetPaths = {
+      uncompressed : path.relative(output.uncompressed, output.themes),
+      compressed   : path.relative(output.compressed, output.themes),
+      packaged     : path.relative(output.packaged, output.themes)
+    };
 
-  // relative paths
-  assetPaths = {
-    uncompressed : path.relative(output.uncompressed, output.themes),
-    compressed   : path.relative(output.compressed, output.themes),
-    packaged     : path.relative(output.packaged, output.themes)
-  };
-
-  // paths with base
-  for(folder in source) {
-    if(source.hasOwnProperty(folder)) {
-      source[folder] = base + source[folder];
+    // add base to values
+    for(var folder in source) {
+      if(source.hasOwnProperty(folder)) {
+        source[folder] = base + source[folder];
+      }
     }
-  }
-  for(folder in output) {
-    if(output.hasOwnProperty(folder)) {
-      output[folder] = base + output[folder];
+    for(folder in output) {
+      if(output.hasOwnProperty(folder)) {
+        output[folder] = base + output[folder];
+      }
     }
+    clean = base + clean;
   }
-  clean = base + clean;
+;
 
-}
-else {
-  // use default values
-  var
-    base    = defaults.base,
-    clean   = defaults.paths.clean,
-    output  = defaults.paths.output,
-    source  = defaults.paths.source
-  ;
-}
+getDerivedValues();
+
 
 /*******************************
              Tasks
@@ -170,8 +170,12 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function () {
       srcPath = srcPath.replace(source.site, source.definitions);
 
       // get relative asset path (path returns wrong path? hardcoded)
-      //assetPaths.source = path.relative(srcPath, source.themes);
+      assetPaths.source = path.relative(path.resolve(srcPath), path.resolve(source.themes));
+      console.log(srcPath);
+      console.log(source.themes);
+      console.log(assetPaths.source);
       assetPaths.source = '../../themes';
+      console.log(assetPaths.source);
 
       if( fs.existsSync(srcPath) ) {
 
@@ -349,7 +353,7 @@ gulp.task('version', 'Displays current version of Semantic', function(callback) 
 ---------------*/
 
 gulp.task('package uncompressed css', false, function() {
-  return gulp.src(output.uncompressed + '**/' + compiledFilter + '!(*.min|*.map).css')
+  return gulp.src(output.uncompressed + '**/' + componentGlob + '!(*.min|*.map).css')
     .pipe(replace(assetPaths.uncompressed, assetPaths.packaged))
     .pipe(concatCSS('semantic.css'))
       .pipe(gulp.dest(output.packaged))
@@ -358,7 +362,7 @@ gulp.task('package uncompressed css', false, function() {
 });
 
 gulp.task('package compressed css', false, function() {
-  return gulp.src(output.uncompressed + '**/' + compiledFilter + '!(*.min|*.map).css')
+  return gulp.src(output.uncompressed + '**/' + componentGlob + '!(*.min|*.map).css')
     .pipe(replace(assetPaths.uncompressed, assetPaths.packaged))
     .pipe(concatCSS('semantic.min.css'))
       .pipe(minifyCSS(settings.minify))
@@ -369,7 +373,7 @@ gulp.task('package compressed css', false, function() {
 });
 
 gulp.task('package uncompressed js', false, function() {
-  return gulp.src(output.uncompressed + '**/' + compiledFilter + '!(*.min|*.map).js')
+  return gulp.src(output.uncompressed + '**/' + componentGlob + '!(*.min|*.map).js')
     .pipe(replace(assetPaths.uncompressed, assetPaths.packaged))
     .pipe(concat('semantic.js'))
       .pipe(header(banner, settings.header))
@@ -379,7 +383,7 @@ gulp.task('package uncompressed js', false, function() {
 });
 
 gulp.task('package compressed js', false, function() {
-  return gulp.src(output.uncompressed + '**/' + compiledFilter + '!(*.min|*.map).js')
+  return gulp.src(output.uncompressed + '**/' + componentGlob + '!(*.min|*.map).js')
     .pipe(replace(assetPaths.uncompressed, assetPaths.packaged))
     .pipe(concat('semantic.min.js'))
       .pipe(uglify(settings.uglify))
@@ -534,6 +538,8 @@ gulp.task('install', 'Set-up project for first time', function () {
         ]);
       }
       if(answers.build == 'yes') {
+        config = require('./semantic.json');
+        getDerivedValues();
         gulp.start('build');
       }
     }))
@@ -547,6 +553,12 @@ gulp.task('install', 'Set-up project for first time', function () {
 /*--------------
    Maintainer
 ---------------*/
+
+/* Serve files to an instance of docs hosted adjacent */
+gulp.task('serve', false, function () {
+
+});
+
 
 /* Bump Version */
 gulp.task('bump', false, function () {

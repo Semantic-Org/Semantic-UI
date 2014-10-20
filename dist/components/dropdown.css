@@ -484,10 +484,12 @@ select.ui.dropdown {
 /*--------------------
         Loading
 ----------------------*/
+
 .ui.loading.dropdown > .text {
   -webkit-transition: none;
           transition: none;
 }
+
 /*--------------------
     Keyboard Select
 ----------------------*/
