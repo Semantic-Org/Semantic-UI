@@ -271,17 +271,17 @@ ol.ui.list li,
   color: rgba(0, 0, 0, 0.7);
 }
 
-.ui.animated.list .item {
+.ui.animated.list > .item {
   transition:
     0.2s color ease,
     0.2s padding-left ease,
     0.2s background-color ease
   ;
 }
-.ui.animated.list:not(.horizontal) .item:hover {
+.ui.animated.list:not(.horizontal) > .item:hover {
   padding-left: 1em;
 }
-.ui.animated.list:not(.horizontal) .item:hover .item:hover {
+.ui.animated.list:not(.horizontal) > .item:hover > .item:hover {
   padding-left: 0.5em;
 }
 
@@ -601,7 +601,7 @@ ol.ui.horizontal.list li:before,
 }
 
 
-/*-------------------
+/*-------------------a
       Sizes
 --------------------*/
 
