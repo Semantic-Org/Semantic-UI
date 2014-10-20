@@ -100,7 +100,6 @@ if(config) {
       : config.components[0]
     : ''
   ;
-  console.log(compiledFilter);
 
   // relative paths
   assetPaths = {
@@ -350,7 +349,6 @@ gulp.task('version', 'Displays current version of Semantic', function(callback) 
 ---------------*/
 
 gulp.task('package uncompressed css', false, function() {
-  console.log(output.uncompressed + '**/' + compiledFilter + '!(*.min|*.map).css');
   return gulp.src(output.uncompressed + '**/' + compiledFilter + '!(*.min|*.map).css')
     .pipe(replace(assetPaths.uncompressed, assetPaths.packaged))
     .pipe(concatCSS('semantic.css'))
