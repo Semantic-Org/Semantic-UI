@@ -1,0 +1,797 @@
+ /*
+ * # Semantic UI
+ * git://github.com/Semantic-Org/Semantic-UI.git
+ *
+ *
+ * Copyright 2014 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+
+
+/*******************************
+            Standard
+*******************************/
+
+
+/*--------------
+      Cards
+---------------*/
+
+.ui.cards {
+  margin: 1em -0.5em 0em;
+}
+.ui.cards > .card {
+  display: block;
+  margin: 0em 0.5em 1.5em;
+  float: left;
+}
+.ui.cards:first-child,
+.ui.card:first-child {
+  margin-top: 0em;
+}
+.ui.cards:last-child,
+.ui.card:last-child {
+  margin-bottom: 0em;
+}
+
+/* Clearing */
+.ui.cards:after,
+.ui.card:after {
+  display: block;
+  content: ' ';
+  height: 0px;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+/*--------------
+      Card
+---------------*/
+
+.ui.cards > .card,
+.ui.card {
+  max-width: 100%;
+  position: relative;
+  display: block;
+  width: 290px;
+  min-height: 0px;
+  background: #ffffff;
+  padding: 0em;
+  border: none;
+  border-radius: 0.2857rem;
+  box-shadow: 0px 0.2em 0px 0px #d4d4d5, 0px 0px 0px 1px #d4d4d5;
+  -webkit-transition: box-shadow 0.2s ease;
+          transition: box-shadow 0.2s ease;
+  z-index: '';
+}
+.ui.card {
+  margin: 1em 0em;
+}
+.ui.cards > .card a,
+.ui.card a {
+  cursor: pointer;
+}
+
+/*--------------
+  Rounded Edges
+---------------*/
+
+.ui.cards > .card > :first-child,
+.ui.card > :first-child {
+  border-radius: 0.2857rem 0.2857rem 0em 0em !important;
+}
+.ui.cards > .card > :last-child,
+.ui.card > :last-child {
+  border-radius: 0em 0em 0.2857rem 0.2857rem !important;
+}
+
+/*--------------
+     Images
+---------------*/
+
+.ui.cards > .card > .image,
+.ui.card > .image {
+  display: block;
+  position: relative;
+  padding: 0em;
+  background: rgba(0, 0, 0, 0.05);
+}
+.ui.cards > .card > .image > img,
+.ui.card > .image > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.2857rem 0.2857rem 0em 0em;
+  border: none;
+}
+.ui.cards > .card > .image:only-child > img,
+.ui.card > .image:only-child > img {
+  border-radius: 0.2857rem;
+}
+
+/*--------------
+     Content
+---------------*/
+
+.ui.cards > .card > .content,
+.ui.card > .content {
+  background: none;
+  margin: 0em;
+  padding: 1em 1em;
+  box-shadow: none;
+  font-size: 1em;
+  border: none;
+  border-radius: 0em;
+}
+.ui.cards > .card > .content:after,
+.ui.card > .content:after {
+  display: block;
+  content: ' ';
+  height: 0px;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+.ui.cards > .card > .content > .header,
+.ui.card > .content > .header {
+  display: block;
+  margin: 0em;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+/* Default Header Size */
+.ui.cards > .card > .content > .header:not(.ui),
+.ui.card > .content > .header:not(.ui) {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-top: -0.165em;
+  line-height: 1.33em;
+}
+.ui.cards > .card > .content > .meta + .description,
+.ui.cards > .card > .content > .header + .description,
+.ui.card > .content > .meta + .description,
+.ui.card > .content > .header + .description {
+  margin-top: 0.5em;
+}
+
+/*--------------
+     Floated
+---------------*/
+
+.ui.cards > .card [class*="left floated"],
+.ui.card [class*="left floated"] {
+  float: left;
+}
+.ui.cards > .card [class*="right floated"],
+.ui.card [class*="right floated"] {
+  float: right;
+}
+
+/*--------------
+  Content Image
+---------------*/
+
+.ui.cards > .card .content img,
+.ui.card .content img {
+  display: inline-block;
+  vertical-align: middle;
+  width: 2em;
+}
+.ui.cards > .card img.avatar,
+.ui.cards > .card .avatar img,
+.ui.card img.avatar,
+.ui.card .avatar img {
+  width: 2em;
+  height: 2em;
+  border-radius: 500rem;
+}
+
+/*--------------
+   Description
+---------------*/
+
+.ui.cards > .card > .content > .description,
+.ui.card > .content > .description {
+  clear: both;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+/*--------------
+    Paragraph
+---------------*/
+
+.ui.cards > .card > .content p,
+.ui.card > .content p {
+  margin: 0em 0em 0.5em;
+}
+.ui.cards > .card > .content p:last-child,
+.ui.card > .content p:last-child {
+  margin-bottom: 0em;
+}
+
+/*--------------
+      Meta
+---------------*/
+
+.ui.cards > .card .meta,
+.ui.card .meta {
+  font-size: 0.9em;
+  color: rgba(0, 0, 0, 0.4);
+}
+.ui.cards > .card .meta *,
+.ui.card .meta * {
+  margin-right: 0.3em;
+}
+.ui.cards > .card .meta :last-child,
+.ui.card .meta :last-child {
+  margin-right: 0em;
+}
+.ui.cards > .card .meta [class*="right floated"],
+.ui.card .meta [class*="right floated"] {
+  margin-right: 0em;
+  margin-left: 0.3em;
+}
+
+/*--------------
+      Links
+---------------*/
+
+
+/* Generic */
+.ui.cards > .card > .content a,
+.ui.card > .content a {
+  color: #009fda;
+  -webkit-transition: color 0.2s ease;
+          transition: color 0.2s ease;
+}
+.ui.cards > .card > .content a:hover,
+.ui.card > .content a:hover {
+  color: #00b2f3;
+}
+
+/* Header */
+.ui.cards > .card > .content > a.header,
+.ui.card > .content > a.header {
+  color: rgba(0, 0, 0, 0.85);
+}
+.ui.cards > .card > .content > a.header:hover,
+.ui.card > .content > a.header:hover {
+  color: #00b2f3;
+}
+
+/* Meta */
+.ui.cards > .card .meta a,
+.ui.card .meta a {
+  color: rgba(0, 0, 0, 0.4);
+}
+.ui.cards > .card .meta a:hover,
+.ui.card .meta a:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+/*--------------
+     Buttons
+---------------*/
+
+.ui.cards > .card > .buttons:last-child,
+.ui.card > .buttons:last-child,
+.ui.cards > .card > .button:last-child,
+.ui.card > .button:last-child {
+  margin: 0em -1px -0.2em;
+  width: -webkit-calc(100% +  2px );
+  width: calc(100% +  2px );
+}
+
+/*--------------
+     Labels
+---------------*/
+
+
+/*-----Star----- */
+
+
+/* Icon */
+.ui.cards > .card > .content .star.icon,
+.ui.card > .content .star.icon {
+  cursor: pointer;
+  opacity: 0.75;
+  -webkit-transition: color 0.2s ease;
+          transition: color 0.2s ease;
+}
+.ui.cards > .card > .content .star.icon:hover,
+.ui.card > .content .star.icon:hover {
+  opacity: 1;
+  color: #ac9400;
+}
+.ui.cards > .card > .content .active.star.icon,
+.ui.card > .content .active.star.icon {
+  color: #e9b539;
+}
+
+/*-----Like----- */
+
+
+/* Icon */
+.ui.cards > .card > .content .like.icon,
+.ui.card > .content .like.icon {
+  cursor: pointer;
+  opacity: 0.75;
+  -webkit-transition: color 0.2s ease;
+          transition: color 0.2s ease;
+}
+.ui.cards > .card > .content .like.icon:hover,
+.ui.card > .content .like.icon:hover {
+  opacity: 1;
+  color: #ffadae;
+}
+.ui.cards > .card > .content .active.like.icon,
+.ui.card > .content .active.like.icon {
+  color: #ef404a;
+}
+
+/*----------------
+  Extra Content
+-----------------*/
+
+.ui.cards > .card > .extra,
+.ui.card > .extra {
+  max-width: 100%;
+  min-height: 0em !important;
+  position: static;
+  background: none;
+  width: auto;
+  margin: 0em 0em;
+  padding: 0.75em 1em;
+  top: 0em;
+  left: 0em;
+  color: rgba(0, 0, 0, 0.4);
+  box-shadow: none;
+  -webkit-transition: color 0.2s ease;
+          transition: color 0.2s ease;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+.ui.cards > .card > .extra a,
+.ui.card > .extra a {
+  color: rgba(0, 0, 0, 0.4);
+}
+.ui.cards > .card > .extra a:hover,
+.ui.card > .extra a:hover {
+  color: #00b2f3;
+}
+
+
+/*******************************
+           Variations
+*******************************/
+
+
+/*-------------------
+        Fluid
+--------------------*/
+
+.ui.fluid.card {
+  width: 100%;
+  max-width: 9999px;
+}
+
+/*-------------------
+        Link
+--------------------*/
+
+.ui.cards a.card:hover,
+.ui.link.cards .card:hover,
+a.ui.card:hover,
+.ui.link.card:hover {
+  cursor: pointer;
+  z-index: 5;
+  background: '';
+  border: none;
+  box-shadow: 0px 0.2em 0px 0px #bebebf, 0px 0px 0px 1px rgba(39, 41, 43, 0.2);
+}
+
+/*--------------
+   Card Count
+---------------*/
+
+.ui.one.cards {
+  margin-left: 0em;
+  margin-right: 0em;
+}
+.ui.one.cards > .card {
+  width: 100%;
+}
+.ui.two.cards {
+  margin-left: -1em;
+  margin-right: -1em;
+}
+.ui.two.cards > .card {
+  width: -webkit-calc( 50%  -  2em );
+  width: calc( 50%  -  2em );
+  margin-left: 1em;
+  margin-right: 1em;
+}
+.ui.two.cards > .card:nth-child(2n+1) {
+  clear: left;
+}
+.ui.three.cards {
+  margin-left: -1em;
+  margin-right: -1em;
+}
+.ui.three.cards > .card {
+  width: -webkit-calc( 33.33333333%  -  2em );
+  width: calc( 33.33333333%  -  2em );
+  margin-left: 1em;
+  margin-right: 1em;
+}
+.ui.three.cards > .card:nth-child(3n+1) {
+  clear: left;
+}
+.ui.four.cards {
+  margin-left: -0.75em;
+  margin-right: -0.75em;
+}
+.ui.four.cards > .card {
+  width: -webkit-calc( 25%  -  1.5em );
+  width: calc( 25%  -  1.5em );
+  margin-left: 0.75em;
+  margin-right: 0.75em;
+}
+.ui.four.cards > .card:nth-child(4n+1) {
+  clear: left;
+}
+.ui.five.cards {
+  margin-left: -0.75em;
+  margin-right: -0.75em;
+}
+.ui.five.cards > .card {
+  width: -webkit-calc( 20%  -  1.5em );
+  width: calc( 20%  -  1.5em );
+  margin-left: 0.75em;
+  margin-right: 0.75em;
+}
+.ui.five.cards > .card:nth-child(5n+1) {
+  clear: left;
+}
+.ui.six.cards {
+  margin-left: -0.75em;
+  margin-right: -0.75em;
+}
+.ui.six.cards > .card {
+  width: -webkit-calc( 16.66666667%  -  1.5em );
+  width: calc( 16.66666667%  -  1.5em );
+  margin-left: 0.75em;
+  margin-right: 0.75em;
+}
+.ui.six.cards > .card:nth-child(6n+1) {
+  clear: left;
+}
+.ui.seven.cards {
+  margin-left: -0.5em;
+  margin-right: -0.5em;
+}
+.ui.seven.cards > .card {
+  width: -webkit-calc( 14.28571429%  -  1em );
+  width: calc( 14.28571429%  -  1em );
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+.ui.seven.cards > .card:nth-child(7n+1) {
+  clear: left;
+}
+.ui.eight.cards {
+  margin-left: -0.5em;
+  margin-right: -0.5em;
+}
+.ui.eight.cards > .card {
+  width: -webkit-calc( 12.5%  -  1em );
+  width: calc( 12.5%  -  1em );
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  font-size: 11px;
+}
+.ui.eight.cards > .card:nth-child(8n+1) {
+  clear: left;
+}
+.ui.nine.cards {
+  margin-left: -0.5em;
+  margin-right: -0.5em;
+}
+.ui.nine.cards > .card {
+  width: -webkit-calc( 11.11111111%  -  1em );
+  width: calc( 11.11111111%  -  1em );
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  font-size: 10px;
+}
+.ui.nine.cards > .card:nth-child(9n+1) {
+  clear: left;
+}
+.ui.ten.cards {
+  margin-left: -0.5em;
+  margin-right: -0.5em;
+}
+.ui.ten.cards > .card {
+  width: -webkit-calc( 10%  -  1em );
+  width: calc( 10%  -  1em );
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+.ui.ten.cards > .card:nth-child(10n+1) {
+  clear: left;
+}
+
+/*-------------------
+      Doubling
+--------------------*/
+
+
+/* Mobily Only */
+@media only screen and (max-width: 767px) {
+  .ui.two.doubling.cards {
+    margin-left: 0em;
+    margin-right: 0em;
+  }
+  .ui.two.doubling.cards .card {
+    width: 100%;
+    margin-left: 0em;
+    margin-right: 0em;
+  }
+  .ui.three.doubling.cards {
+    margin-left: -1em;
+    margin-right: -1em;
+  }
+  .ui.three.doubling.cards .card {
+    width: -webkit-calc( 50%  -  2em );
+    width: calc( 50%  -  2em );
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+  .ui.four.doubling.cards {
+    margin-left: -1em;
+    margin-right: -1em;
+  }
+  .ui.four.doubling.cards .card {
+    width: -webkit-calc( 50%  -  2em );
+    width: calc( 50%  -  2em );
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+  .ui.five.doubling.cards {
+    margin-left: -1em;
+    margin-right: -1em;
+  }
+  .ui.five.doubling.cards .card {
+    width: -webkit-calc( 50%  -  2em );
+    width: calc( 50%  -  2em );
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+  .ui.six.doubling.cards {
+    margin-left: -1em;
+    margin-right: -1em;
+  }
+  .ui.six.doubling.cards .card {
+    width: -webkit-calc( 50%  -  2em );
+    width: calc( 50%  -  2em );
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+  .ui.seven.doubling.cards {
+    margin-left: -1em;
+    margin-right: -1em;
+  }
+  .ui.seven.doubling.cards .card {
+    width: -webkit-calc( 33.33333333%  -  2em );
+    width: calc( 33.33333333%  -  2em );
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+  .ui.eight.doubling.cards {
+    margin-left: -1em;
+    margin-right: -1em;
+  }
+  .ui.eight.doubling.cards .card {
+    width: -webkit-calc( 33.33333333%  -  2em );
+    width: calc( 33.33333333%  -  2em );
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+  .ui.nine.doubling.cards {
+    margin-left: -1em;
+    margin-right: -1em;
+  }
+  .ui.nine.doubling.cards .card {
+    width: -webkit-calc( 33.33333333%  -  2em );
+    width: calc( 33.33333333%  -  2em );
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+  .ui.ten.doubling.cards {
+    margin-left: -1em;
+    margin-right: -1em;
+  }
+  .ui.ten.doubling.cards .card {
+    width: -webkit-calc( 33.33333333%  -  2em );
+    width: calc( 33.33333333%  -  2em );
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+}
+
+/* Tablet Only */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .ui.two.doubling.cards {
+    margin-left: 0em;
+    margin-right: 0em;
+  }
+  .ui.two.doubling.cards .card {
+    width: 100%;
+    margin-left: 0em;
+    margin-right: 0em;
+  }
+  .ui.three.doubling.cards {
+    margin-left: -1em;
+    margin-right: -1em;
+  }
+  .ui.three.doubling.cards .card {
+    width: -webkit-calc( 50%  -  2em );
+    width: calc( 50%  -  2em );
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+  .ui.four.doubling.cards {
+    margin-left: -1em;
+    margin-right: -1em;
+  }
+  .ui.four.doubling.cards .card {
+    width: -webkit-calc( 50%  -  2em );
+    width: calc( 50%  -  2em );
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+  .ui.five.doubling.cards {
+    margin-left: -1em;
+    margin-right: -1em;
+  }
+  .ui.five.doubling.cards .card {
+    width: -webkit-calc( 33.33333333%  -  2em );
+    width: calc( 33.33333333%  -  2em );
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+  .ui.six.doubling.cards {
+    margin-left: -1em;
+    margin-right: -1em;
+  }
+  .ui.six.doubling.cards .card {
+    width: -webkit-calc( 33.33333333%  -  2em );
+    width: calc( 33.33333333%  -  2em );
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+  .ui.eight.doubling.cards {
+    margin-left: -1em;
+    margin-right: -1em;
+  }
+  .ui.eight.doubling.cards .card {
+    width: -webkit-calc( 33.33333333%  -  2em );
+    width: calc( 33.33333333%  -  2em );
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+  .ui.eight.doubling.cards {
+    margin-left: -0.75em;
+    margin-right: -0.75em;
+  }
+  .ui.eight.doubling.cards .card {
+    width: -webkit-calc( 25%  -  1.5em );
+    width: calc( 25%  -  1.5em );
+    margin-left: 0.75em;
+    margin-right: 0.75em;
+  }
+  .ui.nine.doubling.cards {
+    margin-left: -0.75em;
+    margin-right: -0.75em;
+  }
+  .ui.nine.doubling.cards .card {
+    width: -webkit-calc( 25%  -  1.5em );
+    width: calc( 25%  -  1.5em );
+    margin-left: 0.75em;
+    margin-right: 0.75em;
+  }
+  .ui.ten.doubling.cards {
+    margin-left: -0.75em;
+    margin-right: -0.75em;
+  }
+  .ui.ten.doubling.cards .card {
+    width: -webkit-calc( 20%  -  1.5em );
+    width: calc( 20%  -  1.5em );
+    margin-left: 0.75em;
+    margin-right: 0.75em;
+  }
+}
+
+/*-------------------
+      Stackable
+--------------------*/
+
+@media only screen and (max-width: 767px) {
+  .ui.stackable.cards {
+    display: block !important;
+  }
+  .ui.stackable.cards > .card {
+    display: block !important;
+    height: auto !important;
+    margin: 1em 1em;
+    padding: 0 !important;
+    width: -webkit-calc( 100%  -  2em ) !important;
+    width: calc( 100%  -  2em ) !important;
+  }
+}
+
+/*--------------
+      Size
+---------------*/
+
+.ui.cards > .card {
+  font-size: 1em;
+}
+
+
+/*******************************
+             Item
+*******************************/
+
+
+/*-------------------
+         View
+--------------------*/
+
+
+/* Item */
+
+/* Item Group */
+
+/*-------------------
+       Content
+--------------------*/
+
+
+/* Image */
+
+/* Content */
+
+/* Title */
+
+/* Metadata */
+
+/* Description */
+
+/* Image */
+
+/* Paragraph */
+
+/* Additional Content */
+
+/*-------------------
+       States
+--------------------*/
+
+
+/*-------------------
+      Variations
+--------------------*/
+
+
+/* Sizes */
+
+
+/*******************************
+    User Variable Overrides
+*******************************/
+

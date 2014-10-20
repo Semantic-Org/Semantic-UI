@@ -1,0 +1,11 @@
+ /*
+ * # Semantic UI
+ * git://github.com/Semantic-Org/Semantic-UI.git
+ *
+ *
+ * Copyright 2014 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+@import 'http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic';*,:after,:before{box-sizing:border-box}body,html{height:100%;font-smoothing:antialiased}body{margin:0;padding:0;min-width:278px;background:#f7f7f7;font-family:Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;font-size:14px;line-height:1.33;color:rgba(0,0,0,.8);overflow-x:hidden}h1,h2,h3,h4,h5{margin:1em 0 1rem;padding:0}p{margin:0 0 1em}p:first-child{margin-top:0}p:last-child{margin-bottom:0}a{color:#009fda;text-decoration:none}a:hover{color:#00b2f3}::-webkit-selection{background-color:rgba(255,255,160,.4);color:rgba(0,0,0,.8)}::-moz-selection{background-color:rgba(255,255,160,.4);color:rgba(0,0,0,.8)}::selection{background-color:rgba(255,255,160,.4);color:rgba(0,0,0,.8)}

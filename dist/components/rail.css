@@ -1,0 +1,98 @@
+ /*
+ * # Semantic UI
+ * git://github.com/Semantic-Org/Semantic-UI.git
+ *
+ *
+ * Copyright 2014 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+
+
+/*******************************
+             Rails
+*******************************/
+
+.ui.rail {
+  font-size: 1em;
+  position: absolute;
+  top: 0%;
+  width: 300px;
+  box-sizing: content-box;
+}
+.ui.left.rail {
+  left: auto;
+  right: 100%;
+  padding: 0em 2rem 0em 0em;
+  margin: 0em 2rem 0em 0em;
+}
+.ui.right.rail {
+  left: 100%;
+  right: auto;
+  padding: 0em 0em 0em 2rem;
+  margin: 0em 0em 0em 2rem;
+}
+
+
+/*******************************
+           Variations
+*******************************/
+
+
+/*--------------
+     Divided
+---------------*/
+
+.ui.left.dividing.rail {
+  padding: 0em 2.5rem 0em 0em;
+  margin: 0em 2.5rem 0em 0em;
+  border-right: 1px solid rgba(39, 41, 43, 0.15);
+}
+.ui.right.dividing.rail {
+  border-left: 1px solid rgba(39, 41, 43, 0.15);
+  padding: 0em 0em 0em 2.5rem;
+  margin: 0em 0em 0em 2.5rem;
+}
+
+/*--------------
+    Distance
+---------------*/
+
+.ui.close.left.rail {
+  padding: 0em 1em 0em 0em;
+  margin: 0em 1em 0em 0em;
+}
+.ui.close.right.rail {
+  padding: 0em 0em 0em 1em;
+  margin: 0em 0em 0em 1em;
+}
+.ui.very.close.left.rail {
+  padding: 0em 0.5em 0em 0em;
+  margin: 0em 0.5em 0em 0em;
+}
+.ui.very.close.right.rail {
+  padding: 0em 0em 0em 0.5em;
+  margin: 0em 0em 0em 0.5em;
+}
+
+/*--------------
+     Sizing
+---------------*/
+
+.ui.rail {
+  font-size: 1em;
+}
+
+
+/*******************************
+         Theme Overrides
+*******************************/
+
+
+
+/*******************************
+         Site Overrides
+*******************************/
+
