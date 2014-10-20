@@ -1,0 +1,944 @@
+ /*
+ * # Semantic UI
+ * git://github.com/Semantic-Org/Semantic-UI.git
+ *
+ *
+ * Copyright 2014 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+
+
+/*******************************
+            Label
+*******************************/
+
+.ui.label {
+  display: inline-block;
+  vertical-align: baseline;
+  line-height: 1;
+  margin: 0em 0.125em;
+  background-color: #e8e8e8;
+  border-color: #e8e8e8;
+  background-image: none;
+  padding: 0.6em 0.8em;
+  color: rgba(0, 0, 0, 0.6);
+  text-transform: none;
+  font-weight: bold;
+  border-radius: 0.2857rem;
+  box-sizing: border-box;
+  -webkit-transition: background 0.1s linear
+  ;
+          transition: background 0.1s linear
+  ;
+}
+.ui.label:first-child {
+  margin-left: 0em;
+}
+.ui.label:last-child {
+  margin-right: 0em;
+}
+
+/* Link */
+a.ui.label {
+  cursor: pointer;
+}
+
+/* Inside Link */
+.ui.label a {
+  cursor: pointer;
+  color: inherit;
+  opacity: 0.8;
+  -webkit-transition: 0.2s opacity ease;
+          transition: 0.2s opacity ease;
+}
+.ui.label a:hover {
+  opacity: 1;
+}
+
+/* Icon */
+.ui.label .icon {
+  width: auto;
+  margin: 0em 0.75em 0em 0em;
+}
+
+/* Detail */
+.ui.label .detail {
+  display: inline-block;
+  vertical-align: top;
+  font-weight: bold;
+  margin-left: 1em;
+  opacity: 0.8;
+}
+.ui.label .detail .icon {
+  margin: 0em 0.25em 0em 0em;
+}
+
+/* Removable label */
+.ui.label .close.icon,
+.ui.label .delete.icon {
+  cursor: pointer;
+  margin-right: 0em;
+  margin-left: 0.5em;
+  opacity: 0.8;
+  -webkit-transition: background 0.1s linear
+  ;
+          transition: background 0.1s linear
+  ;
+}
+.ui.label .delete.icon:hover {
+  opacity: 1;
+}
+
+/*-------------------
+       Group
+--------------------*/
+
+.ui.labels .label {
+  margin: 0em 0.5em 0.75em 0em;
+}
+
+/*-------------------
+       Coupling
+--------------------*/
+
+
+/* Padding on next content after a label */
+.ui.top.attached.label:first-child + :not(.attached) {
+  margin-top: 2rem !important;
+}
+.ui.bottom.attached.label:first-child ~ :last-child:not(.attached) {
+  margin-top: 0em;
+  margin-bottom: 2rem !important;
+}
+
+
+/*******************************
+             Types
+*******************************/
+
+.ui.image.label {
+  width: auto !important;
+  margin-top: 0em;
+  margin-bottom: 0em;
+  max-width: 9999px;
+  vertical-align: baseline;
+  text-transform: none;
+  background: #e8e8e8;
+  padding: 0.6em 0.8em 0.6em 0.5em;
+  border-radius: 0.2857rem;
+  box-shadow: none;
+}
+.ui.image.label img {
+  display: inline-block;
+  vertical-align: top;
+  height: 2.2em;
+  margin: -0.6em 0.5em -0.6em -0.5em;
+  border-radius: 0.2857rem;
+}
+.ui.image.label .detail {
+  background: rgba(0, 0, 0, 0.1);
+  margin: -0.6em -0.8em -0.6em 0.5em;
+  padding: 0.6em 0.8em;
+  border-radius: 0em 0.2857rem 0.2857rem 0em;
+}
+
+/*-------------------
+         Tag
+--------------------*/
+
+.ui.tag.labels .label,
+.ui.tag.label {
+  margin-left: 1em;
+  position: relative;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  border-radius: 0em 0.2857rem 0.2857rem 0em;
+}
+.ui.tag.labels .label:before,
+.ui.tag.label:before {
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  content: '';
+  background-color: #e8e8e8;
+  background-image: none;
+  width: 1.56em;
+  height: 1.56em;
+  -webkit-transform: translateY(-50%) translateX(50%) rotate(-45deg);
+      -ms-transform: translateY(-50%) translateX(50%) rotate(-45deg);
+          transform: translateY(-50%) translateX(50%) rotate(-45deg);
+  -webkit-transition: background 0.1s linear
+    ;
+          transition: background 0.1s linear
+    ;
+}
+.ui.tag.labels .label:after,
+.ui.tag.label:after {
+  position: absolute;
+  content: '';
+  top: 50%;
+  left: -0.25em;
+  margin-top: -0.25em;
+  background-color: #ffffff !important;
+  width: 0.5em;
+  height: 0.5em;
+  box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 500rem;
+}
+
+/*-------------------
+    Corner Label
+--------------------*/
+
+.ui.corner.label {
+  position: absolute;
+  top: 0em;
+  right: 0em;
+  z-index: 10;
+  margin: 0em;
+  width: 3.25em;
+  height: 3.25em;
+  padding: 0em;
+  text-align: center;
+  -webkit-transition: color 0.2s ease;
+          transition: color 0.2s ease;
+}
+
+/* Icon Label */
+.ui.corner.label {
+  background-color: transparent !important;
+}
+.ui.corner.label:after {
+  position: absolute;
+  content: "";
+  right: 0em;
+  top: 0em;
+  z-index: -1;
+  width: 0em;
+  height: 0em;
+  background-color: transparent !important;
+  border-top: 0em solid transparent;
+  border-right: 3.25em solid transparent;
+  border-bottom: 3.25em solid transparent;
+  border-left: 0em solid transparent;
+  border-right-color: inherit;
+  -webkit-transition: border-color 0.2s ease;
+          transition: border-color 0.2s ease;
+}
+.ui.corner.label .icon {
+  position: relative;
+  top: 0.4em;
+  left: 0.75em;
+  font-size: 1em;
+  margin: 0em;
+}
+
+/* Text Label
+.ui.text.corner.label {
+  font-weight: @cornerTextWeight;
+  text-align: center;
+  padding: 0.25em 0;
+  top: 1.1em;
+  transform: rotate(45deg);
+  width: 4em;
+  height: auto;
+}
+.ui.left.text.corner.label {
+  transform: rotate(-45deg);
+}
+.ui.text.corner.label:before,
+.ui.text.corner.label:after {
+  position: absolute;
+  content: '';
+  top: 0em;
+  width: 0em;
+  height: 0em;
+}
+.ui.text.corner.label:before {
+  left: auto;
+  right: 100%;
+  border-top: 0em solid transparent;
+  border-right-width: @ribbonTriangleSize;
+  border-right-color: inherit;
+  border-right-style: solid;
+  border-bottom: @ribbonTriangleSize solid transparent;
+  border-left: 0em solid transparent;
+}
+.ui.text.corner.label:after {
+  left: 100%;
+  right: auto;
+  border-top: 0em solid transparent;
+  border-right-width: @ribbonTriangleSize;
+  border-right-color: inherit;
+  border-right-style: solid;
+  border-bottom: @ribbonTriangleSize solid transparent;
+  border-left: 0em solid transparent;
+}
+*/
+/* Left Corner */
+.ui.left.corner.label,
+.ui.left.corner.label:after {
+  right: auto;
+  left: 0em;
+}
+.ui.left.corner.label:after {
+  border-top: 3.25em solid transparent;
+  border-right: 3.25em solid transparent;
+  border-bottom: 0em solid transparent;
+  border-left: 0em solid transparent;
+  border-top-color: inherit;
+}
+.ui.left.corner.label .icon {
+  left: -0.75em;
+}
+
+/* Segment */
+.ui.segment > .ui.corner.label {
+  top: -1px;
+  right: -1px;
+}
+.ui.segment > .ui.left.corner.label {
+  right: auto;
+  left: -1px;
+}
+
+/* Input */
+.ui.input > .ui.corner.label {
+  top: 1px;
+  right: 1px;
+}
+.ui.input > .ui.right.corner.label {
+  right: auto;
+  left: 1px;
+}
+
+/*-------------------
+       Ribbon
+--------------------*/
+
+.ui.ribbon.label {
+  position: relative;
+  margin: 0em;
+  left: -2rem;
+  padding-left: 2rem;
+  border-radius: 0em 0.2857rem 0.2857rem 0em;
+  border-color: rgba(0, 0, 0, 0.15);
+}
+.ui.ribbon.label:after {
+  position: absolute;
+  content: "";
+  top: 100%;
+  left: 0%;
+  background-color: transparent !important;
+  border-top: 0em solid transparent;
+  border-right-width: 1.2em;
+  border-right-color: inherit;
+  border-right-style: solid;
+  border-bottom: 1.2em solid transparent;
+  border-left: 0em solid transparent;
+  width: 0em;
+  height: 0em;
+}
+
+/*-------------------
+       Attached
+--------------------*/
+
+.ui.top.attached.label,
+.ui.attached.label {
+  width: 100%;
+  position: absolute;
+  margin: 0em;
+  top: 0em;
+  left: 0em;
+  padding: 0.75em 1em;
+  border-radius: 0.2857rem 0.2857rem 0em 0em;
+}
+.ui.bottom.attached.label {
+  top: auto;
+  bottom: 0em;
+  border-radius: 0em 0em 0.2857rem 0.2857rem;
+}
+.ui.top.left.attached.label {
+  width: auto;
+  margin-top: 0em !important;
+  border-radius: 0.2857rem 0em 0.2857rem 0em;
+}
+.ui.top.right.attached.label {
+  width: auto;
+  left: auto;
+  right: 0em;
+  border-radius: 0em 0.2857rem 0em 0.2857rem;
+}
+.ui.bottom.left.attached.label {
+  width: auto;
+  top: auto;
+  bottom: 0em;
+  border-radius: 0em 0em 0.2857rem 0.2857rem;
+}
+.ui.bottom.right.attached.label {
+  top: auto;
+  bottom: 0em;
+  left: auto;
+  right: 0em;
+  width: auto;
+  border-radius: 0.2857rem 0em 0.2857rem 0em;
+}
+
+
+/*******************************
+             States
+*******************************/
+
+
+/*-------------------
+      Disabled
+--------------------*/
+
+.ui.label.disabled {
+  opacity: 0.5;
+}
+
+/*-------------------
+        Hover
+--------------------*/
+
+a.ui.labels .label:hover,
+a.ui.label:hover {
+  background-color: #e0e0e0;
+  border-color: #e0e0e0;
+  background-image: none;
+  color: rgba(0, 0, 0, 0.8);
+}
+.ui.labels a.label:hover:before,
+a.ui.label:hover:before {
+  background-color: #e0e0e0;
+  background-image: none;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+/*-------------------
+      Visible
+--------------------*/
+
+.ui.labels.visible .label,
+.ui.label.visible {
+  display: inline-block !important;
+}
+
+/*-------------------
+      Hidden
+--------------------*/
+
+.ui.labels.hidden .label,
+.ui.label.hidden {
+  display: none !important;
+}
+
+
+/*******************************
+           Variations
+*******************************/
+
+
+/*-------------------
+       Colors
+--------------------*/
+
+
+/*--- Black ---*/
+
+.ui.black.labels .label,
+.ui.black.label {
+  background-color: #1b1c1d !important;
+  border-color: #1b1c1d !important;
+  color: #ffffff !important;
+}
+.ui.labels .black.label:before,
+.ui.black.labels .label:before,
+.ui.black.label:before {
+  background-color: #1b1c1d !important;
+}
+a.ui.black.labels .label:hover,
+a.ui.black.label:hover {
+  background-color: #222425 !important;
+  border-color: #222425 !important;
+}
+.ui.labels a.black.label:hover:before,
+.ui.black.labels a.label:hover:before,
+a.ui.black.label:hover:before {
+  background-color: #222425 !important;
+}
+.ui.black.corner.label,
+.ui.black.corner.label:hover {
+  background-color: transparent !important;
+}
+.ui.black.ribbon.label {
+  border-color: #020203 !important;
+}
+
+/*--- Blue ---*/
+
+.ui.blue.labels .label,
+.ui.blue.label {
+  background-color: #3b83c0 !important;
+  border-color: #3b83c0 !important;
+  color: #ffffff !important;
+}
+.ui.labels .blue.label:before,
+.ui.blue.labels .label:before,
+.ui.blue.label:before {
+  background-color: #3b83c0 !important;
+}
+a.ui.blue.labels .label:hover,
+.ui.blue.labels a.label:hover,
+a.ui.blue.label:hover {
+  background-color: #458ac6 !important;
+  border-color: #458ac6 !important;
+  color: #ffffff !important;
+}
+.ui.labels a.blue.label:hover:before,
+.ui.blue.labels a.label:hover:before,
+a.ui.blue.label:hover:before {
+  background-color: #458ac6 !important;
+}
+.ui.blue.corner.label,
+.ui.blue.corner.label:hover {
+  background-color: transparent !important;
+}
+.ui.blue.ribbon.label {
+  border-color: #2f6899 !important;
+}
+
+/*--- Green ---*/
+
+.ui.green.labels .label,
+.ui.green.label {
+  background-color: #5bbd72 !important;
+  border-color: #5bbd72 !important;
+  color: #ffffff !important;
+}
+.ui.labels .green.label:before,
+.ui.green.labels .label:before,
+.ui.green.label:before {
+  background-color: #5bbd72 !important;
+}
+a.ui.green.labels .label:hover,
+a.ui.green.label:hover {
+  background-color: #66c17b !important;
+  border-color: #66c17b !important;
+}
+.ui.labels a.green.label:hover:before,
+.ui.green.labels a.label:hover:before,
+a.ui.green.label:hover:before {
+  background-color: #66c17b !important;
+}
+.ui.green.corner.label,
+.ui.green.corner.label:hover {
+  background-color: transparent !important;
+}
+.ui.green.ribbon.label {
+  border-color: #42a359 !important;
+}
+
+/*--- Orange ---*/
+
+.ui.orange.labels .label,
+.ui.orange.label {
+  background-color: #e07b53 !important;
+  border-color: #e07b53 !important;
+  color: #ffffff !important;
+}
+.ui.labels .orange.label:before,
+.ui.orange.labels .label:before,
+.ui.orange.label:before {
+  background-color: #e07b53 !important;
+}
+a.ui.orange.labels .label:hover,
+.ui.orange.labels a.label:hover,
+a.ui.orange.label:hover {
+  background-color: #e28560 !important;
+  border-color: #e28560 !important;
+  color: #ffffff !important;
+}
+.ui.labels a.orange.label:hover:before,
+.ui.orange.labels a.label:hover:before,
+a.ui.orange.label:hover:before {
+  background-color: #e28560 !important;
+}
+.ui.orange.corner.label,
+.ui.orange.corner.label:hover {
+  background-color: transparent !important;
+}
+.ui.orange.ribbon.label {
+  border-color: #d85a28 !important;
+}
+
+/*--- Pink ---*/
+
+.ui.pink.labels .label,
+.ui.pink.label {
+  background-color: #d9499a !important;
+  border-color: #d9499a !important;
+  color: #ffffff !important;
+}
+.ui.labels .pink.label:before,
+.ui.pink.labels .label:before,
+.ui.pink.label:before {
+  background-color: #d9499a !important;
+}
+a.ui.pink.labels .label:hover,
+.ui.pink.labels a.label:hover,
+a.ui.pink.label:hover {
+  background-color: #dc56a1 !important;
+  border-color: #dc56a1 !important;
+  color: #ffffff !important;
+}
+.ui.labels a.pink.label:hover:before,
+.ui.pink.labels a.label:hover:before,
+a.ui.pink.label:hover:before {
+  background-color: #dc56a1 !important;
+}
+.ui.pink.corner.label,
+.ui.pink.corner.label:hover {
+  background-color: transparent !important;
+}
+.ui.pink.ribbon.label {
+  border-color: #c62981 !important;
+}
+
+/*--- Purple ---*/
+
+.ui.purple.labels .label,
+.ui.purple.label {
+  background-color: #564f8a !important;
+  border-color: #564f8a !important;
+  color: #ffffff !important;
+}
+.ui.labels .purple.label:before,
+.ui.purple.labels .label:before,
+.ui.purple.label:before {
+  background-color: #564f8a !important;
+}
+a.ui.purple.labels .label:hover,
+.ui.purple.labels a.label:hover,
+a.ui.purple.label:hover {
+  background-color: #5c5594 !important;
+  border-color: #5c5594 !important;
+  color: #ffffff !important;
+}
+.ui.labels a.purple.label:hover:before,
+.ui.purple.labels a.label:hover:before,
+a.ui.purple.label:hover:before {
+  background-color: #5c5594 !important;
+}
+.ui.purple.corner.label,
+.ui.purple.corner.label:hover {
+  background-color: transparent !important;
+}
+.ui.purple.ribbon.label {
+  border-color: #423c6a !important;
+}
+
+/*--- Red ---*/
+
+.ui.red.labels .label,
+.ui.red.label {
+  background-color: #d95c5c !important;
+  border-color: #d95c5c !important;
+  color: #ffffff !important;
+}
+.ui.labels .red.label:before,
+.ui.red.labels .label:before,
+.ui.red.label:before {
+  background-color: #d95c5c !important;
+}
+.ui.red.corner.label,
+.ui.red.corner.label:hover {
+  background-color: transparent !important;
+}
+a.ui.red.labels .label:hover,
+a.ui.red.label:hover {
+  background-color: #dc6868 !important;
+  border-color: #dc6868 !important;
+  color: #ffffff !important;
+}
+.ui.labels a.red.label:hover:before,
+.ui.red.labels a.label:hover:before,
+a.ui.red.label:hover:before {
+  background-color: #dc6868 !important;
+}
+.ui.red.ribbon.label {
+  border-color: #cf3333 !important;
+}
+
+/*--- Teal ---*/
+
+.ui.teal.labels .label,
+.ui.teal.label {
+  background-color: #00b5ad !important;
+  border-color: #00b5ad !important;
+  color: #ffffff !important;
+}
+.ui.labels .teal.label:before,
+.ui.teal.labels .label:before,
+.ui.teal.label:before {
+  background-color: #00b5ad !important;
+}
+a.ui.teal.labels .label:hover,
+.ui.teal.labels a.label:hover,
+a.ui.teal.label:hover {
+  background-color: #00c4bc !important;
+  border-color: #00c4bc !important;
+  color: #ffffff !important;
+}
+.ui.labels a.teal.label:hover:before,
+.ui.teal.labels a.label:hover:before,
+a.ui.teal.label:hover:before {
+  background-color: #00c4bc !important;
+}
+.ui.teal.corner.label,
+.ui.teal.corner.label:hover {
+  background-color: transparent !important;
+}
+.ui.teal.ribbon.label {
+  border-color: #00827c !important;
+}
+
+/*--- Yellow ---*/
+
+.ui.yellow.labels .label,
+.ui.yellow.label {
+  background-color: #f2c61f !important;
+  border-color: #f2c61f !important;
+  color: #ffffff !important;
+}
+.ui.labels .yellow.label:before,
+.ui.yellow.labels .label:before,
+.ui.yellow.label:before {
+  background-color: #f2c61f !important;
+}
+a.ui.yellow.labels .label:hover,
+.ui.yellow.labels a.label:hover,
+a.ui.yellow.label:hover {
+  background-color: #f3ca2d !important;
+  border-color: #f3ca2d !important;
+  color: #ffffff !important;
+}
+.ui.labels a.yellow.label:hover:before,
+.ui.yellow.labels a.label:hover:before,
+a.ui.yellow.label:hover:before {
+  background-color: #f3ca2d !important;
+}
+.ui.yellow.corner.label,
+.ui.yellow.corner.label:hover {
+  background-color: transparent !important;
+}
+.ui.yellow.ribbon.label {
+  border-color: #d2a90c !important;
+}
+
+/*-------------------
+       Fluid
+--------------------*/
+
+.ui.label.fluid,
+.ui.fluid.labels > .label {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/*-------------------
+       Inverted
+--------------------*/
+
+.ui.inverted.labels .label,
+.ui.inverted.label {
+  color: #ffffff !important;
+}
+
+/*-------------------
+     Horizontal
+--------------------*/
+
+.ui.horizontal.labels .label,
+.ui.horizontal.label {
+  margin: 0em 0.5em 0em 0em;
+  padding: 0.4em 0.8em;
+  min-width: 3em;
+  text-align: center;
+}
+
+/*-------------------
+       Circular
+--------------------*/
+
+.ui.circular.labels .label,
+.ui.circular.label {
+  min-width: 2em;
+  min-height: 2em;
+  padding: 0.5em !important;
+  line-height: 1em;
+  text-align: center;
+  border-radius: 500rem;
+}
+.ui.empty.circular.labels .label,
+.ui.empty.circular.label {
+  min-width: 0em;
+  min-height: 0em;
+  overflow: hidden;
+  width: 0.5em;
+  height: 0.5em;
+  vertical-align: baseline;
+}
+
+/*-------------------
+       Pointing
+--------------------*/
+
+.ui.pointing.label {
+  position: relative;
+}
+.ui.attached.pointing.label {
+  position: absolute;
+}
+.ui.pointing.label:before {
+  position: absolute;
+  content: '';
+  width: 0.6em;
+  height: 0.6em;
+  background-image: none;
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+  z-index: 2;
+  -webkit-transition: background 0.1s linear
+  ;
+          transition: background 0.1s linear
+  ;
+}
+
+/*--- Above ---*/
+
+.ui.pointing.label:before {
+  background-color: #e8e8e8;
+  background-image: none;
+}
+.ui.pointing.label,
+.ui.pointing.above.label {
+  margin-top: 1em;
+}
+.ui.pointing.label:before,
+.ui.pointing.above.label:before {
+  margin-left: -0.3em;
+  top: -0.3em;
+  left: 50%;
+}
+
+/*--- Below ---*/
+
+.ui.pointing.bottom.label,
+.ui.pointing.below.label {
+  margin-top: 0em;
+  margin-bottom: 1em;
+}
+.ui.pointing.bottom.label:before,
+.ui.pointing.below.label:before {
+  margin-left: -0.3em;
+  top: auto;
+  right: auto;
+  bottom: -0.3em;
+  left: 50%;
+}
+
+/*--- Left ---*/
+
+.ui.pointing.left.label {
+  margin-top: 0em;
+  margin-left: 1em;
+}
+.ui.pointing.left.label:before {
+  margin-top: -0.3em;
+  bottom: auto;
+  right: auto;
+  top: 50%;
+  left: 0em;
+}
+
+/*--- Right ---*/
+
+.ui.pointing.right.label {
+  margin-top: 0em;
+  margin-right: 1em;
+}
+.ui.pointing.right.label:before {
+  margin-top: -0.3em;
+  right: -0.3em;
+  top: 50%;
+  bottom: auto;
+  left: auto;
+}
+
+/*------------------
+   Floating Label
+-------------------*/
+
+.ui.floating.label {
+  position: absolute;
+  z-index: 100;
+  top: -1em;
+  left: 100%;
+  margin: 0em 0em 0em -1.5em !important;
+}
+
+/*-------------------
+        Sizes
+--------------------*/
+
+.ui.mini.labels .label,
+.ui.mini.label {
+  font-size: 0.6428em;
+}
+.ui.tiny.labels .label,
+.ui.tiny.label {
+  font-size: 0.7142em;
+}
+.ui.small.labels .label,
+.ui.small.label {
+  font-size: 0.7857em;
+}
+.ui.labels .label,
+.ui.label {
+  font-size: 0.8571em;
+}
+.ui.large.labels .label,
+.ui.large.label {
+  font-size: 1em;
+}
+.ui.big.labels .label,
+.ui.big.label {
+  font-size: 1.1428em;
+}
+.ui.huge.labels .label,
+.ui.huge.label {
+  font-size: 1.2857em;
+}
+.ui.massive.labels .label,
+.ui.massive.label {
+  font-size: 1.4285em;
+}
+
+
+/*******************************
+         Theme Overrides
+*******************************/
+
+
+
+/*******************************
+         Site Overrides
+*******************************/
+

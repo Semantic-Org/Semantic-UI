@@ -1,0 +1,400 @@
+ /*
+ * # Semantic UI
+ * git://github.com/Semantic-Org/Semantic-UI.git
+ *
+ *
+ * Copyright 2014 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+
+
+/*******************************
+            Progress
+*******************************/
+
+.ui.progress {
+  position: relative;
+  display: block;
+  max-width: 100%;
+  border: 1px solid rgba(39, 41, 43, 0.15);
+  margin: 1em 0em 2.5em;
+  box-shadow: none;
+  background: rgba(0, 0, 0, 0.03);
+  padding: 0.2857em;
+  border-radius: 0.2857rem;
+}
+.ui.progress:first-child {
+  margin: 0em 0em 2.5em;
+}
+.ui.progress:last-child {
+  margin: 0em 0em 1.5em;
+}
+
+/* Indicating */
+.ui.indicating.progress .bar[style^="width: 3"] {
+  background-color: #d9a65c;
+}
+.ui.indicating.progress .bar[style^="width: 4"],
+.ui.indicating.progress .bar[style^="width: 5"] {
+  background-color: #e6bb48;
+}
+.ui.indicating.progress .bar[style^="width: 6"] {
+  background-color: #ddc928;
+}
+.ui.indicating.progress .bar[style^="width: 7"],
+.ui.indicating.progress .bar[style^="width: 8"] {
+  background-color: #b4d95c;
+}
+.ui.indicating.progress .bar[style^="width: 9"],
+.ui.indicating.progress .bar[style^="width: 100"] {
+  background-color: #66da81;
+}
+.ui.indicating.progress .bar[style^="width: 1%"],
+.ui.indicating.progress .bar[style^="width: 2%"],
+.ui.indicating.progress .bar[style^="width: 3%"],
+.ui.indicating.progress .bar[style^="width: 4%"],
+.ui.indicating.progress .bar[style^="width: 5%"],
+.ui.indicating.progress .bar[style^="width: 6%"],
+.ui.indicating.progress .bar[style^="width: 7%"],
+.ui.indicating.progress .bar[style^="width: 8%"],
+.ui.indicating.progress .bar[style^="width: 9%"],
+.ui.indicating.progress .bar[style^="width: 1"],
+.ui.indicating.progress .bar[style^="width: 2"] {
+  background-color: #d95c5c;
+}
+
+/* Single Digits Last */
+.ui.indicating.progress .bar[style^="width: 1%"] + .label,
+.ui.indicating.progress .bar[style^="width: 2%"] + .label,
+.ui.indicating.progress .bar[style^="width: 3%"] + .label,
+.ui.indicating.progress .bar[style^="width: 4%"] + .label,
+.ui.indicating.progress .bar[style^="width: 5%"] + .label,
+.ui.indicating.progress .bar[style^="width: 6%"] + .label,
+.ui.indicating.progress .bar[style^="width: 7%"] + .label,
+.ui.indicating.progress .bar[style^="width: 8%"] + .label,
+.ui.indicating.progress .bar[style^="width: 9%"] + .label,
+.ui.indicating.progress .bar[style^="width: 1"] + .label,
+.ui.indicating.progress .bar[style^="width: 2"] + .label {
+  color: #d95c5c;
+}
+.ui.indicating.progress .bar[style^="width: 3"] + .label {
+  color: #d9a65c;
+}
+.ui.indicating.progress .bar[style^="width: 4"] + .label,
+.ui.indicating.progress .bar[style^="width: 5"] + .label {
+  color: #e6bb48;
+}
+.ui.indicating.progress .bar[style^="width: 6"] + .label {
+  color: #ddc928;
+}
+.ui.indicating.progress .bar[style^="width: 7"] + .label,
+.ui.indicating.progress .bar[style^="width: 8"] + .label {
+  color: #b4d95c;
+}
+.ui.indicating.progress .bar[style^="width: 9"] + .label,
+.ui.indicating.progress .bar[style^="width: 100"] + .label {
+  color: #66da81;
+}
+
+
+/*******************************
+            Content
+*******************************/
+
+
+/* Activity Bar */
+.ui.progress .bar {
+  display: block;
+  line-height: 1;
+  position: relative;
+  width: 0%;
+  min-width: 0.25em;
+  height: 1.75em;
+  background: #888888;
+  border-radius: 0.2857rem;
+  -webkit-transition: width 0.5s ease, background-color 1s ease;
+          transition: width 0.5s ease, background-color 1s ease;
+}
+
+/* Percent Complete */
+.ui.progress .bar > .progress {
+  white-space: nowrap;
+  position: absolute;
+  width: auto;
+  font-size: 0.9em;
+  top: 50%;
+  right: 0.5em;
+  left: auto;
+  bottom: auto;
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: none;
+  margin-top: -0.5em;
+  font-weight: bold;
+  text-align: left;
+}
+
+/* Label */
+.ui.progress > .label {
+  position: absolute;
+  width: 100%;
+  font-size: 1em;
+  top: 100%;
+  right: auto;
+  left: 0%;
+  bottom: auto;
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: bold;
+  text-shadow: none;
+  margin-top: 0.2em;
+  text-align: center;
+  -webkit-transition: color 1s ease;
+          transition: color 1s ease;
+}
+
+
+/*******************************
+             States
+*******************************/
+
+
+/*--------------
+     Success
+---------------*/
+
+.ui.progress.success .bar {
+  background-color: #5bbd72 !important;
+}
+.ui.progress.success .bar,
+.ui.progress.success .bar::after {
+  -webkit-animation: none !important;
+          animation: none !important;
+}
+.ui.progress.success > .label {
+  color: #356e36;
+}
+
+/*--------------
+     Warning
+---------------*/
+
+.ui.progress.warning .bar {
+  background-color: #f2c037 !important;
+}
+.ui.progress.warning .bar,
+.ui.progress.warning .bar::after {
+  -webkit-animation: none !important;
+          animation: none !important;
+}
+.ui.progress.warning > .label {
+  color: #825c01;
+}
+
+/*--------------
+     Error
+---------------*/
+
+.ui.progress.error .bar {
+  background-color: #d95c5c !important;
+}
+.ui.progress.error .bar,
+.ui.progress.error .bar::after {
+  -webkit-animation: none !important;
+          animation: none !important;
+}
+.ui.progress.error > .label {
+  color: #912d2b;
+}
+
+/*--------------
+     Active
+---------------*/
+
+.ui.active.progress .bar {
+  position: relative;
+  min-width: 3em;
+}
+.ui.active.progress .bar::after {
+  content: '';
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: #ffffff;
+  border-radius: 0.2857rem;
+  -webkit-animation: progress-active 2s ease infinite;
+          animation: progress-active 2s ease infinite;
+}
+@-webkit-keyframes progress-active {
+  0% {
+    opacity: 0.3;
+    width: 0;
+  }
+  100% {
+    opacity: 0;
+    width: 100%;
+  }
+}
+@keyframes progress-active {
+  0% {
+    opacity: 0.3;
+    width: 0;
+  }
+  100% {
+    opacity: 0;
+    width: 100%;
+  }
+}
+
+/*--------------
+    Disabled
+---------------*/
+
+.ui.disabled.progress {
+  opacity: 0.35;
+}
+.ui.disabled.progress .bar,
+.ui.disabled.progress .bar::after {
+  -webkit-animation: none !important;
+          animation: none !important;
+}
+
+
+/*******************************
+           Variations
+*******************************/
+
+
+/*--------------
+    Inverted
+---------------*/
+
+
+/* bottom attached */
+.ui.inverted.progress {
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+}
+.ui.inverted.progress .bar {
+  background: #888888;
+}
+.ui.inverted.progress .bar > .progress {
+  color: #fafafa;
+}
+.ui.inverted.progress > .label {
+  color: #ffffff;
+}
+.ui.inverted.progress.success > .label {
+  color: #5bbd72;
+}
+.ui.inverted.progress.warning > .label {
+  color: #f2c037;
+}
+.ui.inverted.progress.error > .label {
+  color: #d95c5c;
+}
+
+/*--------------
+    Attached
+---------------*/
+
+
+/* bottom attached */
+.ui.progress.attached {
+  background: none transparent;
+  position: relative;
+  border: none;
+  margin: 0em;
+}
+.ui.progress.attached,
+.ui.progress.attached .bar {
+  display: block;
+  height: 0.25em;
+  padding: 0px;
+  overflow: hidden;
+  border-radius: 0em 0em 0.2857rem 0.2857rem;
+}
+.ui.progress.attached .bar {
+  border-radius: 0em;
+}
+
+/* top attached */
+.ui.progress.top.attached,
+.ui.progress.top.attached .bar {
+  top: 0px;
+  border-radius: 0.2857rem 0.2857rem 0em 0em;
+}
+.ui.progress.top.attached .bar {
+  border-radius: 0em;
+}
+
+/*--------------
+     Colors
+---------------*/
+
+.ui.black.progress .bar {
+  background-color: #1b1c1d;
+}
+.ui.blue.progress .bar {
+  background-color: #3b83c0;
+}
+.ui.green.progress .bar {
+  background-color: #5bbd72;
+}
+.ui.orange.progress .bar {
+  background-color: #e07b53;
+}
+.ui.pink.progress .bar {
+  background-color: #d9499a;
+}
+.ui.purple.progress .bar {
+  background-color: #564f8a;
+}
+.ui.red.progress .bar {
+  background-color: #d95c5c;
+}
+.ui.teal.progress .bar {
+  background-color: #00b5ad;
+}
+.ui.yellow.progress .bar {
+  background-color: #f2c61f;
+}
+.ui.black.inverted.progress .bar {
+  background-color: #333333;
+}
+.ui.blue.inverted.progress .bar {
+  background-color: #54c8ff;
+}
+.ui.green.inverted.progress .bar {
+  background-color: #2ecc40;
+}
+.ui.orange.inverted.progress .bar {
+  background-color: #ff851b;
+}
+.ui.pink.inverted.progress .bar {
+  background-color: #ff8edf;
+}
+.ui.purple.inverted.progress .bar {
+  background-color: #cdc6ff;
+}
+.ui.red.inverted.progress .bar {
+  background-color: #ff695e;
+}
+.ui.teal.inverted.progress .bar {
+  background-color: #6dffff;
+}
+.ui.yellow.inverted.progress .bar {
+  background-color: #ffe21f;
+}
+
+/*--------------
+     Sizes
+---------------*/
+
+.ui.small.progress .bar {
+  height: 14px;
+}

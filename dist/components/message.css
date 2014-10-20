@@ -1,0 +1,411 @@
+ /*
+ * # Semantic UI
+ * git://github.com/Semantic-Org/Semantic-UI.git
+ *
+ *
+ * Copyright 2014 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+
+
+/*******************************
+            Message
+*******************************/
+
+.ui.message {
+  position: relative;
+  min-height: 1em;
+  margin: 1em 0em;
+  background: #efefef;
+  padding: 1em 1.5em;
+  line-height: 1.3;
+  color: rgba(0, 0, 0, 0.8);
+  -webkit-transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+          transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 0.2857rem;
+  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15) inset, 0px 0px 0px 0px transparent;
+}
+.ui.message:first-child {
+  margin-top: 0em;
+}
+.ui.message:last-child {
+  margin-bottom: 0em;
+}
+
+/*--------------
+     Content
+---------------*/
+
+
+/* Header */
+.ui.message .header {
+  display: block;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  margin: 0em 0em 0em 0rem;
+}
+
+/* Default font size */
+.ui.message .header:not(.ui) {
+  font-size: 1.1em;
+}
+
+/* Paragraph */
+.ui.message p {
+  opacity: 0.85;
+  margin: 0.75em 0em;
+}
+.ui.message p:first-child {
+  margin-top: 0em;
+}
+.ui.message p:last-child {
+  margin-bottom: 0em;
+}
+.ui.message .header + p {
+  margin-top: 0.25em;
+}
+
+/* List */
+.ui.message ul.list {
+  opacity: 0.85;
+  list-style-position: inside;
+  margin: 0.5em 0em 0em;
+  padding: 0em;
+}
+.ui.message ul.list:first-child {
+  margin-top: 0em;
+}
+.ui.message ul.list:last-child {
+  margin-bottom: 0em;
+}
+.ui.message ul.list li {
+  position: relative;
+  list-style-type: none;
+  margin: 0em 0em 0.3em 1em;
+  padding: 0em;
+}
+.ui.message ul.list li:before {
+  position: absolute;
+  content: '•';
+  left: -1em;
+  height: 100%;
+  vertical-align: baseline;
+}
+.ui.message ul.list li:last-child {
+  margin-bottom: 0em;
+}
+
+/* Icon */
+.ui.message > .icon {
+  margin-right: 0.6em;
+}
+
+/* Close Icon */
+.ui.message > .close.icon {
+  cursor: pointer;
+  position: absolute;
+  margin: 0em;
+  top: 1.15em;
+  right: 0.5em;
+  opacity: 0.7;
+  -webkit-transition: opacity 0.1s linear
+  ;
+          transition: opacity 0.1s linear
+  ;
+}
+.ui.message > .close.icon:hover {
+  opacity: 1;
+}
+
+/* First / Last Element */
+.ui.message > :first-child {
+  margin-top: 0em;
+}
+.ui.message > :last-child {
+  margin-bottom: 0em;
+}
+
+
+/*******************************
+            States
+*******************************/
+
+.ui.message.visible,
+.ui.header.visible {
+  display: block !important;
+}
+.ui.message.hidden,
+.ui.header.hidden {
+  display: none;
+}
+
+
+/*******************************
+            Variations
+*******************************/
+
+
+/*--------------
+    Compact
+---------------*/
+
+.ui.compact.message {
+  display: inline-block;
+}
+
+/*--------------
+    Attached
+---------------*/
+
+.ui.attached.message {
+  margin-bottom: -1px;
+  border-radius: 0.2857rem 0.2857rem 0em 0em;
+  box-shadow: 0em 0em 0em 1px rgba(0, 0, 0, 0.1) inset;
+  margin-left: -1px;
+  margin-right: -1px;
+}
+.ui.attached + .ui.attached.message:not(.top):not(.bottom) {
+  margin-top: -1px;
+  border-radius: 0em;
+}
+.ui.bottom.attached.message {
+  margin-top: -1px;
+  border-radius: 0em 0em 0.2857rem 0.2857rem;
+  box-shadow: 0em 0em 0em 1px rgba(0, 0, 0, 0.1) inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+.ui.bottom.attached.message:not(:last-child) {
+  margin-bottom: 1em;
+}
+.ui.attached.icon.message {
+  display: block;
+  width: auto;
+}
+
+/*--------------
+      Icon
+---------------*/
+
+.ui.icon.message {
+  display: table;
+  width: 100%;
+}
+.ui.icon.message > .icon:not(.close) {
+  display: table-cell;
+  width: auto;
+  vertical-align: middle;
+  font-size: 3em;
+  opacity: 0.8;
+}
+.ui.icon.message > .content {
+  display: table-cell;
+  width: 100%;
+  vertical-align: middle;
+}
+.ui.icon.message .icon:not(.close) + .content {
+  padding-left: 1.5rem;
+}
+.ui.icon.message .circular.icon {
+  width: 1em;
+}
+.ui.icon.message .circular.icon + .content {
+  width: auto;
+  padding-left: 2em;
+}
+
+/*--------------
+    Floating
+---------------*/
+
+.ui.floating.message {
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15), 0px 0px 0px 1px rgba(39, 41, 43, 0.15) inset;
+}
+
+/*--------------
+     Colors
+---------------*/
+
+.ui.black.message {
+  background-color: #1b1c1d;
+  color: #ffffff;
+}
+
+/*--------------
+     Types
+---------------*/
+
+
+/* Positive */
+.ui.positive.message {
+  background-color: #eeffe7;
+  color: #3c763d;
+}
+.ui.positive.message,
+.ui.attached.positive.message {
+  box-shadow: 0px 0px 0px 1px #b7caa7 inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+.ui.positive.message .header {
+  color: #356e36;
+}
+
+/* Negative */
+.ui.negative.message {
+  background-color: #fff0f0;
+  color: #a94442;
+}
+.ui.negative.message,
+.ui.attached.negative.message {
+  box-shadow: 0px 0px 0px 1px #dbb1b1 inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+.ui.negative.message .header {
+  color: #912d2b;
+}
+
+/* Info */
+.ui.info.message {
+  background-color: #e9faff;
+  color: #337b92;
+}
+.ui.info.message,
+.ui.attached.info.message {
+  box-shadow: 0px 0px 0px 1px #aad6df inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+.ui.info.message .header {
+  color: #297187;
+}
+
+/* Warning */
+.ui.warning.message {
+  background-color: #fffbe6;
+  color: #876a38;
+}
+.ui.warning.message,
+.ui.attached.warning.message {
+  box-shadow: 0px 0px 0px 1px #d9caab inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+.ui.warning.message .header {
+  color: #825c01;
+}
+
+/* Error */
+.ui.error.message {
+  background-color: #fff0f0;
+  color: #a94442;
+}
+.ui.error.message,
+.ui.attached.error.message {
+  box-shadow: 0px 0px 0px 1px #dbb1b1 inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+.ui.error.message .header {
+  color: #912d2b;
+}
+
+/* Success */
+.ui.success.message {
+  background-color: #eeffe7;
+  color: #3c763d;
+}
+.ui.success.message,
+.ui.attached.success.message {
+  box-shadow: 0px 0px 0px 1px #b7caa7 inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+.ui.success.message .header {
+  color: #356e36;
+}
+
+/* Colors */
+.ui.inverted.message,
+.ui.black.message {
+  background-color: #1b1c1d;
+  color: #ffffff;
+}
+.ui.blue.message {
+  background-color: #dff0ff;
+  color: #3b83c0;
+}
+.ui.blue.message .header {
+  color: #3576ac;
+}
+.ui.green.message {
+  background-color: #ebffed;
+  color: #1ebc30;
+}
+.ui.green.message .header {
+  color: #1aa62a;
+}
+.ui.orange.message {
+  background-color: #ffedde;
+  color: #e07b53;
+}
+.ui.orange.message .header {
+  color: #dc6a3d;
+}
+.ui.pink.message {
+  background-color: #ffe3fb;
+  color: #d9499a;
+}
+.ui.pink.message .header {
+  color: #d5348e;
+}
+.ui.purple.message {
+  background-color: #eae7ff;
+  color: #564f8a;
+}
+.ui.purple.message .header {
+  color: #4c467a;
+}
+.ui.red.message {
+  background-color: #ffe8e6;
+  color: #d95c5c;
+}
+.ui.red.message .header {
+  color: #d44747;
+}
+.ui.teal.message {
+  background-color: #e9ffff;
+  color: #10a3a3;
+}
+.ui.teal.message .header {
+  color: #0e8c8c;
+}
+.ui.yellow.message {
+  background-color: #fff8db;
+  color: #b58105;
+}
+.ui.yellow.message .header {
+  color: #9c6f04;
+}
+
+/*--------------
+     Sizes
+---------------*/
+
+.ui.small.message {
+  font-size: 0.9285em;
+}
+.ui.message {
+  font-size: 1em;
+}
+.ui.large.message {
+  font-size: 1.1428em;
+}
+.ui.huge.message {
+  font-size: 1.4285em;
+}
+.ui.massive.message {
+  font-size: 1.7142em;
+}
+
+
+/*******************************
+         Theme Overrides
+*******************************/
+
+
+
+/*******************************
+    User Variable Overrides
+*******************************/
+

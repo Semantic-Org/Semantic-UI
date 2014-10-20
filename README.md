@@ -1,7 +1,7 @@
 # Semantic [![Build Status](https://travis-ci.org/Semantic-Org/Semantic-UI.png)](https://travis-ci.org/Semantic-Org/Semantic-UI)
-Semantic is a UI Component library implemented using a set of specifications designed around natural language.
+Semantic uses principles of natural language to create a re-usable language for UI.
 
-Semantic UI is under constant development, so **be sure to check out our [release notes](https://github.com/Semantic-Org/Semantic-UI/blob/master/RELEASE%20NOTES.md) for recent changes**.
+Semantic UI is now at 1.0, **be sure to check out our [release notes](https://github.com/Semantic-Org/Semantic-UI/blob/master/RELEASE%20NOTES.md) for changes from the pre-release**.
 
 [![Flattr This](https://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=jlukic&url=https%3A%2F%2Fgithub.com%2Fjlukic%2FSemantic-UI)
 
@@ -9,46 +9,36 @@ Semantic UI is under constant development, so **be sure to check out our [releas
 
 ## Translations
 
-##### Right-to-Left (RTL Version)
-
-Special RTL versions are maintained with the Arabic translation of Semantic.
-
-* سيمانتك يو آي - الإصدار العربي - [GitHub](https://github.com/Semantic-Org/Semantic-UI-ar) - [Website](http://semantic-ui.me/)
-
-##### Additional Translations
-* 中文翻译 Semantic UI - [GitHub](https://github.com/Semantic-Org/Semantic-UI-zh) - [Website](http://zh.semantic-ui.com/)
-
-* Tradução em Português - [GitHub](https://github.com/Semantic-Org/Semantic-UI-pt-br)
-
-We need people who can contribute to translations of Semantic UI's documentation. 
-
-Please [reach out by e-mail](mailto:jack@semantic-ui.com) if you can help.
+Translations are available directly [in the docs](http://www.semantic-ui.com), using the language toolbar.
 
 ## Getting Started
 
-The Semantic library describes many UI elements. In most instances it might be best to build a custom build with only the elements you need.
+Semantic is best used actively during development. We have included build tools for maintaining changes to Semantic as you work.
 
-To download the entire library
+![Getting Started](https://dl.dropboxusercontent.com/u/2657007/install.gif)
 
-    git clone git@github.com:Semantic-Org/Semantic-UI.git
 
-If you prefer to download the whole kit as a zip, it is so conveniently packaged.
+```
+npm install
+gulp
+```
 
-    http://semantic-ui.com/build/semantic.zip
-    
-Semantic is also available from CDN
+Running gulp for the first time will start the interactive set-up.
 
-* [Hosted on CloudFlare CDN](http://cdnjs.com/libraries/semantic-ui/)
-* [Hosted on BootCDN](http://open.bootcss.com/semantic-ui/) (Chinese)
+This helps you create two important files ``semantic.json`` which stores your folder set-up, and ``themes.config`` a central file for setting ui themes.
 
-## Learn More
+The install utility will also help you set-up which components you want to include in your packaged release, ignoring parts of Semantic you may not use.
 
-* [Introduction to Semantic](http://www.semantic-ui.com/introduction.html)
-* [Semantic Modules](http://www.semantic-ui.com/module.html)
-* [Contributing to Semantic](http://semantic-ui.com/project/contributing.html)
-* [Running Docs/Server Locally](http://semantic-ui.com/project/development)
+Once set-up you can use these commands to maintain your project
+```nodejs
+gulp  // defaults to watch after install
+gulp build // build all files from source
+gulp clean // clears your dist folder
+gulp watch // watch files
+gulp install // re-runs install
+gulp help // list all commands
+```
 
-If you want to keep track of development, please [join our google group](https://groups.google.com/forum/?hl=en#!forum/semantic-ui)
 
 
 ### Bugs and Issues
@@ -72,13 +62,4 @@ If you need help, come hang out in `#semantic-ui` on *irc.freenode.net*.  Click 
 ### Reaching Out
 
 If you'd like to start a conversation about Semantic feel free to reach out by e-mail [jack@semantic-ui.com](mailto:jack@semantic-ui.com)
-
-
-### Roadmap
-* [Features Missing for 1.0](https://github.com/Semantic-Org/Semantic-UI/issues?direction=desc&milestone=1&page=1&sort=updated&state=open)
-* [Planned Updates for 1.X](https://github.com/Semantic-Org/Semantic-UI/issues?direction=desc&milestone=2&page=1&sort=updated&state=open)
-* [Additional Components Scoped for 2.0](https://github.com/Semantic-Org/Semantic-UI/issues?direction=desc&labels=&milestone=3&page=1&sort=updated&state=open)
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/Semantic-Org/semantic-ui/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
