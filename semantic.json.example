@@ -3,7 +3,7 @@
 
   "paths": {
     "source": {
-      "config"      : "src/semantic.config",
+      "config"      : "src/theme.config",
       "definitions" : "src/definitions/",
       "site"        : "src/site/",
       "themes"      : "src/themes/"

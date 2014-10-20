@@ -2,21 +2,31 @@
         Install Questions
 *******************************/
 
-var defaults, when;
+var defaults, fs, when;
 
+fs       = require('fs');
 defaults = require('./defaults');
 
 when = {
+
+  // set-up
+  hasConfig: function() {
+    return( fs.existsSync('./semantic.json') );
+  },
+  allowOverwrite: function(questions) {
+    return (questions.overwrite === undefined || questions.overwrite == 'yes');
+  },
   notAuto: function(questions) {
-    console.log(questions.install);
-    return (questions.install !== 'auto');
+    return (questions.install !== 'auto' && (questions.overwrite === undefined || questions.overwrite == 'yes'));
   },
   custom: function(questions) {
-    return (questions.install === 'custom');
+    return (questions.install === 'custom' && (questions.overwrite === undefined || questions.overwrite == 'yes'));
   },
   express: function(questions) {
-    return (questions.install === 'express');
+    return (questions.install === 'express' && (questions.overwrite === undefined || questions.overwrite == 'yes'));
   },
+
+  // customize
   customize: function(questions) {
     return (questions.customize === true);
   },
@@ -33,8 +43,25 @@ module.exports = {
   setup: [
     {
       type: 'list',
+      name: 'overwrite',
+      message: 'It looks like you have a semantic.json file already.',
+      when: when.hasConfig,
+      choices: [
+        {
+          name: 'Yes, extend my current settings.',
+          value: 'yes'
+        },
+        {
+          name: 'Exit install',
+          value: 'no'
+        }
+      ]
+    },
+    {
+      type: 'list',
       name: 'install',
-      message: 'Set-up Themed Semantic UI (First-Run)',
+      message: 'Set-up Semantic UI',
+      when: when.allowOverwrite,
       choices: [
         {
           name: 'Automatic (Use defaults locations and all components)',

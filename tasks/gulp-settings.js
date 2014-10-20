@@ -31,8 +31,15 @@ module.exports = {
     sourceRoot     : '/src'
   },
   rename: {
-    json   : { extname : '' },
+    json   : { extname : '.json' },
     minJS  : { extname : '.min.js' },
     minCSS : { extname : '.min.css' }
+  },
+  wrench: {
+    recursive: {
+      forceDelete: false,
+      excludeHiddenUnix: true,
+      preserveFiles: true
+    }
   }
 };

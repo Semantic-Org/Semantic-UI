@@ -16,6 +16,7 @@ var
   fs           = require('fs'),
   path         = require('path'),
   console      = require('better-console'),
+  wrench       = require('wrench'),
 
   // gulp dependencies
   autoprefixer = require('gulp-autoprefixer'),
@@ -50,7 +51,7 @@ var
   settings     = require('./tasks/gulp-settings'),
 
   // local
-  overwrite  = false,
+  overwrite  = true,
 
   // derived
   config,
@@ -336,85 +337,9 @@ gulp.task('version', 'Displays current version of Semantic', function(callback) 
   console.log('Semantic UI ' + package.version);
 });
 
-
-/*--------------
-     Config
----------------*/
-
-gulp.task('check install', false, function () {
-  setTimeout(function() {
-    if( !config ) {
-      gulp.start('install');
-    }
-    else {
-      gulp.start('watch');
-    }
-  }, 50);
-});
-
-gulp.task('install', 'Set-up project for first time', function () {
-  console.clear();
-  return gulp
-    .src(defaults.paths.source.config)
-    .pipe(prompt.prompt(questions.setup, function( answers ) {
-      var json;
-      console.info('Creating build.json (build config)');
-
-      // message: 'Where should we output Semantic UI?',
-      // update semantic.json
-
-
-      // message: 'Where should we put your site folder?',
-      // update semantic.json
-      // move file from src/_site to (value)
-      console.info('Creating site theme folder');
-
-      // message: 'Where should we put your theme.config file?',
-      console.info('Creating theme.config (theme config)');
-      // update semantic.json
-      // move theme.config.example to (value)
-
-      // message: 'Where should we output a packaged version?',
-      // update semantic.json
-
-      // message: 'Where should we output each compressed component?',
-      // update semantic.json
-      // message: 'Where should we output each uncompressed component?',
-      // update semantic.json
-      if(answers.install == 'auto') {
-        json = {};
-      }
-      else if(answers.install == 'express') {
-
-      }
-      console.log(answers);
-      gulp.src('semantic.json.example')
-        .pipe(plumber())
-        .pipe(rename(settings.rename.json))
-        .pipe(jeditor(answers))
-        .pipe(debug())
-        // .pipe(gulp.dest('./'))
-      ;
-      // del('semantic.json.example');
-      console.log('');
-      console.log('');
-    }))
-/*    .pipe(prompt.prompt(questions.site, function( answers ) {
-      console.clear();
-      console.log('Creating site theme file');
-      console.info('Creating site variables file');
-    }))*/
-  ;
-});
-gulp.task('config', 'Configure basic site settings', function () {
-
-});
-
-
 /*--------------
     Internal
 ---------------*/
-
 
 gulp.task('package uncompressed css', false, function() {
   return gulp.src(output.uncompressed + '**/' + compiledFilter + '!(*.min|*.map).css')
@@ -424,6 +349,7 @@ gulp.task('package uncompressed css', false, function() {
       .pipe(print(log.created))
   ;
 });
+
 gulp.task('package compressed css', false, function() {
   return gulp.src(output.uncompressed + '**/' + compiledFilter + '!(*.min|*.map).css')
     .pipe(replace(assetPaths.uncompressed, assetPaths.packaged))
@@ -444,6 +370,7 @@ gulp.task('package uncompressed js', false, function() {
       .pipe(print(log.created))
   ;
 });
+
 gulp.task('package compressed js', false, function() {
   return gulp.src(output.uncompressed + '**/' + compiledFilter + '!(*.min|*.map).js')
     .pipe(replace(assetPaths.uncompressed, assetPaths.packaged))
@@ -454,6 +381,139 @@ gulp.task('package compressed js', false, function() {
       .pipe(print(log.created))
   ;
 });
+
+
+/*--------------
+     Config
+---------------*/
+
+gulp.task('check install', false, function () {
+  setTimeout(function() {
+    if( !config ) {
+      console.log('No semantic.json file found. Starting install...');
+      gulp.start('install');
+    }
+    else {
+      gulp.start('watch');
+    }
+  }, 50);
+});
+
+gulp.task('install', 'Set-up project for first time', function () {
+  console.clear();
+  return gulp
+    .src(defaults.paths.source.config)
+    .pipe(prompt.prompt(questions.setup, function( answers ) {
+      var
+        trailingSlash = /(\/$)+/mg,
+        templates = {
+          theme : './src/theme.config.example',
+          json  : './semantic.json.example',
+          site  : './src/_site'
+        },
+
+        siteDestination   = answers.site || './src/site',
+
+        configExists      = fs.existsSync('./semantic.json'),
+        themeConfigExists = fs.existsSync('./src/theme.config'),
+        siteExists        = fs.existsSync(siteDestination),
+
+        jsonSource = (configExists)
+          ? './semantic.json'
+          : './semantic.json.example',
+        json = {
+          paths: {
+            source: {},
+            output: {}
+          }
+        }
+      ;
+      if(answers.overwrite !== undefined && answers.overwrite == 'no') {
+        return;
+      }
+
+      // create site files
+      if(siteExists) {
+        console.info('Site folder exists, merging files (no overwrite)', siteDestination);
+      }
+      else {
+        console.info('Creating site theme folder', siteDestination);
+      }
+      // need wrench for recursive copy without overwrite
+      wrench.copyDirSyncRecursive(templates.site, siteDestination, settings.wrench.recursive);
+
+      // write theme less config
+      if(themeConfigExists) {
+        console.log('./src/theme.config already exists, skipping');
+      }
+      else {
+        console.info('Creating src/theme.config (LESS config)');
+        fs.createReadStream(templates.theme)
+          .pipe(fs.createWriteStream('./src/theme.config', { flags: 'wx+' }))
+        ;
+      }
+
+      // write semantic json config
+      if(answers.components) {
+        json.components = answers.components;
+      }
+      if(answers.dist) {
+        answers.dist.replace(trailingSlash, '');
+        json.paths.output = {
+          packaged     : answers.dist + '/',
+          uncompressed : answers.dist + '/components/',
+          compressed   : answers.dist + '/components/',
+          themes       : answers.dist + '/themes/'
+        };
+      }
+      if(answers.site) {
+        answers.site.replace(trailingSlash, '');
+        json.paths.source.site = answers.site + '/';
+      }
+      if(answers.packaged) {
+        answers.packaged.replace(trailingSlash, '');
+        json.paths.output.packaged = answers.packaged + '/';
+      }
+      if(answers.compressed) {
+        answers.compressed.replace(trailingSlash, '');
+        json.paths.output.compressed = answers.compressed + '/';
+      }
+      if(answers.uncompressed) {
+        answers.uncompressed.replace(trailingSlash, '');
+        json.paths.output.uncompressed = answers.uncompressed + '/';
+      }
+      if(configExists) {
+        console.info('Extending semantic.json (Gulp config)');
+        gulp.src(jsonSource)
+          .pipe(plumber())
+          .pipe(rename(settings.rename.json))
+          .pipe(jeditor(json))
+          .pipe(debug())
+          .pipe(gulp.dest('./'))
+        ;
+      }
+      else {
+        console.info('Creating semantic.json (Gulp config)');
+        gulp.src(jsonSource)
+          .pipe(plumber())
+          .pipe(rename({ extname : '' }))
+          .pipe(jeditor(json))
+          .pipe(debug())
+          .pipe(gulp.dest('./'))
+        ;
+      }
+    }))
+/*    .pipe(prompt.prompt(questions.site, function( answers ) {
+      console.clear();
+      console.log('Creating site theme file');
+      console.info('Creating site variables file');
+    }))*/
+  ;
+});
+gulp.task('config', 'Configure basic site settings', function () {
+
+});
+
 
 
 /*--------------
