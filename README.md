@@ -29,11 +29,7 @@ This helps you create two important files ``semantic.json`` which stores your fo
 
 The install utility will also help you set-up which components you want to include in your packaged release, ignoring parts of Semantic you may not use.
 
-```nodejs
-gulp
-```
-
-You can use additional commands once you finish set-up to  your project
+Once set-up you can use these commands to maintain your project
 ```nodejs
 gulp  // defaults to watch after install
 gulp build // build all files from source
