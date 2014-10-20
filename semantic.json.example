@@ -12,7 +12,7 @@
       "packaged"     : "dist/",
       "uncompressed" : "dist/components/",
       "compressed"   : "dist/components/",
-      "themes"       : "dist/themes"
+      "themes"       : "dist/themes/"
     },
     "clean"        : "dist/"
   }

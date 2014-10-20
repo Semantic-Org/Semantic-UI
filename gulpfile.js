@@ -122,6 +122,15 @@ if(config) {
   clean = base + clean;
 
 }
+else {
+  // use default values
+  var
+    base    = defaults.base,
+    clean   = defaults.paths.clean,
+    output  = defaults.paths.output,
+    source  = defaults.paths.source
+  ;
+}
 
 /*******************************
              Tasks
@@ -324,12 +333,10 @@ gulp.task('build', 'Builds all files from source', function(callback) {
     })
   ;
 
-
 });
 
 // cleans distribution files
 gulp.task('clean', 'Clean dist folder', function(callback) {
-  console.log('Cleaning directory: ' + clean);
   return del([clean], settings.del, callback);
 });
 
@@ -400,7 +407,7 @@ gulp.task('check install', false, function () {
 });
 
 gulp.task('install', 'Set-up project for first time', function () {
-  return gulp
+  gulp
     .src(defaults.paths.source.config)
     .pipe(prompt.prompt(questions.setup, function(answers) {
       var
@@ -531,18 +538,6 @@ gulp.task('install', 'Set-up project for first time', function () {
 });
 
 
-/* TODO add site theming into install process
-
-gulp.task('config', 'Configure basic site settings', function () {
-  gulp.src('./')
-    .pipe(prompt.prompt(questions.site, function(answers) {
-      console.clear();
-      console.log('Creating site theme file');
-      console.info('Creating site variables file');
-    }))
-});
-
-*/
 
 
 
