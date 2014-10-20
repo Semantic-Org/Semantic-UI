@@ -400,19 +400,21 @@ gulp.task('check install', false, function () {
 });
 
 gulp.task('install', 'Set-up project for first time', function () {
-  console.clear();
   return gulp
     .src(defaults.paths.source.config)
-    .pipe(prompt.prompt(questions.setup, function( answers ) {
+    .pipe(prompt.prompt(questions.setup, function(answers) {
       var
-        trailingSlash = /(\/$|\\$)+/mg,
-        templates = {
+        siteVariable  = /@siteFolder .*\'(.*)\'/mg,
+        templates     = {
           theme : './src/theme.config.example',
           json  : './semantic.json.example',
           site  : './src/_site'
         },
 
         siteDestination   = answers.site || './src/site',
+        themeDestination  = './src/theme.config',
+
+        pathToSite        = path.relative(path.resolve('./src'), path.resolve(siteDestination)),
 
         configExists      = fs.existsSync('./semantic.json'),
         themeConfigExists = fs.existsSync('./src/theme.config'),
@@ -428,9 +430,15 @@ gulp.task('install', 'Set-up project for first time', function () {
           }
         }
       ;
+
+      // exit if config exists and user specifies no overwrite
       if(answers.overwrite !== undefined && answers.overwrite == 'no') {
         return;
       }
+
+      console.clear();
+      console.log('Installing');
+      console.log('------------------------------');
 
       // create site files
       if(siteExists) {
@@ -439,26 +447,32 @@ gulp.task('install', 'Set-up project for first time', function () {
       else {
         console.info('Creating site theme folder', siteDestination);
       }
-      // need wrench for recursive copy without overwrite
+      // copy recursively without overwrite
       wrench.copyDirSyncRecursive(templates.site, siteDestination, settings.wrench.recursive);
 
-      // write theme less config
       if(themeConfigExists) {
-        console.log('./src/theme.config already exists, skipping');
+        console.error('./src/theme.config already exists, skipping');
       }
       else {
         console.info('Creating src/theme.config (LESS config)');
-        fs.createReadStream(templates.theme)
-          .pipe(fs.createWriteStream('./src/theme.config', { flags: 'wx+' }))
+        gulp.src(templates.theme)
+          .pipe(gulp.dest(themeDestination))
         ;
       }
 
-      // write semantic json config
+      // adjust less variable for site folder location
+      console.info('Adjusting @siteFolder', pathToSite);
+      gulp.src(themeDestination)
+        .pipe(replace(siteVariable, pathToSite))
+        .pipe(gulp.dest(themeDestination))
+      ;
+
+      // determine semantic.json config
       if(answers.components) {
         json.components = answers.components;
       }
       if(answers.dist) {
-        answers.dist = answers.dist.replace(trailingSlash, '');
+        answers.dist = answers.dist;
         json.paths.output = {
           packaged     : answers.dist + '/',
           uncompressed : answers.dist + '/components/',
@@ -467,28 +481,25 @@ gulp.task('install', 'Set-up project for first time', function () {
         };
       }
       if(answers.site) {
-        answers.site = answers.site.replace(trailingSlash, '');
         json.paths.source.site = answers.site + '/';
       }
       if(answers.packaged) {
-        answers.packaged = answers.packaged.replace(trailingSlash, '');
         json.paths.output.packaged = answers.packaged + '/';
       }
       if(answers.compressed) {
-        answers.compressed = answers.compressed.replace(trailingSlash, '');
         json.paths.output.compressed = answers.compressed + '/';
       }
       if(answers.uncompressed) {
-        answers.uncompressed = answers.uncompressed.replace(trailingSlash, '');
         json.paths.output.uncompressed = answers.uncompressed + '/';
       }
+
+      // write semantic.json
       if(configExists) {
         console.info('Extending semantic.json (Gulp config)');
         gulp.src(jsonSource)
           .pipe(plumber())
           .pipe(rename(settings.rename.json))
           .pipe(jeditor(json))
-          .pipe(debug())
           .pipe(gulp.dest('./'))
         ;
       }
@@ -498,21 +509,40 @@ gulp.task('install', 'Set-up project for first time', function () {
           .pipe(plumber())
           .pipe(rename({ extname : '' }))
           .pipe(jeditor(json))
-          .pipe(debug())
           .pipe(gulp.dest('./'))
         ;
       }
+      console.log('');
+      console.log('');
     }))
-/*    .pipe(prompt.prompt(questions.site, function( answers ) {
+    .pipe(prompt.prompt(questions.cleanup, function(answers) {
+      if(answers.cleanup == 'yes') {
+        del([
+          './src/theme.config.example',
+          './semantic.json.example',
+          './src/_site'
+        ]);
+      }
+      if(answers.build == 'yes') {
+        gulp.start('build');
+      }
+    }))
+  ;
+});
+
+
+/* TODO add site theming into install process
+
+gulp.task('config', 'Configure basic site settings', function () {
+  gulp.src('./')
+    .pipe(prompt.prompt(questions.site, function(answers) {
       console.clear();
       console.log('Creating site theme file');
       console.info('Creating site variables file');
-    }))*/
-  ;
+    }))
 });
-gulp.task('config', 'Configure basic site settings', function () {
 
-});
+*/
 
 
 

@@ -3,8 +3,8 @@ test/coverage/
 coverage/
 src/**/site/
 dist/
-src/semantic.config
-semantic.config
+theme.config
+semantic.json
 
 # Numerous always-ignore extensions
 *.diff

@@ -5,10 +5,10 @@
 module.exports = {
   paths: {
     source: {
-      config      : 'src/',
-      definitions : 'src/',
-      site        : 'src/',
-      themes      : 'src/'
+      config      : 'src/theme.config',
+      definitions : 'src/definitions',
+      site        : 'src/site',
+      themes      : 'src/themes'
     },
     output: {
       packaged     : 'dist/',

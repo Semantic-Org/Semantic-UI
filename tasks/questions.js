@@ -2,10 +2,16 @@
         Install Questions
 *******************************/
 
-var defaults, fs, when;
+var defaults, fs, filter, when;
 
 fs       = require('fs');
 defaults = require('./defaults');
+
+filter = {
+  removeTrailingSlash: function(path) {
+    return path.replace(/(\/$|\\$)+/mg, '');
+  }
+};
 
 when = {
 
@@ -133,6 +139,7 @@ module.exports = {
       name: 'dist',
       message: 'Where should we output Semantic UI?',
       default: defaults.paths.output.packaged,
+      filter: filter.removeTrailingSlash,
       when: when.express
     },
     {
@@ -140,6 +147,7 @@ module.exports = {
       name: 'site',
       message: 'Where should we put your site folder?',
       default: defaults.paths.source.site,
+      filter: filter.removeTrailingSlash,
       when: when.custom
     },
     {
@@ -147,6 +155,7 @@ module.exports = {
       name: 'packaged',
       message: 'Where should we output a packaged version?',
       default: defaults.paths.output.packaged,
+      filter: filter.removeTrailingSlash,
       when: when.custom
     },
     {
@@ -154,6 +163,7 @@ module.exports = {
       name: 'compressed',
       message: 'Where should we output compressed components?',
       default: defaults.paths.output.compressed,
+      filter: filter.removeTrailingSlash,
       when: when.custom
     },
     {
@@ -161,10 +171,44 @@ module.exports = {
       name: 'uncompressed',
       message: 'Where should we output uncompressed components?',
       default: defaults.paths.output.uncompressed,
+      filter: filter.removeTrailingSlash,
       when: when.custom
     }
   ],
 
+
+  cleanup: [
+    {
+      type: 'list',
+      name: 'cleanup',
+      message: 'Install Complete! Should we remove set-up files?',
+      choices: [
+        {
+          name: 'Yes (re-install will require redownloading semantic).',
+          value: 'yes'
+        },
+        {
+          name: 'No Thanks',
+          value: 'no'
+        }
+      ]
+    },
+    {
+      type: 'list',
+      name: 'build',
+      message: 'Do you want to build Semantic now?',
+      choices: [
+        {
+          name: 'Yes, make those files',
+          value: 'yes'
+        },
+        {
+          name: 'No, I\'ll do it later',
+          value: 'no'
+        }
+      ]
+    },
+  ],
   site: [
     {
       type: 'list',
