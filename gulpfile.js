@@ -14,6 +14,7 @@ var
   // node components & oddballs
   del           = require('del'),
   fs            = require('fs'),
+  extend        = require('extend'),
   path          = require('path'),
   console       = require('better-console'),
   wrench        = require('wrench'),
@@ -53,15 +54,15 @@ var
   // local
   overwrite  = true,
 
-  // default settings
-  base    = defaults.base,
-  clean   = defaults.paths.clean,
-  output  = defaults.paths.output,
-  source  = defaults.paths.source,
-
   // derived
   config,
   package,
+
+  base,
+  clean,
+  output,
+  source,
+
   assetPaths,
   componentGlob,
 
@@ -95,6 +96,7 @@ var
     if(!config) {
       config = defaults;
     }
+    config = extend(true, {}, defaults, config);
 
     // shorthand
     base    = config.base;
@@ -432,11 +434,11 @@ gulp.task('install', 'Set-up project for first time', function () {
 
         siteDestination   = answers.site || defaults.folders.site,
 
-        pathToSite        = path.relative(path.resolve(defaults.folders.theme), path.resolve('./' + siteDestination)),
+        pathToSite        = path.relative(path.resolve(defaults.folders.theme), path.resolve(siteDestination)),
         sitePathReplace   = "@siteFolder   : '" + pathToSite + "/';",
 
         configExists      = fs.existsSync(defaults.files.config),
-        themeConfigExists = fs.existsSync(defaults.files.site),
+        themeConfigExists = fs.existsSync(defaults.files.theme),
         siteExists        = fs.existsSync(siteDestination),
 
         jsonSource        = (configExists)
@@ -470,7 +472,7 @@ gulp.task('install', 'Set-up project for first time', function () {
       wrench.copyDirSyncRecursive(defaults.templates.site, siteDestination, settings.wrench.recursive);
 
       // adjust less variable for site folder location
-      console.info('Adjusting @siteFolder', pathToSite);
+      console.info('Adjusting @siteFolder', sitePathReplace);
       if(themeConfigExists) {
         gulp.src(defaults.files.site)
           .pipe(replace(siteVariable, sitePathReplace))
