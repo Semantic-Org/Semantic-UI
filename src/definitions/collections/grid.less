@@ -906,87 +906,6 @@
       Doubling
 --------------------*/
 
-
-/* Mobily Only */
-@media only screen and (max-width: @largestMobileScreen) {
-  .ui.doubling.grid {
-    width: 100% !important;
-  }
-  .ui.grid > .doubling.row,
-  .ui.doubling.grid > .row {
-    display: block !important;
-    margin: 0em !important;
-    padding: 0em !important;
-  }
-  .ui.grid > .doubling.row > .column,
-  .ui.doubling.grid > .row > .column {
-    display: inline-block !important;
-    padding-top: (@rowSpacing / 2) !important;
-    padding-bottom: (@rowSpacing / 2) !important;
-    margin: 0em !important;
-  }
-  .ui[class*="two column"].doubling:not(.stackable).grid > .row > .column,
-  .ui[class*="two column"].doubling:not(.stackable).grid > .column,
-  .ui.grid > [class*="two column"].doubling:not(.stackable).row > .column {
-    width: @oneColumn !important;
-  }
-  .ui[class*="three column"].doubling:not(.stackable).grid > .row > .column,
-  .ui[class*="three column"].doubling:not(.stackable).grid > .column,
-  .ui.grid > [class*="three column"].doubling:not(.stackable).row > .column {
-    width: @twoColumn !important;
-  }
-  .ui[class*="four column"].doubling:not(.stackable).grid > .row > .column,
-  .ui[class*="four column"].doubling:not(.stackable).grid > .column,
-  .ui.grid > [class*="four column"].doubling:not(.stackable).row > .column {
-    width: @twoColumn !important;
-  }
-  .ui[class*="five column"].doubling:not(.stackable).grid > .row > .column,
-  .ui[class*="five column"].doubling:not(.stackable).grid > .column,
-  .ui.grid > [class*="five column"].doubling:not(.stackable).row > .column {
-    width: @twoColumn !important;
-  }
-  .ui[class*="six column"].doubling:not(.stackable).grid > .row > .column,
-  .ui[class*="six column"].doubling:not(.stackable).grid > .column,
-  .ui.grid > [class*="six column"].doubling:not(.stackable).row > .column {
-    width: @twoColumn !important;
-  }
-  .ui[class*="seven column"].doubling:not(.stackable).grid > .row > .column,
-  .ui[class*="seven column"].doubling:not(.stackable).grid > .column,
-  .ui.grid > [class*="seven column"].doubling:not(.stackable).row > .column {
-    width: @threeColumn !important;
-  }
-  .ui[class*="eight column"].doubling:not(.stackable).grid > .row > .column,
-  .ui[class*="eight column"].doubling:not(.stackable).grid > .column,
-  .ui.grid > [class*="eight column"].doubling:not(.stackable).row > .column {
-    width: @threeColumn !important;
-  }
-  .ui[class*="nine column"].doubling:not(.stackable).grid > .row > .column,
-  .ui[class*="nine column"].doubling:not(.stackable).grid > .column,
-  .ui.grid > [class*="nine column"].doubling:not(.stackable).row > .column {
-    width: @threeColumn !important;
-  }
-  .ui[class*="ten column"].doubling:not(.stackable).grid > .row > .column,
-  .ui[class*="ten column"].doubling:not(.stackable).grid > .column,
-  .ui.grid > [class*="ten column"].doubling:not(.stackable).row > .column {
-    width: @threeColumn !important;
-  }
-  .ui[class*="twelve column"].doubling:not(.stackable).grid > .row > .column,
-  .ui[class*="twelve column"].doubling:not(.stackable).grid > .column,
-  .ui.grid > [class*="twelve column"].doubling:not(.stackable).row > .column {
-    width: @fourColumn !important;
-  }
-  .ui[class*="fourteen column"].doubling:not(.stackable).grid > .row > .column,
-  .ui[class*="fourteen column"].doubling:not(.stackable).grid > .column,
-  .ui.grid > [class*="fourteen column"].doubling:not(.stackable).row > .column {
-    width: @fourColumn !important;
-  }
-  .ui[class*="sixteen column"].doubling:not(.stackable).grid > .row > .column,
-  .ui[class*="sixteen column"].doubling:not(.stackable).grid > .column,
-  .ui.grid > [class*="sixteen column"].doubling:not(.stackable).row > .column {
-    width: @fourColumn !important;
-  }
-}
-
 /* Tablet Only */
 @media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
   .ui.doubling.grid {
@@ -1063,6 +982,86 @@
   .ui[class*="sixteen column"].doubling.grid > .column,
   .ui.grid > [class*="sixteen column"].doubling.row > .column {
     width: @eightColumn !important;
+  }
+}
+
+/* Mobily Only */
+@media only screen and (max-width: @largestMobileScreen) {
+  .ui.doubling.grid {
+    width: 100% !important;
+  }
+  .ui.grid > .doubling.row,
+  .ui.doubling.grid > .row {
+    display: block !important;
+    margin: 0em !important;
+    padding: 0em !important;
+  }
+  .ui.grid > .doubling.row > .column,
+  .ui.doubling.grid > .row > .column {
+    display: inline-block !important;
+    padding-top: (@rowSpacing / 2) !important;
+    padding-bottom: (@rowSpacing / 2) !important;
+    margin: 0em !important;
+  }
+  .ui[class*="two column"].doubling:not(.stackable).grid > .row > .column,
+  .ui[class*="two column"].doubling:not(.stackable).grid > .column,
+  .ui.grid > [class*="two column"].doubling:not(.stackable).row > .column {
+    width: @oneColumn !important;
+  }
+  .ui[class*="three column"].doubling:not(.stackable).grid > .row > .column,
+  .ui[class*="three column"].doubling:not(.stackable).grid > .column,
+  .ui.grid > [class*="three column"].doubling:not(.stackable).row > .column {
+    width: @twoColumn !important;
+  }
+  .ui[class*="four column"].doubling:not(.stackable).grid > .row > .column,
+  .ui[class*="four column"].doubling:not(.stackable).grid > .column,
+  .ui.grid > [class*="four column"].doubling:not(.stackable).row > .column {
+    width: @twoColumn !important;
+  }
+  .ui[class*="five column"].doubling:not(.stackable).grid > .row > .column,
+  .ui[class*="five column"].doubling:not(.stackable).grid > .column,
+  .ui.grid > [class*="five column"].doubling:not(.stackable).row > .column {
+    width: @twoColumn !important;
+  }
+  .ui[class*="six column"].doubling:not(.stackable).grid > .row > .column,
+  .ui[class*="six column"].doubling:not(.stackable).grid > .column,
+  .ui.grid > [class*="six column"].doubling:not(.stackable).row > .column {
+    width: @threeColumn !important;
+  }
+  .ui[class*="seven column"].doubling:not(.stackable).grid > .row > .column,
+  .ui[class*="seven column"].doubling:not(.stackable).grid > .column,
+  .ui.grid > [class*="seven column"].doubling:not(.stackable).row > .column {
+    width: @threeColumn !important;
+  }
+  .ui[class*="eight column"].doubling:not(.stackable).grid > .row > .column,
+  .ui[class*="eight column"].doubling:not(.stackable).grid > .column,
+  .ui.grid > [class*="eight column"].doubling:not(.stackable).row > .column {
+    width: @threeColumn !important;
+  }
+  .ui[class*="nine column"].doubling:not(.stackable).grid > .row > .column,
+  .ui[class*="nine column"].doubling:not(.stackable).grid > .column,
+  .ui.grid > [class*="nine column"].doubling:not(.stackable).row > .column {
+    width: @threeColumn !important;
+  }
+  .ui[class*="ten column"].doubling:not(.stackable).grid > .row > .column,
+  .ui[class*="ten column"].doubling:not(.stackable).grid > .column,
+  .ui.grid > [class*="ten column"].doubling:not(.stackable).row > .column {
+    width: @threeColumn !important;
+  }
+  .ui[class*="twelve column"].doubling:not(.stackable).grid > .row > .column,
+  .ui[class*="twelve column"].doubling:not(.stackable).grid > .column,
+  .ui.grid > [class*="twelve column"].doubling:not(.stackable).row > .column {
+    width: @threColumn !important;
+  }
+  .ui[class*="fourteen column"].doubling:not(.stackable).grid > .row > .column,
+  .ui[class*="fourteen column"].doubling:not(.stackable).grid > .column,
+  .ui.grid > [class*="fourteen column"].doubling:not(.stackable).row > .column {
+    width: @fourColumn !important;
+  }
+  .ui[class*="sixteen column"].doubling:not(.stackable).grid > .row > .column,
+  .ui[class*="sixteen column"].doubling:not(.stackable).grid > .column,
+  .ui.grid > [class*="sixteen column"].doubling:not(.stackable).row > .column {
+    width: @fourColumn !important;
   }
 }
 
