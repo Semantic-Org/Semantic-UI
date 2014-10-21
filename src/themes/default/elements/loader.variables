@@ -15,11 +15,11 @@
         Types
 --------------------*/
 
-/* Image */
-@mini: 1.5em;
-@small: 2em;
-@medium: 3em;
-@large: 4em;
+/* Exact Sizes (Avoids Rounding Errors) */
+@mini: 1.2857em;
+@small: 1.7142em;
+@medium: 2.2585em;
+@large: 4.5714em;
 
 @miniOffset: 0em 0em 0em -(@mini / 2);
 @smallOffset: 0em 0em 0em -(@small / 2);
@@ -28,10 +28,10 @@
 
 @textDistance: 0.7em;
 
-@miniFontSize: 0.8em;
-@smallFontSize: 0.875em;
+@miniFontSize: 0.7857em;
+@smallFontSize: 0.9285em;
 @mediumFontSize: 1em;
-@largeFontSize: 1.2em;
+@largeFontSize: 1.1428em;
 
 
 /* Text */

@@ -85,9 +85,9 @@
 @loaderSpeed: 0.75s;
 @loaderLineWidth: 0.3em;
 @loaderFillColor: rgba(0, 0, 0, 0.1);
-@loaderLineColor: rgba(0, 0, 0, 0.3);
+@loaderLineColor: @darkGrey;
 @invertedLoaderFillColor: rgba(255, 255, 255, 0.15);
-@invertedLoaderLineColor: rgba(255, 255, 255, 0.8);
+@invertedLoaderLineColor: @white;
 
 /*-------------------
        Accents
