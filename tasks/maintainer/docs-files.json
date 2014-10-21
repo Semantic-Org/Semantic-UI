@@ -1,0 +1,19 @@
+{
+  "base": "",
+  "paths": {
+    "source": {
+      "config": "src/theme.config",
+      "definitions": "src/definitions/",
+      "site": "src/site/",
+      "themes": "src/themes/"
+    },
+    "output": {
+      "less":     "../docs/server/files/src/",
+      "packaged": "../docs/server/files/dist/",
+      "uncompressed": "../docs/server/files/dist/components/",
+      "compressed": "../docs/server/files/dist/components/",
+      "themes": "../docs/server/files/dist/themes/"
+    },
+    "clean": "../docs/server/files/dist/"
+  }
+}

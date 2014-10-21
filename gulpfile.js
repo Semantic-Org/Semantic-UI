@@ -75,18 +75,11 @@ var
 *******************************/
 
 try {
-  // settings
+  // try to load json
   var
     config  = require('./semantic.json'),
     package = require('./package.json')
   ;
-
-  // shorthand
-  base    = config.base;
-  clean   = config.paths.clean;
-  output  = config.paths.output;
-  source  = config.paths.source;
-
 }
 catch(error) {
   var config = false;
@@ -97,7 +90,13 @@ catch(error) {
 *******************************/
 
 var
-  getDerivedValues = function() {
+  getConfigValues = function() {
+
+    // shorthand
+    base    = config.base;
+    clean   = config.paths.clean;
+    output  = config.paths.output;
+    source  = config.paths.source;
 
     // create glob for matching filenames from selected components
     componentGlob = (typeof config.components == 'object')
@@ -129,7 +128,7 @@ var
   }
 ;
 
-getDerivedValues();
+getConfigValues();
 
 /*******************************
              Tasks
@@ -268,9 +267,9 @@ gulp.task('build', 'Builds all files from source', function(callback) {
 
   console.info('Building Semantic');
 
-  // get relative asset path (path returns wrong path? hardcoded)
+  // get relative asset path (path returns wrong path?)
   // assetPaths.source = path.relative(srcPath, path.resolve(source.themes));
-  assetPaths.source = '../../themes';
+  assetPaths.source = '../../themes'; // hardcoded
 
   // copy assets
   gulp.src(source.themes + '**/assets/**')
@@ -538,7 +537,7 @@ gulp.task('install', 'Set-up project for first time', function () {
       }
       if(answers.build == 'yes') {
         config = require('./semantic.json');
-        getDerivedValues();
+        getConfigValues();
         gulp.start('build');
       }
     }))
@@ -553,8 +552,39 @@ gulp.task('install', 'Set-up project for first time', function () {
    Maintainer
 ---------------*/
 
-/* Serve files to an instance of docs hosted adjacent */
-gulp.task('serve', false, function () {
+/* Moves watched files to static site generator output */
+gulp.task('serve-docs', false, function () {
+  config = require('./tasks/maintainer/docs-output.json');
+  getConfigValues();
+
+  // copy source files
+  gulp
+    .watch([
+      'src/**/*.*'
+    ], function(file) {
+      console.clear();
+      return gulp.src(file.path, { base: 'src/' })
+        .pipe(gulp.dest(output.less))
+        .pipe(print(log.created))
+      ;
+    })
+  ;
+  gulp.start('watch');
+});
+
+/* Builds files to docs source */
+gulp.task('build-docs', false, function () {
+  console.clear();
+  // pushes to docpad files
+  config = require('./tasks/maintainer/docs-output.json');
+  getConfigValues();
+  gulp.start('build');
+
+  // copy source
+  gulp.src('src/**/*.*')
+    .pipe(gulp.dest(output.less))
+    .pipe(print(log.created))
+  ;
 
 });
 
@@ -562,15 +592,18 @@ gulp.task('serve', false, function () {
 /* Bump Version */
 gulp.task('bump', false, function () {
 
-  // Create RTL Release
+  // bump package.json
 
-  // Create Node Release
-
+  // bump composer.json
 
 });
 
 /* Release */
-gulp.task('release', false, function () {
+gulp.task('release', false, function() {
+
+});
+
+gulp.task('release all', false, function () {
 
   // Create SCSS Version
 

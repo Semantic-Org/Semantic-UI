@@ -17,6 +17,10 @@ module.exports = {
       compressed   : 'dist/components/',
       themes       : 'dist/themes/'
     },
-    clean        : 'dist/'
+    clean : 'dist/',
+    docs  : {
+      source : '../docs/server/files/release/',
+      output : '../docs/release/'
+    }
   }
 };
