@@ -9,46 +9,46 @@
 
 
 var
-  gulp         = require('gulp-help')(require('gulp')),
+  gulp          = require('gulp-help')(require('gulp')),
 
   // node components & oddballs
-  del          = require('del'),
-  fs           = require('fs'),
-  path         = require('path'),
-  console      = require('better-console'),
-  wrench       = require('wrench'),
+  del           = require('del'),
+  fs            = require('fs'),
+  path          = require('path'),
+  console       = require('better-console'),
+  wrench        = require('wrench'),
 
   // gulp dependencies
-  autoprefixer = require('gulp-autoprefixer'),
-  clone        = require('gulp-clone'),
-  concat       = require('gulp-concat'),
-  concatCSS    = require('gulp-concat-css'),
-  copy         = require('gulp-copy'),
-  debug        = require('gulp-debug'),
-  flatten      = require('gulp-flatten'),
-  header       = require('gulp-header'),
-  jeditor      = require('gulp-json-editor'),
-  karma        = require('gulp-karma'),
-  less         = require('gulp-less'),
-  minifyCSS    = require('gulp-minify-css'),
-  notify       = require('gulp-notify'),
-  plumber      = require('gulp-plumber'),
-  print        = require('gulp-print'),
-  prompt       = require('gulp-prompt'),
-  rename       = require('gulp-rename'),
-  replace      = require('gulp-replace'),
-  sourcemaps   = require('gulp-sourcemaps'),
-  uglify       = require('gulp-uglify'),
-  util         = require('gulp-util'),
-  watch        = require('gulp-watch'),
+  autoprefixer  = require('gulp-autoprefixer'),
+  clone         = require('gulp-clone'),
+  concat        = require('gulp-concat'),
+  concatCSS     = require('gulp-concat-css'),
+  copy          = require('gulp-copy'),
+  debug         = require('gulp-debug'),
+  flatten       = require('gulp-flatten'),
+  header        = require('gulp-header'),
+  jeditor       = require('gulp-json-editor'),
+  karma         = require('gulp-karma'),
+  less          = require('gulp-less'),
+  minifyCSS     = require('gulp-minify-css'),
+  notify        = require('gulp-notify'),
+  plumber       = require('gulp-plumber'),
+  print         = require('gulp-print'),
+  prompt        = require('gulp-prompt'),
+  rename        = require('gulp-rename'),
+  replace       = require('gulp-replace'),
+  sourcemaps    = require('gulp-sourcemaps'),
+  uglify        = require('gulp-uglify'),
+  util          = require('gulp-util'),
+  watch         = require('gulp-watch'),
 
   // config
-  banner       = require('./tasks/banner'),
-  comments     = require('./tasks/comments'),
-  defaults     = require('./tasks/defaults'),
-  log          = require('./tasks/log'),
-  questions    = require('./tasks/questions'),
-  settings     = require('./tasks/gulp-settings'),
+  banner        = require('./tasks/banner'),
+  comments      = require('./tasks/comments'),
+  defaults      = require('./tasks/defaults'),
+  log           = require('./tasks/log'),
+  questions     = require('./tasks/questions'),
+  settings      = require('./tasks/gulp-settings'),
 
   // local
   overwrite  = true,
@@ -77,8 +77,8 @@ var
 try {
   // try to load json
   var
-    config  = require('./semantic.json'),
-    package = require('./package.json')
+    config  = require(defaults.files.config),
+    package = require(defaults.files.npm)
   ;
 }
 catch(error) {
@@ -146,6 +146,11 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function () {
 
   console.clear();
   console.log('Watching source files');
+
+  if(!fs.existsSync(defaults.files.theme)) {
+    console.error('Cant compile LESS. Run "grunt install" to create a theme config file');
+    return;
+  }
 
   // watching changes in style
   gulp
@@ -270,6 +275,11 @@ gulp.task('build', 'Builds all files from source', function(callback) {
   ;
 
   console.info('Building Semantic');
+
+  if(!fs.existsSync(defaults.files.theme)) {
+    console.error('Cant build LESS. Run "grunt install" to create a theme config file');
+    return;
+  }
 
   // get relative asset path (path returns wrong path?)
   // assetPaths.source = path.relative(srcPath, path.resolve(source.themes));
@@ -402,7 +412,7 @@ gulp.task('package compressed js', false, function() {
 
 gulp.task('check install', false, function () {
   setTimeout(function() {
-    if( !config || !fs.existsSync('./src/theme.config')) {
+    if( !config || !fs.existsSync(defaults.files.site)) {
       console.log('No semantic.json file found. Starting install...');
       gulp.start('install');
     }
@@ -418,26 +428,20 @@ gulp.task('install', 'Set-up project for first time', function () {
     .src('gulpfile.js')
     .pipe(prompt.prompt(questions.setup, function(answers) {
       var
-        siteVariable  = /@siteFolder .*\'(.*)/mg,
-        templates     = {
-          themeConfig : './src/theme.config.example',
-          jsonConfig  : './semantic.json.example',
-          site        : './src/_site'
-        },
+        siteVariable      = /@siteFolder .*\'(.*)/mg,
 
-        siteDestination   = answers.site || './src/site',
-        themeDestination  = './src/',
+        siteDestination   = answers.site || defaults.folders.site,
 
-        pathToSite        = path.relative(path.resolve('./src'), path.resolve('./' + siteDestination)),
+        pathToSite        = path.relative(path.resolve(defaults.folders.theme), path.resolve('./' + siteDestination)),
         sitePathReplace   = "@siteFolder   : '" + pathToSite + "/';",
 
-        configExists      = fs.existsSync('./semantic.json'),
-        themeConfigExists = fs.existsSync('./src/theme.config'),
+        configExists      = fs.existsSync(defaults.files.config),
+        themeConfigExists = fs.existsSync(defaults.files.site),
         siteExists        = fs.existsSync(siteDestination),
 
-        jsonSource = (configExists)
-          ? './semantic.json'
-          : './semantic.json.example',
+        jsonSource        = (configExists)
+          ? defaults.files.config
+          : defaults.templates.config,
         json = {
           paths: {
             source: {},
@@ -463,22 +467,22 @@ gulp.task('install', 'Set-up project for first time', function () {
         console.info('Creating site theme folder', siteDestination);
       }
       // copy recursively without overwrite
-      wrench.copyDirSyncRecursive(templates.site, siteDestination, settings.wrench.recursive);
+      wrench.copyDirSyncRecursive(defaults.templates.site, siteDestination, settings.wrench.recursive);
 
       // adjust less variable for site folder location
-      console.info('Adjusting @siteFolder', defaults.paths.source.config, themeDestination);
+      console.info('Adjusting @siteFolder', pathToSite);
       if(themeConfigExists) {
-        gulp.src('./src/theme.config')
+        gulp.src(defaults.files.site)
           .pipe(replace(siteVariable, sitePathReplace))
-          .pipe(gulp.dest(themeDestination))
+          .pipe(gulp.dest(defaults.folders.theme))
         ;
       }
       else {
         console.info('Creating src/theme.config (LESS config)');
-        gulp.src(templates.themeConfig)
+        gulp.src(defaults.templates.theme)
           .pipe(rename({ extname : '' }))
           .pipe(replace(siteVariable, sitePathReplace))
-          .pipe(gulp.dest(themeDestination))
+          .pipe(gulp.dest(defaults.folders.theme))
         ;
       }
 
@@ -533,14 +537,10 @@ gulp.task('install', 'Set-up project for first time', function () {
     }))
     .pipe(prompt.prompt(questions.cleanup, function(answers) {
       if(answers.cleanup == 'yes') {
-        del([
-          './src/theme.config.example',
-          './semantic.json.example',
-          './src/_site'
-        ]);
+        del(defaults.setupFiles);
       }
       if(answers.build == 'yes') {
-        config = require('./semantic.json');
+        config = require(defaults.files.config);
         getConfigValues();
         gulp.start('build');
       }
@@ -548,18 +548,28 @@ gulp.task('install', 'Set-up project for first time', function () {
   ;
 });
 
+/*******************************
+          Admin Tasks
+*******************************/
 
+var
+  adminQuestions = require('./tasks/admin/questions')
+;
 
+gulp.task('docs', false, function() {
+  gulp
+    .src('gulpfile.js')
+    .pipe(prompt.prompt(adminQuestions.docs, function(answers) {
 
-
-/*--------------
-   Maintainer
----------------*/
+    }))
+  ;
+});
 
 /* Moves watched files to static site generator output */
 gulp.task('serve-docs', false, function () {
-  config = require('./tasks/maintainer/docs-output.json');
+  config = require('./tasks/admin/docs.json');
   getConfigValues();
+
 
   // copy source files
   gulp
@@ -580,7 +590,7 @@ gulp.task('serve-docs', false, function () {
 gulp.task('build-docs', false, function () {
   console.clear();
   // pushes to docpad files
-  config = require('./tasks/maintainer/docs-output.json');
+  config = require('./tasks/admin/docs.json');
   getConfigValues();
   gulp.start('build');
 
