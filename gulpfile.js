@@ -92,6 +92,10 @@ catch(error) {
 var
   getConfigValues = function() {
 
+    if(!config) {
+      config = defaults;
+    }
+
     // shorthand
     base    = config.base;
     clean   = config.paths.clean;
