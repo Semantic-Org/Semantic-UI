@@ -29,12 +29,116 @@
       -ms-transform: translateX(-50%) translateY(-50%);
           transform: translateX(-50%) translateY(-50%);
 }
+
+/* Static Shape */
+.ui.loader:before {
+  position: absolute;
+  content: '';
+  top: 0%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 500rem;
+  border: 0.3em solid rgba(0, 0, 0, 0.1);
+}
+
+/* Active Shape */
+.ui.loader:after {
+  position: absolute;
+  content: '';
+  top: 0%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  -webkit-animation: loader-spin 0.75s linear;
+          animation: loader-spin 0.75s linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  border-radius: 500rem;
+  border-color: #aaaaaa transparent transparent;
+  border-style: solid;
+  border-width: 0.3em;
+  box-shadow: 0px 0px 0px 1px transparent;
+}
+
+/* Active Animation */
+@-webkit-keyframes loader-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes loader-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+/* Sizes */
+.ui.loader:before,
+.ui.loader:after {
+  width: 2.2585em;
+  height: 2.2585em;
+  margin: 0em 0em 0em -1.12925em;
+}
+.ui.mini.loader:before,
+.ui.mini.loader:after {
+  width: 1.2857em;
+  height: 1.2857em;
+  margin: 0em 0em 0em -0.64285em;
+}
+.ui.small.loader:before,
+.ui.small.loader:after {
+  width: 1.7142em;
+  height: 1.7142em;
+  margin: 0em 0em 0em -0.8571em;
+}
+.ui.large.loader:before,
+.ui.large.loader:after {
+  width: 4.5714em;
+  height: 4.5714em;
+  margin: 0em 0em 0em -2.2857em;
+}
+
+/*-------------------
+      Coupling
+--------------------*/
+
+
+/* Show inside active dimmer */
 .ui.dimmer .loader {
   display: block;
 }
-.ui.dimmer .ui.loader,
-.ui.inverted.loader {
+
+/* Black Dimmer */
+.ui.dimmer .ui.loader {
   color: #ffffff;
+}
+.ui.dimmer .ui.loader:before {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+.ui.dimmer .ui.loader:after {
+  border-top-color: #ffffff;
+}
+
+/* White Dimmer (Inverted) */
+.ui.inverted.dimmer .ui.loader {
+  color: rgba(0, 0, 0, 0.8);
+}
+.ui.inverted.dimmer .ui.loader:before {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+.ui.inverted.dimmer .ui.loader:after {
+  border-top-color: #aaaaaa;
 }
 
 
@@ -42,99 +146,6 @@
              Types
 *******************************/
 
-
-/*--------------
-      CSS
----------------*/
-
-
-/* Flipping */
-.ui.flipping.loader {
-  width: auto;
-  height: auto;
-  background-image: none !important;
-}
-.ui.flipping.loader .shape {
-  position: relative;
-  margin: 0em auto 1em;
-  color: transparent;
-  box-shadow: 0px 0px 0px 1px;
-  -webkit-animation: loaderFlipping 1s infinite ease;
-          animation: loaderFlipping 1s infinite ease;
-  margin-bottom: 1em;
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-}
-.ui.flipping.loader .shape:before,
-.ui.flipping.loader .shape:after {
-  position: absolute;
-  content: '';
-  top: 0px;
-  left: 0px;
-  box-shadow: 0px 0px 0px 1px;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-}
-.ui.flipping.loader .shape:before {
-  background-color: #3b83c0;
-  -webkit-transform: rotateY(0deg);
-          transform: rotateY(0deg);
-  z-index: 2;
-}
-.ui.flipping.loader .shape:after {
-  background-color: #1b1c1d;
-  -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg);
-}
-
-/* Circular */
-.ui.flipping.circular.loader .shape,
-.ui.flipping.circular.loader .shape:before,
-.ui.flipping.circular.loader .shape:after {
-  border-radius: 500rem;
-}
-
-/* Sizes */
-.ui.mini.flipping.loader .shape,
-.ui.mini.flipping.loader .shape:before,
-.ui.mini.flipping.loader .shape:after {
-  width: 16px;
-  height: 16px;
-}
-.ui.flipping.loader .shape,
-.ui.flipping.loader .shape:before,
-.ui.flipping.loader .shape:after {
-  width: 32px;
-  height: 32px;
-}
-@-webkit-keyframes loaderFlipping {
-  0% {
-    -webkit-transform: perspective(6em) rotateX(0deg) rotateY(0deg);
-            transform: perspective(6em) rotateX(0deg) rotateY(0deg);
-  }
-  50% {
-    -webkit-transform: perspective(6em) rotateX(0deg) rotateY(-180deg);
-            transform: perspective(6em) rotateX(0deg) rotateY(-180deg);
-  }
-  100% {
-    -webkit-transform: perspective(6em) rotateX(0deg) rotateY(-360deg);
-            transform: perspective(6em) rotateX(0deg) rotateY(-360deg);
-  }
-}
-@keyframes loaderFlipping {
-  0% {
-    -webkit-transform: perspective(6em) rotateX(0deg) rotateY(0deg);
-            transform: perspective(6em) rotateX(0deg) rotateY(0deg);
-  }
-  50% {
-    -webkit-transform: perspective(6em) rotateX(0deg) rotateY(-180deg);
-            transform: perspective(6em) rotateX(0deg) rotateY(-180deg);
-  }
-  100% {
-    -webkit-transform: perspective(6em) rotateX(0deg) rotateY(-360deg);
-            transform: perspective(6em) rotateX(0deg) rotateY(-360deg);
-  }
-}
 
 /*-------------------
         Text
@@ -145,22 +156,6 @@
   height: auto !important;
   text-align: center;
   font-style: normal;
-}
-.ui.mini.text.loader {
-  min-width: 16px;
-  padding-top: 31px;
-}
-.ui.small.text.loader {
-  min-width: 24px;
-  padding-top: 39px;
-}
-.ui.text.loader {
-  min-width: 32px;
-  padding-top: 47px;
-}
-.ui.large.text.loader {
-  min-width: 64px;
-  padding-top: 79px;
 }
 
 
@@ -188,71 +183,62 @@
 --------------------*/
 
 
-/* Tiny Size */
+/* Loader */
 .ui.inverted.dimmer .ui.mini.loader,
 .ui.mini.loader {
-  width: 16px;
-  height: 16px;
-  font-size: 0.8em;
-  background-image: url("../themes/default/assets/images/loader-mini.gif");
+  width: 1.2857em;
+  height: 1.2857em;
+  font-size: 0.7857em;
 }
-
-/* Small Size */
 .ui.inverted.dimmer .ui.small.loader,
 .ui.small.loader {
-  width: 24px;
-  height: 24px;
-  font-size: 0.875em;
-  background-image: url("../themes/default/assets/images/loader-small.gif");
+  width: 1.7142em;
+  height: 1.7142em;
+  font-size: 0.9285em;
 }
 .ui.inverted.dimmer .ui.loader,
 .ui.loader {
-  width: 32px;
-  height: 32px;
+  width: 2.2585em;
+  height: 2.2585em;
   font-size: 1em;
-  background: url("../themes/default/assets/images/loader-medium.gif") no-repeat;
-  background-position: 50% 0px;
 }
-
-/* Large Size */
 .ui.inverted.dimmer .ui.loader.large,
 .ui.loader.large {
-  width: 64px;
-  height: 64px;
-  font-size: 1.2em;
-  background-image: url("../themes/default/assets/images/loader-large.gif");
+  width: 4.5714em;
+  height: 4.5714em;
+  font-size: 1.1428em;
+}
+
+/* Text Loader */
+.ui.mini.text.loader {
+  min-width: 1.2857em;
+  padding-top: 1.9857em;
+}
+.ui.small.text.loader {
+  min-width: 1.7142em;
+  padding-top: 2.4142em;
+}
+.ui.text.loader {
+  min-width: 2.2585em;
+  padding-top: 2.9585em;
+}
+.ui.large.text.loader {
+  min-width: 4.5714em;
+  padding-top: 5.2714em;
 }
 
 /*-------------------
        Inverted
 --------------------*/
 
-.ui.inverted.dimmer .ui.loader {
-  color: rgba(0, 0, 0, 0.8);
-}
-
-/* Tiny Size */
-.ui.dimmer .mini.ui.loader,
-.ui.inverted .mini.ui.loader {
-  background-image: url("../themes/default/assets/images/loader-mini-inverted.gif");
-}
-
-/* Small Size */
-.ui.dimmer .small.ui.loader,
-.ui.inverted .small.ui.loader {
-  background-image: url("../themes/default/assets/images/loader-small-inverted.gif");
-}
-
-/* Standard Size */
-.ui.dimmer .ui.loader,
 .ui.inverted.loader {
-  background-image: url("../themes/default/assets/images/loader-medium-inverted.gif");
+  color: #ffffff;
 }
-
-/* Large Size */
-.ui.dimmer .large.ui.loader,
-.ui.inverted .large.ui.loader {
-  background-image: url("../themes/default/assets/images/loader-large-inverted.gif");
+.ui.inverted.loader:before {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+.ui.inverted.loader:after {
+  border-top-color: #ffffff;
 }
 
 /*-------------------
@@ -260,9 +246,11 @@
 --------------------*/
 
 .ui.inline.loader {
-  position: static;
+  position: relative;
   vertical-align: middle;
   margin: 0em;
+  left: 0em;
+  top: 0em;
   -webkit-transform: none;
       -ms-transform: none;
           transform: none;

@@ -12,6 +12,7 @@
 - **Checkbox** - Checkbox "enable" and "disable" have been replaced with "check" and "uncheck"
 - **Modal** - Modal ``left`` and ``right`` sections are now replaced with ``image`` and ``description``
 - **Accordion** - Accordions are not unstyled by default allowing for more compatability with other modules without having to override styles. Styled accordions are now included as a variation ``ui styled accordion``
+- **List** - List item selectors are now more strict, list items must be immediate children of ``ui list`` or ``ui list list``
 - **Item** - Items have now been renamed "card" to allow for a more generic item list that does not use a "card" style. Some 'card' view content has been slightly adjusted. Please refer to documentation
 - **Header / Icon** - Inverted headers and icons no longer invert background colors, but instead use a lighter version of colors more legible on dark backgrounds. Inverted circular icons, still however invert the color of the circle.
 - **Input** - Labeled inputs now have ``corner`` ``left`` and ``top`` labels. Any labeled inputs must now be converted to ``corner labeled input`` to maintain default position in ``0.x``

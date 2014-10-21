@@ -136,7 +136,7 @@
   width: 1.2857em;
   height: 1.2857em;
   border-radius: 500rem;
-  border: 3px solid rgba(0, 0, 0, 0.15);
+  border: 0.3em solid rgba(0, 0, 0, 0.15);
 }
 .ui.loading.button:after {
   position: absolute;
@@ -151,9 +151,9 @@
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
   border-radius: 500rem;
-  border-color: rgba(255, 255, 255, 0.8) transparent transparent;
+  border-color: #ffffff transparent transparent;
   border-style: solid;
-  border-width: 3px;
+  border-width: 0.3em;
   box-shadow: 0px 0px 0px 1px transparent;
 }
 .ui.labeled.icon.loading.button .icon {
@@ -180,8 +180,11 @@
             transform: rotate(360deg);
   }
 }
+.ui.basic.loading.button:not(.inverted):before {
+  border-color: rgba(0, 0, 0, 0.1);
+}
 .ui.basic.loading.button:not(.inverted):after {
-  border-color: #aaaaaa transparent transparent;
+  border-top-color: #aaaaaa;
 }
 
 /*-------------------
@@ -871,9 +874,9 @@
 }
 .ui.buttons .or:before {
   position: absolute;
+  content: 'or';
   top: 50%;
   left: 50%;
-  content: 'or';
   background-color: #ffffff;
   text-shadow: none;
   margin-top: -0.9em;
@@ -887,6 +890,9 @@
   text-align: center;
   border-radius: 500em;
   box-shadow: 0px 0px 0px 1px transparent inset;
+}
+.ui.buttons .or[data-text]:before {
+  content: attr(data-text);
 }
 
 /* Fluid Or */

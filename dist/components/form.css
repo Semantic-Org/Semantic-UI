@@ -439,24 +439,69 @@
   opacity: 1;
 }
 
-/*--------------------
-     Loading State
----------------------*/
+/*--------------
+    Loading
+---------------*/
 
-
-/* On Form */
-.ui.form.loading {
+.ui.loading.form {
   position: relative;
+  cursor: default;
+  point-events: none;
+  text-shadow: none !important;
+  color: transparent !important;
+  -webkit-transition: all 0s linear;
+          transition: all 0s linear;
+  z-index: 100;
 }
-.ui.form.loading:after {
+.ui.loading.form:before {
   position: absolute;
+  content: '';
   top: 0%;
   left: 0%;
-  content: '';
+  background: rgba(255, 255, 255, 0.8);
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.6) url("../themes/default/assets/images/loader-large.gif") no-repeat 50% 50%;
+  z-index: 100;
+}
+.ui.loading.form:after {
+  position: absolute;
+  content: '';
+  top: 50%;
+  left: 50%;
+  margin: -1.5em 0em 0em -1.5em;
+  width: 3em;
+  height: 3em;
+  -webkit-animation: form-spin 0.75s linear;
+          animation: form-spin 0.75s linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  border-radius: 500rem;
+  border-color: #aaaaaa rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1);
+  border-style: solid;
+  border-width: 0.3em;
+  box-shadow: 0px 0px 0px 1px transparent;
   visibility: visible;
+  z-index: 101;
+}
+@-webkit-keyframes form-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes form-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
 
 
@@ -496,9 +541,6 @@
 .ui.inverted.form .ui.checkbox label,
 .ui.inverted.form .ui.checkbox .box {
   color: #ffffff;
-}
-.ui.inverted.form.loading:after {
-  background: rgba(0, 0, 0, 0.8) url("../themes/default/assets/images/loader-large-inverted.gif") no-repeat 50% 50%;
 }
 
 /*--------------------

@@ -137,7 +137,7 @@
   width: 1.2857em;
   height: 1.2857em;
   border-radius: 500rem;
-  border: 3px solid rgba(0, 0, 0, 0.15);
+  border: 0.3em solid rgba(0, 0, 0, 0.15);
 }
 
 .ui.loading.button:after {
@@ -153,9 +153,9 @@
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
   border-radius: 500rem;
-  border-color: rgba(255, 255, 255, 0.8) transparent transparent;
+  border-color: #ffffff transparent transparent;
   border-style: solid;
-  border-width: 3px;
+  border-width: 0.3em;
   box-shadow: 0px 0px 0px 1px transparent;
 }
 
@@ -188,8 +188,12 @@
   }
 }
 
+.ui.basic.loading.button:not(.inverted):before {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
 .ui.basic.loading.button:not(.inverted):after {
-  border-color: #aaaaaa transparent transparent;
+  border-top-color: #aaaaaa;
 }
 
 /*-------------------
@@ -968,9 +972,9 @@
 
 .ui.buttons .or:before {
   position: absolute;
+  content: 'or';
   top: 50%;
   left: 50%;
-  content: 'or';
   background-color: #ffffff;
   text-shadow: none;
   margin-top: -0.9em;
@@ -984,6 +988,10 @@
   text-align: center;
   border-radius: 500em;
   box-shadow: 0px 0px 0px 1px transparent inset;
+}
+
+.ui.buttons .or[data-text]:before {
+  content: attr(data-text);
 }
 
 /* Fluid Or */
@@ -2686,6 +2694,1511 @@
 /*******************************
          Theme Overrides
 *******************************/
+
+/*******************************
+         Site Overrides
+*******************************/
+
+/*
+ * # Semantic UI
+ * git://github.com/Semantic-Org/Semantic-UI.git
+ *
+ *
+ * Copyright 2014 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+/*******************************
+            Divider
+*******************************/
+
+.ui.divider {
+  margin: 1rem 0rem;
+  line-height: 1;
+  height: 0em;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.85);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/*--------------
+      Basic
+---------------*/
+
+.ui.divider:not(.vertical):not(.horizontal) {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/*--------------
+    Coupling
+---------------*/
+
+.ui.grid > .ui.divider {
+  font-size: 1rem;
+}
+
+/*--------------
+   Horizontal
+---------------*/
+
+.ui.horizontal.divider {
+  position: relative;
+  height: auto;
+  margin: '';
+  overflow: hidden;
+  line-height: 1;
+  text-align: center;
+}
+
+.ui.horizontal.divider:before,
+.ui.horizontal.divider:after {
+  position: absolute;
+  content: '';
+  z-index: 3;
+  width: 50%;
+  top: 50%;
+  height: 0px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.ui.horizontal.divider:before {
+  margin-left: -51.5%;
+}
+
+.ui.horizontal.divider:after {
+  margin-left: 1.5%;
+}
+
+/*--------------
+    Vertical
+---------------*/
+
+.ui.vertical.divider {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  margin: 0rem;
+  padding: 0em;
+  width: auto;
+  height: 50%;
+  line-height: 0em;
+  text-align: center;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.ui.vertical.divider:before,
+.ui.vertical.divider:after {
+  position: absolute;
+  left: 50%;
+  content: '';
+  z-index: 3;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  width: 0%;
+  height: -webkit-calc(100% -  1rem );
+  height: calc(100% -  1rem );
+}
+
+.ui.vertical.divider:before {
+  top: -100%;
+}
+
+.ui.vertical.divider:after {
+  top: auto;
+  bottom: 0px;
+}
+
+/* Inside grid */
+
+@media only screen and (max-width: 767px) {
+  .ui.stackable.grid .ui.vertical.divider,
+  .ui.grid .stackable.row .ui.vertical.divider {
+    position: relative;
+    margin: 1rem 0rem;
+    left: 50%;
+    height: auto;
+    overflow: hidden;
+    line-height: 1;
+    text-align: center;
+  }
+
+  .ui.stackable.grid .ui.vertical.divider:before,
+  .ui.grid .stackable.row .ui.vertical.divider:before,
+  .ui.stackable.grid .ui.vertical.divider:after,
+  .ui.grid .stackable.row .ui.vertical.divider:after {
+    position: absolute;
+    left: auto;
+    content: '';
+    z-index: 3;
+    width: 50%;
+    top: 50%;
+    height: 0px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .ui.stackable.grid .ui.vertical.divider:before,
+  .ui.grid .stackable.row .ui.vertical.divider:before {
+    margin-left: -51.5%;
+  }
+
+  .ui.stackable.grid .ui.vertical.divider:after,
+  .ui.grid .stackable.row .ui.vertical.divider:after {
+    margin-left: 1.5%;
+  }
+}
+
+/*--------------
+      Icon
+---------------*/
+
+.ui.divider > .icon {
+  margin: 0rem;
+  font-size: 1rem;
+  height: 1em;
+  vertical-align: middle;
+}
+
+/*******************************
+          Variations
+*******************************/
+
+/*--------------
+    Hidden
+---------------*/
+
+.ui.hidden.divider {
+  border-color: transparent !important;
+}
+
+/*--------------
+    Inverted
+---------------*/
+
+.ui.divider.inverted {
+  color: #ffffff;
+}
+
+.ui.vertical.inverted.divider,
+.ui.horizontal.inverted.divider {
+  color: #ffffff;
+}
+
+.ui.divider.inverted,
+.ui.divider.inverted:after,
+.ui.divider.inverted:before {
+  border-top-color: rgba(0, 0, 0, 0.15) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.15) !important;
+  border-left-color: rgba(0, 0, 0, 0.15) !important;
+  border-right-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/*--------------
+    Fitted
+---------------*/
+
+.ui.fitted.divider {
+  margin: 0em;
+}
+
+/*--------------
+    Clearing
+---------------*/
+
+.ui.clearing.divider {
+  clear: both;
+}
+
+/*--------------
+    Section
+---------------*/
+
+.ui.section.divider {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+/*--------------
+     Sizes
+---------------*/
+
+.ui.divider {
+  font-size: 1rem;
+}
+
+/*******************************
+         Theme Overrides
+*******************************/
+
+/*******************************
+         Site Overrides
+*******************************/
+
+/*
+ * # Semantic UI
+ * git://github.com/Semantic-Org/Semantic-UI.git
+ *
+ *
+ * Copyright 2014 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+i.flag:not(.icon) {
+  display: inline-block;
+  width: 16px;
+  height: 11px;
+  line-height: 11px;
+  vertical-align: baseline;
+  margin: 0em 0.5em 0em 0em;
+  text-decoration: inherit;
+  speak: none;
+  font-smoothing: antialiased;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+i.flag:not(.icon):before {
+  display: inline-block;
+  content: '';
+  background: url("themes/default/assets/images/flags.png") no-repeat 0px 0px;
+  width: 16px;
+  height: 11px;
+}
+
+/* Flag Sprite Based On http://www.famfamfam.com/lab/icons/flags/ */
+
+/*******************************
+         Theme Overrides
+*******************************/
+
+i.flag.ad:before,
+i.flag.andorra:before {
+  background-position: 0px 0px;
+}
+
+i.flag.ae:before,
+i.flag.united.arab.emirates:before,
+i.flag.uae:before {
+  background-position: 0px -26px;
+}
+
+i.flag.af:before,
+i.flag.afghanistan:before {
+  background-position: 0px -52px;
+}
+
+i.flag.ag:before,
+i.flag.antigua:before {
+  background-position: 0px -78px;
+}
+
+i.flag.ai:before,
+i.flag.anguilla:before {
+  background-position: 0px -104px;
+}
+
+i.flag.al:before,
+i.flag.albania:before {
+  background-position: 0px -130px;
+}
+
+i.flag.am:before,
+i.flag.armenia:before {
+  background-position: 0px -156px;
+}
+
+i.flag.an:before,
+i.flag.netherlands.antilles:before {
+  background-position: 0px -182px;
+}
+
+i.flag.ao:before,
+i.flag.angola:before {
+  background-position: 0px -208px;
+}
+
+i.flag.ar:before,
+i.flag.argentina:before {
+  background-position: 0px -234px;
+}
+
+i.flag.as:before,
+i.flag.american.samoa:before {
+  background-position: 0px -260px;
+}
+
+i.flag.at:before,
+i.flag.austria:before {
+  background-position: 0px -286px;
+}
+
+i.flag.au:before,
+i.flag.australia:before {
+  background-position: 0px -312px;
+}
+
+i.flag.aw:before,
+i.flag.aruba:before {
+  background-position: 0px -338px;
+}
+
+i.flag.ax:before,
+i.flag.aland.islands:before {
+  background-position: 0px -364px;
+}
+
+i.flag.az:before,
+i.flag.azerbaijan:before {
+  background-position: 0px -390px;
+}
+
+i.flag.ba:before,
+i.flag.bosnia:before {
+  background-position: 0px -416px;
+}
+
+i.flag.bb:before,
+i.flag.barbados:before {
+  background-position: 0px -442px;
+}
+
+i.flag.bd:before,
+i.flag.bangladesh:before {
+  background-position: 0px -468px;
+}
+
+i.flag.be:before,
+i.flag.belgium:before {
+  background-position: 0px -494px;
+}
+
+i.flag.bf:before,
+i.flag.burkina.faso:before {
+  background-position: 0px -520px;
+}
+
+i.flag.bg:before,
+i.flag.bulgaria:before {
+  background-position: 0px -546px;
+}
+
+i.flag.bh:before,
+i.flag.bahrain:before {
+  background-position: 0px -572px;
+}
+
+i.flag.bi:before,
+i.flag.burundi:before {
+  background-position: 0px -598px;
+}
+
+i.flag.bj:before,
+i.flag.benin:before {
+  background-position: 0px -624px;
+}
+
+i.flag.bm:before,
+i.flag.bermuda:before {
+  background-position: 0px -650px;
+}
+
+i.flag.bn:before,
+i.flag.brunei:before {
+  background-position: 0px -676px;
+}
+
+i.flag.bo:before,
+i.flag.bolivia:before {
+  background-position: 0px -702px;
+}
+
+i.flag.br:before,
+i.flag.brazil:before {
+  background-position: 0px -728px;
+}
+
+i.flag.bs:before,
+i.flag.bahamas:before {
+  background-position: 0px -754px;
+}
+
+i.flag.bt:before,
+i.flag.bhutan:before {
+  background-position: 0px -780px;
+}
+
+i.flag.bv:before,
+i.flag.bouvet.island:before {
+  background-position: 0px -806px;
+}
+
+i.flag.bw:before,
+i.flag.botswana:before {
+  background-position: 0px -832px;
+}
+
+i.flag.by:before,
+i.flag.belarus:before {
+  background-position: 0px -858px;
+}
+
+i.flag.bz:before,
+i.flag.belize:before {
+  background-position: 0px -884px;
+}
+
+i.flag.ca:before,
+i.flag.canada:before {
+  background-position: 0px -910px;
+}
+
+i.flag.cc:before,
+i.flag.cocos.islands:before {
+  background-position: 0px -962px;
+}
+
+i.flag.cd:before,
+i.flag.congo:before {
+  background-position: 0px -988px;
+}
+
+i.flag.cf:before,
+i.flag.central.african.republic:before {
+  background-position: 0px -1014px;
+}
+
+i.flag.cg:before,
+i.flag.congo.brazzaville:before {
+  background-position: 0px -1040px;
+}
+
+i.flag.ch:before,
+i.flag.switzerland:before {
+  background-position: 0px -1066px;
+}
+
+i.flag.ci:before,
+i.flag.cote.divoire:before {
+  background-position: 0px -1092px;
+}
+
+i.flag.ck:before,
+i.flag.cook.islands:before {
+  background-position: 0px -1118px;
+}
+
+i.flag.cl:before,
+i.flag.chile:before {
+  background-position: 0px -1144px;
+}
+
+i.flag.cm:before,
+i.flag.cameroon:before {
+  background-position: 0px -1170px;
+}
+
+i.flag.cn:before,
+i.flag.china:before {
+  background-position: 0px -1196px;
+}
+
+i.flag.co:before,
+i.flag.colombia:before {
+  background-position: 0px -1222px;
+}
+
+i.flag.cr:before,
+i.flag.costa.rica:before {
+  background-position: 0px -1248px;
+}
+
+i.flag.cs:before,
+i.flag.serbia:before {
+  background-position: 0px -1274px;
+}
+
+i.flag.cu:before,
+i.flag.cuba:before {
+  background-position: 0px -1300px;
+}
+
+i.flag.cv:before,
+i.flag.cape.verde:before {
+  background-position: 0px -1326px;
+}
+
+i.flag.cx:before,
+i.flag.christmas.island:before {
+  background-position: 0px -1352px;
+}
+
+i.flag.cy:before,
+i.flag.cyprus:before {
+  background-position: 0px -1378px;
+}
+
+i.flag.cz:before,
+i.flag.czech.republic:before {
+  background-position: 0px -1404px;
+}
+
+i.flag.de:before,
+i.flag.germany:before {
+  background-position: 0px -1430px;
+}
+
+i.flag.dj:before,
+i.flag.djibouti:before {
+  background-position: 0px -1456px;
+}
+
+i.flag.dk:before,
+i.flag.denmark:before {
+  background-position: 0px -1482px;
+}
+
+i.flag.dm:before,
+i.flag.dominica:before {
+  background-position: 0px -1508px;
+}
+
+i.flag.do:before,
+i.flag.dominican.republic:before {
+  background-position: 0px -1534px;
+}
+
+i.flag.dz:before,
+i.flag.algeria:before {
+  background-position: 0px -1560px;
+}
+
+i.flag.ec:before,
+i.flag.ecuador:before {
+  background-position: 0px -1586px;
+}
+
+i.flag.ee:before,
+i.flag.estonia:before {
+  background-position: 0px -1612px;
+}
+
+i.flag.eg:before,
+i.flag.egypt:before {
+  background-position: 0px -1638px;
+}
+
+i.flag.eh:before,
+i.flag.western.sahara:before {
+  background-position: 0px -1664px;
+}
+
+i.flag.er:before,
+i.flag.eritrea:before {
+  background-position: 0px -1716px;
+}
+
+i.flag.es:before,
+i.flag.spain:before {
+  background-position: 0px -1742px;
+}
+
+i.flag.et:before,
+i.flag.ethiopia:before {
+  background-position: 0px -1768px;
+}
+
+i.flag.eu:before,
+i.flag.european.union:before {
+  background-position: 0px -1794px;
+}
+
+i.flag.fi:before,
+i.flag.finland:before {
+  background-position: 0px -1846px;
+}
+
+i.flag.fj:before,
+i.flag.fiji:before {
+  background-position: 0px -1872px;
+}
+
+i.flag.fk:before,
+i.flag.falkland.islands:before {
+  background-position: 0px -1898px;
+}
+
+i.flag.fm:before,
+i.flag.micronesia:before {
+  background-position: 0px -1924px;
+}
+
+i.flag.fo:before,
+i.flag.faroe.islands:before {
+  background-position: 0px -1950px;
+}
+
+i.flag.fr:before,
+i.flag.france:before {
+  background-position: 0px -1976px;
+}
+
+i.flag.ga:before,
+i.flag.gabon:before {
+  background-position: -36px 0px;
+}
+
+i.flag.gb:before,
+i.flag.england:before,
+i.flag.united.kingdom:before {
+  background-position: -36px -26px;
+}
+
+i.flag.gd:before,
+i.flag.grenada:before {
+  background-position: -36px -52px;
+}
+
+i.flag.ge:before,
+i.flag.georgia:before {
+  background-position: -36px -78px;
+}
+
+i.flag.gf:before,
+i.flag.french.guiana:before {
+  background-position: -36px -104px;
+}
+
+i.flag.gh:before,
+i.flag.ghana:before {
+  background-position: -36px -130px;
+}
+
+i.flag.gi:before,
+i.flag.gibraltar:before {
+  background-position: -36px -156px;
+}
+
+i.flag.gl:before,
+i.flag.greenland:before {
+  background-position: -36px -182px;
+}
+
+i.flag.gm:before,
+i.flag.gambia:before {
+  background-position: -36px -208px;
+}
+
+i.flag.gn:before,
+i.flag.guinea:before {
+  background-position: -36px -234px;
+}
+
+i.flag.gp:before,
+i.flag.guadeloupe:before {
+  background-position: -36px -260px;
+}
+
+i.flag.gq:before,
+i.flag.equatorial.guinea:before {
+  background-position: -36px -286px;
+}
+
+i.flag.gr:before,
+i.flag.greece:before {
+  background-position: -36px -312px;
+}
+
+i.flag.gs:before,
+i.flag.sandwich.islands:before {
+  background-position: -36px -338px;
+}
+
+i.flag.gt:before,
+i.flag.guatemala:before {
+  background-position: -36px -364px;
+}
+
+i.flag.gu:before,
+i.flag.guam:before {
+  background-position: -36px -390px;
+}
+
+i.flag.gw:before,
+i.flag.guinea-bissau:before {
+  background-position: -36px -416px;
+}
+
+i.flag.gy:before,
+i.flag.guyana:before {
+  background-position: -36px -442px;
+}
+
+i.flag.hk:before,
+i.flag.hong.kong:before {
+  background-position: -36px -468px;
+}
+
+i.flag.hm:before,
+i.flag.heard.island:before {
+  background-position: -36px -494px;
+}
+
+i.flag.hn:before,
+i.flag.honduras:before {
+  background-position: -36px -520px;
+}
+
+i.flag.hr:before,
+i.flag.croatia:before {
+  background-position: -36px -546px;
+}
+
+i.flag.ht:before,
+i.flag.haiti:before {
+  background-position: -36px -572px;
+}
+
+i.flag.hu:before,
+i.flag.hungary:before {
+  background-position: -36px -598px;
+}
+
+i.flag.id:before,
+i.flag.indonesia:before {
+  background-position: -36px -624px;
+}
+
+i.flag.ie:before,
+i.flag.ireland:before {
+  background-position: -36px -650px;
+}
+
+i.flag.il:before,
+i.flag.israel:before {
+  background-position: -36px -676px;
+}
+
+i.flag.in:before,
+i.flag.india:before {
+  background-position: -36px -702px;
+}
+
+i.flag.io:before,
+i.flag.indian.ocean.territory:before {
+  background-position: -36px -728px;
+}
+
+i.flag.iq:before,
+i.flag.iraq:before {
+  background-position: -36px -754px;
+}
+
+i.flag.ir:before,
+i.flag.iran:before {
+  background-position: -36px -780px;
+}
+
+i.flag.is:before,
+i.flag.iceland:before {
+  background-position: -36px -806px;
+}
+
+i.flag.it:before,
+i.flag.italy:before {
+  background-position: -36px -832px;
+}
+
+i.flag.jm:before,
+i.flag.jamaica:before {
+  background-position: -36px -858px;
+}
+
+i.flag.jo:before,
+i.flag.jordan:before {
+  background-position: -36px -884px;
+}
+
+i.flag.jp:before,
+i.flag.japan:before {
+  background-position: -36px -910px;
+}
+
+i.flag.ke:before,
+i.flag.kenya:before {
+  background-position: -36px -936px;
+}
+
+i.flag.kg:before,
+i.flag.kyrgyzstan:before {
+  background-position: -36px -962px;
+}
+
+i.flag.kh:before,
+i.flag.cambodia:before {
+  background-position: -36px -988px;
+}
+
+i.flag.ki:before,
+i.flag.kiribati:before {
+  background-position: -36px -1014px;
+}
+
+i.flag.km:before,
+i.flag.comoros:before {
+  background-position: -36px -1040px;
+}
+
+i.flag.kn:before,
+i.flag.saint.kitts.and.nevis:before {
+  background-position: -36px -1066px;
+}
+
+i.flag.kp:before,
+i.flag.north.korea:before {
+  background-position: -36px -1092px;
+}
+
+i.flag.kr:before,
+i.flag.south.korea:before {
+  background-position: -36px -1118px;
+}
+
+i.flag.kw:before,
+i.flag.kuwait:before {
+  background-position: -36px -1144px;
+}
+
+i.flag.ky:before,
+i.flag.cayman.islands:before {
+  background-position: -36px -1170px;
+}
+
+i.flag.kz:before,
+i.flag.kazakhstan:before {
+  background-position: -36px -1196px;
+}
+
+i.flag.la:before,
+i.flag.laos:before {
+  background-position: -36px -1222px;
+}
+
+i.flag.lb:before,
+i.flag.lebanon:before {
+  background-position: -36px -1248px;
+}
+
+i.flag.lc:before,
+i.flag.saint.lucia:before {
+  background-position: -36px -1274px;
+}
+
+i.flag.li:before,
+i.flag.liechtenstein:before {
+  background-position: -36px -1300px;
+}
+
+i.flag.lk:before,
+i.flag.sri.lanka:before {
+  background-position: -36px -1326px;
+}
+
+i.flag.lr:before,
+i.flag.liberia:before {
+  background-position: -36px -1352px;
+}
+
+i.flag.ls:before,
+i.flag.lesotho:before {
+  background-position: -36px -1378px;
+}
+
+i.flag.lt:before,
+i.flag.lithuania:before {
+  background-position: -36px -1404px;
+}
+
+i.flag.lu:before,
+i.flag.luxembourg:before {
+  background-position: -36px -1430px;
+}
+
+i.flag.lv:before,
+i.flag.latvia:before {
+  background-position: -36px -1456px;
+}
+
+i.flag.ly:before,
+i.flag.libya:before {
+  background-position: -36px -1482px;
+}
+
+i.flag.ma:before,
+i.flag.morocco:before {
+  background-position: -36px -1508px;
+}
+
+i.flag.mc:before,
+i.flag.monaco:before {
+  background-position: -36px -1534px;
+}
+
+i.flag.md:before,
+i.flag.moldova:before {
+  background-position: -36px -1560px;
+}
+
+i.flag.me:before,
+i.flag.montenegro:before {
+  background-position: -36px -1586px;
+}
+
+i.flag.mg:before,
+i.flag.madagascar:before {
+  background-position: -36px -1613px;
+}
+
+i.flag.mh:before,
+i.flag.marshall.islands:before {
+  background-position: -36px -1639px;
+}
+
+i.flag.mk:before,
+i.flag.macedonia:before {
+  background-position: -36px -1665px;
+}
+
+i.flag.ml:before,
+i.flag.mali:before {
+  background-position: -36px -1691px;
+}
+
+i.flag.mm:before,
+i.flag.myanmar:before,
+i.flag.burma:before {
+  background-position: -36px -1717px;
+}
+
+i.flag.mn:before,
+i.flag.mongolia:before {
+  background-position: -36px -1743px;
+}
+
+i.flag.mo:before,
+i.flag.macau:before {
+  background-position: -36px -1769px;
+}
+
+i.flag.mp:before,
+i.flag.northern.mariana.islands:before {
+  background-position: -36px -1795px;
+}
+
+i.flag.mq:before,
+i.flag.martinique:before {
+  background-position: -36px -1821px;
+}
+
+i.flag.mr:before,
+i.flag.mauritania:before {
+  background-position: -36px -1847px;
+}
+
+i.flag.ms:before,
+i.flag.montserrat:before {
+  background-position: -36px -1873px;
+}
+
+i.flag.mt:before,
+i.flag.malta:before {
+  background-position: -36px -1899px;
+}
+
+i.flag.mu:before,
+i.flag.mauritius:before {
+  background-position: -36px -1925px;
+}
+
+i.flag.mv:before,
+i.flag.maldives:before {
+  background-position: -36px -1951px;
+}
+
+i.flag.mw:before,
+i.flag.malawi:before {
+  background-position: -36px -1977px;
+}
+
+i.flag.mx:before,
+i.flag.mexico:before {
+  background-position: -72px 0px;
+}
+
+i.flag.my:before,
+i.flag.malaysia:before {
+  background-position: -72px -26px;
+}
+
+i.flag.mz:before,
+i.flag.mozambique:before {
+  background-position: -72px -52px;
+}
+
+i.flag.na:before,
+i.flag.namibia:before {
+  background-position: -72px -78px;
+}
+
+i.flag.nc:before,
+i.flag.new.caledonia:before {
+  background-position: -72px -104px;
+}
+
+i.flag.ne:before,
+i.flag.niger:before {
+  background-position: -72px -130px;
+}
+
+i.flag.nf:before,
+i.flag.norfolk.island:before {
+  background-position: -72px -156px;
+}
+
+i.flag.ng:before,
+i.flag.nigeria:before {
+  background-position: -72px -182px;
+}
+
+i.flag.ni:before,
+i.flag.nicaragua:before {
+  background-position: -72px -208px;
+}
+
+i.flag.nl:before,
+i.flag.netherlands:before {
+  background-position: -72px -234px;
+}
+
+i.flag.no:before,
+i.flag.norway:before {
+  background-position: -72px -260px;
+}
+
+i.flag.np:before,
+i.flag.nepal:before {
+  background-position: -72px -286px;
+}
+
+i.flag.nr:before,
+i.flag.nauru:before {
+  background-position: -72px -312px;
+}
+
+i.flag.nu:before,
+i.flag.niue:before {
+  background-position: -72px -338px;
+}
+
+i.flag.nz:before,
+i.flag.new.zealand:before {
+  background-position: -72px -364px;
+}
+
+i.flag.om:before,
+i.flag.oman:before {
+  background-position: -72px -390px;
+}
+
+i.flag.pa:before,
+i.flag.panama:before {
+  background-position: -72px -416px;
+}
+
+i.flag.pe:before,
+i.flag.peru:before {
+  background-position: -72px -442px;
+}
+
+i.flag.pf:before,
+i.flag.french.polynesia:before {
+  background-position: -72px -468px;
+}
+
+i.flag.pg:before,
+i.flag.new.guinea:before {
+  background-position: -72px -494px;
+}
+
+i.flag.ph:before,
+i.flag.philippines:before {
+  background-position: -72px -520px;
+}
+
+i.flag.pk:before,
+i.flag.pakistan:before {
+  background-position: -72px -546px;
+}
+
+i.flag.pl:before,
+i.flag.poland:before {
+  background-position: -72px -572px;
+}
+
+i.flag.pm:before,
+i.flag.saint.pierre:before {
+  background-position: -72px -598px;
+}
+
+i.flag.pn:before,
+i.flag.pitcairn.islands:before {
+  background-position: -72px -624px;
+}
+
+i.flag.pr:before,
+i.flag.puerto.rico:before {
+  background-position: -72px -650px;
+}
+
+i.flag.ps:before,
+i.flag.palestine:before {
+  background-position: -72px -676px;
+}
+
+i.flag.pt:before,
+i.flag.portugal:before {
+  background-position: -72px -702px;
+}
+
+i.flag.pw:before,
+i.flag.palau:before {
+  background-position: -72px -728px;
+}
+
+i.flag.py:before,
+i.flag.paraguay:before {
+  background-position: -72px -754px;
+}
+
+i.flag.qa:before,
+i.flag.qatar:before {
+  background-position: -72px -780px;
+}
+
+i.flag.re:before,
+i.flag.reunion:before {
+  background-position: -72px -806px;
+}
+
+i.flag.ro:before,
+i.flag.romania:before {
+  background-position: -72px -832px;
+}
+
+i.flag.rs:before,
+i.flag.serbia:before {
+  background-position: -72px -858px;
+}
+
+i.flag.ru:before,
+i.flag.russia:before {
+  background-position: -72px -884px;
+}
+
+i.flag.rw:before,
+i.flag.rwanda:before {
+  background-position: -72px -910px;
+}
+
+i.flag.sa:before,
+i.flag.saudi.arabia:before {
+  background-position: -72px -936px;
+}
+
+i.flag.sb:before,
+i.flag.solomon.islands:before {
+  background-position: -72px -962px;
+}
+
+i.flag.sc:before,
+i.flag.seychelles:before {
+  background-position: -72px -988px;
+}
+
+i.flag.sd:before,
+i.flag.sudan:before {
+  background-position: -72px -1040px;
+}
+
+i.flag.se:before,
+i.flag.sweden:before {
+  background-position: -72px -1066px;
+}
+
+i.flag.sg:before,
+i.flag.singapore:before {
+  background-position: -72px -1092px;
+}
+
+i.flag.sh:before,
+i.flag.saint.helena:before {
+  background-position: -72px -1118px;
+}
+
+i.flag.si:before,
+i.flag.slovenia:before {
+  background-position: -72px -1144px;
+}
+
+i.flag.sj:before,
+i.flag.svalbard:before,
+i.flag.jan.mayen:before {
+  background-position: -72px -1170px;
+}
+
+i.flag.sk:before,
+i.flag.slovakia:before {
+  background-position: -72px -1196px;
+}
+
+i.flag.sl:before,
+i.flag.sierra.leone:before {
+  background-position: -72px -1222px;
+}
+
+i.flag.sm:before,
+i.flag.san.marino:before {
+  background-position: -72px -1248px;
+}
+
+i.flag.sn:before,
+i.flag.senegal:before {
+  background-position: -72px -1274px;
+}
+
+i.flag.so:before,
+i.flag.somalia:before {
+  background-position: -72px -1300px;
+}
+
+i.flag.sr:before,
+i.flag.suriname:before {
+  background-position: -72px -1326px;
+}
+
+i.flag.st:before,
+i.flag.sao.tome:before {
+  background-position: -72px -1352px;
+}
+
+i.flag.sv:before,
+i.flag.el.salvador:before {
+  background-position: -72px -1378px;
+}
+
+i.flag.sy:before,
+i.flag.syria:before {
+  background-position: -72px -1404px;
+}
+
+i.flag.sz:before,
+i.flag.swaziland:before {
+  background-position: -72px -1430px;
+}
+
+i.flag.tc:before,
+i.flag.caicos.islands:before {
+  background-position: -72px -1456px;
+}
+
+i.flag.td:before,
+i.flag.chad:before {
+  background-position: -72px -1482px;
+}
+
+i.flag.tf:before,
+i.flag.french.territories:before {
+  background-position: -72px -1508px;
+}
+
+i.flag.tg:before,
+i.flag.togo:before {
+  background-position: -72px -1534px;
+}
+
+i.flag.th:before,
+i.flag.thailand:before {
+  background-position: -72px -1560px;
+}
+
+i.flag.tj:before,
+i.flag.tajikistan:before {
+  background-position: -72px -1586px;
+}
+
+i.flag.tk:before,
+i.flag.tokelau:before {
+  background-position: -72px -1612px;
+}
+
+i.flag.tl:before,
+i.flag.timorleste:before {
+  background-position: -72px -1638px;
+}
+
+i.flag.tm:before,
+i.flag.turkmenistan:before {
+  background-position: -72px -1664px;
+}
+
+i.flag.tn:before,
+i.flag.tunisia:before {
+  background-position: -72px -1690px;
+}
+
+i.flag.to:before,
+i.flag.tonga:before {
+  background-position: -72px -1716px;
+}
+
+i.flag.tr:before,
+i.flag.turkey:before {
+  background-position: -72px -1742px;
+}
+
+i.flag.tt:before,
+i.flag.trinidad:before {
+  background-position: -72px -1768px;
+}
+
+i.flag.tv:before,
+i.flag.tuvalu:before {
+  background-position: -72px -1794px;
+}
+
+i.flag.tw:before,
+i.flag.taiwan:before {
+  background-position: -72px -1820px;
+}
+
+i.flag.tz:before,
+i.flag.tanzania:before {
+  background-position: -72px -1846px;
+}
+
+i.flag.ua:before,
+i.flag.ukraine:before {
+  background-position: -72px -1872px;
+}
+
+i.flag.ug:before,
+i.flag.uganda:before {
+  background-position: -72px -1898px;
+}
+
+i.flag.um:before,
+i.flag.us.minor.islands:before {
+  background-position: -72px -1924px;
+}
+
+i.flag.us:before,
+i.flag.america:before,
+i.flag.united.states:before {
+  background-position: -72px -1950px;
+}
+
+i.flag.uy:before,
+i.flag.uruguay:before {
+  background-position: -72px -1976px;
+}
+
+i.flag.uz:before,
+i.flag.uzbekistan:before {
+  background-position: -108px 0px;
+}
+
+i.flag.va:before,
+i.flag.vatican.city:before {
+  background-position: -108px -26px;
+}
+
+i.flag.vc:before,
+i.flag.saint.vincent:before {
+  background-position: -108px -52px;
+}
+
+i.flag.ve:before,
+i.flag.venezuela:before {
+  background-position: -108px -78px;
+}
+
+i.flag.vg:before,
+i.flag.british.virgin.islands:before {
+  background-position: -108px -104px;
+}
+
+i.flag.vi:before,
+i.flag.us.virgin.islands:before {
+  background-position: -108px -130px;
+}
+
+i.flag.vn:before,
+i.flag.vietnam:before {
+  background-position: -108px -156px;
+}
+
+i.flag.vu:before,
+i.flag.vanuatu:before {
+  background-position: -108px -182px;
+}
+
+i.flag.wf:before,
+i.flag.wallis.and.futuna:before {
+  background-position: -108px -234px;
+}
+
+i.flag.ws:before,
+i.flag.samoa:before {
+  background-position: -108px -260px;
+}
+
+i.flag.ye:before,
+i.flag.yemen:before {
+  background-position: -108px -286px;
+}
+
+i.flag.yt:before,
+i.flag.mayotte:before {
+  background-position: -108px -312px;
+}
+
+i.flag.za:before,
+i.flag.south.africa:before {
+  background-position: -108px -338px;
+}
+
+i.flag.zm:before,
+i.flag.zambia:before {
+  background-position: -108px -364px;
+}
+
+i.flag.zw:before,
+i.flag.zimbabwe:before {
+  background-position: -108px -390px;
+}
 
 /*******************************
          Site Overrides
@@ -7780,7 +9293,8 @@ ol.ui.list:last-child,
 
 ul.ui.list li,
 ol.ui.list li,
-.ui.list .item {
+.ui.list > .item,
+.ui.list .list > .item {
   display: list-item;
   table-layout: fixed;
   list-style-type: none;
@@ -7791,7 +9305,8 @@ ol.ui.list li,
 
 ul.ui.list > li:first-child:after,
 ol.ui.list > li:first-child:after,
-.ui.list .item:after {
+.ui.list > .list > .item,
+.ui.list > .item:after {
   content: '';
   display: block;
   height: 0;
@@ -7801,13 +9316,15 @@ ol.ui.list > li:first-child:after,
 
 ul.ui.list li:first-child,
 ol.ui.list li:first-child,
-.ui.list .item:first-child {
+.ui.list .list > .item:first-child,
+.ui.list > .item:first-child {
   padding-top: 0em;
 }
 
 ul.ui.list li:last-child,
 ol.ui.list li:last-child,
-.ui.list .item:last-child {
+.ui.list .list > .item:last-child,
+.ui.list > .item:last-child {
   padding-bottom: 0em;
 }
 
@@ -7823,7 +9340,8 @@ ol.ui.list ol,
 
 /* Icon */
 
-.ui.list .item > .icon {
+.ui.list .list > .item > .icon,
+.ui.list > .item > .icon {
   display: table-cell;
   margin: 0em;
   padding-top: 0.1rem;
@@ -7833,18 +9351,21 @@ ol.ui.list ol,
   transition: color 0.2s ease;
 }
 
-.ui.list .item > [class*="top aligned"].icon {
+.ui.list .list > .item [class*="top aligned"].icon,
+.ui.list > .item > [class*="top aligned"].icon {
   vertical-align: top;
 }
 
-.ui.list .item > .icon:only-child {
+.ui.list .list > .item > .icon:only-child,
+.ui.list > .item > .icon:only-child {
   display: inline-block;
   vertical-align: top;
 }
 
 /* Image */
 
-.ui.list .item > .image {
+.ui.list .list > .item > .image,
+.ui.list > .item > .image {
   display: table-cell;
   background-color: transparent;
   margin: 0em;
@@ -7852,67 +9373,94 @@ ol.ui.list ol,
   vertical-align: middle;
 }
 
-.ui.list .item > [class*="top aligned"].image {
+.ui.list .list > .item > [class*="top aligned"].image,
+.ui.list > .item > [class*="top aligned"].image {
   vertical-align: top;
 }
 
-.ui.list .item > .image img {
+.ui.list .list > .item > .image img,
+.ui.list > .item > .image img {
   vertical-align: middle;
 }
 
-.ui.list .item > img.image,
-.ui.list .item > .image:only-child {
+.ui.list .list > .item > img.image,
+.ui.list .list > .item > .image:only-child,
+.ui.list > .item > img.image,
+.ui.list > .item > .image:only-child {
   display: inline-block;
   padding-right: 0em;
 }
 
 /* Content */
 
-.ui.list .item > .content {
+.ui.list .list > .item > .content,
+.ui.list > .item > .content {
   line-height: 1.2em;
 }
 
-.ui.list .item > .image + .content,
-.ui.list .item > .icon + .content {
+.ui.list .list > .item > .image + .content,
+.ui.list .list > .item > .icon + .content .ui.list > .item > .image + .content,
+.ui.list > .item > .icon + .content {
   display: table-cell;
   padding-left: 0.5em;
   vertical-align: middle;
 }
 
-.ui.list .item > .image + .content,
-.ui.list .item > .icon + .content {
+.ui.list .list > .item > .image + .content,
+.ui.list .list > .item > .icon + .content,
+.ui.list > .item > .image + .content,
+.ui.list > .item > .icon + .content {
   display: table-cell;
   padding-left: 0.5em;
   vertical-align: middle;
 }
 
-.ui.list .item > img.image + .content {
+.ui.list .list > .item > img.image + .content,
+.ui.list > .item > img.image + .content {
   display: inline-block;
 }
 
-.ui.list .item > .content > .list {
+.ui.list .list > .item > .content > .list,
+.ui.list > .item > .content > .list {
   margin-left: 0em;
   padding-left: 0em;
 }
 
-/* Link */
+/* Item Link */
 
-.ui.list a {
+.ui.list .list > a.item,
+.ui.list > a.item {
   cursor: pointer;
   color: rgba(0, 0, 0, 0.8);
 }
 
-.ui.list a:hover {
+.ui.list .list > a.item:hover,
+.ui.list > a.item:hover {
   color: #00b2f3;
 }
 
-.ui.list a .icon {
+/* Linked Item Icons */
+
+.ui.list .list > a.item .icon,
+.ui.list > a.item .icon {
   color: rgba(0, 0, 0, 0.4);
+}
+
+/* Linking Content */
+
+.ui.list .item a {
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.ui.list .item a:hover {
+  color: #00b2f3 !important;
 }
 
 /* Header */
 
-.ui.list .header {
+.ui.list .list > .item .header,
+.ui.list > .item .header {
   display: block;
   margin: 0em;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
@@ -7920,19 +9468,20 @@ ol.ui.list ol,
   color: rgba(0, 0, 0, 0.8);
 }
 
-.ui.list .description {
+.ui.list .list > .item .description,
+.ui.list > .item .description {
   display: block;
   color: rgba(0, 0, 0, 0.8);
 }
 
 /* Floated Content */
 
-.ui.list .item > .left.floated {
+.ui.list .list > .item > .left.floated .ui.list > .item > .left.floated {
   float: left;
   margin-right: 1em;
 }
 
-.ui.list .item > .right.floated {
+.ui.list .list > .item > .right.floated .ui.list > .item > .right.floated {
   float: right;
   margin-left: 1em;
 }
@@ -7941,7 +9490,8 @@ ol.ui.list ol,
             Coupling
 *******************************/
 
-.ui.menu .ui.list .item:before {
+.ui.menu .ui.list .list > .item:before,
+.ui.menu .ui.list > .item:before {
   border: none;
   background: none;
 }
@@ -7985,13 +9535,13 @@ ol.ui.list ol,
 
 /* Horizontal List */
 
-.ui.horizontal.list .item > .icon {
+.ui.horizontal.list > .item > .icon {
   margin: 0em;
   padding: 0em 0.25em 0em 0em;
 }
 
-.ui.horizontal.list .item > .icon,
-.ui.horizontal.list .item > .icon + .content {
+.ui.horizontal.list > .item > .icon,
+.ui.horizontal.list > .item > .icon + .content {
   float: none;
   display: inline-block;
 }
@@ -8004,12 +9554,14 @@ ol.ui.list ol,
        Disabled
 --------------------*/
 
-.ui.list .disabled.item {
+.ui.list .list > .disabled.item,
+.ui.list > .disabled.item {
   pointer-events: none;
   color: rgba(40, 40, 40, 0.3) !important;
 }
 
-.ui.inverted.list .disabled.item {
+.ui.inverted.list .list > .disabled.item,
+.ui.inverted.list > .disabled.item {
   color: rgba(225, 225, 225, 0.3) !important;
 }
 
@@ -8017,7 +9569,8 @@ ol.ui.list ol,
         Hover
 --------------------*/
 
-.ui.list a:hover .icon {
+.ui.list .list > a.item:hover .icon,
+.ui.list > a.item:hover .icon {
   color: rgba(0, 0, 0, 0.8);
 }
 
@@ -8029,15 +9582,18 @@ ol.ui.list ol,
        Inverted
 --------------------*/
 
-.ui.inverted.list a .icon {
+.ui.inverted.list .list > a.item > .icon,
+.ui.inverted.list > a.item > .icon {
   color: rgba(255, 255, 255, 0.8);
 }
 
-.ui.inverted.list .header {
+.ui.inverted.list .list > .item .header,
+.ui.inverted.list > .item .header {
   color: #ffffff;
 }
 
-.ui.inverted.list .description {
+.ui.inverted.list .list > .item .description,
+.ui.inverted.list > .item .description {
   color: rgba(255, 255, 255, 0.8);
 }
 
@@ -8095,7 +9651,8 @@ ol.ui.list ol,
       Selection
 --------------------*/
 
-.ui.selection.list .item {
+.ui.selection.list .list > .item,
+.ui.selection.list > .item {
   cursor: pointer;
   background: transparent;
   padding: 0.5em 0.5em;
@@ -8106,51 +9663,61 @@ ol.ui.list ol,
   transition: 0.2s color ease, 0.2s padding-left ease, 0.2s background-color ease;
 }
 
-.ui.selection.list .item:last-child {
+.ui.selection.list .list > .item:last-child,
+.ui.selection.list > .item:last-child {
   margin-bottom: 0em;
 }
 
-.ui.selection.list .item:hover {
+.ui.selection.list.list > .item:hover,
+.ui.selection.list > .item:hover {
   background: rgba(0, 0, 0, 0.03);
   color: rgba(0, 0, 0, 0.8);
 }
 
-.ui.selection.list .item:active {
+.ui.selection.list .list > .item:active,
+.ui.selection.list > .item:active {
   background: rgba(0, 0, 0, 0.05);
   color: rgba(0, 0, 0, 0.8);
 }
 
-.ui.selection.list .item.active {
+.ui.selection.list .list > .item.active,
+.ui.selection.list > .item.active {
   background: rgba(0, 0, 0, 0.05);
   color: rgba(0, 0, 0, 0.8);
 }
 
 /* Inverted */
 
-.ui.inverted.selection.list .item {
+.ui.inverted.selection.list > .item,
+.ui.inverted.selection.list > .item {
   background: transparent;
   color: rgba(255, 255, 255, 0.5);
 }
 
-.ui.inverted.selection.list .item:hover {
+.ui.inverted.selection.list > .item:hover,
+.ui.inverted.selection.list > .item:hover {
   background: rgba(255, 255, 255, 0.02);
   color: #ffffff;
 }
 
-.ui.inverted.selection.list .item:active {
+.ui.inverted.selection.list > .item:active,
+.ui.inverted.selection.list > .item:active {
   background: rgba(255, 255, 255, 0.05);
   color: #ffffff;
 }
 
-.ui.inverted.selection.list .item.active {
+.ui.inverted.selection.list > .item.active,
+.ui.inverted.selection.list > .item.active {
   background: rgba(255, 255, 255, 0.05);
   color: #ffffff;
 }
 
 /* Celled / Divided Selection List */
 
-.ui.celled.selection.list .item,
-.ui.divided.selection.list .item {
+.ui.celled.selection.list .list > .item,
+.ui.divided.selection.list .list > .item,
+.ui.celled.selection.list > .item,
+.ui.divided.selection.list > .item {
   border-radius: 0em;
 }
 
@@ -8158,16 +9725,18 @@ ol.ui.list ol,
        Animated
 --------------------*/
 
-.ui.animated.list .item {
+.ui.animated.list .list > .item,
+.ui.animated.list > .item {
   -webkit-transition: 0.2s color ease, 0.2s padding-left ease, 0.2s background-color ease;
   transition: 0.2s color ease, 0.2s padding-left ease, 0.2s background-color ease;
 }
 
-.ui.animated.list:not(.horizontal) .item:hover {
+.ui.animated.list:not(.horizontal) .list > .item:hover,
+.ui.animated.list:not(.horizontal) > .item:hover {
   padding-left: 1em;
 }
 
-.ui.animated.list:not(.horizontal) .item:hover .item:hover {
+.ui.animated.list:not(.horizontal) .item:hover .list > .item:hover {
   padding-left: 0.5em;
 }
 
@@ -8175,12 +9744,14 @@ ol.ui.list ol,
        Fitted
 --------------------*/
 
-.ui.fitted.list:not(.selection) .item {
+.ui.fitted.list:not(.selection) .list > .item,
+.ui.fitted.list:not(.selection) > .item {
   padding-left: 0em;
   padding-right: 0em;
 }
 
-.ui.fitted.selection.list .item {
+.ui.fitted.selection.list .list > .item,
+.ui.fitted.selection.list > .item {
   margin-left: -0.5em;
   margin-right: -0.5em;
 }
@@ -8195,12 +9766,14 @@ ul.ui.list,
 }
 
 ul.ui.list li,
-.ui.bulleted.list .item {
+.ui.bulleted.list .list > .item,
+.ui.bulleted.list > .item {
   position: relative;
 }
 
 ul.ui.list li:before,
-.ui.bulleted.list .item:before {
+.ui.bulleted.list .list > .item:before,
+.ui.bulleted.list > .item:before {
   position: absolute;
   left: -1rem;
   content: '•';
@@ -8222,22 +9795,22 @@ ul.ui.horizontal.bulleted.list,
 }
 
 ul.ui.horizontal.bulleted.list li,
-.ui.horizontal.bulleted.list .item {
+.ui.horizontal.bulleted.list > .item {
   margin-left: 1.5rem;
 }
 
 ul.ui.horizontal.bulleted.list li:before,
-.ui.horizontal.bulleted.list .item:before {
+.ui.horizontal.bulleted.list > .item:before {
   left: -1.1rem;
 }
 
 ul.ui.horizontal.bulleted.list li:first-child,
-.ui.horizontal.bulleted.list .item:first-child {
+.ui.horizontal.bulleted.list > .item:first-child {
   margin-left: 0em;
 }
 
 ul.ui.horizontal.bulleted.list li:first-child::before,
-.ui.horizontal.bulleted.list .item:first-child::before {
+.ui.horizontal.bulleted.list > .item:first-child::before {
   display: none;
 }
 
@@ -8255,13 +9828,15 @@ ol.ui.list ol {
 }
 
 ol.ui.list li,
-.ui.ordered.list .item {
+.ui.ordered.list .list > .item,
+.ui.ordered.list > .item {
   list-style-type: none;
   position: relative;
 }
 
 ol.ui.list li:before,
-.ui.ordered.list .item:before {
+.ui.ordered.list .list > .item:before,
+.ui.ordered.list > .item:before {
   position: absolute;
   left: -1.25rem;
   counter-increment: ordered;
@@ -8280,7 +9855,7 @@ ol.ui.list ol,
 }
 
 ol.ui.list ol li:before,
-.ui.ordered.list .list .item:before {
+.ui.ordered.list .list > .item:before {
   left: -2em;
 }
 
@@ -8292,7 +9867,8 @@ ol.ui.horizontal.list,
 }
 
 ol.ui.horizontal.list li:before,
-.ui.ordered.horizontal.list .item:before {
+.ui.ordered.horizontal.list .list > .item:before,
+.ui.ordered.horizontal.list > .item:before {
   position: static;
   margin: 0em 0.5em 0em 0em;
 }
@@ -8301,25 +9877,26 @@ ol.ui.horizontal.list li:before,
        Divided
 --------------------*/
 
-.ui.divided.list .item {
+.ui.divided.list > .item {
   border-top: 1px solid rgba(39, 41, 43, 0.15);
 }
 
-.ui.divided.list .list .item {
+.ui.divided.list .list > .item {
   border-top: none;
 }
 
-.ui.divided.list .item .menu .item {
+.ui.divided.list .item .list > .item {
   border-top: none;
 }
 
-.ui.divided.list .item:first-child {
+.ui.divided.list .list > .item:first-child,
+.ui.divided.list > .item:first-child {
   border-top: none;
 }
 
 /* Sub Menu */
 
-.ui.divided.list:not(.horizontal) .list .item:first-child {
+.ui.divided.list:not(.horizontal) .list > .item:first-child {
   border-top-width: 1px;
 }
 
@@ -8331,11 +9908,13 @@ ol.ui.horizontal.list li:before,
   padding-left: 0em;
 }
 
-.ui.divided.bulleted.list .item:not(.horizontal) {
+.ui.divided.bulleted.list .list > .item:not(.horizontal),
+.ui.divided.bulleted.list > .item:not(.horizontal) {
   padding-left: 1rem;
 }
 
-.ui.divided.bulleted.list .item:before {
+.ui.divided.bulleted.list .list > .item:before,
+.ui.divided.bulleted.list > .item:before {
   left: 0em;
 }
 
@@ -8345,11 +9924,13 @@ ol.ui.horizontal.list li:before,
   margin-left: 0em;
 }
 
-.ui.divided.ordered.list .item {
+.ui.divided.ordered.list .list > .item,
+.ui.divided.ordered.list > .item {
   padding-left: 1.25rem;
 }
 
-.ui.divided.ordered.list .item:before {
+.ui.divided.ordered.list .list > .item:before,
+.ui.divided.ordered.list > .item:before {
   left: 0em;
 }
 
@@ -8359,13 +9940,14 @@ ol.ui.horizontal.list li:before,
   padding-bottom: 0.3em;
 }
 
-.ui.divided.ordered.list .item .list .item {
+.ui.divided.ordered.list .item .list > .item {
   padding-left: 2em;
 }
 
 /* Divided Selection */
 
-.ui.divided.selection.list .item {
+.ui.divided.selection.list .list > .item,
+.ui.divided.selection.list > .item {
   margin: 0em;
   border-radius: 0em;
 }
@@ -8393,7 +9975,7 @@ ol.ui.horizontal.list li:before,
 
 .ui.divided.inverted.list > .item,
 .ui.divided.inverted.list > .list,
-.ui.divided.inverted.horizontal.list .item {
+.ui.divided.inverted.horizontal.list > .item {
   border-color: rgba(255, 255, 255, 0.2);
 }
 
@@ -8422,11 +10004,11 @@ ol.ui.horizontal.list li:before,
 
 /* Sub Menu */
 
-.ui.celled.list .item .list .item {
+.ui.celled.list .item .list > .item {
   border-width: 0px;
 }
 
-.ui.celled.list .list .item:first-child {
+.ui.celled.list .list > .item:first-child {
   border-top-width: 0px;
 }
 
@@ -8436,11 +10018,13 @@ ol.ui.horizontal.list li:before,
   margin-left: 0em;
 }
 
-.ui.celled.bulleted.list .item {
+.ui.celled.bulleted.list .list > .item,
+.ui.celled.bulleted.list > .item {
   padding-left: 1rem;
 }
 
-.ui.celled.bulleted.list .item:before {
+.ui.celled.bulleted.list .list > .item:before,
+.ui.celled.bulleted.list > .item:before {
   left: 0em;
 }
 
@@ -8456,11 +10040,13 @@ ol.ui.horizontal.list li:before,
   margin-left: 0em;
 }
 
-.ui.celled.ordered.list .item {
+.ui.celled.ordered.list .list > .item,
+.ui.celled.ordered.list > .item {
   padding-left: 1.25rem;
 }
 
-.ui.celled.ordered.list .item:before {
+.ui.celled.ordered.list .list > .item:before,
+.ui.celled.ordered.list > .item:before {
   left: 0em;
 }
 
@@ -8470,7 +10056,7 @@ ol.ui.horizontal.list li:before,
   padding-bottom: 0.3em;
 }
 
-.ui.celled.ordered.list .item .list .item {
+.ui.celled.ordered.list .list > .item {
   padding-left: 2em;
 }
 
@@ -8480,7 +10066,8 @@ ol.ui.horizontal.list li:before,
   margin-left: 0em;
 }
 
-.ui.horizontal.celled.list .item {
+.ui.horizontal.celled.list .list > .item,
+.ui.horizontal.celled.list > .item {
   border-top: none;
   border-left: 1px solid rgba(39, 41, 43, 0.15);
   margin: 0em;
@@ -8489,7 +10076,8 @@ ol.ui.horizontal.list li:before,
   line-height: 0.6;
 }
 
-.ui.horizontal.celled.list .item:last-child {
+.ui.horizontal.celled.list .list > .item:last-child,
+.ui.horizontal.celled.list > .item:last-child {
   border-bottom: none;
   border-right: 1px solid rgba(39, 41, 43, 0.15);
 }
@@ -8501,7 +10089,8 @@ ol.ui.horizontal.list li:before,
   border-color: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.ui.celled.inverted.horizontal.list .item {
+.ui.celled.inverted.horizontal.list .list > .item,
+.ui.celled.inverted.horizontal.list > .item {
   border-color: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -8509,30 +10098,37 @@ ol.ui.horizontal.list li:before,
        Relaxed
 --------------------*/
 
-.ui.relaxed.list:not(.horizontal) .item {
+.ui.relaxed.list:not(.horizontal) .list > .item,
+.ui.relaxed.list:not(.horizontal) > .item {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
 
-.ui.relaxed.list .header {
+.ui.relaxed.list .list > .item .header,
+.ui.relaxed.list > .item .header {
   /*margin-bottom: @relaxedHeaderMargin;*/
 }
 
-.ui.horizontal.relaxed.list .item {
+.ui.horizontal.relaxed.list > .item {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
 }
 
-.ui[class*="very relaxed"].list:not(.horizontal) .item {
+/* Very Relaxed */
+
+.ui[class*="very relaxed"].list:not(.horizontal) .list > .item,
+.ui[class*="very relaxed"].list:not(.horizontal) > .item {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
 
-.ui[class*="very relaxed"].list .header {
+.ui[class*="very relaxed"].list .list > .item .header,
+.ui[class*="very relaxed"].list > .item .header {
   /*margin-bottom: @veryRelaxedHeaderMargin;*/
 }
 
-.ui.horizontal[class*="very relaxed"].list .item {
+.ui.horizontal[class*="very relaxed"].list .list > .item,
+.ui.horizontal[class*="very relaxed"].list > .item {
   padding-left: 2rem;
   padding-right: 2rem;
 }
@@ -8541,35 +10137,43 @@ ol.ui.horizontal.list li:before,
       Sizes
 --------------------*/
 
-.ui.mini.list .item {
+.ui.mini.list .list > .item,
+.ui.mini.list > .item {
   font-size: 0.7rem;
 }
 
-.ui.tiny.list .item {
+.ui.tiny.list .list > .item,
+.ui.tiny.list > .item {
   font-size: 0.8rem;
 }
 
-.ui.small.list .item {
+.ui.small.list .list > .item,
+.ui.small.list > .item {
   font-size: 0.9rem;
 }
 
-.ui.list .item {
+.ui.list .list > .item,
+.ui.list > .item {
   font-size: 1rem;
 }
 
-.ui.large.list .item {
+.ui.large.list .list > .item,
+.ui.large.list > .item {
   font-size: 1.1rem;
 }
 
-.ui.big.list .item {
+.ui.big.list .list > .item,
+.ui.big.list > .item {
   font-size: 1.2rem;
 }
 
-.ui.huge.list .item {
+.ui.huge.list .list > .item,
+.ui.huge.list > .item {
   font-size: 1.3rem;
 }
 
-.ui.massive.list .item {
+.ui.massive.list .list > .item,
+.ui.massive.list > .item {
   font-size: 1.5rem;
 }
 
@@ -8611,124 +10215,136 @@ ol.ui.horizontal.list li:before,
   transform: translateX(-50%) translateY(-50%);
 }
 
+/* Static Shape */
+
+.ui.loader:before {
+  position: absolute;
+  content: '';
+  top: 0%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 500rem;
+  border: 0.3em solid rgba(0, 0, 0, 0.1);
+}
+
+/* Active Shape */
+
+.ui.loader:after {
+  position: absolute;
+  content: '';
+  top: 0%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  -webkit-animation: loader-spin 0.75s linear;
+  animation: loader-spin 0.75s linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  border-radius: 500rem;
+  border-color: #aaaaaa transparent transparent;
+  border-style: solid;
+  border-width: 0.3em;
+  box-shadow: 0px 0px 0px 1px transparent;
+}
+
+/* Active Animation */
+
+@-webkit-keyframes loader-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loader-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+/* Sizes */
+
+.ui.loader:before,
+.ui.loader:after {
+  width: 2.2585em;
+  height: 2.2585em;
+  margin: 0em 0em 0em -1.12925em;
+}
+
+.ui.mini.loader:before,
+.ui.mini.loader:after {
+  width: 1.2857em;
+  height: 1.2857em;
+  margin: 0em 0em 0em -0.64285em;
+}
+
+.ui.small.loader:before,
+.ui.small.loader:after {
+  width: 1.7142em;
+  height: 1.7142em;
+  margin: 0em 0em 0em -0.8571em;
+}
+
+.ui.large.loader:before,
+.ui.large.loader:after {
+  width: 4.5714em;
+  height: 4.5714em;
+  margin: 0em 0em 0em -2.2857em;
+}
+
+/*-------------------
+      Coupling
+--------------------*/
+
+/* Show inside active dimmer */
+
 .ui.dimmer .loader {
   display: block;
 }
 
-.ui.dimmer .ui.loader,
-.ui.inverted.loader {
+/* Black Dimmer */
+
+.ui.dimmer .ui.loader {
   color: #ffffff;
+}
+
+.ui.dimmer .ui.loader:before {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.ui.dimmer .ui.loader:after {
+  border-top-color: #ffffff;
+}
+
+/* White Dimmer (Inverted) */
+
+.ui.inverted.dimmer .ui.loader {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.ui.inverted.dimmer .ui.loader:before {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.ui.inverted.dimmer .ui.loader:after {
+  border-top-color: #aaaaaa;
 }
 
 /*******************************
              Types
 *******************************/
-
-/*--------------
-      CSS
----------------*/
-
-/* Flipping */
-
-.ui.flipping.loader {
-  width: auto;
-  height: auto;
-  background-image: none !important;
-}
-
-.ui.flipping.loader .shape {
-  position: relative;
-  margin: 0em auto 1em;
-  color: transparent;
-  box-shadow: 0px 0px 0px 1px;
-  -webkit-animation: loaderFlipping 1s infinite ease;
-  animation: loaderFlipping 1s infinite ease;
-  margin-bottom: 1em;
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-}
-
-.ui.flipping.loader .shape:before,
-.ui.flipping.loader .shape:after {
-  position: absolute;
-  content: '';
-  top: 0px;
-  left: 0px;
-  box-shadow: 0px 0px 0px 1px;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.ui.flipping.loader .shape:before {
-  background-color: #3b83c0;
-  -webkit-transform: rotateY(0deg);
-  transform: rotateY(0deg);
-  z-index: 2;
-}
-
-.ui.flipping.loader .shape:after {
-  background-color: #1b1c1d;
-  -webkit-transform: rotateY(180deg);
-  transform: rotateY(180deg);
-}
-
-/* Circular */
-
-.ui.flipping.circular.loader .shape,
-.ui.flipping.circular.loader .shape:before,
-.ui.flipping.circular.loader .shape:after {
-  border-radius: 500rem;
-}
-
-/* Sizes */
-
-.ui.mini.flipping.loader .shape,
-.ui.mini.flipping.loader .shape:before,
-.ui.mini.flipping.loader .shape:after {
-  width: 16px;
-  height: 16px;
-}
-
-.ui.flipping.loader .shape,
-.ui.flipping.loader .shape:before,
-.ui.flipping.loader .shape:after {
-  width: 32px;
-  height: 32px;
-}
-
-@-webkit-keyframes loaderFlipping {
-  0% {
-    -webkit-transform: perspective(6em) rotateX(0deg) rotateY(0deg);
-    transform: perspective(6em) rotateX(0deg) rotateY(0deg);
-  }
-
-  50% {
-    -webkit-transform: perspective(6em) rotateX(0deg) rotateY(-180deg);
-    transform: perspective(6em) rotateX(0deg) rotateY(-180deg);
-  }
-
-  100% {
-    -webkit-transform: perspective(6em) rotateX(0deg) rotateY(-360deg);
-    transform: perspective(6em) rotateX(0deg) rotateY(-360deg);
-  }
-}
-
-@keyframes loaderFlipping {
-  0% {
-    -webkit-transform: perspective(6em) rotateX(0deg) rotateY(0deg);
-    transform: perspective(6em) rotateX(0deg) rotateY(0deg);
-  }
-
-  50% {
-    -webkit-transform: perspective(6em) rotateX(0deg) rotateY(-180deg);
-    transform: perspective(6em) rotateX(0deg) rotateY(-180deg);
-  }
-
-  100% {
-    -webkit-transform: perspective(6em) rotateX(0deg) rotateY(-360deg);
-    transform: perspective(6em) rotateX(0deg) rotateY(-360deg);
-  }
-}
 
 /*-------------------
         Text
@@ -8739,26 +10355,6 @@ ol.ui.horizontal.list li:before,
   height: auto !important;
   text-align: center;
   font-style: normal;
-}
-
-.ui.mini.text.loader {
-  min-width: 16px;
-  padding-top: 31px;
-}
-
-.ui.small.text.loader {
-  min-width: 24px;
-  padding-top: 39px;
-}
-
-.ui.text.loader {
-  min-width: 32px;
-  padding-top: 47px;
-}
-
-.ui.large.text.loader {
-  min-width: 64px;
-  padding-top: 79px;
 }
 
 /*******************************
@@ -8783,79 +10379,72 @@ ol.ui.horizontal.list li:before,
         Sizes
 --------------------*/
 
-/* Tiny Size */
+/* Loader */
 
 .ui.inverted.dimmer .ui.mini.loader,
 .ui.mini.loader {
-  width: 16px;
-  height: 16px;
-  font-size: 0.8em;
-  background-image: url("themes/default/assets/images/loader-mini.gif");
+  width: 1.2857em;
+  height: 1.2857em;
+  font-size: 0.7857em;
 }
-
-/* Small Size */
 
 .ui.inverted.dimmer .ui.small.loader,
 .ui.small.loader {
-  width: 24px;
-  height: 24px;
-  font-size: 0.875em;
-  background-image: url("themes/default/assets/images/loader-small.gif");
+  width: 1.7142em;
+  height: 1.7142em;
+  font-size: 0.9285em;
 }
 
 .ui.inverted.dimmer .ui.loader,
 .ui.loader {
-  width: 32px;
-  height: 32px;
+  width: 2.2585em;
+  height: 2.2585em;
   font-size: 1em;
-  background: url("themes/default/assets/images/loader-medium.gif") no-repeat;
-  background-position: 50% 0px;
 }
-
-/* Large Size */
 
 .ui.inverted.dimmer .ui.loader.large,
 .ui.loader.large {
-  width: 64px;
-  height: 64px;
-  font-size: 1.2em;
-  background-image: url("themes/default/assets/images/loader-large.gif");
+  width: 4.5714em;
+  height: 4.5714em;
+  font-size: 1.1428em;
+}
+
+/* Text Loader */
+
+.ui.mini.text.loader {
+  min-width: 1.2857em;
+  padding-top: 1.9857em;
+}
+
+.ui.small.text.loader {
+  min-width: 1.7142em;
+  padding-top: 2.4142em;
+}
+
+.ui.text.loader {
+  min-width: 2.2585em;
+  padding-top: 2.9585em;
+}
+
+.ui.large.text.loader {
+  min-width: 4.5714em;
+  padding-top: 5.2714em;
 }
 
 /*-------------------
        Inverted
 --------------------*/
 
-.ui.inverted.dimmer .ui.loader {
-  color: rgba(0, 0, 0, 0.8);
-}
-
-/* Tiny Size */
-
-.ui.dimmer .mini.ui.loader,
-.ui.inverted .mini.ui.loader {
-  background-image: url("themes/default/assets/images/loader-mini-inverted.gif");
-}
-
-/* Small Size */
-
-.ui.dimmer .small.ui.loader,
-.ui.inverted .small.ui.loader {
-  background-image: url("themes/default/assets/images/loader-small-inverted.gif");
-}
-
-/* Standard Size */
-
-.ui.dimmer .ui.loader,
 .ui.inverted.loader {
-  background-image: url("themes/default/assets/images/loader-medium-inverted.gif");
+  color: #ffffff;
 }
 
-/* Large Size */
+.ui.inverted.loader:before {
+  border-color: rgba(255, 255, 255, 0.15);
+}
 
-.ui.dimmer .large.ui.loader,
-.ui.inverted .large.ui.loader {
-  background-image: url("themes/default/assets/images/loader-large-inverted.gif");
+.ui.inverted.loader:after {
+  border-top-color: #ffffff;
 }
 
 /*-------------------
@@ -8863,9 +10452,11 @@ ol.ui.horizontal.list li:before,
 --------------------*/
 
 .ui.inline.loader {
-  position: static;
+  position: relative;
   vertical-align: middle;
   margin: 0em;
+  left: 0em;
+  top: 0em;
   -webkit-transform: none;
   -ms-transform: none;
   transform: none;
@@ -9544,9 +11135,85 @@ ol.ui.horizontal.list li:before,
             States
 *******************************/
 
+/*--------------
+    Disabled
+---------------*/
+
 .ui.disabled.segment {
   opacity: 0.3;
   color: rgba(40, 40, 40, 0.3);
+}
+
+/*--------------
+    Loading
+---------------*/
+
+.ui.loading.segment {
+  position: relative;
+  cursor: default;
+  point-events: none;
+  text-shadow: none !important;
+  color: transparent !important;
+  -webkit-transition: all 0s linear;
+  transition: all 0s linear;
+  z-index: 100;
+}
+
+.ui.loading.segment:before {
+  position: absolute;
+  content: '';
+  top: 0%;
+  left: 0%;
+  background: rgba(255, 255, 255, 0.8);
+  width: 100%;
+  height: 100%;
+  border-radius: 0.2857rem;
+  z-index: 100;
+}
+
+.ui.loading.segment:after {
+  position: absolute;
+  content: '';
+  top: 50%;
+  left: 50%;
+  margin: -1.5em 0em 0em -1.5em;
+  width: 3em;
+  height: 3em;
+  -webkit-animation: segment-spin 0.75s linear;
+  animation: segment-spin 0.75s linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  border-radius: 500rem;
+  border-color: #aaaaaa rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1);
+  border-style: solid;
+  border-width: 0.3em;
+  box-shadow: 0px 0px 0px 1px transparent;
+  visibility: visible;
+  z-index: 101;
+}
+
+@-webkit-keyframes segment-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes segment-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 
 /*******************************
@@ -10230,6 +11897,138 @@ ol.ui.horizontal.list li:before,
  */
 
 /*******************************
+           Breadcrumb
+*******************************/
+
+.ui.breadcrumb {
+  margin: 1em 0em;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.ui.breadcrumb:first-child {
+  margin-top: 0em;
+}
+
+.ui.breadcrumb:last-child {
+  margin-bottom: 0em;
+}
+
+/*******************************
+          Content
+*******************************/
+
+/* Divider */
+
+.ui.breadcrumb .divider {
+  display: inline-block;
+  opacity: 0.5;
+  margin: 0em 0.2rem 0em;
+  font-size: 0.9em;
+  color: rgba(0, 0, 0, 0.4);
+  vertical-align: baseline;
+}
+
+/* Link */
+
+.ui.breadcrumb a {
+  color: #009fda;
+}
+
+.ui.breadcrumb a:hover {
+  color: #00b2f3;
+}
+
+/* Icon Divider */
+
+.ui.breadcrumb .icon.divider {
+  font-size: 0.7em;
+  vertical-align: middle;
+}
+
+/* Section */
+
+.ui.breadcrumb a.section {
+  cursor: pointer;
+}
+
+.ui.breadcrumb .section {
+  display: inline-block;
+  margin: 0em;
+  padding: 0em;
+}
+
+/* Loose Coupling */
+
+.ui.breadcrumb.segment {
+  display: inline-block;
+  padding: 0.5em 1em;
+}
+
+/*******************************
+            States
+*******************************/
+
+.ui.breadcrumb .active.section {
+  font-weight: bold;
+}
+
+/*******************************
+           Variations
+*******************************/
+
+.ui.mini.breadcrumb {
+  font-size: 0.65em;
+}
+
+.ui.tiny.breadcrumb {
+  font-size: 0.7em;
+}
+
+.ui.small.breadcrumb {
+  font-size: 0.75em;
+}
+
+.ui.breadcrumb {
+  font-size: 1em;
+}
+
+.ui.large.breadcrumb {
+  font-size: 1.1em;
+}
+
+.ui.big.breadcrumb {
+  font-size: 1.05em;
+}
+
+.ui.huge.breadcrumb {
+  font-size: 1.3em;
+}
+
+.ui.massive.breadcrumb {
+  font-size: 1.5em;
+}
+
+/*******************************
+         Theme Overrides
+*******************************/
+
+/*******************************
+         Site Overrides
+*******************************/
+
+/*
+ * # Semantic UI
+ * git://github.com/Semantic-Org/Semantic-UI.git
+ *
+ *
+ * Copyright 2014 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+/*******************************
             Elements
 *******************************/
 
@@ -10686,25 +12485,75 @@ ol.ui.horizontal.list li:before,
   opacity: 1;
 }
 
-/*--------------------
-     Loading State
----------------------*/
+/*--------------
+    Loading
+---------------*/
 
-/* On Form */
-
-.ui.form.loading {
+.ui.loading.form {
   position: relative;
+  cursor: default;
+  point-events: none;
+  text-shadow: none !important;
+  color: transparent !important;
+  -webkit-transition: all 0s linear;
+  transition: all 0s linear;
+  z-index: 100;
 }
 
-.ui.form.loading:after {
+.ui.loading.form:before {
   position: absolute;
+  content: '';
   top: 0%;
   left: 0%;
-  content: '';
+  background: rgba(255, 255, 255, 0.8);
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.6) url("themes/default/assets/images/loader-large.gif") no-repeat 50% 50%;
+  z-index: 100;
+}
+
+.ui.loading.form:after {
+  position: absolute;
+  content: '';
+  top: 50%;
+  left: 50%;
+  margin: -1.5em 0em 0em -1.5em;
+  width: 3em;
+  height: 3em;
+  -webkit-animation: form-spin 0.75s linear;
+  animation: form-spin 0.75s linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  border-radius: 500rem;
+  border-color: #aaaaaa rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1);
+  border-style: solid;
+  border-width: 0.3em;
+  box-shadow: 0px 0px 0px 1px transparent;
   visibility: visible;
+  z-index: 101;
+}
+
+@-webkit-keyframes form-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes form-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 
 /*******************************
@@ -10740,10 +12589,6 @@ ol.ui.horizontal.list li:before,
 .ui.inverted.form .ui.checkbox label,
 .ui.inverted.form .ui.checkbox .box {
   color: #ffffff;
-}
-
-.ui.inverted.form.loading:after {
-  background: rgba(0, 0, 0, 0.8) url("themes/default/assets/images/loader-large-inverted.gif") no-repeat 50% 50%;
 }
 
 /*--------------------
@@ -12228,13 +14073,13 @@ ol.ui.horizontal.list li:before,
   .ui[class*="seven column"].doubling:not(.stackable).grid > .row > .column,
   .ui[class*="seven column"].doubling:not(.stackable).grid > .column,
   .ui.grid > [class*="seven column"].doubling:not(.stackable).row > .column {
-    width: 33.33333333% !important;
+    width: 50% !important;
   }
 
   .ui[class*="eight column"].doubling:not(.stackable).grid > .row > .column,
   .ui[class*="eight column"].doubling:not(.stackable).grid > .column,
   .ui.grid > [class*="eight column"].doubling:not(.stackable).row > .column {
-    width: 33.33333333% !important;
+    width: 50% !important;
   }
 
   .ui[class*="nine column"].doubling:not(.stackable).grid > .row > .column,
@@ -12252,7 +14097,7 @@ ol.ui.horizontal.list li:before,
   .ui[class*="twelve column"].doubling:not(.stackable).grid > .row > .column,
   .ui[class*="twelve column"].doubling:not(.stackable).grid > .column,
   .ui.grid > [class*="twelve column"].doubling:not(.stackable).row > .column {
-    width: 25% !important;
+    width: 33.33333333% !important;
   }
 
   .ui[class*="fourteen column"].doubling:not(.stackable).grid > .row > .column,
@@ -14200,1251 +16045,460 @@ ol.ui.horizontal.list li:before,
  *
  */
 
-i.flag:not(.icon) {
-  display: inline-block;
-  width: 16px;
-  height: 11px;
-  line-height: 11px;
+/*******************************
+            Message
+*******************************/
+
+.ui.message {
+  position: relative;
+  min-height: 1em;
+  margin: 1em 0em;
+  background: #efefef;
+  padding: 1em 1.5em;
+  line-height: 1.3;
+  color: rgba(0, 0, 0, 0.8);
+  -webkit-transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 0.2857rem;
+  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15) inset, 0px 0px 0px 0px transparent;
+}
+
+.ui.message:first-child {
+  margin-top: 0em;
+}
+
+.ui.message:last-child {
+  margin-bottom: 0em;
+}
+
+/*--------------
+     Content
+---------------*/
+
+/* Header */
+
+.ui.message .header {
+  display: block;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  margin: 0em 0em 0em 0rem;
+}
+
+/* Default font size */
+
+.ui.message .header:not(.ui) {
+  font-size: 1.1em;
+}
+
+/* Paragraph */
+
+.ui.message p {
+  opacity: 0.85;
+  margin: 0.75em 0em;
+}
+
+.ui.message p:first-child {
+  margin-top: 0em;
+}
+
+.ui.message p:last-child {
+  margin-bottom: 0em;
+}
+
+.ui.message .header + p {
+  margin-top: 0.25em;
+}
+
+/* List */
+
+.ui.message ul.list {
+  opacity: 0.85;
+  list-style-position: inside;
+  margin: 0.5em 0em 0em;
+  padding: 0em;
+}
+
+.ui.message ul.list:first-child {
+  margin-top: 0em;
+}
+
+.ui.message ul.list:last-child {
+  margin-bottom: 0em;
+}
+
+.ui.message ul.list li {
+  position: relative;
+  list-style-type: none;
+  margin: 0em 0em 0.3em 1em;
+  padding: 0em;
+}
+
+.ui.message ul.list li:before {
+  position: absolute;
+  content: '•';
+  left: -1em;
+  height: 100%;
   vertical-align: baseline;
-  margin: 0em 0.5em 0em 0em;
-  text-decoration: inherit;
-  speak: none;
-  font-smoothing: antialiased;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
 }
 
-i.flag:not(.icon):before {
+.ui.message ul.list li:last-child {
+  margin-bottom: 0em;
+}
+
+/* Icon */
+
+.ui.message > .icon {
+  margin-right: 0.6em;
+}
+
+/* Close Icon */
+
+.ui.message > .close.icon {
+  cursor: pointer;
+  position: absolute;
+  margin: 0em;
+  top: 1.15em;
+  right: 0.5em;
+  opacity: 0.7;
+  -webkit-transition: opacity 0.1s linear;
+  transition: opacity 0.1s linear;
+}
+
+.ui.message > .close.icon:hover {
+  opacity: 1;
+}
+
+/* First / Last Element */
+
+.ui.message > :first-child {
+  margin-top: 0em;
+}
+
+.ui.message > :last-child {
+  margin-bottom: 0em;
+}
+
+/*******************************
+            States
+*******************************/
+
+.ui.message.visible,
+.ui.header.visible {
+  display: block !important;
+}
+
+.ui.message.hidden,
+.ui.header.hidden {
+  display: none;
+}
+
+/*******************************
+            Variations
+*******************************/
+
+/*--------------
+    Compact
+---------------*/
+
+.ui.compact.message {
   display: inline-block;
-  content: '';
-  background: url("themes/default/assets/images/flags.png") no-repeat 0px 0px;
-  width: 16px;
-  height: 11px;
 }
 
-/* Flag Sprite Based On http://www.famfamfam.com/lab/icons/flags/ */
+/*--------------
+    Attached
+---------------*/
+
+.ui.attached.message {
+  margin-bottom: -1px;
+  border-radius: 0.2857rem 0.2857rem 0em 0em;
+  box-shadow: 0em 0em 0em 1px rgba(0, 0, 0, 0.1) inset;
+  margin-left: -1px;
+  margin-right: -1px;
+}
+
+.ui.attached + .ui.attached.message:not(.top):not(.bottom) {
+  margin-top: -1px;
+  border-radius: 0em;
+}
+
+.ui.bottom.attached.message {
+  margin-top: -1px;
+  border-radius: 0em 0em 0.2857rem 0.2857rem;
+  box-shadow: 0em 0em 0em 1px rgba(0, 0, 0, 0.1) inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.ui.bottom.attached.message:not(:last-child) {
+  margin-bottom: 1em;
+}
+
+.ui.attached.icon.message {
+  display: block;
+  width: auto;
+}
+
+/*--------------
+      Icon
+---------------*/
+
+.ui.icon.message {
+  display: table;
+  width: 100%;
+}
+
+.ui.icon.message > .icon:not(.close) {
+  display: table-cell;
+  width: auto;
+  vertical-align: middle;
+  font-size: 3em;
+  opacity: 0.8;
+}
+
+.ui.icon.message > .content {
+  display: table-cell;
+  width: 100%;
+  vertical-align: middle;
+}
+
+.ui.icon.message .icon:not(.close) + .content {
+  padding-left: 1.5rem;
+}
+
+.ui.icon.message .circular.icon {
+  width: 1em;
+}
+
+.ui.icon.message .circular.icon + .content {
+  width: auto;
+  padding-left: 2em;
+}
+
+/*--------------
+    Floating
+---------------*/
+
+.ui.floating.message {
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15), 0px 0px 0px 1px rgba(39, 41, 43, 0.15) inset;
+}
+
+/*--------------
+     Colors
+---------------*/
+
+.ui.black.message {
+  background-color: #1b1c1d;
+  color: #ffffff;
+}
+
+/*--------------
+     Types
+---------------*/
+
+/* Positive */
+
+.ui.positive.message {
+  background-color: #eeffe7;
+  color: #3c763d;
+}
+
+.ui.positive.message,
+.ui.attached.positive.message {
+  box-shadow: 0px 0px 0px 1px #b7caa7 inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.ui.positive.message .header {
+  color: #356e36;
+}
+
+/* Negative */
+
+.ui.negative.message {
+  background-color: #fff0f0;
+  color: #a94442;
+}
+
+.ui.negative.message,
+.ui.attached.negative.message {
+  box-shadow: 0px 0px 0px 1px #dbb1b1 inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.ui.negative.message .header {
+  color: #912d2b;
+}
+
+/* Info */
+
+.ui.info.message {
+  background-color: #e9faff;
+  color: #337b92;
+}
+
+.ui.info.message,
+.ui.attached.info.message {
+  box-shadow: 0px 0px 0px 1px #aad6df inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.ui.info.message .header {
+  color: #297187;
+}
+
+/* Warning */
+
+.ui.warning.message {
+  background-color: #fffbe6;
+  color: #876a38;
+}
+
+.ui.warning.message,
+.ui.attached.warning.message {
+  box-shadow: 0px 0px 0px 1px #d9caab inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.ui.warning.message .header {
+  color: #825c01;
+}
+
+/* Error */
+
+.ui.error.message {
+  background-color: #fff0f0;
+  color: #a94442;
+}
+
+.ui.error.message,
+.ui.attached.error.message {
+  box-shadow: 0px 0px 0px 1px #dbb1b1 inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.ui.error.message .header {
+  color: #912d2b;
+}
+
+/* Success */
+
+.ui.success.message {
+  background-color: #eeffe7;
+  color: #3c763d;
+}
+
+.ui.success.message,
+.ui.attached.success.message {
+  box-shadow: 0px 0px 0px 1px #b7caa7 inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.ui.success.message .header {
+  color: #356e36;
+}
+
+/* Colors */
+
+.ui.inverted.message,
+.ui.black.message {
+  background-color: #1b1c1d;
+  color: #ffffff;
+}
+
+.ui.blue.message {
+  background-color: #dff0ff;
+  color: #3b83c0;
+}
+
+.ui.blue.message .header {
+  color: #3576ac;
+}
+
+.ui.green.message {
+  background-color: #ebffed;
+  color: #1ebc30;
+}
+
+.ui.green.message .header {
+  color: #1aa62a;
+}
+
+.ui.orange.message {
+  background-color: #ffedde;
+  color: #e07b53;
+}
+
+.ui.orange.message .header {
+  color: #dc6a3d;
+}
+
+.ui.pink.message {
+  background-color: #ffe3fb;
+  color: #d9499a;
+}
+
+.ui.pink.message .header {
+  color: #d5348e;
+}
+
+.ui.purple.message {
+  background-color: #eae7ff;
+  color: #564f8a;
+}
+
+.ui.purple.message .header {
+  color: #4c467a;
+}
+
+.ui.red.message {
+  background-color: #ffe8e6;
+  color: #d95c5c;
+}
+
+.ui.red.message .header {
+  color: #d44747;
+}
+
+.ui.teal.message {
+  background-color: #e9ffff;
+  color: #10a3a3;
+}
+
+.ui.teal.message .header {
+  color: #0e8c8c;
+}
+
+.ui.yellow.message {
+  background-color: #fff8db;
+  color: #b58105;
+}
+
+.ui.yellow.message .header {
+  color: #9c6f04;
+}
+
+/*--------------
+     Sizes
+---------------*/
+
+.ui.small.message {
+  font-size: 0.9285em;
+}
+
+.ui.message {
+  font-size: 1em;
+}
+
+.ui.large.message {
+  font-size: 1.1428em;
+}
+
+.ui.huge.message {
+  font-size: 1.4285em;
+}
+
+.ui.massive.message {
+  font-size: 1.7142em;
+}
 
 /*******************************
          Theme Overrides
 *******************************/
 
-i.flag.ad:before,
-i.flag.andorra:before {
-  background-position: 0px 0px;
-}
-
-i.flag.ae:before,
-i.flag.united.arab.emirates:before,
-i.flag.uae:before {
-  background-position: 0px -26px;
-}
-
-i.flag.af:before,
-i.flag.afghanistan:before {
-  background-position: 0px -52px;
-}
-
-i.flag.ag:before,
-i.flag.antigua:before {
-  background-position: 0px -78px;
-}
-
-i.flag.ai:before,
-i.flag.anguilla:before {
-  background-position: 0px -104px;
-}
-
-i.flag.al:before,
-i.flag.albania:before {
-  background-position: 0px -130px;
-}
-
-i.flag.am:before,
-i.flag.armenia:before {
-  background-position: 0px -156px;
-}
-
-i.flag.an:before,
-i.flag.netherlands.antilles:before {
-  background-position: 0px -182px;
-}
-
-i.flag.ao:before,
-i.flag.angola:before {
-  background-position: 0px -208px;
-}
-
-i.flag.ar:before,
-i.flag.argentina:before {
-  background-position: 0px -234px;
-}
-
-i.flag.as:before,
-i.flag.american.samoa:before {
-  background-position: 0px -260px;
-}
-
-i.flag.at:before,
-i.flag.austria:before {
-  background-position: 0px -286px;
-}
-
-i.flag.au:before,
-i.flag.australia:before {
-  background-position: 0px -312px;
-}
-
-i.flag.aw:before,
-i.flag.aruba:before {
-  background-position: 0px -338px;
-}
-
-i.flag.ax:before,
-i.flag.aland.islands:before {
-  background-position: 0px -364px;
-}
-
-i.flag.az:before,
-i.flag.azerbaijan:before {
-  background-position: 0px -390px;
-}
-
-i.flag.ba:before,
-i.flag.bosnia:before {
-  background-position: 0px -416px;
-}
-
-i.flag.bb:before,
-i.flag.barbados:before {
-  background-position: 0px -442px;
-}
-
-i.flag.bd:before,
-i.flag.bangladesh:before {
-  background-position: 0px -468px;
-}
-
-i.flag.be:before,
-i.flag.belgium:before {
-  background-position: 0px -494px;
-}
-
-i.flag.bf:before,
-i.flag.burkina.faso:before {
-  background-position: 0px -520px;
-}
-
-i.flag.bg:before,
-i.flag.bulgaria:before {
-  background-position: 0px -546px;
-}
-
-i.flag.bh:before,
-i.flag.bahrain:before {
-  background-position: 0px -572px;
-}
-
-i.flag.bi:before,
-i.flag.burundi:before {
-  background-position: 0px -598px;
-}
-
-i.flag.bj:before,
-i.flag.benin:before {
-  background-position: 0px -624px;
-}
-
-i.flag.bm:before,
-i.flag.bermuda:before {
-  background-position: 0px -650px;
-}
-
-i.flag.bn:before,
-i.flag.brunei:before {
-  background-position: 0px -676px;
-}
-
-i.flag.bo:before,
-i.flag.bolivia:before {
-  background-position: 0px -702px;
-}
-
-i.flag.br:before,
-i.flag.brazil:before {
-  background-position: 0px -728px;
-}
-
-i.flag.bs:before,
-i.flag.bahamas:before {
-  background-position: 0px -754px;
-}
-
-i.flag.bt:before,
-i.flag.bhutan:before {
-  background-position: 0px -780px;
-}
-
-i.flag.bv:before,
-i.flag.bouvet.island:before {
-  background-position: 0px -806px;
-}
-
-i.flag.bw:before,
-i.flag.botswana:before {
-  background-position: 0px -832px;
-}
-
-i.flag.by:before,
-i.flag.belarus:before {
-  background-position: 0px -858px;
-}
-
-i.flag.bz:before,
-i.flag.belize:before {
-  background-position: 0px -884px;
-}
-
-i.flag.ca:before,
-i.flag.canada:before {
-  background-position: 0px -910px;
-}
-
-i.flag.cc:before,
-i.flag.cocos.islands:before {
-  background-position: 0px -962px;
-}
-
-i.flag.cd:before,
-i.flag.congo:before {
-  background-position: 0px -988px;
-}
-
-i.flag.cf:before,
-i.flag.central.african.republic:before {
-  background-position: 0px -1014px;
-}
-
-i.flag.cg:before,
-i.flag.congo.brazzaville:before {
-  background-position: 0px -1040px;
-}
-
-i.flag.ch:before,
-i.flag.switzerland:before {
-  background-position: 0px -1066px;
-}
-
-i.flag.ci:before,
-i.flag.cote.divoire:before {
-  background-position: 0px -1092px;
-}
-
-i.flag.ck:before,
-i.flag.cook.islands:before {
-  background-position: 0px -1118px;
-}
-
-i.flag.cl:before,
-i.flag.chile:before {
-  background-position: 0px -1144px;
-}
-
-i.flag.cm:before,
-i.flag.cameroon:before {
-  background-position: 0px -1170px;
-}
-
-i.flag.cn:before,
-i.flag.china:before {
-  background-position: 0px -1196px;
-}
-
-i.flag.co:before,
-i.flag.colombia:before {
-  background-position: 0px -1222px;
-}
-
-i.flag.cr:before,
-i.flag.costa.rica:before {
-  background-position: 0px -1248px;
-}
-
-i.flag.cs:before,
-i.flag.serbia:before {
-  background-position: 0px -1274px;
-}
-
-i.flag.cu:before,
-i.flag.cuba:before {
-  background-position: 0px -1300px;
-}
-
-i.flag.cv:before,
-i.flag.cape.verde:before {
-  background-position: 0px -1326px;
-}
-
-i.flag.cx:before,
-i.flag.christmas.island:before {
-  background-position: 0px -1352px;
-}
-
-i.flag.cy:before,
-i.flag.cyprus:before {
-  background-position: 0px -1378px;
-}
-
-i.flag.cz:before,
-i.flag.czech.republic:before {
-  background-position: 0px -1404px;
-}
-
-i.flag.de:before,
-i.flag.germany:before {
-  background-position: 0px -1430px;
-}
-
-i.flag.dj:before,
-i.flag.djibouti:before {
-  background-position: 0px -1456px;
-}
-
-i.flag.dk:before,
-i.flag.denmark:before {
-  background-position: 0px -1482px;
-}
-
-i.flag.dm:before,
-i.flag.dominica:before {
-  background-position: 0px -1508px;
-}
-
-i.flag.do:before,
-i.flag.dominican.republic:before {
-  background-position: 0px -1534px;
-}
-
-i.flag.dz:before,
-i.flag.algeria:before {
-  background-position: 0px -1560px;
-}
-
-i.flag.ec:before,
-i.flag.ecuador:before {
-  background-position: 0px -1586px;
-}
-
-i.flag.ee:before,
-i.flag.estonia:before {
-  background-position: 0px -1612px;
-}
-
-i.flag.eg:before,
-i.flag.egypt:before {
-  background-position: 0px -1638px;
-}
-
-i.flag.eh:before,
-i.flag.western.sahara:before {
-  background-position: 0px -1664px;
-}
-
-i.flag.er:before,
-i.flag.eritrea:before {
-  background-position: 0px -1716px;
-}
-
-i.flag.es:before,
-i.flag.spain:before {
-  background-position: 0px -1742px;
-}
-
-i.flag.et:before,
-i.flag.ethiopia:before {
-  background-position: 0px -1768px;
-}
-
-i.flag.eu:before,
-i.flag.european.union:before {
-  background-position: 0px -1794px;
-}
-
-i.flag.fi:before,
-i.flag.finland:before {
-  background-position: 0px -1846px;
-}
-
-i.flag.fj:before,
-i.flag.fiji:before {
-  background-position: 0px -1872px;
-}
-
-i.flag.fk:before,
-i.flag.falkland.islands:before {
-  background-position: 0px -1898px;
-}
-
-i.flag.fm:before,
-i.flag.micronesia:before {
-  background-position: 0px -1924px;
-}
-
-i.flag.fo:before,
-i.flag.faroe.islands:before {
-  background-position: 0px -1950px;
-}
-
-i.flag.fr:before,
-i.flag.france:before {
-  background-position: 0px -1976px;
-}
-
-i.flag.ga:before,
-i.flag.gabon:before {
-  background-position: -36px 0px;
-}
-
-i.flag.gb:before,
-i.flag.england:before,
-i.flag.united.kingdom:before {
-  background-position: -36px -26px;
-}
-
-i.flag.gd:before,
-i.flag.grenada:before {
-  background-position: -36px -52px;
-}
-
-i.flag.ge:before,
-i.flag.georgia:before {
-  background-position: -36px -78px;
-}
-
-i.flag.gf:before,
-i.flag.french.guiana:before {
-  background-position: -36px -104px;
-}
-
-i.flag.gh:before,
-i.flag.ghana:before {
-  background-position: -36px -130px;
-}
-
-i.flag.gi:before,
-i.flag.gibraltar:before {
-  background-position: -36px -156px;
-}
-
-i.flag.gl:before,
-i.flag.greenland:before {
-  background-position: -36px -182px;
-}
-
-i.flag.gm:before,
-i.flag.gambia:before {
-  background-position: -36px -208px;
-}
-
-i.flag.gn:before,
-i.flag.guinea:before {
-  background-position: -36px -234px;
-}
-
-i.flag.gp:before,
-i.flag.guadeloupe:before {
-  background-position: -36px -260px;
-}
-
-i.flag.gq:before,
-i.flag.equatorial.guinea:before {
-  background-position: -36px -286px;
-}
-
-i.flag.gr:before,
-i.flag.greece:before {
-  background-position: -36px -312px;
-}
-
-i.flag.gs:before,
-i.flag.sandwich.islands:before {
-  background-position: -36px -338px;
-}
-
-i.flag.gt:before,
-i.flag.guatemala:before {
-  background-position: -36px -364px;
-}
-
-i.flag.gu:before,
-i.flag.guam:before {
-  background-position: -36px -390px;
-}
-
-i.flag.gw:before,
-i.flag.guinea-bissau:before {
-  background-position: -36px -416px;
-}
-
-i.flag.gy:before,
-i.flag.guyana:before {
-  background-position: -36px -442px;
-}
-
-i.flag.hk:before,
-i.flag.hong.kong:before {
-  background-position: -36px -468px;
-}
-
-i.flag.hm:before,
-i.flag.heard.island:before {
-  background-position: -36px -494px;
-}
-
-i.flag.hn:before,
-i.flag.honduras:before {
-  background-position: -36px -520px;
-}
-
-i.flag.hr:before,
-i.flag.croatia:before {
-  background-position: -36px -546px;
-}
-
-i.flag.ht:before,
-i.flag.haiti:before {
-  background-position: -36px -572px;
-}
-
-i.flag.hu:before,
-i.flag.hungary:before {
-  background-position: -36px -598px;
-}
-
-i.flag.id:before,
-i.flag.indonesia:before {
-  background-position: -36px -624px;
-}
-
-i.flag.ie:before,
-i.flag.ireland:before {
-  background-position: -36px -650px;
-}
-
-i.flag.il:before,
-i.flag.israel:before {
-  background-position: -36px -676px;
-}
-
-i.flag.in:before,
-i.flag.india:before {
-  background-position: -36px -702px;
-}
-
-i.flag.io:before,
-i.flag.indian.ocean.territory:before {
-  background-position: -36px -728px;
-}
-
-i.flag.iq:before,
-i.flag.iraq:before {
-  background-position: -36px -754px;
-}
-
-i.flag.ir:before,
-i.flag.iran:before {
-  background-position: -36px -780px;
-}
-
-i.flag.is:before,
-i.flag.iceland:before {
-  background-position: -36px -806px;
-}
-
-i.flag.it:before,
-i.flag.italy:before {
-  background-position: -36px -832px;
-}
-
-i.flag.jm:before,
-i.flag.jamaica:before {
-  background-position: -36px -858px;
-}
-
-i.flag.jo:before,
-i.flag.jordan:before {
-  background-position: -36px -884px;
-}
-
-i.flag.jp:before,
-i.flag.japan:before {
-  background-position: -36px -910px;
-}
-
-i.flag.ke:before,
-i.flag.kenya:before {
-  background-position: -36px -936px;
-}
-
-i.flag.kg:before,
-i.flag.kyrgyzstan:before {
-  background-position: -36px -962px;
-}
-
-i.flag.kh:before,
-i.flag.cambodia:before {
-  background-position: -36px -988px;
-}
-
-i.flag.ki:before,
-i.flag.kiribati:before {
-  background-position: -36px -1014px;
-}
-
-i.flag.km:before,
-i.flag.comoros:before {
-  background-position: -36px -1040px;
-}
-
-i.flag.kn:before,
-i.flag.saint.kitts.and.nevis:before {
-  background-position: -36px -1066px;
-}
-
-i.flag.kp:before,
-i.flag.north.korea:before {
-  background-position: -36px -1092px;
-}
-
-i.flag.kr:before,
-i.flag.south.korea:before {
-  background-position: -36px -1118px;
-}
-
-i.flag.kw:before,
-i.flag.kuwait:before {
-  background-position: -36px -1144px;
-}
-
-i.flag.ky:before,
-i.flag.cayman.islands:before {
-  background-position: -36px -1170px;
-}
-
-i.flag.kz:before,
-i.flag.kazakhstan:before {
-  background-position: -36px -1196px;
-}
-
-i.flag.la:before,
-i.flag.laos:before {
-  background-position: -36px -1222px;
-}
-
-i.flag.lb:before,
-i.flag.lebanon:before {
-  background-position: -36px -1248px;
-}
-
-i.flag.lc:before,
-i.flag.saint.lucia:before {
-  background-position: -36px -1274px;
-}
-
-i.flag.li:before,
-i.flag.liechtenstein:before {
-  background-position: -36px -1300px;
-}
-
-i.flag.lk:before,
-i.flag.sri.lanka:before {
-  background-position: -36px -1326px;
-}
-
-i.flag.lr:before,
-i.flag.liberia:before {
-  background-position: -36px -1352px;
-}
-
-i.flag.ls:before,
-i.flag.lesotho:before {
-  background-position: -36px -1378px;
-}
-
-i.flag.lt:before,
-i.flag.lithuania:before {
-  background-position: -36px -1404px;
-}
-
-i.flag.lu:before,
-i.flag.luxembourg:before {
-  background-position: -36px -1430px;
-}
-
-i.flag.lv:before,
-i.flag.latvia:before {
-  background-position: -36px -1456px;
-}
-
-i.flag.ly:before,
-i.flag.libya:before {
-  background-position: -36px -1482px;
-}
-
-i.flag.ma:before,
-i.flag.morocco:before {
-  background-position: -36px -1508px;
-}
-
-i.flag.mc:before,
-i.flag.monaco:before {
-  background-position: -36px -1534px;
-}
-
-i.flag.md:before,
-i.flag.moldova:before {
-  background-position: -36px -1560px;
-}
-
-i.flag.me:before,
-i.flag.montenegro:before {
-  background-position: -36px -1586px;
-}
-
-i.flag.mg:before,
-i.flag.madagascar:before {
-  background-position: -36px -1613px;
-}
-
-i.flag.mh:before,
-i.flag.marshall.islands:before {
-  background-position: -36px -1639px;
-}
-
-i.flag.mk:before,
-i.flag.macedonia:before {
-  background-position: -36px -1665px;
-}
-
-i.flag.ml:before,
-i.flag.mali:before {
-  background-position: -36px -1691px;
-}
-
-i.flag.mm:before,
-i.flag.myanmar:before,
-i.flag.burma:before {
-  background-position: -36px -1717px;
-}
-
-i.flag.mn:before,
-i.flag.mongolia:before {
-  background-position: -36px -1743px;
-}
-
-i.flag.mo:before,
-i.flag.macau:before {
-  background-position: -36px -1769px;
-}
-
-i.flag.mp:before,
-i.flag.northern.mariana.islands:before {
-  background-position: -36px -1795px;
-}
-
-i.flag.mq:before,
-i.flag.martinique:before {
-  background-position: -36px -1821px;
-}
-
-i.flag.mr:before,
-i.flag.mauritania:before {
-  background-position: -36px -1847px;
-}
-
-i.flag.ms:before,
-i.flag.montserrat:before {
-  background-position: -36px -1873px;
-}
-
-i.flag.mt:before,
-i.flag.malta:before {
-  background-position: -36px -1899px;
-}
-
-i.flag.mu:before,
-i.flag.mauritius:before {
-  background-position: -36px -1925px;
-}
-
-i.flag.mv:before,
-i.flag.maldives:before {
-  background-position: -36px -1951px;
-}
-
-i.flag.mw:before,
-i.flag.malawi:before {
-  background-position: -36px -1977px;
-}
-
-i.flag.mx:before,
-i.flag.mexico:before {
-  background-position: -72px 0px;
-}
-
-i.flag.my:before,
-i.flag.malaysia:before {
-  background-position: -72px -26px;
-}
-
-i.flag.mz:before,
-i.flag.mozambique:before {
-  background-position: -72px -52px;
-}
-
-i.flag.na:before,
-i.flag.namibia:before {
-  background-position: -72px -78px;
-}
-
-i.flag.nc:before,
-i.flag.new.caledonia:before {
-  background-position: -72px -104px;
-}
-
-i.flag.ne:before,
-i.flag.niger:before {
-  background-position: -72px -130px;
-}
-
-i.flag.nf:before,
-i.flag.norfolk.island:before {
-  background-position: -72px -156px;
-}
-
-i.flag.ng:before,
-i.flag.nigeria:before {
-  background-position: -72px -182px;
-}
-
-i.flag.ni:before,
-i.flag.nicaragua:before {
-  background-position: -72px -208px;
-}
-
-i.flag.nl:before,
-i.flag.netherlands:before {
-  background-position: -72px -234px;
-}
-
-i.flag.no:before,
-i.flag.norway:before {
-  background-position: -72px -260px;
-}
-
-i.flag.np:before,
-i.flag.nepal:before {
-  background-position: -72px -286px;
-}
-
-i.flag.nr:before,
-i.flag.nauru:before {
-  background-position: -72px -312px;
-}
-
-i.flag.nu:before,
-i.flag.niue:before {
-  background-position: -72px -338px;
-}
-
-i.flag.nz:before,
-i.flag.new.zealand:before {
-  background-position: -72px -364px;
-}
-
-i.flag.om:before,
-i.flag.oman:before {
-  background-position: -72px -390px;
-}
-
-i.flag.pa:before,
-i.flag.panama:before {
-  background-position: -72px -416px;
-}
-
-i.flag.pe:before,
-i.flag.peru:before {
-  background-position: -72px -442px;
-}
-
-i.flag.pf:before,
-i.flag.french.polynesia:before {
-  background-position: -72px -468px;
-}
-
-i.flag.pg:before,
-i.flag.new.guinea:before {
-  background-position: -72px -494px;
-}
-
-i.flag.ph:before,
-i.flag.philippines:before {
-  background-position: -72px -520px;
-}
-
-i.flag.pk:before,
-i.flag.pakistan:before {
-  background-position: -72px -546px;
-}
-
-i.flag.pl:before,
-i.flag.poland:before {
-  background-position: -72px -572px;
-}
-
-i.flag.pm:before,
-i.flag.saint.pierre:before {
-  background-position: -72px -598px;
-}
-
-i.flag.pn:before,
-i.flag.pitcairn.islands:before {
-  background-position: -72px -624px;
-}
-
-i.flag.pr:before,
-i.flag.puerto.rico:before {
-  background-position: -72px -650px;
-}
-
-i.flag.ps:before,
-i.flag.palestine:before {
-  background-position: -72px -676px;
-}
-
-i.flag.pt:before,
-i.flag.portugal:before {
-  background-position: -72px -702px;
-}
-
-i.flag.pw:before,
-i.flag.palau:before {
-  background-position: -72px -728px;
-}
-
-i.flag.py:before,
-i.flag.paraguay:before {
-  background-position: -72px -754px;
-}
-
-i.flag.qa:before,
-i.flag.qatar:before {
-  background-position: -72px -780px;
-}
-
-i.flag.re:before,
-i.flag.reunion:before {
-  background-position: -72px -806px;
-}
-
-i.flag.ro:before,
-i.flag.romania:before {
-  background-position: -72px -832px;
-}
-
-i.flag.rs:before,
-i.flag.serbia:before {
-  background-position: -72px -858px;
-}
-
-i.flag.ru:before,
-i.flag.russia:before {
-  background-position: -72px -884px;
-}
-
-i.flag.rw:before,
-i.flag.rwanda:before {
-  background-position: -72px -910px;
-}
-
-i.flag.sa:before,
-i.flag.saudi.arabia:before {
-  background-position: -72px -936px;
-}
-
-i.flag.sb:before,
-i.flag.solomon.islands:before {
-  background-position: -72px -962px;
-}
-
-i.flag.sc:before,
-i.flag.seychelles:before {
-  background-position: -72px -988px;
-}
-
-i.flag.sd:before,
-i.flag.sudan:before {
-  background-position: -72px -1040px;
-}
-
-i.flag.se:before,
-i.flag.sweden:before {
-  background-position: -72px -1066px;
-}
-
-i.flag.sg:before,
-i.flag.singapore:before {
-  background-position: -72px -1092px;
-}
-
-i.flag.sh:before,
-i.flag.saint.helena:before {
-  background-position: -72px -1118px;
-}
-
-i.flag.si:before,
-i.flag.slovenia:before {
-  background-position: -72px -1144px;
-}
-
-i.flag.sj:before,
-i.flag.svalbard:before,
-i.flag.jan.mayen:before {
-  background-position: -72px -1170px;
-}
-
-i.flag.sk:before,
-i.flag.slovakia:before {
-  background-position: -72px -1196px;
-}
-
-i.flag.sl:before,
-i.flag.sierra.leone:before {
-  background-position: -72px -1222px;
-}
-
-i.flag.sm:before,
-i.flag.san.marino:before {
-  background-position: -72px -1248px;
-}
-
-i.flag.sn:before,
-i.flag.senegal:before {
-  background-position: -72px -1274px;
-}
-
-i.flag.so:before,
-i.flag.somalia:before {
-  background-position: -72px -1300px;
-}
-
-i.flag.sr:before,
-i.flag.suriname:before {
-  background-position: -72px -1326px;
-}
-
-i.flag.st:before,
-i.flag.sao.tome:before {
-  background-position: -72px -1352px;
-}
-
-i.flag.sv:before,
-i.flag.el.salvador:before {
-  background-position: -72px -1378px;
-}
-
-i.flag.sy:before,
-i.flag.syria:before {
-  background-position: -72px -1404px;
-}
-
-i.flag.sz:before,
-i.flag.swaziland:before {
-  background-position: -72px -1430px;
-}
-
-i.flag.tc:before,
-i.flag.caicos.islands:before {
-  background-position: -72px -1456px;
-}
-
-i.flag.td:before,
-i.flag.chad:before {
-  background-position: -72px -1482px;
-}
-
-i.flag.tf:before,
-i.flag.french.territories:before {
-  background-position: -72px -1508px;
-}
-
-i.flag.tg:before,
-i.flag.togo:before {
-  background-position: -72px -1534px;
-}
-
-i.flag.th:before,
-i.flag.thailand:before {
-  background-position: -72px -1560px;
-}
-
-i.flag.tj:before,
-i.flag.tajikistan:before {
-  background-position: -72px -1586px;
-}
-
-i.flag.tk:before,
-i.flag.tokelau:before {
-  background-position: -72px -1612px;
-}
-
-i.flag.tl:before,
-i.flag.timorleste:before {
-  background-position: -72px -1638px;
-}
-
-i.flag.tm:before,
-i.flag.turkmenistan:before {
-  background-position: -72px -1664px;
-}
-
-i.flag.tn:before,
-i.flag.tunisia:before {
-  background-position: -72px -1690px;
-}
-
-i.flag.to:before,
-i.flag.tonga:before {
-  background-position: -72px -1716px;
-}
-
-i.flag.tr:before,
-i.flag.turkey:before {
-  background-position: -72px -1742px;
-}
-
-i.flag.tt:before,
-i.flag.trinidad:before {
-  background-position: -72px -1768px;
-}
-
-i.flag.tv:before,
-i.flag.tuvalu:before {
-  background-position: -72px -1794px;
-}
-
-i.flag.tw:before,
-i.flag.taiwan:before {
-  background-position: -72px -1820px;
-}
-
-i.flag.tz:before,
-i.flag.tanzania:before {
-  background-position: -72px -1846px;
-}
-
-i.flag.ua:before,
-i.flag.ukraine:before {
-  background-position: -72px -1872px;
-}
-
-i.flag.ug:before,
-i.flag.uganda:before {
-  background-position: -72px -1898px;
-}
-
-i.flag.um:before,
-i.flag.us.minor.islands:before {
-  background-position: -72px -1924px;
-}
-
-i.flag.us:before,
-i.flag.america:before,
-i.flag.united.states:before {
-  background-position: -72px -1950px;
-}
-
-i.flag.uy:before,
-i.flag.uruguay:before {
-  background-position: -72px -1976px;
-}
-
-i.flag.uz:before,
-i.flag.uzbekistan:before {
-  background-position: -108px 0px;
-}
-
-i.flag.va:before,
-i.flag.vatican.city:before {
-  background-position: -108px -26px;
-}
-
-i.flag.vc:before,
-i.flag.saint.vincent:before {
-  background-position: -108px -52px;
-}
-
-i.flag.ve:before,
-i.flag.venezuela:before {
-  background-position: -108px -78px;
-}
-
-i.flag.vg:before,
-i.flag.british.virgin.islands:before {
-  background-position: -108px -104px;
-}
-
-i.flag.vi:before,
-i.flag.us.virgin.islands:before {
-  background-position: -108px -130px;
-}
-
-i.flag.vn:before,
-i.flag.vietnam:before {
-  background-position: -108px -156px;
-}
-
-i.flag.vu:before,
-i.flag.vanuatu:before {
-  background-position: -108px -182px;
-}
-
-i.flag.wf:before,
-i.flag.wallis.and.futuna:before {
-  background-position: -108px -234px;
-}
-
-i.flag.ws:before,
-i.flag.samoa:before {
-  background-position: -108px -260px;
-}
-
-i.flag.ye:before,
-i.flag.yemen:before {
-  background-position: -108px -286px;
-}
-
-i.flag.yt:before,
-i.flag.mayotte:before {
-  background-position: -108px -312px;
-}
-
-i.flag.za:before,
-i.flag.south.africa:before {
-  background-position: -108px -338px;
-}
-
-i.flag.zm:before,
-i.flag.zambia:before {
-  background-position: -108px -364px;
-}
-
-i.flag.zw:before,
-i.flag.zimbabwe:before {
-  background-position: -108px -390px;
-}
-
 /*******************************
-         Site Overrides
+    User Variable Overrides
 *******************************/
 
 /*
@@ -20705,473 +21759,6 @@ select.ui.dropdown {
  */
 
 /*******************************
-            Message
-*******************************/
-
-.ui.message {
-  position: relative;
-  min-height: 1em;
-  margin: 1em 0em;
-  background: #efefef;
-  padding: 1em 1.5em;
-  line-height: 1.3;
-  color: rgba(0, 0, 0, 0.8);
-  -webkit-transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-  transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-  border-radius: 0.2857rem;
-  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15) inset, 0px 0px 0px 0px transparent;
-}
-
-.ui.message:first-child {
-  margin-top: 0em;
-}
-
-.ui.message:last-child {
-  margin-bottom: 0em;
-}
-
-/*--------------
-     Content
----------------*/
-
-/* Header */
-
-.ui.message .header {
-  display: block;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  margin: 0em 0em 0em 0rem;
-}
-
-/* Default font size */
-
-.ui.message .header:not(.ui) {
-  font-size: 1.1em;
-}
-
-/* Paragraph */
-
-.ui.message p {
-  opacity: 0.85;
-  margin: 0.75em 0em;
-}
-
-.ui.message p:first-child {
-  margin-top: 0em;
-}
-
-.ui.message p:last-child {
-  margin-bottom: 0em;
-}
-
-.ui.message .header + p {
-  margin-top: 0.25em;
-}
-
-/* List */
-
-.ui.message ul.list {
-  opacity: 0.85;
-  list-style-position: inside;
-  margin: 0.5em 0em 0em;
-  padding: 0em;
-}
-
-.ui.message ul.list:first-child {
-  margin-top: 0em;
-}
-
-.ui.message ul.list:last-child {
-  margin-bottom: 0em;
-}
-
-.ui.message ul.list li {
-  position: relative;
-  list-style-type: none;
-  margin: 0em 0em 0.3em 1em;
-  padding: 0em;
-}
-
-.ui.message ul.list li:before {
-  position: absolute;
-  content: '•';
-  left: -1em;
-  height: 100%;
-  vertical-align: baseline;
-}
-
-.ui.message ul.list li:last-child {
-  margin-bottom: 0em;
-}
-
-/* Icon */
-
-.ui.message > .icon {
-  margin-right: 0.6em;
-}
-
-/* Close Icon */
-
-.ui.message > .close.icon {
-  cursor: pointer;
-  position: absolute;
-  margin: 0em;
-  top: 1.15em;
-  right: 0.5em;
-  opacity: 0.7;
-  -webkit-transition: opacity 0.1s linear;
-  transition: opacity 0.1s linear;
-}
-
-.ui.message > .close.icon:hover {
-  opacity: 1;
-}
-
-/* First / Last Element */
-
-.ui.message > :first-child {
-  margin-top: 0em;
-}
-
-.ui.message > :last-child {
-  margin-bottom: 0em;
-}
-
-/*******************************
-            States
-*******************************/
-
-.ui.message.visible,
-.ui.header.visible {
-  display: block !important;
-}
-
-.ui.message.hidden,
-.ui.header.hidden {
-  display: none;
-}
-
-/*******************************
-            Variations
-*******************************/
-
-/*--------------
-    Compact
----------------*/
-
-.ui.compact.message {
-  display: inline-block;
-}
-
-/*--------------
-    Attached
----------------*/
-
-.ui.attached.message {
-  margin-bottom: -1px;
-  border-radius: 0.2857rem 0.2857rem 0em 0em;
-  box-shadow: 0em 0em 0em 1px rgba(0, 0, 0, 0.1) inset;
-  margin-left: -1px;
-  margin-right: -1px;
-}
-
-.ui.attached + .ui.attached.message:not(.top):not(.bottom) {
-  margin-top: -1px;
-  border-radius: 0em;
-}
-
-.ui.bottom.attached.message {
-  margin-top: -1px;
-  border-radius: 0em 0em 0.2857rem 0.2857rem;
-  box-shadow: 0em 0em 0em 1px rgba(0, 0, 0, 0.1) inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
-}
-
-.ui.bottom.attached.message:not(:last-child) {
-  margin-bottom: 1em;
-}
-
-.ui.attached.icon.message {
-  display: block;
-  width: auto;
-}
-
-/*--------------
-      Icon
----------------*/
-
-.ui.icon.message {
-  display: table;
-  width: 100%;
-}
-
-.ui.icon.message > .icon:not(.close) {
-  display: table-cell;
-  width: auto;
-  vertical-align: middle;
-  font-size: 3em;
-  opacity: 0.8;
-}
-
-.ui.icon.message > .content {
-  display: table-cell;
-  width: 100%;
-  vertical-align: middle;
-}
-
-.ui.icon.message .icon:not(.close) + .content {
-  padding-left: 1.5rem;
-}
-
-.ui.icon.message .circular.icon {
-  width: 1em;
-}
-
-.ui.icon.message .circular.icon + .content {
-  width: auto;
-  padding-left: 2em;
-}
-
-/*--------------
-    Floating
----------------*/
-
-.ui.floating.message {
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15), 0px 0px 0px 1px rgba(39, 41, 43, 0.15) inset;
-}
-
-/*--------------
-     Colors
----------------*/
-
-.ui.black.message {
-  background-color: #1b1c1d;
-  color: #ffffff;
-}
-
-/*--------------
-     Types
----------------*/
-
-/* Positive */
-
-.ui.positive.message {
-  background-color: #eeffe7;
-  color: #3c763d;
-}
-
-.ui.positive.message,
-.ui.attached.positive.message {
-  box-shadow: 0px 0px 0px 1px #b7caa7 inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
-}
-
-.ui.positive.message .header {
-  color: #356e36;
-}
-
-/* Negative */
-
-.ui.negative.message {
-  background-color: #fff0f0;
-  color: #a94442;
-}
-
-.ui.negative.message,
-.ui.attached.negative.message {
-  box-shadow: 0px 0px 0px 1px #dbb1b1 inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
-}
-
-.ui.negative.message .header {
-  color: #912d2b;
-}
-
-/* Info */
-
-.ui.info.message {
-  background-color: #e9faff;
-  color: #337b92;
-}
-
-.ui.info.message,
-.ui.attached.info.message {
-  box-shadow: 0px 0px 0px 1px #aad6df inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
-}
-
-.ui.info.message .header {
-  color: #297187;
-}
-
-/* Warning */
-
-.ui.warning.message {
-  background-color: #fffbe6;
-  color: #876a38;
-}
-
-.ui.warning.message,
-.ui.attached.warning.message {
-  box-shadow: 0px 0px 0px 1px #d9caab inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
-}
-
-.ui.warning.message .header {
-  color: #825c01;
-}
-
-/* Error */
-
-.ui.error.message {
-  background-color: #fff0f0;
-  color: #a94442;
-}
-
-.ui.error.message,
-.ui.attached.error.message {
-  box-shadow: 0px 0px 0px 1px #dbb1b1 inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
-}
-
-.ui.error.message .header {
-  color: #912d2b;
-}
-
-/* Success */
-
-.ui.success.message {
-  background-color: #eeffe7;
-  color: #3c763d;
-}
-
-.ui.success.message,
-.ui.attached.success.message {
-  box-shadow: 0px 0px 0px 1px #b7caa7 inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
-}
-
-.ui.success.message .header {
-  color: #356e36;
-}
-
-/* Colors */
-
-.ui.inverted.message,
-.ui.black.message {
-  background-color: #1b1c1d;
-  color: #ffffff;
-}
-
-.ui.blue.message {
-  background-color: #dff0ff;
-  color: #3b83c0;
-}
-
-.ui.blue.message .header {
-  color: #3576ac;
-}
-
-.ui.green.message {
-  background-color: #ebffed;
-  color: #1ebc30;
-}
-
-.ui.green.message .header {
-  color: #1aa62a;
-}
-
-.ui.orange.message {
-  background-color: #ffedde;
-  color: #e07b53;
-}
-
-.ui.orange.message .header {
-  color: #dc6a3d;
-}
-
-.ui.pink.message {
-  background-color: #ffe3fb;
-  color: #d9499a;
-}
-
-.ui.pink.message .header {
-  color: #d5348e;
-}
-
-.ui.purple.message {
-  background-color: #eae7ff;
-  color: #564f8a;
-}
-
-.ui.purple.message .header {
-  color: #4c467a;
-}
-
-.ui.red.message {
-  background-color: #ffe8e6;
-  color: #d95c5c;
-}
-
-.ui.red.message .header {
-  color: #d44747;
-}
-
-.ui.teal.message {
-  background-color: #e9ffff;
-  color: #10a3a3;
-}
-
-.ui.teal.message .header {
-  color: #0e8c8c;
-}
-
-.ui.yellow.message {
-  background-color: #fff8db;
-  color: #b58105;
-}
-
-.ui.yellow.message .header {
-  color: #9c6f04;
-}
-
-/*--------------
-     Sizes
----------------*/
-
-.ui.small.message {
-  font-size: 0.9285em;
-}
-
-.ui.message {
-  font-size: 1em;
-}
-
-.ui.large.message {
-  font-size: 1.1428em;
-}
-
-.ui.huge.message {
-  font-size: 1.4285em;
-}
-
-.ui.massive.message {
-  font-size: 1.7142em;
-}
-
-/*******************************
-         Theme Overrides
-*******************************/
-
-/*******************************
-    User Variable Overrides
-*******************************/
-
-/*
- * # Semantic UI
- * git://github.com/Semantic-Org/Semantic-UI.git
- *
- *
- * Copyright 2014 Contributors
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- */
-
-/*******************************
              Modal
 *******************************/
 
@@ -21630,6 +22217,153 @@ select.ui.dropdown {
 
 /*******************************
          Site Overrides
+*******************************/
+
+/*
+ * # Semantic UI
+ * git://github.com/Semantic-Org/Semantic-UI.git
+ *
+ *
+ * Copyright 2014 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+/*******************************
+             Nag
+*******************************/
+
+.ui.nag {
+  display: none;
+  opacity: 0.95;
+  position: relative;
+  top: 0em;
+  left: 0px;
+  z-index: 999;
+  min-height: 0em;
+  width: 100%;
+  margin: 0em;
+  padding: 0.75em 1em;
+  background: #555555;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+  font-size: 1rem;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.8);
+  border-radius: 0em 0em 0.2857rem 0.2857rem;
+  -webkit-transition: 0.2s background ease;
+  transition: 0.2s background ease;
+}
+
+a.ui.nag {
+  cursor: pointer;
+}
+
+.ui.nag > .title {
+  display: inline-block;
+  margin: 0em 0.5em;
+  color: #ffffff;
+}
+
+.ui.nag > .close.icon {
+  cursor: pointer;
+  opacity: 0.4;
+  position: absolute;
+  top: 50%;
+  right: 1em;
+  font-size: 1em;
+  margin: -0.5em 0em 0em;
+  color: #ffffff;
+  -webkit-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
+}
+
+/*******************************
+             States
+*******************************/
+
+/* Hover */
+
+.ui.nag:hover {
+  background: #555555;
+  opacity: 1;
+}
+
+.ui.nag .close:hover {
+  opacity: 1;
+}
+
+/*******************************
+           Variations
+*******************************/
+
+/*--------------
+     Static
+---------------*/
+
+.ui.overlay.nag {
+  position: absolute;
+  display: block;
+}
+
+/*--------------
+     Fixed
+---------------*/
+
+.ui.fixed.nag {
+  position: fixed;
+}
+
+/*--------------
+     Bottom
+---------------*/
+
+.ui.bottom.nags,
+.ui.bottom.nag {
+  border-radius: 0.2857rem 0.2857rem 0em 0em;
+  top: auto;
+  bottom: 0em;
+}
+
+/*--------------
+     White
+---------------*/
+
+.ui.inverted.nags .nag,
+.ui.inverted.nag {
+  background-color: #f0f0f0;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.ui.inverted.nags .nag .close,
+.ui.inverted.nags .nag .title,
+.ui.inverted.nag .close,
+.ui.inverted.nag .title {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+/*******************************
+           Groups
+*******************************/
+
+.ui.nags .nag {
+  border-radius: 0em !important;
+}
+
+.ui.nags .nag:last-child {
+  border-radius: 0em 0em 0.2857rem 0.2857rem;
+}
+
+.ui.bottom.nags .nag:last-child {
+  border-radius: 0.2857rem 0.2857rem 0em 0em;
+}
+
+/*******************************
+         Theme Overrides
+*******************************/
+
+/*******************************
+        User Overrides
 *******************************/
 
 /*
@@ -22658,231 +23392,254 @@ select.ui.dropdown {
  */
 
 /*******************************
-            Divider
+             Search
 *******************************/
 
-.ui.divider {
-  margin: 1rem 0rem;
-  line-height: 1;
-  height: 0em;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.85);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-/*--------------
-      Basic
----------------*/
-
-.ui.divider:not(.vertical):not(.horizontal) {
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-/*--------------
-    Coupling
----------------*/
-
-.ui.grid > .ui.divider {
-  font-size: 1rem;
-}
-
-/*--------------
-   Horizontal
----------------*/
-
-.ui.horizontal.divider {
+.ui.search {
   position: relative;
-  height: auto;
-  margin: '';
+  text-shadow: none;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.ui.search input {
+  border-radius: 500rem;
+}
+
+/*--------------
+     Icon
+---------------*/
+
+.ui.search .prompt ~ .search.icon {
+  cursor: pointer;
+}
+
+/*--------------
+    Results
+---------------*/
+
+.ui.search .results {
+  display: none;
+  position: absolute;
+  z-index: 998;
+  top: 100%;
+  left: 0%;
   overflow: hidden;
-  line-height: 1;
-  text-align: center;
-}
-
-.ui.horizontal.divider:before,
-.ui.horizontal.divider:after {
-  position: absolute;
-  content: '';
-  z-index: 3;
-  width: 50%;
-  top: 50%;
-  height: 0px;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.ui.horizontal.divider:before {
-  margin-left: -51.5%;
-}
-
-.ui.horizontal.divider:after {
-  margin-left: 1.5%;
+  background: #ffffff;
+  margin-top: 0.5em;
+  width: 380px;
+  border-radius: 0.25em;
+  box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.2);
 }
 
 /*--------------
-    Vertical
+    Result
 ---------------*/
 
-.ui.vertical.divider {
-  position: absolute;
-  z-index: 2;
-  top: 50%;
-  left: 50%;
-  margin: 0rem;
-  padding: 0em;
+.ui.search .result {
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  overflow: hidden;
+  font-size: 0.9em;
+  padding: 0.5em 1em;
+  color: rgba(0, 0, 0, 0.8);
+  line-height: 1.33;
+}
+
+.ui.search .result:first-child {
+  border-top: none;
+}
+
+/* Image */
+
+.ui.search .result .image {
+  float: right;
+  overflow: hidden;
+  background: none;
+  width: 5em;
+  height: 3em;
+  border-radius: 0.25em;
+}
+
+.ui.search .result .image img {
+  display: block;
   width: auto;
-  height: 50%;
-  line-height: 0em;
-  text-align: center;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
-}
-
-.ui.vertical.divider:before,
-.ui.vertical.divider:after {
-  position: absolute;
-  left: 50%;
-  content: '';
-  z-index: 3;
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
-  width: 0%;
-  height: -webkit-calc(100% -  1rem );
-  height: calc(100% -  1rem );
-}
-
-.ui.vertical.divider:before {
-  top: -100%;
-}
-
-.ui.vertical.divider:after {
-  top: auto;
-  bottom: 0px;
-}
-
-/* Inside grid */
-
-@media only screen and (max-width: 767px) {
-  .ui.stackable.grid .ui.vertical.divider,
-  .ui.grid .stackable.row .ui.vertical.divider {
-    position: relative;
-    margin: 1rem 0rem;
-    left: 50%;
-    height: auto;
-    overflow: hidden;
-    line-height: 1;
-    text-align: center;
-  }
-
-  .ui.stackable.grid .ui.vertical.divider:before,
-  .ui.grid .stackable.row .ui.vertical.divider:before,
-  .ui.stackable.grid .ui.vertical.divider:after,
-  .ui.grid .stackable.row .ui.vertical.divider:after {
-    position: absolute;
-    left: auto;
-    content: '';
-    z-index: 3;
-    width: 50%;
-    top: 50%;
-    height: 0px;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  }
-
-  .ui.stackable.grid .ui.vertical.divider:before,
-  .ui.grid .stackable.row .ui.vertical.divider:before {
-    margin-left: -51.5%;
-  }
-
-  .ui.stackable.grid .ui.vertical.divider:after,
-  .ui.grid .stackable.row .ui.vertical.divider:after {
-    margin-left: 1.5%;
-  }
+  height: 100%;
 }
 
 /*--------------
-      Icon
+      Info
 ---------------*/
 
-.ui.divider > .icon {
-  margin: 0rem;
+.ui.search .result .image + .content {
+  margin: 0em 6em 0em 0em;
+}
+
+.ui.search .result .title {
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.ui.search .result .description {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.ui.search .result .price {
+  float: right;
+  color: #5bbd72;
+}
+
+/*--------------
+    Message
+---------------*/
+
+.ui.search .message {
+  padding: 1em 1em;
+}
+
+.ui.search .message .header {
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.ui.search .message .description {
+  margin-top: 0.25rem;
   font-size: 1rem;
-  height: 1em;
-  vertical-align: middle;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+/* View All Results */
+
+.ui.search .all {
+  display: block;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #f0f0f0;
+  height: 2em;
+  line-height: 2em;
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: bold;
+  text-align: center;
 }
 
 /*******************************
-          Variations
+            States
 *******************************/
 
 /*--------------
-    Hidden
+      Hover
 ---------------*/
 
-.ui.hidden.divider {
-  border-color: transparent !important;
+.ui.search .result:hover,
+.ui.search .results .category .result:hover {
+  background: #fafafa;
+}
+
+.ui.search .all:hover {
+  background: #fafafa;
 }
 
 /*--------------
-    Inverted
+     Loading
 ---------------*/
 
-.ui.divider.inverted {
-  color: #ffffff;
+.ui.search.loading .input .icon {
+  background: url("themes/default/assets/images/loader-mini.gif") no-repeat 50% 50%;
 }
 
-.ui.vertical.inverted.divider,
-.ui.horizontal.inverted.divider {
-  color: #ffffff;
-}
-
-.ui.divider.inverted,
-.ui.divider.inverted:after,
-.ui.divider.inverted:before {
-  border-top-color: rgba(0, 0, 0, 0.15) !important;
-  border-bottom-color: rgba(255, 255, 255, 0.15) !important;
-  border-left-color: rgba(0, 0, 0, 0.15) !important;
-  border-right-color: rgba(255, 255, 255, 0.15) !important;
+.ui.search.loading .input .icon:before,
+.ui.search.loading .input .icon:after {
+  display: none;
 }
 
 /*--------------
-    Fitted
+      Active
 ---------------*/
 
-.ui.fitted.divider {
-  margin: 0em;
+.ui.search .results .category.active {
+  background-color: #f1f1f1;
+}
+
+.ui.search .results .category.active > .name {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.ui.search .result.active,
+.ui.search .results .category .result.active {
+  border-left-color: transparent;
+  background-color: #f0f0f0;
+  box-shadow: 2px 0px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+.ui.search .result.active .title {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.ui.search .result.active .description {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+/*******************************
+           Types
+*******************************/
+
+/*-------------------
+     Left / Right
+--------------------*/
+
+.ui.right.aligned.search .results {
+  right: 0%;
+  left: auto;
 }
 
 /*--------------
-    Clearing
+    Categories
 ---------------*/
 
-.ui.clearing.divider {
-  clear: both;
+.ui.search .results .category {
+  background: #f0f0f0;
+  box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1);
 }
 
-/*--------------
-    Section
----------------*/
-
-.ui.section.divider {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+.ui.search .results .category,
+.ui.search .results .category .result {
+  position: relative;
+  -webkit-transition: background 0.2s ease, border-color 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
-/*--------------
-     Sizes
----------------*/
+.ui.search .results .category:first-child {
+  box-shadow: none;
+}
 
-.ui.divider {
-  font-size: 1rem;
+.ui.search .results .category > .name {
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  float: 0.9em;
+  float: left;
+  padding: 0.4em 0em 0em 1em;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.ui.search .results .category .result {
+  background-color: #ffffff;
+  margin-left: 100px;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/*******************************
+           Variations
+*******************************/
+
+.ui.search {
+  font-size: 1em;
+}
+
+.ui.large.search {
+  font-size: 1.1em;
 }
 
 /*******************************
@@ -25950,555 +26707,6 @@ select.ui.dropdown {
 
 /*******************************
         Video Overrides
-*******************************/
-
-/*******************************
-         Site Overrides
-*******************************/
-
-/*
- * # Semantic UI
- * git://github.com/Semantic-Org/Semantic-UI.git
- *
- *
- * Copyright 2014 Contributors
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- */
-
-/*******************************
-             Nag
-*******************************/
-
-.ui.nag {
-  display: none;
-  opacity: 0.95;
-  position: relative;
-  top: 0em;
-  left: 0px;
-  z-index: 999;
-  min-height: 0em;
-  width: 100%;
-  margin: 0em;
-  padding: 0.75em 1em;
-  background: #555555;
-  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
-  font-size: 1rem;
-  text-align: center;
-  color: rgba(0, 0, 0, 0.8);
-  border-radius: 0em 0em 0.2857rem 0.2857rem;
-  -webkit-transition: 0.2s background ease;
-  transition: 0.2s background ease;
-}
-
-a.ui.nag {
-  cursor: pointer;
-}
-
-.ui.nag > .title {
-  display: inline-block;
-  margin: 0em 0.5em;
-  color: #ffffff;
-}
-
-.ui.nag > .close.icon {
-  cursor: pointer;
-  opacity: 0.4;
-  position: absolute;
-  top: 50%;
-  right: 1em;
-  font-size: 1em;
-  margin: -0.5em 0em 0em;
-  color: #ffffff;
-  -webkit-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease;
-}
-
-/*******************************
-             States
-*******************************/
-
-/* Hover */
-
-.ui.nag:hover {
-  background: #555555;
-  opacity: 1;
-}
-
-.ui.nag .close:hover {
-  opacity: 1;
-}
-
-/*******************************
-           Variations
-*******************************/
-
-/*--------------
-     Static
----------------*/
-
-.ui.overlay.nag {
-  position: absolute;
-  display: block;
-}
-
-/*--------------
-     Fixed
----------------*/
-
-.ui.fixed.nag {
-  position: fixed;
-}
-
-/*--------------
-     Bottom
----------------*/
-
-.ui.bottom.nags,
-.ui.bottom.nag {
-  border-radius: 0.2857rem 0.2857rem 0em 0em;
-  top: auto;
-  bottom: 0em;
-}
-
-/*--------------
-     White
----------------*/
-
-.ui.inverted.nags .nag,
-.ui.inverted.nag {
-  background-color: #f0f0f0;
-  color: rgba(0, 0, 0, 0.85);
-}
-
-.ui.inverted.nags .nag .close,
-.ui.inverted.nags .nag .title,
-.ui.inverted.nag .close,
-.ui.inverted.nag .title {
-  color: rgba(0, 0, 0, 0.4);
-}
-
-/*******************************
-           Groups
-*******************************/
-
-.ui.nags .nag {
-  border-radius: 0em !important;
-}
-
-.ui.nags .nag:last-child {
-  border-radius: 0em 0em 0.2857rem 0.2857rem;
-}
-
-.ui.bottom.nags .nag:last-child {
-  border-radius: 0.2857rem 0.2857rem 0em 0em;
-}
-
-/*******************************
-         Theme Overrides
-*******************************/
-
-/*******************************
-        User Overrides
-*******************************/
-
-/*
- * # Semantic UI
- * git://github.com/Semantic-Org/Semantic-UI.git
- *
- *
- * Copyright 2014 Contributors
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- */
-
-/*******************************
-             Search
-*******************************/
-
-.ui.search {
-  position: relative;
-  text-shadow: none;
-  font-style: normal;
-  font-weight: normal;
-}
-
-.ui.search input {
-  border-radius: 500rem;
-}
-
-/*--------------
-     Icon
----------------*/
-
-.ui.search .prompt ~ .search.icon {
-  cursor: pointer;
-}
-
-/*--------------
-    Results
----------------*/
-
-.ui.search .results {
-  display: none;
-  position: absolute;
-  z-index: 998;
-  top: 100%;
-  left: 0%;
-  overflow: hidden;
-  background: #ffffff;
-  margin-top: 0.5em;
-  width: 380px;
-  border-radius: 0.25em;
-  box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.2);
-}
-
-/*--------------
-    Result
----------------*/
-
-.ui.search .result {
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  cursor: pointer;
-  overflow: hidden;
-  font-size: 0.9em;
-  padding: 0.5em 1em;
-  color: rgba(0, 0, 0, 0.8);
-  line-height: 1.33;
-}
-
-.ui.search .result:first-child {
-  border-top: none;
-}
-
-/* Image */
-
-.ui.search .result .image {
-  float: right;
-  overflow: hidden;
-  background: none;
-  width: 5em;
-  height: 3em;
-  border-radius: 0.25em;
-}
-
-.ui.search .result .image img {
-  display: block;
-  width: auto;
-  height: 100%;
-}
-
-/*--------------
-      Info
----------------*/
-
-.ui.search .result .image + .content {
-  margin: 0em 6em 0em 0em;
-}
-
-.ui.search .result .title {
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  font-weight: normal;
-  color: rgba(0, 0, 0, 0.85);
-}
-
-.ui.search .result .description {
-  color: rgba(0, 0, 0, 0.8);
-}
-
-.ui.search .result .price {
-  float: right;
-  color: #5bbd72;
-}
-
-/*--------------
-    Message
----------------*/
-
-.ui.search .message {
-  padding: 1em 1em;
-}
-
-.ui.search .message .header {
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  font-size: 1.2em;
-  font-weight: bold;
-  color: rgba(0, 0, 0, 0.8);
-}
-
-.ui.search .message .description {
-  margin-top: 0.25rem;
-  font-size: 1rem;
-  color: rgba(0, 0, 0, 0.8);
-}
-
-/* View All Results */
-
-.ui.search .all {
-  display: block;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: #f0f0f0;
-  height: 2em;
-  line-height: 2em;
-  color: rgba(0, 0, 0, 0.8);
-  font-weight: bold;
-  text-align: center;
-}
-
-/*******************************
-            States
-*******************************/
-
-/*--------------
-      Hover
----------------*/
-
-.ui.search .result:hover,
-.ui.search .results .category .result:hover {
-  background: #fafafa;
-}
-
-.ui.search .all:hover {
-  background: #fafafa;
-}
-
-/*--------------
-     Loading
----------------*/
-
-.ui.search.loading .input .icon {
-  background: url("themes/default/assets/images/loader-mini.gif") no-repeat 50% 50%;
-}
-
-.ui.search.loading .input .icon:before,
-.ui.search.loading .input .icon:after {
-  display: none;
-}
-
-/*--------------
-      Active
----------------*/
-
-.ui.search .results .category.active {
-  background-color: #f1f1f1;
-}
-
-.ui.search .results .category.active > .name {
-  color: rgba(0, 0, 0, 0.8);
-}
-
-.ui.search .result.active,
-.ui.search .results .category .result.active {
-  border-left-color: transparent;
-  background-color: #f0f0f0;
-  box-shadow: 2px 0px 2px 0px rgba(0, 0, 0, 0.2);
-}
-
-.ui.search .result.active .title {
-  color: rgba(0, 0, 0, 0.85);
-}
-
-.ui.search .result.active .description {
-  color: rgba(0, 0, 0, 0.85);
-}
-
-/*******************************
-           Types
-*******************************/
-
-/*-------------------
-     Left / Right
---------------------*/
-
-.ui.right.aligned.search .results {
-  right: 0%;
-  left: auto;
-}
-
-/*--------------
-    Categories
----------------*/
-
-.ui.search .results .category {
-  background: #f0f0f0;
-  box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1);
-}
-
-.ui.search .results .category,
-.ui.search .results .category .result {
-  position: relative;
-  -webkit-transition: background 0.2s ease, border-color 0.2s ease;
-  transition: background 0.2s ease, border-color 0.2s ease;
-}
-
-.ui.search .results .category:first-child {
-  box-shadow: none;
-}
-
-.ui.search .results .category > .name {
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  float: 0.9em;
-  float: left;
-  padding: 0.4em 0em 0em 1em;
-  font-weight: bold;
-  color: rgba(0, 0, 0, 0.4);
-}
-
-.ui.search .results .category .result {
-  background-color: #ffffff;
-  margin-left: 100px;
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-/*******************************
-           Variations
-*******************************/
-
-.ui.search {
-  font-size: 1em;
-}
-
-.ui.large.search {
-  font-size: 1.1em;
-}
-
-/*******************************
-         Theme Overrides
-*******************************/
-
-/*******************************
-         Site Overrides
-*******************************/
-
-/*
- * # Semantic UI
- * git://github.com/Semantic-Org/Semantic-UI.git
- *
- *
- * Copyright 2014 Contributors
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- */
-
-/*******************************
-           Breadcrumb
-*******************************/
-
-.ui.breadcrumb {
-  margin: 1em 0em;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.ui.breadcrumb:first-child {
-  margin-top: 0em;
-}
-
-.ui.breadcrumb:last-child {
-  margin-bottom: 0em;
-}
-
-/*******************************
-          Content
-*******************************/
-
-/* Divider */
-
-.ui.breadcrumb .divider {
-  display: inline-block;
-  opacity: 0.5;
-  margin: 0em 0.2rem 0em;
-  font-size: 0.9em;
-  color: rgba(0, 0, 0, 0.4);
-  vertical-align: baseline;
-}
-
-/* Link */
-
-.ui.breadcrumb a {
-  color: #009fda;
-}
-
-.ui.breadcrumb a:hover {
-  color: #00b2f3;
-}
-
-/* Icon Divider */
-
-.ui.breadcrumb .icon.divider {
-  font-size: 0.7em;
-  vertical-align: middle;
-}
-
-/* Section */
-
-.ui.breadcrumb a.section {
-  cursor: pointer;
-}
-
-.ui.breadcrumb .section {
-  display: inline-block;
-  margin: 0em;
-  padding: 0em;
-}
-
-/* Loose Coupling */
-
-.ui.breadcrumb.segment {
-  display: inline-block;
-  padding: 0.5em 1em;
-}
-
-/*******************************
-            States
-*******************************/
-
-.ui.breadcrumb .active.section {
-  font-weight: bold;
-}
-
-/*******************************
-           Variations
-*******************************/
-
-.ui.mini.breadcrumb {
-  font-size: 0.65em;
-}
-
-.ui.tiny.breadcrumb {
-  font-size: 0.7em;
-}
-
-.ui.small.breadcrumb {
-  font-size: 0.75em;
-}
-
-.ui.breadcrumb {
-  font-size: 1em;
-}
-
-.ui.large.breadcrumb {
-  font-size: 1.1em;
-}
-
-.ui.big.breadcrumb {
-  font-size: 1.05em;
-}
-
-.ui.huge.breadcrumb {
-  font-size: 1.3em;
-}
-
-.ui.massive.breadcrumb {
-  font-size: 1.5em;
-}
-
-/*******************************
-         Theme Overrides
 *******************************/
 
 /*******************************
