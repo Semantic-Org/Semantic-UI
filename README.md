@@ -40,14 +40,13 @@ gulp help // list all commands
 ```
 
 
-
 ### Bugs and Issues
 
 > Semantic UI is production ready, but is "pre-release" until build and theming tools are available, and documentation is complete for all components.
 
 Please [share any issues](https://github.com/Semantic-Org/Semantic-UI/issues?state=open) you may have. We need your help to get all the kinks out.
 
-If you are reporting a bug *you must create a test-case*. You can [fork this jsfiddle](http://jsfiddle.net/Vbr9d/42/) to get you started.
+If you are reporting a bug *you must create a test-case*. You can [fork this jsfiddle](http://jsfiddle.net/J9MkJ/32/) to get you started.
 
 If you need help, come hang out in `#semantic-ui` on *irc.freenode.net*.  Click here to use [webchat](http://webchat.freenode.net/?randomnick=1&channels=%23semantic-ui&prompt=1&uio=OT10cnVlJjExPTEyMwb9).
 
