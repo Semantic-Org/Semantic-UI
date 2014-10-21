@@ -78,6 +78,18 @@
 @transparentWhite       : rgba(255, 255, 255, 0.05);
 @strongTransparentWhite : rgba(255, 255, 255, 0.07);
 
+/*-------------------
+       Loader
+--------------------*/
+
+@loaderSpeed: 0.75s;
+
+@loaderLineWidth: 3px;
+
+@loaderFillColor: rgba(0, 0, 0, 0.1);
+@loaderLineColor: rgba(0, 0, 0, 0.3);
+@invertedLoaderFillColor: rgba(255, 255, 255, 0.15);
+@invertedLoaderLineColor: rgba(255, 255, 255, 0.8);
 
 /*-------------------
        Accents

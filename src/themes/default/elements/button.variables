@@ -51,12 +51,7 @@
 @loaderSize: 1.2857em;
 @loaderOffset: -(@loaderSize / 2);
 @loaderMargin: @loaderOffset 0em 0em @loaderOffset;
-@loaderLineWidth: 3px;
-@loaderSpeed: 0.75s;
-
-@loaderFillColor: rgba(0, 0, 0, 0.15);
-@loaderLineColor: rgba(255, 255, 255, 0.8);
-@invertedLoaderLineColor: @darkGrey;
+@invertedLoaderFillColor: rgba(0, 0, 0, 0.15);
 
 @transition:
   opacity 0.1s @transitionEasing,

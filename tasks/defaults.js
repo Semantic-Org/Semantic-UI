@@ -26,6 +26,10 @@ module.exports = {
     theme  : './src/theme.config.example'
   },
 
+  regExp: {
+    themeRoot: /.*\/themes\/.*?\//mg
+  },
+
   // folder pathsr
   folders: {
     config : './',

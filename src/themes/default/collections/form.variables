@@ -133,11 +133,16 @@
 @inputErrorPlaceholderColor: lighten(@formErrorColor, 10);
 @inputErrorPlaceholderFocusColor: lighten(@formErrorColor, 5);
 
-/* Loading */
-@formLoaderDimmerColor: rgba(255, 255, 255, 0.6);
-@formLoaderPath: "@{imagePath}/loader-large.gif";
-@formLoaderPosition: 50% 50%;
 
+/* Loading Dimmer */
+@loaderDimmerColor: rgba(255, 255, 255, 0.8);
+@loaderDimmerZIndex: 100;
+
+/* Loading Spinner */
+@loaderSize: 3em;
+@loaderOffset: -(@loaderSize / 2);
+@loaderMargin: @loaderOffset 0em 0em @loaderOffset;
+@loaderLineZIndex: 101;
 
 /*-------------------
         Types
@@ -149,8 +154,6 @@
 
 /* Inverted */
 @invertedLabelColor: @invertedTextColor;
-@formInvertedLoaderPath: "@{imagePath}/loader-large-inverted.gif";
-@formInvertedLoaderDimmerColor: rgba(0, 0, 0, 0.8);
 
 /*-------------------
       Variations

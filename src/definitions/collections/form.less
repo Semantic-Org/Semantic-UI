@@ -454,25 +454,62 @@
 }
 
 
-/*--------------------
-     Loading State
----------------------*/
+/*--------------
+    Loading
+---------------*/
 
-/* On Form */
-.ui.form.loading {
+.ui.loading.form {
   position: relative;
+  cursor: default;
+  point-events: none;
+  text-shadow: none !important;
+  color: transparent !important;
+  transition: all 0s linear;
+  z-index: 100;
 }
-.ui.form.loading:after {
+.ui.loading.form:before {
   position: absolute;
+  content: '';
   top: 0%;
   left: 0%;
-  content: '';
-
+  background: @loaderDimmerColor;
   width: 100%;
   height: 100%;
-  background: @formLoaderDimmerColor url(@formLoaderPath) no-repeat @formLoaderPosition;
-  visibility: visible;
+  z-index: @loaderDimmerZIndex;
 }
+.ui.loading.form:after {
+  position: absolute;
+  content: '';
+  top: 50%;
+  left: 50%;
+
+  margin: @loaderMargin;
+  width: @loaderSize;
+  height: @loaderSize;
+
+  animation: form-spin @loaderSpeed linear;
+  animation-iteration-count: infinite;
+
+  border-radius: @circularRadius;
+
+  border-color: @loaderLineColor @loaderFillColor @loaderFillColor @loaderFillColor;
+  border-style: solid;
+  border-width: @loaderLineWidth;
+
+  box-shadow: 0px 0px 0px 1px transparent;
+  visibility: visible;
+  z-index: @loaderLineZIndex;
+}
+
+@keyframes form-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 
 /*******************************
          Element Types
@@ -509,9 +546,6 @@
 .ui.inverted.form .ui.checkbox label,
 .ui.inverted.form .ui.checkbox .box {
   color: @invertedLabelColor;
-}
-.ui.inverted.form.loading:after {
-  background: @formInvertedLoaderDimmerColor url(@formInvertedLoaderPath) no-repeat @formLoaderPosition;
 }
 
 /*--------------------

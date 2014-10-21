@@ -148,7 +148,7 @@
   height: @loaderSize;
 
   border-radius: @circularRadius;
-  border: @loaderLineWidth solid @loaderFillColor;
+  border: @loaderLineWidth solid @invertedLoaderFillColor;
 }
 .ui.loading.button:after {
   position: absolute;
@@ -165,7 +165,7 @@
 
   border-radius: @circularRadius;
 
-  border-color: @loaderLineColor transparent transparent;
+  border-color: @invertedLoaderLineColor transparent transparent;
   border-style: solid;
   border-width: @loaderLineWidth;
 
@@ -185,8 +185,11 @@
   }
 }
 
+.ui.basic.loading.button:not(.inverted):before {
+  border-color-top: @loaderFillColor;
+}
 .ui.basic.loading.button:not(.inverted):after {
-  border-color: @invertedLoaderLineColor transparent transparent;
+  border-color-top: @loaderLineColor;
 }
 
 /*-------------------

@@ -52,17 +52,16 @@ var
   settings      = require('./tasks/gulp-settings'),
 
   // local
+  runSetup   = false,
   overwrite  = true,
-
-  // derived
   config,
   package,
 
+  // derived
   base,
   clean,
   output,
   source,
-
   assetPaths,
   componentGlob,
 
@@ -94,6 +93,7 @@ var
   getConfigValues = function() {
 
     if(!config) {
+      runSetup = true;
       config = defaults;
     }
     config = extend(true, {}, defaults, config);
@@ -136,6 +136,7 @@ var
 
 getConfigValues();
 
+
 /*******************************
              Tasks
 *******************************/
@@ -149,7 +150,7 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function () {
   console.clear();
   console.log('Watching source files');
 
-  if(!fs.existsSync(defaults.files.theme)) {
+  if(!fs.existsSync(config.files.theme)) {
     console.error('Cant compile LESS. Run "grunt install" to create a theme config file');
     return;
   }
@@ -175,12 +176,13 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function () {
 
       // recompile only definition file
       srcPath = util.replaceExtension(file.path, '.less');
-      srcPath = srcPath.replace(source.themes, source.definitions);
+      srcPath = srcPath.replace(config.regExp.themePath, source.definitions);
       srcPath = srcPath.replace(source.site, source.definitions);
 
       // get relative asset path (path returns wrong path? hardcoded)
       // assetPaths.source = path.relative(srcPath, path.resolve(source.themes));
       assetPaths.source = '../../themes';
+
 
       if( fs.existsSync(srcPath) ) {
 
@@ -278,7 +280,7 @@ gulp.task('build', 'Builds all files from source', function(callback) {
 
   console.info('Building Semantic');
 
-  if(!fs.existsSync(defaults.files.theme)) {
+  if(!fs.existsSync(config.files.theme)) {
     console.error('Cant build LESS. Run "grunt install" to create a theme config file');
     return;
   }
@@ -414,7 +416,7 @@ gulp.task('package compressed js', false, function() {
 
 gulp.task('check install', false, function () {
   setTimeout(function() {
-    if( !config || !fs.existsSync(defaults.files.site)) {
+    if( runSetup || !fs.existsSync(config.files.site)) {
       console.log('No semantic.json file found. Starting install...');
       gulp.start('install');
     }
@@ -432,18 +434,18 @@ gulp.task('install', 'Set-up project for first time', function () {
       var
         siteVariable      = /@siteFolder .*\'(.*)/mg,
 
-        siteDestination   = answers.site || defaults.folders.site,
+        siteDestination   = answers.site || config.folders.site,
 
-        pathToSite        = path.relative(path.resolve(defaults.folders.theme), path.resolve(siteDestination)),
+        pathToSite        = path.relative(path.resolve(config.folders.theme), path.resolve(siteDestination)),
         sitePathReplace   = "@siteFolder   : '" + pathToSite + "/';",
 
-        configExists      = fs.existsSync(defaults.files.config),
-        themeConfigExists = fs.existsSync(defaults.files.theme),
+        configExists      = fs.existsSync(config.files.config),
+        themeConfigExists = fs.existsSync(config.files.theme),
         siteExists        = fs.existsSync(siteDestination),
 
         jsonSource        = (configExists)
-          ? defaults.files.config
-          : defaults.templates.config,
+          ? config.files.config
+          : config.templates.config,
         json = {
           paths: {
             source: {},
@@ -469,22 +471,22 @@ gulp.task('install', 'Set-up project for first time', function () {
         console.info('Creating site theme folder', siteDestination);
       }
       // copy recursively without overwrite
-      wrench.copyDirSyncRecursive(defaults.templates.site, siteDestination, settings.wrench.recursive);
+      wrench.copyDirSyncRecursive(config.templates.site, siteDestination, settings.wrench.recursive);
 
       // adjust less variable for site folder location
       console.info('Adjusting @siteFolder', sitePathReplace);
       if(themeConfigExists) {
-        gulp.src(defaults.files.site)
+        gulp.src(config.files.site)
           .pipe(replace(siteVariable, sitePathReplace))
-          .pipe(gulp.dest(defaults.folders.theme))
+          .pipe(gulp.dest(config.folders.theme))
         ;
       }
       else {
         console.info('Creating src/theme.config (LESS config)');
-        gulp.src(defaults.templates.theme)
+        gulp.src(config.templates.theme)
           .pipe(rename({ extname : '' }))
           .pipe(replace(siteVariable, sitePathReplace))
-          .pipe(gulp.dest(defaults.folders.theme))
+          .pipe(gulp.dest(config.folders.theme))
         ;
       }
 
@@ -539,10 +541,10 @@ gulp.task('install', 'Set-up project for first time', function () {
     }))
     .pipe(prompt.prompt(questions.cleanup, function(answers) {
       if(answers.cleanup == 'yes') {
-        del(defaults.setupFiles);
+        del(config.setupFiles);
       }
       if(answers.build == 'yes') {
-        config = require(defaults.files.config);
+        config = require(config.files.config);
         getConfigValues();
         gulp.start('build');
       }

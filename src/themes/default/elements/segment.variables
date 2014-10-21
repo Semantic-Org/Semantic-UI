@@ -30,6 +30,21 @@
 
 
 /*******************************
+            States
+*******************************/
+
+/* Loading Dimmer */
+@loaderDimmerColor: rgba(255, 255, 255, 0.8);
+@loaderDimmerZIndex: 100;
+
+/* Loading Spinner */
+@loaderSize: 3em;
+@loaderOffset: -(@loaderSize / 2);
+@loaderMargin: @loaderOffset 0em 0em @loaderOffset;
+@loaderLineZIndex: 101;
+
+
+/*******************************
             Variations
 *******************************/
 
