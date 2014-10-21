@@ -37,7 +37,9 @@
   clear: both;
   visibility: hidden;
 }
-.ui.vertical.segment {
+
+/* Vertical */
+.ui[class*="vertical segment"] {
   margin: 0em;
   padding-left: 0em;
   padding-right: 0em;
@@ -46,14 +48,16 @@
   border: none;
   box-shadow: 0px 1px 0px rgba(39, 41, 43, 0.15);
 }
-.ui.vertical.segment:first-child {
+.ui[class*="vertical segment"]:first-child {
   padding-top: 0em;
 }
-.ui.vertical.segment:last-child {
+.ui[class*="vertical segment"]:last-child {
   padding-bottom: 0em;
   box-shadow: none;
 }
-.ui.horizontal.segment {
+
+/* Horizontal */
+.ui[class*="horizontal segment"] {
   margin: 0em;
   padding-top: 0em;
   padding-bottom: 0em;
