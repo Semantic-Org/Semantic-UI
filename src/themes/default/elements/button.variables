@@ -122,6 +122,8 @@
 --------------------*/
 
 /* Or */
+@orText: 'or';
+
 @orGap: 0.3em;
 @orHeight: (@verticalPadding * 2) + 1em;
 

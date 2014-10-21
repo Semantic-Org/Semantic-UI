@@ -186,10 +186,10 @@
 }
 
 .ui.basic.loading.button:not(.inverted):before {
-  border-color-top: @loaderFillColor;
+  border-color: @loaderFillColor;
 }
 .ui.basic.loading.button:not(.inverted):after {
-  border-color-top: @loaderLineColor;
+  border-top-color: @loaderLineColor;
 }
 
 /*-------------------
@@ -877,9 +877,9 @@
 }
 .ui.buttons .or:before {
   position: absolute;
+  content: @orText;
   top: 50%;
   left: 50%;
-  content: 'or';
   background-color: @orBackgroundColor;
   text-shadow: @orTextShadow;
 
@@ -898,6 +898,9 @@
 
   border-radius: 500em;
   box-shadow: @orBoxShadow;
+}
+.ui.buttons .or[data-text]:before {
+  content: attr(data-text);
 }
 
 /* Fluid Or */
