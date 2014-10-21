@@ -27,7 +27,7 @@ module.exports = {
   },
 
   regExp: {
-    themeRoot: /.*\/themes\/.*?\//mg
+    themePath: /.*\/themes\/.*?\//mg
   },
 
   // folder pathsr
