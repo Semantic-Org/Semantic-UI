@@ -2,6 +2,8 @@
              Loader
 *******************************/
 
+/* Some global loader styles defined in site.variables */
+
 /*-------------------
       Standard
 --------------------*/
@@ -14,32 +16,27 @@
 --------------------*/
 
 /* Image */
-@miniSize: 16px;
-@smallSize: 24px;
-@mediumSize: 32px;
-@largeSize: 64px;
+@mini: 1.5em;
+@small: 2em;
+@medium: 3em;
+@large: 4em;
 
-@textDistance: 15px;
+@miniOffset: 0em 0em 0em -(@mini / 2);
+@smallOffset: 0em 0em 0em -(@small / 2);
+@mediumOffset: 0em 0em 0em -(@medium / 2);
+@largeOffset: 0em 0em 0em -(@large / 2);
+
+@textDistance: 0.7em;
 
 @miniFontSize: 0.8em;
 @smallFontSize: 0.875em;
 @mediumFontSize: 1em;
 @largeFontSize: 1.2em;
 
-@miniLoaderPath: "@{imagePath}/loader-mini.gif";
-@smallLoaderPath: "@{imagePath}/loader-small.gif";
-@mediumLoaderPath: "@{imagePath}/loader-medium.gif";
-@largeLoaderPath: "@{imagePath}/loader-large.gif";
-
-@miniInvertedLoaderPath: "@{imagePath}/loader-mini-inverted.gif";
-@smallInvertedLoaderPath: "@{imagePath}/loader-small-inverted.gif";
-@mediumInvertedLoaderPath: "@{imagePath}/loader-medium-inverted.gif";
-@largeInvertedLoaderPath: "@{imagePath}/loader-large-inverted.gif";
 
 /* Text */
-@loaderTextColor: @invertedTextColor;
-@invertedLoaderTextColor: @textColor;
-
+@loaderTextColor: @textColor;
+@invertedLoaderTextColor: @invertedTextColor;
 
 /*-------------------
         States
@@ -50,3 +47,6 @@
 /*-------------------
       Variations
 --------------------*/
+
+@inlineVerticalAlign: middle;
+@inlineMargin: 0em;

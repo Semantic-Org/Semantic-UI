@@ -36,90 +36,110 @@
   transform: translateX(-50%) translateY(-50%);
 }
 
+/* Static Shape */
+.ui.loader:before {
+  position: absolute;
+  content: '';
+  top: 0%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+
+  border-radius: @circularRadius;
+  border: @loaderLineWidth solid @loaderFillColor;
+}
+
+/* Active Shape */
+.ui.loader:after {
+  position: absolute;
+  content: '';
+  top: 0%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+
+  animation: loader-spin @loaderSpeed linear;
+  animation-iteration-count: infinite;
+
+  border-radius: @circularRadius;
+
+  border-color: @loaderLineColor transparent transparent;
+  border-style: solid;
+  border-width: @loaderLineWidth;
+
+  box-shadow: 0px 0px 0px 1px transparent;
+}
+
+/* Active Animation */
+@keyframes loader-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Sizes */
+.ui.loader:before,
+.ui.loader:after {
+  width: @medium;
+  height: @medium;
+  margin: @mediumOffset;
+}
+.ui.mini.loader:before,
+.ui.mini.loader:after {
+  width: @mini;
+  height: @mini;
+  margin: @miniOffset;
+}
+.ui.small.loader:before,
+.ui.small.loader:after {
+  width: @small;
+  height: @small;
+  margin: @smallOffset;
+}
+.ui.large.loader:before,
+.ui.large.loader:after {
+  width: @large;
+  height: @large;
+  margin: @largeOffset;
+}
+
+/*-------------------
+      Coupling
+--------------------*/
+
+/* Show inside active dimmer */
 .ui.dimmer .loader {
   display: block;
 }
 
-.ui.dimmer .ui.loader,
-.ui.inverted.loader {
-  color: @loaderTextColor
+/* Black Dimmer */
+.ui.dimmer .ui.loader {
+  color: @invertedLoaderTextColor;
+}
+.ui.dimmer .ui.loader:before {
+  border-color: @invertedLoaderFillColor;
+}
+.ui.dimmer .ui.loader:after {
+  border-top-color: @invertedLoaderLineColor;
+}
+
+/* White Dimmer (Inverted) */
+.ui.inverted.dimmer .ui.loader {
+  color: @loaderTextColor;
+}
+.ui.inverted.dimmer .ui.loader:before {
+  border-color: @loaderFillColor;
+}
+.ui.inverted.dimmer .ui.loader:after {
+  border-top-color: @loaderLineColor;
 }
 
 /*******************************
              Types
 *******************************/
-
-/*--------------
-      CSS
----------------*/
-
-/* Flipping */
-.ui.flipping.loader {
-  width: auto;
-  height: auto;
-  background-image: none !important;
-}
-.ui.flipping.loader .shape {
-  position: relative;
-  margin: 0em auto 1em;
-  color: transparent;
-  box-shadow: 0px 0px 0px 1px;
-  animation: loaderFlipping 1s infinite ease;
-  margin-bottom: 1em;
-  transform-style: preserve-3d;
-}
-.ui.flipping.loader .shape:before,
-.ui.flipping.loader .shape:after {
-  position: absolute;
-  content: '';
-  top: 0px;
-  left: 0px;
-  box-shadow: 0px 0px 0px 1px;
-  backface-visibility: hidden;
-}
-.ui.flipping.loader .shape:before {
-  background-color: @primaryColor;
-  transform: rotateY(0deg);
-  z-index: 2;
-}
-.ui.flipping.loader .shape:after {
-  background-color: @secondaryColor;
-  transform: rotateY(180deg);
-}
-
-/* Circular */
-.ui.flipping.circular.loader .shape,
-.ui.flipping.circular.loader .shape:before,
-.ui.flipping.circular.loader .shape:after {
-  border-radius: @circularRadius;
-}
-
-/* Sizes */
-.ui.mini.flipping.loader .shape,
-.ui.mini.flipping.loader .shape:before,
-.ui.mini.flipping.loader .shape:after {
-  width: @miniSize;
-  height: @miniSize;
-}
-.ui.flipping.loader .shape,
-.ui.flipping.loader .shape:before,
-.ui.flipping.loader .shape:after {
-  width: @mediumSize;
-  height: @mediumSize;
-}
-
-
-@keyframes loaderFlipping {
-  0% {
-    transform: perspective(6em) rotateX(0deg) rotateY(0deg);
-  }
-  50% {
-    transform: perspective(6em) rotateX(0deg) rotateY(-180deg);
-  }
-  100% {
-    transform: perspective(6em) rotateX(0deg) rotateY(-360deg);
-  }
-}
 
 
 /*-------------------
@@ -133,22 +153,6 @@
   font-style: normal;
 }
 
-.ui.mini.text.loader {
-  min-width: @miniSize;
-  padding-top: (@miniSize + @textDistance);
-}
-.ui.small.text.loader {
-  min-width: @smallSize;
-  padding-top: (@smallSize + @textDistance);
-}
-.ui.text.loader {
-  min-width: @mediumSize;
-  padding-top: (@mediumSize + @textDistance);
-}
-.ui.large.text.loader {
-  min-width: @largeSize;
-  padding-top: (@largeSize + @textDistance);
-}
 
 /*******************************
             States
@@ -172,40 +176,49 @@
         Sizes
 --------------------*/
 
-/* Tiny Size */
+
+/* Loader */
 .ui.inverted.dimmer .ui.mini.loader,
 .ui.mini.loader {
-  width: @miniSize;
-  height: @miniSize;
+  width: @mini;
+  height: @mini;
   font-size: @miniFontSize;
-  background-image: url(@miniLoaderPath);
 }
-
-/* Small Size */
 .ui.inverted.dimmer .ui.small.loader,
 .ui.small.loader {
-  width: @smallSize;
-  height: @smallSize;
+  width: @small;
+  height: @small;
   font-size: @smallFontSize;
-  background-image: url(@smallLoaderPath);
 }
-
 .ui.inverted.dimmer .ui.loader,
 .ui.loader {
-  width: @mediumSize;
-  height: @mediumSize;
+  width: @medium;
+  height: @medium;
   font-size: @mediumFontSize;
-  background: url(@mediumLoaderPath) no-repeat;
-  background-position: 50% 0px;
 }
-
-/* Large Size */
 .ui.inverted.dimmer .ui.loader.large,
 .ui.loader.large {
-  width: @largeSize;
-  height: @largeSize;
+  width: @large;
+  height: @large;
   font-size: @largeFontSize;
-  background-image: url(@largeLoaderPath);
+}
+
+/* Text Loader */
+.ui.mini.text.loader {
+  min-width: @mini;
+  padding-top: (@mini + @textDistance);
+}
+.ui.small.text.loader {
+  min-width: @small;
+  padding-top: (@small + @textDistance);
+}
+.ui.text.loader {
+  min-width: @medium;
+  padding-top: (@medium + @textDistance);
+}
+.ui.large.text.loader {
+  min-width: @large;
+  padding-top: (@large + @textDistance);
 }
 
 
@@ -213,32 +226,14 @@
        Inverted
 --------------------*/
 
-.ui.inverted.dimmer .ui.loader {
-  color: @invertedLoaderTextColor;
+.ui.inverted.loader {
+  color: @invertedLoaderTextColor
 }
-
-/* Tiny Size */
-.ui.dimmer .mini.ui.loader,
-.ui.inverted .mini.ui.loader {
-  background-image: url(@miniInvertedLoaderPath);
+.ui.inverted.loader:before {
+  border-color: @invertedLoaderFillColor;
 }
-
-/* Small Size */
-.ui.dimmer .small.ui.loader,
-.ui.inverted .small.ui.loader {
-  background-image: url(@smallInvertedLoaderPath);
-}
-
-/* Standard Size */
-.ui.dimmer .ui.loader,
-.ui.inverted.loader  {
-  background-image: url(@mediumInvertedLoaderPath);
-}
-
-/* Large Size */
-.ui.dimmer .large.ui.loader,
-.ui.inverted .large.ui.loader {
-  background-image: url(@largeInvertedLoaderPath);
+.ui.inverted.loader:after {
+  border-top-color: @invertedLoaderLineColor;
 }
 
 /*-------------------
@@ -246,9 +241,11 @@
 --------------------*/
 
 .ui.inline.loader {
-  position: static;
-  vertical-align: middle;
-  margin: 0em;
+  position: relative;
+  vertical-align: @inlineVerticalAlign;
+  margin: @inlineMargin;
+  left: 0em;
+  top: 0em;
   transform: none;
 }
 

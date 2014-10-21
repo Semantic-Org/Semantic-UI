@@ -83,9 +83,7 @@
 --------------------*/
 
 @loaderSpeed: 0.75s;
-
-@loaderLineWidth: 3px;
-
+@loaderLineWidth: 0.3em;
 @loaderFillColor: rgba(0, 0, 0, 0.1);
 @loaderLineColor: rgba(0, 0, 0, 0.3);
 @invertedLoaderFillColor: rgba(255, 255, 255, 0.15);
