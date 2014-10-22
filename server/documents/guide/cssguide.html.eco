@@ -517,7 +517,7 @@ type        : 'UI Guide'
     </div>
 
     <h3 class="ui header"><em>Recursively</em> Relative</h3>
-    <p>Using EMs multiplicative nature can be used to your advantage. Instead of defining multiple tiers of a menu system, consider using ems to reduce each tier's sizing. As you continue to nest menu elements each nested menu will computer its values with smaller proportions.</p>
+    <p>Using EMs multiplicative nature can be used to your advantage. Instead of defining multiple tiers of a menu system, consider using ems to reduce each tier's sizing. As you continue to nest menu elements each nested menu will compute its values with smaller proportions.</p>
     <div class="code" data-type="css">
     .ui.menu {
       font-size: 1rem;
