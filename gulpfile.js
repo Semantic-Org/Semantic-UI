@@ -228,9 +228,6 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function () {
         ;
 
       }
-      else {
-        console.error('Definition file not found', path);
-      }
     })
   ;
 
