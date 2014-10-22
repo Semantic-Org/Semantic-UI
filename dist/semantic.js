@@ -3549,7 +3549,8 @@ $.fn.dropdown = function(parameters) {
         $item           = $menu.find(selector.item),
 
         activated       = false,
-        selectionCache  = false,
+        itemActivated   = false,
+
         element         = this,
         instance        = $module.data(moduleNamespace),
         observer,
@@ -3796,6 +3797,8 @@ $.fn.dropdown = function(parameters) {
               ;
             }
             $module
+              .on('mousedown'  + eventNamespace, selector.item, module.event.item.mousedown)
+              .on('mouseup'    + eventNamespace, selector.item, module.event.item.mouseup)
               .on('mouseenter' + eventNamespace, selector.item, module.event.item.mouseenter)
               .on('mouseleave' + eventNamespace, selector.item, module.event.item.mouseleave)
               .on('click'      + eventNamespace, selector.item, module.event.item.click)
@@ -3898,14 +3901,17 @@ $.fn.dropdown = function(parameters) {
             module.show();
           },
           searchBlur: function(event) {
-            // give enough time for events to bubble
-            setTimeout(module.hide, 50);
+            if(!itemActivated) {
+              module.hide();
+            }
           },
           input: function(event) {
             var
               query = $search.val()
             ;
-            $text.addClass(className.filtered);
+            if(module.is.searchSelection()) {
+              $text.addClass(className.filtered);
+            }
             module.filter(query);
           },
           keydown: function(event) {
@@ -4017,6 +4023,12 @@ $.fn.dropdown = function(parameters) {
 
           item: {
 
+            mousedown: function() {
+              itemActivated = true;
+            },
+            mouseup: function() {
+              itemActivated = false;
+            },
             mouseenter: function(event) {
               var
                 $currentMenu = $(this).find(selector.menu),
@@ -4802,7 +4814,10 @@ $.fn.dropdown = function(parameters) {
 
 $.fn.dropdown.settings = {
 
-  /* Behavior */
+  debug          : false,
+  verbose        : true,
+  performance    : true,
+
   on             : 'click',
   action         : 'activate',
 
@@ -4820,17 +4835,15 @@ $.fn.dropdown.settings = {
   duration   : 250,
 
   /* Callbacks */
+
   onChange   : function(value, text){},
   onShow     : function(){},
   onHide     : function(){},
 
   /* Component */
+
   name           : 'Dropdown',
   namespace      : 'dropdown',
-
-  debug          : true,
-  verbose        : true,
-  performance    : true,
 
   error   : {
     action     : 'You called a dropdown action that was not defined',

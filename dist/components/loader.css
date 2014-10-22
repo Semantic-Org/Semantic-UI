@@ -50,8 +50,8 @@
   left: 50%;
   width: 100%;
   height: 100%;
-  -webkit-animation: loader-spin 0.75s linear;
-          animation: loader-spin 0.75s linear;
+  -webkit-animation: loader 0.6s linear;
+          animation: loader 0.6s linear;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
   border-radius: 500rem;
@@ -62,7 +62,7 @@
 }
 
 /* Active Animation */
-@-webkit-keyframes loader-spin {
+@-webkit-keyframes loader {
   from {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
@@ -72,7 +72,7 @@
             transform: rotate(360deg);
   }
 }
-@keyframes loader-spin {
+@keyframes loader {
   from {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
@@ -127,7 +127,7 @@
   border-color: rgba(255, 255, 255, 0.15);
 }
 .ui.dimmer .ui.loader:after {
-  border-top-color: #ffffff;
+  border-color: #ffffff transparent transparent;
 }
 
 /* White Dimmer (Inverted) */
@@ -138,7 +138,7 @@
   border-color: rgba(0, 0, 0, 0.1);
 }
 .ui.inverted.dimmer .ui.loader:after {
-  border-top-color: #aaaaaa;
+  border-color: #aaaaaa transparent transparent;
 }
 
 
@@ -163,6 +163,12 @@
             States
 *******************************/
 
+.ui.indeterminate.loader:after {
+  -webkit-animation-direction: reverse;
+          animation-direction: reverse;
+  -webkit-animation-duration: 1.2s;
+          animation-duration: 1.2s;
+}
 .ui.loader.active,
 .ui.loader.visible {
   display: block;

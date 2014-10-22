@@ -160,6 +160,8 @@
 @media only screen and (min-width: 768px) {
   .ui.page.grid {
     width: auto;
+    margin-left: 0em;
+    margin-right: 0em;
     padding-left: 8%;
     padding-right: 8%;
   }
@@ -167,6 +169,8 @@
 @media only screen and (min-width: 992px) {
   .ui.page.grid {
     width: auto;
+    margin-left: 0em;
+    margin-right: 0em;
     padding-left: 13%;
     padding-right: 13%;
   }
@@ -174,6 +178,8 @@
 @media only screen and (min-width: 1400px) {
   .ui.page.grid {
     width: auto;
+    margin-left: 0em;
+    margin-right: 0em;
     padding-left: 18%;
     padding-right: 18%;
   }
@@ -181,6 +187,8 @@
 @media only screen and (min-width: 1920px) {
   .ui.page.grid {
     width: auto;
+    margin-left: 0em;
+    margin-right: 0em;
     padding-left: 23%;
     padding-right: 23%;
   }

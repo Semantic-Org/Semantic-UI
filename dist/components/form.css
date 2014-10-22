@@ -479,8 +479,8 @@
   margin: -1.5em 0em 0em -1.5em;
   width: 3em;
   height: 3em;
-  -webkit-animation: form-spin 0.75s linear;
-          animation: form-spin 0.75s linear;
+  -webkit-animation: form-spin 0.6s linear;
+          animation: form-spin 0.6s linear;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
   border-radius: 500rem;
