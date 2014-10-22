@@ -1,0 +1,28 @@
+/*******************************
+         Theme Overrides
+*******************************/
+
+@keyframes loader-spin {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0.3;
+  }
+  20% {
+    transform: rotate(360deg);
+  }
+  40% {
+    transform: rotate(740deg);
+    opacity: 1;
+  }
+  60% {
+    transform: rotate(1120deg);
+    opacity: 1;
+  }
+  80% {
+    transform: rotate(1440deg);
+  }
+  100% {
+    transform: rotate(1800deg);
+    opacity: 0.3;
+  }
+}

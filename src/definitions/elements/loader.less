@@ -63,7 +63,7 @@
 
   border-radius: @circularRadius;
 
-  border-color: @loaderLineColor transparent transparent;
+  border-color: @shapeBorderColor;
   border-style: solid;
   border-width: @loaderLineWidth;
 
@@ -123,7 +123,7 @@
   border-color: @invertedLoaderFillColor;
 }
 .ui.dimmer .ui.loader:after {
-  border-top-color: @invertedLoaderLineColor;
+  border-color: @invertedShapeBorderColor;
 }
 
 /* White Dimmer (Inverted) */
@@ -134,7 +134,7 @@
   border-color: @loaderFillColor;
 }
 .ui.inverted.dimmer .ui.loader:after {
-  border-top-color: @loaderLineColor;
+  border-color: @shapeBorderColor;
 }
 
 /*******************************

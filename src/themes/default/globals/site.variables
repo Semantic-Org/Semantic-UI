@@ -33,6 +33,8 @@
 @white            : #FFFFFF;
 
 /*---  Light Colors  ---*/
+
+@lightBlack:      : #CCCCCC;
 @lightBlue        : #54C8FF;
 @lightGreen       : #2ECC40;
 @lightOrange      : #FF851B;
@@ -42,8 +44,12 @@
 @lightTeal        : #6DFFFF;
 @lightYellow      : #FFE21F;
 
-@primaryColor     : @blue;
-@secondaryColor   : @black;
+/*---  Brand Colors  ---*/
+@primaryColor        : @blue;
+@secondaryColor      : @black;
+
+@lightPrimaryColor   : @lightBlue;
+@lightSecondaryColor : @lightBlack;
 
 /*-------------------
         Page
@@ -82,7 +88,7 @@
        Loader
 --------------------*/
 
-@loaderSpeed: 0.75s;
+@loaderSpeed: 0.6s;
 @loaderLineWidth: 0.3em;
 @loaderFillColor: rgba(0, 0, 0, 0.1);
 @loaderLineColor: @darkGrey;
