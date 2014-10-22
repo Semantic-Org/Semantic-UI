@@ -24,13 +24,21 @@
 @labelTextTransform: none;
 @labelColor: @textColor;
 
-/* Grouped / Inline Labels */
+/* Grouped Labels */
 @groupedLabelDistance: @labelDistance;
 @groupedLabelColor: @labelColor;
 @groupedLabelMargin: @labelMargin;
 @groupedLabelFontSize: @labelFontSize;
 @groupedLabelFontWeight: @labelFontWeight;
 @groupedLabelTextTransform: @labelTextTransform;
+
+/* Inline Labels */
+@inlineLabelMargin: 0em 1em 0em 0em;
+@inlineLabelDistance: @labelDistance;
+@inlineLabelColor: @labelColor;
+@inlineLabelFontSize: @labelFontSize;
+@inlineLabelFontWeight: @labelFontWeight;
+@inlineLabelTextTransform: @labelTextTransform;
 
 /* Input */
 @inputWidth: 100%;

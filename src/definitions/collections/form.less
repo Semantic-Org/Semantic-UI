@@ -65,13 +65,22 @@
   font-weight: @labelFontWeight;
   text-transform: @labelTextTransform;
 }
-.ui.form .grouped.fields > label,
-.ui.form .inline.fields > label {
+.ui.form .grouped.fields > label {
   margin: @groupedLabelMargin;
   color: @groupedLabelColor;
   font-size: @groupedLabelFontSize;
   font-weight: @groupedLabelFontWeight;
   text-transform: @groupedLabelTextTransform;
+}
+.ui.form .inline.fields > label {
+  display: inline-block;
+  vertical-align: middle;
+
+  margin: @inlineLabelMargin;
+  color: @inlineLabelColor;
+  font-size: @inlineLabelFontSize;
+  font-weight: @inlineLabelFontWeight;
+  text-transform: @inlineLabelTextTransform;
 }
 
 /*--------------------
@@ -393,15 +402,15 @@
 }
 .ui.form .fields.error .field .ui.dropdown,
 .ui.form .field.error .ui.dropdown {
-  box-shadow: 0px 0px 0px 1px @formErrorBorder !important;
+  border-color: @formErrorBorder !important;
 }
 .ui.form .fields.error .field .ui.dropdown:hover,
 .ui.form .field.error .ui.dropdown:hover {
-  box-shadow: 0px 0px 0px 1px @formErrorBorder !important;
+  border-color: @formErrorBorder !important;
 }
 .ui.form .fields.error .field .ui.dropdown:hover .menu,
 .ui.form .field.error .ui.dropdown:hover .menu {
-  box-shadow: 0px 1px 0px 1px @formErrorBorder;
+  border-color: @formErrorBorder;
 }
 /* Hover */
 .ui.form .fields.error .field .ui.dropdown .menu .item:hover,
@@ -759,6 +768,7 @@
 }
 .ui.form .inline.fields .field {
   display: inline-block;
+  float: none;
   margin: @inlineFieldsMargin;
   padding: 0em;
 }
