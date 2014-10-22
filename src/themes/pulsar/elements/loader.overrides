@@ -2,10 +2,10 @@
          Theme Overrides
 *******************************/
 
-@keyframes loader-spin {
+@keyframes loader {
   0% {
     transform: rotate(0deg);
-    opacity: 0.3;
+    opacity: 0;
   }
   20% {
     transform: rotate(360deg);
@@ -23,6 +23,6 @@
   }
   100% {
     transform: rotate(1800deg);
-    opacity: 0.3;
+    opacity: 0;
   }
 }

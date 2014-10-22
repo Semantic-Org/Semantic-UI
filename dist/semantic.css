@@ -340,15 +340,15 @@
 *******************************/
 
 .ui.mini.breadcrumb {
-  font-size: 0.7142em;
+  font-size: 0.65em;
 }
 
 .ui.tiny.breadcrumb {
-  font-size: 0.8571em;
+  font-size: 0.7em;
 }
 
 .ui.small.breadcrumb {
-  font-size: 0.9285em;
+  font-size: 0.75em;
 }
 
 .ui.breadcrumb {
@@ -356,19 +356,19 @@
 }
 
 .ui.large.breadcrumb {
-  font-size: 1.1428em;
+  font-size: 1.1em;
 }
 
 .ui.big.breadcrumb {
-  font-size: 1.2857em;
+  font-size: 1.05em;
 }
 
 .ui.huge.breadcrumb {
-  font-size: 1.4285em;
+  font-size: 1.3em;
 }
 
 .ui.massive.breadcrumb {
-  font-size: 1.7142em;
+  font-size: 1.5em;
 }
 
 /*******************************
@@ -15978,10 +15978,30 @@ ol.ui.list ol,
             Coupling
 *******************************/
 
+.ui.menu .ui.list > .item,
+.ui.menu .ui.list .list > .item {
+  display: list-item;
+  table-layout: fixed;
+  list-style-type: none;
+  list-style-position: outside;
+  padding: 0.3em 0em;
+  line-height: 1.2;
+}
+
 .ui.menu .ui.list .list > .item:before,
 .ui.menu .ui.list > .item:before {
   border: none;
   background: none;
+}
+
+.ui.menu .ui.list .list > .item:first-child,
+.ui.menu .ui.list > .item:first-child {
+  padding-top: 0em;
+}
+
+.ui.menu .ui.list .list > .item:last-child,
+.ui.menu .ui.list > .item:last-child {
+  padding-bottom: 0em;
 }
 
 /*******************************
@@ -16263,6 +16283,7 @@ ul.ui.list li:before,
 .ui.bulleted.list .list > .item:before,
 .ui.bulleted.list > .item:before {
   position: absolute;
+  top: auto;
   left: -1rem;
   content: '•';
   opacity: 1;
@@ -20010,6 +20031,18 @@ a.ui.nag {
   right: auto;
   margin-top: -0.325em;
   box-shadow: -1px 1px 0px 0px #b3b3b3;
+}
+
+/*******************************
+            Coupling
+*******************************/
+
+/* Immediate Nested Grid */
+
+.ui.popup > .ui.grid:not(.padded) {
+  width: -webkit-calc(100% + 1.75rem);
+  width: calc(100% + 1.75rem);
+  margin: -0.7rem -0.875rem;
 }
 
 /*******************************

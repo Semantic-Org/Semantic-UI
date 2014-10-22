@@ -3567,9 +3567,10 @@ $.fn.dropdown = function(parameters) {
           if(hasTouch) {
             module.bind.touchEvents();
           }
-          module.observeChanges();
           module.bind.mouseEvents();
           module.bind.keyboardEvents();
+
+          module.observeChanges();
           module.instantiate();
         },
 
@@ -3749,20 +3750,6 @@ $.fn.dropdown = function(parameters) {
                 .on(module.get.inputEvent(), selector.search, module.event.input)
               ;
             }
-            if( module.is.searchSelection() ) {
-              $module
-                .on('focus' + eventNamespace, selector.search, module.event.searchFocus)
-                .on('blur' + eventNamespace, selector.search, module.event.searchBlur)
-              ;
-            }
-            else {
-              $module
-                .on('mousedown', module.event.mousedown)
-                .on('mouseup', module.event.mouseup)
-                .on('focus' + eventNamespace, module.event.focus)
-                .on('blur' + eventNamespace, module.event.blur)
-              ;
-            }
           },
           touchEvents: function() {
             module.debug('Touch device detected binding touch events');
@@ -3778,7 +3765,13 @@ $.fn.dropdown = function(parameters) {
           },
           mouseEvents: function() {
             module.verbose('Mouse detected binding mouse events');
-            if( !module.is.searchSelection() ) {
+            if( module.is.searchSelection() ) {
+              $module
+                .on('focus' + eventNamespace, selector.search, module.event.searchFocus)
+                .on('blur' + eventNamespace, selector.search, module.event.searchBlur)
+              ;
+            }
+            else {
               if(settings.on == 'click') {
                 $module
                   .on('click' + eventNamespace, module.event.test.toggle)
@@ -3795,6 +3788,12 @@ $.fn.dropdown = function(parameters) {
                   .on(settings.on + eventNamespace, module.toggle)
                 ;
               }
+              $module
+                .on('mousedown', module.event.mousedown)
+                .on('mouseup', module.event.mouseup)
+                .on('focus' + eventNamespace, module.event.focus)
+                .on('blur' + eventNamespace, module.event.blur)
+              ;
             }
             $module
               .on('mouseenter' + eventNamespace, selector.item, module.event.item.mouseenter)
@@ -3899,7 +3898,8 @@ $.fn.dropdown = function(parameters) {
             module.show();
           },
           searchBlur: function(event) {
-            module.hide();
+            // give enough time for events to bubble
+            setTimeout(module.hide, 50);
           },
           input: function(event) {
             var
@@ -4828,7 +4828,7 @@ $.fn.dropdown.settings = {
   name           : 'Dropdown',
   namespace      : 'dropdown',
 
-  debug          : false,
+  debug          : true,
   verbose        : true,
   performance    : true,
 

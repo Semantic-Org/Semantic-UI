@@ -217,10 +217,27 @@ ol.ui.list ol,
             Coupling
 *******************************/
 
+.ui.menu .ui.list > .item,
+.ui.menu .ui.list .list > .item {
+  display: list-item;
+  table-layout: fixed;
+  list-style-type: none;
+  list-style-position: outside;
+  padding: 0.3em 0em;
+  line-height: 1.2;
+}
 .ui.menu .ui.list .list > .item:before,
 .ui.menu .ui.list > .item:before {
   border: none;
   background: none;
+}
+.ui.menu .ui.list .list > .item:first-child,
+.ui.menu .ui.list > .item:first-child {
+  padding-top: 0em;
+}
+.ui.menu .ui.list .list > .item:last-child,
+.ui.menu .ui.list > .item:last-child {
+  padding-bottom: 0em;
 }
 
 
@@ -478,6 +495,7 @@ ul.ui.list li:before,
 .ui.bulleted.list .list > .item:before,
 .ui.bulleted.list > .item:before {
   position: absolute;
+  top: auto;
   left: -1rem;
   content: '•';
   opacity: 1;

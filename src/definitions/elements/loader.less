@@ -58,7 +58,7 @@
   width: 100%;
   height: 100%;
 
-  animation: loader-spin @loaderSpeed linear;
+  animation: loader @loaderSpeed linear;
   animation-iteration-count: infinite;
 
   border-radius: @circularRadius;
@@ -71,7 +71,7 @@
 }
 
 /* Active Animation */
-@keyframes loader-spin {
+@keyframes loader {
   from {
     transform: rotate(0deg);
   }
@@ -157,6 +157,11 @@
 /*******************************
             States
 *******************************/
+
+.ui.indeterminate.loader:after {
+  animation-direction: @indeterminateDirection;
+  animation-duration: @indeterminateSpeed;
+}
 
 .ui.loader.active,
 .ui.loader.visible {

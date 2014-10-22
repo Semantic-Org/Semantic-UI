@@ -33,7 +33,8 @@
         States
 --------------------*/
 
-
+@indeterminateDirection: reverse;
+@indeterminateSpeed: (2 * @loaderSpeed);
 
 /*-------------------
       Variations
