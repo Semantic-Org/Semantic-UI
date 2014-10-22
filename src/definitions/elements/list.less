@@ -231,6 +231,16 @@ ol.ui.list ol,
             Coupling
 *******************************/
 
+.ui.menu .ui.list > .item,
+.ui.menu .ui.list .list > .item {
+  display: list-item;
+  table-layout: fixed;
+  list-style-type: @listStyleType;
+  list-style-position: @listStylePosition;
+
+  padding: @itemVerticalPadding @itemHorizontalPadding;
+  line-height: @itemLineHeight;
+}
 .ui.menu .ui.list .list > .item:before,
 .ui.menu .ui.list > .item:before {
   border: none;
