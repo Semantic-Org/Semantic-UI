@@ -60,7 +60,9 @@
        Coupling
 --------------------*/
 
-@popupButtonWidth: 100%;
+/* (padding * @medium) */
+@nestedGridMargin: -0.7rem -0.875rem;
+@nestedGridWidth: ~"calc(100% + 1.75rem)";
 
 /*-------------------
        States

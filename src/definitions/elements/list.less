@@ -246,6 +246,14 @@ ol.ui.list ol,
   border: none;
   background: none;
 }
+.ui.menu .ui.list .list > .item:first-child,
+.ui.menu .ui.list > .item:first-child {
+  padding-top: 0em;
+}
+.ui.menu .ui.list .list > .item:last-child,
+.ui.menu .ui.list > .item:last-child {
+  padding-bottom: 0em;
+}
 
 
 /*******************************
@@ -496,6 +504,7 @@ ul.ui.list li:before,
 .ui.bulleted.list .list > .item:before,
 .ui.bulleted.list > .item:before {
   position: absolute;
+  top: auto;
   left: @bulletOffset;
   content: @bulletCharacter;
   opacity: @bulletOpacity;
