@@ -417,7 +417,9 @@ $.fn.dropdown = function(parameters) {
             var
               query = $search.val()
             ;
-            $text.addClass(className.filtered);
+            if(module.is.searchSelection()) {
+              $text.addClass(className.filtered);
+            }
             module.filter(query);
           },
           keydown: function(event) {
