@@ -59,7 +59,8 @@ $.fn.dropdown = function(parameters) {
         $item           = $menu.find(selector.item),
 
         activated       = false,
-        selectionCache  = false,
+        itemActivated   = false,
+
         element         = this,
         instance        = $module.data(moduleNamespace),
         observer,
@@ -306,7 +307,8 @@ $.fn.dropdown = function(parameters) {
               ;
             }
             $module
-              .on('mousedown' + eventNamespace, selector.item, module.event.item.mousedown)
+              .on('mousedown'  + eventNamespace, selector.item, module.event.item.mousedown)
+              .on('mouseup'    + eventNamespace, selector.item, module.event.item.mouseup)
               .on('mouseenter' + eventNamespace, selector.item, module.event.item.mouseenter)
               .on('mouseleave' + eventNamespace, selector.item, module.event.item.mouseleave)
               .on('click'      + eventNamespace, selector.item, module.event.item.click)
@@ -409,7 +411,7 @@ $.fn.dropdown = function(parameters) {
             module.show();
           },
           searchBlur: function(event) {
-            if(!activated) {
+            if(!itemActivated) {
               module.hide();
             }
           },
@@ -532,9 +534,11 @@ $.fn.dropdown = function(parameters) {
           item: {
 
             mousedown: function() {
-              activated = true;
+              itemActivated = true;
             },
-
+            mouseup: function() {
+              itemActivated = false;
+            },
             mouseenter: function(event) {
               var
                 $currentMenu = $(this).find(selector.menu),
