@@ -195,7 +195,6 @@ $.fn.dropdown = function(parameters) {
 
         toggle: function() {
           module.verbose('Toggling menu visibility');
-          console.log(module.is.active());
           if( !module.is.active() ) {
             module.show();
           }
@@ -242,7 +241,6 @@ $.fn.dropdown = function(parameters) {
             $subMenus = $menu.find(selector.menu),
             $activeSubMenu = $subMenus.has(selector.item + '.' + className.active)
           ;
-          console.log($subMenus.not($activeSubMenu));
           $subMenus
             .not($activeSubMenu)
               .removeClass(className.visible)
@@ -1005,7 +1003,6 @@ $.fn.dropdown = function(parameters) {
                 $.proxy(callback, element)();
               }
               else if($.fn.transition !== undefined && $module.transition('is supported')) {
-                console.log('showing menu');
                 $currentMenu
                   .transition({
                     animation : settings.transition + ' in',
