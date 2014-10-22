@@ -22,6 +22,7 @@
 
 @labelTransitionDuration: @transitionDuration;
 @labelTransitionEasing: @transitionEasing;
+@transition: background @labelTransitionDuration @labelTransitionEasing;
 
 /* Group */
 @groupVerticalMargin: 0.75em;
@@ -32,6 +33,8 @@
 --------------------*/
 
 @linkOpacity: 0.8;
+@linkTransition: @labelTransitionDuration opacity @labelTransitionEasing;
+
 @iconDistance: 0.75em;
 
 @detailFontWeight: bold;
@@ -40,6 +43,7 @@
 @detailMargin: 1em;
 
 @deleteMargin: 0.5em;
+@deleteTransition: background @labelTransitionDuration @labelTransitionEasing;
 
 /*-------------------
         Types
@@ -83,6 +87,7 @@
 @tagTriangleRightOffset: 100%;
 @tagTriangleTopOffset: 50%;
 @tagTriangleSize: 1.56em;
+@tagTransition: background @labelTransitionDuration @labelTransitionEasing;
 
 /* Ribbon */
 @ribbonDistance: 2rem;
@@ -107,7 +112,11 @@
 
 /* Corner */
 @cornerSizeRatio: 1;
+@cornerTransition: color @labelTransitionDuration @labelTransitionEasing;
 @cornerTriangleSize: 3.25em;
+@cornerTriangleTransition: border-color @labelTransitionDuration @labelTransitionEasing;
+@cornerTriangleZIndex: 10;
+
 @cornerIconSize: 1em;
 @cornerIconTopOffset: 0.4em;
 @cornerIconLeftOffset: 0.75em;
@@ -128,12 +137,17 @@
 @emptyCircleSize: 0.5em;
 
 /* Pointing */
+@pointingVerticalDistance: 1em;
+@pointingHorizontalDistance: 0em;
 @pointingTriangleSize: 0.6em;
 @pointingTriangleOffset: (@pointingTriangleSize / 2);
+@pointingTriangleTransition: background @labelTransitionDuration @labelTransitionEasing;
+@pointingTriangleZIndex: 2;
 
 /* Floating */
 @floatingTopOffset: -1em;
 @floatingLeftOffset: -1.5em;
+@floatingZIndex: 100;
 
 /*-------------------
         Group
