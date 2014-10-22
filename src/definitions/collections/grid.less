@@ -163,14 +163,16 @@
 @media only screen and (max-width: (@largestMobileScreen)) {
   .ui.page.grid {
     width: @mobileWidth;
-    padding-left: 0em;
-    padding-right: 0em;
+    padding-left: @mobileGutter;
+    padding-right: @mobileGutter;
     margin: 0em;
   }
 }
 @media only screen and (min-width: @tabletBreakpoint) {
   .ui.page.grid {
     width: @tabletWidth;
+    margin-left: @tabletMargin;
+    margin-right: @tabletMargin;
     padding-left: @tabletGutter;
     padding-right: @tabletGutter;
   }
@@ -178,6 +180,8 @@
 @media only screen and (min-width: @computerBreakpoint) {
   .ui.page.grid {
     width: @computerWidth;
+    margin-left: @computerMargin;
+    margin-right: @computerMargin;
     padding-left: @computerGutter;
     padding-right: @computerGutter;
   }
@@ -185,6 +189,8 @@
 @media only screen and (min-width: @largeMonitorBreakpoint) {
   .ui.page.grid {
     width: @largeMonitorWidth;
+    margin-left: @largeMonitorMargin;
+    margin-right: @largeMonitorMargin;
     padding-left: @largeMonitorGutter;
     padding-right: @largeMonitorGutter;
   }
@@ -192,6 +198,8 @@
 @media only screen and (min-width: @widescreenMonitorBreakpoint) {
   .ui.page.grid {
     width: @widescreenMonitorWidth;
+    margin-left: @widescreenMargin;
+    margin-right: @widescreenMargin;
     padding-left: @widescreenMonitorGutter;
     padding-right: @widescreenMonitorGutter;
   }

@@ -1324,7 +1324,10 @@ $.fn.dropdown = function(parameters) {
 
 $.fn.dropdown.settings = {
 
-  /* Behavior */
+  debug          : false,
+  verbose        : true,
+  performance    : true,
+
   on             : 'click',
   action         : 'activate',
 
@@ -1342,17 +1345,15 @@ $.fn.dropdown.settings = {
   duration   : 250,
 
   /* Callbacks */
+
   onChange   : function(value, text){},
   onShow     : function(){},
   onHide     : function(){},
 
   /* Component */
+
   name           : 'Dropdown',
   namespace      : 'dropdown',
-
-  debug          : true,
-  verbose        : true,
-  performance    : true,
 
   error   : {
     action     : 'You called a dropdown action that was not defined',
