@@ -55,6 +55,12 @@ $.fn.sidebar = function(parameters) {
 
         initialize: function() {
           module.debug('Initializing sidebar', $module);
+
+          if (settings.scrollLock) {
+            var eventMousewheel = "onmousewheel" in window ? (("ActiveXObject" in window) ? "wheel" : "mousewheel") : "DOMMouseScroll";
+            $module.on(eventMousewheel + eventNamespace, module.wheelScroll);            
+          }
+
           module.instantiate();
         },
 
@@ -72,6 +78,28 @@ $.fn.sidebar = function(parameters) {
             .off(eventNamespace)
             .removeData(moduleNamespace)
           ;
+        },        
+
+        wheelScroll: function (event) {
+          if (!event.ctrlKey && module.is.scrollable()) {
+            var scrollTop = $module.scrollTop(),
+                scrollHeight = $module.prop('scrollHeight'),
+                clientHeight = $module.prop('clientHeight'),
+                delta = event.originalEvent.wheelDelta || (-1 * event.originalEvent.detail) || (-1 * event.originalEvent.deltaY),
+                deltaY = 0
+            ;
+            if (event.type == "wheel") {
+              var ratio = $module.height() / $(window).height();
+              deltaY = event.originalEvent.deltaY * ratio;
+            }
+
+            if (delta > 0 && scrollTop + deltaY <= 0 || delta < 0 && scrollTop + deltaY >= scrollHeight - clientHeight) {
+              event.stopPropagation();
+              event.preventDefault();
+              if (deltaY)
+                $module.scrollTop(scrollTop + deltaY);
+            }
+          }
         },
 
         refresh: function() {
@@ -293,6 +321,14 @@ $.fn.sidebar = function(parameters) {
           },
           vertical: function() {
             return $module.hasClass(className.top);
+          },
+          scrollable: function () {
+            var clientWidth = $module.prop('clientWidth'),
+                offsetWidth = $module.prop('offsetWidth'),
+                borderRightWidth = parseInt($module.css('border-right-width'), 10),
+                borderLeftWidth = parseInt($module.css('border-left-width'), 10)
+            ;
+            return clientWidth + borderLeftWidth + borderRightWidth < offsetWidth;
           }
         },
 
@@ -486,6 +522,7 @@ $.fn.sidebar.settings = {
   exclusive   : true,
   overlay     : false,
   duration    : 300,
+  scrollLock  : true,
 
   onChange     : function(){},
   onShow       : function(){},
