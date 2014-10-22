@@ -154,12 +154,11 @@
 --------------------*/
 
 /* Sizing */
-
-@mini    : 0.6428em;
-@tiny    : 0.7142em;
-@small    : 0.7857em;
-@medium   : 0.8571em;
-@large   : 1em;
-@big     : 1.1428em;
-@huge    : 1.2857em;
-@massive : 1.4285em;
+@mini    : 0.6428rem;
+@tiny    : 0.7142rem;
+@small   : 0.7857rem;
+@medium  : 0.8571rem;
+@large   : 1rem;
+@big     : 1.1428rem;
+@huge    : 1.2857rem;
+@massive : 1.4285rem;
