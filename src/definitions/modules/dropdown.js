@@ -306,6 +306,7 @@ $.fn.dropdown = function(parameters) {
               ;
             }
             $module
+              .on('mousedown' + eventNamespace, selector.item, module.event.item.mousedown)
               .on('mouseenter' + eventNamespace, selector.item, module.event.item.mouseenter)
               .on('mouseleave' + eventNamespace, selector.item, module.event.item.mouseleave)
               .on('click'      + eventNamespace, selector.item, module.event.item.click)
@@ -408,8 +409,9 @@ $.fn.dropdown = function(parameters) {
             module.show();
           },
           searchBlur: function(event) {
-            // give enough time for events to bubble
-            setTimeout(module.hide, 50);
+            if(!activated) {
+              module.hide();
+            }
           },
           input: function(event) {
             var
@@ -526,6 +528,10 @@ $.fn.dropdown = function(parameters) {
           },
 
           item: {
+
+            mousedown: function() {
+              activated = true;
+            },
 
             mouseenter: function(event) {
               var
