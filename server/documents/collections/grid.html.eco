@@ -756,6 +756,86 @@ type        : 'UI Collection'
   </div>
 
   <div class="example">
+    <h4 class="ui header">Hide on Device</h4>
+    <p>A grid can hide its columns for computer, tablet, or mobile.</p>
+    <div class="ui grid">
+      <div class="two column skip mobile row">
+        <div class="column">
+          <div class="ui segment">
+            Hidden for Mobile
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            Mobile
+          </div>
+        </div>
+      </div>
+      <div class="three column row">
+        <div class="skip computer column">
+          <div class="ui segment">
+            Hidden for Computer
+          </div>
+        </div>
+        <div class="skip tablet mobile column">
+          <div class="ui segment">
+            Hidden for Tablet and Mobile
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            All Sizes
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            All Sizes
+          </div>
+        </div>
+      </div>
+      <div class="four column skip computer row">
+        <div class="column">
+          <div class="ui segment">
+            Hidden for Computer
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            Computer
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            Computer
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            Computer
+          </div>
+        </div>
+      </div>
+      <div class="three column skip tablet row">
+        <div class="column">
+          <div class="ui segment">
+            Hidden for Tablet
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            Tablet
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            Tablet
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
     <h4 class="ui header">Equal Height</h4>
     <p>A row can specify that it is equal height so all of its columns appear the length of its longest column.</p>
     <div class="ui three column grid">
@@ -922,6 +1002,37 @@ type        : 'UI Collection'
       </div>
       <div class="three wide column">
         <div class="ui segment"><b>Column Three</b> Donec semper mollis condimentum. Aenean eget rutrum magna. Mauris ornare nibh scelerisque turpis lobortis dignissim. Etiam eleifend justo eget quam semper vulputate. Nulla et risus convallis velit molestie iaculis. Aliquam erat volutpat. </div>
+      </div>
+    </div>
+  </div>
+  <div class="example">
+    <h4 class="ui header">Column Width by Device</h4>
+    <p>A column can vary in width depending on the device.</p>
+
+    <div class="ui grid">
+      <div class="mobile-six tablet-twelve three wide column">
+        <div class="ui segment"><b>Column One</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum iaculis sapien.</div>
+      </div>
+      <div class="mobile-six tablet-six six wide column">
+        <div class="ui segment"><b>Column Two</b> Aliquam lobortis commodo sem ac accumsan. Vestibulum non faucibus lorem. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur sed lorem lorem. Nam augue erat, dignissim nec aliquam vel, congue et sapien. Integer viverra justo vel nibh suscipit commodo. Nullam ut turpis nibh, in luctus risus. Sed ut risus nec dui mattis porta. Nam nisi magna, ornare mollis congue a, suscipit at nisl.</div>
+      </div>
+      <div class="mobile-twelve tablet-six three wide column">
+        <div class="ui segment"><b>Column Three</b> Donec semper mollis condimentum. Aenean eget rutrum magna. Mauris ornare nibh scelerisque turpis lobortis dignissim. Etiam eleifend justo eget quam semper vulputate. Nulla et risus convallis velit molestie iaculis. Aliquam erat volutpat. </div>
+      </div>
+    </div>
+  </div>
+  <div class="example">
+    <h4 class="ui header">Column Order</h4>
+    <p>A column can be positioned in a different order.</p>
+    <div class="ui grid">
+      <div class="three wide column push-six">
+        <div class="ui segment"><b>Column One</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum iaculis sapien.</div>
+      </div>
+      <div class="six wide column pull-three">
+        <div class="ui segment"><b>Column Two</b> Aliquam lobortis commodo sem ac accumsan. Vestibulum non faucibus lorem. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur sed lorem lorem.</div>
+      </div>
+      <div class="three wide column">
+        <div class="ui segment"><b>Column Three</b> Donec semper mollis condimentum. Aenean eget rutrum magna. Mauris ornare nibh scelerisque turpis lobortis dignissim. </div>
       </div>
     </div>
   </div>

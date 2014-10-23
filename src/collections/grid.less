@@ -742,3 +742,1202 @@ body > .ui.grid {
   }
 
 }
+
+  /*-----------------
+      Skip device
+  ------------------*/
+
+@media only screen and (max-width : 767px) {
+  .skip.mobile {
+    display: none !important;
+  }
+}
+
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+  .skip.tablet {
+    display: none !important;
+  }
+}
+
+@media only screen and (min-width : 991px) {
+  .skip.computer {
+    display: none !important;
+  }
+}
+
+  /*----------------------------------
+      Column Width & Count by size
+  -----------------------------------*/
+
+@media only screen and (max-width : 767px) {
+
+  /* Sizing Combinations */
+  .ui.grid > .row > .mobile-one.wide.column,
+  .ui.grid > .column.row > .mobile-one.wide.column,
+  .ui.grid > .mobile-one.wide.column,
+  .ui.column.grid > .mobile-one.wide.column {
+    width: 6.25%;
+  }
+  .ui.grid > .row > .mobile-two.wide.column,
+  .ui.grid > .column.row > .mobile-two.wide.column,
+  .ui.grid > .mobile-two.wide.column,
+  .ui.column.grid > .mobile-two.wide.column {
+    width: 12.5%;
+  }
+  .ui.grid > .row > .mobile-three.wide.column,
+  .ui.grid > .column.row > .mobile-three.wide.column,
+  .ui.grid > .mobile-three.wide.column,
+  .ui.column.grid > .mobile-three.wide.column {
+    width: 18.75%;
+  }
+  .ui.grid > .row > .mobile-four.wide.column,
+  .ui.grid > .column.row > .mobile-four.wide.column,
+  .ui.grid > .mobile-four.wide.column,
+  .ui.column.grid > .mobile-four.wide.column {
+    width: 25%;
+  }
+  .ui.grid > .row > .mobile-five.wide.column,
+  .ui.grid > .column.row > .mobile-five.wide.column,
+  .ui.grid > .mobile-five.wide.column,
+  .ui.column.grid > .mobile-five.wide.column {
+    width: 31.25%;
+  }
+  .ui.grid > .row > .mobile-six.wide.column,
+  .ui.grid > .column.row > .mobile-six.wide.column,
+  .ui.grid > .mobile-six.wide.column,
+  .ui.column.grid > .mobile-six.wide.column {
+    width: 37.5%;
+  }
+  .ui.grid > .row > .mobile-seven.wide.column,
+  .ui.grid > .column.row > .mobile-seven.wide.column,
+  .ui.grid > .mobile-seven.wide.column,
+  .ui.column.grid > .mobile-seven.wide.column {
+    width: 43.75%;
+  }
+  .ui.grid > .row > .mobile-eight.wide.column,
+  .ui.grid > .column.row > .mobile-eight.wide.column,
+  .ui.grid > .mobile-eight.wide.column,
+  .ui.column.grid > .mobile-eight.wide.column {
+    width: 50%;
+  }
+  .ui.grid > .row > .mobile-nine.wide.column,
+  .ui.grid > .column.row > .mobile-nine.wide.column,
+  .ui.grid > .mobile-nine.wide.column,
+  .ui.column.grid > .mobile-nine.wide.column {
+    width: 56.25%;
+  }
+  .ui.grid > .row > .mobile-ten.wide.column,
+  .ui.grid > .column.row > .mobile-ten.wide.column,
+  .ui.grid > .mobile-ten.wide.column,
+  .ui.column.grid > .mobile-ten.wide.column {
+    width: 62.5%;
+  }
+  .ui.grid > .row > .mobile-eleven.wide.column,
+  .ui.grid > .column.row > .mobile-eleven.wide.column,
+  .ui.grid > .mobile-eleven.wide.column,
+  .ui.column.grid > .mobile-eleven.wide.column {
+    width: 68.75%;
+  }
+  .ui.grid > .row > .mobile-twelve.wide.column,
+  .ui.grid > .column.row > .mobile-twelve.wide.column,
+  .ui.grid > .mobile-twelve.wide.column,
+  .ui.column.grid > .mobile-twelve.wide.column {
+    width: 75%;
+  }
+  .ui.grid > .row > .mobile-thirteen.wide.column,
+  .ui.grid > .column.row > .mobile-thirteen.wide.column,
+  .ui.grid > .mobile-thirteen.wide.column,
+  .ui.column.grid > .mobile-thirteen.wide.column {
+    width: 81.25%;
+  }
+  .ui.grid > .row > .mobile-fourteen.wide.column,
+  .ui.grid > .column.row > .mobile-fourteen.wide.column,
+  .ui.grid > .mobile-fourteen.wide.column,
+  .ui.column.grid > .mobile-fourteen.wide.column {
+    width: 87.5%;
+  }
+  .ui.grid > .row > .mobile-fifteen.wide.column,
+  .ui.grid > .column.row > .mobile-fifteen.wide.column,
+  .ui.grid > .mobile-fifteen.wide.column,
+  .ui.column.grid > .mobile-fifteen.wide.column {
+    width: 93.75%;
+  }
+  .ui.grid > .row > .mobile-sixteen.wide.column,
+  .ui.grid > .column.row > .mobile-sixteen.wide.column,
+  .ui.grid > .mobile-sixteen.wide.column,
+  .ui.column.grid > .mobile-sixteen.wide.column {
+    width: 100%;
+  }
+
+  /* Assume full width with one column */
+  .ui.mobile-one.column.grid > .row > .column,
+  .ui.mobile-one.column.grid > .column,
+  .ui.grid > .one.column.row > .column {
+    width: 100%;
+  }
+  .ui.mobile-two.column.grid > .row > .column,
+  .ui.mobile-two.column.grid > .column,
+  .ui.grid > .two.column.row > .column {
+    width: 50%;
+  }
+  .ui.mobile-three.column.grid > .row > .column,
+  .ui.mobile-three.column.grid > .column,
+  .ui.grid > .three.column.row > .column {
+    width: 33.3333%;
+  }
+  .ui.mobile-four.column.grid > .row > .column,
+  .ui.mobile-four.column.grid > .column,
+  .ui.grid > .four.column.row > .column {
+    width: 25%;
+  }
+  .ui.mobile-five.column.grid > .row > .column,
+  .ui.mobile-five.column.grid > .column,
+  .ui.grid > .five.column.row > .column {
+    width: 20%;
+  }
+  .ui.mobile-six.column.grid > .row > .column,
+  .ui.mobile-six.column.grid > .column,
+  .ui.grid > .six.column.row > .column {
+    width: 16.66667%;
+  }
+  .ui.mobile-seven.column.grid > .row > .column,
+  .ui.mobile-seven.column.grid > .column,
+  .ui.grid > .seven.column.row > .column {
+    width: 14.2857%;
+  }
+  .ui.mobile-eight.column.grid > .row > .column,
+  .ui.mobile-eight.column.grid > .column,
+  .ui.grid > .eight.column.row > .column {
+    width: 12.5%;
+  }
+  .ui.mobile-nine.column.grid > .row > .column,
+  .ui.mobile-nine.column.grid > .column,
+  .ui.grid > .nine.column.row > .column {
+    width: 11.1111%;
+  }
+  .ui.mobile-ten.column.grid > .row > .column,
+  .ui.mobile-ten.column.grid > .column,
+  .ui.grid > .ten.column.row > .column {
+    width: 10%;
+  }
+  .ui.mobile-eleven.column.grid > .row > .column,
+  .ui.mobile-eleven.column.grid > .column,
+  .ui.grid > .eleven.column.row > .column {
+    width: 9.0909%;
+  }
+  .ui.mobile-twelve.column.grid > .row > .column,
+  .ui.mobile-twelve.column.grid > .column,
+  .ui.grid > .twelve.column.row > .column {
+    width: 8.3333%;
+  }
+  .ui.mobile-thirteen.column.grid > .row > .column,
+  .ui.mobile-thirteen.column.grid > .column,
+  .ui.grid > .thirteen.column.row > .column {
+    width: 7.6923%;
+  }
+  .ui.mobile-fourteen.column.grid > .row > .column,
+  .ui.mobile-fourteen.column.grid > .column,
+  .ui.grid > .fourteen.column.row > .column {
+    width: 7.1428%;
+  }
+  .ui.mobile-fifteen.column.grid > .row > .column,
+  .ui.mobile-fifteen.column.grid > .column,
+  .ui.grid > .fifteen.column.row > .column {
+    width: 6.6666%;
+  }
+  .ui.mobile-sixteen.column.grid > .row > .column,
+  .ui.mobile-sixteen.column.grid > .column,
+  .ui.grid > .sixteen.column.row > .column {
+    width: 6.25%;
+  }
+}
+
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+  /* Sizing Combinations */
+  .ui.grid > .row > .tablet-one.wide.column,
+  .ui.grid > .column.row > .tablet-one.wide.column,
+  .ui.grid > .tablet-one.wide.column,
+  .ui.column.grid > .tablet-one.wide.column {
+    width: 6.25%;
+  }
+  .ui.grid > .row > .tablet-two.wide.column,
+  .ui.grid > .column.row > .tablet-two.wide.column,
+  .ui.grid > .tablet-two.wide.column,
+  .ui.column.grid > .tablet-two.wide.column {
+    width: 12.5%;
+  }
+  .ui.grid > .row > .tablet-three.wide.column,
+  .ui.grid > .column.row > .tablet-three.wide.column,
+  .ui.grid > .tablet-three.wide.column,
+  .ui.column.grid > .tablet-three.wide.column {
+    width: 18.75%;
+  }
+  .ui.grid > .row > .tablet-four.wide.column,
+  .ui.grid > .column.row > .tablet-four.wide.column,
+  .ui.grid > .tablet-four.wide.column,
+  .ui.column.grid > .tablet-four.wide.column {
+    width: 25%;
+  }
+  .ui.grid > .row > .tablet-five.wide.column,
+  .ui.grid > .column.row > .tablet-five.wide.column,
+  .ui.grid > .tablet-five.wide.column,
+  .ui.column.grid > .tablet-five.wide.column {
+    width: 31.25%;
+  }
+  .ui.grid > .row > .tablet-six.wide.column,
+  .ui.grid > .column.row > .tablet-six.wide.column,
+  .ui.grid > .tablet-six.wide.column,
+  .ui.column.grid > .tablet-six.wide.column {
+    width: 37.5%;
+  }
+  .ui.grid > .row > .tablet-seven.wide.column,
+  .ui.grid > .column.row > .tablet-seven.wide.column,
+  .ui.grid > .tablet-seven.wide.column,
+  .ui.column.grid > .tablet-seven.wide.column {
+    width: 43.75%;
+  }
+  .ui.grid > .row > .tablet-eight.wide.column,
+  .ui.grid > .column.row > .tablet-eight.wide.column,
+  .ui.grid > .tablet-eight.wide.column,
+  .ui.column.grid > .tablet-eight.wide.column {
+    width: 50%;
+  }
+  .ui.grid > .row > .tablet-nine.wide.column,
+  .ui.grid > .column.row > .tablet-nine.wide.column,
+  .ui.grid > .tablet-nine.wide.column,
+  .ui.column.grid > .tablet-nine.wide.column {
+    width: 56.25%;
+  }
+  .ui.grid > .row > .tablet-ten.wide.column,
+  .ui.grid > .column.row > .tablet-ten.wide.column,
+  .ui.grid > .tablet-ten.wide.column,
+  .ui.column.grid > .tablet-ten.wide.column {
+    width: 62.5%;
+  }
+  .ui.grid > .row > .tablet-eleven.wide.column,
+  .ui.grid > .column.row > .tablet-eleven.wide.column,
+  .ui.grid > .tablet-eleven.wide.column,
+  .ui.column.grid > .tablet-eleven.wide.column {
+    width: 68.75%;
+  }
+  .ui.grid > .row > .tablet-twelve.wide.column,
+  .ui.grid > .column.row > .tablet-twelve.wide.column,
+  .ui.grid > .tablet-twelve.wide.column,
+  .ui.column.grid > .tablet-twelve.wide.column {
+    width: 75%;
+  }
+  .ui.grid > .row > .tablet-thirteen.wide.column,
+  .ui.grid > .column.row > .tablet-thirteen.wide.column,
+  .ui.grid > .tablet-thirteen.wide.column,
+  .ui.column.grid > .tablet-thirteen.wide.column {
+    width: 81.25%;
+  }
+  .ui.grid > .row > .tablet-fourteen.wide.column,
+  .ui.grid > .column.row > .tablet-fourteen.wide.column,
+  .ui.grid > .tablet-fourteen.wide.column,
+  .ui.column.grid > .tablet-fourteen.wide.column {
+    width: 87.5%;
+  }
+  .ui.grid > .row > .tablet-fifteen.wide.column,
+  .ui.grid > .column.row > .tablet-fifteen.wide.column,
+  .ui.grid > .tablet-fifteen.wide.column,
+  .ui.column.grid > .tablet-fifteen.wide.column {
+    width: 93.75%;
+  }
+  .ui.grid > .row > .tablet-sixteen.wide.column,
+  .ui.grid > .column.row > .tablet-sixteen.wide.column,
+  .ui.grid > .tablet-sixteen.wide.column,
+  .ui.column.grid > .tablet-sixteen.wide.column {
+    width: 100%;
+  }
+
+  /* Assume full width with one column */
+  .ui.tablet-one.column.grid > .row > .column,
+  .ui.tablet-one.column.grid > .column,
+  .ui.grid > .one.column.row > .column {
+    width: 100%;
+  }
+  .ui.tablet-two.column.grid > .row > .column,
+  .ui.tablet-two.column.grid > .column,
+  .ui.grid > .two.column.row > .column {
+    width: 50%;
+  }
+  .ui.tablet-three.column.grid > .row > .column,
+  .ui.tablet-three.column.grid > .column,
+  .ui.grid > .three.column.row > .column {
+    width: 33.3333%;
+  }
+  .ui.tablet-four.column.grid > .row > .column,
+  .ui.tablet-four.column.grid > .column,
+  .ui.grid > .four.column.row > .column {
+    width: 25%;
+  }
+  .ui.tablet-five.column.grid > .row > .column,
+  .ui.tablet-five.column.grid > .column,
+  .ui.grid > .five.column.row > .column {
+    width: 20%;
+  }
+  .ui.tablet-six.column.grid > .row > .column,
+  .ui.tablet-six.column.grid > .column,
+  .ui.grid > .six.column.row > .column {
+    width: 16.66667%;
+  }
+  .ui.tablet-seven.column.grid > .row > .column,
+  .ui.tablet-seven.column.grid > .column,
+  .ui.grid > .seven.column.row > .column {
+    width: 14.2857%;
+  }
+  .ui.tablet-eight.column.grid > .row > .column,
+  .ui.tablet-eight.column.grid > .column,
+  .ui.grid > .eight.column.row > .column {
+    width: 12.5%;
+  }
+  .ui.tablet-nine.column.grid > .row > .column,
+  .ui.tablet-nine.column.grid > .column,
+  .ui.grid > .nine.column.row > .column {
+    width: 11.1111%;
+  }
+  .ui.tablet-ten.column.grid > .row > .column,
+  .ui.tablet-ten.column.grid > .column,
+  .ui.grid > .ten.column.row > .column {
+    width: 10%;
+  }
+  .ui.tablet-eleven.column.grid > .row > .column,
+  .ui.tablet-eleven.column.grid > .column,
+  .ui.grid > .eleven.column.row > .column {
+    width: 9.0909%;
+  }
+  .ui.tablet-twelve.column.grid > .row > .column,
+  .ui.tablet-twelve.column.grid > .column,
+  .ui.grid > .twelve.column.row > .column {
+    width: 8.3333%;
+  }
+  .ui.tablet-thirteen.column.grid > .row > .column,
+  .ui.tablet-thirteen.column.grid > .column,
+  .ui.grid > .thirteen.column.row > .column {
+    width: 7.6923%;
+  }
+  .ui.tablet-fourteen.column.grid > .row > .column,
+  .ui.tablet-fourteen.column.grid > .column,
+  .ui.grid > .fourteen.column.row > .column {
+    width: 7.1428%;
+  }
+  .ui.tablet-fifteen.column.grid > .row > .column,
+  .ui.tablet-fifteen.column.grid > .column,
+  .ui.grid > .fifteen.column.row > .column {
+    width: 6.6666%;
+  }
+  .ui.tablet-sixteen.column.grid > .row > .column,
+  .ui.tablet-sixteen.column.grid > .column,
+  .ui.grid > .sixteen.column.row > .column {
+    width: 6.25%;
+  }
+}
+
+  /*-------------------
+       Pull & Push
+  --------------------*/
+
+.wide.column[class^="push-"],
+.wide.column[class^="pull-"],
+.wide.column[class*=" push-"],
+.wide.column[class*=" pull-"] {
+  position: relative;
+}
+
+.ui.grid > .row > .wide.column.push-one,
+.ui.grid > .column.row > .wide.column.push-one,
+.ui.grid > .wide.column.push-one,
+.ui.column.grid > .wide.column.push-one {
+  left: 6.25%;
+}
+.ui.grid > .row > .wide.column.push-two,
+.ui.grid > .column.row > .wide.column.push-two,
+.ui.grid > .wide.column.push-two,
+.ui.column.grid > .wide.column.push-two {
+  left: 12.5%;
+}
+.ui.grid > .row > .wide.column.push-three,
+.ui.grid > .column.row > .wide.column.push-three,
+.ui.grid > .wide.column.push-three,
+.ui.column.grid > .wide.column.push-three {
+  left: 18.75%;
+}
+.ui.grid > .row > .wide.column.push-four,
+.ui.grid > .column.row > .wide.column.push-four,
+.ui.grid > .wide.column.push-four,
+.ui.column.grid > .wide.column.push-four {
+  left: 25%;
+}
+.ui.grid > .row > .wide.column.push-five,
+.ui.grid > .column.row > .wide.column.push-five,
+.ui.grid > .wide.column.push-five,
+.ui.column.grid > .wide.column.push-five {
+  left: 31.25%;
+}
+.ui.grid > .row > .wide.column.push-six,
+.ui.grid > .column.row > .wide.column.push-six,
+.ui.grid > .wide.column.push-six,
+.ui.column.grid > .wide.column.push-six {
+  left: 37.5%;
+}
+.ui.grid > .row > .wide.column.push-seven,
+.ui.grid > .column.row > .wide.column.push-seven,
+.ui.grid > .wide.column.push-seven,
+.ui.column.grid > .wide.column.push-seven {
+  left: 43.75%;
+}
+.ui.grid > .row > .wide.column.push-eight,
+.ui.grid > .column.row > .wide.column.push-eight,
+.ui.grid > .wide.column.push-eight,
+.ui.column.grid > .wide.column.push-eight {
+  left: 50%;
+}
+.ui.grid > .row > .wide.column.push-nine,
+.ui.grid > .column.row > .wide.column.push-nine,
+.ui.grid > .wide.column.push-nine,
+.ui.column.grid > .wide.column.push-nine {
+  left: 56.25%;
+}
+.ui.grid > .row > .wide.column.push-ten,
+.ui.grid > .column.row > .wide.column.push-ten,
+.ui.grid > .wide.column.push-ten,
+.ui.column.grid > .wide.column.push-ten {
+  left: 62.5%;
+}
+.ui.grid > .row > .wide.column.push-eleven,
+.ui.grid > .column.row > .wide.column.push-eleven,
+.ui.grid > .wide.column.push-eleven,
+.ui.column.grid > .wide.column.push-eleven {
+  left: 68.75%;
+}
+.ui.grid > .row > .wide.column.push-twelve,
+.ui.grid > .column.row > .wide.column.push-twelve,
+.ui.grid > .wide.column.push-twelve,
+.ui.column.grid > .wide.column.push-twelve {
+  left: 75%;
+}
+.ui.grid > .row > .wide.column.push-thirteen,
+.ui.grid > .column.row > .wide.column.push-thirteen,
+.ui.grid > .wide.column.push-thirteen,
+.ui.column.grid > .wide.column.push-thirteen {
+  left: 81.25%;
+}
+.ui.grid > .row > .wide.column.push-fourteen,
+.ui.grid > .column.row > .wide.column.push-fourteen,
+.ui.grid > .wide.column.push-fourteen,
+.ui.column.grid > .wide.column.push-fourteen {
+  left: 87.5%;
+}
+.ui.grid > .row > .wide.column.push-fifteen,
+.ui.grid > .column.row > .wide.column.push-fifteen,
+.ui.grid > .wide.column.push-fifteen,
+.ui.column.grid > .wide.column.push-fifteen {
+  left: 93.75%;
+}
+.ui.grid > .row > .wide.column.push-sixteen,
+.ui.grid > .column.row > .wide.column.push-sixteen,
+.ui.grid > .wide.column.push-sixteen,
+.ui.column.grid > .wide.column.push-sixteen {
+  left: 100%;
+}
+.ui.grid > .row > .wide.column.pull-one,
+.ui.grid > .column.row > .wide.column.pull-one,
+.ui.grid > .wide.column.pull-one,
+.ui.column.grid > .wide.column.pull-one {
+  right: 6.25%;
+}
+.ui.grid > .row > .wide.column.pull-two,
+.ui.grid > .column.row > .wide.column.pull-two,
+.ui.grid > .wide.column.pull-two,
+.ui.column.grid > .wide.column.pull-two {
+  right: 12.5%;
+}
+.ui.grid > .row > .wide.column.pull-three,
+.ui.grid > .column.row > .wide.column.pull-three,
+.ui.grid > .wide.column.pull-three,
+.ui.column.grid > .wide.column.pull-three {
+  right: 18.75%;
+}
+.ui.grid > .row > .wide.column.pull-four,
+.ui.grid > .column.row > .wide.column.pull-four,
+.ui.grid > .wide.column.pull-four,
+.ui.column.grid > .wide.column.pull-four {
+  right: 25%;
+}
+.ui.grid > .row > .wide.column.pull-five,
+.ui.grid > .column.row > .wide.column.pull-five,
+.ui.grid > .wide.column.pull-five,
+.ui.column.grid > .wide.column.pull-five {
+  right: 31.25%;
+}
+.ui.grid > .row > .wide.column.pull-six,
+.ui.grid > .column.row > .wide.column.pull-six,
+.ui.grid > .wide.column.pull-six,
+.ui.column.grid > .wide.column.pull-six {
+  right: 37.5%;
+}
+.ui.grid > .row > .wide.column.pull-seven,
+.ui.grid > .column.row > .wide.column.pull-seven,
+.ui.grid > .wide.column.pull-seven,
+.ui.column.grid > .wide.column.pull-seven {
+  right: 43.75%;
+}
+.ui.grid > .row > .wide.column.pull-eight,
+.ui.grid > .column.row > .wide.column.pull-eight,
+.ui.grid > .wide.column.pull-eight,
+.ui.column.grid > .wide.column.pull-eight {
+  right: 50%;
+}
+.ui.grid > .row > .wide.column.pull-nine,
+.ui.grid > .column.row > .wide.column.pull-nine,
+.ui.grid > .wide.column.pull-nine,
+.ui.column.grid > .wide.column.pull-nine {
+  right: 56.25%;
+}
+.ui.grid > .row > .wide.column.pull-ten,
+.ui.grid > .column.row > .wide.column.pull-ten,
+.ui.grid > .wide.column.pull-ten,
+.ui.column.grid > .wide.column.pull-ten {
+  right: 62.5%;
+}
+.ui.grid > .row > .wide.column.pull-eleven,
+.ui.grid > .column.row > .wide.column.pull-eleven,
+.ui.grid > .wide.column.pull-eleven,
+.ui.column.grid > .wide.column.pull-eleven {
+  right: 68.75%;
+}
+.ui.grid > .row > .wide.column.pull-twelve,
+.ui.grid > .column.row > .wide.column.pull-twelve,
+.ui.grid > .wide.column.pull-twelve,
+.ui.column.grid > .wide.column.pull-twelve {
+  right: 75%;
+}
+.ui.grid > .row > .wide.column.pull-thirteen,
+.ui.grid > .column.row > .wide.column.pull-thirteen,
+.ui.grid > .wide.column.pull-thirteen,
+.ui.column.grid > .wide.column.pull-thirteen {
+  right: 81.25%;
+}
+.ui.grid > .row > .wide.column.pull-fourteen,
+.ui.grid > .column.row > .wide.column.pull-fourteen,
+.ui.grid > .wide.column.pull-fourteen,
+.ui.column.grid > .wide.column.pull-fourteen {
+  right: 87.5%;
+}
+.ui.grid > .row > .wide.column.pull-fifteen,
+.ui.grid > .column.row > .wide.column.pull-fifteen,
+.ui.grid > .wide.column.pull-fifteen,
+.ui.column.grid > .wide.column.pull-fifteen {
+  right: 93.75%;
+}
+.ui.grid > .row > .wide.column.pull-sixteen,
+.ui.grid > .column.row > .wide.column.pull-sixteen,
+.ui.grid > .wide.column.pull-sixteen,
+.ui.column.grid > .wide.column.pull-sixteen {
+  right: 100%;
+}
+@media only screen and (max-width: 767px) {
+  .wide.column[class^="mobile-push-"],
+  .wide.column[class^="mobile-pull-"],
+  .wide.column[class*=" mobile-push-"],
+  .wide.column[class*=" mobile-pull-"] {
+    position: relative;
+  }
+
+  .ui.grid:not(.stackable) > .row > .wide.column.mobile-push-one,
+  .ui.grid:not(.stackable) > .column.row > .wide.column.mobile-push-one,
+  .ui.grid:not(.stackable) > .wide.column.mobile-push-one,
+  .ui.column.grid:not(.stackable) > .wide.column.mobile-push-one {
+    left: 6.25%;
+  }
+  .ui.grid:not(.stackable) > .row > .wide.column.mobile-push-two,
+  .ui.grid:not(.stackable) > .column.row > .wide.column.mobile-push-two,
+  .ui.grid:not(.stackable) > .wide.column.mobile-push-two,
+  .ui.column.grid:not(.stackable) > .wide.column.mobile-push-two {
+    left: 12.5%;
+  }
+  .ui.grid:not(.stackable) > .row > .wide.column.mobile-push-three,
+  .ui.grid:not(.stackable) > .column.row > .wide.column.mobile-push-three,
+  .ui.grid:not(.stackable) > .wide.column.mobile-push-three,
+  .ui.column.grid:not(.stackable) > .wide.column.mobile-push-three {
+    left: 18.75%;
+  }
+  .ui.grid:not(.stackable) > .row > .wide.column.mobile-push-four,
+  .ui.grid:not(.stackable) > .column.row > .wide.column.mobile-push-four,
+  .ui.grid:not(.stackable) > .wide.column.mobile-push-four,
+  .ui.column.grid:not(.stackable) > .wide.column.mobile-push-four {
+    left: 25%;
+  }
+  .ui.grid:not(.stackable) > .row > .wide.column.mobile-push-five,
+  .ui.grid:not(.stackable) > .column.row > .wide.column.mobile-push-five,
+  .ui.grid:not(.stackable) > .wide.column.mobile-push-five,
+  .ui.column.grid:not(.stackable) > .wide.column.mobile-push-five {
+    left: 31.25%;
+  }
+  .ui.grid:not(.stackable) > .row > .wide.column.mobile-push-six,
+  .ui.grid:not(.stackable) > .column.row > .wide.column.mobile-push-six,
+  .ui.grid:not(.stackable) > .wide.column.mobile-push-six,
+  .ui.column.grid:not(.stackable) > .wide.column.mobile-push-six {
+    left: 37.5%;
+  }
+  .ui.grid:not(.stackable) > .row > .wide.column.mobile-push-seven,
+  .ui.grid:not(.stackable) > .column.row > .wide.column.mobile-push-seven,
+  .ui.grid:not(.stackable) > .wide.column.mobile-push-seven,
+  .ui.column.grid:not(.stackable) > .wide.column.mobile-push-seven {
+    left: 43.75%;
+  }
+  .ui.grid:not(.stackable) > .row > .wide.column.mobile-push-eight,
+  .ui.grid:not(.stackable) > .column.row > .wide.column.mobile-push-eight,
+  .ui.grid:not(.stackable) > .wide.column.mobile-push-eight,
+  .ui.column.grid:not(.stackable) > .wide.column.mobile-push-eight {
+    left: 50%;
+  }
+  .ui.grid:not(.stackable) > .row > .wide.column.mobile-push-nine,
+  .ui.grid:not(.stackable) > .column.row > .wide.column.mobile-push-nine,
+  .ui.grid:not(.stackable) > .wide.column.mobile-push-nine,
+  .ui.column.grid:not(.stackable) > .wide.column.mobile-push-nine {
+    left: 56.25%;
+  }
+  .ui.grid:not(.stackable) > .row > .wide.column.mobile-push-ten,
+  .ui.grid:not(.stackable) > .column.row > .wide.column.mobile-push-ten,
+  .ui.grid:not(.stackable) > .wide.column.mobile-push-ten,
+  .ui.column.grid:not(.stackable) > .wide.column.mobile-push-ten {
+    left: 62.5%;
+  }
+  .ui.grid:not(.stackable) > .row > .wide.column.mobile-push-eleven,
+  .ui.grid:not(.stackable) > .column.row > .wide.column.mobile-push-eleven,
+  .ui.grid:not(.stackable) > .wide.column.mobile-push-eleven,
+  .ui.column.grid:not(.stackable) > .wide.column.mobile-push-eleven {
+    left: 68.75%;
+  }
+  .ui.grid:not(.stackable) > .row > .wide.column.mobile-push-twelve,
+  .ui.grid:not(.stackable) > .column.row > .wide.column.mobile-push-twelve,
+  .ui.grid:not(.stackable) > .wide.column.mobile-push-twelve,
+  .ui.column.grid:not(.stackable) > .wide.column.mobile-push-twelve {
+    left: 75%;
+  }
+  .ui.grid:not(.stackable) > .row > .wide.column.mobile-push-thirteen,
+  .ui.grid:not(.stackable) > .column.row > .wide.column.mobile-push-thirteen,
+  .ui.grid:not(.stackable) > .wide.column.mobile-push-thirteen,
+  .ui.column.grid:not(.stackable) > .wide.column.mobile-push-thirteen {
+    left: 81.25%;
+  }
+  .ui.grid:not(.stackable) > .row > .wide.column.mobile-push-fourteen,
+  .ui.grid:not(.stackable) > .column.row > .wide.column.mobile-push-fourteen,
+  .ui.grid:not(.stackable) > .wide.column.mobile-push-fourteen,
+  .ui.column.grid:not(.stackable) > .wide.column.mobile-push-fourteen {
+    left: 87.5%;
+  }
+  .ui.grid:not(.stackable) > .row > .wide.column.mobile-push-fifteen,
+  .ui.grid:not(.stackable) > .column.row > .wide.column.mobile-push-fifteen,
+  .ui.grid:not(.stackable) > .wide.column.mobile-push-fifteen,
+  .ui.column.grid:not(.stackable) > .wide.column.mobile-push-fifteen {
+    left: 93.75%;
+  }
+  .ui.grid:not(.stackable) > .row > .wide.column.mobile-push-sixteen,
+  .ui.grid:not(.stackable) > .column.row > .wide.column.mobile-push-sixteen,
+  .ui.grid:not(.stackable) > .wide.column.mobile-push-sixteen,
+  .ui.column.grid:not(.stackable) > .wide.column.mobile-push-sixteen {
+    left: 100%;
+  }
+  .ui.grid:not(.stackable) > .row > .wide.column.mobile-pull-one,
+  .ui.grid:not(.stackable) > .column.row > .wide.column.mobile-pull-one,
+  .ui.grid:not(.stackable) > .wide.column.mobile-pull-one,
+  .ui.column.grid:not(.stackable) > .wide.column.mobile-pull-one {
+    right: 6.25%;
+  }
+  .ui.grid:not(.stackable) > .row > .wide.column.mobile-pull-two,
+  .ui.grid:not(.stackable) > .column.row > .wide.column.mobile-pull-two,
+  .ui.grid:not(.stackable) > .wide.column.mobile-pull-two,
+  .ui.column.grid:not(.stackable) > .wide.column.mobile-pull-two {
+    right: 12.5%;
+  }
+  .ui.grid:not(.stackable) > .row > .wide.column.mobile-pull-three,
+  .ui.grid:not(.stackable) > .column.row > .wide.column.mobile-pull-three,
+  .ui.grid:not(.stackable) > .wide.column.mobile-pull-three,
+  .ui.column.grid:not(.stackable) > .wide.column.mobile-pull-three {
+    right: 18.75%;
+  }
+  .ui.grid:not(.stackable) > .row > .wide.column.mobile-pull-four,
+  .ui.grid:not(.stackable) > .column.row > .wide.column.mobile-pull-four,
+  .ui.grid:not(.stackable) > .wide.column.mobile-pull-four,
+  .ui.column.grid:not(.stackable) > .wide.column.mobile-pull-four {
+    right: 25%;
+  }
+  .ui.grid:not(.stackable) > .row > .wide.column.mobile-pull-five,
+  .ui.grid:not(.stackable) > .column.row > .wide.column.mobile-pull-five,
+  .ui.grid:not(.stackable) > .wide.column.mobile-pull-five,
+  .ui.column.grid:not(.stackable) > .wide.column.mobile-pull-five {
+    right: 31.25%;
+  }
+  .ui.grid:not(.stackable) > .row > .wide.column.mobile-pull-six,
+  .ui.grid:not(.stackable) > .column.row > .wide.column.mobile-pull-six,
+  .ui.grid:not(.stackable) > .wide.column.mobile-pull-six,
+  .ui.column.grid:not(.stackable) > .wide.column.mobile-pull-six {
+    right: 37.5%;
+  }
+  .ui.grid:not(.stackable) > .row > .wide.column.mobile-pull-seven,
+  .ui.grid:not(.stackable) > .column.row > .wide.column.mobile-pull-seven,
+  .ui.grid:not(.stackable) > .wide.column.mobile-pull-seven,
+  .ui.column.grid:not(.stackable) > .wide.column.mobile-pull-seven {
+    right: 43.75%;
+  }
+  .ui.grid:not(.stackable) > .row > .wide.column.mobile-pull-eight,
+  .ui.grid:not(.stackable) > .column.row > .wide.column.mobile-pull-eight,
+  .ui.grid:not(.stackable) > .wide.column.mobile-pull-eight,
+  .ui.column.grid:not(.stackable) > .wide.column.mobile-pull-eight {
+    right: 50%;
+  }
+  .ui.grid:not(.stackable) > .row > .wide.column.mobile-pull-nine,
+  .ui.grid:not(.stackable) > .column.row > .wide.column.mobile-pull-nine,
+  .ui.grid:not(.stackable) > .wide.column.mobile-pull-nine,
+  .ui.column.grid:not(.stackable) > .wide.column.mobile-pull-nine {
+    right: 56.25%;
+  }
+  .ui.grid:not(.stackable) > .row > .wide.column.mobile-pull-ten,
+  .ui.grid:not(.stackable) > .column.row > .wide.column.mobile-pull-ten,
+  .ui.grid:not(.stackable) > .wide.column.mobile-pull-ten,
+  .ui.column.grid:not(.stackable) > .wide.column.mobile-pull-ten {
+    right: 62.5%;
+  }
+  .ui.grid:not(.stackable) > .row > .wide.column.mobile-pull-eleven,
+  .ui.grid:not(.stackable) > .column.row > .wide.column.mobile-pull-eleven,
+  .ui.grid:not(.stackable) > .wide.column.mobile-pull-eleven,
+  .ui.column.grid:not(.stackable) > .wide.column.mobile-pull-eleven {
+    right: 68.75%;
+  }
+  .ui.grid:not(.stackable) > .row > .wide.column.mobile-pull-twelve,
+  .ui.grid:not(.stackable) > .column.row > .wide.column.mobile-pull-twelve,
+  .ui.grid:not(.stackable) > .wide.column.mobile-pull-twelve,
+  .ui.column.grid:not(.stackable) > .wide.column.mobile-pull-twelve {
+    right: 75%;
+  }
+  .ui.grid:not(.stackable) > .row > .wide.column.mobile-pull-thirteen,
+  .ui.grid:not(.stackable) > .column.row > .wide.column.mobile-pull-thirteen,
+  .ui.grid:not(.stackable) > .wide.column.mobile-pull-thirteen,
+  .ui.column.grid:not(.stackable) > .wide.column.mobile-pull-thirteen {
+    right: 81.25%;
+  }
+  .ui.grid:not(.stackable) > .row > .wide.column.mobile-pull-fourteen,
+  .ui.grid:not(.stackable) > .column.row > .wide.column.mobile-pull-fourteen,
+  .ui.grid:not(.stackable) > .wide.column.mobile-pull-fourteen,
+  .ui.column.grid:not(.stackable) > .wide.column.mobile-pull-fourteen {
+    right: 87.5%;
+  }
+  .ui.grid:not(.stackable) > .row > .wide.column.mobile-pull-fifteen,
+  .ui.grid:not(.stackable) > .column.row > .wide.column.mobile-pull-fifteen,
+  .ui.grid:not(.stackable) > .wide.column.mobile-pull-fifteen,
+  .ui.column.grid:not(.stackable) > .wide.column.mobile-pull-fifteen {
+    right: 93.75%;
+  }
+  .ui.grid:not(.stackable) > .row > .wide.column.mobile-pull-sixteen,
+  .ui.grid:not(.stackable) > .column.row > .wide.column.mobile-pull-sixteen,
+  .ui.grid:not(.stackable) > .wide.column.mobile-pull-sixteen,
+  .ui.column.grid:not(.stackable) > .wide.column.mobile-pull-sixteen {
+    right: 100%;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .wide.column[class^="tablet-push-"],
+  .wide.column[class^="tablet-pull-"],
+  .wide.column[class*=" tablet-push-"],
+  .wide.column[class*=" tablet-pull-"] {
+    position: relative;
+  }
+
+  .ui.grid > .row > .wide.column.tablet-push-one,
+  .ui.grid > .column.row > .wide.column.tablet-push-one,
+  .ui.grid > .wide.column.tablet-push-one,
+  .ui.column.grid > .wide.column.tablet-push-one {
+    left: 6.25%;
+  }
+  .ui.grid > .row > .wide.column.tablet-push-two,
+  .ui.grid > .column.row > .wide.column.tablet-push-two,
+  .ui.grid > .wide.column.tablet-push-two,
+  .ui.column.grid > .wide.column.tablet-push-two {
+    left: 12.5%;
+  }
+  .ui.grid > .row > .wide.column.tablet-push-three,
+  .ui.grid > .column.row > .wide.column.tablet-push-three,
+  .ui.grid > .wide.column.tablet-push-three,
+  .ui.column.grid > .wide.column.tablet-push-three {
+    left: 18.75%;
+  }
+  .ui.grid > .row > .wide.column.tablet-push-four,
+  .ui.grid > .column.row > .wide.column.tablet-push-four,
+  .ui.grid > .wide.column.tablet-push-four,
+  .ui.column.grid > .wide.column.tablet-push-four {
+    left: 25%;
+  }
+  .ui.grid > .row > .wide.column.tablet-push-five,
+  .ui.grid > .column.row > .wide.column.tablet-push-five,
+  .ui.grid > .wide.column.tablet-push-five,
+  .ui.column.grid > .wide.column.tablet-push-five {
+    left: 31.25%;
+  }
+  .ui.grid > .row > .wide.column.tablet-push-six,
+  .ui.grid > .column.row > .wide.column.tablet-push-six,
+  .ui.grid > .wide.column.tablet-push-six,
+  .ui.column.grid > .wide.column.tablet-push-six {
+    left: 37.5%;
+  }
+  .ui.grid > .row > .wide.column.tablet-push-seven,
+  .ui.grid > .column.row > .wide.column.tablet-push-seven,
+  .ui.grid > .wide.column.tablet-push-seven,
+  .ui.column.grid > .wide.column.tablet-push-seven {
+    left: 43.75%;
+  }
+  .ui.grid > .row > .wide.column.tablet-push-eight,
+  .ui.grid > .column.row > .wide.column.tablet-push-eight,
+  .ui.grid > .wide.column.tablet-push-eight,
+  .ui.column.grid > .wide.column.tablet-push-eight {
+    left: 50%;
+  }
+  .ui.grid > .row > .wide.column.tablet-push-nine,
+  .ui.grid > .column.row > .wide.column.tablet-push-nine,
+  .ui.grid > .wide.column.tablet-push-nine,
+  .ui.column.grid > .wide.column.tablet-push-nine {
+    left: 56.25%;
+  }
+  .ui.grid > .row > .wide.column.tablet-push-ten,
+  .ui.grid > .column.row > .wide.column.tablet-push-ten,
+  .ui.grid > .wide.column.tablet-push-ten,
+  .ui.column.grid > .wide.column.tablet-push-ten {
+    left: 62.5%;
+  }
+  .ui.grid > .row > .wide.column.tablet-push-eleven,
+  .ui.grid > .column.row > .wide.column.tablet-push-eleven,
+  .ui.grid > .wide.column.tablet-push-eleven,
+  .ui.column.grid > .wide.column.tablet-push-eleven {
+    left: 68.75%;
+  }
+  .ui.grid > .row > .wide.column.tablet-push-twelve,
+  .ui.grid > .column.row > .wide.column.tablet-push-twelve,
+  .ui.grid > .wide.column.tablet-push-twelve,
+  .ui.column.grid > .wide.column.tablet-push-twelve {
+    left: 75%;
+  }
+  .ui.grid > .row > .wide.column.tablet-push-thirteen,
+  .ui.grid > .column.row > .wide.column.tablet-push-thirteen,
+  .ui.grid > .wide.column.tablet-push-thirteen,
+  .ui.column.grid > .wide.column.tablet-push-thirteen {
+    left: 81.25%;
+  }
+  .ui.grid > .row > .wide.column.tablet-push-fourteen,
+  .ui.grid > .column.row > .wide.column.tablet-push-fourteen,
+  .ui.grid > .wide.column.tablet-push-fourteen,
+  .ui.column.grid > .wide.column.tablet-push-fourteen {
+    left: 87.5%;
+  }
+  .ui.grid > .row > .wide.column.tablet-push-fifteen,
+  .ui.grid > .column.row > .wide.column.tablet-push-fifteen,
+  .ui.grid > .wide.column.tablet-push-fifteen,
+  .ui.column.grid > .wide.column.tablet-push-fifteen {
+    left: 93.75%;
+  }
+  .ui.grid > .row > .wide.column.tablet-push-sixteen,
+  .ui.grid > .column.row > .wide.column.tablet-push-sixteen,
+  .ui.grid > .wide.column.tablet-push-sixteen,
+  .ui.column.grid > .wide.column.tablet-push-sixteen {
+    left: 100%;
+  }
+  .ui.grid > .row > .wide.column.tablet-pull-one,
+  .ui.grid > .column.row > .wide.column.tablet-pull-one,
+  .ui.grid > .wide.column.tablet-pull-one,
+  .ui.column.grid > .wide.column.tablet-pull-one {
+    right: 6.25%;
+  }
+  .ui.grid > .row > .wide.column.tablet-pull-two,
+  .ui.grid > .column.row > .wide.column.tablet-pull-two,
+  .ui.grid > .wide.column.tablet-pull-two,
+  .ui.column.grid > .wide.column.tablet-pull-two {
+    right: 12.5%;
+  }
+  .ui.grid > .row > .wide.column.tablet-pull-three,
+  .ui.grid > .column.row > .wide.column.tablet-pull-three,
+  .ui.grid > .wide.column.tablet-pull-three,
+  .ui.column.grid > .wide.column.tablet-pull-three {
+    right: 18.75%;
+  }
+  .ui.grid > .row > .wide.column.tablet-pull-four,
+  .ui.grid > .column.row > .wide.column.tablet-pull-four,
+  .ui.grid > .wide.column.tablet-pull-four,
+  .ui.column.grid > .wide.column.tablet-pull-four {
+    right: 25%;
+  }
+  .ui.grid > .row > .wide.column.tablet-pull-five,
+  .ui.grid > .column.row > .wide.column.tablet-pull-five,
+  .ui.grid > .wide.column.tablet-pull-five,
+  .ui.column.grid > .wide.column.tablet-pull-five {
+    right: 31.25%;
+  }
+  .ui.grid > .row > .wide.column.tablet-pull-six,
+  .ui.grid > .column.row > .wide.column.tablet-pull-six,
+  .ui.grid > .wide.column.tablet-pull-six,
+  .ui.column.grid > .wide.column.tablet-pull-six {
+    right: 37.5%;
+  }
+  .ui.grid > .row > .wide.column.tablet-pull-seven,
+  .ui.grid > .column.row > .wide.column.tablet-pull-seven,
+  .ui.grid > .wide.column.tablet-pull-seven,
+  .ui.column.grid > .wide.column.tablet-pull-seven {
+    right: 43.75%;
+  }
+  .ui.grid > .row > .wide.column.tablet-pull-eight,
+  .ui.grid > .column.row > .wide.column.tablet-pull-eight,
+  .ui.grid > .wide.column.tablet-pull-eight,
+  .ui.column.grid > .wide.column.tablet-pull-eight {
+    right: 50%;
+  }
+  .ui.grid > .row > .wide.column.tablet-pull-nine,
+  .ui.grid > .column.row > .wide.column.tablet-pull-nine,
+  .ui.grid > .wide.column.tablet-pull-nine,
+  .ui.column.grid > .wide.column.tablet-pull-nine {
+    right: 56.25%;
+  }
+  .ui.grid > .row > .wide.column.tablet-pull-ten,
+  .ui.grid > .column.row > .wide.column.tablet-pull-ten,
+  .ui.grid > .wide.column.tablet-pull-ten,
+  .ui.column.grid > .wide.column.tablet-pull-ten {
+    right: 62.5%;
+  }
+  .ui.grid > .row > .wide.column.tablet-pull-eleven,
+  .ui.grid > .column.row > .wide.column.tablet-pull-eleven,
+  .ui.grid > .wide.column.tablet-pull-eleven,
+  .ui.column.grid > .wide.column.tablet-pull-eleven {
+    right: 68.75%;
+  }
+  .ui.grid > .row > .wide.column.tablet-pull-twelve,
+  .ui.grid > .column.row > .wide.column.tablet-pull-twelve,
+  .ui.grid > .wide.column.tablet-pull-twelve,
+  .ui.column.grid > .wide.column.tablet-pull-twelve {
+    right: 75%;
+  }
+  .ui.grid > .row > .wide.column.tablet-pull-thirteen,
+  .ui.grid > .column.row > .wide.column.tablet-pull-thirteen,
+  .ui.grid > .wide.column.tablet-pull-thirteen,
+  .ui.column.grid > .wide.column.tablet-pull-thirteen {
+    right: 81.25%;
+  }
+  .ui.grid > .row > .wide.column.tablet-pull-fourteen,
+  .ui.grid > .column.row > .wide.column.tablet-pull-fourteen,
+  .ui.grid > .wide.column.tablet-pull-fourteen,
+  .ui.column.grid > .wide.column.tablet-pull-fourteen {
+    right: 87.5%;
+  }
+  .ui.grid > .row > .wide.column.tablet-pull-fifteen,
+  .ui.grid > .column.row > .wide.column.tablet-pull-fifteen,
+  .ui.grid > .wide.column.tablet-pull-fifteen,
+  .ui.column.grid > .wide.column.tablet-pull-fifteen {
+    right: 93.75%;
+  }
+  .ui.grid > .row > .wide.column.tablet-pull-sixteen,
+  .ui.grid > .column.row > .wide.column.tablet-pull-sixteen,
+  .ui.grid > .wide.column.tablet-pull-sixteen,
+  .ui.column.grid > .wide.column.tablet-pull-sixteen {
+    right: 100%;
+  }
+}
+@media only screen and (min-width: 991px) {
+  .wide.column[class^="computer-push-"],
+  .wide.column[class^="computer-pull-"],
+  .wide.column[class*=" computer-push-"],
+  .wide.column[class*=" computer-pull-"] {
+    position: relative;
+  }
+
+  .ui.grid > .row > .wide.column.computer-push-one,
+  .ui.grid > .column.row > .wide.column.computer-push-one,
+  .ui.grid > .wide.column.computer-push-one,
+  .ui.column.grid > .wide.column.computer-push-one {
+    left: 6.25%;
+  }
+  .ui.grid > .row > .wide.column.computer-push-two,
+  .ui.grid > .column.row > .wide.column.computer-push-two,
+  .ui.grid > .wide.column.computer-push-two,
+  .ui.column.grid > .wide.column.computer-push-two {
+    left: 12.5%;
+  }
+  .ui.grid > .row > .wide.column.computer-push-three,
+  .ui.grid > .column.row > .wide.column.computer-push-three,
+  .ui.grid > .wide.column.computer-push-three,
+  .ui.column.grid > .wide.column.computer-push-three {
+    left: 18.75%;
+  }
+  .ui.grid > .row > .wide.column.computer-push-four,
+  .ui.grid > .column.row > .wide.column.computer-push-four,
+  .ui.grid > .wide.column.computer-push-four,
+  .ui.column.grid > .wide.column.computer-push-four {
+    left: 25%;
+  }
+  .ui.grid > .row > .wide.column.computer-push-five,
+  .ui.grid > .column.row > .wide.column.computer-push-five,
+  .ui.grid > .wide.column.computer-push-five,
+  .ui.column.grid > .wide.column.computer-push-five {
+    left: 31.25%;
+  }
+  .ui.grid > .row > .wide.column.computer-push-six,
+  .ui.grid > .column.row > .wide.column.computer-push-six,
+  .ui.grid > .wide.column.computer-push-six,
+  .ui.column.grid > .wide.column.computer-push-six {
+    left: 37.5%;
+  }
+  .ui.grid > .row > .wide.column.computer-push-seven,
+  .ui.grid > .column.row > .wide.column.computer-push-seven,
+  .ui.grid > .wide.column.computer-push-seven,
+  .ui.column.grid > .wide.column.computer-push-seven {
+    left: 43.75%;
+  }
+  .ui.grid > .row > .wide.column.computer-push-eight,
+  .ui.grid > .column.row > .wide.column.computer-push-eight,
+  .ui.grid > .wide.column.computer-push-eight,
+  .ui.column.grid > .wide.column.computer-push-eight {
+    left: 50%;
+  }
+  .ui.grid > .row > .wide.column.computer-push-nine,
+  .ui.grid > .column.row > .wide.column.computer-push-nine,
+  .ui.grid > .wide.column.computer-push-nine,
+  .ui.column.grid > .wide.column.computer-push-nine {
+    left: 56.25%;
+  }
+  .ui.grid > .row > .wide.column.computer-push-ten,
+  .ui.grid > .column.row > .wide.column.computer-push-ten,
+  .ui.grid > .wide.column.computer-push-ten,
+  .ui.column.grid > .wide.column.computer-push-ten {
+    left: 62.5%;
+  }
+  .ui.grid > .row > .wide.column.computer-push-eleven,
+  .ui.grid > .column.row > .wide.column.computer-push-eleven,
+  .ui.grid > .wide.column.computer-push-eleven,
+  .ui.column.grid > .wide.column.computer-push-eleven {
+    left: 68.75%;
+  }
+  .ui.grid > .row > .wide.column.computer-push-twelve,
+  .ui.grid > .column.row > .wide.column.computer-push-twelve,
+  .ui.grid > .wide.column.computer-push-twelve,
+  .ui.column.grid > .wide.column.computer-push-twelve {
+    left: 75%;
+  }
+  .ui.grid > .row > .wide.column.computer-push-thirteen,
+  .ui.grid > .column.row > .wide.column.computer-push-thirteen,
+  .ui.grid > .wide.column.computer-push-thirteen,
+  .ui.column.grid > .wide.column.computer-push-thirteen {
+    left: 81.25%;
+  }
+  .ui.grid > .row > .wide.column.computer-push-fourteen,
+  .ui.grid > .column.row > .wide.column.computer-push-fourteen,
+  .ui.grid > .wide.column.computer-push-fourteen,
+  .ui.column.grid > .wide.column.computer-push-fourteen {
+    left: 87.5%;
+  }
+  .ui.grid > .row > .wide.column.computer-push-fifteen,
+  .ui.grid > .column.row > .wide.column.computer-push-fifteen,
+  .ui.grid > .wide.column.computer-push-fifteen,
+  .ui.column.grid > .wide.column.computer-push-fifteen {
+    left: 93.75%;
+  }
+  .ui.grid > .row > .wide.column.computer-push-sixteen,
+  .ui.grid > .column.row > .wide.column.computer-push-sixteen,
+  .ui.grid > .wide.column.computer-push-sixteen,
+  .ui.column.grid > .wide.column.computer-push-sixteen {
+    left: 100%;
+  }
+  .ui.grid > .row > .wide.column.computer-pull-one,
+  .ui.grid > .column.row > .wide.column.computer-pull-one,
+  .ui.grid > .wide.column.computer-pull-one,
+  .ui.column.grid > .wide.column.computer-pull-one {
+    right: 6.25%;
+  }
+  .ui.grid > .row > .wide.column.computer-pull-two,
+  .ui.grid > .column.row > .wide.column.computer-pull-two,
+  .ui.grid > .wide.column.computer-pull-two,
+  .ui.column.grid > .wide.column.computer-pull-two {
+    right: 12.5%;
+  }
+  .ui.grid > .row > .wide.column.computer-pull-three,
+  .ui.grid > .column.row > .wide.column.computer-pull-three,
+  .ui.grid > .wide.column.computer-pull-three,
+  .ui.column.grid > .wide.column.computer-pull-three {
+    right: 18.75%;
+  }
+  .ui.grid > .row > .wide.column.computer-pull-four,
+  .ui.grid > .column.row > .wide.column.computer-pull-four,
+  .ui.grid > .wide.column.computer-pull-four,
+  .ui.column.grid > .wide.column.computer-pull-four {
+    right: 25%;
+  }
+  .ui.grid > .row > .wide.column.computer-pull-five,
+  .ui.grid > .column.row > .wide.column.computer-pull-five,
+  .ui.grid > .wide.column.computer-pull-five,
+  .ui.column.grid > .wide.column.computer-pull-five {
+    right: 31.25%;
+  }
+  .ui.grid > .row > .wide.column.computer-pull-six,
+  .ui.grid > .column.row > .wide.column.computer-pull-six,
+  .ui.grid > .wide.column.computer-pull-six,
+  .ui.column.grid > .wide.column.computer-pull-six {
+    right: 37.5%;
+  }
+  .ui.grid > .row > .wide.column.computer-pull-seven,
+  .ui.grid > .column.row > .wide.column.computer-pull-seven,
+  .ui.grid > .wide.column.computer-pull-seven,
+  .ui.column.grid > .wide.column.computer-pull-seven {
+    right: 43.75%;
+  }
+  .ui.grid > .row > .wide.column.computer-pull-eight,
+  .ui.grid > .column.row > .wide.column.computer-pull-eight,
+  .ui.grid > .wide.column.computer-pull-eight,
+  .ui.column.grid > .wide.column.computer-pull-eight {
+    right: 50%;
+  }
+  .ui.grid > .row > .wide.column.computer-pull-nine,
+  .ui.grid > .column.row > .wide.column.computer-pull-nine,
+  .ui.grid > .wide.column.computer-pull-nine,
+  .ui.column.grid > .wide.column.computer-pull-nine {
+    right: 56.25%;
+  }
+  .ui.grid > .row > .wide.column.computer-pull-ten,
+  .ui.grid > .column.row > .wide.column.computer-pull-ten,
+  .ui.grid > .wide.column.computer-pull-ten,
+  .ui.column.grid > .wide.column.computer-pull-ten {
+    right: 62.5%;
+  }
+  .ui.grid > .row > .wide.column.computer-pull-eleven,
+  .ui.grid > .column.row > .wide.column.computer-pull-eleven,
+  .ui.grid > .wide.column.computer-pull-eleven,
+  .ui.column.grid > .wide.column.computer-pull-eleven {
+    right: 68.75%;
+  }
+  .ui.grid > .row > .wide.column.computer-pull-twelve,
+  .ui.grid > .column.row > .wide.column.computer-pull-twelve,
+  .ui.grid > .wide.column.computer-pull-twelve,
+  .ui.column.grid > .wide.column.computer-pull-twelve {
+    right: 75%;
+  }
+  .ui.grid > .row > .wide.column.computer-pull-thirteen,
+  .ui.grid > .column.row > .wide.column.computer-pull-thirteen,
+  .ui.grid > .wide.column.computer-pull-thirteen,
+  .ui.column.grid > .wide.column.computer-pull-thirteen {
+    right: 81.25%;
+  }
+  .ui.grid > .row > .wide.column.computer-pull-fourteen,
+  .ui.grid > .column.row > .wide.column.computer-pull-fourteen,
+  .ui.grid > .wide.column.computer-pull-fourteen,
+  .ui.column.grid > .wide.column.computer-pull-fourteen {
+    right: 87.5%;
+  }
+  .ui.grid > .row > .wide.column.computer-pull-fifteen,
+  .ui.grid > .column.row > .wide.column.computer-pull-fifteen,
+  .ui.grid > .wide.column.computer-pull-fifteen,
+  .ui.column.grid > .wide.column.computer-pull-fifteen {
+    right: 93.75%;
+  }
+  .ui.grid > .row > .wide.column.computer-pull-sixteen,
+  .ui.grid > .column.row > .wide.column.computer-pull-sixteen,
+  .ui.grid > .wide.column.computer-pull-sixteen,
+  .ui.column.grid > .wide.column.computer-pull-sixteen {
+    right: 100%;
+  }
+}
