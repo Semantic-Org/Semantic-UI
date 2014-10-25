@@ -88,6 +88,8 @@ module.exports = {
       name: 'components',
       message: 'What components should we include in the package?',
       choices: [
+        { name: "reset", checked: true },
+        { name: "site", checked: true },
         { name: "button", checked: true },
         { name: "divider", checked: true },
         { name: "flag", checked: true },
