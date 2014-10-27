@@ -687,24 +687,29 @@ gulp.task('release components', false, function() {
 
     // try pull
     git.pull('origin', 'master', gitOptions, function(error) {
-      console.log('a');
+
+      // local repo doesn't exist
       if(error) {
-        console.log('b');
+
+        // initialize local repo
         git.init(gitOptions, function(error) {
-          console.log('c');
           if(error) {
             console.error('Error initializing repo');
             throw error;
           }
+          // add remote url
           git.addRemote('origin', gitURL, gitOptions, function(error){
             if(error) {
               console.error('Unable to add remote', error);
             }
+
+            // try pull
             git.pull('origin', 'master', function(error) {
               if(error) {
                 console.error('Cannot pull from repository', error);
               }
             });
+
           });
         });
       }

@@ -4,20 +4,19 @@
   "title": "Semantic UI",
   "description": "Semantic empowers designers and developers by creating a shared vocabulary for UI.",
   "homepage": "http://www.semantic-ui.com",
-  "author": "Jack Lukic <jacklukic@gmail.com>",
+  "author": "Jack Lukic <jack@semantic-ui.com>",
   "license": "MIT",
   "scripts": {
     "test": "gulp test"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/Semantic-Org/Semantic-UI.git"
+    "url": "git://github.com/Semantic-Org/Semantic-UI.git#1.0"
   },
   "bugs": {
     "url": "https://github.com/Semantic-Org/Semantic-UI/issues"
   },
   "dependencies": {
-    "gulp-git": "^0.5.3",
     "jquery": "x.x.x"
   },
   "devDependencies": {
@@ -35,6 +34,7 @@
     "gulp-csscomb": "^3.0.3",
     "gulp-debug": "^1.0.1",
     "gulp-flatten": "0.0.4",
+    "gulp-git": "^0.5.3",
     "gulp-header": "^1.1.1",
     "gulp-help": "^1.2.0",
     "gulp-json-editor": "^2.1.0",
