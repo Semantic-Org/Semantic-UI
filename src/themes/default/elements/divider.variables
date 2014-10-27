@@ -15,6 +15,7 @@
 @shadowColor: rgba(0, 0, 0, 0.1);
 
 /* Text */
+@letterSpacing: 0.05em;
 @fontWeight: bold;
 @color: @darkTextColor;
 @textTransform: uppercase;
@@ -34,7 +35,9 @@
 
 /* Horizontal / Vertical */
 @horizontalMargin: '';
-@horizontalDividerMargin: 1.5%;
+@horizontalDividerMargin: 1em;
+@horizontalRulerOffset: ~"calc(-50% - "(@horizontalDividerMargin)~")";
+
 @verticalDividerMargin: 1rem;
 @verticalDividerHeight: ~"calc(100% - "(@verticalDividerMargin)~")";
 

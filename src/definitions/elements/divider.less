@@ -31,6 +31,7 @@
 
   font-weight: @fontWeight;
   text-transform: @textTransform;
+  letter-spacing: @letterSpacing;
   color: @color;
 
   user-select: none;
@@ -85,7 +86,7 @@
 }
 
 .ui.horizontal.divider:before {
-  margin-left: -(50% + @horizontalDividerMargin);
+  margin-left: @horizontalRulerOffset;
 }
 .ui.horizontal.divider:after {
   margin-left: @horizontalDividerMargin;
