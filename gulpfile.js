@@ -12,11 +12,11 @@ var
   gulp          = require('gulp-help')(require('gulp')),
 
   // node components & oddballs
-  del           = require('del'),
-  fs            = require('fs'),
-  extend        = require('extend'),
-  path          = require('path'),
   console       = require('better-console'),
+  del           = require('del'),
+  extend        = require('extend'),
+  fs            = require('fs'),
+  path          = require('path'),
   wrench        = require('wrench'),
 
   // gulp dependencies
@@ -51,11 +51,23 @@ var
   questions     = require('./tasks/questions'),
   settings      = require('./tasks/gulp-settings'),
 
+  // admin
+  release       = require('./tasks/admin/release'),
+  git           = require('gulp-git'),
+  githubAPI     = require('github'),
+
+  oAuthToken    = fs.existsSync('./tasks/admin/oauth.js')
+    ? require('./tasks/admin/oauth')
+    : false,
+  github,
+
+
   // local
   runSetup   = false,
   overwrite  = true,
   config,
   package,
+  github,
 
   // derived
   base,
@@ -145,9 +157,8 @@ gulp.task('default', false, [
   'check install'
 ]);
 
-gulp.task('watch', 'Watch for site/theme changes (Default Task)', function () {
+gulp.task('watch', 'Watch for site/theme changes (Default Task)', function(callback) {
 
-  console.clear();
   console.log('Watching source files');
 
   if(!fs.existsSync(config.files.theme)) {
@@ -346,6 +357,7 @@ gulp.task('build', 'Builds all files from source', function(callback) {
     .pipe(gulp.dest(output.compressed))
     .pipe(print(log.created))
     .on('end', function() {
+      callback();
       gulp.start('package compressed css');
     })
   ;
@@ -604,30 +616,107 @@ gulp.task('build-docs', false, function () {
 });
 
 
+/* Release */
+gulp.task('release', false, function() {
+  // gulp bump
+  // Ask for release type (minor, major, patch)
+  // Bump package.json
+  // Bump composer.json
+  if(!oAuthToken) {
+    module.error('Must add node include tasks/admin/oauth.js with oauth token for GitHub');
+  }
+
+  github = new githubAPI({
+    version    : '3.0.0',
+    debug      : true,
+    protocol   : 'https',
+    timeout    : 5000
+  });
+  github.authenticate({
+    type: "oauth",
+    token: oAuthToken
+  });
+
+  // gulp build
+  gulp.start('release components');
+
+  // release-component
+
+  // #Create SCSS Version
+  // #Create RTL Release
+
+});
+
 /* Bump Version */
 gulp.task('bump', false, function () {
-
   // bump package.json
 
   // bump composer.json
-
 });
 
-/* Release */
-gulp.task('release', false, function() {
+/*--------------
+    Internal
+---------------*/
 
-});
+// gulp.task('release components', false, ['build'], function() {
+gulp.task('release components', false, function() {
+  var
+    stream,
+    index,
+    outputDirectory,
+    repo,
+    repoURL,
+    component,
+    capitalizedComponent
+  ;
 
-gulp.task('release all', false, function () {
 
-  // Create SCSS Version
+  github.repos.get({
+      user : release.owner,
+      repo  : release.repo
+  }, function(error, response) {
+    if(error) {
+      console.log(error);
+    }
+    else {
+      console.log(JSON.stringify(response));
+    }
+  });
 
-  // Create RTL Release
+  for(index in release.components) {
 
-  // Create Node Release
+    // current component in stack
+    component = release.components[index];
 
-  // Create Bower Releases
+    // derived values
+    outputDirectory      = release.folderRoot + component;
+    capitalizedComponent = component.charAt(0).toUpperCase() + component.slice(1);
+    repo                 = release.repoRoot + capitalizedComponent;
+    repoURL              = 'https://github.com/' + release.owner + '/' + repo;
 
+    // create files in folder
+    stream = gulp.src(output.compressed + component + '.*')
+      .pipe(plumber())
+      .pipe(flatten())
+      .pipe(gulp.dest(outputDirectory)) // pipe to output directory
+    ;
 
+    // create bower.json *ignore*
 
+    // check if is a repo locally
+
+    // if not try creating repo
+
+    // after create add remote to git
+    git.addRemote('origin', repoURL, function(error) {
+      if(error) {
+        console.error('Unable to add remote');
+      }
+    });
+
+    // create tagged version
+
+  }
+  // Copy dist/components/{name}(.css|.min.css|.min.js|.js) to "../ui-{name}/"
+  // (manually copy over asset changes)
 });

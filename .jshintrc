@@ -1,0 +1,15 @@
+{
+  "browser"   : true,
+  "indent"    : false,
+  "curly"     : true,
+  "immed"     : true,
+  "latedef"   : true,
+  "noarg"     : true,
+  "undef"     : true,
+  "sub"       : true,
+  "loopfunc"  : true,
+
+  // lax options
+  "trailing"  : false,
+  "laxbreak"  : true
+}

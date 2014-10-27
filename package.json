@@ -17,12 +17,14 @@
     "url": "https://github.com/Semantic-Org/Semantic-UI/issues"
   },
   "dependencies": {
+    "gulp-git": "^0.5.3",
     "jquery": "x.x.x"
   },
   "devDependencies": {
     "better-console": "^0.2.3",
     "del": "^0.1.3",
     "extend": "^2.0.0",
+    "github": "^0.2.2",
     "gulp": "^3.8.8",
     "gulp-autoprefixer": "^1.0.1",
     "gulp-batch": "^1.0.1",

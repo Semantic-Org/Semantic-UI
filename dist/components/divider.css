@@ -21,6 +21,7 @@
   height: 0em;
   font-weight: bold;
   text-transform: uppercase;
+  letter-spacing: 0.05em;
   color: rgba(0, 0, 0, 0.85);
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -70,10 +71,11 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 .ui.horizontal.divider:before {
-  margin-left: -51.5%;
+  margin-left: -webkit-calc(-50% -  1em );
+  margin-left: calc(-50% -  1em );
 }
 .ui.horizontal.divider:after {
-  margin-left: 1.5%;
+  margin-left: 1em;
 }
 
 /*--------------
@@ -143,11 +145,11 @@
   }
   .ui.stackable.grid .ui.vertical.divider:before,
   .ui.grid .stackable.row .ui.vertical.divider:before {
-    margin-left: -51.5%;
+    margin-left: -51%;
   }
   .ui.stackable.grid .ui.vertical.divider:after,
   .ui.grid .stackable.row .ui.vertical.divider:after {
-    margin-left: 1.5%;
+    margin-left: 1em;
   }
 }
 
