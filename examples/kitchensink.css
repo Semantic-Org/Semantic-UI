@@ -1,0 +1,52 @@
+/*******************************
+            Global
+*******************************/
+
+/*--------------
+      Demo
+---------------*/
+
+#sink {
+  background-color: #FFFFFF;
+}
+#sink .demo h4 {
+  margin: 2em 0em 1em;
+}
+
+
+/* Awkwardly ported from docs */
+#sink .demo.row {
+  margin: 0 auto !important;
+  max-width: 1400px;
+}
+#sink .demo.row .button.demo > .buttons,
+#sink .demo.row .button.demo > .button,
+#sink .demo.row .button.demo > .segment > .button {
+  margin-bottom: 0.5em;
+}
+#sink .demo.row .ui.menu,
+#sink .demo.row .ui.card {
+  width: 100%;
+}
+#sink .demo.row h4 {
+  font-weight: bold !important;
+  margin: 0em 0em 1em !important;
+}
+#sink .demo.row .example {
+  clear: both;
+  padding-top: 3em;
+  margin-top: 3em;
+}
+#sink .demo.row .example:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+#sink .demo.row .segment.example {
+  z-index: 1;
+}
+#sink .demo.row .ui.label:not(.empty) {
+  margin-bottom: 1em;
+}
+#sink .demo.row .segment .ui.label {
+  margin-bottom: 0em;
+}
