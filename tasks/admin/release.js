@@ -10,7 +10,7 @@ module.exports = {
 
   // root name for repos
   repoRoot   : 'UI-',
-  folderRoot : '../ui-',
+  folderRoot : '../components/',
 
   // components that get separate repositories for bower/npm
   components : [

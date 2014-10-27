@@ -672,6 +672,7 @@ gulp.task('release components', false, function() {
       outputDirectory      = release.folderRoot + component,
       capitalizedComponent = component.charAt(0).toUpperCase() + component.slice(1),
       repo                 = release.repoRoot + capitalizedComponent,
+      gitURL               = 'git@github.com:release.owner/' + repo + '.git',
       repoURL              = 'https://github.com/' + release.owner + '/' + repo,
       gitOptions           = { cwd: outputDirectory }
     ;
@@ -695,7 +696,7 @@ gulp.task('release components', false, function() {
             console.error('Error initializing repo');
             throw error;
           }
-          git.addRemote('origin', repoURL, gitOptions, function(error){
+          git.addRemote('origin', gitURL, gitOptions, function(error){
             if(error) {
               console.error('Unable to add remote', error);
             }
