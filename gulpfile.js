@@ -658,87 +658,115 @@ gulp.task('bump', false, function () {
     Internal
 ---------------*/
 
-// gulp.task('release components', false, ['build'], function() {
-gulp.task('release components', false, function() {
+//gulp.task('release components', false, ['build', 'copy release components'], function() {
+gulp.task('release components', false, ['copy release components'], function() {
   var
+    index = 0,
+    total = release.components.length,
     stream,
-    index
+    stepGit
   ;
+  console.log('Handling git');
 
-  for(index in release.components) {
+  // Do Git commands synchronously, to avoid issues
+  stepGit = function() {
+
+    index = index + 1;
 
     var
       component            = release.components[index],
       outputDirectory      = release.folderRoot + component,
       capitalizedComponent = component.charAt(0).toUpperCase() + component.slice(1),
       repo                 = release.repoRoot + capitalizedComponent,
-      gitURL               = 'git@github.com:release.owner/' + repo + '.git',
-      repoURL              = 'https://github.com/' + release.owner + '/' + repo,
-      gitOptions           = { cwd: outputDirectory }
+      gitURL               = 'git@github.com:' + release.owner + '/' + repo + '.git',
+      repoURL              = 'https://github.com/' + release.owner + '/' + repo + '/',
+      gitOptions           = { cwd: path.resolve(outputDirectory) }
     ;
+    // exit conditions
+    if(index > total) {
+      return;
+    }
+
+    // try pull
+    git.pull('origin', 'master', gitOptions, function(error) {
+
+      if(error) {
+        // initialize local repo
+        git.init(gitOptions, function(error) {
+          if(error) {
+            console.error('Error initializing repo', error);
+            return;
+          }
+          // add remote url
+          git.addRemote('origin', gitURL, gitOptions, function(error) {
+
+            if(error) {
+              console.error('Unable to add remote', error);
+            }
+
+            // try pull
+            git.pull('origin', 'master', gitOptions, function(error) {
+              if(error) {
+                console.error('Cannot pull from repository', error);
+              }
+              stepGit();
+            });
+
+          });
+        });
+      }
+      else {
+        stepGit();
+      }
+    });
+  };
+
+  stepGit();
 
 
+  // create bower.json *ignore*
+  /*
+  // check if is a repo locally
+  git
+  .add('./')
+  ;
+  // if not try creating repo
+  github.repos.get({
+    user : release.owner,
+    repo  : release.repo
+  }, function(error, response) {
+  if(error) {
+    console.log(error);
+  }
+  else {
+    console.log(JSON.stringify(response));
+  }
+  });
+
+  // after create add remote to git
+  */
+  // create tagged version
+
+  // Copy dist/components/{name}(.css|.min.css|.min.js|.js) to "../ui-{name}/"
+  // (manually copy over asset changes)
+});
+
+gulp.task('copy release components', false, function() {
+  var
+    stream,
+    index
+  ;
+  console.log('Moving files to component folders');
+  for(index in release.components) {
+    var
+      component            = release.components[index],
+      outputDirectory      = release.folderRoot + component
+    ;
     // copy files into folder
     stream = gulp.src(output.compressed + component + '.*')
       .pipe(plumber())
       .pipe(flatten())
       .pipe(gulp.dest(outputDirectory)) // pipe to output directory
     ;
-
-    // try pull
-    git.pull('origin', 'master', gitOptions, function(error) {
-
-      // local repo doesn't exist
-      if(error) {
-
-        // initialize local repo
-        git.init(gitOptions, function(error) {
-          if(error) {
-            console.error('Error initializing repo');
-            throw error;
-          }
-          // add remote url
-          git.addRemote('origin', gitURL, gitOptions, function(error){
-            if(error) {
-              console.error('Unable to add remote', error);
-            }
-
-            // try pull
-            git.pull('origin', 'master', function(error) {
-              if(error) {
-                console.error('Cannot pull from repository', error);
-              }
-            });
-
-          });
-        });
-      }
-    });
-
-    // create bower.json *ignore*
-    /*
-    // check if is a repo locally
-    git
-      .add('./')
-    ;
-    // if not try creating repo
-    github.repos.get({
-        user : release.owner,
-        repo  : release.repo
-    }, function(error, response) {
-      if(error) {
-        console.log(error);
-      }
-      else {
-        console.log(JSON.stringify(response));
-      }
-    });
-
-    // after create add remote to git
-*/
-    // create tagged version
-
   }
-  // Copy dist/components/{name}(.css|.min.css|.min.js|.js) to "../ui-{name}/"
-  // (manually copy over asset changes)
 });
