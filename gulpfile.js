@@ -707,7 +707,7 @@ gulp.task('release components', false, ['copy release components'], function() {
             // try pull
             git.pull('origin', 'master', gitOptions, function(error) {
               if(error) {
-                console.error('Cannot pull from repository', error);
+                // Repo doesnt exist creating
               }
               stepGit();
             });

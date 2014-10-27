@@ -12,6 +12,9 @@ module.exports = {
   repoRoot   : 'UI-',
   folderRoot : '../components/',
 
+  homepage : 'http://beta.semantic-ui.com',
+  description: 'Semantic UI component',
+
   // components that get separate repositories for bower/npm
   components : [
     "reset",
