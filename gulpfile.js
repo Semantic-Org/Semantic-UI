@@ -662,58 +662,74 @@ gulp.task('bump', false, function () {
 gulp.task('release components', false, function() {
   var
     stream,
-    index,
-    outputDirectory,
-    repo,
-    repoURL,
-    component,
-    capitalizedComponent
+    index
   ;
-
-
-  github.repos.get({
-      user : release.owner,
-      repo  : release.repo
-  }, function(error, response) {
-    if(error) {
-      console.log(error);
-    }
-    else {
-      console.log(JSON.stringify(response));
-    }
-  });
 
   for(index in release.components) {
 
-    // current component in stack
-    component = release.components[index];
+    var
+      component            = release.components[index],
+      outputDirectory      = release.folderRoot + component,
+      capitalizedComponent = component.charAt(0).toUpperCase() + component.slice(1),
+      repo                 = release.repoRoot + capitalizedComponent,
+      repoURL              = 'https://github.com/' + release.owner + '/' + repo,
+      gitOptions           = { cwd: outputDirectory }
+    ;
 
-    // derived values
-    outputDirectory      = release.folderRoot + component;
-    capitalizedComponent = component.charAt(0).toUpperCase() + component.slice(1);
-    repo                 = release.repoRoot + capitalizedComponent;
-    repoURL              = 'https://github.com/' + release.owner + '/' + repo;
 
-    // create files in folder
+    // copy files into folder
     stream = gulp.src(output.compressed + component + '.*')
       .pipe(plumber())
       .pipe(flatten())
       .pipe(gulp.dest(outputDirectory)) // pipe to output directory
     ;
 
-    // create bower.json *ignore*
-
-    // check if is a repo locally
-
-    // if not try creating repo
-
-    // after create add remote to git
-    git.addRemote('origin', repoURL, function(error) {
+    // try pull
+    git.pull('origin', 'master', gitOptions, function(error) {
+      console.log('a');
       if(error) {
-        console.error('Unable to add remote');
+        console.log('b');
+        git.init(gitOptions, function(error) {
+          console.log('c');
+          if(error) {
+            console.error('Error initializing repo');
+            throw error;
+          }
+          git.addRemote('origin', repoURL, gitOptions, function(error){
+            if(error) {
+              console.error('Unable to add remote', error);
+            }
+            git.pull('origin', 'master', function(error) {
+              if(error) {
+                console.error('Cannot pull from repository', error);
+              }
+            });
+          });
+        });
       }
     });
 
+    // create bower.json *ignore*
+    /*
+    // check if is a repo locally
+    git
+      .add('./')
+    ;
+    // if not try creating repo
+    github.repos.get({
+        user : release.owner,
+        repo  : release.repo
+    }, function(error, response) {
+      if(error) {
+        console.log(error);
+      }
+      else {
+        console.log(JSON.stringify(response));
+      }
+    });
+
+    // after create add remote to git
+*/
     // create tagged version
 
   }
