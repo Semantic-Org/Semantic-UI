@@ -56,7 +56,7 @@ $.fn.shape = function(parameters) {
         $side         = $module.find(selector.side),
 
         // private variables
-        nextSelector = false,
+        nextIndex = false,
         $activeSide,
         $nextSide,
 
@@ -190,7 +190,7 @@ $.fn.shape = function(parameters) {
               ? $activeSide.next(selector.side)
               : $module.find(selector.side).first()
             ;
-            nextSelector = false;
+            nextIndex = false;
             module.verbose('Active side set to', $activeSide);
             module.verbose('Next side set to', $nextSide);
           },
@@ -217,8 +217,8 @@ $.fn.shape = function(parameters) {
             var
               $clone      = $module.clone().addClass(className.loading),
               $activeSide = $clone.find('.' + settings.className.active),
-              $nextSide   = (nextSelector)
-                ? $clone.find(nextSelector)
+              $nextSide   = (nextIndex)
+                ? $clone.find(selector.side).eq(nextIndex)
                 : ( $activeSide.next(selector.side).size() > 0 )
                   ? $activeSide.next(selector.side)
                   : $clone.find(selector.side).first(),
@@ -231,7 +231,7 @@ $.fn.shape = function(parameters) {
               width  : $nextSide.outerWidth(),
               height : $nextSide.outerHeight()
             };
-            $clone.remove();
+            //$clone.remove();
             $module
               .css(newSize)
             ;
@@ -239,9 +239,11 @@ $.fn.shape = function(parameters) {
           },
 
           nextSide: function(selector) {
-            nextSelector = selector;
-            $nextSide = $module.find(selector);
+            nextIndex = selector;
+            $nextSide = $side.filter(selector);
+            nextIndex = $side.index($nextSide);
             if($nextSide.size() === 0) {
+              module.set.defaultSide();
               module.error(error.side);
             }
             module.verbose('Next side manually set to', $nextSide);
