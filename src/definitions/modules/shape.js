@@ -177,6 +177,9 @@ $.fn.shape = function(parameters) {
         },
 
         is: {
+          complete: function() {
+            return ($side.filter('.' + className.active)[0] == $nextSide[0]);
+          },
           animating: function() {
             return $module.hasClass(className.animating);
           }
@@ -265,8 +268,12 @@ $.fn.shape = function(parameters) {
         flip: {
 
           up: function() {
-            module.debug('Flipping up', $nextSide);
-            if( !module.is.animating() ) {
+            if(module.is.complete() && !module.is.animating() && !settings.allowRepeats) {
+              console.log('Side already visible', $nextSide);
+              return;
+            }
+            if( !module.is.animating()) {
+              module.debug('Flipping up', $nextSide);
               module.set.stageSize();
               module.stage.above();
               module.animate( module.get.transform.up() );
@@ -277,8 +284,12 @@ $.fn.shape = function(parameters) {
           },
 
           down: function() {
-            module.debug('Flipping down', $nextSide);
-            if( !module.is.animating() ) {
+            if(module.is.complete() && !module.is.animating() && !settings.allowRepeats) {
+              console.log('Side already visible', $nextSide);
+              return;
+            }
+            if( !module.is.animating()) {
+              module.debug('Flipping down', $nextSide);
               module.set.stageSize();
               module.stage.below();
               module.animate( module.get.transform.down() );
@@ -289,8 +300,12 @@ $.fn.shape = function(parameters) {
           },
 
           left: function() {
-            module.debug('Flipping left', $nextSide);
-            if( !module.is.animating() ) {
+            if(module.is.complete() && !module.is.animating() && !settings.allowRepeats) {
+              console.log('Side already visible', $nextSide);
+              return;
+            }
+            if( !module.is.animating()) {
+              module.debug('Flipping left', $nextSide);
               module.set.stageSize();
               module.stage.left();
               module.animate(module.get.transform.left() );
@@ -301,8 +316,12 @@ $.fn.shape = function(parameters) {
           },
 
           right: function() {
-            module.debug('Flipping right', $nextSide);
-            if( !module.is.animating() ) {
+            if(module.is.complete() && !module.is.animating() && !settings.allowRepeats) {
+              console.log('Side already visible', $nextSide);
+              return;
+            }
+            if( !module.is.animating()) {
+              module.debug('Flipping right', $nextSide);
               module.set.stageSize();
               module.stage.right();
               module.animate(module.get.transform.right() );
@@ -313,8 +332,12 @@ $.fn.shape = function(parameters) {
           },
 
           over: function() {
-            module.debug('Flipping over', $nextSide);
-            if( !module.is.animating() ) {
+            if(module.is.complete() && !module.is.animating() && !settings.allowRepeats) {
+              console.log('Side already visible', $nextSide);
+              return;
+            }
+            if( !module.is.animating()) {
+              module.debug('Flipping over', $nextSide);
               module.set.stageSize();
               module.stage.behind();
               module.animate(module.get.transform.over() );
@@ -325,8 +348,12 @@ $.fn.shape = function(parameters) {
           },
 
           back: function() {
-            module.debug('Flipping back', $nextSide);
-            if( !module.is.animating() ) {
+            if(module.is.complete() && !module.is.animating() && !settings.allowRepeats) {
+              console.log('Side already visible', $nextSide);
+              return;
+            }
+            if( !module.is.animating()) {
+              module.debug('Flipping back', $nextSide);
               module.set.stageSize();
               module.stage.behind();
               module.animate(module.get.transform.back() );
@@ -770,6 +797,9 @@ $.fn.shape.settings = {
   // callback occurs on side change
   beforeChange : function() {},
   onChange     : function() {},
+
+  // allow animation to same side
+  allowRepeats: false,
 
   // animation duration
   duration   : 700,
