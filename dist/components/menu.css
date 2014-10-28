@@ -1554,7 +1554,7 @@
 
 /* Small */
 .ui.small.menu .item {
-  font-size: 0.9285em;
+  font-size: 0.875rem;
 }
 .ui.small.vertical.menu {
   width: 13rem;
@@ -1562,7 +1562,7 @@
 
 /* Medium */
 .ui.menu .item {
-  font-size: 1em;
+  font-size: 1rem;
 }
 .ui.vertical.menu {
   width: 15rem;
@@ -1570,7 +1570,7 @@
 
 /* Large */
 .ui.large.menu .item {
-  font-size: 1.1428em;
+  font-size: 1.125rem;
 }
 .ui.large.menu .item .item {
   font-size: 0.875rem;

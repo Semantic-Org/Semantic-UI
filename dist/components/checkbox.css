@@ -47,6 +47,7 @@
 
 .ui.checkbox .box,
 .ui.checkbox label {
+  display: block;
   cursor: pointer;
   padding-left: 1.75em;
   outline: none;

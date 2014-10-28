@@ -4312,6 +4312,7 @@ a.ui.card:hover,
 
 .ui.checkbox .box,
 .ui.checkbox label {
+  display: block;
   cursor: pointer;
   padding-left: 1.75em;
   outline: none;
@@ -5790,31 +5791,6 @@ select.ui.dropdown {
   opacity: 1;
 }
 
-/* Search Selection Input */
-
-.ui.selection > input.search {
-  cursor: pointer;
-  background: none transparent;
-  border: none;
-  position: absolute;
-  top: 0em;
-  left: 0em;
-  width: 100%;
-  line-height: 1.2em;
-  padding: 0.8em 1.1em;
-  outline: none;
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-}
-
-.ui.selection.active > input.search,
-.ui.selection.visible > input.search {
-  cursor: auto;
-}
-
-.ui.selection > input.search:focus + .text {
-  color: rgba(0, 0, 0, 0.4) !important;
-}
-
 /*  Selection Menu */
 
 .ui.selection.dropdown .menu {
@@ -5919,6 +5895,82 @@ select.ui.dropdown {
 .ui.visible.selection.dropdown {
   border-bottom-left-radius: 0em !important;
   border-bottom-right-radius: 0em !important;
+}
+
+/*--------------
+   Searchable
+---------------*/
+
+/* Search Selection */
+
+.ui.search.dropdown {
+  min-width: auto;
+}
+
+/* Search Dropdown */
+
+.ui.search.dropdown > input.search {
+  background: none transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  border-radius: 0em !important;
+  top: 0em;
+  left: 0em;
+  width: 100%;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  padding: inherit;
+  /*Amazing trick */
+}
+
+/* Search Selection */
+
+.ui.search.selection.dropdown > input.search {
+  line-height: 1.2em;
+}
+
+.ui.search.dropdown.active > input.search,
+.ui.search.dropdown.visible > input.search {
+  cursor: auto;
+}
+
+.ui.search.dropdown > input.search:focus + .text {
+  color: rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Search Menu */
+
+.ui.search.dropdown .menu {
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media only screen and (max-width: 767px) {
+  .ui.search.dropdown .menu {
+    max-height: 7.7142rem;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .ui.search.dropdown .menu {
+    max-height: 10.2856rem;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .ui.search.dropdown .menu {
+    max-height: 15.4284rem;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .ui.search.dropdown .menu {
+    max-height: 20.5712rem;
+  }
 }
 
 /*--------------
@@ -18739,7 +18791,7 @@ ol.ui.horizontal.list li:before,
 /* Small */
 
 .ui.small.menu .item {
-  font-size: 0.9285em;
+  font-size: 0.875rem;
 }
 
 .ui.small.vertical.menu {
@@ -18749,7 +18801,7 @@ ol.ui.horizontal.list li:before,
 /* Medium */
 
 .ui.menu .item {
-  font-size: 1em;
+  font-size: 1rem;
 }
 
 .ui.vertical.menu {
@@ -18759,7 +18811,7 @@ ol.ui.horizontal.list li:before,
 /* Large */
 
 .ui.large.menu .item {
-  font-size: 1.1428em;
+  font-size: 1.125rem;
 }
 
 .ui.large.menu .item .item {
@@ -18829,7 +18881,7 @@ ol.ui.horizontal.list li:before,
   display: block;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: bold;
-  margin: 0em 0em 0em 0rem;
+  margin: 0em 0em 0.5rem 0em;
 }
 
 /* Default font size */

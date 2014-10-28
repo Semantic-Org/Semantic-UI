@@ -45,7 +45,7 @@
   display: block;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: bold;
-  margin: 0em 0em 0em 0rem;
+  margin: 0em 0em 0.5rem 0em;
 }
 
 /* Default font size */
