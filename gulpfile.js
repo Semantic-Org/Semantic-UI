@@ -533,7 +533,7 @@ gulp.task('install', 'Set-up project for first time', function () {
         console.info('Extending semantic.json (Gulp config)');
         gulp.src(jsonSource)
           .pipe(plumber())
-          .pipe(rename(settings.rename.json))
+          .pipe(rename(settings.rename.json)) // preserve file extension
           .pipe(jeditor(json))
           .pipe(gulp.dest('./'))
         ;
@@ -542,7 +542,7 @@ gulp.task('install', 'Set-up project for first time', function () {
         console.info('Creating semantic.json (Gulp config)');
         gulp.src(jsonSource)
           .pipe(plumber())
-          .pipe(rename({ extname : '' }))
+          .pipe(rename({ extname : '' })) // remove .template from ext
           .pipe(jeditor(json))
           .pipe(gulp.dest('./'))
         ;
@@ -635,8 +635,9 @@ gulp.task('release', false, function() {
     protocol   : 'https',
     timeout    : 5000
   });
+
   github.authenticate({
-    type: "oauth",
+    type: 'oauth',
     token: oAuthToken
   });
 
@@ -663,16 +664,18 @@ gulp.task('bump', false, function () {
 
 //gulp.task('release components', false, ['build', 'copy release components'], function() {
 gulp.task('release components', false, ['copy release components'], function() {
+
+  /*
   var
     index = 0,
     total = release.components.length,
     stream,
-    stepGit
+    stepCheckGit
   ;
   console.log('Handling git');
 
   // Do Git commands synchronously, to avoid issues
-  stepGit = function() {
+  stepCheckGit = function() {
 
     index = index + 1;
     if(index >= total) {
@@ -681,11 +684,11 @@ gulp.task('release components', false, ['copy release components'], function() {
 
     var
       component            = release.components[index],
-      outputDirectory      = release.folderRoot + component,
+      outputDirectory      = release.outputRoot + component,
       capitalizedComponent = component.charAt(0).toUpperCase() + component.slice(1),
-      repo                 = release.repoRoot + capitalizedComponent,
-      gitURL               = 'git@github.com:' + release.owner + '/' + repo + '.git',
-      repoURL              = 'https://github.com/' + release.owner + '/' + repo + '/',
+      repoName             = release.repoRoot + capitalizedComponent,
+      gitURL               = 'git@github.com:' + release.owner + '/' + repoName + '.git',
+      repoURL              = 'https://github.com/' + release.owner + '/' + repoName + '/',
       gitOptions           = { cwd: path.resolve(outputDirectory) }
     ;
     // exit conditions
@@ -697,37 +700,44 @@ gulp.task('release components', false, ['copy release components'], function() {
     git.pull('origin', 'master', gitOptions, function(error) {
 
       if(error) {
+        console.log(error);
+        return;
         // initialize local repo
         git.init(gitOptions, function(error) {
           if(error) {
-            console.error('Error initializing repo', error);
+            console.error('Error initializing repo');
             return;
           }
           // add remote url
           git.addRemote('origin', gitURL, gitOptions, function(error) {
 
             if(error) {
-              console.error('Unable to add remote', error);
+              // origin already set (do nothing)
             }
 
             // try pull
             git.pull('origin', 'master', gitOptions, function(error) {
               if(error) {
                 // Repo doesnt exist creating
+                console.log('Create new repo', repoName, release.org);
+                github.repos.createFromOrg({
+                  org: release.org,
+                  name: repoName,
+                  homepage: release.homepage
+                }, stepCheckGit);
               }
-              stepGit();
             });
 
           });
         });
       }
       else {
-        stepGit();
+        stepCheckGit();
       }
     });
   };
 
-  stepGit();
+  return stepCheckGit();
 
 
   // create bower.json *ignore*
@@ -738,7 +748,7 @@ gulp.task('release components', false, ['copy release components'], function() {
   ;
   // if not try creating repo
   github.repos.get({
-    user : release.owner,
+    user : release.org,
     repo  : release.repo
   }, function(error, response) {
   if(error) {
@@ -760,19 +770,72 @@ gulp.task('release components', false, ['copy release components'], function() {
 gulp.task('copy release components', false, function() {
   var
     stream,
-    index
+    index,
+    hasJavascript
   ;
+
   console.log('Moving files to component folders');
+
+  // copy source files and extend package files
   for(index in release.components) {
     var
       component            = release.components[index],
-      outputDirectory      = release.folderRoot + component
+      outputDirectory      = release.outputRoot + component,
+
+      isJavascript         = fs.existsSync(output.compressed + component + '.js'),
+      capitalizedComponent = component.charAt(0).toUpperCase() + component.slice(1),
+      repoName             = release.repoRoot + capitalizedComponent,
+      repoURL              = 'https://github.com/' + release.owner + '/' + repoName + '/',
+      notesRegExp          = new RegExp('^((?!(^.*(' + component + ').*$|###.*)).)*$', 'gmi'),
+      bower                = require(release.templates.bower),
+      package              = require(release.templates.package)
     ;
-    // copy files into folder
-    stream = gulp.src(output.compressed + component + '.*')
+    // copy dist files into output folder
+    stream = gulp.src(release.source + component + '.*')
       .pipe(plumber())
       .pipe(flatten())
       .pipe(gulp.dest(outputDirectory)) // pipe to output directory
     ;
+
+    // extend bower.json
+    bower.name = repoName;
+    bower.description = capitalizedComponent + ' - Semantic UI Component';
+    if(isJavascript) {
+      // ... as a js component
+      bower.main = [
+        component + '.js',
+        component + '.css'
+      ];
+      bower.dependencies = {
+        jquery: '>=1.8'
+      };
+    }
+    else {
+      // ... as a css component
+      bower.main = [
+        component + '.css'
+      ];
+    }
+
+    // copy modified release notes
+    gulp.src(release.templates.bower)
+      .pipe(plumber())
+      .pipe(flatten())
+      .pipe(jeditor(bower)) // pipe in modifications from above
+      .pipe(gulp.dest(outputDirectory))
+    ;
+
+    // create release notes
+    gulp.src(release.templates.notes)
+      .pipe(plumber())
+      .pipe(flatten())
+      .pipe(replace(notesRegExp, '')) // Remove release notes for other components
+      .pipe(gulp.dest(outputDirectory))
+    ;
+    console.log(bower);
+    // extend output json
+
+    // does it have js
+    // copy files into folder
   }
 });

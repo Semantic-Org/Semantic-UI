@@ -3894,6 +3894,10 @@ a.ui.card:hover,
     display: block !important;
   }
 
+  .ui.stackable.cards .card:first-child {
+    margin-top: 0em !important;
+  }
+
   .ui.stackable.cards > .card {
     display: block !important;
     height: auto !important;

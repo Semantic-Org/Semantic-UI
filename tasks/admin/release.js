@@ -5,15 +5,24 @@
 // release settings
 module.exports = {
 
-  owner      : 'Semantic-Org',
-  repo       : 'Semantic-UIs',
+  // path to components for repos
+  source     : './dist/components/',
+
+  templates: {
+    bower   : './tasks/admin/templates/bower.json',
+    package : './tasks/admin/templates/package.json'
+  },
+
+  org        : 'Semantic-Org',
+  repo       : 'Semantic-UI',
 
   // root name for repos
   repoRoot   : 'UI-',
-  folderRoot : '../components/',
+  // root path to repos
+  outputRoot : '../components/',
 
-  homepage : 'http://beta.semantic-ui.com',
-  description: 'Semantic UI component',
+  homepage   : 'http://beta.semantic-ui.com',
+
 
   // components that get separate repositories for bower/npm
   components : [

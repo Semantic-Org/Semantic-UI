@@ -25,7 +25,6 @@ module.exports = {
       type: 'list',
       name: 'action',
       message: 'How should we provide files to docs?',
-      when: when.hasConfig,
       choices: [
         {
           name: 'Watch changes',
@@ -36,6 +35,15 @@ module.exports = {
           value: 'docs-build'
         }
       ]
+    }
+  ],
+
+  createRepo: [
+    {
+      type: 'confirm',
+      name: 'allow',
+      message: 'Create new repo?',
+      default: true
     }
   ]
 
