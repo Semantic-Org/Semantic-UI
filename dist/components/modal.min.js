@@ -1,6 +1,6 @@
  /*
  * # Semantic UI
- * git://github.com/Semantic-Org/Semantic-UI.git
+ * git://github.com/Semantic-Org/Semantic-UI.git#1.0
  *
  *
  * Copyright 2014 Contributors

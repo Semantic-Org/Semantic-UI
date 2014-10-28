@@ -1,15 +1,41 @@
 {
+
+  // Globals
+  "globals":  {
+    "$"                     : true,
+    "afterEach"             : true,
+    "AnimatedPNG"           : true,
+    "beforeEach"            : true,
+    "console"               : true,
+    "describe"              : true,
+    "expect"                : true,
+    "it"                    : true,
+    "jQuery"                : true,
+    "loadFixtures"          : true,
+    "module"                : true,
+    "requestAnimationFrame" : true,
+    "require"               : true,
+    "semantic"              : true
+  }
+
+  // Debug
+  "debug"         : false,
+  "devel"         : true,
+
+  // Lint Settings
   "browser"   : true,
-  "indent"    : false,
   "curly"     : true,
   "immed"     : true,
   "latedef"   : true,
+  "loopfunc"  : true,
   "noarg"     : true,
   "undef"     : true,
   "sub"       : true,
   "loopfunc"  : true,
 
-  // lax options
+  // Lax
+  "laxbreak"  : true,
+  "indent"    : false,
   "trailing"  : false,
-  "laxbreak"  : true
+
 }

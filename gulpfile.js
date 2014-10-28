@@ -159,12 +159,14 @@ gulp.task('default', false, [
 
 gulp.task('watch', 'Watch for site/theme changes (Default Task)', function(callback) {
 
-  console.log('Watching source files');
+  console.clear();
+  console.log('Watching source files for changes');
 
   if(!fs.existsSync(config.files.theme)) {
     console.error('Cant compile LESS. Run "grunt install" to create a theme config file');
     return;
   }
+
 
   // watching changes in style
   gulp

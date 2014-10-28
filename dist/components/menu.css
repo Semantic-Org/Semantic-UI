@@ -1,6 +1,6 @@
  /*
  * # Semantic UI
- * git://github.com/Semantic-Org/Semantic-UI.git
+ * git://github.com/Semantic-Org/Semantic-UI.git#1.0
  *
  *
  * Copyright 2014 Contributors
@@ -1554,7 +1554,7 @@
 
 /* Small */
 .ui.small.menu .item {
-  font-size: 0.875rem;
+  font-size: 0.9285em;
 }
 .ui.small.vertical.menu {
   width: 13rem;
@@ -1562,7 +1562,7 @@
 
 /* Medium */
 .ui.menu .item {
-  font-size: 1rem;
+  font-size: 1em;
 }
 .ui.vertical.menu {
   width: 15rem;
@@ -1570,7 +1570,7 @@
 
 /* Large */
 .ui.large.menu .item {
-  font-size: 1.125rem;
+  font-size: 1.1428em;
 }
 .ui.large.menu .item .item {
   font-size: 0.875rem;
