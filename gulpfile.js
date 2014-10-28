@@ -675,6 +675,9 @@ gulp.task('release components', false, ['copy release components'], function() {
   stepGit = function() {
 
     index = index + 1;
+    if(index >= total) {
+      return;
+    }
 
     var
       component            = release.components[index],

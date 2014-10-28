@@ -40,7 +40,7 @@ module.exports = {
   // file paths
   files: {
     composer : 'composer.json',
-        config   : './semantic.json',
+    config   : './semantic.json',
     npm      : './package.json',
     site     : './src/site',
     theme    : './src/theme.config'
