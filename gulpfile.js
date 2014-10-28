@@ -623,7 +623,8 @@ gulp.task('release', false, function() {
   // Bump package.json
   // Bump composer.json
   if(!oAuthToken) {
-    module.error('Must add node include tasks/admin/oauth.js with oauth token for GitHub');
+    console.error('Must add node include tasks/admin/oauth.js with oauth token for GitHub');
+    return;
   }
 
   github = new githubAPI({
