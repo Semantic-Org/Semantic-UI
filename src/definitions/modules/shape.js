@@ -231,7 +231,7 @@ $.fn.shape = function(parameters) {
               width  : $nextSide.outerWidth(),
               height : $nextSide.outerHeight()
             };
-            //$clone.remove();
+            $clone.remove();
             $module
               .css(newSize)
             ;

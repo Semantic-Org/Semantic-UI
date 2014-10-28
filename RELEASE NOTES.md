@@ -65,7 +65,7 @@
 - **Rating** - Rating can now automatically generate icons without including them
 - **Rating** - Rating can use data attributes to specify individual ratings
 - **Sidebar** - Sidebar now has tall / very tall variations for resizing top/bottom sidebars
-- **Shape** - Shape now more accurately calculates size before transitions
+- **Shape** - Shape now is better at calculating sizes when animating
 - **Steps** - Steps can now have icons, descriptions and titles. Step default theme has been modified significantly to be more flexible.
 - **Table** - Tables now have 'basic' and 'very' basic variations
 - **Transition** - Transition will now keep block position of elements hidden with visibility hidden
