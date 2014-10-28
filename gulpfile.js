@@ -832,7 +832,6 @@ gulp.task('copy release components', false, function() {
       .pipe(replace(notesRegExp, '')) // Remove release notes for other components
       .pipe(gulp.dest(outputDirectory))
     ;
-    console.log(bower);
     // extend output json
 
     // does it have js

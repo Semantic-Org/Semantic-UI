@@ -10,7 +10,8 @@ module.exports = {
 
   templates: {
     bower   : './tasks/admin/templates/bower.json',
-    package : './tasks/admin/templates/package.json'
+    package : './tasks/admin/templates/package.json',
+    notes   : './RELEASE-NOTES.md'
   },
 
   org        : 'Semantic-Org',
