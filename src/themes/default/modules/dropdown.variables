@@ -162,6 +162,16 @@ b        Types
 @selectionVisibleConnectingBorder: 0em;
 @selectionVisibleIconOpacity: 1;
 
+/* Search */
+@searchMinWidth: auto;
+
+/* Search Selection */
+@searchSelectionLineHeight: 1.2em;
+@searchMobileMaxMenuHeight: @selectionMobileMaxMenuHeight;
+@searchTabletMaxMenuHeight: @selectionTabletMaxMenuHeight;
+@searchComputerMaxMenuHeight: @selectionComputerMaxMenuHeight;
+@searchWidescreenMaxMenuHeight: @selectionWidescreenMaxMenuHeight;
+
 /* Inline */
 @inlineIconMargin: 0em 0.5em 0em 0.25em;
 @inlineTextColor: inherit;

@@ -312,28 +312,6 @@ select.ui.dropdown {
   opacity: 1;
 }
 
-/* Search Selection Input */
-.ui.selection > input.search {
-  cursor: pointer;
-  background: none transparent;
-  border: none;
-  position: absolute;
-  top: 0em;
-  left: 0em;
-  width: 100%;
-  line-height: 1.2em;
-  padding: @selectionPadding;
-  outline: none;
-  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
-}
-.ui.selection.active > input.search,
-.ui.selection.visible > input.search {
-  cursor: auto;
-}
-.ui.selection > input.search:focus + .text {
-  color: @unselectedTextColor !important;
-}
-
 
 /*  Selection Menu */
 .ui.selection.dropdown .menu {
@@ -425,6 +403,74 @@ select.ui.dropdown {
   border-bottom-left-radius: @selectionVisibleConnectingBorder !important;
   border-bottom-right-radius: @selectionVisibleConnectingBorder !important;
 }
+
+/*--------------
+   Searchable
+---------------*/
+
+/* Search Selection */
+.ui.search.dropdown {
+  min-width: @searchMinWidth;
+}
+
+/* Search Dropdown */
+.ui.search.dropdown > input.search {
+  cursor: pointer;
+  background: none transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  border-radius: 0em !important;
+  top: 0em;
+  left: 0em;
+  width: 100%;
+  outline: none;
+  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+  padding: inherit; /*Amazing trick */
+}
+
+/* Search Selection */
+.ui.search.selection.dropdown > input.search {
+  line-height: @searchSelectionLineHeight;
+}
+
+
+.ui.search.dropdown.active > input.search,
+.ui.search.dropdown.visible > input.search {
+  cursor: auto;
+}
+.ui.search.dropdown > input.search:focus + .text {
+  color: @unselectedTextColor !important;
+}
+
+/* Search Menu */
+.ui.search.dropdown .menu {
+  overflow-x: hidden;
+  overflow-y: auto;
+  backface-visibility: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+@media only screen and (max-width : @largestMobileScreen) {
+  .ui.search.dropdown .menu {
+    max-height: @searchMobileMaxMenuHeight;
+  }
+}
+@media only screen and (min-width: @tabletBreakpoint) {
+  .ui.search.dropdown .menu {
+    max-height: @searchTabletMaxMenuHeight;
+  }
+}
+@media only screen and (min-width: @computerBreakpoint) {
+  .ui.search.dropdown .menu {
+    max-height: @searchComputerMaxMenuHeight;
+  }
+}
+@media only screen and (min-width: @widescreenMonitorBreakpoint) {
+  .ui.search.dropdown .menu {
+    max-height: @searchWidescreenMaxMenuHeight;
+  }
+}
+
 
 /*--------------
      Inline
