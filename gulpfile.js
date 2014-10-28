@@ -687,8 +687,8 @@ gulp.task('release components', false, ['copy release components'], function() {
       outputDirectory      = release.outputRoot + component,
       capitalizedComponent = component.charAt(0).toUpperCase() + component.slice(1),
       repoName             = release.repoRoot + capitalizedComponent,
-      gitURL               = 'git@github.com:' + release.owner + '/' + repoName + '.git',
-      repoURL              = 'https://github.com/' + release.owner + '/' + repoName + '/',
+      gitURL               = 'git@github.com:' + release.org + '/' + repoName + '.git',
+      repoURL              = 'https://github.com/' + release.org + '/' + repoName + '/',
       gitOptions           = { cwd: path.resolve(outputDirectory) }
     ;
     // exit conditions
@@ -785,10 +785,15 @@ gulp.task('copy release components', false, function() {
       isJavascript         = fs.existsSync(output.compressed + component + '.js'),
       capitalizedComponent = component.charAt(0).toUpperCase() + component.slice(1),
       repoName             = release.repoRoot + capitalizedComponent,
-      repoURL              = 'https://github.com/' + release.owner + '/' + repoName + '/',
-      notesRegExp          = new RegExp('^((?!(^.*(' + component + ').*$|###.*)).)*$', 'gmi'),
+      gitURL               = 'git@github.com:' + release.org + '/' + repoName + '.git',
+      repoURL              = 'https://github.com/' + release.org + '/' + repoName + '/',
       bower                = require(release.templates.bower),
-      package              = require(release.templates.package)
+      package              = require(release.templates.package),
+      regExp               = {
+        relatedNotes : new RegExp('^((?!(^.*(' + component + ').*$|###.*)).)*$', 'gmi'),
+        whitespace   : /\n\s*\n\s*\n/g,
+        trim         : /^\s+|\s+$/g
+      }
     ;
     // copy dist files into output folder
     stream = gulp.src(release.source + component + '.*')
@@ -799,9 +804,8 @@ gulp.task('copy release components', false, function() {
 
     // extend bower.json
     bower.name = repoName;
-    bower.description = capitalizedComponent + ' - Semantic UI Component';
+    bower.description = capitalizedComponent + ' - Semantic UI';
     if(isJavascript) {
-      // ... as a js component
       bower.main = [
         component + '.js',
         component + '.css'
@@ -811,13 +815,25 @@ gulp.task('copy release components', false, function() {
       };
     }
     else {
-      // ... as a css component
       bower.main = [
         component + '.css'
       ];
     }
 
-    // copy modified release notes
+    // extend package.json
+    package.name  = repoName;
+    package.title = 'Semantic UI - ' + capitalizedComponent;
+    package.repository = {
+      type : 'git',
+      url  : gitURL
+    };
+    if(isJavascript) {
+      package.dependencies = {
+        jquery: 'x.x.x'
+      };
+    }
+
+    // copy modified bower file
     gulp.src(release.templates.bower)
       .pipe(plumber())
       .pipe(flatten())
@@ -825,11 +841,21 @@ gulp.task('copy release components', false, function() {
       .pipe(gulp.dest(outputDirectory))
     ;
 
+    // copy modified package file
+    gulp.src(release.templates.package)
+      .pipe(plumber())
+      .pipe(flatten())
+      .pipe(jeditor(package)) // pipe in modifications from above
+      .pipe(gulp.dest(outputDirectory))
+    ;
+
     // create release notes
     gulp.src(release.templates.notes)
       .pipe(plumber())
       .pipe(flatten())
-      .pipe(replace(notesRegExp, '')) // Remove release notes for other components
+      .pipe(replace(regExp.relatedNotes, ''))  // Remove release notes for lines not mentioning component
+      .pipe(replace(regExp.whitespace, '\n\n'))
+      .pipe(replace(regExp.trim, ''))
       .pipe(gulp.dest(outputDirectory))
     ;
     // extend output json

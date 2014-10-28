@@ -24,7 +24,6 @@ module.exports = {
 
   homepage   : 'http://beta.semantic-ui.com',
 
-
   // components that get separate repositories for bower/npm
   components : [
     "accordion",
