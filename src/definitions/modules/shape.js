@@ -226,7 +226,7 @@ $.fn.shape = function(parameters) {
             ;
             $activeSide.removeClass(className.active);
             $nextSide.addClass(className.active);
-            $clone.prependTo($body);
+            $clone.insertAfter($module);
             newSize = {
               width  : $nextSide.outerWidth(),
               height : $nextSide.outerHeight()
