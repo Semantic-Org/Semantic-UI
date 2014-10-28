@@ -1,0 +1,18 @@
+{
+    "vendor-prefix"               : true,
+    "duplicate-properties"        : true,
+    "display-property-grouping"   : true,
+    "empty-rules"                 : true,
+
+    "adjoining-classes"           : false,
+    "box-model"                   : false,
+    "compatible-vendor-prefixes"  : false,
+    "box-sizing"                  : false,
+    "duplicate-background-images" : false,
+    "floats"                      : false,
+    "important"                   : false,
+    "overqualified-elements"      : false,
+    "rules-count"                 : false,
+    "shorthand"                   : false,
+    "zero-units"                  : false
+}
