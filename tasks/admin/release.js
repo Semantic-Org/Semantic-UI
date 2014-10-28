@@ -8,6 +8,12 @@ module.exports = {
   // path to components for repos
   source     : './dist/components/',
 
+  // modified asset paths for component repos
+  paths: {
+    source : '../themes/default/assets/',
+    output : 'assets/'
+  },
+
   templates: {
     bower   : './tasks/admin/templates/bower.json',
     package : './tasks/admin/templates/package.json',
@@ -19,6 +25,7 @@ module.exports = {
 
   // root name for repos
   repoRoot   : 'UI-',
+
   // root path to repos
   outputRoot : '../components/',
 
@@ -26,50 +33,50 @@ module.exports = {
 
   // components that get separate repositories for bower/npm
   components : [
-    "accordion",
-    "api",
-    "breadcrumb",
-    "button",
-    "card",
-    "checkbox",
-    "comment",
-    "dimmer",
-    "divider",
-    "dropdown",
-    "feed",
-    "flag",
-    "form",
-    "grid",
-    "header",
-    "icon",
-    "image",
-    "input",
-    "item",
-    "label",
-    "list",
-    "loader",
-    "menu",
-    "message",
-    "modal",
-    "nag",
-    "popup",
-    "progress",
-    "rail",
-    "rating",
-    "reset",
-    "reveal",
-    "search",
-    "segment",
-    "shape",
-    "sidebar",
-    "site",
-    "statistic",
-    "step",
-    "sticky",
-    "tab",
-    "table",
-    "transition",
-    "video"
+    'accordion',
+    'api',
+    'breadcrumb',
+    'button',
+    'card',
+    'checkbox',
+    'comment',
+    'dimmer',
+    'divider',
+    'dropdown',
+    'feed',
+    'flag',
+    'form',
+    'grid',
+    'header',
+    'icon',
+    'image',
+    'input',
+    'item',
+    'label',
+    'list',
+    'loader',
+    'menu',
+    'message',
+    'modal',
+    'nag',
+    'popup',
+    'progress',
+    'rail',
+    'rating',
+    'reset',
+    'reveal',
+    'search',
+    'segment',
+    'shape',
+    'sidebar',
+    'site',
+    'statistic',
+    'step',
+    'sticky',
+    'tab',
+    'table',
+    'transition',
+    'video'
   ]
 };
 

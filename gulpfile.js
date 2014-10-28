@@ -662,8 +662,8 @@ gulp.task('bump', false, function () {
     Internal
 ---------------*/
 
-//gulp.task('release components', false, ['build', 'copy release components'], function() {
-gulp.task('release components', false, ['copy release components'], function() {
+//gulp.task('release components', false, ['build', 'create repos'], function() {
+gulp.task('release components', false, ['create repos'], function() {
 
   /*
   var
@@ -767,17 +767,16 @@ gulp.task('release components', false, ['copy release components'], function() {
   // (manually copy over asset changes)
 });
 
-gulp.task('copy release components', false, function() {
+gulp.task('create repos', false, function() {
   var
     stream,
     index,
-    hasJavascript
+    tasks = []
   ;
 
-  console.log('Moving files to component folders');
-
-  // copy source files and extend package files
+  // sometimes i hate streams (dynamically create task for each component)
   for(index in release.components) {
+
     var
       component            = release.components[index],
       outputDirectory      = release.outputRoot + component,
@@ -787,80 +786,104 @@ gulp.task('copy release components', false, function() {
       repoName             = release.repoRoot + capitalizedComponent,
       gitURL               = 'git@github.com:' + release.org + '/' + repoName + '.git',
       repoURL              = 'https://github.com/' + release.org + '/' + repoName + '/',
-      bower                = require(release.templates.bower),
-      package              = require(release.templates.package),
       regExp               = {
-        relatedNotes : new RegExp('^((?!(^.*(' + component + ').*$|###.*)).)*$', 'gmi'),
-        whitespace   : /\n\s*\n\s*\n/g,
-        trim         : /^\s+|\s+$/g
+        relatedNotes     : new RegExp('^((?!(^.*(' + component + ').*$|###.*)).)*$', 'gmi'),
+        whitespace       : /\n\s*\n\s*\n/g,
+        repeatedReleases : /###.*\n(\n+)###/gm,
+        trim             : /^\s+|\s+$/g
+      },
+      task = {
+        repo    : component + ' create repo',
+        bower   : component + ' create bower.json',
+        notes   : component + ' create release notes',
+        package : component + ' create package.json'
       }
     ;
-    // copy dist files into output folder
-    stream = gulp.src(release.source + component + '.*')
-      .pipe(plumber())
-      .pipe(flatten())
-      .pipe(gulp.dest(outputDirectory)) // pipe to output directory
-    ;
+
+    // create component repo
+    gulp.task(task.repo, false, function() {
+      // copy dist files into output folder adjusting asset paths
+      return gulp.src(release.source + component + '.*')
+        .pipe(plumber())
+        .pipe(flatten())
+        .pipe(replace(release.paths.source, release.paths.output))
+        .pipe(gulp.dest(outputDirectory)) // pipe to output directory
+      ;
+    });
 
     // extend bower.json
-    bower.name = repoName;
-    bower.description = capitalizedComponent + ' - Semantic UI';
-    if(isJavascript) {
-      bower.main = [
-        component + '.js',
-        component + '.css'
-      ];
-      bower.dependencies = {
-        jquery: '>=1.8'
-      };
-    }
-    else {
-      bower.main = [
-        component + '.css'
-      ];
-    }
+    gulp.task(task.bower, false, function() {
+      var
+        bower = require(release.templates.bower)
+      ;
+      bower.name = repoName;
+      bower.description = capitalizedComponent + ' - Semantic UI';
+      if(isJavascript) {
+        bower.main = [
+          component + '.js',
+          component + '.css'
+        ];
+        bower.dependencies = {
+          jquery: '>=1.8'
+        };
+      }
+      else {
+        bower.main = [
+          component + '.css'
+        ];
+      }
+      return gulp.src(release.templates.bower)
+        .pipe(plumber())
+        .pipe(flatten())
+        .pipe(jeditor(bower)) // pipe in modifications from above
+        .pipe(gulp.dest(outputDirectory))
+      ;
+    });
 
     // extend package.json
-    package.name  = repoName;
-    package.title = 'Semantic UI - ' + capitalizedComponent;
-    package.repository = {
-      type : 'git',
-      url  : gitURL
-    };
-    if(isJavascript) {
-      package.dependencies = {
-        jquery: 'x.x.x'
+    gulp.task(task.package, false, function() {
+      var
+        package = require(release.templates.package)
+      ;
+      if(isJavascript) {
+        package.dependencies = {
+          jquery: 'x.x.x'
+        };
+      }
+      package.name       = repoName;
+      package.title      = 'Semantic UI - ' + capitalizedComponent;
+      package.repository = {
+        type : 'git',
+        url  : gitURL
       };
-    }
-
-    // copy modified bower file
-    gulp.src(release.templates.bower)
-      .pipe(plumber())
-      .pipe(flatten())
-      .pipe(jeditor(bower)) // pipe in modifications from above
-      .pipe(gulp.dest(outputDirectory))
-    ;
-
-    // copy modified package file
-    gulp.src(release.templates.package)
-      .pipe(plumber())
-      .pipe(flatten())
-      .pipe(jeditor(package)) // pipe in modifications from above
-      .pipe(gulp.dest(outputDirectory))
-    ;
+      return gulp.src(release.templates.package)
+        .pipe(plumber())
+        .pipe(flatten())
+        .pipe(jeditor(package)) // pipe in modifications from above
+        .pipe(gulp.dest(outputDirectory))
+      ;
+    });
 
     // create release notes
-    gulp.src(release.templates.notes)
-      .pipe(plumber())
-      .pipe(flatten())
-      .pipe(replace(regExp.relatedNotes, ''))  // Remove release notes for lines not mentioning component
-      .pipe(replace(regExp.whitespace, '\n\n'))
-      .pipe(replace(regExp.trim, ''))
-      .pipe(gulp.dest(outputDirectory))
-    ;
-    // extend output json
+    gulp.task(task.notes, false, function() {
+      return gulp.src(release.templates.notes)
+        .pipe(plumber())
+        .pipe(flatten())
+        .pipe(replace(regExp.relatedNotes, ''))  // Remove release notes for lines not mentioning component
+        .pipe(replace(regExp.whitespace, '\n\n'))
+        //.pipe(replace(regExp.repeatedReleases, ''))
+        .pipe(replace(regExp.trim, ''))
+        .pipe(gulp.dest(outputDirectory))
+      ;
+    });
 
-    // does it have js
-    // copy files into folder
+    // add tasks to queue
+    tasks.push(task.repo);
+    tasks.push(task.bower);
+    tasks.push(task.package);
+    tasks.push(task.notes);
   }
+  console.log(tasks);
+  gulp.task('Create each repo', false, tasks);
+  gulp.start('Create each repo');
 });
