@@ -15,9 +15,11 @@ module.exports = {
   },
 
   templates: {
-    bower   : './tasks/admin/templates/bower.json',
-    package : './tasks/admin/templates/package.json',
-    notes   : './RELEASE-NOTES.md'
+    bower    : './tasks/admin/templates/bower.json',
+    composer : './tasks/admin/templates/composer.json',
+    package  : './tasks/admin/templates/package.json',
+    readme   : './tasks/admin/templates/README.md',
+    notes    : './RELEASE-NOTES.md'
   },
 
   org        : 'Semantic-Org',

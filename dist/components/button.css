@@ -660,7 +660,7 @@
   background: rgba(0, 0, 0, 0.05) !important;
   box-shadow: '' !important;
   color: rgba(0, 0, 0, 0.8);
-  box-shadow: rgba(39, 41, 43, 0.2);
+  box-shadow: rgba(39, 41, 43, 0.3);
 }
 .ui.basic.buttons .button.active:hover,
 .ui.basic.button.active:hover {
@@ -675,7 +675,7 @@
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset, 0px 1px 4px 0px rgba(39, 41, 43, 0.15) inset inset;
 }
 .ui.basic.buttons .button.active {
-  box-shadow: rgba(39, 41, 43, 0.2) inset;
+  box-shadow: rgba(39, 41, 43, 0.3) inset;
 }
 
 /* Standard Basic Inverted */

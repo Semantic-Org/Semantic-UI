@@ -6,6 +6,9 @@
     "name" : "Jack Lukic",
     "web"  : "http://www.jacklukic.com"
   },
+  "ignore": [
+    "./index.js"
+  ],
   "keywords": [
     "semantic",
     "ui",

@@ -1110,7 +1110,7 @@
   background: rgba(0, 0, 0, 0.05) !important;
   box-shadow: '' !important;
   color: rgba(0, 0, 0, 0.8);
-  box-shadow: rgba(39, 41, 43, 0.2);
+  box-shadow: rgba(39, 41, 43, 0.3);
 }
 
 .ui.basic.buttons .button.active:hover,
@@ -1129,7 +1129,7 @@
 }
 
 .ui.basic.buttons .button.active {
-  box-shadow: rgba(39, 41, 43, 0.2) inset;
+  box-shadow: rgba(39, 41, 43, 0.3) inset;
 }
 
 /* Standard Basic Inverted */
@@ -3497,7 +3497,7 @@ a.ui.card:hover,
   z-index: 5;
   background: '';
   border: none;
-  box-shadow: 0px 0.2em 0px 0px #bebebf, 0px 0px 0px 1px rgba(39, 41, 43, 0.2);
+  box-shadow: 0px 0.2em 0px 0px #bebebf, 0px 0px 0px 1px rgba(39, 41, 43, 0.3);
 }
 
 /*--------------
@@ -4396,7 +4396,7 @@ a.ui.card:hover,
 .ui.checkbox .box:hover::before,
 .ui.checkbox label:hover::before {
   background: #ffffff;
-  border: 1px solid rgba(39, 41, 43, 0.2);
+  border: 1px solid rgba(39, 41, 43, 0.3);
 }
 
 .ui.checkbox label:hover,
@@ -4411,7 +4411,7 @@ a.ui.card:hover,
 .ui.checkbox .box:active::before,
 .ui.checkbox label:active::before {
   background: #f5f5f5;
-  border: 1px solid 1px solid rgba(39, 41, 43, 0.2);
+  border: 1px solid 1px solid rgba(39, 41, 43, 0.3);
 }
 
 .ui.checkbox input:active ~ label {
@@ -4425,7 +4425,7 @@ a.ui.card:hover,
 .ui.checkbox input:focus ~ .box:before,
 .ui.checkbox input:focus ~ label:before {
   background: #f5f5f5;
-  border: 1px solid 1px solid rgba(39, 41, 43, 0.2);
+  border: 1px solid 1px solid rgba(39, 41, 43, 0.3);
 }
 
 .ui.checkbox input:focus ~ label {
@@ -5858,19 +5858,19 @@ select.ui.dropdown {
 /* Hover */
 
 .ui.selection.dropdown:hover {
-  border-color: rgba(39, 41, 43, 0.2);
+  border-color: rgba(39, 41, 43, 0.3);
   box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.05);
 }
 
 /* Visible Hover */
 
 .ui.selection.visible.dropdown:hover {
-  border-color: rgba(39, 41, 43, 0.2);
+  border-color: rgba(39, 41, 43, 0.3);
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
 }
 
 .ui.selection.visible.dropdown:hover .menu {
-  border: 1px solid rgba(39, 41, 43, 0.2);
+  border: 1px solid rgba(39, 41, 43, 0.3);
   box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.08);
 }
 
@@ -8080,7 +8080,7 @@ i.flag.zimbabwe:before {
   vertical-align: middle;
   margin: 0em 1em 0em 0em;
   color: rgba(0, 0, 0, 0.8);
-  font-size: 1em;
+  font-size: 0.9em;
   font-weight: bold;
   text-transform: none;
 }
@@ -8302,18 +8302,18 @@ i.flag.zimbabwe:before {
 .ui.form input[type="url"]:focus,
 .ui.form input[type="tel"]:focus {
   color: rgba(0, 0, 0, 0.85);
-  border-color: rgba(39, 41, 43, 0.2);
+  border-color: rgba(39, 41, 43, 0.3);
   border-radius: 0em 0.2857rem 0.2857rem 0em;
   background: #ffffff;
-  box-shadow: 1px 0em 0em 0em rgba(39, 41, 43, 0.2) inset;
+  box-shadow: 1px 0em 0em 0em rgba(39, 41, 43, 0.3) inset;
 }
 
 .ui.form textarea:focus {
   color: rgba(0, 0, 0, 0.85);
-  border-color: rgba(39, 41, 43, 0.2);
+  border-color: rgba(39, 41, 43, 0.3);
   border-radius: 0em 0.2857rem 0.2857rem 0em;
   background: #ffffff;
-  box-shadow: 1px 0em 0em 0em rgba(39, 41, 43, 0.2) inset;
+  box-shadow: 1px 0em 0em 0em rgba(39, 41, 43, 0.3) inset;
   -webkit-appearance: none;
 }
 
@@ -8605,6 +8605,10 @@ i.flag.zimbabwe:before {
   margin-bottom: 0em;
 }
 
+.ui.form .grouped.fields > label {
+  font-size: 0.9em;
+}
+
 .ui.form .grouped.fields .field {
   display: block;
   float: none;
@@ -8854,12 +8858,16 @@ i.flag.zimbabwe:before {
   margin-top: 0em;
   margin-bottom: 0em;
   vertical-align: middle;
-  font-size: 1em;
+  font-size: 0.9em;
 }
 
 .ui.form .inline.fields .field > input,
 .ui.form .inline.field > input {
-  font-size: 1em;
+  font-size: 0.9em;
+}
+
+.ui.form .inline.fields .field > .ui.checkbox label {
+  padding-left: 1.75em;
 }
 
 /* Label */
@@ -13774,56 +13782,56 @@ img.ui.bordered.image {
 .ui.mini.images img,
 .ui.mini.image {
   width: 20px;
-  font-size: 0.7142rem;
+  font-size: 0.7em;
 }
 
 .ui.tiny.images .image,
 .ui.tiny.images img,
 .ui.tiny.image {
   width: 80px;
-  font-size: 0.8571rem;
+  font-size: 0.8em;
 }
 
 .ui.small.images .image,
 .ui.small.images img,
 .ui.small.image {
   width: 150px;
-  font-size: 0.9285rem;
+  font-size: 0.875em;
 }
 
 .ui.medium.images .image,
 .ui.medium.images img,
 .ui.medium.image {
   width: 300px;
-  font-size: 1rem;
+  font-size: 1em;
 }
 
 .ui.large.images .image,
 .ui.large.images img,
 .ui.large.image {
   width: 450px;
-  font-size: 1.1428rem;
+  font-size: 1.125em;
 }
 
 .ui.big.images .image,
 .ui.big.images img,
 .ui.big.image {
   width: 600px;
-  font-size: 1.2857rem;
+  font-size: 1.25em;
 }
 
 .ui.huge.images .image,
 .ui.huge.images img,
 .ui.huge.image {
   width: 800px;
-  font-size: 1.4285rem;
+  font-size: 1.375em;
 }
 
 .ui.massive.images .image,
 .ui.massive.images img,
 .ui.massive.image {
   width: 960px;
-  font-size: 1.7142rem;
+  font-size: 1.5em;
 }
 
 /*******************************
@@ -13942,7 +13950,7 @@ img.ui.bordered.image {
 
 .ui.input.focus input,
 .ui.input input:focus {
-  border-color: rgba(39, 41, 43, 0.2);
+  border-color: rgba(39, 41, 43, 0.3);
   background: '';
   color: rgba(0, 0, 0, 0.8);
   box-shadow: none;
@@ -22336,7 +22344,7 @@ th {
 .ui.stacked.inverted.segment:after,
 .ui.stacked.inverted.segment:before {
   background-color: rgba(0, 0, 0, 0.03);
-  border-top: 1px solid rgba(39, 41, 43, 0.2);
+  border-top: 1px solid rgba(39, 41, 43, 0.3);
 }
 
 /*-------------------

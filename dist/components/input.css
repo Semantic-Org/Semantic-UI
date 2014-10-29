@@ -93,7 +93,7 @@
 
 .ui.input.focus input,
 .ui.input input:focus {
-  border-color: rgba(39, 41, 43, 0.2);
+  border-color: rgba(39, 41, 43, 0.3);
   background: '';
   color: rgba(0, 0, 0, 0.8);
   box-shadow: none;

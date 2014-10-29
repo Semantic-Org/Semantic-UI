@@ -126,7 +126,7 @@
 .ui.checkbox .box:hover::before,
 .ui.checkbox label:hover::before {
   background: #ffffff;
-  border: 1px solid rgba(39, 41, 43, 0.2);
+  border: 1px solid rgba(39, 41, 43, 0.3);
 }
 .ui.checkbox label:hover,
 .ui.checkbox + label:hover {
@@ -140,7 +140,7 @@
 .ui.checkbox .box:active::before,
 .ui.checkbox label:active::before {
   background: #f5f5f5;
-  border: 1px solid 1px solid rgba(39, 41, 43, 0.2);
+  border: 1px solid 1px solid rgba(39, 41, 43, 0.3);
 }
 .ui.checkbox input:active ~ label {
   color: rgba(0, 0, 0, 0.8);
@@ -153,7 +153,7 @@
 .ui.checkbox input:focus ~ .box:before,
 .ui.checkbox input:focus ~ label:before {
   background: #f5f5f5;
-  border: 1px solid 1px solid rgba(39, 41, 43, 0.2);
+  border: 1px solid 1px solid rgba(39, 41, 43, 0.3);
 }
 .ui.checkbox input:focus ~ label {
   color: rgba(0, 0, 0, 0.8);

@@ -121,7 +121,7 @@ var
 
     version = package.version;
 
-    // create glob for matching filenames from selected components
+    // create glob for matching filenames from components in semantic.json
     componentGlob = (typeof config.components == 'object')
       ? (config.components.length > 1)
         ? '{' + config.components.join(',') + '}'
@@ -639,10 +639,8 @@ gulp.task('release', false, function() {
   });
 
   // gulp build
-  runSequence('update git');
-  //runSequence('build', 'create repos', 'update git');
-
-  // release-component
+  //runSequence('create repos');
+  runSequence('build', 'create repos', 'update git');
 
   // #Create SCSS Version
   // #Create RTL Release
@@ -685,41 +683,93 @@ gulp.task('create repos', false, function(callback) {
       var
         outputDirectory      = release.outputRoot + component,
         isJavascript         = fs.existsSync(output.compressed + component + '.js'),
+        isCSS                = fs.existsSync(output.compressed + component + '.css'),
         capitalizedComponent = component.charAt(0).toUpperCase() + component.slice(1),
         repoName             = release.repoRoot + capitalizedComponent,
         gitURL               = 'git@github.com:' + release.org + '/' + repoName + '.git',
         repoURL              = 'https://github.com/' + release.org + '/' + repoName + '/',
         regExp               = {
-          spacedVersions : /(###.*\n)\n+(?=###)/gm,
-          spacedLists    : /(^- .*\n)\n+(?=^-)/gm,
-          trim           : /^\s+|\s+$/g,
-          unrelatedNotes : new RegExp('^((?!(^.*(' + component + ').*$|###.*)).)*$', 'gmi'),
-          whitespace     : /\n\s*\n\s*\n/gm
+          match            : {
+            // readme
+            name              : '{component}',
+            titleName         : '{Component}',
+            // release notes
+            spacedVersions    : /(###.*\n)\n+(?=###)/gm,
+            spacedLists       : /(^- .*\n)\n+(?=^-)/gm,
+            trim              : /^\s+|\s+$/g,
+            unrelatedNotes    : new RegExp('^((?!(^.*(' + component + ').*$|###.*)).)*$', 'gmi'),
+            whitespace        : /\n\s*\n\s*\n/gm,
+            // npm
+            export            : /\$\.fn\.\w+\s*=\s*function\(parameters\)\s*{/g,
+            formExport        : /\$\.fn\.\w+\s*=\s*function\(fields, parameters\)\s*{/g,
+            settingsExport    : /\$\.fn\.\w+\.settings\s*=/g,
+            settingsReference : /\$\.fn\.\w+\.settings/g,
+            jQuery            : /jQuery/g
+          },
+          replace : {
+            // readme
+            name              : component,
+            titleName         : capitalizedComponent,
+            // release notes
+            spacedVersions    : '',
+            spacedLists       : '$1',
+            trim              : '',
+            unrelatedNotes    : '',
+            whitespace        : '\n\n',
+            // npm
+            export            :  'module.exports = function(parameters) {\n  var _module = module;\n',
+            formExport        :  'module.exports = function(fields, parameters) {\n  var _module = module;\n',
+            settingsExport    :  'module.exports.settings =',
+            settingsReference :  '_module.exports.settings',
+            jQuery            :  'require("jquery")'
+          }
         },
-        matchReplace = {
-          spacedVersions : '',
-          spacedLists    : '$1',
-          trim           : '',
-          unrelatedNotes : '',
-          whitespace     : '\n\n'
-        },
-        task           = {
-          all     : component + ' creating',
-          repo    : component + ' create repo',
-          bower   : component + ' create bower.json',
-          notes   : component + ' create release notes',
-          package : component + ' create package.json'
+        task = {
+          all      : component + ' creating',
+          repo     : component + ' create repo',
+          bower    : component + ' create bower.json',
+          readme   : component + ' create README',
+          readme   : component + ' create README',
+          npm      : component + ' create NPM Module',
+          notes    : component + ' create release notes',
+          composer : component + ' create composer.json',
+          package  : component + ' create package.json'
         }
       ;
 
-      // create component repo
+      // copy dist files into output folder adjusting asset paths
       gulp.task(task.repo, false, function() {
-        // copy dist files into output folder adjusting asset paths
-        gulp.src(release.source + component + '.*')
+        return gulp.src(release.source + component + '.*')
           .pipe(plumber())
           .pipe(flatten())
           .pipe(replace(release.paths.source, release.paths.output))
-          .pipe(gulp.dest(outputDirectory)) // pipe to output directory
+          .pipe(gulp.dest(outputDirectory))
+        ;
+      });
+
+      // create npm module
+      gulp.task(task.npm, false, function() {
+        return gulp.src(release.source + component + '!(*.min|*.map).js')
+          .pipe(plumber())
+          .pipe(flatten())
+          .pipe(replace(regExp.match.export, regExp.replace.export))
+          .pipe(replace(regExp.match.formExport, regExp.replace.formExport))
+          .pipe(replace(regExp.match.settingsExport, regExp.replace.settingsExport))
+          .pipe(replace(regExp.match.settingsReference, regExp.replace.settingsReference))
+          .pipe(replace(regExp.match.jQuery, regExp.replace.jQuery))
+          .pipe(rename('index.js'))
+          .pipe(gulp.dest(outputDirectory))
+        ;
+      });
+
+      // create readme
+      gulp.task(task.readme, false, function() {
+        return gulp.src(release.templates.readme)
+          .pipe(plumber())
+          .pipe(flatten())
+          .pipe(replace(regExp.match.name, regExp.replace.name))
+          .pipe(replace(regExp.match.titleName, regExp.replace.titleName))
+          .pipe(gulp.dest(outputDirectory))
         ;
       });
 
@@ -732,10 +782,17 @@ gulp.task('create repos', false, function(callback) {
             bower.name = repoName;
             bower.description = capitalizedComponent + ' - Semantic UI';
             if(isJavascript) {
-              bower.main = [
-                component + '.js',
-                component + '.css'
-              ];
+              if(isCSS) {
+                bower.main = [
+                  component + '.js',
+                  component + '.css'
+                ];
+              }
+              else {
+                bower.main = [
+                  component + '.js'
+                ];
+              }
               bower.dependencies = {
                 jquery: '>=1.8'
               };
@@ -761,9 +818,10 @@ gulp.task('create repos', false, function(callback) {
               package.dependencies = {
                 jquery: 'x.x.x'
               };
-              package.main = component + '.js';
+              package.main = 'index.js';
             }
             package.name        = repoName;
+            package.version     = version;
             package.title       = 'Semantic UI - ' + capitalizedComponent;
             package.description = 'Single component release of ' + component;
             package.repository  = {
@@ -776,17 +834,38 @@ gulp.task('create repos', false, function(callback) {
         ;
       });
 
+      // extend composer.json
+      gulp.task(task.composer, false, function() {
+        return gulp.src(release.templates.composer)
+          .pipe(plumber())
+          .pipe(flatten())
+          .pipe(jeditor(function(composer) {
+            if(isJavascript) {
+              composer.dependencies = {
+                jquery: 'x.x.x'
+              };
+              composer.main = component + '.js';
+            }
+            composer.name        = 'semantic/' + component;
+            composer.version     = version;
+            composer.description = 'Single component release of ' + component;
+            return composer;
+          }))
+          .pipe(gulp.dest(outputDirectory))
+        ;
+      });
+
       // create release notes
       gulp.task(task.notes, false, function() {
         return gulp.src(release.templates.notes)
           .pipe(plumber())
           .pipe(flatten())
           // Remove release notes for lines not mentioning component
-          .pipe(replace(regExp.unrelatedNotes, matchReplace.unrelatedNotes))
-          .pipe(replace(regExp.whitespace, matchReplace.whitespace))
-          .pipe(replace(regExp.spacedVersions, matchReplace.spacedVersions))
-          .pipe(replace(regExp.spacedLists, matchReplace.spacedLists))
-          .pipe(replace(regExp.trim, matchReplace.trim))
+          .pipe(replace(regExp.match.unrelatedNotes, regExp.replace.unrelatedNotes))
+          .pipe(replace(regExp.match.whitespace, regExp.replace.whitespace))
+          .pipe(replace(regExp.match.spacedVersions, regExp.replace.spacedVersions))
+          .pipe(replace(regExp.match.spacedLists, regExp.replace.spacedLists))
+          .pipe(replace(regExp.match.trim, regExp.replace.trim))
           .pipe(gulp.dest(outputDirectory))
         ;
       });
@@ -795,8 +874,11 @@ gulp.task('create repos', false, function(callback) {
       gulp.task(task.all, false, function(callback) {
         runSequence([
           task.repo,
+          task.npm,
           task.bower,
+          task.readme,
           task.package,
+          task.composer,
           task.notes
         ], callback);
       });

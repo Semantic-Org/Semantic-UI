@@ -355,17 +355,17 @@ select.ui.dropdown {
 
 /* Hover */
 .ui.selection.dropdown:hover {
-  border-color: rgba(39, 41, 43, 0.2);
+  border-color: rgba(39, 41, 43, 0.3);
   box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.05);
 }
 
 /* Visible Hover */
 .ui.selection.visible.dropdown:hover {
-  border-color: rgba(39, 41, 43, 0.2);
+  border-color: rgba(39, 41, 43, 0.3);
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
 }
 .ui.selection.visible.dropdown:hover .menu {
-  border: 1px solid rgba(39, 41, 43, 0.2);
+  border: 1px solid rgba(39, 41, 43, 0.3);
   box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.08);
 }
 
