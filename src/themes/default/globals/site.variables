@@ -280,14 +280,14 @@
         Sizes
 --------------------*/
 
-@mini        : 0.7142em;
-@tiny        : 0.8571em;
-@small       : 0.9285em;
-@medium      : 1em;
-@large       : 1.1428em;
-@big         : 1.2857em;
-@huge        : 1.4285em;
-@massive     : 1.7142em;
+@mini        : 0.7142rem;
+@tiny        : 0.8571rem;
+@small       : 0.9285rem;
+@medium      : 1rem;
+@large       : 1.1428rem;
+@big         : 1.2857rem;
+@huge        : 1.4285rem;
+@massive     : 1.7142rem;
 
 
 /*-------------------
@@ -530,4 +530,3 @@
 @instagramActiveColor  : darken(@instagramColor, 3);
 @pinterestActiveColor  : darken(@pinterestColor, 3);
 @vkActiveColor         : darken(@vkColor, 3);
-
