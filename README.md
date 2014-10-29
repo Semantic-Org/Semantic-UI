@@ -1,4 +1,4 @@
-# Semantic [![Build Status](https://travis-ci.org/Semantic-Org/Semantic-UI.png)](https://travis-ci.org/Semantic-Org/Semantic-UI)
+# Semantic
 Semantic uses principles of natural language to create a re-usable language for UI.
 
 Semantic UI is now at 1.0, **be sure to check out our [release notes](https://github.com/Semantic-Org/Semantic-UI/blob/master/RELEASE%20NOTES.md) for changes from the pre-release**.
