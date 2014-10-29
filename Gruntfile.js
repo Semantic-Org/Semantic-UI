@@ -594,18 +594,23 @@ module.exports = function(grunt) {
     replace: {
       npm: {
         options: {
+          preserveOrder: true,
           patterns: [
             {
               match: /\$\.fn\.\w+\s*=\s*function\(parameters\)\s*{/g,
               replacement: 'module.exports = function(parameters) {\n  var _module = module;\n'
             },
             {
-              match: /\$\.fn\.\w+\.settings/g,
-              replacement: '_module.exports.settings'
+              match: /\$\.fn\.\w+\s*=\s*function\(fields, parameters\)\s*{/g,
+              replacement: 'module.exports = function(fields, parameters) {\n  var _module = module;\n'
             },
             {
               match: /\$\.fn\.\w+\.settings\s*=/g,
               replacement: 'module.exports.settings ='
+            },
+            {
+              match: /\$\.fn\.\w+\.settings/g,
+              replacement: '_module.exports.settings'
             },
             {
               match: /jQuery/g,

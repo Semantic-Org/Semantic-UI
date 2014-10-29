@@ -11,7 +11,9 @@
 
 ;(function ( $, window, document, undefined ) {
 
-$.fn.form = function(fields, parameters) {
+module.exports = function(fields, parameters) {
+  var _module = module;
+
   var
     $allModules     = $(this),
 
