@@ -598,6 +598,7 @@ gulp.task('serve-docs', false, function () {
   gulp.start('watch');
 });
 
+
 /* Builds files to docs source */
 gulp.task('build-docs', false, function () {
   console.clear();
@@ -639,26 +640,14 @@ gulp.task('release', false, function() {
   });
 
   // gulp build
-  //runSequence('create repos');
-  runSequence('build', 'create repos', 'update git');
+  runSequence('update git');
+  //runSequence('build', 'create repos', 'update git');
 
   // #Create SCSS Version
   // #Create RTL Release
 
 });
 
-/* Bump Version */
-gulp.task('bump', false, function () {
-  gulp
-    .src('gulpfile.js')
-    .pipe(prompt.prompt(adminQuestions.docs, function(answers) {
-
-    }))
-  ;
-  // bump package.json
-
-  // bump composer.json
-});
 
 /*--------------
     Internal
@@ -894,7 +883,7 @@ gulp.task('create repos', false, function(callback) {
 
 gulp.task('update git', false, function() {
   var
-    index = 0,
+    index = -1,
     total = release.components.length,
     stream,
     stepRepo
@@ -918,27 +907,28 @@ gulp.task('update git', false, function() {
       repoURL              = 'https://github.com/' + release.org + '/' + repoName + '/',
       gitOptions           = { cwd: outputDirectory },
       quietOptions         = { args: '-q', cwd: outputDirectory },
+      isRepository         = fs.existsSync(outputDirectory + '.git/')
       componentPackage     = fs.existsSync(outputDirectory + 'package.json' )
         ? require(outputDirectory + 'package.json')
         : false,
-      isNewVersion         = (componentPackage.version != version),
+      isNewVersion = (componentPackage.version != version),
       commitMessage = (isNewVersion)
         ? 'Updated component to version ' + version
         : 'Updated component release from Semantic-UI (Automatic)'
     ;
 
-    // exit conditions
-    if(index > total) {
-      return;
-    }
-
     console.log('Processing repository:' + outputDirectory);
-    commitFiles();
+
+    if(isRepository) {
+      commitFiles();
+    }
+    else {
+      createRepo();
+    }
 
     function commitFiles() {
       // commit files
       console.log('Committing files');
-
       gulp.src('**/*', gitOptions)
         .pipe(git.add(gitOptions))
         .pipe(git.commit(commitMessage, gitOptions))
@@ -973,7 +963,6 @@ gulp.task('update git', false, function() {
         stepRepo();
       });
     };
-
     // set-up path
     function createRepo() {
       console.log('Creating repository ' + repoURL);
@@ -981,7 +970,21 @@ gulp.task('update git', false, function() {
         org      : release.org,
         name     : repoName,
         homepage : release.homepage
-      }, firstPushRepo);
+      }, initRepo);
+    }
+    function initRepo() {
+      console.log('Initializing repository in ' + outputDirectory);
+      git.init(gitOptions, function(error) {
+        if(error) {
+          console.error('Error initializing repo');
+          return;
+        }
+        addRemote();
+      });
+    }
+    function addRemote() {
+      console.log('Adding remote origin as ' + gitURL);
+      git.addRemote('origin', gitURL, gitOptions, firstPushFiles);
     }
     function firstPushFiles() {
       console.log('Pushing files');
@@ -993,21 +996,7 @@ gulp.task('update git', false, function() {
         stepRepo();
       });
     };
-    function addRemote() {
-      console.log('Adding remote origin as ' + gitURL);
-      git.addRemote('origin', gitURL, gitOptions, pullFiles);
-    }
 
-    function initRepo() {
-      console.log('Initializing repository in ' + outputDirectory);
-      git.init(gitOptions, function(error) {
-        if(error) {
-          console.error('Error initializing repo');
-          return;
-        }
-        addRemote();
-      });
-    }
   };
 
   return stepRepo();
