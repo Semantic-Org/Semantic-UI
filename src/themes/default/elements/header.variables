@@ -53,6 +53,7 @@
 
 /* Content */
 @contentAlignment: top;
+@contentIconAlignment: middle;
 
 /* Paragraph after Header */
 @nextParagraphTopMargin: 0em;
