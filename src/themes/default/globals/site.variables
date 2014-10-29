@@ -15,6 +15,13 @@
 @googleFontSizes   : '400,700,400italic,700italic';
 
 /*-------------------
+      Base Sizes
+--------------------*/
+
+@emSize:     : 14px;
+@fontSize    : 14px;
+
+/*-------------------
       Site Colors
 --------------------*/
 
@@ -32,24 +39,24 @@
 @grey             : #CCCCCC;
 @white            : #FFFFFF;
 
-/*---  Light Colors  ---*/
-
-@lightBlack:      : #CCCCCC;
-@lightBlue        : #54C8FF;
-@lightGreen       : #2ECC40;
-@lightOrange      : #FF851B;
-@lightPink        : #FF8EDF;
-@lightPurple      : #CDC6FF;
-@lightRed         : #FF695E;
-@lightTeal        : #6DFFFF;
-@lightYellow      : #FFE21F;
-
 /*---  Brand Colors  ---*/
 @primaryColor        : @blue;
 @secondaryColor      : @black;
 
-@lightPrimaryColor   : @lightBlue;
-@lightSecondaryColor : @lightBlack;
+
+/*-------------------
+        Sizes
+--------------------*/
+
+/* Exact pixel values @ 14px em */
+@mini        : 0.7142rem;
+@tiny        : 0.8571rem;
+@small       : 0.9285rem;
+@medium      : 1rem;
+@large       : 1.1428rem;
+@big         : 1.2857rem;
+@huge        : 1.4285rem;
+@massive     : 1.7142rem;
 
 /*-------------------
         Page
@@ -85,6 +92,25 @@
 @strongTransparentWhite : rgba(255, 255, 255, 0.07);
 
 /*-------------------
+      Extra Colors
+--------------------*/
+
+/*---  Light Colors  ---*/
+
+@lightBlack:      : #CCCCCC;
+@lightBlue        : #54C8FF;
+@lightGreen       : #2ECC40;
+@lightOrange      : #FF851B;
+@lightPink        : #FF8EDF;
+@lightPurple      : #CDC6FF;
+@lightRed         : #FF695E;
+@lightTeal        : #6DFFFF;
+@lightYellow      : #FFE21F;
+
+@lightPrimaryColor   : @lightBlue;
+@lightSecondaryColor : @lightBlack;
+
+/*-------------------
        Loader
 --------------------*/
 
@@ -99,7 +125,7 @@
        Accents
 --------------------*/
 
-/* 4px @ 14px */
+/* 4px @ default em */
 @relativeBorderRadius: 0.2857em;
 @absoluteBorderRadius: 0.2857rem;
 @defaultBorderRadius: @absoluteBorderRadius;
@@ -275,19 +301,6 @@
 
 @solidWhiteBorderColor         : #555555;
 @selectedSolidWhiteBorderColor : #999999;
-
-/*-------------------
-        Sizes
---------------------*/
-
-@mini        : 0.7142rem;
-@tiny        : 0.8571rem;
-@small       : 0.9285rem;
-@medium      : 1rem;
-@large       : 1.1428rem;
-@big         : 1.2857rem;
-@huge        : 1.4285rem;
-@massive     : 1.7142rem;
 
 
 /*-------------------

@@ -17,6 +17,7 @@
 @borderColor: #D0D0D0;
 @border: @borderWidth solid @borderColor;
 @boxShadow: none;
+@textAlign: left;
 
 /*-------------------
        Types
@@ -49,13 +50,14 @@
 @cellVerticalPadding: 0.7em;
 @cellHorizontalPadding: 0.8em;
 @cellVerticalAlign: middle;
+@cellTextAlign: @textAlign;
 @cellBorder: 1px solid @solidBorderColor;
 
 /* Table Header */
 @headerBorder: 1px solid @solidBorderColor;
 @headerDivider: none;
 @headerBackground: @darkWhite;
-@headerAlign: left;
+@headerAlign: @textAlign;
 @headerVerticalAlign: middle;
 @headerColor: @textColor;
 @headerVerticalPadding: @cellVerticalPadding;
@@ -70,7 +72,7 @@
 @footerBorder: 1px solid @solidBorderColor;
 @footerDivider: none;
 @footerBackground: @white;
-@footerAlign: left;
+@footerAlign: @textAlign;
 @footerVerticalAlign: middle;
 @footerColor: @textColor;
 @footerVerticalPadding: @cellVerticalPadding;
