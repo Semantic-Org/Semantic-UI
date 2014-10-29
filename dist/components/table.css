@@ -113,6 +113,7 @@
 /* Table Cells */
 .ui.table td {
   padding: 0.7em 0.8em;
+  text-align: left;
   vertical-align: middle;
 }
 

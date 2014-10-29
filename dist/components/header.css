@@ -62,6 +62,9 @@
   display: inline-block;
   vertical-align: top;
 }
+.ui.header .icon + .content {
+  vertical-align: middle;
+}
 
 /* Positioning */
 .ui.header:first-child {

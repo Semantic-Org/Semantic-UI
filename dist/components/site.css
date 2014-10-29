@@ -26,8 +26,9 @@
 html,
 body {
   height: 100%;
-  font-size: 14px;
-  font-smoothing: antialiased;
+}
+html {
+  font-size: : 14px;
 }
 body {
   margin: 0px;
@@ -35,8 +36,10 @@ body {
   min-width: 278px;
   background: #f7f7f7;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-size: 14px;
   line-height: 1.33;
   color: rgba(0, 0, 0, 0.8);
+  font-smoothing: antialiased;
   overflow-x: hidden;
 }
 

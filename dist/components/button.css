@@ -568,42 +568,42 @@
 .ui.mini.buttons .button,
 .ui.mini.buttons .or,
 .ui.mini.button {
-  font-size: 0.7142em;
+  font-size: 0.7142rem;
 }
 .ui.tiny.buttons .button,
 .ui.tiny.buttons .or,
 .ui.tiny.button {
-  font-size: 0.8571em;
+  font-size: 0.8571rem;
 }
 .ui.small.buttons .button,
 .ui.small.buttons .or,
 .ui.small.button {
-  font-size: 0.9285em;
+  font-size: 0.9285rem;
 }
 .ui.buttons .button,
 .ui.buttons .or,
 .ui.button {
-  font-size: 1em;
+  font-size: 1rem;
 }
 .ui.large.buttons .button,
 .ui.large.buttons .or,
 .ui.large.button {
-  font-size: 1.1428em;
+  font-size: 1.1428rem;
 }
 .ui.big.buttons .button,
 .ui.big.buttons .or,
 .ui.big.button {
-  font-size: 1.2857em;
+  font-size: 1.2857rem;
 }
 .ui.huge.buttons .button,
 .ui.huge.buttons .or,
 .ui.huge.button {
-  font-size: 1.4285em;
+  font-size: 1.4285rem;
 }
 .ui.massive.buttons .button,
 .ui.massive.buttons .or,
 .ui.massive.button {
-  font-size: 1.7142em;
+  font-size: 1.7142rem;
 }
 
 /*--------------

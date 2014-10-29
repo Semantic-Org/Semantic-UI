@@ -1005,49 +1005,49 @@
 .ui.mini.buttons .button,
 .ui.mini.buttons .or,
 .ui.mini.button {
-  font-size: 0.7142em;
+  font-size: 0.7142rem;
 }
 
 .ui.tiny.buttons .button,
 .ui.tiny.buttons .or,
 .ui.tiny.button {
-  font-size: 0.8571em;
+  font-size: 0.8571rem;
 }
 
 .ui.small.buttons .button,
 .ui.small.buttons .or,
 .ui.small.button {
-  font-size: 0.9285em;
+  font-size: 0.9285rem;
 }
 
 .ui.buttons .button,
 .ui.buttons .or,
 .ui.button {
-  font-size: 1em;
+  font-size: 1rem;
 }
 
 .ui.large.buttons .button,
 .ui.large.buttons .or,
 .ui.large.button {
-  font-size: 1.1428em;
+  font-size: 1.1428rem;
 }
 
 .ui.big.buttons .button,
 .ui.big.buttons .or,
 .ui.big.button {
-  font-size: 1.2857em;
+  font-size: 1.2857rem;
 }
 
 .ui.huge.buttons .button,
 .ui.huge.buttons .or,
 .ui.huge.button {
-  font-size: 1.4285em;
+  font-size: 1.4285rem;
 }
 
 .ui.massive.buttons .button,
 .ui.massive.buttons .or,
 .ui.massive.button {
-  font-size: 1.7142em;
+  font-size: 1.7142rem;
 }
 
 /*--------------
@@ -10330,6 +10330,10 @@ i.flag.zimbabwe:before {
   vertical-align: top;
 }
 
+.ui.header .icon + .content {
+  vertical-align: middle;
+}
+
 /* Positioning */
 
 .ui.header:first-child {
@@ -13770,56 +13774,56 @@ img.ui.bordered.image {
 .ui.mini.images img,
 .ui.mini.image {
   width: 20px;
-  font-size: 0.7em;
+  font-size: 0.7142rem;
 }
 
 .ui.tiny.images .image,
 .ui.tiny.images img,
 .ui.tiny.image {
   width: 80px;
-  font-size: 0.8em;
+  font-size: 0.8571rem;
 }
 
 .ui.small.images .image,
 .ui.small.images img,
 .ui.small.image {
   width: 150px;
-  font-size: 0.875em;
+  font-size: 0.9285rem;
 }
 
 .ui.medium.images .image,
 .ui.medium.images img,
 .ui.medium.image {
   width: 300px;
-  font-size: 1em;
+  font-size: 1rem;
 }
 
 .ui.large.images .image,
 .ui.large.images img,
 .ui.large.image {
   width: 450px;
-  font-size: 1.125em;
+  font-size: 1.1428rem;
 }
 
 .ui.big.images .image,
 .ui.big.images img,
 .ui.big.image {
   width: 600px;
-  font-size: 1.25em;
+  font-size: 1.2857rem;
 }
 
 .ui.huge.images .image,
 .ui.huge.images img,
 .ui.huge.image {
   width: 800px;
-  font-size: 1.375em;
+  font-size: 1.4285rem;
 }
 
 .ui.massive.images .image,
 .ui.massive.images img,
 .ui.massive.image {
   width: 960px;
-  font-size: 1.5em;
+  font-size: 1.7142rem;
 }
 
 /*******************************
@@ -19278,23 +19282,23 @@ ol.ui.horizontal.list li:before,
 ---------------*/
 
 .ui.small.message {
-  font-size: 0.9285em;
+  font-size: 0.9285rem;
 }
 
 .ui.message {
-  font-size: 1em;
+  font-size: 1rem;
 }
 
 .ui.large.message {
-  font-size: 1.1428em;
+  font-size: 1.1428rem;
 }
 
 .ui.huge.message {
-  font-size: 1.4285em;
+  font-size: 1.4285rem;
 }
 
 .ui.massive.message {
-  font-size: 1.7142em;
+  font-size: 1.7142rem;
 }
 
 /*******************************
@@ -19682,7 +19686,7 @@ ol.ui.horizontal.list li:before,
 ---------------*/
 
 .ui.modal {
-  font-size: 1em;
+  font-size: 1rem;
 }
 
 /* Small */
@@ -23448,8 +23452,10 @@ th {
 html,
 body {
   height: 100%;
-  font-size: 14px;
-  font-smoothing: antialiased;
+}
+
+html {
+  font-size: : 14px;
 }
 
 body {
@@ -23458,8 +23464,10 @@ body {
   min-width: 278px;
   background: #f7f7f7;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-size: 14px;
   line-height: 1.33;
   color: rgba(0, 0, 0, 0.8);
+  font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
@@ -24638,6 +24646,7 @@ a:hover {
 
 .ui.table td {
   padding: 0.7em 0.8em;
+  text-align: left;
   vertical-align: middle;
 }
 

@@ -179,49 +179,49 @@ img.ui.bordered.image {
 .ui.mini.images img,
 .ui.mini.image {
   width: 20px;
-  font-size: 0.7em;
+  font-size: 0.7142rem;
 }
 .ui.tiny.images .image,
 .ui.tiny.images img,
 .ui.tiny.image {
   width: 80px;
-  font-size: 0.8em;
+  font-size: 0.8571rem;
 }
 .ui.small.images .image,
 .ui.small.images img,
 .ui.small.image {
   width: 150px;
-  font-size: 0.875em;
+  font-size: 0.9285rem;
 }
 .ui.medium.images .image,
 .ui.medium.images img,
 .ui.medium.image {
   width: 300px;
-  font-size: 1em;
+  font-size: 1rem;
 }
 .ui.large.images .image,
 .ui.large.images img,
 .ui.large.image {
   width: 450px;
-  font-size: 1.125em;
+  font-size: 1.1428rem;
 }
 .ui.big.images .image,
 .ui.big.images img,
 .ui.big.image {
   width: 600px;
-  font-size: 1.25em;
+  font-size: 1.2857rem;
 }
 .ui.huge.images .image,
 .ui.huge.images img,
 .ui.huge.image {
   width: 800px;
-  font-size: 1.375em;
+  font-size: 1.4285rem;
 }
 .ui.massive.images .image,
 .ui.massive.images img,
 .ui.massive.image {
   width: 960px;
-  font-size: 1.5em;
+  font-size: 1.7142rem;
 }
 
 

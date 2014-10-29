@@ -383,19 +383,19 @@
 ---------------*/
 
 .ui.small.message {
-  font-size: 0.9285em;
+  font-size: 0.9285rem;
 }
 .ui.message {
-  font-size: 1em;
+  font-size: 1rem;
 }
 .ui.large.message {
-  font-size: 1.1428em;
+  font-size: 1.1428rem;
 }
 .ui.huge.message {
-  font-size: 1.4285em;
+  font-size: 1.4285rem;
 }
 .ui.massive.message {
-  font-size: 1.7142em;
+  font-size: 1.7142rem;
 }
 
 
