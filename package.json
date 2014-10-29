@@ -52,6 +52,7 @@
     "gulp-util": "^3.0.1",
     "gulp-watch": "^1.1.0",
     "rtlcss": "^1.4.0",
+    "run-sequence": "^1.0.1",
     "wrench": "^1.5.8"
   }
 }

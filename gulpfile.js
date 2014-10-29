@@ -9,52 +9,53 @@
 
 
 var
-  gulp          = require('gulp-help')(require('gulp')),
+  gulp         = require('gulp-help')(require('gulp')),
 
   // node components & oddballs
-  console       = require('better-console'),
-  del           = require('del'),
-  extend        = require('extend'),
-  fs            = require('fs'),
-  path          = require('path'),
-  wrench        = require('wrench'),
+  console      = require('better-console'),
+  del          = require('del'),
+  extend       = require('extend'),
+  fs           = require('fs'),
+  path         = require('path'),
+  runSequence  = require('run-sequence'),
+  wrench       = require('wrench'),
 
   // gulp dependencies
-  autoprefixer  = require('gulp-autoprefixer'),
-  clone         = require('gulp-clone'),
-  concat        = require('gulp-concat'),
-  concatCSS     = require('gulp-concat-css'),
-  copy          = require('gulp-copy'),
-  debug         = require('gulp-debug'),
-  flatten       = require('gulp-flatten'),
-  header        = require('gulp-header'),
-  jeditor       = require('gulp-json-editor'),
-  karma         = require('gulp-karma'),
-  less          = require('gulp-less'),
-  minifyCSS     = require('gulp-minify-css'),
-  notify        = require('gulp-notify'),
-  plumber       = require('gulp-plumber'),
-  print         = require('gulp-print'),
-  prompt        = require('gulp-prompt'),
-  rename        = require('gulp-rename'),
-  replace       = require('gulp-replace'),
-  sourcemaps    = require('gulp-sourcemaps'),
-  uglify        = require('gulp-uglify'),
-  util          = require('gulp-util'),
-  watch         = require('gulp-watch'),
+  autoprefixer = require('gulp-autoprefixer'),
+  clone        = require('gulp-clone'),
+  concat       = require('gulp-concat'),
+  concatCSS    = require('gulp-concat-css'),
+  copy         = require('gulp-copy'),
+  debug        = require('gulp-debug'),
+  flatten      = require('gulp-flatten'),
+  header       = require('gulp-header'),
+  jeditor      = require('gulp-json-editor'),
+  karma        = require('gulp-karma'),
+  less         = require('gulp-less'),
+  minifyCSS    = require('gulp-minify-css'),
+  notify       = require('gulp-notify'),
+  plumber      = require('gulp-plumber'),
+  print        = require('gulp-print'),
+  prompt       = require('gulp-prompt'),
+  rename       = require('gulp-rename'),
+  replace      = require('gulp-replace'),
+  sourcemaps   = require('gulp-sourcemaps'),
+  uglify       = require('gulp-uglify'),
+  util         = require('gulp-util'),
+  watch        = require('gulp-watch'),
 
   // config
-  banner        = require('./tasks/banner'),
-  comments      = require('./tasks/comments'),
-  defaults      = require('./tasks/defaults'),
-  log           = require('./tasks/log'),
-  questions     = require('./tasks/questions'),
-  settings      = require('./tasks/gulp-settings'),
+  banner       = require('./tasks/banner'),
+  comments     = require('./tasks/comments'),
+  defaults     = require('./tasks/defaults'),
+  log          = require('./tasks/log'),
+  questions    = require('./tasks/questions'),
+  settings     = require('./tasks/gulp-settings'),
 
   // admin
-  release       = require('./tasks/admin/release'),
-  git           = require('gulp-git'),
-  githubAPI     = require('github'),
+  release      = require('./tasks/admin/release'),
+  git          = require('gulp-git'),
+  githubAPI    = require('github'),
 
   oAuthToken    = fs.existsSync('./tasks/admin/oauth.js')
     ? require('./tasks/admin/oauth')
@@ -68,6 +69,7 @@ var
   config,
   package,
   github,
+  version,
 
   // derived
   base,
@@ -115,6 +117,8 @@ var
     clean   = config.paths.clean;
     output  = config.paths.output;
     source  = config.paths.source;
+
+    version = package.version;
 
     // create glob for matching filenames from selected components
     componentGlob = (typeof config.components == 'object')
@@ -372,7 +376,7 @@ gulp.task('clean', 'Clean dist folder', function(callback) {
 });
 
 gulp.task('version', 'Displays current version of Semantic', function(callback) {
-  console.log('Semantic UI ' + package.version);
+  console.log('Semantic UI ' + version);
 });
 
 /*--------------
@@ -663,19 +667,168 @@ gulp.task('bump', false, function () {
 ---------------*/
 
 //gulp.task('release components', false, ['build', 'create repos'], function() {
-gulp.task('release components', false, ['create repos'], function() {
+gulp.task('release components', false, function() {
 
-  /*
+  // ask for version number
+  runSequence('update git');
+
+});
+
+gulp.task('create repos', false, function(callback) {
+  var
+    stream,
+    index,
+    tasks = []
+  ;
+
+  for(index in release.components) {
+
+    var
+      component            = release.components[index]
+    ;
+
+    // streams... designed to save time and make coding fun...
+    (function(component) {
+
+      var
+        outputDirectory      = release.outputRoot + component,
+        isJavascript         = fs.existsSync(output.compressed + component + '.js'),
+        capitalizedComponent = component.charAt(0).toUpperCase() + component.slice(1),
+        repoName             = release.repoRoot + capitalizedComponent,
+        gitURL               = 'git@github.com:' + release.org + '/' + repoName + '.git',
+        repoURL              = 'https://github.com/' + release.org + '/' + repoName + '/',
+        regExp               = {
+          spacedVersions : /(###.*\n)\n+(?=###)/gm,
+          spacedLists    : /(^- .*\n)\n+(?=^-)/gm,
+          trim           : /^\s+|\s+$/g,
+          unrelatedNotes : new RegExp('^((?!(^.*(' + component + ').*$|###.*)).)*$', 'gmi'),
+          whitespace     : /\n\s*\n\s*\n/gm
+        },
+        matchReplace = {
+          spacedVersions : '',
+          spacedLists    : '$1',
+          trim           : '',
+          unrelatedNotes : '',
+          whitespace     : '\n\n'
+        },
+        task           = {
+          all     : component + ' creating',
+          repo    : component + ' create repo',
+          bower   : component + ' create bower.json',
+          notes   : component + ' create release notes',
+          package : component + ' create package.json'
+        }
+      ;
+
+      // create component repo
+      gulp.task(task.repo, false, function() {
+        // copy dist files into output folder adjusting asset paths
+        gulp.src(release.source + component + '.*')
+          .pipe(plumber())
+          .pipe(flatten())
+          .pipe(replace(release.paths.source, release.paths.output))
+          .pipe(gulp.dest(outputDirectory)) // pipe to output directory
+        ;
+      });
+
+      // extend bower.json
+      gulp.task(task.bower, false, function() {
+        return gulp.src(release.templates.bower)
+          .pipe(plumber())
+          .pipe(flatten())
+          .pipe(jeditor(function(bower) {
+            bower.name = repoName;
+            bower.description = capitalizedComponent + ' - Semantic UI';
+            if(isJavascript) {
+              bower.main = [
+                component + '.js',
+                component + '.css'
+              ];
+              bower.dependencies = {
+                jquery: '>=1.8'
+              };
+            }
+            else {
+              bower.main = [
+                component + '.css'
+              ];
+            }
+            return bower;
+          }))
+          .pipe(gulp.dest(outputDirectory))
+        ;
+      });
+
+      // extend package.json
+      gulp.task(task.package, false, function() {
+        return gulp.src(release.templates.package)
+          .pipe(plumber())
+          .pipe(flatten())
+          .pipe(jeditor(function(package) {
+            if(isJavascript) {
+              package.dependencies = {
+                jquery: 'x.x.x'
+              };
+              package.main = component + '.js';
+            }
+            package.name        = repoName;
+            package.title       = 'Semantic UI - ' + capitalizedComponent;
+            package.description = 'Single component release of ' + component;
+            package.repository  = {
+              type : 'git',
+              url  : gitURL
+            };
+            return package;
+          }))
+          .pipe(gulp.dest(outputDirectory))
+        ;
+      });
+
+      // create release notes
+      gulp.task(task.notes, false, function() {
+        return gulp.src(release.templates.notes)
+          .pipe(plumber())
+          .pipe(flatten())
+          // Remove release notes for lines not mentioning component
+          .pipe(replace(regExp.unrelatedNotes, matchReplace.unrelatedNotes))
+          .pipe(replace(regExp.whitespace, matchReplace.whitespace))
+          .pipe(replace(regExp.spacedVersions, matchReplace.spacedVersions))
+          .pipe(replace(regExp.spacedLists, matchReplace.spacedLists))
+          .pipe(replace(regExp.trim, matchReplace.trim))
+          .pipe(gulp.dest(outputDirectory))
+        ;
+      });
+
+      // synchronous tasks in orchestrator? I think not
+      gulp.task(task.all, false, function(callback) {
+        runSequence([
+          task.repo,
+          task.bower,
+          task.package,
+          task.notes
+        ], callback);
+      });
+
+      tasks.push(task.all);
+
+    })(component);
+  }
+
+  runSequence(tasks, callback);
+
+});
+
+gulp.task('update git', false, function() {
   var
     index = 0,
     total = release.components.length,
     stream,
-    stepCheckGit
+    stepRepo
   ;
   console.log('Handling git');
 
-  // Do Git commands synchronously, to avoid issues
-  stepCheckGit = function() {
+  // Do Git commands synchronously per component, to avoid issues
+  stepRepo = function() {
 
     index = index + 1;
     if(index >= total) {
@@ -684,206 +837,88 @@ gulp.task('release components', false, ['create repos'], function() {
 
     var
       component            = release.components[index],
-      outputDirectory      = release.outputRoot + component,
+      outputDirectory      = release.outputRoot + component + '/',
       capitalizedComponent = component.charAt(0).toUpperCase() + component.slice(1),
       repoName             = release.repoRoot + capitalizedComponent,
       gitURL               = 'git@github.com:' + release.org + '/' + repoName + '.git',
       repoURL              = 'https://github.com/' + release.org + '/' + repoName + '/',
-      gitOptions           = { cwd: path.resolve(outputDirectory) }
+      commitMessage        = 'Updated component version to ' + version,
+      gitOptions           = { cwd: outputDirectory },
+      quietOptions         = { args: '-q', cwd: outputDirectory }
     ;
+
     // exit conditions
     if(index > total) {
       return;
     }
 
-    // try pull
-    git.pull('origin', 'master', gitOptions, function(error) {
+    console.log('Processing repository:' + outputDirectory);
+    pullFiles();
 
-      if(error) {
-        console.log(error);
-        return;
-        // initialize local repo
-        git.init(gitOptions, function(error) {
-          if(error) {
-            console.error('Error initializing repo');
-            return;
-          }
-          // add remote url
-          git.addRemote('origin', gitURL, gitOptions, function(error) {
+    function pullFiles() {
+      // try pull
+      console.log('Pulling files from ' + gitURL);
+      git.pull('origin', 'master', gitOptions, function(error) {
+        if(error && error.message.search("Couldn't find remote ref") == -1) {
+          createRepo();
+        }
+        else {
+          console.log('Files up to date');
+          commitFiles();
+        }
+      });
+    }
+    function commitFiles() {
+      // commit files
+      console.log('Committing files');
+      gulp.src('**/*', gitOptions)
+        .pipe(git.add(gitOptions))
+        .pipe(git.commit(commitMessage, gitOptions))
+        .on('end', function(callback) {
+          pushFiles();
+        })
+        .on('error', function(error) {
+          pushFiles();
+        })
+      ;
+    }
+    function pushFiles() {
+      console.log('Pushing files');
+      git.push('origin', 'master', { args: '', cwd: outputDirectory }, function(error) {
+        if(error) {
+          console.log(error);
+        }
+        console.log('Push completed successfully');
+        stepRepo();
+      });
+    };
 
-            if(error) {
-              // origin already set (do nothing)
-            }
+    // set-up path
+    function createRepo() {
+      console.log('Creating repository ' + repoURL);
+      github.repos.createFromOrg({
+        org      : release.org,
+        name     : repoName,
+        homepage : release.homepage
+      }, stepRepo);
+    }
+    function addRemote() {
+      console.log('Adding remote origin as ' + gitURL);
+      git.addRemote('origin', gitURL, gitOptions, pullFiles);
+    }
 
-            // try pull
-            git.pull('origin', 'master', gitOptions, function(error) {
-              if(error) {
-                // Repo doesnt exist creating
-                console.log('Create new repo', repoName, release.org);
-                github.repos.createFromOrg({
-                  org: release.org,
-                  name: repoName,
-                  homepage: release.homepage
-                }, stepCheckGit);
-              }
-            });
-
-          });
-        });
-      }
-      else {
-        stepCheckGit();
-      }
-    });
+    function initRepo() {
+      console.log('Initializing repository in ' + outputDirectory);
+      git.init(gitOptions, function(error) {
+        if(error) {
+          console.error('Error initializing repo');
+          return;
+        }
+        addRemote();
+      });
+    }
   };
 
-  return stepCheckGit();
+  return stepRepo();
 
-
-  // create bower.json *ignore*
-  /*
-  // check if is a repo locally
-  git
-  .add('./')
-  ;
-  // if not try creating repo
-  github.repos.get({
-    user : release.org,
-    repo  : release.repo
-  }, function(error, response) {
-  if(error) {
-    console.log(error);
-  }
-  else {
-    console.log(JSON.stringify(response));
-  }
-  });
-
-  // after create add remote to git
-  */
-  // create tagged version
-
-  // Copy dist/components/{name}(.css|.min.css|.min.js|.js) to "../ui-{name}/"
-  // (manually copy over asset changes)
-});
-
-gulp.task('create repos', false, function() {
-  var
-    stream,
-    index,
-    tasks = []
-  ;
-
-  // sometimes i hate streams (dynamically create task for each component)
-  for(index in release.components) {
-
-    var
-      component            = release.components[index],
-      outputDirectory      = release.outputRoot + component,
-
-      isJavascript         = fs.existsSync(output.compressed + component + '.js'),
-      capitalizedComponent = component.charAt(0).toUpperCase() + component.slice(1),
-      repoName             = release.repoRoot + capitalizedComponent,
-      gitURL               = 'git@github.com:' + release.org + '/' + repoName + '.git',
-      repoURL              = 'https://github.com/' + release.org + '/' + repoName + '/',
-      regExp               = {
-        relatedNotes     : new RegExp('^((?!(^.*(' + component + ').*$|###.*)).)*$', 'gmi'),
-        whitespace       : /\n\s*\n\s*\n/g,
-        repeatedReleases : /###.*\n(\n+)###/gm,
-        trim             : /^\s+|\s+$/g
-      },
-      task = {
-        repo    : component + ' create repo',
-        bower   : component + ' create bower.json',
-        notes   : component + ' create release notes',
-        package : component + ' create package.json'
-      }
-    ;
-
-    // create component repo
-    gulp.task(task.repo, false, function() {
-      // copy dist files into output folder adjusting asset paths
-      return gulp.src(release.source + component + '.*')
-        .pipe(plumber())
-        .pipe(flatten())
-        .pipe(replace(release.paths.source, release.paths.output))
-        .pipe(gulp.dest(outputDirectory)) // pipe to output directory
-      ;
-    });
-
-    // extend bower.json
-    gulp.task(task.bower, false, function() {
-      var
-        bower = require(release.templates.bower)
-      ;
-      bower.name = repoName;
-      bower.description = capitalizedComponent + ' - Semantic UI';
-      if(isJavascript) {
-        bower.main = [
-          component + '.js',
-          component + '.css'
-        ];
-        bower.dependencies = {
-          jquery: '>=1.8'
-        };
-      }
-      else {
-        bower.main = [
-          component + '.css'
-        ];
-      }
-      return gulp.src(release.templates.bower)
-        .pipe(plumber())
-        .pipe(flatten())
-        .pipe(jeditor(bower)) // pipe in modifications from above
-        .pipe(gulp.dest(outputDirectory))
-      ;
-    });
-
-    // extend package.json
-    gulp.task(task.package, false, function() {
-      var
-        package = require(release.templates.package)
-      ;
-      if(isJavascript) {
-        package.dependencies = {
-          jquery: 'x.x.x'
-        };
-      }
-      package.name       = repoName;
-      package.title      = 'Semantic UI - ' + capitalizedComponent;
-      package.repository = {
-        type : 'git',
-        url  : gitURL
-      };
-      return gulp.src(release.templates.package)
-        .pipe(plumber())
-        .pipe(flatten())
-        .pipe(jeditor(package)) // pipe in modifications from above
-        .pipe(gulp.dest(outputDirectory))
-      ;
-    });
-
-    // create release notes
-    gulp.task(task.notes, false, function() {
-      return gulp.src(release.templates.notes)
-        .pipe(plumber())
-        .pipe(flatten())
-        .pipe(replace(regExp.relatedNotes, ''))  // Remove release notes for lines not mentioning component
-        .pipe(replace(regExp.whitespace, '\n\n'))
-        //.pipe(replace(regExp.repeatedReleases, ''))
-        .pipe(replace(regExp.trim, ''))
-        .pipe(gulp.dest(outputDirectory))
-      ;
-    });
-
-    // add tasks to queue
-    tasks.push(task.repo);
-    tasks.push(task.bower);
-    tasks.push(task.package);
-    tasks.push(task.notes);
-  }
-  console.log(tasks);
-  gulp.task('Create each repo', false, tasks);
-  gulp.start('Create each repo');
 });
