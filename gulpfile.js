@@ -69,6 +69,7 @@ var
   config,
   package,
   github,
+
   version,
 
   // derived
@@ -572,17 +573,9 @@ gulp.task('install', 'Set-up project for first time', function () {
 *******************************/
 
 var
-  adminQuestions = require('./tasks/admin/questions')
+  adminQuestions = require('./tasks/admin/questions'),
+  newVersion = false
 ;
-
-gulp.task('docs', false, function() {
-  gulp
-    .src('gulpfile.js')
-    .pipe(prompt.prompt(adminQuestions.docs, function(answers) {
-
-    }))
-  ;
-});
 
 /* Moves watched files to static site generator output */
 gulp.task('serve-docs', false, function () {
@@ -646,7 +639,8 @@ gulp.task('release', false, function() {
   });
 
   // gulp build
-  gulp.start('release components');
+  runSequence('update git');
+  //runSequence('build', 'create repos', 'update git');
 
   // release-component
 
@@ -657,6 +651,12 @@ gulp.task('release', false, function() {
 
 /* Bump Version */
 gulp.task('bump', false, function () {
+  gulp
+    .src('gulpfile.js')
+    .pipe(prompt.prompt(adminQuestions.docs, function(answers) {
+
+    }))
+  ;
   // bump package.json
 
   // bump composer.json
@@ -665,14 +665,6 @@ gulp.task('bump', false, function () {
 /*--------------
     Internal
 ---------------*/
-
-//gulp.task('release components', false, ['build', 'create repos'], function() {
-gulp.task('release components', false, function() {
-
-  // ask for version number
-  runSequence('update git');
-
-});
 
 gulp.task('create repos', false, function(callback) {
   var
@@ -842,9 +834,15 @@ gulp.task('update git', false, function() {
       repoName             = release.repoRoot + capitalizedComponent,
       gitURL               = 'git@github.com:' + release.org + '/' + repoName + '.git',
       repoURL              = 'https://github.com/' + release.org + '/' + repoName + '/',
-      commitMessage        = 'Updated component version to ' + version,
       gitOptions           = { cwd: outputDirectory },
-      quietOptions         = { args: '-q', cwd: outputDirectory }
+      quietOptions         = { args: '-q', cwd: outputDirectory },
+      componentPackage     = fs.existsSync(outputDirectory + 'package.json' )
+        ? require(outputDirectory + 'package.json')
+        : false,
+      isNewVersion         = (componentPackage.version != version),
+      commitMessage = (isNewVersion)
+        ? 'Updated component to version ' + version
+        : 'Updated component release from Semantic-UI (Automatic)'
     ;
 
     // exit conditions
@@ -853,40 +851,41 @@ gulp.task('update git', false, function() {
     }
 
     console.log('Processing repository:' + outputDirectory);
-    pullFiles();
+    commitFiles();
 
-    function pullFiles() {
-      // try pull
-      console.log('Pulling files from ' + gitURL);
-      git.pull('origin', 'master', gitOptions, function(error) {
-        if(error && error.message.search("Couldn't find remote ref") == -1) {
-          createRepo();
-        }
-        else {
-          console.log('Files up to date');
-          commitFiles();
-        }
-      });
-    }
     function commitFiles() {
       // commit files
       console.log('Committing files');
+
       gulp.src('**/*', gitOptions)
         .pipe(git.add(gitOptions))
         .pipe(git.commit(commitMessage, gitOptions))
-        .on('end', function(callback) {
-          pushFiles();
-        })
         .on('error', function(error) {
-          pushFiles();
+          console.log('Nothing new to commit');
+          stepRepo();
+        })
+        .on('finish', function(callback) {
+          console.log('here');
+          if(isNewVersion) {
+            tagFiles();
+          }
+          else {
+            pushFiles();
+          }
         })
       ;
     }
+    function tagFiles() {
+      console.log('Tagging new version ', version);
+      git.tag(version, 'Updated version from semantic-ui (automatic)', function (err) {
+        pushFiles();
+      });
+    }
     function pushFiles() {
       console.log('Pushing files');
-      git.push('origin', 'master', { args: '', cwd: outputDirectory }, function(error) {
-        if(error) {
-          console.log(error);
+      git.push('origin', 'master', { args: '--force', cwd: outputDirectory }, function(error) {
+        if(error && error.message.search("Couldn't find remote ref") == -1) {
+          createRepo();
         }
         console.log('Push completed successfully');
         stepRepo();
@@ -900,8 +899,18 @@ gulp.task('update git', false, function() {
         org      : release.org,
         name     : repoName,
         homepage : release.homepage
-      }, stepRepo);
+      }, firstPushRepo);
     }
+    function firstPushFiles() {
+      console.log('Pushing files');
+      git.push('origin', 'master', { args: '-u', cwd: outputDirectory }, function(error) {
+        if(error) {
+          console.log(error);
+        }
+        console.log('Push completed successfully');
+        stepRepo();
+      });
+    };
     function addRemote() {
       console.log('Adding remote origin as ' + gitURL);
       git.addRemote('origin', gitURL, gitOptions, pullFiles);
