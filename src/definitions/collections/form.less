@@ -568,6 +568,9 @@
 .ui.form .grouped.fields:last-child {
   margin-bottom: 0em;
 }
+.ui.form .grouped.fields > label {
+  font-size: @groupedLabelFontSize;
+}
 .ui.form .grouped.fields .field {
   display: block;
   float: none;
@@ -790,6 +793,9 @@
 .ui.form .inline.fields .field > input,
 .ui.form .inline.field > input {
   font-size: @inlineLabelFontSize;
+}
+.ui.form .inline.fields .field > .ui.checkbox label {
+  padding-left: @inlineCheckboxLabelDistance;
 }
 
 /* Label */

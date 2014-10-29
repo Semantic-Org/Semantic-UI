@@ -24,22 +24,6 @@
 @labelTextTransform: none;
 @labelColor: @textColor;
 
-/* Grouped Labels */
-@groupedLabelDistance: @labelDistance;
-@groupedLabelColor: @labelColor;
-@groupedLabelMargin: @labelMargin;
-@groupedLabelFontSize: @labelFontSize;
-@groupedLabelFontWeight: @labelFontWeight;
-@groupedLabelTextTransform: @labelTextTransform;
-
-/* Inline Labels */
-@inlineLabelMargin: 0em 1em 0em 0em;
-@inlineLabelDistance: @labelDistance;
-@inlineLabelColor: @labelColor;
-@inlineLabelFontSize: @labelFontSize;
-@inlineLabelFontWeight: @labelFontWeight;
-@inlineLabelTextTransform: @labelTextTransform;
-
 /* Input */
 @inputWidth: 100%;
 @inputFontSize: 1em;
@@ -171,10 +155,26 @@
 @groupedMargin: @fieldMargin;
 @groupedFieldMargin: 0.5em 0em;
 
+@groupedLabelDistance: @labelDistance;
+@groupedLabelColor: @labelColor;
+@groupedLabelMargin: @labelMargin;
+@groupedLabelFontSize: @labelFontSize;
+@groupedLabelFontWeight: @labelFontWeight;
+@groupedLabelTextTransform: @labelTextTransform;
+
+
 /* Inline */
-@inlineLabelFontSize: 1em;
+@inlineLabelFontSize: @labelFontSize;
 @inlineLabelVerticalAlign: middle;
 @inlineGroupedFieldLabelDistance: 0.5rem;
+@inlineCheckboxLabelDistance: 1.75em;
+
+@inlineLabelMargin: 0em 1em 0em 0em;
+@inlineLabelDistance: @labelDistance;
+@inlineLabelColor: @labelColor;
+@inlineLabelFontSize: @labelFontSize;
+@inlineLabelFontWeight: @labelFontWeight;
+@inlineLabelTextTransform: @labelTextTransform;
 
 /* Sizes */
 @small: 0.875em;
