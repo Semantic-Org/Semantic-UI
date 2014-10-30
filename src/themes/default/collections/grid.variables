@@ -40,15 +40,15 @@
 
 @tabletWidth: auto;
 @tabletMargin: 0em;
-@tabletGutter: 8%;
+@tabletGutter: 4em;
 
 @computerWidth: auto;
 @computerMargin: 0em;
-@computerGutter: 13%;
+@computerGutter: 8%;
 
 @largeMonitorWidth: auto;
 @largeMonitorMargin: 0em;
-@largeMonitorGutter: 18%;
+@largeMonitorGutter: 15%;
 
 @widescreenMonitorWidth: auto;
 @widescreenMargin: 0em;
