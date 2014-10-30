@@ -17,12 +17,12 @@
 
 .ui.search {
   position: relative;
-  text-shadow: none;
-  font-style: normal;
-  font-weight: normal;
 }
 .ui.search input {
   border-radius: 500rem;
+  text-shadow: none;
+  font-style: normal;
+  font-weight: normal;
 }
 
 /*--------------
