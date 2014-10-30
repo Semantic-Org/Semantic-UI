@@ -31,16 +31,6 @@
 @floatedHorizontalMargin: 1em;
 @floatedVerticalMargin: 1em;
 
-/* Sizing */
-@mini: 0.7em;
-@tiny: 0.8em;
-@small: 0.875em;
-@medium: 1em;
-@large: 1.125em;
-@big: 1.25em;
-@huge: 1.375em;
-@massive: 1.5em;
-
 /* Size */
 @miniWidth: 20px;
 @tinyWidth: 80px;
