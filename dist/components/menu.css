@@ -906,6 +906,7 @@
 ---------------*/
 
 .ui.text.menu {
+  display: inline-block;
   background: none transparent;
   margin: 1rem -1rem;
   border-radius: 0px;

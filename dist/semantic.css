@@ -9060,8 +9060,8 @@ i.flag.zimbabwe:before {
 -------------------------*/
 
 .ui.page.grid {
-  padding-left: 13%;
-  padding-right: 13%;
+  padding-left: 8%;
+  padding-right: 8%;
   width: auto;
 }
 
@@ -9080,11 +9080,22 @@ i.flag.zimbabwe:before {
     width: auto;
     padding-left: 0em;
     padding-right: 0em;
-    margin: 0em;
+    margin-left: 0em;
+    margin-right: 0em;
   }
 }
 
 @media only screen and (min-width: 768px) {
+  .ui.page.grid {
+    width: auto;
+    margin-left: 0em;
+    margin-right: 0em;
+    padding-left: 4em;
+    padding-right: 4em;
+  }
+}
+
+@media only screen and (min-width: 992px) {
   .ui.page.grid {
     width: auto;
     margin-left: 0em;
@@ -9094,23 +9105,13 @@ i.flag.zimbabwe:before {
   }
 }
 
-@media only screen and (min-width: 992px) {
-  .ui.page.grid {
-    width: auto;
-    margin-left: 0em;
-    margin-right: 0em;
-    padding-left: 13%;
-    padding-right: 13%;
-  }
-}
-
 @media only screen and (min-width: 1400px) {
   .ui.page.grid {
     width: auto;
     margin-left: 0em;
     margin-right: 0em;
-    padding-left: 18%;
-    padding-right: 18%;
+    padding-left: 15%;
+    padding-right: 15%;
   }
 }
 
@@ -18078,6 +18079,7 @@ ol.ui.horizontal.list li:before,
 ---------------*/
 
 .ui.text.menu {
+  display: inline-block;
   background: none transparent;
   margin: 1rem -1rem;
   border-radius: 0px;
@@ -22970,7 +22972,7 @@ th {
      Fixed
 ---------------*/
 
-.pushable > .ui.fixed {
+.pushable > .fixed {
   position: fixed;
   -webkit-transition: -webkit-transform 0.5s ease;
   transition: transform 0.5s ease;

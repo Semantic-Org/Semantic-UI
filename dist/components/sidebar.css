@@ -75,7 +75,7 @@
      Fixed
 ---------------*/
 
-.pushable > .ui.fixed {
+.pushable > .fixed {
   position: fixed;
   -webkit-transition: -webkit-transform 0.5s ease;
           transition: transform 0.5s ease;
