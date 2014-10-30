@@ -57,7 +57,7 @@ var
   git          = require('gulp-git'),
   githubAPI    = require('github'),
 
-  oAuthToken    = fs.existsSync('./tasks/admin/oauth.js')
+  oAuth        = fs.existsSync('./tasks/admin/oauth.js')
     ? require('./tasks/admin/oauth')
     : false,
   github,
@@ -622,7 +622,7 @@ gulp.task('release', false, function() {
   // Ask for release type (minor, major, patch)
   // Bump package.json
   // Bump composer.json
-  if(!oAuthToken) {
+  if(!oAuth) {
     console.error('Must add node include tasks/admin/oauth.js with oauth token for GitHub');
     return;
   }
@@ -636,12 +636,12 @@ gulp.task('release', false, function() {
 
   github.authenticate({
     type: 'oauth',
-    token: oAuthToken
+    token: oAuth.token
   });
 
   // gulp build
-  runSequence('update git');
-  //runSequence('build', 'create repos', 'update git');
+  //runSequence('update git');
+  runSequence('build', 'create repos', 'update git');
 
   // #Create SCSS Version
   // #Create RTL Release
@@ -911,6 +911,9 @@ gulp.task('update git', false, function() {
       componentPackage     = fs.existsSync(outputDirectory + 'package.json' )
         ? require(outputDirectory + 'package.json')
         : false,
+      commitArgs = (oAuth.name !== undefined && oAuth.email !== undefined)
+        ? '--author "' + oAuth.name + ' <' + oAuth.email + '>"'
+        : '',
       isNewVersion = (componentPackage.version != version),
       commitMessage = (isNewVersion)
         ? 'Updated component to version ' + version
@@ -926,18 +929,18 @@ gulp.task('update git', false, function() {
       createRepo();
     }
 
+    // standard path
     function commitFiles() {
       // commit files
-      console.log('Committing files');
+      console.log('Committing files', commitArgs);
       gulp.src('**/*', gitOptions)
         .pipe(git.add(gitOptions))
-        .pipe(git.commit(commitMessage, gitOptions))
+        .pipe(git.commit(commitMessage, { args: commitArgs, cwd: outputDirectory }))
         .on('error', function(error) {
           console.log('Nothing new to commit');
           stepRepo();
         })
         .on('finish', function(callback) {
-          console.log('here');
           if(isNewVersion) {
             tagFiles();
           }
@@ -963,6 +966,7 @@ gulp.task('update git', false, function() {
         stepRepo();
       });
     };
+
     // set-up path
     function createRepo() {
       console.log('Creating repository ' + repoURL);
