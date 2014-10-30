@@ -68,6 +68,9 @@ $.fn.visibility = function(parameters) {
           if(settings.type == 'image') {
             module.setup.image();
           }
+          if(settings.type == 'fixed') {
+            module.setup.fixed();
+          }
 
           requestAnimationFrame(module.checkVisibility);
         },
@@ -163,6 +166,36 @@ $.fn.visibility = function(parameters) {
                 });
               });
             }
+          },
+          fixed: function() {
+            module.verbose('Setting up fixed on element pass');
+            $module
+              .visibility({
+                once: false,
+                continuous: false,
+                onTopPassed: function() {
+                  $module
+                    .addClass(className.fixed)
+                    .css({
+                      position: 'fixed',
+                      top: settings.offset + 'px'
+                    })
+                  ;
+                  if(settings.animation && $.fn.transition !== undefined) {
+                    $module.transition(settings.transition, settings.duration);
+                  }
+                },
+                onTopPassedReverse: function() {
+                  $module
+                    .removeClass(className.fixed)
+                    .css({
+                      position: '',
+                      top: ''
+                    })
+                  ;
+                }
+              })
+            ;
           }
         },
 
@@ -175,10 +208,11 @@ $.fn.visibility = function(parameters) {
               .attr('src', src)
             ;
             if(offScreen) {
+              module.verbose('Image outside browser, avoiding animation')
               $module.show();
             }
             else {
-              if($.fn.transition !== undefined) {
+              if(settings.transition && $.fn.transition !== undefined) {
                 $module.transition(settings.transition, settings.duration);
               }
               else {
@@ -201,12 +235,6 @@ $.fn.visibility = function(parameters) {
           if( $.isPlainObject(module.cache) ) {
             module.cache.screen = {};
             module.cache.element = {};
-            if(!settings.once) {
-              module.cache.occurred = {};
-            }
-          }
-          else {
-
           }
         },
 
@@ -216,6 +244,8 @@ $.fn.visibility = function(parameters) {
           module.save.direction();
           module.save.screenCalculations();
           module.save.elementCalculations();
+
+          console.log(module.cache.occurred, element);
           // percentage
           module.passed();
 
@@ -866,6 +896,10 @@ $.fn.visibility.settings = {
   name                   : 'Visibility',
   namespace              : 'visibility',
 
+  className: {
+    fixed: 'fixed'
+  },
+
   debug                  : false,
   verbose                : false,
   performance            : true,
@@ -875,12 +909,14 @@ $.fn.visibility.settings = {
 
   context                : window,
 
-  // visibility check delay in ms
+  // visibility check delay in ms (defaults to animationFrame)
   throttle               : false,
 
-  // special visibility type
+  // special visibility type (image, fixed)
   type                   : false,
-  transition             : 'fade in',
+
+  // image only settings
+  transition             : false,
   duration               : 500,
 
   // array of callbacks for percentage
