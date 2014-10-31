@@ -245,7 +245,6 @@ $.fn.visibility = function(parameters) {
           module.save.screenCalculations();
           module.save.elementCalculations();
 
-          console.log(module.cache.occurred, element);
           // percentage
           module.passed();
 

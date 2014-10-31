@@ -11,6 +11,8 @@
 
 ;(function ( $, window, document, undefined ) {
 
+  "use strict";
+
   $.fn.colorize = function(parameters) {
     var
       settings        = $.extend(true, {}, $.fn.colorize.settings, parameters),

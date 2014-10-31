@@ -1,6 +1,7 @@
  /*
  * # Semantic UI
- * git://github.com/Semantic-Org/Semantic-UI.git#1.0
+ * https://github.com/Semantic-Org/Semantic-UI
+ * http://beta.semantic-ui.com/
  *
  *
  * Copyright 2014 Contributors
@@ -2603,6 +2604,8 @@ $.fn.checkbox.settings = {
  */
 
 ;(function ( $, window, document, undefined ) {
+
+  "use strict";
 
   $.fn.colorize = function(parameters) {
     var
@@ -16008,7 +16011,6 @@ $.fn.visibility = function(parameters) {
           module.save.screenCalculations();
           module.save.elementCalculations();
 
-          console.log(module.cache.occurred, element);
           // percentage
           module.passed();
 
