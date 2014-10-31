@@ -93,7 +93,9 @@ try {
   // try to load json
   var
     config  = require(defaults.files.config),
-    package = require(defaults.files.npm)
+    package = (fs.existsSync(defaults.files.npm))
+      ? require(defaults.files.npm)
+      : false
   ;
 }
 catch(error) {
