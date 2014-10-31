@@ -1,26 +1,31 @@
 
-var package = require('../package.json');
+var
+  fs      = require('fs'),
+  package = (fs.existsSync('../package/.json'))
+    ? require('../package.json')
+    : false
+;
 
 module.exports = {
   del: {
-    silent: true
+    silent : true
   },
   minify: {
-    processImport: false,
-    keepSpecialComments: 0
+    processImport       : false,
+    keepSpecialComments : 0
   },
   uglify: {
-    mangle: true
+    mangle : true
   },
   prefix: {
     browsers: [
-      "last 2 version",
-      "> 1%",
-      "opera 12.1",
-      "safari 6",
-      "ie 9",
-      "bb 10",
-      "android 4"
+      'last 2 version',
+      '> 1%',
+      'opera 12.1',
+      'safari 6',
+      'ie 9',
+      'bb 10',
+      'android 4'
     ]
   },
   header: {
@@ -37,9 +42,9 @@ module.exports = {
   },
   wrench: {
     recursive: {
-      forceDelete: false,
-      excludeHiddenUnix: true,
-      preserveFiles: true
+      forceDelete       : false,
+      excludeHiddenUnix : true,
+      preserveFiles     : true
     }
   }
 };

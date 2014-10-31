@@ -620,6 +620,10 @@ gulp.task('build-docs', false, function () {
 
 });
 
+/* Build Component Release Only */
+gulp.task('build release', false, function() {
+  runSequence('build', 'create repos');
+});
 
 /* Release */
 gulp.task('release', false, function() {
