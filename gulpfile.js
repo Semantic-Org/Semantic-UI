@@ -99,6 +99,9 @@ try {
   ;
 }
 catch(error) {
+  if(error.code === 'MODULE_NOT_FOUND') {
+    console.error('No semantic.json config found');
+  }
   var config = false;
 }
 
@@ -173,7 +176,7 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function(callb
   console.log('Watching source files for changes');
 
   if(!fs.existsSync(config.files.theme)) {
-    console.error('Cant compile LESS. Run "grunt install" to create a theme config file');
+    console.error('Cant compile LESS. Run "gulp install" to create a theme config file');
     return;
   }
 
@@ -301,7 +304,7 @@ gulp.task('build', 'Builds all files from source', function(callback) {
   console.info('Building Semantic');
 
   if(!fs.existsSync(config.files.theme)) {
-    console.error('Cant build LESS. Run "grunt install" to create a theme config file');
+    console.error('Cant build LESS. Run "gulp install" to create a theme config file');
     return;
   }
 

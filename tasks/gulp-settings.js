@@ -1,10 +1,19 @@
 
 var
+  path    = require('path'),
   fs      = require('fs'),
-  package = (fs.existsSync('../package/.json'))
-    ? require('../package.json')
-    : false
+  package
 ;
+try {
+  package = require('../package.json')
+}
+catch(error) {
+  // fallback
+  package = {
+    title : 'Semantic UI',
+    url   : 'git://github.com/Semantic-Org/Semantic-UI.git'
+  }
+}
 
 module.exports = {
   del: {
