@@ -1,19 +1,9 @@
 
 var
-  path    = require('path'),
-  fs      = require('fs'),
-  package
+  path     = require('path'),
+  fs       = require('fs'),
+  defaults = require('./defaults')
 ;
-try {
-  package = require('../package.json')
-}
-catch(error) {
-  // fallback
-  package = {
-    title : 'Semantic UI',
-    url   : 'git://github.com/Semantic-Org/Semantic-UI.git'
-  }
-}
 
 module.exports = {
   del: {
@@ -38,7 +28,9 @@ module.exports = {
     ]
   },
   header: {
-    package: package
+    title      : defaults.title,
+    repository : defaults.repository,
+    url        : defaults.url
   },
   sourcemap: {
     includeContent : true,

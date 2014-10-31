@@ -229,6 +229,7 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function(callb
         compressedStream   = stream.pipe(clone());
 
         uncompressedStream
+          .pipe(plumber())
           .pipe(replace(assetPaths.source, assetPaths.uncompressed))
           //.pipe(sourcemaps.write('/', settings.sourcemap))
           .pipe(header(banner, settings.header))
@@ -240,6 +241,7 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function(callb
         ;
 
         compressedStream = stream
+          .pipe(plumber())
           .pipe(clone())
           .pipe(replace(assetPaths.source, assetPaths.compressed))
           .pipe(minifyCSS(settings.minify))
@@ -508,6 +510,7 @@ gulp.task('install', 'Set-up project for first time', function () {
       console.info('Adjusting @siteFolder', sitePathReplace);
       if(themeConfigExists) {
         gulp.src(config.files.site)
+          .pipe(plumber())
           .pipe(replace(siteVariable, sitePathReplace))
           .pipe(gulp.dest(config.folders.theme))
         ;
@@ -515,6 +518,7 @@ gulp.task('install', 'Set-up project for first time', function () {
       else {
         console.info('Creating src/theme.config (LESS config)');
         gulp.src(config.templates.theme)
+          .pipe(plumber())
           .pipe(rename({ extname : '' }))
           .pipe(replace(siteVariable, sitePathReplace))
           .pipe(gulp.dest(config.folders.theme))

@@ -3,14 +3,18 @@
 *******************************/
 
 module.exports = {
-  base : '',
+  base       : '',
 
-  theme  : './src/theme.config',
+  theme      : './src/theme.config',
 
-  docs  : {
+  docs       : {
     source : '../docs/server/files/release/',
     output : '../docs/release/'
   },
+
+  title      : 'Semantic UI',
+  repository : 'https://github.com/Semantic-Org/Semantic-UI',
+  url        : 'http://beta.semantic-ui.com/',
 
   // files cleaned after install
   setupFiles: [
