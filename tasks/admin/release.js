@@ -22,16 +22,17 @@ module.exports = {
     notes    : './RELEASE-NOTES.md'
   },
 
-  org        : 'Semantic-Org',
-  repo       : 'Semantic-UI',
+  org         : 'Semantic-Org',
+  repo        : 'Semantic-UI',
 
   // root name for repos
-  repoRoot   : 'UI-',
+  repoRoot    : 'UI-',
+  packageRoot : 'semantic-ui-',
 
   // root path to repos
-  outputRoot : '../components/',
+  outputRoot  : '../components/',
 
-  homepage   : 'http://beta.semantic-ui.com',
+  homepage    : 'http://beta.semantic-ui.com',
 
   // components that get separate repositories for bower/npm
   components : [

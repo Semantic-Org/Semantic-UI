@@ -677,6 +677,7 @@ gulp.task('build release', false, function() {
     Internal
 ---------------*/
 
+
 gulp.task('create repos', false, function(callback) {
   var
     stream,
@@ -698,6 +699,7 @@ gulp.task('create repos', false, function(callback) {
         isJavascript         = fs.existsSync(output.compressed + component + '.js'),
         isCSS                = fs.existsSync(output.compressed + component + '.css'),
         capitalizedComponent = component.charAt(0).toUpperCase() + component.slice(1),
+        packageName          = release.packageRoot + component,
         repoName             = release.repoRoot + capitalizedComponent,
         gitURL               = 'git@github.com:' + release.org + '/' + repoName + '.git',
         repoURL              = 'https://github.com/' + release.org + '/' + repoName + '/',
@@ -792,7 +794,7 @@ gulp.task('create repos', false, function(callback) {
           .pipe(plumber())
           .pipe(flatten())
           .pipe(jeditor(function(bower) {
-            bower.name = repoName;
+            bower.name = packageName;
             bower.description = capitalizedComponent + ' - Semantic UI';
             if(isJavascript) {
               if(isCSS) {
@@ -833,9 +835,9 @@ gulp.task('create repos', false, function(callback) {
               };
               package.main = 'index.js';
             }
-            package.name        = repoName;
+            package.name = packageName;
             if(version) {
-              package.version     = version;
+              package.version = version;
             }
             package.title       = 'Semantic UI - ' + capitalizedComponent;
             package.description = 'Single component release of ' + component;
@@ -908,6 +910,49 @@ gulp.task('create repos', false, function(callback) {
   runSequence(tasks, callback);
 
 });
+gulp.task('register repos', false, function(callback) {
+  var
+    index = -1,
+    total = release.components.length,
+    process = require('child_process'),
+    stream,
+    stepRepo
+  ;
+  console.log('Registering repos with package managers');
+
+  // Do Git commands synchronously per component, to avoid issues
+  stepRepo = function() {
+    index = index + 1;
+    if(index >= total) {
+      return;
+    }
+    var
+      component            = release.components[index],
+      outputDirectory      = release.outputRoot + component + '/',
+      capitalizedComponent = component.charAt(0).toUpperCase() + component.slice(1),
+      packageName          = release.packageRoot + component,
+      repoName             = release.repoRoot + capitalizedComponent,
+      gitURL               = 'git@github.com:' + release.org + '/' + repoName + '.git',
+      exec                 = process.exec,
+      execSettings         = {cwd: outputDirectory},
+      registerBower        = 'bower register ' + packageName + ' ' + gitURL,
+      registerNPM          = 'npm publish'
+
+    ;
+    /* One time register
+    exec(registerBower, execSettings, function(err, stdout, stderr) {
+      stepRepo();
+    });
+    */
+    /* Update npm
+    exec(registerNPM, execSettings, function(err, stdout, stderr) {
+      console.log(err, stdout, stderr);
+      stepRepo();
+    });
+    */
+  }
+  stepRepo();
+});
 
 gulp.task('update git', false, function() {
   var
@@ -942,7 +987,8 @@ gulp.task('update git', false, function() {
       commitArgs = (oAuth.name !== undefined && oAuth.email !== undefined)
         ? '--author "' + oAuth.name + ' <' + oAuth.email + '>"'
         : '',
-      isNewVersion = (version && componentPackage.version != version),
+      isNewVersion  = (version && componentPackage.version != version),
+      mergeMessage  = 'Merged from upstream',
       commitMessage = (isNewVersion)
         ? 'Updated component to version ' + version
         : 'Updated component release from Semantic-UI (Automatic)'
@@ -969,7 +1015,33 @@ gulp.task('update git', false, function() {
           stepRepo();
         })
         .on('finish', function(callback) {
-          if(isNewVersion) {
+          pullFiles();
+        })
+      ;
+    }
+    function pullFiles() {
+      console.log('Pulling files');
+      git.pull('origin', 'master', { args: '', cwd: outputDirectory }, function(error) {
+        if(error && error.message.search("Couldn't find remote ref") != -1) {
+          createRepo();
+        }
+        else {
+          console.log('Pull completed successfully');
+          mergeCommit();
+        }
+      });
+    };
+    function mergeCommit() {
+      // commit files
+      console.log('Adding merge commit', commitArgs);
+      gulp.src('', gitOptions)
+        .pipe(git.add(gitOptions))
+        .pipe(git.commit(mergeMessage, { args: commitArgs, cwd: outputDirectory }))
+        .on('error', function(error) {
+          console.log('Nothing new to merge', error);
+        })
+        .on('finish', function(callback) {
+          if(1) {
             tagFiles();
           }
           else {
@@ -986,7 +1058,7 @@ gulp.task('update git', false, function() {
     }
     function pushFiles() {
       console.log('Pushing files');
-      git.push('origin', 'master', { args: '--force', cwd: outputDirectory }, function(error) {
+      git.push('origin', 'master', { args: '', cwd: outputDirectory }, function(error) {
         if(error && error.message.search("Couldn't find remote ref") == -1) {
           createRepo();
         }
@@ -1002,7 +1074,14 @@ gulp.task('update git', false, function() {
         org      : release.org,
         name     : repoName,
         homepage : release.homepage
-      }, initRepo);
+      }, function() {
+        if(isRepository) {
+          addRemote();
+        }
+        else {
+          initRepo();
+        }
+      });
     }
     function initRepo() {
       console.log('Initializing repository in ' + outputDirectory);
@@ -1023,9 +1102,12 @@ gulp.task('update git', false, function() {
       git.push('origin', 'master', { args: '-u', cwd: outputDirectory }, function(error) {
         if(error) {
           console.log(error);
+          pullFiles();
         }
-        console.log('Push completed successfully');
-        stepRepo();
+        else {
+          console.log('First push completed successfully');
+          stepRepo();
+        }
       });
     };
 
