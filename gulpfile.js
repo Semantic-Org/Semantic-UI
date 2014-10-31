@@ -119,7 +119,10 @@ var
     output  = config.paths.output;
     source  = config.paths.source;
 
-    version = package.version;
+    version = (package !== undefined)
+      ? package.version || 'Unknown'
+      : 'Unknown'
+    ;
 
     // create glob for matching filenames from components in semantic.json
     componentGlob = (typeof config.components == 'object')
@@ -810,7 +813,9 @@ gulp.task('create repos', false, function(callback) {
               package.main = 'index.js';
             }
             package.name        = repoName;
-            package.version     = version;
+            if(version) {
+              package.version     = version;
+            }
             package.title       = 'Semantic UI - ' + capitalizedComponent;
             package.description = 'Single component release of ' + component;
             package.repository  = {
@@ -836,7 +841,9 @@ gulp.task('create repos', false, function(callback) {
               composer.main = component + '.js';
             }
             composer.name        = 'semantic/' + component;
-            composer.version     = version;
+            if(version) {
+              composer.version     = version;
+            }
             composer.description = 'Single component release of ' + component;
             return composer;
           }))
@@ -914,7 +921,7 @@ gulp.task('update git', false, function() {
       commitArgs = (oAuth.name !== undefined && oAuth.email !== undefined)
         ? '--author "' + oAuth.name + ' <' + oAuth.email + '>"'
         : '',
-      isNewVersion = (componentPackage.version != version),
+      isNewVersion = (version && componentPackage.version != version),
       commitMessage = (isNewVersion)
         ? 'Updated component to version ' + version
         : 'Updated component release from Semantic-UI (Automatic)'
