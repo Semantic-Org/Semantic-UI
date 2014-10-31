@@ -316,6 +316,7 @@ gulp.task('build', 'Builds all files from source', function(callback) {
 
   // javascript stream
   gulp.src(source.definitions + '**/*.js')
+    .pipe(plumber())
     .pipe(flatten())
     .pipe(gulp.dest(output.uncompressed))
     .pipe(print(log.created))
@@ -349,6 +350,7 @@ gulp.task('build', 'Builds all files from source', function(callback) {
   compressedStream   = stream.pipe(clone());
 
   uncompressedStream
+    .pipe(plumber())
     .pipe(replace(assetPaths.source, assetPaths.uncompressed))
     //.pipe(sourcemaps.write('/', settings.sourcemap))
     .pipe(header(banner, settings.header))
@@ -360,6 +362,7 @@ gulp.task('build', 'Builds all files from source', function(callback) {
   ;
 
   compressedStream = stream
+    .pipe(plumber())
     .pipe(clone())
     .pipe(replace(assetPaths.source, assetPaths.compressed))
     .pipe(minifyCSS(settings.minify))
@@ -391,6 +394,7 @@ gulp.task('version', 'Displays current version of Semantic', function(callback) 
 
 gulp.task('package uncompressed css', false, function() {
   return gulp.src(output.uncompressed + '**/' + componentGlob + '!(*.min|*.map).css')
+    .pipe(plumber())
     .pipe(replace(assetPaths.uncompressed, assetPaths.packaged))
     .pipe(concatCSS('semantic.css'))
       .pipe(gulp.dest(output.packaged))
@@ -400,6 +404,7 @@ gulp.task('package uncompressed css', false, function() {
 
 gulp.task('package compressed css', false, function() {
   return gulp.src(output.uncompressed + '**/' + componentGlob + '!(*.min|*.map).css')
+    .pipe(plumber())
     .pipe(replace(assetPaths.uncompressed, assetPaths.packaged))
     .pipe(concatCSS('semantic.min.css'))
       .pipe(minifyCSS(settings.minify))
@@ -411,6 +416,7 @@ gulp.task('package compressed css', false, function() {
 
 gulp.task('package uncompressed js', false, function() {
   return gulp.src(output.uncompressed + '**/' + componentGlob + '!(*.min|*.map).js')
+    .pipe(plumber())
     .pipe(replace(assetPaths.uncompressed, assetPaths.packaged))
     .pipe(concat('semantic.js'))
       .pipe(header(banner, settings.header))
@@ -421,6 +427,7 @@ gulp.task('package uncompressed js', false, function() {
 
 gulp.task('package compressed js', false, function() {
   return gulp.src(output.uncompressed + '**/' + componentGlob + '!(*.min|*.map).js')
+    .pipe(plumber())
     .pipe(replace(assetPaths.uncompressed, assetPaths.packaged))
     .pipe(concat('semantic.min.js'))
       .pipe(uglify(settings.uglify))
@@ -620,10 +627,6 @@ gulp.task('build-docs', false, function () {
 
 });
 
-/* Build Component Release Only */
-gulp.task('build release', false, function() {
-  runSequence('build', 'create repos');
-});
 
 /* Release */
 gulp.task('release', false, function() {
@@ -655,6 +658,11 @@ gulp.task('release', false, function() {
   // #Create SCSS Version
   // #Create RTL Release
 
+});
+
+/* Build Component Release Only */
+gulp.task('build release', false, function() {
+  runSequence('build', 'create repos');
 });
 
 
