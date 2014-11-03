@@ -38,6 +38,10 @@
 @menuTransition: opacity 0.2s ease;
 @menuZIndex: 11;
 
+/* Text */
+@textLineHeight: 1em;
+@textLineHeightOffset: (@itemLineHeight - 1em);
+
 /* Menu Item */
 @itemFontSize: 1rem;
 @itemBorder: none;
@@ -48,9 +52,18 @@
 @itemHorizontalPadding: 1.25rem;
 @itemFontWeight: normal;
 @itemLineHeight: 1.2em;
+@itemLineHeightOffset: (@itemLineHeight - 1em);
 @itemTextTransform: none;
 @itemBoxShadow: none;
 
+/* Sub Menu */
+@subMenuTop: 0%;
+@subMenuLeft: 100%;
+@subMenuRight: auto;
+@subMenuDistanceAway: -0.5em;
+@subMenuMargin: 0em 0em 0em @subMenuDistanceAway;
+@subMenuBorderRadius: 0em @borderRadius @borderRadius 0em;
+@subMenuZIndex: 21;
 
 /* Menu Header */
 @menuHeaderColor: @darkTextColor;
@@ -74,28 +87,33 @@
 /* Menu Image */
 @menuImageMaxHeight: 2.5em;
 
-/* Sub Menu Pointer Icon */
-@dropdownSubMenuIconFloat: right;
-@dropdownSubMenuIconMargin: (@itemLineHeight - 1em) 0em 0em;
-@dropdownSubMenuIconDistance: 1em;
-
 /* Menu Item Icon */
-@itemIconMargin: 0em 0.75em 0em 0em;
+@itemIconFloat: right;
+@itemIconMargin: @itemLineHeightOffset 0.75em 0em 0em;
+@itemIconDistance: 1em;
+
+/* Sub-Menu Icon */
+@itemDropdownIconFloat: right;
+@itemDropdownIconMargin: @itemIconMargin;
+
+/* Label */
 @itemLabelMargin: @itemIconMargin;
+
+/* Flag */
 @itemFlagMargin: @itemIconMargin;
+
+/* Image */
 @itemImageMargin: @itemIconMargin;
 
-/* Sub Menu */
-@subMenuTop: 0%;
-@subMenuLeft: 100%;
-@subMenuRight: auto;
-@subMenuDistanceAway: -0.5em;
-@subMenuMargin: 0em 0em 0em @subMenuDistanceAway;
-@subMenuBorderRadius: 0em @borderRadius @borderRadius 0em;
-@subMenuZIndex: 21;
+/* Description */
+@itemDescriptionMargin: 0em 0em 0em 1em;
+@itemDescriptionColor: @lightTextColor;
+
+/* Floated Content */
+@floatedDistance: 1em;
 
 /*-------------------
-b        Types
+        Types
 --------------------*/
 
 /* Selection */

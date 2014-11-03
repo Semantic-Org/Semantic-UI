@@ -88,8 +88,8 @@
 }
 .ui.dropdown .menu > .item .dropdown.icon {
   width: auto;
-  float: @dropdownSubMenuIconFloat;
-  margin: @dropdownSubMenuIconMargin;
+  float: @itemDropdownIconFloat;
+  margin: @itemDropdownIconMargin;
 }
 
 
@@ -128,6 +128,31 @@
 .ui.dropdown .menu > .item:first-child {
   border-top: none;
 }
+
+/*--------------
+  Floated Content
+---------------*/
+
+.ui.dropdown > .text > [class*="right floated"],
+.ui.dropdown .menu .item > [class*="right floated"] {
+  float: right;
+  margin-right: 0em;
+  margin-left: @floatedDistance;
+}
+.ui.dropdown > .text > [class*="left floated"],
+.ui.dropdown .menu .item > [class*="left floated"] {
+  float: right;
+  margin-left: 0em;
+  margin-right: @floatedDistance;
+}
+
+.ui.dropdown .menu .item > .icon.floated,
+.ui.dropdown .menu .item > .flag.floated,
+.ui.dropdown .menu .item > .image.floated,
+.ui.dropdown .menu .item > img.floated {
+  margin-top: @itemLineHeightOffset;
+}
+
 
 /*--------------
   Menu Divider
@@ -174,6 +199,16 @@
   margin: @itemImageMargin;
 }
 
+/*-----------------
+  Item Description
+-------------------*/
+
+.ui.dropdown > .text > .description,
+.ui.dropdown .menu > .item > .description {
+  margin: @itemDescriptionMargin;
+  color: @itemDescriptionColor;
+}
+
 
 /*--------------
     Sub Menu
@@ -213,7 +248,7 @@
 }
 .ui.dropdown .menu > .item > .icon + .text {
   display: block;
-  margin-right: @dropdownSubMenuIconDistance;
+  margin-right: @itemIconDistance;
 }
 
 
