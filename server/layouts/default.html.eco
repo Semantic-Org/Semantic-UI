@@ -252,7 +252,7 @@
       <div class="right menu">
         <div class="vertically fitted borderless item">
           <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic-ui&type=watch&count=true"
-  allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
+  allowtransparency="true" frameborder="0" scrolling="0" width="101" height="20"></iframe>
         </div>
         <% if @document.type is 'UI Element' or @document.type is 'UI View' or @document.type is 'UI Collection' or @document.type is 'UI Module': %>
 <!--         <a class="popup overview icon item" data-content="Toggle Definition">
