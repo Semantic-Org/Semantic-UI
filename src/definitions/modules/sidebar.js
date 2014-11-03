@@ -771,10 +771,9 @@ $.fn.sidebar.settings = {
   namespace         : 'sidebar',
 
   debug             : false,
-  verbose           : false,
-  performance       : false,
+  verbose           : true,
+  performance       : true,
 
-  workaround        : false,
   transition        : 'auto',
   mobileTransition  : 'auto',
 
