@@ -269,7 +269,7 @@ $.fn.shape = function(parameters) {
 
           up: function() {
             if(module.is.complete() && !module.is.animating() && !settings.allowRepeats) {
-              console.log('Side already visible', $nextSide);
+              module.debug('Side already visible', $nextSide);
               return;
             }
             if( !module.is.animating()) {
@@ -285,7 +285,7 @@ $.fn.shape = function(parameters) {
 
           down: function() {
             if(module.is.complete() && !module.is.animating() && !settings.allowRepeats) {
-              console.log('Side already visible', $nextSide);
+              module.debug('Side already visible', $nextSide);
               return;
             }
             if( !module.is.animating()) {
@@ -301,7 +301,7 @@ $.fn.shape = function(parameters) {
 
           left: function() {
             if(module.is.complete() && !module.is.animating() && !settings.allowRepeats) {
-              console.log('Side already visible', $nextSide);
+              module.debug('Side already visible', $nextSide);
               return;
             }
             if( !module.is.animating()) {
@@ -317,7 +317,7 @@ $.fn.shape = function(parameters) {
 
           right: function() {
             if(module.is.complete() && !module.is.animating() && !settings.allowRepeats) {
-              console.log('Side already visible', $nextSide);
+              module.debug('Side already visible', $nextSide);
               return;
             }
             if( !module.is.animating()) {
@@ -333,7 +333,7 @@ $.fn.shape = function(parameters) {
 
           over: function() {
             if(module.is.complete() && !module.is.animating() && !settings.allowRepeats) {
-              console.log('Side already visible', $nextSide);
+              module.debug('Side already visible', $nextSide);
               return;
             }
             if( !module.is.animating()) {
@@ -349,7 +349,7 @@ $.fn.shape = function(parameters) {
 
           back: function() {
             if(module.is.complete() && !module.is.animating() && !settings.allowRepeats) {
-              console.log('Side already visible', $nextSide);
+              module.debug('Side already visible', $nextSide);
               return;
             }
             if( !module.is.animating()) {

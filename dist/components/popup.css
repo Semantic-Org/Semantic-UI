@@ -244,7 +244,7 @@
 }
 .ui.inverted.popup:before {
   background-color: #1b1c1d;
-  box-shadow: none;
+  box-shadow: none !important;
 }
 
 /*--------------
@@ -275,5 +275,11 @@
 
 /*******************************
          Theme Overrides
+*******************************/
+
+
+
+/*******************************
+        User Overrides
 *******************************/
 
