@@ -196,7 +196,7 @@ $.fn.transition = function() {
             module.remove.duration();
             module.remove.animating();
           }
-          $.proxy(settings.complete, this)();
+          $.proxy(settings.onComplete, this)();
         },
 
         has: {
@@ -230,7 +230,7 @@ $.fn.transition = function() {
               .one(animationEnd + '.complete' + eventNamespace, module.complete)
             ;
             module.set.duration(settings.duration);
-            $.proxy(settings.start, this)();
+            $.proxy(settings.onStart, this)();
             module.debug('Starting tween', animation, $module.attr('class'));
           },
           display: function() {
@@ -808,8 +808,8 @@ $.fn.transition.settings = {
   namespace   : 'transition',
 
   // animation complete event
-  start       : function() {},
-  complete    : function() {},
+  onStart     : function() {},
+  onComplete  : function() {},
   onShow      : function() {},
   onHide      : function() {},
 
