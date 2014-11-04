@@ -59,10 +59,12 @@
   top: 0px !important;
   bottom: auto !important;
 }
+
 .ui.right.sidebar {
   right: 0px !important;
   left: auto !important;
 }
+
 .ui.bottom.sidebar {
   top: auto !important;
   bottom: 0px !important;
@@ -91,8 +93,8 @@
   backface-visibility: hidden;
   will-change: transform;
 
-  transition: transform @duration @easing;
   z-index: @fixedLayer;
+  transition: transform @duration @easing;
 }
 
 /*--------------
@@ -101,10 +103,8 @@
 
 .pushable > .pusher {
   backface-visibility: hidden;
-  z-index: @middleLayer;
-  will-change: transform;
 
-  min-height: 100%;
+  height: 100%;
   transition: transform @duration @easing;
   background: @pageBackground;
 }
@@ -125,7 +125,6 @@
   height: 0px;
   overflow: hidden;
   opacity: 0;
-  z-index: @dimmerLayer;
   transition: opacity @duration;
   will-change: opacity;
 }
@@ -148,6 +147,13 @@
 
 .pushable.pushed {
   overflow-x: hidden;
+}
+
+.pushable.pushed > .pusher:after {
+  z-index: @dimmerLayer;
+}
+.pushable.pushed > .pusher {
+  z-index: @middleLayer;
 }
 
 /*--------------

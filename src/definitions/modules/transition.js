@@ -310,7 +310,7 @@ $.fn.transition = function() {
 
         save: {
           displayType: function(displayType) {
-            module.displayType = displayType;
+            $module.data(metadata.displayType, displayType);
           },
           transitionExists: function(animation, exists) {
             $.fn.transition.exists[animation] = exists;
@@ -440,11 +440,11 @@ $.fn.transition = function() {
             return $.fn.transition.settings;
           },
           displayType: function() {
-            if(module.displayType === undefined) {
+            if($module.data(metadata.displayType) === undefined) {
               // create fake element to determine display state
-              module.can.transition();
+              module.can.transition(true);
             }
-            return module.displayType;
+            return $module.data(metadata.displayType);
           },
           style: function() {
             var
@@ -505,18 +505,19 @@ $.fn.transition = function() {
               return false;
             }
           },
-          transition: function() {
+          transition: function(forced) {
             var
-              elementClass     = $module.attr('class'),
-              tagName          = $module.prop('tagName'),
-              animation        = settings.animation,
-              transitionExists = module.get.transitionExists(settings.animation),
+              elementClass      = $module.attr('class'),
+              tagName           = $module.prop('tagName'),
+              animation         = settings.animation,
+              transitionExists  = module.get.transitionExists(settings.animation),
               $clone,
               currentAnimation,
               inAnimation,
+              animationExists,
               displayType
             ;
-            if( transitionExists === undefined || module.displayType === undefined) {
+            if( transitionExists === undefined || forced) {
               module.verbose('Determining whether animation exists');
               $clone = $('<' + tagName + ' />').addClass( elementClass ).insertAfter($module);
               currentAnimation = $clone
@@ -541,19 +542,19 @@ $.fn.transition = function() {
               module.verbose('Determining final display state', displayType);
               if(currentAnimation != inAnimation) {
                 module.debug('Transition exists for animation', animation);
-                transitionExists = true;
+                animationExists = true;
               }
               else {
                 module.debug('Static animation found', animation, displayType);
-                transitionExists = false;
+                animationExists = false;
               }
               $clone.remove();
               module.save.displayType(displayType);
               if(transitionExists === undefined) {
-                module.save.transitionExists(animation, transitionExists);
+                module.save.transitionExists(animation, animationExists);
               }
             }
-            return transitionExists;
+            return transitionExists || animationExists;
           }
         },
 
@@ -821,6 +822,10 @@ $.fn.transition.settings = {
 
   // new animations will occur after previous ones
   queue       : true,
+
+  metadata : {
+    displayType: 'display'
+  },
 
   className   : {
     animating  : 'animating',

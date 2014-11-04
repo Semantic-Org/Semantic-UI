@@ -20,8 +20,9 @@
 @textColor: @white;
 @overflow: hidden;
 
-// @elementFilter: ~"blur(15px) grayscale(0.7)";
-@elementFilter: '';
+@elementStartFilter: ~"blur(0px) grayscale(0)";
+@elementEndFilter: ~"blur(15px) grayscale(0.7)";
+@elementTransition: 1.5s all ease;
 
 /* Hidden (Default) */
 @hiddenOpacity: 0;

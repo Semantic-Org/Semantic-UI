@@ -115,9 +115,15 @@ body.dimmable > .dimmer {
   position: fixed;
 }
 
-body.dimmed.dimmable > :not(.dimmer){
-  filter: @elementFilter;
+/*
+body.dimmable > :not(.dimmer) {
+  filter: @elementStartFilter;
 }
+body.dimmed.dimmable > :not(.dimmer) {
+  filter: @elementEndFilter;
+  transition: @elementTransition;
+}
+*/
 
 /*--------------
     Aligned
