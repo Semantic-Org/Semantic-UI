@@ -27,8 +27,6 @@ $.fn.sidebar = function(parameters) {
     methodInvoked  = (typeof query == 'string'),
     queryArguments = [].slice.call(arguments, 1),
 
-    animateTimer = false,
-    animationFrame = false,
     requestAnimationFrame = window.requestAnimationFrame
       || window.mozRequestAnimationFrame
       || window.webkitRequestAnimationFrame
@@ -59,14 +57,12 @@ $.fn.sidebar = function(parameters) {
 
         $sidebars       = $context.children(selector.sidebar),
         $pusher         = $context.children(selector.pusher),
-        $page           = $pusher.children(selector.page),
-        $fixed          = $pusher.find(selector.fixed),
 
         element         = this,
         instance        = $module.data(moduleNamespace),
 
         currentScroll,
-        transitionEnd,
+        transitionEvent,
 
         module
       ;
@@ -76,7 +72,7 @@ $.fn.sidebar = function(parameters) {
         initialize: function() {
           module.debug('Initializing sidebar', $module);
 
-          transitionEnd = module.get.transitionEvent();
+          transitionEvent = module.get.transitionEvent();
 
           // cache on initialize
           if( module.is.legacy() ) {
@@ -88,7 +84,7 @@ $.fn.sidebar = function(parameters) {
           module.set.transition();
 
           // avoid locking rendering to change layout if included in onReady
-          module.syncAnimation(module.setup.layout);
+          requestAnimationFrame(module.setup.layout);
 
           module.instantiate();
         },
@@ -149,37 +145,12 @@ $.fn.sidebar = function(parameters) {
           }
         },
 
-        syncAnimation: function(animation) {
-          var
-            previousAnimation = animationFrame
-          ;
-          if(previousAnimation === undefined) {
-            animationFrame = animation;
-          }
-          else {
-            animationFrame = function() {
-              if(previousAnimation) {
-                previousAnimation();
-              }
-              animation();
-            };
-            module.debug('Adding animation to single requestAnimation call', animation);
-          }
-          clearTimeout(animateTimer);
-          animateTimer = setTimeout(function() {
-            requestAnimationFrame(animationFrame);
-            animationFrame = false;
-          }, 10);
-        },
-
         refresh: function() {
           module.verbose('Refreshing selector cache');
           $context  = $(settings.context);
           $style    = $('style[title=' + namespace + ']');
           $sidebars = $context.children(selector.sidebar);
           $pusher   = $context.children(selector.pusher);
-          $page     = $pusher.children(selector.page);
-          $fixed    = $pusher.find(selector.fixed);
         },
 
         repaint: function() {
@@ -192,8 +163,6 @@ $.fn.sidebar = function(parameters) {
             if( $context.find(selector.pusher).size() === 0 ) {
               module.debug('Adding wrapper element for sidebar');
               $pusher = $('<div class="pusher" />');
-              $page   = $('<div class="page" />');
-              $pusher.append($page);
               $context
                 .children()
                   .not(selector.omitted)
@@ -201,7 +170,7 @@ $.fn.sidebar = function(parameters) {
                   .wrapAll($pusher)
               ;
             }
-            if($module.prevAll($page)[0] !== $page[0]) {
+            if($module.prevAll($pusher)[0] !== $pusher[0]) {
               module.debug('Moved sidebar to correct parent element');
               $module.detach().prependTo($context);
             }
@@ -310,40 +279,41 @@ $.fn.sidebar = function(parameters) {
               : (transition == 'overlay')
                 ? $module
                 : $pusher,
-            animate
+            animate,
+            transitionEnd
           ;
           callback = $.isFunction(callback)
             ? callback
             : function(){}
           ;
+          module.remove.outward();
           animate = function() {
-            module.remove.outward();
-            module.set.visible();
             module.set.inward();
-            module.set.pushed();
+            module.set.visible();
+            requestAnimationFrame(function() {
+              module.set.pushed();
+            });
           };
-          $transition
-            .off(transitionEnd + eventNamespace)
-            .on(transitionEnd + eventNamespace, function(event) {
-              if( event.target == $transition[0] ) {
-                $transition.off(transitionEnd + eventNamespace);
-                module.remove.inward();
-                module.bind.clickaway();
-                module.set.active();
-                $.proxy(callback, element)();
-              }
-            })
-          ;
+          transitionEnd = function(event) {
+            if( event.target == $transition[0] ) {
+              $transition.off(transitionEvent + eventNamespace, transitionEnd);
+              module.remove.inward();
+              module.bind.clickaway();
+              module.set.active();
+              $.proxy(callback, element)();
+            }
+          };
+          $transition.on(transitionEvent + eventNamespace, transitionEnd);
           module.verbose('Adding context push state', $context);
           if(transition === 'overlay') {
-            module.syncAnimation(animate);
+            animate();
           }
           else {
             if(settings.transition == 'scale down' || module.is.mobile()) {
               module.scrollToTop();
             }
             module.remove.allVisible();
-            module.syncAnimation(animate);
+            animate();
           }
         },
 
@@ -354,35 +324,35 @@ $.fn.sidebar = function(parameters) {
               ? $context
               : (transition == 'overlay')
                 ? $module
-                : $pusher
+                : $pusher,
+            animate,
+            transitionEnd
           ;
           callback = $.isFunction(callback)
             ? callback
             : function(){}
           ;
           module.verbose('Removing context push state', module.get.direction());
-          module.unbind.clickaway();
-
-          $transition
-            .off(transitionEnd + eventNamespace)
-            .on(transitionEnd + eventNamespace, function(event) {
-              if( event.target == $transition[0] ) {
-                $transition.off(transitionEnd + eventNamespace);
-                module.remove.outward();
-                module.remove.visible();
-                if(transition == 'scale down' || (settings.returnScroll && transition !== 'overlay' && module.is.mobile()) ) {
-                  module.scrollBack();
-                }
-                $.proxy(callback, element)();
-              }
-            })
-          ;
-          module.syncAnimation(function() {
+          animate = function() {
+            module.unbind.clickaway();
             module.remove.inward();
             module.set.outward();
             module.remove.active();
             module.remove.pushed();
-          });
+          };
+          transitionEnd = function(event) {
+            if( event.target == $transition[0] ) {
+              $transition.off(transitionEvent + eventNamespace, transitionEnd);
+              module.remove.outward();
+              module.remove.visible();
+              if(transition == 'scale down' || (settings.returnScroll && transition !== 'overlay' && module.is.mobile()) ) {
+                module.scrollBack();
+              }
+              $.proxy(callback, element)();
+            }
+          };
+          $transition.on(transitionEvent + eventNamespace, transitionEnd);
+          animate();
         },
 
         legacyPushPage: function(callback) {
@@ -444,6 +414,7 @@ $.fn.sidebar = function(parameters) {
           currentScroll = $(window).scrollTop();
           window.scrollTo(0, 0);
         },
+
         scrollBack: function() {
           module.verbose('Scrolling back to original page position');
           window.scrollTo(0, currentScroll);
@@ -453,15 +424,15 @@ $.fn.sidebar = function(parameters) {
           // container
           pushed: function() {
             if(settings.dimPage) {
-              $page.addClass(className.dimmed);
+              $pusher.addClass(className.dimmed);
             }
             $context.addClass(className.pushed);
           },
-          active: function() {
-            $context.addClass(className.active);
-          },
 
           // sidebar
+          active: function() {
+            $module.addClass(className.active);
+          },
           inward: function() {
             $module.addClass(className.inward);
           },
@@ -484,14 +455,15 @@ $.fn.sidebar = function(parameters) {
           // context
           pushed: function() {
             if(settings.dimPage) {
-              $page.removeClass(className.dimmed);
+              $pusher.removeClass(className.dimmed);
             }
             $context.removeClass(className.pushed);
           },
-          active: function() {
-            $context.removeClass(className.active);
-          },
+
           // sidebar
+          active: function() {
+            $module.removeClass(className.active);
+          },
           inward: function() {
             $module.removeClass(className.inward);
           },
@@ -860,9 +832,8 @@ $.fn.sidebar.settings = {
   },
 
   selector: {
-    fixed   : '.ui.fixed',
+    fixed   : '.fixed',
     omitted : 'script, link, style, .ui.modal, .ui.dimmer, .ui.nag, .ui.fixed',
-    page    : '.page',
     pusher  : '.pusher',
     sidebar : '.ui.sidebar'
   },

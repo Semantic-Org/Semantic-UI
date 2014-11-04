@@ -18,6 +18,7 @@
 - **Input** - Labeled inputs now have ``corner`` ``left`` and ``top`` labels. Any labeled inputs must now be converted to ``corner labeled input`` to maintain default position in ``0.x``
 - **Modal** - AllowMultiple (allowing multiple modals at once) is now set to **false** by default.
 - **Table** - Tables are no longer striped by default, instead you must specify the 'striped' variation
+- **Transition** - Complete, and Start callbacks are now ``onComplete`` and ``onStart``
 
 **Enhancements**
 - **General** - CSS animations now hint with will change properties to increase performance in supported browsers

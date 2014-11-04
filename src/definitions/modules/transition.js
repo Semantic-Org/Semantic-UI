@@ -179,15 +179,15 @@ $.fn.transition = function() {
             if( module.is.outward() ) {
               module.verbose('Animation is outward, hiding element');
               module.restore.conditions();
-              module.remove.display();
               module.hide();
+              module.remove.display();
               $.proxy(settings.onHide, this)();
             }
             else if( module.is.inward() ) {
               module.verbose('Animation is outward, showing element');
               module.restore.conditions();
-              module.set.display();
               module.show();
+              module.set.display();
               $.proxy(settings.onShow, this)();
             }
             else {
@@ -235,10 +235,11 @@ $.fn.transition = function() {
           },
           display: function() {
             var
-              style         = module.get.style(),
-              displayType   = module.get.displayType(),
-              overrideStyle = style + 'display: ' + displayType + ' !important;'
+              style              = module.get.style(),
+              displayType        = module.get.displayType(),
+              overrideStyle      = style + 'display: ' + displayType + ' !important;'
             ;
+            module.refresh();
             if( $module.css('display') !== displayType ) {
               module.verbose('Setting inline visibility to', displayType);
               $module
@@ -357,9 +358,7 @@ $.fn.transition = function() {
             $module.removeClass(className.animating);
           },
           display: function() {
-            if(module.displayType !== undefined) {
-              $module.css('display', '');
-            }
+            $module.css('display', '');
           },
           direction: function() {
             $module
@@ -399,17 +398,17 @@ $.fn.transition = function() {
           }
         },
         get: {
-          settings: function(animation, duration, complete) {
+          settings: function(animation, duration, onComplete) {
             // single settings object
             if(typeof animation == 'object') {
               return $.extend(true, {}, $.fn.transition.settings, animation);
             }
             // all arguments provided
-            else if(typeof complete == 'function') {
+            else if(typeof onComplete == 'function') {
               return $.extend({}, $.fn.transition.settings, {
-                animation : animation,
-                complete  : complete,
-                duration  : duration
+                animation  : animation,
+                onComplete : onComplete,
+                duration   : duration
               });
             }
             // only duration provided
@@ -428,8 +427,8 @@ $.fn.transition = function() {
             // duration is actually callback
             else if(typeof duration == 'function') {
               return $.extend({}, $.fn.transition.settings, {
-                animation : animation,
-                complete  : duration
+                animation  : animation,
+                onComplete : duration
               });
             }
             // only animation provided

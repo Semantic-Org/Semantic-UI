@@ -261,14 +261,14 @@ $.fn.modal = function(parameters) {
                     animation : settings.transition + ' in',
                     queue     : false,
                     duration  : settings.duration,
-                    start     : function() {
+                    onStart   : function() {
                       module.cacheSizes();
                       module.set.position();
                       module.set.screenHeight();
                       module.set.type();
                       module.set.clickaway();
                     },
-                    complete  : function() {
+                    onComplete : function() {
                       $.proxy(settings.onVisible, element)();
                       module.add.keyboardShortcuts();
                       module.save.focus();
@@ -344,14 +344,14 @@ $.fn.modal = function(parameters) {
           if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
             $module
               .transition({
-                debug     : settings.debug,
-                animation : settings.transition + ' out',
-                queue     : false,
-                duration  : settings.duration,
-                start     : function() {
+                debug      : settings.debug,
+                animation  : settings.transition + ' out',
+                queue      : false,
+                duration   : settings.duration,
+                onStart    : function() {
                   module.remove.keyboardShortcuts();
                 },
-                complete  : function() {
+                onComplete : function() {
                   $.proxy(settings.onHidden, element)();
                   module.remove.active();
                   module.restore.focus();
