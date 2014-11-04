@@ -70,7 +70,7 @@ $.fn.sidebar = function(parameters) {
       module      = {
 
         initialize: function() {
-          module.debug('Initializing sidebar', $module);
+          module.debug('Initializing sidebar', parameters);
 
           transitionEvent = module.get.transitionEvent();
 
@@ -78,9 +78,6 @@ $.fn.sidebar = function(parameters) {
           if( module.is.legacy() ) {
             settings.useLegacy = true;
           }
-
-          module.set.pushable();
-          module.set.direction();
 
           // avoid locking rendering if included in onReady
           requestAnimationFrame(module.setup.layout);
@@ -127,6 +124,11 @@ $.fn.sidebar = function(parameters) {
               ;
             }
             $context
+              .on('touchmove' + eventNamespace, function(event) {
+                if($(event.target).closest($module).size() == 0) {
+                  event.preventDefault();
+                }
+              })
               .on('click' + eventNamespace, module.event.clickaway)
               .on('touchend' + eventNamespace, module.event.clickaway)
             ;
@@ -135,6 +137,9 @@ $.fn.sidebar = function(parameters) {
         unbind: {
           clickaway: function() {
             $context
+              .off(eventNamespace)
+            ;
+            $pusher
               .off(eventNamespace)
             ;
             if(settings.scrollLock) {
@@ -153,7 +158,9 @@ $.fn.sidebar = function(parameters) {
 
         repaint: function() {
           module.verbose('Forcing repaint event');
-          var fakeAssignment = $module[0].offsetWidth;
+          element.style.display='none';
+          element.offsetHeight;
+          element.style.display='';
         },
 
         setup: {
@@ -167,12 +174,15 @@ $.fn.sidebar = function(parameters) {
                   .not($sidebars)
                   .wrapAll($pusher)
               ;
+              module.refresh();
             }
-            if($module.prevAll($pusher)[0] !== $pusher[0]) {
+            if($module.nextAll(selector.pusher)[0] !== $pusher[0]) {
               module.debug('Moved sidebar to correct parent element');
               $module.detach().prependTo($context);
+              module.refresh();
             }
-            module.refresh();
+            module.set.pushable();
+            module.set.direction();
           }
         },
 
@@ -299,10 +309,11 @@ $.fn.sidebar = function(parameters) {
             ? callback
             : function(){}
           ;
+          module.set.transition();
           if(settings.transition == 'scale down' || (module.is.mobile() && transition !== 'overlay')) {
             module.scrollToTop();
           }
-          module.set.transition();
+          module.repaint();
           animate = function() {
             module.set.visible();
             module.set.animating();
@@ -357,6 +368,7 @@ $.fn.sidebar = function(parameters) {
               $transition.off(transitionEvent + eventNamespace, transitionEnd);
               module.remove.animating();
               module.remove.transition();
+              module.repaint();
               if(transition == 'scale down' || (settings.returnScroll && transition !== 'overlay' && module.is.mobile()) ) {
                 module.scrollBack();
               }
