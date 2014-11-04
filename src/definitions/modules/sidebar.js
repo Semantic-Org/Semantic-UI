@@ -81,7 +81,6 @@ $.fn.sidebar = function(parameters) {
 
           module.set.pushable();
           module.set.direction();
-          module.set.transition();
 
           // avoid locking rendering if included in onReady
           requestAnimationFrame(module.setup.layout);
@@ -100,7 +99,6 @@ $.fn.sidebar = function(parameters) {
         destroy: function() {
           module.verbose('Destroying previous module for', $module);
           module.remove.direction();
-          module.remove.transition();
           $module
             .off(eventNamespace)
             .removeData(moduleNamespace)
@@ -155,7 +153,7 @@ $.fn.sidebar = function(parameters) {
 
         repaint: function() {
           module.verbose('Forcing repaint event');
-          var fakeAssignment = $context[0].offsetWidth;
+          var fakeAssignment = $module[0].offsetWidth;
         },
 
         setup: {
@@ -207,7 +205,7 @@ $.fn.sidebar = function(parameters) {
             ? callback
             : function(){}
           ;
-          if(module.is.closed() || module.is.outward()) {
+          if(module.is.closed() || module.is.animating()) {
             if(settings.overlay)  {
               module.error(error.overlay);
               settings.transition = 'overlay';
@@ -241,7 +239,7 @@ $.fn.sidebar = function(parameters) {
             ? callback
             : function(){}
           ;
-          if(module.is.visible() || module.is.inward()) {
+          if(module.is.visible() || module.is.animating()) {
             module.debug('Hiding sidebar', callback);
             animateMethod(function() {
               $.proxy(callback, element)();
@@ -266,11 +264,9 @@ $.fn.sidebar = function(parameters) {
             sidebarCount   = $otherSidebars.size(),
             callbackCount  = 0
           ;
-          console.log($sidebars);
           $otherSidebars
             .sidebar('hide', function() {
               callbackCount++;
-              console.log('callback count');
               if(callbackCount == sidebarCount) {
                 callback();
               }
@@ -303,30 +299,30 @@ $.fn.sidebar = function(parameters) {
             ? callback
             : function(){}
           ;
-          module.set.inward();
+          if(settings.transition == 'scale down' || (module.is.mobile() && transition !== 'overlay')) {
+            module.scrollToTop();
+          }
+          module.set.transition();
           animate = function() {
+            module.set.visible();
+            module.set.animating();
             if(!module.othersActive()) {
               if(settings.dimPage) {
                 $pusher.addClass(className.dimmed);
               }
-              module.set.pushed();
             }
-            module.set.visible();
           };
           transitionEnd = function(event) {
             if( event.target == $transition[0] ) {
               $transition.off(transitionEvent + eventNamespace, transitionEnd);
-              module.remove.inward();
+              module.remove.animating();
               module.bind.clickaway();
               module.set.active();
               $.proxy(callback, element)();
             }
           };
           $transition.on(transitionEvent + eventNamespace, transitionEnd);
-          if(settings.transition == 'scale down' || (module.is.mobile() && transition !== 'overlay')) {
-            module.scrollToTop();
-          }
-          animate();
+          requestAnimationFrame(animate);
         },
 
         pullPage: function(callback) {
@@ -348,19 +344,19 @@ $.fn.sidebar = function(parameters) {
           if(!module.othersActive()) {
             module.unbind.clickaway();
           }
+          module.remove.active();
           animate = function() {
-            module.set.outward();
-            module.remove.active();
+            module.set.animating();
+            module.remove.visible();
             if(settings.dimPage && !module.othersActive()) {
               $pusher.removeClass(className.dimmed);
-              module.remove.pushed();
             }
           };
           transitionEnd = function(event) {
             if( event.target == $transition[0] ) {
               $transition.off(transitionEvent + eventNamespace, transitionEnd);
-              module.remove.outward();
-              module.remove.visible();
+              module.remove.animating();
+              module.remove.transition();
               if(transition == 'scale down' || (settings.returnScroll && transition !== 'overlay' && module.is.mobile()) ) {
                 module.scrollBack();
               }
@@ -368,7 +364,7 @@ $.fn.sidebar = function(parameters) {
             }
           };
           $transition.on(transitionEvent + eventNamespace, transitionEnd);
-          animate();
+          requestAnimationFrame(animate);
         },
 
         legacyPushPage: function(callback) {
@@ -386,14 +382,13 @@ $.fn.sidebar = function(parameters) {
           module.debug('Using javascript to push context', properties);
           module.set.visible();
           module.set.transition();
-          module.set.inward();
+          module.set.animating();
           if(settings.dimPage) {
             $pusher.addClass(className.dimmed);
           }
-          module.set.pushed();
           $context
             .animate(properties, settings.duration, settings.easing, function() {
-              module.remove.inward();
+              module.remove.animating();
               module.bind.clickaway();
               module.set.active();
               $.proxy(callback, module)();
@@ -414,16 +409,15 @@ $.fn.sidebar = function(parameters) {
           properties[direction] = '0px';
           module.debug('Using javascript to pull context', properties);
           module.unbind.clickaway();
-          module.set.outward();
+          module.set.animating();
+          module.remove.visible();
           module.remove.active();
           if(settings.dimPage && !module.othersVisible()) {
             $pusher.removeClass(className.dimmed);
           }
-          module.remove.pushed();
           $context
             .animate(properties, settings.duration, settings.easing, function() {
-              module.remove.outward();
-              module.remove.visible();
+              module.remove.animating();
               $.proxy(callback, module)();
             })
           ;
@@ -454,11 +448,8 @@ $.fn.sidebar = function(parameters) {
           active: function() {
             $module.addClass(className.active);
           },
-          inward: function() {
-            $module.addClass(className.inward);
-          },
-          outward: function() {
-            $module.addClass(className.outward);
+          animating: function() {
+            $module.addClass(className.animating);
           },
           transition: function(transition) {
             transition = transition || module.get.transition();
@@ -488,11 +479,8 @@ $.fn.sidebar = function(parameters) {
           active: function() {
             $module.removeClass(className.active);
           },
-          inward: function() {
-            $module.removeClass(className.inward);
-          },
-          outward: function() {
-            $module.removeClass(className.outward);
+          animating: function() {
+            $module.removeClass(className.animating);
           },
           transition: function(transition) {
             transition = transition || module.get.transition();
@@ -605,14 +593,8 @@ $.fn.sidebar = function(parameters) {
           vertical: function() {
             return $module.hasClass(className.top);
           },
-          inward: function() {
-            return $context.hasClass(className.inward);
-          },
-          outward: function() {
-            return $context.hasClass(className.outward);
-          },
           animating: function() {
-            return module.is.inward() || module.is.outward();
+            return $context.hasClass(className.animating);
           }
         },
 
@@ -839,17 +821,16 @@ $.fn.sidebar.settings = {
   onVisible         : function(){},
 
   className         : {
-    active   : 'active',
-    dimmed   : 'dimmed',
-    inward   : 'inward',
-    outward  : 'outward',
-    pushable : 'pushable',
-    pushed   : 'pushed',
-    right    : 'right',
-    top      : 'top',
-    left     : 'left',
-    bottom   : 'bottom',
-    visible  : 'visible'
+    active    : 'active',
+    animating : 'animating',
+    dimmed    : 'dimmed',
+    pushable  : 'pushable',
+    pushed    : 'pushed',
+    right     : 'right',
+    top       : 'top',
+    left      : 'left',
+    bottom    : 'bottom',
+    visible   : 'visible'
   },
 
   selector: {
