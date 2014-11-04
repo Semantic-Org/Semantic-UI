@@ -82,6 +82,8 @@ $.fn.sidebar = function(parameters) {
           }
 
           module.setup.context();
+          module.set.direction();
+          module.set.transition();
 
           // avoid locking rendering to change layout if included in onReady
           requestAnimationFrame(module.setup.layout);
@@ -99,6 +101,8 @@ $.fn.sidebar = function(parameters) {
 
         destroy: function() {
           module.verbose('Destroying previous module for', $module);
+          module.remove.direction();
+          module.remove.transition();
           $module
             .off(eventNamespace)
             .removeData(moduleNamespace)
@@ -290,8 +294,6 @@ $.fn.sidebar = function(parameters) {
           animate = function() {
             module.remove.outward();
             module.set.visible();
-            module.set.transition();
-            module.set.direction();
             requestAnimationFrame(function() {
               module.set.inward();
               module.set.pushed();
@@ -345,8 +347,6 @@ $.fn.sidebar = function(parameters) {
             .on(transitionEnd + eventNamespace, function(event) {
               if( event.target == $transition[0] ) {
                 $transition.off(transitionEnd + eventNamespace);
-                module.remove.transition();
-                module.remove.direction();
                 module.remove.outward();
                 module.remove.visible();
                 if(transition == 'scale down' || (settings.returnScroll && transition !== 'overlay' && module.is.mobile()) ) {
@@ -410,8 +410,6 @@ $.fn.sidebar = function(parameters) {
           module.remove.pushed();
           $context
             .animate(properties, settings.duration, settings.easing, function() {
-              module.remove.transition();
-              module.remove.direction();
               module.remove.outward();
               module.remove.visible();
               $.proxy(callback, module)();
@@ -420,36 +418,62 @@ $.fn.sidebar = function(parameters) {
         },
 
         set: {
-          active: function() {
-            $context.addClass(className.active);
-          },
-          direction: function(direction) {
-            direction = direction || module.get.direction();
-            $context.addClass(className[direction]);
-          },
-          visible: function() {
-            $module.addClass(className.visible);
-          },
-          transition: function(transition) {
-            transition = transition || module.get.transition();
-            $context.addClass(transition);
-          },
-          inward: function() {
-            $context.addClass(className.inward);
-          },
-          outward: function() {
-            $context.addClass(className.outward);
-          },
+          // container
           pushed: function() {
             if(settings.dimPage) {
               $page.addClass(className.dimmed);
             }
             $context.addClass(className.pushed);
+          },
+          active: function() {
+            $context.addClass(className.active);
+          },
+
+          // sidebar
+          inward: function() {
+            $module.addClass(className.inward);
+          },
+          outward: function() {
+            $module.addClass(className.outward);
+          },
+          transition: function(transition) {
+            transition = transition || module.get.transition();
+            console.log('transition');
+            $module.addClass(transition);
+          },
+          direction: function(direction) {
+            direction = direction || module.get.direction();
+            $module.addClass(className[direction]);
+          },
+          visible: function() {
+            $module.addClass(className.visible);
           }
         },
         remove: {
+          // context
+          pushed: function() {
+            if(settings.dimPage) {
+              $page.removeClass(className.dimmed);
+            }
+            $context.removeClass(className.pushed);
+          },
           active: function() {
             $context.removeClass(className.active);
+          },
+          // sidebar
+          inward: function() {
+            $module.removeClass(className.inward);
+          },
+          outward: function() {
+            $module.removeClass(className.outward);
+          },
+          transition: function(transition) {
+            transition = transition || module.get.transition();
+            $module.removeClass(transition);
+          },
+          direction: function(direction) {
+            direction = direction || module.get.direction();
+            $module.removeClass(className[direction]);
           },
           visible: function() {
             $module.removeClass(className.visible);
@@ -459,26 +483,6 @@ $.fn.sidebar = function(parameters) {
               module.debug('Other sidebars visible, hiding');
               $sidebars.removeClass(className.visible);
             }
-          },
-          transition: function(transition) {
-            transition = transition || module.get.transition();
-            $context.removeClass(transition);
-          },
-          pushed: function() {
-            if(settings.dimPage) {
-              $page.removeClass(className.dimmed);
-            }
-            $context.removeClass(className.pushed);
-          },
-          inward: function() {
-            $context.removeClass(className.inward);
-          },
-          outward: function() {
-            $context.removeClass(className.outward);
-          },
-          direction: function(direction) {
-            direction = direction || module.get.direction();
-            $context.removeClass(className[direction]);
           }
         },
 
@@ -812,15 +816,15 @@ $.fn.sidebar.settings = {
 
   className         : {
     active   : 'active',
-    bottom   : 'bottom',
     dimmed   : 'dimmed',
-    inward   : 'show',
-    left     : 'left',
-    outward  : 'hide',
+    inward   : 'inward',
+    outward  : 'outward',
     pushable : 'pushable',
     pushed   : 'pushed',
     right    : 'right',
     top      : 'top',
+    left     : 'left',
+    bottom   : 'bottom',
     visible  : 'visible'
   },
 
