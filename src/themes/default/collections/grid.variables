@@ -20,8 +20,6 @@
 @rowSpacing: 2rem;
 
 @tableWidth: ~"calc(100% + "@gutterWidth~")";
-@relaxedTableWidth: ~"calc(100% + "@relaxedGutterWidth~")";
-@veryRelaxedTableWidth: ~"calc(100% + "@veryRelaxedGutterWidth~")";
 
 @columnMaxImageWidth: 100%;
 

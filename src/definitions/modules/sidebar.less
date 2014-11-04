@@ -29,11 +29,10 @@
   position: fixed;
   top: 0;
   left: 0;
-  visibility: hidden;
   backface-visibility: hidden;
   transition: none;
   will-change: transform;
-  backface-visibility: hidden;
+  visibility: hidden;
 
   height: 100% !important;
   border-radius: 0em !important;
@@ -55,19 +54,28 @@
   overflow-y: visible !important;
 }
 
+.ui.left.sidebar {
+  right: auto;
+  left: 0px;
+  transform: translate3d(-100%, 0, 0);
+}
+
 .ui.top.sidebar {
   top: 0px !important;
   bottom: auto !important;
+  transform: translate3d(0, -100%, 0);
 }
 
 .ui.right.sidebar {
   right: 0px !important;
   left: auto !important;
+  transform: translate3d(0, 100%, 0);
 }
 
 .ui.bottom.sidebar {
   top: auto !important;
   bottom: 0px !important;
+  transform: translate3d(0, 100%, 0);
 }
 
 
@@ -116,7 +124,6 @@
 
 .pushable > .pusher:after {
   position: fixed;
-  position: absolute;
   top: 0px;
   right: 0px;
   content: '';
@@ -145,9 +152,6 @@
      Pushed
 ---------------*/
 
-.pushable.pushed {
-  overflow-x: hidden;
-}
 
 .pushable.pushed > .pusher:after {
   z-index: @dimmerLayer;
@@ -224,7 +228,8 @@
   transform: translate3d(-100%, 0, 0);
 }
 /* Pushed */
-.pushable.pushed .ui.visible.left.overlay.sidebar {
+.pushable.pushed .ui.inward.left.overlay.sidebar,
+.pushable.pushed .ui.active.left.overlay.sidebar {
   transform: translate3d(0%, 0, 0);
 }
 
@@ -235,7 +240,8 @@
   transform: translate3d(100%, 0, 0);
 }
 /* Pushed */
-.pushable.pushed .ui.visible.right.overlay.sidebar {
+.pushable.pushed .ui.inward.right.overlay.sidebar,
+.pushable.pushed .ui.active.right.overlay.sidebar {
   transform: translate3d(0%, 0, 0);
 }
 
@@ -246,7 +252,8 @@
   transform: translate3d(0%, -100%, 0);
 }
 /* Pushed */
-.pushable.pushed .ui.visible.top.overlay.sidebar {
+.pushable.pushed .ui.inward.top.overlay.sidebar,
+.pushable.pushed .ui.active.top.overlay.sidebar {
   transform: translate3d(0%, 0%, 0);
 }
 
@@ -257,7 +264,8 @@
   transform: translate3d(0%, 100%, 0);
 }
 /* Pushed */
-.pushable.pushed .ui.visible.bottom.overlay.sidebar {
+.pushable.pushed .ui.inward.bottom.overlay.sidebar,
+.pushable.pushed .ui.active.bottom.overlay.sidebar {
   transform: translate3d(0%, 0%, 0);
 }
 
@@ -265,67 +273,59 @@
       Push
 ---------------*/
 
-/* Set-Up */
+/* Initial */
 .pushable > .ui.push.sidebar {
   transition: transform @duration @easing;
   z-index: @topLayer;
 }
+.pushable > .ui.left.push.sidebar {
+  transform: translate3d(-100%, 0, 0);
+}
+.pushable > .ui.right.push.sidebar {
+  transform: translate3d(100%, 0, 0);
+}
+
+/* Animating */
 .pushable > .ui.visible.push.sidebar ~ .pusher,
 .pushable > .ui.visible.push.sidebar ~ .pusher {
   transform: translate3d(0px, 0, 0);
 }
 
-/*--- Left ---*/
-
-/* Set-Up */
-.pushable > .ui.left.push.sidebar {
-  transform: translate3d(-100%, 0, 0);
-}
-/* Pushed */
-.pushable.pushed > .visible.ui.left.push.sidebar {
+/* Inward */
+.pushable.pushed > .inward.ui.push.sidebar,
+.pushable.pushed > .active.ui.push.sidebar {
   transform: translate3d(0%, 0, 0);
 }
+
+/* Visible */
 .pushable.pushed > .visible.ui.left.push.sidebar ~ .fixed,
 .pushable.pushed > .visible.ui.left.push.sidebar ~ .pusher {
   transform: translate3d(@sidebarWidth, 0, 0);
-}
-
-/*--- Right ---*/
-
-/* Set-Up */
-.pushable > .ui.right.push.sidebar {
-  transform: translate3d(100%, 0, 0);
-}
-/* Pushed */
-.pushable.pushed > .visible.ui.right.push.sidebar {
-  transform: translate3d(0%, 0, 0);
 }
 .pushable.pushed > .visible.ui.right.push.sidebar ~ .fixed,
 .pushable.pushed > .visible.ui.right.push.sidebar ~ .pusher {
   transform: translate3d(-@sidebarWidth, 0, 0);
 }
 
+
 /*--------------
     Uncover
 ---------------*/
 
-/* Set-Up */
-.pushable > .ui.uncover.sidebar {
+/* Initial */
+.ui.left.uncover.sidebar,
+.ui.right.uncover.sidebar,
+.ui.top.uncover.sidebar,
+.ui.bottom.uncover.sidebar {
+  transform: translate3d(0, 0, 0);
   transition: transform @duration @easing;
-  transform: translate3d(0px, 0, 0);
-  z-index: @bottomLayer;
 }
 
-/*--- Left ---*/
-/* Pushed */
+/* Visible */
 .pushable.pushed > .visible.ui.left.uncover.sidebar ~ .fixed,
 .pushable.pushed > .visible.ui.left.uncover.sidebar ~ .pusher {
   transform: translate3d(@sidebarWidth, 0, 0);
 }
-
-/*--- Right ---*/
-
-/* Set-Up */
 .pushable.pushed > .visible.ui.right.uncover.sidebar ~ .fixed,
 .pushable.pushed > .visible.ui.right.uncover.sidebar ~ .pusher {
   transform: translate3d(-@sidebarWidth, 0, 0);
@@ -341,8 +341,8 @@
   transition: transform @duration @easing;
   z-index: @bottomLayer;
 }
-.pushable > .ui.slide.along.sidebar.inward ~ .pusher,
-.pushable > .ui.slide.along.sidebar.outward ~ .pusher {
+.pushable > .ui.slide.along.sidebar ~ .pusher,
+.pushable > .ui.slide.along.sidebar ~ .pusher {
   transform: translate3d(0px, 0, 0);
 }
 

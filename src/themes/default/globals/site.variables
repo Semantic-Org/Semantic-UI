@@ -115,7 +115,7 @@
 --------------------*/
 
 @loaderSpeed: 0.6s;
-@loaderLineWidth: 0.3em;
+@loaderLineWidth: 0.2em;
 @loaderFillColor: rgba(0, 0, 0, 0.1);
 @loaderLineColor: @darkGrey;
 @invertedLoaderFillColor: rgba(255, 255, 255, 0.15);

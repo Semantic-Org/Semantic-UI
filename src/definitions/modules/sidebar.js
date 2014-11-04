@@ -55,7 +55,7 @@ $.fn.sidebar = function(parameters) {
         $context        = $(settings.context),
         $style          = $('style[title=' + namespace + ']'),
 
-        $sidebars       = $context.children(selector.sidebar),
+        $sidebars       = $module.children(selector.sidebar),
         $pusher         = $context.children(selector.pusher),
 
         element         = this,
@@ -79,11 +79,11 @@ $.fn.sidebar = function(parameters) {
             settings.useLegacy = true;
           }
 
-          module.setup.context();
+          module.set.pushable();
           module.set.direction();
           module.set.transition();
 
-          // avoid locking rendering to change layout if included in onReady
+          // avoid locking rendering if included in onReady
           requestAnimationFrame(module.setup.layout);
 
           module.instantiate();
@@ -175,10 +175,6 @@ $.fn.sidebar = function(parameters) {
               $module.detach().prependTo($context);
             }
             module.refresh();
-          },
-          context: function() {
-            module.verbose('Adding pusshable class to wrapper');
-            $context.addClass(className.pushable);
           }
         },
 
@@ -216,8 +212,12 @@ $.fn.sidebar = function(parameters) {
               module.error(error.overlay);
               settings.transition = 'overlay';
             }
-            if(settings.transition !== 'overlay') {
-              module.hideAll();
+            module.refresh();
+            if(module.othersVisible() && module.get.transition() != 'overlay') {
+              module.debug('Other sidebars currently open');
+              if(settings.exclusive) {
+                module.hideOthers();
+              }
             }
             animateMethod(function() {
               $.proxy(callback, element)();
@@ -252,12 +252,29 @@ $.fn.sidebar = function(parameters) {
           }
         },
 
-        hideAll: function() {
+        othersVisible: function() {
+          return ($sidebars.not($module).filter('.' + className.visible).size() > 0);
+        },
+        othersActive: function() {
+          return ($sidebars.not($module).filter('.' + className.active).size() > 0);
+        },
+
+        hideOthers: function(callback) {
           var
-            $visibleSidebars = $sidebars.find('.' + className.visible)
+            $otherSidebars = $sidebars.not($module).filter('.' + className.visible),
+            callback       = callback || function(){},
+            sidebarCount   = $otherSidebars.size(),
+            callbackCount  = 0
           ;
-          $visibleSidebars
-            .sidebar('hide')
+          console.log($sidebars);
+          $otherSidebars
+            .sidebar('hide', function() {
+              callbackCount++;
+              console.log('callback count');
+              if(callbackCount == sidebarCount) {
+                callback();
+              }
+            })
           ;
         },
 
@@ -276,7 +293,7 @@ $.fn.sidebar = function(parameters) {
             transition = module.get.transition(),
             $transition = (transition == 'safe')
               ? $context
-              : (transition == 'overlay')
+              : (transition == 'overlay' || module.othersActive())
                 ? $module
                 : $pusher,
             animate,
@@ -286,13 +303,15 @@ $.fn.sidebar = function(parameters) {
             ? callback
             : function(){}
           ;
-          module.remove.outward();
+          module.set.inward();
           animate = function() {
-            module.set.inward();
-            module.set.visible();
-            requestAnimationFrame(function() {
+            if(!module.othersActive()) {
+              if(settings.dimPage) {
+                $pusher.addClass(className.dimmed);
+              }
               module.set.pushed();
-            });
+            }
+            module.set.visible();
           };
           transitionEnd = function(event) {
             if( event.target == $transition[0] ) {
@@ -304,17 +323,10 @@ $.fn.sidebar = function(parameters) {
             }
           };
           $transition.on(transitionEvent + eventNamespace, transitionEnd);
-          module.verbose('Adding context push state', $context);
-          if(transition === 'overlay') {
-            animate();
+          if(settings.transition == 'scale down' || (module.is.mobile() && transition !== 'overlay')) {
+            module.scrollToTop();
           }
-          else {
-            if(settings.transition == 'scale down' || module.is.mobile()) {
-              module.scrollToTop();
-            }
-            module.remove.allVisible();
-            animate();
-          }
+          animate();
         },
 
         pullPage: function(callback) {
@@ -322,7 +334,7 @@ $.fn.sidebar = function(parameters) {
             transition = module.get.transition(),
             $transition = (transition == 'safe')
               ? $context
-              : (transition == 'overlay')
+              : (transition == 'overlay' || module.othersActive())
                 ? $module
                 : $pusher,
             animate,
@@ -333,12 +345,16 @@ $.fn.sidebar = function(parameters) {
             : function(){}
           ;
           module.verbose('Removing context push state', module.get.direction());
-          animate = function() {
+          if(!module.othersActive()) {
             module.unbind.clickaway();
-            module.remove.inward();
+          }
+          animate = function() {
             module.set.outward();
             module.remove.active();
-            module.remove.pushed();
+            if(settings.dimPage && !module.othersActive()) {
+              $pusher.removeClass(className.dimmed);
+              module.remove.pushed();
+            }
           };
           transitionEnd = function(event) {
             if( event.target == $transition[0] ) {
@@ -370,8 +386,10 @@ $.fn.sidebar = function(parameters) {
           module.debug('Using javascript to push context', properties);
           module.set.visible();
           module.set.transition();
-          module.set.direction();
           module.set.inward();
+          if(settings.dimPage) {
+            $pusher.addClass(className.dimmed);
+          }
           module.set.pushed();
           $context
             .animate(properties, settings.duration, settings.easing, function() {
@@ -398,6 +416,9 @@ $.fn.sidebar = function(parameters) {
           module.unbind.clickaway();
           module.set.outward();
           module.remove.active();
+          if(settings.dimPage && !module.othersVisible()) {
+            $pusher.removeClass(className.dimmed);
+          }
           module.remove.pushed();
           $context
             .animate(properties, settings.duration, settings.easing, function() {
@@ -423,10 +444,10 @@ $.fn.sidebar = function(parameters) {
         set: {
           // container
           pushed: function() {
-            if(settings.dimPage) {
-              $pusher.addClass(className.dimmed);
-            }
             $context.addClass(className.pushed);
+          },
+          pushable: function() {
+            $context.addClass(className.pushable);
           },
 
           // sidebar
@@ -449,15 +470,18 @@ $.fn.sidebar = function(parameters) {
           },
           visible: function() {
             $module.addClass(className.visible);
+          },
+          overlay: function() {
+            $module.addClass(className.overlay);
           }
         },
         remove: {
           // context
           pushed: function() {
-            if(settings.dimPage) {
-              $pusher.removeClass(className.dimmed);
-            }
             $context.removeClass(className.pushed);
+          },
+          pushable: function() {
+            $context.removeClass(className.pushable);
           },
 
           // sidebar
@@ -481,11 +505,8 @@ $.fn.sidebar = function(parameters) {
           visible: function() {
             $module.removeClass(className.visible);
           },
-          allVisible: function() {
-            if($sidebars.hasClass(className.visible)) {
-              module.debug('Other sidebars visible, hiding');
-              $sidebars.removeClass(className.visible);
-            }
+          overlay: function() {
+            $module.removeClass(className.overlay);
           }
         },
 
@@ -760,7 +781,7 @@ $.fn.sidebar = function(parameters) {
     }
     else {
       if(instance !== undefined) {
-        module.destroy();
+        module.invoke('destroy');
       }
       module.initialize();
     }
@@ -800,7 +821,7 @@ $.fn.sidebar.settings = {
   },
 
   context           : 'body',
-  exclusive         : true,
+  exclusive         : false,
 
   dimPage           : true,
   scrollLock        : false,
