@@ -27,6 +27,8 @@ $.fn.sidebar = function(parameters) {
     methodInvoked  = (typeof query == 'string'),
     queryArguments = [].slice.call(arguments, 1),
 
+    animateTimer = false,
+    animationFrame = false,
     requestAnimationFrame = window.requestAnimationFrame
       || window.mozRequestAnimationFrame
       || window.webkitRequestAnimationFrame
@@ -86,7 +88,7 @@ $.fn.sidebar = function(parameters) {
           module.set.transition();
 
           // avoid locking rendering to change layout if included in onReady
-          requestAnimationFrame(module.setup.layout);
+          module.syncAnimation(module.setup.layout);
 
           module.instantiate();
         },
@@ -145,6 +147,29 @@ $.fn.sidebar = function(parameters) {
               $(window).off('DOMMouseScroll' + eventNamespace);
             }
           }
+        },
+
+        syncAnimation: function(animation) {
+          var
+            previousAnimation = animationFrame
+          ;
+          if(previousAnimation === undefined) {
+            animationFrame = animation;
+          }
+          else {
+            animationFrame = function() {
+              if(previousAnimation) {
+                previousAnimation();
+              }
+              animation();
+            };
+            module.debug('Adding animation to single requestAnimation call', animation);
+          }
+          clearTimeout(animateTimer);
+          animateTimer = setTimeout(function() {
+            requestAnimationFrame(animationFrame);
+            animationFrame = false;
+          }, 10);
         },
 
         refresh: function() {
@@ -294,10 +319,8 @@ $.fn.sidebar = function(parameters) {
           animate = function() {
             module.remove.outward();
             module.set.visible();
-            requestAnimationFrame(function() {
-              module.set.inward();
-              module.set.pushed();
-            });
+            module.set.inward();
+            module.set.pushed();
           };
           $transition
             .off(transitionEnd + eventNamespace)
@@ -313,16 +336,14 @@ $.fn.sidebar = function(parameters) {
           ;
           module.verbose('Adding context push state', $context);
           if(transition === 'overlay') {
-            requestAnimationFrame(animate);
+            module.syncAnimation(animate);
           }
           else {
             if(settings.transition == 'scale down' || module.is.mobile()) {
-              $module.scrollTop(0);
-              currentScroll = $(window).scrollTop();
-              window.scrollTo(0, 0);
+              module.scrollToTop();
             }
             module.remove.allVisible();
-            requestAnimationFrame(animate);
+            module.syncAnimation(animate);
           }
         },
 
@@ -350,13 +371,13 @@ $.fn.sidebar = function(parameters) {
                 module.remove.outward();
                 module.remove.visible();
                 if(transition == 'scale down' || (settings.returnScroll && transition !== 'overlay' && module.is.mobile()) ) {
-                  window.scrollTo(0, currentScroll);
+                  module.scrollBack();
                 }
                 $.proxy(callback, element)();
               }
             })
           ;
-          requestAnimationFrame(function() {
+          module.syncAnimation(function() {
             module.remove.inward();
             module.set.outward();
             module.remove.active();
@@ -417,6 +438,17 @@ $.fn.sidebar = function(parameters) {
           ;
         },
 
+        scrollToTop: function() {
+          module.verbose('Scrolling to top of page to avoid animation issues');
+          $module.scrollTop(0);
+          currentScroll = $(window).scrollTop();
+          window.scrollTo(0, 0);
+        },
+        scrollBack: function() {
+          module.verbose('Scrolling back to original page position');
+          window.scrollTo(0, currentScroll);
+        },
+
         set: {
           // container
           pushed: function() {
@@ -438,7 +470,6 @@ $.fn.sidebar = function(parameters) {
           },
           transition: function(transition) {
             transition = transition || module.get.transition();
-            console.log('transition');
             $module.addClass(transition);
           },
           direction: function(direction) {
