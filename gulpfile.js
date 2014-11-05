@@ -278,6 +278,7 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function(callb
       source.definitions   + '**/*.js'
     ], function(file) {
       gulp.src(file.path)
+        .pipe(plumber())
         .pipe(gulp.dest(output.uncompressed))
         .pipe(print(log.created))
         .pipe(sourcemaps.init())

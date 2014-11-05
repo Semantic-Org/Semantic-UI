@@ -35,12 +35,17 @@
   will-change: transform;
   transform: translate3d(0, 0, 0);
   visibility: hidden;
+  -webkit-overflow-scrolling: touch;
 
   height: 100% !important;
   border-radius: 0em !important;
   margin: 0em !important;
   overflow-y: auto !important;
   z-index: @topLayer;
+}
+.ui.sidebar * {
+  backface-visibility: hidden;
+  transform: rotateZ(0deg);
 }
 
 /*--------------
@@ -174,12 +179,16 @@
   visibility: visible;
 }
 
+
 /*--------------
-     Active
+     Mobile
 ---------------*/
 
-.ui.active.sidebar {
-  -webkit-overflow-scrolling: touch;
+@media only screen and (max-width: @computerBreakpoint) {
+  html {
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 
@@ -419,7 +428,7 @@
 .ui.animating.scale.down > .visible.ui.sidebar {
   transition: transform @duration @easing;
 }
-.ui.active.scale.down.sidebar ~ .pusher,
+.ui.visible.scale.down.sidebar ~ .pusher,
 .ui.animating.scale.down.sidebar ~ .pusher {
   display: block !important;
   width: 100%;

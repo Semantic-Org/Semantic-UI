@@ -15,6 +15,7 @@
 
 @bottomLayer: 1;
 @middleLayer: 2;
-@topLayer: 3;
-@dimmerLayer: 900;
-@fixedLayer: 901;
+@fixedLayer: 101;
+@topLayer: 102;
+
+@dimmerLayer: 1000;

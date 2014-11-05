@@ -109,6 +109,17 @@ $.fn.sidebar = function(parameters) {
               module.hide();
             }
           },
+          touch: function(event) {
+            //event.stopPropagation();
+          },
+          containScroll: function(event) {
+            if(element.scrollTop <= 0)  {
+              element.scrollTop = 1;
+            }
+            if((element.scrollTop + element.offsetHeight) >= element.scrollHeight) {
+              element.scrollTop = element.scrollHeight - element.offsetHeight - 1;
+            }
+          },
           scroll: function(event) {
             if( $module.find(event.target).size() === 0 && $(event.target).filter($module).size() === 0 ) {
               event.preventDefault();
@@ -123,8 +134,11 @@ $.fn.sidebar = function(parameters) {
                 .on('DOMMouseScroll' + eventNamespace, module.event.scroll)
               ;
             }
-            $(window)
-              .on('touchmove' + eventNamespace, module.event.scroll)
+            $(document)
+              .on('touchmove' + eventNamespace, module.event.touch)
+            ;
+            $module
+              .on('scroll' + eventNamespace, module.event.containScroll)
             ;
             if(settings.closable) {
               $context
@@ -136,12 +150,9 @@ $.fn.sidebar = function(parameters) {
         },
         unbind: {
           clickaway: function() {
-            $context
-              .off(eventNamespace)
-            ;
-            $pusher
-              .off(eventNamespace)
-            ;
+            $context.off(eventNamespace);
+            $pusher.off(eventNamespace);
+            $(document).off(eventNamespace);
             $(window).off(eventNamespace);
           }
         },
@@ -364,7 +375,6 @@ $.fn.sidebar = function(parameters) {
               $transition.off(transitionEvent + eventNamespace, transitionEnd);
               module.remove.animating();
               module.bind.clickaway();
-              module.set.active();
               $.proxy(callback, element)();
             }
           };
@@ -391,7 +401,6 @@ $.fn.sidebar = function(parameters) {
           if(!module.othersActive()) {
             module.unbind.clickaway();
           }
-          module.remove.active();
           animate = function() {
             module.set.animating();
             module.remove.visible();
@@ -438,7 +447,6 @@ $.fn.sidebar = function(parameters) {
             .animate(properties, settings.duration, settings.easing, function() {
               module.remove.animating();
               module.bind.clickaway();
-              module.set.active();
               $.proxy(callback, module)();
             })
           ;
@@ -459,7 +467,6 @@ $.fn.sidebar = function(parameters) {
           module.unbind.clickaway();
           module.set.animating();
           module.remove.visible();
-          module.remove.active();
           if(settings.dimPage && !module.othersVisible()) {
             $pusher.removeClass(className.dimmed);
           }
@@ -474,7 +481,6 @@ $.fn.sidebar = function(parameters) {
         scrollToTop: function() {
           module.verbose('Scrolling to top of page to avoid animation issues');
           $module.scrollTop(0);
-          currentScroll = $(window).scrollTop();
           window.scrollTo(0, 0);
         },
 
