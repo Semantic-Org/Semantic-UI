@@ -53,10 +53,10 @@ $.fn.sidebar = function(parameters) {
 
         $module         = $(this),
         $context        = $(settings.context),
-        $style          = $('style[title=' + namespace + ']'),
 
         $sidebars       = $module.children(selector.sidebar),
         $pusher         = $context.children(selector.pusher),
+        $style,
 
         element         = this,
         instance        = $module.data(moduleNamespace),
@@ -125,12 +125,13 @@ $.fn.sidebar = function(parameters) {
             }
             $(window)
               .on('touchmove' + eventNamespace, module.event.scroll)
-              .on('scroll' + eventNamespace, module.event)
             ;
-            $context
-              .on('click' + eventNamespace, module.event.clickaway)
-              .on('touchend' + eventNamespace, module.event.clickaway)
-            ;
+            if(settings.closable) {
+              $context
+                .on('click' + eventNamespace, module.event.clickaway)
+                .on('touchend' + eventNamespace, module.event.clickaway)
+              ;
+            }
           }
         },
         unbind: {
@@ -145,10 +146,41 @@ $.fn.sidebar = function(parameters) {
           }
         },
 
+        add: {
+          bodyCSS: function(direction, distance) {
+            var
+              width  = $module.outerWidth(),
+              height = $module.outerHeight(),
+              style  = ''
+                + '<style title="' + namespace + '">'
+                + ' .ui.visible.left.sidebar ~ .fixed,'
+                + ' .ui.visible.left.sidebar ~ .pusher {'
+                + '   transform: translate3d('+ width + 'px, 0, 0);'
+                + ' }'
+                + ' .ui.visible.right.sidebar ~ .fixed,'
+                + ' .ui.visible.right.sidebar ~ .pusher {'
+                + '   transform: translate3d(-'+ width + 'px, 0, 0);'
+                + ' }'
+                + ' .ui.visible.top.sidebar ~ .fixed,'
+                + ' .ui.visible.top.sidebar ~ .pusher {'
+                + '   transform: translate3d(0, ' + height + 'px, 0);'
+                + ' }'
+                + ' .ui.visible.bottom.sidebar ~ .fixed,'
+                + ' .ui.visible.bottom.sidebar ~ .pusher {'
+                + '   transform: translate3d(0, -' + height + 'px, 0);'
+                + ' }'
+                + '</style>'
+            ;
+            $head.append(style);
+            $style = $('style[title=' + namespace + ']');
+            console.log(style);
+            module.debug('Adding sizing css to head', $style);
+          }
+        },
+
         refresh: function() {
           module.verbose('Refreshing selector cache');
           $context  = $(settings.context);
-          $style    = $('style[title=' + namespace + ']');
           $sidebars = $context.children(selector.sidebar);
           $pusher   = $context.children(selector.pusher);
         },
@@ -157,6 +189,7 @@ $.fn.sidebar = function(parameters) {
           module.verbose('Forcing repaint event');
           element.style.display='none';
           element.offsetHeight;
+          element.scrollTop = element.scrollTop;
           element.style.display='';
         },
 
@@ -212,7 +245,7 @@ $.fn.sidebar = function(parameters) {
             ? callback
             : function(){}
           ;
-          if(module.is.closed() || module.is.animating()) {
+          if(module.is.closed()) {
             if(settings.overlay)  {
               module.error(error.overlay);
               settings.transition = 'overlay';
@@ -283,7 +316,7 @@ $.fn.sidebar = function(parameters) {
 
         toggle: function() {
           module.verbose('Determining toggled direction');
-          if(module.is.closed() || module.is.outward()) {
+          if(module.is.closed()) {
             module.show();
           }
           else {
@@ -307,18 +340,21 @@ $.fn.sidebar = function(parameters) {
             : function(){}
           ;
           if(settings.transition == 'scale down' || (module.is.mobile() && transition !== 'overlay')) {
-            //module.scrollToTop();
+            module.scrollToTop();
           }
-          module.set.animating();
+          module.add.bodyCSS();
           module.set.transition();
-          //module.repaint();
+          module.repaint();
           animate = function() {
-            module.set.visible();
-            if(!module.othersActive()) {
-              if(settings.dimPage) {
-                $pusher.addClass(className.dimmed);
+            module.set.animating();
+            requestAnimationFrame(function() {
+              module.set.visible();
+              if(!module.othersActive()) {
+                if(settings.dimPage) {
+                  $pusher.addClass(className.dimmed);
+                }
               }
-            }
+            });
           };
           transitionEnd = function(event) {
             if( event.target == $transition[0] ) {
@@ -365,9 +401,9 @@ $.fn.sidebar = function(parameters) {
               $transition.off(transitionEvent + eventNamespace, transitionEnd);
               module.remove.animating();
               module.remove.transition();
-              module.repaint();
+              module.remove.bodyCSS();
               if(transition == 'scale down' || (settings.returnScroll && transition !== 'overlay' && module.is.mobile()) ) {
-                //module.scrollBack();
+                module.scrollBack();
               }
               $.proxy(callback, element)();
             }
@@ -454,6 +490,9 @@ $.fn.sidebar = function(parameters) {
           },
 
           // sidebar
+          active: function() {
+            $module.addClass(className.active);
+          },
           animating: function() {
             $module.addClass(className.animating);
           },
@@ -473,6 +512,15 @@ $.fn.sidebar = function(parameters) {
           }
         },
         remove: {
+
+          bodyCSS: function() {
+            console.log($style);
+            module.debug('Removing body css styles', $style);
+            if($style.size() > 0) {
+              $style.remove();
+            }
+          },
+
           // context
           pushed: function() {
             $context.removeClass(className.pushed);
@@ -811,6 +859,7 @@ $.fn.sidebar.settings = {
   context           : 'body',
   exclusive         : false,
 
+  closable          : true,
   dimPage           : true,
   scrollLock        : false,
   returnScroll      : true,
