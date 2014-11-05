@@ -29,6 +29,7 @@
   position: fixed;
   top: 0;
   left: 0;
+
   backface-visibility: hidden;
   transition: none;
   will-change: transform;
@@ -85,7 +86,7 @@
 ---------------*/
 
 .pushable {
-  height: 100%;
+  height: 100% !important;
   overflow-x: hidden;
   background: @canvasBackground !important;
 }
@@ -175,6 +176,10 @@
   visibility: visible;
 }
 
+/*--------------
+     Active
+---------------*/
+
 .ui.active.sidebar {
   -webkit-overflow-scrolling: touch;
 }
@@ -220,43 +225,30 @@
 .ui.left.overlay.sidebar {
   transform: translate3d(-100%, 0, 0);
 }
-/* Pushed */
-.ui.visible.left.overlay.sidebar {
-  transform: translate3d(0%, 0, 0);
-}
-
-/*--- Right ---*/
-
-/* Set-up */
 .ui.right.overlay.sidebar {
   transform: translate3d(100%, 0, 0);
 }
-/* Pushed */
-.ui.visible.right.overlay.sidebar {
-  transform: translate3d(0%, 0, 0);
-}
-
-/*--- Top ---*/
-
-/* Set-up */
 .ui.top.overlay.sidebar {
   transform: translate3d(0%, -100%, 0);
 }
-/* Pushed */
-.ui.visible.top.overlay.sidebar {
-  transform: translate3d(0%, 0%, 0);
-}
-
-/*--- Bottom ---*/
-
-/* Set-up */
 .ui.bottom.overlay.sidebar {
   transform: translate3d(0%, 100%, 0);
 }
-/* Pushed */
+
+/* End */
+.ui.visible.left.overlay.sidebar {
+  transform: translate3d(0%, 0, 0);
+}
+.ui.visible.right.overlay.sidebar {
+  transform: translate3d(0%, 0, 0);
+}
+.ui.visible.top.overlay.sidebar {
+  transform: translate3d(0%, 0%, 0);
+}
 .ui.visible.bottom.overlay.sidebar {
   transform: translate3d(0%, 0%, 0);
 }
+
 
 /*--------------
       Push
@@ -278,7 +270,7 @@
   transform: translate3d(0px, 0, 0);
 }
 
-/* Animation */
+/* End */
 .ui.visible.push.sidebar {
   transform: translate3d(0%, 0, 0);
 }
@@ -299,14 +291,14 @@
 /* Initial */
 .ui.uncover.sidebar {
   transform: translate3d(0, 0, 0);
-  transition: transform @duration @easing;
   z-index: @bottomLayer;
 }
 
-/* Animation */
+/* End */
 .ui.visible.uncover.sidebar,
 .ui.visible.uncover.sidebar {
   transform: translate3d(0, 0, 0);
+  transition: transform @duration @easing;
 }
 .ui.visible.left.uncover.sidebar ~ .fixed,
 .ui.visible.left.uncover.sidebar ~ .pusher {
@@ -322,40 +314,30 @@
    Slide Along
 ---------------*/
 
-/* Set-Up */
+/* Initial */
 .ui.slide.along.sidebar {
   transition: transform @duration @easing;
+  z-index: @bottomLayer;
 }
-.ui.slide.along.sidebar ~ .pusher,
-.ui.slide.along.sidebar ~ .pusher {
-  transform: translate3d(0px, 0, 0);
-}
-
-/*--- Left ---*/
-
-/* Set-Up */
 .ui.left.slide.along.sidebar {
   transform: translate3d(-50%, 0, 0);
 }
-/* Pushed */
-.ui.visible.left.slide.along.sidebar {
-  transform: translate3d(0%, 0, 0);
-}
-.ui.visible.left.slide.along.sidebar ~ .fixed,
-.ui.visible.left.slide.along.sidebar ~ .pusher {
-  transform: translate3d(@sidebarWidth, 0, 0);
-}
-
-
-/*--- Right ---*/
-
-/* Set-Up */
 .ui.right.slide.along.sidebar {
   transform: translate3d(50%, 0, 0);
 }
-/* Pushed */
-.ui.visible.right.slide.along.sidebar {
+
+/* End */
+.ui.visible.slide.along.sidebar {
   transform: translate3d(0%, 0, 0);
+}
+.ui.visible.slide.along.sidebar ~ .pusher,
+.ui.visible.slide.along.sidebar ~ .pusher {
+  transform: translate3d(0px, 0, 0);
+}
+
+.ui.visible.left.slide.along.sidebar ~ .fixed,
+.ui.visible.left.slide.along.sidebar ~ .pusher {
+  transform: translate3d(@sidebarWidth, 0, 0);
 }
 .ui.visible.right.slide.along.sidebar ~ .fixed,
 .ui.visible.right.slide.along.sidebar ~ .pusher {
@@ -367,41 +349,25 @@
    Slide Out
 ---------------*/
 
-/* Set-up */
+/* Initial */
 .ui.slide.out.sidebar {
   transition: transform @duration @easing;
   z-index: @bottomLayer;
 }
-.ui.slide.out.sidebar ~ .pusher,
-.ui.slide.out.sidebar ~ .pusher {
-  transform: translate3d(0px, 0, 0);
-}
-
-/*--- Left ---*/
-
-/* Set-Up */
 .ui.left.slide.out.sidebar {
-  transform: translate3d(50%, 0, 0);
+  transform: translate3d(100%, 0, 0);
 }
-/* Pushed */
-.ui.visible.left.slide.out.sidebar {
+.ui.right.slide.out.sidebar {
+  transform: translate3d(-50%, 0, 0);
+}
+
+/* End */
+.ui.visible.slide.out.sidebar {
   transform: translate3d(0%, 0, 0);
 }
 .ui.visible.left.slide.out.sidebar ~ .fixed,
 .ui.visible.left.slide.out.sidebar ~ .pusher {
   transform: translate3d(@sidebarWidth, 0, 0);
-}
-
-
-/*--- Right ---*/
-
-/* Set-Up */
-.ui.right.slide.out.sidebar {
-  transform: translate3d(-50%, 0, 0);
-}
-/* Pushed */
-.ui.visible.right.slide.out.sidebar {
-  transform: translate3d(0%, 0, 0);
 }
 .ui.visible.right.slide.out.sidebar ~ .fixed,
 .ui.visible.right.slide.out.sidebar ~ .pusher {
@@ -413,7 +379,7 @@
    Scale Down
 ---------------*/
 
-/* Set-up */
+/* Initial */
 
 /* 3D transition cant have duration set until animation */
 .pushable.scale.down.animating > .visible.ui.sidebar {
@@ -435,3 +401,4 @@
 .ui.visible.scale.down.sidebar ~ .fixed {
   transform: translate3d(@sidebarWidth, 0, 0);
 }
+

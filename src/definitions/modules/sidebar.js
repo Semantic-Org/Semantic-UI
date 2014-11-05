@@ -123,12 +123,11 @@ $.fn.sidebar = function(parameters) {
                 .on('DOMMouseScroll' + eventNamespace, module.event.scroll)
               ;
             }
+            $(window)
+              .on('touchmove' + eventNamespace, module.event.scroll)
+              .on('scroll' + eventNamespace, module.event)
+            ;
             $context
-              .on('touchmove' + eventNamespace, function(event) {
-                if($(event.target).closest($module).size() == 0) {
-                  event.preventDefault();
-                }
-              })
               .on('click' + eventNamespace, module.event.clickaway)
               .on('touchend' + eventNamespace, module.event.clickaway)
             ;
@@ -142,9 +141,7 @@ $.fn.sidebar = function(parameters) {
             $pusher
               .off(eventNamespace)
             ;
-            if(settings.scrollLock) {
-              $(window).off('DOMMouseScroll' + eventNamespace);
-            }
+            $(window).off(eventNamespace);
           }
         },
 
@@ -309,14 +306,14 @@ $.fn.sidebar = function(parameters) {
             ? callback
             : function(){}
           ;
-          module.set.transition();
           if(settings.transition == 'scale down' || (module.is.mobile() && transition !== 'overlay')) {
-            module.scrollToTop();
+            //module.scrollToTop();
           }
-          module.repaint();
+          module.set.animating();
+          module.set.transition();
+          //module.repaint();
           animate = function() {
             module.set.visible();
-            module.set.animating();
             if(!module.othersActive()) {
               if(settings.dimPage) {
                 $pusher.addClass(className.dimmed);
@@ -370,7 +367,7 @@ $.fn.sidebar = function(parameters) {
               module.remove.transition();
               module.repaint();
               if(transition == 'scale down' || (settings.returnScroll && transition !== 'overlay' && module.is.mobile()) ) {
-                module.scrollBack();
+                //module.scrollBack();
               }
               $.proxy(callback, element)();
             }
@@ -457,9 +454,6 @@ $.fn.sidebar = function(parameters) {
           },
 
           // sidebar
-          active: function() {
-            $module.addClass(className.active);
-          },
           animating: function() {
             $module.addClass(className.animating);
           },

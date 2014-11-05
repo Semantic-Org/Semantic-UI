@@ -10,7 +10,7 @@
 @canvasBackground: @lightBlack;
 @perspective: 1500px;
 
-@duration: 0.5s;
+@duration: 500ms;
 @easing: ease;
 
 @bottomLayer: 900;
