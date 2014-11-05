@@ -10934,25 +10934,28 @@ $.fn.sidebar = function(parameters) {
                 + '<style title="' + namespace + '">'
                 + ' .ui.visible.left.sidebar ~ .fixed,'
                 + ' .ui.visible.left.sidebar ~ .pusher {'
-                + '   transform: translate3d('+ width + 'px, 0, 0);'
+                + '   -webkit-transform: translate3d('+ width + 'px, 0, 0);'
+                + '           transform: translate3d('+ width + 'px, 0, 0);'
                 + ' }'
                 + ' .ui.visible.right.sidebar ~ .fixed,'
                 + ' .ui.visible.right.sidebar ~ .pusher {'
-                + '   transform: translate3d(-'+ width + 'px, 0, 0);'
+                + '   -webkit-transform: translate3d(-'+ width + 'px, 0, 0);'
+                + '           transform: translate3d(-'+ width + 'px, 0, 0);'
                 + ' }'
                 + ' .ui.visible.top.sidebar ~ .fixed,'
                 + ' .ui.visible.top.sidebar ~ .pusher {'
-                + '   transform: translate3d(0, ' + height + 'px, 0);'
+                + '   -webkit-transform: translate3d(0, ' + height + 'px, 0);'
+                + '           transform: translate3d(0, ' + height + 'px, 0);'
                 + ' }'
                 + ' .ui.visible.bottom.sidebar ~ .fixed,'
                 + ' .ui.visible.bottom.sidebar ~ .pusher {'
-                + '   transform: translate3d(0, -' + height + 'px, 0);'
+                + '   -webkit-transform: translate3d(0, -' + height + 'px, 0);'
+                + '           transform: translate3d(0, -' + height + 'px, 0);'
                 + ' }'
                 + '</style>'
             ;
-            $head.append(style);
+            $context.append(style);
             $style = $('style[title=' + namespace + ']');
-            console.log(style);
             module.debug('Adding sizing css to head', $style);
           }
         },
@@ -11293,7 +11296,6 @@ $.fn.sidebar = function(parameters) {
         remove: {
 
           bodyCSS: function() {
-            console.log($style);
             module.debug('Removing body css styles', $style);
             if($style.size() > 0) {
               $style.remove();
