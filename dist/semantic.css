@@ -3229,7 +3229,7 @@
 .ui.cards > .card > .content > .header,
 .ui.card > .content > .header {
   display: block;
-  margin: 0em;
+  margin: 1em 0em 1rem;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   color: rgba(0, 0, 0, 0.85);
 }
@@ -3913,7 +3913,7 @@ a.ui.card:hover,
 ---------------*/
 
 .ui.cards > .card {
-  font-size: 1em;
+  font-size: 1rem;
 }
 
 /*******************************
@@ -18687,7 +18687,7 @@ ol.ui.horizontal.list li:before,
 
 .ui.menu.fixed {
   position: fixed;
-  z-index: 903;
+  z-index: 101;
   margin: 0em;
   border: none;
   width: 100%;
@@ -22937,11 +22937,19 @@ th {
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   visibility: hidden;
+  -webkit-overflow-scrolling: touch;
   height: 100% !important;
   border-radius: 0em !important;
   margin: 0em !important;
   overflow-y: auto !important;
-  z-index: 3;
+  z-index: 102;
+}
+
+.ui.sidebar * {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
 }
 
 /*--------------
@@ -23004,7 +23012,7 @@ th {
   -webkit-transition: -webkit-transform 500ms ease;
   transition: transform 500ms ease;
   will-change: transform;
-  z-index: 901;
+  z-index: 101;
 }
 
 /*--------------
@@ -23039,7 +23047,7 @@ th {
   -webkit-transition: opacity 500ms;
   transition: opacity 500ms;
   will-change: opacity;
-  z-index: 900;
+  z-index: 1000;
 }
 
 /*--------------
@@ -23081,11 +23089,14 @@ th {
 }
 
 /*--------------
-     Active
+     Mobile
 ---------------*/
 
-.ui.active.sidebar {
-  -webkit-overflow-scrolling: touch;
+@media only screen and (max-width: 992px) {
+  html {
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 /*******************************
@@ -23136,7 +23147,7 @@ th {
 /* Set-up */
 
 .ui.overlay.sidebar {
-  z-index: 3;
+  z-index: 102;
 }
 
 /* Animation */
@@ -23209,7 +23220,7 @@ th {
 .ui.push.sidebar {
   -webkit-transition: -webkit-transform 500ms ease;
   transition: transform 500ms ease;
-  z-index: 3;
+  z-index: 102;
 }
 
 .ui.left.push.sidebar {
@@ -23355,7 +23366,7 @@ th {
 .ui.scale.down.sidebar {
   -webkit-transition: -webkit-transform 500ms ease;
   transition: transform 500ms ease;
-  z-index: 3;
+  z-index: 102;
 }
 
 .ui.left.scale.down.sidebar {
@@ -23409,7 +23420,7 @@ th {
   transition: transform 500ms ease;
 }
 
-.ui.active.scale.down.sidebar ~ .pusher,
+.ui.visible.scale.down.sidebar ~ .pusher,
 .ui.animating.scale.down.sidebar ~ .pusher {
   display: block !important;
   width: 100%;
@@ -23472,7 +23483,6 @@ body {
   line-height: 1.33;
   color: rgba(0, 0, 0, 0.8);
   font-smoothing: antialiased;
-  overflow-x: hidden;
 }
 
 /*******************************
