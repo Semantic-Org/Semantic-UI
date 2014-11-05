@@ -444,52 +444,52 @@
 
 
 /*---  Colors  ---*/
-@primaryColorDown    : darken(@primaryColor, 5);
-@secondaryColorDown  : darken(@secondaryColor, 5);
+@primaryColorDown    : darken(@primaryColor, 7);
+@secondaryColorDown  : darken(@secondaryColor, 7);
 
-@blueDown            : darken(@blue, 5);
-@greenDown           : darken(@green, 5);
-@orangeDown          : darken(@orange, 5);
-@pinkDown            : darken(@pink, 5);
-@purpleDown          : darken(@purple, 5);
-@redDown             : darken(@red, 5);
-@tealDown            : darken(@teal, 5);
-@yellowDown          : darken(@yellow, 5);
+@blueDown            : darken(@blue, 7);
+@greenDown           : darken(@green, 7);
+@orangeDown          : darken(@orange, 7);
+@pinkDown            : darken(@pink, 7);
+@purpleDown          : darken(@purple, 7);
+@redDown             : darken(@red, 7);
+@tealDown            : darken(@teal, 7);
+@yellowDown          : darken(@yellow, 7);
 
-@lightBlueDown       : darken(@lightBlue, 5);
-@lightGreenDown      : darken(@lightGreen, 5);
-@lightOrangeDown     : darken(@lightOrange, 5);
-@lightPinkDown       : darken(@lightPink, 5);
-@lightPurpleDown     : darken(@lightPurple, 5);
-@lightRedDown        : darken(@lightRed, 5);
-@lightTealDown       : darken(@lightTeal, 5);
-@lightYellowDown     : darken(@lightYellow, 5);
+@lightBlueDown       : darken(@lightBlue, 7);
+@lightGreenDown      : darken(@lightGreen, 7);
+@lightOrangeDown     : darken(@lightOrange, 7);
+@lightPinkDown       : darken(@lightPink, 7);
+@lightPurpleDown     : darken(@lightPurple, 7);
+@lightRedDown        : darken(@lightRed, 7);
+@lightTealDown       : darken(@lightTeal, 7);
+@lightYellowDown     : darken(@lightYellow, 7);
 
 /*---  Emotive  ---*/
-@positiveColorDown   : darken(@positiveColor, 5);
-@negativeColorDown   : darken(@negativeColor, 5);
+@positiveColorDown   : darken(@positiveColor, 7);
+@negativeColorDown   : darken(@negativeColor, 7);
 
 /*---  Neutrals  ---*/
-@fullBlackDown       : darken(@fullBlack, 5);
-@blackDown           : darken(@black, 5);
-@lightBlackDown      : darken(@lightBlack, 5);
+@fullBlackDown       : darken(@fullBlack, 7);
+@blackDown           : darken(@black, 7);
+@lightBlackDown      : darken(@lightBlack, 7);
 
-@lightGreyDown       : darken(@lightGrey, 5);
-@greyDown            : darken(@grey, 5);
-@darkGreyDown        : darken(@darkGrey, 5);
+@lightGreyDown       : darken(@lightGrey, 7);
+@greyDown            : darken(@grey, 7);
+@darkGreyDown        : darken(@darkGrey, 7);
 
-@whiteDown           : darken(@white, 5);
-@offWhiteDown        : darken(@offWhite, 5);
-@darkWhiteDown       : darken(@darkWhite, 5);
+@whiteDown           : darken(@white, 7);
+@offWhiteDown        : darken(@offWhite, 7);
+@darkWhiteDown       : darken(@darkWhite, 7);
 
-@facebookDownColor   : darken(@facebookColor, 5);
-@twitterDownColor    : darken(@twitterColor, 5);
-@googlePlusDownColor : darken(@googlePlusColor, 5);
-@linkedInDownColor   : darken(@linkedInColor, 5);
-@youtubeDownColor    : darken(@youtubeColor, 5);
-@instagramDownColor  : darken(@instagramColor, 5);
-@pinterestDownColor  : darken(@pinterestColor, 5);
-@vkDownColor         : darken(@vkColor, 5);
+@facebookDownColor   : darken(@facebookColor, 7);
+@twitterDownColor    : darken(@twitterColor, 7);
+@googlePlusDownColor : darken(@googlePlusColor, 7);
+@linkedInDownColor   : darken(@linkedInColor, 7);
+@youtubeDownColor    : darken(@youtubeColor, 7);
+@instagramDownColor  : darken(@instagramColor, 7);
+@pinterestDownColor  : darken(@pinterestColor, 7);
+@vkDownColor         : darken(@vkColor, 7);
 
 
 /*-------------------
@@ -497,49 +497,49 @@
 --------------------*/
 
 /*---  Standard  ---*/
-@primaryColorActive    : darken(@primaryColor, 3);
-@secondaryColorActive  : darken(@secondaryColor, 3);
+@primaryColorActive    : darken(@primaryColor, 5);
+@secondaryColorActive  : darken(@secondaryColor, 5);
 
-@blueActive            : darken(@blue, 3);
-@greenActive           : darken(@green, 3);
-@orangeActive          : darken(@orange, 3);
-@pinkActive            : darken(@pink, 3);
-@purpleActive          : darken(@purple, 3);
-@redActive             : darken(@red, 3);
-@tealActive            : darken(@teal, 3);
-@yellowActive          : darken(@yellow, 3);
+@blueActive            : darken(@blue, 5);
+@greenActive           : darken(@green, 5);
+@orangeActive          : darken(@orange, 5);
+@pinkActive            : darken(@pink, 5);
+@purpleActive          : darken(@purple, 5);
+@redActive             : darken(@red, 5);
+@tealActive            : darken(@teal, 5);
+@yellowActive          : darken(@yellow, 5);
 
-@lightBlueActive       : darken(@lightBlue, 3);
-@lightGreenActive      : darken(@lightGreen, 3);
-@lightOrangeActive     : darken(@lightOrange, 3);
-@lightPinkActive       : darken(@lightPink, 3);
-@lightPurpleActive     : darken(@lightPurple, 3);
-@lightRedActive        : darken(@lightRed, 3);
-@lightTealActive       : darken(@lightTeal, 3);
-@lightYellowActive     : darken(@lightYellow, 3);
+@lightBlueActive       : darken(@lightBlue, 5);
+@lightGreenActive      : darken(@lightGreen, 5);
+@lightOrangeActive     : darken(@lightOrange, 5);
+@lightPinkActive       : darken(@lightPink, 5);
+@lightPurpleActive     : darken(@lightPurple, 5);
+@lightRedActive        : darken(@lightRed, 5);
+@lightTealActive       : darken(@lightTeal, 5);
+@lightYellowActive     : darken(@lightYellow, 5);
 
 /*---  Emotive  ---*/
-@positiveColorActive   : darken(@positiveColor, 3);
-@negativeColorActive   : darken(@negativeColor, 3);
+@positiveColorActive   : darken(@positiveColor, 5);
+@negativeColorActive   : darken(@negativeColor, 5);
 
 /*---  Neutrals  ---*/
-@fullBlackActive       : darken(@fullBlack, 3);
-@blackActive           : darken(@black, 3);
-@lightBlackActive      : darken(@lightBlack, 3);
+@fullBlackActive       : darken(@fullBlack, 5);
+@blackActive           : darken(@black, 5);
+@lightBlackActive      : darken(@lightBlack, 5);
 
-@lightGreyActive       : darken(@lightGrey, 3);
-@greyActive            : darken(@grey, 3);
-@darkGreyActive        : darken(@darkGrey, 3);
+@lightGreyActive       : darken(@lightGrey, 5);
+@greyActive            : darken(@grey, 5);
+@darkGreyActive        : darken(@darkGrey, 5);
 
-@whiteActive           : darken(@white, 3);
-@offWhiteActive        : darken(@offWhite, 3);
-@darkWhiteActive       : darken(@darkWhite, 3);
+@whiteActive           : darken(@white, 5);
+@offWhiteActive        : darken(@offWhite, 5);
+@darkWhiteActive       : darken(@darkWhite, 5);
 
-@facebookActiveColor   : darken(@facebookColor, 3);
-@twitterActiveColor    : darken(@twitterColor, 3);
-@googlePlusActiveColor : darken(@googlePlusColor, 3);
-@linkedInActiveColor   : darken(@linkedInColor, 3);
-@youtubeActiveColor    : darken(@youtubeColor, 3);
-@instagramActiveColor  : darken(@instagramColor, 3);
-@pinterestActiveColor  : darken(@pinterestColor, 3);
-@vkActiveColor         : darken(@vkColor, 3);
+@facebookActiveColor   : darken(@facebookColor, 5);
+@twitterActiveColor    : darken(@twitterColor, 5);
+@googlePlusActiveColor : darken(@googlePlusColor, 5);
+@linkedInActiveColor   : darken(@linkedInColor, 5);
+@youtubeActiveColor    : darken(@youtubeColor, 5);
+@instagramActiveColor  : darken(@instagramColor, 5);
+@pinterestActiveColor  : darken(@pinterestColor, 5);
+@vkActiveColor         : darken(@vkColor, 5);

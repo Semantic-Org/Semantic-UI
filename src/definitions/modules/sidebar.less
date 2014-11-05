@@ -333,7 +333,6 @@
 
 /* Initial */
 .ui.slide.along.sidebar {
-  transition: transform @duration @easing;
   z-index: @bottomLayer;
 }
 .ui.left.slide.along.sidebar {
@@ -347,6 +346,10 @@
 }
 .ui.bottom.slide.along.sidebar {
   transform: translate3d(0%, 50%, 0);
+}
+
+.ui.animating.slide.along.sidebar {
+  transition: transform @duration @easing;
 }
 
 /* End */
@@ -391,23 +394,44 @@
 ---------------*/
 
 /* Initial */
-.ui.scale.down.sidebar ~ .pusher {
-  z-index: @bottomLayer;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+.ui.scale.down.sidebar {
+  transition: transform @duration @easing;
+  z-index: @topLayer;
 }
-.ui.scale.down.left.sidebar ~ .pusher,
-.ui.scale.down.right.sidebar ~ .pusher {
+
+.ui.left.scale.down.sidebar {
+  transform: translate3d(-100%, 0, 0);
+}
+.ui.right.scale.down.sidebar {
+  transform: translate3d(100%, 0, 0);
+}
+.ui.top.scale.down.sidebar {
+  transform: translate3d(0%, -100%, 0);
+}
+.ui.bottom.scale.down.sidebar {
+  transform: translate3d(0%, 100%, 0);
+}
+
+.ui.scale.down.left.sidebar ~ .pusher {
   transform-origin: 75% 50%;
 }
-.ui.scale.down.top.sidebar ~ .pusher,
+.ui.scale.down.right.sidebar ~ .pusher {
+  transform-origin: 25% 50%;
+}
+.ui.scale.down.top.sidebar ~ .pusher {
+  transform-origin: 50% 75%;
+}
 .ui.scale.down.bottom.sidebar ~ .pusher {
-  transform-origin: 50% 50%;
+  transform-origin: 50% 25%;
+}
+
+/* End */
+.ui.visible.scale.down.sidebar {
+  transform: translate3d(0%, 0, 0);
 }
 
 /* Animation */
-.pushable.scale.down.animating > .visible.ui.sidebar {
+.ui.animating.scale.down > .visible.ui.sidebar {
   transition: transform @duration @easing;
 }
 

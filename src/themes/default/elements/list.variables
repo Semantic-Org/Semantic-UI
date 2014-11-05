@@ -81,6 +81,8 @@
 @invertedListIconColor: @invertedLightTextColor;
 @invertedHeaderColor: @invertedTextColor;
 @invertedDescriptionColor: @invertedLightTextColor;
+@invertedItemLinkColor: @invertedTextColor;
+@invertedItemLinkHoverColor: @linkHoverColor;
 
 /* Link List */
 @linkListItemColor: @unselectedTextColor;

@@ -350,6 +350,27 @@ ol.ui.list ol,
   color: @invertedDescriptionColor;
 }
 
+/* Item Link */
+.ui.inverted.list .list > a.item,
+.ui.inverted.list > a.item {
+  cursor: pointer;
+  color: @invertedItemLinkColor;
+}
+.ui.inverted.list .list > a.item:hover,
+.ui.inverted.list > a.item:hover {
+  color: @invertedItemLinkHoverColor;
+}
+
+
+/* Linking Content */
+.ui.inverted.list .item a {
+  cursor: pointer;
+  color: @invertedItemLinkColor !important;
+}
+.ui.inverted.list .item a:hover {
+  color: @invertedItemLinkHoverColor !important;
+}
+
 /*-------------------
        Link
 --------------------*/
