@@ -608,7 +608,7 @@ type        : 'UI Element'
     <i class="ok sign icon"></i>
     <i class="smile icon"></i>
     <i class="empty star icon"></i>
-    <i class="shalf empty tar icon"></i>
+    <i class="half empty star icon"></i>
     <i class="half star icon"></i>
     <i class="star icon"></i>
     <i class="thumbs down icon"></i>
