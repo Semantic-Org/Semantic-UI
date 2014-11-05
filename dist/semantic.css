@@ -23205,8 +23205,9 @@ th {
 
 .ui.visible.overlay.sidebar ~ .fixed,
 .ui.visible.overlay.sidebar ~ .pusher {
-  -webkit-transform: translate3d(0, 0, 0) !important;
-  transform: translate3d(0, 0, 0) !important;
+  -webkit-transform: none !important;
+  -ms-transform: none !important;
+  transform: none !important;
 }
 
 /*--------------
