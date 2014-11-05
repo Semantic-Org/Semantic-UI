@@ -80,7 +80,7 @@
 .ui.dropdown .menu > .item .dropdown.icon {
   width: auto;
   float: right;
-  margin: 0.2em 0em 0em;
+  margin: 0.2em 0.75em 0em 0em;
 }
 
 /*--------------
@@ -115,6 +115,29 @@
 }
 .ui.dropdown .menu > .item:first-child {
   border-top: none;
+}
+
+/*--------------
+  Floated Content
+---------------*/
+
+.ui.dropdown > .text > [class*="right floated"],
+.ui.dropdown .menu .item > [class*="right floated"] {
+  float: right;
+  margin-right: 0em;
+  margin-left: 1em;
+}
+.ui.dropdown > .text > [class*="left floated"],
+.ui.dropdown .menu .item > [class*="left floated"] {
+  float: right;
+  margin-left: 0em;
+  margin-right: 1em;
+}
+.ui.dropdown .menu .item > .icon.floated,
+.ui.dropdown .menu .item > .flag.floated,
+.ui.dropdown .menu .item > .image.floated,
+.ui.dropdown .menu .item > img.floated {
+  margin-top: 0.2em;
 }
 
 /*--------------
@@ -157,7 +180,17 @@
   vertical-align: middle;
   width: auto;
   max-height: 2.5em;
-  margin: 0em 0.75em 0em 0em;
+  margin: 0.2em 0.75em 0em 0em;
+}
+
+/*-----------------
+  Item Description
+-------------------*/
+
+.ui.dropdown > .text > .description,
+.ui.dropdown .menu > .item > .description {
+  margin: 0em 0em 0em 1em;
+  color: rgba(0, 0, 0, 0.4);
 }
 
 /*--------------
@@ -187,15 +220,15 @@
 /* Icons / Flags / Labels */
 .ui.dropdown > .text > .icon,
 .ui.dropdown .menu > .item > .icon {
-  margin: 0em 0.75em 0em 0em;
+  margin: 0.2em 0.75em 0em 0em;
 }
 .ui.dropdown > .text > .label,
 .ui.dropdown .menu > .item > .label {
-  margin: 0em 0.75em 0em 0em;
+  margin: 0.2em 0.75em 0em 0em;
 }
 .ui.dropdown > .text > .flag,
 .ui.dropdown .menu > .item > .flag {
-  margin: 0em 0.75em 0em 0em;
+  margin: 0.2em 0.75em 0em 0em;
 }
 .ui.dropdown .menu > .item > .icon + .text {
   display: block;

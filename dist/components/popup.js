@@ -329,12 +329,12 @@ $.fn.popup = function(parameters) {
                   animation : settings.transition + ' in',
                   queue     : false,
                   duration  : settings.duration,
-                  start: function() {
+                  onStart   : function() {
                     $module
                       .addClass(className.visible)
                     ;
                   },
-                  complete  : function() {
+                  onComplete  : function() {
                     module.bind.close();
                     $.proxy(callback, element)();
                   }
@@ -361,10 +361,10 @@ $.fn.popup = function(parameters) {
             if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
               $popup
                 .transition({
-                  animation : settings.transition + ' out',
-                  queue     : false,
-                  duration  : settings.duration,
-                  complete  : function() {
+                  animation  : settings.transition + ' out',
+                  queue      : false,
+                  duration   : settings.duration,
+                  onComplete : function() {
                     module.reset();
                     callback();
                   }

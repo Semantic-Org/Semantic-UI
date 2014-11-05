@@ -48,6 +48,7 @@ html {
 }
 
 #home .feature.segment {
+  margin: 0em;
   padding: 2rem 0rem;
 }
 #home .feature.segment p {

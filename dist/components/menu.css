@@ -1430,7 +1430,7 @@
 
 .ui.menu.fixed {
   position: fixed;
-  z-index: 999;
+  z-index: 903;
   margin: 0em;
   border: none;
   width: 100%;

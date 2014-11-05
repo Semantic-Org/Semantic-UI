@@ -179,15 +179,15 @@ $.fn.transition = function() {
             if( module.is.outward() ) {
               module.verbose('Animation is outward, hiding element');
               module.restore.conditions();
-              module.remove.display();
               module.hide();
+              module.remove.display();
               $.proxy(settings.onHide, this)();
             }
             else if( module.is.inward() ) {
               module.verbose('Animation is outward, showing element');
               module.restore.conditions();
-              module.set.display();
               module.show();
+              module.set.display();
               $.proxy(settings.onShow, this)();
             }
             else {
@@ -196,7 +196,7 @@ $.fn.transition = function() {
             module.remove.duration();
             module.remove.animating();
           }
-          $.proxy(settings.complete, this)();
+          $.proxy(settings.onComplete, this)();
         },
 
         has: {
@@ -230,15 +230,16 @@ $.fn.transition = function() {
               .one(animationEnd + '.complete' + eventNamespace, module.complete)
             ;
             module.set.duration(settings.duration);
-            $.proxy(settings.start, this)();
+            $.proxy(settings.onStart, this)();
             module.debug('Starting tween', animation, $module.attr('class'));
           },
           display: function() {
             var
-              style         = module.get.style(),
-              displayType   = module.get.displayType(),
-              overrideStyle = style + 'display: ' + displayType + ' !important;'
+              style              = module.get.style(),
+              displayType        = module.get.displayType(),
+              overrideStyle      = style + 'display: ' + displayType + ' !important;'
             ;
+            module.refresh();
             if( $module.css('display') !== displayType ) {
               module.verbose('Setting inline visibility to', displayType);
               $module
@@ -309,7 +310,7 @@ $.fn.transition = function() {
 
         save: {
           displayType: function(displayType) {
-            module.displayType = displayType;
+            $module.data(metadata.displayType, displayType);
           },
           transitionExists: function(animation, exists) {
             $.fn.transition.exists[animation] = exists;
@@ -357,9 +358,7 @@ $.fn.transition = function() {
             $module.removeClass(className.animating);
           },
           display: function() {
-            if(module.displayType !== undefined) {
-              $module.css('display', '');
-            }
+            $module.css('display', '');
           },
           direction: function() {
             $module
@@ -399,17 +398,17 @@ $.fn.transition = function() {
           }
         },
         get: {
-          settings: function(animation, duration, complete) {
+          settings: function(animation, duration, onComplete) {
             // single settings object
             if(typeof animation == 'object') {
               return $.extend(true, {}, $.fn.transition.settings, animation);
             }
             // all arguments provided
-            else if(typeof complete == 'function') {
+            else if(typeof onComplete == 'function') {
               return $.extend({}, $.fn.transition.settings, {
-                animation : animation,
-                complete  : complete,
-                duration  : duration
+                animation  : animation,
+                onComplete : onComplete,
+                duration   : duration
               });
             }
             // only duration provided
@@ -428,8 +427,8 @@ $.fn.transition = function() {
             // duration is actually callback
             else if(typeof duration == 'function') {
               return $.extend({}, $.fn.transition.settings, {
-                animation : animation,
-                complete  : duration
+                animation  : animation,
+                onComplete : duration
               });
             }
             // only animation provided
@@ -441,11 +440,11 @@ $.fn.transition = function() {
             return $.fn.transition.settings;
           },
           displayType: function() {
-            if(module.displayType === undefined) {
+            if($module.data(metadata.displayType) === undefined) {
               // create fake element to determine display state
-              module.can.transition();
+              module.can.transition(true);
             }
-            return module.displayType;
+            return $module.data(metadata.displayType);
           },
           style: function() {
             var
@@ -506,18 +505,19 @@ $.fn.transition = function() {
               return false;
             }
           },
-          transition: function() {
+          transition: function(forced) {
             var
-              elementClass     = $module.attr('class'),
-              tagName          = $module.prop('tagName'),
-              animation        = settings.animation,
-              transitionExists = module.get.transitionExists(settings.animation),
+              elementClass      = $module.attr('class'),
+              tagName           = $module.prop('tagName'),
+              animation         = settings.animation,
+              transitionExists  = module.get.transitionExists(settings.animation),
               $clone,
               currentAnimation,
               inAnimation,
+              animationExists,
               displayType
             ;
-            if( transitionExists === undefined || module.displayType === undefined) {
+            if( transitionExists === undefined || forced) {
               module.verbose('Determining whether animation exists');
               $clone = $('<' + tagName + ' />').addClass( elementClass ).insertAfter($module);
               currentAnimation = $clone
@@ -542,19 +542,19 @@ $.fn.transition = function() {
               module.verbose('Determining final display state', displayType);
               if(currentAnimation != inAnimation) {
                 module.debug('Transition exists for animation', animation);
-                transitionExists = true;
+                animationExists = true;
               }
               else {
                 module.debug('Static animation found', animation, displayType);
-                transitionExists = false;
+                animationExists = false;
               }
               $clone.remove();
               module.save.displayType(displayType);
               if(transitionExists === undefined) {
-                module.save.transitionExists(animation, transitionExists);
+                module.save.transitionExists(animation, animationExists);
               }
             }
-            return transitionExists;
+            return transitionExists || animationExists;
           }
         },
 
@@ -808,8 +808,8 @@ $.fn.transition.settings = {
   namespace   : 'transition',
 
   // animation complete event
-  start       : function() {},
-  complete    : function() {},
+  onStart     : function() {},
+  onComplete  : function() {},
   onShow      : function() {},
   onHide      : function() {},
 
@@ -822,6 +822,10 @@ $.fn.transition.settings = {
 
   // new animations will occur after previous ones
   queue       : true,
+
+  metadata : {
+    displayType: 'display'
+  },
 
   className   : {
     animating  : 'animating',

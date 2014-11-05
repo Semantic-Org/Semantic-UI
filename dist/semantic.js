@@ -3084,10 +3084,10 @@ $.fn.dimmer = function(parameters) {
                   animation : settings.transition + ' in',
                   queue       : false,
                   duration  : module.get.duration(),
-                  start     : function() {
+                  onStart   : function() {
                     module.set.dimmed();
                   },
-                  complete  : function() {
+                  onComplete : function() {
                     module.set.active();
                     callback();
                   }
@@ -3121,13 +3121,13 @@ $.fn.dimmer = function(parameters) {
               module.verbose('Hiding dimmer with css');
               $dimmer
                 .transition({
-                  animation   : settings.transition + ' out',
-                  queue       : false,
-                  duration    : module.get.duration(),
-                  start: function() {
+                  animation  : settings.transition + ' out',
+                  queue      : false,
+                  duration   : module.get.duration(),
+                  onStart    : function() {
                     module.remove.dimmed();
                   },
-                  complete  : function() {
+                  onComplete : function() {
                     module.remove.active();
                     callback();
                   }
@@ -4509,11 +4509,11 @@ $.fn.dropdown = function(parameters) {
               else if($.fn.transition !== undefined && $module.transition('is supported')) {
                 $currentMenu
                   .transition({
-                    animation : settings.transition + ' in',
-                    duration  : settings.duration,
-                    queue     : true,
-                    start     : start,
-                    complete  : function() {
+                    animation  : settings.transition + ' in',
+                    duration   : settings.duration,
+                    queue      : true,
+                    onStart    : start,
+                    onComplete : function() {
                       $.proxy(callback, element)();
                     }
                   })
@@ -4577,11 +4577,11 @@ $.fn.dropdown = function(parameters) {
               else if($.fn.transition !== undefined && $module.transition('is supported')) {
                 $currentMenu
                   .transition({
-                    animation : settings.transition + ' out',
-                    duration  : settings.duration,
-                    queue     : true,
-                    start     : start,
-                    complete  : function() {
+                    animation  : settings.transition + ' out',
+                    duration   : settings.duration,
+                    queue      : true,
+                    onStart    : start,
+                    onComplete : function() {
                       $.proxy(callback, element)();
                     }
                   })
@@ -5999,14 +5999,14 @@ $.fn.modal = function(parameters) {
                     animation : settings.transition + ' in',
                     queue     : false,
                     duration  : settings.duration,
-                    start     : function() {
+                    onStart   : function() {
                       module.cacheSizes();
                       module.set.position();
                       module.set.screenHeight();
                       module.set.type();
                       module.set.clickaway();
                     },
-                    complete  : function() {
+                    onComplete : function() {
                       $.proxy(settings.onVisible, element)();
                       module.add.keyboardShortcuts();
                       module.save.focus();
@@ -6082,14 +6082,14 @@ $.fn.modal = function(parameters) {
           if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
             $module
               .transition({
-                debug     : settings.debug,
-                animation : settings.transition + ' out',
-                queue     : false,
-                duration  : settings.duration,
-                start     : function() {
+                debug      : settings.debug,
+                animation  : settings.transition + ' out',
+                queue      : false,
+                duration   : settings.duration,
+                onStart    : function() {
                   module.remove.keyboardShortcuts();
                 },
-                complete  : function() {
+                onComplete : function() {
                   $.proxy(settings.onHidden, element)();
                   module.remove.active();
                   module.restore.focus();
@@ -7338,12 +7338,12 @@ $.fn.popup = function(parameters) {
                   animation : settings.transition + ' in',
                   queue     : false,
                   duration  : settings.duration,
-                  start: function() {
+                  onStart   : function() {
                     $module
                       .addClass(className.visible)
                     ;
                   },
-                  complete  : function() {
+                  onComplete  : function() {
                     module.bind.close();
                     $.proxy(callback, element)();
                   }
@@ -7370,10 +7370,10 @@ $.fn.popup = function(parameters) {
             if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
               $popup
                 .transition({
-                  animation : settings.transition + ' out',
-                  queue     : false,
-                  duration  : settings.duration,
-                  complete  : function() {
+                  animation  : settings.transition + ' out',
+                  queue      : false,
+                  duration   : settings.duration,
+                  onComplete : function() {
                     module.reset();
                     callback();
                   }
@@ -10832,18 +10832,16 @@ $.fn.sidebar = function(parameters) {
 
         $module         = $(this),
         $context        = $(settings.context),
-        $style          = $('style[title=' + namespace + ']'),
 
-        $sidebars       = $context.children(selector.sidebar),
+        $sidebars       = $module.children(selector.sidebar),
         $pusher         = $context.children(selector.pusher),
-        $page           = $pusher.children(selector.page),
-        $fixed          = $pusher.find(selector.fixed),
+        $style,
 
         element         = this,
         instance        = $module.data(moduleNamespace),
 
         currentScroll,
-        transitionEnd,
+        transitionEvent,
 
         module
       ;
@@ -10851,18 +10849,16 @@ $.fn.sidebar = function(parameters) {
       module      = {
 
         initialize: function() {
-          module.debug('Initializing sidebar', $module);
+          module.debug('Initializing sidebar', parameters);
 
-          transitionEnd = module.get.transitionEvent();
+          transitionEvent = module.get.transitionEvent();
 
           // cache on initialize
           if( module.is.legacy() ) {
             settings.useLegacy = true;
           }
 
-          module.setup.context();
-
-          // avoid locking rendering to change layout if included in onReady
+          // avoid locking rendering if included in onReady
           requestAnimationFrame(module.setup.layout);
 
           module.instantiate();
@@ -10878,6 +10874,7 @@ $.fn.sidebar = function(parameters) {
 
         destroy: function() {
           module.verbose('Destroying previous module for', $module);
+          module.remove.direction();
           $module
             .off(eventNamespace)
             .removeData(moduleNamespace)
@@ -10905,10 +10902,15 @@ $.fn.sidebar = function(parameters) {
                 .on('DOMMouseScroll' + eventNamespace, module.event.scroll)
               ;
             }
-            $context
-              .on('click' + eventNamespace, module.event.clickaway)
-              .on('touchend' + eventNamespace, module.event.clickaway)
+            $(window)
+              .on('touchmove' + eventNamespace, module.event.scroll)
             ;
+            if(settings.closable) {
+              $context
+                .on('click' + eventNamespace, module.event.clickaway)
+                .on('touchend' + eventNamespace, module.event.clickaway)
+              ;
+            }
           }
         },
         unbind: {
@@ -10916,25 +10918,58 @@ $.fn.sidebar = function(parameters) {
             $context
               .off(eventNamespace)
             ;
-            if(settings.scrollLock) {
-              $(window).off('DOMMouseScroll' + eventNamespace);
-            }
+            $pusher
+              .off(eventNamespace)
+            ;
+            $(window).off(eventNamespace);
+          }
+        },
+
+        add: {
+          bodyCSS: function(direction, distance) {
+            var
+              width  = $module.outerWidth(),
+              height = $module.outerHeight(),
+              style  = ''
+                + '<style title="' + namespace + '">'
+                + ' .ui.visible.left.sidebar ~ .fixed,'
+                + ' .ui.visible.left.sidebar ~ .pusher {'
+                + '   transform: translate3d('+ width + 'px, 0, 0);'
+                + ' }'
+                + ' .ui.visible.right.sidebar ~ .fixed,'
+                + ' .ui.visible.right.sidebar ~ .pusher {'
+                + '   transform: translate3d(-'+ width + 'px, 0, 0);'
+                + ' }'
+                + ' .ui.visible.top.sidebar ~ .fixed,'
+                + ' .ui.visible.top.sidebar ~ .pusher {'
+                + '   transform: translate3d(0, ' + height + 'px, 0);'
+                + ' }'
+                + ' .ui.visible.bottom.sidebar ~ .fixed,'
+                + ' .ui.visible.bottom.sidebar ~ .pusher {'
+                + '   transform: translate3d(0, -' + height + 'px, 0);'
+                + ' }'
+                + '</style>'
+            ;
+            $head.append(style);
+            $style = $('style[title=' + namespace + ']');
+            console.log(style);
+            module.debug('Adding sizing css to head', $style);
           }
         },
 
         refresh: function() {
           module.verbose('Refreshing selector cache');
           $context  = $(settings.context);
-          $style    = $('style[title=' + namespace + ']');
           $sidebars = $context.children(selector.sidebar);
           $pusher   = $context.children(selector.pusher);
-          $page     = $pusher.children(selector.page);
-          $fixed    = $pusher.find(selector.fixed);
         },
 
         repaint: function() {
           module.verbose('Forcing repaint event');
-          var fakeAssignment = $context[0].offsetWidth;
+          element.style.display='none';
+          element.offsetHeight;
+          element.scrollTop = element.scrollTop;
+          element.style.display='';
         },
 
         setup: {
@@ -10942,24 +10977,21 @@ $.fn.sidebar = function(parameters) {
             if( $context.find(selector.pusher).size() === 0 ) {
               module.debug('Adding wrapper element for sidebar');
               $pusher = $('<div class="pusher" />');
-              $page   = $('<div class="page" />');
-              $pusher.append($page);
               $context
                 .children()
                   .not(selector.omitted)
                   .not($sidebars)
                   .wrapAll($pusher)
               ;
+              module.refresh();
             }
-            if($module.prevAll($page)[0] !== $page[0]) {
+            if($module.nextAll(selector.pusher)[0] !== $pusher[0]) {
               module.debug('Moved sidebar to correct parent element');
               $module.detach().prependTo($context);
+              module.refresh();
             }
-            module.refresh();
-          },
-          context: function() {
-            module.verbose('Adding pusshable class to wrapper');
-            $context.addClass(className.pushable);
+            module.set.pushable();
+            module.set.direction();
           }
         },
 
@@ -10992,13 +11024,17 @@ $.fn.sidebar = function(parameters) {
             ? callback
             : function(){}
           ;
-          if(module.is.closed() || module.is.outward()) {
+          if(module.is.closed()) {
             if(settings.overlay)  {
               module.error(error.overlay);
               settings.transition = 'overlay';
             }
-            if(settings.transition !== 'overlay') {
-              module.hideAll();
+            module.refresh();
+            if(module.othersVisible() && module.get.transition() != 'overlay') {
+              module.debug('Other sidebars currently open');
+              if(settings.exclusive) {
+                module.hideOthers();
+              }
             }
             animateMethod(function() {
               $.proxy(callback, element)();
@@ -11022,7 +11058,7 @@ $.fn.sidebar = function(parameters) {
             ? callback
             : function(){}
           ;
-          if(module.is.visible() || module.is.inward()) {
+          if(module.is.visible() || module.is.animating()) {
             module.debug('Hiding sidebar', callback);
             animateMethod(function() {
               $.proxy(callback, element)();
@@ -11033,18 +11069,33 @@ $.fn.sidebar = function(parameters) {
           }
         },
 
-        hideAll: function() {
+        othersVisible: function() {
+          return ($sidebars.not($module).filter('.' + className.visible).size() > 0);
+        },
+        othersActive: function() {
+          return ($sidebars.not($module).filter('.' + className.active).size() > 0);
+        },
+
+        hideOthers: function(callback) {
           var
-            $visibleSidebars = $sidebars.find('.' + className.visible)
+            $otherSidebars = $sidebars.not($module).filter('.' + className.visible),
+            callback       = callback || function(){},
+            sidebarCount   = $otherSidebars.size(),
+            callbackCount  = 0
           ;
-          $visibleSidebars
-            .sidebar('hide')
+          $otherSidebars
+            .sidebar('hide', function() {
+              callbackCount++;
+              if(callbackCount == sidebarCount) {
+                callback();
+              }
+            })
           ;
         },
 
         toggle: function() {
           module.verbose('Determining toggled direction');
-          if(module.is.closed() || module.is.outward()) {
+          if(module.is.closed()) {
             module.show();
           }
           else {
@@ -11057,50 +11108,44 @@ $.fn.sidebar = function(parameters) {
             transition = module.get.transition(),
             $transition = (transition == 'safe')
               ? $context
-              : (transition == 'overlay')
+              : (transition == 'overlay' || module.othersActive())
                 ? $module
                 : $pusher,
-            animate
+            animate,
+            transitionEnd
           ;
           callback = $.isFunction(callback)
             ? callback
             : function(){}
           ;
+          if(settings.transition == 'scale down' || (module.is.mobile() && transition !== 'overlay')) {
+            module.scrollToTop();
+          }
+          module.add.bodyCSS();
+          module.set.transition();
+          module.repaint();
           animate = function() {
-            module.remove.outward();
-            module.set.visible();
-            module.set.transition();
-            module.set.direction();
+            module.set.animating();
             requestAnimationFrame(function() {
-              module.set.inward();
-              module.set.pushed();
+              module.set.visible();
+              if(!module.othersActive()) {
+                if(settings.dimPage) {
+                  $pusher.addClass(className.dimmed);
+                }
+              }
             });
           };
-          $transition
-            .off(transitionEnd + eventNamespace)
-            .on(transitionEnd + eventNamespace, function(event) {
-              if( event.target == $transition[0] ) {
-                $transition.off(transitionEnd + eventNamespace);
-                module.remove.inward();
-                module.bind.clickaway();
-                module.set.active();
-                $.proxy(callback, element)();
-              }
-            })
-          ;
-          module.verbose('Adding context push state', $context);
-          if(transition === 'overlay') {
-            requestAnimationFrame(animate);
-          }
-          else {
-            if(settings.transition == 'scale down' || module.is.mobile()) {
-              $module.scrollTop(0);
-              currentScroll = $(window).scrollTop();
-              window.scrollTo(0, 0);
+          transitionEnd = function(event) {
+            if( event.target == $transition[0] ) {
+              $transition.off(transitionEvent + eventNamespace, transitionEnd);
+              module.remove.animating();
+              module.bind.clickaway();
+              module.set.active();
+              $.proxy(callback, element)();
             }
-            module.remove.allVisible();
-            requestAnimationFrame(animate);
-          }
+          };
+          $transition.on(transitionEvent + eventNamespace, transitionEnd);
+          requestAnimationFrame(animate);
         },
 
         pullPage: function(callback) {
@@ -11108,39 +11153,42 @@ $.fn.sidebar = function(parameters) {
             transition = module.get.transition(),
             $transition = (transition == 'safe')
               ? $context
-              : (transition == 'overlay')
+              : (transition == 'overlay' || module.othersActive())
                 ? $module
-                : $pusher
+                : $pusher,
+            animate,
+            transitionEnd
           ;
           callback = $.isFunction(callback)
             ? callback
             : function(){}
           ;
           module.verbose('Removing context push state', module.get.direction());
-          module.unbind.clickaway();
-
-          $transition
-            .off(transitionEnd + eventNamespace)
-            .on(transitionEnd + eventNamespace, function(event) {
-              if( event.target == $transition[0] ) {
-                $transition.off(transitionEnd + eventNamespace);
-                module.remove.transition();
-                module.remove.direction();
-                module.remove.outward();
-                module.remove.visible();
-                if(transition == 'scale down' || (settings.returnScroll && transition !== 'overlay' && module.is.mobile()) ) {
-                  window.scrollTo(0, currentScroll);
-                }
-                $.proxy(callback, element)();
+          if(!module.othersActive()) {
+            module.unbind.clickaway();
+          }
+          module.remove.active();
+          animate = function() {
+            module.set.animating();
+            module.remove.visible();
+            if(settings.dimPage && !module.othersActive()) {
+              $pusher.removeClass(className.dimmed);
+            }
+          };
+          transitionEnd = function(event) {
+            if( event.target == $transition[0] ) {
+              $transition.off(transitionEvent + eventNamespace, transitionEnd);
+              module.remove.animating();
+              module.remove.transition();
+              module.remove.bodyCSS();
+              if(transition == 'scale down' || (settings.returnScroll && transition !== 'overlay' && module.is.mobile()) ) {
+                module.scrollBack();
               }
-            })
-          ;
-          requestAnimationFrame(function() {
-            module.remove.inward();
-            module.set.outward();
-            module.remove.active();
-            module.remove.pushed();
-          });
+              $.proxy(callback, element)();
+            }
+          };
+          $transition.on(transitionEvent + eventNamespace, transitionEnd);
+          requestAnimationFrame(animate);
         },
 
         legacyPushPage: function(callback) {
@@ -11158,12 +11206,13 @@ $.fn.sidebar = function(parameters) {
           module.debug('Using javascript to push context', properties);
           module.set.visible();
           module.set.transition();
-          module.set.direction();
-          module.set.inward();
-          module.set.pushed();
+          module.set.animating();
+          if(settings.dimPage) {
+            $pusher.addClass(className.dimmed);
+          }
           $context
             .animate(properties, settings.duration, settings.easing, function() {
-              module.remove.inward();
+              module.remove.animating();
               module.bind.clickaway();
               module.set.active();
               $.proxy(callback, module)();
@@ -11184,80 +11233,101 @@ $.fn.sidebar = function(parameters) {
           properties[direction] = '0px';
           module.debug('Using javascript to pull context', properties);
           module.unbind.clickaway();
-          module.set.outward();
+          module.set.animating();
+          module.remove.visible();
           module.remove.active();
-          module.remove.pushed();
+          if(settings.dimPage && !module.othersVisible()) {
+            $pusher.removeClass(className.dimmed);
+          }
           $context
             .animate(properties, settings.duration, settings.easing, function() {
-              module.remove.transition();
-              module.remove.direction();
-              module.remove.outward();
-              module.remove.visible();
+              module.remove.animating();
               $.proxy(callback, module)();
             })
           ;
         },
 
+        scrollToTop: function() {
+          module.verbose('Scrolling to top of page to avoid animation issues');
+          $module.scrollTop(0);
+          currentScroll = $(window).scrollTop();
+          window.scrollTo(0, 0);
+        },
+
+        scrollBack: function() {
+          module.verbose('Scrolling back to original page position');
+          window.scrollTo(0, currentScroll);
+        },
+
         set: {
+          // container
+          pushed: function() {
+            $context.addClass(className.pushed);
+          },
+          pushable: function() {
+            $context.addClass(className.pushable);
+          },
+
+          // sidebar
           active: function() {
-            $context.addClass(className.active);
+            $module.addClass(className.active);
+          },
+          animating: function() {
+            $module.addClass(className.animating);
+          },
+          transition: function(transition) {
+            transition = transition || module.get.transition();
+            $module.addClass(transition);
           },
           direction: function(direction) {
             direction = direction || module.get.direction();
-            $context.addClass(className[direction]);
+            $module.addClass(className[direction]);
           },
           visible: function() {
             $module.addClass(className.visible);
           },
-          transition: function(transition) {
-            transition = transition || module.get.transition();
-            $context.addClass(transition);
-          },
-          inward: function() {
-            $context.addClass(className.inward);
-          },
-          outward: function() {
-            $context.addClass(className.outward);
-          },
-          pushed: function() {
-            if(settings.dimPage) {
-              $page.addClass(className.dimmed);
-            }
-            $context.addClass(className.pushed);
+          overlay: function() {
+            $module.addClass(className.overlay);
           }
         },
         remove: {
+
+          bodyCSS: function() {
+            console.log($style);
+            module.debug('Removing body css styles', $style);
+            if($style.size() > 0) {
+              $style.remove();
+            }
+          },
+
+          // context
+          pushed: function() {
+            $context.removeClass(className.pushed);
+          },
+          pushable: function() {
+            $context.removeClass(className.pushable);
+          },
+
+          // sidebar
           active: function() {
-            $context.removeClass(className.active);
+            $module.removeClass(className.active);
+          },
+          animating: function() {
+            $module.removeClass(className.animating);
+          },
+          transition: function(transition) {
+            transition = transition || module.get.transition();
+            $module.removeClass(transition);
+          },
+          direction: function(direction) {
+            direction = direction || module.get.direction();
+            $module.removeClass(className[direction]);
           },
           visible: function() {
             $module.removeClass(className.visible);
           },
-          allVisible: function() {
-            if($sidebars.hasClass(className.visible)) {
-              module.debug('Other sidebars visible, hiding');
-              $sidebars.removeClass(className.visible);
-            }
-          },
-          transition: function(transition) {
-            transition = transition || module.get.transition();
-            $context.removeClass(transition);
-          },
-          pushed: function() {
-            if(settings.dimPage) {
-              $page.removeClass(className.dimmed);
-            }
-            $context.removeClass(className.pushed);
-          },
-          inward: function() {
-            $context.removeClass(className.inward);
-          },
-          outward: function() {
-            $context.removeClass(className.outward);
-          },
-          direction: function(direction) {
-            direction = direction || module.get.direction();
-            $context.removeClass(className[direction]);
+          overlay: function() {
+            $module.removeClass(className.overlay);
           }
         },
 
@@ -11356,14 +11426,8 @@ $.fn.sidebar = function(parameters) {
           vertical: function() {
             return $module.hasClass(className.top);
           },
-          inward: function() {
-            return $context.hasClass(className.inward);
-          },
-          outward: function() {
-            return $context.hasClass(className.outward);
-          },
           animating: function() {
-            return module.is.inward() || module.is.outward();
+            return $context.hasClass(className.animating);
           }
         },
 
@@ -11532,7 +11596,7 @@ $.fn.sidebar = function(parameters) {
     }
     else {
       if(instance !== undefined) {
-        module.destroy();
+        module.invoke('destroy');
       }
       module.initialize();
     }
@@ -11550,10 +11614,9 @@ $.fn.sidebar.settings = {
   namespace         : 'sidebar',
 
   debug             : false,
-  verbose           : false,
-  performance       : false,
+  verbose           : true,
+  performance       : true,
 
-  workaround        : false,
   transition        : 'auto',
   mobileTransition  : 'auto',
 
@@ -11573,8 +11636,9 @@ $.fn.sidebar.settings = {
   },
 
   context           : 'body',
-  exclusive         : true,
+  exclusive         : false,
 
+  closable          : true,
   dimPage           : true,
   scrollLock        : false,
   returnScroll      : true,
@@ -11591,23 +11655,21 @@ $.fn.sidebar.settings = {
   onVisible         : function(){},
 
   className         : {
-    active   : 'active',
-    bottom   : 'bottom',
-    dimmed   : 'dimmed',
-    inward   : 'show',
-    left     : 'left',
-    outward  : 'hide',
-    pushable : 'pushable',
-    pushed   : 'pushed',
-    right    : 'right',
-    top      : 'top',
-    visible  : 'visible'
+    active    : 'active',
+    animating : 'animating',
+    dimmed    : 'dimmed',
+    pushable  : 'pushable',
+    pushed    : 'pushed',
+    right     : 'right',
+    top       : 'top',
+    left      : 'left',
+    bottom    : 'bottom',
+    visible   : 'visible'
   },
 
   selector: {
-    fixed   : '.ui.fixed',
+    fixed   : '.fixed',
     omitted : 'script, link, style, .ui.modal, .ui.dimmer, .ui.nag, .ui.fixed',
-    page    : '.page',
     pusher  : '.pusher',
     sidebar : '.ui.sidebar'
   },
@@ -14554,15 +14616,15 @@ $.fn.transition = function() {
             if( module.is.outward() ) {
               module.verbose('Animation is outward, hiding element');
               module.restore.conditions();
-              module.remove.display();
               module.hide();
+              module.remove.display();
               $.proxy(settings.onHide, this)();
             }
             else if( module.is.inward() ) {
               module.verbose('Animation is outward, showing element');
               module.restore.conditions();
-              module.set.display();
               module.show();
+              module.set.display();
               $.proxy(settings.onShow, this)();
             }
             else {
@@ -14571,7 +14633,7 @@ $.fn.transition = function() {
             module.remove.duration();
             module.remove.animating();
           }
-          $.proxy(settings.complete, this)();
+          $.proxy(settings.onComplete, this)();
         },
 
         has: {
@@ -14605,15 +14667,16 @@ $.fn.transition = function() {
               .one(animationEnd + '.complete' + eventNamespace, module.complete)
             ;
             module.set.duration(settings.duration);
-            $.proxy(settings.start, this)();
+            $.proxy(settings.onStart, this)();
             module.debug('Starting tween', animation, $module.attr('class'));
           },
           display: function() {
             var
-              style         = module.get.style(),
-              displayType   = module.get.displayType(),
-              overrideStyle = style + 'display: ' + displayType + ' !important;'
+              style              = module.get.style(),
+              displayType        = module.get.displayType(),
+              overrideStyle      = style + 'display: ' + displayType + ' !important;'
             ;
+            module.refresh();
             if( $module.css('display') !== displayType ) {
               module.verbose('Setting inline visibility to', displayType);
               $module
@@ -14684,7 +14747,7 @@ $.fn.transition = function() {
 
         save: {
           displayType: function(displayType) {
-            module.displayType = displayType;
+            $module.data(metadata.displayType, displayType);
           },
           transitionExists: function(animation, exists) {
             $.fn.transition.exists[animation] = exists;
@@ -14732,9 +14795,7 @@ $.fn.transition = function() {
             $module.removeClass(className.animating);
           },
           display: function() {
-            if(module.displayType !== undefined) {
-              $module.css('display', '');
-            }
+            $module.css('display', '');
           },
           direction: function() {
             $module
@@ -14774,17 +14835,17 @@ $.fn.transition = function() {
           }
         },
         get: {
-          settings: function(animation, duration, complete) {
+          settings: function(animation, duration, onComplete) {
             // single settings object
             if(typeof animation == 'object') {
               return $.extend(true, {}, $.fn.transition.settings, animation);
             }
             // all arguments provided
-            else if(typeof complete == 'function') {
+            else if(typeof onComplete == 'function') {
               return $.extend({}, $.fn.transition.settings, {
-                animation : animation,
-                complete  : complete,
-                duration  : duration
+                animation  : animation,
+                onComplete : onComplete,
+                duration   : duration
               });
             }
             // only duration provided
@@ -14803,8 +14864,8 @@ $.fn.transition = function() {
             // duration is actually callback
             else if(typeof duration == 'function') {
               return $.extend({}, $.fn.transition.settings, {
-                animation : animation,
-                complete  : duration
+                animation  : animation,
+                onComplete : duration
               });
             }
             // only animation provided
@@ -14816,11 +14877,11 @@ $.fn.transition = function() {
             return $.fn.transition.settings;
           },
           displayType: function() {
-            if(module.displayType === undefined) {
+            if($module.data(metadata.displayType) === undefined) {
               // create fake element to determine display state
-              module.can.transition();
+              module.can.transition(true);
             }
-            return module.displayType;
+            return $module.data(metadata.displayType);
           },
           style: function() {
             var
@@ -14881,18 +14942,19 @@ $.fn.transition = function() {
               return false;
             }
           },
-          transition: function() {
+          transition: function(forced) {
             var
-              elementClass     = $module.attr('class'),
-              tagName          = $module.prop('tagName'),
-              animation        = settings.animation,
-              transitionExists = module.get.transitionExists(settings.animation),
+              elementClass      = $module.attr('class'),
+              tagName           = $module.prop('tagName'),
+              animation         = settings.animation,
+              transitionExists  = module.get.transitionExists(settings.animation),
               $clone,
               currentAnimation,
               inAnimation,
+              animationExists,
               displayType
             ;
-            if( transitionExists === undefined || module.displayType === undefined) {
+            if( transitionExists === undefined || forced) {
               module.verbose('Determining whether animation exists');
               $clone = $('<' + tagName + ' />').addClass( elementClass ).insertAfter($module);
               currentAnimation = $clone
@@ -14917,19 +14979,19 @@ $.fn.transition = function() {
               module.verbose('Determining final display state', displayType);
               if(currentAnimation != inAnimation) {
                 module.debug('Transition exists for animation', animation);
-                transitionExists = true;
+                animationExists = true;
               }
               else {
                 module.debug('Static animation found', animation, displayType);
-                transitionExists = false;
+                animationExists = false;
               }
               $clone.remove();
               module.save.displayType(displayType);
               if(transitionExists === undefined) {
-                module.save.transitionExists(animation, transitionExists);
+                module.save.transitionExists(animation, animationExists);
               }
             }
-            return transitionExists;
+            return transitionExists || animationExists;
           }
         },
 
@@ -15183,8 +15245,8 @@ $.fn.transition.settings = {
   namespace   : 'transition',
 
   // animation complete event
-  start       : function() {},
-  complete    : function() {},
+  onStart     : function() {},
+  onComplete  : function() {},
   onShow      : function() {},
   onHide      : function() {},
 
@@ -15197,6 +15259,10 @@ $.fn.transition.settings = {
 
   // new animations will occur after previous ones
   queue       : true,
+
+  metadata : {
+    displayType: 'display'
+  },
 
   className   : {
     animating  : 'animating',

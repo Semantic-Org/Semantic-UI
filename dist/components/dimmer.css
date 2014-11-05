@@ -112,10 +112,15 @@ body.dimmed.dimmable {
 body.dimmable > .dimmer {
   position: fixed;
 }
-body.dimmed.dimmable > :not(.dimmer) {
-  -webkit-filter: '';
-          filter: '';
+/*
+body.dimmable > :not(.dimmer) {
+  filter: @elementStartFilter;
 }
+body.dimmed.dimmable > :not(.dimmer) {
+  filter: @elementEndFilter;
+  transition: @elementTransition;
+}
+*/
 
 /*--------------
     Aligned
