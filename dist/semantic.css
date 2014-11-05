@@ -23110,31 +23110,6 @@ th {
   width: 260px !important;
 }
 
-/* Sizes */
-
-.ui.visible.left.sidebar ~ .fixed,
-.ui.visible.left.sidebar ~ .pusher {
-  -webkit-transform: translate3d(260px, 0, 0);
-  transform: translate3d(260px, 0, 0);
-}
-
-.ui.visible.right.sidebar ~ .fixed,
-.ui.visible.right.sidebar ~ .pusher {
-  -webkit-transform: translate3d(-260px, 0, 0);
-  transform: translate3d(-260px, 0, 0);
-}
-
-.ui.visible.top.sidebar ~ .fixed,
-.ui.visible.top.sidebar ~ .pusher {
-  -webkit-transform: translate3d(0, 50px, 0);
-  transform: translate3d(0, 50px, 0);
-}
-
-.ui.visible.bottom.sidebar ~ .pusher {
-  -webkit-transform: translate3d(0, -50px, 0);
-  transform: translate3d(0, -50px, 0);
-}
-
 /*******************************
           Animations
 *******************************/
@@ -23412,13 +23387,6 @@ th {
   transform-origin: 50% 25%;
 }
 
-/* End */
-
-.ui.visible.scale.down.sidebar {
-  -webkit-transform: translate3d(0%, 0, 0);
-  transform: translate3d(0%, 0, 0);
-}
-
 /* Animation */
 
 .ui.animating.scale.down > .visible.ui.sidebar {
@@ -23426,7 +23394,15 @@ th {
   transition: transform 500ms ease;
 }
 
-/* Pushed */
+.ui.active.scale.down.sidebar ~ .pusher,
+.ui.animating.scale.down.sidebar ~ .pusher {
+  display: block !important;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* End */
 
 .ui.visible.scale.down.sidebar {
   -webkit-transform: translate3d(0, 0, 0);
