@@ -88,13 +88,16 @@
 @focusBoxShadow: none;
 
 /* Error */
-@errorBackground: #FFFAFA;
-@errorBorder: #E7BEBE;
-@errorColor: #D95C5C;
+@errorBackground: @negativeBackgroundColor;
+@errorBorder: @negativeBorderColor;
+@errorColor: @negativeColor;
 @errorBoxShadow: none;
 
-/* Loading */
-@loadingImage: "@{imagePath}/loader-mini.gif";
+/* Loader */
+@loaderSize: 1.2857em;
+@loaderOffset: -(@loaderSize / 2);
+@loaderMargin: @loaderOffset 0em 0em @loaderOffset;
+@invertedLoaderFillColor: rgba(0, 0, 0, 0.15);
 
 /*-------------------
       Variations

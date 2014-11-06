@@ -26,11 +26,6 @@
 @iconMargin: 0em @iconDistance 0em -(@iconDistance / 2);
 @iconVerticalAlign: top;
 
-/* Loader */
-@loaderPath: "@{imagePath}/loader-mini.gif";
-@hugeLoaderPath: "@{imagePath}/loader-small.gif";
-@massiveLoaderPath: "@{imagePath}/loader-medium.gif";
-
 /*-------------------
         Group
 --------------------*/

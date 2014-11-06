@@ -85,16 +85,44 @@
 }
 
 /*--------------------
-        Loading
+       Loading
 ---------------------*/
 
-.ui.loading.input > .icon {
-  background: url(@loadingImage) no-repeat 50% 50%;
+.ui.loading.loading.input > .icon:before {
+  position: absolute;
+  content: '';
+  top: 50%;
+  left: 50%;
+
+  margin: @loaderMargin;
+  width: @loaderSize;
+  height: @loaderSize;
+
+  border-radius: @circularRadius;
+  border: @loaderLineWidth solid @loaderFillColor;
 }
-.ui.loading.input > .icon:before,
-.ui.loading.input > .icon:after {
-  display: none;
+.ui.loading.loading.input > .icon:after {
+  position: absolute;
+  content: '';
+  top: 50%;
+  left: 50%;
+
+  margin: @loaderMargin;
+  width: @loaderSize;
+  height: @loaderSize;
+
+  animation: button-spin @loaderSpeed linear;
+  animation-iteration-count: infinite;
+
+  border-radius: @circularRadius;
+
+  border-color: @loaderLineColor transparent transparent;
+  border-style: solid;
+  border-width: @loaderLineWidth;
+
+  box-shadow: 0px 0px 0px 1px transparent;
 }
+
 
 /*--------------------
         Focus
@@ -236,7 +264,6 @@
         Labeled
 ---------------------*/
 
-
 /* Adjacent Label */
 .ui.labeled.input {
   display: table;
@@ -367,6 +394,14 @@
   border-left: none;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
+}
+
+/*--------------------
+       Inverted
+---------------------*/
+
+.ui.inverted.input input {
+  border: none;
 }
 
 /*--------------------
