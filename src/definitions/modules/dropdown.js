@@ -589,12 +589,7 @@ $.fn.dropdown = function(parameters) {
                 openingSubMenu = ($choice.find(selector.menu).size() > 0)
               ;
               if( !openingSubMenu ) {
-                if(event.type == 'touchstart') {
-                  $choice.one('click', callback);
-                }
-                else {
-                  callback();
-                }
+                callback();
               }
             }
 
