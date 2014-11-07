@@ -1,16 +1,14 @@
 # Semantic [![Build Status](https://travis-ci.org/Semantic-Org/Semantic-UI.svg?branch=master)](https://travis-ci.org/Semantic-Org/Semantic-UI?branch=master)
 Semantic is a UI Component library implemented using a set of specifications designed around natural language.
 
-Semantic UI is under constant development, so **be sure to check out our [release notes](https://github.com/Semantic-Org/Semantic-UI/blob/master/RELEASE%20NOTES.md) for recent changes**.
-
-> Community contributed plugins and ports for Wordpress, Angular, Dart, Knockout, Rails, and more can be found on the [Integration page](https://github.com/Semantic-Org/Semantic-UI/wiki/Integration).
-
 ### Project Status
 
 **Semantic ``1.0`` release is imminent**. If you are starting a project with Semantic UI, it is recommended to try ``1.0`` 
-out by the ``1.0beta`` branch available in [branch 1.0](https://github.com/Semantic-Org/Semantic-UI/tree/1.0)
+out by the ``1.0`` branch available [here](https://github.com/Semantic-Org/Semantic-UI/tree/1.0)
 
-Beta documentation are available at [http://beta.semantic-ui.com](http://beta.semantic-ui.com)
+Beta documentation are at [http://beta.semantic-ui.com](http://beta.semantic-ui.com)
+
+Community contributed plugins and ports for Wordpress, Angular, Dart, Knockout, Rails, and more can be found on the [Integration page](https://github.com/Semantic-Org/Semantic-UI/wiki/Integration).
 
 ## Translations
 
