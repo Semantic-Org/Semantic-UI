@@ -14286,27 +14286,27 @@ img.ui.bordered.image {
 ---------------------*/
 
 .ui.mini.input {
-  font-size: 0.8125em;
+  font-size: 0.8125rem;
 }
 
 .ui.small.input {
-  font-size: 0.875em;
+  font-size: 0.875rem;
 }
 
 .ui.input {
-  font-size: 1em;
+  font-size: 1rem;
 }
 
 .ui.large.input {
-  font-size: 1.125em;
+  font-size: 1.125rem;
 }
 
 .ui.big.input {
-  font-size: 1.25em;
+  font-size: 1.25rem;
 }
 
 .ui.huge.input {
-  font-size: 1.375em;
+  font-size: 1.375rem;
 }
 
 .ui.massive.input {
@@ -15854,7 +15854,7 @@ ul.ui.list,
 ol.ui.list,
 .ui.list {
   list-style-type: none;
-  margin: 0em;
+  margin: 1em 0em;
   padding: 0em 0em;
 }
 

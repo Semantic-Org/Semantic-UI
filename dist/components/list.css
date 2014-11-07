@@ -19,7 +19,7 @@ ul.ui.list,
 ol.ui.list,
 .ui.list {
   list-style-type: none;
-  margin: 0em;
+  margin: 1em 0em;
   padding: 0em 0em;
 }
 ul.ui.list:first-child,
