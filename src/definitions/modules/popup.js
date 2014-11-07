@@ -367,7 +367,6 @@ $.fn.popup = function(parameters) {
                   duration   : settings.duration,
                   onComplete : function() {
                     module.reset();
-                    console.log(callback, $.isFunction(callback), typeof callback);
                     callback();
                   }
                 })
