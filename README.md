@@ -7,15 +7,10 @@ Semantic UI is under constant development, so **be sure to check out our [releas
 
 ### Project Status
 
-**Semantic is being reworked for a ``1.0`` release**
+**Semantic ``1.0`` release is imminent**. If you are starting a project with Semantic UI, it is recommended to try ``1.0`` 
+out by the ``1.0beta`` branch available in [branch 1.0](https://github.com/Semantic-Org/Semantic-UI/tree/1.0)
 
-Semantic may still be officially 'pre-release', but is already used in production in large sites like [Quirky](http://www.quirky.com) and [The New Republic](http://www.newrepublic.com)
-
-Although the pre-release branch ``0.x.x`` is actively being maintained, most important features like better theming support, and new components will land in ``1.0``.
-
-Beta documentation are available at [http://beta.semantic-ui.com](http://beta.semantic-ui.com) for testers and early adopters. Beta channel is currently available in [branch 1.0](https://github.com/Semantic-Org/Semantic-UI/tree/1.0)
-
-Check out [this GitHub Issue thread](https://github.com/Semantic-Org/Semantic-UI/issues/691) for progress updates on 1.0 development.
+Beta documentation are available at [http://beta.semantic-ui.com](http://beta.semantic-ui.com)
 
 ## Translations
 
