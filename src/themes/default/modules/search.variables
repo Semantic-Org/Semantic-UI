@@ -28,7 +28,7 @@
 @resultsBoxShadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.2);
 
 /* Result */
-@resultFontSize: 0.9em;
+@resultFontSize: 0.9285em;
 @resultVerticalPadding: 0.5em;
 @resultHorizontalPadding: 1em;
 @resultTextColor: @textColor;
@@ -44,9 +44,15 @@
 
 /* Result Content */
 @resultTitleFont: @headerFont;
-@resultTitleFontWeight: normal;
+@resultTitleFontWeight: bold;
+@resultTitleFontSize: 1.1em;
 @resultTitleColor: @darkTextColor;
-@resultDescriptionColor: @textColor;
+
+/* Description */
+@resultDescriptionDistance: 0.25em;
+@resultDescriptionColor: @lightTextColor;
+
+/* Price */
 @resultPriceFloat: right;
 @resultPriceColor: @green;
 
@@ -61,12 +67,12 @@
 @messageDescriptionColor: @textColor;
 
 /* All Results Link */
-@allResultsBorder: 1px solid rgba(0, 0, 0, 0.1);
-@allResultsBackground: #F0F0F0;
-@allResultsHeight: 2em;
-@allResultsColor: @textColor;
-@allResultsFontWeight: bold;
-@allResultsAlign: center;
+@actionBorder: 1px solid @borderColor;
+@actionBackground: #F0F0F0;
+@actionHeight: 2em;
+@actionColor: @textColor;
+@actionFontWeight: bold;
+@actionAlign: center;
 
 
 /*******************************
@@ -74,20 +80,23 @@
 *******************************/
 
 /* Hover */
-@resultHoverBackground: #FAFAFA;
-@allResultsHoverBackground: #FAFAFA;
+@resultHoverBackground: @offWhite;
+@actionHoverBackground: @offWhite;
 
 /* Loading */
-@loaderPath: "@{imagePath}/loader-mini.gif";
+@loaderSize: 1.2857em;
+@loaderOffset: -(@loaderSize / 2);
+@loaderMargin: @loaderOffset 0em 0em @loaderOffset;
+@invertedLoaderFillColor: rgba(0, 0, 0, 0.15);
 
 /* Active Category */
-@categoryActiveBackground: #F1F1F1;
+@categoryActiveBackground: @darkWhite;
 @categoryNameActiveColor: @textColor;
 
 /* Active Result */
 @resultActiveBorderLeft: transparent;
-@resultActiveBackground: #F0F0F0;
-@resultActiveBoxShadow: 2px 0px 2px 0px rgba(0, 0, 0, 0.2);
+@resultActiveBackground: @darkWhite;
+@resultActiveBoxShadow: 3px 0px 3px 0px @borderColor;
 @resultActiveTitleColor: @darkTextColor;
 @resultActiveDescriptionColor: @darkTextColor;
 
@@ -97,21 +106,28 @@
 *******************************/
 
 /* Category */
-@categoryBackground: #F0F0F0;
-@categoryBoxShadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1);
-@categoryResultTransition: background 0.2s ease, border-color 0.2s ease;
+@categoryBackground: @darkWhite;
+@categoryBoxShadow: none;
+@categoryDivider: 1px solid @borderColor;
+@categoryTransition:
+  background 0.2s ease,
+  border-color 0.2s ease
+;
 
+@categoryResultBackground: @white;
+@categoryResultLeftBorder: 1px solid @borderColor;
+@categoryResultDivider: 1px solid @borderColor;
+@categoryResultLastDivider: none;
+@categoryResultTransition: @categoryTransition;
+
+@categoryNameBackground: @darkWhite;
 @categoryNameFont: @pageFont;
 @categoryNameFontSize: 0.9em;
 @categoryNameFloat: left;
-@categoryNamePadding: 0.4em 0em 0em 1em;
+@categoryNamePadding: 0.4em 1em;
 @categoryNameFontWeight: bold;
 @categoryNameColor: @lightTextColor;
-
-@categoryResultBackground: #FFFFFF;
 @categoryNameWidth: 100px;
-@categoryResultLeftBorder: 1px solid rgba(0, 0, 0, 0.1);
-@categoryResultTopBorder: 1px solid rgba(0, 0, 0, 0.1);
 
 /* Sizes */
 @medium: 1em;
