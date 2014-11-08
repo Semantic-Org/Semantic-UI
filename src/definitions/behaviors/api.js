@@ -172,7 +172,7 @@ $.api = $.fn.api = function(parameters) {
           ajaxSettings = $.extend(true, {}, settings, {
             type       : settings.method || settings.type,
             data       : data,
-            url        : url,
+            url        : settings.base + url,
             beforeSend : settings.beforeXHR,
             success    : function() {},
             failure    : function() {},
@@ -767,6 +767,7 @@ $.api.settings = {
   // templating
   action          : false,
   url             : false,
+  base            : '',
 
   // data
   urlData         : {},

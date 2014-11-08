@@ -2,7 +2,23 @@
             Search
 *******************************/
 
+/* Search Prompt */
+@promptFontSize: 1em;
+@promptVerticalPadding: 0.8em;
+@promptHorizontalPadding: 1em;
+@promptLineHeight: 1.2;
+@promptPadding: (@promptVerticalPadding + ((1em - @promptLineHeight) / 2)) @promptHorizontalPadding;
+@promptBackground: #FFFFFF;
+@promptBorder: 1px solid @borderColor;
 @promptBorderRadius: @circularRadius;
+@promptColor: @textColor;
+@promptTransition:
+  background-color 0.2s ease,
+  color 0.2s ease,
+  box-shadow 0.2s ease,
+  border-color 0.2s ease
+;
+@promptBoxShadow: 0em 0em 0em 0em transparent inset;
 
 /* Result Box */
 @resultsBackground: #FFFFFF;

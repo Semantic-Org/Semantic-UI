@@ -70,6 +70,7 @@ $.fn.search = function(parameters) {
             .on('keydown' + eventNamespace, module.handleKeyboard)
           ;
           if(settings.automatic) {
+            console.log($prompt);
             $prompt
               .on(inputEvent + eventNamespace, module.search.throttle)
             ;
@@ -228,7 +229,7 @@ $.fn.search = function(parameters) {
             ;
             clearTimeout(module.timer);
             if(numCharacters >= settings.minCharacters)  {
-              module.timer = setTimeout(module.search.query, settings.searchThrottle);
+              module.timer = setTimeout(module.search.query, settings.searchDelay);
             }
             else {
               module.results.hide();
@@ -361,12 +362,12 @@ $.fn.search = function(parameters) {
               if(settings.maxResults > 0) {
                 response.results = $.makeArray(response.results).slice(0, settings.maxResults);
               }
-                if($.isFunction(template)) {
-                  html = template(response);
-                }
-                else {
-                  module.error(error.noTemplate, false);
-                }
+              if($.isFunction(template)) {
+                html = template(response);
+              }
+              else {
+                module.error(error.noTemplate, false);
+              }
             }
             else {
               html = module.message(error.noResults, 'empty');
@@ -638,6 +639,27 @@ $.fn.search.settings = {
   verbose        : true,
   performance    : true,
 
+  // api config
+  apiSettings    : false,
+  type           : 'simple',
+  minCharacters  : 2,
+
+  source         : false,
+  searchFields   : [
+    'title',
+    'description'
+  ],
+
+  automatic      : 'true',
+  hideDelay      : 300,
+  searchDelay    : 300,
+  maxResults     : 7,
+  cache          : true,
+
+  transition     : 'scale',
+  duration       : 300,
+  easing         : 'easeOutExpo',
+
   // onSelect default action is defined in module
   onSelect       : 'default',
   onResultsAdd   : 'default',
@@ -648,27 +670,6 @@ $.fn.search.settings = {
   onResultsOpen  : function(){},
   onResultsClose : function(){},
 
-  source         : false,
-
-  automatic      : 'true',
-  type           : 'simple',
-  hideDelay      : 300,
-  minCharacters  : 3,
-  searchThrottle : 300,
-  maxResults     : 7,
-  cache          : true,
-
-  searchFields    : [
-    'title',
-    'description'
-  ],
-
-  transition : 'scale',
-  duration   : 300,
-  easing     : 'easeOutExpo',
-
-  // api config
-  apiSettings: false,
 
   className: {
     active  : 'active',
@@ -739,7 +740,7 @@ $.fn.search.settings = {
       }
       return html;
     },
-    categories: function(response) {
+    category: function(response) {
       var
         html = '',
         escape = $.fn.search.settings.templates.escape
