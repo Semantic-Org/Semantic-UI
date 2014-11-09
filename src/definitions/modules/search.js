@@ -296,7 +296,7 @@ $.fn.search = function(parameters) {
                   if( searchRegExp.test( content[field] ) ) {
                     results.push(content);
                   }
-                  else if( fullTextRegExp.test( content[field] ) ) {
+                  else if( settings.searchFullText && fullTextRegExp.test( content[field] ) ) {
                     fullTextResults.push(content);
                   }
                 }
@@ -665,7 +665,7 @@ $.fn.search.settings = {
 
   // api config
   apiSettings    : false,
-  type           : 'simple',
+  type           : 'standard',
   minCharacters  : 1,
 
   source         : false,
@@ -673,10 +673,11 @@ $.fn.search.settings = {
     'title',
     'description'
   ],
+  searchFullText : true,
 
   automatic      : 'true',
   hideDelay      : 0,
-  searchDelay    : 300,
+  searchDelay    : 200,
   maxResults     : 7,
   cache          : true,
 
@@ -693,7 +694,6 @@ $.fn.search.settings = {
 
   onResultsOpen  : function(){},
   onResultsClose : function(){},
-
 
   className: {
     active  : 'active',
@@ -824,7 +824,7 @@ $.fn.search.settings = {
       }
       return false;
     },
-    simple: function(response) {
+    standard: function(response) {
       var
         html = ''
       ;
@@ -834,6 +834,9 @@ $.fn.search.settings = {
         $.each(response.results, function(index, result) {
           if(result.url) {
             html  += '<a class="result" href="' + result.url + '">';
+          }
+          else {
+            html  += '<a class="result">';
           }
           if(result.image !== undefined) {
             html += ''
@@ -855,9 +858,7 @@ $.fn.search.settings = {
           html  += ''
             + '</div>'
           ;
-          if(results.url) {
-            html += '</a>';
-          }
+          html += '</a>';
         });
 
         if(response.resultPage) {

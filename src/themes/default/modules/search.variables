@@ -28,7 +28,7 @@
 @resultsBoxShadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.2);
 
 /* Result */
-@resultFontSize: 0.9285em;
+@resultFontSize: 1em;
 @resultVerticalPadding: 0.5em;
 @resultHorizontalPadding: 1em;
 @resultTextColor: @textColor;
@@ -45,11 +45,12 @@
 /* Result Content */
 @resultTitleFont: @headerFont;
 @resultTitleFontWeight: bold;
-@resultTitleFontSize: 1.1em;
+@resultTitleFontSize: 1em;
 @resultTitleColor: @darkTextColor;
 
 /* Description */
-@resultDescriptionDistance: 0.25em;
+@resultDescriptionFontSize: 0.9285em;
+@resultDescriptionDistance: 0em;
 @resultDescriptionColor: @lightTextColor;
 
 /* Price */
@@ -59,11 +60,11 @@
 /* Special Message */
 @messageVerticalPadding: 1em;
 @messageHorizontalPadding: 1em;
-@messageHeaderFontSize: 1.2em;
+@messageHeaderFontSize: 1.1428em;
 @messageHeaderFontWeight: bold;
 @messageHeaderColor: @textColor;
 @messageDescriptionDistance: 0.25rem;
-@messageDescriptionFontSize: 1rem;
+@messageDescriptionFontSize: 1em;
 @messageDescriptionColor: @textColor;
 
 /* All Results Link */
@@ -122,7 +123,7 @@
 
 @categoryNameBackground: @darkWhite;
 @categoryNameFont: @pageFont;
-@categoryNameFontSize: 0.9em;
+@categoryNameFontSize: 1em;
 @categoryNameFloat: left;
 @categoryNamePadding: 0.4em 1em;
 @categoryNameFontWeight: bold;

@@ -87,9 +87,10 @@
 ---------------*/
 
 .ui.search > .results .result {
-  font-family: @pageFont;
   cursor: pointer;
+  display: block;
   overflow: hidden;
+  font-family: @pageFont;
   font-size: @resultFontSize;
   padding: @resultVerticalPadding @resultHorizontalPadding;
   color: @resultTextColor;
@@ -130,6 +131,7 @@
 }
 .ui.search > .results .result .description {
   margin-top: @resultDescriptionDistance;
+  font-size: @resultDescriptionFontSize;
   color: @resultDescriptionColor;
 }
 .ui.search > .results .result .price {
@@ -300,6 +302,7 @@
 .ui.search > .results .category > .name {
   background: @categoryNameBackground;
   font-family: @categoryNameFont;
+  font-size: @categoryNameFontSize;
   width: @categoryNameWidth;
   float: @categoryNameFontSize;
   float: @categoryNameFloat;
