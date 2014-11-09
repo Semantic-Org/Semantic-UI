@@ -80,7 +80,7 @@
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   background: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05)) #ffffff;
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.05)) #ffffff;
-  margin: 0em;
+  margin: 1em 0em 1rem;
   padding: 1.2rem 2rem;
   box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
   font-size: 1.6em;

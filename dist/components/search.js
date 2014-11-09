@@ -111,7 +111,9 @@ $.fn.search = function(parameters) {
             ;
             clearTimeout(module.timer);
             module.search.throttle();
-            module.results.show();
+            if(module.has.minimum())  {
+              module.results.show();
+            }
           },
           blur: function() {
             module.search.cancel();
@@ -211,6 +213,15 @@ $.fn.search = function(parameters) {
             }
           }
         },
+        has: {
+          minimum: function() {
+            var
+              searchTerm    = $prompt.val(),
+              numCharacters = searchTerm.length
+            ;
+            return (numCharacters >= settings.minCharacters);
+          }
+        },
         search: {
           cancel: function() {
             var
@@ -222,13 +233,9 @@ $.fn.search = function(parameters) {
             }
           },
           throttle: function() {
-            var
-              searchTerm    = $prompt.val(),
-              numCharacters = searchTerm.length
-            ;
             clearTimeout(module.timer);
-            if(numCharacters >= settings.minCharacters)  {
-              module.timer = setTimeout(module.search.query, settings.searchThrottle);
+            if(module.has.minimum())  {
+              module.timer = setTimeout(module.search.query, settings.searchDelay);
             }
             else {
               module.results.hide();
@@ -289,7 +296,7 @@ $.fn.search = function(parameters) {
                   if( searchRegExp.test( content[field] ) ) {
                     results.push(content);
                   }
-                  else if( fullTextRegExp.test( content[field] ) ) {
+                  else if( settings.searchFullText && fullTextRegExp.test( content[field] ) ) {
                     fullTextResults.push(content);
                   }
                 }
@@ -307,8 +314,8 @@ $.fn.search = function(parameters) {
           remote: function(searchTerm) {
             var
               apiSettings = {
-                stateContext  : $module,
-                urlData: {
+                stateContext : $module,
+                urlData      : {
                   query: searchTerm
                 },
                 onSuccess : function(response) {
@@ -316,7 +323,7 @@ $.fn.search = function(parameters) {
                   module.search.cache.write(searchTerm, searchHTML);
                   module.results.add(searchHTML);
                 },
-                failure      : module.error
+                onFailure : module.error
               },
               searchHTML
             ;
@@ -359,14 +366,17 @@ $.fn.search = function(parameters) {
             ;
             if(($.isPlainObject(response.results) && !$.isEmptyObject(response.results)) || ($.isArray(response.results) && response.results.length > 0) ) {
               if(settings.maxResults > 0) {
-                response.results = $.makeArray(response.results).slice(0, settings.maxResults);
+                response.results = $.isArray(response.results)
+                  ? response.results.slice(0, settings.maxResults)
+                  : response.results
+                ;
               }
-                if($.isFunction(template)) {
-                  html = template(response);
-                }
-                else {
-                  module.error(error.noTemplate, false);
-                }
+              if($.isFunction(template)) {
+                html = template(response);
+              }
+              else {
+                module.error(error.noTemplate, false);
+              }
             }
             else {
               html = module.message(error.noResults, 'empty');
@@ -384,10 +394,14 @@ $.fn.search = function(parameters) {
           },
           show: function() {
             if( ($results.filter(':visible').size() === 0) && ($prompt.filter(':focus').size() > 0) && $results.html() !== '') {
-              if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
+              if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported') && !$results.transition('is inward')) {
                 module.debug('Showing results with css animations');
                 $results
-                  .transition(settings.transition + ' in', settings.duration)
+                  .transition({
+                    animation  : settings.transition + ' in',
+                    duration   : settings.duration,
+                    queue      : true
+                  })
                 ;
               }
               else {
@@ -402,10 +416,14 @@ $.fn.search = function(parameters) {
           },
           hide: function() {
             if($results.filter(':visible').size() > 0) {
-              if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
+              if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported') && !$results.transition('is outward')) {
                 module.debug('Hiding results with css animations');
                 $results
-                  .transition(settings.transition + ' out', settings.duration)
+                  .transition({
+                    animation  : settings.transition + ' out',
+                    duration   : settings.duration,
+                    queue      : true
+                  })
                 ;
               }
               else {
@@ -428,10 +446,17 @@ $.fn.search = function(parameters) {
             if(settings.onSelect == 'default' || $.proxy(settings.onSelect, this)(event) == 'default') {
               var
                 $link  = $result.find('a[href]').eq(0),
+                $title = $result.find(selector.title).eq(0),
                 href   = $link.attr('href') || false,
-                target = $link.attr('target') || false
+                target = $link.attr('target') || false,
+                name   = ($title.size() > 0)
+                  ? $title.text()
+                  : false
               ;
               module.results.hide();
+              if(name) {
+                $prompt.val(name);
+              }
               if(href) {
                 if(target == '_blank' || event.ctrlKey) {
                   window.open(href);
@@ -638,6 +663,28 @@ $.fn.search.settings = {
   verbose        : true,
   performance    : true,
 
+  // api config
+  apiSettings    : false,
+  type           : 'standard',
+  minCharacters  : 1,
+
+  source         : false,
+  searchFields   : [
+    'title',
+    'description'
+  ],
+  searchFullText : true,
+
+  automatic      : 'true',
+  hideDelay      : 0,
+  searchDelay    : 200,
+  maxResults     : 7,
+  cache          : true,
+
+  transition     : 'scale',
+  duration       : 300,
+  easing         : 'easeOutExpo',
+
   // onSelect default action is defined in module
   onSelect       : 'default',
   onResultsAdd   : 'default',
@@ -647,28 +694,6 @@ $.fn.search.settings = {
 
   onResultsOpen  : function(){},
   onResultsClose : function(){},
-
-  source         : false,
-
-  automatic      : 'true',
-  type           : 'simple',
-  hideDelay      : 300,
-  minCharacters  : 3,
-  searchThrottle : 300,
-  maxResults     : 7,
-  cache          : true,
-
-  searchFields    : [
-    'title',
-    'description'
-  ],
-
-  transition : 'scale',
-  duration   : 300,
-  easing     : 'easeOutExpo',
-
-  // api config
-  apiSettings: false,
 
   className: {
     active  : 'active',
@@ -692,7 +717,8 @@ $.fn.search.settings = {
     searchButton : '.search.button',
     results      : '.results',
     category     : '.category',
-    result       : '.result'
+    result       : '.result',
+    title        : '.title, .name'
   },
 
   templates: {
@@ -739,7 +765,7 @@ $.fn.search.settings = {
       }
       return html;
     },
-    categories: function(response) {
+    category: function(response) {
       var
         html = '',
         escape = $.fn.search.settings.templates.escape
@@ -755,7 +781,9 @@ $.fn.search.settings = {
             // each item inside category
             $.each(category.results, function(index, result) {
               html  += '<div class="result">';
-              html  += '<a href="' + result.url + '"></a>';
+              if(result.url) {
+                html  += '<a href="' + result.url + '"></a>';
+              }
               if(result.image !== undefined) {
                 result.image = escape(result.image);
                 html += ''
@@ -786,17 +814,17 @@ $.fn.search.settings = {
             ;
           }
         });
-        if(response.resultPage) {
+        if(response.action) {
           html += ''
-          + '<a href="' + response.resultPage.url + '" class="all">'
-          +   response.resultPage.text
+          + '<a href="' + response.action.url + '" class="action">'
+          +   response.action.text
           + '</a>';
         }
         return html;
       }
       return false;
     },
-    simple: function(response) {
+    standard: function(response) {
       var
         html = ''
       ;
@@ -804,7 +832,12 @@ $.fn.search.settings = {
 
         // each result
         $.each(response.results, function(index, result) {
-          html  += '<a class="result" href="' + result.url + '">';
+          if(result.url) {
+            html  += '<a class="result" href="' + result.url + '">';
+          }
+          else {
+            html  += '<a class="result">';
+          }
           if(result.image !== undefined) {
             html += ''
               + '<div class="image">'
@@ -824,8 +857,8 @@ $.fn.search.settings = {
           }
           html  += ''
             + '</div>'
-            + '</a>'
           ;
+          html += '</a>';
         });
 
         if(response.resultPage) {

@@ -90,14 +90,14 @@
   cursor: pointer;
   display: block;
   overflow: hidden;
-  font-family: @pageFont;
   font-size: @resultFontSize;
   padding: @resultVerticalPadding @resultHorizontalPadding;
   color: @resultTextColor;
   line-height: @resultLineHeight;
+  border-bottom: @resultDivider;
 }
-.ui.search > .results .result:first-child {
-  border-top: none;
+.ui.search > .results .result:last-child {
+  border-bottom: @resultLastDivider;
 }
 
 /* Image */
@@ -163,13 +163,11 @@
   display: block;
   border-top: @actionBorder;
   background: @actionBackground;
-  height: @actionHeight;
-  line-height: @actionHeight;
+  padding: @actionPadding;
   color: @actionColor;
   font-weight: @actionFontWeight;
   text-align: @actionAlign;
 }
-
 
 
 /*******************************
@@ -221,10 +219,10 @@
 ---------------*/
 
 .ui.search > .results .result:hover,
-.ui.search > .results .category .result:hover {
+.ui.category.search > .results .category .result:hover {
   background: @resultHoverBackground;
 }
-.ui.search .all:hover {
+.ui.search .action:hover {
   background: @actionHoverBackground;
 }
 
@@ -240,7 +238,7 @@
 }
 
 .ui.search > .results .result.active,
-.ui.search > .results .category .result.active {
+.ui.category.search > .results .category .result.active {
   position: relative;
   border-left-color: @resultActiveBorderLeft;
   background: @resultActiveBackground;
@@ -257,6 +255,53 @@
            Types
 *******************************/
 
+/*--------------
+    Categories
+---------------*/
+
+.ui.category.search .results {
+  width: @categoryResultsWidth;
+}
+
+/* Category */
+.ui.category.search > .results .category {
+  background: @categoryBackground;
+  box-shadow: @categoryBoxShadow;
+  border-bottom: @categoryDivider;
+  transition: @categoryTransition;
+}
+.ui.category.search > .results .category:last-child {
+  border-bottom: none;
+}
+
+/* Category Result */
+.ui.category.search > .results .category .result {
+  background: @categoryResultBackground;
+  margin-left: @categoryNameWidth;
+  border-left: @categoryResultLeftBorder;
+  border-bottom: @categoryResultDivider;
+  transition: @categoryResultTransition;
+}
+.ui.category.search > .results .category .result:last-child {
+  border-bottom: @categoryResultLastDivider;
+}
+
+/* Category Result Name */
+.ui.category.search > .results .category > .name {
+  width: @categoryNameWidth;
+  background: @categoryNameBackground;
+  font-family: @categoryNameFont;
+  font-size: @categoryNameFontSize;
+  float: @categoryNameFontSize;
+  float: @categoryNameFloat;
+  padding: @categoryNamePadding;
+  font-weight: @categoryNameFontWeight;
+  color: @categoryNameColor;
+}
+
+/*******************************
+           Variations
+*******************************/
 
 /*-------------------
      Left / Right
@@ -272,53 +317,21 @@
 }
 
 /*--------------
-    Categories
+    Fluid
 ---------------*/
 
-/* Category */
-.ui.search > .results .category {
-  background: @categoryBackground;
-  box-shadow: @categoryBoxShadow;
-  border-bottom: @categoryDivider;
-  transition: @categoryTransition;
-}
-.ui.search > .results .category:last-child {
-  border-bottom: none;
+.ui.fluid.search .results {
+  width: 100%;
 }
 
-/* Category Result */
-.ui.search > .results .category .result {
-  background: @categoryResultBackground;
-  margin-left: @categoryNameWidth;
-  border-left: @categoryResultLeftBorder;
-  border-bottom: @categoryResultDivider;
-  transition: @categoryResultTransition;
-}
-.ui.search > .results .category .result:last-child {
-  border-bottom: @categoryResultLastDivider;
-}
 
-/* Category Result Name */
-.ui.search > .results .category > .name {
-  background: @categoryNameBackground;
-  font-family: @categoryNameFont;
-  font-size: @categoryNameFontSize;
-  width: @categoryNameWidth;
-  float: @categoryNameFontSize;
-  float: @categoryNameFloat;
-  padding: @categoryNamePadding;
-  font-weight: @categoryNameFontWeight;
-  color: @categoryNameColor;
-}
-
-/*******************************
-           Variations
-*******************************/
+/*--------------
+      Sizes
+---------------*/
 
 .ui.search {
   font-size: @medium;
 }
-
 .ui.large.search {
   font-size: @large;
 }

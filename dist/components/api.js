@@ -172,7 +172,7 @@ $.api = $.fn.api = function(parameters) {
           ajaxSettings = $.extend(true, {}, settings, {
             type       : settings.method || settings.type,
             data       : data,
-            url        : url,
+            url        : settings.base + url,
             beforeSend : settings.beforeXHR,
             success    : function() {},
             failure    : function() {},
@@ -466,17 +466,17 @@ $.api = $.fn.api = function(parameters) {
             if(runSettings) {
               if(runSettings.success !== undefined) {
                 module.debug('Legacy success callback detected', runSettings);
-                module.error(error.legacyParameters);
+                module.error(error.legacyParameters, runSettings.success);
                 runSettings.onSuccess = runSettings.success;
               }
               if(runSettings.failure !== undefined) {
                 module.debug('Legacy failure callback detected', runSettings);
-                module.error(error.legacyParameters);
+                module.error(error.legacyParameters, runSettings.failure);
                 runSettings.onFailure = runSettings.failure;
               }
               if(runSettings.complete !== undefined) {
                 module.debug('Legacy complete callback detected', runSettings);
-                module.error(error.legacyParameters);
+                module.error(error.legacyParameters, runSettings.complete);
                 runSettings.onComplete = runSettings.complete;
               }
             }
@@ -767,6 +767,7 @@ $.api.settings = {
   // templating
   action          : false,
   url             : false,
+  base            : '',
 
   // data
   urlData         : {},
