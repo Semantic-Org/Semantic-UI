@@ -63,21 +63,22 @@ $.fn.search = function(parameters) {
                 ? 'propertychange'
                 : 'keyup'
           ;
-          // attach events
-          $prompt
-            .on('focus' + eventNamespace, module.event.focus)
-            .on('blur' + eventNamespace, module.event.blur)
-            .on('keydown' + eventNamespace, module.handleKeyboard)
-          ;
           if(settings.automatic) {
             $prompt
               .on(inputEvent + eventNamespace, module.search.throttle)
             ;
           }
+          $prompt
+            .on('focus' + eventNamespace, module.event.focus)
+            .on('blur' + eventNamespace, module.event.blur)
+            .on('keydown' + eventNamespace, module.handleKeyboard)
+          ;
           $searchButton
             .on('click' + eventNamespace, module.search.query)
           ;
           $results
+            .on('mousedown' + eventNamespace, module.event.mousedown)
+            .on('mouseup' + eventNamespace, module.event.mouseup)
             .on('click' + eventNamespace, selector.result, module.results.select)
           ;
           module.instantiate();
@@ -115,12 +116,20 @@ $.fn.search = function(parameters) {
               module.results.show();
             }
           },
-          blur: function() {
+          mousedown: function() {
+            module.resultsClicked = true;
+          },
+          mouseup: function() {
+            module.resultsClicked = false;
+          },
+          blur: function(event) {
             module.search.cancel();
             $module
               .removeClass(className.focus)
             ;
-            module.timer = setTimeout(module.results.hide, settings.hideDelay);
+            if(!module.resultsClicked) {
+              module.timer = setTimeout(module.results.hide, settings.hideDelay);
+            }
           }
         },
         handleKeyboard: function(event) {
@@ -677,7 +686,7 @@ $.fn.search.settings = {
 
   automatic      : 'true',
   hideDelay      : 0,
-  searchDelay    : 200,
+  searchDelay    : 300,
   maxResults     : 7,
   cache          : true,
 
@@ -861,10 +870,10 @@ $.fn.search.settings = {
           html += '</a>';
         });
 
-        if(response.resultPage) {
+        if(response.action) {
           html += ''
-          + '<a href="' + response.resultPage.url + '" class="all">'
-          +   response.resultPage.text
+          + '<a href="' + response.action.url + '" class="action">'
+          +   response.action.text
           + '</a>';
         }
         return html;

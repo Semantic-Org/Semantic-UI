@@ -21,7 +21,7 @@
 @promptBoxShadow: 0em 0em 0em 0em transparent inset;
 
 /* Result Box */
-@resultsWidth: 190px;
+@resultsWidth: 16em;
 @resultsBackground: #FFFFFF;
 @resultsDistance: 0.5em;
 @resultsBorderRadius: 0.25em;
@@ -102,6 +102,7 @@
 @resultActiveBoxShadow: 3px 0px 3px 0px @borderColor;
 @resultActiveTitleColor: @darkTextColor;
 @resultActiveDescriptionColor: @darkTextColor;
+@resultsZIndex: 998;
 
 
 /*******************************
@@ -117,7 +118,7 @@
   border-color 0.2s ease
 ;
 
-@categoryResultsWidth: 380px;
+@categoryResultsWidth: 28em;
 
 @categoryResultBackground: @white;
 @categoryResultLeftBorder: 1px solid @borderColor;

@@ -29,7 +29,7 @@
   color: rgba(0, 0, 0, 0.8);
 }
 .ui.header .sub.header {
-  font-size: 1.1rem;
+  font-size: 1.0714rem;
   font-weight: normal;
   margin: 0em;
   padding: 0em;
@@ -410,11 +410,11 @@ a.ui.inverted.yellow.header:hover {
 --------------------*/
 
 .ui.dividing.header {
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.25rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 .ui.dividing.header .sub.header {
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.25rem;
 }
 .ui.dividing.header .icon {
   margin-bottom: 0.2em;
@@ -485,19 +485,19 @@ a.ui.inverted.yellow.header:hover {
 
 /* Attached Sizes */
 .ui.tiny.attached.header {
-  font-size: 0.875em;
+  font-size: 0.8571em;
 }
 .ui.small.attached.header {
-  font-size: 0.9em;
+  font-size: 0.9285em;
 }
 .ui.attached.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
   font-size: 1em;
 }
 .ui.large.attached.header {
-  font-size: 1.1em;
+  font-size: 1.0714em;
 }
 .ui.huge.attached.header {
-  font-size: 1.2em;
+  font-size: 1.1428em;
 }
 
 /*-------------------

@@ -74,6 +74,7 @@
 - **Transition** - Transitions now will handle multiple display types more consistently
 - **Transition** - Transition now has a new ``start`` callback, before animation starts
 - **Transition** - Complete callback now does not occur if animation is interrupted before completing
+- **Transition** - You can now specify the final displayType of a transitioning element in metadata or settings (not just automatically detected)
 
 ** Bug Fixes **
 - See Closed GitHub Issues

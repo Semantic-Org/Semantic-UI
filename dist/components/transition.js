@@ -440,6 +440,9 @@ $.fn.transition = function() {
             return $.fn.transition.settings;
           },
           displayType: function() {
+            if(settings.displayType) {
+              return settings.displayType;
+            }
             if($module.data(metadata.displayType) === undefined) {
               // create fake element to determine display state
               module.can.transition(true);
@@ -815,6 +818,9 @@ $.fn.transition.settings = {
 
   // whether EXACT animation can occur twice in a row
   allowRepeats : false,
+
+  // Override final display type on visible
+  displayType : false,
 
   // animation duration
   animation  : 'fade',

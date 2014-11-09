@@ -21,7 +21,7 @@
   margin: 1em 0em;
   background: #efefef;
   padding: 1em 1.5em;
-  line-height: 1.33;
+  line-height: 1.3;
   color: rgba(0, 0, 0, 0.8);
   -webkit-transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
           transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
@@ -108,7 +108,7 @@
   cursor: pointer;
   position: absolute;
   margin: 0em;
-  top: 1.165em;
+  top: 1.15em;
   right: 0.5em;
   opacity: 0.7;
   -webkit-transition: opacity 0.1s linear
