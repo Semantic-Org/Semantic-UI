@@ -36,7 +36,7 @@
 @huge: 2em;
 
 /* Sub Header */
-@subHeaderFontSize: 1.1rem;
+@subHeaderFontSize: 1.0714rem;
 @subHeaderLineHeight: 1.2em;
 @subHeaderColor: rgba(0, 0, 0, 0.5);
 
@@ -78,8 +78,8 @@
 @dividedBorder: 1px solid rgba(0, 0, 0, 0.1);
 @dividedColoredBorderWidth: 2px;
 
-@dividedBorderPadding: 0.5rem;
-@dividedSubHeaderPadding: 0.5rem;
+@dividedBorderPadding: 0.25rem;
+@dividedSubHeaderPadding: 0.25rem;
 @dividedIconPadding: 0.2em;
 
 /* Block */
@@ -116,11 +116,11 @@
 @attachedBackground: @white;
 @attachedBorderRadius: @blockBorderRadius;
 
-@tinyAttached: 0.875em;
-@smallAttached: 0.9em;
+@tinyAttached: 0.8571em;
+@smallAttached: 0.9285em;
 @mediumAttached: 1em;
-@largeAttached: 1.1em;
-@hugeAttached: 1.2em;
+@largeAttached: 1.0714em;
+@hugeAttached: 1.1428em;
 
 /* Inverted */
 @invertedColor: @white;
