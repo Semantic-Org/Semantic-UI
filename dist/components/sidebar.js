@@ -104,7 +104,7 @@ $.fn.sidebar = function(parameters) {
 
         event: {
           clickaway: function(event) {
-            if( $module.find(event.target).size() === 0 && $(event.target).filter($module).size() === 0 ) {
+            if( $(event.target).closest(selector.sidebar).size() === 0 ) {
               module.verbose('User clicked on dimmed page');
               module.hide();
             }
@@ -121,7 +121,7 @@ $.fn.sidebar = function(parameters) {
             }
           },
           scroll: function(event) {
-            if( $module.find(event.target).size() === 0 && $(event.target).filter($module).size() === 0 ) {
+            if( $(event.target).closest(selector.sidebar).size() === 0 ) {
               event.preventDefault();
             }
           }
@@ -174,6 +174,13 @@ $.fn.sidebar = function(parameters) {
                 + '   -webkit-transform: translate3d(-'+ width + 'px, 0, 0);'
                 + '           transform: translate3d(-'+ width + 'px, 0, 0);'
                 + ' }'
+                + ' .ui.visible.left.sidebar ~ .ui.visible.right.sidebar ~ .fixed,'
+                + ' .ui.visible.left.sidebar ~ .ui.visible.right.sidebar ~ .pusher,'
+                + ' .ui.visible.right.sidebar ~ .ui.visible.left.sidebar ~ .fixed,'
+                + ' .ui.visible.right.sidebar ~ .ui.visible.left.sidebar ~ .pusher {'
+                + '   -webkit-transform: translate3d(0px, 0, 0);'
+                + '           transform: translate3d(0px, 0, 0);'
+                + ' }'
                 + ' .ui.visible.top.sidebar ~ .fixed,'
                 + ' .ui.visible.top.sidebar ~ .pusher {'
                 + '   -webkit-transform: translate3d(0, ' + height + 'px, 0);'
@@ -209,8 +216,9 @@ $.fn.sidebar = function(parameters) {
 
         setup: {
           layout: function() {
-            if( $context.find(selector.pusher).size() === 0 ) {
+            if( $context.children(selector.pusher).size() === 0 ) {
               module.debug('Adding wrapper element for sidebar');
+              module.error(error.pusher);
               $pusher = $('<div class="pusher" />');
               $context
                 .children()
@@ -220,8 +228,9 @@ $.fn.sidebar = function(parameters) {
               ;
               module.refresh();
             }
-            if($module.nextAll(selector.pusher)[0] !== $pusher[0]) {
+            if($module.nextAll(selector.pusher).size() == 0 || $module.nextAll(selector.pusher)[0] !== $pusher[0]) {
               module.debug('Moved sidebar to correct parent element');
+              module.error(error.movedSidebar, element);
               $module.detach().prependTo($context);
               module.refresh();
             }
@@ -851,14 +860,14 @@ $.fn.sidebar.settings = {
 
   defaultTransition : {
     computer: {
-      left   : 'uncover',
-      right  : 'uncover',
+      left   : 'push',
+      right  : 'push',
       top    : 'overlay',
       bottom : 'overlay'
     },
     mobile: {
-      left   : 'uncover',
-      right  : 'uncover',
+      left   : 'push',
+      right  : 'push',
       top    : 'overlay',
       bottom : 'overlay'
     }
@@ -904,9 +913,11 @@ $.fn.sidebar.settings = {
   },
 
   error   : {
-    method   : 'The method you called is not defined.',
-    overlay  : 'The overlay setting is no longer supported, use animation: overlay',
-    notFound : 'There were no elements that matched the specified selector'
+    method       : 'The method you called is not defined.',
+    pusher       : 'Had to add pusher element. For optimal performance make sure body content is inside a pusher element',
+    movedSidebar : 'Had to move sidebar. For optimal performance make sure sidebar and pusher are direct children of your body tag',
+    overlay      : 'The overlay setting is no longer supported, use animation: overlay',
+    notFound     : 'There were no elements that matched the specified selector'
   }
 
 };

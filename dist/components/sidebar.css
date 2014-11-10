@@ -193,34 +193,9 @@
           Variations
 *******************************/
 
-
-/*--------------
-      Sizes
----------------*/
-
-.ui.sidebar {
-  width: 260px !important;
-}
-
-/* Sizes */
-.ui.visible.left.sidebar ~ .fixed,
-.ui.visible.left.sidebar ~ .pusher {
-  -webkit-transform: translate3d(260px, 0, 0);
-          transform: translate3d(260px, 0, 0);
-}
-.ui.visible.right.sidebar ~ .fixed,
-.ui.visible.right.sidebar ~ .pusher {
-  -webkit-transform: translate3d(-260px, 0, 0);
-          transform: translate3d(-260px, 0, 0);
-}
-.ui.visible.top.sidebar ~ .fixed,
-.ui.visible.top.sidebar ~ .pusher {
-  -webkit-transform: translate3d(0, 50px, 0);
-          transform: translate3d(0, 50px, 0);
-}
-.ui.visible.bottom.sidebar ~ .pusher {
-  -webkit-transform: translate3d(0, -50px, 0);
-          transform: translate3d(0, -50px, 0);
+.ui.sidebar,
+.ui.vertical.sidebar.menu {
+  width: 260px;
 }
 
 
