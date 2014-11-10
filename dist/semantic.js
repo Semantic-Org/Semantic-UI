@@ -10912,7 +10912,8 @@ $.fn.sidebar = function(parameters) {
           transitionEvent = module.get.transitionEvent();
 
           // cache on initialize
-          if( module.is.legacy() ) {
+          if( module.is.legacy() || settings.legacy) {
+            settings.transition = 'overlay';
             settings.useLegacy = true;
           }
 
@@ -11030,7 +11031,7 @@ $.fn.sidebar = function(parameters) {
                 + ' }'
                 + '</style>'
             ;
-            $context.append(style);
+            $head.append(style);
             $style = $('style[title=' + namespace + ']');
             module.debug('Adding sizing css to head', $style);
           }
@@ -11260,7 +11261,7 @@ $.fn.sidebar = function(parameters) {
               module.remove.animating();
               module.remove.transition();
               module.remove.bodyCSS();
-              if(transition == 'scale down' || (settings.returnScroll && transition !== 'overlay' && module.is.mobile()) ) {
+              if(transition == 'scale down' || (settings.returnScroll && module.is.mobile()) ) {
                 module.scrollBack();
               }
               $.proxy(callback, element)();
@@ -11290,6 +11291,7 @@ $.fn.sidebar = function(parameters) {
             $pusher.addClass(className.dimmed);
           }
           $context
+            .css('position', 'relative')
             .animate(properties, settings.duration, settings.easing, function() {
               module.remove.animating();
               module.bind.clickaway();
@@ -11317,6 +11319,7 @@ $.fn.sidebar = function(parameters) {
             $pusher.removeClass(className.dimmed);
           }
           $context
+            .css('position', 'relative')
             .animate(properties, settings.duration, settings.easing, function() {
               module.remove.animating();
               $.proxy(callback, module)();
@@ -11326,6 +11329,7 @@ $.fn.sidebar = function(parameters) {
 
         scrollToTop: function() {
           module.verbose('Scrolling to top of page to avoid animation issues');
+          currentScroll = $(window).scrollTop();
           $module.scrollTop(0);
           window.scrollTo(0, 0);
         },
@@ -11712,11 +11716,10 @@ $.fn.sidebar.settings = {
 
   context           : 'body',
   exclusive         : false,
-
   closable          : true,
   dimPage           : true,
   scrollLock        : false,
-  returnScroll      : true,
+  returnScroll      : false,
 
   useLegacy         : false,
   duration          : 500,

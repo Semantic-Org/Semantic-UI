@@ -36,6 +36,8 @@
   overflow-y: auto !important;
   z-index: 102;
 }
+
+/* 3D Rendering Fix */
 .ui.sidebar * {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
@@ -47,29 +49,29 @@
    Direction
 ---------------*/
 
-.ui.top.sidebar,
-.ui.bottom.sidebar {
-  width: 100% !important;
-  height: auto !important;
-  overflow-y: visible !important;
-}
 .ui.left.sidebar {
   right: auto;
   left: 0px;
   -webkit-transform: translate3d(-100%, 0, 0);
           transform: translate3d(-100%, 0, 0);
 }
-.ui.top.sidebar {
-  top: 0px !important;
-  bottom: auto !important;
-  -webkit-transform: translate3d(0, -100%, 0);
-          transform: translate3d(0, -100%, 0);
-}
 .ui.right.sidebar {
   right: 0px !important;
   left: auto !important;
   -webkit-transform: translate3d(100%, 0%, 0);
           transform: translate3d(100%, 0%, 0);
+}
+.ui.top.sidebar,
+.ui.bottom.sidebar {
+  width: 100% !important;
+  height: auto !important;
+  overflow-y: visible !important;
+}
+.ui.top.sidebar {
+  top: 0px !important;
+  bottom: auto !important;
+  -webkit-transform: translate3d(0, -100%, 0);
+          transform: translate3d(0, -100%, 0);
 }
 .ui.bottom.sidebar {
   top: auto !important;
@@ -176,6 +178,14 @@
 .ui.visible.sidebar {
   visibility: visible;
 }
+.ui.left.visible.sidebar,
+.ui.right.visible.sidebar {
+  box-shadow: 0px 0px 20px rgba(39, 41, 43, 0.15);
+}
+.ui.top.visible.sidebar,
+.ui.bottom.visible.sidebar {
+  box-shadow: 0px 0px 20px rgba(39, 41, 43, 0.15);
+}
 
 /*--------------
      Mobile
@@ -193,9 +203,32 @@
           Variations
 *******************************/
 
-.ui.sidebar,
-.ui.vertical.sidebar.menu {
+
+/*--------------
+     Width
+---------------*/
+
+
+/* Left / Right */
+.ui[class*="very thin"].left.sidebar,
+.ui[class*="very thin"].right.sidebar {
+  width: 60px;
+}
+.ui.thin.left.sidebar,
+.ui.thin.right.sidebar {
+  width: 150px;
+}
+.ui.left.sidebar,
+.ui.right.sidebar {
   width: 260px;
+}
+.ui.wide.left.sidebar,
+.ui.wide.right.sidebar {
+  width: 350px;
+}
+.ui[class*="very wide"].left.sidebar,
+.ui[class*="very wide"].right.sidebar {
+  width: 475px;
 }
 
 

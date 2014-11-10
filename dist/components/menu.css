@@ -1057,7 +1057,7 @@
 .ui.labeled.icon.menu > .item > .icon {
   display: block;
   font-size: 1.5em !important;
-  margin: 0em auto 0.3em !important;
+  margin: 0em auto 0.5em !important;
 }
 
 
@@ -1347,7 +1347,7 @@
 .ui.borderless.menu .item:before,
 .ui.borderless.menu .item .menu .item:before,
 .ui.menu .borderless.item:before {
-  background: none;
+  background: none !important;
 }
 
 /*-------------------
