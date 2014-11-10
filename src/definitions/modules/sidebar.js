@@ -104,7 +104,7 @@ $.fn.sidebar = function(parameters) {
 
         event: {
           clickaway: function(event) {
-            if( $module.find(event.target).size() === 0 && $(event.target).filter($module).size() === 0 ) {
+            if( $(event.target).closest(selector.sidebar).size() === 0 ) {
               module.verbose('User clicked on dimmed page');
               module.hide();
             }
@@ -121,7 +121,7 @@ $.fn.sidebar = function(parameters) {
             }
           },
           scroll: function(event) {
-            if( $module.find(event.target).size() === 0 && $(event.target).filter($module).size() === 0 ) {
+            if( $(event.target).closest(selector.sidebar).size() === 0 ) {
               event.preventDefault();
             }
           }
@@ -173,6 +173,13 @@ $.fn.sidebar = function(parameters) {
                 + ' .ui.visible.right.sidebar ~ .pusher {'
                 + '   -webkit-transform: translate3d(-'+ width + 'px, 0, 0);'
                 + '           transform: translate3d(-'+ width + 'px, 0, 0);'
+                + ' }'
+                + ' .ui.visible.left.sidebar ~ .ui.visible.right.sidebar ~ .fixed,'
+                + ' .ui.visible.left.sidebar ~ .ui.visible.right.sidebar ~ .pusher,'
+                + ' .ui.visible.right.sidebar ~ .ui.visible.left.sidebar ~ .fixed,'
+                + ' .ui.visible.right.sidebar ~ .ui.visible.left.sidebar ~ .pusher {'
+                + '   -webkit-transform: translate3d(0px, 0, 0);'
+                + '           transform: translate3d(0px, 0, 0);'
                 + ' }'
                 + ' .ui.visible.top.sidebar ~ .fixed,'
                 + ' .ui.visible.top.sidebar ~ .pusher {'
@@ -851,14 +858,14 @@ $.fn.sidebar.settings = {
 
   defaultTransition : {
     computer: {
-      left   : 'uncover',
-      right  : 'uncover',
+      left   : 'push',
+      right  : 'push',
       top    : 'overlay',
       bottom : 'overlay'
     },
     mobile: {
-      left   : 'uncover',
-      right  : 'uncover',
+      left   : 'push',
+      right  : 'push',
       top    : 'overlay',
       bottom : 'overlay'
     }
