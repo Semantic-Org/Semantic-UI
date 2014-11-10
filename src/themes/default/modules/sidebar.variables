@@ -2,20 +2,38 @@
              Sidebar
 *******************************/
 
-@sidebarWidth: 260px;
-@sidebarHeight: 50px;
+/*-------------------
+       Element
+--------------------*/
 
 @dimmerColor: rgba(0, 0, 0, 0.4);
-
 @canvasBackground: @lightBlack;
 @perspective: 1500px;
-
 @duration: 500ms;
 @easing: ease;
 
+@boxShadow: 0px 0px 20px @borderColor;
+@horizontalBoxShadow: @boxShadow;
+@verticalBoxShadow: @boxShadow;
+
+/* Indexes */
 @bottomLayer: 1;
 @middleLayer: 2;
 @fixedLayer: 101;
 @topLayer: 102;
-
 @dimmerLayer: 1000;
+
+
+/*-------------------
+       Variations
+--------------------*/
+
+/* Width */
+@sidebarVeryThinWidth: 60px;
+@sidebarThinWidth: 150px;
+@sidebarWidth: 260px;
+@sidebarWideWidth: 350px;
+@sidebarVeryWideWidth: 475px;
+
+/* Height */
+@sidebarHeight: auto;

@@ -252,7 +252,7 @@
 /* Labeled Icon */
 @labeledIconSize: 1.5em;
 @labeledIconMinWidth: 6em;
-@labeledIconTextMargin: 0.3em;
+@labeledIconTextMargin: 0.5em;
 
 /* Text */
 @textMenuTransition: opacity 0.2s ease;

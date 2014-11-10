@@ -43,6 +43,9 @@
   overflow-y: auto !important;
   z-index: @topLayer;
 }
+
+
+/* 3D Rendering Fix */
 .ui.sidebar * {
   backface-visibility: hidden;
   transform: rotateZ(0deg);
@@ -52,6 +55,18 @@
    Direction
 ---------------*/
 
+.ui.left.sidebar {
+  right: auto;
+  left: 0px;
+  transform: translate3d(-100%, 0, 0);
+}
+
+.ui.right.sidebar {
+  right: 0px !important;
+  left: auto !important;
+  transform: translate3d(100%, 0%, 0);
+}
+
 .ui.top.sidebar,
 .ui.bottom.sidebar {
   width: 100% !important;
@@ -59,22 +74,10 @@
   overflow-y: visible !important;
 }
 
-.ui.left.sidebar {
-  right: auto;
-  left: 0px;
-  transform: translate3d(-100%, 0, 0);
-}
-
 .ui.top.sidebar {
   top: 0px !important;
   bottom: auto !important;
   transform: translate3d(0, -100%, 0);
-}
-
-.ui.right.sidebar {
-  right: 0px !important;
-  left: auto !important;
-  transform: translate3d(100%, 0%, 0);
 }
 
 .ui.bottom.sidebar {
@@ -179,6 +182,15 @@
   visibility: visible;
 }
 
+.ui.left.visible.sidebar,
+.ui.right.visible.sidebar {
+  box-shadow: @horizontalBoxShadow;
+}
+
+.ui.top.visible.sidebar,
+.ui.bottom.visible.sidebar {
+  box-shadow: @verticalBoxShadow;
+}
 
 /*--------------
      Mobile
@@ -196,11 +208,31 @@
           Variations
 *******************************/
 
-.ui.sidebar,
-.ui.vertical.sidebar.menu {
+/*--------------
+     Width
+---------------*/
+
+/* Left / Right */
+.ui[class*="very thin"].left.sidebar,
+.ui[class*="very thin"].right.sidebar {
+  width: @sidebarVeryThinWidth;
+}
+.ui.thin.left.sidebar,
+.ui.thin.right.sidebar {
+  width: @sidebarThinWidth;
+}
+.ui.left.sidebar,
+.ui.right.sidebar {
   width: @sidebarWidth;
 }
-
+.ui.wide.left.sidebar,
+.ui.wide.right.sidebar {
+  width: @sidebarWideWidth;
+}
+.ui[class*="very wide"].left.sidebar,
+.ui[class*="very wide"].right.sidebar {
+  width: @sidebarVeryWideWidth;
+}
 
 /*******************************
           Animations
