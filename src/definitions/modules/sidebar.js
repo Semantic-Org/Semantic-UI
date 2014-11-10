@@ -216,8 +216,9 @@ $.fn.sidebar = function(parameters) {
 
         setup: {
           layout: function() {
-            if( $context.find(selector.pusher).size() === 0 ) {
+            if( $context.children(selector.pusher).size() === 0 ) {
               module.debug('Adding wrapper element for sidebar');
+              module.error(error.pusher);
               $pusher = $('<div class="pusher" />');
               $context
                 .children()
@@ -227,8 +228,9 @@ $.fn.sidebar = function(parameters) {
               ;
               module.refresh();
             }
-            if($module.nextAll(selector.pusher)[0] !== $pusher[0]) {
+            if($module.nextAll(selector.pusher).size() == 0 || $module.nextAll(selector.pusher)[0] !== $pusher[0]) {
               module.debug('Moved sidebar to correct parent element');
+              module.error(error.movedSidebar, element);
               $module.detach().prependTo($context);
               module.refresh();
             }
@@ -911,9 +913,11 @@ $.fn.sidebar.settings = {
   },
 
   error   : {
-    method   : 'The method you called is not defined.',
-    overlay  : 'The overlay setting is no longer supported, use animation: overlay',
-    notFound : 'There were no elements that matched the specified selector'
+    method       : 'The method you called is not defined.',
+    pusher       : 'Had to add pusher element. For optimal performance make sure body content is inside a pusher element',
+    movedSidebar : 'Had to move sidebar. For optimal performance make sure sidebar and pusher are direct children of your body tag',
+    overlay      : 'The overlay setting is no longer supported, use animation: overlay',
+    notFound     : 'There were no elements that matched the specified selector'
   }
 
 };
