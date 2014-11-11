@@ -523,7 +523,7 @@
   box-shadow: @attachedBoxShadow;
   border: @attachedBorder;
 }
-.ui.segment.attached + .ui.segment.attached {
+.ui.segment.attached + .ui.segment.attached:not(.top) {
   border-top: none;
 }
 
