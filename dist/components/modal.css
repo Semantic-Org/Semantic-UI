@@ -234,11 +234,11 @@
     box-shadow: none;
   }
   .ui.modal > .actions {
-    padding: 1rem 1rem 0rem !important;
+    padding: 1rem 1rem -1rem !important;
   }
   .ui.modal .actions > .buttons,
   .ui.modal .actions > .button {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
   }
 }
 
@@ -322,7 +322,8 @@
 
 .ui.fullscreen.modal {
   width: 95% !important;
-  margin: 1em 0em 1em -47.5%;
+  left: 0% !important;
+  margin: 1em auto;
 }
 .ui.fullscreen.modal > .header {
   padding-right: 2.25rem;
@@ -336,8 +337,6 @@
   .ui.fullscreen.modal {
     width: auto !important;
     margin: 1em !important;
-    top: 0% !important;
-    left: 0% !important;
   }
 }
 

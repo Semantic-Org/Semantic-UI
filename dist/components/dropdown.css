@@ -19,12 +19,12 @@
   cursor: pointer;
   position: relative;
   display: inline-block;
-  line-height: 1;
-  -webkit-transition: border-radius 0.1s ease, width 0.2s ease;
-          transition: border-radius 0.1s ease, width 0.2s ease;
+  line-height: 1em;
   tap-highlight-color: rgba(0, 0, 0, 0);
   outline: none;
   text-align: left;
+  -webkit-transition: border-radius 0.1s ease, width 0.2s ease;
+          transition: border-radius 0.1s ease, width 0.2s ease;
 }
 
 
@@ -80,7 +80,7 @@
 .ui.dropdown .menu > .item .dropdown.icon {
   width: auto;
   float: right;
-  margin: 0.2em 0.75em 0em 0em;
+  margin: 0.2em 0em 0em 0.75em;
 }
 
 /*--------------
@@ -168,21 +168,6 @@
   padding: 0.5em 1em;
 }
 
-/*--------------
-   Item Image
----------------*/
-
-.ui.dropdown > .text > img,
-.ui.dropdown > .text > .image,
-.ui.dropdown .menu > .item > .image,
-.ui.dropdown .menu > .item > img {
-  display: inline-block;
-  vertical-align: middle;
-  width: auto;
-  max-height: 2.5em;
-  margin: 0.2em 0.75em 0em 0em;
-}
-
 /*-----------------
   Item Description
 -------------------*/
@@ -217,23 +202,58 @@
 *******************************/
 
 
-/* Icons / Flags / Labels */
+/*--------------
+   Sub Elements
+---------------*/
+
+
+/* Icons / Flags / Labels / Image */
 .ui.dropdown > .text > .icon,
-.ui.dropdown .menu > .item > .icon {
-  margin: 0.2em 0.75em 0em 0em;
-}
 .ui.dropdown > .text > .label,
-.ui.dropdown .menu > .item > .label {
-  margin: 0.2em 0.75em 0em 0em;
-}
 .ui.dropdown > .text > .flag,
-.ui.dropdown .menu > .item > .flag {
-  margin: 0.2em 0.75em 0em 0em;
+.ui.dropdown > .text > img,
+.ui.dropdown > .text > .image {
+  margin-top: 0em;
 }
-.ui.dropdown .menu > .item > .icon + .text {
-  display: block;
-  margin-right: 1em;
+.ui.dropdown .menu > .item > .icon,
+.ui.dropdown .menu > .item > .label,
+.ui.dropdown .menu > .item > .flag,
+.ui.dropdown .menu > .item > .image,
+.ui.dropdown .menu > .item > img {
+  margin-top: 0.2em;
 }
+.ui.dropdown > .text > .icon,
+.ui.dropdown > .text > .label,
+.ui.dropdown > .text > .flag,
+.ui.dropdown > .text > img,
+.ui.dropdown > .text > .image,
+.ui.dropdown .menu > .item > .icon,
+.ui.dropdown .menu > .item > .label,
+.ui.dropdown .menu > .item > .flag,
+.ui.dropdown .menu > .item > .image,
+.ui.dropdown .menu > .item > img {
+  margin-left: 0em;
+  margin-right: 0.75em;
+}
+
+/*--------------
+     Image
+---------------*/
+
+.ui.dropdown > .text > img,
+.ui.dropdown > .text > .image,
+.ui.dropdown .menu > .item > .image,
+.ui.dropdown .menu > .item > img {
+  display: inline-block;
+  vertical-align: middle;
+  width: auto;
+  max-height: 2.5em;
+}
+
+/*--------------
+      Menu
+---------------*/
+
 
 /* Remove Menu Item Divider */
 .ui.dropdown .ui.menu > .item:before,
@@ -246,6 +266,18 @@
   border-left: none;
 }
 
+/* Automatically float dropdown menu right on last menu item */
+.ui.menu .right.menu .dropdown:last-child .menu,
+.ui.buttons > .ui.dropdown:last-child .menu {
+  left: auto;
+  right: 0em;
+}
+
+/*--------------
+     Button
+---------------*/
+
+
 /* No Margin On Icon Button */
 .ui.dropdown.icon.button > .dropdown.icon {
   margin: 0em;
@@ -254,13 +286,6 @@
 .ui.dropdown.button:not(.pointing):not(.floating).visible {
   border-bottom-left-radius: 0em;
   border-bottom-right-radius: 0em;
-}
-
-/* Automatically float dropdown menu right on last menu item */
-.ui.menu .right.menu .dropdown:last-child .menu,
-.ui.buttons > .ui.dropdown:last-child .menu {
-  left: auto;
-  right: 0em;
 }
 
 

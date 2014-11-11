@@ -97,8 +97,9 @@ i.icon.active {
 i.emphasized.icon {
   opacity: 1;
 }
-i.icon.disabled {
-  opacity: 0.3;
+i.disabled.icon {
+  pointer-events: none;
+  opacity: 0.3 !important;
 }
 
 
