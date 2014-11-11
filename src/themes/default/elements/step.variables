@@ -92,7 +92,3 @@
 /* Disabled */
 @disabledBackground: @white;
 @disabledColor: @disabledTextColor;
-
-@small: 0.9rem;
-@medium: 1rem;
-@large: 1.1rem;
