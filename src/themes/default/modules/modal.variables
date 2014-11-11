@@ -69,7 +69,7 @@
 @mobileContentPadding: 1rem;
 @mobileImagePadding: 0rem 0rem 1rem;
 @mobileDescriptionPadding: 1rem 0rem ;
-@mobileButtonDistance: 1rem;
+@mobileButtonDistance: 2rem;
 @mobileActionPadding: 1rem 1rem (1rem - @mobileButtonDistance);
 @mobileImageIconSize: 5rem;
 @mobileCloseTop: 0.5rem;
@@ -90,7 +90,9 @@
 @widescreenMonitorMargin: 0em 0em 0em -(@widescreenMonitorWidth / 2);
 
 @fullScreenWidth: 95%;
-@fullScreenMargin: 1em 0em 1em -(@fullScreenWidth / 2);
+@fullScreenMargin: 1em auto;
+
+@fullScreenMobileWidth: auto;
 @fullScreenMobileMargin: 1em;
 
 /*-------------------

@@ -335,6 +335,7 @@
 
 .ui.fullscreen.modal {
   width: @fullScreenWidth !important;
+  left: 0% !important;
   margin: @fullScreenMargin;
 }
 .ui.fullscreen.modal > .header {
@@ -348,10 +349,8 @@
 
 @media only screen and (max-width : @largestMobileScreen) {
   .ui.fullscreen.modal {
-    width: auto !important;
+    width: @fullScreenMobileWidth !important;
     margin: @fullScreenMobileMargin !important;
-    top: 0% !important;
-    left: 0% !important;
   }
 }
 
