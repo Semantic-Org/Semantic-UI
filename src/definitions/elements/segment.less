@@ -175,6 +175,22 @@
   z-index: -2;
 }
 
+/* Piled Attached */
+.ui[class*="top attached"].piled.segment {
+  margin-top: @piledMargin;
+  margin-bottom: 0em;
+}
+.ui.piled.segment[class*="top attached"]:first-child {
+  margin-top: 0em;
+}
+.ui.piled.segment[class*="bottom attached"] {
+  margin-top: 0em;
+  margin-bottom: @piledMargin;
+}
+.ui.piled.segment[class*="bottom attached"]:last-child {
+  margin-bottom: 0em;
+}
+
 /*-------------------
        Stacked
 --------------------*/
@@ -349,39 +365,39 @@
        Colors
 --------------------*/
 
-.ui.black.segment:not(.inverted) {
+.ui.black.segment:not(.inverted):not(.attached) {
   border-top: @coloredBorderSize solid @black;
   border-radius: @coloredBorderRadius !important;
 }
-.ui.blue.segment:not(.inverted) {
+.ui.blue.segment:not(.inverted):not(.attached) {
   border-top: @coloredBorderSize solid @blue;
   border-radius: @coloredBorderRadius !important;
 }
-.ui.green.segment:not(.inverted) {
+.ui.green.segment:not(.inverted):not(.attached) {
   border-top: @coloredBorderSize solid @green;
   border-radius: @coloredBorderRadius !important;
 }
-.ui.orange.segment:not(.inverted) {
+.ui.orange.segment:not(.inverted):not(.attached) {
   border-top: @coloredBorderSize solid @orange;
   border-radius: @coloredBorderRadius !important;
 }
-.ui.pink.segment:not(.inverted) {
+.ui.pink.segment:not(.inverted):not(.attached) {
   border-top: @coloredBorderSize solid @pink;
   border-radius: @coloredBorderRadius !important;
 }
-.ui.purple.segment:not(.inverted) {
+.ui.purple.segment:not(.inverted):not(.attached) {
   border-top: @coloredBorderSize solid @purple;
   border-radius: @coloredBorderRadius !important;
 }
-.ui.red.segment:not(.inverted) {
+.ui.red.segment:not(.inverted):not(.attached) {
   border-top: @coloredBorderSize solid @red;
   border-radius: @coloredBorderRadius !important;
 }
-.ui.teal.segment:not(.inverted) {
+.ui.teal.segment:not(.inverted):not(.attached) {
   border-top: @coloredBorderSize solid @teal;
   border-radius: @coloredBorderRadius !important;
 }
-.ui.yellow.segment:not(.inverted) {
+.ui.yellow.segment:not(.inverted):not(.attached) {
   border-top: @coloredBorderSize solid @yellow;
   border-radius: @coloredBorderRadius !important;
 }

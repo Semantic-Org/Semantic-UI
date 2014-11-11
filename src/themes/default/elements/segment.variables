@@ -50,7 +50,7 @@
 
 /* Piled */
 @piledZIndex: auto;
-@piledMargin: 2em;
+@piledMargin: 3em;
 @piledBoxShadow: 0px 0px 1px 1px @borderColor;
 @piledDegrees: 1.2deg;
 
