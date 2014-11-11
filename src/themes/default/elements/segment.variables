@@ -84,7 +84,7 @@
 
 /* Colors */
 @coloredBorderSize: 2px;
-@coloredBorderRadius: 0em 0em @borderRadius @borderRadius;
+@coloredBorderRadius: @borderRadius;
 
 /* Ordinality */
 @secondaryBackground: #FAF9FA;
