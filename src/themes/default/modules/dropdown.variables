@@ -6,7 +6,6 @@
        Element
 --------------------*/
 
-@lineHeight: 1;
 @transition:
   border-radius 0.1s ease,
   width 0.2s ease
@@ -40,7 +39,7 @@
 
 /* Text */
 @textLineHeight: 1em;
-@textLineHeightOffset: (@itemLineHeight - 1em);
+@textLineHeightOffset: (@textLineHeight - 1em);
 
 /* Menu Item */
 @itemFontSize: 1rem;
@@ -87,23 +86,12 @@
 /* Menu Image */
 @menuImageMaxHeight: 2.5em;
 
-/* Menu Item Icon */
-@itemIconFloat: right;
-@itemIconMargin: @itemLineHeightOffset 0.75em 0em 0em;
-@itemIconDistance: 1em;
+/* Item Sub-Element */
+@itemElementDistance: 0.75em;
 
-/* Sub-Menu Icon */
+/* Sub-Menu Dropdown Icon */
 @itemDropdownIconFloat: right;
-@itemDropdownIconMargin: @itemIconMargin;
-
-/* Label */
-@itemLabelMargin: @itemIconMargin;
-
-/* Flag */
-@itemFlagMargin: @itemIconMargin;
-
-/* Image */
-@itemImageMargin: @itemIconMargin;
+@itemDropdownIconMargin: @itemLineHeightOffset 0em 0em @itemElementDistance;
 
 /* Description */
 @itemDescriptionMargin: 0em 0em 0em 1em;
