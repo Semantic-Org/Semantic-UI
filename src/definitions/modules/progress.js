@@ -332,6 +332,7 @@ $.fn.progress = function(parameters) {
             if(text) {
               module.set.label(text);
             }
+            $.proxy(settings.onActive, element)(module.value, module.total);
           },
           success : function(text) {
             text = text || settings.text.success;
@@ -344,6 +345,7 @@ $.fn.progress = function(parameters) {
             if(text) {
               module.set.label(text);
             }
+            $.proxy(settings.onSuccess, element)(module.total);
           },
           warning : function(text) {
             text = text || settings.text.warning;
@@ -356,6 +358,7 @@ $.fn.progress = function(parameters) {
             if(text) {
               module.set.label(text);
             }
+            $.proxy(settings.onWarning, element)(module.value, module.total);
           },
           error : function(text) {
             text = text || settings.text.error;
@@ -368,6 +371,7 @@ $.fn.progress = function(parameters) {
             if(text) {
               module.set.label(text);
             }
+            $.proxy(settings.onError, element)(module.value, module.total);
           },
           total: function(totalValue) {
             module.total = totalValue;
@@ -577,14 +581,14 @@ $.fn.progress = function(parameters) {
 
 $.fn.progress.settings = {
 
-  name        : 'Progress',
-  namespace   : 'progress',
+  name         : 'Progress',
+  namespace    : 'progress',
 
-  debug       : false,
-  verbose     : true,
-  performance : true,
+  debug        : false,
+  verbose      : true,
+  performance  : true,
 
-  random      : {
+  random       : {
     min : 2,
     max : 5
   },
@@ -600,6 +604,10 @@ $.fn.progress.settings = {
   value        : false,
 
   onChange     : function(percent, value, total){},
+  onSuccess    : function(total){},
+  onActive     : function(value, total){},
+  onError      : function(value, total){},
+  onWarning    : function(value, total){},
 
   error    : {
     method     : 'The method you called is not defined.',
