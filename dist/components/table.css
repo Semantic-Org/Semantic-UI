@@ -247,20 +247,17 @@
 
 .ui.table tr.positive,
 .ui.table td.positive {
-  box-shadow: 2px 0px 0px #119000 inset;
+  box-shadow: 0px 0px 0px #b7caa7 inset;
 }
 .ui.table tr.positive td,
 .ui.table td.positive {
-  background: #f2f8f0 !important;
-  color: #119000 !important;
+  background: #eeffe7 !important;
+  color: #3c763d !important;
 }
 .ui.celled.table tr.positive:hover td,
-.ui.celled.table tr:hover td.positive,
-.ui.table tr.positive:hover td,
-.ui.table td:hover.positive,
-.ui.table th:hover.positive {
-  background: #ecf5e9 !important;
-  color: #119000 !important;
+.ui.celled.table tr:hover td.positive {
+  background: #e3ffd8 !important;
+  color: #376c38 !important;
 }
 
 /*--------------
@@ -269,17 +266,17 @@
 
 .ui.table tr.negative,
 .ui.table td.negative {
-  box-shadow: 2px 0px 0px #cd2929 inset;
+  box-shadow: 0px 0px 0px #dbb1b1 inset;
 }
 .ui.table tr.negative td,
 .ui.table td.negative {
-  background: #f9f4f4 !important;
+  background: #fff0f0 !important;
   color: #cd2929 !important;
 }
 .ui.celled.table tr.negative:hover td,
 .ui.celled.table tr:hover td.negative {
-  background: #f2e8e8 !important;
-  color: #cd2929 !important;
+  background: #ffe1e1 !important;
+  color: #c02626 !important;
 }
 
 /*--------------
@@ -288,17 +285,17 @@
 
 .ui.table tr.error,
 .ui.table td.error {
-  box-shadow: 2px 0px 0px #cd2929 inset;
+  box-shadow: 0px 0px 0px #dbb1b1 inset;
 }
 .ui.table tr.error td,
 .ui.table td.error {
-  background: #f9f4f4 !important;
+  background: #fff0f0 !important;
   color: #cd2929 !important;
 }
 .ui.celled.table tr.error:hover td,
 .ui.celled.table tr:hover td.error {
-  background: #f2e8e8 !important;
-  color: #cd2929 !important;
+  background: #ffe1e1 !important;
+  color: #c02626 !important;
 }
 
 /*--------------
@@ -307,17 +304,17 @@
 
 .ui.table tr.warning,
 .ui.table td.warning {
-  box-shadow: 2px 0px 0px #7d6c00 inset;
+  box-shadow: 0px 0px 0px #d9caab inset;
 }
 .ui.table tr.warning td,
 .ui.table td.warning {
-  background: #fbf6e9 !important;
+  background: #fffbe6 !important;
   color: #7d6c00 !important;
 }
 .ui.celled.table tr.warning:hover td,
 .ui.celled.table tr:hover td.warning {
-  background: #f3eddc !important;
-  color: #cd2929 !important;
+  background: #fff9d7 !important;
+  color: #6e5f00 !important;
 }
 
 /*--------------
@@ -326,7 +323,7 @@
 
 .ui.table tr.active,
 .ui.table td.active {
-  box-shadow: 2px 0px 0px rgba(50, 50, 50, 0.9) inset;
+  box-shadow: 0px 0px 0px rgba(50, 50, 50, 0.9) inset;
 }
 .ui.table tr.active td,
 .ui.table td.active {
@@ -871,11 +868,5 @@
 
 /*******************************
          Theme Overrides
-*******************************/
-
-
-
-/*******************************
-         Site Overrides
 *******************************/
 

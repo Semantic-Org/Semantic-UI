@@ -276,7 +276,6 @@
   color: transparent !important;
   -webkit-transition: all 0s linear;
           transition: all 0s linear;
-  z-index: 100;
 }
 .ui.loading.segment:before {
   position: absolute;
@@ -594,11 +593,5 @@
 
 /*******************************
          Theme Overrides
-*******************************/
-
-
-
-/*******************************
-         Site Overrides
 *******************************/
 

@@ -305,10 +305,10 @@
   border-top: none;
 }
 .ui.items > .item .extra > * {
-  margin: 0.5rem 0.5rem 0em 0em;
+  margin: 0.25rem 0.5rem 0.25rem 0em;
 }
 .ui.items > .item .extra > [class*="right floated"] {
-  margin: 0.5rem 0em 0em 0.5rem;
+  margin: 0.25rem 0em 0.25rem 0.5rem;
 }
 .ui.items > .item .extra:after {
   display: block;
@@ -450,11 +450,5 @@
 
 /*******************************
          Theme Overrides
-*******************************/
-
-
-
-/*******************************
-    User Variable Overrides
 *******************************/
 

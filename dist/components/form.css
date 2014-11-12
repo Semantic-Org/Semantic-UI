@@ -110,7 +110,6 @@
   color: rgba(0, 0, 0, 0.8);
   border-radius: 0.2857rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
-  box-sizing: border-box;
   -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
           transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
@@ -119,7 +118,6 @@
   margin: 0em;
   -webkit-appearance: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-  box-sizing: border-box;
   padding: 0.8em 1em;
   background: #ffffff;
   border: 1px solid rgba(39, 41, 43, 0.15);
@@ -593,7 +591,6 @@
 .ui.form .fields > .field {
   clear: none;
   float: left;
-  box-sizing: border-box;
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
@@ -826,11 +823,5 @@
 
 /*******************************
          Theme Overrides
-*******************************/
-
-
-
-/*******************************
-         Site Overrides
 *******************************/
 

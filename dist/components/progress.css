@@ -111,12 +111,12 @@
   line-height: 1;
   position: relative;
   width: 0%;
-  min-width: 0.25em;
+  min-width: 2em;
   height: 1.75em;
   background: #888888;
   border-radius: 0.2857rem;
-  -webkit-transition: width 0.5s ease, background-color 1s ease;
-          transition: width 0.5s ease, background-color 1s ease;
+  -webkit-transition: width 0.5s ease, background-color 0.4s ease;
+          transition: width 0.5s ease, background-color 0.4s ease;
 }
 
 /* Percent Complete */
@@ -150,8 +150,8 @@
   text-shadow: none;
   margin-top: 0.2em;
   text-align: center;
-  -webkit-transition: color 1s ease;
-          transition: color 1s ease;
+  -webkit-transition: color 0.4s ease;
+          transition: color 0.4s ease;
 }
 
 
@@ -214,7 +214,7 @@
 
 .ui.active.progress .bar {
   position: relative;
-  min-width: 3em;
+  min-width: 2em;
 }
 .ui.active.progress .bar::after {
   content: '';

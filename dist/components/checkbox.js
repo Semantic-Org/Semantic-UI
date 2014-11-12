@@ -187,6 +187,13 @@ $.fn.checkbox = function(parameters) {
         set: {
           checked: function() {
             $module.addClass(className.checked);
+          },
+          tab: function() {
+            if( $input.attr('tabindex') === undefined) {
+              $input
+                .attr('tabindex', 0)
+              ;
+            }
           }
         },
 

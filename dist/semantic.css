@@ -243,10 +243,6 @@
   content: '\f0da';
 }
 
-/*******************************
-        User Overrides
-*******************************/
-
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
@@ -373,10 +369,6 @@
 
 /*******************************
          Theme Overrides
-*******************************/
-
-/*******************************
-         Site Overrides
 *******************************/
 
 /*
@@ -3076,10 +3068,6 @@
          Theme Overrides
 *******************************/
 
-/*******************************
-         Site Overrides
-*******************************/
-
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
@@ -3920,10 +3908,6 @@ a.ui.card:hover,
          Theme Overrides
 *******************************/
 
-/*******************************
-    User Variable Overrides
-*******************************/
-
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
@@ -4225,10 +4209,6 @@ a.ui.card:hover,
 
 /*******************************
          Theme Overrides
-*******************************/
-
-/*******************************
-        User Overrides
 *******************************/
 
 /*
@@ -4729,10 +4709,6 @@ a.ui.card:hover,
 
 */
 
-/*******************************
-         Site Overrides
-*******************************/
-
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
@@ -5000,10 +4976,6 @@ a.ui.card:hover,
          Theme Overrides
 *******************************/
 
-/*******************************
-    User Variable Overrides
-*******************************/
-
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
@@ -5191,10 +5163,6 @@ body.dimmed.dimmable > :not(.dimmer) {
 
 /*******************************
          Theme Overrides
-*******************************/
-
-/*******************************
-        User Overrides
 *******************************/
 
 /*
@@ -5440,10 +5408,6 @@ body.dimmed.dimmable > :not(.dimmer) {
 
 /*******************************
          Theme Overrides
-*******************************/
-
-/*******************************
-         Site Overrides
 *******************************/
 
 /*
@@ -6473,10 +6437,6 @@ select.ui.dropdown {
 }
 */
 
-/*******************************
-        User Overrides
-*******************************/
-
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
@@ -6767,10 +6727,6 @@ select.ui.dropdown {
 
 /*******************************
          Theme Overrides
-*******************************/
-
-/*******************************
-    User Variable Overrides
 *******************************/
 
 /*
@@ -8027,10 +7983,6 @@ i.flag.zimbabwe:before {
   background-position: -108px -390px;
 }
 
-/*******************************
-         Site Overrides
-*******************************/
-
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
@@ -8144,7 +8096,6 @@ i.flag.zimbabwe:before {
   color: rgba(0, 0, 0, 0.8);
   border-radius: 0.2857rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
-  box-sizing: border-box;
   -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
@@ -8154,7 +8105,6 @@ i.flag.zimbabwe:before {
   margin: 0em;
   -webkit-appearance: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-  box-sizing: border-box;
   padding: 0.8em 1em;
   background: #ffffff;
   border: 1px solid rgba(39, 41, 43, 0.15);
@@ -8661,7 +8611,6 @@ i.flag.zimbabwe:before {
 .ui.form .fields > .field {
   clear: none;
   float: left;
-  box-sizing: border-box;
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
@@ -8935,10 +8884,6 @@ i.flag.zimbabwe:before {
 
 /*******************************
          Theme Overrides
-*******************************/
-
-/*******************************
-         Site Overrides
 *******************************/
 
 /*
@@ -9516,7 +9461,7 @@ i.flag.zimbabwe:before {
 
 .ui.divided.grid:not([class*="vertically divided"]) > .column:not(.row),
 .ui.divided.grid:not([class*="vertically divided"]) > .row > .column {
-  box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: -1px 0px 0px 0px rgba(39, 41, 43, 0.15);
 }
 
 /* Swap from padding to margin on columns to have dividers align */
@@ -9546,7 +9491,7 @@ i.flag.zimbabwe:before {
 /* Divided Row */
 
 .ui.grid > .divided.row > .column {
-  box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: -1px 0px 0px 0px rgba(39, 41, 43, 0.15);
 }
 
 .ui.grid > .divided.row > .column:first-child {
@@ -9568,7 +9513,7 @@ i.flag.zimbabwe:before {
   width: calc(100% -  2rem );
   height: 1px;
   margin: 0% 1rem;
-  box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px -1px 0px 0px rgba(39, 41, 43, 0.15);
 }
 
 /* Padded Horizontally Divided */
@@ -9588,7 +9533,7 @@ i.flag.zimbabwe:before {
 
 .ui.inverted.divided.grid:not([class*="vertically divided"]) > .column:not(.row),
 .ui.inverted.divided.grid:not([class*="vertically divided"]) > .row > .column {
-  box-shadow: -1px 0px 0px 0px rgba(255, 255, 255, 0.15);
+  box-shadow: -1px 0px 0px 0px rgba(255, 255, 255, 0.2);
 }
 
 .ui.inverted.divided.grid:not([class*="vertically divided"]) > .column:not(.row):first-child,
@@ -9597,7 +9542,7 @@ i.flag.zimbabwe:before {
 }
 
 .ui.inverted[class*="vertically divided"].grid > .row:before {
-  box-shadow: 0px -1px 0px 0px rgba(255, 255, 255, 0.15);
+  box-shadow: 0px -1px 0px 0px rgba(255, 255, 255, 0.2);
 }
 
 /* Relaxed */
@@ -10278,10 +10223,6 @@ i.flag.zimbabwe:before {
          Theme Overrides
 *******************************/
 
-/*******************************
-         Site Overrides
-*******************************/
-
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
@@ -10436,9 +10377,17 @@ h5.ui.header {
 --------------------*/
 
 .ui.icon.header {
-  display: block;
+  display: inline-block;
   text-align: center;
   margin: 2rem 0em 1rem;
+}
+
+.ui.icon.header:after {
+  content: '';
+  display: block;
+  height: 0px;
+  clear: both;
+  visibility: hidden;
 }
 
 .ui.icon.header:first-child {
@@ -10772,7 +10721,7 @@ a.ui.inverted.yellow.header:hover {
 }
 
 .ui.dividing.header .icon {
-  margin-bottom: 0.2em;
+  margin-bottom: 0em;
 }
 
 .ui.inverted.dividing.header {
@@ -10882,10 +10831,6 @@ a.ui.inverted.yellow.header:hover {
          Theme Overrides
 *******************************/
 
-/*******************************
-         Site Overrides
-*******************************/
-
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
@@ -10914,7 +10859,7 @@ a.ui.inverted.yellow.header:hover {
 
 i.icon {
   display: inline-block;
-  opacity: 0.75;
+  opacity: 1;
   margin: 0em 0.25rem 0em 0em;
   width: 1.23em;
   height: 0.9em;
@@ -11004,7 +10949,7 @@ i.disabled.icon {
 
 i.link.icon {
   cursor: pointer;
-  opacity: 0.75;
+  opacity: 1;
   -webkit-transition: opacity 0.2s ease;
   transition: opacity 0.2s ease;
 }
@@ -13607,10 +13552,6 @@ i.icon.weixin:before {
   content: "\f1d7";
 }
 
-/*******************************
-         Site Overrides
-*******************************/
-
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
@@ -13864,10 +13805,6 @@ img.ui.bordered.image {
 
 /*******************************
          Theme Overrides
-*******************************/
-
-/*******************************
-         Site Overrides
 *******************************/
 
 /*
@@ -14339,10 +14276,6 @@ img.ui.bordered.image {
          Theme Overrides
 *******************************/
 
-/*******************************
-         Site Overrides
-*******************************/
-
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
@@ -14675,11 +14608,11 @@ img.ui.bordered.image {
 }
 
 .ui.items > .item .extra > * {
-  margin: 0.5rem 0.5rem 0em 0em;
+  margin: 0.25rem 0.5rem 0.25rem 0em;
 }
 
 .ui.items > .item .extra > [class*="right floated"] {
-  margin: 0.5rem 0em 0em 0.5rem;
+  margin: 0.25rem 0em 0.25rem 0.5rem;
 }
 
 .ui.items > .item .extra:after {
@@ -14833,10 +14766,6 @@ img.ui.bordered.image {
 
 /*******************************
          Theme Overrides
-*******************************/
-
-/*******************************
-    User Variable Overrides
 *******************************/
 
 /*
@@ -15853,10 +15782,6 @@ a.ui.yellow.label:hover:before {
          Theme Overrides
 *******************************/
 
-/*******************************
-         Site Overrides
-*******************************/
-
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
@@ -16835,10 +16760,6 @@ ol.ui.horizontal.list li:before,
          Theme Overrides
 *******************************/
 
-/*******************************
-    User Variable Overrides
-*******************************/
-
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
@@ -17130,10 +17051,6 @@ ol.ui.horizontal.list li:before,
 
 /*******************************
          Theme Overrides
-*******************************/
-
-/*******************************
-         Site Overrides
 *******************************/
 
 /*
@@ -18914,10 +18831,6 @@ ol.ui.horizontal.list li:before,
          Theme Overrides
 *******************************/
 
-/*******************************
-         Site Overrides
-*******************************/
-
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
@@ -19379,10 +19292,6 @@ ol.ui.horizontal.list li:before,
 
 /*******************************
          Theme Overrides
-*******************************/
-
-/*******************************
-    User Variable Overrides
 *******************************/
 
 /*
@@ -19852,10 +19761,6 @@ ol.ui.horizontal.list li:before,
          Theme Overrides
 *******************************/
 
-/*******************************
-         Site Overrides
-*******************************/
-
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
@@ -19997,10 +19902,6 @@ a.ui.nag {
 
 /*******************************
          Theme Overrides
-*******************************/
-
-/*******************************
-        User Overrides
 *******************************/
 
 /*
@@ -20294,10 +20195,6 @@ a.ui.nag {
          Theme Overrides
 *******************************/
 
-/*******************************
-        User Overrides
-*******************************/
-
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
@@ -20422,12 +20319,12 @@ a.ui.nag {
   line-height: 1;
   position: relative;
   width: 0%;
-  min-width: 0.25em;
+  min-width: 2em;
   height: 1.75em;
   background: #888888;
   border-radius: 0.2857rem;
-  -webkit-transition: width 0.5s ease, background-color 1s ease;
-  transition: width 0.5s ease, background-color 1s ease;
+  -webkit-transition: width 0.5s ease, background-color 0.4s ease;
+  transition: width 0.5s ease, background-color 0.4s ease;
 }
 
 /* Percent Complete */
@@ -20463,8 +20360,8 @@ a.ui.nag {
   text-shadow: none;
   margin-top: 0.2em;
   text-align: center;
-  -webkit-transition: color 1s ease;
-  transition: color 1s ease;
+  -webkit-transition: color 0.4s ease;
+  transition: color 0.4s ease;
 }
 
 /*******************************
@@ -20531,7 +20428,7 @@ a.ui.nag {
 
 .ui.active.progress .bar {
   position: relative;
-  min-width: 3em;
+  min-width: 2em;
 }
 
 .ui.active.progress .bar::after {
@@ -20840,10 +20737,6 @@ a.ui.nag {
          Theme Overrides
 *******************************/
 
-/*******************************
-         Site Overrides
-*******************************/
-
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
@@ -21121,10 +21014,6 @@ a.ui.nag {
 .ui.heart.rating .active.icon:before {
   content: '\f004';
 }
-
-/*******************************
-         Site Overrides
-*******************************/
 
 /*
  * # Semantic UI
@@ -21609,10 +21498,6 @@ th {
   padding: 0;
 }
 
-/*******************************
-         Site Overrides
-*******************************/
-
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
@@ -21631,7 +21516,6 @@ th {
 .ui.reveal {
   display: inline-block;
   position: relative !important;
-  z-index: 3 !important;
   font-size: 0em !important;
 }
 
@@ -21639,14 +21523,20 @@ th {
   position: absolute !important;
   top: 0em !important;
   left: 0em !important;
-  z-index: 4 !important;
+  z-index: 3 !important;
   -webkit-transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
   transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
 }
 
 .ui.reveal > .hidden.content {
   position: relative !important;
-  z-index: 3 !important;
+  z-index: 2 !important;
+}
+
+/* Make sure hovered element is on top of other reveal */
+
+.ui.reveal:hover .visible.content {
+  z-index: 4 !important;
 }
 
 /*******************************
@@ -21659,7 +21549,6 @@ th {
 
 .ui.slide.reveal {
   position: relative !important;
-  display: block;
   overflow: hidden !important;
   white-space: nowrap;
 }
@@ -22255,10 +22144,6 @@ th {
          Theme Overrides
 *******************************/
 
-/*******************************
-         Site Overrides
-*******************************/
-
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
@@ -22560,7 +22445,6 @@ th {
   color: transparent !important;
   -webkit-transition: all 0s linear;
   transition: all 0s linear;
-  z-index: 100;
 }
 
 .ui.loading.segment:before {
@@ -22925,10 +22809,6 @@ th {
          Theme Overrides
 *******************************/
 
-/*******************************
-         Site Overrides
-*******************************/
-
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
@@ -23081,10 +22961,6 @@ th {
 
 /*******************************
          Theme Overrides
-*******************************/
-
-/*******************************
-        User Overrides
 *******************************/
 
 /*
@@ -23735,10 +23611,6 @@ a:hover {
         Global Overrides
 *******************************/
 
-/*******************************
-         Site Overrides
-*******************************/
-
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
@@ -24177,10 +24049,6 @@ a:hover {
          Theme Overrides
 *******************************/
 
-/*******************************
-    User Variable Overrides
-*******************************/
-
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
@@ -24572,22 +24440,6 @@ a:hover {
   /* '' */
 }
 
-/*******************************
-         Site Overrides
-*******************************/
-
-@font-face {
-  font-family: 'Step';
-  src: url(data:application/octet-stream;base6,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') format('woff'), url(data:application/octet-stream;base6,AAEAAAAOAIAAAwBgT1MvMj3hSQEAAADsAAAAVmNtYXDQEhm3AAABRAAAAUpjdnQgBkn/lAAABuwAAAAcZnBnbYoKeDsAAAcIAAAJkWdhc3AAAAAQAAAG5AAAAAhnbHlm32cEdgAAApAAAAC2aGVhZAErPHsAAANIAAAANmhoZWEHUwNNAAADgAAAACRobXR4CykAAAAAA6QAAAAMbG9jYQA4AFsAAAOwAAAACG1heHAApgm8AAADuAAAACBuYW1lzJ0aHAAAA9gAAALNcG9zdK69QJgAAAaoAAAAO3ByZXCSoZr/AAAQnAAAAFYAAQO4AZAABQAIAnoCvAAAAIwCegK8AAAB4AAxAQIAAAIABQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUGZFZABA6ADoAQNS/2oAWgMLAE8AAAABAAAAAAAAAAAAAwAAAAMAAAAcAAEAAAAAAEQAAwABAAAAHAAEACgAAAAGAAQAAQACAADoAf//AAAAAOgA//8AABgBAAEAAAAAAAAAAAEGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAADpAKYABUAHEAZDwEAAQFCAAIBAmoAAQABagAAAGEUFxQDEisBFAcBBiInASY0PwE2Mh8BATYyHwEWA6QP/iAQLBD+6g8PTBAsEKQBbhAsEEwPAhYWEP4gDw8BFhAsEEwQEKUBbxAQTBAAAAH//f+xA18DCwAMABJADwABAQpDAAAACwBEFRMCESsBFA4BIi4CPgEyHgEDWXLG6MhuBnq89Lp+AV51xHR0xOrEdHTEAAAAAAEAAAABAADDeRpdXw889QALA+gAAAAAzzWYjQAAAADPNWBN//3/sQOkAwsAAAAIAAIAAAAAAAAAAQAAA1L/agBaA+gAAP/3A6QAAQAAAAAAAAAAAAAAAAAAAAMD6AAAA+gAAANZAAAAAAAAADgAWwABAAAAAwAWAAEAAAAAAAIABgATAG4AAAAtCZEAAAAAAAAAEgDeAAEAAAAAAAAANQAAAAEAAAAAAAEACAA1AAEAAAAAAAIABwA9AAEAAAAAAAMACABEAAEAAAAAAAQACABMAAEAAAAAAAUACwBUAAEAAAAAAAYACABfAAEAAAAAAAoAKwBnAAEAAAAAAAsAEwCSAAMAAQQJAAAAagClAAMAAQQJAAEAEAEPAAMAAQQJAAIADgEfAAMAAQQJAAMAEAEtAAMAAQQJAAQAEAE9AAMAAQQJAAUAFgFNAAMAAQQJAAYAEAFjAAMAAQQJAAoAVgFzAAMAAQQJAAsAJgHJQ29weXJpZ2h0IChDKSAyMDE0IGJ5IG9yaWdpbmFsIGF1dGhvcnMgQCBmb250ZWxsby5jb21mb250ZWxsb1JlZ3VsYXJmb250ZWxsb2ZvbnRlbGxvVmVyc2lvbiAxLjBmb250ZWxsb0dlbmVyYXRlZCBieSBzdmcydHRmIGZyb20gRm9udGVsbG8gcHJvamVjdC5odHRwOi8vZm9udGVsbG8uY29tAEMAbwBwAHkAcgBpAGcAaAB0ACAAKABDACkAIAAyADAAMQA0ACAAYgB5ACAAbwByAGkAZwBpAG4AYQBsACAAYQB1AHQAaABvAHIAcwAgAEAAIABmAG8AbgB0AGUAbABsAG8ALgBjAG8AbQBmAG8AbgB0AGUAbABsAG8AUgBlAGcAdQBsAGEAcgBmAG8AbgB0AGUAbABsAG8AZgBvAG4AdABlAGwAbABvAFYAZQByAHMAaQBvAG4AIAAxAC4AMABmAG8AbgB0AGUAbABsAG8ARwBlAG4AZQByAGEAdABlAGQAIABiAHkAIABzAHYAZwAyAHQAdABmACAAZgByAG8AbQAgAEYAbwBuAHQAZQBsAGwAbwAgAHAAcgBvAGoAZQBjAHQALgBoAHQAdABwADoALwAvAGYAbwBuAHQAZQBsAGwAbwAuAGMAbwBtAAAAAAIAAAAAAAAACgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAQIBAwljaGVja21hcmsGY2lyY2xlAAAAAAEAAf//AA8AAAAAAAAAAAAAAAAAAAAAADIAMgML/7EDC/+xsAAssCBgZi2wASwgZCCwwFCwBCZasARFW1ghIyEbilggsFBQWCGwQFkbILA4UFghsDhZWSCwCkVhZLAoUFghsApFILAwUFghsDBZGyCwwFBYIGYgiophILAKUFhgGyCwIFBYIbAKYBsgsDZQWCGwNmAbYFlZWRuwACtZWSOwAFBYZVlZLbACLCBFILAEJWFkILAFQ1BYsAUjQrAGI0IbISFZsAFgLbADLCMhIyEgZLEFYkIgsAYjQrIKAAIqISCwBkMgiiCKsAArsTAFJYpRWGBQG2FSWVgjWSEgsEBTWLAAKxshsEBZI7AAUFhlWS2wBCywB0MrsgACAENgQi2wBSywByNCIyCwACNCYbCAYrABYLAEKi2wBiwgIEUgsAJFY7ABRWJgRLABYC2wBywgIEUgsAArI7ECBCVgIEWKI2EgZCCwIFBYIbAAG7AwUFiwIBuwQFlZI7AAUFhlWbADJSNhRESwAWAtsAgssQUFRbABYUQtsAkssAFgICCwCUNKsABQWCCwCSNCWbAKQ0qwAFJYILAKI0JZLbAKLCC4BABiILgEAGOKI2GwC0NgIIpgILALI0IjLbALLEtUWLEHAURZJLANZSN4LbAMLEtRWEtTWLEHAURZGyFZJLATZSN4LbANLLEADENVWLEMDEOwAWFCsAorWbAAQ7ACJUKxCQIlQrEKAiVCsAEWIyCwAyVQWLEBAENgsAQlQoqKIIojYbAJKiEjsAFhIIojYbAJKiEbsQEAQ2CwAiVCsAIlYbAJKiFZsAlDR7AKQ0dgsIBiILACRWOwAUViYLEAABMjRLABQ7AAPrIBAQFDYEItsA4ssQAFRVRYALAMI0IgYLABYbUNDQEACwBCQopgsQ0FK7BtKxsiWS2wDyyxAA4rLbAQLLEBDistsBEssQIOKy2wEiyxAw4rLbATLLEEDistsBQssQUOKy2wFSyxBg4rLbAWLLEHDistsBcssQgOKy2wGCyxCQ4rLbAZLLAIK7EABUVUWACwDCNCIGCwAWG1DQ0BAAsAQkKKYLENBSuwbSsbIlktsBossQAZKy2wGyyxARkrLbAcLLECGSstsB0ssQMZKy2wHiyxBBkrLbAfLLEFGSstsCAssQYZKy2wISyxBxkrLbAiLLEIGSstsCMssQkZKy2wJCwgPLABYC2wJSwgYLANYCBDI7ABYEOwAiVhsAFgsCQqIS2wJiywJSuwJSotsCcsICBHICCwAkVjsAFFYmAjYTgjIIpVWCBHICCwAkVjsAFFYmAjYTgbIVktsCgssQAFRVRYALABFrAnKrABFTAbIlktsCkssAgrsQAFRVRYALABFrAnKrABFTAbIlktsCosIDWwAWAtsCssALADRWOwAUVisAArsAJFY7ABRWKwACuwABa0AAAAAABEPiM4sSoBFSotsCwsIDwgRyCwAkVjsAFFYmCwAENhOC2wLSwuFzwtsC4sIDwgRyCwAkVjsAFFYmCwAENhsAFDYzgtsC8ssQIAFiUgLiBHsAAjQrACJUmKikcjRyNhIFhiGyFZsAEjQrIuAQEVFCotsDAssAAWsAQlsAQlRyNHI2GwBkUrZYouIyAgPIo4LbAxLLAAFrAEJbAEJSAuRyNHI2EgsAQjQrAGRSsgsGBQWCCwQFFYswIgAyAbswImAxpZQkIjILAIQyCKI0cjRyNhI0ZgsARDsIBiYCCwACsgiophILACQ2BkI7ADQ2FkUFiwAkNhG7ADQ2BZsAMlsIBiYSMgILAEJiNGYTgbI7AIQ0awAiWwCENHI0cjYWAgsARDsIBiYCMgsAArI7AEQ2CwACuwBSVhsAUlsIBisAQmYSCwBCVgZCOwAyVgZFBYIRsjIVkjICCwBCYjRmE4WS2wMiywABYgICCwBSYgLkcjRyNhIzw4LbAzLLAAFiCwCCNCICAgRiNHsAArI2E4LbA0LLAAFrADJbACJUcjRyNhsABUWC4gPCMhG7ACJbACJUcjRyNhILAFJbAEJUcjRyNhsAYlsAUlSbACJWGwAUVjIyBYYhshWWOwAUViYCMuIyAgPIo4IyFZLbA1LLAAFiCwCEMgLkcjRyNhIGCwIGBmsIBiIyAgPIo4LbA2LCMgLkawAiVGUlggPFkusSYBFCstsDcsIyAuRrACJUZQWCA8WS6xJgEUKy2wOCwjIC5GsAIlRlJYIDxZIyAuRrACJUZQWCA8WS6xJgEUKy2wOSywMCsjIC5GsAIlRlJYIDxZLrEmARQrLbA6LLAxK4ogIDywBCNCijgjIC5GsAIlRlJYIDxZLrEmARQrsARDLrAmKy2wOyywABawBCWwBCYgLkcjRyNhsAZFKyMgPCAuIzixJgEUKy2wPCyxCAQlQrAAFrAEJbAEJSAuRyNHI2EgsAQjQrAGRSsgsGBQWCCwQFFYswIgAyAbswImAxpZQkIjIEewBEOwgGJgILAAKyCKimEgsAJDYGQjsANDYWRQWLACQ2EbsANDYFmwAyWwgGJhsAIlRmE4IyA8IzgbISAgRiNHsAArI2E4IVmxJgEUKy2wPSywMCsusSYBFCstsD4ssDErISMgIDywBCNCIzixJgEUK7AEQy6wJistsD8ssAAVIEewACNCsgABARUUEy6wLCotsEAssAAVIEewACNCsgABARUUEy6wLCotsEEssQABFBOwLSotsEIssC8qLbBDLLAAFkUjIC4gRoojYTixJgEUKy2wRCywCCNCsEMrLbBFLLIAADwrLbBGLLIAATwrLbBHLLIBADwrLbBILLIBATwrLbBJLLIAAD0rLbBKLLIAAT0rLbBLLLIBAD0rLbBMLLIBAT0rLbBNLLIAADkrLbBOLLIAATkrLbBPLLIBADkrLbBQLLIBATkrLbBRLLIAADsrLbBSLLIAATsrLbBTLLIBADsrLbBULLIBATsrLbBVLLIAAD4rLbBWLLIAAT4rLbBXLLIBAD4rLbBYLLIBAT4rLbBZLLIAADorLbBaLLIAATorLbBbLLIBADorLbBcLLIBATorLbBdLLAyKy6xJgEUKy2wXiywMiuwNistsF8ssDIrsDcrLbBgLLAAFrAyK7A4Ky2wYSywMysusSYBFCstsGIssDMrsDYrLbBjLLAzK7A3Ky2wZCywMyuwOCstsGUssDQrLrEmARQrLbBmLLA0K7A2Ky2wZyywNCuwNystsGgssDQrsDgrLbBpLLA1Ky6xJgEUKy2waiywNSuwNistsGsssDUrsDcrLbBsLLA1K7A4Ky2wbSwrsAhlsAMkUHiwARUwLQAAAEu4AMhSWLEBAY5ZuQgACABjILABI0SwAyNwsgQoCUVSRLIKAgcqsQYBRLEkAYhRWLBAiFixBgNEsSYBiFFYuAQAiFixBgFEWVlZWbgB/4WwBI2xBQBEAAA=') format('truetype');
-}
-
-.ui.steps .step.completed > .icon:before,
-.ui.ordered.steps .step.completed:before {
-  font-family: 'Step';
-  content: '\e800';
-  /* '' */
-}
-
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
@@ -24659,10 +24511,6 @@ a:hover {
          Theme Overrides
 *******************************/
 
-/*******************************
-         Site Overrides
-*******************************/
-
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
@@ -24711,27 +24559,41 @@ a:hover {
   left: -10000px !important;
 }
 
-.ui.tab.loading:after {
-  border: none;
+.ui.tab.loading:before,
+.ui.tab.loading.segment:before {
   position: absolute;
-  top: 50px;
-  left: 0%;
-  content: 'Loading...';
-  color: rgba(0, 0, 0, 0.4);
-  width: 100%;
-  height: 100%;
-  padding-top: 50px;
-  text-align: center;
-  background: url("themes/default/assets/images/loader-large.gif") no-repeat 50% 0px;
-  visibility: visible;
+  content: '';
+  top: 100px;
+  left: 50%;
+  margin: -1.25em 0em 0em -1.25em;
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 500rem;
+  border: 0.2em solid rgba(0, 0, 0, 0.1);
+}
+
+.ui.tab.loading:after,
+.ui.tab.loading.segment:after {
+  position: absolute;
+  content: '';
+  top: 100px;
+  left: 50%;
+  margin: -1.25em 0em 0em -1.25em;
+  width: 2.5em;
+  height: 2.5em;
+  -webkit-animation: button-spin 0.6s linear;
+  animation: button-spin 0.6s linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  border-radius: 500rem;
+  border-color: #aaaaaa transparent transparent;
+  border-style: solid;
+  border-width: 0.2em;
+  box-shadow: 0px 0px 0px 1px transparent;
 }
 
 /*******************************
          Tab Overrides
-*******************************/
-
-/*******************************
-        User Overrides
 *******************************/
 
 /*
@@ -25012,22 +24874,19 @@ a:hover {
 
 .ui.table tr.positive,
 .ui.table td.positive {
-  box-shadow: 2px 0px 0px #119000 inset;
+  box-shadow: 0px 0px 0px #b7caa7 inset;
 }
 
 .ui.table tr.positive td,
 .ui.table td.positive {
-  background: #f2f8f0 !important;
-  color: #119000 !important;
+  background: #eeffe7 !important;
+  color: #3c763d !important;
 }
 
 .ui.celled.table tr.positive:hover td,
-.ui.celled.table tr:hover td.positive,
-.ui.table tr.positive:hover td,
-.ui.table td:hover.positive,
-.ui.table th:hover.positive {
-  background: #ecf5e9 !important;
-  color: #119000 !important;
+.ui.celled.table tr:hover td.positive {
+  background: #e3ffd8 !important;
+  color: #376c38 !important;
 }
 
 /*--------------
@@ -25036,19 +24895,19 @@ a:hover {
 
 .ui.table tr.negative,
 .ui.table td.negative {
-  box-shadow: 2px 0px 0px #cd2929 inset;
+  box-shadow: 0px 0px 0px #dbb1b1 inset;
 }
 
 .ui.table tr.negative td,
 .ui.table td.negative {
-  background: #f9f4f4 !important;
+  background: #fff0f0 !important;
   color: #cd2929 !important;
 }
 
 .ui.celled.table tr.negative:hover td,
 .ui.celled.table tr:hover td.negative {
-  background: #f2e8e8 !important;
-  color: #cd2929 !important;
+  background: #ffe1e1 !important;
+  color: #c02626 !important;
 }
 
 /*--------------
@@ -25057,19 +24916,19 @@ a:hover {
 
 .ui.table tr.error,
 .ui.table td.error {
-  box-shadow: 2px 0px 0px #cd2929 inset;
+  box-shadow: 0px 0px 0px #dbb1b1 inset;
 }
 
 .ui.table tr.error td,
 .ui.table td.error {
-  background: #f9f4f4 !important;
+  background: #fff0f0 !important;
   color: #cd2929 !important;
 }
 
 .ui.celled.table tr.error:hover td,
 .ui.celled.table tr:hover td.error {
-  background: #f2e8e8 !important;
-  color: #cd2929 !important;
+  background: #ffe1e1 !important;
+  color: #c02626 !important;
 }
 
 /*--------------
@@ -25078,19 +24937,19 @@ a:hover {
 
 .ui.table tr.warning,
 .ui.table td.warning {
-  box-shadow: 2px 0px 0px #7d6c00 inset;
+  box-shadow: 0px 0px 0px #d9caab inset;
 }
 
 .ui.table tr.warning td,
 .ui.table td.warning {
-  background: #fbf6e9 !important;
+  background: #fffbe6 !important;
   color: #7d6c00 !important;
 }
 
 .ui.celled.table tr.warning:hover td,
 .ui.celled.table tr:hover td.warning {
-  background: #f3eddc !important;
-  color: #cd2929 !important;
+  background: #fff9d7 !important;
+  color: #6e5f00 !important;
 }
 
 /*--------------
@@ -25099,7 +24958,7 @@ a:hover {
 
 .ui.table tr.active,
 .ui.table td.active {
-  box-shadow: 2px 0px 0px rgba(50, 50, 50, 0.9) inset;
+  box-shadow: 0px 0px 0px rgba(50, 50, 50, 0.9) inset;
 }
 
 .ui.table tr.active td,
@@ -25732,10 +25591,6 @@ a:hover {
 
 /*******************************
          Theme Overrides
-*******************************/
-
-/*******************************
-         Site Overrides
 *******************************/
 
 /*
@@ -26824,10 +26679,6 @@ a:hover {
   }
 }
 
-/*******************************
-         Site Overrides
-*******************************/
-
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
@@ -26946,8 +26797,4 @@ a:hover {
 
 /*******************************
         Video Overrides
-*******************************/
-
-/*******************************
-         Site Overrides
 *******************************/

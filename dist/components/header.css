@@ -139,9 +139,16 @@ h5.ui.header {
 --------------------*/
 
 .ui.icon.header {
-  display: block;
+  display: inline-block;
   text-align: center;
   margin: 2rem 0em 1rem;
+}
+.ui.icon.header:after {
+  content: '';
+  display: block;
+  height: 0px;
+  clear: both;
+  visibility: hidden;
 }
 .ui.icon.header:first-child {
   margin-top: 0em;
@@ -417,7 +424,7 @@ a.ui.inverted.yellow.header:hover {
   padding-bottom: 0.25rem;
 }
 .ui.dividing.header .icon {
-  margin-bottom: 0.2em;
+  margin-bottom: 0em;
 }
 .ui.inverted.dividing.header {
   border-bottom-color: rgba(255, 255, 255, 0.2);
@@ -511,11 +518,5 @@ a.ui.inverted.yellow.header:hover {
 
 /*******************************
          Theme Overrides
-*******************************/
-
-
-
-/*******************************
-         Site Overrides
 *******************************/
 

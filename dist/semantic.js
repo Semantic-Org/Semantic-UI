@@ -2318,6 +2318,13 @@ $.fn.checkbox = function(parameters) {
         set: {
           checked: function() {
             $module.addClass(className.checked);
+          },
+          tab: function() {
+            if( $input.attr('tabindex') === undefined) {
+              $input
+                .attr('tabindex', 0)
+              ;
+            }
           }
         },
 
@@ -3793,8 +3800,8 @@ $.fn.dropdown = function(parameters) {
                 ;
               }
               $module
-                .on('mousedown', module.event.mousedown)
-                .on('mouseup', module.event.mouseup)
+                .on('mousedown' + eventNamespace, module.event.mousedown)
+                .on('mouseup' + eventNamespace, module.event.mouseup)
                 .on('focus' + eventNamespace, module.event.focus)
                 .on('blur' + eventNamespace, module.event.blur)
               ;
@@ -8355,6 +8362,7 @@ $.fn.progress = function(parameters) {
             if(text) {
               module.set.label(text);
             }
+            $.proxy(settings.onActive, element)(module.value, module.total);
           },
           success : function(text) {
             text = text || settings.text.success;
@@ -8367,6 +8375,7 @@ $.fn.progress = function(parameters) {
             if(text) {
               module.set.label(text);
             }
+            $.proxy(settings.onSuccess, element)(module.total);
           },
           warning : function(text) {
             text = text || settings.text.warning;
@@ -8379,6 +8388,7 @@ $.fn.progress = function(parameters) {
             if(text) {
               module.set.label(text);
             }
+            $.proxy(settings.onWarning, element)(module.value, module.total);
           },
           error : function(text) {
             text = text || settings.text.error;
@@ -8391,6 +8401,7 @@ $.fn.progress = function(parameters) {
             if(text) {
               module.set.label(text);
             }
+            $.proxy(settings.onError, element)(module.value, module.total);
           },
           total: function(totalValue) {
             module.total = totalValue;
@@ -8600,14 +8611,14 @@ $.fn.progress = function(parameters) {
 
 $.fn.progress.settings = {
 
-  name        : 'Progress',
-  namespace   : 'progress',
+  name         : 'Progress',
+  namespace    : 'progress',
 
-  debug       : false,
-  verbose     : true,
-  performance : true,
+  debug        : false,
+  verbose      : true,
+  performance  : true,
 
-  random      : {
+  random       : {
     min : 2,
     max : 5
   },
@@ -8623,6 +8634,10 @@ $.fn.progress.settings = {
   value        : false,
 
   onChange     : function(percent, value, total){},
+  onSuccess    : function(total){},
+  onActive     : function(value, total){},
+  onError      : function(value, total){},
+  onWarning    : function(value, total){},
 
   error    : {
     method     : 'The method you called is not defined.',
@@ -8638,7 +8653,6 @@ $.fn.progress.settings = {
     total   : 'total',
     value   : 'value'
   },
-
 
   selector : {
     bar      : '> .bar',
@@ -9387,7 +9401,7 @@ $.fn.search = function(parameters) {
               else if(settings.apiSettings) {
                 module.search.remote(searchTerm);
               }
-              else if($.api !== undefined && $.api.settings.api.search !== undefined) {
+              else if($.fn.api !== undefined && $.api.settings.api.search !== undefined) {
                 module.debug('Searching with default search API endpoint');
                 settings.apiSettings = {
                   action: 'search'
@@ -9833,7 +9847,7 @@ $.fn.search.settings = {
   },
 
   error : {
-    source      : 'No source or api action specified',
+    source      : 'Cannot search. No source used, and Semantic API module was not included',
     noResults   : 'Your search returned no results',
     logging     : 'Error in debug logging, exiting.',
     noTemplate  : 'A valid template name was not specified.',
@@ -14032,11 +14046,13 @@ $.tab = $.fn.tab = function(parameters) {
             }
             else {
               // look for in page anchor
-              $anchor     = $('#' + tabPath + ', a[name="' + tabPath + '"]');
+              $anchor     = (tabPath.search('/') == -1)
+                ? $('#' + tabPath + ', a[name="' + tabPath + '"]')
+                : $('#qqq'),
               currentPath = $anchor.closest('[data-tab]').data('tab');
               $tab        = module.get.tabElement(currentPath);
               // if anchor exists use parent tab
-              if($anchor.size() > 0 && currentPath) {
+              if($anchor && $anchor.size() > 0 && currentPath) {
                 module.debug('No tab found, but deep anchor link present, opening parent tab');
                 module.activate.all(currentPath);
                 if( !module.cache.read(currentPath) ) {
@@ -14445,31 +14461,21 @@ $.tab = function(settings) {
 
 $.fn.tab.settings = {
 
-  name        : 'Tab',
-  namespace   : 'tab',
+  name         : 'Tab',
+  namespace    : 'tab',
 
-  debug       : false,
-  verbose     : false,
-  performance : false,
-
-  // only called first time a tab's content is loaded (when remote source)
-  onTabInit   : function(tabPath, parameterArray, historyEvent) {},
-
-  // called on every load
-  onTabLoad   : function(tabPath, parameterArray, historyEvent) {},
-
-  templates   : {
-    determineTitle: function(tabArray) {}
-  },
+  debug        : false,
+  verbose      : false,
+  performance  : false,
 
   // uses pjax style endpoints fetching content from same url with remote-content headers
-  auto            : false,
-  history         : false,
-  historyType     : 'hash',
-  path            : false,
+  auto         : false,
+  history      : false,
+  historyType  : 'hash',
+  path         : false,
 
-  context         : false,
-  childrenOnly    : false,
+  context      : false,
+  childrenOnly : false,
 
   // max depth a tab can be nested
   maxDepth        : 25,
@@ -14485,6 +14491,16 @@ $.fn.tab.settings = {
 
   // settings for api call
   apiSettings     : false,
+
+  // only called first time a tab's content is loaded (when remote source)
+  onTabInit    : function(tabPath, parameterArray, historyEvent) {},
+
+  // called on every load
+  onTabLoad    : function(tabPath, parameterArray, historyEvent) {},
+
+  templates    : {
+    determineTitle: function(tabArray) {}
+  },
 
   error: {
     api        : 'You attempted to load content without API module',

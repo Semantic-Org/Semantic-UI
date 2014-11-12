@@ -508,7 +508,7 @@
 
 .ui.divided.grid:not([class*="vertically divided"]) > .column:not(.row),
 .ui.divided.grid:not([class*="vertically divided"]) > .row > .column {
-  box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: -1px 0px 0px 0px rgba(39, 41, 43, 0.15);
 }
 
 /* Swap from padding to margin on columns to have dividers align */
@@ -534,7 +534,7 @@
 
 /* Divided Row */
 .ui.grid > .divided.row > .column {
-  box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: -1px 0px 0px 0px rgba(39, 41, 43, 0.15);
 }
 .ui.grid > .divided.row > .column:first-child {
   box-shadow: none;
@@ -553,7 +553,7 @@
   width: calc(100% -  2rem );
   height: 1px;
   margin: 0% 1rem;
-  box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px -1px 0px 0px rgba(39, 41, 43, 0.15);
 }
 
 /* Padded Horizontally Divided */
@@ -570,14 +570,14 @@
 /* Inverted Divided */
 .ui.inverted.divided.grid:not([class*="vertically divided"]) > .column:not(.row),
 .ui.inverted.divided.grid:not([class*="vertically divided"]) > .row > .column {
-  box-shadow: -1px 0px 0px 0px rgba(255, 255, 255, 0.15);
+  box-shadow: -1px 0px 0px 0px rgba(255, 255, 255, 0.2);
 }
 .ui.inverted.divided.grid:not([class*="vertically divided"]) > .column:not(.row):first-child,
 .ui.inverted.divided.grid:not([class*="vertically divided"]) > .row > .column:first-child {
   box-shadow: none;
 }
 .ui.inverted[class*="vertically divided"].grid > .row:before {
-  box-shadow: 0px -1px 0px 0px rgba(255, 255, 255, 0.15);
+  box-shadow: 0px -1px 0px 0px rgba(255, 255, 255, 0.2);
 }
 
 /* Relaxed */
@@ -1170,11 +1170,5 @@
 
 /*******************************
          Theme Overrides
-*******************************/
-
-
-
-/*******************************
-         Site Overrides
 *******************************/
 

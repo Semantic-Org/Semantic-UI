@@ -27,7 +27,7 @@
 }
 i.icon {
   display: inline-block;
-  opacity: 0.75;
+  opacity: 1;
   margin: 0em 0.25rem 0em 0em;
   width: 1.23em;
   height: 0.9em;
@@ -114,7 +114,7 @@ i.disabled.icon {
 
 i.link.icon {
   cursor: pointer;
-  opacity: 0.75;
+  opacity: 1;
   -webkit-transition: opacity 0.2s ease;
           transition: opacity 0.2s ease;
 }
@@ -2120,9 +2120,3 @@ i.icon.\33d:before {
 i.icon.weixin:before {
   content: "\f1d7";
 }
-
-
-/*******************************
-         Site Overrides
-*******************************/
-
