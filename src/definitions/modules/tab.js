@@ -310,11 +310,13 @@ $.tab = $.fn.tab = function(parameters) {
             }
             else {
               // look for in page anchor
-              $anchor     = $('#' + tabPath + ', a[name="' + tabPath + '"]');
+              $anchor     = (tabPath.search('/') == -1)
+                ? $('#' + tabPath + ', a[name="' + tabPath + '"]')
+                : $('#qqq'),
               currentPath = $anchor.closest('[data-tab]').data('tab');
               $tab        = module.get.tabElement(currentPath);
               // if anchor exists use parent tab
-              if($anchor.size() > 0 && currentPath) {
+              if($anchor && $anchor.size() > 0 && currentPath) {
                 module.debug('No tab found, but deep anchor link present, opening parent tab');
                 module.activate.all(currentPath);
                 if( !module.cache.read(currentPath) ) {
@@ -723,31 +725,21 @@ $.tab = function(settings) {
 
 $.fn.tab.settings = {
 
-  name        : 'Tab',
-  namespace   : 'tab',
+  name         : 'Tab',
+  namespace    : 'tab',
 
-  debug       : false,
-  verbose     : false,
-  performance : false,
-
-  // only called first time a tab's content is loaded (when remote source)
-  onTabInit   : function(tabPath, parameterArray, historyEvent) {},
-
-  // called on every load
-  onTabLoad   : function(tabPath, parameterArray, historyEvent) {},
-
-  templates   : {
-    determineTitle: function(tabArray) {}
-  },
+  debug        : false,
+  verbose      : false,
+  performance  : false,
 
   // uses pjax style endpoints fetching content from same url with remote-content headers
-  auto            : false,
-  history         : false,
-  historyType     : 'hash',
-  path            : false,
+  auto         : false,
+  history      : false,
+  historyType  : 'hash',
+  path         : false,
 
-  context         : false,
-  childrenOnly    : false,
+  context      : false,
+  childrenOnly : false,
 
   // max depth a tab can be nested
   maxDepth        : 25,
@@ -763,6 +755,16 @@ $.fn.tab.settings = {
 
   // settings for api call
   apiSettings     : false,
+
+  // only called first time a tab's content is loaded (when remote source)
+  onTabInit    : function(tabPath, parameterArray, historyEvent) {},
+
+  // called on every load
+  onTabLoad    : function(tabPath, parameterArray, historyEvent) {},
+
+  templates    : {
+    determineTitle: function(tabArray) {}
+  },
 
   error: {
     api        : 'You attempted to load content without API module',

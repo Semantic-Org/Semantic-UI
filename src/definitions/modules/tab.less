@@ -53,19 +53,42 @@
   position: @loadingContentPosition !important;
   left: @loadingContentOffset !important;
 }
-.ui.tab.loading:after {
-  border: none;
+
+.ui.tab.loading:before,
+.ui.tab.loading.segment:before {
   position: absolute;
-  top: @loadingTextDistance;
-  left: 0%;
-  content: @loadingText;
-  color: @lightTextColor;
-  width: 100%;
-  height: 100%;
-  padding-top: @loadingTextDistance;
-  text-align: @loadingAlign;
-  background: @loadingBackground;
-  visibility: visible;
+  content: '';
+  top: @loaderDistanceFromTop;
+  left: 50%;
+
+  margin: @loaderMargin;
+  width: @loaderSize;
+  height: @loaderSize;
+
+  border-radius: @circularRadius;
+  border: @loaderLineWidth solid @loaderFillColor;
+}
+.ui.tab.loading:after,
+.ui.tab.loading.segment:after {
+  position: absolute;
+  content: '';
+  top: @loaderDistanceFromTop;
+  left: 50%;
+
+  margin: @loaderMargin;
+  width: @loaderSize;
+  height: @loaderSize;
+
+  animation: button-spin @loaderSpeed linear;
+  animation-iteration-count: infinite;
+
+  border-radius: @circularRadius;
+
+  border-color: @loaderLineColor transparent transparent;
+  border-style: solid;
+  border-width: @loaderLineWidth;
+
+  box-shadow: 0px 0px 0px 1px transparent;
 }
 
 .loadUIOverrides();
