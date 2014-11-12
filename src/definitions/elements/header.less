@@ -148,10 +148,18 @@ h5.ui.header {
 --------------------*/
 
 .ui.icon.header {
-  display: block;
+  display: inline-block;
   text-align: center;
   margin: @iconHeaderTopMargin 0em @iconHeaderBottomMargin;
 }
+.ui.icon.header:after {
+  content: '';
+  display: block;
+  height: 0px;
+  clear: both;
+  visibility: hidden;
+}
+
 .ui.icon.header:first-child {
   margin-top: @iconHeaderFirstMargin;
 }

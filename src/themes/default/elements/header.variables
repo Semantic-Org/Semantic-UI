@@ -80,7 +80,7 @@
 
 @dividedBorderPadding: 0.25rem;
 @dividedSubHeaderPadding: 0.25rem;
-@dividedIconPadding: 0.2em;
+@dividedIconPadding: 0em;
 
 /* Block */
 @blockBackground: @darkWhite;
