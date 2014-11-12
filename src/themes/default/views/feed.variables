@@ -43,7 +43,7 @@
 @imageLabelBorderRadius: @circularRadius;
 
 /* Content w/ Label */
-@labeledContentPadding: 0.5em 0em 0.5em 1.5em;
+@labeledContentPadding: 0.5em 0em 0.5em 1.25em;
 @lastLabeledContentPadding: 0em;
 
 /* Content */

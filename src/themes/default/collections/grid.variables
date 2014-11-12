@@ -64,11 +64,11 @@
      Divided
 ---------------*/
 
-@dividedBorder: -1px 0px 0px 0px rgba(0, 0, 0, 0.1);
-@verticallyDividedBorder: 0px -1px 0px 0px rgba(0, 0, 0, 0.1);
+@dividedBorder: -1px 0px 0px 0px @borderColor;
+@verticallyDividedBorder: 0px -1px 0px 0px @borderColor;
 
-@dividedInvertedBorder: -1px 0px 0px 0px rgba(255, 255, 255, 0.15);
-@verticallyDividedInvertedBorder: 0px -1px 0px 0px rgba(255, 255, 255, 0.15);
+@dividedInvertedBorder: -1px 0px 0px 0px @whiteBorderColor;
+@verticallyDividedInvertedBorder: 0px -1px 0px 0px @whiteBorderColor;
 
 /*--------------
     Celled

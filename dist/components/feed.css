@@ -72,7 +72,7 @@
   border-radius: 500rem;
 }
 .ui.feed > .event > .label + .content {
-  padding: 0.5em 0em 0.5em 1.5em;
+  padding: 0.5em 0em 0.5em 1.25em;
 }
 
 /* Content */
@@ -267,5 +267,11 @@
 
 /*******************************
          Theme Overrides
+*******************************/
+
+
+
+/*******************************
+    User Variable Overrides
 *******************************/
 

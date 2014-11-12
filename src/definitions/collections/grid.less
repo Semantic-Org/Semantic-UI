@@ -584,15 +584,15 @@
 }
 
 /* Inverted Divided */
-.ui.inverted.divided.grid:not([class*="vertically divided"]) > .column,
+.ui.inverted.divided.grid:not([class*="vertically divided"]) > .column:not(.row),
 .ui.inverted.divided.grid:not([class*="vertically divided"]) > .row > .column {
   box-shadow: @dividedInvertedBorder;
 }
-.ui.inverted.divided.grid:not([class*="vertically divided"]) > .column:first-child,
+.ui.inverted.divided.grid:not([class*="vertically divided"]) > .column:not(.row):first-child,
 .ui.inverted.divided.grid:not([class*="vertically divided"]) > .row > .column:first-child {
   box-shadow: none;
 }
-.ui.inverted[class*="vertically divided"].grid > .row {
+.ui.inverted[class*="vertically divided"].grid > .row:before {
   box-shadow: @verticallyDividedInvertedBorder;
 }
 
