@@ -300,8 +300,8 @@ $.fn.dropdown = function(parameters) {
                 ;
               }
               $module
-                .on('mousedown', module.event.mousedown)
-                .on('mouseup', module.event.mouseup)
+                .on('mousedown' + eventNamespace, module.event.mousedown)
+                .on('mouseup' + eventNamespace, module.event.mouseup)
                 .on('focus' + eventNamespace, module.event.focus)
                 .on('blur' + eventNamespace, module.event.blur)
               ;

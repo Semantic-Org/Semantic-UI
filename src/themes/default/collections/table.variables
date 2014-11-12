@@ -102,35 +102,31 @@
      States
 ---------------*/
 
-@stateMarkerWidth: 2px;
+@stateMarkerWidth: 0px;
 
 /* Positive */
-@positiveColor: #119000;
-@positiveBackgroundColor: #F2F8F0;
-@positiveBoxShadow: @stateMarkerWidth 0px 0px @positiveColor inset;
-@positiveBackgroundHover: #ECF5E9;
-@positiveColorHover: #119000;
+@positiveColor: @positiveTextColor;
+@positiveBoxShadow: @stateMarkerWidth 0px 0px @positiveBorderColor inset;
+@positiveBackgroundHover: darken(@positiveBackgroundColor, 3);
+@positiveColorHover: darken(@positiveColor, 3);
 
 /* Negative */
 @negativeColor: #CD2929;
-@negativeBackgroundColor: #F9F4F4;
-@negativeBoxShadow: @stateMarkerWidth 0px 0px @negativeColor inset;
-@negativeBackgroundHover: #F2E8E8;
-@negativeColorHover: #CD2929;
+@negativeBoxShadow: @stateMarkerWidth 0px 0px @negativeBorderColor inset;
+@negativeBackgroundHover: darken(@negativeBackgroundColor, 3);
+@negativeColorHover: darken(@negativeColor, 3);
 
 /* Error */
 @errorColor: #CD2929;
-@errorBackgroundColor: #F9F4F4;
-@errorBoxShadow: @stateMarkerWidth 0px 0px @errorColor inset;
-@errorBackgroundHover: #F2E8E8;
-@errorColorHover: #CD2929;
+@errorBoxShadow: @stateMarkerWidth 0px 0px @errorBorderColor inset;
+@errorBackgroundHover: darken(@errorBackgroundColor, 3);
+@errorColorHover: darken(@errorColor, 3);
 
 /* Warning */
 @warningColor: #7D6C00;
-@warningBackgroundColor: #FBF6E9;
-@warningBoxShadow: @stateMarkerWidth 0px 0px @warningColor inset;
-@warningBackgroundHover: #F3EDDC;
-@warningColorHover: #CD2929;
+@warningBoxShadow: @stateMarkerWidth 0px 0px @warningBorderColor inset;
+@warningBackgroundHover: darken(@warningBackgroundColor, 3);
+@warningColorHover: darken(@warningColor, 3);
 
 /* Active */
 @activeColor: rgba(50, 50, 50, 0.9);
