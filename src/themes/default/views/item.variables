@@ -117,7 +117,7 @@
 
 /* Additional Content */
 @extraDivider: none;
-@extraSpacing: 0.5rem;
+@extraHorizontalSpacing: 0.5rem;
 @extraRowSpacing: 0.5rem;
 
 @extraBackground: none;

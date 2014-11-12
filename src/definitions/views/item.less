@@ -316,10 +316,10 @@
   border-top: @extraDivider;
 }
 .ui.items > .item .extra > * {
-  margin: @extraRowSpacing @extraSpacing 0em 0em;
+  margin: (@extraRowSpacing / 2) @extraHorizontalSpacing (@extraRowSpacing / 2) 0em;
 }
 .ui.items > .item .extra > [class*="right floated"] {
-  margin: @extraRowSpacing 0em 0em @extraSpacing;
+  margin: (@extraRowSpacing / 2) 0em (@extraRowSpacing / 2) @extraHorizontalSpacing;
 }
 
 .ui.items > .item .extra:after {
