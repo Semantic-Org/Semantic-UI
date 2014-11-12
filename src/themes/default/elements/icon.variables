@@ -8,7 +8,7 @@
 
 @fontName: 'icons';
 
-@opacity: 0.75;
+@opacity: 1;
 @width: 1.23em;
 @height: 0.9em;
 @distanceFromText: 0.25rem;

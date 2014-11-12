@@ -624,7 +624,6 @@ $.fn.progress.settings = {
     value   : 'value'
   },
 
-
   selector : {
     bar      : '> .bar',
     label    : '> .label',

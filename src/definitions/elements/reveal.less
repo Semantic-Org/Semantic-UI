@@ -26,7 +26,6 @@
 .ui.reveal  {
   display: inline-block;
   position: relative !important;
-  z-index: @bottomZIndex !important;
   font-size: 0em !important;
 }
 
@@ -35,11 +34,16 @@
   top: 0em !important;
   left: 0em !important;
   z-index: @topZIndex !important;
-  transition: all @transitionDuration @transitionEasing @transitionDelay;
+  transition: @transition;
 }
 .ui.reveal > .hidden.content {
   position: relative !important;
   z-index: @bottomZIndex !important;
+}
+
+/* Make sure hovered element is on top of other reveal */
+.ui.reveal:hover .visible.content {
+  z-index: @activeZIndex !important;
 }
 
 
@@ -54,9 +58,7 @@
 
 .ui.slide.reveal {
   position: relative !important;
-  display: block;
   overflow: hidden !important;
-
   white-space: nowrap;
 }
 
@@ -72,6 +74,7 @@
     bottom @transitionDuration @transitionEasing @transitionDelay
   ;
 }
+
 .ui.slide.reveal > .visible.content {
   position: relative !important;
 }
