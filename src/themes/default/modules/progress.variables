@@ -24,10 +24,10 @@
 @barBorderRadius: @borderRadius;
 @barTransition:
   width 0.5s @defaultEasing,
-  background-color 1s @defaultEasing
+  background-color 0.4s @defaultEasing
 ;
 @barInitialWidth: 0%;
-@barMinWidth: 0.25em;
+@barMinWidth: 2em;
 
 /* Progress Bar Label */
 @progressWidth: auto;
@@ -57,7 +57,7 @@
 @labelTextShadow: none;
 @labelFontWeight: bold;
 @labelTextAlign: center;
-@labelTransition: color 1s @defaultEasing;
+@labelTransition: color 0.4s @defaultEasing;
 
 /*-------------------
         Types
@@ -79,7 +79,7 @@
 @activePulseColor: @white;
 @activePulseMaxOpacity: 0.3;
 @activePulseDuration: 2s;
-@activeMinWidth: 3em;
+@activeMinWidth: @barMinWidth;
 
 
 /*-------------------
