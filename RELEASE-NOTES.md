@@ -61,6 +61,7 @@
 - **List** - List spacing defaults have been adjusted to be more consistent
 - **Popup** - Popup can now allow itself not to be closed when hovered over
 - **Popup** - A popup element can now be specified on initialization.
+- **Reveal** - Reveals now all use css properties with GPU acceleration
 - **Popup** - Positioned popups will now extend in the opposite direction to fit better with floated content
 - **Rating** - Rating now uses an embedded icon font to maximize compatibility
 - **Rating** - Rating can now automatically generate icons without including them
