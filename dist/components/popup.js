@@ -325,16 +325,14 @@ $.fn.popup = function(parameters) {
           show: function(callback) {
             callback = $.isFunction(callback) ? callback : function(){};
             if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
+              $module
+                .addClass(className.visible)
+              ;
               $popup
                 .transition({
                   animation : settings.transition + ' in',
                   queue     : false,
                   duration  : settings.duration,
-                  onStart   : function() {
-                    $module
-                      .addClass(className.visible)
-                    ;
-                  },
                   onComplete  : function() {
                     module.bind.close();
                     $.proxy(callback, element)();
