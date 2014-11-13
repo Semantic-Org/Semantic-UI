@@ -371,14 +371,12 @@ $.fn.sidebar = function(parameters) {
           module.repaint();
           animate = function() {
             module.set.animating();
-            requestAnimationFrame(function() {
-              module.set.visible();
-              if(!module.othersActive()) {
-                if(settings.dimPage) {
-                  $pusher.addClass(className.dimmed);
-                }
+            module.set.visible();
+            if(!module.othersActive()) {
+              if(settings.dimPage) {
+                $pusher.addClass(className.dimmed);
               }
-            });
+            }
           };
           transitionEnd = function(event) {
             if( event.target == $transition[0] ) {

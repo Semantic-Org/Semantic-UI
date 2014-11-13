@@ -37,7 +37,7 @@
   z-index: 102;
 }
 
-/* 3D Rendering Fix */
+/* 3D Rendering */
 .ui.sidebar * {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;

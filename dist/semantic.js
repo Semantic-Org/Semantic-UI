@@ -102,7 +102,7 @@ $.fn.accordion = function(parameters) {
         },
 
         observeChanges: function() {
-          if(MutationObserver !== undefined) {
+          if('MutationObserver' in window) {
             observer = new MutationObserver(function(mutations) {
               module.debug('DOM tree modified, updating selector cache');
               module.refresh();
@@ -2236,7 +2236,7 @@ $.fn.checkbox = function(parameters) {
         },
 
         observeChanges: function() {
-          if(MutationObserver !== undefined) {
+          if('MutationObserver' in window) {
             observer = new MutationObserver(function(mutations) {
               module.debug('DOM tree modified, updating selector cache');
               module.refresh();
@@ -3602,7 +3602,7 @@ $.fn.dropdown = function(parameters) {
         },
 
         observeChanges: function() {
-          if(MutationObserver !== undefined) {
+          if('MutationObserver' in window) {
             observer = new MutationObserver(function(mutations) {
               module.debug('DOM tree modified, updating selector cache');
               module.refresh();
@@ -3763,23 +3763,27 @@ $.fn.dropdown = function(parameters) {
             }
           },
           touchEvents: function() {
-            module.debug('Touch device detected binding touch events');
-            if( !module.is.searchSelection() ) {
+            module.debug('Touch device detected binding additional touch events');
+            if( module.is.searchSelection() ) {
+              // do nothing special yet
+            }
+            else {
               $module
                 .on('touchstart' + eventNamespace, module.event.test.toggle)
               ;
             }
             $module
               .on('touchstart' + eventNamespace, selector.item, module.event.item.mouseenter)
-              .on('touchstart' + eventNamespace, selector.item, module.event.item.click)
             ;
           },
           mouseEvents: function() {
             module.verbose('Mouse detected binding mouse events');
             if( module.is.searchSelection() ) {
               $module
-                .on('focus' + eventNamespace, selector.search, module.event.searchFocus)
-                .on('blur' + eventNamespace, selector.search, module.event.searchBlur)
+                .on('mousedown' + eventNamespace, selector.menu, module.event.menu.activate)
+                .on('mouseup'   + eventNamespace, selector.menu, module.event.menu.deactivate)
+                .on('focus'     + eventNamespace, selector.search, module.event.searchFocus)
+                .on('blur'      + eventNamespace, selector.search, module.event.searchBlur)
               ;
             }
             else {
@@ -3801,14 +3805,12 @@ $.fn.dropdown = function(parameters) {
               }
               $module
                 .on('mousedown' + eventNamespace, module.event.mousedown)
-                .on('mouseup' + eventNamespace, module.event.mouseup)
-                .on('focus' + eventNamespace, module.event.focus)
-                .on('blur' + eventNamespace, module.event.blur)
+                .on('mouseup'   + eventNamespace, module.event.mouseup)
+                .on('focus'     + eventNamespace, module.event.focus)
+                .on('blur'      + eventNamespace, module.event.blur)
               ;
             }
             $module
-              .on('mousedown'  + eventNamespace, selector.item, module.event.item.mousedown)
-              .on('mouseup'    + eventNamespace, selector.item, module.event.item.mouseup)
               .on('mouseenter' + eventNamespace, selector.item, module.event.item.mouseenter)
               .on('mouseleave' + eventNamespace, selector.item, module.event.item.mouseleave)
               .on('click'      + eventNamespace, selector.item, module.event.item.click)
@@ -4031,14 +4033,15 @@ $.fn.dropdown = function(parameters) {
             }
           },
 
-          item: {
-
-            mousedown: function() {
+          menu: {
+            activate: function() {
               itemActivated = true;
             },
-            mouseup: function() {
+            deactivate: function() {
               itemActivated = false;
-            },
+            }
+          },
+          item: {
             mouseenter: function(event) {
               var
                 $currentMenu = $(this).find(selector.menu),
@@ -7907,8 +7910,8 @@ $.fn.popup.settings = {
   name           : 'Popup',
 
   debug          : false,
-  verbose        : false,
-  performance    : false,
+  verbose        : true,
+  performance    : true,
   namespace      : 'popup',
 
   onCreate       : function(){},
@@ -11222,14 +11225,12 @@ $.fn.sidebar = function(parameters) {
           module.repaint();
           animate = function() {
             module.set.animating();
-            requestAnimationFrame(function() {
-              module.set.visible();
-              if(!module.othersActive()) {
-                if(settings.dimPage) {
-                  $pusher.addClass(className.dimmed);
-                }
+            module.set.visible();
+            if(!module.othersActive()) {
+              if(settings.dimPage) {
+                $pusher.addClass(className.dimmed);
               }
-            });
+            }
           };
           transitionEnd = function(event) {
             if( event.target == $transition[0] ) {
@@ -13089,7 +13090,7 @@ $.fn.sticky = function(parameters) {
           var
             context = $context[0]
           ;
-          if(MutationObserver !== undefined) {
+          if('MutationObserver' in window) {
             observer = new MutationObserver(function(mutations) {
               clearTimeout(module.timer);
               module.timer = setTimeout(function() {
