@@ -265,10 +265,7 @@ $.fn.dropdown = function(parameters) {
           touchEvents: function() {
             module.debug('Touch device detected binding additional touch events');
             if( module.is.searchSelection() ) {
-              $module
-                .on('touchstart' + eventNamespace, selector.menu, module.event.menu.mousedown)
-                .on('touchend'   + eventNamespace, selector.menu, module.event.menu.mouseup)
-              ;
+              // do nothing special yet
             }
             else {
               $module
@@ -277,15 +274,14 @@ $.fn.dropdown = function(parameters) {
             }
             $module
               .on('touchstart' + eventNamespace, selector.item, module.event.item.mouseenter)
-              .on('touchstart' + eventNamespace, selector.item, module.event.item.click)
             ;
           },
           mouseEvents: function() {
             module.verbose('Mouse detected binding mouse events');
             if( module.is.searchSelection() ) {
               $module
-                .on('mousedown' + eventNamespace, selector.menu, module.event.menu.mousedown)
-                .on('mouseup'   + eventNamespace, selector.menu, module.event.menu.mouseup)
+                .on('mousedown' + eventNamespace, selector.menu, module.event.menu.activate)
+                .on('mouseup'   + eventNamespace, selector.menu, module.event.menu.deactivate)
                 .on('focus'     + eventNamespace, selector.search, module.event.searchFocus)
                 .on('blur'      + eventNamespace, selector.search, module.event.searchBlur)
               ;
@@ -538,10 +534,10 @@ $.fn.dropdown = function(parameters) {
           },
 
           menu: {
-            mousedown: function() {
+            activate: function() {
               itemActivated = true;
             },
-            mouseup: function() {
+            deactivate: function() {
               itemActivated = false;
             }
           },
