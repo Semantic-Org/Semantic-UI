@@ -263,8 +263,14 @@ $.fn.dropdown = function(parameters) {
             }
           },
           touchEvents: function() {
-            module.debug('Touch device detected binding touch events');
-            if( !module.is.searchSelection() ) {
+            module.debug('Touch device detected binding additional touch events');
+            if( module.is.searchSelection() ) {
+              $module
+                .on('touchstart' + eventNamespace, selector.menu, module.event.menu.mousedown)
+                .on('touchend'   + eventNamespace, selector.menu, module.event.menu.mouseup)
+              ;
+            }
+            else {
               $module
                 .on('touchstart' + eventNamespace, module.event.test.toggle)
               ;
@@ -278,8 +284,10 @@ $.fn.dropdown = function(parameters) {
             module.verbose('Mouse detected binding mouse events');
             if( module.is.searchSelection() ) {
               $module
-                .on('focus' + eventNamespace, selector.search, module.event.searchFocus)
-                .on('blur' + eventNamespace, selector.search, module.event.searchBlur)
+                .on('mousedown' + eventNamespace, selector.menu, module.event.menu.mousedown)
+                .on('mouseup'   + eventNamespace, selector.menu, module.event.menu.mouseup)
+                .on('focus'     + eventNamespace, selector.search, module.event.searchFocus)
+                .on('blur'      + eventNamespace, selector.search, module.event.searchBlur)
               ;
             }
             else {
@@ -301,14 +309,12 @@ $.fn.dropdown = function(parameters) {
               }
               $module
                 .on('mousedown' + eventNamespace, module.event.mousedown)
-                .on('mouseup' + eventNamespace, module.event.mouseup)
-                .on('focus' + eventNamespace, module.event.focus)
-                .on('blur' + eventNamespace, module.event.blur)
+                .on('mouseup'   + eventNamespace, module.event.mouseup)
+                .on('focus'     + eventNamespace, module.event.focus)
+                .on('blur'      + eventNamespace, module.event.blur)
               ;
             }
             $module
-              .on('mousedown'  + eventNamespace, selector.item, module.event.item.mousedown)
-              .on('mouseup'    + eventNamespace, selector.item, module.event.item.mouseup)
               .on('mouseenter' + eventNamespace, selector.item, module.event.item.mouseenter)
               .on('mouseleave' + eventNamespace, selector.item, module.event.item.mouseleave)
               .on('click'      + eventNamespace, selector.item, module.event.item.click)
@@ -531,14 +537,15 @@ $.fn.dropdown = function(parameters) {
             }
           },
 
-          item: {
-
+          menu: {
             mousedown: function() {
               itemActivated = true;
             },
             mouseup: function() {
               itemActivated = false;
-            },
+            }
+          },
+          item: {
             mouseenter: function(event) {
               var
                 $currentMenu = $(this).find(selector.menu),
