@@ -9,6 +9,10 @@
   "dependencies": {
     "jquery"      : ">=1.8"
   },
+  "main": [
+    "dist/semantic.css",
+    "dist/semantic.js"
+  ],
   "keywords": [
     "semantic",
     "ui",

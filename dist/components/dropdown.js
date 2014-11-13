@@ -272,7 +272,7 @@ $.fn.dropdown = function(parameters) {
                 .on('touchstart' + eventNamespace, module.event.test.toggle)
               ;
             }
-            $module
+            $menu
               .on('touchstart' + eventNamespace, selector.item, module.event.item.mouseenter)
             ;
           },
@@ -310,7 +310,7 @@ $.fn.dropdown = function(parameters) {
                 .on('blur'      + eventNamespace, module.event.blur)
               ;
             }
-            $module
+            $menu
               .on('mouseenter' + eventNamespace, selector.item, module.event.item.mouseenter)
               .on('mouseleave' + eventNamespace, selector.item, module.event.item.mouseleave)
               .on('click'      + eventNamespace, selector.item, module.event.item.click)
@@ -766,7 +766,7 @@ $.fn.dropdown = function(parameters) {
                         : optionText
                   ;
                   if(strict) {
-                    module.debug('Ambiguous dropdown value using strict type check', value);
+                    module.verbose('Ambiguous dropdown value using strict type check', $choice, value);
                     if( optionValue === value ) {
                       $selectedItem = $(this);
                     }
@@ -1016,6 +1016,8 @@ $.fn.dropdown = function(parameters) {
                 $currentMenu
                   .transition({
                     animation  : settings.transition + ' in',
+                    debug      : settings.debug,
+                    verbose    : settings.verbose,
                     duration   : settings.duration,
                     queue      : true,
                     onStart    : start,
@@ -1085,6 +1087,8 @@ $.fn.dropdown = function(parameters) {
                   .transition({
                     animation  : settings.transition + ' out',
                     duration   : settings.duration,
+                    debug      : settings.debug,
+                    verbose    : settings.verbose,
                     queue      : true,
                     onStart    : start,
                     onComplete : function() {

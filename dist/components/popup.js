@@ -122,7 +122,7 @@ $.fn.popup = function(parameters) {
         destroy: function() {
           module.debug('Destroying previous module');
           if($popup && !settings.preserve) {
-            module.remove();
+            module.removePopup();
           }
           $module
             .off(eventNamespace)
@@ -253,9 +253,7 @@ $.fn.popup = function(parameters) {
 
         hide: function(callback) {
           callback = $.isFunction(callback) ? callback : function(){};
-          $module
-            .removeClass(className.visible)
-          ;
+          module.remove.visible();
           module.unbind.close();
           if( module.is.visible() ) {
             module.restore.conditions();
@@ -293,10 +291,10 @@ $.fn.popup = function(parameters) {
           }
         },
 
-        remove: function() {
+        removePopup: function() {
           module.debug('Removing popup');
           $popup
-            .remove()
+            .removePopup()
           ;
         },
 
@@ -325,15 +323,15 @@ $.fn.popup = function(parameters) {
           show: function(callback) {
             callback = $.isFunction(callback) ? callback : function(){};
             if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
-              $module
-                .addClass(className.visible)
-              ;
+              module.set.visible();
               $popup
                 .transition({
-                  animation : settings.transition + ' in',
-                  queue     : false,
-                  duration  : settings.duration,
-                  onComplete  : function() {
+                  animation  : settings.transition + ' in',
+                  queue      : false,
+                  debug      : settings.debug,
+                  verbose    : settings.verbose,
+                  duration   : settings.duration,
+                  onComplete : function() {
                     module.bind.close();
                     $.proxy(callback, element)();
                   }
@@ -341,9 +339,7 @@ $.fn.popup = function(parameters) {
               ;
             }
             else {
-              $module
-                .addClass(className.visible)
-              ;
+              module.set.visible();
               $popup
                 .stop()
                 .fadeIn(settings.duration, settings.easing, function() {
@@ -363,6 +359,8 @@ $.fn.popup = function(parameters) {
                   animation  : settings.transition + ' out',
                   queue      : false,
                   duration   : settings.duration,
+                  debug      : settings.debug,
+                  verbose    : settings.verbose,
                   onComplete : function() {
                     module.reset();
                     callback();
@@ -625,8 +623,17 @@ $.fn.popup = function(parameters) {
               $popup.removeClass(className.loading);
               return true;
             }
-          }
+          },
 
+          visible: function() {
+            $module.addClass(className.visible);
+          }
+        },
+
+        remove: {
+          visible: function() {
+            $module.removeClass(className.visible);
+          }
         },
 
         bind: {
@@ -698,9 +705,7 @@ $.fn.popup = function(parameters) {
         },
 
         reset: function() {
-          $popup
-            .removeClass(className.visible)
-          ;
+          module.remove.visible();
           if(settings.preserve || settings.popup) {
             if($.fn.transition !== undefined) {
               $popup
@@ -709,7 +714,7 @@ $.fn.popup = function(parameters) {
             }
           }
           else {
-            module.remove();
+            module.removePopup();
           }
         },
 

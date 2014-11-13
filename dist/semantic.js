@@ -3772,7 +3772,7 @@ $.fn.dropdown = function(parameters) {
                 .on('touchstart' + eventNamespace, module.event.test.toggle)
               ;
             }
-            $module
+            $menu
               .on('touchstart' + eventNamespace, selector.item, module.event.item.mouseenter)
             ;
           },
@@ -3810,7 +3810,7 @@ $.fn.dropdown = function(parameters) {
                 .on('blur'      + eventNamespace, module.event.blur)
               ;
             }
-            $module
+            $menu
               .on('mouseenter' + eventNamespace, selector.item, module.event.item.mouseenter)
               .on('mouseleave' + eventNamespace, selector.item, module.event.item.mouseleave)
               .on('click'      + eventNamespace, selector.item, module.event.item.click)
@@ -4266,7 +4266,7 @@ $.fn.dropdown = function(parameters) {
                         : optionText
                   ;
                   if(strict) {
-                    module.debug('Ambiguous dropdown value using strict type check', value);
+                    module.verbose('Ambiguous dropdown value using strict type check', $choice, value);
                     if( optionValue === value ) {
                       $selectedItem = $(this);
                     }
@@ -4516,6 +4516,8 @@ $.fn.dropdown = function(parameters) {
                 $currentMenu
                   .transition({
                     animation  : settings.transition + ' in',
+                    debug      : settings.debug,
+                    verbose    : settings.verbose,
                     duration   : settings.duration,
                     queue      : true,
                     onStart    : start,
@@ -4585,6 +4587,8 @@ $.fn.dropdown = function(parameters) {
                   .transition({
                     animation  : settings.transition + ' out',
                     duration   : settings.duration,
+                    debug      : settings.debug,
+                    verbose    : settings.verbose,
                     queue      : true,
                     onStart    : start,
                     onComplete : function() {
@@ -7153,7 +7157,7 @@ $.fn.popup = function(parameters) {
         destroy: function() {
           module.debug('Destroying previous module');
           if($popup && !settings.preserve) {
-            module.remove();
+            module.removePopup();
           }
           $module
             .off(eventNamespace)
@@ -7284,9 +7288,7 @@ $.fn.popup = function(parameters) {
 
         hide: function(callback) {
           callback = $.isFunction(callback) ? callback : function(){};
-          $module
-            .removeClass(className.visible)
-          ;
+          module.remove.visible();
           module.unbind.close();
           if( module.is.visible() ) {
             module.restore.conditions();
@@ -7324,10 +7326,10 @@ $.fn.popup = function(parameters) {
           }
         },
 
-        remove: function() {
+        removePopup: function() {
           module.debug('Removing popup');
           $popup
-            .remove()
+            .removePopup()
           ;
         },
 
@@ -7356,15 +7358,15 @@ $.fn.popup = function(parameters) {
           show: function(callback) {
             callback = $.isFunction(callback) ? callback : function(){};
             if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
-              $module
-                .addClass(className.visible)
-              ;
+              module.set.visible();
               $popup
                 .transition({
-                  animation : settings.transition + ' in',
-                  queue     : false,
-                  duration  : settings.duration,
-                  onComplete  : function() {
+                  animation  : settings.transition + ' in',
+                  queue      : false,
+                  debug      : settings.debug,
+                  verbose    : settings.verbose,
+                  duration   : settings.duration,
+                  onComplete : function() {
                     module.bind.close();
                     $.proxy(callback, element)();
                   }
@@ -7372,9 +7374,7 @@ $.fn.popup = function(parameters) {
               ;
             }
             else {
-              $module
-                .addClass(className.visible)
-              ;
+              module.set.visible();
               $popup
                 .stop()
                 .fadeIn(settings.duration, settings.easing, function() {
@@ -7394,6 +7394,8 @@ $.fn.popup = function(parameters) {
                   animation  : settings.transition + ' out',
                   queue      : false,
                   duration   : settings.duration,
+                  debug      : settings.debug,
+                  verbose    : settings.verbose,
                   onComplete : function() {
                     module.reset();
                     callback();
@@ -7656,8 +7658,17 @@ $.fn.popup = function(parameters) {
               $popup.removeClass(className.loading);
               return true;
             }
-          }
+          },
 
+          visible: function() {
+            $module.addClass(className.visible);
+          }
+        },
+
+        remove: {
+          visible: function() {
+            $module.removeClass(className.visible);
+          }
         },
 
         bind: {
@@ -7729,9 +7740,7 @@ $.fn.popup = function(parameters) {
         },
 
         reset: function() {
-          $popup
-            .removeClass(className.visible)
-          ;
+          module.remove.visible();
           if(settings.preserve || settings.popup) {
             if($.fn.transition !== undefined) {
               $popup
@@ -7740,7 +7749,7 @@ $.fn.popup = function(parameters) {
             }
           }
           else {
-            module.remove();
+            module.removePopup();
           }
         },
 
@@ -11234,10 +11243,10 @@ $.fn.sidebar = function(parameters) {
           if(settings.transition == 'scale down' || (module.is.mobile() && transition !== 'overlay')) {
             module.scrollToTop();
           }
-          module.add.bodyCSS();
           module.set.transition();
           module.repaint();
           animate = function() {
+            module.add.bodyCSS();
             module.set.animating();
             module.set.visible();
             if(!module.othersActive()) {
