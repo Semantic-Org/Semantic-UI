@@ -162,7 +162,7 @@
 @orderedCountTextAlign: right;
 @orderedCountVerticalAlign: middle;
 
-@orderedChildCountDistance: 2em;
+@orderedChildCountDistance: 1em;
 @orderedChildCountOffset: -2em;
 
 /* Horizontal Ordereded */

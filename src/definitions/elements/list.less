@@ -526,7 +526,8 @@ ul.ui.list li:before,
 .ui.bulleted.list > .item:before {
   position: absolute;
   top: auto;
-  left: @bulletOffset;
+  left: auto;
+  margin-left: @bulletOffset;
   content: @bulletCharacter;
   opacity: @bulletOpacity;
   color: @bulletColor;
@@ -582,7 +583,9 @@ ol.ui.list li:before,
 .ui.ordered.list .list > .item:before,
 .ui.ordered.list > .item:before {
   position: absolute;
-  left: -(@orderedCountDistance);
+  top: auto;
+  left: auto;
+  margin-left: -(@orderedCountDistance);
   counter-increment: @orderedCountName;
   content: @orderedCountContent;
   text-align: @orderedCountTextAlign;
@@ -599,7 +602,7 @@ ol.ui.list ol,
 }
 ol.ui.list ol li:before,
 .ui.ordered.list .list > .item:before {
-  left: @orderedChildCountOffset;
+  margin-left: @orderedChildCountOffset;
 }
 
 /* Horizontal Ordered */
@@ -648,10 +651,6 @@ ol.ui.horizontal.list li:before,
 .ui.divided.bulleted.list > .item:not(.horizontal) {
   padding-left: @bulletDistance;
 }
-.ui.divided.bulleted.list .list > .item:before,
-.ui.divided.bulleted.list > .item:before {
-  left: 0em;
-}
 
 /* Divided Ordered */
 .ui.divided.ordered.list {
@@ -660,10 +659,6 @@ ol.ui.horizontal.list li:before,
 .ui.divided.ordered.list .list > .item,
 .ui.divided.ordered.list > .item {
   padding-left: @orderedCountDistance;
-}
-.ui.divided.ordered.list .list > .item:before,
-.ui.divided.ordered.list > .item:before {
-  left: 0em;
 }
 .ui.divided.ordered.list .item .list {
   margin-left: 0em;
@@ -741,10 +736,6 @@ ol.ui.horizontal.list li:before,
 .ui.celled.bulleted.list > .item {
   padding-left: (@bulletDistance);
 }
-.ui.celled.bulleted.list .list > .item:before,
-.ui.celled.bulleted.list > .item:before {
-  left: 0em;
-}
 .ui.celled.bulleted.list .item .list {
   margin-left: -(@bulletDistance);
   margin-right: -(@bulletDistance);
@@ -758,10 +749,6 @@ ol.ui.horizontal.list li:before,
 .ui.celled.ordered.list .list > .item,
 .ui.celled.ordered.list > .item {
   padding-left: @orderedCountDistance;
-}
-.ui.celled.ordered.list .list > .item:before,
-.ui.celled.ordered.list > .item:before {
-  left: 0em;
 }
 .ui.celled.ordered.list .item .list {
   margin-left: 0em;
