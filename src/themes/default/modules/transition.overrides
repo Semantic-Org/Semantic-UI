@@ -260,22 +260,22 @@
 @keyframes fadeUpIn {
   0% {
     opacity: 0;
-    transform: translateY(10%);
+    transform: translateY(3rem);
   }
   100% {
     opacity: 1;
-    transform: translateY(0%);
+    transform: translateY(0rem);
   }
 }
 
 @keyframes fadeUpOut {
   0% {
     opacity: 1;
-    transform: translateY(0%);
+    transform: translateY(0rem);
   }
   100% {
     opacity: 0;
-    transform: translateY(10%);
+    transform: translateY(3rem);
   }
 }
 
@@ -283,27 +283,33 @@
 @keyframes fadeDownIn {
   0% {
     opacity: 0;
-    transform: translateY(-10%);
+    transform: translateY(-3rem);
   }
   100% {
     opacity: 1;
-    transform: translateY(0%);
+    transform: translateY(0rem);
   }
 }
 @keyframes fadeDownOut {
   0% {
     opacity: 1;
-    transform: translateY(0%);
+    transform: translateY(0rem);
   }
   100% {
     opacity: 0;
-    transform: translateY(-10%);
+    transform: translateY(-3rem);
   }
 }
 
 /*--------------
       Scale
 ---------------*/
+
+.scale.transition {
+  transform-origin: 50% 10rem;
+  -ms-transform-origin: 50% 10rem;
+  -webkit-transform-origin: 50% 10rem;
+}
 
 .scale.transition.in {
   animation-name: scaleIn;
