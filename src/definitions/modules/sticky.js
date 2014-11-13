@@ -122,7 +122,7 @@ $.fn.sticky = function(parameters) {
           var
             context = $context[0]
           ;
-          if(MutationObserver !== undefined) {
+          if('MutationObserver' in window) {
             observer = new MutationObserver(function(mutations) {
               clearTimeout(module.timer);
               module.timer = setTimeout(function() {
