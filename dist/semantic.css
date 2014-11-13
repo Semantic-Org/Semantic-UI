@@ -26507,6 +26507,12 @@ a:hover {
       Scale
 ---------------*/
 
+.scale.transition {
+  transform-origin: 50% 10rem;
+  -ms-transform-origin: 50% 10rem;
+  -webkit-transform-origin: 50% 10rem;
+}
+
 .scale.transition.in {
   -webkit-animation-name: scaleIn;
   animation-name: scaleIn;
