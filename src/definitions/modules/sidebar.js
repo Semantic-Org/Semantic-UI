@@ -366,10 +366,10 @@ $.fn.sidebar = function(parameters) {
           if(settings.transition == 'scale down' || (module.is.mobile() && transition !== 'overlay')) {
             module.scrollToTop();
           }
-          module.add.bodyCSS();
           module.set.transition();
           module.repaint();
           animate = function() {
+            module.add.bodyCSS();
             module.set.animating();
             module.set.visible();
             if(!module.othersActive()) {
