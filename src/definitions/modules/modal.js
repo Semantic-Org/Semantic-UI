@@ -65,6 +65,7 @@ $.fn.modal = function(parameters) {
 
         element      = this,
         instance     = $module.data(moduleNamespace),
+        observer,
         module
       ;
       module  = {
@@ -76,6 +77,7 @@ $.fn.modal = function(parameters) {
             module.error(error.dimmer);
             return;
           }
+
           $dimmable = $context
             .dimmer({
               debug      : settings.debug,
@@ -88,25 +90,18 @@ $.fn.modal = function(parameters) {
               }
             })
           ;
-
           if(settings.detachable) {
             $dimmable.dimmer('add content', $module);
           }
 
-          $dimmer = $dimmable
-            .dimmer('get dimmer')
-          ;
-
+          $dimmer = $dimmable.dimmer('get dimmer');
           $otherModals = $module.siblings(selector.modal);
           $allModals   = $otherModals.add($module);
 
           module.verbose('Attaching close events', $close);
-          $close
-            .on('click' + eventNamespace, module.event.close)
-          ;
-          $window
-            .on('resize' + eventNamespace, module.event.resize)
-          ;
+          module.bind.events();
+          module.observeChanges();
+
           module.instantiate();
         },
 
@@ -124,12 +119,22 @@ $.fn.modal = function(parameters) {
             .removeData(moduleNamespace)
             .off(eventNamespace)
           ;
-          $close
-            .off(eventNamespace)
-          ;
-          $context
-            .dimmer('destroy')
-          ;
+          $close.off(eventNamespace);
+          $context.dimmer('destroy');
+        },
+
+        observeChanges: function() {
+          if('MutationObserver' in window) {
+            observer = new MutationObserver(function(mutations) {
+              module.debug('DOM tree modified, updating selector cache');
+              module.refresh();
+            });
+            observer.observe(element, {
+              childList : true,
+              subtree   : true
+            });
+            module.debug('Setting up mutation observer', observer);
+          }
         },
 
         refresh: function() {
@@ -157,6 +162,17 @@ $.fn.modal = function(parameters) {
           }
           else {
             module.error(error.notFound, selector);
+          }
+        },
+
+        bind: {
+          events: function() {
+            $close
+              .on('click' + eventNamespace, module.event.close)
+            ;
+            $window
+              .on('resize' + eventNamespace, module.event.resize)
+            ;
           }
         },
 
@@ -255,6 +271,10 @@ $.fn.modal = function(parameters) {
               $.proxy(settings.onShow, element)();
               if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
                 module.debug('Showing modal with css animations');
+                module.cacheSizes();
+                module.set.position();
+                module.set.screenHeight();
+                module.set.type();
                 $module
                   .transition({
                     debug     : settings.debug,
@@ -262,10 +282,6 @@ $.fn.modal = function(parameters) {
                     queue     : false,
                     duration  : settings.duration,
                     onStart   : function() {
-                      module.cacheSizes();
-                      module.set.position();
-                      module.set.screenHeight();
-                      module.set.type();
                       module.set.clickaway();
                     },
                     onComplete : function() {
