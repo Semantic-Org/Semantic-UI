@@ -15816,42 +15816,42 @@ a.ui.yellow.label:hover:before {
 
 .ui.mini.labels .label,
 .ui.mini.label {
-  font-size: 0.7142rem;
+  font-size: 0.6428rem;
 }
 
 .ui.tiny.labels .label,
 .ui.tiny.label {
-  font-size: 0.8571rem;
+  font-size: 0.7142rem;
 }
 
 .ui.small.labels .label,
 .ui.small.label {
-  font-size: 0.9285rem;
+  font-size: 0.7857rem;
 }
 
 .ui.labels .label,
 .ui.label {
-  font-size: 1rem;
+  font-size: 0.8571rem;
 }
 
 .ui.large.labels .label,
 .ui.large.label {
-  font-size: 1.1428rem;
+  font-size: 1rem;
 }
 
 .ui.big.labels .label,
 .ui.big.label {
-  font-size: 1.2857rem;
+  font-size: 1.1428rem;
 }
 
 .ui.huge.labels .label,
 .ui.huge.label {
-  font-size: 1.4285rem;
+  font-size: 1.2857rem;
 }
 
 .ui.massive.labels .label,
 .ui.massive.label {
-  font-size: 1.7142rem;
+  font-size: 1.4285rem;
 }
 
 /*******************************
