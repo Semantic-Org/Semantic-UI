@@ -1,63 +1,91 @@
-## Quick and Dirty Set-up
+## Getting Semantic UI
 
-1) Rename the site configuration folder from ``/themes/_site`` to ``themes/site`` to avoid library updates modifying your site's settings.
+For links to download Semantic UI, check our our [download page](http://www.learnsemantic.com/guide/download.html).
 
-2) Rename your semantic config file from ``semantic.config.example`` to ``semantic.config``
+## Setting Up
 
-3) Use ``grunt build`` to output your project files, you can configure the paths used in ``grunt.config``. 
+### Dependencies
+Semantic uses command-line tools to build your project while theming. After getting Semantic, you will need to install [nodejs](http://nodejs.org/download/) and [gulp](https://github.com/gulpjs/gulp/) to run the build process.
 
-## Overview
-* ``definitions/`` - contain all UI definitions
-* ``themes/packaged/default`` are the default UI styling of an element
-* ``themes/packaged`` are downloaded from the web or a package manager and provide preset overrides
-* ``themes/user`` are the only files you should modify, these are your site's overrides for LESS and variables
+Once you're up and running. Navigate to the semantic directory and install the npm dependencies
+```bash
+  # install dependencies
+  npm install
+  # start install script
+  gulp
+```
 
-## Building CSS
+### Installing Semantic
 
-To make development easier, Semantic has a built in grunt config for building your project. Simply modify the **grunt.config** with the directories you need.
+The first time you run gulp you will be greeted with an interactive installer
+```bash
+  # install
+  gulp
+```
 
-You can also build the source files with any processor for LESS. Just keep in mind to customize ``site.variables`` with your asset paths for images and fonts.
+The installer will let you select which components to include, and specify paths for your project.
 
-For information on installing grunt [see their guide](http://gruntjs.com/installing-grunt)
+|  | Installation Type |
+| ------------- | ------------- |
+| Automatic  | Installation will use the default paths, outputing css files to  `dist/` and packaging all components together  |
+| Express  | Will let you move your site folder and your dist folder and select from a list of components to include in your concatenated release.  |
+| Custom  | Will prompt you for all available options  |
 
-## Customizing Semantic
+The install process will create two files:  `semantic.json` stores paths for your build  and sits on the top-level of your project,  `theme.config` is a **LESS** file that exists in **src/** and allows you to centrally set the themes for each UI component.
 
-**There is only one folder you should ever edit files in ``themes/site``.** These are your site's LESS overrides and variable settings.
+The installer will also create a special folder which contains your site-specific themes. The default location for this is  `src/site`. For more information on using site themes, see the theming guide below.
 
-### Using a default theme
-Leaving an element as  ``default`` will use baseline UI stylings.
+### Manual Install
+If you prefer these files and folders can be moved manually instead of using the installer.
+```bash
+  mv semantic.json.example semantic.json
+  mv src/theme.config.example src/theme.config
+  mv src/_site src/site
+  vi semantic.json
+```
 
-The inheritance order when using default is:
-1) ``themes/default/elements/button.variables`` loads the baseline UI variables
-2) ``themes/packaged/default/elements/button.variables`` loads a blank file
-3) ``themes/sites/elements.button.variables`` loads your variable overrides
+### Upgrading Semantic
 
-### Using a packaged theme
-Packaged themes can be downloaded from the internet, and placed inside ``themes/packaged/``
+You can use normal package manager functions to update your project, just be sure to re-install semantic after upgrading. Re-install will **extend your  `semantic.json` but not overwrite it**
+```bash
+  bower update
+  cd ./bower_modules/semantic-ui
+  gulp install
+```
 
-To use a packaged theme change the value inside ``semantic.config`` to the theme name.
+> For a full list of settings for **semantic.json**, check the <a href="https://github.com/Semantic-Org/Semantic-UI/blob/1.0/tasks/defaults.js">defaults values</a> which it inherits from.
 
-For example if you change your button theme to 'chubby' the following load order would occur:
+## Using Semantic Build Tools
 
-1) ``themes/default/elements/button.variables`` loads the UI variables
-2) ``themes/packaged/chubby/elements/button.variables`` loads the "downloadable" theme (this will allow for community packages) In this example, a button theme called *chubby*
-3) ``themes/sites/elements.button.variables`` loads **your overrides for variables**
+### Gulp commands
+After setting up your project you have access to several commands for building your css and javascript.
 
-## Adjust your site's configuration
+```bash
+  gulp # runs default task (watch)
+  gulp watch # watches files for changes
+  gulp build # builds all files from source
+  gulp install # re-runs install
+```
 
-To customize a ``ui button`` you can
-* Add variable overrides in ``site/elements/button.variables``
-* Add user LESS/CSS overrides in ``/site/elements/button.overrides`` (this will have all variables accessible)
 
-Semantic now also includes some site-wide configuration by default in ``site.less`` it is recommended you include this also.
+Semantic creates minified, and uncompressed files in your source for both individual components, and the components specified for your packaged version.
 
-## Advanced grunt usage
 
-``grunt reset`` - Clears your build directory. Use this if you have a source file that is no longer being tracked.
+Keep in mind semantic will automatically adjust URLs in CSS and add vendor-prefixes as part of the build process. This means **definitions and theme files do not need vendor prefixes**.
 
-``grunt build`` - This will build all files (not just watched files) in your source directory
+#### Advanced Usage
 
-## Gotchas & Tips
+> In addition to the paths set in  `semantic.json`, you can serve files to a second location, for example, a docs instance by using a separate config file  `tasks/admin/docs.json`. Using a copy of the SUI documentation may work well internally for creating a style guide to hack on the theme designs for your project.
+```bash
+  gulp serve-docs
+  gulp build-docs
+```
+### Workflow
 
-Semantic **now requires a box-sizing reset** this allows us more flexibility inside the framework to not deal with issues related to calculating padding. This is included in ``site.less`` as well as a standard HTML reset.
+Building and watching Semantic is only necessary while adjusting your UI. This is usually the first part of building a new project, and a separate process than building-out pages in your site.
+During this architecting phase you can try <a href="/themes/creating.html">downloading different themes</a>, adjusting your <a href="/developing/customizing.html#setting-global-variables">site-wide settings</a> (font-family, colors, etc) and tweaking components in your site's <a href="/developing/customizing.html#designing-for-the-long-now">component overrides</a>.
+Files in the  `examples/` folder of your project can be useful for testing out changes in your UI. For example, you might run  `gulp watch` download a new theme to  `src/site/themes/` then adjust your  `theme.config` file with the name of the new theme and refresh  `examples/kitchensink.html` to inspect changes in the theme.
+You will only need to use Semantic's build tools while refining your UI, while designing pages you can rely on the packages in  `dist/` and your software stack's normal build set-up.
+
+ `gulp watch` will automatically recompile only the necessary definition files when you update  `semantic.config` or any  `.variables` or  `.overrides` file.
 
