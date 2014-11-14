@@ -119,6 +119,11 @@ $.fn.popup = function(parameters) {
           ;
         },
 
+        reposition: function() {
+          module.refresh();
+          module.set.position();
+        },
+
         destroy: function() {
           module.debug('Destroying previous module');
           if($popup && !settings.preserve) {
