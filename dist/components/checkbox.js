@@ -206,7 +206,7 @@ $.fn.checkbox = function(parameters) {
         disable: function() {
           module.debug('Enabling checkbox functionality');
           $module.addClass(className.disabled);
-          $input.removeProp('disabled');
+          $input.prop('disabled', false);
           $.proxy(settings.onDisabled, $input.get())();
         },
 

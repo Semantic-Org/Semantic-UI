@@ -2337,7 +2337,7 @@ $.fn.checkbox = function(parameters) {
         disable: function() {
           module.debug('Enabling checkbox functionality');
           $module.addClass(className.disabled);
-          $input.removeProp('disabled');
+          $input.prop('disabled', false);
           $.proxy(settings.onDisabled, $input.get())();
         },
 
@@ -6285,6 +6285,9 @@ $.fn.modal = function(parameters) {
               $body
                 .css('height', module.cache.height + settings.padding)
               ;
+            }
+            else {
+              $body.css('height', '');
             }
           },
           active: function() {

@@ -292,7 +292,7 @@
 }
 .ui.scrolling.modal {
   position: static;
-  margin: 3.5rem auto;
+  margin: 3.5rem auto !important;
 }
 @media only screen and (max-width: 992px) {
   .ui.scrolling.modal {

@@ -538,6 +538,9 @@ $.fn.modal = function(parameters) {
                 .css('height', module.cache.height + settings.padding)
               ;
             }
+            else {
+              $body.css('height', '');
+            }
           },
           active: function() {
             $module.addClass(className.active);
