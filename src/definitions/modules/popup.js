@@ -205,7 +205,7 @@ $.fn.popup = function(parameters) {
             if(settings.hoverable) {
               module.bind.popup();
             }
-            $.proxy(settings.onCreate, $popup)();
+            $.proxy(settings.onCreate, $popup)(element);
           }
           else if($target.next(settings.selector.popup).size() !== 0) {
             module.verbose('Pre-existing popup found, reverting to inline');
@@ -293,6 +293,7 @@ $.fn.popup = function(parameters) {
 
         removePopup: function() {
           module.debug('Removing popup');
+          $.proxy(settings.onRemove, $popup)(element);
           $popup
             .removePopup()
           ;
@@ -333,7 +334,8 @@ $.fn.popup = function(parameters) {
                   duration   : settings.duration,
                   onComplete : function() {
                     module.bind.close();
-                    $.proxy(callback, element)();
+                    $.proxy(callback, $popup)(element);
+                    $.proxy(settings.onVisible, $popup)(element);
                   }
                 })
               ;
@@ -348,7 +350,7 @@ $.fn.popup = function(parameters) {
                 })
               ;
             }
-            $.proxy(settings.onShow, element)();
+            $.proxy(settings.onShow, $popup)(element);
           },
           hide: function(callback) {
             callback = $.isFunction(callback) ? callback : function(){};
@@ -363,7 +365,8 @@ $.fn.popup = function(parameters) {
                   verbose    : settings.verbose,
                   onComplete : function() {
                     module.reset();
-                    callback();
+                    $.proxy(callback, $popup)(element);
+                    $.proxy(settings.onHidden, $popup)(element);
                   }
                 })
               ;
@@ -377,7 +380,7 @@ $.fn.popup = function(parameters) {
                 })
               ;
             }
-            $.proxy(settings.onHide, element)();
+            $.proxy(settings.onHide, $popup)(element);
           }
         },
 
@@ -904,8 +907,11 @@ $.fn.popup.settings = {
 
   onCreate       : function(){},
   onRemove       : function(){},
+
   onShow         : function(){},
+  onVisible      : function(){},
   onHide         : function(){},
+  onHidden       : function(){},
 
   variation      : '',
   content        : false,
