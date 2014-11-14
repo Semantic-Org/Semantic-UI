@@ -25,7 +25,7 @@ The first time you run gulp you will be greeted with an interactive installer
 
 The installer will let you select which components to include, and specify paths for your project.
 
-|  | Installation Type |
+| Installation Type | Description |
 | ------------- | ------------- |
 | Automatic  | Installation will use the default paths, outputing css files to  `dist/` and packaging all components together  |
 | Express  | Will let you move your site folder and your dist folder and select from a list of components to include in your concatenated release.  |
@@ -76,14 +76,16 @@ Keep in mind semantic will automatically adjust URLs in CSS and add vendor-prefi
 #### Advanced Usage
 
 > In addition to the paths set in  `semantic.json`, you can serve files to a second location, for example, a docs instance by using a separate config file  `tasks/admin/docs.json`. Using a copy of the SUI documentation may work well internally for creating a style guide to hack on the theme designs for your project.
+
 ```bash
   gulp serve-docs
   gulp build-docs
 ```
+
 ### Workflow
 
 Building and watching Semantic is only necessary while adjusting your UI. This is usually the first part of building a new project, and a separate process than building-out pages in your site.
-During this architecting phase you can try <a href="/themes/creating.html">downloading different themes</a>, adjusting your <a href="/developing/customizing.html#setting-global-variables">site-wide settings</a> (font-family, colors, etc) and tweaking components in your site's <a href="/developing/customizing.html#designing-for-the-long-now">component overrides</a>.
+During this architecting phase you can try <a href="http://www.learnsemantic.com/themes/creating.html">downloading different themes</a>, adjusting your <a href="http://www.learnsemantic.com/developing/customizing.html#setting-global-variables">site-wide settings</a> (font-family, colors, etc) and tweaking components in your site's <a href="http://www.learnsemantic.com/developing/customizing.html#designing-for-the-long-now">component overrides</a>.
 Files in the  `examples/` folder of your project can be useful for testing out changes in your UI. For example, you might run  `gulp watch` download a new theme to  `src/site/themes/` then adjust your  `theme.config` file with the name of the new theme and refresh  `examples/kitchensink.html` to inspect changes in the theme.
 You will only need to use Semantic's build tools while refining your UI, while designing pages you can rely on the packages in  `dist/` and your software stack's normal build set-up.
 
