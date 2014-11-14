@@ -481,18 +481,12 @@ ol.ui.list ol,
        Animated
 --------------------*/
 
-.ui.animated.list .list > .item,
 .ui.animated.list > .item {
   transition: @animatedListTransition;
 }
-.ui.animated.list:not(.horizontal) .list > .item:hover,
 .ui.animated.list:not(.horizontal) > .item:hover {
   padding-left: @animatedListIndent;
 }
-.ui.animated.list:not(.horizontal) .item:hover .list > .item:hover {
-  padding-left: @animatedListChildIndent;
-}
-
 
 /*-------------------
        Fitted

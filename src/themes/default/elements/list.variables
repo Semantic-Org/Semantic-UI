@@ -137,7 +137,6 @@
   0.2s background-color ease
 ;
 @animatedListIndent: 1em;
-@animatedListChildIndent: 0.5em;
 
 /* Bulleted */
 @bulletDistance: 1rem;
