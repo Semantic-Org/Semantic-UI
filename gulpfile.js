@@ -702,7 +702,7 @@ gulp.task('create repos', false, function(callback) {
         capitalizedComponent = component.charAt(0).toUpperCase() + component.slice(1),
         packageName          = release.packageRoot + component,
         repoName             = release.repoRoot + capitalizedComponent,
-        gitURL               = 'git@github.com:' + release.org + '/' + repoName + '.git',
+        gitURL               = 'https://github.com/' + release.org + '/' + repoName + '.git',
         repoURL              = 'https://github.com/' + release.org + '/' + repoName + '/',
         regExp               = {
           match            : {
@@ -933,7 +933,7 @@ gulp.task('register repos', false, function(callback) {
       capitalizedComponent = component.charAt(0).toUpperCase() + component.slice(1),
       packageName          = release.packageRoot + component,
       repoName             = release.repoRoot + capitalizedComponent,
-      gitURL               = 'git@github.com:' + release.org + '/' + repoName + '.git',
+      gitURL               = 'https://github.com/' + release.org + '/' + repoName + '.git',
       exec                 = process.exec,
       execSettings         = {cwd: outputDirectory},
       registerBower        = 'bower register ' + packageName + ' ' + gitURL,
@@ -977,7 +977,7 @@ gulp.task('update git', false, function() {
       outputDirectory      = release.outputRoot + component + '/',
       capitalizedComponent = component.charAt(0).toUpperCase() + component.slice(1),
       repoName             = release.repoRoot + capitalizedComponent,
-      gitURL               = 'git@github.com:' + release.org + '/' + repoName + '.git',
+      gitURL               = 'https://github.com/' + release.org + '/' + repoName + '.git',
       repoURL              = 'https://github.com/' + release.org + '/' + repoName + '/',
       gitOptions           = { cwd: outputDirectory },
       quietOptions         = { args: '-q', cwd: outputDirectory },
