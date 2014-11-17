@@ -168,6 +168,7 @@
 /* Basic */
 @basicBorderRadius: @borderRadius;
 @basicBorderSize: 1px;
+@basicTextColor: @textColor;
 @basicColoredBorderSize: 2px;
 
 @basicBackground: transparent;
@@ -179,12 +180,14 @@
 
 /* Basic Hover */
 @basicHoverBackground: #FAFAFA;
+@basicHoverTextColor: @hoveredTextColor;
 @basicHoverBoxShadow:
   0px 0px 0px @basicBorderSize @borderColor inset,
   0px 0px 0px 0px @borderColor inset
 ;
 /* Basic Down */
 @basicDownBackground: #F8F8F8;
+@basicDownTextColor: @pressedTextColor;
 @basicDownBoxShadow:
   0px 0px 0px @basicBorderSize rgba(0, 0, 0, 0.15) inset,
   0px 1px 4px 0px @borderColor inset
@@ -192,7 +195,7 @@
 /* Basic Active */
 @basicActiveBackground: @transparentBlack;
 @basicActiveBoxShadow: '';
-@basicActiveColor: @selectedTextColor;
+@basicActiveTextColor: @selectedTextColor;
 
 /* Basic Inverted */
 @basicInvertedBackground: transparent;

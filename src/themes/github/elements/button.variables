@@ -54,6 +54,12 @@
 @labeledIconBorder: transparent;
 @labeledIconPadding: (@horizontalPadding + 2.25em);
 
+@basicFontWeight: bold;
+@basicTextColor: @linkColor;
+@basicHoverTextColor: @linkHoverColor;
+
+@basicHoverBackground: #E0E0E0;
+
 @blue: #3072B3;
 @green: #60B044;
 @black: #5D5D5D;
