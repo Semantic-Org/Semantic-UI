@@ -8,25 +8,17 @@
 
 @fontWeight: bold;
 @textTransform: none;
+@lineHeight: @headerLineHeight;
+@lineHeightOffset: @headerLineHeightOffset;
 
-@lineHeight: 1.33em;
-@lineHeightOffset: (@lineHeight - 1em) / 2;
-
-@topMargin: ~"calc(2rem - "@lineHeightOffset~")";
-@bottomMargin: 1rem;
+@topMargin: @headerTopMargin;
+@bottomMargin: @headerBottomMargin;
+@margin: @topMargin 0em @bottomMargin;
 
 @firstMargin: -@lineHeightOffset;
 @lastMargin: 0em;
-
 @horizontalPadding: 0em;
 @verticalPadding: 0em;
-
-/* HTML Headings */
-@h1: 2rem;
-@h2: 1.714rem;
-@h3: 1.28rem;
-@h4: 1.071rem;
-@h5: 1rem;
 
 /* Sizing */
 @tiny: 1em;
