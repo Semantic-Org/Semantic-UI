@@ -26,13 +26,13 @@
   Page Heading
 ---------------*/
 
-@headerLineHeight       : 1.33em;
+@headerLineHeight : 1.33em;
 
-@h1                     : 2rem;
-@h2                     : 1.714rem;
-@h3                     : 1.28rem;
-@h4                     : 1.071rem;
-@h5                     : 1rem;
+@h1               : 2rem;
+@h2               : 1.714rem;
+@h3               : 1.28rem;
+@h4               : 1.071rem;
+@h5               : 1rem;
 
 /*-------------------
       Site Colors
@@ -117,8 +117,6 @@
 --------------------*/
 
 @paragraphMargin     : 0em 0em 1em;
-@paragraphLineHeight : @lineHeight;
-@paragraphFontSize   : @fontSize;
 
 /*-------------------
        Links
