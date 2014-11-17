@@ -13,22 +13,36 @@
 @importGoogleFonts : true;
 @googleFontName    : 'Lato';
 @googleFontSizes   : '400,700,400italic,700italic';
-@googleFontFamily  : '@{googleFontName}:@{googleFontSizes}';
+@googleFontRequest : '@{googleFontName}:@{googleFontSizes}';
 
 /*-------------------
       Base Sizes
 --------------------*/
 
-@emSize      : 14px;
-@fontSize    : 14px;
+@emSize            : 14px;
+@fontSize          : 14px;
+
+/*--------------
+  Page Heading
+---------------*/
+
+@headerLineHeight       : 1.33em;
+
+@h1                     : 2rem;
+@h2                     : 1.714rem;
+@h3                     : 1.28rem;
+@h4                     : 1.071rem;
+@h5                     : 1rem;
 
 /*-------------------
       Site Colors
 --------------------*/
 
 /*---  Colors  ---*/
+@black            : #1B1C1D;
 @blue             : #3B83C0;
 @green            : #5BBD72;
+@grey             : #CCCCCC;
 @orange           : #E07B53;
 @pink             : #D9499A;
 @purple           : #564F8A;
@@ -36,69 +50,8 @@
 @teal             : #00B5AD;
 @yellow           : #F2C61F;
 
-@black            : #1B1C1D;
-@grey             : #CCCCCC;
-@white            : #FFFFFF;
-
-/*---  Brand Colors  ---*/
-@primaryColor        : @blue;
-@secondaryColor      : @black;
-
-
-/*-------------------
-        Sizes
---------------------*/
-
-/* Exact pixel values @ 14px em */
-@mini        : 0.7142rem;
-@tiny        : 0.8571rem;
-@small       : 0.9285rem;
-@medium      : 1rem;
-@large       : 1.1428rem;
-@big         : 1.2857rem;
-@huge        : 1.4285rem;
-@massive     : 1.7142rem;
-
-/*-------------------
-        Page
---------------------*/
-
-@pageBackground      : #F7F7F7;
-@pageOverflowX       : hidden;
-
-@fontSize            : 14px;
-@lineHeight          : 1.33;
-@textColor           : rgba(0, 0, 0, 0.8);
-
-@headerMargin        : 1em 0em 1rem;
-@paragraphMargin     : 0em 0em 1em;
-
-@linkColor           : #009FDA;
-@linkUnderline       : none;
-@linkHoverColor      : lighten( @linkColor, 5);
-
-@highlightBackground : rgba(255, 255, 160, 0.4);
-@highlightColor      : @textColor;
-
-/*-------------------
-  Background Colors
---------------------*/
-
-@subtleTransparentBlack : rgba(0, 0, 0, 0.03);
-@transparentBlack       : rgba(0, 0, 0, 0.05);
-@strongTransparentBlack : rgba(0, 0, 0, 0.10);
-
-@subtleTransparentWhite : rgba(255, 255, 255, 0.02);
-@transparentWhite       : rgba(255, 255, 255, 0.05);
-@strongTransparentWhite : rgba(255, 255, 255, 0.07);
-
-/*-------------------
-      Extra Colors
---------------------*/
-
 /*---  Light Colors  ---*/
-
-@lightBlack:      : #CCCCCC;
+@lightBlack       : #333333;
 @lightBlue        : #54C8FF;
 @lightGreen       : #2ECC40;
 @lightOrange      : #FF851B;
@@ -108,8 +61,79 @@
 @lightTeal        : #6DFFFF;
 @lightYellow      : #FFE21F;
 
+/*---   Neutrals  ---*/
+@fullBlack        : #000000;
+@darkGrey         : #AAAAAA;
+@lightGrey        : #DCDDDE;
+@offWhite         : #FAFAFA;
+@darkWhite        : #F0F0F0;
+@white            : #FFFFFF;
+
+/*-------------------
+    Brand Colors
+--------------------*/
+
+@primaryColor        : @blue;
+@secondaryColor      : @black;
+
 @lightPrimaryColor   : @lightBlue;
 @lightSecondaryColor : @lightBlack;
+
+/*-------------------
+        Sizes
+--------------------*/
+
+/* Exact pixel values @ 14px em */
+@mini            : 0.7142rem;
+@tiny            : 0.8571rem;
+@small           : 0.9285rem;
+@medium          : 1rem;
+@large           : 1.1428rem;
+@big             : 1.2857rem;
+@huge            : 1.4285rem;
+@massive         : 1.7142rem;
+
+@relativeMini    : 0.7142em;
+@relativeTiny    : 0.8571em;
+@relativeSmall   : 0.9285em;
+@relativeMedium  : 1em;
+@relativeLarge   : 1.1428em;
+@relativeBig     : 1.2857em;
+@relativeHuge    : 1.4285em;
+@relativeMassive : 1.7142em;
+
+/*-------------------
+        Page
+--------------------*/
+
+@pageBackground      : #F7F7F7;
+@pageOverflowX       : hidden;
+
+@lineHeight          : 1.33;
+@textColor           : rgba(0, 0, 0, 0.8);
+
+/*-------------------
+      Paragraph
+--------------------*/
+
+@paragraphMargin     : 0em 0em 1em;
+@paragraphLineHeight : @lineHeight;
+@paragraphFontSize   : @fontSize;
+
+/*-------------------
+       Links
+--------------------*/
+
+@linkColor           : #009FDA;
+@linkUnderline       : none;
+@linkHoverColor      : lighten(@linkColor, 5);
+
+/*-------------------
+  Highlighted Text
+--------------------*/
+
+@highlightBackground : rgba(255, 255, 160, 0.4);
+@highlightColor      : @textColor;
 
 /*-------------------
        Loader
@@ -119,24 +143,9 @@
 @loaderLineWidth: 0.2em;
 @loaderFillColor: rgba(0, 0, 0, 0.1);
 @loaderLineColor: @darkGrey;
+
 @invertedLoaderFillColor: rgba(255, 255, 255, 0.15);
 @invertedLoaderLineColor: @white;
-
-/*-------------------
-       Accents
---------------------*/
-
-/* 4px @ default em */
-@relativeBorderRadius: 0.2857em;
-@absoluteBorderRadius: 0.2857rem;
-@defaultBorderRadius: @absoluteBorderRadius;
-
-/* Used for differentiating neutrals */
-@subtleGradient: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-
-/* Used for differentiating layers */
-@subtleShadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
-
 
 /*-------------------
         Grid
@@ -154,6 +163,33 @@
 @largeMonitorBreakpoint      : 1400px;
 @widescreenMonitorBreakpoint : 1920px;
 
+/*-------------------
+     Alpha Colors
+--------------------*/
+
+@subtleTransparentBlack : rgba(0, 0, 0, 0.03);
+@transparentBlack       : rgba(0, 0, 0, 0.05);
+@strongTransparentBlack : rgba(0, 0, 0, 0.10);
+
+@subtleTransparentWhite : rgba(255, 255, 255, 0.02);
+@transparentWhite       : rgba(255, 255, 255, 0.05);
+@strongTransparentWhite : rgba(255, 255, 255, 0.07);
+
+/*-------------------
+       Accents
+--------------------*/
+
+/* 4px @ default em */
+@relativeBorderRadius: 0.2857em;
+@absoluteBorderRadius: 0.2857rem;
+@defaultBorderRadius: @absoluteBorderRadius;
+
+/* Differentiating Neutrals */
+@subtleGradient: linear-gradient(transparent, @transparentBlack);
+
+/* Differentiating Layers */
+@subtleShadow: 0px 1px 2px 0 @transparentBlack;
+
 
 /*******************************
            Power-User
@@ -163,6 +199,7 @@
         Paths
 --------------------*/
 
+/* For source, automatically modified in gulp for dist */
 @imagePath : "../../themes/default/assets/images";
 @fontPath  : "../../themes/default/assets/fonts";
 
@@ -179,13 +216,9 @@
 
 @defaultEasing: ease;
 
-/*---   Neutrals  ---*/
-@fullBlack        : #000000;
-@lightBlack       : #333333;
-@darkGrey         : #AAAAAA;
-@lightGrey        : #DCDDDE;
-@offWhite         : #FAFAFA;
-@darkWhite        : #F0F0F0;
+/*-------------------
+     All Colors
+--------------------*/
 
 /*--- Colored Backgrounds ---*/
 @blueBackground   : #DFF0FF;
@@ -316,6 +349,12 @@
     Derived Values
 --------------------*/
 
+/* Header Spacing */
+@headerLineHeightOffset : (@lineHeight - 1em) / 2;
+@headerTopMargin        : ~"calc(2rem - "@lineHeightOffset~")";
+@headerBottomMargin     : 1rem;
+@headerMargin           : @headerTopMargin 0em @headerBottomMargin;
+
 /* Makes sure padded grid can fit at 320px */
 @pageMinWidth        : (320px - (@fontSize * 3));
 
@@ -391,52 +430,51 @@
 --------------------*/
 
 /*---  Colors  ---*/
-@primaryColorHover    : lighten( @primaryColor, 3);
-@secondaryColorHover  : lighten( @secondaryColor, 3);
+@primaryColorHover    : lighten(@primaryColor, 3);
+@secondaryColorHover  : lighten(@secondaryColor, 3);
 
-@blueHover            : lighten( @blue, 3);
-@greenHover           : lighten( @green, 3);
-@orangeHover          : lighten( @orange, 3);
-@pinkHover            : lighten( @pink, 3);
-@purpleHover          : lighten( @purple, 3);
-@redHover             : lighten( @red, 3);
-@tealHover            : lighten( @teal, 3);
-@yellowHover          : lighten( @yellow, 3);
+@blueHover            : lighten(@blue, 3);
+@greenHover           : lighten(@green, 3);
+@orangeHover          : lighten(@orange, 3);
+@pinkHover            : lighten(@pink, 3);
+@purpleHover          : lighten(@purple, 3);
+@redHover             : lighten(@red, 3);
+@tealHover            : lighten(@teal, 3);
+@yellowHover          : lighten(@yellow, 3);
 
-@lightBlueHover       : lighten( @lightBlue, 3);
-@lightGreenHover      : lighten( @lightGreen, 3);
-@lightOrangeHover     : lighten( @lightOrange, 3);
-@lightPinkHover       : lighten( @lightPink, 3);
-@lightPurpleHover     : lighten( @lightPurple, 3);
-@lightRedHover        : lighten( @lightRed, 3);
-@lightTealHover       : lighten( @lightTeal, 3);
-@lightYellowHover     : lighten( @lightYellow, 3);
+@lightBlueHover       : lighten(@lightBlue, 3);
+@lightGreenHover      : lighten(@lightGreen, 3);
+@lightOrangeHover     : lighten(@lightOrange, 3);
+@lightPinkHover       : lighten(@lightPink, 3);
+@lightPurpleHover     : lighten(@lightPurple, 3);
+@lightRedHover        : lighten(@lightRed, 3);
+@lightTealHover       : lighten(@lightTeal, 3);
+@lightYellowHover     : lighten(@lightYellow, 3);
 
 /*---  Emotive  ---*/
-@positiveColorHover   : lighten( @positiveColor, 3);
-@negativeColorHover   : lighten( @negativeColor, 3);
+@positiveColorHover   : lighten(@positiveColor, 3);
+@negativeColorHover   : lighten(@negativeColor, 3);
 
 /*---  Neutrals  ---*/
-@fullBlackHover       : lighten( @fullBlack, 3);
-@blackHover           : lighten( @black, 3);
-@lightBlackHover      : lighten( @lightBlack, 3);
+@fullBlackHover       : lighten(@fullBlack, 3);
+@blackHover           : @black;
 
-@lightGreyHover       : lighten( @lightGrey, 3);
-@greyHover            : lighten( @grey, 3);
-@darkGreyHover        : lighten( @darkGrey, 3);
+@lightGreyHover       : lighten(@lightGrey, 3);
+@greyHover            : lighten(@grey, 3);
+@darkGreyHover        : lighten(@darkGrey, 3);
 
-@whiteHover           : lighten( @white, 3);
-@offWhiteHover        : lighten( @offWhite, 3);
-@darkWhiteHover       : lighten( @darkWhite, 3);
+@whiteHover           : lighten(@white, 3);
+@offWhiteHover        : lighten(@offWhite, 3);
+@darkWhiteHover       : lighten(@darkWhite, 3);
 
-@facebookHoverColor   : lighten( @facebookColor, 3);
-@twitterHoverColor    : lighten( @twitterColor, 3);
-@googlePlusHoverColor : lighten( @googlePlusColor, 3);
-@linkedInHoverColor   : lighten( @linkedInColor, 3);
-@youtubeHoverColor    : lighten( @youtubeColor, 3);
-@instagramHoverColor  : lighten( @instagramColor, 3);
-@pinterestHoverColor  : lighten( @pinterestColor, 3);
-@vkHoverColor         : lighten( @vkColor, 3);
+@facebookHoverColor   : lighten(@facebookColor, 3);
+@twitterHoverColor    : lighten(@twitterColor, 3);
+@googlePlusHoverColor : lighten(@googlePlusColor, 3);
+@linkedInHoverColor   : lighten(@linkedInColor, 3);
+@youtubeHoverColor    : lighten(@youtubeColor, 3);
+@instagramHoverColor  : lighten(@instagramColor, 3);
+@pinterestHoverColor  : lighten(@pinterestColor, 3);
+@vkHoverColor         : lighten(@vkColor, 3);
 
 
 /*-------------------

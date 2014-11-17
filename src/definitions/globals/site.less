@@ -51,9 +51,8 @@ body {
   font-smoothing: @fontSmoothing;
 }
 
-
 /*******************************
-             Text
+             Headers
 *******************************/
 
 h1,
@@ -61,11 +60,36 @@ h2,
 h3,
 h4,
 h5 {
+  line-height: @headerLineHeight;
   margin: @headerMargin;
   padding: 0em;
 }
 
+h1 {
+  min-height: 1rem;
+  font-size: @h1;
+}
+h2 {
+  font-size: @h2;
+}
+h3 {
+  font-size: @h3;
+}
+h4 {
+  font-size: @h4;
+}
+h5 {
+  font-size: @h5;
+}
+
+
+/*******************************
+             Text
+*******************************/
+
 p {
+  font-size: @paragraphFontSize;
+  line-height: @paragraphLineHeight;
   margin: @paragraphMargin;
 }
 p:first-child {
@@ -87,7 +111,6 @@ a:hover {
   color: @linkHoverColor;
 }
 
-
 /*******************************
           Highlighting
 *******************************/
@@ -106,6 +129,6 @@ a:hover {
 }
 
 .loadFonts() when (@importGoogleFonts) {
-  @import (css) 'http://fonts.googleapis.com/css?family=@{googleFontFamily}';
+  @import (css) 'http://fonts.googleapis.com/css?family=@{googleFontRequest}';
 }
 .loadUIOverrides();
