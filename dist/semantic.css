@@ -5962,7 +5962,7 @@ select.ui.dropdown {
   cursor: auto;
 }
 
-.ui.search.dropdown > input.search:focus + .text {
+.ui.active.search.dropdown > input.search:focus + .text {
   color: rgba(0, 0, 0, 0.4) !important;
 }
 
@@ -20199,6 +20199,14 @@ a.ui.nag {
 *******************************/
 
 /*--------------
+     Basic
+---------------*/
+
+.ui.basic.popup:before {
+  display: none;
+}
+
+/*--------------
      Wide
 ---------------*/
 
@@ -20218,7 +20226,7 @@ a.ui.nag {
 
 .ui.fluid.popup {
   width: 100%;
-  max-width: 99999px;
+  max-width: none;
 }
 
 /*--------------
@@ -20249,7 +20257,7 @@ a.ui.nag {
 ---------------*/
 
 .ui.flowing.popup {
-  max-width: 9999px;
+  max-width: none;
 }
 
 /*--------------

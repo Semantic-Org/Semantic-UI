@@ -390,6 +390,12 @@ $.fn.dropdown = function(parameters) {
           ;
         },
 
+        focusSearch: function() {
+          $search
+            .focus()
+          ;
+        },
+
         event: {
           // prevents focus callback from occuring on mousedown
           mousedown: function() {
@@ -451,17 +457,12 @@ $.fn.dropdown = function(parameters) {
             // close shortcuts
             if(pressedKey == keys.escape) {
               module.verbose('Escape key pressed, closing dropdown');
-              $search.blur();
               module.hide();
             }
             // result shortcuts
             if(module.is.visible()) {
               if(pressedKey == keys.enter && hasSelectedItem) {
                 module.verbose('Enter key pressed, choosing selected item');
-                if(module.is.searchable()) {
-                  module.verbose('Removing focus from search input');
-                  $search.blur();
-                }
                 $.proxy(module.event.item.click, $selectedItem)(event);
                 event.preventDefault();
                 return false;
@@ -1071,6 +1072,7 @@ $.fn.dropdown = function(parameters) {
                   if( module.can.click() ) {
                     module.unbind.intent();
                   }
+                  module.focusSearch();
                   module.hideSubMenus();
                   module.remove.active();
                 }

@@ -205,6 +205,14 @@
 
 
 /*--------------
+     Basic
+---------------*/
+
+.ui.basic.popup:before {
+  display: none;
+}
+
+/*--------------
      Wide
 ---------------*/
 
@@ -223,7 +231,7 @@
 
 .ui.fluid.popup {
   width: 100%;
-  max-width: 99999px;
+  max-width: none;
 }
 
 /*--------------
@@ -252,7 +260,7 @@
 ---------------*/
 
 .ui.flowing.popup {
-  max-width: 9999px;
+  max-width: none;
 }
 
 /*--------------
