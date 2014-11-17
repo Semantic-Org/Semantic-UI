@@ -623,7 +623,7 @@ $.fn.popup = function(parameters) {
                 ;
               }
               else {
-                module.error(error.recursion);
+                module.error(error.recursion, element);
                 searchDepth = 0;
                 module.reset();
                 $popup.removeClass(className.loading);

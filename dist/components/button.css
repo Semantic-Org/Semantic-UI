@@ -1142,7 +1142,7 @@
 }
 .ui.black.buttons .button:hover,
 .ui.black.button:hover {
-  background-color: #222425;
+  background-color: #1b1c1d;
   color: #ffffff;
   text-shadow: none;
 }
@@ -1170,8 +1170,8 @@
 .ui.basic.black.buttons .button:hover,
 .ui.basic.black.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #222425 inset !important;
-  color: #222425 !important;
+  box-shadow: 0px 0px 0px 2px #1b1c1d inset !important;
+  color: #1b1c1d !important;
 }
 .ui.basic.black.buttons .button:active,
 .ui.basic.black.button:active {

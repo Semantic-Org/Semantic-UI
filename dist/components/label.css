@@ -458,13 +458,13 @@ a.ui.label:hover:before {
 }
 a.ui.black.labels .label:hover,
 a.ui.black.label:hover {
-  background-color: #222425 !important;
-  border-color: #222425 !important;
+  background-color: #1b1c1d !important;
+  border-color: #1b1c1d !important;
 }
 .ui.labels a.black.label:hover:before,
 .ui.black.labels a.label:hover:before,
 a.ui.black.label:hover:before {
-  background-color: #222425 !important;
+  background-color: #1b1c1d !important;
 }
 .ui.black.corner.label,
 .ui.black.corner.label:hover {

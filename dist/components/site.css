@@ -44,7 +44,7 @@ body {
 
 
 /*******************************
-             Text
+             Headers
 *******************************/
 
 h1,
@@ -52,11 +52,37 @@ h2,
 h3,
 h4,
 h5 {
-  margin: 1em 0em 1rem;
+  line-height: 1.33em;
+  margin: -webkit-calc(2rem -  0.165em ) 0em 1rem;
+  margin: calc(2rem -  0.165em ) 0em 1rem;
+  font-weight: bold;
   padding: 0em;
 }
+h1 {
+  min-height: 1rem;
+  font-size: 2rem;
+}
+h2 {
+  font-size: 1.714rem;
+}
+h3 {
+  font-size: 1.28rem;
+}
+h4 {
+  font-size: 1.071rem;
+}
+h5 {
+  font-size: 1rem;
+}
+
+
+/*******************************
+             Text
+*******************************/
+
 p {
   margin: 0em 0em 1em;
+  line-height: 1.33;
 }
 p:first-child {
   margin-top: 0em;

@@ -532,10 +532,6 @@ ul.ui.horizontal.bulleted.list li,
 .ui.horizontal.bulleted.list > .item {
   margin-left: 1.5rem;
 }
-ul.ui.horizontal.bulleted.list li:before,
-.ui.horizontal.bulleted.list > .item:before {
-  left: -1.1rem;
-}
 ul.ui.horizontal.bulleted.list li:first-child,
 .ui.horizontal.bulleted.list > .item:first-child {
   margin-left: 0em;
@@ -810,35 +806,67 @@ ol.ui.horizontal.list li:before,
 
 .ui.mini.list .list > .item,
 .ui.mini.list > .item {
-  font-size: 0.7rem;
+  font-size: 0.7142em;
 }
 .ui.tiny.list .list > .item,
 .ui.tiny.list > .item {
-  font-size: 0.8rem;
+  font-size: 0.8571em;
 }
 .ui.small.list .list > .item,
 .ui.small.list > .item {
-  font-size: 0.9rem;
+  font-size: 0.9285em;
 }
 .ui.list .list > .item,
 .ui.list > .item {
-  font-size: 1rem;
+  font-size: 1em;
 }
 .ui.large.list .list > .item,
 .ui.large.list > .item {
-  font-size: 1.1rem;
+  font-size: 1.1428em;
 }
 .ui.big.list .list > .item,
 .ui.big.list > .item {
-  font-size: 1.2rem;
+  font-size: 1.2857em;
 }
 .ui.huge.list .list > .item,
 .ui.huge.list > .item {
-  font-size: 1.3rem;
+  font-size: 1.4285em;
 }
 .ui.massive.list .list > .item,
 .ui.massive.list > .item {
-  font-size: 1.5rem;
+  font-size: 1.7142em;
+}
+.ui.mini.horizontal.list .list > .item,
+.ui.mini.horizontal.list > .item {
+  font-size: 0.7142rem;
+}
+.ui.tiny.horizontal.list .list > .item,
+.ui.tiny.horizontal.list > .item {
+  font-size: 0.8571rem;
+}
+.ui.small.horizontal.list .list > .item,
+.ui.small.horizontal.list > .item {
+  font-size: 0.9285rem;
+}
+.ui.horizontal.list .list > .item,
+.ui.horizontal.list > .item {
+  font-size: 1rem;
+}
+.ui.large.horizontal.list .list > .item,
+.ui.large.horizontal.list > .item {
+  font-size: 1.1428rem;
+}
+.ui.big.horizontal.list .list > .item,
+.ui.big.horizontal.list > .item {
+  font-size: 1.2857rem;
+}
+.ui.huge.horizontal.list .list > .item,
+.ui.huge.horizontal.list > .item {
+  font-size: 1.4285rem;
+}
+.ui.massive.horizontal.list .list > .item,
+.ui.massive.horizontal.list > .item {
+  font-size: 1.7142rem;
 }
 
 

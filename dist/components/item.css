@@ -140,9 +140,6 @@
 .ui.items > .item > .content > .header:not(.ui) {
   font-size: 1.2em;
 }
-.ui.items > .item > .content > .meta + .description {
-  margin-top: 0.6em;
-}
 
 /*--------------
      Floated
@@ -176,6 +173,7 @@
 ---------------*/
 
 .ui.items > .item > .content > .description {
+  margin-top: 0.6em;
   max-width: 550px;
   font-size: 1em;
   line-height: 1.33;

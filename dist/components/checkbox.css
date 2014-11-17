@@ -464,7 +464,7 @@
 }
 .ui.checkbox label:after,
 .ui.checkbox .box:after {
-  content: '\e800';
+  content: '\e800'
   
 /* '' */
 }

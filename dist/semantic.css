@@ -1675,7 +1675,7 @@
 
 .ui.black.buttons .button:hover,
 .ui.black.button:hover {
-  background-color: #222425;
+  background-color: #1b1c1d;
   color: #ffffff;
   text-shadow: none;
 }
@@ -1707,8 +1707,8 @@
 .ui.basic.black.buttons .button:hover,
 .ui.basic.black.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #222425 inset !important;
-  color: #222425 !important;
+  box-shadow: 0px 0px 0px 2px #1b1c1d inset !important;
+  color: #1b1c1d !important;
 }
 
 .ui.basic.black.buttons .button:active,
@@ -4714,7 +4714,6 @@ a.ui.card:hover,
 .ui.checkbox label:after,
 .ui.checkbox .box:after {
   content: '\e800';
-  /* '' */
 }
 
 /*  UTF Reference
@@ -5948,7 +5947,6 @@ select.ui.dropdown {
   outline: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   padding: inherit;
-  /*Amazing trick */
 }
 
 /* Search Selection */
@@ -10504,7 +10502,7 @@ h5.ui.header {
 }
 
 a.ui.black.header:hover {
-  color: #222425 !important;
+  color: #1b1c1d !important;
 }
 
 .ui.blue.header {
@@ -14500,10 +14498,6 @@ img.ui.bordered.image {
   font-size: 1.2em;
 }
 
-.ui.items > .item > .content > .meta + .description {
-  margin-top: 0.6em;
-}
-
 /*--------------
      Floated
 ---------------*/
@@ -14538,6 +14532,7 @@ img.ui.bordered.image {
 ---------------*/
 
 .ui.items > .item > .content > .description {
+  margin-top: 0.6em;
   max-width: 550px;
   font-size: 1em;
   line-height: 1.33;
@@ -15331,14 +15326,14 @@ a.ui.label:hover:before {
 
 a.ui.black.labels .label:hover,
 a.ui.black.label:hover {
-  background-color: #222425 !important;
-  border-color: #222425 !important;
+  background-color: #1b1c1d !important;
+  border-color: #1b1c1d !important;
 }
 
 .ui.labels a.black.label:hover:before,
 .ui.black.labels a.label:hover:before,
 a.ui.black.label:hover:before {
-  background-color: #222425 !important;
+  background-color: #1b1c1d !important;
 }
 
 .ui.black.corner.label,
@@ -16453,11 +16448,6 @@ ul.ui.horizontal.bulleted.list li,
   margin-left: 1.5rem;
 }
 
-ul.ui.horizontal.bulleted.list li:before,
-.ui.horizontal.bulleted.list > .item:before {
-  left: -1.1rem;
-}
-
 ul.ui.horizontal.bulleted.list li:first-child,
 .ui.horizontal.bulleted.list > .item:first-child {
   margin-left: 0em;
@@ -16775,42 +16765,82 @@ ol.ui.horizontal.list li:before,
 
 .ui.mini.list .list > .item,
 .ui.mini.list > .item {
-  font-size: 0.7rem;
+  font-size: 0.7142em;
 }
 
 .ui.tiny.list .list > .item,
 .ui.tiny.list > .item {
-  font-size: 0.8rem;
+  font-size: 0.8571em;
 }
 
 .ui.small.list .list > .item,
 .ui.small.list > .item {
-  font-size: 0.9rem;
+  font-size: 0.9285em;
 }
 
 .ui.list .list > .item,
 .ui.list > .item {
-  font-size: 1rem;
+  font-size: 1em;
 }
 
 .ui.large.list .list > .item,
 .ui.large.list > .item {
-  font-size: 1.1rem;
+  font-size: 1.1428em;
 }
 
 .ui.big.list .list > .item,
 .ui.big.list > .item {
-  font-size: 1.2rem;
+  font-size: 1.2857em;
 }
 
 .ui.huge.list .list > .item,
 .ui.huge.list > .item {
-  font-size: 1.3rem;
+  font-size: 1.4285em;
 }
 
 .ui.massive.list .list > .item,
 .ui.massive.list > .item {
-  font-size: 1.5rem;
+  font-size: 1.7142em;
+}
+
+.ui.mini.horizontal.list .list > .item,
+.ui.mini.horizontal.list > .item {
+  font-size: 0.7142rem;
+}
+
+.ui.tiny.horizontal.list .list > .item,
+.ui.tiny.horizontal.list > .item {
+  font-size: 0.8571rem;
+}
+
+.ui.small.horizontal.list .list > .item,
+.ui.small.horizontal.list > .item {
+  font-size: 0.9285rem;
+}
+
+.ui.horizontal.list .list > .item,
+.ui.horizontal.list > .item {
+  font-size: 1rem;
+}
+
+.ui.large.horizontal.list .list > .item,
+.ui.large.horizontal.list > .item {
+  font-size: 1.1428rem;
+}
+
+.ui.big.horizontal.list .list > .item,
+.ui.big.horizontal.list > .item {
+  font-size: 1.2857rem;
+}
+
+.ui.huge.horizontal.list .list > .item,
+.ui.huge.horizontal.list > .item {
+  font-size: 1.4285rem;
+}
+
+.ui.massive.horizontal.list .list > .item,
+.ui.massive.horizontal.list > .item {
+  font-size: 1.7142rem;
 }
 
 /*******************************
@@ -19340,23 +19370,23 @@ ol.ui.horizontal.list li:before,
 ---------------*/
 
 .ui.small.message {
-  font-size: 0.9285rem;
+  font-size: 0.9285em;
 }
 
 .ui.message {
-  font-size: 1rem;
+  font-size: 1em;
 }
 
 .ui.large.message {
-  font-size: 1.1428rem;
+  font-size: 1.1428em;
 }
 
 .ui.huge.message {
-  font-size: 1.4285rem;
+  font-size: 1.4285em;
 }
 
 .ui.massive.message {
-  font-size: 1.7142rem;
+  font-size: 1.7142em;
 }
 
 /*******************************
@@ -21147,7 +21177,6 @@ input[type="search"],
 input[type="password"] {
   -webkit-appearance: none;
   -moz-appearance: none;
-  /* mobile firefox too! */
 }
 
 /*******************************
@@ -21174,7 +21203,6 @@ html {
   -ms-text-size-adjust: 100%;
   /* 2 */
   -webkit-text-size-adjust: 100%;
-  /* 2 */
 }
 
 /**
@@ -21221,7 +21249,6 @@ video {
   display: inline-block;
   /* 1 */
   vertical-align: baseline;
-  /* 2 */
 }
 
 /**
@@ -21423,7 +21450,6 @@ textarea {
   font: inherit;
   /* 2 */
   margin: 0;
-  /* 3 */
 }
 
 /**
@@ -21461,7 +21487,6 @@ input[type="submit"] {
   -webkit-appearance: button;
   /* 2 */
   cursor: pointer;
-  /* 3 */
 }
 
 /**
@@ -21505,7 +21530,6 @@ input[type="radio"] {
   box-sizing: border-box;
   /* 1 */
   padding: 0;
-  /* 2 */
 }
 
 /**
@@ -21562,7 +21586,6 @@ legend {
   border: 0;
   /* 1 */
   padding: 0;
-  /* 2 */
 }
 
 /**
@@ -23670,7 +23693,7 @@ body {
 }
 
 /*******************************
-             Text
+             Headers
 *******************************/
 
 h1,
@@ -23678,12 +23701,41 @@ h2,
 h3,
 h4,
 h5 {
-  margin: 1em 0em 1rem;
+  line-height: 1.33em;
+  margin: -webkit-calc(2rem -  0.165em ) 0em 1rem;
+  margin: calc(2rem -  0.165em ) 0em 1rem;
+  font-weight: bold;
   padding: 0em;
 }
 
+h1 {
+  min-height: 1rem;
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.714rem;
+}
+
+h3 {
+  font-size: 1.28rem;
+}
+
+h4 {
+  font-size: 1.071rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+/*******************************
+             Text
+*******************************/
+
 p {
   margin: 0em 0em 1em;
+  line-height: 1.33;
 }
 
 p:first-child {
@@ -24564,7 +24616,6 @@ a:hover {
 .ui.ordered.steps .step.completed:before {
   font-family: 'Step';
   content: '\e800';
-  /* '' */
 }
 
 /*******************************
