@@ -618,7 +618,7 @@
 .ui.basic.button {
   background: @basicBackground !important;
   background-image: none;
-  color: @textColor !important;
+  color: @basicTextColor !important;
   font-weight: @basicFontWeight;
   border-radius: @basicBorderRadius;
   text-transform: @basicTextTransform;
@@ -636,20 +636,20 @@
 .ui.basic.buttons .button:hover,
 .ui.basic.button:hover {
   background: @basicHoverBackground !important;
-  color: @hoveredTextColor !important;
+  color: @basicHoverTextColor !important;
   box-shadow: @basicHoverBoxShadow;
 }
 .ui.basic.buttons .button:active,
 .ui.basic.button:active {
   background: @basicDownBackground !important;
-  color: @pressedTextColor !important;
+  color: @basicDownTextColor !important;
   box-shadow: @basicDownBoxShadow;
 }
 .ui.basic.buttons .button.active,
 .ui.basic.button.active {
   background: @basicActiveBackground !important;
   box-shadow: @basicActiveBoxShadow !important;
-  color: @basicActiveColor;
+  color: @basicActiveTextColor;
   box-shadow: @selectedBorderColor;
 }
 .ui.basic.buttons .button.active:hover,
