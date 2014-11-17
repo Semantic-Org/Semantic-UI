@@ -6,8 +6,8 @@
        Element
 --------------------*/
 
-@fontWeight: bold;
 @textTransform: none;
+@fontWeight: @headerFontWeight;
 @lineHeight: @headerLineHeight;
 @lineHeightOffset: @headerLineHeightOffset;
 
