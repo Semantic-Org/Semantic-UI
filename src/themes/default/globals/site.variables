@@ -26,6 +26,7 @@
   Page Heading
 ---------------*/
 
+@headerFontWeight : bold;
 @headerLineHeight : 1.33em;
 
 @h1               : 2rem;
@@ -117,6 +118,7 @@
 --------------------*/
 
 @paragraphMargin     : 0em 0em 1em;
+@paragraphLineHeight : @lineHeight;
 
 /*-------------------
        Links

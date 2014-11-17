@@ -114,6 +114,14 @@
 @import "@{siteFolder}/@{type}s/@{element}.variables";
 
 /*------------------
+       Fonts
+-------------------*/
+
+.loadFonts() when (@importGoogleFonts) {
+  @import (css) 'http://fonts.googleapis.com/css?family=@{googleFontRequest}';
+}
+
+/*------------------
      Overrides
 -------------------*/
 

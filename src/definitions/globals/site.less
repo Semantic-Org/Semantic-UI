@@ -17,6 +17,7 @@
 @element : 'site';
 
 @import '../../theme.config';
+
 .loadFonts();
 
 /*******************************
@@ -62,6 +63,7 @@ h4,
 h5 {
   line-height: @headerLineHeight;
   margin: @headerMargin;
+  font-weight: @headerFontWeight;
   padding: 0em;
 }
 
@@ -89,6 +91,7 @@ h5 {
 
 p {
   margin: @paragraphMargin;
+  line-height: @paragraphLineHeight;
 }
 p:first-child {
   margin-top: 0em;
@@ -126,7 +129,4 @@ a:hover {
   color: @highlightColor;
 }
 
-.loadFonts() when (@importGoogleFonts) {
-  @import (css) 'http://fonts.googleapis.com/css?family=@{googleFontRequest}';
-}
 .loadUIOverrides();
