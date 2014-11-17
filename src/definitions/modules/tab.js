@@ -51,13 +51,13 @@ $.tab = $.fn.tab = function(parameters) {
         moduleNamespace    = 'module-' + settings.namespace,
 
         $module            = $(this),
-        $tabs              = $(selector.tabs),
 
         cache              = {},
         firstLoad          = true,
         recursionDepth     = 0,
 
         $context,
+        $tabs,
         activeTabPath,
         parameterArray,
         historyEvent,
@@ -71,10 +71,8 @@ $.tab = $.fn.tab = function(parameters) {
         initialize: function() {
           module.debug('Initializing tab menu item', $module);
 
-          if(settings.context) {
-            module.determineTabs();
-            module.debug('Using only tabs inside context', settings.context, $tabs);
-          }
+          module.determineTabs();
+          module.debug('Determining tabs', settings.context, $tabs);
 
           // set up automatic routing
           if(settings.auto) {
@@ -98,21 +96,28 @@ $.tab = $.fn.tab = function(parameters) {
           var
             $reference
           ;
+
+          // determine tab context
           if(settings.context === 'parent') {
-            if($module.closest('.' + className.ui).size() > 0) {
-              $reference = $module.closest('.' + className.ui);
+            if($module.closest(selector.ui).size() > 0) {
+              $reference = $module.closest(selector.ui);
               module.verbose('Using closest UI element for determining parent', $reference);
             }
             else {
               $reference = $module;
             }
             $context = $reference.parent();
-            module.verbose('Determining parent element for creating context', $context);
+            module.verbose('Determined parent element for creating context', $context);
           }
-          else {
+          else if(settings.context) {
             $context = $(settings.context);
             module.verbose('Using selector for tab context', settings.context, $context);
           }
+          else {
+            $context = $('body');
+          }
+
+          // find tabs
           if(settings.childrenOnly) {
             $tabs = $context.children(selector.tabs);
             module.debug('Searching tab context children for tabs', $context, $tabs);
@@ -308,11 +313,9 @@ $.tab = $.fn.tab = function(parameters) {
                 $.proxy(settings.onTabLoad, $tab)(currentPath, parameterArray, historyEvent);
               }
             }
-            else {
+            else if(tabPath.search('/') == -1) {
               // look for in page anchor
-              $anchor     = (tabPath.search('/') == -1)
-                ? $('#' + tabPath + ', a[name="' + tabPath + '"]')
-                : $('#qqq'),
+              $anchor     = $('#' + tabPath + ', a[name="' + tabPath + '"]'),
               currentPath = $anchor.closest('[data-tab]').data('tab');
               $tab        = module.get.tabElement(currentPath);
               // if anchor exists use parent tab
@@ -324,10 +327,11 @@ $.tab = $.fn.tab = function(parameters) {
                   module.debug('First time tab loaded calling tab init');
                   $.proxy(settings.onTabInit, $tab)(currentPath, parameterArray, historyEvent);
                 }
+                return false;
               }
-              else {
-                module.error(error.missingTab, $module, currentPath);
-              }
+            }
+            else {
+              module.error(error.missingTab, $module, $context, currentPath);
               return false;
             }
           });
@@ -729,8 +733,8 @@ $.fn.tab.settings = {
   namespace    : 'tab',
 
   debug        : false,
-  verbose      : false,
-  performance  : false,
+  verbose      : true,
+  performance  : true,
 
   // uses pjax style endpoints fetching content from same url with remote-content headers
   auto         : false,
@@ -784,12 +788,12 @@ $.fn.tab.settings = {
 
   className   : {
     loading : 'loading',
-    active  : 'active',
-    ui      : 'ui'
+    active  : 'active'
   },
 
   selector    : {
-    tabs : '.ui.tab'
+    tabs : '.ui.tab',
+    ui   : '.ui'
   }
 
 };
