@@ -408,8 +408,9 @@ $.fn.popup = function(parameters) {
             }
             return false;
           },
-          offstagePosition: function() {
+          offstagePosition: function(position) {
             var
+              position = position || false,
               boundary  = {
                 top    : $(window).scrollTop(),
                 bottom : $(window).scrollTop() + $(window).height(),
@@ -418,13 +419,14 @@ $.fn.popup = function(parameters) {
               },
               popup     = {
                 width  : $popup.width(),
-                height : $popup.outerHeight(),
+                height : $popup.height(),
                 offset : $popup.offset()
               },
               offstage  = {},
               offstagePositions = []
             ;
-            if(popup.offset) {
+            if(popup.offset && position) {
+              module.verbose('Checking if outside viewable area', popup.offset);
               offstage = {
                 top    : (popup.offset.top < boundary.top),
                 bottom : (popup.offset.top + popup.height > boundary.bottom),
@@ -432,7 +434,6 @@ $.fn.popup = function(parameters) {
                 left   : (popup.offset.left < boundary.left)
               };
             }
-            module.verbose('Checking if outside viewable area', popup.offset);
             // return only boundaries that have been surpassed
             $.each(offstage, function(direction, isOffstage) {
               if(isOffstage) {
@@ -487,17 +488,22 @@ $.fn.popup = function(parameters) {
               popupWidth    = $popup.outerWidth(),
               popupHeight   = $popup.outerHeight(),
 
-              parentWidth   = $offsetParent.outerWidth(),
-              parentHeight  = $offsetParent.outerHeight(),
+              parentWidth   = ( $offsetParent.is('html') )
+                ? $offsetParent.find('body').width()
+                : $offsetParent.outerWidth(),
+
+              parentHeight  = ( $offsetParent.is('html') )
+                ? $offsetParent.find('body').height()
+                : $offsetParent.outerHeight(),
 
               distanceAway  = settings.distanceAway,
 
               targetElement = $target[0],
 
-              marginTop = (settings.inline)
+              marginTop     = (settings.inline)
                 ? parseInt( window.getComputedStyle(targetElement).getPropertyValue('margin-top'), 10)
                 : 0,
-              marginLeft = (settings.inline)
+              marginLeft    = (settings.inline)
                 ? parseInt( window.getComputedStyle(targetElement).getPropertyValue('margin-left'), 10)
                 : 0,
 
@@ -510,7 +516,6 @@ $.fn.popup = function(parameters) {
             ;
             position    = position    || $module.data(metadata.position)    || settings.position;
             arrowOffset = arrowOffset || $module.data(metadata.offset)      || settings.offset;
-
             if(settings.inline) {
               module.debug('Adding targets margin to calculation');
               if(position == 'left center' || position == 'right center') {
@@ -604,7 +609,7 @@ $.fn.popup = function(parameters) {
               .addClass(className.loading)
             ;
             // check if is offstage
-            offstagePosition = module.get.offstagePosition();
+            offstagePosition = module.get.offstagePosition(position);
             // recursively find new positioning
             if(offstagePosition) {
               module.debug('Element is outside boundaries', offstagePosition);
