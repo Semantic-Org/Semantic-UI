@@ -666,7 +666,7 @@ $.fn.popup = function(parameters) {
             ;
           },
           close:function() {
-            if(settings.hideOnScroll) {
+            if(settings.hideOnScroll === true || settings.hideOnScroll == 'auto' && settings.on != 'click') {
               $document
                 .one('touchmove' + eventNamespace, module.hideGracefully)
                 .one('scroll' + eventNamespace, module.hideGracefully)
@@ -690,7 +690,7 @@ $.fn.popup = function(parameters) {
 
         unbind: {
           close: function() {
-            if(settings.hideOnScroll) {
+            if(settings.hideOnScroll === true || settings.hideOnScroll == 'auto' && settings.on != 'click') {
               $document
                 .off('scroll' + eventNamespace, module.hide)
               ;
@@ -938,7 +938,7 @@ $.fn.popup.settings = {
 
   on             : 'hover',
   closable       : true,
-  hideOnScroll   : true,
+  hideOnScroll   : 'auto',
 
   context        : 'body',
   position       : 'top left',
