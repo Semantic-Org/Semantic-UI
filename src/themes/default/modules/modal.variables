@@ -90,6 +90,7 @@
 @widescreenMonitorMargin: 0em 0em 0em -(@widescreenMonitorWidth / 2);
 
 @fullScreenWidth: 95%;
+@fullScreenOffset: (100% - @fullScreenWidth) / 2;
 @fullScreenMargin: 1em auto;
 
 @fullScreenMobileWidth: auto;
