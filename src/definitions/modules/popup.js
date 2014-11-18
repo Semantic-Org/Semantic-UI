@@ -668,12 +668,12 @@ $.fn.popup = function(parameters) {
           close:function() {
             if(settings.hideOnScroll) {
               $document
-                .on('touchmove' + eventNamespace, module.hideGracefully)
-                .on('scroll' + eventNamespace, module.hideGracefully)
+                .one('touchmove' + eventNamespace, module.hideGracefully)
+                .one('scroll' + eventNamespace, module.hideGracefully)
               ;
               $context
-                .on('touchmove' + eventNamespace, module.hideGracefully)
-                .on('scroll' + eventNamespace, module.hideGracefully)
+                .one('touchmove' + eventNamespace, module.hideGracefully)
+                .one('scroll' + eventNamespace, module.hideGracefully)
               ;
             }
             if(settings.on == 'click' && settings.closable) {
