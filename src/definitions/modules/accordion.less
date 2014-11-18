@@ -73,13 +73,17 @@
   height: @iconHeight;
   margin: @iconMargin;
   padding: @iconPadding;
+  font-size: @iconFontSize;
   transition: @iconTransition;
   vertical-align: @iconVerticalAlign;
   transform: @iconTransform;
 }
 
+/*--------------
+    Coupling
+---------------*/
 
-/* Coupling with accordion */
+/* Menu */
 .ui.accordion.menu .item .title {
   display: block;
   padding: @menuTitlePadding;
@@ -88,6 +92,12 @@
   float: @menuIconFloat;
   margin: @menuIconMargin;
   transform: @menuIconTransform;
+}
+
+/* Header */
+.ui.accordion .ui.header .dropdown.icon {
+  font-size: @iconFontSize;
+  margin: @iconMargin;
 }
 
 /*******************************

@@ -13,6 +13,7 @@
 
 /* Icon */
 @iconOpacity: 0.75;
+@iconFontSize: 1em;
 @iconFloat: none;
 @iconWidth: 1.25em;
 @iconHeight: 1em;
