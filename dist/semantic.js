@@ -2336,16 +2336,16 @@ $.fn.checkbox = function(parameters) {
 
         enable: function() {
           module.debug('Enabling checkbox functionality');
-          $module.addClass(className.disabled);
+          $module.removeClass(className.disabled);
           $input.prop('disabled', false);
-          $.proxy(settings.onDisabled, $input.get())();
+          $.proxy(settings.onEnabled, $input.get())();
         },
 
         disable: function() {
           module.debug('Disabling checkbox functionality');
-          $module.removeClass(className.disabled);
+          $module.addClass(className.disabled);
           $input.prop('disabled', 'disabled');
-          $.proxy(settings.onEnabled, $input.get())();
+          $.proxy(settings.onDisabled, $input.get())();
         },
 
         check: function() {
@@ -7151,12 +7151,21 @@ $.fn.popup = function(parameters) {
               ? $target.next(settings.selector.popup)
               : false
           ;
-          $offsetParent   = (settings.popup)
-            ? $popup.offsetParent()
-            : (settings.inline)
-              ? $target.offsetParent()
-              : $body
-          ;
+          if(settings.popup) {
+            $popup.addClass(className.loading);
+            $offsetParent = $popup.offsetParent();
+            $popup.removeClass(className.loading);
+          }
+          else {
+            $offsetParent = (settings.inline)
+                ? $target.offsetParent()
+                : $body
+            ;
+          }
+          if( $offsetParent.is('html') ) {
+            module.debug('Page is popups offset parent');
+            $offsetParent = $body;
+          }
         },
 
         reposition: function() {
@@ -7471,7 +7480,7 @@ $.fn.popup = function(parameters) {
                 top    : (popup.offset.top < boundary.top),
                 bottom : (popup.offset.top + popup.height > boundary.bottom),
                 right  : (popup.offset.left + popup.width > boundary.right),
-                left   : (popup.offset.left < boundary.left)
+                left   : false
               };
             }
             // return only boundaries that have been surpassed
@@ -7528,13 +7537,8 @@ $.fn.popup = function(parameters) {
               popupWidth    = $popup.outerWidth(),
               popupHeight   = $popup.outerHeight(),
 
-              parentWidth   = ( $offsetParent.is('html') )
-                ? $offsetParent.find('body').width()
-                : $offsetParent.outerWidth(),
-
-              parentHeight  = ( $offsetParent.is('html') )
-                ? $offsetParent.find('body').height()
-                : $offsetParent.outerHeight(),
+              parentWidth   = $offsetParent.outerWidth(),
+              parentHeight  = $offsetParent.outerHeight(),
 
               distanceAway  = settings.distanceAway,
 
@@ -7650,6 +7654,7 @@ $.fn.popup = function(parameters) {
             ;
             // check if is offstage
             offstagePosition = module.get.offstagePosition(position);
+
             // recursively find new positioning
             if(offstagePosition) {
               module.debug('Element is outside boundaries', offstagePosition);
@@ -7673,6 +7678,9 @@ $.fn.popup = function(parameters) {
             else {
               module.debug('Position is on stage', position);
               searchDepth = 0;
+              if( settings.setFluidWidth && $popup.hasClass(className.fluid) ) {
+                $popup.css('width', $offsetParent.width());
+              }
               $popup.removeClass(className.loading);
               return true;
             }
@@ -7979,6 +7987,8 @@ $.fn.popup.settings = {
     hide : 0
   },
 
+  setFluidWidth  : true,
+
   target         : false,
   popup          : false,
   inline         : false,
@@ -8012,6 +8022,7 @@ $.fn.popup.settings = {
     active    : 'active',
     animating : 'animating',
     dropdown  : 'dropdown',
+    fluid     : 'fluid',
     loading   : 'loading',
     popup     : 'ui popup',
     position  : 'top left center bottom right',

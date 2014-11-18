@@ -9002,6 +9002,7 @@ i.flag.zimbabwe:before {
 
 .ui.grid > .column:not(.row),
 .ui.grid > .row > .column {
+  position: relative;
   display: inline-block;
   text-align: left;
   font-size: 1rem;
@@ -9021,6 +9022,7 @@ i.flag.zimbabwe:before {
 --------------------*/
 
 .ui.grid > .row {
+  position: relative;
   display: block;
   width: auto !important;
   padding: 0rem;
@@ -20374,7 +20376,7 @@ a.ui.nag {
 }
 
 .ui.indicating.progress .bar[style^="width: 9"],
-.ui.indicating.progress .bar[style^="width: 100"] {
+.ui.indicating.progress .bar[style^="width: 100"]:not(.success) {
   background-color: #66da81;
 }
 
