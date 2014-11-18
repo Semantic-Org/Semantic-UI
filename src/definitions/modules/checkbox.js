@@ -205,16 +205,16 @@ $.fn.checkbox = function(parameters) {
 
         enable: function() {
           module.debug('Enabling checkbox functionality');
-          $module.addClass(className.disabled);
+          $module.removeClass(className.disabled);
           $input.prop('disabled', false);
-          $.proxy(settings.onDisabled, $input.get())();
+          $.proxy(settings.onEnabled, $input.get())();
         },
 
         disable: function() {
           module.debug('Disabling checkbox functionality');
-          $module.removeClass(className.disabled);
+          $module.addClass(className.disabled);
           $input.prop('disabled', 'disabled');
-          $.proxy(settings.onEnabled, $input.get())();
+          $.proxy(settings.onDisabled, $input.get())();
         },
 
         check: function() {
