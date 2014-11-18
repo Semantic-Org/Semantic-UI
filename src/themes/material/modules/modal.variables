@@ -9,7 +9,7 @@
 @headerFontFamily: 'Roboto', "Helvetica Neue", Arial, sans-serif;
 @headerBorder: none;
 
-@contentPadding: 2rem 0em;
+@contentPadding: 1rem 2rem 2rem;
 
 @actionBorder: none;
 @actionBackground: @white;
