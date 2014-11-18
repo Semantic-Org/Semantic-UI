@@ -3,7 +3,7 @@
 *******************************/
 
 @display: inline-block;
-@margin: 0em 0.5rem 0em 0em;
+@margin: 0em 0.75rem ;
 
 @verticalAlign: baseline;
 @oversizedVerticalAlign: middle;

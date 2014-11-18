@@ -58,7 +58,7 @@
   background-color: @indicatingFifthColor;
 }
 .ui.indicating.progress .bar[style^="width: 9"],
-.ui.indicating.progress .bar[style^="width: 100"]:not(.success) {
+.ui.indicating.progress .bar[style^="width: 100"] {
   background-color: @indicatingSixthColor;
 }
 .ui.indicating.progress .bar[style^="width: 1%"],
@@ -106,6 +106,10 @@
 .ui.indicating.progress .bar[style^="width: 9"] + .label,
 .ui.indicating.progress .bar[style^="width: 100"] + .label {
   color: @indicatingSixthColor;
+}
+
+.ui.indicating.progress.success .bar + .label {
+  color: @successHeaderColor;
 }
 
 /*******************************

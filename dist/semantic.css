@@ -19749,8 +19749,12 @@ ol.ui.horizontal.list li:before,
 
 .ui.fullscreen.modal {
   width: 95% !important;
-  left: 0% !important;
+  left: 2.5% !important;
   margin: 1em auto;
+}
+
+.ui.fullscreen.scrolling.modal {
+  left: 0em !important;
 }
 
 .ui.fullscreen.modal > .header {
@@ -22265,11 +22269,11 @@ th {
 ---------------*/
 
 .ui.search {
-  font-size: 1em;
+  font-size: 1rem;
 }
 
 .ui.large.search {
-  font-size: 1.1em;
+  font-size: 1.1428rem;
 }
 
 /*******************************
