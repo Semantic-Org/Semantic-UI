@@ -612,7 +612,6 @@ $.fn.popup = function(parameters) {
               .addClass(position)
               .addClass(className.loading)
             ;
-            console.log('here1');
             // check if is offstage
             offstagePosition = module.get.offstagePosition(position);
 
