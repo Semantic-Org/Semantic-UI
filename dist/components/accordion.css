@@ -65,6 +65,7 @@
   height: 1em;
   margin: 0em 0.25rem 0em 0rem;
   padding: 0em;
+  font-size: 1em;
   -webkit-transition: -webkit-transform 0.2s ease, opacity 0.2s ease;
           transition: transform 0.2s ease, opacity 0.2s ease;
   vertical-align: baseline;
@@ -73,7 +74,12 @@
           transform: rotate(0deg);
 }
 
-/* Coupling with accordion */
+/*--------------
+    Coupling
+---------------*/
+
+
+/* Menu */
 .ui.accordion.menu .item .title {
   display: block;
   padding: 0em;
@@ -84,6 +90,12 @@
   -webkit-transform: rotate(180deg);
       -ms-transform: rotate(180deg);
           transform: rotate(180deg);
+}
+
+/* Header */
+.ui.accordion .ui.header .dropdown.icon {
+  font-size: 1em;
+  margin: 0em 0.25rem 0em 0rem;
 }
 
 

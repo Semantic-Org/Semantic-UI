@@ -666,14 +666,14 @@ $.fn.popup = function(parameters) {
             ;
           },
           close:function() {
-            if(settings.hideOnScroll) {
+            if(settings.hideOnScroll === true || settings.hideOnScroll == 'auto' && settings.on != 'click') {
               $document
-                .on('touchmove' + eventNamespace, module.hideGracefully)
-                .on('scroll' + eventNamespace, module.hideGracefully)
+                .one('touchmove' + eventNamespace, module.hideGracefully)
+                .one('scroll' + eventNamespace, module.hideGracefully)
               ;
               $context
-                .on('touchmove' + eventNamespace, module.hideGracefully)
-                .on('scroll' + eventNamespace, module.hideGracefully)
+                .one('touchmove' + eventNamespace, module.hideGracefully)
+                .one('scroll' + eventNamespace, module.hideGracefully)
               ;
             }
             if(settings.on == 'click' && settings.closable) {
@@ -690,7 +690,7 @@ $.fn.popup = function(parameters) {
 
         unbind: {
           close: function() {
-            if(settings.hideOnScroll) {
+            if(settings.hideOnScroll === true || settings.hideOnScroll == 'auto' && settings.on != 'click') {
               $document
                 .off('scroll' + eventNamespace, module.hide)
               ;
@@ -938,7 +938,7 @@ $.fn.popup.settings = {
 
   on             : 'hover',
   closable       : true,
-  hideOnScroll   : true,
+  hideOnScroll   : 'auto',
 
   context        : 'body',
   position       : 'top left',

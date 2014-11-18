@@ -72,6 +72,7 @@
   height: 1em;
   margin: 0em 0.25rem 0em 0rem;
   padding: 0em;
+  font-size: 1em;
   -webkit-transition: -webkit-transform 0.2s ease, opacity 0.2s ease;
   transition: transform 0.2s ease, opacity 0.2s ease;
   vertical-align: baseline;
@@ -80,7 +81,11 @@
   transform: rotate(0deg);
 }
 
-/* Coupling with accordion */
+/*--------------
+    Coupling
+---------------*/
+
+/* Menu */
 
 .ui.accordion.menu .item .title {
   display: block;
@@ -93,6 +98,13 @@
   -webkit-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
+}
+
+/* Header */
+
+.ui.accordion .ui.header .dropdown.icon {
+  font-size: 1em;
+  margin: 0em 0.25rem 0em 0rem;
 }
 
 /*******************************
@@ -20380,7 +20392,7 @@ a.ui.nag {
 }
 
 .ui.indicating.progress .bar[style^="width: 9"],
-.ui.indicating.progress .bar[style^="width: 100"]:not(.success) {
+.ui.indicating.progress .bar[style^="width: 100"] {
   background-color: #66da81;
 }
 
@@ -20435,6 +20447,10 @@ a.ui.nag {
 .ui.indicating.progress .bar[style^="width: 9"] + .label,
 .ui.indicating.progress .bar[style^="width: 100"] + .label {
   color: #66da81;
+}
+
+.ui.indicating.progress.success .bar + .label {
+  color: #356e36;
 }
 
 /*******************************
@@ -20889,7 +20905,6 @@ a.ui.nag {
   display: inline-block;
   font-size: 0em;
   vertical-align: baseline;
-  margin: 0em 0.5rem 0em 0em;
 }
 
 .ui.rating:last-child {
@@ -22269,11 +22284,11 @@ th {
 ---------------*/
 
 .ui.search {
-  font-size: 1rem;
+  font-size: 1em;
 }
 
 .ui.large.search {
-  font-size: 1.1428rem;
+  font-size: 1.1em;
 }
 
 /*******************************
