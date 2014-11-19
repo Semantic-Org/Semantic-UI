@@ -13,6 +13,7 @@
 @height: 0.9em;
 @distanceFromText: 0.25rem;
 
+@linkOpacity: 0.8;
 @linkDuration: 0.3s;
 @loadingDuration: 2s;
 
