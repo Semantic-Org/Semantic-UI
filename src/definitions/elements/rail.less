@@ -49,6 +49,25 @@
 *******************************/
 
 /*--------------
+     Internal
+---------------*/
+
+.ui.left.internal.rail {
+  left: 0%;
+  right: auto;
+  padding: 0em 0em 0em (@distance / 2);
+  margin: 0em 0em 0em (@distance / 2);
+}
+
+.ui.right.internal.rail {
+  left: auto;
+  right: 0%;
+  padding: 0em (@distance / 2) 0em 0em;
+  margin: 0em (@distance / 2) 0em 0em;
+}
+
+
+/*--------------
      Divided
 ---------------*/
 
@@ -84,6 +103,15 @@
   margin: 0em 0em 0em (@veryCloseDistance / 2);
 }
 
+/*--------------
+    Attached
+---------------*/
+
+.ui.attached.left.rail,
+.ui.attached.right.rail {
+  padding: 0em;
+  margin: 0em;
+}
 
 /*--------------
      Sizing
