@@ -42,6 +42,23 @@
 
 
 /*--------------
+     Internal
+---------------*/
+
+.ui.left.internal.rail {
+  left: 0%;
+  right: auto;
+  padding: 0em 0em 0em 2rem;
+  margin: 0em 0em 0em 2rem;
+}
+.ui.right.internal.rail {
+  left: auto;
+  right: 0%;
+  padding: 0em 2rem 0em 0em;
+  margin: 0em 2rem 0em 0em;
+}
+
+/*--------------
      Divided
 ---------------*/
 
@@ -75,6 +92,16 @@
 .ui.very.close.right.rail {
   padding: 0em 0em 0em 0.5em;
   margin: 0em 0em 0em 0.5em;
+}
+
+/*--------------
+    Attached
+---------------*/
+
+.ui.attached.left.rail,
+.ui.attached.right.rail {
+  padding: 0em;
+  margin: 0em;
 }
 
 /*--------------

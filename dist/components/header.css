@@ -19,7 +19,6 @@
 /* Standard */
 .ui.header {
   border: none;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   margin: -webkit-calc(2rem -  0.165em ) 0em 1rem;
   margin: calc(2rem -  0.165em ) 0em 1rem;
   padding: 0em 0em;
@@ -75,27 +74,6 @@
 }
 .ui.header + p {
   margin-top: 0em;
-}
-
-/*--------------
-  Page Heading
----------------*/
-
-h1.ui.header {
-  min-height: 1rem;
-  font-size: 2rem;
-}
-h2.ui.header {
-  font-size: 1.714rem;
-}
-h3.ui.header {
-  font-size: 1.28rem;
-}
-h4.ui.header {
-  font-size: 1.071rem;
-}
-h5.ui.header {
-  font-size: 1rem;
 }
 
 /*--------------
@@ -511,7 +489,7 @@ a.ui.inverted.yellow.header:hover {
         Sizing
 --------------------*/
 
-.ui.header {
+.ui.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
   font-size: 1.285em;
 }
 

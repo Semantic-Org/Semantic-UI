@@ -114,7 +114,7 @@ i.disabled.icon {
 
 i.link.icon {
   cursor: pointer;
-  opacity: 1;
+  opacity: 0.8;
   -webkit-transition: opacity 0.2s ease;
           transition: opacity 0.2s ease;
 }
