@@ -23,7 +23,17 @@
 *******************************/
 
 .ui.ad {
-  overflow: hidden;
+  display: block;
+  overflow: @overflow;
+  margin: @margin;
+}
+
+.ui.ad:first-child {
+  margin: 0em;
+}
+
+.ui.ad:last-child {
+  margin: 0em;
 }
 
 .ui.ad iframe {
@@ -110,27 +120,6 @@
 }
 
 /*--------------
-    Panorama
----------------*/
-
-/* Panorama */
-.ui.panorama.ad {
-  width: 980px;
-  height: 120px;
-}
-
-/*--------------
-     Netboard
----------------*/
-
-/* Netboard */
-.ui.netboard.ad {
-  width: 580px;
-  height: 400px;
-}
-
-
-/*--------------
    Skyscrapers
 ---------------*/
 
@@ -174,7 +163,7 @@
 }
 
 /*--------------
-   Large Sizes
+    Boards
 ---------------*/
 
 /* Leaderboard */
@@ -188,6 +177,28 @@
   width: 970px;
   height: 250px;
 }
+
+/*--------------
+    Panorama
+---------------*/
+
+/* Panorama */
+.ui.panorama.ad {
+  width: 980px;
+  height: 120px;
+}
+
+/*--------------
+     Netboard
+---------------*/
+
+/* Netboard */
+.ui.netboard.ad {
+  width: 580px;
+  height: 400px;
+}
+
+
 
 /*--------------
      Mobile
@@ -231,18 +242,25 @@
 }
 
 .ui.test.ad {
+  position: relative;
   background: @testBackground;
 }
 .ui.test.ad:after {
   position: absolute;
   top: 50%;
   left: 50%;
+  width: 100%;
+  text-align: center;
   transform: translateX(-50%) translateY(-50%);
+
   content: @testText;
   color: @testColor;
+  font-size: @testFontSize;
+  font-weight: @testFontWeight;
+}
+.ui.mobile.test.ad:after {
+  font-size: @testMobileFontSize;
 }
 .ui.test.ad[data-text]:after {
   content: attr(data-text);
 }
-
-.loadUIOverrides();

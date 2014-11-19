@@ -1,7 +1,0 @@
-/*******************************
-          Advertisement
-*******************************/
-
-@testBackground: @grey;
-@testColor: @white;
-@testText: 'Ad';
