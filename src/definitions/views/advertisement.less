@@ -229,3 +229,18 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.ui.test.advertisement {
+  background: @testBackground;
+}
+.ui.test.advertisement:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  content: @testText;
+  color: @testColor;
+}
+.ui.test.advertisement[data-text]:after {
+  content: attr(data-text);
+}
