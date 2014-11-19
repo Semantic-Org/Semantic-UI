@@ -136,6 +136,7 @@
 .ui.statistic > .value .icon {
   opacity: 1;
   width: auto;
+  margin: 0em;
 }
 
 /*--------------
@@ -188,6 +189,10 @@
 .ui.horizontal.statistic > .text.value,
 .ui.horizontal.statistics > .statistic > .text.value {
   min-height: 0em !important;
+}
+.ui.horizontal.statistics .statistic > .value .icon,
+.ui.horizontal.statistic > .value .icon {
+  width: @iconWidth;
 }
 
 .ui.horizontal.statistics .statistic > .value,
