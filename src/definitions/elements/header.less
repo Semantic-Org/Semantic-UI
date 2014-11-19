@@ -25,7 +25,6 @@
 /* Standard */
 .ui.header {
   border: none;
-  font-family: @headerFont;
   margin: @margin;
   padding: @verticalPadding @horizontalPadding;
   font-weight: @fontWeight;
@@ -85,27 +84,6 @@
   margin-top: @nextParagraphTopMargin;
 }
 
-
-/*--------------
-  Page Heading
----------------*/
-
-h1.ui.header {
-  min-height: 1rem;
-  font-size: @h1;
-}
-h2.ui.header {
-  font-size: @h2;
-}
-h3.ui.header {
-  font-size: @h3;
-}
-h4.ui.header {
-  font-size: @h4;
-}
-h5.ui.header {
-  font-size: @h5;
-}
 
 /*--------------
  Content Heading
@@ -542,7 +520,7 @@ a.ui.inverted.yellow.header:hover {
         Sizing
 --------------------*/
 
-.ui.header {
+.ui.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
   font-size: @medium;
 }
 
