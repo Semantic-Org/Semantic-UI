@@ -97,6 +97,7 @@ $.fn.modal = function(parameters) {
           $dimmer = $dimmable.dimmer('get dimmer');
           $otherModals = $module.siblings(selector.modal);
           $allModals   = $otherModals.add($module);
+          module.cacheSizes();
 
           module.verbose('Attaching close events', $close);
           module.bind.events();
@@ -126,7 +127,7 @@ $.fn.modal = function(parameters) {
         observeChanges: function() {
           if('MutationObserver' in window) {
             observer = new MutationObserver(function(mutations) {
-              module.debug('DOM tree modified, updating selector cache');
+              module.debug('DOM tree modified, refreshing');
               module.refresh();
             });
             observer.observe(element, {
@@ -271,7 +272,6 @@ $.fn.modal = function(parameters) {
               $.proxy(settings.onShow, element)();
               if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
                 module.debug('Showing modal with css animations');
-                module.cacheSizes();
                 module.set.position();
                 module.set.screenHeight();
                 module.set.type();
