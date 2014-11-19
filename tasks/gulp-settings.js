@@ -43,7 +43,7 @@ module.exports = {
   },
   wrench: {
     recursive: {
-      forceDelete       : false,
+      forceDelete       : true,
       excludeHiddenUnix : true,
       preserveFiles     : true
     }
