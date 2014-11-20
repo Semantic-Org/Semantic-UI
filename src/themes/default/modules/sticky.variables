@@ -9,3 +9,4 @@
   top @transitionDuration @defaultEasing,
   bottom @transitionDuration @defaultEasing
 ;
+@zIndex: 800;

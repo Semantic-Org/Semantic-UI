@@ -362,9 +362,12 @@ $.fn.sticky = function(parameters) {
             element        = cache.element,
             window         = cache.window,
             context        = cache.context,
+            offset         = (module.is.bottom() && settings.pushing)
+              ? settings.bottomOffset
+              : settings.offset,
             scroll         = {
-              top    : $scroll.scrollTop() + settings.offset,
-              bottom : $scroll.scrollTop() + settings.offset + window.height
+              top    : $scroll.scrollTop() + offset,
+              bottom : $scroll.scrollTop() + offset + window.height
             },
             direction      = module.get.direction(scroll.top),
             elementScroll  = module.get.elementScroll(scroll.top),
@@ -424,19 +427,16 @@ $.fn.sticky = function(parameters) {
               }
             }
             else if( module.is.bottom() ) {
-              // fix to bottom of screen on way back up
-              if( module.is.bottom() ) {
-                if(settings.pushing) {
-                  if(module.is.bound() && scroll.bottom < context.bottom ) {
-                    module.debug('Fixing bottom attached element to bottom of browser.');
-                    module.fixBottom();
-                  }
+              if(settings.pushing) {
+                if(module.is.bound() && scroll.bottom < context.bottom ) {
+                  module.debug('Fixing bottom attached element to bottom of browser.');
+                  module.fixBottom();
                 }
-                else {
-                  if(module.is.bound() && (scroll.top < context.bottom - element.height) ) {
-                    module.debug('Fixing bottom attached element to top of browser.');
-                    module.fixTop();
-                  }
+              }
+              else {
+                if(module.is.bound() && (scroll.top < context.bottom - element.height) ) {
+                  module.debug('Fixing bottom attached element to top of browser.');
+                  module.fixTop();
                 }
               }
             }
@@ -738,7 +738,9 @@ $.fn.sticky.settings = {
 
   context       : false,
   scrollContext : window,
+
   offset        : 0,
+  bottomOffset  : 0,
 
   onReposition  : function(){},
   onScroll      : function(){},
