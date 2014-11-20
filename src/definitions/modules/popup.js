@@ -628,7 +628,7 @@ $.fn.popup = function(parameters) {
                 ;
               }
               else {
-                module.error(error.recursion, element);
+                module.debug('Popup could not find a position onstage', $popup);
                 searchDepth = 0;
                 module.reset();
                 $popup.removeClass(className.loading);
@@ -965,8 +965,7 @@ $.fn.popup.settings = {
 
   error: {
     invalidPosition : 'The position you specified is not a valid position',
-    method          : 'The method you called is not defined.',
-    recursion       : 'Popup attempted to reposition element to fit, but could not find an adequate position.'
+    method          : 'The method you called is not defined.'
   },
 
   metadata: {
