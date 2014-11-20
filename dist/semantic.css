@@ -5280,6 +5280,7 @@ a.ui.card:hover,
 .ui.checkbox label:after,
 .ui.checkbox .box:after {
   content: '\e800';
+  /* '' */
 }
 
 /*  UTF Reference
@@ -6513,6 +6514,7 @@ select.ui.dropdown {
   outline: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   padding: inherit;
+  /*Amazing trick */
 }
 
 /* Search Selection */
@@ -21754,6 +21756,7 @@ input[type="search"],
 input[type="password"] {
   -webkit-appearance: none;
   -moz-appearance: none;
+  /* mobile firefox too! */
 }
 
 /*******************************
@@ -21780,6 +21783,7 @@ html {
   -ms-text-size-adjust: 100%;
   /* 2 */
   -webkit-text-size-adjust: 100%;
+  /* 2 */
 }
 
 /**
@@ -21826,6 +21830,7 @@ video {
   display: inline-block;
   /* 1 */
   vertical-align: baseline;
+  /* 2 */
 }
 
 /**
@@ -22027,6 +22032,7 @@ textarea {
   font: inherit;
   /* 2 */
   margin: 0;
+  /* 3 */
 }
 
 /**
@@ -22064,6 +22070,7 @@ input[type="submit"] {
   -webkit-appearance: button;
   /* 2 */
   cursor: pointer;
+  /* 3 */
 }
 
 /**
@@ -22107,6 +22114,7 @@ input[type="radio"] {
   box-sizing: border-box;
   /* 1 */
   padding: 0;
+  /* 2 */
 }
 
 /**
@@ -22163,6 +22171,7 @@ legend {
   border: 0;
   /* 1 */
   padding: 0;
+  /* 2 */
 }
 
 /**
@@ -25199,6 +25208,7 @@ a:hover {
 .ui.ordered.steps .step.completed:before {
   font-family: 'Step';
   content: '\e800';
+  /* '' */
 }
 
 /*******************************
@@ -25224,6 +25234,7 @@ a:hover {
   position: static;
   -webkit-transition: width 0.2s ease, height 0.2s ease, top 0.2s ease, bottom 0.2s ease;
   transition: width 0.2s ease, height 0.2s ease, top 0.2s ease, bottom 0.2s ease;
+  z-index: 800;
 }
 
 /*******************************

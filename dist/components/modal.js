@@ -97,7 +97,6 @@ $.fn.modal = function(parameters) {
           $dimmer = $dimmable.dimmer('get dimmer');
           $otherModals = $module.siblings(selector.modal);
           $allModals   = $otherModals.add($module);
-          module.cacheSizes();
 
           module.verbose('Attaching close events', $close);
           module.bind.events();
@@ -272,6 +271,7 @@ $.fn.modal = function(parameters) {
               $.proxy(settings.onShow, element)();
               if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
                 module.debug('Showing modal with css animations');
+                module.cacheSizes();
                 module.set.position();
                 module.set.screenHeight();
                 module.set.type();
@@ -476,7 +476,7 @@ $.fn.modal = function(parameters) {
           var
             modalHeight = $module.outerHeight()
           ;
-          if(modalHeight !== 0) {
+          if(module.cache === undefined || modalHeight !== 0) {
             module.cache = {
               pageHeight    : $(document).outerHeight(),
               height        : modalHeight + settings.offset,
