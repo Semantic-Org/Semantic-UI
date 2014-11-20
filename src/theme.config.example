@@ -21,7 +21,7 @@
 
 
 /*******************************
-            Themes
+        Theme Selection
 *******************************/
 
 /* To override a theme for an individual element
@@ -88,47 +88,9 @@
 
 
 /*******************************
-        Import Directives
+         Import Theme
 *******************************/
 
-@theme : @@element;
-
-/*------------------
-     Load Default
--------------------*/
-
-@import "@{themesFolder}/default/globals/site.variables";
-@import "@{themesFolder}/default/@{type}s/@{element}.variables";
-
-/*------------------
-     Load Theme
--------------------*/
-
-@import "@{themesFolder}/@{site}/globals/site.variables";
-@import "@{themesFolder}/@{theme}/@{type}s/@{element}.variables";
-
-/*------------------
-     Load Site
--------------------*/
-
-@import "@{siteFolder}/globals/site.variables";
-@import "@{siteFolder}/@{type}s/@{element}.variables";
-
-/*------------------
-       Fonts
--------------------*/
-
-.loadFonts() when (@importGoogleFonts) {
-  @import (css) 'http://fonts.googleapis.com/css?family=@{googleFontRequest}';
-}
-
-/*------------------
-     Overrides
--------------------*/
-
-.loadUIOverrides() {
-  @import "@{themesFolder}/@{theme}/@{type}s/@{element}.overrides";
-  @import "@{siteFolder}/@{type}s/@{element}.overrides";
-}
+@import "theme.less";
 
 /* End Config */
