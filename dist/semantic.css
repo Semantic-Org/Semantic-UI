@@ -970,6 +970,7 @@
   vertical-align: baseline;
   background-color: #e0e0e0;
   color: rgba(0, 0, 0, 0.6);
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   margin: 0em 0.25em 0em 0em;
   padding: 0.8em 1.5em 0.8em;
   text-transform: none;
@@ -5280,7 +5281,6 @@ a.ui.card:hover,
 .ui.checkbox label:after,
 .ui.checkbox .box:after {
   content: '\e800';
-  /* '' */
 }
 
 /*  UTF Reference
@@ -6514,7 +6514,6 @@ select.ui.dropdown {
   outline: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   padding: inherit;
-  /*Amazing trick */
 }
 
 /* Search Selection */
@@ -21756,7 +21755,6 @@ input[type="search"],
 input[type="password"] {
   -webkit-appearance: none;
   -moz-appearance: none;
-  /* mobile firefox too! */
 }
 
 /*******************************
@@ -21783,7 +21781,6 @@ html {
   -ms-text-size-adjust: 100%;
   /* 2 */
   -webkit-text-size-adjust: 100%;
-  /* 2 */
 }
 
 /**
@@ -21830,7 +21827,6 @@ video {
   display: inline-block;
   /* 1 */
   vertical-align: baseline;
-  /* 2 */
 }
 
 /**
@@ -22032,7 +22028,6 @@ textarea {
   font: inherit;
   /* 2 */
   margin: 0;
-  /* 3 */
 }
 
 /**
@@ -22070,7 +22065,6 @@ input[type="submit"] {
   -webkit-appearance: button;
   /* 2 */
   cursor: pointer;
-  /* 3 */
 }
 
 /**
@@ -22114,7 +22108,6 @@ input[type="radio"] {
   box-sizing: border-box;
   /* 1 */
   padding: 0;
-  /* 2 */
 }
 
 /**
@@ -22171,7 +22164,6 @@ legend {
   border: 0;
   /* 1 */
   padding: 0;
-  /* 2 */
 }
 
 /**
@@ -25208,7 +25200,6 @@ a:hover {
 .ui.ordered.steps .step.completed:before {
   font-family: 'Step';
   content: '\e800';
-  /* '' */
 }
 
 /*******************************
@@ -26801,8 +26792,7 @@ a:hover {
   perspective: 2000px;
 }
 
-.horizontal.flip.transition.in,
-.horizontal.flip.transition.out {
+.horizontal.flip.transition.in {
   -webkit-animation-name: horizontalFlipIn;
   animation-name: horizontalFlipIn;
 }
@@ -26812,7 +26802,6 @@ a:hover {
   animation-name: horizontalFlipOut;
 }
 
-.vertical.flip.transition.in,
 .vertical.flip.transition.out {
   -webkit-animation-name: verticalFlipIn;
   animation-name: verticalFlipIn;

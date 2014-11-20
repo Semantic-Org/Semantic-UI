@@ -14787,7 +14787,7 @@ $.fn.transition = function() {
             else {
               module.restore.conditions();
             }
-            module.remove.duration();
+            module.remove.animation();
             module.remove.animating();
           }
           $.proxy(settings.onComplete, this)();
@@ -14827,6 +14827,23 @@ $.fn.transition = function() {
             $.proxy(settings.onStart, this)();
             module.debug('Starting tween', animation, $module.attr('class'));
           },
+          duration: function(animationName, duration) {
+            duration = duration || settings.duration;
+            duration = (typeof duration == 'number')
+              ? duration + 'ms'
+              : duration
+            ;
+            module.verbose('Setting animation duration', duration);
+            $module
+              .css({
+                '-webkit-animation-duration': duration,
+                '-moz-animation-duration': duration,
+                '-ms-animation-duration': duration,
+                '-o-animation-duration': duration,
+                'animation-duration':  duration
+              })
+            ;
+          },
           display: function() {
             var
               style              = module.get.style(),
@@ -14861,23 +14878,6 @@ $.fn.transition = function() {
             module.debug('Transition set to loop');
             $module
               .addClass(className.looping)
-            ;
-          },
-          duration: function(duration) {
-            duration = duration || settings.duration;
-            duration = (typeof duration == 'number')
-              ? duration + 'ms'
-              : duration
-            ;
-            module.verbose('Setting animation duration', duration);
-            $module
-              .css({
-                '-webkit-animation-duration': duration,
-                '-moz-animation-duration': duration,
-                '-ms-animation-duration': duration,
-                '-o-animation-duration': duration,
-                'animation-duration': duration
-              })
             ;
           },
           hidden: function() {
@@ -14951,6 +14951,17 @@ $.fn.transition = function() {
           animating: function() {
             $module.removeClass(className.animating);
           },
+          animation: function() {
+            $module
+              .css({
+                '-webkit-animation' : '',
+                '-moz-animation'    : '',
+                '-ms-animation'     : '',
+                '-o-animation'      : '',
+                'animation'         : ''
+              })
+            ;
+          },
           display: function() {
             $module.css('display', '');
           },
@@ -14958,17 +14969,6 @@ $.fn.transition = function() {
             $module
               .removeClass(className.inward)
               .removeClass(className.outward)
-            ;
-          },
-          duration: function() {
-            $module
-              .css({
-                '-webkit-animation-duration' : '',
-                '-moz-animation-duration'    : '',
-                '-ms-animation-duration'     : '',
-                '-o-animation-duration'      : '',
-                'animation-duration'         : ''
-              })
             ;
           },
           hidden: function() {
