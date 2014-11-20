@@ -249,7 +249,6 @@ $.fn.transition = function() {
                 'animation-duration':  duration
               })
             ;
-            console.log(animationName + ' ' + duration);
           },
           display: function() {
             var
