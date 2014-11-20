@@ -151,14 +151,12 @@
 .flip.transition.out {
   perspective: 2000px;
 }
-.horizontal.flip.transition.in,
-.horizontal.flip.transition.out {
+.horizontal.flip.transition.in {
   animation-name: horizontalFlipIn;
 }
 .horizontal.flip.transition.out {
   animation-name: horizontalFlipOut;
 }
-.vertical.flip.transition.in,
 .vertical.flip.transition.out {
   animation-name: verticalFlipIn;
 }
