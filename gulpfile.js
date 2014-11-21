@@ -147,12 +147,12 @@ var
     // add base to values
     for(var folder in source) {
       if(source.hasOwnProperty(folder)) {
-        source[folder] = base + source[folder];
+        source[folder] = path.normalize(base + source[folder]);
       }
     }
     for(folder in output) {
       if(output.hasOwnProperty(folder)) {
-        output[folder] = base + output[folder];
+        output[folder] = path.normalize(base + output[folder]);
       }
     }
     clean = base + clean;
