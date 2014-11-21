@@ -19,8 +19,8 @@
       Base Sizes
 --------------------*/
 
-@emSize            : 14px;
-@fontSize          : 14px;
+@emSize   : 14px;
+@fontSize : 14px;
 
 /*--------------
   Page Heading
@@ -84,24 +84,14 @@
         Sizes
 --------------------*/
 
-/* Exact pixel values @ 14px em */
-@mini            : 0.7142rem;
-@tiny            : 0.8571rem;
-@small           : 0.9285rem;
-@medium          : 1rem;
-@large           : 1.1428rem;
-@big             : 1.2857rem;
-@huge            : 1.4285rem;
-@massive         : 1.7142rem;
-
-@relativeMini    : 0.7142em;
-@relativeTiny    : 0.8571em;
-@relativeSmall   : 0.9285em;
-@relativeMedium  : 1em;
-@relativeLarge   : 1.1428em;
-@relativeBig     : 1.2857em;
-@relativeHuge    : 1.4285em;
-@relativeMassive : 1.7142em;
+@miniSize        : 10px;
+@tinySize        : 12px;
+@smallSize       : 13px;
+@mediumSize      : @emSize;
+@largeSize       : 16px;
+@bigSize         : 18px;
+@hugeSize        : 20px;
+@massiveSize     : 24px;
 
 /*-------------------
         Page
@@ -202,6 +192,30 @@
 /* For source, automatically modified in gulp for dist */
 @imagePath : "../../themes/default/assets/images";
 @fontPath  : "../../themes/default/assets/fonts";
+
+
+/*-------------------
+       Em Sizes
+--------------------*/
+
+/* Exact pixel values expressed in em */
+@mini            : unit((@miniSize / @mediumSize), rem);
+@tiny            : unit((@tinySize / @mediumSize), rem);
+@small           : unit((@smallSize / @mediumSize), rem);
+@medium          : unit((@mediumSize / @mediumSize), rem);
+@large           : unit((@largeSize / @mediumSize), rem);
+@big             : unit((@bigSize / @mediumSize), rem);
+@huge            : unit((@hugeSize / @mediumSize), rem);
+@massive         : unit((@massiveSize / @mediumSize), rem);
+
+@relativeMini    : unit((@miniSize / @mediumSize), em);
+@relativeTiny    : unit((@tinySize / @mediumSize), em);
+@relativeSmall   : unit((@smallSize / @mediumSize), em);
+@relativeMedium  : unit((@mediumSize / @mediumSize), em);
+@relativeLarge   : unit((@largeSize / @mediumSize), em);
+@relativeBig     : unit((@bigSize / @mediumSize), em);
+@relativeHuge    : unit((@hugeSize / @mediumSize), em);
+@relativeMassive : unit((@massiveSize / @mediumSize), em);
 
 /*-------------------
        Icons

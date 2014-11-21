@@ -16,7 +16,6 @@
 
 
 @borderRadius: 3px;
-
 @verticalPadding: 0.8em;
 @horizontalPadding: 1.75em;
 
@@ -40,7 +39,6 @@
 @labeledIconBackgroundColor: #313A43;
 @labeledIconColor: #FFFFFF;
 @labeledIconBorder: transparent;
-@labeledIconPadding: (@horizontalPadding + 2.25em);
 
 @black: #444C55;
 @orange: #F4CC67;

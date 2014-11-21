@@ -6,8 +6,10 @@
        Element
 --------------------*/
 
-@pageFont : 'Roboto', Arial, sans-serif;
-@medium   : 13px;
+@googleFontName : 'Roboto';
+@pageFont       : 'Roboto', Arial, sans-serif;
+
+@medium: 13px;
 
 @verticalPadding   : 0.8em;
 @horizontalPadding : 0.8em;

@@ -43,10 +43,12 @@
 /* Icon */
 @iconOpacity: 0.8;
 @iconDistance: 0.4em;
+@iconColor: '';
 @iconTransition: opacity @transitionDuration @transitionEasing;
+@iconVerticalAlign: baseline;
+
 @iconMargin: 0em @iconDistance 0em -(@iconDistance / 2);
 @rightIconMargin: 0em -(@iconDistance / 2) 0em @iconDistance;
-@iconVerticalAlign: baseline;
 
 /* Loader */
 @loaderSize: 1.2857em;
@@ -97,9 +99,10 @@
 /* Pressed Down */
 @downBackgroundColor: #CCCCCC;
 @downBackgroundImage: '';
+@downPressedShadow: 0px 1px 4px 0px @borderColor inset !important;
 @downBoxShadow:
   @borderBoxShadow,
-  0px 1px 4px 0px @borderColor inset !important
+  @downPressedShadow
 ;
 @downColor: @pressedTextColor;
 
@@ -255,6 +258,3 @@
 @animationEasing: ease;
 @fadeScaleHigh: 1.5;
 @fadeScaleLow: 0.75;
-
-
-/* Sizing (Uses Defaults) */

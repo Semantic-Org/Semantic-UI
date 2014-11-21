@@ -18,6 +18,14 @@
 @fontSize          : 13px;
 
 /*--------------
+      Page
+---------------*/
+
+@pageBackground      : #F9F9F9;
+@lineHeight          : 1.33;
+@textColor           : #212121;
+
+/*--------------
   Page Heading
 ---------------*/
 
@@ -80,16 +88,6 @@
 
 @lightPrimaryColor   : @lightBlue;
 @lightSecondaryColor : @lightGrey;
-
-/*-------------------
-        Page
---------------------*/
-
-@pageBackground      : #F7F7F7;
-@pageOverflowX       : hidden;
-
-@lineHeight          : 1.33;
-@textColor           : #212121;
 
 /*-------------------
       Paragraph

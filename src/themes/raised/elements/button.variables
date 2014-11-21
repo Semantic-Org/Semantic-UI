@@ -6,18 +6,17 @@
        Element
 --------------------*/
 
-/* Shadow */
-@verticalAlign: middle;
 @backgroundColor: #F8F8F8;
 @backgroundImage: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-@shadowDistance: 0.3em;
-@borderBoxShadowColor: @borderColor;
+@verticalAlign: middle;
+@borderRadius: 0.4em;
 
+/* Shadow */
+@shadowDistance: 0.3em;
 @verticalPadding: 1em;
 @horizontalPadding: 2em;
 
-@borderRadius: 0.4em;
-/* transitions */
+/* transition box shadow as well */
 @transition:
   opacity @transitionDuration @transitionEasing,
   background-color @transitionDuration @transitionEasing,
