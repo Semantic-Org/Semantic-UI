@@ -95,6 +95,7 @@ $.fn.dropdown = function(parameters) {
 
         destroy: function() {
           module.verbose('Destroying previous dropdown for', $module);
+          module.remove.tabbable();
           $module
             .off(eventNamespace)
             .removeData(moduleNamespace)
@@ -128,27 +129,7 @@ $.fn.dropdown = function(parameters) {
               ;
             }
             if(settings.allowTab) {
-              if( module.is.searchable() ) {
-                module.debug('Searchable dropdown initialized');
-                $search
-                  .val('')
-                  .attr('tabindex', 0)
-                ;
-                $menu
-                  .attr('tabindex', '-1')
-                ;
-              }
-              else {
-                module.debug('Simple selection dropdown initialized');
-                if(!$module.attr('tabindex') ) {
-                  $module
-                    .attr('tabindex', 0)
-                  ;
-                  $menu
-                    .attr('tabindex', '-1')
-                  ;
-                }
-              }
+              module.set.tabbable();
             }
           },
           select: function() {
@@ -407,7 +388,7 @@ $.fn.dropdown = function(parameters) {
             activated = false;
           },
           focus: function() {
-            if(!activated) {
+            if(!activated && module.is.hidden()) {
               module.show();
             }
           },
@@ -835,6 +816,29 @@ $.fn.dropdown = function(parameters) {
         },
 
         set: {
+          tabbable: function() {
+            if( module.is.searchable() ) {
+              module.debug('Searchable dropdown initialized');
+              $search
+                .val('')
+                .attr('tabindex', 0)
+              ;
+              $menu
+                .attr('tabindex', '-1')
+              ;
+            }
+            else {
+              module.debug('Simple selection dropdown initialized');
+              if(!$module.attr('tabindex') ) {
+                $module
+                  .attr('tabindex', 0)
+                ;
+                $menu
+                  .attr('tabindex', '-1')
+                ;
+              }
+            }
+          },
           scrollPosition: function($item) {
             var
               $item         = $item || module.get.item(),
@@ -949,6 +953,26 @@ $.fn.dropdown = function(parameters) {
           },
           selectedItem: function() {
             $item.removeClass(className.selected);
+          },
+          tabbable: function() {
+            if( module.is.searchable() ) {
+              module.debug('Searchable dropdown initialized');
+              $search
+                .attr('tabindex', '-1')
+              ;
+              $menu
+                .attr('tabindex', '-1')
+              ;
+            }
+            else {
+              module.debug('Simple selection dropdown initialized');
+              $module
+                .attr('tabindex', '-1')
+              ;
+              $menu
+                .attr('tabindex', '-1')
+              ;
+            }
           }
         },
 
