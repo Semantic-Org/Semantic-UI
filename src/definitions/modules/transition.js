@@ -538,6 +538,7 @@ $.fn.transition = function() {
               displayType = $clone
                 .attr('class', elementClass)
                 .removeAttr('style')
+                .removeClass(className.hidden)
                 .removeClass(className.visible)
                 .show()
                 .css('display')

@@ -351,7 +351,7 @@ gulp.task('build', 'Builds all files from source', function(callback) {
     .pipe(autoprefixer(settings.prefix))
   ;
 
-  // use 2 concurrent streams from same source
+  // use 2 concurrent streams from same source to concat release
   uncompressedStream = stream.pipe(clone());
   compressedStream   = stream.pipe(clone());
 
