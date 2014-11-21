@@ -391,9 +391,11 @@ $.fn.dropdown = function(parameters) {
         },
 
         focusSearch: function() {
-          $search
-            .focus()
-          ;
+          if( module.is.search() ) {
+            $search
+              .focus()
+            ;
+          }
         },
 
         event: {
@@ -1376,7 +1378,7 @@ $.fn.dropdown.settings = {
     dropdown : '.ui.dropdown',
     text     : '> .text:not(.icon)',
     input    : '> input[type="hidden"], > select',
-    search   : '> .search, .menu > .search > input, .menu > input.search',
+    search   : '> input.search, .menu > .search > input, .menu > input.search',
     menu     : '.menu',
     item     : '.item'
   },
