@@ -179,19 +179,19 @@ img.ui.bordered.image {
 .ui.mini.images img,
 .ui.mini.image {
   width: 20px;
-  font-size: 0.7142rem;
+  font-size: 0.71428571rem;
 }
 .ui.tiny.images .image,
 .ui.tiny.images img,
 .ui.tiny.image {
   width: 80px;
-  font-size: 0.8571rem;
+  font-size: 0.85714286rem;
 }
 .ui.small.images .image,
 .ui.small.images img,
 .ui.small.image {
   width: 150px;
-  font-size: 0.9285rem;
+  font-size: 0.92857143rem;
 }
 .ui.medium.images .image,
 .ui.medium.images img,
@@ -203,25 +203,25 @@ img.ui.bordered.image {
 .ui.large.images img,
 .ui.large.image {
   width: 450px;
-  font-size: 1.1428rem;
+  font-size: 1.14285714rem;
 }
 .ui.big.images .image,
 .ui.big.images img,
 .ui.big.image {
   width: 600px;
-  font-size: 1.2857rem;
+  font-size: 1.28571429rem;
 }
 .ui.huge.images .image,
 .ui.huge.images img,
 .ui.huge.image {
   width: 800px;
-  font-size: 1.4285rem;
+  font-size: 1.42857143rem;
 }
 .ui.massive.images .image,
 .ui.massive.images img,
 .ui.massive.image {
   width: 960px;
-  font-size: 1.7142rem;
+  font-size: 1.71428571rem;
 }
 
 

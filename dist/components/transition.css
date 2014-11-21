@@ -54,7 +54,7 @@
 
 /* Hidden */
 .hidden.transition {
-  display: none;
+  display: none !important;
   visibility: hidden;
 }
 

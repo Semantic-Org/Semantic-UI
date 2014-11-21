@@ -1,4 +1,4 @@
-@import 'http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic';
+@import '//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic';
 
 /*
  * # Semantic UI
@@ -1518,6 +1518,7 @@
   -webkit-transition: opacity 0.2s ease;
   transition: opacity 0.2s ease;
   vertical-align: baseline;
+  color: '';
 }
 
 .ui.button > .right.icon {
@@ -1572,19 +1573,19 @@
 .ui.mini.buttons .button,
 .ui.mini.buttons .or,
 .ui.mini.button {
-  font-size: 0.7142rem;
+  font-size: 0.71428571rem;
 }
 
 .ui.tiny.buttons .button,
 .ui.tiny.buttons .or,
 .ui.tiny.button {
-  font-size: 0.8571rem;
+  font-size: 0.85714286rem;
 }
 
 .ui.small.buttons .button,
 .ui.small.buttons .or,
 .ui.small.button {
-  font-size: 0.9285rem;
+  font-size: 0.92857143rem;
 }
 
 .ui.buttons .button,
@@ -1596,25 +1597,25 @@
 .ui.large.buttons .button,
 .ui.large.buttons .or,
 .ui.large.button {
-  font-size: 1.1428rem;
+  font-size: 1.14285714rem;
 }
 
 .ui.big.buttons .button,
 .ui.big.buttons .or,
 .ui.big.button {
-  font-size: 1.2857rem;
+  font-size: 1.28571429rem;
 }
 
 .ui.huge.buttons .button,
 .ui.huge.buttons .or,
 .ui.huge.button {
-  font-size: 1.4285rem;
+  font-size: 1.42857143rem;
 }
 
 .ui.massive.buttons .button,
 .ui.massive.buttons .or,
 .ui.massive.button {
-  font-size: 1.7142rem;
+  font-size: 1.71428571rem;
 }
 
 /*--------------
@@ -14341,21 +14342,21 @@ img.ui.bordered.image {
 .ui.mini.images img,
 .ui.mini.image {
   width: 20px;
-  font-size: 0.7142rem;
+  font-size: 0.71428571rem;
 }
 
 .ui.tiny.images .image,
 .ui.tiny.images img,
 .ui.tiny.image {
   width: 80px;
-  font-size: 0.8571rem;
+  font-size: 0.85714286rem;
 }
 
 .ui.small.images .image,
 .ui.small.images img,
 .ui.small.image {
   width: 150px;
-  font-size: 0.9285rem;
+  font-size: 0.92857143rem;
 }
 
 .ui.medium.images .image,
@@ -14369,28 +14370,28 @@ img.ui.bordered.image {
 .ui.large.images img,
 .ui.large.image {
   width: 450px;
-  font-size: 1.1428rem;
+  font-size: 1.14285714rem;
 }
 
 .ui.big.images .image,
 .ui.big.images img,
 .ui.big.image {
   width: 600px;
-  font-size: 1.2857rem;
+  font-size: 1.28571429rem;
 }
 
 .ui.huge.images .image,
 .ui.huge.images img,
 .ui.huge.image {
   width: 800px;
-  font-size: 1.4285rem;
+  font-size: 1.42857143rem;
 }
 
 .ui.massive.images .image,
 .ui.massive.images img,
 .ui.massive.image {
   width: 960px;
-  font-size: 1.7142rem;
+  font-size: 1.71428571rem;
 }
 
 /*******************************
@@ -17308,17 +17309,17 @@ ol.ui.horizontal.list li:before,
 
 .ui.mini.list .list > .item,
 .ui.mini.list > .item {
-  font-size: 0.7142em;
+  font-size: 0.71428571em;
 }
 
 .ui.tiny.list .list > .item,
 .ui.tiny.list > .item {
-  font-size: 0.8571em;
+  font-size: 0.85714286em;
 }
 
 .ui.small.list .list > .item,
 .ui.small.list > .item {
-  font-size: 0.9285em;
+  font-size: 0.92857143em;
 }
 
 .ui.list .list > .item,
@@ -17328,37 +17329,37 @@ ol.ui.horizontal.list li:before,
 
 .ui.large.list .list > .item,
 .ui.large.list > .item {
-  font-size: 1.1428em;
+  font-size: 1.14285714em;
 }
 
 .ui.big.list .list > .item,
 .ui.big.list > .item {
-  font-size: 1.2857em;
+  font-size: 1.28571429em;
 }
 
 .ui.huge.list .list > .item,
 .ui.huge.list > .item {
-  font-size: 1.4285em;
+  font-size: 1.42857143em;
 }
 
 .ui.massive.list .list > .item,
 .ui.massive.list > .item {
-  font-size: 1.7142em;
+  font-size: 1.71428571em;
 }
 
 .ui.mini.horizontal.list .list > .item,
 .ui.mini.horizontal.list > .item {
-  font-size: 0.7142rem;
+  font-size: 0.71428571rem;
 }
 
 .ui.tiny.horizontal.list .list > .item,
 .ui.tiny.horizontal.list > .item {
-  font-size: 0.8571rem;
+  font-size: 0.85714286rem;
 }
 
 .ui.small.horizontal.list .list > .item,
 .ui.small.horizontal.list > .item {
-  font-size: 0.9285rem;
+  font-size: 0.92857143rem;
 }
 
 .ui.horizontal.list .list > .item,
@@ -17368,22 +17369,22 @@ ol.ui.horizontal.list li:before,
 
 .ui.large.horizontal.list .list > .item,
 .ui.large.horizontal.list > .item {
-  font-size: 1.1428rem;
+  font-size: 1.14285714rem;
 }
 
 .ui.big.horizontal.list .list > .item,
 .ui.big.horizontal.list > .item {
-  font-size: 1.2857rem;
+  font-size: 1.28571429rem;
 }
 
 .ui.huge.horizontal.list .list > .item,
 .ui.huge.horizontal.list > .item {
-  font-size: 1.4285rem;
+  font-size: 1.42857143rem;
 }
 
 .ui.massive.horizontal.list .list > .item,
 .ui.massive.horizontal.list > .item {
-  font-size: 1.7142rem;
+  font-size: 1.71428571rem;
 }
 
 /*******************************
@@ -19913,7 +19914,7 @@ ol.ui.horizontal.list li:before,
 ---------------*/
 
 .ui.small.message {
-  font-size: 0.9285em;
+  font-size: 0.92857143em;
 }
 
 .ui.message {
@@ -19921,15 +19922,15 @@ ol.ui.horizontal.list li:before,
 }
 
 .ui.large.message {
-  font-size: 1.1428em;
+  font-size: 1.14285714em;
 }
 
 .ui.huge.message {
-  font-size: 1.4285em;
+  font-size: 1.42857143em;
 }
 
 .ui.massive.message {
-  font-size: 1.7142em;
+  font-size: 1.71428571em;
 }
 
 /*******************************
@@ -25174,7 +25175,7 @@ a:hover {
 
 .ui.small.step,
 .ui.small.steps .step {
-  font-size: 0.9285rem;
+  font-size: 0.92857143rem;
 }
 
 .ui.step,
@@ -25184,7 +25185,7 @@ a:hover {
 
 .ui.large.step,
 .ui.large.steps .step {
-  font-size: 1.1428rem;
+  font-size: 1.14285714rem;
 }
 
 /*******************************
@@ -26428,7 +26429,7 @@ a:hover {
 /* Hidden */
 
 .hidden.transition {
-  display: none;
+  display: none !important;
   visibility: hidden;
 }
 
