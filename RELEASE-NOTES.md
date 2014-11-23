@@ -1,22 +1,20 @@
 ## RELEASE NOTES
 
-### Version 1.0.0 - XX XX, 2014
+### Version 1.0.0 - November 24, 2014
 
 **Breaking Changes**
 - **Word Order** - Many multi word variations now require proper word order, for example ``left aligned`` or ``right floated`` classnames must be adjacent. This is to prevent conflicts with other multiple word variations
 - **Form** - Date field has been removed, use a ``ui icon input`` with a ``calendar icon`` instead
 - **Label** - Corner labels no longer support text, only icons.
-- **Form** - Standard grids now have gutters on left and right of first and last column. ``ui fitted grid`` can be used to remove these margins
 - **Dropdown** - Sub menus inside dropdowns now need a wrapping div **text** around sub-menu descriptions
-- **Header** - Headers now do not automatically resize based on h1-h6
 - **Checkbox** - Checkbox "enable" and "disable" have been replaced with "check" and "uncheck"
 - **Modal** - Modal ``left`` and ``right`` sections are now replaced with ``image`` and ``description``
-- **Accordion** - Accordions are not unstyled by default allowing for more compatability with other modules without having to override styles. Styled accordions are now included as a variation ``ui styled accordion``
+- **Accordion** - Accordions are now unstyled by default allowing for simpler coupling with other UI without having to override styles. Styled accordions are now included as a variation ``ui styled accordion``
 - **List** - List item selectors are now more strict, list items must be immediate children of ``ui list`` or ``ui list list``
-- **Item** - Items have now been renamed "card" to allow for a more generic item list that does not use a "card" style. Some 'card' view content has been slightly adjusted. Please refer to documentation
+- **Item** - 0.x.x's UI card has been adjusted heavily. Vertically listed content should use ``ui item`` while floated grouped content should continue to use ``ui card``. Some 'card' view content has been slightly adjusted. Please refer to documentation
 - **Header / Icon** - Inverted headers and icons no longer invert background colors, but instead use a lighter version of colors more legible on dark backgrounds. Inverted circular icons, still however invert the color of the circle.
-- **Input** - Labeled inputs now have ``corner`` ``left`` and ``top`` labels. Any labeled inputs must now be converted to ``corner labeled input`` to maintain default position in ``0.x``
-- **Modal** - AllowMultiple (allowing multiple modals at once) is now set to **false** by default.
+- **Input** - Labeled inputs now have ``corner`` ``left`` and ``top`` label types. Any labeled inputs should be converted to ``corner labeled input`` to preserve functionality from ``0.x``
+- **Modal** - allowMultiple (allowing multiple modals at once) is now set to **false** by default.
 - **Table** - Tables are no longer striped by default, instead you must specify the 'striped' variation
 - **Transition** - Complete, and Start callbacks are now ``onComplete`` and ``onStart``
 
@@ -76,6 +74,7 @@
 - **Transition** - Transition now has a new ``start`` callback, before animation starts
 - **Transition** - Complete callback now does not occur if animation is interrupted before completing
 - **Transition** - You can now specify the final displayType of a transitioning element in metadata or settings (not just automatically detected)
+- **More untracked changes we're added as well**
 
 ** Bug Fixes **
 - See Closed GitHub Issues
