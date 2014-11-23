@@ -40,6 +40,7 @@
 /* Content */
 @contentDistance: 0.5em;
 @contentLineHeight: 1.2em;
+@contentLineHeightOffset: (@contentLineHeight - 1em) / 2;
 @contentVerticalAlign: middle;
 
 /* Link */
@@ -71,7 +72,9 @@
 --------------------*/
 
 /* Float */
-@floatMargin: 1em;
+@floatDistance: 1em;
+@leftFloatMargin: 0em @floatDistance 0em 0em;
+@rightFloatMargin: 0em 0em 0em @floatDistance;
 
 /* Horizontal */
 @horizontalSpacing: 1em;

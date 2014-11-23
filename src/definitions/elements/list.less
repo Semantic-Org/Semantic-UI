@@ -167,6 +167,10 @@ ol.ui.list ol,
 .ui.list > .item > img.image + .content {
   display: inline-block;
 }
+.ui.list .list > .item [class*="top aligned"].content,
+.ui.list > .item > [class*="top aligned"].content {
+  vertical-align: top;
+}
 .ui.list .list > .item > .content > .list,
 .ui.list > .item > .content > .list {
   margin-left: 0em;
@@ -219,12 +223,12 @@ ol.ui.list ol,
 .ui.list .list > .item [class*="left floated"],
 .ui.list > .item [class*="left floated"] {
   float: left;
-  margin-right: @floatMargin;
+  margin: @leftFloatMargin;
 }
 .ui.list .list > .item [class*="right floated"],
 .ui.list > .item [class*="right floated"] {
   float: right;
-  margin-left: @floatMargin;
+  margin: @rightFloatMargin;
 }
 
 /*******************************
