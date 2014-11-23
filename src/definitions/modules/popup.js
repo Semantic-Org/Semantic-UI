@@ -105,12 +105,14 @@ $.fn.popup = function(parameters) {
         },
 
         refresh: function() {
-          $popup = (settings.popup)
-            ? $(settings.popup)
-            : (settings.inline)
-              ? $target.next(settings.selector.popup)
-              : false
-          ;
+          if(settings.popup) {
+            $popup = $(settings.popup);
+          }
+          else {
+            if(settings.inline) {
+              $target.next(settings.selector.popup);
+            }
+          }
           if(settings.popup) {
             $popup.addClass(className.loading);
             $offsetParent = $popup.offsetParent();
