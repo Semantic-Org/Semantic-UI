@@ -13,7 +13,7 @@
 
 @verticalPadding   : 0.8em;
 @horizontalPadding : 0.8em;
-@borderRadius      : 0.1538em;
+@borderRadius      : 0.153846153em;
 @color             : #222222;
 @fontWeight        : normal;
 @textTransform     : none;
@@ -71,7 +71,7 @@
 @labeledIconWidth: 2em;
 
 @coloredBackgroundImage : @subtleGradient;
-@coloredBoxShadow       : 0px 0px 0px 1px rgba(0, 0, 0, 0.25) inset;
+@coloredBoxShadow       : 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
 
 @primaryColor       : #4184F3;
 @primaryBoxShadow   : 0px 0px 0px 1px #0157E4 inset;
