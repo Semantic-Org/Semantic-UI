@@ -87,7 +87,8 @@
 --------------------*/
 
 /* Attached */
-@attachedHeight: 0.25em;
+@attachedBackground: transparent;
+@attachedHeight: 3px;
 @attachedBorderRadius: @borderRadius;
 
 /* Inverted */
