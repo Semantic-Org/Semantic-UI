@@ -697,7 +697,7 @@
   height: auto !important;
   background: none;
   margin: 0em 0.25em;
-  padding: 0.5em 1em;
+  padding: 0.5em 0.8em;
   border-radius: 0.2857rem;
 }
 .ui.secondary.menu > .menu > .item:before,

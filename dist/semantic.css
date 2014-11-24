@@ -554,278 +554,6 @@
  */
 
 /*******************************
-         Advertisement
-*******************************/
-
-.ui.ad {
-  overflow: hidden;
-}
-
-.ui.ad iframe {
-  margin: 0em;
-  padding: 0em;
-  border: none;
-  overflow: hidden;
-}
-
-/*--------------
-     Common
----------------*/
-
-/* Leaderboard */
-
-.ui.leaderboard.ad {
-  width: 728px;
-  height: 90px;
-}
-
-/* Medium Rectangle */
-
-.ui[class*="medium rectangle"].ad {
-  width: 300px;
-  height: 250px;
-}
-
-/* Large Rectangle */
-
-.ui[class*="large rectangle"].ad {
-  width: 336px;
-  height: 280px;
-}
-
-/* Half Page */
-
-.ui[class*="half page"].ad {
-  width: 300px;
-  height: 600px;
-}
-
-/*--------------
-     Square
----------------*/
-
-/* Square */
-
-.ui.square.ad {
-  width: 250px;
-  height: 250px;
-}
-
-/* Small Square */
-
-.ui[class*="small square"].ad {
-  width: 200px;
-  height: 200px;
-}
-
-/*--------------
-    Rectangle
----------------*/
-
-/* Small Rectangle */
-
-.ui[class*="small rectangle"].ad {
-  width: 180px;
-  height: 150px;
-}
-
-/* Vertical Rectangle */
-
-.ui[class*="vertical rectangle"].ad {
-  width: 240px;
-  height: 400px;
-}
-
-/*--------------
-     Button
----------------*/
-
-.ui.button.ad {
-  width: 120px;
-  height: 90px;
-}
-
-.ui[class*="square button"].ad {
-  width: 125px;
-  height: 125px;
-}
-
-.ui[class*="small button"].ad {
-  width: 120px;
-  height: 60px;
-}
-
-/*--------------
-    Panorama
----------------*/
-
-/* Panorama */
-
-.ui.panorama.ad {
-  width: 980px;
-  height: 120px;
-}
-
-/*--------------
-     Netboard
----------------*/
-
-/* Netboard */
-
-.ui.netboard.ad {
-  width: 580px;
-  height: 400px;
-}
-
-/*--------------
-   Skyscrapers
----------------*/
-
-/* Skyscraper */
-
-.ui.skyscraper.ad {
-  width: 120px;
-  height: 600px;
-}
-
-/* Wide Skyscraper */
-
-.ui[class*="wide skyscraper"].ad {
-  width: 160px;
-}
-
-/*--------------
-     Banners
----------------*/
-
-/* Banner */
-
-.ui.banner.ad {
-  width: 468px;
-  height: 60px;
-}
-
-/* Vertical Banner */
-
-.ui[class*="vertical banner"].ad {
-  width: 120px;
-  height: 240px;
-}
-
-/* Top Banner */
-
-.ui[class*="top banner"].ad {
-  width: 930px;
-  height: 180px;
-}
-
-/* Half Banner */
-
-.ui[class*="half banner"].ad {
-  width: 234px;
-  height: 60px;
-}
-
-/*--------------
-   Large Sizes
----------------*/
-
-/* Leaderboard */
-
-.ui[class*="large leaderboard"].ad {
-  width: 970px;
-  height: 90px;
-}
-
-/* Billboard */
-
-.ui.billboard.ad {
-  width: 970px;
-  height: 250px;
-}
-
-/*--------------
-     Mobile
----------------*/
-
-/* Large Mobile Banner */
-
-.ui[class*="large mobile banner"].ad {
-  width: 320px;
-  height: 100px;
-}
-
-/* Mobile Leaderboard */
-
-.ui[class*="mobile leaderboard"].ad {
-  width: 320px;
-  height: 50px;
-}
-
-/*******************************
-             Types
-*******************************/
-
-/* Mobile Sizes */
-
-.ui.mobile.ad {
-  display: none;
-}
-
-@media only screen and (max-width: 767px) {
-  .ui.mobile.ad {
-    display: block;
-  }
-}
-
-/*******************************
-           Variations
-*******************************/
-
-.ui.centered.ad {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.ui.test.ad {
-  background: #333333;
-}
-
-.ui.test.ad:after {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  -ms-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
-  content: 'Ad';
-  color: #ffffff;
-}
-
-.ui.test.ad[data-text]:after {
-  content: attr(data-text);
-}
-
-/*******************************
-         Theme Overrides
-*******************************/
-
-/*******************************
-    User Variable Overrides
-*******************************/
-
-/*
- * # Semantic UI
- * https://github.com/Semantic-Org/Semantic-UI
- * http://www.semantic-ui.com/
- *
- * Copyright 2014 Contributors
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- */
-
-/*******************************
            Breadcrumb
 *******************************/
 
@@ -4975,7 +4703,6 @@ a.ui.card:hover,
 .ui.checkbox label:after,
 .ui.checkbox .box:after {
   content: '\e800';
-  /* '' */
 }
 
 /*  UTF Reference
@@ -5494,7 +5221,7 @@ body.dimmed.dimmable > :not(.dimmer) {
 
 .ui.divider:not(.vertical):not(.horizontal) {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 /*--------------
@@ -5527,7 +5254,7 @@ body.dimmed.dimmable > :not(.dimmer) {
   top: 50%;
   height: 0px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .ui.horizontal.divider:before {
@@ -5566,7 +5293,7 @@ body.dimmed.dimmable > :not(.dimmer) {
   content: '';
   z-index: 3;
   border-left: 1px solid rgba(0, 0, 0, 0.1);
-  border-right: 1px solid rgba(0, 0, 0, 0.8);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
   width: 0%;
   height: -webkit-calc(100% -  1rem );
   height: calc(100% -  1rem );
@@ -5607,7 +5334,7 @@ body.dimmed.dimmable > :not(.dimmer) {
     top: 50%;
     height: 0px;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   }
 
   .ui.stackable.grid .ui.vertical.divider:before,
@@ -6210,7 +5937,6 @@ select.ui.dropdown {
   outline: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   padding: inherit;
-  /*Amazing trick */
 }
 
 /* Search Selection */
@@ -18190,7 +17916,7 @@ ol.ui.horizontal.list li:before,
   height: auto !important;
   background: none;
   margin: 0em 0.25em;
-  padding: 0.5em 1em;
+  padding: 0.5em 0.8em;
   border-radius: 0.2857rem;
 }
 
@@ -21495,7 +21221,6 @@ input[type="search"],
 input[type="password"] {
   -webkit-appearance: none;
   -moz-appearance: none;
-  /* mobile firefox too! */
 }
 
 /*******************************
@@ -21522,7 +21247,6 @@ html {
   -ms-text-size-adjust: 100%;
   /* 2 */
   -webkit-text-size-adjust: 100%;
-  /* 2 */
 }
 
 /**
@@ -21569,7 +21293,6 @@ video {
   display: inline-block;
   /* 1 */
   vertical-align: baseline;
-  /* 2 */
 }
 
 /**
@@ -21771,7 +21494,6 @@ textarea {
   font: inherit;
   /* 2 */
   margin: 0;
-  /* 3 */
 }
 
 /**
@@ -21809,7 +21531,6 @@ input[type="submit"] {
   -webkit-appearance: button;
   /* 2 */
   cursor: pointer;
-  /* 3 */
 }
 
 /**
@@ -21853,7 +21574,6 @@ input[type="radio"] {
   box-sizing: border-box;
   /* 1 */
   padding: 0;
-  /* 2 */
 }
 
 /**
@@ -21910,7 +21630,6 @@ legend {
   border: 0;
   /* 1 */
   padding: 0;
-  /* 2 */
 }
 
 /**
@@ -24947,7 +24666,6 @@ a:hover {
 .ui.ordered.steps .step.completed:before {
   font-family: 'Step';
   content: '\e800';
-  /* '' */
 }
 
 /*******************************
