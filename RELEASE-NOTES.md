@@ -79,6 +79,125 @@
 ** Bug Fixes **
 - See Closed GitHub Issues
 
+### Version 0.19.3 - Sep 11, 2014
+
+**Bug Fixes**
+
+- **Grid** - Fixes issue where some responsive grid stylings were being overridden by other variations (for example stackable overriding )
+
+### Version 0.19.2 - Sep 11, 2014
+
+**Bug Fixes**
+
+- **Grid** - (Backport from 1.0 branch) Fixes issue where some combinations of (tablet/mobile/computer) only does not function correctly
+
+### Version 0.19.1 - Sep 5, 2014
+
+**Bug Fixes**
+
+- **Modal** - (Backport from 1.0 branch) Fixes issue where modal sometimes appears too low on second show
+
+### Version 0.19.0 - July 3, 2014
+
+**Enhancements**
+- **Transition** - Adds "fade in left/right" variations to match "fade up/down" **Thanks AdamMaras**
+
+**Fixes**
+- **Accordion** - Fixes incompatibilities with ``ui list`` when used inside a ``ui accordion``, fixes issues with menu accordion display in some circumstances
+- **Menu** - Fixes ``ui inverted secondary pointing menu`` to have correct pointer color for all color variations **Thanks AdamMaras**
+- **Docs** - Language clarified for menu/rating definition **Thanks jnbt/ewiner**
+
+### Version 0.18.0 - June 6, 2014
+
+**Enhancements**
+- **Modal** - Modals now focus on first input if available **Thanks Knotix**
+- **RTL** - RTL now uses RTLCSS instead of CSSJanus **Thanks MohammadYounes**
+
+**Fixes**
+
+- **Menu** - Fixes bug where pointing menu would sometimes appear below content **Thanks Skysplit**
+- **Dropdown** - Fixes dropdown 'is animating' with dropdowns when CSS animations were not included **Thanks nathankot**
+- **Accordion** - Accordion title does not know have to be :first-child to receive proper border **Thanks BigBlueHat**
+- **Popup** - Fixes javascript animation of popup missing easing dependency
+- **Label** - Fixes border radius on bottom left label
+
+**Docs**
+- **Modal** - Docs now have HTML examples
+- **Docs** - Fixes issue with overview mode not clearing code examples
+- **CSS Guide** - Fixes typos in css guide
+
+
+### Version 0.17.0 - May 9, 2014
+
+**Enhancements**
+- **Dropdown** - Dropdowns can now receive focus and be navigated with a keyboard **Thanks Musatov**
+- **Popup** - Popup now has an ``onRemove`` callback after removing element from DOM
+
+**Fixes**
+- **Modal** - Element does not accurately close other modals when initialized at different times **Thanks nojhamster**
+- **Modal** - Fixes javascript error for browsers that don't support CSS animations if jquery.easing is not included
+- **Form, Input** - Fixes ``ui input`` to work correctly inside ``inline field``
+
+### Version 0.16.1 - April 22, 2014
+
+**Fixes**
+- **Transition** - Fixes bug where transition could accidentally hide element on show due to error when determining original display type
+
+### Version 0.16.0 - April 22, 2014
+
+**Enhancements**
+- **Form** - Fields can now be aligned to a grid **Thanks seralex-vi**
+
+**Critical Fixes**
+- **Modal** - Fixes issue where position sometimes appeared too low on second show
+- **Reveal** - Fixes reveal being broken in Chrome in ``0.15.5`` due to poor fix for reveal selectability
+
+**Fixes**
+- **Transition** - Fixes issue where transition hidden was sometimes overwriten by UI styles causing the element to stay visible
+- **Checkbox** - Fixes issue where checkboxes with multiple line labels were appearing formatted incorrectly.
+
+
+### Version 0.15.5 - April 11, 2014
+
+**Critical Fixes**
+- **Checkbox** - Fixes ``ui checkbox`` to obey ``disabled`` property of input
+
+**Fixes**
+- **Reveal** - Hidden content now can be selected on reveal
+- **Message** - Fixes hidden/visible class to work with animations
+- **Message** - Fixes hidden/visible class to set proper display on ``ui icon message``
+- **Message** - Fixes hitbox/position of ``close icon`` inside message
+
+### Version 0.15.4 - April 04, 2014
+
+**Fixes**
+- **Rating** - Fixes issue where rating was behaving erratically in Chrome
+
+### Version 0.15.3 - April 04, 2014
+
+**Changes**
+- **Transition** - CSS Transitions now work in legacy FF (FF > 12)
+- **All UI** - Adds support for legacy FF vendor prefixes (FF > 12)
+
+**Docs**
+- Adds more examples for static checkbox/radio boxes with HTML only
+- Fixes a variety of issues with malformed examples (thanks community)
+
+### Version 0.15.2 - Mar 28, 2014
+
+**Changes**
+- **All Modules** - Debug is now disabled by default
+
+**Fixes**
+- **Step** - Fixes issue with border radius on vertical steps
+- **Icon** - Orange color is now available for icon
+- **Menu** - Fixes formatting of attached segments with menus
+
+### Version 0.15.1 - Mar 14, 2014
+
+**Critical Fixes**
+- **Dropdown** - Typo in dropdown css was causing selection dropdowns not to appear
+
 ### Version 0.15.0 - Mar 14, 2014
 
 **Enhancements**
@@ -118,7 +237,7 @@
 **Project**
 - **NPM** - Docpad is now moved to a dev dependency **Thanks kapouer**
 
-### Version 0.13.1- Feb 28, 2014
+### Version 0.13.1 - Feb 28, 2014
 
 **Fixes**
 - **Modal** - Fixes modal positioning appearing slightly below center on second load
@@ -126,6 +245,7 @@
 - **Input** - Fixes ui input to inherit form sizing
 - **Accordion** - Fixes issues with accordion rules being too specific, causing several common usages of accordions to break
 - **Form Validation** -  Fixes form validation regular expression matching **Thanks icefox0801**
+
 
 ### Version 0.13.0 - Feb 20, 2014
 
@@ -171,7 +291,6 @@
 **Fixes**
 - **Message** - Fixes some issues with margins sometimes not appearing with ``attached message`` **thanks joltmode**
 - **Item** - Fixes color repeating to be consistent for items **thanks skysplit**
->>>>>>> 3f7e69de765e045a198abb285a6e44bc29157ce8
 
 ### Version 0.12.2 - Jan 21, 2014
 
