@@ -3,7 +3,7 @@
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -262,7 +262,7 @@
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -545,7 +545,7 @@
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -817,7 +817,7 @@
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -949,7 +949,7 @@
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -3651,7 +3651,7 @@
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -4495,314 +4495,7 @@ a.ui.card:hover,
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
- *
- * Copyright 2014 Contributors
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- */
-
-/*******************************
-           Chat Room
-*******************************/
-
-.ui.chatroom {
-  background-color: #F8F8F8;
-  width: 330px;
-  height: 370px;
-  padding: 0px;
-}
-
-.ui.chatroom .room {
-  position: relative;
-  background-color: #FFFFFF;
-  overflow: hidden;
-  height: 286px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-top: none;
-  border-bottom: none;
-}
-
-.ui.chatroom .room .loader {
-  display: none;
-  margin: -25px 0px 0px -25px;
-}
-
-/* Chat Room Actions */
-
-.ui.chatroom .actions {
-  overflow: hidden;
-  background-color: #EEEEEE;
-  padding: 4px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 5px 5px 0px 0px;
-}
-
-.ui.chatroom .actions .button {
-  float: right;
-  margin-left: 3px;
-}
-
-/* Online User Count */
-
-.ui.chatroom .actions .message {
-  float: left;
-  margin-left: 6px;
-  font-size: 11px;
-  color: #AAAAAA;
-  text-shadow: 0px -1px 0px rgba(255, 255, 255, 0.8);
-  line-height: 28px;
-}
-
-.ui.chatroom .actions .message .loader {
-  display: inline-block;
-  margin-right: 8px;
-}
-
-/* Chat Room Text Log */
-
-.ui.chatroom .log {
-  float: left;
-  overflow: auto;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-.ui.chatroom .log .message {
-  padding: 3px 0px;
-  border-top: 1px dotted #DADADA;
-}
-
-.ui.chatroom .log .message:first-child {
-  border-top: none;
-}
-
-/* status event */
-
-.ui.chatroom .status {
-  padding: 5px 0px;
-  color: #AAAAAA;
-  font-size: 12px;
-  font-style: italic;
-  line-height: 1.33;
-  border-top: 1px dotted #DADADA;
-}
-
-.ui.chatroom .log .status:first-child {
-  border-top: none;
-}
-
-.ui.chatroom .log .flag {
-  float: left;
-}
-
-.ui.chatroom .log p {
-  margin-left: 0px;
-}
-
-.ui.chatroom .log .author {
-  font-weight: bold;
-  -webkit-transition: color 0.3s ease-out;
-  transition: color 0.3s ease-out;
-}
-
-.ui.chatroom .log a.author:hover {
-  opacity: 0.8;
-}
-
-.ui.chatroom .log .message.admin p {
-  font-weight: bold;
-  margin: 1px 0px 0px 23px;
-}
-
-.ui.chatroom .log .divider {
-  margin: -1px 0px;
-  font-size: 11px;
-  padding: 10px 0px;
-  border-top: 1px solid #F8F8F8;
-  border-bottom: 1px solid #F8F8F8;
-}
-
-.ui.chatroom .log .divider .rule {
-  top: 50%;
-  width: 15%;
-}
-
-.ui.chatroom .log .divider .label {
-  color: #777777;
-  margin: 0px;
-}
-
-/* Chat Room User List */
-
-.ui.chatroom .room .list {
-  position: relative;
-  overflow: auto;
-  overflow-x: hidden;
-  overflow-y: auto;
-  float: left;
-  background-color: #EEEEEE;
-  border-left: 1px solid #DDDDDD;
-}
-
-.ui.chatroom .room .list .user {
-  display: table;
-  padding: 3px 7px;
-  border-bottom: 1px solid #DDDDDD;
-}
-
-.ui.chatroom .room .list .user:hover {
-  background-color: #F8F8F8;
-}
-
-.ui.chatroom .room .list .image {
-  display: table-cell;
-  vertical-align: middle;
-  width: 20px;
-}
-
-.ui.chatroom .room .list .image img {
-  width: 20px;
-  height: 20px;
-  vertical-align: middle;
-}
-
-.ui.chatroom .room .list p {
-  display: table-cell;
-  vertical-align: middle;
-  padding-left: 7px;
-  padding-right: 14px;
-  font-size: 11px;
-  line-height: 1.2;
-  font-weight: bold;
-}
-
-.ui.chatroom .room .list a:hover {
-  opacity: 0.8;
-}
-
-/* User List Loading */
-
-.ui.chatroom.loading .loader {
-  display: block;
-}
-
-/* Chat Room Talk Input */
-
-.ui.chatroom .talk {
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 5px 0px 0px;
-  background-color: #EEEEEE;
-  border-radius: 0px 0px 5px 5px;
-}
-
-.ui.chatroom .talk .avatar,
-.ui.chatroom .talk input,
-.ui.chatroom .talk .button {
-  float: left;
-}
-
-.ui.chatroom .talk .avatar img {
-  display: block;
-  width: 30px;
-  height: 30px;
-  margin-right: 4px;
-  border-radius: 500rem;
-}
-
-.ui.chatroom .talk input {
-  border: 1px solid #CCCCCC;
-  margin: 0px;
-  width: 196px;
-  height: 14px;
-  padding: 8px 5px;
-  font-size: 12px;
-  color: #555555;
-}
-
-.ui.chatroom .talk input.focus {
-  border: 1px solid #AAAAAA;
-}
-
-.ui.chatroom .send {
-  width: 80px;
-  height: 32px;
-  margin-left: -1px;
-  padding: 4px 12px;
-  font-size: 12px;
-  line-height: 23px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
-  border-radius: 0 5px 5px 0;
-}
-
-.ui.chatroom .talk .log-in.button {
-  display: block;
-  float: none;
-  margin-top: -6px;
-  height: 22px;
-  border-radius: 0px 0px 4px 4px;
-}
-
-.ui.chatroom .talk .log-in.button i {
-  vertical-align: text-top;
-}
-
-/* Quirky Flags */
-
-.ui.chatroom .log .team.flag {
-  width: 18px;
-}
-
-/* Chat room Loaded */
-
-.ui.chatroom.loading .loader {
-  display: block;
-}
-
-/* Standard Size */
-
-.ui.chatroom {
-  width: 330px;
-  height: 370px;
-}
-
-.ui.chatroom .room .container {
-  width: 3000px;
-}
-
-.ui.chatroom .log {
-  width: 314px;
-  height: 278px;
-  padding: 4px 7px;
-}
-
-.ui.chatroom .room .list {
-  width: 124px;
-  height: 278px;
-  padding: 4px 0px;
-}
-
-.ui.chatroom .room .list .user {
-  width: 110px;
-}
-
-.ui.chatroom .talk {
-  height: 40px;
-}
-
-/*******************************
-         Theme Overrides
-*******************************/
-
-/*******************************
-        User Overrides
-*******************************/
-
-/*
- * # Semantic UI
- * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -5282,6 +4975,7 @@ a.ui.card:hover,
 .ui.checkbox label:after,
 .ui.checkbox .box:after {
   content: '\e800';
+  /* '' */
 }
 
 /*  UTF Reference
@@ -5303,7 +4997,7 @@ a.ui.card:hover,
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -5574,7 +5268,7 @@ a.ui.card:hover,
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -5767,7 +5461,7 @@ body.dimmed.dimmable > :not(.dimmer) {
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -5800,7 +5494,7 @@ body.dimmed.dimmable > :not(.dimmer) {
 
 .ui.divider:not(.vertical):not(.horizontal) {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
 }
 
 /*--------------
@@ -5833,7 +5527,7 @@ body.dimmed.dimmable > :not(.dimmer) {
   top: 50%;
   height: 0px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
 }
 
 .ui.horizontal.divider:before {
@@ -5872,7 +5566,7 @@ body.dimmed.dimmable > :not(.dimmer) {
   content: '';
   z-index: 3;
   border-left: 1px solid rgba(0, 0, 0, 0.1);
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-right: 1px solid rgba(0, 0, 0, 0.8);
   width: 0%;
   height: -webkit-calc(100% -  1rem );
   height: calc(100% -  1rem );
@@ -5913,7 +5607,7 @@ body.dimmed.dimmable > :not(.dimmer) {
     top: 50%;
     height: 0px;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.8);
   }
 
   .ui.stackable.grid .ui.vertical.divider:before,
@@ -6016,7 +5710,7 @@ body.dimmed.dimmable > :not(.dimmer) {
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -6290,6 +5984,7 @@ body.dimmed.dimmable > :not(.dimmer) {
 /* Automatically float dropdown menu right on last menu item */
 
 .ui.menu .right.menu .dropdown:last-child .menu,
+.ui.menu .right.dropdown.item .menu,
 .ui.buttons > .ui.dropdown:last-child .menu {
   left: auto;
   right: 0em;
@@ -6498,7 +6193,7 @@ select.ui.dropdown {
 /* Search Selection */
 
 .ui.search.dropdown {
-  min-width: auto;
+  min-width: '';
 }
 
 /* Search Dropdown */
@@ -6515,6 +6210,7 @@ select.ui.dropdown {
   outline: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   padding: inherit;
+  /*Amazing trick */
 }
 
 /* Search Selection */
@@ -7046,7 +6742,7 @@ select.ui.dropdown {
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -7342,7 +7038,7 @@ select.ui.dropdown {
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -8600,7 +8296,7 @@ i.flag.zimbabwe:before {
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -9507,7 +9203,7 @@ i.flag.zimbabwe:before {
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -10850,7 +10546,7 @@ i.flag.zimbabwe:before {
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -10869,6 +10565,7 @@ i.flag.zimbabwe:before {
   margin: -webkit-calc(2rem -  0.165em ) 0em 1rem;
   margin: calc(2rem -  0.165em ) 0em 1rem;
   padding: 0em 0em;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: bold;
   line-height: 1.33em;
   text-transform: none;
@@ -10884,7 +10581,17 @@ i.flag.zimbabwe:before {
   color: rgba(0, 0, 0, 0.5);
 }
 
-/* Icon and Content Together */
+.ui.header:first-child {
+  margin-top: -0.165em;
+}
+
+.ui.header:last-child {
+  margin-bottom: 0em;
+}
+
+/*--------------
+      Icon
+---------------*/
 
 .ui.header > .icon {
   display: table-cell;
@@ -10893,11 +10600,6 @@ i.flag.zimbabwe:before {
   padding-top: 0.165em;
   vertical-align: middle;
   padding-right: 0.5rem;
-}
-
-.ui.header > .icon + .content {
-  padding-left: 0.5rem;
-  display: table-cell;
 }
 
 /* Only One */
@@ -10909,27 +10611,19 @@ i.flag.zimbabwe:before {
   vertical-align: baseline;
 }
 
+/*--------------
+     Content
+---------------*/
+
 .ui.header .content {
   display: inline-block;
   vertical-align: top;
 }
 
-.ui.header .icon + .content {
+.ui.header > .icon + .content {
+  padding-left: 0.5rem;
+  display: table-cell;
   vertical-align: middle;
-}
-
-/* Positioning */
-
-.ui.header:first-child {
-  margin-top: -0.165em;
-}
-
-.ui.header:last-child {
-  margin-bottom: 0em;
-}
-
-.ui.header + p {
-  margin-top: 0em;
 }
 
 /*--------------
@@ -10966,9 +10660,39 @@ i.flag.zimbabwe:before {
   vertical-align: middle;
 }
 
+/* Positioning */
+
+.ui.header + p {
+  margin-top: 0em;
+}
+
 /*******************************
             Types
 *******************************/
+
+/*--------------
+     Page
+---------------*/
+
+h1.ui.header {
+  font-size: 2rem;
+}
+
+h2.ui.header {
+  font-size: 1.714rem;
+}
+
+h3.ui.header {
+  font-size: 1.28rem;
+}
+
+h4.ui.header {
+  font-size: 1.071rem;
+}
+
+h5.ui.header {
+  font-size: 1rem;
+}
 
 /*-------------------
         Icon
@@ -11285,13 +11009,13 @@ a.ui.inverted.yellow.header:hover {
 --------------------*/
 
 .ui.floated.header,
-.ui.left.floated.header {
+.ui[class*="left floated"].header {
   float: left;
   margin-top: 0em;
   margin-right: 0.5em;
 }
 
-.ui.right.floated.header {
+.ui[class*="right floated"].header {
   float: right;
   margin-top: 0em;
   margin-left: 0.5em;
@@ -11436,7 +11160,7 @@ a.ui.inverted.yellow.header:hover {
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -14161,7 +13885,7 @@ i.icon.weixin:before {
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -14420,7 +14144,7 @@ img.ui.bordered.image {
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -14893,7 +14617,7 @@ img.ui.bordered.image {
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -15046,7 +14770,7 @@ img.ui.bordered.image {
      Floated
 ---------------*/
 
-.ui.items > .item .left.floated {
+.ui.items > .item [class*="left floated"] {
   float: left;
 }
 
@@ -15386,7 +15110,7 @@ img.ui.bordered.image {
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -16404,7 +16128,7 @@ a.ui.yellow.label:hover:before {
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -16573,6 +16297,11 @@ ol.ui.list ol,
   display: inline-block;
 }
 
+.ui.list .list > .item [class*="top aligned"].content,
+.ui.list > .item > [class*="top aligned"].content {
+  vertical-align: top;
+}
+
 .ui.list .list > .item > .content > .list,
 .ui.list > .item > .content > .list {
   margin-left: 0em;
@@ -16629,14 +16358,16 @@ ol.ui.list ol,
 
 /* Floated Content */
 
-.ui.list .list > .item > .left.floated .ui.list > .item > .left.floated {
+.ui.list .list > .item [class*="left floated"],
+.ui.list > .item [class*="left floated"] {
   float: left;
-  margin-right: 1em;
+  margin: 0em 1em 0em 0em;
 }
 
-.ui.list .list > .item > .right.floated .ui.list > .item > .right.floated {
+.ui.list .list > .item [class*="right floated"],
+.ui.list > .item [class*="right floated"] {
   float: right;
-  margin-left: 1em;
+  margin: 0em 0em 0em 1em;
 }
 
 /*******************************
@@ -17398,7 +17129,7 @@ ol.ui.horizontal.list li:before,
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -17695,7 +17426,7 @@ ol.ui.horizontal.list li:before,
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -19477,7 +19208,7 @@ ol.ui.horizontal.list li:before,
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -19622,13 +19353,23 @@ ol.ui.horizontal.list li:before,
             States
 *******************************/
 
-.ui.message.visible,
-.ui.header.visible {
-  display: block !important;
+/*--------------
+    Visible
+---------------*/
+
+.ui.message.visible {
+  display: block;
 }
 
-.ui.message.hidden,
-.ui.header.hidden {
+.ui.icon.message.visible {
+  display: table;
+}
+
+/*--------------
+     Hidden
+---------------*/
+
+.ui.message.hidden {
   display: none;
 }
 
@@ -19944,7 +19685,7 @@ ol.ui.horizontal.list li:before,
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -20419,7 +20160,7 @@ ol.ui.horizontal.list li:before,
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -20566,7 +20307,7 @@ a.ui.nag {
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -20869,7 +20610,7 @@ a.ui.nag {
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -21166,8 +20907,6 @@ a.ui.nag {
     Inverted
 ---------------*/
 
-/* bottom attached */
-
 .ui.inverted.progress {
   background: rgba(255, 255, 255, 0.05);
   border: none;
@@ -21204,7 +20943,7 @@ a.ui.nag {
 /* bottom attached */
 
 .ui.progress.attached {
-  background: none transparent;
+  background: transparent;
   position: relative;
   border: none;
   margin: 0em;
@@ -21213,7 +20952,7 @@ a.ui.nag {
 .ui.progress.attached,
 .ui.progress.attached .bar {
   display: block;
-  height: 0.25em;
+  height: 3px;
   padding: 0px;
   overflow: hidden;
   border-radius: 0em 0em 0.2857rem 0.2857rem;
@@ -21322,7 +21061,7 @@ a.ui.nag {
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -21447,7 +21186,7 @@ a.ui.nag {
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -21728,7 +21467,7 @@ a.ui.nag {
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -21756,6 +21495,7 @@ input[type="search"],
 input[type="password"] {
   -webkit-appearance: none;
   -moz-appearance: none;
+  /* mobile firefox too! */
 }
 
 /*******************************
@@ -21782,6 +21522,7 @@ html {
   -ms-text-size-adjust: 100%;
   /* 2 */
   -webkit-text-size-adjust: 100%;
+  /* 2 */
 }
 
 /**
@@ -21828,6 +21569,7 @@ video {
   display: inline-block;
   /* 1 */
   vertical-align: baseline;
+  /* 2 */
 }
 
 /**
@@ -22029,6 +21771,7 @@ textarea {
   font: inherit;
   /* 2 */
   margin: 0;
+  /* 3 */
 }
 
 /**
@@ -22066,6 +21809,7 @@ input[type="submit"] {
   -webkit-appearance: button;
   /* 2 */
   cursor: pointer;
+  /* 3 */
 }
 
 /**
@@ -22109,6 +21853,7 @@ input[type="radio"] {
   box-sizing: border-box;
   /* 1 */
   padding: 0;
+  /* 2 */
 }
 
 /**
@@ -22165,6 +21910,7 @@ legend {
   border: 0;
   /* 1 */
   padding: 0;
+  /* 2 */
 }
 
 /**
@@ -22208,7 +21954,7 @@ th {
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -22517,7 +22263,7 @@ th {
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -22860,7 +22606,7 @@ th {
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -23529,7 +23275,7 @@ th {
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -23687,7 +23433,7 @@ th {
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -23822,8 +23568,8 @@ th {
   height: 0px;
   overflow: hidden;
   opacity: 0;
-  -webkit-transition: opacity 500ms;
-  transition: opacity 500ms;
+  -webkit-transition: -webkit-transform 500ms, opacity 500ms;
+  transition: transform 500ms, opacity 500ms;
   will-change: opacity;
   z-index: 1000;
 }
@@ -24230,7 +23976,7 @@ th {
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -24368,7 +24114,7 @@ a:hover {
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -24625,12 +24371,12 @@ a:hover {
     Floated
 ---------------*/
 
-.ui.left.floated.statistic {
+.ui[class*="left floated"].statistic {
   float: left;
   margin: 0em 2em 1em 0em;
 }
 
-.ui.right.floated.statistic {
+.ui[class*="right floated"].statistic {
   float: right;
   margin: 0em 0em 1em 2em;
 }
@@ -24816,7 +24562,7 @@ a:hover {
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -25201,6 +24947,7 @@ a:hover {
 .ui.ordered.steps .step.completed:before {
   font-family: 'Step';
   content: '\e800';
+  /* '' */
 }
 
 /*******************************
@@ -25210,7 +24957,7 @@ a:hover {
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -25286,7 +25033,7 @@ a:hover {
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -25375,7 +25122,7 @@ a:hover {
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -26376,7 +26123,7 @@ a:hover {
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -26422,14 +26169,14 @@ a:hover {
 
 .loading.transition {
   position: absolute;
-  top: -999999px;
+  top: -99999px;
   left: -99999px;
 }
 
 /* Hidden */
 
 .hidden.transition {
-  display: none !important;
+  display: none;
   visibility: hidden;
 }
 
@@ -27464,7 +27211,7 @@ a:hover {
 /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license

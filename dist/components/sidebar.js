@@ -163,37 +163,69 @@ $.fn.sidebar = function(parameters) {
             var
               width  = $module.outerWidth(),
               height = $module.outerHeight(),
-              style  = ''
-                + '<style title="' + namespace + '">'
-                + ' .ui.visible.left.sidebar ~ .fixed,'
-                + ' .ui.visible.left.sidebar ~ .pusher {'
+              style
+            ;
+            style  = ''
+              + '<style title="' + namespace + '">'
+              + ' .ui.visible.left.sidebar ~ .fixed,'
+              + ' .ui.visible.left.sidebar ~ .pusher {'
+              + '   -webkit-transform: translate3d('+ width + 'px, 0, 0);'
+              + '           transform: translate3d('+ width + 'px, 0, 0);'
+              + ' }'
+              + ' .ui.visible.right.sidebar ~ .fixed,'
+              + ' .ui.visible.right.sidebar ~ .pusher {'
+              + '   -webkit-transform: translate3d(-'+ width + 'px, 0, 0);'
+              + '           transform: translate3d(-'+ width + 'px, 0, 0);'
+              + ' }'
+              + ' .ui.visible.left.sidebar ~ .ui.visible.right.sidebar ~ .fixed,'
+              + ' .ui.visible.left.sidebar ~ .ui.visible.right.sidebar ~ .pusher,'
+              + ' .ui.visible.right.sidebar ~ .ui.visible.left.sidebar ~ .fixed,'
+              + ' .ui.visible.right.sidebar ~ .ui.visible.left.sidebar ~ .pusher {'
+              + '   -webkit-transform: translate3d(0px, 0, 0);'
+              + '           transform: translate3d(0px, 0, 0);'
+              + ' }'
+              + ' .ui.visible.top.sidebar ~ .fixed,'
+              + ' .ui.visible.top.sidebar ~ .pusher {'
+              + '   -webkit-transform: translate3d(0, ' + height + 'px, 0);'
+              + '           transform: translate3d(0, ' + height + 'px, 0);'
+              + ' }'
+              + ' .ui.visible.bottom.sidebar ~ .fixed,'
+              + ' .ui.visible.bottom.sidebar ~ .pusher {'
+              + '   -webkit-transform: translate3d(0, -' + height + 'px, 0);'
+              + '           transform: translate3d(0, -' + height + 'px, 0);'
+              + ' }'
+            ;
+
+            /* IE is only browser not to create context with transforms */
+            /* https://www.w3.org/Bugs/Public/show_bug.cgi?id=16328 */
+            if( module.is.ie() ) {
+              style += ''
+                + ' .ui.visible.left.sidebar ~ .pusher:after {'
                 + '   -webkit-transform: translate3d('+ width + 'px, 0, 0);'
                 + '           transform: translate3d('+ width + 'px, 0, 0);'
                 + ' }'
-                + ' .ui.visible.right.sidebar ~ .fixed,'
-                + ' .ui.visible.right.sidebar ~ .pusher {'
+                + ' .ui.visible.right.sidebar ~ .pusher:after {'
                 + '   -webkit-transform: translate3d(-'+ width + 'px, 0, 0);'
                 + '           transform: translate3d(-'+ width + 'px, 0, 0);'
                 + ' }'
-                + ' .ui.visible.left.sidebar ~ .ui.visible.right.sidebar ~ .fixed,'
-                + ' .ui.visible.left.sidebar ~ .ui.visible.right.sidebar ~ .pusher,'
-                + ' .ui.visible.right.sidebar ~ .ui.visible.left.sidebar ~ .fixed,'
-                + ' .ui.visible.right.sidebar ~ .ui.visible.left.sidebar ~ .pusher {'
+                + ' .ui.visible.left.sidebar ~ .ui.visible.right.sidebar ~ .pusher:after,'
+                + ' .ui.visible.right.sidebar ~ .ui.visible.left.sidebar ~ .pusher:after {'
                 + '   -webkit-transform: translate3d(0px, 0, 0);'
                 + '           transform: translate3d(0px, 0, 0);'
                 + ' }'
-                + ' .ui.visible.top.sidebar ~ .fixed,'
-                + ' .ui.visible.top.sidebar ~ .pusher {'
+                + ' .ui.visible.top.sidebar ~ .pusher:after {'
                 + '   -webkit-transform: translate3d(0, ' + height + 'px, 0);'
                 + '           transform: translate3d(0, ' + height + 'px, 0);'
                 + ' }'
-                + ' .ui.visible.bottom.sidebar ~ .fixed,'
-                + ' .ui.visible.bottom.sidebar ~ .pusher {'
+                + ' .ui.visible.bottom.sidebar ~ .pusher:after {'
                 + '   -webkit-transform: translate3d(0, -' + height + 'px, 0);'
                 + '           transform: translate3d(0, -' + height + 'px, 0);'
                 + ' }'
-                + '</style>'
-            ;
+              ;
+            }
+
+           style += '</style>';
+
             $head.append(style);
             $style = $('style[title=' + namespace + ']');
             module.debug('Adding sizing css to head', $style);
@@ -618,6 +650,15 @@ $.fn.sidebar = function(parameters) {
         },
 
         is: {
+
+          ie: function() {
+            var
+              isIE11 = (!(window.ActiveXObject) && 'ActiveXObject' in window),
+              isIE   = ('ActiveXObject' in window)
+            ;
+            return (isIE11 || isIE);
+          },
+
           legacy: function() {
             var
               element    = document.createElement('div'),
@@ -862,14 +903,14 @@ $.fn.sidebar.settings = {
 
   defaultTransition : {
     computer: {
-      left   : 'push',
-      right  : 'push',
+      left   : 'uncover',
+      right  : 'uncover',
       top    : 'overlay',
       bottom : 'overlay'
     },
     mobile: {
-      left   : 'push',
-      right  : 'push',
+      left   : 'uncover',
+      right  : 'uncover',
       top    : 'overlay',
       bottom : 'overlay'
     }

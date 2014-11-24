@@ -1,7 +1,7 @@
  /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -22,6 +22,7 @@
   margin: -webkit-calc(2rem -  0.165em ) 0em 1rem;
   margin: calc(2rem -  0.165em ) 0em 1rem;
   padding: 0em 0em;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: bold;
   line-height: 1.33em;
   text-transform: none;
@@ -35,8 +36,17 @@
   line-height: 1.2em;
   color: rgba(0, 0, 0, 0.5);
 }
+.ui.header:first-child {
+  margin-top: -0.165em;
+}
+.ui.header:last-child {
+  margin-bottom: 0em;
+}
 
-/* Icon and Content Together */
+/*--------------
+      Icon
+---------------*/
+
 .ui.header > .icon {
   display: table-cell;
   opacity: 1;
@@ -44,10 +54,6 @@
   padding-top: 0.165em;
   vertical-align: middle;
   padding-right: 0.5rem;
-}
-.ui.header > .icon + .content {
-  padding-left: 0.5rem;
-  display: table-cell;
 }
 
 /* Only One */
@@ -57,23 +63,19 @@
   margin-right: 0.5rem;
   vertical-align: baseline;
 }
+
+/*--------------
+     Content
+---------------*/
+
 .ui.header .content {
   display: inline-block;
   vertical-align: top;
 }
-.ui.header .icon + .content {
+.ui.header > .icon + .content {
+  padding-left: 0.5rem;
+  display: table-cell;
   vertical-align: middle;
-}
-
-/* Positioning */
-.ui.header:first-child {
-  margin-top: -0.165em;
-}
-.ui.header:last-child {
-  margin-bottom: 0em;
-}
-.ui.header + p {
-  margin-top: 0em;
 }
 
 /*--------------
@@ -106,11 +108,36 @@
   vertical-align: middle;
 }
 
+/* Positioning */
+.ui.header + p {
+  margin-top: 0em;
+}
+
 
 /*******************************
             Types
 *******************************/
 
+
+/*--------------
+     Page
+---------------*/
+
+h1.ui.header {
+  font-size: 2rem;
+}
+h2.ui.header {
+  font-size: 1.714rem;
+}
+h3.ui.header {
+  font-size: 1.28rem;
+}
+h4.ui.header {
+  font-size: 1.071rem;
+}
+h5.ui.header {
+  font-size: 1rem;
+}
 
 /*-------------------
         Icon
@@ -371,12 +398,12 @@ a.ui.inverted.yellow.header:hover {
 --------------------*/
 
 .ui.floated.header,
-.ui.left.floated.header {
+.ui[class*="left floated"].header {
   float: left;
   margin-top: 0em;
   margin-right: 0.5em;
 }
-.ui.right.floated.header {
+.ui[class*="right floated"].header {
   float: right;
   margin-top: 0em;
   margin-left: 0.5em;

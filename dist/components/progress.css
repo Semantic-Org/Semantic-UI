@@ -1,7 +1,7 @@
  /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -276,8 +276,6 @@
     Inverted
 ---------------*/
 
-
-/* bottom attached */
 .ui.inverted.progress {
   background: rgba(255, 255, 255, 0.05);
   border: none;
@@ -308,7 +306,7 @@
 
 /* bottom attached */
 .ui.progress.attached {
-  background: none transparent;
+  background: transparent;
   position: relative;
   border: none;
   margin: 0em;
@@ -316,7 +314,7 @@
 .ui.progress.attached,
 .ui.progress.attached .bar {
   display: block;
-  height: 0.25em;
+  height: 3px;
   padding: 0px;
   overflow: hidden;
   border-radius: 0em 0em 0.2857rem 0.2857rem;

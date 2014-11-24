@@ -1,7 +1,7 @@
  /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -155,6 +155,10 @@ ol.ui.list ol,
 .ui.list > .item > img.image + .content {
   display: inline-block;
 }
+.ui.list .list > .item [class*="top aligned"].content,
+.ui.list > .item > [class*="top aligned"].content {
+  vertical-align: top;
+}
 .ui.list .list > .item > .content > .list,
 .ui.list > .item > .content > .list {
   margin-left: 0em;
@@ -203,13 +207,15 @@ ol.ui.list ol,
 }
 
 /* Floated Content */
-.ui.list .list > .item > .left.floated .ui.list > .item > .left.floated {
+.ui.list .list > .item [class*="left floated"],
+.ui.list > .item [class*="left floated"] {
   float: left;
-  margin-right: 1em;
+  margin: 0em 1em 0em 0em;
 }
-.ui.list .list > .item > .right.floated .ui.list > .item > .right.floated {
+.ui.list .list > .item [class*="right floated"],
+.ui.list > .item [class*="right floated"] {
   float: right;
-  margin-left: 1em;
+  margin: 0em 0em 0em 1em;
 }
 
 

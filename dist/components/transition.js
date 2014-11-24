@@ -155,9 +155,8 @@ $.fn.transition = function() {
 
         reset: function() {
           module.debug('Resetting animation to beginning conditions');
-          $module.off(animationEnd + eventNamespace);
+          module.remove.animationEndCallback();
           module.restore.conditions();
-          module.hide();
           module.remove.animating();
         },
 
@@ -180,7 +179,6 @@ $.fn.transition = function() {
               module.verbose('Animation is outward, hiding element');
               module.restore.conditions();
               module.hide();
-              module.remove.display();
               $.proxy(settings.onHide, this)();
             }
             else if( module.is.inward() ) {
@@ -217,7 +215,7 @@ $.fn.transition = function() {
               module.save.conditions();
             }
             module.remove.direction();
-            $module.off('.complete');
+            module.remove.animationEndCallback();
             if(module.can.transition() && !module.has.direction()) {
               module.set.direction();
             }
@@ -367,6 +365,9 @@ $.fn.transition = function() {
                 'animation'         : ''
               })
             ;
+          },
+          animationEndCallback: function() {
+            $module.off('.complete');
           },
           display: function() {
             $module.css('display', '');
@@ -593,6 +594,10 @@ $.fn.transition = function() {
 
         hide: function() {
           module.verbose('Hiding element');
+          if( module.is.animating() ) {
+            module.reset();
+          }
+          module.remove.display();
           module.remove.visible();
           module.set.hidden();
           module.repaint();

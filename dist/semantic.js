@@ -1,7 +1,7 @@
  /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -1352,783 +1352,6 @@ $.api.settings.api = {};
 
 
 })( jQuery, window , document );
-/*
- * # Semantic - Chatroom
- * http://github.com/semantic-org/semantic-ui/
- *
- *
- * Copyright 2014 Contributor
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- */
-
-;(function ($, window, document, undefined) {
-
-"use strict";
-
-$.fn.chatroom = function(parameters) {
-  var
-    $allModules    = $(this),
-    moduleSelector = $allModules.selector || '',
-
-    time           = new Date().getTime(),
-    performance    = [],
-
-    query          = arguments[0],
-    methodInvoked  = (typeof query == 'string'),
-    queryArguments = [].slice.call(arguments, 1),
-    returnedValue
-  ;
-  $(this)
-    .each(function() {
-      var
-        settings  = $.extend(true, {}, $.fn.chatroom.settings, parameters),
-
-        className = settings.className,
-        namespace = settings.namespace,
-        selector  = settings.selector,
-        error     = settings.error,
-
-        $module         = $(this),
-
-        $expandButton   = $module.find(selector.expandButton),
-        $userListButton = $module.find(selector.userListButton),
-
-        $userList       = $module.find(selector.userList),
-        $room           = $module.find(selector.room),
-        $userCount      = $module.find(selector.userCount),
-
-        $log            = $module.find(selector.log),
-        $message        = $module.find(selector.message),
-
-        $messageInput   = $module.find(selector.messageInput),
-        $messageButton  = $module.find(selector.messageButton),
-
-        instance        = $module.data('module'),
-        element         = this,
-
-        html            = '',
-        users           = {},
-
-        channel,
-        loggedInUser,
-
-        message,
-        count,
-
-        height,
-
-        pusher,
-        module
-      ;
-
-      module = {
-
-        width: {
-          log      : $log.width(),
-          userList : $userList.outerWidth()
-        },
-
-        initialize: function() {
-
-          // check error conditions
-          if(Pusher === undefined) {
-            module.error(error.pusher);
-          }
-          if(settings.key === undefined || settings.channelName === undefined) {
-            module.error(error.key);
-            return false;
-          }
-          else if( !(settings.endpoint.message || settings.endpoint.authentication) ) {
-            module.error(error.endpoint);
-            return false;
-          }
-
-          // define pusher
-          pusher                       = new Pusher(settings.key);
-          Pusher.channel_auth_endpoint = settings.endpoint.authentication;
-
-          channel = pusher.subscribe(settings.channelName);
-
-          channel.bind('pusher:subscription_succeeded', module.user.list.create);
-          channel.bind('pusher:subscription_error', module.error);
-          channel.bind('pusher:member_added', module.user.joined);
-          channel.bind('pusher:member_removed', module.user.left);
-          channel.bind('update_messages', module.message.receive);
-
-          $.each(settings.customEvents, function(label, value) {
-            channel.bind(label, value);
-          });
-
-          // bind module events
-          $userListButton
-            .on('click.' +  namespace, module.event.toggleUserList)
-          ;
-          $expandButton
-            .on('click.'   +  namespace, module.event.toggleExpand)
-          ;
-          $messageInput
-            .on('keydown.' +  namespace, module.event.input.keydown)
-            .on('keyup.'   +  namespace, module.event.input.keyup)
-          ;
-          $messageButton
-            .on('mouseenter.' +  namespace, module.event.hover)
-            .on('mouseleave.' +  namespace, module.event.hover)
-            .on('click.' +  namespace, module.event.submit)
-          ;
-          // scroll to bottom of chat log
-          $log
-            .animate({
-              scrollTop: $log.prop('scrollHeight')
-            }, 400)
-          ;
-          $module
-            .data('module', module)
-            .addClass(className.loading)
-          ;
-
-        },
-
-        // refresh module
-        refresh: function() {
-          // reset width calculations
-          $userListButton
-            .removeClass(className.active)
-          ;
-          module.width = {
-            log      : $log.width(),
-            userList : $userList.outerWidth()
-          };
-          if( $userListButton.hasClass(className.active) ) {
-            module.user.list.hide();
-          }
-          $module.data('module', module);
-        },
-
-        user: {
-
-          updateCount: function() {
-            if(settings.userCount) {
-              users = $module.data('users');
-              count = 0;
-              $.each(users, function() {
-                count++;
-              });
-              $userCount
-                .html( settings.templates.userCount(count) )
-              ;
-            }
-          },
-
-          // add user to user list
-          joined: function(member) {
-            users = $module.data('users');
-            if(member.id != 'anonymous' && users[ member.id ] === undefined ) {
-              users[ member.id ] = member.info;
-              if(settings.randomColor && member.info.color === undefined) {
-                member.info.color = settings.templates.color(member.id);
-              }
-              html = settings.templates.userList(member.info);
-              if(member.info.isAdmin) {
-                $(html)
-                  .prependTo($userList)
-                ;
-              }
-              else {
-                $(html)
-                  .appendTo($userList)
-                ;
-              }
-              if(settings.partingMessages) {
-                $log
-                  .append( settings.templates.joined(member.info) )
-                ;
-                module.message.scroll.test();
-              }
-              module.user.updateCount();
-            }
-          },
-
-          // remove user from user list
-          left: function(member) {
-            users = $module.data('users');
-            if(member !== undefined && member.id !== 'anonymous') {
-              delete users[ member.id ];
-              $module
-                .data('users', users)
-              ;
-              $userList
-                .find('[data-id='+ member.id + ']')
-                  .remove()
-              ;
-              if(settings.partingMessages) {
-                $log
-                  .append( settings.templates.left(member.info) )
-                ;
-                module.message.scroll.test();
-              }
-              module.user.updateCount();
-            }
-          },
-
-          list: {
-
-            // receives list of members and generates user list
-            create: function(members) {
-              users = {};
-              members.each(function(member) {
-                if(member.id !== 'anonymous' && member.id !== 'undefined') {
-                  if(settings.randomColor && member.info.color === undefined) {
-                    member.info.color = settings.templates.color(member.id);
-                  }
-                  // sort list with admin first
-                  html = (member.info.isAdmin)
-                    ? settings.templates.userList(member.info) + html
-                    : html + settings.templates.userList(member.info)
-                  ;
-                  users[ member.id ] = member.info;
-                }
-              });
-              $module
-                .data('users', users)
-                .data('user', users[members.me.id] )
-                .removeClass(className.loading)
-              ;
-              $userList
-                .html(html)
-              ;
-              module.user.updateCount();
-              $.proxy(settings.onJoin, $userList.children())();
-            },
-
-            // shows user list
-            show: function() {
-              $log
-                .animate({
-                  width: (module.width.log - module.width.userList)
-                }, {
-                  duration : settings.speed,
-                  easing   : settings.easing,
-                  complete : module.message.scroll.move
-                })
-              ;
-            },
-
-            // hides user list
-            hide: function() {
-              $log
-                .stop()
-                .animate({
-                  width: (module.width.log)
-                }, {
-                  duration : settings.speed,
-                  easing   : settings.easing,
-                  complete : module.message.scroll.move
-                })
-              ;
-            }
-
-          }
-
-        },
-
-        message: {
-
-          // handles scrolling of chat log
-          scroll: {
-            test: function() {
-              height = $log.prop('scrollHeight') - $log.height();
-              if( Math.abs($log.scrollTop() - height) < settings.scrollArea) {
-                module.message.scroll.move();
-              }
-            },
-
-            move: function() {
-              height = $log.prop('scrollHeight') - $log.height();
-              $log
-                .scrollTop(height)
-              ;
-            }
-          },
-
-          // sends chat message
-          send: function(message) {
-            if( !module.utils.emptyString(message) ) {
-              $.api({
-                url    : settings.endpoint.message,
-                method : 'POST',
-                data   : {
-                  'message': {
-                    content   : message,
-                    timestamp : new Date().getTime()
-                  }
-                }
-              });
-            }
-          },
-
-          // receives chat response and processes
-          receive: function(response) {
-            message      = response.data;
-            users        = $module.data('users');
-            loggedInUser = $module.data('user');
-            if(users[ message.userID] !== undefined) {
-              // logged in user's messages already pushed instantly
-              if(loggedInUser === undefined || loggedInUser.id != message.userID) {
-                message.user = users[ message.userID ];
-                module.message.display(message);
-              }
-            }
-          },
-
-          // displays message in chat log
-          display: function(message) {
-            $log
-              .append( settings.templates.message(message) )
-            ;
-            module.message.scroll.test();
-            $.proxy(settings.onMessage, $log.children().last() )();
-          }
-
-        },
-
-        expand: function() {
-          $module
-            .addClass(className.expand)
-          ;
-          $.proxy(settings.onExpand, $module )();
-          module.refresh();
-        },
-
-        contract: function() {
-          $module
-            .removeClass(className.expand)
-          ;
-          $.proxy(settings.onContract, $module )();
-          module.refresh();
-        },
-
-        event: {
-
-          input: {
-
-            keydown: function(event) {
-              if(event.which == 13) {
-                $messageButton
-                  .addClass(className.down)
-                ;
-              }
-            },
-
-            keyup: function(event) {
-              if(event.which == 13) {
-                $messageButton
-                  .removeClass(className.down)
-                ;
-                module.event.submit();
-              }
-            }
-
-          },
-
-          // handles message form submit
-          submit: function() {
-            var
-              message      = $messageInput.val(),
-              loggedInUser = $module.data('user')
-            ;
-            if(loggedInUser !== undefined && !module.utils.emptyString(message)) {
-              module.message.send(message);
-              // display immediately
-              module.message.display({
-                user: loggedInUser,
-                text: message
-              });
-              module.message.scroll.move();
-              $messageInput
-                .val('')
-              ;
-
-            }
-          },
-
-          // handles button click on expand button
-          toggleExpand: function() {
-            if( !$module.hasClass(className.expand) ) {
-              $expandButton
-                .addClass(className.active)
-              ;
-              module.expand();
-            }
-            else {
-              $expandButton
-                .removeClass(className.active)
-              ;
-              module.contract();
-            }
-          },
-
-          // handles button click on user list button
-          toggleUserList: function() {
-            if( !$log.is(':animated') ) {
-              if( !$userListButton.hasClass(className.active) ) {
-                $userListButton
-                  .addClass(className.active)
-                ;
-                module.user.list.show();
-              }
-              else {
-                $userListButton
-                  .removeClass('active')
-                ;
-                module.user.list.hide();
-              }
-            }
-
-          }
-        },
-
-        utils: {
-
-          emptyString: function(string) {
-            if(typeof string == 'string') {
-              return (string.search(/\S/) == -1);
-            }
-            return false;
-          }
-
-        },
-
-      setting: function(name, value) {
-        if(value !== undefined) {
-          if( $.isPlainObject(name) ) {
-            $.extend(true, settings, name);
-          }
-          else {
-            settings[name] = value;
-          }
-        }
-        else {
-          return settings[name];
-        }
-      },
-      internal: function(name, value) {
-        if( $.isPlainObject(name) ) {
-          $.extend(true, module, name);
-        }
-        else if(value !== undefined) {
-          module[name] = value;
-        }
-        else {
-          return module[name];
-        }
-      },
-      debug: function() {
-        if(settings.debug) {
-          if(settings.performance) {
-            module.performance.log(arguments);
-          }
-          else {
-            module.debug = Function.prototype.bind.call(console.info, console, settings.name + ':');
-            module.debug.apply(console, arguments);
-          }
-        }
-      },
-      verbose: function() {
-        if(settings.verbose && settings.debug) {
-          if(settings.performance) {
-            module.performance.log(arguments);
-          }
-          else {
-            module.verbose = Function.prototype.bind.call(console.info, console, settings.name + ':');
-            module.verbose.apply(console, arguments);
-          }
-        }
-      },
-      error: function() {
-        module.error = Function.prototype.bind.call(console.error, console, settings.name + ':');
-        module.error.apply(console, arguments);
-      },
-      performance: {
-        log: function(message) {
-          var
-            currentTime,
-            executionTime,
-            previousTime
-          ;
-          if(settings.performance) {
-            currentTime   = new Date().getTime();
-            previousTime  = time || currentTime;
-            executionTime = currentTime - previousTime;
-            time          = currentTime;
-            performance.push({
-              'Element'        : element,
-              'Name'           : message[0],
-              'Arguments'      : [].slice.call(message, 1) || '',
-              'Execution Time' : executionTime
-            });
-          }
-          clearTimeout(module.performance.timer);
-          module.performance.timer = setTimeout(module.performance.display, 100);
-        },
-        display: function() {
-          var
-            title = settings.name + ':',
-            totalTime = 0
-          ;
-          time = false;
-          clearTimeout(module.performance.timer);
-          $.each(performance, function(index, data) {
-            totalTime += data['Execution Time'];
-          });
-          title += ' ' + totalTime + 'ms';
-          if(moduleSelector) {
-            title += ' \'' + moduleSelector + '\'';
-          }
-          if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
-            console.groupCollapsed(title);
-            if(console.table) {
-              console.table(performance);
-            }
-            else {
-              $.each(performance, function(index, data) {
-                console.log(data['Name'] + ': ' + data['Execution Time']+'ms');
-              });
-            }
-            console.groupEnd();
-          }
-          performance = [];
-        }
-      },
-      invoke: function(query, passedArguments, context) {
-        var
-          maxDepth,
-          found
-        ;
-        passedArguments = passedArguments || queryArguments;
-        context         = element         || context;
-        if(typeof query == 'string' && instance !== undefined) {
-          query    = query.split(/[\. ]/);
-          maxDepth = query.length - 1;
-          $.each(query, function(depth, value) {
-            if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
-              instance = instance[value];
-            }
-            else if( instance[value] !== undefined ) {
-              found = instance[value];
-            }
-            else {
-              module.error(error.method, query);
-            }
-          });
-        }
-        if ( $.isFunction( found ) ) {
-          return found.apply(context, passedArguments);
-        }
-        return found || false;
-      }
-    };
-
-    if(methodInvoked) {
-      if(instance === undefined) {
-        module.initialize();
-      }
-      module.invoke(query);
-    }
-    else {
-      if(instance !== undefined) {
-        module.destroy();
-      }
-      module.initialize();
-    }
-  })
-;
-
-  return (returnedValue !== undefined)
-    ? returnedValue
-    : this
-  ;
-};
-
-  $.fn.chatroom.settings = {
-
-    name            : 'Chat',
-    namespace       : 'chat',
-
-    debug           : false,
-
-    channel         : 'present-chat',
-
-    onJoin          : function(){},
-    onMessage       : function(){},
-    onExpand        : function(){},
-    onContract      : function(){},
-
-    customEvents    : {},
-
-    partingMessages : false,
-    userCount       : true,
-    randomColor     : true,
-
-    speed           : 300,
-    easing          : 'easeOutQuint',
-
-    // pixels from bottom of chat log that should trigger auto scroll to bottom
-    scrollArea      : 9999,
-
-    endpoint        : {
-      message        : false,
-      authentication : false
-    },
-
-    error: {
-      method   : 'The method you called is not defined',
-      endpoint : 'Please define a message and authentication endpoint.',
-      key      : 'You must specify a pusher key and channel.',
-      pusher   : 'You must include the Pusher library.'
-    },
-
-    className   : {
-      expand  : 'expand',
-      active  : 'active',
-      hover   : 'hover',
-      down    : 'down',
-      loading : 'loading'
-    },
-
-    selector    : {
-      userCount      : '.actions .message',
-      userListButton : '.actions .list.button',
-      expandButton   : '.actions .expand.button',
-      room           : '.room',
-      userList       : '.room .list',
-      log            : '.room .log',
-      message        : '.room .log .message',
-      author         : '.room log .message .author',
-      messageInput   : '.talk input',
-      messageButton  : '.talk .send.button'
-    },
-
-    templates: {
-
-      userCount: function(number) {
-        return number + ' users in chat';
-      },
-
-      color: function(userID) {
-        var
-          colors = [
-            '#000000',
-            '#333333',
-            '#666666',
-            '#999999',
-            '#CC9999',
-            '#CC6666',
-            '#CC3333',
-            '#993333',
-            '#663333',
-            '#CC6633',
-            '#CC9966',
-            '#CC9933',
-            '#999966',
-            '#CCCC66',
-            '#99CC66',
-            '#669933',
-            '#669966',
-            '#33A3CC',
-            '#336633',
-            '#33CCCC',
-            '#339999',
-            '#336666',
-            '#336699',
-            '#6666CC',
-            '#9966CC',
-            '#333399',
-            '#663366',
-            '#996699',
-            '#993366',
-            '#CC6699'
-          ]
-        ;
-        return colors[ Math.floor( Math.random() * colors.length) ];
-      },
-
-      message: function(message) {
-        var
-          html = ''
-        ;
-        if(message.user.isAdmin) {
-          message.user.color = '#55356A';
-          html += '<div class="admin message">';
-          html += '<span class="quirky ui flag team"></span>';
-        }
-        /*
-        else if(message.user.isPro) {
-          html += '<div class="indent message">';
-          html += '<span class="quirky ui flag pro"></span>';
-        }
-        */
-        else {
-          html += '<div class="message">';
-        }
-        html += '<p>';
-        if(message.user.color !== undefined) {
-          html += '<span class="author" style="color: ' + message.user.color + ';">' + message.user.name + '</span>: ';
-        }
-        else {
-          html += '<span class="author">' + message.user.name + '</span>: ';
-        }
-        html += ''
-          +   message.text
-          + ' </p>'
-          + '</div>'
-        ;
-        return html;
-      },
-
-      joined: function(member) {
-        return (typeof member.name !== undefined)
-          ? '<div class="status">' + member.name + ' has joined the chat.</div>'
-          : false
-        ;
-      },
-      left: function(member) {
-        return (typeof member.name !== undefined)
-          ? '<div class="status">' + member.name + ' has left the chat.</div>'
-          : false
-        ;
-      },
-
-      userList: function(member) {
-        var
-          html = ''
-        ;
-        if(member.isAdmin) {
-          member.color = '#55356A';
-        }
-        html +=  ''
-          + '<div class="user" data-id="' + member.id + '">'
-          + ' <div class="image">'
-          + '   <img src="' + member.avatarURL + '">'
-          + ' </div>'
-        ;
-        if(member.color !== undefined) {
-          html += ' <p><a href="/users/' + member.id + '" target="_blank" style="color: ' + member.color + ';">' + member.name + '</a></p>';
-        }
-        else {
-          html += ' <p><a href="/users/' + member.id + '" target="_blank">' + member.name + '</a></p>';
-        }
-        html += '</div>';
-        return html;
-      }
-
-    }
-
-  };
-
-})( jQuery, window , document );
-
 /*
  * # Semantic - Checkbox
  * http://github.com/semantic-org/semantic-ui/
@@ -3595,6 +2818,7 @@ $.fn.dropdown = function(parameters) {
 
         destroy: function() {
           module.verbose('Destroying previous dropdown for', $module);
+          module.remove.tabbable();
           $module
             .off(eventNamespace)
             .removeData(moduleNamespace)
@@ -3628,27 +2852,7 @@ $.fn.dropdown = function(parameters) {
               ;
             }
             if(settings.allowTab) {
-              if( module.is.searchable() ) {
-                module.debug('Searchable dropdown initialized');
-                $search
-                  .val('')
-                  .attr('tabindex', 0)
-                ;
-                $menu
-                  .attr('tabindex', '-1')
-                ;
-              }
-              else {
-                module.debug('Simple selection dropdown initialized');
-                if(!$module.attr('tabindex') ) {
-                  $module
-                    .attr('tabindex', 0)
-                  ;
-                  $menu
-                    .attr('tabindex', '-1')
-                  ;
-                }
-              }
+              module.set.tabbable();
             }
           },
           select: function() {
@@ -3722,7 +2926,6 @@ $.fn.dropdown = function(parameters) {
           if( module.is.active() ) {
             module.debug('Hiding dropdown');
             module.animate.hide(function() {
-              module.remove.filteredItem();
               module.remove.visible();
             });
             $.proxy(settings.onHide, element)();
@@ -3783,6 +2986,7 @@ $.fn.dropdown = function(parameters) {
                 .on('mousedown' + eventNamespace, selector.menu, module.event.menu.activate)
                 .on('mouseup'   + eventNamespace, selector.menu, module.event.menu.deactivate)
                 .on('focus'     + eventNamespace, selector.search, module.event.searchFocus)
+                .on('click'     + eventNamespace, selector.search, module.show)
                 .on('blur'      + eventNamespace, selector.search, module.event.searchBlur)
               ;
             }
@@ -3850,6 +3054,7 @@ $.fn.dropdown = function(parameters) {
             $results       = $(),
             exactRegExp    = new RegExp('(?:\s|^)' + searchTerm, 'i'),
             fullTextRegExp = new RegExp(searchTerm, 'i'),
+            allItemsFiltered,
             $filteredItems
           ;
           $item
@@ -3877,7 +3082,9 @@ $.fn.dropdown = function(parameters) {
               }
             })
           ;
-          $filteredItems = $item.not($results);
+          $filteredItems   = $item.not($results);
+          allItemsFiltered = ($filteredItems.size() == $item.size());
+
           module.remove.filteredItem();
           module.remove.selectedItem();
           $filteredItems
@@ -3888,12 +3095,17 @@ $.fn.dropdown = function(parameters) {
               .eq(0)
               .addClass(className.selected)
           ;
+          if(allItemsFiltered) {
+            module.hide();
+          }
         },
 
         focusSearch: function() {
-          $search
-            .focus()
-          ;
+          if( module.is.search() ) {
+            $search
+              .focus()
+            ;
+          }
         },
 
         event: {
@@ -3905,7 +3117,7 @@ $.fn.dropdown = function(parameters) {
             activated = false;
           },
           focus: function() {
-            if(!activated) {
+            if(!activated && module.is.hidden()) {
               module.show();
             }
           },
@@ -3928,7 +3140,10 @@ $.fn.dropdown = function(parameters) {
               query = $search.val()
             ;
             if(module.is.searchSelection()) {
-              $text.addClass(className.filtered);
+              if( module.can.show() ) {
+                module.show();
+              }
+              module.set.filtered();
             }
             module.filter(query);
           },
@@ -4086,7 +3301,8 @@ $.fn.dropdown = function(parameters) {
                       ? text.toLowerCase()
                       : text,
                 callback = function() {
-                  $search.val('');
+                  module.remove.searchTerm();
+                  module.remove.filteredItem();
                   module.determine.selectAction(text, value);
                   $.proxy(settings.onChange, element)(value, text, $choice);
                 },
@@ -4333,6 +3549,32 @@ $.fn.dropdown = function(parameters) {
         },
 
         set: {
+          filtered: function() {
+            $text.addClass(className.filtered);
+          },
+          tabbable: function() {
+            if( module.is.searchable() ) {
+              module.debug('Searchable dropdown initialized');
+              $search
+                .val('')
+                .attr('tabindex', 0)
+              ;
+              $menu
+                .attr('tabindex', '-1')
+              ;
+            }
+            else {
+              module.debug('Simple selection dropdown initialized');
+              if(!$module.attr('tabindex') ) {
+                $module
+                  .attr('tabindex', 0)
+                ;
+                $menu
+                  .attr('tabindex', '-1')
+                ;
+              }
+            }
+          },
           scrollPosition: function($item) {
             var
               $item         = $item || module.get.item(),
@@ -4445,8 +3687,31 @@ $.fn.dropdown = function(parameters) {
           filteredItem: function() {
             $item.removeClass(className.filtered);
           },
+          searchTerm: function() {
+            $search.val('');
+          },
           selectedItem: function() {
             $item.removeClass(className.selected);
+          },
+          tabbable: function() {
+            if( module.is.searchable() ) {
+              module.debug('Searchable dropdown initialized');
+              $search
+                .attr('tabindex', '-1')
+              ;
+              $menu
+                .attr('tabindex', '-1')
+              ;
+            }
+            else {
+              module.debug('Simple selection dropdown initialized');
+              $module
+                .attr('tabindex', '-1')
+              ;
+              $menu
+                .attr('tabindex', '-1')
+              ;
+            }
           }
         },
 
@@ -4876,7 +4141,7 @@ $.fn.dropdown.settings = {
     dropdown : '.ui.dropdown',
     text     : '> .text:not(.icon)',
     input    : '> input[type="hidden"], > select',
-    search   : '> .search, .menu > .search > input, .menu > input.search',
+    search   : '> input.search, .menu > .search > input, .menu > input.search',
     menu     : '.menu',
     item     : '.item'
   },
@@ -5695,8 +4960,8 @@ $.fn.form.settings = {
       if($form.find('#' + fieldIdentifier).size() > 0) {
         matchingValue = $form.find('#' + fieldIdentifier).val();
       }
-      else if($form.find('[name=' + fieldIdentifier +']').size() > 0) {
-        matchingValue = $form.find('[name=' + fieldIdentifier + ']').val();
+      else if($form.find('[name="' + fieldIdentifier +'"]').size() > 0) {
+        matchingValue = $form.find('[name="' + fieldIdentifier + '"]').val();
       }
       else if( $form.find('[data-validate="'+ fieldIdentifier +'"]').size() > 0 ) {
         matchingValue = $form.find('[data-validate="'+ fieldIdentifier +'"]').val();
@@ -7145,12 +6410,14 @@ $.fn.popup = function(parameters) {
         },
 
         refresh: function() {
-          $popup = (settings.popup)
-            ? $(settings.popup)
-            : (settings.inline)
-              ? $target.next(settings.selector.popup)
-              : false
-          ;
+          if(settings.popup) {
+            $popup = $(settings.popup);
+          }
+          else {
+            if(settings.inline) {
+              $popup = $target.next(settings.selector.popup);
+            }
+          }
           if(settings.popup) {
             $popup.addClass(className.loading);
             $offsetParent = $popup.offsetParent();
@@ -7700,10 +6967,12 @@ $.fn.popup = function(parameters) {
         bind: {
           popup: function() {
             module.verbose('Allowing hover events on popup to prevent closing');
-            $popup
-              .on('mouseenter' + eventNamespace, module.event.start)
-              .on('mouseleave' + eventNamespace, module.event.end)
-            ;
+            if($popup && $popup.size() > 0) {
+              $popup
+                .on('mouseenter' + eventNamespace, module.event.start)
+                .on('mouseleave' + eventNamespace, module.event.end)
+              ;
+            }
           },
           close:function() {
             if(settings.hideOnScroll === true || settings.hideOnScroll == 'auto' && settings.on != 'click') {
@@ -11071,37 +10340,69 @@ $.fn.sidebar = function(parameters) {
             var
               width  = $module.outerWidth(),
               height = $module.outerHeight(),
-              style  = ''
-                + '<style title="' + namespace + '">'
-                + ' .ui.visible.left.sidebar ~ .fixed,'
-                + ' .ui.visible.left.sidebar ~ .pusher {'
+              style
+            ;
+            style  = ''
+              + '<style title="' + namespace + '">'
+              + ' .ui.visible.left.sidebar ~ .fixed,'
+              + ' .ui.visible.left.sidebar ~ .pusher {'
+              + '   -webkit-transform: translate3d('+ width + 'px, 0, 0);'
+              + '           transform: translate3d('+ width + 'px, 0, 0);'
+              + ' }'
+              + ' .ui.visible.right.sidebar ~ .fixed,'
+              + ' .ui.visible.right.sidebar ~ .pusher {'
+              + '   -webkit-transform: translate3d(-'+ width + 'px, 0, 0);'
+              + '           transform: translate3d(-'+ width + 'px, 0, 0);'
+              + ' }'
+              + ' .ui.visible.left.sidebar ~ .ui.visible.right.sidebar ~ .fixed,'
+              + ' .ui.visible.left.sidebar ~ .ui.visible.right.sidebar ~ .pusher,'
+              + ' .ui.visible.right.sidebar ~ .ui.visible.left.sidebar ~ .fixed,'
+              + ' .ui.visible.right.sidebar ~ .ui.visible.left.sidebar ~ .pusher {'
+              + '   -webkit-transform: translate3d(0px, 0, 0);'
+              + '           transform: translate3d(0px, 0, 0);'
+              + ' }'
+              + ' .ui.visible.top.sidebar ~ .fixed,'
+              + ' .ui.visible.top.sidebar ~ .pusher {'
+              + '   -webkit-transform: translate3d(0, ' + height + 'px, 0);'
+              + '           transform: translate3d(0, ' + height + 'px, 0);'
+              + ' }'
+              + ' .ui.visible.bottom.sidebar ~ .fixed,'
+              + ' .ui.visible.bottom.sidebar ~ .pusher {'
+              + '   -webkit-transform: translate3d(0, -' + height + 'px, 0);'
+              + '           transform: translate3d(0, -' + height + 'px, 0);'
+              + ' }'
+            ;
+
+            /* IE is only browser not to create context with transforms */
+            /* https://www.w3.org/Bugs/Public/show_bug.cgi?id=16328 */
+            if( module.is.ie() ) {
+              style += ''
+                + ' .ui.visible.left.sidebar ~ .pusher:after {'
                 + '   -webkit-transform: translate3d('+ width + 'px, 0, 0);'
                 + '           transform: translate3d('+ width + 'px, 0, 0);'
                 + ' }'
-                + ' .ui.visible.right.sidebar ~ .fixed,'
-                + ' .ui.visible.right.sidebar ~ .pusher {'
+                + ' .ui.visible.right.sidebar ~ .pusher:after {'
                 + '   -webkit-transform: translate3d(-'+ width + 'px, 0, 0);'
                 + '           transform: translate3d(-'+ width + 'px, 0, 0);'
                 + ' }'
-                + ' .ui.visible.left.sidebar ~ .ui.visible.right.sidebar ~ .fixed,'
-                + ' .ui.visible.left.sidebar ~ .ui.visible.right.sidebar ~ .pusher,'
-                + ' .ui.visible.right.sidebar ~ .ui.visible.left.sidebar ~ .fixed,'
-                + ' .ui.visible.right.sidebar ~ .ui.visible.left.sidebar ~ .pusher {'
+                + ' .ui.visible.left.sidebar ~ .ui.visible.right.sidebar ~ .pusher:after,'
+                + ' .ui.visible.right.sidebar ~ .ui.visible.left.sidebar ~ .pusher:after {'
                 + '   -webkit-transform: translate3d(0px, 0, 0);'
                 + '           transform: translate3d(0px, 0, 0);'
                 + ' }'
-                + ' .ui.visible.top.sidebar ~ .fixed,'
-                + ' .ui.visible.top.sidebar ~ .pusher {'
+                + ' .ui.visible.top.sidebar ~ .pusher:after {'
                 + '   -webkit-transform: translate3d(0, ' + height + 'px, 0);'
                 + '           transform: translate3d(0, ' + height + 'px, 0);'
                 + ' }'
-                + ' .ui.visible.bottom.sidebar ~ .fixed,'
-                + ' .ui.visible.bottom.sidebar ~ .pusher {'
+                + ' .ui.visible.bottom.sidebar ~ .pusher:after {'
                 + '   -webkit-transform: translate3d(0, -' + height + 'px, 0);'
                 + '           transform: translate3d(0, -' + height + 'px, 0);'
                 + ' }'
-                + '</style>'
-            ;
+              ;
+            }
+
+           style += '</style>';
+
             $head.append(style);
             $style = $('style[title=' + namespace + ']');
             module.debug('Adding sizing css to head', $style);
@@ -11526,6 +10827,15 @@ $.fn.sidebar = function(parameters) {
         },
 
         is: {
+
+          ie: function() {
+            var
+              isIE11 = (!(window.ActiveXObject) && 'ActiveXObject' in window),
+              isIE   = ('ActiveXObject' in window)
+            ;
+            return (isIE11 || isIE);
+          },
+
           legacy: function() {
             var
               element    = document.createElement('div'),
@@ -11770,14 +11080,14 @@ $.fn.sidebar.settings = {
 
   defaultTransition : {
     computer: {
-      left   : 'push',
-      right  : 'push',
+      left   : 'uncover',
+      right  : 'uncover',
       top    : 'overlay',
       bottom : 'overlay'
     },
     mobile: {
-      left   : 'push',
-      right  : 'push',
+      left   : 'uncover',
+      right  : 'uncover',
       top    : 'overlay',
       bottom : 'overlay'
     }
@@ -13757,10 +13067,8 @@ $.fn.sticky.settings = {
   performance   : false,
 
   pushing       : false,
-
   context       : false,
   scrollContext : window,
-
   offset        : 0,
   bottomOffset  : 0,
 
@@ -14570,7 +13878,7 @@ $.fn.tab.settings = {
     noContent  : 'The tab you specified is missing a content url.',
     path       : 'History enabled, but no path was specified',
     recursion  : 'Max recursive depth reached',
-    state      : 'The state library has not been initialized'
+    state      : 'History requires Asual\'s Address library <https://github.com/asual/jquery-address>'
   },
 
   metadata : {
@@ -14749,9 +14057,8 @@ $.fn.transition = function() {
 
         reset: function() {
           module.debug('Resetting animation to beginning conditions');
-          $module.off(animationEnd + eventNamespace);
+          module.remove.animationEndCallback();
           module.restore.conditions();
-          module.hide();
           module.remove.animating();
         },
 
@@ -14774,7 +14081,6 @@ $.fn.transition = function() {
               module.verbose('Animation is outward, hiding element');
               module.restore.conditions();
               module.hide();
-              module.remove.display();
               $.proxy(settings.onHide, this)();
             }
             else if( module.is.inward() ) {
@@ -14811,7 +14117,7 @@ $.fn.transition = function() {
               module.save.conditions();
             }
             module.remove.direction();
-            $module.off('.complete');
+            module.remove.animationEndCallback();
             if(module.can.transition() && !module.has.direction()) {
               module.set.direction();
             }
@@ -14961,6 +14267,9 @@ $.fn.transition = function() {
                 'animation'         : ''
               })
             ;
+          },
+          animationEndCallback: function() {
+            $module.off('.complete');
           },
           display: function() {
             $module.css('display', '');
@@ -15187,6 +14496,10 @@ $.fn.transition = function() {
 
         hide: function() {
           module.verbose('Hiding element');
+          if( module.is.animating() ) {
+            module.reset();
+          }
+          module.remove.display();
           module.remove.visible();
           module.set.hidden();
           module.repaint();

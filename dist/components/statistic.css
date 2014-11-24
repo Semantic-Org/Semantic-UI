@@ -1,7 +1,7 @@
  /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -245,11 +245,11 @@
     Floated
 ---------------*/
 
-.ui.left.floated.statistic {
+.ui[class*="left floated"].statistic {
   float: left;
   margin: 0em 2em 1em 0em;
 }
-.ui.right.floated.statistic {
+.ui[class*="right floated"].statistic {
   float: right;
   margin: 0em 0em 1em 2em;
 }

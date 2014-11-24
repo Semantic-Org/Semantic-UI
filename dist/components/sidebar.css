@@ -1,7 +1,7 @@
  /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -133,8 +133,8 @@
   height: 0px;
   overflow: hidden;
   opacity: 0;
-  -webkit-transition: opacity 500ms;
-          transition: opacity 500ms;
+  -webkit-transition: -webkit-transform 500ms, opacity 500ms;
+          transition: transform 500ms, opacity 500ms;
   will-change: opacity;
   z-index: 1000;
 }
