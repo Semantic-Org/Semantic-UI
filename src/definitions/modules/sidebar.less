@@ -139,7 +139,10 @@
   height: 0px;
   overflow: hidden;
   opacity: 0;
-  transition: opacity @duration;
+  transition:
+    transform @duration,
+    opacity @duration
+  ;
   will-change: opacity;
   z-index: @dimmerLayer;
 }
