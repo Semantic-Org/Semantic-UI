@@ -1,7 +1,9 @@
-# Semantic
-Semantic uses principles of natural language to create a re-usable language for UI.
+![Semantic](http://beta.semantic-ui.com/images/logo.png)
 
-Semantic UI is now at 1.0, **be sure to check out our [release notes](https://github.com/Semantic-Org/Semantic-UI/blob/master/RELEASE%20NOTES.md) for changes from the pre-release**.
+# Semantic UI
+Semantic is a highly themable UI framework
+
+Semantic UI is now at 1.0, be sure to check out our [release notes](https://github.com/Semantic-Org/Semantic-UI/blob/master/RELEASE%20NOTES.md) for changes from the pre-release.
 
 [![Flattr This](https://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=jlukic&url=https%3A%2F%2Fgithub.com%2Fjlukic%2FSemantic-UI)
 
@@ -46,7 +48,7 @@ gulp help // list all commands
 
 Please [share any issues](https://github.com/Semantic-Org/Semantic-UI/issues?state=open) you may have. We need your help to get all the kinks out.
 
-If you are reporting a bug *you must create a test-case*. You can [fork this jsfiddle](http://jsfiddle.net/J9MkJ/32/) to get you started.
+If you are reporting a bug *you must create a test-case*. You can [fork this jsfiddle](http://jsfiddle.net/71dt95dr/) to get you started.
 
 If you need help, come hang out in `#semantic-ui` on *irc.freenode.net*.  Click here to use [webchat](http://webchat.freenode.net/?randomnick=1&channels=%23semantic-ui&prompt=1&uio=OT10cnVlJjExPTEyMwb9).
 
