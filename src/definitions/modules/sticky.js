@@ -735,10 +735,8 @@ $.fn.sticky.settings = {
   performance   : false,
 
   pushing       : false,
-
   context       : false,
   scrollContext : window,
-
   offset        : 0,
   bottomOffset  : 0,
 
