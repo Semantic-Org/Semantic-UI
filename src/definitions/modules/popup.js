@@ -90,7 +90,7 @@ $.fn.popup = function(parameters) {
           if( !module.exists() ) {
             module.create();
           }
-          if(settings.hoverable) {
+          else if(settings.hoverable) {
             module.bind.popup();
           }
           module.instantiate();
