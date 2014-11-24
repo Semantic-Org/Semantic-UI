@@ -74,7 +74,7 @@
 - **Transition** - Transition now has a new ``start`` callback, before animation starts
 - **Transition** - Complete callback now does not occur if animation is interrupted before completing
 - **Transition** - You can now specify the final displayType of a transitioning element in metadata or settings (not just automatically detected)
-- **More [untracked changes](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+label%3AEnhancement+is%3Aclosed added as well**
+- **More [untracked changes](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+label%3AEnhancement+is%3Aclosed) added as well**
 
 ** Bug Fixes **
 - See Closed GitHub Issues
