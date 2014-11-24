@@ -741,8 +741,8 @@ $.fn.form.settings = {
       if($form.find('#' + fieldIdentifier).size() > 0) {
         matchingValue = $form.find('#' + fieldIdentifier).val();
       }
-      else if($form.find('[name=' + fieldIdentifier +']').size() > 0) {
-        matchingValue = $form.find('[name=' + fieldIdentifier + ']').val();
+      else if($form.find('[name="' + fieldIdentifier +'"]').size() > 0) {
+        matchingValue = $form.find('[name="' + fieldIdentifier + '"]').val();
       }
       else if( $form.find('[data-validate="'+ fieldIdentifier +'"]').size() > 0 ) {
         matchingValue = $form.find('[data-validate="'+ fieldIdentifier +'"]').val();
