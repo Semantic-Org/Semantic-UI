@@ -1,4 +1,4 @@
-![Semantic](http://beta.semantic-ui.com/images/logo.png)
+![Semantic](http://www.semantic-ui.com/images/logo.png)
 
 # Semantic UI
 Semantic is a highly themable UI framework
