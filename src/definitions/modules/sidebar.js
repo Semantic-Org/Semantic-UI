@@ -903,14 +903,14 @@ $.fn.sidebar.settings = {
 
   defaultTransition : {
     computer: {
-      left   : 'push',
-      right  : 'push',
+      left   : 'uncover',
+      right  : 'uncover',
       top    : 'overlay',
       bottom : 'overlay'
     },
     mobile: {
-      left   : 'push',
-      right  : 'push',
+      left   : 'uncover',
+      right  : 'uncover',
       top    : 'overlay',
       bottom : 'overlay'
     }
