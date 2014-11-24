@@ -191,7 +191,7 @@
 @secondaryMargin: 0.25em;
 @secondaryVerticalMargin: 0.3em;
 @secondaryVerticalPadding: 0.5em;
-@secondaryHorizontalPadding: 1em;
+@secondaryHorizontalPadding: 0.8em;
 
 @secondaryLinkOpacity: 0.8;
 
