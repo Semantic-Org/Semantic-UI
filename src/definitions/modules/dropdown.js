@@ -203,7 +203,6 @@ $.fn.dropdown = function(parameters) {
           if( module.is.active() ) {
             module.debug('Hiding dropdown');
             module.animate.hide(function() {
-              module.remove.filteredItem();
               module.remove.visible();
             });
             $.proxy(settings.onHide, element)();
@@ -264,6 +263,7 @@ $.fn.dropdown = function(parameters) {
                 .on('mousedown' + eventNamespace, selector.menu, module.event.menu.activate)
                 .on('mouseup'   + eventNamespace, selector.menu, module.event.menu.deactivate)
                 .on('focus'     + eventNamespace, selector.search, module.event.searchFocus)
+                .on('click'     + eventNamespace, selector.search, module.show)
                 .on('blur'      + eventNamespace, selector.search, module.event.searchBlur)
               ;
             }
@@ -369,6 +369,9 @@ $.fn.dropdown = function(parameters) {
               .eq(0)
               .addClass(className.selected)
           ;
+          if($filteredItems.size() == $item.size()) {
+            module.hide();
+          }
         },
 
         focusSearch: function() {
@@ -572,7 +575,8 @@ $.fn.dropdown = function(parameters) {
                       ? text.toLowerCase()
                       : text,
                 callback = function() {
-                  $search.val('');
+                  module.remove.searchTerm();
+                  module.remove.filteredItem();
                   module.determine.selectAction(text, value);
                   $.proxy(settings.onChange, element)(value, text, $choice);
                 },
@@ -956,6 +960,9 @@ $.fn.dropdown = function(parameters) {
           },
           filteredItem: function() {
             $item.removeClass(className.filtered);
+          },
+          searchTerm: function() {
+            $search.val('');
           },
           selectedItem: function() {
             $item.removeClass(className.selected);

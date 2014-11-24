@@ -169,7 +169,7 @@
 @selectionVisibleIconOpacity: 1;
 
 /* Search */
-@searchMinWidth: auto;
+@searchMinWidth: '';
 
 /* Search Selection */
 @searchSelectionLineHeight: 1.2em;
