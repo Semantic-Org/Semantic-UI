@@ -83,7 +83,6 @@ html {
 *******************************/
 
 /* Mobile Only */
-
 @media only screen and (max-width : 768px) {
 
   #home .menu .right.menu > .item {
@@ -132,8 +131,4 @@ html {
   #home .selection.list .right.floated {
     display: none;
   }
-}
-
-@media only screen and (max-width : 1000px) {
-
 }
