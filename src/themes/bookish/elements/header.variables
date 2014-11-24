@@ -2,7 +2,7 @@
        Header
 --------------------*/
 
-@pageFont : 'Libre Baskerville', serif;
+@headerFont : 'Karma', 'Times New Roman', serif;
 @fontWeight: normal;
 
 @iconSize: 1.5em;

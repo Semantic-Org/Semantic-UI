@@ -27,6 +27,7 @@
   border: none;
   margin: @margin;
   padding: @verticalPadding @horizontalPadding;
+  font-family: @fontFamily;
   font-weight: @fontWeight;
   line-height: @lineHeight;
   text-transform: @textTransform;
@@ -43,7 +44,17 @@
   color: @subHeaderColor;
 }
 
-/* Icon and Content Together */
+.ui.header:first-child {
+  margin-top: @firstMargin;
+}
+.ui.header:last-child {
+  margin-bottom: @lastMargin;
+}
+
+/*--------------
+      Icon
+---------------*/
+
 .ui.header > .icon {
   display: table-cell;
   opacity: @iconOpacity;
@@ -53,10 +64,6 @@
   vertical-align: @iconAlignment;
   padding-right: (@iconMargin / 2);
 }
-.ui.header > .icon + .content {
-  padding-left: (@iconMargin / 2);
-  display: table-cell;
-}
 
 /* Only One */
 .ui.header .icon:only-child {
@@ -65,25 +72,21 @@
   margin-right: (@iconMargin / 2);
   vertical-align: baseline;
 }
+
+/*--------------
+     Content
+---------------*/
+
 .ui.header .content {
   display: inline-block;
   vertical-align: @contentAlignment;
 }
-.ui.header .icon + .content {
+
+.ui.header > .icon + .content {
+  padding-left: (@iconMargin / 2);
+  display: table-cell;
   vertical-align: @contentIconAlignment;
 }
-
-/* Positioning */
-.ui.header:first-child {
-  margin-top: @firstMargin;
-}
-.ui.header:last-child {
-  margin-bottom: @lastMargin;
-}
-.ui.header + p {
-  margin-top: @nextParagraphTopMargin;
-}
-
 
 /*--------------
  Content Heading
@@ -116,10 +119,38 @@
   vertical-align: @labelVerticalAlign;
 }
 
+/* Positioning */
+.ui.header + p {
+  margin-top: @nextParagraphDistance;
+}
+
+
 
 /*******************************
             Types
 *******************************/
+
+/*--------------
+     Page
+---------------*/
+
+
+h1.ui.header {
+  font-size: @h1;
+}
+h2.ui.header {
+  font-size: @h2;
+}
+h3.ui.header {
+  font-size: @h3;
+}
+h4.ui.header {
+  font-size: @h4;
+}
+h5.ui.header {
+  font-size: @h5;
+}
+
 
 /*-------------------
         Icon

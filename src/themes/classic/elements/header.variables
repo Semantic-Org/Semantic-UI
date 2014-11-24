@@ -6,5 +6,7 @@
        Element
 --------------------*/
 
+@headerFont: 'Open Sans', Arial, sans-serif;
+
 @blockBackground: @offWhite @subtleGradient;
 @blockBoxShadow: @subtleShadow;

@@ -7,6 +7,7 @@
 --------------------*/
 
 @textTransform: none;
+@fontFamily: @headerFont;
 @fontWeight: @headerFontWeight;
 @lineHeight: @headerLineHeight;
 @lineHeightOffset: @headerLineHeightOffset;
@@ -48,7 +49,7 @@
 @contentIconAlignment: middle;
 
 /* Paragraph after Header */
-@nextParagraphTopMargin: 0em;
+@nextParagraphDistance: 0em;
 
 /*-------------------
       Variations
