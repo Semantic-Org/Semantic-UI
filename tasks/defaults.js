@@ -14,7 +14,7 @@ module.exports = {
 
   title      : 'Semantic UI',
   repository : 'https://github.com/Semantic-Org/Semantic-UI',
-  url        : 'http://beta.semantic-ui.com/',
+  url        : 'http://www.semantic-ui.com/',
 
   // files cleaned after install
   setupFiles: [

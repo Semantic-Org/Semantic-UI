@@ -32,7 +32,7 @@ module.exports = {
   // root path to repos
   outputRoot  : '../components/',
 
-  homepage    : 'http://beta.semantic-ui.com',
+  homepage    : 'http://www.semantic-ui.com',
 
   // components that get separate repositories for bower/npm
   components : [

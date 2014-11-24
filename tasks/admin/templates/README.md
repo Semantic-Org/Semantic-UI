@@ -18,6 +18,6 @@ npm install semantic-ui-{component}
 
 ## Addendum
 
-This element's definitions (required class names, html structures) are available in the [Beta UI Docs](http://beta.semantic-ui.com)
+This element's definitions (required class names, html structures) are available in the [UI Docs](http://www.semantic-ui.com)
 
-Please consider checking out [all the benefits to theming](http://learnsemantic.com/guide/expert.html) before using these stand-alone releases.
+Please consider checking out [all the benefits to theming](http://www.learnsemantic.com/guide/expert.html) before using these stand-alone releases.
