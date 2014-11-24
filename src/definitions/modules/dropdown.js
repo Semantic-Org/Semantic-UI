@@ -411,7 +411,10 @@ $.fn.dropdown = function(parameters) {
               query = $search.val()
             ;
             if(module.is.searchSelection()) {
-              $text.addClass(className.filtered);
+              if( module.can.show() ) {
+                module.show();
+              }
+              module.set.filtered();
             }
             module.filter(query);
           },
@@ -816,6 +819,9 @@ $.fn.dropdown = function(parameters) {
         },
 
         set: {
+          filtered: function() {
+            $text.addClass(className.filtered);
+          },
           tabbable: function() {
             if( module.is.searchable() ) {
               module.debug('Searchable dropdown initialized');
