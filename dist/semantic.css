@@ -4706,7 +4706,7 @@ a.ui.card:hover,
 }
 
 /*  UTF Reference
-.check:before { content: '\e800'; }
+.check:before { content: '\e800'; }  ''
 .circle:before { content: '\e801'; }
 .ok-circled:before { content: '\e806'; }
 .ok-circle:before { content: '\e805'; }
