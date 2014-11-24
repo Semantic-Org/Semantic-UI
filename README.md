@@ -10,7 +10,7 @@ Key Features
 * 3 Levels of Variable Inheritance (Similar to SublimeText)
 * Built using EM values for responsive design
 
-Semantic UI is now at 1.0, be sure to check out our [release notes](https://github.com/Semantic-Org/Semantic-UI/blob/master/RELEASE%-NOTES.md) for changes from the pre-release.
+Semantic UI is now at 1.0, be sure to check out our [release notes](https://github.com/Semantic-Org/Semantic-UI/blob/master/RELEASE-NOTES.md) for changes from the pre-release.
 
 [![Flattr This](https://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=jlukic&url=https%3A%2F%2Fgithub.com%2Fjlukic%2FSemantic-UI)
 
