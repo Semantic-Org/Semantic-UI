@@ -110,7 +110,7 @@ $.fn.popup = function(parameters) {
           }
           else {
             if(settings.inline) {
-              $target.next(settings.selector.popup);
+              $popup = $target.next(settings.selector.popup);
             }
           }
           if(settings.popup) {
