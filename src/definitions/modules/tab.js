@@ -777,7 +777,7 @@ $.fn.tab.settings = {
     noContent  : 'The tab you specified is missing a content url.',
     path       : 'History enabled, but no path was specified',
     recursion  : 'Max recursive depth reached',
-    state      : 'The state library has not been initialized'
+    state      : 'History requires Asual\'s Address library <https://github.com/asual/jquery-address>'
   },
 
   metadata : {
