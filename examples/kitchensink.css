@@ -9,44 +9,41 @@
 #sink {
   background-color: #FFFFFF;
 }
+
+#sink .demo.container {
+  width: 700px;
+  margin: 0px auto;
+}
+
+#sink .demo.container .example {
+  padding: 2em 0em;
+  margin: 2em 0em;
+  border-top: 1px solid #DDD;
+}
+
 #sink .demo h4 {
+  font-size: 1.5em;
   margin: 2em 0em 1em;
 }
-
-
-/* Awkwardly ported from docs */
-#sink .demo.row {
-  margin: 0 auto !important;
-  max-width: 1400px;
-}
-#sink .demo.row .button.demo > .buttons,
-#sink .demo.row .button.demo > .button,
-#sink .demo.row .button.demo > .segment > .button {
+#sink .demo.container .button.demo > .buttons,
+#sink .demo.container .button.demo > .button,
+#sink .demo.container .button.demo > .segment > .button {
   margin-bottom: 0.5em;
 }
-#sink .demo.row .ui.menu,
-#sink .demo.row .ui.card {
-  width: 100%;
-}
-#sink .demo.row h4 {
+#sink .demo.container h4:first-child {
   font-weight: bold !important;
   margin: 0em 0em 1em !important;
 }
-#sink .demo.row .example {
-  clear: both;
-  padding-top: 3em;
-  margin-top: 3em;
-}
-#sink .demo.row .example:first-child {
+#sink .demo.container .example:first-child {
   margin-top: 0;
   padding-top: 0;
 }
-#sink .demo.row .segment.example {
+#sink .demo.container .segment.example {
   z-index: 1;
 }
-#sink .demo.row .ui.label:not(.empty) {
+#sink .demo.container .ui.label:not(.empty) {
   margin-bottom: 1em;
 }
-#sink .demo.row .segment .ui.label {
+#sink .demo.container .segment .ui.label {
   margin-bottom: 0em;
 }
