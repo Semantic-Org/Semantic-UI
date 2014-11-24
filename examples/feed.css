@@ -38,11 +38,9 @@ body {
         Grid
 --------------------*/
 
-#feed .grid {
-  height: 100%;
-}
-
-#feed > .grid > .column {
+#feed .pusher,
+#feed .grid,
+#feed .grid > .column {
   height: 100%;
 }
 
@@ -53,11 +51,6 @@ body {
 #feed .page {
   background-color: #FFFFFF;
   padding: 2em 0em;
-}
-
-
-#feed .inbox.tab .item .rating {
-  margin-top: 0.2rem;
 }
 
 #feed .inbox.tab .item .description {

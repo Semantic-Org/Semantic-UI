@@ -43,13 +43,18 @@ html {
     Ribbons
 ---------------*/
 
+#home .segment h1 {
+  font-size: 3em;
+  margin-bottom: 1em;
+}
+
 #home .vertical.segment {
-  padding: 6rem 0rem;
+  padding: 12rem 0rem;
 }
 
 #home .feature.segment {
   margin: 0em;
-  padding: 2rem 0rem;
+  padding: 6rem 0rem;
 }
 #home .feature.segment p {
   min-height: 50px;
@@ -67,8 +72,9 @@ html {
     Footer
 ---------------*/
 
-#home .footer {
+#home .footer.segment {
   background-color: #000000;
+  padding: 3rem 0rem;
 }
 
 
@@ -86,6 +92,10 @@ html {
 
   #home .menu .right.menu > .mobile.item {
     display: block;
+  }
+  #home .menu .right.menu > .mobile.item .menu {
+    left: auto;
+    right: 0em;
   }
 
   #home h1 {
