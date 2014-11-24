@@ -8,7 +8,7 @@ Key Features
 * 50+ UI Elements
 * 3000 + CSS Variables
 * 3 Levels of Variable Inheritance (Similar to SublimeText)
-* Built entirely around EM
+* Built using EM values for responsive design
 
 Semantic UI is now at 1.0, be sure to check out our [release notes](https://github.com/Semantic-Org/Semantic-UI/blob/master/RELEASE%20NOTES.md) for changes from the pre-release.
 
