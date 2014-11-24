@@ -22,8 +22,6 @@
 @horizontalPadding: 1.284em;
 @verticalPadding: 0.8571em;
 
-@iconColor: #55ACEE;
-
 @activeBackgroundColor: rgba(0, 0, 0, 0.1);
 
 @primaryColor: @blue;
@@ -44,3 +42,4 @@
 
 @labeledIconBackgroundColor: rgba(85, 172, 238, 0.05);
 @labeledIconBorder: @borderBoxShadowColor;
+@labeledIconColor: #55ACEE;
