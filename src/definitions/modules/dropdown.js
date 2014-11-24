@@ -331,6 +331,7 @@ $.fn.dropdown = function(parameters) {
             $results       = $(),
             exactRegExp    = new RegExp('(?:\s|^)' + searchTerm, 'i'),
             fullTextRegExp = new RegExp(searchTerm, 'i'),
+            allItemsFiltered,
             $filteredItems
           ;
           $item
@@ -358,7 +359,9 @@ $.fn.dropdown = function(parameters) {
               }
             })
           ;
-          $filteredItems = $item.not($results);
+          $filteredItems   = $item.not($results);
+          allItemsFiltered = ($filteredItems.size() == $item.size());
+
           module.remove.filteredItem();
           module.remove.selectedItem();
           $filteredItems
@@ -369,7 +372,7 @@ $.fn.dropdown = function(parameters) {
               .eq(0)
               .addClass(className.selected)
           ;
-          if($filteredItems.size() == $item.size()) {
+          if(allItemsFiltered) {
             module.hide();
           }
         },
