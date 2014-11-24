@@ -1,13 +1,5 @@
 # Contributing 
 
-## Introduction
-
-There are a variety of ways to contribute to the development of Semantic. We are a very new project and are looking for an enthusiastic and like-minded group of core contributors. We use the lovely free project management software [Trello](https://trello.com/jack148/recommend) for keeping track of project issues and updates.
-
-Some Trello boards are open publicly, others are limited to contributors. Anyone can share ideas for the direction of the project using our public boards.
-
-If you are looking to be added to contributor board on Semantic and are active in development, please reach out to me by e-mail [jack@myfav.es](mailto:jack@myfav.es)
-
 ### Publicity
 
 One of the easiest ways to support Semantic UI is to get the word out
