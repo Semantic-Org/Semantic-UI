@@ -90,7 +90,7 @@ $.fn.popup = function(parameters) {
           if( !module.exists() ) {
             module.create();
           }
-          else if(settings.hoverable) {
+          if(settings.hoverable) {
             module.bind.popup();
           }
           module.instantiate();
@@ -662,10 +662,12 @@ $.fn.popup = function(parameters) {
         bind: {
           popup: function() {
             module.verbose('Allowing hover events on popup to prevent closing');
-            $popup
-              .on('mouseenter' + eventNamespace, module.event.start)
-              .on('mouseleave' + eventNamespace, module.event.end)
-            ;
+            if($popup && $popup.size() > 0) {
+              $popup
+                .on('mouseenter' + eventNamespace, module.event.start)
+                .on('mouseleave' + eventNamespace, module.event.end)
+              ;
+            }
           },
           close:function() {
             if(settings.hideOnScroll === true || settings.hideOnScroll == 'auto' && settings.on != 'click') {
