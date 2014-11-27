@@ -1,6 +1,5 @@
 {
 
-  // Globals
   "globals":  {
     "$"                     : true,
     "afterEach"             : true,
@@ -16,26 +15,24 @@
     "requestAnimationFrame" : true,
     "require"               : true,
     "semantic"              : true
-  }
+  },
 
-  // Debug
-  "debug"         : false,
-  "devel"         : true,
+  "debug"    : false,
+  "devel"    : true,
 
-  // Lint Settings
-  "browser"   : true,
-  "curly"     : true,
-  "immed"     : true,
-  "latedef"   : true,
-  "loopfunc"  : true,
-  "noarg"     : true,
-  "undef"     : true,
-  "sub"       : true,
-  "loopfunc"  : true,
+  "browser"  : true,
+  "curly"    : true,
+  "immed"    : true,
+  "latedef"  : true,
+  "loopfunc" : true,
+  "noarg"    : true,
+  "undef"    : true,
+  "sub"      : true,
+  "loopfunc" : true,
 
-  // Lax
-  "laxbreak"  : true,
-  "indent"    : false,
-  "trailing"  : false,
+  "laxbreak" : true,
+  "evil"     : true,
+  "indent"   : false,
+  "trailing" : false
 
 }
