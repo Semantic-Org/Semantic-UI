@@ -10,22 +10,26 @@ Key Features
 * 3 Levels of Variable Inheritance (Similar to SublimeText)
 * Built using EM values for responsive design
 
-Semantic UI is now at 1.0, be sure to check out our [release notes](https://github.com/Semantic-Org/Semantic-UI/blob/master/RELEASE-NOTES.md) for changes from the pre-release.
+> Semantic UI is now at 1.0, be sure to check out our [release notes](https://github.com/Semantic-Org/Semantic-UI/blob/master/RELEASE-NOTES.md) for changes from the pre-release.
 
-**Semantic now uses Slack for project discussions**. [Request an Invite](https://docs.google.com/forms/d/1hI1z136sXLkTQKtsv8SIvjjAvzpH77YzMQKrU-P8GAc/viewform?usp=send_form) to join the discussion.
 
-> Community contributed plugins and ports for Wordpress, Angular, Dart, Knockout, Rails, and more can be found on the [Integration page](https://github.com/Semantic-Org/Semantic-UI/wiki/Integration).
+## Community Support
 
-## Translations
+* **Want to learn about Semantic?** [Request an Invite](https://docs.google.com/forms/d/1hI1z136sXLkTQKtsv8SIvjjAvzpH77YzMQKrU-P8GAc/viewform?usp=send_form) to join [our Slack chatroom](http://semanticui.slack.com) for support and project discussions
+* **Have a bug?** Make a test case by forking this [jsfiddle](http://jsfiddle.net/efp8z6Ln/), then submit a [bug on GitHub](https://github.com/Semantic-Org/Semantic-UI/issues)
+* **Having issues with your code?** Ask for help on in our [IRC chat](http://webchat.freenode.net/?randomnick=1&channels=%23semantic-ui&prompt=1&uio=OT10cnVlJjExPTEyMwb9), ask about Semantic UI on [StackOverflow](http://www.stackoverflow.com) or ask a question to our [Google Group](https://groups.google.com/forum/#!forum/semantic-ui) 
+* **Looking for a specific integration like Dart, Wordpress, Angular, or Rails?** Check out our [integration page](https://github.com/Semantic-Org/Semantic-UI/wiki/Integration)
 
-Translations are available directly [in the docs](http://www.semantic-ui.com), using the language toolbar.
+## Contributing
+* **Missing documentation in your language?** Help us make Semantic available in more languages by [joining our translation community](https://www.transifex.com/organization/semantic-org/)
+* **Want to help with integration?** Projects are organizing for official [Meteor](https://github.com/Semantic-Org/Semantic-UI-Meteor), and [Angular](https://github.com/Semantic-Org/Semantic-UI-Angular) integrations as well as a [SASS](https://github.com/Semantic-Org/Semantic-UI-SASS) port. 
+* **Want to help others learn concepts behind Semantic?** [LearnSemantic](http://www.learnsemantic.com) needs writers who can get others up to speed with Semantic UI, the definition format. In particular, a "Beginner's Guide" for those who are new to development. [Send me an e-mail](mailto:jack@semantic-ui.com) if you are interested
 
 ## Getting Started
 
 Semantic is best used actively during development. We have included build tools for maintaining changes to Semantic as you work.
 
 ![Getting Started](https://dl.dropboxusercontent.com/u/2657007/install.gif)
-
 
 ```
 npm install
@@ -47,17 +51,6 @@ gulp watch // watch files
 gulp install // re-runs install
 gulp help // list all commands
 ```
-
-
-### Bugs and Issues
-
-> Semantic UI is production ready, but is "pre-release" until build and theming tools are available, and documentation is complete for all components.
-
-Please [share any issues](https://github.com/Semantic-Org/Semantic-UI/issues?state=open) you may have. We need your help to get all the kinks out.
-
-If you are reporting a bug *you must create a test-case*. You can [fork this jsfiddle](http://jsfiddle.net/efp8z6Ln/) to get you started.
-
-If you need help, come hang out in `#semantic-ui` on *irc.freenode.net*.  Click here to use [webchat](http://webchat.freenode.net/?randomnick=1&channels=%23semantic-ui&prompt=1&uio=OT10cnVlJjExPTEyMwb9).
 
 ### Browser Support
 
