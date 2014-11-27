@@ -162,7 +162,6 @@
 @subMenuActiveBackground: transparent;
 
 @loadingBackgroundColor: rgba(255, 255, 255, 0.8);
-@loadingImage: "@{imagePath}/loader-large.gif";
 @loadingPosition: 50% 50%;
 
 
