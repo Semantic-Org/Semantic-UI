@@ -157,7 +157,7 @@
 .horizontal.flip.transition.out {
   animation-name: horizontalFlipOut;
 }
-.vertical.flip.transition.out {
+.vertical.flip.transition.in {
   animation-name: verticalFlipIn;
 }
 .vertical.flip.transition.out {
