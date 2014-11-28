@@ -423,7 +423,7 @@
   -webkit-animation-name: horizontalFlipOut;
           animation-name: horizontalFlipOut;
 }
-.vertical.flip.transition.out {
+.vertical.flip.transition.in {
   -webkit-animation-name: verticalFlipIn;
           animation-name: verticalFlipIn;
 }

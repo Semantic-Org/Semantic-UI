@@ -217,12 +217,12 @@
 
 
 /* Generic */
-.ui.items > .item > .content a {
+.ui.items > .item > .content a:not(.ui) {
   color: #009fda;
   -webkit-transition: color 0.2s ease;
           transition: color 0.2s ease;
 }
-.ui.items > .item > .content a:hover {
+.ui.items > .item > .content a:not(.ui):hover {
   color: #00b2f3;
 }
 

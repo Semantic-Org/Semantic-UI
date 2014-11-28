@@ -243,14 +243,14 @@
 
 
 /* Generic */
-.ui.cards > .card > .content a,
-.ui.card > .content a {
+.ui.cards > .card > .content a:not(.ui),
+.ui.card > .content a:not(.ui) {
   color: #009fda;
   -webkit-transition: color 0.2s ease;
           transition: color 0.2s ease;
 }
-.ui.cards > .card > .content a:hover,
-.ui.card > .content a:hover {
+.ui.cards > .card > .content a:not(.ui):hover,
+.ui.card > .content a:not(.ui):hover {
   color: #00b2f3;
 }
 
@@ -355,12 +355,12 @@
           transition: color 0.2s ease;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
-.ui.cards > .card > .extra a,
-.ui.card > .extra a {
+.ui.cards > .card > .extra a:not(.ui),
+.ui.card > .extra a:not(.ui) {
   color: rgba(0, 0, 0, 0.4);
 }
-.ui.cards > .card > .extra a:hover,
-.ui.card > .extra a:hover {
+.ui.cards > .card > .extra a:not(.ui):hover,
+.ui.card > .extra a:not(.ui):hover {
   color: #00b2f3;
 }
 

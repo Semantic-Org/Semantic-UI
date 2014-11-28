@@ -1,4 +1,4 @@
-@import '//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic';
+@import 'http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic';
 
 /*
  * # Semantic UI
@@ -3637,15 +3637,15 @@
 
 /* Generic */
 
-.ui.cards > .card > .content a,
-.ui.card > .content a {
+.ui.cards > .card > .content a:not(.ui),
+.ui.card > .content a:not(.ui) {
   color: #009fda;
   -webkit-transition: color 0.2s ease;
   transition: color 0.2s ease;
 }
 
-.ui.cards > .card > .content a:hover,
-.ui.card > .content a:hover {
+.ui.cards > .card > .content a:not(.ui):hover,
+.ui.card > .content a:not(.ui):hover {
   color: #00b2f3;
 }
 
@@ -3758,13 +3758,13 @@
   border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.ui.cards > .card > .extra a,
-.ui.card > .extra a {
+.ui.cards > .card > .extra a:not(.ui),
+.ui.card > .extra a:not(.ui) {
   color: rgba(0, 0, 0, 0.4);
 }
 
-.ui.cards > .card > .extra a:hover,
-.ui.card > .extra a:hover {
+.ui.cards > .card > .extra a:not(.ui):hover,
+.ui.card > .extra a:not(.ui):hover {
   color: #00b2f3;
 }
 
@@ -11016,7 +11016,7 @@ i.link.icon:hover {
 
 i.circular.icon {
   border-radius: 500em !important;
-  padding: 0.5em 0.35em !important;
+  padding: 0.5em 0.5em !important;
   box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
   line-height: 1 !important;
   width: 2em !important;
@@ -14574,13 +14574,13 @@ img.ui.bordered.image {
 
 /* Generic */
 
-.ui.items > .item > .content a {
+.ui.items > .item > .content a:not(.ui) {
   color: #009fda;
   -webkit-transition: color 0.2s ease;
   transition: color 0.2s ease;
 }
 
-.ui.items > .item > .content a:hover {
+.ui.items > .item > .content a:not(.ui):hover {
   color: #00b2f3;
 }
 
@@ -17566,27 +17566,6 @@ ol.ui.horizontal.list li:before,
   cursor: default;
   color: rgba(40, 40, 40, 0.3);
   background-color: transparent !important;
-}
-
-/*--------------------
-       Loading
----------------------*/
-
-/* On Form */
-
-.ui.menu.loading {
-  position: relative;
-}
-
-.ui.menu.loading:after {
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  content: '';
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.8) url("themes/default/assets/images/loader-large.gif") no-repeat 50% 50%;
-  visibility: visible;
 }
 
 /*******************************
@@ -24882,8 +24861,8 @@ a:hover {
 
 .ui.table th,
 .ui.table td {
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+  -webkit-transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 /* Headers */
@@ -26268,7 +26247,7 @@ a:hover {
   animation-name: horizontalFlipOut;
 }
 
-.vertical.flip.transition.out {
+.vertical.flip.transition.in {
   -webkit-animation-name: verticalFlipIn;
   animation-name: verticalFlipIn;
 }
