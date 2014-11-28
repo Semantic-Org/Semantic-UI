@@ -6,6 +6,9 @@
     "name" : "Jack Lukic",
     "web"  : "http://www.jacklukic.com"
   },
+  "ignore" : [
+    "src/site"
+  ],
   "dependencies": {
     "jquery"      : ">=1.8"
   },
