@@ -11,8 +11,6 @@
 - **Card/Item** - Fix generic link stylings erroneously affecting linked ui elements like buttons
 - **Table** - Fixes table cell transition animating all properties
 
-**Updates to LearnSemantic guides
-
 ### Version 1.0.0 - November 24, 2014
 
 **Breaking Changes**
