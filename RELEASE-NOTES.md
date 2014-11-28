@@ -1,5 +1,18 @@
 ## RELEASE NOTES
 
+
+### Version 1.0.1 - November 24, 2014
+
+**Bugs**
+- **Site** - Add protocol variable for Google Font loader to avoid issues with ``//`` when loading locally causing freezing
+- **Icon** - Fix horizontal centering of circular icon
+- **Transition** - Fix vertical flip not working due to css typo **Thanks cgroner**
+- **Menu** - Removes missing image loader variable **Thanks ryan-mahoney**
+- **Card/Item** - Fix generic link stylings erroneously affecting linked ui elements like buttons
+- **Table** - Fixes table cell transition animating all properties
+
+** Updates to LearnSemantic guides
+
 ### Version 1.0.0 - November 24, 2014
 
 **Breaking Changes**
