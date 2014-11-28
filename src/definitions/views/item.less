@@ -232,11 +232,11 @@
 ---------------*/
 
 /* Generic */
-.ui.items > .item > .content a {
+.ui.items > .item > .content a:not(.ui) {
   color: @contentLinkColor;
   transition: @contentLinkTransition;
 }
-.ui.items > .item > .content a:hover {
+.ui.items > .item > .content a:not(.ui):hover {
   color: @contentLinkHoverColor;
 }
 
