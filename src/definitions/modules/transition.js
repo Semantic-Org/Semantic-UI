@@ -145,7 +145,7 @@ $.fn.transition = function() {
 
             }
           }
-          if(module.can.animate) {
+          if(module.can.animate()) {
             module.set.animating(settings.animation);
           }
           else {
