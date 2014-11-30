@@ -28,9 +28,6 @@ Package.onTest(function(api) {
     'http',
     'semantic:ui'
   ], where);
-  api.use([
-    'semantic:ui'
-  ], 'server');
 
   api.addFiles([
     'meteor/tests/test_fonts.js',
