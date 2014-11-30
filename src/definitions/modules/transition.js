@@ -145,7 +145,7 @@ $.fn.transition = function() {
 
             }
           }
-          if(module.can.animate()) {
+          if( module.can.animate() ) {
             module.set.animating(settings.animation);
           }
           else {
@@ -499,29 +499,21 @@ $.fn.transition = function() {
         },
 
         can: {
-          animate: function() {
-            if($module.css(settings.animation) !== 'none') {
-              module.debug('CSS definition found',  $module.css(settings.animation));
-              return true;
-            }
-            else {
-              module.debug('Unable to find css definition', $module.attr('class'));
-              return false;
-            }
-          },
           transition: function(forced) {
             var
               elementClass      = $module.attr('class'),
               tagName           = $module.prop('tagName'),
               animation         = settings.animation,
-              transitionExists  = module.get.transitionExists(settings.animation),
+              transitionExists  = module.get.transitionExists(animation),
               $clone,
               currentAnimation,
               inAnimation,
-              animationExists,
+              directionExists,
               displayType
             ;
             if( transitionExists === undefined || forced) {
+              console.log($.fn.transition.exists);
+              console.log(transitionExists, forced);
               module.verbose('Determining whether animation exists');
               $clone = $('<' + tagName + ' />').addClass( elementClass ).insertAfter($module);
               currentAnimation = $clone
@@ -545,21 +537,27 @@ $.fn.transition = function() {
                 .css('display')
               ;
               module.verbose('Determining final display state', displayType);
+              $clone.remove();
               if(currentAnimation != inAnimation) {
-                module.debug('Transition exists for animation', animation);
-                animationExists = true;
+                module.debug('Direction exists for animation', animation);
+                directionExists = true;
+              }
+              else if(currentAnimation == 'none' || !currentAnimation) {
+                module.debug('No animation defined in css', animation);
+                return;
               }
               else {
                 module.debug('Static animation found', animation, displayType);
-                animationExists = false;
+                directionExists = false;
               }
-              $clone.remove();
               module.save.displayType(displayType);
-              if(transitionExists === undefined) {
-                module.save.transitionExists(animation, animationExists);
-              }
+              module.save.transitionExists(animation, directionExists);
             }
-            return transitionExists || animationExists;
+            return transitionExists || directionExists;
+          },
+          animate: function() {
+            // can transition does not return a value if animation does not exist
+            return (module.can.transition() !== undefined);
           }
         },
 
