@@ -123,7 +123,6 @@
   position: @barPosition;
   width: @barInitialWidth;
   min-width: @barMinWidth;
-  height: @barHeight;
   background: @barBackground;
   border-radius: @barBorderRadius;
   transition: @barTransition;
@@ -393,6 +392,37 @@
      Sizes
 ---------------*/
 
+.ui.tiny.progress {
+  font-size: @tiny;
+}
+.ui.tiny.progress .bar {
+  height: @tinyBarHeight;
+}
+
+.ui.small.progress {
+  font-size: @small;
+}
 .ui.small.progress .bar {
-  height: 14px;
+  height: @smallBarHeight;
+}
+
+.ui.progress {
+  font-size: @medium;
+}
+.ui.progress .bar {
+  height: @barHeight;
+}
+
+.ui.large.progress {
+  font-size: @large;
+}
+.ui.large.progress .bar {
+  height: @largeBarHeight;
+}
+
+.ui.big.progress {
+  font-size: @big;
+}
+.ui.big.progress .bar {
+  height: @bigBarHeight;
 }
