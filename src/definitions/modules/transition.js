@@ -232,7 +232,7 @@ $.fn.transition = function() {
               .one(animationEnd + '.complete' + eventNamespace, module.complete)
             ;
             if(settings.useFailSafe) {
-              $module.one(animationStart + eventNamespace, module.add.failSafe);
+              module.add.failSafe();
             }
             module.set.duration(settings.duration);
             $.proxy(settings.onStart, this)();
@@ -363,7 +363,9 @@ $.fn.transition = function() {
             var
               duration = module.get.duration()
             ;
-            module.timer = setTimeout(module.complete, duration + 100);
+            module.timer = setTimeout(function() {
+              module.complete();
+            }, duration + 200);
             module.verbose('Adding fail safe timer', module.timer);
           }
         },
@@ -872,7 +874,7 @@ $.fn.transition.settings = {
   onHide       : function() {},
 
   // whether timeout should be used to ensure callback fires in cases animationend does not
-  useFailSafe  : true,
+  useFailSafe  : false,
 
   // whether EXACT animation can occur twice in a row
   allowRepeats : false,
