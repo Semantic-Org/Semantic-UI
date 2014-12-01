@@ -265,7 +265,6 @@ $.fn.transition = function() {
             var
               style              = module.get.style(),
               displayType        = module.get.displayType(),
-              hasInlineDisplay   = module.has.inlineDisplay(),
               overrideStyle      = style + 'display: ' + displayType + ' !important;'
             ;
             $module.css('display', '');
