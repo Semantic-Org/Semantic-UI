@@ -760,13 +760,29 @@ gulp.task('create repos', false, function(callback) {
 
       var fnames;
       if(isJavascript) {
-        if(isCSS)
+        if(isCSS) {
           fnames = '    \'' + component + '.js\',\n    \'' + component + '.css\'';
-        else
+        }
+        else {
           fnames = '    \'' + component + '.js\'';
+        }
       }
-      else
+      else {
         fnames = '    \'' + component + '.css\'';
+      }
+
+      // Adds flags image as asset for UI-Flag
+      if (component == 'flag') {
+        fnames += ',\n    \'assets/images/flags.png\'';
+      } 
+      // Adds fonts as assets for UI-Icon
+      if (component == 'icon') {
+        fnames += ',\n    \'assets/fonts/icons.eot\'';
+        fnames += ',\n    \'assets/fonts/icons.otf\'';
+        fnames += ',\n    \'assets/fonts/icons.svg\'';
+        fnames += ',\n    \'assets/fonts/icons.ttf\'';
+        fnames += ',\n    \'assets/fonts/icons.woff\'';
+      } 
 
       // copy dist files into output folder adjusting asset paths
       gulp.task(task.repo, false, function() {
@@ -1010,7 +1026,7 @@ gulp.task('update git', false, function() {
       repoURL              = 'https://github.com/' + release.org + '/' + repoName + '/',
       gitOptions           = { cwd: outputDirectory },
       quietOptions         = { args: '-q', cwd: outputDirectory },
-      isRepository         = fs.existsSync(outputDirectory + '.git/')
+      isRepository         = fs.existsSync(outputDirectory + '.git/'),
       componentPackage     = fs.existsSync(outputDirectory + 'package.json' )
         ? require(outputDirectory + 'package.json')
         : false,
@@ -1083,8 +1099,16 @@ gulp.task('update git', false, function() {
     function tagFiles() {
       console.log('Tagging new version ', version);
       git.tag(version, 'Updated version from semantic-ui (automatic)', function (err) {
-        pushFiles();
+        publishMeteor();
       });
+    }
+    function publishMeteor() {
+      console.log('Publishing Meteor package version ', version);
+      //var cmd = new run.Command('meteor publish');
+      //cmd.exec(function(error){
+      //  pushFiles();
+      //});
+      pushFiles();
     }
     function pushFiles() {
       console.log('Pushing files');
@@ -1095,7 +1119,7 @@ gulp.task('update git', false, function() {
         console.log('Push completed successfully');
         stepRepo();
       });
-    };
+    }
 
     // set-up path
     function createRepo() {
@@ -1139,8 +1163,7 @@ gulp.task('update git', false, function() {
           stepRepo();
         }
       });
-    };
-
+    }
   };
 
   return stepRepo();
