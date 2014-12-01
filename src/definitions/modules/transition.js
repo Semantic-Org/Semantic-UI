@@ -47,6 +47,7 @@ $.fn.transition = function() {
         error,
         className,
         metadata,
+        animationStart,
         animationEnd,
         animationName,
 
@@ -66,7 +67,8 @@ $.fn.transition = function() {
           className       = settings.className;
           metadata        = settings.metadata;
 
-          animationEnd    = module.get.animationEvent();
+          animationStart  = module.get.animationStartEvent();
+          animationEnd    = module.get.animationEndEvent();
           animationName   = module.get.animationName();
           error           = settings.error;
           namespace       = settings.namespace;
@@ -174,6 +176,8 @@ $.fn.transition = function() {
 
         complete: function () {
           module.verbose('CSS animation complete', settings.animation);
+          module.remove.animationEndCallback();
+          module.remove.failSafe();
           if(!module.is.looping()) {
             if( module.is.outward() ) {
               module.verbose('Animation is outward, hiding element');
@@ -227,6 +231,9 @@ $.fn.transition = function() {
               .addClass(animation)
               .one(animationEnd + '.complete' + eventNamespace, module.complete)
             ;
+            if(settings.useFailSafe) {
+              $module.one(animationStart + eventNamespace, module.add.failSafe);
+            }
             module.set.duration(settings.duration);
             $.proxy(settings.onStart, this)();
             module.debug('Starting tween', animation, $module.attr('class'));
@@ -351,6 +358,16 @@ $.fn.transition = function() {
           }
         },
 
+        add: {
+          failSafe: function() {
+            var
+              duration = module.get.duration()
+            ;
+            module.timer = setTimeout(module.complete, duration + 100);
+            module.verbose('Adding fail safe timer', module.timer);
+          }
+        },
+
         remove: {
           animating: function() {
             $module.removeClass(className.animating);
@@ -377,6 +394,12 @@ $.fn.transition = function() {
               .removeClass(className.inward)
               .removeClass(className.outward)
             ;
+          },
+          failSafe: function() {
+            module.verbose('Removing fail safe timer', module.timer);
+            if(module.timer) {
+              clearTimeout(module.timer);
+            }
           },
           hidden: function() {
             $module.removeClass(className.hidden);
@@ -440,6 +463,15 @@ $.fn.transition = function() {
             }
             return $.fn.transition.settings;
           },
+          duration: function(duration) {
+            duration = duration || settings.duration;
+            return (typeof settings.duration === 'string')
+              ? (duration.indexOf('ms') > -1)
+                ? parseFloat(duration)
+                : parseFloat(duration) * 1000
+              : duration
+            ;
+          },
           displayType: function() {
             if(settings.displayType) {
               return settings.displayType;
@@ -477,7 +509,25 @@ $.fn.transition = function() {
             }
             return false;
           },
-          animationEvent: function() {
+          animationStartEvent: function() {
+            var
+              element     = document.createElement('div'),
+              animations  = {
+                'animation'       :'animationstart',
+                'OAnimation'      :'oAnimationStart',
+                'MozAnimation'    :'mozAnimationStart',
+                'WebkitAnimation' :'webkitAnimationStart'
+              },
+              animation
+            ;
+            for(animation in animations){
+              if( element.style[animation] !== undefined ){
+                return animations[animation];
+              }
+            }
+            return false;
+          },
+          animationEndEvent: function() {
             var
               element     = document.createElement('div'),
               animations  = {
@@ -512,8 +562,6 @@ $.fn.transition = function() {
               displayType
             ;
             if( transitionExists === undefined || forced) {
-              console.log($.fn.transition.exists);
-              console.log(transitionExists, forced);
               module.verbose('Determining whether animation exists');
               $clone = $('<' + tagName + ' />').addClass( elementClass ).insertAfter($module);
               currentAnimation = $clone
@@ -553,7 +601,10 @@ $.fn.transition = function() {
               module.save.displayType(displayType);
               module.save.transitionExists(animation, directionExists);
             }
-            return transitionExists || directionExists;
+            return (transitionExists !== undefined)
+              ? transitionExists
+              : directionExists
+            ;
           },
           animate: function() {
             // can transition does not return a value if animation does not exist
@@ -800,35 +851,38 @@ $.fn.transition.exists = {};
 $.fn.transition.settings = {
 
   // module info
-  name        : 'Transition',
+  name         : 'Transition',
 
   // debug content outputted to console
-  debug       : false,
+  debug        : false,
 
   // verbose debug output
-  verbose     : true,
+  verbose      : true,
 
   // performance data output
-  performance : true,
+  performance  : true,
 
   // event namespace
-  namespace   : 'transition',
+  namespace    : 'transition',
 
   // animation complete event
-  onStart     : function() {},
-  onComplete  : function() {},
-  onShow      : function() {},
-  onHide      : function() {},
+  onStart      : function() {},
+  onComplete   : function() {},
+  onShow       : function() {},
+  onHide       : function() {},
+
+  // whether timeout should be used to ensure callback fires in cases animationend does not
+  useFailSafe  : true,
 
   // whether EXACT animation can occur twice in a row
   allowRepeats : false,
 
   // Override final display type on visible
-  displayType : false,
+  displayType  : false,
 
   // animation duration
-  animation  : 'fade',
-  duration   : '500ms',
+  animation    : 'fade',
+  duration     : '500ms',
 
   // new animations will occur after previous ones
   queue       : true,
