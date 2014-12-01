@@ -18,6 +18,7 @@ module.exports = {
     bower    : './tasks/admin/templates/bower.json',
     composer : './tasks/admin/templates/composer.json',
     package  : './tasks/admin/templates/package.json',
+    meteor   : './tasks/admin/templates/package.js',
     readme   : './tasks/admin/templates/README.md',
     notes    : './RELEASE-NOTES.md'
   },

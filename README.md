@@ -60,6 +60,13 @@ gulp help // list all commands
 * Android 4
 * Blackberry 10
 
+## Meteor
+To use Semantic with the [Meteor.js](https://www.meteor.com) framework, run
+
+  $ meteor add semantic:ui
+
+Learn more about the [Meteor integration in the README](meteor/README.md).
+
 ### Reaching Out
 
 If you'd like to start a conversation about Semantic feel free to reach out by e-mail [jack@semantic-ui.com](mailto:jack@semantic-ui.com)

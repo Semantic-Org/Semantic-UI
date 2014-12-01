@@ -720,7 +720,10 @@ gulp.task('create repos', false, function(callback) {
             formExport        : /\$\.fn\.\w+\s*=\s*function\(fields, parameters\)\s*{/g,
             settingsExport    : /\$\.fn\.\w+\.settings\s*=/g,
             settingsReference : /\$\.fn\.\w+\.settings/g,
-            jQuery            : /jQuery/g
+            jQuery            : /jQuery/g,
+            // meteor
+            mversion          : '{package-version}',
+            mfiles            : '{package-files}',
           },
           replace : {
             // readme
@@ -737,7 +740,9 @@ gulp.task('create repos', false, function(callback) {
             formExport        :  'module.exports = function(fields, parameters) {\n  var _module = module;\n',
             settingsExport    :  'module.exports.settings =',
             settingsReference :  '_module.exports.settings',
-            jQuery            :  'require("jquery")'
+            jQuery            :  'require("jquery")',
+            // meteor
+            mversion          : version
           }
         },
         task = {
@@ -745,13 +750,23 @@ gulp.task('create repos', false, function(callback) {
           repo     : component + ' create repo',
           bower    : component + ' create bower.json',
           readme   : component + ' create README',
-          readme   : component + ' create README',
           npm      : component + ' create NPM Module',
           notes    : component + ' create release notes',
           composer : component + ' create composer.json',
-          package  : component + ' create package.json'
+          package  : component + ' create package.json',
+          meteor   : component + ' create package.js',
         }
       ;
+
+      var fnames;
+      if(isJavascript) {
+        if(isCSS)
+          fnames = '    \'' + component + '.js\',\n    \'' + component + '.css\'';
+        else
+          fnames = '    \'' + component + '.js\'';
+      }
+      else
+        fnames = '    \'' + component + '.css\'';
 
       // copy dist files into output folder adjusting asset paths
       gulp.task(task.repo, false, function() {
@@ -890,6 +905,19 @@ gulp.task('create repos', false, function(callback) {
         ;
       });
 
+      // create package.js
+      gulp.task(task.meteor, false, function() {
+        return gulp.src(release.templates.meteor)
+          .pipe(plumber())
+          .pipe(flatten())
+          .pipe(replace(regExp.match.name, regExp.replace.name))
+          .pipe(replace(regExp.match.titleName, regExp.replace.titleName))
+          .pipe(replace(regExp.match.mversion, regExp.replace.mversion))
+          .pipe(replace(regExp.match.mfiles, fnames))
+          .pipe(gulp.dest(outputDirectory))
+        ;
+      });
+
       // synchronous tasks in orchestrator? I think not
       gulp.task(task.all, false, function(callback) {
         runSequence([
@@ -899,7 +927,8 @@ gulp.task('create repos', false, function(callback) {
           task.readme,
           task.package,
           task.composer,
-          task.notes
+          task.notes,
+          task.meteor
         ], callback);
       });
 
@@ -909,8 +938,8 @@ gulp.task('create repos', false, function(callback) {
   }
 
   runSequence(tasks, callback);
-
 });
+
 gulp.task('register repos', false, function(callback) {
   var
     index = -1,
@@ -951,7 +980,7 @@ gulp.task('register repos', false, function(callback) {
       stepRepo();
     });
     */
-  }
+  };
   stepRepo();
 });
 
