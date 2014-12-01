@@ -6615,9 +6615,7 @@ $.fn.popup = function(parameters) {
         removePopup: function() {
           module.debug('Removing popup');
           $.proxy(settings.onRemove, $popup)(element);
-          $popup
-            .removePopup()
-          ;
+          $popup.remove();
         },
 
         save: {
