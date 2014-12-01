@@ -4,15 +4,20 @@
 
 **Enhancements**
 
-- **Transition** now has ``failSafe`` parameter to ensure transition callback fires even if native ``onAnimationEnd`` event does not fire due to element visibility. [Chromium Bug Report by Product Manager @ Mozilla](https://code.google.com/p/chromium/issues/detail?id=135350#c2) and [open issue](https://code.google.com/p/chromium/issues/detail?id=437860)
+- **Transition** now has ``useFailSafe`` parameter (off by default) to ensure transition callback fires even if native ``onAnimationEnd`` event does not fire due to element visibility. [Chromium Bug Report by Product Manager @ Mozilla](https://code.google.com/p/chromium/issues/detail?id=135350#c2)
 
 **Bugs**
 - **Build** - NPM now correctly pins dependencies instead of using bleeding-edge versions which may break builds
 - **Transition** - Transition now correctly detects missing animations, errors do not cause future image transitions to break
-
+- **Menu/Segment** Fixes double border on pointing menu with attached segment **Thanks davialexandre**
+- **Progress** - Fixes indicating progress appearing incorrectly at 100% complete **Thanks ordepdev**
 
 **Enhancements**
 - **Transition** - Transition's caching of final display state and *animation existence* now has improved performance.
+- **Progress** - Progress now has sizing variations
+
+**Docs**
+- **Progress* - Added missing settings tab for progress module
 
 
 ### Version 1.0.1 - November 28, 2014

@@ -363,9 +363,7 @@ $.fn.transition = function() {
             var
               duration = module.get.duration()
             ;
-            module.timer = setTimeout(function() {
-              module.complete();
-            }, duration + 200);
+            module.timer = setTimeout(module.complete, duration + 100);
             module.verbose('Adding fail safe timer', module.timer);
           }
         },
