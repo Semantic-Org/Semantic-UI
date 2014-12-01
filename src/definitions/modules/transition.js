@@ -209,6 +209,12 @@ $.fn.transition = function() {
               return true;
             }
             return false;
+          },
+          inlineDisplay: function() {
+            var
+              style = $module.attr('style') || ''
+            ;
+            return $.isArray(style.match(/display.*?;/, ''));
           }
         },
 
@@ -259,8 +265,10 @@ $.fn.transition = function() {
             var
               style              = module.get.style(),
               displayType        = module.get.displayType(),
+              hasInlineDisplay   = module.has.inlineDisplay(),
               overrideStyle      = style + 'display: ' + displayType + ' !important;'
             ;
+            $module.css('display', '');
             module.refresh();
             if( $module.css('display') !== displayType ) {
               module.verbose('Setting inline visibility to', displayType);
@@ -484,7 +492,7 @@ $.fn.transition = function() {
           },
           style: function() {
             var
-               style = $module.attr('style') || ''
+              style = $module.attr('style') || ''
             ;
             return style.replace(/display.*?;/, '');
           },
