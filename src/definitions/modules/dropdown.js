@@ -1120,9 +1120,6 @@ $.fn.dropdown = function(parameters) {
                 }
             ;
             callback = callback || function(){};
-            if($currentMenu.size() === 0) {
-              debugger;
-            }
             if( module.is.visible($currentMenu) || module.is.animating($currentMenu) ) {
               module.verbose('Doing menu hide animation', $currentMenu);
 
