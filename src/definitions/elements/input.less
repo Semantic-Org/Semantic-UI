@@ -29,14 +29,15 @@
 ---------------------*/
 
 .ui.input {
-  display: inline-block;
   position: relative;
+  display: inline-block;
   color: @inputColor;
 }
 .ui.input input {
   margin: 0em;
   width: 100%;
   outline: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   text-align: @textAlign;
   line-height: @lineHeight;
 
@@ -50,8 +51,6 @@
   transition: @transition;
 
   box-shadow: @boxShadow;
-  box-sizing: border-box;
-  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
 }
 
 
@@ -218,18 +217,15 @@
 .ui.icon.input > .icon {
   cursor: default;
   position: absolute;
-  opacity: @iconOpacity;
+  text-align: center;
   top: 0px;
   right: 0px;
-
   margin: 0em;
-  width: @iconWidth;
   height: 100%;
 
-  text-align: center;
-
+  width: @iconWidth;
+  opacity: @iconOpacity;
   border-radius: 0em @borderRadius @borderRadius 0em;
-  box-sizing: border-box;
   transition: @iconTransition;
 }
 .ui.icon.input > .icon:before,

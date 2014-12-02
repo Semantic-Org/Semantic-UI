@@ -7,7 +7,6 @@
 --------------------*/
 
 @pageFont: "Helvetica Neue", "Helvetica", Arial;
-
 @verticalPadding: 0.78571em;
 @horizontalPadding: 1em;
 
@@ -24,9 +23,9 @@
 
 @borderRadius: @defaultBorderRadius;
 @transition:
-  background-color 0.3s ease-out,
-  box-shadow 0.2s ease,
-  border-color 0.2s ease
+  background-color @transitionDuration @transitionEasing,
+  box-shadow @transitionDuration @transitionEasing,
+  border-color @transitionDuration @transitionEasing
 ;
 
 @inputColor: @textColor;
