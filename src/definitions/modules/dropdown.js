@@ -578,7 +578,6 @@ $.fn.dropdown = function(parameters) {
                   module.remove.searchTerm();
                   module.remove.filteredItem();
                   module.determine.selectAction(text, value);
-                  $.proxy(settings.onChange, element)(value, text, $choice);
                 },
                 openingSubMenu = ($choice.find(selector.menu).size() > 0)
               ;
@@ -944,6 +943,7 @@ $.fn.dropdown = function(parameters) {
                 .addClass(className.selected)
               ;
               module.set.text(selectedText);
+              $.proxy(settings.onChange, element)(value, selectedText, $selectedItem);
             }
           }
         },
