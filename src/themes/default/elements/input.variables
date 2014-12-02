@@ -8,10 +8,10 @@
 
 @pageFont: "Helvetica Neue", "Helvetica", Arial;
 
-@verticalPadding: 0.8em;
+@verticalPadding: 0.78571em;
 @horizontalPadding: 1em;
 
-@lineHeight: 1.2em;
+@lineHeight: 1.2142em;
 @lineHeightOffset: ((@lineHeight - 1em) / 2);
 
 @padding: (@verticalPadding - @lineHeightOffset) @horizontalPadding;
