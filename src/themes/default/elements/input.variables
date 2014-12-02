@@ -48,7 +48,7 @@
 @iconTransition: opacity 0.3s @defaultEasing;
 
 @transparentIconWidth: @glyphWidth;
-@transparentIconMargin: 1.75em;
+@transparentIconMargin: 2em;
 
 /* Circular Icon Input */
 @circularIconVerticalOffset: 0.35em;
