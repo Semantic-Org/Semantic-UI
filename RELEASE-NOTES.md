@@ -6,9 +6,9 @@
 - **Transition** - Transition's caching of final display state and *animation existence* now has improved performance.
 - **Popup** - Popup now has a ``settings.prefer`` that defaults to ``adjacent``, prefering adjacent positioning. It can also be set to ``opposite`` to prefer the same position on the opposite side
 - **Popup** - Popup can now use a setting ``lastResort``. When set to a position it will be used as a last resort even if popup does not entirely fit on the page.
-- **Transition** now has ``useFailSafe`` parameter (off by default) to ensure transition callback fires even if native ``onAnimationEnd`` event does not fire due to element visibility. [Chromium Bug Report by Product Manager @ Mozilla](https://code.google.com/p/chromium/issues/detail?id=135350#c2)
-**All UI** - Many ``em`` measurements adjusted slightly to calculate out as exact pixel values (Fixes 1px rounding errors)
-**Steps** - Now use global border color
+- **Transition** now has ``useFailSafe`` parameter (off by default) to ensure transition callback fires even if native ``onAnimationEnd`` event does not fire due to element visibility. [Chromium Bug Report by Product Manager @ Mozilla](https://code.google.com/p/chromium/issues/detail?id=135350#c2) and [this open issue](https://code.google.com/p/chromium/issues/detail?id=437860)
+- **All UI** - Many ``em`` measurements adjusted slightly to calculate out as exact pixel values (Fixes 1px rounding errors)
+- **Steps** - Now use global border color
 - **Progress** - Progress now has sizing variations
 - **Input** - ``transparent input`` can now be ``inverted``
 - **Dropdown** - Dropdown ``onChange`` callback now fires when calling ``setSelected`` programatically.
@@ -21,6 +21,9 @@
 - **Icon** - ``remove icon`` is now formatted correctly when used as ``remove link icon``
 - **Input** - ``ui action input`` can now accomodate ``ui button`` that adjust padding from default
 - **Dropdown** - Fix ``action input`` used inside ``ui dropdown`` to appear correctly **Thanks ordepdev**
+
+**Docs**
+- **Progress* - Added missing settings docs for progress module
 
 **Docs**
 - **Progress* - Added missing settings docs for progress module
