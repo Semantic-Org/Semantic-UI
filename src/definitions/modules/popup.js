@@ -522,7 +522,6 @@ $.fn.popup = function(parameters) {
               module.debug('Using backup position', nextPosition);
               nextPosition = backup[position];
             }
-            console.log(nextPosition);
             return nextPosition;
           }
         },
@@ -690,7 +689,6 @@ $.fn.popup = function(parameters) {
             module.remove.attempts();
             module.set.fluidWidth();
             module.remove.loading();
-            console.log('worked', position);
             return true;
           },
 
