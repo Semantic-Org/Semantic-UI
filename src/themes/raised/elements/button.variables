@@ -10,6 +10,7 @@
 @backgroundImage: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
 @verticalAlign: middle;
 @borderRadius: 0.4em;
+@borderBoxShadowColor: @borderColor;
 
 /* Shadow */
 @shadowDistance: 0.3em;
