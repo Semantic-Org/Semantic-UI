@@ -1,6 +1,6 @@
 ## RELEASE NOTES
 
-### Version 1.1.0 - December XX, 2014
+### Version 1.1.0 - December 02, 2014
 
 **Enhancements**
 - **Transition** - Transition's caching of final display state and *animation existence* now has improved performance.
@@ -19,6 +19,7 @@
 - **Menu/Segment** Fixes double border on pointing menu with attached segment **Thanks davialexandre**
 - **Progress** - Fixes indicating progress appearing incorrectly at 100% complete **Thanks ordepdev**
 - **Icon** - ``remove icon`` is now formatted correctly when used as ``remove link icon``
+- **Input** - ``ui action input`` can now accomodate ``ui button`` that adjust padding from default
 - **Dropdown** - Fix ``action input`` used inside ``ui dropdown`` to appear correctly **Thanks ordepdev**
 
 **Docs**
