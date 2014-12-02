@@ -2038,9 +2038,6 @@ i.icon.gamepad:before {
 i.icon.star.half.full:before {
   content: "\f123";
 }
-i.icon.remove.link:before {
-  content: "\f127";
-}
 i.icon.question:before {
   content: "\f128";
 }

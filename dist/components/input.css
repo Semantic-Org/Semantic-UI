@@ -21,27 +21,26 @@
 ---------------------*/
 
 .ui.input {
-  display: inline-block;
   position: relative;
+  display: inline-block;
   color: rgba(0, 0, 0, 0.8);
 }
 .ui.input input {
   margin: 0em;
   width: 100%;
   outline: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   text-align: left;
-  line-height: 1.2em;
+  line-height: 1.2142em;
   font-family: "Helvetica Neue", "Helvetica", Arial;
-  padding: 0.7em 1em;
+  padding: 0.67861em 1em;
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.15);
   color: rgba(0, 0, 0, 0.8);
   border-radius: 0.2857rem;
-  -webkit-transition: background-color 0.3s ease-out, box-shadow 0.2s ease, border-color 0.2s ease;
-          transition: background-color 0.3s ease-out, box-shadow 0.2s ease, border-color 0.2s ease;
+  -webkit-transition: background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+          transition: background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   box-shadow: none;
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
 /*--------------------
@@ -172,6 +171,30 @@
   padding: 0em;
 }
 
+/* Transparent Icon */
+.ui.transparent.icon.input > .icon {
+  width: 1.25em;
+}
+.ui.transparent.icon.input > input {
+  padding-left: 0em !important;
+  padding-right: 2em !important;
+}
+.ui.transparent[class*="left icon"].input > input {
+  padding-left: 0em !important;
+  padding-left: 2em !important;
+}
+
+/* Transparent Inverted */
+.ui.transparent.inverted.input input::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+.ui.transparent.inverted.input {
+  color: #ffffff;
+}
+.ui.transparent.inverted.input input {
+  color: inherit;
+}
+
 /*--------------------
          Icon
 ---------------------*/
@@ -179,15 +202,14 @@
 .ui.icon.input > .icon {
   cursor: default;
   position: absolute;
-  opacity: 0.5;
+  text-align: center;
   top: 0px;
   right: 0px;
   margin: 0em;
-  width: 2.85em;
   height: 100%;
-  text-align: center;
+  width: 2.82142em;
+  opacity: 0.5;
   border-radius: 0em 0.2857rem 0.2857rem 0em;
-  box-sizing: border-box;
   -webkit-transition: opacity 0.3s ease;
           transition: opacity 0.3s ease;
 }
@@ -204,7 +226,7 @@
   cursor: pointer;
 }
 .ui.icon.input input {
-  padding-right: 2.85em !important;
+  padding-right: 2.82142em !important;
 }
 .ui.icon.input > .circular.icon {
   top: 0.35em;
@@ -222,21 +244,8 @@
   left: 0.5em;
 }
 .ui[class*="left icon"].input > input {
-  padding-left: 2.85em !important;
+  padding-left: 2.82142em !important;
   padding-right: 1em !important;
-}
-
-/* Transparent Icon */
-.ui.transparent.icon.input > .icon {
-  width: 1.25em;
-}
-.ui.transparent.icon.input > input {
-  padding-left: 0em !important;
-  padding-right: 1.75em !important;
-}
-.ui.transparent[class*="left icon"].input > input {
-  padding-left: 0em !important;
-  padding-left: 1.75em !important;
 }
 
 /* Focus */
@@ -340,6 +349,8 @@
   display: table-cell;
   vertical-align: middle;
   white-space: nowrap;
+  padding-top: 0.78571em;
+  padding-bottom: 0.78571em;
 }
 .ui.action.input > .button > .icon,
 .ui.action.input > .buttons > .button > .icon {
@@ -382,6 +393,8 @@
        Inverted
 ---------------------*/
 
+
+/* Standard */
 .ui.inverted.input input {
   border: none;
 }

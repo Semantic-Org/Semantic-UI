@@ -2943,14 +2943,9 @@ $.fn.dropdown = function(parameters) {
 
         hideSubMenus: function() {
           var
-            $subMenus = $menu.find(selector.menu),
-            $activeSubMenu = $subMenus.has(selector.item + '.' + className.active)
+            $subMenus = $menu.find(selector.menu)
           ;
-          $subMenus
-            .not($activeSubMenu)
-              .removeClass(className.visible)
-              .removeAttr('style')
-          ;
+          $subMenus.transition('hide');
         },
 
         bind: {
@@ -3260,23 +3255,25 @@ $.fn.dropdown = function(parameters) {
           item: {
             mouseenter: function(event) {
               var
-                $currentMenu = $(this).find(selector.menu),
+                $currentMenu = $(this).children(selector.menu),
                 $otherMenus  = $(this).siblings(selector.item).children(selector.menu)
               ;
               if( $currentMenu.size() > 0 ) {
                 clearTimeout(module.itemTimer);
                 module.itemTimer = setTimeout(function() {
-                  module.animate.hide(false, $otherMenus);
+                  $.each($otherMenus, function() {
+                    module.animate.hide(false, $(this));
+                  });
                   module.verbose('Showing sub-menu', $currentMenu);
                   module.animate.show(false,  $currentMenu);
-                }, settings.delay.show * 2);
+                }, settings.delay.show);
                 event.preventDefault();
               }
             },
 
             mouseleave: function(event) {
               var
-                $currentMenu = $(this).find(selector.menu)
+                $currentMenu = $(this).children(selector.menu)
               ;
               if($currentMenu.size() > 0) {
                 clearTimeout(module.itemTimer);
@@ -3304,7 +3301,6 @@ $.fn.dropdown = function(parameters) {
                   module.remove.searchTerm();
                   module.remove.filteredItem();
                   module.determine.selectAction(text, value);
-                  $.proxy(settings.onChange, element)(value, text, $choice);
                 },
                 openingSubMenu = ($choice.find(selector.menu).size() > 0)
               ;
@@ -3670,6 +3666,7 @@ $.fn.dropdown = function(parameters) {
                 .addClass(className.selected)
               ;
               module.set.text(selectedText);
+              $.proxy(settings.onChange, element)(value, selectedText, $selectedItem);
             }
           }
         },
@@ -3728,7 +3725,7 @@ $.fn.dropdown = function(parameters) {
           selection: function() {
             return $module.hasClass(className.selection);
           },
-          animated: function($subMenu) {
+          animating: function($subMenu) {
             return ($subMenu)
               ? $subMenu.is(':animated') || $subMenu.transition && $subMenu.transition('is animating')
               : $menu.is(':animated') || $menu.transition && $menu.transition('is animating')
@@ -3767,6 +3764,7 @@ $.fn.dropdown = function(parameters) {
               start = ($subMenu)
                 ? function() {}
                 : function() {
+                  module.hideSubMenus();
                   module.hideOthers();
                   module.set.active();
                   module.set.scrollPosition();
@@ -3774,7 +3772,7 @@ $.fn.dropdown = function(parameters) {
             ;
             callback = callback || function(){};
             module.verbose('Doing menu show animation', $currentMenu);
-            if( module.is.hidden($currentMenu) ) {
+            if( module.is.hidden($currentMenu) || module.is.animating($currentMenu) ) {
               if(settings.transition == 'none') {
                 $.proxy(callback, element)();
               }
@@ -3831,6 +3829,9 @@ $.fn.dropdown = function(parameters) {
           hide: function(callback, $subMenu) {
             var
               $currentMenu = $subMenu || $menu,
+              duration = ($subMenu)
+                ? (settings.duration * 0.9)
+                : settings.duration,
               start = ($subMenu)
                 ? function() {}
                 : function() {
@@ -3838,12 +3839,11 @@ $.fn.dropdown = function(parameters) {
                     module.unbind.intent();
                   }
                   module.focusSearch();
-                  module.hideSubMenus();
                   module.remove.active();
                 }
             ;
             callback = callback || function(){};
-            if( module.is.visible($currentMenu) ) {
+            if( module.is.visible($currentMenu) || module.is.animating($currentMenu) ) {
               module.verbose('Doing menu hide animation', $currentMenu);
 
               if(settings.transition == 'none') {
@@ -4427,7 +4427,7 @@ $.fn.form = function(fields, parameters) {
 
         get: {
           changeEvent: function(type) {
-            if(type == 'checkbox' || type == 'radio') {
+            if(type == 'checkbox' || type == 'radio' || type == 'hidden') {
               return 'change';
             }
             else {
@@ -6301,8 +6301,6 @@ $.fn.nag.settings = {
 
 })( jQuery, window , document );
 
-/*! jquery.cookie v1.4.1 | MIT */
-!function(a){"function"==typeof define&&define.amd?define(["jquery"],a):"object"==typeof exports?a(require("jquery")):a(jQuery)}(function(a){function b(a){return h.raw?a:encodeURIComponent(a)}function c(a){return h.raw?a:decodeURIComponent(a)}function d(a){return b(h.json?JSON.stringify(a):String(a))}function e(a){0===a.indexOf('"')&&(a=a.slice(1,-1).replace(/\\"/g,'"').replace(/\\\\/g,"\\"));try{return a=decodeURIComponent(a.replace(g," ")),h.json?JSON.parse(a):a}catch(b){}}function f(b,c){var d=h.raw?b:e(b);return a.isFunction(c)?c(d):d}var g=/\+/g,h=a.cookie=function(e,g,i){if(void 0!==g&&!a.isFunction(g)){if(i=a.extend({},h.defaults,i),"number"==typeof i.expires){var j=i.expires,k=i.expires=new Date;k.setTime(+k+864e5*j)}return document.cookie=[b(e),"=",d(g),i.expires?"; expires="+i.expires.toUTCString():"",i.path?"; path="+i.path:"",i.domain?"; domain="+i.domain:"",i.secure?"; secure":""].join("")}for(var l=e?void 0:{},m=document.cookie?document.cookie.split("; "):[],n=0,o=m.length;o>n;n++){var p=m[n].split("="),q=c(p.shift()),r=p.join("=");if(e&&e===q){l=f(r,g);break}e||void 0===(r=f(r))||(l[q]=r)}return l};h.defaults={},a.removeCookie=function(b,c){return void 0===a.cookie(b)?!1:(a.cookie(b,"",a.extend({},c,{expires:-1})),!a.cookie(b))}});
 /*
  * # Semantic - Popup
  * http://github.com/jlukic/semantic-ui/
@@ -6342,30 +6340,31 @@ $.fn.popup = function(parameters) {
           ? $.extend(true, {}, $.fn.popup.settings, parameters)
           : $.extend({}, $.fn.popup.settings),
 
-        selector        = settings.selector,
-        className       = settings.className,
-        error           = settings.error,
-        metadata        = settings.metadata,
-        namespace       = settings.namespace,
+        selector           = settings.selector,
+        className          = settings.className,
+        error              = settings.error,
+        metadata           = settings.metadata,
+        namespace          = settings.namespace,
 
-        eventNamespace  = '.' + settings.namespace,
-        moduleNamespace = 'module-' + namespace,
+        eventNamespace     = '.' + settings.namespace,
+        moduleNamespace    = 'module-' + namespace,
 
-        $module         = $(this),
-        $context        = $(settings.context),
-        $target         = (settings.target)
+        $module            = $(this),
+        $context           = $(settings.context),
+        $target            = (settings.target)
           ? $(settings.target)
           : $module,
 
-        $window         = $(window),
-        $body           = $('body'),
+        $window            = $(window),
+        $body              = $('body'),
         $popup,
         $offsetParent,
 
-        searchDepth     = 0,
+        searchDepth        = 0,
+        triedPositions     = false,
 
-        element         = this,
-        instance        = $module.data(moduleNamespace),
+        element            = this,
+        instance           = $module.data(moduleNamespace),
         module
       ;
 
@@ -6745,7 +6744,7 @@ $.fn.popup = function(parameters) {
                 top    : (popup.offset.top < boundary.top),
                 bottom : (popup.offset.top + popup.height > boundary.bottom),
                 right  : (popup.offset.left + popup.width > boundary.right),
-                left   : false
+                left   : (popup.offset.left < boundary.left)
               };
             }
             // return only boundaries that have been surpassed
@@ -6759,34 +6758,74 @@ $.fn.popup = function(parameters) {
               : false
             ;
           },
+          positions: function() {
+            return {
+              'top left'      : false,
+              'top center'    : false,
+              'top right'     : false,
+              'bottom left'   : false,
+              'bottom center' : false,
+              'bottom right'  : false,
+              'left center'   : false,
+              'right center'  : false
+            };
+          },
           nextPosition: function(position) {
-            switch(position) {
-              case 'top left':
-                position = 'bottom left';
-              break;
-              case 'bottom left':
-                position = 'top right';
-              break;
-              case 'top right':
-                position = 'bottom right';
-              break;
-              case 'bottom right':
-                position = 'top center';
-              break;
-              case 'top center':
-                position = 'bottom center';
-              break;
-              case 'bottom center':
-                position = 'right center';
-              break;
-              case 'right center':
-                position = 'left center';
-              break;
-              case 'left center':
-                position = 'top center';
-              break;
+            var
+              positions          = position.split(' '),
+              verticalPosition   = positions[0],
+              horizontalPosition = positions[1],
+              opposite = {
+                top    : 'bottom',
+                bottom : 'top',
+                left   : 'right',
+                right  : 'left'
+              },
+              adjacent = {
+                left   : 'center',
+                center : 'right',
+                right  : 'left'
+              },
+              backup = {
+                'top left'      : 'top center',
+                'top center'    : 'top right',
+                'top right'     : 'right center',
+                'right center'  : 'bottom right',
+                'bottom right'  : 'bottom center',
+                'bottom center' : 'bottom left',
+                'bottom left'   : 'left center',
+                'left center'   : 'top left'
+              },
+              adjacentsAvailable = (verticalPosition == 'top' || verticalPosition == 'bottom'),
+              oppositeTried = false,
+              adjacentTried = false,
+              nextPosition  = false
+            ;
+            if(!triedPositions) {
+              module.verbose('All available positions available');
+              triedPositions = module.get.positions();
             }
-            return position;
+
+            module.debug('Recording last position tried', position);
+            triedPositions[position] = true;
+
+            if(settings.prefer === 'opposite') {
+              nextPosition  = [opposite[verticalPosition], horizontalPosition];
+              nextPosition  = nextPosition.join(' ');
+              oppositeTried = (triedPositions[nextPosition] === true);
+              module.debug('Trying opposite strategy', nextPosition);
+            }
+            if((settings.prefer === 'adjacent') && adjacentsAvailable ) {
+              nextPosition  = [verticalPosition, adjacent[horizontalPosition]];
+              nextPosition  = nextPosition.join(' ');
+              adjacentTried = (triedPositions[nextPosition] === true);
+              module.debug('Trying adjacent strategy', nextPosition);
+            }
+            if(adjacentTried || oppositeTried) {
+              module.debug('Using backup position', nextPosition);
+              nextPosition = backup[position];
+            }
+            return nextPosition;
           }
         },
 
@@ -6825,6 +6864,12 @@ $.fn.popup = function(parameters) {
             ;
             position    = position    || $module.data(metadata.position)    || settings.position;
             arrowOffset = arrowOffset || $module.data(metadata.offset)      || settings.offset;
+
+            if(searchDepth == settings.maxSearchDepth && settings.lastResort) {
+              module.debug('Using last resort position to display', settings.lastResort);
+              position = settings.lastResort;
+            }
+
             if(settings.inline) {
               module.debug('Adding targets margin to calculation');
               if(position == 'left center' || position == 'right center') {
@@ -6908,8 +6953,9 @@ $.fn.popup = function(parameters) {
               break;
             }
             if(positioning === undefined) {
-              module.error(error.invalidPosition);
+              module.error(error.invalidPosition, position);
             }
+
             // tentatively place on stage
             $popup
               .css(positioning)
@@ -6922,32 +6968,36 @@ $.fn.popup = function(parameters) {
 
             // recursively find new positioning
             if(offstagePosition) {
-              module.debug('Element is outside boundaries', offstagePosition);
+              module.debug('Popup cant fit into viewport', offstagePosition);
               if(searchDepth < settings.maxSearchDepth) {
-                position = module.get.nextPosition(position);
                 searchDepth++;
+                position = module.get.nextPosition(position);
                 module.debug('Trying new position', position);
                 return ($popup)
                   ? module.set.position(position)
                   : false
                 ;
               }
-              else {
-                module.debug('Popup could not find a position onstage', $popup);
-                searchDepth = 0;
+              else if(!settings.lastResort) {
+                module.debug('Popup could not find a position in view', $popup);
+                module.error(error.cannotPlace);
+                module.remove.attempts();
+                module.remove.loading();
                 module.reset();
-                $popup.removeClass(className.loading);
                 return false;
               }
             }
-            else {
-              module.debug('Position is on stage', position);
-              searchDepth = 0;
-              if( settings.setFluidWidth && $popup.hasClass(className.fluid) ) {
-                $popup.css('width', $offsetParent.width());
-              }
-              $popup.removeClass(className.loading);
-              return true;
+
+            module.debug('Position is on stage', position);
+            module.remove.attempts();
+            module.set.fluidWidth();
+            module.remove.loading();
+            return true;
+          },
+
+          fluidWidth: function() {
+            if( settings.setFluidWidth && $popup.hasClass(className.fluid) ) {
+              $popup.css('width', $offsetParent.width());
             }
           },
 
@@ -6957,8 +7007,16 @@ $.fn.popup = function(parameters) {
         },
 
         remove: {
+          loading: function() {
+            $popup.removeClass(className.loading);
+          },
           visible: function() {
             $module.removeClass(className.visible);
+          },
+          attempts: function() {
+            module.verbose('Resetting all searched positions');
+            searchDepth    = 0;
+            triedPositions = false;
           }
         },
 
@@ -7223,33 +7281,37 @@ $.fn.popup = function(parameters) {
 
 $.fn.popup.settings = {
 
-  name           : 'Popup',
+  name         : 'Popup',
 
-  debug          : false,
-  verbose        : true,
-  performance    : true,
-  namespace      : 'popup',
+  debug        : false,
+  verbose      : true,
+  performance  : true,
+  namespace    : 'popup',
 
-  onCreate       : function(){},
-  onRemove       : function(){},
+  onCreate     : function(){},
+  onRemove     : function(){},
 
-  onShow         : function(){},
-  onVisible      : function(){},
-  onHide         : function(){},
-  onHidden       : function(){},
+  onShow       : function(){},
+  onVisible    : function(){},
+  onHide       : function(){},
+  onHidden     : function(){},
 
-  variation      : '',
-  content        : false,
-  html           : false,
-  title          : false,
+  variation    : '',
+  content      : false,
+  html         : false,
+  title        : false,
 
-  on             : 'hover',
-  closable       : true,
-  hideOnScroll   : 'auto',
+  on           : 'hover',
+  closable     : true,
+  hideOnScroll : 'auto',
 
-  context        : 'body',
-  position       : 'top left',
-  delay          : {
+  context      : 'body',
+
+  position     : 'top left',
+  prefer       : 'opposite',
+  lastResort   : false,
+
+  delay        : {
     show : 30,
     hide : 0
   },
@@ -7268,10 +7330,11 @@ $.fn.popup.settings = {
 
   distanceAway   : 0,
   offset         : 0,
-  maxSearchDepth : 10,
+  maxSearchDepth : 20,
 
   error: {
     invalidPosition : 'The position you specified is not a valid position',
+    cannotPlace     : 'No visible position could be found for the popup',
     method          : 'The method you called is not defined.'
   },
 
@@ -7373,13 +7436,13 @@ $.fn.progress = function(parameters) {
 
     moduleSelector = $allModules.selector || '',
 
-    hasTouch       = ('ontouchstart' in document.documentElement),
     time           = new Date().getTime(),
     performance    = [],
 
     query          = arguments[0],
     methodInvoked  = (typeof query == 'string'),
     queryArguments = [].slice.call(arguments, 1),
+
     returnedValue
   ;
 
@@ -7938,7 +8001,7 @@ $.fn.progress.settings = {
   name         : 'Progress',
   namespace    : 'progress',
 
-  debug        : false,
+  debug        : true,
   verbose      : true,
   performance  : true,
 
@@ -13947,6 +14010,7 @@ $.fn.transition = function() {
         error,
         className,
         metadata,
+        animationStart,
         animationEnd,
         animationName,
 
@@ -13966,7 +14030,8 @@ $.fn.transition = function() {
           className       = settings.className;
           metadata        = settings.metadata;
 
-          animationEnd    = module.get.animationEvent();
+          animationStart  = module.get.animationStartEvent();
+          animationEnd    = module.get.animationEndEvent();
           animationName   = module.get.animationName();
           error           = settings.error;
           namespace       = settings.namespace;
@@ -14045,7 +14110,7 @@ $.fn.transition = function() {
 
             }
           }
-          if(module.can.animate) {
+          if( module.can.animate() ) {
             module.set.animating(settings.animation);
           }
           else {
@@ -14074,6 +14139,8 @@ $.fn.transition = function() {
 
         complete: function () {
           module.verbose('CSS animation complete', settings.animation);
+          module.remove.animationEndCallback();
+          module.remove.failSafe();
           if(!module.is.looping()) {
             if( module.is.outward() ) {
               module.verbose('Animation is outward, hiding element');
@@ -14105,6 +14172,12 @@ $.fn.transition = function() {
               return true;
             }
             return false;
+          },
+          inlineDisplay: function() {
+            var
+              style = $module.attr('style') || ''
+            ;
+            return $.isArray(style.match(/display.*?;/, ''));
           }
         },
 
@@ -14127,6 +14200,9 @@ $.fn.transition = function() {
               .addClass(animation)
               .one(animationEnd + '.complete' + eventNamespace, module.complete)
             ;
+            if(settings.useFailSafe) {
+              module.add.failSafe();
+            }
             module.set.duration(settings.duration);
             $.proxy(settings.onStart, this)();
             module.debug('Starting tween', animation, $module.attr('class'));
@@ -14154,6 +14230,7 @@ $.fn.transition = function() {
               displayType        = module.get.displayType(),
               overrideStyle      = style + 'display: ' + displayType + ' !important;'
             ;
+            $module.css('display', '');
             module.refresh();
             if( $module.css('display') !== displayType ) {
               module.verbose('Setting inline visibility to', displayType);
@@ -14251,6 +14328,16 @@ $.fn.transition = function() {
           }
         },
 
+        add: {
+          failSafe: function() {
+            var
+              duration = module.get.duration()
+            ;
+            module.timer = setTimeout(module.complete, duration + 100);
+            module.verbose('Adding fail safe timer', module.timer);
+          }
+        },
+
         remove: {
           animating: function() {
             $module.removeClass(className.animating);
@@ -14277,6 +14364,12 @@ $.fn.transition = function() {
               .removeClass(className.inward)
               .removeClass(className.outward)
             ;
+          },
+          failSafe: function() {
+            module.verbose('Removing fail safe timer', module.timer);
+            if(module.timer) {
+              clearTimeout(module.timer);
+            }
           },
           hidden: function() {
             $module.removeClass(className.hidden);
@@ -14340,6 +14433,15 @@ $.fn.transition = function() {
             }
             return $.fn.transition.settings;
           },
+          duration: function(duration) {
+            duration = duration || settings.duration;
+            return (typeof settings.duration === 'string')
+              ? (duration.indexOf('ms') > -1)
+                ? parseFloat(duration)
+                : parseFloat(duration) * 1000
+              : duration
+            ;
+          },
           displayType: function() {
             if(settings.displayType) {
               return settings.displayType;
@@ -14352,7 +14454,7 @@ $.fn.transition = function() {
           },
           style: function() {
             var
-               style = $module.attr('style') || ''
+              style = $module.attr('style') || ''
             ;
             return style.replace(/display.*?;/, '');
           },
@@ -14377,7 +14479,25 @@ $.fn.transition = function() {
             }
             return false;
           },
-          animationEvent: function() {
+          animationStartEvent: function() {
+            var
+              element     = document.createElement('div'),
+              animations  = {
+                'animation'       :'animationstart',
+                'OAnimation'      :'oAnimationStart',
+                'MozAnimation'    :'mozAnimationStart',
+                'WebkitAnimation' :'webkitAnimationStart'
+              },
+              animation
+            ;
+            for(animation in animations){
+              if( element.style[animation] !== undefined ){
+                return animations[animation];
+              }
+            }
+            return false;
+          },
+          animationEndEvent: function() {
             var
               element     = document.createElement('div'),
               animations  = {
@@ -14399,26 +14519,16 @@ $.fn.transition = function() {
         },
 
         can: {
-          animate: function() {
-            if($module.css(settings.animation) !== 'none') {
-              module.debug('CSS definition found',  $module.css(settings.animation));
-              return true;
-            }
-            else {
-              module.debug('Unable to find css definition', $module.attr('class'));
-              return false;
-            }
-          },
           transition: function(forced) {
             var
               elementClass      = $module.attr('class'),
               tagName           = $module.prop('tagName'),
               animation         = settings.animation,
-              transitionExists  = module.get.transitionExists(settings.animation),
+              transitionExists  = module.get.transitionExists(animation),
               $clone,
               currentAnimation,
               inAnimation,
-              animationExists,
+              directionExists,
               displayType
             ;
             if( transitionExists === undefined || forced) {
@@ -14445,21 +14555,30 @@ $.fn.transition = function() {
                 .css('display')
               ;
               module.verbose('Determining final display state', displayType);
+              $clone.remove();
               if(currentAnimation != inAnimation) {
-                module.debug('Transition exists for animation', animation);
-                animationExists = true;
+                module.debug('Direction exists for animation', animation);
+                directionExists = true;
+              }
+              else if(currentAnimation == 'none' || !currentAnimation) {
+                module.debug('No animation defined in css', animation);
+                return;
               }
               else {
                 module.debug('Static animation found', animation, displayType);
-                animationExists = false;
+                directionExists = false;
               }
-              $clone.remove();
               module.save.displayType(displayType);
-              if(transitionExists === undefined) {
-                module.save.transitionExists(animation, animationExists);
-              }
+              module.save.transitionExists(animation, directionExists);
             }
-            return transitionExists || animationExists;
+            return (transitionExists !== undefined)
+              ? transitionExists
+              : directionExists
+            ;
+          },
+          animate: function() {
+            // can transition does not return a value if animation does not exist
+            return (module.can.transition() !== undefined);
           }
         },
 
@@ -14702,35 +14821,38 @@ $.fn.transition.exists = {};
 $.fn.transition.settings = {
 
   // module info
-  name        : 'Transition',
+  name         : 'Transition',
 
   // debug content outputted to console
-  debug       : false,
+  debug        : false,
 
   // verbose debug output
-  verbose     : true,
+  verbose      : true,
 
   // performance data output
-  performance : true,
+  performance  : true,
 
   // event namespace
-  namespace   : 'transition',
+  namespace    : 'transition',
 
   // animation complete event
-  onStart     : function() {},
-  onComplete  : function() {},
-  onShow      : function() {},
-  onHide      : function() {},
+  onStart      : function() {},
+  onComplete   : function() {},
+  onShow       : function() {},
+  onHide       : function() {},
+
+  // whether timeout should be used to ensure callback fires in cases animationend does not
+  useFailSafe  : false,
 
   // whether EXACT animation can occur twice in a row
   allowRepeats : false,
 
   // Override final display type on visible
-  displayType : false,
+  displayType  : false,
 
   // animation duration
-  animation  : 'fade',
-  duration   : '500ms',
+  animation    : 'fade',
+  duration     : '500ms',
 
   // new animations will occur after previous ones
   queue       : true,
@@ -16769,6 +16891,3 @@ $.fn.visit.settings = {
 };
 
 })( jQuery, window , document );
-
-/*! jquery.cookie v1.4.1 | MIT */
-!function(a){"function"==typeof define&&define.amd?define(["jquery"],a):"object"==typeof exports?a(require("jquery")):a(jQuery)}(function(a){function b(a){return h.raw?a:encodeURIComponent(a)}function c(a){return h.raw?a:decodeURIComponent(a)}function d(a){return b(h.json?JSON.stringify(a):String(a))}function e(a){0===a.indexOf('"')&&(a=a.slice(1,-1).replace(/\\"/g,'"').replace(/\\\\/g,"\\"));try{return a=decodeURIComponent(a.replace(g," ")),h.json?JSON.parse(a):a}catch(b){}}function f(b,c){var d=h.raw?b:e(b);return a.isFunction(c)?c(d):d}var g=/\+/g,h=a.cookie=function(e,g,i){if(void 0!==g&&!a.isFunction(g)){if(i=a.extend({},h.defaults,i),"number"==typeof i.expires){var j=i.expires,k=i.expires=new Date;k.setTime(+k+864e5*j)}return document.cookie=[b(e),"=",d(g),i.expires?"; expires="+i.expires.toUTCString():"",i.path?"; path="+i.path:"",i.domain?"; domain="+i.domain:"",i.secure?"; secure":""].join("")}for(var l=e?void 0:{},m=document.cookie?document.cookie.split("; "):[],n=0,o=m.length;o>n;n++){var p=m[n].split("="),q=c(p.shift()),r=p.join("=");if(e&&e===q){l=f(r,g);break}e||void 0===(r=f(r))||(l[q]=r)}return l};h.defaults={},a.removeCookie=function(b,c){return void 0===a.cookie(b)?!1:(a.cookie(b,"",a.extend({},c,{expires:-1})),!a.cookie(b))}});

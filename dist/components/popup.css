@@ -24,7 +24,7 @@
   border: 1px solid #cccccc;
   max-width: 250px;
   background-color: #ffffff;
-  padding: 0.8em 1em;
+  padding: 0.833em 1em;
   font-weight: normal;
   font-style: normal;
   color: rgba(0, 0, 0, 0.8);
@@ -268,16 +268,16 @@
 ---------------*/
 
 .ui.small.popup {
-  font-size: 0.8rem;
+  font-size: 0.785714rem;
 }
 .ui.popup {
-  font-size: 0.875rem;
+  font-size: 0.85714rem;
 }
 .ui.large.popup {
   font-size: 1rem;
 }
 .ui.huge.popup {
-  font-size: 1.1rem;
+  font-size: 1.14285rem;
 }
 
 

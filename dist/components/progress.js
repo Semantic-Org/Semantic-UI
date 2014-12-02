@@ -19,13 +19,13 @@ $.fn.progress = function(parameters) {
 
     moduleSelector = $allModules.selector || '',
 
-    hasTouch       = ('ontouchstart' in document.documentElement),
     time           = new Date().getTime(),
     performance    = [],
 
     query          = arguments[0],
     methodInvoked  = (typeof query == 'string'),
     queryArguments = [].slice.call(arguments, 1),
+
     returnedValue
   ;
 
@@ -584,7 +584,7 @@ $.fn.progress.settings = {
   name         : 'Progress',
   namespace    : 'progress',
 
-  debug        : false,
+  debug        : true,
   verbose      : true,
   performance  : true,
 
