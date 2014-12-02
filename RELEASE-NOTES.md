@@ -9,6 +9,7 @@
 **All UI** - Many ``em`` measurements adjusted slightly to calculate out as exact pixel values (Fixes 1px rounding errors)
 **Steps** - Now use global border color
 - **Progress** - Progress now has sizing variations
+- **Dropdown** - Dropdown ``onChange`` callback now fires when calling ``setSelected`` programatically.
 
 **Bugs**
 - **Build** - NPM now correctly pins dependencies instead of using bleeding-edge versions which may break builds
