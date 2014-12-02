@@ -15,12 +15,13 @@ module.exports = {
   },
 
   templates: {
-    bower    : './tasks/admin/templates/bower.json',
-    composer : './tasks/admin/templates/composer.json',
-    package  : './tasks/admin/templates/package.json',
-    meteor   : './tasks/admin/templates/package.js',
-    readme   : './tasks/admin/templates/README.md',
-    notes    : './RELEASE-NOTES.md'
+    bower           : './tasks/admin/templates/bower.json',
+    composer        : './tasks/admin/templates/composer.json',
+    package         : './tasks/admin/templates/package.json',
+    meteor          : './tasks/admin/templates/package.js',
+    meteorComponent : './tasks/admin/templates/package-component.js',
+    readme          : './tasks/admin/templates/README.md',
+    notes           : './RELEASE-NOTES.md'
   },
 
   org         : 'Semantic-Org',
@@ -81,6 +82,12 @@ module.exports = {
     'table',
     'transition',
     'video'
-  ]
+  ],
+
+  // Assets needed by each component
+  componentsAssets : {
+    flag: 'assets/images/**',
+    icon: 'assets/fonts/**',
+  }
 };
 

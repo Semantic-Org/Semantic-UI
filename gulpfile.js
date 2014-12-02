@@ -25,6 +25,7 @@ var
   clone        = require('gulp-clone'),
   concat       = require('gulp-concat'),
   concatCSS    = require('gulp-concat-css'),
+  concatFnames = require('gulp-concat-filenames'),
   copy         = require('gulp-copy'),
   debug        = require('gulp-debug'),
   flatten      = require('gulp-flatten'),
@@ -40,6 +41,7 @@ var
   rename       = require('gulp-rename'),
   replace      = require('gulp-replace'),
   sourcemaps   = require('gulp-sourcemaps'),
+  tap          = require('gulp-tap'),
   uglify       = require('gulp-uglify'),
   util         = require('gulp-util'),
   watch        = require('gulp-watch'),
@@ -526,7 +528,6 @@ gulp.task('install', 'Set-up project for first time', function () {
         ;
       }
 
-
       // determine semantic.json config
       if(answers.components) {
         json.components = answers.components;
@@ -572,6 +573,30 @@ gulp.task('install', 'Set-up project for first time', function () {
           .pipe(gulp.dest('./'))
         ;
       }
+
+      // write package.js
+      console.info('Creating package.js (Meteor)');
+      var
+        packagedFolder = json.paths.output.packaged || output.packaged,
+        themesFolder = json.paths.output.themes || output.themes,
+        fnames =
+          '\n    \'' + packagedFolder + 'semantic.css\',' +
+          '\n    \'' + packagedFolder + 'semantic.js\',' +
+          '\n    \'' + themesFolder + 'default/assets/images/flags.png\',' +
+          '\n    \'' + themesFolder + 'default/assets/fonts/icons.eot\',' +
+          '\n    \'' + themesFolder + 'default/assets/fonts/icons.otf\',' +
+          '\n    \'' + themesFolder + 'default/assets/fonts/icons.svg\',' +
+          '\n    \'' + themesFolder + 'default/assets/fonts/icons.ttf\',' +
+          '\n    \'' + themesFolder + 'default/assets/fonts/icons.woff\''
+      ;
+      gulp.src(release.templates.meteor)
+        .pipe(plumber())
+        .pipe(flatten())
+        .pipe(replace('{package-version}', version))
+        .pipe(replace('{package-files}', fnames))
+        .pipe(gulp.dest('./'))
+      ;
+
       console.log('');
       console.log('');
     }))
@@ -699,6 +724,7 @@ gulp.task('create repos', false, function(callback) {
         outputDirectory      = release.outputRoot + component,
         isJavascript         = fs.existsSync(output.compressed + component + '.js'),
         isCSS                = fs.existsSync(output.compressed + component + '.css'),
+        assets               = release.componentsAssets[component],
         capitalizedComponent = component.charAt(0).toUpperCase() + component.slice(1),
         packageName          = release.packageRoot + component,
         repoName             = release.repoRoot + capitalizedComponent,
@@ -746,43 +772,48 @@ gulp.task('create repos', false, function(callback) {
           }
         },
         task = {
-          all      : component + ' creating',
-          repo     : component + ' create repo',
-          bower    : component + ' create bower.json',
-          readme   : component + ' create README',
-          npm      : component + ' create NPM Module',
-          notes    : component + ' create release notes',
-          composer : component + ' create composer.json',
-          package  : component + ' create package.json',
-          meteor   : component + ' create package.js',
-        }
+          all         : component + ' creating',
+          repo        : component + ' create repo',
+          assetsPaths : component + ' get assets paths',
+          assets      : component + ' copy assets',
+          bower       : component + ' create bower.json',
+          readme      : component + ' create README',
+          npm         : component + ' create NPM Module',
+          notes       : component + ' create release notes',
+          composer    : component + ' create composer.json',
+          package     : component + ' create package.json',
+          meteor      : component + ' create package.js',
+        },
+        taskSequence = (assets)
+          ? [
+              task.repo,
+              task.assets,
+              task.assetsPaths,
+              task.npm,
+              task.bower,
+              task.readme,
+              task.package,
+              task.composer,
+              task.notes,
+              task.meteor
+            ]
+          : [
+              task.repo,
+              task.npm,
+              task.bower,
+              task.readme,
+              task.package,
+              task.composer,
+              task.notes,
+              task.meteor
+            ],
+        fnames = ''
       ;
 
-      var fnames;
-      if(isJavascript) {
-        if(isCSS) {
-          fnames = '    \'' + component + '.js\',\n    \'' + component + '.css\'';
-        }
-        else {
-          fnames = '    \'' + component + '.js\'';
-        }
-      }
-      else {
-        fnames = '    \'' + component + '.css\'';
-      }
-
-      // Adds flags image as asset for UI-Flag
-      if (component == 'flag') {
-        fnames += ',\n    \'assets/images/flags.png\'';
-      } 
-      // Adds fonts as assets for UI-Icon
-      if (component == 'icon') {
-        fnames += ',\n    \'assets/fonts/icons.eot\'';
-        fnames += ',\n    \'assets/fonts/icons.otf\'';
-        fnames += ',\n    \'assets/fonts/icons.svg\'';
-        fnames += ',\n    \'assets/fonts/icons.ttf\'';
-        fnames += ',\n    \'assets/fonts/icons.woff\'';
-      } 
+      if(isJavascript)
+        fnames += '    \'' + component + '.js\',\n';
+      if(isCSS)
+        fnames += '    \'' + component + '.css\',\n';
 
       // copy dist files into output folder adjusting asset paths
       gulp.task(task.repo, false, function() {
@@ -793,6 +824,32 @@ gulp.task('create repos', false, function(callback) {
           .pipe(gulp.dest(outputDirectory))
         ;
       });
+
+      // possibly copy assets
+      if (assets) {
+        var
+          baseFolder = source.themes + 'default/',
+          concatFilenamesOptions = {
+            newline: '',
+            root: source.themes + 'default/',
+            prepend: '    \'',
+            append: '\','
+          }
+        ;
+
+        gulp.task(task.assetsPaths, function() {
+          return gulp.src(baseFolder + assets, { base: baseFolder})
+            .pipe(concatFnames("dummy.txt", concatFilenamesOptions))
+            .pipe(tap(function(file) { fnames += file.contents; }))
+          ;
+        });
+
+        gulp.task(task.assets, false, function() {
+          return gulp.src(baseFolder + assets, { base: baseFolder})
+            .pipe(gulp.dest(outputDirectory))
+          ;
+        });
+      }
 
       // create npm module
       gulp.task(task.npm, false, function() {
@@ -922,30 +979,23 @@ gulp.task('create repos', false, function(callback) {
       });
 
       // create package.js
-      gulp.task(task.meteor, false, function() {
-        return gulp.src(release.templates.meteor)
+      var taskDeps = assets ? [task.assetsPaths] : false;
+      gulp.task(task.meteor, taskDeps, function() {
+        return gulp.src(release.templates.meteorComponent)
           .pipe(plumber())
           .pipe(flatten())
           .pipe(replace(regExp.match.name, regExp.replace.name))
           .pipe(replace(regExp.match.titleName, regExp.replace.titleName))
           .pipe(replace(regExp.match.mversion, regExp.replace.mversion))
           .pipe(replace(regExp.match.mfiles, fnames))
+          .pipe(rename('package.js'))
           .pipe(gulp.dest(outputDirectory))
         ;
       });
 
       // synchronous tasks in orchestrator? I think not
       gulp.task(task.all, false, function(callback) {
-        runSequence([
-          task.repo,
-          task.npm,
-          task.bower,
-          task.readme,
-          task.package,
-          task.composer,
-          task.notes,
-          task.meteor
-        ], callback);
+        runSequence(taskSequence, callback);
       });
 
       tasks.push(task.all);

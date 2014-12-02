@@ -46,6 +46,7 @@ module.exports = {
     composer : 'composer.json',
     config   : './semantic.json',
     npm      : './package.json',
+    meteor   : './package.js',
     site     : './src/site',
     theme    : './src/theme.config'
   },

@@ -53,6 +53,8 @@
     "gulp-watch": "x.x.x",
     "rtlcss": "x.x.x",
     "run-sequence": "x.x.x",
-    "wrench": "x.x.x"
+    "wrench": "x.x.x",
+    "gulp-concat-filenames": "0.0.3",
+    "gulp-tap": "^0.1.3"
   }
 }
