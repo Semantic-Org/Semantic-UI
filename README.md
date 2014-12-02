@@ -29,13 +29,13 @@ Key Features
 
 ## Getting Started
 
-### Basic Usage (Default Theme Only)
+### Basic Usage (Default Theme)
 
 We recommend setting up the Semantic build workflow to support on-the-fly
 theming and customization, but it is not required.
 
-To use the compiled, "ready-to-use" version, which includes all components, simply link to
-`dist/semantic.js` and `dist/semantic.css` (or their minified counterparts)
+To use the "ready-to-use" distribution version, which includes all components, simply link to
+`dist/semantic.js` and `dist/semantic.css` (or their minified counterparts) in your page.
 
 ``` html
 <link rel="stylesheet" type="text/css" class="ui" href="/dist/semantic.min.css">
@@ -53,7 +53,7 @@ If you are unable to run build tools, for whatever reason, you can create a cust
 
 ### Recommended Usage (Themed)
 
-Semantic is best used actively during development. We have included build tools for maintaining changes to Semantic as you work.
+Semantic is best used actively during development. We have included build tools for updating your site's theme as you work.
 
 ![Getting Started](https://dl.dropboxusercontent.com/u/2657007/install.gif)
 
