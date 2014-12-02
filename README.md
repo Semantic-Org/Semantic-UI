@@ -20,12 +20,28 @@ Key Features
 * **Having issues with your code?** Join our [IRC chat](http://webchat.freenode.net/?randomnick=1&channels=%23semantic-ui&prompt=1&uio=OT10cnVlJjExPTEyMwb9), submit a question on [StackOverflow](http://www.stackoverflow.com) or ask our [Google Group](https://groups.google.com/forum/#!forum/semantic-ui) 
 * **Looking for a specific integration like Dart, Wordpress, Angular, or Rails?** Check out our [integration page](https://github.com/Semantic-Org/Semantic-UI/wiki/Integration)
 
+
 ## Contributing
 * **Missing documentation in your language?** Help us make Semantic available in more languages by [joining our translation community](https://www.transifex.com/organization/semantic-org/)
 * **Want to help with integration?** Projects are organizing for official [Meteor](https://github.com/Semantic-Org/Semantic-UI-Meteor), and [Angular](https://github.com/Semantic-Org/Semantic-UI-Angular) integrations as well as a [SASS](https://github.com/Semantic-Org/Semantic-UI-SASS) port. Join the discussion on their respective boards.
 * **Want to help others learn concepts behind Semantic?** [Learnsemantic.com](http://www.learnsemantic.com) needs articles to help others get others up to speed with Semantic UI. [Send me an e-mail](mailto:jack@semantic-ui.com) if you are interested.
 
+
 ## Getting Started
+
+### Vanilla Distribution
+
+We recommend setting up the Semantic build workflow to support on-the-fly
+theming and customization, but it is not required.
+
+To use the "vanilla" Semantic build, which includes all components, simply use
+`dist/semantic.js` and `dist/semantic.css` (or their minified counterparts)
+from this repository in your project.
+
+These two files are the output of the build process, and they are the only
+files that must be served to the browser to make use of Semantic UI.
+
+### Custom Build
 
 Semantic is best used actively during development. We have included build tools for maintaining changes to Semantic as you work.
 
@@ -52,7 +68,8 @@ gulp install // re-runs install
 gulp help // list all commands
 ```
 
-### Browser Support
+
+## Browser Support
 
 * Last 2 Versions FF, Chrome, IE (aka 10+)
 * Safari 6
@@ -60,7 +77,8 @@ gulp help // list all commands
 * Android 4
 * Blackberry 10
 
-### Reaching Out
+
+## Reaching Out
 
 If you'd like to start a conversation about Semantic feel free to reach out by e-mail [jack@semantic-ui.com](mailto:jack@semantic-ui.com)
 
