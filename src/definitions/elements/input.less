@@ -186,6 +186,31 @@
   padding: 0em;
 }
 
+/* Transparent Icon */
+.ui.transparent.icon.input > .icon {
+  width: @transparentIconWidth;
+}
+.ui.transparent.icon.input > input {
+  padding-left: 0em !important;
+  padding-right: @transparentIconMargin !important;
+}
+.ui.transparent[class*="left icon"].input > input {
+  padding-left: 0em !important;
+  padding-left: @transparentIconMargin !important;
+}
+
+/* Transparent Inverted */
+.ui.transparent.inverted.input input::-moz-placeholder {
+  color: @transparentInvertedPlaceholderColor;
+}
+.ui.transparent.inverted.input {
+  color: @transparentInvertedColor;
+}
+.ui.transparent.inverted.input input {
+  color: inherit;
+}
+
+
 /*--------------------
          Icon
 ---------------------*/
@@ -240,19 +265,6 @@
 .ui[class*="left icon"].input > input {
   padding-left: @iconMargin !important;
   padding-right: @horizontalPadding !important;
-}
-
-/* Transparent Icon */
-.ui.transparent.icon.input > .icon {
-  width: @transparentIconWidth;
-}
-.ui.transparent.icon.input > input {
-  padding-left: 0em !important;
-  padding-right: @transparentIconMargin !important;
-}
-.ui.transparent[class*="left icon"].input > input {
-  padding-left: 0em !important;
-  padding-left: @transparentIconMargin !important;
 }
 
 /* Focus */
@@ -400,9 +412,11 @@
        Inverted
 ---------------------*/
 
+/* Standard */
 .ui.inverted.input input {
   border: none;
 }
+
 
 /*--------------------
         Fluid
@@ -411,7 +425,6 @@
 .ui.fluid.input {
   display: block;
 }
-
 
 /*--------------------
         Size

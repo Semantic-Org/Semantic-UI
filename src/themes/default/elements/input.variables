@@ -103,6 +103,11 @@
       Variations
 --------------------*/
 
+/* Inverted */
+@transparentInvertedPlaceholderColor: @invertedUnselectedTextColor;
+@transparentInvertedColor: @white;
+
+
 /* Sizing */
 @mini: 0.8125rem;
 @small: 0.875rem;
