@@ -29,19 +29,29 @@ Key Features
 
 ## Getting Started
 
-### Vanilla Distribution
+### Basic Usage (Default Theme Only)
 
 We recommend setting up the Semantic build workflow to support on-the-fly
 theming and customization, but it is not required.
 
-To use the "vanilla" Semantic build, which includes all components, simply use
+To use the compiled, "ready-to-use" version, which includes all components, simply link to
 `dist/semantic.js` and `dist/semantic.css` (or their minified counterparts)
-from this repository in your project.
 
-These two files are the output of the build process, and they are the only
-files that must be served to the browser to make use of Semantic UI.
+``` html
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/semantic.min.css">
+<script src="/dist/semantic.min.js"></script>
+```
 
-### Custom Build
+You may also prefer to use individual components found in `dist/components` to reduce the libraries file size.
+
+``` html
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/icon.css">
+```
+
+If you are unable to run build tools, for whatever reason, you can create a custom build by simply copying and pasting your necessary components into an online minifier](http://marijnhaverbeke.nl/uglifyjs)
+
+
+### Recommended Usage (Themed)
 
 Semantic is best used actively during development. We have included build tools for maintaining changes to Semantic as you work.
 
