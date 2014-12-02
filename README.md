@@ -38,14 +38,14 @@ To use the "ready-to-use" distribution version, which includes all components, s
 `dist/semantic.js` and `dist/semantic.css` (or their minified counterparts) in your page.
 
 ``` html
-<link rel="stylesheet" type="text/css" class="ui" href="/dist/semantic.min.css">
+<link rel="stylesheet" type="text/css" href="/dist/semantic.min.css">
 <script src="/dist/semantic.min.js"></script>
 ```
 
 You may also prefer to use individual components found in `dist/components` to reduce the libraries file size.
 
 ``` html
-<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/icon.css">
+<link rel="stylesheet" type="text/css" href="/dist/components/icon.css">
 ```
 
 If you are unable to run build tools, for whatever reason, you can create a custom build by simply copying and pasting your necessary components into an online minifier](http://marijnhaverbeke.nl/uglifyjs)
