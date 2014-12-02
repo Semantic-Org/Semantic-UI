@@ -79,9 +79,11 @@
 @menuDividerBorder: @menuDividerSize solid @menuDividerColor;
 
 /* Menu Input */
-@menuInputMargin: 0.75rem @itemHorizontalPadding 0.25rem;
+@menuInputMargin: 0.75rem @itemHorizontalPadding;
 @menuInputMinWidth: 200px;
-@menuInputPadding: 0.5em 1em;
+@menuInputVerticalPadding: 0.5em;
+@menuInputHorizontalPadding: 1em;
+@menuInputPadding: @menuInputVerticalPadding @menuInputHorizontalPadding;
 
 /* Menu Image */
 @menuImageMaxHeight: 2.5em;
