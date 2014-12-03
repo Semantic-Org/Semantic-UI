@@ -29,10 +29,7 @@
 - **Dropdown** - Fix ``action input`` used inside ``ui dropdown`` to appear correctly **Thanks ordepdev**
 
 **Docs**
-- **Progress* - Added missing settings docs for progress module
-
-**Docs**
-- **Progress* - Added missing settings docs for progress module
+- **Progress** - Added missing settings docs for progress module
 
 ### Version 1.0.1 - November 28, 2014
 
