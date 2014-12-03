@@ -4,6 +4,7 @@
 
 **Bugs**
 - **Step** - Fixes step content appearing overlapped due to use of ``em`` instead of ``rem`` for line-height.
+- **Sidebar** - Fixes issue that may cause sidebars to stay open in some circumstances when using multiple sidebars
 
 ### Version 1.1.0 - December 02, 2014
 
