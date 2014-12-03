@@ -1,5 +1,9 @@
 ## RELEASE NOTES
 
+### Version 1.1.2 - December 03, 2014
+
+- **NPM** - Fixes NPM issue with ``dist/`` not being included due to ``.gitignore``
+
 ### Version 1.1.1 - December 03, 2014
 
 **Bugs**
