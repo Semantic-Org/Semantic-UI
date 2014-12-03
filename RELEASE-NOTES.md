@@ -1,6 +1,6 @@
 ## RELEASE NOTES
 
-### Version 1.1.1 - December 04, 2014
+### Version 1.1.1 - December 03, 2014
 
 **Bugs**
 - **Step** - Fixes step content appearing overlapped due to use of ``em`` instead of ``rem`` for line-height.
