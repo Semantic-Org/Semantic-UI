@@ -385,7 +385,7 @@ $.fn.sidebar = function(parameters) {
             transition = module.get.transition(),
             $transition = (transition == 'safe')
               ? $context
-              : (transition == 'overlay' || module.othersActive())
+              : (transition == 'overlay' || module.othersVisible())
                 ? $module
                 : $pusher,
             animate,
