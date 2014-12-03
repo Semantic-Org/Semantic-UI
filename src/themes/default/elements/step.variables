@@ -35,12 +35,12 @@
 /* Title */
 @titleFontFamily: @headerFont;
 @titleFontWeight: bold;
-@titleFontSize: 1.0714em;
+@titleFontSize: 1.0714rem;
 @titleColor: @darkTextColor;
 
 /* Description */
 @descriptionDistance: 0.1em;
-@descriptionFontSize: 0.9285em;
+@descriptionFontSize: 0.9285rem;
 @descriptionFontWeight: normal;
 @descriptionColor: @textColor;
 
