@@ -20,7 +20,7 @@
   box-shadow @transitionDuration @transitionEasing
 ;
 @borderRadius: @defaultBorderRadius;
-@lineHeight: 1.142em;
+@lineHeight: 1.142rem;
 
 @backgroundColor: #FFFFFF;
 @background: @backgroundColor;
@@ -35,12 +35,12 @@
 /* Title */
 @titleFontFamily: @headerFont;
 @titleFontWeight: bold;
-@titleFontSize: 1.0714rem;
+@titleFontSize: 1.0714em;
 @titleColor: @darkTextColor;
 
 /* Description */
 @descriptionDistance: 0.1em;
-@descriptionFontSize: 0.9285rem;
+@descriptionFontSize: 0.9285em;
 @descriptionFontWeight: normal;
 @descriptionColor: @textColor;
 
