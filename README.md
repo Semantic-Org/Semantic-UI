@@ -48,8 +48,6 @@ You may also prefer to use individual components found in `dist/components` to r
 <link rel="stylesheet" type="text/css" href="/dist/components/icon.css">
 ```
 
-If you are unable to run build tools, for whatever reason, you can create a custom build by simply copying and pasting your necessary components into an online minifier](http://marijnhaverbeke.nl/uglifyjs)
-
 
 ### Recommended Usage (Themed)
 
