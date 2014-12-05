@@ -53,9 +53,9 @@ $.fn.modal = function(parameters) {
         eventNamespace  = '.' + namespace,
         moduleNamespace = 'module-' + namespace,
 
-        $module      = $(this),
-        $context     = $(settings.context),
-        $close       = $module.find(selector.close),
+        $module         = $(this),
+        $context        = $(settings.context),
+        $close          = $module.find(selector.close),
 
         $allModals,
         $otherModals,
@@ -63,8 +63,8 @@ $.fn.modal = function(parameters) {
         $dimmable,
         $dimmer,
 
-        element      = this,
-        instance     = $module.data(moduleNamespace),
+        element         = this,
+        instance        = $module.data(moduleNamespace),
 
         elementNamespace,
         id,
@@ -219,8 +219,8 @@ $.fn.modal = function(parameters) {
           click: function(event) {
             if( $(event.target).closest($module).size() === 0 ) {
               module.debug('Dimmer clicked, hiding all modals');
-              module.remove.clickaway();
               if( module.is.active() ) {
+                module.remove.clickaway();
                 if(settings.allowMultiple) {
                   module.hide();
                 }
