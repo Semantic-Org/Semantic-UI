@@ -1581,39 +1581,46 @@
     display: block !important;
     width: auto;
     padding: 0em;
-    margin-top: 0em;
-    margin-bottom: 0em;
-  }
-  :not(.column) > .ui.stackable.grid {
-    margin: 0em;
   }
   .ui.stackable.grid > .row > .wide.column,
   .ui.stackable.grid > .wide.column,
   .ui.stackable.grid > .column.grid > .column,
   .ui.stackable.grid > .column.row > .column,
   .ui.stackable.grid > .row > .column,
-  .ui.stackable.grid > .column {
+  .ui.stackable.grid > .column:not(.row) {
     display: block !important;
     width: auto !important;
 
-    margin: (@stackableRowSpacing / 4) 0em !important;
-    padding: (@stackableRowSpacing / 4) (@stackableGutter / 2) 0em !important;
+    margin: 0em 0em !important;
+    padding: (@stackableRowSpacing / 2) (@stackableGutter / 2) !important;
 
     box-shadow: none !important;
   }
 
-  .ui.stackable.celled.grid > .column,
+  /*
+  .ui.stackable.grid + .ui.stackable.grid {
+    margin-top: (@rowSpacing / 2) !important;
+  }
+  .ui.grid + .ui.stackable.grid {
+    margin-top: (@rowSpacing / 2) !important;
+  }
+  .ui.stackable.grid + .grid {
+    margin-top: -(@rowSpacing / 2) !important;
+  }
+  */
+
+  .ui.stackable.celled.grid > .column:not(.row),
+  .ui.stackable.divided.grid > .column:not(.row),
   .ui.stackable.celled.grid > .row > .column,
-  .ui.stackable.divided.grid > .column,
   .ui.stackable.divided.grid > .row > .column {
     border-top: @stackableMobileBorder;
     box-shadow: none !important;
     margin: (@stackableRowSpacing) 0em !important;
     padding: (@stackableRowSpacing) (@stackableGutter / 2) 0em !important;
   }
-  .ui.inverted.stackable.celled.grid > .column,
+  .ui.inverted.stackable.celled.grid > .column:not(.row),
+  .ui.inverted.stackable.divided.grid > .column:not(.row),
   .ui.inverted.stackable.celled.grid > .row > .column,
-  .ui.inverted.stackable.divided.grid > .column,
   .ui.inverted.stackable.divided.grid > .row > .column {
     border-top: @stackableInvertedMobileBorder;
   }
@@ -1622,10 +1629,15 @@
     margin-top: 0em !important;
     padding-top: 0em !important;
   }
+  .ui.stackable.grid > .row:last-child > .column:last-child,
+  .ui.stackable.grid > .column:last-child {
+    margin-bottom: 0em !important;
+    padding-bottom: 0em !important;
+  }
   .ui.stackable.divided.grid > .row:first-child > .column:first-child,
   .ui.stackable.celled.grid > .row:first-child > .column:first-child,
-  .ui.stackable.divided.grid > .column:first-child,
-  .ui.stackable.celled.grid > .column:first-child {
+  .ui.stackable.divided.grid > .column:not(.row):first-child,
+  .ui.stackable.celled.grid > .column:not(.row):first-child {
     border-top: none !important;
   }
 
