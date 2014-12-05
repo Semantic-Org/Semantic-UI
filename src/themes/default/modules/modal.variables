@@ -7,7 +7,7 @@
 @width: 90%;
 @xOffset: -(@width / 2);
 @borderRadius: @defaultBorderRadius;
-@boxShadow: 0px 0px 8px rgba(0, 0, 0, 0.8);
+@boxShadow: 0 1px 4px 1px rgba(0, 0, 0, 0.3);
 
 /* Close Icon */
 @closeOpacity: 0.8;
