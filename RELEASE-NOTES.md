@@ -2,11 +2,19 @@
 
 ### Version 1.1.3 - December 03, 2014
 
-**Bugs**
-- Item/Card - Default link formatting inside element simplified to avoid adjusting other nested ``ui`` link styles
-
 **Enhancement**
+- **Fonts** - Add font subset variable for ``site.variables`` **Thanks gabormeszoly**
+- **Modal** - Default modal shadow now more subtle
 - **Sidebar** - Now has aliases ``is open/closed`` for ``is visible/hidden``
+- **Checkbox** - JS Checkbox now handles several variations of html. Labels can be before inputs, after, or not included at all.
+
+**Bugs**
+- **Modal** - Modals now use UUIDs to fix issues with multiple modals sometimes not closing dimmers
+- **Modal** - When a second modal that is not scrolling is opened after a scrolling modal it no longer causes the first modal to not be scrollable
+- **Modal** - "Hammer" clicking multiple times on a hiding  dimmer no longer causes animation issues
+- Item/Card - Default link formatting inside element simplified to avoid adjusting other nested ``ui`` link styles
+- Dropdown - Fixes bug with dropdown converted from ``select`` that use ``<option`` values with capital letters not being selectable
+
 
 ### Version 1.1.2 - December 03, 2014
 

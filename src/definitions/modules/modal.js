@@ -217,7 +217,7 @@ $.fn.modal = function(parameters) {
             }
           },
           click: function(event) {
-            if( $(event.target).closest(selector.modal).size() === 0 ) {
+            if( $(event.target).closest($module).size() === 0 ) {
               module.debug('Dimmer clicked, hiding all modals');
               module.remove.clickaway();
               if( module.is.active() ) {
@@ -561,6 +561,9 @@ $.fn.modal = function(parameters) {
               $body
                 .css('height', module.cache.height + settings.padding)
               ;
+            }
+            else {
+              $body.css('height', '');
             }
           },
           active: function() {
