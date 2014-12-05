@@ -1,5 +1,13 @@
 ## RELEASE NOTES
 
+### Version 1.1.3 - December 03, 2014
+
+**Bugs**
+- Item/Card - Default link formatting inside element simplified to avoid adjusting other nested ``ui`` link styles
+
+**Enhancement**
+- **Sidebar** - Now has aliases ``is open/closed`` for ``is visible/hidden``
+
 ### Version 1.1.2 - December 03, 2014
 
 - **NPM** - Fixes issue with ``dist/`` not being included when using NPM due to ``.gitignore``
