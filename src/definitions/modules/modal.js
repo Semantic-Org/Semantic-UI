@@ -220,11 +220,13 @@ $.fn.modal = function(parameters) {
             if( $(event.target).closest(selector.modal).size() === 0 ) {
               module.debug('Dimmer clicked, hiding all modals');
               module.remove.clickaway();
-              if(settings.allowMultiple) {
-                module.hide();
-              }
-              else {
-                module.hideAll();
+              if( module.is.active() ) {
+                if(settings.allowMultiple) {
+                  module.hide();
+                }
+                else {
+                  module.hideAll();
+                }
               }
             }
           },
@@ -360,6 +362,7 @@ $.fn.modal = function(parameters) {
           module.debug('Hiding dimmer');
           $dimmable.dimmer('hide', function() {
             if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
+              module.remove.clickaway();
               module.remove.screenHeight();
             }
           });
@@ -523,6 +526,9 @@ $.fn.modal = function(parameters) {
               : $module.is(':visible')
             ;
           },
+          scrolling: function() {
+            return $dimmable.hasClass(className.scrolling);
+          },
           modernBrowser: function() {
             // appName for IE11 reports 'Netscape' can no longer use
             return !(window.ActiveXObject || "ActiveXObject" in window);
@@ -556,9 +562,6 @@ $.fn.modal = function(parameters) {
                 .css('height', module.cache.height + settings.padding)
               ;
             }
-            else {
-              $body.css('height', '');
-            }
           },
           active: function() {
             $module.addClass(className.active);
@@ -570,7 +573,9 @@ $.fn.modal = function(parameters) {
           type: function() {
             if(module.can.fit()) {
               module.verbose('Modal fits on screen');
-              module.remove.scrolling();
+              if(!module.othersActive) {
+                module.remove.scrolling();
+              }
             }
             else {
               module.verbose('Modal cannot fit on screen setting to scrolling');
