@@ -10,7 +10,7 @@ Key Features
 * 3 Levels of Variable Inheritance (Similar to SublimeText)
 * Built using EM values for responsive design
 
-> Semantic UI is now at 1.0, be sure to check out our [release notes](https://github.com/Semantic-Org/Semantic-UI/blob/master/RELEASE-NOTES.md) for changes from the pre-release.
+> Semantic UI is now at 1.0, be sure to check out our [release notes](https://github.com/Semantic-Org/Semantic-UI/blob/master/RELEASE-NOTES.md#version-100---november-24-2014) for changes from the pre-release.
 
 
 ## Community Support
@@ -47,8 +47,6 @@ You may also prefer to use individual components found in `dist/components` to r
 ``` html
 <link rel="stylesheet" type="text/css" href="/dist/components/icon.css">
 ```
-
-If you are unable to run build tools, for whatever reason, you can create a custom build by simply copying and pasting your necessary components into an online minifier](http://marijnhaverbeke.nl/uglifyjs)
 
 
 ### Recommended Usage (Themed)
