@@ -25,7 +25,7 @@
 - **Form** - Fixes required checkbox asterisks formatting incorrect
 
 **Docs / Build**
-- Fixed documenation on dropdown actions, field width specification, form validation types, and some odds & ends
+- Fixed documentation on dropdown actions, form field widths, form validation types, and many odds & ends
 - Adds components to semantic.json.example
 - Theme.config.example now links to final site folder
 
