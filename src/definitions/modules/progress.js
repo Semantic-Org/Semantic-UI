@@ -295,6 +295,14 @@ $.fn.progress = function(parameters) {
             if(module.total) {
               module.value = Math.round( (percent / 100) * module.total);
             }
+            if(settings.limitValues) {
+              module.value = (module.value > 100)
+                ? 100
+                : (module.value < 0)
+                  ? 0
+                  : module.value
+              ;
+            }
             module.set.barWidth(percent);
             module.set.barLabel();
             if(percent === 100) {
@@ -607,6 +615,7 @@ $.fn.progress.settings = {
 
   autoSuccess  : true,
   showActivity : true,
+  limitValues  : true,
 
   label        : 'percent',
   precision    : 1,
