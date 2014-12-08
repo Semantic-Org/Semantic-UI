@@ -2,13 +2,15 @@
 
 ### Version 1.2.0 - December 08, 2014
 
+[Browse Closed Issues](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A1.1.3+is%3Aclosed)
+
 **Enhancement**
 - **Form** - Form validation now has parameter ``optional`` which will only validate a field against a set of rules if the user does not leave it blank
 - **Fonts** - Add font subset variable for ``site.variables`` **Thanks gabormeszoly**
 - **Modal** - Default modal shadow now more subtle
-- **Sidebar** - Now has aliases ``is open/closed`` for ``is visible/hidden``
-- **Checkbox** - JS Checkbox now handles several variations of html. Labels can be before inputs, after, or not included at all.
-- **Progress** - Adds ``limitValues`` setting to adjust values outside of 0-100 automatically, defaults to true
+- **Sidebar** - Now has behaviors ``is open/closed`` that are aliases for ``is visible/hidden``
+- **Checkbox** - JS Checkbox now handles several variations of html. Labels can be before inputs, after, or not included at all. This should work better with server side form generation.
+- **Progress** - Adds ``limitValues`` setting to adjust values outside of 0-100 automatically to within range, defaults to true
 
 **Bugs**
 - **Grid** - Fixes ``ui stackable grid`` sometimes not aligning correctly at mobile sizes with ``ui page grid``
@@ -22,8 +24,10 @@
 - **Dropdown** - Fixes bug with dropdown converted from ``select`` that use ``<option`` values with capital letters not being selectable
 - **Form** - Fixes required checkbox asterisks formatting incorrect
 
-**Docs**
+**Docs / Build **
 - Fixed documenation on dropdown actions, field width specification, form validation types, and some odds & ends
+- Adds components to semantic.json.example
+- Theme.config.example now links to final site folder
 
 ### Version 1.1.2 - December 03, 2014
 
