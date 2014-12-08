@@ -7,17 +7,20 @@
 - **Modal** - Default modal shadow now more subtle
 - **Sidebar** - Now has aliases ``is open/closed`` for ``is visible/hidden``
 - **Checkbox** - JS Checkbox now handles several variations of html. Labels can be before inputs, after, or not included at all.
+- **Progress** - Adds ``limitValues`` setting to adjust values outside of 0-100 automatically, defaults to true
 
 **Bugs**
-- **Grid** - Fixes ``ui stackable grid`` not aligning correctly at mobile sizes with ``ui page grid``
-- **Modal** - Modals now use UUIDs to fix issues with multiple modals sometimes not closing dimmers
+- **Grid** - Fixes ``ui stackable grid`` sometimes not aligning correctly at mobile sizes with ``ui page grid``
+- **Progress** - Fixes issues with setting progress to 0% not working as expected
+- **Modal** - Fixes issues with multiple modals sometimes not closing dimmers
 - **Modal** - When a second modal that is not scrolling is opened after a scrolling modal it no longer causes the first modal to not be scrollable
 - **Modal** - "Hammer" clicking multiple times on a hiding  dimmer no longer causes animation issues
-- Item/Card - Default link formatting inside element simplified to avoid adjusting other nested ``ui`` link styles
-- Dropdown - Fixes bug with dropdown converted from ``select`` that use ``<option`` values with capital letters not being selectable
+- **Item/Card** - Default link formatting inside element simplified to avoid adjusting other nested ``ui`` link styles
+- **Dropdown** - Fixes bug with dropdown converted from ``select`` that use ``<option`` values with capital letters not being selectable
+- **Form** - Fixes required checkbox asterisks formatting incorrect
 
 **Docs**
-- Fixes to broken links, inconsistencies, fub-ups.
+- Fixed documenation on dropdown actions, field width specification, form validation types, and some odds & ends
 
 ### Version 1.1.2 - December 03, 2014
 
