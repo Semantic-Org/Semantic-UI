@@ -245,13 +245,13 @@
 /* Generic */
 .ui.cards > .card > .content a:not(.ui),
 .ui.card > .content a:not(.ui) {
-  color: #009fda;
+  color: '';
   -webkit-transition: color 0.2s ease;
           transition: color 0.2s ease;
 }
 .ui.cards > .card > .content a:not(.ui):hover,
 .ui.card > .content a:not(.ui):hover {
-  color: #00b2f3;
+  color: '';
 }
 
 /* Header */
@@ -265,12 +265,12 @@
 }
 
 /* Meta */
-.ui.cards > .card .meta a,
-.ui.card .meta a {
+.ui.cards > .card .meta > a:not(.ui),
+.ui.card .meta > a:not(.ui) {
   color: rgba(0, 0, 0, 0.4);
 }
-.ui.cards > .card .meta a:hover,
-.ui.card .meta a:hover {
+.ui.cards > .card .meta > a:not(.ui):hover,
+.ui.card .meta > a:not(.ui):hover {
   color: rgba(0, 0, 0, 0.8);
 }
 

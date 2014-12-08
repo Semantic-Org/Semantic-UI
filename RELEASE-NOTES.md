@@ -1,8 +1,9 @@
 ## RELEASE NOTES
 
-### Version 1.1.3 - December 03, 2014
+### Version 1.2.0 - December 08, 2014
 
 **Enhancement**
+- **Form** - Form validation now has parameter ``optional`` which will only validate a field against a set of rules if the user does not leave it blank
 - **Fonts** - Add font subset variable for ``site.variables`` **Thanks gabormeszoly**
 - **Modal** - Default modal shadow now more subtle
 - **Sidebar** - Now has aliases ``is open/closed`` for ``is visible/hidden``
@@ -14,7 +15,9 @@
 - **Progress** - Fixes issues with setting progress to 0% not working as expected
 - **Modal** - Fixes issues with multiple modals sometimes not closing dimmers
 - **Modal** - When a second modal that is not scrolling is opened after a scrolling modal it no longer causes the first modal to not be scrollable
-- **Modal** - "Hammer" clicking multiple times on a hiding  dimmer no longer causes animation issues
+- **Modal** - "Hammer" clicking multiple times on a hiding dimmer no longer causes animation issues
+- **Sidebar** - Fixes issue with multiple sidebars sometimes causing dimmer to close prematurely
+- **Sidebar** - Dimmer can now be clicked even before sidebar has finished showing to immediately close sidebar
 - **Item/Card** - Default link formatting inside element simplified to avoid adjusting other nested ``ui`` link styles
 - **Dropdown** - Fixes bug with dropdown converted from ``select`` that use ``<option`` values with capital letters not being selectable
 - **Form** - Fixes required checkbox asterisks formatting incorrect

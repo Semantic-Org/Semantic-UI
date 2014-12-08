@@ -1448,12 +1448,7 @@ $.fn.dropdown.settings.templates = {
       html        = ''
     ;
     $.each(select.values, function(value, name) {
-      if(value === name) {
-        html += '<div class="item">' + name + '</div>';
-      }
-      else {
-        html += '<div class="item" data-value="' + value + '">' + name + '</div>';
-      }
+      html += '<div class="item" data-value="' + value + '">' + name + '</div>';
     });
     return html;
   },
@@ -1472,12 +1467,7 @@ $.fn.dropdown.settings.templates = {
     }
     html += '<div class="menu">';
     $.each(select.values, function(value, name) {
-      if(value === name) {
-        html += '<div class="item">' + name + '</div>';
-      }
-      else {
-        html += '<div class="item" data-value="' + value + '">' + name + '</div>';
-      }
+      html += '<div class="item" data-value="' + value + '">' + name + '</div>';
     });
     html += '</div>';
     return html;

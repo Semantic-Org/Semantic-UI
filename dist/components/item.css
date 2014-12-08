@@ -218,12 +218,12 @@
 
 /* Generic */
 .ui.items > .item > .content a:not(.ui) {
-  color: #009fda;
+  color: '';
   -webkit-transition: color 0.2s ease;
           transition: color 0.2s ease;
 }
 .ui.items > .item > .content a:not(.ui):hover {
-  color: #00b2f3;
+  color: '';
 }
 
 /* Header */
@@ -235,10 +235,10 @@
 }
 
 /* Meta */
-.ui.items > .item .meta a {
+.ui.items > .item .meta > a:not(.ui) {
   color: rgba(0, 0, 0, 0.4);
 }
-.ui.items > .item .meta a:hover {
+.ui.items > .item .meta > a:not(.ui):hover {
   color: rgba(0, 0, 0, 0.8);
 }
 

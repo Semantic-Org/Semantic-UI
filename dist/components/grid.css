@@ -1561,49 +1561,43 @@
   .ui.stackable.grid {
     display: block !important;
     width: auto;
+    margin-left: -1rem;
+    margin-right: -1rem;
     padding: 0em;
-    margin-top: 0em;
-    margin-bottom: 0em;
-  }
-  :not(.column) > .ui.stackable.grid {
-    margin: 0em;
   }
   .ui.stackable.grid > .row > .wide.column,
   .ui.stackable.grid > .wide.column,
   .ui.stackable.grid > .column.grid > .column,
   .ui.stackable.grid > .column.row > .column,
   .ui.stackable.grid > .row > .column,
-  .ui.stackable.grid > .column {
+  .ui.stackable.grid > .column:not(.row) {
     display: block !important;
     width: auto !important;
-    margin: 0.5rem 0em !important;
-    padding: 0.5rem 1rem 0em !important;
+    margin: 0em 0em !important;
+    padding: 1rem 2rem !important;
     box-shadow: none !important;
   }
-  .ui.stackable.celled.grid > .column,
+  .ui.stackable.grid > .row {
+    margin: 0em;
+    padding: 0em;
+  }
+  .ui.stackable.celled.grid > .column:not(.row),
+  .ui.stackable.divided.grid > .column:not(.row),
   .ui.stackable.celled.grid > .row > .column,
-  .ui.stackable.divided.grid > .column,
   .ui.stackable.divided.grid > .row > .column {
     border-top: 1px solid rgba(39, 41, 43, 0.15);
     box-shadow: none !important;
-    margin: 2rem 0em !important;
-    padding: 2rem 1rem 0em !important;
   }
-  .ui.inverted.stackable.celled.grid > .column,
+  .ui.inverted.stackable.celled.grid > .column:not(.row),
+  .ui.inverted.stackable.divided.grid > .column:not(.row),
   .ui.inverted.stackable.celled.grid > .row > .column,
-  .ui.inverted.stackable.divided.grid > .column,
   .ui.inverted.stackable.divided.grid > .row > .column {
     border-top: 1px solid rgba(255, 255, 255, 0.2);
   }
-  .ui.stackable.grid > .row:first-child > .column:first-child,
-  .ui.stackable.grid > .column:first-child {
-    margin-top: 0em !important;
-    padding-top: 0em !important;
-  }
   .ui.stackable.divided.grid > .row:first-child > .column:first-child,
   .ui.stackable.celled.grid > .row:first-child > .column:first-child,
-  .ui.stackable.divided.grid > .column:first-child,
-  .ui.stackable.celled.grid > .column:first-child {
+  .ui.stackable.divided.grid > .column:not(.row):first-child,
+  .ui.stackable.celled.grid > .column:not(.row):first-child {
     border-top: none !important;
   }
   .ui[class*="equal height"].stackable.page.grid {
