@@ -5,7 +5,7 @@
 [Browse Closed Issues](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A1.1.3+is%3Aclosed)
 
 **Enhancement**
-- **Form** - Form validation now has parameter ``optional`` which will only validate a field against a set of rules if the user does not leave it blank
+- **Form** - Form validation now has parameter ``optional`` which will only validate a field against a set of rules if the user does not leave it blank **Thanks DHNCarlos**
 - **Fonts** - Add font subset variable for ``site.variables`` **Thanks gabormeszoly**
 - **Modal** - Default modal shadow now more subtle
 - **Sidebar** - Now has behaviors ``is open/closed`` that are aliases for ``is visible/hidden``
