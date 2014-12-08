@@ -425,6 +425,7 @@ $.fn.sidebar = function(parameters) {
           module.set.transition();
           module.repaint();
           animate = function() {
+            module.bind.clickaway();
             module.add.bodyCSS();
             module.set.animating();
             module.set.visible();
@@ -436,14 +437,14 @@ $.fn.sidebar = function(parameters) {
           };
           transitionEnd = function(event) {
             if( event.target == $transition[0] ) {
-              $transition.off(transitionEvent + eventNamespace, transitionEnd);
+              $transition.off(transitionEvent + elementNamespace, transitionEnd);
               module.remove.animating();
-              module.bind.clickaway();
               module.bind.scrollLock();
               $.proxy(callback, element)();
             }
           };
-          $transition.on(transitionEvent + eventNamespace, transitionEnd);
+          $transition.off(transitionEvent + elementNamespace);
+          $transition.on(transitionEvent + elementNamespace, transitionEnd);
           requestAnimationFrame(animate);
         },
 
@@ -476,7 +477,7 @@ $.fn.sidebar = function(parameters) {
           };
           transitionEnd = function(event) {
             if( event.target == $transition[0] ) {
-              $transition.off(transitionEvent + eventNamespace, transitionEnd);
+              $transition.off(transitionEvent + elementNamespace, transitionEnd);
               module.remove.animating();
               module.remove.transition();
               module.remove.bodyCSS();
@@ -486,7 +487,8 @@ $.fn.sidebar = function(parameters) {
               $.proxy(callback, element)();
             }
           };
-          $transition.on(transitionEvent + eventNamespace, transitionEnd);
+          $transition.off(transitionEvent + elementNamespace);
+          $transition.on(transitionEvent + elementNamespace, transitionEnd);
           requestAnimationFrame(animate);
         },
 
