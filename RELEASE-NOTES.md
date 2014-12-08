@@ -24,7 +24,7 @@
 - **Dropdown** - Fixes bug with dropdown converted from ``select`` that use ``<option`` values with capital letters not being selectable
 - **Form** - Fixes required checkbox asterisks formatting incorrect
 
-**Docs / Build **
+**Docs / Build**
 - Fixed documenation on dropdown actions, field width specification, form validation types, and some odds & ends
 - Adds components to semantic.json.example
 - Theme.config.example now links to final site folder
