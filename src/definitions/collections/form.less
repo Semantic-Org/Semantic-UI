@@ -527,13 +527,25 @@
 ---------------------*/
 
 .ui.form .required.fields > .field > label:after,
-.ui.form .required.fields > .field > .checkbox:after,
 .ui.form .required.field > label:after,
+.ui.form .required.fields > .field > .checkbox:after,
 .ui.form .required.field > .checkbox:after {
-  margin: -0.2em 0em 0em 0.2em;
-  vertical-align: top;
-  content: '*';
+  margin: @requiredMargin;
+  content: @requiredContent;
   color: @requiredColor;
+}
+
+.ui.form .required.fields > .field > label:after,
+.ui.form .required.field > label:after {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.ui.form .required.fields > .field > .checkbox:after,
+.ui.form .required.field > .checkbox:after {
+  position: absolute;
+  top: 0%;
+  left: 100%;
 }
 
 

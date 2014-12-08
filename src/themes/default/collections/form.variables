@@ -141,8 +141,11 @@
 --------------------*/
 
 /* Required */
+@requiredContent: '*';
 @requiredColor: @negativeColor;
 @requiredVerticalOffset: -0.2em;
+@requiredDistance: 0.2em;
+@requiredMargin: @requiredVerticalOffset 0em 0em @requiredDistance;
 
 /* Inverted */
 @invertedLabelColor: @invertedTextColor;
