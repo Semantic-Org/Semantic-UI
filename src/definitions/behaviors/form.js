@@ -398,7 +398,11 @@ $.fn.form = function(fields, parameters) {
               fieldValid  = true,
               fieldErrors = []
             ;
-            if(field.rules !== undefined) {
+            if(field.optional && $.trim($field.val()) === ''){
+              module.debug('Field is optional and empty. Skipping', field.identifier);
+              fieldValid = true;
+            }
+            else if(field.rules !== undefined) {
               $.each(field.rules, function(index, rule) {
                 if( module.has.field(field.identifier) && !( module.validate.rule(field, rule) ) ) {
                   module.debug('Field is invalid', field.identifier, rule.type);
@@ -643,7 +647,7 @@ $.fn.form.settings = {
   revalidate        : true,
 
   transition        : 'scale',
-  duration          : 150,
+  duration          : 200,
 
 
   onValid           : function() {},
@@ -669,14 +673,12 @@ $.fn.form.settings = {
     error   : 'error',
     success : 'success',
     down    : 'down',
-    label   : 'ui label prompt'
+    label   : 'ui prompt label'
   },
 
-  // errors
   error: {
     method   : 'The method you called is not defined.'
   },
-
 
   templates: {
     error: function(errors) {
