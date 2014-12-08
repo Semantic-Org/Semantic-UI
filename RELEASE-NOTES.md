@@ -9,12 +9,15 @@
 - **Checkbox** - JS Checkbox now handles several variations of html. Labels can be before inputs, after, or not included at all.
 
 **Bugs**
+- **Grid** - Fixes ``ui stackable grid`` not aligning correctly at mobile sizes with ``ui page grid``
 - **Modal** - Modals now use UUIDs to fix issues with multiple modals sometimes not closing dimmers
 - **Modal** - When a second modal that is not scrolling is opened after a scrolling modal it no longer causes the first modal to not be scrollable
 - **Modal** - "Hammer" clicking multiple times on a hiding  dimmer no longer causes animation issues
 - Item/Card - Default link formatting inside element simplified to avoid adjusting other nested ``ui`` link styles
 - Dropdown - Fixes bug with dropdown converted from ``select`` that use ``<option`` values with capital letters not being selectable
 
+**Docs**
+- Fixes to broken links, inconsistencies, fub-ups.
 
 ### Version 1.1.2 - December 03, 2014
 
