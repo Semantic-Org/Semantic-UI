@@ -1,5 +1,12 @@
 ## RELEASE NOTES
 
+### Version 1.2.1 - December 09, 2014
+
+**Bugs**
+
+- **Step** - Fix issue with completed ordered step icon alignment
+
+
 ### Version 1.2.0 - December 08, 2014
 
 [Browse Closed Issues](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A1.1.3+is%3Aclosed)

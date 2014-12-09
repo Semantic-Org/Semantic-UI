@@ -109,10 +109,11 @@
 .ui.ordered.steps .step:before {
   display: table-cell;
   position: static;
+  content: counters(ordered, ".");
+  vertical-align: @iconVerticalAlign;
   padding-right: @iconDistance;
   font-size: @iconSize;
   counter-increment: ordered;
-  content: counters(ordered, ".");
 }
 
 .ui.ordered.steps .step > * {

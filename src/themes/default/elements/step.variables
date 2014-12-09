@@ -25,7 +25,7 @@
 @backgroundColor: #FFFFFF;
 @background: @backgroundColor;
 @borderRadius: 0em;
-@boxShadow: 0px 0px 0px 1px @borderColor;
+@boxShadow: 0px 0px 0px 1px @solidBorderColor;
 
 /* Icon */
 @iconDistance: 0.6em;
