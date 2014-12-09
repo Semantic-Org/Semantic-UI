@@ -208,7 +208,7 @@ $.fn.form = function(fields, parameters) {
 
         get: {
           changeEvent: function(type) {
-            if(type == 'checkbox' || type == 'radio') {
+            if(type == 'checkbox' || type == 'radio' || type == 'hidden') {
               return 'change';
             }
             else {
@@ -398,7 +398,11 @@ $.fn.form = function(fields, parameters) {
               fieldValid  = true,
               fieldErrors = []
             ;
-            if(field.rules !== undefined) {
+            if(field.optional && $.trim($field.val()) === ''){
+              module.debug('Field is optional and empty. Skipping', field.identifier);
+              fieldValid = true;
+            }
+            else if(field.rules !== undefined) {
               $.each(field.rules, function(index, rule) {
                 if( module.has.field(field.identifier) && !( module.validate.rule(field, rule) ) ) {
                   module.debug('Field is invalid', field.identifier, rule.type);
@@ -643,7 +647,7 @@ $.fn.form.settings = {
   revalidate        : true,
 
   transition        : 'scale',
-  duration          : 150,
+  duration          : 200,
 
 
   onValid           : function() {},
@@ -669,14 +673,12 @@ $.fn.form.settings = {
     error   : 'error',
     success : 'success',
     down    : 'down',
-    label   : 'ui label prompt'
+    label   : 'ui prompt label'
   },
 
-  // errors
   error: {
     method   : 'The method you called is not defined.'
   },
-
 
   templates: {
     error: function(errors) {
@@ -698,66 +700,32 @@ $.fn.form.settings = {
   },
 
   rules: {
+
+    // checkbox checked
     checked: function() {
       return ($(this).filter(':checked').size() > 0);
     },
-    empty: function(value) {
-      return !(value === undefined || '' === value);
+
+    // value contains (text)
+    contains: function(value, text) {
+      text = text.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+      return (value.search(text) !== -1);
     },
+
+    // is most likely an email
     email: function(value){
       var
         emailRegExp = new RegExp("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", "i")
       ;
       return emailRegExp.test(value);
     },
-    length: function(value, requiredLength) {
-      return (value !== undefined)
-        ? (value.length >= requiredLength)
-        : false
-      ;
+
+    // is not empty or blank string
+    empty: function(value) {
+      return !(value === undefined || '' === value);
     },
-    not: function(value, notValue) {
-      return (value != notValue);
-    },
-    contains: function(value, text) {
-      text = text.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
-      return (value.search(text) !== -1);
-    },
-    is: function(value, text) {
-      return (value == text);
-    },
-    maxLength: function(value, maxLength) {
-      return (value !== undefined)
-        ? (value.length <= maxLength)
-        : false
-      ;
-    },
-    match: function(value, fieldIdentifier) {
-      // use either id or name of field
-      var
-        $form = $(this),
-        matchingValue
-      ;
-      if($form.find('#' + fieldIdentifier).size() > 0) {
-        matchingValue = $form.find('#' + fieldIdentifier).val();
-      }
-      else if($form.find('[name="' + fieldIdentifier +'"]').size() > 0) {
-        matchingValue = $form.find('[name="' + fieldIdentifier + '"]').val();
-      }
-      else if( $form.find('[data-validate="'+ fieldIdentifier +'"]').size() > 0 ) {
-        matchingValue = $form.find('[data-validate="'+ fieldIdentifier +'"]').val();
-      }
-      return (matchingValue !== undefined)
-        ? ( value.toString() == matchingValue.toString() )
-        : false
-      ;
-    },
-    url: function(value) {
-      var
-        urlRegExp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
-      ;
-      return urlRegExp.test(value);
-    },
+
+    // is valid integer
     integer: function(value, range) {
       var
         intRegExp = /^\-?\d+$/,
@@ -787,6 +755,62 @@ $.fn.form.settings = {
         (min === undefined || value >= min) &&
         (max === undefined || value <= max)
       );
+    },
+
+    // is exactly value
+    is: function(value, text) {
+      return (value == text);
+    },
+
+    // is at least string length
+    length: function(value, requiredLength) {
+      return (value !== undefined)
+        ? (value.length >= requiredLength)
+        : false
+      ;
+    },
+
+    // matches another field
+    match: function(value, fieldIdentifier) {
+      // use either id or name of field
+      var
+        $form = $(this),
+        matchingValue
+      ;
+      if($form.find('#' + fieldIdentifier).size() > 0) {
+        matchingValue = $form.find('#' + fieldIdentifier).val();
+      }
+      else if($form.find('[name="' + fieldIdentifier +'"]').size() > 0) {
+        matchingValue = $form.find('[name="' + fieldIdentifier + '"]').val();
+      }
+      else if( $form.find('[data-validate="'+ fieldIdentifier +'"]').size() > 0 ) {
+        matchingValue = $form.find('[data-validate="'+ fieldIdentifier +'"]').val();
+      }
+      return (matchingValue !== undefined)
+        ? ( value.toString() == matchingValue.toString() )
+        : false
+      ;
+    },
+
+    // string length is less than max length
+    maxLength: function(value, maxLength) {
+      return (value !== undefined)
+        ? (value.length <= maxLength)
+        : false
+      ;
+    },
+
+    // value is not exactly notValue
+    not: function(value, notValue) {
+      return (value != notValue);
+    },
+
+    // value is most likely url
+    url: function(value) {
+      var
+        urlRegExp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
+      ;
+      return urlRegExp.test(value);
     }
   }
 

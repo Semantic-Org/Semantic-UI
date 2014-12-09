@@ -17,11 +17,11 @@
 }
 .ui.checkbox label:after,
 .ui.checkbox .box:after {
-  content: '\e800'; /* '' */
+  content: '\e800';
 }
 
 /*  UTF Reference
-.check:before { content: '\e800'; }
+.check:before { content: '\e800'; }  ''
 .circle:before { content: '\e801'; }
 .ok-circled:before { content: '\e806'; }
 .ok-circle:before { content: '\e805'; }

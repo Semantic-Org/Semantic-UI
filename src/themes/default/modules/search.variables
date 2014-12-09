@@ -4,7 +4,7 @@
 
 /* Search Prompt */
 @promptFontSize: 1em;
-@promptVerticalPadding: 0.8em;
+@promptVerticalPadding: 0.78571em;
 @promptHorizontalPadding: 1em;
 @promptLineHeight: 1.2;
 @promptPadding: (@promptVerticalPadding + ((1em - @promptLineHeight) / 2)) @promptHorizontalPadding;

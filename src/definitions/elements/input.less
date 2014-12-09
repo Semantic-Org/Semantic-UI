@@ -29,14 +29,15 @@
 ---------------------*/
 
 .ui.input {
-  display: inline-block;
   position: relative;
+  display: inline-block;
   color: @inputColor;
 }
 .ui.input input {
   margin: 0em;
   width: 100%;
   outline: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   text-align: @textAlign;
   line-height: @lineHeight;
 
@@ -50,8 +51,6 @@
   transition: @transition;
 
   box-shadow: @boxShadow;
-  box-sizing: border-box;
-  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
 }
 
 
@@ -186,6 +185,31 @@
   padding: 0em;
 }
 
+/* Transparent Icon */
+.ui.transparent.icon.input > .icon {
+  width: @transparentIconWidth;
+}
+.ui.transparent.icon.input > input {
+  padding-left: 0em !important;
+  padding-right: @transparentIconMargin !important;
+}
+.ui.transparent[class*="left icon"].input > input {
+  padding-left: 0em !important;
+  padding-left: @transparentIconMargin !important;
+}
+
+/* Transparent Inverted */
+.ui.transparent.inverted.input input::-moz-placeholder {
+  color: @transparentInvertedPlaceholderColor;
+}
+.ui.transparent.inverted.input {
+  color: @transparentInvertedColor;
+}
+.ui.transparent.inverted.input input {
+  color: inherit;
+}
+
+
 /*--------------------
          Icon
 ---------------------*/
@@ -193,18 +217,15 @@
 .ui.icon.input > .icon {
   cursor: default;
   position: absolute;
-  opacity: @iconOpacity;
+  text-align: center;
   top: 0px;
   right: 0px;
-
   margin: 0em;
-  width: @iconWidth;
   height: 100%;
 
-  text-align: center;
-
+  width: @iconWidth;
+  opacity: @iconOpacity;
   border-radius: 0em @borderRadius @borderRadius 0em;
-  box-sizing: border-box;
   transition: @iconTransition;
 }
 .ui.icon.input > .icon:before,
@@ -240,19 +261,6 @@
 .ui[class*="left icon"].input > input {
   padding-left: @iconMargin !important;
   padding-right: @horizontalPadding !important;
-}
-
-/* Transparent Icon */
-.ui.transparent.icon.input > .icon {
-  width: @transparentIconWidth;
-}
-.ui.transparent.icon.input > input {
-  padding-left: 0em !important;
-  padding-right: @transparentIconMargin !important;
-}
-.ui.transparent[class*="left icon"].input > input {
-  padding-left: 0em !important;
-  padding-left: @transparentIconMargin !important;
 }
 
 /* Focus */
@@ -357,6 +365,8 @@
   display: table-cell;
   vertical-align: middle;
   white-space: nowrap;
+  padding-top: @verticalPadding;
+  padding-bottom: @verticalPadding;
 }
 .ui.action.input > .button > .icon,
 .ui.action.input > .buttons > .button > .icon {
@@ -400,9 +410,11 @@
        Inverted
 ---------------------*/
 
+/* Standard */
 .ui.inverted.input input {
   border: none;
 }
+
 
 /*--------------------
         Fluid
@@ -411,7 +423,6 @@
 .ui.fluid.input {
   display: block;
 }
-
 
 /*--------------------
         Size

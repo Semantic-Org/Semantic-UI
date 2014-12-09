@@ -194,11 +194,10 @@
   padding-top: @inputVerticalPadding;
   padding-bottom: @inputVerticalPadding;
 }
-
-/* Action Input */
-.ui.menu:not(.vertical) .item .action.input > .button {
-  font-size: @buttonSize;
-  padding: @buttonVerticalPadding @actionButtonHorizontalPadding;
+.ui.menu .item > .input .button,
+.ui.menu .item > .input .label {
+  padding-top: @inputVerticalPadding;
+  padding-bottom: @inputVerticalPadding;
 }
 
 /* Resizes */
@@ -207,18 +206,22 @@
   padding-top: @smallInputVerticalPadding;
   padding-bottom: @smallInputVerticalPadding;
 }
+.ui.small.menu .item > .input .button,
+.ui.small.menu .item > .input .label {
+  padding-top: @smallInputVerticalPadding;
+  padding-bottom: @smallInputVerticalPadding;
+}
 .ui.large.menu .item > .input input {
   top: @largeInputOffset;
   padding-bottom: @largeInputVerticalPadding;
   padding-top: @largeInputVerticalPadding;
 }
+.ui.large.menu .item > .input .button,
+.ui.large.menu .item > .input .label {
+  padding-top: @largeInputVerticalPadding;
+  padding-bottom: @largeInputVerticalPadding;
+}
 
-.ui.large.menu .item .action.input > .button {
-  padding: 0.9em;
-}
-.ui.large.menu .item .action.input > .button > .icon {
-  padding-top: 0.8em;
-}
 
 /*--------------
      Header
@@ -392,26 +395,6 @@
   cursor: default;
   color: @disabledTextColor;
   background-color: transparent !important;
-}
-
-
-/*--------------------
-       Loading
----------------------*/
-
-/* On Form */
-.ui.menu.loading {
-  position: relative;
-}
-.ui.menu.loading:after {
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  content: '';
-  width: 100%;
-  height: 100%;
-  background: @loadingBackgroundColor url("@{loadingImage}") no-repeat @loadingPosition;
-  visibility: visible;
 }
 
 

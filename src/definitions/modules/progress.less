@@ -43,6 +43,20 @@
 }
 
 /* Indicating */
+.ui.indicating.progress .bar[style^="width: 1%"],
+.ui.indicating.progress .bar[style^="width: 2%"],
+.ui.indicating.progress .bar[style^="width: 3%"],
+.ui.indicating.progress .bar[style^="width: 4%"],
+.ui.indicating.progress .bar[style^="width: 5%"],
+.ui.indicating.progress .bar[style^="width: 6%"],
+.ui.indicating.progress .bar[style^="width: 7%"],
+.ui.indicating.progress .bar[style^="width: 8%"],
+.ui.indicating.progress .bar[style^="width: 9%"],
+.ui.indicating.progress .bar[style^="width: 1"],
+.ui.indicating.progress .bar[style^="width: 2"] {
+  background-color: @indicatingFirstColor;
+}
+
 .ui.indicating.progress .bar[style^="width: 3"] {
   background-color: @indicatingSecondColor;
 }
@@ -60,19 +74,6 @@
 .ui.indicating.progress .bar[style^="width: 9"],
 .ui.indicating.progress .bar[style^="width: 100"] {
   background-color: @indicatingSixthColor;
-}
-.ui.indicating.progress .bar[style^="width: 1%"],
-.ui.indicating.progress .bar[style^="width: 2%"],
-.ui.indicating.progress .bar[style^="width: 3%"],
-.ui.indicating.progress .bar[style^="width: 4%"],
-.ui.indicating.progress .bar[style^="width: 5%"],
-.ui.indicating.progress .bar[style^="width: 6%"],
-.ui.indicating.progress .bar[style^="width: 7%"],
-.ui.indicating.progress .bar[style^="width: 8%"],
-.ui.indicating.progress .bar[style^="width: 9%"],
-.ui.indicating.progress .bar[style^="width: 1"],
-.ui.indicating.progress .bar[style^="width: 2"] {
-  background-color: @indicatingFirstColor;
 }
 
 /* Single Digits Last */
@@ -123,7 +124,6 @@
   position: @barPosition;
   width: @barInitialWidth;
   min-width: @barMinWidth;
-  height: @barHeight;
   background: @barBackground;
   border-radius: @barBorderRadius;
   transition: @barTransition;
@@ -393,6 +393,37 @@
      Sizes
 ---------------*/
 
+.ui.tiny.progress {
+  font-size: @tiny;
+}
+.ui.tiny.progress .bar {
+  height: @tinyBarHeight;
+}
+
+.ui.small.progress {
+  font-size: @small;
+}
 .ui.small.progress .bar {
-  height: 14px;
+  height: @smallBarHeight;
+}
+
+.ui.progress {
+  font-size: @medium;
+}
+.ui.progress .bar {
+  height: @barHeight;
+}
+
+.ui.large.progress {
+  font-size: @large;
+}
+.ui.large.progress .bar {
+  height: @largeBarHeight;
+}
+
+.ui.big.progress {
+  font-size: @big;
+}
+.ui.big.progress .bar {
+  height: @bigBarHeight;
 }

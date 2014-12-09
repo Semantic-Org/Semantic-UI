@@ -158,7 +158,7 @@
   margin: 0.5em 0em;
 }
 .ui.dropdown .menu > .input {
-  margin: 0.75rem 1.25rem 0.25rem;
+  margin: 0.75rem 1.25rem;
   min-width: 200px;
 }
 .ui.dropdown .menu > .header + .input {
@@ -166,6 +166,12 @@
 }
 .ui.dropdown .menu > .input:not(.transparent) input {
   padding: 0.5em 1em;
+}
+.ui.dropdown .menu > .input:not(.transparent) .button,
+.ui.dropdown .menu > .input:not(.transparent) .icon,
+.ui.dropdown .menu > .input:not(.transparent) .label {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
 }
 
 /*-----------------

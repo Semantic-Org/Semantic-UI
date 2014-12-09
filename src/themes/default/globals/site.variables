@@ -13,7 +13,10 @@
 @importGoogleFonts : true;
 @googleFontName    : 'Lato';
 @googleFontSizes   : '400,700,400italic,700italic';
-@googleFontRequest : '@{googleFontName}:@{googleFontSizes}';
+@googleSubset      : 'latin';
+
+@googleProtocol    : 'http://';
+@googleFontRequest : '@{googleFontName}:@{googleFontSizes}&subset=@{googleSubset}';
 
 /*-------------------
       Base Sizes
@@ -357,7 +360,6 @@
 
 @transitionDuration : 0.2s;
 @transitionEasing   : ease;
-
 
 /*-------------------
     Derived Values

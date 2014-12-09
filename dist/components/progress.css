@@ -34,6 +34,19 @@
 }
 
 /* Indicating */
+.ui.indicating.progress .bar[style^="width: 1%"],
+.ui.indicating.progress .bar[style^="width: 2%"],
+.ui.indicating.progress .bar[style^="width: 3%"],
+.ui.indicating.progress .bar[style^="width: 4%"],
+.ui.indicating.progress .bar[style^="width: 5%"],
+.ui.indicating.progress .bar[style^="width: 6%"],
+.ui.indicating.progress .bar[style^="width: 7%"],
+.ui.indicating.progress .bar[style^="width: 8%"],
+.ui.indicating.progress .bar[style^="width: 9%"],
+.ui.indicating.progress .bar[style^="width: 1"],
+.ui.indicating.progress .bar[style^="width: 2"] {
+  background-color: #d95c5c;
+}
 .ui.indicating.progress .bar[style^="width: 3"] {
   background-color: #d9a65c;
 }
@@ -51,19 +64,6 @@
 .ui.indicating.progress .bar[style^="width: 9"],
 .ui.indicating.progress .bar[style^="width: 100"] {
   background-color: #66da81;
-}
-.ui.indicating.progress .bar[style^="width: 1%"],
-.ui.indicating.progress .bar[style^="width: 2%"],
-.ui.indicating.progress .bar[style^="width: 3%"],
-.ui.indicating.progress .bar[style^="width: 4%"],
-.ui.indicating.progress .bar[style^="width: 5%"],
-.ui.indicating.progress .bar[style^="width: 6%"],
-.ui.indicating.progress .bar[style^="width: 7%"],
-.ui.indicating.progress .bar[style^="width: 8%"],
-.ui.indicating.progress .bar[style^="width: 9%"],
-.ui.indicating.progress .bar[style^="width: 1"],
-.ui.indicating.progress .bar[style^="width: 2"] {
-  background-color: #d95c5c;
 }
 
 /* Single Digits Last */
@@ -115,11 +115,10 @@
   position: relative;
   width: 0%;
   min-width: 2em;
-  height: 1.75em;
   background: #888888;
   border-radius: 0.2857rem;
-  -webkit-transition: width 0.5s ease, background-color 0.4s ease;
-          transition: width 0.5s ease, background-color 0.4s ease;
+  -webkit-transition: width 0.2s linear, background-color 0.2s linear;
+          transition: width 0.2s linear, background-color 0.2s linear;
 }
 
 /* Percent Complete */
@@ -396,6 +395,33 @@
      Sizes
 ---------------*/
 
+.ui.tiny.progress {
+  font-size: 0.85714286rem;
+}
+.ui.tiny.progress .bar {
+  height: 0.5em;
+}
+.ui.small.progress {
+  font-size: 0.92857143rem;
+}
 .ui.small.progress .bar {
-  height: 14px;
+  height: 1em;
+}
+.ui.progress {
+  font-size: 1rem;
+}
+.ui.progress .bar {
+  height: 1.75em;
+}
+.ui.large.progress {
+  font-size: 1.14285714rem;
+}
+.ui.large.progress .bar {
+  height: 2.5em;
+}
+.ui.big.progress {
+  font-size: 1.28571429rem;
+}
+.ui.big.progress .bar {
+  height: 3.5em;
 }

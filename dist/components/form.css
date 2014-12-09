@@ -52,16 +52,16 @@
 
 .ui.form .field > label {
   display: block;
-  margin: 0em 0em 0.3rem 0em;
+  margin: 0em 0em 0.2857rem 0em;
   color: rgba(0, 0, 0, 0.8);
-  font-size: 0.9em;
+  font-size: 0.9285em;
   font-weight: bold;
   text-transform: none;
 }
 .ui.form .grouped.fields > label {
-  margin: 0em 0em 0.3rem 0em;
+  margin: 0em 0em 0.2857rem 0em;
   color: rgba(0, 0, 0, 0.8);
-  font-size: 0.9em;
+  font-size: 0.9285em;
   font-weight: bold;
   text-transform: none;
 }
@@ -70,7 +70,7 @@
   vertical-align: middle;
   margin: 0em 1em 0em 0em;
   color: rgba(0, 0, 0, 0.8);
-  font-size: 0.9em;
+  font-size: 0.9285em;
   font-weight: bold;
   text-transform: none;
 }
@@ -102,8 +102,8 @@
   outline: none;
   -webkit-appearance: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-  line-height: 1.2;
-  padding: 0.7em 1em;
+  line-height: 1.2142em;
+  padding: 0.67861em 1em;
   font-size: 1em;
   background: #ffffff;
   border: 1px solid rgba(39, 41, 43, 0.15);
@@ -118,7 +118,7 @@
   margin: 0em;
   -webkit-appearance: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-  padding: 0.8em 1em;
+  padding: 0.78571em 1em;
   background: #ffffff;
   border: 1px solid rgba(39, 41, 43, 0.15);
   outline: none;
@@ -131,7 +131,7 @@
   height: 12em;
   min-height: 8em;
   max-height: 24em;
-  line-height: 1.33;
+  line-height: 1.2857;
   resize: vertical;
 }
 .ui.form textarea,
@@ -521,13 +521,23 @@
 ---------------------*/
 
 .ui.form .required.fields > .field > label:after,
-.ui.form .required.fields > .field > .checkbox:after,
 .ui.form .required.field > label:after,
+.ui.form .required.fields > .field > .checkbox:after,
 .ui.form .required.field > .checkbox:after {
   margin: -0.2em 0em 0em 0.2em;
-  vertical-align: top;
   content: '*';
   color: #d95c5c;
+}
+.ui.form .required.fields > .field > label:after,
+.ui.form .required.field > label:after {
+  display: inline-block;
+  vertical-align: top;
+}
+.ui.form .required.fields > .field > .checkbox:after,
+.ui.form .required.field > .checkbox:after {
+  position: absolute;
+  top: 0%;
+  left: 100%;
 }
 
 
@@ -562,7 +572,7 @@
   margin-bottom: 0em;
 }
 .ui.form .grouped.fields > label {
-  font-size: 0.9em;
+  font-size: 0.9285em;
 }
 .ui.form .grouped.fields .field {
   display: block;
@@ -775,11 +785,11 @@
   margin-top: 0em;
   margin-bottom: 0em;
   vertical-align: middle;
-  font-size: 0.9em;
+  font-size: 0.9285em;
 }
 .ui.form .inline.fields .field > input,
 .ui.form .inline.field > input {
-  font-size: 0.9em;
+  font-size: 0.9285em;
 }
 .ui.form .inline.fields .field > .ui.checkbox label {
   padding-left: 1.75em;
@@ -788,7 +798,7 @@
 /* Label */
 .ui.form .inline.fields .field > :first-child,
 .ui.form .inline.field > :first-child {
-  margin: 0em 0.3rem 0em 0em;
+  margin: 0em 0.2857rem 0em 0em;
 }
 .ui.form .inline.fields .field > :only-child,
 .ui.form .inline.field > :only-child {

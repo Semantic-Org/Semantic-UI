@@ -9,7 +9,11 @@
 @margin: 1em 0em;
 @borderCollapse: separate;
 @borderSpacing: 0px;
-@transition: all 0.2s @defaultEasing;
+@transition:
+  background @transitionDuration @transitionEasing,
+  border-color @transitionDuration @transitionEasing,
+  color @transitionDuration @transitionEasing
+;
 @borderRadius: 0.25rem;
 @background: #FFFFFF;
 @color: @textColor;

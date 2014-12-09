@@ -19,11 +19,11 @@
   display: inline-block;
   position: relative;
   margin: 0em 0em;
-  padding: 0.8em 1.5em 0.8em 2.25em;
+  padding: 0.9285em 1.5em 0.9285em 2.25em;
   vertical-align: top;
   background: #ffffff;
   color: rgba(0, 0, 0, 0.8);
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15);
   border-radius: 0em;
 }
 .ui.steps .step:after {
@@ -36,16 +36,16 @@
   background-color: #ffffff;
   width: 1.5em;
   height: 1.5em;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(39, 41, 43, 0.15);
+  border-right: 1px solid rgba(39, 41, 43, 0.15);
   -webkit-transform: translateY(-50%) translateX(50%) rotate(-45deg);
       -ms-transform: translateY(-50%) translateX(50%) rotate(-45deg);
           transform: translateY(-50%) translateX(50%) rotate(-45deg);
 }
 .ui.steps .step,
 .ui.steps .step:after {
-  -webkit-transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
-          transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
+  -webkit-transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+          transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
 
 
@@ -57,14 +57,14 @@
 /* Title */
 .ui.steps .step .title {
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  font-size: 1.1em;
+  font-size: 1.0714em;
   font-weight: bold;
 }
 
 /* Description */
 .ui.steps .step .description {
   font-weight: normal;
-  font-size: 0.9em;
+  font-size: 0.9285em;
   color: rgba(0, 0, 0, 0.8);
 }
 .ui.steps .step .title ~ .description {
@@ -125,10 +125,10 @@
 .ui.vertical.steps .step {
   display: block;
   border-radius: 0em;
-  padding: 0.8em 1.5em;
+  padding: 0.9285em 1.5em;
 }
 .ui.vertical.steps .step:first-child {
-  padding: 0.8em 1.5em;
+  padding: 0.9285em 1.5em;
   border-radius: 0.2857rem 0.2857rem 0em 0em;
 }
 .ui.vertical.steps .step:last-child {
@@ -155,7 +155,7 @@
   font-size: 0em;
   background: '';
   box-shadow: '';
-  line-height: 1.2;
+  line-height: 1.142rem;
   box-sizing: border-box;
   border-radius: 0.2857rem;
 }

@@ -243,15 +243,15 @@
 
 
 /* Generic */
-.ui.cards > .card > .content a,
-.ui.card > .content a {
-  color: #009fda;
+.ui.cards > .card > .content a:not(.ui),
+.ui.card > .content a:not(.ui) {
+  color: '';
   -webkit-transition: color 0.2s ease;
           transition: color 0.2s ease;
 }
-.ui.cards > .card > .content a:hover,
-.ui.card > .content a:hover {
-  color: #00b2f3;
+.ui.cards > .card > .content a:not(.ui):hover,
+.ui.card > .content a:not(.ui):hover {
+  color: '';
 }
 
 /* Header */
@@ -265,12 +265,12 @@
 }
 
 /* Meta */
-.ui.cards > .card .meta a,
-.ui.card .meta a {
+.ui.cards > .card .meta > a:not(.ui),
+.ui.card .meta > a:not(.ui) {
   color: rgba(0, 0, 0, 0.4);
 }
-.ui.cards > .card .meta a:hover,
-.ui.card .meta a:hover {
+.ui.cards > .card .meta > a:not(.ui):hover,
+.ui.card .meta > a:not(.ui):hover {
   color: rgba(0, 0, 0, 0.8);
 }
 
@@ -355,12 +355,12 @@
           transition: color 0.2s ease;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
-.ui.cards > .card > .extra a,
-.ui.card > .extra a {
+.ui.cards > .card > .extra a:not(.ui),
+.ui.card > .extra a:not(.ui) {
   color: rgba(0, 0, 0, 0.4);
 }
-.ui.cards > .card > .extra a:hover,
-.ui.card > .extra a:hover {
+.ui.cards > .card > .extra a:not(.ui):hover,
+.ui.card > .extra a:not(.ui):hover {
   color: #00b2f3;
 }
 

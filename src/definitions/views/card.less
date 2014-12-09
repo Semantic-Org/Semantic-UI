@@ -266,13 +266,13 @@
 ---------------*/
 
 /* Generic */
-.ui.cards > .card > .content a,
-.ui.card > .content a {
+.ui.cards > .card > .content a:not(.ui),
+.ui.card > .content a:not(.ui) {
   color: @contentLinkColor;
   transition: @contentLinkTransition;
 }
-.ui.cards > .card > .content a:hover,
-.ui.card > .content a:hover {
+.ui.cards > .card > .content a:not(.ui):hover,
+.ui.card > .content a:not(.ui):hover {
   color: @contentLinkHoverColor;
 }
 
@@ -287,12 +287,12 @@
 }
 
 /* Meta */
-.ui.cards > .card .meta a,
-.ui.card .meta a {
+.ui.cards > .card .meta > a:not(.ui),
+.ui.card .meta > a:not(.ui) {
   color: @metaLinkColor;
 }
-.ui.cards > .card .meta a:hover,
-.ui.card .meta a:hover {
+.ui.cards > .card .meta > a:not(.ui):hover,
+.ui.card .meta > a:not(.ui):hover {
   color: @metaLinkHoverColor;
 }
 
@@ -370,12 +370,12 @@
   transition: @extraTransition;
   border-top: @extraDivider;
 }
-.ui.cards > .card > .extra a,
-.ui.card > .extra a {
+.ui.cards > .card > .extra a:not(.ui),
+.ui.card > .extra a:not(.ui) {
   color: @extraLinkColor;
 }
-.ui.cards > .card > .extra a:hover,
-.ui.card > .extra a:hover {
+.ui.cards > .card > .extra a:not(.ui):hover,
+.ui.card > .extra a:not(.ui):hover {
   color: @extraLinkHoverColor;
 }
 

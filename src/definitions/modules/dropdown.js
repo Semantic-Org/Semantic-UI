@@ -220,14 +220,9 @@ $.fn.dropdown = function(parameters) {
 
         hideSubMenus: function() {
           var
-            $subMenus = $menu.find(selector.menu),
-            $activeSubMenu = $subMenus.has(selector.item + '.' + className.active)
+            $subMenus = $menu.find(selector.menu)
           ;
-          $subMenus
-            .not($activeSubMenu)
-              .removeClass(className.visible)
-              .removeAttr('style')
-          ;
+          $subMenus.transition('hide');
         },
 
         bind: {
@@ -537,23 +532,25 @@ $.fn.dropdown = function(parameters) {
           item: {
             mouseenter: function(event) {
               var
-                $currentMenu = $(this).find(selector.menu),
+                $currentMenu = $(this).children(selector.menu),
                 $otherMenus  = $(this).siblings(selector.item).children(selector.menu)
               ;
               if( $currentMenu.size() > 0 ) {
                 clearTimeout(module.itemTimer);
                 module.itemTimer = setTimeout(function() {
-                  module.animate.hide(false, $otherMenus);
+                  $.each($otherMenus, function() {
+                    module.animate.hide(false, $(this));
+                  });
                   module.verbose('Showing sub-menu', $currentMenu);
                   module.animate.show(false,  $currentMenu);
-                }, settings.delay.show * 2);
+                }, settings.delay.show);
                 event.preventDefault();
               }
             },
 
             mouseleave: function(event) {
               var
-                $currentMenu = $(this).find(selector.menu)
+                $currentMenu = $(this).children(selector.menu)
               ;
               if($currentMenu.size() > 0) {
                 clearTimeout(module.itemTimer);
@@ -581,7 +578,6 @@ $.fn.dropdown = function(parameters) {
                   module.remove.searchTerm();
                   module.remove.filteredItem();
                   module.determine.selectAction(text, value);
-                  $.proxy(settings.onChange, element)(value, text, $choice);
                 },
                 openingSubMenu = ($choice.find(selector.menu).size() > 0)
               ;
@@ -947,6 +943,7 @@ $.fn.dropdown = function(parameters) {
                 .addClass(className.selected)
               ;
               module.set.text(selectedText);
+              $.proxy(settings.onChange, element)(value, selectedText, $selectedItem);
             }
           }
         },
@@ -1005,7 +1002,7 @@ $.fn.dropdown = function(parameters) {
           selection: function() {
             return $module.hasClass(className.selection);
           },
-          animated: function($subMenu) {
+          animating: function($subMenu) {
             return ($subMenu)
               ? $subMenu.is(':animated') || $subMenu.transition && $subMenu.transition('is animating')
               : $menu.is(':animated') || $menu.transition && $menu.transition('is animating')
@@ -1044,6 +1041,7 @@ $.fn.dropdown = function(parameters) {
               start = ($subMenu)
                 ? function() {}
                 : function() {
+                  module.hideSubMenus();
                   module.hideOthers();
                   module.set.active();
                   module.set.scrollPosition();
@@ -1051,7 +1049,7 @@ $.fn.dropdown = function(parameters) {
             ;
             callback = callback || function(){};
             module.verbose('Doing menu show animation', $currentMenu);
-            if( module.is.hidden($currentMenu) ) {
+            if( module.is.hidden($currentMenu) || module.is.animating($currentMenu) ) {
               if(settings.transition == 'none') {
                 $.proxy(callback, element)();
               }
@@ -1108,6 +1106,9 @@ $.fn.dropdown = function(parameters) {
           hide: function(callback, $subMenu) {
             var
               $currentMenu = $subMenu || $menu,
+              duration = ($subMenu)
+                ? (settings.duration * 0.9)
+                : settings.duration,
               start = ($subMenu)
                 ? function() {}
                 : function() {
@@ -1115,12 +1116,11 @@ $.fn.dropdown = function(parameters) {
                     module.unbind.intent();
                   }
                   module.focusSearch();
-                  module.hideSubMenus();
                   module.remove.active();
                 }
             ;
             callback = callback || function(){};
-            if( module.is.visible($currentMenu) ) {
+            if( module.is.visible($currentMenu) || module.is.animating($currentMenu) ) {
               module.verbose('Doing menu hide animation', $currentMenu);
 
               if(settings.transition == 'none') {
@@ -1448,12 +1448,7 @@ $.fn.dropdown.settings.templates = {
       html        = ''
     ;
     $.each(select.values, function(value, name) {
-      if(value === name) {
-        html += '<div class="item">' + name + '</div>';
-      }
-      else {
-        html += '<div class="item" data-value="' + value + '">' + name + '</div>';
-      }
+      html += '<div class="item" data-value="' + value + '">' + name + '</div>';
     });
     return html;
   },
@@ -1472,12 +1467,7 @@ $.fn.dropdown.settings.templates = {
     }
     html += '<div class="menu">';
     $.each(select.values, function(value, name) {
-      if(value === name) {
-        html += '<div class="item">' + name + '</div>';
-      }
-      else {
-        html += '<div class="item" data-value="' + value + '">' + name + '</div>';
-      }
+      html += '<div class="item" data-value="' + value + '">' + name + '</div>';
     });
     html += '</div>';
     return html;

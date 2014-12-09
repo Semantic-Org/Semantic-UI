@@ -68,7 +68,7 @@
 .ui.menu .item {
   position: relative;
   display: inline-block;
-  padding: 0.83em 0.95em;
+  padding: 0.78571em 0.95em;
   border-top: 0em solid transparent;
   background: none;
   vertical-align: middle;
@@ -188,11 +188,10 @@
   padding-top: 0.4em;
   padding-bottom: 0.4em;
 }
-
-/* Action Input */
-.ui.menu:not(.vertical) .item .action.input > .button {
-  font-size: 0.875em;
-  padding: 0.55em 0.8em;
+.ui.menu .item > .input .button,
+.ui.menu .item > .input .label {
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
 }
 
 /* Resizes */
@@ -201,16 +200,20 @@
   padding-top: 0.4em;
   padding-bottom: 0.4em;
 }
+.ui.small.menu .item > .input .button,
+.ui.small.menu .item > .input .label {
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
+}
 .ui.large.menu .item > .input input {
   top: -0.125em;
   padding-bottom: 0.6em;
   padding-top: 0.6em;
 }
-.ui.large.menu .item .action.input > .button {
-  padding: 0.9em;
-}
-.ui.large.menu .item .action.input > .button > .icon {
-  padding-top: 0.8em;
+.ui.large.menu .item > .input .button,
+.ui.large.menu .item > .input .label {
+  padding-top: 0.6em;
+  padding-bottom: 0.6em;
 }
 
 /*--------------
@@ -386,26 +389,6 @@
   background-color: transparent !important;
 }
 
-/*--------------------
-       Loading
----------------------*/
-
-
-/* On Form */
-.ui.menu.loading {
-  position: relative;
-}
-.ui.menu.loading:after {
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  content: '';
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.8) url("../themes/default/assets/images/loader-large.gif") no-repeat 50% 50%;
-  visibility: visible;
-}
-
 
 /*******************************
              Types
@@ -561,7 +544,7 @@
 
 /* Sub Menu Active */
 .ui.tiered.menu .sub.menu .active.item {
-  padding-top: 0.83em;
+  padding-top: 0.78571em;
   background: none transparent;
   border-radius: 0;
   border-top: medium none;
@@ -676,7 +659,7 @@
 /* Active */
 .ui.pagination.menu .active.item {
   border-top: none;
-  padding-top: 0.83em;
+  padding-top: 0.78571em;
   background-color: rgba(0, 0, 0, 0.03);
   box-shadow: none;
 }
@@ -964,7 +947,7 @@
 }
 .ui.vertical.text.menu .item > i.icon {
   float: none;
-  margin: 0em 0.83em 0em 0em;
+  margin: 0em 0.78571em 0em 0em;
 }
 .ui.vertical.text.menu .header.item {
   margin: 0.8em 0em;
@@ -1330,8 +1313,8 @@
 .ui.horizontally.fitted.menu .item,
 .ui.horizontally.fitted.menu .item .menu .item,
 .ui.menu .horizontally.fitted.item {
-  padding-top: 0.83em;
-  padding-bottom: 0.83em;
+  padding-top: 0.78571em;
+  padding-bottom: 0.78571em;
 }
 .ui.vertically.fitted.menu .item,
 .ui.vertically.fitted.menu .item .menu .item,

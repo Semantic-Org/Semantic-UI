@@ -9,24 +9,23 @@
 @verticalMargin: 0em;
 @horizontalMargin: 0em;
 
-@verticalPadding: 0.8em;
+@verticalPadding: 0.9285em;
 @horizontalPadding: 1.5em;
-@leftPadding: @horizontalPadding + (@arrowSize /2);
+@leftPadding: @horizontalPadding + (@arrowSize / 2);
 
 @transition:
-  background-color 0.1s ease,
-  opacity 0.1s ease,
-  color 0.1s ease,
-  box-shadow 0.1s ease
+  background-color @transitionDuration @transitionEasing,
+  opacity @transitionDuration @transitionEasing,
+  color @transitionDuration @transitionEasing,
+  box-shadow @transitionDuration @transitionEasing
 ;
 @borderRadius: @defaultBorderRadius;
-@lineHeight: 1.2;
+@lineHeight: 1.142rem;
 
 @backgroundColor: #FFFFFF;
 @background: @backgroundColor;
 @borderRadius: 0em;
-
-@boxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15);
+@boxShadow: 0px 0px 0px 1px @borderColor;
 
 /* Icon */
 @iconDistance: 0.6em;
@@ -36,12 +35,12 @@
 /* Title */
 @titleFontFamily: @headerFont;
 @titleFontWeight: bold;
-@titleFontSize: 1.1em;
+@titleFontSize: 1.0714em;
 @titleColor: @darkTextColor;
 
 /* Description */
 @descriptionDistance: 0.1em;
-@descriptionFontSize: 0.9em;
+@descriptionFontSize: 0.9285em;
 @descriptionFontWeight: normal;
 @descriptionColor: @textColor;
 
@@ -52,7 +51,7 @@
 @arrowBackgroundColor: @backgroundColor;
 @arrowTopOffset: 50%;
 @arrowRightOffset: 0em;
-@arrowBorderColor: rgba(0, 0, 0, 0.1);
+@arrowBorderColor: @borderColor;
 
 
 /*-------------------

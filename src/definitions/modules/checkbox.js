@@ -41,7 +41,7 @@ $.fn.checkbox = function(parameters) {
         moduleNamespace = 'module-' + namespace,
 
         $module         = $(this),
-        $label          = $(this).next(selector.label).first(),
+        $label          = $(this).find(selector.label).first(),
         $input          = $(this).find(selector.input),
 
         instance        = $module.data(moduleNamespace),
@@ -55,10 +55,10 @@ $.fn.checkbox = function(parameters) {
 
         initialize: function() {
           module.verbose('Initializing checkbox', settings);
-          $module
-            .on('click'   + eventNamespace, module.toggle)
-            .on('keydown' + eventNamespace, selector.input, module.event.keydown)
-          ;
+
+          module.create.label();
+          module.add.events();
+
           if( module.is.checked() ) {
             module.set.checked();
             if(settings.fireOnInit) {
@@ -85,22 +85,16 @@ $.fn.checkbox = function(parameters) {
         },
 
         destroy: function() {
-          module.verbose('Destroying previous module');
+          module.verbose('Destroying module');
+          module.remove.events();
           $module
-            .off(eventNamespace)
             .removeData(moduleNamespace)
-          ;
-          $input
-            .off(eventNamespace, module.event.keydown)
-          ;
-          $label
-            .off(eventNamespace)
           ;
         },
 
         refresh: function() {
           $module = $(this);
-          $label  = $(this).next(selector.label).first();
+          $label  = $(this).find(selector.label).first();
           $input  = $(this).find(selector.input);
         },
 
@@ -120,15 +114,15 @@ $.fn.checkbox = function(parameters) {
 
         attachEvents: function(selector, event) {
           var
-            $toggle = $(selector)
+            $element = $(selector)
           ;
           event = $.isFunction(module[event])
             ? module[event]
             : module.toggle
           ;
-          if($toggle.size() > 0) {
+          if($element.size() > 0) {
             module.debug('Attaching checkbox events to element', selector, event);
-            $toggle
+            $element
               .on('click' + eventNamespace, event)
             ;
           }
@@ -197,9 +191,51 @@ $.fn.checkbox = function(parameters) {
           }
         },
 
+        create: {
+          label: function() {
+            if($input.prevAll(selector.label).size() > 0) {
+              $input.prev(selector.label).detach().insertAfter($input);
+              module.debug('Moving existing label', $label);
+            }
+            else if( !module.has.label() ) {
+              $label = $('<label>').insertAfter($input);
+              module.debug('Creating label', $label);
+            }
+          }
+        },
+
+        has: {
+          label: function() {
+            return ($label.size() > 0);
+          }
+        },
+
+        add: {
+          events: function() {
+            module.verbose('Attaching checkbox events');
+            $module
+              .on('click'   + eventNamespace, module.toggle)
+              .on('keydown' + eventNamespace, selector.input, module.event.keydown)
+            ;
+          }
+        },
+
         remove: {
           checked: function() {
             $module.removeClass(className.checked);
+          },
+          events: function() {
+            module.debug('Removing events');
+            $module
+              .off(eventNamespace)
+              .removeData(moduleNamespace)
+            ;
+            $input
+              .off(eventNamespace, module.event.keydown)
+            ;
+            $label
+              .off(eventNamespace)
+            ;
           }
         },
 

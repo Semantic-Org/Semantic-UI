@@ -1,5 +1,79 @@
 ## RELEASE NOTES
 
+### Version 1.2.0 - December 08, 2014
+
+[Browse Closed Issues](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A1.1.3+is%3Aclosed)
+
+**Enhancement**
+- **Form** - Form validation now has parameter ``optional`` which will only validate a field against a set of rules if the user does not leave it blank **Thanks DHNCarlos**
+- **Fonts** - Add font subset variable for ``site.variables`` **Thanks gabormeszoly**
+- **Modal** - Default modal shadow now more subtle
+- **Sidebar** - Now has behaviors ``is open/closed`` that are aliases for ``is visible/hidden``
+- **Checkbox** - JS Checkbox now handles several variations of html. Labels can be before inputs, after, or not included at all. This should work better with server side form generation.
+- **Progress** - Adds ``limitValues`` setting to adjust values outside of 0-100 automatically to within range, defaults to true
+
+**Bugs**
+- **Grid** - Fixes ``ui stackable grid`` sometimes not aligning correctly at mobile sizes with ``ui page grid``
+- **Progress** - Fixes issues with setting progress to 0% not working as expected
+- **Modal** - Fixes issues with multiple modals sometimes not closing dimmers
+- **Modal** - When a second modal that is not scrolling is opened after a scrolling modal it no longer causes the first modal to not be scrollable
+- **Modal** - "Hammer" clicking multiple times on a hiding dimmer no longer causes animation issues
+- **Sidebar** - Fixes issue with multiple sidebars sometimes causing dimmer to close prematurely
+- **Sidebar** - Dimmer can now be clicked even before sidebar has finished showing to immediately close sidebar
+- **Item/Card** - Default link formatting inside element simplified to avoid adjusting other nested ``ui`` link styles
+- **Dropdown** - Fixes bug with dropdown converted from ``select`` that use ``<option`` values with capital letters not being selectable
+- **Form** - Fixes required checkbox asterisks formatting incorrect
+
+**Docs / Build**
+- Fixed documentation on dropdown actions, form field widths, form validation types, and many odds & ends
+- Adds components to semantic.json.example
+- Theme.config.example now links to final site folder
+
+### Version 1.1.2 - December 03, 2014
+
+- **NPM** - Fixes issue with ``dist/`` not being included when using NPM due to ``.gitignore``
+
+### Version 1.1.1 - December 03, 2014
+
+**Bugs**
+- **Step** - Fixes step content appearing overlapped due to use of ``em`` instead of ``rem`` for line-height.
+- **Sidebar** - Fixes issue that may cause sidebars to stay open in some circumstances when using multiple sidebars
+
+### Version 1.1.0 - December 02, 2014
+
+**Enhancements**
+- **Transition** - Transition's caching of final display state and animation existence now has improved performance.
+- **Popup** - Popup now has a ``settings.prefer`` that defaults to ``adjacent``. This setting sets prefered next placement when a popup cannot fit on screen in the chosen placement. ``prefer`` can also be set to ``opposite`` to prefer the same position on the opposite side
+- **Popup** - Popup can now use a setting ``lastResort``. When set to a position it will be used as a last resort even if popup does not entirely fit on the page. Setting this to ``false`` will produce an error when a popup cannot fit on screen.
+- **Transition** now has ``useFailSafe`` parameter (off by default) to ensure transition callback fires even if native ``onAnimationEnd`` event does not fire due to element visibility. [Chromium Bug Report by Product Manager @ Mozilla](https://code.google.com/p/chromium/issues/detail?id=135350#c2) and [this open issue](https://code.google.com/p/chromium/issues/detail?id=437860)
+- **All UI** - Many ``em`` measurements adjusted slightly to calculate out as exact pixel values (Fixes 1px rounding errors)
+- **Steps** - Now use global border color
+- **Progress** - Progress now has sizing variations
+- **Input** - ``transparent input`` can now be ``inverted``
+- **Dropdown** - Dropdown ``onChange`` callback now fires when calling ``setSelected`` programatically.
+
+**Bugs**
+- **Build Tools** - NPM now correctly pins dependencies instead of using bleeding-edge versions which may break builds
+- **Transition** - Transition now correctly detects missing animations, errors do not cause future image transitions to break
+- **Menu/Segment** Fixes double border on pointing menu with attached segment **Thanks davialexandre**
+- **Progress** - Fixes indicating progress appearing incorrectly at 100% complete **Thanks ordepdev**
+- **Icon** - ``remove icon`` is now formatted correctly when used as ``remove link icon``
+- **Input** - ``ui action input`` can now accomodate ``ui button`` that adjust padding from default
+- **Dropdown** - Fix ``action input`` used inside ``ui dropdown`` to appear correctly **Thanks ordepdev**
+
+**Docs**
+- **Progress** - Added missing settings docs for progress module
+
+### Version 1.0.1 - November 28, 2014
+
+**Bugs**
+- **Site** - Add protocol variable for Google Font loader to avoid issues with ``//`` when loading locally causing freezing
+- **Icon** - Fix horizontal centering of circular icon
+- **Transition** - Fix vertical flip not working due to css typo **Thanks cgroner**
+- **Menu** - Removes missing image loader variable **Thanks ryan-mahoney**
+- **Card/Item** - Fix generic link stylings erroneously affecting linked ui elements like buttons
+- **Table** - Fixes table cell transition animating all properties
+
 ### Version 1.0.0 - November 24, 2014
 
 **Breaking Changes**
@@ -74,7 +148,7 @@
 - **Transition** - Transition now has a new ``start`` callback, before animation starts
 - **Transition** - Complete callback now does not occur if animation is interrupted before completing
 - **Transition** - You can now specify the final displayType of a transitioning element in metadata or settings (not just automatically detected)
-- **More untracked changes we're added as well**
+- **More [untracked changes](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+label%3AEnhancement+is%3Aclosed) added as well**
 
 ** Bug Fixes **
 - See Closed GitHub Issues

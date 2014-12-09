@@ -37,30 +37,31 @@ $.fn.popup = function(parameters) {
           ? $.extend(true, {}, $.fn.popup.settings, parameters)
           : $.extend({}, $.fn.popup.settings),
 
-        selector        = settings.selector,
-        className       = settings.className,
-        error           = settings.error,
-        metadata        = settings.metadata,
-        namespace       = settings.namespace,
+        selector           = settings.selector,
+        className          = settings.className,
+        error              = settings.error,
+        metadata           = settings.metadata,
+        namespace          = settings.namespace,
 
-        eventNamespace  = '.' + settings.namespace,
-        moduleNamespace = 'module-' + namespace,
+        eventNamespace     = '.' + settings.namespace,
+        moduleNamespace    = 'module-' + namespace,
 
-        $module         = $(this),
-        $context        = $(settings.context),
-        $target         = (settings.target)
+        $module            = $(this),
+        $context           = $(settings.context),
+        $target            = (settings.target)
           ? $(settings.target)
           : $module,
 
-        $window         = $(window),
-        $body           = $('body'),
+        $window            = $(window),
+        $body              = $('body'),
         $popup,
         $offsetParent,
 
-        searchDepth     = 0,
+        searchDepth        = 0,
+        triedPositions     = false,
 
-        element         = this,
-        instance        = $module.data(moduleNamespace),
+        element            = this,
+        instance           = $module.data(moduleNamespace),
         module
       ;
 
@@ -310,9 +311,7 @@ $.fn.popup = function(parameters) {
         removePopup: function() {
           module.debug('Removing popup');
           $.proxy(settings.onRemove, $popup)(element);
-          $popup
-            .removePopup()
-          ;
+          $popup.remove();
         },
 
         save: {
@@ -442,7 +441,7 @@ $.fn.popup = function(parameters) {
                 top    : (popup.offset.top < boundary.top),
                 bottom : (popup.offset.top + popup.height > boundary.bottom),
                 right  : (popup.offset.left + popup.width > boundary.right),
-                left   : false
+                left   : (popup.offset.left < boundary.left)
               };
             }
             // return only boundaries that have been surpassed
@@ -456,34 +455,74 @@ $.fn.popup = function(parameters) {
               : false
             ;
           },
+          positions: function() {
+            return {
+              'top left'      : false,
+              'top center'    : false,
+              'top right'     : false,
+              'bottom left'   : false,
+              'bottom center' : false,
+              'bottom right'  : false,
+              'left center'   : false,
+              'right center'  : false
+            };
+          },
           nextPosition: function(position) {
-            switch(position) {
-              case 'top left':
-                position = 'bottom left';
-              break;
-              case 'bottom left':
-                position = 'top right';
-              break;
-              case 'top right':
-                position = 'bottom right';
-              break;
-              case 'bottom right':
-                position = 'top center';
-              break;
-              case 'top center':
-                position = 'bottom center';
-              break;
-              case 'bottom center':
-                position = 'right center';
-              break;
-              case 'right center':
-                position = 'left center';
-              break;
-              case 'left center':
-                position = 'top center';
-              break;
+            var
+              positions          = position.split(' '),
+              verticalPosition   = positions[0],
+              horizontalPosition = positions[1],
+              opposite = {
+                top    : 'bottom',
+                bottom : 'top',
+                left   : 'right',
+                right  : 'left'
+              },
+              adjacent = {
+                left   : 'center',
+                center : 'right',
+                right  : 'left'
+              },
+              backup = {
+                'top left'      : 'top center',
+                'top center'    : 'top right',
+                'top right'     : 'right center',
+                'right center'  : 'bottom right',
+                'bottom right'  : 'bottom center',
+                'bottom center' : 'bottom left',
+                'bottom left'   : 'left center',
+                'left center'   : 'top left'
+              },
+              adjacentsAvailable = (verticalPosition == 'top' || verticalPosition == 'bottom'),
+              oppositeTried = false,
+              adjacentTried = false,
+              nextPosition  = false
+            ;
+            if(!triedPositions) {
+              module.verbose('All available positions available');
+              triedPositions = module.get.positions();
             }
-            return position;
+
+            module.debug('Recording last position tried', position);
+            triedPositions[position] = true;
+
+            if(settings.prefer === 'opposite') {
+              nextPosition  = [opposite[verticalPosition], horizontalPosition];
+              nextPosition  = nextPosition.join(' ');
+              oppositeTried = (triedPositions[nextPosition] === true);
+              module.debug('Trying opposite strategy', nextPosition);
+            }
+            if((settings.prefer === 'adjacent') && adjacentsAvailable ) {
+              nextPosition  = [verticalPosition, adjacent[horizontalPosition]];
+              nextPosition  = nextPosition.join(' ');
+              adjacentTried = (triedPositions[nextPosition] === true);
+              module.debug('Trying adjacent strategy', nextPosition);
+            }
+            if(adjacentTried || oppositeTried) {
+              module.debug('Using backup position', nextPosition);
+              nextPosition = backup[position];
+            }
+            return nextPosition;
           }
         },
 
@@ -522,6 +561,12 @@ $.fn.popup = function(parameters) {
             ;
             position    = position    || $module.data(metadata.position)    || settings.position;
             arrowOffset = arrowOffset || $module.data(metadata.offset)      || settings.offset;
+
+            if(searchDepth == settings.maxSearchDepth && settings.lastResort) {
+              module.debug('Using last resort position to display', settings.lastResort);
+              position = settings.lastResort;
+            }
+
             if(settings.inline) {
               module.debug('Adding targets margin to calculation');
               if(position == 'left center' || position == 'right center') {
@@ -605,8 +650,9 @@ $.fn.popup = function(parameters) {
               break;
             }
             if(positioning === undefined) {
-              module.error(error.invalidPosition);
+              module.error(error.invalidPosition, position);
             }
+
             // tentatively place on stage
             $popup
               .css(positioning)
@@ -619,32 +665,36 @@ $.fn.popup = function(parameters) {
 
             // recursively find new positioning
             if(offstagePosition) {
-              module.debug('Element is outside boundaries', offstagePosition);
+              module.debug('Popup cant fit into viewport', offstagePosition);
               if(searchDepth < settings.maxSearchDepth) {
-                position = module.get.nextPosition(position);
                 searchDepth++;
+                position = module.get.nextPosition(position);
                 module.debug('Trying new position', position);
                 return ($popup)
                   ? module.set.position(position)
                   : false
                 ;
               }
-              else {
-                module.debug('Popup could not find a position onstage', $popup);
-                searchDepth = 0;
+              else if(!settings.lastResort) {
+                module.debug('Popup could not find a position in view', $popup);
+                module.error(error.cannotPlace);
+                module.remove.attempts();
+                module.remove.loading();
                 module.reset();
-                $popup.removeClass(className.loading);
                 return false;
               }
             }
-            else {
-              module.debug('Position is on stage', position);
-              searchDepth = 0;
-              if( settings.setFluidWidth && $popup.hasClass(className.fluid) ) {
-                $popup.css('width', $offsetParent.width());
-              }
-              $popup.removeClass(className.loading);
-              return true;
+
+            module.debug('Position is on stage', position);
+            module.remove.attempts();
+            module.set.fluidWidth();
+            module.remove.loading();
+            return true;
+          },
+
+          fluidWidth: function() {
+            if( settings.setFluidWidth && $popup.hasClass(className.fluid) ) {
+              $popup.css('width', $offsetParent.width());
             }
           },
 
@@ -654,8 +704,16 @@ $.fn.popup = function(parameters) {
         },
 
         remove: {
+          loading: function() {
+            $popup.removeClass(className.loading);
+          },
           visible: function() {
             $module.removeClass(className.visible);
+          },
+          attempts: function() {
+            module.verbose('Resetting all searched positions');
+            searchDepth    = 0;
+            triedPositions = false;
           }
         },
 
@@ -920,33 +978,37 @@ $.fn.popup = function(parameters) {
 
 $.fn.popup.settings = {
 
-  name           : 'Popup',
+  name         : 'Popup',
 
-  debug          : false,
-  verbose        : true,
-  performance    : true,
-  namespace      : 'popup',
+  debug        : false,
+  verbose      : true,
+  performance  : true,
+  namespace    : 'popup',
 
-  onCreate       : function(){},
-  onRemove       : function(){},
+  onCreate     : function(){},
+  onRemove     : function(){},
 
-  onShow         : function(){},
-  onVisible      : function(){},
-  onHide         : function(){},
-  onHidden       : function(){},
+  onShow       : function(){},
+  onVisible    : function(){},
+  onHide       : function(){},
+  onHidden     : function(){},
 
-  variation      : '',
-  content        : false,
-  html           : false,
-  title          : false,
+  variation    : '',
+  content      : false,
+  html         : false,
+  title        : false,
 
-  on             : 'hover',
-  closable       : true,
-  hideOnScroll   : 'auto',
+  on           : 'hover',
+  closable     : true,
+  hideOnScroll : 'auto',
 
-  context        : 'body',
-  position       : 'top left',
-  delay          : {
+  context      : 'body',
+
+  position     : 'top left',
+  prefer       : 'opposite',
+  lastResort   : false,
+
+  delay        : {
     show : 30,
     hide : 0
   },
@@ -965,10 +1027,11 @@ $.fn.popup.settings = {
 
   distanceAway   : 0,
   offset         : 0,
-  maxSearchDepth : 10,
+  maxSearchDepth : 20,
 
   error: {
     invalidPosition : 'The position you specified is not a valid position',
+    cannotPlace     : 'No visible position could be found for the popup',
     method          : 'The method you called is not defined.'
   },
 

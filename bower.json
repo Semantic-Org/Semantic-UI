@@ -23,6 +23,7 @@
     "http://semantic-ui.mit-license.org/"
   ],
   "ignore": [
+    "src/site",
     "test"
   ]
 }
