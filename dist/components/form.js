@@ -402,7 +402,7 @@ $.fn.form = function(fields, parameters) {
               module.debug('Field is disabled. Skipping', field.identifier);
               fieldValid = true;
             }
-            if(field.optional && $.trim($field.val()) === ''){
+            else if(field.optional && $.trim($field.val()) === ''){
               module.debug('Field is optional and empty. Skipping', field.identifier);
               fieldValid = true;
             }
