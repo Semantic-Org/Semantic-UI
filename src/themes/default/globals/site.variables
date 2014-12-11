@@ -392,6 +392,7 @@
 /* Responsive */
 @largestMobileScreen : (@tabletBreakpoint - 1px);
 @largestTabletScreen : (@computerBreakpoint - 1px);
+@largestLargeMonitor : (@widescreenMonitorBreakpoint - 1px);
 
 /* Columns */
 @oneWide        : (1 / @columnCount * 100%);
