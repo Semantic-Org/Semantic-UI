@@ -48,7 +48,7 @@
   clear: both;
   margin: @fieldMargin;
 }
-.ui.form .fields:last-child .field,
+.ui.form .fields:last-child .field:last-child,
 .ui.form :not(.fields) .field:last-child {
   margin-bottom: 0em;
 }
@@ -771,7 +771,7 @@
   .ui.form .fields > .fourteen.wide.field,
   .ui.form .fields > .fifteen.wide.field,
   .ui.form .fields > .sixteen.wide.field {
-    width: @oneColumn;
+    width: @oneColumn !important;
     padding-left: 0%;
     padding-right: 0%;
   }
