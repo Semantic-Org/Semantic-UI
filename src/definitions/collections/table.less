@@ -143,7 +143,7 @@
 
 
 /* Responsive */
-@media only screen and (max-width : 768px) {
+@media only screen and (max-width : @largestMobileScreen) {
   .ui.table {
     display: block;
     padding: 0em;
@@ -189,6 +189,20 @@
   .ui.table tr > td.negative {
     background-color: @responsiveStatusColor !important;
   }
+
+  /* Definition Table */
+  .ui.definition.table thead th:first-child {
+    box-shadow: none !important;
+  }
+
+  .ui.definition.table tr td:first-child {
+    padding-bottom: @responsiveRowVerticalPadding;
+  }
+  .ui.definition.table tr td:nth-child(n+2) {
+    padding-top: @responsiveRowVerticalPadding;
+  }
+
+
 }
 
 
