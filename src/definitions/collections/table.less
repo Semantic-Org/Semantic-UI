@@ -144,8 +144,17 @@
 
 /* Responsive */
 @media only screen and (max-width : @largestMobileScreen) {
+  .ui.table,
+  .ui.table tbody,
+  .ui.table tr,
+  .ui.table tr > th,
+  .ui.table tr > td  {
+    display: block !important;
+    width: 100% !important;
+    display: block !important;
+  }
+
   .ui.table {
-    display: block;
     padding: 0em;
   }
   .ui.table thead {
@@ -154,18 +163,9 @@
   .ui.table tfoot {
     display: @responsiveFooterDisplay;
   }
-  .ui.table tbody {
-    display: block;
-  }
-  .ui.table tr {
-    display: block;
-  }
-
   .ui.table tr > th,
   .ui.table tr > td {
     background: none;
-    width: 100% !important;
-    display: block;
     border: none !important;
     padding: @responsiveCellVerticalPadding @responsiveCellHorizontalPadding;
     box-shadow: @responsiveCellBoxShadow;
@@ -194,7 +194,6 @@
   .ui.definition.table thead th:first-child {
     box-shadow: none !important;
   }
-
   .ui.definition.table tr td:first-child {
     padding-bottom: @responsiveRowVerticalPadding;
   }
