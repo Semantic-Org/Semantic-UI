@@ -398,7 +398,11 @@ $.fn.form = function(fields, parameters) {
               fieldValid  = true,
               fieldErrors = []
             ;
-            if(field.optional && $.trim($field.val()) === ''){
+            if($field.prop('disabled')) {
+              module.debug('Field is disabled. Skipping', field.identifier);
+              fieldValid = true;
+            }
+            else if(field.optional && $.trim($field.val()) === ''){
               module.debug('Field is optional and empty. Skipping', field.identifier);
               fieldValid = true;
             }
