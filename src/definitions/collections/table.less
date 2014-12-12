@@ -799,6 +799,15 @@
 .ui[class*="very basic"].table:not(.sortable):not(.striped) td {
   padding: @basicTableCellVerticalPadding @basicTableCellHorizontalPadding;
 }
+.ui[class*="very basic"].table:not(.sortable):not(.striped) th:first-child,
+.ui[class*="very basic"].table:not(.sortable):not(.striped) td:first-child {
+  padding-left: 0em;
+}
+.ui[class*="very basic"].table:not(.sortable):not(.striped) th:last -child,
+.ui[class*="very basic"].table:not(.sortable):not(.striped) td:last-child {
+  padding-right: 0em;
+}
+
 .ui[class*="very basic"].table:not(.sortable):not(.striped) thead th {
   padding-top: 0em;
 }
