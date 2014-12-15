@@ -879,6 +879,9 @@
 }
 .ui.buttons .or:before {
   position: absolute;
+  text-align: center;
+  border-radius: @circularRadius;
+
   content: @orText;
   top: 50%;
   left: 50%;
@@ -891,15 +894,12 @@
   width: @orCircleSize;
   height: @orCircleSize;
 
-  vertical-align: middle;
   line-height: @orLineHeight;
   color: @orTextColor;
 
   font-style: @orTextStyle;
   font-weight: @orTextWeight;
-  text-align: center;
 
-  border-radius: 500em;
   box-shadow: @orBoxShadow;
 }
 .ui.buttons .or[data-text]:before {
