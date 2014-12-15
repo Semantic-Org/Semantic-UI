@@ -133,7 +133,7 @@
 
 @orCircleDistanceToEdge: (@verticalPadding);
 @orCircleSize: @orHeight - @orCircleDistanceToEdge;
-@orLineHeight: (@orCircleSize - 0.2em);
+@orLineHeight: (@orCircleSize);
 @orBoxShadow: @borderBoxShadow;
 
 @orVerticalOffset: -(@orCircleSize / 2);
