@@ -196,11 +196,15 @@
 }
 
 /*--------------
-     Mobile
+       iOS
 ---------------*/
 
+/*
+  iOS incorrectly sizes document when content
+  is presented outside of view with 2Dtranslate
+*/
 @media only screen and (max-width: @computerBreakpoint) {
-  html {
+  html.ios {
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
   }

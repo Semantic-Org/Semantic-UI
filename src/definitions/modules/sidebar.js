@@ -18,6 +18,7 @@ $.fn.sidebar = function(parameters) {
     $allModules    = $(this),
     $window        = $(window),
     $document      = $(document),
+    $html          = $('html'),
     $head          = $('head'),
 
     moduleSelector = $allModules.selector || '',
@@ -48,6 +49,7 @@ $.fn.sidebar = function(parameters) {
         selector        = settings.selector,
         className       = settings.className,
         namespace       = settings.namespace,
+        regExp          = settings.regExp,
         error           = settings.error,
 
         eventNamespace  = '.' + namespace,
@@ -82,6 +84,10 @@ $.fn.sidebar = function(parameters) {
           if( module.is.legacy() || settings.legacy) {
             settings.transition = 'overlay';
             settings.useLegacy = true;
+          }
+
+          if(module.is.ios()) {
+            module.set.ios();
           }
 
           id = module.get.uniqueID();
@@ -419,7 +425,7 @@ $.fn.sidebar = function(parameters) {
             ? callback
             : function(){}
           ;
-          if(settings.transition == 'scale down' || (module.is.mobile() && transition !== 'overlay')) {
+          if(settings.transition == 'scale down') {
             module.scrollToTop();
           }
           module.set.transition();
@@ -561,6 +567,11 @@ $.fn.sidebar = function(parameters) {
         },
 
         set: {
+          // html
+          ios: function() {
+            $html.addClass(className.ios);
+          },
+
           // container
           pushed: function() {
             $context.addClass(className.pushed);
@@ -714,11 +725,23 @@ $.fn.sidebar = function(parameters) {
             document.body.removeChild(element);
             return !(has3D !== undefined && has3D.length > 0 && has3D !== 'none');
           },
+          ios: function() {
+            var
+              userAgent = navigator.userAgent,
+              isIOS     = regExp.ios.test(userAgent)
+            ;
+            if(isIOS) {
+              module.verbose('Browser was found to be iOS', userAgent);
+              return true;
+            }
+            else {
+              return false;
+            }
+          },
           mobile: function() {
             var
               userAgent    = navigator.userAgent,
-              mobileRegExp = /Mobile|iP(hone|od|ad)|Android|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/,
-              isMobile     = mobileRegExp.test(userAgent)
+              isMobile     = regExp.mobile.test(userAgent)
             ;
             if(isMobile) {
               module.verbose('Browser was found to be mobile', userAgent);
@@ -976,6 +999,7 @@ $.fn.sidebar.settings = {
     active    : 'active',
     animating : 'animating',
     dimmed    : 'dimmed',
+    ios       : 'ios',
     pushable  : 'pushable',
     pushed    : 'pushed',
     right     : 'right',
@@ -990,6 +1014,11 @@ $.fn.sidebar.settings = {
     omitted : 'script, link, style, .ui.modal, .ui.dimmer, .ui.nag, .ui.fixed',
     pusher  : '.pusher',
     sidebar : '.ui.sidebar'
+  },
+
+  regExp: {
+    ios    : /(iPad|iPhone|iPod)/g,
+    mobile : /Mobile|iP(hone|od|ad)|Android|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/g
   },
 
   error   : {

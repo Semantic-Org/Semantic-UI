@@ -5,7 +5,7 @@
 **Bugs**
 
 - **Step** - Fix issue with completed ordered step icon alignment
-
+- **Sidebar** - Mobile sidebars now only set ``overflow`` on page's ``html`` when browsing from ``iOS` devices. Using overflow caused issues with page's scroll being lost when resizing a browser to mobile widths. This also affected modules that used  `$(window).scrollTop()`` at mobile screen sizes
 
 ### Version 1.2.0 - December 08, 2014
 
