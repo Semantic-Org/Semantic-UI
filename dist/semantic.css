@@ -1603,7 +1603,8 @@ a:hover {
   margin-left: -0.892855em;
   width: 1.78571em;
   height: 1.78571em;
-  line-height: 1.58571em;
+  vertical-align: middle;
+  line-height: 1.78571em;
   color: rgba(0, 0, 0, 0.4);
   font-style: normal;
   font-weight: bold;
