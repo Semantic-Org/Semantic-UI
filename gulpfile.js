@@ -188,7 +188,7 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function(callb
       source.definitions   + '**/*.less',
       source.site          + '**/*.{overrides,variables}',
       source.themes        + '**/*.{overrides,variables}'
-    ], function(file, event) {
+    ], function(file) {
       var
         srcPath,
         stream,
