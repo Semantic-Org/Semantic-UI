@@ -151,7 +151,7 @@ $.fn.transition = function() {
             module.set.animating(settings.animation);
           }
           else {
-            module.error(error.noAnimation, settings.animation);
+            module.error(error.noAnimation, settings.animation, element);
           }
         },
 
