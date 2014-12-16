@@ -2,10 +2,15 @@
 
 ### Version 1.2.1 - December 09, 2014
 
+**Enhancement**
+- **Dropdown** - Dropdown can now specify which direction a menu should appear left/right
+
+
 **Bugs**
 - *All UI** - Adds error message when triggering an invalid module behavior i.e. typos ``$('.dropdown').dropdown('hid');``
 - **Step** - Fix issue with completed ordered step icon alignment
 - **Sidebar** - Mobile sidebars now only set ``overflow`` on page's ``html`` when browsing from ``iOS` devices. Using overflow caused issues with page's scroll being lost when resizing a browser to mobile widths. This also affected modules that used  `$(window).scrollTop()`` at mobile screen sizes
+- **Dropdown** - Fix bug in position of child menus on ``floating dropdown``
 
 ### Version 1.2.0 - December 08, 2014
 
