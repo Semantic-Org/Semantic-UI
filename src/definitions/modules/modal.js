@@ -356,7 +356,7 @@ $.fn.modal = function(parameters) {
         },
 
         hideDimmer: function() {
-          if( $dimmable.dimmer('is animating') || !($dimmable.dimmer('is active')) ) {
+          if( $dimmable.dimmer('is animating') || ($dimmable.dimmer('is active')) ) {
             module.debug('Dimmer is not visible cannot hide');
             return;
           }
