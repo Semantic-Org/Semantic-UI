@@ -188,22 +188,35 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function(callb
       source.definitions   + '**/*.less',
       source.site          + '**/*.{overrides,variables}',
       source.themes        + '**/*.{overrides,variables}'
-    ], function(file) {
+    ], function(file, event) {
       var
         srcPath,
         stream,
         compressedStream,
-        uncompressedStream
+        uncompressedStream,
+        isPackagedTheme,
+        isSiteTheme,
+        isConfig
       ;
 
       gulp.src(file.path)
         .pipe(print(log.modified))
       ;
 
-      // recompile only definition file
-      srcPath = util.replaceExtension(file.path, '.less');
-      srcPath = srcPath.replace(config.regExp.themePath, source.definitions);
-      srcPath = srcPath.replace(source.site, source.definitions);
+      // recompile on *.override , *.variable change
+      isPackagedTheme = (file.path.indexOf(source.themes) !== -1);
+      isSiteTheme     = (file.path.indexOf(source.site) !== -1);
+      isConfig        = (file.path.indexOf('.config') !== -1);
+
+      if(isPackagedTheme || isSiteTheme) {
+        srcPath = util.replaceExtension(file.path, '.less');
+        srcPath = srcPath.replace(config.regExp.themePath, source.definitions);
+        srcPath = srcPath.replace(source.site, source.definitions);
+      }
+      if(isConfig) {
+        console.log('Change detected in theme config');
+        gulp.start('build');
+      }
 
       // get relative asset path (path returns wrong path? hardcoded)
       // assetPaths.source = path.relative(srcPath, path.resolve(source.themes));
