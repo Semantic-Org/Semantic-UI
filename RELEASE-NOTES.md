@@ -1,12 +1,17 @@
 ## RELEASE NOTES
 
-### Version 1.2.1 - December 09, 2014
+### Version 1.3.0 - December 16, 2014
+
+**Critical Bugs**
+
+- **Build Tools** - Fixed issue with ``theme.config`` causing ``gulp watch`` to throw an error
 
 **Enhancement**
 - **Dropdown** - Dropdown can now specify which direction a menu should appear left/right, dropdown icons can also appear on the left
 - **Table** - Table has now variations to remove responsive stylings, specify responsiveness for tablet
 - **Steps** - Steps are now responsive for mobile by default, and have optional responsive styles for tablet
 - **Form** - Form will no longer process validation rules on disabled fields
+- **Label** - Corner attached labels
 
 **Bugs**
 - **Modal/Dimmer** - Fixed issues with modal hiding during showing and showing during hiding, fixed issues with "hiding other" modals while a modal is mid-animation.
