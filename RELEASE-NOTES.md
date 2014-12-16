@@ -15,11 +15,17 @@
 - **Button** - Button "or" positioning variables have been adjusted to be automatically calculated without magic numbers
 - **Step** - Fix issue with completed ordered step icon alignment
 - **Sidebar** - Mobile sidebars now only set ``overflow`` on page's ``html`` when browsing from ``iOS` devices. Using overflow caused issues with page's scroll being lost when resizing a browser to mobile widths. This also affected modules that used  `$(window).scrollTop()`` at mobile screen sizes
+- **Grid** - ``stackable grid`` now display correctly when nested inside a different ``stackable grid``
 - **Dropdown** - Fix bug in position of sub menus with ``floating dropdown``
 - **Segment ** - Vertical segments now have padding on first/last element, fixing issues when using with grids
 - **Table** - Fix responsive styles when applied to ``definition table``.
 - **Image** - UI image now works with SVG
 - **Form** - Fixed positioning of horizontal field groups, aka ``fields`` for mobile.
+
+**Docs**
+- *Button* - Add tabindex /keyboard nav documentation
+- *Grid* - Add another grid example
+- Updates from release changes to UI
 
 ### Version 1.2.0 - December 08, 2014
 
