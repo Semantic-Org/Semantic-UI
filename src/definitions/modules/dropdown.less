@@ -788,9 +788,11 @@ select.ui.dropdown {
 .ui.floating.dropdown .menu {
   left: 0;
   right: auto;
-  margin-top: @floatingMenuDistance !important;
   box-shadow: @floatingMenuBoxShadow;
   border-radius: @floatingMenuBorderRadius;
+}
+.ui.floating.dropdown > .menu {
+  margin-top: @floatingMenuDistance !important;
 }
 
 /*--------------
