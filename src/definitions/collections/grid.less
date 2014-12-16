@@ -1602,6 +1602,10 @@
     margin: 0em;
     padding: 0em;
   }
+  .ui.stackable.grid .column > .ui.stackable.grid {
+      margin-left: -(@stackableGutter);
+      margin-right: -(@stackableGutter);
+  }
 
   .ui.stackable.celled.grid > .column:not(.row),
   .ui.stackable.divided.grid > .column:not(.row),
