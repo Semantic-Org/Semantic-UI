@@ -442,7 +442,6 @@ $.fn.modal = function(parameters) {
         },
 
         othersActive: function() {
-          console.log($otherModals, $otherModals.filter('.' + className.active).size());
           return ($otherModals.filter('.' + className.active).size() > 0);
         },
 
