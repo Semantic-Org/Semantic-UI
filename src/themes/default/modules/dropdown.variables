@@ -217,6 +217,10 @@
       Variations
 --------------------*/
 
+/* Flyout Direction */
+@leftMenuDropdownIconFloat: left;
+@leftMenuDropdownIconMargin: @itemLineHeightOffset @itemElementDistance 0em 0em;
+
 /* Simple */
 @simpleTransitionDuration: 0.2s;
 @simpleTransition: opacity @simpleTransitionDuration @defaultEasing;
