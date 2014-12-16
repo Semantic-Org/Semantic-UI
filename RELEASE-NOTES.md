@@ -3,14 +3,23 @@
 ### Version 1.2.1 - December 09, 2014
 
 **Enhancement**
-- **Dropdown** - Dropdown can now specify which direction a menu should appear left/right
-
+- **Dropdown** - Dropdown can now specify which direction a menu should appear left/right, dropdown icons can also appear on the left
+- **Table** - Table has now variations to remove responsive stylings, specify responsiveness for tablet
+- **Steps** - Steps are now responsive for mobile by default, and have optional responsive styles for tablet
+- **Form** - Form will no longer process validation rules on disabled fields
 
 **Bugs**
+- **Modal/Dimmer** - Fixed issues with modal hiding during showing and showing during hiding, fixed issues with "hiding other" modals while a modal is mid-animation.
+- **Modal** - Fixed issue with modal losing scroll position on mobile
 - *All UI** - Adds error message when triggering an invalid module behavior i.e. typos ``$('.dropdown').dropdown('hid');``
+- **Button** - Button "or" positioning variables have been adjusted to be automatically calculated without magic numbers
 - **Step** - Fix issue with completed ordered step icon alignment
 - **Sidebar** - Mobile sidebars now only set ``overflow`` on page's ``html`` when browsing from ``iOS` devices. Using overflow caused issues with page's scroll being lost when resizing a browser to mobile widths. This also affected modules that used  `$(window).scrollTop()`` at mobile screen sizes
-- **Dropdown** - Fix bug in position of child menus on ``floating dropdown``
+- **Dropdown** - Fix bug in position of sub menus with ``floating dropdown``
+- **Segment ** - Vertical segments now have padding on first/last element, fixing issues when using with grids
+- **Table** - Fix responsive styles when applied to ``definition table``.
+- **Image** - UI image now works with SVG
+- **Form** - Fixed positioning of horizontal field groups, aka ``fields`` for mobile.
 
 ### Version 1.2.0 - December 08, 2014
 
