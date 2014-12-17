@@ -60,7 +60,6 @@ $.fn.dropdown = function(parameters) {
 
         activated       = false,
         itemActivated   = false,
-
         element         = this,
         instance        = $module.data(moduleNamespace),
 
@@ -296,10 +295,6 @@ $.fn.dropdown = function(parameters) {
           mouseEvents: function() {
             module.verbose('Mouse detected binding mouse events');
 
-            $document
-              .on('visibilitychange' + elementNamespace, module.event.visibilityChange)
-            ;
-
             if( module.is.searchSelection() ) {
               $module
                 .on('mousedown' + eventNamespace, selector.menu, module.event.menu.activate)
@@ -437,7 +432,10 @@ $.fn.dropdown = function(parameters) {
             }
           },
           blur: function(event) {
-            if(!activated) {
+            var
+              pageLostFocus = (document.activeElement === this)
+            ;
+            if(!activated && !pageLostFocus) {
               module.hide();
             }
           },
@@ -446,12 +444,12 @@ $.fn.dropdown = function(parameters) {
             module.show();
           },
           searchBlur: function(event) {
-            if(!itemActivated) {
+            var
+              pageLostFocus = (document.activeElement === this)
+            ;
+            if(!itemActivated && !pageLostFocus) {
               module.hide();
             }
-          },
-          visibilityChange: function(event) {
-            //
           },
           input: function(event) {
             module.set.filtered();
@@ -927,11 +925,10 @@ $.fn.dropdown = function(parameters) {
               }
             }
           },
-          scrollPosition: function($item) {
+          scrollPosition: function($item, forceScroll) {
             var
-              $item         = $item || module.get.activeItem(),
-              hasActive     = ($item && $item.size() > 0),
               edgeTolerance = 5,
+              hasActive,
               offset,
               itemHeight,
               itemOffset,
@@ -941,10 +938,17 @@ $.fn.dropdown = function(parameters) {
               abovePage,
               belowPage
             ;
+
+            $item       = $item || module.get.activeItem();
+            hasActive   = ($item && $item.size() > 0);
+            forceScroll = (forceScroll !== undefined)
+              ? forceScroll
+              : false
+            ;
+
             if($item && hasActive) {
 
               if(!$menu.hasClass(className.visible)) {
-                console.log('adddig loading');
                 $menu.addClass(className.loading);
               }
 
@@ -957,10 +961,12 @@ $.fn.dropdown = function(parameters) {
               belowPage  = menuScroll + menuHeight < (offset + edgeTolerance);
               abovePage  = ((offset - edgeTolerance) < menuScroll);
               module.debug('Scrolling to active item', offset);
-              $menu
-                .scrollTop(offset)
-                .removeClass(className.loading)
-              ;
+              if(abovePage || belowPage || forceScroll) {
+                $menu
+                  .scrollTop(offset)
+                  .removeClass(className.loading)
+                ;
+              }
             }
           },
           text: function(text) {
@@ -1134,7 +1140,7 @@ $.fn.dropdown = function(parameters) {
               ? callback
               : function(){}
             ;
-            module.set.scrollPosition();
+            module.set.scrollPosition(module.get.activeItem(), true);
             module.verbose('Doing menu show animation', $currentMenu);
             if( module.is.hidden($currentMenu) || module.is.animating($currentMenu) ) {
               if(settings.transition == 'none') {

@@ -21,6 +21,7 @@
 
 **Bugs**
 - **Button** - Button "or" positioning variables have been adjusted to be automatically calculated without magic numbers
+- **Dropdown** - Dropdown now always scrolls to active element on menu open, calculates position with new ``loading`` class
 - **Dropdown** - Fix bug in position of sub menus with ``floating dropdown``
 - **Form** - Fixed positioning of horizontal field groups, aka ``fields`` for mobile.
 - **Grid** - ``stackable grid`` now display correctly when nested inside a different ``stackable grid``
