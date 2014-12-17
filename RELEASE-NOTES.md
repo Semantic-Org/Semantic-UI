@@ -20,7 +20,7 @@
 - **Dropdown** - Search dropdown will now strip html before searching values when searching html
 - **Dropdown** - Search now has keyboard shortcut to open dropdown on arrow down
 - **Form** - Form will no longer process validation rules on disabled fields
-- **Label** - Corner attached labels
+- **Label** - Corner attached labels now display correctly inside of attached segments
 - **Steps** - Steps are now responsive for mobile by default, and have optional responsive styles for tablet
 - **Table** - Table has now variations to remove responsive stylings, specify responsiveness for tablet
 - **Table** - Table now has a ``structured table`` type, which removes some formatting considerations to support complex table layouts with ``colspan`` and ``rowspan``
