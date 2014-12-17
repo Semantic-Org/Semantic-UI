@@ -78,6 +78,8 @@ $.fn.sidebar = function(parameters) {
         initialize: function() {
           module.debug('Initializing sidebar', parameters);
 
+          module.create.id();
+
           transitionEvent = module.get.transitionEvent();
 
           // cache on initialize
@@ -89,9 +91,6 @@ $.fn.sidebar = function(parameters) {
           if(module.is.ios()) {
             module.set.ios();
           }
-
-          id = module.get.uniqueID();
-          elementNamespace = '.' + id;
 
           // avoids locking rendering if initialized in onReady
           requestAnimationFrame(module.setup.layout);
@@ -105,6 +104,14 @@ $.fn.sidebar = function(parameters) {
           $module
             .data(moduleNamespace, module)
           ;
+        },
+
+        create: {
+          id: function() {
+            module.verbose('Creating unique id for element');
+            id = module.get.uniqueID();
+            elementNamespace = '.' + id;
+          }
         },
 
         destroy: function() {

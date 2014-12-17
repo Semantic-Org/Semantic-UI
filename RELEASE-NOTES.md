@@ -8,26 +8,30 @@
 
 **Enhancement**
 - **Dropdown** - Dropdown can now specify which direction a menu should appear left/right, dropdown icons can also appear on the left
+- **Dropdown** - Full text search now defaults to ``false``, meaning search terms will return only results beginning with letters
+- **Dropdown** - Search Dropdown is now much more responsive, js improvements and input throttling added.Throttling defaults to `50ms` and can be modified with settings ``delay.search``
+- **Dropdown** - Search Dropdown now correctly replaces placeholder text when backspacing to empty value
 - **Dropdown** - Search Dropdown now has a callback when all results filtered ``onNoResults``
-- **Dropdown** - Search Dropdown now has input throttling, defaults to `100ms` but can be set with ``delay.search``
-- **Table** - Table has now variations to remove responsive stylings, specify responsiveness for tablet
-- **Steps** - Steps are now responsive for mobile by default, and have optional responsive styles for tablet
+- **Dropdown** - Search dropdown will now strip html before searching values when searching html
+- **Dropdown** - Search now has keyboard shortcut to open dropdown on arrow down
 - **Form** - Form will no longer process validation rules on disabled fields
 - **Label** - Corner attached labels
+- **Steps** - Steps are now responsive for mobile by default, and have optional responsive styles for tablet
+- **Table** - Table has now variations to remove responsive stylings, specify responsiveness for tablet
 
 **Bugs**
-- **Modal/Dimmer** - Fixed issues with modal hiding during showing and showing during hiding, fixed issues with "hiding other" modals while a modal is mid-animation.
-- **Modal** - Fixed issue with modal losing scroll position on mobile
-- *All UI** - Adds error message when triggering an invalid module behavior i.e. typos ``$('.dropdown').dropdown('hid');``
 - **Button** - Button "or" positioning variables have been adjusted to be automatically calculated without magic numbers
-- **Step** - Fix issue with completed ordered step icon alignment
-- **Sidebar** - Mobile sidebars now only set ``overflow`` on page's ``html`` when browsing from ``iOS` devices. Using overflow caused issues with page's scroll being lost when resizing a browser to mobile widths. This also affected modules that used  `$(window).scrollTop()`` at mobile screen sizes
-- **Grid** - ``stackable grid`` now display correctly when nested inside a different ``stackable grid``
 - **Dropdown** - Fix bug in position of sub menus with ``floating dropdown``
-- **Segment ** - Vertical segments now have padding on first/last element, fixing issues when using with grids
-- **Table** - Fix responsive styles when applied to ``definition table``.
-- **Image** - UI image now works with SVG
 - **Form** - Fixed positioning of horizontal field groups, aka ``fields`` for mobile.
+- **Grid** - ``stackable grid`` now display correctly when nested inside a different ``stackable grid``
+- **Image** - UI image now works with SVG
+- **Modal** - Fixed issue with modal losing scroll position on mobile
+- **Modal/Dimmer** - Fixed issues with modal hiding during showing and showing during hiding, fixed issues with "hiding other" modals while a modal is mid-animation.
+- **Segment ** - Vertical segments now have padding on first/last element, fixing issues when using with grids
+- **Sidebar** - Mobile sidebars now only set ``overflow`` on page's ``html`` when browsing from ``iOS` devices. Using overflow caused issues with page's scroll being lost when resizing a browser to mobile widths. This also affected modules that used  `$(window).scrollTop()`` at mobile screen sizes
+- **Step** - Fix issue with completed ordered step icon alignment
+- **Table** - Fix responsive styles when applied to ``definition table``.
+- *All UI** - Adds error message when triggering an invalid module behavior i.e. typos ``$('.dropdown').dropdown('hid');``
 
 **Docs**
 - *Button* - Add tabindex /keyboard nav documentation

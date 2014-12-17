@@ -76,13 +76,12 @@ $.fn.modal = function(parameters) {
         initialize: function() {
           module.verbose('Initializing dimmer', $context);
 
+          module.create.id();
+
           if($.fn.dimmer === undefined) {
             module.error(error.dimmer);
             return;
           }
-
-          id = module.get.uniqueID();
-          elementNamespace = '.' + id;
 
           $dimmable = $context
             .dimmer({
@@ -96,6 +95,7 @@ $.fn.modal = function(parameters) {
               }
             })
           ;
+
           if(settings.detachable) {
             $dimmable.dimmer('add content', $module);
           }
@@ -106,7 +106,6 @@ $.fn.modal = function(parameters) {
           module.verbose('Attaching close events', $close);
           module.bind.events();
           module.observeChanges();
-
           module.instantiate();
         },
 
@@ -116,6 +115,14 @@ $.fn.modal = function(parameters) {
           $module
             .data(moduleNamespace, instance)
           ;
+        },
+
+        create: {
+          id: function() {
+            module.verbose('Creating unique id for element');
+            id = module.get.uniqueID();
+            elementNamespace = '.' + id;
+          }
         },
 
         destroy: function() {
