@@ -1,6 +1,6 @@
 ## RELEASE NOTES
 
-### Version 1.3.0 - December 16, 2014
+### Version 1.3.0 - December 17, 2014
 
 [Browse Closed Issues for 1.3.0](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A1.2.1+is%3Aclosed)
 
