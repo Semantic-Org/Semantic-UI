@@ -37,8 +37,8 @@
 - **All UI** - Adds error message when triggering an invalid module behavior i.e. typos ``$('.dropdown').dropdown('hid');``
 
 **Docs**
-- *Button* - Add tabindex /keyboard nav documentation
-- *Grid* - Add another grid example
+- **Button** - Add tabindex /keyboard nav documentation
+- **Grid** - Add another grid example
 - Updates to reflect all new changes to UI listed above
 
 ### Version 1.2.0 - December 08, 2014
