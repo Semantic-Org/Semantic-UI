@@ -2,6 +2,8 @@
 
 ### Version 1.3.0 - December 16, 2014
 
+[Browse Closed Issues for 1.3.0](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A1.2.1+is%3Aclosed)
+
 **Critical Bugs**
 - **Build Tools** - Fixed issue with ``theme.config`` causing ``gulp watch`` to throw an error
 
@@ -28,16 +30,16 @@
 - **Image** - UI image now works with SVG
 - **Modal** - Fixed issue with modal losing scroll position on mobile
 - **Modal/Dimmer** - Fixed issues with modal hiding during showing and showing during hiding, fixed issues with "hiding other" modals while a modal is mid-animation.
-- **Segment ** - Vertical segments now have padding on first/last element, fixing issues when using with grids
+- **Segment** - Vertical segments now have padding on first/last element, fixing issues when using with grids
 - **Sidebar** - Mobile sidebars now only set ``overflow`` on page's ``html`` when browsing from ``iOS` devices. Using overflow caused issues with page's scroll being lost when resizing a browser to mobile widths. This also affected modules that used  `$(window).scrollTop()`` at mobile screen sizes
 - **Step** - Fix issue with completed ordered step icon alignment
 - **Table** - Fix responsive styles when applied to ``definition table``.
-- *All UI** - Adds error message when triggering an invalid module behavior i.e. typos ``$('.dropdown').dropdown('hid');``
+- **All UI** - Adds error message when triggering an invalid module behavior i.e. typos ``$('.dropdown').dropdown('hid');``
 
 **Docs**
 - *Button* - Add tabindex /keyboard nav documentation
 - *Grid* - Add another grid example
-- Updates from release changes to UI
+- Updates to reflect all new changes to UI listed above
 
 ### Version 1.2.0 - December 08, 2014
 
