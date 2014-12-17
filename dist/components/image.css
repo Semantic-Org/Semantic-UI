@@ -24,8 +24,8 @@
 }
 img.ui.image {
   display: block;
-  background: none;
 }
+.ui.image svg,
 .ui.image img {
   display: block;
   max-width: 100%;
@@ -53,6 +53,7 @@ img.ui.image {
 ---------------*/
 
 .ui.inline.image,
+.ui.inline.image svg,
 .ui.inline.image img {
   display: inline-block;
 }
@@ -63,18 +64,21 @@ img.ui.image {
 
 .ui.top.aligned.images .image,
 .ui.top.aligned.image,
+.ui.top.aligned.image svg,
 .ui.top.aligned.image img {
   display: inline-block;
   vertical-align: top;
 }
 .ui.middle.aligned.images .image,
 .ui.middle.aligned.image,
+.ui.middle.aligned.image svg,
 .ui.middle.aligned.image img {
   display: inline-block;
   vertical-align: middle;
 }
 .ui.bottom.aligned.images .image,
 .ui.bottom.aligned.image,
+.ui.bottom.aligned.image svg,
 .ui.bottom.aligned.image img {
   display: inline-block;
   vertical-align: bottom;
@@ -86,7 +90,9 @@ img.ui.image {
 
 .ui.rounded.images .image,
 .ui.rounded.images img,
+.ui.rounded.images svg,
 .ui.rounded.image img,
+.ui.rounded.image svg,
 .ui.rounded.image {
   border-radius: 0.3125em;
 }
@@ -97,7 +103,9 @@ img.ui.image {
 
 .ui.bordered.images .image,
 .ui.bordered.images img,
+.ui.bordered.images svg,
 .ui.bordered.image img,
+.ui.bordered.image svg,
 img.ui.bordered.image {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -112,7 +120,9 @@ img.ui.bordered.image {
 }
 .ui.circular.images .image,
 .ui.circular.images img,
+.ui.circular.images svg,
 .ui.circular.image img,
+.ui.circular.image svg,
 .ui.circular.image {
   border-radius: 500rem;
 }
@@ -124,6 +134,8 @@ img.ui.bordered.image {
 .ui.fluid.images,
 .ui.fluid.image,
 .ui.fluid.images img,
+.ui.fluid.images svg,
+.ui.fluid.image svg,
 .ui.fluid.image img {
   display: block;
   width: 100%;
@@ -135,7 +147,9 @@ img.ui.bordered.image {
 
 .ui.avatar.images .image,
 .ui.avatar.images img,
+.ui.avatar.images svg,
 .ui.avatar.image img,
+.ui.avatar.image svg,
 .ui.avatar.image {
   margin-right: 0.25em;
   display: inline-block;
@@ -177,48 +191,56 @@ img.ui.bordered.image {
 
 .ui.mini.images .image,
 .ui.mini.images img,
+.ui.mini.images svg,
 .ui.mini.image {
   width: 20px;
   font-size: 0.71428571rem;
 }
 .ui.tiny.images .image,
 .ui.tiny.images img,
+.ui.tiny.images svg,
 .ui.tiny.image {
   width: 80px;
   font-size: 0.85714286rem;
 }
 .ui.small.images .image,
 .ui.small.images img,
+.ui.small.images svg,
 .ui.small.image {
   width: 150px;
   font-size: 0.92857143rem;
 }
 .ui.medium.images .image,
 .ui.medium.images img,
+.ui.medium.images svg,
 .ui.medium.image {
   width: 300px;
   font-size: 1rem;
 }
 .ui.large.images .image,
 .ui.large.images img,
+.ui.large.images svg,
 .ui.large.image {
   width: 450px;
   font-size: 1.14285714rem;
 }
 .ui.big.images .image,
 .ui.big.images img,
+.ui.big.images svg,
 .ui.big.image {
   width: 600px;
   font-size: 1.28571429rem;
 }
 .ui.huge.images .image,
 .ui.huge.images img,
+.ui.huge.images svg,
 .ui.huge.image {
   width: 800px;
   font-size: 1.42857143rem;
 }
 .ui.massive.images .image,
 .ui.massive.images img,
+.ui.massive.images svg,
 .ui.massive.image {
   width: 960px;
   font-size: 1.71428571rem;
@@ -234,7 +256,8 @@ img.ui.bordered.image {
   margin: 0em -0.25rem 0rem;
 }
 .ui.images .image,
-.ui.images img {
+.ui.images img,
+.ui.images svg {
   display: inline-block;
   margin: 0em 0.25rem 0.5rem;
 }

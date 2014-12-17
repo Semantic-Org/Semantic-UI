@@ -101,6 +101,22 @@ a.ui.label {
 --------------------*/
 
 
+/* Remove border radius on attached segment */
+.ui.attached.segment > .ui.top.left.attached.label,
+.ui.bottom.attached.segment > .ui.top.left.attached.label {
+  border-radius-top-left: 0;
+}
+.ui.attached.segment > .ui.top.right.attached.label,
+.ui.bottom.attached.segment > .ui.top.right.attached.label {
+  border-radius-top-right: 0;
+}
+.ui.top.attached.segment > .ui.bottom.left.attached.label {
+  border-radius-bottom-left: 0;
+}
+.ui.top.attached.segment > .ui.bottom.right.attached.label {
+  border-radius-bottom-right: 0;
+}
+
 /* Padding on next content after a label */
 .ui.top.attached.label:first-child + :not(.attached) {
   margin-top: 2rem !important;
@@ -371,7 +387,7 @@ a.ui.label {
   width: auto;
   top: auto;
   bottom: 0em;
-  border-radius: 0em 0em 0.2857rem 0.2857rem;
+  border-radius: 0em 0.2857rem 0em 0.2857rem;
 }
 .ui.bottom.right.attached.label {
   top: auto;

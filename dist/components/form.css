@@ -37,12 +37,13 @@
         Field
 ---------------------*/
 
+.ui.form .fields .field,
 .ui.form .field {
   clear: both;
   margin: 0em 0em 1em;
 }
-.ui.form .fields:last-child .field,
-.ui.form :not(.fields) .field:last-child {
+.ui.form .fields:last-child,
+.ui.form .field:last-child {
   margin-bottom: 0em;
 }
 
@@ -83,6 +84,7 @@
 .ui.form input[type="text"],
 .ui.form input[type="email"],
 .ui.form input[type="date"],
+.ui.form input[type="datetime-local"],
 .ui.form input[type="password"],
 .ui.form input[type="number"],
 .ui.form input[type="url"],
@@ -94,6 +96,7 @@
 .ui.form input[type="text"],
 .ui.form input[type="email"],
 .ui.form input[type="date"],
+.ui.form input[type="datetime-local"],
 .ui.form input[type="password"],
 .ui.form input[type="number"],
 .ui.form input[type="url"],
@@ -271,6 +274,7 @@
 .ui.form input[type="text"]:focus,
 .ui.form input[type="email"]:focus,
 .ui.form input[type="date"]:focus,
+.ui.form input[type="datetime-local"]:focus,
 .ui.form input[type="password"]:focus,
 .ui.form input[type="number"]:focus,
 .ui.form input[type="url"]:focus,
@@ -336,6 +340,7 @@
 .ui.form .fields.error .field input[type="text"],
 .ui.form .fields.error .field input[type="email"],
 .ui.form .fields.error .field input[type="date"],
+.ui.form .fields.error .field input[type="datetime-local"],
 .ui.form .fields.error .field input[type="password"],
 .ui.form .fields.error .field input[type="number"],
 .ui.form .fields.error .field input[type="url"],
@@ -344,6 +349,7 @@
 .ui.form .field.error input[type="text"],
 .ui.form .field.error input[type="email"],
 .ui.form .field.error input[type="date"],
+.ui.form .field.error input[type="datetime-local"],
 .ui.form .field.error input[type="password"],
 .ui.form .field.error input[type="number"],
 .ui.form .field.error input[type="url"],
@@ -358,6 +364,7 @@
 .ui.form .field.error input[type="text"]:focus,
 .ui.form .field.error input[type="email"]:focus,
 .ui.form .field.error input[type="date"]:focus,
+.ui.form .field.error input[type="datetime-local"]:focus,
 .ui.form .field.error input[type="password"]:focus,
 .ui.form .field.error input[type="number"]:focus,
 .ui.form .field.error input[type="url"]:focus,
@@ -657,7 +664,8 @@
   .ui.form .four.fields > .field,
   .ui.form .five.fields > .fields,
   .ui.form .five.fields > .field {
-    width: 100%;
+    width: 100% !important;
+    margin: 0em 0em 1em;
     padding-left: 0%;
     padding-right: 0%;
   }
@@ -755,7 +763,7 @@
   .ui.form .fields > .fourteen.wide.field,
   .ui.form .fields > .fifteen.wide.field,
   .ui.form .fields > .sixteen.wide.field {
-    width: 100%;
+    width: 100% !important;
     padding-left: 0%;
     padding-right: 0%;
   }

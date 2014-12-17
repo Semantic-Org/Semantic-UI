@@ -421,6 +421,7 @@ $.fn.checkbox = function(parameters) {
                 return false;
               }
               else {
+                module.error(error.method, query);
                 return false;
               }
             });
@@ -492,7 +493,7 @@ $.fn.checkbox.settings = {
   },
 
   error     : {
-    method   : 'The method you called is not defined.'
+    method   : 'The method you called is not defined'
   },
 
   selector : {

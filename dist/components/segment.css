@@ -48,11 +48,7 @@
   border: none;
   box-shadow: 0px 1px 0px rgba(39, 41, 43, 0.15);
 }
-.ui[class*="vertical segment"]:first-child {
-  padding-top: 0em;
-}
 .ui[class*="vertical segment"]:last-child {
-  padding-bottom: 0em;
   box-shadow: none;
 }
 

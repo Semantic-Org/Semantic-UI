@@ -3,7 +3,6 @@
 ### Version 1.3.0 - December 16, 2014
 
 **Critical Bugs**
-
 - **Build Tools** - Fixed issue with ``theme.config`` causing ``gulp watch`` to throw an error
 
 **Enhancement**
@@ -18,6 +17,7 @@
 - **Label** - Corner attached labels
 - **Steps** - Steps are now responsive for mobile by default, and have optional responsive styles for tablet
 - **Table** - Table has now variations to remove responsive stylings, specify responsiveness for tablet
+- **Table** - Table now has a ``structured table`` type, which removes some formatting considerations to support complex table layouts with ``colspan`` and ``rowspan``
 
 **Bugs**
 - **Button** - Button "or" positioning variables have been adjusted to be automatically calculated without magic numbers

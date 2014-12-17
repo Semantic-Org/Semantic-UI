@@ -336,12 +336,6 @@
   right: 1rem;
   color: rgba(0, 0, 0, 0.8);
 }
-@media only screen and (max-width: 767px) {
-  .ui.fullscreen.modal {
-    width: auto !important;
-    margin: 1em !important;
-  }
-}
 
 /*--------------
       Size
