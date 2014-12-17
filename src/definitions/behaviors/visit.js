@@ -233,10 +233,10 @@ $.visit = $.fn.visit = function(parameters) {
             if(settings.limit) {
               if(value >= settings.limit) {
                 module.debug('Pages viewed exceeded limit, firing callback', value, settings.limit);
-                $.proxy(settings.onLimit, this)(value);
+                $.proxy(settings.onLimit, element)(value);
               }
               module.debug('Limit not reached', value, settings.limit);
-              $.proxy(settings.onChange, this)(value);
+              $.proxy(settings.onChange, element)(value);
             }
             module.update.display(value);
           }

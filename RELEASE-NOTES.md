@@ -8,6 +8,8 @@
 
 **Enhancement**
 - **Dropdown** - Dropdown can now specify which direction a menu should appear left/right, dropdown icons can also appear on the left
+- **Dropdown** - Search Dropdown now has a callback when all results filtered ``onNoResults``
+- **Dropdown** - Search Dropdown now has input throttling, defaults to `100ms` but can be set with ``delay.search``
 - **Table** - Table has now variations to remove responsive stylings, specify responsiveness for tablet
 - **Steps** - Steps are now responsive for mobile by default, and have optional responsive styles for tablet
 - **Form** - Form will no longer process validation rules on disabled fields
