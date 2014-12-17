@@ -188,7 +188,7 @@ $.fn.dropdown = function(parameters) {
 
         show: function() {
           module.debug('Checking if dropdown can show');
-          if( !module.is.active() ) {
+          if( !module.is.active() && !module.is.allFiltered() ) {
             module.animate.show(function() {
               if( module.can.click() ) {
                 module.bind.intent();
@@ -326,23 +326,15 @@ $.fn.dropdown = function(parameters) {
             $results       = $(),
             exactRegExp    = new RegExp('(?:\s|^)' + searchTerm, 'i'),
             fullTextRegExp = new RegExp(searchTerm, 'i'),
-            allItemsFiltered,
-            $filteredItems
+            allItemsFiltered
           ;
+          module.verbose('Searching for matching values');
           $item
             .each(function(){
               var
                 $choice = $(this),
-                text    = ( $choice.data(metadata.text) !== undefined )
-                  ? $choice.data(metadata.text)
-                  : (settings.preserveHTML)
-                    ? $choice.html()
-                    : $choice.text(),
-                value   = ( $choice.data(metadata.value) !== undefined)
-                  ? $choice.data(metadata.value)
-                  : (typeof text === 'string')
-                      ? text.toLowerCase()
-                      : text
+                text    = module.get.choiceText($choice),
+                value   = module.get.choiceValue($choice, text)
               ;
               if( exactRegExp.test( text ) || exactRegExp.test( value ) ) {
                 $results = $results.add($choice);
@@ -354,21 +346,25 @@ $.fn.dropdown = function(parameters) {
               }
             })
           ;
-          $filteredItems   = $item.not($results);
-          allItemsFiltered = ($filteredItems.size() == $item.size());
 
+          module.debug('Setting filter', searchTerm);
           module.remove.filteredItem();
-          module.remove.selectedItem();
-          $filteredItems
+          $item
+            .not($results)
             .addClass(className.filtered)
           ;
+
+          module.verbose('Selecting first non-filtered element');
+          module.remove.selectedItem();
           $item
             .not('.' + className.filtered)
               .eq(0)
               .addClass(className.selected)
           ;
-          if(allItemsFiltered) {
+          if( module.is.allFiltered() ) {
+            module.debug('All items filtered, hiding dropdown', searchTerm);
             module.hide();
+            $.proxy(settings.onNoResults, element)(searchTerm);
           }
         },
 
@@ -409,15 +405,19 @@ $.fn.dropdown = function(parameters) {
           },
           input: function(event) {
             var
-              query = $search.val()
+              query
             ;
-            if(module.is.searchSelection()) {
-              if( module.can.show() ) {
-                module.show();
+            clearTimeout(module.timer);
+            module.timer = setTimeout(function() {
+              query = $search.val();
+              if(module.is.searchSelection()) {
+                module.set.filtered();
+                module.filter(query);
+                if( module.can.show() ) {
+                  module.show();
+                }
               }
-              module.set.filtered();
-            }
-            module.filter(query);
+            }, settings.delay.search);
           },
           keydown: function(event) {
             var
@@ -564,16 +564,8 @@ $.fn.dropdown = function(parameters) {
             click: function (event) {
               var
                 $choice = $(this),
-                text    = ( $choice.data(metadata.text) !== undefined )
-                  ? $choice.data(metadata.text)
-                  : (settings.preserveHTML)
-                    ? $choice.html()
-                    : $choice.text(),
-                value   = ( $choice.data(metadata.value) !== undefined)
-                  ? $choice.data(metadata.value)
-                  : (typeof text === 'string')
-                      ? text.toLowerCase()
-                      : text,
+                text    = module.get.choiceText($choice),
+                value   = module.get.choiceValue($choice, text),
                 callback = function() {
                   module.remove.searchTerm();
                   module.remove.filteredItem();
@@ -685,6 +677,25 @@ $.fn.dropdown = function(parameters) {
               : $module.data(metadata.value)
             ;
           },
+          choiceText: function($choice) {
+            if($choice !== undefined) {
+              return ($choice.data(metadata.text) !== undefined)
+                ? $choice.data(metadata.text)
+                : (settings.preserveHTML)
+                  ? $choice.html()
+                  : $choice.text()
+              ;
+            }
+          },
+          choiceValue: function($choice, choiceText) {
+            choiceText = choiceText || module.get.choiceText($text);
+            return ($choice.data(metadata.value) !== undefined)
+              ? $choice.data(metadata.value)
+              : (typeof choiceText === 'string')
+                ? choiceText.toLowerCase()
+                : choiceText
+            ;
+          },
           inputEvent: function() {
             var
               input = $search[0]
@@ -725,6 +736,9 @@ $.fn.dropdown = function(parameters) {
             module.debug('Retrieved values from select', select);
             return select;
           },
+          activeItem: function() {
+            return $item.filter('.'  + className.active);
+          },
           item: function(value, strict) {
             var
               $selectedItem = false
@@ -744,16 +758,8 @@ $.fn.dropdown = function(parameters) {
                 .each(function() {
                   var
                     $choice       = $(this),
-                    optionText    = ( $choice.data(metadata.text) !== undefined )
-                      ? $choice.data(metadata.text)
-                      : (settings.preserveHTML)
-                        ? $choice.html()
-                        : $choice.text(),
-                    optionValue   = ( $choice.data(metadata.value) !== undefined )
-                      ? $choice.data(metadata.value)
-                      : (typeof optionText === 'string')
-                        ? optionText.toLowerCase()
-                        : optionText
+                    optionText    = module.get.choiceText($choice),
+                    optionValue   = module.get.choiceValue($choice, optionText)
                   ;
                   if(strict) {
                     module.verbose('Ambiguous dropdown value using strict type check', $choice, value);
@@ -850,7 +856,7 @@ $.fn.dropdown = function(parameters) {
           },
           scrollPosition: function($item) {
             var
-              $item         = $item || module.get.item(),
+              $item         = $item || module.get.activeItem(),
               hasActive     = ($item && $item.size() > 0),
               edgeTolerance = 5,
               offset,
@@ -930,18 +936,15 @@ $.fn.dropdown = function(parameters) {
             ;
             if($selectedItem) {
               module.debug('Setting selected menu item to', $selectedItem);
-              selectedText = ($selectedItem.data(metadata.text) !== undefined)
-                ? $selectedItem.data(metadata.text)
-                : (settings.preserveHTML)
-                  ? $selectedItem.html()
-                  : $selectedItem.text()
-              ;
+
               module.remove.activeItem();
               module.remove.selectedItem();
               $selectedItem
                 .addClass(className.active)
                 .addClass(className.selected)
               ;
+
+              selectedText = module.get.choiceText($selectedItem);
               module.set.text(selectedText);
               $.proxy(settings.onChange, element)(value, selectedText, $selectedItem);
             }
@@ -990,6 +993,25 @@ $.fn.dropdown = function(parameters) {
         },
 
         is: {
+          active: function() {
+            return $module.hasClass(className.active);
+          },
+          animating: function($subMenu) {
+            return ($subMenu)
+              ? $subMenu.is(':animated') || $subMenu.transition && $subMenu.transition('is animating')
+              : $menu.is(':animated') || $menu.transition && $menu.transition('is animating')
+            ;
+          },
+          allFiltered: function() {
+            console.log(($item.filter('.' + className.filtered).size() === $item.size()));
+            return ($item.filter('.' + className.filtered).size() === $item.size());
+          },
+          hidden: function($subMenu) {
+            return ($subMenu)
+              ? $subMenu.is(':hidden')
+              : $menu.is(':hidden')
+            ;
+          },
           search: function() {
             return $module.hasClass(className.search);
           },
@@ -1002,25 +1024,10 @@ $.fn.dropdown = function(parameters) {
           selection: function() {
             return $module.hasClass(className.selection);
           },
-          animating: function($subMenu) {
-            return ($subMenu)
-              ? $subMenu.is(':animated') || $subMenu.transition && $subMenu.transition('is animating')
-              : $menu.is(':animated') || $menu.transition && $menu.transition('is animating')
-            ;
-          },
-          active: function() {
-            return $module.hasClass(className.active);
-          },
           visible: function($subMenu) {
             return ($subMenu)
               ? $subMenu.is(':visible')
               : $menu.is(':visible')
-            ;
-          },
-          hidden: function($subMenu) {
-            return ($subMenu)
-              ? $subMenu.is(':hidden')
-              : $menu.is(':hidden')
             ;
           }
         },
@@ -1370,7 +1377,7 @@ $.fn.dropdown = function(parameters) {
 
 $.fn.dropdown.settings = {
 
-  debug          : false,
+  debug          : true,
   verbose        : true,
   performance    : true,
 
@@ -1382,19 +1389,20 @@ $.fn.dropdown.settings = {
   preserveHTML   : true,
 
   delay          : {
-    show  : 200,
-    hide  : 300,
-    touch : 50
+    hide   : 300,
+    show   : 200,
+    search : 100,
+    touch  : 50
   },
 
   transition : 'slide down',
   duration   : 250,
 
   /* Callbacks */
-
-  onChange   : function(value, text){},
-  onShow     : function(){},
-  onHide     : function(){},
+  onNoResults : function(searchTerm){},
+  onChange    : function(value, text){},
+  onShow      : function(){},
+  onHide      : function(){},
 
   /* Component */
 
