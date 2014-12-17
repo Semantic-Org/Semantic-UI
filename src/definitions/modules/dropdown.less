@@ -610,6 +610,11 @@ select.ui.dropdown {
 .ui.loading.dropdown > .text {
   transition: none;
 }
+.ui.dropdown > .loading.menu {
+  display: block;
+  visibility: hidden;
+  z-index: @loadingZIndex;
+}
 
 /*--------------------
     Keyboard Select

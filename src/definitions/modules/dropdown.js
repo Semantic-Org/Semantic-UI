@@ -218,24 +218,34 @@ $.fn.dropdown = function(parameters) {
           }
         },
 
-        show: function() {
-          module.debug('Checking if dropdown can show');
+        show: function(callback) {
+          callback = $.isFunction(callback)
+            ? callback
+            : function(){}
+          ;
           if( !module.is.active() && !module.is.allFiltered() ) {
+            module.debug('Showing dropdown');
             module.animate.show(function() {
               if( module.can.click() ) {
                 module.bind.intent();
               }
               module.set.visible();
+              $.proxy(callback, element)();
             });
             $.proxy(settings.onShow, element)();
           }
         },
 
-        hide: function() {
+        hide: function(callback) {
+          callback = $.isFunction(callback)
+            ? callback
+            : function(){}
+          ;
           if( module.is.active() ) {
             module.debug('Hiding dropdown');
             module.animate.hide(function() {
               module.remove.visible();
+              $.proxy(callback, element)();
             });
             $.proxy(settings.onHide, element)();
           }
@@ -602,7 +612,6 @@ $.fn.dropdown = function(parameters) {
                 value   = module.get.choiceValue($choice, text),
                 callback = function() {
                   module.remove.searchTerm();
-                  setTimeout(module.remove.filteredItem, settings.transition);
                   module.determine.selectAction(text, value);
                 },
                 openingSubMenu = ($choice.find(selector.menu).size() > 0)
@@ -636,7 +645,10 @@ $.fn.dropdown = function(parameters) {
             }
           },
           eventInModule: function(event, callback) {
-            callback = callback || function(){};
+            callback = $.isFunction(callback)
+              ? callback
+              : function(){}
+            ;
             if( $(event.target).closest($module).size() === 0 ) {
               module.verbose('Triggering event', callback);
               callback();
@@ -648,7 +660,10 @@ $.fn.dropdown = function(parameters) {
             }
           },
           eventInMenu: function(event, callback) {
-            callback = callback || function(){};
+            callback = $.isFunction(callback)
+              ? callback
+              : function(){}
+            ;
             if( $(event.target).closest($menu).size() === 0 ) {
               module.verbose('Triggering event', callback);
               callback();
@@ -666,7 +681,9 @@ $.fn.dropdown = function(parameters) {
           nothing: function() {},
 
           hide: function() {
-            module.hide();
+            module.hide(function() {
+              module.remove.filteredItem();
+            });
           },
 
           select: function(text, value) {
@@ -676,7 +693,9 @@ $.fn.dropdown = function(parameters) {
             ;
             module.set.selected(value);
             module.set.value(value);
-            module.hide();
+            module.hide(function() {
+              module.remove.filteredItem();
+            });
           },
 
           activate: function(text, value) {
@@ -686,7 +705,9 @@ $.fn.dropdown = function(parameters) {
             ;
             module.set.selected(value);
             module.set.value(value);
-            module.hide();
+            module.hide(function() {
+              module.remove.filteredItem();
+            });
           },
 
           combo: function(text, value) {
@@ -696,7 +717,9 @@ $.fn.dropdown = function(parameters) {
             ;
             module.set.selected(value);
             module.set.value(value);
-            module.hide();
+            module.hide(function() {
+              module.remove.filteredItem();
+            });
           }
 
         },
@@ -919,6 +942,12 @@ $.fn.dropdown = function(parameters) {
               belowPage
             ;
             if($item && hasActive) {
+
+              if(!$menu.hasClass(className.visible)) {
+                console.log('adddig loading');
+                $menu.addClass(className.loading);
+              }
+
               menuHeight = $menu.height();
               itemHeight = $item.height();
               menuScroll = $menu.scrollTop();
@@ -927,12 +956,11 @@ $.fn.dropdown = function(parameters) {
               offset     = menuScroll - menuOffset + itemOffset;
               belowPage  = menuScroll + menuHeight < (offset + edgeTolerance);
               abovePage  = ((offset - edgeTolerance) < menuScroll);
-              if(abovePage || belowPage) {
-                module.debug('Scrolling to active item');
-                $menu
-                  .scrollTop(offset)
-                ;
-              }
+              module.debug('Scrolling to active item', offset);
+              $menu
+                .scrollTop(offset)
+                .removeClass(className.loading)
+              ;
             }
           },
           text: function(text) {
@@ -1100,10 +1128,13 @@ $.fn.dropdown = function(parameters) {
                   module.hideSubMenus();
                   module.hideOthers();
                   module.set.active();
-                  module.set.scrollPosition();
                 }
             ;
-            callback = callback || function(){};
+            callback = $.isFunction(callback)
+              ? callback
+              : function(){}
+            ;
+            module.set.scrollPosition();
             module.verbose('Doing menu show animation', $currentMenu);
             if( module.is.hidden($currentMenu) || module.is.animating($currentMenu) ) {
               if(settings.transition == 'none') {
@@ -1175,7 +1206,10 @@ $.fn.dropdown = function(parameters) {
                   module.remove.active();
                 }
             ;
-            callback = callback || function(){};
+            callback = $.isFunction(callback)
+              ? callback
+              : function(){}
+            ;
             if( module.is.visible($currentMenu) || module.is.animating($currentMenu) ) {
               module.verbose('Doing menu hide animation', $currentMenu);
 
@@ -1486,6 +1520,7 @@ $.fn.dropdown.settings = {
     disabled    : 'disabled',
     dropdown    : 'ui dropdown',
     filtered    : 'filtered',
+    loading     : 'loading',
     menu        : 'menu',
     placeholder : 'default',
     search      : 'search',
