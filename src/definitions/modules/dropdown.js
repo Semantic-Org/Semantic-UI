@@ -63,6 +63,9 @@ $.fn.dropdown = function(parameters) {
 
         element         = this,
         instance        = $module.data(moduleNamespace),
+
+        elementNamespace,
+        id,
         observer,
         module
       ;
@@ -74,6 +77,8 @@ $.fn.dropdown = function(parameters) {
           module.setup.layout();
           module.save.defaults();
           module.set.selected();
+
+          module.create.id();
 
           if(hasTouch) {
             module.bind.touchEvents();
@@ -100,6 +105,9 @@ $.fn.dropdown = function(parameters) {
             .off(eventNamespace)
             .removeData(moduleNamespace)
           ;
+          $document
+            .off(elementNamespace)
+          ;
         },
 
         observeChanges: function() {
@@ -113,6 +121,30 @@ $.fn.dropdown = function(parameters) {
               subtree   : true
             });
             module.debug('Setting up mutation observer', observer);
+          }
+        },
+
+        create: {
+          id: function() {
+            module.verbose('Creating unique id for element');
+            id = module.get.uniqueID();
+            elementNamespace = '.' + id;
+          }
+        },
+
+        search: function() {
+          var
+            query
+          ;
+          query = $search.val();
+
+          module.verbose('Searching for query', query);
+
+          if(module.is.searchSelection()) {
+            module.filter(query);
+            if( module.can.show() ) {
+              module.show();
+            }
           }
         },
 
@@ -253,12 +285,17 @@ $.fn.dropdown = function(parameters) {
           },
           mouseEvents: function() {
             module.verbose('Mouse detected binding mouse events');
+
+            $document
+              .on('visibilitychange' + elementNamespace, module.event.visibilityChange)
+            ;
+
             if( module.is.searchSelection() ) {
               $module
                 .on('mousedown' + eventNamespace, selector.menu, module.event.menu.activate)
                 .on('mouseup'   + eventNamespace, selector.menu, module.event.menu.deactivate)
-                .on('focus'     + eventNamespace, selector.search, module.event.searchFocus)
                 .on('click'     + eventNamespace, selector.search, module.show)
+                .on('focus'     + eventNamespace, selector.search, module.event.searchFocus)
                 .on('blur'      + eventNamespace, selector.search, module.event.searchBlur)
               ;
             }
@@ -296,12 +333,12 @@ $.fn.dropdown = function(parameters) {
             module.verbose('Binding hide intent event to document');
             if(hasTouch) {
               $document
-                .on('touchstart' + eventNamespace, module.event.test.touch)
-                .on('touchmove'  + eventNamespace, module.event.test.touch)
+                .on('touchstart' + elementNamespace, module.event.test.touch)
+                .on('touchmove'  + elementNamespace, module.event.test.touch)
               ;
             }
             $document
-              .on('click' + eventNamespace, module.event.test.hide)
+              .on('click' + elementNamespace, module.event.test.hide)
             ;
           }
         },
@@ -311,12 +348,12 @@ $.fn.dropdown = function(parameters) {
             module.verbose('Removing hide intent event from document');
             if(hasTouch) {
               $document
-                .off('touchstart' + eventNamespace)
-                .off('touchmove' + eventNamespace)
+                .off('touchstart' + elementNamespace)
+                .off('touchmove' + elementNamespace)
               ;
             }
             $document
-              .off('click' + eventNamespace)
+              .off('click' + elementNamespace)
             ;
           }
         },
@@ -324,8 +361,8 @@ $.fn.dropdown = function(parameters) {
         filter: function(searchTerm) {
           var
             $results       = $(),
-            exactRegExp    = new RegExp('(?:\s|^)' + searchTerm, 'i'),
-            fullTextRegExp = new RegExp(searchTerm, 'i'),
+            exactRegExp    = new RegExp('^' + searchTerm, 'igm'),
+            fullTextRegExp = new RegExp(searchTerm, 'ig'),
             allItemsFiltered
           ;
           module.verbose('Searching for matching values');
@@ -333,7 +370,7 @@ $.fn.dropdown = function(parameters) {
             .each(function(){
               var
                 $choice = $(this),
-                text    = module.get.choiceText($choice),
+                text    = module.get.choiceText($choice, false),
                 value   = module.get.choiceValue($choice, text)
               ;
               if( exactRegExp.test( text ) || exactRegExp.test( value ) ) {
@@ -403,21 +440,13 @@ $.fn.dropdown = function(parameters) {
               module.hide();
             }
           },
+          visibilityChange: function(event) {
+            //
+          },
           input: function(event) {
-            var
-              query
-            ;
+            module.set.filtered();
             clearTimeout(module.timer);
-            module.timer = setTimeout(function() {
-              query = $search.val();
-              if(module.is.searchSelection()) {
-                module.set.filtered();
-                module.filter(query);
-                if( module.can.show() ) {
-                  module.show();
-                }
-              }
-            }, settings.delay.search);
+            module.timer = setTimeout(module.search, settings.delay.search);
           },
           keydown: function(event) {
             var
@@ -445,6 +474,11 @@ $.fn.dropdown = function(parameters) {
             if(pressedKey == keys.escape) {
               module.verbose('Escape key pressed, closing dropdown');
               module.hide();
+            }
+            // open menu
+            if(pressedKey == keys.downArrow) {
+              module.verbose('Down key pressed, showing dropdown');
+              module.show();
             }
             // result shortcuts
             if(module.is.visible()) {
@@ -568,7 +602,7 @@ $.fn.dropdown = function(parameters) {
                 value   = module.get.choiceValue($choice, text),
                 callback = function() {
                   module.remove.searchTerm();
-                  module.remove.filteredItem();
+                  setTimeout(module.remove.filteredItem, settings.transition);
                   module.determine.selectAction(text, value);
                 },
                 openingSubMenu = ($choice.find(selector.menu).size() > 0)
@@ -677,11 +711,15 @@ $.fn.dropdown = function(parameters) {
               : $module.data(metadata.value)
             ;
           },
-          choiceText: function($choice) {
+          choiceText: function($choice, preserveHTML) {
+            preserveHTML = (preserveHTML !== undefined)
+              ? preserveHTML
+              : settings.preserveHTML
+            ;
             if($choice !== undefined) {
               return ($choice.data(metadata.text) !== undefined)
                 ? $choice.data(metadata.text)
-                : (settings.preserveHTML)
+                : (preserveHTML)
                   ? $choice.html()
                   : $choice.text()
               ;
@@ -787,6 +825,9 @@ $.fn.dropdown = function(parameters) {
               value = module.get.text();
             }
             return $selectedItem || false;
+          },
+          uniqueID: function() {
+            return (Math.random().toString(16) + '000000000').substr(2,8);
           }
         },
 
@@ -829,7 +870,16 @@ $.fn.dropdown = function(parameters) {
 
         set: {
           filtered: function() {
-            $text.addClass(className.filtered);
+            var
+              searchValue    = $search.val(),
+              hasSearchValue = (typeof searchValue === 'string' && searchValue.length > 0)
+            ;
+            if(hasSearchValue) {
+              $text.addClass(className.filtered);
+            }
+            else {
+              $text.removeClass(className.filtered);
+            }
           },
           tabbable: function() {
             if( module.is.searchable() ) {
@@ -1003,7 +1053,6 @@ $.fn.dropdown = function(parameters) {
             ;
           },
           allFiltered: function() {
-            console.log(($item.filter('.' + className.filtered).size() === $item.size()));
             return ($item.filter('.' + className.filtered).size() === $item.size());
           },
           hidden: function($subMenu) {
@@ -1377,7 +1426,7 @@ $.fn.dropdown = function(parameters) {
 
 $.fn.dropdown.settings = {
 
-  debug          : true,
+  debug          : false,
   verbose        : true,
   performance    : true,
 
@@ -1385,13 +1434,13 @@ $.fn.dropdown.settings = {
   action         : 'activate',
 
   allowTab       : true,
-  fullTextSearch : true,
+  fullTextSearch : false,
   preserveHTML   : true,
 
   delay          : {
     hide   : 300,
     show   : 200,
-    search : 100,
+    search : 50,
     touch  : 50
   },
 
