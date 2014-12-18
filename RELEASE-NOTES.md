@@ -1,5 +1,9 @@
 ## RELEASE NOTES
 
+### Version 1.3.2 - December 17, 2014
+
+- **Modal** - Fixed issue with modal dimmer appearing cut off in some browsers, and not hiding
+
 ### Version 1.3.1 - December 17, 2014
 
 - **Button** - Dist version of button accidentally included ``chubby`` theme instead of ``default`` theme

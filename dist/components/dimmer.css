@@ -97,8 +97,8 @@
 
 .ui.page.dimmer {
   position: fixed;
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
+  -webkit-transform-style: '';
+          transform-style: '';
   -webkit-perspective: 2000px;
           perspective: 2000px;
   -webkit-transform-origin: center center;

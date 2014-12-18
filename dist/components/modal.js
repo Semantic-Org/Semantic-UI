@@ -411,16 +411,17 @@ $.fn.modal = function(parameters) {
 
         hideDimmer: function() {
           if( $dimmable.dimmer('is animating') || ($dimmable.dimmer('is active')) ) {
+            $dimmable.dimmer('hide', function() {
+              if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
+                module.remove.clickaway();
+                module.remove.screenHeight();
+              }
+            });
+          }
+          else {
             module.debug('Dimmer is not visible cannot hide');
             return;
           }
-          module.debug('Hiding dimmer');
-          $dimmable.dimmer('hide', function() {
-            if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
-              module.remove.clickaway();
-              module.remove.screenHeight();
-            }
-          });
         },
 
         hideAll: function(callback) {
