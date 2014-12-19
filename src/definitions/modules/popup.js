@@ -311,7 +311,9 @@ $.fn.popup = function(parameters) {
         removePopup: function() {
           module.debug('Removing popup');
           $.proxy(settings.onRemove, $popup)(element);
-          $popup.remove();
+          if($popup.size() > 0) {
+            $popup.remove();
+          }
         },
 
         save: {
