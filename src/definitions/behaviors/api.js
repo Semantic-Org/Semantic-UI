@@ -751,7 +751,7 @@ $.api.settings = {
   name            : 'API',
   namespace       : 'api',
 
-  debug           : false,
+  debug           : true,
   verbose         : true,
   performance     : true,
 
