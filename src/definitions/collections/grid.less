@@ -948,11 +948,12 @@
 
 .ui.centered.grid,
 .ui.centered.grid > .row,
-.ui.grid .centered.row {
+.ui.grid > .centered.row {
   text-align: center;
 }
-.ui.centered.grid > .column:not(.aligned),
+.ui.centered.grid > .column:not(.aligned):not(.row),
 .ui.centered.grid > .row > .column:not(.aligned),
+.ui.centered.grid > .row:not(.centered),
 .ui.grid .centered.row > .column:not(.aligned) {
   text-align: left;
 }
