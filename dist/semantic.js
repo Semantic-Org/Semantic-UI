@@ -1267,7 +1267,7 @@ $.api.settings = {
   name            : 'API',
   namespace       : 'api',
 
-  debug           : false,
+  debug           : true,
   verbose         : true,
   performance     : true,
 
@@ -6815,7 +6815,9 @@ $.fn.popup = function(parameters) {
         removePopup: function() {
           module.debug('Removing popup');
           $.proxy(settings.onRemove, $popup)(element);
-          $popup.remove();
+          if($popup.size() > 0) {
+            $popup.remove();
+          }
         },
 
         save: {
@@ -7156,6 +7158,8 @@ $.fn.popup = function(parameters) {
             if(positioning === undefined) {
               module.error(error.invalidPosition, position);
             }
+
+            module.debug('Calculated popup positioning values', positioning);
 
             // tentatively place on stage
             $popup
