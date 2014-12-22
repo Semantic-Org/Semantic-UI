@@ -194,6 +194,7 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function(callb
         stream,
         compressedStream,
         uncompressedStream,
+        isDefinition,
         isPackagedTheme,
         isSiteTheme,
         isConfig
@@ -204,24 +205,27 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function(callb
       ;
 
       // recompile on *.override , *.variable change
+      isDefinition    = (file.path.indexOf(source.definitions) !== -1);
       isPackagedTheme = (file.path.indexOf(source.themes) !== -1);
       isSiteTheme     = (file.path.indexOf(source.site) !== -1);
       isConfig        = (file.path.indexOf('.config') !== -1);
 
-      if(isPackagedTheme || isSiteTheme) {
+      if(isDefinition || isPackagedTheme || isSiteTheme) {
         srcPath = util.replaceExtension(file.path, '.less');
         srcPath = srcPath.replace(config.regExp.themePath, source.definitions);
         srcPath = srcPath.replace(source.site, source.definitions);
       }
-      if(isConfig) {
+      else if(isConfig) {
         console.log('Change detected in theme config');
         gulp.start('build');
+      }
+      else {
+        srcPath = util.replaceExtension(file.path, '.less');
       }
 
       // get relative asset path (path returns wrong path? hardcoded)
       // assetPaths.source = path.relative(srcPath, path.resolve(source.themes));
       assetPaths.source = '../../themes';
-
 
       if( fs.existsSync(srcPath) ) {
 
@@ -480,7 +484,6 @@ gulp.task('install', 'Set-up project for first time', function () {
     .pipe(prompt.prompt(questions.setup, function(answers) {
       var
         siteVariable      = /@siteFolder .*\'(.*)/mg,
-
         siteDestination   = answers.site || config.folders.site,
 
         pathToSite        = path.relative(path.resolve(config.folders.theme), path.resolve(siteDestination)),
