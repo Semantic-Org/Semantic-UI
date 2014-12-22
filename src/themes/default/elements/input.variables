@@ -6,7 +6,7 @@
       Element
 --------------------*/
 
-@pageFont: "Helvetica Neue", "Helvetica", Arial;
+@inputFont: @pageFont;
 @verticalPadding: 0.78571em;
 @horizontalPadding: 1em;
 

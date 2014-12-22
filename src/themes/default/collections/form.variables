@@ -25,6 +25,7 @@
 @labelColor: @textColor;
 
 /* Input */
+@inputFont: @pageFont;
 @inputWidth: 100%;
 @inputFontSize: 1em;
 @inputVerticalPadding: 0.78571em;
