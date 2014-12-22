@@ -273,6 +273,9 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function(callb
         ;
 
       }
+      else {
+        console.log('SRC Path Does Not Exist', srcPath);
+      }
     })
   ;
 
