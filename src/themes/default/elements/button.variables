@@ -63,6 +63,7 @@
   box-shadow 0.1s @transitionEasing,
   background 0.1s @transitionEasing
 ;
+@willChange: box-shadow, transform, opacity, color, background;
 
 /*-------------------
         Group
