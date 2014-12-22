@@ -10,6 +10,8 @@
 **Bugs**
 - **Progress** - Fixes bug where ``ui indicating progress`` would not update its label immediately in webkit
 - **Button** - Fix Chrome bug with buttons sometimes not correctly repainting (particularly evenly divided groups)
+- **Menu** - Fix border radius of dropdown menu inside `ui vertical menu`
+- **Menu** - Fix formatting of ``ui selection dropdown`` inside ``menu``
 
 **Docs**
 - Improved documentation for API and Tab to be slightly more comprehensive
