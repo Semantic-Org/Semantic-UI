@@ -8,7 +8,7 @@
 - **Accordion** - Added inverted accordion variation
 
 **Bugs**
-
+- **Progress** - Fixes bug where ``ui indicating progress`` would not update its label immediately in webkit
 - **Button** - Fix Chrome bug with buttons sometimes not correctly repainting (particularly evenly divided groups)
 
 **Docs**
