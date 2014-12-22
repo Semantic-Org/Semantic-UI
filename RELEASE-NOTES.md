@@ -1,5 +1,19 @@
 ## RELEASE NOTES
 
+### Version 1.4.0 - December 17, 2014
+
+**Enhancements**
+- **Modal** - Modal now accepts custom dimmer settings with setting `dimmerSettings``
+- **Form** - Form inputs without ``type`` specified are now formatted **Thanks PSyton**
+- **Accordion** - Added inverted accordion variation
+
+**Bugs**
+
+- **Button** - Fix Chrome bug with buttons sometimes not correctly repainting (particularly evenly divided groups)
+
+**Docs**
+- Improved documentation for API and Tab to be slightly more comprehensive
+
 ### Version 1.3.2 - December 17, 2014
 
 - **Modal** - Fixed issue with modal dimmer appearing cut off in some browsers, and not hiding
