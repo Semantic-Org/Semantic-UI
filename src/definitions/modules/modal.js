@@ -78,18 +78,6 @@ $.fn.modal = function(parameters) {
 
           module.create.id();
           module.create.dimmer();
-
-          if($.fn.dimmer === undefined) {
-            module.error(error.dimmer);
-            return;
-          }
-
-
-          if(settings.detachable) {
-            $dimmable.dimmer('add content', $module);
-          }
-
-          $dimmer = $dimmable.dimmer('get dimmer');
           module.refreshModals();
 
           module.verbose('Attaching close events', $close);
@@ -119,10 +107,17 @@ $.fn.modal = function(parameters) {
               },
               dimmerSettings = $.extend(true, defaultSettings, settings.dimmerSettings)
             ;
+            if($.fn.dimmer === undefined) {
+              module.error(error.dimmer);
+              return;
+            }
             module.debug('Creating dimmer with settings', dimmerSettings);
-            $dimmable = $context
-              .dimmer(dimmerSettings)
-            ;
+            $dimmable = $context.dimmer(dimmerSettings);
+            if(settings.detachable) {
+              module.verbose('Modal is detachable, moving content into dimmer');
+              $dimmable.dimmer('add content', $module);
+            }
+            $dimmer = $dimmable.dimmer('get dimmer');
           },
           id: function() {
             module.verbose('Creating unique id for element');
