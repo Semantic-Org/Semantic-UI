@@ -234,7 +234,7 @@
 
 
 /* Dropdown */
-.ui.menu .ui.dropdown.visible {
+.ui.menu .ui.dropdown.item.visible {
   background: rgba(0, 0, 0, 0.03);
   border-bottom-right-radius: 0em;
   border-bottom-left-radius: 0em;
@@ -462,15 +462,16 @@
   content: "\f0da";
   margin-left: 1em;
 }
+.ui.vertical.menu .active.dropdown.item {
+  border-top-right-radius: 0em;
+  border-bottom-right-radius: 0em;
+}
 .ui.vertical.menu .dropdown.item .menu {
   top: 0% !important;
   left: 100%;
   margin: 0px 0px 0px 0px;
   box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.08);
-}
-.ui.vertical.menu .dropdown.item.active {
-  border-top-right-radius: 0em;
-  border-bottom-right-radius: 0em;
+  border-radius: 0em 0.2857rem 0.2857rem 0.2857rem;
 }
 .ui.vertical.menu .dropdown.item .menu .item {
   font-size: 1rem;

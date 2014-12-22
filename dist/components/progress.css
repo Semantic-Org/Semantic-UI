@@ -34,15 +34,6 @@
 }
 
 /* Indicating */
-.ui.indicating.progress .bar[style^="width: 1%"],
-.ui.indicating.progress .bar[style^="width: 2%"],
-.ui.indicating.progress .bar[style^="width: 3%"],
-.ui.indicating.progress .bar[style^="width: 4%"],
-.ui.indicating.progress .bar[style^="width: 5%"],
-.ui.indicating.progress .bar[style^="width: 6%"],
-.ui.indicating.progress .bar[style^="width: 7%"],
-.ui.indicating.progress .bar[style^="width: 8%"],
-.ui.indicating.progress .bar[style^="width: 9%"],
 .ui.indicating.progress .bar[style^="width: 1"],
 .ui.indicating.progress .bar[style^="width: 2"] {
   background-color: #d95c5c;
@@ -66,39 +57,56 @@
   background-color: #66da81;
 }
 
-/* Single Digits Last */
-.ui.indicating.progress .bar[style^="width: 1%"] + .label,
-.ui.indicating.progress .bar[style^="width: 2%"] + .label,
-.ui.indicating.progress .bar[style^="width: 3%"] + .label,
-.ui.indicating.progress .bar[style^="width: 4%"] + .label,
-.ui.indicating.progress .bar[style^="width: 5%"] + .label,
-.ui.indicating.progress .bar[style^="width: 6%"] + .label,
-.ui.indicating.progress .bar[style^="width: 7%"] + .label,
-.ui.indicating.progress .bar[style^="width: 8%"] + .label,
-.ui.indicating.progress .bar[style^="width: 9%"] + .label,
-.ui.indicating.progress .bar[style^="width: 1"] + .label,
-.ui.indicating.progress .bar[style^="width: 2"] + .label {
+/* Indicating Label */
+.ui.indicating.progress[data-percent^="1"] .label,
+.ui.indicating.progress[data-percent^="2"] .label {
   color: #d95c5c;
 }
-.ui.indicating.progress .bar[style^="width: 3"] + .label {
+.ui.indicating.progress[data-percent^="3"] .label {
   color: #d9a65c;
 }
-.ui.indicating.progress .bar[style^="width: 4"] + .label,
-.ui.indicating.progress .bar[style^="width: 5"] + .label {
+.ui.indicating.progress[data-percent^="4"] .label,
+.ui.indicating.progress[data-percent^="5"] .label {
   color: #e6bb48;
 }
-.ui.indicating.progress .bar[style^="width: 6"] + .label {
+.ui.indicating.progress[data-percent^="6"] .label {
   color: #ddc928;
 }
-.ui.indicating.progress .bar[style^="width: 7"] + .label,
-.ui.indicating.progress .bar[style^="width: 8"] + .label {
+.ui.indicating.progress[data-percent^="7"] .label,
+.ui.indicating.progress[data-percent^="8"] .label {
   color: #b4d95c;
 }
-.ui.indicating.progress .bar[style^="width: 9"] + .label,
-.ui.indicating.progress .bar[style^="width: 100"] + .label {
+.ui.indicating.progress[data-percent^="9"] .label,
+.ui.indicating.progress[data-percent^="100"] .label {
   color: #66da81;
 }
-.ui.indicating.progress.success .bar + .label {
+
+/* Single Digits */
+.ui.indicating.progress .bar[style^="width: 1%"],
+.ui.indicating.progress .bar[style^="width: 2%"],
+.ui.indicating.progress .bar[style^="width: 3%"],
+.ui.indicating.progress .bar[style^="width: 4%"],
+.ui.indicating.progress .bar[style^="width: 5%"],
+.ui.indicating.progress .bar[style^="width: 6%"],
+.ui.indicating.progress .bar[style^="width: 7%"],
+.ui.indicating.progress .bar[style^="width: 8%"],
+.ui.indicating.progress .bar[style^="width: 9%"] {
+  background-color: #d95c5c;
+}
+.ui.indicating.progress[data-percent="1"] .label,
+.ui.indicating.progress[data-percent="2"] .label,
+.ui.indicating.progress[data-percent="3"] .label,
+.ui.indicating.progress[data-percent="4"] .label,
+.ui.indicating.progress[data-percent="5"] .label,
+.ui.indicating.progress[data-percent="6"] .label,
+.ui.indicating.progress[data-percent="7"] .label,
+.ui.indicating.progress[data-percent="8"] .label,
+.ui.indicating.progress[data-percent="9"] .label {
+  color: #d95c5c;
+}
+
+/* Indicating Success */
+.ui.indicating.progress.success .label {
   color: #356e36;
 }
 

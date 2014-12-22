@@ -2,6 +2,8 @@
 
 ### Version 1.4.0 - December 22, 2014
 
+[Browse Issues for 1.4.0](https://github.com/Semantic-Org/Semantic-UI/issues?q=milestone%3A1.4.0)
+
 **Enhancements**
 - **Modal** - Modal now accepts custom dimmer settings with setting `dimmerSettings``
 - **Form** - Form inputs without ``type`` specified are now formatted **Thanks PSyton**

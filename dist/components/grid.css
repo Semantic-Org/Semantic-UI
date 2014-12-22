@@ -938,11 +938,12 @@
 
 .ui.centered.grid,
 .ui.centered.grid > .row,
-.ui.grid .centered.row {
+.ui.grid > .centered.row {
   text-align: center;
 }
-.ui.centered.grid > .column:not(.aligned),
+.ui.centered.grid > .column:not(.aligned):not(.row),
 .ui.centered.grid > .row > .column:not(.aligned),
+.ui.centered.grid > .row:not(.centered),
 .ui.grid .centered.row > .column:not(.aligned) {
   text-align: left;
 }
@@ -1563,9 +1564,13 @@
   .ui.stackable.grid {
     display: block !important;
     width: auto;
-    margin-left: -1rem;
-    margin-right: -1rem;
+    margin-left: -1rem !important;
+    margin-right: -1rem !important;
     padding: 0em;
+  }
+  .ui.stackable.padded.grid:not(.vertically) {
+    margin-left: -1rem !important;
+    margin-right: -1rem !important;
   }
   .ui.stackable.grid > .row > .wide.column,
   .ui.stackable.grid > .wide.column,
@@ -1584,8 +1589,8 @@
     padding: 0em;
   }
   .ui.stackable.grid .column > .ui.stackable.grid {
-    margin-left: -2rem;
-    margin-right: -2rem;
+    margin-left: -2rem !important;
+    margin-right: -2rem !important;
   }
   .ui.stackable.celled.grid > .column:not(.row),
   .ui.stackable.divided.grid > .column:not(.row),

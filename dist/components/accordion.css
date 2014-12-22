@@ -214,6 +214,14 @@
   width: 100%;
 }
 
+/*--------------
+     Inverted
+---------------*/
+
+.ui.inverted.accordion .title:not(.ui) {
+  color: #ffffff;
+}
+
 
 /*******************************
          Theme Overrides

@@ -37,8 +37,8 @@
   z-index: 102;
 }
 
-/* 3D Rendering */
-.ui.sidebar * {
+/* GPU Layers for Child Elements */
+.ui.sidebar > * {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   -webkit-transform: rotateZ(0deg);
