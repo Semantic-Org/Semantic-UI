@@ -655,6 +655,8 @@ $.fn.popup = function(parameters) {
               module.error(error.invalidPosition, position);
             }
 
+            module.debug('Calculated popup positioning values', positioning);
+
             // tentatively place on stage
             $popup
               .css(positioning)
