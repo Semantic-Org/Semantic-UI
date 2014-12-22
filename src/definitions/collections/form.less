@@ -90,6 +90,7 @@
 
 
 .ui.form textarea,
+.ui.form input:not([type]),
 .ui.form input[type="text"],
 .ui.form input[type="email"],
 .ui.form input[type="date"],
@@ -103,6 +104,7 @@
   vertical-align: top;
 }
 
+.ui.form input:not([type]),
 .ui.form input[type="text"],
 .ui.form input[type="email"],
 .ui.form input[type="date"],
@@ -289,6 +291,7 @@
         Focus
 ---------------------*/
 
+.ui.form input:not([type]):focus,
 .ui.form input[type="text"]:focus,
 .ui.form input[type="email"]:focus,
 .ui.form input[type="date"]:focus,
@@ -354,6 +357,7 @@
 }
 
 .ui.form .fields.error .field textarea,
+.ui.form .fields.error .field input:not([type]),
 .ui.form .fields.error .field input[type="text"],
 .ui.form .fields.error .field input[type="email"],
 .ui.form .fields.error .field input[type="date"],
@@ -363,6 +367,7 @@
 .ui.form .fields.error .field input[type="url"],
 .ui.form .fields.error .field input[type="tel"],
 .ui.form .field.error textarea,
+.ui.form .field.error input:not([type]),
 .ui.form .field.error input[type="text"],
 .ui.form .field.error input[type="email"],
 .ui.form .field.error input[type="date"],
@@ -378,6 +383,7 @@
   box-shadow: @inputErrorBoxShadow;
 }
 .ui.form .field.error textarea:focus,
+.ui.form .field.error input:not([type]):focus,
 .ui.form .field.error input[type="text"]:focus,
 .ui.form .field.error input[type="email"]:focus,
 .ui.form .field.error input[type="date"]:focus,
