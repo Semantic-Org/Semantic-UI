@@ -1581,9 +1581,13 @@
   .ui.stackable.grid {
     display: block !important;
     width: auto;
-    margin-left: -(@stackableGutter / 2);
-    margin-right: -(@stackableGutter / 2);
+    margin-left: -(@stackableGutter / 2) !important;
+    margin-right: -(@stackableGutter / 2) !important;
     padding: 0em;
+  }
+  .ui.stackable.padded.grid:not(.vertically) {
+    margin-left: -(@stackableGutter / 2) !important;
+    margin-right: -(@stackableGutter / 2) !important;
   }
   .ui.stackable.grid > .row > .wide.column,
   .ui.stackable.grid > .wide.column,
@@ -1603,8 +1607,8 @@
     padding: 0em;
   }
   .ui.stackable.grid .column > .ui.stackable.grid {
-      margin-left: -(@stackableGutter);
-      margin-right: -(@stackableGutter);
+      margin-left: -(@stackableGutter) !important;
+      margin-right: -(@stackableGutter) !important;
   }
 
   .ui.stackable.celled.grid > .column:not(.row),
