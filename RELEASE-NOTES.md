@@ -1,6 +1,6 @@
 ## RELEASE NOTES
 
-### Version 1.4.0 - December 17, 2014
+### Version 1.4.0 - December 22, 2014
 
 **Enhancements**
 - **Modal** - Modal now accepts custom dimmer settings with setting `dimmerSettings``
