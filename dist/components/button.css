@@ -43,7 +43,7 @@
           user-select: none;
   -webkit-transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
           transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
-  will-change: box-shadow, transform, opacity, color, background;
+  will-change: '';
   -webkit-tap-highlight-color: transparent;
 }
 
