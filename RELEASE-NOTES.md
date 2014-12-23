@@ -2,6 +2,10 @@
 
 ### Version 1.4.1 - December 23, 2014
 
+**Build Tools** 
+- ``gulp build`` will now only build `dist/components/` for components selected in install
+- Fixed bug where interactive installer was not correctly setting components in ``express`` and ``custom`` install
+
 **Bugs**
 - **Dropdown** - ``<select>`` elements will now preserve original ``<option>`` order by default. Added ``sortSelect`` setting (disabled by default) to automatically sort ``<option>`` on initialization
 - **Button** - Fixes issue with ``will-change`` property added to ``ui button`` causing layout z-indexing issues (dropdown button)
