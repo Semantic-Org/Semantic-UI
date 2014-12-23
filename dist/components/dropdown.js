@@ -771,9 +771,11 @@ $.fn.dropdown = function(parameters) {
           },
           selectValues: function() {
             var
-              select = {
-                values : {}
-              }
+              select = {}
+            ;
+            select.values = (settings.sortSelect)
+              ? {} // properties will be sorted in object when re-accessed
+              : [] // properties will keep original order in array
             ;
             $module
               .find('option')
@@ -788,11 +790,27 @@ $.fn.dropdown = function(parameters) {
                     select.placeholder = name;
                   }
                   else {
-                    select.values[value] = name;
+                    if(settings.sortSelect) {
+                      select.values[value] = {
+                        name  : name,
+                        value : value
+                      };
+                    }
+                    else {
+                      select.values.push({
+                        name: name,
+                        value: value
+                      });
+                    }
                   }
                 })
             ;
-            module.debug('Retrieved values from select', select);
+            if(settings.sortSelect) {
+              module.debug('Retrieved and sorted values from select', select);
+            }
+            else {
+              module.debug('Retreived values from select', select);
+            }
             return select;
           },
           activeItem: function() {
@@ -1476,6 +1494,7 @@ $.fn.dropdown.settings = {
   allowTab       : true,
   fullTextSearch : false,
   preserveHTML   : true,
+  sortSelect     : false,
 
   delay          : {
     hide   : 300,
@@ -1545,8 +1564,8 @@ $.fn.dropdown.settings.templates = {
       values      = select.values || {},
       html        = ''
     ;
-    $.each(select.values, function(value, name) {
-      html += '<div class="item" data-value="' + value + '">' + name + '</div>';
+    $.each(select.values, function(index, option) {
+      html += '<div class="item" data-value="' + option.value + '">' + option.name + '</div>';
     });
     return html;
   },
@@ -1564,8 +1583,8 @@ $.fn.dropdown.settings.templates = {
       html += '<div class="text"></div>';
     }
     html += '<div class="menu">';
-    $.each(select.values, function(value, name) {
-      html += '<div class="item" data-value="' + value + '">' + name + '</div>';
+    $.each(select.values, function(index, option) {
+      html += '<div class="item" data-value="' + option.value + '">' + option.name + '</div>';
     });
     html += '</div>';
     return html;
