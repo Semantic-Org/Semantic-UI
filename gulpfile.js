@@ -134,7 +134,7 @@ var
       ? (config.components.length > 1)
         ? '{' + config.components.join(',') + '}'
         : config.components[0]
-      : ''
+      : '*'
     ;
 
     // relative paths
