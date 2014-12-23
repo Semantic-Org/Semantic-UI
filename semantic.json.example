@@ -15,8 +15,6 @@
       "themes"       : "dist/themes/"
     },
     "clean"        : "dist/"
-  },
-
-  "components": []
+  }
 
 }
