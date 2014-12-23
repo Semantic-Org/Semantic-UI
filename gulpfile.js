@@ -1,6 +1,6 @@
 /*
-  All configurable options are defined inside build.config
-  Please adjust this to your site's settings
+  All configurable options are defined in separate files inside the 'task/' folder
+  Please adjust these files according to your personal requirements
 */
 
 /*******************************
