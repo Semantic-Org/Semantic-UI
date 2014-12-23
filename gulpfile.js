@@ -341,7 +341,8 @@ gulp.task('build', 'Builds all files from source', function(callback) {
   ;
 
   // javascript stream
-  gulp.src(source.definitions + '**/*.js')
+
+  gulp.src(source.definitions + '**/' + componentGlob + '.js')
     .pipe(plumber())
     .pipe(flatten())
     .pipe(gulp.dest(output.uncompressed))
@@ -359,7 +360,7 @@ gulp.task('build', 'Builds all files from source', function(callback) {
   ;
 
   // unified css stream
-  stream = gulp.src(source.definitions + '**/*.less')
+  stream = gulp.src(source.definitions + '**/' + componentGlob + '.less')
     .pipe(plumber())
     //.pipe(sourcemaps.init())
     .pipe(less(settings.less))
