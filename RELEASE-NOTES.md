@@ -3,7 +3,7 @@
 ### Version 1.4.1 - December 23, 2014
 
 **Bugs**
-
+- **Dropdown** - ``<select>`` elements will now preserve original ``<option>`` order by default. Added ``sortSelect`` setting (disabled by default) to automatically sort ``<option>`` on initialization
 - **Button** - Fixes issue with ``will-change`` property added to ``ui button`` causing layout z-indexing issues (dropdown button)
 
 ### Version 1.4.0 - December 22, 2014
