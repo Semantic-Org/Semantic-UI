@@ -802,9 +802,11 @@
 .ui.form .inline.fields .field > label,
 .ui.form .inline.fields .field > p,
 .ui.form .inline.fields .field > input,
+.ui.form .inline.fields .field > .ui.input,
 .ui.form .inline.field > label,
 .ui.form .inline.field > p,
-.ui.form .inline.field > input {
+.ui.form .inline.field > input,
+.ui.form .inline.field > .ui.input {
   display: inline-block;
   width: auto;
 
@@ -815,7 +817,9 @@
   font-size: @inlineLabelFontSize;
 }
 .ui.form .inline.fields .field > input,
-.ui.form .inline.field > input {
+.ui.form .inline.fields .field > .ui.input,
+.ui.form .inline.field > input,
+.ui.form .inline.field > .ui.input {
   font-size: @inlineLabelFontSize;
 }
 .ui.form .inline.fields .field > .ui.checkbox label {
