@@ -1,8 +1,21 @@
 ## RELEASE NOTES
 
+
+### Version 1.5.0 - December 23, 2014
+
+**Critical Bugs**
+- Concatenated ``dist/`` release included duplicate components when no component array specified. Added default components to ``tasks/default.js`` to allay issues
+
+**Enhancements*
+
+- **Progress** - Progress bars now display all intermediary percentage values when animating. Improved performance when progress bar is rapidly updated.
+
+**Bugs**
+- **Dropdown/Search** - Fixed issues with ``ui search`` and ``ui search dropdown`` using ``RegExp test`` which [advances pointer on match](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test) causing results to display incorrectly
+
 ### Version 1.4.1 - December 23, 2014
 
-**Build Tools** 
+**Build Tools**
 - ``gulp build`` will now only build `dist/components/` for components selected in install
 - Fixed bug where interactive installer was not correctly setting components in ``express`` and ``custom`` install
 

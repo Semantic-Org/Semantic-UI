@@ -107,6 +107,9 @@ $.fn.sticky = function(parameters) {
         destroy: function() {
           module.verbose('Destroying previous module');
           module.reset();
+          if(observer) {
+            observer.disconnect();
+          }
           $window
             .off('resize' + eventNamespace, module.event.resize)
           ;
