@@ -866,7 +866,7 @@ a.ui.yellow.label:hover:before {
 
 .ui.pointing.left.label {
   margin-top: 0em;
-  margin-left: 0em;
+  margin-left: 0.6em;
 }
 .ui.pointing.left.label:before {
   margin-top: -0.3em;
@@ -880,7 +880,7 @@ a.ui.yellow.label:hover:before {
 
 .ui.pointing.right.label {
   margin-top: 0em;
-  margin-right: 0em;
+  margin-right: 0.6em;
 }
 .ui.pointing.right.label:before {
   margin-top: -0.3em;
