@@ -203,11 +203,9 @@
   iOS incorrectly sizes document when content
   is presented outside of view with 2Dtranslate
 */
-@media only screen and (max-width: @computerBreakpoint) {
-  html.ios {
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-  }
+html.ios {
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 
