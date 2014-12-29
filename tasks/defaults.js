@@ -23,6 +23,63 @@ module.exports = {
     './src/_site'
   ],
 
+  components: [
+    // global
+    'reset',
+    'site',
+    // elements
+    'button',
+    'divider',
+    'flag',
+    'header',
+    'icon',
+    'image',
+    'input',
+    'label',
+    'list',
+    'loader',
+    'rail',
+    'reveal',
+    'segment',
+    'step',
+    // collections
+    'breadcrumb',
+    'form',
+    'grid',
+    'menu',
+    'message',
+    'table',
+    // views
+    'ad',
+    'card',
+    'comment',
+    'feed',
+    'item',
+    'statistic',
+    // modules
+    'accordion',
+    'checkbox',
+    'dimmer',
+    'dropdown',
+    'modal',
+    'nag',
+    'popup',
+    'progress',
+    'rating',
+    'search',
+    'shape',
+    'sidebar',
+    'sticky',
+    'tab',
+    'transition',
+    'video',
+    // behaviors
+    'api',
+    'form',
+    'state',
+    'visibility'
+  ],
+
   // modified to create configs
   templates: {
     config : './semantic.json.example',

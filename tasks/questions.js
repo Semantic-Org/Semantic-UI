@@ -87,6 +87,8 @@ module.exports = {
       type: 'checkbox',
       name: 'components',
       message: 'What components should we include in the package?',
+
+      // duplicated manually from tasks/defaults.js with additional property
       choices: [
         { name: "reset", checked: true },
         { name: "site", checked: true },
