@@ -376,7 +376,7 @@ $.fn.progress = function(parameters) {
               module.set.labelInterval();
             }
             module.set.labels();
-            $.proxy(settings.onChange, element)(percent, module.value, module.total);
+            settings.onChange.call(element, percent, module.value, module.total);
           },
           labelInterval: function() {
             clearInterval(module.interval);
@@ -453,7 +453,7 @@ $.fn.progress = function(parameters) {
             if(text) {
               module.set.label(text);
             }
-            $.proxy(settings.onActive, element)(module.value, module.total);
+            settings.onActive.call(element, module.value, module.total);
           },
           success : function(text) {
             text = text || settings.text.success;
@@ -466,7 +466,7 @@ $.fn.progress = function(parameters) {
             if(text) {
               module.set.label(text);
             }
-            $.proxy(settings.onSuccess, element)(module.total);
+            settings.onSuccess.call(element, module.total);
           },
           warning : function(text) {
             text = text || settings.text.warning;
@@ -479,7 +479,7 @@ $.fn.progress = function(parameters) {
             if(text) {
               module.set.label(text);
             }
-            $.proxy(settings.onWarning, element)(module.value, module.total);
+            settings.onWarning.call(element, module.value, module.total);
           },
           error : function(text) {
             text = text || settings.text.error;
@@ -492,7 +492,7 @@ $.fn.progress = function(parameters) {
             if(text) {
               module.set.label(text);
             }
-            $.proxy(settings.onError, element)(module.value, module.total);
+            settings.onError.call(element, module.value, module.total);
           },
           total: function(totalValue) {
             module.total = totalValue;
