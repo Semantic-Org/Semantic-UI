@@ -378,11 +378,11 @@ $.fn.dropdown = function(parameters) {
                 text    = module.get.choiceText($choice, false),
                 value   = module.get.choiceValue($choice, text)
               ;
-              if( exactRegExp.test( text ) || exactRegExp.test( value ) ) {
+              if( text.match(exactRegExp) || value.match(exactRegExp) ) {
                 $results = $results.add($choice);
               }
               else if(settings.fullTextSearch) {
-                if( fullTextRegExp.test( text ) || fullTextRegExp.test( value ) ) {
+                if( text.match(fullTextRegExp) || value.match(fullTextRegExp) ) {
                   $results = $results.add($choice);
                 }
               }
