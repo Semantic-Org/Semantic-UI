@@ -272,49 +272,6 @@ a.ui.label {
   margin: 0em;
 }
 
-/* Text Label
-.ui.text.corner.label {
-  font-weight: @cornerTextWeight;
-  text-align: center;
-  padding: 0.25em 0;
-  top: 1.1em;
-  transform: rotate(45deg);
-  width: 4em;
-  height: auto;
-}
-.ui.left.text.corner.label {
-  transform: rotate(-45deg);
-}
-.ui.text.corner.label:before,
-.ui.text.corner.label:after {
-  position: absolute;
-  content: '';
-  top: 0em;
-  width: 0em;
-  height: 0em;
-}
-.ui.text.corner.label:before {
-  left: auto;
-  right: 100%;
-  border-top: 0em solid transparent;
-  border-right-width: @ribbonTriangleSize;
-  border-right-color: inherit;
-  border-right-style: solid;
-  border-bottom: @ribbonTriangleSize solid transparent;
-  border-left: 0em solid transparent;
-}
-.ui.text.corner.label:after {
-  left: 100%;
-  right: auto;
-  border-top: 0em solid transparent;
-  border-right-width: @ribbonTriangleSize;
-  border-right-color: inherit;
-  border-right-style: solid;
-  border-bottom: @ribbonTriangleSize solid transparent;
-  border-left: 0em solid transparent;
-}
-*/
-
 /* Left Corner */
 .ui.left.corner.label,
 .ui.left.corner.label:after {
@@ -361,11 +318,10 @@ a.ui.label {
 .ui.ribbon.label {
   position: relative;
   margin: 0em;
+
   left: -@ribbonDistance;
   padding-left: @ribbonDistance;
-
   border-radius: 0em @borderRadius @borderRadius 0em;
-
   border-color: @ribbonShadowColor;
 }
 
@@ -377,15 +333,31 @@ a.ui.label {
   left: 0%;
   background-color: transparent !important;
 
-  border-top: 0em solid transparent;
-  border-right-width: @ribbonTriangleSize;
+  border-style: solid;
+  border-width: 0em @ribbonTriangleSize @ribbonTriangleSize 0em;
+  border-color: transparent;
   border-right-color: inherit;
-  border-right-style: solid;
-  border-bottom: @ribbonTriangleSize solid transparent;
-  border-left: 0em solid transparent;
 
   width: 0em;
   height: 0em;
+}
+
+.ui[class*="right ribbon"].label {
+  text-align: left;
+  transform: translateX(-100%);
+  left: ~"calc(100% + "@ribbonDistance~")";
+  border-radius: @borderRadius 0em 0em @borderRadius;
+  padding-left: @horizontalPadding;
+  padding-right: @ribbonDistance;
+}
+.ui[class*="right ribbon"].label:after {
+  left: auto;
+  right: 0%;
+
+  border-style: solid;
+  border-width: @ribbonTriangleSize @ribbonTriangleSize 0em 0em;
+  border-color: transparent;
+  border-top-color: inherit;
 }
 
 /*-------------------

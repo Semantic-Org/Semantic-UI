@@ -7,11 +7,12 @@
 - Concatenated ``dist/`` release included duplicate components when no component array specified. Added default components to ``tasks/default.js`` to allay issues
 
 **Enhancements*
-
+- **Label** - ``ui ribbon label`` can now appear on the right side of content when specifying ``ui right ribbon label``
 - **Progress** - Progress bars now display all intermediary percentage values when animating. Improved performance when progress bar is rapidly updated.
 
 **Bugs**
 - **Dropdown/Search** - Fixed issues with ``ui search`` and ``ui search dropdown`` using ``RegExp test`` which [advances pointer on match](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test) causing results to display incorrectly
+- **Form** - ``ui input`` now receives the same formatting as a normal input inside an ``inline field``
 
 ### Version 1.4.1 - December 23, 2014
 
