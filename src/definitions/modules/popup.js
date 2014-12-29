@@ -116,13 +116,20 @@ $.fn.popup = function(parameters) {
           }
           if(settings.popup) {
             $popup.addClass(className.loading);
-            $offsetParent = $popup.offsetParent();
+            if($popup.offsetParent()[0] !== $module.offsetParent()[0]) {
+              module.debug('Moving popup to the same offset parent as activating element');
+              $offsetParent = $module.offsetParent();
+              $popup
+                .detach()
+                .appendTo($offsetParent)
+              ;
+            }
             $popup.removeClass(className.loading);
           }
           else {
             $offsetParent = (settings.inline)
-                ? $target.offsetParent()
-                : $body
+              ? $target.offsetParent()
+              : $body
             ;
           }
           if( $offsetParent.is('html') ) {
