@@ -34,26 +34,26 @@
 }
 
 /* Indicating */
-.ui.indicating.progress .bar[style^="width: 1"],
-.ui.indicating.progress .bar[style^="width: 2"] {
+.ui.indicating.progress .bar[style*="width: 1"],
+.ui.indicating.progress .bar[style*="width: 2"] {
   background-color: #d95c5c;
 }
-.ui.indicating.progress .bar[style^="width: 3"] {
+.ui.indicating.progress .bar[style*="width: 3"] {
   background-color: #d9a65c;
 }
-.ui.indicating.progress .bar[style^="width: 4"],
-.ui.indicating.progress .bar[style^="width: 5"] {
+.ui.indicating.progress .bar[style*="width: 4"],
+.ui.indicating.progress .bar[style*="width: 5"] {
   background-color: #e6bb48;
 }
-.ui.indicating.progress .bar[style^="width: 6"] {
+.ui.indicating.progress .bar[style*="width: 6"] {
   background-color: #ddc928;
 }
-.ui.indicating.progress .bar[style^="width: 7"],
-.ui.indicating.progress .bar[style^="width: 8"] {
+.ui.indicating.progress .bar[style*="width: 7"],
+.ui.indicating.progress .bar[style*="width: 8"] {
   background-color: #b4d95c;
 }
-.ui.indicating.progress .bar[style^="width: 9"],
-.ui.indicating.progress .bar[style^="width: 100"] {
+.ui.indicating.progress .bar[style*="width: 9"],
+.ui.indicating.progress .bar[style*="width: 100"] {
   background-color: #66da81;
 }
 
@@ -125,8 +125,8 @@
   min-width: 2em;
   background: #888888;
   border-radius: 0.2857rem;
-  -webkit-transition: width 0.2s linear, background-color 0.2s linear;
-          transition: width 0.2s linear, background-color 0.2s linear;
+  -webkit-transition: width 0.3s ease, background-color 0.3s ease;
+          transition: width 0.3s ease, background-color 0.3s ease;
 }
 
 /* Percent Complete */

@@ -178,10 +178,10 @@ $.fn.video = function(parameters) {
             return false;
           },
           id: function(url) {
-            if(settings.regExp.youtube.test(url)) {
+            if(url.match(settings.regExp.youtube)) {
               return url.match(settings.regExp.youtube)[1];
             }
-            else if(settings.regExp.vimeo.test(url)) {
+            else if(url.match(settings.regExp.vimeo)) {
               return url.match(settings.regExp.vimeo)[2];
             }
             return false;

@@ -22,6 +22,9 @@
   right: 0px;
   z-index: 900;
   border: 1px solid #cccccc;
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
   max-width: 250px;
   background-color: #ffffff;
   padding: 0.833em 1em;

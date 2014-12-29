@@ -3339,11 +3339,11 @@ $.fn.dropdown = function(parameters) {
                 text    = module.get.choiceText($choice, false),
                 value   = module.get.choiceValue($choice, text)
               ;
-              if( exactRegExp.test( text ) || exactRegExp.test( value ) ) {
+              if( text.match(exactRegExp) || value.match(exactRegExp) ) {
                 $results = $results.add($choice);
               }
               else if(settings.fullTextSearch) {
-                if( fullTextRegExp.test( text ) || fullTextRegExp.test( value ) ) {
+                if( text.match(fullTextRegExp) || value.match(fullTextRegExp) ) {
                   $results = $results.add($choice);
                 }
               }
@@ -6019,13 +6019,20 @@ $.fn.popup = function(parameters) {
           }
           if(settings.popup) {
             $popup.addClass(className.loading);
-            $offsetParent = $popup.offsetParent();
+            if($popup.offsetParent()[0] !== $module.offsetParent()[0]) {
+              module.debug('Moving popup to the same offset parent as activating element');
+              $offsetParent = $module.offsetParent();
+              $popup
+                .detach()
+                .appendTo($offsetParent)
+              ;
+            }
             $popup.removeClass(className.loading);
           }
           else {
             $offsetParent = (settings.inline)
-                ? $target.offsetParent()
-                : $body
+              ? $target.offsetParent()
+              : $body
             ;
           }
           if( $offsetParent.is('html') ) {
@@ -7073,14 +7080,21 @@ $.fn.progress = function(parameters) {
 
         element         = this,
         instance        = $module.data(moduleNamespace),
+
+        animating = false,
+        transitionEnd,
         module
       ;
 
       module = {
 
         initialize: function() {
-          module.debug('Initializing progress', settings);
+          module.debug('Initializing progress bar', settings);
+
+          transitionEnd = module.get.transitionEnd();
+
           module.read.metadata();
+          module.set.duration();
           module.set.initials();
           module.instantiate();
         },
@@ -7092,9 +7106,9 @@ $.fn.progress = function(parameters) {
             .data(moduleNamespace, module)
           ;
         },
-
         destroy: function() {
           module.verbose('Destroying previous progress for', $module);
+          clearInterval(instance.interval);
           module.remove.state();
           $module.removeData(moduleNamespace);
           instance = undefined;
@@ -7195,9 +7209,11 @@ $.fn.progress = function(parameters) {
         get: {
           text: function(templateText) {
             var
-              value   = module.value || 0,
-              total   = module.total || 0,
-              percent = module.percent || 0
+              value   = module.value                || 0,
+              total   = module.total                || 0,
+              percent = (module.is.visible() && animating)
+                ? module.get.displayPercent()
+                : module.percent || 0
             ;
             templateText = templateText || '';
             templateText = templateText
@@ -7212,6 +7228,41 @@ $.fn.progress = function(parameters) {
             module.debug('Generating random increment percentage');
             return Math.floor((Math.random() * settings.random.max) + settings.random.min);
           },
+
+          transitionEnd: function() {
+            var
+              element     = document.createElement('element'),
+              transitions = {
+                'transition'       :'transitionend',
+                'OTransition'      :'oTransitionEnd',
+                'MozTransition'    :'transitionend',
+                'WebkitTransition' :'webkitTransitionEnd'
+              },
+              transition
+            ;
+            for(transition in transitions){
+              if( element.style[transition] !== undefined ){
+                return transitions[transition];
+              }
+            }
+          },
+
+          // gets current displayed percentage (if animating values this is the intermediary value)
+          displayPercent: function() {
+            var
+              barWidth       = $bar.width(),
+              totalWidth     = $module.width(),
+              minDisplay     = parseInt($bar.css('min-width'), 10),
+              displayPercent = (barWidth > minDisplay)
+                ? (barWidth / totalWidth * 100)
+                : module.percent
+            ;
+            if(settings.precision === 0) {
+              return Math.round(displayPercent);
+            }
+            return Math.round(displayPercent * (10 * settings.precision) / (10 * settings.precision) );
+          },
+
           percent: function() {
             return module.percent || 0;
           },
@@ -7232,6 +7283,12 @@ $.fn.progress = function(parameters) {
           },
           error: function() {
             return $module.hasClass(className.error);
+          },
+          active: function() {
+            return $module.hasClass(className.active);
+          },
+          visible: function() {
+            return $module.is(':visible');
           }
         },
 
@@ -7277,8 +7334,24 @@ $.fn.progress = function(parameters) {
               ;
             }
           },
+          duration: function(duration) {
+            duration = duration || settings.duration;
+            duration = (typeof duration == 'number')
+              ? duration + 'ms'
+              : duration
+            ;
+            module.verbose('Setting progress bar transition duration', duration);
+            $bar
+              .css({
+                '-webkit-transition-duration': duration,
+                '-moz-transition-duration': duration,
+                '-ms-transition-duration': duration,
+                '-o-transition-duration': duration,
+                'transition-duration':  duration
+              })
+            ;
+          },
           initials: function() {
-
             if(settings.total !== false) {
               module.verbose('Current total set in settings', settings.total);
               module.total = settings.total;
@@ -7291,7 +7364,6 @@ $.fn.progress = function(parameters) {
               module.verbose('Current percent set in settings', settings.percent);
               module.percent = settings.percent;
             }
-
             if(module.percent !== undefined) {
               module.set.percent(module.percent);
             }
@@ -7328,20 +7400,29 @@ $.fn.progress = function(parameters) {
               ;
             }
             module.set.barWidth(percent);
+            if( module.is.visible() ) {
+              module.set.labelInterval();
+            }
+            module.set.labels();
+            settings.onChange.call(element, percent, module.value, module.total);
+          },
+          labelInterval: function() {
+            clearInterval(module.interval);
+            $bar
+              .one(transitionEnd + eventNamespace, function() {
+                module.verbose('Bar finished animating, removing continuous label updates');
+                clearInterval(module.interval);
+                animating = false;
+                module.set.labels();
+              })
+            ;
+            animating = true;
+            module.interval = setInterval(module.set.labels, settings.framerate);
+          },
+          labels: function() {
+            module.verbose('Setting both bar progress and outer label text');
             module.set.barLabel();
-            if(percent === 100) {
-              if(settings.autoSuccess && !(module.is.warning() || module.is.error())) {
-                module.set.success();
-                module.debug('Automatically triggering success at 100%');
-              }
-              else {
-                module.remove.active();
-              }
-            }
-            else if(percent > 0) {
-              module.set.active();
-            }
-            $.proxy(settings.onChange, element)(percent, module.value, module.total);
+            module.set.state();
           },
           label: function(text) {
             text = text || '';
@@ -7349,6 +7430,30 @@ $.fn.progress = function(parameters) {
               text = module.get.text(text);
               module.debug('Setting label to text', text);
               $label.text(text);
+            }
+          },
+          state: function(percent) {
+            percent = (percent !== undefined)
+              ? percent
+              : module.percent
+            ;
+            if(percent === 100) {
+              if(settings.autoSuccess && !(module.is.warning() || module.is.error())) {
+                module.set.success();
+                module.debug('Automatically triggering success at 100%');
+              }
+              else {
+                module.verbose('Reached 100% removing active state');
+                module.remove.active();
+              }
+            }
+            else if(percent > 0) {
+              module.verbose('Adjusting active progress bar label', percent);
+              module.set.active();
+            }
+            else {
+              module.remove.active();
+              module.set.label(settings.text.active);
             }
           },
           barLabel: function(text) {
@@ -7367,7 +7472,7 @@ $.fn.progress = function(parameters) {
           active: function(text) {
             text = text || settings.text.active;
             module.debug('Setting active state');
-            if(settings.showActivity) {
+            if(settings.showActivity && !module.is.active() ) {
               $module.addClass(className.active);
             }
             module.remove.warning();
@@ -7376,7 +7481,7 @@ $.fn.progress = function(parameters) {
             if(text) {
               module.set.label(text);
             }
-            $.proxy(settings.onActive, element)(module.value, module.total);
+            settings.onActive.call(element, module.value, module.total);
           },
           success : function(text) {
             text = text || settings.text.success;
@@ -7389,7 +7494,7 @@ $.fn.progress = function(parameters) {
             if(text) {
               module.set.label(text);
             }
-            $.proxy(settings.onSuccess, element)(module.total);
+            settings.onSuccess.call(element, module.total);
           },
           warning : function(text) {
             text = text || settings.text.warning;
@@ -7402,7 +7507,7 @@ $.fn.progress = function(parameters) {
             if(text) {
               module.set.label(text);
             }
-            $.proxy(settings.onWarning, element)(module.value, module.total);
+            settings.onWarning.call(element, module.value, module.total);
           },
           error : function(text) {
             text = text || settings.text.error;
@@ -7415,7 +7520,7 @@ $.fn.progress = function(parameters) {
             if(text) {
               module.set.label(text);
             }
-            $.proxy(settings.onError, element)(module.value, module.total);
+            settings.onError.call(element, module.value, module.total);
           },
           total: function(totalValue) {
             module.total = totalValue;
@@ -7637,12 +7742,15 @@ $.fn.progress.settings = {
     max : 5
   },
 
+  duration     : 300,
+
   autoSuccess  : true,
   showActivity : true,
   limitValues  : true,
 
   label        : 'percent',
   precision    : 1,
+  framerate    : (1000 / 30), /// 30 fps
 
   percent      : false,
   total        : false,
@@ -8453,10 +8561,10 @@ $.fn.search = function(parameters) {
                   notAlreadyResult = ($.inArray(content, results) == -1 && $.inArray(content, fullTextResults) == -1)
                 ;
                 if(fieldExists && notAlreadyResult) {
-                  if( searchRegExp.test( content[field] ) ) {
+                  if( content[field].match(searchRegExp) ) {
                     results.push(content);
                   }
-                  else if( settings.searchFullText && fullTextRegExp.test( content[field] ) ) {
+                  else if( settings.searchFullText && content[field].match(content[field]) ) {
                     fullTextResults.push(content);
                   }
                 }
@@ -11026,6 +11134,9 @@ $.fn.sticky = function(parameters) {
         destroy: function() {
           module.verbose('Destroying previous module');
           module.reset();
+          if(observer) {
+            observer.disconnect();
+          }
           $window
             .off('resize' + eventNamespace, module.event.resize)
           ;
@@ -13592,10 +13703,10 @@ $.fn.video = function(parameters) {
             return false;
           },
           id: function(url) {
-            if(settings.regExp.youtube.test(url)) {
+            if(url.match(settings.regExp.youtube)) {
               return url.match(settings.regExp.youtube)[1];
             }
-            else if(settings.regExp.vimeo.test(url)) {
+            else if(url.match(settings.regExp.vimeo)) {
               return url.match(settings.regExp.vimeo)[2];
             }
             return false;
