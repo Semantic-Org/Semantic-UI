@@ -1598,7 +1598,6 @@
   .ui.stackable.grid > .column:not(.row) {
     display: block !important;
     width: auto !important;
-
     margin: 0em 0em !important;
     padding: (@stackableRowSpacing / 2) (@stackableGutter) !important;
     box-shadow: none !important;
@@ -1608,8 +1607,27 @@
     padding: 0em;
   }
   .ui.stackable.grid .column > .ui.stackable.grid {
-      margin-left: -(@stackableGutter) !important;
-      margin-right: -(@stackableGutter) !important;
+    margin-left: -(@stackableGutter) !important;
+    margin-right: -(@stackableGutter) !important;
+  }
+
+  /* Equal Height Stackable */
+  .ui[class*="equal height"].stackable.page.grid {
+    display: block !important;
+  }
+
+  /* Divided Stackable */
+  .ui.stackable.divided.grid > .row:first-child > .column:first-child,
+  .ui.stackable.celled.grid > .row:first-child > .column:first-child,
+  .ui.stackable.divided.grid > .column:not(.row):first-child,
+  .ui.stackable.celled.grid > .column:not(.row):first-child {
+    border-top: none !important;
+  }
+  .ui.inverted.stackable.celled.grid > .column:not(.row),
+  .ui.inverted.stackable.divided.grid > .column:not(.row),
+  .ui.inverted.stackable.celled.grid > .row > .column,
+  .ui.inverted.stackable.divided.grid > .row > .column {
+    border-top: @stackableInvertedMobileBorder;
   }
 
   .ui.stackable.celled.grid > .column:not(.row),
@@ -1618,28 +1636,8 @@
   .ui.stackable.divided.grid > .row > .column {
     border-top: @stackableMobileBorder;
     box-shadow: none !important;
-  }
-  .ui.inverted.stackable.celled.grid > .column:not(.row),
-  .ui.inverted.stackable.divided.grid > .column:not(.row),
-  .ui.inverted.stackable.celled.grid > .row > .column,
-  .ui.inverted.stackable.divided.grid > .row > .column {
-    border-top: @stackableInvertedMobileBorder;
-  }
-  .ui.stackable.divided.grid > .row:first-child > .column:first-child,
-  .ui.stackable.celled.grid > .row:first-child > .column:first-child,
-  .ui.stackable.divided.grid > .column:not(.row):first-child,
-  .ui.stackable.celled.grid > .column:not(.row):first-child {
-    border-top: none !important;
-  }
-
-  .ui[class*="equal height"].stackable.page.grid {
-    display: block !important;
-    width: 100% !important;
-  }
-
-  /* Remove pointers from vertical menus */
-  .ui.stackable.grid .vertical.pointing.menu .item:after {
-    display: none;
+    padding-top: @stackableRowSpacing !important;
+    padding-bottom: @stackableRowSpacing !important;
   }
 
 }
