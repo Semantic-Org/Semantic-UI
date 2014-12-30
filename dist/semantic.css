@@ -8530,7 +8530,7 @@ img.ui.bordered.image {
        Loading
 ---------------------*/
 
-.ui.loading.loading.input > .icon:before {
+.ui.loading.loading.input > i.icon:before {
   position: absolute;
   content: '';
   top: 50%;
@@ -8542,7 +8542,7 @@ img.ui.bordered.image {
   border: 0.2em solid rgba(0, 0, 0, 0.1);
 }
 
-.ui.loading.loading.input > .icon:after {
+.ui.loading.loading.input > i.icon:after {
   position: absolute;
   content: '';
   top: 50%;
@@ -8568,7 +8568,7 @@ img.ui.bordered.image {
 .ui.input.focus input,
 .ui.input input:focus {
   border-color: rgba(39, 41, 43, 0.3);
-  background: '';
+  background: #ffffff;
   color: rgba(0, 0, 0, 0.8);
   box-shadow: none;
 }
@@ -8630,7 +8630,7 @@ img.ui.bordered.image {
 
 /* Transparent Icon */
 
-.ui.transparent.icon.input > .icon {
+.ui.transparent.icon.input > i.icon {
   width: 1.25em;
 }
 
@@ -8662,7 +8662,7 @@ img.ui.bordered.image {
          Icon
 ---------------------*/
 
-.ui.icon.input > .icon {
+.ui.icon.input > i.icon {
   cursor: default;
   position: absolute;
   text-align: center;
@@ -8677,8 +8677,12 @@ img.ui.bordered.image {
   transition: opacity 0.3s ease;
 }
 
-.ui.icon.input > .icon:before,
-.ui.icon.input > .icon:after {
+.ui.icon.input input {
+  padding-right: 2.82142em !important;
+}
+
+.ui.icon.input > i.icon:before,
+.ui.icon.input > i.icon:after {
   left: 0;
   position: absolute;
   text-align: center;
@@ -8687,28 +8691,24 @@ img.ui.bordered.image {
   margin-top: -0.5em;
 }
 
-.ui.icon.input > .link.icon {
+.ui.icon.input > i.link.icon {
   cursor: pointer;
 }
 
-.ui.icon.input input {
-  padding-right: 2.82142em !important;
-}
-
-.ui.icon.input > .circular.icon {
+.ui.icon.input > i.circular.icon {
   top: 0.35em;
   right: 0.5em;
 }
 
 /* Left Icon Input */
 
-.ui[class*="left icon"].input > .icon {
+.ui[class*="left icon"].input > i.icon {
   right: auto;
   left: 1px;
   border-radius: 0.2857rem 0em 0em 0.2857rem;
 }
 
-.ui[class*="left icon"].input > .circular.icon {
+.ui[class*="left icon"].input > i.circular.icon {
   right: auto;
   left: 0.5em;
 }
@@ -8720,7 +8720,7 @@ img.ui.bordered.image {
 
 /* Focus */
 
-.ui.icon.input > input:focus ~ .icon {
+.ui.icon.input > input:focus ~ i.icon {
   opacity: 1;
 }
 
@@ -13671,7 +13671,17 @@ ol.ui.horizontal.list li:before,
   .ui.form .four.fields > .fields,
   .ui.form .four.fields > .field,
   .ui.form .five.fields > .fields,
-  .ui.form .five.fields > .field {
+  .ui.form .five.fields > .field,
+  .ui.form .six.fields > .fields,
+  .ui.form .six.fields > .field,
+  .ui.form .seven.fields > .fields,
+  .ui.form .seven.fields > .field,
+  .ui.form .eight.fields > .fields,
+  .ui.form .eight.fields > .field,
+  .ui.form .nine.fields > .fields,
+  .ui.form .nine.fields > .field,
+  .ui.form .ten.fields > .fields,
+  .ui.form .ten.fields > .field {
     width: 100% !important;
     margin: 0em 0em 1em;
     padding-left: 0%;
@@ -13794,6 +13804,7 @@ ol.ui.horizontal.list li:before,
   .ui.form .fields > .fifteen.wide.field,
   .ui.form .fields > .sixteen.wide.field {
     width: 100% !important;
+    margin: 0em 0em 1em;
     padding-left: 0%;
     padding-right: 0%;
   }
@@ -26275,11 +26286,9 @@ a.ui.nag {
   is presented outside of view with 2Dtranslate
 */
 
-@media only screen and (max-width: 992px) {
-  html.ios {
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-  }
+html.ios {
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 /*******************************
@@ -29859,7 +29868,17 @@ a.ui.nag {
   .ui.form .four.fields > .fields,
   .ui.form .four.fields > .field,
   .ui.form .five.fields > .fields,
-  .ui.form .five.fields > .field {
+  .ui.form .five.fields > .field,
+  .ui.form .six.fields > .fields,
+  .ui.form .six.fields > .field,
+  .ui.form .seven.fields > .fields,
+  .ui.form .seven.fields > .field,
+  .ui.form .eight.fields > .fields,
+  .ui.form .eight.fields > .field,
+  .ui.form .nine.fields > .fields,
+  .ui.form .nine.fields > .field,
+  .ui.form .ten.fields > .fields,
+  .ui.form .ten.fields > .field {
     width: 100% !important;
     margin: 0em 0em 1em;
     padding-left: 0%;
@@ -29982,6 +30001,7 @@ a.ui.nag {
   .ui.form .fields > .fifteen.wide.field,
   .ui.form .fields > .sixteen.wide.field {
     width: 100% !important;
+    margin: 0em 0em 1em;
     padding-left: 0%;
     padding-right: 0%;
   }

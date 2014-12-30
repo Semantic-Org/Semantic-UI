@@ -78,7 +78,7 @@
        Loading
 ---------------------*/
 
-.ui.loading.loading.input > .icon:before {
+.ui.loading.loading.input > i.icon:before {
   position: absolute;
   content: '';
   top: 50%;
@@ -89,7 +89,7 @@
   border-radius: 500rem;
   border: 0.2em solid rgba(0, 0, 0, 0.1);
 }
-.ui.loading.loading.input > .icon:after {
+.ui.loading.loading.input > i.icon:after {
   position: absolute;
   content: '';
   top: 50%;
@@ -115,7 +115,7 @@
 .ui.input.focus input,
 .ui.input input:focus {
   border-color: rgba(39, 41, 43, 0.3);
-  background: '';
+  background: #ffffff;
   color: rgba(0, 0, 0, 0.8);
   box-shadow: none;
 }
@@ -172,7 +172,7 @@
 }
 
 /* Transparent Icon */
-.ui.transparent.icon.input > .icon {
+.ui.transparent.icon.input > i.icon {
   width: 1.25em;
 }
 .ui.transparent.icon.input > input {
@@ -199,7 +199,7 @@
          Icon
 ---------------------*/
 
-.ui.icon.input > .icon {
+.ui.icon.input > i.icon {
   cursor: default;
   position: absolute;
   text-align: center;
@@ -213,8 +213,11 @@
   -webkit-transition: opacity 0.3s ease;
           transition: opacity 0.3s ease;
 }
-.ui.icon.input > .icon:before,
-.ui.icon.input > .icon:after {
+.ui.icon.input input {
+  padding-right: 2.82142em !important;
+}
+.ui.icon.input > i.icon:before,
+.ui.icon.input > i.icon:after {
   left: 0;
   position: absolute;
   text-align: center;
@@ -222,24 +225,21 @@
   width: 100%;
   margin-top: -0.5em;
 }
-.ui.icon.input > .link.icon {
+.ui.icon.input > i.link.icon {
   cursor: pointer;
 }
-.ui.icon.input input {
-  padding-right: 2.82142em !important;
-}
-.ui.icon.input > .circular.icon {
+.ui.icon.input > i.circular.icon {
   top: 0.35em;
   right: 0.5em;
 }
 
 /* Left Icon Input */
-.ui[class*="left icon"].input > .icon {
+.ui[class*="left icon"].input > i.icon {
   right: auto;
   left: 1px;
   border-radius: 0.2857rem 0em 0em 0.2857rem;
 }
-.ui[class*="left icon"].input > .circular.icon {
+.ui[class*="left icon"].input > i.circular.icon {
   right: auto;
   left: 0.5em;
 }
@@ -249,7 +249,7 @@
 }
 
 /* Focus */
-.ui.icon.input > input:focus ~ .icon {
+.ui.icon.input > input:focus ~ i.icon {
   opacity: 1;
 }
 
