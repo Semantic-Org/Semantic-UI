@@ -9,13 +9,17 @@
 **Enhancements*
 - **Dropdown** - New setting ``allowCategorySelection`` lets menu items with sub menus be selected. Added example in docs.
 - **Label** - ``ui ribbon label`` can now appear on the right side of content when specifying ``ui right ribbon label``
+- **Checkbox** - Checkboxes now can handle labels with multiple lines of text
 - **Progress** - Progress bars now display all intermediary percentage values when animating. Improved performance when progress bar is rapidly updated.
 - **Popup** - Popup now uses the new property ``min-width: max-content`` to allow for better display with ``inline`` in some circumstances where it escapes parent element.
+- **Table** - Table now has coupling with image to make sure size is preserved correctly with table sizing when used inside a table cell.
 
 **Bugs**
 - **Form** - Fixed (x) wide field not having correct bottom field margin when in ``fields`` group on tablet or mobile
+- **Tab** - Calls to global ``$.tab()`` would not pass arguments correctly
 - **Dropdown/Search** - Fixed issues with ``ui search`` and ``ui search dropdown`` using ``RegExp test`` which [advances pointer on match](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test) causing results to display incorrectly
 - **Form** - ``ui input`` now receives the same formatting as a normal input inside an ``inline field``
+- **Input** - Fixed bug when ``ui action input`` uses a ``ui icon button``, button was receiving `i.icon` formatting.
 - **Popup** - Popup destroy will now also destroy any unfired timers (show/hide delay)
 - **Popup** - Popup now moves to the same offset context to avoid positioning errors when using a named pre-existing popup.
 
