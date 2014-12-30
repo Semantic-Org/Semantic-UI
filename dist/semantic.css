@@ -20,6 +20,10 @@
 *,
 *:before,
 *:after {
+  box-sizing: inherit;
+}
+
+html {
   box-sizing: border-box;
 }
 
@@ -501,14 +505,6 @@ th {
 /*******************************
              Page
 *******************************/
-
-/* UI requires Border-Box */
-
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
 
 html,
 body {

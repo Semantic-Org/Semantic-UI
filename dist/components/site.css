@@ -16,13 +16,6 @@
              Page
 *******************************/
 
-
-/* UI requires Border-Box */
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
 html,
 body {
   height: 100%;
