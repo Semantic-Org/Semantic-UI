@@ -82,7 +82,7 @@
 
 /* Focus */
 @focusBorderColor: @selectedBorderColor;
-@focusBackground: '';
+@focusBackground: @background;
 @focusColor: @hoveredTextColor;
 @focusBoxShadow: none;
 
