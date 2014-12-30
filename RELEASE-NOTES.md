@@ -20,6 +20,7 @@
 - **Dropdown/Search** - Fixed issues with ``ui search`` and ``ui search dropdown`` using ``RegExp test`` which [advances pointer on match](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test) causing results to display incorrectly
 - **Form** - ``ui input`` now receives the same formatting as a normal input inside an ``inline field``
 - **Input** - Fixed bug when ``ui action input`` uses a ``ui icon button``, button was receiving `i.icon` formatting.
+- **List** - Fixed bug when using ``ui icon button`` or ``ui icon header`` causing element to receive icon formatting
 - **Popup** - Popup destroy will now also destroy any unfired timers (show/hide delay)
 - **Popup** - Popup now moves to the same offset context to avoid positioning errors when using a named pre-existing popup.
 

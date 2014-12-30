@@ -37,9 +37,6 @@ $.fn.tab = function(parameters) {
     returnedValue
   ;
 
-  console.log(arguments);
-
-
   $allModules
     .each(function() {
       var
