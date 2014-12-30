@@ -12,8 +12,10 @@
 - **Popup** - Popup now uses the new property ``min-width: max-content`` to allow for better display with ``inline`` in some circumstances where it escapes parent element.
 
 **Bugs**
+- **Form** - Fixed (x) wide field not having correct bottom field margin when in ``fields`` group on tablet or mobile
 - **Dropdown/Search** - Fixed issues with ``ui search`` and ``ui search dropdown`` using ``RegExp test`` which [advances pointer on match](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test) causing results to display incorrectly
 - **Form** - ``ui input`` now receives the same formatting as a normal input inside an ``inline field``
+- **Popup** - Popup destroy will now also destroy any unfired timers (show/hide delay)
 - **Popup** - Popup now moves to the same offset context to avoid positioning errors when using a named pre-existing popup.
 
 ### Version 1.4.1 - December 23, 2014

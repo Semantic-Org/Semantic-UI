@@ -176,7 +176,6 @@ $.fn.popup = function(parameters) {
                 ? settings.delay.hide
                 : settings.delay
             ;
-            console.log($popup);
             clearTimeout(module.showTimer);
             module.hideTimer = setTimeout(function() {
               if(module.is.visible() ) {
