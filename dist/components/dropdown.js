@@ -1496,21 +1496,21 @@ $.fn.dropdown = function(parameters) {
 
 $.fn.dropdown.settings = {
 
-  debug              : false,
-  verbose            : true,
-  performance        : true,
+  debug                  : false,
+  verbose                : true,
+  performance            : true,
 
-  on                 : 'click',
-  action             : 'activate',
+  on                     : 'click',
+  action                 : 'activate',
 
-  allowTab           : true,
-  fullTextSearch     : false,
-  preserveHTML       : true,
-  sortSelect         : false,
+  allowTab               : true,
+  fullTextSearch         : false,
+  preserveHTML           : true,
+  sortSelect             : false,
 
   allowCategorySelection : false,
 
-  delay          : {
+  delay                  : {
     hide   : 300,
     show   : 200,
     search : 50,

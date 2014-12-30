@@ -1,13 +1,14 @@
 ## RELEASE NOTES
 
 
-### Version 1.5.0 - December 23, 2014
+### Version 1.5.0 - December 30, 2014
 
 **Critical Bugs**
 - Concatenated ``dist/`` release included duplicate components when no component array specified. Added default components to ``tasks/default.js`` to allay issues
 
 **Enhancements*
 - **Dropdown** - New setting ``allowCategorySelection`` lets menu items with sub menus be selected. Added example in docs.
+- **Reset** - Reset now inherits ``box-sizing`` [from html tag](http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/)
 - **Label** - ``ui ribbon label`` can now appear on the right side of content when specifying ``ui right ribbon label``
 - **Checkbox** - Checkboxes now can handle labels with multiple lines of text
 - **Progress** - Progress bars now display all intermediary percentage values when animating. Improved performance when progress bar is rapidly updated.

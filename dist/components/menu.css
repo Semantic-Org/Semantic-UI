@@ -1424,13 +1424,14 @@
 .ui.menu.fixed .item:last-child {
   border-radius: 0px !important;
 }
-.ui.menu.fixed.top {
+.ui.fixed.menu,
+.ui.top.fixed.menu {
   top: 0px;
   left: 0px;
   right: auto;
   bottom: auto;
 }
-.ui.menu.fixed.right {
+.ui.right.fixed.menu {
   top: 0px;
   right: 0px;
   left: auto;
@@ -1438,13 +1439,13 @@
   width: auto;
   height: 100%;
 }
-.ui.menu.fixed.bottom {
+.ui.bottom.fixed.menu {
   bottom: 0px;
   left: 0px;
   top: auto;
   right: auto;
 }
-.ui.menu.fixed.left {
+.ui.left.fixed.menu {
   top: 0px;
   left: 0px;
   right: auto;

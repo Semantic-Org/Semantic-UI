@@ -23,7 +23,7 @@
 .ui.checkbox {
   position: relative;
   display: inline-block;
-  height: 17px;
+  min-height: 17px;
   font-size: 1rem;
   line-height: 15px;
   min-width: 17px;
@@ -201,7 +201,7 @@
 ---------------*/
 
 .ui.radio.checkbox {
-  height: 14px;
+  min-height: 14px;
 }
 
 /* Box */
@@ -247,7 +247,7 @@
 
 .ui.slider.checkbox {
   cursor: pointer;
-  height: 1.25rem;
+  min-height: 1.25rem;
 }
 .ui.slider.checkbox .box,
 .ui.slider.checkbox label {
@@ -342,14 +342,16 @@
 
 .ui.toggle.checkbox {
   cursor: pointer;
-  height: 1.5rem;
+  min-height: 1.5rem;
 }
 .ui.toggle.checkbox .box,
 .ui.toggle.checkbox label {
-  height: 1.5rem;
+  min-height: 1.5rem;
   padding-left: 4.5rem;
-  line-height: 1.5rem;
   color: rgba(0, 0, 0, 0.8);
+}
+.ui.toggle.checkbox label {
+  padding-top: 0.15em;
 }
 
 /* Switch */

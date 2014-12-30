@@ -10048,8 +10048,8 @@ ol.ui.list ol,
 
 /* Icon */
 
-.ui.list .list > .item > .icon,
-.ui.list > .item > .icon {
+.ui.list .list > .item > i.icon,
+.ui.list > .item > i.icon {
   display: table-cell;
   margin: 0em;
   padding-top: 0.1rem;
@@ -10059,13 +10059,13 @@ ol.ui.list ol,
   transition: color 0.2s ease;
 }
 
-.ui.list .list > .item [class*="top aligned"].icon,
-.ui.list > .item > [class*="top aligned"].icon {
+.ui.list .list > .item [class*="top aligned"]i.icon,
+.ui.list > .item > [class*="top aligned"]i.icon {
   vertical-align: top;
 }
 
-.ui.list .list > .item > .icon:only-child,
-.ui.list > .item > .icon:only-child {
+.ui.list .list > .item > i.icon:only-child,
+.ui.list > .item > i.icon:only-child {
   display: inline-block;
   vertical-align: top;
 }
@@ -10154,8 +10154,8 @@ ol.ui.list ol,
 
 /* Linked Item Icons */
 
-.ui.list .list > a.item .icon,
-.ui.list > a.item .icon {
+.ui.list .list > a.item i.icon,
+.ui.list > a.item i.icon {
   color: rgba(0, 0, 0, 0.4);
 }
 
@@ -10270,7 +10270,7 @@ ol.ui.list ol,
 
 /* Horizontal List */
 
-.ui.horizontal.list > .item > .icon {
+.ui.horizontal.list > .item > i.icon {
   margin: 0em;
   padding: 0em 0.25em 0em 0em;
 }
@@ -15696,14 +15696,9 @@ ol.ui.horizontal.list li:before,
   .ui.stackable.grid {
     display: block !important;
     width: auto;
-    margin-left: -1rem !important;
-    margin-right: -1rem !important;
+    margin-left: 0em !important;
+    margin-right: 0em !important;
     padding: 0em;
-  }
-
-  .ui.stackable.padded.grid:not(.vertically) {
-    margin-left: -1rem !important;
-    margin-right: -1rem !important;
   }
 
   .ui.stackable.grid > .row > .wide.column,
@@ -15715,8 +15710,8 @@ ol.ui.horizontal.list li:before,
     display: block !important;
     width: auto !important;
     margin: 0em 0em !important;
-    padding: 1rem 2rem !important;
     box-shadow: none !important;
+    padding: 1rem 1rem !important;
   }
 
   .ui.stackable.grid > .row {
@@ -15725,16 +15720,23 @@ ol.ui.horizontal.list li:before,
   }
 
   .ui.stackable.grid .column > .ui.stackable.grid {
-    margin-left: -2rem !important;
-    margin-right: -2rem !important;
+    margin-left: -1rem !important;
+    margin-right: -1rem !important;
   }
 
-  .ui.stackable.celled.grid > .column:not(.row),
-  .ui.stackable.divided.grid > .column:not(.row),
-  .ui.stackable.celled.grid > .row > .column,
-  .ui.stackable.divided.grid > .row > .column {
-    border-top: 1px solid rgba(39, 41, 43, 0.15);
-    box-shadow: none !important;
+  /* Equal Height Stackable */
+
+  .ui[class*="equal height"].stackable.page.grid {
+    display: block !important;
+  }
+
+  /* Divided Stackable */
+
+  .ui.stackable.divided.grid > .row:first-child > .column:first-child,
+  .ui.stackable.celled.grid > .row:first-child > .column:first-child,
+  .ui.stackable.divided.grid > .column:not(.row):first-child,
+  .ui.stackable.celled.grid > .column:not(.row):first-child {
+    border-top: none !important;
   }
 
   .ui.inverted.stackable.celled.grid > .column:not(.row),
@@ -15744,22 +15746,14 @@ ol.ui.horizontal.list li:before,
     border-top: 1px solid rgba(255, 255, 255, 0.2);
   }
 
-  .ui.stackable.divided.grid > .row:first-child > .column:first-child,
-  .ui.stackable.celled.grid > .row:first-child > .column:first-child,
-  .ui.stackable.divided.grid > .column:not(.row):first-child,
-  .ui.stackable.celled.grid > .column:not(.row):first-child {
-    border-top: none !important;
-  }
-
-  .ui[class*="equal height"].stackable.page.grid {
-    display: block !important;
-    width: 100% !important;
-  }
-
-  /* Remove pointers from vertical menus */
-
-  .ui.stackable.grid .vertical.pointing.menu .item:after {
-    display: none;
+  .ui.stackable.celled.grid > .column:not(.row),
+  .ui.stackable.divided.grid > .column:not(.row),
+  .ui.stackable.celled.grid > .row > .column,
+  .ui.stackable.divided.grid > .row > .column {
+    border-top: 1px solid rgba(39, 41, 43, 0.15);
+    box-shadow: none !important;
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
   }
 }
 
@@ -17429,14 +17423,15 @@ ol.ui.horizontal.list li:before,
   border-radius: 0px !important;
 }
 
-.ui.menu.fixed.top {
+.ui.fixed.menu,
+.ui.top.fixed.menu {
   top: 0px;
   left: 0px;
   right: auto;
   bottom: auto;
 }
 
-.ui.menu.fixed.right {
+.ui.right.fixed.menu {
   top: 0px;
   right: 0px;
   left: auto;
@@ -17445,14 +17440,14 @@ ol.ui.horizontal.list li:before,
   height: 100%;
 }
 
-.ui.menu.fixed.bottom {
+.ui.bottom.fixed.menu {
   bottom: 0px;
   left: 0px;
   top: auto;
   right: auto;
 }
 
-.ui.menu.fixed.left {
+.ui.left.fixed.menu {
   top: 0px;
   left: 0px;
   right: auto;
@@ -22137,7 +22132,7 @@ a.ui.card:hover,
 .ui.checkbox {
   position: relative;
   display: inline-block;
-  height: 17px;
+  min-height: 17px;
   font-size: 1rem;
   line-height: 15px;
   min-width: 17px;
@@ -22318,7 +22313,7 @@ a.ui.card:hover,
 ---------------*/
 
 .ui.radio.checkbox {
-  height: 14px;
+  min-height: 14px;
 }
 
 /* Box */
@@ -22367,7 +22362,7 @@ a.ui.card:hover,
 
 .ui.slider.checkbox {
   cursor: pointer;
-  height: 1.25rem;
+  min-height: 1.25rem;
 }
 
 .ui.slider.checkbox .box,
@@ -22467,15 +22462,18 @@ a.ui.card:hover,
 
 .ui.toggle.checkbox {
   cursor: pointer;
-  height: 1.5rem;
+  min-height: 1.5rem;
 }
 
 .ui.toggle.checkbox .box,
 .ui.toggle.checkbox label {
-  height: 1.5rem;
+  min-height: 1.5rem;
   padding-left: 4.5rem;
-  line-height: 1.5rem;
   color: rgba(0, 0, 0, 0.8);
+}
+
+.ui.toggle.checkbox label {
+  padding-top: 0.15em;
 }
 
 /* Switch */
