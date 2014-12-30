@@ -88,6 +88,10 @@ For more detail into how work with Semantic when building a site please [read ou
 * Blackberry 10
 
 
+## Pull Requests
+
+When adding pull requests be sure to merge into [next](https://github.com/Semantic-Org/Semantic-UI/tree/next) branch. If you need to demonstrate a fix in ``next`` release, you can use [this jsfiddle](http://jsfiddle.net/rduvhn8u/1/)
+
 ## Reaching Out
 
 If you'd like to start a conversation about Semantic feel free to reach out by e-mail [jack@semantic-ui.com](mailto:jack@semantic-ui.com)
