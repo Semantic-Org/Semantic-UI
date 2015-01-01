@@ -1,5 +1,10 @@
 ## RELEASE NOTES
 
+### Version 1.5.1 - January 01, 2015
+
+**Bugs**
+- **Button** - Fixed vertical alignment of ``ui animated button``
+- **Search** - Fixed issue with local search returning all results due to improper regexp
 
 ### Version 1.5.0 - December 30, 2014
 

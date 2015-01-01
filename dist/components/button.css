@@ -218,6 +218,7 @@
 .ui.animated.button {
   position: relative;
   overflow: hidden;
+  vertical-align: middle;
   padding-right: 0em !important;
 }
 .ui.animated.button .content {

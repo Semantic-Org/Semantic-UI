@@ -8590,7 +8590,7 @@ $.fn.search = function(parameters) {
                   if( content[field].match(searchRegExp) ) {
                     results.push(content);
                   }
-                  else if( settings.searchFullText && content[field].match(content[field]) ) {
+                  else if( settings.searchFullText && content[field].match(fullTextRegExp) ) {
                     fullTextResults.push(content);
                   }
                 }
@@ -10085,7 +10085,7 @@ $.fn.sidebar = function(parameters) {
           transitionEvent = module.get.transitionEvent();
 
           // cache on initialize
-          if( module.is.legacy() || settings.legacy) {
+          if( (module.useLegacy == 'auto' && module.is.legacy()) || settings.useLegacy) {
             settings.transition = 'overlay';
             settings.useLegacy = true;
           }
@@ -10993,7 +10993,7 @@ $.fn.sidebar.settings = {
   scrollLock        : false,
   returnScroll      : false,
 
-  useLegacy         : false,
+  useLegacy         : 'auto',
   duration          : 500,
   easing            : 'easeInOutQuint',
 
