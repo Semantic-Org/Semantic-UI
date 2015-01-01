@@ -83,7 +83,7 @@ $.fn.sidebar = function(parameters) {
           transitionEvent = module.get.transitionEvent();
 
           // cache on initialize
-          if( module.is.legacy() || settings.legacy) {
+          if( (module.useLegacy == 'auto' && module.is.legacy()) || settings.useLegacy) {
             settings.transition = 'overlay';
             settings.useLegacy = true;
           }
@@ -991,7 +991,7 @@ $.fn.sidebar.settings = {
   scrollLock        : false,
   returnScroll      : false,
 
-  useLegacy         : false,
+  useLegacy         : 'auto',
   duration          : 500,
   easing            : 'easeInOutQuint',
 
