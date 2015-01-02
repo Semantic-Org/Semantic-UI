@@ -161,7 +161,7 @@ $.fn.accordion = function(parameters) {
                 .stop()
                 .animate({
                   opacity: 1
-                }, settings.duration, module.reset.display)
+                }, settings.duration, module.reset.opacity)
                 .end()
               .slideDown(settings.duration, settings.easing, function() {
                 $activeContent
