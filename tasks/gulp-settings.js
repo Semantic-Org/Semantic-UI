@@ -39,7 +39,8 @@ module.exports = {
   rename: {
     json   : { extname : '.json' },
     minJS  : { extname : '.min.js' },
-    minCSS : { extname : '.min.css' }
+    minCSS : { extname : '.min.css' },
+    rtlCSS : { extname : '.rtl.css' },
   },
   wrench: {
     recursive: {
