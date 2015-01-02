@@ -196,8 +196,13 @@ $.fn.sidebar = function(parameters) {
             var
               width  = $module.outerWidth(),
               height = $module.outerHeight(),
+              negativeWidth = width * -1,
               style
             ;
+            if (module.is.rtl()) {
+              width *= -1;
+              negativeWidth *= -1;
+            }
             style  = ''
               + '<style title="' + namespace + '">'
               + ' .ui.visible.left.sidebar ~ .fixed,'
@@ -207,8 +212,8 @@ $.fn.sidebar = function(parameters) {
               + ' }'
               + ' .ui.visible.right.sidebar ~ .fixed,'
               + ' .ui.visible.right.sidebar ~ .pusher {'
-              + '   -webkit-transform: translate3d(-'+ width + 'px, 0, 0);'
-              + '           transform: translate3d(-'+ width + 'px, 0, 0);'
+              + '   -webkit-transform: translate3d('+ negativeWidth + 'px, 0, 0);'
+              + '           transform: translate3d('+ negativeWidth + 'px, 0, 0);'
               + ' }'
               + ' .ui.visible.left.sidebar ~ .ui.visible.right.sidebar ~ .fixed,'
               + ' .ui.visible.left.sidebar ~ .ui.visible.right.sidebar ~ .pusher,'
@@ -238,8 +243,8 @@ $.fn.sidebar = function(parameters) {
                 + '           transform: translate3d('+ width + 'px, 0, 0);'
                 + ' }'
                 + ' .ui.visible.right.sidebar ~ .pusher:after {'
-                + '   -webkit-transform: translate3d(-'+ width + 'px, 0, 0);'
-                + '           transform: translate3d(-'+ width + 'px, 0, 0);'
+                + '   -webkit-transform: translate3d('+ negativeWidth + 'px, 0, 0);'
+                + '           transform: translate3d('+ negativeWidth + 'px, 0, 0);'
                 + ' }'
                 + ' .ui.visible.left.sidebar ~ .ui.visible.right.sidebar ~ .pusher:after,'
                 + ' .ui.visible.right.sidebar ~ .ui.visible.left.sidebar ~ .pusher:after {'
@@ -777,6 +782,9 @@ $.fn.sidebar = function(parameters) {
           },
           animating: function() {
             return $context.hasClass(className.animating);
+          },
+          rtl: function () {
+            return $module.css('direction') == 'rtl';
           }
         },
 
