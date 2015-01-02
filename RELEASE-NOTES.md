@@ -1,5 +1,10 @@
 ## RELEASE NOTES
 
+### Version 1.5.2 - January 02, 2015
+
+**Bugs**
+- **Sidebar** - Fix bug with `useLegacy`` introduced in `1.5.1``
+
 ### Version 1.5.1 - January 01, 2015
 
 **Bugs**

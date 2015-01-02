@@ -10085,7 +10085,7 @@ $.fn.sidebar = function(parameters) {
           transitionEvent = module.get.transitionEvent();
 
           // cache on initialize
-          if( (module.useLegacy == 'auto' && module.is.legacy()) || settings.useLegacy) {
+          if( ( settings.useLegacy == 'auto' && module.is.legacy() ) || settings.useLegacy === true) {
             settings.transition = 'overlay';
             settings.useLegacy = true;
           }
@@ -10333,7 +10333,7 @@ $.fn.sidebar = function(parameters) {
 
         show: function(callback) {
           var
-            animateMethod = (settings.useLegacy)
+            animateMethod = (settings.useLegacy === true)
               ? module.legacyPushPage
               : module.pushPage
           ;
@@ -10368,7 +10368,7 @@ $.fn.sidebar = function(parameters) {
 
         hide: function(callback) {
           var
-            animateMethod = (settings.useLegacy)
+            animateMethod = (settings.useLegacy === true)
               ? module.legacyPullPage
               : module.pullPage
           ;
