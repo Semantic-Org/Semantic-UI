@@ -12293,10 +12293,8 @@ ol.ui.horizontal.list li:before,
   top: 0px;
   bottom: 0px;
   margin: 0em -1px;
-  width: -webkit-calc(100% +  2px );
-  width: calc(100% +  2px );
-  max-width: -webkit-calc(100% +  2px );
-  max-width: calc(100% +  2px );
+  width: 100%;  
+  max-width: 100%;
   border-radius: 0px;
   box-shadow: none;
   border: 1px solid #d4d4d5;
