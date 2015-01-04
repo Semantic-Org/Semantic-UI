@@ -139,9 +139,9 @@ var
 
     // relative paths
     assetPaths = {
-      uncompressed : path.relative(output.uncompressed, output.themes),
-      compressed   : path.relative(output.compressed, output.themes),
-      packaged     : path.relative(output.packaged, output.themes)
+      uncompressed : path.relative(output.uncompressed, output.themes).replace(/\\/g,'/'),
+      compressed   : path.relative(output.compressed, output.themes).replace(/\\/g,'/'),
+      packaged     : path.relative(output.packaged, output.themes).replace(/\\/g,'/')
     };
 
     // add base to values
@@ -490,7 +490,7 @@ gulp.task('install', 'Set-up project for first time', function () {
         siteVariable      = /@siteFolder .*\'(.*)/mg,
         siteDestination   = answers.site || config.folders.site,
 
-        pathToSite        = path.relative(path.resolve(config.folders.theme), path.resolve(siteDestination)),
+        pathToSite        = path.relative(path.resolve(config.folders.theme), path.resolve(siteDestination)).replace(/\\/g,'/'),
         sitePathReplace   = "@siteFolder   : '" + pathToSite + "/';",
 
         configExists      = fs.existsSync(config.files.config),
