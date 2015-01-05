@@ -3991,7 +3991,6 @@ i.flag.gabon:before {
 }
 
 i.flag.gb:before,
-i.flag.england:before,
 i.flag.united.kingdom:before {
   background-position: -36px -26px;
 }
@@ -23303,12 +23302,12 @@ select.ui.dropdown {
 /* Search Dropdown */
 
 .ui.search.dropdown > input.search {
-  background: none transparent;
-  border: none;
-  box-shadow: none;
+  background: none transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0em !important;
   cursor: pointer;
   position: absolute;
-  border-radius: 0em !important;
   top: 0em;
   left: 0em;
   width: 100%;
@@ -24518,9 +24517,6 @@ a.ui.nag {
   right: 0px;
   z-index: 900;
   border: 1px solid #cccccc;
-  min-width: -webkit-max-content;
-  min-width: -moz-max-content;
-  min-width: max-content;
   max-width: 250px;
   background-color: #ffffff;
   padding: 0.833em 1em;
