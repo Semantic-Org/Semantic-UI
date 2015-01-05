@@ -5,11 +5,13 @@
 **Build**
 - **Dist** - Build will now output version number in comment banner
 
-**Updates**
+**Changes / Enhancements **
 - **Accordion** - Added ``animateChildren`` option to disable/enable opacity animation on child elements
 - **Accordion** - Accordion now uses `easeOutQuint`` instead of ``easeInOutQuint`` to increase perceived responsiveness of drawers
+- **Grid** - ``stackable grid`` now only adds horizontal padding when using ``stackable page grid``, otherwise content will take up full width of parent element
 
 **Bugs**
+- **Tab/Segment** - Fixes first tab being 1pixel taller than all other tabs
 - **Popup** - Fix issue with `ui popup` receiving error ``$offsetParent is undefined`` when using a pre-defined popup
 - **Popup** - Fix issue with ``ui popup` not appearing with ``ui flowing popup`` due to newly added ``min-width: max-content``
 - **Form** - ``ui search dropdown`` inside a form has incorrect focus style
