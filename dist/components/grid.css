@@ -1,5 +1,5 @@
  /*
- * # Semantic UI
+ * # Semantic UI - 1.6.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -1564,8 +1564,8 @@
   .ui.stackable.grid {
     display: block !important;
     width: auto;
-    margin-left: 0em !important;
-    margin-right: 0em !important;
+    margin-left: -1rem !important;
+    margin-right: -1rem !important;
     padding: 0em;
   }
   .ui.stackable.grid > .row > .wide.column,
@@ -1584,9 +1584,9 @@
     margin: 0em;
     padding: 0em;
   }
-  .ui.stackable.grid .column > .ui.stackable.grid {
-    margin-left: -1rem !important;
-    margin-right: -1rem !important;
+  .ui.stackable.page.grid {
+    margin-left: 0em !important;
+    margin-right: 0em !important;
   }
   
 /* Equal Height Stackable */

@@ -1,5 +1,5 @@
  /*
- * # Semantic UI
+ * # Semantic UI - 1.6.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -634,6 +634,7 @@
   z-index: 2;
 }
 .ui.tabular.menu ~ .bottom.attached.segment {
+  border-top: none;
   margin: -1px 0px 0px;
 }
 
@@ -1370,9 +1371,6 @@
   padding-left: 0px !important;
   padding-right: 0px !important;
   text-align: center;
-}
-.ui.item.menu > .item:last-child {
-  border-radius: 0px 0.2857rem 0.2857rem 0px;
 }
 .ui.menu.two.item .item {
   width: 50%;
