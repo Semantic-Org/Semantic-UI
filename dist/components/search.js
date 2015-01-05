@@ -305,7 +305,7 @@ $.fn.search = function(parameters) {
                   if( content[field].match(searchRegExp) ) {
                     results.push(content);
                   }
-                  else if( settings.searchFullText && content[field].match(content[field]) ) {
+                  else if( settings.searchFullText && content[field].match(fullTextRegExp) ) {
                     fullTextResults.push(content);
                   }
                 }

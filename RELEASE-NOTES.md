@@ -1,5 +1,15 @@
 ## RELEASE NOTES
 
+### Version 1.5.2 - January 02, 2015
+
+**Bugs**
+- **Sidebar** - Fix bug with `useLegacy` introduced in `1.5.1`
+
+### Version 1.5.1 - January 01, 2015
+
+**Bugs**
+- **Button** - Fixed vertical alignment of ``ui animated button``
+- **Search** - Fixed issue with local search returning all results due to improper regexp
 
 ### Version 1.5.0 - December 30, 2014
 

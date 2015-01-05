@@ -258,6 +258,7 @@
 @floatedMargin: 0.25em;
 
 /* Animated */
+@animatedVerticalAlign: middle;
 @animationDuration: 0.3s;
 @animationEasing: ease;
 @fadeScaleHigh: 1.5;
