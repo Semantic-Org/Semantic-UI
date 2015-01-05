@@ -1,6 +1,6 @@
 module.exports = ''
   + ' /*' + '\n'
-  + ' * # <%= title %>' + '\n'
+  + ' * # <%= title %> - <%= version %>' + '\n'
   + ' * <%= repository %>' + '\n'
   + ' * <%= url %>' + '\n'
   + ' *' + '\n'
