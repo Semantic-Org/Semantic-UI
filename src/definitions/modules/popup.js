@@ -116,9 +116,9 @@ $.fn.popup = function(parameters) {
           }
           if(settings.popup) {
             $popup.addClass(className.loading);
-            if($popup.offsetParent()[0] !== $module.offsetParent()[0]) {
+            $offsetParent = $module.offsetParent();
+            if($popup.offsetParent()[0] !== $offsetParent[0]) {
               module.debug('Moving popup to the same offset parent as activating element');
-              $offsetParent = $module.offsetParent();
               $popup
                 .detach()
                 .appendTo($offsetParent)
