@@ -155,14 +155,16 @@ $.fn.accordion = function(parameters) {
             $activeTitle
               .addClass(className.active)
             ;
-            $activeContent
-              .stop()
-              .children()
+            if(settings.animateChildren) {
+              $activeContent
                 .stop()
                 .animate({
                   opacity: 1
-                }, settings.duration, module.reset.opacity)
-                .end()
+                }, settings.duration, module.resetOpacity)
+              ;
+            }
+            $activeContent
+              .stop()
               .slideDown(settings.duration, settings.easing, function() {
                 $activeContent
                   .addClass(className.active)
@@ -193,13 +195,17 @@ $.fn.accordion = function(parameters) {
             $activeContent
               .removeClass(className.active)
               .show()
-              .stop()
-              .children()
+            ;
+            if(settings.animateChildren) {
+              $activeContent
                 .stop()
                 .animate({
                   opacity: 0
-                }, settings.duration, module.reset.opacity)
-                .end()
+                }, settings.duration, module.resetOpacity)
+              ;
+            }
+            $activeContent
+              .stop()
               .slideUp(settings.duration, settings.easing, function() {
                 $.proxy(module.reset.display, this)();
                 $.proxy(settings.onClose, this)();
@@ -229,7 +235,7 @@ $.fn.accordion = function(parameters) {
           else {
             $openTitles   = $activeAccordion.find(activeSelector).not($parentTitles);
             $nestedTitles = $activeAccordion.find(activeContent).find(activeSelector).not($parentTitles);
-            $openTitles = $openTitles.not($nestedTitles);
+            $openTitles   = $openTitles.not($nestedTitles);
             $openContents = $openTitles.next($content);
           }
           if( ($openTitles.size() > 0) ) {
@@ -237,14 +243,16 @@ $.fn.accordion = function(parameters) {
             $openTitles
               .removeClass(className.active)
             ;
-            $openContents
-              .stop()
-              .children()
+            if(settings.animateChildren) {
+              $openContents
                 .stop()
                 .animate({
                   opacity: 0
                 }, settings.duration, module.resetOpacity)
-                .end()
+              ;
+            }
+            $openContents
+              .stop()
               .slideUp(settings.duration , settings.easing, function() {
                 $(this).removeClass(className.active);
                 $.proxy(module.reset.display, this)();
@@ -459,23 +467,24 @@ $.fn.accordion = function(parameters) {
 
 $.fn.accordion.settings = {
 
-  name        : 'Accordion',
-  namespace   : 'accordion',
+  name            : 'Accordion',
+  namespace       : 'accordion',
 
-  debug       : false,
-  verbose     : true,
-  performance : true,
+  debug           : false,
+  verbose         : true,
+  performance     : true,
 
-  exclusive   : true,
-  collapsible : true,
-  closeNested : false,
+  exclusive       : true,
+  collapsible     : true,
+  closeNested     : false,
+  animateChildren : true,
 
-  duration    : 500,
-  easing      : 'easeInOutQuint',
+  duration        : 500,
+  easing          : 'easeOutQuint',
 
-  onOpen      : function(){},
-  onClose     : function(){},
-  onChange    : function(){},
+  onOpen          : function(){},
+  onClose         : function(){},
+  onChange        : function(){},
 
   error: {
     method : 'The method you called is not defined'
