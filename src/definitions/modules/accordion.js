@@ -156,13 +156,26 @@ $.fn.accordion = function(parameters) {
               .addClass(className.active)
             ;
             if(settings.animateChildren) {
-              $activeContent
-                .children()
-                  .stop()
-                  .animate({
-                    opacity: 1
-                  }, settings.duration, module.resetOpacity)
-              ;
+              if($.fn.transition !== undefined && $module.transition('is supported')) {
+                $activeContent
+                  .children()
+                    .transition({
+                      animation  : 'fade in',
+                      debug      : settings.debug,
+                      verbose    : settings.verbose,
+                      duration   : settings.duration
+                    })
+                ;
+              }
+              else {
+                $activeContent
+                  .children()
+                    .stop()
+                    .animate({
+                      opacity: 1
+                    }, settings.duration, module.resetOpacity)
+                ;
+              }
             }
             $activeContent
               .stop()
@@ -198,13 +211,26 @@ $.fn.accordion = function(parameters) {
               .show()
             ;
             if(settings.animateChildren) {
-              $activeContent
-                .children()
-                  .stop()
-                  .animate({
-                    opacity: 0
-                  }, settings.duration, module.resetOpacity)
-              ;
+              if($.fn.transition !== undefined && $module.transition('is supported')) {
+                $activeContent
+                  .children()
+                    .transition({
+                      animation  : 'fade out',
+                      debug      : settings.debug,
+                      verbose    : settings.verbose,
+                      duration   : settings.duration
+                    })
+                ;
+              }
+              else {
+                $activeContent
+                  .children()
+                    .stop()
+                    .animate({
+                      opacity: 0
+                    }, settings.duration, module.resetOpacity)
+                ;
+              }
             }
             $activeContent
               .stop()
@@ -246,13 +272,26 @@ $.fn.accordion = function(parameters) {
               .removeClass(className.active)
             ;
             if(settings.animateChildren) {
-              $openContents
-                .children()
-                  .stop()
-                  .animate({
-                    opacity: 0
-                  }, settings.duration, module.resetOpacity)
-              ;
+              if($.fn.transition !== undefined && $module.transition('is supported')) {
+                $openContents
+                  .children()
+                    .transition({
+                      animation  : 'fade out',
+                      debug      : settings.debug,
+                      verbose    : settings.verbose,
+                      duration   : settings.duration
+                    })
+                ;
+              }
+              else {
+                $openContents
+                  .children()
+                    .stop()
+                    .animate({
+                      opacity: 0
+                    }, settings.duration, module.resetOpacity)
+                ;
+              }
             }
             $openContents
               .stop()
