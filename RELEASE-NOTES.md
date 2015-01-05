@@ -1,7 +1,13 @@
 ## RELEASE NOTES
 
+### Version 1.6.0 - January 05, 2015
 
-### Version 1.5.3 - January 05, 2015
+**Build**
+- **Dist** - Build will now output version number in comment banner
+
+**Updates**
+- **Accordion** - Added ``animateChildren`` option to disable/enable opacity animation on child elements
+- **Accordion** - Accordion now uses `easeOutQuint`` instead of ``easeInOutQuint`` to increase perceived responsiveness of drawers
 
 **Bugs**
 - **Popup** - Fix issue with `ui popup` receiving error ``$offsetParent is undefined`` when using a pre-defined popup
