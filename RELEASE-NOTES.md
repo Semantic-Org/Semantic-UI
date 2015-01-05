@@ -16,6 +16,7 @@
 - **Popup** - Fix issue with `ui popup` receiving error ``$offsetParent is undefined`` when using a pre-defined popup
 - **Popup** - Fix issue with ``ui popup` not appearing with ``ui flowing popup`` due to newly added ``min-width: max-content``
 - **Form** - ``ui search dropdown`` inside a form has incorrect focus style
+- **Menu** - Fixes ``ui fluid labeled icon menu`` to not have `min-width`
 
 ### Version 1.5.2 - January 02, 2015
 
