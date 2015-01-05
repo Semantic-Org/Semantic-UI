@@ -5,7 +5,7 @@
 **Build**
 - **Dist** - Build will now output version number in comment banner
 
-**Changes / Enhancements **
+**Updates / Enhancements**
 - **Accordion** - Child element animations now use ``$.fn.transition`` and css animations by default (if available)
 - **Accordion** - Added ``animateChildren`` option to disable/enable opacity animation on child elements
 - **Accordion** - Accordion now uses `easeOutQuint`` instead of ``easeInOutQuint`` to increase perceived responsiveness of drawers

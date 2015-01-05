@@ -16978,6 +16978,10 @@ ol.ui.horizontal.list li:before,
   text-align: center;
 }
 
+.ui.fluid.labeled.icon.menu > .item {
+  min-width: 0em;
+}
+
 .ui.labeled.icon.menu > .item {
   min-width: 6em;
 }
