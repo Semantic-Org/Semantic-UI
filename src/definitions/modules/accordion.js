@@ -157,10 +157,11 @@ $.fn.accordion = function(parameters) {
             ;
             if(settings.animateChildren) {
               $activeContent
-                .stop()
-                .animate({
-                  opacity: 1
-                }, settings.duration, module.resetOpacity)
+                .children()
+                  .stop()
+                  .animate({
+                    opacity: 1
+                  }, settings.duration, module.resetOpacity)
               ;
             }
             $activeContent
@@ -198,10 +199,11 @@ $.fn.accordion = function(parameters) {
             ;
             if(settings.animateChildren) {
               $activeContent
-                .stop()
-                .animate({
-                  opacity: 0
-                }, settings.duration, module.resetOpacity)
+                .children()
+                  .stop()
+                  .animate({
+                    opacity: 0
+                  }, settings.duration, module.resetOpacity)
               ;
             }
             $activeContent
@@ -245,10 +247,11 @@ $.fn.accordion = function(parameters) {
             ;
             if(settings.animateChildren) {
               $openContents
-                .stop()
-                .animate({
-                  opacity: 0
-                }, settings.duration, module.resetOpacity)
+                .children()
+                  .stop()
+                  .animate({
+                    opacity: 0
+                  }, settings.duration, module.resetOpacity)
               ;
             }
             $openContents
