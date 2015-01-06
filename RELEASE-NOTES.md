@@ -1,5 +1,10 @@
 ## RELEASE NOTES
 
+### Version 1.6.1 - January 05, 2015
+
+**Bugs**
+- **Accordion** - Accordion now uses ``useFailSafe: true`` to avoid callbacks not occurring because of race conditions with `transitionend` in webkit
+
 ### Version 1.6.0 - January 05, 2015
 
 **Build**
