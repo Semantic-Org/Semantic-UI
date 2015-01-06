@@ -27,6 +27,7 @@
     "gulp": "^3.8.10",
     "gulp-autoprefixer": "^2.0.0",
     "gulp-batch": "^1.0.3",
+    "gulp-chmod": "^1.2.0",
     "gulp-clone": "^1.0.0",
     "gulp-concat": "^2.4.2",
     "gulp-concat-css": "^1.1.1",
