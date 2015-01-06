@@ -1,6 +1,6 @@
 ## RELEASE NOTES
 
-### Version 1.6.2 - January 05, 2015
+### Version 1.6.2 - January 06, 2015
 
 **Site Variables**
 - **Site** - EM values for `small` `large` etc are now all calculated from ``@emSize`` allowing you to only change one variable.

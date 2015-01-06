@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.6.1
+ * # Semantic UI - 1.6.2
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -1498,7 +1498,7 @@
 .ui.orange.buttons .active.button:active,
 .ui.orange.active.button,
 .ui.orange.button .active.button:active {
-  background-color: #0f0f10;
+  background-color: #dc6a3d;
   color: #ffffff;
   text-shadow: none;
 }
