@@ -1,5 +1,14 @@
 ## RELEASE NOTES
 
+### Version 1.6.2 - January 05, 2015
+
+**Site Variables**
+- **Site** - EM values for `small` `large` etc are now all calculated from ``@emSize`` allowing you to only change one variable.
+
+**Bugs**
+- **Button** - Fixes active orange button color
+- **Menu** - Fixes ``fluid text menu`` to have correct margins
+
 ### Version 1.6.1 - January 05, 2015
 
 **Bugs**
