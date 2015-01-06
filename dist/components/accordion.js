@@ -161,6 +161,7 @@ $.fn.accordion = function(parameters) {
                   .children()
                     .transition({
                       animation  : 'fade in',
+                      useFailSafe : true,
                       debug      : settings.debug,
                       verbose    : settings.verbose,
                       duration   : settings.duration
@@ -215,10 +216,11 @@ $.fn.accordion = function(parameters) {
                 $activeContent
                   .children()
                     .transition({
-                      animation  : 'fade out',
-                      debug      : settings.debug,
-                      verbose    : settings.verbose,
-                      duration   : settings.duration
+                      animation   : 'fade out',
+                      useFailSafe : true,
+                      debug       : settings.debug,
+                      verbose     : settings.verbose,
+                      duration    : settings.duration
                     })
                 ;
               }
@@ -276,10 +278,11 @@ $.fn.accordion = function(parameters) {
                 $openContents
                   .children()
                     .transition({
-                      animation  : 'fade out',
-                      debug      : settings.debug,
-                      verbose    : settings.verbose,
-                      duration   : settings.duration
+                      animation   : 'fade out',
+                      useFailSafe : true,
+                      debug       : settings.debug,
+                      verbose     : settings.verbose,
+                      duration    : settings.duration
                     })
                 ;
               }

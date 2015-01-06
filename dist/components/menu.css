@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.6.0
+ * # Semantic UI - 1.6.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -1035,6 +1035,9 @@
 
 .ui.labeled.icon.menu {
   text-align: center;
+}
+.ui.fluid.labeled.icon.menu > .item {
+  min-width: 0em;
 }
 .ui.labeled.icon.menu > .item {
   min-width: 6em;

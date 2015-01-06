@@ -1,11 +1,16 @@
 ## RELEASE NOTES
 
+### Version 1.6.1 - January 05, 2015
+
+**Bugs**
+- **Accordion** - Accordion now uses ``useFailSafe: true`` to avoid callbacks not occurring because of race conditions with `transitionend` in webkit
+
 ### Version 1.6.0 - January 05, 2015
 
 **Build**
 - **Dist** - Build will now output version number in comment banner
 
-**Changes / Enhancements **
+**Updates / Enhancements**
 - **Accordion** - Child element animations now use ``$.fn.transition`` and css animations by default (if available)
 - **Accordion** - Added ``animateChildren`` option to disable/enable opacity animation on child elements
 - **Accordion** - Accordion now uses `easeOutQuint`` instead of ``easeInOutQuint`` to increase perceived responsiveness of drawers
@@ -16,6 +21,7 @@
 - **Popup** - Fix issue with `ui popup` receiving error ``$offsetParent is undefined`` when using a pre-defined popup
 - **Popup** - Fix issue with ``ui popup` not appearing with ``ui flowing popup`` due to newly added ``min-width: max-content``
 - **Form** - ``ui search dropdown`` inside a form has incorrect focus style
+- **Menu** - Fixes ``ui fluid labeled icon menu`` to not have `min-width`
 
 ### Version 1.5.2 - January 02, 2015
 
