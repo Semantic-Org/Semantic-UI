@@ -269,7 +269,7 @@ $.fn.form = function(fields, parameters) {
             var
               $field       = module.get.field(identifier),
               $fieldGroup  = $field.closest($group),
-              $prompt      = $fieldGroup.find(selector.prompt),
+              $prompt      = $fieldGroup.children(selector.prompt),
               promptExists = ($prompt.length !== 0)
             ;
             errors = (typeof errors == 'string')
@@ -320,7 +320,7 @@ $.fn.form = function(fields, parameters) {
             var
               $field      = module.get.field(field.identifier),
               $fieldGroup = $field.closest($group),
-              $prompt     = $fieldGroup.find(selector.prompt)
+              $prompt     = $fieldGroup.children(selector.prompt)
             ;
             $fieldGroup
               .removeClass(className.error)
@@ -669,7 +669,7 @@ $.fn.form.settings = {
     group   : '.field',
     checkbox: 'input[type="checkbox"], input[type="radio"]',
     input   : 'input',
-    prompt  : '.prompt',
+    prompt  : '.prompt.label',
     submit  : '.submit'
   },
 
