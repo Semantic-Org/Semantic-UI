@@ -442,7 +442,6 @@ gulp.task('watch rtl', 'Watch for site/theme changes (Default Task)', function(c
     return;
   }
 
-
   // watching changes in style
   gulp
     .watch([
@@ -494,7 +493,6 @@ gulp.task('watch rtl', 'Watch for site/theme changes (Default Task)', function(c
         // unified css stream
         stream = gulp.src(srcPath)
           .pipe(plumber())
-          .pipe(rtlcss())
           //.pipe(sourcemaps.init())
           .pipe(less(settings.less))
           .pipe(replace(comments.variables.in, comments.variables.out))
@@ -502,6 +500,7 @@ gulp.task('watch rtl', 'Watch for site/theme changes (Default Task)', function(c
           .pipe(replace(comments.small.in, comments.small.out))
           .pipe(replace(comments.tiny.in, comments.tiny.out))
           .pipe(autoprefixer(settings.prefix))
+          .pipe(rtlcss())
         ;
 
         // use 2 concurrent streams from same source
@@ -512,9 +511,9 @@ gulp.task('watch rtl', 'Watch for site/theme changes (Default Task)', function(c
           .pipe(plumber())
           .pipe(replace(assetPaths.source, assetPaths.uncompressed))
           //.pipe(sourcemaps.write('/', settings.sourcemap))
-          .pipe(rename(settings.rename.rtlCSS))
           .pipe(header(banner, settings.header))
           .pipe(chmod(config.permission))
+          .pipe(rename(settings.rename.rtlCSS))
           .pipe(gulp.dest(output.uncompressed))
           .pipe(print(log.created))
           .on('end', function() {
@@ -527,10 +526,10 @@ gulp.task('watch rtl', 'Watch for site/theme changes (Default Task)', function(c
           .pipe(clone())
           .pipe(replace(assetPaths.source, assetPaths.compressed))
           .pipe(minifyCSS(settings.minify))
-          .pipe(rename(settings.rename.minRTLCSS))
           //.pipe(sourcemaps.write('/', settings.sourcemap))
           .pipe(header(banner, settings.header))
           .pipe(chmod(config.permission))
+          .pipe(rename(settings.rename.minRTLCSS))
           .pipe(gulp.dest(output.compressed))
           .pipe(print(log.created))
           .on('end', function() {
@@ -610,7 +609,7 @@ gulp.task('build rtl', 'Builds rtl css from release files', function (callback) 
     .pipe(plumber())
     .pipe(clone())
     .pipe(minifyCSS(settings.minify))
-    .pipe(rename(settings.rename.minRTLCSS))
+    .pipe(rename(settings.rename.minCSS))
     .pipe(gulp.dest(output.compressed))
     .pipe(print(log.created))
     .on('end', function () {

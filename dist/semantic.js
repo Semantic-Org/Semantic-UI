@@ -10184,7 +10184,7 @@ $.fn.sidebar = function(parameters) {
 
         event: {
           clickaway: function(event) {
-            if( $(event.target).closest(selector.sidebar).size() === 0 ) {
+            if( $(event.target).closest(selector.sidebar).length === 0 ) {
               module.verbose('User clicked on dimmed page');
               module.hide();
             }
@@ -10201,7 +10201,7 @@ $.fn.sidebar = function(parameters) {
             }
           },
           scroll: function(event) {
-            if( $(event.target).closest(selector.sidebar).size() === 0 ) {
+            if( $(event.target).closest(selector.sidebar).length === 0 ) {
               event.preventDefault();
             }
           }
@@ -10249,10 +10249,15 @@ $.fn.sidebar = function(parameters) {
         add: {
           bodyCSS: function(direction, distance) {
             var
-              width  = $module.outerWidth(),
-              height = $module.outerHeight(),
+              width         = $module.outerWidth(),
+              height        = $module.outerHeight(),
+              negativeWidth = width * -1,
               style
             ;
+            if( module.is.rtl() ){
+              width *= -1;
+              negativeWidth *= -1;
+            }
             style  = ''
               + '<style title="' + namespace + '">'
               + ' .ui.visible.left.sidebar ~ .fixed,'
@@ -10262,8 +10267,8 @@ $.fn.sidebar = function(parameters) {
               + ' }'
               + ' .ui.visible.right.sidebar ~ .fixed,'
               + ' .ui.visible.right.sidebar ~ .pusher {'
-              + '   -webkit-transform: translate3d(-'+ width + 'px, 0, 0);'
-              + '           transform: translate3d(-'+ width + 'px, 0, 0);'
+              + '   -webkit-transform: translate3d('+ negativeWidth + 'px, 0, 0);'
+              + '           transform: translate3d('+ negativeWidth + 'px, 0, 0);'
               + ' }'
               + ' .ui.visible.left.sidebar ~ .ui.visible.right.sidebar ~ .fixed,'
               + ' .ui.visible.left.sidebar ~ .ui.visible.right.sidebar ~ .pusher,'
@@ -10293,8 +10298,8 @@ $.fn.sidebar = function(parameters) {
                 + '           transform: translate3d('+ width + 'px, 0, 0);'
                 + ' }'
                 + ' .ui.visible.right.sidebar ~ .pusher:after {'
-                + '   -webkit-transform: translate3d(-'+ width + 'px, 0, 0);'
-                + '           transform: translate3d(-'+ width + 'px, 0, 0);'
+                + '   -webkit-transform: translate3d('+ negativeWidth + 'px, 0, 0);'
+                + '           transform: translate3d('+ negativeWidth + 'px, 0, 0);'
                 + ' }'
                 + ' .ui.visible.left.sidebar ~ .ui.visible.right.sidebar ~ .pusher:after,'
                 + ' .ui.visible.right.sidebar ~ .ui.visible.left.sidebar ~ .pusher:after {'
@@ -10342,7 +10347,7 @@ $.fn.sidebar = function(parameters) {
 
         setup: {
           layout: function() {
-            if( $context.children(selector.pusher).size() === 0 ) {
+            if( $context.children(selector.pusher).length === 0 ) {
               module.debug('Adding wrapper element for sidebar');
               module.error(error.pusher);
               $pusher = $('<div class="pusher" />');
@@ -10354,7 +10359,7 @@ $.fn.sidebar = function(parameters) {
               ;
               module.refresh();
             }
-            if($module.nextAll(selector.pusher).size() === 0 || $module.nextAll(selector.pusher)[0] !== $pusher[0]) {
+            if($module.nextAll(selector.pusher).length === 0 || $module.nextAll(selector.pusher)[0] !== $pusher[0]) {
               module.debug('Moved sidebar to correct parent element');
               module.error(error.movedSidebar, element);
               $module.detach().prependTo($context);
@@ -10373,7 +10378,7 @@ $.fn.sidebar = function(parameters) {
             ? module[event]
             : module.toggle
           ;
-          if($toggle.size() > 0) {
+          if($toggle.length > 0) {
             module.debug('Attaching sidebar events to element', selector, event);
             $toggle
               .on('click' + eventNamespace, event)
@@ -10442,14 +10447,14 @@ $.fn.sidebar = function(parameters) {
         },
 
         othersVisible: function() {
-          return ($sidebars.not($module).filter('.' + className.visible).size() > 0);
+          return ($sidebars.not($module).filter('.' + className.visible).length > 0);
         },
 
         hideOthers: function(callback) {
           var
             $otherSidebars = $sidebars.not($module).filter('.' + className.visible),
             callback       = callback || function(){},
-            sidebarCount   = $otherSidebars.size(),
+            sidebarCount   = $otherSidebars.length,
             callbackCount  = 0
           ;
           $otherSidebars
@@ -10668,7 +10673,7 @@ $.fn.sidebar = function(parameters) {
 
           bodyCSS: function() {
             module.debug('Removing body css styles', $style);
-            if($style.size() > 0) {
+            if($style.length > 0) {
               $style.remove();
             }
           },
@@ -10832,6 +10837,9 @@ $.fn.sidebar = function(parameters) {
           },
           animating: function() {
             return $context.hasClass(className.animating);
+          },
+          rtl: function () {
+            return $module.css('direction') == 'rtl';
           }
         },
 
