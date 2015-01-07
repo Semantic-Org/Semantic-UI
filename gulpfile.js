@@ -601,7 +601,7 @@ gulp.task('build rtl', 'Builds all files from source', function(callback) {
     uncompressedStream
   ;
 
-  console.info('Building Semantic');
+  console.info('Building Semantic RTL');
 
   if(!fs.existsSync(config.files.theme)) {
     console.error('Cant build LESS. Run "gulp install" to create a theme config file');
