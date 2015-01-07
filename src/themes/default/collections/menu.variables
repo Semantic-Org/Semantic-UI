@@ -238,6 +238,9 @@
 @tabularHorizontalPadding: 1.4em;
 @tabularMenuTextColor: @menuTextColor;
 
+@tabularFluidOffset: 1px;
+@tabularFluidWidth: ~"calc(100% + "(@tabularFluidOffset * 2)~")";
+
 @tabularActiveColor: @selectedTextColor;
 
 @tabularMenuActiveBackground: #FFFFFF;
