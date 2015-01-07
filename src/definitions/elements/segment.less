@@ -26,11 +26,11 @@
 .ui.segment {
   position: relative;
   background-color: @background;
-  box-shadow: @boxShadow;
+  box-shadow: none;
   margin: @margin 0em;
   padding: @verticalPadding @horizontalPadding;
   border-radius: @borderRadius;
-  border: @border;
+  border: @borderWidth solid @borderColor;
 }
 
 .ui.segment:first-child {
