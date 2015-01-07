@@ -22,6 +22,7 @@ var
 
   // gulp dependencies
   autoprefixer = require('gulp-autoprefixer'),
+  chmod        = require('gulp-chmod'),
   clone        = require('gulp-clone'),
   concat       = require('gulp-concat'),
   concatCSS    = require('gulp-concat-css'),
@@ -250,6 +251,7 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function(callb
           .pipe(replace(assetPaths.source, assetPaths.uncompressed))
           //.pipe(sourcemaps.write('/', settings.sourcemap))
           .pipe(header(banner, settings.header))
+          .pipe(chmod(644))
           .pipe(gulp.dest(output.uncompressed))
           .pipe(print(log.created))
           .on('end', function() {
@@ -265,6 +267,7 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function(callb
           .pipe(rename(settings.rename.minCSS))
           //.pipe(sourcemaps.write('/', settings.sourcemap))
           .pipe(header(banner, settings.header))
+          .pipe(chmod(644))
           .pipe(gulp.dest(output.compressed))
           .pipe(print(log.created))
           .on('end', function() {
@@ -286,6 +289,7 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function(callb
     ], function(file) {
       // copy assets
       gulp.src(file.path, { base: source.themes })
+        .pipe(chmod(644))
         .pipe(gulp.dest(output.themes))
         .pipe(print(log.created))
       ;
@@ -299,11 +303,13 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function(callb
     ], function(file) {
       gulp.src(file.path)
         .pipe(plumber())
+        .pipe(chmod(644))
         .pipe(gulp.dest(output.uncompressed))
         .pipe(print(log.created))
         .pipe(sourcemaps.init())
         .pipe(uglify(settings.uglify))
         .pipe(rename(settings.rename.minJS))
+        .pipe(chmod(644))
         .pipe(gulp.dest(output.compressed))
         .pipe(print(log.created))
         .on('end', function() {
@@ -337,6 +343,7 @@ gulp.task('build', 'Builds all files from source', function(callback) {
 
   // copy assets
   gulp.src(source.themes + '**/assets/**')
+    .pipe(chmod(644))
     .pipe(gulp.dest(output.themes))
   ;
 
@@ -345,12 +352,14 @@ gulp.task('build', 'Builds all files from source', function(callback) {
   gulp.src(source.definitions + '**/' + componentGlob + '.js')
     .pipe(plumber())
     .pipe(flatten())
+    .pipe(chmod(644))
     .pipe(gulp.dest(output.uncompressed))
     .pipe(print(log.created))
     // .pipe(sourcemaps.init())
     .pipe(uglify(settings.uglify))
     .pipe(rename(settings.rename.minJS))
     .pipe(header(banner, settings.header))
+    .pipe(chmod(644))
     .pipe(gulp.dest(output.compressed))
     .pipe(print(log.created))
     .on('end', function() {
@@ -381,6 +390,7 @@ gulp.task('build', 'Builds all files from source', function(callback) {
     .pipe(replace(assetPaths.source, assetPaths.uncompressed))
     //.pipe(sourcemaps.write('/', settings.sourcemap))
     .pipe(header(banner, settings.header))
+    .pipe(chmod(644))
     .pipe(gulp.dest(output.uncompressed))
     .pipe(print(log.created))
     .on('end', function() {
@@ -396,6 +406,7 @@ gulp.task('build', 'Builds all files from source', function(callback) {
     .pipe(rename(settings.rename.minCSS))
     //.pipe(sourcemaps.write('/', settings.sourcemap))
     .pipe(header(banner, settings.header))
+    .pipe(chmod(644))
     .pipe(gulp.dest(output.compressed))
     .pipe(print(log.created))
     .on('end', function() {
@@ -424,6 +435,7 @@ gulp.task('package uncompressed css', false, function() {
     .pipe(plumber())
     .pipe(replace(assetPaths.uncompressed, assetPaths.packaged))
     .pipe(concatCSS('semantic.css'))
+    .pipe(chmod(644))
       .pipe(gulp.dest(output.packaged))
       .pipe(print(log.created))
   ;
@@ -436,6 +448,7 @@ gulp.task('package compressed css', false, function() {
     .pipe(concatCSS('semantic.min.css'))
       .pipe(minifyCSS(settings.minify))
       .pipe(header(banner, settings.header))
+      .pipe(chmod(644))
       .pipe(gulp.dest(output.packaged))
       .pipe(print(log.created))
   ;
@@ -447,6 +460,7 @@ gulp.task('package uncompressed js', false, function() {
     .pipe(replace(assetPaths.uncompressed, assetPaths.packaged))
     .pipe(concat('semantic.js'))
       .pipe(header(banner, settings.header))
+      .pipe(chmod(644))
       .pipe(gulp.dest(output.packaged))
       .pipe(print(log.created))
   ;
@@ -459,6 +473,7 @@ gulp.task('package compressed js', false, function() {
     .pipe(concat('semantic.min.js'))
       .pipe(uglify(settings.uglify))
       .pipe(header(banner, settings.header))
+      .pipe(chmod(644))
       .pipe(gulp.dest(output.packaged))
       .pipe(print(log.created))
   ;
@@ -533,6 +548,7 @@ gulp.task('install', 'Set-up project for first time', function () {
         gulp.src(config.files.site)
           .pipe(plumber())
           .pipe(replace(siteVariable, sitePathReplace))
+          .pipe(chmod(644))
           .pipe(gulp.dest(config.folders.theme))
         ;
       }
@@ -542,6 +558,7 @@ gulp.task('install', 'Set-up project for first time', function () {
           .pipe(plumber())
           .pipe(rename({ extname : '' }))
           .pipe(replace(siteVariable, sitePathReplace))
+          .pipe(chmod(644))
           .pipe(gulp.dest(config.folders.theme))
         ;
       }
@@ -580,6 +597,7 @@ gulp.task('install', 'Set-up project for first time', function () {
           .pipe(plumber())
           .pipe(rename(settings.rename.json)) // preserve file extension
           .pipe(jeditor(json))
+          .pipe(chmod(644))
           .pipe(gulp.dest('./'))
         ;
       }
@@ -589,6 +607,7 @@ gulp.task('install', 'Set-up project for first time', function () {
           .pipe(plumber())
           .pipe(rename({ extname : '' })) // remove .template from ext
           .pipe(jeditor(json))
+          .pipe(chmod(644))
           .pipe(gulp.dest('./'))
         ;
       }
@@ -630,6 +649,7 @@ gulp.task('serve-docs', false, function () {
     ], function(file) {
       console.clear();
       return gulp.src(file.path, { base: 'src/' })
+        .pipe(chmod(644))
         .pipe(gulp.dest(output.less))
         .pipe(print(log.created))
       ;
@@ -649,6 +669,7 @@ gulp.task('build-docs', false, function () {
 
   // copy source
   gulp.src('src/**/*.*')
+    .pipe(chmod(644))
     .pipe(gulp.dest(output.less))
     .pipe(print(log.created))
   ;
@@ -779,6 +800,7 @@ gulp.task('create repos', false, function(callback) {
           .pipe(plumber())
           .pipe(flatten())
           .pipe(replace(release.paths.source, release.paths.output))
+          .pipe(chmod(644))
           .pipe(gulp.dest(outputDirectory))
         ;
       });
@@ -794,6 +816,7 @@ gulp.task('create repos', false, function(callback) {
           .pipe(replace(regExp.match.settingsReference, regExp.replace.settingsReference))
           .pipe(replace(regExp.match.jQuery, regExp.replace.jQuery))
           .pipe(rename('index.js'))
+          .pipe(chmod(644))
           .pipe(gulp.dest(outputDirectory))
         ;
       });
@@ -805,6 +828,7 @@ gulp.task('create repos', false, function(callback) {
           .pipe(flatten())
           .pipe(replace(regExp.match.name, regExp.replace.name))
           .pipe(replace(regExp.match.titleName, regExp.replace.titleName))
+          .pipe(chmod(644))
           .pipe(gulp.dest(outputDirectory))
         ;
       });
@@ -840,6 +864,7 @@ gulp.task('create repos', false, function(callback) {
             }
             return bower;
           }))
+          .pipe(chmod(644))
           .pipe(gulp.dest(outputDirectory))
         ;
       });
@@ -868,6 +893,7 @@ gulp.task('create repos', false, function(callback) {
             };
             return package;
           }))
+          .pipe(chmod(644))
           .pipe(gulp.dest(outputDirectory))
         ;
       });
@@ -891,6 +917,7 @@ gulp.task('create repos', false, function(callback) {
             composer.description = 'Single component release of ' + component;
             return composer;
           }))
+          .pipe(chmod(644))
           .pipe(gulp.dest(outputDirectory))
         ;
       });
@@ -906,6 +933,7 @@ gulp.task('create repos', false, function(callback) {
           .pipe(replace(regExp.match.spacedVersions, regExp.replace.spacedVersions))
           .pipe(replace(regExp.match.spacedLists, regExp.replace.spacedLists))
           .pipe(replace(regExp.match.trim, regExp.replace.trim))
+          .pipe(chmod(644))
           .pipe(gulp.dest(outputDirectory))
         ;
       });
