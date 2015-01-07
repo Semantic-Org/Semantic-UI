@@ -1,8 +1,9 @@
 ## RELEASE NOTES
 
-### Version 1.6.3
+### Version 1.7.0 -
 
-**Code Optimizations**
+**Code / Build**
+- **Build** - `Dist/` files now have file permissions `644` by default. Can adjust in `semantic.json`. You will need to run `npm install` to add the new gulp-chmod dependency
 - **Modules** - Remove use of deprecated `.size()` for `.length` across all modules
 
 **Bugs**

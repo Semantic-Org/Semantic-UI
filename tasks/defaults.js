@@ -3,11 +3,13 @@
 *******************************/
 
 module.exports = {
-  base       : '',
 
-  theme      : './src/theme.config',
+  base        : '',
+  theme       : './src/theme.config',
 
-  docs       : {
+  permission  : 644,
+
+  docs : {
     source : '../docs/server/files/release/',
     output : '../docs/release/'
   },
