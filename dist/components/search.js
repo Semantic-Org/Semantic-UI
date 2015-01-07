@@ -147,7 +147,7 @@ $.fn.search = function(parameters) {
             },
             activeClass  = className.active,
             currentIndex = $result.index( $result.filter('.' + activeClass) ),
-            resultSize   = $result.size(),
+            resultSize   = $result.length,
             newIndex
           ;
           // search shortcuts
@@ -158,10 +158,10 @@ $.fn.search = function(parameters) {
             ;
           }
           // result shortcuts
-          if($results.filter(':visible').size() > 0) {
+          if($results.filter(':visible').length > 0) {
             if(keyCode == keys.enter) {
               module.verbose('Enter key pressed, selecting active result');
-              if( $result.filter('.' + activeClass).size() > 0 ) {
+              if( $result.filter('.' + activeClass).length > 0 ) {
                 $.proxy(module.results.select, $result.filter('.' + activeClass) )(event);
                 event.preventDefault();
                 return false;
@@ -402,7 +402,7 @@ $.fn.search = function(parameters) {
             module.results.show();
           },
           show: function() {
-            if( ($results.filter(':visible').size() === 0) && ($prompt.filter(':focus').size() > 0) && $results.html() !== '') {
+            if( ($results.filter(':visible').length === 0) && ($prompt.filter(':focus').length > 0) && $results.html() !== '') {
               if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported') && !$results.transition('is inward')) {
                 module.debug('Showing results with css animations');
                 $results
@@ -424,7 +424,7 @@ $.fn.search = function(parameters) {
             }
           },
           hide: function() {
-            if($results.filter(':visible').size() > 0) {
+            if($results.filter(':visible').length > 0) {
               if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported') && !$results.transition('is outward')) {
                 module.debug('Hiding results with css animations');
                 $results
@@ -458,7 +458,7 @@ $.fn.search = function(parameters) {
                 $title = $result.find(selector.title).eq(0),
                 href   = $link.attr('href') || false,
                 target = $link.attr('target') || false,
-                name   = ($title.size() > 0)
+                name   = ($title.length > 0)
                   ? $title.text()
                   : false
               ;
@@ -569,8 +569,8 @@ $.fn.search = function(parameters) {
             if(moduleSelector) {
               title += ' \'' + moduleSelector + '\'';
             }
-            if($allModules.size() > 1) {
-              title += ' ' + '(' + $allModules.size() + ')';
+            if($allModules.length > 1) {
+              title += ' ' + '(' + $allModules.length + ')';
             }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
               console.groupCollapsed(title);

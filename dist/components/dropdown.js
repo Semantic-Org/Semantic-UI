@@ -51,7 +51,7 @@ $.fn.dropdown = function(parameters) {
         $search         = $module.find(selector.search),
         $input          = $module.find(selector.input),
 
-        $combo = ($module.prev().find(selector.text).size() > 0)
+        $combo = ($module.prev().find(selector.text).length > 0)
           ? $module.prev().find(selector.text)
           : $module.prev(),
 
@@ -170,10 +170,10 @@ $.fn.dropdown = function(parameters) {
             module.debug('Dropdown initialized on a select', selectValues);
             // see if select exists inside a dropdown
             $input = $module;
-            if($input.parents(selector.dropdown).size() > 0) {
+            if($input.parents(selector.dropdown).length > 0) {
               module.debug('Creating dropdown menu only from template');
               $module = $input.closest(selector.dropdown);
-              if($module.find('.' + className.dropdown).size() === 0) {
+              if($module.find('.' + className.dropdown).length === 0) {
                 $('<div />')
                   .addClass(className.menu)
                   .html( settings.templates.menu( selectValues ))
@@ -469,14 +469,14 @@ $.fn.dropdown = function(parameters) {
               },
               selectedClass   = className.selected,
               currentIndex    = $visibleItems.index( $selectedItem ),
-              hasSelectedItem = ($selectedItem.size() > 0),
+              hasSelectedItem = ($selectedItem.length > 0),
               $nextItem,
               newIndex
             ;
             // default to activated choice if no selection present
             if(!hasSelectedItem) {
               $selectedItem   = $item.filter('.' + className.active).eq(0);
-              hasSelectedItem = ($selectedItem.size() > 0);
+              hasSelectedItem = ($selectedItem.length > 0);
             }
             // close shortcuts
             if(pressedKey == keys.escape) {
@@ -522,7 +522,7 @@ $.fn.dropdown = function(parameters) {
                 else {
                   $nextItem = $selectedItem.nextAll(selector.item + ':not(.' + className.filtered + ')').eq(0);
                 }
-                if(currentIndex + 1 < $visibleItems.size() ) {
+                if(currentIndex + 1 < $visibleItems.length ) {
                   module.verbose('Down key pressed, changing active item');
                   $item
                     .removeClass(selectedClass)
@@ -577,7 +577,7 @@ $.fn.dropdown = function(parameters) {
                 $currentMenu = $(this).children(selector.menu),
                 $otherMenus  = $(this).siblings(selector.item).children(selector.menu)
               ;
-              if( $currentMenu.size() > 0 ) {
+              if( $currentMenu.length > 0 ) {
                 clearTimeout(module.itemTimer);
                 module.itemTimer = setTimeout(function() {
                   $.each($otherMenus, function() {
@@ -594,7 +594,7 @@ $.fn.dropdown = function(parameters) {
               var
                 $currentMenu = $(this).children(selector.menu)
               ;
-              if($currentMenu.size() > 0) {
+              if($currentMenu.length > 0) {
                 clearTimeout(module.itemTimer);
                 module.itemTimer = setTimeout(function() {
                   module.verbose('Hiding sub-menu', $currentMenu);
@@ -614,8 +614,8 @@ $.fn.dropdown = function(parameters) {
                   module.remove.searchTerm();
                   module.determine.selectAction(text, value);
                 },
-                openingSubMenu = ($subMenu.size() > 0),
-                isSubItem      = ($subMenu.find($target).size() > 0)
+                openingSubMenu = ($subMenu.length > 0),
+                isSubItem      = ($subMenu.find($target).length > 0)
               ;
               if(isSubItem) {
                 return false;
@@ -653,7 +653,7 @@ $.fn.dropdown = function(parameters) {
               ? callback
               : function(){}
             ;
-            if( $(event.target).closest($module).size() === 0 ) {
+            if( $(event.target).closest($module).length === 0 ) {
               module.verbose('Triggering event', callback);
               callback();
               return true;
@@ -668,7 +668,7 @@ $.fn.dropdown = function(parameters) {
               ? callback
               : function(){}
             ;
-            if( $(event.target).closest($menu).size() === 0 ) {
+            if( $(event.target).closest($menu).length === 0 ) {
               module.verbose('Triggering event', callback);
               callback();
               return true;
@@ -733,7 +733,7 @@ $.fn.dropdown = function(parameters) {
             return $text.text();
           },
           value: function() {
-            return ($input.size() > 0)
+            return ($input.length > 0)
               ? $input.val()
               : $module.data(metadata.value)
             ;
@@ -744,7 +744,7 @@ $.fn.dropdown = function(parameters) {
               : settings.preserveHTML
             ;
             if($choice !== undefined) {
-              if($choice.find(selector.menu).size() > 0) {
+              if($choice.find(selector.menu).length > 0) {
                 module.verbose('Retreiving text of element with sub-menu');
                 $choice = $choice.clone();
                 $choice.find(selector.menu).remove();
@@ -970,7 +970,7 @@ $.fn.dropdown = function(parameters) {
             ;
 
             $item       = $item || module.get.activeItem();
-            hasActive   = ($item && $item.size() > 0);
+            hasActive   = ($item && $item.length > 0);
             forceScroll = (forceScroll !== undefined)
               ? forceScroll
               : false
@@ -1025,7 +1025,7 @@ $.fn.dropdown = function(parameters) {
           },
           value: function(value) {
             module.debug('Adding selected value to hidden input', value, $input);
-            if($input.size() > 0) {
+            if($input.length > 0) {
               $input
                 .val(value)
                 .trigger('change')
@@ -1117,7 +1117,7 @@ $.fn.dropdown = function(parameters) {
             ;
           },
           allFiltered: function() {
-            return ($item.filter('.' + className.filtered).size() === $item.size());
+            return ($item.filter('.' + className.filtered).length === $item.length);
           },
           hidden: function($subMenu) {
             return ($subMenu)
@@ -1129,7 +1129,7 @@ $.fn.dropdown = function(parameters) {
             return $module.hasClass(className.search);
           },
           searchable: function() {
-            return ($search.size() > 0);
+            return ($search.length > 0);
           },
           searchSelection: function() {
             return ( module.is.searchable() && $search.parent().is($module) );

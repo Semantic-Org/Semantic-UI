@@ -161,7 +161,7 @@ $.fn.form = function(fields, parameters) {
                   .blur()
                 ;
               }
-              if(!event.ctrlKey && key == keyCode.enter && $field.is(selector.input) && $field.not(selector.checkbox).size() > 0 ) {
+              if(!event.ctrlKey && key == keyCode.enter && $field.is(selector.input) && $field.not(selector.checkbox).length > 0 ) {
                 module.debug('Enter key pressed, submitting form');
                 $submit
                   .addClass(className.down)
@@ -222,13 +222,13 @@ $.fn.form = function(fields, parameters) {
           },
           field: function(identifier) {
             module.verbose('Finding field with identifier', identifier);
-            if( $field.filter('#' + identifier).size() > 0 ) {
+            if( $field.filter('#' + identifier).length > 0 ) {
               return $field.filter('#' + identifier);
             }
-            else if( $field.filter('[name="' + identifier +'"]').size() > 0 ) {
+            else if( $field.filter('[name="' + identifier +'"]').length > 0 ) {
               return $field.filter('[name="' + identifier +'"]');
             }
-            else if( $field.filter('[data-' + metadata.validate + '="'+ identifier +'"]').size() > 0 ) {
+            else if( $field.filter('[data-' + metadata.validate + '="'+ identifier +'"]').length > 0 ) {
               return $field.filter('[data-' + metadata.validate + '="'+ identifier +'"]');
             }
             return $('<input/>');
@@ -250,13 +250,13 @@ $.fn.form = function(fields, parameters) {
 
           field: function(identifier) {
             module.verbose('Checking for existence of a field with identifier', identifier);
-            if( $field.filter('#' + identifier).size() > 0 ) {
+            if( $field.filter('#' + identifier).length > 0 ) {
               return true;
             }
-            else if( $field.filter('[name="' + identifier +'"]').size() > 0 ) {
+            else if( $field.filter('[name="' + identifier +'"]').length > 0 ) {
               return true;
             }
-            else if( $field.filter('[data-' + metadata.validate + '="'+ identifier +'"]').size() > 0 ) {
+            else if( $field.filter('[data-' + metadata.validate + '="'+ identifier +'"]').length > 0 ) {
               return true;
             }
             return false;
@@ -269,8 +269,8 @@ $.fn.form = function(fields, parameters) {
             var
               $field       = module.get.field(identifier),
               $fieldGroup  = $field.closest($group),
-              $prompt      = $fieldGroup.find(selector.prompt),
-              promptExists = ($prompt.size() !== 0)
+              $prompt      = $fieldGroup.children(selector.prompt),
+              promptExists = ($prompt.length !== 0)
             ;
             errors = (typeof errors == 'string')
               ? [errors]
@@ -320,7 +320,7 @@ $.fn.form = function(fields, parameters) {
             var
               $field      = module.get.field(field.identifier),
               $fieldGroup = $field.closest($group),
-              $prompt     = $fieldGroup.find(selector.prompt)
+              $prompt     = $fieldGroup.children(selector.prompt)
             ;
             $fieldGroup
               .removeClass(className.error)
@@ -539,8 +539,8 @@ $.fn.form = function(fields, parameters) {
             if(moduleSelector) {
               title += ' \'' + moduleSelector + '\'';
             }
-            if($allModules.size() > 1) {
-              title += ' ' + '(' + $allModules.size() + ')';
+            if($allModules.length > 1) {
+              title += ' ' + '(' + $allModules.length + ')';
             }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
               console.groupCollapsed(title);
@@ -669,7 +669,7 @@ $.fn.form.settings = {
     group   : '.field',
     checkbox: 'input[type="checkbox"], input[type="radio"]',
     input   : 'input',
-    prompt  : '.prompt',
+    prompt  : '.prompt.label',
     submit  : '.submit'
   },
 
@@ -707,7 +707,7 @@ $.fn.form.settings = {
 
     // checkbox checked
     checked: function() {
-      return ($(this).filter(':checked').size() > 0);
+      return ($(this).filter(':checked').length > 0);
     },
 
     // value contains (text)
@@ -781,13 +781,13 @@ $.fn.form.settings = {
         $form = $(this),
         matchingValue
       ;
-      if($form.find('#' + fieldIdentifier).size() > 0) {
+      if($form.find('#' + fieldIdentifier).length > 0) {
         matchingValue = $form.find('#' + fieldIdentifier).val();
       }
-      else if($form.find('[name="' + fieldIdentifier +'"]').size() > 0) {
+      else if($form.find('[name="' + fieldIdentifier +'"]').length > 0) {
         matchingValue = $form.find('[name="' + fieldIdentifier + '"]').val();
       }
-      else if( $form.find('[data-validate="'+ fieldIdentifier +'"]').size() > 0 ) {
+      else if( $form.find('[data-validate="'+ fieldIdentifier +'"]').length > 0 ) {
         matchingValue = $form.find('[data-validate="'+ fieldIdentifier +'"]').val();
       }
       return (matchingValue !== undefined)

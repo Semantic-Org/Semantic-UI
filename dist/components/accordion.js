@@ -268,7 +268,7 @@ $.fn.accordion = function(parameters) {
             $openTitles   = $openTitles.not($nestedTitles);
             $openContents = $openTitles.next($content);
           }
-          if( ($openTitles.size() > 0) ) {
+          if( ($openTitles.length > 0) ) {
             module.debug('Exclusive enabled, closing other content', $openTitles);
             $openTitles
               .removeClass(className.active)

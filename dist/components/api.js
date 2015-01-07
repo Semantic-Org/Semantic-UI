@@ -198,7 +198,7 @@ $.api = $.fn.api = function(parameters) {
 
         is: {
           disabled: function() {
-            return ($module.filter(settings.filter).size() > 0);
+            return ($module.filter(settings.filter).length > 0);
           },
           loading: function() {
             return (module.request && module.request.state() == 'pending');

@@ -9052,20 +9052,20 @@ a.ui.label {
 
 .ui.attached.segment > .ui.top.left.attached.label,
 .ui.bottom.attached.segment > .ui.top.left.attached.label {
-  border-radius-top-left: 0;
+  border-top-left-radius: 0;
 }
 
 .ui.attached.segment > .ui.top.right.attached.label,
 .ui.bottom.attached.segment > .ui.top.right.attached.label {
-  border-radius-top-right: 0;
+  border-top-right-radius: 0;
 }
 
 .ui.top.attached.segment > .ui.bottom.left.attached.label {
-  border-radius-bottom-left: 0;
+  border-bottom-left-radius: 0;
 }
 
 .ui.top.attached.segment > .ui.bottom.right.attached.label {
-  border-radius-bottom-right: 0;
+  border-bottom-right-radius: 0;
 }
 
 /* Padding on next content after a label */
@@ -12354,15 +12354,15 @@ ol.ui.horizontal.list li:before,
  */
 
 /*******************************
-            Step
+           Singular
 *******************************/
 
 .ui.steps .step {
-  display: inline-block;
   position: relative;
+  display: table-cell;
+  vertical-align: middle;
   margin: 0em 0em;
   padding: 0.9285em 1.5em 0.9285em 2.25em;
-  vertical-align: top;
   background: #ffffff;
   color: rgba(0, 0, 0, 0.8);
   box-shadow: 0px 0px 0px 1px #d4d4d5;
@@ -12390,6 +12390,41 @@ ol.ui.horizontal.list li:before,
 .ui.steps .step:after {
   -webkit-transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
   transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/*******************************
+            Plural
+*******************************/
+
+.ui.steps {
+  display: table;
+  table-layout: fixed;
+  background: '';
+  box-shadow: '';
+  line-height: 1.142rem;
+  box-sizing: border-box;
+  border-radius: 0.2857rem;
+}
+
+.ui.steps .step:first-child {
+  padding-left: 1.5em;
+  border-radius: 0.2857rem 0em 0em 0.2857rem;
+}
+
+.ui.steps .step:last-child {
+  border-radius: 0em 0.2857rem 0.2857rem 0em;
+}
+
+.ui.steps .step:only-child {
+  border-radius: 0.2857rem;
+}
+
+.ui.steps .step:last-child {
+  margin-right: 0em;
+}
+
+.ui.steps .step:last-child:after {
+  display: none;
 }
 
 /*******************************
@@ -12470,6 +12505,7 @@ ol.ui.horizontal.list li:before,
 ---------------*/
 
 .ui.vertical.steps {
+  display: inline-block;
   overflow: visible;
 }
 
@@ -12531,41 +12567,6 @@ ol.ui.horizontal.list li:before,
   .ui.steps .step:after {
     display: none;
   }
-}
-
-/*******************************
-            Group
-*******************************/
-
-.ui.steps {
-  display: inline-block;
-  font-size: 0em;
-  background: '';
-  box-shadow: '';
-  line-height: 1.142rem;
-  box-sizing: border-box;
-  border-radius: 0.2857rem;
-}
-
-.ui.steps .step:first-child {
-  padding-left: 1.5em;
-  border-radius: 0.2857rem 0em 0em 0.2857rem;
-}
-
-.ui.steps .step:last-child {
-  border-radius: 0em 0.2857rem 0.2857rem 0em;
-}
-
-.ui.steps .step:only-child {
-  border-radius: 0.2857rem;
-}
-
-.ui.steps .step:last-child {
-  margin-right: 0em;
-}
-
-.ui.steps .step:last-child:after {
-  display: none;
 }
 
 /*******************************
