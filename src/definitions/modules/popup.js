@@ -601,8 +601,13 @@ $.fn.popup = function(parameters) {
 
             computedPosition = position;
             if (module.is.rtl()) {
-              computedPosition = computedPosition.replace(/left|right/g, function (m) { return m == 'left' ? 'right' : 'left' });
-              module.debug('RTL: popup positioning updated', computedPosition);
+              computedPosition = computedPosition.replace(/left|right/g, function (match) {
+                return (match == 'left')
+                  ? 'right'
+                  : 'left'
+                ;
+              });
+              module.debug('RTL: Popup positioning updated', computedPosition);
             }
 
             switch (computedPosition) {
