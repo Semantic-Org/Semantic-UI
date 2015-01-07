@@ -112,7 +112,7 @@
     Borders
 ---------------*/
 
-.ui.menu .item:before {
+.ui.menu .item:not(:last-child):before {
   position: absolute;
   content: '';
   top: 0%;
@@ -1565,6 +1565,11 @@
 }
 .ui.top.attached.menu {
   border-radius: @borderRadius @borderRadius 0em 0em;
+}
+.ui.top.attached.menu:not(.tabular){
+    box-shadow: none !important;
+    border: 1px solid @borderColor;
+    margin-bottom: -1px;
 }
 .ui.menu.bottom.attached {
   border-radius: 0em 0em @borderRadius @borderRadius;
