@@ -194,12 +194,12 @@ $.fn.sidebar = function(parameters) {
         add: {
           bodyCSS: function(direction, distance) {
             var
-              width  = $module.outerWidth(),
-              height = $module.outerHeight(),
+              width         = $module.outerWidth(),
+              height        = $module.outerHeight(),
               negativeWidth = width * -1,
               style
             ;
-            if (module.is.rtl()) {
+            if( module.is.rtl() ){
               width *= -1;
               negativeWidth *= -1;
             }
