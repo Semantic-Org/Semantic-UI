@@ -1,5 +1,14 @@
 ## RELEASE NOTES
 
+### Version 1.6.3
+
+**Code Optimizations**
+- **Modules** - Remove use of deprecated `.size()` for `.length` across all modules
+
+**Bugs**
+- **Steps** - Steps now use ``table-cell`` to allow steps to be equal height by default, even with different content height.
+- **Button** - Fix issue with labeled icon groups in material theme
+
 ### Version 1.6.2 - January 06, 2015
 
 **Site Variables**
