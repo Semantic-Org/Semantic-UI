@@ -6,11 +6,11 @@
 - **Project** - Right-to-left (RTL) support added. New gulp tasks for RTL *Thanks @MohammadYounes!*
 
 **Code / Build**
-- **Build** - `Dist/` files now have file permissions `644` by default. Can adjust in `semantic.json`. You will need to run `npm install` to add the new gulp-chmod dependency
+- **Build** - `Dist/` files now have file permissions `644` by default. Can adjust in `semantic.json`. You will need to run `npm install` to add the new gulp-chmod dependency *Thanks @PeterDaveHello*
 - **Modules** - Remove use of deprecated `.size()` for `.length` across all modules
 
 **Bugs**
-- **Segment** - ``ui tabular menu`` now correctly aligns with attached segment when using fluid variation
+- **Segment** - ``ui tabular menu`` now correctly aligns with attached segment when using fluid variation *Thanks @MohammadYounes*
 - **Steps** - Steps now use ``table-cell`` to allow steps to be equal height by default, even with different content height.
 - **Button** - Fix issue with labeled icon groups in material theme
 
