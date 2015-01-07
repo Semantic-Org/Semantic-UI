@@ -635,9 +635,9 @@
   font-weight: @tabularActiveWeight;
 
   margin-bottom: -@tabularBorderWidth;
-  border-bottom: @tabularBorderWidth solid @tabularBackgroundColor;
+  border-bottom: none;
 
-  box-shadow: none;
+  box-shadow: 0px 2*@tabularBorderWidth 0px -@tabularBorderWidth @tabularBackgroundColor;
   border-radius: @tabularBorderRadius @tabularBorderRadius 0px 0px;
 }
 
@@ -648,7 +648,6 @@
 }
 .ui.tabular.menu ~ .bottom.attached.segment {
   border-top: none;
-  margin: -1px 0px 0px;
 }
 
 
