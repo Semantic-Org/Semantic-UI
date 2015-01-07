@@ -563,13 +563,14 @@ $.fn.popup = function(parameters) {
                 ? parseInt( window.getComputedStyle(targetElement).getPropertyValue('margin-top'), 10)
                 : 0,
               marginLeft    = (settings.inline)
-                ? parseInt( window.getComputedStyle(targetElement).getPropertyValue('margin-left'), 10)
+                ? parseInt( window.getComputedStyle(targetElement).getPropertyValue(module.is.rtl() ? 'margin-right' : 'margin-left'), 10)
                 : 0,
 
               target        = (settings.inline || settings.popup)
                 ? $target.position()
                 : $target.offset(),
 
+              computedPosition,
               positioning,
               offstagePosition
             ;
@@ -597,7 +598,14 @@ $.fn.popup = function(parameters) {
               }
             }
             module.debug('Calculating popup positioning', position);
-            switch(position) {
+
+            computedPosition = position;
+            if (module.is.rtl()) {
+              computedPosition = computedPosition.replace(/left|right/g, function (m) { return m == 'left' ? 'right' : 'left' });
+              module.debug('RTL: popup positioning updated', computedPosition);
+            }
+
+            switch (computedPosition) {
               case 'top left':
                 positioning = {
                   top    : 'auto',
@@ -806,6 +814,9 @@ $.fn.popup = function(parameters) {
           },
           hidden: function() {
             return !module.is.visible();
+          },
+          rtl: function () {
+            return $module.css('direction') == 'rtl';
           }
         },
 
