@@ -3,6 +3,7 @@
 ### Version 1.7.0 -
 
 **Code / Build**
+- **Project** - Right-to-left (RTL) support added. New gulp tasks for RTL *Thanks @MohammadYounes!!!!*
 - **Build** - `Dist/` files now have file permissions `644` by default. Can adjust in `semantic.json`. You will need to run `npm install` to add the new gulp-chmod dependency
 - **Modules** - Remove use of deprecated `.size()` for `.length` across all modules
 
