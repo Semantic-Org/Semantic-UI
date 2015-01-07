@@ -40,6 +40,7 @@ var
   prompt       = require('gulp-prompt'),
   rename       = require('gulp-rename'),
   replace      = require('gulp-replace'),
+  rtlcss       = require('gulp-rtlcss'),
   sourcemaps   = require('gulp-sourcemaps'),
   uglify       = require('gulp-uglify'),
   util         = require('gulp-util'),
@@ -417,6 +418,40 @@ gulp.task('build', 'Builds all files from source', function(callback) {
 
 });
 
+gulp.task('build-rtl', 'Builds rtl css from release files', function (callback) {
+  var
+    stream
+  ;
+
+  console.info('Building Semantic RTL');
+
+  // unified css stream
+  stream = gulp.src(output.uncompressed + '**/' + componentGlob + '!(*.min|*.map|*.rtl).css')
+    .pipe(plumber())
+    .pipe(rtlcss())
+    .pipe(rename(settings.rename.rtlCSS))
+    .pipe(gulp.dest(output.uncompressed))
+    .pipe(print(log.created))
+    .on('end', function () {
+      gulp.start('package uncompressed rtl css');
+    })
+  ;
+
+  stream
+    .pipe(plumber())
+    .pipe(clone())
+    .pipe(minifyCSS(settings.minify))
+    .pipe(rename(settings.rename.minCSS))
+    .pipe(gulp.dest(output.compressed))
+    .pipe(print(log.created))
+    .on('end', function () {
+      callback();
+      gulp.start('package compressed rtl css');
+    })
+  ;
+
+});
+
 // cleans distribution files
 gulp.task('clean', 'Clean dist folder', function(callback) {
   return del([clean], settings.del, callback);
@@ -431,7 +466,7 @@ gulp.task('version', 'Displays current version of Semantic', function(callback) 
 ---------------*/
 
 gulp.task('package uncompressed css', false, function() {
-  return gulp.src(output.uncompressed + '**/' + componentGlob + '!(*.min|*.map).css')
+  return gulp.src(output.uncompressed + '**/' + componentGlob + '!(*.min|*.map|*.rtl).css')
     .pipe(plumber())
     .pipe(replace(assetPaths.uncompressed, assetPaths.packaged))
     .pipe(concatCSS('semantic.css'))
@@ -441,14 +476,34 @@ gulp.task('package uncompressed css', false, function() {
   ;
 });
 
+gulp.task('package uncompressed rtl css', false, function () {
+  return gulp.src(output.uncompressed + '**/' + componentGlob + '!(*.min|*.map).rtl.css')
+    .pipe(replace(assetPaths.uncompressed, assetPaths.packaged))
+    .pipe(concatCSS('semantic.rtl.css'))
+      .pipe(gulp.dest(output.packaged))
+      .pipe(print(log.created))
+  ;
+});
+
 gulp.task('package compressed css', false, function() {
-  return gulp.src(output.uncompressed + '**/' + componentGlob + '!(*.min|*.map).css')
+  return gulp.src(output.uncompressed + '**/' + componentGlob + '!(*.min|*.map|*.rtl).css')
     .pipe(plumber())
     .pipe(replace(assetPaths.uncompressed, assetPaths.packaged))
     .pipe(concatCSS('semantic.min.css'))
       .pipe(minifyCSS(settings.minify))
       .pipe(header(banner, settings.header))
       .pipe(chmod(config.permission))
+      .pipe(gulp.dest(output.packaged))
+      .pipe(print(log.created))
+  ;
+});
+
+gulp.task('package compressed rtl css', false, function () {
+  return gulp.src(output.uncompressed + '**/' + componentGlob + '!(*.min|*.map).rtl.css')
+    .pipe(replace(assetPaths.uncompressed, assetPaths.packaged))
+    .pipe(concatCSS('semantic.rtl.min.css'))
+      .pipe(minifyCSS(settings.minify))
+      .pipe(header(banner, settings.header))
       .pipe(gulp.dest(output.packaged))
       .pipe(print(log.created))
   ;
