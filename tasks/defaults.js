@@ -6,7 +6,6 @@ module.exports = {
 
   base        : '',
   theme       : './src/theme.config',
-
   permission  : 644,
 
   docs : {
@@ -81,6 +80,9 @@ module.exports = {
     'state',
     'visibility'
   ],
+
+  // ignored files for compile
+  ignoredFiles : '!(*.min|*.map|*.rtl)',
 
   // modified to create configs
   templates: {
