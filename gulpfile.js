@@ -182,6 +182,10 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function(callb
     return;
   }
 
+  if(config.rtl) {
+    gulp.start('watch rtl');
+    return;
+  }
 
   // watching changes in style
   gulp
@@ -335,6 +339,11 @@ gulp.task('build', 'Builds all files from source', function(callback) {
 
   if(!fs.existsSync(config.files.theme)) {
     console.error('Cant build LESS. Run "gulp install" to create a theme config file');
+    return;
+  }
+
+  if(config.rtl) {
+    gulp.start('build rtl');
     return;
   }
 

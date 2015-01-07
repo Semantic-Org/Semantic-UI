@@ -6,7 +6,9 @@ module.exports = {
 
   base        : '',
   theme       : './src/theme.config',
+
   permission  : 644,
+  rtl         : false,
 
   docs : {
     source : '../docs/server/files/release/',

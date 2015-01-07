@@ -17,6 +17,7 @@
     "clean"        : "dist/"
   },
 
-  "permission" : 644
+  "permission" : 644,
+  "rtl": false
 
 }
