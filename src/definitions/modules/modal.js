@@ -172,7 +172,7 @@ $.fn.modal = function(parameters) {
             ? module[event]
             : module.toggle
           ;
-          if($toggle.size() > 0) {
+          if($toggle.length > 0) {
             module.debug('Attaching modal events to element', selector, event);
             $toggle
               .off(eventNamespace)
@@ -225,7 +225,7 @@ $.fn.modal = function(parameters) {
             }
           },
           click: function(event) {
-            if( $(event.target).closest($module).size() === 0 ) {
+            if( $(event.target).closest($module).length === 0 ) {
               module.debug('Dimmer clicked, hiding all modals');
               if( module.is.active() ) {
                 module.remove.clickaway();
@@ -306,7 +306,7 @@ $.fn.modal = function(parameters) {
             module.set.type();
             module.set.clickaway();
 
-            if( !settings.allowMultiple && $otherModals.filter(':visible').size() > 0) {
+            if( !settings.allowMultiple && $otherModals.filter(':visible').length > 0) {
               module.debug('Other modals visible, queueing show animation');
               module.hideOthers(module.showModal);
             }
@@ -455,7 +455,7 @@ $.fn.modal = function(parameters) {
         },
 
         othersActive: function() {
-          return ($otherModals.filter('.' + className.active).size() > 0);
+          return ($otherModals.filter('.' + className.active).length > 0);
         },
 
         add: {
@@ -475,7 +475,7 @@ $.fn.modal = function(parameters) {
 
         restore: {
           focus: function() {
-            if($focusedElement && $focusedElement.size() > 0) {
+            if($focusedElement && $focusedElement.length > 0) {
               $focusedElement.focus();
             }
           }
@@ -559,7 +559,7 @@ $.fn.modal = function(parameters) {
               var
                 $inputs    = $module.find(':input:visible'),
                 $autofocus = $inputs.filter('[autofocus]'),
-                $input     = ($autofocus.size() > 0)
+                $input     = ($autofocus.length > 0)
                   ? $autofocus
                   : $inputs
               ;

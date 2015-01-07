@@ -120,7 +120,7 @@ $.fn.checkbox = function(parameters) {
             ? module[event]
             : module.toggle
           ;
-          if($element.size() > 0) {
+          if($element.length > 0) {
             module.debug('Attaching checkbox events to element', selector, event);
             $element
               .on('click' + eventNamespace, event)
@@ -193,7 +193,7 @@ $.fn.checkbox = function(parameters) {
 
         create: {
           label: function() {
-            if($input.prevAll(selector.label).size() > 0) {
+            if($input.prevAll(selector.label).length > 0) {
               $input.prev(selector.label).detach().insertAfter($input);
               module.debug('Moving existing label', $label);
             }
@@ -206,7 +206,7 @@ $.fn.checkbox = function(parameters) {
 
         has: {
           label: function() {
-            return ($label.size() > 0);
+            return ($label.length > 0);
           }
         },
 

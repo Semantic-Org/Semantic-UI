@@ -233,7 +233,7 @@ $.fn.popup = function(parameters) {
             }
             $.proxy(settings.onCreate, $popup)(element);
           }
-          else if($target.next(settings.selector.popup).size() !== 0) {
+          else if($target.next(settings.selector.popup).length !== 0) {
             module.verbose('Pre-existing popup found, reverting to inline');
             settings.inline = true;
             module.refresh();
@@ -296,7 +296,7 @@ $.fn.popup = function(parameters) {
 
         hideGracefully: function(event) {
           // don't close on clicks inside popup
-          if(event && $(event.target).closest(selector.popup).size() === 0) {
+          if(event && $(event.target).closest(selector.popup).length === 0) {
             module.debug('Click occurred outside popup hiding popup');
             module.hide();
           }
@@ -313,7 +313,7 @@ $.fn.popup = function(parameters) {
             return ( module.has.popup() );
           }
           else {
-            return ( $popup.closest($context).size() > 1 )
+            return ( $popup.closest($context).length > 1 )
               ? true
               : false
             ;
@@ -787,7 +787,7 @@ $.fn.popup = function(parameters) {
 
         has: {
           popup: function() {
-            return ($popup.size() > 0);
+            return ($popup.length > 0);
           }
         },
 

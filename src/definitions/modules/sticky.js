@@ -68,7 +68,7 @@ $.fn.sticky = function(parameters) {
           else {
             $context = $container;
           }
-          if($context.size() === 0) {
+          if($context.length === 0) {
             module.error(error.invalidContext, settings.context, $module);
             return;
           }
@@ -226,7 +226,7 @@ $.fn.sticky = function(parameters) {
               }
             };
             module.set.containerSize();
-            module.set.size();
+            module.set.length;
             module.stick();
             module.debug('Caching element positions', module.cache);
           }

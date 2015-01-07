@@ -111,7 +111,7 @@ $.fn.transition = function() {
             $parentElement = $module.parent(),
             $nextElement = $module.next()
           ;
-          if($nextElement.size() === 0) {
+          if($nextElement.length === 0) {
             $module.detach().appendTo($parentElement);
           }
           else {
@@ -635,7 +635,7 @@ $.fn.transition = function() {
           occuring: function(animation) {
             animation = animation || settings.animation;
             animation = animation.replace(' ', '.');
-            return ( $module.filter(animation).size() > 0 );
+            return ( $module.filter(animation).length > 0 );
           },
           visible: function() {
             return $module.is(':visible');
@@ -766,8 +766,8 @@ $.fn.transition = function() {
             if(moduleSelector) {
               title += ' \'' + moduleSelector + '\'';
             }
-            if($allModules.size() > 1) {
-              title += ' ' + '(' + $allModules.size() + ')';
+            if($allModules.length > 1) {
+              title += ' ' + '(' + $allModules.length + ')';
             }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
               console.groupCollapsed(title);
