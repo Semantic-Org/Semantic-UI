@@ -538,7 +538,7 @@ gulp.task('watch rtl', 'Watch for site/theme changes (Default Task)', function(c
           //.pipe(sourcemaps.write('/', settings.sourcemap))
           .pipe(header(banner, settings.header))
           .pipe(chmod(config.permission))
-          .pipe(rename(settings.rename.minRTLCSS))
+          .pipe(rename(settings.rename.rtlMinCSS))
           .pipe(gulp.dest(output.compressed))
           .pipe(print(log.created))
           .on('end', function() {
@@ -594,39 +594,119 @@ gulp.task('watch rtl', 'Watch for site/theme changes (Default Task)', function(c
 });
 
 /* Build RTL */
-gulp.task('build rtl', 'Builds rtl css from release files', function (callback) {
-
+gulp.task('build rtl', 'Builds all files from source', function(callback) {
   var
-    stream
+    stream,
+    compressedStream,
+    uncompressedStream
   ;
 
-  console.info('Building Semantic RTL');
+  console.info('Building Semantic');
 
-  // unified css stream
-  stream = gulp.src(output.uncompressed + '**/' + componentGlob + config.ignoredFiles + '.css')
+  if(!fs.existsSync(config.files.theme)) {
+    console.error('Cant build LESS. Run "gulp install" to create a theme config file');
+    return;
+  }
+
+  // get relative asset path (path returns wrong path?)
+  // assetPaths.source = path.relative(srcPath, path.resolve(source.themes));
+  assetPaths.source = '../../themes'; // hardcoded
+
+  // copy assets
+  gulp.src(source.themes + '**/assets/**')
+    .pipe(chmod(config.permission))
+    .pipe(gulp.dest(output.themes))
+  ;
+
+  // javascript stream
+  gulp.src(source.definitions + '**/' + componentGlob + '.js')
     .pipe(plumber())
-    .pipe(rtlcss())
-    .pipe(rename(settings.rename.rtlCSS))
+    .pipe(flatten())
+    .pipe(chmod(config.permission))
     .pipe(gulp.dest(output.uncompressed))
     .pipe(print(log.created))
-    .on('end', function () {
+    // .pipe(sourcemaps.init())
+    .pipe(uglify(settings.uglify))
+    .pipe(rename(settings.rename.minJS))
+    .pipe(header(banner, settings.header))
+    .pipe(chmod(config.permission))
+    .pipe(gulp.dest(output.compressed))
+    .pipe(print(log.created))
+    .on('end', function() {
+      gulp.start('package compressed js');
+      gulp.start('package uncompressed js');
+    })
+  ;
+
+  // unified css stream
+  stream = gulp.src(source.definitions + '**/' + componentGlob + '.less')
+    .pipe(plumber())
+    //.pipe(sourcemaps.init())
+    .pipe(less(settings.less))
+    .pipe(flatten())
+    .pipe(replace(comments.variables.in, comments.variables.out))
+    .pipe(replace(comments.large.in, comments.large.out))
+    .pipe(replace(comments.small.in, comments.small.out))
+    .pipe(replace(comments.tiny.in, comments.tiny.out))
+    .pipe(autoprefixer(settings.prefix))
+    .pipe(rtlcss())
+  ;
+
+  // use 2 concurrent streams from same source to concat release
+  uncompressedStream = stream.pipe(clone());
+  compressedStream   = stream.pipe(clone());
+
+  uncompressedStream
+    .pipe(plumber())
+    .pipe(replace(assetPaths.source, assetPaths.uncompressed))
+    //.pipe(sourcemaps.write('/', settings.sourcemap))
+    .pipe(rename(settings.rename.rtlCSS))
+    .pipe(header(banner, settings.header))
+    .pipe(chmod(config.permission))
+    .pipe(gulp.dest(output.uncompressed))
+    .pipe(print(log.created))
+    .on('end', function() {
       gulp.start('package uncompressed rtl css');
     })
   ;
 
-  stream
+  compressedStream = stream
     .pipe(plumber())
     .pipe(clone())
+    .pipe(replace(assetPaths.source, assetPaths.compressed))
     .pipe(minifyCSS(settings.minify))
-    .pipe(rename(settings.rename.minCSS))
+    .pipe(rename(settings.rename.rtlMinCSS))
+    //.pipe(sourcemaps.write('/', settings.sourcemap))
+    .pipe(header(banner, settings.header))
+    .pipe(chmod(config.permission))
     .pipe(gulp.dest(output.compressed))
     .pipe(print(log.created))
-    .on('end', function () {
+    .on('end', function() {
       callback();
       gulp.start('package compressed rtl css');
     })
   ;
 
+});
+
+gulp.task('package uncompressed rtl css', false, function () {
+  return gulp.src(output.uncompressed + '**/' + componentGlob + '!(*.min|*.map).rtl.css')
+    .pipe(replace(assetPaths.uncompressed, assetPaths.packaged))
+    .pipe(concatCSS('semantic.rtl.css'))
+      .pipe(gulp.dest(output.packaged))
+      .pipe(print(log.created))
+  ;
+});
+
+gulp.task('package compressed rtl css', false, function () {
+  return gulp.src(output.uncompressed + '**/' + componentGlob + '!(*.min|*.map).rtl.css')
+    .pipe(replace(assetPaths.uncompressed, assetPaths.packaged))
+    .pipe(concatCSS('semantic.rtl.min.css'))
+      .pipe(minifyCSS(settings.minify))
+      .pipe(header(banner, settings.header))
+      .pipe(gulp.dest(output.packaged))
+      .pipe(print(log.created))
+  ;
 });
 
 /*--------------
@@ -644,15 +724,6 @@ gulp.task('package uncompressed css', false, function() {
   ;
 });
 
-gulp.task('package uncompressed rtl css', false, function () {
-  return gulp.src(output.uncompressed + '**/' + componentGlob + '!(*.min|*.map).rtl.css')
-    .pipe(replace(assetPaths.uncompressed, assetPaths.packaged))
-    .pipe(concatCSS('semantic.rtl.css'))
-      .pipe(gulp.dest(output.packaged))
-      .pipe(print(log.created))
-  ;
-});
-
 gulp.task('package compressed css', false, function() {
   return gulp.src(output.uncompressed + '**/' + componentGlob + config.ignoredFiles + '.css')
     .pipe(plumber())
@@ -661,17 +732,6 @@ gulp.task('package compressed css', false, function() {
       .pipe(minifyCSS(settings.minify))
       .pipe(header(banner, settings.header))
       .pipe(chmod(config.permission))
-      .pipe(gulp.dest(output.packaged))
-      .pipe(print(log.created))
-  ;
-});
-
-gulp.task('package compressed rtl css', false, function () {
-  return gulp.src(output.uncompressed + '**/' + componentGlob + '!(*.min|*.map).rtl.css')
-    .pipe(replace(assetPaths.uncompressed, assetPaths.packaged))
-    .pipe(concatCSS('semantic.rtl.min.css'))
-      .pipe(minifyCSS(settings.minify))
-      .pipe(header(banner, settings.header))
       .pipe(gulp.dest(output.packaged))
       .pipe(print(log.created))
   ;

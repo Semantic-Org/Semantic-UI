@@ -43,7 +43,7 @@ module.exports = {
     minJS     : { extname : '.min.js' },
     minCSS    : { extname : '.min.css' },
     rtlCSS    : { extname : '.rtl.css' },
-    minRTLCSS : { extname : '.rtl.min.css' }
+    rtlMinCSS : { extname : '.rtl.min.css' }
   },
   wrench: {
     recursive: {
