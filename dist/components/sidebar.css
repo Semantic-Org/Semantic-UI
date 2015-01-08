@@ -164,7 +164,7 @@
 }
 
 /*--------------
-     Animating
+    Animating
 ---------------*/
 
 .ui.animating.sidebar {
@@ -177,7 +177,11 @@
 
 .ui.visible.sidebar {
   visibility: visible;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
 }
+
+/* Shadow Direction */
 .ui.left.visible.sidebar,
 .ui.right.visible.sidebar {
   box-shadow: 0px 0px 20px rgba(39, 41, 43, 0.15);
@@ -185,6 +189,37 @@
 .ui.top.visible.sidebar,
 .ui.bottom.visible.sidebar {
   box-shadow: 0px 0px 20px rgba(39, 41, 43, 0.15);
+}
+
+/* Visible On Load */
+.ui.visible.left.sidebar ~ .fixed,
+.ui.visible.left.sidebar ~ .pusher {
+  -webkit-transform: translate3d(260px, 0, 0);
+          transform: translate3d(260px, 0, 0);
+}
+.ui.visible.right.sidebar ~ .fixed,
+.ui.visible.right.sidebar ~ .pusher {
+  -webkit-transform: translate3d(-260px, 0, 0);
+          transform: translate3d(-260px, 0, 0);
+}
+.ui.visible.top.sidebar ~ .fixed,
+.ui.visible.top.sidebar ~ .pusher {
+  -webkit-transform: translate3d(0, 36px, 0);
+          transform: translate3d(0, 36px, 0);
+}
+.ui.visible.bottom.sidebar ~ .fixed,
+.ui.visible.bottom.sidebar ~ .pusher {
+  -webkit-transform: translate3d(0, -36px, 0);
+          transform: translate3d(0, -36px, 0);
+}
+
+/* opposite sides visible forces content overlay */
+.ui.visible.left.sidebar ~ .ui.visible.right.sidebar ~ .fixed,
+.ui.visible.left.sidebar ~ .ui.visible.right.sidebar ~ .pusher,
+.ui.visible.right.sidebar ~ .ui.visible.left.sidebar ~ .fixed,
+.ui.visible.right.sidebar ~ .ui.visible.left.sidebar ~ .pusher {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
 }
 
 /*--------------
@@ -249,17 +284,7 @@ html.ios {
   z-index: 102;
 }
 
-/* Animation */
-.animating.ui.overlay.sidebar,
-.ui.visible.overlay.sidebar {
-  -webkit-transition: -webkit-transform 500ms ease;
-          transition: transform 500ms ease;
-}
-
-/*--- Left ---*/
-
-
-/* Set-up */
+/* Initial */
 .ui.left.overlay.sidebar {
   -webkit-transform: translate3d(-100%, 0%, 0);
           transform: translate3d(-100%, 0%, 0);
@@ -277,7 +302,14 @@ html.ios {
           transform: translate3d(0%, 100%, 0);
 }
 
-/* End */
+/* Animation */
+.animating.ui.overlay.sidebar,
+.ui.visible.overlay.sidebar {
+  -webkit-transition: -webkit-transform 500ms ease;
+          transition: transform 500ms ease;
+}
+
+/* End - Sidebar */
 .ui.visible.left.overlay.sidebar {
   -webkit-transform: translate3d(0%, 0%, 0);
           transform: translate3d(0%, 0%, 0);
@@ -294,6 +326,8 @@ html.ios {
   -webkit-transform: translate3d(0%, 0%, 0);
           transform: translate3d(0%, 0%, 0);
 }
+
+/* End - Pusher */
 .ui.visible.overlay.sidebar ~ .fixed,
 .ui.visible.overlay.sidebar ~ .pusher {
   -webkit-transform: none !important;
@@ -312,6 +346,8 @@ html.ios {
           transition: transform 500ms ease;
   z-index: 102;
 }
+
+/* Sidebar - Initial */
 .ui.left.push.sidebar {
   -webkit-transform: translate3d(-100%, 0, 0);
           transform: translate3d(-100%, 0, 0);
@@ -364,6 +400,8 @@ html.ios {
 .ui.slide.along.sidebar {
   z-index: 1;
 }
+
+/* Sidebar - Initial */
 .ui.left.slide.along.sidebar {
   -webkit-transform: translate3d(-50%, 0, 0);
           transform: translate3d(-50%, 0, 0);
@@ -380,6 +418,8 @@ html.ios {
   -webkit-transform: translate3d(0%, 50%, 0);
           transform: translate3d(0%, 50%, 0);
 }
+
+/* Animation */
 .ui.animating.slide.along.sidebar {
   -webkit-transition: -webkit-transform 500ms ease;
           transition: transform 500ms ease;
@@ -400,6 +440,8 @@ html.ios {
 .ui.slide.out.sidebar {
   z-index: 1;
 }
+
+/* Sidebar - Initial */
 .ui.left.slide.out.sidebar {
   -webkit-transform: translate3d(50%, 0, 0);
           transform: translate3d(50%, 0, 0);
@@ -440,6 +482,8 @@ html.ios {
           transition: transform 500ms ease;
   z-index: 102;
 }
+
+/* Sidebar - Initial  */
 .ui.left.scale.down.sidebar {
   -webkit-transform: translate3d(-100%, 0, 0);
           transform: translate3d(-100%, 0, 0);
@@ -456,6 +500,8 @@ html.ios {
   -webkit-transform: translate3d(0%, 100%, 0);
           transform: translate3d(0%, 100%, 0);
 }
+
+/* Pusher - Initial */
 .ui.scale.down.left.sidebar ~ .pusher {
   -webkit-transform-origin: 75% 50%;
       -ms-transform-origin: 75% 50%;
