@@ -5,6 +5,9 @@
 **Major Changes**
 - **Project** - Right-to-left (RTL) support added. New gulp tasks for RTL *Thanks @MohammadYounes!*
 
+**Enhancements**
+- **Sidebar** - Having a sidebar visible on page load is now much simpler. You can include ``ui visible sidebar`` on page load to have a sidebar element appear on page load. To close call `$('.ui.sidebar').sidebar('hide')`
+
 **Code / Build**
 - **Build** - `Dist/` files now have file permissions `644` by default. Can adjust in `semantic.json`. You will need to run `npm install` to add the new gulp-chmod dependency *Thanks @PeterDaveHello*
 - **Modules** - Remove use of deprecated `.size()` for `.length` across all modules
