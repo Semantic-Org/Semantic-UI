@@ -234,6 +234,30 @@
 @coloredBackgroundImage: none;
 @coloredBoxShadow: @shadowBoxShadow;
 
+/* Inverted by default for solids */
+@blueTextColor: @invertedTextColor;
+@blueTextShadow: @invertedTextShadow;
+@greenTextColor: @invertedTextColor;
+@greenTextShadow: @invertedTextShadow;
+@greyTextColor: @invertedTextColor;
+@greyTextShadow: @invertedTextShadow;
+@orangeTextColor: @invertedTextColor;
+@orangeTextShadow: @invertedTextShadow;
+@pinkTextColor: @invertedTextColor;
+@pinkTextShadow: @invertedTextShadow;
+@purpleTextColor: @invertedTextColor;
+@purpleTextShadow: @invertedTextShadow;
+@redTextColor: @invertedTextColor;
+@redTextShadow: @invertedTextShadow;
+@tealTextColor: @invertedTextColor;
+@tealTextShadow: @invertedTextShadow;
+@yellowTextColor: @invertedTextColor;
+@yellowTextShadow: @invertedTextShadow;
+
+@blackTextColor: @invertedTextColor;
+@blackTextShadow: @invertedTextShadow;
+
+
 /* Ordinality */
 @primaryBackgroundImage: @coloredBackgroundImage;
 @primaryTextColor: @invertedTextColor;
