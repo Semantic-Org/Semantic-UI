@@ -352,6 +352,7 @@ $.fn.sidebar = function(parameters) {
             }
             module.refresh();
             if(module.othersActive() && module.get.transition() !== 'overlay') {
+              module.debug('Other sidebars currently visible');
               settings.transition = 'overlay';
               if(settings.exclusive) {
                 module.hideOthers();
@@ -450,9 +451,9 @@ $.fn.sidebar = function(parameters) {
           module.set.transition();
           module.repaint();
           animate = function() {
-            module.set.animating();
             module.bind.clickaway();
             module.add.bodyCSS();
+            module.set.animating();
             module.set.visible();
             if(!module.othersVisible()) {
               if(settings.dimPage) {
@@ -493,7 +494,6 @@ $.fn.sidebar = function(parameters) {
           module.set.transition();
           module.unbind.clickaway();
           module.unbind.scrollLock();
-          module.repaint();
 
           animate = function() {
             module.set.animating();
