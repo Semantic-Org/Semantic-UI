@@ -434,7 +434,7 @@ $.fn.sidebar = function(parameters) {
             transition = module.get.transition(),
             $transition = (transition == 'safe')
               ? $context
-              : transition == 'overlay' || module.othersActive()
+              : (transition === 'overlay' || module.othersActive())
                 ? $module
                 : $pusher,
             animate,
@@ -449,8 +449,8 @@ $.fn.sidebar = function(parameters) {
           }
           module.set.transition();
           module.repaint();
-          module.set.animating();
           animate = function() {
+            module.set.animating();
             module.bind.clickaway();
             module.add.bodyCSS();
             module.set.visible();
@@ -494,9 +494,9 @@ $.fn.sidebar = function(parameters) {
           module.unbind.clickaway();
           module.unbind.scrollLock();
           module.repaint();
-          module.set.animating();
 
           animate = function() {
+            module.set.animating();
             module.remove.visible();
             if(settings.dimPage && !module.othersVisible()) {
               $pusher.removeClass(className.dimmed);
