@@ -183,14 +183,14 @@ $.fn.transition = function() {
               module.verbose('Animation is outward, hiding element');
               module.restore.conditions();
               module.hide();
-              $.proxy(settings.onHide, this)();
+              settings.onHide.call(this);
             }
             else if( module.is.inward() ) {
               module.verbose('Animation is outward, showing element');
               module.restore.conditions();
               module.show();
               module.set.display();
-              $.proxy(settings.onShow, this)();
+              settings.onShow.call(this);
             }
             else {
               module.restore.conditions();
@@ -198,7 +198,7 @@ $.fn.transition = function() {
             module.remove.animation();
             module.remove.animating();
           }
-          $.proxy(settings.onComplete, this)();
+          settings.onComplete.call(this);
         },
 
         has: {
@@ -241,7 +241,7 @@ $.fn.transition = function() {
               module.add.failSafe();
             }
             module.set.duration(settings.duration);
-            $.proxy(settings.onStart, this)();
+            settings.onStart.call(this);
             module.debug('Starting tween', animation, $module.attr('class'));
           },
           duration: function(animationName, duration) {
