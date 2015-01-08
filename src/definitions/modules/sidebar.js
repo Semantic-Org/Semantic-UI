@@ -15,20 +15,20 @@
 
 $.fn.sidebar = function(parameters) {
   var
-    $allModules    = $(this),
-    $window        = $(window),
-    $document      = $(document),
-    $html          = $('html'),
-    $head          = $('head'),
+    $allModules     = $(this),
+    $window         = $(window),
+    $document       = $(document),
+    $html           = $('html'),
+    $head           = $('head'),
 
-    moduleSelector = $allModules.selector || '',
+    moduleSelector  = $allModules.selector || '',
 
-    time           = new Date().getTime(),
-    performance    = [],
+    time            = new Date().getTime(),
+    performance     = [],
 
-    query          = arguments[0],
-    methodInvoked  = (typeof query == 'string'),
-    queryArguments = [].slice.call(arguments, 1),
+    query           = arguments[0],
+    methodInvoked   = (typeof query == 'string'),
+    queryArguments  = [].slice.call(arguments, 1),
 
     requestAnimationFrame = window.requestAnimationFrame
       || window.mozRequestAnimationFrame
@@ -351,7 +351,7 @@ $.fn.sidebar = function(parameters) {
               settings.transition = 'overlay';
             }
             module.refresh();
-            if(module.othersVisible() && module.get.transition() !== 'overlay') {
+            if(module.othersActive() && module.get.transition() !== 'overlay') {
               settings.transition = 'overlay';
               if(settings.exclusive) {
                 module.hideOthers();
@@ -391,17 +391,24 @@ $.fn.sidebar = function(parameters) {
           }
         },
 
+        othersAnimating: function() {
+          return ($sidebars.not($module).filter('.' + className.animating).length > 0);
+        },
         othersVisible: function() {
           return ($sidebars.not($module).filter('.' + className.visible).length > 0);
+        },
+        othersActive: function() {
+          return(module.othersVisible() || module.othersAnimating());
         },
 
         hideOthers: function(callback) {
           var
             $otherSidebars = $sidebars.not($module).filter('.' + className.visible),
-            callback       = callback || function(){},
             sidebarCount   = $otherSidebars.length,
             callbackCount  = 0
           ;
+          callback       = callback || function(){};
+
           $otherSidebars
             .sidebar('hide', function() {
               callbackCount++;
@@ -427,7 +434,7 @@ $.fn.sidebar = function(parameters) {
             transition = module.get.transition(),
             $transition = (transition == 'safe')
               ? $context
-              : (transition == 'overlay' || module.othersVisible())
+              : transition == 'overlay' || module.othersActive()
                 ? $module
                 : $pusher,
             animate,
@@ -442,10 +449,10 @@ $.fn.sidebar = function(parameters) {
           }
           module.set.transition();
           module.repaint();
+          module.set.animating();
           animate = function() {
             module.bind.clickaway();
             module.add.bodyCSS();
-            module.set.animating();
             module.set.visible();
             if(!module.othersVisible()) {
               if(settings.dimPage) {
@@ -471,7 +478,7 @@ $.fn.sidebar = function(parameters) {
             transition = module.get.transition(),
             $transition = (transition == 'safe')
               ? $context
-              : (transition == 'overlay' || module.othersVisible())
+              : (transition == 'overlay' || module.othersActive())
                 ? $module
                 : $pusher,
             animate,
@@ -487,9 +494,9 @@ $.fn.sidebar = function(parameters) {
           module.unbind.clickaway();
           module.unbind.scrollLock();
           module.repaint();
+          module.set.animating();
 
           animate = function() {
-            module.set.animating();
             module.remove.visible();
             if(settings.dimPage && !module.othersVisible()) {
               $pusher.removeClass(className.dimmed);
@@ -556,7 +563,7 @@ $.fn.sidebar = function(parameters) {
           module.unbind.clickaway();
           module.set.animating();
           module.remove.visible();
-          if(settings.dimPage && !module.othersVisible()) {
+          if(settings.dimPage && !module.othersActive()) {
             $pusher.removeClass(className.dimmed);
           }
           $context
