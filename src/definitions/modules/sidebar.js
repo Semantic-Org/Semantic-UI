@@ -192,78 +192,78 @@ $.fn.sidebar = function(parameters) {
         },
 
         add: {
-          bodyCSS: function(direction, distance) {
+          bodyCSS: function() {
             var
-              width         = $module.outerWidth(),
-              height        = $module.outerHeight(),
-              negativeWidth = width * -1,
+              width     = $module.outerWidth(),
+              height    = $module.outerHeight(),
+              direction = module.get.direction(),
+              distance  = {
+                left   : width,
+                right  : -width,
+                top    : height,
+                bottom : -height
+              },
               style
             ;
             if( module.is.rtl() ){
-              width *= -1;
-              negativeWidth *= -1;
+              module.verbose('RTL detected, flipping widths');
+              distance.left = -width;
+              distance.right = width;
             }
-            style  = ''
-              + '<style title="' + namespace + '">'
-              + ' .ui.visible.left.sidebar ~ .fixed,'
-              + ' .ui.visible.left.sidebar ~ .pusher {'
-              + '   -webkit-transform: translate3d('+ width + 'px, 0, 0);'
-              + '           transform: translate3d('+ width + 'px, 0, 0);'
-              + ' }'
-              + ' .ui.visible.right.sidebar ~ .fixed,'
-              + ' .ui.visible.right.sidebar ~ .pusher {'
-              + '   -webkit-transform: translate3d('+ negativeWidth + 'px, 0, 0);'
-              + '           transform: translate3d('+ negativeWidth + 'px, 0, 0);'
-              + ' }'
-              + ' .ui.visible.left.sidebar ~ .ui.visible.right.sidebar ~ .fixed,'
-              + ' .ui.visible.left.sidebar ~ .ui.visible.right.sidebar ~ .pusher,'
-              + ' .ui.visible.right.sidebar ~ .ui.visible.left.sidebar ~ .fixed,'
-              + ' .ui.visible.right.sidebar ~ .ui.visible.left.sidebar ~ .pusher {'
-              + '   -webkit-transform: translate3d(0px, 0, 0);'
-              + '           transform: translate3d(0px, 0, 0);'
-              + ' }'
-              + ' .ui.visible.top.sidebar ~ .fixed,'
-              + ' .ui.visible.top.sidebar ~ .pusher {'
-              + '   -webkit-transform: translate3d(0, ' + height + 'px, 0);'
-              + '           transform: translate3d(0, ' + height + 'px, 0);'
-              + ' }'
-              + ' .ui.visible.bottom.sidebar ~ .fixed,'
-              + ' .ui.visible.bottom.sidebar ~ .pusher {'
-              + '   -webkit-transform: translate3d(0, -' + height + 'px, 0);'
-              + '           transform: translate3d(0, -' + height + 'px, 0);'
-              + ' }'
-            ;
+
+            style  = '<style title="' + namespace + '">';
+
+            if(direction === 'left' || direction === 'right') {
+              module.debug('Adding CSS rules for animation distance', width);
+              style  += ''
+                + ' .ui.visible.' + direction + '.sidebar ~ .fixed,'
+                + ' .ui.visible.' + direction + '.sidebar ~ .pusher {'
+                + '   -webkit-transform: translate3d('+ distance[direction] + 'px, 0, 0);'
+                + '           transform: translate3d('+ distance[direction] + 'px, 0, 0);'
+                + ' }'
+              ;
+            }
+            else if(direction === 'top' || direction == 'bottom') {
+              style  += ''
+                + ' .ui.visible.' + direction + '.sidebar ~ .fixed,'
+                + ' .ui.visible.' + direction + '.sidebar ~ .pusher {'
+                + '   -webkit-transform: translate3d(0, ' + distance[direction] + 'px, 0);'
+                + '           transform: translate3d(0, ' + distance[direction] + 'px, 0);'
+                + ' }'
+              ;
+            }
 
             /* IE is only browser not to create context with transforms */
             /* https://www.w3.org/Bugs/Public/show_bug.cgi?id=16328 */
             if( module.is.ie() ) {
+              if(direction === 'left' || direction === 'right') {
+                module.debug('Adding CSS rules for animation distance', width);
+                style  += ''
+                  + ' .ui.visible.' + direction + '.sidebar ~ .pusher:after {'
+                  + '   -webkit-transform: translate3d('+ distance[direction] + 'px, 0, 0);'
+                  + '           transform: translate3d('+ distance[direction] + 'px, 0, 0);'
+                  + ' }'
+                ;
+              }
+              else if(direction === 'top' || direction == 'bottom') {
+                style  += ''
+                  + ' .ui.visible.' + direction + '.sidebar ~ .pusher:after {'
+                  + '   -webkit-transform: translate3d(0, ' + distance[direction] + 'px, 0);'
+                  + '           transform: translate3d(0, ' + distance[direction] + 'px, 0);'
+                  + ' }'
+                ;
+              }
+              /* opposite sides visible forces content overlay */
               style += ''
-                + ' .ui.visible.left.sidebar ~ .pusher:after {'
-                + '   -webkit-transform: translate3d('+ width + 'px, 0, 0);'
-                + '           transform: translate3d('+ width + 'px, 0, 0);'
-                + ' }'
-                + ' .ui.visible.right.sidebar ~ .pusher:after {'
-                + '   -webkit-transform: translate3d('+ negativeWidth + 'px, 0, 0);'
-                + '           transform: translate3d('+ negativeWidth + 'px, 0, 0);'
-                + ' }'
                 + ' .ui.visible.left.sidebar ~ .ui.visible.right.sidebar ~ .pusher:after,'
                 + ' .ui.visible.right.sidebar ~ .ui.visible.left.sidebar ~ .pusher:after {'
                 + '   -webkit-transform: translate3d(0px, 0, 0);'
                 + '           transform: translate3d(0px, 0, 0);'
                 + ' }'
-                + ' .ui.visible.top.sidebar ~ .pusher:after {'
-                + '   -webkit-transform: translate3d(0, ' + height + 'px, 0);'
-                + '           transform: translate3d(0, ' + height + 'px, 0);'
-                + ' }'
-                + ' .ui.visible.bottom.sidebar ~ .pusher:after {'
-                + '   -webkit-transform: translate3d(0, -' + height + 'px, 0);'
-                + '           transform: translate3d(0, -' + height + 'px, 0);'
-                + ' }'
               ;
             }
 
-           style += '</style>';
-
+            style += '</style>';
             $head.append(style);
             $style = $('style[title=' + namespace + ']');
             module.debug('Adding sizing css to head', $style);
@@ -351,8 +351,8 @@ $.fn.sidebar = function(parameters) {
               settings.transition = 'overlay';
             }
             module.refresh();
-            if(module.othersVisible() && module.get.transition() != 'overlay') {
-              module.debug('Other sidebars currently open');
+            if(module.othersVisible() && module.get.transition() !== 'overlay') {
+              settings.transition = 'overlay';
               if(settings.exclusive) {
                 module.hideOthers();
               }
@@ -483,8 +483,10 @@ $.fn.sidebar = function(parameters) {
           ;
           module.verbose('Removing context push state', module.get.direction());
 
+          module.set.transition();
           module.unbind.clickaway();
           module.unbind.scrollLock();
+          module.repaint();
 
           animate = function() {
             module.set.animating();
@@ -618,7 +620,7 @@ $.fn.sidebar = function(parameters) {
 
           bodyCSS: function() {
             module.debug('Removing body css styles', $style);
-            if($style.length > 0) {
+            if($style && $style.length > 0) {
               $style.remove();
             }
           },
