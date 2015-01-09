@@ -375,7 +375,7 @@ $.fn.form = function(fields, parameters) {
             if(allValid) {
               module.debug('Form has no validation errors, submitting');
               module.set.success();
-              return $.proxy(settings.onSuccess, element)(event);
+              return settings.onSuccess.call(element, event);
             }
             else {
               module.debug('Form has errors');
@@ -387,7 +387,7 @@ $.fn.form = function(fields, parameters) {
               if($module.data('moduleApi') !== undefined) {
                 event.stopImmediatePropagation();
               }
-              return $.proxy(settings.onFailure, element)(formErrors);
+              return settings.onFailure.call(element, formErrors);
             }
           },
 
@@ -417,12 +417,12 @@ $.fn.form = function(fields, parameters) {
             }
             if(fieldValid) {
               module.remove.prompt(field, fieldErrors);
-              $.proxy(settings.onValid, $field)();
+              settings.onValid.call($field);
             }
             else {
               formErrors = formErrors.concat(fieldErrors);
               module.add.prompt(field.identifier, fieldErrors);
-              $.proxy(settings.onInvalid, $field)(fieldErrors);
+              settings.onInvalid.call($field, fieldErrors);
               return false;
             }
             return true;
@@ -445,11 +445,11 @@ $.fn.form = function(fields, parameters) {
             if(bracket !== undefined && bracket !== null) {
               ancillary    = '' + bracket[1];
               functionType = type.replace(bracket[0], '');
-              isValid      = $.proxy(settings.rules[functionType], element)(value, ancillary);
+              isValid      = settings.rules[functionType].call(element, value, ancillary);
             }
             // normal notation
             else {
-              isValid = $.proxy(settings.rules[type], $field)(value);
+              isValid = settings.rules[type].call($field, value);
             }
             return isValid;
           }
