@@ -313,7 +313,7 @@ $.fn.popup = function(parameters) {
             return ( module.has.popup() );
           }
           else {
-            return ( $popup.closest($context).length > 1 )
+            return ( $popup.closest($context).length >= 1 )
               ? true
               : false
             ;
