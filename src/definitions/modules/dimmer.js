@@ -172,8 +172,8 @@ $.fn.dimmer = function(parameters) {
           module.debug('Showing dimmer', $dimmer, settings);
           if( (!module.is.dimmed() || module.is.animating()) && module.is.enabled() ) {
             module.animate.show(callback);
-            $.proxy(settings.onShow, element)();
-            $.proxy(settings.onChange, element)();
+            settings.onShow.call(element);
+            settings.onChange.call(element);
           }
           else {
             module.debug('Dimmer is already shown or disabled');
@@ -188,8 +188,8 @@ $.fn.dimmer = function(parameters) {
           if( module.is.dimmed() || module.is.animating() ) {
             module.debug('Hiding dimmer', $dimmer);
             module.animate.hide(callback);
-            $.proxy(settings.onHide, element)();
-            $.proxy(settings.onChange, element)();
+            settings.onHide.call(element);
+            settings.onChange.call(element);
           }
           else {
             module.debug('Dimmer is not visible');
