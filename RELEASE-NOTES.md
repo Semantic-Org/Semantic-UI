@@ -14,6 +14,7 @@
 - **Modules** - Use of `$.proxy` swapped to native `function.call()` for performance gains
 
 **Bugs**
+- **Popup** - Popup no longer blurs element on popup hide
 - **Segment** - ``ui tabular menu`` now correctly aligns with attached segment when using fluid variation *Thanks @MohammadYounes*
 - **Steps** - Steps now use ``table-cell`` to allow steps to be equal height by default, even with different content height.
 - **Button** - Fix issue with labeled icon groups in material theme
