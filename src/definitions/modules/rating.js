@@ -213,7 +213,7 @@ $.fn.rating = function(parameters) {
                 .addClass(className.active)
             ;
           }
-          $.proxy(settings.onRate, element)(rating);
+          settings.onRate.call(element, rating);
         },
 
         setting: function(name, value) {
