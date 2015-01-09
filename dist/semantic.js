@@ -1429,7 +1429,7 @@ $.fn.accordion = function(parameters) {
 
         event: {
           click: function() {
-            $.proxy(module.toggle, this)();
+            module.toggle.call(this);
           }
         },
 
@@ -1446,14 +1446,14 @@ $.fn.accordion = function(parameters) {
           module.debug('Toggling visibility of content', $activeTitle);
           if(contentIsOpen) {
             if(settings.collapsible) {
-              $.proxy(module.close, $activeTitle)();
+              module.close.call($activeTitle);
             }
             else {
               module.debug('Cannot close accordion content collapsing is disabled');
             }
           }
           else {
-            $.proxy(module.open, $activeTitle)();
+              module.open.call($activeTitle);
           }
         },
 
@@ -1471,7 +1471,7 @@ $.fn.accordion = function(parameters) {
           if(!currentlyAnimating && !currentlyActive) {
             module.debug('Opening accordion content', $activeTitle);
             if(settings.exclusive) {
-              $.proxy(module.closeOthers, $activeTitle)();
+              module.closeOthers.call($activeTitle);
             }
             $activeTitle
               .addClass(className.active)
@@ -1505,9 +1505,9 @@ $.fn.accordion = function(parameters) {
                 $activeContent
                   .addClass(className.active)
                 ;
-                $.proxy(module.reset.display, this)();
-                $.proxy(settings.onOpen, this)();
-                $.proxy(settings.onChange, this)();
+                module.reset.display.call(this);
+                settings.onOpen.call(this);
+                settings.onChange.call(this);
               })
             ;
           }
@@ -1558,9 +1558,9 @@ $.fn.accordion = function(parameters) {
             $activeContent
               .stop()
               .slideUp(settings.duration, settings.easing, function() {
-                $.proxy(module.reset.display, this)();
-                $.proxy(settings.onClose, this)();
-                $.proxy(settings.onChange, this)();
+                module.reset.display.call(this);
+                settings.onClose.call(this);
+                settings.onChange.call(this);
               })
             ;
           }
@@ -1621,7 +1621,7 @@ $.fn.accordion = function(parameters) {
               .stop()
               .slideUp(settings.duration , settings.easing, function() {
                 $(this).removeClass(className.active);
-                $.proxy(module.reset.display, this)();
+                module.reset.display.call(this);
               })
             ;
           }
@@ -1942,13 +1942,13 @@ $.fn.checkbox = function(parameters) {
           if( module.is.checked() ) {
             module.set.checked();
             if(settings.fireOnInit) {
-              $.proxy(settings.onChecked, $input.get())();
+              settings.onChecked.call($input.get());
             }
           }
           else {
             module.remove.checked();
             if(settings.fireOnInit) {
-              $.proxy(settings.onUnchecked, $input.get())();
+              settings.onUnchecked.call($input.get());
             }
           }
           module.observeChanges();
@@ -2028,7 +2028,7 @@ $.fn.checkbox = function(parameters) {
             }
             if(!event.ctrlKey && key == keyCode.enter) {
               module.verbose('Enter key pressed, toggling checkbox');
-              $.proxy(module.toggle, this)();
+              module.toggle.call(this);
               event.preventDefault();
             }
           }
@@ -2123,14 +2123,14 @@ $.fn.checkbox = function(parameters) {
           module.debug('Enabling checkbox functionality');
           $module.removeClass(className.disabled);
           $input.prop('disabled', false);
-          $.proxy(settings.onEnabled, $input.get())();
+          settings.onEnabled.call($input.get());
         },
 
         disable: function() {
           module.debug('Disabling checkbox functionality');
           $module.addClass(className.disabled);
           $input.prop('disabled', 'disabled');
-          $.proxy(settings.onDisabled, $input.get())();
+          settings.onDisabled.call($input.get());
         },
 
         check: function() {
@@ -2140,8 +2140,8 @@ $.fn.checkbox = function(parameters) {
             .trigger('change')
           ;
           module.set.checked();
-          $.proxy(settings.onChange, $input.get())();
-          $.proxy(settings.onChecked, $input.get())();
+          settings.onChange.call($input.get());
+          settings.onChecked.call($input.get());
         },
 
         uncheck: function() {
@@ -2151,8 +2151,8 @@ $.fn.checkbox = function(parameters) {
             .trigger('change')
           ;
           module.remove.checked();
-          $.proxy(settings.onChange, $input.get())();
-          $.proxy(settings.onUnchecked, $input.get())();
+          settings.onChange.call($input.get());
+          settings.onUnchecked.call($input.get());
         },
 
         toggle: function(event) {
@@ -3243,9 +3243,9 @@ $.fn.dropdown = function(parameters) {
                 module.bind.intent();
               }
               module.set.visible();
-              $.proxy(callback, element)();
+              callback.call(element);
             });
-            $.proxy(settings.onShow, element)();
+            settings.onShow.call(element);
           }
         },
 
@@ -3258,9 +3258,9 @@ $.fn.dropdown = function(parameters) {
             module.debug('Hiding dropdown');
             module.animate.hide(function() {
               module.remove.visible();
-              $.proxy(callback, element)();
+              callback.call(element);
             });
-            $.proxy(settings.onHide, element)();
+            settings.onHide.call(element);
           }
         },
 
@@ -3420,7 +3420,7 @@ $.fn.dropdown = function(parameters) {
           if( module.is.allFiltered() ) {
             module.debug('All items filtered, hiding dropdown', searchTerm);
             module.hide();
-            $.proxy(settings.onNoResults, element)(searchTerm);
+            settings.onNoResults.call(element, searchTerm);
           }
         },
 
@@ -3506,7 +3506,7 @@ $.fn.dropdown = function(parameters) {
             if(module.is.visible()) {
               if(pressedKey == keys.enter && hasSelectedItem) {
                 module.verbose('Enter key pressed, choosing selected item');
-                $.proxy(module.event.item.click, $selectedItem)(event);
+                module.event.item.click.call($selectedItem, event);
                 event.preventDefault();
                 return false;
               }
@@ -4074,7 +4074,7 @@ $.fn.dropdown = function(parameters) {
 
               selectedText = module.get.choiceText($selectedItem);
               module.set.text(selectedText);
-              $.proxy(settings.onChange, element)(value, selectedText, $selectedItem);
+              settings.onChange.call(element, value, selectedText, $selectedItem);
             }
           }
         },
@@ -4188,7 +4188,7 @@ $.fn.dropdown = function(parameters) {
             module.verbose('Doing menu show animation', $currentMenu);
             if( module.is.hidden($currentMenu) || module.is.animating($currentMenu) ) {
               if(settings.transition == 'none') {
-                $.proxy(callback, element)();
+                callback.call(element);
               }
               else if($.fn.transition !== undefined && $module.transition('is supported')) {
                 $currentMenu
@@ -4200,7 +4200,7 @@ $.fn.dropdown = function(parameters) {
                     queue      : true,
                     onStart    : start,
                     onComplete : function() {
-                      $.proxy(callback, element)();
+                      callback.call(element);
                     }
                   })
                 ;
@@ -4219,8 +4219,8 @@ $.fn.dropdown = function(parameters) {
                     }, settings.duration, 'easeOutQuad', module.event.resetStyle)
                     .end()
                   .slideDown(100, 'easeOutQuad', function() {
-                    $.proxy(module.event.resetStyle, this)();
-                    $.proxy(callback, element)();
+                    module.event.resetStyle.call(this);
+                    callback.call(element);
                   })
                 ;
               }
@@ -4230,8 +4230,8 @@ $.fn.dropdown = function(parameters) {
                   .hide()
                   .clearQueue()
                   .fadeIn(settings.duration, function() {
-                    $.proxy(module.event.resetStyle, this)();
-                    $.proxy(callback, element)();
+                    module.event.resetStyle.call(this);
+                    callback.call(element);
                   })
                 ;
               }
@@ -4264,7 +4264,7 @@ $.fn.dropdown = function(parameters) {
               module.verbose('Doing menu hide animation', $currentMenu);
 
               if(settings.transition == 'none') {
-                $.proxy(callback, element)();
+                callback.call(element);
               }
               else if($.fn.transition !== undefined && $module.transition('is supported')) {
                 $currentMenu
@@ -4276,7 +4276,7 @@ $.fn.dropdown = function(parameters) {
                     queue      : true,
                     onStart    : start,
                     onComplete : function() {
-                      $.proxy(callback, element)();
+                      callback.call(element);
                     }
                   })
                 ;
@@ -4295,8 +4295,8 @@ $.fn.dropdown = function(parameters) {
                     .end()
                   .delay(50)
                   .slideUp(100, 'easeOutQuad', function() {
-                    $.proxy(module.event.resetStyle, this)();
-                    $.proxy(callback, element)();
+                    module.event.resetStyle.call(this);
+                    callback.call(element);
                   })
                 ;
               }
@@ -4306,8 +4306,8 @@ $.fn.dropdown = function(parameters) {
                   .show()
                   .clearQueue()
                   .fadeOut(150, function() {
-                    $.proxy(module.event.resetStyle, this)();
-                    $.proxy(callback, element)();
+                    module.event.resetStyle.call(this);
+                    callback.call(element);
                   })
                 ;
               }
@@ -4837,7 +4837,7 @@ $.fn.modal = function(parameters) {
           close: function() {
             module.verbose('Closing element pressed');
             if( $(this).is(selector.approve) ) {
-              if($.proxy(settings.onApprove, element)() !== false) {
+              if(settings.onApprove.call(element) !== false) {
                 module.hide();
               }
               else {
@@ -4845,7 +4845,7 @@ $.fn.modal = function(parameters) {
               }
             }
             else if( $(this).is(selector.deny) ) {
-              if($.proxy(settings.onDeny, element)() !== false) {
+              if(settings.onDeny.call(element) !== false) {
                 module.hide();
               }
               else {
@@ -4943,7 +4943,7 @@ $.fn.modal = function(parameters) {
               module.hideOthers(module.showModal);
             }
             else {
-              $.proxy(settings.onShow, element)();
+              settings.onShow.call(element);
               if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
                 module.debug('Showing modal with css animations');
                 $module
@@ -4954,7 +4954,7 @@ $.fn.modal = function(parameters) {
                     duration    : settings.duration,
                     useFailSafe : true,
                     onComplete : function() {
-                      $.proxy(settings.onVisible, element)();
+                      settings.onVisible.apply(element);
                       module.add.keyboardShortcuts();
                       module.save.focus();
                       module.set.active();
@@ -4968,7 +4968,7 @@ $.fn.modal = function(parameters) {
                 module.debug('Showing modal with javascript');
                 $module
                   .fadeIn(settings.duration, settings.easing, function() {
-                    $.proxy(settings.onVisible, element)();
+                    settings.onVisible.apply(element);
                     module.add.keyboardShortcuts();
                     module.save.focus();
                     module.set.active();
@@ -4989,7 +4989,7 @@ $.fn.modal = function(parameters) {
             : function(){}
           ;
           module.debug('Hiding modal');
-          $.proxy(settings.onHide, element)();
+          settings.onHide.call(element);
 
           if( module.is.animating() || module.is.active() ) {
             if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
@@ -5008,7 +5008,7 @@ $.fn.modal = function(parameters) {
                     module.remove.keyboardShortcuts();
                   },
                   onComplete : function() {
-                    $.proxy(settings.onHidden, element)();
+                    settings.onHidden.call(element);
                     module.restore.focus();
                     callback();
                   }
@@ -5023,7 +5023,7 @@ $.fn.modal = function(parameters) {
               module.remove.keyboardShortcuts();
               $module
                 .fadeOut(settings.duration, settings.easing, function() {
-                  $.proxy(settings.onHidden, element)();
+                  settings.onHidden.call(element);
                   module.restore.focus();
                   callback();
                 })
@@ -6284,7 +6284,7 @@ $.fn.popup = function(parameters) {
             return ( module.has.popup() );
           }
           else {
-            return ( $popup.closest($context).length > 1 )
+            return ( $popup.closest($context).length >= 1 )
               ? true
               : false
             ;
@@ -6312,7 +6312,6 @@ $.fn.popup = function(parameters) {
         },
         restore: {
           conditions: function() {
-            element.blur();
             if(module.cache && module.cache.title) {
               $module.attr('title', module.cache.title);
               module.verbose('Restoring original attributes', module.cache.title);
@@ -8115,7 +8114,7 @@ $.fn.rating = function(parameters) {
                 .addClass(className.active)
             ;
           }
-          $.proxy(settings.onRate, element)(rating);
+          settings.onRate.call(element, rating);
         },
 
         setting: function(name, value) {
@@ -8419,7 +8418,7 @@ $.fn.search = function(parameters) {
           ;
           if(settings.automatic) {
             $prompt
-              .on(inputEvent + eventNamespace, module.search.throttle)
+              .on(inputEvent + eventNamespace, module.throttle)
             ;
           }
           $prompt
@@ -8428,12 +8427,12 @@ $.fn.search = function(parameters) {
             .on('keydown' + eventNamespace, module.handleKeyboard)
           ;
           $searchButton
-            .on('click' + eventNamespace, module.search.query)
+            .on('click' + eventNamespace, module.query)
           ;
           $results
-            .on('mousedown' + eventNamespace, module.event.mousedown)
-            .on('mouseup' + eventNamespace, module.event.mouseup)
-            .on('click' + eventNamespace, selector.result, module.results.select)
+            .on('mousedown' + eventNamespace, module.event.result.mousedown)
+            .on('mouseup' + eventNamespace, module.event.result.mouseup)
+            .on('click' + eventNamespace, selector.result, module.event.result.click)
           ;
           module.instantiate();
         },
@@ -8465,24 +8464,57 @@ $.fn.search = function(parameters) {
               .addClass(className.focus)
             ;
             clearTimeout(module.timer);
-            module.search.throttle();
-            if(module.has.minimum())  {
-              module.results.show();
+            module.throttle();
+            if( module.has.minimumCharacters() ) {
+              module.showResults();
             }
           },
-          mousedown: function() {
-            module.resultsClicked = true;
-          },
-          mouseup: function() {
-            module.resultsClicked = false;
-          },
           blur: function(event) {
-            module.search.cancel();
+            module.cancel();
             $module
               .removeClass(className.focus)
             ;
             if(!module.resultsClicked) {
-              module.timer = setTimeout(module.results.hide, settings.hideDelay);
+              module.timer = setTimeout(module.hideResults, settings.hideDelay);
+            }
+          },
+          result: {
+            mousedown: function() {
+              module.resultsClicked = true;
+            },
+            mouseup: function() {
+              module.resultsClicked = false;
+            },
+            click: function(event) {
+              module.debug('Search result selected');
+              var
+                $result = $(this),
+                $title  = $result.find('.title'),
+                title   = $title.html()
+              ;
+              if(settings.onSelect == 'default' || settings.onSelect.call(this, event) == 'default') {
+                var
+                  $link  = $result.find('a[href]').eq(0),
+                  $title = $result.find(selector.title).eq(0),
+                  href   = $link.attr('href') || false,
+                  target = $link.attr('target') || false,
+                  name   = ($title.length > 0)
+                    ? $title.text()
+                    : false
+                ;
+                module.hideResults();
+                if(name) {
+                  $prompt.val(name);
+                }
+                if(href) {
+                  if(target == '_blank' || event.ctrlKey) {
+                    window.open(href);
+                  }
+                  else {
+                    window.location.href = (href);
+                  }
+                }
+              }
             }
           }
         },
@@ -8516,7 +8548,7 @@ $.fn.search = function(parameters) {
             if(keyCode == keys.enter) {
               module.verbose('Enter key pressed, selecting active result');
               if( $result.filter('.' + activeClass).length > 0 ) {
-                $.proxy(module.results.select, $result.filter('.' + activeClass) )(event);
+                module.event.result.click.call($result.filter('.' + activeClass), event);
                 event.preventDefault();
                 return false;
               }
@@ -8562,7 +8594,7 @@ $.fn.search = function(parameters) {
             // query shortcuts
             if(keyCode == keys.enter) {
               module.verbose('Enter key pressed, executing query');
-              module.search.query();
+              module.query();
               $searchButton
                 .addClass(className.down)
               ;
@@ -8576,64 +8608,39 @@ $.fn.search = function(parameters) {
             }
           }
         },
-        has: {
-          minimum: function() {
-            var
-              searchTerm    = $prompt.val(),
-              numCharacters = searchTerm.length
-            ;
-            return (numCharacters >= settings.minCharacters);
+
+        query: function() {
+          var
+            searchTerm = $prompt.val(),
+            cachedHTML = module.read.cache(searchTerm)
+          ;
+          if(cachedHTML) {
+            module.debug('Reading result for ' + searchTerm + ' from cache');
+            module.addResults(cachedHTML);
+          }
+          else {
+            module.debug('Querying for ' + searchTerm);
+            if($.isPlainObject(settings.source) || $.isArray(settings.source)) {
+              module.search.local(searchTerm);
+            }
+            else if(settings.apiSettings) {
+              module.search.remote(searchTerm);
+            }
+            else if($.fn.api !== undefined && $.api.settings.api.search !== undefined) {
+              module.debug('Searching with default search API endpoint');
+              settings.apiSettings = {
+                action: 'search'
+              };
+              module.search.remote(searchTerm);
+            }
+            else {
+              module.error(error.source);
+            }
+            settings.onSearchQuery.call(element, searchTerm);
           }
         },
+
         search: {
-          cancel: function() {
-            var
-              xhr = $module.data('xhr') || false
-            ;
-            if( xhr && xhr.state() != 'resolved') {
-              module.debug('Cancelling last search');
-              xhr.abort();
-            }
-          },
-          throttle: function() {
-            clearTimeout(module.timer);
-            if(module.has.minimum())  {
-              module.timer = setTimeout(module.search.query, settings.searchDelay);
-            }
-            else {
-              module.results.hide();
-            }
-          },
-          query: function() {
-            var
-              searchTerm = $prompt.val(),
-              cachedHTML = module.search.cache.read(searchTerm)
-            ;
-            if(cachedHTML) {
-              module.debug("Reading result for '" + searchTerm + "' from cache");
-              module.results.add(cachedHTML);
-            }
-            else {
-              module.debug("Querying for '" + searchTerm + "'");
-              if($.isPlainObject(settings.source) || $.isArray(settings.source)) {
-                module.search.local(searchTerm);
-              }
-              else if(settings.apiSettings) {
-                module.search.remote(searchTerm);
-              }
-              else if($.fn.api !== undefined && $.api.settings.api.search !== undefined) {
-                module.debug('Searching with default search API endpoint');
-                settings.apiSettings = {
-                  action: 'search'
-                };
-                module.search.remote(searchTerm);
-              }
-              else {
-                module.error(error.source);
-              }
-              $.proxy(settings.onSearchQuery, $module)(searchTerm);
-            }
-          },
           local: function(searchTerm) {
             var
               results   = [],
@@ -8665,14 +8672,14 @@ $.fn.search = function(parameters) {
                 }
               });
             });
-            searchHTML = module.results.generate({
+            searchHTML = module.generateResults({
               results: $.merge(results, fullTextResults)
             });
             $module
               .removeClass(className.loading)
             ;
-            module.search.cache.write(searchTerm, searchHTML);
-            module.results.add(searchHTML);
+            module.write.cache(searchTerm, searchHTML);
+            module.addResults(searchHTML);
           },
           remote: function(searchTerm) {
             var
@@ -8682,160 +8689,163 @@ $.fn.search = function(parameters) {
                   query: searchTerm
                 },
                 onSuccess : function(response) {
-                  searchHTML = module.results.generate(response);
-                  module.search.cache.write(searchTerm, searchHTML);
-                  module.results.add(searchHTML);
+                  searchHTML = module.generateResults(response);
+                  module.write.cache(searchTerm, searchHTML);
+                  module.addResults(searchHTML);
                 },
                 onFailure : module.error
               },
               searchHTML
             ;
-            module.search.cancel();
+            module.cancel();
             module.debug('Executing search');
             $.extend(true, apiSettings, settings.apiSettings);
             $.api(apiSettings);
-          },
+          }
 
-          cache: {
-            read: function(name) {
-              var
-                cache = $module.data('cache')
-              ;
-              return (settings.cache && (typeof cache == 'object') && (cache[name] !== undefined) )
-                ? cache[name]
-                : false
-              ;
-            },
-            write: function(name, value) {
-              var
-                cache = ($module.data('cache') !== undefined)
-                  ? $module.data('cache')
-                  : {}
-              ;
-              cache[name] = value;
-              $module
-                .data('cache', cache)
-              ;
-            }
+        },
+
+        throttle: function() {
+          clearTimeout(module.timer);
+          if(module.has.minimumCharacters())  {
+            module.timer = setTimeout(module.query, settings.searchDelay);
+          }
+          else {
+            module.hideResults();
           }
         },
 
-        results: {
-          generate: function(response) {
-            module.debug('Generating html from response', response);
+        cancel: function() {
+          var
+            xhr = $module.data('xhr') || false
+          ;
+          if( xhr && xhr.state() != 'resolved') {
+            module.debug('Cancelling last search');
+            xhr.abort();
+          }
+        },
+
+        has: {
+          minimumCharacters: function() {
             var
-              template = settings.templates[settings.type],
-              html     = ''
+              searchTerm    = $prompt.val(),
+              numCharacters = searchTerm.length
             ;
-            if(($.isPlainObject(response.results) && !$.isEmptyObject(response.results)) || ($.isArray(response.results) && response.results.length > 0) ) {
-              if(settings.maxResults > 0) {
-                response.results = $.isArray(response.results)
-                  ? response.results.slice(0, settings.maxResults)
-                  : response.results
-                ;
-              }
-              if($.isFunction(template)) {
-                html = template(response);
-              }
-              else {
-                module.error(error.noTemplate, false);
-              }
+            return (numCharacters >= settings.minCharacters);
+          }
+        },
+
+        read: {
+          cache: function(name) {
+            var
+              cache = $module.data('cache')
+            ;
+            return (settings.cache && (typeof cache == 'object') && (cache[name] !== undefined) )
+              ? cache[name]
+              : false
+            ;
+          }
+        },
+
+        write: {
+          cache: function(name, value) {
+            var
+              cache = ($module.data('cache') !== undefined)
+                ? $module.data('cache')
+                : {}
+            ;
+            cache[name] = value;
+            $module
+              .data('cache', cache)
+            ;
+          }
+        },
+
+        addResults: function(html) {
+          if(settings.onResultsAdd == 'default' || settings.onResultsAdd.call($results, html) == 'default') {
+            $results
+              .html(html)
+            ;
+          }
+          module.showResults();
+        },
+
+        showResults: function() {
+          if( ($results.filter(':visible').length === 0) && ($prompt.filter(':focus').length > 0) && $results.html() !== '') {
+            if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported') && !$results.transition('is inward')) {
+              module.debug('Showing results with css animations');
+              $results
+                .transition({
+                  animation  : settings.transition + ' in',
+                  duration   : settings.duration,
+                  queue      : true
+                })
+              ;
             }
             else {
-              html = module.message(error.noResults, 'empty');
-            }
-            $.proxy(settings.onResults, $module)(response);
-            return html;
-          },
-          add: function(html) {
-            if(settings.onResultsAdd == 'default' || $.proxy(settings.onResultsAdd, $results)(html) == 'default') {
+              module.debug('Showing results with javascript');
               $results
-                .html(html)
+                .stop()
+                .fadeIn(settings.duration, settings.easing)
               ;
             }
-            module.results.show();
-          },
-          show: function() {
-            if( ($results.filter(':visible').length === 0) && ($prompt.filter(':focus').length > 0) && $results.html() !== '') {
-              if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported') && !$results.transition('is inward')) {
-                module.debug('Showing results with css animations');
-                $results
-                  .transition({
-                    animation  : settings.transition + ' in',
-                    duration   : settings.duration,
-                    queue      : true
-                  })
-                ;
-              }
-              else {
-                module.debug('Showing results with javascript');
-                $results
-                  .stop()
-                  .fadeIn(settings.duration, settings.easing)
-                ;
-              }
-              $.proxy(settings.onResultsOpen, $results)();
-            }
-          },
-          hide: function() {
-            if($results.filter(':visible').length > 0) {
-              if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported') && !$results.transition('is outward')) {
-                module.debug('Hiding results with css animations');
-                $results
-                  .transition({
-                    animation  : settings.transition + ' out',
-                    duration   : settings.duration,
-                    queue      : true
-                  })
-                ;
-              }
-              else {
-                module.debug('Hiding results with javascript');
-                $results
-                  .stop()
-                  .fadeIn(settings.duration, settings.easing)
-                ;
-              }
-              $.proxy(settings.onResultsClose, $results)();
-            }
-          },
-          select: function(event) {
-            module.debug('Search result selected');
-            var
-              $result = $(this),
-              $title  = $result.find('.title'),
-              title   = $title.html()
-            ;
-            if(settings.onSelect == 'default' || $.proxy(settings.onSelect, this)(event) == 'default') {
-              var
-                $link  = $result.find('a[href]').eq(0),
-                $title = $result.find(selector.title).eq(0),
-                href   = $link.attr('href') || false,
-                target = $link.attr('target') || false,
-                name   = ($title.length > 0)
-                  ? $title.text()
-                  : false
+            settings.onResultsOpen.call($results);
+          }
+        },
+        hideResults: function() {
+          if($results.filter(':visible').length > 0) {
+            if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported') && !$results.transition('is outward')) {
+              module.debug('Hiding results with css animations');
+              $results
+                .transition({
+                  animation  : settings.transition + ' out',
+                  duration   : settings.duration,
+                  queue      : true
+                })
               ;
-              module.results.hide();
-              if(name) {
-                $prompt.val(name);
-              }
-              if(href) {
-                if(target == '_blank' || event.ctrlKey) {
-                  window.open(href);
-                }
-                else {
-                  window.location.href = (href);
-                }
-              }
             }
+            else {
+              module.debug('Hiding results with javascript');
+              $results
+                .stop()
+                .fadeIn(settings.duration, settings.easing)
+              ;
+            }
+            settings.onResultsClose.call($results);
           }
         },
 
-        // displays mesage visibly in search results
-        message: function(text, type) {
+        generateResults: function(response) {
+          module.debug('Generating html from response', response);
+          var
+            template = settings.templates[settings.type],
+            html     = ''
+          ;
+          if(($.isPlainObject(response.results) && !$.isEmptyObject(response.results)) || ($.isArray(response.results) && response.results.length > 0) ) {
+            if(settings.maxResults > 0) {
+              response.results = $.isArray(response.results)
+                ? response.results.slice(0, settings.maxResults)
+                : response.results
+              ;
+            }
+            if($.isFunction(template)) {
+              html = template(response);
+            }
+            else {
+              module.error(error.noTemplate, false);
+            }
+          }
+          else {
+            html = module.displayMessage(error.noResults, 'empty');
+          }
+          settings.onResults.call(element, response);
+          return html;
+        },
+
+        displayMessage: function(text, type) {
           type = type || 'standard';
-          module.results.add( settings.templates.message(text, type) );
+          module.debug('Displaying message', text, type);
+          module.addResults( settings.templates.message(text, type) );
           return settings.templates.message(text, type);
         },
 
@@ -9356,7 +9366,7 @@ $.fn.shape = function(parameters) {
             module.reset();
             module.set.active();
           };
-          $.proxy(settings.beforeChange, $nextSide[0])();
+          settings.beforeChange.call($nextSide.get());
           if(module.get.transitionEvent()) {
             module.verbose('Starting CSS animation');
             $module
@@ -9501,7 +9511,7 @@ $.fn.shape = function(parameters) {
             $nextSide
               .addClass(className.active)
             ;
-            $.proxy(settings.onChange, $nextSide[0])();
+            settings.onChange.call($nextSide.get());
             module.set.defaultSide();
           }
         },
@@ -10423,17 +10433,18 @@ $.fn.sidebar = function(parameters) {
             }
             module.refresh();
             if(module.othersActive() && module.get.transition() !== 'overlay') {
+              module.debug('Other sidebars currently visible');
               settings.transition = 'overlay';
               if(settings.exclusive) {
                 module.hideOthers();
               }
             }
             animateMethod(function() {
-              $.proxy(callback, element)();
-              $.proxy(settings.onShow, element)();
+              callback.call(element);
+              settings.onShow.call(element);
             });
-            $.proxy(settings.onChange, element)();
-            $.proxy(settings.onVisible, element)();
+            settings.onChange.call(element);
+            settings.onVisible.call(element);
           }
           else {
             module.debug('Sidebar is already visible');
@@ -10454,11 +10465,11 @@ $.fn.sidebar = function(parameters) {
             module.debug('Hiding sidebar', callback);
             module.refreshSidebars();
             animateMethod(function() {
-              $.proxy(callback, element)();
-              $.proxy(settings.onHidden, element)();
+              callback.call(element);
+              settings.onHidden.call(element);
             });
-            $.proxy(settings.onChange, element)();
-            $.proxy(settings.onHide, element)();
+            settings.onChange.call(element);
+            settings.onHide.call(element);
           }
         },
 
@@ -10521,9 +10532,9 @@ $.fn.sidebar = function(parameters) {
           module.set.transition();
           module.repaint();
           animate = function() {
-            module.set.animating();
             module.bind.clickaway();
             module.add.bodyCSS();
+            module.set.animating();
             module.set.visible();
             if(!module.othersVisible()) {
               if(settings.dimPage) {
@@ -10536,7 +10547,7 @@ $.fn.sidebar = function(parameters) {
               $transition.off(transitionEvent + elementNamespace, transitionEnd);
               module.remove.animating();
               module.bind.scrollLock();
-              $.proxy(callback, element)();
+              callback.call(element);
             }
           };
           $transition.off(transitionEvent + elementNamespace);
@@ -10564,7 +10575,6 @@ $.fn.sidebar = function(parameters) {
           module.set.transition();
           module.unbind.clickaway();
           module.unbind.scrollLock();
-          module.repaint();
 
           animate = function() {
             module.set.animating();
@@ -10582,7 +10592,7 @@ $.fn.sidebar = function(parameters) {
               if(transition == 'scale down' || (settings.returnScroll && module.is.mobile()) ) {
                 module.scrollBack();
               }
-              $.proxy(callback, element)();
+              callback.call(element);
             }
           };
           $transition.off(transitionEvent + elementNamespace);
@@ -10614,7 +10624,7 @@ $.fn.sidebar = function(parameters) {
             .animate(properties, settings.duration, settings.easing, function() {
               module.remove.animating();
               module.bind.clickaway();
-              $.proxy(callback, module)();
+              callback.call(element);
             })
           ;
         },
@@ -10641,7 +10651,7 @@ $.fn.sidebar = function(parameters) {
             .css('position', 'relative')
             .animate(properties, settings.duration, settings.easing, function() {
               module.remove.animating();
-              $.proxy(callback, module)();
+              callback.call(element);
             })
           ;
         },
@@ -11294,7 +11304,7 @@ $.fn.sticky = function(parameters) {
           scroll: function() {
             requestAnimationFrame(function() {
               module.stick();
-              $.proxy(settings.onScroll, element)();
+              settings.onScroll.call(element);
             });
           }
         },
@@ -11306,7 +11316,7 @@ $.fn.sticky = function(parameters) {
           }
           module.save.positions();
           module.stick();
-          $.proxy(settings.onReposition, element)();
+          settings.onReposition.call(element);
         },
 
         supports: {
@@ -11597,8 +11607,8 @@ $.fn.sticky = function(parameters) {
             .addClass(className.bound)
             .addClass(className.top)
           ;
-          $.proxy(settings.onTop, element)();
-          $.proxy(settings.onUnstick, element)();
+          settings.onTop.call(element);
+          settings.onUnstick.call(element);
         },
         bindBottom: function() {
           module.debug('Binding element to bottom of parent container');
@@ -11612,8 +11622,8 @@ $.fn.sticky = function(parameters) {
             .addClass(className.bound)
             .addClass(className.bottom)
           ;
-          $.proxy(settings.onBottom, element)();
-          $.proxy(settings.onUnstick, element)();
+          settings.onBottom.call(element);
+          settings.onUnstick.call(element);
         },
 
         setInitialPosition: function() {
@@ -11632,7 +11642,7 @@ $.fn.sticky = function(parameters) {
             .addClass(className.fixed)
             .addClass(className.top)
           ;
-          $.proxy(settings.onStick, element)();
+          settings.onStick.call(element);
         },
 
         fixBottom: function() {
@@ -11645,7 +11655,7 @@ $.fn.sticky = function(parameters) {
             .addClass(className.fixed)
             .addClass(className.bottom)
           ;
-          $.proxy(settings.onStick, element)();
+          settings.onStick.call(element);
         },
 
         unbind: function() {
@@ -11666,7 +11676,7 @@ $.fn.sticky = function(parameters) {
             .removeClass(className.top)
             .removeClass(className.bottom)
           ;
-          $.proxy(settings.onUnstick, this)();
+          settings.onUnstick.call(element);
         },
 
         reset: function() {
@@ -12881,14 +12891,14 @@ $.fn.transition = function() {
               module.verbose('Animation is outward, hiding element');
               module.restore.conditions();
               module.hide();
-              $.proxy(settings.onHide, this)();
+              settings.onHide.call(this);
             }
             else if( module.is.inward() ) {
               module.verbose('Animation is outward, showing element');
               module.restore.conditions();
               module.show();
               module.set.display();
-              $.proxy(settings.onShow, this)();
+              settings.onShow.call(this);
             }
             else {
               module.restore.conditions();
@@ -12896,7 +12906,7 @@ $.fn.transition = function() {
             module.remove.animation();
             module.remove.animating();
           }
-          $.proxy(settings.onComplete, this)();
+          settings.onComplete.call(this);
         },
 
         has: {
@@ -12939,7 +12949,7 @@ $.fn.transition = function() {
               module.add.failSafe();
             }
             module.set.duration(settings.duration);
-            $.proxy(settings.onStart, this)();
+            settings.onStart.call(this);
             module.debug('Starting tween', animation, $module.attr('class'));
           },
           duration: function(animationName, duration) {
@@ -16760,7 +16770,7 @@ $.fn.visibility = function(parameters) {
           module.reset();
           module.save.position();
           module.checkVisibility();
-          $.proxy(settings.onRefresh, element)();
+          settings.onRefresh.call(element);
         },
 
         reset: function() {
@@ -17048,11 +17058,11 @@ $.fn.visibility = function(parameters) {
           if(callback) {
             if(settings.continuous) {
               module.debug('Callback being called continuously', callbackName, calculations);
-              $.proxy(callback, element)(calculations, screen);
+              callback.call(element, calculations, screen);
             }
             else if(!module.get.occurred(callbackName)) {
               module.debug('Conditions met', callbackName, calculations);
-              $.proxy(callback, element)(calculations, screen);
+              callback.call(element, calculations, screen);
             }
           }
           module.save.occurred(callbackName);

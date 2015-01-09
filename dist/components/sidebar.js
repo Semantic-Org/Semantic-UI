@@ -352,17 +352,18 @@ $.fn.sidebar = function(parameters) {
             }
             module.refresh();
             if(module.othersActive() && module.get.transition() !== 'overlay') {
+              module.debug('Other sidebars currently visible');
               settings.transition = 'overlay';
               if(settings.exclusive) {
                 module.hideOthers();
               }
             }
             animateMethod(function() {
-              $.proxy(callback, element)();
-              $.proxy(settings.onShow, element)();
+              callback.call(element);
+              settings.onShow.call(element);
             });
-            $.proxy(settings.onChange, element)();
-            $.proxy(settings.onVisible, element)();
+            settings.onChange.call(element);
+            settings.onVisible.call(element);
           }
           else {
             module.debug('Sidebar is already visible');
@@ -383,11 +384,11 @@ $.fn.sidebar = function(parameters) {
             module.debug('Hiding sidebar', callback);
             module.refreshSidebars();
             animateMethod(function() {
-              $.proxy(callback, element)();
-              $.proxy(settings.onHidden, element)();
+              callback.call(element);
+              settings.onHidden.call(element);
             });
-            $.proxy(settings.onChange, element)();
-            $.proxy(settings.onHide, element)();
+            settings.onChange.call(element);
+            settings.onHide.call(element);
           }
         },
 
@@ -450,9 +451,9 @@ $.fn.sidebar = function(parameters) {
           module.set.transition();
           module.repaint();
           animate = function() {
-            module.set.animating();
             module.bind.clickaway();
             module.add.bodyCSS();
+            module.set.animating();
             module.set.visible();
             if(!module.othersVisible()) {
               if(settings.dimPage) {
@@ -465,7 +466,7 @@ $.fn.sidebar = function(parameters) {
               $transition.off(transitionEvent + elementNamespace, transitionEnd);
               module.remove.animating();
               module.bind.scrollLock();
-              $.proxy(callback, element)();
+              callback.call(element);
             }
           };
           $transition.off(transitionEvent + elementNamespace);
@@ -493,7 +494,6 @@ $.fn.sidebar = function(parameters) {
           module.set.transition();
           module.unbind.clickaway();
           module.unbind.scrollLock();
-          module.repaint();
 
           animate = function() {
             module.set.animating();
@@ -511,7 +511,7 @@ $.fn.sidebar = function(parameters) {
               if(transition == 'scale down' || (settings.returnScroll && module.is.mobile()) ) {
                 module.scrollBack();
               }
-              $.proxy(callback, element)();
+              callback.call(element);
             }
           };
           $transition.off(transitionEvent + elementNamespace);
@@ -543,7 +543,7 @@ $.fn.sidebar = function(parameters) {
             .animate(properties, settings.duration, settings.easing, function() {
               module.remove.animating();
               module.bind.clickaway();
-              $.proxy(callback, module)();
+              callback.call(element);
             })
           ;
         },
@@ -570,7 +570,7 @@ $.fn.sidebar = function(parameters) {
             .css('position', 'relative')
             .animate(properties, settings.duration, settings.easing, function() {
               module.remove.animating();
-              $.proxy(callback, module)();
+              callback.call(element);
             })
           ;
         },

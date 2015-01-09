@@ -62,13 +62,13 @@ $.fn.checkbox = function(parameters) {
           if( module.is.checked() ) {
             module.set.checked();
             if(settings.fireOnInit) {
-              $.proxy(settings.onChecked, $input.get())();
+              settings.onChecked.call($input.get());
             }
           }
           else {
             module.remove.checked();
             if(settings.fireOnInit) {
-              $.proxy(settings.onUnchecked, $input.get())();
+              settings.onUnchecked.call($input.get());
             }
           }
           module.observeChanges();
@@ -148,7 +148,7 @@ $.fn.checkbox = function(parameters) {
             }
             if(!event.ctrlKey && key == keyCode.enter) {
               module.verbose('Enter key pressed, toggling checkbox');
-              $.proxy(module.toggle, this)();
+              module.toggle.call(this);
               event.preventDefault();
             }
           }
@@ -243,14 +243,14 @@ $.fn.checkbox = function(parameters) {
           module.debug('Enabling checkbox functionality');
           $module.removeClass(className.disabled);
           $input.prop('disabled', false);
-          $.proxy(settings.onEnabled, $input.get())();
+          settings.onEnabled.call($input.get());
         },
 
         disable: function() {
           module.debug('Disabling checkbox functionality');
           $module.addClass(className.disabled);
           $input.prop('disabled', 'disabled');
-          $.proxy(settings.onDisabled, $input.get())();
+          settings.onDisabled.call($input.get());
         },
 
         check: function() {
@@ -260,8 +260,8 @@ $.fn.checkbox = function(parameters) {
             .trigger('change')
           ;
           module.set.checked();
-          $.proxy(settings.onChange, $input.get())();
-          $.proxy(settings.onChecked, $input.get())();
+          settings.onChange.call($input.get());
+          settings.onChecked.call($input.get());
         },
 
         uncheck: function() {
@@ -271,8 +271,8 @@ $.fn.checkbox = function(parameters) {
             .trigger('change')
           ;
           module.remove.checked();
-          $.proxy(settings.onChange, $input.get())();
-          $.proxy(settings.onUnchecked, $input.get())();
+          settings.onChange.call($input.get());
+          settings.onUnchecked.call($input.get());
         },
 
         toggle: function(event) {

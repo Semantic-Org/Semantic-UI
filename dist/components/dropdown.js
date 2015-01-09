@@ -229,9 +229,9 @@ $.fn.dropdown = function(parameters) {
                 module.bind.intent();
               }
               module.set.visible();
-              $.proxy(callback, element)();
+              callback.call(element);
             });
-            $.proxy(settings.onShow, element)();
+            settings.onShow.call(element);
           }
         },
 
@@ -244,9 +244,9 @@ $.fn.dropdown = function(parameters) {
             module.debug('Hiding dropdown');
             module.animate.hide(function() {
               module.remove.visible();
-              $.proxy(callback, element)();
+              callback.call(element);
             });
-            $.proxy(settings.onHide, element)();
+            settings.onHide.call(element);
           }
         },
 
@@ -406,7 +406,7 @@ $.fn.dropdown = function(parameters) {
           if( module.is.allFiltered() ) {
             module.debug('All items filtered, hiding dropdown', searchTerm);
             module.hide();
-            $.proxy(settings.onNoResults, element)(searchTerm);
+            settings.onNoResults.call(element, searchTerm);
           }
         },
 
@@ -492,7 +492,7 @@ $.fn.dropdown = function(parameters) {
             if(module.is.visible()) {
               if(pressedKey == keys.enter && hasSelectedItem) {
                 module.verbose('Enter key pressed, choosing selected item');
-                $.proxy(module.event.item.click, $selectedItem)(event);
+                module.event.item.click.call($selectedItem, event);
                 event.preventDefault();
                 return false;
               }
@@ -1060,7 +1060,7 @@ $.fn.dropdown = function(parameters) {
 
               selectedText = module.get.choiceText($selectedItem);
               module.set.text(selectedText);
-              $.proxy(settings.onChange, element)(value, selectedText, $selectedItem);
+              settings.onChange.call(element, value, selectedText, $selectedItem);
             }
           }
         },
@@ -1174,7 +1174,7 @@ $.fn.dropdown = function(parameters) {
             module.verbose('Doing menu show animation', $currentMenu);
             if( module.is.hidden($currentMenu) || module.is.animating($currentMenu) ) {
               if(settings.transition == 'none') {
-                $.proxy(callback, element)();
+                callback.call(element);
               }
               else if($.fn.transition !== undefined && $module.transition('is supported')) {
                 $currentMenu
@@ -1186,7 +1186,7 @@ $.fn.dropdown = function(parameters) {
                     queue      : true,
                     onStart    : start,
                     onComplete : function() {
-                      $.proxy(callback, element)();
+                      callback.call(element);
                     }
                   })
                 ;
@@ -1205,8 +1205,8 @@ $.fn.dropdown = function(parameters) {
                     }, settings.duration, 'easeOutQuad', module.event.resetStyle)
                     .end()
                   .slideDown(100, 'easeOutQuad', function() {
-                    $.proxy(module.event.resetStyle, this)();
-                    $.proxy(callback, element)();
+                    module.event.resetStyle.call(this);
+                    callback.call(element);
                   })
                 ;
               }
@@ -1216,8 +1216,8 @@ $.fn.dropdown = function(parameters) {
                   .hide()
                   .clearQueue()
                   .fadeIn(settings.duration, function() {
-                    $.proxy(module.event.resetStyle, this)();
-                    $.proxy(callback, element)();
+                    module.event.resetStyle.call(this);
+                    callback.call(element);
                   })
                 ;
               }
@@ -1250,7 +1250,7 @@ $.fn.dropdown = function(parameters) {
               module.verbose('Doing menu hide animation', $currentMenu);
 
               if(settings.transition == 'none') {
-                $.proxy(callback, element)();
+                callback.call(element);
               }
               else if($.fn.transition !== undefined && $module.transition('is supported')) {
                 $currentMenu
@@ -1262,7 +1262,7 @@ $.fn.dropdown = function(parameters) {
                     queue      : true,
                     onStart    : start,
                     onComplete : function() {
-                      $.proxy(callback, element)();
+                      callback.call(element);
                     }
                   })
                 ;
@@ -1281,8 +1281,8 @@ $.fn.dropdown = function(parameters) {
                     .end()
                   .delay(50)
                   .slideUp(100, 'easeOutQuad', function() {
-                    $.proxy(module.event.resetStyle, this)();
-                    $.proxy(callback, element)();
+                    module.event.resetStyle.call(this);
+                    callback.call(element);
                   })
                 ;
               }
@@ -1292,8 +1292,8 @@ $.fn.dropdown = function(parameters) {
                   .show()
                   .clearQueue()
                   .fadeOut(150, function() {
-                    $.proxy(module.event.resetStyle, this)();
-                    $.proxy(callback, element)();
+                    module.event.resetStyle.call(this);
+                    callback.call(element);
                   })
                 ;
               }

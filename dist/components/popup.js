@@ -313,7 +313,7 @@ $.fn.popup = function(parameters) {
             return ( module.has.popup() );
           }
           else {
-            return ( $popup.closest($context).length > 1 )
+            return ( $popup.closest($context).length >= 1 )
               ? true
               : false
             ;
@@ -341,7 +341,6 @@ $.fn.popup = function(parameters) {
         },
         restore: {
           conditions: function() {
-            element.blur();
             if(module.cache && module.cache.title) {
               $module.attr('title', module.cache.title);
               module.verbose('Restoring original attributes', module.cache.title);
