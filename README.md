@@ -56,8 +56,7 @@ Semantic is best used actively during development. We have included build tools 
 ![Getting Started](https://dl.dropboxusercontent.com/u/2657007/install.gif)
 
 ```
-npm install
-gulp
+npm install gulp
 ```
 
 Running gulp for the first time will start the interactive set-up.
