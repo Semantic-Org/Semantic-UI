@@ -15,6 +15,7 @@
 - **Modules** - Use of `$.proxy` swapped to native `function.call()` for performance gains across all modules
 
 **Bugs**
+- **Popup** - `wide` and `very wide` popup will now appear when screen size is below their `max-width`
 - **Popup** - Popup no longer blurs element on popup hide
 - **Segment** - ``ui tabular menu`` now correctly aligns with attached segment when using fluid variation *Thanks @MohammadYounes*
 - **Steps** - Steps now use ``table-cell`` to allow steps to be equal height by default, even with different content height.
