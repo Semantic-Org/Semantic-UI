@@ -84,7 +84,7 @@ To use Semantic with the [Meteor.js](https://www.meteor.com) framework, run
 
 $ meteor add semantic:ui
 
-Learn more about the [Meteor integration in the README](meteor/README.md).
+Learn more by reading the [Meteor integration README](https://github.com/Semantic-Org/Semantic-UI/blob/master/meteor/README.md).
 
 
 ## Browser Support
