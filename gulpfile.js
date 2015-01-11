@@ -428,11 +428,13 @@ gulp.task('build', 'Builds all files from source', function(callback) {
 
   // updates package.js
   console.info('Updating package.js (Meteor)');
-  var fnames =
-    '    \'' + output.packaged + 'semantic.css\',\n' +
-    '    \'' + output.packaged + 'semantic.js\',\n'
+  var
+    assetPath = output.themes + 'default/assets/',
+    fnames =
+      '    \'' + output.packaged + 'semantic.css\',\n' +
+      '    \'' + output.packaged + 'semantic.js\',\n'
   ;
-  gulp.src(output.themes + 'default/assets/**')
+  gulp.src(assetPath + '**', {base: assetPath})
     .pipe(concatFnames("dummy.txt", {
       newline: '',
       root: './',
@@ -1307,7 +1309,7 @@ gulp.task('create repos', false, function(callback) {
               .pipe(replace(regExp.match.titleName, regExp.replace.titleName))
               .pipe(replace(regExp.match.mversion, regExp.replace.mversion))
               .pipe(replace(regExp.match.mfiles, fnames))
-              .pipe(rename('package.js'))
+              .pipe(rename(defaults.files.npm))
               .pipe(gulp.dest(outputDirectory))
             ;
           })
