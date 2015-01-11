@@ -1126,15 +1126,15 @@ gulp.task('create repos', false, function(callback) {
           }
         },
         task = {
-          all         : component + ' creating',
-          repo        : component + ' create repo',
-          bower       : component + ' create bower.json',
-          package     : component + ' create package.json',
-          readme      : component + ' create README',
-          npm         : component + ' create NPM Module',
-          notes       : component + ' create release notes',
-          composer    : component + ' create composer.json',
-          meteor      : component + ' create package.js',
+          all      : component + ' creating',
+          repo     : component + ' create repo',
+          bower    : component + ' create bower.json',
+          readme   : component + ' create README',
+          npm      : component + ' create NPM Module',
+          notes    : component + ' create release notes',
+          composer : component + ' create composer.json',
+          package  : component + ' create package.json',
+          meteor   : component + ' create package.js',
         }
       ;
 
