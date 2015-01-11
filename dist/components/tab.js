@@ -98,7 +98,7 @@ $.fn.tab = function(parameters) {
 
           // determine tab context
           if(settings.context === 'parent') {
-            if($module.closest(selector.ui).size() > 0) {
+            if($module.closest(selector.ui).length > 0) {
               $reference = $module.closest(selector.ui);
               module.verbose('Using closest UI element for determining parent', $reference);
             }
@@ -319,7 +319,7 @@ $.fn.tab = function(parameters) {
               currentPath = $anchor.closest('[data-tab]').data('tab');
               $tab        = module.get.tabElement(currentPath);
               // if anchor exists use parent tab
-              if($anchor && $anchor.size() > 0 && currentPath) {
+              if($anchor && $anchor.length > 0 && currentPath) {
                 module.debug('No tab found, but deep anchor link present, opening parent tab');
                 module.activate.all(currentPath);
                 if( !module.cache.read(currentPath) ) {
@@ -451,7 +451,7 @@ $.fn.tab = function(parameters) {
         is: {
           tab: function(tabName) {
             return (tabName !== undefined)
-              ? ( module.get.tabElement(tabName).size() > 0 )
+              ? ( module.get.tabElement(tabName).length > 0 )
               : false
             ;
           }
@@ -503,7 +503,7 @@ $.fn.tab = function(parameters) {
             lastTab        = module.utilities.last(tabPathArray);
             $fullPathTab   = $tabs.filter('[data-' + metadata.tab + '="' + lastTab + '"]');
             $simplePathTab = $tabs.filter('[data-' + metadata.tab + '="' + tabPath + '"]');
-            return ($fullPathTab.size() > 0)
+            return ($fullPathTab.length > 0)
               ? $fullPathTab
               : $simplePathTab
             ;

@@ -172,7 +172,7 @@ $.fn.modal = function(parameters) {
             ? module[event]
             : module.toggle
           ;
-          if($toggle.size() > 0) {
+          if($toggle.length > 0) {
             module.debug('Attaching modal events to element', selector, event);
             $toggle
               .off(eventNamespace)
@@ -205,7 +205,7 @@ $.fn.modal = function(parameters) {
           close: function() {
             module.verbose('Closing element pressed');
             if( $(this).is(selector.approve) ) {
-              if($.proxy(settings.onApprove, element)() !== false) {
+              if(settings.onApprove.call(element) !== false) {
                 module.hide();
               }
               else {
@@ -213,7 +213,7 @@ $.fn.modal = function(parameters) {
               }
             }
             else if( $(this).is(selector.deny) ) {
-              if($.proxy(settings.onDeny, element)() !== false) {
+              if(settings.onDeny.call(element) !== false) {
                 module.hide();
               }
               else {
@@ -225,7 +225,7 @@ $.fn.modal = function(parameters) {
             }
           },
           click: function(event) {
-            if( $(event.target).closest($module).size() === 0 ) {
+            if( $(event.target).closest($module).length === 0 ) {
               module.debug('Dimmer clicked, hiding all modals');
               if( module.is.active() ) {
                 module.remove.clickaway();
@@ -306,12 +306,12 @@ $.fn.modal = function(parameters) {
             module.set.type();
             module.set.clickaway();
 
-            if( !settings.allowMultiple && $otherModals.filter(':visible').size() > 0) {
+            if( !settings.allowMultiple && $otherModals.filter(':visible').length > 0) {
               module.debug('Other modals visible, queueing show animation');
               module.hideOthers(module.showModal);
             }
             else {
-              $.proxy(settings.onShow, element)();
+              settings.onShow.call(element);
               if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
                 module.debug('Showing modal with css animations');
                 $module
@@ -322,7 +322,7 @@ $.fn.modal = function(parameters) {
                     duration    : settings.duration,
                     useFailSafe : true,
                     onComplete : function() {
-                      $.proxy(settings.onVisible, element)();
+                      settings.onVisible.apply(element);
                       module.add.keyboardShortcuts();
                       module.save.focus();
                       module.set.active();
@@ -336,7 +336,7 @@ $.fn.modal = function(parameters) {
                 module.debug('Showing modal with javascript');
                 $module
                   .fadeIn(settings.duration, settings.easing, function() {
-                    $.proxy(settings.onVisible, element)();
+                    settings.onVisible.apply(element);
                     module.add.keyboardShortcuts();
                     module.save.focus();
                     module.set.active();
@@ -357,7 +357,7 @@ $.fn.modal = function(parameters) {
             : function(){}
           ;
           module.debug('Hiding modal');
-          $.proxy(settings.onHide, element)();
+          settings.onHide.call(element);
 
           if( module.is.animating() || module.is.active() ) {
             if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
@@ -376,7 +376,7 @@ $.fn.modal = function(parameters) {
                     module.remove.keyboardShortcuts();
                   },
                   onComplete : function() {
-                    $.proxy(settings.onHidden, element)();
+                    settings.onHidden.call(element);
                     module.restore.focus();
                     callback();
                   }
@@ -391,7 +391,7 @@ $.fn.modal = function(parameters) {
               module.remove.keyboardShortcuts();
               $module
                 .fadeOut(settings.duration, settings.easing, function() {
-                  $.proxy(settings.onHidden, element)();
+                  settings.onHidden.call(element);
                   module.restore.focus();
                   callback();
                 })
@@ -455,7 +455,7 @@ $.fn.modal = function(parameters) {
         },
 
         othersActive: function() {
-          return ($otherModals.filter('.' + className.active).size() > 0);
+          return ($otherModals.filter('.' + className.active).length > 0);
         },
 
         add: {
@@ -475,7 +475,7 @@ $.fn.modal = function(parameters) {
 
         restore: {
           focus: function() {
-            if($focusedElement && $focusedElement.size() > 0) {
+            if($focusedElement && $focusedElement.length > 0) {
               $focusedElement.focus();
             }
           }
@@ -559,7 +559,7 @@ $.fn.modal = function(parameters) {
               var
                 $inputs    = $module.find(':input:visible'),
                 $autofocus = $inputs.filter('[autofocus]'),
-                $input     = ($autofocus.size() > 0)
+                $input     = ($autofocus.length > 0)
                   ? $autofocus
                   : $inputs
               ;

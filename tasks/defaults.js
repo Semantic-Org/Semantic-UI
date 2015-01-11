@@ -3,11 +3,14 @@
 *******************************/
 
 module.exports = {
-  base       : '',
 
-  theme      : './src/theme.config',
+  base        : '',
+  theme       : './src/theme.config',
 
-  docs       : {
+  permission  : 644,
+  rtl         : false,
+
+  docs : {
     source : '../docs/server/files/release/',
     output : '../docs/release/'
   },
@@ -79,6 +82,9 @@ module.exports = {
     'state',
     'visibility'
   ],
+
+  // ignored files for compile
+  ignoredFiles : '!(*.min|*.map|*.rtl)',
 
   // modified to create configs
   templates: {

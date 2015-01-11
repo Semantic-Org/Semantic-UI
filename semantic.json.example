@@ -15,6 +15,9 @@
       "themes"       : "dist/themes/"
     },
     "clean"        : "dist/"
-  }
+  },
+
+  "permission" : 644,
+  "rtl": false
 
 }

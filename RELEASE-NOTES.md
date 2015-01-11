@@ -1,5 +1,26 @@
 ## RELEASE NOTES
 
+### Version 1.7.0 -
+
+**Major Changes**
+- **Project** - Right-to-left (RTL) support added. New gulp tasks for RTL *Thanks @MohammadYounes!*
+
+**Enhancements**
+- **Sidebar** - Having a sidebar visible on page load is now much simpler. You can include ``ui visible sidebar`` on page load to have a sidebar element appear on page load. To close call `$('.ui.sidebar').sidebar('hide')`
+
+
+**Code / Build**
+- **Build** - `Dist/` files now have file permissions `644` by default. Can adjust in `semantic.json`. You will need to run `npm install` to add the new gulp-chmod dependency *Thanks @PeterDaveHello*
+- **Modules** - Remove use of deprecated `.size()` for `.length` across all modules
+- **Modules** - Use of `$.proxy` swapped to native `function.call()` for performance gains across all modules
+
+**Bugs**
+- **Popup** - `wide` and `very wide` popup will now appear when screen size is below their `max-width`
+- **Popup** - Popup no longer blurs element on popup hide
+- **Segment** - ``ui tabular menu`` now correctly aligns with attached segment when using fluid variation *Thanks @MohammadYounes*
+- **Steps** - Steps now use ``table-cell`` to allow steps to be equal height by default, even with different content height.
+- **Button** - Fix issue with labeled icon groups in material theme
+
 ### Version 1.6.2 - January 06, 2015
 
 **Site Variables**

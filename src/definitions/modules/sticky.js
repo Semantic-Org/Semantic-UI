@@ -68,7 +68,7 @@ $.fn.sticky = function(parameters) {
           else {
             $context = $container;
           }
-          if($context.size() === 0) {
+          if($context.length === 0) {
             module.error(error.invalidContext, settings.context, $module);
             return;
           }
@@ -155,7 +155,7 @@ $.fn.sticky = function(parameters) {
           scroll: function() {
             requestAnimationFrame(function() {
               module.stick();
-              $.proxy(settings.onScroll, element)();
+              settings.onScroll.call(element);
             });
           }
         },
@@ -167,7 +167,7 @@ $.fn.sticky = function(parameters) {
           }
           module.save.positions();
           module.stick();
-          $.proxy(settings.onReposition, element)();
+          settings.onReposition.call(element);
         },
 
         supports: {
@@ -226,7 +226,7 @@ $.fn.sticky = function(parameters) {
               }
             };
             module.set.containerSize();
-            module.set.size();
+            module.set.length;
             module.stick();
             module.debug('Caching element positions', module.cache);
           }
@@ -458,8 +458,8 @@ $.fn.sticky = function(parameters) {
             .addClass(className.bound)
             .addClass(className.top)
           ;
-          $.proxy(settings.onTop, element)();
-          $.proxy(settings.onUnstick, element)();
+          settings.onTop.call(element);
+          settings.onUnstick.call(element);
         },
         bindBottom: function() {
           module.debug('Binding element to bottom of parent container');
@@ -473,8 +473,8 @@ $.fn.sticky = function(parameters) {
             .addClass(className.bound)
             .addClass(className.bottom)
           ;
-          $.proxy(settings.onBottom, element)();
-          $.proxy(settings.onUnstick, element)();
+          settings.onBottom.call(element);
+          settings.onUnstick.call(element);
         },
 
         setInitialPosition: function() {
@@ -493,7 +493,7 @@ $.fn.sticky = function(parameters) {
             .addClass(className.fixed)
             .addClass(className.top)
           ;
-          $.proxy(settings.onStick, element)();
+          settings.onStick.call(element);
         },
 
         fixBottom: function() {
@@ -506,7 +506,7 @@ $.fn.sticky = function(parameters) {
             .addClass(className.fixed)
             .addClass(className.bottom)
           ;
-          $.proxy(settings.onStick, element)();
+          settings.onStick.call(element);
         },
 
         unbind: function() {
@@ -527,7 +527,7 @@ $.fn.sticky = function(parameters) {
             .removeClass(className.top)
             .removeClass(className.bottom)
           ;
-          $.proxy(settings.onUnstick, this)();
+          settings.onUnstick.call(element);
         },
 
         reset: function() {

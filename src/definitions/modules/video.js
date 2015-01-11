@@ -366,8 +366,8 @@ $.fn.video = function(parameters) {
             if(moduleSelector) {
               title += ' \'' + moduleSelector + '\'';
             }
-            if($allModules.size() > 1) {
-              title += ' ' + '(' + $allModules.size() + ')';
+            if($allModules.length > 1) {
+              title += ' ' + '(' + $allModules.length + ')';
             }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
               console.groupCollapsed(title);

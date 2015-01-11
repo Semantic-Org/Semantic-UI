@@ -198,7 +198,7 @@ $.api = $.fn.api = function(parameters) {
 
         is: {
           disabled: function() {
-            return ($module.filter(settings.filter).size() > 0);
+            return ($module.filter(settings.filter).length > 0);
           },
           loading: function() {
             return (module.request && module.request.state() == 'pending');
@@ -342,7 +342,7 @@ $.api = $.fn.api = function(parameters) {
           request: {
             complete: function(response) {
               module.remove.loading();
-              $.proxy(settings.onComplete, context)(response, $module);
+              settings.onComplete.call(context, response, $module);
             },
             done: function(response) {
               module.debug('API Response Received', response);
@@ -350,19 +350,19 @@ $.api = $.fn.api = function(parameters) {
                 if( $.isFunction(settings.successTest) ) {
                   module.debug('Checking JSON returned success', settings.successTest, response);
                   if( settings.successTest(response) ) {
-                    $.proxy(settings.onSuccess, context)(response, $module);
+                    settings.onSuccess.call(context, response, $module);
                   }
                   else {
                     module.debug('JSON test specified by user and response failed', response);
-                    $.proxy(settings.onFailure, context)(response, $module);
+                    settings.onFailure.call(context, response, $module);
                   }
                 }
                 else {
-                  $.proxy(settings.onSuccess, context)(response, $module);
+                  settings.onSuccess.call(context, response, $module);
                 }
               }
               else {
-                $.proxy(settings.onSuccess, context)(response, $module);
+                settings.onSuccess.call(context, response, $module);
               }
             },
             error: function(xhr, status, httpMessage) {
@@ -401,10 +401,10 @@ $.api = $.fn.api = function(parameters) {
                     setTimeout(module.remove.error, settings.errorDuration);
                   }
                   module.debug('API Request error:', errorMessage);
-                  $.proxy(settings.onError, context)(errorMessage, context);
+                  settings.onError.call(context, errorMessage, $module);
                 }
                 else {
-                  $.proxy(settings.onAbort, context)(errorMessage, context);
+                  settings.onAbort.call(context, errorMessage, $module);
                   module.debug('Request Aborted (Most likely caused by page change or CORS Policy)', status, httpMessage);
                 }
               }
@@ -462,7 +462,7 @@ $.api = $.fn.api = function(parameters) {
             var
               runSettings
             ;
-            runSettings = $.proxy(settings.beforeSend, $module)(settings);
+            runSettings = settings.beforeSend.call($module, settings);
             if(runSettings) {
               if(runSettings.success !== undefined) {
                 module.debug('Legacy success callback detected', runSettings);

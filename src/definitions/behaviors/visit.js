@@ -197,9 +197,9 @@ $.visit = $.fn.visit = function(parameters) {
             var
               $element = $(selector)
             ;
-            if($element.size() > 0 && !$.isWindow($element[0])) {
+            if($element.length > 0 && !$.isWindow($element[0])) {
               module.debug('Updating visit count for element', $element);
-              $displays = ($displays.size() > 0)
+              $displays = ($displays.length > 0)
                 ? $displays.add($element)
                 : $element
               ;
@@ -233,10 +233,10 @@ $.visit = $.fn.visit = function(parameters) {
             if(settings.limit) {
               if(value >= settings.limit) {
                 module.debug('Pages viewed exceeded limit, firing callback', value, settings.limit);
-                $.proxy(settings.onLimit, element)(value);
+                settings.onLimit.call(element, value);
               }
               module.debug('Limit not reached', value, settings.limit);
-              $.proxy(settings.onChange, element)(value);
+              settings.onChange.call(element, value);
             }
             module.update.display(value);
           }
@@ -245,7 +245,7 @@ $.visit = $.fn.visit = function(parameters) {
         update: {
           display: function(value) {
             value = value || module.get.count();
-            if($displays.size() > 0) {
+            if($displays.length > 0) {
               module.debug('Updating displayed view count', $displays);
               $displays.html(value);
             }
@@ -379,8 +379,8 @@ $.visit = $.fn.visit = function(parameters) {
             if(moduleSelector) {
               title += ' \'' + moduleSelector + '\'';
             }
-            if($allModules.size() > 1) {
-              title += ' ' + '(' + $allModules.size() + ')';
+            if($allModules.length > 1) {
+              title += ' ' + '(' + $allModules.length + ')';
             }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
               console.groupCollapsed(title);

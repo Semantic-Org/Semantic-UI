@@ -108,7 +108,7 @@ $.fn.accordion = function(parameters) {
 
         event: {
           click: function() {
-            $.proxy(module.toggle, this)();
+            module.toggle.call(this);
           }
         },
 
@@ -125,14 +125,14 @@ $.fn.accordion = function(parameters) {
           module.debug('Toggling visibility of content', $activeTitle);
           if(contentIsOpen) {
             if(settings.collapsible) {
-              $.proxy(module.close, $activeTitle)();
+              module.close.call($activeTitle);
             }
             else {
               module.debug('Cannot close accordion content collapsing is disabled');
             }
           }
           else {
-            $.proxy(module.open, $activeTitle)();
+              module.open.call($activeTitle);
           }
         },
 
@@ -150,7 +150,7 @@ $.fn.accordion = function(parameters) {
           if(!currentlyAnimating && !currentlyActive) {
             module.debug('Opening accordion content', $activeTitle);
             if(settings.exclusive) {
-              $.proxy(module.closeOthers, $activeTitle)();
+              module.closeOthers.call($activeTitle);
             }
             $activeTitle
               .addClass(className.active)
@@ -184,9 +184,9 @@ $.fn.accordion = function(parameters) {
                 $activeContent
                   .addClass(className.active)
                 ;
-                $.proxy(module.reset.display, this)();
-                $.proxy(settings.onOpen, this)();
-                $.proxy(settings.onChange, this)();
+                module.reset.display.call(this);
+                settings.onOpen.call(this);
+                settings.onChange.call(this);
               })
             ;
           }
@@ -237,9 +237,9 @@ $.fn.accordion = function(parameters) {
             $activeContent
               .stop()
               .slideUp(settings.duration, settings.easing, function() {
-                $.proxy(module.reset.display, this)();
-                $.proxy(settings.onClose, this)();
-                $.proxy(settings.onChange, this)();
+                module.reset.display.call(this);
+                settings.onClose.call(this);
+                settings.onChange.call(this);
               })
             ;
           }
@@ -268,7 +268,7 @@ $.fn.accordion = function(parameters) {
             $openTitles   = $openTitles.not($nestedTitles);
             $openContents = $openTitles.next($content);
           }
-          if( ($openTitles.size() > 0) ) {
+          if( ($openTitles.length > 0) ) {
             module.debug('Exclusive enabled, closing other content', $openTitles);
             $openTitles
               .removeClass(className.active)
@@ -300,7 +300,7 @@ $.fn.accordion = function(parameters) {
               .stop()
               .slideUp(settings.duration , settings.easing, function() {
                 $(this).removeClass(className.active);
-                $.proxy(module.reset.display, this)();
+                module.reset.display.call(this);
               })
             ;
           }

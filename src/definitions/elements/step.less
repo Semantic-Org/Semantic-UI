@@ -20,21 +20,23 @@
 
 
 /*******************************
-            Step
+           Singular
 *******************************/
 
 .ui.steps .step {
-  display: inline-block;
   position: relative;
+  display: table-cell;
+  vertical-align: middle;
 
   margin: @verticalMargin @horizontalMargin;
   padding: @verticalPadding @horizontalPadding @verticalPadding @leftPadding;
-  vertical-align: top;
   background: @background;
   color: @textColor;
   box-shadow: @boxShadow;
   border-radius: @borderRadius;
 }
+
+
 .ui.steps .step:after {
   position: absolute;
   z-index: 2;
@@ -53,6 +55,41 @@
 .ui.steps .step,
 .ui.steps .step:after {
   transition: @transition;
+}
+
+/*******************************
+            Plural
+*******************************/
+
+.ui.steps {
+  display: table;
+  table-layout: fixed;
+  background: @stepsBackground;
+  box-shadow: @stepsBoxShadow;
+
+  line-height: @lineHeight;
+  box-sizing: border-box;
+  border-radius: @stepsBorderRadius;
+}
+
+.ui.steps .step:first-child {
+  padding-left: @horizontalPadding;
+  border-radius: @stepsBorderRadius 0em 0em @stepsBorderRadius;
+}
+.ui.steps .step:last-child {
+  border-radius: 0em @stepsBorderRadius @stepsBorderRadius 0em;
+}
+.ui.steps .step:only-child {
+  -webkit-border-radius: @stepsBorderRadius;
+  -moz-border-radius: @stepsBorderRadius;
+  border-radius: @stepsBorderRadius;
+}
+
+.ui.steps .step:last-child {
+  margin-right: 0em;
+}
+.ui.steps .step:last-child:after {
+  display: none;
 }
 
 
@@ -128,6 +165,7 @@
 ---------------*/
 
 .ui.vertical.steps {
+  display: inline-block;
   overflow: visible;
 }
 .ui.vertical.steps .step {
@@ -183,43 +221,6 @@
 }
 
 }
-
-/*******************************
-            Group
-*******************************/
-
-.ui.steps {
-  display: inline-block;
-  font-size: 0em;
-
-  background: @stepsBackground;
-  box-shadow: @stepsBoxShadow;
-
-  line-height: @lineHeight;
-  box-sizing: border-box;
-  border-radius: @stepsBorderRadius;
-}
-
-.ui.steps .step:first-child {
-  padding-left: @horizontalPadding;
-  border-radius: @stepsBorderRadius 0em 0em @stepsBorderRadius;
-}
-.ui.steps .step:last-child {
-  border-radius: 0em @stepsBorderRadius @stepsBorderRadius 0em;
-}
-.ui.steps .step:only-child {
-  -webkit-border-radius: @stepsBorderRadius;
-  -moz-border-radius: @stepsBorderRadius;
-  border-radius: @stepsBorderRadius;
-}
-
-.ui.steps .step:last-child {
-  margin-right: 0em;
-}
-.ui.steps .step:last-child:after {
-  display: none;
-}
-
 
 /*******************************
              States

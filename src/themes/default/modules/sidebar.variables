@@ -3,37 +3,46 @@
 *******************************/
 
 /*-------------------
-       Element
+       Content
 --------------------*/
 
-@dimmerColor: rgba(0, 0, 0, 0.4);
-@canvasBackground: @lightBlack;
+/* Animation */
 @perspective: 1500px;
 @duration: 500ms;
 @easing: ease;
 
+/* Dimmer */
+@dimmerColor: rgba(0, 0, 0, 0.4);
+@dimmerTransition:
+  transform @duration,
+  opacity @duration
+;
+
+/* Color below page */
+@canvasBackground: @lightBlack;
+
+/* Shadow */
 @boxShadow: 0px 0px 20px @borderColor;
 @horizontalBoxShadow: @boxShadow;
 @verticalBoxShadow: @boxShadow;
 
-/* Indexes */
+/* Layering */
 @bottomLayer: 1;
 @middleLayer: 2;
 @fixedLayer: 101;
 @topLayer: 102;
 @dimmerLayer: 1000;
 
-
 /*-------------------
-       Variations
+      Variations
 --------------------*/
 
 /* Width */
-@sidebarVeryThinWidth: 60px;
-@sidebarThinWidth: 150px;
-@sidebarWidth: 260px;
-@sidebarWideWidth: 350px;
-@sidebarVeryWideWidth: 475px;
+@veryThinWidth: 60px;
+@thinWidth: 150px;
+@width: 260px;
+@wideWidth: 350px;
+@veryWideWidth: 475px;
 
 /* Height */
-@sidebarHeight: auto;
+@height: 36px;

@@ -241,7 +241,7 @@ $.fn.visibility = function(parameters) {
           module.reset();
           module.save.position();
           module.checkVisibility();
-          $.proxy(settings.onRefresh, element)();
+          settings.onRefresh.call(element);
         },
 
         reset: function() {
@@ -529,11 +529,11 @@ $.fn.visibility = function(parameters) {
           if(callback) {
             if(settings.continuous) {
               module.debug('Callback being called continuously', callbackName, calculations);
-              $.proxy(callback, element)(calculations, screen);
+              callback.call(element, calculations, screen);
             }
             else if(!module.get.occurred(callbackName)) {
               module.debug('Conditions met', callbackName, calculations);
-              $.proxy(callback, element)(calculations, screen);
+              callback.call(element, calculations, screen);
             }
           }
           module.save.occurred(callbackName);

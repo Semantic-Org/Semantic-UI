@@ -598,10 +598,12 @@
 
 .ui.tabular.menu {
   background-color: transparent;
-  border-bottom: @tabularBorderWidth solid @tabularBorderColor;
-
   border-radius: 0em;
   box-shadow: none !important;
+  border-bottom: @tabularBorderWidth solid @tabularBorderColor;
+}
+.ui.tabular.fluid.menu {
+  width: @tabularFluidWidth !important;
 }
 .ui.tabular.menu .item {
   background-color: transparent;
@@ -635,9 +637,10 @@
   font-weight: @tabularActiveWeight;
 
   margin-bottom: -@tabularBorderWidth;
-  border-bottom: @tabularBorderWidth solid @tabularBackgroundColor;
 
-  box-shadow: none;
+
+  border-bottom: none;
+  box-shadow: 0px (2 * @tabularBorderWidth) 0px -@tabularBorderWidth @tabularBackgroundColor;
   border-radius: @tabularBorderRadius @tabularBorderRadius 0px 0px;
 }
 
@@ -646,9 +649,10 @@
   position: relative;
   z-index: 2;
 }
-.ui.tabular.menu ~ .bottom.attached.segment {
+.ui.tabular.menu + .bottom.attached.segment,
+.ui.tabular.menu ~ .bottom.attached.segment + .bottom.attached.segment {
   border-top: none;
-  margin: -1px 0px 0px;
+  margin: 0px;
 }
 
 

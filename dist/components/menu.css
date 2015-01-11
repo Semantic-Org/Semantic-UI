@@ -592,9 +592,13 @@
 
 .ui.tabular.menu {
   background-color: transparent;
-  border-bottom: 1px solid #d4d4d5;
   border-radius: 0em;
   box-shadow: none !important;
+  border-bottom: 1px solid #d4d4d5;
+}
+.ui.tabular.fluid.menu {
+  width: -webkit-calc(100% +  2px ) !important;
+  width: calc(100% +  2px ) !important;
 }
 .ui.tabular.menu .item {
   background-color: transparent;
@@ -623,8 +627,8 @@
   border-color: #d4d4d5;
   font-weight: bold;
   margin-bottom: -1px;
-  border-bottom: 1px solid #ffffff;
-  box-shadow: none;
+  border-bottom: none;
+  box-shadow: 0px 2px 0px -1px #ffffff;
   border-radius: 5px 5px 0px 0px;
 }
 
@@ -633,9 +637,10 @@
   position: relative;
   z-index: 2;
 }
-.ui.tabular.menu ~ .bottom.attached.segment {
+.ui.tabular.menu + .bottom.attached.segment,
+.ui.tabular.menu ~ .bottom.attached.segment + .bottom.attached.segment {
   border-top: none;
-  margin: -1px 0px 0px;
+  margin: 0px;
 }
 
 /*--------------
