@@ -7,7 +7,6 @@
 
 @background: rgba(0, 0, 0 , 0.85);
 @lineHeight: 1;
-@transformStyle: preserve-3d;
 @perspective: 2000px;
 
 @duration: 0.5s;
@@ -33,6 +32,13 @@
 
 /* Visible */
 @visibleOpacity: 1;
+
+/*-------------------
+        Types
+--------------------*/
+
+/* Page Dimmer*/
+@transformStyle: '';
 @pageDimmerPosition: fixed;
 
 
@@ -40,6 +46,7 @@
       Variations
 --------------------*/
 
+/* Inverted */
 @invertedBackground: rgba(255, 255, 255, 0.85);
 @invertedTextColor: @textColor;
 

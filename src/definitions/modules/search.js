@@ -302,10 +302,10 @@ $.fn.search = function(parameters) {
                   notAlreadyResult = ($.inArray(content, results) == -1 && $.inArray(content, fullTextResults) == -1)
                 ;
                 if(fieldExists && notAlreadyResult) {
-                  if( searchRegExp.test( content[field] ) ) {
+                  if( content[field].match(searchRegExp) ) {
                     results.push(content);
                   }
-                  else if( settings.searchFullText && fullTextRegExp.test( content[field] ) ) {
+                  else if( settings.searchFullText && content[field].match(fullTextRegExp) ) {
                     fullTextResults.push(content);
                   }
                 }

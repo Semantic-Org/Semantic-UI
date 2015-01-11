@@ -138,8 +138,9 @@
 
 /* Pointing */
 @pointingVerticalDistance: 1em;
-@pointingHorizontalDistance: 0em;
 @pointingTriangleSize: 0.6em;
+@pointingHorizontalDistance: @pointingTriangleSize;
+
 @pointingTriangleOffset: (@pointingTriangleSize / 2);
 @pointingTriangleTransition: background @labelTransitionDuration @labelTransitionEasing;
 @pointingTriangleZIndex: 2;

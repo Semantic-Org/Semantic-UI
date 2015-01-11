@@ -1,5 +1,5 @@
  /*
- * # Semantic UI
+ * # Semantic UI - 1.6.2
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -138,10 +138,10 @@
     Visible
 ---------------*/
 
-.ui.message.visible {
+.ui.visible.visible.visible.visible.message {
   display: block;
 }
-.ui.icon.message.visible {
+.ui.icon.visible.visible.visible.visible.message {
   display: table;
 }
 
@@ -149,7 +149,7 @@
      Hidden
 ---------------*/
 
-.ui.message.hidden {
+.ui.hidden.hidden.hidden.hidden.message {
   display: none;
 }
 

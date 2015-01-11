@@ -1,6 +1,6 @@
 /*
  * # Semantic - Steps
- * http://github.com/jlukic/semantic-ui/
+ * http://github.com/semantic-org/semantic-ui/
  *
  *
  * Copyright 2014 Contributor
@@ -109,10 +109,12 @@
 .ui.ordered.steps .step:before {
   display: table-cell;
   position: static;
+  text-align: center;
+  content: counters(ordered, ".");
+  vertical-align: @iconVerticalAlign;
   padding-right: @iconDistance;
   font-size: @iconSize;
   counter-increment: ordered;
-  content: counters(ordered, ".");
 }
 
 .ui.ordered.steps .step > * {
@@ -151,6 +153,36 @@
   display: block;
 }
 
+
+/*---------------
+    Responsive
+----------------*/
+
+/* Mobile (Default) */
+@media only screen and (max-width: (@largestMobileScreen)) {
+
+.ui.steps {
+  overflow: visible;
+}
+.ui.steps .step {
+  display: block;
+  border-radius: @borderRadius;
+  padding: @verticalPadding @horizontalPadding;
+}
+.ui.steps .step:first-child {
+  padding: @verticalPadding @horizontalPadding;
+  border-radius: @stepsBorderRadius @stepsBorderRadius 0em 0em;
+}
+.ui.steps .step:last-child {
+  border-radius: 0em 0em @stepsBorderRadius @stepsBorderRadius;
+}
+
+/* Arrow */
+.ui.steps .step:after {
+  display: none;
+}
+
+}
 
 /*******************************
             Group
@@ -263,15 +295,54 @@
            Variations
 *******************************/
 
+
+/*--------------
+   Stackable
+---------------*/
+
+
+/* Tablet Or Below */
+@media only screen and (min-width: @computerBreakpoint) {
+
+.ui[class*="tablet stackable"].steps {
+  overflow: visible;
+}
+.ui[class*="tablet stackable"].steps .step {
+  display: block;
+  border-radius: @borderRadius;
+  padding: @verticalPadding @horizontalPadding;
+}
+.ui[class*="tablet stackable"].steps .step:first-child {
+  padding: @verticalPadding @horizontalPadding;
+  border-radius: @stepsBorderRadius @stepsBorderRadius 0em 0em;
+}
+.ui[class*="tablet stackable"].steps .step:last-child {
+  border-radius: 0em 0em @stepsBorderRadius @stepsBorderRadius;
+}
+/* Arrow */
+.ui[class*="tablet stackable"].steps .step:after {
+  display: none;
+}
+
+}
+
+
+/*--------------
+      Fluid
+---------------*/
+
 /* Fluid */
 .ui.fluid.steps {
   width: 100%;
 }
 
+/*--------------
+    Attached
+---------------*/
 
-/* Attached */
+/* Top */
 .attached.ui.steps {
-  margin: 0em;
+  margin: @attachedTopMargin;
   border-radius: @stepsBorderRadius @stepsBorderRadius 0em 0em;
 }
 .attached.ui.steps .step:first-child {
@@ -281,9 +352,9 @@
   border-radius: 0em @stepsBorderRadius 0em 0em;
 }
 
-/* Bottom Side */
+/* Bottom */
 .bottom.attached.ui.steps {
-  margin-top: -1px;
+  margin: @attachedBottomMargin;
   border-radius: 0em 0em @stepsBorderRadius @stepsBorderRadius;
 }
 .bottom.attached.ui.steps .step:first-child {
@@ -293,8 +364,10 @@
   border-radius: 0em 0em @stepsBorderRadius 0em;
 }
 
+/*-------------------
+    Evenly Divided
+--------------------*/
 
-/* Evenly divided  */
 .ui.one.steps,
 .ui.two.steps,
 .ui.three.steps,
@@ -330,11 +403,10 @@
   width: 12.500%;
 }
 
+/*-------------------
+       Sizes
+--------------------*/
 
-
-/*******************************
-             Sizes
-*******************************/
 
 .ui.small.step,
 .ui.small.steps .step {

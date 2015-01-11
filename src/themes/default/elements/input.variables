@@ -6,12 +6,11 @@
       Element
 --------------------*/
 
-@pageFont: "Helvetica Neue", "Helvetica", Arial;
-
-@verticalPadding: 0.8em;
+@inputFont: @pageFont;
+@verticalPadding: 0.78571em;
 @horizontalPadding: 1em;
 
-@lineHeight: 1.2em;
+@lineHeight: 1.2142em;
 @lineHeightOffset: ((@lineHeight - 1em) / 2);
 
 @padding: (@verticalPadding - @lineHeightOffset) @horizontalPadding;
@@ -24,9 +23,9 @@
 
 @borderRadius: @defaultBorderRadius;
 @transition:
-  background-color 0.3s ease-out,
-  box-shadow 0.2s ease,
-  border-color 0.2s ease
+  background-color @transitionDuration @transitionEasing,
+  box-shadow @transitionDuration @transitionEasing,
+  border-color @transitionDuration @transitionEasing
 ;
 
 @inputColor: @textColor;
@@ -48,7 +47,7 @@
 @iconTransition: opacity 0.3s @defaultEasing;
 
 @transparentIconWidth: @glyphWidth;
-@transparentIconMargin: 1.75em;
+@transparentIconMargin: 2em;
 
 /* Circular Icon Input */
 @circularIconVerticalOffset: 0.35em;
@@ -83,7 +82,7 @@
 
 /* Focus */
 @focusBorderColor: @selectedBorderColor;
-@focusBackground: '';
+@focusBackground: @background;
 @focusColor: @hoveredTextColor;
 @focusBoxShadow: none;
 
@@ -102,6 +101,11 @@
 /*-------------------
       Variations
 --------------------*/
+
+/* Inverted */
+@transparentInvertedPlaceholderColor: @invertedUnselectedTextColor;
+@transparentInvertedColor: @white;
+
 
 /* Sizing */
 @mini: 0.8125rem;

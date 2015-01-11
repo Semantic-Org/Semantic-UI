@@ -2,7 +2,8 @@
 var
   path     = require('path'),
   fs       = require('fs'),
-  defaults = require('./defaults')
+  defaults = require('./defaults'),
+  package  = require('../package.json')
 ;
 
 module.exports = {
@@ -29,6 +30,7 @@ module.exports = {
   },
   header: {
     title      : defaults.title,
+    version    : package.version,
     repository : defaults.repository,
     url        : defaults.url
   },

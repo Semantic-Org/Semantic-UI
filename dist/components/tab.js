@@ -13,7 +13,7 @@
 
 "use strict";
 
-$.tab = $.fn.tab = function(parameters) {
+$.fn.tab = function(parameters) {
 
   var
     // use window context if none specified
@@ -36,7 +36,6 @@ $.tab = $.fn.tab = function(parameters) {
     module,
     returnedValue
   ;
-
 
   $allModules
     .each(function() {
@@ -158,6 +157,7 @@ $.tab = $.fn.tab = function(parameters) {
 
         instantiate: function () {
           module.verbose('Storing instance of module', module);
+          instance = module;
           $module
             .data(moduleNamespace, module)
           ;
@@ -313,7 +313,7 @@ $.tab = $.fn.tab = function(parameters) {
                 $.proxy(settings.onTabLoad, $tab)(currentPath, parameterArray, historyEvent);
               }
             }
-            else if(tabPath.search('/') == -1) {
+            else if(tabPath.search('/') == -1 && tabPath !== '') {
               // look for in page anchor
               $anchor     = $('#' + tabPath + ', a[name="' + tabPath + '"]'),
               currentPath = $anchor.closest('[data-tab]').data('tab');
@@ -697,7 +697,6 @@ $.tab = $.fn.tab = function(parameters) {
           return found;
         }
       };
-
       if(methodInvoked) {
         if(instance === undefined) {
           module.initialize();
@@ -723,51 +722,38 @@ $.tab = $.fn.tab = function(parameters) {
 };
 
 // shortcut for tabbed content with no defined navigation
-$.tab = function(settings) {
-  $(window).tab(settings);
+$.tab = function() {
+  $(window).tab.apply(this, arguments);
 };
 
 $.fn.tab.settings = {
 
-  name         : 'Tab',
-  namespace    : 'tab',
+  name            : 'Tab',
+  namespace       : 'tab',
 
-  debug        : false,
-  verbose      : true,
-  performance  : true,
+  debug           : false,
+  verbose         : true,
+  performance     : true,
 
-  // uses pjax style endpoints fetching content from same url with remote-content headers
-  auto         : false,
-  history      : false,
-  historyType  : 'hash',
-  path         : false,
+  auto            : false,  // uses pjax style endpoints fetching content from same url with remote-content headers
+  history         : false,  // use browser history
+  historyType     : 'hash', // #/ or html5 state
+  path            : false,  // base path of url
 
-  context      : false,
-  childrenOnly : false,
+  context         : false,  // specify a context that tabs must appear inside
+  childrenOnly    : false,  // use only tabs that are children of context
+  maxDepth        : 25,     // max depth a tab can be nested
 
-  // max depth a tab can be nested
-  maxDepth        : 25,
+  alwaysRefresh   : false,  // load tab content new every tab click
+  cache           : true,   // cache the content requests to pull locally
+  ignoreFirstLoad : false,  // don't load remote content on first load
+  apiSettings     : false,  // settings for api call
 
-  // dont load content on first load
-  ignoreFirstLoad : false,
-
-  // load tab content new every tab click
-  alwaysRefresh   : false,
-
-  // cache the content requests to pull locally
-  cache           : true,
-
-  // settings for api call
-  apiSettings     : false,
-
-  // only called first time a tab's content is loaded (when remote source)
-  onTabInit    : function(tabPath, parameterArray, historyEvent) {},
-
-  // called on every load
-  onTabLoad    : function(tabPath, parameterArray, historyEvent) {},
+  onTabInit    : function(tabPath, parameterArray, historyEvent) {}, // called first time loaded
+  onTabLoad    : function(tabPath, parameterArray, historyEvent) {}, // called on every load
 
   templates    : {
-    determineTitle: function(tabArray) {}
+    determineTitle: function(tabArray) {} // returns page title for path
   },
 
   error: {

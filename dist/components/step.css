@@ -1,5 +1,5 @@
  /*
- * # Semantic UI
+ * # Semantic UI - 1.6.2
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -19,11 +19,11 @@
   display: inline-block;
   position: relative;
   margin: 0em 0em;
-  padding: 0.8em 1.5em 0.8em 2.25em;
+  padding: 0.9285em 1.5em 0.9285em 2.25em;
   vertical-align: top;
   background: #ffffff;
   color: rgba(0, 0, 0, 0.8);
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 0px 1px #d4d4d5;
   border-radius: 0em;
 }
 .ui.steps .step:after {
@@ -36,16 +36,16 @@
   background-color: #ffffff;
   width: 1.5em;
   height: 1.5em;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(39, 41, 43, 0.15);
+  border-right: 1px solid rgba(39, 41, 43, 0.15);
   -webkit-transform: translateY(-50%) translateX(50%) rotate(-45deg);
       -ms-transform: translateY(-50%) translateX(50%) rotate(-45deg);
           transform: translateY(-50%) translateX(50%) rotate(-45deg);
 }
 .ui.steps .step,
 .ui.steps .step:after {
-  -webkit-transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
-          transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
+  -webkit-transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+          transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
 
 
@@ -57,14 +57,14 @@
 /* Title */
 .ui.steps .step .title {
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  font-size: 1.1em;
+  font-size: 1.0714em;
   font-weight: bold;
 }
 
 /* Description */
 .ui.steps .step .description {
   font-weight: normal;
-  font-size: 0.9em;
+  font-size: 0.9285em;
   color: rgba(0, 0, 0, 0.8);
 }
 .ui.steps .step .title ~ .description {
@@ -105,10 +105,12 @@
 .ui.ordered.steps .step:before {
   display: table-cell;
   position: static;
+  text-align: center;
+  content: counters(ordered, ".");
+  vertical-align: middle;
   padding-right: 0.6em;
   font-size: 2em;
   counter-increment: ordered;
-  content: counters(ordered, ".");
 }
 .ui.ordered.steps .step > * {
   display: table-cell;
@@ -125,10 +127,10 @@
 .ui.vertical.steps .step {
   display: block;
   border-radius: 0em;
-  padding: 0.8em 1.5em;
+  padding: 0.9285em 1.5em;
 }
 .ui.vertical.steps .step:first-child {
-  padding: 0.8em 1.5em;
+  padding: 0.9285em 1.5em;
   border-radius: 0.2857rem 0.2857rem 0em 0em;
 }
 .ui.vertical.steps .step:last-child {
@@ -145,6 +147,35 @@
   display: block;
 }
 
+/*---------------
+    Responsive
+----------------*/
+
+
+/* Mobile (Default) */
+@media only screen and (max-width: 767px) {
+  .ui.steps {
+    overflow: visible;
+  }
+  .ui.steps .step {
+    display: block;
+    border-radius: 0em;
+    padding: 0.9285em 1.5em;
+  }
+  .ui.steps .step:first-child {
+    padding: 0.9285em 1.5em;
+    border-radius: 0.2857rem 0.2857rem 0em 0em;
+  }
+  .ui.steps .step:last-child {
+    border-radius: 0em 0em 0.2857rem 0.2857rem;
+  }
+  
+/* Arrow */
+  .ui.steps .step:after {
+    display: none;
+  }
+}
+
 
 /*******************************
             Group
@@ -155,7 +186,7 @@
   font-size: 0em;
   background: '';
   box-shadow: '';
-  line-height: 1.2;
+  line-height: 1.142rem;
   box-sizing: border-box;
   border-radius: 0.2857rem;
 }
@@ -253,12 +284,51 @@
 *******************************/
 
 
+/*--------------
+   Stackable
+---------------*/
+
+
+/* Tablet Or Below */
+@media only screen and (min-width: 992px) {
+  .ui[class*="tablet stackable"].steps {
+    overflow: visible;
+  }
+  .ui[class*="tablet stackable"].steps .step {
+    display: block;
+    border-radius: 0em;
+    padding: 0.9285em 1.5em;
+  }
+  .ui[class*="tablet stackable"].steps .step:first-child {
+    padding: 0.9285em 1.5em;
+    border-radius: 0.2857rem 0.2857rem 0em 0em;
+  }
+  .ui[class*="tablet stackable"].steps .step:last-child {
+    border-radius: 0em 0em 0.2857rem 0.2857rem;
+  }
+  
+/* Arrow */
+  .ui[class*="tablet stackable"].steps .step:after {
+    display: none;
+  }
+}
+
+/*--------------
+      Fluid
+---------------*/
+
+
 /* Fluid */
 .ui.fluid.steps {
   width: 100%;
 }
 
-/* Attached */
+/*--------------
+    Attached
+---------------*/
+
+
+/* Top */
 .attached.ui.steps {
   margin: 0em;
   border-radius: 0.2857rem 0.2857rem 0em 0em;
@@ -270,9 +340,9 @@
   border-radius: 0em 0.2857rem 0em 0em;
 }
 
-/* Bottom Side */
+/* Bottom */
 .bottom.attached.ui.steps {
-  margin-top: -1px;
+  margin: -1px 0em 0em;
   border-radius: 0em 0em 0.2857rem 0.2857rem;
 }
 .bottom.attached.ui.steps .step:first-child {
@@ -282,7 +352,10 @@
   border-radius: 0em 0em 0.2857rem 0em;
 }
 
-/* Evenly divided  */
+/*-------------------
+    Evenly Divided
+--------------------*/
+
 .ui.one.steps,
 .ui.two.steps,
 .ui.three.steps,
@@ -318,10 +391,9 @@
   width: 12.500%;
 }
 
-
-/*******************************
-             Sizes
-*******************************/
+/*-------------------
+       Sizes
+--------------------*/
 
 .ui.small.step,
 .ui.small.steps .step {
@@ -348,7 +420,7 @@
 .ui.steps .step.completed > .icon:before,
 .ui.ordered.steps .step.completed:before {
   font-family: 'Step';
-  content: '\e800'
+  content: '\e800';
   
 /* '' */
 }

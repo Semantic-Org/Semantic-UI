@@ -29,18 +29,19 @@
 ---------------------*/
 
 .ui.input {
-  display: inline-block;
   position: relative;
+  display: inline-block;
   color: @inputColor;
 }
 .ui.input input {
   margin: 0em;
   width: 100%;
   outline: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   text-align: @textAlign;
   line-height: @lineHeight;
 
-  font-family: @pageFont;
+  font-family: @inputFont;
   padding: @padding;
 
   background: @background;
@@ -50,8 +51,6 @@
   transition: @transition;
 
   box-shadow: @boxShadow;
-  box-sizing: border-box;
-  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
 }
 
 
@@ -88,7 +87,7 @@
        Loading
 ---------------------*/
 
-.ui.loading.loading.input > .icon:before {
+.ui.loading.loading.input > i.icon:before {
   position: absolute;
   content: '';
   top: 50%;
@@ -101,7 +100,7 @@
   border-radius: @circularRadius;
   border: @loaderLineWidth solid @loaderFillColor;
 }
-.ui.loading.loading.input > .icon:after {
+.ui.loading.loading.input > i.icon:after {
   position: absolute;
   content: '';
   top: 50%;
@@ -186,64 +185,8 @@
   padding: 0em;
 }
 
-/*--------------------
-         Icon
----------------------*/
-
-.ui.icon.input > .icon {
-  cursor: default;
-  position: absolute;
-  opacity: @iconOpacity;
-  top: 0px;
-  right: 0px;
-
-  margin: 0em;
-  width: @iconWidth;
-  height: 100%;
-
-  text-align: center;
-
-  border-radius: 0em @borderRadius @borderRadius 0em;
-  box-sizing: border-box;
-  transition: @iconTransition;
-}
-.ui.icon.input > .icon:before,
-.ui.icon.input > .icon:after {
-  left: 0;
-  position: absolute;
-  text-align: center;
-  top: 50%;
-  width: 100%;
-  margin-top: @iconOffset;
-}
-.ui.icon.input > .link.icon {
-  cursor: pointer;
-}
-.ui.icon.input input {
-  padding-right: @iconMargin !important;
-}
-.ui.icon.input > .circular.icon {
-  top: @circularIconVerticalOffset;
-  right: @circularIconHorizontalOffset;
-}
-
-/* Left Icon Input */
-.ui[class*="left icon"].input > .icon {
-  right: auto;
-  left: @borderWidth;
-  border-radius: @borderRadius 0em 0em @borderRadius;
-}
-.ui[class*="left icon"].input > .circular.icon {
-  right: auto;
-  left: @circularIconHorizontalOffset;
-}
-.ui[class*="left icon"].input > input {
-  padding-left: @iconMargin !important;
-  padding-right: @horizontalPadding !important;
-}
-
 /* Transparent Icon */
-.ui.transparent.icon.input > .icon {
+.ui.transparent.icon.input > i.icon {
   width: @transparentIconWidth;
 }
 .ui.transparent.icon.input > input {
@@ -255,8 +198,74 @@
   padding-left: @transparentIconMargin !important;
 }
 
+/* Transparent Inverted */
+.ui.transparent.inverted.input input::-moz-placeholder {
+  color: @transparentInvertedPlaceholderColor;
+}
+.ui.transparent.inverted.input {
+  color: @transparentInvertedColor;
+}
+.ui.transparent.inverted.input input {
+  color: inherit;
+}
+
+
+/*--------------------
+         Icon
+---------------------*/
+
+.ui.icon.input > i.icon {
+  cursor: default;
+  position: absolute;
+  text-align: center;
+  top: 0px;
+  right: 0px;
+  margin: 0em;
+  height: 100%;
+
+  width: @iconWidth;
+  opacity: @iconOpacity;
+  border-radius: 0em @borderRadius @borderRadius 0em;
+  transition: @iconTransition;
+}
+.ui.icon.input input {
+  padding-right: @iconMargin !important;
+}
+
+.ui.icon.input > i.icon:before,
+.ui.icon.input > i.icon:after {
+  left: 0;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  width: 100%;
+  margin-top: @iconOffset;
+}
+.ui.icon.input > i.link.icon {
+  cursor: pointer;
+}
+.ui.icon.input > i.circular.icon {
+  top: @circularIconVerticalOffset;
+  right: @circularIconHorizontalOffset;
+}
+
+/* Left Icon Input */
+.ui[class*="left icon"].input > i.icon {
+  right: auto;
+  left: @borderWidth;
+  border-radius: @borderRadius 0em 0em @borderRadius;
+}
+.ui[class*="left icon"].input > i.circular.icon {
+  right: auto;
+  left: @circularIconHorizontalOffset;
+}
+.ui[class*="left icon"].input > input {
+  padding-left: @iconMargin !important;
+  padding-right: @horizontalPadding !important;
+}
+
 /* Focus */
-.ui.icon.input > input:focus ~ .icon {
+.ui.icon.input > input:focus ~ i.icon {
   opacity: 1;
 }
 
@@ -357,6 +366,8 @@
   display: table-cell;
   vertical-align: middle;
   white-space: nowrap;
+  padding-top: @verticalPadding;
+  padding-bottom: @verticalPadding;
 }
 .ui.action.input > .button > .icon,
 .ui.action.input > .buttons > .button > .icon {
@@ -400,9 +411,11 @@
        Inverted
 ---------------------*/
 
+/* Standard */
 .ui.inverted.input input {
   border: none;
 }
+
 
 /*--------------------
         Fluid
@@ -411,7 +424,6 @@
 .ui.fluid.input {
   display: block;
 }
-
 
 /*--------------------
         Size

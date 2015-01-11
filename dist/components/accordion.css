@@ -1,5 +1,5 @@
  /*
- * # Semantic UI
+ * # Semantic UI - 1.6.2
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -212,6 +212,14 @@
 .ui.fluid.accordion,
 .ui.fluid.accordion .accordion {
   width: 100%;
+}
+
+/*--------------
+     Inverted
+---------------*/
+
+.ui.inverted.accordion .title:not(.ui) {
+  color: #ffffff;
 }
 
 

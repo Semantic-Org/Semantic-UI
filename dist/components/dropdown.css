@@ -1,5 +1,5 @@
  /*
- * # Semantic UI
+ * # Semantic UI - 1.6.2
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -34,7 +34,7 @@
 
 
 /*--------------
-     Menu
+      Menu
 ---------------*/
 
 .ui.dropdown .menu {
@@ -158,7 +158,7 @@
   margin: 0.5em 0em;
 }
 .ui.dropdown .menu > .input {
-  margin: 0.75rem 1.25rem 0.25rem;
+  margin: 0.75rem 1.25rem;
   min-width: 200px;
 }
 .ui.dropdown .menu > .header + .input {
@@ -166,6 +166,12 @@
 }
 .ui.dropdown .menu > .input:not(.transparent) input {
   padding: 0.5em 1em;
+}
+.ui.dropdown .menu > .input:not(.transparent) .button,
+.ui.dropdown .menu > .input:not(.transparent) .icon,
+.ui.dropdown .menu > .input:not(.transparent) .label {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
 }
 
 /*-----------------
@@ -463,17 +469,18 @@ select.ui.dropdown {
 
 /* Search Dropdown */
 .ui.search.dropdown > input.search {
-  background: none transparent;
-  border: none;
+  background: none transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0em !important;
   cursor: pointer;
   position: absolute;
-  border-radius: 0em !important;
   top: 0em;
   left: 0em;
   width: 100%;
   outline: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-  padding: inherit
+  padding: inherit;
   /*Amazing trick */
 }
 
@@ -593,6 +600,11 @@ select.ui.dropdown {
   -webkit-transition: none;
           transition: none;
 }
+.ui.dropdown > .loading.menu {
+  display: block;
+  visibility: hidden;
+  z-index: -1;
+}
 
 /*--------------------
     Keyboard Select
@@ -667,6 +679,26 @@ select.ui.dropdown {
 /* Flyout Direction */
 .ui.dropdown .menu {
   left: 0px;
+}
+
+/* Default Side (Right) */
+.ui.dropdown .right.menu > .menu,
+.ui.dropdown .menu .right.menu {
+  left: 100% !important;
+  right: auto !important;
+}
+
+/* Left Flyout Menu */
+.ui.dropdown > .left.menu .menu,
+.ui.dropdown .menu .left.menu {
+  left: auto !important;
+  right: 100% !important;
+}
+.ui.dropdown .item .left.dropdown.icon,
+.ui.dropdown .left.menu .item .dropdown.icon {
+  width: auto;
+  float: left;
+  margin: 0.2em 0.75em 0em 0em;
 }
 
 /*--------------
@@ -744,9 +776,11 @@ select.ui.dropdown {
 .ui.floating.dropdown .menu {
   left: 0;
   right: auto;
-  margin-top: 0.5em !important;
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
   border-radius: 0.2857rem;
+}
+.ui.floating.dropdown > .menu {
+  margin-top: 0.5em !important;
 }
 
 /*--------------
@@ -933,6 +967,10 @@ select.ui.dropdown {
 /* Sub Menu */
 .ui.dropdown .menu .item .dropdown.icon:before {
   content: '\f0da' /*rtl:'\f0d9'*/;
+}
+.ui.dropdown .item .left.dropdown.icon:before,
+.ui.dropdown .left.menu .item .dropdown.icon:before {
+  content: "\f0d9" /*rtl:"\f0da"*/;
 }
 
 /* Vertical Menu Dropdown */

@@ -70,14 +70,18 @@
   border-bottom: @headerBorder;
   border-left: @headerDivider;
 }
-.ui.table thead th:first-child {
-  border-radius: @borderRadius 0em 0em 0em;
+
+.ui.table thead tr > th:first-child {
   border-left: none;
 }
-.ui.table thead th:last-child {
+
+.ui.table thead tr:first-child > th:first-child {
+  border-radius: @borderRadius 0em 0em 0em;
+}
+.ui.table thead tr:first-child > th:last-child {
   border-radius: 0em @borderRadius 0em 0em;
 }
-.ui.table thead th:only-child {
+.ui.table thead tr:first-child > th:only-child {
   border-radius: @borderRadius @borderRadius 0em 0em;
 }
 
@@ -97,13 +101,16 @@
   font-weight: @footerFontWeight;
   text-transform: @footerTextTransform;
 }
-.ui.table tfoot th:first-child {
+.ui.table tfoot tr > th:first-child {
+  border-left: none;
+}
+.ui.table tfoot tr:first-child > th:first-child {
   border-radius: 0em 0em 0em @borderRadius;
 }
-.ui.table tfoot th:last-child {
+.ui.table tfoot tr:first-child > th:last-child {
   border-radius: 0em 0em @borderRadius 0em;
 }
-.ui.table tfoot th:only-child {
+.ui.table tfoot tr:first-child > th:only-child {
   border-radius: 0em 0em @borderRadius @borderRadius;
 }
 
@@ -143,58 +150,108 @@
 
 
 /* Responsive */
-@media only screen and (max-width : 768px) {
-  .ui.table {
-    display: block;
-    padding: 0em;
-  }
-  .ui.table thead {
-    display: @responsiveHeaderDisplay;
-  }
-  .ui.table tfoot {
-    display: @responsiveFooterDisplay;
-  }
-  .ui.table tbody {
-    display: block;
-  }
-  .ui.table tr {
-    display: block;
+@media only screen and (max-width : @largestMobileScreen) {
+  .ui.table:not(.unstackable),
+  .ui.table:not(.unstackable) tbody,
+  .ui.table:not(.unstackable) tr,
+  .ui.table:not(.unstackable) tr > th,
+  .ui.table:not(.unstackable) tr > td  {
+    display: block !important;
+    width: 100% !important;
+    display: block !important;
   }
 
-  .ui.table tr > th,
-  .ui.table tr > td {
+  .ui.table:not(.unstackable) {
+    padding: 0em;
+  }
+  .ui.table:not(.unstackable) thead {
+    display: @responsiveHeaderDisplay;
+  }
+  .ui.table:not(.unstackable) tfoot {
+    display: @responsiveFooterDisplay;
+  }
+  .ui.table:not(.unstackable) tr > th,
+  .ui.table:not(.unstackable) tr > td {
     background: none;
-    width: 100% !important;
-    display: block;
     border: none !important;
     padding: @responsiveCellVerticalPadding @responsiveCellHorizontalPadding;
     box-shadow: @responsiveCellBoxShadow;
   }
-  .ui.table th:first-child,
-  .ui.table td:first-child {
+  .ui.table:not(.unstackable) th:first-child,
+  .ui.table:not(.unstackable) td:first-child {
     font-weight: bold;
     padding-top: @responsiveRowVerticalPadding;
   }
-  .ui.table th:last-child,
-  .ui.table td:last-child {
+  .ui.table:not(.unstackable) th:last-child,
+  .ui.table:not(.unstackable) td:last-child {
     box-shadow: @responsiveRowBoxShadow;
     padding-bottom: @responsiveRowVerticalPadding;
   }
 
   /* Clear BG Colors */
-  .ui.table tr > td.warning,
-  .ui.table tr > td.error,
-  .ui.table tr > td.active,
-  .ui.table tr > td.positive,
-  .ui.table tr > td.negative {
+  .ui.table:not(.unstackable) tr > td.warning,
+  .ui.table:not(.unstackable) tr > td.error,
+  .ui.table:not(.unstackable) tr > td.active,
+  .ui.table:not(.unstackable) tr > td.positive,
+  .ui.table:not(.unstackable) tr > td.negative {
     background-color: @responsiveStatusColor !important;
   }
+
+  /* Definition Table */
+  .ui.definition.table:not(.unstackable) thead th:first-child {
+    box-shadow: none !important;
+  }
+  .ui.definition.table:not(.unstackable) tr td:first-child {
+    padding-bottom: @responsiveRowVerticalPadding;
+  }
+  .ui.definition.table:not(.unstackable) tr td:nth-child(n+2) {
+    padding-top: @responsiveRowVerticalPadding;
+  }
+
+}
+
+
+/*******************************
+            Coupling
+*******************************/
+
+/* UI Image */
+.ui.table th .image,
+.ui.table th .image img,
+.ui.table td .image,
+.ui.table td .image img {
+  max-width: none;
 }
 
 
 /*******************************
              Types
 *******************************/
+
+/*--------------
+    Complex
+---------------*/
+
+.ui.structured.table {
+  border-collapse: collapse;
+}
+.ui.structured.table thead th {
+  border-left: @headerDivider;
+  border-right: @headerDivider;
+}
+.ui.structured.sortable.table thead th {
+  border-left: @sortableBorder;
+  border-right: @sortableBorder;
+}
+.ui.structured.basic.table th {
+  border-left: @basicTableHeaderDivider;
+  border-right: @basicTableHeaderDivider;
+}
+.ui.structured.celled.table tr th,
+.ui.structured.celled.table tr td {
+  border-left: @cellBorder;
+  border-right: @cellBorder;
+}
 
 /*--------------
    Definition
@@ -358,6 +415,71 @@
 /*******************************
           Variations
 *******************************/
+
+/*--------------
+    Stackable
+---------------*/
+
+@media only screen and (max-width : @largestTabletScreen) {
+
+  .ui[class*="tablet stackable"].table,
+  .ui[class*="tablet stackable"].table tbody,
+  .ui[class*="tablet stackable"].table tr,
+  .ui[class*="tablet stackable"].table tr > th,
+  .ui[class*="tablet stackable"].table tr > td  {
+    display: block !important;
+    width: 100% !important;
+    display: block !important;
+  }
+
+  .ui[class*="tablet stackable"].table {
+    padding: 0em;
+  }
+  .ui[class*="tablet stackable"].table thead {
+    display: @responsiveHeaderDisplay;
+  }
+  .ui[class*="tablet stackable"].table tfoot {
+    display: @responsiveFooterDisplay;
+  }
+  .ui[class*="tablet stackable"].table tr > th,
+  .ui[class*="tablet stackable"].table tr > td {
+    background: none;
+    border: none !important;
+    padding: @responsiveCellVerticalPadding @responsiveCellHorizontalPadding;
+    box-shadow: @responsiveCellBoxShadow;
+  }
+  .ui[class*="tablet stackable"].table th:first-child,
+  .ui[class*="tablet stackable"].table td:first-child {
+    font-weight: bold;
+    padding-top: @responsiveRowVerticalPadding;
+  }
+  .ui[class*="tablet stackable"].table th:last-child,
+  .ui[class*="tablet stackable"].table td:last-child {
+    box-shadow: @responsiveRowBoxShadow;
+    padding-bottom: @responsiveRowVerticalPadding;
+  }
+
+  /* Clear BG Colors */
+  .ui[class*="tablet stackable"].table tr > td.warning,
+  .ui[class*="tablet stackable"].table tr > td.error,
+  .ui[class*="tablet stackable"].table tr > td.active,
+  .ui[class*="tablet stackable"].table tr > td.positive,
+  .ui[class*="tablet stackable"].table tr > td.negative {
+    background-color: @responsiveStatusColor !important;
+  }
+
+  /* Definition Table */
+  .ui.definition[class*="tablet stackable"].table thead th:first-child {
+    box-shadow: none !important;
+  }
+  .ui.definition[class*="tablet stackable"].table tr td:first-child {
+    padding-bottom: @responsiveRowVerticalPadding;
+  }
+  .ui.definition[class*="tablet stackable"].table tr td:nth-child(n+2) {
+    padding-top: @responsiveRowVerticalPadding;
+  }
+
+}
 
 /*--------------
      Aligned
@@ -703,6 +825,7 @@
 }
 .ui.inverted.sortable.table thead th {
   border-left-color: @sortableInvertedBorderColor;
+  border-right-color: @sortableInvertedBorderColor;
 }
 
 
@@ -786,23 +909,28 @@
 .ui[class*="very basic"].table:not(.sortable):not(.striped) td {
   padding: @basicTableCellVerticalPadding @basicTableCellHorizontalPadding;
 }
-.ui[class*="very basic"].table:not(.sortable):not(.striped) thead th {
-  padding-top: 0em;
+.ui[class*="very basic"].table:not(.sortable):not(.striped) th:first-child,
+.ui[class*="very basic"].table:not(.sortable):not(.striped) td:first-child {
+  padding-left: 0em;
 }
-.ui[class*="very basic"].table:not(.sortable):not(.striped) tbody tr:last-child td {
-  padding-bottom: 0em;
+.ui[class*="very basic"].table:not(.sortable):not(.striped) th:last-child,
+.ui[class*="very basic"].table:not(.sortable):not(.striped) td:last-child {
+  padding-right: 0em;
+}
+.ui[class*="very basic"].table:not(.sortable):not(.striped) thead tr:first-child th {
+  padding-top: 0em;
 }
 
 /*--------------
      Celled
 ---------------*/
 
-.ui.celled.table th,
-.ui.celled.table td {
+.ui.celled.table tr th,
+.ui.celled.table tr td {
   border-left: @cellBorder;
 }
-.ui.celled.table th:first-child,
-.ui.celled.table td:first-child {
+.ui.celled.table tr th:first-child,
+.ui.celled.table tr td:first-child {
   border-left: none;
 }
 

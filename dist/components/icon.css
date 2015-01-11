@@ -1,5 +1,5 @@
  /*
- * # Semantic UI
+ * # Semantic UI - 1.6.2
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -339,7 +339,7 @@ i.massive.icon {
 }
 /*
  * # Semantic - Icon
- * http://github.com/jlukic/semantic-ui/
+ * http://github.com/semantic-org/semantic-ui/
  *
  *
  * Copyright 2014 Contributor
@@ -2037,9 +2037,6 @@ i.icon.gamepad:before {
 }
 i.icon.star.half.full:before {
   content: "\f123";
-}
-i.icon.remove.link:before {
-  content: "\f127";
 }
 i.icon.question:before {
   content: "\f128";

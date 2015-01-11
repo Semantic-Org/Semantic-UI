@@ -751,7 +751,7 @@ $.api.settings = {
   name            : 'API',
   namespace       : 'api',
 
-  debug           : false,
+  debug           : true,
   verbose         : true,
   performance     : true,
 
@@ -801,6 +801,7 @@ $.api.settings = {
     exitConditions    : 'API Request Aborted. Exit conditions met',
     JSONParse         : 'JSON could not be parsed during error handling',
     legacyParameters  : 'You are using legacy API success callback names',
+    method            : 'The method you called is not defined',
     missingAction     : 'API action used but no url was defined',
     missingSerialize  : 'Required dependency jquery-serialize-object missing, using basic serialize',
     missingURL        : 'No URL specified for api event',

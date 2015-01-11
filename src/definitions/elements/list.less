@@ -96,8 +96,8 @@ ol.ui.list ol,
 }
 
 /* Icon */
-.ui.list .list > .item > .icon,
-.ui.list > .item > .icon {
+.ui.list .list > .item > i.icon,
+.ui.list > .item > i.icon {
   display: table-cell;
   margin: 0em;
   padding-top: @iconOffset;
@@ -105,12 +105,12 @@ ol.ui.list ol,
   vertical-align: @iconContentVerticalAlign;
   transition: @iconTransition;
 }
-.ui.list .list > .item [class*="top aligned"].icon,
-.ui.list > .item > [class*="top aligned"].icon {
+.ui.list .list > .item [class*="top aligned"]i.icon,
+.ui.list > .item > [class*="top aligned"]i.icon {
   vertical-align: top;
 }
-.ui.list .list > .item > .icon:only-child,
-.ui.list > .item > .icon:only-child {
+.ui.list .list > .item > i.icon:only-child,
+.ui.list > .item > i.icon:only-child {
   display: inline-block;
   vertical-align: @iconVerticalAlign;
 }
@@ -189,8 +189,8 @@ ol.ui.list ol,
 }
 
 /* Linked Item Icons */
-.ui.list .list > a.item .icon,
-.ui.list > a.item .icon {
+.ui.list .list > a.item i.icon,
+.ui.list > a.item i.icon {
   color: @itemLinkIconColor;
 }
 
@@ -294,7 +294,7 @@ ol.ui.list ol,
 }
 
 /* Horizontal List */
-.ui.horizontal.list > .item > .icon {
+.ui.horizontal.list > .item > i.icon {
   margin: 0em;
   padding: 0em @horizontalIconDistance 0em 0em;
 }

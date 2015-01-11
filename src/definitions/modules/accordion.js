@@ -155,14 +155,31 @@ $.fn.accordion = function(parameters) {
             $activeTitle
               .addClass(className.active)
             ;
+            if(settings.animateChildren) {
+              if($.fn.transition !== undefined && $module.transition('is supported')) {
+                $activeContent
+                  .children()
+                    .transition({
+                      animation  : 'fade in',
+                      useFailSafe : true,
+                      debug      : settings.debug,
+                      verbose    : settings.verbose,
+                      duration   : settings.duration
+                    })
+                ;
+              }
+              else {
+                $activeContent
+                  .children()
+                    .stop()
+                    .animate({
+                      opacity: 1
+                    }, settings.duration, module.resetOpacity)
+                ;
+              }
+            }
             $activeContent
               .stop()
-              .children()
-                .stop()
-                .animate({
-                  opacity: 1
-                }, settings.duration, module.reset.display)
-                .end()
               .slideDown(settings.duration, settings.easing, function() {
                 $activeContent
                   .addClass(className.active)
@@ -193,13 +210,32 @@ $.fn.accordion = function(parameters) {
             $activeContent
               .removeClass(className.active)
               .show()
+            ;
+            if(settings.animateChildren) {
+              if($.fn.transition !== undefined && $module.transition('is supported')) {
+                $activeContent
+                  .children()
+                    .transition({
+                      animation   : 'fade out',
+                      useFailSafe : true,
+                      debug       : settings.debug,
+                      verbose     : settings.verbose,
+                      duration    : settings.duration
+                    })
+                ;
+              }
+              else {
+                $activeContent
+                  .children()
+                    .stop()
+                    .animate({
+                      opacity: 0
+                    }, settings.duration, module.resetOpacity)
+                ;
+              }
+            }
+            $activeContent
               .stop()
-              .children()
-                .stop()
-                .animate({
-                  opacity: 0
-                }, settings.duration, module.reset.opacity)
-                .end()
               .slideUp(settings.duration, settings.easing, function() {
                 $.proxy(module.reset.display, this)();
                 $.proxy(settings.onClose, this)();
@@ -229,7 +265,7 @@ $.fn.accordion = function(parameters) {
           else {
             $openTitles   = $activeAccordion.find(activeSelector).not($parentTitles);
             $nestedTitles = $activeAccordion.find(activeContent).find(activeSelector).not($parentTitles);
-            $openTitles = $openTitles.not($nestedTitles);
+            $openTitles   = $openTitles.not($nestedTitles);
             $openContents = $openTitles.next($content);
           }
           if( ($openTitles.size() > 0) ) {
@@ -237,14 +273,31 @@ $.fn.accordion = function(parameters) {
             $openTitles
               .removeClass(className.active)
             ;
+            if(settings.animateChildren) {
+              if($.fn.transition !== undefined && $module.transition('is supported')) {
+                $openContents
+                  .children()
+                    .transition({
+                      animation   : 'fade out',
+                      useFailSafe : true,
+                      debug       : settings.debug,
+                      verbose     : settings.verbose,
+                      duration    : settings.duration
+                    })
+                ;
+              }
+              else {
+                $openContents
+                  .children()
+                    .stop()
+                    .animate({
+                      opacity: 0
+                    }, settings.duration, module.resetOpacity)
+                ;
+              }
+            }
             $openContents
               .stop()
-              .children()
-                .stop()
-                .animate({
-                  opacity: 0
-                }, settings.duration, module.resetOpacity)
-                .end()
               .slideUp(settings.duration , settings.easing, function() {
                 $(this).removeClass(className.active);
                 $.proxy(module.reset.display, this)();
@@ -414,6 +467,7 @@ $.fn.accordion = function(parameters) {
                 return false;
               }
               else {
+                module.error(error.method, query);
                 return false;
               }
             });
@@ -458,26 +512,27 @@ $.fn.accordion = function(parameters) {
 
 $.fn.accordion.settings = {
 
-  name        : 'Accordion',
-  namespace   : 'accordion',
+  name            : 'Accordion',
+  namespace       : 'accordion',
 
-  debug       : false,
-  verbose     : true,
-  performance : true,
+  debug           : false,
+  verbose         : true,
+  performance     : true,
 
-  exclusive   : true,
-  collapsible : true,
-  closeNested : false,
+  exclusive       : true,
+  collapsible     : true,
+  closeNested     : false,
+  animateChildren : true,
 
-  duration    : 500,
-  easing      : 'easeInOutQuint',
+  duration        : 500,
+  easing          : 'easeOutQuint',
 
-  onOpen      : function(){},
-  onClose     : function(){},
-  onChange    : function(){},
+  onOpen          : function(){},
+  onClose         : function(){},
+  onChange        : function(){},
 
   error: {
-    method    : 'The method you called is not defined'
+    method : 'The method you called is not defined'
   },
 
   className   : {
@@ -494,9 +549,8 @@ $.fn.accordion.settings = {
 
 // Adds easing
 $.extend( $.easing, {
-  easeInOutQuint: function (x, t, b, c, d) {
-    if ((t/=d/2) < 1) return c/2*t*t*t*t*t + b;
-    return c/2*((t-=2)*t*t*t*t + 2) + b;
+  easeOutQuint: function (x, t, b, c, d) {
+    return c*((t=t/d-1)*t*t*t*t + 1) + b;
   }
 });
 

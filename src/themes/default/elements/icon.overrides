@@ -1,6 +1,6 @@
 /*
  * # Semantic - Icon
- * http://github.com/jlukic/semantic-ui/
+ * http://github.com/semantic-org/semantic-ui/
  *
  *
  * Copyright 2014 Contributor
@@ -628,7 +628,6 @@ i.icon.circle.outline:before { content: "\f10c"; }
 i.icon.spinner:before { content: "\f110"; }
 i.icon.gamepad:before { content: "\f11b"; }
 i.icon.star.half.full:before { content: "\f123"; }
-i.icon.remove.link:before { content: "\f127"; }
 i.icon.question:before { content: "\f128"; }
 i.icon.attention:before { content: "\f12a"; }
 i.icon.eraser:before { content: "\f12d"; }

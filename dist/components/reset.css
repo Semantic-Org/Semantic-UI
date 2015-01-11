@@ -1,5 +1,5 @@
  /*
- * # Semantic UI
+ * # Semantic UI - 1.6.2
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -20,6 +20,9 @@
 *,
 *:before,
 *:after {
+  box-sizing: inherit;
+}
+html {
   box-sizing: border-box;
 }
 
@@ -29,7 +32,7 @@ input[type="email"],
 input[type="search"],
 input[type="password"] {
   -webkit-appearance: none;
-  -moz-appearance: none
+  -moz-appearance: none;
   
 /* mobile firefox too! */
 }
@@ -56,7 +59,7 @@ html {
   -ms-text-size-adjust: 100%;
   
 /* 2 */
-  -webkit-text-size-adjust: 100%
+  -webkit-text-size-adjust: 100%;
   
 /* 2 */
 }
@@ -99,7 +102,7 @@ video {
   display: inline-block;
   
 /* 1 */
-  vertical-align: baseline
+  vertical-align: baseline;
   
 /* 2 */
 }
@@ -265,7 +268,7 @@ textarea {
   font: inherit;
   
 /* 2 */
-  margin: 0
+  margin: 0;
   
 /* 3 */
 }
@@ -299,7 +302,7 @@ input[type="submit"] {
   -webkit-appearance: button;
   
 /* 2 */
-  cursor: pointer
+  cursor: pointer;
   
 /* 3 */
 }
@@ -337,7 +340,7 @@ input[type="radio"] {
   box-sizing: border-box;
   
 /* 1 */
-  padding: 0
+  padding: 0;
   
 /* 2 */
 }
@@ -388,7 +391,7 @@ legend {
   border: 0;
   
 /* 1 */
-  padding: 0
+  padding: 0;
   
 /* 2 */
 }

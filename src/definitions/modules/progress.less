@@ -43,24 +43,54 @@
 }
 
 /* Indicating */
-.ui.indicating.progress .bar[style^="width: 3"] {
+.ui.indicating.progress .bar[style*="width: 1"],
+.ui.indicating.progress .bar[style*="width: 2"] {
+  background-color: @indicatingFirstColor;
+}
+.ui.indicating.progress .bar[style*="width: 3"] {
   background-color: @indicatingSecondColor;
 }
-.ui.indicating.progress .bar[style^="width: 4"],
-.ui.indicating.progress .bar[style^="width: 5"] {
+.ui.indicating.progress .bar[style*="width: 4"],
+.ui.indicating.progress .bar[style*="width: 5"] {
   background-color: @indicatingThirdColor;
 }
-.ui.indicating.progress .bar[style^="width: 6"] {
+.ui.indicating.progress .bar[style*="width: 6"] {
   background-color: @indicatingFourthColor;
 }
-.ui.indicating.progress .bar[style^="width: 7"],
-.ui.indicating.progress .bar[style^="width: 8"] {
+.ui.indicating.progress .bar[style*="width: 7"],
+.ui.indicating.progress .bar[style*="width: 8"] {
   background-color: @indicatingFifthColor;
 }
-.ui.indicating.progress .bar[style^="width: 9"],
-.ui.indicating.progress .bar[style^="width: 100"] {
+.ui.indicating.progress .bar[style*="width: 9"],
+.ui.indicating.progress .bar[style*="width: 100"] {
   background-color: @indicatingSixthColor;
 }
+
+/* Indicating Label */
+.ui.indicating.progress[data-percent^="1"] .label,
+.ui.indicating.progress[data-percent^="2"] .label {
+  color: @indicatingFirstColor;
+}
+.ui.indicating.progress[data-percent^="3"] .label {
+  color: @indicatingSecondColor;
+}
+.ui.indicating.progress[data-percent^="4"] .label,
+.ui.indicating.progress[data-percent^="5"] .label {
+  color: @indicatingThirdColor;
+}
+.ui.indicating.progress[data-percent^="6"] .label {
+  color: @indicatingFourthColor;
+}
+.ui.indicating.progress[data-percent^="7"] .label,
+.ui.indicating.progress[data-percent^="8"] .label {
+  color: @indicatingFifthColor;
+}
+.ui.indicating.progress[data-percent^="9"] .label,
+.ui.indicating.progress[data-percent^="100"] .label {
+  color: @indicatingSixthColor;
+}
+
+/* Single Digits */
 .ui.indicating.progress .bar[style^="width: 1%"],
 .ui.indicating.progress .bar[style^="width: 2%"],
 .ui.indicating.progress .bar[style^="width: 3%"],
@@ -69,46 +99,23 @@
 .ui.indicating.progress .bar[style^="width: 6%"],
 .ui.indicating.progress .bar[style^="width: 7%"],
 .ui.indicating.progress .bar[style^="width: 8%"],
-.ui.indicating.progress .bar[style^="width: 9%"],
-.ui.indicating.progress .bar[style^="width: 1"],
-.ui.indicating.progress .bar[style^="width: 2"] {
+.ui.indicating.progress .bar[style^="width: 9%"] {
   background-color: @indicatingFirstColor;
 }
-
-/* Single Digits Last */
-.ui.indicating.progress .bar[style^="width: 1%"] + .label,
-.ui.indicating.progress .bar[style^="width: 2%"] + .label,
-.ui.indicating.progress .bar[style^="width: 3%"] + .label,
-.ui.indicating.progress .bar[style^="width: 4%"] + .label,
-.ui.indicating.progress .bar[style^="width: 5%"] + .label,
-.ui.indicating.progress .bar[style^="width: 6%"] + .label,
-.ui.indicating.progress .bar[style^="width: 7%"] + .label,
-.ui.indicating.progress .bar[style^="width: 8%"] + .label,
-.ui.indicating.progress .bar[style^="width: 9%"] + .label,
-.ui.indicating.progress .bar[style^="width: 1"] + .label,
-.ui.indicating.progress .bar[style^="width: 2"] + .label {
+.ui.indicating.progress[data-percent="1"] .label,
+.ui.indicating.progress[data-percent="2"] .label,
+.ui.indicating.progress[data-percent="3"] .label,
+.ui.indicating.progress[data-percent="4"] .label,
+.ui.indicating.progress[data-percent="5"] .label,
+.ui.indicating.progress[data-percent="6"] .label,
+.ui.indicating.progress[data-percent="7"] .label,
+.ui.indicating.progress[data-percent="8"] .label,
+.ui.indicating.progress[data-percent="9"] .label {
   color: @indicatingFirstColor;
 }
-.ui.indicating.progress .bar[style^="width: 3"] + .label {
-  color: @indicatingSecondColor;
-}
-.ui.indicating.progress .bar[style^="width: 4"] + .label,
-.ui.indicating.progress .bar[style^="width: 5"] + .label {
-  color: @indicatingThirdColor;
-}
-.ui.indicating.progress .bar[style^="width: 6"] + .label {
-  color: @indicatingFourthColor;
-}
-.ui.indicating.progress .bar[style^="width: 7"] + .label,
-.ui.indicating.progress .bar[style^="width: 8"] + .label {
-  color: @indicatingFifthColor;
-}
-.ui.indicating.progress .bar[style^="width: 9"] + .label,
-.ui.indicating.progress .bar[style^="width: 100"] + .label {
-  color: @indicatingSixthColor;
-}
 
-.ui.indicating.progress.success .bar + .label {
+/* Indicating Success */
+.ui.indicating.progress.success .label {
   color: @successHeaderColor;
 }
 
@@ -123,7 +130,6 @@
   position: @barPosition;
   width: @barInitialWidth;
   min-width: @barMinWidth;
-  height: @barHeight;
   background: @barBackground;
   border-radius: @barBorderRadius;
   transition: @barTransition;
@@ -393,6 +399,37 @@
      Sizes
 ---------------*/
 
+.ui.tiny.progress {
+  font-size: @tiny;
+}
+.ui.tiny.progress .bar {
+  height: @tinyBarHeight;
+}
+
+.ui.small.progress {
+  font-size: @small;
+}
 .ui.small.progress .bar {
-  height: 14px;
+  height: @smallBarHeight;
+}
+
+.ui.progress {
+  font-size: @medium;
+}
+.ui.progress .bar {
+  height: @barHeight;
+}
+
+.ui.large.progress {
+  font-size: @large;
+}
+.ui.large.progress .bar {
+  height: @largeBarHeight;
+}
+
+.ui.big.progress {
+  font-size: @big;
+}
+.ui.big.progress .bar {
+  height: @bigBarHeight;
 }

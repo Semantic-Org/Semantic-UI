@@ -1,6 +1,6 @@
 /*
-  All configurable options are defined inside build.config
-  Please adjust this to your site's settings
+  All configurable options are defined in separate files inside the 'task/' folder
+  Please adjust these files according to your personal requirements
 */
 
 /*******************************
@@ -136,14 +136,14 @@ var
       ? (config.components.length > 1)
         ? '{' + config.components.join(',') + '}'
         : config.components[0]
-      : ''
+      : '{' + defaults.components.join(',') + '}'
     ;
 
     // relative paths
     assetPaths = {
-      uncompressed : path.relative(output.uncompressed, output.themes),
-      compressed   : path.relative(output.compressed, output.themes),
-      packaged     : path.relative(output.packaged, output.themes)
+      uncompressed : path.relative(output.uncompressed, output.themes).replace(/\\/g,'/'),
+      compressed   : path.relative(output.compressed, output.themes).replace(/\\/g,'/'),
+      packaged     : path.relative(output.packaged, output.themes).replace(/\\/g,'/')
     };
 
     // add base to values
@@ -195,22 +195,39 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function(callb
         srcPath,
         stream,
         compressedStream,
-        uncompressedStream
+        uncompressedStream,
+        isDefinition,
+        isPackagedTheme,
+        isSiteTheme,
+        isConfig
       ;
 
       gulp.src(file.path)
         .pipe(print(log.modified))
       ;
 
-      // recompile only definition file
-      srcPath = util.replaceExtension(file.path, '.less');
-      srcPath = srcPath.replace(config.regExp.themePath, source.definitions);
-      srcPath = srcPath.replace(source.site, source.definitions);
+      // recompile on *.override , *.variable change
+      isDefinition    = (file.path.indexOf(source.definitions) !== -1);
+      isPackagedTheme = (file.path.indexOf(source.themes) !== -1);
+      isSiteTheme     = (file.path.indexOf(source.site) !== -1);
+      isConfig        = (file.path.indexOf('.config') !== -1);
+
+      if(isDefinition || isPackagedTheme || isSiteTheme) {
+        srcPath = util.replaceExtension(file.path, '.less');
+        srcPath = srcPath.replace(config.regExp.themePath, source.definitions);
+        srcPath = srcPath.replace(source.site, source.definitions);
+      }
+      else if(isConfig) {
+        console.log('Change detected in theme config');
+        gulp.start('build');
+      }
+      else {
+        srcPath = util.replaceExtension(file.path, '.less');
+      }
 
       // get relative asset path (path returns wrong path? hardcoded)
       // assetPaths.source = path.relative(srcPath, path.resolve(source.themes));
       assetPaths.source = '../../themes';
-
 
       if( fs.existsSync(srcPath) ) {
 
@@ -257,6 +274,9 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function(callb
           })
         ;
 
+      }
+      else {
+        console.log('SRC Path Does Not Exist', srcPath);
       }
     })
   ;
@@ -323,7 +343,8 @@ gulp.task('build', 'Builds all files from source', function(callback) {
   ;
 
   // javascript stream
-  gulp.src(source.definitions + '**/*.js')
+
+  gulp.src(source.definitions + '**/' + componentGlob + '.js')
     .pipe(plumber())
     .pipe(flatten())
     .pipe(gulp.dest(output.uncompressed))
@@ -341,7 +362,7 @@ gulp.task('build', 'Builds all files from source', function(callback) {
   ;
 
   // unified css stream
-  stream = gulp.src(source.definitions + '**/*.less')
+  stream = gulp.src(source.definitions + '**/' + componentGlob + '.less')
     .pipe(plumber())
     //.pipe(sourcemaps.init())
     .pipe(less(settings.less))
@@ -469,10 +490,9 @@ gulp.task('install', 'Set-up project for first time', function () {
     .pipe(prompt.prompt(questions.setup, function(answers) {
       var
         siteVariable      = /@siteFolder .*\'(.*)/mg,
-
         siteDestination   = answers.site || config.folders.site,
 
-        pathToSite        = path.relative(path.resolve(config.folders.theme), path.resolve(siteDestination)),
+        pathToSite        = path.relative(path.resolve(config.folders.theme), path.resolve(siteDestination)).replace(/\\/g,'/'),
         sitePathReplace   = "@siteFolder   : '" + pathToSite + "/';",
 
         configExists      = fs.existsSync(config.files.config),

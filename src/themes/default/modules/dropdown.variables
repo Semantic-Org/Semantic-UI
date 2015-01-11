@@ -79,9 +79,11 @@
 @menuDividerBorder: @menuDividerSize solid @menuDividerColor;
 
 /* Menu Input */
-@menuInputMargin: 0.75rem @itemHorizontalPadding 0.25rem;
+@menuInputMargin: 0.75rem @itemHorizontalPadding;
 @menuInputMinWidth: 200px;
-@menuInputPadding: 0.5em 1em;
+@menuInputVerticalPadding: 0.5em;
+@menuInputHorizontalPadding: 1em;
+@menuInputPadding: @menuInputVerticalPadding @menuInputHorizontalPadding;
 
 /* Menu Image */
 @menuImageMaxHeight: 2.5em;
@@ -189,12 +191,16 @@
        States
 --------------------*/
 
+/* Hovered */
 @hoveredItemBackground: @transparentBlack;
 @hoveredItemColor: @selectedTextColor;
 
 /* Default Text */
 @defaultTextColor: rgba(179, 179, 179, 0.7);
 @defaultTextHoverColor: rgba(140, 140, 140, 0.7);
+
+/* Loading */
+@loadingZIndex: -1;
 
 /* Active Menu Item */
 @activeItemBackground: transparent;
@@ -203,6 +209,7 @@
 @activeItemFontWeight: bold;
 @activeItemColor: @selectedTextColor;
 
+/* Selected */
 @selectedBackground: @subtleTransparentBlack;
 @selectedColor: @selectedTextColor;
 
@@ -214,6 +221,10 @@
 /*-------------------
       Variations
 --------------------*/
+
+/* Flyout Direction */
+@leftMenuDropdownIconFloat: left;
+@leftMenuDropdownIconMargin: @itemLineHeightOffset @itemElementDistance 0em 0em;
 
 /* Simple */
 @simpleTransitionDuration: 0.2s;

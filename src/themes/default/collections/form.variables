@@ -17,19 +17,20 @@
 @fieldMargin: 0em 0em @rowDistance;
 
 /* Form Label */
-@labelDistance: 0.3rem;
+@labelDistance: 0.2857rem;
 @labelMargin: 0em 0em @labelDistance 0em;
-@labelFontSize: 0.9em;
+@labelFontSize: 0.9285em;
 @labelFontWeight: bold;
 @labelTextTransform: none;
 @labelColor: @textColor;
 
 /* Input */
+@inputFont: @pageFont;
 @inputWidth: 100%;
 @inputFontSize: 1em;
-@inputVerticalPadding: 0.8em;
+@inputVerticalPadding: 0.78571em;
 @inputHorizontalPadding: 1em;
-@inputLineHeight: 1.2;
+@inputLineHeight: 1.2142em;
 @inputPadding: (@inputVerticalPadding + ((1em - @inputLineHeight) / 2)) @inputHorizontalPadding;
 @inputBackground: #FFFFFF;
 @inputBorder: 1px solid @borderColor;
@@ -56,7 +57,7 @@
 @textAreaPadding: @inputVerticalPadding @inputHorizontalPadding;
 @textAreaHeight: 12em;
 @textAreaResize: vertical;
-@textAreaLineHeight: 1.33;
+@textAreaLineHeight: 1.2857;
 @textAreaMinHeight: 8em;
 @textAreaMaxHeight: 24em;
 @textAreaBackground: @inputBackground;
@@ -141,8 +142,11 @@
 --------------------*/
 
 /* Required */
+@requiredContent: '*';
 @requiredColor: @negativeColor;
 @requiredVerticalOffset: -0.2em;
+@requiredDistance: 0.2em;
+@requiredMargin: @requiredVerticalOffset 0em 0em @requiredDistance;
 
 /* Inverted */
 @invertedLabelColor: @invertedTextColor;

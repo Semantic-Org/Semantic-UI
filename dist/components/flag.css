@@ -1,5 +1,5 @@
  /*
- * # Semantic UI
+ * # Semantic UI - 1.6.2
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -339,7 +339,6 @@ i.flag.gabon:before {
   background-position: -36px 0px;
 }
 i.flag.gb:before,
-i.flag.england:before,
 i.flag.united.kingdom:before {
   background-position: -36px -26px;
 }

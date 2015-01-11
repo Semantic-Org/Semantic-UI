@@ -22,9 +22,11 @@
 @barHeight: 1.75em;
 @barBackground: #888888;
 @barBorderRadius: @borderRadius;
+@barTransitionEasing: ease;
+@barTransitionDuration: 0.3s;
 @barTransition:
-  width 0.5s @defaultEasing,
-  background-color 0.4s @defaultEasing
+  width @barTransitionDuration @barTransitionEasing,
+  background-color @barTransitionDuration @barTransitionEasing
 ;
 @barInitialWidth: 0%;
 @barMinWidth: 2em;
@@ -83,7 +85,7 @@
 
 
 /*-------------------
-        Types
+      Variations
 --------------------*/
 
 /* Attached */
@@ -97,3 +99,9 @@
 @invertedBarBackground: @barBackground;
 @invertedProgressColor: @offWhite;
 @invertedLabelColor: @white;
+
+/* Sizing */
+@tinyBarHeight: 0.5em;
+@smallBarHeight: 1em;
+@largeBarHeight: 2.5em;
+@bigBarHeight: 3.5em;

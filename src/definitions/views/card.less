@@ -287,12 +287,12 @@
 }
 
 /* Meta */
-.ui.cards > .card .meta a,
-.ui.card .meta a {
+.ui.cards > .card .meta > a:not(.ui),
+.ui.card .meta > a:not(.ui) {
   color: @metaLinkColor;
 }
-.ui.cards > .card .meta a:hover,
-.ui.card .meta a:hover {
+.ui.cards > .card .meta > a:not(.ui):hover,
+.ui.card .meta > a:not(.ui):hover {
   color: @metaLinkHoverColor;
 }
 

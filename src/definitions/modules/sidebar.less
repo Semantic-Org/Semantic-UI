@@ -44,8 +44,8 @@
   z-index: @topLayer;
 }
 
-/* 3D Rendering */
-.ui.sidebar * {
+/* GPU Layers for Child Elements */
+.ui.sidebar > * {
   backface-visibility: hidden;
   transform: rotateZ(0deg);
 }
@@ -196,14 +196,16 @@
 }
 
 /*--------------
-     Mobile
+       iOS
 ---------------*/
 
-@media only screen and (max-width: @computerBreakpoint) {
-  html {
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-  }
+/*
+  iOS incorrectly sizes document when content
+  is presented outside of view with 2Dtranslate
+*/
+html.ios {
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 

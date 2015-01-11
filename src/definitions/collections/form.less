@@ -44,12 +44,13 @@
         Field
 ---------------------*/
 
+.ui.form .fields .field,
 .ui.form .field {
   clear: both;
   margin: @fieldMargin;
 }
-.ui.form .fields:last-child .field,
-.ui.form :not(.fields) .field:last-child {
+.ui.form .fields:last-child,
+.ui.form .field:last-child {
   margin-bottom: 0em;
 }
 
@@ -89,9 +90,11 @@
 
 
 .ui.form textarea,
+.ui.form input:not([type]),
 .ui.form input[type="text"],
 .ui.form input[type="email"],
 .ui.form input[type="date"],
+.ui.form input[type="datetime-local"],
 .ui.form input[type="password"],
 .ui.form input[type="number"],
 .ui.form input[type="url"],
@@ -101,13 +104,16 @@
   vertical-align: top;
 }
 
+.ui.form input:not([type]),
 .ui.form input[type="text"],
 .ui.form input[type="email"],
 .ui.form input[type="date"],
+.ui.form input[type="datetime-local"],
 .ui.form input[type="password"],
 .ui.form input[type="number"],
 .ui.form input[type="url"],
 .ui.form input[type="tel"] {
+  font-family: @inputFont;
   margin: 0em;
   outline: none;
   -webkit-appearance: none;
@@ -285,9 +291,11 @@
         Focus
 ---------------------*/
 
+.ui.form input:not([type]):focus,
 .ui.form input[type="text"]:focus,
 .ui.form input[type="email"]:focus,
 .ui.form input[type="date"]:focus,
+.ui.form input[type="datetime-local"]:focus,
 .ui.form input[type="password"]:focus,
 .ui.form input[type="number"]:focus,
 .ui.form input[type="url"]:focus,
@@ -349,17 +357,21 @@
 }
 
 .ui.form .fields.error .field textarea,
+.ui.form .fields.error .field input:not([type]),
 .ui.form .fields.error .field input[type="text"],
 .ui.form .fields.error .field input[type="email"],
 .ui.form .fields.error .field input[type="date"],
+.ui.form .fields.error .field input[type="datetime-local"],
 .ui.form .fields.error .field input[type="password"],
 .ui.form .fields.error .field input[type="number"],
 .ui.form .fields.error .field input[type="url"],
 .ui.form .fields.error .field input[type="tel"],
 .ui.form .field.error textarea,
+.ui.form .field.error input:not([type]),
 .ui.form .field.error input[type="text"],
 .ui.form .field.error input[type="email"],
 .ui.form .field.error input[type="date"],
+.ui.form .field.error input[type="datetime-local"],
 .ui.form .field.error input[type="password"],
 .ui.form .field.error input[type="number"],
 .ui.form .field.error input[type="url"],
@@ -371,9 +383,11 @@
   box-shadow: @inputErrorBoxShadow;
 }
 .ui.form .field.error textarea:focus,
+.ui.form .field.error input:not([type]):focus,
 .ui.form .field.error input[type="text"]:focus,
 .ui.form .field.error input[type="email"]:focus,
 .ui.form .field.error input[type="date"]:focus,
+.ui.form .field.error input[type="datetime-local"]:focus,
 .ui.form .field.error input[type="password"]:focus,
 .ui.form .field.error input[type="number"]:focus,
 .ui.form .field.error input[type="url"]:focus,
@@ -527,13 +541,25 @@
 ---------------------*/
 
 .ui.form .required.fields > .field > label:after,
-.ui.form .required.fields > .field > .checkbox:after,
 .ui.form .required.field > label:after,
+.ui.form .required.fields > .field > .checkbox:after,
 .ui.form .required.field > .checkbox:after {
-  margin: -0.2em 0em 0em 0.2em;
-  vertical-align: top;
-  content: '*';
+  margin: @requiredMargin;
+  content: @requiredContent;
   color: @requiredColor;
+}
+
+.ui.form .required.fields > .field > label:after,
+.ui.form .required.field > label:after {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.ui.form .required.fields > .field > .checkbox:after,
+.ui.form .required.field > .checkbox:after {
+  position: absolute;
+  top: 0%;
+  left: 100%;
 }
 
 
@@ -650,8 +676,19 @@
   .ui.form .four.fields > .fields,
   .ui.form .four.fields > .field,
   .ui.form .five.fields > .fields,
-  .ui.form .five.fields > .field {
-    width: @oneColumn;
+  .ui.form .five.fields > .field,
+  .ui.form .six.fields > .fields,
+  .ui.form .six.fields > .field,
+  .ui.form .seven.fields > .fields,
+  .ui.form .seven.fields > .field,
+  .ui.form .eight.fields > .fields,
+  .ui.form .eight.fields > .field,
+  .ui.form .nine.fields > .fields,
+  .ui.form .nine.fields > .field,
+  .ui.form .ten.fields > .fields,
+  .ui.form .ten.fields > .field {
+    width: @oneColumn !important;
+    margin: @fieldMargin;
     padding-left: 0%;
     padding-right: 0%;
   }
@@ -753,7 +790,8 @@
   .ui.form .fields > .fourteen.wide.field,
   .ui.form .fields > .fifteen.wide.field,
   .ui.form .fields > .sixteen.wide.field {
-    width: @oneColumn;
+    width: @oneColumn !important;
+    margin: @fieldMargin;
     padding-left: 0%;
     padding-right: 0%;
   }
@@ -775,9 +813,11 @@
 .ui.form .inline.fields .field > label,
 .ui.form .inline.fields .field > p,
 .ui.form .inline.fields .field > input,
+.ui.form .inline.fields .field > .ui.input,
 .ui.form .inline.field > label,
 .ui.form .inline.field > p,
-.ui.form .inline.field > input {
+.ui.form .inline.field > input,
+.ui.form .inline.field > .ui.input {
   display: inline-block;
   width: auto;
 
@@ -788,7 +828,9 @@
   font-size: @inlineLabelFontSize;
 }
 .ui.form .inline.fields .field > input,
-.ui.form .inline.field > input {
+.ui.form .inline.fields .field > .ui.input,
+.ui.form .inline.field > input,
+.ui.form .inline.field > .ui.input {
   font-size: @inlineLabelFontSize;
 }
 .ui.form .inline.fields .field > .ui.checkbox label {

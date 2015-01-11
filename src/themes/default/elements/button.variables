@@ -12,7 +12,7 @@
 /* Style */
 @backgroundColor: #E0E0E0;
 @backgroundImage: none;
-@verticalPadding: 0.8em;
+@verticalPadding: 0.78571em;
 @horizontalPadding: 1.5em;
 
 /* Text */
@@ -63,6 +63,10 @@
   box-shadow 0.1s @transitionEasing,
   background 0.1s @transitionEasing
 ;
+/*
+@willChange: box-shadow, transform, opacity, color, background;
+*/
+@willChange: '';
 
 /*-------------------
         Group
@@ -133,7 +137,7 @@
 
 @orCircleDistanceToEdge: (@verticalPadding);
 @orCircleSize: @orHeight - @orCircleDistanceToEdge;
-@orLineHeight: (@orCircleSize - 0.2em);
+@orLineHeight: (@orCircleSize);
 @orBoxShadow: @borderBoxShadow;
 
 @orVerticalOffset: -(@orCircleSize / 2);
@@ -254,6 +258,7 @@
 @floatedMargin: 0.25em;
 
 /* Animated */
+@animatedVerticalAlign: middle;
 @animationDuration: 0.3s;
 @animationEasing: ease;
 @fadeScaleHigh: 1.5;

@@ -80,11 +80,13 @@
 @likeActiveColor: #EF404A;
 
 /* Links */
-@contentLinkColor: @linkColor;
+@contentLinkColor: '';
+@contentLinkHoverColor: '';
 @contentLinkTransition: color @transitionDuration @transitionEasing;
-@contentLinkHoverColor: @linkHoverColor;
+
 @headerLinkColor: @headerColor;
 @headerLinkHoverColor: @linkHoverColor;
+
 @metaLinkColor: @lightTextColor;
 @metaLinkHoverColor: @textColor;
 

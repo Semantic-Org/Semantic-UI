@@ -16,7 +16,7 @@
 --------------------*/
 
 @margin: 1rem 0rem;
-@verticalPadding: 0.83em;
+@verticalPadding: 0.78571em;
 @horizontalPadding: 0.95em;
 
 @background: #FFFFFF;
@@ -93,7 +93,6 @@
 @buttonOffset: -0.05em;
 @buttonVerticalPadding: 0.55em;
 @buttonSize: 0.875em;
-@actionButtonHorizontalPadding: 0.8em;
 
 /* Input */
 @inputSize: 1em;
