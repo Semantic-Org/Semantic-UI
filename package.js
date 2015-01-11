@@ -1,9 +1,9 @@
 Package.describe({
   name: 'semantic:ui',
-  summary: 'Semantic empowers designers and developers by creating a shared vocabulary for UI.',
-  version: '1.0.1',
-  git: 'git://github.com/Semantic-Org/Semantic-UI#1.0',
-  readme: 'https://github.com/Semantic-Org/Semantic-UI/blob/1.0/meteor/README.md'
+  summary: 'Semantic (official): a UI component framework based around useful principles from natural language.',
+  version: '1.7.2',
+  git: 'git://github.com/Semantic-Org/Semantic-UI.git',
+  readme: 'https://github.com/Semantic-Org/Semantic-UI/blob/master/meteor/README.md'
 });
 
 var where = 'client'; // Adds files only to the client
@@ -14,12 +14,12 @@ Package.onUse(function(api) {
   api.addFiles([
     'dist/semantic.css',
     'dist/semantic.js',
-    'dist/themes/default/assets/images/flags.png',
     'dist/themes/default/assets/fonts/icons.eot',
     'dist/themes/default/assets/fonts/icons.otf',
     'dist/themes/default/assets/fonts/icons.svg',
     'dist/themes/default/assets/fonts/icons.ttf',
-    'dist/themes/default/assets/fonts/icons.woff'
+    'dist/themes/default/assets/fonts/icons.woff',
+    'dist/themes/default/assets/images/flags.png',
   ], where);
 });
 
