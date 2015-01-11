@@ -82,12 +82,5 @@ module.exports = {
     'table',
     'transition',
     'video'
-  ],
-
-  // Assets needed by each component
-  componentsAssets : {
-    flag: 'assets/images/**',
-    icon: 'assets/fonts/**',
-  }
+  ]
 };
-
