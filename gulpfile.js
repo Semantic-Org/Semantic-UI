@@ -406,6 +406,30 @@ gulp.task('build', 'Builds all files from source', function(callback) {
     })
   ;
 
+  // updates package.js
+  console.info('Updating package.js (Meteor)');
+  var fnames =
+    '    \'' + output.packaged + 'semantic.css\',\n' +
+    '    \'' + output.packaged + 'semantic.js\',\n'
+  ;
+  gulp.src(output.themes + 'default/assets/**')
+    .pipe(concatFnames("dummy.txt", {
+      newline: '',
+      root: './',
+      prepend: '    \'',
+      append: '\','
+    }))
+    .pipe(tap(function(file) { fnames += file.contents; }))
+    .on('end', function() {
+      gulp.src(release.templates.meteor)
+        .pipe(plumber())
+        .pipe(flatten())
+        .pipe(replace('{package-version}', version))
+        .pipe(replace('{package-files}', fnames))
+        .pipe(gulp.dest('./'))
+      ;
+    })
+  ;
 });
 
 // cleans distribution files
@@ -594,27 +618,32 @@ gulp.task('install', 'Set-up project for first time', function () {
         ;
       }
 
-      // write package.js
+      // writes package.js
       console.info('Creating package.js (Meteor)');
       var
         packagedFolder = json.paths.output.packaged || output.packaged,
         themesFolder = json.paths.output.themes || output.themes,
         fnames =
-          '\n    \'' + packagedFolder + 'semantic.css\',' +
-          '\n    \'' + packagedFolder + 'semantic.js\',' +
-          '\n    \'' + themesFolder + 'default/assets/images/flags.png\',' +
-          '\n    \'' + themesFolder + 'default/assets/fonts/icons.eot\',' +
-          '\n    \'' + themesFolder + 'default/assets/fonts/icons.otf\',' +
-          '\n    \'' + themesFolder + 'default/assets/fonts/icons.svg\',' +
-          '\n    \'' + themesFolder + 'default/assets/fonts/icons.ttf\',' +
-          '\n    \'' + themesFolder + 'default/assets/fonts/icons.woff\''
+          '    \'' + packagedFolder + 'semantic.css\',\n' +
+          '    \'' + packagedFolder + 'semantic.js\',\n'
       ;
-      gulp.src(release.templates.meteor)
-        .pipe(plumber())
-        .pipe(flatten())
-        .pipe(replace('{package-version}', version))
-        .pipe(replace('{package-files}', fnames))
-        .pipe(gulp.dest('./'))
+      gulp.src(themesFolder + 'default/assets/**')
+        .pipe(concatFnames("dummy.txt", {
+          newline: '',
+          root: './',
+          prepend: '    \'',
+          append: '\','
+        }))
+        .pipe(tap(function(file) { fnames += file.contents; }))
+        .on('end', function() {
+          gulp.src(release.templates.meteor)
+            .pipe(plumber())
+            .pipe(flatten())
+            .pipe(replace('{package-version}', version))
+            .pipe(replace('{package-files}', fnames))
+            .pipe(gulp.dest('./'))
+          ;
+        })
       ;
 
       console.log('');
@@ -744,7 +773,6 @@ gulp.task('create repos', false, function(callback) {
         outputDirectory      = release.outputRoot + component,
         isJavascript         = fs.existsSync(output.compressed + component + '.js'),
         isCSS                = fs.existsSync(output.compressed + component + '.css'),
-        assets               = release.componentsAssets[component],
         capitalizedComponent = component.charAt(0).toUpperCase() + component.slice(1),
         packageName          = release.packageRoot + component,
         repoName             = release.repoRoot + capitalizedComponent,
@@ -794,46 +822,15 @@ gulp.task('create repos', false, function(callback) {
         task = {
           all         : component + ' creating',
           repo        : component + ' create repo',
-          assetsPaths : component + ' get assets paths',
-          assets      : component + ' copy assets',
           bower       : component + ' create bower.json',
+          package     : component + ' create package.json',
           readme      : component + ' create README',
           npm         : component + ' create NPM Module',
           notes       : component + ' create release notes',
           composer    : component + ' create composer.json',
-          package     : component + ' create package.json',
           meteor      : component + ' create package.js',
-        },
-        taskSequence = (assets)
-          ? [
-              task.repo,
-              task.assets,
-              task.assetsPaths,
-              task.npm,
-              task.bower,
-              task.readme,
-              task.package,
-              task.composer,
-              task.notes,
-              task.meteor
-            ]
-          : [
-              task.repo,
-              task.npm,
-              task.bower,
-              task.readme,
-              task.package,
-              task.composer,
-              task.notes,
-              task.meteor
-            ],
-        fnames = ''
+        }
       ;
-
-      if(isJavascript)
-        fnames += '    \'' + component + '.js\',\n';
-      if(isCSS)
-        fnames += '    \'' + component + '.css\',\n';
 
       // copy dist files into output folder adjusting asset paths
       gulp.task(task.repo, false, function() {
@@ -844,32 +841,6 @@ gulp.task('create repos', false, function(callback) {
           .pipe(gulp.dest(outputDirectory))
         ;
       });
-
-      // possibly copy assets
-      if (assets) {
-        var
-          baseFolder = source.themes + 'default/',
-          concatFilenamesOptions = {
-            newline: '',
-            root: source.themes + 'default/',
-            prepend: '    \'',
-            append: '\','
-          }
-        ;
-
-        gulp.task(task.assetsPaths, function() {
-          return gulp.src(baseFolder + assets, { base: baseFolder})
-            .pipe(concatFnames("dummy.txt", concatFilenamesOptions))
-            .pipe(tap(function(file) { fnames += file.contents; }))
-          ;
-        });
-
-        gulp.task(task.assets, false, function() {
-          return gulp.src(baseFolder + assets, { base: baseFolder})
-            .pipe(gulp.dest(outputDirectory))
-          ;
-        });
-      }
 
       // create npm module
       gulp.task(task.npm, false, function() {
@@ -998,24 +969,53 @@ gulp.task('create repos', false, function(callback) {
         ;
       });
 
-      // create package.js
-      var taskDeps = assets ? [task.assetsPaths] : false;
-      gulp.task(task.meteor, taskDeps, function() {
-        return gulp.src(release.templates.meteorComponent)
-          .pipe(plumber())
-          .pipe(flatten())
-          .pipe(replace(regExp.match.name, regExp.replace.name))
-          .pipe(replace(regExp.match.titleName, regExp.replace.titleName))
-          .pipe(replace(regExp.match.mversion, regExp.replace.mversion))
-          .pipe(replace(regExp.match.mfiles, fnames))
-          .pipe(rename('package.js'))
-          .pipe(gulp.dest(outputDirectory))
+      // Meteor stuff
+
+      // Creates Meteor package.js
+      // Tries to list assets to be added among the files list
+      // inside the package.js file for Meteor
+      gulp.task(task.meteor, function() {
+        var fnames = '';
+        if(isJavascript)
+          fnames += '    \'' + component + '.js\',\n';
+        if(isCSS)
+          fnames += '    \'' + component + '.css\',\n';
+        return gulp.src(outputDirectory + '/assets/**', { base: outputDirectory})
+          .pipe(concatFnames("dummy.txt", {
+            newline: '',
+            root: outputDirectory,
+            prepend: '    \'',
+            append: '\','
+          }))
+          .pipe(tap(function(file) { fnames += file.contents;}))
+          .on('end', function(){
+            gulp.src(release.templates.meteorComponent)
+              .pipe(plumber())
+              .pipe(flatten())
+              .pipe(replace(regExp.match.name, regExp.replace.name))
+              .pipe(replace(regExp.match.titleName, regExp.replace.titleName))
+              .pipe(replace(regExp.match.mversion, regExp.replace.mversion))
+              .pipe(replace(regExp.match.mfiles, fnames))
+              .pipe(rename('package.js'))
+              .pipe(gulp.dest(outputDirectory))
+            ;
+          })
         ;
       });
 
+
       // synchronous tasks in orchestrator? I think not
       gulp.task(task.all, false, function(callback) {
-        runSequence(taskSequence, callback);
+        runSequence([
+          task.repo,
+          task.npm,
+          task.bower,
+          task.readme,
+          task.package,
+          task.composer,
+          task.notes,
+          task.meteor
+        ], callback);
       });
 
       tasks.push(task.all);
@@ -1146,7 +1146,7 @@ gulp.task('update git', false, function() {
           mergeCommit();
         }
       });
-    };
+    }
     function mergeCommit() {
       // commit files
       console.log('Adding merge commit', commitArgs);
@@ -1169,16 +1169,8 @@ gulp.task('update git', false, function() {
     function tagFiles() {
       console.log('Tagging new version ', version);
       git.tag(version, 'Updated version from semantic-ui (automatic)', function (err) {
-        publishMeteor();
+        pushFiles();
       });
-    }
-    function publishMeteor() {
-      console.log('Publishing Meteor package version ', version);
-      //var cmd = new run.Command('meteor publish');
-      //cmd.exec(function(error){
-      //  pushFiles();
-      //});
-      pushFiles();
     }
     function pushFiles() {
       console.log('Pushing files');
