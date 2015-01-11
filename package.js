@@ -1,7 +1,7 @@
 Package.describe({
   name: 'semantic:ui',
   summary: 'Semantic (official): a UI component framework based around useful principles from natural language.',
-  version: '1.7.2',
+  version: '1.7.0',
   git: 'git://github.com/Semantic-Org/Semantic-UI.git',
   readme: 'https://github.com/Semantic-Org/Semantic-UI/blob/master/meteor/README.md'
 });
