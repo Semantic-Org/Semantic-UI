@@ -23,7 +23,7 @@ Package.onTest(function(api) {
   ], where);
 
   api.addFiles([
-    'meteor/tests/test_fonts.js',
-    'meteor/tests/test_images.js',
+    'test/meteor/fonts.js',
+    'test/meteor/assets.js',
   ], where);
 });
