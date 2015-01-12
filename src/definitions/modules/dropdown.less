@@ -730,10 +730,47 @@ select.ui.dropdown {
 
 
 /*--------------
-    Fly-Up
+     Upward
 ---------------*/
 
+.ui.upward.dropdown > .menu {
+  top: auto;
+  bottom: 100%;
+  box-shadow: @upwardMenuBoxShadow;
+  border-radius: @upwardMenuBorderRadius;
+}
 
+/* Active Upward */
+.ui.simple.upward.active.dropdown,
+.ui.simple.upward.dropdown:hover {
+  border-radius: @borderRadius @borderRadius 0em 0em !important;
+}
+.ui.upward.dropdown.button:not(.pointing):not(.floating).active,
+.ui.upward.dropdown.button:not(.pointing):not(.floating).visible {
+  border-radius: @borderRadius @borderRadius 0em 0em;
+}
+
+/* Selection */
+.ui.upward.selection.dropdown .menu {
+  border-top: 1px solid @selectionBorderColor !important;
+  border-bottom: none !important;
+}
+.ui.upward.selection.dropdown:hover {
+  box-shadow: @upwardSelectionHoverBoxShadow;
+}
+.ui.upward.selection.visible.dropdown:hover {
+  box-shadow: @upwardSelectionVisibleHoverBoxShadow;
+}
+.ui.active.upward.selection.dropdown,
+.ui.visible.upward.selection.dropdown {
+  border-radius: @upwardSelectionVisibleBorderRadius !important;
+}
+.ui.upward.selection.dropdown.visible {
+  box-shadow: @upwardSelectionVisibleBoxShadow;
+}
+.ui.upward.selection.visible.dropdown:hover .menu {
+  box-shadow: @upwardSelectionVisibleHoverMenuBoxShadow;
+}
 
 /*--------------
      Simple

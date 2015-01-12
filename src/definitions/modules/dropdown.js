@@ -1137,6 +1137,9 @@ $.fn.dropdown = function(parameters) {
           selection: function() {
             return $module.hasClass(className.selection);
           },
+          upward: function() {
+            return $module.hasClass(className.upward);
+          },
           visible: function($subMenu) {
             return ($subMenu)
               ? $subMenu.is(':visible')
@@ -1173,6 +1176,14 @@ $.fn.dropdown = function(parameters) {
             module.set.scrollPosition(module.get.activeItem(), true);
             module.verbose('Doing menu show animation', $currentMenu);
             if( module.is.hidden($currentMenu) || module.is.animating($currentMenu) ) {
+
+              if(settings.transition == 'auto') {
+                settings.transition = module.is.upward()
+                  ? 'slide up'
+                  : 'slide down'
+                ;
+              }
+
               if(settings.transition == 'none') {
                 callback.call(element);
               }
@@ -1248,6 +1259,13 @@ $.fn.dropdown = function(parameters) {
             ;
             if( module.is.visible($currentMenu) || module.is.animating($currentMenu) ) {
               module.verbose('Doing menu hide animation', $currentMenu);
+
+              if(settings.transition == 'auto') {
+                settings.transition = module.is.upward()
+                  ? 'slide up'
+                  : 'slide down'
+                ;
+              }
 
               if(settings.transition == 'none') {
                 callback.call(element);
@@ -1517,7 +1535,7 @@ $.fn.dropdown.settings = {
     touch  : 50
   },
 
-  transition : 'slide down',
+  transition : 'auto',
   duration   : 250,
 
   /* Callbacks */
@@ -1566,6 +1584,7 @@ $.fn.dropdown.settings = {
     search      : 'search',
     selected    : 'selected',
     selection   : 'selection',
+    upward      : 'upward',
     visible     : 'visible'
   }
 
