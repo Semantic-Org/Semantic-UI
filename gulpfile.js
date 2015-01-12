@@ -1256,7 +1256,7 @@ gulp.task('create repos', false, function(callback) {
               .pipe(flatten())
               .pipe(replace(regExp.match.name, regExp.replace.name))
               .pipe(replace(regExp.match.titleName, regExp.replace.titleName))
-              .pipe(replace(regExp.match.version, regExp.replace.mversion))
+              .pipe(replace(regExp.match.version, version))
               .pipe(replace(regExp.match.files, fileNames))
               .pipe(rename(defaults.files.npm))
               .pipe(gulp.dest(outputDirectory))
