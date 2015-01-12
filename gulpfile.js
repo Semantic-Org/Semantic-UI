@@ -26,6 +26,7 @@ var
   clone        = require('gulp-clone'),
   concat       = require('gulp-concat'),
   concatCSS    = require('gulp-concat-css'),
+  concatFnames = require('gulp-concat-filenames'),
   copy         = require('gulp-copy'),
   debug        = require('gulp-debug'),
   flatten      = require('gulp-flatten'),
@@ -42,6 +43,7 @@ var
   replace      = require('gulp-replace'),
   rtlcss       = require('gulp-rtlcss'),
   sourcemaps   = require('gulp-sourcemaps'),
+  tap          = require('gulp-tap'),
   uglify       = require('gulp-uglify'),
   util         = require('gulp-util'),
   watch        = require('gulp-watch'),
@@ -424,6 +426,32 @@ gulp.task('build', 'Builds all files from source', function(callback) {
     })
   ;
 
+  // updates package.js
+  console.info('Updating package.js (Meteor)');
+  var
+    assetPath = output.themes + 'default/assets/',
+    fnames =
+      '    \'' + output.packaged + 'semantic.css\',\n' +
+      '    \'' + output.packaged + 'semantic.js\',\n'
+  ;
+  gulp.src(assetPath + '**', {base: assetPath})
+    .pipe(concatFnames("dummy.txt", {
+      newline: '',
+      root: './',
+      prepend: '    \'',
+      append: '\','
+    }))
+    .pipe(tap(function(file) { fnames += file.contents; }))
+    .on('end', function() {
+      gulp.src(release.templates.meteor)
+        .pipe(plumber())
+        .pipe(flatten())
+        .pipe(replace('{package-version}', version))
+        .pipe(replace('{package-files}', fnames))
+        .pipe(gulp.dest('./'))
+      ;
+    })
+  ;
 });
 
 // cleans distribution files
@@ -846,7 +874,6 @@ gulp.task('install', 'Set-up project for first time', function () {
         ;
       }
 
-
       // determine semantic.json config
       if(answers.components) {
         json.components = answers.components;
@@ -900,6 +927,35 @@ gulp.task('install', 'Set-up project for first time', function () {
           .pipe(gulp.dest('./'))
         ;
       }
+
+      // writes package.js
+      console.info('Creating package.js (Meteor)');
+      var
+        packagedFolder = json.paths.output.packaged || output.packaged,
+        themesFolder = json.paths.output.themes || output.themes,
+        fnames =
+          '    \'' + packagedFolder + 'semantic.css\',\n' +
+          '    \'' + packagedFolder + 'semantic.js\',\n'
+      ;
+      gulp.src(themesFolder + 'default/assets/**')
+        .pipe(concatFnames("dummy.txt", {
+          newline: '',
+          root: './',
+          prepend: '    \'',
+          append: '\','
+        }))
+        .pipe(tap(function(file) { fnames += file.contents; }))
+        .on('end', function() {
+          gulp.src(release.templates.meteor)
+            .pipe(plumber())
+            .pipe(flatten())
+            .pipe(replace('{package-version}', version))
+            .pipe(replace('{package-files}', fnames))
+            .pipe(gulp.dest('./'))
+          ;
+        })
+      ;
+
       console.log('');
       console.log('');
     }))
@@ -1050,7 +1106,10 @@ gulp.task('create repos', false, function(callback) {
             formExport        : /\$\.fn\.\w+\s*=\s*function\(fields, parameters\)\s*{/g,
             settingsExport    : /\$\.fn\.\w+\.settings\s*=/g,
             settingsReference : /\$\.fn\.\w+\.settings/g,
-            jQuery            : /jQuery/g
+            jQuery            : /jQuery/g,
+            // meteor
+            mversion          : '{package-version}',
+            mfiles            : '{package-files}',
           },
           replace : {
             // readme
@@ -1067,7 +1126,9 @@ gulp.task('create repos', false, function(callback) {
             formExport        :  'module.exports = function(fields, parameters) {\n  var _module = module;\n',
             settingsExport    :  'module.exports.settings =',
             settingsReference :  '_module.exports.settings',
-            jQuery            :  'require("jquery")'
+            jQuery            :  'require("jquery")',
+            // meteor
+            mversion          : version
           }
         },
         task = {
@@ -1075,11 +1136,11 @@ gulp.task('create repos', false, function(callback) {
           repo     : component + ' create repo',
           bower    : component + ' create bower.json',
           readme   : component + ' create README',
-          readme   : component + ' create README',
           npm      : component + ' create NPM Module',
           notes    : component + ' create release notes',
           composer : component + ' create composer.json',
-          package  : component + ' create package.json'
+          package  : component + ' create package.json',
+          meteor   : component + ' create package.js',
         }
       ;
 
@@ -1227,6 +1288,41 @@ gulp.task('create repos', false, function(callback) {
         ;
       });
 
+      // Meteor stuff
+
+      // Creates Meteor package.js
+      // Tries to list assets to be added among the files list
+      // inside the package.js file for Meteor
+      gulp.task(task.meteor, function() {
+        var fnames = '';
+        if(isJavascript)
+          fnames += '    \'' + component + '.js\',\n';
+        if(isCSS)
+          fnames += '    \'' + component + '.css\',\n';
+        return gulp.src(outputDirectory + '/assets/**', { base: outputDirectory})
+          .pipe(concatFnames("dummy.txt", {
+            newline: '',
+            root: outputDirectory,
+            prepend: '    \'',
+            append: '\','
+          }))
+          .pipe(tap(function(file) { fnames += file.contents;}))
+          .on('end', function(){
+            gulp.src(release.templates.meteorComponent)
+              .pipe(plumber())
+              .pipe(flatten())
+              .pipe(replace(regExp.match.name, regExp.replace.name))
+              .pipe(replace(regExp.match.titleName, regExp.replace.titleName))
+              .pipe(replace(regExp.match.mversion, regExp.replace.mversion))
+              .pipe(replace(regExp.match.mfiles, fnames))
+              .pipe(rename(defaults.files.npm))
+              .pipe(gulp.dest(outputDirectory))
+            ;
+          })
+        ;
+      });
+
+
       // synchronous tasks in orchestrator? I think not
       gulp.task(task.all, false, function(callback) {
         runSequence([
@@ -1236,7 +1332,8 @@ gulp.task('create repos', false, function(callback) {
           task.readme,
           task.package,
           task.composer,
-          task.notes
+          task.notes,
+          task.meteor
         ], callback);
       });
 
@@ -1246,8 +1343,8 @@ gulp.task('create repos', false, function(callback) {
   }
 
   runSequence(tasks, callback);
-
 });
+
 gulp.task('register repos', false, function(callback) {
   var
     index = -1,
@@ -1288,7 +1385,7 @@ gulp.task('register repos', false, function(callback) {
       stepRepo();
     });
     */
-  }
+  };
   stepRepo();
 });
 
@@ -1318,7 +1415,7 @@ gulp.task('update git', false, function() {
       repoURL              = 'https://github.com/' + release.org + '/' + repoName + '/',
       gitOptions           = { cwd: outputDirectory },
       quietOptions         = { args: '-q', cwd: outputDirectory },
-      isRepository         = fs.existsSync(outputDirectory + '.git/')
+      isRepository         = fs.existsSync(outputDirectory + '.git/'),
       componentPackage     = fs.existsSync(outputDirectory + 'package.json' )
         ? require(outputDirectory + 'package.json')
         : false,
@@ -1368,7 +1465,7 @@ gulp.task('update git', false, function() {
           mergeCommit();
         }
       });
-    };
+    }
     function mergeCommit() {
       // commit files
       console.log('Adding merge commit', commitArgs);
@@ -1403,7 +1500,7 @@ gulp.task('update git', false, function() {
         console.log('Push completed successfully');
         stepRepo();
       });
-    };
+    }
 
     // set-up path
     function createRepo() {
@@ -1447,8 +1544,7 @@ gulp.task('update git', false, function() {
           stepRepo();
         }
       });
-    };
-
+    }
   };
 
   return stepRepo();
