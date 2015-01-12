@@ -3,7 +3,7 @@
 ### Version 1.7.0 -
 
 **Major Changes**
-- **Project** - Right-to-left (RTL) support added. New gulp tasks for RTL *Thanks @MohammadYounes!*
+- **Project** - Right-to-left (RTL) support added. New gulp tasks for RTL file generation. Docs do not yet support RTL.*Thanks @MohammadYounes!*.
 - **Project** - Express/Custom install now let you specify the outputted file permissions and RTL use
 
 **Enhancements**
@@ -15,6 +15,7 @@
 - **Modules** - Use of `$.proxy` swapped to native `function.call()` for performance gains across all modules
 
 **Bugs**
+- **Dropdown** - Fixed bug where sub menus may sometimes have dropdown icon overlap text
 - **Popup** - `wide` and `very wide` popup will now appear when screen size is below their `max-width`
 - **Popup** - Popup no longer blurs element on popup hide
 - **Segment** - ``ui tabular menu`` now correctly aligns with attached segment when using fluid variation *Thanks @MohammadYounes*

@@ -92,8 +92,9 @@
 @itemElementDistance: 0.75em;
 
 /* Sub-Menu Dropdown Icon */
+@itemDropdownIconDistance: 1em;
 @itemDropdownIconFloat: right;
-@itemDropdownIconMargin: @itemLineHeightOffset 0em 0em @itemElementDistance;
+@itemDropdownIconMargin: @itemLineHeightOffset 0em 0em @itemDropdownIconDistance;
 
 /* Description */
 @itemDescriptionMargin: 0em 0em 0em 1em;

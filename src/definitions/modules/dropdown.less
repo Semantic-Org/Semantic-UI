@@ -91,6 +91,9 @@
   float: @itemDropdownIconFloat;
   margin: @itemDropdownIconMargin;
 }
+.ui.dropdown .menu > .item .dropdown.icon + .text {
+  margin-right: @itemDropdownIconDistance;
+}
 
 
 /*--------------
@@ -714,6 +717,17 @@ select.ui.dropdown {
   float: @leftMenuDropdownIconFloat;
   margin: @leftMenuDropdownIconMargin;
 }
+.ui.dropdown .item .left.dropdown.icon,
+.ui.dropdown .left.menu .item .dropdown.icon {
+  width: auto;
+  float: @leftMenuDropdownIconFloat;
+  margin: @leftMenuDropdownIconMargin;
+}
+.ui.dropdown .item .left.dropdown.icon + .text,
+.ui.dropdown .left.menu .item .dropdown.icon + .text {
+  margin-left: @itemDropdownIconDistance;
+}
+
 
 
 /*--------------
