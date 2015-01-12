@@ -9,6 +9,7 @@
 **Enhancements**
 - **Sidebar** - Having a sidebar visible on page load is now much simpler. You can include ``ui visible sidebar`` on page load to have a sidebar element appear on page load. To close call `$('.ui.sidebar').sidebar('hide')`
 - **Dropdown** - New `upward dropdown` variation, which opens its menu upward. Default animation now uses ``settings.transition = 'auto'` and determines direction of animation based on menu direction
+- **Dropdown** - Dropdown matching fields without values now trims whitespace by default
 
 **Code / Build**
 - **Build** - `Dist/` files now set file permissions in build. `644` by default. Can adjust in `semantic.json` or during gulp install. You will need to run `npm install` to add the new gulp-chmod dependency *Thanks @PeterDaveHello*
@@ -18,6 +19,7 @@
 **Bugs**
 - **Video** - Video component now uses `//` instead of defaulting to `http`
 - **Dropdown** - Fixed bug where sub menus may sometimes have dropdown icon overlap text
+- **Dropdown** - Fixes dropdown search input from filtering text values when input is inside menu, i.e "In-Menu Search"
 - **Popup** - `wide` and `very wide` popup will now appear when screen size is below their `max-width`
 - **Popup** - Popup no longer blurs element on popup hide
 - **Segment** - ``ui tabular menu`` now correctly aligns with attached segment when using fluid variation *Thanks @MohammadYounes*
