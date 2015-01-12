@@ -13,6 +13,7 @@
 
 **Code / Build**
 - **Build** - `Dist/` files now set file permissions in build. `644` by default. Can adjust in `semantic.json` or during gulp install. You will need to run `npm install` to add the new gulp-chmod dependency *Thanks @PeterDaveHello*
+- **Sidebar** - `setup layout` not occurs synchronously if you initialize a sidebar without the proper html. This makes sure calls to sidebar will occur correctly before the page is setup. A new setting `delaySetup` will override this, increasing performance.
 - **Modules** - Remove use of deprecated `.size()` for `.length` across all modules
 - **Modules** - Use of `$.proxy` swapped to native `function.call()` for performance gains across all modules
 
