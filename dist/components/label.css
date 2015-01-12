@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.6.2
+ * # Semantic UI - 1.6.4
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -104,17 +104,17 @@ a.ui.label {
 /* Remove border radius on attached segment */
 .ui.attached.segment > .ui.top.left.attached.label,
 .ui.bottom.attached.segment > .ui.top.left.attached.label {
-  border-radius-top-left: 0;
+  border-top-left-radius: 0;
 }
 .ui.attached.segment > .ui.top.right.attached.label,
 .ui.bottom.attached.segment > .ui.top.right.attached.label {
-  border-radius-top-right: 0;
+  border-top-right-radius: 0;
 }
 .ui.top.attached.segment > .ui.bottom.left.attached.label {
-  border-radius-bottom-left: 0;
+  border-bottom-left-radius: 0;
 }
 .ui.top.attached.segment > .ui.bottom.right.attached.label {
-  border-radius-bottom-right: 0;
+  border-bottom-right-radius: 0;
 }
 
 /* Padding on next content after a label */

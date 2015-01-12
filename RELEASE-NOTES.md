@@ -1,11 +1,9 @@
 ## RELEASE NOTES
 
 
-### Version 1.6.4 - January 12, 2015
+### Version 1.6.(3-4) - January 12, 2015
 
-- `1.6.3` contained an unintentional character at beginning of `label.less`
-
-### Version 1.6.3 - January 12, 2015
+- `1.6.3` contained an unintentional character at beginning of `label.less` re-released as `1.6.4`
 
 **Bugs**
 - **Build** - Fix CSS property typo in list icon, and label causing issues with some custom build tools
