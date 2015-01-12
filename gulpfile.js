@@ -9,57 +9,57 @@
 
 
 var
-  gulp         = require('gulp-help')(require('gulp')),
+  gulp            = require('gulp-help')(require('gulp')),
 
   // node components & oddballs
-  console      = require('better-console'),
-  del          = require('del'),
-  extend       = require('extend'),
-  fs           = require('fs'),
-  path         = require('path'),
-  runSequence  = require('run-sequence'),
-  wrench       = require('wrench'),
+  console         = require('better-console'),
+  del             = require('del'),
+  extend          = require('extend'),
+  fs              = require('fs'),
+  path            = require('path'),
+  runSequence     = require('run-sequence'),
+  wrench          = require('wrench'),
 
   // gulp dependencies
-  autoprefixer = require('gulp-autoprefixer'),
-  chmod        = require('gulp-chmod'),
-  clone        = require('gulp-clone'),
-  concat       = require('gulp-concat'),
-  concatCSS    = require('gulp-concat-css'),
-  concatFnames = require('gulp-concat-filenames'),
-  copy         = require('gulp-copy'),
-  debug        = require('gulp-debug'),
-  flatten      = require('gulp-flatten'),
-  header       = require('gulp-header'),
-  jeditor      = require('gulp-json-editor'),
-  karma        = require('gulp-karma'),
-  less         = require('gulp-less'),
-  minifyCSS    = require('gulp-minify-css'),
-  notify       = require('gulp-notify'),
-  plumber      = require('gulp-plumber'),
-  print        = require('gulp-print'),
-  prompt       = require('gulp-prompt'),
-  rename       = require('gulp-rename'),
-  replace      = require('gulp-replace'),
-  rtlcss       = require('gulp-rtlcss'),
-  sourcemaps   = require('gulp-sourcemaps'),
-  tap          = require('gulp-tap'),
-  uglify       = require('gulp-uglify'),
-  util         = require('gulp-util'),
-  watch        = require('gulp-watch'),
+  autoprefixer    = require('gulp-autoprefixer'),
+  chmod           = require('gulp-chmod'),
+  clone           = require('gulp-clone'),
+  concat          = require('gulp-concat'),
+  concatCSS       = require('gulp-concat-css'),
+  concatFileNames = require('gulp-concat-filenames'),
+  copy            = require('gulp-copy'),
+  debug           = require('gulp-debug'),
+  flatten         = require('gulp-flatten'),
+  header          = require('gulp-header'),
+  jeditor         = require('gulp-json-editor'),
+  karma           = require('gulp-karma'),
+  less            = require('gulp-less'),
+  minifyCSS       = require('gulp-minify-css'),
+  notify          = require('gulp-notify'),
+  plumber         = require('gulp-plumber'),
+  print           = require('gulp-print'),
+  prompt          = require('gulp-prompt'),
+  rename          = require('gulp-rename'),
+  replace         = require('gulp-replace'),
+  rtlcss          = require('gulp-rtlcss'),
+  sourcemaps      = require('gulp-sourcemaps'),
+  tap             = require('gulp-tap'),
+  uglify          = require('gulp-uglify'),
+  util            = require('gulp-util'),
+  watch           = require('gulp-watch'),
 
   // config
-  banner       = require('./tasks/banner'),
-  comments     = require('./tasks/comments'),
-  defaults     = require('./tasks/defaults'),
-  log          = require('./tasks/log'),
-  questions    = require('./tasks/questions'),
-  settings     = require('./tasks/gulp-settings'),
+  banner          = require('./tasks/banner'),
+  comments        = require('./tasks/comments'),
+  defaults        = require('./tasks/defaults'),
+  log             = require('./tasks/log'),
+  questions       = require('./tasks/questions'),
+  settings        = require('./tasks/gulp-settings'),
 
   // admin
-  release      = require('./tasks/admin/release'),
-  git          = require('gulp-git'),
-  githubAPI    = require('github'),
+  release         = require('./tasks/admin/release'),
+  git             = require('gulp-git'),
+  githubAPI       = require('github'),
 
   oAuth        = fs.existsSync('./tasks/admin/oauth.js')
     ? require('./tasks/admin/oauth')
@@ -423,33 +423,6 @@ gulp.task('build', 'Builds all files from source', function(callback) {
     .on('end', function() {
       callback();
       gulp.start('package compressed css');
-    })
-  ;
-
-  // updates package.js
-  console.info('Updating package.js (Meteor)');
-  var
-    assetPath = output.themes + 'default/assets/',
-    fnames =
-      '    \'' + output.packaged + 'semantic.css\',\n' +
-      '    \'' + output.packaged + 'semantic.js\',\n'
-  ;
-  gulp.src(assetPath + '**', {base: assetPath})
-    .pipe(concatFnames("dummy.txt", {
-      newline: '',
-      root: './',
-      prepend: '    \'',
-      append: '\','
-    }))
-    .pipe(tap(function(file) { fnames += file.contents; }))
-    .on('end', function() {
-      gulp.src(release.templates.meteor)
-        .pipe(plumber())
-        .pipe(flatten())
-        .pipe(replace('{package-version}', version))
-        .pipe(replace('{package-files}', fnames))
-        .pipe(gulp.dest('./'))
-      ;
     })
   ;
 });
@@ -927,35 +900,6 @@ gulp.task('install', 'Set-up project for first time', function () {
           .pipe(gulp.dest('./'))
         ;
       }
-
-      // writes package.js
-      console.info('Creating package.js (Meteor)');
-      var
-        packagedFolder = json.paths.output.packaged || output.packaged,
-        themesFolder = json.paths.output.themes || output.themes,
-        fnames =
-          '    \'' + packagedFolder + 'semantic.css\',\n' +
-          '    \'' + packagedFolder + 'semantic.js\',\n'
-      ;
-      gulp.src(themesFolder + 'default/assets/**')
-        .pipe(concatFnames("dummy.txt", {
-          newline: '',
-          root: './',
-          prepend: '    \'',
-          append: '\','
-        }))
-        .pipe(tap(function(file) { fnames += file.contents; }))
-        .on('end', function() {
-          gulp.src(release.templates.meteor)
-            .pipe(plumber())
-            .pipe(flatten())
-            .pipe(replace('{package-version}', version))
-            .pipe(replace('{package-files}', fnames))
-            .pipe(gulp.dest('./'))
-          ;
-        })
-      ;
-
       console.log('');
       console.log('');
     }))
@@ -1288,25 +1232,25 @@ gulp.task('create repos', false, function(callback) {
         ;
       });
 
-      // Meteor stuff
-
       // Creates Meteor package.js
       // Tries to list assets to be added among the files list
       // inside the package.js file for Meteor
       gulp.task(task.meteor, function() {
-        var fnames = '';
-        if(isJavascript)
-          fnames += '    \'' + component + '.js\',\n';
-        if(isCSS)
-          fnames += '    \'' + component + '.css\',\n';
+        var fileNames = '';
+        if(isJavascript) {
+          fileNames += '    \'' + component + '.js\',\n';
+        }
+        if(isCSS) {
+          fileNames += '    \'' + component + '.css\',\n';
+        }
         return gulp.src(outputDirectory + '/assets/**', { base: outputDirectory})
-          .pipe(concatFnames("dummy.txt", {
+          .pipe(concatFileNames('dummy.txt', {
             newline: '',
             root: outputDirectory,
             prepend: '    \'',
             append: '\','
           }))
-          .pipe(tap(function(file) { fnames += file.contents;}))
+          .pipe(tap(function(file) { fileNames += file.contents;}))
           .on('end', function(){
             gulp.src(release.templates.meteorComponent)
               .pipe(plumber())
@@ -1314,7 +1258,7 @@ gulp.task('create repos', false, function(callback) {
               .pipe(replace(regExp.match.name, regExp.replace.name))
               .pipe(replace(regExp.match.titleName, regExp.replace.titleName))
               .pipe(replace(regExp.match.mversion, regExp.replace.mversion))
-              .pipe(replace(regExp.match.mfiles, fnames))
+              .pipe(replace(regExp.match.mfiles, fileNames))
               .pipe(rename(defaults.files.npm))
               .pipe(gulp.dest(outputDirectory))
             ;
