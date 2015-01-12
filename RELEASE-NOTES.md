@@ -15,6 +15,7 @@
 - **Modules** - Use of `$.proxy` swapped to native `function.call()` for performance gains across all modules
 
 **Bugs**
+- **Video** - Video component now uses `//` instead of defaulting to `http`
 - **Dropdown** - Fixed bug where sub menus may sometimes have dropdown icon overlap text
 - **Popup** - `wide` and `very wide` popup will now appear when screen size is below their `max-width`
 - **Popup** - Popup no longer blurs element on popup hide
