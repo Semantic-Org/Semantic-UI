@@ -138,12 +138,9 @@ $.fn.dropdown = function(parameters) {
           query = $search.val();
 
           module.verbose('Searching for query', query);
-
-          if(module.is.searchSelection()) {
-            module.filter(query);
-            if( module.can.show() ) {
-              module.show();
-            }
+          module.filter(query);
+          if(module.is.searchSelection() && module.can.show() ) {
+            module.show();
           }
         },
 
@@ -405,7 +402,9 @@ $.fn.dropdown = function(parameters) {
           ;
           if( module.is.allFiltered() ) {
             module.debug('All items filtered, hiding dropdown', searchTerm);
-            module.hide();
+            if(module.is.searchSelection()) {
+              module.hide();
+            }
             settings.onNoResults.call(element, searchTerm);
           }
         },
@@ -452,7 +451,9 @@ $.fn.dropdown = function(parameters) {
             }
           },
           input: function(event) {
-            module.set.filtered();
+            if(module.is.searchSelection()) {
+              module.set.filtered();
+            }
             clearTimeout(module.timer);
             module.timer = setTimeout(module.search, settings.delay.search);
           },
@@ -753,8 +754,8 @@ $.fn.dropdown = function(parameters) {
               return ($choice.data(metadata.text) !== undefined)
                 ? $choice.data(metadata.text)
                 : (preserveHTML)
-                  ? $choice.html()
-                  : $choice.text()
+                  ? $choice.html().trim()
+                  : $choice.text().trim()
               ;
             }
           },
@@ -763,8 +764,8 @@ $.fn.dropdown = function(parameters) {
             return ($choice.data(metadata.value) !== undefined)
               ? $choice.data(metadata.value)
               : (typeof choiceText === 'string')
-                ? choiceText.toLowerCase()
-                : choiceText
+                ? choiceText.toLowerCase().trim()
+                : choiceText.trim()
             ;
           },
           inputEvent: function() {
