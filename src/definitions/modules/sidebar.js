@@ -96,6 +96,9 @@ $.fn.sidebar = function(parameters) {
           if(settings.delaySetup) {
             requestAnimationFrame(module.setup.layout);
           }
+          else {
+            module.setup.layout();
+          }
 
           module.instantiate();
         },
