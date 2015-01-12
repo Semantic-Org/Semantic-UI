@@ -1036,9 +1036,11 @@ gulp.task('create repos', false, function(callback) {
         repoURL              = 'https://github.com/' + release.org + '/' + repoName + '/',
         regExp               = {
           match            : {
-            // readme
-            name              : '{component}',
-            titleName         : '{Component}',
+            // templated values
+            name      : '{component}',
+            titleName : '{Component}',
+            version   : '{version}',
+            files     : '{files}',
             // release notes
             spacedVersions    : /(###.*\n)\n+(?=###)/gm,
             spacedLists       : /(^- .*\n)\n+(?=^-)/gm,
@@ -1051,9 +1053,6 @@ gulp.task('create repos', false, function(callback) {
             settingsExport    : /\$\.fn\.\w+\.settings\s*=/g,
             settingsReference : /\$\.fn\.\w+\.settings/g,
             jQuery            : /jQuery/g,
-            // meteor
-            mversion          : '{package-version}',
-            mfiles            : '{package-files}',
           },
           replace : {
             // readme
@@ -1257,8 +1256,8 @@ gulp.task('create repos', false, function(callback) {
               .pipe(flatten())
               .pipe(replace(regExp.match.name, regExp.replace.name))
               .pipe(replace(regExp.match.titleName, regExp.replace.titleName))
-              .pipe(replace(regExp.match.mversion, regExp.replace.mversion))
-              .pipe(replace(regExp.match.mfiles, fileNames))
+              .pipe(replace(regExp.match.version, regExp.replace.mversion))
+              .pipe(replace(regExp.match.files, fileNames))
               .pipe(rename(defaults.files.npm))
               .pipe(gulp.dest(outputDirectory))
             ;
