@@ -101,9 +101,8 @@
 @yellowDividedBorderColor: @yellow;
 
 /* Attached */
-@attachedOffset: -1px;
 @attachedBoxShadow: none;
-@attachedBorder: 1px solid @solidBorderColor;
+@attachedBorder: 1px solid @borderColor;
 @attachedVerticalPadding: @blockVerticalPadding;
 @attachedHorizontalPadding: @blockHorizontalPadding;
 @attachedBackground: @white;
