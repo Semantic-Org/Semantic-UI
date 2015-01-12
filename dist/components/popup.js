@@ -231,7 +231,7 @@ $.fn.popup = function(parameters) {
             if(settings.hoverable) {
               module.bind.popup();
             }
-            $.proxy(settings.onCreate, $popup)(element);
+            settings.onCreate.call($popup, element);
           }
           else if($target.next(settings.selector.popup).length !== 0) {
             module.verbose('Pre-existing popup found, reverting to inline');
@@ -325,7 +325,7 @@ $.fn.popup = function(parameters) {
           if( module.has.popup() ) {
             $popup.remove();
           }
-          $.proxy(settings.onRemove, $popup)(element);
+          settings.onRemove.call($popup, element);
         },
 
         save: {
@@ -362,8 +362,8 @@ $.fn.popup = function(parameters) {
                   duration   : settings.duration,
                   onComplete : function() {
                     module.bind.close();
-                    $.proxy(callback, $popup)(element);
-                    $.proxy(settings.onVisible, $popup)(element);
+                    callback.call($popup, element);
+                    settings.onVisible.call($popup, element);
                   }
                 })
               ;
@@ -374,11 +374,12 @@ $.fn.popup = function(parameters) {
                 .stop()
                 .fadeIn(settings.duration, settings.easing, function() {
                   module.bind.close();
-                  $.proxy(callback, element)();
+                  callback.call($popup, element);
+                  settings.onVisible.call($popup, element);
                 })
               ;
             }
-            $.proxy(settings.onShow, $popup)(element);
+            settings.onShow.call($popup, element);
           },
           hide: function(callback) {
             callback = $.isFunction(callback) ? callback : function(){};
@@ -393,8 +394,8 @@ $.fn.popup = function(parameters) {
                   verbose    : settings.verbose,
                   onComplete : function() {
                     module.reset();
-                    $.proxy(callback, $popup)(element);
-                    $.proxy(settings.onHidden, $popup)(element);
+                    callback.call($popup, element);
+                    settings.onHidden.call($popup, element);
                   }
                 })
               ;
@@ -404,11 +405,12 @@ $.fn.popup = function(parameters) {
                 .stop()
                 .fadeOut(settings.duration, settings.easing, function() {
                   module.reset();
-                  callback();
+                  callback.call($popup, element);
+                  settings.onHidden.call($popup, element);
                 })
               ;
             }
-            $.proxy(settings.onHide, $popup)(element);
+            settings.onHide.call($popup, element);
           }
         },
 
@@ -771,7 +773,7 @@ $.fn.popup = function(parameters) {
               $document
                 .on('click' + eventNamespace, function(event) {
                   module.verbose('Pop-up clickaway intent detected');
-                  $.proxy(module.hideGracefully, element)(event);
+                  module.hideGracefully.call(element, event);
                 })
               ;
             }

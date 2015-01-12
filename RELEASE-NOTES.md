@@ -9,9 +9,8 @@
 **Enhancements**
 - **Sidebar** - Having a sidebar visible on page load is now much simpler. You can include ``ui visible sidebar`` on page load to have a sidebar element appear on page load. To close call `$('.ui.sidebar').sidebar('hide')`
 
-
 **Code / Build**
-- **Build** - `Dist/` files now have file permissions `644` by default. Can adjust in `semantic.json`. You will need to run `npm install` to add the new gulp-chmod dependency *Thanks @PeterDaveHello*
+- **Build** - `Dist/` files now set file permissions in build. `644` by default. Can adjust in `semantic.json` or during gulp install. You will need to run `npm install` to add the new gulp-chmod dependency *Thanks @PeterDaveHello*
 - **Modules** - Remove use of deprecated `.size()` for `.length` across all modules
 - **Modules** - Use of `$.proxy` swapped to native `function.call()` for performance gains across all modules
 
@@ -21,6 +20,21 @@
 - **Segment** - ``ui tabular menu`` now correctly aligns with attached segment when using fluid variation *Thanks @MohammadYounes*
 - **Steps** - Steps now use ``table-cell`` to allow steps to be equal height by default, even with different content height.
 - **Button** - Fix issue with labeled icon groups in material theme
+
+### Version 1.6.4 - January 12, 2015
+
+- `1.6.3` contained an unintentional character at beginning of `label.less` re-released as `1.6.4`
+
+**Bugs**
+- **Build** - Fix CSS property typo in list icon, and label causing issues with some custom build tools
+
+### Version 1.6.3 - January 12, 2015
+
+- `1.6.3` contained an unintentional character at beginning of `label.less` re-released as `1.6.4`
+
+**Bugs**
+- **Build** - Fix CSS property typo in list icon, and label causing issues with some custom build tools
+- **Label** - Fix attached labels to have correct border radius inside of attached segments of all kinds
 
 ### Version 1.6.2 - January 06, 2015
 

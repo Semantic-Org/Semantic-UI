@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.6.2
+ * # Semantic UI - 1.7.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -872,7 +872,7 @@ $.fn.form = function(fields, parameters) {
             if(allValid) {
               module.debug('Form has no validation errors, submitting');
               module.set.success();
-              return $.proxy(settings.onSuccess, element)(event);
+              return settings.onSuccess.call(element, event);
             }
             else {
               module.debug('Form has errors');
@@ -884,7 +884,7 @@ $.fn.form = function(fields, parameters) {
               if($module.data('moduleApi') !== undefined) {
                 event.stopImmediatePropagation();
               }
-              return $.proxy(settings.onFailure, element)(formErrors);
+              return settings.onFailure.call(element, formErrors);
             }
           },
 
@@ -914,12 +914,12 @@ $.fn.form = function(fields, parameters) {
             }
             if(fieldValid) {
               module.remove.prompt(field, fieldErrors);
-              $.proxy(settings.onValid, $field)();
+              settings.onValid.call($field);
             }
             else {
               formErrors = formErrors.concat(fieldErrors);
               module.add.prompt(field.identifier, fieldErrors);
-              $.proxy(settings.onInvalid, $field)(fieldErrors);
+              settings.onInvalid.call($field, fieldErrors);
               return false;
             }
             return true;
@@ -942,11 +942,11 @@ $.fn.form = function(fields, parameters) {
             if(bracket !== undefined && bracket !== null) {
               ancillary    = '' + bracket[1];
               functionType = type.replace(bracket[0], '');
-              isValid      = $.proxy(settings.rules[functionType], element)(value, ancillary);
+              isValid      = settings.rules[functionType].call(element, value, ancillary);
             }
             // normal notation
             else {
-              isValid = $.proxy(settings.rules[type], $field)(value);
+              isValid = settings.rules[type].call($field, value);
             }
             return isValid;
           }
@@ -2559,8 +2559,8 @@ $.fn.dimmer = function(parameters) {
           module.debug('Showing dimmer', $dimmer, settings);
           if( (!module.is.dimmed() || module.is.animating()) && module.is.enabled() ) {
             module.animate.show(callback);
-            $.proxy(settings.onShow, element)();
-            $.proxy(settings.onChange, element)();
+            settings.onShow.call(element);
+            settings.onChange.call(element);
           }
           else {
             module.debug('Dimmer is already shown or disabled');
@@ -2575,8 +2575,8 @@ $.fn.dimmer = function(parameters) {
           if( module.is.dimmed() || module.is.animating() ) {
             module.debug('Hiding dimmer', $dimmer);
             module.animate.hide(callback);
-            $.proxy(settings.onHide, element)();
-            $.proxy(settings.onChange, element)();
+            settings.onHide.call(element);
+            settings.onChange.call(element);
           }
           else {
             module.debug('Dimmer is not visible');
@@ -6202,7 +6202,7 @@ $.fn.popup = function(parameters) {
             if(settings.hoverable) {
               module.bind.popup();
             }
-            $.proxy(settings.onCreate, $popup)(element);
+            settings.onCreate.call($popup, element);
           }
           else if($target.next(settings.selector.popup).length !== 0) {
             module.verbose('Pre-existing popup found, reverting to inline');
@@ -6296,7 +6296,7 @@ $.fn.popup = function(parameters) {
           if( module.has.popup() ) {
             $popup.remove();
           }
-          $.proxy(settings.onRemove, $popup)(element);
+          settings.onRemove.call($popup, element);
         },
 
         save: {
@@ -6333,8 +6333,8 @@ $.fn.popup = function(parameters) {
                   duration   : settings.duration,
                   onComplete : function() {
                     module.bind.close();
-                    $.proxy(callback, $popup)(element);
-                    $.proxy(settings.onVisible, $popup)(element);
+                    callback.call($popup, element);
+                    settings.onVisible.call($popup, element);
                   }
                 })
               ;
@@ -6345,11 +6345,12 @@ $.fn.popup = function(parameters) {
                 .stop()
                 .fadeIn(settings.duration, settings.easing, function() {
                   module.bind.close();
-                  $.proxy(callback, element)();
+                  callback.call($popup, element);
+                  settings.onVisible.call($popup, element);
                 })
               ;
             }
-            $.proxy(settings.onShow, $popup)(element);
+            settings.onShow.call($popup, element);
           },
           hide: function(callback) {
             callback = $.isFunction(callback) ? callback : function(){};
@@ -6364,8 +6365,8 @@ $.fn.popup = function(parameters) {
                   verbose    : settings.verbose,
                   onComplete : function() {
                     module.reset();
-                    $.proxy(callback, $popup)(element);
-                    $.proxy(settings.onHidden, $popup)(element);
+                    callback.call($popup, element);
+                    settings.onHidden.call($popup, element);
                   }
                 })
               ;
@@ -6375,11 +6376,12 @@ $.fn.popup = function(parameters) {
                 .stop()
                 .fadeOut(settings.duration, settings.easing, function() {
                   module.reset();
-                  callback();
+                  callback.call($popup, element);
+                  settings.onHidden.call($popup, element);
                 })
               ;
             }
-            $.proxy(settings.onHide, $popup)(element);
+            settings.onHide.call($popup, element);
           }
         },
 
@@ -6742,7 +6744,7 @@ $.fn.popup = function(parameters) {
               $document
                 .on('click' + eventNamespace, function(event) {
                   module.verbose('Pop-up clickaway intent detected');
-                  $.proxy(module.hideGracefully, element)(event);
+                  module.hideGracefully.call(element, event);
                 })
               ;
             }
@@ -12218,8 +12220,8 @@ $.fn.tab = function(parameters) {
                   firstLoad = false;
                   module.cache.add(tabPath, $tab.html());
                   module.activate.all(currentPath);
-                  $.proxy(settings.onTabInit, $tab)(currentPath, parameterArray, historyEvent);
-                  $.proxy(settings.onTabLoad, $tab)(currentPath, parameterArray, historyEvent);
+                  settings.onTabInit.call($tab, currentPath, parameterArray, historyEvent);
+                  settings.onTabLoad.call($tab, currentPath, parameterArray, historyEvent);
                 }
                 return false;
               }
@@ -12229,9 +12231,9 @@ $.fn.tab = function(parameters) {
                 if( !module.cache.read(currentPath) ) {
                   module.cache.add(currentPath, true);
                   module.debug('First time tab loaded calling tab init');
-                  $.proxy(settings.onTabInit, $tab)(currentPath, parameterArray, historyEvent);
+                  settings.onTabInit.call($tab, currentPath, parameterArray, historyEvent);
                 }
-                $.proxy(settings.onTabLoad, $tab)(currentPath, parameterArray, historyEvent);
+                settings.onTabLoad.call($tab, currentPath, parameterArray, historyEvent);
               }
             }
             else if(tabPath.search('/') == -1 && tabPath !== '') {
@@ -12246,7 +12248,7 @@ $.fn.tab = function(parameters) {
                 if( !module.cache.read(currentPath) ) {
                   module.cache.add(currentPath, true);
                   module.debug('First time tab loaded calling tab init');
-                  $.proxy(settings.onTabInit, $tab)(currentPath, parameterArray, historyEvent);
+                  settings.onTabInit.call($tab, currentPath, parameterArray, historyEvent);
                 }
                 return false;
               }
@@ -12276,8 +12278,8 @@ $.fn.tab = function(parameters) {
                   else {
                     module.debug('Content loaded in background', tabPath);
                   }
-                  $.proxy(settings.onTabInit, $tab)(tabPath, parameterArray, historyEvent);
-                  $.proxy(settings.onTabLoad, $tab)(tabPath, parameterArray, historyEvent);
+                  settings.onTabInit.call($tab, tabPath, parameterArray, historyEvent);
+                  settings.onTabLoad.call($tab, tabPath, parameterArray, historyEvent);
                 },
                 urlData: { tab: fullTabPath }
               },
@@ -12294,7 +12296,7 @@ $.fn.tab = function(parameters) {
               module.debug('Showing existing content', fullTabPath);
               module.content.update(tabPath, cachedContent);
               module.activate.tab(tabPath);
-              $.proxy(settings.onTabLoad, $tab)(tabPath, parameterArray, historyEvent);
+              settings.onTabLoad.call($tab, tabPath, parameterArray, historyEvent);
             }
             else if(existingRequest) {
               module.debug('Content is already loading', fullTabPath);
@@ -14516,7 +14518,7 @@ $.api = $.fn.api = function(parameters) {
           request: {
             complete: function(response) {
               module.remove.loading();
-              $.proxy(settings.onComplete, context)(response, $module);
+              settings.onComplete.call(context, response, $module);
             },
             done: function(response) {
               module.debug('API Response Received', response);
@@ -14524,19 +14526,19 @@ $.api = $.fn.api = function(parameters) {
                 if( $.isFunction(settings.successTest) ) {
                   module.debug('Checking JSON returned success', settings.successTest, response);
                   if( settings.successTest(response) ) {
-                    $.proxy(settings.onSuccess, context)(response, $module);
+                    settings.onSuccess.call(context, response, $module);
                   }
                   else {
                     module.debug('JSON test specified by user and response failed', response);
-                    $.proxy(settings.onFailure, context)(response, $module);
+                    settings.onFailure.call(context, response, $module);
                   }
                 }
                 else {
-                  $.proxy(settings.onSuccess, context)(response, $module);
+                  settings.onSuccess.call(context, response, $module);
                 }
               }
               else {
-                $.proxy(settings.onSuccess, context)(response, $module);
+                settings.onSuccess.call(context, response, $module);
               }
             },
             error: function(xhr, status, httpMessage) {
@@ -14575,10 +14577,10 @@ $.api = $.fn.api = function(parameters) {
                     setTimeout(module.remove.error, settings.errorDuration);
                   }
                   module.debug('API Request error:', errorMessage);
-                  $.proxy(settings.onError, context)(errorMessage, context);
+                  settings.onError.call(context, errorMessage, $module);
                 }
                 else {
-                  $.proxy(settings.onAbort, context)(errorMessage, context);
+                  settings.onAbort.call(context, errorMessage, $module);
                   module.debug('Request Aborted (Most likely caused by page change or CORS Policy)', status, httpMessage);
                 }
               }
@@ -14636,7 +14638,7 @@ $.api = $.fn.api = function(parameters) {
             var
               runSettings
             ;
-            runSettings = $.proxy(settings.beforeSend, $module)(settings);
+            runSettings = settings.beforeSend.call($module, settings);
             if(runSettings) {
               if(runSettings.success !== undefined) {
                 module.debug('Legacy success callback detected', runSettings);
@@ -15389,7 +15391,7 @@ $.fn.form = function(fields, parameters) {
             if(allValid) {
               module.debug('Form has no validation errors, submitting');
               module.set.success();
-              return $.proxy(settings.onSuccess, element)(event);
+              return settings.onSuccess.call(element, event);
             }
             else {
               module.debug('Form has errors');
@@ -15401,7 +15403,7 @@ $.fn.form = function(fields, parameters) {
               if($module.data('moduleApi') !== undefined) {
                 event.stopImmediatePropagation();
               }
-              return $.proxy(settings.onFailure, element)(formErrors);
+              return settings.onFailure.call(element, formErrors);
             }
           },
 
@@ -15431,12 +15433,12 @@ $.fn.form = function(fields, parameters) {
             }
             if(fieldValid) {
               module.remove.prompt(field, fieldErrors);
-              $.proxy(settings.onValid, $field)();
+              settings.onValid.call($field);
             }
             else {
               formErrors = formErrors.concat(fieldErrors);
               module.add.prompt(field.identifier, fieldErrors);
-              $.proxy(settings.onInvalid, $field)(fieldErrors);
+              settings.onInvalid.call($field, fieldErrors);
               return false;
             }
             return true;
@@ -15459,11 +15461,11 @@ $.fn.form = function(fields, parameters) {
             if(bracket !== undefined && bracket !== null) {
               ancillary    = '' + bracket[1];
               functionType = type.replace(bracket[0], '');
-              isValid      = $.proxy(settings.rules[functionType], element)(value, ancillary);
+              isValid      = settings.rules[functionType].call(element, value, ancillary);
             }
             // normal notation
             else {
-              isValid = $.proxy(settings.rules[type], $field)(value);
+              isValid = settings.rules[type].call($field, value);
             }
             return isValid;
           }
@@ -16090,7 +16092,7 @@ $.fn.state = function(parameters) {
             if(settings.sync) {
               module.sync();
             }
-            $.proxy(settings.onChange, element)();
+            settings.onChange.call(element);
           },
 
           text: function() {
@@ -16125,24 +16127,24 @@ $.fn.state = function(parameters) {
         },
 
         activate: function() {
-          if( $.proxy(settings.activateTest, element)() ) {
+          if( settings.activateTest.call(element) ) {
             module.debug('Setting state to active');
             $module
               .addClass(className.active)
             ;
             module.update.text(text.active);
-            $.proxy(settings.onActivate, element)();
+            settings.onActivate.call(element);
           }
         },
 
         deactivate: function() {
-          if($.proxy(settings.deactivateTest, element)() ) {
+          if( settings.deactivateTest.call(element) ) {
             module.debug('Setting state to inactive');
             $module
               .removeClass(className.active)
             ;
             module.update.text(text.inactive);
-            $.proxy(settings.onDeactivate, element)();
+            settings.onDeactivate.call(element);
           }
         },
 
@@ -16185,7 +16187,7 @@ $.fn.state = function(parameters) {
             module.update.text(text);
             setTimeout(function(){
               module.update.text(previousText);
-              $.proxy(callback, element)();
+              callback.call(element);
             }, duration);
           }
         },
