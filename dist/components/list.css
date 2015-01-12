@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.6.2
+ * # Semantic UI - 1.6.3
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -96,8 +96,8 @@ ol.ui.list ol,
   -webkit-transition: color 0.2s ease;
           transition: color 0.2s ease;
 }
-.ui.list .list > .item [class*="top aligned"]i.icon,
-.ui.list > .item > [class*="top aligned"]i.icon {
+.ui.list .list > .item i[class*="top aligned"].icon,
+.ui.list > .item > i[class*="top aligned"].icon {
   vertical-align: top;
 }
 .ui.list .list > .item > i.icon:only-child,
