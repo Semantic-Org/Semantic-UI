@@ -4,6 +4,7 @@
 
 **Major Changes**
 - **Project** - Right-to-left (RTL) support added. New gulp tasks for RTL *Thanks @MohammadYounes!*
+- **Project** - Express/Custom install now let you specify the outputted file permissions and RTL use
 
 **Enhancements**
 - **Sidebar** - Having a sidebar visible on page load is now much simpler. You can include ``ui visible sidebar`` on page load to have a sidebar element appear on page load. To close call `$('.ui.sidebar').sidebar('hide')`

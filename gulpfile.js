@@ -851,6 +851,9 @@ gulp.task('install', 'Set-up project for first time', function () {
       if(answers.components) {
         json.components = answers.components;
       }
+      if(answers.permission) {
+        json.permission = +answers.permission;
+      }
       if(answers.dist) {
         answers.dist = answers.dist;
         json.paths.output = {
@@ -859,6 +862,9 @@ gulp.task('install', 'Set-up project for first time', function () {
           compressed   : answers.dist + '/components/',
           themes       : answers.dist + '/themes/'
         };
+      }
+      if(answers.rtl) {
+        json.rtl = true;
       }
       if(answers.site) {
         json.paths.source.site = answers.site + '/';

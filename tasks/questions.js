@@ -143,6 +143,29 @@ module.exports = {
     },
     {
       type: 'input',
+      name: 'permission',
+      message: 'What octal file permission should outputted files receive?',
+      default: defaults.permission,
+      when: when.notAuto
+    },
+    {
+      type: 'list',
+      name: 'rtl',
+      message: 'Do you use a RTL (Right-To-Left) language?',
+      when: when.notAuto,
+      choices: [
+        {
+          name: 'No',
+          value: 'no'
+        },
+        {
+          name: 'Yes',
+          value: 'yes'
+        },
+      ]
+    },
+    {
+      type: 'input',
       name: 'dist',
       message: 'Where should we output Semantic UI?',
       default: defaults.paths.output.packaged,
