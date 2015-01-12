@@ -1,7 +1,7 @@
 ## RELEASE NOTES
 
 
-### Version 1.6.3 - January 06, 2015
+### Version 1.6.3 - January 12, 2015
 
 **Bugs**
 - **Build** - Fix CSS property typo in list icon, and label causing issues with some custom build tools
