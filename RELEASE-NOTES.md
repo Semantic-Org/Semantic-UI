@@ -1,6 +1,10 @@
 ## RELEASE NOTES
 
 
+### Version 1.6.4 - January 12, 2015
+
+- `1.6.3` contained an unintentional character at beginning of `label.less`
+
 ### Version 1.6.3 - January 12, 2015
 
 **Bugs**
