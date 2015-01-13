@@ -138,12 +138,9 @@ $.fn.dropdown = function(parameters) {
           query = $search.val();
 
           module.verbose('Searching for query', query);
-
-          if(module.is.searchSelection()) {
-            module.filter(query);
-            if( module.can.show() ) {
-              module.show();
-            }
+          module.filter(query);
+          if(module.is.searchSelection() && module.can.show() ) {
+            module.show();
           }
         },
 
@@ -222,7 +219,7 @@ $.fn.dropdown = function(parameters) {
             ? callback
             : function(){}
           ;
-          if( !module.is.active() && !module.is.allFiltered() ) {
+          if( module.can.show() && !module.is.active() && !module.is.allFiltered() ) {
             module.debug('Showing dropdown');
             module.animate.show(function() {
               if( module.can.click() ) {
@@ -405,7 +402,9 @@ $.fn.dropdown = function(parameters) {
           ;
           if( module.is.allFiltered() ) {
             module.debug('All items filtered, hiding dropdown', searchTerm);
-            module.hide();
+            if(module.is.searchSelection()) {
+              module.hide();
+            }
             settings.onNoResults.call(element, searchTerm);
           }
         },
@@ -452,7 +451,9 @@ $.fn.dropdown = function(parameters) {
             }
           },
           input: function(event) {
-            module.set.filtered();
+            if(module.is.searchSelection()) {
+              module.set.filtered();
+            }
             clearTimeout(module.timer);
             module.timer = setTimeout(module.search, settings.delay.search);
           },
@@ -753,8 +754,8 @@ $.fn.dropdown = function(parameters) {
               return ($choice.data(metadata.text) !== undefined)
                 ? $choice.data(metadata.text)
                 : (preserveHTML)
-                  ? $choice.html()
-                  : $choice.text()
+                  ? $choice.html().trim()
+                  : $choice.text().trim()
               ;
             }
           },
@@ -763,8 +764,8 @@ $.fn.dropdown = function(parameters) {
             return ($choice.data(metadata.value) !== undefined)
               ? $choice.data(metadata.value)
               : (typeof choiceText === 'string')
-                ? choiceText.toLowerCase()
-                : choiceText
+                ? choiceText.toLowerCase().trim()
+                : choiceText.trim()
             ;
           },
           inputEvent: function() {
@@ -1137,6 +1138,9 @@ $.fn.dropdown = function(parameters) {
           selection: function() {
             return $module.hasClass(className.selection);
           },
+          upward: function() {
+            return $module.hasClass(className.upward);
+          },
           visible: function($subMenu) {
             return ($subMenu)
               ? $subMenu.is(':visible')
@@ -1173,6 +1177,14 @@ $.fn.dropdown = function(parameters) {
             module.set.scrollPosition(module.get.activeItem(), true);
             module.verbose('Doing menu show animation', $currentMenu);
             if( module.is.hidden($currentMenu) || module.is.animating($currentMenu) ) {
+
+              if(settings.transition == 'auto') {
+                settings.transition = module.is.upward()
+                  ? 'slide up'
+                  : 'slide down'
+                ;
+              }
+
               if(settings.transition == 'none') {
                 callback.call(element);
               }
@@ -1248,6 +1260,13 @@ $.fn.dropdown = function(parameters) {
             ;
             if( module.is.visible($currentMenu) || module.is.animating($currentMenu) ) {
               module.verbose('Doing menu hide animation', $currentMenu);
+
+              if(settings.transition == 'auto') {
+                settings.transition = module.is.upward()
+                  ? 'slide up'
+                  : 'slide down'
+                ;
+              }
 
               if(settings.transition == 'none') {
                 callback.call(element);
@@ -1517,7 +1536,7 @@ $.fn.dropdown.settings = {
     touch  : 50
   },
 
-  transition : 'slide down',
+  transition : 'auto',
   duration   : 250,
 
   /* Callbacks */
@@ -1566,6 +1585,7 @@ $.fn.dropdown.settings = {
     search      : 'search',
     selected    : 'selected',
     selection   : 'selection',
+    upward      : 'upward',
     visible     : 'visible'
   }
 

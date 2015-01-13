@@ -15476,13 +15476,21 @@ ol.ui.horizontal.list li:before,
 
 .ui[class*="equal height"].grid {
   display: table;
-  table-layout: fixed;
 }
 
 .ui[class*="equal height"].grid > .row,
-.ui[class*="equal height"].row {
+.ui.grid > [class*="equal height"].row {
   display: table;
   table-layout: fixed;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   width: 100% !important;
 }
 
@@ -15490,6 +15498,14 @@ ol.ui.horizontal.list li:before,
 .ui[class*="equal height"].grid > .row > .column,
 .ui.grid > [class*="equal height"].row > .column {
   display: table-cell;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
 }
 
 /*-------------------
@@ -22869,7 +22885,7 @@ body.dimmed.dimmable > :not(.dimmer) {
   font-size: 1rem;
   text-shadow: none;
   text-align: left;
-  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 1px 4px 0px rgba(39, 41, 43, 0.15);
   border: 1px solid rgba(39, 41, 43, 0.15);
   border-radius: 0em 0em 0.2857rem 0.2857rem;
   -webkit-transition: opacity 0.2s ease;
@@ -22899,7 +22915,11 @@ body.dimmed.dimmable > :not(.dimmer) {
 .ui.dropdown .menu > .item .dropdown.icon {
   width: auto;
   float: right;
-  margin: 0.2em 0em 0em 0.75em;
+  margin: 0.2em 0em 0em 1em;
+}
+
+.ui.dropdown .menu > .item .dropdown.icon + .text {
+  margin-right: 1em;
 }
 
 /*--------------
@@ -23267,6 +23287,17 @@ select.ui.dropdown {
   box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.05);
 }
 
+/* Disabled */
+
+.ui.selection.dropdown.disabled,
+.ui.selection.dropdown.disabled:hover {
+  cursor: default;
+  box-shadow: none;
+  color: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(39, 41, 43, 0.15);
+  opacity: 0.3 !important;
+}
+
 /* Visible Hover */
 
 .ui.selection.visible.dropdown:hover {
@@ -23276,7 +23307,7 @@ select.ui.dropdown {
 
 .ui.selection.visible.dropdown:hover .menu {
   border: 1px solid rgba(39, 41, 43, 0.3);
-  box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.12);
 }
 
 /* Visible */
@@ -23533,6 +23564,18 @@ select.ui.dropdown {
   background-color: #fdcfcf;
 }
 
+/*--------------------
+        Disabled
+----------------------*/
+
+/* Disabled */
+
+.ui.disabled.dropdown {
+  cursor: default;
+  pointer-events: none;
+  opacity: 0.3;
+}
+
 /*******************************
            Variations
 *******************************/
@@ -23568,6 +23611,69 @@ select.ui.dropdown {
   width: auto;
   float: left;
   margin: 0.2em 0.75em 0em 0em;
+}
+
+.ui.dropdown .item .left.dropdown.icon,
+.ui.dropdown .left.menu .item .dropdown.icon {
+  width: auto;
+  float: left;
+  margin: 0.2em 0.75em 0em 0em;
+}
+
+.ui.dropdown .item .left.dropdown.icon + .text,
+.ui.dropdown .left.menu .item .dropdown.icon + .text {
+  margin-left: 1em;
+}
+
+/*--------------
+     Upward
+---------------*/
+
+.ui.upward.dropdown > .menu {
+  top: auto;
+  bottom: 100%;
+  box-shadow: 0px -1px 4px 0px rgba(39, 41, 43, 0.15);
+  border-radius: 0.2857rem 0.2857rem 0em 0em;
+}
+
+/* Active Upward */
+
+.ui.simple.upward.active.dropdown,
+.ui.simple.upward.dropdown:hover {
+  border-radius: 0.2857rem 0.2857rem 0em 0em !important;
+}
+
+.ui.upward.dropdown.button:not(.pointing):not(.floating).active,
+.ui.upward.dropdown.button:not(.pointing):not(.floating).visible {
+  border-radius: 0.2857rem 0.2857rem 0em 0em;
+}
+
+/* Selection */
+
+.ui.upward.selection.dropdown .menu {
+  border-top: 1px solid rgba(39, 41, 43, 0.15) !important;
+  border-bottom: none !important;
+}
+
+.ui.upward.selection.dropdown:hover {
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.05);
+}
+
+.ui.upward.selection.visible.dropdown:hover {
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
+}
+
+.ui.active.upward.selection.dropdown,
+.ui.visible.upward.selection.dropdown {
+  border-radius: 0em 0em 0.2857rem 0.2857rem !important;
+}
+
+.ui.upward.selection.dropdown.visible {
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
+}
+
+.ui.upward.selection.visible.dropdown:hover .menu {
+  box-shadow: 0px -2px 6px 0px rgba(0, 0, 0, 0.12);
 }
 
 /*--------------
