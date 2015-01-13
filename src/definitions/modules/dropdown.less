@@ -446,7 +446,7 @@ select.ui.dropdown {
   box-shadow: none;
   color: @selectionTextColor;
   border: @selectionBorder;
-  opacity: 0.3 !important;
+  opacity: @disabledOpacity !important;
 }
 
 /* Visible Hover */
@@ -690,6 +690,19 @@ select.ui.dropdown {
 /* Item Active */
 .ui.dropdown.error > .menu .active.item {
   background-color: @errorItemActiveBackground;
+}
+
+
+
+/*--------------------
+        Disabled
+----------------------*/
+
+/* Disabled */
+.ui.disabled.dropdown {
+  cursor: default;
+  pointer-events: none;
+  opacity: @disabledOpacity;
 }
 
 
