@@ -364,8 +364,9 @@ $.fn.dropdown = function(parameters) {
         filter: function(searchTerm) {
           var
             $results       = $(),
-            exactRegExp    = new RegExp('^' + searchTerm, 'igm'),
-            fullTextRegExp = new RegExp(searchTerm, 'ig'),
+            escapedTerm    = module.escape.regExp(searchTerm),
+            exactRegExp    = new RegExp('^' + escapedTerm, 'igm'),
+            fullTextRegExp = new RegExp(escapedTerm, 'ig'),
             allItemsFiltered
           ;
           module.verbose('Searching for matching values');
@@ -373,8 +374,8 @@ $.fn.dropdown = function(parameters) {
             .each(function(){
               var
                 $choice = $(this),
-                text    = module.get.choiceText($choice, false),
-                value   = module.get.choiceValue($choice, text)
+                text    = String(module.get.choiceText($choice, false)),
+                value   = String(module.get.choiceValue($choice, text))
               ;
               if( text.match(exactRegExp) || value.match(exactRegExp) ) {
                 $results = $results.add($choice);
@@ -1338,6 +1339,13 @@ $.fn.dropdown = function(parameters) {
             module.verbose('Delaying hide event to ensure user intent');
             clearTimeout(module.timer);
             module.timer = setTimeout(module.hide, settings.delay.hide);
+          }
+        },
+
+        escape: {
+          regExp: function(text) {
+            text =  String(text);
+            return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
           }
         },
 
