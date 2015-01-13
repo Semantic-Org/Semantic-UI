@@ -110,6 +110,7 @@ a:hover {
           Highlighting
 *******************************/
 
+/* Site */
 ::-webkit-selection {
   background-color: @highlightBackground;
   color: @highlightColor;
@@ -122,5 +123,23 @@ a:hover {
   background-color: @highlightBackground;
   color: @highlightColor;
 }
+
+/* Form */
+textarea::-webkit-selection,
+input::-webkit-selection {
+  background-color: @inputHighlightBackground;
+  color: @inputHighlightColor;
+}
+textarea::-moz-selection,
+input::-moz-selection {
+  background-color: @inputHighlightBackground;
+  color: @inputHighlightColor;
+}
+textarea::selection,
+input::selection {
+  background-color: @inputHighlightBackground;
+  color: @inputHighlightColor;
+}
+
 
 .loadUIOverrides();

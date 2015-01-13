@@ -131,8 +131,11 @@
   Highlighted Text
 --------------------*/
 
-@highlightBackground : rgba(255, 255, 160, 0.4);
-@highlightColor      : @textColor;
+@highlightBackground      : #CCE2FF;
+@highlightColor           : @textColor;
+
+@inputHighlightBackground : rgba(100, 100, 100, 0.4);
+@inputHighlightColor      : @textColor;
 
 /*-------------------
        Loader

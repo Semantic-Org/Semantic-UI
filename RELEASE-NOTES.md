@@ -8,6 +8,7 @@
 
 **Enhancements**
 - **Grid** - Grid's ``equal height row` now uses a combination of `flexbox` and ``display: table-cell`` for older browsers
+- **Site** - Form input highlighting color added (helps differentiate form colors with autocompleted fields). Default text highlighting color moved from highlighter yellow to a mellow blue.
 - **Dropdown** - Dropdown can now be disabled by adding ``disabled` class without requiring `destroy`. **Thanks Psyton**
 - **Sidebar** - Having a sidebar visible on page load is now much simpler. You can include ``ui visible sidebar`` on page load to have a sidebar element appear on page load. To close call `$('.ui.sidebar').sidebar('hide')`
 - **Progress* - Progress bars can now display percent or amount left using `{value}` in text templates
