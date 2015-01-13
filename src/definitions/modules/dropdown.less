@@ -498,20 +498,33 @@ select.ui.dropdown {
   border: none !important;
   box-shadow: none !important;
   border-radius: 0em !important;
-
   cursor: pointer;
-  position: absolute;
   top: 0em;
   left: 0em;
   width: 100%;
   outline: none;
-  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
-  padding: inherit; /*Amazing trick */
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  padding: inherit;
+}
+
+/* Text Layering */
+.ui.search.dropdown > input.search {
+  position: absolute;
+  z-index: 2;
+}
+.ui.search.dropdown > .text {
+  position: relative;
+  z-index: 3;
+}
+
+.ui.search.dropdown > input:-webkit-autofill {
+  background: none transparent !important;
 }
 
 /* Search Selection */
 .ui.search.selection.dropdown > input.search {
   line-height: @searchSelectionLineHeight;
+  padding: @searchSelectionInputPadding;
 }
 
 .ui.search.dropdown.active > input.search,
