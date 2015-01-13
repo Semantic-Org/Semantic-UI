@@ -399,7 +399,6 @@ $.fn.progress = function(parameters) {
           },
           labels: function() {
             module.verbose('Setting both bar progress and outer label text');
-            console.log('updating');
             module.set.barLabel();
             module.set.state();
           },
