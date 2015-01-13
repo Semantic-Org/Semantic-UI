@@ -7,6 +7,7 @@
 - **Project** - Express/Custom install now let you specify the outputted file permissions and RTL use
 
 **Enhancements**
+- **Grid** - Grid's ``equal height row` now uses a combination of `flexbox` and ``display: table-cell`` for older browsers
 - **Sidebar** - Having a sidebar visible on page load is now much simpler. You can include ``ui visible sidebar`` on page load to have a sidebar element appear on page load. To close call `$('.ui.sidebar').sidebar('hide')`
 - **Dropdown** - New `upward dropdown` variation, which opens its menu upward. Default animation now uses ``settings.transition = 'auto'` and determines direction of animation based on menu direction
 - **Dropdown** - Dropdown matching fields without values now trims whitespace by default

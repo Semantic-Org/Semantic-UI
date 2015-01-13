@@ -1393,21 +1393,24 @@
 /*----------------------
   Equal Height Columns
 -----------------------*/
+
 .ui[class*="equal height"].grid {
   display: table;
-  table-layout: fixed;
 }
-
 .ui[class*="equal height"].grid > .row,
-.ui[class*="equal height"].row  {
+.ui.grid > [class*="equal height"].row  {
   display: table;
   table-layout: fixed;
+  display: flex;
+  flex-direction: row;
   width: 100% !important;
 }
 .ui[class*="equal height"].grid > .column,
 .ui[class*="equal height"].grid > .row > .column,
 .ui.grid > [class*="equal height"].row > .column {
   display: table-cell;
+  display: inline-flex;
+  flex: 1 0 auto;
 }
 
 
