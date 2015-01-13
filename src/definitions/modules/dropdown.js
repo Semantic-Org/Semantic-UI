@@ -219,7 +219,7 @@ $.fn.dropdown = function(parameters) {
             ? callback
             : function(){}
           ;
-          if( !module.is.active() && !module.is.allFiltered() ) {
+          if( module.can.show() && !module.is.active() && !module.is.allFiltered() ) {
             module.debug('Showing dropdown');
             module.animate.show(function() {
               if( module.can.click() ) {
