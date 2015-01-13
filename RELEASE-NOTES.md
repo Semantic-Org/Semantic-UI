@@ -6,8 +6,7 @@
 - **Project** - Right-to-left (RTL) support added. New gulp tasks for RTL file generation. Docs do not yet support RTL.*Thanks @MohammadYounes!*.
 - **Project** - Install now let you specify the outputted file permissions and RTL use (express/custom install)
 
-**Enhancements**
-- **Grid** - Grid's ``equal height row` now uses a combination of `flexbox` and ``display: table-cell`` for older browsers
+**Enhancements / Changes**
 - **Site** - Form input highlighting color added (helps differentiate form colors with autocompleted fields). Default text highlighting color moved from highlighter yellow to a mellow blue.
 - **Dropdown** - Dropdown can now be disabled by adding ``disabled` class without requiring `destroy`. **Thanks Psyton**
 - **Dropdown** - Search dropdown input can now have backgrounds. Fixes issues with autocompleted search dropdowns which have forced yellow "autocompleted" bg.
@@ -16,6 +15,9 @@
 - **Progress* - Progress bars can now display percent or amount left using `{value}` in text templates
 - **Dropdown** - New `upward dropdown` variation, which opens its menu upward. Default animation now uses ``settings.transition = 'auto'` and determines direction of animation based on menu direction
 - **Dropdown** - Dropdown matching fields without values now trims whitespace by default
+- **Checkbox** - Checkbox now toggles on spacebar when focused (previously only toggled on enter key).
+- **Popup** - Popup now uses its own custom method for determining `offsetParent` meaning 3D contexts (like inside an animation) no longer should break positioning
+- **Popup** - Popup now uses `preserve: false` by default, this is slightly less performant but will reduce page clutter caused by leaving generated elements in the DOM
 
 **Code / Build**
 - **Build** - `Dist/` files now set file permissions in build. `644` by default. Can adjust in `semantic.json` or during gulp install. You will need to run `npm install` to add the new gulp-chmod dependency *Thanks @PeterDaveHello*
@@ -27,6 +29,7 @@
 - **Video** - Video component now uses `//` instead of defaulting to `http`
 - **Dropdown** - Fixed bug where sub menus may sometimes have dropdown icon overlap text
 - **Dropdown** - Fixes dropdown search input from filtering text values when input is inside menu, i.e "In-Menu Search"
+- **Dropdown** - Fix issue with search selection not correctly creating RegExp when select values are not strings **Thanks @alufers**
 - **Popup** - `wide` and `very wide` popup will now appear when screen size is below their `max-width`
 - **Popup** - Popup no longer blurs element on popup hide
 - **Segment** - ``ui tabular menu`` now correctly aligns with attached segment when using fluid variation *Thanks @MohammadYounes*
