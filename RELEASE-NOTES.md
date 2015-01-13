@@ -10,6 +10,7 @@
 - **Grid** - Grid's ``equal height row` now uses a combination of `flexbox` and ``display: table-cell`` for older browsers
 - **Dropdown** - Dropdown can now be disabled by adding ``disabled` class without requiring `destroy`. **Thanks Psyton**
 - **Sidebar** - Having a sidebar visible on page load is now much simpler. You can include ``ui visible sidebar`` on page load to have a sidebar element appear on page load. To close call `$('.ui.sidebar').sidebar('hide')`
+- **Progress* - Progress bars can now display percent or amount left using `{value}` in text templates
 - **Dropdown** - New `upward dropdown` variation, which opens its menu upward. Default animation now uses ``settings.transition = 'auto'` and determines direction of animation based on menu direction
 - **Dropdown** - Dropdown matching fields without values now trims whitespace by default
 
