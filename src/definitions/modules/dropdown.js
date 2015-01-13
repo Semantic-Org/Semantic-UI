@@ -299,7 +299,7 @@ $.fn.dropdown = function(parameters) {
                 .on('click'     + eventNamespace, selector.search, module.show)
                 .on('focus'     + eventNamespace, selector.search, module.event.searchFocus)
                 .on('blur'      + eventNamespace, selector.search, module.event.searchBlur)
-                .on('focus'     + eventNamespace, selector.text,   module.event.searchTextFocus)
+                .on('click'     + eventNamespace, selector.text, module.event.searchTextFocus)
               ;
             }
             else {
@@ -452,7 +452,8 @@ $.fn.dropdown = function(parameters) {
             }
           },
           searchTextFocus: function(event) {
-            $input.focus();
+            activated = true;
+            $search.focus();
           },
           input: function(event) {
             if(module.is.searchSelection()) {

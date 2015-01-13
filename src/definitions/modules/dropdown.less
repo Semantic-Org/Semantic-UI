@@ -513,12 +513,9 @@ select.ui.dropdown {
   z-index: 2;
 }
 .ui.search.dropdown > .text {
+  cursor: text;
   position: relative;
   z-index: 3;
-}
-
-.ui.search.dropdown > input:-webkit-autofill {
-  background: none transparent !important;
 }
 
 /* Search Selection */
@@ -527,9 +524,14 @@ select.ui.dropdown {
   padding: @searchSelectionInputPadding;
 }
 
+/* Active/Visible Search */
 .ui.search.dropdown.active > input.search,
 .ui.search.dropdown.visible > input.search {
   cursor: auto;
+}
+.ui.search.dropdown.active > .text,
+.ui.search.dropdown.visible > .text {
+  pointer-events: none;
 }
 .ui.active.search.dropdown > input.search:focus + .text {
   color: @unselectedTextColor !important;
