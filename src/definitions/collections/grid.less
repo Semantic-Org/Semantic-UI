@@ -1265,7 +1265,7 @@
   vertical-align: bottom !important;
 }
 
-/* Flex
+/* Flex */
 .ui[class*="top aligned"].grid,
 .ui.grid > [class*="top aligned"].row {
   align-items: flex-start;
@@ -1278,7 +1278,6 @@
 .ui.grid > [class*="bottom aligned"].row {
   align-items: flex-end;
 }
-*/
 
 /*----------------------
          Colored
@@ -1427,7 +1426,7 @@
   display: table-cell;
 }
 
-/* Flexbox (Experimental / Overrides Where Supported)
+/* Flexbox (Experimental / Overrides Where Supported) */
 .ui[class*="equal height"].grid {
   display: flex;
   flex-direction: row;
@@ -1440,11 +1439,10 @@
 .ui[class*="equal height"].grid > .column,
 .ui[class*="equal height"].grid > .row > .column,
 .ui.grid > [class*="equal height"].row > .column {
-  display: inline-flex;
+  display: inline-block;
   flex-direction: column;
   flex: 1 0 auto;
 }
-*/
 
 /*-------------------
       Doubling
