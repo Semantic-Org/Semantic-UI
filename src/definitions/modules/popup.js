@@ -70,7 +70,6 @@ $.fn.popup = function(parameters) {
         // binds events
         initialize: function() {
           module.debug('Initializing module', $module);
-          module.refresh();
           if(settings.on == 'click') {
             $module
               .on('click' + eventNamespace, module.toggle)
@@ -88,11 +87,8 @@ $.fn.popup = function(parameters) {
           $window
             .on('resize' + eventNamespace, module.event.resize)
           ;
-          if( !module.exists() ) {
+          if( !module.exists() && settings.preserve) {
             module.create();
-          }
-          else if(settings.hoverable) {
-            module.bind.popup();
           }
           module.instantiate();
         },
@@ -111,29 +107,31 @@ $.fn.popup = function(parameters) {
           }
           else {
             if(settings.inline) {
-              $popup = $target.next(settings.selector.popup);
+              $popup = $target.next(selector.popup);
             }
           }
           if(settings.popup) {
             $popup.addClass(className.loading);
-            $offsetParent = $module.offsetParent();
-            if($popup.offsetParent()[0] !== $offsetParent[0]) {
+            $offsetParent = module.get.offsetParent();
+            $popup.removeClass(className.loading);
+            if(module.has.popup() && module.get.offsetParent($popup)[0] !== $offsetParent[0]) {
               module.debug('Moving popup to the same offset parent as activating element');
               $popup
                 .detach()
                 .appendTo($offsetParent)
               ;
             }
-            $popup.removeClass(className.loading);
           }
           else {
             $offsetParent = (settings.inline)
-              ? $target.offsetParent()
-              : $body
+              ? module.get.offsetParent($target)
+              : module.has.popup()
+                ? module.get.offsetParent($popup)
+                : $body
             ;
           }
           if( $offsetParent.is('html') ) {
-            module.debug('Page is popups offset parent');
+            module.debug('Setting page as offset parent');
             $offsetParent = $body;
           }
         },
@@ -228,14 +226,23 @@ $.fn.popup = function(parameters) {
                 .appendTo( $context )
               ;
             }
+            module.refresh();
             if(settings.hoverable) {
               module.bind.popup();
             }
             settings.onCreate.call($popup, element);
           }
-          else if($target.next(settings.selector.popup).length !== 0) {
-            module.verbose('Pre-existing popup found, reverting to inline');
+          else if($target.next(selector.popup).length !== 0) {
+            module.verbose('Pre-existing popup found');
             settings.inline = true;
+            settings.popup  = $target.next(selector.popup);
+            module.refresh();
+            if(settings.hoverable) {
+              module.bind.popup();
+            }
+          }
+          else if(settings.popup) {
+            module.verbose('Used popup specified in settings');
             module.refresh();
             if(settings.hoverable) {
               module.bind.popup();
@@ -264,11 +271,11 @@ $.fn.popup = function(parameters) {
         show: function(callback) {
           callback = $.isFunction(callback) ? callback : function(){};
           module.debug('Showing pop-up', settings.transition);
-          if(!settings.preserve && !settings.popup) {
-            module.refresh();
-          }
           if( !module.exists() ) {
             module.create();
+          }
+          else if(!settings.preserve && !settings.popup) {
+            module.refresh();
           }
           if( $popup && module.set.position() ) {
             module.save.conditions();
@@ -322,8 +329,9 @@ $.fn.popup = function(parameters) {
 
         removePopup: function() {
           module.debug('Removing popup', $popup);
-          if( module.has.popup() ) {
+          if( module.has.popup() && !settings.popup) {
             $popup.remove();
+            $popup = undefined;
           }
           settings.onRemove.call($popup, element);
         },
@@ -433,9 +441,35 @@ $.fn.popup = function(parameters) {
             }
             return false;
           },
+          offsetParent: function($target) {
+            var
+              element = ($target !== undefined)
+                ? $target[0]
+                : $module[0],
+              parentNode = element.parentNode,
+              $node    = $(parentNode)
+            ;
+            if(parentNode) {
+              var
+                is2D     = ($node.css('transform') === 'none'),
+                isStatic = ($node.css('position') === 'static'),
+                isHTML   = $node.is('html')
+              ;
+              while(parentNode && !isHTML && isStatic && is2D) {
+                parentNode = parentNode.parentNode;
+                $node    = $(parentNode);
+                is2D     = ($node.css('transform') === 'none');
+                isStatic = ($node.css('position') === 'static');
+                isHTML   = $node.is('html');
+              }
+            }
+            return ($node && $node.length > 0)
+              ? $node
+              : $()
+            ;
+          },
           offstagePosition: function(position) {
             var
-              position = position || false,
               boundary  = {
                 top    : $(window).scrollTop(),
                 bottom : $(window).scrollTop() + $(window).height(),
@@ -450,6 +484,7 @@ $.fn.popup = function(parameters) {
               offstage  = {},
               offstagePositions = []
             ;
+            position = position || false;
             if(popup.offset && position) {
               module.verbose('Checking if outside viewable area', popup.offset);
               offstage = {
@@ -610,7 +645,6 @@ $.fn.popup = function(parameters) {
               });
               module.debug('RTL: Popup positioning updated', computedPosition);
             }
-
             switch (computedPosition) {
               case 'top left':
                 positioning = {
@@ -801,7 +835,7 @@ $.fn.popup = function(parameters) {
 
         has: {
           popup: function() {
-            return ($popup.length > 0);
+            return ($popup && $popup.length > 0);
           }
         },
 
@@ -828,7 +862,7 @@ $.fn.popup = function(parameters) {
 
         reset: function() {
           module.remove.visible();
-          if(settings.preserve || settings.popup) {
+          if(settings.preserve) {
             if($.fn.transition !== undefined) {
               $popup
                 .transition('remove transition')
@@ -1057,7 +1091,7 @@ $.fn.popup.settings = {
   target         : false,
   popup          : false,
   inline         : false,
-  preserve       : true,
+  preserve       : false,
   hoverable      : false,
 
   duration       : 200,
