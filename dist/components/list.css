@@ -227,6 +227,7 @@ ol.ui.list ol,
 .ui.menu .ui.list .list > .item {
   display: list-item;
   table-layout: fixed;
+  background-color: transparent;
   list-style-type: none;
   list-style-position: outside;
   padding: 0.3em 0em;

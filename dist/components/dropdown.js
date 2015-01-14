@@ -299,6 +299,7 @@ $.fn.dropdown = function(parameters) {
                 .on('click'     + eventNamespace, selector.search, module.show)
                 .on('focus'     + eventNamespace, selector.search, module.event.searchFocus)
                 .on('blur'      + eventNamespace, selector.search, module.event.searchBlur)
+                .on('click'     + eventNamespace, selector.text, module.event.searchTextFocus)
               ;
             }
             else {
@@ -363,8 +364,9 @@ $.fn.dropdown = function(parameters) {
         filter: function(searchTerm) {
           var
             $results       = $(),
-            exactRegExp    = new RegExp('^' + searchTerm, 'igm'),
-            fullTextRegExp = new RegExp(searchTerm, 'ig'),
+            escapedTerm    = module.escape.regExp(searchTerm),
+            exactRegExp    = new RegExp('^' + escapedTerm, 'igm'),
+            fullTextRegExp = new RegExp(escapedTerm, 'ig'),
             allItemsFiltered
           ;
           module.verbose('Searching for matching values');
@@ -372,8 +374,8 @@ $.fn.dropdown = function(parameters) {
             .each(function(){
               var
                 $choice = $(this),
-                text    = module.get.choiceText($choice, false),
-                value   = module.get.choiceValue($choice, text)
+                text    = String(module.get.choiceText($choice, false)),
+                value   = String(module.get.choiceValue($choice, text))
               ;
               if( text.match(exactRegExp) || value.match(exactRegExp) ) {
                 $results = $results.add($choice);
@@ -449,6 +451,10 @@ $.fn.dropdown = function(parameters) {
             if(!itemActivated && !pageLostFocus) {
               module.hide();
             }
+          },
+          searchTextFocus: function(event) {
+            activated = true;
+            $search.focus();
           },
           input: function(event) {
             if(module.is.searchSelection()) {
@@ -894,6 +900,7 @@ $.fn.dropdown = function(parameters) {
             ;
             module.debug('Restoring default text', defaultText);
             module.set.text(defaultText);
+            $text.addClass(settings.className.placeholder);
           },
           defaultValue: function() {
             var
@@ -901,8 +908,14 @@ $.fn.dropdown = function(parameters) {
             ;
             if(defaultValue !== undefined) {
               module.debug('Restoring default value', defaultValue);
-              module.set.selected(defaultValue);
-              module.set.value(defaultValue);
+              if(defaultValue.length) {
+                module.set.selected(defaultValue);
+                module.set.value(defaultValue);
+              }
+              else {
+                module.remove.activeItem();
+                module.remove.selectedItem();
+              }
             }
           }
         },
@@ -1333,6 +1346,13 @@ $.fn.dropdown = function(parameters) {
             module.verbose('Delaying hide event to ensure user intent');
             clearTimeout(module.timer);
             module.timer = setTimeout(module.hide, settings.delay.hide);
+          }
+        },
+
+        escape: {
+          regExp: function(text) {
+            text =  String(text);
+            return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
           }
         },
 

@@ -240,6 +240,15 @@ $.fn.transition = function() {
             if(settings.useFailSafe) {
               module.add.failSafe();
             }
+                  // showing multiple
+      $('.inline.sidebar')
+        .sidebar{
+          context: $('.application.segment')
+        })
+      ;
+      $('.inline.sidebar')
+        .sidebar('attach events', '.demo.menu .item')
+      ;
             module.set.duration(settings.duration);
             settings.onStart.call(this);
             module.debug('Starting tween', animation, $module.attr('class'));
@@ -879,7 +888,7 @@ $.fn.transition.settings = {
   onHide       : function() {},
 
   // whether timeout should be used to ensure callback fires in cases animationend does not
-  useFailSafe  : false,
+  useFailSafe  : true,
 
   // whether EXACT animation can occur twice in a row
   allowRepeats : false,

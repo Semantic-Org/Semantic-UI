@@ -2017,6 +2017,7 @@ $.fn.checkbox = function(parameters) {
               key     = event.which,
               keyCode = {
                 enter  : 13,
+                space  : 32,
                 escape : 27
               }
             ;
@@ -2026,7 +2027,7 @@ $.fn.checkbox = function(parameters) {
                 .blur()
               ;
             }
-            if(!event.ctrlKey && key == keyCode.enter) {
+            if(!event.ctrlKey && (key == keyCode.enter || key == keyCode.space)) {
               module.verbose('Enter key pressed, toggling checkbox');
               module.toggle.call(this);
               event.preventDefault();
@@ -3313,6 +3314,7 @@ $.fn.dropdown = function(parameters) {
                 .on('click'     + eventNamespace, selector.search, module.show)
                 .on('focus'     + eventNamespace, selector.search, module.event.searchFocus)
                 .on('blur'      + eventNamespace, selector.search, module.event.searchBlur)
+                .on('click'     + eventNamespace, selector.text, module.event.searchTextFocus)
               ;
             }
             else {
@@ -3377,8 +3379,9 @@ $.fn.dropdown = function(parameters) {
         filter: function(searchTerm) {
           var
             $results       = $(),
-            exactRegExp    = new RegExp('^' + searchTerm, 'igm'),
-            fullTextRegExp = new RegExp(searchTerm, 'ig'),
+            escapedTerm    = module.escape.regExp(searchTerm),
+            exactRegExp    = new RegExp('^' + escapedTerm, 'igm'),
+            fullTextRegExp = new RegExp(escapedTerm, 'ig'),
             allItemsFiltered
           ;
           module.verbose('Searching for matching values');
@@ -3386,8 +3389,8 @@ $.fn.dropdown = function(parameters) {
             .each(function(){
               var
                 $choice = $(this),
-                text    = module.get.choiceText($choice, false),
-                value   = module.get.choiceValue($choice, text)
+                text    = String(module.get.choiceText($choice, false)),
+                value   = String(module.get.choiceValue($choice, text))
               ;
               if( text.match(exactRegExp) || value.match(exactRegExp) ) {
                 $results = $results.add($choice);
@@ -3463,6 +3466,10 @@ $.fn.dropdown = function(parameters) {
             if(!itemActivated && !pageLostFocus) {
               module.hide();
             }
+          },
+          searchTextFocus: function(event) {
+            activated = true;
+            $search.focus();
           },
           input: function(event) {
             if(module.is.searchSelection()) {
@@ -3908,6 +3915,7 @@ $.fn.dropdown = function(parameters) {
             ;
             module.debug('Restoring default text', defaultText);
             module.set.text(defaultText);
+            $text.addClass(settings.className.placeholder);
           },
           defaultValue: function() {
             var
@@ -3915,8 +3923,14 @@ $.fn.dropdown = function(parameters) {
             ;
             if(defaultValue !== undefined) {
               module.debug('Restoring default value', defaultValue);
-              module.set.selected(defaultValue);
-              module.set.value(defaultValue);
+              if(defaultValue.length) {
+                module.set.selected(defaultValue);
+                module.set.value(defaultValue);
+              }
+              else {
+                module.remove.activeItem();
+                module.remove.selectedItem();
+              }
             }
           }
         },
@@ -4347,6 +4361,13 @@ $.fn.dropdown = function(parameters) {
             module.verbose('Delaying hide event to ensure user intent');
             clearTimeout(module.timer);
             module.timer = setTimeout(module.hide, settings.delay.hide);
+          }
+        },
+
+        escape: {
+          regExp: function(text) {
+            text =  String(text);
+            return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
           }
         },
 
@@ -6062,7 +6083,6 @@ $.fn.popup = function(parameters) {
         // binds events
         initialize: function() {
           module.debug('Initializing module', $module);
-          module.refresh();
           if(settings.on == 'click') {
             $module
               .on('click' + eventNamespace, module.toggle)
@@ -6080,11 +6100,8 @@ $.fn.popup = function(parameters) {
           $window
             .on('resize' + eventNamespace, module.event.resize)
           ;
-          if( !module.exists() ) {
+          if( !module.exists() && settings.preserve) {
             module.create();
-          }
-          else if(settings.hoverable) {
-            module.bind.popup();
           }
           module.instantiate();
         },
@@ -6103,29 +6120,31 @@ $.fn.popup = function(parameters) {
           }
           else {
             if(settings.inline) {
-              $popup = $target.next(settings.selector.popup);
+              $popup = $target.next(selector.popup);
             }
           }
           if(settings.popup) {
             $popup.addClass(className.loading);
-            $offsetParent = $module.offsetParent();
-            if($popup.offsetParent()[0] !== $offsetParent[0]) {
+            $offsetParent = module.get.offsetParent();
+            $popup.removeClass(className.loading);
+            if(module.has.popup() && module.get.offsetParent($popup)[0] !== $offsetParent[0]) {
               module.debug('Moving popup to the same offset parent as activating element');
               $popup
                 .detach()
                 .appendTo($offsetParent)
               ;
             }
-            $popup.removeClass(className.loading);
           }
           else {
             $offsetParent = (settings.inline)
-              ? $target.offsetParent()
-              : $body
+              ? module.get.offsetParent($target)
+              : module.has.popup()
+                ? module.get.offsetParent($popup)
+                : $body
             ;
           }
           if( $offsetParent.is('html') ) {
-            module.debug('Page is popups offset parent');
+            module.debug('Setting page as offset parent');
             $offsetParent = $body;
           }
         },
@@ -6220,14 +6239,23 @@ $.fn.popup = function(parameters) {
                 .appendTo( $context )
               ;
             }
+            module.refresh();
             if(settings.hoverable) {
               module.bind.popup();
             }
             settings.onCreate.call($popup, element);
           }
-          else if($target.next(settings.selector.popup).length !== 0) {
-            module.verbose('Pre-existing popup found, reverting to inline');
+          else if($target.next(selector.popup).length !== 0) {
+            module.verbose('Pre-existing popup found');
             settings.inline = true;
+            settings.popup  = $target.next(selector.popup);
+            module.refresh();
+            if(settings.hoverable) {
+              module.bind.popup();
+            }
+          }
+          else if(settings.popup) {
+            module.verbose('Used popup specified in settings');
             module.refresh();
             if(settings.hoverable) {
               module.bind.popup();
@@ -6256,11 +6284,11 @@ $.fn.popup = function(parameters) {
         show: function(callback) {
           callback = $.isFunction(callback) ? callback : function(){};
           module.debug('Showing pop-up', settings.transition);
-          if(!settings.preserve && !settings.popup) {
-            module.refresh();
-          }
           if( !module.exists() ) {
             module.create();
+          }
+          else if(!settings.preserve && !settings.popup) {
+            module.refresh();
           }
           if( $popup && module.set.position() ) {
             module.save.conditions();
@@ -6314,8 +6342,9 @@ $.fn.popup = function(parameters) {
 
         removePopup: function() {
           module.debug('Removing popup', $popup);
-          if( module.has.popup() ) {
+          if( module.has.popup() && !settings.popup) {
             $popup.remove();
+            $popup = undefined;
           }
           settings.onRemove.call($popup, element);
         },
@@ -6425,9 +6454,35 @@ $.fn.popup = function(parameters) {
             }
             return false;
           },
+          offsetParent: function($target) {
+            var
+              element = ($target !== undefined)
+                ? $target[0]
+                : $module[0],
+              parentNode = element.parentNode,
+              $node    = $(parentNode)
+            ;
+            if(parentNode) {
+              var
+                is2D     = ($node.css('transform') === 'none'),
+                isStatic = ($node.css('position') === 'static'),
+                isHTML   = $node.is('html')
+              ;
+              while(parentNode && !isHTML && isStatic && is2D) {
+                parentNode = parentNode.parentNode;
+                $node    = $(parentNode);
+                is2D     = ($node.css('transform') === 'none');
+                isStatic = ($node.css('position') === 'static');
+                isHTML   = $node.is('html');
+              }
+            }
+            return ($node && $node.length > 0)
+              ? $node
+              : $()
+            ;
+          },
           offstagePosition: function(position) {
             var
-              position = position || false,
               boundary  = {
                 top    : $(window).scrollTop(),
                 bottom : $(window).scrollTop() + $(window).height(),
@@ -6442,6 +6497,7 @@ $.fn.popup = function(parameters) {
               offstage  = {},
               offstagePositions = []
             ;
+            position = position || false;
             if(popup.offset && position) {
               module.verbose('Checking if outside viewable area', popup.offset);
               offstage = {
@@ -6602,7 +6658,6 @@ $.fn.popup = function(parameters) {
               });
               module.debug('RTL: Popup positioning updated', computedPosition);
             }
-
             switch (computedPosition) {
               case 'top left':
                 positioning = {
@@ -6793,7 +6848,7 @@ $.fn.popup = function(parameters) {
 
         has: {
           popup: function() {
-            return ($popup.length > 0);
+            return ($popup && $popup.length > 0);
           }
         },
 
@@ -6820,7 +6875,7 @@ $.fn.popup = function(parameters) {
 
         reset: function() {
           module.remove.visible();
-          if(settings.preserve || settings.popup) {
+          if(settings.preserve) {
             if($.fn.transition !== undefined) {
               $popup
                 .transition('remove transition')
@@ -7049,7 +7104,7 @@ $.fn.popup.settings = {
   target         : false,
   popup          : false,
   inline         : false,
-  preserve       : true,
+  preserve       : false,
   hoverable      : false,
 
   duration       : 200,
@@ -12983,6 +13038,15 @@ $.fn.transition = function() {
             if(settings.useFailSafe) {
               module.add.failSafe();
             }
+                  // showing multiple
+      $('.inline.sidebar')
+        .sidebar{
+          context: $('.application.segment')
+        })
+      ;
+      $('.inline.sidebar')
+        .sidebar('attach events', '.demo.menu .item')
+      ;
             module.set.duration(settings.duration);
             settings.onStart.call(this);
             module.debug('Starting tween', animation, $module.attr('class'));
@@ -13622,7 +13686,7 @@ $.fn.transition.settings = {
   onHide       : function() {},
 
   // whether timeout should be used to ensure callback fires in cases animationend does not
-  useFailSafe  : false,
+  useFailSafe  : true,
 
   // whether EXACT animation can occur twice in a row
   allowRepeats : false,

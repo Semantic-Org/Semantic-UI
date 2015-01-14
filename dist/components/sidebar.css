@@ -81,12 +81,23 @@
 }
 
 /*--------------
-     Body
+     Pushable
 ---------------*/
 
 .pushable {
   height: 100%;
   overflow-x: hidden;
+  padding: 0em !important;
+}
+
+/* Inside Page */
+.pushable:not(body) {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+/* Whole Page */
+body.pushable {
   background: #333333 !important;
 }
 
@@ -115,8 +126,13 @@
   min-height: 100%;
   -webkit-transition: -webkit-transform 500ms ease;
           transition: transform 500ms ease;
-  background: #f7f7f7;
   z-index: 2;
+}
+body.pushable > .pusher {
+  background: #f7f7f7;
+}
+.pushable > .pusher {
+  background: inherit;
 }
 
 /*--------------

@@ -9,8 +9,9 @@
 **Enhancements / Changes**
 - **Grid** - Added `equal width` variation using `flex-box`, `equal height` now also uses `flex-box` (this may have to be removed if causes unexpected browser issues)
 - **Sidebar** - Having a sidebar visible on page load is now much simpler. You can include ``ui visible sidebar`` on page load to have a sidebar element appear on page load. To close call `$('.ui.sidebar').sidebar('hide')`
+- **Sidebar** - Added documentation on using sidebar on a custom context. Sidebars using a custom context no longer add background colors like those initialized on `body`
 - **Site** - Form input highlighting color added (helps differentiate form colors with autocompleted fields). Default text highlighting color moved from highlighter yellow to a mellow blue.
-- **Dropdown** - Dropdown can now be disabled by adding ``disabled` class without requiring `destroy`. **Thanks Psyton**
+- **Dropdown** - Javascript Dropdown can now be disabled by adding ``disabled` class. No need to call `destroy`. **Thanks Psyton**
 - **Dropdown** - Search dropdown input can now have backgrounds. Fixes issues with autocompleted search dropdowns which have forced yellow "autocompleted" bg.
 - **Dropdown** - Fix issue with search selection not correctly matching when values are not strings
 - **Progress* - Progress bars can now display percent or amount left using `{value}` in text templates
@@ -28,12 +29,14 @@
 
 **Bugs**
 - **Video** - Video component now uses `//` instead of defaulting to `http`
+- **Dropdown** - `restore defaults` will now set placeholder styling and remove active elemenet. Added example in docs.
 - **Dropdown** - Fixed bug where sub menus may sometimes have dropdown icon overlap text
 - **Dropdown** - Fixes dropdown search input from filtering text values when input is inside menu, i.e "In-Menu Search"
 - **Dropdown** - Fix issue with search selection not correctly creating RegExp when select values are not strings **Thanks @alufers**
 - **Popup** - `wide` and `very wide` popup will now appear when screen size is below their `max-width`
 - **Popup** - Popup no longer blurs element on popup hide
 - **Segment** - ``ui tabular menu`` now correctly aligns with attached segment when using fluid variation *Thanks @MohammadYounes*
+- **Segment** - `basic segment` no longer removes padding on first and last elements
 - **Steps** - Steps now use ``table-cell`` to allow steps to be equal height by default, even with different content height.
 - **Button** - Fix issue with labeled icon groups in material theme
 - **Progress* - Fixes bug with progress that use ``total`` and ``value`` receiving the wrong values for text templates

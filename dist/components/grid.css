@@ -1169,7 +1169,7 @@
 .ui[class*="left aligned"].grid > .row > .column,
 .ui[class*="left aligned"].grid > .column,
 .ui.grid [class*="left aligned"].column,
-.ui.grid > [class*="left aligned"].aligned.row > .column {
+.ui.grid > [class*="left aligned"].row > .column {
   text-align: left;
 }
 .ui.grid [class*="left aligned"].column {
@@ -1180,7 +1180,7 @@
 .ui[class*="center aligned"].grid,
 .ui[class*="center aligned"].grid > .row > .column,
 .ui[class*="center aligned"].grid > .column,
-.ui.grid > [class*="center aligned"].aligned.row > .column {
+.ui.grid > [class*="center aligned"].row > .column {
   text-align: center;
 }
 .ui.grid [class*="center aligned"].column {
@@ -1191,7 +1191,7 @@
 .ui[class*="right aligned"].grid,
 .ui[class*="right aligned"].grid > .row > .column,
 .ui[class*="right aligned"].grid > .column,
-.ui.grid > [class*="right aligned"].aligned.row > .column {
+.ui.grid > [class*="right aligned"].row > .column {
   text-align: right;
 }
 .ui.grid [class*="right aligned"].column {
@@ -1228,7 +1228,7 @@
 .ui[class*="top aligned"].grid > .row > .column,
 .ui[class*="top aligned"].grid > .column,
 .ui.grid [class*="top aligned"].column,
-.ui.grid > [class*="top aligned"].aligned.row > .column {
+.ui.grid > [class*="top aligned"].row > .column {
   vertical-align: top;
 }
 .ui.grid [class*="top aligned"].column {
@@ -1236,11 +1236,15 @@
 }
 
 /* Middle Aligned */
-.ui[class*="center aligned"].grid,
+.ui[class*="middle aligned"].grid,
 .ui[class*="middle aligned"].grid > .row > .column,
 .ui[class*="middle aligned"].grid > .column,
-.ui.grid > [class*="middle aligned"].aligned.row > .column {
+.ui.grid > [class*="middle aligned"].row > .column {
   vertical-align: middle;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .ui.grid [class*="middle aligned"].column {
   vertical-align: middle !important;
@@ -1250,8 +1254,12 @@
 .ui[class*="bottom aligned"].grid,
 .ui[class*="bottom aligned"].grid > .row > .column,
 .ui[class*="bottom aligned"].grid > .column,
-.ui.grid > [class*="bottom aligned"].aligned.row > .column {
+.ui.grid > [class*="bottom aligned"].row > .column {
   vertical-align: bottom;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 .ui.grid [class*="bottom aligned"].column {
   vertical-align: bottom !important;
@@ -1373,16 +1381,39 @@
 }
 
 /*----------------------
-  Equal Height Columns
+      Equal Width
 -----------------------*/
 
-.ui[class*="equal height"].grid {
-  display: table;
-}
-.ui[class*="equal height"].grid > .row,
-.ui.grid > [class*="equal height"].row {
+.ui[class*="equal width"].grid {
   display: table;
   table-layout: fixed;
+}
+.ui[class*="equal width"].grid > .row,
+.ui.grid > [class*="equal width"].row {
+  display: table;
+  table-layout: fixed;
+  width: 100% !important;
+}
+.ui[class*="equal width"].grid > .column,
+.ui[class*="equal width"].grid > .row > .column,
+.ui.grid > [class*="equal width"].row > .column {
+  display: table-cell;
+}
+
+/* Flexbox (Experimental / Overrides Where Supported) */
+.ui[class*="equal width"].grid {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.ui[class*="equal width"].grid > .row,
+.ui.grid > [class*="equal width"].row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1392,16 +1423,73 @@
   -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+.ui[class*="equal width"].grid > .column,
+.ui[class*="equal width"].grid > .row > .column,
+.ui.grid > [class*="equal width"].row > .column {
+  display: inline-block;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+}
+
+/*----------------------
+  Equal Height Columns
+-----------------------*/
+
+.ui[class*="equal height"].grid {
+  display: table;
+  table-layout: fixed;
+}
+.ui[class*="equal height"].grid > .row,
+.ui.grid > [class*="equal height"].row {
+  display: table;
+  table-layout: fixed;
   width: 100% !important;
 }
 .ui[class*="equal height"].grid > .column,
 .ui[class*="equal height"].grid > .row > .column,
 .ui.grid > [class*="equal height"].row > .column {
   display: table-cell;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
+}
+
+/* Flexbox (Experimental / Overrides Where Supported) */
+.ui[class*="equal height"].grid,
+.ui[class*="equal height"].grid > .row,
+.ui.grid > [class*="equal height"].row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+.ui[class*="equal height"].grid > .column,
+.ui[class*="equal height"].grid > .row > .column,
+.ui.grid > [class*="equal height"].row > .column {
+  display: inline-block;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-flex: 1;
   -webkit-flex: 1 0 auto;
       -ms-flex: 1 0 auto;
