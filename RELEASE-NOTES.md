@@ -1,6 +1,6 @@
 ## RELEASE NOTES
 
-### Version 1.7.0 -
+### Version 1.7.0 - January 14, 2015
 
 **Major Changes**
 - **Project** - Right-to-left (RTL) support added. New gulp tasks for RTL file generation. Docs do not yet support RTL.*Thanks @MohammadYounes!*.
