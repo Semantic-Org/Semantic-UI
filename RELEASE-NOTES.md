@@ -33,6 +33,7 @@
 - **Dropdown** - Fixed bug where sub menus may sometimes have dropdown icon overlap text
 - **Dropdown** - Fixes dropdown search input from filtering text values when input is inside menu, i.e "In-Menu Search"
 - **Dropdown** - Fix issue with search selection not correctly creating RegExp when select values are not strings **Thanks @alufers**
+- **Dropdown** - Fix issue with `left floated` and `right floated` content sometimes not applying correctly
 - **Popup** - `wide` and `very wide` popup will now appear when screen size is below their `max-width`
 - **Popup** - Popup no longer blurs element on popup hide
 - **Segment** - ``ui tabular menu`` now correctly aligns with attached segment when using fluid variation *Thanks @MohammadYounes*

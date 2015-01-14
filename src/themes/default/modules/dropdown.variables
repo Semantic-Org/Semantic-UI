@@ -31,10 +31,12 @@
 @menuTextAlign: left;
 @menuTransition: none;
 
-@menuBorder: 1px solid @borderColor;
+@menuBorderWidth: 1px;
+@menuBorder: @menuBorderWidth solid @borderColor;
 @menuBoxShadow: 0px 1px 4px 0px @borderColor;
 @menuBorderRadius: 0em 0em @borderRadius @borderRadius;
 @menuTransition: opacity 0.2s ease;
+@menuMinWidth: ~"calc(100% + "(@menuBorderWidth * 2)~")";
 @menuZIndex: 11;
 
 /* Text */
@@ -167,7 +169,7 @@
 @selectionVisibleHoverBorderColor: @selectedBorderColor;
 @selectionVisibleHoverBoxShadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
 @selectionVisibleHoverMenuBorder: 1px solid @selectedBorderColor;
-@selectionVisibleHoverMenuBoxShadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.12);
+@selectionVisibleHoverMenuBoxShadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.1);
 
 @selectionVisibleConnectingBorder: 0em;
 @selectionVisibleIconOpacity: 1;
@@ -228,12 +230,12 @@
 --------------------*/
 
 /* Upward */
-@upwardMenuBoxShadow: 0px -1px 4px 0px @borderColor;
+@upwardMenuBoxShadow: 0px 0px 4px 0px @borderColor;
 @upwardMenuBorderRadius: @borderRadius @borderRadius 0em 0em;
 @upwardSelectionHoverBoxShadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.05);
 @upwardSelectionVisibleBoxShadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
-@upwardSelectionVisibleHoverBoxShadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
-@upwardSelectionVisibleHoverMenuBoxShadow: 0px -2px 6px 0px rgba(0, 0, 0, 0.12);;
+@upwardSelectionVisibleHoverBoxShadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.05);
+@upwardSelectionVisibleHoverMenuBoxShadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
 @upwardSelectionVisibleBorderRadius:  @selectionVisibleConnectingBorder @selectionVisibleConnectingBorder @borderRadius @borderRadius;
 
 /* Flyout Direction */
