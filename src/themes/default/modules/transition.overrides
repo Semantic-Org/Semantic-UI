@@ -95,54 +95,6 @@
 
 }
 
-
-/*--------------
-     Slide
----------------*/
-
-.slide.down.transition.in {
-  animation-name: slideIn;
-  transform-origin: 50% 0%;
-  -ms-transform-origin: 50% 0%;
-  -webkit-transform-origin: 50% 0%;
-}
-.slide.down.transition.out {
-  animation-name: slideOut;
-  transform-origin: 50% 0%;
-}
-
-.slide.up.transition.in {
-  animation-name: slideIn;
-  transform-origin: 50% 100%;
-}
-.slide.up.transition.out {
-  animation-name: slideOut;
-  transform-origin: 50% 100%;
-}
-
-@keyframes slideIn {
-  0% {
-    opacity: 0;
-    transform: scaleY(0);
-  }
-  100% {
-    opacity: 1;
-    transform: scaleY(1);
-  }
-}
-@keyframes slideOut {
-  0% {
-    opacity: 1;
-    transform: scaleY(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scaleY(0);
-  }
-}
-
-
-
 /*--------------
      Flips
 ---------------*/
@@ -566,7 +518,7 @@
     transform: none;
   }
 }
-@keyframes bounceInRight {
+@keyframes bounceInLeft {
   0%, 60%, 75%, 90%, 100% {
     transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
   }
@@ -593,7 +545,7 @@
     transform: none;
   }
 }
-@keyframes bounceInLeft {
+@keyframes bounceInRight {
   0%, 60%, 75%, 90%, 100% {
     transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
   }
@@ -666,7 +618,7 @@
     transform: translate3d(0, 2000px, 0);
   }
 }
-@keyframes bounceOutLeft {
+@keyframes bounceOutRight {
   20% {
     opacity: 1;
     transform: translate3d(20px, 0, 0);
@@ -677,7 +629,7 @@
     transform: translate3d(-2000px, 0, 0);
   }
 }
-@keyframes bounceOutRight {
+@keyframes bounceOutLeft {
   20% {
     opacity: 1;
     transform: translate3d(-20px, 0, 0);
@@ -686,6 +638,85 @@
   100% {
     opacity: 0;
     transform: translate3d(2000px, 0, 0);
+  }
+}
+
+/*--------------
+     Slide
+---------------*/
+.transition.slide.in,
+.transition.slide.in.down {
+  animation-name: slideInY;
+  transform-origin: top center;
+}
+.transition.slide.in.up {
+  animation-name: slideInY;
+  transform-origin: bottom center;
+}
+.transition.slide.in.left {
+  animation-name: slideInX;
+  transform-origin: center right;
+}
+.transition.slide.in.right {
+  animation-name: slideInX;
+  transform-origin: center left;
+}
+.transition.slide.out,
+.transition.slide.out.down {
+  animation-name: slideOutY;
+  transform-origin: top center;
+}
+.transition.slide.out.up {
+  animation-name: slideOutY;
+  transform-origin: bottom center;
+}
+.transition.slide.out.left {
+  animation-name: slideOutX;
+  transform-origin: center right;
+}
+.transition.slide.out.right {
+  animation-name: slideOutX;
+  transform-origin: center left;
+}
+
+@keyframes slideInY {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+@keyframes slideInX {
+  0% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+@keyframes slideOutY {
+  0% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+}
+@keyframes slideOutX {
+  0% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scaleX(0);
   }
 }
 
