@@ -46,6 +46,7 @@ $.fn.form = function(fields, parameters) {
         $message   = $(this).find(selector.message),
         $prompt    = $(this).find(selector.prompt),
         $submit    = $(this).find(selector.submit),
+        $reset     = $(this).find(selector.reset),
 
         formErrors = [],
 
@@ -59,6 +60,7 @@ $.fn.form = function(fields, parameters) {
         initialize: function() {
           module.verbose('Initializing form validation', $module, validation, settings);
           module.bindEvents();
+          module.setDefaults();
           module.instantiate();
         },
 
@@ -115,6 +117,7 @@ $.fn.form = function(fields, parameters) {
           ;
           // attach submit events
           module.attachEvents($submit, 'submit');
+          module.attachEvents($reset, 'reset');
 
           $field
             .each(function() {
@@ -125,6 +128,51 @@ $.fn.form = function(fields, parameters) {
               $(this)
                 .on(inputEvent + eventNamespace, module.event.field.change)
               ;
+            })
+          ;
+        },
+
+        setDefaults: function() {
+          $field
+            .each(function () {
+              var
+                $field = $(this),
+                type = $field.prop('type')
+              ;
+
+              switch (type) {
+                case 'checkbox':
+                  $field.data('defaultValue', $field.is(':checked'));
+                  break;
+                default:
+                  $field.data('defaultValue', $field.val());
+              }
+            })
+          ;
+        },
+
+        reset: function() {
+          $field
+            .each(function () {
+              var
+                $field = $(this),
+                $parent = $field.parent(),
+                type = $field.prop('type'),
+                defaultValue = $field.data('defaultValue')
+              ;
+
+               switch (type) {
+                 case 'hidden':
+                   $parent.is('.ui.dropdown') && $parent.dropdown('restore defaults');
+                   break;
+                 case 'checkbox':
+                   $parent.is('.ui.checkbox') && $parent.checkbox(defaultValue ? 'check' : 'uncheck');
+                   break;
+                 default:
+                   $field.val(defaultValue);
+                }
+
+                $field.parents('.field').removeClass(settings.className.error);
             })
           ;
         },
@@ -670,7 +718,8 @@ $.fn.form.settings = {
     checkbox: 'input[type="checkbox"], input[type="radio"]',
     input   : 'input',
     prompt  : '.prompt.label',
-    submit  : '.submit'
+    submit  : '.submit',
+    reset   : '.reset'
   },
 
   className : {
