@@ -90,9 +90,6 @@ $.fn.popup = function(parameters) {
           if( !module.exists() && settings.preserve) {
             module.create();
           }
-          else if(settings.hoverable) {
-            module.bind.popup();
-          }
           module.instantiate();
         },
 
@@ -229,20 +226,27 @@ $.fn.popup = function(parameters) {
                 .appendTo( $context )
               ;
             }
+            module.refresh();
             if(settings.hoverable) {
               module.bind.popup();
             }
             settings.onCreate.call($popup, element);
-            module.refresh();
           }
           else if($target.next(selector.popup).length !== 0) {
-            module.verbose('Pre-existing popup found, reverting to inline');
+            module.verbose('Pre-existing popup found');
             settings.inline = true;
-            settings.popup = $target.next(selector.popup);
+            settings.popup  = $target.next(selector.popup);
+            module.refresh();
             if(settings.hoverable) {
               module.bind.popup();
             }
+          }
+          else if(settings.popup) {
+            module.verbose('Used popup specified in settings');
             module.refresh();
+            if(settings.hoverable) {
+              module.bind.popup();
+            }
           }
           else {
             module.debug('No content specified skipping display', element);
@@ -466,7 +470,6 @@ $.fn.popup = function(parameters) {
           },
           offstagePosition: function(position) {
             var
-              position = position || false,
               boundary  = {
                 top    : $(window).scrollTop(),
                 bottom : $(window).scrollTop() + $(window).height(),
@@ -481,6 +484,7 @@ $.fn.popup = function(parameters) {
               offstage  = {},
               offstagePositions = []
             ;
+            position = position || false;
             if(popup.offset && position) {
               module.verbose('Checking if outside viewable area', popup.offset);
               offstage = {
