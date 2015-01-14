@@ -900,6 +900,7 @@ $.fn.dropdown = function(parameters) {
             ;
             module.debug('Restoring default text', defaultText);
             module.set.text(defaultText);
+            $text.addClass(settings.className.placeholder);
           },
           defaultValue: function() {
             var
@@ -907,8 +908,15 @@ $.fn.dropdown = function(parameters) {
             ;
             if(defaultValue !== undefined) {
               module.debug('Restoring default value', defaultValue);
-              module.set.selected(defaultValue);
-              module.set.value(defaultValue);
+
+              if (defaultValue.length) {
+            	 module.set.selected(defaultValue);
+                 module.set.value(defaultValue);
+              }
+              else {
+              	module.remove.activeItem();
+              	module.remove.selectedItem();
+              }
             }
           }
         },
