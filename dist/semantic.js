@@ -6310,7 +6310,7 @@ $.fn.popup = function(parameters) {
         hideAll: function() {
           $(selector.popup)
             .filter(':visible')
-              .popup('hide')
+              .transition('hide')
           ;
         },
 
