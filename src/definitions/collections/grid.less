@@ -1265,20 +1265,6 @@
   vertical-align: bottom !important;
 }
 
-/* Flex */
-.ui[class*="top aligned"].grid,
-.ui.grid > [class*="top aligned"].row {
-  align-items: flex-start;
-}
-.ui[class*="middle aligned"].grid,
-.ui.grid > [class*="middle aligned"].row {
-  align-items: center;
-}
-.ui[class*="bottom aligned"].grid,
-.ui.grid > [class*="bottom aligned"].row {
-  align-items: flex-end;
-}
-
 /*----------------------
          Colored
 -----------------------*/
@@ -1404,6 +1390,44 @@
 }
 
 
+/*----------------------
+      Equal Width
+-----------------------*/
+
+.ui[class*="equal width"].grid {
+  display: table;
+  table-layout: fixed;
+}
+.ui[class*="equal width"].grid > .row,
+.ui.grid > [class*="equal width"].row  {
+  display: table;
+  table-layout: fixed;
+  width: 100% !important;
+}
+.ui[class*="equal width"].grid > .column,
+.ui[class*="equal width"].grid > .row > .column,
+.ui.grid > [class*="equal width"].row > .column {
+  display: table-cell;
+}
+
+/* Flexbox (Experimental / Overrides Where Supported) */
+.ui[class*="equal width"].grid {
+  display: flex;
+  flex-direction: column;
+}
+.ui[class*="equal width"].grid > .row,
+.ui.grid > [class*="equal width"].row  {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+.ui[class*="equal width"].grid > .column,
+.ui[class*="equal width"].grid > .row > .column,
+.ui.grid > [class*="equal width"].row > .column {
+  display: inline-block;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
 
 
 /*----------------------
@@ -1427,14 +1451,12 @@
 }
 
 /* Flexbox (Experimental / Overrides Where Supported) */
-.ui[class*="equal height"].grid {
-  display: flex;
-  flex-direction: row;
-}
+.ui[class*="equal height"].grid,
 .ui[class*="equal height"].grid > .row,
 .ui.grid > [class*="equal height"].row  {
   display: flex;
   flex-direction: row;
+  align-items: stretch;
 }
 .ui[class*="equal height"].grid > .column,
 .ui[class*="equal height"].grid > .row > .column,

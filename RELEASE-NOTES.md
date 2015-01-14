@@ -7,11 +7,12 @@
 - **Project** - Install now let you specify the outputted file permissions and RTL use (express/custom install)
 
 **Enhancements / Changes**
+- **Grid** - Added `equal width` variation using `flex-box`, `equal height` now also uses `flex-box` (this may have to be removed if causes unexpected browser issues)
+- **Sidebar** - Having a sidebar visible on page load is now much simpler. You can include ``ui visible sidebar`` on page load to have a sidebar element appear on page load. To close call `$('.ui.sidebar').sidebar('hide')`
 - **Site** - Form input highlighting color added (helps differentiate form colors with autocompleted fields). Default text highlighting color moved from highlighter yellow to a mellow blue.
 - **Dropdown** - Dropdown can now be disabled by adding ``disabled` class without requiring `destroy`. **Thanks Psyton**
 - **Dropdown** - Search dropdown input can now have backgrounds. Fixes issues with autocompleted search dropdowns which have forced yellow "autocompleted" bg.
 - **Dropdown** - Fix issue with search selection not correctly matching when values are not strings
-- **Sidebar** - Having a sidebar visible on page load is now much simpler. You can include ``ui visible sidebar`` on page load to have a sidebar element appear on page load. To close call `$('.ui.sidebar').sidebar('hide')`
 - **Progress* - Progress bars can now display percent or amount left using `{value}` in text templates
 - **Dropdown** - New `upward dropdown` variation, which opens its menu upward. Default animation now uses ``settings.transition = 'auto'` and determines direction of animation based on menu direction
 - **Dropdown** - Dropdown matching fields without values now trims whitespace by default
