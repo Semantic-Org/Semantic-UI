@@ -33,6 +33,7 @@
 - **Steps** - Steps now use ``table-cell`` to allow steps to be equal height by default, even with different content height.
 - **Button** - Fix issue with labeled icon groups in material theme
 - **Progress* - Fixes bug with progress that use ``total`` and ``value`` receiving the wrong values for text templates
+- **List** - Fix some styling issues with `ui list` inside `ui menu`
 
 ### Version 1.6.4 - January 12, 2015
 
