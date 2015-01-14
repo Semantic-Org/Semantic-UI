@@ -3384,7 +3384,7 @@ input::selection {
 
 .ui.divider:not(.vertical):not(.horizontal) {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 /*--------------
@@ -3417,7 +3417,7 @@ input::selection {
   top: 50%;
   height: 0px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .ui.horizontal.divider:before {
@@ -3456,7 +3456,7 @@ input::selection {
   content: '';
   z-index: 3;
   border-left: 1px solid rgba(0, 0, 0, 0.1);
-  border-right: 1px solid rgba(0, 0, 0, 0.8);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
   width: 0%;
   height: -webkit-calc(100% -  1rem );
   height: calc(100% -  1rem );
@@ -3497,7 +3497,7 @@ input::selection {
     top: 50%;
     height: 0px;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   }
 
   .ui.stackable.grid .ui.vertical.divider:before,

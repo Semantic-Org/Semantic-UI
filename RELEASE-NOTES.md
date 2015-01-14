@@ -3,8 +3,8 @@
 ### Version 1.7.0 - January 14, 2015
 
 **Major Changes**
-- **Project** - Right-to-left (RTL) support added. New gulp tasks for RTL file generation. Docs do not yet support RTL.*Thanks @MohammadYounes!*.
-- **Project** - Install now let you specify the outputted file permissions and RTL use (express/custom install)
+- **Project** - Right-to-left (RTL) support added. New gulp tasks for RTL file generation and install setting. Docs however do not yet support RTL.*Thanks @MohammadYounes for constant support with RTL!*.
+- **Project** - Install now let you specify the outputted file permissions (express/custom install)
 
 **Enhancements / Changes**
 - **Grid** - Added `equal width` variation using `flex-box`, `equal height` now also uses `flex-box` (this may have to be removed if causes unexpected browser issues)
