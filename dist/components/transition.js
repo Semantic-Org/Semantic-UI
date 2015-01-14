@@ -240,15 +240,6 @@ $.fn.transition = function() {
             if(settings.useFailSafe) {
               module.add.failSafe();
             }
-                  // showing multiple
-      $('.inline.sidebar')
-        .sidebar{
-          context: $('.application.segment')
-        })
-      ;
-      $('.inline.sidebar')
-        .sidebar('attach events', '.demo.menu .item')
-      ;
             module.set.duration(settings.duration);
             settings.onStart.call(this);
             module.debug('Starting tween', animation, $module.attr('class'));

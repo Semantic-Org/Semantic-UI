@@ -14,7 +14,7 @@
 - **Dropdown** - Javascript Dropdown can now be disabled by adding ``disabled` class. No need to call `destroy`. **Thanks Psyton**
 - **Dropdown** - Search dropdown input can now have backgrounds. Fixes issues with autocompleted search dropdowns which have forced yellow "autocompleted" bg.
 - **Dropdown** - Fix issue with search selection not correctly matching when values are not strings
-- **Progress* - Progress bars can now display percent or amount left using `{value}` in text templates
+- **Progress** - Progress bars can now display percent or amount left using `{value}` in text templates
 - **Dropdown** - New `upward dropdown` variation, which opens its menu upward. Default animation now uses ``settings.transition = 'auto'` and determines direction of animation based on menu direction
 - **Dropdown** - Dropdown matching fields without values now trims whitespace by default
 - **Checkbox** - Checkbox now toggles on spacebar when focused (previously only toggled on enter key).
@@ -39,7 +39,7 @@
 - **Segment** - `basic segment` no longer removes padding on first and last elements
 - **Steps** - Steps now use ``table-cell`` to allow steps to be equal height by default, even with different content height.
 - **Button** - Fix issue with labeled icon groups in material theme
-- **Progress* - Fixes bug with progress that use ``total`` and ``value`` receiving the wrong values for text templates
+- **Progress** - Fixes bug with progress that use ``total`` and ``value`` receiving the wrong values for text templates
 - **List** - Fix some styling issues with `ui list` inside `ui menu`
 
 ### Version 1.6.4 - January 12, 2015
