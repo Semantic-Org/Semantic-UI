@@ -196,96 +196,6 @@
 }
 
 /*--------------
-      Fades
----------------*/
-
-.fade.transition.in {
-  animation-name: fadeIn;
-}
-.fade.transition.out {
-  animation-name: fadeOut;
-}
-
-.fade.up.transition.in {
-  animation-name: fadeUpIn;
-}
-.fade.up.transition.out {
-  animation-name: fadeUpOut;
-}
-
-.fade.down.transition.in {
-  animation-name: fadeDownIn;
-}
-.fade.down.transition.out {
-  animation-name: fadeDownOut;
-}
-
-
-/* Fade */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-/* Fade Up */
-@keyframes fadeUpIn {
-  0% {
-    opacity: 0;
-    transform: translateY(10%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0%);
-  }
-}
-
-@keyframes fadeUpOut {
-  0% {
-    opacity: 1;
-    transform: translateY(0%);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(10%);
-  }
-}
-
-/* Fade Down */
-@keyframes fadeDownIn {
-  0% {
-    opacity: 0;
-    transform: translateY(-10%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0%);
-  }
-}
-@keyframes fadeDownOut {
-  0% {
-    opacity: 1;
-    transform: translateY(0%);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-10%);
-  }
-}
-
-/*--------------
       Scale
 ---------------*/
 
@@ -755,6 +665,139 @@
 }
 
 
+/*--------------
+      Fades
+---------------*/
+
+.transition.fade.in {
+  animation-name: fadeIn;
+}
+.transition.fade.in.up {
+  animation-name: fadeInUp;
+}
+.transition.fade.in.down {
+  animation-name: fadeInDown;
+}
+.transition.fade.in.left {
+  animation-name: fadeInLeft;
+}
+.transition.fade.in.right {
+  animation-name: fadeInRight;
+}
+
+.transition.fade.out {
+  animation-name: fadeOut;
+}
+.transition.fade.out.up {
+  animation-name: fadeOutUp;
+}
+.transition.fade.out.down {
+  animation-name: fadeOutDown;
+}
+.transition.fade.out.left {
+  animation-name: fadeOutLeft;
+}
+.transition.fade.out.right {
+  animation-name: fadeOutRight;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeOutUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+}
+@keyframes fadeOutDown {
+  0% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+}
+@keyframes fadeOutLeft {
+  0% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-10%);
+  }
+}
+@keyframes fadeOutRight {
+  0% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(10%);
+  }
+}
 
 
 
