@@ -311,6 +311,7 @@ $.fn.sidebar = function(parameters) {
             }
             if($module.nextAll(selector.pusher).length === 0 || $module.nextAll(selector.pusher)[0] !== $pusher[0]) {
               module.debug('Moved sidebar to correct parent element');
+              debugger;
               module.error(error.movedSidebar, element);
               $module.detach().prependTo($context);
               module.refresh();

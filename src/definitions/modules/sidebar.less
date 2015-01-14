@@ -85,14 +85,25 @@
 
 
 /*--------------
-     Body
+     Pushable
 ---------------*/
 
 .pushable {
   height: 100%;
   overflow-x: hidden;
+  padding: 0em !important;
+}
+
+/* Inside Page */
+.pushable:not(body) {
+  transform: translate3d(0, 0, 0);
+}
+
+/* Whole Page */
+body.pushable {
   background: @canvasBackground !important;
 }
+
 
 /*--------------
      Fixed
@@ -115,12 +126,17 @@
   position: relative;
   backface-visibility: hidden;
   min-height: 100%;
-
   transition: transform @duration @easing;
-  background: @pageBackground;
   z-index: @middleLayer;
 }
 
+body.pushable > .pusher {
+  background: @pageBackground;
+}
+
+.pushable > .pusher {
+  background: inherit;
+}
 
 /*--------------
      Dimmer
