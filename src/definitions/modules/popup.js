@@ -239,7 +239,6 @@ $.fn.popup = function(parameters) {
             module.verbose('Pre-existing popup found, reverting to inline');
             settings.inline = true;
             settings.popup = $target.next(selector.popup);
-            console.log('here');
             if(settings.hoverable) {
               module.bind.popup();
             }
