@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.7.0
+ * # Semantic UI - 1.7.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -606,3 +606,15 @@ html.ios {
       -ms-transform: scale(0.75);
           transform: scale(0.75);
 }
+
+
+/*******************************
+         Theme Overrides
+*******************************/
+
+
+
+/*******************************
+         Site Overrides
+*******************************/
+
