@@ -1,5 +1,12 @@
 ## RELEASE NOTES
 
+### Version 1.7.1 - January 15, 2015
+
+**Bugs**
+
+- **Installer** - Fixes installer not including RTL parameter correctly
+- **UI** - Fixes `progress`, `ad`, and `sidebar` not loading `.override` files correctly
+
 ### Version 1.7.0 - January 14, 2015
 
 **Major Changes**
