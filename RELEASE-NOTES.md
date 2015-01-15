@@ -1,6 +1,6 @@
 ## RELEASE NOTES
 
-### Version 1.7.1 - January 15, 2015
+### Version 1.7.(1-2) - January 15, 2015
 
 **Bugs**
 
