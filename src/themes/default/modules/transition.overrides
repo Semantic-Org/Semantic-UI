@@ -22,8 +22,8 @@
 .pulse.transition {
   animation-name: pulse;
 }
-.rubberband.transition {
-  animation-name: rubberband;
+.jiggle.transition {
+  animation-name: jiggle;
 }
 
 /* Flash */
@@ -99,7 +99,7 @@
 }
 
 /* Rubberband */
-@keyframes rubberband {
+@keyframes jiggle {
   0% {
     transform: scale3d(1, 1, 1);
   }
@@ -914,7 +914,6 @@
   transition-timing-function: ease-in;
   animation-name: swingOutX;
 }
-
 .transition.swing.out.up{
   backface-visibility: visible !important;
   transform-origin:bottom center;
