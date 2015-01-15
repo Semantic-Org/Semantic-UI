@@ -163,6 +163,8 @@ $.fn.form = function(fields, parameters) {
 
                switch (type) {
                  case 'hidden':
+                 case 'select-one':
+                 case 'select-multiple':
                    $parent.is('.ui.dropdown') && $parent.dropdown('restore defaults');
                    break;
                  case 'checkbox':
