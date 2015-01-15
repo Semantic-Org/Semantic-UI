@@ -3,11 +3,14 @@
 *******************************/
 
 module.exports = {
-  base       : '',
 
-  theme      : './src/theme.config',
+  base        : '',
+  theme       : './src/theme.config',
 
-  docs       : {
+  permission  : 644,
+  rtl         : false,
+
+  docs : {
     source : '../docs/server/files/release/',
     output : '../docs/release/'
   },
@@ -22,6 +25,66 @@ module.exports = {
     './semantic.json.example',
     './src/_site'
   ],
+
+  components: [
+    // global
+    'reset',
+    'site',
+    // elements
+    'button',
+    'divider',
+    'flag',
+    'header',
+    'icon',
+    'image',
+    'input',
+    'label',
+    'list',
+    'loader',
+    'rail',
+    'reveal',
+    'segment',
+    'step',
+    // collections
+    'breadcrumb',
+    'form',
+    'grid',
+    'menu',
+    'message',
+    'table',
+    // views
+    'ad',
+    'card',
+    'comment',
+    'feed',
+    'item',
+    'statistic',
+    // modules
+    'accordion',
+    'checkbox',
+    'dimmer',
+    'dropdown',
+    'modal',
+    'nag',
+    'popup',
+    'progress',
+    'rating',
+    'search',
+    'shape',
+    'sidebar',
+    'sticky',
+    'tab',
+    'transition',
+    'video',
+    // behaviors
+    'api',
+    'form',
+    'state',
+    'visibility'
+  ],
+
+  // ignored files for compile
+  ignoredFiles : '!(*.min|*.map|*.rtl)',
 
   // modified to create configs
   templates: {

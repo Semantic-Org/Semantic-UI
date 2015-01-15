@@ -63,6 +63,10 @@
   box-shadow 0.1s @transitionEasing,
   background 0.1s @transitionEasing
 ;
+/*
+@willChange: box-shadow, transform, opacity, color, background;
+*/
+@willChange: '';
 
 /*-------------------
         Group
@@ -133,7 +137,7 @@
 
 @orCircleDistanceToEdge: (@verticalPadding);
 @orCircleSize: @orHeight - @orCircleDistanceToEdge;
-@orLineHeight: (@orCircleSize - 0.2em);
+@orLineHeight: (@orCircleSize);
 @orBoxShadow: @borderBoxShadow;
 
 @orVerticalOffset: -(@orCircleSize / 2);
@@ -230,6 +234,30 @@
 @coloredBackgroundImage: none;
 @coloredBoxShadow: @shadowBoxShadow;
 
+/* Inverted by default for solids */
+@blueTextColor: @invertedTextColor;
+@blueTextShadow: @invertedTextShadow;
+@greenTextColor: @invertedTextColor;
+@greenTextShadow: @invertedTextShadow;
+@greyTextColor: @invertedTextColor;
+@greyTextShadow: @invertedTextShadow;
+@orangeTextColor: @invertedTextColor;
+@orangeTextShadow: @invertedTextShadow;
+@pinkTextColor: @invertedTextColor;
+@pinkTextShadow: @invertedTextShadow;
+@purpleTextColor: @invertedTextColor;
+@purpleTextShadow: @invertedTextShadow;
+@redTextColor: @invertedTextColor;
+@redTextShadow: @invertedTextShadow;
+@tealTextColor: @invertedTextColor;
+@tealTextShadow: @invertedTextShadow;
+@yellowTextColor: @invertedTextColor;
+@yellowTextShadow: @invertedTextShadow;
+
+@blackTextColor: @invertedTextColor;
+@blackTextShadow: @invertedTextShadow;
+
+
 /* Ordinality */
 @primaryBackgroundImage: @coloredBackgroundImage;
 @primaryTextColor: @invertedTextColor;
@@ -254,6 +282,7 @@
 @floatedMargin: 0.25em;
 
 /* Animated */
+@animatedVerticalAlign: middle;
 @animationDuration: 0.3s;
 @animationEasing: ease;
 @fadeScaleHigh: 1.5;

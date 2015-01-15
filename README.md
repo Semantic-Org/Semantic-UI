@@ -23,7 +23,7 @@ Key Features
 
 ## Contributing
 * **Missing documentation in your language?** Help us make Semantic available in more languages by [joining our translation community](https://www.transifex.com/organization/semantic-org/)
-* **Want to help with integration?** Projects are organizing for official [Meteor](https://github.com/Semantic-Org/Semantic-UI-Meteor), and [Angular](https://github.com/Semantic-Org/Semantic-UI-Angular) integrations as well as a [SASS](https://github.com/Semantic-Org/Semantic-UI-SASS) port. Join the discussion on their respective boards.
+* **Want to help with integration?** Projects are organizing for official [Meteor](https://github.com/Semantic-Org/Semantic-UI-Meteor), and [Angular](https://github.com/Semantic-Org/Semantic-UI-Angular) integrations as well as a [Sass](https://github.com/Semantic-Org/Semantic-UI-SASS) port. Join the discussion on their respective boards.
 * **Want to help others learn concepts behind Semantic?** [Learnsemantic.com](http://www.learnsemantic.com) needs articles to help others get others up to speed with Semantic UI. [Send me an e-mail](mailto:jack@semantic-ui.com) if you are interested.
 
 
@@ -87,6 +87,10 @@ For more detail into how work with Semantic when building a site please [read ou
 * Android 4
 * Blackberry 10
 
+
+## Pull Requests
+
+When adding pull requests be sure to merge into [next](https://github.com/Semantic-Org/Semantic-UI/tree/next) branch. If you need to demonstrate a fix in ``next`` release, you can use [this jsfiddle](http://jsfiddle.net/rduvhn8u/1/)
 
 ## Reaching Out
 

@@ -97,5 +97,6 @@
 @styledActiveChildTitleBackground: @styledActiveTitleBackground;
 @styledActiveChildTitleColor: @styledActiveTitleColor;
 
-
+/* Inverted */
+@invertedTitleColor: @invertedTextColor;
 

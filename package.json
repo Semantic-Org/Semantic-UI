@@ -1,6 +1,6 @@
 {
   "name": "semantic-ui",
-  "version": "1.2.0",
+  "version": "1.7.1",
   "title": "Semantic UI",
   "description": "Semantic empowers designers and developers by creating a shared vocabulary for UI.",
   "homepage": "http://www.semantic-ui.com",
@@ -27,6 +27,7 @@
     "gulp": "^3.8.10",
     "gulp-autoprefixer": "^2.0.0",
     "gulp-batch": "^1.0.3",
+    "gulp-chmod": "^1.2.0",
     "gulp-clone": "^1.0.0",
     "gulp-concat": "^2.4.2",
     "gulp-concat-css": "^1.1.1",
@@ -47,6 +48,7 @@
     "gulp-prompt": "^0.1.1",
     "gulp-rename": "^1.2.0",
     "gulp-replace": "^0.5.0",
+    "gulp-rtlcss": "^0.1.2",
     "gulp-sourcemaps": "^1.2.8",
     "gulp-uglify": "^1.0.1",
     "gulp-util": "^3.0.1",

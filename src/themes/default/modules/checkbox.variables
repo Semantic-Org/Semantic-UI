@@ -123,6 +123,7 @@
 
 @toggleLabelDistance: @toggleLaneWidth + 1rem;
 @toggleLabelLineHeight: 1.5rem;
+@toggleLabelOffset: 0.15em;
 
 
 @toggleFocusColor: @strongTransparentBlack;

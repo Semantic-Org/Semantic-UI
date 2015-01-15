@@ -29,15 +29,18 @@
   max-width: 100%;
   background-color: @placeholderColor;
 }
+
 img.ui.image {
   display: block;
-  background: none;
 }
+
+.ui.image svg,
 .ui.image img {
   display: block;
   max-width: 100%;
   height: auto;
 }
+
 
 /*******************************
             States
@@ -60,6 +63,7 @@ img.ui.image {
 ---------------*/
 
 .ui.inline.image,
+.ui.inline.image svg,
 .ui.inline.image img {
   display: inline-block;
 }
@@ -70,18 +74,21 @@ img.ui.image {
 
 .ui.top.aligned.images .image,
 .ui.top.aligned.image,
+.ui.top.aligned.image svg,
 .ui.top.aligned.image img {
   display: inline-block;
   vertical-align: top;
 }
 .ui.middle.aligned.images .image,
 .ui.middle.aligned.image,
+.ui.middle.aligned.image svg,
 .ui.middle.aligned.image img {
   display: inline-block;
   vertical-align: middle;
 }
 .ui.bottom.aligned.images .image,
 .ui.bottom.aligned.image,
+.ui.bottom.aligned.image svg,
 .ui.bottom.aligned.image img {
   display: inline-block;
   vertical-align: bottom;
@@ -93,7 +100,9 @@ img.ui.image {
 
 .ui.rounded.images .image,
 .ui.rounded.images img,
+.ui.rounded.images svg,
 .ui.rounded.image img,
+.ui.rounded.image svg,
 .ui.rounded.image {
   border-radius: @roundedBorderRadius;
 }
@@ -104,7 +113,9 @@ img.ui.image {
 
 .ui.bordered.images .image,
 .ui.bordered.images img,
+.ui.bordered.images svg,
 .ui.bordered.image img,
+.ui.bordered.image svg,
 img.ui.bordered.image {
   border: @imageBorder;
 }
@@ -120,7 +131,9 @@ img.ui.bordered.image {
 
 .ui.circular.images .image,
 .ui.circular.images img,
+.ui.circular.images svg,
 .ui.circular.image img,
+.ui.circular.image svg,
 .ui.circular.image {
   -webkit-border-radius: @circularRadius;
   -moz-border-radius: @circularRadius;
@@ -134,6 +147,8 @@ img.ui.bordered.image {
 .ui.fluid.images,
 .ui.fluid.image,
 .ui.fluid.images img,
+.ui.fluid.images svg,
+.ui.fluid.image svg,
 .ui.fluid.image img {
   display: block;
   width: 100%;
@@ -146,7 +161,9 @@ img.ui.bordered.image {
 
 .ui.avatar.images .image,
 .ui.avatar.images img,
+.ui.avatar.images svg,
 .ui.avatar.image img,
+.ui.avatar.image svg,
 .ui.avatar.image {
   margin-right: @avatarMargin;
 
@@ -196,48 +213,56 @@ img.ui.bordered.image {
 
 .ui.mini.images .image,
 .ui.mini.images img,
+.ui.mini.images svg,
 .ui.mini.image {
   width: @miniWidth;
   font-size: @mini;
 }
 .ui.tiny.images .image,
 .ui.tiny.images img,
+.ui.tiny.images svg,
 .ui.tiny.image {
   width: @tinyWidth;
   font-size: @tiny;
 }
 .ui.small.images .image,
 .ui.small.images img,
+.ui.small.images svg,
 .ui.small.image {
   width: @smallWidth;
   font-size: @small;
 }
 .ui.medium.images .image,
 .ui.medium.images img,
+.ui.medium.images svg,
 .ui.medium.image {
   width: @mediumWidth;
   font-size: @medium;
 }
 .ui.large.images .image,
 .ui.large.images img,
+.ui.large.images svg,
 .ui.large.image {
   width: @largeWidth;
   font-size: @large;
 }
 .ui.big.images .image,
 .ui.big.images img,
+.ui.big.images svg,
 .ui.big.image {
   width: @bigWidth;
   font-size: @big;
 }
 .ui.huge.images .image,
 .ui.huge.images img,
+.ui.huge.images svg,
 .ui.huge.image {
   width: @hugeWidth;
   font-size: @huge;
 }
 .ui.massive.images .image,
 .ui.massive.images img,
+.ui.massive.images svg,
 .ui.massive.image {
   width: @massiveWidth;
   font-size: @massive;
@@ -253,7 +278,8 @@ img.ui.bordered.image {
 }
 
 .ui.images .image,
-.ui.images img {
+.ui.images img,
+.ui.images svg {
   display: inline-block;
   margin: 0em @imageHorizontalMargin @imageVerticalMargin;
 }

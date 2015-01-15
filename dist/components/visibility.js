@@ -62,17 +62,18 @@ $.fn.visibility = function(parameters) {
 
           module.setup.cache();
           module.save.position();
-          module.bindEvents();
+
+          if( module.should.trackChanges() ) {
+            module.bindEvents();
+            if(settings.type == 'image') {
+              module.setup.image();
+            }
+            if(settings.type == 'fixed') {
+              module.setup.fixed();
+            }
+          }
+          module.checkVisibility();
           module.instantiate();
-
-          if(settings.type == 'image') {
-            module.setup.image();
-          }
-          if(settings.type == 'fixed') {
-            module.setup.fixed();
-          }
-
-          requestAnimationFrame(module.checkVisibility);
         },
 
         instantiate: function() {
@@ -144,6 +145,19 @@ $.fn.visibility = function(parameters) {
           }
         },
 
+        should: {
+
+          trackChanges: function() {
+            if(methodInvoked && queryArguments.length > 0) {
+              module.debug('One time query, no need to bind events');
+              return false;
+            }
+            module.debug('Query is attaching callbacks, watching for changes with scroll');
+            return true;
+          }
+
+        },
+
         setup: {
           cache: function() {
             module.cache = {
@@ -208,7 +222,7 @@ $.fn.visibility = function(parameters) {
               .attr('src', src)
             ;
             if(offScreen) {
-              module.verbose('Image outside browser, avoiding animation')
+              module.verbose('Image outside browser, no show animation');
               $module.show();
             }
             else {
@@ -227,7 +241,7 @@ $.fn.visibility = function(parameters) {
           module.reset();
           module.save.position();
           module.checkVisibility();
-          $.proxy(settings.onRefresh, element)();
+          settings.onRefresh.call(element);
         },
 
         reset: function() {
@@ -240,10 +254,7 @@ $.fn.visibility = function(parameters) {
 
         checkVisibility: function() {
           module.verbose('Checking visibility of element', module.cache.element);
-          module.save.scroll();
-          module.save.direction();
-          module.save.screenCalculations();
-          module.save.elementCalculations();
+          module.save.calculations();
 
           // percentage
           module.passed();
@@ -368,7 +379,7 @@ $.fn.visibility = function(parameters) {
             module.remove.occurred(callbackName);
           }
           if(newCallback === undefined) {
-            return calculations.onTopPassed;
+            return calculations.topPassed;
           }
         },
 
@@ -518,11 +529,11 @@ $.fn.visibility = function(parameters) {
           if(callback) {
             if(settings.continuous) {
               module.debug('Callback being called continuously', callbackName, calculations);
-              $.proxy(callback, element)(calculations, screen);
+              callback.call(element, calculations, screen);
             }
             else if(!module.get.occurred(callbackName)) {
               module.debug('Conditions met', callbackName, calculations);
-              $.proxy(callback, element)(calculations, screen);
+              callback.call(element, calculations, screen);
             }
           }
           module.save.occurred(callbackName);
@@ -543,6 +554,13 @@ $.fn.visibility = function(parameters) {
         },
 
         save: {
+          calculations: function() {
+            module.verbose('Saving all calculations necessary to determine positioning');
+            module.save.scroll();
+            module.save.direction();
+            module.save.screenCalculations();
+            module.save.elementCalculations();
+          },
           occurred: function(callback) {
             if(callback) {
               if(module.cache.occurred[callback] === undefined || (module.cache.occurred[callback] !== true)) {
@@ -846,6 +864,7 @@ $.fn.visibility = function(parameters) {
                 return false;
               }
               else {
+                module.error(error.method, query);
                 return false;
               }
             });
@@ -914,7 +933,7 @@ $.fn.visibility.settings = {
   // special visibility type (image, fixed)
   type                   : false,
 
-  // image only settings
+  // image only animation settings
   transition             : false,
   duration               : 500,
 
@@ -943,7 +962,7 @@ $.fn.visibility.settings = {
   onScroll               : function(){},
 
   error : {
-    method   : 'The method you called is not defined.'
+    method : 'The method you called is not defined.'
   }
 
 };

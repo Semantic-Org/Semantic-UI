@@ -41,7 +41,7 @@
   text-align: @textAlign;
   line-height: @lineHeight;
 
-  font-family: @pageFont;
+  font-family: @inputFont;
   padding: @padding;
 
   background: @background;
@@ -87,7 +87,7 @@
        Loading
 ---------------------*/
 
-.ui.loading.loading.input > .icon:before {
+.ui.loading.loading.input > i.icon:before {
   position: absolute;
   content: '';
   top: 50%;
@@ -100,7 +100,7 @@
   border-radius: @circularRadius;
   border: @loaderLineWidth solid @loaderFillColor;
 }
-.ui.loading.loading.input > .icon:after {
+.ui.loading.loading.input > i.icon:after {
   position: absolute;
   content: '';
   top: 50%;
@@ -186,7 +186,7 @@
 }
 
 /* Transparent Icon */
-.ui.transparent.icon.input > .icon {
+.ui.transparent.icon.input > i.icon {
   width: @transparentIconWidth;
 }
 .ui.transparent.icon.input > input {
@@ -214,7 +214,7 @@
          Icon
 ---------------------*/
 
-.ui.icon.input > .icon {
+.ui.icon.input > i.icon {
   cursor: default;
   position: absolute;
   text-align: center;
@@ -228,8 +228,12 @@
   border-radius: 0em @borderRadius @borderRadius 0em;
   transition: @iconTransition;
 }
-.ui.icon.input > .icon:before,
-.ui.icon.input > .icon:after {
+.ui.icon.input input {
+  padding-right: @iconMargin !important;
+}
+
+.ui.icon.input > i.icon:before,
+.ui.icon.input > i.icon:after {
   left: 0;
   position: absolute;
   text-align: center;
@@ -237,24 +241,21 @@
   width: 100%;
   margin-top: @iconOffset;
 }
-.ui.icon.input > .link.icon {
+.ui.icon.input > i.link.icon {
   cursor: pointer;
 }
-.ui.icon.input input {
-  padding-right: @iconMargin !important;
-}
-.ui.icon.input > .circular.icon {
+.ui.icon.input > i.circular.icon {
   top: @circularIconVerticalOffset;
   right: @circularIconHorizontalOffset;
 }
 
 /* Left Icon Input */
-.ui[class*="left icon"].input > .icon {
+.ui[class*="left icon"].input > i.icon {
   right: auto;
   left: @borderWidth;
   border-radius: @borderRadius 0em 0em @borderRadius;
 }
-.ui[class*="left icon"].input > .circular.icon {
+.ui[class*="left icon"].input > i.circular.icon {
   right: auto;
   left: @circularIconHorizontalOffset;
 }
@@ -264,7 +265,7 @@
 }
 
 /* Focus */
-.ui.icon.input > input:focus ~ .icon {
+.ui.icon.input > input:focus ~ i.icon {
   opacity: 1;
 }
 

@@ -87,6 +87,8 @@ module.exports = {
       type: 'checkbox',
       name: 'components',
       message: 'What components should we include in the package?',
+
+      // duplicated manually from tasks/defaults.js with additional property
       choices: [
         { name: "reset", checked: true },
         { name: "site", checked: true },
@@ -110,6 +112,7 @@ module.exports = {
         { name: "menu", checked: true },
         { name: "message", checked: true },
         { name: "table", checked: true },
+        { name: "ad", checked: true },
         { name: "card", checked: true },
         { name: "comment", checked: true },
         { name: "feed", checked: true },
@@ -132,9 +135,34 @@ module.exports = {
         { name: "transition", checked: true },
         { name: "video", checked: true },
         { name: "api", checked: true },
-        { name: "form", checked: true }
+        { name: "form", checked: true },
+        { name: "state", checked: true },
+        { name: "visibility", checked: true }
       ],
       when: when.notAuto
+    },
+    {
+      type: 'input',
+      name: 'permission',
+      message: 'What octal file permission should outputted files receive?',
+      default: defaults.permission,
+      when: when.notAuto
+    },
+    {
+      type: 'list',
+      name: 'rtl',
+      message: 'Do you use a RTL (Right-To-Left) language?',
+      when: when.notAuto,
+      choices: [
+        {
+          name: 'No',
+          value: 'no'
+        },
+        {
+          name: 'Yes',
+          value: 'yes'
+        },
+      ]
     },
     {
       type: 'input',

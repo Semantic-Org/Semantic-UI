@@ -93,9 +93,6 @@
 @fullScreenOffset: (100% - @fullScreenWidth) / 2;
 @fullScreenMargin: 1em auto;
 
-@fullScreenMobileWidth: auto;
-@fullScreenMobileMargin: 1em;
-
 /*-------------------
         Types
 --------------------*/

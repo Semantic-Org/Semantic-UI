@@ -1,5 +1,5 @@
  /*
- * # Semantic UI
+ * # Semantic UI - 1.7.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -37,8 +37,8 @@
   z-index: 102;
 }
 
-/* 3D Rendering */
-.ui.sidebar * {
+/* GPU Layers for Child Elements */
+.ui.sidebar > * {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   -webkit-transform: rotateZ(0deg);
@@ -81,12 +81,23 @@
 }
 
 /*--------------
-     Body
+     Pushable
 ---------------*/
 
 .pushable {
   height: 100%;
   overflow-x: hidden;
+  padding: 0em !important;
+}
+
+/* Inside Page */
+.pushable:not(body) {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+/* Whole Page */
+body.pushable {
   background: #333333 !important;
 }
 
@@ -115,8 +126,13 @@
   min-height: 100%;
   -webkit-transition: -webkit-transform 500ms ease;
           transition: transform 500ms ease;
-  background: #f7f7f7;
   z-index: 2;
+}
+body.pushable > .pusher {
+  background: #f7f7f7;
+}
+.pushable > .pusher {
+  background: inherit;
 }
 
 /*--------------
@@ -164,7 +180,7 @@
 }
 
 /*--------------
-     Animating
+    Animating
 ---------------*/
 
 .ui.animating.sidebar {
@@ -177,7 +193,11 @@
 
 .ui.visible.sidebar {
   visibility: visible;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
 }
+
+/* Shadow Direction */
 .ui.left.visible.sidebar,
 .ui.right.visible.sidebar {
   box-shadow: 0px 0px 20px rgba(39, 41, 43, 0.15);
@@ -187,15 +207,48 @@
   box-shadow: 0px 0px 20px rgba(39, 41, 43, 0.15);
 }
 
+/* Visible On Load */
+.ui.visible.left.sidebar ~ .fixed,
+.ui.visible.left.sidebar ~ .pusher {
+  -webkit-transform: translate3d(260px, 0, 0);
+          transform: translate3d(260px, 0, 0);
+}
+.ui.visible.right.sidebar ~ .fixed,
+.ui.visible.right.sidebar ~ .pusher {
+  -webkit-transform: translate3d(-260px, 0, 0);
+          transform: translate3d(-260px, 0, 0);
+}
+.ui.visible.top.sidebar ~ .fixed,
+.ui.visible.top.sidebar ~ .pusher {
+  -webkit-transform: translate3d(0, 36px, 0);
+          transform: translate3d(0, 36px, 0);
+}
+.ui.visible.bottom.sidebar ~ .fixed,
+.ui.visible.bottom.sidebar ~ .pusher {
+  -webkit-transform: translate3d(0, -36px, 0);
+          transform: translate3d(0, -36px, 0);
+}
+
+/* opposite sides visible forces content overlay */
+.ui.visible.left.sidebar ~ .ui.visible.right.sidebar ~ .fixed,
+.ui.visible.left.sidebar ~ .ui.visible.right.sidebar ~ .pusher,
+.ui.visible.right.sidebar ~ .ui.visible.left.sidebar ~ .fixed,
+.ui.visible.right.sidebar ~ .ui.visible.left.sidebar ~ .pusher {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
 /*--------------
-     Mobile
+       iOS
 ---------------*/
 
-@media only screen and (max-width: 992px) {
-  html {
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-  }
+/*
+  iOS incorrectly sizes document when content
+  is presented outside of view with 2Dtranslate
+*/
+html.ios {
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 
@@ -231,6 +284,50 @@
   width: 475px;
 }
 
+/* Left Visible */
+.ui.visible[class*="very thin"].left.sidebar ~ .fixed,
+.ui.visible[class*="very thin"].left.sidebar ~ .pusher {
+  -webkit-transform: translate3d(60px, 0, 0);
+          transform: translate3d(60px, 0, 0);
+}
+.ui.visible.thin.left.sidebar ~ .fixed,
+.ui.visible.thin.left.sidebar ~ .pusher {
+  -webkit-transform: translate3d(150px, 0, 0);
+          transform: translate3d(150px, 0, 0);
+}
+.ui.visible.wide.left.sidebar ~ .fixed,
+.ui.visible.wide.left.sidebar ~ .pusher {
+  -webkit-transform: translate3d(350px, 0, 0);
+          transform: translate3d(350px, 0, 0);
+}
+.ui.visible[class*="very wide"].left.sidebar ~ .fixed,
+.ui.visible[class*="very wide"].left.sidebar ~ .pusher {
+  -webkit-transform: translate3d(475px, 0, 0);
+          transform: translate3d(475px, 0, 0);
+}
+
+/* Right Visible */
+.ui.visible[class*="very thin"].right.sidebar ~ .fixed,
+.ui.visible[class*="very thin"].right.sidebar ~ .pusher {
+  -webkit-transform: translate3d(-60px, 0, 0);
+          transform: translate3d(-60px, 0, 0);
+}
+.ui.visible.thin.right.sidebar ~ .fixed,
+.ui.visible.thin.right.sidebar ~ .pusher {
+  -webkit-transform: translate3d(-150px, 0, 0);
+          transform: translate3d(-150px, 0, 0);
+}
+.ui.visible.wide.right.sidebar ~ .fixed,
+.ui.visible.wide.right.sidebar ~ .pusher {
+  -webkit-transform: translate3d(-350px, 0, 0);
+          transform: translate3d(-350px, 0, 0);
+}
+.ui.visible[class*="very wide"].right.sidebar ~ .fixed,
+.ui.visible[class*="very wide"].right.sidebar ~ .pusher {
+  -webkit-transform: translate3d(-475px, 0, 0);
+          transform: translate3d(-475px, 0, 0);
+}
+
 
 /*******************************
           Animations
@@ -247,17 +344,7 @@
   z-index: 102;
 }
 
-/* Animation */
-.animating.ui.overlay.sidebar,
-.ui.visible.overlay.sidebar {
-  -webkit-transition: -webkit-transform 500ms ease;
-          transition: transform 500ms ease;
-}
-
-/*--- Left ---*/
-
-
-/* Set-up */
+/* Initial */
 .ui.left.overlay.sidebar {
   -webkit-transform: translate3d(-100%, 0%, 0);
           transform: translate3d(-100%, 0%, 0);
@@ -275,7 +362,14 @@
           transform: translate3d(0%, 100%, 0);
 }
 
-/* End */
+/* Animation */
+.animating.ui.overlay.sidebar,
+.ui.visible.overlay.sidebar {
+  -webkit-transition: -webkit-transform 500ms ease;
+          transition: transform 500ms ease;
+}
+
+/* End - Sidebar */
 .ui.visible.left.overlay.sidebar {
   -webkit-transform: translate3d(0%, 0%, 0);
           transform: translate3d(0%, 0%, 0);
@@ -292,6 +386,8 @@
   -webkit-transform: translate3d(0%, 0%, 0);
           transform: translate3d(0%, 0%, 0);
 }
+
+/* End - Pusher */
 .ui.visible.overlay.sidebar ~ .fixed,
 .ui.visible.overlay.sidebar ~ .pusher {
   -webkit-transform: none !important;
@@ -310,6 +406,8 @@
           transition: transform 500ms ease;
   z-index: 102;
 }
+
+/* Sidebar - Initial */
 .ui.left.push.sidebar {
   -webkit-transform: translate3d(-100%, 0, 0);
           transform: translate3d(-100%, 0, 0);
@@ -362,6 +460,8 @@
 .ui.slide.along.sidebar {
   z-index: 1;
 }
+
+/* Sidebar - Initial */
 .ui.left.slide.along.sidebar {
   -webkit-transform: translate3d(-50%, 0, 0);
           transform: translate3d(-50%, 0, 0);
@@ -378,6 +478,8 @@
   -webkit-transform: translate3d(0%, 50%, 0);
           transform: translate3d(0%, 50%, 0);
 }
+
+/* Animation */
 .ui.animating.slide.along.sidebar {
   -webkit-transition: -webkit-transform 500ms ease;
           transition: transform 500ms ease;
@@ -398,6 +500,8 @@
 .ui.slide.out.sidebar {
   z-index: 1;
 }
+
+/* Sidebar - Initial */
 .ui.left.slide.out.sidebar {
   -webkit-transform: translate3d(50%, 0, 0);
           transform: translate3d(50%, 0, 0);
@@ -438,6 +542,8 @@
           transition: transform 500ms ease;
   z-index: 102;
 }
+
+/* Sidebar - Initial  */
 .ui.left.scale.down.sidebar {
   -webkit-transform: translate3d(-100%, 0, 0);
           transform: translate3d(-100%, 0, 0);
@@ -454,6 +560,8 @@
   -webkit-transform: translate3d(0%, 100%, 0);
           transform: translate3d(0%, 100%, 0);
 }
+
+/* Pusher - Initial */
 .ui.scale.down.left.sidebar ~ .pusher {
   -webkit-transform-origin: 75% 50%;
       -ms-transform-origin: 75% 50%;
@@ -498,3 +606,15 @@
       -ms-transform: scale(0.75);
           transform: scale(0.75);
 }
+
+
+/*******************************
+         Theme Overrides
+*******************************/
+
+
+
+/*******************************
+         Site Overrides
+*******************************/
+

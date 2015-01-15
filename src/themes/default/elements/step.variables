@@ -9,6 +9,7 @@
 @verticalMargin: 0em;
 @horizontalMargin: 0em;
 
+@arrowSize: 1.5em;
 @verticalPadding: 0.9285em;
 @horizontalPadding: 1.5em;
 @leftPadding: @horizontalPadding + (@arrowSize / 2);
@@ -25,7 +26,7 @@
 @backgroundColor: #FFFFFF;
 @background: @backgroundColor;
 @borderRadius: 0em;
-@boxShadow: 0px 0px 0px 1px @borderColor;
+@boxShadow: 0px 0px 0px 1px @solidBorderColor;
 
 /* Icon */
 @iconDistance: 0.6em;
@@ -46,8 +47,6 @@
 
 
 /* Arrow */
-@arrowWidth: 1em;
-@arrowSize: 1.5em;
 @arrowBackgroundColor: @backgroundColor;
 @arrowTopOffset: 50%;
 @arrowRightOffset: 0em;
@@ -62,6 +61,12 @@
 @stepsBackground: '';
 @stepsBoxShadow: '';
 
+/*-------------------
+      Variations
+--------------------*/
+
+@attachedTopMargin: 0em;
+@attachedBottomMargin: -1px 0em 0em;
 
 /*-------------------
        States

@@ -252,7 +252,7 @@ $.fn.state = function(parameters) {
             if(settings.sync) {
               module.sync();
             }
-            $.proxy(settings.onChange, element)();
+            settings.onChange.call(element);
           },
 
           text: function() {
@@ -287,24 +287,24 @@ $.fn.state = function(parameters) {
         },
 
         activate: function() {
-          if( $.proxy(settings.activateTest, element)() ) {
+          if( settings.activateTest.call(element) ) {
             module.debug('Setting state to active');
             $module
               .addClass(className.active)
             ;
             module.update.text(text.active);
-            $.proxy(settings.onActivate, element)();
+            settings.onActivate.call(element);
           }
         },
 
         deactivate: function() {
-          if($.proxy(settings.deactivateTest, element)() ) {
+          if( settings.deactivateTest.call(element) ) {
             module.debug('Setting state to inactive');
             $module
               .removeClass(className.active)
             ;
             module.update.text(text.inactive);
-            $.proxy(settings.onDeactivate, element)();
+            settings.onDeactivate.call(element);
           }
         },
 
@@ -347,7 +347,7 @@ $.fn.state = function(parameters) {
             module.update.text(text);
             setTimeout(function(){
               module.update.text(previousText);
-              $.proxy(callback, element)();
+              callback.call(element);
             }, duration);
           }
         },
