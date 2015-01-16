@@ -166,9 +166,6 @@ var
 
 getConfigValues();
 
-console.log(config);
-return;
-
 
 /*******************************
              Tasks
