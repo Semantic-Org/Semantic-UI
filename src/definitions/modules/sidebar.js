@@ -93,7 +93,12 @@ $.fn.sidebar = function(parameters) {
           }
 
           // avoids locking rendering if initialized in onReady
-          requestAnimationFrame(module.setup.layout);
+          if(settings.delaySetup) {
+            requestAnimationFrame(module.setup.layout);
+          }
+          else {
+            module.setup.layout();
+          }
 
           module.instantiate();
         },
@@ -1007,6 +1012,7 @@ $.fn.sidebar.settings = {
   dimPage           : true,
   scrollLock        : false,
   returnScroll      : false,
+  delaySetup        : false,
 
   useLegacy         : 'auto',
   duration          : 500,

@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.7.0
+ * # Semantic UI - 1.7.2
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -2017,6 +2017,7 @@ $.fn.checkbox = function(parameters) {
               key     = event.which,
               keyCode = {
                 enter  : 13,
+                space  : 32,
                 escape : 27
               }
             ;
@@ -2026,7 +2027,7 @@ $.fn.checkbox = function(parameters) {
                 .blur()
               ;
             }
-            if(!event.ctrlKey && key == keyCode.enter) {
+            if(!event.ctrlKey && (key == keyCode.enter || key == keyCode.space)) {
               module.verbose('Enter key pressed, toggling checkbox');
               module.toggle.call(this);
               event.preventDefault();
@@ -3152,12 +3153,9 @@ $.fn.dropdown = function(parameters) {
           query = $search.val();
 
           module.verbose('Searching for query', query);
-
-          if(module.is.searchSelection()) {
-            module.filter(query);
-            if( module.can.show() ) {
-              module.show();
-            }
+          module.filter(query);
+          if(module.is.searchSelection() && module.can.show() ) {
+            module.show();
           }
         },
 
@@ -3236,7 +3234,7 @@ $.fn.dropdown = function(parameters) {
             ? callback
             : function(){}
           ;
-          if( !module.is.active() && !module.is.allFiltered() ) {
+          if( module.can.show() && !module.is.active() && !module.is.allFiltered() ) {
             module.debug('Showing dropdown');
             module.animate.show(function() {
               if( module.can.click() ) {
@@ -3316,6 +3314,7 @@ $.fn.dropdown = function(parameters) {
                 .on('click'     + eventNamespace, selector.search, module.show)
                 .on('focus'     + eventNamespace, selector.search, module.event.searchFocus)
                 .on('blur'      + eventNamespace, selector.search, module.event.searchBlur)
+                .on('click'     + eventNamespace, selector.text, module.event.searchTextFocus)
               ;
             }
             else {
@@ -3380,8 +3379,9 @@ $.fn.dropdown = function(parameters) {
         filter: function(searchTerm) {
           var
             $results       = $(),
-            exactRegExp    = new RegExp('^' + searchTerm, 'igm'),
-            fullTextRegExp = new RegExp(searchTerm, 'ig'),
+            escapedTerm    = module.escape.regExp(searchTerm),
+            exactRegExp    = new RegExp('^' + escapedTerm, 'igm'),
+            fullTextRegExp = new RegExp(escapedTerm, 'ig'),
             allItemsFiltered
           ;
           module.verbose('Searching for matching values');
@@ -3389,8 +3389,8 @@ $.fn.dropdown = function(parameters) {
             .each(function(){
               var
                 $choice = $(this),
-                text    = module.get.choiceText($choice, false),
-                value   = module.get.choiceValue($choice, text)
+                text    = String(module.get.choiceText($choice, false)),
+                value   = String(module.get.choiceValue($choice, text))
               ;
               if( text.match(exactRegExp) || value.match(exactRegExp) ) {
                 $results = $results.add($choice);
@@ -3419,7 +3419,9 @@ $.fn.dropdown = function(parameters) {
           ;
           if( module.is.allFiltered() ) {
             module.debug('All items filtered, hiding dropdown', searchTerm);
-            module.hide();
+            if(module.is.searchSelection()) {
+              module.hide();
+            }
             settings.onNoResults.call(element, searchTerm);
           }
         },
@@ -3465,8 +3467,14 @@ $.fn.dropdown = function(parameters) {
               module.hide();
             }
           },
+          searchTextFocus: function(event) {
+            activated = true;
+            $search.focus();
+          },
           input: function(event) {
-            module.set.filtered();
+            if(module.is.searchSelection()) {
+              module.set.filtered();
+            }
             clearTimeout(module.timer);
             module.timer = setTimeout(module.search, settings.delay.search);
           },
@@ -3767,8 +3775,8 @@ $.fn.dropdown = function(parameters) {
               return ($choice.data(metadata.text) !== undefined)
                 ? $choice.data(metadata.text)
                 : (preserveHTML)
-                  ? $choice.html()
-                  : $choice.text()
+                  ? $choice.html().trim()
+                  : $choice.text().trim()
               ;
             }
           },
@@ -3777,8 +3785,8 @@ $.fn.dropdown = function(parameters) {
             return ($choice.data(metadata.value) !== undefined)
               ? $choice.data(metadata.value)
               : (typeof choiceText === 'string')
-                ? choiceText.toLowerCase()
-                : choiceText
+                ? choiceText.toLowerCase().trim()
+                : choiceText.trim()
             ;
           },
           inputEvent: function() {
@@ -3907,6 +3915,7 @@ $.fn.dropdown = function(parameters) {
             ;
             module.debug('Restoring default text', defaultText);
             module.set.text(defaultText);
+            $text.addClass(settings.className.placeholder);
           },
           defaultValue: function() {
             var
@@ -3914,8 +3923,14 @@ $.fn.dropdown = function(parameters) {
             ;
             if(defaultValue !== undefined) {
               module.debug('Restoring default value', defaultValue);
-              module.set.selected(defaultValue);
-              module.set.value(defaultValue);
+              if(defaultValue.length) {
+                module.set.selected(defaultValue);
+                module.set.value(defaultValue);
+              }
+              else {
+                module.remove.activeItem();
+                module.remove.selectedItem();
+              }
             }
           }
         },
@@ -4151,6 +4166,9 @@ $.fn.dropdown = function(parameters) {
           selection: function() {
             return $module.hasClass(className.selection);
           },
+          upward: function() {
+            return $module.hasClass(className.upward);
+          },
           visible: function($subMenu) {
             return ($subMenu)
               ? $subMenu.is(':visible')
@@ -4187,6 +4205,14 @@ $.fn.dropdown = function(parameters) {
             module.set.scrollPosition(module.get.activeItem(), true);
             module.verbose('Doing menu show animation', $currentMenu);
             if( module.is.hidden($currentMenu) || module.is.animating($currentMenu) ) {
+
+              if(settings.transition == 'auto') {
+                settings.transition = module.is.upward()
+                  ? 'slide up'
+                  : 'slide down'
+                ;
+              }
+
               if(settings.transition == 'none') {
                 callback.call(element);
               }
@@ -4263,6 +4289,13 @@ $.fn.dropdown = function(parameters) {
             if( module.is.visible($currentMenu) || module.is.animating($currentMenu) ) {
               module.verbose('Doing menu hide animation', $currentMenu);
 
+              if(settings.transition == 'auto') {
+                settings.transition = module.is.upward()
+                  ? 'slide up'
+                  : 'slide down'
+                ;
+              }
+
               if(settings.transition == 'none') {
                 callback.call(element);
               }
@@ -4328,6 +4361,13 @@ $.fn.dropdown = function(parameters) {
             module.verbose('Delaying hide event to ensure user intent');
             clearTimeout(module.timer);
             module.timer = setTimeout(module.hide, settings.delay.hide);
+          }
+        },
+
+        escape: {
+          regExp: function(text) {
+            text =  String(text);
+            return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
           }
         },
 
@@ -4531,7 +4571,7 @@ $.fn.dropdown.settings = {
     touch  : 50
   },
 
-  transition : 'slide down',
+  transition : 'auto',
   duration   : 250,
 
   /* Callbacks */
@@ -4580,6 +4620,7 @@ $.fn.dropdown.settings = {
     search      : 'search',
     selected    : 'selected',
     selection   : 'selection',
+    upward      : 'upward',
     visible     : 'visible'
   }
 
@@ -4630,6 +4671,7 @@ $.extend( $.easing, {
 
 
 })( jQuery, window , document );
+
 /*
  * # Semantic - Modal
  * http://github.com/semantic-org/semantic-ui/
@@ -6041,7 +6083,6 @@ $.fn.popup = function(parameters) {
         // binds events
         initialize: function() {
           module.debug('Initializing module', $module);
-          module.refresh();
           if(settings.on == 'click') {
             $module
               .on('click' + eventNamespace, module.toggle)
@@ -6059,11 +6100,8 @@ $.fn.popup = function(parameters) {
           $window
             .on('resize' + eventNamespace, module.event.resize)
           ;
-          if( !module.exists() ) {
+          if( !module.exists() && settings.preserve) {
             module.create();
-          }
-          else if(settings.hoverable) {
-            module.bind.popup();
           }
           module.instantiate();
         },
@@ -6082,29 +6120,31 @@ $.fn.popup = function(parameters) {
           }
           else {
             if(settings.inline) {
-              $popup = $target.next(settings.selector.popup);
+              $popup = $target.next(selector.popup);
             }
           }
           if(settings.popup) {
             $popup.addClass(className.loading);
-            $offsetParent = $module.offsetParent();
-            if($popup.offsetParent()[0] !== $offsetParent[0]) {
+            $offsetParent = module.get.offsetParent();
+            $popup.removeClass(className.loading);
+            if(module.has.popup() && module.get.offsetParent($popup)[0] !== $offsetParent[0]) {
               module.debug('Moving popup to the same offset parent as activating element');
               $popup
                 .detach()
                 .appendTo($offsetParent)
               ;
             }
-            $popup.removeClass(className.loading);
           }
           else {
             $offsetParent = (settings.inline)
-              ? $target.offsetParent()
-              : $body
+              ? module.get.offsetParent($target)
+              : module.has.popup()
+                ? module.get.offsetParent($popup)
+                : $body
             ;
           }
           if( $offsetParent.is('html') ) {
-            module.debug('Page is popups offset parent');
+            module.debug('Setting page as offset parent');
             $offsetParent = $body;
           }
         },
@@ -6199,14 +6239,23 @@ $.fn.popup = function(parameters) {
                 .appendTo( $context )
               ;
             }
+            module.refresh();
             if(settings.hoverable) {
               module.bind.popup();
             }
             settings.onCreate.call($popup, element);
           }
-          else if($target.next(settings.selector.popup).length !== 0) {
-            module.verbose('Pre-existing popup found, reverting to inline');
+          else if($target.next(selector.popup).length !== 0) {
+            module.verbose('Pre-existing popup found');
             settings.inline = true;
+            settings.popup  = $target.next(selector.popup);
+            module.refresh();
+            if(settings.hoverable) {
+              module.bind.popup();
+            }
+          }
+          else if(settings.popup) {
+            module.verbose('Used popup specified in settings');
             module.refresh();
             if(settings.hoverable) {
               module.bind.popup();
@@ -6235,11 +6284,11 @@ $.fn.popup = function(parameters) {
         show: function(callback) {
           callback = $.isFunction(callback) ? callback : function(){};
           module.debug('Showing pop-up', settings.transition);
-          if(!settings.preserve && !settings.popup) {
-            module.refresh();
-          }
           if( !module.exists() ) {
             module.create();
+          }
+          else if(!settings.preserve && !settings.popup) {
+            module.refresh();
           }
           if( $popup && module.set.position() ) {
             module.save.conditions();
@@ -6261,7 +6310,7 @@ $.fn.popup = function(parameters) {
         hideAll: function() {
           $(selector.popup)
             .filter(':visible')
-              .popup('hide')
+              .transition('hide')
           ;
         },
 
@@ -6293,8 +6342,9 @@ $.fn.popup = function(parameters) {
 
         removePopup: function() {
           module.debug('Removing popup', $popup);
-          if( module.has.popup() ) {
+          if( module.has.popup() && !settings.popup) {
             $popup.remove();
+            $popup = undefined;
           }
           settings.onRemove.call($popup, element);
         },
@@ -6404,9 +6454,35 @@ $.fn.popup = function(parameters) {
             }
             return false;
           },
+          offsetParent: function($target) {
+            var
+              element = ($target !== undefined)
+                ? $target[0]
+                : $module[0],
+              parentNode = element.parentNode,
+              $node    = $(parentNode)
+            ;
+            if(parentNode) {
+              var
+                is2D     = ($node.css('transform') === 'none'),
+                isStatic = ($node.css('position') === 'static'),
+                isHTML   = $node.is('html')
+              ;
+              while(parentNode && !isHTML && isStatic && is2D) {
+                parentNode = parentNode.parentNode;
+                $node    = $(parentNode);
+                is2D     = ($node.css('transform') === 'none');
+                isStatic = ($node.css('position') === 'static');
+                isHTML   = $node.is('html');
+              }
+            }
+            return ($node && $node.length > 0)
+              ? $node
+              : $()
+            ;
+          },
           offstagePosition: function(position) {
             var
-              position = position || false,
               boundary  = {
                 top    : $(window).scrollTop(),
                 bottom : $(window).scrollTop() + $(window).height(),
@@ -6421,6 +6497,7 @@ $.fn.popup = function(parameters) {
               offstage  = {},
               offstagePositions = []
             ;
+            position = position || false;
             if(popup.offset && position) {
               module.verbose('Checking if outside viewable area', popup.offset);
               offstage = {
@@ -6581,7 +6658,6 @@ $.fn.popup = function(parameters) {
               });
               module.debug('RTL: Popup positioning updated', computedPosition);
             }
-
             switch (computedPosition) {
               case 'top left':
                 positioning = {
@@ -6772,7 +6848,7 @@ $.fn.popup = function(parameters) {
 
         has: {
           popup: function() {
-            return ($popup.length > 0);
+            return ($popup && $popup.length > 0);
           }
         },
 
@@ -6799,7 +6875,7 @@ $.fn.popup = function(parameters) {
 
         reset: function() {
           module.remove.visible();
-          if(settings.preserve || settings.popup) {
+          if(settings.preserve) {
             if($.fn.transition !== undefined) {
               $popup
                 .transition('remove transition')
@@ -7028,7 +7104,7 @@ $.fn.popup.settings = {
   target         : false,
   popup          : false,
   inline         : false,
-  preserve       : true,
+  preserve       : false,
   hoverable      : false,
 
   duration       : 200,
@@ -7309,12 +7385,16 @@ $.fn.progress = function(parameters) {
               total   = module.total                || 0,
               percent = (module.is.visible() && animating)
                 ? module.get.displayPercent()
-                : module.percent || 0
+                : module.percent || 0,
+              left = (module.total > 0)
+                ? (total - value)
+                : (100 - percent)
             ;
             templateText = templateText || '';
             templateText = templateText
               .replace('{value}', value)
               .replace('{total}', total)
+              .replace('{left}', left)
               .replace('{percent}', percent)
             ;
             module.debug('Adding variables to progress bar text', templateText);
@@ -7487,7 +7567,7 @@ $.fn.progress = function(parameters) {
             if(module.total) {
               module.value = Math.round( (percent / 100) * module.total);
             }
-            if(settings.limitValues) {
+            else if(settings.limitValues) {
               module.value = (module.value > 100)
                 ? 100
                 : (module.value < 0)
@@ -7503,15 +7583,17 @@ $.fn.progress = function(parameters) {
             settings.onChange.call(element, percent, module.value, module.total);
           },
           labelInterval: function() {
-            clearInterval(module.interval);
-            $bar
-              .one(transitionEnd + eventNamespace, function() {
+            var
+              animationCallback = function() {
                 module.verbose('Bar finished animating, removing continuous label updates');
                 clearInterval(module.interval);
                 animating = false;
                 module.set.labels();
-              })
+              }
             ;
+            clearInterval(module.interval);
+            $bar.one(transitionEnd + eventNamespace, animationCallback);
+            module.timer = setTimeout(animationCallback, settings.duration + 100);
             animating = true;
             module.interval = setInterval(module.set.labels, settings.framerate);
           },
@@ -10176,7 +10258,12 @@ $.fn.sidebar = function(parameters) {
           }
 
           // avoids locking rendering if initialized in onReady
-          requestAnimationFrame(module.setup.layout);
+          if(settings.delaySetup) {
+            requestAnimationFrame(module.setup.layout);
+          }
+          else {
+            module.setup.layout();
+          }
 
           module.instantiate();
         },
@@ -11090,6 +11177,7 @@ $.fn.sidebar.settings = {
   dimPage           : true,
   scrollLock        : false,
   returnScroll      : false,
+  delaySetup        : false,
 
   useLegacy         : 'auto',
   duration          : 500,
@@ -13589,7 +13677,7 @@ $.fn.transition.settings = {
   onHide       : function() {},
 
   // whether timeout should be used to ensure callback fires in cases animationend does not
-  useFailSafe  : false,
+  useFailSafe  : true,
 
   // whether EXACT animation can occur twice in a row
   allowRepeats : false,
@@ -13840,14 +13928,14 @@ $.fn.video = function(parameters) {
               }
               if(source == 'vimeo') {
                 html = ''
-                  + '<iframe src="http://player.vimeo.com/video/' + id + '?=' + module.generate.url(source) + '"'
+                  + '<iframe src="//player.vimeo.com/video/' + id + '?=' + module.generate.url(source) + '"'
                   + ' width="100%" height="100%"'
                   + ' frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
                 ;
               }
               else if(source == 'youtube') {
                 html = ''
-                  + '<iframe src="http://www.youtube.com/embed/' + id + '?=' + module.generate.url(source) + '"'
+                  + '<iframe src="//www.youtube.com/embed/' + id + '?=' + module.generate.url(source) + '"'
                   + ' width="100%" height="100%"'
                   + ' frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
                 ;

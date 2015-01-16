@@ -31,10 +31,12 @@
 @menuTextAlign: left;
 @menuTransition: none;
 
-@menuBorder: 1px solid @borderColor;
-@menuBoxShadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.15);
+@menuBorderWidth: 1px;
+@menuBorder: @menuBorderWidth solid @borderColor;
+@menuBoxShadow: 0px 1px 4px 0px @borderColor;
 @menuBorderRadius: 0em 0em @borderRadius @borderRadius;
 @menuTransition: opacity 0.2s ease;
+@menuMinWidth: ~"calc(100% + "(@menuBorderWidth * 2)~")";
 @menuZIndex: 11;
 
 /* Text */
@@ -92,8 +94,9 @@
 @itemElementDistance: 0.75em;
 
 /* Sub-Menu Dropdown Icon */
+@itemDropdownIconDistance: 1em;
 @itemDropdownIconFloat: right;
-@itemDropdownIconMargin: @itemLineHeightOffset 0em 0em @itemElementDistance;
+@itemDropdownIconMargin: @itemLineHeightOffset 0em 0em @itemDropdownIconDistance;
 
 /* Description */
 @itemDescriptionMargin: 0em 0em 0em 1em;
@@ -120,7 +123,8 @@
 @selectionTextColor: @textColor;
 
 @selectionBoxShadow: none;
-@selectionBorder: 1px solid @borderColor;
+@selectionBorderColor: @borderColor;
+@selectionBorder: 1px solid @selectionBorderColor;
 @selectionBorderRadius: @borderRadius;
 @selectionIconOpacity: 0.8;
 @selectionIconTransition: opacity 0.2s ease;
@@ -165,7 +169,7 @@
 @selectionVisibleHoverBorderColor: @selectedBorderColor;
 @selectionVisibleHoverBoxShadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
 @selectionVisibleHoverMenuBorder: 1px solid @selectedBorderColor;
-@selectionVisibleHoverMenuBoxShadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.08);
+@selectionVisibleHoverMenuBoxShadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.1);
 
 @selectionVisibleConnectingBorder: 0em;
 @selectionVisibleIconOpacity: 1;
@@ -174,7 +178,10 @@
 @searchMinWidth: '';
 
 /* Search Selection */
-@searchSelectionLineHeight: 1.2em;
+@searchSelectionLineHeight: 1.2142em; /* browser default for webkit <input> */
+@searchSelectionLineHeightOffset: ((@searchSelectionLineHeight - 1em) / 2);
+@searchSelectionInputPadding: (@selectionVerticalPadding - @searchSelectionLineHeightOffset) @selectionHorizontalPadding;
+
 @searchMobileMaxMenuHeight: @selectionMobileMaxMenuHeight;
 @searchTabletMaxMenuHeight: @selectionTabletMaxMenuHeight;
 @searchComputerMaxMenuHeight: @selectionComputerMaxMenuHeight;
@@ -221,6 +228,15 @@
 /*-------------------
       Variations
 --------------------*/
+
+/* Upward */
+@upwardMenuBoxShadow: 0px 0px 4px 0px @borderColor;
+@upwardMenuBorderRadius: @borderRadius @borderRadius 0em 0em;
+@upwardSelectionHoverBoxShadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.05);
+@upwardSelectionVisibleBoxShadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
+@upwardSelectionVisibleHoverBoxShadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.05);
+@upwardSelectionVisibleHoverMenuBoxShadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
+@upwardSelectionVisibleBorderRadius:  @selectionVisibleConnectingBorder @selectionVisibleConnectingBorder @borderRadius @borderRadius;
 
 /* Flyout Direction */
 @leftMenuDropdownIconFloat: left;

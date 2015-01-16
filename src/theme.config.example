@@ -36,17 +36,15 @@
 
 /* Elements */
 @button     : 'default';
-@container  : 'default';
-@icon       : 'default';
 @divider    : 'default';
 @flag       : 'default';
 @header     : 'default';
+@icon       : 'default';
 @image      : 'default';
 @input      : 'default';
 @label      : 'default';
 @list       : 'default';
 @loader     : 'default';
-@progress   : 'default';
 @rail       : 'default';
 @reveal     : 'default';
 @segment    : 'default';
@@ -62,13 +60,13 @@
 
 /* Modules */
 @accordion  : 'default';
-@chatroom   : 'default';
 @checkbox   : 'default';
 @dimmer     : 'default';
 @dropdown   : 'default';
 @modal      : 'default';
 @nag        : 'default';
 @popup      : 'default';
+@progress   : 'default';
 @rating     : 'default';
 @search     : 'default';
 @shape      : 'default';

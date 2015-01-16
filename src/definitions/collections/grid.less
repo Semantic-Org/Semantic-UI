@@ -1182,7 +1182,7 @@
 .ui[class*="left aligned"].grid > .row > .column,
 .ui[class*="left aligned"].grid > .column,
 .ui.grid [class*="left aligned"].column,
-.ui.grid > [class*="left aligned"].aligned.row > .column {
+.ui.grid > [class*="left aligned"].row > .column {
   text-align: left;
 }
 .ui.grid [class*="left aligned"].column{
@@ -1193,7 +1193,7 @@
 .ui[class*="center aligned"].grid,
 .ui[class*="center aligned"].grid > .row > .column,
 .ui[class*="center aligned"].grid > .column,
-.ui.grid > [class*="center aligned"].aligned.row > .column {
+.ui.grid > [class*="center aligned"].row > .column {
   text-align: center;
 }
 .ui.grid [class*="center aligned"].column{
@@ -1204,7 +1204,7 @@
 .ui[class*="right aligned"].grid,
 .ui[class*="right aligned"].grid > .row > .column,
 .ui[class*="right aligned"].grid > .column,
-.ui.grid > [class*="right aligned"].aligned.row > .column {
+.ui.grid > [class*="right aligned"].row > .column {
   text-align: right;
 }
 .ui.grid [class*="right aligned"].column{
@@ -1234,19 +1234,20 @@
 .ui[class*="top aligned"].grid > .row > .column,
 .ui[class*="top aligned"].grid > .column,
 .ui.grid [class*="top aligned"].column,
-.ui.grid > [class*="top aligned"].aligned.row > .column {
+.ui.grid > [class*="top aligned"].row > .column {
   vertical-align: top;
 }
-.ui.grid [class*="top aligned"].column{
+.ui.grid [class*="top aligned"].column {
   vertical-align: top !important;
 }
 
 /* Middle Aligned */
-.ui[class*="center aligned"].grid,
+.ui[class*="middle aligned"].grid,
 .ui[class*="middle aligned"].grid > .row > .column,
 .ui[class*="middle aligned"].grid > .column,
-.ui.grid > [class*="middle aligned"].aligned.row > .column {
+.ui.grid > [class*="middle aligned"].row > .column {
   vertical-align: middle;
+  align-items: center;
 }
 .ui.grid [class*="middle aligned"].column{
   vertical-align: middle !important;
@@ -1256,8 +1257,9 @@
 .ui[class*="bottom aligned"].grid,
 .ui[class*="bottom aligned"].grid > .row > .column,
 .ui[class*="bottom aligned"].grid > .column,
-.ui.grid > [class*="bottom aligned"].aligned.row > .column {
+.ui.grid > [class*="bottom aligned"].row > .column {
   vertical-align: bottom;
+  align-items: flex-end;
 }
 .ui.grid [class*="bottom aligned"].column{
   vertical-align: bottom !important;
@@ -1388,18 +1390,56 @@
 }
 
 
+/*----------------------
+      Equal Width
+-----------------------*/
+
+.ui[class*="equal width"].grid {
+  display: table;
+  table-layout: fixed;
+}
+.ui[class*="equal width"].grid > .row,
+.ui.grid > [class*="equal width"].row  {
+  display: table;
+  table-layout: fixed;
+  width: 100% !important;
+}
+.ui[class*="equal width"].grid > .column,
+.ui[class*="equal width"].grid > .row > .column,
+.ui.grid > [class*="equal width"].row > .column {
+  display: table-cell;
+}
+
+/* Flexbox (Experimental / Overrides Where Supported) */
+.ui[class*="equal width"].grid {
+  display: flex;
+  flex-direction: column;
+}
+.ui[class*="equal width"].grid > .row,
+.ui.grid > [class*="equal width"].row  {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+.ui[class*="equal width"].grid > .column,
+.ui[class*="equal width"].grid > .row > .column,
+.ui.grid > [class*="equal width"].row > .column {
+  display: inline-block;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
 
 
 /*----------------------
   Equal Height Columns
 -----------------------*/
+
 .ui[class*="equal height"].grid {
   display: table;
   table-layout: fixed;
 }
-
 .ui[class*="equal height"].grid > .row,
-.ui[class*="equal height"].row  {
+.ui.grid > [class*="equal height"].row  {
   display: table;
   table-layout: fixed;
   width: 100% !important;
@@ -1410,6 +1450,21 @@
   display: table-cell;
 }
 
+/* Flexbox (Experimental / Overrides Where Supported) */
+.ui[class*="equal height"].grid,
+.ui[class*="equal height"].grid > .row,
+.ui.grid > [class*="equal height"].row  {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+.ui[class*="equal height"].grid > .column,
+.ui[class*="equal height"].grid > .row > .column,
+.ui.grid > [class*="equal height"].row > .column {
+  display: inline-block;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
 
 /*-------------------
       Doubling

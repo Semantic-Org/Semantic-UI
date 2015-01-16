@@ -91,6 +91,9 @@
   float: @itemDropdownIconFloat;
   margin: @itemDropdownIconMargin;
 }
+.ui.dropdown .menu > .item .dropdown.icon + .text {
+  margin-right: @itemDropdownIconDistance;
+}
 
 
 /*--------------
@@ -126,7 +129,7 @@
   -webkit-touch-callout: none;
 }
 .ui.dropdown .menu > .item:first-child {
-  border-top: none;
+  border-top-width: 0px;
 }
 
 /*--------------
@@ -135,15 +138,15 @@
 
 .ui.dropdown > .text > [class*="right floated"],
 .ui.dropdown .menu .item > [class*="right floated"] {
-  float: right;
-  margin-right: 0em;
-  margin-left: @floatedDistance;
+  float: right !important;
+  margin-right: 0em !important;
+  margin-left: @floatedDistance !important;
 }
 .ui.dropdown > .text > [class*="left floated"],
 .ui.dropdown .menu .item > [class*="left floated"] {
-  float: right;
-  margin-left: 0em;
-  margin-right: @floatedDistance;
+  float: left !important;
+  margin-left: 0em !important;
+  margin-right: @floatedDistance !important;
 }
 
 .ui.dropdown .menu .item > .icon.floated,
@@ -370,25 +373,16 @@ select.ui.dropdown {
   min-width:  0px;
 }
 
-/* Remove Selection */
-.ui.selection.dropdown > .delete.icon {
-  opacity: 0.6;
-}
-.ui.selection.dropdown > .delete.icon:hover {
-  opacity: 1;
-}
-
-
 /*  Selection Menu */
 .ui.selection.dropdown .menu {
   overflow-x: hidden;
   overflow-y: auto;
   backface-visibility: hidden;
   -webkit-overflow-scrolling: touch;
-  border-top: none !important;
+  border-top-width: 0px !important;
   width: auto;
-  margin: 0px -1px;
-  min-width: ~"calc(100% + 2px)";
+  margin: 0px -@menuBorderWidth;
+  min-width: @menuMinWidth;
   outline: none;
 
   box-shadow: @selectionMenuBoxShadow;
@@ -434,6 +428,16 @@ select.ui.dropdown {
 .ui.selection.dropdown:hover {
   border-color: @selectionHoverBorderColor;
   box-shadow: @selectionHoverBoxShadow;
+}
+
+/* Disabled */
+.ui.selection.dropdown.disabled,
+.ui.selection.dropdown.disabled:hover {
+  cursor: default;
+  box-shadow: none;
+  color: @selectionTextColor;
+  border: @selectionBorder;
+  opacity: @disabledOpacity !important;
 }
 
 /* Visible Hover */
@@ -485,25 +489,40 @@ select.ui.dropdown {
   border: none !important;
   box-shadow: none !important;
   border-radius: 0em !important;
-
   cursor: pointer;
-  position: absolute;
   top: 0em;
   left: 0em;
   width: 100%;
   outline: none;
-  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
-  padding: inherit; /*Amazing trick */
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  padding: inherit;
+}
+
+/* Text Layering */
+.ui.search.dropdown > input.search {
+  position: absolute;
+  z-index: 2;
+}
+.ui.search.dropdown > .text {
+  cursor: text;
+  position: relative;
+  z-index: 3;
 }
 
 /* Search Selection */
 .ui.search.selection.dropdown > input.search {
   line-height: @searchSelectionLineHeight;
+  padding: @searchSelectionInputPadding;
 }
 
+/* Active/Visible Search */
 .ui.search.dropdown.active > input.search,
 .ui.search.dropdown.visible > input.search {
   cursor: auto;
+}
+.ui.search.dropdown.active > .text,
+.ui.search.dropdown.visible > .text {
+  pointer-events: none;
 }
 .ui.active.search.dropdown > input.search:focus + .text {
   color: @unselectedTextColor !important;
@@ -680,6 +699,19 @@ select.ui.dropdown {
 }
 
 
+
+/*--------------------
+        Disabled
+----------------------*/
+
+/* Disabled */
+.ui.disabled.dropdown {
+  cursor: default;
+  pointer-events: none;
+  opacity: @disabledOpacity;
+}
+
+
 /*******************************
            Variations
 *******************************/
@@ -714,7 +746,60 @@ select.ui.dropdown {
   float: @leftMenuDropdownIconFloat;
   margin: @leftMenuDropdownIconMargin;
 }
+.ui.dropdown .item .left.dropdown.icon,
+.ui.dropdown .left.menu .item .dropdown.icon {
+  width: auto;
+  float: @leftMenuDropdownIconFloat;
+  margin: @leftMenuDropdownIconMargin;
+}
+.ui.dropdown .item .left.dropdown.icon + .text,
+.ui.dropdown .left.menu .item .dropdown.icon + .text {
+  margin-left: @itemDropdownIconDistance;
+}
 
+
+/*--------------
+     Upward
+---------------*/
+
+.ui.upward.dropdown > .menu {
+  top: auto;
+  bottom: 100%;
+  box-shadow: @upwardMenuBoxShadow;
+  border-radius: @upwardMenuBorderRadius;
+}
+
+/* Active Upward */
+.ui.simple.upward.active.dropdown,
+.ui.simple.upward.dropdown:hover {
+  border-radius: @borderRadius @borderRadius 0em 0em !important;
+}
+.ui.upward.dropdown.button:not(.pointing):not(.floating).active,
+.ui.upward.dropdown.button:not(.pointing):not(.floating).visible {
+  border-radius: @borderRadius @borderRadius 0em 0em;
+}
+
+/* Selection */
+.ui.upward.selection.dropdown .menu {
+  border-top-width: @menuBorderWidth !important;
+  border-bottom-width: 0px !important;
+}
+.ui.upward.selection.dropdown:hover {
+  box-shadow: @upwardSelectionHoverBoxShadow;
+}
+.ui.upward.selection.visible.dropdown:hover {
+  box-shadow: @upwardSelectionVisibleHoverBoxShadow;
+}
+.ui.active.upward.selection.dropdown,
+.ui.visible.upward.selection.dropdown {
+  border-radius: @upwardSelectionVisibleBorderRadius !important;
+}
+.ui.upward.selection.dropdown.visible {
+  box-shadow: @upwardSelectionVisibleBoxShadow;
+}
+.ui.upward.selection.visible.dropdown:hover .menu {
+  box-shadow: @upwardSelectionVisibleHoverMenuBoxShadow;
+}
 
 /*--------------
      Simple

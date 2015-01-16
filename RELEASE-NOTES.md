@@ -1,25 +1,59 @@
 ## RELEASE NOTES
 
-### Version 1.7.0 -
+### Version 1.7.3 - January 16, 2015
+
+- **Installer** - Fix issue with component list in `semantic.json` not correctly overriding default components
+
+### Version 1.7.(1-2) - January 15, 2015
+
+**Bugs**
+
+- **Installer** - Fixes installer not including RTL parameter correctly
+- **UI** - Fixes `progress`, `ad`, and `sidebar` not loading `.override` files correctly
+- Removed undocumented components from `theme.config.example`
+
+### Version 1.7.0 - January 14, 2015
 
 **Major Changes**
-- **Project** - Right-to-left (RTL) support added. New gulp tasks for RTL *Thanks @MohammadYounes!*
-- **Project** - Express/Custom install now let you specify the outputted file permissions and RTL use
+- **Project** - Right-to-left (RTL) support added. New gulp tasks for RTL file generation and install setting. Docs however do not yet support RTL.*Thanks @MohammadYounes for constant support with RTL!*.
+- **Project** - Install now let you specify the outputted file permissions (express/custom install)
 
-**Enhancements**
+**Enhancements / Changes**
+- **Grid** - Added `equal width` variation using `flex-box`, `equal height` now also uses `flex-box` (this may have to be removed if causes unexpected browser issues)
 - **Sidebar** - Having a sidebar visible on page load is now much simpler. You can include ``ui visible sidebar`` on page load to have a sidebar element appear on page load. To close call `$('.ui.sidebar').sidebar('hide')`
+- **Sidebar** - Added documentation on using sidebar on a custom context. Sidebars using a custom context no longer add background colors like those initialized on `body`
+- **Site** - Form input highlighting color added (helps differentiate form colors with autocompleted fields). Default text highlighting color moved from highlighter yellow to a mellow blue.
+- **Dropdown** - Javascript Dropdown can now be disabled by adding ``disabled` class. No need to call `destroy`. **Thanks Psyton**
+- **Dropdown** - Search dropdown input can now have backgrounds. Fixes issues with autocompleted search dropdowns which have forced yellow "autocompleted" bg.
+- **Dropdown** - Fix issue with search selection not correctly matching when values are not strings
+- **Progress** - Progress bars can now display percent or amount left using `{value}` in text templates
+- **Dropdown** - New `upward dropdown` variation, which opens its menu upward. Default animation now uses ``settings.transition = 'auto'` and determines direction of animation based on menu direction
+- **Dropdown** - Dropdown matching fields without values now trims whitespace by default
+- **Checkbox** - Checkbox now toggles on spacebar when focused (previously only toggled on enter key).
+- **Popup** - Popup now uses its own custom method for determining `offsetParent` meaning 3D contexts (like inside an animation) no longer should break positioning
+- **Popup** - Popup now uses `preserve: false` by default, this is slightly less performant but will reduce page clutter caused by leaving generated elements in the DOM
 
 **Code / Build**
 - **Build** - `Dist/` files now set file permissions in build. `644` by default. Can adjust in `semantic.json` or during gulp install. You will need to run `npm install` to add the new gulp-chmod dependency *Thanks @PeterDaveHello*
+- **Sidebar** - `setup layout` not occurs synchronously if you initialize a sidebar without the proper html. This makes sure calls to sidebar will occur correctly before the page is setup. A new setting `delaySetup` will override this, increasing performance.
 - **Modules** - Remove use of deprecated `.size()` for `.length` across all modules
 - **Modules** - Use of `$.proxy` swapped to native `function.call()` for performance gains across all modules
 
 **Bugs**
+- **Video** - Video component now uses `//` instead of defaulting to `http`
+- **Dropdown** - `restore defaults` will now set placeholder styling and remove active elemenet. Added example in docs.
+- **Dropdown** - Fixed bug where sub menus may sometimes have dropdown icon overlap text
+- **Dropdown** - Fixes dropdown search input from filtering text values when input is inside menu, i.e "In-Menu Search"
+- **Dropdown** - Fix issue with search selection not correctly creating RegExp when select values are not strings **Thanks @alufers**
+- **Dropdown** - Fix issue with `left floated` and `right floated` content sometimes not applying correctly
 - **Popup** - `wide` and `very wide` popup will now appear when screen size is below their `max-width`
 - **Popup** - Popup no longer blurs element on popup hide
 - **Segment** - ``ui tabular menu`` now correctly aligns with attached segment when using fluid variation *Thanks @MohammadYounes*
+- **Segment** - `basic segment` no longer removes padding on first and last elements
 - **Steps** - Steps now use ``table-cell`` to allow steps to be equal height by default, even with different content height.
 - **Button** - Fix issue with labeled icon groups in material theme
+- **Progress** - Fixes bug with progress that use ``total`` and ``value`` receiving the wrong values for text templates
+- **List** - Fix some styling issues with `ui list` inside `ui menu`
 
 ### Version 1.6.4 - January 12, 2015
 

@@ -2,7 +2,7 @@
 
 # Semantic UI
 
-Semantic is a highly-themable UI framework with naming conventions built around common usage.
+Semantic is a highly-themable UI framework with intuitive naming conventions built around common usage.
 
 Key Features
 * 50+ UI Elements
@@ -12,6 +12,9 @@ Key Features
 
 > Semantic UI is now at 1.0, be sure to check out our [release notes](https://github.com/Semantic-Org/Semantic-UI/blob/master/RELEASE-NOTES.md#version-100---november-24-2014) for changes from the pre-release.
 
+## Release Schedule
+
+Semantic follows a weekly schedule for feature updates. To see what changes are scheduled for upcoming releases, be sure to visit the [release milestone](https://github.com/Semantic-Org/Semantic-UI/milestones) page.
 
 ## Community Support
 

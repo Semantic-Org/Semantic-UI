@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.7.0
+ * # Semantic UI - 1.7.2
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -102,16 +102,35 @@ a:hover {
           Highlighting
 *******************************/
 
+
+/* Site */
 ::-webkit-selection {
-  background-color: rgba(255, 255, 160, 0.4);
+  background-color: #cce2ff;
   color: rgba(0, 0, 0, 0.8);
 }
 ::-moz-selection {
-  background-color: rgba(255, 255, 160, 0.4);
+  background-color: #cce2ff;
   color: rgba(0, 0, 0, 0.8);
 }
 ::selection {
-  background-color: rgba(255, 255, 160, 0.4);
+  background-color: #cce2ff;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+/* Form */
+textarea::-webkit-selection,
+input::-webkit-selection {
+  background-color: rgba(100, 100, 100, 0.4);
+  color: rgba(0, 0, 0, 0.8);
+}
+textarea::-moz-selection,
+input::-moz-selection {
+  background-color: rgba(100, 100, 100, 0.4);
+  color: rgba(0, 0, 0, 0.8);
+}
+textarea::selection,
+input::selection {
+  background-color: rgba(100, 100, 100, 0.4);
   color: rgba(0, 0, 0, 0.8);
 }
 
