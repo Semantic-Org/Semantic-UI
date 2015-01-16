@@ -864,7 +864,10 @@ gulp.task('install', 'Set-up project for first time', function () {
         };
       }
       if(answers.rtl) {
-        json.rtl = answers.rtl == "yes" ? true : false;
+        json.rtl = (answers.rtl == 'yes')
+          ? true
+          : false
+        ;
       }
       if(answers.site) {
         json.paths.source.site = answers.site + '/';
