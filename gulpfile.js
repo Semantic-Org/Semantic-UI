@@ -118,7 +118,7 @@ var
       runSetup = true;
       config = defaults;
     }
-    config = extend(true, {}, defaults, config);
+    config = extend(false, {}, defaults, config);
 
     // shorthand
     base    = config.base;
