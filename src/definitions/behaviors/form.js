@@ -141,7 +141,8 @@ $.fn.form = function(fields, parameters) {
               ;
 
               switch (type) {
-                case 'checkbox':
+              	case 'checkbox':
+              	case 'radio':
                   $field.data('defaultValue', $field.is(':checked'));
                   break;
                 default:
@@ -167,7 +168,8 @@ $.fn.form = function(fields, parameters) {
                  case 'select-multiple':
                    $parent.is('.ui.dropdown') && $parent.dropdown('restore defaults');
                    break;
-                 case 'checkbox':
+               	case 'checkbox':
+               	case 'radio':
                    $parent.is('.ui.checkbox') && $parent.checkbox(defaultValue ? 'check' : 'uncheck');
                    break;
                  default:
@@ -177,6 +179,32 @@ $.fn.form = function(fields, parameters) {
                 $field.parents('.field').removeClass(settings.className.error);
             })
           ;
+        },
+
+        serialize: function () {
+          var data = {};
+
+          $field
+            .each(function () {
+              var
+                $field = $(this),
+                type = $field.prop('type'),
+                name = $field.prop('name')
+              ;
+
+              switch (type) {
+                case 'checkbox':
+                case 'radio':
+                  if ($field.is(':checked'))
+                    data[name] = $field.val();
+                    break;
+                default:
+                  data[name] = $field.val();
+              }
+            })
+          ;
+
+          return data;
         },
 
         removeEvents: function() {
