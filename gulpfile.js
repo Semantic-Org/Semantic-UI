@@ -1082,9 +1082,7 @@ gulp.task('create repos', false, function(callback) {
             formExport        :  'module.exports = function(fields, parameters) {\n  var _module = module;\n',
             settingsExport    :  'module.exports.settings =',
             settingsReference :  '_module.exports.settings',
-            jQuery            :  'require("jquery")',
-            // meteor
-            mversion          : version
+            jQuery            :  'require("jquery")'
           }
         },
         task = {
