@@ -118,7 +118,9 @@ var
       runSetup = true;
       config = defaults;
     }
-    config = extend(true, {}, defaults, config);
+
+    // extend defaults using shallow copy
+    config = extend(false, {}, defaults, config);
 
     // shorthand
     base    = config.base;
@@ -126,6 +128,7 @@ var
     output  = config.paths.output;
     source  = config.paths.source;
 
+    // npm package.json holds true "version"
     version = (package !== undefined)
       ? package.version || 'Unknown'
       : 'Unknown'
@@ -139,14 +142,14 @@ var
       : '{' + defaults.components.join(',') + '}'
     ;
 
-    // relative paths
+    // relative asset paths for css
     assetPaths = {
       uncompressed : path.relative(output.uncompressed, output.themes).replace(/\\/g,'/'),
       compressed   : path.relative(output.compressed, output.themes).replace(/\\/g,'/'),
       packaged     : path.relative(output.packaged, output.themes).replace(/\\/g,'/')
     };
 
-    // add base to values
+    // add base path to all folders
     for(var folder in source) {
       if(source.hasOwnProperty(folder)) {
         source[folder] = path.normalize(base + source[folder]);
@@ -163,6 +166,9 @@ var
 
 getConfigValues();
 
+console.log(config);
+return;
+
 
 /*******************************
              Tasks
@@ -177,11 +183,13 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function(callb
   console.clear();
   console.log('Watching source files for changes');
 
+
   if(!fs.existsSync(config.files.theme)) {
     console.error('Cant compile LESS. Run "gulp install" to create a theme config file');
     return;
   }
 
+  // start rtl task instead
   if(config.rtl) {
     gulp.start('watch rtl');
     return;
@@ -217,11 +225,13 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function(callb
       isConfig        = (file.path.indexOf('.config') !== -1);
 
       if(isDefinition || isPackagedTheme || isSiteTheme) {
+        // rebuild only matching definition file
         srcPath = util.replaceExtension(file.path, '.less');
         srcPath = srcPath.replace(config.regExp.themePath, source.definitions);
         srcPath = srcPath.replace(source.site, source.definitions);
       }
       else if(isConfig) {
+        // impossible to tell which file was updated in theme.config, rebuild all
         console.log('Change detected in theme config');
         gulp.start('build');
       }
@@ -247,7 +257,7 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function(callb
           .pipe(autoprefixer(settings.prefix))
         ;
 
-        // use 2 concurrent streams from same source
+        // use 2 concurrent streams from same pipe
         uncompressedStream = stream.pipe(clone());
         compressedStream   = stream.pipe(clone());
 
@@ -287,7 +297,7 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function(callb
     })
   ;
 
-  // watch changes in assets
+  // watch for changes in assets
   gulp
     .watch([
       source.themes   + '**/assets/**'
@@ -301,7 +311,7 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function(callb
     })
   ;
 
-  // watch changes in js
+  // watch for changes in js
   gulp
     .watch([
       source.definitions   + '**/*.js'
@@ -342,14 +352,14 @@ gulp.task('build', 'Builds all files from source', function(callback) {
     return;
   }
 
+  // Run RTL build instead
   if(config.rtl) {
     gulp.start('build rtl');
     return;
   }
 
-  // get relative asset path (path returns wrong path?)
   // assetPaths.source = path.relative(srcPath, path.resolve(source.themes));
-  assetPaths.source = '../../themes'; // hardcoded
+  assetPaths.source = '../../themes';  // path.relative returns wrong path (hardcoded for src)
 
   // copy assets
   gulp.src(source.themes + '**/assets/**')
