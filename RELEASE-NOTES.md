@@ -1,5 +1,9 @@
 ## RELEASE NOTES
 
+### Version 1.7.3 - January 16, 2015
+
+- **Installer** - Fix issue with component list in `semantic.json` not correctly overriding default components
+
 ### Version 1.7.(1-2) - January 15, 2015
 
 **Bugs**
