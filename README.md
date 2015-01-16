@@ -14,7 +14,7 @@ Key Features
 
 ## Release Schedule
 
-Semantic follows a weekly schedule for feature updates. To see what changes are scheduled for upcoming releases, be sure to visit the [release milestone](https://github.com/Semantic-Org/Semantic-UI/milestoneshttps://github.com/Semantic-Org/Semantic-UI/milestones) page.
+Semantic follows a weekly schedule for feature updates. To see what changes are scheduled for upcoming releases, be sure to visit the [release milestone](https://github.com/Semantic-Org/Semantic-UI/milestones) page.
 
 ## Community Support
 
