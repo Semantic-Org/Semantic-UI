@@ -9,61 +9,46 @@
 
 
 var
-  gulp         = require('gulp-help')(require('gulp')),
+  gulp            = require('gulp-help')(require('gulp')),
 
   // node components & oddballs
-  console      = require('better-console'),
-  del          = require('del'),
-  extend       = require('extend'),
-  fs           = require('fs'),
-  path         = require('path'),
-  runSequence  = require('run-sequence'),
-  wrench       = require('wrench'),
+  console         = require('better-console'),
+  del             = require('del'),
+  extend          = require('extend'),
+  fs              = require('fs'),
 
-  // gulp dependencies
-  autoprefixer = require('gulp-autoprefixer'),
-  chmod        = require('gulp-chmod'),
-  clone        = require('gulp-clone'),
-  concat       = require('gulp-concat'),
-  concatCSS    = require('gulp-concat-css'),
-  copy         = require('gulp-copy'),
-  debug        = require('gulp-debug'),
-  flatten      = require('gulp-flatten'),
-  header       = require('gulp-header'),
-  jeditor      = require('gulp-json-editor'),
-  karma        = require('gulp-karma'),
-  less         = require('gulp-less'),
-  minifyCSS    = require('gulp-minify-css'),
-  notify       = require('gulp-notify'),
-  plumber      = require('gulp-plumber'),
-  print        = require('gulp-print'),
-  prompt       = require('gulp-prompt'),
-  rename       = require('gulp-rename'),
-  replace      = require('gulp-replace'),
-  rtlcss       = require('gulp-rtlcss'),
-  sourcemaps   = require('gulp-sourcemaps'),
-  uglify       = require('gulp-uglify'),
-  util         = require('gulp-util'),
-  watch        = require('gulp-watch'),
+  // unsure
+  path            = require('path'),
+
+  // watch / build deps
+  autoprefixer    = require('gulp-autoprefixer'),
+  chmod           = require('gulp-chmod'),
+  clone           = require('gulp-clone'),
+  concat          = require('gulp-concat'),
+  copy            = require('gulp-copy'),
+  debug           = require('gulp-debug'),
+  flatten         = require('gulp-flatten'),
+  header          = require('gulp-header'),
+  karma           = require('gulp-karma'),
+  less            = require('gulp-less'),
+  minifyCSS       = require('gulp-minify-css'),
+  plumber         = require('gulp-plumber'),
+  print           = require('gulp-print'),
+  rename          = require('gulp-rename'),
+  replace         = require('gulp-replace'),
+  uglify          = require('gulp-uglify'),
+  util            = require('gulp-util'),
+  watch           = require('gulp-watch'),
+
+  // rtl
+  rtlcss          = require('gulp-rtlcss'),
 
   // config
-  banner       = require('./tasks/banner'),
-  comments     = require('./tasks/comments'),
-  defaults     = require('./tasks/defaults'),
-  log          = require('./tasks/log'),
-  questions    = require('./tasks/questions'),
-  settings     = require('./tasks/gulp-settings'),
-
-  // admin
-  release      = require('./tasks/admin/release'),
-  git          = require('gulp-git'),
-  githubAPI    = require('github'),
-
-  oAuth        = fs.existsSync('./tasks/admin/oauth.js')
-    ? require('./tasks/admin/oauth')
-    : false,
-  github,
-
+  banner          = require('./tasks/banner'),
+  comments        = require('./tasks/comments'),
+  defaults        = require('./tasks/defaults'),
+  log             = require('./tasks/log'),
+  settings        = require('./tasks/gulp-settings'),
 
   // local
   runSetup   = false,
@@ -134,14 +119,6 @@ var
       : 'Unknown'
     ;
 
-    // create glob for matching filenames from components in semantic.json
-    componentGlob = (typeof config.components == 'object')
-      ? (config.components.length > 1)
-        ? '{' + config.components.join(',') + '}'
-        : config.components[0]
-      : '{' + defaults.components.join(',') + '}'
-    ;
-
     // relative asset paths for css
     assetPaths = {
       uncompressed : path.relative(output.uncompressed, output.themes).replace(/\\/g,'/'),
@@ -161,6 +138,15 @@ var
       }
     }
     clean = base + clean;
+
+    // create glob for matching filenames from components in semantic.json
+    componentGlob = (typeof config.components == 'object')
+      ? (config.components.length > 1)
+        ? '{' + config.components.join(',') + '}'
+        : config.components[0]
+      : '{' + defaults.components.join(',') + '}'
+    ;
+
   }
 ;
 
@@ -245,7 +231,6 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function(callb
         // unified css stream
         stream = gulp.src(srcPath)
           .pipe(plumber())
-          //.pipe(sourcemaps.init())
           .pipe(less(settings.less))
           .pipe(replace(comments.variables.in, comments.variables.out))
           .pipe(replace(comments.large.in, comments.large.out))
@@ -261,7 +246,6 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function(callb
         uncompressedStream
           .pipe(plumber())
           .pipe(replace(assetPaths.source, assetPaths.uncompressed))
-          //.pipe(sourcemaps.write('/', settings.sourcemap))
           .pipe(header(banner, settings.header))
           .pipe(chmod(config.permission))
           .pipe(gulp.dest(output.uncompressed))
@@ -277,7 +261,6 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function(callb
           .pipe(replace(assetPaths.source, assetPaths.compressed))
           .pipe(minifyCSS(settings.minify))
           .pipe(rename(settings.rename.minCSS))
-          //.pipe(sourcemaps.write('/', settings.sourcemap))
           .pipe(header(banner, settings.header))
           .pipe(chmod(config.permission))
           .pipe(gulp.dest(output.compressed))
@@ -294,10 +277,10 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function(callb
     })
   ;
 
-  // watch for changes in assets
+  // watch for changes in assets that match component names (or their plural)
   gulp
     .watch([
-      source.themes   + '**/assets/**'
+      source.themes   + '**/assets/**/' + componentGlob + '?(s).*'
     ], function(file) {
       // copy assets
       gulp.src(file.path, { base: source.themes })
@@ -318,7 +301,6 @@ gulp.task('watch', 'Watch for site/theme changes (Default Task)', function(callb
         .pipe(chmod(config.permission))
         .pipe(gulp.dest(output.uncompressed))
         .pipe(print(log.created))
-        .pipe(sourcemaps.init())
         .pipe(uglify(settings.uglify))
         .pipe(rename(settings.rename.minJS))
         .pipe(chmod(config.permission))
@@ -359,7 +341,7 @@ gulp.task('build', 'Builds all files from source', function(callback) {
   assetPaths.source = '../../themes';  // path.relative returns wrong path (hardcoded for src)
 
   // copy assets
-  gulp.src(source.themes + '**/assets/**')
+  gulp.src(source.themes + '**/assets/**/' + componentGlob + '?(s).*')
     .pipe(chmod(config.permission))
     .pipe(gulp.dest(output.themes))
   ;
@@ -371,7 +353,6 @@ gulp.task('build', 'Builds all files from source', function(callback) {
     .pipe(chmod(config.permission))
     .pipe(gulp.dest(output.uncompressed))
     .pipe(print(log.created))
-    // .pipe(sourcemaps.init())
     .pipe(uglify(settings.uglify))
     .pipe(rename(settings.rename.minJS))
     .pipe(header(banner, settings.header))
@@ -387,7 +368,6 @@ gulp.task('build', 'Builds all files from source', function(callback) {
   // unified css stream
   stream = gulp.src(source.definitions + '**/' + componentGlob + '.less')
     .pipe(plumber())
-    //.pipe(sourcemaps.init())
     .pipe(less(settings.less))
     .pipe(flatten())
     .pipe(replace(comments.variables.in, comments.variables.out))
@@ -404,7 +384,6 @@ gulp.task('build', 'Builds all files from source', function(callback) {
   uncompressedStream
     .pipe(plumber())
     .pipe(replace(assetPaths.source, assetPaths.uncompressed))
-    //.pipe(sourcemaps.write('/', settings.sourcemap))
     .pipe(header(banner, settings.header))
     .pipe(chmod(config.permission))
     .pipe(gulp.dest(output.uncompressed))
@@ -420,7 +399,6 @@ gulp.task('build', 'Builds all files from source', function(callback) {
     .pipe(replace(assetPaths.source, assetPaths.compressed))
     .pipe(minifyCSS(settings.minify))
     .pipe(rename(settings.rename.minCSS))
-    //.pipe(sourcemaps.write('/', settings.sourcemap))
     .pipe(header(banner, settings.header))
     .pipe(chmod(config.permission))
     .pipe(gulp.dest(output.compressed))
@@ -430,7 +408,6 @@ gulp.task('build', 'Builds all files from source', function(callback) {
       gulp.start('package compressed css');
     })
   ;
-
 });
 
 // cleans distribution files
@@ -442,10 +419,10 @@ gulp.task('version', 'Displays current version of Semantic', function(callback) 
   console.log('Semantic UI ' + version);
 });
 
+
 /*******************************
             RTL Tasks
 *******************************/
-
 
 /* Watch RTL */
 gulp.task('watch rtl', 'Watch for site/theme changes (Default Task)', function(callback) {
@@ -509,7 +486,6 @@ gulp.task('watch rtl', 'Watch for site/theme changes (Default Task)', function(c
         // unified css stream
         stream = gulp.src(srcPath)
           .pipe(plumber())
-          //.pipe(sourcemaps.init())
           .pipe(less(settings.less))
           .pipe(replace(comments.variables.in, comments.variables.out))
           .pipe(replace(comments.large.in, comments.large.out))
@@ -526,7 +502,6 @@ gulp.task('watch rtl', 'Watch for site/theme changes (Default Task)', function(c
         uncompressedStream
           .pipe(plumber())
           .pipe(replace(assetPaths.source, assetPaths.uncompressed))
-          //.pipe(sourcemaps.write('/', settings.sourcemap))
           .pipe(header(banner, settings.header))
           .pipe(chmod(config.permission))
           .pipe(rename(settings.rename.rtlCSS))
@@ -542,7 +517,6 @@ gulp.task('watch rtl', 'Watch for site/theme changes (Default Task)', function(c
           .pipe(clone())
           .pipe(replace(assetPaths.source, assetPaths.compressed))
           .pipe(minifyCSS(settings.minify))
-          //.pipe(sourcemaps.write('/', settings.sourcemap))
           .pipe(header(banner, settings.header))
           .pipe(chmod(config.permission))
           .pipe(rename(settings.rename.rtlMinCSS))
@@ -584,7 +558,6 @@ gulp.task('watch rtl', 'Watch for site/theme changes (Default Task)', function(c
         .pipe(chmod(config.permission))
         .pipe(gulp.dest(output.uncompressed))
         .pipe(print(log.created))
-        .pipe(sourcemaps.init())
         .pipe(uglify(settings.uglify))
         .pipe(rename(settings.rename.minJS))
         .pipe(chmod(config.permission))
@@ -632,7 +605,6 @@ gulp.task('build rtl', 'Builds all files from source', function(callback) {
     .pipe(chmod(config.permission))
     .pipe(gulp.dest(output.uncompressed))
     .pipe(print(log.created))
-    // .pipe(sourcemaps.init())
     .pipe(uglify(settings.uglify))
     .pipe(rename(settings.rename.minJS))
     .pipe(header(banner, settings.header))
@@ -648,7 +620,6 @@ gulp.task('build rtl', 'Builds all files from source', function(callback) {
   // unified css stream
   stream = gulp.src(source.definitions + '**/' + componentGlob + '.less')
     .pipe(plumber())
-    //.pipe(sourcemaps.init())
     .pipe(less(settings.less))
     .pipe(flatten())
     .pipe(replace(comments.variables.in, comments.variables.out))
@@ -666,7 +637,6 @@ gulp.task('build rtl', 'Builds all files from source', function(callback) {
   uncompressedStream
     .pipe(plumber())
     .pipe(replace(assetPaths.source, assetPaths.uncompressed))
-    //.pipe(sourcemaps.write('/', settings.sourcemap))
     .pipe(rename(settings.rename.rtlCSS))
     .pipe(header(banner, settings.header))
     .pipe(chmod(config.permission))
@@ -683,7 +653,6 @@ gulp.task('build rtl', 'Builds all files from source', function(callback) {
     .pipe(replace(assetPaths.source, assetPaths.compressed))
     .pipe(minifyCSS(settings.minify))
     .pipe(rename(settings.rename.rtlMinCSS))
-    //.pipe(sourcemaps.write('/', settings.sourcemap))
     .pipe(header(banner, settings.header))
     .pipe(chmod(config.permission))
     .pipe(gulp.dest(output.compressed))
@@ -769,10 +738,19 @@ gulp.task('package compressed js', false, function() {
   ;
 });
 
+/*******************************
+         Install Tasks
+*******************************/
 
-/*--------------
-     Config
----------------*/
+var
+  // install dependencies
+  jeditor = require('gulp-json-editor'),
+  prompt  = require('gulp-prompt'),
+  wrench  = require('wrench'),
+
+  questions       = require('./tasks/questions'),
+
+;
 
 gulp.task('check install', false, function () {
   setTimeout(function() {
@@ -853,7 +831,6 @@ gulp.task('install', 'Set-up project for first time', function () {
         ;
       }
 
-
       // determine semantic.json config
       if(answers.components) {
         json.components = answers.components;
@@ -931,15 +908,35 @@ gulp.task('install', 'Set-up project for first time', function () {
 *******************************/
 
 var
+  // admin dependencies
+  concatFileNames = require('gulp-concat-filenames'),
+  git             = require('gulp-git'),
+  githubAPI       = require('github'),
+  runSequence     = require('run-sequence'),
+  tap             = require('gulp-tap'),
+
+  // admin files
   adminQuestions = require('./tasks/admin/questions'),
-  newVersion = false
+  release         = require('./tasks/admin/release'),
+
+  // stores oauth info for GitHub API
+  oAuth        = fs.existsSync('./tasks/admin/oauth.js')
+    ? require('./tasks/admin/oauth')
+    : false,
+  github,
+
 ;
+
+
+/*--------------
+      Docs
+---------------*/
+
 
 /* Moves watched files to static site generator output */
 gulp.task('serve-docs', false, function () {
   config = require('./tasks/admin/docs.json');
   getConfigValues();
-
 
   // copy source files
   gulp
@@ -978,10 +975,18 @@ gulp.task('build-docs', false, function () {
 
 /* Release */
 gulp.task('release', false, function() {
-  // gulp bump
-  // Ask for release type (minor, major, patch)
-  // Bump package.json
-  // Bump composer.json
+
+  // gulp build
+  runSequence(
+    'build',
+    'create files'
+  );
+
+});
+
+/* Release All */
+gulp.task('release all', false, function() {
+
   if(!oAuth) {
     console.error('Must add node include tasks/admin/oauth.js with oauth token for GitHub');
     return;
@@ -1000,17 +1005,12 @@ gulp.task('release', false, function() {
   });
 
   // gulp build
-  //runSequence('update git');
-  runSequence('build', 'create repos', 'update git');
+  runSequence(
+    'build',
+    'create components',
+    'update component repos'
+  );
 
-  // #Create SCSS Version
-  // #Create RTL Release
-
-});
-
-/* Build Component Release Only */
-gulp.task('build release', false, function() {
-  runSequence('build', 'create repos');
 });
 
 
@@ -1018,8 +1018,18 @@ gulp.task('build release', false, function() {
     Internal
 ---------------*/
 
+/*
+ This will create individual component repositories for each SUI component
 
-gulp.task('create repos', false, function(callback) {
+  * copy component files from release
+  * create commonjs files as index.js for NPM release
+  * create release notes that filter only items related to component
+  * custom package.json file from template
+  * create bower.json from template
+  * create README from template
+  * create meteor.js file
+*/
+gulp.task('create components', false, function(callback) {
   var
     stream,
     index,
@@ -1029,7 +1039,7 @@ gulp.task('create repos', false, function(callback) {
   for(index in release.components) {
 
     var
-      component            = release.components[index]
+      component = release.components[index]
     ;
 
     // streams... designed to save time and make coding fun...
@@ -1046,9 +1056,11 @@ gulp.task('create repos', false, function(callback) {
         repoURL              = 'https://github.com/' + release.org + '/' + repoName + '/',
         regExp               = {
           match            : {
-            // readme
-            name              : '{component}',
-            titleName         : '{Component}',
+            // templated values
+            name      : '{component}',
+            titleName : '{Component}',
+            version   : '{version}',
+            files     : '{files}',
             // release notes
             spacedVersions    : /(###.*\n)\n+(?=###)/gm,
             spacedLists       : /(^- .*\n)\n+(?=^-)/gm,
@@ -1060,7 +1072,7 @@ gulp.task('create repos', false, function(callback) {
             formExport        : /\$\.fn\.\w+\s*=\s*function\(fields, parameters\)\s*{/g,
             settingsExport    : /\$\.fn\.\w+\.settings\s*=/g,
             settingsReference : /\$\.fn\.\w+\.settings/g,
-            jQuery            : /jQuery/g
+            jQuery            : /jQuery/g,
           },
           replace : {
             // readme
@@ -1085,11 +1097,11 @@ gulp.task('create repos', false, function(callback) {
           repo     : component + ' create repo',
           bower    : component + ' create bower.json',
           readme   : component + ' create README',
-          readme   : component + ' create README',
           npm      : component + ' create NPM Module',
           notes    : component + ' create release notes',
           composer : component + ' create composer.json',
-          package  : component + ' create package.json'
+          package  : component + ' create package.json',
+          meteor   : component + ' create package.js',
         }
       ;
 
@@ -1237,6 +1249,41 @@ gulp.task('create repos', false, function(callback) {
         ;
       });
 
+      // Creates component meteor package.js
+      gulp.task(task.meteor, function() {
+        var
+          fileNames = ''
+        ;
+        if(isJavascript) {
+          fileNames += '    \'' + component + '.js\',\n';
+        }
+        if(isCSS) {
+          fileNames += '    \'' + component + '.css\',\n';
+        }
+        return gulp.src(outputDirectory + '/assets/**/' + component + '?(s).*', { base: outputDirectory})
+          .pipe(concatFileNames('dummy.txt', {
+            newline : '',
+            root    : outputDirectory,
+            prepend : '    \'',
+            append  : '\','
+          }))
+          .pipe(tap(function(file) { fileNames += file.contents;}))
+          .on('end', function(){
+            gulp.src(release.templates.meteorComponent)
+              .pipe(plumber())
+              .pipe(flatten())
+              .pipe(replace(regExp.match.name, regExp.replace.name))
+              .pipe(replace(regExp.match.titleName, regExp.replace.titleName))
+              .pipe(replace(regExp.match.version, version))
+              .pipe(replace(regExp.match.files, fileNames))
+              .pipe(rename(defaults.files.npm))
+              .pipe(gulp.dest(outputDirectory))
+            ;
+          })
+        ;
+      });
+
+
       // synchronous tasks in orchestrator? I think not
       gulp.task(task.all, false, function(callback) {
         runSequence([
@@ -1246,7 +1293,8 @@ gulp.task('create repos', false, function(callback) {
           task.readme,
           task.package,
           task.composer,
-          task.notes
+          task.notes,
+          task.meteor
         ], callback);
       });
 
@@ -1256,8 +1304,8 @@ gulp.task('create repos', false, function(callback) {
   }
 
   runSequence(tasks, callback);
-
 });
+
 gulp.task('register repos', false, function(callback) {
   var
     index = -1,
@@ -1298,11 +1346,11 @@ gulp.task('register repos', false, function(callback) {
       stepRepo();
     });
     */
-  }
+  };
   stepRepo();
 });
 
-gulp.task('update git', false, function() {
+gulp.task('update component repos', false, function() {
   var
     index = -1,
     total = release.components.length,
@@ -1328,7 +1376,7 @@ gulp.task('update git', false, function() {
       repoURL              = 'https://github.com/' + release.org + '/' + repoName + '/',
       gitOptions           = { cwd: outputDirectory },
       quietOptions         = { args: '-q', cwd: outputDirectory },
-      isRepository         = fs.existsSync(outputDirectory + '.git/')
+      isRepository         = fs.existsSync(outputDirectory + '.git/'),
       componentPackage     = fs.existsSync(outputDirectory + 'package.json' )
         ? require(outputDirectory + 'package.json')
         : false,
@@ -1378,7 +1426,7 @@ gulp.task('update git', false, function() {
           mergeCommit();
         }
       });
-    };
+    }
     function mergeCommit() {
       // commit files
       console.log('Adding merge commit', commitArgs);
@@ -1413,7 +1461,7 @@ gulp.task('update git', false, function() {
         console.log('Push completed successfully');
         stepRepo();
       });
-    };
+    }
 
     // set-up path
     function createRepo() {
@@ -1457,8 +1505,7 @@ gulp.task('update git', false, function() {
           stepRepo();
         }
       });
-    };
-
+    }
   };
 
   return stepRepo();

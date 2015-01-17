@@ -81,6 +81,14 @@ gulp help // list all commands
 
 For more detail into how work with Semantic when building a site please [read out customization guide](http://learnsemantic.com/developing/customizing.html) on [LearnSemantic.com](http://learnsemantic.com/)
 
+## Meteor
+
+To use Semantic with the [Meteor.js](https://www.meteor.com) framework, run
+
+$ meteor add semantic:ui
+
+Learn more by reading the [Meteor integration README](https://github.com/Semantic-Org/Semantic-UI/blob/master/meteor/README.md).
+
 
 ## Browser Support
 
@@ -100,4 +108,3 @@ When adding pull requests be sure to merge into [next](https://github.com/Semant
 If you'd like to start a conversation about Semantic feel free to reach out by e-mail [jack@semantic-ui.com](mailto:jack@semantic-ui.com)
 
 [![Flattr This](https://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=jlukic&url=https%3A%2F%2Fgithub.com%2Fjlukic%2FSemantic-UI)
-

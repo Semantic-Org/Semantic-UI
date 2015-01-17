@@ -16,6 +16,12 @@ bower install semantic-ui-{component}
 npm install semantic-ui-{component}
 ```
 
+#### To install with Meteor
+```
+meteor add semantic:ui-{component}
+```
+
+
 ## Addendum
 
 This element's definitions (required class names, html structures) are available in the [UI Docs](http://www.semantic-ui.com)
