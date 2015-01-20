@@ -149,7 +149,6 @@ $.fn.search = function(parameters) {
                 result  = module.get.result(name, results),
                 returnedValue
               ;
-              console.log(result);
               if( $.isFunction(settings.onSelect) ) {
                 if(settings.onSelect.call(element, result, results) === false) {
                   module.debug('Custom onSelect callback cancelled default select action');
@@ -304,6 +303,7 @@ $.fn.search = function(parameters) {
             var
               result = false
             ;
+            value = value || module.get.value();
             results = results || module.get.results();
             if(settings.type === 'category') {
               module.debug('Finding result from category results', value);
@@ -831,10 +831,11 @@ $.fn.search.settings = {
   verbose        : true,
   performance    : true,
 
-  // api config
-  apiSettings    : false,
   type           : 'standard',
   minCharacters  : 1,
+
+  // api config
+  apiSettings    : false,
 
   source         : false,
   searchFields   : [
