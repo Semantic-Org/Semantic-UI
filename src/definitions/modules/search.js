@@ -32,6 +32,7 @@ $.fn.search = function(parameters) {
         settings        = $.extend(true, {}, $.fn.search.settings, parameters),
 
         className       = settings.className,
+        regExp          = settings.regExp,
         selector        = settings.selector,
         error           = settings.error,
         namespace       = settings.namespace,
@@ -137,30 +138,33 @@ $.fn.search = function(parameters) {
               module.debug('Search result selected');
               var
                 $result = $(this),
-                $title  = $result.find('.title'),
-                title   = $title.html()
+                $title  = $result.find(selector.title).eq(0),
+                $link   = $result.find('a[href]').eq(0),
+                href    = $link.attr('href') || false,
+                target  = $link.attr('target') || false,
+                name    = ($title.length > 0)
+                  ? $title.text()
+                  : false,
+                title   = $title.html(),
+                returnedValue
               ;
-              if(settings.onSelect == 'default' || settings.onSelect.call(this, event) == 'default') {
-                var
-                  $link  = $result.find('a[href]').eq(0),
-                  $title = $result.find(selector.title).eq(0),
-                  href   = $link.attr('href') || false,
-                  target = $link.attr('target') || false,
-                  name   = ($title.length > 0)
-                    ? $title.text()
-                    : false
-                ;
-                module.hideResults();
-                if(name) {
-                  $prompt.val(name);
+              if( $.isFunction(settings.onSelect) ) {
+                if(settings.onSelect.call(element) === false) {
+                  module.debug('onSelect Callback cancelled default actions');
+                  return;
                 }
-                if(href) {
-                  if(target == '_blank' || event.ctrlKey) {
-                    window.open(href);
-                  }
-                  else {
-                    window.location.href = (href);
-                  }
+              }
+              module.hideResults();
+              if(name) {
+                module.set.value(name);
+              }
+              if(href) {
+                module.verbose('Opening search link found in result', $link);
+                if(target == '_blank' || event.ctrlKey) {
+                  window.open(href);
+                }
+                else {
+                  window.location.href = (href);
                 }
               }
             }
@@ -192,7 +196,7 @@ $.fn.search = function(parameters) {
             ;
           }
           // result shortcuts
-          if($results.filter(':visible').length > 0) {
+          if( module.is.visible() ) {
             if(keyCode == keys.enter) {
               module.verbose('Enter key pressed, selecting active result');
               if( $result.filter('.' + activeClass).length > 0 ) {
@@ -267,7 +271,33 @@ $.fn.search = function(parameters) {
               },
               searchHTML
             ;
+            module.verbose('First request, initializing API');
             $module.api(apiSettings);
+          }
+        },
+
+        can: {
+          transition: function() {
+            return settings.transition && $.fn.transition !== undefined && $module.transition('is supported');
+          }
+        },
+
+        is: {
+          empty: function() {
+            return ($results.html() === '');
+          },
+          visible: function() {
+            return ($results.filter(':visible').length > 0);
+          },
+          focused: function() {
+            return ($prompt.filter(':focus').length > 0);
+          }
+        },
+
+        set: {
+          value: function(value) {
+            module.verbose('Setting search input value', value);
+            $prompt.val(value);
           }
         },
 
@@ -305,12 +335,12 @@ $.fn.search = function(parameters) {
         search: {
           local: function(searchTerm) {
             var
-              results   = [],
+              results         = [],
               fullTextResults = [],
               searchFields    = $.isArray(settings.searchFields)
                 ? settings.searchFields
                 : [settings.searchFields],
-              searchRegExp    = new RegExp('(?:\s|^)' + searchTerm, 'i'),
+              searchRegExp    = new RegExp(regExp.exact + searchTerm, 'i'),
               fullTextRegExp  = new RegExp(searchTerm, 'i'),
               searchHTML
             ;
@@ -444,17 +474,21 @@ $.fn.search = function(parameters) {
         },
 
         addResults: function(html) {
-          if(settings.onResultsAdd == 'default' || settings.onResultsAdd.call($results, html) == 'default') {
-            $results
-              .html(html)
-            ;
+          if( $.isFunction(settings.onResultsAdd) ) {
+            if( settings.onResultsAdd.call($results, html) === false ) {
+              module.debug('onResultsAdd callback cancelled default action');
+              return false;
+            }
           }
+          $results
+            .html(html)
+          ;
           module.showResults();
         },
 
         showResults: function() {
-          if( ($results.filter(':visible').length === 0) && ($prompt.filter(':focus').length > 0) && $results.html() !== '') {
-            if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported') && !$results.transition('is inward')) {
+          if( !module.is.visible() && module.is.focused() && !module.is.empty() ) {
+            if( module.can.transition() ) {
               module.debug('Showing results with css animations');
               $results
                 .transition({
@@ -475,8 +509,8 @@ $.fn.search = function(parameters) {
           }
         },
         hideResults: function() {
-          if($results.filter(':visible').length > 0) {
-            if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported') && !$results.transition('is outward')) {
+          if( module.is.visible() ) {
+            if( module.can.transition() ) {
               module.debug('Hiding results with css animations');
               $results
                 .transition({
@@ -490,7 +524,7 @@ $.fn.search = function(parameters) {
               module.debug('Hiding results with javascript');
               $results
                 .stop()
-                .fadeIn(settings.duration, settings.easing)
+                .fadeOut(settings.duration, settings.easing)
               ;
             }
             settings.onResultsClose.call($results);
@@ -765,6 +799,10 @@ $.fn.search.settings = {
     noTemplate  : 'A valid template name was not specified.',
     serverError : 'There was an issue with querying the server.',
     method      : 'The method you called is not defined.'
+  },
+
+  regExp: {
+    exact: '(?:\s|^)'
   },
 
   selector : {
