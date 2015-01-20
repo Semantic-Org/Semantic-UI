@@ -572,6 +572,7 @@ $.api = $.fn.api = function(parameters) {
           if( xhr && xhr.state() !== 'resolved') {
             module.debug('Cancelling API request');
             xhr.abort();
+            module.request.rejectWith(settings.apiSettings);
           }
         },
 
