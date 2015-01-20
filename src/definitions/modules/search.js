@@ -117,11 +117,12 @@ $.fn.search = function(parameters) {
             }
           },
           blur: function(event) {
-            module.cancel();
-            $module
-              .removeClass(className.focus)
+            var
+              pageLostFocus = (document.activeElement === this)
             ;
-            if(!module.resultsClicked) {
+            if(!pageLostFocus && !module.resultsClicked) {
+              module.cancel();
+              $module.removeClass(className.focus);
               module.timer = setTimeout(module.hideResults, settings.hideDelay);
             }
           },
@@ -262,7 +263,6 @@ $.fn.search = function(parameters) {
               apiSettings = {
                 on        : false,
                 action    : 'search',
-                debug     : settings.debug,
                 onFailure : module.error
               },
               searchHTML
@@ -714,7 +714,7 @@ $.fn.search.settings = {
   name           : 'Search Module',
   namespace      : 'search',
 
-  debug          : true,
+  debug          : false,
   verbose        : true,
   performance    : true,
 
