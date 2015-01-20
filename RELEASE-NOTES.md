@@ -10,7 +10,7 @@
 - **Search** - Greatly reduced search delay from `300ms` to `100ms`. Previous request will automatically abort `xhr` when new request made
 
 **Bugs**
-
+- **List** - `relaxed list` and `very relaxed list` no longer add padding to child menu items
 - **Button** - Fixes formatting for `disabled button` inside `ui buttons`
 - **Button** - ``ui vertical basic buttons` now have dividers in default theme
 - **API** - Fixed bug where API would query resource immediately when specifying `on: false`
