@@ -1,5 +1,11 @@
 ## RELEASE NOTES
 
+### Version 1.8.0 - January 21, 2015
+
+**Bugs**
+
+- *Sticky** - Fixes issue with container size not being set explicitly on rail due to improper method renaming
+
 ### Version 1.7.(1-2) - January 15, 2015
 
 **Bugs**
