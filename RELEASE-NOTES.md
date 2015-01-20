@@ -12,6 +12,7 @@
 **Bugs**
 
 - **Button** - Fixes formatting for `disabled button` inside `ui buttons`
+- **Button** - ``ui vertical basic buttons` now have dividers in default theme
 - **API** - Fixed bug where API would query resource immediately when specifying `on: false`
 - **API** - Fixed bug where `$.api('get xhr')` was not correctly returning xhr promise
 - *Sticky** - Fixes issue with container size not being set explicitly on rail due to improper method renaming
