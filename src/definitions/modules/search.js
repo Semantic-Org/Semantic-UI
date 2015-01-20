@@ -256,6 +256,21 @@ $.fn.search = function(parameters) {
           }
         },
 
+        setup: {
+          api: function() {
+            var
+              apiSettings = {
+                on        : false,
+                action    : 'search',
+                debug     : settings.debug,
+                onFailure : module.error
+              },
+              searchHTML
+            ;
+            $module.api(apiSettings);
+          }
+        },
+
         query: function() {
           var
             searchTerm = $prompt.val(),
@@ -270,15 +285,15 @@ $.fn.search = function(parameters) {
             if($.isPlainObject(settings.source) || $.isArray(settings.source)) {
               module.search.local(searchTerm);
             }
-            else if(settings.apiSettings) {
-              module.search.remote(searchTerm);
-            }
-            else if($.fn.api !== undefined && $.api.settings.api.search !== undefined) {
-              module.debug('Searching with default search API endpoint');
-              settings.apiSettings = {
-                action: 'search'
-              };
-              module.search.remote(searchTerm);
+            else if($.fn.api !== undefined ) {
+              if(settings.apiSettings) {
+                module.debug('Searching with specified API settings', settings.apiSettings);
+                module.search.remote(searchTerm);
+              }
+              else if($.api.settings.api.search !== undefined) {
+                module.debug('Searching with default search API endpoint');
+                module.search.remote(searchTerm);
+              }
             }
             else {
               module.error(error.source);
@@ -295,8 +310,8 @@ $.fn.search = function(parameters) {
               searchFields    = $.isArray(settings.searchFields)
                 ? settings.searchFields
                 : [settings.searchFields],
-              searchRegExp   = new RegExp('(?:\s|^)' + searchTerm, 'i'),
-              fullTextRegExp = new RegExp(searchTerm, 'i'),
+              searchRegExp    = new RegExp('(?:\s|^)' + searchTerm, 'i'),
+              fullTextRegExp  = new RegExp(searchTerm, 'i'),
               searchHTML
             ;
             $module
@@ -331,25 +346,38 @@ $.fn.search = function(parameters) {
           remote: function(searchTerm) {
             var
               apiSettings = {
-                stateContext : $module,
-                urlData      : {
-                  query: searchTerm
-                },
                 onSuccess : function(response) {
-                  searchHTML = module.generateResults(response);
-                  module.write.cache(searchTerm, searchHTML);
-                  module.addResults(searchHTML);
+                  module.parse.response.call(element, response, searchTerm);
                 },
-                onFailure : module.error
-              },
-              searchHTML
+                urlData: {
+                  query: searchTerm
+                }
+              }
             ;
-            module.cancel();
-            module.debug('Executing search');
+            if( !$module.api('get request') ) {
+              module.setup.api();
+            }
             $.extend(true, apiSettings, settings.apiSettings);
-            $.api(apiSettings);
+            module.debug('Executing search', apiSettings);
+            module.cancel();
+            $module
+              .api('setting', apiSettings)
+              .api('query')
+            ;
           }
+        },
 
+        parse: {
+          response: function(response, searchTerm) {
+            var
+              searchHTML = module.generateResults(response)
+            ;
+            module.verbose('Parsing server response', response);
+            if(searchTerm) {
+              module.write.cache(searchTerm, searchHTML);
+            }
+            module.addResults(searchHTML);
+          }
         },
 
         throttle: function() {
@@ -387,10 +415,14 @@ $.fn.search = function(parameters) {
             var
               cache = $module.data('cache')
             ;
-            return (settings.cache && (typeof cache == 'object') && (cache[name] !== undefined) )
-              ? cache[name]
-              : false
-            ;
+            if(settings.cache) {
+              module.verbose('Checking for server response in cache', name);
+              return (typeof cache == 'object') && (cache[name] !== undefined)
+                ? cache[name]
+                : false
+              ;
+            }
+            return false;
           }
         },
 
@@ -401,10 +433,13 @@ $.fn.search = function(parameters) {
                 ? $module.data('cache')
                 : {}
             ;
-            cache[name] = value;
-            $module
-              .data('cache', cache)
-            ;
+            if(settings.cache) {
+              module.verbose('Writing server response to cache', name, value);
+              cache[name] = value;
+              $module
+                .data('cache', cache)
+              ;
+            }
           }
         },
 
@@ -679,7 +714,7 @@ $.fn.search.settings = {
   name           : 'Search Module',
   namespace      : 'search',
 
-  debug          : false,
+  debug          : true,
   verbose        : true,
   performance    : true,
 
