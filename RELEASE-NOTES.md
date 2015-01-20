@@ -2,9 +2,18 @@
 
 ### Version 1.8.0 - January 21, 2015
 
+**Enhancements**
+
+- **API** - Added new behavior `$.api('abort')` which cancels current request
+- **Search** - Greatly reduced search delay from `300ms` to `100ms`. Previous request will automatically abort `xhr` when new request made
+
 **Bugs**
 
+- **API** - Fixed bug where API would query resource immediately when specifying `on: false`
+- **API** - Fixed bug where `$.api('get xhr')` was not correctly returning xhr promise
 - *Sticky** - Fixes issue with container size not being set explicitly on rail due to improper method renaming
+- **Search** - Search results no longer hide/show when user changes tab or page loses focus
+
 
 ### Version 1.7.(1-2) - January 15, 2015
 
