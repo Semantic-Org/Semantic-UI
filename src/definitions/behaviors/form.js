@@ -60,7 +60,7 @@ $.fn.form = function(fields, parameters) {
         initialize: function() {
           module.verbose('Initializing form validation', $module, validation, settings);
           module.bindEvents();
-          module.setDefaults();
+          module.set.field.defaults();
           module.instantiate();
         },
 
@@ -128,26 +128,6 @@ $.fn.form = function(fields, parameters) {
               $(this)
                 .on(inputEvent + eventNamespace, module.event.field.change)
               ;
-            })
-          ;
-        },
-
-        setDefaults: function() {
-          $field
-            .each(function () {
-              var
-                $field = $(this),
-                type = $field.prop('type')
-              ;
-
-              switch (type) {
-              	case 'checkbox':
-              	case 'radio':
-                  $field.data('defaultValue', $field.is(':checked'));
-                  break;
-                default:
-                  $field.data('defaultValue', $field.val());
-              }
             })
           ;
         },
@@ -433,6 +413,61 @@ $.fn.form = function(fields, parameters) {
               .removeClass(className.success)
               .addClass(className.error)
             ;
+          },
+          field: {
+          	defaults: function () {
+              $field
+                .each(function () {
+                  var
+                    $field = $(this),
+                    type = $field.prop('type')
+                  ;
+
+                  switch (type) {
+                    case 'checkbox':
+                    case 'radio':
+                      $field.data('defaultValue', $field.is(':checked'));
+                      break;
+                    default:
+                      $field.data('defaultValue', $field.val());
+                  }
+                })
+              ;
+          	},
+          	value: function (field, value) {
+              var data = {};
+              data[field] = value;
+              return module.set.field.values.call(element, data);
+          	},
+            values: function (data) {
+              if ($.isEmptyObject(data))
+                return;
+
+              $.each(data, function (key, value) {
+              	if (typeof value === 'object')
+                  return;
+
+                var
+                  $identifier = module.get.field(key),
+                  type = $identifier.prop('type'),
+                  $parent = $identifier.parent()
+                ;
+
+                if (!$identifier.length)
+                  return;
+
+                switch (type) {
+                  case 'checkbox':
+                    $identifier.parent('.ui.checkbox').checkbox(value ? 'check' : 'uncheck');
+                    break;
+                  case 'radio':
+                    $identifier.filter('[value="' + value + '"]').parent('.ui.checkbox').checkbox('check');
+                    break;
+                  default:
+                    $parent.is('.ui.dropdown') ? $parent.dropdown('set selected', value) : $identifier.val(value);
+                }
+              });
+            }
           }
         },
 
