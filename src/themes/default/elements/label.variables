@@ -90,7 +90,7 @@
 @tagTransition: background @labelTransitionDuration @labelTransitionEasing;
 
 /* Ribbon */
-@ribbonDistance: 2rem;
+@ribbonDistance: 2em;
 @ribbonMargin: 1em;
 @ribbonTriangleSize: 1.2em;
 @ribbonShadowColor: rgba(0, 0, 0, 0.15);
