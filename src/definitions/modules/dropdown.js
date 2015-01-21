@@ -469,7 +469,7 @@ $.fn.dropdown = function(parameters) {
           keydown: function(event) {
             var
               $currentlySelected = $item.not(className.filtered).filter('.' + className.selected).eq(0),
-              $activeItem        = $item.filter('.' + className.active).eq(0),
+              $activeItem        = $menu.children('.' + className.active).eq(0),
               $selectedItem      = ($currentlySelected.length > 0)
                 ? $currentlySelected
                 : $activeItem,
@@ -479,6 +479,7 @@ $.fn.dropdown = function(parameters) {
               $subMenu      = $selectedItem.children(selector.menu),
               $parentMenu   = $selectedItem.closest(selector.menu),
               isSubMenuItem = $parentMenu[0] !== $menu[0],
+              inVisibleMenu = $parentMenu.is(':visible'),
               pressedKey    = event.which,
               keys          = {
                 enter      : 13,
@@ -539,9 +540,9 @@ $.fn.dropdown = function(parameters) {
               }
               // up arrow (traverse menu up)
               if(pressedKey == keys.upArrow) {
-                $nextItem = (hasSelectedItem)
+                $nextItem = (hasSelectedItem && inVisibleMenu)
                   ? $selectedItem.prevAll(selector.item + ':not(.' + className.filtered + ')').eq(0)
-                  : $visibleItems.eq(0)
+                  : $item.eq(0)
                 ;
                 if($visibleItems.index( $nextItem ) < 0) {
                   module.verbose('Up key pressed but reached top of current menu');
@@ -561,9 +562,9 @@ $.fn.dropdown = function(parameters) {
               }
               // down arrow (traverse menu down)
               if(pressedKey == keys.downArrow) {
-                $nextItem = (hasSelectedItem)
+                $nextItem = (hasSelectedItem && inVisibleMenu)
                   ? $nextItem = $selectedItem.nextAll(selector.item + ':not(.' + className.filtered + ')').eq(0)
-                  : $visibleItems.eq(0)
+                  : $item.eq(0)
                 ;
                 if($nextItem.length === 0) {
                   module.verbose('Down key pressed but reached bottom of current menu');
