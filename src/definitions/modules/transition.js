@@ -232,8 +232,7 @@ $.fn.transition = function() {
             module.remove.hidden();
             module.set.display();
             $module
-              .addClass(className.animating)
-              .addClass(className.transition)
+              .addClass(className.animating + ' ' + className.transition + ' ' + animation)
               .addClass(animation)
               .one(animationEnd + '.complete' + eventNamespace, module.complete)
             ;
@@ -251,15 +250,17 @@ $.fn.transition = function() {
               : duration
             ;
             module.verbose('Setting animation duration', duration);
-            $module
-              .css({
-                '-webkit-animation-duration': duration,
-                '-moz-animation-duration': duration,
-                '-ms-animation-duration': duration,
-                '-o-animation-duration': duration,
-                'animation-duration':  duration
-              })
-            ;
+            if(duration || duration === 0) {
+              $module
+                .css({
+                  '-webkit-animation-duration': duration,
+                  '-moz-animation-duration': duration,
+                  '-ms-animation-duration': duration,
+                  '-o-animation-duration': duration,
+                  'animation-duration':  duration
+                })
+              ;
+            }
           },
           display: function() {
             var
@@ -472,7 +473,10 @@ $.fn.transition = function() {
           },
           duration: function(duration) {
             duration = duration || settings.duration;
-            return (typeof settings.duration === 'string')
+            if(duration === false) {
+              duration = $module.css('animation-duration') || 0;
+            }
+            return (typeof duration === 'string')
               ? (duration.indexOf('ms') > -1)
                 ? parseFloat(duration)
                 : parseFloat(duration) * 1000
@@ -889,7 +893,7 @@ $.fn.transition.settings = {
 
   // animation duration
   animation    : 'fade',
-  duration     : '500ms',
+  duration     : false,
 
   // new animations will occur after previous ones
   queue       : true,
