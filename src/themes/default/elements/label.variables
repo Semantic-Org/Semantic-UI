@@ -91,9 +91,10 @@
 
 /* Ribbon */
 @ribbonTriangleSize: 1.2em;
-@ribbonOffset: ~"calc(-1rem - "@ribbonTriangleSize~")";
-@ribbonDistance: ~"calc(1rem + "@ribbonTriangleSize~")";
-@ribbonMargin: 1em;
+@ribbonMargin: 1rem;
+@ribbonOffset: ~"calc("-@ribbonMargin~" - "@ribbonTriangleSize~")";
+@ribbonDistance: ~"calc("@ribbonMargin~" + "@ribbonTriangleSize~")";
+@rightRibbonOffset:  ~"calc(100% + "@ribbonMargin~" + "@ribbonTriangleSize~")";
 @ribbonShadowColor: rgba(0, 0, 0, 0.15);
 
 @blackRibbonShadow: darken(@black, 10);

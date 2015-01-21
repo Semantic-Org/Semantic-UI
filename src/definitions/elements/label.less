@@ -345,7 +345,7 @@ a.ui.label {
 .ui[class*="right ribbon"].label {
   text-align: left;
   transform: translateX(-100%);
-  left: ~"calc(100% + "@ribbonDistance~")";
+  left: @rightRibbonOffset;
   border-radius: @borderRadius 0em 0em @borderRadius;
   padding-left: @horizontalPadding;
   padding-right: @ribbonDistance;
