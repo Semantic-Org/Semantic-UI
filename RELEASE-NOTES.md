@@ -3,8 +3,8 @@
 ### Version 1.8.0 - January 21, 2015
 
 **Enhancements**
-
 - **Dropdown** - Keyboard navigation will now allow opening of sub menus with right/left arrow. Enter will open sub-menus on an unselectable category (`allowCategorySelection: false`) as well.
+- **Dropdown** - Mutation observers will now observe changed in `<select>` values after initialization, and will automatically update dropdown menu when changed
 - **API** - Added new behavior `$.api('abort')` which cancels current request
 - **Search** - Search `onSelect` now recieves JSON object matching currently selected element, you can now programmatically retrieve result JSON using `.search('get result')`. Defaults to current value unless value specified as first parameter.
 - **Search** - Search `onSelect` and `onResultsAdd` can now cancel default actions by returning `false`.
@@ -12,6 +12,7 @@
 
 **Bugs**
 - **Label** - Fixed issue with `ui ribbon label` not positioning itself correctly when using sizes like `small` or `large`
+- **Dropdown** - Dropdown will now produce an error if behaviors on an initialized `<select>` are not invoked on `ui dropdown`
 - **Dropdown** - Fixed bug where link items would not open in sub-menus due to `event.preventDefault`
 - **Dropdown** - Dropdown no longer will not show menu when no `item` are present in menu. Dropdown will now only filter results for `ui search dropdown` #1632 **Thanks PSyton**.
 - **List** - `relaxed list` and `very relaxed list` no longer add padding to child menu items
