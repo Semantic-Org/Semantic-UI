@@ -672,13 +672,10 @@ $.fn.dropdown = function(parameters) {
                   module.remove.searchTerm();
                   module.determine.selectAction(text, value);
                 },
-                hasSubMenu    = ($subMenu.length > 0),
-                isSubMenuItem = ($subMenu.find($target).length > 0)
+                hasSubMenu     = ($subMenu.length > 0),
+                isBubbledEvent = ($subMenu.find($target).length > 0)
               ;
-              if(isSubMenuItem) {
-                return false;
-              }
-              if(!hasSubMenu || settings.allowCategorySelection) {
+              if(!isBubbledEvent && (!hasSubMenu || settings.allowCategorySelection)) {
                 callback();
               }
             }
