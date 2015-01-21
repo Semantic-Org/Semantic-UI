@@ -12,6 +12,7 @@
 
 **Bugs**
 - **Label** - Fixed issue with `ui ribbon label` not positioning itself correctly when using sizes like `small` or `large`
+- **Label** - Fixed `ui corner label` appearing on-top of `ui dropdown` menu due to issue in z-index heirarchy
 - **Dropdown** - Dropdown will now produce an error if behaviors on an initialized `<select>` are not invoked on `ui dropdown`
 - **Dropdown** - Fixed bug where link items would not open in sub-menus due to `event.preventDefault`
 - **Dropdown** - Dropdown no longer will not show menu when no `item` are present in menu. Dropdown will now only filter results for `ui search dropdown` #1632 **Thanks PSyton**.
