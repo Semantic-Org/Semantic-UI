@@ -198,7 +198,7 @@
   }
   0% {
     opacity: 0;
-    transform: translate3d(0, 3000px, 0);
+    transform: translate3d(0, 1500px, 0);
   }
   60% {
     opacity: 1;
@@ -220,7 +220,7 @@
   }
   0% {
     opacity: 0;
-    transform: translate3d(0, -3000px, 0);
+    transform: translate3d(0, -1500px, 0);
   }
   60% {
     opacity: 1;
@@ -242,7 +242,7 @@
   }
   0% {
     opacity: 0;
-    transform: translate3d(3000px, 0, 0);
+    transform: translate3d(1500px, 0, 0);
   }
   60% {
     opacity: 1;
@@ -264,7 +264,7 @@
   }
   0% {
     opacity: 0;
-    transform: translate3d(-3000px, 0, 0);
+    transform: translate3d(-1500px, 0, 0);
   }
   60% {
     opacity: 1;
