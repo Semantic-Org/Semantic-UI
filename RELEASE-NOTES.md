@@ -4,12 +4,15 @@
 
 **Enhancements**
 
+- **Dropdown** - Keyboard navigation will now allow opening of sub menus with right/left arrow. Enter will open sub-menus on an unselectable category (`allowCategorySelection: false`) as well.
 - **API** - Added new behavior `$.api('abort')` which cancels current request
 - **Search** - Search `onSelect` now recieves JSON object matching currently selected element, you can now programmatically retrieve result JSON using `.search('get result')`. Defaults to current value unless value specified as first parameter.
 - **Search** - Search `onSelect` and `onResultsAdd` can now cancel default actions by returning `false`.
 - **Search** - Greatly reduced search delay from `300ms` to `100ms`. Previous request will automatically abort `xhr` when new request made
 
 **Bugs**
+- **Dropdown** - Fixed bug where link items would not open in sub-menus due to `event.preventDefault`
+- **Dropdown** - Dropdown no longer will not show menu when no `item` are present in menu. Dropdown will now only filter results for `ui search dropdown` #1632 **Thanks PSyton**.
 - **List** - `relaxed list` and `very relaxed list` no longer add padding to child menu items
 - **Button** - Fixes formatting for `disabled button` inside `ui buttons`
 - **Button** - ``ui vertical basic buttons` now have dividers in default theme

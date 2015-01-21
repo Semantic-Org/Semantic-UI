@@ -468,77 +468,114 @@ $.fn.dropdown = function(parameters) {
           },
           keydown: function(event) {
             var
-              $selectedItem = $item.not(className.filtered).filter('.' + className.selected).eq(0),
-              $visibleItems = $item.not('.' + className.filtered),
+              $currentlySelected = $item.not(className.filtered).filter('.' + className.selected).eq(0),
+              $activeItem        = $item.filter('.' + className.active).eq(0),
+              $selectedItem      = ($currentlySelected.length > 0)
+                ? $currentlySelected
+                : $activeItem,
+              $visibleItems = ($selectedItem.length > 0)
+                ? $selectedItem.siblings(':not(.' + className.filtered +')').andSelf()
+                : $menu.children(':not(.' + className.filtered +')'),
+              $subMenu      = $selectedItem.children(selector.menu),
+              $parentMenu   = $selectedItem.closest(selector.menu),
+              isSubMenuItem = $parentMenu[0] !== $menu[0],
               pressedKey    = event.which,
               keys          = {
-                enter     : 13,
-                escape    : 27,
-                upArrow   : 38,
-                downArrow : 40
+                enter      : 13,
+                escape     : 27,
+                leftArrow  : 37,
+                upArrow    : 38,
+                rightArrow : 39,
+                downArrow  : 40
               },
-              selectedClass   = className.selected,
-              currentIndex    = $visibleItems.index( $selectedItem ),
-              hasSelectedItem = ($selectedItem.length > 0),
+              hasSubMenu       = ($subMenu.length> 0),
+              hasSelectedItem  = ($selectedItem.length > 0),
+              lastVisibleIndex = ($visibleItems.size() - 1),
               $nextItem,
               newIndex
             ;
-            // default to activated choice if no selection present
-            if(!hasSelectedItem) {
-              $selectedItem   = $item.filter('.' + className.active).eq(0);
-              hasSelectedItem = ($selectedItem.length > 0);
-            }
-            // close shortcuts
-            if(pressedKey == keys.escape) {
-              module.verbose('Escape key pressed, closing dropdown');
-              module.hide();
-            }
-            // open menu
-            if(pressedKey == keys.downArrow) {
-              module.verbose('Down key pressed, showing dropdown');
-              module.show();
-            }
-            // result shortcuts
+            // visible menu keyboard shortcuts
             if(module.is.visible()) {
+              // enter (select or sub-menu)
               if(pressedKey == keys.enter && hasSelectedItem) {
-                module.verbose('Enter key pressed, choosing selected item');
-                module.event.item.click.call($selectedItem, event);
-                event.preventDefault();
-                return false;
-              }
-              else if(pressedKey == keys.upArrow) {
-                if(!hasSelectedItem) {
-                  $nextItem = $visibleItems.eq(0);
+                if(hasSubMenu && !settings.allowCategorySelection) {
+                  module.verbose('Pressed enter on unselectable category, opening sub menu');
+                  pressedKey = keys.rightArrow;
                 }
                 else {
-                  $nextItem = $selectedItem.prevAll(selector.item + ':not(.' + className.filtered + ')').eq(0);
+                  module.verbose('Enter key pressed, choosing selected item');
+                  module.event.item.click.call($selectedItem, event);
                 }
-                if(currentIndex !== 0) {
+              }
+              // left arrow (hide sub-menu)
+              if(pressedKey == keys.leftArrow) {
+                if(isSubMenuItem) {
+                  module.verbose('Left key pressed, closing sub-menu');
+                  module.animate.hide(false,  $parentMenu);
+                  $selectedItem
+                    .removeClass(className.selected)
+                  ;
+                  $parentMenu
+                    .closest(selector.item)
+                      .addClass(className.selected)
+                  ;
+                }
+                event.preventDefault();
+              }
+              // right arrow (show sub-menu)
+              if(pressedKey == keys.rightArrow) {
+                if(hasSubMenu) {
+                  module.verbose('Right key pressed, opening sub-menu');
+                  module.animate.show(false,  $subMenu);
+                  $selectedItem
+                    .removeClass(className.selected)
+                  ;
+                  $subMenu
+                    .find(selector.item).eq(0)
+                      .addClass(className.selected)
+                  ;
+                }
+                event.preventDefault();
+              }
+              // up arrow (traverse menu up)
+              if(pressedKey == keys.upArrow) {
+                $nextItem = (hasSelectedItem)
+                  ? $selectedItem.prevAll(selector.item + ':not(.' + className.filtered + ')').eq(0)
+                  : $visibleItems.eq(0)
+                ;
+                if($visibleItems.index( $nextItem ) < 0) {
+                  module.verbose('Up key pressed but reached top of current menu');
+                  return;
+                }
+                else {
                   module.verbose('Up key pressed, changing active item');
-                  $item
-                    .removeClass(selectedClass)
+                  $selectedItem
+                    .removeClass(className.selected)
                   ;
                   $nextItem
-                    .addClass(selectedClass)
+                    .addClass(className.selected)
                   ;
                   module.set.scrollPosition($nextItem);
                 }
                 event.preventDefault();
               }
-              else if(pressedKey == keys.downArrow) {
-                if(!hasSelectedItem) {
-                  $nextItem = $visibleItems.eq(0);
+              // down arrow (traverse menu down)
+              if(pressedKey == keys.downArrow) {
+                $nextItem = (hasSelectedItem)
+                  ? $nextItem = $selectedItem.nextAll(selector.item + ':not(.' + className.filtered + ')').eq(0)
+                  : $visibleItems.eq(0)
+                ;
+                if($nextItem.length === 0) {
+                  module.verbose('Down key pressed but reached bottom of current menu');
+                  return;
                 }
                 else {
-                  $nextItem = $selectedItem.nextAll(selector.item + ':not(.' + className.filtered + ')').eq(0);
-                }
-                if(currentIndex + 1 < $visibleItems.length ) {
                   module.verbose('Down key pressed, changing active item');
                   $item
-                    .removeClass(selectedClass)
+                    .removeClass(className.selected)
                   ;
                   $nextItem
-                    .addClass(selectedClass)
+                    .addClass(className.selected)
                   ;
                   module.set.scrollPosition($nextItem);
                 }
@@ -546,7 +583,19 @@ $.fn.dropdown = function(parameters) {
               }
             }
             else {
+              // enter (open menu)
               if(pressedKey == keys.enter) {
+                module.verbose('Enter key pressed, showing dropdown');
+                module.show();
+              }
+              // escape (close menu)
+              if(pressedKey == keys.escape) {
+                module.verbose('Escape key pressed, closing dropdown');
+                module.hide();
+              }
+              // down arrow (open menu)
+              if(pressedKey == keys.downArrow) {
+                module.verbose('Down key pressed, showing dropdown');
                 module.show();
               }
             }
@@ -584,35 +633,33 @@ $.fn.dropdown = function(parameters) {
           item: {
             mouseenter: function(event) {
               var
-                $currentMenu = $(this).children(selector.menu),
-                $otherMenus  = $(this).siblings(selector.item).children(selector.menu)
+                $subMenu    = $(this).children(selector.menu),
+                $otherMenus = $(this).siblings(selector.item).children(selector.menu)
               ;
-              if( $currentMenu.length > 0 ) {
+              if( $subMenu.length > 0 ) {
                 clearTimeout(module.itemTimer);
                 module.itemTimer = setTimeout(function() {
+                  module.verbose('Showing sub-menu', $subMenu);
                   $.each($otherMenus, function() {
                     module.animate.hide(false, $(this));
                   });
-                  module.verbose('Showing sub-menu', $currentMenu);
-                  module.animate.show(false,  $currentMenu);
+                  module.animate.show(false,  $subMenu);
                 }, settings.delay.show);
                 event.preventDefault();
               }
             },
-
             mouseleave: function(event) {
               var
-                $currentMenu = $(this).children(selector.menu)
+                $subMenu = $(this).children(selector.menu)
               ;
-              if($currentMenu.length > 0) {
+              if($subMenu.length > 0) {
                 clearTimeout(module.itemTimer);
                 module.itemTimer = setTimeout(function() {
-                  module.verbose('Hiding sub-menu', $currentMenu);
-                  module.animate.hide(false,  $currentMenu);
+                  module.verbose('Hiding sub-menu', $subMenu);
+                  module.animate.hide(false,  $subMenu);
                 }, settings.delay.hide);
               }
             },
-
             click: function (event) {
               var
                 $choice  = $(this),
@@ -624,23 +671,20 @@ $.fn.dropdown = function(parameters) {
                   module.remove.searchTerm();
                   module.determine.selectAction(text, value);
                 },
-                openingSubMenu = ($subMenu.length > 0),
-                isSubItem      = ($subMenu.find($target).length > 0)
+                hasSubMenu    = ($subMenu.length > 0),
+                isSubMenuItem = ($subMenu.find($target).length > 0)
               ;
-              if(isSubItem) {
+              if(isSubMenuItem) {
                 return false;
               }
-              if(!openingSubMenu || settings.allowCategorySelection) {
+              if(!hasSubMenu || settings.allowCategorySelection) {
                 callback();
               }
             }
-
           },
-
           resetStyle: function() {
             $(this).removeAttr('style');
           }
-
         },
 
         determine: {
@@ -1199,8 +1243,8 @@ $.fn.dropdown = function(parameters) {
                   ? 'slide up'
                   : 'slide down'
                 ;
+                module.verbose('Automatically determining animation based on animation direction', settings.transition);
               }
-
               if(settings.transition == 'none') {
                 callback.call(element);
               }
