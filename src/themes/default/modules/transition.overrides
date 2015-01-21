@@ -1,131 +1,4 @@
 /*******************************
-       Static Animations
-*******************************/
-
-/*--------------
-    Emphasis
----------------*/
-
-.flash.transition {
-  animation-name: flash;
-}
-.shake.transition {
-  animation-name: shake;
-}
-.bounce.transition {
-  animation-name: bounce;
-}
-.tada.transition {
-  animation-name: tada;
-}
-/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
-.pulse.transition {
-  animation-name: pulse;
-}
-.jiggle.transition {
-  animation-name: jiggle;
-}
-
-/* Flash */
-@keyframes flash {
-  0%, 50%, 100% {
-    opacity: 1;
-  }
-  25%, 75% {
-    opacity: 0;
-  }
-}
-
-/* Shake */
-@keyframes shake {
-  0%, 100% {
-    transform: translateX(0);
-  }
-  10%, 30%, 50%, 70%, 90% {
-    transform: translateX(-10px);
-  }
-  20%, 40%, 60%, 80% {
-    transform: translateX(10px);
-  }
-}
-
-/* Bounce */
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-30px);
-  }
-  60% {
-    transform: translateY(-15px);
-  }
-}
-
-/* Tada */
-@keyframes tada {
-  0% {
-    transform: scale(1);
-  }
-  10%, 20% {
-    transform: scale(0.9) rotate(-3deg);
-  }
-  30%, 50%, 70%, 90% {
-    transform: scale(1.1) rotate(3deg);
-  }
-  40%, 60%, 80% {
-    transform: scale(1.1) rotate(-3deg);
-  }
-  100% {
-    transform: scale(1) rotate(0);
-  }
-}
-
-/* Pulse */
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(0.9);
-    opacity: 0.7;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-
-}
-
-/* Rubberband */
-@keyframes jiggle {
-  0% {
-    transform: scale3d(1, 1, 1);
-  }
-  30% {
-    transform: scale3d(1.25, 0.75, 1);
-  }
-  40% {
-    transform: scale3d(0.75, 1.25, 1);
-  }
-  50% {
-    transform: scale3d(1.15, 0.85, 1);
-  }
-  65% {
-    transform: scale3d(.95, 1.05, 1);
-  }
-  75% {
-    transform: scale3d(1.05, .95, 1);
-  }
-  100% {
-    transform: scale3d(1, 1, 1);
-  }
-}
-
-
-
-/*******************************
           Transitions
 *******************************/
 
@@ -135,16 +8,13 @@
 
 .browse.transition.in {
   animation-name: browseIn;
-  animation-timing-function: ease;
 }
 .browse.transition.out,
 .browse.transition.out.left {
   animation-name: browseOutLeft;
-  animation-timing-function: ease;
 }
 .browse.transition.out.right {
   animation-name: browseOutRight;
-  animation-timing-function: ease;
 }
 
 @keyframes browseIn {
@@ -211,6 +81,7 @@
 
 .drop.transition {
   transform-origin: top center;
+  transition-duration: 0.8s;
   animation-timing-function: cubic-bezier(0.34, 1.61, 0.7, 1);
 }
 .drop.transition.in {
@@ -362,7 +233,7 @@
   }
   100% {
     opacity: 0;
-    transform: translateX(-10%);
+    transform: translateX(10%);
   }
 }
 @keyframes fadeOutRight {
@@ -372,7 +243,7 @@
   }
   100% {
     opacity: 0;
-    transform: translateX(10%);
+    transform: translateX(-10%);
   }
 }
 
@@ -481,7 +352,6 @@
 
 .transition.fly.in {
   animation-name: flyIn;
-  animation-timing-function: ease;
 }
 .transition.fly.in.up {
   animation-name: flyInUp;
@@ -497,7 +367,6 @@
 }
 .transition.fly.out {
   animation-name: flyOut;
-  animation-timing-function: ease;
 }
 .transition.fly.out.up {
   animation-name: flyOutUp;
@@ -642,19 +511,6 @@
 }
 @keyframes flyOutUp {
   20% {
-    transform: translate3d(0, -10px, 0);
-  }
-  40%, 45% {
-    opacity: 1;
-    transform: translate3d(0, 20px, 0);
-  }
-  100% {
-    opacity: 0;
-    transform: translate3d(0, -2000px, 0);
-  }
-}
-@keyframes flyOutDown {
-  20% {
     transform: translate3d(0, 10px, 0);
   }
   40%, 45% {
@@ -664,6 +520,19 @@
   100% {
     opacity: 0;
     transform: translate3d(0, 2000px, 0);
+  }
+}
+@keyframes flyOutDown {
+  20% {
+    transform: translate3d(0, -10px, 0);
+  }
+  40%, 45% {
+    opacity: 1;
+    transform: translate3d(0, 20px, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, -2000px, 0);
   }
 }
 @keyframes flyOutRight {
@@ -775,44 +644,44 @@
 
 .transition.swing,
 .transition.swing.in,
-.transition.swing.in.down{
+.transition.swing.in.down {
   transform-origin: top center;
   transition-timing-function: ease-in;
   animation-name: swingInX;
 }
-.transition.swing.in.up{
+.transition.swing.in.up {
   transform-origin:bottom center;
   transition-timing-function: ease-in;
   animation-name: swingInX;
 }
-.transition.swing.in.left{
+.transition.swing.in.left {
   transform-origin: center right;
   transition-timing-function: ease-in;
   animation-name: swingInY;
 }
-.transition.swing.in.right{
+.transition.swing.in.right {
   transform-origin: center left;
   transition-timing-function: ease-in;
   animation-name: swingInY;
 }
 
 .transition.swing.out.down,
-.transition.swing.out{
+.transition.swing.out {
   transform-origin: top center;
   transition-timing-function: ease-in;
   animation-name: swingOutX;
 }
-.transition.swing.out.up{
+.transition.swing.out.up {
   transform-origin:bottom center;
   transition-timing-function: ease-in;
   animation-name: swingOutX;
 }
-.transition.swing.out.left{
+.transition.swing.out.left {
   transform-origin: center right;
   transition-timing-function: ease-in;
   animation-name: swingOutY;
 }
-.transition.swing.out.right{
+.transition.swing.out.right {
   transform-origin: center left;
   transition-timing-function: ease-in;
   animation-name: swingOutY;
@@ -883,6 +752,130 @@
   }
 }
 
+/*******************************
+       Static Animations
+*******************************/
+
+/*--------------
+    Emphasis
+---------------*/
+
+.flash.transition {
+  animation-name: flash;
+}
+.shake.transition {
+  animation-name: shake;
+}
+.bounce.transition {
+  animation-name: bounce;
+}
+.tada.transition {
+  animation-name: tada;
+}
+/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
+.pulse.transition {
+  animation-name: pulse;
+}
+.jiggle.transition {
+  animation-name: jiggle;
+}
+
+/* Flash */
+@keyframes flash {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+  25%, 75% {
+    opacity: 0;
+  }
+}
+
+/* Shake */
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-10px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(10px);
+  }
+}
+
+/* Bounce */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+/* Tada */
+@keyframes tada {
+  0% {
+    transform: scale(1);
+  }
+  10%, 20% {
+    transform: scale(0.9) rotate(-3deg);
+  }
+  30%, 50%, 70%, 90% {
+    transform: scale(1.1) rotate(3deg);
+  }
+  40%, 60%, 80% {
+    transform: scale(1.1) rotate(-3deg);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+
+/* Pulse */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+}
+
+/* Rubberband */
+@keyframes jiggle {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    transform: scale3d(.95, 1.05, 1);
+  }
+  75% {
+    transform: scale3d(1.05, .95, 1);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
 
 
 

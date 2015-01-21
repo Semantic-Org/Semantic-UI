@@ -203,12 +203,19 @@ $.fn.transition = function() {
 
         has: {
           direction: function(animation) {
+            var
+              hasDirection = false
+            ;
             animation = animation || settings.animation;
-            if( animation.search(className.inward) !== -1 || animation.search(className.outward) !== -1) {
-              module.debug('Direction already set in animation');
-              return true;
+            if(typeof animation === 'string') {
+              animation = animation.split(' ');
+              $.each(animation, function(index, word){
+                if(word === className.inward || word === className.outward) {
+                  hasDirection = true;
+                }
+              });
             }
-            return false;
+            return hasDirection;
           },
           inlineDisplay: function() {
             var
@@ -865,7 +872,7 @@ $.fn.transition.settings = {
   name         : 'Transition',
 
   // debug content outputted to console
-  debug        : false,
+  debug        : true,
 
   // verbose debug output
   verbose      : true,
