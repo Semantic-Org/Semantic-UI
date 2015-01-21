@@ -117,7 +117,7 @@
 @cornerTransition: color @labelTransitionDuration @labelTransitionEasing;
 @cornerTriangleSize: 3.25em;
 @cornerTriangleTransition: border-color @labelTransitionDuration @labelTransitionEasing;
-@cornerTriangleZIndex: 10;
+@cornerTriangleZIndex: 1;
 
 @cornerIconSize: 1em;
 @cornerIconTopOffset: 0.4em;
