@@ -73,7 +73,14 @@ $.fn.dropdown = function(parameters) {
 
         initialize: function() {
           module.debug('Initializing dropdown', settings);
-          module.setup.layout();
+
+          if( module.is.alreadySetup() ) {
+            module.error(error.alreadySetup);
+          }
+          else {
+            module.setup.layout();
+          }
+
           module.save.defaults();
           module.set.selected();
 
@@ -104,6 +111,9 @@ $.fn.dropdown = function(parameters) {
             .off(eventNamespace)
             .removeData(moduleNamespace)
           ;
+          $menu
+            .off(eventNamespace)
+          ;
           $document
             .off(elementNamespace)
           ;
@@ -112,8 +122,14 @@ $.fn.dropdown = function(parameters) {
         observeChanges: function() {
           if('MutationObserver' in window) {
             observer = new MutationObserver(function(mutations) {
-              module.debug('DOM tree modified, updating selector cache');
-              module.refresh();
+              if( module.is.selectMutation(mutations) ) {
+                module.debug('<select> modified, recreating menu');
+                module.setup.select();
+              }
+              else {
+                module.debug('DOM tree modified, updating selector cache');
+                module.refresh();
+              }
             });
             observer.observe(element, {
               childList : true,
@@ -162,24 +178,27 @@ $.fn.dropdown = function(parameters) {
           },
           select: function() {
             var
-              selectValues = module.get.selectValues()
+              selectValues  = module.get.selectValues()
             ;
             module.debug('Dropdown initialized on a select', selectValues);
-            // see if select exists inside a dropdown
-            $input = $module;
-            if($input.parents(selector.dropdown).length > 0) {
-              module.debug('Creating dropdown menu only from template');
+            if( $module.is('select') ) {
+              $input = $module;
+            }
+            // see if select is placed correctly already
+            if($input.parent(selector.dropdown).length > 0) {
+              module.debug('UI dropdown already exists. Creating dropdown menu only');
               $module = $input.closest(selector.dropdown);
-              if($module.find('.' + className.dropdown).length === 0) {
-                $('<div />')
+              $menu   = $module.children(selector.menu);
+              if($menu.length === 0) {
+                $menu = $('<div />')
                   .addClass(className.menu)
-                  .html( settings.templates.menu( selectValues ))
                   .appendTo($module)
                 ;
               }
+              $menu.html( settings.templates.menu( selectValues ));
             }
             else {
-              module.debug('Creating entire dropdown from template');
+              module.debug('Creating entire dropdown from select');
               $module = $('<div />')
                 .attr('class', $input.attr('class') )
                 .addClass(className.selection)
@@ -197,9 +216,14 @@ $.fn.dropdown = function(parameters) {
         },
 
         refresh: function() {
+          module.verbose('Refreshing selector cache');
           $text   = $module.find(selector.text);
           $search = $module.find(selector.search);
           $input  = $module.find(selector.input);
+          $combo  = ($module.prev().find(selector.text).length > 0)
+            ? $module.prev().find(selector.text)
+            : $module.prev()
+          ;
           $menu   = $module.children(selector.menu);
           $item   = $menu.find(selector.item);
         },
@@ -294,7 +318,6 @@ $.fn.dropdown = function(parameters) {
           },
           mouseEvents: function() {
             module.verbose('Mouse detected binding mouse events');
-
             if( module.is.searchSelection() ) {
               $module
                 .on('mousedown' + eventNamespace, selector.menu, module.event.menu.activate)
@@ -1169,6 +1192,9 @@ $.fn.dropdown = function(parameters) {
           active: function() {
             return $module.hasClass(className.active);
           },
+          alreadySetup: function() {
+            return ($module.is('select') && $module.parent(selector.dropdown).length > 0);
+          },
           animating: function($subMenu) {
             return ($subMenu)
               ? $subMenu.is(':animated') || $subMenu.transition && $subMenu.transition('is animating')
@@ -1183,6 +1209,18 @@ $.fn.dropdown = function(parameters) {
               ? $subMenu.is(':hidden')
               : $menu.is(':hidden')
             ;
+          },
+          selectMutation: function(mutations) {
+            var
+              selectChanged = false
+            ;
+            $.each(mutations, function(index, mutation) {
+              if(mutation.target && $(mutation.target).is('select')) {
+                selectChanged = true;
+                return true;
+              }
+            });
+            return selectChanged;
           },
           search: function() {
             return $module.hasClass(className.search);
@@ -1616,9 +1654,10 @@ $.fn.dropdown.settings = {
   namespace      : 'dropdown',
 
   error   : {
-    action     : 'You called a dropdown action that was not defined',
-    method     : 'The method you called is not defined.',
-    transition : 'The requested transition was not found'
+    action       : 'You called a dropdown action that was not defined',
+    alreadySetup : 'Once a select has been initialized behaviors must be called on the created ui dropdown',
+    method       : 'The method you called is not defined.',
+    transition   : 'The requested transition was not found'
   },
 
   metadata: {
