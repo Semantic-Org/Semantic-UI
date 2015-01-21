@@ -3,6 +3,7 @@
 ### Version 1.8.0 - January 21, 2015
 
 **Enhancements**
+- **Transition** - Transition duration now defaults to what is specified in `css`, to set custom duration you can still pass at run-time as a different value
 - **Dropdown** - Keyboard navigation will now allow opening of sub menus with right/left arrow. Enter will open sub-menus on an unselectable category (`allowCategorySelection: false`) as well.
 - **Dropdown** - Mutation observers will now observe changed in `<select>` values after initialization, and will automatically update dropdown menu when changed
 - **API** - Added new behavior `$.api('abort')` which cancels current request
@@ -23,6 +24,7 @@
 - **API** - Fixed bug where `$.api('get xhr')` was not correctly returning xhr promise
 - *Sticky** - Fixes issue with container size not being set explicitly on rail due to improper method renaming
 - **Search** - Search results no longer hide/show when user changes tab or page loses focus
+- **Transition** - Fixed bug with animations that contain the strings 'in' or 'out' as part of their names, for example "swing"
 
 
 ### Version 1.7.(1-2) - January 15, 2015
