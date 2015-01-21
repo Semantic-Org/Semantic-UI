@@ -11,6 +11,7 @@
 - **Search** - Greatly reduced search delay from `300ms` to `100ms`. Previous request will automatically abort `xhr` when new request made
 
 **Bugs**
+- **Label** - Fixed issue with `ui ribbon label` not positioning itself correctly when using sizes like `small` or `large`
 - **Dropdown** - Fixed bug where link items would not open in sub-menus due to `event.preventDefault`
 - **Dropdown** - Dropdown no longer will not show menu when no `item` are present in menu. Dropdown will now only filter results for `ui search dropdown` #1632 **Thanks PSyton**.
 - **List** - `relaxed list` and `very relaxed list` no longer add padding to child menu items
