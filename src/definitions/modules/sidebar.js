@@ -59,6 +59,7 @@ $.fn.sidebar = function(parameters) {
         $context        = $(settings.context),
 
         $sidebars       = $module.children(selector.sidebar),
+        $fixed          = $context.children(selector.fixed),
         $pusher         = $context.children(selector.pusher),
         $style,
 
@@ -134,8 +135,16 @@ $.fn.sidebar = function(parameters) {
 
         event: {
           clickaway: function(event) {
-            if( $(event.target).closest(selector.sidebar).length === 0 ) {
+            var
+              clickedInPusher = ($pusher.find(event.target).length > 0 || $pusher.is(event.target)),
+              clickedContext  = ($context.is(event.target))
+            ;
+            if(clickedInPusher) {
               module.verbose('User clicked on dimmed page');
+              module.hide();
+            }
+            if(clickedContext) {
+              module.verbose('User clicked on dimmable context (scaled out page)');
               module.hide();
             }
           },
@@ -267,7 +276,6 @@ $.fn.sidebar = function(parameters) {
                 + ' }'
               ;
             }
-
             style += '</style>';
             $head.append(style);
             $style = $('style[title=' + namespace + ']');
@@ -280,6 +288,7 @@ $.fn.sidebar = function(parameters) {
           $context  = $(settings.context);
           $sidebars = $context.children(selector.sidebar);
           $pusher   = $context.children(selector.pusher);
+          $fixed    = $context.children(selector.fixed);
         },
 
         refreshSidebars: function() {

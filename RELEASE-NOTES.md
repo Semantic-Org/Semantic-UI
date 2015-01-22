@@ -22,6 +22,8 @@
 - **Button** - ``ui vertical basic buttons` now have dividers in default theme
 - **API** - Fixed bug where API would query resource immediately when specifying `on: false`
 - **API** - Fixed bug where `$.api('get xhr')` was not correctly returning xhr promise
+- **Sidebar** - Fixed bug with `pusher` inheriting first child margins due to `margin-collapse`
+- **Sidebar** - Sidebar will now only close if you click on `pusher` or underlayed `body` (scale out). Clicking on fixed elements will not close sidebar.
 - *Sticky** - Fixes issue with container size not being set explicitly on rail due to improper method renaming
 - **Search** - Search results no longer hide/show when user changes tab or page loses focus
 - **Transition** - Fixed bug with animations that contain the strings 'in' or 'out' as part of their names, for example "swing"
