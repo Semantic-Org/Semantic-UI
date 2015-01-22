@@ -175,20 +175,19 @@ $.fn.form = function(fields, parameters) {
           $field
             .each(function () {
               var
-                $field = $(this),
-                type   = $field.prop('type'),
-                name   = $field.prop('name')
+                $field     = $(this),
+                type       = $field.prop('type'),
+                name       = $field.prop('name'),
+                isCheckbox = $field.is(selector.checkbox),
+                isChecked  = (isCheckbox)
+                  ? $field.is(':checked')
+                  : false
               ;
-              switch(type) {
-                case 'checkbox':
-                case 'radio':
-                  if($field.is(':checked')) {
-                    data[name] = $field.val();
-                  }
-                    break;
-                default:
-                  data[name] = $field.val();
+              if(isCheckbox && !isChecked) {
+                module.debug('Omitted unchecked checkbox', $field);
+                return true;
               }
+              data[name] = $field.val();
             })
           ;
           return data;
