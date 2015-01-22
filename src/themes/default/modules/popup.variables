@@ -6,7 +6,7 @@
        Element
 --------------------*/
 
-@zIndex: 900;
+@zIndex: 1100;
 @background: @white;
 
 @maxWidth: 250px;
