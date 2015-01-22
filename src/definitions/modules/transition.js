@@ -135,7 +135,7 @@ $.fn.transition = function() {
           module.debug('Preparing animation', settings.animation);
           if(module.is.animating()) {
             if(settings.queue) {
-              if(!settings.allowRepeats && module.has.direction() && module.is.occuring() && module.queuing !== true) {
+              if(!settings.allowRepeats && module.has.direction() && module.is.occurring() && module.queuing !== true) {
                 module.error(error.repeated, settings.animation, $module);
               }
               else {
@@ -143,8 +143,9 @@ $.fn.transition = function() {
               }
               return false;
             }
-            else {
-
+            else if(!settings.allowRepeats && module.is.occurring()) {
+              module.error(error.repeated, settings.animation, $module);
+              return false;
             }
           }
           if( module.can.animate() ) {
@@ -643,9 +644,9 @@ $.fn.transition = function() {
           looping: function() {
             return $module.hasClass(className.looping);
           },
-          occuring: function(animation) {
+          occurring: function(animation) {
             animation = animation || settings.animation;
-            animation = animation.replace(' ', '.');
+            animation = '.' + animation.replace(' ', '.');
             return ( $module.filter(animation).length > 0 );
           },
           visible: function() {
