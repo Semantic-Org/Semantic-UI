@@ -25,8 +25,8 @@
 /* Header */
 @headerMargin: 0em;
 @headerVerticalPadding: 1.2rem;
-@headerHorizontalpadding: 2rem;
-@headerPadding: @headerVerticalPadding @headerHorizontalpadding;
+@headerHorizontalPadding: 2rem;
+@headerPadding: @headerVerticalPadding @headerHorizontalPadding;
 @headerBackground: @subtleGradient @white;
 @headerColor: @darkTextColor;
 @headerFontSize: 1.6em;
