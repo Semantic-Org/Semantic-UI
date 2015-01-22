@@ -136,7 +136,7 @@ $.fn.transition = function() {
           if(module.is.animating()) {
             if(settings.queue) {
               if(!settings.allowRepeats && module.has.direction() && module.is.occurring() && module.queuing !== true) {
-                module.error(error.repeated, settings.animation, $module);
+                module.debug('Animation is currently occurring, preventing queueing same animation', settings.animation);
               }
               else {
                 module.queue(settings.animation);
@@ -144,7 +144,7 @@ $.fn.transition = function() {
               return false;
             }
             else if(!settings.allowRepeats && module.is.occurring()) {
-              module.error(error.repeated, settings.animation, $module);
+              module.debug('Animation is already occurring, will not execute repeated animation', settings.animation);
               return false;
             }
           }
