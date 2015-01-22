@@ -11,6 +11,8 @@
 - **Search** - Search `onSelect` now recieves JSON object matching currently selected element, you can now programmatically retrieve result JSON using `.search('get result')`. Defaults to current value unless value specified as first parameter.
 - **Search** - Search `onSelect` and `onResultsAdd` can now cancel default actions by returning `false`.
 - **Search** - Greatly reduced search delay from `300ms` to `100ms`. Previous request will automatically abort `xhr` when new request made
+- **Header** - Content headers now inherit `@h1-h6` sizes from `site.variables`
+- **Header** - Sub headers now adjust in size depending on header size, added new variables for subheader resizing
 
 **Bugs**
 - **Label** - Fixed issue with `ui ribbon label` not positioning itself correctly when using sizes like `small` or `large`
