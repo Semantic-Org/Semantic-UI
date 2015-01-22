@@ -143,6 +143,10 @@ $.fn.form = function(fields, parameters) {
                 isDropdown   = $element.is(selector.uiDropdown),
                 isErrored    = $fieldGroup.hasClass(className.error)
               ;
+              if(isErrored) {
+                module.verbose('Resetting error on field', $fieldGroup);
+                $fieldGroup.removeClass(className.error);
+              }
               if(isDropdown) {
                 module.verbose('Resetting dropdown value', $element, defaultValue);
                 $element.dropdown('restore defaults');
@@ -159,10 +163,6 @@ $.fn.form = function(fields, parameters) {
               else {
                 module.verbose('Resetting field value', $field, defaultValue);
                 $field.val(defaultValue);
-              }
-              if(isErrored) {
-                module.verbose('Resetting error on field', $fieldGroup);
-                $fieldGroup.removeClass(className.error);
               }
             })
           ;
