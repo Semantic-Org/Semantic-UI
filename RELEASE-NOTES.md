@@ -34,6 +34,9 @@
 - **Transition** - Fixed bug with animations that contain the strings 'in' or 'out' as part of their names, for example "swing"
 - *Sticky** - Fixes issue with container size not being set explicitly on rail due to improper method renaming
 
+### Version 1.7.3 - January 16, 2015
+
+- **Installer** - Fix issue with component list in `semantic.json` not correctly overriding default components
 
 ### Version 1.7.(1-2) - January 15, 2015
 
