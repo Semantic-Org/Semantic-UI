@@ -1075,6 +1075,7 @@ $.fn.dropdown = function(parameters) {
 
               selectedText = module.get.choiceText($selectedItem);
               module.set.text(selectedText);
+              module.set.value(value);
               settings.onChange.call(element, value, selectedText, $selectedItem);
             }
           }
