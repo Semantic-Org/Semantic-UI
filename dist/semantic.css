@@ -1,7 +1,7 @@
 @import 'https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&subset=latin';
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -492,7 +492,7 @@ th {
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -645,7 +645,7 @@ input::selection {
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -716,9 +716,9 @@ input::selection {
 
 .ui.button:focus {
   background-color: '';
-  background-image: '';
-  box-shadow: 0px 0px 0px 1px transparent inset, 0px 0px 1px rgba(81, 167, 232, 0.8) inset, 0px 0px 3px 2px rgba(81, 167, 232, 0.8);
   color: rgba(0, 0, 0, 0.8);
+  background-image: '' !important;
+  box-shadow: 0px 0px 0px 1px transparent inset, 0px 0px 1px rgba(81, 167, 232, 0.8) inset, 0px 0px 3px 2px rgba(81, 167, 232, 0.8) !important;
 }
 
 .ui.button:focus .icon {
@@ -858,6 +858,12 @@ input::selection {
   background-image: none !important;
   box-shadow: none !important;
   pointer-events: none;
+}
+
+/* Basic Group With Disabled */
+
+.ui.basic.buttons .ui.disabled.button {
+  border-color: rgba(39, 41, 43, 0.5);
 }
 
 /*******************************
@@ -1445,6 +1451,15 @@ input::selection {
 
 .ui.basic.vertical.buttons .button {
   border-left: none;
+}
+
+.ui.basic.vertical.buttons .button {
+  border-left-width: 0px;
+  border-top: 1px solid rgba(39, 41, 43, 0.15);
+}
+
+.ui.basic.vertical.buttons .button:first-child {
+  border-top-width: 0px;
 }
 
 /*--------------
@@ -3349,7 +3364,7 @@ input::selection {
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -3598,7 +3613,7 @@ input::selection {
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -4855,7 +4870,7 @@ i.flag.zimbabwe:before {
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -4883,21 +4898,25 @@ i.flag.zimbabwe:before {
   color: rgba(0, 0, 0, 0.8);
 }
 
-.ui.header .sub.header {
-  font-size: 1.0714rem;
-  font-weight: normal;
-  margin: 0em;
-  padding: 0em;
-  line-height: 1.2em;
-  color: rgba(0, 0, 0, 0.5);
-}
-
 .ui.header:first-child {
   margin-top: -0.165em;
 }
 
 .ui.header:last-child {
   margin-bottom: 0em;
+}
+
+/*--------------
+   Sub Header
+---------------*/
+
+.ui.header .sub.header {
+  font-weight: normal;
+  margin: 0em;
+  padding: 0em;
+  font-size: 1.1428rem;
+  line-height: 1.2em;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 /*--------------
@@ -4935,31 +4954,6 @@ i.flag.zimbabwe:before {
   padding-left: 0.5rem;
   display: table-cell;
   vertical-align: middle;
-}
-
-/*--------------
- Content Heading
----------------*/
-
-.ui.tiny.header {
-  font-size: 1em;
-}
-
-.ui.small.header {
-  font-size: 1.071em;
-}
-
-.ui.medium.header {
-  font-size: 1.285em;
-}
-
-.ui.large.header {
-  font-size: 1.714em;
-}
-
-.ui.huge.header {
-  min-height: 1em;
-  font-size: 2em;
 }
 
 /*--------------
@@ -5003,6 +4997,75 @@ h4.ui.header {
 
 h5.ui.header {
   font-size: 1rem;
+}
+
+/* Sub Header */
+
+h1.ui.header .sub.header {
+  font-size: 1.4285rem;
+}
+
+h2.ui.header .sub.header {
+  font-size: 1.1428rem;
+}
+
+h3.ui.header .sub.header {
+  font-size: 1.1428rem;
+}
+
+h4.ui.header .sub.header {
+  font-size: 1rem;
+}
+
+h5.ui.header .sub.header {
+  font-size: 0.9285rem;
+}
+
+/*--------------
+ Content Heading
+---------------*/
+
+.ui.huge.header {
+  min-height: 1em;
+  font-size: 2em;
+}
+
+.ui.large.header {
+  font-size: 1.714em;
+}
+
+.ui.medium.header {
+  font-size: 1.28em;
+}
+
+.ui.small.header {
+  font-size: 1.071em;
+}
+
+.ui.tiny.header {
+  font-size: 1em;
+}
+
+/* Sub Header */
+
+.ui.huge.header .sub.header {
+  font-size: 1.4285rem;
+}
+
+.ui.large.header .sub.header {
+  font-size: 1.4285rem;
+}
+
+.ui.header .sub.header {
+  font-size: 1.1428rem;
+}
+
+.ui.small.header .sub.header {
+  font-size: 1rem;
+}
+
+.ui.tiny.header .sub.header {
+  font-size: 0.9285rem;
 }
 
 /*-------------------
@@ -5382,7 +5445,7 @@ a.ui.inverted.yellow.header:hover {
 }
 
 .ui.block.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
-  font-size: 1.285em;
+  font-size: 1.28em;
 }
 
 .ui.large.block.header {
@@ -5457,7 +5520,7 @@ a.ui.inverted.yellow.header:hover {
 --------------------*/
 
 .ui.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
-  font-size: 1.285em;
+  font-size: 1.28em;
 }
 
 /*******************************
@@ -5469,7 +5532,7 @@ a.ui.inverted.yellow.header:hover {
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -8190,7 +8253,7 @@ i.icon.weixin:before {
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -8472,7 +8535,7 @@ img.ui.bordered.image {
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -8502,9 +8565,9 @@ img.ui.bordered.image {
   outline: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   text-align: left;
-  line-height: 1.2142em;
+  line-height: 1.33;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  padding: 0.67861em 1em;
+  padding: 0.62071em 1em;
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.15);
   color: rgba(0, 0, 0, 0.8);
@@ -8688,7 +8751,7 @@ img.ui.bordered.image {
   right: 0px;
   margin: 0em;
   height: 100%;
-  width: 2.82142em;
+  width: 1.18em;
   opacity: 0.5;
   border-radius: 0em 0.2857rem 0.2857rem 0em;
   -webkit-transition: opacity 0.3s ease;
@@ -8696,7 +8759,7 @@ img.ui.bordered.image {
 }
 
 .ui.icon.input input {
-  padding-right: 2.82142em !important;
+  padding-right: 1.18em !important;
 }
 
 .ui.icon.input > i.icon:before,
@@ -8732,7 +8795,7 @@ img.ui.bordered.image {
 }
 
 .ui[class*="left icon"].input > input {
-  padding-left: 2.82142em !important;
+  padding-left: 1.18em !important;
   padding-right: 1em !important;
 }
 
@@ -8925,11 +8988,11 @@ img.ui.bordered.image {
 ---------------------*/
 
 .ui.mini.input {
-  font-size: 0.8125rem;
+  font-size: 0.71428571rem;
 }
 
 .ui.small.input {
-  font-size: 0.875rem;
+  font-size: 0.92857143rem;
 }
 
 .ui.input {
@@ -8937,19 +9000,19 @@ img.ui.bordered.image {
 }
 
 .ui.large.input {
-  font-size: 1.125rem;
+  font-size: 1.14285714rem;
 }
 
 .ui.big.input {
-  font-size: 1.25rem;
+  font-size: 1.28571429rem;
 }
 
 .ui.huge.input {
-  font-size: 1.375rem;
+  font-size: 1.42857143rem;
 }
 
 .ui.massive.input {
-  font-size: 1.5rem;
+  font-size: 1.71428571rem;
 }
 
 /*******************************
@@ -8961,7 +9024,7 @@ img.ui.bordered.image {
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -9190,7 +9253,7 @@ a.ui.label {
   text-align: center;
   width: 3.25em;
   height: 3.25em;
-  z-index: 10;
+  z-index: 1;
   -webkit-transition: border-color 0.2s ease;
   transition: border-color 0.2s ease;
 }
@@ -9278,8 +9341,10 @@ a.ui.label {
 .ui.ribbon.label {
   position: relative;
   margin: 0em;
-  left: -2rem;
-  padding-left: 2rem;
+  left: -webkit-calc( -1rem  -  1.2em );
+  left: calc( -1rem  -  1.2em );
+  padding-left: -webkit-calc( 1rem  +  1.2em );
+  padding-left: calc( 1rem  +  1.2em );
   border-radius: 0em 0.2857rem 0.2857rem 0em;
   border-color: rgba(0, 0, 0, 0.15);
 }
@@ -9303,11 +9368,12 @@ a.ui.label {
   -webkit-transform: translateX(-100%);
   -ms-transform: translateX(-100%);
   transform: translateX(-100%);
-  left: -webkit-calc(100% +  2rem );
-  left: calc(100% +  2rem );
+  left: -webkit-calc(100% +  1rem  +  1.2em );
+  left: calc(100% +  1rem  +  1.2em );
   border-radius: 0.2857rem 0em 0em 0.2857rem;
   padding-left: 0.8em;
-  padding-right: 2rem;
+  padding-right: -webkit-calc( 1rem  +  1.2em );
+  padding-right: calc( 1rem  +  1.2em );
 }
 
 .ui[class*="right ribbon"].label:after {
@@ -9320,7 +9386,7 @@ a.ui.label {
 }
 
 /*-------------------
-       Attached
+      Attached
 --------------------*/
 
 .ui.top.attached.label,
@@ -9975,7 +10041,7 @@ a.ui.yellow.label:hover:before {
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -10849,7 +10915,6 @@ ol.ui.horizontal.list li:before,
        Relaxed
 --------------------*/
 
-.ui.relaxed.list:not(.horizontal) .list > .item,
 .ui.relaxed.list:not(.horizontal) > .item {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -10867,7 +10932,6 @@ ol.ui.horizontal.list li:before,
 
 /* Very Relaxed */
 
-.ui[class*="very relaxed"].list:not(.horizontal) .list > .item,
 .ui[class*="very relaxed"].list:not(.horizontal) > .item {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -10888,43 +10952,35 @@ ol.ui.horizontal.list li:before,
       Sizes
 --------------------*/
 
-.ui.mini.list .list > .item,
-.ui.mini.list > .item {
+.ui.mini.list {
   font-size: 0.71428571em;
 }
 
-.ui.tiny.list .list > .item,
-.ui.tiny.list > .item {
+.ui.tiny.list {
   font-size: 0.85714286em;
 }
 
-.ui.small.list .list > .item,
-.ui.small.list > .item {
+.ui.small.list {
   font-size: 0.92857143em;
 }
 
-.ui.list .list > .item,
-.ui.list > .item {
+.ui.list {
   font-size: 1em;
 }
 
-.ui.large.list .list > .item,
-.ui.large.list > .item {
+.ui.large.list {
   font-size: 1.14285714em;
 }
 
-.ui.big.list .list > .item,
-.ui.big.list > .item {
+.ui.big.list {
   font-size: 1.28571429em;
 }
 
-.ui.huge.list .list > .item,
-.ui.huge.list > .item {
+.ui.huge.list {
   font-size: 1.42857143em;
 }
 
-.ui.massive.list .list > .item,
-.ui.massive.list > .item {
+.ui.massive.list {
   font-size: 1.71428571em;
 }
 
@@ -10977,7 +11033,7 @@ ol.ui.horizontal.list li:before,
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -11274,7 +11330,7 @@ ol.ui.horizontal.list li:before,
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -11399,7 +11455,7 @@ ol.ui.horizontal.list li:before,
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -11716,7 +11772,7 @@ ol.ui.horizontal.list li:before,
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -12366,7 +12422,7 @@ ol.ui.horizontal.list li:before,
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -12840,7 +12896,7 @@ ol.ui.horizontal.list li:before,
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -12972,7 +13028,7 @@ ol.ui.horizontal.list li:before,
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -13921,7 +13977,7 @@ ol.ui.horizontal.list li:before,
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -15705,15 +15761,33 @@ ol.ui.horizontal.list li:before,
     width: 20% !important;
   }
 
+  .ui[class*="eleven column"].doubling.grid > .row > .column,
+  .ui[class*="eleven column"].doubling.grid > .column,
+  .ui.grid > [class*="eleven column"].doubling.row > .column {
+    width: 20% !important;
+  }
+
   .ui[class*="twelve column"].doubling.grid > .row > .column,
   .ui[class*="twelve column"].doubling.grid > .column,
   .ui.grid > [class*="twelve column"].doubling.row > .column {
     width: 16.66666667% !important;
   }
 
+  .ui[class*="thirteen column"].doubling.grid > .row > .column,
+  .ui[class*="thirteen column"].doubling.grid > .column,
+  .ui.grid > [class*="thirteen column"].doubling.row > .column {
+    width: 16.66666667% !important;
+  }
+
   .ui[class*="fourteen column"].doubling.grid > .row > .column,
   .ui[class*="fourteen column"].doubling.grid > .column,
   .ui.grid > [class*="fourteen column"].doubling.row > .column {
+    width: 14.28571429% !important;
+  }
+
+  .ui[class*="fifteen column"].doubling.grid > .row > .column,
+  .ui[class*="fifteen column"].doubling.grid > .column,
+  .ui.grid > [class*="fifteen column"].doubling.row > .column {
     width: 14.28571429% !important;
   }
 
@@ -15800,15 +15874,33 @@ ol.ui.horizontal.list li:before,
     width: 33.33333333% !important;
   }
 
+  .ui[class*="eleven column"].doubling:not(.stackable).grid > .row > .column,
+  .ui[class*="eleven column"].doubling:not(.stackable).grid > .column,
+  .ui.grid > [class*="eleven column"].doubling:not(.stackable).row > .column {
+    width: 33.33333333% !important;
+  }
+
   .ui[class*="twelve column"].doubling:not(.stackable).grid > .row > .column,
   .ui[class*="twelve column"].doubling:not(.stackable).grid > .column,
   .ui.grid > [class*="twelve column"].doubling:not(.stackable).row > .column {
     width: 33.33333333% !important;
   }
 
+  .ui[class*="thirteen column"].doubling:not(.stackable).grid > .row > .column,
+  .ui[class*="thirteen column"].doubling:not(.stackable).grid > .column,
+  .ui.grid > [class*="thirteen column"].doubling:not(.stackable).row > .column {
+    width: 33.33333333% !important;
+  }
+
   .ui[class*="fourteen column"].doubling:not(.stackable).grid > .row > .column,
   .ui[class*="fourteen column"].doubling:not(.stackable).grid > .column,
   .ui.grid > [class*="fourteen column"].doubling:not(.stackable).row > .column {
+    width: 25% !important;
+  }
+
+  .ui[class*="fifteen column"].doubling:not(.stackable).grid > .row > .column,
+  .ui[class*="fifteen column"].doubling:not(.stackable).grid > .column,
+  .ui.grid > [class*="fifteen column"].doubling:not(.stackable).row > .column {
     width: 25% !important;
   }
 
@@ -15957,7 +16049,7 @@ ol.ui.horizontal.list li:before,
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -17615,19 +17707,19 @@ ol.ui.horizontal.list li:before,
 
 .ui.pointing.menu .active.item:after {
   position: absolute;
-  bottom: -0.3em;
-  left: 50%;
   content: '';
-  margin-left: -0.3em;
+  top: 100%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  -ms-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  margin: 1px 0em 0em 0em;
+  background: none;
   width: 0.6em;
   height: 0.6em;
   border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
-  background: none;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
+  border-bottom: 1px solid #d4d4d5;
+  border-right: 1px solid #d4d4d5;
   z-index: 2;
   -webkit-transition: background 0.2s ease;
   transition: background 0.2s ease;
@@ -17642,13 +17734,16 @@ ol.ui.horizontal.list li:before,
 .ui.vertical.pointing.menu .active.item:after {
   position: absolute;
   top: 50%;
-  margin-top: -0.3em;
-  right: -0.3em;
+  right: 0%;
   bottom: auto;
   left: auto;
+  -webkit-transform: translateX(50%) translateY(-50%) rotate(45deg);
+  -ms-transform: translateX(50%) translateY(-50%) rotate(45deg);
+  transform: translateX(50%) translateY(-50%) rotate(45deg);
+  margin: 0em -1px 0em 0em;
   border: none;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid #d4d4d5;
+  border-right: 1px solid #d4d4d5;
 }
 
 /* Colors */
@@ -17658,7 +17753,7 @@ ol.ui.horizontal.list li:before,
 }
 
 .ui.pointing.menu .active.item:after {
-  background-color: #f6f6f6;
+  background-color: #f7f7f7;
 }
 
 .ui.vertical.pointing.menu .item:hover:after {
@@ -17666,7 +17761,7 @@ ol.ui.horizontal.list li:before,
 }
 
 .ui.vertical.pointing.menu .active.item:after {
-  background-color: #fcfcfc;
+  background-color: #f7f7f7;
 }
 
 /*--------------
@@ -17739,7 +17834,7 @@ ol.ui.horizontal.list li:before,
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -18216,7 +18311,7 @@ ol.ui.horizontal.list li:before,
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -19356,7 +19451,7 @@ ol.ui.horizontal.list li:before,
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -19647,7 +19742,7 @@ ol.ui.horizontal.list li:before,
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -20491,7 +20586,7 @@ a.ui.card:hover,
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -20762,7 +20857,7 @@ a.ui.card:hover,
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -21058,7 +21153,7 @@ a.ui.card:hover,
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -21551,7 +21646,7 @@ a.ui.card:hover,
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -21999,7 +22094,7 @@ a.ui.card:hover,
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -22065,7 +22160,7 @@ a.ui.card:hover,
 .ui.accordion .accordion .title .dropdown.icon {
   display: inline-block;
   float: none;
-  opacity: 0.75;
+  opacity: 1;
   width: 1.25em;
   height: 1em;
   margin: 0em 0.25rem 0em 0rem;
@@ -22074,9 +22169,9 @@ a.ui.card:hover,
   -webkit-transition: -webkit-transform 0.2s ease, opacity 0.2s ease;
   transition: transform 0.2s ease, opacity 0.2s ease;
   vertical-align: baseline;
-  -webkit-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  transform: rotate(0deg);
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
 }
 
 /*--------------
@@ -22266,7 +22361,7 @@ a.ui.card:hover,
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -22770,7 +22865,7 @@ a.ui.card:hover,
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -22963,7 +23058,7 @@ body.dimmed.dimmable > :not(.dimmer) {
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -24139,7 +24234,7 @@ select.ui.dropdown {
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -24607,7 +24702,7 @@ select.ui.dropdown {
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -24754,7 +24849,7 @@ a.ui.nag {
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -24773,7 +24868,9 @@ a.ui.nag {
   position: absolute;
   top: 0px;
   right: 0px;
-  z-index: 900;
+  /* Fixes content being squished when inline (moz only) */
+  min-width: -moz-max-content;
+  z-index: 1900;
   border: 1px solid #cccccc;
   max-width: 250px;
   background-color: #ffffff;
@@ -25055,7 +25152,7 @@ a.ui.nag {
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -25559,7 +25656,7 @@ a.ui.nag {
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -25840,7 +25937,7 @@ a.ui.nag {
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -26183,7 +26280,7 @@ a.ui.nag {
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -26341,7 +26438,7 @@ a.ui.nag {
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -26470,6 +26567,7 @@ body.pushable {
   position: relative;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+  overflow: hidden;
   min-height: 100%;
   -webkit-transition: -webkit-transform 500ms ease;
   transition: transform 500ms ease;
@@ -27019,7 +27117,7 @@ html.ios {
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -27095,7 +27193,7 @@ html.ios {
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -27184,7 +27282,7 @@ html.ios {
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -28324,7 +28422,7 @@ html.ios {
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -28338,16 +28436,11 @@ html.ios {
           Transitions
 *******************************/
 
-/*
-  Some transitions adapted from Animate CSS
-  https://github.com/daneden/animate.css
-*/
-
 .transition {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
-  -webkit-animation-duration: 500ms;
-  animation-duration: 500ms;
+  -webkit-animation-duration: 300ms;
+  animation-duration: 300ms;
   -webkit-animation-timing-function: ease;
   animation-timing-function: ease;
   -webkit-animation-fill-mode: both;
@@ -28415,7 +28508,1897 @@ html.ios {
 *******************************/
 
 /*******************************
-           Animations
+          Transitions
+*******************************/
+
+/*
+  Some transitions adapted from Animate CSS
+  https://github.com/daneden/animate.css
+
+  Additional transitions adapted from Glide
+  by Nick Pettit - https://github.com/nickpettit/glide
+*/
+
+/*--------------
+     Browse
+---------------*/
+
+.browse.transition.in {
+  -webkit-animation-name: browseIn;
+  animation-name: browseIn;
+}
+
+.browse.transition.out,
+.browse.transition.out.left {
+  -webkit-animation-name: browseOutLeft;
+  animation-name: browseOutLeft;
+}
+
+.browse.transition.out.right {
+  -webkit-animation-name: browseOutRight;
+  animation-name: browseOutRight;
+}
+
+/* In */
+
+@-webkit-keyframes browseIn {
+  0% {
+    -webkit-transform: scale(0.8) translateZ(0px);
+    transform: scale(0.8) translateZ(0px);
+    z-index: -1;
+  }
+
+  10% {
+    -webkit-transform: scale(0.8) translateZ(0px);
+    transform: scale(0.8) translateZ(0px);
+    z-index: -1;
+    opacity: 0.7;
+  }
+
+  80% {
+    -webkit-transform: scale(1.05) translateZ(0px);
+    transform: scale(1.05) translateZ(0px);
+    opacity: 1;
+    z-index: 999;
+  }
+
+  100% {
+    -webkit-transform: scale(1) translateZ(0px);
+    transform: scale(1) translateZ(0px);
+    z-index: 999;
+  }
+}
+
+@keyframes browseIn {
+  0% {
+    -webkit-transform: scale(0.8) translateZ(0px);
+    transform: scale(0.8) translateZ(0px);
+    z-index: -1;
+  }
+
+  10% {
+    -webkit-transform: scale(0.8) translateZ(0px);
+    transform: scale(0.8) translateZ(0px);
+    z-index: -1;
+    opacity: 0.7;
+  }
+
+  80% {
+    -webkit-transform: scale(1.05) translateZ(0px);
+    transform: scale(1.05) translateZ(0px);
+    opacity: 1;
+    z-index: 999;
+  }
+
+  100% {
+    -webkit-transform: scale(1) translateZ(0px);
+    transform: scale(1) translateZ(0px);
+    z-index: 999;
+  }
+}
+
+/* Out */
+
+@-webkit-keyframes browseOutLeft {
+  0% {
+    z-index: 999;
+    -webkit-transform: translateX(0%) rotateY(0deg) rotateX(0deg);
+    transform: translateX(0%) rotateY(0deg) rotateX(0deg);
+  }
+
+  50% {
+    z-index: -1;
+    -webkit-transform: translateX(-105%) rotateY(35deg) rotateX(10deg) translateZ(-10px);
+    transform: translateX(-105%) rotateY(35deg) rotateX(10deg) translateZ(-10px);
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    z-index: -1;
+    -webkit-transform: translateX(0%) rotateY(0deg) rotateX(0deg) translateZ(-10px);
+    transform: translateX(0%) rotateY(0deg) rotateX(0deg) translateZ(-10px);
+    opacity: 0;
+  }
+}
+
+@keyframes browseOutLeft {
+  0% {
+    z-index: 999;
+    -webkit-transform: translateX(0%) rotateY(0deg) rotateX(0deg);
+    transform: translateX(0%) rotateY(0deg) rotateX(0deg);
+  }
+
+  50% {
+    z-index: -1;
+    -webkit-transform: translateX(-105%) rotateY(35deg) rotateX(10deg) translateZ(-10px);
+    transform: translateX(-105%) rotateY(35deg) rotateX(10deg) translateZ(-10px);
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    z-index: -1;
+    -webkit-transform: translateX(0%) rotateY(0deg) rotateX(0deg) translateZ(-10px);
+    transform: translateX(0%) rotateY(0deg) rotateX(0deg) translateZ(-10px);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes browseOutRight {
+  0% {
+    z-index: 999;
+    -webkit-transform: translateX(0%) rotateY(0deg) rotateX(0deg);
+    transform: translateX(0%) rotateY(0deg) rotateX(0deg);
+  }
+
+  50% {
+    z-index: 1;
+    -webkit-transform: translateX(105%) rotateY(35deg) rotateX(10deg) translateZ(-10px);
+    transform: translateX(105%) rotateY(35deg) rotateX(10deg) translateZ(-10px);
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    z-index: 1;
+    -webkit-transform: translateX(0%) rotateY(0deg) rotateX(0deg) translateZ(-10px);
+    transform: translateX(0%) rotateY(0deg) rotateX(0deg) translateZ(-10px);
+    opacity: 0;
+  }
+}
+
+@keyframes browseOutRight {
+  0% {
+    z-index: 999;
+    -webkit-transform: translateX(0%) rotateY(0deg) rotateX(0deg);
+    transform: translateX(0%) rotateY(0deg) rotateX(0deg);
+  }
+
+  50% {
+    z-index: 1;
+    -webkit-transform: translateX(105%) rotateY(35deg) rotateX(10deg) translateZ(-10px);
+    transform: translateX(105%) rotateY(35deg) rotateX(10deg) translateZ(-10px);
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    z-index: 1;
+    -webkit-transform: translateX(0%) rotateY(0deg) rotateX(0deg) translateZ(-10px);
+    transform: translateX(0%) rotateY(0deg) rotateX(0deg) translateZ(-10px);
+    opacity: 0;
+  }
+}
+
+/*--------------
+     Drop
+---------------*/
+
+.drop.transition {
+  -webkit-transform-origin: top center;
+  -ms-transform-origin: top center;
+  transform-origin: top center;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-timing-function: cubic-bezier(0.34, 1.61, 0.7, 1);
+  animation-timing-function: cubic-bezier(0.34, 1.61, 0.7, 1);
+}
+
+.drop.transition.in {
+  -webkit-animation-name: dropIn;
+  animation-name: dropIn;
+}
+
+.drop.transition.out {
+  -webkit-animation-name: dropOut;
+  animation-name: dropOut;
+}
+
+/* Drop */
+
+@-webkit-keyframes dropIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes dropIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes dropOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+}
+
+@keyframes dropOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+}
+
+/*--------------
+      Fade
+---------------*/
+
+.transition.fade.in {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+.transition.fade.in.up {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+
+.transition.fade.in.down {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}
+
+.transition.fade.in.left {
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+}
+
+.transition.fade.in.right {
+  -webkit-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+}
+
+.transition.fade.out {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+}
+
+.transition.fade.out.up {
+  -webkit-animation-name: fadeOutUp;
+  animation-name: fadeOutUp;
+}
+
+.transition.fade.out.down {
+  -webkit-animation-name: fadeOutDown;
+  animation-name: fadeOutDown;
+}
+
+.transition.fade.out.left {
+  -webkit-animation-name: fadeOutLeft;
+  animation-name: fadeOutLeft;
+}
+
+.transition.fade.out.right {
+  -webkit-animation-name: fadeOutRight;
+  animation-name: fadeOutRight;
+}
+
+/* In */
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(10%);
+    transform: translateY(10%);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(10%);
+    transform: translateY(10%);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+}
+
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-10%);
+    transform: translateY(-10%);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-10%);
+    transform: translateY(-10%);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+}
+
+@-webkit-keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(10%);
+    transform: translateX(10%);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(10%);
+    transform: translateX(10%);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+}
+
+@-webkit-keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-10%);
+    transform: translateX(-10%);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-10%);
+    transform: translateX(-10%);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+}
+
+/* Out */
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes fadeOutUp {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(10%);
+    transform: translateY(10%);
+  }
+}
+
+@keyframes fadeOutUp {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(10%);
+    transform: translateY(10%);
+  }
+}
+
+@-webkit-keyframes fadeOutDown {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(-10%);
+    transform: translateY(-10%);
+  }
+}
+
+@keyframes fadeOutDown {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(-10%);
+    transform: translateY(-10%);
+  }
+}
+
+@-webkit-keyframes fadeOutLeft {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(10%);
+    transform: translateX(10%);
+  }
+}
+
+@keyframes fadeOutLeft {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(10%);
+    transform: translateX(10%);
+  }
+}
+
+@-webkit-keyframes fadeOutRight {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(-10%);
+    transform: translateX(-10%);
+  }
+}
+
+@keyframes fadeOutRight {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(-10%);
+    transform: translateX(-10%);
+  }
+}
+
+/*--------------
+     Flips
+---------------*/
+
+.flip.transition.in,
+.flip.transition.out {
+  -webkit-perspective: 2000px;
+  perspective: 2000px;
+}
+
+.horizontal.flip.transition.in {
+  -webkit-animation-name: horizontalFlipIn;
+  animation-name: horizontalFlipIn;
+}
+
+.horizontal.flip.transition.out {
+  -webkit-animation-name: horizontalFlipOut;
+  animation-name: horizontalFlipOut;
+}
+
+.vertical.flip.transition.in {
+  -webkit-animation-name: verticalFlipIn;
+  animation-name: verticalFlipIn;
+}
+
+.vertical.flip.transition.out {
+  -webkit-animation-name: verticalFlipOut;
+  animation-name: verticalFlipOut;
+}
+
+/* In */
+
+@-webkit-keyframes horizontalFlipIn {
+  0% {
+    -webkit-transform: perspective(2000px) rotateY(-90deg);
+    transform: perspective(2000px) rotateY(-90deg);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: perspective(2000px) rotateY(0deg);
+    transform: perspective(2000px) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes horizontalFlipIn {
+  0% {
+    -webkit-transform: perspective(2000px) rotateY(-90deg);
+    transform: perspective(2000px) rotateY(-90deg);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: perspective(2000px) rotateY(0deg);
+    transform: perspective(2000px) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes verticalFlipIn {
+  0% {
+    -webkit-transform: perspective(2000px) rotateX(-90deg);
+    transform: perspective(2000px) rotateX(-90deg);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: perspective(2000px) rotateX(0deg);
+    transform: perspective(2000px) rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes verticalFlipIn {
+  0% {
+    -webkit-transform: perspective(2000px) rotateX(-90deg);
+    transform: perspective(2000px) rotateX(-90deg);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: perspective(2000px) rotateX(0deg);
+    transform: perspective(2000px) rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+/* Out */
+
+@-webkit-keyframes horizontalFlipOut {
+  0% {
+    -webkit-transform: perspective(2000px) rotateY(0deg);
+    transform: perspective(2000px) rotateY(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(2000px) rotateY(90deg);
+    transform: perspective(2000px) rotateY(90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes horizontalFlipOut {
+  0% {
+    -webkit-transform: perspective(2000px) rotateY(0deg);
+    transform: perspective(2000px) rotateY(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(2000px) rotateY(90deg);
+    transform: perspective(2000px) rotateY(90deg);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes verticalFlipOut {
+  0% {
+    -webkit-transform: perspective(2000px) rotateX(0deg);
+    transform: perspective(2000px) rotateX(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(2000px) rotateX(-90deg);
+    transform: perspective(2000px) rotateX(-90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes verticalFlipOut {
+  0% {
+    -webkit-transform: perspective(2000px) rotateX(0deg);
+    transform: perspective(2000px) rotateX(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(2000px) rotateX(-90deg);
+    transform: perspective(2000px) rotateX(-90deg);
+    opacity: 0;
+  }
+}
+
+/*--------------
+      Scale
+---------------*/
+
+.scale.transition.in {
+  -webkit-animation-name: scaleIn;
+  animation-name: scaleIn;
+}
+
+.scale.transition.out {
+  -webkit-animation-name: scaleOut;
+  animation-name: scaleOut;
+}
+
+/* In */
+
+@-webkit-keyframes scaleIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.7);
+    transform: scale(0.7);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.7);
+    transform: scale(0.7);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+/* Out */
+
+@-webkit-keyframes scaleOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.7);
+    transform: scale(0.7);
+  }
+}
+
+@keyframes scaleOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.7);
+    transform: scale(0.7);
+  }
+}
+
+/*--------------
+      Fly
+---------------*/
+
+.transition.fly {
+  -webkit-animation-duration: 0.6s;
+  animation-duration: 0.6s;
+  -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.transition.fly.in {
+  -webkit-animation-name: flyIn;
+  animation-name: flyIn;
+}
+
+.transition.fly.in.up {
+  -webkit-animation-name: flyInUp;
+  animation-name: flyInUp;
+}
+
+.transition.fly.in.down {
+  -webkit-animation-name: flyInDown;
+  animation-name: flyInDown;
+}
+
+.transition.fly.in.right {
+  -webkit-animation-name: flyInRight;
+  animation-name: flyInRight;
+}
+
+.transition.fly.in.left {
+  -webkit-animation-name: flyInLeft;
+  animation-name: flyInLeft;
+}
+
+.transition.fly.out {
+  -webkit-animation-name: flyOut;
+  animation-name: flyOut;
+}
+
+.transition.fly.out.up {
+  -webkit-animation-name: flyOutUp;
+  animation-name: flyOutUp;
+}
+
+.transition.fly.out.down {
+  -webkit-animation-name: flyOutDown;
+  animation-name: flyOutDown;
+}
+
+.transition.fly.out.right {
+  -webkit-animation-name: flyOutRight;
+  animation-name: flyOutRight;
+}
+
+.transition.fly.out.left {
+  -webkit-animation-name: flyOutLeft;
+  animation-name: flyOutLeft;
+}
+
+/* In */
+
+@-webkit-keyframes flyIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  20% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1);
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  40% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9);
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: scale3d(1.03, 1.03, 1.03);
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  80% {
+    -webkit-transform: scale3d(0.97, 0.97, 0.97);
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes flyIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  20% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1);
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  40% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9);
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: scale3d(1.03, 1.03, 1.03);
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  80% {
+    -webkit-transform: scale3d(0.97, 0.97, 0.97);
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@-webkit-keyframes flyInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 1500px, 0);
+    transform: translate3d(0, 1500px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, -20px, 0);
+    transform: translate3d(0, -20px, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 10px, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0, -5px, 0);
+    transform: translate3d(0, -5px, 0);
+  }
+
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes flyInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 1500px, 0);
+    transform: translate3d(0, 1500px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, -20px, 0);
+    transform: translate3d(0, -20px, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 10px, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0, -5px, 0);
+    transform: translate3d(0, -5px, 0);
+  }
+
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@-webkit-keyframes flyInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -1500px, 0);
+    transform: translate3d(0, -1500px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 25px, 0);
+    transform: translate3d(0, 25px, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0, 5px, 0);
+    transform: translate3d(0, 5px, 0);
+  }
+
+  100% {
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes flyInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -1500px, 0);
+    transform: translate3d(0, -1500px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 25px, 0);
+    transform: translate3d(0, 25px, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0, 5px, 0);
+    transform: translate3d(0, 5px, 0);
+  }
+
+  100% {
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@-webkit-keyframes flyInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(1500px, 0, 0);
+    transform: translate3d(1500px, 0, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(-25px, 0, 0);
+    transform: translate3d(-25px, 0, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(-5px, 0, 0);
+    transform: translate3d(-5px, 0, 0);
+  }
+
+  100% {
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes flyInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(1500px, 0, 0);
+    transform: translate3d(1500px, 0, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(-25px, 0, 0);
+    transform: translate3d(-25px, 0, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(-5px, 0, 0);
+    transform: translate3d(-5px, 0, 0);
+  }
+
+  100% {
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@-webkit-keyframes flyInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-1500px, 0, 0);
+    transform: translate3d(-1500px, 0, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(25px, 0, 0);
+    transform: translate3d(25px, 0, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(5px, 0, 0);
+    transform: translate3d(5px, 0, 0);
+  }
+
+  100% {
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes flyInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-1500px, 0, 0);
+    transform: translate3d(-1500px, 0, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(25px, 0, 0);
+    transform: translate3d(25px, 0, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(5px, 0, 0);
+    transform: translate3d(5px, 0, 0);
+  }
+
+  100% {
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+/* Out */
+
+@-webkit-keyframes flyOut {
+  20% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9);
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+  50%, 55% {
+    opacity: 1;
+    -webkit-transform: scale3d(1.1, 1.1, 1.1);
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+}
+
+@keyframes flyOut {
+  20% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9);
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+  50%, 55% {
+    opacity: 1;
+    -webkit-transform: scale3d(1.1, 1.1, 1.1);
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+}
+
+@-webkit-keyframes flyOutUp {
+  20% {
+    -webkit-transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 10px, 0);
+  }
+
+  40%, 45% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, -20px, 0);
+    transform: translate3d(0, -20px, 0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 2000px, 0);
+    transform: translate3d(0, 2000px, 0);
+  }
+}
+
+@keyframes flyOutUp {
+  20% {
+    -webkit-transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 10px, 0);
+  }
+
+  40%, 45% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, -20px, 0);
+    transform: translate3d(0, -20px, 0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 2000px, 0);
+    transform: translate3d(0, 2000px, 0);
+  }
+}
+
+@-webkit-keyframes flyOutDown {
+  20% {
+    -webkit-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+  }
+
+  40%, 45% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 20px, 0);
+    transform: translate3d(0, 20px, 0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -2000px, 0);
+    transform: translate3d(0, -2000px, 0);
+  }
+}
+
+@keyframes flyOutDown {
+  20% {
+    -webkit-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+  }
+
+  40%, 45% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 20px, 0);
+    transform: translate3d(0, 20px, 0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -2000px, 0);
+    transform: translate3d(0, -2000px, 0);
+  }
+}
+
+@-webkit-keyframes flyOutRight {
+  20% {
+    opacity: 1;
+    -webkit-transform: translate3d(20px, 0, 0);
+    transform: translate3d(20px, 0, 0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(-2000px, 0, 0);
+    transform: translate3d(-2000px, 0, 0);
+  }
+}
+
+@keyframes flyOutRight {
+  20% {
+    opacity: 1;
+    -webkit-transform: translate3d(20px, 0, 0);
+    transform: translate3d(20px, 0, 0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(-2000px, 0, 0);
+    transform: translate3d(-2000px, 0, 0);
+  }
+}
+
+@-webkit-keyframes flyOutLeft {
+  20% {
+    opacity: 1;
+    -webkit-transform: translate3d(-20px, 0, 0);
+    transform: translate3d(-20px, 0, 0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(2000px, 0, 0);
+    transform: translate3d(2000px, 0, 0);
+  }
+}
+
+@keyframes flyOutLeft {
+  20% {
+    opacity: 1;
+    -webkit-transform: translate3d(-20px, 0, 0);
+    transform: translate3d(-20px, 0, 0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(2000px, 0, 0);
+    transform: translate3d(2000px, 0, 0);
+  }
+}
+
+/*--------------
+     Slide
+---------------*/
+
+.transition.slide.in,
+.transition.slide.in.down {
+  -webkit-animation-name: slideInY;
+  animation-name: slideInY;
+  -webkit-transform-origin: top center;
+  -ms-transform-origin: top center;
+  transform-origin: top center;
+}
+
+.transition.slide.in.up {
+  -webkit-animation-name: slideInY;
+  animation-name: slideInY;
+  -webkit-transform-origin: bottom center;
+  -ms-transform-origin: bottom center;
+  transform-origin: bottom center;
+}
+
+.transition.slide.in.left {
+  -webkit-animation-name: slideInX;
+  animation-name: slideInX;
+  -webkit-transform-origin: center right;
+  -ms-transform-origin: center right;
+  transform-origin: center right;
+}
+
+.transition.slide.in.right {
+  -webkit-animation-name: slideInX;
+  animation-name: slideInX;
+  -webkit-transform-origin: center left;
+  -ms-transform-origin: center left;
+  transform-origin: center left;
+}
+
+.transition.slide.out,
+.transition.slide.out.down {
+  -webkit-animation-name: slideOutY;
+  animation-name: slideOutY;
+  -webkit-transform-origin: top center;
+  -ms-transform-origin: top center;
+  transform-origin: top center;
+}
+
+.transition.slide.out.up {
+  -webkit-animation-name: slideOutY;
+  animation-name: slideOutY;
+  -webkit-transform-origin: bottom center;
+  -ms-transform-origin: bottom center;
+  transform-origin: bottom center;
+}
+
+.transition.slide.out.left {
+  -webkit-animation-name: slideOutX;
+  animation-name: slideOutX;
+  -webkit-transform-origin: center right;
+  -ms-transform-origin: center right;
+  transform-origin: center right;
+}
+
+.transition.slide.out.right {
+  -webkit-animation-name: slideOutX;
+  animation-name: slideOutX;
+  -webkit-transform-origin: center left;
+  -ms-transform-origin: center left;
+  transform-origin: center left;
+}
+
+/* In */
+
+@-webkit-keyframes slideInY {
+  0% {
+    opacity: 0;
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+}
+
+@keyframes slideInY {
+  0% {
+    opacity: 0;
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+}
+
+@-webkit-keyframes slideInX {
+  0% {
+    opacity: 0;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+}
+
+@keyframes slideInX {
+  0% {
+    opacity: 0;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+}
+
+/* Out */
+
+@-webkit-keyframes slideOutY {
+  0% {
+    opacity: 1;
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+  }
+}
+
+@keyframes slideOutY {
+  0% {
+    opacity: 1;
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+  }
+}
+
+@-webkit-keyframes slideOutX {
+  0% {
+    opacity: 1;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+  }
+}
+
+@keyframes slideOutX {
+  0% {
+    opacity: 1;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+  }
+}
+
+/*--------------
+     Swing
+---------------*/
+
+.transition.swing {
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+}
+
+.transition.swing.in,
+.transition.swing.in.down {
+  -webkit-transform-origin: top center;
+  -ms-transform-origin: top center;
+  transform-origin: top center;
+  -webkit-animation-name: swingInX;
+  animation-name: swingInX;
+}
+
+.transition.swing.in.up {
+  -webkit-transform-origin: bottom center;
+  -ms-transform-origin: bottom center;
+  transform-origin: bottom center;
+  -webkit-animation-name: swingInX;
+  animation-name: swingInX;
+}
+
+.transition.swing.in.left {
+  -webkit-transform-origin: center right;
+  -ms-transform-origin: center right;
+  transform-origin: center right;
+  -webkit-animation-name: swingInY;
+  animation-name: swingInY;
+}
+
+.transition.swing.in.right {
+  -webkit-transform-origin: center left;
+  -ms-transform-origin: center left;
+  transform-origin: center left;
+  -webkit-animation-name: swingInY;
+  animation-name: swingInY;
+}
+
+.transition.swing.out.down,
+.transition.swing.out {
+  -webkit-transform-origin: top center;
+  -ms-transform-origin: top center;
+  transform-origin: top center;
+  -webkit-animation-name: swingOutDown;
+  animation-name: swingOutDown;
+}
+
+.transition.swing.out.up {
+  -webkit-transform-origin: bottom center;
+  -ms-transform-origin: bottom center;
+  transform-origin: bottom center;
+  -webkit-animation-name: swingOutUp;
+  animation-name: swingOutUp;
+}
+
+.transition.swing.out.left {
+  -webkit-transform-origin: center right;
+  -ms-transform-origin: center right;
+  transform-origin: center right;
+  -webkit-animation-name: swingOutLeft;
+  animation-name: swingOutLeft;
+}
+
+.transition.swing.out.right {
+  -webkit-transform-origin: center left;
+  -ms-transform-origin: center left;
+  transform-origin: center left;
+  -webkit-animation-name: swingOutRight;
+  animation-name: swingOutRight;
+}
+
+/* In */
+
+@-webkit-keyframes swingInX {
+  0% {
+    -webkit-transform: perspective(1000px) rotateX(90deg);
+    transform: perspective(1000px) rotateX(90deg);
+    opacity: 0;
+  }
+
+  40% {
+    -webkit-transform: perspective(1000px) rotateX(-20deg);
+    transform: perspective(1000px) rotateX(-20deg);
+  }
+
+  60% {
+    -webkit-transform: perspective(1000px) rotateX(10deg);
+    transform: perspective(1000px) rotateX(10deg);
+  }
+
+  80% {
+    -webkit-transform: perspective(1000px) rotateX(-5deg);
+    transform: perspective(1000px) rotateX(-5deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(1000px) rotateX(0deg);
+    transform: perspective(1000px) rotateX(0deg);
+  }
+}
+
+@keyframes swingInX {
+  0% {
+    -webkit-transform: perspective(1000px) rotateX(90deg);
+    transform: perspective(1000px) rotateX(90deg);
+    opacity: 0;
+  }
+
+  40% {
+    -webkit-transform: perspective(1000px) rotateX(-20deg);
+    transform: perspective(1000px) rotateX(-20deg);
+  }
+
+  60% {
+    -webkit-transform: perspective(1000px) rotateX(10deg);
+    transform: perspective(1000px) rotateX(10deg);
+  }
+
+  80% {
+    -webkit-transform: perspective(1000px) rotateX(-5deg);
+    transform: perspective(1000px) rotateX(-5deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(1000px) rotateX(0deg);
+    transform: perspective(1000px) rotateX(0deg);
+  }
+}
+
+@-webkit-keyframes swingInY {
+  0% {
+    -webkit-transform: perspective(1000px) rotateY(-90deg);
+    transform: perspective(1000px) rotateY(-90deg);
+    opacity: 0;
+  }
+
+  40% {
+    -webkit-transform: perspective(1000px) rotateY(20deg);
+    transform: perspective(1000px) rotateY(20deg);
+  }
+
+  60% {
+    -webkit-transform: perspective(1000px) rotateY(-10deg);
+    transform: perspective(1000px) rotateY(-10deg);
+  }
+
+  80% {
+    -webkit-transform: perspective(1000px) rotateY(5deg);
+    transform: perspective(1000px) rotateY(5deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(1000px) rotateY(0deg);
+    transform: perspective(1000px) rotateY(0deg);
+  }
+}
+
+@keyframes swingInY {
+  0% {
+    -webkit-transform: perspective(1000px) rotateY(-90deg);
+    transform: perspective(1000px) rotateY(-90deg);
+    opacity: 0;
+  }
+
+  40% {
+    -webkit-transform: perspective(1000px) rotateY(20deg);
+    transform: perspective(1000px) rotateY(20deg);
+  }
+
+  60% {
+    -webkit-transform: perspective(1000px) rotateY(-10deg);
+    transform: perspective(1000px) rotateY(-10deg);
+  }
+
+  80% {
+    -webkit-transform: perspective(1000px) rotateY(5deg);
+    transform: perspective(1000px) rotateY(5deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(1000px) rotateY(0deg);
+    transform: perspective(1000px) rotateY(0deg);
+  }
+}
+
+/* Out */
+
+@-webkit-keyframes swingOutUp {
+  0% {
+    -webkit-transform: perspective(1000px) rotateX(0deg);
+    transform: perspective(1000px) rotateX(0deg);
+  }
+
+  30% {
+    -webkit-transform: perspective(1000px) rotateX(-20deg);
+    transform: perspective(1000px) rotateX(-20deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(1000px) rotateX(90deg);
+    transform: perspective(1000px) rotateX(90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes swingOutUp {
+  0% {
+    -webkit-transform: perspective(1000px) rotateX(0deg);
+    transform: perspective(1000px) rotateX(0deg);
+  }
+
+  30% {
+    -webkit-transform: perspective(1000px) rotateX(-20deg);
+    transform: perspective(1000px) rotateX(-20deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(1000px) rotateX(90deg);
+    transform: perspective(1000px) rotateX(90deg);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes swingOutDown {
+  0% {
+    -webkit-transform: perspective(1000px) rotateX(0deg);
+    transform: perspective(1000px) rotateX(0deg);
+  }
+
+  30% {
+    -webkit-transform: perspective(1000px) rotateX(20deg);
+    transform: perspective(1000px) rotateX(20deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(1000px) rotateX(-90deg);
+    transform: perspective(1000px) rotateX(-90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes swingOutDown {
+  0% {
+    -webkit-transform: perspective(1000px) rotateX(0deg);
+    transform: perspective(1000px) rotateX(0deg);
+  }
+
+  30% {
+    -webkit-transform: perspective(1000px) rotateX(20deg);
+    transform: perspective(1000px) rotateX(20deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(1000px) rotateX(-90deg);
+    transform: perspective(1000px) rotateX(-90deg);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes swingOutLeft {
+  0% {
+    -webkit-transform: perspective(1000px) rotateY(0deg);
+    transform: perspective(1000px) rotateY(0deg);
+  }
+
+  30% {
+    -webkit-transform: perspective(1000px) rotateY(20deg);
+    transform: perspective(1000px) rotateY(20deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(1000px) rotateY(-90deg);
+    transform: perspective(1000px) rotateY(-90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes swingOutLeft {
+  0% {
+    -webkit-transform: perspective(1000px) rotateY(0deg);
+    transform: perspective(1000px) rotateY(0deg);
+  }
+
+  30% {
+    -webkit-transform: perspective(1000px) rotateY(20deg);
+    transform: perspective(1000px) rotateY(20deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(1000px) rotateY(-90deg);
+    transform: perspective(1000px) rotateY(-90deg);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes swingOutRight {
+  0% {
+    -webkit-transform: perspective(1000px) rotateY(0deg);
+    transform: perspective(1000px) rotateY(0deg);
+  }
+
+  30% {
+    -webkit-transform: perspective(1000px) rotateY(-20deg);
+    transform: perspective(1000px) rotateY(-20deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(1000px) rotateY(90deg);
+    transform: perspective(1000px) rotateY(90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes swingOutRight {
+  0% {
+    -webkit-transform: perspective(1000px) rotateY(0deg);
+    transform: perspective(1000px) rotateY(0deg);
+  }
+
+  30% {
+    -webkit-transform: perspective(1000px) rotateY(-20deg);
+    transform: perspective(1000px) rotateY(-20deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(1000px) rotateY(90deg);
+    transform: perspective(1000px) rotateY(90deg);
+    opacity: 0;
+  }
+}
+
+/*******************************
+       Static Animations
 *******************************/
 
 /*--------------
@@ -28442,11 +30425,14 @@ html.ios {
   animation-name: tada;
 }
 
-/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
-
 .pulse.transition {
   -webkit-animation-name: pulse;
   animation-name: pulse;
+}
+
+.jiggle.transition {
+  -webkit-animation-name: jiggle;
+  animation-name: jiggle;
 }
 
 /* Flash */
@@ -28641,769 +30627,79 @@ html.ios {
   }
 }
 
-/*--------------
-     Slide
----------------*/
+/* Rubberband */
 
-.slide.down.transition.in {
-  -webkit-animation-name: slideIn;
-  animation-name: slideIn;
-  transform-origin: 50% 0%;
-  -ms-transform-origin: 50% 0%;
-  -webkit-transform-origin: 50% 0%;
-}
-
-.slide.down.transition.out {
-  -webkit-animation-name: slideOut;
-  animation-name: slideOut;
-  -webkit-transform-origin: 50% 0%;
-  -ms-transform-origin: 50% 0%;
-  transform-origin: 50% 0%;
-}
-
-.slide.up.transition.in {
-  -webkit-animation-name: slideIn;
-  animation-name: slideIn;
-  -webkit-transform-origin: 50% 100%;
-  -ms-transform-origin: 50% 100%;
-  transform-origin: 50% 100%;
-}
-
-.slide.up.transition.out {
-  -webkit-animation-name: slideOut;
-  animation-name: slideOut;
-  -webkit-transform-origin: 50% 100%;
-  -ms-transform-origin: 50% 100%;
-  transform-origin: 50% 100%;
-}
-
-@-webkit-keyframes slideIn {
+@-webkit-keyframes jiggle {
   0% {
-    opacity: 0;
-    -webkit-transform: scaleY(0);
-    transform: scaleY(0);
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
   }
 
-  100% {
-    opacity: 1;
-    -webkit-transform: scaleY(1);
-    transform: scaleY(1);
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+    transform: scale3d(1.25, 0.75, 1);
   }
-}
 
-@keyframes slideIn {
-  0% {
-    opacity: 0;
-    -webkit-transform: scaleY(0);
-    transform: scaleY(0);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: scaleY(1);
-    transform: scaleY(1);
-  }
-}
-
-@-webkit-keyframes slideOut {
-  0% {
-    opacity: 1;
-    -webkit-transform: scaleY(1);
-    transform: scaleY(1);
-  }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: scaleY(0);
-    transform: scaleY(0);
-  }
-}
-
-@keyframes slideOut {
-  0% {
-    opacity: 1;
-    -webkit-transform: scaleY(1);
-    transform: scaleY(1);
-  }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: scaleY(0);
-    transform: scaleY(0);
-  }
-}
-
-/*--------------
-     Flips
----------------*/
-
-.flip.transition.in,
-.flip.transition.out {
-  -webkit-perspective: 2000px;
-  perspective: 2000px;
-}
-
-.horizontal.flip.transition.in {
-  -webkit-animation-name: horizontalFlipIn;
-  animation-name: horizontalFlipIn;
-}
-
-.horizontal.flip.transition.out {
-  -webkit-animation-name: horizontalFlipOut;
-  animation-name: horizontalFlipOut;
-}
-
-.vertical.flip.transition.in {
-  -webkit-animation-name: verticalFlipIn;
-  animation-name: verticalFlipIn;
-}
-
-.vertical.flip.transition.out {
-  -webkit-animation-name: verticalFlipOut;
-  animation-name: verticalFlipOut;
-}
-
-/* Horizontal */
-
-@-webkit-keyframes horizontalFlipIn {
-  0% {
-    -webkit-transform: rotateY(-90deg);
-    transform: rotateY(-90deg);
-    opacity: 0;
-  }
-
-  100% {
-    -webkit-transform: rotateY(0deg);
-    transform: rotateY(0deg);
-    opacity: 1;
-  }
-}
-
-@keyframes horizontalFlipIn {
-  0% {
-    -webkit-transform: rotateY(-90deg);
-    transform: rotateY(-90deg);
-    opacity: 0;
-  }
-
-  100% {
-    -webkit-transform: rotateY(0deg);
-    transform: rotateY(0deg);
-    opacity: 1;
-  }
-}
-
-/* Horizontal */
-
-@-webkit-keyframes horizontalFlipOut {
-  0% {
-    -webkit-transform: rotateY(0deg);
-    transform: rotateY(0deg);
-    opacity: 1;
-  }
-
-  100% {
-    -webkit-transform: rotateY(90deg);
-    transform: rotateY(90deg);
-    opacity: 0;
-  }
-}
-
-@keyframes horizontalFlipOut {
-  0% {
-    -webkit-transform: rotateY(0deg);
-    transform: rotateY(0deg);
-    opacity: 1;
-  }
-
-  100% {
-    -webkit-transform: rotateY(90deg);
-    transform: rotateY(90deg);
-    opacity: 0;
-  }
-}
-
-/* Vertical */
-
-@-webkit-keyframes verticalFlipIn {
-  0% {
-    -webkit-transform: rotateX(-90deg);
-    transform: rotateX(-90deg);
-    opacity: 0;
-  }
-
-  100% {
-    -webkit-transform: rotateX(0deg);
-    transform: rotateX(0deg);
-    opacity: 1;
-  }
-}
-
-@keyframes verticalFlipIn {
-  0% {
-    -webkit-transform: rotateX(-90deg);
-    transform: rotateX(-90deg);
-    opacity: 0;
-  }
-
-  100% {
-    -webkit-transform: rotateX(0deg);
-    transform: rotateX(0deg);
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes verticalFlipOut {
-  0% {
-    -webkit-transform: rotateX(0deg);
-    transform: rotateX(0deg);
-    opacity: 1;
-  }
-
-  100% {
-    -webkit-transform: rotateX(-90deg);
-    transform: rotateX(-90deg);
-    opacity: 0;
-  }
-}
-
-@keyframes verticalFlipOut {
-  0% {
-    -webkit-transform: rotateX(0deg);
-    transform: rotateX(0deg);
-    opacity: 1;
-  }
-
-  100% {
-    -webkit-transform: rotateX(-90deg);
-    transform: rotateX(-90deg);
-    opacity: 0;
-  }
-}
-
-/*--------------
-      Fades
----------------*/
-
-.fade.transition.in {
-  -webkit-animation-name: fadeIn;
-  animation-name: fadeIn;
-}
-
-.fade.transition.out {
-  -webkit-animation-name: fadeOut;
-  animation-name: fadeOut;
-}
-
-.fade.up.transition.in {
-  -webkit-animation-name: fadeUpIn;
-  animation-name: fadeUpIn;
-}
-
-.fade.up.transition.out {
-  -webkit-animation-name: fadeUpOut;
-  animation-name: fadeUpOut;
-}
-
-.fade.down.transition.in {
-  -webkit-animation-name: fadeDownIn;
-  animation-name: fadeDownIn;
-}
-
-.fade.down.transition.out {
-  -webkit-animation-name: fadeDownOut;
-  animation-name: fadeDownOut;
-}
-
-/* Fade */
-
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-/* Fade Up */
-
-@-webkit-keyframes fadeUpIn {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(10%);
-    transform: translateY(10%);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0%);
-    transform: translateY(0%);
-  }
-}
-
-@keyframes fadeUpIn {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(10%);
-    transform: translateY(10%);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0%);
-    transform: translateY(0%);
-  }
-}
-
-@-webkit-keyframes fadeUpOut {
-  0% {
-    opacity: 1;
-    -webkit-transform: translateY(0%);
-    transform: translateY(0%);
-  }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: translateY(10%);
-    transform: translateY(10%);
-  }
-}
-
-@keyframes fadeUpOut {
-  0% {
-    opacity: 1;
-    -webkit-transform: translateY(0%);
-    transform: translateY(0%);
-  }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: translateY(10%);
-    transform: translateY(10%);
-  }
-}
-
-/* Fade Down */
-
-@-webkit-keyframes fadeDownIn {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(-10%);
-    transform: translateY(-10%);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0%);
-    transform: translateY(0%);
-  }
-}
-
-@keyframes fadeDownIn {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(-10%);
-    transform: translateY(-10%);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0%);
-    transform: translateY(0%);
-  }
-}
-
-@-webkit-keyframes fadeDownOut {
-  0% {
-    opacity: 1;
-    -webkit-transform: translateY(0%);
-    transform: translateY(0%);
-  }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: translateY(-10%);
-    transform: translateY(-10%);
-  }
-}
-
-@keyframes fadeDownOut {
-  0% {
-    opacity: 1;
-    -webkit-transform: translateY(0%);
-    transform: translateY(0%);
-  }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: translateY(-10%);
-    transform: translateY(-10%);
-  }
-}
-
-/*--------------
-      Scale
----------------*/
-
-.scale.transition.in {
-  -webkit-animation-name: scaleIn;
-  animation-name: scaleIn;
-}
-
-.scale.transition.out {
-  -webkit-animation-name: scaleOut;
-  animation-name: scaleOut;
-}
-
-/* Scale */
-
-@-webkit-keyframes scaleIn {
-  0% {
-    opacity: 0;
-    -webkit-transform: scale(0.7);
-    transform: scale(0.7);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-}
-
-@keyframes scaleIn {
-  0% {
-    opacity: 0;
-    -webkit-transform: scale(0.7);
-    transform: scale(0.7);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-}
-
-@-webkit-keyframes scaleOut {
-  0% {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: scale(0.7);
-    transform: scale(0.7);
-  }
-}
-
-@keyframes scaleOut {
-  0% {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: scale(0.7);
-    transform: scale(0.7);
-  }
-}
-
-/*--------------
-     Drop
----------------*/
-
-.drop.transition {
-  -webkit-transform-origin: top center;
-  -ms-transform-origin: top center;
-  transform-origin: top center;
-  -webkit-animation-timing-function: cubic-bezier(0.34, 1.61, 0.7, 1);
-  animation-timing-function: cubic-bezier(0.34, 1.61, 0.7, 1);
-}
-
-.drop.transition.in {
-  -webkit-animation-name: dropIn;
-  animation-name: dropIn;
-}
-
-.drop.transition.out {
-  -webkit-animation-name: dropOut;
-  animation-name: dropOut;
-}
-
-/* Scale */
-
-@-webkit-keyframes dropIn {
-  0% {
-    opacity: 0;
-    -webkit-transform: scale(0);
-    transform: scale(0);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-}
-
-@keyframes dropIn {
-  0% {
-    opacity: 0;
-    -webkit-transform: scale(0);
-    transform: scale(0);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-}
-
-@-webkit-keyframes dropOut {
-  0% {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: scale(0);
-    transform: scale(0);
-  }
-}
-
-@keyframes dropOut {
-  0% {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: scale(0);
-    transform: scale(0);
-  }
-}
-
-/*--------------
-     Browse
----------------*/
-
-.browse.transition.in {
-  -webkit-animation-name: browseIn;
-  animation-name: browseIn;
-  -webkit-animation-timing-function: ease;
-  animation-timing-function: ease;
-}
-
-.browse.transition.out,
-.browse.transition.out.left {
-  -webkit-animation-name: browseOutLeft;
-  animation-name: browseOutLeft;
-  -webkit-animation-timing-function: ease;
-  animation-timing-function: ease;
-}
-
-.browse.transition.out.right {
-  -webkit-animation-name: browseOutRight;
-  animation-name: browseOutRight;
-  -webkit-animation-timing-function: ease;
-  animation-timing-function: ease;
-}
-
-@-webkit-keyframes browseIn {
-  0% {
-    -webkit-transform: scale(0.8) translateZ(0px);
-    transform: scale(0.8) translateZ(0px);
-    z-index: -1;
-  }
-
-  10% {
-    -webkit-transform: scale(0.8) translateZ(0px);
-    transform: scale(0.8) translateZ(0px);
-    z-index: -1;
-    opacity: 0.7;
-  }
-
-  80% {
-    -webkit-transform: scale(1.05) translateZ(0px);
-    transform: scale(1.05) translateZ(0px);
-    opacity: 1;
-    z-index: 999;
-  }
-
-  100% {
-    -webkit-transform: scale(1) translateZ(0px);
-    transform: scale(1) translateZ(0px);
-    z-index: 999;
-  }
-}
-
-@keyframes browseIn {
-  0% {
-    -webkit-transform: scale(0.8) translateZ(0px);
-    transform: scale(0.8) translateZ(0px);
-    z-index: -1;
-  }
-
-  10% {
-    -webkit-transform: scale(0.8) translateZ(0px);
-    transform: scale(0.8) translateZ(0px);
-    z-index: -1;
-    opacity: 0.7;
-  }
-
-  80% {
-    -webkit-transform: scale(1.05) translateZ(0px);
-    transform: scale(1.05) translateZ(0px);
-    opacity: 1;
-    z-index: 999;
-  }
-
-  100% {
-    -webkit-transform: scale(1) translateZ(0px);
-    transform: scale(1) translateZ(0px);
-    z-index: 999;
-  }
-}
-
-@-webkit-keyframes browseOutLeft {
-  0% {
-    z-index: 999;
-    -webkit-transform: translateX(0%) rotateY(0deg) rotateX(0deg);
-    transform: translateX(0%) rotateY(0deg) rotateX(0deg);
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+    transform: scale3d(0.75, 1.25, 1);
   }
 
   50% {
-    z-index: -1;
-    -webkit-transform: translateX(-105%) rotateY(35deg) rotateX(10deg) translateZ(-10px);
-    transform: translateX(-105%) rotateY(35deg) rotateX(10deg) translateZ(-10px);
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+    transform: scale3d(1.15, 0.85, 1);
   }
 
-  80% {
-    opacity: 1;
+  65% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  75% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+    transform: scale3d(1.05, 0.95, 1);
   }
 
   100% {
-    z-index: -1;
-    -webkit-transform: translateX(0%) rotateY(0deg) rotateX(0deg) translateZ(-10px);
-    transform: translateX(0%) rotateY(0deg) rotateX(0deg) translateZ(-10px);
-    opacity: 0;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
   }
 }
 
-@keyframes browseOutLeft {
+@keyframes jiggle {
   0% {
-    z-index: 999;
-    -webkit-transform: translateX(0%) rotateY(0deg) rotateX(0deg);
-    transform: translateX(0%) rotateY(0deg) rotateX(0deg);
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+    transform: scale3d(0.75, 1.25, 1);
   }
 
   50% {
-    z-index: -1;
-    -webkit-transform: translateX(-105%) rotateY(35deg) rotateX(10deg) translateZ(-10px);
-    transform: translateX(-105%) rotateY(35deg) rotateX(10deg) translateZ(-10px);
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+    transform: scale3d(1.15, 0.85, 1);
   }
 
-  80% {
-    opacity: 1;
+  65% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+    transform: scale3d(0.95, 1.05, 1);
   }
 
-  100% {
-    z-index: -1;
-    -webkit-transform: translateX(0%) rotateY(0deg) rotateX(0deg) translateZ(-10px);
-    transform: translateX(0%) rotateY(0deg) rotateX(0deg) translateZ(-10px);
-    opacity: 0;
-  }
-}
-
-@-webkit-keyframes browseOutRight {
-  0% {
-    z-index: 999;
-    -webkit-transform: translateX(0%) rotateY(0deg) rotateX(0deg);
-    transform: translateX(0%) rotateY(0deg) rotateX(0deg);
-  }
-
-  50% {
-    z-index: 1;
-    -webkit-transform: translateX(105%) rotateY(35deg) rotateX(10deg) translateZ(-10px);
-    transform: translateX(105%) rotateY(35deg) rotateX(10deg) translateZ(-10px);
-  }
-
-  80% {
-    opacity: 1;
+  75% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+    transform: scale3d(1.05, 0.95, 1);
   }
 
   100% {
-    z-index: 1;
-    -webkit-transform: translateX(0%) rotateY(0deg) rotateX(0deg) translateZ(-10px);
-    transform: translateX(0%) rotateY(0deg) rotateX(0deg) translateZ(-10px);
-    opacity: 0;
-  }
-}
-
-@keyframes browseOutRight {
-  0% {
-    z-index: 999;
-    -webkit-transform: translateX(0%) rotateY(0deg) rotateX(0deg);
-    transform: translateX(0%) rotateY(0deg) rotateX(0deg);
-  }
-
-  50% {
-    z-index: 1;
-    -webkit-transform: translateX(105%) rotateY(35deg) rotateX(10deg) translateZ(-10px);
-    transform: translateX(105%) rotateY(35deg) rotateX(10deg) translateZ(-10px);
-  }
-
-  80% {
-    opacity: 1;
-  }
-
-  100% {
-    z-index: 1;
-    -webkit-transform: translateX(0%) rotateY(0deg) rotateX(0deg) translateZ(-10px);
-    transform: translateX(0%) rotateY(0deg) rotateX(0deg) translateZ(-10px);
-    opacity: 0;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
   }
 }
 
@@ -29412,7 +30708,7 @@ html.ios {
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -29536,7 +30832,7 @@ html.ios {
 *******************************/
 
 /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *

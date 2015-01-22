@@ -40,17 +40,18 @@ $.fn.form = function(fields, parameters) {
   $allModules
     .each(function() {
       var
-        $module    = $(this),
-        $field     = $(this).find(selector.field),
-        $group     = $(this).find(selector.group),
-        $message   = $(this).find(selector.message),
-        $prompt    = $(this).find(selector.prompt),
-        $submit    = $(this).find(selector.submit),
+        $module      = $(this),
+        $field       = $(this).find(selector.field),
+        $group       = $(this).find(selector.group),
+        $message     = $(this).find(selector.message),
+        $prompt      = $(this).find(selector.prompt),
+        $submit      = $(this).find(selector.submit),
 
-        formErrors = [],
+        formErrors   = [],
+        keyStuckDown = false,
 
-        element    = this,
-        instance   = $module.data(moduleNamespace),
+        element      = this,
+        instance     = $module.data(moduleNamespace),
         module
       ;
 
@@ -162,19 +163,22 @@ $.fn.form = function(fields, parameters) {
                 ;
               }
               if(!event.ctrlKey && key == keyCode.enter && $field.is(selector.input) && $field.not(selector.checkbox).length > 0 ) {
-                module.debug('Enter key pressed, submitting form');
                 $submit
-                  .addClass(className.down)
+                  .addClass(className.pressed)
                 ;
-                $field
-                  .one('keyup' + eventNamespace, module.event.field.keyup)
-                ;
+                if(!keyStuckDown) {
+                  $field
+                    .one('keyup' + eventNamespace, module.event.field.keyup)
+                  ;
+                  module.submit();
+                  module.debug('Enter pressed on input submitting form');
+                }
+                keyStuckDown = true;
               }
             },
             keyup: function() {
-              module.verbose('Doing keyboard shortcut form submit');
-              $submit.removeClass(className.down);
-              module.submit();
+              keyStuckDown = false;
+              $submit.removeClass(className.pressed);
             },
             blur: function() {
               var
@@ -212,13 +216,16 @@ $.fn.form = function(fields, parameters) {
               return 'change';
             }
             else {
-              return (document.createElement('input').oninput !== undefined)
-                ? 'input'
-                : (document.createElement('input').onpropertychange !== undefined)
-                  ? 'propertychange'
-                  : 'keyup'
-              ;
+              return module.get.inputEvent();
             }
+          },
+          inputEvent: function() {
+            return (document.createElement('input').oninput !== undefined)
+              ? 'input'
+              : (document.createElement('input').onpropertychange !== undefined)
+                ? 'propertychange'
+                : 'keyup'
+            ;
           },
           field: function(identifier) {
             module.verbose('Finding field with identifier', identifier);
@@ -365,6 +372,12 @@ $.fn.form = function(fields, parameters) {
               allValid = true,
               apiRequest
             ;
+
+            // input keydown event will fire submit repeatedly by browser default
+            if(keyStuckDown) {
+              return false;
+            }
+
             // reset errors
             formErrors = [];
             $.each(validation, function(fieldName, field) {
@@ -676,7 +689,7 @@ $.fn.form.settings = {
   className : {
     error   : 'error',
     success : 'success',
-    down    : 'down',
+    pressed : 'down',
     label   : 'ui prompt label'
   },
 

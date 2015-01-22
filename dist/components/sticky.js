@@ -226,7 +226,7 @@ $.fn.sticky = function(parameters) {
               }
             };
             module.set.containerSize();
-            module.set.length;
+            module.set.size();
             module.stick();
             module.debug('Caching element positions', module.cache);
           }

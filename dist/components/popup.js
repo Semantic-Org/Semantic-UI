@@ -103,18 +103,18 @@ $.fn.popup = function(parameters) {
 
         refresh: function() {
           if(settings.popup) {
-            $popup = $(settings.popup);
+            $popup = $(settings.popup).eq(0);
           }
           else {
             if(settings.inline) {
-              $popup = $target.next(selector.popup);
+              $popup = $target.next(selector.popup).eq(0);
             }
           }
           if(settings.popup) {
             $popup.addClass(className.loading);
             $offsetParent = module.get.offsetParent();
             $popup.removeClass(className.loading);
-            if(module.has.popup() && module.get.offsetParent($popup)[0] !== $offsetParent[0]) {
+            if(settings.movePopup && module.has.popup() && module.get.offsetParent($popup)[0] !== $offsetParent[0]) {
               module.debug('Moving popup to the same offset parent as activating element');
               $popup
                 .detach()
@@ -1087,6 +1087,7 @@ $.fn.popup.settings = {
   },
 
   setFluidWidth  : true,
+  movePopup      : true,
 
   target         : false,
   popup          : false,

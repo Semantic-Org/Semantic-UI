@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.7.2
+ * # Semantic UI - 1.8.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -123,6 +123,7 @@ body.pushable {
   position: relative;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
+  overflow: hidden;
   min-height: 100%;
   -webkit-transition: -webkit-transform 500ms ease;
           transition: transform 500ms ease;
