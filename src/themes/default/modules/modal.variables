@@ -5,6 +5,7 @@
 @background: @white;
 @border: none;
 @width: 90%;
+@zIndex: 1001;
 @xOffset: -(@width / 2);
 @borderRadius: @defaultBorderRadius;
 @boxShadow: 0 1px 4px 1px rgba(0, 0, 0, 0.3);

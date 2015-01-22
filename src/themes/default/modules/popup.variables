@@ -6,7 +6,7 @@
        Element
 --------------------*/
 
-@zIndex: 900;
+@zIndex: 1900;
 @background: @white;
 
 @maxWidth: 250px;
@@ -60,8 +60,8 @@
        Coupling
 --------------------*/
 
-/* (padding * @medium) */
-@nestedGridMargin: -0.7rem -0.875rem;
+/* Grid Inside Popup */
+@nestedGridMargin: -0.7rem -0.875rem; /* (padding * @medium) */
 @nestedGridWidth: ~"calc(100% + 1.75rem)";
 
 /*-------------------
