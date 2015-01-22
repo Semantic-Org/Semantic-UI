@@ -3,34 +3,36 @@
 ### Version 1.8.0 - January 21, 2015
 
 **Enhancements**
-- **Transition** - Transition will now prevent repeated animations when using an inferred direction i.e. animation without `in` or `out` specified. When `queue: true` only animations with explicit direction will be ignored.
-- **Transition** - Transition duration now defaults to what is specified in `css`, to set custom duration you can still pass at run-time as a different value
+- **API** - Added new behavior `$.api('abort')` which cancels current request
 - **Dropdown** - Keyboard navigation will now allow opening of sub menus with right/left arrow. Enter will open sub-menus on an unselectable category (`allowCategorySelection: false`) as well.
 - **Dropdown** - Mutation observers will now observe changed in `<select>` values after initialization, and will automatically update dropdown menu when changed
-- **API** - Added new behavior `$.api('abort')` which cancels current request
-- **Search** - Search `onSelect` now recieves JSON object matching currently selected element, you can now programmatically retrieve result JSON using `.search('get result')`. Defaults to current value unless value specified as first parameter.
-- **Search** - Search `onSelect` and `onResultsAdd` can now cancel default actions by returning `false`.
-- **Search** - Greatly reduced search delay from `300ms` to `100ms`. Previous request will automatically abort `xhr` when new request made
 - **Header** - Content headers now inherit `@h1-h6` sizes from `site.variables`
 - **Header** - Sub headers now adjust in size depending on header size, added new variables for subheader resizing
+- **Search** - Greatly reduced search delay from `300ms` to `100ms`. Previous request will automatically abort `xhr` when new request made
+- **Search** - Search `onSelect` and `onResultsAdd` can now cancel default actions by returning `false`.
+- **Search** - Search `onSelect` now recieves JSON object matching currently selected element, you can now programmatically retrieve result JSON using `.search('get result')`. Defaults to current value unless value specified as first parameter.
+- **Transition** - Transition duration now defaults to what is specified in `css`, to set custom duration you can still pass at run-time as a different value
+- **Transition** - Transition will now prevent repeated animations when using an inferred direction i.e. animation without `in` or `out` specified. When `queue: true` only animations with explicit direction will be ignored.
 
 **Bugs**
-- **Label** - Fixed issue with `ui ribbon label` not positioning itself correctly when using sizes like `small` or `large`
-- **Label** - Fixed `ui corner label` appearing on-top of `ui dropdown` menu due to issue in z-index heirarchy
+- **API** - Fixed bug where `$.api('get xhr')` was not correctly returning xhr promise
+- **API** - Fixed bug where API would query resource immediately when specifying `on: false`
+- **Button** - ``ui vertical basic buttons` now have dividers in default theme
+- **Button** - Fixes formatting for `disabled button` inside `ui buttons`
+- **Dropdown** - Dropdown no longer will not show menu when no `item` are present in menu. Dropdown will now only filter results for `ui search dropdown` #1632 **Thanks PSyton**.
 - **Dropdown** - Dropdown will now produce an error if behaviors on an initialized `<select>` are not invoked on `ui dropdown`
 - **Dropdown** - Fixed bug where link items would not open in sub-menus due to `event.preventDefault`
-- **Dropdown** - Dropdown no longer will not show menu when no `item` are present in menu. Dropdown will now only filter results for `ui search dropdown` #1632 **Thanks PSyton**.
+- **Label** - Fixed `ui corner label` appearing on-top of `ui dropdown` menu due to issue in z-index heirarchy
+- **Label** - Fixed issue with `ui ribbon label` not positioning itself correctly when using sizes like `small` or `large`
 - **List** - `relaxed list` and `very relaxed list` no longer add padding to child menu items
-- **Button** - Fixes formatting for `disabled button` inside `ui buttons`
-- **Button** - ``ui vertical basic buttons` now have dividers in default theme
-- **API** - Fixed bug where API would query resource immediately when specifying `on: false`
-- **API** - Fixed bug where `$.api('get xhr')` was not correctly returning xhr promise
-- **Sidebar** - Fixed bug with `pusher` inheriting first child margins due to `margin-collapse`
-- **Sidebar** - Sidebar will now only close if you click on `pusher` or underlayed `body` (scale out). Clicking on fixed elements will not close sidebar.
-- **Sidebar** - Mobile `is mobile` was using RegExp `test()` which would return an incorrect value when called multiple times
-- *Sticky** - Fixes issue with container size not being set explicitly on rail due to improper method renaming
+- **Popup** - Popup will now only use a max of one element when `settings.popup` mistakingly passes multiple DOM elements
+- **Popup** - Popups will now by default appear over all UI content, even dimmers.
 - **Search** - Search results no longer hide/show when user changes tab or page loses focus
+- **Sidebar** - Fixed bug with `pusher` inheriting first child margins due to `margin-collapse`
+- **Sidebar** - Mobile `is mobile` was using RegExp `test()` which would return an incorrect value when called multiple times
+- **Sidebar** - Sidebar will now only close if you click on `pusher` or underlayed `body` (scale out). Clicking on fixed elements will not close sidebar.
 - **Transition** - Fixed bug with animations that contain the strings 'in' or 'out' as part of their names, for example "swing"
+- *Sticky** - Fixes issue with container size not being set explicitly on rail due to improper method renaming
 
 
 ### Version 1.7.(1-2) - January 15, 2015
