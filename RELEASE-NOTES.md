@@ -2,7 +2,8 @@
 
 ### Version 1.8.0 - January 23, 2015
 
-[View Closed Issues in 1.8.0](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A1.8.0+is%3Aclosed+sort%3Acomments-desc)
+[View Closed Issues](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A1.8.0+is%3Aclosed+sort%3Acomments-desc)
+[View Commits](https://github.com/Semantic-Org/Semantic-UI/compare/1.7.3...1.8.0)
 
 **Key Features**
 
