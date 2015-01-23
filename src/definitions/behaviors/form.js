@@ -45,7 +45,9 @@ $.fn.form = function(fields, parameters) {
         $group      = $(this).find(selector.group),
         $message    = $(this).find(selector.message),
         $prompt     = $(this).find(selector.prompt),
+
         $submit     = $(this).find(selector.submit),
+        $clear      = $(this).find(selector.clear),
         $reset      = $(this).find(selector.reset),
 
         formErrors  = [],
@@ -115,9 +117,12 @@ $.fn.form = function(fields, parameters) {
           $field
             .on('blur' + eventNamespace, module.event.field.blur)
           ;
+
           // attach events to common elements
           module.attachEvents($submit, 'submit');
           module.attachEvents($reset, 'reset');
+          module.attachEvents($clear, 'clear');
+
           $field
             .each(function() {
               var
@@ -867,6 +872,7 @@ $.fn.form.settings = {
 
   selector : {
     checkbox   : 'input[type="checkbox"], input[type="radio"]',
+    clear      : '.clear',
     field      : 'input, textarea, select',
     group      : '.field',
     input      : 'input',
