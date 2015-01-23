@@ -1,24 +1,32 @@
 ## RELEASE NOTES
 
-### Version 1.8.0 - January 21, 2015
+### Version 1.8.0 - January 23, 2015
+
+**Key Features**
+
+- **Form** - Form now has new methods `reset`, `set value(s)` and `serialize` for modifying form data. Check docs for details on implementation. **Thanks @mktm**
+- **Search** - Search `onSelect` now recieves JSON object matching currently selected element, you can now programmatically retrieve result JSON using `.search('get result', 'query')` or `.search('get results'). `get result` will default to current value unless specified as first parameter.
+- **Transition** - Added many new transitions, and new directions for existing transitions **Thanks @ph7vc**
 
 **Enhancements**
 - **API** - Added new behavior `$.api('abort')` which cancels current request
 - **Dropdown** - Keyboard navigation will now allow opening of sub menus with right/left arrow. Enter will open sub-menus on an unselectable category (`allowCategorySelection: false`) as well.
 - **Dropdown** - Mutation observers will now observe changed in `<select>` values after initialization, and will automatically update dropdown menu when changed
+- **Dropdown** - Dropdown behavior `set selected` will now also call `set value` automatically, so you do not have to invoke two behaviors to update a `selection dropdown` **Thanks @mktm**
+- **Form** - Form will now prevent browsers from resubmitting form repeatedly when keydown is pressed on input field.
 - **Header** - Content headers now inherit `@h1-h6` sizes from `site.variables`
 - **Header** - Sub headers now adjust in size depending on header size, added new variables for subheader resizing
 - **Search** - Greatly reduced search delay from `300ms` to `100ms`. Previous request will automatically abort `xhr` when new request made
 - **Search** - Search `onSelect` and `onResultsAdd` can now cancel default actions by returning `false`.
-- **Search** - Search `onSelect` now recieves JSON object matching currently selected element, you can now programmatically retrieve result JSON using `.search('get result')`. Defaults to current value unless value specified as first parameter.
-- **Transition** - Transition duration now defaults to what is specified in `css`, to set custom duration you can still pass at run-time as a different value
-- **Transition** - Transition will now prevent repeated animations when using an inferred direction i.e. animation without `in` or `out` specified. When `queue: true` only animations with explicit direction will be ignored.
+- **Transition** - Transition duration now defaults to what is specified in `css`, to set custom duration you can still pass at run-time as a different value. Animation duration no longer set by default during animation.
+- **Transition** - Transition will now prevent repeated animations when using an inferred direction i.e. animation without `in` or `out` specified. When `queue: true` only animations with explicit direction, e.g. `fade in`, will be ignored when called repeatedly.
 
 **Bugs**
 - **API** - Fixed bug where `$.api('get xhr')` was not correctly returning xhr promise
 - **API** - Fixed bug where API would query resource immediately when specifying `on: false`
 - **Button** - ``ui vertical basic buttons` now have dividers in default theme
 - **Button** - Fixes formatting for `disabled button` inside `ui buttons`
+- **Checkbox** - Checkbox now only modifies `input[type="radio"]` and `input[type="checkbox"]` ignoring any other inputs
 - **Dropdown** - Dropdown no longer will not show menu when no `item` are present in menu. Dropdown will now only filter results for `ui search dropdown` #1632 **Thanks PSyton**.
 - **Dropdown** - Dropdown will now produce an error if behaviors on an initialized `<select>` are not invoked on `ui dropdown`
 - **Dropdown** - Fixed bug where link items would not open in sub-menus due to `event.preventDefault`
