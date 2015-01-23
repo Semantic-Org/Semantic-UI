@@ -759,7 +759,12 @@ $.fn.dropdown = function(parameters) {
 
           nothing: function() {},
 
-          hide: function() {
+          activate: function(text, value) {
+            value = (value !== undefined)
+              ? value
+              : text
+            ;
+            module.set.selected(value);
             module.hide(function() {
               module.remove.filteredItem();
             });
@@ -771,19 +776,6 @@ $.fn.dropdown = function(parameters) {
               : text
             ;
             module.set.selected(value);
-            module.set.value(value);
-            module.hide(function() {
-              module.remove.filteredItem();
-            });
-          },
-
-          activate: function(text, value) {
-            value = (value !== undefined)
-              ? value
-              : text
-            ;
-            module.set.selected(value);
-            module.set.value(value);
             module.hide(function() {
               module.remove.filteredItem();
             });
@@ -795,7 +787,12 @@ $.fn.dropdown = function(parameters) {
               : text
             ;
             module.set.selected(value);
-            module.set.value(value);
+            module.hide(function() {
+              module.remove.filteredItem();
+            });
+          },
+
+          hide: function() {
             module.hide(function() {
               module.remove.filteredItem();
             });
@@ -978,7 +975,6 @@ $.fn.dropdown = function(parameters) {
               module.debug('Restoring default value', defaultValue);
               if(defaultValue.length) {
                 module.set.selected(defaultValue);
-                module.set.value(defaultValue);
               }
               else {
                 module.remove.activeItem();
@@ -1128,20 +1124,21 @@ $.fn.dropdown = function(parameters) {
           selected: function(value) {
             var
               $selectedItem = module.get.item(value),
-              selectedText
+              selectedText,
+              selectedValue
             ;
             if($selectedItem) {
               module.debug('Setting selected menu item to', $selectedItem);
-
               module.remove.activeItem();
               module.remove.selectedItem();
               $selectedItem
                 .addClass(className.active)
                 .addClass(className.selected)
               ;
-
-              selectedText = module.get.choiceText($selectedItem);
+              selectedText  = module.get.choiceText($selectedItem);
+              selectedValue = module.get.choiceValue($selectedItem);
               module.set.text(selectedText);
+              module.set.value(selectedValue);
               settings.onChange.call(element, value, selectedText, $selectedItem);
             }
           }
