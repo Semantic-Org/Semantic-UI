@@ -2,6 +2,8 @@
 
 ### Version 1.8.0 - January 23, 2015
 
+[View Closed Issues in 1.8.0](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A1.8.0+is%3Aclosed+sort%3Acomments-desc)
+
 **Key Features**
 
 - **Form** - Form now has new methods `reset`, `clear`, `set value(s)`, and `read value(s)` for modifying and reading form data. Check docs for details on implementation. **Thanks @mktm**

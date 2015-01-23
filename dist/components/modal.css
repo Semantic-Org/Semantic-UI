@@ -250,6 +250,7 @@
 .ui.basic.modal {
   background-color: transparent;
   border: none;
+  border-radius: 0em;
   box-shadow: 0px 0px 0px 0px;
   color: #ffffff;
 }

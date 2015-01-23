@@ -31,9 +31,9 @@
   outline: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   text-align: left;
-  line-height: 1.33;
+  line-height: 1.2142em;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  padding: 0.62071em 1em;
+  padding: 0.67861em 1em;
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.15);
   color: rgba(0, 0, 0, 0.8);
@@ -207,14 +207,14 @@
   right: 0px;
   margin: 0em;
   height: 100%;
-  width: 1.18em;
+  width: 2.82142em;
   opacity: 0.5;
   border-radius: 0em 0.2857rem 0.2857rem 0em;
   -webkit-transition: opacity 0.3s ease;
           transition: opacity 0.3s ease;
 }
 .ui.icon.input input {
-  padding-right: 1.18em !important;
+  padding-right: 2.82142em !important;
 }
 .ui.icon.input > i.icon:before,
 .ui.icon.input > i.icon:after {
@@ -244,7 +244,7 @@
   left: 0.5em;
 }
 .ui[class*="left icon"].input > input {
-  padding-left: 1.18em !important;
+  padding-left: 2.82142em !important;
   padding-right: 1em !important;
 }
 
@@ -412,25 +412,25 @@
 ---------------------*/
 
 .ui.mini.input {
-  font-size: 0.71428571rem;
+  font-size: 0.8125rem;
 }
 .ui.small.input {
-  font-size: 0.92857143rem;
+  font-size: 0.875rem;
 }
 .ui.input {
   font-size: 1rem;
 }
 .ui.large.input {
-  font-size: 1.14285714rem;
+  font-size: 1.125rem;
 }
 .ui.big.input {
-  font-size: 1.28571429rem;
+  font-size: 1.25rem;
 }
 .ui.huge.input {
-  font-size: 1.42857143rem;
+  font-size: 1.375rem;
 }
 .ui.massive.input {
-  font-size: 1.71428571rem;
+  font-size: 1.5rem;
 }
 
 

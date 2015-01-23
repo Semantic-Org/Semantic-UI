@@ -759,7 +759,12 @@ $.fn.dropdown = function(parameters) {
 
           nothing: function() {},
 
-          hide: function() {
+          activate: function(text, value) {
+            value = (value !== undefined)
+              ? value
+              : text
+            ;
+            module.set.selected(value);
             module.hide(function() {
               module.remove.filteredItem();
             });
@@ -771,19 +776,6 @@ $.fn.dropdown = function(parameters) {
               : text
             ;
             module.set.selected(value);
-            module.set.value(value);
-            module.hide(function() {
-              module.remove.filteredItem();
-            });
-          },
-
-          activate: function(text, value) {
-            value = (value !== undefined)
-              ? value
-              : text
-            ;
-            module.set.selected(value);
-            module.set.value(value);
             module.hide(function() {
               module.remove.filteredItem();
             });
@@ -795,7 +787,12 @@ $.fn.dropdown = function(parameters) {
               : text
             ;
             module.set.selected(value);
-            module.set.value(value);
+            module.hide(function() {
+              module.remove.filteredItem();
+            });
+          },
+
+          hide: function() {
             module.hide(function() {
               module.remove.filteredItem();
             });
@@ -834,7 +831,7 @@ $.fn.dropdown = function(parameters) {
             }
           },
           choiceValue: function($choice, choiceText) {
-            choiceText = choiceText || module.get.choiceText($text);
+            choiceText = choiceText || module.get.choiceText($choice);
             return ($choice.data(metadata.value) !== undefined)
               ? $choice.data(metadata.value)
               : (typeof choiceText === 'string')
@@ -968,7 +965,7 @@ $.fn.dropdown = function(parameters) {
             ;
             module.debug('Restoring default text', defaultText);
             module.set.text(defaultText);
-            $text.addClass(settings.className.placeholder);
+            $text.addClass(className.placeholder);
           },
           defaultValue: function() {
             var
@@ -978,7 +975,6 @@ $.fn.dropdown = function(parameters) {
               module.debug('Restoring default value', defaultValue);
               if(defaultValue.length) {
                 module.set.selected(defaultValue);
-                module.set.value(defaultValue);
               }
               else {
                 module.remove.activeItem();
@@ -991,6 +987,7 @@ $.fn.dropdown = function(parameters) {
         save: {
           defaults: function() {
             module.save.defaultText();
+            module.save.placeholderText();
             module.save.defaultValue();
           },
           defaultValue: function() {
@@ -998,7 +995,23 @@ $.fn.dropdown = function(parameters) {
           },
           defaultText: function() {
             $module.data(metadata.defaultText, $text.text() );
+          },
+          placeholderText: function() {
+            if($text.hasClass(className.placeholder)) {
+              $module.data(metadata.placeholderText, $text.text());
+            }
           }
+        },
+
+        clear: function() {
+          var
+            placeholderText = $module.data(metadata.placeholderText)
+          ;
+          module.set.text(placeholderText);
+          module.set.value('');
+          module.remove.activeItem();
+          module.remove.selectedItem();
+          $text.addClass(className.placeholder);
         },
 
         set: {
@@ -1128,20 +1141,21 @@ $.fn.dropdown = function(parameters) {
           selected: function(value) {
             var
               $selectedItem = module.get.item(value),
-              selectedText
+              selectedText,
+              selectedValue
             ;
             if($selectedItem) {
               module.debug('Setting selected menu item to', $selectedItem);
-
               module.remove.activeItem();
               module.remove.selectedItem();
               $selectedItem
                 .addClass(className.active)
                 .addClass(className.selected)
               ;
-
-              selectedText = module.get.choiceText($selectedItem);
+              selectedText  = module.get.choiceText($selectedItem);
+              selectedValue = module.get.choiceValue($selectedItem, selectedText);
               module.set.text(selectedText);
+              module.set.value(selectedValue);
               settings.onChange.call(element, value, selectedText, $selectedItem);
             }
           }
@@ -1661,10 +1675,11 @@ $.fn.dropdown.settings = {
   },
 
   metadata: {
-    defaultText  : 'defaultText',
-    defaultValue : 'defaultValue',
-    text         : 'text',
-    value        : 'value'
+    defaultText     : 'defaultText',
+    defaultValue    : 'defaultValue',
+    placeholderText : 'placeholderText',
+    text            : 'text',
+    value           : 'value'
   },
 
   selector : {
