@@ -504,6 +504,7 @@ $.fn.form = function(fields, parameters) {
                   }
                 }
               });
+              module.validate.form();
             }
           }
         },
