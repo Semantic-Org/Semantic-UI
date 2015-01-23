@@ -138,7 +138,8 @@ $.fn.form = function(fields, parameters) {
                 $field       = $(this),
                 $element     = $field.parent(),
                 $fieldGroup  = $field.closest($group),
-                defaultValue = $field.data(metadata.defaultValue),
+                $prompt      = $fieldGroup.find(selector.prompt),
+                defaultValue = $field.data(metadata.defaultValue) || '',
                 isCheckbox   = $element.is(selector.uiCheckbox),
                 isDropdown   = $element.is(selector.uiDropdown),
                 isErrored    = $fieldGroup.hasClass(className.error)
@@ -146,6 +147,7 @@ $.fn.form = function(fields, parameters) {
               if(isErrored) {
                 module.verbose('Resetting error on field', $fieldGroup);
                 $fieldGroup.removeClass(className.error);
+                $prompt.remove();
               }
               if(isDropdown) {
                 module.verbose('Resetting dropdown value', $element, defaultValue);
@@ -807,15 +809,14 @@ $.fn.form.settings = {
   transition        : 'scale',
   duration          : 200,
 
-
   onValid           : function() {},
   onInvalid         : function() {},
   onSuccess         : function() { return true; },
   onFailure         : function() { return false; },
 
   metadata : {
-    defaultValue: 'default',
-    validate: 'validate'
+    defaultValue : 'default',
+    validate     : 'validate'
   },
 
   selector : {
