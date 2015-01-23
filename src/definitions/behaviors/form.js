@@ -61,7 +61,7 @@ $.fn.form = function(fields, parameters) {
         initialize: function() {
           module.verbose('Initializing form validation', $module, validation, settings);
           module.bindEvents();
-          module.set.field.defaults();
+          module.set.defaults();
           module.instantiate();
         },
 
@@ -168,45 +168,6 @@ $.fn.form = function(fields, parameters) {
               }
             })
           ;
-        },
-
-        serialize: function () {
-          var
-            data = {}
-          ;
-          $field
-            .each(function () {
-              var
-                $field     = $(this),
-                type       = $field.prop('type'),
-                name       = $field.prop('name'),
-                value      = $field.val(),
-                isCheckbox = $field.is(selector.checkbox),
-                isRadio    = $field.is(selector.radio),
-                isChecked  = (isCheckbox)
-                  ? $field.is(':checked')
-                  : false
-              ;
-              if(isRadio) {
-                if(isChecked) {
-                  data[name] = value;
-                }
-              }
-              else if(isCheckbox) {
-                if(isChecked) {
-                  data[name] = true;
-                }
-                else {
-                  module.debug('Omitted unchecked checkbox', $field);
-                  return true;
-                }
-              }
-              else {
-                data[name] = value;
-              }
-            })
-          ;
-          return data;
         },
 
         removeEvents: function() {
@@ -329,6 +290,59 @@ $.fn.form = function(fields, parameters) {
               }
             });
             return rules || false;
+          },
+          value: function (field) {
+            var
+              fields = [],
+              results
+            ;
+            fields.push(field);
+            results = module.get.values.call(element, fields);
+            return results[field];
+          },
+          values: function (fields) {
+            var
+              values = {}
+            ;
+            // return all fields if no parameters
+            if(!$.isArray(fields)) {
+              fields = $field;
+            }
+            $.each(fields, function(index, field) {
+              var
+                $field     = (typeof field === 'string')
+                  ? module.get.field(field)
+                  : $(field),
+                type       = $field.prop('type'),
+                name       = $field.prop('name'),
+                value      = $field.val(),
+                isCheckbox = $field.is(selector.checkbox),
+                isRadio    = $field.is(selector.radio),
+                isChecked  = (isCheckbox)
+                  ? $field.is(':checked')
+                  : false
+              ;
+              if(name) {
+                if(isRadio) {
+                  if(isChecked) {
+                    values[name] = value;
+                  }
+                }
+                else if(isCheckbox) {
+                  if(isChecked) {
+                    values[name] = true;
+                  }
+                  else {
+                    module.debug('Omitted unchecked checkbox', $field);
+                    return true;
+                  }
+                }
+                else {
+                  values[name] = value;
+                }
+              }
+            });
+            return values;
           }
         },
 
@@ -436,76 +450,74 @@ $.fn.form = function(fields, parameters) {
               .addClass(className.success)
             ;
           },
+          defaults: function () {
+            $field
+              .each(function () {
+                var
+                  $field     = $(this),
+                  isCheckbox = ($field.filter(selector.checkbox).length > 0),
+                  value      = (isCheckbox)
+                    ? $field.is(':checked')
+                    : $field.val()
+                ;
+                $field.data(metadata.defaultValue, value);
+              })
+            ;
+          },
           error: function() {
             $module
               .removeClass(className.success)
               .addClass(className.error)
             ;
           },
-          field: {
-            defaults: function () {
-              $field
-                .each(function () {
-                  var
-                    $field     = $(this),
-                    isCheckbox = ($field.filter(selector.checkbox).length > 0),
-                    value      = (isCheckbox)
-                      ? $field.is(':checked')
-                      : $field.val()
-                  ;
-                  $field.data(metadata.defaultValue, value);
-                })
-              ;
-            },
-            value: function (field, value) {
+          value: function (field, value) {
+            var
+              fields = {}
+            ;
+            fields[field] = value;
+            return module.set.values.call(element, fields);
+          },
+          values: function (fields) {
+            if($.isEmptyObject(fields)) {
+              return;
+            }
+            $.each(fields, function(key, value) {
               var
-                data = {}
+                $field      = module.get.field(key),
+                $element    = $field.parent(),
+                isCheckbox  = $element.is(selector.uiCheckbox),
+                isDropdown  = $element.is(selector.uiDropdown),
+                isRadio     = $field.is(selector.radio),
+                fieldExists = ($field.length > 0)
               ;
-              data[field] = value;
-              return module.set.field.values.call(element, data);
-            },
-            values: function (data) {
-              if($.isEmptyObject(data)) {
-                return;
-              }
-              $.each(data, function(key, value) {
-                var
-                  $field      = module.get.field(key),
-                  $element    = $field.parent(),
-                  isCheckbox  = $element.is(selector.uiCheckbox),
-                  isDropdown  = $element.is(selector.uiDropdown),
-                  isRadio     = $field.is(selector.radio),
-                  fieldExists = ($field.length > 0)
-                ;
-                if(fieldExists) {
-                  if(isRadio && isCheckbox) {
-                    module.verbose('Selecting radio value', value, $field);
-                    $field.filter('[value="' + value + '"]')
-                      .parent(selector.uiCheckbox)
-                        .checkbox('check')
-                    ;
-                  }
-                  else if(isCheckbox) {
-                    module.verbose('Setting checkbox value', value, $element);
-                    if(value === true) {
-                      $element.checkbox('check');
-                    }
-                    else {
-                      $element.checkbox('uncheck');
-                    }
-                  }
-                  else if(isDropdown) {
-                    module.verbose('Setting dropdown value', value, $element);
-                    $element.dropdown('set selected', value);
+              if(fieldExists) {
+                if(isRadio && isCheckbox) {
+                  module.verbose('Selecting radio value', value, $field);
+                  $field.filter('[value="' + value + '"]')
+                    .parent(selector.uiCheckbox)
+                      .checkbox('check')
+                  ;
+                }
+                else if(isCheckbox) {
+                  module.verbose('Setting checkbox value', value, $element);
+                  if(value === true) {
+                    $element.checkbox('check');
                   }
                   else {
-                    module.verbose('Setting field value', value, $field);
-                    $field.val(value);
+                    $element.checkbox('uncheck');
                   }
                 }
-              });
-              module.validate.form();
-            }
+                else if(isDropdown) {
+                  module.verbose('Setting dropdown value', value, $element);
+                  $element.dropdown('set selected', value);
+                }
+                else {
+                  module.verbose('Setting field value', value, $field);
+                  $field.val(value);
+                }
+              }
+            });
+            module.validate.form();
           }
         },
 
