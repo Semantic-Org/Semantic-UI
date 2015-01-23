@@ -131,6 +131,39 @@ $.fn.form = function(fields, parameters) {
           ;
         },
 
+        clear: function() {
+          $field
+            .each(function () {
+              var
+                $field       = $(this),
+                $element     = $field.parent(),
+                $fieldGroup  = $field.closest($group),
+                $prompt      = $fieldGroup.find(selector.prompt),
+                defaultValue = $field.data(metadata.defaultValue) || '',
+                isCheckbox   = $element.is(selector.uiCheckbox),
+                isDropdown   = $element.is(selector.uiDropdown),
+                isErrored    = $fieldGroup.hasClass(className.error)
+              ;
+              if(isErrored) {
+                module.verbose('Resetting error on field', $fieldGroup);
+                $fieldGroup.removeClass(className.error);
+                $prompt.remove();
+              }
+              if(isDropdown) {
+                module.verbose('Resetting dropdown value', $element, defaultValue);
+                $element.dropdown('clear');
+              }
+              else if(isCheckbox) {
+                $element.checkbox('uncheck');
+              }
+              else {
+                module.verbose('Resetting field value', $field, defaultValue);
+                $field.val('');
+              }
+            })
+          ;
+        },
+
         reset: function() {
           $field
             .each(function () {

@@ -965,7 +965,7 @@ $.fn.dropdown = function(parameters) {
             ;
             module.debug('Restoring default text', defaultText);
             module.set.text(defaultText);
-            $text.addClass(settings.className.placeholder);
+            $text.addClass(className.placeholder);
           },
           defaultValue: function() {
             var
@@ -987,6 +987,7 @@ $.fn.dropdown = function(parameters) {
         save: {
           defaults: function() {
             module.save.defaultText();
+            module.save.placeholderText();
             module.save.defaultValue();
           },
           defaultValue: function() {
@@ -994,7 +995,21 @@ $.fn.dropdown = function(parameters) {
           },
           defaultText: function() {
             $module.data(metadata.defaultText, $text.text() );
+          },
+          placeholderText: function() {
+            if($text.hasClass(className.placeholder)) {
+              $module.data(metadata.placeholderText, $text.text());
+            }
           }
+        },
+
+        clear: function() {
+          var
+            placeholderText = $module.data(metadata.placeholderText)
+          ;
+          module.set.text(placeholderText);
+          module.set.value('');
+          $text.addClass(className.placeholder);
         },
 
         set: {
@@ -1658,10 +1673,11 @@ $.fn.dropdown.settings = {
   },
 
   metadata: {
-    defaultText  : 'defaultText',
-    defaultValue : 'defaultValue',
-    text         : 'text',
-    value        : 'value'
+    defaultText     : 'defaultText',
+    defaultValue    : 'defaultValue',
+    placeholderText : 'placeholderText',
+    text            : 'text',
+    value           : 'value'
   },
 
   selector : {
