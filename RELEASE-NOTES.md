@@ -5,7 +5,7 @@
 **Key Features**
 
 - **Form** - Form now has new methods `reset`, `clear`, `set value(s)`, and `read value(s)` for modifying and reading form data. Check docs for details on implementation. **Thanks @mktm**
-- **Search** - Search `onSelect` now recieves JSON object matching currently selected element, you can now programmatically retrieve result JSON using `.search('get result', 'query')` or `.search('get results'). `get result` will default to current value unless specified as first parameter.
+- **Search** - Search `onSelect` now recieves JSON object matching currently selected element, you can now programmatically retrieve result JSON using `.search('get result', 'query')` or `.search('get results')`. `get result` will default to current value unless specified as first parameter.
 - **Transition** - Added many new transitions, and new directions for existing transitions **Thanks @ph7vc**
 - **Dropdown** - Dropdown now stores `placeholder text` (prompt text) as separate from `default text` (text set on page load). You can now reset placeholder conditions using `$('.ui.dropdown').dropdown('clear');``
 

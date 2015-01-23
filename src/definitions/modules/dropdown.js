@@ -831,7 +831,7 @@ $.fn.dropdown = function(parameters) {
             }
           },
           choiceValue: function($choice, choiceText) {
-            choiceText = choiceText || module.get.choiceText($text);
+            choiceText = choiceText || module.get.choiceText($choice);
             return ($choice.data(metadata.value) !== undefined)
               ? $choice.data(metadata.value)
               : (typeof choiceText === 'string')
@@ -1009,6 +1009,8 @@ $.fn.dropdown = function(parameters) {
           ;
           module.set.text(placeholderText);
           module.set.value('');
+          module.remove.activeItem();
+          module.remove.selectedItem();
           $text.addClass(className.placeholder);
         },
 
@@ -1151,7 +1153,7 @@ $.fn.dropdown = function(parameters) {
                 .addClass(className.selected)
               ;
               selectedText  = module.get.choiceText($selectedItem);
-              selectedValue = module.get.choiceValue($selectedItem);
+              selectedValue = module.get.choiceValue($selectedItem, selectedText);
               module.set.text(selectedText);
               module.set.value(selectedValue);
               settings.onChange.call(element, value, selectedText, $selectedItem);
