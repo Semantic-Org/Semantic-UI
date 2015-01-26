@@ -297,7 +297,7 @@ $.fn.popup = function(parameters) {
         hideAll: function() {
           $(selector.popup)
             .filter(':visible')
-              .transition('hide')
+              .transition(settings.transition)
           ;
         },
 

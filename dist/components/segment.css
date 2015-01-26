@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.8.0
+ * # Semantic UI - 1.8.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -300,10 +300,12 @@
   z-index: 101;
 }
 @-webkit-keyframes segment-spin {
+
   from {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
   }
+
   to {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);

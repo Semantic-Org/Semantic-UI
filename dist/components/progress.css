@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.8.0
+ * # Semantic UI - 1.8.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -240,10 +240,12 @@
           animation: progress-active 2s ease infinite;
 }
 @-webkit-keyframes progress-active {
+
   0% {
     opacity: 0.3;
     width: 0;
   }
+
   100% {
     opacity: 0;
     width: 100%;

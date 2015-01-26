@@ -125,23 +125,25 @@ $.fn.sticky = function(parameters) {
           var
             context = $context[0]
           ;
-          if('MutationObserver' in window) {
-            observer = new MutationObserver(function(mutations) {
-              clearTimeout(module.timer);
-              module.timer = setTimeout(function() {
-                module.verbose('DOM tree modified, updating sticky menu');
-                module.refresh();
-              }, 200);
-            });
-            observer.observe(element, {
-              childList : true,
-              subtree   : true
-            });
-            observer.observe(context, {
-              childList : true,
-              subtree   : true
-            });
-            module.debug('Setting up mutation observer', observer);
+          if(settings.observeChanges) {
+            if('MutationObserver' in window) {
+              observer = new MutationObserver(function(mutations) {
+                clearTimeout(module.timer);
+                module.timer = setTimeout(function() {
+                  module.verbose('DOM tree modified, updating sticky menu');
+                  module.refresh();
+                }, 200);
+              });
+              observer.observe(element, {
+                childList : true,
+                subtree   : true
+              });
+              observer.observe(context, {
+                childList : true,
+                subtree   : true
+              });
+              module.debug('Setting up mutation observer', observer);
+            }
           }
         },
 
@@ -730,25 +732,27 @@ $.fn.sticky = function(parameters) {
 
 $.fn.sticky.settings = {
 
-  name          : 'Sticky',
-  namespace     : 'sticky',
+  name           : 'Sticky',
+  namespace      : 'sticky',
 
-  debug         : false,
-  verbose       : false,
-  performance   : false,
+  debug          : false,
+  verbose        : false,
+  performance    : false,
 
-  pushing       : false,
-  context       : false,
-  scrollContext : window,
-  offset        : 0,
-  bottomOffset  : 0,
+  pushing        : false,
+  context        : false,
+  scrollContext  : window,
+  offset         : 0,
+  bottomOffset   : 0,
 
-  onReposition  : function(){},
-  onScroll      : function(){},
-  onStick       : function(){},
-  onUnstick     : function(){},
-  onTop         : function(){},
-  onBottom      : function(){},
+  observeChanges : true,
+
+  onReposition   : function(){},
+  onScroll       : function(){},
+  onStick        : function(){},
+  onUnstick      : function(){},
+  onTop          : function(){},
+  onBottom       : function(){},
 
   error         : {
     container      : 'Sticky element must be inside a relative container',
