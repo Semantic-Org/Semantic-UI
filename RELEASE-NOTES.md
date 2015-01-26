@@ -1,5 +1,11 @@
 ## RELEASE NOTES
 
+### Version 1.8.1 - January 26, 2015
+
+**Bugs**
+- *Grid** - Removed `text-align: left` from column definition. Now inherits from grid.
+
+
 ### Version 1.8.0 - January 23, 2015
 
 [View Closed Issues](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A1.8.0+is%3Aclosed+sort%3Acomments-desc)
