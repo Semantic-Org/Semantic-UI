@@ -745,7 +745,7 @@ $.fn.sticky.settings = {
   offset         : 0,
   bottomOffset   : 0,
 
-  observeChanges : false,
+  observeChanges : true,
 
   onReposition   : function(){},
   onScroll       : function(){},

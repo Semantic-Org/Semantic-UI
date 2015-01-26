@@ -4,7 +4,7 @@
 
 **Bugs**
 - **Grid** - Removed `text-align: left` from column definition. Now inherits from grid.
-- **Input** - `ui labeled input` now forces  `table-cell` so that it can use `ui dropdown`
+- **Input** - `ui labeled input` now forces  `table-cell` so that it can use `ui dropdown`, added example in ui docs with dropdown
 - **Input** - Fix border radius on `ui action input` with button groups, aka `ui buttons`
 - **Popup** - Popup `hide all` will now use transition set in `settings.transition` when closing other popups
 - **Grid** - Fix `doubling grid` setting `100% width` which may cause
