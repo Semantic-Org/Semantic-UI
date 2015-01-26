@@ -3,8 +3,10 @@
 ### Version 1.8.1 - January 26, 2015
 
 **Bugs**
-- *Grid** - Removed `text-align: left` from column definition. Now inherits from grid.
-
+- **Grid** - Removed `text-align: left` from column definition. Now inherits from grid.
+- **Input** - `ui labeled input` now forces  `table-cell` so that it can use `ui dropdown`
+- **Input** - Fix border radius on `ui action input` with button groups, aka `ui buttons`
+- **Popup** - Popup `hide all` will now use transition set in `settings.transition` when closing other popups
 
 ### Version 1.8.0 - January 23, 2015
 
