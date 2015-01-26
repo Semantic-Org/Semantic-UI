@@ -7,6 +7,7 @@
 - **Input** - `ui labeled input` now forces  `table-cell` so that it can use `ui dropdown`
 - **Input** - Fix border radius on `ui action input` with button groups, aka `ui buttons`
 - **Popup** - Popup `hide all` will now use transition set in `settings.transition` when closing other popups
+- **Grid** - Fix `doubling grid` setting `100% width` which may cause
 
 ### Version 1.8.0 - January 23, 2015
 
