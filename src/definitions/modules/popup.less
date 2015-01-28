@@ -18,6 +18,7 @@
 
 @import '../../theme.config';
 
+
 /*******************************
             Popup
 *******************************/
@@ -27,6 +28,10 @@
   position: absolute;
   top: 0px;
   right: 0px;
+
+  /* Fixes content being squished when inline (moz only) */
+  min-width: -moz-max-content;
+
   z-index: @zIndex;
 
   border: @border;

@@ -1502,11 +1502,15 @@
 
 .ui.pointing.menu .active.item:after {
   position: absolute;
-  bottom: @arrowOffset;
-  left: 50%;
   content: '';
 
-  margin-left: @arrowOffset;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  margin: @arrowBorderSize 0em 0em 0em;
+
+  background: none;
+
   width: @arrowSize;
   height: @arrowSize;
 
@@ -1514,13 +1518,9 @@
   border-bottom: @arrowBorder;
   border-right: @arrowBorder;
 
-  background: none;
-  transform: rotate(45deg);
-  z-index: 2;
+  z-index: @arrowZIndex;
 
-  transition:
-    background 0.2s ease
-  ;
+  transition: @arrowTransition;
 }
 
 /* Don't double up pointers */
@@ -1531,10 +1531,12 @@
 .ui.vertical.pointing.menu .active.item:after {
   position: absolute;
   top: 50%;
-  margin-top: @arrowOffset;
-  right: @arrowOffset;
+  right: 0%;
   bottom: auto;
   left: auto;
+
+  transform: translateX(50%) translateY(-50%) rotate(45deg);
+  margin: 0em -@arrowBorderSize 0em 0em;
 
   border: none;
   border-top: @arrowBorder;

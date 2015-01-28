@@ -223,8 +223,8 @@
 
 
 /* Basic Group */
-@basicGroupBorder: 1px solid @borderColor;
-@basicGroupBoxShadow: 0px 0px 0px 1px @borderColor;
+@basicGroupBorder: @basicBorderSize solid @borderColor;
+@basicGroupBoxShadow: 0px 0px 0px @basicBorderSize @borderColor;
 
 /*-------------------
       Variations

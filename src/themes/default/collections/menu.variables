@@ -132,14 +132,16 @@
 
 /* Pointing Arrow */
 @arrowSize: 0.6em;
-@arrowOffset: -(@arrowSize / 2);
-@arrowBorder: 1px solid rgba(0, 0, 0, 0.1);
+@arrowBorderSize: 1px;
+@arrowBorder: @arrowBorderSize solid @solidBorderColor;
+@arrowTransition: background @transitionDuration @transitionEasing;
+@arrowZIndex: 2;
 
 @arrowHoverColor: #FAFAFA;
-@arrowActiveColor: #F6F6F6;
+@arrowActiveColor: #F7F7F7;
 
-@arrowVerticalHoverColor: #FAFAFA;
-@arrowVerticalActiveColor: #FCFCFC;
+@arrowVerticalHoverColor: @arrowHoverColor;
+@arrowVerticalActiveColor: @arrowActiveColor;
 
 /*--------------
      States

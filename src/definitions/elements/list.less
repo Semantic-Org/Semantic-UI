@@ -789,7 +789,6 @@ ol.ui.horizontal.list li:before,
        Relaxed
 --------------------*/
 
-.ui.relaxed.list:not(.horizontal) .list > .item,
 .ui.relaxed.list:not(.horizontal) > .item {
   padding-top: @relaxedVerticalPadding;
   padding-bottom: @relaxedVerticalPadding;
@@ -804,7 +803,6 @@ ol.ui.horizontal.list li:before,
 }
 
 /* Very Relaxed */
-.ui[class*="very relaxed"].list:not(.horizontal) .list > .item,
 .ui[class*="very relaxed"].list:not(.horizontal) > .item {
   padding-top: @veryRelaxedVerticalPadding;
   padding-bottom: @veryRelaxedVerticalPadding;
@@ -823,36 +821,28 @@ ol.ui.horizontal.list li:before,
       Sizes
 --------------------*/
 
-.ui.mini.list .list > .item,
-.ui.mini.list > .item {
+.ui.mini.list {
   font-size: @relativeMini;
 }
-.ui.tiny.list .list > .item,
-.ui.tiny.list > .item {
+.ui.tiny.list {
   font-size: @relativeTiny;
 }
-.ui.small.list .list > .item,
-.ui.small.list > .item {
+.ui.small.list {
   font-size: @relativeSmall;
 }
-.ui.list .list > .item,
-.ui.list > .item {
+.ui.list {
   font-size: @relativeMedium;
 }
-.ui.large.list .list > .item,
-.ui.large.list > .item {
+.ui.large.list {
   font-size: @relativeLarge;
 }
-.ui.big.list .list > .item,
-.ui.big.list > .item {
+.ui.big.list {
   font-size: @relativeBig;
 }
-.ui.huge.list .list > .item,
-.ui.huge.list > .item {
+.ui.huge.list {
   font-size: @relativeHuge;
 }
-.ui.massive.list .list > .item,
-.ui.massive.list > .item {
+.ui.massive.list {
   font-size: @relativeMassive;
 }
 

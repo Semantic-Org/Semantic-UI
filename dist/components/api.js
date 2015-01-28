@@ -83,7 +83,8 @@ $.api = $.fn.api = function(parameters) {
                 .on(triggerEvent + eventNamespace, module.event.trigger)
               ;
             }
-            else {
+            else if(settings.on == 'now') {
+              module.debug('Querying API now', triggerEvent);
               module.query();
             }
           }
@@ -181,16 +182,17 @@ $.api = $.fn.api = function(parameters) {
 
           module.verbose('Creating AJAX request with settings', ajaxSettings);
 
-          if( !module.is.loading() ) {
-            module.request = module.create.request();
-            module.xhr = module.create.xhr();
-          }
-          else {
+          if( module.is.loading() ) {
             // throttle additional requests
             module.timer = setTimeout(function() {
               module.request = module.create.request();
               module.xhr = module.create.xhr();
             }, settings.throttle);
+          }
+          else {
+            // immediately on first request
+            module.request = module.create.request();
+            module.xhr = module.create.xhr();
           }
 
         },
@@ -421,7 +423,7 @@ $.api = $.fn.api = function(parameters) {
             ;
           },
           xhr: function() {
-            $.ajax(ajaxSettings)
+            return $.ajax(ajaxSettings)
               .always(module.event.xhr.always)
               .done(module.event.xhr.done)
               .fail(module.event.xhr.fail)
@@ -548,7 +550,7 @@ $.api = $.fn.api = function(parameters) {
             var
               url
             ;
-            action = action || $module.data(settings.metadata.action) || settings.action || false;
+            action = action || $module.data(metadata.action) || settings.action || false;
             if(action) {
               module.debug('Looking up url for action', action, settings.api);
               if(settings.api[action] !== undefined) {
@@ -560,6 +562,17 @@ $.api = $.fn.api = function(parameters) {
               }
             }
             return url;
+          }
+        },
+
+        abort: function() {
+          var
+            xhr = module.get.xhr()
+          ;
+          if( xhr && xhr.state() !== 'resolved') {
+            module.debug('Cancelling API request');
+            xhr.abort();
+            module.request.rejectWith(settings.apiSettings);
           }
         },
 
@@ -827,9 +840,7 @@ $.api.settings = {
   },
 
   metadata: {
-    action  : 'action',
-    request : 'request',
-    xhr     : 'xhr'
+    action  : 'action'
   }
 };
 

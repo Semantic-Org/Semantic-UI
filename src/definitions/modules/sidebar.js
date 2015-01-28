@@ -59,6 +59,7 @@ $.fn.sidebar = function(parameters) {
         $context        = $(settings.context),
 
         $sidebars       = $module.children(selector.sidebar),
+        $fixed          = $context.children(selector.fixed),
         $pusher         = $context.children(selector.pusher),
         $style,
 
@@ -134,8 +135,16 @@ $.fn.sidebar = function(parameters) {
 
         event: {
           clickaway: function(event) {
-            if( $(event.target).closest(selector.sidebar).length === 0 ) {
+            var
+              clickedInPusher = ($pusher.find(event.target).length > 0 || $pusher.is(event.target)),
+              clickedContext  = ($context.is(event.target))
+            ;
+            if(clickedInPusher) {
               module.verbose('User clicked on dimmed page');
+              module.hide();
+            }
+            if(clickedContext) {
+              module.verbose('User clicked on dimmable context (scaled out page)');
               module.hide();
             }
           },
@@ -267,7 +276,6 @@ $.fn.sidebar = function(parameters) {
                 + ' }'
               ;
             }
-
             style += '</style>';
             $head.append(style);
             $style = $('style[title=' + namespace + ']');
@@ -280,6 +288,7 @@ $.fn.sidebar = function(parameters) {
           $context  = $(settings.context);
           $sidebars = $context.children(selector.sidebar);
           $pusher   = $context.children(selector.pusher);
+          $fixed    = $context.children(selector.fixed);
         },
 
         refreshSidebars: function() {
@@ -453,7 +462,7 @@ $.fn.sidebar = function(parameters) {
           if(settings.transition == 'scale down') {
             module.scrollToTop();
           }
-          module.set.transition();
+          module.set.transition(transition);
           module.repaint();
           animate = function() {
             module.bind.clickaway();
@@ -496,7 +505,7 @@ $.fn.sidebar = function(parameters) {
           ;
           module.verbose('Removing context push state', module.get.direction());
 
-          module.set.transition();
+          module.set.transition(transition);
           module.unbind.clickaway();
           module.unbind.scrollLock();
 
@@ -686,7 +695,7 @@ $.fn.sidebar = function(parameters) {
               direction = module.get.direction(),
               transition
             ;
-            return ( module.is.mobile() )
+            transition = ( module.is.mobile() )
               ? (settings.mobileTransition == 'auto')
                 ? settings.defaultTransition.mobile[direction]
                 : settings.mobileTransition
@@ -694,6 +703,8 @@ $.fn.sidebar = function(parameters) {
                 ? settings.defaultTransition.computer[direction]
                 : settings.transition
             ;
+            module.verbose('Determined transition', transition);
+            return transition;
           },
           transitionEvent: function() {
             var
@@ -754,7 +765,7 @@ $.fn.sidebar = function(parameters) {
           ios: function() {
             var
               userAgent = navigator.userAgent,
-              isIOS     = regExp.ios.test(userAgent)
+              isIOS     = userAgent.match(regExp.ios)
             ;
             if(isIOS) {
               module.verbose('Browser was found to be iOS', userAgent);
@@ -767,7 +778,7 @@ $.fn.sidebar = function(parameters) {
           mobile: function() {
             var
               userAgent    = navigator.userAgent,
-              isMobile     = regExp.mobile.test(userAgent)
+              isMobile     = userAgent.match(regExp.mobile)
             ;
             if(isMobile) {
               module.verbose('Browser was found to be mobile', userAgent);

@@ -319,7 +319,7 @@ a.ui.label {
   position: relative;
   margin: 0em;
 
-  left: -@ribbonDistance;
+  left: @ribbonOffset;
   padding-left: @ribbonDistance;
   border-radius: 0em @borderRadius @borderRadius 0em;
   border-color: @ribbonShadowColor;
@@ -345,7 +345,7 @@ a.ui.label {
 .ui[class*="right ribbon"].label {
   text-align: left;
   transform: translateX(-100%);
-  left: ~"calc(100% + "@ribbonDistance~")";
+  left: @rightRibbonOffset;
   border-radius: @borderRadius 0em 0em @borderRadius;
   padding-left: @horizontalPadding;
   padding-right: @ribbonDistance;
@@ -361,7 +361,7 @@ a.ui.label {
 }
 
 /*-------------------
-       Attached
+      Attached
 --------------------*/
 
 .ui.top.attached.label,
