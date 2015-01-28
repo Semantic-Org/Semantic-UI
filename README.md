@@ -14,7 +14,7 @@ Key Features
 
 ## International
 
-* **Chinese** A Chinese mainland mirror site is available at [http://www.semantic-ui.cn](http:/www.semantic-ui.cn)
+* **Chinese** A Chinese mirror site is available at [http://www.semantic-ui.cn](http:/www.semantic-ui.cn)
 * **Right-to-Left (RTL)** - An RTL version can be created using our build tools by selecting `rtl` from the install script
 * **Translation** - To help translate see the [Wiki Guide](https://github.com/Semantic-Org/Semantic-UI/wiki/Translating-Semantic-UI-Docs) for translations 
 
