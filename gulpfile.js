@@ -13,416 +13,44 @@ var
 
   // node components & oddballs
   console         = require('better-console'),
-  del             = require('del'),
   extend          = require('extend'),
   fs              = require('fs'),
 
-  // unsure
-  path            = require('path'),
-
-  // watch / build deps
-  autoprefixer    = require('gulp-autoprefixer'),
-  chmod           = require('gulp-chmod'),
-  clone           = require('gulp-clone'),
-  concat          = require('gulp-concat'),
-  copy            = require('gulp-copy'),
-  debug           = require('gulp-debug'),
-  flatten         = require('gulp-flatten'),
-  header          = require('gulp-header'),
-  karma           = require('gulp-karma'),
-  less            = require('gulp-less'),
-  minifyCSS       = require('gulp-minify-css'),
-  plumber         = require('gulp-plumber'),
-  print           = require('gulp-print'),
-  rename          = require('gulp-rename'),
-  replace         = require('gulp-replace'),
-  uglify          = require('gulp-uglify'),
-  util            = require('gulp-util'),
-  watch           = require('gulp-watch'),
-
-  // rtl
-  rtlcss          = require('gulp-rtlcss'),
-
   // config
-  banner          = require('./tasks/banner'),
-  comments        = require('./tasks/comments'),
-  defaults        = require('./tasks/defaults'),
-  log             = require('./tasks/log'),
-  settings        = require('./tasks/gulp-settings'),
+  config = require('tasks/config'),
 
-  // local
-  runSetup   = false,
-  overwrite  = true,
-  config,
-  package,
-  github,
+  // tasks
+  build   = require('tasks/build'),
+  watch   = require('tasks/watch'),
+  clean   = require('tasks/clean'),
+  version = require('tasks/version')
 
-  version,
-
-  // derived
-  base,
-  clean,
-  output,
-  source,
-  assetPaths,
-  componentGlob,
-
-  // temporary
-  folder
 ;
-
-
-/*******************************
-          Read Settings
-*******************************/
-
-try {
-  // try to load json
-  var
-    config  = require(defaults.files.config),
-    package = (fs.existsSync(defaults.files.npm))
-      ? require(defaults.files.npm)
-      : false
-  ;
-}
-catch(error) {
-  if(error.code === 'MODULE_NOT_FOUND') {
-    console.error('No semantic.json config found');
-  }
-  var config = false;
-}
-
-/*******************************
-   Values Derived From Config
-*******************************/
-
-var
-  getConfigValues = function() {
-
-    if(!config) {
-      runSetup = true;
-      config = defaults;
-    }
-
-    // extend defaults using shallow copy
-    config = extend(false, {}, defaults, config);
-
-    // shorthand
-    base    = config.base;
-    clean   = config.paths.clean;
-    output  = config.paths.output;
-    source  = config.paths.source;
-
-    // npm package.json holds true "version"
-    version = (package !== undefined)
-      ? package.version || 'Unknown'
-      : 'Unknown'
-    ;
-
-    // relative asset paths for css
-    assetPaths = {
-      uncompressed : path.relative(output.uncompressed, output.themes).replace(/\\/g,'/'),
-      compressed   : path.relative(output.compressed, output.themes).replace(/\\/g,'/'),
-      packaged     : path.relative(output.packaged, output.themes).replace(/\\/g,'/')
-    };
-
-    // add base path to all folders
-    for(var folder in source) {
-      if(source.hasOwnProperty(folder)) {
-        source[folder] = path.normalize(base + source[folder]);
-      }
-    }
-    for(folder in output) {
-      if(output.hasOwnProperty(folder)) {
-        output[folder] = path.normalize(base + output[folder]);
-      }
-    }
-    clean = base + clean;
-
-    // create glob for matching filenames from components in semantic.json
-    componentGlob = (typeof config.components == 'object')
-      ? (config.components.length > 1)
-        ? '{' + config.components.join(',') + '}'
-        : config.components[0]
-      : '{' + defaults.components.join(',') + '}'
-    ;
-
-  }
-;
-
-getConfigValues();
 
 
 /*******************************
              Tasks
 *******************************/
 
+/*
+  All tasks are defined in sub-folder "tasks/"
+*/
+
 gulp.task('default', false, [
   'check install'
 ]);
 
-gulp.task('watch', 'Watch for site/theme changes (Default Task)', function(callback) {
-
-  console.clear();
-  console.log('Watching source files for changes');
-
-
-  if(!fs.existsSync(config.files.theme)) {
-    console.error('Cant compile LESS. Run "gulp install" to create a theme config file');
-    return;
-  }
-
-  // start rtl task instead
-  if(config.rtl) {
-    gulp.start('watch rtl');
-    return;
-  }
-
-  // watching changes in style
-  gulp
-    .watch([
-      source.config,
-      source.definitions   + '**/*.less',
-      source.site          + '**/*.{overrides,variables}',
-      source.themes        + '**/*.{overrides,variables}'
-    ], function(file) {
-      var
-        srcPath,
-        stream,
-        compressedStream,
-        uncompressedStream,
-        isDefinition,
-        isPackagedTheme,
-        isSiteTheme,
-        isConfig
-      ;
-
-      gulp.src(file.path)
-        .pipe(print(log.modified))
-      ;
-
-      // recompile on *.override , *.variable change
-      isDefinition    = (file.path.indexOf(source.definitions) !== -1);
-      isPackagedTheme = (file.path.indexOf(source.themes) !== -1);
-      isSiteTheme     = (file.path.indexOf(source.site) !== -1);
-      isConfig        = (file.path.indexOf('.config') !== -1);
-
-      if(isDefinition || isPackagedTheme || isSiteTheme) {
-        // rebuild only matching definition file
-        srcPath = util.replaceExtension(file.path, '.less');
-        srcPath = srcPath.replace(config.regExp.themePath, source.definitions);
-        srcPath = srcPath.replace(source.site, source.definitions);
-      }
-      else if(isConfig) {
-        // impossible to tell which file was updated in theme.config, rebuild all
-        console.log('Change detected in theme config');
-        gulp.start('build');
-      }
-      else {
-        srcPath = util.replaceExtension(file.path, '.less');
-      }
-
-      // get relative asset path (path returns wrong path? hardcoded)
-      // assetPaths.source = path.relative(srcPath, path.resolve(source.themes));
-      assetPaths.source = '../../themes';
-
-      if( fs.existsSync(srcPath) ) {
-
-        // unified css stream
-        stream = gulp.src(srcPath)
-          .pipe(plumber())
-          .pipe(less(settings.less))
-          .pipe(replace(comments.variables.in, comments.variables.out))
-          .pipe(replace(comments.large.in, comments.large.out))
-          .pipe(replace(comments.small.in, comments.small.out))
-          .pipe(replace(comments.tiny.in, comments.tiny.out))
-          .pipe(autoprefixer(settings.prefix))
-        ;
-
-        // use 2 concurrent streams from same pipe
-        uncompressedStream = stream.pipe(clone());
-        compressedStream   = stream.pipe(clone());
-
-        uncompressedStream
-          .pipe(plumber())
-          .pipe(replace(assetPaths.source, assetPaths.uncompressed))
-          .pipe(header(banner, settings.header))
-          .pipe(chmod(config.permission))
-          .pipe(gulp.dest(output.uncompressed))
-          .pipe(print(log.created))
-          .on('end', function() {
-            gulp.start('package uncompressed css');
-          })
-        ;
-
-        compressedStream = stream
-          .pipe(plumber())
-          .pipe(clone())
-          .pipe(replace(assetPaths.source, assetPaths.compressed))
-          .pipe(minifyCSS(settings.minify))
-          .pipe(rename(settings.rename.minCSS))
-          .pipe(header(banner, settings.header))
-          .pipe(chmod(config.permission))
-          .pipe(gulp.dest(output.compressed))
-          .pipe(print(log.created))
-          .on('end', function() {
-            gulp.start('package compressed css');
-          })
-        ;
-
-      }
-      else {
-        console.log('SRC Path Does Not Exist', srcPath);
-      }
-    })
-  ;
-
-  // watch for changes in assets that match component names (or their plural)
-  gulp
-    .watch([
-      source.themes   + '**/assets/**/' + componentGlob + '?(s).*'
-    ], function(file) {
-      // copy assets
-      gulp.src(file.path, { base: source.themes })
-        .pipe(chmod(config.permission))
-        .pipe(gulp.dest(output.themes))
-        .pipe(print(log.created))
-      ;
-    })
-  ;
-
-  // watch for changes in js
-  gulp
-    .watch([
-      source.definitions   + '**/*.js'
-    ], function(file) {
-      gulp.src(file.path)
-        .pipe(plumber())
-        .pipe(chmod(config.permission))
-        .pipe(gulp.dest(output.uncompressed))
-        .pipe(print(log.created))
-        .pipe(uglify(settings.uglify))
-        .pipe(rename(settings.rename.minJS))
-        .pipe(chmod(config.permission))
-        .pipe(gulp.dest(output.compressed))
-        .pipe(print(log.created))
-        .on('end', function() {
-          gulp.start('package compressed js');
-          gulp.start('package uncompressed js');
-        })
-      ;
-    })
-  ;
-
-});
-
-// Builds all files
-gulp.task('build', 'Builds all files from source', function(callback) {
-  var
-    stream,
-    compressedStream,
-    uncompressedStream
-  ;
-
-  console.info('Building Semantic');
-
-  if(!fs.existsSync(config.files.theme)) {
-    console.error('Cant build LESS. Run "gulp install" to create a theme config file');
-    return;
-  }
-
-  // Run RTL build instead
-  if(config.rtl) {
-    gulp.start('build rtl');
-    return;
-  }
-
-  // assetPaths.source = path.relative(srcPath, path.resolve(source.themes));
-  assetPaths.source = '../../themes';  // path.relative returns wrong path (hardcoded for src)
-
-  // copy assets
-  gulp.src(source.themes + '**/assets/**/' + componentGlob + '?(s).*')
-    .pipe(chmod(config.permission))
-    .pipe(gulp.dest(output.themes))
-  ;
-
-  // javascript stream
-  gulp.src(source.definitions + '**/' + componentGlob + '.js')
-    .pipe(plumber())
-    .pipe(flatten())
-    .pipe(chmod(config.permission))
-    .pipe(gulp.dest(output.uncompressed))
-    .pipe(print(log.created))
-    .pipe(uglify(settings.uglify))
-    .pipe(rename(settings.rename.minJS))
-    .pipe(header(banner, settings.header))
-    .pipe(chmod(config.permission))
-    .pipe(gulp.dest(output.compressed))
-    .pipe(print(log.created))
-    .on('end', function() {
-      gulp.start('package compressed js');
-      gulp.start('package uncompressed js');
-    })
-  ;
-
-  // unified css stream
-  stream = gulp.src(source.definitions + '**/' + componentGlob + '.less')
-    .pipe(plumber())
-    .pipe(less(settings.less))
-    .pipe(flatten())
-    .pipe(replace(comments.variables.in, comments.variables.out))
-    .pipe(replace(comments.large.in, comments.large.out))
-    .pipe(replace(comments.small.in, comments.small.out))
-    .pipe(replace(comments.tiny.in, comments.tiny.out))
-    .pipe(autoprefixer(settings.prefix))
-  ;
-
-  // use 2 concurrent streams from same source to concat release
-  uncompressedStream = stream.pipe(clone());
-  compressedStream   = stream.pipe(clone());
-
-  uncompressedStream
-    .pipe(plumber())
-    .pipe(replace(assetPaths.source, assetPaths.uncompressed))
-    .pipe(header(banner, settings.header))
-    .pipe(chmod(config.permission))
-    .pipe(gulp.dest(output.uncompressed))
-    .pipe(print(log.created))
-    .on('end', function() {
-      gulp.start('package uncompressed css');
-    })
-  ;
-
-  compressedStream = stream
-    .pipe(plumber())
-    .pipe(clone())
-    .pipe(replace(assetPaths.source, assetPaths.compressed))
-    .pipe(minifyCSS(settings.minify))
-    .pipe(rename(settings.rename.minCSS))
-    .pipe(header(banner, settings.header))
-    .pipe(chmod(config.permission))
-    .pipe(gulp.dest(output.compressed))
-    .pipe(print(log.created))
-    .on('end', function() {
-      callback();
-      gulp.start('package compressed css');
-    })
-  ;
-});
-
-// cleans distribution files
-gulp.task('clean', 'Clean dist folder', function(callback) {
-  return del([clean], settings.del, callback);
-});
-
-gulp.task('version', 'Displays current version of Semantic', function(callback) {
-  console.log('Semantic UI ' + version);
-});
-
+gulp.task('watch', 'Watch for site/theme changes (Default Task)', watch);
+gulp.task('build', 'Builds all files from source', build);
+gulp.task('clean', 'Clean dist folder', clean);
+gulp.task('version', 'Displays current version of Semantic', version);
 
 /*******************************
             RTL Tasks
 *******************************/
+var
+  rtlcss          = require('gulp-rtlcss')
+;
 
 /* Watch RTL */
 gulp.task('watch rtl', 'Watch for site/theme changes (Default Task)', function(callback) {
@@ -599,7 +227,7 @@ gulp.task('build rtl', 'Builds all files from source', function(callback) {
   ;
 
   // javascript stream
-  gulp.src(source.definitions + '**/' + componentGlob + '.js')
+  gulp.src(source.definitions + '**/' + config.globs.components + '.js')
     .pipe(plumber())
     .pipe(flatten())
     .pipe(chmod(config.permission))
@@ -618,7 +246,7 @@ gulp.task('build rtl', 'Builds all files from source', function(callback) {
   ;
 
   // unified css stream
-  stream = gulp.src(source.definitions + '**/' + componentGlob + '.less')
+  stream = gulp.src(source.definitions + '**/' + config.globs.components + '.less')
     .pipe(plumber())
     .pipe(less(settings.less))
     .pipe(flatten())
@@ -666,7 +294,7 @@ gulp.task('build rtl', 'Builds all files from source', function(callback) {
 });
 
 gulp.task('package uncompressed rtl css', false, function () {
-  return gulp.src(output.uncompressed + '**/' + componentGlob + '!(*.min|*.map).rtl.css')
+  return gulp.src(output.uncompressed + '**/' + config.globs.components + '!(*.min|*.map).rtl.css')
     .pipe(replace(assetPaths.uncompressed, assetPaths.packaged))
     .pipe(concatCSS('semantic.rtl.css'))
       .pipe(gulp.dest(output.packaged))
@@ -675,7 +303,7 @@ gulp.task('package uncompressed rtl css', false, function () {
 });
 
 gulp.task('package compressed rtl css', false, function () {
-  return gulp.src(output.uncompressed + '**/' + componentGlob + '!(*.min|*.map).rtl.css')
+  return gulp.src(output.uncompressed + '**/' + config.globs.components + '!(*.min|*.map).rtl.css')
     .pipe(replace(assetPaths.uncompressed, assetPaths.packaged))
     .pipe(concatCSS('semantic.rtl.min.css'))
       .pipe(minifyCSS(settings.minify))
@@ -690,7 +318,7 @@ gulp.task('package compressed rtl css', false, function () {
 ---------------*/
 
 gulp.task('package uncompressed css', false, function() {
-  return gulp.src(output.uncompressed + '**/' + componentGlob + config.ignoredFiles + '.css')
+  return gulp.src(output.uncompressed + '**/' + config.globs.components + config.globs.ignored + '.css')
     .pipe(plumber())
     .pipe(replace(assetPaths.uncompressed, assetPaths.packaged))
     .pipe(concatCSS('semantic.css'))
@@ -701,7 +329,7 @@ gulp.task('package uncompressed css', false, function() {
 });
 
 gulp.task('package compressed css', false, function() {
-  return gulp.src(output.uncompressed + '**/' + componentGlob + config.ignoredFiles + '.css')
+  return gulp.src(output.uncompressed + '**/' + config.globs.components + config.globs.ignored + '.css')
     .pipe(plumber())
     .pipe(replace(assetPaths.uncompressed, assetPaths.packaged))
     .pipe(concatCSS('semantic.min.css'))
@@ -714,7 +342,7 @@ gulp.task('package compressed css', false, function() {
 });
 
 gulp.task('package uncompressed js', false, function() {
-  return gulp.src(output.uncompressed + '**/' + componentGlob + '!(*.min|*.map).js')
+  return gulp.src(output.uncompressed + '**/' + config.globs.components + '!(*.min|*.map).js')
     .pipe(plumber())
     .pipe(replace(assetPaths.uncompressed, assetPaths.packaged))
     .pipe(concat('semantic.js'))
@@ -726,7 +354,7 @@ gulp.task('package uncompressed js', false, function() {
 });
 
 gulp.task('package compressed js', false, function() {
-  return gulp.src(output.uncompressed + '**/' + componentGlob + '!(*.min|*.map).js')
+  return gulp.src(output.uncompressed + '**/' + config.globs.components + '!(*.min|*.map).js')
     .pipe(plumber())
     .pipe(replace(assetPaths.uncompressed, assetPaths.packaged))
     .pipe(concat('semantic.min.js'))
@@ -744,11 +372,10 @@ gulp.task('package compressed js', false, function() {
 
 var
   // install dependencies
-  jeditor = require('gulp-json-editor'),
-  prompt  = require('gulp-prompt'),
-  wrench  = require('wrench'),
-
-  questions       = require('./tasks/questions'),
+  jeditor   = require('gulp-json-editor'),
+  prompt    = require('gulp-prompt'),
+  wrench    = require('wrench'),
+  questions = require('./tasks/questions')
 
 ;
 
@@ -916,14 +543,14 @@ var
   tap             = require('gulp-tap'),
 
   // admin files
-  adminQuestions = require('./tasks/admin/questions'),
+  adminQuestions  = require('./tasks/admin/questions'),
   release         = require('./tasks/admin/release'),
 
   // stores oauth info for GitHub API
-  oAuth        = fs.existsSync('./tasks/admin/oauth.js')
+  oAuth           = fs.existsSync('./tasks/admin/oauth.js')
     ? require('./tasks/admin/oauth')
     : false,
-  github,
+  github
 
 ;
 
