@@ -46,7 +46,6 @@ i.icon.search:before { content: "\f002"; }
 i.icon.mail.outline:before { content: "\f003"; }
 i.icon.external.link:before { content: "\f08e"; }
 i.icon.signal:before { content: "\f012"; }
-i.icon.wifi:before { content: "\f1eb"; }
 i.icon.setting:before { content: "\f013"; }
 i.icon.home:before { content: "\f015"; }
 i.icon.inbox:before { content: "\f01c"; }
@@ -62,10 +61,7 @@ i.icon.settings:before { content: "\f085"; }
 i.icon.trophy:before { content: "\f091"; }
 i.icon.payment:before { content: "\f09d"; }
 i.icon.feed:before { content: "\f09e"; }
-i.icon.alarm:before { content: "\f0f3"; }
 i.icon.alarm.outline:before { content: "\f0a2"; }
-i.icon.alarm.slash:before { content: "\f1f6"; }
-i.icon.alarm.slash.outline:before { content: "\f1f7"; }
 i.icon.tasks:before { content: "\f0ae"; }
 i.icon.cloud:before { content: "\f0c2"; }
 i.icon.lab:before { content: "\f0c3"; }
@@ -73,6 +69,7 @@ i.icon.mail:before { content: "\f0e0"; }
 i.icon.idea:before { content: "\f0eb"; }
 i.icon.dashboard:before { content: "\f0e4"; }
 i.icon.sitemap:before { content: "\f0e8"; }
+i.icon.alarm:before { content: "\f0f3"; }
 i.icon.terminal:before { content: "\f120"; }
 i.icon.code:before { content: "\f121"; }
 i.icon.protect:before { content: "\f132"; }
@@ -86,7 +83,11 @@ i.icon.history:before { content: "\f1da"; }
 i.icon.options:before { content: "\f1de"; }
 i.icon.comment.outline:before { content: "\f0e5"; }
 i.icon.comments.outline:before { content: "\f0e6"; }
-i.icon.teletype:before { content: "\f1e4"; }
+i.icon.text.telephone:before { content: "\f1e4"; }
+i.icon.find:before { content: "\f1e5"; }
+i.icon.wifi:before { content: "\f1eb"; }
+i.icon.alarm.slash:before { content: "\f1f6"; }
+i.icon.alarm.slash.outline:before { content: "\f1f7"; }
 i.icon.copyright:before { content: "\f1f9"; }
 i.icon.at:before { content: "\f1fa"; }
 i.icon.eyedropper:before { content: "\f1fb"; }
@@ -143,8 +144,8 @@ i.icon.share.alternate.square:before { content: "\f1e1"; }
 i.icon.wait:before { content: "\f017"; }
 i.icon.write.square:before { content: "\f14b"; }
 i.icon.share.square:before { content: "\f14d"; }
-i.icon.cart.plus:before { content: "\f217"; }
-i.icon.cart.arrow.down:before { content: "\f218"; }
+i.icon.add.to.cart:before { content: "\f217"; }
+i.icon.in.cart:before { content: "\f218"; }
 
 /* Messages */
 i.icon.help.circle:before { content: "\f059"; }
@@ -155,32 +156,33 @@ i.icon.warning.sign:before { content: "\f071"; }
 i.icon.help:before { content: "\f128"; }
 i.icon.info:before { content: "\f129"; }
 i.icon.announcement:before { content: "\f0a1"; }
+i.icon.birthday:before {  content: "\f1fd"; }
 
 /* Users */
 i.icon.users:before { content: "\f0c0"; }
 i.icon.doctor:before { content: "\f0f0"; }
-i.icon.female:before { content: "\f182"; }
-i.icon.male:before { content: "\f183"; }
 i.icon.child:before { content: "\f1ae"; }
 i.icon.user:before { content: "\f007"; }
-i.icon.user.plus:before { content: "\f234"; }
-i.icon.user.remove:before { content: "\f235"; }
 i.icon.handicap:before { content: "\f193"; }
 i.icon.student:before { content: "\f19d"; }
 i.icon.detective:before { content: "\f21b"; }
+i.icon.add.user:before { content: "\f234"; }
+i.icon.user.remove:before { content: "\f235"; }
 
-/* Gender */
-i.icon.venus:before { content: "\f221"; }
-i.icon.venus.double:before { content: "\f226"; }
-i.icon.venus.mars:before { content: "\f228"; }
-i.icon.mars:before { content: "\f222"; }
-i.icon.mars.double:before { content: "\f227"; }
-i.icon.mars.stroke:before { content: "\f229"; }
-i.icon.mars.stroke.vertical:before { content: "\f22a"; }
-i.icon.mars.stroke.horizontal:before { content: "\f22b"; }
-i.icon.mercury:before { content: "\f223"; }
+/* Gender & Sexuality */
+i.icon.female:before { content: "\f182"; }
+i.icon.male:before { content: "\f183"; }
+i.icon.woman:before { content: "\f221"; }
+i.icon.man:before { content: "\f222"; }
+i.icon.hermaphrodite:before { content: "\f223"; }
 i.icon.transgender:before { content: "\f224"; }
 i.icon.transgender.alternate:before { content: "\f225"; }
+i.icon.lesbian:before { content: "\f226"; }
+i.icon.gay:before { content: "\f227"; }
+i.icon.heterosexual:before { content: "\f228"; }
+i.icon.mars.alternate:before { content: "\f229"; }
+i.icon.mars.vertical:before { content: "\f22a"; }
+i.icon.mars.horizontal:before { content: "\f22b"; }
 i.icon.neuter:before { content: "\f22c"; }
 
 /* View Adjustment */
@@ -227,10 +229,8 @@ i.icon.moon:before { content: "\f186"; }
 i.icon.fax:before { content: "\f1ac"; }
 i.icon.life.ring:before { content: "\f1cd"; }
 i.icon.bomb:before { content: "\f1e2"; }
-i.icon.soccer.ball:before { content: "\f1e3"; }
-i.icon.binoculars:before { content: "\f1e5"; }
+i.icon.soccer:before { content: "\f1e3"; }
 i.icon.calculator:before { content: "\f1ec"; }
-i.icon.birthday.cake:before {  content: "\f1fd"; }
 i.icon.diamond:before { content: "\f219"; }
 
 /* Shapes */
@@ -275,11 +275,11 @@ i.icon.film:before { content: "\f008"; }
 i.icon.sound:before { content: "\f025"; }
 i.icon.photo:before { content: "\f030"; }
 i.icon.bar.chart:before { content: "\f080"; }
+i.icon.camera.retro:before { content: "\f083"; }
+i.icon.newspaper:before { content: "\f1ea"; }
 i.icon.area.chart:before { content: "\f1fe"; }
 i.icon.pie.chart:before { content: "\f200"; }
 i.icon.line.chart:before { content: "\f201"; }
-i.icon.camera.retro:before { content: "\f083"; }
-i.icon.newspaper:before { content: "\f1ea"; }
 
 /* Pointers */
 i.icon.arrow.circle.outline.down:before { content: "\f01a"; }
@@ -741,8 +741,25 @@ i.icon.sliders:before { content: "\f1de"; }
 i.icon.graduation:before { content: "\f19d"; }
 i.icon.\33d:before { content: "\f1b2"; }
 i.icon.weixin:before { content: "\f1d7"; }
+i.icon.binoculars:before { content: "\f1e5"; }
 i.icon.gratipay:before { content: "\f184"; }
 i.icon.genderless:before { content: "\f1db"; }
+i.icon.teletype:before { content: "\f1e4"; }
+i.icon.tty:before { content: "\f1e4"; }
+i.icon.venus:before { content: "\f221"; }
+i.icon.mars:before { content: "\f222"; }
+i.icon.mercury:before { content: "\f223"; }
+i.icon.venus.double:before { content: "\f226"; }
+i.icon.female.homosexual:before { content: "\f226"; }
+i.icon.mars.double:before { content: "\f227"; }
+i.icon.male.homosexual:before { content: "\f227"; }
+i.icon.venus.mars:before { content: "\f228"; }
+i.icon.mars.stroke:before { content: "\f229"; }
+i.icon.transgender:before { content: "\f224"; }
+i.icon.transgender.alternate:before { content: "\f225"; }
+i.icon.mars.stroke.vertical:before { content: "\f22a"; }
+i.icon.mars.stroke.horizontal:before { content: "\f22b"; }
+i.icon.neuter:before { content: "\f22c"; }
 i.icon.facebook.official { content: "\f230"; }
 i.icon.pinterest.official { content: "\f231"; }
 i.icon.bed:before { content: "\f236"; }
