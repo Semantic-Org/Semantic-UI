@@ -1,5 +1,15 @@
 ## RELEASE NOTES
 
+### Version 1.9.0 - January xx, 2015
+
+**Enhancement**
+- **Icon** - Added woff2 icon files for supported browsers (20% file-size decrease) **Thanks FontAwesome**
+- **Icon** - Added new icons aliases for icons from Font Awesome 4.3
+- **Form** - Input rules now apply to `input[type="time"]`
+
+**Bugs**
+- **Dropdown** - Upward dropdown now has upward arrow icon
+
 ### Version 1.8.1 - January 26, 2015
 
 **Bugs**
