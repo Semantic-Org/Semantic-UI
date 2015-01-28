@@ -4,11 +4,51 @@
 
 module.exports = {
 
-  base        : '',
-  theme       : './src/theme.config',
+  /*--------------
+       Mutable
+  ---------------*/
 
-  permission  : 644,
-  rtl         : false,
+  // file paths
+  files: {
+    composer : 'composer.json',
+    config   : './semantic.json',
+    npm      : './package.json',
+    meteor   : './package.js',
+    site     : './src/site',
+    theme    : './src/theme.config'
+  },
+
+  // folder paths
+  paths: {
+    source: {
+      config      : 'src/theme.config',
+      definitions : 'src/definitions/',
+      site        : 'src/site/',
+      themes      : 'src/themes/'
+    },
+    output: {
+      packaged     : 'dist/',
+      uncompressed : 'dist/components/',
+      compressed   : 'dist/components/',
+      themes       : 'dist/themes/'
+    },
+    clean : 'dist/'
+  },
+
+  // base path of all config.paths
+  base : '',
+
+  // path to theme.config from project root
+  theme      : './src/theme.config',
+
+  // whether to load admin tasks
+  admin: false,
+
+  // globs
+  globs      : {},
+
+  permission : 644,
+  rtl        : false,
 
   docs : {
     source : '../docs/server/files/release/',
@@ -102,32 +142,5 @@ module.exports = {
     config : './',
     site   : './src/site',
     theme  : './src/'
-  },
-
-  // file paths
-  files: {
-    composer : 'composer.json',
-    config   : './semantic.json',
-    npm      : './package.json',
-    meteor   : './package.js',
-    site     : './src/site',
-    theme    : './src/theme.config'
-  },
-
-  // same as semantic.json.example
-  paths: {
-    source: {
-      config      : 'src/theme.config',
-      definitions : 'src/definitions/',
-      site        : 'src/site/',
-      themes      : 'src/themes/'
-    },
-    output: {
-      packaged     : 'dist/',
-      uncompressed : 'dist/components/',
-      compressed   : 'dist/components/',
-      themes       : 'dist/themes/'
-    },
-    clean : 'dist/'
   }
 };
