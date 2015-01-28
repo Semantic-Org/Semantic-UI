@@ -746,6 +746,9 @@ i.icon.gratipay:before { content: "\f184"; }
 i.icon.genderless:before { content: "\f1db"; }
 i.icon.teletype:before { content: "\f1e4"; }
 i.icon.tty:before { content: "\f1e4"; }
+i.icon.cc:before { content: "\f20a"; }
+i.icon.plus.cart:before { content: "\f217"; }
+i.icon.arrow.down.cart:before { content: "\f218"; }
 i.icon.venus:before { content: "\f221"; }
 i.icon.mars:before { content: "\f222"; }
 i.icon.mercury:before { content: "\f223"; }
