@@ -12,6 +12,12 @@ Key Features
 
 > Semantic UI is now at 1.0, be sure to check out our [release notes](https://github.com/Semantic-Org/Semantic-UI/blob/master/RELEASE-NOTES.md#version-100---november-24-2014) for changes from the pre-release.
 
+## International
+
+* **Chinese** A Chinese mirror site is available at [http://www.semantic-ui.cn](http:/www.semantic-ui.cn)
+* **Right-to-Left (RTL)** - An RTL version can be created using our build tools by selecting `rtl` from the install script
+* **Translation** - To help translate see the [Wiki Guide](https://github.com/Semantic-Org/Semantic-UI/wiki/Translating-Semantic-UI-Docs) for translations 
+
 ## Release Schedule
 
 Semantic follows a weekly schedule for feature updates. To see what changes are scheduled for upcoming releases, be sure to visit the [release milestone](https://github.com/Semantic-Org/Semantic-UI/milestones) page.
