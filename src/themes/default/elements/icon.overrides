@@ -146,6 +146,8 @@ i.icon.write.square:before { content: "\f14b"; }
 i.icon.share.square:before { content: "\f14d"; }
 i.icon.add.to.cart:before { content: "\f217"; }
 i.icon.in.cart:before { content: "\f218"; }
+i.icon.add.user:before { content: "\f234"; }
+i.icon.remove.user:before { content: "\f235"; }
 
 /* Messages */
 i.icon.help.circle:before { content: "\f059"; }
@@ -165,24 +167,22 @@ i.icon.child:before { content: "\f1ae"; }
 i.icon.user:before { content: "\f007"; }
 i.icon.handicap:before { content: "\f193"; }
 i.icon.student:before { content: "\f19d"; }
-i.icon.detective:before { content: "\f21b"; }
-i.icon.add.user:before { content: "\f234"; }
-i.icon.user.remove:before { content: "\f235"; }
+i.icon.spy:before { content: "\f21b"; }
 
 /* Gender & Sexuality */
 i.icon.female:before { content: "\f182"; }
 i.icon.male:before { content: "\f183"; }
 i.icon.woman:before { content: "\f221"; }
 i.icon.man:before { content: "\f222"; }
-i.icon.hermaphrodite:before { content: "\f223"; }
-i.icon.transgender:before { content: "\f224"; }
-i.icon.transgender.alternate:before { content: "\f225"; }
+i.icon.non.binary.transgender:before { content: "\f223"; }
+i.icon.intergender:before { content: "\f224"; }
+i.icon.transgender:before { content: "\f225"; }
 i.icon.lesbian:before { content: "\f226"; }
 i.icon.gay:before { content: "\f227"; }
 i.icon.heterosexual:before { content: "\f228"; }
-i.icon.mars.alternate:before { content: "\f229"; }
-i.icon.mars.vertical:before { content: "\f22a"; }
-i.icon.mars.horizontal:before { content: "\f22b"; }
+i.icon.other.gender:before { content: "\f229"; }
+i.icon.other.gender.vertical:before { content: "\f22a"; }
+i.icon.other.gender.horizontal:before { content: "\f22b"; }
 i.icon.neuter:before { content: "\f22c"; }
 
 /* View Adjustment */
@@ -367,6 +367,7 @@ i.icon.qrcode:before { content: "\f029"; }
 i.icon.fork:before { content: "\f126"; }
 i.icon.html5:before { content: "\f13b"; }
 i.icon.css3:before { content: "\f13c"; }
+i.icon.rss:before { content: "\f09e"; }
 i.icon.rss.square:before { content: "\f143"; }
 i.icon.openid:before { content: "\f19b"; }
 i.icon.database:before { content: "\f1c0"; }
@@ -664,7 +665,6 @@ i.icon.bookmark.outline:before { content: "\f097"; }
 i.icon.phone.square:before { content: "\f098"; }
 i.icon.phone.square:before { content: "\f098"; }
 i.icon.credit.card:before { content: "\f09d"; }
-i.icon.rss:before { content: "\f09e"; }
 i.icon.hdd.outline:before { content: "\f0a0"; }
 i.icon.bullhorn:before { content: "\f0a1"; }
 i.icon.bell:before { content: "\f0f3"; }
@@ -707,6 +707,8 @@ i.icon.beer:before { content: "\f0fc"; }
 i.icon.plus.square:before { content: "\f0fe"; }
 i.icon.computer:before { content: "\f108"; }
 i.icon.circle.outline:before { content: "\f10c"; }
+i.icon.intersex:before { content: "\f10c"; }
+i.icon.asexual:before { content: "\f10c"; }
 i.icon.spinner:before { content: "\f110"; }
 i.icon.gamepad:before { content: "\f11b"; }
 i.icon.star.half.full:before { content: "\f123"; }
@@ -738,6 +740,7 @@ i.icon.try:before { content: "\f195"; }
 i.icon.zip:before { content: "\f187"; }
 i.icon.dot.circle.outline:before { content: "\f192"; }
 i.icon.sliders:before { content: "\f1de"; }
+i.icon.wi-fi:before { content: "\f1eb"; }
 i.icon.graduation:before { content: "\f19d"; }
 i.icon.\33d:before { content: "\f1b2"; }
 i.icon.weixin:before { content: "\f1d7"; }
@@ -745,10 +748,13 @@ i.icon.binoculars:before { content: "\f1e5"; }
 i.icon.gratipay:before { content: "\f184"; }
 i.icon.genderless:before { content: "\f1db"; }
 i.icon.teletype:before { content: "\f1e4"; }
+i.icon.power.cord:before { content: "\f1e6"; }
 i.icon.tty:before { content: "\f1e4"; }
 i.icon.cc:before { content: "\f20a"; }
+i.icon.ils:before { content: "\f20b"; }
 i.icon.plus.cart:before { content: "\f217"; }
 i.icon.arrow.down.cart:before { content: "\f218"; }
+i.icon.detective:before { content: "\f21b"; }
 i.icon.venus:before { content: "\f221"; }
 i.icon.mars:before { content: "\f222"; }
 i.icon.mercury:before { content: "\f223"; }
@@ -758,8 +764,9 @@ i.icon.mars.double:before { content: "\f227"; }
 i.icon.male.homosexual:before { content: "\f227"; }
 i.icon.venus.mars:before { content: "\f228"; }
 i.icon.mars.stroke:before { content: "\f229"; }
-i.icon.transgender:before { content: "\f224"; }
-i.icon.transgender.alternate:before { content: "\f225"; }
+i.icon.mars.alternate:before { content: "\f229"; }
+i.icon.mars.vertical:before { content: "\f22a"; }
+i.icon.mars.horizontal:before { content: "\f22b"; }
 i.icon.mars.stroke.vertical:before { content: "\f22a"; }
 i.icon.mars.stroke.horizontal:before { content: "\f22b"; }
 i.icon.neuter:before { content: "\f22c"; }
