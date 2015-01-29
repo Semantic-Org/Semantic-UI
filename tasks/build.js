@@ -2,11 +2,9 @@
           Build Task
 *******************************/
 
+
 var
   gulp            = require('gulp-help')(require('gulp')),
-
-  // user config
-  config          = require('config'),
 
   // node deps
   fs              = require('fs'),
@@ -25,11 +23,14 @@ var
   replace         = require('gulp-replace'),
   uglify          = require('gulp-uglify'),
 
+  // user config
+  config          = require('./config'),
+
   // gulp config
-  banner          = require('./tasks/config/gulp/banner'),
-  comments        = require('./tasks/config/gulp/comments'),
-  log             = require('./tasks/config/gulp/log'),
-  settings        = require('./tasks/config/gulp/settings'),
+  banner          = require('./config/gulp/banner'),
+  comments        = require('./config/gulp/comments'),
+  log             = require('./config/gulp/log'),
+  settings        = require('./config/gulp/settings'),
 
   // shorthand
   paths  = config.paths,
@@ -40,6 +41,7 @@ var
   source = paths.source
 
 ;
+
 
 
 // Gulp task to build all files from source

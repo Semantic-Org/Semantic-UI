@@ -2,8 +2,8 @@
 var
   path     = require('path'),
   fs       = require('fs'),
-  defaults = require('./defaults'),
-  package  = require('../package.json')
+  defaults = require('../defaults'),
+  package  = require('../../../package.json')
 ;
 
 module.exports = {

@@ -4,35 +4,26 @@ var
   extend          = require('extend'),
   fs              = require('fs'),
   path            = require('path'),
+  requireDotFile  = require('require-dot-file'),
 
-  defaults        = require('./config/defaults'),
+  defaults        = require('./defaults'),
 
   // holds package.json contents
   package,
-
-  // shorthand vars
-  base,
-  clean,
-  output,
-  source,
-
   config
 
 ;
+
+
 /*******************************
-       Read User Settings
-        (semantic.json)
+         User Config
+       Recursively Walk
 *******************************/
 
 try {
-  // try to load semantic.json
-  config  = require(defaults.files.config);
-
-  // try to load package.json
-  package = (fs.existsSync(defaults.files.npm))
-    ? require(defaults.files.npm)
-    : false
-  ;
+  // looks for config file across all parent directories
+  config  = requireDotFile('semantic.json');
+  package = requireDotFile('package.json');
 }
 catch(error) {
   if(error.code === 'MODULE_NOT_FOUND') {
@@ -55,7 +46,7 @@ else {
 *******************************/
 
 /*--------------
-     Version
+    Version
 ---------------*/
 
 // npm package.json is only location that holds true "version"
@@ -63,7 +54,6 @@ config.version = (package !== undefined)
   ? package.version || 'Unknown'
   : 'Unknown'
 ;
-
 
 /*--------------
   File Paths
@@ -86,7 +76,6 @@ for(folder in config.paths.output) {
 // resolve "clean" command path
 config.paths.clean = config.base + config.paths.clean;
 
-
 /*--------------
     CSS URLs
 ---------------*/
@@ -95,10 +84,10 @@ config.paths.clean = config.base + config.paths.clean;
 // force forward slashes
 
 config.paths.assets = {
-  source       : '/../../themes', // relative path from source definition to themes
-  uncompressed : path.relative(config.output.uncompressed, output.themes).replace(/\\/g,'/'),
-  compressed   : path.relative(output.compressed, output.themes).replace(/\\/g,'/'),
-  packaged     : path.relative(output.packaged, output.themes).replace(/\\/g,'/')
+  source       : '/../../themes', // source asset path is always the same
+  uncompressed : path.relative(config.paths.output.uncompressed, config.paths.output.themes).replace(/\\/g,'/'),
+  compressed   : path.relative(config.paths.output.compressed, config.paths.output.themes).replace(/\\/g,'/'),
+  packaged     : path.relative(config.paths.output.packaged, config.paths.output.themes).replace(/\\/g,'/')
 };
 
 
@@ -115,8 +104,7 @@ config.globs.components = (typeof config.components == 'object')
 ;
 
 /*******************************
-         Export
+             Export
 *******************************/
-
 
 module.exports = config;
