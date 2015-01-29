@@ -3,9 +3,9 @@
 *******************************/
 
 var
-  config = require('config')
+  config = require('./config/project/release')
 ;
 
 module.exports = function(callback) {
-  console.log('Semantic UI ' + config.version);
+  console.log(release.title + ' ' + release.version);
 };
