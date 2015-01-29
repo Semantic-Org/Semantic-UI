@@ -2,49 +2,45 @@
           Build Task
 *******************************/
 
-
 var
-  gulp            = require('gulp-help')(require('gulp')),
+  gulp         = require('gulp-help')(require('gulp')),
 
-  // node deps
-  fs              = require('fs'),
+  // node dependencies
+  fs           = require('fs'),
 
-  // gulp deps
-  autoprefixer    = require('gulp-autoprefixer'),
-  chmod           = require('gulp-chmod'),
-  clone           = require('gulp-clone'),
-  flatten         = require('gulp-flatten'),
-  header          = require('gulp-header'),
-  less            = require('gulp-less'),
-  minifyCSS       = require('gulp-minify-css'),
-  plumber         = require('gulp-plumber'),
-  print           = require('gulp-print'),
-  rename          = require('gulp-rename'),
-  replace         = require('gulp-replace'),
-  uglify          = require('gulp-uglify'),
+  // gulp dependencies
+  autoprefixer = require('gulp-autoprefixer'),
+  chmod        = require('gulp-chmod'),
+  clone        = require('gulp-clone'),
+  flatten      = require('gulp-flatten'),
+  header       = require('gulp-header'),
+  less         = require('gulp-less'),
+  minifyCSS    = require('gulp-minify-css'),
+  plumber      = require('gulp-plumber'),
+  print        = require('gulp-print'),
+  rename       = require('gulp-rename'),
+  replace      = require('gulp-replace'),
+  uglify       = require('gulp-uglify'),
 
   // user config
-  config          = require('./config'),
+  config       = require('./config/user'),
 
-  // gulp config
-  banner          = require('./config/gulp/banner'),
-  comments        = require('./config/gulp/comments'),
-  log             = require('./config/gulp/log'),
-  settings        = require('./config/gulp/settings'),
+  // task config
+  tasks        = require('./config/tasks'),
 
   // shorthand
-  paths  = config.paths,
-  globs  = config.globs,
+  globs        = config.globs,
+  assets       = config.paths.assets,
+  output       = config.paths.output,
+  source       = config.paths.source,
 
-  assets = paths.assets,
-  output = paths.output,
-  source = paths.source
-
+  comments     = tasks.regExp.comments,
+  log          = tasks.log,
+  settings     = tasks.settings
 ;
 
 
-
-// Gulp task to build all files from source
+// gulp task to build all files from source
 module.exports = function(callback) {
 
   var
@@ -60,19 +56,19 @@ module.exports = function(callback) {
     return;
   }
 
-  // Check for RTL
+  // check for RTL
   if(config.rtl) {
     gulp.start('build rtl');
     return;
   }
 
-  // copy only assets matching selected components
+  // copy assets
   gulp.src(source.themes + '**/assets/**/' + globs.components + '?(s).*')
     .pipe(chmod(config.permission))
     .pipe(gulp.dest(output.themes))
   ;
 
-  // copy source files matching selected components
+  // copy source javascript
   gulp.src(source.definitions + '**/' + globs.components + '.js')
     .pipe(plumber())
     .pipe(flatten())
@@ -81,7 +77,7 @@ module.exports = function(callback) {
     .pipe(print(log.created))
     .pipe(uglify(settings.uglify))
     .pipe(rename(settings.rename.minJS))
-    .pipe(header(banner, settings.header))
+    .pipe(header(config.banner, settings.header))
     .pipe(chmod(config.permission))
     .pipe(gulp.dest(output.compressed))
     .pipe(print(log.created))
@@ -96,10 +92,6 @@ module.exports = function(callback) {
     .pipe(plumber())
     .pipe(less(settings.less))
     .pipe(flatten())
-    .pipe(replace(comments.variables.in, comments.variables.out))
-    .pipe(replace(comments.large.in, comments.large.out))
-    .pipe(replace(comments.small.in, comments.small.out))
-    .pipe(replace(comments.tiny.in, comments.tiny.out))
     .pipe(autoprefixer(settings.prefix))
   ;
 
@@ -109,8 +101,12 @@ module.exports = function(callback) {
 
   uncompressedStream
     .pipe(plumber())
+    .pipe(replace(comments.variables.in, comments.variables.out))
+    .pipe(replace(comments.large.in, comments.large.out))
+    .pipe(replace(comments.small.in, comments.small.out))
+    .pipe(replace(comments.tiny.in, comments.tiny.out))
     .pipe(replace(assets.source, assets.uncompressed))
-    .pipe(header(banner, settings.header))
+    .pipe(header(config.banner, settings.header))
     .pipe(chmod(config.permission))
     .pipe(gulp.dest(output.uncompressed))
     .pipe(print(log.created))
@@ -125,7 +121,7 @@ module.exports = function(callback) {
     .pipe(replace(assets.source, assets.compressed))
     .pipe(minifyCSS(settings.minify))
     .pipe(rename(settings.rename.minCSS))
-    .pipe(header(banner, settings.header))
+    .pipe(header(config.banner, settings.header))
     .pipe(chmod(config.permission))
     .pipe(gulp.dest(output.compressed))
     .pipe(print(log.created))

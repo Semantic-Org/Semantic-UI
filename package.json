@@ -38,6 +38,7 @@
     "gulp-git": "^0.5.5",
     "gulp-header": "^1.2.2",
     "gulp-help": "^1.3.0",
+    "gulp-if": "^1.2.5",
     "gulp-json-editor": "^2.2.1",
     "gulp-karma": "0.0.4",
     "gulp-less": "^1.3.6",

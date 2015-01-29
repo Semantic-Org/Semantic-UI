@@ -6,9 +6,6 @@
 var
   gulp            = require('gulp-help')(require('gulp')),
 
-  // user config
-  config          = require('config'),
-
   // node deps
   fs              = require('fs'),
 
@@ -26,6 +23,9 @@ var
   uglify          = require('gulp-uglify'),
   util            = require('gulp-util'),
   watch           = require('gulp-watch'),
+
+  // user config
+  config          = require('config'),
 
   // gulp config
   banner          = require('./tasks/config/gulp/banner'),
@@ -160,7 +160,7 @@ module.exports = function(callback) {
   // watch for changes in assets that match component names (or their plural)
   gulp
     .watch([
-      source.themes   + '**/assets/**/' + componentGlob + '?(s).*'
+      source.themes   + '**/assets/**/' + globs.components + '?(s).*'
     ], function(file) {
       // copy assets
       gulp.src(file.path, { base: source.themes })

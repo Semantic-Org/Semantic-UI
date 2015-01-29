@@ -4,19 +4,14 @@
 
 module.exports = {
 
-  /*--------------
-       Mutable
-  ---------------*/
+  // base path added to all other paths
+  base : '',
 
-  // file paths
-  files: {
-    composer : 'composer.json',
-    config   : './semantic.json',
-    npm      : './package.json',
-    meteor   : './package.js',
-    site     : './src/site',
-    theme    : './src/theme.config'
-  },
+  // octal permission for output files, i.e. 644 (false does not adjust)
+  permission : false,
+
+  // whether to generate rtl files
+  rtl        : false,
 
   // folder paths
   paths: {
@@ -35,36 +30,11 @@ module.exports = {
     clean : 'dist/'
   },
 
-  // base path of all config.paths
-  base : '',
-
-  // path to theme.config from project root
-  theme      : './src/theme.config',
-
-  // whether to load admin tasks
-  admin: false,
-
   // globs
-  globs      : {},
-
-  permission : 644,
-  rtl        : false,
-
-  docs : {
-    source : '../docs/server/files/release/',
-    output : '../docs/release/'
+  globs      : {
+    // files ignored for concatenated release
+    ignored : '!(*.min|*.map|*.rtl)'
   },
-
-  title      : 'Semantic UI',
-  repository : 'https://github.com/Semantic-Org/Semantic-UI',
-  url        : 'http://www.semantic-ui.com/',
-
-  // files cleaned after install
-  setupFiles: [
-    './src/theme.config.example',
-    './semantic.json.example',
-    './src/_site'
-  ],
 
   components: [
     // global
@@ -123,8 +93,34 @@ module.exports = {
     'visibility'
   ],
 
-  // ignored files for compile
-  ignoredFiles : '!(*.min|*.map|*.rtl)',
+  /* Install Move */
+  files: {
+    composer : 'composer.json',
+    config   : './semantic.json',
+    npm      : './package.json',
+    meteor   : './package.js',
+    site     : './src/site',
+    theme    : './src/theme.config'
+  },
+
+  // path to theme.config from project root
+  themePath  : './src/theme.config',
+
+  // whether to load admin tasks
+  admin: false,
+
+  docs : {
+    source : '../docs/server/files/release/',
+    output : '../docs/release/'
+  },
+
+  // files cleaned after install
+  setupFiles: [
+    './src/theme.config.example',
+    './semantic.json.example',
+    './src/_site'
+  ],
+
 
   // modified to create configs
   templates: {
@@ -133,11 +129,7 @@ module.exports = {
     theme  : './src/theme.config.example'
   },
 
-  regExp: {
-    themePath: /.*\/themes\/.*?\//mg
-  },
-
-  // folder pathsr
+  // folder paths
   folders: {
     config : './',
     site   : './src/site',

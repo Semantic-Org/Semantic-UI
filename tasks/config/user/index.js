@@ -16,8 +16,7 @@ var
 
 
 /*******************************
-         User Config
-       Recursively Walk
+          User Config
 *******************************/
 
 try {
@@ -92,7 +91,7 @@ config.paths.assets = {
 
 
 /*--------------
-     Globs
+      Globs
 ---------------*/
 
 // takes component object and creates file glob matching selected components
