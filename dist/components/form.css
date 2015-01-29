@@ -504,12 +504,10 @@
   z-index: 101;
 }
 @-webkit-keyframes form-spin {
-
   from {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
   }
-
   to {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);

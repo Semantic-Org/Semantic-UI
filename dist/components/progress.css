@@ -240,12 +240,10 @@
           animation: progress-active 2s ease infinite;
 }
 @-webkit-keyframes progress-active {
-
   0% {
     opacity: 0.3;
     width: 0;
   }
-
   100% {
     opacity: 0;
     width: 100%;

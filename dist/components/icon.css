@@ -63,12 +63,10 @@ i.icon.loading {
           animation: icon-loading 2s linear infinite;
 }
 @-webkit-keyframes icon-loading {
-
   from {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
   }
-
   to {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
