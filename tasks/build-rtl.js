@@ -21,6 +21,7 @@ var
   print        = require('gulp-print'),
   rename       = require('gulp-rename'),
   replace      = require('gulp-replace'),
+  rtlcss       = require('gulp-rtlcss'),
   uglify       = require('gulp-uglify'),
 
   // user config
@@ -57,12 +58,6 @@ module.exports = function(callback) {
     return;
   }
 
-  // check for RTL
-  if(config.rtl) {
-    gulp.start('build rtl');
-    return;
-  }
-
   // unified css stream
   stream = gulp.src(source.definitions + '**/' + globs.components + '.less')
     .pipe(plumber())
@@ -87,7 +82,7 @@ module.exports = function(callback) {
     .pipe(gulp.dest(output.uncompressed))
     .pipe(print(log.created))
     .on('end', function() {
-      gulp.start('package uncompressed css');
+      gulp.start('package uncompressed rtl css');
     })
   ;
 
@@ -103,7 +98,7 @@ module.exports = function(callback) {
     .pipe(print(log.created))
     .on('end', function() {
       callback();
-      gulp.start('package compressed css');
+      gulp.start('package compressed rtl css');
     })
   ;
 

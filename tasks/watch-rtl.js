@@ -21,6 +21,7 @@ var
   print        = require('gulp-print'),
   rename       = require('gulp-rename'),
   replace      = require('gulp-replace'),
+  rtlcss       = require('gulp-rtlcss'),
   uglify       = require('gulp-uglify'),
   util         = require('gulp-util'),
   watch        = require('gulp-watch'),
@@ -99,7 +100,7 @@ module.exports = function(callback) {
 
       if(isConfig) {
         console.log('Change detected in theme config');
-        // impossible to tell which file was updated in theme.config, rebuild all
+        // cant tell which theme was changed in theme.config, rebuild all
         gulp.start('build');
       }
       else if(isPackagedTheme) {
@@ -118,7 +119,7 @@ module.exports = function(callback) {
       }
 
       /*--------------
-        Create CSS
+         Create CSS
       ---------------*/
 
       if( fs.existsSync(lessPath) ) {
@@ -133,6 +134,7 @@ module.exports = function(callback) {
           .pipe(replace(comments.tiny.in, comments.tiny.out))
           .pipe(autoprefixer(settings.prefix))
           .pipe(gulpif(config.hasPermission, chmod(config.permission)))
+          .pipe(rtlcss())
         ;
 
         // use 2 concurrent streams from same pipe
@@ -143,10 +145,11 @@ module.exports = function(callback) {
           .pipe(plumber())
           .pipe(replace(assets.source, assets.uncompressed))
           .pipe(header(banner, settings.header))
+          .pipe(rename(settings.rename.rtlCSS))
           .pipe(gulp.dest(output.uncompressed))
           .pipe(print(log.created))
           .on('end', function() {
-            gulp.start('package uncompressed css');
+            gulp.start('package uncompressed rtl css');
           })
         ;
 
@@ -156,10 +159,11 @@ module.exports = function(callback) {
           .pipe(minifyCSS(settings.minify))
           .pipe(rename(settings.rename.minCSS))
           .pipe(header(banner, settings.header))
+          .pipe(rename(settings.rename.rtlMinCSS))
           .pipe(gulp.dest(output.compressed))
           .pipe(print(log.created))
           .on('end', function() {
-            gulp.start('package compressed css');
+            gulp.start('package compressed rtl css');
           })
         ;
 
