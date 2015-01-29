@@ -42,6 +42,10 @@ var
   settings     = tasks.settings
 ;
 
+// add internal tasks
+require('./collections/internal')(gulp);
+
+
 module.exports = function(callback) {
 
   var

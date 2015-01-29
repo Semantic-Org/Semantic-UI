@@ -45,6 +45,9 @@ var
 
 ;
 
+// add internal tasks
+gulp = require('./collections/internal')(gulp);
+
 
 module.exports = function(callback) {
 
