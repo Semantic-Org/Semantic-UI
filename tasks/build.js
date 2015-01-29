@@ -42,9 +42,8 @@ var
   settings     = tasks.settings
 ;
 
-// add internal tasks
+// add internal tasks (concat release)
 require('./collections/internal')(gulp);
-
 
 module.exports = function(callback) {
 

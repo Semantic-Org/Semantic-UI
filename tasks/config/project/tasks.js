@@ -3,6 +3,7 @@ var
   release = require('./release')
 ;
 
+
 module.exports = {
 
   banner : release.banner,
@@ -21,7 +22,6 @@ module.exports = {
     concatenatedJS             : 'semantic.js',
     concatenatedMinifiedCSS    : 'semantic.min.css',
     concatenatedMinifiedJS     : 'semantic.min.js',
-
     concatenatedRTLCSS         : 'semantic.rtl.css',
     concatenatedMinifiedRTLCSS : 'semantic.rtl.min.css'
   },
