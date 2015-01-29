@@ -13,6 +13,7 @@ var
   chmod        = require('gulp-chmod'),
   clone        = require('gulp-clone'),
   flatten      = require('gulp-flatten'),
+  gulpif       = require('gulp-if'),
   header       = require('gulp-header'),
   less         = require('gulp-less'),
   minifyCSS    = require('gulp-minify-css'),
@@ -25,8 +26,9 @@ var
   // user config
   config       = require('./config/user'),
 
-  // task config
-  tasks        = require('./config/tasks'),
+  // install config
+  tasks        = require('./config/project/tasks'),
+  install      = require('./config/project/install'),
 
   // shorthand
   globs        = config.globs,
@@ -34,13 +36,13 @@ var
   output       = config.paths.output,
   source       = config.paths.source,
 
+  banner       = tasks.banner,
   comments     = tasks.regExp.comments,
   log          = tasks.log,
   settings     = tasks.settings
 ;
 
-
-// gulp task to build all files from source
+// exports gulp task
 module.exports = function(callback) {
 
   var
@@ -51,8 +53,8 @@ module.exports = function(callback) {
 
   console.info('Building Semantic');
 
-  if(!fs.existsSync(config.files.theme)) {
-    console.error('Cant build LESS. Run "gulp install" to create a theme config file');
+  if( !install.isSetup() ) {
+    console.error('Cannot build files. Run "gulp install" to set-up Semantic');
     return;
   }
 
@@ -62,37 +64,12 @@ module.exports = function(callback) {
     return;
   }
 
-  // copy assets
-  gulp.src(source.themes + '**/assets/**/' + globs.components + '?(s).*')
-    .pipe(chmod(config.permission))
-    .pipe(gulp.dest(output.themes))
-  ;
-
-  // copy source javascript
-  gulp.src(source.definitions + '**/' + globs.components + '.js')
-    .pipe(plumber())
-    .pipe(flatten())
-    .pipe(chmod(config.permission))
-    .pipe(gulp.dest(output.uncompressed))
-    .pipe(print(log.created))
-    .pipe(uglify(settings.uglify))
-    .pipe(rename(settings.rename.minJS))
-    .pipe(header(config.banner, settings.header))
-    .pipe(chmod(config.permission))
-    .pipe(gulp.dest(output.compressed))
-    .pipe(print(log.created))
-    .on('end', function() {
-      gulp.start('package compressed js');
-      gulp.start('package uncompressed js');
-    })
-  ;
-
   // unified css stream
   stream = gulp.src(source.definitions + '**/' + globs.components + '.less')
     .pipe(plumber())
     .pipe(less(settings.less))
-    .pipe(flatten())
     .pipe(autoprefixer(settings.prefix))
+    .pipe(flatten())
   ;
 
   // two concurrent streams from same source to concat release
@@ -106,8 +83,8 @@ module.exports = function(callback) {
     .pipe(replace(comments.small.in, comments.small.out))
     .pipe(replace(comments.tiny.in, comments.tiny.out))
     .pipe(replace(assets.source, assets.uncompressed))
-    .pipe(header(config.banner, settings.header))
-    .pipe(chmod(config.permission))
+    .pipe(header(banner, settings.header))
+    .pipe(gulpif(config.hasPermission, chmod(config.permission)))
     .pipe(gulp.dest(output.uncompressed))
     .pipe(print(log.created))
     .on('end', function() {
@@ -121,8 +98,8 @@ module.exports = function(callback) {
     .pipe(replace(assets.source, assets.compressed))
     .pipe(minifyCSS(settings.minify))
     .pipe(rename(settings.rename.minCSS))
-    .pipe(header(config.banner, settings.header))
-    .pipe(chmod(config.permission))
+    .pipe(header(banner, settings.header))
+    .pipe(gulpif(config.hasPermission, chmod(config.permission)))
     .pipe(gulp.dest(output.compressed))
     .pipe(print(log.created))
     .on('end', function() {
@@ -130,4 +107,30 @@ module.exports = function(callback) {
       gulp.start('package compressed css');
     })
   ;
+
+  // copy assets
+  gulp.src(source.themes + '**/assets/**/' + globs.components + '?(s).*')
+    .pipe(gulpif(config.hasPermission, chmod(config.permission)))
+    .pipe(gulp.dest(output.themes))
+  ;
+
+  // copy source javascript
+  gulp.src(source.definitions + '**/' + globs.components + '.js')
+    .pipe(plumber())
+    .pipe(flatten())
+    .pipe(gulp.dest(output.uncompressed))
+    .pipe(gulpif(config.hasPermission, chmod(config.permission)))
+    .pipe(print(log.created))
+    .pipe(uglify(settings.uglify))
+    .pipe(rename(settings.rename.minJS))
+    .pipe(header(banner, settings.header))
+    .pipe(gulp.dest(output.compressed))
+    .pipe(gulpif(config.hasPermission, chmod(config.permission)))
+    .pipe(print(log.created))
+    .on('end', function() {
+      gulp.start('package compressed js');
+      gulp.start('package uncompressed js');
+    })
+  ;
+
 };

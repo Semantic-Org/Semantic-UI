@@ -1,24 +1,11 @@
 var
-  config = require('./config')
+  config  = require('../user'),
+  release = require('./release')
 ;
 
 module.exports = {
 
-  title      : 'Semantic UI',
-  repository : 'https://github.com/Semantic-Org/Semantic-UI',
-  url        : 'http://www.semantic-ui.com/',
-
-  banner: ''
-    + ' /*' + '\n'
-    + ' * # <%= title %> - <%= version %>' + '\n'
-    + ' * <%= repository %>' + '\n'
-    + ' * <%= url %>' + '\n'
-    + ' *' + '\n'
-    + ' * Copyright 2014 Contributors' + '\n'
-    + ' * Released under the MIT license' + '\n'
-    + ' * http://opensource.org/licenses/MIT' + '\n'
-    + ' *' + '\n'
-    + ' */' + '\n',
+  banner : release.banner,
 
   log: {
     created: function(file) {
@@ -52,7 +39,10 @@ module.exports = {
         in  : /(\/\* [\s\S]+? \*\/)/mg,
         out : '\n$1'
       }
-    }
+    },
+
+    theme: /.*\/themes\/.*?\//mg
+
   },
 
   settings: {
@@ -64,10 +54,10 @@ module.exports = {
 
     /* Comment Banners */
     header: {
-      title      : config.title,
-      version    : config.version,
-      repository : config.repository,
-      url        : config.url
+      title      : release.title,
+      version    : release.version,
+      repository : release.repository,
+      url        : release.url
     },
 
     /* Minified CSS Settings */

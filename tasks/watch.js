@@ -2,53 +2,54 @@
            Watch Task
 *******************************/
 
-
 var
-  gulp            = require('gulp-help')(require('gulp')),
+  gulp         = require('gulp-help')(require('gulp')),
 
   // node deps
-  fs              = require('fs'),
+  console      = require('better-console'),
+  fs           = require('fs'),
 
   // gulp deps
-  autoprefixer    = require('gulp-autoprefixer'),
-  chmod           = require('gulp-chmod'),
-  clone           = require('gulp-clone'),
-  header          = require('gulp-header'),
-  less            = require('gulp-less'),
-  minifyCSS       = require('gulp-minify-css'),
-  plumber         = require('gulp-plumber'),
-  print           = require('gulp-print'),
-  rename          = require('gulp-rename'),
-  replace         = require('gulp-replace'),
-  uglify          = require('gulp-uglify'),
-  util            = require('gulp-util'),
-  watch           = require('gulp-watch'),
+  autoprefixer = require('gulp-autoprefixer'),
+  chmod        = require('gulp-chmod'),
+  clone        = require('gulp-clone'),
+  header       = require('gulp-header'),
+  less         = require('gulp-less'),
+  minifyCSS    = require('gulp-minify-css'),
+  plumber      = require('gulp-plumber'),
+  print        = require('gulp-print'),
+  rename       = require('gulp-rename'),
+  replace      = require('gulp-replace'),
+  uglify       = require('gulp-uglify'),
+  util         = require('gulp-util'),
+  watch        = require('gulp-watch'),
 
   // user config
-  config          = require('config'),
+  config       = require('./config/user'),
 
-  // gulp config
-  banner          = require('./tasks/config/gulp/banner'),
-  comments        = require('./tasks/config/gulp/comments'),
-  log             = require('./tasks/config/gulp/log'),
-  settings        = require('./tasks/config/gulp/settings'),
+  // task config
+  tasks        = require('./config/project/tasks'),
+  install      = require('./config/project/install'),
 
   // shorthand
-  paths  = config.paths,
-  globs  = config.globs,
+  globs        = config.globs,
+  assets       = config.paths.assets,
+  output       = config.paths.output,
+  source       = config.paths.source,
 
-  assets = paths.assets,
-  output = paths.output,
-  source = paths.source
+  banner       = tasks.banner,
+  comments     = tasks.regExp.comments,
+  log          = tasks.log,
+  settings     = tasks.settings
 
 ;
 
 
 module.exports = function(callback) {
 
-  // Exit conditions
-  if(!fs.existsSync(config.files.theme)) {
-    console.error('Cant compile LESS. Run "gulp install" to create a theme config file');
+
+  if( !install.isSetup() ) {
+    console.error('Cannot watch files. Run "gulp install" to set-up Semantic');
     return;
   }
 
@@ -71,7 +72,7 @@ module.exports = function(callback) {
       source.themes        + '**/*.{overrides,variables}'
     ], function(file) {
       var
-        srcPath,
+        lessPath,
         stream,
         compressedStream,
         uncompressedStream,
@@ -81,35 +82,41 @@ module.exports = function(callback) {
         isConfig
       ;
 
+      // log modified file
       gulp.src(file.path)
         .pipe(print(log.modified))
       ;
 
       // recompile on *.override , *.variable change
-      isDefinition    = (file.path.indexOf(source.definitions) !== -1);
+      isConfig        = (file.path.indexOf('.config') !== -1);
       isPackagedTheme = (file.path.indexOf(source.themes) !== -1);
       isSiteTheme     = (file.path.indexOf(source.site) !== -1);
-      isConfig        = (file.path.indexOf('.config') !== -1);
+      isDefinition    = (file.path.indexOf(source.definitions) !== -1);
 
-      if(isDefinition || isPackagedTheme || isSiteTheme) {
-        // rebuild only matching definition file
-        srcPath = util.replaceExtension(file.path, '.less');
-        srcPath = srcPath.replace(config.regExp.themePath, source.definitions);
-        srcPath = srcPath.replace(source.site, source.definitions);
-      }
-      else if(isConfig) {
-        // impossible to tell which file was updated in theme.config, rebuild all
+      if(isConfig) {
         console.log('Change detected in theme config');
+        // impossible to tell which file was updated in theme.config, rebuild all
         gulp.start('build');
       }
-      else {
-        srcPath = util.replaceExtension(file.path, '.less');
+      else if(isPackagedTheme) {
+        console.log('Change detected in packaged theme');
+        lessPath = lessPath.replace(tasks.regExp.theme, source.definitions);
+        lessPath = util.replaceExtension(file.path, '.less');
+      }
+      else if(isSiteTheme) {
+        console.log('Change detected in site theme');
+        lessPath = lessPath.replace(source.site, source.definitions);
+        lessPath = util.replaceExtension(file.path, '.less');
+      }
+      else if(isDefinition) {
+        console.log('Change detected in definition');
+        lessPath = util.replaceExtension(file.path, '.less');
       }
 
-      if( fs.existsSync(srcPath) ) {
+      if( fs.existsSync(lessPath) ) {
 
         // unified css stream
-        stream = gulp.src(srcPath)
+        stream = gulp.src(lessPath)
           .pipe(plumber())
           .pipe(less(settings.less))
           .pipe(replace(comments.variables.in, comments.variables.out))
@@ -152,7 +159,7 @@ module.exports = function(callback) {
 
       }
       else {
-        console.log('SRC Path Does Not Exist', srcPath);
+        console.log('Cannot find UI definition at path', lessPath);
       }
     })
   ;

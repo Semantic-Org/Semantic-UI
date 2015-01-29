@@ -1,17 +1,19 @@
-var
+/*******************************
+             Set-up
+*******************************/
 
-  // npm deps
+var
+  // npm dependencies
   extend          = require('extend'),
   fs              = require('fs'),
   path            = require('path'),
   requireDotFile  = require('require-dot-file'),
 
+  // semantic.json defaults
   defaults        = require('./defaults'),
 
-  // holds package.json contents
-  package,
+  // final config object
   config
-
 ;
 
 
@@ -22,7 +24,6 @@ var
 try {
   // looks for config file across all parent directories
   config  = requireDotFile('semantic.json');
-  package = requireDotFile('package.json');
 }
 catch(error) {
   if(error.code === 'MODULE_NOT_FOUND') {
@@ -41,21 +42,12 @@ else {
 
 
 /*******************************
-        Derived Values
+         Derived Values
 *******************************/
 
-/*--------------
-    Version
----------------*/
-
-// npm package.json is only location that holds true "version"
-config.version = (package !== undefined)
-  ? package.version || 'Unknown'
-  : 'Unknown'
-;
 
 /*--------------
-  File Paths
+   File Paths
 ---------------*/
 
 // resolve source paths
@@ -89,9 +81,21 @@ config.paths.assets = {
   packaged     : path.relative(config.paths.output.packaged, config.paths.output.themes).replace(/\\/g,'/')
 };
 
+/*--------------
+   Permission
+---------------*/
+
+if(config.permission) {
+  config.hasPermissions = true;
+}
+else {
+  // pass blank object to avoid causing errors
+  config.permission     = {};
+  config.hasPermissions = false;
+}
 
 /*--------------
-      Globs
+     Globs
 ---------------*/
 
 // takes component object and creates file glob matching selected components

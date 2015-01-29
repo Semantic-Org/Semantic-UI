@@ -30,16 +30,18 @@ module.exports = {
     clean : 'dist/'
   },
 
-  // globs
   globs      : {
     // files ignored for concatenated release
     ignored : '!(*.min|*.map|*.rtl)'
   },
 
+  // components to include in package
   components: [
+
     // global
     'reset',
     'site',
+
     // elements
     'button',
     'divider',
@@ -55,6 +57,7 @@ module.exports = {
     'reveal',
     'segment',
     'step',
+
     // collections
     'breadcrumb',
     'form',
@@ -62,6 +65,7 @@ module.exports = {
     'menu',
     'message',
     'table',
+
     // views
     'ad',
     'card',
@@ -69,6 +73,7 @@ module.exports = {
     'feed',
     'item',
     'statistic',
+
     // modules
     'accordion',
     'checkbox',
@@ -86,6 +91,7 @@ module.exports = {
     'tab',
     'transition',
     'video',
+
     // behaviors
     'api',
     'form',
@@ -93,46 +99,7 @@ module.exports = {
     'visibility'
   ],
 
-  /* Install Move */
-  files: {
-    composer : 'composer.json',
-    config   : './semantic.json',
-    npm      : './package.json',
-    meteor   : './package.js',
-    site     : './src/site',
-    theme    : './src/theme.config'
-  },
-
-  // path to theme.config from project root
-  themePath  : './src/theme.config',
-
   // whether to load admin tasks
-  admin: false,
+  admin: false
 
-  docs : {
-    source : '../docs/server/files/release/',
-    output : '../docs/release/'
-  },
-
-  // files cleaned after install
-  setupFiles: [
-    './src/theme.config.example',
-    './semantic.json.example',
-    './src/_site'
-  ],
-
-
-  // modified to create configs
-  templates: {
-    config : './semantic.json.example',
-    site   : './src/_site',
-    theme  : './src/theme.config.example'
-  },
-
-  // folder paths
-  folders: {
-    config : './',
-    site   : './src/site',
-    theme  : './src/'
-  }
 };
