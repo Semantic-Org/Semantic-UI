@@ -3,7 +3,7 @@
 *******************************/
 
 var
-  gulp         = require('gulp-help')(require('gulp')),
+  gulp         = require('gulp'),
 
   // node dependencies
   fs           = require('fs'),
@@ -42,6 +42,9 @@ var
   log          = tasks.log,
   settings     = tasks.settings
 ;
+
+// add internal tasks (concat release)
+require('../collections/internal')(gulp);
 
 module.exports = function(callback) {
 

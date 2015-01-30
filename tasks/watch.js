@@ -3,13 +3,13 @@
 *******************************/
 
 var
-  gulp         = require('gulp-help')(require('gulp')),
+  gulp         = require('gulp'),
 
-  // node deps
+  // node dependencies
   console      = require('better-console'),
   fs           = require('fs'),
 
-  // gulp deps
+  // gulp dependencies
   autoprefixer = require('gulp-autoprefixer'),
   chmod        = require('gulp-chmod'),
   clone        = require('gulp-clone'),
@@ -46,7 +46,7 @@ var
 ;
 
 // add tasks that shouldn't be exposed to end-user
-gulp = require('./collections/internal')(gulp);
+require('./collections/internal')(gulp);
 
 
 // export task

@@ -15,11 +15,9 @@ module.exports = {
 
   // file paths
   files: {
-    composer : 'composer.json',
-    config   : './semantic.json',
-    npm      : './package.json',
-    site     : './src/site',
-    theme    : './src/theme.config'
+    config   : 'semantic.json',
+    site     : 'src/site',
+    theme    : 'src/theme.config'
   },
 
   // folder paths
@@ -37,11 +35,6 @@ module.exports = {
       themes       : 'dist/themes/'
     },
     clean : 'dist/'
-  },
-
-  globs      : {
-    // files ignored for concatenated release
-    ignored : '!(*.min|*.map|*.rtl)'
   },
 
   // components to include in package
@@ -109,6 +102,12 @@ module.exports = {
   ],
 
   // whether to load admin tasks
-  admin: false
+  admin: false,
+
+  // globs used for matching file patterns
+  globs      : {
+    ignored    : '!(*.min|*.map|*.rtl)',
+    ignoredRTL : '!(*.min|*.map)'
+  }
 
 };

@@ -10,8 +10,9 @@ var
 
   // import tasks
   build        = require('./tasks/build'),
-  checkInstall = require('./tasks/check-install'),
   clean        = require('./tasks/clean'),
+
+  checkInstall = require('./tasks/check-install'),
   install      = require('./tasks/install'),
   version      = require('./tasks/version'),
   watch        = require('./tasks/watch')
@@ -24,6 +25,7 @@ var
 
 gulp.task('watch', 'Watch for site/theme changes', watch);
 gulp.task('build', 'Builds all files from source', build);
+
 gulp.task('clean', 'Clean dist folder', clean);
 gulp.task('version', 'Displays current version of Semantic', version);
 

@@ -3,7 +3,7 @@
 *******************************/
 
 var
-  config = require('./config/project/release')
+  release = require('./config/project/release')
 ;
 
 module.exports = function(callback) {

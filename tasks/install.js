@@ -3,7 +3,7 @@
 *******************************/
 
 var
-  gulp       = require('gulp-help')(require('gulp')),
+  gulp       = require('gulp'),
 
   // node dependencies
   console    = require('better-console'),
@@ -17,20 +17,27 @@ var
   plumber    = require('gulp-plumber'),
   prompt     = require('gulp-prompt'),
   rename     = require('gulp-rename'),
+  replace    = require('gulp-replace'),
   wrench     = require('wrench'),
 
   // user config
   config     = require('./config/user'),
 
   // install config
-  install    = require('config/project/install'),
+  install    = require('./config/project/install'),
 
   // shorthand
-  questions  = install.questions
+  questions  = install.questions,
+  settings   = install.settings
+
 ;
 
 // Export install task
 module.exports = function () {
+
+  var pm = install.getPackageManager();
+  console.log(pm);
+  return;
 
   console.clear();
 
@@ -44,7 +51,7 @@ module.exports = function () {
 
 
 
-    })
+    }))
     .pipe(prompt.prompt(questions.setup, function(answers) {
       var
         siteVariable      = /@siteFolder .*\'(.*)/mg,
@@ -70,7 +77,7 @@ module.exports = function () {
         }
       ;
 
-      // exit if config exists and user specifies no overwrite
+      // exit if config exists and user specifies not to proceed
       if(answers.overwrite !== undefined && answers.overwrite == 'no') {
         return;
       }
@@ -78,6 +85,10 @@ module.exports = function () {
       console.clear();
       console.log('Installing');
       console.log('------------------------------');
+
+      /*--------------
+         Site Themes
+      ---------------*/
 
       // create site files
       if(siteExists) {
@@ -87,10 +98,14 @@ module.exports = function () {
         console.info('Creating site theme folder', siteDestination);
       }
 
-      // copy recursively without overwrite
+      // Copy _site template without overwrite
       wrench.copyDirSyncRecursive(config.templates.site, siteDestination, settings.wrench.recursive);
 
-      // adjust less variable for site folder location
+      /*--------------
+        Theme.config
+      ---------------*/
+
+      // Adjust LESS variables for site folder location
       console.info('Adjusting @siteFolder', sitePathReplace);
       if(themeConfigExists) {
         gulp.src(config.files.site)
@@ -111,13 +126,20 @@ module.exports = function () {
         ;
       }
 
-      // determine semantic.json config
+      /*--------------
+        Semantic.json
+      ---------------*/
+
+      // add components
       if(answers.components) {
         json.components = answers.components;
       }
+      // add permissions
       if(answers.permission) {
-        json.permission = +answers.permission;
+        json.permission = answers.permission;
       }
+
+      // add dist folder paths
       if(answers.dist) {
         answers.dist = answers.dist;
         json.paths.output = {
@@ -127,12 +149,11 @@ module.exports = function () {
           themes       : answers.dist + '/themes/'
         };
       }
+      // add rtl choice
       if(answers.rtl) {
-        json.rtl = (answers.rtl == 'yes')
-          ? true
-          : false
-        ;
+        json.rtl = answers.rtl;
       }
+      // add site path
       if(answers.site) {
         json.paths.source.site = answers.site + '/';
       }
@@ -153,7 +174,6 @@ module.exports = function () {
           .pipe(plumber())
           .pipe(rename(settings.rename.json)) // preserve file extension
           .pipe(jsonEditor(json))
-          .pipe(chmod(config.permission))
           .pipe(gulp.dest('./'))
         ;
       }
@@ -163,7 +183,6 @@ module.exports = function () {
           .pipe(plumber())
           .pipe(rename({ extname : '' })) // remove .template from ext
           .pipe(jsonEditor(json))
-          .pipe(chmod(config.permission))
           .pipe(gulp.dest('./'))
         ;
       }
@@ -182,4 +201,5 @@ module.exports = function () {
       }
     }))
   ;
-});
+
+};

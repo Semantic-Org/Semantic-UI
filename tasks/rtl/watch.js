@@ -3,7 +3,7 @@
 *******************************/
 
 var
-  gulp         = require('gulp-help')(require('gulp')),
+  gulp         = require('gulp'),
 
   // node deps
   console      = require('better-console'),
@@ -46,6 +46,8 @@ var
 
 ;
 
+// add internal tasks (concat release)
+require('../collections/internal')(gulp);
 
 module.exports = function(callback) {
 

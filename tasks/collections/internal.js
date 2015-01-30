@@ -50,7 +50,7 @@ module.exports = function(gulp) {
   ---------------*/
 
   gulp.task('package uncompressed css', function() {
-    return gulp.src(output.uncompressed + '**/' + config.globs.components + config.globs.ignored + '.css')
+    return gulp.src(output.uncompressed + '**/' + globs.components + globs.ignored + '.css')
       .pipe(plumber())
       .pipe(replace(assets.uncompressed, assets.packaged))
       .pipe(concatCSS(filenames.concatenatedCSS))
@@ -61,7 +61,7 @@ module.exports = function(gulp) {
   });
 
   gulp.task('package compressed css', function() {
-    return gulp.src(output.uncompressed + '**/' + config.globs.components + config.globs.ignored + '.css')
+    return gulp.src(output.uncompressed + '**/' + globs.components + globs.ignored + '.css')
       .pipe(plumber())
       .pipe(replace(assets.uncompressed, assets.packaged))
       .pipe(concatCSS(filenames.concatenatedMinifiedCSS))
@@ -74,7 +74,7 @@ module.exports = function(gulp) {
   });
 
   gulp.task('package uncompressed js', function() {
-    return gulp.src(output.uncompressed + '**/' + config.globs.components + '!(*.min|*.map).js')
+    return gulp.src(output.uncompressed + '**/' + globs.components + globs.ignored + '.js')
       .pipe(plumber())
       .pipe(replace(assets.uncompressed, assets.packaged))
       .pipe(concat(filenames.concatenatedJS))
@@ -86,7 +86,7 @@ module.exports = function(gulp) {
   });
 
   gulp.task('package compressed js', function() {
-    return gulp.src(output.uncompressed + '**/' + config.globs.components + '!(*.min|*.map).js')
+    return gulp.src(output.uncompressed + '**/' + globs.components + globs.ignored + '.js')
       .pipe(plumber())
       .pipe(replace(assets.uncompressed, assets.packaged))
       .pipe(concat(filenames.concatenatedMinifiedJS))
@@ -103,7 +103,7 @@ module.exports = function(gulp) {
   ---------------*/
 
   gulp.task('package uncompressed rtl css', function () {
-    return gulp.src(output.uncompressed + '**/' + config.globs.components + '!(*.min|*.map).rtl.css')
+    return gulp.src(output.uncompressed + '**/' + globs.components + globs.ignoredRTL + '.rtl.css')
       .pipe(replace(assets.uncompressed, assets.packaged))
       .pipe(concatCSS(filenames.concatenatedRTLCSS))
         .pipe(gulp.dest(output.packaged))
@@ -112,7 +112,7 @@ module.exports = function(gulp) {
   });
 
   gulp.task('package compressed rtl css', function () {
-    return gulp.src(output.uncompressed + '**/' + config.globs.components + '!(*.min|*.map).rtl.css')
+    return gulp.src(output.uncompressed + '**/' + globs.components + globs.ignoredRTL + '.rtl.css')
       .pipe(replace(assets.uncompressed, assets.packaged))
       .pipe(concatCSS(filenames.concatenatedMinifiedRTLCSS))
         .pipe(minifyCSS(settings.minify))

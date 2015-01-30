@@ -91,7 +91,6 @@ module.exports = {
 
     /* File Renames */
     rename: {
-      json      : { extname : '.json' },
       minJS     : { extname : '.min.js' },
       minCSS    : { extname : '.min.css' },
       rtlCSS    : { extname : '.rtl.css' },
@@ -107,15 +106,6 @@ module.exports = {
     /* Minified JS Settings */
     uglify: {
       mangle : true
-    },
-
-    /* Copy Folder Recursively */
-    wrench: {
-      recursive: {
-        forceDelete       : true,
-        excludeHiddenUnix : true,
-        preserveFiles     : true
-      }
     }
   }
 };

@@ -4,6 +4,7 @@
 
 var
   fs             = require('fs'),
+  path           = require('path'),
   defaults       = require('../defaults'),
 
   requireDotFile = require('require-dot-file')
@@ -74,6 +75,56 @@ module.exports = {
     return true;
   },
 
+  // checks if files are in a PM directory
+  getPackageManager: function(directory) {
+    var
+      walk = function(directory) {
+        var
+          pathArray     = directory.split('/'),
+          folder        = pathArray[pathArray.length - 1],
+          nextDirectory = path.normalize(directory + '../')
+        ;
+        console.log(directory, folder);
+        if( folder == 'bower_components') {
+          return {
+            name: 'bower',
+            root: nextDirectory
+          };
+        }
+        else if(folder == 'node_modules') {
+         return {
+            name: 'npm',
+            root: nextDirectory
+          };
+        }
+        else if(folder == 'composer') {
+         return {
+            name: 'composer',
+            root: nextDirectory
+          };
+        }
+        else if(folder == 'components' || folder == 'modules') {
+         return {
+            name: 'custom',
+            root: nextDirectory
+          };
+        }
+        else {
+          // reached file system root, let's stop
+          if(path.resolve(directory) == '/') {
+            return false;
+          }
+          // recurse
+          return walk(nextDirectory);
+        }
+      }
+    ;
+
+    // start walk from outside component folder
+    directory = directory || (__dirname + '/../');
+    return walk(directory);
+  },
+
   // files cleaned up after install
   setupFiles: [
     './src/theme.config.example',
@@ -81,16 +132,16 @@ module.exports = {
     './src/_site'
   ],
 
+  files: {
+    config: 'semantic.json',
+    theme : 'theme.config',
+  },
+
   // modified to create configs
   templates: {
     config : 'semantic.json.example',
     site   : './src/_site',
     theme  : './src/theme.config.example'
-  },
-
-  files: {
-    config: 'semantic.json',
-    theme : 'theme.config'
   },
 
   // folder paths
@@ -240,11 +291,11 @@ module.exports = {
         choices: [
           {
             name: 'No',
-            value: 'no'
+            value: false
           },
           {
             name: 'Yes',
-            value: 'yes'
+            value: true
           },
         ]
       },
@@ -534,6 +585,23 @@ module.exports = {
       }
     ]
 
+  },
+
+  settings: {
+
+    /* Rename Files */
+    rename: {
+      json : { extname : '.json' },
+    },
+
+    /* Copy Install Folders */
+    wrench: {
+      recursive: {
+        forceDelete       : true,
+        excludeHiddenUnix : true,
+        preserveFiles     : true
+      }
+    }
   }
 
 };

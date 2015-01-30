@@ -10,17 +10,6 @@
 */
 
 /*******************************
-            Folders
-*******************************/
-
-/* Path to theme packages */
-@themesFolder : 'themes/';
-
-/* Path to site override folder */
-@siteFolder  : 'site/';
-
-
-/*******************************
         Theme Selection
 *******************************/
 
@@ -83,6 +72,16 @@
 @feed       : 'default';
 @item       : 'default';
 @statistic  : 'default';
+
+/*******************************
+            Folders
+*******************************/
+
+/* Path to theme packages */
+@themesFolder : 'themes/';
+
+/* Path to site override folder */
+@siteFolder  : 'site/';
 
 
 /*******************************

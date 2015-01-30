@@ -115,7 +115,6 @@ module.exports = function(callback) {
           .pipe(plumber())
           .pipe(flatten())
           .pipe(replace(release.paths.source, release.paths.output))
-          .pipe(chmod(config.permission))
           .pipe(gulp.dest(outputDirectory))
         ;
       });
@@ -131,7 +130,6 @@ module.exports = function(callback) {
           .pipe(replace(regExp.match.settingsReference, regExp.replace.settingsReference))
           .pipe(replace(regExp.match.jQuery, regExp.replace.jQuery))
           .pipe(rename('index.js'))
-          .pipe(chmod(config.permission))
           .pipe(gulp.dest(outputDirectory))
         ;
       });
@@ -143,7 +141,6 @@ module.exports = function(callback) {
           .pipe(flatten())
           .pipe(replace(regExp.match.name, regExp.replace.name))
           .pipe(replace(regExp.match.titleName, regExp.replace.titleName))
-          .pipe(chmod(config.permission))
           .pipe(gulp.dest(outputDirectory))
         ;
       });
@@ -179,7 +176,6 @@ module.exports = function(callback) {
             }
             return bower;
           }))
-          .pipe(chmod(config.permission))
           .pipe(gulp.dest(outputDirectory))
         ;
       });
@@ -208,7 +204,6 @@ module.exports = function(callback) {
             };
             return package;
           }))
-          .pipe(chmod(config.permission))
           .pipe(gulp.dest(outputDirectory))
         ;
       });
@@ -232,7 +227,6 @@ module.exports = function(callback) {
             composer.description = 'Single component release of ' + component;
             return composer;
           }))
-          .pipe(chmod(config.permission))
           .pipe(gulp.dest(outputDirectory))
         ;
       });
@@ -248,7 +242,6 @@ module.exports = function(callback) {
           .pipe(replace(regExp.match.spacedVersions, regExp.replace.spacedVersions))
           .pipe(replace(regExp.match.spacedLists, regExp.replace.spacedLists))
           .pipe(replace(regExp.match.trim, regExp.replace.trim))
-          .pipe(chmod(config.permission))
           .pipe(gulp.dest(outputDirectory))
         ;
       });
@@ -280,7 +273,7 @@ module.exports = function(callback) {
               .pipe(replace(regExp.match.titleName, regExp.replace.titleName))
               .pipe(replace(regExp.match.version, version))
               .pipe(replace(regExp.match.files, fileNames))
-              .pipe(rename(defaults.files.npm))
+              .pipe(rename(release.files.npm))
               .pipe(gulp.dest(outputDirectory))
             ;
           })
