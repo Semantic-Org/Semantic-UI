@@ -48,9 +48,9 @@ module.exports = function () {
     .pipe(prompt.prompt(questions.setup, function(answers) {
       var
         siteVariable      = /@siteFolder .*\'(.*)/mg,
-        siteDestination   = answers.site || config.folders.site,
+        siteDestination   = answers.site || install.folders.site,
 
-        pathToSite        = path.relative(path.resolve(config.folders.theme), path.resolve(siteDestination)).replace(/\\/g,'/'),
+        pathToSite        = path.relative(path.resolve(install.folders.theme), path.resolve(siteDestination)).replace(/\\/g,'/'),
         sitePathReplace   = "@siteFolder   : '" + pathToSite + "/';",
 
         configExists      = fs.existsSync(config.files.config),
@@ -97,7 +97,7 @@ module.exports = function () {
           .pipe(plumber())
           .pipe(replace(siteVariable, sitePathReplace))
           .pipe(chmod(config.permission))
-          .pipe(gulp.dest(config.folders.theme))
+          .pipe(gulp.dest(install.folders.theme))
         ;
       }
       else {
@@ -107,7 +107,7 @@ module.exports = function () {
           .pipe(rename({ extname : '' }))
           .pipe(replace(siteVariable, sitePathReplace))
           .pipe(chmod(config.permission))
-          .pipe(gulp.dest(config.folders.theme))
+          .pipe(gulp.dest(install.folders.theme))
         ;
       }
 
