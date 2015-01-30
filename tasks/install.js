@@ -1,19 +1,50 @@
 /*******************************
-         Install Tasks
+         Install Task
 *******************************/
 
 var
-  // install dependencies
-  jeditor   = require('gulp-json-editor'),
-  prompt    = require('gulp-prompt'),
-  wrench    = require('wrench'),
-  questions = require('./tasks/questions')
+  gulp       = require('gulp-help')(require('gulp')),
 
+  // node dependencies
+  console    = require('better-console'),
+  fs         = require('fs'),
+  path       = require('path'),
+
+  // gulp dependencies
+  chmod      = require('gulp-chmod'),
+  del        = require('del'),
+  jsonEditor = require('gulp-json-editor'),
+  plumber    = require('gulp-plumber'),
+  prompt     = require('gulp-prompt'),
+  rename     = require('gulp-rename'),
+  wrench     = require('wrench'),
+
+  // user config
+  config     = require('./config/user'),
+
+  // install config
+  install    = require('config/project/install'),
+
+  // shorthand
+  questions  = install.questions
 ;
-gulp.task('install', 'Set-up project for first time', function () {
+
+// Export install task
+module.exports = function () {
+
   console.clear();
+
+  // if semantic.json exists skip root questions
+
+  // determine if is in node_modules, bower_modules and determine project root
+
   gulp
     .src('gulpfile.js')
+    .pipe(prompt.prompt(questions.root, function(answers) {
+
+
+
+    })
     .pipe(prompt.prompt(questions.setup, function(answers) {
       var
         siteVariable      = /@siteFolder .*\'(.*)/mg,
@@ -26,9 +57,11 @@ gulp.task('install', 'Set-up project for first time', function () {
         themeConfigExists = fs.existsSync(config.files.theme),
         siteExists        = fs.existsSync(siteDestination),
 
+        // file that will be modified
         jsonSource        = (configExists)
           ? config.files.config
-          : config.templates.config,
+          : install.templates.config,
+
         json = {
           paths: {
             source: {},
@@ -53,6 +86,7 @@ gulp.task('install', 'Set-up project for first time', function () {
       else {
         console.info('Creating site theme folder', siteDestination);
       }
+
       // copy recursively without overwrite
       wrench.copyDirSyncRecursive(config.templates.site, siteDestination, settings.wrench.recursive);
 
@@ -114,21 +148,21 @@ gulp.task('install', 'Set-up project for first time', function () {
 
       // write semantic.json
       if(configExists) {
-        console.info('Extending semantic.json (Gulp config)');
+        console.info('Extending config file (semantic.json)');
         gulp.src(jsonSource)
           .pipe(plumber())
           .pipe(rename(settings.rename.json)) // preserve file extension
-          .pipe(jeditor(json))
+          .pipe(jsonEditor(json))
           .pipe(chmod(config.permission))
           .pipe(gulp.dest('./'))
         ;
       }
       else {
-        console.info('Creating semantic.json (Gulp config)');
+        console.info('Creating config file (semantic.json)');
         gulp.src(jsonSource)
           .pipe(plumber())
           .pipe(rename({ extname : '' })) // remove .template from ext
-          .pipe(jeditor(json))
+          .pipe(jsonEditor(json))
           .pipe(chmod(config.permission))
           .pipe(gulp.dest('./'))
         ;
@@ -138,11 +172,12 @@ gulp.task('install', 'Set-up project for first time', function () {
     }))
     .pipe(prompt.prompt(questions.cleanup, function(answers) {
       if(answers.cleanup == 'yes') {
-        del(config.setupFiles);
+        del(install.setupFiles);
       }
       if(answers.build == 'yes') {
-        config = require(config.files.config);
-        getConfigValues();
+        // needs replacement for rewrite
+        // config = require(config.files.config);
+        // getConfigValues();
         gulp.start('build');
       }
     }))

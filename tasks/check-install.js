@@ -1,11 +1,24 @@
+/*******************************
+         Check Install
+*******************************/
+
+var
+  // node dependencies
+  gulp         = require('gulp'),
+  fs           = require('fs'),
+  console      = require('better-console'),
+
+  install      = require('./config/project/install')
+;
+
+
 gulp.task('check install', false, function () {
-  setTimeout(function() {
-    if( runSetup || !fs.existsSync(config.files.site)) {
-      console.log('No semantic.json file found. Starting install...');
-      gulp.start('install');
-    }
-    else {
-      gulp.start('watch');
-    }
-  }, 50);
+  if( !install.isSetup() ) {
+    console.log('Starting install...');
+    gulp.start('install');
+    return;
+  }
+  else {
+    gulp.start('watch');
+  }
 });

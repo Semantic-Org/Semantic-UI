@@ -45,10 +45,11 @@ var
 
 ;
 
-// add internal tasks
+// add tasks that shouldn't be exposed to end-user
 gulp = require('./collections/internal')(gulp);
 
 
+// export task
 module.exports = function(callback) {
 
   if( !install.isSetup() ) {

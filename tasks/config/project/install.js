@@ -3,18 +3,24 @@
 *******************************/
 
 var
-  fs       = require('fs'),
-  defaults = require('../defaults'),
+  fs             = require('fs'),
+  defaults       = require('../defaults'),
 
-  when,
-  filter
+  requireDotFile = require('require-dot-file')
 ;
 
 /*******************************
           When to Ask
 *******************************/
 
-when = {
+/* Preconditions for install questions */
+
+var when = {
+
+  // path
+  changeRoot: function(questions) {
+    return (questions.useRoot == 'no');
+  },
 
   // install
   hasConfig: function() {
@@ -49,7 +55,9 @@ when = {
         Response Filters
 *******************************/
 
-filter = {
+/* Filters to user input from install questions */
+
+var filter = {
   removeTrailingSlash: function(path) {
     return path.replace(/(\/$|\\$)+/mg, '');
   }
@@ -75,9 +83,14 @@ module.exports = {
 
   // modified to create configs
   templates: {
-    config : './semantic.json.example',
+    config : 'semantic.json.example',
     site   : './src/_site',
     theme  : './src/theme.config.example'
+  },
+
+  files: {
+    config: 'semantic.json',
+    theme : 'theme.config'
   },
 
   // folder paths
@@ -88,6 +101,34 @@ module.exports = {
   },
 
   questions: {
+
+    root: [
+      {
+        type: 'list',
+        name: 'useRoot',
+        message: '{packageMessage}We determined your project\'s root as {root}. Is this correct?',
+        choices: [
+          {
+            name: 'Yes',
+            value: 'yes'
+          },
+          {
+            name: 'Close! One level below that.',
+            value: 'modify'
+          },
+          {
+            name: 'No, let me specify',
+            value: 'no'
+          }
+        ]
+      },
+      {
+        type: 'input',
+        name: 'customRoot',
+        message: 'Please enter the path to your root folder',
+        when: when.changeRoot
+      }
+    ],
 
     setup: [
       {

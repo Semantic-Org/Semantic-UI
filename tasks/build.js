@@ -3,9 +3,10 @@
 *******************************/
 
 var
-  gulp         = require('gulp-help')(require('gulp')),
+  gulp         = require('gulp'),
 
   // node dependencies
+  console      = require('better-console'),
   fs           = require('fs'),
 
   // gulp dependencies

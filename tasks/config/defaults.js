@@ -13,6 +13,15 @@ module.exports = {
   // whether to generate rtl files
   rtl        : false,
 
+  // file paths
+  files: {
+    composer : 'composer.json',
+    config   : './semantic.json',
+    npm      : './package.json',
+    site     : './src/site',
+    theme    : './src/theme.config'
+  },
+
   // folder paths
   paths: {
     source: {
