@@ -36,24 +36,55 @@ var
 // Export install task
 module.exports = function () {
 
+
+  /*--------------
+     PM Detection
+  ---------------*/
+
   var
     currentConfig = requireDotFile('semantic.json'),
-    manager       = install.getPackageManager()
+    manager       = install.getPackageManager(),
+    rootQuestions = questions.root
   ;
+
+  // test conditions REMOVE
+  currentConfig = false;
 
   console.clear();
 
-  // if semantic.json exists skip root questions
+  manager = {
+    name: 'NPM',
+    root: __dirname
+  };
 
-  // determine if is in node_modules, bower_modules and determine project root
+  if(manager && !currentConfig) {
+    // PM Detected & First Run
+    rootQuestions[0].message = rootQuestions[0].message
+      .replace('{packageMessage}', 'We detected you are using \033[92m' + manager.name + '\033[0m. Nice! ')
+      .replace('{root}', manager.root)
+    ;
+    rootQuestions[0].default = manager.root;
+  }
+  else if(currentConfig) {
+    // Not First Run
+    rootQuestions = [];
+  }
+  else {
+    // No PM / First Run (Remove PM Question)
+    rootQuestions.shift();
+  }
 
-  gulp
+  // insert root questions after "Install Type" question
+  if(rootQuestions.length > 0) {
+    Array.prototype.splice.apply(questions.setup, [2, 0].concat(rootQuestions));
+  }
+
+  /*--------------
+       Inquire
+  ---------------*/
+
+  return gulp
     .src('gulpfile.js')
-    .pipe(prompt.prompt(questions.root, function(answers) {
-
-
-
-    }))
     .pipe(prompt.prompt(questions.setup, function(answers) {
       var
         siteVariable      = /@siteFolder .*\'(.*)/mg,
@@ -89,6 +120,15 @@ module.exports = function () {
       console.log('------------------------------');
 
       /*--------------
+          PM Mods
+      ---------------*/
+
+      // (All cases) Copy node_modules folder, if it isnt current folder
+
+      // (PM Case) Copy src/ to project root
+
+
+      /*--------------
          Site Themes
       ---------------*/
 
@@ -101,7 +141,7 @@ module.exports = function () {
       }
 
       // Copy _site template without overwrite
-      wrench.copyDirSyncRecursive(config.templates.site, siteDestination, settings.wrench.recursive);
+      wrench.copyDirSyncRecursive(install.templates.site, siteDestination, settings.wrench.recursive);
 
       /*--------------
         Theme.config
@@ -113,17 +153,15 @@ module.exports = function () {
         gulp.src(config.files.site)
           .pipe(plumber())
           .pipe(replace(siteVariable, sitePathReplace))
-          .pipe(chmod(config.permission))
           .pipe(gulp.dest(install.folders.theme))
         ;
       }
       else {
         console.info('Creating src/theme.config (LESS config)');
-        gulp.src(config.templates.theme)
+        gulp.src(install.templates.theme)
           .pipe(plumber())
           .pipe(rename({ extname : '' }))
           .pipe(replace(siteVariable, sitePathReplace))
-          .pipe(chmod(config.permission))
           .pipe(gulp.dest(install.folders.theme))
         ;
       }

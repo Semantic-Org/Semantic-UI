@@ -20,7 +20,7 @@ var when = {
 
   // path
   changeRoot: function(questions) {
-    return (questions.useRoot == 'no');
+    return (questions.useRoot === undefined || questions.useRoot == 'no');
   },
 
   // install
@@ -86,25 +86,25 @@ module.exports = {
         ;
         if( folder == 'bower_components') {
           return {
-            name: 'bower',
+            name: 'Bower',
             root: nextDirectory
           };
         }
         else if(folder == 'node_modules') {
          return {
-            name: 'npm',
+            name: 'NPM',
             root: nextDirectory
           };
         }
         else if(folder == 'composer') {
          return {
-            name: 'composer',
+            name: 'Composer',
             root: nextDirectory
           };
         }
         else if(folder == 'components' || folder == 'modules') {
          return {
-            name: 'custom',
+            name: 'a custom module system',
             root: nextDirectory
           };
         }
@@ -132,8 +132,9 @@ module.exports = {
   ],
 
   files: {
-    config: 'semantic.json',
-    theme : 'theme.config',
+    config   : 'semantic.json',
+    site     : 'src/site',
+    theme    : 'src/theme.config'
   },
 
   // modified to create configs
@@ -154,29 +155,39 @@ module.exports = {
 
     root: [
       {
-        type: 'list',
-        name: 'useRoot',
-        message: '{packageMessage}We determined your project\'s root as {root}. Is this correct?',
+        type    : 'list',
+        name    : 'useRoot',
+        message :
+          '    \n' +
+          '    {packageMessage} \n' +
+          '    \n' +
+          '    Is this your project\'s root (where gulp will be run)?\n' +
+          '    \033[92m{root}\033[0m \n' +
+          '    \n ' +
+          '\n',
         choices: [
           {
-            name: 'Yes',
-            value: 'yes'
+            name  : 'Yes',
+            value : 'yes'
           },
           {
-            name: 'Close! One level below that.',
-            value: 'modify'
-          },
-          {
-            name: 'No, let me specify',
-            value: 'no'
+            name  : 'No, let me specify',
+            value : 'no'
           }
         ]
       },
       {
-        type: 'input',
-        name: 'customRoot',
-        message: 'Please enter the path to your root folder',
-        when: when.changeRoot
+        type    : 'input',
+        name    : 'customRoot',
+        message : 'Please enter the path to your project root folder (where build tools will be run)',
+        default : './',
+        when    : when.changeRoot
+      },
+      {
+        type    : 'input',
+        name    : 'sourceFolder',
+        message : 'Where should we put Semantic UI inside your project folder?',
+        default : 'semantic/'
       }
     ],
 
