@@ -84,7 +84,6 @@ module.exports = {
           folder        = pathArray[pathArray.length - 1],
           nextDirectory = path.normalize(directory + '../')
         ;
-        console.log(directory, folder);
         if( folder == 'bower_components') {
           return {
             name: 'bower',

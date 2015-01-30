@@ -3,41 +3,43 @@
 *******************************/
 
 var
-  gulp       = require('gulp'),
+  gulp           = require('gulp'),
 
   // node dependencies
-  console    = require('better-console'),
-  fs         = require('fs'),
-  path       = require('path'),
+  console        = require('better-console'),
+  fs             = require('fs'),
+  path           = require('path'),
 
   // gulp dependencies
-  chmod      = require('gulp-chmod'),
-  del        = require('del'),
-  jsonEditor = require('gulp-json-editor'),
-  plumber    = require('gulp-plumber'),
-  prompt     = require('gulp-prompt'),
-  rename     = require('gulp-rename'),
-  replace    = require('gulp-replace'),
-  wrench     = require('wrench'),
+  chmod          = require('gulp-chmod'),
+  del            = require('del'),
+  jsonEditor     = require('gulp-json-editor'),
+  plumber        = require('gulp-plumber'),
+  prompt         = require('gulp-prompt'),
+  rename         = require('gulp-rename'),
+  replace        = require('gulp-replace'),
+  requireDotFile = require('require-dot-file'),
+  wrench         = require('wrench'),
 
   // user config
-  config     = require('./config/user'),
+  config         = require('./config/user'),
 
   // install config
-  install    = require('./config/project/install'),
+  install        = require('./config/project/install'),
 
   // shorthand
-  questions  = install.questions,
-  settings   = install.settings
+  questions      = install.questions,
+  settings       = install.settings
 
 ;
 
 // Export install task
 module.exports = function () {
 
-  var pm = install.getPackageManager();
-  console.log(pm);
-  return;
+  var
+    currentConfig = requireDotFile('semantic.json'),
+    manager       = install.getPackageManager()
+  ;
 
   console.clear();
 

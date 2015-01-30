@@ -7,7 +7,8 @@
   "author": "Jack Lukic <jack@semantic-ui.com>",
   "license": "MIT",
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+    "postinstall": "gulp install"
   },
   "repository": {
     "type": "git",
@@ -55,7 +56,6 @@
     "gulp-util": "^3.0.1",
     "gulp-watch": "^2.0.0",
     "karma": "^0.12.28",
-    "require-dot-file": "0.1.0",
     "rtlcss": "^1.4.2",
     "run-sequence": "^1.0.2",
     "wrench": "^1.5.8"
