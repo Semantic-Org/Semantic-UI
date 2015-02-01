@@ -79,7 +79,7 @@ gulp install // re-runs install
 gulp help // list all commands
 ```
 
-For more detail into how work with Semantic when building a site please [read out customization guide](http://learnsemantic.com/developing/customizing.html) on [LearnSemantic.com](http://learnsemantic.com/)
+For more detail into how work with Semantic when building a site please [read our customization guide](http://learnsemantic.com/developing/customizing.html) on [LearnSemantic.com](http://learnsemantic.com/)
 
 
 ## Browser Support
