@@ -25,8 +25,12 @@ var when = {
 
   // install
   hasConfig: function() {
-    return( fs.existsSync('./semantic.json') );
+    return requireDotFile('semantic.json');
   },
+  hasThemeFile: function() {
+    return true;
+  },
+
   allowOverwrite: function(questions) {
     return (questions.overwrite === undefined || questions.overwrite == 'yes');
   },
@@ -72,7 +76,7 @@ module.exports = {
 
   // check whether install is setup
   isSetup: function() {
-    return true;
+    return (when.hasThemeFile && when.hasConfig);
   },
 
   // checks if files are in a PM directory
@@ -124,6 +128,63 @@ module.exports = {
     return walk(directory);
   },
 
+  createJSON: function(answers) {
+    var
+      json = {
+        paths: {
+          source: {},
+          output: {}
+        }
+      }
+    ;
+
+    // add path to semantic
+    if(answers.semanticRoot) {
+      json.base = answers.semanticRoot;
+    }
+
+    // add components
+    if(answers.components) {
+      json.components = answers.components;
+    }
+
+    // add permissions
+    if(answers.permission) {
+      json.permission = answers.permission;
+    }
+
+    // add dist folder paths
+    if(answers.dist) {
+      answers.dist = answers.dist;
+      json.paths.output = {
+        packaged     : answers.dist + '/',
+        uncompressed : answers.dist + '/components/',
+        compressed   : answers.dist + '/components/',
+        themes       : answers.dist + '/themes/'
+      };
+    }
+
+    // add rtl choice
+    if(answers.rtl) {
+      json.rtl = answers.rtl;
+    }
+
+    // add site path
+    if(answers.site) {
+      json.paths.source.site = answers.site + '/';
+    }
+    if(answers.packaged) {
+      json.paths.output.packaged = answers.packaged + '/';
+    }
+    if(answers.compressed) {
+      json.paths.output.compressed = answers.compressed + '/';
+    }
+    if(answers.uncompressed) {
+      json.paths.output.uncompressed = answers.uncompressed + '/';
+    }
+    return json;
+  },
+
   // files cleaned up after install
   setupFiles: [
     './src/theme.config.example',
@@ -137,20 +198,26 @@ module.exports = {
     theme    : 'src/theme.config'
   },
 
-  // modified to create configs
-  templates: {
-    config : 'semantic.json.example',
-    site   : './src/_site',
-    theme  : './src/theme.config.example'
+  // source paths (inside PM folder)
+  source: {
+    config      : './semantic.json.example',
+    definitions : './src/definitions',
+    gulpFile    : './gulpfile.js',
+    modules     : './node_modules/',
+    site        : './src/_site',
+    themes      : './src/themes',
+    themeConfig : './src/theme.config.example'
   },
 
-  // folder paths
+  // folder paths to files relative to root
   folders: {
+    modules: './node_modules/',
     config : './',
     site   : './src/site',
     theme  : './src/'
   },
 
+  // questions asked during install
   questions: {
 
     root: [
@@ -161,7 +228,7 @@ module.exports = {
           '    \n' +
           '    {packageMessage} \n' +
           '    \n' +
-          '    Is this your project\'s root (where gulp will be run)?\n' +
+          '    Is this your project folder?\n' +
           '    \033[92m{root}\033[0m \n' +
           '    \n ' +
           '\n',
@@ -179,14 +246,14 @@ module.exports = {
       {
         type    : 'input',
         name    : 'customRoot',
-        message : 'Please enter the path to your project root folder (where build tools will be run)',
+        message : 'Please enter the absolute path to your project root',
         default : './',
         when    : when.changeRoot
       },
       {
         type    : 'input',
-        name    : 'sourceFolder',
-        message : 'Where should we put Semantic UI inside your project folder?',
+        name    : 'semanticRoot',
+        message : 'Where should we put Semantic UI inside your project?',
         default : 'semantic/'
       }
     ],
@@ -606,7 +673,23 @@ module.exports = {
 
     /* Copy Install Folders */
     wrench: {
-      recursive: {
+
+      // copy during npm update (default theme / definition)
+      update: {
+        forceDelete       : true,
+        excludeHiddenUnix : true,
+        preserveFiles     : false
+      },
+
+      // copy for node_modules
+      modules: {
+        forceDelete       : true,
+        excludeHiddenUnix : true,
+        preserveFiles     : false
+      },
+
+      // copy for site theme
+      site: {
         forceDelete       : true,
         excludeHiddenUnix : true,
         preserveFiles     : true

@@ -26,10 +26,13 @@ var
 
   // install config
   install        = require('./config/project/install'),
+  release        = require('./config/project/release'),
 
   // shorthand
   questions      = install.questions,
-  settings       = install.settings
+  folders        = install.folders,
+  settings       = install.settings,
+  source         = install.source
 
 ;
 
@@ -38,7 +41,7 @@ module.exports = function () {
 
 
   /*--------------
-     PM Detection
+    Install Tools
   ---------------*/
 
   var
@@ -47,31 +50,35 @@ module.exports = function () {
     rootQuestions = questions.root
   ;
 
-  // test conditions REMOVE
-  currentConfig = false;
-
   console.clear();
 
+  // debug
   manager = {
-    name: 'NPM',
-    root: __dirname
+    name : 'NPM',
+    root : path.normalize(__dirname + '/../')
   };
 
-  if(manager && !currentConfig) {
-    // PM Detected & First Run
-    rootQuestions[0].message = rootQuestions[0].message
-      .replace('{packageMessage}', 'We detected you are using \033[92m' + manager.name + '\033[0m. Nice! ')
-      .replace('{root}', manager.root)
-    ;
-    rootQuestions[0].default = manager.root;
-  }
-  else if(currentConfig) {
-    // Not First Run
-    rootQuestions = [];
+  if(manager == 'NPM') {
+    // PM that supports Build Tools
+
+    if(currentConfig) {
+      // Upgrade run
+      rootQuestions = [];
+    }
+    else {
+      // First Run
+      rootQuestions[0].message = rootQuestions[0].message
+        .replace('{packageMessage}', 'We detected you are using \033[92m' + manager.name + '\033[0m. Nice! ')
+        .replace('{root}', manager.root)
+      ;
+      // set default path to detected PM root
+      rootQuestions[0].default = manager.root;
+      rootQuestions[1].default = manager.root;
+    }
   }
   else {
-    // No PM / First Run (Remove PM Question)
-    rootQuestions.shift();
+    // Unsupported package manager
+    rootQuestions = [];
   }
 
   // insert root questions after "Install Type" question
@@ -79,38 +86,42 @@ module.exports = function () {
     Array.prototype.splice.apply(questions.setup, [2, 0].concat(rootQuestions));
   }
 
+
   /*--------------
-       Inquire
+      NPM Update
+  ---------------*/
+
+  if(currentConfig && manager === 'NPM') {
+
+    var
+      definitionPath = path.join(manager.root, currentConfig.base + currentConfig.source.definitions),
+      themePath      = path.join(manager.root, currentConfig.base + currentConfig.source.themes),
+      siteThemePath  = path.join(manager.root, currentConfig.base + currentConfig.source.site)
+    ;
+
+    console.info('Updating ui definitions to ' + release.version);
+    wrench.copyDirSyncRecursive(source.definitions, definitionPath, settings.wrench.update);
+
+    console.info('Updating default theme to' + release.version);
+    wrench.copyDirSyncRecursive(source.themes, themePath, settings.wrench.update);
+
+    wrench.copyDirSyncRecursive(source.site, siteThemePath, settings.wrench.site);
+  }
+
+
+  /*--------------
+       Set-up
   ---------------*/
 
   return gulp
     .src('gulpfile.js')
     .pipe(prompt.prompt(questions.setup, function(answers) {
-      var
-        siteVariable      = /@siteFolder .*\'(.*)/mg,
-        siteDestination   = answers.site || install.folders.site,
 
-        pathToSite        = path.relative(path.resolve(install.folders.theme), path.resolve(siteDestination)).replace(/\\/g,'/'),
-        sitePathReplace   = "@siteFolder   : '" + pathToSite + "/';",
+      /*--------------
+       Exit Conditions
+      ---------------*/
 
-        configExists      = fs.existsSync(config.files.config),
-        themeConfigExists = fs.existsSync(config.files.theme),
-        siteExists        = fs.existsSync(siteDestination),
-
-        // file that will be modified
-        jsonSource        = (configExists)
-          ? config.files.config
-          : install.templates.config,
-
-        json = {
-          paths: {
-            source: {},
-            output: {}
-          }
-        }
-      ;
-
-      // exit if config exists and user specifies not to proceed
+      // if config exists and user specifies not to proceed
       if(answers.overwrite !== undefined && answers.overwrite == 'no') {
         return;
       }
@@ -120,17 +131,62 @@ module.exports = function () {
       console.log('------------------------------');
 
       /*--------------
-          PM Mods
+        Install Tools
       ---------------*/
 
-      // (All cases) Copy node_modules folder, if it isnt current folder
+      // We're moving things around
+      if(answers.root || answers.customRoot) {
 
-      // (PM Case) Copy src/ to project root
+        var
+          gulpRoot,
+          gulpFileExists
+        ;
+
+        // Set root to custom root path
+        if(answers.customRoot) {
+          answers.root = answers.customRoot;
+        }
+
+        // add project root to semantic root
+        if(answers.semanticRoot) {
+          answers.semanticRoot = path.join(answers.root, answers.semanticRoot);
+        }
+
+        // Copy build tools to gulp root (node_modules & gulpfile)
+        if(answers.semanticRoot) {
+
+          // copy gulp node_modules
+          console.info('Copying dependencies', answers.semanticRoot + folders.modules);
+          wrench.copyDirSyncRecursive(source.modules, answers.semanticRoot + folders.modules, settings.wrench.modules);
+
+          // create gulp file
+          console.info('Creating gulp-file.js');
+          gulp.src(source.gulpFile)
+            .pipe(plumber())
+            .pipe(gulp.dest(answers.semanticRoot))
+          ;
+
+
+        }
+
+
+      }
 
 
       /*--------------
          Site Themes
       ---------------*/
+
+      var
+        siteVariable      = /@siteFolder .*\'(.*)/mg,
+        siteDestination   = answers.site || folders.site,
+
+        siteExists        = fs.existsSync(siteDestination),
+        themeConfigExists = fs.existsSync(config.files.theme),
+
+        pathToSite        = path.relative(path.resolve(folders.theme), path.resolve(siteDestination)).replace(/\\/g,'/'),
+        sitePathReplace   = "@siteFolder   : '" + pathToSite + "/';"
+      ;
 
       // create site files
       if(siteExists) {
@@ -141,28 +197,25 @@ module.exports = function () {
       }
 
       // Copy _site template without overwrite
-      wrench.copyDirSyncRecursive(install.templates.site, siteDestination, settings.wrench.recursive);
+      wrench.copyDirSyncRecursive(source.site, siteDestination, settings.wrench.site);
 
-      /*--------------
-        Theme.config
-      ---------------*/
 
-      // Adjust LESS variables for site folder location
+      // Adjust theme.less in project folder
       console.info('Adjusting @siteFolder', sitePathReplace);
       if(themeConfigExists) {
         gulp.src(config.files.site)
           .pipe(plumber())
           .pipe(replace(siteVariable, sitePathReplace))
-          .pipe(gulp.dest(install.folders.theme))
+          .pipe(gulp.dest(folders.theme))
         ;
       }
       else {
         console.info('Creating src/theme.config (LESS config)');
-        gulp.src(install.templates.theme)
+        gulp.src(source.themeConfig)
           .pipe(plumber())
           .pipe(rename({ extname : '' }))
           .pipe(replace(siteVariable, sitePathReplace))
-          .pipe(gulp.dest(install.folders.theme))
+          .pipe(gulp.dest(folders.theme))
         ;
       }
 
@@ -170,44 +223,15 @@ module.exports = function () {
         Semantic.json
       ---------------*/
 
-      // add components
-      if(answers.components) {
-        json.components = answers.components;
-      }
-      // add permissions
-      if(answers.permission) {
-        json.permission = answers.permission;
-      }
+      var
+        configExists = fs.existsSync(config.files.config),
+        json         = install.createJSON(answers),
+        jsonSource   = (configExists)
+          ? config.files.config
+          : source.config
+      ;
 
-      // add dist folder paths
-      if(answers.dist) {
-        answers.dist = answers.dist;
-        json.paths.output = {
-          packaged     : answers.dist + '/',
-          uncompressed : answers.dist + '/components/',
-          compressed   : answers.dist + '/components/',
-          themes       : answers.dist + '/themes/'
-        };
-      }
-      // add rtl choice
-      if(answers.rtl) {
-        json.rtl = answers.rtl;
-      }
-      // add site path
-      if(answers.site) {
-        json.paths.source.site = answers.site + '/';
-      }
-      if(answers.packaged) {
-        json.paths.output.packaged = answers.packaged + '/';
-      }
-      if(answers.compressed) {
-        json.paths.output.compressed = answers.compressed + '/';
-      }
-      if(answers.uncompressed) {
-        json.paths.output.uncompressed = answers.uncompressed + '/';
-      }
-
-      // write semantic.json
+      // adjust variables in theme.less
       if(configExists) {
         console.info('Extending config file (semantic.json)');
         gulp.src(jsonSource)
