@@ -211,9 +211,10 @@ module.exports = {
 
   // folder paths to files relative to root
   folders: {
-    modules: './node_modules/',
+    modules: 'node_modules/',
     config : './',
     site   : './src/site',
+    tasks  : 'tasks/',
     theme  : './src/'
   },
 

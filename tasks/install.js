@@ -94,18 +94,26 @@ module.exports = function () {
   if(currentConfig && manager === 'NPM') {
 
     var
-      definitionPath = path.join(manager.root, currentConfig.base + currentConfig.source.definitions),
-      themePath      = path.join(manager.root, currentConfig.base + currentConfig.source.themes),
-      siteThemePath  = path.join(manager.root, currentConfig.base + currentConfig.source.site)
+      updatePaths = {
+        definition : path.join(manager.root, currentConfig.base, currentConfig.source.definitions),
+        theme      : path.join(manager.root, currentConfig.base, currentConfig.source.themes),
+        site       : path.join(manager.root, currentConfig.base, currentConfig.source.site),
+        modules    : path.join(manager.root, currentConfig.base, folders.modules),
+        tasks      : path.join(manager.root, currentConfig.base, folders.tasks)
+      }
     ;
 
     console.info('Updating ui definitions to ' + release.version);
-    wrench.copyDirSyncRecursive(source.definitions, definitionPath, settings.wrench.update);
+    wrench.copyDirSyncRecursive(source.definitions, updatePaths.definition, settings.wrench.update);
 
     console.info('Updating default theme to' + release.version);
-    wrench.copyDirSyncRecursive(source.themes, themePath, settings.wrench.update);
+    wrench.copyDirSyncRecursive(source.themes, updatePaths.theme, settings.wrench.update);
 
-    wrench.copyDirSyncRecursive(source.site, siteThemePath, settings.wrench.site);
+    console.info('Updating additional files...');
+    wrench.copyDirSyncRecursive(source.modules, updatePaths.modules, settings.wrench.update);
+    wrench.copyDirSyncRecursive(source.tasks, updatePaths.tasks, settings.wrench.update);
+
+    wrench.copyDirSyncRecursive(source.site, updatePaths.site, settings.wrench.site);
   }
 
 
@@ -131,18 +139,18 @@ module.exports = function () {
       console.log('------------------------------');
 
       /*--------------
-        Install Tools
+         NPM Install
       ---------------*/
 
-      // We're moving things around
       if(answers.root || answers.customRoot) {
 
         var
+          installPaths = {},
           gulpRoot,
           gulpFileExists
         ;
 
-        // Set root to custom root path
+        // Set root to custom root path if set
         if(answers.customRoot) {
           answers.root = answers.customRoot;
         }
@@ -155,9 +163,21 @@ module.exports = function () {
         // Copy build tools to gulp root (node_modules & gulpfile)
         if(answers.semanticRoot) {
 
+          installPaths = {
+            definition : path.join(answers.semanticRoot, currentConfig.source.definitions),
+            theme      : path.join(answers.semanticRoot, currentConfig.source.themes),
+            site       : path.join(answers.semanticRoot, currentConfig.source.site),
+            modules    : path.join(answers.semanticRoot, folders.modules),
+            tasks      : path.join(answers.semanticRoot, folders.tasks)
+          };
+
           // copy gulp node_modules
-          console.info('Copying dependencies', answers.semanticRoot + folders.modules);
-          wrench.copyDirSyncRecursive(source.modules, answers.semanticRoot + folders.modules, settings.wrench.modules);
+          console.info('Installing SUI to ', answers.semanticRoot);
+          wrench.copyDirSyncRecursive(source.definitions, installPaths.definition, settings.wrench.update);
+          wrench.copyDirSyncRecursive(source.themes, installPaths.theme, settings.wrench.update);
+          wrench.copyDirSyncRecursive(source.modules, installPaths.modules, settings.wrench.update);
+          wrench.copyDirSyncRecursive(source.tasks, installPaths.tasks, settings.wrench.update);
+          wrench.copyDirSyncRecursive(source.site, installPaths.site, settings.wrench.site);
 
           // create gulp file
           console.info('Creating gulp-file.js');
@@ -165,7 +185,6 @@ module.exports = function () {
             .pipe(plumber())
             .pipe(gulp.dest(answers.semanticRoot))
           ;
-
 
         }
 
