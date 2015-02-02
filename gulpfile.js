@@ -29,7 +29,7 @@ gulp.task('build', 'Builds all files from source', build);
 gulp.task('clean', 'Clean dist folder', clean);
 gulp.task('version', 'Displays current version of Semantic', version);
 
-gulp.task('check install', 'Set-up project for first time', checkInstall);
+gulp.task('check install', 'Check if project is setup', checkInstall);
 gulp.task('install', 'Set-up project for first time', install);
 
 

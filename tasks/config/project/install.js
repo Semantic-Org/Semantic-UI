@@ -195,27 +195,30 @@ module.exports = {
   files: {
     config   : 'semantic.json',
     site     : 'src/site',
-    theme    : 'src/theme.config'
+    theme    : 'src/theme.co nfig'
   },
 
-  // source paths (inside PM folder)
+  // source paths (relative to tasks/install.js )
   source: {
     config      : './semantic.json.example',
     definitions : './src/definitions',
     gulpFile    : './gulpfile.js',
     modules     : './node_modules/',
     site        : './src/_site',
+    tasks       : './tasks',
     themes      : './src/themes',
     themeConfig : './src/theme.config.example'
   },
 
   // folder paths to files relative to root
   folders: {
-    modules: 'node_modules/',
-    config : './',
-    site   : './src/site',
-    tasks  : 'tasks/',
-    theme  : './src/'
+    definitions : 'src/definitions/',
+    themes      : 'src/themes/',
+    modules     : 'node_modules/',
+    tasks       : 'tasks/',
+    site        : 'src/site',
+    config      : './',
+    theme       : './src/'
   },
 
   // questions asked during install
@@ -677,6 +680,13 @@ module.exports = {
 
       // copy during npm update (default theme / definition)
       update: {
+        forceDelete       : true,
+        excludeHiddenUnix : true,
+        preserveFiles     : false
+      },
+
+      // copy during first npm install
+      install: {
         forceDelete       : true,
         excludeHiddenUnix : true,
         preserveFiles     : false

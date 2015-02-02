@@ -8,6 +8,7 @@ var
   // node dependencies
   console        = require('better-console'),
   fs             = require('fs'),
+  mkdirp         = require('mkdirp'),
   path           = require('path'),
 
   // gulp dependencies
@@ -39,11 +40,6 @@ var
 // Export install task
 module.exports = function () {
 
-
-  /*--------------
-    Install Tools
-  ---------------*/
-
   var
     currentConfig = requireDotFile('semantic.json'),
     manager       = install.getPackageManager(),
@@ -58,64 +54,64 @@ module.exports = function () {
     root : path.normalize(__dirname + '/../')
   };
 
-  if(manager == 'NPM') {
-    // PM that supports Build Tools
-
-    if(currentConfig) {
-      // Upgrade run
-      rootQuestions = [];
-    }
-    else {
-      // First Run
-      rootQuestions[0].message = rootQuestions[0].message
-        .replace('{packageMessage}', 'We detected you are using \033[92m' + manager.name + '\033[0m. Nice! ')
-        .replace('{root}', manager.root)
-      ;
-      // set default path to detected PM root
-      rootQuestions[0].default = manager.root;
-      rootQuestions[1].default = manager.root;
-    }
-  }
-  else {
-    // Unsupported package manager
-    rootQuestions = [];
-  }
-
-  // insert root questions after "Install Type" question
-  if(rootQuestions.length > 0) {
-    Array.prototype.splice.apply(questions.setup, [2, 0].concat(rootQuestions));
-  }
-
-
   /*--------------
-      NPM Update
+     NPM Update
   ---------------*/
 
-  if(currentConfig && manager === 'NPM') {
+  if(currentConfig && manager.name === 'NPM') {
 
     var
       updatePaths = {
-        definition : path.join(manager.root, currentConfig.base, currentConfig.source.definitions),
-        theme      : path.join(manager.root, currentConfig.base, currentConfig.source.themes),
-        site       : path.join(manager.root, currentConfig.base, currentConfig.source.site),
-        modules    : path.join(manager.root, currentConfig.base, folders.modules),
-        tasks      : path.join(manager.root, currentConfig.base, folders.tasks)
+        definition : path.join(manager.root, currentConfig.paths.source.definitions),
+        theme      : path.join(manager.root, currentConfig.paths.source.themes),
+        site       : path.join(manager.root, currentConfig.paths.source.site),
+        modules    : path.join(manager.root, folders.modules),
+        tasks      : path.join(manager.root, folders.tasks)
       }
     ;
 
-    console.info('Updating ui definitions to ' + release.version);
-    wrench.copyDirSyncRecursive(source.definitions, updatePaths.definition, settings.wrench.update);
+    // duck-type if there is anything actually to update
+    if( fs.existsSync(updatePaths.definition) ) {
 
-    console.info('Updating default theme to' + release.version);
-    wrench.copyDirSyncRecursive(source.themes, updatePaths.theme, settings.wrench.update);
+      console.info('Updating ui definitions to ' + release.version);
+      wrench.copyDirSyncRecursive(source.definitions, updatePaths.definition, settings.wrench.update);
 
-    console.info('Updating additional files...');
-    wrench.copyDirSyncRecursive(source.modules, updatePaths.modules, settings.wrench.update);
-    wrench.copyDirSyncRecursive(source.tasks, updatePaths.tasks, settings.wrench.update);
+      console.info('Updating default theme to' + release.version);
+      wrench.copyDirSyncRecursive(source.themes, updatePaths.theme, settings.wrench.update);
 
-    wrench.copyDirSyncRecursive(source.site, updatePaths.site, settings.wrench.site);
+      console.info('Updating additional files...');
+      wrench.copyDirSyncRecursive(source.modules, updatePaths.modules, settings.wrench.update);
+      wrench.copyDirSyncRecursive(source.tasks, updatePaths.tasks, settings.wrench.update);
+      wrench.copyDirSyncRecursive(source.site, updatePaths.site, settings.wrench.site);
+
+      return;
+    }
+
   }
 
+  /*--------------
+   Root Questions
+  ---------------*/
+
+  // PM that supports Build Tools
+  if(manager.name == 'NPM') {
+    rootQuestions[0].message = rootQuestions[0].message
+      .replace('{packageMessage}', 'We detected you are using \033[92m' + manager.name + '\033[0m. Nice! ')
+      .replace('{root}', manager.root)
+    ;
+    // set default path to detected PM root
+    rootQuestions[0].default = manager.root;
+    rootQuestions[1].default = manager.root;
+  }
+  else {
+    // PM that does not support build tools
+    rootQuestions = [];
+  }
+
+  // insert PM questions after "Install Type" question
+  if(rootQuestions.length > 0) {
+    Array.prototype.splice.apply(questions.setup, [2, 0].concat(rootQuestions));
+  }
 
   /*--------------
        Set-up
@@ -142,9 +138,10 @@ module.exports = function () {
          NPM Install
       ---------------*/
 
-      if(answers.root || answers.customRoot) {
+      if(answers.useRoot || answers.customRoot) {
 
         var
+          installFolder,
           installPaths = {},
           gulpRoot,
           gulpFileExists
@@ -152,38 +149,43 @@ module.exports = function () {
 
         // Set root to custom root path if set
         if(answers.customRoot) {
-          answers.root = answers.customRoot;
+          manager.root = answers.customRoot;
         }
 
-        // add project root to semantic root
+        // Copy semantic
         if(answers.semanticRoot) {
-          answers.semanticRoot = path.join(answers.root, answers.semanticRoot);
-        }
 
-        // Copy build tools to gulp root (node_modules & gulpfile)
-        if(answers.semanticRoot) {
+          // add project root to semantic root
+          installFolder = path.join(manager.root, answers.semanticRoot);
 
           installPaths = {
-            definition : path.join(answers.semanticRoot, currentConfig.source.definitions),
-            theme      : path.join(answers.semanticRoot, currentConfig.source.themes),
-            site       : path.join(answers.semanticRoot, currentConfig.source.site),
-            modules    : path.join(answers.semanticRoot, folders.modules),
-            tasks      : path.join(answers.semanticRoot, folders.tasks)
+            definition : path.resolve( path.join(installFolder, folders.definitions) ),
+            theme      : path.resolve( path.join(installFolder, folders.themes) ),
+            modules    : path.resolve( path.join(installFolder, folders.modules) ),
+            tasks      : path.resolve( path.join(installFolder, folders.tasks) )
           };
 
+          // create project folder if doesnt exist
+          mkdirp.sync(installFolder);
+          mkdirp.sync(installPaths.definition);
+          mkdirp.sync(installPaths.theme);
+          mkdirp.sync(installPaths.modules);
+          mkdirp.sync(installPaths.tasks);
+
           // copy gulp node_modules
-          console.info('Installing SUI to ', answers.semanticRoot);
-          wrench.copyDirSyncRecursive(source.definitions, installPaths.definition, settings.wrench.update);
-          wrench.copyDirSyncRecursive(source.themes, installPaths.theme, settings.wrench.update);
-          wrench.copyDirSyncRecursive(source.modules, installPaths.modules, settings.wrench.update);
-          wrench.copyDirSyncRecursive(source.tasks, installPaths.tasks, settings.wrench.update);
-          wrench.copyDirSyncRecursive(source.site, installPaths.site, settings.wrench.site);
+          console.info('Copying definitions to ', answers.semanticRoot);
+          wrench.copyDirSyncRecursive(source.definitions, installPaths.definition, settings.wrench.install);
+          wrench.copyDirSyncRecursive(source.themes, installPaths.theme, settings.wrench.install);
+
+          console.info('Copying build tools', answers.semanticRoot);
+          wrench.copyDirSyncRecursive(source.modules, installPaths.modules, settings.wrench.install);
+          wrench.copyDirSyncRecursive(source.tasks, installPaths.tasks, settings.wrench.install);
 
           // create gulp file
           console.info('Creating gulp-file.js');
           gulp.src(source.gulpFile)
             .pipe(plumber())
-            .pipe(gulp.dest(answers.semanticRoot))
+            .pipe(gulp.dest(installFolder))
           ;
 
         }
