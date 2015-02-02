@@ -29,7 +29,7 @@
 .ui.menu {
   margin: @margin;
   background: @background;
-  font-size: 0px;
+  font-size: 0em;
   font-weight: @fontWeight;
   box-shadow: @boxShadow;
   border-radius: @borderRadius;
@@ -48,6 +48,11 @@
 }
 .ui.menu:last-child {
   margin-bottom: 0rem;
+}
+
+.ui.menu .menu {
+  font-size: 0em;
+  margin: 0em;
 }
 
 /*--------------
@@ -90,9 +95,6 @@
   transition: @transition;
 }
 
-.ui.menu .menu {
-  margin: 0em;
-}
 
 /* Floated Content */
 .ui.menu > .item:first-child {
