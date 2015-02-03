@@ -8,6 +8,7 @@
 - **Form** - Input rules now apply to `input[type="time"]`
 
 **Bugs**
+- **Transition** - Transitions with direction now use word order dependency to prevent conflict with component directions, for example `bottom left popup slide down in transition`
 - **Dropdown** - Upward dropdown now has upward arrow icon
 
 ### Version 1.8.1 - January 26, 2015
