@@ -194,7 +194,7 @@ module.exports = {
   files: {
     config   : 'semantic.json',
     site     : 'src/site',
-    theme    : 'src/theme.co nfig'
+    theme    : 'src/theme.config'
   },
 
   regExp: {

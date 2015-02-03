@@ -56,37 +56,62 @@ module.exports = function () {
   };
 
   /*--------------
-     NPM Update
+      PM Update
   ---------------*/
 
+  // currently only supports NPM
   if(currentConfig && manager.name === 'NPM') {
 
     var
-      updatePaths = {
-        definition : path.join(manager.root, currentConfig.paths.source.definitions),
-        theme      : path.join(manager.root, currentConfig.paths.source.themes),
-        site       : path.join(manager.root, currentConfig.paths.source.site),
-        modules    : path.join(manager.root, currentConfig.base + folders.modules),
-        tasks      : path.join(manager.root, currentConfig.base + folders.tasks)
+      updateFolder = manager.root,
+      updatePaths  = {
+        config     : path.join(updateFolder, install.files.config),
+        modules    : path.join(updateFolder, currentConfig.base, folders.modules),
+        tasks      : path.join(updateFolder, currentConfig.base, folders.tasks),
+        definition : path.join(updateFolder, currentConfig.paths.source.definitions),
+        site       : path.join(updateFolder, currentConfig.paths.source.site),
+        theme      : path.join(updateFolder, currentConfig.paths.source.themes)
       }
     ;
 
-    // duck-type if there is anything actually to update
+    // duck-type if there is a project installed
     if( fs.existsSync(updatePaths.definition) ) {
 
-      console.info('Updating ui definitions to ' + release.version);
-      // fs.renameSync(oldPath, newPath); swap to move before debut
-      wrench.copyDirSyncRecursive(source.definitions, updatePaths.definition, settings.wrench.update);
+      // perform update if new version
+      if(currentConfig.version !== release.version) {
 
-      console.info('Updating default theme to ' + release.version);
-      wrench.copyDirSyncRecursive(source.themes, updatePaths.theme, settings.wrench.update);
+        console.log('Updating Semantic UI from ' + currentConfig.version + ' to ' + release.version);
 
-      console.info('Updating gulp tasks...');
-      wrench.copyDirSyncRecursive(source.modules, updatePaths.modules, settings.wrench.update);
-      wrench.copyDirSyncRecursive(source.tasks, updatePaths.tasks, settings.wrench.update);
-      wrench.copyDirSyncRecursive(source.site, updatePaths.site, settings.wrench.site);
+        console.info('Updating ui definitions...');
+        // fs.renameSync(oldPath, newPath); swap to move before debut
+        wrench.copyDirSyncRecursive(source.definitions, updatePaths.definition, settings.wrench.update);
 
-      return;
+        console.info('Updating default theme...');
+        wrench.copyDirSyncRecursive(source.themes, updatePaths.theme, settings.wrench.update);
+
+        console.info('Updating gulp tasks...');
+        wrench.copyDirSyncRecursive(source.modules, updatePaths.modules, settings.wrench.update);
+        wrench.copyDirSyncRecursive(source.tasks, updatePaths.tasks, settings.wrench.update);
+        wrench.copyDirSyncRecursive(source.site, updatePaths.site, settings.wrench.site);
+
+        console.info('Updating version...');
+        // update version number in semantic.json
+        gulp.src(updatePaths.config)
+          .pipe(plumber())
+          .pipe(rename(settings.rename.json)) // preserve file extension
+          .pipe(jsonEditor({
+            version: release.version
+          }))
+          .pipe(gulp.dest(updateFolder))
+        ;
+
+        return;
+      }
+      else {
+        console.log('Current version of Semantic UI already installed, skipping set-up');
+        return;
+      }
+
     }
 
   }
@@ -137,22 +162,21 @@ module.exports = function () {
       console.log('------------------------------');
 
       /*--------------
-         NPM Install
+         PM Install
       ---------------*/
+
       var
         installPaths = {},
         installFolder
       ;
 
+      // Check if PM install
       if(answers.useRoot || answers.customRoot) {
 
         // Set root to custom root path if set
         if(answers.customRoot) {
           manager.root = answers.customRoot;
         }
-
-        console.log(currentConfig.version, release.version);
-        return;
 
         // Copy semantic
         if(answers.semanticRoot) {
