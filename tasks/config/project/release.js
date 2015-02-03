@@ -4,7 +4,9 @@
 
 var
   requireDotFile = require('require-dot-file'),
-  package
+  config,
+  package,
+  version
 ;
 
 
@@ -13,8 +15,16 @@ var
 *******************************/
 
 try {
-  // looks for config file across all parent directories
+
+  config   = requireDotFile('semantic.json');
   package  = requireDotFile('package.json');
+
+  // looks for version in config or package.json (whichever is available)
+  version = (config && config.version !== undefined)
+    ? config.version
+    : package.version
+  ;
+
 }
 
 catch(error) {

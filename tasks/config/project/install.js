@@ -6,6 +6,7 @@ var
   fs             = require('fs'),
   path           = require('path'),
   defaults       = require('../defaults'),
+  release        = require('./release'),
 
   requireDotFile = require('require-dot-file')
 ;
@@ -82,6 +83,8 @@ module.exports = {
   // checks if files are in a PM directory
   getPackageManager: function(directory) {
     var
+      // returns last matching result (avoid sub-module detection)
+      packageManager,
       walk = function(directory) {
         var
           pathArray     = directory.split('/'),
@@ -89,40 +92,32 @@ module.exports = {
           nextDirectory = path.normalize(directory + '../')
         ;
         if( folder == 'bower_components') {
-          return {
+          packageManager = {
             name: 'Bower',
             root: nextDirectory
           };
         }
         else if(folder == 'node_modules') {
-         return {
+         packageManager = {
             name: 'NPM',
             root: nextDirectory
           };
         }
         else if(folder == 'composer') {
-         return {
+         packageManager = {
             name: 'Composer',
             root: nextDirectory
           };
         }
-        else if(folder == 'components' || folder == 'modules') {
-         return {
-            name: 'a custom module system',
-            root: nextDirectory
-          };
-        }
         else {
-          // reached file system root, let's stop
           if(path.resolve(directory) == '/') {
-            return false;
+            return packageManager;
           }
           // recurse
           return walk(nextDirectory);
         }
       }
     ;
-
     // start walk from outside component folder
     directory = directory || (__dirname + '/../');
     return walk(directory);
@@ -138,30 +133,9 @@ module.exports = {
       }
     ;
 
-    // add path to semantic
-    if(answers.semanticRoot) {
-      json.base = answers.semanticRoot;
-    }
-
     // add components
     if(answers.components) {
       json.components = answers.components;
-    }
-
-    // add permissions
-    if(answers.permission) {
-      json.permission = answers.permission;
-    }
-
-    // add dist folder paths
-    if(answers.dist) {
-      answers.dist = answers.dist;
-      json.paths.output = {
-        packaged     : answers.dist + '/',
-        uncompressed : answers.dist + '/components/',
-        compressed   : answers.dist + '/components/',
-        themes       : answers.dist + '/themes/'
-      };
     }
 
     // add rtl choice
@@ -169,18 +143,43 @@ module.exports = {
       json.rtl = answers.rtl;
     }
 
+    // add permissions
+    if(answers.permission) {
+      json.permission = answers.permission;
+    }
+
+    // add path to semantic
+    if(answers.semanticRoot) {
+      json.base = path.normalize(answers.semanticRoot);
+    }
+
+    // record version number to avoid re-installing on same version
+    json.version = release.version;
+
+    // add dist folder paths
+    if(answers.dist) {
+      answers.dist = path.normalize(answers.dist);
+
+      json.paths.output = {
+        packaged     : path.normalize(answers.dist + '/'),
+        uncompressed : path.normalize(answers.dist + '/components/'),
+        compressed   : path.normalize(answers.dist + '/components/'),
+        themes       : path.normalize(answers.dist + '/themes/')
+      };
+    }
+
     // add site path
     if(answers.site) {
-      json.paths.source.site = answers.site + '/';
+      json.paths.source.site = path.normalize(answers.site + '/');
     }
     if(answers.packaged) {
-      json.paths.output.packaged = answers.packaged + '/';
+      json.paths.output.packaged = path.normalize(answers.packaged + '/');
     }
     if(answers.compressed) {
-      json.paths.output.compressed = answers.compressed + '/';
+      json.paths.output.compressed = path.normalize(answers.compressed + '/');
     }
     if(answers.uncompressed) {
-      json.paths.output.uncompressed = answers.uncompressed + '/';
+      json.paths.output.uncompressed = path.normalize(answers.uncompressed + '/');
     }
     return json;
   },
@@ -198,27 +197,33 @@ module.exports = {
     theme    : 'src/theme.co nfig'
   },
 
+  regExp: {
+    // used to match siteFolder variable in theme.less
+    siteVariable: /@siteFolder .*\'(.*)/mg
+  },
+
   // source paths (relative to tasks/install.js )
   source: {
-    config      : './semantic.json.example',
-    definitions : './src/definitions',
-    gulpFile    : './gulpfile.js',
-    modules     : './node_modules/',
-    site        : './src/_site',
-    tasks       : './tasks',
-    themes      : './src/themes',
-    themeConfig : './src/theme.config.example'
+    config       : './semantic.json.example',
+    definitions  : './src/definitions',
+    gulpFile     : './gulpfile.js',
+    modules      : './node_modules/',
+    site         : './src/_site',
+    tasks        : './tasks',
+    themeConfig  : './src/theme.config.example',
+    themes       : './src/themes',
+    userGulpFile : './tasks/config/npm/gulpfile.js'
   },
 
   // folder paths to files relative to root
   folders: {
-    definitions : 'src/definitions/',
-    themes      : 'src/themes/',
-    modules     : 'node_modules/',
-    tasks       : 'tasks/',
-    site        : 'src/site',
     config      : './',
-    theme       : './src/'
+    definitions : 'src/definitions/',
+    modules     : 'node_modules/',
+    site        : 'src/site',
+    tasks       : 'tasks/',
+    themeConfig : 'src/',
+    themes      : 'src/themes/'
   },
 
   // questions asked during install

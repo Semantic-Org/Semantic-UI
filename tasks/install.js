@@ -32,6 +32,7 @@ var
   // shorthand
   questions      = install.questions,
   folders        = install.folders,
+  regExp         = install.regExp,
   settings       = install.settings,
   source         = install.source
 
@@ -65,8 +66,8 @@ module.exports = function () {
         definition : path.join(manager.root, currentConfig.paths.source.definitions),
         theme      : path.join(manager.root, currentConfig.paths.source.themes),
         site       : path.join(manager.root, currentConfig.paths.source.site),
-        modules    : path.join(manager.root, folders.modules),
-        tasks      : path.join(manager.root, folders.tasks)
+        modules    : path.join(manager.root, currentConfig.base + folders.modules),
+        tasks      : path.join(manager.root, currentConfig.base + folders.tasks)
       }
     ;
 
@@ -74,12 +75,13 @@ module.exports = function () {
     if( fs.existsSync(updatePaths.definition) ) {
 
       console.info('Updating ui definitions to ' + release.version);
+      // fs.renameSync(oldPath, newPath); swap to move before debut
       wrench.copyDirSyncRecursive(source.definitions, updatePaths.definition, settings.wrench.update);
 
-      console.info('Updating default theme to' + release.version);
+      console.info('Updating default theme to ' + release.version);
       wrench.copyDirSyncRecursive(source.themes, updatePaths.theme, settings.wrench.update);
 
-      console.info('Updating additional files...');
+      console.info('Updating gulp tasks...');
       wrench.copyDirSyncRecursive(source.modules, updatePaths.modules, settings.wrench.update);
       wrench.copyDirSyncRecursive(source.tasks, updatePaths.tasks, settings.wrench.update);
       wrench.copyDirSyncRecursive(source.site, updatePaths.site, settings.wrench.site);
@@ -137,20 +139,20 @@ module.exports = function () {
       /*--------------
          NPM Install
       ---------------*/
+      var
+        installPaths = {},
+        installFolder
+      ;
 
       if(answers.useRoot || answers.customRoot) {
-
-        var
-          installFolder,
-          installPaths = {},
-          gulpRoot,
-          gulpFileExists
-        ;
 
         // Set root to custom root path if set
         if(answers.customRoot) {
           manager.root = answers.customRoot;
         }
+
+        console.log(currentConfig.version, release.version);
+        return;
 
         // Copy semantic
         if(answers.semanticRoot) {
@@ -165,25 +167,26 @@ module.exports = function () {
             tasks      : path.resolve( path.join(installFolder, folders.tasks) )
           };
 
-          // create project folder if doesnt exist
+          // create project folders if doesnt exist
           mkdirp.sync(installFolder);
           mkdirp.sync(installPaths.definition);
           mkdirp.sync(installPaths.theme);
           mkdirp.sync(installPaths.modules);
           mkdirp.sync(installPaths.tasks);
 
+          // fs.renameSync(oldPath, newPath); swap to move before debut
           // copy gulp node_modules
-          console.info('Copying definitions to ', answers.semanticRoot);
+          console.info('Copying definitions to ', installPaths.definition);
           wrench.copyDirSyncRecursive(source.definitions, installPaths.definition, settings.wrench.install);
           wrench.copyDirSyncRecursive(source.themes, installPaths.theme, settings.wrench.install);
 
-          console.info('Copying build tools', answers.semanticRoot);
+          console.info('Copying build tools', installPaths.tasks);
           wrench.copyDirSyncRecursive(source.modules, installPaths.modules, settings.wrench.install);
           wrench.copyDirSyncRecursive(source.tasks, installPaths.tasks, settings.wrench.install);
 
           // create gulp file
           console.info('Creating gulp-file.js');
-          gulp.src(source.gulpFile)
+          gulp.src(source.userGulpFile)
             .pipe(plumber())
             .pipe(gulp.dest(installFolder))
           ;
@@ -195,39 +198,57 @@ module.exports = function () {
 
 
       /*--------------
-         Site Themes
+         Site Theme
       ---------------*/
 
       var
-        siteVariable      = /@siteFolder .*\'(.*)/mg,
-        siteDestination   = answers.site || folders.site,
-
-        siteExists        = fs.existsSync(siteDestination),
-        themeConfigExists = fs.existsSync(config.files.theme),
-
-        pathToSite        = path.relative(path.resolve(folders.theme), path.resolve(siteDestination)).replace(/\\/g,'/'),
-        sitePathReplace   = "@siteFolder   : '" + pathToSite + "/';"
+        configDestination,
+        siteDestination,
+        pathToSite,
+        siteVariable
       ;
 
+      // determine path to site folder from src/
+      siteDestination   = answers.site || folders.site;
+      configDestination = folders.themeConfig;
+
+      // add base path when npm install
+      if(installFolder) {
+        siteDestination   = installFolder + siteDestination;
+        configDestination = installFolder + configDestination;
+      }
+
+      // Copy _site templates without overwrite current site theme
+      wrench.copyDirSyncRecursive(source.site, siteDestination, settings.wrench.site);
+
+      // determine path to _site folder from theme config
+      pathToSite   = path.relative(path.resolve(folders.themeConfig), path.resolve(siteDestination));
+      siteVariable = "@siteFolder   : '" + pathToSite + "/';";
+
+      // force less variables to use forward slashes for paths
+      pathToSite = pathToSite.replace(/\\/g,'/');
+
       // create site files
-      if(siteExists) {
+      if( fs.existsSync(siteDestination) ) {
         console.info('Site folder exists, merging files (no overwrite)', siteDestination);
       }
       else {
         console.info('Creating site theme folder', siteDestination);
       }
 
-      // Copy _site template without overwrite
-      wrench.copyDirSyncRecursive(source.site, siteDestination, settings.wrench.site);
+      /*--------------
+        Theme Config
+      ---------------*/
 
+      // rewrite site variable in theme.less
+      console.info('Adjusting @siteFolder', siteVariable);
 
-      // Adjust theme.less in project folder
-      console.info('Adjusting @siteFolder', sitePathReplace);
-      if(themeConfigExists) {
+      if(fs.existsSync(config.files.theme)) {
+        console.info('Modifying src/theme.config (LESS config)');
         gulp.src(config.files.site)
           .pipe(plumber())
-          .pipe(replace(siteVariable, sitePathReplace))
-          .pipe(gulp.dest(folders.theme))
+          .pipe(replace(regExp.siteVariable, siteVariable))
+          .pipe(gulp.dest(folders.themeConfig))
         ;
       }
       else {
@@ -235,8 +256,8 @@ module.exports = function () {
         gulp.src(source.themeConfig)
           .pipe(plumber())
           .pipe(rename({ extname : '' }))
-          .pipe(replace(siteVariable, sitePathReplace))
-          .pipe(gulp.dest(folders.theme))
+          .pipe(replace(regExp.siteVariable, siteVariable))
+          .pipe(gulp.dest(folders.themeConfig))
         ;
       }
 

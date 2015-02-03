@@ -2,8 +2,7 @@
              Docs
 *******************************/
 
-/* Custom paths config for serving docs */
-
+/* Paths used for "serve-docs" and "build-docs" tasks */
 module.exports = {
   base: '',
   paths: {
