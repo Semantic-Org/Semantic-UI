@@ -48,12 +48,12 @@ module.exports = function () {
   ;
 
   console.clear();
-
-  // debug
+/*
+  // debug mode
   manager = {
     name : 'NPM',
     root : path.normalize(__dirname + '/../')
-  };
+  };*/
 
   /*--------------
       PM Update

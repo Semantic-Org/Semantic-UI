@@ -28,9 +28,6 @@ var when = {
   hasConfig: function() {
     return requireDotFile('semantic.json');
   },
-  hasThemeFile: function() {
-    return true;
-  },
 
   allowOverwrite: function(questions) {
     return (questions.overwrite === undefined || questions.overwrite == 'yes');
@@ -77,7 +74,7 @@ module.exports = {
 
   // check whether install is setup
   isSetup: function() {
-    return (when.hasThemeFile && when.hasConfig);
+    return when.hasConfig();
   },
 
   // checks if files are in a PM directory
@@ -111,7 +108,7 @@ module.exports = {
         }
         else {
           if(path.resolve(directory) == '/') {
-            return packageManager;
+            return packageManager || false;
           }
           // recurse
           return walk(nextDirectory);
