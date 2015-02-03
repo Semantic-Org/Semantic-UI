@@ -48,12 +48,15 @@ module.exports = function () {
   ;
 
   console.clear();
-/*
-  // debug mode
+
+
+  /*
+  // debug NPM install
   manager = {
     name : 'NPM',
     root : path.normalize(__dirname + '/../')
-  };*/
+  };
+  */
 
   /*--------------
       PM Update

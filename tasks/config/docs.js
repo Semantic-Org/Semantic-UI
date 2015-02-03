@@ -13,7 +13,7 @@ module.exports = {
       themes      : 'src/themes/'
     },
     output: {
-      less         :     '../docs/out/src/',
+      less         : '../docs/out/src/',
       packaged     : '../docs/out/dist/',
       uncompressed : '../docs/out/dist/components/',
       compressed   : '../docs/out/dist/components/',

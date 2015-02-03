@@ -11,9 +11,10 @@ var
 
   // semantic.json defaults
   defaults        = require('./defaults'),
+  config          = require('./project/config'),
 
   // final config object
-  config
+  userConfig
 ;
 
 
@@ -23,7 +24,7 @@ var
 
 try {
   // looks for config file across all parent directories
-  config  = requireDotFile('semantic.json');
+  userConfig = requireDotFile('semantic.json');
 }
 catch(error) {
   if(error.code === 'MODULE_NOT_FOUND') {
@@ -31,84 +32,26 @@ catch(error) {
   }
 }
 
-if(!config) {
+if(!userConfig) {
   // No semantic.json file use tasks/config/defaults.js
-  config = defaults;
+  userConfig = defaults;
 }
 else {
   // extend defaults using shallow copy
-  config = extend(false, {}, defaults, config);
+  userConfig = extend(false, {}, defaults, config);
 }
 
 
 /*******************************
-         Derived Values
+       Add Derived Values
 *******************************/
 
+// adds additional derived values to config
+userConfig = config.addDerivedValues(userConfig);
 
-/*--------------
-   File Paths
----------------*/
-
-// resolve source paths
-for(var folder in config.paths.source) {
-  if(config.paths.source.hasOwnProperty(folder)) {
-    config.paths.source[folder] = path.normalize(config.base + config.paths.source[folder]);
-  }
-}
-
-// resolve output paths
-for(folder in config.paths.output) {
-  if(config.paths.output.hasOwnProperty(folder)) {
-    config.paths.output[folder] = path.normalize(config.base + config.paths.output[folder]);
-  }
-}
-
-// resolve "clean" command path
-config.paths.clean = config.base + config.paths.clean;
-
-/*--------------
-    CSS URLs
----------------*/
-
-// determine asset paths in css by finding relative path between themes and output
-// force forward slashes
-
-config.paths.assets = {
-  source       : '../../themes', // source asset path is always the same
-  uncompressed : path.relative(config.paths.output.uncompressed, config.paths.output.themes).replace(/\\/g,'/'),
-  compressed   : path.relative(config.paths.output.compressed, config.paths.output.themes).replace(/\\/g,'/'),
-  packaged     : path.relative(config.paths.output.packaged, config.paths.output.themes).replace(/\\/g,'/')
-};
-
-
-/*--------------
-   Permission
----------------*/
-
-if(config.permission) {
-  config.hasPermissions = true;
-}
-else {
-  // pass blank object to avoid causing errors
-  config.permission     = {};
-  config.hasPermissions = false;
-}
-
-/*--------------
-     Globs
----------------*/
-
-// takes component object and creates file glob matching selected components
-config.globs.components = (typeof config.components == 'object')
-  ? (config.components.length > 1)
-    ? '{' + config.components.join(',') + '}'
-    : config.components[0]
-  : '{' + defaults.components.join(',') + '}'
-;
 
 /*******************************
              Export
 *******************************/
 
-module.exports = config;
+module.exports = userConfig;
