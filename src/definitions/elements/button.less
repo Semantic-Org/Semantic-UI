@@ -139,6 +139,21 @@
   color: transparent !important;
   transition: all 0s linear;
 }
+
+.ui.loading.button when (@loadingDisabled = true) {
+    /* Normal */
+    &:hover, &:active{ &:extend(.ui.button); }
+    
+    /* Colors */
+    &.blue:hover, &.blue:active { &:extend(.ui.blue.button); }
+    
+    /* Inverted */
+    &.inverted:hover, &.inverted:active { &:extend(.ui.inverted.button); }
+
+    /* Basic */
+    &.basic:hover, &.basic:active { &:extend(.ui.basic.button); }
+}
+
 .ui.loading.button:before {
   position: absolute;
   content: '';

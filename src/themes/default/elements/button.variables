@@ -56,6 +56,7 @@
 @loaderMargin: @loaderOffset 0em 0em @loaderOffset;
 @invertedLoaderFillColor: rgba(0, 0, 0, 0.15);
 
+
 @transition:
   opacity 0.1s @transitionEasing,
   background-color 0.1s @transitionEasing,
@@ -124,6 +125,7 @@
 
 /* Loading */
 @loadingBackground: @offWhite;
+@loadingDisabled: true;
 
 /*-------------------
         Types
