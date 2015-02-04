@@ -1,11 +1,28 @@
-gulp.task('register repos', false, function(callback) {
-  var
-    index = -1,
-    total = release.components.length,
-    process = require('child_process'),
-    stream,
-    stepRepo
-  ;
+/*******************************
+          Register PM
+*******************************/
+
+/*
+  Task to register component repos with Package Managers
+  * Registers component with bower
+  * Registers component with NPM
+*/
+
+var
+  // node dependencies
+  process = require('child_process'),
+
+  // config
+  release = require('../config/admin/release'),
+
+  total   = release.components.length,
+  index   = -1,
+  stream,
+  stepRepo
+;
+
+module.exports = function(callback) {
+
   console.log('Registering repos with package managers');
 
   // Do Git commands synchronously per component, to avoid issues
@@ -27,18 +44,19 @@ gulp.task('register repos', false, function(callback) {
       registerNPM          = 'npm publish'
 
     ;
-    /* One time register
+
+    /* Register with Bower */
     exec(registerBower, execSettings, function(err, stdout, stderr) {
       stepRepo();
     });
-    */
-    /* Update npm
+
+    /* Register with NPM */
     exec(registerNPM, execSettings, function(err, stdout, stderr) {
       console.log(err, stdout, stderr);
       stepRepo();
     });
-    */
+
   };
   stepRepo();
-});
+};
 

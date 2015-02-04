@@ -1,4 +1,41 @@
-gulp.task('update component repos', false, function() {
+/*******************************
+          Update Repos
+*******************************/
+
+/*
+
+ This task update all SUI individual component repos with new versions of components
+
+  * Creates new repo if doesnt exist (locally & GitHub)
+  * Adds remote it doesnt exists
+  * Commits changes
+  * Pulls latest changes from repo
+  * Merges changes if necessary
+  * Tag new releases if version changed in main repo
+  * Pushes changes to GitHub
+
+*/
+
+var
+  gulp           = require('gulp'),
+
+  // node dependencies
+  fs             = require('fs'),
+  git            = require('gulp-git'),
+  githubAPI      = require('github'),
+  requireDotFile = require('require-dot-file'),
+
+  // admin files
+  github         = require('../config/admin/github.js'),
+  oAuth          = require('../config/admin/oauth.js'),
+  release        = require('../config/admin/release'),
+
+  package        = requireDotFile('package.json'),
+  version        = package.version
+;
+
+module.exports = function() {
+
   var
     index = -1,
     total = release.components.length,
@@ -20,32 +57,29 @@ gulp.task('update component repos', false, function() {
       outputDirectory      = release.outputRoot + component + '/',
       capitalizedComponent = component.charAt(0).toUpperCase() + component.slice(1),
       repoName             = release.repoRoot + capitalizedComponent,
-      gitURL               = 'https://github.com/' + release.org + '/' + repoName + '.git',
-      repoURL              = 'https://github.com/' + release.org + '/' + repoName + '/',
       gitOptions           = { cwd: outputDirectory },
       quietOptions         = { args: '-q', cwd: outputDirectory },
       isRepository         = fs.existsSync(outputDirectory + '.git/'),
+
+      gitURL               = 'https://github.com/' + release.org + '/' + repoName + '.git',
+      repoURL              = 'https://github.com/' + release.org + '/' + repoName + '/',
+
       componentPackage     = fs.existsSync(outputDirectory + 'package.json' )
         ? require(outputDirectory + 'package.json')
         : false,
-      commitArgs = (oAuth.name !== undefined && oAuth.email !== undefined)
-        ? '--author "' + oAuth.name + ' <' + oAuth.email + '>"'
-        : '',
+
       isNewVersion  = (version && componentPackage.version != version),
       mergeMessage  = 'Merged from upstream',
       commitMessage = (isNewVersion)
         ? 'Updated component to version ' + version
-        : 'Updated component release from Semantic-UI (Automatic)'
+        : 'Updated component release from Semantic-UI (Automatic)',
+
+      commitArgs = (oAuth.name !== undefined && oAuth.email !== undefined)
+        ? '--author "' + oAuth.name + ' <' + oAuth.email + '>"'
+        : ''
     ;
 
     console.log('Processing repository:' + outputDirectory);
-
-    if(isRepository) {
-      commitFiles();
-    }
-    else {
-      createRepo();
-    }
 
     // standard path
     function commitFiles() {
@@ -63,6 +97,7 @@ gulp.task('update component repos', false, function() {
         })
       ;
     }
+
     function pullFiles() {
       console.log('Pulling files');
       git.pull('origin', 'master', { args: '', cwd: outputDirectory }, function(error) {
@@ -75,6 +110,7 @@ gulp.task('update component repos', false, function() {
         }
       });
     }
+
     function mergeCommit() {
       // commit files
       console.log('Adding merge commit', commitArgs);
@@ -85,21 +121,18 @@ gulp.task('update component repos', false, function() {
           console.log('Nothing new to merge', error);
         })
         .on('finish', function(callback) {
-          if(1) {
-            tagFiles();
-          }
-          else {
-            pushFiles();
-          }
+          tagFiles();
         })
       ;
     }
+
     function tagFiles() {
       console.log('Tagging new version ', version);
       git.tag(version, 'Updated version from semantic-ui (automatic)', function (err) {
         pushFiles();
       });
     }
+
     function pushFiles() {
       console.log('Pushing files');
       git.push('origin', 'master', { args: '', cwd: outputDirectory }, function(error) {
@@ -127,6 +160,7 @@ gulp.task('update component repos', false, function() {
         }
       });
     }
+
     function initRepo() {
       console.log('Initializing repository in ' + outputDirectory);
       git.init(gitOptions, function(error) {
@@ -137,10 +171,12 @@ gulp.task('update component repos', false, function() {
         addRemote();
       });
     }
+
     function addRemote() {
       console.log('Adding remote origin as ' + gitURL);
       git.addRemote('origin', gitURL, gitOptions, firstPushFiles);
     }
+
     function firstPushFiles() {
       console.log('Pushing files');
       git.push('origin', 'master', { args: '-u', cwd: outputDirectory }, function(error) {
@@ -154,8 +190,16 @@ gulp.task('update component repos', false, function() {
         }
       });
     }
+
+    if(isRepository) {
+      commitFiles();
+    }
+    else {
+      createRepo();
+    }
+
   };
 
   return stepRepo();
 
-});
+};

@@ -1,28 +1,26 @@
+/*******************************
+          Release All
+*******************************/
+
+/*
+ This task update all SUI individual component repos with new versions of components
+
+  * Creates local files at ../components/ with each repo for release
+  * Syncs each component with GitHub
+
+*/
+
+var
+  runSequence = require('run-sequence')
+;
+
 /* Release All */
-gulp.task('release all', false, function() {
+module.exports = function() {
 
-  if(!oAuth) {
-    console.error('Must add node include tasks/admin/oauth.js with oauth token for GitHub');
-    return;
-  }
-
-  github = new githubAPI({
-    version    : '3.0.0',
-    debug      : true,
-    protocol   : 'https',
-    timeout    : 5000
-  });
-
-  github.authenticate({
-    type: 'oauth',
-    token: oAuth.token
-  });
-
-  // gulp build
   runSequence(
-    'build',
-    'create components',
-    'update component repos'
+    'build', // build Semantic
+    'create components', // create each component repo
+    'update component repos' // update component repos on github
   );
 
-});
+};

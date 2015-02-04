@@ -15,21 +15,29 @@
 */
 
 var
+  gulp            = require('gulp'),
+
+  // node dependencies
+  console         = require('better-console'),
+  fs              = require('fs'),
+  path            = require('path'),
+  runSequence     = require('run-sequence'),
+
   // admin dependencies
   concatFileNames = require('gulp-concat-filenames'),
+  flatten         = require('gulp-flatten'),
   git             = require('gulp-git'),
-  githubAPI       = require('github'),
-  runSequence     = require('run-sequence'),
+  plumber         = require('gulp-plumber'),
+  replace         = require('gulp-replace'),
   tap             = require('gulp-tap'),
 
-  // admin files
-  release         = require('./tasks/admin/release'),
+  // config
+  config          = require('./config/user'),
+  github          = require('../config/admin/github'),
+  release         = require('../config/admin/release'),
 
-  // stores oauth info for GitHub API
-  oAuth           = fs.existsSync('./tasks/admin/oauth.js')
-    ? require('./tasks/admin/oauth')
-    : false,
-  github
+  // shorthand
+  output          = config.paths.output
 
 ;
 

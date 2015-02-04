@@ -24,10 +24,8 @@ var
   replace      = require('gulp-replace'),
   uglify       = require('gulp-uglify'),
 
-  // user config
+  // config
   config       = require('./config/user'),
-
-  // install config
   tasks        = require('./config/project/tasks'),
   install      = require('./config/project/install'),
 
