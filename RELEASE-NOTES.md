@@ -3,11 +3,15 @@
 ### Version 1.9.0 - January xx, 2015
 
 **Enhancement**
+- **API** - API now has a onRequest callback that returns a request promise after XHR is sent
 - **Icon** - Added woff2 icon files for supported browsers (20% file-size decrease) **Thanks FontAwesome**
 - **Icon** - Added new icons aliases for icons from Font Awesome 4.3
 - **Form** - Input rules now apply to `input[type="time"]`
+- **Dropdown** - Added new dropdown setting, `forceSelection` which forces `search selection` to a selected value on blur. Defaults to `true`.
+- **Dropdown** - `search selection dropdown` will now close the menu when a `dropdown icon` is clicked
 
 **Bugs**
+- **All Modules** - Fixed bug where
 - **Transition** - Transitions with direction now use word order dependency to prevent conflict with component directions, for example `bottom left popup slide down in transition`
 - **Dropdown** - Upward dropdown now has upward arrow icon
 
