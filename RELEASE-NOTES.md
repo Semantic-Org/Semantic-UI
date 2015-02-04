@@ -11,7 +11,7 @@
 - **Dropdown** - `search selection dropdown` will now close the menu when a `dropdown icon` is clicked
 
 **Bugs**
-- **All Modules** - Fixed bug where
+- **All Modules** - Fixed bug where element `destroy` could remove third party events when re-initialized
 - **Transition** - Transitions with direction now use word order dependency to prevent conflict with component directions, for example `bottom left popup slide down in transition`
 - **Dropdown** - Upward dropdown now has upward arrow icon
 
