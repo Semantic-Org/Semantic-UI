@@ -62,23 +62,28 @@ $.fn.transition = function() {
         initialize: function() {
 
           // get full settings
-          moduleNamespace = 'module-' + namespace;
           settings        = module.get.settings.apply(element, moduleArguments);
+
+          // shorthand
           className       = settings.className;
+          error           = settings.error;
           metadata        = settings.metadata;
 
-          animationStart  = module.get.animationStartEvent();
-          animationEnd    = module.get.animationEndEvent();
-          animationName   = module.get.animationName();
-          error           = settings.error;
-          namespace       = settings.namespace;
+          // define namespace
           eventNamespace  = '.' + settings.namespace;
           instance        = $module.data(moduleNamespace) || module;
+          moduleNamespace = 'module-' + settings.namespace;
+
+          // get vendor specific events
+          animationEnd    = module.get.animationEndEvent();
+          animationName   = module.get.animationName();
+          animationStart  = module.get.animationStartEvent();
 
           if(methodInvoked) {
             methodInvoked = module.invoke(query);
           }
-          // no internal method was found matching query or query not made
+
+          // method not invoked, lets run an animation
           if(methodInvoked === false) {
             module.verbose('Converted arguments into settings object', settings);
             module.animate();

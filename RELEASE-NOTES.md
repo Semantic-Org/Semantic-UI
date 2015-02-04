@@ -14,6 +14,7 @@
 - **All Modules** - Fixed bug where element `destroy` could remove third party events when re-initialized
 - **Transition** - Transitions with direction now use word order dependency to prevent conflict with component directions, for example `bottom left popup slide down in transition`
 - **Dropdown** - Upward dropdown now has upward arrow icon
+- **Transition** - Fixes bug where `moduleNamespace` was being omitted
 
 ### Version 1.8.1 - January 26, 2015
 
