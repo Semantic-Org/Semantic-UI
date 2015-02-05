@@ -1,0 +1,32 @@
+/*******************************
+             Codeblock
+*******************************/
+
+/*-------------------
+         View
+--------------------*/
+
+@borderRadius: @defaultBorderRadius;
+@borderColor: @solidBorderColor;
+@borderWidth: 1px;
+
+@backgroundColor: #FFFFFF;
+@headerBackgroundColor: #EEEEEE;
+
+@headerFontWeight: bold;
+@codeFont: monospace;
+
+@gutterBackgroundColor: @white;
+@gutterTextAlign: right;
+
+@metaColor: @lightTextColor;
+
+@padding:1em;
+
+@headerPadding: @padding;
+@footerPadding: @padding;
+@gutterPadding: @padding / 2;
+@codePadding:  @padding / 2;
+
+/* Sizes */
+@medium: 1em;

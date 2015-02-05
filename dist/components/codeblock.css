@@ -22,7 +22,9 @@
 
 .ui.codeblock {
   padding: 0;
-  overflow: hidden;
+  background-color: #ffffff;
+  border: 1px solid rgba(39, 41, 43, 0.15);
+  border-radius: 0.2857rem;
 }
 
 /*--------------
@@ -30,10 +32,11 @@
 ---------------*/
 
 .ui.codeblock .header {
-  border-bottom: 1px solid #d4d4d5;
-  background-color: #eee;
-  padding: .75em 1em;
   margin: 0;
+  background-color: #eeeeee;
+  padding: 1em;
+  border-bottom: 1px solid rgba(39, 41, 43, 0.15);
+  border-radius: 0.2857rem 0.2857rem 0 0;
   font-weight: bold;
 }
 .ui.codeblock .header:after {
@@ -52,14 +55,12 @@
 ---------------*/
 
 .ui.codeblock .code:not(.icon) {
-  position: relative;
   display: inline-block;
   width: 100%;
   font-family: monospace;
   overflow-y: auto;
 }
 .ui.codeblock .code:not(.icon) > pre {
-  position: relative;
   padding: 0.5em;
   margin: 0;
 }
@@ -69,12 +70,11 @@
 ---------------*/
 
 .ui.codeblock .code:not(.icon) > .gutter {
-  background-color: inherit;
+  background-color: #ffffff;
   color: rgba(0, 0, 0, 0.4);
-  position: relative;
   padding: 0.5em;
   text-align: right;
-  border-right: 1px solid #d4d4d5;
+  border-right: 1px solid rgba(39, 41, 43, 0.15);
   float: left;
 }
 .ui.codeblock .code > .gutter > span {
@@ -86,8 +86,8 @@
 ---------------*/
 
 .ui.codeblock .footer {
-  border-top: 1px solid #d4d4d5;
-  padding: .75em 1em;
+  border-top: 1px solid rgba(39, 41, 43, 0.15);
+  padding: 1em;
   margin: 0;
   color: rgba(0, 0, 0, 0.4);
 }
@@ -117,5 +117,5 @@
   font-size: 1rem;
 }
 .ui.codeblock .footer.small {
-  font-size: .85em;
+  font-size: 0.92857143rem;
 }
