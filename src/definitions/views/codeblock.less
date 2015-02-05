@@ -37,7 +37,7 @@
 ---------------*/
 .ui.codeblock .header{
     margin:0;
-    background-color:@headerBackgroundColor;
+    background:@headerBackgroundColor;
     color:@headerColor;
     padding:@headerPadding;
     border-bottom:@borderWidth solid @borderColor;
@@ -75,7 +75,7 @@
      Gutter
 ---------------*/
 .ui.codeblock .code:not(.icon)>.gutter{
-    background-color:@gutterBackgroundColor;
+    background:@gutterBackgroundColor;
     color:@metaColor;
     padding:@gutterPadding;
     text-align: @gutterTextAlign;
@@ -95,6 +95,19 @@
     padding:@footerPadding;
     margin:0;
     color:@metaColor;
+    position:relative;
+}
+.ui.codeblock .footer .divider{
+    display:inline-block;
+    margin: 0 @footerDividerMargin;
+}
+.ui.codeblock .footer .divider:after{
+    content:'';
+    position: absolute;
+    top: @footerDividerPadding;
+    bottom: @footerDividerPadding;
+    width: 1px;
+    border-left: 1px solid @footerDividerColor;
 }
 
 
@@ -102,32 +115,32 @@
      Links
 ---------------*/
 .ui.codeblock a{
-     transition:@linkTransition;   
+    transition:@linkTransition;   
 }
 /* Header */
 .ui.codeblock .header a:not(.ui) {
-  color: @headerLinkColor;
+    color: @headerLinkColor;
 }
 .ui.codeblock .header a:not(.ui):hover {
-  color: @headerLinkHoverColor;
+    color: @headerLinkHoverColor;
 }
 
 /* Footer */
 .ui.codeblock .footer a:not(.ui) {
-  color: @footerLinkColor;
+    color: @footerLinkColor;
 }
 .ui.codeblock .footer a:not(.ui):hover {
-  color: @footerLinkHoverColor;
+    color: @footerLinkHoverColor;
 }
 
 /*--------------
      Floated
 ---------------*/
 .ui.codeblock [class*="left floated"] {
-  float: left;
+    float: left;
 }
 .ui.codeblock [class*="right floated"] {
-  float: right;
+    float: right;
 }
 
 /*******************************
@@ -139,7 +152,7 @@
 ---------------*/
 
 .ui.codeblock {
-  font-size: @medium;
+    font-size: @medium;
 }
 
 .ui.codeblock .footer.small{

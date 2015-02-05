@@ -23,7 +23,7 @@
 .ui.codeblock {
   padding: 0;
   background-color: #ffffff;
-  border: 1px solid rgba(39, 41, 43, 0.15);
+  border: 1px solid #d4d4d5;
   border-radius: 0.2857rem;
 }
 
@@ -33,10 +33,10 @@
 
 .ui.codeblock .header {
   margin: 0;
-  background-color: #eeeeee;
+  background: #f0f0f0;
   color: rgba(0, 0, 0, 0.85);
   padding: 1em;
-  border-bottom: 1px solid rgba(39, 41, 43, 0.15);
+  border-bottom: 1px solid #d4d4d5;
   border-radius: 0.2857rem 0.2857rem 0 0;
   font-weight: bold;
 }
@@ -71,11 +71,11 @@
 ---------------*/
 
 .ui.codeblock .code:not(.icon) > .gutter {
-  background-color: #ffffff;
+  background: #ffffff;
   color: rgba(0, 0, 0, 0.4);
   padding: 0.5em;
   text-align: right;
-  border-right: 1px solid rgba(39, 41, 43, 0.15);
+  border-right: 1px solid #d4d4d5;
   float: left;
 }
 .ui.codeblock .code > .gutter > span {
@@ -87,10 +87,23 @@
 ---------------*/
 
 .ui.codeblock .footer {
-  border-top: 1px solid rgba(39, 41, 43, 0.15);
+  border-top: 1px solid #d4d4d5;
   padding: 1em;
   margin: 0;
   color: rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+.ui.codeblock .footer .divider {
+  display: inline-block;
+  margin: 0 0.5em;
+}
+.ui.codeblock .footer .divider:after {
+  content: '';
+  position: absolute;
+  top: 0.75em;
+  bottom: 0.75em;
+  width: 1px;
+  border-left: 1px solid rgba(40, 40, 40, 0.3);
 }
 
 /*--------------

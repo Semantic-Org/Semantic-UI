@@ -5,37 +5,52 @@
 /*-------------------
          View
 --------------------*/
+@padding:1em;
+
+@backgroundColor: #FFFFFF;
+@metaColor: @lightTextColor;
 
 @borderRadius: @defaultBorderRadius;
 @borderColor: @solidBorderColor;
 @borderWidth: 1px;
 
-@backgroundColor: #FFFFFF;
-@headerBackgroundColor: #EEEEEE;
-@headerColor: @darkTextColor;
-
-@headerFontWeight: bold;
-@codeFont: monospace;
-
 @linkTransition: color @transitionDuration @transitionEasing;
 
+/*-------------------
+        Header
+--------------------*/
+@headerPadding: @padding;
+
+@headerColor: @darkTextColor;
 @headerLinkColor: @headerColor;
 @headerLinkHoverColor: @linkHoverColor;
-@footerLinkColor: @lightTextColor;
-@footerLinkHoverColor:@linkHoverColor;
+
+@headerBackgroundColor: @darkWhite;
+@headerFontWeight: bold;
 
 
+/*-------------------
+        Code
+--------------------*/
+@codePadding: @padding / 2;
+@codeFont: monospace;
+
+/*-------------------
+        Gutter
+--------------------*/
+@gutterPadding: @padding / 2;
 @gutterBackgroundColor: @white;
 @gutterTextAlign: right;
 
-@metaColor: @lightTextColor;
 
-@padding:1em;
-
-@headerPadding: @padding;
+/*-------------------
+        Footer
+--------------------*/
 @footerPadding: @padding;
-@gutterPadding: @padding / 2;
-@codePadding:  @padding / 2;
+@footerDividerPadding: 0.75em;
+@footerDividerMargin: 0.5em;
 
-/* Sizes */
-@medium: 1em;
+@footerLinkColor: @lightTextColor;
+@footerLinkHoverColor:@linkHoverColor;
+
+@footerDividerColor: @disabledTextColor; 
