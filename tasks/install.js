@@ -80,12 +80,13 @@ module.exports = function () {
     var
       updateFolder = manager.root,
       updatePaths  = {
-        config     : path.join(updateFolder, files.config),
-        modules    : path.join(updateFolder, currentConfig.base, folders.modules),
-        tasks      : path.join(updateFolder, currentConfig.base, folders.tasks),
-        definition : path.join(updateFolder, currentConfig.paths.source.definitions),
-        site       : path.join(updateFolder, currentConfig.paths.source.site),
-        theme      : path.join(updateFolder, currentConfig.paths.source.themes)
+        config      : path.join(updateFolder, files.config),
+        modules     : path.join(updateFolder, currentConfig.base, folders.modules),
+        tasks       : path.join(updateFolder, currentConfig.base, folders.tasks),
+        definition  : path.join(updateFolder, currentConfig.paths.source.definitions),
+        site        : path.join(updateFolder, currentConfig.paths.source.site),
+        themeImport : path.join(updateFolder, source.themeImport),
+        theme       : path.join(updateFolder, currentConfig.paths.source.themes)
       }
     ;
 
@@ -201,10 +202,11 @@ module.exports = function () {
 
         // special install paths only for PM install
         installPaths = extend(false, {}, installPaths, {
-          definition : folders.definitions,
-          theme      : folders.themes,
-          modules    : folders.modules,
-          tasks      : folders.tasks
+          definition  : folders.definitions,
+          theme       : folders.themes,
+          modules     : folders.modules,
+          tasks       : folders.tasks,
+          themeImport : folders.themeImport
         });
 
         // add project root to semantic root
@@ -245,6 +247,13 @@ module.exports = function () {
         console.info('Copying build tools', installPaths.tasks);
         wrench.copyDirSyncRecursive(source.modules, installPaths.modules, settings.wrench.install);
         wrench.copyDirSyncRecursive(source.tasks, installPaths.tasks, settings.wrench.install);
+
+        // copy theme import
+        console.info('Adding theme import file');
+        gulp.src(source.themeImport)
+          .pipe(plumber())
+          .pipe(gulp.dest(installPaths.themeImport))
+        ;
 
         // create gulp file
         console.info('Creating gulp-file.js');
@@ -288,7 +297,7 @@ module.exports = function () {
       console.info('Adjusting @siteFolder', siteVariable);
 
       if(fs.existsSync(installPaths.themeConfig)) {
-        console.info('Modifying src/theme.config (LESS config)');
+        console.info('Modifying src/theme.config (LESS config)', installPaths.themeConfig);
         gulp.src(installPaths.themeConfig)
           .pipe(plumber())
           .pipe(replace(regExp.siteVariable, siteVariable))
@@ -296,7 +305,7 @@ module.exports = function () {
         ;
       }
       else {
-        console.info('Creating src/theme.config (LESS config)');
+        console.info('Creating src/theme.config (LESS config)', installPaths.themeConfig);
         gulp.src(source.themeConfig)
           .pipe(plumber())
           .pipe(rename({ extname : '' }))
@@ -315,7 +324,7 @@ module.exports = function () {
 
       // adjust variables in theme.less
       if( fs.existsSync(files.config) ) {
-        console.info('Extending config file (semantic.json)');
+        console.info('Extending config file (semantic.json)', installPaths.config);
         gulp.src(installPaths.config)
           .pipe(plumber())
           .pipe(rename(settings.rename.json)) // preserve file extension
@@ -324,7 +333,7 @@ module.exports = function () {
         ;
       }
       else {
-        console.info('Creating config file (semantic.json)');
+        console.info('Creating config file (semantic.json)', installPaths.config);
         gulp.src(source.config)
           .pipe(plumber())
           .pipe(rename({ extname : '' })) // remove .template from ext

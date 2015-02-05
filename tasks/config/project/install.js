@@ -215,7 +215,7 @@ module.exports = {
     config      : './',
     definitions : 'src/definitions/',
     modules     : 'node_modules/',
-    site        : 'src/site',
+    site        : 'src/site/',
     tasks       : 'tasks/',
     themeConfig : 'src/',
     themes      : 'src/themes/'
