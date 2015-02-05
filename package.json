@@ -19,7 +19,8 @@
   },
 
   "dependencies": {
-    "jquery" : "x.x.x"
+    "jquery"           : "x.x.x",
+    "require-dot-file" : "0.x.x"
   },
   "peerDependencies": {
     "gulp"              : "3.x.x",
@@ -50,7 +51,6 @@
     "gulp-util"         : "3.x.x",
     "gulp-watch"        : "2.x.x",
     "mkdirp"            : "0.x.x",
-    "require-dot-file"  : "0.x.x",
     "wrench"            : "1.x.x"
   },
   "devDependencies": {

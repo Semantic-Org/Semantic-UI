@@ -62,7 +62,7 @@ module.exports = function () {
     rootQuestions = questions.root
   ;
 
-  //console.clear();
+  console.clear();
 
   /* use to debug NPM install from standard git clone
   manager = {
@@ -175,7 +175,7 @@ module.exports = function () {
         return;
       }
 
-      //console.clear();
+      console.clear();
       console.log('Installing');
       console.log('------------------------------');
 
