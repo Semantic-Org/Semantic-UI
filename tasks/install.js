@@ -45,11 +45,11 @@ var
 
   // shorthand
   questions      = install.questions,
+  files          = install.files,
   folders        = install.folders,
   regExp         = install.regExp,
   settings       = install.settings,
   source         = install.source
-
 ;
 
 // Export install task
@@ -61,9 +61,9 @@ module.exports = function () {
     rootQuestions = questions.root
   ;
 
-/*  console.clear();
+  console.clear();
 
-  // use to debug NPM install from standard git clone
+  /* use to debug NPM install from standard git clone
   manager = {
     name : 'NPM',
     root : path.normalize(__dirname + '/../')
@@ -79,7 +79,7 @@ module.exports = function () {
     var
       updateFolder = manager.root,
       updatePaths  = {
-        config     : path.join(updateFolder, install.files.config),
+        config     : path.join(updateFolder, files.config),
         modules    : path.join(updateFolder, currentConfig.base, folders.modules),
         tasks      : path.join(updateFolder, currentConfig.base, folders.tasks),
         definition : path.join(updateFolder, currentConfig.paths.source.definitions),
@@ -201,11 +201,16 @@ module.exports = function () {
           };
 
           // create project folders if doesnt exist
-          mkdirp.sync(installFolder);
-          mkdirp.sync(installPaths.definition);
-          mkdirp.sync(installPaths.theme);
-          mkdirp.sync(installPaths.modules);
-          mkdirp.sync(installPaths.tasks);
+          try {
+            mkdirp.sync(installFolder);
+            mkdirp.sync(installPaths.definition);
+            mkdirp.sync(installPaths.theme);
+            mkdirp.sync(installPaths.modules);
+            mkdirp.sync(installPaths.tasks);
+          }
+          catch(error) {
+            console.error('NPM does not have permissions to create folders at your specified path. Adjust your folders permissions and run "npm install" again');
+          }
 
           // fs.renameSync(oldPath, newPath); swap to move before debut
           // copy gulp node_modules
@@ -229,59 +234,59 @@ module.exports = function () {
 
       }
 
+      /*--------------
+        Resolve Paths
+      ---------------*/
+
+      installPaths = {
+        config      : files.config,
+        site        : answers.site || folders.site,
+        themeConfig : files.themeConfig
+      };
+
+      // add install folder to all output paths
+      if(installFolder) {
+        for(var destination in installPaths) {
+          if(installPaths.hasOwnProperty(destination)) {
+            installPaths[destination] = path.normalize( path.join(installFolder, installPaths[destination]) );
+          }
+        }
+      }
 
       /*--------------
          Site Theme
       ---------------*/
 
-      var
-        configDestination,
-        siteDestination,
-        pathToSite,
-        siteVariable
-      ;
 
-      // determine path to site folder from src/
-      siteDestination   = answers.site || folders.site;
-      configDestination = folders.themeConfig;
-
-      // add base path when npm install
-      if(installFolder) {
-        siteDestination   = installFolder + siteDestination;
-        configDestination = installFolder + configDestination;
-      }
-
-      // Copy _site templates without overwrite current site theme
-      wrench.copyDirSyncRecursive(source.site, siteDestination, settings.wrench.site);
-
-      // determine path to _site folder from theme config
-      pathToSite   = path.relative(path.resolve(folders.themeConfig), path.resolve(siteDestination));
-      siteVariable = "@siteFolder   : '" + pathToSite + "/';";
-
-      // force less variables to use forward slashes for paths
-      pathToSite = pathToSite.replace(/\\/g,'/');
-
-      // create site files
-      if( fs.existsSync(siteDestination) ) {
-        console.info('Site folder exists, merging files (no overwrite)', siteDestination);
+      // Copy _site templates folder to destination
+      if( fs.existsSync(installPaths.site) ) {
+        console.info('Site folder exists, merging files (no overwrite)', installPaths.site);
       }
       else {
-        console.info('Creating site theme folder', siteDestination);
+        console.info('Creating site theme folder', installPaths.site);
       }
+      wrench.copyDirSyncRecursive(source.site, installPaths.site, settings.wrench.site);
 
       /*--------------
         Theme Config
       ---------------*/
 
+      var
+        // determine path to site theme folder from theme config
+        // force CSS path variable to use forward slashes for paths
+        pathToSite   = path.relative(path.resolve(files.themeConfig), path.resolve(installPaths.site)).replace(/\\/g,'/'),
+        siteVariable = "@siteFolder   : '" + pathToSite + "/';"
+      ;
+
       // rewrite site variable in theme.less
       console.info('Adjusting @siteFolder', siteVariable);
 
-      if(fs.existsSync(config.files.theme)) {
+      if(fs.existsSync(installPaths.themeConfig)) {
         console.info('Modifying src/theme.config (LESS config)');
-        gulp.src(config.files.site)
+        gulp.src(installPaths.themeConfig)
           .pipe(plumber())
           .pipe(replace(regExp.siteVariable, siteVariable))
-          .pipe(gulp.dest(folders.themeConfig))
+          .pipe(gulp.dest(installPaths.themeConfig))
         ;
       }
       else {
@@ -290,7 +295,7 @@ module.exports = function () {
           .pipe(plumber())
           .pipe(rename({ extname : '' }))
           .pipe(replace(regExp.siteVariable, siteVariable))
-          .pipe(gulp.dest(folders.themeConfig))
+          .pipe(gulp.dest(installPaths.themeConfig))
         ;
       }
 
@@ -299,29 +304,30 @@ module.exports = function () {
       ---------------*/
 
       var
-        configExists = fs.existsSync(config.files.config),
-        json         = install.createJSON(answers),
-        jsonSource   = (configExists)
-          ? config.files.config
-          : source.config
+        jsonConfig = install.createJSON(answers)
       ;
 
+      // add base path when given an install folder (theme.config must exist in specified location)
+      if(installFolder) {
+        installPaths.config = path.resolve(path.join(installFolder, installPaths.config));
+      }
+
       // adjust variables in theme.less
-      if(configExists) {
+      if( fs.existsSync(files.config) ) {
         console.info('Extending config file (semantic.json)');
-        gulp.src(jsonSource)
+        gulp.src(files.config)
           .pipe(plumber())
           .pipe(rename(settings.rename.json)) // preserve file extension
-          .pipe(jsonEditor(json))
+          .pipe(jsonEditor(jsonConfig))
           .pipe(gulp.dest('./'))
         ;
       }
       else {
         console.info('Creating config file (semantic.json)');
-        gulp.src(jsonSource)
+        gulp.src(source.config)
           .pipe(plumber())
           .pipe(rename({ extname : '' })) // remove .template from ext
-          .pipe(jsonEditor(json))
+          .pipe(jsonEditor(jsonConfig))
           .pipe(gulp.dest('./'))
         ;
       }
@@ -334,7 +340,7 @@ module.exports = function () {
       }
       if(answers.build == 'yes') {
         // needs replacement for rewrite
-        // config = require(config.files.config);
+        // config = require(files.config);
         // getConfigValues();
         gulp.start('build');
       }

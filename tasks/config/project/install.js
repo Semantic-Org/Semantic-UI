@@ -81,42 +81,39 @@ module.exports = {
   getPackageManager: function(directory) {
     var
       // returns last matching result (avoid sub-module detection)
-      packageManager,
       walk = function(directory) {
         var
           pathArray     = directory.split('/'),
-          folder        = pathArray[pathArray.length - 1],
-          nextDirectory = path.normalize(directory + '../')
+          folder        = pathArray[pathArray.length - 2],
+          nextDirectory = path.normalize(directory + '/../')
         ;
         if( folder == 'bower_components') {
-          packageManager = {
+          return {
             name: 'Bower',
             root: nextDirectory
           };
         }
         else if(folder == 'node_modules') {
-         packageManager = {
+         return {
             name: 'NPM',
             root: nextDirectory
           };
         }
         else if(folder == 'composer') {
-         packageManager = {
+         return {
             name: 'Composer',
             root: nextDirectory
           };
         }
-        console.log(folder);
         if(path.resolve(directory) == '/') {
-          console.log(packageManager);
-          return packageManager || false;
+          return false;
         }
         // recurse downward
         return walk(nextDirectory);
       }
     ;
-    // start walk from outside component folder
-    directory = directory || (__dirname);
+    // start walk from current directory if none specified
+    directory = directory || (__dirname + '/');
     return walk(directory);
   },
 
@@ -188,12 +185,6 @@ module.exports = {
     './src/_site'
   ],
 
-  files: {
-    config   : 'semantic.json',
-    site     : 'src/site',
-    theme    : 'src/theme.config'
-  },
-
   regExp: {
     // used to match siteFolder variable in theme.less
     siteVariable: /@siteFolder .*\'(.*)/mg
@@ -210,6 +201,13 @@ module.exports = {
     themeConfig  : './src/theme.config.example',
     themes       : './src/themes',
     userGulpFile : './tasks/config/npm/gulpfile.js'
+  },
+
+  // expected final filenames
+  files: {
+    config      : 'semantic.json',
+    site        : 'src/site',
+    themeConfig : 'src/theme.config'
   },
 
   // folder paths to files relative to root
