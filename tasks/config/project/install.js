@@ -117,6 +117,38 @@ module.exports = {
     return walk(directory);
   },
 
+  // checks if files is PMed submodule
+  isSubModule: function(directory) {
+    var
+      moduleFolders = 0,
+      walk = function(directory) {
+        var
+          pathArray     = directory.split('/'),
+          folder        = pathArray[pathArray.length - 2],
+          nextDirectory = path.normalize(directory + '/../')
+        ;
+        if( folder == 'bower_components') {
+          moduleFolders++;
+        }
+        else if(folder == 'node_modules') {
+          moduleFolders++;
+        }
+        else if(folder == 'composer') {
+          moduleFolders++;
+        }
+        if(path.resolve(directory) == '/') {
+          return (moduleFolders > 1);
+        }
+        // recurse downward
+        return walk(nextDirectory);
+      }
+    ;
+    // start walk from current directory if none specified
+    directory = directory || (__dirname + '/');
+    return walk(directory);
+  },
+
+
   createJSON: function(answers) {
     var
       json = {
@@ -175,6 +207,7 @@ module.exports = {
     if(answers.uncompressed) {
       json.paths.output.uncompressed = path.normalize(answers.uncompressed + '/');
     }
+    console.log(json);
     return json;
   },
 

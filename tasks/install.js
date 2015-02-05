@@ -68,13 +68,20 @@ module.exports = function () {
   manager = {
     name : 'NPM',
     root : path.normalize(__dirname + '/../')
-  };*/
+  };
+  */
 
   /*--------------
-      PM Update
+      PM Config
   ---------------*/
 
-  // currently only supports NPM
+  /* Don't do end user config if SUI is a sub-module */
+  if( install.isSubModule() ) {
+    console.info('SUI is a sub-module, skipping end-user install');
+    return;
+  }
+
+  // run update scripts if semantic.json exists
   if(currentConfig && manager.name === 'NPM') {
 
     var
@@ -88,6 +95,7 @@ module.exports = function () {
         theme       : path.join(updateFolder, currentConfig.paths.source.themes)
       }
     ;
+
 
     // duck-type if there is a project installed
     if( fs.existsSync(updatePaths.definition) ) {
@@ -337,13 +345,13 @@ module.exports = function () {
         ;
       }
 
-      // omit cleanup questions for NPM install
+      // omit cleanup questions for managed install
       if(installFolder) {
         questions.cleanup = [];
       }
+      console.log('');
+      console.log('');
 
-      console.log('');
-      console.log('');
     }))
     .pipe(prompt.prompt(questions.cleanup, function(answers) {
       if(answers.cleanup == 'yes') {
