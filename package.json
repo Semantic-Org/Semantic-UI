@@ -8,7 +8,7 @@
   "license"     : "MIT",
 
   "scripts": {
-    "install" : "gulp install"
+
   },
   "repository": {
     "type" : "git",
