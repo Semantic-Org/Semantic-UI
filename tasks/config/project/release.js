@@ -34,6 +34,8 @@ catch(error) {
   };
 }
 
+console.log(package.version, package);
+
 /*******************************
              Export
 *******************************/
