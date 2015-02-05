@@ -2,6 +2,18 @@
          Install Task
 *******************************/
 
+/*
+   Install tasks
+
+   For more notes
+
+   * Runs automatically after npm update (hooks)
+   * (NPM) Install - Will ask for where to put semantic (outside pm folder)
+   * (NPM) Upgrade - Will look for semantic install, copy over files and update if new version
+   * Standard installer runs asking for paths to site files etc
+
+*/
+
 var
   gulp           = require('gulp'),
 
@@ -27,6 +39,8 @@ var
 
   // install config
   install        = require('./config/project/install'),
+
+  // release config (name/title/etc)
   release        = require('./config/project/release'),
 
   // shorthand
@@ -49,14 +63,11 @@ module.exports = function () {
 
   console.clear();
 
-
-  /*
-  // debug NPM install
+  // use to debug NPM install from standard git clone
   manager = {
     name : 'NPM',
     root : path.normalize(__dirname + '/../')
   };
-  */
 
   /*--------------
       PM Update
@@ -98,6 +109,7 @@ module.exports = function () {
         wrench.copyDirSyncRecursive(source.site, updatePaths.site, settings.wrench.site);
 
         console.info('Updating version...');
+
         // update version number in semantic.json
         gulp.src(updatePaths.config)
           .pipe(plumber())
@@ -120,10 +132,10 @@ module.exports = function () {
   }
 
   /*--------------
-   Root Questions
+   Determine Root
   ---------------*/
 
-  // PM that supports Build Tools
+  // PM that supports Build Tools (NPM Only Now)
   if(manager.name == 'NPM') {
     rootQuestions[0].message = rootQuestions[0].message
       .replace('{packageMessage}', 'We detected you are using \033[92m' + manager.name + '\033[0m. Nice! ')
@@ -132,14 +144,8 @@ module.exports = function () {
     // set default path to detected PM root
     rootQuestions[0].default = manager.root;
     rootQuestions[1].default = manager.root;
-  }
-  else {
-    // PM that does not support build tools
-    rootQuestions = [];
-  }
 
-  // insert PM questions after "Install Type" question
-  if(rootQuestions.length > 0) {
+    // insert PM questions after "Install Type" question
     Array.prototype.splice.apply(questions.setup, [2, 0].concat(rootQuestions));
   }
 
