@@ -106,15 +106,15 @@ module.exports = function () {
         console.log('Updating Semantic UI from ' + currentConfig.version + ' to ' + release.version);
 
         console.info('Updating ui definitions...');
-        // fs.renameSync(oldPath, newPath); swap to move before debut
         wrench.copyDirSyncRecursive(source.definitions, updatePaths.definition, settings.wrench.update);
 
         console.info('Updating default theme...');
         wrench.copyDirSyncRecursive(source.themes, updatePaths.theme, settings.wrench.update);
 
         console.info('Updating gulp tasks...');
-        wrench.copyDirSyncRecursive(source.modules, updatePaths.modules, settings.wrench.update);
         wrench.copyDirSyncRecursive(source.tasks, updatePaths.tasks, settings.wrench.update);
+
+        console.info('Adding new site theme files...');
         wrench.copyDirSyncRecursive(source.site, updatePaths.site, settings.wrench.site);
 
         console.info('Updating version...');
@@ -245,14 +245,12 @@ module.exports = function () {
           console.error('NPM does not have permissions to create folders at your specified path. Adjust your folders permissions and run "npm install" again');
         }
 
-        // fs.renameSync(oldPath, newPath); swap to move before debut
         // copy gulp node_modules
         console.info('Copying definitions to ', installPaths.definition);
         wrench.copyDirSyncRecursive(source.definitions, installPaths.definition, settings.wrench.install);
         wrench.copyDirSyncRecursive(source.themes, installPaths.theme, settings.wrench.install);
 
         console.info('Copying build tools', installPaths.tasks);
-        //wrench.copyDirSyncRecursive(source.modules, installPaths.modules, settings.wrench.install);
         wrench.copyDirSyncRecursive(source.tasks, installPaths.tasks, settings.wrench.install);
 
         // copy theme import
