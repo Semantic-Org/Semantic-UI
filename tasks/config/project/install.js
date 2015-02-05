@@ -199,6 +199,7 @@ module.exports = {
     site         : './src/_site',
     tasks        : './tasks',
     themeConfig  : './src/theme.config.example',
+    themeImport  : './src/theme.less',
     themes       : './src/themes',
     userGulpFile : './tasks/config/npm/gulpfile.js'
   },
@@ -218,6 +219,7 @@ module.exports = {
     site        : 'src/site/',
     tasks       : 'tasks/',
     themeConfig : 'src/',
+    themeImport : 'src/',
     themes      : 'src/themes/'
   },
 

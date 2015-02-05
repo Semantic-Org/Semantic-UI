@@ -85,7 +85,6 @@ module.exports = function () {
         tasks       : path.join(updateFolder, currentConfig.base, folders.tasks),
         definition  : path.join(updateFolder, currentConfig.paths.source.definitions),
         site        : path.join(updateFolder, currentConfig.paths.source.site),
-        themeImport : path.join(updateFolder, source.themeImport),
         theme       : path.join(updateFolder, currentConfig.paths.source.themes)
       }
     ;
@@ -245,7 +244,7 @@ module.exports = function () {
         wrench.copyDirSyncRecursive(source.themes, installPaths.theme, settings.wrench.install);
 
         console.info('Copying build tools', installPaths.tasks);
-        wrench.copyDirSyncRecursive(source.modules, installPaths.modules, settings.wrench.install);
+        //wrench.copyDirSyncRecursive(source.modules, installPaths.modules, settings.wrench.install);
         wrench.copyDirSyncRecursive(source.tasks, installPaths.tasks, settings.wrench.install);
 
         // copy theme import
@@ -289,12 +288,8 @@ module.exports = function () {
         siteVariable = "@siteFolder   : '" + pathToSite + "/';"
       ;
 
-      console.log(path.resolve(installPaths.themeConfig));
-      console.log(path.resolve(installPaths.site));
-      console.log(pathToSite);
-
       // rewrite site variable in theme.less
-      console.info('Adjusting @siteFolder', siteVariable);
+      console.info('Adjusting @siteFolder', pathToSite + '/');
 
       if(fs.existsSync(installPaths.themeConfig)) {
         console.info('Modifying src/theme.config (LESS config)', installPaths.themeConfig);
