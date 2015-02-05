@@ -156,6 +156,9 @@ module.exports = function () {
 
     // insert PM questions after "Install Type" question
     Array.prototype.splice.apply(questions.setup, [2, 0].concat(rootQuestions));
+
+    // omit cleanup questions for managed install
+    questions.cleanup = [];
   }
 
   /*--------------
@@ -343,10 +346,6 @@ module.exports = function () {
         ;
       }
 
-      // omit cleanup questions for managed install
-      if(installFolder) {
-        questions.cleanup = [];
-      }
       console.log('');
       console.log('');
 

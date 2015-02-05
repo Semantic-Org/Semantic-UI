@@ -207,7 +207,6 @@ module.exports = {
     if(answers.uncompressed) {
       json.paths.output.uncompressed = path.normalize(answers.uncompressed + '/');
     }
-    console.log(json);
     return json;
   },
 
