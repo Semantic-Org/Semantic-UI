@@ -12,9 +12,18 @@
 
 @backgroundColor: #FFFFFF;
 @headerBackgroundColor: #EEEEEE;
+@headerColor: @darkTextColor;
 
 @headerFontWeight: bold;
 @codeFont: monospace;
+
+@linkTransition: color @transitionDuration @transitionEasing;
+
+@headerLinkColor: @headerColor;
+@headerLinkHoverColor: @linkHoverColor;
+@footerLinkColor: @lightTextColor;
+@footerLinkHoverColor:@linkHoverColor;
+
 
 @gutterBackgroundColor: @white;
 @gutterTextAlign: right;

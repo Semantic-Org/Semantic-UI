@@ -34,6 +34,7 @@
 .ui.codeblock .header {
   margin: 0;
   background-color: #eeeeee;
+  color: rgba(0, 0, 0, 0.85);
   padding: 1em;
   border-bottom: 1px solid rgba(39, 41, 43, 0.15);
   border-radius: 0.2857rem 0.2857rem 0 0;
@@ -90,6 +91,31 @@
   padding: 1em;
   margin: 0;
   color: rgba(0, 0, 0, 0.4);
+}
+
+/*--------------
+     Links
+---------------*/
+
+.ui.codeblock a {
+  -webkit-transition: color 0.2s ease;
+          transition: color 0.2s ease;
+}
+
+/* Header */
+.ui.codeblock .header a:not(.ui) {
+  color: rgba(0, 0, 0, 0.85);
+}
+.ui.codeblock .header a:not(.ui):hover {
+  color: #00b2f3;
+}
+
+/* Footer */
+.ui.codeblock .footer a:not(.ui) {
+  color: rgba(0, 0, 0, 0.4);
+}
+.ui.codeblock .footer a:not(.ui):hover {
+  color: #00b2f3;
 }
 
 /*--------------

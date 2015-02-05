@@ -38,6 +38,7 @@
 .ui.codeblock .header{
     margin:0;
     background-color:@headerBackgroundColor;
+    color:@headerColor;
     padding:@headerPadding;
     border-bottom:@borderWidth solid @borderColor;
     border-radius: @borderRadius @borderRadius 0 0;
@@ -94,6 +95,29 @@
     padding:@footerPadding;
     margin:0;
     color:@metaColor;
+}
+
+
+/*--------------
+     Links
+---------------*/
+.ui.codeblock a{
+     transition:@linkTransition;   
+}
+/* Header */
+.ui.codeblock .header a:not(.ui) {
+  color: @headerLinkColor;
+}
+.ui.codeblock .header a:not(.ui):hover {
+  color: @headerLinkHoverColor;
+}
+
+/* Footer */
+.ui.codeblock .footer a:not(.ui) {
+  color: @footerLinkColor;
+}
+.ui.codeblock .footer a:not(.ui):hover {
+  color: @footerLinkHoverColor;
 }
 
 /*--------------
