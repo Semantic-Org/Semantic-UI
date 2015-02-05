@@ -88,14 +88,11 @@ module.exports = function () {
       updateFolder = manager.root,
       updatePaths  = {
         config      : path.join(updateFolder, files.config),
-        modules     : path.join(updateFolder, currentConfig.base, folders.modules),
-        tasks       : path.join(updateFolder, currentConfig.base, folders.tasks),
-        definition  : path.join(updateFolder, currentConfig.paths.source.definitions),
-        site        : path.join(updateFolder, currentConfig.paths.source.site),
-        theme       : path.join(updateFolder, currentConfig.paths.source.themes)
+        definition  : path.join(updateFolder, currentConfig.base, currentConfig.paths.source.definitions),
+        site        : path.join(updateFolder, currentConfig.base, currentConfig.paths.source.site),
+        theme       : path.join(updateFolder, currentConfig.base, currentConfig.paths.source.themes)
       }
     ;
-
 
     // duck-type if there is a project installed
     if( fs.existsSync(updatePaths.definition) ) {
@@ -110,9 +107,6 @@ module.exports = function () {
 
         console.info('Updating default theme...');
         wrench.copyDirSyncRecursive(source.themes, updatePaths.theme, settings.wrench.update);
-
-        console.info('Updating gulp tasks...');
-        wrench.copyDirSyncRecursive(source.tasks, updatePaths.tasks, settings.wrench.update);
 
         console.info('Adding new site theme files...');
         wrench.copyDirSyncRecursive(source.site, updatePaths.site, settings.wrench.site);
@@ -137,6 +131,10 @@ module.exports = function () {
       }
 
     }
+      else {
+        console.error('Cannot locate files to update at path: ', updatePaths.definition);
+        return;
+      }
 
   }
 
