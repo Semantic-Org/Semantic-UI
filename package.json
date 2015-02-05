@@ -7,8 +7,7 @@
   "author": "Jack Lukic <jack@semantic-ui.com>",
   "license": "MIT",
   "scripts": {
-    "where": "pwd",
-    "install": "pwd"
+    "install": "gulp install"
   },
   "repository": {
     "type": "git",
