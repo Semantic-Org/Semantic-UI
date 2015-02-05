@@ -106,17 +106,17 @@ module.exports = {
             root: nextDirectory
           };
         }
-        else {
-          if(path.resolve(directory) == '/') {
-            return packageManager || false;
-          }
-          // recurse
-          return walk(nextDirectory);
+        console.log(folder);
+        if(path.resolve(directory) == '/') {
+          console.log(packageManager);
+          return packageManager || false;
         }
+        // recurse downward
+        return walk(nextDirectory);
       }
     ;
     // start walk from outside component folder
-    directory = directory || (__dirname + '/../');
+    directory = directory || (__dirname);
     return walk(directory);
   },
 

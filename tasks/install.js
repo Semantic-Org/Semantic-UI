@@ -61,13 +61,13 @@ module.exports = function () {
     rootQuestions = questions.root
   ;
 
-  console.clear();
+/*  console.clear();
 
   // use to debug NPM install from standard git clone
   manager = {
     name : 'NPM',
     root : path.normalize(__dirname + '/../')
-  };
+  };*/
 
   /*--------------
       PM Update
