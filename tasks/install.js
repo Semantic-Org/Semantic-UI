@@ -19,6 +19,7 @@ var
 
   // node dependencies
   console        = require('better-console'),
+  extend         = require('extend'),
   fs             = require('fs'),
   mkdirp         = require('mkdirp'),
   path           = require('path'),
@@ -170,14 +171,25 @@ module.exports = function () {
       console.log('Installing');
       console.log('------------------------------');
 
+
       /*--------------
-         PM Install
+            Paths
       ---------------*/
 
       var
-        installPaths = {},
-        installFolder
+        installPaths = {
+          config            : files.config,
+          configFolder      : folders.config,
+          site              : answers.site || folders.site,
+          themeConfig       : files.themeConfig,
+          themeConfigFolder : folders.themeConfig
+        },
+        installFolder = false
       ;
+
+      /*--------------
+         PM Install
+      ---------------*/
 
       // Check if PM install
       if(answers.useRoot || answers.customRoot) {
@@ -187,76 +199,66 @@ module.exports = function () {
           manager.root = answers.customRoot;
         }
 
-        // Copy semantic
-        if(answers.semanticRoot) {
+        // special install paths only for PM install
+        installPaths = extend(false, {}, installPaths, {
+          definition : folders.definitions,
+          theme      : folders.themes,
+          modules    : folders.modules,
+          tasks      : folders.tasks
+        });
 
-          // add project root to semantic root
-          installFolder = path.join(manager.root, answers.semanticRoot);
+        // add project root to semantic root
+        installFolder = path.join(manager.root, answers.semanticRoot);
 
-          installPaths = {
-            definition : path.resolve( path.join(installFolder, folders.definitions) ),
-            theme      : path.resolve( path.join(installFolder, folders.themes) ),
-            modules    : path.resolve( path.join(installFolder, folders.modules) ),
-            tasks      : path.resolve( path.join(installFolder, folders.tasks) )
-          };
-
-          // create project folders if doesnt exist
-          try {
-            mkdirp.sync(installFolder);
-            mkdirp.sync(installPaths.definition);
-            mkdirp.sync(installPaths.theme);
-            mkdirp.sync(installPaths.modules);
-            mkdirp.sync(installPaths.tasks);
-          }
-          catch(error) {
-            console.error('NPM does not have permissions to create folders at your specified path. Adjust your folders permissions and run "npm install" again');
-          }
-
-          // fs.renameSync(oldPath, newPath); swap to move before debut
-          // copy gulp node_modules
-          console.info('Copying definitions to ', installPaths.definition);
-          wrench.copyDirSyncRecursive(source.definitions, installPaths.definition, settings.wrench.install);
-          wrench.copyDirSyncRecursive(source.themes, installPaths.theme, settings.wrench.install);
-
-          console.info('Copying build tools', installPaths.tasks);
-          wrench.copyDirSyncRecursive(source.modules, installPaths.modules, settings.wrench.install);
-          wrench.copyDirSyncRecursive(source.tasks, installPaths.tasks, settings.wrench.install);
-
-          // create gulp file
-          console.info('Creating gulp-file.js');
-          gulp.src(source.userGulpFile)
-            .pipe(plumber())
-            .pipe(gulp.dest(installFolder))
-          ;
-
-        }
-
-
-      }
-
-      /*--------------
-        Resolve Paths
-      ---------------*/
-
-      installPaths = {
-        config      : files.config,
-        site        : answers.site || folders.site,
-        themeConfig : files.themeConfig
-      };
-
-      // add install folder to all output paths
-      if(installFolder) {
+        // add install folder to all output paths
         for(var destination in installPaths) {
           if(installPaths.hasOwnProperty(destination)) {
-            installPaths[destination] = path.normalize( path.join(installFolder, installPaths[destination]) );
+            if(destination == 'config' || destination == 'configFolder') {
+              // semantic config goes in project root
+              installPaths[destination] = path.normalize( path.join(manager.root, installPaths[destination]) );
+            }
+            else {
+              // all other paths go in semantic root
+              installPaths[destination] = path.normalize( path.join(installFolder, installPaths[destination]) );
+            }
           }
         }
+
+        // create project folders
+        try {
+          mkdirp.sync(installFolder);
+          mkdirp.sync(installPaths.definition);
+          mkdirp.sync(installPaths.theme);
+          mkdirp.sync(installPaths.modules);
+          mkdirp.sync(installPaths.tasks);
+        }
+        catch(error) {
+          console.error('NPM does not have permissions to create folders at your specified path. Adjust your folders permissions and run "npm install" again');
+        }
+
+        // fs.renameSync(oldPath, newPath); swap to move before debut
+        // copy gulp node_modules
+        console.info('Copying definitions to ', installPaths.definition);
+        wrench.copyDirSyncRecursive(source.definitions, installPaths.definition, settings.wrench.install);
+        wrench.copyDirSyncRecursive(source.themes, installPaths.theme, settings.wrench.install);
+
+        console.info('Copying build tools', installPaths.tasks);
+        wrench.copyDirSyncRecursive(source.modules, installPaths.modules, settings.wrench.install);
+        wrench.copyDirSyncRecursive(source.tasks, installPaths.tasks, settings.wrench.install);
+
+        // create gulp file
+        console.info('Creating gulp-file.js');
+        gulp.src(source.userGulpFile)
+          .pipe(plumber())
+          .pipe(gulp.dest(installFolder))
+        ;
+
+
       }
 
       /*--------------
          Site Theme
       ---------------*/
-
 
       // Copy _site templates folder to destination
       if( fs.existsSync(installPaths.site) ) {
@@ -274,9 +276,13 @@ module.exports = function () {
       var
         // determine path to site theme folder from theme config
         // force CSS path variable to use forward slashes for paths
-        pathToSite   = path.relative(path.resolve(files.themeConfig), path.resolve(installPaths.site)).replace(/\\/g,'/'),
+        pathToSite   = path.relative(path.resolve(installPaths.themeConfigFolder), path.resolve(installPaths.site)).replace(/\\/g,'/'),
         siteVariable = "@siteFolder   : '" + pathToSite + "/';"
       ;
+
+      console.log(path.resolve(installPaths.themeConfig));
+      console.log(path.resolve(installPaths.site));
+      console.log(pathToSite);
 
       // rewrite site variable in theme.less
       console.info('Adjusting @siteFolder', siteVariable);
@@ -286,7 +292,7 @@ module.exports = function () {
         gulp.src(installPaths.themeConfig)
           .pipe(plumber())
           .pipe(replace(regExp.siteVariable, siteVariable))
-          .pipe(gulp.dest(installPaths.themeConfig))
+          .pipe(gulp.dest(installPaths.themeConfigFolder))
         ;
       }
       else {
@@ -295,7 +301,7 @@ module.exports = function () {
           .pipe(plumber())
           .pipe(rename({ extname : '' }))
           .pipe(replace(regExp.siteVariable, siteVariable))
-          .pipe(gulp.dest(installPaths.themeConfig))
+          .pipe(gulp.dest(installPaths.themeConfigFolder))
         ;
       }
 
@@ -307,19 +313,14 @@ module.exports = function () {
         jsonConfig = install.createJSON(answers)
       ;
 
-      // add base path when given an install folder (theme.config must exist in specified location)
-      if(installFolder) {
-        installPaths.config = path.resolve(path.join(installFolder, installPaths.config));
-      }
-
       // adjust variables in theme.less
       if( fs.existsSync(files.config) ) {
         console.info('Extending config file (semantic.json)');
-        gulp.src(files.config)
+        gulp.src(installPaths.config)
           .pipe(plumber())
           .pipe(rename(settings.rename.json)) // preserve file extension
           .pipe(jsonEditor(jsonConfig))
-          .pipe(gulp.dest('./'))
+          .pipe(gulp.dest(installPaths.configFolder))
         ;
       }
       else {
@@ -328,7 +329,7 @@ module.exports = function () {
           .pipe(plumber())
           .pipe(rename({ extname : '' })) // remove .template from ext
           .pipe(jsonEditor(jsonConfig))
-          .pipe(gulp.dest('./'))
+          .pipe(gulp.dest(installPaths.configFolder))
         ;
       }
       console.log('');
