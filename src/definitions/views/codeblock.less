@@ -97,11 +97,11 @@
     color:@metaColor;
     position:relative;
 }
-.ui.codeblock .footer .divider{
+.ui.codeblock .footer .divider:not(.ui){
     display:inline-block;
     margin: 0 @footerDividerMargin;
 }
-.ui.codeblock .footer .divider:after{
+.ui.codeblock .footer .divider:not(.ui):after{
     content:'';
     position: absolute;
     top: @footerDividerPadding;
