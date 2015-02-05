@@ -289,7 +289,7 @@ module.exports = function () {
       ;
 
       // rewrite site variable in theme.less
-      console.info('Adjusting @siteFolder', pathToSite + '/');
+      console.info('Adjusting @siteFolder to: ', pathToSite + '/');
 
       if(fs.existsSync(installPaths.themeConfig)) {
         console.info('Modifying src/theme.config (LESS config)', installPaths.themeConfig);
@@ -336,6 +336,12 @@ module.exports = function () {
           .pipe(gulp.dest(installPaths.configFolder))
         ;
       }
+
+      // omit cleanup questions for NPM install
+      if(installFolder) {
+        questions.cleanup = [];
+      }
+
       console.log('');
       console.log('');
     }))
@@ -344,9 +350,6 @@ module.exports = function () {
         del(install.setupFiles);
       }
       if(answers.build == 'yes') {
-        // needs replacement for rewrite
-        // config = require(files.config);
-        // getConfigValues();
         gulp.start('build');
       }
     }))
