@@ -35,7 +35,7 @@
 /*--------------
      Header
 ---------------*/
-.ui.codeblock .header{
+.ui.codeblock .header:not(.ui){
     margin:0;
     background:@headerBackgroundColor;
     color:@headerColor;
@@ -45,7 +45,7 @@
     font-weight:bold;
 }
 
-.ui.codeblock .header:after{ 
+.ui.codeblock .header:not(.ui):after{ 
     /* Clearfix */
     display:block;
     content:' ';
@@ -83,7 +83,7 @@
     float:left;
 }
 
-.ui.codeblock .code>.gutter>span{
+.ui.codeblock .code:not(.icon)>.gutter>span{
     cursor:pointer;
 }
 
@@ -114,7 +114,7 @@
 /*--------------
      Links
 ---------------*/
-.ui.codeblock a{
+.ui.codeblock a:not(.ui){
     transition:@linkTransition;   
 }
 /* Header */
