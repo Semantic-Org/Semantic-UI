@@ -220,7 +220,7 @@ $.fn.modal = function(parameters) {
                 module.verbose('Deny callback returned false cancelling hide');
               }
             }
-            else {
+            else if( $(this).is(selector.close) )  {
               module.hide();
             }
           },
