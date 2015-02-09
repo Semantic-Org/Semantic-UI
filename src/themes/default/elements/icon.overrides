@@ -44,7 +44,7 @@ for instance `lemon icon` not `lemon outline icon` since there is only one lemon
 /* Web Content */
 i.icon.search:before { content: "\f002"; }
 i.icon.mail.outline:before { content: "\f003"; }
-i.icon.external.link:before { content: "\f08e"; }
+i.icon.external:before { content: "\f08e"; }
 i.icon.signal:before { content: "\f012"; }
 i.icon.setting:before { content: "\f013"; }
 i.icon.home:before { content: "\f015"; }
@@ -75,7 +75,7 @@ i.icon.code:before { content: "\f121"; }
 i.icon.protect:before { content: "\f132"; }
 i.icon.calendar.outline:before { content: "\f133"; }
 i.icon.ticket:before { content: "\f145"; }
-i.icon.external.link.square:before { content: "\f14c"; }
+i.icon.external.square:before { content: "\f14c"; }
 i.icon.map:before { content: "\f14e"; }
 i.icon.bug:before { content: "\f188"; }
 i.icon.mail.square:before { content: "\f199"; }
