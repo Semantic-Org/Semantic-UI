@@ -2,30 +2,6 @@
             Global
 *******************************/
 
-html,
-body {
-  font-size: 15px;
-  height: 100%;
-}
-
-body {
-  font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  background: #FFFFFF;
-  margin: 0px;
-  padding: 0px;
-  color: #555555;
-  text-rendering: optimizeLegibility;
-  min-width: 320px;
-}
-
-.ui.header {
-  font-family: 'Source Sans Pro', "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-}
-
-/*******************************
-            Global
-*******************************/
-
 /*-------------------
         Sidebar
 --------------------*/
@@ -48,12 +24,11 @@ body {
        Inbox
 --------------------*/
 
-#feed .page {
+#feed .pusher {
   background-color: #FFFFFF;
-  padding: 2em 0em;
 }
 
-#feed .inbox.tab .item .description {
+#feed .tab .item .description {
   margin-left: 2em;
 }
 
@@ -62,17 +37,23 @@ body {
   margin: 0.5em 0em 0em 1em;
 }
 
-#feed .middle.column {
+#feed .left.column {
+  background-color: #F7F7F7;
   padding: 1em 2em;
+  max-width: 600px;
 }
-
-#feed .middle.column h2 {
-  margin-top: 0em;
+#feed .left.column .menu {
+  margin-top: 5rem;
 }
 
 #feed .right.column {
   padding: 1em 2em;
   background-color: #FFFFFF;
+}
+
+#feed .right.column {
+  font-size: 16px;
+  max-width: 800px;
 }
 
 /*******************************
