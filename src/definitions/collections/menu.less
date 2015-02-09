@@ -633,18 +633,15 @@
 /* Active */
 .ui.tabular.menu .active.item {
   position: relative;
+  border-bottom: none;
+  vertical-align: bottom;
 
   background-color: @tabularMenuActiveBackground;
   color: @tabularActiveColor;
-
   border-color: @tabularBorderColor;
   font-weight: @tabularActiveWeight;
-
   margin-bottom: -@tabularBorderWidth;
-
-
-  border-bottom: none;
-  box-shadow: 0px (2 * @tabularBorderWidth) 0px -@tabularBorderWidth @tabularBackgroundColor;
+  box-shadow: @tabularActiveBoxShadow;
   border-radius: @tabularBorderRadius @tabularBorderRadius 0px 0px;
 }
 

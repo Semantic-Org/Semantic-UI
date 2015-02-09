@@ -244,6 +244,7 @@
 @tabularFluidWidth: ~"calc(100% + "(@tabularFluidOffset * 2)~")";
 
 @tabularActiveColor: @selectedTextColor;
+@tabularActiveBoxShadow: none;
 
 @tabularMenuActiveBackground: #FFFFFF;
 @tabularActiveWeight: bold;
