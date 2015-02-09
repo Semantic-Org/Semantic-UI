@@ -71,8 +71,8 @@ $.fn.transition = function() {
 
           // define namespace
           eventNamespace  = '.' + settings.namespace;
-          instance        = $module.data(moduleNamespace) || module;
           moduleNamespace = 'module-' + settings.namespace;
+          instance        = $module.data(moduleNamespace) || module;
 
           // get vendor specific events
           animationEnd    = module.get.animationEndEvent();
@@ -93,6 +93,7 @@ $.fn.transition = function() {
 
         instantiate: function() {
           module.verbose('Storing instance of module', module);
+          instance = module;
           $module
             .data(moduleNamespace, instance)
           ;
