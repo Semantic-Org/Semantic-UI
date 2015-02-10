@@ -88,9 +88,9 @@ module.exports = function () {
       updatePaths  = {
         config     : path.join(manager.root, files.config),
         tasks      : path.join(manager.root, currentConfig.base, folders.tasks),
-        definition : path.join(currentConfig.paths.source.definitions.replace(process.cwd(), '')),
-        site       : path.join(currentConfig.paths.source.site.replace(process.cwd(), '')),
-        theme      : path.join(currentConfig.paths.source.themes.replace(process.cwd(), ''))
+        definition : path.join(currentConfig.paths.source.definitions.replace(process.cwd(), manager.root)),
+        site       : path.join(currentConfig.paths.source.site.replace(process.cwd(), manager.root)),
+        theme      : path.join(currentConfig.paths.source.themes.replace(process.cwd(), manager.root))
       }
     ;
 
