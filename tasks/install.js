@@ -87,10 +87,10 @@ module.exports = function () {
     var
       updatePaths  = {
         config     : path.join(manager.root, files.config),
-        definition : path.join(manager.root, currentConfig.paths.source.definitions),
-        site       : path.join(manager.root, currentConfig.paths.source.site),
-        theme      : path.join(manager.root, currentConfig.paths.source.themes),
-        tasks      : path.join(manager.root, currentConfig.base, folders.tasks)
+        tasks      : path.join(manager.root, currentConfig.base, folders.tasks),
+        definition : path.join(currentConfig.paths.source.definitions),
+        site       : path.join(currentConfig.paths.source.site),
+        theme      : path.join(currentConfig.paths.source.themes)
       }
     ;
 
