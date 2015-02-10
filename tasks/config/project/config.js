@@ -24,22 +24,33 @@ module.exports = {
        File Paths
     ---------------*/
 
+    var
+      currentPath = process.cwd() + path.sep + '/tasks',
+      folder
+    ;
+
     // resolve source paths
-    for(var folder in config.paths.source) {
+    for(folder in config.paths.source) {
       if(config.paths.source.hasOwnProperty(folder)) {
-        config.paths.source[folder] = path.normalize(config.base + config.paths.source[folder]);
+        // add base path
+        config.paths.source[folder] = path.join(config.base, config.paths.source[folder]);
+        // resolve relative path from cwd to output folder
+        config.paths.source[folder] = path.resolve( path.relative(currentPath, config.paths.source[folder]) ) + path.sep;
       }
     }
 
     // resolve output paths
     for(folder in config.paths.output) {
       if(config.paths.output.hasOwnProperty(folder)) {
-        config.paths.output[folder] = path.normalize(config.base + config.paths.output[folder]);
+        // add base path
+        config.paths.output[folder] = path.join(config.base, config.paths.output[folder]);
+        // resolve relative path from cwd to output folder
+        config.paths.output[folder] = path.resolve( path.relative(currentPath, config.paths.output[folder]) ) + path.sep;
       }
     }
 
     // resolve "clean" command path
-    config.paths.clean = config.base + config.paths.clean;
+    config.paths.clean = path.join(config.base, config.paths.clean);
 
     /*--------------
         CSS URLs
