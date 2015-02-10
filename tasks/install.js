@@ -85,9 +85,10 @@ module.exports = function () {
   if(currentConfig && manager.name === 'NPM') {
 
     var
+      updateFolder = path.join(manager.root, currentConfig.base),
       updatePaths  = {
         config     : path.join(manager.root, files.config),
-        tasks      : path.join(manager.root, currentConfig.base, folders.tasks),
+        tasks      : path.join(updateFolder, folders.tasks),
         definition : path.join(currentConfig.paths.source.definitions.replace(process.cwd(), manager.root)),
         site       : path.join(currentConfig.paths.source.site.replace(process.cwd(), manager.root)),
         theme      : path.join(currentConfig.paths.source.themes.replace(process.cwd(), manager.root))
@@ -109,6 +110,12 @@ module.exports = function () {
 
         console.info('Updating tasks...');
         wrench.copyDirSyncRecursive(source.tasks, updatePaths.tasks, settings.wrench.update);
+
+        console.info('Updating gulpfile.js');
+        gulp.src(source.userGulpFile)
+          .pipe(plumber())
+          .pipe(gulp.dest(updateFolder))
+        ;
 
         console.info('Adding new site theme files...');
         wrench.copyDirSyncRecursive(source.site, updatePaths.site, settings.wrench.site);
@@ -268,7 +275,7 @@ module.exports = function () {
         ;
 
         // create gulp file
-        console.info('Creating gulp-file.js');
+        console.info('Creating gulpfile.js');
         gulp.src(source.userGulpFile)
           .pipe(plumber())
           .pipe(gulp.dest(installFolder))
