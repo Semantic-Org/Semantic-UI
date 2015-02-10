@@ -99,8 +99,6 @@ module.exports = function () {
 
       // perform update if new version
       if(currentConfig.version !== release.version) {
-        console.log(release);
-        console.log(require('../package.json'));
         console.log('Updating Semantic UI from ' + currentConfig.version + ' to ' + release.version);
 
         console.info('Updating ui definitions...');
@@ -124,7 +122,7 @@ module.exports = function () {
           .pipe(jsonEditor({
             version: release.version
           }))
-          .pipe(gulp.dest(updateFolder))
+          .pipe(gulp.dest(manager.root))
         ;
 
         return;
