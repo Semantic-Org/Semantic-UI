@@ -50,7 +50,6 @@ module.exports = function(gulp) {
   ---------------*/
 
   gulp.task('package uncompressed css', function() {
-    console.log(output.uncompressed + '**/' + globs.components + globs.ignored + '.css');
     return gulp.src(output.uncompressed + '**/' + globs.components + globs.ignored + '.css')
       .pipe(plumber())
       .pipe(replace(assets.uncompressed, assets.packaged))
@@ -62,7 +61,6 @@ module.exports = function(gulp) {
   });
 
   gulp.task('package compressed css', function() {
-    console.log(output.uncompressed + '**/' + globs.components + globs.ignored + '.css');
     return gulp.src(output.uncompressed + '**/' + globs.components + globs.ignored + '.css')
       .pipe(plumber())
       .pipe(replace(assets.uncompressed, assets.packaged))

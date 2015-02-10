@@ -118,6 +118,7 @@ module.exports = function(callback) {
       }
       else if(isDefinition) {
         console.log('Change detected in definition');
+        lessPath = file.path;
       }
 
       /*--------------
