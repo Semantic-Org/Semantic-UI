@@ -90,7 +90,7 @@ module.exports = function () {
         definition : path.join(manager.root, currentConfig.paths.source.definitions),
         site       : path.join(manager.root, currentConfig.paths.source.site),
         theme      : path.join(manager.root, currentConfig.paths.source.themes),
-        tasks      : path.join(manager.root, folders.tasks),
+        tasks      : path.join(manager.root, currentConfig.base, folders.tasks)
       }
     ;
 
