@@ -36,6 +36,7 @@
     "gulp-notify"       : "2.x.x",
     "gulp-plumber"      : "0.x.x",
     "gulp-print"        : "1.x.x",
+    "gulp-replace"      : "0.x.x",
     "gulp-rename"       : "1.x.x",
     "gulp-rtlcss"       : "0.x.x",
     "gulp-uglify"       : "1.x.x",
