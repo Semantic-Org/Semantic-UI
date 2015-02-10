@@ -24,6 +24,11 @@ var when = {
     return (questions.useRoot === undefined || questions.useRoot == 'no');
   },
 
+  // permissions
+  changePermissions: function(question) {
+    return (questions.usePermission == true);
+  }
+
   // install
   hasConfig: function() {
     return requireDotFile('semantic.json');
@@ -392,11 +397,26 @@ module.exports = {
         when: when.notAuto
       },
       {
+        type: 'list',
+        name: 'changePermisions',
+        message: 'Should we set permissions on outputted files?',
+        choices: [
+          {
+            name: 'No',
+            value: false
+          },
+          {
+            name: 'Yes',
+            value: true
+          },
+        ]
+      },
+      {
         type: 'input',
         name: 'permission',
         message: 'What octal file permission should outputted files receive?',
         default: defaults.permission,
-        when: when.notAuto
+        when: when.setPermission
       },
       {
         type: 'list',
