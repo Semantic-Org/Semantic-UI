@@ -87,10 +87,10 @@ module.exports = function () {
     var
       updateFolder = manager.root,
       updatePaths  = {
-        config      : path.join(updateFolder, files.config),
-        definition  : path.join(updateFolder, currentConfig.base, currentConfig.paths.source.definitions),
-        site        : path.join(updateFolder, currentConfig.base, currentConfig.paths.source.site),
-        theme       : path.join(updateFolder, currentConfig.base, currentConfig.paths.source.themes)
+        config      : path.join(manager.root, files.config),
+        definition  : path.join(updateFolder, currentConfig.paths.source.definitions),
+        site        : path.join(updateFolder, currentConfig.paths.source.site),
+        theme       : path.join(updateFolder, currentConfig.paths.source.themes)
       }
     ;
 
