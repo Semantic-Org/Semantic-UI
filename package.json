@@ -51,6 +51,7 @@
     "del"              : "1.x.x",
     "extend"           : "2.x.x",
     "gulp"             : "3.x.x",
+    "gulp-help"        : "1.x.x",
     "gulp-json-editor" : "2.x.x",
     "gulp-prompt"      : "0.x.x",
     "gulp-rename"      : "1.x.x",
