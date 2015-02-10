@@ -27,7 +27,7 @@ var when = {
   // permissions
   changePermissions: function(question) {
     return (questions.usePermission == true);
-  }
+  },
 
   // install
   hasConfig: function() {
