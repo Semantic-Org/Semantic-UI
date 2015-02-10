@@ -130,6 +130,8 @@ module.exports = function () {
         return;
       }
       else {
+        console.log(release);
+        console.log(requireDotFile('package.json'));
         console.log('Current version of Semantic UI already installed, skipping set-up');
         return;
       }
