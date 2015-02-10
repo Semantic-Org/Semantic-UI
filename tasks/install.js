@@ -131,10 +131,10 @@ module.exports = function () {
       }
 
     }
-      else {
-        console.error('Cannot locate files to update at path: ', updatePaths.definition);
-        return;
-      }
+    else {
+      console.error('Cannot locate files to update at path: ', updatePaths.definition);
+      return;
+    }
 
   }
 
