@@ -115,6 +115,8 @@ module.exports = function () {
 
         console.info('Updating version...');
 
+        console.info('Updating complete, run "gulp build" to rebuild dist files...');
+
         // update version number in semantic.json
         gulp.src(updatePaths.config)
           .pipe(plumber())
