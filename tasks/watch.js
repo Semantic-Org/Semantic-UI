@@ -57,7 +57,8 @@ module.exports = function(callback) {
     return;
   }
 
-  console.clear();
+  //console.clear();
+  console.log(source.definitions);
   console.log('Watching source files for changes');
 
   /*--------------

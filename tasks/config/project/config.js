@@ -25,7 +25,7 @@ module.exports = {
     ---------------*/
 
     var
-      currentPath = process.cwd() + path.sep + '/tasks',
+      currentPath = process.cwd(),
       folder
     ;
 
@@ -35,7 +35,7 @@ module.exports = {
         // add base path
         config.paths.source[folder] = path.join(config.base, config.paths.source[folder]);
         // resolve relative path from cwd to output folder
-        config.paths.source[folder] = path.resolve( path.relative(currentPath, config.paths.source[folder]) ) + path.sep;
+        config.paths.source[folder] = path.resolve( path.relative(currentPath, config.paths.source[folder])) + path.sep;
       }
     }
 
@@ -45,9 +45,12 @@ module.exports = {
         // add base path
         config.paths.output[folder] = path.join(config.base, config.paths.output[folder]);
         // resolve relative path from cwd to output folder
-        config.paths.output[folder] = path.resolve( path.relative(currentPath, config.paths.output[folder]) ) + path.sep;
+        config.paths.output[folder] = path.resolve( path.relative(currentPath, config.paths.output[folder])) + path.sep;
       }
     }
+
+    // remove trailing slash from file
+    config.paths.source.config = path.resolve(config.paths.source.config);
 
     // resolve "clean" command path
     config.paths.clean = path.join(config.base, config.paths.clean);
