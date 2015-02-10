@@ -87,10 +87,11 @@ module.exports = function () {
     var
       updateFolder = manager.root,
       updatePaths  = {
-        config      : path.join(manager.root, files.config),
-        definition  : path.join(updateFolder, currentConfig.paths.source.definitions),
-        site        : path.join(updateFolder, currentConfig.paths.source.site),
-        theme       : path.join(updateFolder, currentConfig.paths.source.themes)
+        config     : path.join(manager.root, files.config),
+        definition : path.join(updateFolder, currentConfig.paths.source.definitions),
+        site       : path.join(updateFolder, currentConfig.paths.source.site),
+        theme      : path.join(updateFolder, currentConfig.paths.source.themes),
+        tasks      : path.join(updateFolder, folders.tasks),
       }
     ;
 
@@ -107,6 +108,9 @@ module.exports = function () {
 
         console.info('Updating default theme...');
         wrench.copyDirSyncRecursive(source.themes, updatePaths.theme, settings.wrench.update);
+
+        console.info('Updating tasks...');
+        wrench.copyDirSyncRecursive(source.tasks, updatePaths.tasks, settings.wrench.update);
 
         console.info('Adding new site theme files...');
         wrench.copyDirSyncRecursive(source.site, updatePaths.site, settings.wrench.site);
