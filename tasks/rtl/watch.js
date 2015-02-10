@@ -27,11 +27,11 @@ var
   watch        = require('gulp-watch'),
 
   // user config
-  config       = require('./config/user'),
+  config       = require('../config/user'),
 
   // task config
-  tasks        = require('./config/project/tasks'),
-  install      = require('./config/project/install'),
+  tasks        = require('../config/project/tasks'),
+  install      = require('../config/project/install'),
 
   // shorthand
   globs        = config.globs,

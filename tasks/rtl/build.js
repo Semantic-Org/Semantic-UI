@@ -25,11 +25,11 @@ var
   uglify       = require('gulp-uglify'),
 
   // user config
-  config       = require('./config/user'),
+  config       = require('../config/user'),
 
   // install config
-  tasks        = require('./config/project/tasks'),
-  install      = require('./config/project/install'),
+  tasks        = require('../config/project/tasks'),
+  install      = require('../config/project/install'),
 
   // shorthand
   globs        = config.globs,
@@ -66,6 +66,7 @@ module.exports = function(callback) {
     .pipe(plumber())
     .pipe(less(settings.less))
     .pipe(autoprefixer(settings.prefix))
+    .pipe(rtlcss())
     .pipe(flatten())
   ;
 
@@ -80,6 +81,7 @@ module.exports = function(callback) {
     .pipe(replace(comments.small.in, comments.small.out))
     .pipe(replace(comments.tiny.in, comments.tiny.out))
     .pipe(replace(assets.source, assets.uncompressed))
+    .pipe(rename(settings.rename.rtlCSS))
     .pipe(header(banner, settings.header))
     .pipe(gulpif(config.hasPermission, chmod(config.permission)))
     .pipe(gulp.dest(output.uncompressed))
@@ -94,7 +96,7 @@ module.exports = function(callback) {
     .pipe(clone())
     .pipe(replace(assets.source, assets.compressed))
     .pipe(minifyCSS(settings.minify))
-    .pipe(rename(settings.rename.minCSS))
+    .pipe(rename(settings.rename.rtlMinCSS))
     .pipe(header(banner, settings.header))
     .pipe(gulpif(config.hasPermission, chmod(config.permission)))
     .pipe(gulp.dest(output.compressed))
