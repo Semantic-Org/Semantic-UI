@@ -17,7 +17,7 @@ var
 try {
 
   config   = requireDotFile('semantic.json');
-  package  = requireDotFile('package.json');
+  package  = require('../../../package.json');
 
   // looks for version in config or package.json (whichever is available)
   version = (config && config.version !== undefined)

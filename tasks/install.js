@@ -100,7 +100,7 @@ module.exports = function () {
       // perform update if new version
       if(currentConfig.version !== release.version) {
         console.log(release);
-        console.log(requireDotFile('package.json'));
+        console.log(require('../package.json'));
         console.log('Updating Semantic UI from ' + currentConfig.version + ' to ' + release.version);
 
         console.info('Updating ui definitions...');
