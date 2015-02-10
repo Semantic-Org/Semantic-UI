@@ -13,13 +13,10 @@
   "bugs": {
     "url" : "https://github.com/Semantic-Org/Semantic-UI/issues"
   },
-
   "scripts": {
     "install": "gulp install"
   },
-
   "peerDependencies": {
-    "jquery"            : "x.x.x",
     "better-console"    : "0.x.x",
     "del"               : "1.x.x",
     "extend"            : "2.x.x",
@@ -47,18 +44,37 @@
     "require-dot-file"  : "0.x.x"
   },
   "dependencies": {
-    "better-console"   : "0.x.x",
-    "del"              : "1.x.x",
-    "extend"           : "2.x.x",
-    "gulp"             : "3.x.x",
-    "gulp-help"        : "1.x.x",
-    "gulp-json-editor" : "2.x.x",
-    "gulp-prompt"      : "0.x.x",
-    "gulp-rename"      : "1.x.x",
-    "gulp-replace"     : "0.x.x",
-    "mkdirp"           : "0.x.x",
-    "require-dot-file" : "0.x.x",
-    "wrench"           : "1.x.x"
+    "better-console"    : "0.x.x",
+    "del"               : "1.x.x",
+    "extend"            : "2.x.x",
+    "gulp"              : "3.x.x",
+    "gulp-autoprefixer" : "2.x.x",
+    "gulp-chmod"        : "1.x.x",
+    "gulp-clone"        : "1.x.x",
+    "gulp-concat"       : "2.x.x",
+    "gulp-concat-css"   : "1.x.x",
+    "gulp-copy"         : "0.0.2",
+    "gulp-flatten"      : "0.0.4",
+    "gulp-header"       : "1.x.x",
+    "gulp-help"         : "1.x.x",
+    "gulp-if"           : "1.x.x",
+    "gulp-json-editor"  : "2.x.x",
+    "gulp-less"         : "1.x.x",
+    "gulp-minify-css"   : "0.x.x",
+    "gulp-notify"       : "2.x.x",
+    "gulp-plumber"      : "0.x.x",
+    "gulp-print"        : "1.x.x",
+    "gulp-prompt"       : "0.x.x",
+    "gulp-rename"       : "1.x.x",
+    "gulp-replace"      : "0.x.x",
+    "gulp-rtlcss"       : "0.x.x",
+    "gulp-uglify"       : "1.x.x",
+    "gulp-util"         : "3.x.x",
+    "gulp-watch"        : "2.x.x",
+    "jquery"            : "x.x.x",
+    "mkdirp"            : "0.x.x",
+    "require-dot-file"  : "0.x.x",
+    "wrench"            : "1.x.x"
   },
   "devDependencies": {
     "github"                : "^0.2.3",
