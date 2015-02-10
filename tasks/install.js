@@ -85,13 +85,12 @@ module.exports = function () {
   if(currentConfig && manager.name === 'NPM') {
 
     var
-      updateFolder = manager.root,
       updatePaths  = {
         config     : path.join(manager.root, files.config),
-        definition : path.join(updateFolder, currentConfig.paths.source.definitions),
-        site       : path.join(updateFolder, currentConfig.paths.source.site),
-        theme      : path.join(updateFolder, currentConfig.paths.source.themes),
-        tasks      : path.join(updateFolder, folders.tasks),
+        definition : path.join(manager.root, currentConfig.paths.source.definitions),
+        site       : path.join(manager.root, currentConfig.paths.source.site),
+        theme      : path.join(manager.root, currentConfig.paths.source.themes),
+        tasks      : path.join(manager.root, folders.tasks),
       }
     ;
 
@@ -100,7 +99,8 @@ module.exports = function () {
 
       // perform update if new version
       if(currentConfig.version !== release.version) {
-
+        console.log(release);
+        console.log(requireDotFile('package.json'));
         console.log('Updating Semantic UI from ' + currentConfig.version + ' to ' + release.version);
 
         console.info('Updating ui definitions...');
