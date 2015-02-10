@@ -26,7 +26,7 @@ var when = {
 
   // permissions
   changePermissions: function(question) {
-    return (questions.usePermission == true);
+    return (questions.setPermission == true);
   },
 
   // install

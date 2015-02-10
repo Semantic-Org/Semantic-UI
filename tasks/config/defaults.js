@@ -8,7 +8,7 @@ module.exports = {
   base : '',
 
   // octal permission for output files, i.e. 644 (false does not adjust)
-  permission : false,
+  permission : 744,
 
   // whether to generate rtl files
   rtl        : false,
