@@ -29,7 +29,7 @@ var
 ---------------*/
 
 gulp.task('default', false, [
-  'check install'
+  'watch'
 ]);
 
 gulp.task('watch', 'Watch for site/theme changes', watch);
