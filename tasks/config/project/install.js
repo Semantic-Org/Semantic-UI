@@ -21,12 +21,12 @@ var when = {
 
   // path
   changeRoot: function(questions) {
-    return (questions.useRoot === undefined || questions.useRoot == 'no');
+    return (questions.useRoot === undefined || questions.useRoot === false);
   },
 
   // permissions
   changePermissions: function(questions) {
-    return (questions.changePermisions === true);
+    return (questions.changePermissions && questions.changePermissions === true);
   },
 
   // install
@@ -278,11 +278,11 @@ module.exports = {
         choices: [
           {
             name  : 'Yes',
-            value : 'yes'
+            value : true
           },
           {
             name  : 'No, let me specify',
-            value : 'no'
+            value : false
           }
         ]
       },
@@ -399,6 +399,7 @@ module.exports = {
       {
         type: 'list',
         name: 'changePermisions',
+        when: when.notAuto,
         message: 'Should we set permissions on outputted files?',
         choices: [
           {
