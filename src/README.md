@@ -56,7 +56,7 @@ There are three levels of inheritance in Semantic
 * Default theme - Semantic UI's neutral default theme
 * Packaged theme - A specified packaged theme, like "amazon", or "material"
 * Site theme - A theme specific to your site
-*
+
 #### Folder Structure
 
 * `definitions/` contains the `css` and `javascript` definitions for each component
