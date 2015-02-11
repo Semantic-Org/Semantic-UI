@@ -46,9 +46,8 @@ To import all of Semantic UI:
 @import 'src/definitions/elements/button';
 ```
 
-## Theming
+## Theming Structure
 
-View the [Customization Guide](http://learnsemantic.com/developing/customizing.html)
 
 #### Overview
 
@@ -56,16 +55,39 @@ View the [Customization Guide](http://learnsemantic.com/developing/customizing.h
 * `themes/` contains *pre-packaged themes* including Semantic's default theme
 * `site/` contains your current site's theme
 
-#### Inheritance
+#### Levels of Inheritance
 
 There are three levels of inheritance in Semantic
 * Default theme - Semantic UI's neutral default theme
 * Packaged theme - A specified packaged theme, like "amazon", or "material"
 * Site theme - A theme specific to your implementation
 
-#### Site.variables
+View the [Theming Guide](http://learnsemantic.com/themes/overview.html) for a more in-depth look
 
-Each level of inheritance (default theme, packaged theme, and site theme) include **its own** `site.variables` file. This includes the most important values to modify for customizing your site.
+## Customizing
+
+#### Basic Customization
+
+The best way to start customizing is to specify overriding variables in your site's `site.variables` file.
+
+This is a blank stub file that lets you specify variables that overriding variables.
+
+Some important values to customize:
+* Base font size
+* Named color hex codes
+* Header/Page Font-families
+* Primary and secondary colors
+* Grid column count
+
+To find out what variables are available to modify, you can inspect the variables in the default theme in `themes/default/`
+
+#### Advanced Configuration
+
+Each component has its own variable file, which can be used to modify any of the underlying variables for that component.
+
+For example `/site/elements/button.variables`.
+
+You may also specify your own custom LESS in `site/elements/button.overrides`. This file will have access to all underlying variables available for that component.
 
 #### Using Pre-Packaged Themes
 
@@ -76,9 +98,5 @@ For example you can modify `theme.config` to use a `github` button theme by chan
 @button: 'github';
 ```
 
-Each theme has its own `site.variables`
+View the [Customization Guide](http://learnsemantic.com/developing/customizing.html) to learn more
 
-
-#### CSS Overrides
-
-`site/` folder contains stub `.variable` and `.override` files for each component. Variable files can be used to modify variables values for your site.
