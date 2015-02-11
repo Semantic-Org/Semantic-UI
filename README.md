@@ -92,10 +92,11 @@ For more detail into how work with Semantic when building a site please [read ou
 
 * Last 2 Versions FF, Chrome, IE (aka 10+)
 * Safari 6
-* IE 9+ (Browser prefix only)
+* IE 10+
 * Android 4
 * Blackberry 10
 
+Browser prefixes are present for Internet Explorer 9, but the browser is not officially supported.
 
 ## Pull Requests
 
