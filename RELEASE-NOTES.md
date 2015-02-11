@@ -3,18 +3,26 @@
 ### Version 1.9.0 - January xx, 2015
 
 **Enhancement**
-- **API** - API now has a onRequest callback that returns a request promise after XHR is sent
-- **Icon** - Added woff2 icon files for supported browsers (20% file-size decrease) **Thanks FontAwesome**
-- **Icon** - Added new icons aliases for icons from Font Awesome 4.3
-- **Form** - Input rules now apply to `input[type="time"]`
-- **Dropdown** - Added new dropdown setting, `forceSelection` which forces `search selection` to a selected value on blur. Defaults to `true`.
+- **API** - API now has an ``onRequest`` callback setting that receives the XHR promise after initializing the request
+- **Button** - Loading buttons no longer receive `pointer-events` in default theme. Added variable for `loading button` opacity.
 - **Dropdown** - `search selection dropdown` will now close the menu when a `dropdown icon` is clicked
+- **Dropdown** - Added new dropdown setting, `forceSelection` which forces `search selection` to a selected value on blur. Defaults to `true`.
+- **Form** - Input rules now apply to `input[type="time"]`
+- **Headers** - Headers can now contain images alongside text, added examples to docs
+- **Icon** - Added new icons aliases for icons from Font Awesome 4.3
+- **Icon** - Added woff2 icon files for supported browsers (20% file-size decrease) **Thanks FontAwesome**
+- **Sidebar** - Sidebars in IE now work correctly with `context` specified
 
 **Bugs**
 - **All Modules** - Fixed bug where element `destroy` could remove third party events when re-initialized
-- **Transition** - Transitions with direction now use word order dependency to prevent conflict with component directions, for example `bottom left popup slide down in transition`
+- **Transition** - Transitions with direction now use word order dependency to prevent conflict with component directions, for example `bottom left popup slide down in transition
+- **Icon** - `external link` and `external link square` has been renamed to `external icon` to no longer receive `link` styles by default
 - **Dropdown** - Upward dropdown now has upward arrow icon
+- **Steps** - Fixed bug where evenly divided steps were no longer fluid
 - **Transition** - Fixes bug where `moduleNamespace` was being omitted
+
+**Docs**
+- Fixed bug with chinese mirror modal appearing on every page load when selecting chinese language
 
 ### Version 1.8.1 - January 26, 2015
 
