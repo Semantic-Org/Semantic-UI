@@ -13,9 +13,9 @@ gulp build
 
 [Getting Started Guide](http://learnsemantic.com/guide/expert.html)
 
-## Using Custom Pipelines
+## Custom Pipelines
 
-#### Gulp Import
+#### Importing Gulp Tasks
 
 Each gulp task can be imported into your own Gulpfile
 
@@ -26,23 +26,23 @@ var
 gulp.task('watch ui', 'Watch Semantic UI', watch));
 ```
 
-#### LESS Import
+#### Importing LESS
 
 Before using source files you will need to create a `theme.config` by renaming `theme.config.example`
 
 This file is used to configure which packaged theme each component should use.
 
-After adjusting the file, you can import files into less two ways:
+After renaming the file, you can import less files in two ways:
 
 To import all of Semantic UI:
 ```less
+/* Import all components */
 @import 'src/semantic';
-```
-
-To import a specific component
-```less
+/* Import a specific component */
 @import 'src/definitions/elements/button';
 ```
+
+## Theming
 
 #### Overview
 
