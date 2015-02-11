@@ -115,7 +115,8 @@
   background: @imageBackground;
 }
 .ui.cards > .card > .image > img,
-.ui.card > .image > img {
+.ui.card > .image > img,
+.ui.card > .content  .image   {
   display: block;
   width: 100%;
   height: auto;
@@ -743,3 +744,115 @@ a.ui.card:hover,
 }
 
 .loadUIOverrides();
+
+/*-------------------
+       Colors
+--------------------*/
+
+@coloredBorderSize: 2px;
+.ui.black.card:not(.inverted) {
+  box-shadow: 0px @shadowDistance 0px 0px @black;
+  border: 1px solid @solidBorderColor;
+}
+.ui.blue.card:not(.inverted) {
+   box-shadow: 0px @shadowDistance 0px 0px @blue;
+  border: 1px solid @solidBorderColor;
+}
+.ui.green.card:not(.inverted) {
+    box-shadow: 0px @shadowDistance 0px 0px @green;
+  border: 1px solid @solidBorderColor;
+}
+.ui.orange.card:not(.inverted) {
+  box-shadow: 0px @shadowDistance 0px 0px @orange;
+  border: 1px solid @solidBorderColor;
+}
+.ui.pink.card:not(.inverted) {
+  box-shadow: 0px @shadowDistance 0px 0px @pink;
+  border: 1px solid @solidBorderColor;
+}
+.ui.purple.card:not(.inverted) {
+  box-shadow: 0px @shadowDistance 0px 0px @purple;
+  border: 1px solid @solidBorderColor;
+}
+.ui.red.card:not(.inverted) {
+  box-shadow: 0px @shadowDistance 0px 0px @red;
+  border: 1px solid @solidBorderColor;
+}
+.ui.teal.card:not(.inverted) {
+  box-shadow: 0px @shadowDistance 0px 0px @teal;
+  border: 1px solid @solidBorderColor;
+}
+.ui.yellow.card:not(.inverted) {
+  box-shadow: 0px @shadowDistance 0px 0px @yellow;
+  border: 1px solid @solidBorderColor;
+}
+
+/*-------------------
+   Inverted Colors
+--------------------*/
+
+.ui.inverted.card *,
+.ui.inverted.black.card * {
+  background-color: @black !important;
+  color: @white !important;
+}
+.ui.inverted.card,
+.ui.inverted.black.card {
+  box-shadow: 0px @shadowDistance 0px 0px darken(@black, 20%);
+}
+.ui.inverted.blue.card * {
+  background-color: @blue !important;
+  color: @white !important;
+}
+.ui.inverted.blue.card {
+  box-shadow: 0px @shadowDistance 0px 0px darken(@blue, 20%);
+}
+.ui.inverted.green.card * {
+  background-color: @green !important;
+  color: @white !important;
+}
+.ui.inverted.green.card {
+  box-shadow: 0px @shadowDistance 0px 0px darken(@green, 20%);
+}
+.ui.inverted.orange.card * {
+  background-color: @orange !important;
+  color: @white !important;
+}
+.ui.inverted.orange.card {
+  box-shadow: 0px @shadowDistance 0px 0px darken(@orange, 20%);
+}
+.ui.inverted.pink.card * {
+  background-color: @pink !important;
+  color: @white !important;
+}
+.ui.inverted.pink.card {
+  box-shadow: 0px @shadowDistance 0px 0px darken(@pink, 20%);
+}
+.ui.inverted.purple.card * {
+  background-color: @purple !important;
+  color: @white !important;
+}
+.ui.inverted.purple.card {
+  box-shadow: 0px @shadowDistance 0px 0px darken(@purple, 20%);
+}
+.ui.inverted.red.card * {
+  background-color: @red !important;
+  color: @white !important;
+}
+.ui.inverted.red.card {
+  box-shadow: 0px @shadowDistance 0px 0px darken(@red, 20%);
+}
+.ui.inverted.teal.card * {
+  background-color: @teal !important;
+  color: @white !important;
+}
+.ui.inverted.teal.card {
+  box-shadow: 0px @shadowDistance 0px 0px darken(@teal, 20%);
+}
+.ui.inverted.yellow.card * {
+ background-color: @yellow !important;
+  color: @white !important;
+}
+.ui.inverted.yellow.card {
+  box-shadow: 0px @shadowDistance 0px 0px darken(@yellow, 20%);
+}
