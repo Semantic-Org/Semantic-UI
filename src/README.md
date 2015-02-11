@@ -1,20 +1,17 @@
-## Using Build Tools
+## Built-In Tools
 
-To build Semantic UI from its source less files you can use the built in gulp tasks.
-
-From the Semantic directory you can use gulp by running.
+From the Semantic directory you can setup gulp to build Semantic by running.
 ```bash
 npm install
 ```
 
-After install finishes you can start build tools using
+After install finishes you can start build/watch by using:
 ```bash
 gulp watch
-```
-or
-```bash
 gulp build
 ```
+
+[Getting Started Guide](http://learnsemantic.com/guide/expert.html)
 
 ## Using Custom Pipelines
 
@@ -39,7 +36,7 @@ After adjusting the file, you can import files into less two ways:
 
 To import all of Semantic UI:
 ```less
-@import 'src/semantic.less';
+@import 'src/semantic';
 ```
 
 To import a specific component
@@ -51,7 +48,7 @@ To import a specific component
 
 * `definitions/` contains the `css` and `javascript` definitions for each component
 * `themes/` contains *pre-packaged themes* including Semantic's default theme
-* `site/` contains your current project's theme, known formally as a "site theme"
+* `site/` contains your current site's theme
 
 #### Inheritance
 
