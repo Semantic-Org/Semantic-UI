@@ -37,9 +37,7 @@ Before using source files you will need to create a `theme.config` by renaming `
 
 This file is used to configure which packaged theme each component should use.
 
-After renaming the file, you can import less files in two ways:
-
-To import all of Semantic UI:
+You can then import Semantic from your own LESS files:
 ```less
 /* Import all components */
 @import 'src/semantic';
@@ -58,7 +56,7 @@ There are three levels of inheritance in Semantic
 * Default theme - Semantic UI's neutral default theme
 * Packaged theme - A specified packaged theme, like "amazon", or "material"
 * Site theme - A theme specific to your site
-* 
+*
 #### Folder Structure
 
 * `definitions/` contains the `css` and `javascript` definitions for each component
