@@ -416,7 +416,7 @@ module.exports = {
         name: 'permission',
         message: 'What octal file permission should outputted files receive?',
         default: defaults.permission,
-        when: when.changePermission
+        when: when.changePermissions
       },
       {
         type: 'list',
