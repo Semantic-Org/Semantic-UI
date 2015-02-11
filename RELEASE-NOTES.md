@@ -13,6 +13,8 @@
 - **Button** - Loading buttons no longer receive `pointer-events` in default theme. Added variable for `loading button` opacity.
 - **Dropdown** - `search selection dropdown` will now close the menu when a `dropdown icon` is clicked
 - **Dropdown** - Added new dropdown setting, `forceSelection` which forces `search selection` to a selected value on blur. Defaults to `true`.
+- **Flag** - Reduced the file size of flag sprite to a measly 28kb (500%+ file size reduction)
+- **Flag** - Updated Burma/Myanmar flag to current flag (was pre-2010 flag)
 - **Form** - Input rules now apply to `input[type="time"]`
 - **Headers** - Headers can now contain images alongside text, added examples to docs
 - **Icon** - Added new icons aliases for icons from Font Awesome 4.3
