@@ -13,11 +13,12 @@
             Theme
 *******************************/
 
+.dimmer() {
+
 @type    : 'module';
 @element : 'dimmer';
 
-@import '../../theme.config';
-
+@import (multiple) '../../theme.config';
 
 /*******************************
             Dimmer
@@ -178,3 +179,7 @@ body.dimmed.dimmable > :not(.dimmer) {
 }
 
 .loadUIOverrides();
+
+}
+
+.dimmer();

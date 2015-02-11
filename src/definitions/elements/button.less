@@ -13,10 +13,12 @@
             Theme
 *******************************/
 
+.button() {
+
 @type    : 'element';
 @element : 'button';
 
-@import '../../theme.config';
+@import (multiple) '../../theme.config';
 
 /*******************************
             Button
@@ -2405,3 +2407,7 @@
 }
 
 .loadUIOverrides();
+
+}
+
+.button();

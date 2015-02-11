@@ -9,14 +9,18 @@
  *
  */
 
+
 /*******************************
             Theme
 *******************************/
 
+.header() {
+
 @type    : 'element';
 @element : 'header';
 
-@import '../../theme.config';
+@import (multiple) '../../theme.config';
+
 
 /*******************************
             Header
@@ -616,3 +620,7 @@ a.ui.inverted.yellow.header:hover {
 }
 
 .loadUIOverrides();
+
+}
+
+.header();

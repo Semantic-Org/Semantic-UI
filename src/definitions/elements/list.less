@@ -13,10 +13,12 @@
             Theme
 *******************************/
 
+.list() {
+
 @type    : 'element';
 @element : 'list';
 
-@import '../../theme.config';
+@import (multiple) '../../theme.config';
 
 /*******************************
             List
@@ -880,3 +882,7 @@ ol.ui.horizontal.list li:before,
 }
 
 .loadUIOverrides();
+
+}
+
+.list();

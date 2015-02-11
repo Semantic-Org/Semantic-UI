@@ -9,14 +9,17 @@
  *
  */
 
+
 /*******************************
             Theme
 *******************************/
 
+.label() {
+
 @type    : 'element';
 @element : 'label';
 
-@import '../../theme.config';
+@import (multiple) '../../theme.config';
 
 
 /*******************************
@@ -939,3 +942,7 @@ a.ui.yellow.label:hover:before {
 }
 
 .loadUIOverrides();
+
+}
+
+.label();

@@ -10,15 +10,17 @@
  */
 
 
+
 /*******************************
             Theme
 *******************************/
 
+.sidebar() {
+
 @type    : 'module';
 @element : 'sidebar';
 
-@import '../../theme.config';
-
+@import (multiple) '../../theme.config';
 
 /*******************************
             Sidebar
@@ -548,3 +550,7 @@ html.ios {
 }
 
 .loadUIOverrides();
+
+}
+
+.sidebar();

@@ -8,15 +8,17 @@
  * http://opensource.org/licenses/MIT
  *
  */
+
 /*******************************
             Theme
 *******************************/
 
+.message() {
+
 @type    : 'collection';
 @element : 'message';
 
-@import '../../theme.config';
-
+@import (multiple) '../../theme.config';
 
 /*******************************
             Message
@@ -440,3 +442,7 @@
 }
 
 .loadUIOverrides();
+
+}
+
+.message();

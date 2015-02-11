@@ -13,11 +13,12 @@
             Theme
 *******************************/
 
+.grid() {
+
 @type    : 'collection';
 @element : 'grid';
 
-@import '../../theme.config';
-
+@import (multiple) '../../theme.config';
 
 /*******************************
             Standard
@@ -1776,3 +1777,7 @@
 }
 
 .loadUIOverrides();
+
+}
+
+.grid();

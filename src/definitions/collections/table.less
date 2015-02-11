@@ -9,15 +9,17 @@
  *
  */
 
+
 /*******************************
             Theme
 *******************************/
 
+.table() {
+
 @type    : 'collection';
 @element : 'table';
 
-@import '../../theme.config';
-
+@import (multiple) '../../theme.config';
 
 /*******************************
              Table
@@ -997,3 +999,7 @@
 }
 
 .loadUIOverrides();
+
+}
+
+.table();

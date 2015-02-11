@@ -13,10 +13,12 @@
             Theme
 *******************************/
 
+.input() {
+
 @type    : 'element';
 @element : 'input';
 
-@import '../../theme.config';
+@import (multiple) '../../theme.config';
 
 
 /*******************************
@@ -460,3 +462,7 @@
 }
 
 .loadUIOverrides();
+
+}
+
+.input();

@@ -9,15 +9,17 @@
  *
  */
 
+
 /*******************************
             Theme
 *******************************/
 
+.video() {
+
 @type    : 'module';
 @element : 'video';
 
-@import '../../theme.config';
-
+@import (multiple) '../../theme.config';
 
 /*******************************
             Video
@@ -123,3 +125,7 @@
 }
 
 .loadUIOverrides();
+
+}
+
+.video();

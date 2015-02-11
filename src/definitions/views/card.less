@@ -13,10 +13,12 @@
             Theme
 *******************************/
 
+.card() {
+
 @type    : 'view';
 @element : 'card';
 
-@import '../../theme.config';
+@import (multiple) '../../theme.config';
 
 /*******************************
             Standard
@@ -743,3 +745,7 @@ a.ui.card:hover,
 }
 
 .loadUIOverrides();
+
+}
+
+.card();

@@ -9,14 +9,17 @@
  *
  */
 
+
 /*******************************
             Theme
 *******************************/
 
+.popup() {
+
 @type    : 'module';
 @element : 'popup';
 
-@import '../../theme.config';
+@import (multiple) '../../theme.config';
 
 
 /*******************************
@@ -291,3 +294,7 @@
 
 
 .loadUIOverrides();
+
+}
+
+.popup();

@@ -9,15 +9,17 @@
  *
  */
 
+
 /*******************************
             Theme
 *******************************/
 
+.dropdown() {
+
 @type    : 'module';
 @element : 'dropdown';
 
-@import '../../theme.config';
-
+@import (multiple) '../../theme.config';
 
 /*******************************
             Dropdown
@@ -1030,3 +1032,7 @@ select.ui.dropdown {
 }
 
 .loadUIOverrides();
+
+}
+
+.dropdown();

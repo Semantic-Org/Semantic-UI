@@ -9,15 +9,17 @@
  *
  */
 
+
 /*******************************
             Theme
 *******************************/
 
+.rating() {
+
 @type    : 'module';
 @element : 'rating';
 
-@import '../../theme.config';
-
+@import (multiple) '../../theme.config';
 
 /*******************************
            Rating
@@ -196,3 +198,7 @@
 }
 
 .loadUIOverrides();
+
+}
+
+.rating();
