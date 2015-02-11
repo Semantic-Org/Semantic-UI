@@ -25,7 +25,6 @@ module.exports = {
         ;
         if( fs.existsSync(currentPath) ) {
           // found file
-        console.log(path.normalize(directory));
           configPath = path.normalize(directory);
           return true;
         }
