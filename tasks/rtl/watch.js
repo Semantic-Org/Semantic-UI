@@ -66,9 +66,9 @@ module.exports = function(callback) {
   gulp
     .watch([
       source.config,
-      source.definitions   + '**/*.less',
-      source.site          + '**/*.{overrides,variables}',
-      source.themes        + '**/*.{overrides,variables}'
+      source.definitions   + '/**/*.less',
+      source.site          + '/**/*.{overrides,variables}',
+      source.themes        + '/**/*.{overrides,variables}'
     ], function(file) {
 
       var
@@ -182,7 +182,7 @@ module.exports = function(callback) {
 
   gulp
     .watch([
-      source.definitions   + '**/*.js'
+      source.definitions   + '/**/*.js'
     ], function(file) {
       gulp.src(file.path)
         .pipe(plumber())
@@ -208,7 +208,7 @@ module.exports = function(callback) {
   // only copy assets that match component names (or their plural)
   gulp
     .watch([
-      source.themes   + '**/assets/**/' + globs.components + '?(s).*'
+      source.themes   + '/**/assets/**/' + globs.components + '?(s).*'
     ], function(file) {
       // copy assets
       gulp.src(file.path, { base: source.themes })

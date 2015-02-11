@@ -4,6 +4,7 @@
 
 var
   defaults = require('../defaults'),
+  fs       = require('fs'),
   path     = require('path')
 ;
 
@@ -15,45 +16,70 @@ var
 
 module.exports = {
 
+  getPath: function(file, directory) {
+    var
+      configPath = '',
+      walk = function(directory) {
+        var
+          currentPath = path.normalize( path.join(directory, file) )
+        ;
+        if( fs.existsSync(currentPath) ) {
+          // found file
+        console.log(path.normalize(directory));
+          configPath = path.normalize(directory);
+          return true;
+        }
+        else {
+          // reached file system root, let's stop
+          if(path.resolve(directory) == path.sep) {
+            return false;
+          }
+          // otherwise recurse
+          walk(directory + '..' + path.sep, file);
+        }
+      }
+    ;
+
+    file      = file      || defaults.files.config;
+    directory = directory || __dirname + '/..';
+
+    walk(directory);
+
+    return configPath;
+
+  },
+
   // adds additional derived values to a config object
   addDerivedValues: function(config) {
 
     config = config || defaults;
-
     /*--------------
        File Paths
     ---------------*/
 
     var
-      currentPath = process.cwd(),
+      configPath = this.getPath(),
       folder
     ;
 
     // resolve source paths
     for(folder in config.paths.source) {
       if(config.paths.source.hasOwnProperty(folder)) {
-        // add base path
-        config.paths.source[folder] = path.join(config.base, config.paths.source[folder]);
-        // resolve relative path from cwd to output folder
-        config.paths.source[folder] = path.resolve( path.relative(currentPath, config.paths.source[folder])) + path.sep;
+        // full path is (config location + base + path)
+        config.paths.source[folder] = path.resolve(path.join(configPath, config.base, config.paths.source[folder]));
       }
     }
 
     // resolve output paths
     for(folder in config.paths.output) {
       if(config.paths.output.hasOwnProperty(folder)) {
-        // add base path
-        config.paths.output[folder] = path.join(config.base, config.paths.output[folder]);
-        // resolve relative path from cwd to output folder
-        config.paths.output[folder] = path.resolve( path.relative(currentPath, config.paths.output[folder])) + path.sep;
+        // full path is (config location + base + path)
+        config.paths.source[folder] = path.resolve(path.join(configPath, config.base, config.paths.output[folder]));
       }
     }
 
-    // remove trailing slash from file
-    config.paths.source.config = path.resolve(config.paths.source.config);
-
     // resolve "clean" command path
-    config.paths.clean = path.join(config.base, config.paths.clean);
+    config.paths.clean = path.join(configPath, config.base, config.paths.clean);
 
     /*--------------
         CSS URLs
