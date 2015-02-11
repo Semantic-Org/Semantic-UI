@@ -2,6 +2,12 @@
 
 ### Version 1.9.0 - January xx, 2015
 
+**Major Changes**
+
+- Semantic LESS files can now be directly included in other LESS files. Previously the inheritance system would cause errors when files were compiled consecutively.
+* You can import all UI by using `@import 'src/semantic';`
+* You can also import individual definitions using `@import 'src/definitions/elements/button'`.
+
 **Enhancement**
 - **API** - API now has an ``onRequest`` callback setting that receives the XHR promise after initializing the request
 - **Button** - Loading buttons no longer receive `pointer-events` in default theme. Added variable for `loading button` opacity.
