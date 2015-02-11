@@ -5,9 +5,12 @@ From the Semantic directory you can setup gulp to build Semantic by running.
 npm install
 ```
 
-After install finishes you can start build/watch by using:
+After install finishes you can use gulp commands:
 ```bash
+/* Watch files */
 gulp watch
+
+/* Build all files */
 gulp build
 ```
 
@@ -17,7 +20,7 @@ gulp build
 
 #### Importing Gulp Tasks
 
-Each gulp task can be imported into your own Gulpfile
+Each gulp task can be imported into your own Gulpfile using `require`
 
 ```javascript
 var
@@ -38,6 +41,7 @@ To import all of Semantic UI:
 ```less
 /* Import all components */
 @import 'src/semantic';
+
 /* Import a specific component */
 @import 'src/definitions/elements/button';
 ```
