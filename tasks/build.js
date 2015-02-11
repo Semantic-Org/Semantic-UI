@@ -59,14 +59,14 @@ module.exports = function(callback) {
     return;
   }
 
-  // check for RTL
-  if(config.rtl) {
+  // check for right-to-left language
+  if(config.rtl === true || config.rtl === 'Yes') {
     gulp.start('build rtl');
     return;
   }
 
   // unified css stream
-  stream = gulp.src(source.definitions + '**/' + globs.components + '.less')
+  stream = gulp.src(source.definitions + '/**/' + globs.components + '.less')
     .pipe(plumber())
     .pipe(less(settings.less))
     .pipe(autoprefixer(settings.prefix))
@@ -110,13 +110,13 @@ module.exports = function(callback) {
   ;
 
   // copy assets
-  gulp.src(source.themes + '**/assets/**/' + globs.components + '?(s).*')
+  gulp.src(source.themes + '/**/assets/**/' + globs.components + '?(s).*')
     .pipe(gulpif(config.hasPermission, chmod(config.permission)))
     .pipe(gulp.dest(output.themes))
   ;
 
   // copy source javascript
-  gulp.src(source.definitions + '**/' + globs.components + '.js')
+  gulp.src(source.definitions + '/**/' + globs.components + '.js')
     .pipe(plumber())
     .pipe(flatten())
     .pipe(gulp.dest(output.uncompressed))

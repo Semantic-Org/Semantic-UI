@@ -57,8 +57,13 @@ module.exports = function(callback) {
     return;
   }
 
+  // check for right-to-left language
+  if(config.rtl === true || config.rtl === 'Yes') {
+    gulp.start('watch rtl');
+    return;
+  }
+
   //console.clear();
-  console.log(source.definitions);
   console.log('Watching source files for changes');
 
   /*--------------
