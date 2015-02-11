@@ -14,7 +14,7 @@ gulp watch
 gulp build
 ```
 
-[Getting Started Guide](http://learnsemantic.com/guide/expert.html)
+Visit the [Getting Started Guide](http://learnsemantic.com/guide/expert.html)
 
 ## Custom Pipelines
 
@@ -48,6 +48,8 @@ To import all of Semantic UI:
 
 ## Theming
 
+View the [Customization Guide](http://learnsemantic.com/developing/customizing.html)
+
 #### Overview
 
 * `definitions/` contains the `css` and `javascript` definitions for each component
@@ -75,11 +77,6 @@ For example you can modify `theme.config` to use a `github` button theme by chan
 ```
 
 Each theme has its own `site.variables`
-
-
-### Using Site Themes
-
-The most important place to modify your site's
 
 
 #### CSS Overrides
