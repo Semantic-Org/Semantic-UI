@@ -1,4 +1,6 @@
-## Built-In Tools
+## Setup
+
+### Built-In Tools
 
 From the Semantic directory you can setup gulp to build Semantic by running.
 ```bash
@@ -16,7 +18,7 @@ gulp build
 
 Visit the [Getting Started Guide](http://learnsemantic.com/guide/expert.html)
 
-## Custom Pipelines
+### Custom Pipelines
 
 #### Importing Gulp Tasks
 
@@ -46,21 +48,22 @@ To import all of Semantic UI:
 @import 'src/definitions/elements/button';
 ```
 
-## Theming Structure
+## Theming
 
+### Concepts
 
-#### Overview
-
-* `definitions/` contains the `css` and `javascript` definitions for each component
-* `themes/` contains *pre-packaged themes* including Semantic's default theme
-* `site/` contains your current site's theme
-
-#### Levels of Inheritance
+#### Inheritance
 
 There are three levels of inheritance in Semantic
 * Default theme - Semantic UI's neutral default theme
 * Packaged theme - A specified packaged theme, like "amazon", or "material"
-* Site theme - A theme specific to your implementation
+* Site theme - A theme specific to your site
+* 
+#### Folder Structure
+
+* `definitions/` contains the `css` and `javascript` definitions for each component
+* `themes/` contains *pre-packaged themes* including Semantic's default theme
+* `site/` contains your current site's theme
 
 View the [Theming Guide](http://learnsemantic.com/themes/overview.html) for a more in-depth look
 
