@@ -9,11 +9,14 @@
  *
  */
 
+
 /*******************************
             Theme
 *******************************/
 
-@type    : 'global';
+.site() {
+
+@type    : 'element';
 @element : 'site';
 
 @import '../../theme.config';
@@ -143,3 +146,7 @@ input::selection {
 
 
 .loadUIOverrides();
+
+}
+
+.site();
