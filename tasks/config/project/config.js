@@ -73,7 +73,7 @@ module.exports = {
     for(folder in config.paths.output) {
       if(config.paths.output.hasOwnProperty(folder)) {
         // full path is (config location + base + path)
-        config.paths.source[folder] = path.resolve(path.join(configPath, config.base, config.paths.output[folder]));
+        config.paths.output[folder] = path.resolve(path.join(configPath, config.base, config.paths.output[folder]));
       }
     }
 
