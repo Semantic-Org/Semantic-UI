@@ -10,15 +10,17 @@
  */
 
 
+
 /*******************************
             Theme
 *******************************/
 
+.shape() {
+
 @type    : 'module';
 @element : 'shape';
 
-@import '../../theme.config';
-
+@import (multiple) '../../theme.config';
 
 /*******************************
               Shape
@@ -150,3 +152,7 @@
 }
 
 .loadUIOverrides();
+
+}
+
+.shape();

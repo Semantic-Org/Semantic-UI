@@ -24,12 +24,21 @@
 /* Sub Header */
 @subHeaderLineHeight: 1.2em;
 @subHeaderColor: rgba(0, 0, 0, 0.5);
+
+
 /* Icon */
 @iconOpacity: 1;
 @iconSize: 1.5em;
 @iconOffset: @lineHeightOffset;
-@iconMargin: 1rem;
+@iconMargin: 0.75rem;
 @iconAlignment: middle;
+
+/* Image */
+@imageWidth: 2.5em;
+@imageHeight: auto;
+@imageOffset: @lineHeightOffset;
+@imageMargin: @iconMargin;
+@imageAlignment: middle;
 
 /* Label */
 @labelDistance: 0.5rem;
@@ -38,6 +47,7 @@
 /* Content */
 @contentAlignment: top;
 @contentIconAlignment: middle;
+@contentImageAlignment: middle;
 
 /* Paragraph after Header */
 @nextParagraphDistance: 0em;

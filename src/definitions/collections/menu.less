@@ -9,14 +9,17 @@
  *
  */
 
+
 /*******************************
             Theme
 *******************************/
 
+.menu() {
+
 @type    : 'collection';
 @element : 'menu';
 
-@import '../../theme.config';
+@import (multiple) '../../theme.config';
 
 /*******************************
             Standard
@@ -29,7 +32,7 @@
 .ui.menu {
   margin: @margin;
   background: @background;
-  font-size: 0px;
+  font-size: 0em;
   font-weight: @fontWeight;
   box-shadow: @boxShadow;
   border-radius: @borderRadius;
@@ -48,6 +51,13 @@
 }
 .ui.menu:last-child {
   margin-bottom: 0rem;
+}
+
+.ui.menu .menu {
+  margin: 0em;
+}
+.ui.menu:not(.vertical) .menu {
+  font-size: 0em;
 }
 
 /*--------------
@@ -90,9 +100,6 @@
   transition: @transition;
 }
 
-.ui.menu .menu {
-  margin: 0em;
-}
 
 /* Floated Content */
 .ui.menu > .item:first-child {
@@ -629,18 +636,15 @@
 /* Active */
 .ui.tabular.menu .active.item {
   position: relative;
+  border-bottom: none;
+  vertical-align: bottom;
 
   background-color: @tabularMenuActiveBackground;
   color: @tabularActiveColor;
-
   border-color: @tabularBorderColor;
   font-weight: @tabularActiveWeight;
-
   margin-bottom: -@tabularBorderWidth;
-
-
-  border-bottom: none;
-  box-shadow: 0px (2 * @tabularBorderWidth) 0px -@tabularBorderWidth @tabularBackgroundColor;
+  box-shadow: @tabularActiveBoxShadow;
   border-radius: @tabularBorderRadius @tabularBorderRadius 0px 0px;
 }
 
@@ -1612,3 +1616,7 @@
 }
 
 .loadUIOverrides();
+
+}
+
+.menu();

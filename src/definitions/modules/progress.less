@@ -9,15 +9,17 @@
  *
  */
 
+
 /*******************************
             Theme
 *******************************/
 
+.progress() {
+
 @type    : 'module';
 @element : 'progress';
 
-@import '../../theme.config';
-
+@import (multiple) '../../theme.config';
 
 /*******************************
             Progress
@@ -435,3 +437,7 @@
 }
 
 .loadUIOverrides();
+
+}
+
+.progress();

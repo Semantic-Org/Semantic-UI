@@ -9,14 +9,17 @@
  *
  */
 
+
 /*******************************
             Theme
 *******************************/
 
+.modal() {
+
 @type    : 'module';
 @element : 'modal';
 
-@import '../../theme.config';
+@import (multiple) '../../theme.config';
 
 /*******************************
              Modal
@@ -434,3 +437,7 @@
 
 
 .loadUIOverrides();
+
+}
+
+.modal();

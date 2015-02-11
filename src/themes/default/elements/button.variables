@@ -123,7 +123,12 @@
 @activeHoverBoxShadow: @activeBoxShadow;
 
 /* Loading */
-@loadingBackground: @offWhite;
+@loadingOpacity: 1;
+@loadingPointerEvents: none;
+@loadingTransition:
+  all 0s linear,
+  opacity @transitionDuration @defaultEasing
+;
 
 /*-------------------
         Types

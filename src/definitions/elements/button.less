@@ -13,10 +13,12 @@
             Theme
 *******************************/
 
+.button() {
+
 @type    : 'element';
 @element : 'button';
 
-@import '../../theme.config';
+@import (multiple) '../../theme.config';
 
 /*******************************
             Button
@@ -134,10 +136,11 @@
 .ui.loading.loading.loading.loading.loading.loading.button {
   position: relative;
   cursor: default;
-  point-events: none;
   text-shadow: none !important;
   color: transparent !important;
-  transition: all 0s linear;
+  opacity: @loadingOpacity;
+  pointer-events: @loadingPointerEvents;
+  transition: @loadingTransition;
 }
 .ui.loading.button:before {
   position: absolute;
@@ -2404,3 +2407,7 @@
 }
 
 .loadUIOverrides();
+
+}
+
+.button();

@@ -10,15 +10,17 @@
  */
 
 
+
 /*******************************
             Theme
 *******************************/
 
+.sidebar() {
+
 @type    : 'module';
 @element : 'sidebar';
 
-@import '../../theme.config';
-
+@import (multiple) '../../theme.config';
 
 /*******************************
             Sidebar
@@ -94,14 +96,19 @@
   padding: 0em !important;
 }
 
-/* Inside Page */
-.pushable:not(body) {
-  transform: translate3d(0, 0, 0);
-}
-
 /* Whole Page */
 body.pushable {
   background: @canvasBackground !important;
+}
+
+/* Page Context */
+.pushable:not(body) {
+  transform: translate3d(0, 0, 0);
+}
+.pushable:not(body) > .ui.sidebar,
+.pushable:not(body) > .fixed,
+.pushable:not(body) > .pusher:after {
+  position: absolute;
 }
 
 
@@ -543,3 +550,7 @@ html.ios {
 }
 
 .loadUIOverrides();
+
+}
+
+.sidebar();

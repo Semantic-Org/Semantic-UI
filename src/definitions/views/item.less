@@ -13,10 +13,12 @@
             Theme
 *******************************/
 
+.item() {
+
 @type    : 'view';
 @element : 'item';
 
-@import '../../theme.config';
+@import (multiple) '../../theme.config';
 
 /*******************************
             Standard
@@ -464,3 +466,7 @@
 }
 
 .loadUIOverrides();
+
+}
+
+.item();

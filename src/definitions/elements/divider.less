@@ -13,10 +13,12 @@
             Theme
 *******************************/
 
+.divider() {
+
 @type    : 'element';
 @element : 'divider';
 
-@import '../../theme.config';
+@import (multiple) '../../theme.config';
 
 
 /*******************************
@@ -202,9 +204,7 @@
     Inverted
 ---------------*/
 
-.ui.divider.inverted {
-  color: @invertedTextColor;
-}
+.ui.divider.inverted,
 .ui.vertical.inverted.divider,
 .ui.horizontal.inverted.divider {
   color: @invertedTextColor;
@@ -254,3 +254,7 @@
 
 
 .loadUIOverrides();
+
+}
+
+.divider();

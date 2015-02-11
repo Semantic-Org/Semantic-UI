@@ -9,14 +9,17 @@
  *
  */
 
+
 /*******************************
             Theme
 *******************************/
 
+.site() {
+
 @type    : 'global';
 @element : 'site';
 
-@import '../../theme.config';
+@import (multiple) '../../theme.config';
 
 .loadFonts();
 
@@ -143,3 +146,7 @@ input::selection {
 
 
 .loadUIOverrides();
+
+}
+
+.site();

@@ -186,13 +186,15 @@ $.api = $.fn.api = function(parameters) {
             // throttle additional requests
             module.timer = setTimeout(function() {
               module.request = module.create.request();
-              module.xhr = module.create.xhr();
+              module.xhr     = module.create.xhr();
+              settings.onRequest.call(context, module.request, module.xhr);
             }, settings.throttle);
           }
           else {
             // immediately on first request
             module.request = module.create.request();
-            module.xhr = module.create.xhr();
+            module.xhr     = module.create.xhr();
+            settings.onRequest.call(context, module.request, module.xhr);
           }
 
         },
@@ -746,7 +748,7 @@ $.api = $.fn.api = function(parameters) {
       }
       else {
         if(instance !== undefined) {
-          module.destroy();
+          instance.invoke('destroy');
         }
         module.initialize();
       }
@@ -799,6 +801,7 @@ $.api.settings = {
   beforeSend  : function(settings) { return settings; },
   beforeXHR   : function(xhr) {},
 
+  onRequest   : function(promise, xhr) {},
   onSuccess   : function(response, $module) {},
   onComplete  : function(response, $module) {},
   onFailure   : function(errorMessage, $module) {},

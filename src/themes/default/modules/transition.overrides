@@ -14,14 +14,14 @@
      Browse
 ---------------*/
 
-.browse.transition.in {
+.transition.browse.in {
   animation-name: browseIn;
 }
-.browse.transition.out,
-.browse.transition.out.left {
+.transition.browse.out,
+.transition.browse.left.out {
   animation-name: browseOutLeft;
 }
-.browse.transition.out.right {
+.transition.browse.right.out {
   animation-name: browseOutRight;
 }
 
@@ -131,32 +131,32 @@
 .transition.fade.in {
   animation-name: fadeIn;
 }
-.transition.fade.in.up {
+.transition[class*="fade up"].in {
   animation-name: fadeInUp;
 }
-.transition.fade.in.down {
+.transition[class*="fade down"].in {
   animation-name: fadeInDown;
 }
-.transition.fade.in.left {
+.transition[class*="fade left"].in {
   animation-name: fadeInLeft;
 }
-.transition.fade.in.right {
+.transition[class*="fade right"].in {
   animation-name: fadeInRight;
 }
 
 .transition.fade.out {
   animation-name: fadeOut;
 }
-.transition.fade.out.up {
+.transition[class*="fade up"].out {
   animation-name: fadeOutUp;
 }
-.transition.fade.out.down {
+.transition[class*="fade down"].out {
   animation-name: fadeOutDown;
 }
-.transition.fade.out.left {
+.transition[class*="fade left"].out {
   animation-name: fadeOutLeft;
 }
-.transition.fade.out.right {
+.transition[class*="fade right"].out {
   animation-name: fadeOutRight;
 }
 
@@ -364,6 +364,7 @@
       Fly
 ---------------*/
 
+/* Inward */
 .transition.fly {
   animation-duration: 0.6s;
   transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
@@ -371,32 +372,34 @@
 .transition.fly.in {
   animation-name: flyIn;
 }
-.transition.fly.in.up {
+.transition[class*="fly up"].in {
   animation-name: flyInUp;
 }
-.transition.fly.in.down {
+.transition[class*="fly down"].in {
   animation-name: flyInDown;
 }
-.transition.fly.in.right {
-  animation-name: flyInRight;
-}
-.transition.fly.in.left {
+.transition[class*="fly left"].in {
   animation-name: flyInLeft;
 }
+.transition[class*="fly right"].in {
+  animation-name: flyInRight;
+}
+
+/* Outward */
 .transition.fly.out {
   animation-name: flyOut;
 }
-.transition.fly.out.up {
+.transition[class*="fly up"].out {
   animation-name: flyOutUp;
 }
-.transition.fly.out.down {
+.transition[class*="fly down"].out {
   animation-name: flyOutDown;
 }
-.transition.fly.out.right {
-  animation-name: flyOutRight;
-}
-.transition.fly.out.left {
+.transition[class*="fly left"].out {
   animation-name: flyOutLeft;
+}
+.transition[class*="fly right"].out {
+  animation-name: flyOutRight;
 }
 
 /* In */
@@ -566,37 +569,37 @@
 ---------------*/
 
 .transition.slide.in,
-.transition.slide.in.down {
+.transition[class*="slide down"].in {
   animation-name: slideInY;
   transform-origin: top center;
 }
-.transition.slide.in.up {
+.transition[class*="slide up"].in {
   animation-name: slideInY;
   transform-origin: bottom center;
 }
-.transition.slide.in.left {
+.transition[class*="slide left"].in {
   animation-name: slideInX;
   transform-origin: center right;
 }
-.transition.slide.in.right {
+.transition[class*="slide right"].in {
   animation-name: slideInX;
   transform-origin: center left;
 }
 
 .transition.slide.out,
-.transition.slide.out.down {
+.transition[class*="slide down"].out {
   animation-name: slideOutY;
   transform-origin: top center;
 }
-.transition.slide.out.up {
+.transition[class*="slide up"].out {
   animation-name: slideOutY;
   transform-origin: bottom center;
 }
-.transition.slide.out.left {
+.transition[class*="slide left"].out {
   animation-name: slideOutX;
   transform-origin: center right;
 }
-.transition.slide.out.right {
+.transition[class*="slide right"].out {
   animation-name: slideOutX;
   transform-origin: center left;
 }
@@ -650,45 +653,40 @@
      Swing
 ---------------*/
 
-.transition.swing {
-  perspective: 1000px;
-  animation-duration: 0.5s;
-  transition-timing-function: ease-in;
-}
 .transition.swing.in,
-.transition.swing.in.down {
+.transition[class*="swing down"].in {
+  animation-name: swingInY;
   transform-origin: top center;
-  animation-name: swingInX;
 }
-.transition.swing.in.up {
-  transform-origin:bottom center;
-  animation-name: swingInX;
+.transition[class*="swing up"].in {
+  animation-name: swingInY;
+  transform-origin: bottom center;
 }
-.transition.swing.in.left {
+.transition[class*="swing left"].in {
+  animation-name: swingInX;
   transform-origin: center right;
-  animation-name: swingInY;
 }
-.transition.swing.in.right {
+.transition[class*="swing right"].in {
+  animation-name: swingInX;
   transform-origin: center left;
-  animation-name: swingInY;
 }
 
-.transition.swing.out.down,
-.transition.swing.out {
+.transition.swing.out,
+.transition[class*="swing down"].out {
+  animation-name: swingOutY;
   transform-origin: top center;
-  animation-name: swingOutDown;
 }
-.transition.swing.out.up {
-  transform-origin:bottom center;
-  animation-name: swingOutUp;
+.transition[class*="swing up"].out {
+  animation-name: swingOutY;
+  transform-origin: bottom center;
 }
-.transition.swing.out.left {
+.transition[class*="swing left"].out {
+  animation-name: swingOutX;
   transform-origin: center right;
-  animation-name: swingOutLeft;
 }
-.transition.swing.out.right {
+.transition[class*="swing right"].out {
+  animation-name: swingOutX;
   transform-origin: center left;
-  animation-name: swingOutRight;
 }
 
 /* In */
