@@ -16,7 +16,7 @@ gulp watch
 gulp build
 ```
 
-Visit the [Getting Started Guide](http://learnsemantic.com/guide/expert.html)
+Visit the [Getting Started Guide](http://learnsemantic.com/guide/expert.html) for more details on set-up
 
 ### Custom Pipelines
 
