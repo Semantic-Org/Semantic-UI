@@ -52,6 +52,7 @@ module.exports = {
   addDerivedValues: function(config) {
 
     config = config || defaults;
+
     /*--------------
        File Paths
     ---------------*/
@@ -60,6 +61,7 @@ module.exports = {
       configPath = this.getPath(),
       folder
     ;
+    console.log('start extend' , defaults.paths);
 
     // resolve source paths
     for(folder in config.paths.source) {
@@ -76,9 +78,10 @@ module.exports = {
         config.paths.output[folder] = path.resolve(path.join(configPath, config.base, config.paths.output[folder]));
       }
     }
+    console.log('end extend' , defaults.paths);
 
     // resolve "clean" command path
-    config.paths.clean = path.join(configPath, config.base, config.paths.clean);
+    config.paths.clean = path.resolve( path.join(configPath, config.base, config.paths.clean) );
 
     /*--------------
         CSS URLs
@@ -130,4 +133,3 @@ module.exports = {
 
 };
 
-console.log(defaults);

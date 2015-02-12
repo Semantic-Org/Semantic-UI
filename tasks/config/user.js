@@ -17,7 +17,6 @@ var
   userConfig
 ;
 
-console.log('start config' , defaults);
 
 /*******************************
           User Config
@@ -36,15 +35,11 @@ catch(error) {
 if(!userConfig) {
   // No semantic.json file use tasks/config/defaults.js
   console.error('Using default values for gulp');
-  console.log('start defaults' , defaults);
   userConfig = defaults;
-  console.log('end defaults' , defaults);
 }
 else {
   // extend defaults using shallow copy
-  console.log('start extend' , defaults);
   userConfig = extend(false, {}, defaults, userConfig);
-  console.log('end extend' , defaults);
 }
 
 
@@ -53,9 +48,7 @@ else {
 *******************************/
 
 // adds additional derived values to config
-console.log('start derived' , defaults);
 userConfig = config.addDerivedValues(userConfig);
-console.log('end derived' , defaults);
 
 
 /*******************************
@@ -64,4 +57,3 @@ console.log('end derived' , defaults);
 
 module.exports = userConfig;
 
-console.log('end config' , defaults);
