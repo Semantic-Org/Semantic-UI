@@ -11,7 +11,7 @@ var
   requireDotFile = require('require-dot-file')
 ;
 
-console.log(defaults.paths);
+console.log('start install', defaults.paths);
 
 /*******************************
           When to Ask
