@@ -19,7 +19,7 @@ var
 
   // node dependencies
   console        = require('better-console'),
-  extend         = require('node.extend'),
+  extend         = require('extend'),
   fs             = require('fs'),
   mkdirp         = require('mkdirp'),
   path           = require('path'),
