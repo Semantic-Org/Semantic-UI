@@ -15,7 +15,6 @@ var
             Exports
 *******************************/
 
-
 module.exports = {
 
   getPath: function(file, directory) {
