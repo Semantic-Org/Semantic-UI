@@ -235,7 +235,6 @@ module.exports = function () {
         installPaths = extend(false, {}, installPaths, {
           definition  : folders.definitions,
           lessImport  : folders.lessImport,
-          modules     : folders.modules,
           tasks       : folders.tasks,
           theme       : folders.themes,
           themeImport : folders.themeImport
@@ -260,21 +259,20 @@ module.exports = function () {
           mkdirp.sync(installFolder);
           mkdirp.sync(installPaths.definition);
           mkdirp.sync(installPaths.theme);
-          mkdirp.sync(installPaths.modules);
           mkdirp.sync(installPaths.tasks);
         }
         catch(error) {
           console.error('NPM does not have permissions to create folders at your specified path. Adjust your folders permissions and run "npm install" again');
         }
 
-        // copy gulp node_modules
-        console.info('Copying definitions to ', installPaths.definition);
+        console.log('Installing to \033[92m' + answers.semanticRoot + '\033[0m');
+
+        console.info('Copying UI definitions');
         wrench.copyDirSyncRecursive(source.definitions, installPaths.definition, settings.wrench.install);
         wrench.copyDirSyncRecursive(source.themes, installPaths.theme, settings.wrench.install);
 
-        // Using peer dependencies
-        // console.info('Copying build tools', installPaths.tasks);
-        // wrench.copyDirSyncRecursive(source.tasks, installPaths.tasks, settings.wrench.install);
+        console.info('Copying gulp tasks');
+        wrench.copyDirSyncRecursive(source.tasks, installPaths.tasks, settings.wrench.install);
 
         // copy theme import
         console.info('Adding theme files');
@@ -293,7 +291,6 @@ module.exports = function () {
           .pipe(plumber())
           .pipe(gulp.dest(installFolder))
         ;
-
 
       }
 
@@ -372,7 +369,7 @@ module.exports = function () {
 
       // Completion Message
       if(installFolder) {
-        console.log('Install complete! Navigate to \033[92m' + installFolder + '\033[0m and run "\033[92mgulp build\033[0m" to build');
+        console.log('Install complete! Navigate to \033[92m' + answers.semanticRoot + '\033[0m and run "\033[92mgulp build\033[0m" to build');
       }
       else {
         console.log('');

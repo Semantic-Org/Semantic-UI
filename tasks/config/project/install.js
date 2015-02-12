@@ -233,7 +233,6 @@ module.exports = {
     definitions  : './src/definitions',
     gulpFile     : './gulpfile.js',
     lessImport   : './src/semantic.less',
-    modules      : './node_modules/',
     site         : './src/_site',
     tasks        : './tasks',
     themeConfig  : './src/theme.config.example',
