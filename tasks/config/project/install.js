@@ -21,7 +21,7 @@ var when = {
 
   // path
   changeRoot: function(questions) {
-    return (questions.useRoot !== undefined && questions.useRoot === false);
+    return (questions.useRoot !== undefined && questions.useRoot !== true);
   },
 
   // permissions
@@ -232,6 +232,7 @@ module.exports = {
     config       : './semantic.json.example',
     definitions  : './src/definitions',
     gulpFile     : './gulpfile.js',
+    lessImport   : './src/semantic.less',
     modules      : './node_modules/',
     site         : './src/_site',
     tasks        : './tasks',
@@ -244,14 +245,17 @@ module.exports = {
   // expected final filenames
   files: {
     config      : 'semantic.json',
+    lessImport  : 'src/semantic.less',
     site        : 'src/site',
-    themeConfig : 'src/theme.config'
+    themeConfig : 'src/theme.config',
+    themeImport : 'src/theme.less'
   },
 
   // folder paths to files relative to root
   folders: {
     config      : './',
     definitions : 'src/definitions/',
+    lessImport  : 'src/',
     modules     : 'node_modules/',
     site        : 'src/site/',
     tasks       : 'tasks/',
@@ -290,7 +294,7 @@ module.exports = {
         type    : 'input',
         name    : 'customRoot',
         message : 'Please enter the absolute path to your project root',
-        default : '',
+        default : '/my/project/path',
         when    : when.changeRoot
       },
       {

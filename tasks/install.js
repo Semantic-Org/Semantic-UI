@@ -64,7 +64,7 @@ module.exports = function () {
 
   console.clear();
 
-  /* use to debug NPM install from standard git clone
+  /* Test NPM
   manager = {
     name : 'NPM',
     root : path.normalize(__dirname + '/../')
@@ -87,11 +87,12 @@ module.exports = function () {
     var
       updateFolder = path.join(manager.root, currentConfig.base),
       updatePaths  = {
-        config     : path.join(manager.root, files.config),
-        tasks      : path.join(updateFolder, folders.tasks),
-        definition : path.join(currentConfig.paths.source.definitions),
-        site       : path.join(currentConfig.paths.source.site),
-        theme      : path.join(currentConfig.paths.source.themes)
+        config      : path.join(manager.root, files.config),
+        tasks       : path.join(updateFolder, folders.tasks),
+        themeImport : path.join(updateFolder, folders.themeImport),
+        definition  : path.join(currentConfig.paths.source.definitions),
+        site        : path.join(currentConfig.paths.source.site),
+        theme       : path.join(currentConfig.paths.source.themes)
       }
     ;
 
@@ -117,12 +118,17 @@ module.exports = function () {
           .pipe(gulp.dest(updateFolder))
         ;
 
+        // copy theme import
+        console.info('Updating theme import file');
+        gulp.src(source.themeImport)
+          .pipe(plumber())
+          .pipe(gulp.dest(updatePaths.themeImport))
+        ;
+
         console.info('Adding new site theme files...');
         wrench.copyDirSyncRecursive(source.site, updatePaths.site, settings.wrench.site);
 
         console.info('Updating version...');
-
-        console.info('Updating complete, run "gulp build" to rebuild dist files...');
 
         // update version number in semantic.json
         gulp.src(updatePaths.config)
@@ -134,6 +140,8 @@ module.exports = function () {
           .pipe(gulp.dest(manager.root))
         ;
 
+        console.info('Update complete! Run "\033[92mgulp build\033[0m" to rebuild dist/ files.');
+
         return;
       }
       else {
@@ -144,7 +152,7 @@ module.exports = function () {
     }
     else {
       console.error('Cannot locate files to update at path: ', updatePaths.definition);
-      return;
+      console.log('Running installer');
     }
 
   }
@@ -220,17 +228,16 @@ module.exports = function () {
             console.log('Unable to proceed, invalid project root');
             return;
           }
-          else {
-            manager.root = answers.customRoot;
-          }
+          manager.root = answers.customRoot;
         }
 
         // special install paths only for PM install
         installPaths = extend(false, {}, installPaths, {
           definition  : folders.definitions,
-          theme       : folders.themes,
+          lessImport  : folders.lessImport,
           modules     : folders.modules,
           tasks       : folders.tasks,
+          theme       : folders.themes,
           themeImport : folders.themeImport
         });
 
@@ -239,15 +246,12 @@ module.exports = function () {
 
         // add install folder to all output paths
         for(var destination in installPaths) {
-          if(installPaths.hasOwnProperty(destination)) {
-            if(destination == 'config' || destination == 'configFolder') {
-              // semantic config goes in project root
-              installPaths[destination] = path.normalize( path.join(manager.root, installPaths[destination]) );
-            }
-            else {
-              // all other paths go in semantic root
-              installPaths[destination] = path.normalize( path.join(installFolder, installPaths[destination]) );
-            }
+          if( installPaths.hasOwnProperty(destination) ) {
+            // config goes in project root, rest in install folder
+            installPaths[destination] = (destination == 'config' || destination == 'configFolder')
+              ? path.normalize( path.join(manager.root, installPaths[destination]) )
+              : path.normalize( path.join(installFolder, installPaths[destination]) )
+            ;
           }
         }
 
@@ -268,14 +272,19 @@ module.exports = function () {
         wrench.copyDirSyncRecursive(source.definitions, installPaths.definition, settings.wrench.install);
         wrench.copyDirSyncRecursive(source.themes, installPaths.theme, settings.wrench.install);
 
-        console.info('Copying build tools', installPaths.tasks);
-        wrench.copyDirSyncRecursive(source.tasks, installPaths.tasks, settings.wrench.install);
+        // Using peer dependencies
+        // console.info('Copying build tools', installPaths.tasks);
+        // wrench.copyDirSyncRecursive(source.tasks, installPaths.tasks, settings.wrench.install);
 
         // copy theme import
-        console.info('Adding theme import file');
+        console.info('Adding theme files');
         gulp.src(source.themeImport)
           .pipe(plumber())
           .pipe(gulp.dest(installPaths.themeImport))
+        ;
+        gulp.src(source.lessImport)
+          .pipe(plumber())
+          .pipe(gulp.dest(installPaths.lessImport))
         ;
 
         // create gulp file
