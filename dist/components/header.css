@@ -58,15 +58,30 @@
   font-size: 1.5em;
   padding-top: 0.165em;
   vertical-align: middle;
-  padding-right: 0.5rem;
 }
 
-/* Only One */
+/* With Text Node */
 .ui.header .icon:only-child {
   display: inline-block;
   padding: 0em;
-  margin-right: 0.5rem;
-  vertical-align: baseline;
+  margin-right: 0.75rem;
+}
+
+/*-------------------
+        Image
+--------------------*/
+
+.ui.header > .image,
+.ui.header > img {
+  display: inline-block;
+  margin-top: 0.165em;
+  width: 2.5em;
+  height: auto;
+  vertical-align: middle;
+}
+.ui.header > .image:only-child,
+.ui.header > img:only-child {
+  margin-right: 0.75rem;
 }
 
 /*--------------
@@ -77,8 +92,17 @@
   display: inline-block;
   vertical-align: top;
 }
+
+/* After Image */
+.ui.header > img + .content,
+.ui.header > .image + .content {
+  padding-left: 0.75rem;
+  vertical-align: middle;
+}
+
+/* After Icon */
 .ui.header > .icon + .content {
-  padding-left: 0.5rem;
+  padding-left: 0.75rem;
   display: table-cell;
   vertical-align: middle;
 }

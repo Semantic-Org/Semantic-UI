@@ -765,11 +765,12 @@ input::selection {
 .ui.loading.loading.loading.loading.loading.loading.button {
   position: relative;
   cursor: default;
-  point-events: none;
   text-shadow: none !important;
   color: transparent !important;
-  -webkit-transition: all 0s linear;
-  transition: all 0s linear;
+  opacity: 1;
+  pointer-events: none;
+  -webkit-transition: all 0s linear, opacity 0.2s ease;
+  transition: all 0s linear, opacity 0.2s ease;
 }
 
 .ui.loading.button:before {
@@ -3549,10 +3550,7 @@ input::selection {
     Inverted
 ---------------*/
 
-.ui.divider.inverted {
-  color: #ffffff;
-}
-
+.ui.divider.inverted,
 .ui.vertical.inverted.divider,
 .ui.horizontal.inverted.divider {
   color: #ffffff;
@@ -3618,6 +3616,10 @@ input::selection {
  *
  */
 
+/*******************************
+             Flag
+*******************************/
+
 i.flag:not(.icon) {
   display: inline-block;
   width: 16px;
@@ -3631,6 +3633,8 @@ i.flag:not(.icon) {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
+
+/* Sprite */
 
 i.flag:not(.icon):before {
   display: inline-block;
@@ -4923,16 +4927,32 @@ i.flag.zimbabwe:before {
   font-size: 1.5em;
   padding-top: 0.165em;
   vertical-align: middle;
-  padding-right: 0.5rem;
 }
 
-/* Only One */
+/* With Text Node */
 
 .ui.header .icon:only-child {
   display: inline-block;
   padding: 0em;
-  margin-right: 0.5rem;
-  vertical-align: baseline;
+  margin-right: 0.75rem;
+}
+
+/*-------------------
+        Image
+--------------------*/
+
+.ui.header > .image,
+.ui.header > img {
+  display: inline-block;
+  margin-top: 0.165em;
+  width: 2.5em;
+  height: auto;
+  vertical-align: middle;
+}
+
+.ui.header > .image:only-child,
+.ui.header > img:only-child {
+  margin-right: 0.75rem;
 }
 
 /*--------------
@@ -4944,8 +4964,18 @@ i.flag.zimbabwe:before {
   vertical-align: top;
 }
 
+/* After Image */
+
+.ui.header > img + .content,
+.ui.header > .image + .content {
+  padding-left: 0.75rem;
+  vertical-align: middle;
+}
+
+/* After Icon */
+
 .ui.header > .icon + .content {
-  padding-left: 0.5rem;
+  padding-left: 0.75rem;
   display: table-cell;
   vertical-align: middle;
 }
@@ -5957,7 +5987,7 @@ i.icon.mail.outline:before {
   content: "\f003";
 }
 
-i.icon.external.link:before {
+i.icon.external:before {
   content: "\f08e";
 }
 
@@ -6081,7 +6111,7 @@ i.icon.ticket:before {
   content: "\f145";
 }
 
-i.icon.external.link.square:before {
+i.icon.external.square:before {
   content: "\f14c";
 }
 
@@ -13290,7 +13320,7 @@ ol.ui.horizontal.list li:before,
 .ui.six.steps,
 .ui.seven.steps,
 .ui.eight.steps {
-  display: block;
+  width: 100%;
 }
 
 .ui.one.steps > .step {
@@ -16401,6 +16431,7 @@ ol.ui.horizontal.list li:before,
     width: auto !important;
     margin: 0em 0em !important;
     box-shadow: none !important;
+    float: none !important;
     padding: 1rem 1rem !important;
   }
 
@@ -16559,8 +16590,11 @@ ol.ui.horizontal.list li:before,
 }
 
 .ui.menu .menu {
-  font-size: 0em;
   margin: 0em;
+}
+
+.ui.menu:not(.vertical) .menu {
+  font-size: 0em;
 }
 
 /*--------------
@@ -17200,13 +17234,14 @@ ol.ui.horizontal.list li:before,
 
 .ui.tabular.menu .active.item {
   position: relative;
+  border-bottom: none;
+  vertical-align: bottom;
   background-color: #ffffff;
   color: rgba(0, 0, 0, 0.8);
   border-color: #d4d4d5;
   font-weight: bold;
   margin-bottom: -1px;
-  border-bottom: none;
-  box-shadow: 0px 2px 0px -1px #ffffff;
+  box-shadow: none;
   border-radius: 5px 5px 0px 0px;
 }
 
@@ -23601,7 +23636,7 @@ body.dimmed.dimmable > :not(.dimmer) {
   Hidden Input
 ---------------*/
 
-.ui.dropdown > input[type="hidden"],
+.ui.dropdown > input:not(.search):first-child,
 .ui.dropdown > select {
   display: none !important;
 }
@@ -23897,10 +23932,12 @@ select.ui.dropdown {
 .ui.selection.dropdown > .search.icon,
 .ui.selection.dropdown > .delete.icon,
 .ui.selection.dropdown > .dropdown.icon {
+  cursor: pointer;
   position: absolute;
   top: auto;
-  margin: 0em;
   width: auto;
+  margin: -0.8em;
+  padding: 0.8em;
   right: 1.1em;
   opacity: 0.8;
   -webkit-transition: opacity 0.2s ease;
@@ -24010,16 +24047,20 @@ select.ui.dropdown {
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
 }
 
-.ui.visible.selection.dropdown > .dropdown.icon {
-  opacity: 1;
-}
-
 /* Active Item */
 
 .ui.selection.active.dropdown > .text:not(.default),
 .ui.selection.visible.dropdown > .text:not(.default) {
   font-weight: normal;
   color: rgba(0, 0, 0, 0.8);
+}
+
+/* Dropdown Icon */
+
+.ui.active.selection.dropdown > .dropdown.icon,
+.ui.visible.selection.dropdown > .dropdown.icon {
+  opacity: 1;
+  z-index: 3;
 }
 
 /* Connecting Border */
@@ -27013,17 +27054,23 @@ a.ui.nag {
   padding: 0em !important;
 }
 
-/* Inside Page */
+/* Whole Page */
+
+body.pushable {
+  background: #333333 !important;
+}
+
+/* Page Context */
 
 .pushable:not(body) {
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
 
-/* Whole Page */
-
-body.pushable {
-  background: #333333 !important;
+.pushable:not(body) > .ui.sidebar,
+.pushable:not(body) > .fixed,
+.pushable:not(body) > .pusher:after {
+  position: absolute;
 }
 
 /*--------------
@@ -28979,10 +29026,6 @@ html.ios {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 }
-
-/*******************************
-             Types
-*******************************/
 
 /*******************************
           Transitions

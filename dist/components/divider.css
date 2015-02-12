@@ -182,9 +182,7 @@
     Inverted
 ---------------*/
 
-.ui.divider.inverted {
-  color: #ffffff;
-}
+.ui.divider.inverted,
 .ui.vertical.inverted.divider,
 .ui.horizontal.inverted.divider {
   color: #ffffff;

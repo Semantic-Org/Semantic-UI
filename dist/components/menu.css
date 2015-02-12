@@ -42,8 +42,10 @@
   margin-bottom: 0rem;
 }
 .ui.menu .menu {
-  font-size: 0em;
   margin: 0em;
+}
+.ui.menu:not(.vertical) .menu {
+  font-size: 0em;
 }
 
 /*--------------
@@ -623,13 +625,14 @@
 /* Active */
 .ui.tabular.menu .active.item {
   position: relative;
+  border-bottom: none;
+  vertical-align: bottom;
   background-color: #ffffff;
   color: rgba(0, 0, 0, 0.8);
   border-color: #d4d4d5;
   font-weight: bold;
   margin-bottom: -1px;
-  border-bottom: none;
-  box-shadow: 0px 2px 0px -1px #ffffff;
+  box-shadow: none;
   border-radius: 5px 5px 0px 0px;
 }
 

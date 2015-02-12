@@ -9,6 +9,12 @@
  *
  */
 
+
+
+/*******************************
+             Flag
+*******************************/
+
 i.flag:not(.icon) {
   display: inline-block;
   width: 16px;
@@ -22,6 +28,8 @@ i.flag:not(.icon) {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
 }
+
+/* Sprite */
 i.flag:not(.icon):before {
   display: inline-block;
   content: '';

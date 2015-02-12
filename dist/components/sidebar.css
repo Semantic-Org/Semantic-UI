@@ -90,15 +90,20 @@
   padding: 0em !important;
 }
 
-/* Inside Page */
+/* Whole Page */
+body.pushable {
+  background: #333333 !important;
+}
+
+/* Page Context */
 .pushable:not(body) {
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
 }
-
-/* Whole Page */
-body.pushable {
-  background: #333333 !important;
+.pushable:not(body) > .ui.sidebar,
+.pushable:not(body) > .fixed,
+.pushable:not(body) > .pusher:after {
+  position: absolute;
 }
 
 /*--------------

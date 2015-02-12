@@ -122,11 +122,12 @@
 .ui.loading.loading.loading.loading.loading.loading.button {
   position: relative;
   cursor: default;
-  point-events: none;
   text-shadow: none !important;
   color: transparent !important;
-  -webkit-transition: all 0s linear;
-          transition: all 0s linear;
+  opacity: 1;
+  pointer-events: none;
+  -webkit-transition: all 0s linear, opacity 0.2s ease;
+          transition: all 0s linear, opacity 0.2s ease;
 }
 .ui.loading.button:before {
   position: absolute;

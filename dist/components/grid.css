@@ -1708,6 +1708,7 @@
     width: auto !important;
     margin: 0em 0em !important;
     box-shadow: none !important;
+    float: none !important;
     padding: 1rem 1rem !important;
   }
   .ui.stackable.grid > .row {

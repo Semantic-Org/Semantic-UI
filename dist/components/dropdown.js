@@ -445,6 +445,20 @@ $.fn.dropdown = function(parameters) {
           }
         },
 
+        forceSelection: function() {
+          var
+            $currentlySelected = $item.not(className.filtered).filter('.' + className.selected).eq(0),
+            $activeItem        = $item.filter('.' + className.active).eq(0),
+            $selectedItem      = ($currentlySelected.length > 0)
+              ? $currentlySelected
+              : $activeItem,
+            hasSelected = ($selectedItem.size() > 0)
+          ;
+          if(hasSelected) {
+            module.event.item.click.call($selectedItem);
+          }
+        },
+
         event: {
           // prevents focus callback from occuring on mousedown
           mousedown: function() {
@@ -475,7 +489,12 @@ $.fn.dropdown = function(parameters) {
               pageLostFocus = (document.activeElement === this)
             ;
             if(!itemActivated && !pageLostFocus) {
-              module.hide();
+              if(settings.forceSelection) {
+                module.forceSelection();
+              }
+              else {
+                module.hide();
+              }
             }
           },
           searchTextFocus: function(event) {
@@ -687,7 +706,9 @@ $.fn.dropdown = function(parameters) {
             click: function (event) {
               var
                 $choice  = $(this),
-                $target  = $(event.target),
+                $target  = (event)
+                  ? $(event.target)
+                  : $(''),
                 $subMenu = $choice.find(selector.menu),
                 text     = module.get.choiceText($choice),
                 value    = module.get.choiceValue($choice, text),
@@ -1652,6 +1673,8 @@ $.fn.dropdown.settings = {
     search : 50,
     touch  : 50
   },
+
+  forceSelection: true,
 
   transition : 'auto',
   duration   : 250,

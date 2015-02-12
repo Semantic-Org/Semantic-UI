@@ -2819,13 +2819,14 @@ $.fn.dimmer = function(parameters) {
             if(settings.useCSS && $.fn.transition !== undefined && $dimmer.transition('is supported')) {
               $dimmer
                 .transition({
-                  animation : settings.transition + ' in',
+                  animation   : settings.transition + ' in',
                   queue       : false,
-                  duration  : module.get.duration(),
-                  onStart   : function() {
+                  duration    : module.get.duration(),
+                  useFailSafe : true,
+                  onStart     : function() {
                     module.set.dimmed();
                   },
-                  onComplete : function() {
+                  onComplete  : function() {
                     module.set.active();
                     callback();
                   }
@@ -2859,13 +2860,14 @@ $.fn.dimmer = function(parameters) {
               module.verbose('Hiding dimmer with css');
               $dimmer
                 .transition({
-                  animation  : settings.transition + ' out',
-                  queue      : false,
-                  duration   : module.get.duration(),
-                  onStart    : function() {
+                  animation   : settings.transition + ' out',
+                  queue       : false,
+                  duration    : module.get.duration(),
+                  useFailSafe : true,
+                  onStart     : function() {
                     module.remove.dimmed();
                   },
-                  onComplete : function() {
+                  onComplete  : function() {
                     module.remove.active();
                     callback();
                   }
@@ -3676,6 +3678,20 @@ $.fn.dropdown = function(parameters) {
           }
         },
 
+        forceSelection: function() {
+          var
+            $currentlySelected = $item.not(className.filtered).filter('.' + className.selected).eq(0),
+            $activeItem        = $item.filter('.' + className.active).eq(0),
+            $selectedItem      = ($currentlySelected.length > 0)
+              ? $currentlySelected
+              : $activeItem,
+            hasSelected = ($selectedItem.size() > 0)
+          ;
+          if(hasSelected) {
+            module.event.item.click.call($selectedItem);
+          }
+        },
+
         event: {
           // prevents focus callback from occuring on mousedown
           mousedown: function() {
@@ -3706,7 +3722,12 @@ $.fn.dropdown = function(parameters) {
               pageLostFocus = (document.activeElement === this)
             ;
             if(!itemActivated && !pageLostFocus) {
-              module.hide();
+              if(settings.forceSelection) {
+                module.forceSelection();
+              }
+              else {
+                module.hide();
+              }
             }
           },
           searchTextFocus: function(event) {
@@ -3918,7 +3939,9 @@ $.fn.dropdown = function(parameters) {
             click: function (event) {
               var
                 $choice  = $(this),
-                $target  = $(event.target),
+                $target  = (event)
+                  ? $(event.target)
+                  : $(''),
                 $subMenu = $choice.find(selector.menu),
                 text     = module.get.choiceText($choice),
                 value    = module.get.choiceValue($choice, text),
@@ -4884,6 +4907,8 @@ $.fn.dropdown.settings = {
     touch  : 50
   },
 
+  forceSelection: true,
+
   transition : 'auto',
   duration   : 250,
 
@@ -5175,12 +5200,8 @@ $.fn.modal = function(parameters) {
 
         bind: {
           events: function() {
-            $close
-              .on('click' + eventNamespace, module.event.close)
-            ;
-            $window
-              .on('resize' + elementNamespace, module.event.resize)
-            ;
+            $close.on('click' + eventNamespace, module.event.close);
+            $window.on('resize' + elementNamespace, module.event.resize);
           }
         },
 
@@ -10892,7 +10913,7 @@ $.fn.sidebar = function(parameters) {
               if(direction === 'left' || direction === 'right') {
                 module.debug('Adding CSS rules for animation distance', width);
                 style  += ''
-                  + ' .ui.visible.' + direction + '.sidebar ~ .pusher:after {'
+                  + ' body.pushable > .ui.visible.' + direction + '.sidebar ~ .pusher:after {'
                   + '   -webkit-transform: translate3d('+ distance[direction] + 'px, 0, 0);'
                   + '           transform: translate3d('+ distance[direction] + 'px, 0, 0);'
                   + ' }'
@@ -10900,7 +10921,7 @@ $.fn.sidebar = function(parameters) {
               }
               else if(direction === 'top' || direction == 'bottom') {
                 style  += ''
-                  + ' .ui.visible.' + direction + '.sidebar ~ .pusher:after {'
+                  + ' body.pushable > .ui.visible.' + direction + '.sidebar ~ .pusher:after {'
                   + '   -webkit-transform: translate3d(0, ' + distance[direction] + 'px, 0);'
                   + '           transform: translate3d(0, ' + distance[direction] + 'px, 0);'
                   + ' }'
@@ -10908,8 +10929,8 @@ $.fn.sidebar = function(parameters) {
               }
               /* opposite sides visible forces content overlay */
               style += ''
-                + ' .ui.visible.left.sidebar ~ .ui.visible.right.sidebar ~ .pusher:after,'
-                + ' .ui.visible.right.sidebar ~ .ui.visible.left.sidebar ~ .pusher:after {'
+                + ' body.pushable > .ui.visible.left.sidebar ~ .ui.visible.right.sidebar ~ .pusher:after,'
+                + ' body.pushable > .ui.visible.right.sidebar ~ .ui.visible.left.sidebar ~ .pusher:after {'
                 + '   -webkit-transform: translate3d(0px, 0, 0);'
                 + '           transform: translate3d(0px, 0, 0);'
                 + ' }'
@@ -12577,7 +12598,7 @@ $.fn.tab = function(parameters) {
           if(settings.auto) {
             module.verbose('Setting up automatic tab retrieval from server');
             settings.apiSettings = {
-              url: settings.path + '/{$tab}'
+              url: (settings.path || '') + '/{$tab}'
             };
           }
 
@@ -12770,10 +12791,10 @@ $.fn.tab = function(parameters) {
             ;
             module.verbose('Looking for tab', tab);
             if(isTab) {
-              module.verbose('Tab was found', tab);
 
+              module.verbose('Tab was found', tab);
               // scope up
-              activeTabPath = currentPath;
+              activeTabPath  = currentPath;
               parameterArray = module.utilities.filterArray(pathArray, currentPathArray);
 
               if(isLastIndex) {
@@ -12841,11 +12862,11 @@ $.fn.tab = function(parameters) {
 
           fetch: function(tabPath, fullTabPath) {
             var
-              $tab             = module.get.tabElement(tabPath),
-              apiSettings      = {
-                dataType     : 'html',
-                stateContext : $tab,
-                onSuccess      : function(response) {
+              $tab        = module.get.tabElement(tabPath),
+              apiSettings = {
+                dataType : 'html',
+                on       : 'now',
+                onSuccess    : function(response) {
                   module.cache.add(fullTabPath, response);
                   module.content.update(tabPath, response);
                   if(tabPath == activeTabPath) {
@@ -12860,7 +12881,7 @@ $.fn.tab = function(parameters) {
                 },
                 urlData: { tab: fullTabPath }
               },
-              request         = $tab.data(metadata.promise) || false,
+              request         = $tab.api('get request') || false,
               existingRequest = ( request && request.state() === 'pending' ),
               requestSettings,
               cachedContent
@@ -12868,6 +12889,7 @@ $.fn.tab = function(parameters) {
 
             fullTabPath   = fullTabPath || tabPath;
             cachedContent = module.cache.read(fullTabPath);
+
 
             if(settings.cache && cachedContent) {
               module.debug('Showing existing content', fullTabPath);
@@ -12884,7 +12906,8 @@ $.fn.tab = function(parameters) {
             else if($.api !== undefined) {
               requestSettings = $.extend(true, { headers: { 'X-Remote': true } }, settings.apiSettings, apiSettings);
               module.debug('Retrieving remote content', fullTabPath, requestSettings);
-              $.api( requestSettings );
+              console.log(existingRequest, requestSettings, cachedContent);
+              $tab.api( requestSettings );
             }
             else {
               module.error(error.api);
@@ -13349,23 +13372,28 @@ $.fn.transition = function() {
         initialize: function() {
 
           // get full settings
-          moduleNamespace = 'module-' + namespace;
           settings        = module.get.settings.apply(element, moduleArguments);
+
+          // shorthand
           className       = settings.className;
+          error           = settings.error;
           metadata        = settings.metadata;
 
-          animationStart  = module.get.animationStartEvent();
+          // define namespace
+          eventNamespace  = '.' + settings.namespace;
+          moduleNamespace = 'module-' + settings.namespace;
+          instance        = $module.data(moduleNamespace) || module;
+
+          // get vendor specific events
           animationEnd    = module.get.animationEndEvent();
           animationName   = module.get.animationName();
-          error           = settings.error;
-          namespace       = settings.namespace;
-          eventNamespace  = '.' + settings.namespace;
-          instance        = $module.data(moduleNamespace) || module;
+          animationStart  = module.get.animationStartEvent();
 
           if(methodInvoked) {
             methodInvoked = module.invoke(query);
           }
-          // no internal method was found matching query or query not made
+
+          // method not invoked, lets run an animation
           if(methodInvoked === false) {
             module.verbose('Converted arguments into settings object', settings);
             module.animate();
@@ -13375,6 +13403,7 @@ $.fn.transition = function() {
 
         instantiate: function() {
           module.verbose('Storing instance of module', module);
+          instance = module;
           $module
             .data(moduleNamespace, instance)
           ;
@@ -14951,13 +14980,15 @@ $.api = $.fn.api = function(parameters) {
             // throttle additional requests
             module.timer = setTimeout(function() {
               module.request = module.create.request();
-              module.xhr = module.create.xhr();
+              module.xhr     = module.create.xhr();
+              settings.onRequest.call(context, module.request, module.xhr);
             }, settings.throttle);
           }
           else {
             // immediately on first request
             module.request = module.create.request();
-            module.xhr = module.create.xhr();
+            module.xhr     = module.create.xhr();
+            settings.onRequest.call(context, module.request, module.xhr);
           }
 
         },
@@ -15564,6 +15595,7 @@ $.api.settings = {
   beforeSend  : function(settings) { return settings; },
   beforeXHR   : function(xhr) {},
 
+  onRequest   : function(promise, xhr) {},
   onSuccess   : function(response, $module) {},
   onComplete  : function(response, $module) {},
   onFailure   : function(errorMessage, $module) {},
