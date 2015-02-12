@@ -355,8 +355,14 @@ module.exports = function () {
         ;
       }
 
-      console.log('');
-      console.log('');
+      // Completion Message
+      if(installFolder) {
+        console.log('Install complete! Navigate to \033[92m' + installFolder + '\033[0m and run "\033[92mgulp build\033[0m" to build');
+      }
+      else {
+        console.log('');
+        console.log('');
+      }
 
     }))
     .pipe(prompt.prompt(questions.cleanup, function(answers) {
@@ -368,5 +374,6 @@ module.exports = function () {
       }
     }))
   ;
+
 
 };
