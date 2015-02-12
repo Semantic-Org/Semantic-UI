@@ -3,9 +3,11 @@
 *******************************/
 
 var
-  defaults = require('../defaults'),
+  extend   = require('node.extend'),
   fs       = require('fs'),
-  path     = require('path')
+  path     = require('path'),
+
+  defaults = require('../defaults')
 ;
 
 
@@ -51,7 +53,7 @@ module.exports = {
   // adds additional derived values to a config object
   addDerivedValues: function(config) {
 
-    config = config || defaults;
+    config = config || extend(false, {}, defaults);
 
     /*--------------
        File Paths

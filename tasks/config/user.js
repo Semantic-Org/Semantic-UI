@@ -35,7 +35,7 @@ catch(error) {
 if(!userConfig) {
   // No semantic.json file use tasks/config/defaults.js
   console.error('Using default values for gulp');
-  //userConfig = defaults;
+  userConfig = extend(false, {}, defaults);
 }
 else {
   // extend defaults using shallow copy
