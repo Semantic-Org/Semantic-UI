@@ -90,7 +90,7 @@ module.exports = {
         var
           pathArray     = directory.split('/'),
           folder        = pathArray[pathArray.length - 2],
-          nextDirectory = path.normalize(directory + '/../')
+          nextDirectory = path.join(directory + '..')
         ;
         if( folder == 'bower_components') {
           return {
@@ -110,7 +110,7 @@ module.exports = {
             root: nextDirectory
           };
         }
-        if(path.resolve(directory) == '/') {
+        if(path.resolve(directory) == path.resolve(nextDirectory)) {
           return false;
         }
         // recurse downward
@@ -118,7 +118,7 @@ module.exports = {
       }
     ;
     // start walk from current directory if none specified
-    directory = directory || (__dirname + '/');
+    directory = directory || (__dirname + path.sep);
     return walk(directory);
   },
 

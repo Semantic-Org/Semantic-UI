@@ -19,34 +19,33 @@ module.exports = {
 
   getPath: function(file, directory) {
     var
-      configPath = '',
+      configPath,
       walk = function(directory) {
         var
-          currentPath = path.normalize( path.join(directory, file) )
+          nextDirectory = path.resolve( path.join(directory, path.sep, '..') ),
+          currentPath   = path.normalize( path.join(directory, file) )
         ;
         if( fs.existsSync(currentPath) ) {
           // found file
-          configPath = path.normalize(directory);
-          return true;
+          configPath = path.normalize(currentPath);
+          return;
         }
         else {
           // reached file system root, let's stop
-          if(path.resolve(directory) == path.sep) {
-            return false;
+          if(nextDirectory == directory) {
+            return;
           }
           // otherwise recurse
-          walk(directory + '..' + path.sep, file);
+          walk(nextDirectory, file);
         }
       }
     ;
 
-    file      = file      || defaults.files.config;
-    directory = directory || __dirname + '/..';
-
+    // start walk from outside require-dot-files directory
+    file      = file || defaults.files.config;
+    directory = directory || path.join(__dirname, path.sep, '..');
     walk(directory);
-
-    return configPath;
-
+    return configPath || '';
   },
 
   // adds additional derived values to a config object
