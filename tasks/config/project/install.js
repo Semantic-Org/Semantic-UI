@@ -21,7 +21,7 @@ var when = {
 
   // path
   changeRoot: function(questions) {
-    return (questions.useRoot === undefined || questions.useRoot === false);
+    return (questions.useRoot !== undefined && questions.useRoot === false);
   },
 
   // permissions
@@ -290,7 +290,7 @@ module.exports = {
         type    : 'input',
         name    : 'customRoot',
         message : 'Please enter the absolute path to your project root',
-        default : './',
+        default : '',
         when    : when.changeRoot
       },
       {

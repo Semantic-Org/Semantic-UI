@@ -137,7 +137,7 @@ module.exports = function () {
         return;
       }
       else {
-        console.log('Current version of Semantic UI already installed, skipping set-up');
+        console.log('Current version of Semantic UI already installed');
         return;
       }
 
@@ -216,7 +216,13 @@ module.exports = function () {
 
         // Set root to custom root path if set
         if(answers.customRoot) {
-          manager.root = answers.customRoot;
+          if(answers.customRoot === '') {
+            console.log('Unable to proceed, invalid project root');
+            return;
+          }
+          else {
+            manager.root = answers.customRoot;
+          }
         }
 
         // special install paths only for PM install
