@@ -17,6 +17,7 @@ var
   userConfig
 ;
 
+console.log(defaults);
 
 /*******************************
           User Config
@@ -56,3 +57,5 @@ userConfig = config.addDerivedValues(userConfig);
 *******************************/
 
 module.exports = userConfig;
+
+console.log(defaults);
