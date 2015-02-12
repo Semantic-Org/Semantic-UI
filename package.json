@@ -18,8 +18,6 @@
   },
   "dependencies": {
     "better-console"    : "0.x.x",
-    "better-console"    : "0.x.x",
-    "del"               : "1.x.x",
     "del"               : "1.x.x",
     "extend"            : "2.x.x",
     "gulp"              : "3.x.x",
