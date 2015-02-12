@@ -19,7 +19,7 @@
   "peerDependencies": {
     "better-console"    : "0.x.x",
     "del"               : "1.x.x",
-    "extend"            : "2.x.x",
+    "node.extend"       : "1.x.x",
     "gulp"              : "3.x.x",
     "gulp-autoprefixer" : "2.x.x",
     "gulp-chmod"        : "1.x.x",
@@ -47,7 +47,7 @@
   "dependencies": {
     "better-console"    : "0.x.x",
     "del"               : "1.x.x",
-    "extend"            : "2.x.x",
+    "node.extend"       : "1.x.x",
     "gulp"              : "3.x.x",
     "gulp-autoprefixer" : "2.x.x",
     "gulp-chmod"        : "1.x.x",

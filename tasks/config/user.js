@@ -4,7 +4,7 @@
 
 var
   // npm dependencies
-  extend          = require('extend'),
+  extend          = require('node.extend'),
   fs              = require('fs'),
   path            = require('path'),
   requireDotFile  = require('require-dot-file'),
