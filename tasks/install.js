@@ -56,8 +56,6 @@ var
 // Export install task
 module.exports = function () {
 
-  return;
-
   var
     currentConfig = requireDotFile('semantic.json'),
     manager       = install.getPackageManager(),

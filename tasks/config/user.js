@@ -4,7 +4,7 @@
 
 var
   // npm dependencies
-  extend          = require('node.extend'),
+  extend          = require('extend'),
   fs              = require('fs'),
   path            = require('path'),
   requireDotFile  = require('require-dot-file'),
@@ -13,11 +13,12 @@ var
   defaults        = require('./defaults'),
   config          = require('./project/config'),
 
-  // semantic.json settings
-  userConfig,
+  // Final config object
+  gulpConfig = {},
 
-  // final config object
-  gulpConfig
+  // semantic.json settings
+  userConfig
+
 ;
 
 
@@ -37,7 +38,7 @@ catch(error) {
 
 // extend user config with defaults
 gulpConfig = (!userConfig)
-  ? extend(false, {}, defaults)
+  ? extend(true, {}, defaults)
   : extend(false, {}, defaults, userConfig)
 ;
 

@@ -3,7 +3,7 @@
 *******************************/
 
 var
-  extend   = require('node.extend'),
+  extend   = require('extend'),
   fs       = require('fs'),
   path     = require('path'),
 
@@ -61,26 +61,26 @@ module.exports = {
 
     var
       configPath = this.getPath(),
+      sourcePaths = {},
+      outputPaths = {},
       folder
     ;
 
-    // resolve source paths
+    // resolve paths (config location + base + path)
     for(folder in config.paths.source) {
       if(config.paths.source.hasOwnProperty(folder)) {
-        // full path is (config location + base + path)
-        config.paths.source[folder] = path.resolve(path.join(configPath, config.base, config.paths.source[folder]));
+        sourcePaths[folder] = path.resolve(path.join(configPath, config.base, config.paths.source[folder]));
+      }
+    }
+    for(folder in config.paths.output) {
+      if(config.paths.output.hasOwnProperty(folder)) {
+        outputPaths[folder] = path.resolve(path.join(configPath, config.base, config.paths.output[folder]));
       }
     }
 
-    // resolve output paths
-    for(folder in config.paths.output) {
-      if(config.paths.output.hasOwnProperty(folder)) {
-        // full path is (config location + base + path)
-        console.log('start extend' , defaults.paths.output[folder]);
-        config.paths.output[folder] = path.resolve(path.join(configPath, config.base, config.paths.output[folder]));
-        console.log('end extend' , defaults.paths.output[folder]);
-      }
-    }
+    // set config paths to full paths
+    config.paths.source = sourcePaths;
+    config.paths.output = outputPaths;
 
     // resolve "clean" command path
     config.paths.clean = path.resolve( path.join(configPath, config.base, config.paths.clean) );

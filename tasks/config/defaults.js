@@ -2,8 +2,6 @@
           Default Paths
 *******************************/
 
-console.log('included defaults');
-
 module.exports = {
 
   // base path added to all other paths
