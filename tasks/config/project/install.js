@@ -11,6 +11,9 @@ var
   requireDotFile = require('require-dot-file')
 ;
 
+console.log(defaults.paths);
+return;
+
 /*******************************
           When to Ask
 *******************************/
@@ -297,7 +300,7 @@ module.exports = {
         type    : 'input',
         name    : 'semanticRoot',
         message : 'Where should we put Semantic UI inside your project?',
-        default : 'semantic/'
+        default : defaults.pmRoot
       }
     ],
 
