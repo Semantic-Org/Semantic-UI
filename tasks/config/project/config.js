@@ -57,26 +57,19 @@ module.exports = {
 
     var
       configPath = this.getPath(),
+      path,
       folder
     ;
-    console.log('start extend' , defaults.paths);
+    console.log('start extend' , defaults.paths.source);
 
-    // resolve source paths
+    // full path is (config location + base + path)
     for(folder in config.paths.source) {
-      if(config.paths.source.hasOwnProperty(folder)) {
-        // full path is (config location + base + path)
-        config.paths.source[folder] = path.resolve(path.join(configPath, config.base, config.paths.source[folder]));
-      }
+      config.paths.source[folder] = path.resolve(path.join(configPath, config.base, config.paths.source[folder]));
     }
-
-    // resolve output paths
     for(folder in config.paths.output) {
-      if(config.paths.output.hasOwnProperty(folder)) {
-        // full path is (config location + base + path)
-        config.paths.output[folder] = path.resolve(path.join(configPath, config.base, config.paths.output[folder]));
-      }
+      config.paths.output[folder] = path.resolve(path.join(configPath, config.base, config.paths.output[folder]));
     }
-    console.log('end extend' , defaults.paths);
+    console.log('end extend' , defaults.paths.source);
 
     // resolve "clean" command path
     config.paths.clean = path.resolve( path.join(configPath, config.base, config.paths.clean) );
