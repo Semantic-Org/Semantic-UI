@@ -42,6 +42,11 @@ gulp.task('build', 'Builds all files from source', build);
 gulp.task('clean', 'Clean dist folder', clean);
 gulp.task('version', 'Displays current version of Semantic', version);
 
+
+/*--------------
+    Install
+---------------*/
+
 gulp.task('install', 'Clean dist folder', install);
 gulp.task('check install', 'Displays current version of Semantic', checkInstall);
 
@@ -50,9 +55,8 @@ gulp.task('check install', 'Displays current version of Semantic', checkInstall)
       Docs
 ---------------*/
 
-gulp.task('serve-docs', 'Serve file changes to SUI Docs', serveDocs);
-gulp.task('build-docs', 'Build all files and add to SUI Docs', buildDocs);
-
+gulp.task('serve docs', 'Serve file changes to SUI Docs', serveDocs);
+gulp.task('build docs', 'Build all files and add to SUI Docs', buildDocs);
 
 /*--------------
       RTL

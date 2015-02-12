@@ -12,7 +12,6 @@ var
 ;
 
 console.log(defaults.paths);
-return;
 
 /*******************************
           When to Ask
