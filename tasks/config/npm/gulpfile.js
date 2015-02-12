@@ -23,7 +23,6 @@ var
   watchRTL  = require('./tasks/rtl/watch')
 ;
 
-
 /*--------------
      Common
 ---------------*/
@@ -38,30 +37,23 @@ gulp.task('build', 'Builds all files from source', build);
 gulp.task('clean', 'Clean dist folder', clean);
 gulp.task('version', 'Displays current version of Semantic', version);
 
-
 /*--------------
       Docs
 ---------------*/
 
+/*
+  See usage instruction in Docs Readme
+  https://github.com/Semantic-Org/Semantic-UI-Docs/
+*/
+
 gulp.task('serve-docs', 'Serve file changes to SUI Docs', serveDocs);
 gulp.task('build-docs', 'Build all files and add to SUI Docs', buildDocs);
-
 
 /*--------------
       RTL
 ---------------*/
 
 if(config.rtl) {
-
-  gulp.task('watch rtl', 'Build all files as RTL', watchRTL);
-  gulp.task('build rtl', 'Watch files as RTL ', buildRTL);
-
-}
-
-/*--------------
-     Admin
----------------*/
-
-if(config.admin) {
-
+  gulp.task('watch-rtl', 'Build all files as RTL', watchRTL);
+  gulp.task('build-rtl', 'Watch files as RTL ', buildRTL);
 }

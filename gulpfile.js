@@ -33,7 +33,7 @@ var
 ---------------*/
 
 gulp.task('default', false, [
-  'check install'
+  'check-install'
 ]);
 
 gulp.task('watch', 'Watch for site/theme changes', watch);
@@ -42,30 +42,26 @@ gulp.task('build', 'Builds all files from source', build);
 gulp.task('clean', 'Clean dist folder', clean);
 gulp.task('version', 'Displays current version of Semantic', version);
 
-
-/*--------------
-    Install
----------------*/
-
 gulp.task('install', 'Clean dist folder', install);
-gulp.task('check install', 'Displays current version of Semantic', checkInstall);
+gulp.task('check-install', 'Displays current version of Semantic', checkInstall);
 
+if(config.rtl) {
+  gulp.task('watch-rtl', 'Build all files as RTL', watchRTL);
+  gulp.task('build-rtl', 'Watch files as RTL ', buildRTL);
+}
 
 /*--------------
       Docs
 ---------------*/
 
-gulp.task('serve docs', 'Serve file changes to SUI Docs', serveDocs);
-gulp.task('build docs', 'Build all files and add to SUI Docs', buildDocs);
+/*
+  See usage instruction in Docs Readme
+  https://github.com/Semantic-Org/Semantic-UI-Docs/
+*/
 
-/*--------------
-      RTL
----------------*/
+gulp.task('serve-docs', 'Serve file changes to SUI Docs', serveDocs);
+gulp.task('build-docs', 'Build all files and add to SUI Docs', buildDocs);
 
-if(config.rtl) {
-  gulp.task('watch rtl', 'Build all files as RTL', watchRTL);
-  gulp.task('build rtl', 'Watch files as RTL ', buildRTL);
-}
 
 /*--------------
      Admin
