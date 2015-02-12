@@ -51,6 +51,8 @@ module.exports = {
   // adds additional derived values to a config object
   addDerivedValues: function(config) {
 
+    config = config || defaults;
+
     /*--------------
        File Paths
     ---------------*/
