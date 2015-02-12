@@ -61,7 +61,6 @@ module.exports = {
       configPath = this.getPath(),
       folder
     ;
-    console.log('start extend' , defaults.paths);
 
     // resolve source paths
     for(folder in config.paths.source) {
@@ -75,10 +74,11 @@ module.exports = {
     for(folder in config.paths.output) {
       if(config.paths.output.hasOwnProperty(folder)) {
         // full path is (config location + base + path)
+        console.log('start extend' , defaults.paths.output[folder]);
         config.paths.output[folder] = path.resolve(path.join(configPath, config.base, config.paths.output[folder]));
+        console.log('end extend' , defaults.paths.output[folder]);
       }
     }
-    console.log('end extend' , defaults.paths);
 
     // resolve "clean" command path
     config.paths.clean = path.resolve( path.join(configPath, config.base, config.paths.clean) );
