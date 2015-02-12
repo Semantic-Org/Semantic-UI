@@ -64,10 +64,14 @@ module.exports = {
 
     // full path is (config location + base + path)
     for(folder in config.paths.source) {
-      config.paths.source[folder] = path.resolve(path.join(configPath, config.base, config.paths.source[folder]));
+      if(config.paths.source[folder]) {
+        config.paths.source[folder] = path.resolve(path.join(configPath, config.base, config.paths.source[folder]));
+      }
     }
     for(folder in config.paths.output) {
-      config.paths.output[folder] = path.resolve(path.join(configPath, config.base, config.paths.output[folder]));
+      if(config.paths.output[folder]) {
+        config.paths.output[folder] = path.resolve(path.join(configPath, config.base, config.paths.output[folder]));
+      }
     }
     console.log('end extend' , defaults.paths.source);
 
