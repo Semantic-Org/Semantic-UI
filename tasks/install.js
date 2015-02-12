@@ -35,11 +35,11 @@ var
   requireDotFile = require('require-dot-file'),
   wrench         = require('wrench'),
 
-  // user config
-  config         = require('./config/user'),
-
   // install config
   install        = require('./config/project/install'),
+
+  // user config
+  config         = require('./config/user'),
 
   // release config (name/title/etc)
   release        = require('./config/project/release'),

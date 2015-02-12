@@ -653,10 +653,6 @@ module.exports = {
             name: 'Black'
           },
           {
-            name: 'None really fit',
-            value: 'custom'
-          },
-          {
             name: 'I\'ll choose on my own',
             value: false
           }
@@ -701,10 +697,6 @@ module.exports = {
           },
           {
             name: 'Black'
-          },
-          {
-            name: 'None really fit',
-            value: 'custom'
           },
           {
             name: 'I\'ll choose on my own',
