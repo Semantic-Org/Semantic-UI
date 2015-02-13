@@ -8,7 +8,7 @@ Key Features
 * 50+ UI Elements
 * 3000 + CSS Variables
 * 3 Levels of Variable Inheritance (Similar to SublimeText)
-* Built using EM values for responsive design
+* Built with EM values for responsive design
 
 ## Getting Started
 
