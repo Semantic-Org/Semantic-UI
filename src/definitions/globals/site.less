@@ -14,18 +14,18 @@
             Theme
 *******************************/
 
-.site() {
-
 @type    : 'global';
 @element : 'site';
 
 @import (multiple) '../../theme.config';
 
-.loadFonts();
+& {
 
 /*******************************
              Page
 *******************************/
+
+.loadFonts();
 
 html,
 body {
@@ -148,5 +148,3 @@ input::selection {
 .loadUIOverrides();
 
 }
-
-.site();
