@@ -27,7 +27,7 @@ module.exports = {
         ;
         if( fs.existsSync(currentPath) ) {
           // found file
-          configPath = path.normalize(currentPath);
+          configPath = path.normalize(directory);
           return;
         }
         else {
