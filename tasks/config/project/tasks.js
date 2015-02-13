@@ -51,7 +51,7 @@ module.exports = {
       }
     },
 
-    theme: /.*\/themes\/.*?\//mg
+    theme: /.*\/themes\/.*?(?=\/)/mg
 
   },
 

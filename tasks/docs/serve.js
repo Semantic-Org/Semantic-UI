@@ -111,7 +111,7 @@ module.exports = function () {
       ---------------*/
 
       // recompile on *.override , *.variable change
-      isConfig        = (file.path.indexOf('.config') !== -1);
+      isConfig        = (file.path.indexOf('theme.config') !== -1);
       isPackagedTheme = (file.path.indexOf(source.themes) !== -1);
       isSiteTheme     = (file.path.indexOf(source.site) !== -1);
       isDefinition    = (file.path.indexOf(source.definitions) !== -1);
@@ -119,21 +119,22 @@ module.exports = function () {
 
       if(isConfig) {
         console.log('Change detected in theme config');
-        gulp.start('build-docs');
+        // impossible to tell which file was updated in theme.config, rebuild all
+        gulp.start('build');
       }
       else if(isPackagedTheme) {
         console.log('Change detected in packaged theme');
-        lessPath = lessPath.replace(tasks.regExp.theme, source.definitions);
         lessPath = util.replaceExtension(file.path, '.less');
+        lessPath = lessPath.replace(tasks.regExp.theme, source.definitions);
       }
       else if(isSiteTheme) {
         console.log('Change detected in site theme');
-        lessPath = lessPath.replace(source.site, source.definitions);
         lessPath = util.replaceExtension(file.path, '.less');
+        lessPath = lessPath.replace(source.site, source.definitions);
       }
       else if(isDefinition) {
         console.log('Change detected in definition');
-        lessPath = util.replaceExtension(file.path, '.less');
+        lessPath = file.path;
       }
 
       /*--------------
