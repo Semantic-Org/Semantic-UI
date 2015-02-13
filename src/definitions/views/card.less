@@ -30,11 +30,13 @@
 ---------------*/
 
 .ui.cards {
+  display: @groupDisplay;
   margin: @groupCardsMargin;
+  flex-wrap: wrap;
 }
 
 .ui.cards > .card {
-  display: @groupDisplay;
+  display: @groupCardDisplay;
   margin: @groupCardMargin;
   float: @groupFloat;
 }
@@ -69,6 +71,7 @@
   max-width: 100%;
   position: relative;
   display: @display;
+  flex-direction: column;
 
   width: @width;
   min-height: @minHeight;
@@ -136,10 +139,7 @@
 
 .ui.cards > .card > .content,
 .ui.card > .content {
-
-}
-.ui.cards > .card > .content,
-.ui.card > .content {
+  flex-grow: 1;
   background: @contentBackground;
   margin: @contentMargin;
   padding: @contentPadding;
@@ -360,6 +360,7 @@
 .ui.card > .extra {
   max-width: 100%;
   min-height: 0em !important;
+  flex-grow: 0;
   position: @extraPosition;
   background: @extraBackground;
   width: @extraWidth;
