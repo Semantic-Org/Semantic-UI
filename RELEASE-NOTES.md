@@ -4,9 +4,23 @@
 
 **Major Changes**
 
-- Semantic LESS files can now be directly included in other LESS files. Previously the inheritance system would cause errors when files were compiled consecutively.
-* You can import all UI by using `@import 'src/semantic';`
+## NPM Install
+
+- `npm install semantic-ui` is now the recommended path for getting Semantic UI
+- Added new install scripts which handle updates correctly without losing user changes
+
+## Gulp Task Imports
+
+- Semantic tasks are now each defined in their own file, and can be directly imported into external gulpfiles
+- If you are using Grunt, you may be able to import these tasks using [Grunt-gulp](https://www.npmjs.com/package/grunt-gulp)
+
+## LESS Component Imports
+
+- Semantic LESS files can now be directly included in other LESS files.
+* You can import all UI with `@import 'src/semantic';`
 * You can also import individual definitions using `@import 'src/definitions/elements/button'`.
+
+**The Rest**
 
 **Enhancement**
 - **API** - API now has an ``onRequest`` callback setting that receives the XHR promise after initializing the request
