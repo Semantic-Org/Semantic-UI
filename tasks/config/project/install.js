@@ -89,9 +89,10 @@ module.exports = {
       walk = function(directory) {
         var
           pathArray     = directory.split(path.sep),
-          folder        = pathArray[pathArray.length - 2],
+          folder        = pathArray[pathArray.length - 1],
           nextDirectory = path.join(directory, path.sep, '..')
         ;
+        console.log(folder, nextDirectory);
         if( folder == 'bower_components') {
           return {
             name: 'Bower',
