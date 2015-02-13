@@ -5,9 +5,9 @@
 Semantic is a highly-themable UI framework with intuitive naming conventions built around common usage.
 
 Key Features
-* 50+ UI Elements
-* 3000 + CSS Variables
-* 3 Levels of Variable Inheritance (Similar to SublimeText)
+* 50+ UI elements
+* 3000 + CSS variables
+* 3 Levels of variable inheritance (similar to SublimeText)
 * Built with EM values for responsive design
 
 ## Getting Started
