@@ -46,7 +46,7 @@ For more detail into how work with Semantic when building a site please [read ou
 ## Contributing
 
 ### Places to Help
-* **Missing documentation in your language?** Help us make Semantic available in more languages by [joining our translation community](https://www.transifex.com/organization/semantic-org/)
+* **Missing documentation in your language?** Help us make Semantic available in more languages by [joining our translation community]((https://github.com/Semantic-Org/Semantic-UI/wiki/Translating-Semantic-UI-Docs))
 * **Want to help with integration?** Projects are organizing for official [Meteor](https://github.com/Semantic-Org/Semantic-UI-Meteor), and [Angular](https://github.com/Semantic-Org/Semantic-UI-Angular) integrations as well as a [Sass](https://github.com/Semantic-Org/Semantic-UI-SASS) port. Join the discussion on their respective boards.
 * **Want to help others learn concepts behind Semantic?** [Learnsemantic.com](http://www.learnsemantic.com) needs articles to help others get others up to speed with Semantic UI. [Send me an e-mail](mailto:jack@semantic-ui.com) if you are interested.
 
