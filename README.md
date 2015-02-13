@@ -19,8 +19,6 @@ npm install semantic-ui-css # Prebuilt version with default theme
 
 For more detail into how work with Semantic when building a site please [read our customization guide](http://learnsemantic.com/developing/customizing.html) on [LearnSemantic.com](http://learnsemantic.com/)
 
-## Community
-
 ### Browser Support
 
 * Last 2 Versions FF, Chrome, IE 10+
@@ -29,16 +27,14 @@ For more detail into how work with Semantic when building a site please [read ou
 * Android 4
 * Blackberry 10
 
+## Community
+
 
 ### International
 
 * **Chinese** A Chinese mirror site is available at [http://www.semantic-ui.cn](http:/www.semantic-ui.cn)
 * **Right-to-Left (RTL)** - An RTL version can be created using our build tools by selecting `rtl` from the install script
-* **Translation** - To help translate see the [Wiki Guide](https://github.com/Semantic-Org/Semantic-UI/wiki/Translating-Semantic-UI-Docs) for translations 
-
-### Release Schedule
-
-Semantic follows a weekly schedule for feature updates. To see what changes are scheduled for upcoming releases, be sure to visit the [release milestone](https://github.com/Semantic-Org/Semantic-UI/milestones) page.
+* **Translation** - To help translate see the [Wiki Guide](https://github.com/Semantic-Org/Semantic-UI/wiki/Translating-Semantic-UI-Docs) for translations
 
 ### Support
 
@@ -47,8 +43,9 @@ Semantic follows a weekly schedule for feature updates. To see what changes are 
 * **Having issues with your code?** Submit a question on [StackOverflow](http://www.stackoverflow.com) or ask our [Google Group](https://groups.google.com/forum/#!forum/semantic-ui)
 * **Looking for a specific integration like Dart, Wordpress, Drupal, Angular, or Rails?** Check out our [integration page](https://github.com/Semantic-Org/Semantic-UI/wiki/Integration)
 
+## Contributing
 
-### Contributing
+### Places to Help
 * **Missing documentation in your language?** Help us make Semantic available in more languages by [joining our translation community](https://www.transifex.com/organization/semantic-org/)
 * **Want to help with integration?** Projects are organizing for official [Meteor](https://github.com/Semantic-Org/Semantic-UI-Meteor), and [Angular](https://github.com/Semantic-Org/Semantic-UI-Angular) integrations as well as a [Sass](https://github.com/Semantic-Org/Semantic-UI-SASS) port. Join the discussion on their respective boards.
 * **Want to help others learn concepts behind Semantic?** [Learnsemantic.com](http://www.learnsemantic.com) needs articles to help others get others up to speed with Semantic UI. [Send me an e-mail](mailto:jack@semantic-ui.com) if you are interested.
