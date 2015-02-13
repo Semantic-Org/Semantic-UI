@@ -88,9 +88,9 @@ module.exports = {
       // returns last matching result (avoid sub-module detection)
       walk = function(directory) {
         var
-          pathArray     = directory.split('/'),
+          pathArray     = directory.split(path.sep),
           folder        = pathArray[pathArray.length - 2],
-          nextDirectory = path.join(directory + '..')
+          nextDirectory = path.join(directory, path.sep, '..')
         ;
         if( folder == 'bower_components') {
           return {
@@ -128,9 +128,9 @@ module.exports = {
       moduleFolders = 0,
       walk = function(directory) {
         var
-          pathArray     = directory.split('/'),
+          pathArray     = directory.split(path.sep),
           folder        = pathArray[pathArray.length - 2],
-          nextDirectory = path.normalize(directory + '/../')
+          nextDirectory = path.join(directory, path.sep, '..')
         ;
         if( folder == 'bower_components') {
           moduleFolders++;
@@ -141,7 +141,7 @@ module.exports = {
         else if(folder == 'composer') {
           moduleFolders++;
         }
-        if(path.resolve(directory) == '/') {
+        if(path.resolve(directory) == path.resolve(nextDirectory)) {
           return (moduleFolders > 1);
         }
         // recurse downward
@@ -149,7 +149,7 @@ module.exports = {
       }
     ;
     // start walk from current directory if none specified
-    directory = directory || (__dirname + '/');
+    directory = directory || (__dirname + path.sep);
     return walk(directory);
   },
 
