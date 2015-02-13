@@ -71,9 +71,6 @@ module.exports = function () {
   };
   */
 
-  console.log(manager);
-  return;
-
   /*--------------
       PM Config
   ---------------*/
