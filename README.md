@@ -10,7 +10,13 @@ Key Features
 * 3 Levels of Variable Inheritance (Similar to SublimeText)
 * Built using EM values for responsive design
 
-> Semantic UI is now at 1.0, be sure to check out our [release notes](https://github.com/Semantic-Org/Semantic-UI/blob/master/RELEASE-NOTES.md#version-100---november-24-2014) for changes from the pre-release.
+# Getting Started
+
+* `npm install semantic-ui` - Includes build tools. Use themes, import tasks into your own gulpfile.
+* `npm install semantic-ui-less` - Themable LESS files only
+* `npm install semantic-ui-css` - Prebuilt version with default theme
+
+For more detail into how work with Semantic when building a site please [read our customization guide](http://learnsemantic.com/developing/customizing.html) on [LearnSemantic.com](http://learnsemantic.com/)
 
 ## International
 
@@ -36,66 +42,6 @@ Semantic follows a weekly schedule for feature updates. To see what changes are 
 * **Want to help others learn concepts behind Semantic?** [Learnsemantic.com](http://www.learnsemantic.com) needs articles to help others get others up to speed with Semantic UI. [Send me an e-mail](mailto:jack@semantic-ui.com) if you are interested.
 
 
-## Getting Started
-
-### Basic Usage (Default Theme)
-
-We recommend setting up the Semantic build workflow to support on-the-fly
-theming and customization, but it is not required.
-
-To use the "ready-to-use" distribution version, which includes all components, simply link to
-`dist/semantic.js` and `dist/semantic.css` (or their minified counterparts) in your page.
-
-``` html
-<link rel="stylesheet" type="text/css" href="/dist/semantic.min.css">
-<script src="/dist/semantic.min.js"></script>
-```
-
-You may also prefer to use individual components found in `dist/components` to reduce the libraries file size.
-
-``` html
-<link rel="stylesheet" type="text/css" href="/dist/components/icon.css">
-```
-
-
-### Recommended Usage (Themed)
-
-Semantic is best used actively during development. We have included build tools for updating your site's theme as you work.
-
-![Getting Started](https://dl.dropboxusercontent.com/u/2657007/install.gif)
-
-```
-npm install
-gulp
-```
-
-Running gulp for the first time will start the interactive set-up.
-
-This helps you create two important files ``semantic.json`` which stores your folder set-up, and ``themes.config`` a central file for setting ui themes.
-
-The install utility will also help you set-up which components you want to include in your packaged release, ignoring parts of Semantic you may not use.
-
-Once set-up you can use these commands to maintain your project
-```nodejs
-gulp  // defaults to watch after install
-gulp build // build all files from source
-gulp clean // clears your dist folder
-gulp watch // watch files
-gulp install // re-runs install
-gulp help // list all commands
-```
-
-For more detail into how work with Semantic when building a site please [read our customization guide](http://learnsemantic.com/developing/customizing.html) on [LearnSemantic.com](http://learnsemantic.com/)
-
-## Meteor
-
-To use Semantic with the [Meteor.js](https://www.meteor.com) framework, run
-
-$ meteor add semantic:ui
-
-Learn more by reading the [Meteor integration README](https://github.com/Semantic-Org/Semantic-UI/blob/master/meteor/README.md).
-
-
 ## Browser Support
 
 * Last 2 Versions FF, Chrome, IE (aka 10+)
@@ -103,7 +49,6 @@ Learn more by reading the [Meteor integration README](https://github.com/Semanti
 * IE 9+ (Browser prefix only)
 * Android 4
 * Blackberry 10
-
 
 ## Pull Requests
 
@@ -114,3 +59,4 @@ When adding pull requests be sure to merge into [next](https://github.com/Semant
 If you'd like to start a conversation about Semantic feel free to reach out by e-mail [jack@semantic-ui.com](mailto:jack@semantic-ui.com)
 
 [![Flattr This](https://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=jlukic&url=https%3A%2F%2Fgithub.com%2Fjlukic%2FSemantic-UI)
+
