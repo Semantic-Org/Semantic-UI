@@ -32,7 +32,7 @@ module.exports = {
 
       // remove all comments from config files (.variable)
       variables : {
-        in  : /\/\*[\s\S]+\/\* End Config \*\//m,
+        in  : /\/\*[\s\S]+?\/\* End Config \*\//m,
         out : '',
       },
 

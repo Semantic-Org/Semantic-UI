@@ -132,7 +132,7 @@ module.exports = function () {
         lessPath = util.replaceExtension(file.path, '.less');
         lessPath = lessPath.replace(source.site, source.definitions);
       }
-      else if(isDefinition) {
+      else {
         console.log('Change detected in definition');
         lessPath = file.path;
       }
