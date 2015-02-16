@@ -29,6 +29,7 @@
 **Enhancement**
 - **API** - API now has an ``onRequest`` callback setting that receives the XHR promise after initializing the request
 - **Button** - Loading buttons no longer receive `pointer-events` in default theme. Added variable for `loading button` opacity.
+- **Card** - Card now has colored variations available **Tahnks @romuloctba**
 - **Dropdown** - `search selection dropdown` will now close the menu when a `dropdown icon` is clicked
 - **Dropdown** - Added new dropdown setting, `forceSelection` which forces `search selection` to a selected value on blur. Defaults to `true`.
 - **Flag** - Reduced the file size of flag sprite to a measly 28kb (500%+ file size reduction)
@@ -44,6 +45,7 @@
 **Bugs**
 - **All Modules** - Fixed bug where element `destroy` could remove third party events when re-initialized
 - **Card** - Star / Like button colors have been fixed to match `ui rating` inside `card`
+- **Card** - `image` inside `content` no longer has a fixed size **Thanks @romuloctba**
 - **Dropdown** - Upward dropdown now has upward arrow icon
 - **Icon** - `external link` and `external link square` has been renamed to `external icon` to no longer receive `link` styles by default
 - **Steps** - Fixed bug where evenly divided steps were no longer fluid
