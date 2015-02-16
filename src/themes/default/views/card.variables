@@ -29,13 +29,13 @@
 @transition: box-shadow @transitionDuration @transitionEasing;
 
 /* Item Group */
+@horizontalSpacing: 1em;
+@rowSpacing: 1.5em;
 @groupDisplay: flex;
 @groupCardDisplay: flex;
 @groupFloat: none;
-@horizontalSpacing: 1em;
-@rowSpacing: 1.5em;
-@groupCardsMargin: 1em -@horizontalSpacing 0em;
-@groupCardMargin: 0em @horizontalSpacing @rowSpacing;
+@groupCardsMargin: -(@rowSpacing / 2) -(@horizontalSpacing / 2);
+@groupCardMargin: (@rowSpacing / 2) (@horizontalSpacing / 2);
 
 /*-------------------
        Content
@@ -96,11 +96,11 @@
 @descriptionColor: rgba(0, 0, 0, 0.5);
 
 /* Content Image */
-@contentImageWidth: 2em;
+@contentImageWidth: auto;
 @contentImageVerticalAlign: middle;
 
 /* Avatar Image */
-@avatarSize: @contentImageWidth;
+@avatarSize: 2.5em;
 @avatarBorderRadius: @circularRadius;
 
 /* Paragraph */
