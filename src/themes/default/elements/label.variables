@@ -90,12 +90,19 @@
 @tagTransition: background @labelTransitionDuration @labelTransitionEasing;
 
 /* Ribbon */
+@ribbonImageTopDistance: 1rem;
 @ribbonTriangleSize: 1.2em;
-@ribbonMargin: 1rem;
+@ribbonShadowColor: rgba(0, 0, 0, 0.15);
+
+@ribbonMargin: -0.05rem; /* Rounding Offset on Triangle */
 @ribbonOffset: ~"calc("-@ribbonMargin~" - "@ribbonTriangleSize~")";
 @ribbonDistance: ~"calc("@ribbonMargin~" + "@ribbonTriangleSize~")";
 @rightRibbonOffset:  ~"calc(100% + "@ribbonMargin~" + "@ribbonTriangleSize~")";
-@ribbonShadowColor: rgba(0, 0, 0, 0.15);
+
+@ribbonSegmentMargin: 1rem;
+@ribbonSegmentOffset: ~"calc("-@ribbonSegmentMargin~" - "@ribbonTriangleSize~")";
+@ribbonSegmentDistance: ~"calc("@ribbonSegmentMargin~" + "@ribbonTriangleSize~")";
+@rightRibbonSegmentOffset:  ~"calc(100% + "@ribbonSegmentMargin~" + "@ribbonTriangleSize~")";
 
 @blackRibbonShadow: darken(@black, 10);
 @blueRibbonShadow: darken(@blue, 10);
