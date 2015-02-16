@@ -43,6 +43,7 @@
 
 **Bugs**
 - **All Modules** - Fixed bug where element `destroy` could remove third party events when re-initialized
+- **Card** - Star / Like button colors have been fixed to match `ui rating` inside `card`
 - **Dropdown** - Upward dropdown now has upward arrow icon
 - **Icon** - `external link` and `external link square` has been renamed to `external icon` to no longer receive `link` styles by default
 - **Steps** - Fixed bug where evenly divided steps were no longer fluid

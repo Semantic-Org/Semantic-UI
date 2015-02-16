@@ -7,7 +7,7 @@
 --------------------*/
 
 /* Shadow */
-@shadowDistance: 0.2em;
+@shadowDistance: 3px;
 @shadowBoxShadow: 0px @shadowDistance 0px 0px @solidBorderColor;
 
 /* Item */
@@ -75,10 +75,12 @@
 @actionOpacity: 0.75;
 @actionHoverOpacity: 1;
 @actionTransition: color @transitionDuration @transitionEasing;
-@starColor: #AC9400;
-@starActiveColor: #E9B539;
-@likeColor: #FFADAE;
-@likeActiveColor: #EF404A;
+
+@starColor: #FFB70A;
+@starActiveColor: #FFE623;
+
+@likeColor: #FF2733;
+@likeActiveColor: #FF2733;
 
 /* Links */
 @contentLinkColor: '';
