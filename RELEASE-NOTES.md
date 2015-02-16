@@ -38,6 +38,8 @@
 - **Icon** - Added woff2 icon files for supported browsers (20% file-size decrease) **Thanks FontAwesome**
 - **Label** - `ribbon label` can now be used inside `ui image` and `ui card` correctly
 - **Sidebar** - Sidebars in IE now work correctly with `context` specified
+- **Rating** - Vertical alignment of `ui rating` with inline content now accounts for parent line height
+- **Segment** - Added plural variation `ui segments` to allow for simpler segment groups without `top` or `bottom`
 
 **Bugs**
 - **All Modules** - Fixed bug where element `destroy` could remove third party events when re-initialized
