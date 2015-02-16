@@ -14,7 +14,6 @@
 .ui.rating .icon {
   font-family: 'Rating';
   line-height: 1;
-  height: 1em;
   backface-visibility: hidden;
   font-weight: normal;
   font-style: normal;
