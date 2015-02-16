@@ -356,32 +356,17 @@
 ---------------------*/
 
 .ui.action.input {
-  display: table;
+  display: inline-flex;
 }
 
-.ui.action.input > input {
-  display: table-cell;
-  vertical-align: top;
-}
 .ui.action.input > .button,
 .ui.action.input > .buttons {
-  display: table-cell !important;
-  vertical-align: middle;
-  white-space: nowrap;
-  margin: 0;
+  flex: 1 0 auto;
 }
 .ui.action.input > .button,
 .ui.action.input > .buttons > .button {
-  vertical-align: middle;
-  white-space: nowrap;
-  margin: 0;
   padding-top: @verticalPadding;
   padding-bottom: @verticalPadding;
-}
-.ui.action.input > .button > .icon,
-.ui.action.input > .buttons > .button > .icon {
-  display: inline;
-  vertical-align: top;
 }
 
 /* Fluid */
