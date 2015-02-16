@@ -277,30 +277,23 @@
 
 /* Adjacent Label */
 .ui.labeled.input {
-  display: table;
+  display: inline-flex;
 }
 .ui.labeled.input > input {
-  display: table-cell;
-  vertical-align: top;
 }
 .ui.labeled.input > .label {
-  display: table-cell !important;
-  vertical-align: middle;
-  white-space: nowrap;
+  flex: 1 0 auto;
+  margin: 0;
   font-size: 1em;
 }
-.ui.labeled.input > .label > .icon {
-  display: inline;
-  vertical-align: top;
+.ui.labeled.input > .label:not(.corner) {
+  padding-top: @verticalPadding;
+  padding-bottom: @verticalPadding;
 }
 
 /* Fluid Labeled */
 .ui.fluid.labeled.input {
-  display: table;
-  width: 100%;
-}
-.ui.fluid.labeled.input > .label {
-  width: 0.01%;
+  display: flex;
 }
 
 /* Label on Left */
@@ -338,12 +331,6 @@
 }
 
 /* Spacing with corner label */
-.ui[class*="corner labeled"].input {
-  display: inline-block;
-}
-.ui[class*="corner labeled"].input > input {
-  display: block;
-}
 .ui[class*="corner labeled"].icon.input:not(.left) > input {
   padding-right: @labeledIconInputMargin !important;
 }
