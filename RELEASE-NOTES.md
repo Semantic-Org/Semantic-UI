@@ -20,7 +20,11 @@
 * You can import all UI with `@import 'src/semantic';`
 * You can also import individual definitions using `@import 'src/definitions/elements/button'`.
 
-**The Rest**
+**Even More**
+
+**Major Enhancements**
+- **Card** - Cards now use `flexbox` by default, no longer require `min-height` specified to align correctly
+- **Icon** - Added Font Awesome 4.3 including many new icons
 
 **Enhancement**
 - **API** - API now has an ``onRequest`` callback setting that receives the XHR promise after initializing the request
@@ -31,17 +35,17 @@
 - **Flag** - Updated Burma/Myanmar flag to current flag (was pre-2010 flag)
 - **Form** - Input rules now apply to `input[type="time"]`
 - **Headers** - Headers can now contain images alongside text, added examples to docs
-- **Icon** - Added new icons aliases for icons from Font Awesome 4.3
 - **Icon** - Added woff2 icon files for supported browsers (20% file-size decrease) **Thanks FontAwesome**
+- **Label** - `ribbon label` can now be used inside `ui image` and `ui card` correctly
 - **Sidebar** - Sidebars in IE now work correctly with `context` specified
 
 **Bugs**
 - **All Modules** - Fixed bug where element `destroy` could remove third party events when re-initialized
-- **Transition** - Transitions with direction now use word order dependency to prevent conflict with component directions, for example `bottom left popup slide down in transition
-- **Icon** - `external link` and `external link square` has been renamed to `external icon` to no longer receive `link` styles by default
 - **Dropdown** - Upward dropdown now has upward arrow icon
+- **Icon** - `external link` and `external link square` has been renamed to `external icon` to no longer receive `link` styles by default
 - **Steps** - Fixed bug where evenly divided steps were no longer fluid
 - **Transition** - Fixes bug where `moduleNamespace` was being omitted
+- **Transition** - Transitions with direction now use word order dependency to prevent conflict with component directions, for example `bottom left popup slide down in transition
 
 **Docs**
 - Fixed bug with chinese mirror modal appearing on every page load when selecting chinese language
