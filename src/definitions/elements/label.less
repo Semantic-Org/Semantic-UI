@@ -362,6 +362,7 @@ a.ui.label {
 /* Positioning */
 .ui.ribbon.label {
   left: @ribbonOffset;
+  margin-right: -@ribbonTriangleSize;
   padding-left: @ribbonDistance;
 }
 .ui[class*="right ribbon"].label {
@@ -370,22 +371,22 @@ a.ui.label {
 }
 
 
-/* Inside Segment */
-.ui.segment > .ui.ribbon.label {
-  left: @ribbonSegmentOffset;
-  padding-left: @ribbonSegmentDistance;
-}
-.ui.segment > .ui[class*="right ribbon"].label {
-  left: @rightRibbonSegmentOffset;
-  padding-left: @horizontalPadding;
-  padding-right: @ribbonSegmentDistance;
-}
-
 /* Inside Image */
 .ui.image > .ribbon.label,
 .ui.card .image > .ribbon.label {
   position: absolute;
   top: @ribbonImageTopDistance;
+}
+.ui.card .image > .ui.ribbon.label,
+.ui.image > .ui.ribbon.label {
+  left: @ribbonImageOffset;
+  padding-left: @ribbonImageDistance;
+}
+.ui.card .image > .ui[class*="right ribbon"].label,
+.ui.image > .ui[class*="right ribbon"].label {
+  left: @rightRibbonImageOffset;
+  padding-left: @horizontalPadding;
+  padding-right: @ribbonImageDistance;
 }
 
 

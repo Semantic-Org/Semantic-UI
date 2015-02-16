@@ -94,15 +94,15 @@
 @ribbonTriangleSize: 1.2em;
 @ribbonShadowColor: rgba(0, 0, 0, 0.15);
 
-@ribbonMargin: -0.05rem; /* Rounding Offset on Triangle */
+@ribbonMargin: 1rem;
 @ribbonOffset: ~"calc("-@ribbonMargin~" - "@ribbonTriangleSize~")";
 @ribbonDistance: ~"calc("@ribbonMargin~" + "@ribbonTriangleSize~")";
 @rightRibbonOffset:  ~"calc(100% + "@ribbonMargin~" + "@ribbonTriangleSize~")";
 
-@ribbonSegmentMargin: 1rem;
-@ribbonSegmentOffset: ~"calc("-@ribbonSegmentMargin~" - "@ribbonTriangleSize~")";
-@ribbonSegmentDistance: ~"calc("@ribbonSegmentMargin~" + "@ribbonTriangleSize~")";
-@rightRibbonSegmentOffset:  ~"calc(100% + "@ribbonSegmentMargin~" + "@ribbonTriangleSize~")";
+@ribbonImageMargin: -0.05rem; /* Rounding Offset on Triangle */
+@ribbonImageOffset: ~"calc("-@ribbonImageMargin~" - "@ribbonTriangleSize~")";
+@ribbonImageDistance: ~"calc("@ribbonImageMargin~" + "@ribbonTriangleSize~")";
+@rightRibbonImageOffset:  ~"calc(100% + "@ribbonImageMargin~" + "@ribbonTriangleSize~")";
 
 @blackRibbonShadow: darken(@black, 10);
 @blueRibbonShadow: darken(@blue, 10);
