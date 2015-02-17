@@ -361,22 +361,42 @@ $.fn.form = function(fields, parameters) {
                   : false
               ;
               if(name) {
-                if(isRadio) {
-                  if(isChecked) {
-                    values[name] = value;
+              	if(name.indexOf('[]') !== -1) {
+              		name = name.replace('[]', '');
+              		if(!values[name]) {
+              			values[name] = [];
+              		}
+              		if(isCheckbox) {
+                      if(isChecked) {
+                        values[name].push(value)
+                      }
+                      else {
+                      	module.debug('Omitted unchecked checkbox', $field);
+                      	return true;
+                      }
+              		}
+              		else {
+              			value.length && values[name].push(value);
+              		}
+              	}
+				else {
+              	  if(isRadio) {
+                    if(isChecked) {
+                      values[name] = value;
+                    }
                   }
-                }
-                else if(isCheckbox) {
-                  if(isChecked) {
-                    values[name] = true;
+                  else if(isCheckbox) {
+                    if(isChecked) {
+                      values[name] = true;
+                    }
+                    else {
+                      module.debug('Omitted unchecked checkbox', $field);
+                      return true;
+                    }
                   }
                   else {
-                    module.debug('Omitted unchecked checkbox', $field);
-                    return true;
+                    values[name] = value;
                   }
-                }
-                else {
-                  values[name] = value;
                 }
               }
             });
