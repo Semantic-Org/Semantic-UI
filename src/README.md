@@ -35,6 +35,8 @@ gulp.task('watch ui', 'Watch Semantic UI', watch));
 
 Before using source files you will need to create a `theme.config` by renaming `theme.config.example`
 
+> LESS files do not contain vendor prefixes. If you are to use these files directly you must add them during your build step.
+
 This file is used to configure which packaged theme each component should use.
 
 You can then import Semantic from your own LESS files:
@@ -45,6 +47,7 @@ You can then import Semantic from your own LESS files:
 /* Import a specific component */
 @import 'src/definitions/elements/button';
 ```
+
 
 ## Theming
 
