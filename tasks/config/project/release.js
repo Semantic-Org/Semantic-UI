@@ -56,13 +56,6 @@ module.exports = {
     + ' *' + '\n'
     + ' */' + '\n',
 
-  files: {
-    composer : 'composer.json',
-    config   : 'semantic.json',
-    npm      : 'package.json',
-    meteor   : 'package.js'
-  },
-
   version    : package.version
 
 };

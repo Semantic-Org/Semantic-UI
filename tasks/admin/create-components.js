@@ -1,5 +1,5 @@
 /*******************************
-          Create Repos
+     Create Component Repos
 *******************************/
 
 /*
@@ -28,15 +28,18 @@ var
   flatten         = require('gulp-flatten'),
   git             = require('gulp-git'),
   plumber         = require('gulp-plumber'),
+  jsonEditor      = require('gulp-json-editor'),
+  rename          = require('gulp-rename'),
   replace         = require('gulp-replace'),
   tap             = require('gulp-tap'),
 
   // config
-  config          = require('./config/user'),
+  config          = require('../config/user'),
   github          = require('../config/admin/github'),
   release         = require('../config/admin/release'),
 
   // shorthand
+  version         = release.version,
   output          = config.paths.output
 
 ;
@@ -158,7 +161,7 @@ module.exports = function(callback) {
         return gulp.src(release.templates.bower)
           .pipe(plumber())
           .pipe(flatten())
-          .pipe(jeditor(function(bower) {
+          .pipe(jsonEditor(function(bower) {
             bower.name = packageName;
             bower.description = capitalizedComponent + ' - Semantic UI';
             if(isJavascript) {
@@ -193,7 +196,7 @@ module.exports = function(callback) {
         return gulp.src(release.templates.package)
           .pipe(plumber())
           .pipe(flatten())
-          .pipe(jeditor(function(package) {
+          .pipe(jsonEditor(function(package) {
             if(isJavascript) {
               package.dependencies = {
                 jquery: 'x.x.x'
@@ -221,7 +224,7 @@ module.exports = function(callback) {
         return gulp.src(release.templates.composer)
           .pipe(plumber())
           .pipe(flatten())
-          .pipe(jeditor(function(composer) {
+          .pipe(jsonEditor(function(composer) {
             if(isJavascript) {
               composer.dependencies = {
                 jquery: 'x.x.x'
@@ -309,4 +312,4 @@ module.exports = function(callback) {
   }
 
   runSequence(tasks, callback);
-});
+};

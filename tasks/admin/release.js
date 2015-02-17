@@ -1,10 +1,21 @@
-/* Release */
-gulp.task('release', false, function() {
+/*******************************
+           Release
+*******************************/
 
-  // gulp build
+/*
+ This task update only SUI repos that use the full release (all components)
+
+*/
+
+var
+  runSequence = require('run-sequence')
+;
+
+module.exports = function() {
+
   runSequence(
-    'build',
-    'create files'
+    'build', // build semantic
+    'create static repo' // create standalone css repo
   );
 
-});
+};

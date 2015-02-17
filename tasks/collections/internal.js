@@ -102,49 +102,53 @@ module.exports = function(gulp) {
         RTL
   ---------------*/
 
-  gulp.task('package uncompressed rtl css', function () {
-    return gulp.src(output.uncompressed + '/**/' + globs.components + globs.ignoredRTL + '.rtl.css')
-      .pipe(replace(assets.uncompressed, assets.packaged))
-      .pipe(concatCSS(filenames.concatenatedRTLCSS))
-        .pipe(gulp.dest(output.packaged))
-        .pipe(print(log.created))
-    ;
-  });
+  if(config.rtl) {
 
-  gulp.task('package compressed rtl css', function () {
-    return gulp.src(output.uncompressed + '/**/' + globs.components + globs.ignoredRTL + '.rtl.css')
-      .pipe(replace(assets.uncompressed, assets.packaged))
-      .pipe(concatCSS(filenames.concatenatedMinifiedRTLCSS))
-        .pipe(minifyCSS(settings.minify))
-        .pipe(header(banner, settings.header))
-        .pipe(gulp.dest(output.packaged))
-        .pipe(print(log.created))
-    ;
-  });
+    gulp.task('package uncompressed rtl css', function () {
+      return gulp.src(output.uncompressed + '/**/' + globs.components + globs.ignoredRTL + '.rtl.css')
+        .pipe(replace(assets.uncompressed, assets.packaged))
+        .pipe(concatCSS(filenames.concatenatedRTLCSS))
+          .pipe(gulp.dest(output.packaged))
+          .pipe(print(log.created))
+      ;
+    });
 
-  gulp.task('package uncompressed docs css', function() {
-    return gulp.src(output.uncompressed + '/**/' + globs.components + globs.ignored + '.css')
-      .pipe(plumber())
-      .pipe(replace(assets.uncompressed, assets.packaged))
-      .pipe(concatCSS(filenames.concatenatedCSS))
-        .pipe(gulpif(config.hasPermission, chmod(config.permission)))
-        .pipe(gulp.dest(output.packaged))
-        .pipe(print(log.created))
-    ;
-  });
+    gulp.task('package compressed rtl css', function () {
+      return gulp.src(output.uncompressed + '/**/' + globs.components + globs.ignoredRTL + '.rtl.css')
+        .pipe(replace(assets.uncompressed, assets.packaged))
+        .pipe(concatCSS(filenames.concatenatedMinifiedRTLCSS))
+          .pipe(minifyCSS(settings.minify))
+          .pipe(header(banner, settings.header))
+          .pipe(gulp.dest(output.packaged))
+          .pipe(print(log.created))
+      ;
+    });
 
-  gulp.task('package compressed docs css', function() {
-    return gulp.src(output.uncompressed + '/**/' + globs.components + globs.ignored + '.css')
-      .pipe(plumber())
-      .pipe(replace(assets.uncompressed, assets.packaged))
-      .pipe(concatCSS(filenames.concatenatedMinifiedCSS))
-        .pipe(minifyCSS(settings.minify))
-        .pipe(header(banner, settings.header))
-        .pipe(gulpif(config.hasPermission, chmod(config.permission)))
-        .pipe(gulp.dest(output.packaged))
-        .pipe(print(log.created))
-    ;
-  });
+    gulp.task('package uncompressed docs css', function() {
+      return gulp.src(output.uncompressed + '/**/' + globs.components + globs.ignored + '.css')
+        .pipe(plumber())
+        .pipe(replace(assets.uncompressed, assets.packaged))
+        .pipe(concatCSS(filenames.concatenatedCSS))
+          .pipe(gulpif(config.hasPermission, chmod(config.permission)))
+          .pipe(gulp.dest(output.packaged))
+          .pipe(print(log.created))
+      ;
+    });
+
+    gulp.task('package compressed docs css', function() {
+      return gulp.src(output.uncompressed + '/**/' + globs.components + globs.ignored + '.css')
+        .pipe(plumber())
+        .pipe(replace(assets.uncompressed, assets.packaged))
+        .pipe(concatCSS(filenames.concatenatedMinifiedCSS))
+          .pipe(minifyCSS(settings.minify))
+          .pipe(header(banner, settings.header))
+          .pipe(gulpif(config.hasPermission, chmod(config.permission)))
+          .pipe(gulp.dest(output.packaged))
+          .pipe(print(log.created))
+      ;
+    });
+
+  }
 
   /*--------------
         Docs

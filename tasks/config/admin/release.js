@@ -27,6 +27,14 @@ module.exports = {
   org         : 'Semantic-Org',
   repo        : 'Semantic-UI',
 
+  // files created for package managers
+  files: {
+    composer : 'composer.json',
+    config   : 'semantic.json',
+    npm      : 'package.json',
+    meteor   : 'package.js'
+  },
+
   // root name for repos
   repoRoot    : 'UI-',
   packageRoot : 'semantic-ui-',

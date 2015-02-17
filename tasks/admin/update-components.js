@@ -27,8 +27,12 @@ var
 
   // admin files
   github         = require('../config/admin/github.js'),
-  oAuth          = require('../config/admin/oauth.js'),
   release        = require('../config/admin/release'),
+
+  // oAuth configuration for GitHub
+  oAuth          = fs.existsSync('../config/admin/oauth')
+    ? require('../config/admin/oauth')
+    : false,
 
   package        = requireDotFile('package.json'),
   version        = package.version
@@ -43,6 +47,11 @@ module.exports = function() {
     stepRepo
   ;
   console.log('Handling git');
+
+  if(!oAuth) {
+    console.error('Must add oauth token for GitHub in tasks/admin/oauth.js');
+    return;
+  }
 
   // Do Git commands synchronously per component, to avoid issues
   stepRepo = function() {

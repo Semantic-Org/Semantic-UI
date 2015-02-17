@@ -20,7 +20,7 @@ module.exports = function() {
   runSequence(
     'build', // build Semantic
     'create components', // create each component repo
-    'update component repos' // update component repos on github
+    'update components' // update component repos on github
   );
 
 };
