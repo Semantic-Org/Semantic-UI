@@ -14,7 +14,6 @@ Key Features
 
 ```bash
 npm install semantic-ui  # Use themes, import build/watch tasks into your own gulpfile.
-npm install semantic-ui-css # Prebuilt version with default theme
 ```
 
 For more detail into how work with Semantic when building a site please [read our customization guide](http://learnsemantic.com/developing/customizing.html) on [LearnSemantic.com](http://learnsemantic.com/)
