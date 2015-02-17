@@ -313,10 +313,22 @@ $.fn.form = function(fields, parameters) {
             else if( $field.filter('[name="' + identifier +'"]').length > 0 ) {
               return $field.filter('[name="' + identifier +'"]');
             }
+            else if( $field.filter('[name="' + identifier +'[]"]').length > 0 ) {
+              return $field.filter('[name="' + identifier +'[]"]');
+            }
             else if( $field.filter('[data-' + metadata.validate + '="'+ identifier +'"]').length > 0 ) {
               return $field.filter('[data-' + metadata.validate + '="'+ identifier +'"]');
             }
             return $('<input/>');
+          },
+          fields: function(fields) {
+            var
+              $fields = $()
+            ;
+            $.each(fields, function(index, name) {
+              $fields = $fields.add( module.get.field(name) );
+            });
+            return $fields;
           },
           validation: function($field) {
             var
@@ -340,47 +352,45 @@ $.fn.form = function(fields, parameters) {
           },
           values: function (fields) {
             var
+              $fields = $.isArray(fields)
+                ? module.get.fields(fields)
+                : $field,
               values = {}
             ;
-            // return all fields if no parameters
-            if(!$.isArray(fields)) {
-              fields = $field;
-            }
-            $.each(fields, function(index, field) {
+            $fields.each(function(index, field) {
               var
-                $field     = (typeof field === 'string')
-                  ? module.get.field(field)
-                  : $(field),
+                $field     = $(field),
                 type       = $field.prop('type'),
                 name       = $field.prop('name'),
                 value      = $field.val(),
                 isCheckbox = $field.is(selector.checkbox),
                 isRadio    = $field.is(selector.radio),
+                isMultiple = (name.indexOf('[]') !== -1),
                 isChecked  = (isCheckbox)
                   ? $field.is(':checked')
                   : false
               ;
               if(name) {
-              	if(name.indexOf('[]') !== -1) {
-              		name = name.replace('[]', '');
-              		if(!values[name]) {
-              			values[name] = [];
-              		}
-              		if(isCheckbox) {
-                      if(isChecked) {
-                        values[name].push(value)
-                      }
-                      else {
-                      	module.debug('Omitted unchecked checkbox', $field);
-                      	return true;
-                      }
-              		}
-              		else {
-              			value.length && values[name].push(value);
-              		}
-              	}
-				else {
-              	  if(isRadio) {
+                if(isMultiple) {
+                  name = name.replace('[]', '');
+                  if(!values[name]) {
+                    values[name] = [];
+                  }
+                  if(isCheckbox) {
+                    if(isChecked) {
+                      values[name].push(value)
+                    }
+                    else {
+                      module.debug('Omitted unchecked checkbox', $field);
+                      return true;
+                    }
+                  }
+                  else {
+                    values[name].push(value);
+                  }
+                }
+                else {
+                  if(isRadio) {
                     if(isChecked) {
                       values[name] = value;
                     }
@@ -543,13 +553,26 @@ $.fn.form = function(fields, parameters) {
               var
                 $field      = module.get.field(key),
                 $element    = $field.parent(),
+                isMultiple  = $.isArray(value),
                 isCheckbox  = $element.is(selector.uiCheckbox),
                 isDropdown  = $element.is(selector.uiDropdown),
-                isRadio     = $field.is(selector.radio),
-                fieldExists = ($field.length > 0)
+                isRadio     = ($field.is(selector.radio) && isCheckbox),
+                fieldExists = ($field.length > 0),
+                $multipleField
               ;
               if(fieldExists) {
-                if(isRadio && isCheckbox) {
+                if(isMultiple && isCheckbox) {
+                  module.verbose('Selecting multiple select', value, $field);
+                  $element.checkbox('uncheck');
+                  $.each(value, function(index, value) {
+                    $multipleField = $field.filter('[value="' + value + '"]');
+                    $element       = $multipleField.parent();
+                    if($multipleField.length > 0) {
+                      $element.checkbox('check');
+                    }
+                  });
+                }
+                else if(isRadio) {
                   module.verbose('Selecting radio value', value, $field);
                   $field.filter('[value="' + value + '"]')
                     .parent(selector.uiCheckbox)
