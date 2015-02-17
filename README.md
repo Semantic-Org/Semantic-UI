@@ -2,6 +2,8 @@
 
 # Semantic UI
 
+[![Join the chat at https://gitter.im/Semantic-Org/Semantic-UI](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Semantic-Org/Semantic-UI?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Semantic is a highly-themable UI framework with intuitive naming conventions built around common usage.
 
 Key Features
