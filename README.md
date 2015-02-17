@@ -27,6 +27,8 @@ For more detail into how work with Semantic when building a site please [read ou
 * Android 4
 * Blackberry 10
 
+Browser prefixes are present for Internet Explorer 9, but the browser is not officially supported.
+
 ## Community
 
 
