@@ -37,6 +37,7 @@
 - **Dropdown** - Added new dropdown setting, `forceSelection` which forces `search selection` to a selected value on blur. Defaults to `true`.
 - **Flag** - Updated Burma/Myanmar flag to current flag (was pre-2010 flag)
 - **Form** - Input rules now apply to `input[type="time"]`
+- **Form Validation** - `get values`, `set values` now support multiple select e.g. `field[]`
 - **Form Validation** - Dropdown and checkbox will now validate after interaction with `on: 'blur'`
 - **Headers** - Headers can now contain images alongside text, added examples to docs
 - **Icon** - Added woff2 icon files for supported browsers (20% file-size decrease) **Thanks FontAwesome**

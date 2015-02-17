@@ -562,7 +562,7 @@ $.fn.form = function(fields, parameters) {
               ;
               if(fieldExists) {
                 if(isMultiple && isCheckbox) {
-                  module.verbose('Selecting multiple select', value, $field);
+                  module.verbose('Selecting multiple', value, $field);
                   $element.checkbox('uncheck');
                   $.each(value, function(index, value) {
                     $multipleField = $field.filter('[value="' + value + '"]');
