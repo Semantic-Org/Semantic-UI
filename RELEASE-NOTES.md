@@ -2,26 +2,25 @@
 
 ### Version 1.9.0 - February 17, 2015
 
-**Major Changes**
+### Build Tools
 
-## NPM Install
+##### NPM Install
 
 - `npm install semantic-ui` is now the recommended path for getting Semantic UI
 - Added `npm` `post-install` scripts which automatically install or update semantic
 
-## Gulp Task Imports
+##### Gulp Task Imports
 
 - Semantic tasks are now each defined in their own file, and can be directly imported into external gulpfiles. Read more about [importing tasks here](https://github.com/Semantic-Org/Semantic-UI/blob/next/src/README.md)
 - If you are using Grunt, you may be able to import these tasks using [Grunt-gulp](https://www.npmjs.com/package/grunt-gulp)
 
-## LESS Component Imports
+##### LESS Component Imports
 
 - Semantic LESS files can now be directly included in other LESS files.
 * You can import all UI with `@import 'src/semantic';`
 * You can also import individual definitions using `@import 'src/definitions/elements/button'`.
 
-**Even More**
-
+### UI Changes
 **Major Enhancements**
 - **Card** - Cards now equalize height by default using `display: flex`. No longer are card heights required to be specified manually to align
 - **Flag** - Reduced the file size of flag sprite to a measly 28kb (500%+ file size reduction)
