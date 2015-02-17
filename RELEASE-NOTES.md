@@ -37,6 +37,7 @@
 - **Dropdown** - Added new dropdown setting, `forceSelection` which forces `search selection` to a selected value on blur. Defaults to `true`.
 - **Flag** - Updated Burma/Myanmar flag to current flag (was pre-2010 flag)
 - **Form** - Input rules now apply to `input[type="time"]`
+- **Form Validation** - Dropdown and checkbox will now validate after interaction with `on: 'blur'`
 - **Headers** - Headers can now contain images alongside text, added examples to docs
 - **Icon** - Added woff2 icon files for supported browsers (20% file-size decrease) **Thanks FontAwesome**
 - **Label** - `ribbon label` can now be used inside `ui image` and `ui card` correctly
@@ -50,6 +51,7 @@
 - **Card** - Hiding a card with `display: none` no longer causes layout issues with `(x) cards`
 - **Card** - `image` inside `content` no longer has a fixed size **Thanks @romuloctba**
 - **Form** - `info message` are no longer hidden by default inside `ui form`
+- **Form** - Lightened error dropdown hover text color to be more legible
 - **Dropdown** - Upward dropdown now has upward arrow icon
 - **Icon** - `external link` and `external link square` has been renamed to `external icon` to no longer receive `link` styles by default
 - **Modal** - Modal now swaps to `scrolling modal` when `close icon` no longer can be displayed, instead of modal `content`
