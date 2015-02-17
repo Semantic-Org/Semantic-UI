@@ -1,13 +1,13 @@
 ## RELEASE NOTES
 
-### Version 1.9.0 - January xx, 2015
+### Version 1.9.0 - February 17, 2015
 
 **Major Changes**
 
 ## NPM Install
 
 - `npm install semantic-ui` is now the recommended path for getting Semantic UI
-- Added new install scripts which handle updates correctly without losing user changes
+- Added `npm` `post-install` scripts which automatically install or update semantic
 
 ## Gulp Task Imports
 
