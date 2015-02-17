@@ -53,8 +53,8 @@
 
 /* Icon Divider */
 .ui.breadcrumb .icon.divider {
-  font-size: 0.7em;
-  vertical-align: middle;
+  font-size: 0.85714286em;
+  vertical-align: baseline;
 }
 
 /* Section */

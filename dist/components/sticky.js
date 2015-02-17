@@ -309,7 +309,9 @@ $.fn.sticky = function(parameters) {
             }
             else {
               module.debug('Settings container size', module.cache.context.height);
-              $container.height(module.cache.context.height);
+              if( Math.abs($container.height() - module.cache.context.height) > 5) {
+                $container.height(module.cache.context.height);
+              }
             }
           },
           scroll: function(scroll) {

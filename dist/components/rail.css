@@ -16,10 +16,10 @@
 *******************************/
 
 .ui.rail {
-  font-size: 1em;
   position: absolute;
   top: 0%;
   width: 300px;
+  height: 100%;
   box-sizing: content-box;
 }
 .ui.left.rail {

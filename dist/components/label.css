@@ -290,16 +290,15 @@ a.ui.label {
 .ui.ribbon.label {
   position: relative;
   margin: 0em;
-  left: -webkit-calc( -1rem  -  1.2em );
-  left: calc( -1rem  -  1.2em );
-  padding-left: -webkit-calc( 1rem  +  1.2em );
-  padding-left: calc( 1rem  +  1.2em );
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
   border-radius: 0em 0.2857rem 0.2857rem 0em;
   border-color: rgba(0, 0, 0, 0.15);
 }
 .ui.ribbon.label:after {
   position: absolute;
-  content: "";
+  content: '';
   top: 100%;
   left: 0%;
   background-color: transparent !important;
@@ -310,17 +309,15 @@ a.ui.label {
   width: 0em;
   height: 0em;
 }
+
+/* Right Ribbon */
 .ui[class*="right ribbon"].label {
   text-align: left;
   -webkit-transform: translateX(-100%);
       -ms-transform: translateX(-100%);
           transform: translateX(-100%);
-  left: -webkit-calc(100% +  1rem  +  1.2em );
-  left: calc(100% +  1rem  +  1.2em );
   border-radius: 0.2857rem 0em 0em 0.2857rem;
   padding-left: 0.8em;
-  padding-right: -webkit-calc( 1rem  +  1.2em );
-  padding-right: calc( 1rem  +  1.2em );
 }
 .ui[class*="right ribbon"].label:after {
   left: auto;
@@ -329,6 +326,43 @@ a.ui.label {
   border-width: 1.2em 1.2em 0em 0em;
   border-color: transparent;
   border-top-color: inherit;
+}
+
+/* Positioning */
+.ui.ribbon.label {
+  left: -webkit-calc( -1rem  -  1.2em );
+  left: calc( -1rem  -  1.2em );
+  margin-right: -1.2em;
+  padding-left: -webkit-calc( 1rem  +  1.2em );
+  padding-left: calc( 1rem  +  1.2em );
+}
+.ui[class*="right ribbon"].label {
+  left: -webkit-calc(100% +  1rem  +  1.2em );
+  left: calc(100% +  1rem  +  1.2em );
+  padding-right: -webkit-calc( 1rem  +  1.2em );
+  padding-right: calc( 1rem  +  1.2em );
+}
+
+/* Inside Image */
+.ui.image > .ribbon.label,
+.ui.card .image > .ribbon.label {
+  position: absolute;
+  top: 1rem;
+}
+.ui.card .image > .ui.ribbon.label,
+.ui.image > .ui.ribbon.label {
+  left: -webkit-calc( 0.05rem  -  1.2em );
+  left: calc( 0.05rem  -  1.2em );
+  padding-left: -webkit-calc( -0.05rem  +  1.2em );
+  padding-left: calc( -0.05rem  +  1.2em );
+}
+.ui.card .image > .ui[class*="right ribbon"].label,
+.ui.image > .ui[class*="right ribbon"].label {
+  left: -webkit-calc(100% +  -0.05rem  +  1.2em );
+  left: calc(100% +  -0.05rem  +  1.2em );
+  padding-left: 0.8em;
+  padding-right: -webkit-calc( -0.05rem  +  1.2em );
+  padding-right: calc( -0.05rem  +  1.2em );
 }
 
 /*-------------------

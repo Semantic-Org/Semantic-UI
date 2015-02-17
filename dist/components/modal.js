@@ -526,7 +526,7 @@ $.fn.modal = function(parameters) {
 
         can: {
           fit: function() {
-            return (module.cache.height < module.cache.contextHeight);
+            return ( ( module.cache.height + (settings.padding * 2) ) < module.cache.contextHeight);
           }
         },
 
@@ -570,14 +570,14 @@ $.fn.modal = function(parameters) {
             }
           },
           screenHeight: function() {
-            if(module.cache.height > module.cache.pageHeight) {
-              module.debug('Modal is taller than page content, resizing page height');
-              $body
-                .css('height', module.cache.height + settings.padding)
-              ;
+            if( module.can.fit() ) {
+              $body.css('height', '');
             }
             else {
-              $body.css('height', '');
+              module.debug('Modal is taller than page content, resizing page height');
+              $body
+                .css('height', module.cache.height + (settings.padding / 2) )
+              ;
             }
           },
           active: function() {
@@ -823,7 +823,7 @@ $.fn.modal.settings = {
   offset         : 0,
   transition     : 'scale',
 
-  padding        : 30,
+  padding        : 50,
 
   onShow         : function(){},
   onHide         : function(){},

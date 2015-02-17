@@ -575,6 +575,46 @@
   margin-bottom: 0em;
 }
 
+/*-------------------
+       Groups
+--------------------*/
+
+.ui.segments > .segment {
+  top: 0px;
+  bottom: 0px;
+  margin: 0em -1px;
+  width: -webkit-calc(100% +  2px );
+  width: calc(100% +  2px );
+  max-width: -webkit-calc(100% +  2px );
+  max-width: calc(100% +  2px );
+  border-radius: 0px;
+  box-shadow: none;
+  border: 1px solid #d4d4d5;
+}
+.ui.segments > .segment:not(:first-child) {
+  border-top: none;
+}
+
+/* Top */
+.ui.segments > .segment:first-child {
+  margin-top: 0em;
+  bottom: 0px;
+  margin-bottom: 0em;
+  top: 0px;
+  margin-top: 1rem;
+  border-radius: 0.2857rem 0.2857rem 0em 0em;
+}
+
+/* Bottom */
+.ui.segments > .segment:last-child {
+  bottom: 0px;
+  margin-top: 0em;
+  margin-bottom: 0em;
+  top: 0px;
+  box-shadow: none, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 0em 0em 0.2857rem 0.2857rem;
+}
+
 
 /*******************************
          Theme Overrides
