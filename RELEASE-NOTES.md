@@ -23,16 +23,18 @@
 **Even More**
 
 **Major Enhancements**
-- **Card** - Cards now use `flexbox` by default, no longer require `min-height` specified to align correctly
+- **Card** - Cards now equalize height by default using `display: flex`. No longer are card heights required to be specified manually to align
+- **Flag** - Reduced the file size of flag sprite to a measly 28kb (500%+ file size reduction)
 - **Icon** - Added Font Awesome 4.3 including many new icons
+- **Input** - Input with dropdowns is now much easier, see docs. `action input` and `labeled input` now use `display: flex`. `ui action input` now supports `<button>` tag usage (!) which support `flex` but not `table-cell`
+- **Segment** - Added plural variation `ui segments` that stack together in groups without using additional class names
 
 **Enhancement**
 - **API** - API now has an ``onRequest`` callback setting that receives the XHR promise after initializing the request
 - **Button** - Loading buttons no longer receive `pointer-events` in default theme. Added variable for `loading button` opacity.
-- **Card** - Card now has colored variations available **Tahnks @romuloctba**
+- **Card** - Card now has colored variations **Tahnks @romuloctba**
 - **Dropdown** - `search selection dropdown` will now close the menu when a `dropdown icon` is clicked
 - **Dropdown** - Added new dropdown setting, `forceSelection` which forces `search selection` to a selected value on blur. Defaults to `true`.
-- **Flag** - Reduced the file size of flag sprite to a measly 28kb (500%+ file size reduction)
 - **Flag** - Updated Burma/Myanmar flag to current flag (was pre-2010 flag)
 - **Form** - Input rules now apply to `input[type="time"]`
 - **Headers** - Headers can now contain images alongside text, added examples to docs
@@ -40,11 +42,12 @@
 - **Label** - `ribbon label` can now be used inside `ui image` and `ui card` correctly
 - **Sidebar** - Sidebars in IE now work correctly with `context` specified
 - **Rating** - Vertical alignment of `ui rating` with inline content now accounts for parent line height
-- **Segment** - Added plural variation `ui segments` to allow for simpler segment groups without `top` or `bottom`
 
 **Bugs**
 - **All Modules** - Fixed bug where element `destroy` could remove third party events when re-initialized
+- **Breadcrumb** - Breadcrumb icon now has exact px value to alleviate vertical align issues
 - **Card** - Star / Like button colors have been fixed to match `ui rating` inside `card`
+- **Card** - Hiding a card with `display: none` no longer causes layout issues with `(x) cards`
 - **Card** - `image` inside `content` no longer has a fixed size **Thanks @romuloctba**
 - **Form** - `info message` are no longer hidden by default inside `ui form`
 - **Dropdown** - Upward dropdown now has upward arrow icon
@@ -60,7 +63,7 @@
 
 **Bugs**
 - **Grid** - Removed `text-align: left` from column definition. Now inherits from grid.
-- **Input** - `ui labeled input` now forces  `table-cell` so that it can use `ui dropdown`, added example in ui docs with dropdown
+- **Input** - `ui labeled input` now uses  `flex` added example in ui docs with dropdown
 - **Input** - Fix border radius on `ui action input` with button groups, aka `ui buttons`
 - **Popup** - Popup `hide all` will now use transition set in `settings.transition` when closing other popups
 - **Grid** - Fix `doubling grid` setting `100% width` which may cause
