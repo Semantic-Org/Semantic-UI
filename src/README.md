@@ -7,7 +7,9 @@ From the Semantic directory you can setup gulp to build Semantic by running.
 npm install
 ```
 
-After install finishes you can use gulp commands:
+Semantic will automatically configure itself using a `post-install` script built into the package.
+
+After set-up can use gulp to build your project's css:
 ```bash
 /* Watch files */
 gulp watch
@@ -33,6 +35,8 @@ gulp.task('watch ui', 'Watch Semantic UI', watch));
 
 #### Importing LESS
 
+> LESS files do not contain vendor prefixes. If you are to use these files directly you must add them during your build step.
+
 Before using source files you will need to create a `theme.config` by renaming `theme.config.example`
 
 This file is used to configure which packaged theme each component should use.
@@ -45,6 +49,7 @@ You can then import Semantic from your own LESS files:
 /* Import a specific component */
 @import 'src/definitions/elements/button';
 ```
+
 
 ## Theming
 
