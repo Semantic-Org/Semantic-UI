@@ -28,9 +28,9 @@ var
 ;
 
 
-/*--------------
-     Common
----------------*/
+/*******************************
+             Tasks
+*******************************/
 
 gulp.task('default', false, [
   'check-install'
@@ -42,20 +42,15 @@ gulp.task('build', 'Builds all files from source', build);
 gulp.task('clean', 'Clean dist folder', clean);
 gulp.task('version', 'Displays current version of Semantic', version);
 
-gulp.task('install', 'Clean dist folder', install);
+gulp.task('install', 'Runs set-up', install);
 gulp.task('check-install', 'Displays current version of Semantic', checkInstall);
-
-if(config.rtl) {
-  gulp.task('watch-rtl', 'Build all files as RTL', watchRTL);
-  gulp.task('build-rtl', 'Watch files as RTL ', buildRTL);
-}
 
 /*--------------
       Docs
 ---------------*/
 
 /*
-  See usage instruction in Docs Readme
+  Lets you serve files to a local documentation instance
   https://github.com/Semantic-Org/Semantic-UI-Docs/
 */
 
@@ -64,9 +59,15 @@ gulp.task('build-docs', 'Build all files and add to SUI Docs', buildDocs);
 
 
 /*--------------
-     Admin
+      RTL
 ---------------*/
 
-if(config.admin) {
+if(config.rtl) {
+  gulp.task('watch-rtl', 'Build all files as RTL', watchRTL);
+  gulp.task('build-rtl', 'Watch files as RTL ', buildRTL);
+}
 
+/* Admin Tasks */
+if(config.admin) {
+  require('./tasks/collections/admin')(gulp);
 }
