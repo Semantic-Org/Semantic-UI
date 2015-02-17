@@ -1399,6 +1399,8 @@ $.fn.dropdown = function(parameters) {
                 ;
               }
 
+              $input.trigger('blur');
+
               if(settings.transition == 'none') {
                 callback.call(element);
               }

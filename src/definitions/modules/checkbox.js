@@ -261,6 +261,7 @@ $.fn.checkbox = function(parameters) {
             .trigger('change')
           ;
           module.set.checked();
+          $input.trigger('blur');
           settings.onChange.call($input.get());
           settings.onChecked.call($input.get());
         },
@@ -272,6 +273,7 @@ $.fn.checkbox = function(parameters) {
             .trigger('change')
           ;
           module.remove.checked();
+          $input.trigger('blur');
           settings.onChange.call($input.get());
           settings.onUnchecked.call($input.get());
         },
