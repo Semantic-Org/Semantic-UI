@@ -52,6 +52,7 @@
 - **Form** - `info message` are no longer hidden by default inside `ui form`
 - **Dropdown** - Upward dropdown now has upward arrow icon
 - **Icon** - `external link` and `external link square` has been renamed to `external icon` to no longer receive `link` styles by default
+- **Modal** - Modal now swaps to `scrolling modal` when `close icon` no longer can be displayed, instead of modal `content`
 - **Steps** - Fixed bug where evenly divided steps were no longer fluid
 - **Transition** - Fixes bug where `moduleNamespace` was being omitted
 - **Transition** - Transitions with direction now use word order dependency to prevent conflict with component directions, for example `bottom left popup slide down in transition
