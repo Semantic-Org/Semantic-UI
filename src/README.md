@@ -9,7 +9,7 @@ npm install
 
 Semantic will automatically configure itself using a `post-install` script built into the package.
 
-After set-u[ you can use gulp to build your project's css:
+After set-up can use gulp to build your project's css:
 ```bash
 /* Watch files */
 gulp watch
