@@ -41,17 +41,19 @@ module.exports = function(callback) {
       exec                 = process.exec,
       execSettings         = {cwd: outputDirectory},
       registerBower        = 'bower register ' + packageName + ' ' + gitURL,
-      registerNPM          = 'npm publish'
+      updateNPM            = 'npm publish'
 
     ;
 
     /* Register with Bower */
+    /* One Time
     exec(registerBower, execSettings, function(err, stdout, stderr) {
       stepRepo();
     });
+    */
 
     /* Register with NPM */
-    exec(registerNPM, execSettings, function(err, stdout, stderr) {
+    exec(updateNPM, execSettings, function(err, stdout, stderr) {
       console.log(err, stdout, stderr);
       stepRepo();
     });
