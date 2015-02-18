@@ -17,6 +17,7 @@
 module.exports = function(gulp) {
   var
     // single component releases
+    initComponents   = require('../admin/init-components'),
     createComponents = require('../admin/create-components'),
     updateComponents = require('../admin/update-components'),
 
@@ -28,8 +29,10 @@ module.exports = function(gulp) {
     release          = require('../admin/release')
   ;
 
-  gulp.task('create components', 'Creates local repos for each component', createComponents);
-  gulp.task('update components', 'Commits component updates to GitHub', updateComponents);
+  gulp.task('init components', 'Grabs each component from GitHub', initComponents);
+  gulp.task('create components', 'Updates files in each repo', createComponents);
+  gulp.task('update components', 'Commits component updates from create to GitHub', updateComponents);
+
   gulp.task('register repos', 'Registers packages with Bower and NPM', registerRepos);
   gulp.task('release all', 'Publishes all releases (components, package)', releaseAll);
   gulp.task('release', 'Publishes only packaged releases', release);

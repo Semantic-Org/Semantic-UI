@@ -126,11 +126,6 @@ module.exports = function(callback) {
         assetPath = '/assets/**/' + component + '?(s).*'
       ;
 
-      if(release.outputRoot.search('../components') == 0) {
-        console.info('Cleaned dir', outputDirectory);
-        del.sync([outputDirectory], {silent: true, force: true});
-      }
-
       // copy dist files into output folder adjusting asset paths
       gulp.task(task.repo, false, function() {
         return gulp.src(release.source + component + '.*')
