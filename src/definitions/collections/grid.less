@@ -950,6 +950,7 @@
 .ui.centered.grid > .row,
 .ui.grid > .centered.row {
   text-align: center;
+  justify-content: center;
 }
 .ui.centered.grid > .column:not(.aligned):not(.row),
 .ui.centered.grid > .row > .column:not(.aligned),
@@ -1236,9 +1237,11 @@
 .ui.grid [class*="top aligned"].column,
 .ui.grid > [class*="top aligned"].row > .column {
   vertical-align: top;
+  align-self: flex-start;
 }
 .ui.grid [class*="top aligned"].column {
   vertical-align: top !important;
+  align-self: flex-start;
 }
 
 /* Middle Aligned */
@@ -1247,10 +1250,11 @@
 .ui[class*="middle aligned"].grid > .column,
 .ui.grid > [class*="middle aligned"].row > .column {
   vertical-align: middle;
-  align-items: center;
+  align-self: center;
 }
 .ui.grid [class*="middle aligned"].column{
   vertical-align: middle !important;
+  align-self: center;
 }
 
 /* Bottom Aligned */
@@ -1259,9 +1263,10 @@
 .ui[class*="bottom aligned"].grid > .column,
 .ui.grid > [class*="bottom aligned"].row > .column {
   vertical-align: bottom;
-  align-items: flex-end;
+  align-self: flex-end;
 }
-.ui.grid [class*="bottom aligned"].column{
+.ui.grid [class*="bottom aligned"].column {
+  align-self: flex-end;
   vertical-align: bottom !important;
 }
 
@@ -1463,7 +1468,7 @@
 .ui.grid > [class*="equal height"].row > .column {
   display: inline-block;
   flex-direction: column;
-  flex: 1 0 auto;
+  flex: 0 0 auto;
 }
 
 /*-------------------
