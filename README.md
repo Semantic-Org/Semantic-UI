@@ -2,13 +2,14 @@
 
 # Semantic UI
 
-Semantic is a highly-themable UI framework with intuitive naming conventions built around common usage.
+Semantic is a UI framework designed for theming and built with conventions from natural languages.
 
 Key Features
 * 50+ UI elements
 * 3000 + CSS variables
 * 3 Levels of variable inheritance (similar to SublimeText)
 * Built with EM values for responsive design
+* Flexbox friendly
 
 ## Getting Started
 
