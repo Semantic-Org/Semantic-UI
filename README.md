@@ -2,7 +2,7 @@
 
 # Semantic UI
 
-Semantic is a UI framework designed for theming and built with conventions from natural languages.
+Semantic is a UI framework designed for theming.
 
 Key Features
 * 50+ UI elements
