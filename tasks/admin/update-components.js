@@ -21,6 +21,7 @@ var
 
   // node dependencies
   fs             = require('fs'),
+  path           = require('path'),
   git            = require('gulp-git'),
   githubAPI      = require('github'),
   requireDotFile = require('require-dot-file'),
@@ -30,7 +31,7 @@ var
   release        = require('../config/admin/release'),
 
   // oAuth configuration for GitHub
-  oAuth          = fs.existsSync('../config/admin/oauth')
+  oAuth          = fs.existsSync(__dirname + '/../config/admin/oauth.js')
     ? require('../config/admin/oauth')
     : false,
 
@@ -46,10 +47,9 @@ module.exports = function() {
     stream,
     stepRepo
   ;
-  console.log('Handling git');
 
   if(!oAuth) {
-    console.error('Must add oauth token for GitHub in tasks/admin/oauth.js');
+    console.error('Must add oauth token for GitHub in tasks/config/admin/oauth.js');
     return;
   }
 
@@ -62,13 +62,13 @@ module.exports = function() {
     }
 
     var
-      component            = release.components[index],
-      outputDirectory      = release.outputRoot + component + '/',
+      component            = release.components[index]
+      outputDirectory      = path.resolve(release.outputRoot + component),
       capitalizedComponent = component.charAt(0).toUpperCase() + component.slice(1),
       repoName             = release.repoRoot + capitalizedComponent,
       gitOptions           = { cwd: outputDirectory },
       quietOptions         = { args: '-q', cwd: outputDirectory },
-      isRepository         = fs.existsSync(outputDirectory + '.git/'),
+      localRepoSetup       = fs.existsSync(path.join(outputDirectory, '.git')),
 
       gitURL               = 'https://github.com/' + release.org + '/' + repoName + '.git',
       repoURL              = 'https://github.com/' + release.org + '/' + repoName + '/',
@@ -88,7 +88,14 @@ module.exports = function() {
         : ''
     ;
 
+
     console.log('Processing repository:' + outputDirectory);
+
+    function nextRepo() {
+      console.log('next!');
+      // avoid rate throttling
+      setTimeout(stepRepo, 10000);
+    }
 
     // standard path
     function commitFiles() {
@@ -99,7 +106,7 @@ module.exports = function() {
         .pipe(git.commit(commitMessage, { args: commitArgs, cwd: outputDirectory }))
         .on('error', function(error) {
           console.log('Nothing new to commit');
-          stepRepo();
+          nextRepo();
         })
         .on('finish', function(callback) {
           pullFiles();
@@ -149,7 +156,7 @@ module.exports = function() {
           createRepo();
         }
         console.log('Push completed successfully');
-        stepRepo();
+        nextRepo();
       });
     }
 
@@ -161,7 +168,7 @@ module.exports = function() {
         name     : repoName,
         homepage : release.homepage
       }, function() {
-        if(isRepository) {
+        if(localRepoSetup) {
           addRemote();
         }
         else {
@@ -187,7 +194,7 @@ module.exports = function() {
     }
 
     function firstPushFiles() {
-      console.log('Pushing files');
+      console.log('First Pushing files');
       git.push('origin', 'master', { args: '-u', cwd: outputDirectory }, function(error) {
         if(error) {
           console.log(error);
@@ -195,12 +202,12 @@ module.exports = function() {
         }
         else {
           console.log('First push completed successfully');
-          stepRepo();
+          nextRepo();
         }
       });
     }
 
-    if(isRepository) {
+    if(localRepoSetup) {
       commitFiles();
     }
     else {
@@ -209,6 +216,6 @@ module.exports = function() {
 
   };
 
-  return stepRepo();
+  stepRepo();
 
 };
