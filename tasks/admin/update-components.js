@@ -30,14 +30,16 @@ var
   // admin files
   github         = require('../config/admin/github.js'),
   release        = require('../config/admin/release'),
+  project         = require('../config/project/release'),
+
 
   // oAuth configuration for GitHub
   oAuth          = fs.existsSync(__dirname + '/../config/admin/oauth.js')
     ? require('../config/admin/oauth')
     : false,
 
-  package        = requireDotFile('package.json'),
-  version        = package.version
+  // shorthand
+  version         = project.version
 ;
 
 module.exports = function() {
@@ -68,9 +70,11 @@ module.exports = function() {
       outputDirectory      = path.resolve(release.outputRoot + component),
       capitalizedComponent = component.charAt(0).toUpperCase() + component.slice(1),
       repoName             = release.repoRoot + capitalizedComponent,
-      gitOptions           = { cwd: outputDirectory },
-      quietOptions         = { args: '-q', cwd: outputDirectory },
-      localRepoSetup       = fs.existsSync(path.join(outputDirectory, '.git')),
+
+      gitOptions           = { cwd: outputDirectory, quiet: true },
+      quietOptions         = { args: '-q', cwd: outputDirectory, quiet: true },
+      checkoutOptions      = { args: '--ours', cwd: outputDirectory },
+      pullOptions          = { args: '', cwd: outputDirectory },
 
       gitURL               = 'https://github.com/' + release.org + '/' + repoName + '.git',
       repoURL              = 'https://github.com/' + release.org + '/' + repoName + '/',
@@ -89,7 +93,8 @@ module.exports = function() {
         ? '--author "' + oAuth.name + ' <' + oAuth.email + '>"'
         : '',
 
-      canPush = true
+      localRepoSetup = fs.existsSync(path.join(outputDirectory, '.git')),
+      canProceed     = true
     ;
 
 
@@ -101,7 +106,7 @@ module.exports = function() {
       global.clearTimeout(timer);
       timer = global.setTimeout(function() {
         stepRepo()
-      }, 500);
+      }, 1500);
     }
 
     // standard path
@@ -112,49 +117,73 @@ module.exports = function() {
         .pipe(git.add(gitOptions))
         .pipe(git.commit(commitMessage, { args: commitArgs, cwd: outputDirectory }))
         .on('error', function(error) {
-          console.info('Nothing new to commit');
-          nextRepo();
+          // canProceed = false; bug in git commit <https://github.com/stevelacy/gulp-git/issues/49>
         })
         .on('finish', function(callback) {
-          pullFiles();
+          if(canProceed) {
+            pullFiles();
+          }
+          else {
+            console.info('Nothing new to commit');
+            nextRepo();
+          }
         })
       ;
     }
 
     function pullFiles() {
       console.info('Pulling ' + component + ' files');
-      git.pull('origin', 'master', { args: '', cwd: outputDirectory }, function(error) {
+      git.pull('origin', 'master', pullOptions, function(error) {
         if(error && error.message.search("Couldn't find remote ref") != -1) {
           console.error('Cant find remote ref');
-          createRepo();
+          setupRepo();
         }
         else {
-          console.info('Pull completed successfully');
-          mergeCommit();
+          checkoutOurs();
         }
       });
     }
 
-    function mergeCommit() {
-      // commit files
-      gulp.src('', gitOptions)
-        .pipe(git.add(gitOptions))
-        .pipe(git.commit(mergeMessage, { args: commitArgs, cwd: outputDirectory }))
+    function checkoutOurs() {
+      gulp.src('**/*', gitOptions)
+        .pipe(git.checkoutFiles(checkoutOptions))
         .on('error', function(error) {
-          canPush = false;
+          canProceed = false;
         })
         .on('finish', function(callback) {
-          if(canPush) {
-            console.info('Adding merge commit for ' + component, commitArgs);
-            tagFiles();
+          if(canProceed) {
+            mergeCommit();
           }
           else {
-            console.info('Nothing new to merge');
+            console.log(checkoutOptions);
+            console.error('Error checking out "ours"');
           }
         })
       ;
     }
 
+    // commit files
+    function mergeCommit() {
+      gulp.src('', gitOptions)
+        .pipe(git.add(gitOptions))
+        .pipe(git.commit(mergeMessage, { args: commitArgs, cwd: outputDirectory }))
+        .on('error', function(error) {
+          canProceed = false;
+        })
+        .on('finish', function(callback) {
+          if(canProceed) {
+            console.info('Updating ' + component, commitArgs);
+            tagFiles();
+          }
+          else {
+            console.info('Nothing new to commit');
+            stepRepo();
+          }
+        })
+      ;
+    }
+
+    // tag files
     function tagFiles() {
       console.info('Tagging new version ' + component, version);
       git.tag(version, 'Updated version from semantic-ui (automatic)', function (err) {
@@ -162,15 +191,35 @@ module.exports = function() {
       });
     }
 
+    // push changess to remote
     function pushFiles() {
       console.info('Pushing files for ' + component);
       git.push('origin', 'master', { args: '', cwd: outputDirectory }, function(error) {
         if(error && error.message.search("Couldn't find remote ref") != -1) {
-          createRepo();
+          setupRepo();
         }
         console.info('Push completed successfully');
+        createRelease();
         nextRepo();
       });
+    }
+
+    function createRelease() {
+      console.log('Tagging release as ', version);/*
+      github.createRelease(releaseOptions, {
+        nextRepo();
+      });*/
+      nextRepo();
+    }
+
+    // set-up local repo
+    function setupRepo() {
+      if(localRepoSetup) {
+        addRemote();
+      }
+      else {
+        initRepo();
+      }
     }
 
     // set-up path
@@ -181,12 +230,7 @@ module.exports = function() {
         name     : repoName,
         homepage : release.homepage
       }, function() {
-        if(localRepoSetup) {
-          addRemote();
-        }
-        else {
-          initRepo();
-        }
+        setupRepo();
       });
     }
 
@@ -203,20 +247,8 @@ module.exports = function() {
 
     function addRemote() {
       console.info('Adding remote origin as ' + gitURL);
-      git.addRemote('origin', gitURL, gitOptions, firstPushFiles);
-    }
-
-    function firstPushFiles() {
-      console.info('First Push for ' + component);
-      git.push('origin', 'master', { args: '-u', cwd: outputDirectory }, function(error) {
-        if(error) {
-          console.info(error);
-          pullFiles();
-        }
-        else {
-          console.info('First push completed successfully');
-          nextRepo();
-        }
+      git.addRemote('origin', gitURL, gitOptions, function(){
+        commitFiles();
       });
     }
 
@@ -224,11 +256,12 @@ module.exports = function() {
       commitFiles();
     }
     else {
-      createRepo();
+      setupRepo();
+      // createRepo() only use to create remote repo (easier to do manually)
     }
 
   };
 
-  stepRepo();
+  return stepRepo();
 
 };

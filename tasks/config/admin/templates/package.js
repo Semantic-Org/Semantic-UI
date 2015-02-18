@@ -3,29 +3,15 @@ var
 ;
 
 Package.describe({
-  name    : 'semantic:ui',
-  summary : 'Semantic UI (Official): a UI component framework based around useful principles from natural language.',
+  name    : 'semantic:ui-{component}',
+  summary : 'Semantic UI - {Component} (official): Single component release of {component}',
   version : '{version}',
-  git     : 'git://github.com/Semantic-Org/Semantic-UI.git',
-  readme  : 'https://github.com/Semantic-Org/README.md'
+  git     : 'git://github.com/Semantic-Org/UI-{Component}.git',
 });
 
 Package.onUse(function(api) {
   api.versionsFrom('1.0');
   api.addFiles([
     {files}
-  ], where);
-});
-
-Package.onTest(function(api) {
-  api.use([
-    'tinytest',
-    'http',
-    'semantic:ui'
-  ], where);
-
-  api.addFiles([
-    'test/meteor/fonts.js',
-    'test/meteor/assets.js',
   ], where);
 });

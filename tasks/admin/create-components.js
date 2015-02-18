@@ -19,16 +19,18 @@ var
 
   // node dependencies
   console         = require('better-console'),
+  del             = require('del'),
   fs              = require('fs'),
   path            = require('path'),
   runSequence     = require('run-sequence'),
 
   // admin dependencies
   concatFileNames = require('gulp-concat-filenames'),
+  debug           = require('gulp-debug'),
   flatten         = require('gulp-flatten'),
   git             = require('gulp-git'),
-  plumber         = require('gulp-plumber'),
   jsonEditor      = require('gulp-json-editor'),
+  plumber         = require('gulp-plumber'),
   rename          = require('gulp-rename'),
   replace         = require('gulp-replace'),
   tap             = require('gulp-tap'),
@@ -37,12 +39,14 @@ var
   config          = require('../config/user'),
   github          = require('../config/admin/github'),
   release         = require('../config/admin/release'),
+  project         = require('../config/project/release'),
 
   // shorthand
-  version         = release.version,
+  version         = project.version,
   output          = config.paths.output
 
 ;
+
 
 module.exports = function(callback) {
   var
@@ -117,8 +121,15 @@ module.exports = function(callback) {
           composer : component + ' create composer.json',
           package  : component + ' create package.json',
           meteor   : component + ' create package.js',
-        }
+        },
+        // paths to includable assets
+        assetPath = '/assets/**/' + component + '?(s).*'
       ;
+
+      if(release.outputRoot.search('../components') == 0) {
+        console.info('Cleaned dir', outputDirectory);
+        del.sync([outputDirectory], {silent: true, force: true});
+      }
 
       // copy dist files into output folder adjusting asset paths
       gulp.task(task.repo, false, function() {
@@ -231,9 +242,9 @@ module.exports = function(callback) {
               };
               composer.main = component + '.js';
             }
-            composer.name        = 'semantic/' + component;
+            composer.name = 'semantic/' + component;
             if(version) {
-              composer.version     = version;
+              composer.version = version;
             }
             composer.description = 'Single component release of ' + component;
             return composer;
@@ -268,8 +279,8 @@ module.exports = function(callback) {
         if(isCSS) {
           fileNames += '    \'' + component + '.css\',\n';
         }
-        return gulp.src(outputDirectory + '/assets/**/' + component + '?(s).*', { base: outputDirectory})
-          .pipe(concatFileNames('dummy.txt', {
+        return gulp.src(outputDirectory + assetPath, { base: outputDirectory})
+          .pipe(concatFileNames('/dev/null', {
             newline : '',
             root    : outputDirectory,
             prepend : '    \'',
@@ -277,14 +288,14 @@ module.exports = function(callback) {
           }))
           .pipe(tap(function(file) { fileNames += file.contents; }))
           .on('end', function(){
-            gulp.src(release.templates.meteorComponent)
+            gulp.src(release.templates.meteor)
               .pipe(plumber())
               .pipe(flatten())
               .pipe(replace(regExp.match.name, regExp.replace.name))
               .pipe(replace(regExp.match.titleName, regExp.replace.titleName))
               .pipe(replace(regExp.match.version, version))
               .pipe(replace(regExp.match.files, fileNames))
-              .pipe(rename(release.files.npm))
+              .pipe(rename(release.files.meteor))
               .pipe(gulp.dest(outputDirectory))
             ;
           })

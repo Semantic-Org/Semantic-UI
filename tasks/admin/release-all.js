@@ -18,7 +18,7 @@ var
 module.exports = function() {
 
   runSequence(
-    'build', // build Semantic
+    //'build', // build Semantic
     'create components', // create each component repo
     'update components' // update component repos on github
   );
