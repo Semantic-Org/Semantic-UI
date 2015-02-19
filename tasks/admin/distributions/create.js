@@ -59,7 +59,7 @@ module.exports = function(callback) {
     (function(distribution) {
 
       var
-        outputDirectory = release.outputRoot + distribution,
+        outputDirectory = path.join(release.outputRoot, distribution.toLowerCase()),
         packageFile     = path.join(outputDirectory, release.files.npm),
         repoName        = release.distRepoRoot + distribution
         task = {
@@ -69,24 +69,30 @@ module.exports = function(callback) {
         }
       ;
 
-      // copy source files depending on distribution type
-      gulp.task(task.repo, false, function() {
-        if(distribution == 'CSS') {
-          return gulp.src('dist/**/*')
+      if(distribution == 'CSS') {
+        gulp.task(task.repo, function() {
+          return gulp.src('./dist/themes/default/**/*', { base: './dist/' })
+            .pipe(gulp.src('./dist/components/*', { base: './dist/' }))
+            .pipe(gulp.src('./dist/*', { base: './dist/' }))
             .pipe(plumber())
             .pipe(gulp.dest(outputDirectory))
           ;
-        }
-        else if(distribution == 'LESS') {
-          return gulp.src('src/**/*')
+        });
+      }
+      else if(distribution == 'LESS') {
+        gulp.task(task.repo, function() {
+          return gulp.src('./src/theme.config.example', { base: './src/' })
+            .pipe(gulp.src('./src/definitions/**/*', { base: './src/' }))
+            .pipe(gulp.src('./src/_site/**/*', { base: './src/' }))
+            .pipe(gulp.src('./src/themes/**/*', { base: './src/' }))
             .pipe(plumber())
             .pipe(gulp.dest(outputDirectory))
           ;
-        }
-      });
+        });
+      }
 
       // extend package.json
-      gulp.task(task.package, false, function() {
+      gulp.task(task.package, function() {
         return gulp.src(packageFile)
           .pipe(plumber())
           .pipe(jsonEditor(function(package) {
@@ -99,18 +105,10 @@ module.exports = function(callback) {
         ;
       });
 
-      // synchronous tasks in orchestrator? I think not
-      gulp.task(task.all, false, function(callback) {
-        runSequence([
-          task.repo,
-          task.package
-        ], callback);
-      });
-
-      tasks.push(task.all);
+      tasks.push(task.repo);
+      tasks.push(task.package);
 
     })(distribution);
   }
-
   runSequence(tasks, callback);
 };

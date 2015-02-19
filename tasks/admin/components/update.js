@@ -63,7 +63,7 @@ module.exports = function() {
 
     var
       component            = release.components[index]
-      outputDirectory      = path.resolve(release.outputRoot + component),
+      outputDirectory      = path.resolve(path.join(release.outputRoot, component)),
       capitalizedComponent = component.charAt(0).toUpperCase() + component.slice(1),
       repoName             = release.componentRepoRoot + capitalizedComponent,
 
@@ -130,7 +130,7 @@ module.exports = function() {
     // push changess to remote
     function pushFiles() {
       console.info('Pushing files for ' + component);
-      git.push('origin', 'master', { args: '-f', cwd: outputDirectory }, function(error) {
+      git.push('origin', 'master', { args: '', cwd: outputDirectory }, function(error) {
         console.info('Push completed successfully');
         createRelease();
       });
@@ -159,12 +159,12 @@ module.exports = function() {
       console.log('Sleeping for 1 second...');
       // avoid rate throttling
       global.clearTimeout(timer);
-      return stepRepo()
+      timer = global.setTimeout(stepRepo, 500);
     }
 
 
     if(localRepoSetup) {
-      commitFiles();
+      setUser();
     }
     else {
       console.error('Repository must be setup before running update components');

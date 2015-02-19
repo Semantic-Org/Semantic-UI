@@ -64,7 +64,7 @@ module.exports = function(callback) {
     (function(component) {
 
       var
-        outputDirectory      = release.outputRoot + component,
+        outputDirectory      = path.join(release.outputRoot, component),
         isJavascript         = fs.existsSync(output.compressed + component + '.js'),
         isCSS                = fs.existsSync(output.compressed + component + '.css'),
         capitalizedComponent = component.charAt(0).toUpperCase() + component.slice(1),

@@ -82,9 +82,7 @@
     "gulp-concat-filenames" : "^0.0.3",
     "gulp-debug"            : "^2.0.0",
     "gulp-git"              : "^1.0.0",
-    "gulp-karma"            : "0.0.4",
     "gulp-tap"              : "^0.1.3",
-    "karma"                 : "^0.12.28",
     "run-sequence"          : "^1.0.2"
   }
 }

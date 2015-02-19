@@ -39,8 +39,6 @@ var
   version = project.version
 ;
 
-console.log(__dirname + '/../../config/admin/oauth.js');
-
 module.exports = function(callback) {
 
   var
