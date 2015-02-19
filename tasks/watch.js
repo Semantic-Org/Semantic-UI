@@ -72,7 +72,6 @@ module.exports = function(callback) {
 
   gulp
     .watch([
-      'src/**/*.less',
       source.config,
       source.definitions   + '/**/*.less',
       source.site          + '/**/*.{overrides,variables}',
@@ -157,7 +156,7 @@ module.exports = function(callback) {
           .pipe(gulp.dest(output.uncompressed))
           .pipe(print(log.created))
           .on('end', function() {
-            //gulp.start('package uncompressed css');
+            gulp.start('package uncompressed css');
           })
         ;
 
@@ -170,7 +169,7 @@ module.exports = function(callback) {
           .pipe(gulp.dest(output.compressed))
           .pipe(print(log.created))
           .on('end', function() {
-            //gulp.start('package compressed css');
+            gulp.start('package compressed css');
           })
         ;
 
