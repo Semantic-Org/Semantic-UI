@@ -1,11 +1,5 @@
 # Contributing
 
-### Publicity
-
-One of the easiest ways to support Semantic UI is to get the word out
-
-## Making Semantic Better
-
 ### Bugs & Issues
 
 Please submit any bugs you encounter when using the library to our [Github Issues Tracker](https://github.com/Semantic-Org/Semantic-UI/issues).
