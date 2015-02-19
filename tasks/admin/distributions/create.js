@@ -59,29 +59,36 @@ module.exports = function(callback) {
     (function(distribution) {
 
       var
-        outputDirectory      = release.outputRoot + distribution,
-        repoName             = release.distRepoRoot + distribution
+        outputDirectory = release.outputRoot + distribution,
+        packageFile     = path.join(outputDirectory, release.files.npm),
+        repoName        = release.distRepoRoot + distribution
         task = {
-          repo     : distribution + ' create repo',
-          package  : distribution + ' create package.json'
+          all     : distribution + ' copying files',
+          repo    : distribution + ' create repo',
+          package : distribution + ' create package.json'
         }
       ;
 
-      // copy files into output folder adjusting asset paths
+      // copy source files depending on distribution type
       gulp.task(task.repo, false, function() {
-        return gulp.src(release.source + distribution + '.*')
-          .pipe(plumber())
-          .pipe(flatten())
-          .pipe(replace(release.paths.source, release.paths.output))
-          .pipe(gulp.dest(outputDirectory))
-        ;
+        if(distribution == 'CSS') {
+          return gulp.src('dist/**/*')
+            .pipe(plumber())
+            .pipe(gulp.dest(outputDirectory))
+          ;
+        }
+        else if(distribution == 'LESS') {
+          return gulp.src('src/**/*')
+            .pipe(plumber())
+            .pipe(gulp.dest(outputDirectory))
+          ;
+        }
       });
 
       // extend package.json
       gulp.task(task.package, false, function() {
-        return gulp.src(zzzzzzzzzzzzz)
+        return gulp.src(packageFile)
           .pipe(plumber())
-          .pipe(flatten())
           .pipe(jsonEditor(function(package) {
             if(version) {
               package.version = version;
