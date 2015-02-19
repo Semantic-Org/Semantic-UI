@@ -12,7 +12,9 @@ Importing individual components into other less files now requires scoping. This
 ```
 
 Importing `semantic.less` still does not require any special syntax
+```less
 @import 'src/semantic';
+```
 
 
 **Bugs**
