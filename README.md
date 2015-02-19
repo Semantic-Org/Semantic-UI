@@ -13,14 +13,14 @@ Key Features
 
 ## Install
 
-**Recommended Install**
+### Recommended Install
 ```bash
 npm install semantic-ui  # Use themes, import build/watch tasks into your own gulpfile.
 ```
 
 For details on how work with Semantic theming please [read our customization guide](http://learnsemantic.com/developing/customizing.html) on [LearnSemantic.com](http://learnsemantic.com/)
 
-**Additional Versions**
+### Additional Versions
 
 Environment | Install Script | Repo 
 --- | --- | --- | 
