@@ -1,19 +1,25 @@
 ## RELEASE NOTES
 
-### Version 1.9.1 - February 17, 2015
+### Version 1.9.2 - February 19, 2015
 
-**Changes**
+**Bug Fixes**
 
-Importing individual components into other less requires namespacing:
+- **Build** - `gulp watch` now compiles concatenated css
+
+### Version 1.9.1 - February 18, 2015
+
+**LESS Changes**
+
+Importing individual components into other less files now requires scoping. This is to prevent issues with variable scope that cannot be resolved inside definitions.
+
 ```less
 /* Import a specific component */
 & { @import 'src/definitions/elements/button'; }
 ```
 
-Importing `semantic.less` still does not require this
+Importing `semantic.less` still does not require any special syntax
 @import 'src/semantic';
 
-This is to prevent issues with variable scope that cannot be resolved inside definitions.
 
 **Bugs**
 - Fixed issue directly importing `semantic.less` caused by variable scoping in `.loadOverrides()`.
