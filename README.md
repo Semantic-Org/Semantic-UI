@@ -11,15 +11,28 @@ Key Features
 * Built with EM values for responsive design
 * Flexbox friendly
 
-## Getting Started
+## Install
 
+#### Recommended Install
 ```bash
 npm install semantic-ui  # Use themes, import build/watch tasks into your own gulpfile.
 ```
 
-For more detail into how work with Semantic when building a site please [read our customization guide](http://learnsemantic.com/developing/customizing.html) on [LearnSemantic.com](http://learnsemantic.com/)
+For details on how work with Semantic theming please [read our customization guide](http://learnsemantic.com/developing/customizing.html) on [LearnSemantic.com](http://learnsemantic.com/)
 
-### Browser Support
+#### Additional Versions
+
+Environment | Install Script | Repo 
+--- | --- | --- | 
+CSS Only | `npm install semantic-ui-css` | [CSS Repo](https://github.com/Semantic-Org/Semantic-UI-CSS)
+[LESS](https://github.com/less/less.js/) Only | `npm install semantic-ui-less` | [LESS Repo](https://github.com/Semantic-Org/Semantic-UI-LESS)
+[EmberJS](http://emberjs.com/) | `ember install:addon semantic-ui-ember` | [Ember Repo](https://github.com/Semantic-Org/Semantic-UI-Ember)
+[Meteor](https://www.meteor.com/) | `meteor add semantic-org:semantic-ui` | 
+[Bower](http://bower.io/) | `bower install semantic-ui` | 
+
+Check out our [integration wiki](https://github.com/Semantic-Org/Semantic-UI/wiki/Integration) for more options.
+
+#### Browser Support
 
 * Last 2 Versions FF, Chrome, IE 10+
 * Safari 6
@@ -31,32 +44,35 @@ Browser prefixes are present for Internet Explorer 9, but the browser is not off
 
 ## Community
 
-
-### International
+#### International
 
 * **Chinese** A Chinese mirror site is available at [http://www.semantic-ui.cn](http:/www.semantic-ui.cn)
-* **Right-to-Left (RTL)** - An RTL version can be created using our build tools by selecting `rtl` from the install script
-* **Translation** - To help translate see the [Wiki Guide](https://github.com/Semantic-Org/Semantic-UI/wiki/Translating-Semantic-UI-Docs) for translations
+* **Right-to-Left (RTL)** An RTL version can be created using our build tools by selecting `rtl` from the install script
+* **Translation** To help translate see the [Wiki Guide](https://github.com/Semantic-Org/Semantic-UI/wiki/Translating-Semantic-UI-Docs) for translations
 
-### Support
+#### Technical Support
 
-* **Want to learn about Semantic?** [Request an Invite](https://docs.google.com/forms/d/1hI1z136sXLkTQKtsv8SIvjjAvzpH77YzMQKrU-P8GAc/viewform?usp=send_form) to join [our Slack chatroom](http://semanticui.slack.com) for support and project discussions
-* **Have a bug?** Make a test case by forking this [jsfiddle](http://jsfiddle.net/efp8z6Ln/), then submit a [bug on GitHub](https://github.com/Semantic-Org/Semantic-UI/issues)
-* **Having issues with your code?** Submit a question on [StackOverflow](http://www.stackoverflow.com) or ask our [Google Group](https://groups.google.com/forum/#!forum/semantic-ui)
-* **Looking for a specific integration like Dart, Wordpress, Drupal, Angular, or Rails?** Check out our [integration page](https://github.com/Semantic-Org/Semantic-UI/wiki/Integration)
+Problem | Solution 
+--- | --- |
+Bug Reports |  Make a test case by forking this [jsfiddle](http://jsfiddle.net/efp8z6Ln/), then submit a [bug on GitHub](https://github.com/Semantic-Org/Semantic-UI/issues)
+Chat | [Request an Invite](https://docs.google.com/forms/d/1hI1z136sXLkTQKtsv8SIvjjAvzpH77YzMQKrU-P8GAc/viewform?usp=send_form) to join [our Slack chatroom](http://semanticui.slack.com)
+Newsletter | Sign up for updates at [semantic-ui.com](http:/www.semantic-ui.com)
+Additional Resources  | Submit a question on [StackOverflow](http://www.stackoverflow.com) or ask our [Google Group](https://groups.google.com/forum/#!forum/semantic-ui)
 
-## Contributing
+#### Places to Help
 
-### Places to Help
-* **Missing documentation in your language?** Help us make Semantic available in more languages by [joining our translation community]((https://github.com/Semantic-Org/Semantic-UI/wiki/Translating-Semantic-UI-Docs))
-* **Want to help with integration?** Projects are organizing for official [Meteor](https://github.com/Semantic-Org/Semantic-UI-Meteor), and [Angular](https://github.com/Semantic-Org/Semantic-UI-Angular) integrations as well as a [Sass](https://github.com/Semantic-Org/Semantic-UI-SASS) port. Join the discussion on their respective boards.
-* **Want to help others learn concepts behind Semantic?** [Learnsemantic.com](http://www.learnsemantic.com) needs articles to help others get others up to speed with Semantic UI. [Send me an e-mail](mailto:jack@semantic-ui.com) if you are interested.
+Project | How To Help | Next Step 
+--- | --- | --- | 
+Localization | Help us translate Semantic UI into your language | [Join our Translation Community](https://github.com/Semantic-Org/Semantic-UI/wiki/Translating-Semantic-UI-Docs)
+[SCSS](http://sass-lang.com/) | SASS needs PR to support variables inside `@import` | [Add Pull Request](https://github.com/sass/sass/pulls) for [#739](https://github.com/sass/sass/issues/739#issuecomment-73984809)
+[Angular](https://angularjs.org/) | Help develop angular bindings | Reach Out on [GitHub Issues](https://github.com/Semantic-Org/Semantic-UI-Angular/issues/8)
+Guides & Tutorials | Help write guides and tutorials | [Join the discussion](https://github.com/Semantic-Org/Semantic-UI/issues/1571)
 
-### Pull Requests
+#### Pull Requests
 
 When adding pull requests be sure to merge into [next](https://github.com/Semantic-Org/Semantic-UI/tree/next) branch. If you need to demonstrate a fix in ``next`` release, you can use [this jsfiddle](http://jsfiddle.net/rduvhn8u/1/)
 
-### Reaching Out
+#### Reaching Out
 
 If you'd like to start a conversation about Semantic feel free to e-mail me at [jack@semantic-ui.com](mailto:jack@semantic-ui.com)
 
