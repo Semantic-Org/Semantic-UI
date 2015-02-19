@@ -21,24 +21,24 @@
 @horizontalPadding: 0em;
 @verticalPadding: 0em;
 
-/* Sizing */
-@tiny: 1em;
-@small: 1.071em;
-@medium: 1.285em;
-@large: 1.714em;
-@huge: 2em;
-
 /* Sub Header */
-@subHeaderFontSize: 1.0714rem;
 @subHeaderLineHeight: 1.2em;
 @subHeaderColor: rgba(0, 0, 0, 0.5);
+
 
 /* Icon */
 @iconOpacity: 1;
 @iconSize: 1.5em;
 @iconOffset: @lineHeightOffset;
-@iconMargin: 1rem;
+@iconMargin: 0.75rem;
 @iconAlignment: middle;
+
+/* Image */
+@imageWidth: 2.5em;
+@imageHeight: auto;
+@imageOffset: @lineHeightOffset;
+@imageMargin: @iconMargin;
+@imageAlignment: middle;
 
 /* Label */
 @labelDistance: 0.5rem;
@@ -47,6 +47,7 @@
 /* Content */
 @contentAlignment: top;
 @contentIconAlignment: middle;
+@contentImageAlignment: middle;
 
 /* Paragraph after Header */
 @nextParagraphDistance: 0em;
@@ -54,6 +55,26 @@
 /*-------------------
       Variations
 --------------------*/
+
+/* Sizing */
+@huge   : unit(@h1, em);
+@large  : unit(@h2, em);
+@medium : unit(@h3, em);
+@small  : unit(@h4, em);
+@tiny   : unit(@h5, em);
+
+/* Sub Header */
+@h1SubHeaderFontSize: 1.4285rem;
+@h2SubHeaderFontSize: 1.1428rem;
+@h3SubHeaderFontSize: 1.1428rem;
+@h4SubHeaderFontSize: 1rem;
+@h5SubHeaderFontSize: 0.9285rem;
+
+@hugeSubHeaderFontSize  : @h1SubHeaderFontSize;
+@largeSubHeaderFontSize : @h2SubHeaderFontSize;
+@subHeaderFontSize      : @h3SubHeaderFontSize;
+@smallSubHeaderFontSize : @h4SubHeaderFontSize;
+@tinySubHeaderFontSize  : @h5SubHeaderFontSize;
 
 /* Icon Header */
 @iconHeaderSize: 3em;

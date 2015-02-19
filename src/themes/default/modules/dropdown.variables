@@ -119,6 +119,9 @@
 @selectionPadding: @selectionVerticalPadding @selectionHorizontalPadding;
 @selectionZIndex: 10;
 
+/* <select> */
+@selectPreInitHeight: 38px;
+
 @selectionTextIconDistance: 2em;
 @selectionTextColor: @textColor;
 
@@ -126,8 +129,13 @@
 @selectionBorderColor: @borderColor;
 @selectionBorder: 1px solid @selectionBorderColor;
 @selectionBorderRadius: @borderRadius;
+
 @selectionIconOpacity: 0.8;
+@selectionIconHitbox: @selectionVerticalPadding;
+@selectionIconMargin: -@selectionIconHitbox;
+@selectionIconPadding: @selectionIconHitbox;
 @selectionIconTransition: opacity 0.2s ease;
+
 @selectionMenuBoxShadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
 @selectionMenuItemBoxShadow: none;
 

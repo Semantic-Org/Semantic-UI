@@ -261,6 +261,7 @@ $.fn.checkbox = function(parameters) {
             .trigger('change')
           ;
           module.set.checked();
+          $input.trigger('blur');
           settings.onChange.call($input.get());
           settings.onChecked.call($input.get());
         },
@@ -272,6 +273,7 @@ $.fn.checkbox = function(parameters) {
             .trigger('change')
           ;
           module.remove.checked();
+          $input.trigger('blur');
           settings.onChange.call($input.get());
           settings.onUnchecked.call($input.get());
         },
@@ -454,7 +456,7 @@ $.fn.checkbox = function(parameters) {
       }
       else {
         if(instance !== undefined) {
-          module.destroy();
+          instance.invoke('destroy');
         }
         module.initialize();
       }
@@ -498,7 +500,7 @@ $.fn.checkbox.settings = {
   },
 
   selector : {
-    input  : 'input[type=checkbox], input[type=radio]',
+    input  : 'input[type="checkbox"], input[type="radio"]',
     label  : 'label'
   }
 

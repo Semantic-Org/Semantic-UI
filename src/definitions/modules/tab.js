@@ -77,7 +77,7 @@ $.fn.tab = function(parameters) {
           if(settings.auto) {
             module.verbose('Setting up automatic tab retrieval from server');
             settings.apiSettings = {
-              url: settings.path + '/{$tab}'
+              url: (settings.path || '') + '/{$tab}'
             };
           }
 
@@ -270,10 +270,10 @@ $.fn.tab = function(parameters) {
             ;
             module.verbose('Looking for tab', tab);
             if(isTab) {
-              module.verbose('Tab was found', tab);
 
+              module.verbose('Tab was found', tab);
               // scope up
-              activeTabPath = currentPath;
+              activeTabPath  = currentPath;
               parameterArray = module.utilities.filterArray(pathArray, currentPathArray);
 
               if(isLastIndex) {
@@ -341,11 +341,11 @@ $.fn.tab = function(parameters) {
 
           fetch: function(tabPath, fullTabPath) {
             var
-              $tab             = module.get.tabElement(tabPath),
-              apiSettings      = {
-                dataType     : 'html',
-                stateContext : $tab,
-                onSuccess      : function(response) {
+              $tab        = module.get.tabElement(tabPath),
+              apiSettings = {
+                dataType : 'html',
+                on       : 'now',
+                onSuccess    : function(response) {
                   module.cache.add(fullTabPath, response);
                   module.content.update(tabPath, response);
                   if(tabPath == activeTabPath) {
@@ -360,7 +360,7 @@ $.fn.tab = function(parameters) {
                 },
                 urlData: { tab: fullTabPath }
               },
-              request         = $tab.data(metadata.promise) || false,
+              request         = $tab.api('get request') || false,
               existingRequest = ( request && request.state() === 'pending' ),
               requestSettings,
               cachedContent
@@ -368,6 +368,7 @@ $.fn.tab = function(parameters) {
 
             fullTabPath   = fullTabPath || tabPath;
             cachedContent = module.cache.read(fullTabPath);
+
 
             if(settings.cache && cachedContent) {
               module.debug('Showing existing content', fullTabPath);
@@ -384,7 +385,8 @@ $.fn.tab = function(parameters) {
             else if($.api !== undefined) {
               requestSettings = $.extend(true, { headers: { 'X-Remote': true } }, settings.apiSettings, apiSettings);
               module.debug('Retrieving remote content', fullTabPath, requestSettings);
-              $.api( requestSettings );
+              console.log(existingRequest, requestSettings, cachedContent);
+              $tab.api( requestSettings );
             }
             else {
               module.error(error.api);
@@ -705,7 +707,7 @@ $.fn.tab = function(parameters) {
       }
       else {
         if(instance !== undefined) {
-          module.destroy();
+          instance.invoke('destroy');
         }
         module.initialize();
       }

@@ -16,7 +16,7 @@
 @type    : 'element';
 @element : 'input';
 
-@import '../../theme.config';
+@import (multiple) '../../theme.config';
 
 
 /*******************************
@@ -275,30 +275,21 @@
 
 /* Adjacent Label */
 .ui.labeled.input {
-  display: table;
-}
-.ui.labeled.input > input {
-  display: table-cell;
-  vertical-align: top;
+  display: inline-flex;
 }
 .ui.labeled.input > .label {
-  display: table-cell;
-  vertical-align: middle;
-  white-space: nowrap;
+  flex: 1 0 auto;
+  margin: 0;
   font-size: 1em;
 }
-.ui.labeled.input > .label > .icon {
-  display: inline;
-  vertical-align: top;
+.ui.labeled.input > .label:not(.corner) {
+  padding-top: @verticalPadding;
+  padding-bottom: @verticalPadding;
 }
 
 /* Fluid Labeled */
 .ui.fluid.labeled.input {
-  display: table;
-  width: 100%;
-}
-.ui.fluid.labeled.input > .label {
-  width: 0.01%;
+  display: flex;
 }
 
 /* Label on Left */
@@ -336,12 +327,6 @@
 }
 
 /* Spacing with corner label */
-.ui[class*="corner labeled"].input {
-  display: inline-block;
-}
-.ui[class*="corner labeled"].input > input {
-  display: block;
-}
 .ui[class*="corner labeled"].icon.input:not(.left) > input {
   padding-right: @labeledIconInputMargin !important;
 }
@@ -354,33 +339,23 @@
 ---------------------*/
 
 .ui.action.input {
-  display: table;
+  display: inline-flex;
 }
 
-.ui.action.input > input {
-  display: table-cell;
-  vertical-align: top;
-}
 .ui.action.input > .button,
 .ui.action.input > .buttons {
-  display: table-cell;
-  vertical-align: middle;
-  white-space: nowrap;
+  flex: 1 0 auto;
+}
+.ui.action.input > .button,
+.ui.action.input > .buttons > .button {
   padding-top: @verticalPadding;
   padding-bottom: @verticalPadding;
-}
-.ui.action.input > .button > .icon,
-.ui.action.input > .buttons > .button > .icon {
-  display: inline;
-  vertical-align: top;
+  margin: 0;
 }
 
+/* Fluid */
 .ui.fluid.action.input {
-  display: table;
-  width: 100%;
-}
-.ui.fluid.action.input > .button {
-  width: 0.01%;
+  display: flex;
 }
 
 /* Button on Right */
@@ -390,14 +365,14 @@
   border-bottom-right-radius: 0px !important;
 }
 .ui.action.input:not([class*="left action"]) > .button,
-.ui.action.input:not([class*="left action"]) > .buttons {
+.ui.action.input:not([class*="left action"]) > .buttons > .button {
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
 }
 
 /* Button on Left */
 .ui[class*="left action"].input > .button,
-.ui[class*="left action"].input > .buttons {
+.ui[class*="left action"].input > .buttons > .button {
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
 }

@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -73,9 +73,9 @@
 
 .ui.button:focus {
   background-color: '';
-  background-image: '';
-  box-shadow: 0px 0px 0px 1px transparent inset, 0px 0px 1px rgba(81, 167, 232, 0.8) inset, 0px 0px 3px 2px rgba(81, 167, 232, 0.8);
   color: rgba(0, 0, 0, 0.8);
+  background-image: '' !important;
+  box-shadow: 0px 0px 0px 1px transparent inset, 0px 0px 1px rgba(81, 167, 232, 0.8) inset, 0px 0px 3px 2px rgba(81, 167, 232, 0.8) !important;
 }
 .ui.button:focus .icon {
   opacity: 0.85;
@@ -122,11 +122,12 @@
 .ui.loading.loading.loading.loading.loading.loading.button {
   position: relative;
   cursor: default;
-  point-events: none;
   text-shadow: none !important;
   color: transparent !important;
-  -webkit-transition: all 0s linear;
-          transition: all 0s linear;
+  opacity: 1;
+  pointer-events: none;
+  -webkit-transition: all 0s linear, opacity 0.2s ease;
+          transition: all 0s linear, opacity 0.2s ease;
 }
 .ui.loading.button:before {
   position: absolute;
@@ -203,6 +204,11 @@
   background-image: none !important;
   box-shadow: none !important;
   pointer-events: none;
+}
+
+/* Basic Group With Disabled */
+.ui.basic.buttons .ui.disabled.button {
+  border-color: rgba(39, 41, 43, 0.5);
 }
 
 
@@ -719,6 +725,13 @@
 }
 .ui.basic.vertical.buttons .button {
   border-left: none;
+}
+.ui.basic.vertical.buttons .button {
+  border-left-width: 0px;
+  border-top: 1px solid rgba(39, 41, 43, 0.15);
+}
+.ui.basic.vertical.buttons .button:first-child {
+  border-top-width: 0px;
 }
 
 /*--------------

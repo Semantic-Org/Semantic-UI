@@ -1,86 +1,21 @@
 /*******************************
-        Release Settings
+           Release
 *******************************/
 
-// release settings
-module.exports = {
+/*
+ This task update only SUI repos that use the full release (all components)
 
-  // path to components for repos
-  source     : './dist/components/',
+*/
 
-  // modified asset paths for component repos
-  paths: {
-    source : '../themes/default/assets/',
-    output : 'assets/'
-  },
+var
+  runSequence = require('run-sequence')
+;
 
-  templates: {
-    bower           : './tasks/admin/templates/bower.json',
-    composer        : './tasks/admin/templates/composer.json',
-    package         : './tasks/admin/templates/package.json',
-    meteor          : './tasks/admin/templates/package.js',
-    meteorComponent : './tasks/admin/templates/package-component.js',
-    readme          : './tasks/admin/templates/README.md',
-    notes           : './RELEASE-NOTES.md'
-  },
+module.exports = function() {
 
-  org         : 'Semantic-Org',
-  repo        : 'Semantic-UI',
+  runSequence(
+    'build', // build semantic
+    'create static repo' // create standalone css repo
+  );
 
-  // root name for repos
-  repoRoot    : 'UI-',
-  packageRoot : 'semantic-ui-',
-
-  // root path to repos
-  outputRoot  : '../components/',
-
-  homepage    : 'http://www.semantic-ui.com',
-
-  // components that get separate repositories for bower/npm
-  components : [
-    'accordion',
-    'api',
-    'breadcrumb',
-    'button',
-    'card',
-    'checkbox',
-    'comment',
-    'dimmer',
-    'divider',
-    'dropdown',
-    'feed',
-    'flag',
-    'form',
-    'grid',
-    'header',
-    'icon',
-    'image',
-    'input',
-    'item',
-    'label',
-    'list',
-    'loader',
-    'menu',
-    'message',
-    'modal',
-    'nag',
-    'popup',
-    'progress',
-    'rail',
-    'rating',
-    'reset',
-    'reveal',
-    'search',
-    'segment',
-    'shape',
-    'sidebar',
-    'site',
-    'statistic',
-    'step',
-    'sticky',
-    'tab',
-    'table',
-    'transition',
-    'video'
-  ]
 };

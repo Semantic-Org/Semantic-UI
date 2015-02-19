@@ -90,10 +90,19 @@
 @tagTransition: background @labelTransitionDuration @labelTransitionEasing;
 
 /* Ribbon */
-@ribbonDistance: 2rem;
-@ribbonMargin: 1em;
+@ribbonImageTopDistance: 1rem;
 @ribbonTriangleSize: 1.2em;
 @ribbonShadowColor: rgba(0, 0, 0, 0.15);
+
+@ribbonMargin: 1rem;
+@ribbonOffset: ~"calc("-@ribbonMargin~" - "@ribbonTriangleSize~")";
+@ribbonDistance: ~"calc("@ribbonMargin~" + "@ribbonTriangleSize~")";
+@rightRibbonOffset:  ~"calc(100% + "@ribbonMargin~" + "@ribbonTriangleSize~")";
+
+@ribbonImageMargin: -0.05rem; /* Rounding Offset on Triangle */
+@ribbonImageOffset: ~"calc("-@ribbonImageMargin~" - "@ribbonTriangleSize~")";
+@ribbonImageDistance: ~"calc("@ribbonImageMargin~" + "@ribbonTriangleSize~")";
+@rightRibbonImageOffset:  ~"calc(100% + "@ribbonImageMargin~" + "@ribbonTriangleSize~")";
 
 @blackRibbonShadow: darken(@black, 10);
 @blueRibbonShadow: darken(@blue, 10);
@@ -115,7 +124,7 @@
 @cornerTransition: color @labelTransitionDuration @labelTransitionEasing;
 @cornerTriangleSize: 3.25em;
 @cornerTriangleTransition: border-color @labelTransitionDuration @labelTransitionEasing;
-@cornerTriangleZIndex: 10;
+@cornerTriangleZIndex: 1;
 
 @cornerIconSize: 1em;
 @cornerIconTopOffset: 0.4em;

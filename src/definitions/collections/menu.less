@@ -9,6 +9,7 @@
  *
  */
 
+
 /*******************************
             Theme
 *******************************/
@@ -16,7 +17,7 @@
 @type    : 'collection';
 @element : 'menu';
 
-@import '../../theme.config';
+@import (multiple) '../../theme.config';
 
 /*******************************
             Standard
@@ -29,7 +30,7 @@
 .ui.menu {
   margin: @margin;
   background: @background;
-  font-size: 0px;
+  font-size: 0em;
   font-weight: @fontWeight;
   box-shadow: @boxShadow;
   border-radius: @borderRadius;
@@ -48,6 +49,13 @@
 }
 .ui.menu:last-child {
   margin-bottom: 0rem;
+}
+
+.ui.menu .menu {
+  margin: 0em;
+}
+.ui.menu:not(.vertical) .menu {
+  font-size: 0em;
 }
 
 /*--------------
@@ -90,9 +98,6 @@
   transition: @transition;
 }
 
-.ui.menu .menu {
-  margin: 0em;
-}
 
 /* Floated Content */
 .ui.menu > .item:first-child {
@@ -629,18 +634,15 @@
 /* Active */
 .ui.tabular.menu .active.item {
   position: relative;
+  border-bottom: none;
+  vertical-align: bottom;
 
   background-color: @tabularMenuActiveBackground;
   color: @tabularActiveColor;
-
   border-color: @tabularBorderColor;
   font-weight: @tabularActiveWeight;
-
   margin-bottom: -@tabularBorderWidth;
-
-
-  border-bottom: none;
-  box-shadow: 0px (2 * @tabularBorderWidth) 0px -@tabularBorderWidth @tabularBackgroundColor;
+  box-shadow: @tabularActiveBoxShadow;
   border-radius: @tabularBorderRadius @tabularBorderRadius 0px 0px;
 }
 
@@ -1502,11 +1504,15 @@
 
 .ui.pointing.menu .active.item:after {
   position: absolute;
-  bottom: @arrowOffset;
-  left: 50%;
   content: '';
 
-  margin-left: @arrowOffset;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  margin: @arrowBorderSize 0em 0em 0em;
+
+  background: none;
+
   width: @arrowSize;
   height: @arrowSize;
 
@@ -1514,13 +1520,9 @@
   border-bottom: @arrowBorder;
   border-right: @arrowBorder;
 
-  background: none;
-  transform: rotate(45deg);
-  z-index: 2;
+  z-index: @arrowZIndex;
 
-  transition:
-    background 0.2s ease
-  ;
+  transition: @arrowTransition;
 }
 
 /* Don't double up pointers */
@@ -1531,10 +1533,12 @@
 .ui.vertical.pointing.menu .active.item:after {
   position: absolute;
   top: 50%;
-  margin-top: @arrowOffset;
-  right: @arrowOffset;
+  right: 0%;
   bottom: auto;
   left: auto;
+
+  transform: translateX(50%) translateY(-50%) rotate(45deg);
+  margin: 0em -@arrowBorderSize 0em 0em;
 
   border: none;
   border-top: @arrowBorder;

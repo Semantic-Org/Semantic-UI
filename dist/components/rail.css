@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -16,10 +16,10 @@
 *******************************/
 
 .ui.rail {
-  font-size: 1em;
   position: absolute;
   top: 0%;
   width: 300px;
+  height: 100%;
   box-sizing: content-box;
 }
 .ui.left.rail {

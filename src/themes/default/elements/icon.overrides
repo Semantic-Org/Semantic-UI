@@ -10,17 +10,9 @@
  */
 
 /*
- *  Font Awesome 4.0.3
- *  the iconic font designed for Bootstrap
- *  ------------------------------------------------------------------------------
- *  The full suite of pictographic icons, examples, and documentation can be
- *  found at http://fon.io.  Stay up to date on Twitter at
- *  http://twitter.com/fon.
- *
- *  License
- *  ------------------------------------------------------------------------------
- *  - The Font Awesome font is licensed under SIL OFL 1.1 -
- *    http://scripts.sil.org/OFL
+ * Font Awesome 4.3.0 by @davegandy - http://fontawesome.io - @fontawesome
+ * License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ */
 
 /*******************************
 
@@ -52,8 +44,8 @@ for instance `lemon icon` not `lemon outline icon` since there is only one lemon
 /* Web Content */
 i.icon.search:before { content: "\f002"; }
 i.icon.mail.outline:before { content: "\f003"; }
-i.icon.external.link:before { content: "\f08e"; }
-i.icon.wifi:before { content: "\f012"; }
+i.icon.external:before { content: "\f08e"; }
+i.icon.signal:before { content: "\f012"; }
 i.icon.setting:before { content: "\f013"; }
 i.icon.home:before { content: "\f015"; }
 i.icon.inbox:before { content: "\f01c"; }
@@ -83,7 +75,7 @@ i.icon.code:before { content: "\f121"; }
 i.icon.protect:before { content: "\f132"; }
 i.icon.calendar.outline:before { content: "\f133"; }
 i.icon.ticket:before { content: "\f145"; }
-i.icon.external.link.square:before { content: "\f14c"; }
+i.icon.external.square:before { content: "\f14c"; }
 i.icon.map:before { content: "\f14e"; }
 i.icon.bug:before { content: "\f188"; }
 i.icon.mail.square:before { content: "\f199"; }
@@ -91,6 +83,16 @@ i.icon.history:before { content: "\f1da"; }
 i.icon.options:before { content: "\f1de"; }
 i.icon.comment.outline:before { content: "\f0e5"; }
 i.icon.comments.outline:before { content: "\f0e6"; }
+i.icon.text.telephone:before { content: "\f1e4"; }
+i.icon.find:before { content: "\f1e5"; }
+i.icon.wifi:before { content: "\f1eb"; }
+i.icon.alarm.slash:before { content: "\f1f6"; }
+i.icon.alarm.slash.outline:before { content: "\f1f7"; }
+i.icon.copyright:before { content: "\f1f9"; }
+i.icon.at:before { content: "\f1fa"; }
+i.icon.eyedropper:before { content: "\f1fb"; }
+i.icon.paint.brush:before { content: "\f1fc"; }
+i.icon.heartbeat:before { content: "\f21e"; }
 
 /* User Actions */
 i.icon.download:before { content: "\f019"; }
@@ -142,6 +144,10 @@ i.icon.share.alternate.square:before { content: "\f1e1"; }
 i.icon.wait:before { content: "\f017"; }
 i.icon.write.square:before { content: "\f14b"; }
 i.icon.share.square:before { content: "\f14d"; }
+i.icon.add.to.cart:before { content: "\f217"; }
+i.icon.in.cart:before { content: "\f218"; }
+i.icon.add.user:before { content: "\f234"; }
+i.icon.remove.user:before { content: "\f235"; }
 
 /* Messages */
 i.icon.help.circle:before { content: "\f059"; }
@@ -152,16 +158,32 @@ i.icon.warning.sign:before { content: "\f071"; }
 i.icon.help:before { content: "\f128"; }
 i.icon.info:before { content: "\f129"; }
 i.icon.announcement:before { content: "\f0a1"; }
+i.icon.birthday:before {  content: "\f1fd"; }
 
 /* Users */
 i.icon.users:before { content: "\f0c0"; }
 i.icon.doctor:before { content: "\f0f0"; }
-i.icon.female:before { content: "\f182"; }
-i.icon.male:before { content: "\f183"; }
 i.icon.child:before { content: "\f1ae"; }
 i.icon.user:before { content: "\f007"; }
 i.icon.handicap:before { content: "\f193"; }
 i.icon.student:before { content: "\f19d"; }
+i.icon.spy:before { content: "\f21b"; }
+
+/* Gender & Sexuality */
+i.icon.female:before { content: "\f182"; }
+i.icon.male:before { content: "\f183"; }
+i.icon.woman:before { content: "\f221"; }
+i.icon.man:before { content: "\f222"; }
+i.icon.non.binary.transgender:before { content: "\f223"; }
+i.icon.intergender:before { content: "\f224"; }
+i.icon.transgender:before { content: "\f225"; }
+i.icon.lesbian:before { content: "\f226"; }
+i.icon.gay:before { content: "\f227"; }
+i.icon.heterosexual:before { content: "\f228"; }
+i.icon.other.gender:before { content: "\f229"; }
+i.icon.other.gender.vertical:before { content: "\f22a"; }
+i.icon.other.gender.horizontal:before { content: "\f22b"; }
+i.icon.neuter:before { content: "\f22c"; }
 
 /* View Adjustment */
 i.icon.grid.layout:before { content: "\f00a"; }
@@ -207,6 +229,9 @@ i.icon.moon:before { content: "\f186"; }
 i.icon.fax:before { content: "\f1ac"; }
 i.icon.life.ring:before { content: "\f1cd"; }
 i.icon.bomb:before { content: "\f1e2"; }
+i.icon.soccer:before { content: "\f1e3"; }
+i.icon.calculator:before { content: "\f1ec"; }
+i.icon.diamond:before { content: "\f219"; }
 
 /* Shapes */
 i.icon.crosshairs:before { content: "\f05b"; }
@@ -242,6 +267,8 @@ i.icon.minus.square:before { content: "\f146"; }
 i.icon.minus.square.outline:before { content: "\f147"; }
 i.icon.check.square:before { content: "\f14a"; }
 i.icon.plus.square.outline:before { content: "\f196"; }
+i.icon.toggle.off:before { content: "\f204"; }
+i.icon.toggle.on:before { content: "\f205"; }
 
 /* Media */
 i.icon.film:before { content: "\f008"; }
@@ -249,6 +276,10 @@ i.icon.sound:before { content: "\f025"; }
 i.icon.photo:before { content: "\f030"; }
 i.icon.bar.chart:before { content: "\f080"; }
 i.icon.camera.retro:before { content: "\f083"; }
+i.icon.newspaper:before { content: "\f1ea"; }
+i.icon.area.chart:before { content: "\f1fe"; }
+i.icon.pie.chart:before { content: "\f200"; }
+i.icon.line.chart:before { content: "\f201"; }
 
 /* Pointers */
 i.icon.arrow.circle.outline.down:before { content: "\f01a"; }
@@ -298,7 +329,8 @@ i.icon.toggle.left:before { content: "\f191"; }
 
 /* Computer */
 i.icon.power:before { content: "\f011"; }
-i.icon.trash:before { content: "\f014"; }
+i.icon.trash:before { content: "\f1f8"; }
+i.icon.trash.outline:before { content: "\f014"; }
 i.icon.disk.outline:before { content: "\f0a0"; }
 i.icon.desktop:before { content: "\f108"; }
 i.icon.laptop:before { content: "\f109"; }
@@ -306,6 +338,7 @@ i.icon.tablet:before { content: "\f10a"; }
 i.icon.mobile:before { content: "\f10b"; }
 i.icon.game:before { content: "\f11b"; }
 i.icon.keyboard:before { content: "\f11c"; }
+i.icon.plug:before { content: "\f1e6"; }
 
 /* File System */
 i.icon.folder:before { content: "\f07b"; }
@@ -334,9 +367,11 @@ i.icon.qrcode:before { content: "\f029"; }
 i.icon.fork:before { content: "\f126"; }
 i.icon.html5:before { content: "\f13b"; }
 i.icon.css3:before { content: "\f13c"; }
+i.icon.rss:before { content: "\f09e"; }
 i.icon.rss.square:before { content: "\f143"; }
 i.icon.openid:before { content: "\f19b"; }
 i.icon.database:before { content: "\f1c0"; }
+i.icon.server:before { content: "\f233"; }
 
 /* Rating */
 i.icon.heart:before { content: "\f004"; }
@@ -373,9 +408,9 @@ i.icon.eject:before { content: "\f052"; }
 i.icon.unmute:before { content: "\f130"; }
 i.icon.mute:before { content: "\f131"; }
 i.icon.video.play:before { content: "\f144"; }
+i.icon.closed.captioning:before { content: "\f20a"; }
 
-
-/* Map & Locations */
+/* Map, Locations, & Transportation */
 i.icon.marker:before { content: "\f041"; }
 i.icon.coffee:before { content: "\f0f4"; }
 i.icon.food:before { content: "\f0f5"; }
@@ -394,6 +429,14 @@ i.icon.spoon:before { content: "\f1b1"; }
 i.icon.car:before { content: "\f1b9"; }
 i.icon.taxi:before { content: "\f1ba"; }
 i.icon.tree:before { content: "\f1bb"; }
+i.icon.bicycle:before { content: "\f206"; }
+i.icon.bus:before { content: "\f207"; }
+i.icon.ship:before { content: "\f21a"; }
+i.icon.motorcycle:before { content: "\f21c"; }
+i.icon.street.view:before { content: "\f21d"; }
+i.icon.hotel:before { content: "\f236"; }
+i.icon.train:before { content: "\f238"; }
+i.icon.subway:before { content: "\f239"; }
 
 /* Tables */
 i.icon.table:before { content: "\f0ce"; }
@@ -447,6 +490,17 @@ i.icon.yen:before { content: "\f157"; }
 i.icon.ruble:before { content: "\f158"; }
 i.icon.won:before { content: "\f159"; }
 i.icon.lira:before { content: "\f195"; }
+i.icon.shekel:before { content: "\f20b"; }
+
+/* Payment Options */
+i.icon.paypal:before { content: "\f1ed"; }
+i.icon.paypal.card:before { content: "\f1f4"; }
+i.icon.google.wallet:before { content: "\f1ee"; }
+i.icon.visa:before { content: "\f1f0"; }
+i.icon.mastercard:before { content: "\f1f1"; }
+i.icon.discover:before { content: "\f1f2"; }
+i.icon.american.express:before { content: "\f1f3"; }
+i.icon.stripe:before { content: "\f1f5"; }
 
 /* Networks and Websites*/
 i.icon.twitter.square:before { content: "\f081"; }
@@ -525,6 +579,26 @@ i.icon.hacker.news:before { content: "\f1d4"; }
 i.icon.tencent.weibo:before { content: "\f1d5"; }
 i.icon.qq:before { content: "\f1d6"; }
 i.icon.wechat:before { content: "\f1d7"; }
+i.icon.slideshare:before { content: "\f1e7"; }
+i.icon.twitch:before { content: "\f1e8"; }
+i.icon.yelp:before { content: "\f1e9"; }
+i.icon.lastfm:before { content: "\f202"; }
+i.icon.lastfm.square:before { content: "\f203"; }
+i.icon.ioxhost:before { content: "\f208"; }
+i.icon.angellist:before { content: "\f209"; }
+i.icon.meanpath:before { content: "\f20c"; }
+i.icon.buysellads:before { content: "\f20d"; }
+i.icon.connectdevelop:before { content: "\f20e"; }
+i.icon.dashcube:before { content: "\f210"; }
+i.icon.forumbee:before { content: "\f211"; }
+i.icon.leanpub:before { content: "\f212"; }
+i.icon.sellsy:before { content: "\f213"; }
+i.icon.shirtsinbulk:before { content: "\f214"; }
+i.icon.simplybuilt:before { content: "\f215"; }
+i.icon.skyatlas:before { content: "\f216"; }
+i.icon.whatsapp:before { content: "\f232"; }
+i.icon.viacoin:before { content: "\f237"; }
+i.icon.medium:before { content: "\f23a"; }
 
 /*******************************
             Aliases
@@ -539,10 +613,14 @@ i.icon.close:before { content: "\f00d"; }
 i.icon.cancel:before { content: "\f00d"; }
 i.icon.delete:before { content: "\f00d"; }
 i.icon.x:before { content: "\f00d"; }
+i.icon.user.times:before { content: "\f235"; }
+i.icon.user.close:before { content: "\f235"; }
+i.icon.user.cancel:before { content: "\f235"; }
+i.icon.user.delete:before { content: "\f235"; }
+i.icon.user.x:before { content: "\f235"; }
 i.icon.zoom.in:before { content: "\f00e"; }
 i.icon.magnify:before { content: "\f00e"; }
 i.icon.shutdown:before { content: "\f011"; }
-i.icon.signal:before { content: "\f012"; }
 i.icon.clock:before { content: "\f017"; }
 i.icon.time:before { content: "\f017"; }
 i.icon.play.circle.outline:before { content: "\f01d"; }
@@ -565,12 +643,14 @@ i.icon.add:before { content: "\f067"; }
 i.icon.eye:before { content: "\f06e"; }
 i.icon.attention:before { content: "\f06a"; }
 i.icon.cart:before { content: "\f07a"; }
-i.icon.plane:before { content: "\f072"; }
 i.icon.shuffle:before { content: "\f074"; }
 i.icon.talk:before { content: "\f075"; }
 i.icon.chat:before { content: "\f075"; }
 i.icon.shopping.cart:before { content: "\f07a"; }
 i.icon.bar.graph:before { content: "\f080"; }
+i.icon.area.graph:before { content: "\f1fe"; }
+i.icon.pie.graph:before { content: "\f200"; }
+i.icon.line.graph:before { content: "\f201"; }
 i.icon.key:before { content: "\f084"; }
 i.icon.privacy:before { content: "\f084"; }
 i.icon.cogs:before { content: "\f085"; }
@@ -585,10 +665,12 @@ i.icon.bookmark.outline:before { content: "\f097"; }
 i.icon.phone.square:before { content: "\f098"; }
 i.icon.phone.square:before { content: "\f098"; }
 i.icon.credit.card:before { content: "\f09d"; }
-i.icon.rss:before { content: "\f09e"; }
 i.icon.hdd.outline:before { content: "\f0a0"; }
 i.icon.bullhorn:before { content: "\f0a1"; }
 i.icon.bell:before { content: "\f0f3"; }
+i.icon.bell.outline:before { content: "\f0a2"; }
+i.icon.bell.slash:before { content: "\f1f6"; }
+i.icon.bell.slash.outline:before { content: "\f1f7"; }
 i.icon.hand.outline.right:before { content: "\f0a4"; }
 i.icon.hand.outline.left:before { content: "\f0a5"; }
 i.icon.hand.outline.up:before { content: "\f0a6"; }
@@ -625,6 +707,8 @@ i.icon.beer:before { content: "\f0fc"; }
 i.icon.plus.square:before { content: "\f0fe"; }
 i.icon.computer:before { content: "\f108"; }
 i.icon.circle.outline:before { content: "\f10c"; }
+i.icon.intersex:before { content: "\f10c"; }
+i.icon.asexual:before { content: "\f10c"; }
 i.icon.spinner:before { content: "\f110"; }
 i.icon.gamepad:before { content: "\f11b"; }
 i.icon.star.half.full:before { content: "\f123"; }
@@ -650,11 +734,42 @@ i.icon.rub:before { content: "\f158"; }
 i.icon.won:before,
 i.icon.krw:before { content: "\f159"; }
 i.icon.btc:before { content: "\f15a"; }
+i.icon.sheqel:before,
+i.icon.ils:before { content: "\f20b"; }
 i.icon.try:before { content: "\f195"; }
 i.icon.zip:before { content: "\f187"; }
 i.icon.dot.circle.outline:before { content: "\f192"; }
-
 i.icon.sliders:before { content: "\f1de"; }
+i.icon.wi-fi:before { content: "\f1eb"; }
 i.icon.graduation:before { content: "\f19d"; }
 i.icon.\33d:before { content: "\f1b2"; }
 i.icon.weixin:before { content: "\f1d7"; }
+i.icon.binoculars:before { content: "\f1e5"; }
+i.icon.gratipay:before { content: "\f184"; }
+i.icon.genderless:before { content: "\f1db"; }
+i.icon.teletype:before { content: "\f1e4"; }
+i.icon.power.cord:before { content: "\f1e6"; }
+i.icon.tty:before { content: "\f1e4"; }
+i.icon.cc:before { content: "\f20a"; }
+i.icon.ils:before { content: "\f20b"; }
+i.icon.plus.cart:before { content: "\f217"; }
+i.icon.arrow.down.cart:before { content: "\f218"; }
+i.icon.detective:before { content: "\f21b"; }
+i.icon.venus:before { content: "\f221"; }
+i.icon.mars:before { content: "\f222"; }
+i.icon.mercury:before { content: "\f223"; }
+i.icon.venus.double:before { content: "\f226"; }
+i.icon.female.homosexual:before { content: "\f226"; }
+i.icon.mars.double:before { content: "\f227"; }
+i.icon.male.homosexual:before { content: "\f227"; }
+i.icon.venus.mars:before { content: "\f228"; }
+i.icon.mars.stroke:before { content: "\f229"; }
+i.icon.mars.alternate:before { content: "\f229"; }
+i.icon.mars.vertical:before { content: "\f22a"; }
+i.icon.mars.horizontal:before { content: "\f22b"; }
+i.icon.mars.stroke.vertical:before { content: "\f22a"; }
+i.icon.mars.stroke.horizontal:before { content: "\f22b"; }
+i.icon.neuter:before { content: "\f22c"; }
+i.icon.facebook.official { content: "\f230"; }
+i.icon.pinterest.official { content: "\f231"; }
+i.icon.bed:before { content: "\f236"; }

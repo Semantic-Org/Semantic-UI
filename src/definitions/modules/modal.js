@@ -186,12 +186,8 @@ $.fn.modal = function(parameters) {
 
         bind: {
           events: function() {
-            $close
-              .on('click' + eventNamespace, module.event.close)
-            ;
-            $window
-              .on('resize' + elementNamespace, module.event.resize)
-            ;
+            $close.on('click' + eventNamespace, module.event.close);
+            $window.on('resize' + elementNamespace, module.event.resize);
           }
         },
 
@@ -530,7 +526,7 @@ $.fn.modal = function(parameters) {
 
         can: {
           fit: function() {
-            return (module.cache.height < module.cache.contextHeight);
+            return ( ( module.cache.height + (settings.padding * 2) ) < module.cache.contextHeight);
           }
         },
 
@@ -574,14 +570,14 @@ $.fn.modal = function(parameters) {
             }
           },
           screenHeight: function() {
-            if(module.cache.height > module.cache.pageHeight) {
-              module.debug('Modal is taller than page content, resizing page height');
-              $body
-                .css('height', module.cache.height + settings.padding)
-              ;
+            if( module.can.fit() ) {
+              $body.css('height', '');
             }
             else {
-              $body.css('height', '');
+              module.debug('Modal is taller than page content, resizing page height');
+              $body
+                .css('height', module.cache.height + (settings.padding / 2) )
+              ;
             }
           },
           active: function() {
@@ -787,7 +783,7 @@ $.fn.modal = function(parameters) {
       }
       else {
         if(instance !== undefined) {
-          module.destroy();
+          instance.invoke('destroy');
         }
         module.initialize();
       }
@@ -827,7 +823,7 @@ $.fn.modal.settings = {
   offset         : 0,
   transition     : 'scale',
 
-  padding        : 30,
+  padding        : 50,
 
   onShow         : function(){},
   onHide         : function(){},

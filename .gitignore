@@ -4,7 +4,7 @@ coverage/
 src/**/site/
 theme.config
 semantic.json
-tasks/admin/oauth.js
+tasks/**/oauth.js
 
 # Numerous always-ignore extensions
 *.diff

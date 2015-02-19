@@ -9,6 +9,7 @@
  *
  */
 
+
 /*******************************
             Theme
 *******************************/
@@ -16,7 +17,12 @@
 @type    : 'element';
 @element : 'flag';
 
-@import '../../theme.config';
+@import (multiple) '../../theme.config';
+
+
+/*******************************
+             Flag
+*******************************/
 
 i.flag:not(.icon) {
   display: inline-block;
@@ -35,6 +41,7 @@ i.flag:not(.icon) {
   backface-visibility: hidden;
 }
 
+/* Sprite */
 i.flag:not(.icon):before {
   display: inline-block;
   content: '';

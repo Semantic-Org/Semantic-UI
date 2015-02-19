@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -250,6 +250,7 @@
 .ui.basic.modal {
   background-color: transparent;
   border: none;
+  border-radius: 0em;
   box-shadow: 0px 0px 0px 0px;
   color: #ffffff;
 }

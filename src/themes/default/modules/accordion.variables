@@ -12,7 +12,7 @@
 @titleColor: @textColor;
 
 /* Icon */
-@iconOpacity: 0.75;
+@iconOpacity: 1;
 @iconFontSize: 1em;
 @iconFloat: none;
 @iconWidth: 1.25em;
@@ -21,12 +21,11 @@
 @iconMargin: 0em 0.25rem 0em 0rem;
 @iconPadding: 0em;
 @iconTransition:
-  transform 0.2s ease,
-  opacity 0.2s ease
+  transform @transitionDuration @transitionEasing,
+  opacity @transitionDuration @transitionEasing
 ;
 @iconVerticalAlign: baseline;
-
-@iconTransform: rotate(0deg);
+@iconTransform: none;
 
 /* Child Accordion */
 @childAccordionMargin: 1em 0em 0em;
@@ -78,7 +77,7 @@
 @styledTitlePadding: 0.75em 1em;
 @styledTitleFontWeight: bold;
 @styledTitleColor: @unselectedTextColor;
-@styledTitleTransition: background-color 0.2s ease;
+@styledTitleTransition: background-color @transitionDuration @transitionEasing;
 @styledTitleBorder: 1px solid @borderColor;
 @styledTitleTransition:
   background @transitionDuration @transitionEasing,

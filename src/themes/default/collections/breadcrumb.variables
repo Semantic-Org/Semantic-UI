@@ -17,8 +17,8 @@
 @dividerSize: 0.9em;
 @dividerVerticalAlign: baseline;
 
-@iconDividerSize: 0.7em;
-@iconDividerVerticalAlign: middle;
+@iconDividerSize: @relativeTiny;
+@iconDividerVerticalAlign: baseline;
 
 @sectionMargin: 0em;
 @sectionPadding: 0em;

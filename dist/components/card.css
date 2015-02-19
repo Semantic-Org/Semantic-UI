@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -21,12 +21,22 @@
 ---------------*/
 
 .ui.cards {
-  margin: 1em -0.5em 0em;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: -0.75em -0.5em;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
 }
 .ui.cards > .card {
-  display: block;
-  margin: 0em 0.5em 1.5em;
-  float: left;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0.75em 0.5em;
+  float: none;
 }
 .ui.cards:first-child,
 .ui.card:first-child {
@@ -56,14 +66,22 @@
 .ui.card {
   max-width: 100%;
   position: relative;
-  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 290px;
   min-height: 0px;
   background: #ffffff;
   padding: 0em;
   border: none;
   border-radius: 0.2857rem;
-  box-shadow: 0px 0.2em 0px 0px #d4d4d5, 0px 0px 0px 1px #d4d4d5;
+  box-shadow: 0px 3px 0px 0px #d4d4d5, 0px 0px 0px 1px #d4d4d5;
   -webkit-transition: box-shadow 0.2s ease;
           transition: box-shadow 0.2s ease;
   z-index: '';
@@ -119,6 +137,10 @@
 
 .ui.cards > .card > .content,
 .ui.card > .content {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
   background: none;
   margin: 0em;
   padding: 1em 1em;
@@ -173,6 +195,23 @@
 }
 
 /*--------------
+     Aligned
+---------------*/
+
+.ui.cards > .card [class*="left aligned"],
+.ui.card [class*="left aligned"] {
+  text-align: left;
+}
+.ui.cards > .card [class*="center aligned"],
+.ui.card [class*="center aligned"] {
+  text-align: center;
+}
+.ui.cards > .card [class*="right aligned"],
+.ui.card [class*="right aligned"] {
+  text-align: right;
+}
+
+/*--------------
   Content Image
 ---------------*/
 
@@ -180,14 +219,14 @@
 .ui.card .content img {
   display: inline-block;
   vertical-align: middle;
-  width: 2em;
+  width: auto;
 }
 .ui.cards > .card img.avatar,
 .ui.cards > .card .avatar img,
 .ui.card img.avatar,
 .ui.card .avatar img {
-  width: 2em;
-  height: 2em;
+  width: 2.5em;
+  height: 2.5em;
   border-radius: 500rem;
 }
 
@@ -282,9 +321,8 @@
 .ui.card > .buttons:last-child,
 .ui.cards > .card > .button:last-child,
 .ui.card > .button:last-child {
-  margin: 0em -1px -0.2em;
-  width: -webkit-calc(100% +  2px );
-  width: calc(100% +  2px );
+  margin: 0em 0em -1px;
+  width: 100%;
 }
 
 /*--------------
@@ -306,11 +344,11 @@
 .ui.cards > .card > .content .star.icon:hover,
 .ui.card > .content .star.icon:hover {
   opacity: 1;
-  color: #ac9400;
+  color: #ffb70a;
 }
 .ui.cards > .card > .content .active.star.icon,
 .ui.card > .content .active.star.icon {
-  color: #e9b539;
+  color: #ffe623;
 }
 
 /*-----Like----- */
@@ -327,11 +365,11 @@
 .ui.cards > .card > .content .like.icon:hover,
 .ui.card > .content .like.icon:hover {
   opacity: 1;
-  color: #ffadae;
+  color: #ff2733;
 }
 .ui.cards > .card > .content .active.like.icon,
 .ui.card > .content .active.like.icon {
-  color: #ef404a;
+  color: #ff2733;
 }
 
 /*----------------
@@ -342,6 +380,10 @@
 .ui.card > .extra {
   max-width: 100%;
   min-height: 0em !important;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
   position: static;
   background: none;
   width: auto;
@@ -391,7 +433,104 @@ a.ui.card:hover,
   z-index: 5;
   background: '';
   border: none;
-  box-shadow: 0px 0.2em 0px 0px #bebebf, 0px 0px 0px 1px rgba(39, 41, 43, 0.3);
+  box-shadow: 0px 3px 0px 0px #bebebf, 0px 0px 0px 1px rgba(39, 41, 43, 0.3);
+}
+
+/*-------------------
+       Colors
+--------------------*/
+
+.ui.black.cards > .card,
+.ui.cards > .black.card,
+.ui.black.card {
+  box-shadow: 0px 3px 0px 0px #1b1c1d, 0px 0px 0px 1px #d4d4d5;
+}
+.ui.blue.cards > .card,
+.ui.cards > .blue.card,
+.ui.blue.card {
+  box-shadow: 0px 3px 0px 0px #3b83c0, 0px 0px 0px 1px #d4d4d5;
+}
+.ui.green.cards > .card,
+.ui.cards > .green.card,
+.ui.green.card {
+  box-shadow: 0px 3px 0px 0px #5bbd72, 0px 0px 0px 1px #d4d4d5;
+}
+.ui.orange.cards > .card,
+.ui.cards > .orange.card,
+.ui.orange.card {
+  box-shadow: 0px 3px 0px 0px #e07b53, 0px 0px 0px 1px #d4d4d5;
+}
+.ui.pink.cards > .card,
+.ui.cards > .pink.card,
+.ui.pink.card {
+  box-shadow: 0px 3px 0px 0px #d9499a, 0px 0px 0px 1px #d4d4d5;
+}
+.ui.purple.cards > .card,
+.ui.cards > .purple.card,
+.ui.purple.card {
+  box-shadow: 0px 3px 0px 0px #564f8a, 0px 0px 0px 1px #d4d4d5;
+}
+.ui.red.cards > .card,
+.ui.cards > .red.card,
+.ui.red.card {
+  box-shadow: 0px 3px 0px 0px #d95c5c, 0px 0px 0px 1px #d4d4d5;
+}
+.ui.teal.cards > .card,
+.ui.cards > .teal.card,
+.ui.teal.card {
+  box-shadow: 0px 3px 0px 0px #00b5ad, 0px 0px 0px 1px #d4d4d5;
+}
+.ui.yellow.cards > .card,
+.ui.cards > .yellow.card,
+.ui.yellow.card {
+  box-shadow: 0px 3px 0px 0px #f2c61f, 0px 0px 0px 1px #d4d4d5;
+}
+
+/* Hover */
+.ui.black.cards > .card:hover,
+.ui.cards > .black.card:hover,
+.ui.black.card:hover {
+  box-shadow: 0px 3px 0px 0px #1b1c1d, 0px 0px 0px 1px #d4d4d5;
+}
+.ui.blue.cards > .card:hover,
+.ui.cards > .blue.card:hover,
+.ui.blue.card:hover {
+  box-shadow: 0px 3px 0px 0px #458ac6, 0px 0px 0px 1px #d4d4d5;
+}
+.ui.green.cards > .card:hover,
+.ui.cards > .green.card:hover,
+.ui.green.card:hover {
+  box-shadow: 0px 3px 0px 0px #66c17b, 0px 0px 0px 1px #d4d4d5;
+}
+.ui.orange.cards > .card:hover,
+.ui.cards > .orange.card:hover,
+.ui.orange.card:hover {
+  box-shadow: 0px 3px 0px 0px #e28560, 0px 0px 0px 1px #d4d4d5;
+}
+.ui.pink.cards > .card:hover,
+.ui.cards > .pink.card:hover,
+.ui.pink.card:hover {
+  box-shadow: 0px 3px 0px 0px #dc56a1, 0px 0px 0px 1px #d4d4d5;
+}
+.ui.purple.cards > .card:hover,
+.ui.cards > .purple.card:hover,
+.ui.purple.card:hover {
+  box-shadow: 0px 3px 0px 0px #5c5594, 0px 0px 0px 1px #d4d4d5;
+}
+.ui.red.cards > .card:hover,
+.ui.cards > .red.card:hover,
+.ui.red.card:hover {
+  box-shadow: 0px 3px 0px 0px #dc6868, 0px 0px 0px 1px #d4d4d5;
+}
+.ui.teal.cards > .card:hover,
+.ui.cards > .teal.card:hover,
+.ui.teal.card:hover {
+  box-shadow: 0px 3px 0px 0px #00c4bc, 0px 0px 0px 1px #d4d4d5;
+}
+.ui.yellow.cards > .card:hover,
+.ui.cards > .yellow.card:hover,
+.ui.yellow.card:hover {
+  box-shadow: 0px 3px 0px 0px #f3ca2d, 0px 0px 0px 1px #d4d4d5;
 }
 
 /*--------------

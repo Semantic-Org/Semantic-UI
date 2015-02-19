@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -18,7 +18,7 @@
 .ui.accordion,
 .ui.accordion .accordion {
   max-width: 100%;
-  font-size: 14px;
+  font-size: 1em;
 }
 .ui.accordion .accordion {
   margin: 1em 0em 0em;
@@ -60,8 +60,8 @@
 .ui.accordion .accordion .title .dropdown.icon {
   display: inline-block;
   float: none;
-  opacity: 0.75;
-  width: 1.18em;
+  opacity: 1;
+  width: 1.25em;
   height: 1em;
   margin: 0em 0.25rem 0em 0rem;
   padding: 0em;
@@ -69,9 +69,9 @@
   -webkit-transition: -webkit-transform 0.2s ease, opacity 0.2s ease;
           transition: transform 0.2s ease, opacity 0.2s ease;
   vertical-align: baseline;
-  -webkit-transform: rotate(0deg);
-      -ms-transform: rotate(0deg);
-          transform: rotate(0deg);
+  -webkit-transform: none;
+      -ms-transform: none;
+          transform: none;
 }
 
 /*--------------

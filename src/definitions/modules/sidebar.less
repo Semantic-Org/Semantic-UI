@@ -10,6 +10,7 @@
  */
 
 
+
 /*******************************
             Theme
 *******************************/
@@ -17,8 +18,7 @@
 @type    : 'module';
 @element : 'sidebar';
 
-@import '../../theme.config';
-
+@import (multiple) '../../theme.config';
 
 /*******************************
             Sidebar
@@ -94,14 +94,19 @@
   padding: 0em !important;
 }
 
-/* Inside Page */
-.pushable:not(body) {
-  transform: translate3d(0, 0, 0);
-}
-
 /* Whole Page */
 body.pushable {
   background: @canvasBackground !important;
+}
+
+/* Page Context */
+.pushable:not(body) {
+  transform: translate3d(0, 0, 0);
+}
+.pushable:not(body) > .ui.sidebar,
+.pushable:not(body) > .fixed,
+.pushable:not(body) > .pusher:after {
+  position: absolute;
 }
 
 
@@ -125,6 +130,7 @@ body.pushable {
 .pushable > .pusher {
   position: relative;
   backface-visibility: hidden;
+  overflow: hidden;
   min-height: 100%;
   transition: transform @duration @easing;
   z-index: @middleLayer;

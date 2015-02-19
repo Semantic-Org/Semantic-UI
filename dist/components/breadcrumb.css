@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -53,8 +53,8 @@
 
 /* Icon Divider */
 .ui.breadcrumb .icon.divider {
-  font-size: 0.7em;
-  vertical-align: middle;
+  font-size: 0.85714286em;
+  vertical-align: baseline;
 }
 
 /* Section */

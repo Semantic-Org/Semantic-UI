@@ -62,23 +62,28 @@ $.fn.transition = function() {
         initialize: function() {
 
           // get full settings
-          moduleNamespace = 'module-' + namespace;
           settings        = module.get.settings.apply(element, moduleArguments);
+
+          // shorthand
           className       = settings.className;
+          error           = settings.error;
           metadata        = settings.metadata;
 
-          animationStart  = module.get.animationStartEvent();
+          // define namespace
+          eventNamespace  = '.' + settings.namespace;
+          moduleNamespace = 'module-' + settings.namespace;
+          instance        = $module.data(moduleNamespace) || module;
+
+          // get vendor specific events
           animationEnd    = module.get.animationEndEvent();
           animationName   = module.get.animationName();
-          error           = settings.error;
-          namespace       = settings.namespace;
-          eventNamespace  = '.' + settings.namespace;
-          instance        = $module.data(moduleNamespace) || module;
+          animationStart  = module.get.animationStartEvent();
 
           if(methodInvoked) {
             methodInvoked = module.invoke(query);
           }
-          // no internal method was found matching query or query not made
+
+          // method not invoked, lets run an animation
           if(methodInvoked === false) {
             module.verbose('Converted arguments into settings object', settings);
             module.animate();
@@ -88,6 +93,7 @@ $.fn.transition = function() {
 
         instantiate: function() {
           module.verbose('Storing instance of module', module);
+          instance = module;
           $module
             .data(moduleNamespace, instance)
           ;
@@ -135,16 +141,17 @@ $.fn.transition = function() {
           module.debug('Preparing animation', settings.animation);
           if(module.is.animating()) {
             if(settings.queue) {
-              if(!settings.allowRepeats && module.has.direction() && module.is.occuring() && module.queuing !== true) {
-                module.error(error.repeated, settings.animation, $module);
+              if(!settings.allowRepeats && module.has.direction() && module.is.occurring() && module.queuing !== true) {
+                module.debug('Animation is currently occurring, preventing queueing same animation', settings.animation);
               }
               else {
                 module.queue(settings.animation);
               }
               return false;
             }
-            else {
-
+            else if(!settings.allowRepeats && module.is.occurring()) {
+              module.debug('Animation is already occurring, will not execute repeated animation', settings.animation);
+              return false;
             }
           }
           if( module.can.animate() ) {
@@ -203,12 +210,19 @@ $.fn.transition = function() {
 
         has: {
           direction: function(animation) {
+            var
+              hasDirection = false
+            ;
             animation = animation || settings.animation;
-            if( animation.search(className.inward) !== -1 || animation.search(className.outward) !== -1) {
-              module.debug('Direction already set in animation');
-              return true;
+            if(typeof animation === 'string') {
+              animation = animation.split(' ');
+              $.each(animation, function(index, word){
+                if(word === className.inward || word === className.outward) {
+                  hasDirection = true;
+                }
+              });
             }
-            return false;
+            return hasDirection;
           },
           inlineDisplay: function() {
             var
@@ -232,8 +246,7 @@ $.fn.transition = function() {
             module.remove.hidden();
             module.set.display();
             $module
-              .addClass(className.animating)
-              .addClass(className.transition)
+              .addClass(className.animating + ' ' + className.transition + ' ' + animation)
               .addClass(animation)
               .one(animationEnd + '.complete' + eventNamespace, module.complete)
             ;
@@ -251,15 +264,17 @@ $.fn.transition = function() {
               : duration
             ;
             module.verbose('Setting animation duration', duration);
-            $module
-              .css({
-                '-webkit-animation-duration': duration,
-                '-moz-animation-duration': duration,
-                '-ms-animation-duration': duration,
-                '-o-animation-duration': duration,
-                'animation-duration':  duration
-              })
-            ;
+            if(duration || duration === 0) {
+              $module
+                .css({
+                  '-webkit-animation-duration': duration,
+                  '-moz-animation-duration': duration,
+                  '-ms-animation-duration': duration,
+                  '-o-animation-duration': duration,
+                  'animation-duration':  duration
+                })
+              ;
+            }
           },
           display: function() {
             var
@@ -472,7 +487,10 @@ $.fn.transition = function() {
           },
           duration: function(duration) {
             duration = duration || settings.duration;
-            return (typeof settings.duration === 'string')
+            if(duration === false) {
+              duration = $module.css('animation-duration') || 0;
+            }
+            return (typeof duration === 'string')
               ? (duration.indexOf('ms') > -1)
                 ? parseFloat(duration)
                 : parseFloat(duration) * 1000
@@ -632,9 +650,9 @@ $.fn.transition = function() {
           looping: function() {
             return $module.hasClass(className.looping);
           },
-          occuring: function(animation) {
+          occurring: function(animation) {
             animation = animation || settings.animation;
-            animation = animation.replace(' ', '.');
+            animation = '.' + animation.replace(' ', '.');
             return ( $module.filter(animation).length > 0 );
           },
           visible: function() {
@@ -889,7 +907,7 @@ $.fn.transition.settings = {
 
   // animation duration
   animation    : 'fade',
-  duration     : '500ms',
+  duration     : false,
 
   // new animations will occur after previous ones
   queue       : true,

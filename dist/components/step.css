@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -365,7 +365,7 @@
 .ui.six.steps,
 .ui.seven.steps,
 .ui.eight.steps {
-  display: block;
+  width: 100%;
 }
 .ui.one.steps > .step {
   width: 100%;

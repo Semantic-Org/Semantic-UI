@@ -9,6 +9,7 @@
  *
  */
 
+
 /*******************************
             Theme
 *******************************/
@@ -16,17 +17,11 @@
 @type    : 'module';
 @element : 'transition';
 
-@import '../../theme.config';
-
+@import (multiple) '../../theme.config';
 
 /*******************************
           Transitions
 *******************************/
-
-/*
-  Some transitions adapted from Animate CSS
-  https://github.com/daneden/animate.css
-*/
 
 .transition {
   animation-iteration-count: 1;
@@ -81,9 +76,5 @@
   animation-iteration-count: infinite;
 }
 
-
-/*******************************
-             Types
-*******************************/
 
 .loadUIOverrides();

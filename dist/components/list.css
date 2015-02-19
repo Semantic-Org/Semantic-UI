@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -777,7 +777,6 @@ ol.ui.horizontal.list li:before,
        Relaxed
 --------------------*/
 
-.ui.relaxed.list:not(.horizontal) .list > .item,
 .ui.relaxed.list:not(.horizontal) > .item {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -792,7 +791,6 @@ ol.ui.horizontal.list li:before,
 }
 
 /* Very Relaxed */
-.ui[class*="very relaxed"].list:not(.horizontal) .list > .item,
 .ui[class*="very relaxed"].list:not(.horizontal) > .item {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -811,36 +809,28 @@ ol.ui.horizontal.list li:before,
       Sizes
 --------------------*/
 
-.ui.mini.list .list > .item,
-.ui.mini.list > .item {
+.ui.mini.list {
   font-size: 0.71428571em;
 }
-.ui.tiny.list .list > .item,
-.ui.tiny.list > .item {
+.ui.tiny.list {
   font-size: 0.85714286em;
 }
-.ui.small.list .list > .item,
-.ui.small.list > .item {
+.ui.small.list {
   font-size: 0.92857143em;
 }
-.ui.list .list > .item,
-.ui.list > .item {
+.ui.list {
   font-size: 1em;
 }
-.ui.large.list .list > .item,
-.ui.large.list > .item {
+.ui.large.list {
   font-size: 1.14285714em;
 }
-.ui.big.list .list > .item,
-.ui.big.list > .item {
+.ui.big.list {
   font-size: 1.28571429em;
 }
-.ui.huge.list .list > .item,
-.ui.huge.list > .item {
+.ui.huge.list {
   font-size: 1.42857143em;
 }
-.ui.massive.list .list > .item,
-.ui.massive.list > .item {
+.ui.massive.list {
   font-size: 1.71428571em;
 }
 .ui.mini.horizontal.list .list > .item,

@@ -9,6 +9,7 @@
  *
  */
 
+
 /*******************************
             Theme
 *******************************/
@@ -16,8 +17,7 @@
 @type    : 'module';
 @element : 'dropdown';
 
-@import '../../theme.config';
-
+@import (multiple) '../../theme.config';
 
 /*******************************
             Dropdown
@@ -73,7 +73,7 @@
   Hidden Input
 ---------------*/
 
-.ui.dropdown > input[type="hidden"],
+.ui.dropdown > input:not(.search):first-child,
 .ui.dropdown > select {
   display: none !important;
 }
@@ -348,7 +348,7 @@
 }
 
 select.ui.dropdown {
-  height: 38px;
+  height: @selectPreInitHeight;
   padding: 0em;
   margin: 0em;
   visibility: hidden;
@@ -359,10 +359,12 @@ select.ui.dropdown {
 .ui.selection.dropdown > .search.icon,
 .ui.selection.dropdown > .delete.icon,
 .ui.selection.dropdown > .dropdown.icon {
+  cursor: pointer;
   position: absolute;
   top: auto;
-  margin: 0em;
   width: auto;
+  margin: @selectionIconMargin;
+  padding: @selectionIconPadding;
   right: @selectionHorizontalPadding;
   opacity: @selectionIconOpacity;
   transition: @selectionIconTransition;
@@ -455,9 +457,6 @@ select.ui.dropdown {
   border-color: @selectionVisibleBorderColor;
   box-shadow: @selectionVisibleBoxShadow;
 }
-.ui.visible.selection.dropdown > .dropdown.icon {
-  opacity: @selectionVisibleIconOpacity;
-}
 
 /* Active Item */
 .ui.selection.active.dropdown > .text:not(.default),
@@ -466,6 +465,12 @@ select.ui.dropdown {
   color: @selectionVisibleTextColor;
 }
 
+/* Dropdown Icon */
+.ui.active.selection.dropdown > .dropdown.icon,
+.ui.visible.selection.dropdown > .dropdown.icon {
+  opacity: @selectionVisibleIconOpacity;
+  z-index: 3;
+}
 
 /* Connecting Border */
 .ui.active.selection.dropdown,

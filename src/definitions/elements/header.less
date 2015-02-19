@@ -9,6 +9,7 @@
  *
  */
 
+
 /*******************************
             Theme
 *******************************/
@@ -16,7 +17,8 @@
 @type    : 'element';
 @element : 'header';
 
-@import '../../theme.config';
+@import (multiple) '../../theme.config';
+
 
 /*******************************
             Header
@@ -34,21 +36,24 @@
   color: @textColor;
 }
 
-.ui.header .sub.header {
-  font-size: @subHeaderFontSize;
-  font-weight: normal;
-  margin: 0em;
-  padding: 0em;
-
-  line-height: @subHeaderLineHeight;
-  color: @subHeaderColor;
-}
-
 .ui.header:first-child {
   margin-top: @firstMargin;
 }
 .ui.header:last-child {
   margin-bottom: @lastMargin;
+}
+
+/*--------------
+   Sub Header
+---------------*/
+
+.ui.header .sub.header {
+  font-weight: normal;
+  margin: 0em;
+  padding: 0em;
+  font-size: @subHeaderFontSize;
+  line-height: @subHeaderLineHeight;
+  color: @subHeaderColor;
 }
 
 /*--------------
@@ -60,17 +65,31 @@
   opacity: @iconOpacity;
   font-size: @iconSize;
   padding-top: @iconOffset;
-
   vertical-align: @iconAlignment;
-  padding-right: (@iconMargin / 2);
 }
 
-/* Only One */
+/* With Text Node */
 .ui.header .icon:only-child {
   display: inline-block;
   padding: 0em;
-  margin-right: (@iconMargin / 2);
-  vertical-align: baseline;
+  margin-right: @iconMargin;
+}
+
+/*-------------------
+        Image
+--------------------*/
+
+.ui.header > .image,
+.ui.header > img {
+  display: inline-block;
+  margin-top: @imageOffset;
+  width: @imageWidth;
+  height: @imageHeight;
+  vertical-align: @imageAlignment;
+}
+.ui.header > .image:only-child,
+.ui.header > img:only-child {
+  margin-right: @imageMargin;
 }
 
 /*--------------
@@ -82,31 +101,18 @@
   vertical-align: @contentAlignment;
 }
 
+/* After Image */
+.ui.header > img + .content,
+.ui.header > .image + .content {
+  padding-left: @imageMargin;
+  vertical-align: @contentImageAlignment;
+}
+
+/* After Icon */
 .ui.header > .icon + .content {
-  padding-left: (@iconMargin / 2);
+  padding-left: @iconMargin;
   display: table-cell;
   vertical-align: @contentIconAlignment;
-}
-
-/*--------------
- Content Heading
----------------*/
-
-.ui.tiny.header {
-  font-size: @tiny;
-}
-.ui.small.header {
-  font-size: @small;
-}
-.ui.medium.header {
-  font-size: @medium;
-}
-.ui.large.header {
-  font-size: @large;
-}
-.ui.huge.header {
-  min-height: 1em;
-  font-size: @huge;
 }
 
 
@@ -130,10 +136,10 @@
             Types
 *******************************/
 
+
 /*--------------
      Page
 ---------------*/
-
 
 h1.ui.header {
   font-size: @h1;
@@ -151,6 +157,62 @@ h5.ui.header {
   font-size: @h5;
 }
 
+
+/* Sub Header */
+h1.ui.header .sub.header {
+  font-size: @h1SubHeaderFontSize;
+}
+h2.ui.header .sub.header {
+  font-size: @h2SubHeaderFontSize;
+}
+h3.ui.header .sub.header {
+  font-size: @h3SubHeaderFontSize;
+}
+h4.ui.header .sub.header {
+  font-size: @h4SubHeaderFontSize;
+}
+h5.ui.header .sub.header {
+  font-size: @h5SubHeaderFontSize;
+}
+
+
+/*--------------
+ Content Heading
+---------------*/
+
+.ui.huge.header {
+  min-height: 1em;
+  font-size: @huge;
+}
+.ui.large.header {
+  font-size: @large;
+}
+.ui.medium.header {
+  font-size: @medium;
+}
+.ui.small.header {
+  font-size: @small;
+}
+.ui.tiny.header {
+  font-size: @tiny;
+}
+
+/* Sub Header */
+.ui.huge.header .sub.header {
+  font-size: @hugeSubHeaderFontSize;
+}
+.ui.large.header .sub.header {
+  font-size: @hugeSubHeaderFontSize;
+}
+.ui.header .sub.header {
+  font-size: @subHeaderFontSize;
+}
+.ui.small.header .sub.header {
+  font-size: @smallSubHeaderFontSize;
+}
+.ui.tiny.header .sub.header {
+  font-size: @tinySubHeaderFontSize;
+}
 
 /*-------------------
         Icon

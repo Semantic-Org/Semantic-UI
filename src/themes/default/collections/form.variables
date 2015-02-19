@@ -111,7 +111,7 @@
 @inputErrorBoxShadow: @inputErrorPointerSize 0em 0em 0em @formErrorColor inset;
 
 /* Dropdown Error */
-@dropdownErrorHoverBackground: #FFF2F2;
+@dropdownErrorHoverBackground: #FBE7E7;
 @dropdownErrorActiveBackground: #FDCFCF;
 
 /* Focused Error */

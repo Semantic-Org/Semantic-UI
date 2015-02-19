@@ -7,13 +7,13 @@
 --------------------*/
 
 /* Shadow */
-@shadowDistance: 0.2em;
+@shadowDistance: 3px;
 @shadowBoxShadow: 0px @shadowDistance 0px 0px @solidBorderColor;
 
 /* Item */
+@display: flex;
 @background: #FFFFFF;
 @borderRadius: @defaultBorderRadius;
-@display: block;
 @margin: 1em 0em;
 @minHeight: 0px;
 @padding: 0em;
@@ -29,12 +29,13 @@
 @transition: box-shadow @transitionDuration @transitionEasing;
 
 /* Item Group */
-@groupDisplay: block;
-@groupFloat: left;
-@horizontalSpacing: 0.5em;
+@horizontalSpacing: 1em;
 @rowSpacing: 1.5em;
-@groupCardsMargin: 1em -@horizontalSpacing 0em;
-@groupCardMargin: 0em @horizontalSpacing @rowSpacing;
+@groupDisplay: flex;
+@groupCardDisplay: flex;
+@groupFloat: none;
+@groupCardsMargin: -(@rowSpacing / 2) -(@horizontalSpacing / 2);
+@groupCardMargin: (@rowSpacing / 2) (@horizontalSpacing / 2);
 
 /*-------------------
        Content
@@ -74,10 +75,12 @@
 @actionOpacity: 0.75;
 @actionHoverOpacity: 1;
 @actionTransition: color @transitionDuration @transitionEasing;
-@starColor: #AC9400;
-@starActiveColor: #E9B539;
-@likeColor: #FFADAE;
-@likeActiveColor: #EF404A;
+
+@starColor: #FFB70A;
+@starActiveColor: #FFE623;
+
+@likeColor: #FF2733;
+@likeActiveColor: #FF2733;
 
 /* Links */
 @contentLinkColor: '';
@@ -95,11 +98,11 @@
 @descriptionColor: rgba(0, 0, 0, 0.5);
 
 /* Content Image */
-@contentImageWidth: 2em;
+@contentImageWidth: auto;
 @contentImageVerticalAlign: middle;
 
 /* Avatar Image */
-@avatarSize: @contentImageWidth;
+@avatarSize: 2.5em;
 @avatarBorderRadius: @circularRadius;
 
 /* Paragraph */
@@ -123,8 +126,8 @@
 @extraLinkHoverColor: @linkHoverColor;
 
 /* Buttons */
-@buttonMargin: 0em -@borderWidth -@shadowDistance;
-@buttonWidth: ~"calc(100% + "(@borderWidth * 2)~")";
+@buttonMargin: 0em 0em -1px;
+@buttonWidth: 100%;
 
 /*-------------------
       Variations

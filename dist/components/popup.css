@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -20,7 +20,10 @@
   position: absolute;
   top: 0px;
   right: 0px;
-  z-index: 900;
+  
+/* Fixes content being squished when inline (moz only) */
+  min-width: -moz-max-content;
+  z-index: 1900;
   border: 1px solid #cccccc;
   max-width: 250px;
   background-color: #ffffff;

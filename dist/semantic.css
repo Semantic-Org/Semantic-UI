@@ -1,7 +1,6 @@
 @import 'https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&subset=latin';
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -490,9 +489,8 @@ th {
 /*******************************
          Site Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -643,9 +641,8 @@ input::selection {
 /*******************************
          Site Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -716,9 +713,9 @@ input::selection {
 
 .ui.button:focus {
   background-color: '';
-  background-image: '';
-  box-shadow: 0px 0px 0px 1px transparent inset, 0px 0px 1px rgba(81, 167, 232, 0.8) inset, 0px 0px 3px 2px rgba(81, 167, 232, 0.8);
   color: rgba(0, 0, 0, 0.8);
+  background-image: '' !important;
+  box-shadow: 0px 0px 0px 1px transparent inset, 0px 0px 1px rgba(81, 167, 232, 0.8) inset, 0px 0px 3px 2px rgba(81, 167, 232, 0.8) !important;
 }
 
 .ui.button:focus .icon {
@@ -768,11 +765,12 @@ input::selection {
 .ui.loading.loading.loading.loading.loading.loading.button {
   position: relative;
   cursor: default;
-  point-events: none;
   text-shadow: none !important;
   color: transparent !important;
-  -webkit-transition: all 0s linear;
-  transition: all 0s linear;
+  opacity: 1;
+  pointer-events: none;
+  -webkit-transition: all 0s linear, opacity 0.2s ease;
+  transition: all 0s linear, opacity 0.2s ease;
 }
 
 .ui.loading.button:before {
@@ -858,6 +856,12 @@ input::selection {
   background-image: none !important;
   box-shadow: none !important;
   pointer-events: none;
+}
+
+/* Basic Group With Disabled */
+
+.ui.basic.buttons .ui.disabled.button {
+  border-color: rgba(39, 41, 43, 0.5);
 }
 
 /*******************************
@@ -1445,6 +1449,15 @@ input::selection {
 
 .ui.basic.vertical.buttons .button {
   border-left: none;
+}
+
+.ui.basic.vertical.buttons .button {
+  border-left-width: 0px;
+  border-top: 1px solid rgba(39, 41, 43, 0.15);
+}
+
+.ui.basic.vertical.buttons .button:first-child {
+  border-top-width: 0px;
 }
 
 /*--------------
@@ -3347,9 +3360,8 @@ input::selection {
 /*******************************
          Site Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -3538,10 +3550,7 @@ input::selection {
     Inverted
 ---------------*/
 
-.ui.divider.inverted {
-  color: #ffffff;
-}
-
+.ui.divider.inverted,
 .ui.vertical.inverted.divider,
 .ui.horizontal.inverted.divider {
   color: #ffffff;
@@ -3596,9 +3605,8 @@ input::selection {
 /*******************************
          Site Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -3607,6 +3615,10 @@ input::selection {
  * http://opensource.org/licenses/MIT
  *
  */
+
+/*******************************
+             Flag
+*******************************/
 
 i.flag:not(.icon) {
   display: inline-block;
@@ -3621,6 +3633,8 @@ i.flag:not(.icon) {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
+
+/* Sprite */
 
 i.flag:not(.icon):before {
   display: inline-block;
@@ -4853,9 +4867,8 @@ i.flag.zimbabwe:before {
 /*******************************
          Site Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -4883,21 +4896,25 @@ i.flag.zimbabwe:before {
   color: rgba(0, 0, 0, 0.8);
 }
 
-.ui.header .sub.header {
-  font-size: 1.0714rem;
-  font-weight: normal;
-  margin: 0em;
-  padding: 0em;
-  line-height: 1.2em;
-  color: rgba(0, 0, 0, 0.5);
-}
-
 .ui.header:first-child {
   margin-top: -0.165em;
 }
 
 .ui.header:last-child {
   margin-bottom: 0em;
+}
+
+/*--------------
+   Sub Header
+---------------*/
+
+.ui.header .sub.header {
+  font-weight: normal;
+  margin: 0em;
+  padding: 0em;
+  font-size: 1.1428rem;
+  line-height: 1.2em;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 /*--------------
@@ -4910,16 +4927,32 @@ i.flag.zimbabwe:before {
   font-size: 1.5em;
   padding-top: 0.165em;
   vertical-align: middle;
-  padding-right: 0.5rem;
 }
 
-/* Only One */
+/* With Text Node */
 
 .ui.header .icon:only-child {
   display: inline-block;
   padding: 0em;
-  margin-right: 0.5rem;
-  vertical-align: baseline;
+  margin-right: 0.75rem;
+}
+
+/*-------------------
+        Image
+--------------------*/
+
+.ui.header > .image,
+.ui.header > img {
+  display: inline-block;
+  margin-top: 0.165em;
+  width: 2.5em;
+  height: auto;
+  vertical-align: middle;
+}
+
+.ui.header > .image:only-child,
+.ui.header > img:only-child {
+  margin-right: 0.75rem;
 }
 
 /*--------------
@@ -4931,35 +4964,20 @@ i.flag.zimbabwe:before {
   vertical-align: top;
 }
 
-.ui.header > .icon + .content {
-  padding-left: 0.5rem;
-  display: table-cell;
+/* After Image */
+
+.ui.header > img + .content,
+.ui.header > .image + .content {
+  padding-left: 0.75rem;
   vertical-align: middle;
 }
 
-/*--------------
- Content Heading
----------------*/
+/* After Icon */
 
-.ui.tiny.header {
-  font-size: 1em;
-}
-
-.ui.small.header {
-  font-size: 1.071em;
-}
-
-.ui.medium.header {
-  font-size: 1.285em;
-}
-
-.ui.large.header {
-  font-size: 1.714em;
-}
-
-.ui.huge.header {
-  min-height: 1em;
-  font-size: 2em;
+.ui.header > .icon + .content {
+  padding-left: 0.75rem;
+  display: table-cell;
+  vertical-align: middle;
 }
 
 /*--------------
@@ -5003,6 +5021,75 @@ h4.ui.header {
 
 h5.ui.header {
   font-size: 1rem;
+}
+
+/* Sub Header */
+
+h1.ui.header .sub.header {
+  font-size: 1.4285rem;
+}
+
+h2.ui.header .sub.header {
+  font-size: 1.1428rem;
+}
+
+h3.ui.header .sub.header {
+  font-size: 1.1428rem;
+}
+
+h4.ui.header .sub.header {
+  font-size: 1rem;
+}
+
+h5.ui.header .sub.header {
+  font-size: 0.9285rem;
+}
+
+/*--------------
+ Content Heading
+---------------*/
+
+.ui.huge.header {
+  min-height: 1em;
+  font-size: 2em;
+}
+
+.ui.large.header {
+  font-size: 1.714em;
+}
+
+.ui.medium.header {
+  font-size: 1.28em;
+}
+
+.ui.small.header {
+  font-size: 1.071em;
+}
+
+.ui.tiny.header {
+  font-size: 1em;
+}
+
+/* Sub Header */
+
+.ui.huge.header .sub.header {
+  font-size: 1.4285rem;
+}
+
+.ui.large.header .sub.header {
+  font-size: 1.4285rem;
+}
+
+.ui.header .sub.header {
+  font-size: 1.1428rem;
+}
+
+.ui.small.header .sub.header {
+  font-size: 1rem;
+}
+
+.ui.tiny.header .sub.header {
+  font-size: 0.9285rem;
 }
 
 /*-------------------
@@ -5382,7 +5469,7 @@ a.ui.inverted.yellow.header:hover {
 }
 
 .ui.block.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
-  font-size: 1.285em;
+  font-size: 1.28em;
 }
 
 .ui.large.block.header {
@@ -5457,7 +5544,7 @@ a.ui.inverted.yellow.header:hover {
 --------------------*/
 
 .ui.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
-  font-size: 1.285em;
+  font-size: 1.28em;
 }
 
 /*******************************
@@ -5467,9 +5554,8 @@ a.ui.inverted.yellow.header:hover {
 /*******************************
          Site Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -5486,7 +5572,7 @@ a.ui.inverted.yellow.header:hover {
 @font-face {
   font-family: 'Icons';
   src: url("themes/default/assets/fonts/icons.eot");
-  src: url("themes/default/assets/fonts/icons.eot?#iefix") format('embedded-opentype'), url("themes/default/assets/fonts/icons.svg#icons") format('svg'), url("themes/default/assets/fonts/icons.woff") format('woff'), url("themes/default/assets/fonts/icons.ttf") format('truetype');
+  src: url("themes/default/assets/fonts/icons.eot?#iefix") format('embedded-opentype'), url("themes/default/assets/fonts/icons.woff2") format('woff'), url("themes/default/assets/fonts/icons.woff") format('woff'), url("themes/default/assets/fonts/icons.ttf") format('truetype'), url("themes/default/assets/fonts/icons.svg#icons") format('svg');
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -5860,19 +5946,9 @@ i.massive.icon {
  */
 
 /*
- *  Font Awesome 4.0.3
- *  the iconic font designed for Bootstrap
- *  ------------------------------------------------------------------------------
- *  The full suite of pictographic icons, examples, and documentation can be
- *  found at http://fon.io.  Stay up to date on Twitter at
- *  http://twitter.com/fon.
- *
- *  License
- *  ------------------------------------------------------------------------------
- *  - The Font Awesome font is licensed under SIL OFL 1.1 -
- *    http://scripts.sil.org/OFL
-
-
+ * Font Awesome 4.3.0 by @davegandy - http://fontawesome.io - @fontawesome
+ * License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ */
 
 /*******************************
 
@@ -5911,11 +5987,11 @@ i.icon.mail.outline:before {
   content: "\f003";
 }
 
-i.icon.external.link:before {
+i.icon.external:before {
   content: "\f08e";
 }
 
-i.icon.wifi:before {
+i.icon.signal:before {
   content: "\f012";
 }
 
@@ -6035,7 +6111,7 @@ i.icon.ticket:before {
   content: "\f145";
 }
 
-i.icon.external.link.square:before {
+i.icon.external.square:before {
   content: "\f14c";
 }
 
@@ -6065,6 +6141,46 @@ i.icon.comment.outline:before {
 
 i.icon.comments.outline:before {
   content: "\f0e6";
+}
+
+i.icon.text.telephone:before {
+  content: "\f1e4";
+}
+
+i.icon.find:before {
+  content: "\f1e5";
+}
+
+i.icon.wifi:before {
+  content: "\f1eb";
+}
+
+i.icon.alarm.slash:before {
+  content: "\f1f6";
+}
+
+i.icon.alarm.slash.outline:before {
+  content: "\f1f7";
+}
+
+i.icon.copyright:before {
+  content: "\f1f9";
+}
+
+i.icon.at:before {
+  content: "\f1fa";
+}
+
+i.icon.eyedropper:before {
+  content: "\f1fb";
+}
+
+i.icon.paint.brush:before {
+  content: "\f1fc";
+}
+
+i.icon.heartbeat:before {
+  content: "\f21e";
 }
 
 /* User Actions */
@@ -6265,6 +6381,22 @@ i.icon.share.square:before {
   content: "\f14d";
 }
 
+i.icon.add.to.cart:before {
+  content: "\f217";
+}
+
+i.icon.in.cart:before {
+  content: "\f218";
+}
+
+i.icon.add.user:before {
+  content: "\f234";
+}
+
+i.icon.remove.user:before {
+  content: "\f235";
+}
+
 /* Messages */
 
 i.icon.help.circle:before {
@@ -6299,6 +6431,10 @@ i.icon.announcement:before {
   content: "\f0a1";
 }
 
+i.icon.birthday:before {
+  content: "\f1fd";
+}
+
 /* Users */
 
 i.icon.users:before {
@@ -6307,14 +6443,6 @@ i.icon.users:before {
 
 i.icon.doctor:before {
   content: "\f0f0";
-}
-
-i.icon.female:before {
-  content: "\f182";
-}
-
-i.icon.male:before {
-  content: "\f183";
 }
 
 i.icon.child:before {
@@ -6331,6 +6459,68 @@ i.icon.handicap:before {
 
 i.icon.student:before {
   content: "\f19d";
+}
+
+i.icon.spy:before {
+  content: "\f21b";
+}
+
+/* Gender & Sexuality */
+
+i.icon.female:before {
+  content: "\f182";
+}
+
+i.icon.male:before {
+  content: "\f183";
+}
+
+i.icon.woman:before {
+  content: "\f221";
+}
+
+i.icon.man:before {
+  content: "\f222";
+}
+
+i.icon.non.binary.transgender:before {
+  content: "\f223";
+}
+
+i.icon.intergender:before {
+  content: "\f224";
+}
+
+i.icon.transgender:before {
+  content: "\f225";
+}
+
+i.icon.lesbian:before {
+  content: "\f226";
+}
+
+i.icon.gay:before {
+  content: "\f227";
+}
+
+i.icon.heterosexual:before {
+  content: "\f228";
+}
+
+i.icon.other.gender:before {
+  content: "\f229";
+}
+
+i.icon.other.gender.vertical:before {
+  content: "\f22a";
+}
+
+i.icon.other.gender.horizontal:before {
+  content: "\f22b";
+}
+
+i.icon.neuter:before {
+  content: "\f22c";
 }
 
 /* View Adjustment */
@@ -6501,6 +6691,18 @@ i.icon.bomb:before {
   content: "\f1e2";
 }
 
+i.icon.soccer:before {
+  content: "\f1e3";
+}
+
+i.icon.calculator:before {
+  content: "\f1ec";
+}
+
+i.icon.diamond:before {
+  content: "\f219";
+}
+
 /* Shapes */
 
 i.icon.crosshairs:before {
@@ -6629,6 +6831,14 @@ i.icon.plus.square.outline:before {
   content: "\f196";
 }
 
+i.icon.toggle.off:before {
+  content: "\f204";
+}
+
+i.icon.toggle.on:before {
+  content: "\f205";
+}
+
 /* Media */
 
 i.icon.film:before {
@@ -6649,6 +6859,22 @@ i.icon.bar.chart:before {
 
 i.icon.camera.retro:before {
   content: "\f083";
+}
+
+i.icon.newspaper:before {
+  content: "\f1ea";
+}
+
+i.icon.area.chart:before {
+  content: "\f1fe";
+}
+
+i.icon.pie.chart:before {
+  content: "\f200";
+}
+
+i.icon.line.chart:before {
+  content: "\f201";
 }
 
 /* Pointers */
@@ -6836,6 +7062,10 @@ i.icon.power:before {
 }
 
 i.icon.trash:before {
+  content: "\f1f8";
+}
+
+i.icon.trash.outline:before {
   content: "\f014";
 }
 
@@ -6865,6 +7095,10 @@ i.icon.game:before {
 
 i.icon.keyboard:before {
   content: "\f11c";
+}
+
+i.icon.plug:before {
+  content: "\f1e6";
 }
 
 /* File System */
@@ -6967,6 +7201,10 @@ i.icon.css3:before {
   content: "\f13c";
 }
 
+i.icon.rss:before {
+  content: "\f09e";
+}
+
 i.icon.rss.square:before {
   content: "\f143";
 }
@@ -6977,6 +7215,10 @@ i.icon.openid:before {
 
 i.icon.database:before {
   content: "\f1c0";
+}
+
+i.icon.server:before {
+  content: "\f233";
 }
 
 /* Rating */
@@ -7111,7 +7353,11 @@ i.icon.video.play:before {
   content: "\f144";
 }
 
-/* Map & Locations */
+i.icon.closed.captioning:before {
+  content: "\f20a";
+}
+
+/* Map, Locations, & Transportation */
 
 i.icon.marker:before {
   content: "\f041";
@@ -7183,6 +7429,38 @@ i.icon.taxi:before {
 
 i.icon.tree:before {
   content: "\f1bb";
+}
+
+i.icon.bicycle:before {
+  content: "\f206";
+}
+
+i.icon.bus:before {
+  content: "\f207";
+}
+
+i.icon.ship:before {
+  content: "\f21a";
+}
+
+i.icon.motorcycle:before {
+  content: "\f21c";
+}
+
+i.icon.street.view:before {
+  content: "\f21d";
+}
+
+i.icon.hotel:before {
+  content: "\f236";
+}
+
+i.icon.train:before {
+  content: "\f238";
+}
+
+i.icon.subway:before {
+  content: "\f239";
 }
 
 /* Tables */
@@ -7377,6 +7655,44 @@ i.icon.won:before {
 
 i.icon.lira:before {
   content: "\f195";
+}
+
+i.icon.shekel:before {
+  content: "\f20b";
+}
+
+/* Payment Options */
+
+i.icon.paypal:before {
+  content: "\f1ed";
+}
+
+i.icon.paypal.card:before {
+  content: "\f1f4";
+}
+
+i.icon.google.wallet:before {
+  content: "\f1ee";
+}
+
+i.icon.visa:before {
+  content: "\f1f0";
+}
+
+i.icon.mastercard:before {
+  content: "\f1f1";
+}
+
+i.icon.discover:before {
+  content: "\f1f2";
+}
+
+i.icon.american.express:before {
+  content: "\f1f3";
+}
+
+i.icon.stripe:before {
+  content: "\f1f5";
 }
 
 /* Networks and Websites*/
@@ -7685,6 +8001,86 @@ i.icon.wechat:before {
   content: "\f1d7";
 }
 
+i.icon.slideshare:before {
+  content: "\f1e7";
+}
+
+i.icon.twitch:before {
+  content: "\f1e8";
+}
+
+i.icon.yelp:before {
+  content: "\f1e9";
+}
+
+i.icon.lastfm:before {
+  content: "\f202";
+}
+
+i.icon.lastfm.square:before {
+  content: "\f203";
+}
+
+i.icon.ioxhost:before {
+  content: "\f208";
+}
+
+i.icon.angellist:before {
+  content: "\f209";
+}
+
+i.icon.meanpath:before {
+  content: "\f20c";
+}
+
+i.icon.buysellads:before {
+  content: "\f20d";
+}
+
+i.icon.connectdevelop:before {
+  content: "\f20e";
+}
+
+i.icon.dashcube:before {
+  content: "\f210";
+}
+
+i.icon.forumbee:before {
+  content: "\f211";
+}
+
+i.icon.leanpub:before {
+  content: "\f212";
+}
+
+i.icon.sellsy:before {
+  content: "\f213";
+}
+
+i.icon.shirtsinbulk:before {
+  content: "\f214";
+}
+
+i.icon.simplybuilt:before {
+  content: "\f215";
+}
+
+i.icon.skyatlas:before {
+  content: "\f216";
+}
+
+i.icon.whatsapp:before {
+  content: "\f232";
+}
+
+i.icon.viacoin:before {
+  content: "\f237";
+}
+
+i.icon.medium:before {
+  content: "\f23a";
+}
+
 /*******************************
             Aliases
 *******************************/
@@ -7725,6 +8121,26 @@ i.icon.x:before {
   content: "\f00d";
 }
 
+i.icon.user.times:before {
+  content: "\f235";
+}
+
+i.icon.user.close:before {
+  content: "\f235";
+}
+
+i.icon.user.cancel:before {
+  content: "\f235";
+}
+
+i.icon.user.delete:before {
+  content: "\f235";
+}
+
+i.icon.user.x:before {
+  content: "\f235";
+}
+
 i.icon.zoom.in:before {
   content: "\f00e";
 }
@@ -7735,10 +8151,6 @@ i.icon.magnify:before {
 
 i.icon.shutdown:before {
   content: "\f011";
-}
-
-i.icon.signal:before {
-  content: "\f012";
 }
 
 i.icon.clock:before {
@@ -7829,10 +8241,6 @@ i.icon.cart:before {
   content: "\f07a";
 }
 
-i.icon.plane:before {
-  content: "\f072";
-}
-
 i.icon.shuffle:before {
   content: "\f074";
 }
@@ -7851,6 +8259,18 @@ i.icon.shopping.cart:before {
 
 i.icon.bar.graph:before {
   content: "\f080";
+}
+
+i.icon.area.graph:before {
+  content: "\f1fe";
+}
+
+i.icon.pie.graph:before {
+  content: "\f200";
+}
+
+i.icon.line.graph:before {
+  content: "\f201";
 }
 
 i.icon.key:before {
@@ -7909,10 +8329,6 @@ i.icon.credit.card:before {
   content: "\f09d";
 }
 
-i.icon.rss:before {
-  content: "\f09e";
-}
-
 i.icon.hdd.outline:before {
   content: "\f0a0";
 }
@@ -7923,6 +8339,18 @@ i.icon.bullhorn:before {
 
 i.icon.bell:before {
   content: "\f0f3";
+}
+
+i.icon.bell.outline:before {
+  content: "\f0a2";
+}
+
+i.icon.bell.slash:before {
+  content: "\f1f6";
+}
+
+i.icon.bell.slash.outline:before {
+  content: "\f1f7";
 }
 
 i.icon.hand.outline.right:before {
@@ -8069,6 +8497,14 @@ i.icon.circle.outline:before {
   content: "\f10c";
 }
 
+i.icon.intersex:before {
+  content: "\f10c";
+}
+
+i.icon.asexual:before {
+  content: "\f10c";
+}
+
 i.icon.spinner:before {
   content: "\f110";
 }
@@ -8157,6 +8593,11 @@ i.icon.btc:before {
   content: "\f15a";
 }
 
+i.icon.sheqel:before,
+i.icon.ils:before {
+  content: "\f20b";
+}
+
 i.icon.try:before {
   content: "\f195";
 }
@@ -8173,6 +8614,10 @@ i.icon.sliders:before {
   content: "\f1de";
 }
 
+i.icon.wi-fi:before {
+  content: "\f1eb";
+}
+
 i.icon.graduation:before {
   content: "\f19d";
 }
@@ -8185,12 +8630,127 @@ i.icon.weixin:before {
   content: "\f1d7";
 }
 
+i.icon.binoculars:before {
+  content: "\f1e5";
+}
+
+i.icon.gratipay:before {
+  content: "\f184";
+}
+
+i.icon.genderless:before {
+  content: "\f1db";
+}
+
+i.icon.teletype:before {
+  content: "\f1e4";
+}
+
+i.icon.power.cord:before {
+  content: "\f1e6";
+}
+
+i.icon.tty:before {
+  content: "\f1e4";
+}
+
+i.icon.cc:before {
+  content: "\f20a";
+}
+
+i.icon.ils:before {
+  content: "\f20b";
+}
+
+i.icon.plus.cart:before {
+  content: "\f217";
+}
+
+i.icon.arrow.down.cart:before {
+  content: "\f218";
+}
+
+i.icon.detective:before {
+  content: "\f21b";
+}
+
+i.icon.venus:before {
+  content: "\f221";
+}
+
+i.icon.mars:before {
+  content: "\f222";
+}
+
+i.icon.mercury:before {
+  content: "\f223";
+}
+
+i.icon.venus.double:before {
+  content: "\f226";
+}
+
+i.icon.female.homosexual:before {
+  content: "\f226";
+}
+
+i.icon.mars.double:before {
+  content: "\f227";
+}
+
+i.icon.male.homosexual:before {
+  content: "\f227";
+}
+
+i.icon.venus.mars:before {
+  content: "\f228";
+}
+
+i.icon.mars.stroke:before {
+  content: "\f229";
+}
+
+i.icon.mars.alternate:before {
+  content: "\f229";
+}
+
+i.icon.mars.vertical:before {
+  content: "\f22a";
+}
+
+i.icon.mars.horizontal:before {
+  content: "\f22b";
+}
+
+i.icon.mars.stroke.vertical:before {
+  content: "\f22a";
+}
+
+i.icon.mars.stroke.horizontal:before {
+  content: "\f22b";
+}
+
+i.icon.neuter:before {
+  content: "\f22c";
+}
+
+i.icon.facebook.official {
+  content: "\f230";
+}
+
+i.icon.pinterest.official {
+  content: "\f231";
+}
+
+i.icon.bed:before {
+  content: "\f236";
+}
+
 /*******************************
          Site Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -8470,9 +9030,8 @@ img.ui.bordered.image {
 /*******************************
          Site Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -8749,35 +9308,33 @@ img.ui.bordered.image {
 /* Adjacent Label */
 
 .ui.labeled.input {
-  display: table;
-}
-
-.ui.labeled.input > input {
-  display: table-cell;
-  vertical-align: top;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
 }
 
 .ui.labeled.input > .label {
-  display: table-cell;
-  vertical-align: middle;
-  white-space: nowrap;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+  margin: 0;
   font-size: 1em;
 }
 
-.ui.labeled.input > .label > .icon {
-  display: inline;
-  vertical-align: top;
+.ui.labeled.input > .label:not(.corner) {
+  padding-top: 0.78571em;
+  padding-bottom: 0.78571em;
 }
 
 /* Fluid Labeled */
 
 .ui.fluid.labeled.input {
-  display: table;
-  width: 100%;
-}
-
-.ui.fluid.labeled.input > .label {
-  width: 0.01%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 /* Label on Left */
@@ -8821,14 +9378,6 @@ img.ui.bordered.image {
 
 /* Spacing with corner label */
 
-.ui[class*="corner labeled"].input {
-  display: inline-block;
-}
-
-.ui[class*="corner labeled"].input > input {
-  display: block;
-}
-
 .ui[class*="corner labeled"].icon.input:not(.left) > input {
   padding-right: 3.25em !important;
 }
@@ -8842,36 +9391,34 @@ img.ui.bordered.image {
 ---------------------*/
 
 .ui.action.input {
-  display: table;
-}
-
-.ui.action.input > input {
-  display: table-cell;
-  vertical-align: top;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
 }
 
 .ui.action.input > .button,
 .ui.action.input > .buttons {
-  display: table-cell;
-  vertical-align: middle;
-  white-space: nowrap;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+}
+
+.ui.action.input > .button,
+.ui.action.input > .buttons > .button {
   padding-top: 0.78571em;
   padding-bottom: 0.78571em;
+  margin: 0;
 }
 
-.ui.action.input > .button > .icon,
-.ui.action.input > .buttons > .button > .icon {
-  display: inline;
-  vertical-align: top;
-}
+/* Fluid */
 
 .ui.fluid.action.input {
-  display: table;
-  width: 100%;
-}
-
-.ui.fluid.action.input > .button {
-  width: 0.01%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 /* Button on Right */
@@ -8883,7 +9430,7 @@ img.ui.bordered.image {
 }
 
 .ui.action.input:not([class*="left action"]) > .button,
-.ui.action.input:not([class*="left action"]) > .buttons {
+.ui.action.input:not([class*="left action"]) > .buttons > .button {
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
 }
@@ -8891,7 +9438,7 @@ img.ui.bordered.image {
 /* Button on Left */
 
 .ui[class*="left action"].input > .button,
-.ui[class*="left action"].input > .buttons {
+.ui[class*="left action"].input > .buttons > .button {
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
 }
@@ -8959,9 +9506,8 @@ img.ui.bordered.image {
 /*******************************
          Site Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -9190,7 +9736,7 @@ a.ui.label {
   text-align: center;
   width: 3.25em;
   height: 3.25em;
-  z-index: 10;
+  z-index: 1;
   -webkit-transition: border-color 0.2s ease;
   transition: border-color 0.2s ease;
 }
@@ -9278,15 +9824,16 @@ a.ui.label {
 .ui.ribbon.label {
   position: relative;
   margin: 0em;
-  left: -2rem;
-  padding-left: 2rem;
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
   border-radius: 0em 0.2857rem 0.2857rem 0em;
   border-color: rgba(0, 0, 0, 0.15);
 }
 
 .ui.ribbon.label:after {
   position: absolute;
-  content: "";
+  content: '';
   top: 100%;
   left: 0%;
   background-color: transparent !important;
@@ -9298,16 +9845,15 @@ a.ui.label {
   height: 0em;
 }
 
+/* Right Ribbon */
+
 .ui[class*="right ribbon"].label {
   text-align: left;
   -webkit-transform: translateX(-100%);
   -ms-transform: translateX(-100%);
   transform: translateX(-100%);
-  left: -webkit-calc(100% +  2rem );
-  left: calc(100% +  2rem );
   border-radius: 0.2857rem 0em 0em 0.2857rem;
   padding-left: 0.8em;
-  padding-right: 2rem;
 }
 
 .ui[class*="right ribbon"].label:after {
@@ -9319,8 +9865,50 @@ a.ui.label {
   border-top-color: inherit;
 }
 
+/* Positioning */
+
+.ui.ribbon.label {
+  left: -webkit-calc( -1rem  -  1.2em );
+  left: calc( -1rem  -  1.2em );
+  margin-right: -1.2em;
+  padding-left: -webkit-calc( 1rem  +  1.2em );
+  padding-left: calc( 1rem  +  1.2em );
+}
+
+.ui[class*="right ribbon"].label {
+  left: -webkit-calc(100% +  1rem  +  1.2em );
+  left: calc(100% +  1rem  +  1.2em );
+  padding-right: -webkit-calc( 1rem  +  1.2em );
+  padding-right: calc( 1rem  +  1.2em );
+}
+
+/* Inside Image */
+
+.ui.image > .ribbon.label,
+.ui.card .image > .ribbon.label {
+  position: absolute;
+  top: 1rem;
+}
+
+.ui.card .image > .ui.ribbon.label,
+.ui.image > .ui.ribbon.label {
+  left: -webkit-calc( 0.05rem  -  1.2em );
+  left: calc( 0.05rem  -  1.2em );
+  padding-left: -webkit-calc( -0.05rem  +  1.2em );
+  padding-left: calc( -0.05rem  +  1.2em );
+}
+
+.ui.card .image > .ui[class*="right ribbon"].label,
+.ui.image > .ui[class*="right ribbon"].label {
+  left: -webkit-calc(100% +  -0.05rem  +  1.2em );
+  left: calc(100% +  -0.05rem  +  1.2em );
+  padding-left: 0.8em;
+  padding-right: -webkit-calc( -0.05rem  +  1.2em );
+  padding-right: calc( -0.05rem  +  1.2em );
+}
+
 /*-------------------
-       Attached
+      Attached
 --------------------*/
 
 .ui.top.attached.label,
@@ -9973,9 +10561,8 @@ a.ui.yellow.label:hover:before {
 /*******************************
          Site Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -10849,7 +11436,6 @@ ol.ui.horizontal.list li:before,
        Relaxed
 --------------------*/
 
-.ui.relaxed.list:not(.horizontal) .list > .item,
 .ui.relaxed.list:not(.horizontal) > .item {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -10867,7 +11453,6 @@ ol.ui.horizontal.list li:before,
 
 /* Very Relaxed */
 
-.ui[class*="very relaxed"].list:not(.horizontal) .list > .item,
 .ui[class*="very relaxed"].list:not(.horizontal) > .item {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -10888,43 +11473,35 @@ ol.ui.horizontal.list li:before,
       Sizes
 --------------------*/
 
-.ui.mini.list .list > .item,
-.ui.mini.list > .item {
+.ui.mini.list {
   font-size: 0.71428571em;
 }
 
-.ui.tiny.list .list > .item,
-.ui.tiny.list > .item {
+.ui.tiny.list {
   font-size: 0.85714286em;
 }
 
-.ui.small.list .list > .item,
-.ui.small.list > .item {
+.ui.small.list {
   font-size: 0.92857143em;
 }
 
-.ui.list .list > .item,
-.ui.list > .item {
+.ui.list {
   font-size: 1em;
 }
 
-.ui.large.list .list > .item,
-.ui.large.list > .item {
+.ui.large.list {
   font-size: 1.14285714em;
 }
 
-.ui.big.list .list > .item,
-.ui.big.list > .item {
+.ui.big.list {
   font-size: 1.28571429em;
 }
 
-.ui.huge.list .list > .item,
-.ui.huge.list > .item {
+.ui.huge.list {
   font-size: 1.42857143em;
 }
 
-.ui.massive.list .list > .item,
-.ui.massive.list > .item {
+.ui.massive.list {
   font-size: 1.71428571em;
 }
 
@@ -10975,9 +11552,8 @@ ol.ui.horizontal.list li:before,
 /*******************************
     User Variable Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -11272,9 +11848,8 @@ ol.ui.horizontal.list li:before,
 /*******************************
          Site Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -11289,10 +11864,10 @@ ol.ui.horizontal.list li:before,
 *******************************/
 
 .ui.rail {
-  font-size: 1em;
   position: absolute;
   top: 0%;
   width: 300px;
+  height: 100%;
   box-sizing: content-box;
 }
 
@@ -11397,9 +11972,8 @@ ol.ui.horizontal.list li:before,
 /*******************************
          Site Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -11714,9 +12288,8 @@ ol.ui.horizontal.list li:before,
 /*******************************
          Site Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -12357,6 +12930,49 @@ ol.ui.horizontal.list li:before,
   margin-bottom: 0em;
 }
 
+/*-------------------
+       Groups
+--------------------*/
+
+.ui.segments > .segment {
+  top: 0px;
+  bottom: 0px;
+  margin: 0em -1px;
+  width: -webkit-calc(100% +  2px );
+  width: calc(100% +  2px );
+  max-width: -webkit-calc(100% +  2px );
+  max-width: calc(100% +  2px );
+  border-radius: 0px;
+  box-shadow: none;
+  border: 1px solid #d4d4d5;
+}
+
+.ui.segments > .segment:not(:first-child) {
+  border-top: none;
+}
+
+/* Top */
+
+.ui.segments > .segment:first-child {
+  margin-top: 0em;
+  bottom: 0px;
+  margin-bottom: 0em;
+  top: 0px;
+  margin-top: 1rem;
+  border-radius: 0.2857rem 0.2857rem 0em 0em;
+}
+
+/* Bottom */
+
+.ui.segments > .segment:last-child {
+  bottom: 0px;
+  margin-top: 0em;
+  margin-bottom: 0em;
+  top: 0px;
+  box-shadow: none, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 0em 0em 0.2857rem 0.2857rem;
+}
+
 /*******************************
          Theme Overrides
 *******************************/
@@ -12364,9 +12980,8 @@ ol.ui.horizontal.list li:before,
 /*******************************
          Site Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -12765,7 +13380,7 @@ ol.ui.horizontal.list li:before,
 .ui.six.steps,
 .ui.seven.steps,
 .ui.eight.steps {
-  display: block;
+  width: 100%;
 }
 
 .ui.one.steps > .step {
@@ -12838,9 +13453,8 @@ ol.ui.horizontal.list li:before,
 /*******************************
          Site Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -12896,8 +13510,8 @@ ol.ui.horizontal.list li:before,
 /* Icon Divider */
 
 .ui.breadcrumb .icon.divider {
-  font-size: 0.7em;
-  vertical-align: middle;
+  font-size: 0.85714286em;
+  vertical-align: baseline;
 }
 
 /* Section */
@@ -12970,9 +13584,8 @@ ol.ui.horizontal.list li:before,
 /*******************************
          Site Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -13055,28 +13668,30 @@ ol.ui.horizontal.list li:before,
 
 .ui.form textarea,
 .ui.form input:not([type]),
-.ui.form input[type="text"],
-.ui.form input[type="email"],
 .ui.form input[type="date"],
 .ui.form input[type="datetime-local"],
-.ui.form input[type="password"],
+.ui.form input[type="email"],
 .ui.form input[type="number"],
-.ui.form input[type="url"],
+.ui.form input[type="password"],
 .ui.form input[type="tel"],
+.ui.form input[type="time"],
+.ui.form input[type="text"],
+.ui.form input[type="url"],
 .ui.form .ui.input {
   width: 100%;
   vertical-align: top;
 }
 
 .ui.form input:not([type]),
-.ui.form input[type="text"],
-.ui.form input[type="email"],
 .ui.form input[type="date"],
 .ui.form input[type="datetime-local"],
-.ui.form input[type="password"],
+.ui.form input[type="email"],
 .ui.form input[type="number"],
-.ui.form input[type="url"],
-.ui.form input[type="tel"] {
+.ui.form input[type="password"],
+.ui.form input[type="tel"],
+.ui.form input[type="time"],
+.ui.form input[type="text"],
+.ui.form input[type="url"] {
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   margin: 0em;
   outline: none;
@@ -13180,7 +13795,6 @@ ol.ui.horizontal.list li:before,
    Types of Messages
 ---------------------*/
 
-.ui.form .info.message,
 .ui.form .success.message,
 .ui.form .warning.message,
 .ui.form .error.message {
@@ -13262,14 +13876,15 @@ ol.ui.horizontal.list li:before,
 ---------------------*/
 
 .ui.form input:not([type]):focus,
-.ui.form input[type="text"]:focus,
-.ui.form input[type="email"]:focus,
 .ui.form input[type="date"]:focus,
 .ui.form input[type="datetime-local"]:focus,
-.ui.form input[type="password"]:focus,
+.ui.form input[type="email"]:focus,
 .ui.form input[type="number"]:focus,
-.ui.form input[type="url"]:focus,
-.ui.form input[type="tel"]:focus {
+.ui.form input[type="password"]:focus,
+.ui.form input[type="tel"]:focus,
+.ui.form input[type="time"]:focus,
+.ui.form input[type="text"]:focus,
+.ui.form input[type="url"]:focus {
   color: rgba(0, 0, 0, 0.85);
   border-color: rgba(39, 41, 43, 0.3);
   border-radius: 0em 0.2857rem 0.2857rem 0em;
@@ -13333,24 +13948,26 @@ ol.ui.horizontal.list li:before,
 
 .ui.form .fields.error .field textarea,
 .ui.form .fields.error .field input:not([type]),
-.ui.form .fields.error .field input[type="text"],
-.ui.form .fields.error .field input[type="email"],
 .ui.form .fields.error .field input[type="date"],
 .ui.form .fields.error .field input[type="datetime-local"],
-.ui.form .fields.error .field input[type="password"],
+.ui.form .fields.error .field input[type="email"],
 .ui.form .fields.error .field input[type="number"],
-.ui.form .fields.error .field input[type="url"],
+.ui.form .fields.error .field input[type="password"],
 .ui.form .fields.error .field input[type="tel"],
+.ui.form .fields.error .field input[type="time"],
+.ui.form .fields.error .field input[type="text"],
+.ui.form .fields.error .field input[type="url"],
 .ui.form .field.error textarea,
 .ui.form .field.error input:not([type]),
-.ui.form .field.error input[type="text"],
-.ui.form .field.error input[type="email"],
 .ui.form .field.error input[type="date"],
 .ui.form .field.error input[type="datetime-local"],
-.ui.form .field.error input[type="password"],
+.ui.form .field.error input[type="email"],
 .ui.form .field.error input[type="number"],
-.ui.form .field.error input[type="url"],
-.ui.form .field.error input[type="tel"] {
+.ui.form .field.error input[type="password"],
+.ui.form .field.error input[type="tel"],
+.ui.form .field.error input[type="time"],
+.ui.form .field.error input[type="text"],
+.ui.form .field.error input[type="url"] {
   background: #fff0f0;
   border-color: #dbb1b1;
   color: #d95c5c;
@@ -13360,14 +13977,15 @@ ol.ui.horizontal.list li:before,
 
 .ui.form .field.error textarea:focus,
 .ui.form .field.error input:not([type]):focus,
-.ui.form .field.error input[type="text"]:focus,
-.ui.form .field.error input[type="email"]:focus,
 .ui.form .field.error input[type="date"]:focus,
 .ui.form .field.error input[type="datetime-local"]:focus,
-.ui.form .field.error input[type="password"]:focus,
+.ui.form .field.error input[type="email"]:focus,
 .ui.form .field.error input[type="number"]:focus,
-.ui.form .field.error input[type="url"]:focus,
-.ui.form .field.error input[type="tel"]:focus {
+.ui.form .field.error input[type="password"]:focus,
+.ui.form .field.error input[type="tel"]:focus,
+.ui.form .field.error input[type="time"]:focus,
+.ui.form .field.error input[type="text"]:focus,
+.ui.form .field.error input[type="url"]:focus {
   background: #fff0f0;
   border-color: #dbb1b1;
   color: #dc6868;
@@ -13407,7 +14025,7 @@ ol.ui.horizontal.list li:before,
 
 .ui.form .fields.error .field .ui.dropdown .menu .item:hover,
 .ui.form .field.error .ui.dropdown .menu .item:hover {
-  background-color: #fff2f2;
+  background-color: #fbe7e7;
 }
 
 /* Active */
@@ -13919,9 +14537,8 @@ ol.ui.horizontal.list li:before,
 /*******************************
          Site Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -13988,7 +14605,6 @@ ol.ui.horizontal.list li:before,
 .ui.grid > .row > .column {
   position: relative;
   display: inline-block;
-  text-align: left;
   font-size: 1rem;
   width: 6.25%;
   padding-left: 1rem;
@@ -14998,6 +15614,10 @@ ol.ui.horizontal.list li:before,
 .ui.centered.grid > .row,
 .ui.grid > .centered.row {
   text-align: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .ui.centered.grid > .column:not(.aligned):not(.row),
@@ -15327,10 +15947,16 @@ ol.ui.horizontal.list li:before,
 .ui.grid [class*="top aligned"].column,
 .ui.grid > [class*="top aligned"].row > .column {
   vertical-align: top;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
 }
 
 .ui.grid [class*="top aligned"].column {
   vertical-align: top !important;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
 }
 
 /* Middle Aligned */
@@ -15340,14 +15966,16 @@ ol.ui.horizontal.list li:before,
 .ui[class*="middle aligned"].grid > .column,
 .ui.grid > [class*="middle aligned"].row > .column {
   vertical-align: middle;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
 }
 
 .ui.grid [class*="middle aligned"].column {
   vertical-align: middle !important;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
 }
 
 /* Bottom Aligned */
@@ -15357,13 +15985,15 @@ ol.ui.horizontal.list li:before,
 .ui[class*="bottom aligned"].grid > .column,
 .ui.grid > [class*="bottom aligned"].row > .column {
   vertical-align: bottom;
-  -webkit-box-align: end;
-  -webkit-align-items: flex-end;
-  -ms-flex-align: end;
-  align-items: flex-end;
+  -webkit-align-self: flex-end;
+  -ms-flex-item-align: end;
+  align-self: flex-end;
 }
 
 .ui.grid [class*="bottom aligned"].column {
+  -webkit-align-self: flex-end;
+  -ms-flex-item-align: end;
+  align-self: flex-end;
   vertical-align: bottom !important;
 }
 
@@ -15620,10 +16250,10 @@ ol.ui.horizontal.list li:before,
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1 0 auto;
-  -ms-flex: 1 0 auto;
-  flex: 1 0 auto;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
 }
 
 /*-------------------
@@ -15681,9 +16311,9 @@ ol.ui.horizontal.list li:before,
     width: 33.33333333% !important;
   }
 
-  .ui[class*="eight column"].doubling.grid > .row > .column,
-  .ui[class*="eight column"].doubling.grid > .column,
-  .ui.grid > [class*="eight column"].doubling.row > .column {
+  .ui[class*="seven column"].doubling.grid > .row > .column,
+  .ui[class*="seven column"].doubling.grid > .column,
+  .ui.grid > [class*="seven column"].doubling.row > .column {
     width: 33.33333333% !important;
   }
 
@@ -15705,15 +16335,33 @@ ol.ui.horizontal.list li:before,
     width: 20% !important;
   }
 
+  .ui[class*="eleven column"].doubling.grid > .row > .column,
+  .ui[class*="eleven column"].doubling.grid > .column,
+  .ui.grid > [class*="eleven column"].doubling.row > .column {
+    width: 20% !important;
+  }
+
   .ui[class*="twelve column"].doubling.grid > .row > .column,
   .ui[class*="twelve column"].doubling.grid > .column,
   .ui.grid > [class*="twelve column"].doubling.row > .column {
     width: 16.66666667% !important;
   }
 
+  .ui[class*="thirteen column"].doubling.grid > .row > .column,
+  .ui[class*="thirteen column"].doubling.grid > .column,
+  .ui.grid > [class*="thirteen column"].doubling.row > .column {
+    width: 16.66666667% !important;
+  }
+
   .ui[class*="fourteen column"].doubling.grid > .row > .column,
   .ui[class*="fourteen column"].doubling.grid > .column,
   .ui.grid > [class*="fourteen column"].doubling.row > .column {
+    width: 14.28571429% !important;
+  }
+
+  .ui[class*="fifteen column"].doubling.grid > .row > .column,
+  .ui[class*="fifteen column"].doubling.grid > .column,
+  .ui.grid > [class*="fifteen column"].doubling.row > .column {
     width: 14.28571429% !important;
   }
 
@@ -15727,10 +16375,6 @@ ol.ui.horizontal.list li:before,
 /* Mobily Only */
 
 @media only screen and (max-width: 767px) {
-  .ui.doubling.grid {
-    width: 100% !important;
-  }
-
   .ui.grid > .doubling.row,
   .ui.doubling.grid > .row {
     display: block !important;
@@ -15800,15 +16444,33 @@ ol.ui.horizontal.list li:before,
     width: 33.33333333% !important;
   }
 
+  .ui[class*="eleven column"].doubling:not(.stackable).grid > .row > .column,
+  .ui[class*="eleven column"].doubling:not(.stackable).grid > .column,
+  .ui.grid > [class*="eleven column"].doubling:not(.stackable).row > .column {
+    width: 33.33333333% !important;
+  }
+
   .ui[class*="twelve column"].doubling:not(.stackable).grid > .row > .column,
   .ui[class*="twelve column"].doubling:not(.stackable).grid > .column,
   .ui.grid > [class*="twelve column"].doubling:not(.stackable).row > .column {
     width: 33.33333333% !important;
   }
 
+  .ui[class*="thirteen column"].doubling:not(.stackable).grid > .row > .column,
+  .ui[class*="thirteen column"].doubling:not(.stackable).grid > .column,
+  .ui.grid > [class*="thirteen column"].doubling:not(.stackable).row > .column {
+    width: 33.33333333% !important;
+  }
+
   .ui[class*="fourteen column"].doubling:not(.stackable).grid > .row > .column,
   .ui[class*="fourteen column"].doubling:not(.stackable).grid > .column,
   .ui.grid > [class*="fourteen column"].doubling:not(.stackable).row > .column {
+    width: 25% !important;
+  }
+
+  .ui[class*="fifteen column"].doubling:not(.stackable).grid > .row > .column,
+  .ui[class*="fifteen column"].doubling:not(.stackable).grid > .column,
+  .ui.grid > [class*="fifteen column"].doubling:not(.stackable).row > .column {
     width: 25% !important;
   }
 
@@ -15842,6 +16504,7 @@ ol.ui.horizontal.list li:before,
     width: auto !important;
     margin: 0em 0em !important;
     box-shadow: none !important;
+    float: none !important;
     padding: 1rem 1rem !important;
   }
 
@@ -15955,9 +16618,8 @@ ol.ui.horizontal.list li:before,
 /*******************************
          Site Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -15978,7 +16640,7 @@ ol.ui.horizontal.list li:before,
 .ui.menu {
   margin: 1rem 0rem;
   background: #ffffff;
-  font-size: 0px;
+  font-size: 0em;
   font-weight: normal;
   box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
   border-radius: 0.2857rem;
@@ -15998,6 +16660,14 @@ ol.ui.horizontal.list li:before,
 
 .ui.menu:last-child {
   margin-bottom: 0rem;
+}
+
+.ui.menu .menu {
+  margin: 0em;
+}
+
+.ui.menu:not(.vertical) .menu {
+  font-size: 0em;
 }
 
 /*--------------
@@ -16042,10 +16712,6 @@ ol.ui.horizontal.list li:before,
   user-select: none;
   -webkit-transition: opacity 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
   transition: opacity 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-}
-
-.ui.menu .menu {
-  margin: 0em;
 }
 
 /* Floated Content */
@@ -16641,13 +17307,14 @@ ol.ui.horizontal.list li:before,
 
 .ui.tabular.menu .active.item {
   position: relative;
+  border-bottom: none;
+  vertical-align: bottom;
   background-color: #ffffff;
   color: rgba(0, 0, 0, 0.8);
   border-color: #d4d4d5;
   font-weight: bold;
   margin-bottom: -1px;
-  border-bottom: none;
-  box-shadow: 0px 2px 0px -1px #ffffff;
+  box-shadow: none;
   border-radius: 5px 5px 0px 0px;
 }
 
@@ -17615,19 +18282,19 @@ ol.ui.horizontal.list li:before,
 
 .ui.pointing.menu .active.item:after {
   position: absolute;
-  bottom: -0.3em;
-  left: 50%;
   content: '';
-  margin-left: -0.3em;
+  top: 100%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  -ms-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  margin: 1px 0em 0em 0em;
+  background: none;
   width: 0.6em;
   height: 0.6em;
   border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
-  background: none;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
+  border-bottom: 1px solid #d4d4d5;
+  border-right: 1px solid #d4d4d5;
   z-index: 2;
   -webkit-transition: background 0.2s ease;
   transition: background 0.2s ease;
@@ -17642,13 +18309,16 @@ ol.ui.horizontal.list li:before,
 .ui.vertical.pointing.menu .active.item:after {
   position: absolute;
   top: 50%;
-  margin-top: -0.3em;
-  right: -0.3em;
+  right: 0%;
   bottom: auto;
   left: auto;
+  -webkit-transform: translateX(50%) translateY(-50%) rotate(45deg);
+  -ms-transform: translateX(50%) translateY(-50%) rotate(45deg);
+  transform: translateX(50%) translateY(-50%) rotate(45deg);
+  margin: 0em -1px 0em 0em;
   border: none;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid #d4d4d5;
+  border-right: 1px solid #d4d4d5;
 }
 
 /* Colors */
@@ -17658,7 +18328,7 @@ ol.ui.horizontal.list li:before,
 }
 
 .ui.pointing.menu .active.item:after {
-  background-color: #f6f6f6;
+  background-color: #f7f7f7;
 }
 
 .ui.vertical.pointing.menu .item:hover:after {
@@ -17666,7 +18336,7 @@ ol.ui.horizontal.list li:before,
 }
 
 .ui.vertical.pointing.menu .active.item:after {
-  background-color: #fcfcfc;
+  background-color: #f7f7f7;
 }
 
 /*--------------
@@ -17737,9 +18407,8 @@ ol.ui.horizontal.list li:before,
 /*******************************
          Site Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -18214,9 +18883,8 @@ ol.ui.horizontal.list li:before,
 /*******************************
     User Variable Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -19354,9 +20022,8 @@ ol.ui.horizontal.list li:before,
 /*******************************
          Site Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -19645,9 +20312,8 @@ ol.ui.horizontal.list li:before,
 /*******************************
     User Variable Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -19666,13 +20332,23 @@ ol.ui.horizontal.list li:before,
 ---------------*/
 
 .ui.cards {
-  margin: 1em -0.5em 0em;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: -0.75em -0.5em;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .ui.cards > .card {
-  display: block;
-  margin: 0em 0.5em 1.5em;
-  float: left;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0.75em 0.5em;
+  float: none;
 }
 
 .ui.cards:first-child,
@@ -19705,14 +20381,22 @@ ol.ui.horizontal.list li:before,
 .ui.card {
   max-width: 100%;
   position: relative;
-  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   width: 290px;
   min-height: 0px;
   background: #ffffff;
   padding: 0em;
   border: none;
   border-radius: 0.2857rem;
-  box-shadow: 0px 0.2em 0px 0px #d4d4d5, 0px 0px 0px 1px #d4d4d5;
+  box-shadow: 0px 3px 0px 0px #d4d4d5, 0px 0px 0px 1px #d4d4d5;
   -webkit-transition: box-shadow 0.2s ease;
   transition: box-shadow 0.2s ease;
   z-index: '';
@@ -19773,6 +20457,10 @@ ol.ui.horizontal.list li:before,
 
 .ui.cards > .card > .content,
 .ui.card > .content {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
   background: none;
   margin: 0em;
   padding: 1em 1em;
@@ -19832,6 +20520,25 @@ ol.ui.horizontal.list li:before,
 }
 
 /*--------------
+     Aligned
+---------------*/
+
+.ui.cards > .card [class*="left aligned"],
+.ui.card [class*="left aligned"] {
+  text-align: left;
+}
+
+.ui.cards > .card [class*="center aligned"],
+.ui.card [class*="center aligned"] {
+  text-align: center;
+}
+
+.ui.cards > .card [class*="right aligned"],
+.ui.card [class*="right aligned"] {
+  text-align: right;
+}
+
+/*--------------
   Content Image
 ---------------*/
 
@@ -19839,15 +20546,15 @@ ol.ui.horizontal.list li:before,
 .ui.card .content img {
   display: inline-block;
   vertical-align: middle;
-  width: 2em;
+  width: auto;
 }
 
 .ui.cards > .card img.avatar,
 .ui.cards > .card .avatar img,
 .ui.card img.avatar,
 .ui.card .avatar img {
-  width: 2em;
-  height: 2em;
+  width: 2.5em;
+  height: 2.5em;
   border-radius: 500rem;
 }
 
@@ -19951,9 +20658,8 @@ ol.ui.horizontal.list li:before,
 .ui.card > .buttons:last-child,
 .ui.cards > .card > .button:last-child,
 .ui.card > .button:last-child {
-  margin: 0em -1px -0.2em;
-  width: -webkit-calc(100% +  2px );
-  width: calc(100% +  2px );
+  margin: 0em 0em -1px;
+  width: 100%;
 }
 
 /*--------------
@@ -19975,12 +20681,12 @@ ol.ui.horizontal.list li:before,
 .ui.cards > .card > .content .star.icon:hover,
 .ui.card > .content .star.icon:hover {
   opacity: 1;
-  color: #ac9400;
+  color: #ffb70a;
 }
 
 .ui.cards > .card > .content .active.star.icon,
 .ui.card > .content .active.star.icon {
-  color: #e9b539;
+  color: #ffe623;
 }
 
 /*-----Like----- */
@@ -19998,12 +20704,12 @@ ol.ui.horizontal.list li:before,
 .ui.cards > .card > .content .like.icon:hover,
 .ui.card > .content .like.icon:hover {
   opacity: 1;
-  color: #ffadae;
+  color: #ff2733;
 }
 
 .ui.cards > .card > .content .active.like.icon,
 .ui.card > .content .active.like.icon {
-  color: #ef404a;
+  color: #ff2733;
 }
 
 /*----------------
@@ -20014,6 +20720,10 @@ ol.ui.horizontal.list li:before,
 .ui.card > .extra {
   max-width: 100%;
   min-height: 0em !important;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
   position: static;
   background: none;
   width: auto;
@@ -20063,7 +20773,121 @@ a.ui.card:hover,
   z-index: 5;
   background: '';
   border: none;
-  box-shadow: 0px 0.2em 0px 0px #bebebf, 0px 0px 0px 1px rgba(39, 41, 43, 0.3);
+  box-shadow: 0px 3px 0px 0px #bebebf, 0px 0px 0px 1px rgba(39, 41, 43, 0.3);
+}
+
+/*-------------------
+       Colors
+--------------------*/
+
+.ui.black.cards > .card,
+.ui.cards > .black.card,
+.ui.black.card {
+  box-shadow: 0px 3px 0px 0px #1b1c1d, 0px 0px 0px 1px #d4d4d5;
+}
+
+.ui.blue.cards > .card,
+.ui.cards > .blue.card,
+.ui.blue.card {
+  box-shadow: 0px 3px 0px 0px #3b83c0, 0px 0px 0px 1px #d4d4d5;
+}
+
+.ui.green.cards > .card,
+.ui.cards > .green.card,
+.ui.green.card {
+  box-shadow: 0px 3px 0px 0px #5bbd72, 0px 0px 0px 1px #d4d4d5;
+}
+
+.ui.orange.cards > .card,
+.ui.cards > .orange.card,
+.ui.orange.card {
+  box-shadow: 0px 3px 0px 0px #e07b53, 0px 0px 0px 1px #d4d4d5;
+}
+
+.ui.pink.cards > .card,
+.ui.cards > .pink.card,
+.ui.pink.card {
+  box-shadow: 0px 3px 0px 0px #d9499a, 0px 0px 0px 1px #d4d4d5;
+}
+
+.ui.purple.cards > .card,
+.ui.cards > .purple.card,
+.ui.purple.card {
+  box-shadow: 0px 3px 0px 0px #564f8a, 0px 0px 0px 1px #d4d4d5;
+}
+
+.ui.red.cards > .card,
+.ui.cards > .red.card,
+.ui.red.card {
+  box-shadow: 0px 3px 0px 0px #d95c5c, 0px 0px 0px 1px #d4d4d5;
+}
+
+.ui.teal.cards > .card,
+.ui.cards > .teal.card,
+.ui.teal.card {
+  box-shadow: 0px 3px 0px 0px #00b5ad, 0px 0px 0px 1px #d4d4d5;
+}
+
+.ui.yellow.cards > .card,
+.ui.cards > .yellow.card,
+.ui.yellow.card {
+  box-shadow: 0px 3px 0px 0px #f2c61f, 0px 0px 0px 1px #d4d4d5;
+}
+
+/* Hover */
+
+.ui.black.cards > .card:hover,
+.ui.cards > .black.card:hover,
+.ui.black.card:hover {
+  box-shadow: 0px 3px 0px 0px #1b1c1d, 0px 0px 0px 1px #d4d4d5;
+}
+
+.ui.blue.cards > .card:hover,
+.ui.cards > .blue.card:hover,
+.ui.blue.card:hover {
+  box-shadow: 0px 3px 0px 0px #458ac6, 0px 0px 0px 1px #d4d4d5;
+}
+
+.ui.green.cards > .card:hover,
+.ui.cards > .green.card:hover,
+.ui.green.card:hover {
+  box-shadow: 0px 3px 0px 0px #66c17b, 0px 0px 0px 1px #d4d4d5;
+}
+
+.ui.orange.cards > .card:hover,
+.ui.cards > .orange.card:hover,
+.ui.orange.card:hover {
+  box-shadow: 0px 3px 0px 0px #e28560, 0px 0px 0px 1px #d4d4d5;
+}
+
+.ui.pink.cards > .card:hover,
+.ui.cards > .pink.card:hover,
+.ui.pink.card:hover {
+  box-shadow: 0px 3px 0px 0px #dc56a1, 0px 0px 0px 1px #d4d4d5;
+}
+
+.ui.purple.cards > .card:hover,
+.ui.cards > .purple.card:hover,
+.ui.purple.card:hover {
+  box-shadow: 0px 3px 0px 0px #5c5594, 0px 0px 0px 1px #d4d4d5;
+}
+
+.ui.red.cards > .card:hover,
+.ui.cards > .red.card:hover,
+.ui.red.card:hover {
+  box-shadow: 0px 3px 0px 0px #dc6868, 0px 0px 0px 1px #d4d4d5;
+}
+
+.ui.teal.cards > .card:hover,
+.ui.cards > .teal.card:hover,
+.ui.teal.card:hover {
+  box-shadow: 0px 3px 0px 0px #00c4bc, 0px 0px 0px 1px #d4d4d5;
+}
+
+.ui.yellow.cards > .card:hover,
+.ui.cards > .yellow.card:hover,
+.ui.yellow.card:hover {
+  box-shadow: 0px 3px 0px 0px #f3ca2d, 0px 0px 0px 1px #d4d4d5;
 }
 
 /*--------------
@@ -20489,9 +21313,8 @@ a.ui.card:hover,
 /*******************************
     User Variable Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -20760,9 +21583,8 @@ a.ui.card:hover,
 /*******************************
     User Variable Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -21056,9 +21878,8 @@ a.ui.card:hover,
 /*******************************
     User Variable Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -21549,9 +22370,8 @@ a.ui.card:hover,
 /*******************************
     User Variable Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -21997,9 +22817,8 @@ a.ui.card:hover,
 /*******************************
     User Variable Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -22016,7 +22835,7 @@ a.ui.card:hover,
 .ui.accordion,
 .ui.accordion .accordion {
   max-width: 100%;
-  font-size: 14px;
+  font-size: 1em;
 }
 
 .ui.accordion .accordion {
@@ -22065,8 +22884,8 @@ a.ui.card:hover,
 .ui.accordion .accordion .title .dropdown.icon {
   display: inline-block;
   float: none;
-  opacity: 0.75;
-  width: 1.18em;
+  opacity: 1;
+  width: 1.25em;
   height: 1em;
   margin: 0em 0.25rem 0em 0rem;
   padding: 0em;
@@ -22074,9 +22893,9 @@ a.ui.card:hover,
   -webkit-transition: -webkit-transform 0.2s ease, opacity 0.2s ease;
   transition: transform 0.2s ease, opacity 0.2s ease;
   vertical-align: baseline;
-  -webkit-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  transform: rotate(0deg);
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
 }
 
 /*--------------
@@ -22258,15 +23077,14 @@ a.ui.card:hover,
 
 .ui.accordion .title .dropdown.icon:before,
 .ui.accordion .accordion .title .dropdown.icon:before {
-  content: '\f0da';
+  content: '\f0da' ;
 }
 
 /*******************************
         User Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -22297,7 +23115,8 @@ a.ui.card:hover,
   vertical-align: middle;
 }
 
-.ui.checkbox input {
+.ui.checkbox input[type="checkbox"],
+.ui.checkbox input[type="radio"] {
   position: absolute;
   top: 0px;
   left: 0px;
@@ -22410,7 +23229,8 @@ a.ui.card:hover,
   border: 1px solid 1px solid rgba(39, 41, 43, 0.3);
 }
 
-.ui.checkbox input:active ~ label {
+.ui.checkbox input[type="checkbox"]:active ~ label,
+.ui.checkbox input[type="radio"]:active ~ label {
   color: rgba(0, 0, 0, 0.8);
 }
 
@@ -22418,13 +23238,16 @@ a.ui.card:hover,
       Focus
 ---------------*/
 
-.ui.checkbox input:focus ~ .box:before,
-.ui.checkbox input:focus ~ label:before {
+.ui.checkbox input[type="checkbox"]:focus ~ .box:before,
+.ui.checkbox input[type="checkbox"]:focus ~ label:before,
+.ui.checkbox input[type="radio"]:focus ~ .box:before,
+.ui.checkbox input[type="radio"]:focus ~ label:before {
   background: #f5f5f5;
   border: 1px solid 1px solid rgba(39, 41, 43, 0.3);
 }
 
-.ui.checkbox input:focus ~ label {
+.ui.checkbox input[type="checkbox"]:focus ~ label,
+.ui.checkbox input[type="radio"]:focus ~ label {
   color: rgba(0, 0, 0, 0.8);
 }
 
@@ -22432,8 +23255,10 @@ a.ui.card:hover,
      Active
 ---------------*/
 
-.ui.checkbox input:checked ~ .box:after,
-.ui.checkbox input:checked ~ label:after {
+.ui.checkbox input[type="checkbox"]:checked ~ .box:after,
+.ui.checkbox input[type="checkbox"]:checked ~ label:after,
+.ui.checkbox input[type="radio"]:checked ~ .box:after,
+.ui.checkbox input[type="radio"]:checked ~ label:after {
   opacity: 1;
 }
 
@@ -22452,8 +23277,10 @@ a.ui.card:hover,
 
 .ui.disabled.checkbox .box:after,
 .ui.disabled.checkbox label,
-.ui.checkbox input[disabled] ~ .box:after,
-.ui.checkbox input[disabled] ~ label {
+.ui.checkbox input[type="checkbox"][disabled] ~ .box:after,
+.ui.checkbox input[type="checkbox"][disabled] ~ label,
+.ui.checkbox input[type="radio"][disabled] ~ .box:after,
+.ui.checkbox input[type="radio"][disabled] ~ label {
   cursor: default;
   opacity: 0.5;
   color: #000000;
@@ -22576,8 +23403,10 @@ a.ui.card:hover,
 
 /* Focus */
 
-.ui.slider.checkbox input:focus ~ .box:before,
-.ui.slider.checkbox input:focus ~ label:before {
+.ui.slider.checkbox input[type="checkbox"]:focus ~ .box:before,
+.ui.slider.checkbox input[type="checkbox"]:focus ~ label:before,
+.ui.slider.checkbox input[type="radio"]:focus ~ .box:before,
+.ui.slider.checkbox input[type="radio"]:focus ~ label:before {
   background-color: rgba(0, 0, 0, 0.1);
   border: none;
 }
@@ -22596,18 +23425,24 @@ a.ui.card:hover,
 
 /* Active */
 
-.ui.slider.checkbox input:checked ~ .box,
-.ui.slider.checkbox input:checked ~ label {
+.ui.slider.checkbox input[type="checkbox"]:checked ~ .box,
+.ui.slider.checkbox input[type="checkbox"]:checked ~ label,
+.ui.slider.checkbox input[type="radio"]:checked ~ .box,
+.ui.slider.checkbox input[type="radio"]:checked ~ label {
   color: rgba(0, 0, 0, 0.8);
 }
 
-.ui.slider.checkbox input:checked ~ .box:before,
-.ui.slider.checkbox input:checked ~ label:before {
+.ui.slider.checkbox input[type="checkbox"]:checked ~ .box:before,
+.ui.slider.checkbox input[type="checkbox"]:checked ~ label:before,
+.ui.slider.checkbox input[type="radio"]:checked ~ .box:before,
+.ui.slider.checkbox input[type="radio"]:checked ~ label:before {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-.ui.slider.checkbox input:checked ~ .box:after,
-.ui.slider.checkbox input:checked ~ label:after {
+.ui.slider.checkbox input[type="checkbox"]:checked ~ .box:after,
+.ui.slider.checkbox input[type="checkbox"]:checked ~ label:after,
+.ui.slider.checkbox input[type="radio"]:checked ~ .box:after,
+.ui.slider.checkbox input[type="radio"]:checked ~ label:after {
   left: 2rem;
 }
 
@@ -22671,15 +23506,19 @@ a.ui.card:hover,
     left 0.3s ease 0s;
 }
 
-.ui.toggle.checkbox input ~ .box:after,
-.ui.toggle.checkbox input ~ label:after {
+.ui.toggle.checkbox input[type="checkbox"] ~ .box:after,
+.ui.toggle.checkbox input[type="checkbox"] ~ label:after,
+.ui.toggle.checkbox input[type="radio"] ~ .box:after,
+.ui.toggle.checkbox input[type="radio"] ~ label:after {
   left: -0.05rem;
 }
 
 /* Focus */
 
-.ui.toggle.checkbox input:focus ~ .box:before,
-.ui.toggle.checkbox input:focus ~ label:before {
+.ui.toggle.checkbox input[type="checkbox"]:focus ~ .box:before,
+.ui.toggle.checkbox input[type="checkbox"]:focus ~ label:before,
+.ui.toggle.checkbox input[type="radio"]:focus ~ .box:before,
+.ui.toggle.checkbox input[type="radio"]:focus ~ label:before {
   background-color: rgba(0, 0, 0, 0.1);
   border: none;
 }
@@ -22694,18 +23533,24 @@ a.ui.card:hover,
 
 /* Active */
 
-.ui.toggle.checkbox input:checked ~ .box,
-.ui.toggle.checkbox input:checked ~ label {
+.ui.toggle.checkbox input[type="checkbox"]:checked ~ .box,
+.ui.toggle.checkbox input[type="checkbox"]:checked ~ label,
+.ui.toggle.checkbox input[type="radio"]:checked ~ .box,
+.ui.toggle.checkbox input[type="radio"]:checked ~ label {
   color: #5bbd72;
 }
 
-.ui.toggle.checkbox input:checked ~ .box:before,
-.ui.toggle.checkbox input:checked ~ label:before {
+.ui.toggle.checkbox input[type="checkbox"]:checked ~ .box:before,
+.ui.toggle.checkbox input[type="checkbox"]:checked ~ label:before,
+.ui.toggle.checkbox input[type="radio"]:checked ~ .box:before,
+.ui.toggle.checkbox input[type="radio"]:checked ~ label:before {
   background-color: #5bbd72;
 }
 
-.ui.toggle.checkbox input:checked ~ .box:after,
-.ui.toggle.checkbox input:checked ~ label:after {
+.ui.toggle.checkbox input[type="checkbox"]:checked ~ .box:after,
+.ui.toggle.checkbox input[type="checkbox"]:checked ~ label:after,
+.ui.toggle.checkbox input[type="radio"]:checked ~ .box:after,
+.ui.toggle.checkbox input[type="radio"]:checked ~ label:after {
   left: 2.05rem;
 }
 
@@ -22768,9 +23613,8 @@ a.ui.card:hover,
 /*******************************
          Site Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -22961,9 +23805,8 @@ body.dimmed.dimmable > :not(.dimmer) {
 /*******************************
         User Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -23024,7 +23867,7 @@ body.dimmed.dimmable > :not(.dimmer) {
   Hidden Input
 ---------------*/
 
-.ui.dropdown > input[type="hidden"],
+.ui.dropdown > input:not(.search):first-child,
 .ui.dropdown > select {
   display: none !important;
 }
@@ -23320,10 +24163,12 @@ select.ui.dropdown {
 .ui.selection.dropdown > .search.icon,
 .ui.selection.dropdown > .delete.icon,
 .ui.selection.dropdown > .dropdown.icon {
+  cursor: pointer;
   position: absolute;
   top: auto;
-  margin: 0em;
   width: auto;
+  margin: -0.8em;
+  padding: 0.8em;
   right: 1.1em;
   opacity: 0.8;
   -webkit-transition: opacity 0.2s ease;
@@ -23433,16 +24278,20 @@ select.ui.dropdown {
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
 }
 
-.ui.visible.selection.dropdown > .dropdown.icon {
-  opacity: 1;
-}
-
 /* Active Item */
 
 .ui.selection.active.dropdown > .text:not(.default),
 .ui.selection.visible.dropdown > .text:not(.default) {
   font-weight: normal;
   color: rgba(0, 0, 0, 0.8);
+}
+
+/* Dropdown Icon */
+
+.ui.active.selection.dropdown > .dropdown.icon,
+.ui.visible.selection.dropdown > .dropdown.icon {
+  opacity: 1;
+  z-index: 3;
 }
 
 /* Connecting Border */
@@ -24105,18 +24954,24 @@ select.ui.dropdown {
 /* Sub Menu */
 
 .ui.dropdown .menu .item .dropdown.icon:before {
-  content: '\f0da';
+  content: '\f0da' ;
 }
 
 .ui.dropdown .item .left.dropdown.icon:before,
 .ui.dropdown .left.menu .item .dropdown.icon:before {
-  content: "\f0d9";
+  content: "\f0d9" ;
+}
+
+/* Upward Dropdown */
+
+.ui.upward.dropdown > .dropdown.icon:before {
+  content: "\f0d8";
 }
 
 /* Vertical Menu Dropdown */
 
 .ui.vertical.menu .dropdown.item > .dropdown.icon:before {
-  content: "\f0da";
+  content: "\f0da" ;
 }
 
 /* Icons for Reference
@@ -24137,9 +24992,8 @@ select.ui.dropdown {
 /*******************************
         User Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -24412,6 +25266,7 @@ select.ui.dropdown {
 .ui.basic.modal {
   background-color: transparent;
   border: none;
+  border-radius: 0em;
   box-shadow: 0px 0px 0px 0px;
   color: #ffffff;
 }
@@ -24605,9 +25460,8 @@ select.ui.dropdown {
 /*******************************
          Site Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -24752,9 +25606,8 @@ a.ui.nag {
 /*******************************
         User Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -24773,7 +25626,9 @@ a.ui.nag {
   position: absolute;
   top: 0px;
   right: 0px;
-  z-index: 900;
+  /* Fixes content being squished when inline (moz only) */
+  min-width: -moz-max-content;
+  z-index: 1900;
   border: 1px solid #cccccc;
   max-width: 250px;
   background-color: #ffffff;
@@ -25053,9 +25908,8 @@ a.ui.nag {
 /*******************************
         User Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -25408,7 +26262,7 @@ a.ui.nag {
 .ui.progress.attached,
 .ui.progress.attached .bar {
   display: block;
-  height: 3px;
+  height: 0.2rem;
   padding: 0px;
   overflow: hidden;
   border-radius: 0em 0em 0.2857rem 0.2857rem;
@@ -25428,6 +26282,23 @@ a.ui.nag {
 
 .ui.progress.top.attached .bar {
   border-radius: 0em;
+}
+
+/* Coupling */
+
+.ui.segment > .ui.attached.progress,
+.ui.card > .ui.attached.progress {
+  position: absolute;
+  top: auto;
+  left: 0;
+  bottom: 100%;
+  width: 100%;
+}
+
+.ui.segment > .ui.bottom.attached.progress,
+.ui.card > .ui.bottom.attached.progress {
+  top: 100%;
+  bottom: auto;
 }
 
 /*--------------
@@ -25557,9 +26428,8 @@ a.ui.nag {
 /*******************************
          Site Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -25575,8 +26445,7 @@ a.ui.nag {
 
 .ui.rating {
   display: inline-block;
-  font-size: 0em;
-  vertical-align: baseline;
+  vertical-align: middle;
 }
 
 .ui.rating:last-child {
@@ -25597,12 +26466,11 @@ a.ui.nag {
   cursor: pointer;
   margin: 0em;
   width: 1.1em;
-  text-align: center;
   height: auto;
+  text-align: center;
   padding: 0em;
   font-weight: normal;
   font-style: normal;
-  vertical-align: baseline;
 }
 
 /*******************************
@@ -25747,14 +26615,6 @@ a.ui.nag {
   font-size: 2rem;
 }
 
-/* Realign */
-
-.ui.large.rating,
-.ui.huge.rating,
-.ui.massive.rating {
-  vertical-align: middle;
-}
-
 /*******************************
          Theme Overrides
 *******************************/
@@ -25769,7 +26629,6 @@ a.ui.nag {
 .ui.rating .icon {
   font-family: 'Rating';
   line-height: 1;
-  height: 1em;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   font-weight: normal;
@@ -25838,9 +26697,8 @@ a.ui.nag {
 /*******************************
          Site Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -26181,9 +27039,8 @@ a.ui.nag {
 /*******************************
          Site Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -26339,9 +27196,8 @@ a.ui.nag {
 /*******************************
         User Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -26435,17 +27291,23 @@ a.ui.nag {
   padding: 0em !important;
 }
 
-/* Inside Page */
+/* Whole Page */
+
+body.pushable {
+  background: #333333 !important;
+}
+
+/* Page Context */
 
 .pushable:not(body) {
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
 
-/* Whole Page */
-
-body.pushable {
-  background: #333333 !important;
+.pushable:not(body) > .ui.sidebar,
+.pushable:not(body) > .fixed,
+.pushable:not(body) > .pusher:after {
+  position: absolute;
 }
 
 /*--------------
@@ -26470,6 +27332,7 @@ body.pushable {
   position: relative;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+  overflow: hidden;
   min-height: 100%;
   -webkit-transition: -webkit-transform 500ms ease;
   transition: transform 500ms ease;
@@ -27017,9 +27880,8 @@ html.ios {
 /*******************************
          Site Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -27093,9 +27955,8 @@ html.ios {
 /*******************************
          Site Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -27182,9 +28043,8 @@ html.ios {
 /*******************************
         User Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -28322,9 +29182,8 @@ html.ios {
 /*******************************
          Site Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -28338,16 +29197,11 @@ html.ios {
           Transitions
 *******************************/
 
-/*
-  Some transitions adapted from Animate CSS
-  https://github.com/daneden/animate.css
-*/
-
 .transition {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
-  -webkit-animation-duration: 500ms;
-  animation-duration: 500ms;
+  -webkit-animation-duration: 300ms;
+  animation-duration: 300ms;
   -webkit-animation-timing-function: ease;
   animation-timing-function: ease;
   -webkit-animation-fill-mode: both;
@@ -28411,11 +29265,1892 @@ html.ios {
 }
 
 /*******************************
-             Types
+          Transitions
 *******************************/
 
+/*
+  Some transitions adapted from Animate CSS
+  https://github.com/daneden/animate.css
+
+  Additional transitions adapted from Glide
+  by Nick Pettit - https://github.com/nickpettit/glide
+*/
+
+/*--------------
+     Browse
+---------------*/
+
+.transition.browse.in {
+  -webkit-animation-name: browseIn;
+  animation-name: browseIn;
+}
+
+.transition.browse.out,
+.transition.browse.left.out {
+  -webkit-animation-name: browseOutLeft;
+  animation-name: browseOutLeft;
+}
+
+.transition.browse.right.out {
+  -webkit-animation-name: browseOutRight;
+  animation-name: browseOutRight;
+}
+
+/* In */
+
+@-webkit-keyframes browseIn {
+  0% {
+    -webkit-transform: scale(0.8) translateZ(0px);
+    transform: scale(0.8) translateZ(0px);
+    z-index: -1;
+  }
+
+  10% {
+    -webkit-transform: scale(0.8) translateZ(0px);
+    transform: scale(0.8) translateZ(0px);
+    z-index: -1;
+    opacity: 0.7;
+  }
+
+  80% {
+    -webkit-transform: scale(1.05) translateZ(0px);
+    transform: scale(1.05) translateZ(0px);
+    opacity: 1;
+    z-index: 999;
+  }
+
+  100% {
+    -webkit-transform: scale(1) translateZ(0px);
+    transform: scale(1) translateZ(0px);
+    z-index: 999;
+  }
+}
+
+@keyframes browseIn {
+  0% {
+    -webkit-transform: scale(0.8) translateZ(0px);
+    transform: scale(0.8) translateZ(0px);
+    z-index: -1;
+  }
+
+  10% {
+    -webkit-transform: scale(0.8) translateZ(0px);
+    transform: scale(0.8) translateZ(0px);
+    z-index: -1;
+    opacity: 0.7;
+  }
+
+  80% {
+    -webkit-transform: scale(1.05) translateZ(0px);
+    transform: scale(1.05) translateZ(0px);
+    opacity: 1;
+    z-index: 999;
+  }
+
+  100% {
+    -webkit-transform: scale(1) translateZ(0px);
+    transform: scale(1) translateZ(0px);
+    z-index: 999;
+  }
+}
+
+/* Out */
+
+@-webkit-keyframes browseOutLeft {
+  0% {
+    z-index: 999;
+    -webkit-transform: translateX(0%) rotateY(0deg) rotateX(0deg);
+    transform: translateX(0%) rotateY(0deg) rotateX(0deg);
+  }
+
+  50% {
+    z-index: -1;
+    -webkit-transform: translateX(-105%) rotateY(35deg) rotateX(10deg) translateZ(-10px);
+    transform: translateX(-105%) rotateY(35deg) rotateX(10deg) translateZ(-10px);
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    z-index: -1;
+    -webkit-transform: translateX(0%) rotateY(0deg) rotateX(0deg) translateZ(-10px);
+    transform: translateX(0%) rotateY(0deg) rotateX(0deg) translateZ(-10px);
+    opacity: 0;
+  }
+}
+
+@keyframes browseOutLeft {
+  0% {
+    z-index: 999;
+    -webkit-transform: translateX(0%) rotateY(0deg) rotateX(0deg);
+    transform: translateX(0%) rotateY(0deg) rotateX(0deg);
+  }
+
+  50% {
+    z-index: -1;
+    -webkit-transform: translateX(-105%) rotateY(35deg) rotateX(10deg) translateZ(-10px);
+    transform: translateX(-105%) rotateY(35deg) rotateX(10deg) translateZ(-10px);
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    z-index: -1;
+    -webkit-transform: translateX(0%) rotateY(0deg) rotateX(0deg) translateZ(-10px);
+    transform: translateX(0%) rotateY(0deg) rotateX(0deg) translateZ(-10px);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes browseOutRight {
+  0% {
+    z-index: 999;
+    -webkit-transform: translateX(0%) rotateY(0deg) rotateX(0deg);
+    transform: translateX(0%) rotateY(0deg) rotateX(0deg);
+  }
+
+  50% {
+    z-index: 1;
+    -webkit-transform: translateX(105%) rotateY(35deg) rotateX(10deg) translateZ(-10px);
+    transform: translateX(105%) rotateY(35deg) rotateX(10deg) translateZ(-10px);
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    z-index: 1;
+    -webkit-transform: translateX(0%) rotateY(0deg) rotateX(0deg) translateZ(-10px);
+    transform: translateX(0%) rotateY(0deg) rotateX(0deg) translateZ(-10px);
+    opacity: 0;
+  }
+}
+
+@keyframes browseOutRight {
+  0% {
+    z-index: 999;
+    -webkit-transform: translateX(0%) rotateY(0deg) rotateX(0deg);
+    transform: translateX(0%) rotateY(0deg) rotateX(0deg);
+  }
+
+  50% {
+    z-index: 1;
+    -webkit-transform: translateX(105%) rotateY(35deg) rotateX(10deg) translateZ(-10px);
+    transform: translateX(105%) rotateY(35deg) rotateX(10deg) translateZ(-10px);
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    z-index: 1;
+    -webkit-transform: translateX(0%) rotateY(0deg) rotateX(0deg) translateZ(-10px);
+    transform: translateX(0%) rotateY(0deg) rotateX(0deg) translateZ(-10px);
+    opacity: 0;
+  }
+}
+
+/*--------------
+     Drop
+---------------*/
+
+.drop.transition {
+  -webkit-transform-origin: top center;
+  -ms-transform-origin: top center;
+  transform-origin: top center;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-timing-function: cubic-bezier(0.34, 1.61, 0.7, 1);
+  animation-timing-function: cubic-bezier(0.34, 1.61, 0.7, 1);
+}
+
+.drop.transition.in {
+  -webkit-animation-name: dropIn;
+  animation-name: dropIn;
+}
+
+.drop.transition.out {
+  -webkit-animation-name: dropOut;
+  animation-name: dropOut;
+}
+
+/* Drop */
+
+@-webkit-keyframes dropIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes dropIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes dropOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+}
+
+@keyframes dropOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+}
+
+/*--------------
+      Fade
+---------------*/
+
+.transition.fade.in {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+.transition[class*="fade up"].in {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+
+.transition[class*="fade down"].in {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}
+
+.transition[class*="fade left"].in {
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+}
+
+.transition[class*="fade right"].in {
+  -webkit-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+}
+
+.transition.fade.out {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+}
+
+.transition[class*="fade up"].out {
+  -webkit-animation-name: fadeOutUp;
+  animation-name: fadeOutUp;
+}
+
+.transition[class*="fade down"].out {
+  -webkit-animation-name: fadeOutDown;
+  animation-name: fadeOutDown;
+}
+
+.transition[class*="fade left"].out {
+  -webkit-animation-name: fadeOutLeft;
+  animation-name: fadeOutLeft;
+}
+
+.transition[class*="fade right"].out {
+  -webkit-animation-name: fadeOutRight;
+  animation-name: fadeOutRight;
+}
+
+/* In */
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(10%);
+    transform: translateY(10%);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(10%);
+    transform: translateY(10%);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+}
+
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-10%);
+    transform: translateY(-10%);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-10%);
+    transform: translateY(-10%);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+}
+
+@-webkit-keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(10%);
+    transform: translateX(10%);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(10%);
+    transform: translateX(10%);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+}
+
+@-webkit-keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-10%);
+    transform: translateX(-10%);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-10%);
+    transform: translateX(-10%);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+}
+
+/* Out */
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes fadeOutUp {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(10%);
+    transform: translateY(10%);
+  }
+}
+
+@keyframes fadeOutUp {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(10%);
+    transform: translateY(10%);
+  }
+}
+
+@-webkit-keyframes fadeOutDown {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(-10%);
+    transform: translateY(-10%);
+  }
+}
+
+@keyframes fadeOutDown {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(-10%);
+    transform: translateY(-10%);
+  }
+}
+
+@-webkit-keyframes fadeOutLeft {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(10%);
+    transform: translateX(10%);
+  }
+}
+
+@keyframes fadeOutLeft {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(10%);
+    transform: translateX(10%);
+  }
+}
+
+@-webkit-keyframes fadeOutRight {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(-10%);
+    transform: translateX(-10%);
+  }
+}
+
+@keyframes fadeOutRight {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(-10%);
+    transform: translateX(-10%);
+  }
+}
+
+/*--------------
+     Flips
+---------------*/
+
+.flip.transition.in,
+.flip.transition.out {
+  -webkit-perspective: 2000px;
+  perspective: 2000px;
+}
+
+.horizontal.flip.transition.in {
+  -webkit-animation-name: horizontalFlipIn;
+  animation-name: horizontalFlipIn;
+}
+
+.horizontal.flip.transition.out {
+  -webkit-animation-name: horizontalFlipOut;
+  animation-name: horizontalFlipOut;
+}
+
+.vertical.flip.transition.in {
+  -webkit-animation-name: verticalFlipIn;
+  animation-name: verticalFlipIn;
+}
+
+.vertical.flip.transition.out {
+  -webkit-animation-name: verticalFlipOut;
+  animation-name: verticalFlipOut;
+}
+
+/* In */
+
+@-webkit-keyframes horizontalFlipIn {
+  0% {
+    -webkit-transform: perspective(2000px) rotateY(-90deg);
+    transform: perspective(2000px) rotateY(-90deg);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: perspective(2000px) rotateY(0deg);
+    transform: perspective(2000px) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes horizontalFlipIn {
+  0% {
+    -webkit-transform: perspective(2000px) rotateY(-90deg);
+    transform: perspective(2000px) rotateY(-90deg);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: perspective(2000px) rotateY(0deg);
+    transform: perspective(2000px) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes verticalFlipIn {
+  0% {
+    -webkit-transform: perspective(2000px) rotateX(-90deg);
+    transform: perspective(2000px) rotateX(-90deg);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: perspective(2000px) rotateX(0deg);
+    transform: perspective(2000px) rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes verticalFlipIn {
+  0% {
+    -webkit-transform: perspective(2000px) rotateX(-90deg);
+    transform: perspective(2000px) rotateX(-90deg);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: perspective(2000px) rotateX(0deg);
+    transform: perspective(2000px) rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+/* Out */
+
+@-webkit-keyframes horizontalFlipOut {
+  0% {
+    -webkit-transform: perspective(2000px) rotateY(0deg);
+    transform: perspective(2000px) rotateY(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(2000px) rotateY(90deg);
+    transform: perspective(2000px) rotateY(90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes horizontalFlipOut {
+  0% {
+    -webkit-transform: perspective(2000px) rotateY(0deg);
+    transform: perspective(2000px) rotateY(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(2000px) rotateY(90deg);
+    transform: perspective(2000px) rotateY(90deg);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes verticalFlipOut {
+  0% {
+    -webkit-transform: perspective(2000px) rotateX(0deg);
+    transform: perspective(2000px) rotateX(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(2000px) rotateX(-90deg);
+    transform: perspective(2000px) rotateX(-90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes verticalFlipOut {
+  0% {
+    -webkit-transform: perspective(2000px) rotateX(0deg);
+    transform: perspective(2000px) rotateX(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(2000px) rotateX(-90deg);
+    transform: perspective(2000px) rotateX(-90deg);
+    opacity: 0;
+  }
+}
+
+/*--------------
+      Scale
+---------------*/
+
+.scale.transition.in {
+  -webkit-animation-name: scaleIn;
+  animation-name: scaleIn;
+}
+
+.scale.transition.out {
+  -webkit-animation-name: scaleOut;
+  animation-name: scaleOut;
+}
+
+/* In */
+
+@-webkit-keyframes scaleIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.7);
+    transform: scale(0.7);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.7);
+    transform: scale(0.7);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+/* Out */
+
+@-webkit-keyframes scaleOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.7);
+    transform: scale(0.7);
+  }
+}
+
+@keyframes scaleOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.7);
+    transform: scale(0.7);
+  }
+}
+
+/*--------------
+      Fly
+---------------*/
+
+/* Inward */
+
+.transition.fly {
+  -webkit-animation-duration: 0.6s;
+  animation-duration: 0.6s;
+  -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.transition.fly.in {
+  -webkit-animation-name: flyIn;
+  animation-name: flyIn;
+}
+
+.transition[class*="fly up"].in {
+  -webkit-animation-name: flyInUp;
+  animation-name: flyInUp;
+}
+
+.transition[class*="fly down"].in {
+  -webkit-animation-name: flyInDown;
+  animation-name: flyInDown;
+}
+
+.transition[class*="fly left"].in {
+  -webkit-animation-name: flyInLeft;
+  animation-name: flyInLeft;
+}
+
+.transition[class*="fly right"].in {
+  -webkit-animation-name: flyInRight;
+  animation-name: flyInRight;
+}
+
+/* Outward */
+
+.transition.fly.out {
+  -webkit-animation-name: flyOut;
+  animation-name: flyOut;
+}
+
+.transition[class*="fly up"].out {
+  -webkit-animation-name: flyOutUp;
+  animation-name: flyOutUp;
+}
+
+.transition[class*="fly down"].out {
+  -webkit-animation-name: flyOutDown;
+  animation-name: flyOutDown;
+}
+
+.transition[class*="fly left"].out {
+  -webkit-animation-name: flyOutLeft;
+  animation-name: flyOutLeft;
+}
+
+.transition[class*="fly right"].out {
+  -webkit-animation-name: flyOutRight;
+  animation-name: flyOutRight;
+}
+
+/* In */
+
+@-webkit-keyframes flyIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  20% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1);
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  40% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9);
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: scale3d(1.03, 1.03, 1.03);
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  80% {
+    -webkit-transform: scale3d(0.97, 0.97, 0.97);
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes flyIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  20% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1);
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  40% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9);
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: scale3d(1.03, 1.03, 1.03);
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  80% {
+    -webkit-transform: scale3d(0.97, 0.97, 0.97);
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@-webkit-keyframes flyInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 1500px, 0);
+    transform: translate3d(0, 1500px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, -20px, 0);
+    transform: translate3d(0, -20px, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 10px, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0, -5px, 0);
+    transform: translate3d(0, -5px, 0);
+  }
+
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes flyInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 1500px, 0);
+    transform: translate3d(0, 1500px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, -20px, 0);
+    transform: translate3d(0, -20px, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 10px, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0, -5px, 0);
+    transform: translate3d(0, -5px, 0);
+  }
+
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@-webkit-keyframes flyInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -1500px, 0);
+    transform: translate3d(0, -1500px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 25px, 0);
+    transform: translate3d(0, 25px, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0, 5px, 0);
+    transform: translate3d(0, 5px, 0);
+  }
+
+  100% {
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes flyInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -1500px, 0);
+    transform: translate3d(0, -1500px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 25px, 0);
+    transform: translate3d(0, 25px, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0, 5px, 0);
+    transform: translate3d(0, 5px, 0);
+  }
+
+  100% {
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@-webkit-keyframes flyInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(1500px, 0, 0);
+    transform: translate3d(1500px, 0, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(-25px, 0, 0);
+    transform: translate3d(-25px, 0, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(-5px, 0, 0);
+    transform: translate3d(-5px, 0, 0);
+  }
+
+  100% {
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes flyInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(1500px, 0, 0);
+    transform: translate3d(1500px, 0, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(-25px, 0, 0);
+    transform: translate3d(-25px, 0, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(-5px, 0, 0);
+    transform: translate3d(-5px, 0, 0);
+  }
+
+  100% {
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@-webkit-keyframes flyInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-1500px, 0, 0);
+    transform: translate3d(-1500px, 0, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(25px, 0, 0);
+    transform: translate3d(25px, 0, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(5px, 0, 0);
+    transform: translate3d(5px, 0, 0);
+  }
+
+  100% {
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes flyInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-1500px, 0, 0);
+    transform: translate3d(-1500px, 0, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(25px, 0, 0);
+    transform: translate3d(25px, 0, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(5px, 0, 0);
+    transform: translate3d(5px, 0, 0);
+  }
+
+  100% {
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+/* Out */
+
+@-webkit-keyframes flyOut {
+  20% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9);
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+  50%, 55% {
+    opacity: 1;
+    -webkit-transform: scale3d(1.1, 1.1, 1.1);
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+}
+
+@keyframes flyOut {
+  20% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9);
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+  50%, 55% {
+    opacity: 1;
+    -webkit-transform: scale3d(1.1, 1.1, 1.1);
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+}
+
+@-webkit-keyframes flyOutUp {
+  20% {
+    -webkit-transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 10px, 0);
+  }
+
+  40%, 45% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, -20px, 0);
+    transform: translate3d(0, -20px, 0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 2000px, 0);
+    transform: translate3d(0, 2000px, 0);
+  }
+}
+
+@keyframes flyOutUp {
+  20% {
+    -webkit-transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 10px, 0);
+  }
+
+  40%, 45% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, -20px, 0);
+    transform: translate3d(0, -20px, 0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 2000px, 0);
+    transform: translate3d(0, 2000px, 0);
+  }
+}
+
+@-webkit-keyframes flyOutDown {
+  20% {
+    -webkit-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+  }
+
+  40%, 45% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 20px, 0);
+    transform: translate3d(0, 20px, 0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -2000px, 0);
+    transform: translate3d(0, -2000px, 0);
+  }
+}
+
+@keyframes flyOutDown {
+  20% {
+    -webkit-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+  }
+
+  40%, 45% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 20px, 0);
+    transform: translate3d(0, 20px, 0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -2000px, 0);
+    transform: translate3d(0, -2000px, 0);
+  }
+}
+
+@-webkit-keyframes flyOutRight {
+  20% {
+    opacity: 1;
+    -webkit-transform: translate3d(20px, 0, 0);
+    transform: translate3d(20px, 0, 0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(-2000px, 0, 0);
+    transform: translate3d(-2000px, 0, 0);
+  }
+}
+
+@keyframes flyOutRight {
+  20% {
+    opacity: 1;
+    -webkit-transform: translate3d(20px, 0, 0);
+    transform: translate3d(20px, 0, 0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(-2000px, 0, 0);
+    transform: translate3d(-2000px, 0, 0);
+  }
+}
+
+@-webkit-keyframes flyOutLeft {
+  20% {
+    opacity: 1;
+    -webkit-transform: translate3d(-20px, 0, 0);
+    transform: translate3d(-20px, 0, 0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(2000px, 0, 0);
+    transform: translate3d(2000px, 0, 0);
+  }
+}
+
+@keyframes flyOutLeft {
+  20% {
+    opacity: 1;
+    -webkit-transform: translate3d(-20px, 0, 0);
+    transform: translate3d(-20px, 0, 0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(2000px, 0, 0);
+    transform: translate3d(2000px, 0, 0);
+  }
+}
+
+/*--------------
+     Slide
+---------------*/
+
+.transition.slide.in,
+.transition[class*="slide down"].in {
+  -webkit-animation-name: slideInY;
+  animation-name: slideInY;
+  -webkit-transform-origin: top center;
+  -ms-transform-origin: top center;
+  transform-origin: top center;
+}
+
+.transition[class*="slide up"].in {
+  -webkit-animation-name: slideInY;
+  animation-name: slideInY;
+  -webkit-transform-origin: bottom center;
+  -ms-transform-origin: bottom center;
+  transform-origin: bottom center;
+}
+
+.transition[class*="slide left"].in {
+  -webkit-animation-name: slideInX;
+  animation-name: slideInX;
+  -webkit-transform-origin: center right;
+  -ms-transform-origin: center right;
+  transform-origin: center right;
+}
+
+.transition[class*="slide right"].in {
+  -webkit-animation-name: slideInX;
+  animation-name: slideInX;
+  -webkit-transform-origin: center left;
+  -ms-transform-origin: center left;
+  transform-origin: center left;
+}
+
+.transition.slide.out,
+.transition[class*="slide down"].out {
+  -webkit-animation-name: slideOutY;
+  animation-name: slideOutY;
+  -webkit-transform-origin: top center;
+  -ms-transform-origin: top center;
+  transform-origin: top center;
+}
+
+.transition[class*="slide up"].out {
+  -webkit-animation-name: slideOutY;
+  animation-name: slideOutY;
+  -webkit-transform-origin: bottom center;
+  -ms-transform-origin: bottom center;
+  transform-origin: bottom center;
+}
+
+.transition[class*="slide left"].out {
+  -webkit-animation-name: slideOutX;
+  animation-name: slideOutX;
+  -webkit-transform-origin: center right;
+  -ms-transform-origin: center right;
+  transform-origin: center right;
+}
+
+.transition[class*="slide right"].out {
+  -webkit-animation-name: slideOutX;
+  animation-name: slideOutX;
+  -webkit-transform-origin: center left;
+  -ms-transform-origin: center left;
+  transform-origin: center left;
+}
+
+/* In */
+
+@-webkit-keyframes slideInY {
+  0% {
+    opacity: 0;
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+}
+
+@keyframes slideInY {
+  0% {
+    opacity: 0;
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+}
+
+@-webkit-keyframes slideInX {
+  0% {
+    opacity: 0;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+}
+
+@keyframes slideInX {
+  0% {
+    opacity: 0;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+}
+
+/* Out */
+
+@-webkit-keyframes slideOutY {
+  0% {
+    opacity: 1;
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+  }
+}
+
+@keyframes slideOutY {
+  0% {
+    opacity: 1;
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+  }
+}
+
+@-webkit-keyframes slideOutX {
+  0% {
+    opacity: 1;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+  }
+}
+
+@keyframes slideOutX {
+  0% {
+    opacity: 1;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+  }
+}
+
+/*--------------
+     Swing
+---------------*/
+
+.transition.swing.in,
+.transition[class*="swing down"].in {
+  -webkit-animation-name: swingInY;
+  animation-name: swingInY;
+  -webkit-transform-origin: top center;
+  -ms-transform-origin: top center;
+  transform-origin: top center;
+}
+
+.transition[class*="swing up"].in {
+  -webkit-animation-name: swingInY;
+  animation-name: swingInY;
+  -webkit-transform-origin: bottom center;
+  -ms-transform-origin: bottom center;
+  transform-origin: bottom center;
+}
+
+.transition[class*="swing left"].in {
+  -webkit-animation-name: swingInX;
+  animation-name: swingInX;
+  -webkit-transform-origin: center right;
+  -ms-transform-origin: center right;
+  transform-origin: center right;
+}
+
+.transition[class*="swing right"].in {
+  -webkit-animation-name: swingInX;
+  animation-name: swingInX;
+  -webkit-transform-origin: center left;
+  -ms-transform-origin: center left;
+  transform-origin: center left;
+}
+
+.transition.swing.out,
+.transition[class*="swing down"].out {
+  -webkit-animation-name: swingOutY;
+  animation-name: swingOutY;
+  -webkit-transform-origin: top center;
+  -ms-transform-origin: top center;
+  transform-origin: top center;
+}
+
+.transition[class*="swing up"].out {
+  -webkit-animation-name: swingOutY;
+  animation-name: swingOutY;
+  -webkit-transform-origin: bottom center;
+  -ms-transform-origin: bottom center;
+  transform-origin: bottom center;
+}
+
+.transition[class*="swing left"].out {
+  -webkit-animation-name: swingOutX;
+  animation-name: swingOutX;
+  -webkit-transform-origin: center right;
+  -ms-transform-origin: center right;
+  transform-origin: center right;
+}
+
+.transition[class*="swing right"].out {
+  -webkit-animation-name: swingOutX;
+  animation-name: swingOutX;
+  -webkit-transform-origin: center left;
+  -ms-transform-origin: center left;
+  transform-origin: center left;
+}
+
+/* In */
+
+@-webkit-keyframes swingInX {
+  0% {
+    -webkit-transform: perspective(1000px) rotateX(90deg);
+    transform: perspective(1000px) rotateX(90deg);
+    opacity: 0;
+  }
+
+  40% {
+    -webkit-transform: perspective(1000px) rotateX(-20deg);
+    transform: perspective(1000px) rotateX(-20deg);
+  }
+
+  60% {
+    -webkit-transform: perspective(1000px) rotateX(10deg);
+    transform: perspective(1000px) rotateX(10deg);
+  }
+
+  80% {
+    -webkit-transform: perspective(1000px) rotateX(-5deg);
+    transform: perspective(1000px) rotateX(-5deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(1000px) rotateX(0deg);
+    transform: perspective(1000px) rotateX(0deg);
+  }
+}
+
+@keyframes swingInX {
+  0% {
+    -webkit-transform: perspective(1000px) rotateX(90deg);
+    transform: perspective(1000px) rotateX(90deg);
+    opacity: 0;
+  }
+
+  40% {
+    -webkit-transform: perspective(1000px) rotateX(-20deg);
+    transform: perspective(1000px) rotateX(-20deg);
+  }
+
+  60% {
+    -webkit-transform: perspective(1000px) rotateX(10deg);
+    transform: perspective(1000px) rotateX(10deg);
+  }
+
+  80% {
+    -webkit-transform: perspective(1000px) rotateX(-5deg);
+    transform: perspective(1000px) rotateX(-5deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(1000px) rotateX(0deg);
+    transform: perspective(1000px) rotateX(0deg);
+  }
+}
+
+@-webkit-keyframes swingInY {
+  0% {
+    -webkit-transform: perspective(1000px) rotateY(-90deg);
+    transform: perspective(1000px) rotateY(-90deg);
+    opacity: 0;
+  }
+
+  40% {
+    -webkit-transform: perspective(1000px) rotateY(20deg);
+    transform: perspective(1000px) rotateY(20deg);
+  }
+
+  60% {
+    -webkit-transform: perspective(1000px) rotateY(-10deg);
+    transform: perspective(1000px) rotateY(-10deg);
+  }
+
+  80% {
+    -webkit-transform: perspective(1000px) rotateY(5deg);
+    transform: perspective(1000px) rotateY(5deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(1000px) rotateY(0deg);
+    transform: perspective(1000px) rotateY(0deg);
+  }
+}
+
+@keyframes swingInY {
+  0% {
+    -webkit-transform: perspective(1000px) rotateY(-90deg);
+    transform: perspective(1000px) rotateY(-90deg);
+    opacity: 0;
+  }
+
+  40% {
+    -webkit-transform: perspective(1000px) rotateY(20deg);
+    transform: perspective(1000px) rotateY(20deg);
+  }
+
+  60% {
+    -webkit-transform: perspective(1000px) rotateY(-10deg);
+    transform: perspective(1000px) rotateY(-10deg);
+  }
+
+  80% {
+    -webkit-transform: perspective(1000px) rotateY(5deg);
+    transform: perspective(1000px) rotateY(5deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(1000px) rotateY(0deg);
+    transform: perspective(1000px) rotateY(0deg);
+  }
+}
+
+/* Out */
+
+@-webkit-keyframes swingOutUp {
+  0% {
+    -webkit-transform: perspective(1000px) rotateX(0deg);
+    transform: perspective(1000px) rotateX(0deg);
+  }
+
+  30% {
+    -webkit-transform: perspective(1000px) rotateX(-20deg);
+    transform: perspective(1000px) rotateX(-20deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(1000px) rotateX(90deg);
+    transform: perspective(1000px) rotateX(90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes swingOutUp {
+  0% {
+    -webkit-transform: perspective(1000px) rotateX(0deg);
+    transform: perspective(1000px) rotateX(0deg);
+  }
+
+  30% {
+    -webkit-transform: perspective(1000px) rotateX(-20deg);
+    transform: perspective(1000px) rotateX(-20deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(1000px) rotateX(90deg);
+    transform: perspective(1000px) rotateX(90deg);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes swingOutDown {
+  0% {
+    -webkit-transform: perspective(1000px) rotateX(0deg);
+    transform: perspective(1000px) rotateX(0deg);
+  }
+
+  30% {
+    -webkit-transform: perspective(1000px) rotateX(20deg);
+    transform: perspective(1000px) rotateX(20deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(1000px) rotateX(-90deg);
+    transform: perspective(1000px) rotateX(-90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes swingOutDown {
+  0% {
+    -webkit-transform: perspective(1000px) rotateX(0deg);
+    transform: perspective(1000px) rotateX(0deg);
+  }
+
+  30% {
+    -webkit-transform: perspective(1000px) rotateX(20deg);
+    transform: perspective(1000px) rotateX(20deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(1000px) rotateX(-90deg);
+    transform: perspective(1000px) rotateX(-90deg);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes swingOutLeft {
+  0% {
+    -webkit-transform: perspective(1000px) rotateY(0deg);
+    transform: perspective(1000px) rotateY(0deg);
+  }
+
+  30% {
+    -webkit-transform: perspective(1000px) rotateY(20deg);
+    transform: perspective(1000px) rotateY(20deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(1000px) rotateY(-90deg);
+    transform: perspective(1000px) rotateY(-90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes swingOutLeft {
+  0% {
+    -webkit-transform: perspective(1000px) rotateY(0deg);
+    transform: perspective(1000px) rotateY(0deg);
+  }
+
+  30% {
+    -webkit-transform: perspective(1000px) rotateY(20deg);
+    transform: perspective(1000px) rotateY(20deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(1000px) rotateY(-90deg);
+    transform: perspective(1000px) rotateY(-90deg);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes swingOutRight {
+  0% {
+    -webkit-transform: perspective(1000px) rotateY(0deg);
+    transform: perspective(1000px) rotateY(0deg);
+  }
+
+  30% {
+    -webkit-transform: perspective(1000px) rotateY(-20deg);
+    transform: perspective(1000px) rotateY(-20deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(1000px) rotateY(90deg);
+    transform: perspective(1000px) rotateY(90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes swingOutRight {
+  0% {
+    -webkit-transform: perspective(1000px) rotateY(0deg);
+    transform: perspective(1000px) rotateY(0deg);
+  }
+
+  30% {
+    -webkit-transform: perspective(1000px) rotateY(-20deg);
+    transform: perspective(1000px) rotateY(-20deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(1000px) rotateY(90deg);
+    transform: perspective(1000px) rotateY(90deg);
+    opacity: 0;
+  }
+}
+
 /*******************************
-           Animations
+       Static Animations
 *******************************/
 
 /*--------------
@@ -28442,11 +31177,14 @@ html.ios {
   animation-name: tada;
 }
 
-/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
-
 .pulse.transition {
   -webkit-animation-name: pulse;
   animation-name: pulse;
+}
+
+.jiggle.transition {
+  -webkit-animation-name: jiggle;
+  animation-name: jiggle;
 }
 
 /* Flash */
@@ -28641,778 +31379,87 @@ html.ios {
   }
 }
 
-/*--------------
-     Slide
----------------*/
+/* Rubberband */
 
-.slide.down.transition.in {
-  -webkit-animation-name: slideIn;
-  animation-name: slideIn;
-  transform-origin: 50% 0%;
-  -ms-transform-origin: 50% 0%;
-  -webkit-transform-origin: 50% 0%;
-}
-
-.slide.down.transition.out {
-  -webkit-animation-name: slideOut;
-  animation-name: slideOut;
-  -webkit-transform-origin: 50% 0%;
-  -ms-transform-origin: 50% 0%;
-  transform-origin: 50% 0%;
-}
-
-.slide.up.transition.in {
-  -webkit-animation-name: slideIn;
-  animation-name: slideIn;
-  -webkit-transform-origin: 50% 100%;
-  -ms-transform-origin: 50% 100%;
-  transform-origin: 50% 100%;
-}
-
-.slide.up.transition.out {
-  -webkit-animation-name: slideOut;
-  animation-name: slideOut;
-  -webkit-transform-origin: 50% 100%;
-  -ms-transform-origin: 50% 100%;
-  transform-origin: 50% 100%;
-}
-
-@-webkit-keyframes slideIn {
+@-webkit-keyframes jiggle {
   0% {
-    opacity: 0;
-    -webkit-transform: scaleY(0);
-    transform: scaleY(0);
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
   }
 
-  100% {
-    opacity: 1;
-    -webkit-transform: scaleY(1);
-    transform: scaleY(1);
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+    transform: scale3d(1.25, 0.75, 1);
   }
-}
 
-@keyframes slideIn {
-  0% {
-    opacity: 0;
-    -webkit-transform: scaleY(0);
-    transform: scaleY(0);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: scaleY(1);
-    transform: scaleY(1);
-  }
-}
-
-@-webkit-keyframes slideOut {
-  0% {
-    opacity: 1;
-    -webkit-transform: scaleY(1);
-    transform: scaleY(1);
-  }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: scaleY(0);
-    transform: scaleY(0);
-  }
-}
-
-@keyframes slideOut {
-  0% {
-    opacity: 1;
-    -webkit-transform: scaleY(1);
-    transform: scaleY(1);
-  }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: scaleY(0);
-    transform: scaleY(0);
-  }
-}
-
-/*--------------
-     Flips
----------------*/
-
-.flip.transition.in,
-.flip.transition.out {
-  -webkit-perspective: 2000px;
-  perspective: 2000px;
-}
-
-.horizontal.flip.transition.in {
-  -webkit-animation-name: horizontalFlipIn;
-  animation-name: horizontalFlipIn;
-}
-
-.horizontal.flip.transition.out {
-  -webkit-animation-name: horizontalFlipOut;
-  animation-name: horizontalFlipOut;
-}
-
-.vertical.flip.transition.in {
-  -webkit-animation-name: verticalFlipIn;
-  animation-name: verticalFlipIn;
-}
-
-.vertical.flip.transition.out {
-  -webkit-animation-name: verticalFlipOut;
-  animation-name: verticalFlipOut;
-}
-
-/* Horizontal */
-
-@-webkit-keyframes horizontalFlipIn {
-  0% {
-    -webkit-transform: rotateY(-90deg);
-    transform: rotateY(-90deg);
-    opacity: 0;
-  }
-
-  100% {
-    -webkit-transform: rotateY(0deg);
-    transform: rotateY(0deg);
-    opacity: 1;
-  }
-}
-
-@keyframes horizontalFlipIn {
-  0% {
-    -webkit-transform: rotateY(-90deg);
-    transform: rotateY(-90deg);
-    opacity: 0;
-  }
-
-  100% {
-    -webkit-transform: rotateY(0deg);
-    transform: rotateY(0deg);
-    opacity: 1;
-  }
-}
-
-/* Horizontal */
-
-@-webkit-keyframes horizontalFlipOut {
-  0% {
-    -webkit-transform: rotateY(0deg);
-    transform: rotateY(0deg);
-    opacity: 1;
-  }
-
-  100% {
-    -webkit-transform: rotateY(90deg);
-    transform: rotateY(90deg);
-    opacity: 0;
-  }
-}
-
-@keyframes horizontalFlipOut {
-  0% {
-    -webkit-transform: rotateY(0deg);
-    transform: rotateY(0deg);
-    opacity: 1;
-  }
-
-  100% {
-    -webkit-transform: rotateY(90deg);
-    transform: rotateY(90deg);
-    opacity: 0;
-  }
-}
-
-/* Vertical */
-
-@-webkit-keyframes verticalFlipIn {
-  0% {
-    -webkit-transform: rotateX(-90deg);
-    transform: rotateX(-90deg);
-    opacity: 0;
-  }
-
-  100% {
-    -webkit-transform: rotateX(0deg);
-    transform: rotateX(0deg);
-    opacity: 1;
-  }
-}
-
-@keyframes verticalFlipIn {
-  0% {
-    -webkit-transform: rotateX(-90deg);
-    transform: rotateX(-90deg);
-    opacity: 0;
-  }
-
-  100% {
-    -webkit-transform: rotateX(0deg);
-    transform: rotateX(0deg);
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes verticalFlipOut {
-  0% {
-    -webkit-transform: rotateX(0deg);
-    transform: rotateX(0deg);
-    opacity: 1;
-  }
-
-  100% {
-    -webkit-transform: rotateX(-90deg);
-    transform: rotateX(-90deg);
-    opacity: 0;
-  }
-}
-
-@keyframes verticalFlipOut {
-  0% {
-    -webkit-transform: rotateX(0deg);
-    transform: rotateX(0deg);
-    opacity: 1;
-  }
-
-  100% {
-    -webkit-transform: rotateX(-90deg);
-    transform: rotateX(-90deg);
-    opacity: 0;
-  }
-}
-
-/*--------------
-      Fades
----------------*/
-
-.fade.transition.in {
-  -webkit-animation-name: fadeIn;
-  animation-name: fadeIn;
-}
-
-.fade.transition.out {
-  -webkit-animation-name: fadeOut;
-  animation-name: fadeOut;
-}
-
-.fade.up.transition.in {
-  -webkit-animation-name: fadeUpIn;
-  animation-name: fadeUpIn;
-}
-
-.fade.up.transition.out {
-  -webkit-animation-name: fadeUpOut;
-  animation-name: fadeUpOut;
-}
-
-.fade.down.transition.in {
-  -webkit-animation-name: fadeDownIn;
-  animation-name: fadeDownIn;
-}
-
-.fade.down.transition.out {
-  -webkit-animation-name: fadeDownOut;
-  animation-name: fadeDownOut;
-}
-
-/* Fade */
-
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-/* Fade Up */
-
-@-webkit-keyframes fadeUpIn {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(10%);
-    transform: translateY(10%);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0%);
-    transform: translateY(0%);
-  }
-}
-
-@keyframes fadeUpIn {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(10%);
-    transform: translateY(10%);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0%);
-    transform: translateY(0%);
-  }
-}
-
-@-webkit-keyframes fadeUpOut {
-  0% {
-    opacity: 1;
-    -webkit-transform: translateY(0%);
-    transform: translateY(0%);
-  }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: translateY(10%);
-    transform: translateY(10%);
-  }
-}
-
-@keyframes fadeUpOut {
-  0% {
-    opacity: 1;
-    -webkit-transform: translateY(0%);
-    transform: translateY(0%);
-  }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: translateY(10%);
-    transform: translateY(10%);
-  }
-}
-
-/* Fade Down */
-
-@-webkit-keyframes fadeDownIn {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(-10%);
-    transform: translateY(-10%);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0%);
-    transform: translateY(0%);
-  }
-}
-
-@keyframes fadeDownIn {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(-10%);
-    transform: translateY(-10%);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0%);
-    transform: translateY(0%);
-  }
-}
-
-@-webkit-keyframes fadeDownOut {
-  0% {
-    opacity: 1;
-    -webkit-transform: translateY(0%);
-    transform: translateY(0%);
-  }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: translateY(-10%);
-    transform: translateY(-10%);
-  }
-}
-
-@keyframes fadeDownOut {
-  0% {
-    opacity: 1;
-    -webkit-transform: translateY(0%);
-    transform: translateY(0%);
-  }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: translateY(-10%);
-    transform: translateY(-10%);
-  }
-}
-
-/*--------------
-      Scale
----------------*/
-
-.scale.transition.in {
-  -webkit-animation-name: scaleIn;
-  animation-name: scaleIn;
-}
-
-.scale.transition.out {
-  -webkit-animation-name: scaleOut;
-  animation-name: scaleOut;
-}
-
-/* Scale */
-
-@-webkit-keyframes scaleIn {
-  0% {
-    opacity: 0;
-    -webkit-transform: scale(0.7);
-    transform: scale(0.7);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-}
-
-@keyframes scaleIn {
-  0% {
-    opacity: 0;
-    -webkit-transform: scale(0.7);
-    transform: scale(0.7);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-}
-
-@-webkit-keyframes scaleOut {
-  0% {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: scale(0.7);
-    transform: scale(0.7);
-  }
-}
-
-@keyframes scaleOut {
-  0% {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: scale(0.7);
-    transform: scale(0.7);
-  }
-}
-
-/*--------------
-     Drop
----------------*/
-
-.drop.transition {
-  -webkit-transform-origin: top center;
-  -ms-transform-origin: top center;
-  transform-origin: top center;
-  -webkit-animation-timing-function: cubic-bezier(0.34, 1.61, 0.7, 1);
-  animation-timing-function: cubic-bezier(0.34, 1.61, 0.7, 1);
-}
-
-.drop.transition.in {
-  -webkit-animation-name: dropIn;
-  animation-name: dropIn;
-}
-
-.drop.transition.out {
-  -webkit-animation-name: dropOut;
-  animation-name: dropOut;
-}
-
-/* Scale */
-
-@-webkit-keyframes dropIn {
-  0% {
-    opacity: 0;
-    -webkit-transform: scale(0);
-    transform: scale(0);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-}
-
-@keyframes dropIn {
-  0% {
-    opacity: 0;
-    -webkit-transform: scale(0);
-    transform: scale(0);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-}
-
-@-webkit-keyframes dropOut {
-  0% {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: scale(0);
-    transform: scale(0);
-  }
-}
-
-@keyframes dropOut {
-  0% {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: scale(0);
-    transform: scale(0);
-  }
-}
-
-/*--------------
-     Browse
----------------*/
-
-.browse.transition.in {
-  -webkit-animation-name: browseIn;
-  animation-name: browseIn;
-  -webkit-animation-timing-function: ease;
-  animation-timing-function: ease;
-}
-
-.browse.transition.out,
-.browse.transition.out.left {
-  -webkit-animation-name: browseOutLeft;
-  animation-name: browseOutLeft;
-  -webkit-animation-timing-function: ease;
-  animation-timing-function: ease;
-}
-
-.browse.transition.out.right {
-  -webkit-animation-name: browseOutRight;
-  animation-name: browseOutRight;
-  -webkit-animation-timing-function: ease;
-  animation-timing-function: ease;
-}
-
-@-webkit-keyframes browseIn {
-  0% {
-    -webkit-transform: scale(0.8) translateZ(0px);
-    transform: scale(0.8) translateZ(0px);
-    z-index: -1;
-  }
-
-  10% {
-    -webkit-transform: scale(0.8) translateZ(0px);
-    transform: scale(0.8) translateZ(0px);
-    z-index: -1;
-    opacity: 0.7;
-  }
-
-  80% {
-    -webkit-transform: scale(1.05) translateZ(0px);
-    transform: scale(1.05) translateZ(0px);
-    opacity: 1;
-    z-index: 999;
-  }
-
-  100% {
-    -webkit-transform: scale(1) translateZ(0px);
-    transform: scale(1) translateZ(0px);
-    z-index: 999;
-  }
-}
-
-@keyframes browseIn {
-  0% {
-    -webkit-transform: scale(0.8) translateZ(0px);
-    transform: scale(0.8) translateZ(0px);
-    z-index: -1;
-  }
-
-  10% {
-    -webkit-transform: scale(0.8) translateZ(0px);
-    transform: scale(0.8) translateZ(0px);
-    z-index: -1;
-    opacity: 0.7;
-  }
-
-  80% {
-    -webkit-transform: scale(1.05) translateZ(0px);
-    transform: scale(1.05) translateZ(0px);
-    opacity: 1;
-    z-index: 999;
-  }
-
-  100% {
-    -webkit-transform: scale(1) translateZ(0px);
-    transform: scale(1) translateZ(0px);
-    z-index: 999;
-  }
-}
-
-@-webkit-keyframes browseOutLeft {
-  0% {
-    z-index: 999;
-    -webkit-transform: translateX(0%) rotateY(0deg) rotateX(0deg);
-    transform: translateX(0%) rotateY(0deg) rotateX(0deg);
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+    transform: scale3d(0.75, 1.25, 1);
   }
 
   50% {
-    z-index: -1;
-    -webkit-transform: translateX(-105%) rotateY(35deg) rotateX(10deg) translateZ(-10px);
-    transform: translateX(-105%) rotateY(35deg) rotateX(10deg) translateZ(-10px);
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+    transform: scale3d(1.15, 0.85, 1);
   }
 
-  80% {
-    opacity: 1;
+  65% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  75% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+    transform: scale3d(1.05, 0.95, 1);
   }
 
   100% {
-    z-index: -1;
-    -webkit-transform: translateX(0%) rotateY(0deg) rotateX(0deg) translateZ(-10px);
-    transform: translateX(0%) rotateY(0deg) rotateX(0deg) translateZ(-10px);
-    opacity: 0;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
   }
 }
 
-@keyframes browseOutLeft {
+@keyframes jiggle {
   0% {
-    z-index: 999;
-    -webkit-transform: translateX(0%) rotateY(0deg) rotateX(0deg);
-    transform: translateX(0%) rotateY(0deg) rotateX(0deg);
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+    transform: scale3d(0.75, 1.25, 1);
   }
 
   50% {
-    z-index: -1;
-    -webkit-transform: translateX(-105%) rotateY(35deg) rotateX(10deg) translateZ(-10px);
-    transform: translateX(-105%) rotateY(35deg) rotateX(10deg) translateZ(-10px);
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+    transform: scale3d(1.15, 0.85, 1);
   }
 
-  80% {
-    opacity: 1;
+  65% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+    transform: scale3d(0.95, 1.05, 1);
   }
 
-  100% {
-    z-index: -1;
-    -webkit-transform: translateX(0%) rotateY(0deg) rotateX(0deg) translateZ(-10px);
-    transform: translateX(0%) rotateY(0deg) rotateX(0deg) translateZ(-10px);
-    opacity: 0;
-  }
-}
-
-@-webkit-keyframes browseOutRight {
-  0% {
-    z-index: 999;
-    -webkit-transform: translateX(0%) rotateY(0deg) rotateX(0deg);
-    transform: translateX(0%) rotateY(0deg) rotateX(0deg);
-  }
-
-  50% {
-    z-index: 1;
-    -webkit-transform: translateX(105%) rotateY(35deg) rotateX(10deg) translateZ(-10px);
-    transform: translateX(105%) rotateY(35deg) rotateX(10deg) translateZ(-10px);
-  }
-
-  80% {
-    opacity: 1;
+  75% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+    transform: scale3d(1.05, 0.95, 1);
   }
 
   100% {
-    z-index: 1;
-    -webkit-transform: translateX(0%) rotateY(0deg) rotateX(0deg) translateZ(-10px);
-    transform: translateX(0%) rotateY(0deg) rotateX(0deg) translateZ(-10px);
-    opacity: 0;
-  }
-}
-
-@keyframes browseOutRight {
-  0% {
-    z-index: 999;
-    -webkit-transform: translateX(0%) rotateY(0deg) rotateX(0deg);
-    transform: translateX(0%) rotateY(0deg) rotateX(0deg);
-  }
-
-  50% {
-    z-index: 1;
-    -webkit-transform: translateX(105%) rotateY(35deg) rotateX(10deg) translateZ(-10px);
-    transform: translateX(105%) rotateY(35deg) rotateX(10deg) translateZ(-10px);
-  }
-
-  80% {
-    opacity: 1;
-  }
-
-  100% {
-    z-index: 1;
-    -webkit-transform: translateX(0%) rotateY(0deg) rotateX(0deg) translateZ(-10px);
-    transform: translateX(0%) rotateY(0deg) rotateX(0deg) translateZ(-10px);
-    opacity: 0;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
   }
 }
 
 /*******************************
          Site Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -29534,9 +31581,8 @@ html.ios {
 /*******************************
          Site Overrides
 *******************************/
-
 /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -29619,28 +31665,30 @@ html.ios {
 
 .ui.form textarea,
 .ui.form input:not([type]),
-.ui.form input[type="text"],
-.ui.form input[type="email"],
 .ui.form input[type="date"],
 .ui.form input[type="datetime-local"],
-.ui.form input[type="password"],
+.ui.form input[type="email"],
 .ui.form input[type="number"],
-.ui.form input[type="url"],
+.ui.form input[type="password"],
 .ui.form input[type="tel"],
+.ui.form input[type="time"],
+.ui.form input[type="text"],
+.ui.form input[type="url"],
 .ui.form .ui.input {
   width: 100%;
   vertical-align: top;
 }
 
 .ui.form input:not([type]),
-.ui.form input[type="text"],
-.ui.form input[type="email"],
 .ui.form input[type="date"],
 .ui.form input[type="datetime-local"],
-.ui.form input[type="password"],
+.ui.form input[type="email"],
 .ui.form input[type="number"],
-.ui.form input[type="url"],
-.ui.form input[type="tel"] {
+.ui.form input[type="password"],
+.ui.form input[type="tel"],
+.ui.form input[type="time"],
+.ui.form input[type="text"],
+.ui.form input[type="url"] {
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   margin: 0em;
   outline: none;
@@ -29744,7 +31792,6 @@ html.ios {
    Types of Messages
 ---------------------*/
 
-.ui.form .info.message,
 .ui.form .success.message,
 .ui.form .warning.message,
 .ui.form .error.message {
@@ -29826,14 +31873,15 @@ html.ios {
 ---------------------*/
 
 .ui.form input:not([type]):focus,
-.ui.form input[type="text"]:focus,
-.ui.form input[type="email"]:focus,
 .ui.form input[type="date"]:focus,
 .ui.form input[type="datetime-local"]:focus,
-.ui.form input[type="password"]:focus,
+.ui.form input[type="email"]:focus,
 .ui.form input[type="number"]:focus,
-.ui.form input[type="url"]:focus,
-.ui.form input[type="tel"]:focus {
+.ui.form input[type="password"]:focus,
+.ui.form input[type="tel"]:focus,
+.ui.form input[type="time"]:focus,
+.ui.form input[type="text"]:focus,
+.ui.form input[type="url"]:focus {
   color: rgba(0, 0, 0, 0.85);
   border-color: rgba(39, 41, 43, 0.3);
   border-radius: 0em 0.2857rem 0.2857rem 0em;
@@ -29897,24 +31945,26 @@ html.ios {
 
 .ui.form .fields.error .field textarea,
 .ui.form .fields.error .field input:not([type]),
-.ui.form .fields.error .field input[type="text"],
-.ui.form .fields.error .field input[type="email"],
 .ui.form .fields.error .field input[type="date"],
 .ui.form .fields.error .field input[type="datetime-local"],
-.ui.form .fields.error .field input[type="password"],
+.ui.form .fields.error .field input[type="email"],
 .ui.form .fields.error .field input[type="number"],
-.ui.form .fields.error .field input[type="url"],
+.ui.form .fields.error .field input[type="password"],
 .ui.form .fields.error .field input[type="tel"],
+.ui.form .fields.error .field input[type="time"],
+.ui.form .fields.error .field input[type="text"],
+.ui.form .fields.error .field input[type="url"],
 .ui.form .field.error textarea,
 .ui.form .field.error input:not([type]),
-.ui.form .field.error input[type="text"],
-.ui.form .field.error input[type="email"],
 .ui.form .field.error input[type="date"],
 .ui.form .field.error input[type="datetime-local"],
-.ui.form .field.error input[type="password"],
+.ui.form .field.error input[type="email"],
 .ui.form .field.error input[type="number"],
-.ui.form .field.error input[type="url"],
-.ui.form .field.error input[type="tel"] {
+.ui.form .field.error input[type="password"],
+.ui.form .field.error input[type="tel"],
+.ui.form .field.error input[type="time"],
+.ui.form .field.error input[type="text"],
+.ui.form .field.error input[type="url"] {
   background: #fff0f0;
   border-color: #dbb1b1;
   color: #d95c5c;
@@ -29924,14 +31974,15 @@ html.ios {
 
 .ui.form .field.error textarea:focus,
 .ui.form .field.error input:not([type]):focus,
-.ui.form .field.error input[type="text"]:focus,
-.ui.form .field.error input[type="email"]:focus,
 .ui.form .field.error input[type="date"]:focus,
 .ui.form .field.error input[type="datetime-local"]:focus,
-.ui.form .field.error input[type="password"]:focus,
+.ui.form .field.error input[type="email"]:focus,
 .ui.form .field.error input[type="number"]:focus,
-.ui.form .field.error input[type="url"]:focus,
-.ui.form .field.error input[type="tel"]:focus {
+.ui.form .field.error input[type="password"]:focus,
+.ui.form .field.error input[type="tel"]:focus,
+.ui.form .field.error input[type="time"]:focus,
+.ui.form .field.error input[type="text"]:focus,
+.ui.form .field.error input[type="url"]:focus {
   background: #fff0f0;
   border-color: #dbb1b1;
   color: #dc6868;
@@ -29971,7 +32022,7 @@ html.ios {
 
 .ui.form .fields.error .field .ui.dropdown .menu .item:hover,
 .ui.form .field.error .ui.dropdown .menu .item:hover {
-  background-color: #fff2f2;
+  background-color: #fbe7e7;
 }
 
 /* Active */

@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -28,19 +28,24 @@
   text-transform: none;
   color: rgba(0, 0, 0, 0.8);
 }
-.ui.header .sub.header {
-  font-size: 1.0714rem;
-  font-weight: normal;
-  margin: 0em;
-  padding: 0em;
-  line-height: 1.2em;
-  color: rgba(0, 0, 0, 0.5);
-}
 .ui.header:first-child {
   margin-top: -0.165em;
 }
 .ui.header:last-child {
   margin-bottom: 0em;
+}
+
+/*--------------
+   Sub Header
+---------------*/
+
+.ui.header .sub.header {
+  font-weight: normal;
+  margin: 0em;
+  padding: 0em;
+  font-size: 1.1428rem;
+  line-height: 1.2em;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 /*--------------
@@ -53,15 +58,30 @@
   font-size: 1.5em;
   padding-top: 0.165em;
   vertical-align: middle;
-  padding-right: 0.5rem;
 }
 
-/* Only One */
+/* With Text Node */
 .ui.header .icon:only-child {
   display: inline-block;
   padding: 0em;
-  margin-right: 0.5rem;
-  vertical-align: baseline;
+  margin-right: 0.75rem;
+}
+
+/*-------------------
+        Image
+--------------------*/
+
+.ui.header > .image,
+.ui.header > img {
+  display: inline-block;
+  margin-top: 0.165em;
+  width: 2.5em;
+  height: auto;
+  vertical-align: middle;
+}
+.ui.header > .image:only-child,
+.ui.header > img:only-child {
+  margin-right: 0.75rem;
 }
 
 /*--------------
@@ -72,31 +92,19 @@
   display: inline-block;
   vertical-align: top;
 }
-.ui.header > .icon + .content {
-  padding-left: 0.5rem;
-  display: table-cell;
+
+/* After Image */
+.ui.header > img + .content,
+.ui.header > .image + .content {
+  padding-left: 0.75rem;
   vertical-align: middle;
 }
 
-/*--------------
- Content Heading
----------------*/
-
-.ui.tiny.header {
-  font-size: 1em;
-}
-.ui.small.header {
-  font-size: 1.071em;
-}
-.ui.medium.header {
-  font-size: 1.285em;
-}
-.ui.large.header {
-  font-size: 1.714em;
-}
-.ui.huge.header {
-  min-height: 1em;
-  font-size: 2em;
+/* After Icon */
+.ui.header > .icon + .content {
+  padding-left: 0.75rem;
+  display: table-cell;
+  vertical-align: middle;
 }
 
 /*--------------
@@ -137,6 +145,61 @@ h4.ui.header {
 }
 h5.ui.header {
   font-size: 1rem;
+}
+
+/* Sub Header */
+h1.ui.header .sub.header {
+  font-size: 1.4285rem;
+}
+h2.ui.header .sub.header {
+  font-size: 1.1428rem;
+}
+h3.ui.header .sub.header {
+  font-size: 1.1428rem;
+}
+h4.ui.header .sub.header {
+  font-size: 1rem;
+}
+h5.ui.header .sub.header {
+  font-size: 0.9285rem;
+}
+
+/*--------------
+ Content Heading
+---------------*/
+
+.ui.huge.header {
+  min-height: 1em;
+  font-size: 2em;
+}
+.ui.large.header {
+  font-size: 1.714em;
+}
+.ui.medium.header {
+  font-size: 1.28em;
+}
+.ui.small.header {
+  font-size: 1.071em;
+}
+.ui.tiny.header {
+  font-size: 1em;
+}
+
+/* Sub Header */
+.ui.huge.header .sub.header {
+  font-size: 1.4285rem;
+}
+.ui.large.header .sub.header {
+  font-size: 1.4285rem;
+}
+.ui.header .sub.header {
+  font-size: 1.1428rem;
+}
+.ui.small.header .sub.header {
+  font-size: 1rem;
+}
+.ui.tiny.header .sub.header {
+  font-size: 0.9285rem;
 }
 
 /*-------------------
@@ -453,7 +516,7 @@ a.ui.inverted.yellow.header:hover {
   font-size: 1.071em;
 }
 .ui.block.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
-  font-size: 1.285em;
+  font-size: 1.28em;
 }
 .ui.large.block.header {
   font-size: 1.714em;
@@ -517,7 +580,7 @@ a.ui.inverted.yellow.header:hover {
 --------------------*/
 
 .ui.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
-  font-size: 1.285em;
+  font-size: 1.28em;
 }
 
 

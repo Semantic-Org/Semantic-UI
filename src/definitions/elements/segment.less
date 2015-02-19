@@ -16,8 +16,7 @@
 @type    : 'element';
 @element : 'segment';
 
-@import '../../theme.config';
-
+@import (multiple) '../../theme.config';
 
 /*******************************
             Segment
@@ -576,6 +575,46 @@
 }
 .ui.segment[class*="bottom attached"]:last-child {
   margin-bottom: 0em;
+}
+
+
+/*-------------------
+       Groups
+--------------------*/
+
+.ui.segments > .segment {
+  top: 0px;
+  bottom: 0px;
+  margin: 0em @attachedHorizontalOffset;
+  width: @attachedWidth;
+  max-width: @attachedWidth;
+  border-radius: 0px;
+  box-shadow: @attachedBoxShadow;
+  border: @attachedBorder;
+}
+
+.ui.segments > .segment:not(:first-child) {
+  border-top: none;
+}
+
+/* Top */
+.ui.segments > .segment:first-child {
+  margin-top: 0em;
+  bottom: 0px;
+  margin-bottom: 0em;
+  top: @attachedTopOffset;
+  margin-top: @margin;
+  border-radius: @borderRadius @borderRadius 0em 0em;
+}
+
+/* Bottom */
+.ui.segments > .segment:last-child {
+  bottom: 0px;
+  margin-top: 0em;
+  margin-bottom: 0em;
+  top: @attachedBottomOffset;
+  box-shadow: @attachedBottomBoxShadow;
+  border-radius: 0em 0em @borderRadius @borderRadius;
 }
 
 .loadUIOverrides();

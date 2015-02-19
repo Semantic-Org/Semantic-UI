@@ -215,13 +215,14 @@ $.fn.dimmer = function(parameters) {
             if(settings.useCSS && $.fn.transition !== undefined && $dimmer.transition('is supported')) {
               $dimmer
                 .transition({
-                  animation : settings.transition + ' in',
+                  animation   : settings.transition + ' in',
                   queue       : false,
-                  duration  : module.get.duration(),
-                  onStart   : function() {
+                  duration    : module.get.duration(),
+                  useFailSafe : true,
+                  onStart     : function() {
                     module.set.dimmed();
                   },
-                  onComplete : function() {
+                  onComplete  : function() {
                     module.set.active();
                     callback();
                   }
@@ -255,13 +256,14 @@ $.fn.dimmer = function(parameters) {
               module.verbose('Hiding dimmer with css');
               $dimmer
                 .transition({
-                  animation  : settings.transition + ' out',
-                  queue      : false,
-                  duration   : module.get.duration(),
-                  onStart    : function() {
+                  animation   : settings.transition + ' out',
+                  queue       : false,
+                  duration    : module.get.duration(),
+                  useFailSafe : true,
+                  onStart     : function() {
                     module.remove.dimmed();
                   },
-                  onComplete : function() {
+                  onComplete  : function() {
                     module.remove.active();
                     callback();
                   }
@@ -557,7 +559,7 @@ $.fn.dimmer = function(parameters) {
       }
       else {
         if(instance !== undefined) {
-          module.destroy();
+          instance.invoke('destroy');
         }
         module.initialize();
       }

@@ -8,7 +8,7 @@
 
 @contentSizing: content-box;
 @width: 300px;
-@size: 1em;
+@height: 100%;
 @distance: 4rem;
 
 /*-------------------
@@ -22,3 +22,5 @@
 /* Divided */
 @dividedBorder: 1px solid @borderColor;
 @dividedDistance: 5rem;
+
+@medium: 1em;

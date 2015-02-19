@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -82,27 +82,29 @@
 
 .ui.form textarea,
 .ui.form input:not([type]),
-.ui.form input[type="text"],
-.ui.form input[type="email"],
 .ui.form input[type="date"],
 .ui.form input[type="datetime-local"],
-.ui.form input[type="password"],
+.ui.form input[type="email"],
 .ui.form input[type="number"],
-.ui.form input[type="url"],
+.ui.form input[type="password"],
 .ui.form input[type="tel"],
+.ui.form input[type="time"],
+.ui.form input[type="text"],
+.ui.form input[type="url"],
 .ui.form .ui.input {
   width: 100%;
   vertical-align: top;
 }
 .ui.form input:not([type]),
-.ui.form input[type="text"],
-.ui.form input[type="email"],
 .ui.form input[type="date"],
 .ui.form input[type="datetime-local"],
-.ui.form input[type="password"],
+.ui.form input[type="email"],
 .ui.form input[type="number"],
-.ui.form input[type="url"],
-.ui.form input[type="tel"] {
+.ui.form input[type="password"],
+.ui.form input[type="tel"],
+.ui.form input[type="time"],
+.ui.form input[type="text"],
+.ui.form input[type="url"] {
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   margin: 0em;
   outline: none;
@@ -201,7 +203,6 @@
    Types of Messages
 ---------------------*/
 
-.ui.form .info.message,
 .ui.form .success.message,
 .ui.form .warning.message,
 .ui.form .error.message {
@@ -275,14 +276,15 @@
 ---------------------*/
 
 .ui.form input:not([type]):focus,
-.ui.form input[type="text"]:focus,
-.ui.form input[type="email"]:focus,
 .ui.form input[type="date"]:focus,
 .ui.form input[type="datetime-local"]:focus,
-.ui.form input[type="password"]:focus,
+.ui.form input[type="email"]:focus,
 .ui.form input[type="number"]:focus,
-.ui.form input[type="url"]:focus,
-.ui.form input[type="tel"]:focus {
+.ui.form input[type="password"]:focus,
+.ui.form input[type="tel"]:focus,
+.ui.form input[type="time"]:focus,
+.ui.form input[type="text"]:focus,
+.ui.form input[type="url"]:focus {
   color: rgba(0, 0, 0, 0.85);
   border-color: rgba(39, 41, 43, 0.3);
   border-radius: 0em 0.2857rem 0.2857rem 0em;
@@ -342,24 +344,26 @@
 }
 .ui.form .fields.error .field textarea,
 .ui.form .fields.error .field input:not([type]),
-.ui.form .fields.error .field input[type="text"],
-.ui.form .fields.error .field input[type="email"],
 .ui.form .fields.error .field input[type="date"],
 .ui.form .fields.error .field input[type="datetime-local"],
-.ui.form .fields.error .field input[type="password"],
+.ui.form .fields.error .field input[type="email"],
 .ui.form .fields.error .field input[type="number"],
-.ui.form .fields.error .field input[type="url"],
+.ui.form .fields.error .field input[type="password"],
 .ui.form .fields.error .field input[type="tel"],
+.ui.form .fields.error .field input[type="time"],
+.ui.form .fields.error .field input[type="text"],
+.ui.form .fields.error .field input[type="url"],
 .ui.form .field.error textarea,
 .ui.form .field.error input:not([type]),
-.ui.form .field.error input[type="text"],
-.ui.form .field.error input[type="email"],
 .ui.form .field.error input[type="date"],
 .ui.form .field.error input[type="datetime-local"],
-.ui.form .field.error input[type="password"],
+.ui.form .field.error input[type="email"],
 .ui.form .field.error input[type="number"],
-.ui.form .field.error input[type="url"],
-.ui.form .field.error input[type="tel"] {
+.ui.form .field.error input[type="password"],
+.ui.form .field.error input[type="tel"],
+.ui.form .field.error input[type="time"],
+.ui.form .field.error input[type="text"],
+.ui.form .field.error input[type="url"] {
   background: #fff0f0;
   border-color: #dbb1b1;
   color: #d95c5c;
@@ -368,14 +372,15 @@
 }
 .ui.form .field.error textarea:focus,
 .ui.form .field.error input:not([type]):focus,
-.ui.form .field.error input[type="text"]:focus,
-.ui.form .field.error input[type="email"]:focus,
 .ui.form .field.error input[type="date"]:focus,
 .ui.form .field.error input[type="datetime-local"]:focus,
-.ui.form .field.error input[type="password"]:focus,
+.ui.form .field.error input[type="email"]:focus,
 .ui.form .field.error input[type="number"]:focus,
-.ui.form .field.error input[type="url"]:focus,
-.ui.form .field.error input[type="tel"]:focus {
+.ui.form .field.error input[type="password"]:focus,
+.ui.form .field.error input[type="tel"]:focus,
+.ui.form .field.error input[type="time"]:focus,
+.ui.form .field.error input[type="text"]:focus,
+.ui.form .field.error input[type="url"]:focus {
   background: #fff0f0;
   border-color: #dbb1b1;
   color: #dc6868;
@@ -411,7 +416,7 @@
 /* Hover */
 .ui.form .fields.error .field .ui.dropdown .menu .item:hover,
 .ui.form .field.error .ui.dropdown .menu .item:hover {
-  background-color: #fff2f2;
+  background-color: #fbe7e7;
 }
 
 /* Active */

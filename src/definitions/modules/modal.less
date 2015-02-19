@@ -9,6 +9,7 @@
  *
  */
 
+
 /*******************************
             Theme
 *******************************/
@@ -16,7 +17,7 @@
 @type    : 'module';
 @element : 'modal';
 
-@import '../../theme.config';
+@import (multiple) '../../theme.config';
 
 /*******************************
              Modal
@@ -25,7 +26,7 @@
 .ui.modal {
   display: none;
   position: fixed;
-  z-index: 1001;
+  z-index: @zIndex;
 
   top: 50%;
   left: 50%;
@@ -265,6 +266,7 @@
 .ui.basic.modal {
   background-color: transparent;
   border: none;
+  border-radius: 0em;
   box-shadow: 0px 0px 0px 0px;
   color: @basicModalColor;
 }

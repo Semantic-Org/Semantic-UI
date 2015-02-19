@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -90,15 +90,20 @@
   padding: 0em !important;
 }
 
-/* Inside Page */
+/* Whole Page */
+body.pushable {
+  background: #333333 !important;
+}
+
+/* Page Context */
 .pushable:not(body) {
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
 }
-
-/* Whole Page */
-body.pushable {
-  background: #333333 !important;
+.pushable:not(body) > .ui.sidebar,
+.pushable:not(body) > .fixed,
+.pushable:not(body) > .pusher:after {
+  position: absolute;
 }
 
 /*--------------
@@ -123,6 +128,7 @@ body.pushable {
   position: relative;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
+  overflow: hidden;
   min-height: 100%;
   -webkit-transition: -webkit-transform 500ms ease;
           transition: transform 500ms ease;

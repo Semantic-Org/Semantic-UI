@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -8,6 +8,12 @@
  * http://opensource.org/licenses/MIT
  *
  */
+
+
+
+/*******************************
+             Flag
+*******************************/
 
 i.flag:not(.icon) {
   display: inline-block;
@@ -22,6 +28,8 @@ i.flag:not(.icon) {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
 }
+
+/* Sprite */
 i.flag:not(.icon):before {
   display: inline-block;
   content: '';

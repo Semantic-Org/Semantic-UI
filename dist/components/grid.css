@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.7.3
+ * # Semantic UI - 1.9.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -64,7 +64,6 @@
 .ui.grid > .row > .column {
   position: relative;
   display: inline-block;
-  text-align: left;
   font-size: 1rem;
   width: 6.25%;
   padding-left: 1rem;
@@ -940,6 +939,10 @@
 .ui.centered.grid > .row,
 .ui.grid > .centered.row {
   text-align: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .ui.centered.grid > .column:not(.aligned):not(.row),
 .ui.centered.grid > .row > .column:not(.aligned),
@@ -1230,9 +1233,15 @@
 .ui.grid [class*="top aligned"].column,
 .ui.grid > [class*="top aligned"].row > .column {
   vertical-align: top;
+  -webkit-align-self: flex-start;
+      -ms-flex-item-align: start;
+          align-self: flex-start;
 }
 .ui.grid [class*="top aligned"].column {
   vertical-align: top !important;
+  -webkit-align-self: flex-start;
+      -ms-flex-item-align: start;
+          align-self: flex-start;
 }
 
 /* Middle Aligned */
@@ -1241,13 +1250,15 @@
 .ui[class*="middle aligned"].grid > .column,
 .ui.grid > [class*="middle aligned"].row > .column {
   vertical-align: middle;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center;
 }
 .ui.grid [class*="middle aligned"].column {
   vertical-align: middle !important;
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center;
 }
 
 /* Bottom Aligned */
@@ -1256,12 +1267,14 @@
 .ui[class*="bottom aligned"].grid > .column,
 .ui.grid > [class*="bottom aligned"].row > .column {
   vertical-align: bottom;
-  -webkit-box-align: end;
-  -webkit-align-items: flex-end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -webkit-align-self: flex-end;
+      -ms-flex-item-align: end;
+          align-self: flex-end;
 }
 .ui.grid [class*="bottom aligned"].column {
+  -webkit-align-self: flex-end;
+      -ms-flex-item-align: end;
+          align-self: flex-end;
   vertical-align: bottom !important;
 }
 
@@ -1490,10 +1503,10 @@
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1 0 auto;
-      -ms-flex: 1 0 auto;
-          flex: 1 0 auto;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
 }
 
 /*-------------------
@@ -1543,9 +1556,9 @@
   .ui.grid > [class*="six column"].doubling.row > .column {
     width: 33.33333333% !important;
   }
-  .ui[class*="eight column"].doubling.grid > .row > .column,
-  .ui[class*="eight column"].doubling.grid > .column,
-  .ui.grid > [class*="eight column"].doubling.row > .column {
+  .ui[class*="seven column"].doubling.grid > .row > .column,
+  .ui[class*="seven column"].doubling.grid > .column,
+  .ui.grid > [class*="seven column"].doubling.row > .column {
     width: 33.33333333% !important;
   }
   .ui[class*="eight column"].doubling.grid > .row > .column,
@@ -1563,14 +1576,29 @@
   .ui.grid > [class*="ten column"].doubling.row > .column {
     width: 20% !important;
   }
+  .ui[class*="eleven column"].doubling.grid > .row > .column,
+  .ui[class*="eleven column"].doubling.grid > .column,
+  .ui.grid > [class*="eleven column"].doubling.row > .column {
+    width: 20% !important;
+  }
   .ui[class*="twelve column"].doubling.grid > .row > .column,
   .ui[class*="twelve column"].doubling.grid > .column,
   .ui.grid > [class*="twelve column"].doubling.row > .column {
     width: 16.66666667% !important;
   }
+  .ui[class*="thirteen column"].doubling.grid > .row > .column,
+  .ui[class*="thirteen column"].doubling.grid > .column,
+  .ui.grid > [class*="thirteen column"].doubling.row > .column {
+    width: 16.66666667% !important;
+  }
   .ui[class*="fourteen column"].doubling.grid > .row > .column,
   .ui[class*="fourteen column"].doubling.grid > .column,
   .ui.grid > [class*="fourteen column"].doubling.row > .column {
+    width: 14.28571429% !important;
+  }
+  .ui[class*="fifteen column"].doubling.grid > .row > .column,
+  .ui[class*="fifteen column"].doubling.grid > .column,
+  .ui.grid > [class*="fifteen column"].doubling.row > .column {
     width: 14.28571429% !important;
   }
   .ui[class*="sixteen column"].doubling.grid > .row > .column,
@@ -1582,9 +1610,6 @@
 
 /* Mobily Only */
 @media only screen and (max-width: 767px) {
-  .ui.doubling.grid {
-    width: 100% !important;
-  }
   .ui.grid > .doubling.row,
   .ui.doubling.grid > .row {
     display: block !important;
@@ -1643,14 +1668,29 @@
   .ui.grid > [class*="ten column"].doubling:not(.stackable).row > .column {
     width: 33.33333333% !important;
   }
+  .ui[class*="eleven column"].doubling:not(.stackable).grid > .row > .column,
+  .ui[class*="eleven column"].doubling:not(.stackable).grid > .column,
+  .ui.grid > [class*="eleven column"].doubling:not(.stackable).row > .column {
+    width: 33.33333333% !important;
+  }
   .ui[class*="twelve column"].doubling:not(.stackable).grid > .row > .column,
   .ui[class*="twelve column"].doubling:not(.stackable).grid > .column,
   .ui.grid > [class*="twelve column"].doubling:not(.stackable).row > .column {
     width: 33.33333333% !important;
   }
+  .ui[class*="thirteen column"].doubling:not(.stackable).grid > .row > .column,
+  .ui[class*="thirteen column"].doubling:not(.stackable).grid > .column,
+  .ui.grid > [class*="thirteen column"].doubling:not(.stackable).row > .column {
+    width: 33.33333333% !important;
+  }
   .ui[class*="fourteen column"].doubling:not(.stackable).grid > .row > .column,
   .ui[class*="fourteen column"].doubling:not(.stackable).grid > .column,
   .ui.grid > [class*="fourteen column"].doubling:not(.stackable).row > .column {
+    width: 25% !important;
+  }
+  .ui[class*="fifteen column"].doubling:not(.stackable).grid > .row > .column,
+  .ui[class*="fifteen column"].doubling:not(.stackable).grid > .column,
+  .ui.grid > [class*="fifteen column"].doubling:not(.stackable).row > .column {
     width: 25% !important;
   }
   .ui[class*="sixteen column"].doubling:not(.stackable).grid > .row > .column,
@@ -1682,6 +1722,7 @@
     width: auto !important;
     margin: 0em 0em !important;
     box-shadow: none !important;
+    float: none !important;
     padding: 1rem 1rem !important;
   }
   .ui.stackable.grid > .row {

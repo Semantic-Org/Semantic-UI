@@ -50,7 +50,7 @@
 
 
 
-/* Animation */
+/* Uncomment to animate examples
 #grid .examples {
   margin: 0 auto;
   -webkit-animation: grid 7s ease infinite;
@@ -100,3 +100,4 @@
     width: 100%;
   }
 }
+*/
