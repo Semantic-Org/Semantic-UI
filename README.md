@@ -22,9 +22,9 @@ npm install semantic-ui  # Use themes, import build/watch tasks into your own gu
 
 Environment | Install Script | Repo 
 --- | --- | --- | 
-CSS Only | `npm install semantic-ui-css` or [zip]() | [CSS Repo]()
-[LESS](https://github.com/less/less.js/) Only | `npm install semantic-ui-less` | [LESS Repo]()
-[EmberJS](http://emberjs.com/) | `ember install:addon semantic-ui-ember` | [Ember Repo](https://github.com/Semantic-Org/Semantic-UI-Ember)
+CSS Only | `npm install semantic-ui-css` | [Repo](https://github.com/Semantic-Org/Semantic-UI-CSS)
+[LESS](https://github.com/less/less.js/) Only | `npm install semantic-ui-less` | [Repo]()
+[EmberJS](http://emberjs.com/) | `ember install:addon semantic-ui-ember` | [Repo](https://github.com/Semantic-Org/Semantic-UI-Ember)
 [Meteor]() | `meteor add semantic-org:semantic-ui`
 [Bower](http://bower.io/) | `bower install semantic-ui`
 
@@ -65,8 +65,8 @@ Project | How To Help | Next Step
 --- | --- | --- | 
 Localization | Help us translate Semantic UI into your language | [Join our Translation Community]((https://github.com/Semantic-Org/Semantic-UI/wiki/Translating-Semantic-UI-Docs))
 [SCSS](http://sass-lang.com/) | SASS needs PR to support variables inside `@import` | [Add Pull Request](https://github.com/sass/sass/pulls) for [#739](https://github.com/sass/sass/issues/739#issuecomment-73984809)
-[Angular](https://angularjs.org/) | Help write angular bindings | Reach Out on [GitHub Issues](https://github.com/Semantic-Org/Semantic-UI-Angular/issues/8)
-Guides & Tutorials | Help contribute guides and tutorials | [Join the discussion](https://github.com/Semantic-Org/Semantic-UI/issues/1571)
+[Angular](https://angularjs.org/) | Help develop angular bindings | Reach Out on [GitHub Issues](https://github.com/Semantic-Org/Semantic-UI-Angular/issues/8)
+Guides & Tutorials | Help write guides and tutorials | [Join the discussion](https://github.com/Semantic-Org/Semantic-UI/issues/1571)
 
 ### Pull Requests
 
