@@ -18,6 +18,8 @@ Key Features
 npm install semantic-ui  # Use themes, import build/watch tasks into your own gulpfile.
 ```
 
+For details on how work with Semantic theming please [read our customization guide](http://learnsemantic.com/developing/customizing.html) on [LearnSemantic.com](http://learnsemantic.com/)
+
 **Additional Versions**
 
 Environment | Install Script | Repo 
@@ -28,11 +30,7 @@ CSS Only | `npm install semantic-ui-css` | [CSS Repo](https://github.com/Semanti
 [Meteor](https://www.meteor.com/) | `meteor add semantic-org:semantic-ui` | 
 [Bower](http://bower.io/) | `bower install semantic-ui` | 
 
-## Getting Started
-
 Check out our [integration page](https://github.com/Semantic-Org/Semantic-UI/wiki/Integration) for more integration options.
-
-For details on how work with Semantic when building a site please [read our customization guide](http://learnsemantic.com/developing/customizing.html) on [LearnSemantic.com](http://learnsemantic.com/)
 
 ### Browser Support
 
