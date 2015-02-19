@@ -282,7 +282,7 @@ module.exports = function(callback) {
           }))
           .pipe(tap(function(file) { fileNames += file.contents; }))
           .on('end', function(){
-            gulp.src(release.templates.meteor)
+            gulp.src(release.templates.meteor.component)
               .pipe(plumber())
               .pipe(flatten())
               .pipe(replace(regExp.match.name, regExp.replace.name))

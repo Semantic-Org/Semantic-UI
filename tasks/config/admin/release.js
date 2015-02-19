@@ -15,12 +15,16 @@ module.exports = {
   },
 
   templates: {
-    bower           : './tasks/config/admin/templates/bower.json',
-    composer        : './tasks/config/admin/templates/composer.json',
-    package         : './tasks/config/admin/templates/package.json',
-    meteor          : './tasks/config/admin/templates/package.js',
-    readme          : './tasks/config/admin/templates/README.md',
-    notes           : './RELEASE-NOTES.md'
+    bower    : './tasks/config/admin/templates/bower.json',
+    composer : './tasks/config/admin/templates/composer.json',
+    package  : './tasks/config/admin/templates/package.json',
+    meteor   : {
+      css       : './tasks/config/admin/templates/css-package.js',
+      component : './tasks/config/admin/templates/component-package.js',
+      less      : './tasks/config/admin/templates/less-package.js',
+    },
+    readme : './tasks/config/admin/templates/README.md',
+    notes  : './RELEASE-NOTES.md'
   },
 
   org         : 'Semantic-Org',

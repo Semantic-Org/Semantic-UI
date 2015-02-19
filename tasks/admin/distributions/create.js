@@ -59,15 +59,34 @@ module.exports = function(callback) {
     (function(distribution) {
 
       var
-        outputDirectory = path.join(release.outputRoot, distribution.toLowerCase()),
+        distLowerCase   = distribution.toLowerCase(),
+        outputDirectory = path.join(release.outputRoot, distLowerCase),
         packageFile     = path.join(outputDirectory, release.files.npm),
-        repoName        = release.distRepoRoot + distribution
+        repoName        = release.distRepoRoot + distribution,
+        regExp          = {
+          match : {
+            version : '{version}'
+          }
+        },
         task = {
           all     : distribution + ' copying files',
           repo    : distribution + ' create repo',
+          meteor  : distribution + ' create meteor package.js',
           package : distribution + ' create package.json'
         }
       ;
+
+
+      gulp.task(task.meteor, function() {
+        gulp.src(release.templates.meteor[distLowerCase])
+          .pipe(plumber())
+          .pipe(debug())
+          .pipe(flatten())
+          .pipe(replace(regExp.match.version, version))
+          .pipe(rename(release.files.meteor))
+          .pipe(gulp.dest(outputDirectory))
+        ;
+      });
 
       if(distribution == 'CSS') {
         gulp.task(task.repo, function() {
@@ -105,6 +124,7 @@ module.exports = function(callback) {
         ;
       });
 
+      tasks.push(task.meteor);
       tasks.push(task.repo);
       tasks.push(task.package);
 
