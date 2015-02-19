@@ -13,14 +13,14 @@ Key Features
 
 ## Install
 
-### Recommended Install
+#### Recommended Install
 ```bash
 npm install semantic-ui  # Use themes, import build/watch tasks into your own gulpfile.
 ```
 
 For details on how work with Semantic theming please [read our customization guide](http://learnsemantic.com/developing/customizing.html) on [LearnSemantic.com](http://learnsemantic.com/)
 
-### Additional Versions
+#### Additional Versions
 
 Environment | Install Script | Repo 
 --- | --- | --- | 
@@ -32,7 +32,7 @@ CSS Only | `npm install semantic-ui-css` | [CSS Repo](https://github.com/Semanti
 
 Check out our [integration wiki](https://github.com/Semantic-Org/Semantic-UI/wiki/Integration) for more options.
 
-### Browser Support
+#### Browser Support
 
 * Last 2 Versions FF, Chrome, IE 10+
 * Safari 6
@@ -44,13 +44,13 @@ Browser prefixes are present for Internet Explorer 9, but the browser is not off
 
 ## Community
 
-### International
+#### International
 
 * **Chinese** A Chinese mirror site is available at [http://www.semantic-ui.cn](http:/www.semantic-ui.cn)
 * **Right-to-Left (RTL)** - An RTL version can be created using our build tools by selecting `rtl` from the install script
 * **Translation** - To help translate see the [Wiki Guide](https://github.com/Semantic-Org/Semantic-UI/wiki/Translating-Semantic-UI-Docs) for translations
 
-### Support
+#### Support
 
 Problem | Solution 
 --- | --- |
@@ -61,7 +61,7 @@ Get Help  | Submit a question on [StackOverflow](http://www.stackoverflow.com) o
 
 ## Contributing
 
-### Places to Help
+#### Places to Help
 
 Project | How To Help | Next Step 
 --- | --- | --- | 
@@ -70,11 +70,11 @@ Localization | Help us translate Semantic UI into your language | [Join our Tran
 [Angular](https://angularjs.org/) | Help develop angular bindings | Reach Out on [GitHub Issues](https://github.com/Semantic-Org/Semantic-UI-Angular/issues/8)
 Guides & Tutorials | Help write guides and tutorials | [Join the discussion](https://github.com/Semantic-Org/Semantic-UI/issues/1571)
 
-### Pull Requests
+#### Pull Requests
 
 When adding pull requests be sure to merge into [next](https://github.com/Semantic-Org/Semantic-UI/tree/next) branch. If you need to demonstrate a fix in ``next`` release, you can use [this jsfiddle](http://jsfiddle.net/rduvhn8u/1/)
 
-### Reaching Out
+#### Reaching Out
 
 If you'd like to start a conversation about Semantic feel free to e-mail me at [jack@semantic-ui.com](mailto:jack@semantic-ui.com)
 
