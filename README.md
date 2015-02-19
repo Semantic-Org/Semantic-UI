@@ -42,7 +42,9 @@ Check out our [integration wiki](https://github.com/Semantic-Org/Semantic-UI/wik
 
 Browser prefixes are present for Internet Explorer 9, but the browser is not officially supported.
 
-## Support
+## Community
+
+### Technical Support
 
 Problem | Solution 
 --- | --- |
@@ -50,8 +52,6 @@ Bug Reports |  Make a test case by forking this [jsfiddle](http://jsfiddle.net/e
 Chat | [Request an Invite](https://docs.google.com/forms/d/1hI1z136sXLkTQKtsv8SIvjjAvzpH77YzMQKrU-P8GAc/viewform?usp=send_form) to join [our Slack chatroom](http://semanticui.slack.com)
 Newsletter | Sign up for updates at [semantic-ui.com](http:/www.semantic-ui.com)
 Additional Resources  | Submit a question on [StackOverflow](http://www.stackoverflow.com) or ask our [Google Group](https://groups.google.com/forum/#!forum/semantic-ui)
-
-## Community
 
 #### International
 
