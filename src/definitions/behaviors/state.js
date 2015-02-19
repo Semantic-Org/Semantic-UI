@@ -200,8 +200,10 @@ $.fn.state = function(parameters) {
                 apiRequest = $module.api('get request');
                 if(apiRequest) {
                   module.listenTo(apiRequest);
-                  return;
                 }
+                // Don't change the state when the api is defined and the request is undefined
+                // this allows beforeSend to stop the toggling.
+                return;
               }
               module.change.state();
             }
