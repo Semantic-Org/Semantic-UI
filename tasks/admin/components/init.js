@@ -25,14 +25,14 @@ var
   mkdirp    = require('mkdirp'),
 
   // admin files
-  github    = require('../config/admin/github.js'),
-  release   = require('../config/admin/release'),
-  project   = require('../config/project/release'),
+  github    = require('../../config/admin/github.js'),
+  release   = require('../../config/admin/release'),
+  project   = require('../../config/project/release'),
 
 
   // oAuth configuration for GitHub
-  oAuth     = fs.existsSync(__dirname + '/../config/admin/oauth.js')
-    ? require('../config/admin/oauth')
+  oAuth     = fs.existsSync(__dirname + '/../../config/admin/oauth.js')
+    ? require('../../config/admin/oauth')
     : false,
 
   // shorthand

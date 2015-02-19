@@ -25,25 +25,27 @@ var
   mkdirp    = require('mkdirp'),
 
   // admin files
-  github    = require('../config/admin/github.js'),
-  release   = require('../config/admin/release'),
-  project   = require('../config/project/release'),
+  github    = require('../../config/admin/github.js'),
+  release   = require('../../config/admin/release'),
+  project   = require('../../config/project/release'),
 
 
   // oAuth configuration for GitHub
-  oAuth     = fs.existsSync(__dirname + '/../config/admin/oauth.js')
-    ? require('../config/admin/oauth')
+  oAuth     = fs.existsSync(__dirname + '/../../config/admin/oauth.js')
+    ? require('../../config/admin/oauth')
     : false,
 
   // shorthand
   version = project.version
 ;
 
+console.log(__dirname + '/../../config/admin/oauth.js');
+
 module.exports = function(callback) {
 
   var
     index = -1,
-    total = release.components.length,
+    total = release.distributions.length,
     timer,
     stream,
     stepRepo
@@ -65,10 +67,10 @@ module.exports = function(callback) {
     }
 
     var
-      component            = release.components[index]
-      outputDirectory      = path.resolve(release.outputRoot + component),
-      capitalizedComponent = component.charAt(0).toUpperCase() + component.slice(1),
-      repoName             = release.distRepoRoot + capitalizedComponent,
+      component            = release.distributions[index],
+      lowerCaseComponent   = component.toLowerCase(),
+      outputDirectory      = path.resolve(release.outputRoot + lowerCaseComponent),
+      repoName             = release.distRepoRoot + component,
 
       gitOptions           = { cwd: outputDirectory },
       pullOptions          = { args: '-q', cwd: outputDirectory, quiet: true },
