@@ -60,8 +60,6 @@ Browser prefixes are present for Internet Explorer 9, but the browser is not off
 ## Contributing
 
 ### Places to Help
-* **Missing documentation in your language?** Help us make Semantic available in more languages by 
-* **Want to help others learn concepts behind Semantic?** [Learnsemantic.com](http://www.learnsemantic.com) needs articles to help others get others up to speed with Semantic UI. [Send me an e-mail](mailto:jack@semantic-ui.com) if you are interested.
 
 Project | How To Help | Next Step 
 --- | --- | --- | 
