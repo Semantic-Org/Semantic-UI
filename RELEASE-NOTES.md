@@ -1,6 +1,6 @@
 ## RELEASE NOTES
 
-### Version 1.9.1 - February 17, 2015
+### Version 1.9.1 - February 18, 2015
 
 **Changes**
 
