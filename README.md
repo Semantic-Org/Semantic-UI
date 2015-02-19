@@ -13,9 +13,32 @@ Key Features
 
 ## Getting Started
 
+**Recommended Install**
 ```bash
 npm install semantic-ui  # Use themes, import build/watch tasks into your own gulpfile.
 ```
+
+**Additional Flavors**
+
+Environment | Install Script | Repo 
+--- | --- | --- | 
+CSS Only | `npm install semantic-ui-css` or [zip]() | [CSS Repo]()
+[LESS](https://github.com/less/less.js/) Only | `npm install semantic-ui-less` | [LESS Repo]()
+[EmberJS](http://emberjs.com/) | `ember install:addon semantic-ui-ember` | [Ember Repo](https://github.com/Semantic-Org/Semantic-UI-Ember)
+[Meteor]() | `meteor add semantic-org:semantic-ui`
+[Angular]() | Needs Contributors | [Angular Repo](https://github.com/Semantic-Org/Semantic-UI-Angular)
+[Bower](http://bower.io/) | `bower install semantic-ui`
+[SCSS](http://sass-lang.com/) | Unavailable due to absence of [dynamic imports](https://github.com/sass/sass/issues/739#issuecomment-73984809) 
+
+**In The Works** 
+
+Environment | Status | Repo 
+--- | --- | --- | 
+[SCSS](http://sass-lang.com/) | Port absent due to absence of [dynamic imports](https://github.com/sass/sass/issues/739#issuecomment-73984809) needed for theming
+[Angular]() | Needs Contributors | [Angular Repo](https://github.com/Semantic-Org/Semantic-UI-Angular)
+
+
+
 
 For more detail into how work with Semantic when building a site please [read our customization guide](http://learnsemantic.com/developing/customizing.html) on [LearnSemantic.com](http://learnsemantic.com/)
 
