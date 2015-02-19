@@ -86,8 +86,10 @@ module.exports = function() {
       gitOptions      = { cwd: outputDirectory },
       commitOptions   = { args: commitArgs, cwd: outputDirectory },
       releaseOptions  = { tag_name: version, owner: release.org, repo: repoName },
-      usernameOptions = { args : 'config  user.name "' + oAuth.name + '"', cwd: outputDirectory },
-      emailOptions    = { args : 'config  user.email "' + oAuth.email + '"', cwd: outputDirectory },
+
+      fileModeOptions = { args : 'config core.fileMode false', cwd: outputDirectory },
+      usernameOptions = { args : 'config user.name "' + oAuth.name + '"', cwd: outputDirectory },
+      emailOptions    = { args : 'config user.email "' + oAuth.email + '"', cwd: outputDirectory },
 
       localRepoSetup  = fs.existsSync(path.join(outputDirectory, '.git')),
       canProceed      = true
@@ -96,10 +98,12 @@ module.exports = function() {
 
     console.info('Processing repository:' + outputDirectory);
 
-    function setUser() {
-      git.exec(usernameOptions, function () {
-        git.exec(emailOptions, function () {
-          commitFiles();
+    function setConfig() {
+      git.exec(fileModeOptions, function() {
+        git.exec(usernameOptions, function () {
+          git.exec(emailOptions, function () {
+            commitFiles();
+          });
         });
       });
     }
@@ -163,7 +167,7 @@ module.exports = function() {
 
 
     if(localRepoSetup) {
-      setUser();
+      setConfig();
     }
     else {
       console.error('Repository must be setup before running update distributions');
