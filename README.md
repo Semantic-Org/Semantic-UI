@@ -11,25 +11,28 @@ Key Features
 * Built with EM values for responsive design
 * Flexbox friendly
 
-## Getting Started
+## Install
 
 **Recommended Install**
 ```bash
 npm install semantic-ui  # Use themes, import build/watch tasks into your own gulpfile.
 ```
 
-**Additional Flavors**
+**Additional Versions**
 
 Environment | Install Script | Repo 
 --- | --- | --- | 
-CSS Only | `npm install semantic-ui-css` | [Repo](https://github.com/Semantic-Org/Semantic-UI-CSS)
-[LESS](https://github.com/less/less.js/) Only | `npm install semantic-ui-less` | [Repo]()
-[EmberJS](http://emberjs.com/) | `ember install:addon semantic-ui-ember` | [Repo](https://github.com/Semantic-Org/Semantic-UI-Ember)
-[Meteor]() | `meteor add semantic-org:semantic-ui`
-[Bower](http://bower.io/) | `bower install semantic-ui`
+CSS Only | `npm install semantic-ui-css` | [CSS Repo](https://github.com/Semantic-Org/Semantic-UI-CSS)
+[LESS](https://github.com/less/less.js/) Only | `npm install semantic-ui-less` | [LESS Repo](https://github.com/Semantic-Org/Semantic-UI-LESS)
+[EmberJS](http://emberjs.com/) | `ember install:addon semantic-ui-ember` | [Ember Repo](https://github.com/Semantic-Org/Semantic-UI-Ember)
+[Meteor](https://www.meteor.com/) | `meteor add semantic-org:semantic-ui` | 
+[Bower](http://bower.io/) | `bower install semantic-ui` | 
 
+## Getting Started
 
-For more detail into how work with Semantic when building a site please [read our customization guide](http://learnsemantic.com/developing/customizing.html) on [LearnSemantic.com](http://learnsemantic.com/)
+Check out our [integration page](https://github.com/Semantic-Org/Semantic-UI/wiki/Integration) for more integration options.
+
+For details on how work with Semantic when building a site please [read our customization guide](http://learnsemantic.com/developing/customizing.html) on [LearnSemantic.com](http://learnsemantic.com/)
 
 ### Browser Support
 
@@ -43,7 +46,6 @@ Browser prefixes are present for Internet Explorer 9, but the browser is not off
 
 ## Community
 
-
 ### International
 
 * **Chinese** A Chinese mirror site is available at [http://www.semantic-ui.cn](http:/www.semantic-ui.cn)
@@ -52,10 +54,12 @@ Browser prefixes are present for Internet Explorer 9, but the browser is not off
 
 ### Support
 
-* **Want to learn about Semantic?** [Request an Invite](https://docs.google.com/forms/d/1hI1z136sXLkTQKtsv8SIvjjAvzpH77YzMQKrU-P8GAc/viewform?usp=send_form) to join [our Slack chatroom](http://semanticui.slack.com) for support and project discussions
-* **Have a bug?** Make a test case by forking this [jsfiddle](http://jsfiddle.net/efp8z6Ln/), then submit a [bug on GitHub](https://github.com/Semantic-Org/Semantic-UI/issues)
-* **Having issues with your code?** Submit a question on [StackOverflow](http://www.stackoverflow.com) or ask our [Google Group](https://groups.google.com/forum/#!forum/semantic-ui)
-* **Looking for a specific integration like Dart, Wordpress, Drupal, Angular, or Rails?** Check out our [integration page](https://github.com/Semantic-Org/Semantic-UI/wiki/Integration)
+Problem | Solution 
+--- | --- |
+Bug Reports |  Make a test case by forking this [jsfiddle](http://jsfiddle.net/efp8z6Ln/), then submit a [bug on GitHub](https://github.com/Semantic-Org/Semantic-UI/issues)
+Chat | [Request an Invite](https://docs.google.com/forms/d/1hI1z136sXLkTQKtsv8SIvjjAvzpH77YzMQKrU-P8GAc/viewform?usp=send_form) to join [our Slack chatroom](http://semanticui.slack.com)
+Newsletter | Sign up for updates at [semantic-ui.com](http:/www.semantic-ui.com)
+Get Help  | Submit a question on [StackOverflow](http://www.stackoverflow.com) or ask our [Google Group](https://groups.google.com/forum/#!forum/semantic-ui)
 
 ## Contributing
 
@@ -63,7 +67,7 @@ Browser prefixes are present for Internet Explorer 9, but the browser is not off
 
 Project | How To Help | Next Step 
 --- | --- | --- | 
-Localization | Help us translate Semantic UI into your language | [Join our Translation Community]((https://github.com/Semantic-Org/Semantic-UI/wiki/Translating-Semantic-UI-Docs))
+Localization | Help us translate Semantic UI into your language | [Join our Translation Community](https://github.com/Semantic-Org/Semantic-UI/wiki/Translating-Semantic-UI-Docs)
 [SCSS](http://sass-lang.com/) | SASS needs PR to support variables inside `@import` | [Add Pull Request](https://github.com/sass/sass/pulls) for [#739](https://github.com/sass/sass/issues/739#issuecomment-73984809)
 [Angular](https://angularjs.org/) | Help develop angular bindings | Reach Out on [GitHub Issues](https://github.com/Semantic-Org/Semantic-UI-Angular/issues/8)
 Guides & Tutorials | Help write guides and tutorials | [Join the discussion](https://github.com/Semantic-Org/Semantic-UI/issues/1571)
