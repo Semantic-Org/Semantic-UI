@@ -36,10 +36,9 @@ var
   tap             = require('gulp-tap'),
 
   // config
-  config          = require('../config/user'),
-  github          = require('../config/admin/github'),
-  release         = require('../config/admin/release'),
-  project         = require('../config/project/release'),
+  config          = require('../../config/user'),
+  release         = require('../../config/admin/release'),
+  project         = require('../../config/project/release'),
 
   // shorthand
   version         = project.version,
@@ -65,12 +64,12 @@ module.exports = function(callback) {
     (function(component) {
 
       var
-        outputDirectory      = release.outputRoot + component,
+        outputDirectory      = path.join(release.outputRoot, component),
         isJavascript         = fs.existsSync(output.compressed + component + '.js'),
         isCSS                = fs.existsSync(output.compressed + component + '.css'),
         capitalizedComponent = component.charAt(0).toUpperCase() + component.slice(1),
         packageName          = release.packageRoot + component,
-        repoName             = release.repoRoot + capitalizedComponent,
+        repoName             = release.componentRepoRoot + capitalizedComponent,
         gitURL               = 'https://github.com/' + release.org + '/' + repoName + '.git',
         repoURL              = 'https://github.com/' + release.org + '/' + repoName + '/',
         regExp               = {
@@ -283,7 +282,7 @@ module.exports = function(callback) {
           }))
           .pipe(tap(function(file) { fileNames += file.contents; }))
           .on('end', function(){
-            gulp.src(release.templates.meteor)
+            gulp.src(release.templates.meteor.component)
               .pipe(plumber())
               .pipe(flatten())
               .pipe(replace(regExp.match.name, regExp.replace.name))

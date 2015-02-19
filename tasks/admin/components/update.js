@@ -24,18 +24,18 @@ var
   requireDotFile = require('require-dot-file'),
 
   // admin files
-  github         = require('../config/admin/github.js'),
-  release        = require('../config/admin/release'),
-  project        = require('../config/project/release'),
+  github         = require('../../config/admin/github.js'),
+  release        = require('../../config/admin/release'),
+  project        = require('../../config/project/release'),
 
 
   // oAuth configuration for GitHub
-  oAuth          = fs.existsSync(__dirname + '/../config/admin/oauth.js')
-    ? require('../config/admin/oauth')
+  oAuth          = fs.existsSync(__dirname + '/../../config/admin/oauth.js')
+    ? require('../../config/admin/oauth')
     : false,
 
   // shorthand
-  version         = project.version
+  version = project.version
 ;
 
 module.exports = function() {
@@ -63,9 +63,9 @@ module.exports = function() {
 
     var
       component            = release.components[index]
-      outputDirectory      = path.resolve(release.outputRoot + component),
+      outputDirectory      = path.resolve(path.join(release.outputRoot, component)),
       capitalizedComponent = component.charAt(0).toUpperCase() + component.slice(1),
-      repoName             = release.repoRoot + capitalizedComponent,
+      repoName             = release.componentRepoRoot + capitalizedComponent,
 
       gitURL               = 'https://github.com/' + release.org + '/' + repoName + '.git',
       repoURL              = 'https://github.com/' + release.org + '/' + repoName + '/',
@@ -82,13 +82,15 @@ module.exports = function() {
 
       commitMessage = (isNewVersion)
         ? 'Updated component to version ' + version
-        : 'Updated automatically main repository',
+        : 'Updated files from main repo',
 
       gitOptions      = { cwd: outputDirectory },
       commitOptions   = { args: commitArgs, cwd: outputDirectory },
       releaseOptions  = { tag_name: version, owner: release.org, repo: repoName },
-      usernameOptions = { args : 'config  user.name "' + oAuth.name + '"', cwd: outputDirectory },
-      emailOptions    = { args : 'config  user.email "' + oAuth.email + '"', cwd: outputDirectory },
+
+      fileModeOptions = { args : 'config core.fileMode false', cwd: outputDirectory },
+      usernameOptions = { args : 'config user.name "' + oAuth.name + '"', cwd: outputDirectory },
+      emailOptions    = { args : 'config user.email "' + oAuth.email + '"', cwd: outputDirectory },
 
       localRepoSetup  = fs.existsSync(path.join(outputDirectory, '.git')),
       canProceed      = true
@@ -97,13 +99,16 @@ module.exports = function() {
 
     console.info('Processing repository:' + outputDirectory);
 
-    function setUser() {
-      git.exec(usernameOptions, function () {
-        git.exec(emailOptions, function () {
-          commitFiles();
+    function setConfig() {
+      git.exec(fileModeOptions, function() {
+        git.exec(usernameOptions, function () {
+          git.exec(emailOptions, function () {
+            commitFiles();
+          });
         });
       });
     }
+
 
     // standard path
     function commitFiles() {
@@ -130,7 +135,7 @@ module.exports = function() {
     // push changess to remote
     function pushFiles() {
       console.info('Pushing files for ' + component);
-      git.push('origin', 'master', { args: '-f', cwd: outputDirectory }, function(error) {
+      git.push('origin', 'master', { args: '', cwd: outputDirectory }, function(error) {
         console.info('Push completed successfully');
         createRelease();
       });
@@ -159,12 +164,12 @@ module.exports = function() {
       console.log('Sleeping for 1 second...');
       // avoid rate throttling
       global.clearTimeout(timer);
-      return stepRepo()
+      timer = global.setTimeout(stepRepo, 500);
     }
 
 
     if(localRepoSetup) {
-      commitFiles();
+      setConfig();
     }
     else {
       console.error('Repository must be setup before running update components');
