@@ -2,6 +2,12 @@
 
 ### Version 1.9.2 - February 19, 2015
 
+Added new repositories for css and less only versions, can be installed with
+```bash
+npm install semantic-ui-less
+npm install semantic-ui-css
+```
+
 **Bug Fixes**
 
 - **Modal** - Fixes typo causing `middle aligned` image not to work correctly.
