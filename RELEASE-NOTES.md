@@ -4,6 +4,7 @@
 
 **Bug Fixes**
 
+- **Modal** - Fixes typo causing `middle aligned` image not to work correctly.
 - **Build** - `gulp watch` now compiles concatenated css (missing in `1.9.1` only)
 
 ### Version 1.9.1 - February 18, 2015
