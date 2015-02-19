@@ -28,15 +28,6 @@ CSS Only | `npm install semantic-ui-css` or [zip]() | [CSS Repo]()
 [Meteor]() | `meteor add semantic-org:semantic-ui`
 [Bower](http://bower.io/) | `bower install semantic-ui`
 
-**Needs Your Help** 
-
-Environment | Status | Repo 
---- | --- | --- | 
-[SCSS](http://sass-lang.com/) | SASS needs PR for [dynamic imports](https://github.com/sass/sass/issues/739#issuecomment-73984809) | [SASS PR](https://github.com/sass/sass/pulls)
-[Angular]() | Needs Contributors | [Angular Repo](https://github.com/Semantic-Org/Semantic-UI-Angular)
-
-
-
 
 For more detail into how work with Semantic when building a site please [read our customization guide](http://learnsemantic.com/developing/customizing.html) on [LearnSemantic.com](http://learnsemantic.com/)
 
@@ -69,9 +60,15 @@ Browser prefixes are present for Internet Explorer 9, but the browser is not off
 ## Contributing
 
 ### Places to Help
-* **Missing documentation in your language?** Help us make Semantic available in more languages by [joining our translation community]((https://github.com/Semantic-Org/Semantic-UI/wiki/Translating-Semantic-UI-Docs))
-* **Want to help with integration?** Projects are organizing for official [Meteor](https://github.com/Semantic-Org/Semantic-UI-Meteor), and [Angular](https://github.com/Semantic-Org/Semantic-UI-Angular) integrations as well as a [Sass](https://github.com/Semantic-Org/Semantic-UI-SASS) port. Join the discussion on their respective boards.
+* **Missing documentation in your language?** Help us make Semantic available in more languages by 
 * **Want to help others learn concepts behind Semantic?** [Learnsemantic.com](http://www.learnsemantic.com) needs articles to help others get others up to speed with Semantic UI. [Send me an e-mail](mailto:jack@semantic-ui.com) if you are interested.
+
+Project | How To Help | Next Step 
+--- | --- | --- | 
+Localization | Help us translate Semantic UI into your language | [Join our Translation Community]((https://github.com/Semantic-Org/Semantic-UI/wiki/Translating-Semantic-UI-Docs))
+[SCSS](http://sass-lang.com/) | SASS needs PR to support variables inside `@import` | [Add Pull Request](https://github.com/sass/sass/pulls) for [#739](https://github.com/sass/sass/issues/739#issuecomment-73984809)
+[Angular](https://angularjs.org/) | Help write angular bindings | Reach Out on [GitHub Issues](https://github.com/Semantic-Org/Semantic-UI-Angular/issues/8)
+Guides & Tutorials | Help contribute guides and tutorials | [Join the discussion](https://github.com/Semantic-Org/Semantic-UI/issues/1571)
 
 ### Pull Requests
 
