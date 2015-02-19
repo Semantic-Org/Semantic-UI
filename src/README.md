@@ -37,9 +37,7 @@ gulp.task('watch ui', 'Watch Semantic UI', watch));
 
 > LESS files do not contain vendor prefixes. If you are to use these files directly you must add them during your build step.
 
-Before using source files you will need to create a `theme.config` by renaming `theme.config.example`
-
-This file is used to configure which packaged theme each component should use.
+Before using source files you will need to create a `theme.config` by renaming `theme.config.example`, and a site folder by renaming `_site/` to `site/`
 
 You can then import Semantic from your own LESS files:
 ```less
@@ -52,6 +50,17 @@ To import individual components you will have to create a scope for each import 
 /* Import a specific component */
 & { @import 'src/definitions/elements/button'; }
 ```
+
+### Config Files
+
+These files are generated automatically using install scripts, but must be manually renamed if you are using installing manually.
+
+filename | usage | Initial Name
+--- | --- | ---
+`theme.config` | config file that stores each element's current theme for LESS | `theme.config.example`
+`site/` | folder storing all your site's variables and css overrides for each UI component | `_site/`
+`semantic.json` | stores folder paths for build tools and current installed version for updates. Only necessary when using build tools | `semantic.json.example`
+
 
 ## Theming
 
