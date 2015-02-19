@@ -14,14 +14,6 @@ When submiting a bug report, please include a set of steps to reproduce the issu
 
 Please create a fork of this [jsfiddle](http://jsfiddle.net/efp8z6Ln/) to demonstrate bugs.
 
-### Style Guide
-
-Contributors should read over the coding guidelines for the project. Most importantly, the guide for language, as it is one of the most important parts about Semantic UI.
-
-[Language](http://semantic-ui.com/guide/styleguide.html)
-[CSS](http://semantic-ui.com/guide/cssguide.html)
-[Javascript](http://semantic-ui.com/guide/javascriptguide.html)
-
 ### Pull Requests
 
 Anyone can jump on the issues board and grab off bugs to fix. This is probably the best way to become a contributor to Semantic. Be sure to adhere to the style guides when submitting code.
