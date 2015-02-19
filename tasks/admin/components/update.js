@@ -35,7 +35,7 @@ var
     : false,
 
   // shorthand
-  version         = project.version
+  version = project.version
 ;
 
 module.exports = function() {
@@ -65,7 +65,7 @@ module.exports = function() {
       component            = release.components[index]
       outputDirectory      = path.resolve(release.outputRoot + component),
       capitalizedComponent = component.charAt(0).toUpperCase() + component.slice(1),
-      repoName             = release.repoRoot + capitalizedComponent,
+      repoName             = release.componentRepoRoot + capitalizedComponent,
 
       gitURL               = 'https://github.com/' + release.org + '/' + repoName + '.git',
       repoURL              = 'https://github.com/' + release.org + '/' + repoName + '/',
@@ -82,7 +82,7 @@ module.exports = function() {
 
       commitMessage = (isNewVersion)
         ? 'Updated component to version ' + version
-        : 'Updated automatically main repository',
+        : 'Updated files from main repo',
 
       gitOptions      = { cwd: outputDirectory },
       commitOptions   = { args: commitArgs, cwd: outputDirectory },

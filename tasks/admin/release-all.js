@@ -5,8 +5,10 @@
 /*
  This task update all SUI individual component repos with new versions of components
 
+  * Initializes repositories with current versions
   * Creates local files at ../components/ with each repo for release
-  * Syncs each component with GitHub
+  * Commits changes from create components
+  * Registers new versions with NPM Publish
 
 */
 
@@ -18,11 +20,10 @@ var
 module.exports = function() {
 
   runSequence(
-    //'build', // build Semantic
-    'init components', // create each component repo
-    'create components', // create each component repo
-    'update components', // update component repos on github
-    'register repos'
+    'build', // build Semantic
+    'init components', // sync with current github version
+    'create components', // update each repo
+    'update components' // commit changes to github
   );
 
 };

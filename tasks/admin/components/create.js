@@ -37,7 +37,6 @@ var
 
   // config
   config          = require('../config/user'),
-  github          = require('../config/admin/github'),
   release         = require('../config/admin/release'),
   project         = require('../config/project/release'),
 
@@ -70,7 +69,7 @@ module.exports = function(callback) {
         isCSS                = fs.existsSync(output.compressed + component + '.css'),
         capitalizedComponent = component.charAt(0).toUpperCase() + component.slice(1),
         packageName          = release.packageRoot + component,
-        repoName             = release.repoRoot + capitalizedComponent,
+        repoName             = release.componentRepoRoot + capitalizedComponent,
         gitURL               = 'https://github.com/' + release.org + '/' + repoName + '.git',
         repoURL              = 'https://github.com/' + release.org + '/' + repoName + '/',
         regExp               = {

@@ -34,14 +34,25 @@ module.exports = {
     meteor   : 'package.js'
   },
 
-  // root name for repos
-  repoRoot    : 'UI-',
-  packageRoot : 'semantic-ui-',
+  // root name for distribution repos
+  distRepoRoot      : 'Semantic-UI-',
+
+  // root name for single component repos
+  componentRepoRoot : 'UI-',
+
+  // root name for package managers
+  packageRoot          : 'semantic-ui-',
 
   // root path to repos
-  outputRoot  : '../components/',
+  outputRoot  : '../repos/',
 
   homepage    : 'http://www.semantic-ui.com',
+
+  // distributions that get separate repos
+  distributions: [
+    'LESS',
+    'CSS'
+  ],
 
   // components that get separate repositories for bower/npm
   components : [
