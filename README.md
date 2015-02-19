@@ -30,7 +30,7 @@ CSS Only | `npm install semantic-ui-css` | [CSS Repo](https://github.com/Semanti
 [Meteor](https://www.meteor.com/) | `meteor add semantic-org:semantic-ui` | 
 [Bower](http://bower.io/) | `bower install semantic-ui` | 
 
-Check out our [integration page](https://github.com/Semantic-Org/Semantic-UI/wiki/Integration) for more integration options.
+Check out our [integration wiki](https://github.com/Semantic-Org/Semantic-UI/wiki/Integration) for more options.
 
 ### Browser Support
 
