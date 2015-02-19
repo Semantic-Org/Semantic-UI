@@ -45,11 +45,13 @@ You can then import Semantic from your own LESS files:
 ```less
 /* Import all components */
 @import 'src/semantic';
-
-/* Import a specific component */
-@import 'src/definitions/elements/button';
 ```
 
+To import individual components you will have to create a scope for each import using `& {}`
+```less
+/* Import a specific component */
+& { @import 'src/definitions/elements/button'; }
+```
 
 ## Theming
 

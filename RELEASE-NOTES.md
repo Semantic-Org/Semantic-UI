@@ -1,5 +1,24 @@
 ## RELEASE NOTES
 
+### Version 1.9.1 - February 17, 2015
+
+**Changes**
+
+Importing individual components into other less requires namespacing:
+```less
+/* Import a specific component */
+& { @import 'src/definitions/elements/button'; }
+```
+
+Importing `semantic.less` still does not require this
+@import 'src/semantic';
+
+This is to prevent issues with variable scope that cannot be resolved inside definitions.
+
+**Bugs**
+- Fixed issue directly importing `semantic.less` caused by variable scoping in `.loadOverrides()`.
+- Fix bug where `equal height` row could not be `centered`, or less than full width
+
 ### Version 1.9.0 - February 17, 2015
 
 ### Build Tools
