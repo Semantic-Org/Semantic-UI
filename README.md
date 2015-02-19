@@ -50,7 +50,7 @@ Browser prefixes are present for Internet Explorer 9, but the browser is not off
 * **Right-to-Left (RTL)** An RTL version can be created using our build tools by selecting `rtl` from the install script
 * **Translation** To help translate see the [Wiki Guide](https://github.com/Semantic-Org/Semantic-UI/wiki/Translating-Semantic-UI-Docs) for translations
 
-### Technical Support
+#### Technical Support
 
 Problem | Solution 
 --- | --- |
