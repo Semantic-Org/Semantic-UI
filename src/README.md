@@ -57,9 +57,9 @@ These files are generated automatically using install scripts, but must be manua
 
 filename | usage | Initial Name
 --- | --- | ---
-theme.config | config file that stores each element's current theme for LESS | theme.config.example
-site/ | folder storing all your site's variables and css overrides for each UI component | _site/
-semantic.json | stores folder paths for build tools and current installed version for updates. Only necessary when using build tools | semantic.json.example
+**theme.config** | config file that stores each element's current theme for LESS | theme.config.example
+**site/** | folder storing all your site's variables and css overrides for each UI component | _site/
+**semantic.json** | stores folder paths for build tools and current installed version for updates. Only necessary when using build tools | semantic.json.example
 
 
 ## Theming
