@@ -44,6 +44,12 @@ Browser prefixes are present for Internet Explorer 9, but the browser is not off
 
 ## Community
 
+#### International
+
+* **Chinese** A Chinese mirror site is available at [http://www.semantic-ui.cn](http:/www.semantic-ui.cn)
+* **Right-to-Left (RTL)** An RTL version can be created using our build tools by selecting `rtl` from the install script
+* **Translation** To help translate see the [Wiki Guide](https://github.com/Semantic-Org/Semantic-UI/wiki/Translating-Semantic-UI-Docs) for translations
+
 ### Technical Support
 
 Problem | Solution 
@@ -52,14 +58,6 @@ Bug Reports |  Make a test case by forking this [jsfiddle](http://jsfiddle.net/e
 Chat | [Request an Invite](https://docs.google.com/forms/d/1hI1z136sXLkTQKtsv8SIvjjAvzpH77YzMQKrU-P8GAc/viewform?usp=send_form) to join [our Slack chatroom](http://semanticui.slack.com)
 Newsletter | Sign up for updates at [semantic-ui.com](http:/www.semantic-ui.com)
 Additional Resources  | Submit a question on [StackOverflow](http://www.stackoverflow.com) or ask our [Google Group](https://groups.google.com/forum/#!forum/semantic-ui)
-
-#### International
-
-* **Chinese** A Chinese mirror site is available at [http://www.semantic-ui.cn](http:/www.semantic-ui.cn)
-* **Right-to-Left (RTL)** An RTL version can be created using our build tools by selecting `rtl` from the install script
-* **Translation** To help translate see the [Wiki Guide](https://github.com/Semantic-Org/Semantic-UI/wiki/Translating-Semantic-UI-Docs) for translations
-
-## Contributing
 
 #### Places to Help
 
