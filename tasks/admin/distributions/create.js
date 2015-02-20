@@ -65,6 +65,7 @@ module.exports = function(callback) {
         repoName        = release.distRepoRoot + distribution,
         regExp          = {
           match : {
+            files   : '{files}',
             version : '{version}'
           }
         },
@@ -73,16 +74,69 @@ module.exports = function(callback) {
           repo    : distribution + ' create repo',
           meteor  : distribution + ' create meteor package.js',
           package : distribution + ' create package.json'
-        }
+        },
+        gatherFiles,
+        createList
       ;
+
+      // get files for meteor
+      gatherFiles = function(dir) {
+        var
+          dir   = dir || path.resolve('.'),
+          list  = fs.readdirSync(dir),
+          omitted = [
+            '.git',
+            'node_modules',
+            'package.js',
+            'package.json',
+            'bower.json',
+            '.gitignore'
+          ]
+          files = []
+        ;
+        list.forEach(function(file) {
+          var
+            isOmitted = (omitted.indexOf(file) > -1),
+            filePath  = path.join(dir, file),
+            stat      = fs.statSync(filePath)
+          ;
+          if(!isOmitted) {
+            if(stat && stat.isDirectory()) {
+              files = files.concat(gatherFiles(filePath));
+            }
+            else {
+              files.push(filePath.replace(outputDirectory + path.sep, ''));
+            }
+          }
+        })
+        return files
+      };
+
+      // spaces out list correctly
+      createList = function(files) {
+        var filenames = '';
+        for(file in files) {
+          if(file == (files.length - 1) ) {
+            filenames += "'" + files[file] + "'";
+          }
+          else {
+            filenames += "'" + files[file] + "',\n    ";
+          }
+        }
+        return filenames;
+      };
 
 
       gulp.task(task.meteor, function() {
+        var
+          files     = gatherFiles(outputDirectory)
+          filenames = createList(files)
+        ;
         gulp.src(release.templates.meteor[distLowerCase])
           .pipe(plumber())
-          .pipe(debug())
           .pipe(flatten())
           .pipe(replace(regExp.match.version, version))
+          .pipe(replace(regExp.match.files, filenames))
           .pipe(rename(release.files.meteor))
           .pipe(gulp.dest(outputDirectory))
         ;
@@ -101,6 +155,7 @@ module.exports = function(callback) {
       else if(distribution == 'LESS') {
         gulp.task(task.repo, function() {
           return gulp.src('./src/theme.config.example', { base: './src/' })
+            .pipe(gulp.src('./src/theme.less', { base: './src/' }))
             .pipe(gulp.src('./src/definitions/**/*', { base: './src/' }))
             .pipe(gulp.src('./src/_site/**/*', { base: './src/' }))
             .pipe(gulp.src('./src/themes/**/*', { base: './src/' }))

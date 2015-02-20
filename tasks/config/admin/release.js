@@ -61,6 +61,7 @@ module.exports = {
   // components that get separate repositories for bower/npm
   components : [
     'accordion',
+    'ad',
     'api',
     'breadcrumb',
     'button',
