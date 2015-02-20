@@ -1,10 +1,14 @@
 ## RELEASE NOTES
 
-### Version 1.9.3 - February 19, 2015
+### Version 1.9.3 - February 20, 2015
 
+**Bugs**
 - **Tab** - Fixed bug when loading `remote` content with `tab` where current tab would not hide while loading
 - **Tab** - Tab with remote content and `auto: true` now removes duplicate slashes from url path
 - **API** - Simplified `api` debug output to console to more clearly label url and data sent
+
+**Docs**
+- **Tab** - Added new tab remote content example with stubbed AJAX using SinonJS
 
 ### Version 1.9.2 - February 19, 2015
 
