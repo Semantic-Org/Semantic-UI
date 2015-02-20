@@ -40,8 +40,9 @@ Package.onUse(function(api) {
     return files
   }
   files = walk();
-
   api.versionsFrom('1.0');
+
+  api.use('less', 'client');
   api.addFiles(files, 'clent');
 
 });
