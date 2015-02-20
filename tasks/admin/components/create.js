@@ -290,7 +290,8 @@ module.exports = function(callback) {
                 filenames += file.contents;
               }))
               .on('end', function() {
-                filenames = filenames.replace(regExp.trailingComma, '').trim(); // remove trailing slash
+                // remove trailing slash
+                filenames = filenames.replace(regExp.match.trailingComma, '').trim();
                 gulp.src(release.templates.meteor.component)
                   .pipe(plumber())
                   .pipe(flatten())
