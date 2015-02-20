@@ -64,7 +64,7 @@ filename | usage | Initial Name
 
 ### Workflow
 
-You will only need to use Semantic's build tools while refining your UI, while designing pages you can rely on the packages in  `dist/` and your software stack's normal build set-up.
+You will only need to use Semantic's build tools while refining your UI. When designing pages, you can rely on the compiled css packages in  `dist/`.
 
 When creating your UI you can try <a href="http://www.learnsemantic.com/themes/creating.html">downloading different themes</a>, adjusting your <a href="http://www.learnsemantic.com/developing/customizing.html#setting-global-variables">site-wide settings</a> (font-family, colors, etc) and tweaking components in your site's <a href="http://www.learnsemantic.com/developing/customizing.html#designing-for-the-long-now">component overrides</a>.
 
