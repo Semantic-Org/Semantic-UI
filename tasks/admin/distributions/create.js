@@ -80,7 +80,6 @@ module.exports = function(callback) {
       gulp.task(task.meteor, function() {
         gulp.src(release.templates.meteor[distLowerCase])
           .pipe(plumber())
-          .pipe(debug())
           .pipe(flatten())
           .pipe(replace(regExp.match.version, version))
           .pipe(rename(release.files.meteor))
@@ -101,6 +100,7 @@ module.exports = function(callback) {
       else if(distribution == 'LESS') {
         gulp.task(task.repo, function() {
           return gulp.src('./src/theme.config.example', { base: './src/' })
+            .pipe(gulp.src('./src/theme.less*', { base: './src/' }))
             .pipe(gulp.src('./src/definitions/**/*', { base: './src/' }))
             .pipe(gulp.src('./src/_site/**/*', { base: './src/' }))
             .pipe(gulp.src('./src/themes/**/*', { base: './src/' }))
