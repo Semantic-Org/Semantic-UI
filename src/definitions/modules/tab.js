@@ -370,22 +370,22 @@ $.fn.tab = function(parameters) {
             cachedContent = module.cache.read(fullTabPath);
 
 
+            module.activate.tab(tabPath);
+
             if(settings.cache && cachedContent) {
               module.debug('Showing existing content', fullTabPath);
               module.content.update(tabPath, cachedContent);
-              module.activate.tab(tabPath);
               settings.onTabLoad.call($tab, tabPath, parameterArray, historyEvent);
             }
             else if(existingRequest) {
               module.debug('Content is already loading', fullTabPath);
-              $tab
-                .addClass(className.loading)
-              ;
+              $tab.addClass(className.loading);
             }
             else if($.api !== undefined) {
-              requestSettings = $.extend(true, { headers: { 'X-Remote': true } }, settings.apiSettings, apiSettings);
+              requestSettings = $.extend(true, {
+                headers: { 'X-Remote': true }
+              }, settings.apiSettings, apiSettings);
               module.debug('Retrieving remote content', fullTabPath, requestSettings);
-              console.log(existingRequest, requestSettings, cachedContent);
               $tab.api( requestSettings );
             }
             else {
