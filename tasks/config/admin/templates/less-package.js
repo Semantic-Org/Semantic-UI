@@ -21,7 +21,7 @@ Package.onUse(function(api) {
   // recursive sync walk
   walk = function(dir) {
     var
-      dir   = dir || __dirname,
+      dir   = dir || path.resolve('.'),
       list  = fs.readdirSync(dir),
       files = []
     ;
