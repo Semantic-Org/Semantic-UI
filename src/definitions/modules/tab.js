@@ -75,10 +75,7 @@ $.fn.tab = function(parameters) {
 
           // set up automatic routing
           if(settings.auto) {
-            module.verbose('Setting up automatic tab retrieval from server');
-            settings.apiSettings = {
-              url: (settings.path || '') + '/{$tab}'
-            };
+            module.set.auto();
           }
 
           // attach events if navigation wasn't set to window
@@ -238,6 +235,22 @@ $.fn.tab = function(parameters) {
         },
 
         set: {
+          auto: function() {
+            var
+              url = (typeof settings.path == 'string')
+                ? settings.path.replace(/\/$/, '') + '/{$tab}'
+                : '/{$tab}'
+            ;
+            module.verbose('Setting up automatic tab retrieval from server', url);
+            if($.isPlainObject(settings.apiSettings)) {
+              settings.apiSettings.url = url;
+            }
+            else {
+              settings.apiSettings = {
+                url: url
+              };
+            }
+          },
           state: function(state) {
             $.address.value(state);
           }
