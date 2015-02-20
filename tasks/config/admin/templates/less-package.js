@@ -12,8 +12,8 @@ Package.describe({
 Package.onUse(function(api) {
 
   var
-    fs   = require('fs'),
-    path = require('path'),
+    fs   = Npm.require('fs'),
+    path = Npm.require('path'),
     files,
     walk
   ;
