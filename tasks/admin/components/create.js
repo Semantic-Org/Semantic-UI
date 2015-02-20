@@ -97,6 +97,7 @@ module.exports = function(callback) {
             formExport        : /\$\.fn\.\w+\s*=\s*function\(fields, parameters\)\s*{/g,
             settingsExport    : /\$\.fn\.\w+\.settings\s*=/g,
             settingsReference : /\$\.fn\.\w+\.settings/g,
+            trailingComma     : /,(?=[^,]*$)/,
             jQuery            : /jQuery/g,
           },
           replace : {
@@ -289,7 +290,7 @@ module.exports = function(callback) {
                 filenames += file.contents;
               }))
               .on('end', function() {
-                filenames = filenames.replace(/,(?=[^,]*$)/, '').trim(); // remove trailing slash
+                filenames = filenames.replace(regExp.trailingComma, '').trim(); // remove trailing slash
                 gulp.src(release.templates.meteor.component)
                   .pipe(plumber())
                   .pipe(flatten())
