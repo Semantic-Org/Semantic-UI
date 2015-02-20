@@ -42,6 +42,6 @@ Package.onUse(function(api) {
   files = walk();
 
   api.versionsFrom('1.0');
-  api.addFiles(files, 'clent');
+  api.addFiles(files, 'client');
 
 });
