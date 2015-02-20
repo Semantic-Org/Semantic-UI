@@ -89,6 +89,8 @@ module.exports = function(callback) {
             '.git',
             'node_modules',
             'package.js',
+            'LICENSE',
+            'README.md',
             'package.json',
             'bower.json',
             '.gitignore'

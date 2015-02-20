@@ -14,7 +14,8 @@ Package.onUse(function(api) {
   api.versionsFrom('1.0');
 
   api.addFiles([
-    {files}
+    'semantic.css',
+    'semantic.js'
   ], 'client');
 
 });
