@@ -1,5 +1,11 @@
 ## RELEASE NOTES
 
+### Version 1.9.3 - February 19, 2015
+
+- **Tab** - Fixed bug when loading `remote` content with `tab` where current tab would not hide while loading
+- **Tab** - Tab with remote content and `auto: true` now removes duplicate slashes from url path
+- **API** - Simplified `api` debug output to console to more clearly label url and data sent
+
 ### Version 1.9.2 - February 19, 2015
 
 Added new repositories for css and less only versions, can be installed with

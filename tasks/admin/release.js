@@ -7,8 +7,6 @@
 
   * Initializes repositories with current versions
   * Creates local files at ../distributions/ with each repo for release
-  * Commits changes from create components
-  * Registers new versions with NPM Publish
 
 */
 
@@ -23,7 +21,8 @@ module.exports = function() {
     'build', // build Semantic
     'init distributions', // sync with current github version
     'create distributions', // update each repo with changes from master repo
-    'update distributions' // commit changes to github
+    'init components', // sync with current github version
+    'create components' // update each repo
   );
 
 };
