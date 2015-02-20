@@ -28,7 +28,7 @@ CSS Only | `npm install semantic-ui-css` | [CSS Repo](https://github.com/Semanti
 [LESS](https://github.com/less/less.js/) Only | `npm install semantic-ui-less` | [LESS Repo](https://github.com/Semantic-Org/Semantic-UI-LESS)
 [EmberJS](http://emberjs.com/) | `ember install:addon semantic-ui-ember` | [Ember Repo](https://github.com/Semantic-Org/Semantic-UI-Ember)
 |[Meteor](https://www.meteor.com/) - [LESS](https://github.com/less/less.js/) | `meteor add semantic:ui` | [LESS Repo](https://github.com/Semantic-Org/Semantic-UI-LESS) |
-|[Meteor](https://www.meteor.com/) - CSS | - `meteor add semantic:ui-css` | [CSS Repo](https://github.com/Semantic-Org/Semantic-UI-CSS) |
+|[Meteor](https://www.meteor.com/) - CSS | `meteor add semantic:ui-css` | [CSS Repo](https://github.com/Semantic-Org/Semantic-UI-CSS) |
 [Bower](http://bower.io/) | `bower install semantic-ui` | 
 
 Check out our [integration wiki](https://github.com/Semantic-Org/Semantic-UI/wiki/Integration) for more options.
