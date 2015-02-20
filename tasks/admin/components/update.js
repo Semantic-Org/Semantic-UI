@@ -146,16 +146,6 @@ module.exports = function() {
       console.log('Tagging release as ', version);
       github.releases.createRelease(releaseOptions, function() {
         nextRepo();
-        tagFiles();
-      });
-      tagFiles();
-    }
-
-    // Tags files locally
-    function tagFiles() {
-      console.info('Tagging new version ' + component, version);
-      git.tag(version, 'Updated version from semantic-ui (automatic)', function (err) {
-        nextRepo();
       });
     }
 
@@ -164,7 +154,7 @@ module.exports = function() {
       console.log('Sleeping for 1 second...');
       // avoid rate throttling
       global.clearTimeout(timer);
-      timer = global.setTimeout(stepRepo, 500);
+      timer = global.setTimeout(stepRepo, 1000);
     }
 
 
