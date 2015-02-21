@@ -1667,10 +1667,6 @@
   .ui.stackable.grid {
     display: block !important;
     width: auto;
-    /* Stackable grid should always be padded on mobile ?
-    margin-left: -(@stackableGutter / 2) !important;
-    margin-right: -(@stackableGutter / 2) !important;
-    */
     margin-left: 0em !important;
     margin-right: 0em !important;
     padding: 0em;
@@ -1693,9 +1689,11 @@
     padding: 0em;
   }
 
-  .ui.stackable.page.grid {
-    margin-left: 0em !important;
-    margin-right: 0em !important;
+  /* Don't pad inside segment or nested grid */
+  .ui.grid .ui.stackable.grid,
+  .ui.segment > .ui.stackable.page.grid {
+    margin-left: -(@stackableGutter / 2) !important;
+    margin-right: -(@stackableGutter / 2) !important;
   }
 
   /* Equal Height Stackable */
