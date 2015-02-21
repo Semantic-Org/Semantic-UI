@@ -37,9 +37,7 @@ gulp.task('watch ui', 'Watch Semantic UI', watch));
 
 > LESS files do not contain vendor prefixes. If you are to use these files directly you must add them during your build step.
 
-Before using source files you will need to create a `theme.config` by renaming `theme.config.example`
-
-This file is used to configure which packaged theme each component should use.
+Before using source files you will need to create a `theme.config` by renaming `theme.config.example`, and a site folder by renaming `_site/` to `site/`
 
 You can then import Semantic from your own LESS files:
 ```less
@@ -52,6 +50,25 @@ To import individual components you will have to create a scope for each import 
 /* Import a specific component */
 & { @import 'src/definitions/elements/button'; }
 ```
+
+### Config Files
+
+These files are generated automatically using install scripts, but must be manually renamed if you are using installing manually.
+
+filename | usage | Initial Name
+--- | --- | ---
+**theme.config** | config file that stores each element's current theme for LESS | theme.config.example
+**site/** | folder storing all your site's variables and css overrides for each UI component | _site/
+**semantic.json** | stores folder paths for build tools and current installed version for updates. Only necessary when using build tools | semantic.json.example
+
+
+### Workflow
+
+You will only need to use Semantic's build tools while refining your UI. When designing pages, you can rely on the compiled css packages in  `dist/`.
+
+When creating your UI you can try <a href="http://www.learnsemantic.com/themes/creating.html">downloading different themes</a>, adjusting your <a href="http://www.learnsemantic.com/developing/customizing.html#setting-global-variables">site-wide settings</a> (font-family, colors, etc) and tweaking components in your site's <a href="http://www.learnsemantic.com/developing/customizing.html#designing-for-the-long-now">component overrides</a>.
+
+Files in the  `examples/` folder of your project can be useful for testing out changes in your UI. For example, you might run  `gulp watch` download a new theme to  `src/site/themes/` then adjust your  `theme.config` file with the name of the new theme and refresh  `examples/kitchensink.html` to inspect changes in the theme.
 
 ## Theming
 

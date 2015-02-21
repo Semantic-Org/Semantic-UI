@@ -1,5 +1,28 @@
 ## RELEASE NOTES
 
+### Version 1.9.3 - February 20, 2015
+
+**Bugs**
+- **Tab** - Fixed bug when loading `remote` content with `tab` where current tab would not hide while another tab is loading
+- **Tab** - Tab with remote content and `auto: true` now removes duplicate slashes from url path
+- **API** - Simplified `api` debug output to console to more clearly label url and data sent
+
+**Docs**
+- **Tab** - Added new tab remote content example with stubbed AJAX using SinonJS
+
+### Version 1.9.2 - February 19, 2015
+
+Added new repositories for css and less only versions, can be installed with
+```bash
+npm install semantic-ui-less
+npm install semantic-ui-css
+```
+
+**Bug Fixes**
+
+- **Modal** - Fixes typo causing `middle aligned` image not to work correctly.
+- **Build** - `gulp watch` now compiles concatenated css (missing in `1.9.1` only)
+
 ### Version 1.9.1 - February 18, 2015
 
 **LESS Changes**
@@ -12,9 +35,7 @@ Importing individual components into other less files now requires scoping. This
 ```
 
 Importing `semantic.less` still does not require any special syntax
-```less
 @import 'src/semantic';
-```
 
 
 **Bugs**

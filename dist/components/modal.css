@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.9.1
+ * # Semantic UI - 1.9.3
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -113,7 +113,7 @@
 .ui.modal > .content > .image[class*="top aligned"] {
   vertical-align: top;
 }
-.ui.modal > .content > .image[class*="top aligned"] {
+.ui.modal > .content > .image[class*="middle aligned"] {
   vertical-align: middle;
 }
 

@@ -13,26 +13,26 @@
 */
 
 var
-  gulp           = require('gulp'),
+  gulp      = require('gulp'),
 
   // node dependencies
-  console        = require('better-console'),
-  del            = require('del'),
-  fs             = require('fs'),
-  path           = require('path'),
-  git            = require('gulp-git'),
-  githubAPI      = require('github'),
-  mkdirp         = require('mkdirp'),
+  console   = require('better-console'),
+  del       = require('del'),
+  fs        = require('fs'),
+  path      = require('path'),
+  git       = require('gulp-git'),
+  githubAPI = require('github'),
+  mkdirp    = require('mkdirp'),
 
   // admin files
-  github         = require('../config/admin/github.js'),
-  release        = require('../config/admin/release'),
-  project         = require('../config/project/release'),
+  github    = require('../../config/admin/github.js'),
+  release   = require('../../config/admin/release'),
+  project   = require('../../config/project/release'),
 
 
   // oAuth configuration for GitHub
-  oAuth          = fs.existsSync(__dirname + '/../config/admin/oauth.js')
-    ? require('../config/admin/oauth')
+  oAuth     = fs.existsSync(__dirname + '/../../config/admin/oauth.js')
+    ? require('../../config/admin/oauth')
     : false,
 
   // shorthand
@@ -68,7 +68,7 @@ module.exports = function(callback) {
       component            = release.components[index]
       outputDirectory      = path.resolve(release.outputRoot + component),
       capitalizedComponent = component.charAt(0).toUpperCase() + component.slice(1),
-      repoName             = release.repoRoot + capitalizedComponent,
+      repoName             = release.componentRepoRoot + capitalizedComponent,
 
       gitOptions           = { cwd: outputDirectory },
       pullOptions          = { args: '-q', cwd: outputDirectory, quiet: true },
@@ -87,7 +87,7 @@ module.exports = function(callback) {
     }
 
     // clean folder
-    if(release.outputRoot.search('../components') == 0) {
+    if(release.outputRoot.search('../repos') == 0) {
       console.info('Cleaning dir', outputDirectory);
       del.sync([outputDirectory + '**/*'], {silent: true, force: true});
     }

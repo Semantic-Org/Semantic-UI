@@ -34,12 +34,12 @@ var
   rename          = require('gulp-rename'),
   replace         = require('gulp-replace'),
   tap             = require('gulp-tap'),
+  util            = require('gulp-util'),
 
   // config
-  config          = require('../config/user'),
-  github          = require('../config/admin/github'),
-  release         = require('../config/admin/release'),
-  project         = require('../config/project/release'),
+  config          = require('../../config/user'),
+  release         = require('../../config/admin/release'),
+  project         = require('../../config/project/release'),
 
   // shorthand
   version         = project.version,
@@ -65,14 +65,20 @@ module.exports = function(callback) {
     (function(component) {
 
       var
-        outputDirectory      = release.outputRoot + component,
+        outputDirectory      = path.join(release.outputRoot, component),
         isJavascript         = fs.existsSync(output.compressed + component + '.js'),
         isCSS                = fs.existsSync(output.compressed + component + '.css'),
         capitalizedComponent = component.charAt(0).toUpperCase() + component.slice(1),
         packageName          = release.packageRoot + component,
-        repoName             = release.repoRoot + capitalizedComponent,
+        repoName             = release.componentRepoRoot + capitalizedComponent,
         gitURL               = 'https://github.com/' + release.org + '/' + repoName + '.git',
         repoURL              = 'https://github.com/' + release.org + '/' + repoName + '/',
+        concatSettings = {
+          newline : '',
+          root    : outputDirectory,
+          prepend : "    '",
+          append  : "',"
+        },
         regExp               = {
           match            : {
             // templated values
@@ -91,6 +97,7 @@ module.exports = function(callback) {
             formExport        : /\$\.fn\.\w+\s*=\s*function\(fields, parameters\)\s*{/g,
             settingsExport    : /\$\.fn\.\w+\.settings\s*=/g,
             settingsReference : /\$\.fn\.\w+\.settings/g,
+            trailingComma     : /,(?=[^,]*$)/,
             jQuery            : /jQuery/g,
           },
           replace : {
@@ -120,10 +127,13 @@ module.exports = function(callback) {
           notes    : component + ' create release notes',
           composer : component + ' create composer.json',
           package  : component + ' create package.json',
-          meteor   : component + ' create package.js',
+          meteor   : component + ' create meteor package.js',
         },
         // paths to includable assets
-        assetPath = '/assets/**/' + component + '?(s).*'
+        manifest = {
+          assets    : outputDirectory + '/assets/**/' + component + '?(s).*',
+          component : outputDirectory + '/' + component + '+(.js|.css)'
+        }
       ;
 
       // copy dist files into output folder adjusting asset paths
@@ -266,32 +276,33 @@ module.exports = function(callback) {
       // Creates meteor package.js
       gulp.task(task.meteor, function() {
         var
-          fileNames = ''
+          filenames = ''
         ;
-        if(isJavascript) {
-          fileNames += '    \'' + component + '.js\',\n';
-        }
-        if(isCSS) {
-          fileNames += '    \'' + component + '.css\',\n';
-        }
-        return gulp.src(outputDirectory + assetPath, { base: outputDirectory})
-          .pipe(concatFileNames('/dev/null', {
-            newline : '',
-            root    : outputDirectory,
-            prepend : '    \'',
-            append  : '\','
+        return gulp.src(manifest.component)
+          .pipe(concatFileNames('empty.txt', concatSettings))
+          .pipe(tap(function(file) {
+            filenames += file.contents;
           }))
-          .pipe(tap(function(file) { fileNames += file.contents; }))
-          .on('end', function(){
-            gulp.src(release.templates.meteor)
-              .pipe(plumber())
-              .pipe(flatten())
-              .pipe(replace(regExp.match.name, regExp.replace.name))
-              .pipe(replace(regExp.match.titleName, regExp.replace.titleName))
-              .pipe(replace(regExp.match.version, version))
-              .pipe(replace(regExp.match.files, fileNames))
-              .pipe(rename(release.files.meteor))
-              .pipe(gulp.dest(outputDirectory))
+          .on('end', function() {
+            gulp.src(manifest.assets)
+              .pipe(concatFileNames('empty.txt', concatSettings))
+              .pipe(tap(function(file) {
+                filenames += file.contents;
+              }))
+              .on('end', function() {
+                // remove trailing slash
+                filenames = filenames.replace(regExp.match.trailingComma, '').trim();
+                gulp.src(release.templates.meteor.component)
+                  .pipe(plumber())
+                  .pipe(flatten())
+                  .pipe(replace(regExp.match.name, regExp.replace.name))
+                  .pipe(replace(regExp.match.titleName, regExp.replace.titleName))
+                  .pipe(replace(regExp.match.version, version))
+                  .pipe(replace(regExp.match.files, filenames))
+                  .pipe(rename(release.files.meteor))
+                  .pipe(gulp.dest(outputDirectory))
+                ;
+              })
             ;
           })
         ;
