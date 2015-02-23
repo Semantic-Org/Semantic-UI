@@ -1,14 +1,17 @@
 ## RELEASE NOTES
 
-### Version 1.9.4 - February 21, 2015
+### Version 1.10.0 - February 23, 2015
 
-**Updates**
+**Critical Fixes**
+- **Transition** - Webkit `failSafe` used for [Chromium Bug #437860](https://code.google.com/p/chromium/issues/detail?id=437860) now also works for queued animations
+
+**Enhancements**
 - **Form Validation** - Adds `containsExactly`, `notExactly`, `isExactly` case sensitive validation rules, make `contains`, `not`, `is` case insensitive.
 - **Form Validation** - `contains` rule is now case insensitive
 - **Form Validation** - Validation messages no longer increase field height on `inline fields` like checkboxes after error appears
 - **API** - Added `was cancelled` to determine whether request was cancelled by `beforeSend`
 
-**Bugs**
+**Fixes**
 - **Build Tools** - Fixed issue with recursive merge for site themes in update scripts, [details here](https://github.com/Semantic-Org/Semantic-UI/pull/1845) Thanks @derekslife
 - **Cards** - Fix `.ui.cards > .ui.card` margins to match `.ui.cards > .card` margins
 - **Cards** - Fix consecutive card groups to preserve row flow (similar to consecutive grids)
@@ -18,6 +21,9 @@
 - **Composer** - Composer.json should now read version from tags, adjusted some fields.
 - **Grid** - Stackable grid now has horizontal padding by default on mobile unless nested inside a `ui grid` or `ui segment` (not vertical)
 - **Menu** - Fixes pointing menu displaying under dropdown menu
+
+-**Docs**
+-**Transition** - `useFailSafe` was incorrectly shown as `false` by default
 
 ### Version 1.9.3 - February 20, 2015
 
