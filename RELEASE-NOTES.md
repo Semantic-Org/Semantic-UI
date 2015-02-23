@@ -2,6 +2,8 @@
 
 ### Version 1.9.4 - February 21, 2015
 
+- **Search** - Category search no longer displays unnecessary error message about setting maxResults
+- **Composer** - Composer.json should now read version from tags, adjusted some fields.
 - **Grid** - Stackable grid now has horizontal padding on mobile unless inside a `ui grid` or `ui segment`
 - **Menu** - Fixes pointing menu displaying under dropdown menu
 
