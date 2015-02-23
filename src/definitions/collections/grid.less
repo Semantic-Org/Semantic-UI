@@ -1691,7 +1691,7 @@
 
   /* Don't pad inside segment or nested grid */
   .ui.grid .ui.stackable.grid,
-  .ui.segment .ui.stackable.page.grid {
+  .ui.segment:not(.vertical) .ui.stackable.page.grid {
     margin-left: -(@stackableGutter / 2) !important;
     margin-right: -(@stackableGutter / 2) !important;
   }
