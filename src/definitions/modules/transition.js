@@ -35,7 +35,7 @@ $.fn.transition = function() {
     returnedValue
   ;
   $allModules
-    .each(function() {
+    .each(function(index) {
       var
         $module  = $(this),
         element  = this,
@@ -86,7 +86,12 @@ $.fn.transition = function() {
           // method not invoked, lets run an animation
           if(methodInvoked === false) {
             module.verbose('Converted arguments into settings object', settings);
-            module.animate();
+            if(settings.interval) {
+              setTimeout(module.animate, settings.interval * index);
+            }
+            else  {
+              module.animate();
+            }
             module.instantiate();
           }
         },
@@ -878,44 +883,47 @@ $.fn.transition.exists = {};
 $.fn.transition.settings = {
 
   // module info
-  name         : 'Transition',
+  name          : 'Transition',
 
   // debug content outputted to console
-  debug        : false,
+  debug         : false,
 
   // verbose debug output
-  verbose      : true,
+  verbose       : true,
 
   // performance data output
-  performance  : true,
+  performance   : true,
 
   // event namespace
-  namespace    : 'transition',
+  namespace     : 'transition',
+
+  // delay between animations in group
+  interval      : 0,
 
   // animation complete event
-  onStart      : function() {},
-  onComplete   : function() {},
-  onShow       : function() {},
-  onHide       : function() {},
+  onStart       : function() {},
+  onComplete    : function() {},
+  onShow        : function() {},
+  onHide        : function() {},
 
   // whether timeout should be used to ensure callback fires in cases animationend does not
-  useFailSafe  : true,
+  useFailSafe   : true,
 
   // delay in ms for fail safe
-  failSafeDelay: 100,
+  failSafeDelay : 100,
 
   // whether EXACT animation can occur twice in a row
-  allowRepeats : false,
+  allowRepeats  : false,
 
   // Override final display type on visible
-  displayType  : false,
+  displayType   : false,
 
   // animation duration
-  animation    : 'fade',
-  duration     : false,
+  animation     : 'fade',
+  duration      : false,
 
   // new animations will occur after previous ones
-  queue       : true,
+  queue         : true,
 
   metadata : {
     displayType: 'display'
