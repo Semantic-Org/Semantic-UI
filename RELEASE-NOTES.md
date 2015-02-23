@@ -2,12 +2,15 @@
 
 ### Version 1.9.4 - February 21, 2015
 
-**Changes**
+**Updates**
 - **Form Validation** - Adds `containsExactly`, `notExactly`, `isExactly` case sensitive validation rules, make `contains`, `not`, `is` case insensitive.
 - **Form Validation** - `contains` rule is now case insensitive
 - **Form Validation** - Validation messages no longer increase field height on `inline fields` like checkboxes after error appears
-- **Build Tools** - Fixed issue with recursive merge for site themes in update scripts, [details here](https://github.com/Semantic-Org/Semantic-UI/pull/1845) Thanks @derekslife
 - **API** - Added `was cancelled` to determine whether request was cancelled by `beforeSend`
+
+**Bugs**
+- **Build Tools** - Fixed issue with recursive merge for site themes in update scripts, [details here](https://github.com/Semantic-Org/Semantic-UI/pull/1845) Thanks @derekslife
+- **Sidebar** - Sidebar using `exclusive: true` now queue animations after hiding previous sidebar (unless `overlay`) to avoid rendering issues
 - **State** - Text states now handle `cancelled` API requests correctly
 - **Search** - Category search no longer displays unnecessary error message about maxResults
 - **Composer** - Composer.json should now read version from tags, adjusted some fields.
