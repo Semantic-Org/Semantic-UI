@@ -2,12 +2,16 @@
 
 ### Version 1.9.4 - February 21, 2015
 
+**Changes**
+- **Form Validation** - Adds `containsExactly`, `notExactly`, `isExactly` case sensitive validation rules, make `contains`, `not`, `is` case insensitive.
+- **Form Validation** - `contains` rule is now case insensitive
+- **Form Validation** - Validation messages no longer increase field height on `inline fields` like checkboxes after error appears
 - **Build Tools** - Fixed issue with recursive merge for site themes in update scripts, [details here](https://github.com/Semantic-Org/Semantic-UI/pull/1845) Thanks @derekslife
 - **API** - Added `was cancelled` to determine whether request was cancelled by `beforeSend`
 - **State** - Text states now handle `cancelled` API requests correctly
-- **Search** - Category search no longer displays unnecessary error message about setting maxResults
+- **Search** - Category search no longer displays unnecessary error message about maxResults
 - **Composer** - Composer.json should now read version from tags, adjusted some fields.
-- **Grid** - Stackable grid now has horizontal padding on mobile unless inside a `ui grid` or `ui segment`
+- **Grid** - Stackable grid now has horizontal padding by default on mobile unless nested inside a `ui grid` or `ui segment` (not vertical)
 - **Menu** - Fixes pointing menu displaying under dropdown menu
 
 ### Version 1.9.3 - February 20, 2015

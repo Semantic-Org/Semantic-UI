@@ -969,10 +969,18 @@ $.fn.form.settings = {
       return ($(this).filter(':checked').length > 0);
     },
 
-    // value contains (text)
+    // value contains text (insensitive)
     contains: function(value, text) {
+      // escape regex characters
       text = text.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
-      return (value.search(text) !== -1);
+      return (value.search( new RegExp(text, 'i') ) !== -1);
+    },
+
+    // value contains text (case sensitive)
+    containsExactly: function(value, text) {
+      // escape regex characters
+      text = text.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+      return (value.search( new RegExp(text) ) !== -1);
     },
 
     // is most likely an email
@@ -1020,8 +1028,21 @@ $.fn.form.settings = {
       );
     },
 
-    // is exactly value
+    // is value (case insensitive)
     is: function(value, text) {
+      text = (typeof text == 'string')
+        ? text.toLowerCase()
+        : text
+      ;
+      value = (typeof value == 'string')
+        ? value.toLowerCase()
+        : value
+      ;
+      return (value == text);
+    },
+
+    // is value
+    isExactly: function(value, text) {
       return (value == text);
     },
 
@@ -1063,8 +1084,21 @@ $.fn.form.settings = {
       ;
     },
 
-    // value is not exactly notValue
+    // value is not value (case insensitive)
     not: function(value, notValue) {
+      value = (typeof value == 'string')
+        ? value.toLowerCase()
+        : value
+      ;
+      notValue = (typeof notValue == 'string')
+        ? notValue.toLowerCase()
+        : notValue
+      ;
+      return (value != notValue);
+    },
+
+    // value is not value (case sensitive)
+    notExactly: function(value, notValue) {
       return (value != notValue);
     },
 

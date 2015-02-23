@@ -73,9 +73,9 @@
 /* Divider */
 @dividerMargin: @rowDistance 0em;
 
-/* Validation Prompt */
-@validationMargin: 0em 0em 0em @rowDistance;
-@validationArrowOffset: -0.3em;
+/* Inline Validation Prompt */
+@inlineValidationMargin: -0.5em 0em -0.5em @rowDistance;
+@inlineValidationArrowOffset: -0.3em;
 
 /*-------------------
         States
