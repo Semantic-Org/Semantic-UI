@@ -1,5 +1,10 @@
 ## RELEASE NOTES
 
+### Version 1.9.4 - February 21, 2015
+
+- **Grid** - Stackable grid now has horizontal padding on mobile unless inside a `ui grid` or `ui segment`
+- **Menu** - Fixes pointing menu displaying under dropdown menu
+
 ### Version 1.9.3 - February 20, 2015
 
 **Bugs**
