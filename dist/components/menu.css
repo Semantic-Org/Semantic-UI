@@ -524,7 +524,7 @@
 /* Sub Menu */
 .ui.tiered.menu .sub.menu {
   background-color: #fcfcfc;
-  border-radius: 0em;
+  border-radius: 0em 0em 0.2857rem 0.2857rem;
   border-top: 1px solid rgba(39, 41, 43, 0.15);
   box-shadow: none;
 }
@@ -1489,14 +1489,14 @@
   -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
       -ms-transform: translateX(-50%) translateY(-50%) rotate(45deg);
           transform: translateX(-50%) translateY(-50%) rotate(45deg);
-  margin: 1px 0em 0em 0em;
+  margin: 0em;
   background: none;
   width: 0.6em;
   height: 0.6em;
   border: none;
   border-bottom: 1px solid #d4d4d5;
   border-right: 1px solid #d4d4d5;
-  z-index: 2;
+  z-index: 11;
   -webkit-transition: background 0.2s ease;
           transition: background 0.2s ease;
 }
