@@ -18,7 +18,7 @@ var
 module.exports = function() {
 
   runSequence(
-    'build', // build Semantic
+    //'build', // build Semantic
     'init distributions', // sync with current github version
     'create distributions', // update each repo with changes from master repo
     'init components', // sync with current github version

@@ -144,16 +144,6 @@ module.exports = function() {
       console.log('Tagging release as ', version);
       github.releases.createRelease(releaseOptions, function() {
         nextRepo();
-        tagFiles();
-      });
-      tagFiles();
-    }
-
-    // Tags files locally
-    function tagFiles() {
-      console.info('Tagging new version ' + distribution, version);
-      git.tag(version, 'Updated version from semantic-ui (automatic)', function (err) {
-        nextRepo();
       });
     }
 

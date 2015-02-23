@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.9.2
+ * # Semantic UI - 1.9.3
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -12645,10 +12645,7 @@ $.fn.tab = function(parameters) {
 
           // set up automatic routing
           if(settings.auto) {
-            module.verbose('Setting up automatic tab retrieval from server');
-            settings.apiSettings = {
-              url: (settings.path || '') + '/{$tab}'
-            };
+            module.set.auto();
           }
 
           // attach events if navigation wasn't set to window
@@ -12808,6 +12805,22 @@ $.fn.tab = function(parameters) {
         },
 
         set: {
+          auto: function() {
+            var
+              url = (typeof settings.path == 'string')
+                ? settings.path.replace(/\/$/, '') + '/{$tab}'
+                : '/{$tab}'
+            ;
+            module.verbose('Setting up automatic tab retrieval from server', url);
+            if($.isPlainObject(settings.apiSettings)) {
+              settings.apiSettings.url = url;
+            }
+            else {
+              settings.apiSettings = {
+                url: url
+              };
+            }
+          },
           state: function(state) {
             $.address.value(state);
           }
@@ -12940,22 +12953,22 @@ $.fn.tab = function(parameters) {
             cachedContent = module.cache.read(fullTabPath);
 
 
+            module.activate.tab(tabPath);
+
             if(settings.cache && cachedContent) {
               module.debug('Showing existing content', fullTabPath);
               module.content.update(tabPath, cachedContent);
-              module.activate.tab(tabPath);
               settings.onTabLoad.call($tab, tabPath, parameterArray, historyEvent);
             }
             else if(existingRequest) {
               module.debug('Content is already loading', fullTabPath);
-              $tab
-                .addClass(className.loading)
-              ;
+              $tab.addClass(className.loading);
             }
             else if($.api !== undefined) {
-              requestSettings = $.extend(true, { headers: { 'X-Remote': true } }, settings.apiSettings, apiSettings);
+              requestSettings = $.extend(true, {
+                headers: { 'X-Remote': true }
+              }, settings.apiSettings, apiSettings);
               module.debug('Retrieving remote content', fullTabPath, requestSettings);
-              console.log(existingRequest, requestSettings, cachedContent);
               $tab.api( requestSettings );
             }
             else {
@@ -15023,7 +15036,9 @@ $.api = $.fn.api = function(parameters) {
             complete   : function() {}
           });
 
-          module.verbose('Creating AJAX request with settings', ajaxSettings);
+          module.debug('Querying URL', ajaxSettings.url);
+          module.debug('Sending data', data, ajaxSettings.method);
+          module.verbose('Using AJAX settings', ajaxSettings);
 
           if( module.is.loading() ) {
             // throttle additional requests
@@ -15226,7 +15241,7 @@ $.api = $.fn.api = function(parameters) {
 
                   // if http status code returned and json returned error, look for it
                   if( xhr.status != 200 && httpMessage !== undefined && httpMessage !== '') {
-                    module.error(error.statusMessage + httpMessage);
+                    module.error(error.statusMessage + httpMessage, ajaxSettings.url);
                   }
                   else {
                     if(status == 'error' && settings.dataType == 'json') {
@@ -15610,7 +15625,7 @@ $.api.settings = {
   namespace       : 'api',
 
   debug           : true,
-  verbose         : true,
+  verbose         : false,
   performance     : true,
 
   // event binding

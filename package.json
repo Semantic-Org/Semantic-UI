@@ -80,6 +80,7 @@
   "devDependencies": {
     "github"                : "^0.2.3",
     "gulp-concat-filenames" : "^0.0.3",
+    "merge-stream"          : "^0.1.7",
     "gulp-debug"            : "^2.0.0",
     "gulp-git"              : "^1.0.0",
     "gulp-tap"              : "^0.1.3",

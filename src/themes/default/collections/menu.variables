@@ -135,7 +135,7 @@
 @arrowBorderSize: 1px;
 @arrowBorder: @arrowBorderSize solid @solidBorderColor;
 @arrowTransition: background @transitionDuration @transitionEasing;
-@arrowZIndex: 2;
+@arrowZIndex: 11;
 
 @arrowHoverColor: #FAFAFA;
 @arrowActiveColor: #F7F7F7;

@@ -27,7 +27,8 @@ Environment | Install Script | Repo
 CSS Only | `npm install semantic-ui-css` | [CSS Repo](https://github.com/Semantic-Org/Semantic-UI-CSS)
 [LESS](https://github.com/less/less.js/) Only | `npm install semantic-ui-less` | [LESS Repo](https://github.com/Semantic-Org/Semantic-UI-LESS)
 [EmberJS](http://emberjs.com/) | `ember install:addon semantic-ui-ember` | [Ember Repo](https://github.com/Semantic-Org/Semantic-UI-Ember)
-[Meteor](https://www.meteor.com/) | `meteor add semantic-org:semantic-ui` | 
+|[Meteor](https://www.meteor.com/) - [LESS](https://github.com/less/less.js/) | `meteor add semantic:ui` | [LESS Repo](https://github.com/Semantic-Org/Semantic-UI-LESS) |
+|[Meteor](https://www.meteor.com/) - CSS | `meteor add semantic:ui-css` | [CSS Repo](https://github.com/Semantic-Org/Semantic-UI-CSS) |
 [Bower](http://bower.io/) | `bower install semantic-ui` | 
 
 Check out our [integration wiki](https://github.com/Semantic-Org/Semantic-UI/wiki/Integration) for more options.
@@ -50,13 +51,13 @@ Browser prefixes are present for Internet Explorer 9, but the browser is not off
 * **Right-to-Left (RTL)** An RTL version can be created using our build tools by selecting `rtl` from the install script
 * **Translation** To help translate see the [Wiki Guide](https://github.com/Semantic-Org/Semantic-UI/wiki/Translating-Semantic-UI-Docs) for translations
 
-#### Technical Support
+#### Resources
 
-Problem | Solution 
+Resource | Description
 --- | --- |
-Bug Reports |  Make a test case by forking this [jsfiddle](http://jsfiddle.net/efp8z6Ln/), then submit a [bug on GitHub](https://github.com/Semantic-Org/Semantic-UI/issues)
-Chat | [Request an Invite](https://docs.google.com/forms/d/1hI1z136sXLkTQKtsv8SIvjjAvzpH77YzMQKrU-P8GAc/viewform?usp=send_form) to join [our Slack chatroom](http://semanticui.slack.com)
-Newsletter | Sign up for updates at [semantic-ui.com](http:/www.semantic-ui.com)
+Bugs & Feature Requests |  Make a test case by forking this [jsfiddle](http://jsfiddle.net/efp8z6Ln/), then submit a [bug on GitHub](https://github.com/Semantic-Org/Semantic-UI/issues)
+Live Chat | [Request an Invite](https://docs.google.com/forms/d/1hI1z136sXLkTQKtsv8SIvjjAvzpH77YzMQKrU-P8GAc/viewform?usp=send_form) to join [our Slack chatroom](http://semanticui.slack.com)
+Newsletter Updates | Sign up for updates at [semantic-ui.com](http:/www.semantic-ui.com)
 Additional Resources  | Submit a question on [StackOverflow](http://www.stackoverflow.com) or ask our [Google Group](https://groups.google.com/forum/#!forum/semantic-ui)
 
 #### Places to Help

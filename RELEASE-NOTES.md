@@ -4,7 +4,7 @@
 
 **Bugs**
 - **RTL** - Fixes `rtl` tasks not running correctly on `gulp build` due to name typo, `build rtl` instead of `build-rtl`
-- **Tab** - Fixed bug when loading `remote` content with `tab` where current tab would not hide while loading
+- **Tab** - Fixed bug when loading `remote` content with `tab` where current tab would not hide while another tab is loading
 - **Tab** - Tab with remote content and `auto: true` now removes duplicate slashes from url path
 - **API** - Simplified `api` debug output to console to more clearly label url and data sent
 
