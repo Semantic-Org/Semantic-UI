@@ -10,7 +10,7 @@
 @shadowDistance: 3px;
 @shadowBoxShadow: 0px @shadowDistance 0px 0px @solidBorderColor;
 
-/* Item */
+/* Card */
 @display: flex;
 @background: #FFFFFF;
 @borderRadius: @defaultBorderRadius;
@@ -28,14 +28,19 @@
 @zIndex: '';
 @transition: box-shadow @transitionDuration @transitionEasing;
 
-/* Item Group */
+/* Card Group */
 @horizontalSpacing: 1em;
-@rowSpacing: 1.5em;
+@rowSpacing: 1.75em;
+
+@groupMargin: -(@rowSpacing / 2) -(@horizontalSpacing / 2);
 @groupDisplay: flex;
+
+@groupCardFloat: none;
 @groupCardDisplay: flex;
-@groupFloat: none;
-@groupCardsMargin: -(@rowSpacing / 2) -(@horizontalSpacing / 2);
 @groupCardMargin: (@rowSpacing / 2) (@horizontalSpacing / 2);
+
+/* Consecutive Cards */
+@consecutiveGroupDistance: (@rowSpacing / 2);
 
 /*-------------------
        Content
