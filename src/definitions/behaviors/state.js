@@ -581,37 +581,37 @@ $.fn.state = function(parameters) {
 $.fn.state.settings = {
 
   // module info
-  name : 'State',
+  name           : 'State',
 
   // debug output
-  debug      : true,
+  debug          : false,
 
   // verbose debug output
-  verbose    : true,
+  verbose        : true,
 
   // namespace for events
-  namespace  : 'state',
+  namespace      : 'state',
 
   // debug data includes performance
-  performance: true,
+  performance    : true,
 
   // callback occurs on state change
-  onActivate   : function() {},
-  onDeactivate : function() {},
-  onChange     : function() {},
+  onActivate     : function() {},
+  onDeactivate   : function() {},
+  onChange       : function() {},
 
   // state test functions
   activateTest   : function() { return true; },
   deactivateTest : function() { return true; },
 
   // whether to automatically map default states
-  automatic     : true,
+  automatic      : true,
 
   // activate / deactivate changes all elements instantiated at same time
-  sync          : false,
+  sync           : false,
 
   // default flash text duration, used for temporarily changing text of an element
-  flashDuration : 1000,
+  flashDuration  : 1000,
 
   // selector filter
   filter     : {
