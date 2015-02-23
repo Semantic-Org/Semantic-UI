@@ -10,6 +10,8 @@
 
 **Bugs**
 - **Build Tools** - Fixed issue with recursive merge for site themes in update scripts, [details here](https://github.com/Semantic-Org/Semantic-UI/pull/1845) Thanks @derekslife
+- **Cards** - Fix `.ui.cards > .ui.card` margins to match `.ui.cards > .card` margins
+- **Cards** - Fix consecutive card groups to preserve row flow (similar to consecutive grids)
 - **Sidebar** - Sidebar using `exclusive: true` now queue animations after hiding previous sidebar (unless `overlay`) to avoid rendering issues
 - **State** - Text states now handle `cancelled` API requests correctly
 - **Search** - Category search no longer displays unnecessary error message about maxResults
