@@ -192,13 +192,20 @@ $.fn.state = function(parameters) {
         toggle: {
           state: function() {
             var
-              apiRequest
+              apiRequest,
+              requestCancelled
             ;
             if( module.allows('active') && module.is.enabled() ) {
               module.refresh();
               if($.fn.api !== undefined) {
-                apiRequest = $module.api('get request');
-                if(apiRequest) {
+                apiRequest       = $module.api('get request');
+                requestCancelled = $module.api('was cancelled');
+                if( requestCancelled ) {
+                  module.debug('API Request cancelled by beforesend');
+                  settings.activateTest   = function(){ return false; };
+                  settings.deactivateTest = function(){ return false; };
+                }
+                else if(apiRequest) {
                   module.listenTo(apiRequest);
                   return;
                 }
@@ -229,11 +236,6 @@ $.fn.state = function(parameters) {
                 module.change.state();
               })
             ;
-          }
-          // xhr exists but set to false, beforeSend killed the xhr
-          else {
-            settings.activateTest   = function(){ return false; };
-            settings.deactivateTest = function(){ return false; };
           }
         },
 
@@ -394,7 +396,7 @@ $.fn.state = function(parameters) {
               }
             }
             else {
-              module.debug('Text is already sane, ignoring update', text);
+              module.debug('Text is already set, ignoring update', text);
             }
           }
         },
@@ -582,7 +584,7 @@ $.fn.state.settings = {
   name : 'State',
 
   // debug output
-  debug      : false,
+  debug      : true,
 
   // verbose debug output
   verbose    : true,
@@ -621,7 +623,8 @@ $.fn.state.settings = {
 
   // error
   error: {
-    method : 'The method you called is not defined.'
+    beforeSend : 'The before send function has cancelled state change',
+    method     : 'The method you called is not defined.'
   },
 
   // metadata
