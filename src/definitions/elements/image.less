@@ -47,7 +47,13 @@ img.ui.image {
             States
 *******************************/
 
+.ui.hidden.images,
+.ui.hidden.image {
+  display: none;
+}
 
+
+.ui.disabled.images,
 .ui.disabled.image {
   cursor: default;
   opacity: @disabledOpacity;
@@ -268,6 +274,7 @@ img.ui.bordered.image {
   width: @massiveWidth;
   font-size: @massive;
 }
+
 
 /*******************************
               Groups

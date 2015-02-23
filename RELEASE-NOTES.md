@@ -2,6 +2,9 @@
 
 ### Version 1.10.0 - February 23, 2015
 
+**New Features**
+- **Transition** - Transitions now have `interval` to allow grouped elements to animate one by one with a delay between each animation. Grouped animations determine order based on transition direction to avoid reflows, or can manually be reversed by using <code>reverse: true</code> [See Examples](http://laptop-vm:9778/modules/transition.html#grouped-transitions) for more details.
+
 **Critical Fixes**
 - **Transition** - Webkit `failSafe` used for [Chromium Bug #437860](https://code.google.com/p/chromium/issues/detail?id=437860) now also works for queued animations
 
@@ -10,6 +13,7 @@
 - **Form Validation** - `contains` rule is now case insensitive
 - **Form Validation** - Validation messages no longer increase field height on `inline fields` like checkboxes after error appears
 - **API** - Added `was cancelled` to determine whether request was cancelled by `beforeSend`
+- **Image* - Added `hidden image` state
 
 **Fixes**
 - **Build Tools** - Fixed issue with recursive merge for site themes in update scripts, [details here](https://github.com/Semantic-Org/Semantic-UI/pull/1845) Thanks @derekslife
