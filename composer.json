@@ -1,16 +1,20 @@
 {
-  "name": "semantic/ui",
+  "name"        : "semantic/ui",
   "description" : "Semantic empowers designers and developers by creating a shared vocabulary for UI.",
   "homepage"    : "http://www.semantic-ui.com",
-  "authors": [
+  "authors"     : [
     {
-      "name" : "Jack Lukic",
-      "email": "jacklukic@gmail.com",
-      "web"  : "http://www.jacklukic.com",
-      "role" : "Creator"
+      "name"     : "Jack Lukic",
+      "email"    : "jacklukic@gmail.com",
+      "homepage" : "http://www.jacklukic.com",
+      "role"     : "Creator"
     }
   ],
-  "keywords": [
+  "support": {
+    "issues": "https://github.com/Semantic-Org/Semantic-UI/issues",
+    "source": "https://github.com/Semantic-Org/Semantic-UI"
+  },
+  "keywords" : [
     "semantic",
     "ui",
     "css",
