@@ -137,7 +137,7 @@ module.exports = function(callback) {
       console.info('Pushing files for ' + distribution);
       git.push('origin', 'master', { args: '', cwd: outputDirectory }, function(error) {
         console.info('Push completed successfully');
-        setTimeout(createRelease, 1000);
+        setTimeout(createRelease, 2000);
       });
     }
 
@@ -151,7 +151,10 @@ module.exports = function(callback) {
 
     // create release on GitHub.com
     function createRelease(version) {
-      console.log('Tagging release as ', version);
+      if(version) {
+        console.log('Tagging release as ', version);
+        releaseOptions.target_commitish = version;
+      }
       github.releases.createRelease(releaseOptions, function() {
         nextRepo();
       });
