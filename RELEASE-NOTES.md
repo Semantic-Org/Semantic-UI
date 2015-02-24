@@ -1,5 +1,9 @@
 ## RELEASE NOTES
 
+### Version 1.10.1 - February 24, 2015
+
+No changes, fixes stale pm component builds
+
 ### Version 1.10.0 - February 23, 2015
 
 **New Features**
