@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.9.3
+ * # Semantic UI - 1.10.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -37,6 +37,11 @@ img.ui.image {
             States
 *******************************/
 
+.ui.hidden.images,
+.ui.hidden.image {
+  display: none;
+}
+.ui.disabled.images,
 .ui.disabled.image {
   cursor: default;
   opacity: 0.3;

@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.9.3
+ * # Semantic UI - 1.10.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -15,48 +15,6 @@
             Standard
 *******************************/
 
-
-/*--------------
-      Cards
----------------*/
-
-.ui.cards {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  margin: -0.75em -0.5em;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-}
-.ui.cards > .card {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  margin: 0.75em 0.5em;
-  float: none;
-}
-.ui.cards:first-child,
-.ui.card:first-child {
-  margin-top: 0em;
-}
-.ui.cards:last-child,
-.ui.card:last-child {
-  margin-bottom: 0em;
-}
-
-/* Clearing */
-.ui.cards:after,
-.ui.card:after {
-  display: block;
-  content: ' ';
-  height: 0px;
-  clear: both;
-  overflow: hidden;
-  visibility: hidden;
-}
 
 /*--------------
       Card
@@ -92,6 +50,51 @@
 .ui.cards > .card a,
 .ui.card a {
   cursor: pointer;
+}
+.ui.card:first-child {
+  margin-top: 0em;
+}
+.ui.card:last-child {
+  margin-bottom: 0em;
+}
+
+/*--------------
+      Cards
+---------------*/
+
+.ui.cards {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: -0.875em -0.5em;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+.ui.cards > .card {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0.875em 0.5em;
+  float: none;
+}
+
+/* Clearing */
+.ui.cards:after,
+.ui.card:after {
+  display: block;
+  content: ' ';
+  height: 0px;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+/* Consecutive Card Groups Preserve Row Spacing */
+.ui.cards ~ .ui.cards {
+  margin-top: 0.875em;
 }
 
 /*--------------
