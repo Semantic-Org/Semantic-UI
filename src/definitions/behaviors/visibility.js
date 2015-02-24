@@ -73,7 +73,9 @@ $.fn.visibility = function(parameters) {
               module.setup.fixed();
             }
           }
-          module.checkVisibility();
+          if(settings.initialCheck) {
+            module.checkVisibility();
+          }
           if(settings.observeChanges) {
             module.observeChanges();
           }
@@ -102,11 +104,8 @@ $.fn.visibility = function(parameters) {
           ;
           if('MutationObserver' in window) {
             observer = new MutationObserver(function(mutations) {
-              clearTimeout(module.timer);
-              module.timer = setTimeout(function() {
-                module.verbose('DOM tree modified, updating visibility calculations');
-                module.refresh();
-              }, 20);
+              module.verbose('DOM tree modified, updating visibility calculations');
+              module.refresh();
             });
             observer.observe(element, {
               childList : true,
@@ -198,6 +197,7 @@ $.fn.visibility = function(parameters) {
               module.verbose('Lazy loading image', src);
               // show when top visible
               module.topVisible(function() {
+                module.debug('Image top visible', element);
                 module.precache(src, function() {
                   module.set.image(src);
                   settings.onTopVisible = false;
@@ -219,8 +219,10 @@ $.fn.visibility = function(parameters) {
                       top: settings.offset + 'px'
                     })
                   ;
-                  if(settings.animation && $.fn.transition !== undefined) {
-                    $module.transition(settings.transition, settings.duration);
+                  if(settings.transition) {
+                    if($.fn.transition !== undefined) {
+                      $module.transition(settings.transition, settings.duration);
+                    }
                   }
                 },
                 onTopPassedReverse: function() {
@@ -250,11 +252,16 @@ $.fn.visibility = function(parameters) {
               $module.show();
             }
             else {
-              if(settings.transition && $.fn.transition !== undefined) {
-                $module.transition(settings.transition, settings.duration);
+              if(settings.transition) {
+                if( $.fn.transition !== undefined ) {
+                  $module.transition(settings.transition, settings.duration);
+                }
+                else {
+                  $module.fadeIn(settings.duration);
+                }
               }
               else {
-                $module.fadeIn(settings.duration);
+                $module.show();
               }
             }
           }
@@ -627,56 +634,54 @@ $.fn.visibility = function(parameters) {
           },
           elementPosition: function() {
             var
-              screen = module.get.screenSize()
+              element = module.cache.element,
+              screen  = module.get.screenSize()
             ;
             module.verbose('Saving element position');
-            $.extend(module.cache.element, {
-              margin : {
-                top    : parseInt($module.css('margin-top'), 10),
-                bottom : parseInt($module.css('margin-bottom'), 10)
-              },
-              fits   : (element.height < screen.height),
-              offset : $module.offset(),
-              width  : $module.outerWidth(),
-              height : $module.outerHeight()
-            });
-            return module.cache.element;
+            // build (quicker than extend)
+            element.margin        = {};
+            element.margin.top    = parseInt($module.css('margin-top'), 10);
+            element.margin.bottom = parseInt($module.css('margin-bottom'), 10);
+            element.fits          = (element.height < screen.height);
+            element.offset        = $module.offset();
+            element.width         = $module.outerWidth();
+            element.height        = $module.outerHeight();
+            // store
+            module.cache.element = element;
+            return element;
           },
           elementCalculations: function() {
             var
+              element = module.cache.element,
               screen  = module.get.screenCalculations(),
               element = module.get.elementPosition()
             ;
             // offset
             if(settings.includeMargin) {
-              $.extend(module.cache.element, {
-                top    : element.offset.top - element.margin.top,
-                bottom : element.offset.top + element.height + element.margin.bottom
-              });
+              module.cache.element.top    = element.offset.top - element.margin.top;
+              module.cache.element.bottom = element.offset.top + element.height + element.margin.bottom;
             }
             else {
-              $.extend(module.cache.element, {
-                top    : element.offset.top,
-                bottom : element.offset.top + element.height
-              });
+              module.cache.element.top    = element.offset.top;
+              module.cache.element.bottom = element.offset.top + element.height;
             }
+
             // visibility
-            $.extend(module.cache.element, {
-              topVisible       : (screen.bottom >= element.top),
-              topPassed        : (screen.top >= element.top),
-              bottomVisible    : (screen.bottom >= element.bottom),
-              bottomPassed     : (screen.top >= element.bottom),
-              pixelsPassed     : 0,
-              percentagePassed : 0
-            });
+            module.cache.element.topVisible       = (screen.bottom >= element.top);
+            module.cache.element.topPassed        = (screen.top >= element.top);
+            module.cache.element.bottomVisible    = (screen.bottom >= element.bottom);
+            module.cache.element.bottomPassed     = (screen.top >= element.bottom);
+            module.cache.element.pixelsPassed     = 0;
+            module.cache.element.percentagePassed = 0;
+
             // meta calculations
-            $.extend(module.cache.element, {
-              visible : (module.cache.element.topVisible || module.cache.element.bottomVisible),
-              passing : (module.cache.element.topPassed && !module.cache.element.bottomPassed),
-              hidden  : (!module.cache.element.topVisible && !module.cache.element.bottomVisible)
-            });
+            module.cache.element.visible = (module.cache.element.topVisible || module.cache.element.bottomVisible);
+            module.cache.element.passing = (module.cache.element.topPassed && !module.cache.element.bottomPassed);
+            module.cache.element.hidden  = (!module.cache.element.topVisible && !module.cache.element.bottomVisible);
+
+            // passing calculations
             if(module.cache.element.passing) {
-              module.cache.element.pixelsPassed = (screen.top - element.top);
+              module.cache.element.pixelsPassed     = (screen.top - element.top);
               module.cache.element.percentagePassed = (screen.top - element.top) / element.height;
             }
             module.verbose('Updated element calculations', module.cache.element);
@@ -736,10 +741,11 @@ $.fn.visibility = function(parameters) {
             return module.cache.element;
           },
           elementCalculations: function() {
-            if(module.cache.element === undefined) {
+            var element = module.cache.element;
+            if(element === undefined) {
               module.save.elementCalculations();
             }
-            return module.cache.element;
+            return element;
           },
           screenCalculations: function() {
             if(module.cache.screen === undefined) {
@@ -964,6 +970,9 @@ $.fn.visibility.settings = {
 
   context                : window,
 
+  // check position immediately on init
+  initialCheck           : true,
+
   // visibility check delay in ms (defaults to animationFrame)
   throttle               : false,
 
@@ -972,7 +981,7 @@ $.fn.visibility.settings = {
 
   // image only animation settings
   transition             : false,
-  duration               : 500,
+  duration               : 1000,
 
   // array of callbacks for percentage
   onPassed               : {},
