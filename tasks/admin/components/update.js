@@ -139,7 +139,7 @@ module.exports = function(callback) {
       console.info('Pushing files for ' + component);
       git.push('origin', 'master', { args: '', cwd: outputDirectory }, function(error) {
         console.info('Push completed successfully');
-        setTimeout(createRelease, 2000);
+        getSHA();
       });
     }
 
@@ -147,14 +147,13 @@ module.exports = function(callback) {
     function getSHA() {
       git.exec(versionOptions, function(error, version) {
         version = version.trim();
-        console.log(version);
+        createRelease(version);
       });
     }
 
     // create release on GitHub.com
     function createRelease(version) {
       if(version) {
-        console.log('Tagging release as ', version);
         releaseOptions.target_commitish = version;
       }
       github.releases.createRelease(releaseOptions, function() {
