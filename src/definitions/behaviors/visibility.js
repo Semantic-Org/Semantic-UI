@@ -52,6 +52,7 @@ $.fn.visibility = function(parameters) {
           || function(callback) { setTimeout(callback, 0); },
 
         element         = this,
+        observer,
         module
       ;
 
@@ -73,6 +74,9 @@ $.fn.visibility = function(parameters) {
             }
           }
           module.checkVisibility();
+          if(settings.observeChanges) {
+            module.observeChanges();
+          }
           module.instantiate();
         },
 
@@ -90,6 +94,26 @@ $.fn.visibility = function(parameters) {
             .off(eventNamespace)
             .removeData(moduleNamespace)
           ;
+        },
+
+        observeChanges: function() {
+          var
+            context = $context[0]
+          ;
+          if('MutationObserver' in window) {
+            observer = new MutationObserver(function(mutations) {
+              clearTimeout(module.timer);
+              module.timer = setTimeout(function() {
+                module.verbose('DOM tree modified, updating visibility calculations');
+                module.refresh();
+              }, 20);
+            });
+            observer.observe(element, {
+              childList : true,
+              subtree   : true
+            });
+            module.debug('Setting up mutation observer', observer);
+          }
         },
 
         bindEvents: function() {
@@ -236,6 +260,15 @@ $.fn.visibility = function(parameters) {
           }
         },
 
+        is: {
+          visible: function() {
+            if(module.cache && module.cache.element) {
+              return (module.cache.element.height > 0 && module.cache.element.width > 0);
+            }
+            return false;
+          }
+        },
+
         refresh: function() {
           module.debug('Refreshing constants (element width/height)');
           module.reset();
@@ -256,22 +289,24 @@ $.fn.visibility = function(parameters) {
           module.verbose('Checking visibility of element', module.cache.element);
           module.save.calculations();
 
-          // percentage
-          module.passed();
+          if( module.is.visible() ) {
+            // percentage
+            module.passed();
 
-          // reverse (must be first)
-          module.passingReverse();
-          module.topVisibleReverse();
-          module.bottomVisibleReverse();
-          module.topPassedReverse();
-          module.bottomPassedReverse();
+            // reverse (must be first)
+            module.passingReverse();
+            module.topVisibleReverse();
+            module.bottomVisibleReverse();
+            module.topPassedReverse();
+            module.bottomPassedReverse();
 
-          // one time
-          module.passing();
-          module.topVisible();
-          module.bottomVisible();
-          module.topPassed();
-          module.bottomPassed();
+            // one time
+            module.passing();
+            module.topVisible();
+            module.bottomVisible();
+            module.topPassed();
+            module.bottomPassed();
+          }
         },
 
         passed: function(amount, newCallback) {
@@ -917,6 +952,8 @@ $.fn.visibility.settings = {
   className: {
     fixed: 'fixed'
   },
+
+  observeChanges         : true,
 
   debug                  : false,
   verbose                : false,

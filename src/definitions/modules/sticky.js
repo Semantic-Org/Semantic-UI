@@ -91,8 +91,9 @@ $.fn.sticky = function(parameters) {
           $scroll
             .on('scroll' + eventNamespace, module.event.scroll)
           ;
-
-          module.observeChanges();
+          if(settings.observeChanges) {
+            module.observeChanges();
+          }
           module.instantiate();
         },
 
@@ -125,25 +126,23 @@ $.fn.sticky = function(parameters) {
           var
             context = $context[0]
           ;
-          if(settings.observeChanges) {
-            if('MutationObserver' in window) {
-              observer = new MutationObserver(function(mutations) {
-                clearTimeout(module.timer);
-                module.timer = setTimeout(function() {
-                  module.verbose('DOM tree modified, updating sticky menu');
-                  module.refresh();
-                }, 200);
-              });
-              observer.observe(element, {
-                childList : true,
-                subtree   : true
-              });
-              observer.observe(context, {
-                childList : true,
-                subtree   : true
-              });
-              module.debug('Setting up mutation observer', observer);
-            }
+          if('MutationObserver' in window) {
+            observer = new MutationObserver(function(mutations) {
+              clearTimeout(module.timer);
+              module.timer = setTimeout(function() {
+                module.verbose('DOM tree modified, updating sticky menu');
+                module.refresh();
+              }, 20);
+            });
+            observer.observe(element, {
+              childList : true,
+              subtree   : true
+            });
+            observer.observe(context, {
+              childList : true,
+              subtree   : true
+            });
+            module.debug('Setting up mutation observer', observer);
           }
         },
 

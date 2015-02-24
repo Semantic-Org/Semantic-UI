@@ -394,7 +394,6 @@ $.fn.transition = function() {
             }
             if(module.cache.style) {
               module.verbose('Restoring original style attribute', module.cache.style);
-              console.log('restoring cache', module.cache.style);
               $module.attr('style', module.cache.style);
             }
             if(module.is.looping()) {
