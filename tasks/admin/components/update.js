@@ -139,14 +139,15 @@ module.exports = function(callback) {
       console.info('Pushing files for ' + component);
       git.push('origin', 'master', { args: '', cwd: outputDirectory }, function(error) {
         console.info('Push completed successfully');
-        getSHA();
+        setTimeout(createRelease, 1000);
       });
     }
 
-    // gets SHA of last commit for creating release
+    // gets SHA of last commit
     function getSHA() {
       git.exec(versionOptions, function(error, version) {
-        createRelease(version.trim());
+        version = version.trim();
+        console.log(version);
       });
     }
 
@@ -156,7 +157,7 @@ module.exports = function(callback) {
       if(version) {
         releaseOptions.target_commitish = version;
       }
-      github.releases.editRelease(releaseOptions, function() {
+      github.releases.createRelease(releaseOptions, function() {
         nextRepo();
       });
     }

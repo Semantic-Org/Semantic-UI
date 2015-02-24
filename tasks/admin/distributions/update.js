@@ -134,26 +134,24 @@ module.exports = function(callback) {
 
     // push changes to remote
     function pushFiles() {
-      console.info('Pushing files for ' + component);
+      console.info('Pushing files for ' + distribution);
       git.push('origin', 'master', { args: '', cwd: outputDirectory }, function(error) {
         console.info('Push completed successfully');
-        getSHA();
+        setTimeout(createRelease, 1000);
       });
     }
 
-    // gets SHA of last commit for creating release
+    // gets SHA of last commit
     function getSHA() {
       git.exec(versionOptions, function(error, version) {
-        createRelease(version);
+        version = version.trim();
+        console.log(version);
       });
     }
 
     // create release on GitHub.com
     function createRelease(version) {
       console.log('Tagging release as ', version);
-      if(version) {
-        releaseOptions.target_commitish = version;
-      }
       github.releases.createRelease(releaseOptions, function() {
         nextRepo();
       });
