@@ -29,6 +29,7 @@ module.exports = function(callback) {
   stepRepo = function() {
     index = index + 1;
     if(index >= total) {
+      callback();
       return;
     }
     var

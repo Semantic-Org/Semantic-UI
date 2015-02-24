@@ -38,7 +38,7 @@ var
   version = project.version
 ;
 
-module.exports = function() {
+module.exports = function(callback) {
 
   var
     index = -1,
@@ -58,6 +58,7 @@ module.exports = function() {
 
     index = index + 1;
     if(index >= total) {
+      callback();
       return;
     }
 
@@ -90,6 +91,7 @@ module.exports = function() {
       fileModeOptions = { args : 'config core.fileMode false', cwd: outputDirectory },
       usernameOptions = { args : 'config user.name "' + oAuth.name + '"', cwd: outputDirectory },
       emailOptions    = { args : 'config user.email "' + oAuth.email + '"', cwd: outputDirectory },
+      versionOptions =  { args : 'rev-parse --verify HEAD', cwd: outputDirectory },
 
       localRepoSetup  = fs.existsSync(path.join(outputDirectory, '.git')),
       canProceed      = true
@@ -130,18 +132,28 @@ module.exports = function() {
       ;
     }
 
-    // push changess to remote
+    // push changes to remote
     function pushFiles() {
-      console.info('Pushing files for ' + distribution);
+      console.info('Pushing files for ' + component);
       git.push('origin', 'master', { args: '', cwd: outputDirectory }, function(error) {
         console.info('Push completed successfully');
-        createRelease();
+        getSHA();
+      });
+    }
+
+    // gets SHA of last commit for creating release
+    function getSHA() {
+      git.exec(versionOptions, function(error, version) {
+        createRelease(version);
       });
     }
 
     // create release on GitHub.com
-    function createRelease() {
+    function createRelease(version) {
       console.log('Tagging release as ', version);
+      if(version) {
+        releaseOptions.target_commitish = version;
+      }
       github.releases.createRelease(releaseOptions, function() {
         nextRepo();
       });
