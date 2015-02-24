@@ -15,8 +15,11 @@ var
   // config
   release = require('../config/admin/release'),
 
-  total   = release.components.length,
+  // register components and distributions
+  repos   = release.distributions.concat(release.components),
+  total   = repos.length,
   index   = -1,
+
   stream,
   stepRepo
 ;
@@ -33,25 +36,12 @@ module.exports = function(callback) {
       return;
     }
     var
-      component            = release.components[index],
-      outputDirectory      = release.outputRoot + component + '/',
-      capitalizedComponent = component.charAt(0).toUpperCase() + component.slice(1),
-      packageName          = release.packageRoot + component,
-      repoName             = release.repoRoot + capitalizedComponent,
-      gitURL               = 'https://github.com/' + release.org + '/' + repoName + '.git',
-      exec                 = process.exec,
-      execSettings         = {cwd: outputDirectory},
-      registerBower        = 'bower register ' + packageName + ' ' + gitURL,
-      updateNPM            = 'npm publish'
-
+      repo            = repos[index].toLowerCase(),
+      outputDirectory = release.outputRoot + repo + '/',
+      exec            = process.exec,
+      execSettings    = {cwd: outputDirectory},
+      updateNPM       = 'npm publish'
     ;
-
-    /* Register with Bower */
-    /* One Time
-    exec(registerBower, execSettings, function(err, stdout, stderr) {
-      stepRepo();
-    });
-    */
 
     /* Register with NPM */
     exec(updateNPM, execSettings, function(err, stdout, stderr) {
