@@ -120,8 +120,11 @@ $.fn.visibility = function(parameters) {
           $window
             .on('resize' + eventNamespace, module.event.refresh)
           ;
+          // rudimentary pub/sub
           $context
-            .on('scroll' + eventNamespace, module.event.scroll)
+            .off('scroll' + eventNamespace, module.event.publish)
+            .on('scroll' + eventNamespace, module.event.publish)
+            .on('scrollchange' + eventNamespace, module.event.subscribe)
           ;
         },
 
@@ -129,15 +132,24 @@ $.fn.visibility = function(parameters) {
           refresh: function() {
             requestAnimationFrame(module.refresh);
           },
-          scroll: function() {
-            module.verbose('Scroll position changed');
+          publish: function() {
+            // one event and one animation frame for all visibility checks
             if(settings.throttle) {
               clearTimeout(module.timer);
-              module.timer = setTimeout(module.checkVisibility, settings.throttle);
+              module.timer = setTimeout(function() {
+                $context.trigger('scrollchange', $context.scrollTop() + settings.offset);
+              }, settings.throttle);
             }
             else {
-              requestAnimationFrame(module.checkVisibility);
+              requestAnimationFrame(function() {
+                scroll = $context.scrollTop() + settings.offset
+                $context.trigger('scrollchange', $context.scrollTop() + settings.offset);
+              });
             }
+          },
+          subscribe: function(event, scroll) {
+            module.verbose('Scroll position changed', scroll);
+            module.checkVisibility(scroll);
           }
         },
 
@@ -193,17 +205,19 @@ $.fn.visibility = function(parameters) {
             var
               src = $module.data('src')
             ;
-            if(src) {
-              module.verbose('Lazy loading image', src);
-              // show when top visible
-              module.topVisible(function() {
-                module.debug('Image top visible', element);
-                module.precache(src, function() {
-                  module.set.image(src);
-                  settings.onTopVisible = false;
-                });
-              });
+            if(!src) {
+              module.error(error.noSRC);
+              return;
             }
+            module.verbose('Lazy loading image', src);
+            settings.observeChanges = false;
+            settings.once = true;
+            settings.onTopVisible = function() {
+              module.debug('Image top visible', element);
+              module.precache(src, function() {
+                module.set.image(src);
+              });
+            };
           },
           fixed: function() {
             module.verbose('Setting up fixed on element pass');
@@ -292,10 +306,13 @@ $.fn.visibility = function(parameters) {
           }
         },
 
-        checkVisibility: function() {
+        checkVisibility: function(scroll) {
           module.verbose('Checking visibility of element', module.cache.element);
-          module.save.calculations();
+          module.save.calculations(scroll);
+          module.checkCallbacks();
+        },
 
+        checkCallbacks: function() {
           if( module.is.visible() ) {
             // percentage
             module.passed();
@@ -596,9 +613,9 @@ $.fn.visibility = function(parameters) {
         },
 
         save: {
-          calculations: function() {
+          calculations: function(scroll) {
             module.verbose('Saving all calculations necessary to determine positioning');
-            module.save.scroll();
+            module.save.scroll(scroll);
             module.save.direction();
             module.save.screenCalculations();
             module.save.elementCalculations();
@@ -611,8 +628,14 @@ $.fn.visibility = function(parameters) {
               }
             }
           },
-          scroll: function() {
-            module.cache.scroll = $context.scrollTop() + settings.offset;
+          scroll: function(scroll) {
+            if(scroll === undefined) {
+              //debugger;
+            }
+            module.cache.scroll = (scroll !== undefined)
+              ? scroll
+              : $context.scrollTop() + settings.offset
+            ;
           },
           direction: function() {
             var
@@ -959,7 +982,7 @@ $.fn.visibility.settings = {
     fixed: 'fixed'
   },
 
-  observeChanges         : true,
+  observeChanges         : false,
 
   debug                  : false,
   verbose                : false,
@@ -1008,6 +1031,7 @@ $.fn.visibility.settings = {
   onScroll               : function(){},
 
   error : {
+    noSRC  : 'Image preloading requires a data-src value',
     method : 'The method you called is not defined.'
   }
 
