@@ -1,15 +1,5 @@
 ## RELEASE NOTES
 
-### Version 1.11.0 - February xx, 2015
-
-**New Components**
-
-- Visibiliity - Attach callbacks to elements visibility conditions like `top visible` `bottom visible`, `passing`. Useful for things like: image lazy loading, infinite scroll content, and recording tracking metrics
-
-**Enhancements**
-
-- Loader - `inline loader` now has a `centered` variation
-
 ### Version 1.10.1-2 - February 24, 2015
 
 No changes, fixes stale pm component builds
