@@ -15,7 +15,7 @@
       Collection
 --------------------*/
 
-@margin: 1rem 0rem;
+@margin: 1em 0rem;
 @verticalPadding: 0.78571em;
 @horizontalPadding: 0.95em;
 
@@ -59,11 +59,11 @@
 
 /* Sub Menu */
 @subMenuMargin: 0.5em;
-@subMenuFontSize: 0.875rem;
+@subMenuFontSize: 0.875em;
 @subMenuTextColor: rgba(0, 0, 0, 0.5);
 
-@subMenuHorizontalPadding: 0.5rem;
-@subMenuVerticalPadding: 1.5rem;
+@subMenuHorizontalPadding: 0.5em;
+@subMenuVerticalPadding: 1.5em;
 
 /*--------------
     Elements
@@ -90,15 +90,16 @@
 ---------------*/
 
 /* Button */
-@buttonOffset: -0.05em;
-@buttonVerticalPadding: 0.55em;
-@buttonSize: 0.875em;
+@buttonSize: @medium;
+@buttonOffset: 0em;
+@buttonMargin: -0.2em 0em;
+@buttonVerticalPadding: 0.7em;
 
 /* Input */
-@inputSize: 1em;
-@inputVerticalMargin: -0.6em;
+@inputSize: @medium;
+@inputVerticalMargin: -0.5em;
 @inputOffset: 0em;
-@inputVerticalPadding: 0.4em;
+@inputVerticalPadding: 0.5em;
 
 @smallInputOffset: 0em;
 @smallInputVerticalPadding: 0.4em;
@@ -319,7 +320,6 @@
 @attachedBoxShadow: 0px 0px 0px 1px #DDDDDD;
 
 /* Sizes */
-@small: 0.875rem;
 @smallSubMenu: 0.875rem;
 @smallWidth: 13rem;
 
@@ -327,6 +327,4 @@
 @mediumWidth: 15rem;
 
 @large: 1.125rem;
-@largeSubMenu: 0.875rem;
-@largeDropdown: 1rem;
 @largeWidth: 18rem;

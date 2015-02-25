@@ -28,9 +28,9 @@
 ---------------*/
 
 .ui.menu {
+  display: flex;
   margin: @margin;
   background: @background;
-  font-size: 0em;
   font-weight: @fontWeight;
   box-shadow: @boxShadow;
   border-radius: @borderRadius;
@@ -54,8 +54,14 @@
 .ui.menu .menu {
   margin: 0em;
 }
-.ui.menu:not(.vertical) .menu {
-  font-size: 0em;
+
+
+.ui.menu:not(.vertical) > .menu {
+  display: flex;
+}
+.ui.menu:not(.vertical) .item {
+  display: flex;
+  align-items: center;
 }
 
 /*--------------
@@ -83,7 +89,6 @@
 
 .ui.menu .item {
   position: relative;
-  display: inline-block;
   padding: @verticalPadding @horizontalPadding;
   border-top: @borderSize solid transparent;
 
@@ -105,11 +110,13 @@
 }
 .ui.menu:not(.vertical) .item.left,
 .ui.menu:not(.vertical) .menu.left {
-  float: left;
+  display: flex;
+  margin-right: auto;
 }
 .ui.menu:not(.vertical) .item.right,
 .ui.menu:not(.vertical) .menu.right {
-  float: right;
+  display: flex;
+  margin-left: auto;
 }
 
 
@@ -126,7 +133,7 @@
   height: 100%;
   background: @dividerBackground;
 }
-.ui.menu > .right.menu:first-child {
+.ui.menu > .right.menu:first-child:before {
   display: none;
 }
 .ui.menu .menu.right .item:before,
@@ -168,6 +175,7 @@
   margin-left: @dropdownIconDistance;
 }
 
+
 /*--------------
      Button
 ---------------*/
@@ -175,7 +183,7 @@
 .ui.menu:not(.vertical) .item > .button {
   position: relative;
   top: @buttonOffset;
-  margin: -@buttonVerticalPadding 0;
+  margin: @buttonMargin;
   padding-bottom: @buttonVerticalPadding;
   padding-top: @buttonVerticalPadding;
   font-size: @buttonSize;
@@ -205,27 +213,6 @@
   padding-bottom: @inputVerticalPadding;
 }
 
-/* Resizes */
-.ui.small.menu .item > .input input {
-  top: @smallInputOffset;
-  padding-top: @smallInputVerticalPadding;
-  padding-bottom: @smallInputVerticalPadding;
-}
-.ui.small.menu .item > .input .button,
-.ui.small.menu .item > .input .label {
-  padding-top: @smallInputVerticalPadding;
-  padding-bottom: @smallInputVerticalPadding;
-}
-.ui.large.menu .item > .input input {
-  top: @largeInputOffset;
-  padding-bottom: @largeInputVerticalPadding;
-  padding-top: @largeInputVerticalPadding;
-}
-.ui.large.menu .item > .input .button,
-.ui.large.menu .item > .input .label {
-  padding-top: @largeInputVerticalPadding;
-  padding-bottom: @largeInputVerticalPadding;
-}
 
 
 /*--------------
@@ -412,14 +399,15 @@
 ---------------*/
 
 .ui.vertical.menu {
+  display: block;
   background: @verticalBackground;
 }
 
+
 /*--- Item ---*/
 .ui.vertical.menu .item {
-  background: @verticalItemBackground;
   display: block;
-  height: auto !important;
+  background: @verticalItemBackground;
   border-top: none;
   border-left: @borderSize solid transparent;
   border-right: none;
@@ -482,9 +470,6 @@
   box-shadow: @dropdownVerticalBoxShadow;
   border-radius: 0em @borderRadius @borderRadius @borderRadius;
 }
-.ui.vertical.menu .dropdown.item .menu .item {
-  font-size: 1rem;
-}
 .ui.vertical.menu .dropdown.item .menu .item i.icon {
   margin-right: 0em;
 }
@@ -510,6 +495,12 @@
      Tiered
 ---------------*/
 
+.ui.tiered.menu {
+  flex-wrap: wrap;
+}
+.ui.tiered.menu > .menu {
+  width: 100%;
+}
 .ui.tiered.menu > .menu > .item:hover {
   color: @tieredSubMenuActiveColor;
 }
@@ -665,7 +656,7 @@
 
 .ui.pagination.menu {
   margin: 0em;
-  display: inline-block;
+  display: inline-flex;
   vertical-align: middle;
 }
 
@@ -922,13 +913,16 @@
 ---------------*/
 
 .ui.text.menu {
-  display: inline-block;
+  display: inline-flex;
   background: none transparent;
 
-  margin: 1rem -1rem;
+  margin: 1em -1em;
   border-radius: 0px;
 
   box-shadow: none;
+}
+.ui.vertical.text.menu {
+  display: inline-block;
 }
 .ui.text.menu > .item {
   opacity: 0.8;
@@ -968,7 +962,7 @@
 
 /*--- vertical text ---*/
 .ui.vertical.text.menu {
-  margin: 1rem 0em;
+  margin: 1em 0em;
 }
 .ui.vertical.text.menu:first-child {
   margin-top: 0rem;
@@ -1005,6 +999,11 @@
   box-shadow: none;
 }
 
+/*--- active hover ---*/
+.ui.text.menu .active.item:hover {
+  background-color: transparent;
+}
+
 /* disable variations */
 .ui.text.pointing.menu .active.item:after {
   box-shadow: none;
@@ -1033,9 +1032,12 @@
 
 .ui.icon.menu,
 .ui.vertical.icon.menu {
+  display: inline-flex;
   width: auto;
-  display: inline-block;
   height: auto;
+}
+.ui.vertical.icon.menu {
+  display: inline-block;
 }
 .ui.icon.menu > .item {
   height: auto;
@@ -1394,7 +1396,6 @@
 
 .ui.menu.fluid,
 .ui.vertical.menu.fluid {
-  display: block;
   width: 100% !important;
 }
 
@@ -1603,12 +1604,6 @@
 /* Large */
 .ui.large.menu .item {
   font-size: @large;
-}
-.ui.large.menu .item .item {
-  font-size: @largeSubMenu;
-}
-.ui.large.menu .dropdown .item {
-  font-size: @largeDropdown;
 }
 .ui.large.vertical.menu {
   width: @largeWidth;

@@ -10,6 +10,7 @@
 - **Loader** - `inline loader` now has a `centered` variation
 
 **Bugs**
+- **Input** - Fix bug with vertical centering of `ui action input` inside `menu` due to `flexbox` changes
 - **Menu** - Fix vertical pointing menu, sub menu arrow color
 - **Item ** - `img` inside of `ui item content` now do not receive formatting by default
 
