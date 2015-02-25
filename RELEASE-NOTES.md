@@ -10,6 +10,12 @@
 
 - Loader - `inline loader` now has a `centered` variation
 
+**Bugs**
+- Item - `img` inside of `ui item content` now do not receive formatting by default
+
+**Docs**
+- Item - Significant rewrite of `ui item` documentation
+
 ### Version 1.10.1-2 - February 24, 2015
 
 No changes, fixes stale pm component builds

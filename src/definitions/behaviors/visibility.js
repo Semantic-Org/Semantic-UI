@@ -950,19 +950,26 @@ $.fn.visibility.settings = {
   name                   : 'Visibility',
   namespace              : 'visibility',
 
-  className: {
-    fixed: 'fixed'
-  },
-
-  observeChanges         : true,
-
   debug                  : false,
   verbose                : false,
   performance            : true,
 
+  // whether to use mutation observers to follow changes
+  observeChanges         : true,
+
+  // callback should only occur one time
+  once                   : true,
+
+  // callback should fire continuously whe evaluates to true
+  continuous             : false,
+
+  // offset to use with scroll top
   offset                 : 0,
+
+  // whether to include margin in elements position
   includeMargin          : false,
 
+  // scroll context for visibility checks
   context                : window,
 
   // check position immediately on init
@@ -995,12 +1002,13 @@ $.fn.visibility.settings = {
   onTopPassedReverse     : false,
   onBottomPassedReverse  : false,
 
-  once                   : true,
-  continuous             : false,
-
   // utility callbacks
   onRefresh              : function(){},
   onScroll               : function(){},
+
+  className: {
+    fixed: 'fixed'
+  },
 
   error : {
     method : 'The method you called is not defined.'
