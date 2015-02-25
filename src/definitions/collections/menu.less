@@ -1039,14 +1039,14 @@
 }
 .ui.icon.menu > .item {
   height: auto;
-  text-align: center;
-  color: rgba(60, 60, 60, 0.7);
+  text-align: @iconMenuTextAlign;
+  color: @iconMenuItemColor;
 }
 .ui.icon.menu > .item > .icon {
   display: block;
   float: none !important;
-  opacity: 1;
   margin: 0em auto !important;
+  opacity: 1;
 }
 .ui.icon.menu .icon:before {
   opacity: 1;
@@ -1505,12 +1505,10 @@
 .ui.pointing.menu .active.item:after {
   position: absolute;
   content: '';
-
   top: 100%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%) rotate(45deg);
   margin: 0em;
-
   background: none;
 
   width: @arrowSize;
@@ -1558,6 +1556,9 @@
 }
 .ui.vertical.pointing.menu .active.item:after {
   background-color: @arrowVerticalActiveColor;
+}
+.ui.vertical.pointing.menu .menu .active.item:after {
+  background-color: @arrowVerticalSubMenuColor;
 }
 
 

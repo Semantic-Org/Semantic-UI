@@ -142,6 +142,7 @@
 
 @arrowVerticalHoverColor: @arrowHoverColor;
 @arrowVerticalActiveColor: @arrowActiveColor;
+@arrowVerticalSubMenuColor: @white;
 
 /*--------------
      States
@@ -232,6 +233,10 @@
 @tieredSubMenuActiveColor: @selectedTextColor;
 
 @tieredInvertedSubMenuBackground: rgba(0, 0, 0, 0.2);
+
+/* Icon */
+@iconMenuTextAlign: center;
+@iconMenuItemColor: rgba(0, 0, 0, 0.6);
 
 /* Tabular */
 @tabularBorderColor: @solidBorderColor;

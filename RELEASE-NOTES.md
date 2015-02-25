@@ -4,17 +4,17 @@
 
 **New Components**
 
-- Visibiliity - Attach callbacks to elements visibility conditions like `top visible` `bottom visible`, `passing`. Useful for things like: image lazy loading, infinite scroll content, and recording tracking metrics
+- **Visibiliity** - Attach callbacks to elements visibility conditions like `top visible` `bottom visible`, `passing`. Useful for things like: image lazy loading, infinite scroll content, and recording tracking metrics
 
 **Enhancements**
-
-- Loader - `inline loader` now has a `centered` variation
+- **Loader** - `inline loader` now has a `centered` variation
 
 **Bugs**
-- Item - `img` inside of `ui item content` now do not receive formatting by default
+- **Menu** - Fix vertical pointing menu, sub menu arrow color
+- **Item ** - `img` inside of `ui item content` now do not receive formatting by default
 
 **Docs**
-- Item - Significant rewrite of `ui item` documentation
+- **Item** - Significant rewrite of `ui item` documentation
 
 ### Version 1.10.1-2 - February 24, 2015
 
