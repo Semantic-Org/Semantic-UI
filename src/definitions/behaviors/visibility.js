@@ -567,7 +567,7 @@ $.fn.visibility = function(parameters) {
             calculations = module.get.elementCalculations(),
             screen       = module.get.screenCalculations()
           ;
-          callback     = callback || false;
+          callback = callback || false;
           if(callback) {
             if(settings.continuous) {
               module.debug('Callback being called continuously', callbackName, calculations);
@@ -638,7 +638,7 @@ $.fn.visibility = function(parameters) {
               screen  = module.get.screenSize()
             ;
             module.verbose('Saving element position');
-            // build (quicker than extend)
+            // (quicker than $.extend)
             element.margin        = {};
             element.margin.top    = parseInt($module.css('margin-top'), 10);
             element.margin.bottom = parseInt($module.css('margin-bottom'), 10);
@@ -652,39 +652,40 @@ $.fn.visibility = function(parameters) {
           },
           elementCalculations: function() {
             var
-              element = module.cache.element,
-              screen  = module.get.screenCalculations(),
-              element = module.get.elementPosition()
+              screen     = module.get.screenCalculations(),
+              element    = module.get.elementPosition()
             ;
             // offset
             if(settings.includeMargin) {
-              module.cache.element.top    = element.offset.top - element.margin.top;
-              module.cache.element.bottom = element.offset.top + element.height + element.margin.bottom;
+              element.top    = element.offset.top - element.margin.top;
+              element.bottom = element.offset.top + element.height + element.margin.bottom;
             }
             else {
-              module.cache.element.top    = element.offset.top;
-              module.cache.element.bottom = element.offset.top + element.height;
+              element.top    = element.offset.top;
+              element.bottom = element.offset.top + element.height;
             }
 
             // visibility
-            module.cache.element.topVisible       = (screen.bottom >= element.top);
-            module.cache.element.topPassed        = (screen.top >= element.top);
-            module.cache.element.bottomVisible    = (screen.bottom >= element.bottom);
-            module.cache.element.bottomPassed     = (screen.top >= element.bottom);
-            module.cache.element.pixelsPassed     = 0;
-            module.cache.element.percentagePassed = 0;
+            element.topVisible       = (screen.bottom >= element.top);
+            element.topPassed        = (screen.top >= element.top);
+            element.bottomVisible    = (screen.bottom >= element.bottom);
+            element.bottomPassed     = (screen.top >= element.bottom);
+            element.pixelsPassed     = 0;
+            element.percentagePassed = 0;
 
             // meta calculations
-            module.cache.element.visible = (module.cache.element.topVisible || module.cache.element.bottomVisible);
-            module.cache.element.passing = (module.cache.element.topPassed && !module.cache.element.bottomPassed);
-            module.cache.element.hidden  = (!module.cache.element.topVisible && !module.cache.element.bottomVisible);
+            element.visible = (element.topVisible || element.bottomVisible);
+            element.passing = (element.topPassed && !element.bottomPassed);
+            element.hidden  = (!element.topVisible && !element.bottomVisible);
 
             // passing calculations
-            if(module.cache.element.passing) {
-              module.cache.element.pixelsPassed     = (screen.top - element.top);
-              module.cache.element.percentagePassed = (screen.top - element.top) / element.height;
+            if(element.passing) {
+              element.pixelsPassed     = (screen.top - element.top);
+              element.percentagePassed = (screen.top - element.top) / element.height;
             }
-            module.verbose('Updated element calculations', module.cache.element);
+            module.cache.element = element;
+            module.verbose('Updated element calculations', element);
+            return element;
           },
           screenCalculations: function() {
             var
@@ -741,11 +742,10 @@ $.fn.visibility = function(parameters) {
             return module.cache.element;
           },
           elementCalculations: function() {
-            var element = module.cache.element;
-            if(element === undefined) {
+            if(module.cache.element === undefined) {
               module.save.elementCalculations();
             }
-            return element;
+            return module.cache.element;
           },
           screenCalculations: function() {
             if(module.cache.screen === undefined) {
