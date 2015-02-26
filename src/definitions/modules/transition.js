@@ -219,7 +219,6 @@ $.fn.transition = function() {
               module.verbose('Animation is outward, showing element');
               module.restore.conditions();
               module.show();
-              module.set.display();
               settings.onShow.call(this);
             }
             else {
@@ -436,7 +435,7 @@ $.fn.transition = function() {
           },
           queueCallback: function() {
             $module.off('.queue' + eventNamespace)
-          }
+          },
           completeCallback: function() {
             $module.off('.complete' + eventNamespace);
           },
@@ -667,6 +666,8 @@ $.fn.transition = function() {
                 .css('display')
               ;
               module.verbose('Determining final display state', displayType);
+              module.save.displayType(displayType);
+
               $clone.remove();
               if(currentAnimation != inAnimation) {
                 module.debug('Direction exists for animation', animation);
@@ -680,7 +681,6 @@ $.fn.transition = function() {
                 module.debug('Static animation found', animation, displayType);
                 directionExists = false;
               }
-              module.save.displayType(displayType);
               module.save.transitionExists(animation, directionExists);
             }
             return (transitionExists !== undefined)
@@ -738,18 +738,28 @@ $.fn.transition = function() {
           module.verbose('Showing element', display);
           module.remove.hidden();
           module.set.visible();
+          module.set.display();
           module.repaint();
+        },
+
+        toggle: function() {
+          if( module.is.visible() ) {
+            module.hide();
+          }
+          else {
+            module.show();
+          }
         },
 
         stop: function() {
           module.debug('Stopping current animation');
-          module.complete();
+          $module.trigger(animationEnd);
         },
 
         stopAll: function() {
           module.debug('Stopping all animation');
-          module.remove.animationCallbacks();
-          module.complete();
+          module.remove.queueCallback();
+          $module.trigger(animationEnd);
         },
 
         clear: {
@@ -767,11 +777,6 @@ $.fn.transition = function() {
         disable: function() {
           module.debug('Stopping animation');
           $module.addClass(className.disabled);
-        },
-
-        toggle: function() {
-          module.debug('Toggling play status');
-          $module.toggleClass(className.disabled);
         },
 
         setting: function(name, value) {
