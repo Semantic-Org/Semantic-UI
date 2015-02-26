@@ -395,10 +395,12 @@ select.ui.dropdown {
   display: none;
 }
 
+
+/* Scrollbar in IE */
 @media all and (-ms-high-contrast:none) {
   .ui.selection.dropdown .menu {
-    min-width: calc(100% - 15px);
-    }
+    min-width: calc(100% - @scrollbarWidth);
+  }
 }
 
 @media only screen and (max-width : @largestMobileScreen) {
