@@ -392,7 +392,6 @@ $.fn.transition = function() {
               $module.removeAttr('class');
             }
             if(module.cache.style) {
-              console.log(module.cache.style);
               module.verbose('Restoring original style attribute', module.cache.style);
               $module.attr('style', module.cache.style);
             }

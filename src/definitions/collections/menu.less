@@ -51,96 +51,70 @@
   margin-bottom: 0rem;
 }
 
+
+/*--------------
+    Sub-Menu
+---------------*/
+
 .ui.menu .menu {
   margin: 0em;
 }
-
 
 .ui.menu:not(.vertical) > *,
 .ui.menu:not(.vertical) > .menu {
   display: flex;
 }
+
+/*--------------
+      Item
+---------------*/
+
 .ui.menu:not(.vertical) .item {
   display: flex;
   align-items: center;
 }
 
-/*--------------
-     Colors
----------------*/
-
-/* Text Color */
-.ui.menu .item {
-  color: @menuTextColor;
-}
-.ui.menu .item .item {
-  color: @subMenuTextColor;
-}
-
-/* Hover */
-.ui.menu .item .menu a.item:hover,
-.ui.menu .item .menu .link.item:hover {
-  color: @darkTextColor;
-}
-
-
-/*--------------
-      Items
----------------*/
-
 .ui.menu .item {
   position: relative;
-  padding: @verticalPadding @horizontalPadding;
-  border-top: @borderSize solid transparent;
-
-  background: @itemBackground;
   vertical-align: middle;
   line-height: 1;
   text-decoration: none;
   box-sizing: border-box;
-
   -webkit-tap-highlight-color: transparent;
   user-select: none;
-  transition: @transition;
+
+  background: @itemBackground;
+  padding: @itemVerticalPadding @itemHorizontalPadding;
+  color: @textColor;
+  transition: @itemTransition;
 }
 
-
-/* Floated Content */
 .ui.menu > .item:first-child {
   border-radius: @borderRadius 0px 0px @borderRadius;
 }
-.ui.menu:not(.vertical) .item.left,
-.ui.menu:not(.vertical) .menu.left {
-  display: flex;
-  margin-right: auto;
-}
-.ui.menu:not(.vertical) .item.right,
-.ui.menu:not(.vertical) .menu.right {
-  display: flex;
-  margin-left: auto;
-}
 
-
-/*--------------
-    Borders
----------------*/
-
+/* Border */
 .ui.menu .item:before {
   position: absolute;
   content: '';
   top: 0%;
   right: 0px;
-  width: @dividerSize;
   height: 100%;
+
+  width: @dividerSize;
   background: @dividerBackground;
 }
-.ui.menu > .right.menu:first-child:before {
-  display: none;
+
+/*--------------
+    Sub-Item
+---------------*/
+
+.ui.menu .item .menu .item {
+  color: @subMenuTextColor;
 }
-.ui.menu .menu.right .item:before,
-.ui.menu .item.right:before {
-  right: auto;
-  left: 0px;
+.ui.menu .item .menu a.item:hover,
+.ui.menu .item .menu .link.item:hover {
+  color: @darkTextColor;
 }
 
 /*--------------
@@ -175,7 +149,6 @@
   float: @dropdownIconFloat;
   margin-left: @dropdownIconDistance;
 }
-
 
 /*--------------
      Button
@@ -222,8 +195,8 @@
 
 .ui.menu .header.item,
 .ui.vertical.menu .header.item {
-  background: @headerBackground;
   margin: 0em;
+  background: @headerBackground;
   text-transform: @headerTextTransform;
   font-weight: @headerWeight;
 }
@@ -235,9 +208,9 @@
 
 /* Dropdown */
 .ui.menu .ui.dropdown.item.visible {
-  background: @subtleTransparentBlack;
   border-bottom-right-radius: 0em;
   border-bottom-left-radius: 0em;
+  background: @subtleTransparentBlack;
 }
 .ui.menu .ui.dropdown.active {
   box-shadow: none;
@@ -245,35 +218,21 @@
 
 /* Menu Position */
 .ui.menu .dropdown.item .menu {
-  background: @dropdownBackground;
   left: 0px;
+  background: @dropdownBackground;
   margin: @dropdownMenuOffset 0px 0px;
   min-width: ~"calc(100% - 1px)";
   box-shadow: @dropdownBoxShadow;
 }
 .ui.menu:not(.secondary) .pointing.dropdown.item .menu {
-  margin-top: @dropdownPointingDistance;
   border-top-left-radius: 0em;
   border-top-right-radius: 0em;
+  margin-top: @dropdownPointingDistance;
 }
 .ui.menu .simple.dropdown.item .menu {
   margin: 0px !important;
 }
 
-
-/* Secondary Menu Dropdown */
-.ui.secondary.menu > .menu > .active.dropdown.item {
-  background-color: transparent;
-}
-.ui.secondary.menu .dropdown.item .menu {
-  left: 0px;
-  min-width: 100%;
-}
-
-/* Even Width Menu Dropdown */
-.ui.item.menu .dropdown .menu .item {
-  width: 100%;
-}
 
 /*--------------
      Labels
@@ -340,17 +299,17 @@
   background: @activeBackground;
   color: @selectedTextColor;
   font-weight: @activeFontWeight;
-  box-shadow: 0em @activeBorderSize 0em inset;
+  box-shadow: @activeBoxShadow;
 }
 .ui.menu .active.item > i.icon {
   opacity: @activeIconOpacity;
 }
 
-/* Vertical */
+/* Vertical Active */
 .ui.vertical.menu .active.item {
   background: @activeBackground;
   border-radius: 0em;
-  box-shadow: @activeBorderSize 0em 0em inset;
+  box-shadow: @activeVerticalBoxShadow;
 }
 .ui.vertical.menu > .active.item:first-child {
   border-radius: 0em @borderRadius 0em 0em;
@@ -396,6 +355,34 @@
 *******************************/
 
 /*--------------
+ Floated Content
+---------------*/
+
+/* Left Floated */
+.ui.menu:not(.vertical) .item.left,
+.ui.menu:not(.vertical) .menu.left {
+  display: flex;
+  margin-right: auto;
+}
+/* Right Floated */
+.ui.menu:not(.vertical) .item.right,
+.ui.menu:not(.vertical) .menu.right {
+  display: flex;
+  margin-left: auto;
+}
+
+/* Floated Borders */
+.ui.menu > .right.menu:first-child:before {
+  display: none;
+}
+.ui.menu .menu.right .item:before,
+.ui.menu .item.right:before {
+  right: auto;
+  left: 0px;
+}
+
+
+/*--------------
     Vertical
 ---------------*/
 
@@ -410,7 +397,6 @@
   display: block;
   background: @verticalItemBackground;
   border-top: none;
-  border-left: @borderSize solid transparent;
   border-right: none;
 }
 .ui.vertical.menu > .item:first-child {
@@ -480,7 +466,7 @@
 
 /*--- Sub Menu ---*/
 .ui.vertical.menu .item:not(.dropdown) > .menu {
-  margin: @subMenuMargin -@horizontalPadding 0em;
+  margin: @subMenuMargin -@itemHorizontalPadding 0em;
 }
 .ui.vertical.menu .item:not(.dropdown) > .menu > .item {
   background: none;
@@ -547,7 +533,7 @@
 
 /* Sub Menu Active */
 .ui.tiered.menu .sub.menu .active.item {
-  padding-top: @verticalPadding;
+  padding-top: @itemVerticalPadding;
   background: @tieredSubMenuActiveBackground;
   border-radius: 0;
   border-top: medium none;
@@ -675,7 +661,7 @@
 /* Active */
 .ui.pagination.menu .active.item {
   border-top: none;
-  padding-top: @verticalPadding;
+  padding-top: @itemVerticalPadding;
   background-color: @paginationActiveBackground;
   box-shadow: none;
 }
@@ -751,6 +737,15 @@
 }
 .ui.secondary.inverted.menu .active.item {
   background-color: @secondaryInvertedActiveBackground;
+}
+
+/* Dropdown */
+.ui.secondary.menu > .menu > .active.dropdown.item {
+  background-color: transparent;
+}
+.ui.secondary.menu .dropdown.item .menu {
+  left: 0px;
+  min-width: 100%;
 }
 
 
@@ -978,7 +973,7 @@
 }
 .ui.vertical.text.menu .item > i.icon {
   float: none;
-  margin: 0em @verticalPadding 0em 0em;
+  margin: 0em @itemVerticalPadding 0em 0em;
 }
 .ui.vertical.text.menu .header.item {
   margin: 0.8em 0em;
@@ -1058,6 +1053,7 @@
 /* Item Icon Only */
 .ui.menu .icon.item .icon {
   margin: 0em;
+  width: auto;
 }
 
 .ui.vertical.icon.menu {
@@ -1178,7 +1174,13 @@
   color: @invertedSubMenuColor;
 }
 .ui.inverted.menu .dropdown .menu .item {
-  color: @dropdownTextColor !important;
+  background: @dropdownItemBackground !important;
+  color: @dropdownItemColor !important;
+  transition: @dropdownItemTransition;
+}
+.ui.inverted.menu .dropdown .menu .item:hover {
+  background: @dropdownHoveredItemBackground !important;
+  color: @dropdownHoveredItemColor !important;
 }
 .ui.inverted.menu .item.disabled,
 .ui.inverted.menu .item.disabled:hover {
@@ -1359,14 +1361,14 @@
 .ui.horizontally.fitted.menu .item,
 .ui.horizontally.fitted.menu .item .menu .item,
 .ui.menu .horizontally.fitted.item {
-  padding-top: @verticalPadding;
-  padding-bottom: @verticalPadding;
+  padding-top: @itemVerticalPadding;
+  padding-bottom: @itemVerticalPadding;
 }
 .ui.vertically.fitted.menu .item,
 .ui.vertically.fitted.menu .item .menu .item,
 .ui.menu .vertically.fitted.item {
-  padding-left: @horizontalPadding;
-  padding-right: @horizontalPadding;
+  padding-left: @itemHorizontalPadding;
+  padding-right: @itemHorizontalPadding;
 }
 
 /*--------------
@@ -1453,6 +1455,10 @@
   width: 8.333%;
 }
 
+/* Dropdown */
+.ui.item.menu .dropdown .menu .item {
+  width: 100%;
+}
 
 /*--------------
      Fixed
