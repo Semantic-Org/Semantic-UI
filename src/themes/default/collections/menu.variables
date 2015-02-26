@@ -92,8 +92,8 @@
 /* Button */
 @buttonSize: @medium;
 @buttonOffset: 0em;
-@buttonMargin: -0.2em 0em;
-@buttonVerticalPadding: 0.7em;
+@buttonMargin: -0.4em 0em;
+@buttonVerticalPadding: 0.6em;
 
 /* Input */
 @inputSize: @medium;

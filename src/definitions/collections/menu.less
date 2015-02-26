@@ -56,6 +56,7 @@
 }
 
 
+.ui.menu:not(.vertical) > *,
 .ui.menu:not(.vertical) > .menu {
   display: flex;
 }
@@ -1086,8 +1087,12 @@
   min-width: @labeledIconMinWidth;
 }
 .ui.labeled.icon.menu > .item > .icon {
+  height: 1em;
   display: block;
   font-size: @labeledIconSize !important;
+  margin: 0em @labeledIconTextMargin 0em 0em !important;
+}
+.ui.vertical.labeled.icon.menu > .item > .icon {
   margin: 0em auto @labeledIconTextMargin !important;
 }
 
@@ -1410,6 +1415,9 @@
   padding-left: 0px !important;
   padding-right: 0px !important;
   text-align: center;
+}
+.ui.item.menu .item {
+  display: block;
 }
 .ui.menu.two.item .item {
   width: 50%;
