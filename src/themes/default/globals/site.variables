@@ -374,6 +374,9 @@
     Derived Values
 --------------------*/
 
+/* Rendered Scrollbar Width */
+@scrollBarWidth: 15px;
+
 /* Header Spacing */
 @headerLineHeightOffset : (@lineHeight - 1em) / 2;
 @headerTopMargin        : ~"calc(2rem - "@lineHeightOffset~")";

@@ -14,6 +14,9 @@
      Browse
 ---------------*/
 
+.transition.browse {
+  animation-duration: 500ms;
+}
 .transition.browse.in {
   animation-name: browseIn;
 }
@@ -92,7 +95,7 @@
 
 .drop.transition {
   transform-origin: top center;
-  animation-duration: 0.5s;
+  animation-duration: 500ms;
   animation-timing-function: cubic-bezier(0.34, 1.61, 0.7, 1);
 }
 .drop.transition.in {
@@ -266,6 +269,7 @@
 
 .flip.transition.in,
 .flip.transition.out {
+  animation-duration: 600ms;
   perspective: 2000px;
 }
 .horizontal.flip.transition.in {
@@ -653,39 +657,42 @@
      Swing
 ---------------*/
 
-.transition.swing.in,
+.transition.swing {
+  animation-duration: 800ms;
+}
+
 .transition[class*="swing down"].in {
-  animation-name: swingInY;
+  animation-name: swingInX;
   transform-origin: top center;
 }
 .transition[class*="swing up"].in {
-  animation-name: swingInY;
+  animation-name: swingInX;
   transform-origin: bottom center;
 }
 .transition[class*="swing left"].in {
-  animation-name: swingInX;
+  animation-name: swingInY;
   transform-origin: center right;
 }
 .transition[class*="swing right"].in {
-  animation-name: swingInX;
+  animation-name: swingInY;
   transform-origin: center left;
 }
 
 .transition.swing.out,
 .transition[class*="swing down"].out {
-  animation-name: swingOutY;
+  animation-name: swingOutX;
   transform-origin: top center;
 }
 .transition[class*="swing up"].out {
-  animation-name: swingOutY;
+  animation-name: swingOutX;
   transform-origin: bottom center;
 }
 .transition[class*="swing left"].out {
-  animation-name: swingOutX;
+  animation-name: swingOutY;
   transform-origin: center right;
 }
 .transition[class*="swing right"].out {
-  animation-name: swingOutX;
+  animation-name: swingOutY;
   transform-origin: center left;
 }
 
@@ -696,14 +703,14 @@
     opacity: 0;
   }
   40% {
-    transform: perspective(1000px) rotateX(-20deg);
+    transform: perspective(1000px) rotateX(-30deg);
+    opacity: 1;
   }
   60% {
-    transform: perspective(1000px) rotateX(10deg);
+    transform: perspective(1000px) rotateX(15deg);
   }
   80% {
-    transform: perspective(1000px) rotateX(-5deg);
-    opacity: 1;
+    transform: perspective(1000px) rotateX(-7.5deg);
   }
   100% {
     transform: perspective(1000px) rotateX(0deg);
@@ -715,14 +722,14 @@
     opacity: 0;
   }
   40% {
-    transform: perspective(1000px) rotateY(20deg);
+    transform: perspective(1000px) rotateY(30deg);
+    opacity: 1;
   }
   60% {
-    transform: perspective(1000px) rotateY(-10deg);
+    transform: perspective(1000px) rotateY(-17.5deg);
   }
   80% {
-    transform: perspective(1000px) rotateY(5deg);
-    opacity: 1;
+    transform: perspective(1000px) rotateY(7.5deg);
   }
   100% {
     transform: perspective(1000px) rotateY(0deg);
@@ -730,58 +737,45 @@
 }
 
 /* Out */
-@keyframes swingOutUp {
+@keyframes swingOutX {
   0% {
     transform: perspective(1000px) rotateX(0deg);
   }
-  30% {
-    transform: perspective(1000px) rotateX(-20deg);
-    opacity:1;
+  40% {
+    transform: perspective(1000px) rotateX(-7.5deg);
+  }
+  60% {
+    transform: perspective(1000px) rotateX(17.5deg);
+  }
+  80% {
+    transform: perspective(1000px) rotateX(-30deg);
+    opacity: 1;
   }
   100% {
     transform: perspective(1000px) rotateX(90deg);
     opacity: 0;
   }
 }
-@keyframes swingOutDown {
-  0% {
-    transform: perspective(1000px) rotateX(0deg);
-  }
-  30% {
-    transform: perspective(1000px) rotateX(20deg);
-    opacity:1;
-  }
-  100% {
-    transform: perspective(1000px) rotateX(-90deg);
-    opacity: 0;
-  }
-}
-@keyframes swingOutLeft {
+@keyframes swingOutY {
   0% {
     transform: perspective(1000px) rotateY(0deg);
   }
-  30% {
-    transform: perspective(1000px) rotateY(20deg);
-    opacity:1;
+  40% {
+    transform: perspective(1000px) rotateY(7.5deg);
+  }
+  60% {
+    transform: perspective(1000px) rotateY(-10deg);
+  }
+  80% {
+    transform: perspective(1000px) rotateY(30deg);
+    opacity: 1;
   }
   100% {
     transform: perspective(1000px) rotateY(-90deg);
     opacity: 0;
   }
 }
-@keyframes swingOutRight {
-  0% {
-    transform: perspective(1000px) rotateY(0deg);
-  }
-  30% {
-    transform: perspective(1000px) rotateY(-20deg);
-    opacity:1;
-  }
-  100% {
-    transform: perspective(1000px) rotateY(90deg);
-    opacity: 0;
-  }
-}
+
 
 /*******************************
        Static Animations
@@ -792,21 +786,27 @@
 ---------------*/
 
 .flash.transition {
+  animation-duration: 750ms;
   animation-name: flash;
 }
 .shake.transition {
+  animation-duration: 750ms;
   animation-name: shake;
 }
 .bounce.transition {
+  animation-duration: 750ms;
   animation-name: bounce;
 }
 .tada.transition {
+  animation-duration: 750ms;
   animation-name: tada;
 }
 .pulse.transition {
+  animation-duration: 500ms;
   animation-name: pulse;
 }
 .jiggle.transition {
+  animation-duration: 750ms;
   animation-name: jiggle;
 }
 

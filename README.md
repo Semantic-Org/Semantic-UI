@@ -18,6 +18,8 @@ Key Features
 npm install semantic-ui  # Use themes, import build/watch tasks into your own gulpfile.
 ```
 
+![Getting Started](https://dl.dropboxusercontent.com/u/2657007/install.gif)
+
 For details on how work with Semantic theming please [read our customization guide](http://learnsemantic.com/developing/customizing.html) on [LearnSemantic.com](http://learnsemantic.com/)
 
 #### Additional Versions

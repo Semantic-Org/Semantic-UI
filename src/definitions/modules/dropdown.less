@@ -395,6 +395,14 @@ select.ui.dropdown {
   display: none;
 }
 
+
+/* Scrollbar in IE */
+@media all and (-ms-high-contrast:none) {
+  .ui.selection.dropdown .menu {
+    min-width: calc(100% - @scrollBarWidth);
+  }
+}
+
 @media only screen and (max-width : @largestMobileScreen) {
   .ui.selection.dropdown .menu {
     max-height: @selectionMobileMaxMenuHeight;
