@@ -187,7 +187,7 @@ $.fn.transition = function() {
 
         reset: function() {
           module.debug('Resetting animation to beginning conditions');
-          module.remove.animationEndCallback();
+          module.remove.animationCallbacks();
           module.restore.conditions();
           module.remove.animating();
         },
@@ -196,7 +196,7 @@ $.fn.transition = function() {
           module.debug('Queueing animation of', animation);
           module.queuing = true;
           $module
-            .one(animationEnd + eventNamespace, function() {
+            .one(animationEnd + '.queue' + eventNamespace, function() {
               module.queuing = false;
               module.repaint();
               module.animate.apply(this, settings);
@@ -206,7 +206,7 @@ $.fn.transition = function() {
 
         complete: function (event) {
           module.verbose('CSS animation complete', settings.animation);
-          module.remove.animationEndCallback();
+          module.remove.completeCallback();
           module.remove.failSafe();
           if(!module.is.looping()) {
             if( module.is.outward() ) {
@@ -262,7 +262,7 @@ $.fn.transition = function() {
               module.save.conditions();
             }
             module.remove.direction();
-            module.remove.animationEndCallback();
+            module.remove.completeCallback();
             if(module.can.transition() && !module.has.direction()) {
               module.set.direction();
             }
@@ -430,8 +430,15 @@ $.fn.transition = function() {
               })
             ;
           },
-          animationEndCallback: function() {
-            $module.off('.complete');
+          animationCallbacks: function() {
+            module.remove.queueCallback();
+            module.remove.completeCallback();
+          },
+          queueCallback: function() {
+            $module.off('.queue' + eventNamespace)
+          }
+          completeCallback: function() {
+            $module.off('.complete' + eventNamespace);
           },
           display: function() {
             $module.css('display', '');
@@ -734,12 +741,30 @@ $.fn.transition = function() {
           module.repaint();
         },
 
-        start: function() {
+        stop: function() {
+          module.debug('Stopping current animation');
+          module.complete();
+        },
+
+        stopAll: function() {
+          module.debug('Stopping all animation');
+          module.remove.animationCallbacks();
+          module.complete();
+        },
+
+        clear: {
+          queue: function() {
+            module.debug('Clearing animation queue')
+            module.remove.queueCallback();
+          }
+        },
+
+        enable: function() {
           module.verbose('Starting animation');
           $module.removeClass(className.disabled);
         },
 
-        stop: function() {
+        disable: function() {
           module.debug('Stopping animation');
           $module.addClass(className.disabled);
         },

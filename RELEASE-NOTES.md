@@ -8,6 +8,7 @@
 
 **Enhancements**
 - **Loader** - `inline loader` now has a `centered` variation
+- **Transition** - transition now has `stop`, `stop all`, and `clear queue` for removing transitions, (undocumented method `stop`, and `start` renamed to `enable` and `disable`)
 
 **Bugs**
 - **Menu** - Fix vertical pointing menu, sub menu arrow color
