@@ -7,12 +7,15 @@
 - **Visibiliity** - Attach callbacks to elements visibility conditions like `top visible` `bottom visible`, `passing`. Useful for things like: image lazy loading, infinite scroll content, and recording tracking metrics
 
 **Enhancements**
+- **Transition** - Added more reasonable default durations for each animation
 - **Loader** - `inline loader` now has a `centered` variation
 - **Transition** - Added `toggle` behavior and docs for `show` and `hide`
 - **Transition** - transition now has `stop`, `stop all`, and `clear queue` for removing transitions, (undocumented method `stop`, and `start` renamed to `enable` and `disable`)
 
 **Bugs**
+- **Transition** - Fixes `swing out` animations not working correctly
 - **Transition** - Fixed display state other than `block` not determined when using `show` and `hide` without an animation
+- **Transition** - Fix bug in `remove looping` causing one additional animation
 - **Menu** - Fix vertical pointing menu, sub menu arrow color
 - **Item ** - `img` inside of `ui item content` now do not receive size formatting by default
 - **Form** - Added `input[type="search"]` styles to `ui form`

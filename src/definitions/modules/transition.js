@@ -465,6 +465,7 @@ $.fn.transition = function() {
             $module
               .removeClass(className.looping)
             ;
+            module.reset();
             module.forceRepaint();
           },
           transition: function() {
