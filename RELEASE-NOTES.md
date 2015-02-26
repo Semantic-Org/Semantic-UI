@@ -3,7 +3,6 @@
 ### Version 1.11.0 - February xx, 2015
 
 **New Components**
-
 - **Visibiliity** - Attach callbacks to elements visibility conditions like `top visible` `bottom visible`, `passing`. Useful for things like: image lazy loading, infinite scroll content, and recording tracking metrics
 
 **Enhancements**
@@ -13,9 +12,10 @@
 - **Transition** - transition now has `stop`, `stop all`, and `clear queue` for removing transitions, (undocumented method `stop`, and `start` renamed to `enable` and `disable`)
 
 **Bugs**
+- **Dropdown** - Fixes issue where dropdown would not open after restoring previus value on failed `search dropdown` search
 - **Transition** - Fixes `swing out` animations not working correctly
 - **Transition** - Fixed display state other than `block` not determined when using `show` and `hide` without an animation
-- **Transition** - Fix bug in `remove looping` causing one additional animation
+- **Transition** - Fix bug in `remove looping` causing next animation to use same duration
 - **Menu** - Fix vertical pointing menu, sub menu arrow color
 - **Item ** - `img` inside of `ui item content` now do not receive size formatting by default
 - **Form** - Added `input[type="search"]` styles to `ui form`

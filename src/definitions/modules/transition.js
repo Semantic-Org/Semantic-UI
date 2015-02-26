@@ -392,11 +392,13 @@ $.fn.transition = function() {
               $module.removeAttr('class');
             }
             if(module.cache.style) {
+              console.log(module.cache.style);
               module.verbose('Restoring original style attribute', module.cache.style);
               $module.attr('style', module.cache.style);
             }
-            if(module.is.looping()) {
-              module.remove.looping();
+            else {
+              module.verbose('Clearing style attribute');
+              $module.removeAttr('style');
             }
             module.verbose('Restoring original attributes', module.cache);
           }
@@ -462,11 +464,12 @@ $.fn.transition = function() {
           },
           looping: function() {
             module.debug('Transitions are no longer looping');
-            $module
-              .removeClass(className.looping)
-            ;
-            module.reset();
-            module.forceRepaint();
+            if( module.is.looping() ) {
+              module.reset();
+              $module
+                .removeClass(className.looping)
+              ;
+            }
           },
           transition: function() {
             $module
