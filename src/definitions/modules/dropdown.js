@@ -456,6 +456,7 @@ $.fn.dropdown = function(parameters) {
           ;
           if(hasSelected) {
             module.event.item.click.call($selectedItem);
+            module.remove.filteredItem();
           }
         },
 
