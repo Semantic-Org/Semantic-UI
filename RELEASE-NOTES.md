@@ -24,6 +24,14 @@
 - **Transition** - Adds examples of `hide, `show`, `toggle`, `stop`, `stop all`, and `clear queue`
 - **Item** - Significant rewrite of `ui item` documentation
 
+### Version 1.10.3 - February 27, 2015
+
+**Bugs**
+- **Build Tools** - All UI components now have component name in comment banners and release version
+- **Menu** - Fixes dropdown menu item not having a hover state inside inverted menu
+- **Search** - Fixes bug in category search causing item selection to sometimes produce a javascript error.
+- **Button** - Fixes `<button>` inside `vertical buttons` not taking full container width
+
 ### Version 1.10.1-2 - February 24, 2015
 
 No changes, fixes stale pm component builds

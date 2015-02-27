@@ -32,8 +32,14 @@ module.exports = {
 
       // remove all comments from config files (.variable)
       variables : {
-        in  : /\/\*[\s\S]+?\/\* End Config \*\//m,
-        out : '',
+        in  : /(\/\*[\s\S]+?\*\/+)[\s\S]+?\/\* End Config \*\//,
+        out : '$1',
+      },
+
+      // add version to first comment
+      license: {
+        in  : /(^\/\*[\s\S]+)(# Semantic UI )([\s\S]+?\*\/)/,
+        out : '$1$2' + release.version + ' $3'
       },
 
       // adds uniform spacing around comments
@@ -70,12 +76,6 @@ module.exports = {
       url        : release.url
     },
 
-    /* Minified CSS Settings */
-    minify: {
-      processImport       : false,
-      keepSpecialComments : 0
-    },
-
     /* What Browsers to Prefix */
     prefix: {
       browsers: [
@@ -97,15 +97,29 @@ module.exports = {
       rtlMinCSS : { extname : '.rtl.min.css' }
     },
 
-    /* Sourcemaps */
-    sourcemap: {
-      includeContent : true,
-      sourceRoot     : '/src'
+    /* Minified CSS Concat */
+    minify: {
+      processImport       : false,
+      keepSpecialComments : 1
     },
 
     /* Minified JS Settings */
     uglify: {
-      mangle : true
+      mangle           : true,
+      preserveComments : 'some'
+    },
+
+    /* Minified Concat CSS Settings */
+    concatMinify: {
+      processImport       : false,
+      keepSpecialComments : false
+    },
+
+    /* Minified Concat JS */
+    concatUglify: {
+      mangle           : true,
+      preserveComments : false
     }
+
   }
 };

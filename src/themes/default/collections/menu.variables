@@ -124,6 +124,7 @@
 @dropdownPointingDistance: 0px;
 
 @dropdownTextColor: @textColor;
+@dropdownBackgroundHover: @transparentBlack;
 @dropdownTextColorHover: @darkTextColor;
 @dropdownIconMargin: 0em 0em 0em 1em;
 

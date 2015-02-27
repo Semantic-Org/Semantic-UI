@@ -1,14 +1,13 @@
- /*
- * # Semantic UI - 1.10.2
- * https://github.com/Semantic-Org/Semantic-UI
- * http://www.semantic-ui.com/
+/*!
+ * # Semantic UI 1.10.3 - Button
+ * http://github.com/semantic-org/semantic-ui/
  *
- * Copyright 2014 Contributors
+ *
+ * Copyright 2014 Contributorss
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
  */
-
 
 
 /*******************************
@@ -90,7 +89,7 @@
   background-color: #cccccc;
   background-image: '';
   color: rgba(0, 0, 0, 0.8);
-  box-shadow: 0px 0px 0px 1px transparent inset, 0px 1px 4px 0px rgba(39, 41, 43, 0.15) inset;
+  box-shadow: 0px 0px 0px 1px transparent inset, 0px 1px 4px 0px rgba(39, 41, 43, 0.15) inset !important;
 }
 
 /*--------------
@@ -2355,6 +2354,7 @@
 .ui.vertical.buttons .button {
   display: block;
   float: none;
+  width: 100%;
   margin: 0px 0px 0px 0px;
   box-shadow: none;
 }

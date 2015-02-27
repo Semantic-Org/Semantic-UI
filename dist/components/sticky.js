@@ -1,9 +1,9 @@
- /*
- * # Semantic - Sticky
+/*!
+ * # Semantic UI 1.10.3 - Sticky
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2014 Contributorss
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -91,8 +91,9 @@ $.fn.sticky = function(parameters) {
           $scroll
             .on('scroll' + eventNamespace, module.event.scroll)
           ;
-
-          module.observeChanges();
+          if(settings.observeChanges) {
+            module.observeChanges();
+          }
           module.instantiate();
         },
 
@@ -125,25 +126,23 @@ $.fn.sticky = function(parameters) {
           var
             context = $context[0]
           ;
-          if(settings.observeChanges) {
-            if('MutationObserver' in window) {
-              observer = new MutationObserver(function(mutations) {
-                clearTimeout(module.timer);
-                module.timer = setTimeout(function() {
-                  module.verbose('DOM tree modified, updating sticky menu');
-                  module.refresh();
-                }, 200);
-              });
-              observer.observe(element, {
-                childList : true,
-                subtree   : true
-              });
-              observer.observe(context, {
-                childList : true,
-                subtree   : true
-              });
-              module.debug('Setting up mutation observer', observer);
-            }
+          if('MutationObserver' in window) {
+            observer = new MutationObserver(function(mutations) {
+              clearTimeout(module.timer);
+              module.timer = setTimeout(function() {
+                module.verbose('DOM tree modified, updating sticky menu');
+                module.refresh();
+              }, 20);
+            });
+            observer.observe(element, {
+              childList : true,
+              subtree   : true
+            });
+            observer.observe(context, {
+              childList : true,
+              subtree   : true
+            });
+            module.debug('Setting up mutation observer', observer);
           }
         },
 

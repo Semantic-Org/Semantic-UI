@@ -15,7 +15,6 @@ var
   clone        = require('gulp-clone'),
   flatten      = require('gulp-flatten'),
   gulpif       = require('gulp-if'),
-  header       = require('gulp-header'),
   less         = require('gulp-less'),
   minifyCSS    = require('gulp-minify-css'),
   plumber      = require('gulp-plumber'),
@@ -70,6 +69,11 @@ module.exports = function(callback) {
     .pipe(plumber())
     .pipe(less(settings.less))
     .pipe(autoprefixer(settings.prefix))
+    .pipe(replace(comments.variables.in, comments.variables.out))
+    .pipe(replace(comments.license.in, comments.license.out))
+    .pipe(replace(comments.large.in, comments.large.out))
+    .pipe(replace(comments.small.in, comments.small.out))
+    .pipe(replace(comments.tiny.in, comments.tiny.out))
     .pipe(flatten())
   ;
 
@@ -77,14 +81,10 @@ module.exports = function(callback) {
   uncompressedStream = stream.pipe(clone());
   compressedStream   = stream.pipe(clone());
 
+  // uncompressed component css
   uncompressedStream
     .pipe(plumber())
-    .pipe(replace(comments.variables.in, comments.variables.out))
-    .pipe(replace(comments.large.in, comments.large.out))
-    .pipe(replace(comments.small.in, comments.small.out))
-    .pipe(replace(comments.tiny.in, comments.tiny.out))
     .pipe(replace(assets.source, assets.uncompressed))
-    .pipe(header(banner, settings.header))
     .pipe(gulpif(config.hasPermission, chmod(config.permission)))
     .pipe(gulp.dest(output.uncompressed))
     .pipe(print(log.created))
@@ -93,13 +93,13 @@ module.exports = function(callback) {
     })
   ;
 
+  // compressed component css
   compressedStream = stream
     .pipe(plumber())
     .pipe(clone())
     .pipe(replace(assets.source, assets.compressed))
     .pipe(minifyCSS(settings.minify))
     .pipe(rename(settings.rename.minCSS))
-    .pipe(header(banner, settings.header))
     .pipe(gulpif(config.hasPermission, chmod(config.permission)))
     .pipe(gulp.dest(output.compressed))
     .pipe(print(log.created))
@@ -119,12 +119,12 @@ module.exports = function(callback) {
   gulp.src(source.definitions + '/**/' + globs.components + '.js')
     .pipe(plumber())
     .pipe(flatten())
+    .pipe(replace(comments.license.in, comments.license.out))
     .pipe(gulp.dest(output.uncompressed))
     .pipe(gulpif(config.hasPermission, chmod(config.permission)))
     .pipe(print(log.created))
     .pipe(uglify(settings.uglify))
     .pipe(rename(settings.rename.minJS))
-    .pipe(header(banner, settings.header))
     .pipe(gulp.dest(output.compressed))
     .pipe(gulpif(config.hasPermission, chmod(config.permission)))
     .pipe(print(log.created))
