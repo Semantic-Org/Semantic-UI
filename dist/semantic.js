@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.10.2
+ * # Semantic UI - 1.10.3
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -8,12 +8,12 @@
  * http://opensource.org/licenses/MIT
  *
  */
-/*
- * # Semantic - Site
+/*!
+ * # Semantic UI 1.10.3 - Site
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -495,18 +495,20 @@ $.extend($.expr[ ":" ], {
 
 
 })( jQuery, window , document );
-/*
- * # Semantic - Form Validation
+/*!
+ * # Semantic UI 1.10.3 - Form Validation
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
  */
 
 ;(function ( $, window, document, undefined ) {
+
+"use strict";
 
 $.fn.form = function(fields, parameters) {
   var
@@ -1612,12 +1614,12 @@ $.fn.form.settings = {
 
 })( jQuery, window , document );
 
-/*
- * # Semantic - Accordion
+/*!
+ * # Semantic UI 1.10.3 - Accordion
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -2171,12 +2173,12 @@ $.extend( $.easing, {
 })( jQuery, window , document );
 
 
-/*
- * # Semantic - Checkbox
+/*!
+ * # Semantic UI 1.10.3 - Checkbox
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -2681,18 +2683,20 @@ $.fn.checkbox.settings = {
 
 })( jQuery, window , document );
 
-/*
- * # Semantic - Dimmer
+/*!
+ * # Semantic UI 1.10.3 - Dimmer
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
  */
 
 ;(function ( $, window, document, undefined ) {
+
+"use strict";
 
 $.fn.dimmer = function(parameters) {
   var
@@ -3310,12 +3314,12 @@ $.fn.dimmer.settings = {
 };
 
 })( jQuery, window , document );
-/*
- * # Semantic - Dropdown
+/*!
+ * # Semantic UI 1.10.3 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -5093,12 +5097,12 @@ $.extend( $.easing, {
 
 })( jQuery, window , document );
 
-/*
- * # Semantic - Modal
+/*!
+ * # Semantic UI 1.10.3 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -5950,12 +5954,12 @@ $.fn.modal.settings = {
 
 })( jQuery, window , document );
 
-/*
- * # Semantic - Nag
+/*!
+ * # Semantic UI 1.10.3 - Nag
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -6428,12 +6432,12 @@ $.fn.nag.settings = {
 
 })( jQuery, window , document );
 
-/*
- * # Semantic - Popup
+/*!
+ * # Semantic UI 1.10.3 - Popup
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -7616,12 +7620,12 @@ $.extend( $.easing, {
 
 })( jQuery, window , document );
 
-/*
- * # Semantic - Progress
+/*!
+ * # Semantic UI 1.10.3 - Progress
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -8401,12 +8405,12 @@ $.fn.progress.settings = {
 
 
 })( jQuery, window , document );
-/*
- * # Semantic - Rating
+/*!
+ * # Semantic UI 1.10.3 - Rating
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -8853,12 +8857,12 @@ $.fn.rating.settings = {
 
 })( jQuery, window , document );
 
-/*
- * # Semantic - Search
+/*!
+ * # Semantic UI 1.10.3 - Search
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -9165,7 +9169,7 @@ $.fn.search = function(parameters) {
               $.each(results, function(index, category) {
                 if($.isArray(category.results)) {
                   result = module.search.object(value, category.results)[0];
-                  if(result.length > 0) {
+                  if(result && result.length > 0) {
                     return true;
                   }
                 }
@@ -9912,12 +9916,12 @@ $.fn.search.settings = {
 
 })( jQuery, window , document );
 
-/*
- * # Semantic - Shape
+/*!
+ * # Semantic UI 1.10.3 - Shape
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -10742,12 +10746,12 @@ $.fn.shape.settings = {
 
 
 })( jQuery, window , document );
-/*
- * # Semantic - Sidebar
+/*!
+ * # Semantic UI 1.10.3 - Sidebar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -11835,12 +11839,12 @@ $.extend( $.easing, {
 
 })( jQuery, window , document );
 
- /*
- * # Semantic - Sticky
+/*!
+ * # Semantic UI 1.10.3 - Sticky
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2014 Contributorss
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -11928,8 +11932,9 @@ $.fn.sticky = function(parameters) {
           $scroll
             .on('scroll' + eventNamespace, module.event.scroll)
           ;
-
-          module.observeChanges();
+          if(settings.observeChanges) {
+            module.observeChanges();
+          }
           module.instantiate();
         },
 
@@ -11962,25 +11967,23 @@ $.fn.sticky = function(parameters) {
           var
             context = $context[0]
           ;
-          if(settings.observeChanges) {
-            if('MutationObserver' in window) {
-              observer = new MutationObserver(function(mutations) {
-                clearTimeout(module.timer);
-                module.timer = setTimeout(function() {
-                  module.verbose('DOM tree modified, updating sticky menu');
-                  module.refresh();
-                }, 200);
-              });
-              observer.observe(element, {
-                childList : true,
-                subtree   : true
-              });
-              observer.observe(context, {
-                childList : true,
-                subtree   : true
-              });
-              module.debug('Setting up mutation observer', observer);
-            }
+          if('MutationObserver' in window) {
+            observer = new MutationObserver(function(mutations) {
+              clearTimeout(module.timer);
+              module.timer = setTimeout(function() {
+                module.verbose('DOM tree modified, updating sticky menu');
+                module.refresh();
+              }, 20);
+            });
+            observer.observe(element, {
+              childList : true,
+              subtree   : true
+            });
+            observer.observe(context, {
+              childList : true,
+              subtree   : true
+            });
+            module.debug('Setting up mutation observer', observer);
           }
         },
 
@@ -12613,12 +12616,12 @@ $.fn.sticky.settings = {
 
 })( jQuery, window , document );
 
- /*
- * # Semantic - Tab
+/*!
+ * # Semantic UI 1.10.3 - Tab
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2014 Contributorss
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -13415,12 +13418,12 @@ $.fn.tab.settings = {
 };
 
 })( jQuery, window , document );
-/*
- * # Semantic - Transition
+/*!
+ * # Semantic UI 1.10.3 - Transition
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -13811,7 +13814,6 @@ $.fn.transition = function() {
             }
             if(module.cache.style) {
               module.verbose('Restoring original style attribute', module.cache.style);
-              console.log('restoring cache', module.cache.style);
               $module.attr('style', module.cache.style);
             }
             if(module.is.looping()) {
@@ -14418,12 +14420,12 @@ $.fn.transition.settings = {
 
 })( jQuery, window , document );
 
- /*
- * # Semantic - Video
+/*!
+ * # Semantic UI 1.10.3 - Video
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2014 Contributorss
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -14959,18 +14961,20 @@ $.fn.video.settings.templates = {
 
 })( jQuery, window , document );
 
-/*
- * # Semantic - API
+/*!
+ * # Semantic UI 1.10.3 - API
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
  */
 
 ;(function ( $, window, document, undefined ) {
+
+"use strict";
 
 $.api = $.fn.api = function(parameters) {
 
@@ -15822,18 +15826,20 @@ $.api.settings.api = {};
 
 
 })( jQuery, window , document );
-/*
- * # Semantic - Form Validation
+/*!
+ * # Semantic UI 1.10.3 - Form Validation
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
  */
 
 ;(function ( $, window, document, undefined ) {
+
+"use strict";
 
 $.fn.form = function(fields, parameters) {
   var
@@ -16939,18 +16945,20 @@ $.fn.form.settings = {
 
 })( jQuery, window , document );
 
-/*
- * # Semantic - State
+/*!
+ * # Semantic UI 1.10.3 - State
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
  */
 
 ;(function ( $, window, document, undefined ) {
+
+"use strict";
 
 $.fn.state = function(parameters) {
   var
@@ -17633,18 +17641,20 @@ $.fn.state.settings = {
 
 })( jQuery, window , document );
 
-/*
- * # Semantic - Visibility
+/*!
+ * # Semantic UI 1.10.3 - Visibility
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
  */
 
 ;(function ( $, window, document, undefined ) {
+
+"use strict";
 
 $.fn.visibility = function(parameters) {
   var
@@ -17687,6 +17697,7 @@ $.fn.visibility = function(parameters) {
           || function(callback) { setTimeout(callback, 0); },
 
         element         = this,
+        observer,
         module
       ;
 
@@ -17707,7 +17718,12 @@ $.fn.visibility = function(parameters) {
               module.setup.fixed();
             }
           }
-          module.checkVisibility();
+          if(settings.initialCheck) {
+            module.checkVisibility();
+          }
+          if(settings.observeChanges) {
+            module.observeChanges();
+          }
           module.instantiate();
         },
 
@@ -17725,6 +17741,23 @@ $.fn.visibility = function(parameters) {
             .off(eventNamespace)
             .removeData(moduleNamespace)
           ;
+        },
+
+        observeChanges: function() {
+          var
+            context = $context[0]
+          ;
+          if('MutationObserver' in window) {
+            observer = new MutationObserver(function(mutations) {
+              module.verbose('DOM tree modified, updating visibility calculations');
+              module.refresh();
+            });
+            observer.observe(element, {
+              childList : true,
+              subtree   : true
+            });
+            module.debug('Setting up mutation observer', observer);
+          }
         },
 
         bindEvents: function() {
@@ -17809,6 +17842,7 @@ $.fn.visibility = function(parameters) {
               module.verbose('Lazy loading image', src);
               // show when top visible
               module.topVisible(function() {
+                module.debug('Image top visible', element);
                 module.precache(src, function() {
                   module.set.image(src);
                   settings.onTopVisible = false;
@@ -17830,8 +17864,10 @@ $.fn.visibility = function(parameters) {
                       top: settings.offset + 'px'
                     })
                   ;
-                  if(settings.animation && $.fn.transition !== undefined) {
-                    $module.transition(settings.transition, settings.duration);
+                  if(settings.transition) {
+                    if($.fn.transition !== undefined) {
+                      $module.transition(settings.transition, settings.duration);
+                    }
                   }
                 },
                 onTopPassedReverse: function() {
@@ -17861,13 +17897,27 @@ $.fn.visibility = function(parameters) {
               $module.show();
             }
             else {
-              if(settings.transition && $.fn.transition !== undefined) {
-                $module.transition(settings.transition, settings.duration);
+              if(settings.transition) {
+                if( $.fn.transition !== undefined ) {
+                  $module.transition(settings.transition, settings.duration);
+                }
+                else {
+                  $module.fadeIn(settings.duration);
+                }
               }
               else {
-                $module.fadeIn(settings.duration);
+                $module.show();
               }
             }
+          }
+        },
+
+        is: {
+          visible: function() {
+            if(module.cache && module.cache.element) {
+              return (module.cache.element.height > 0 && module.cache.element.width > 0);
+            }
+            return false;
           }
         },
 
@@ -17891,22 +17941,24 @@ $.fn.visibility = function(parameters) {
           module.verbose('Checking visibility of element', module.cache.element);
           module.save.calculations();
 
-          // percentage
-          module.passed();
+          if( module.is.visible() ) {
+            // percentage
+            module.passed();
 
-          // reverse (must be first)
-          module.passingReverse();
-          module.topVisibleReverse();
-          module.bottomVisibleReverse();
-          module.topPassedReverse();
-          module.bottomPassedReverse();
+            // reverse (must be first)
+            module.passingReverse();
+            module.topVisibleReverse();
+            module.bottomVisibleReverse();
+            module.topPassedReverse();
+            module.bottomPassedReverse();
 
-          // one time
-          module.passing();
-          module.topVisible();
-          module.bottomVisible();
-          module.topPassed();
-          module.bottomPassed();
+            // one time
+            module.passing();
+            module.topVisible();
+            module.bottomVisible();
+            module.topPassed();
+            module.bottomPassed();
+          }
         },
 
         passed: function(amount, newCallback) {
@@ -18160,7 +18212,7 @@ $.fn.visibility = function(parameters) {
             calculations = module.get.elementCalculations(),
             screen       = module.get.screenCalculations()
           ;
-          callback     = callback || false;
+          callback = callback || false;
           if(callback) {
             if(settings.continuous) {
               module.debug('Callback being called continuously', callbackName, calculations);
@@ -18227,59 +18279,58 @@ $.fn.visibility = function(parameters) {
           },
           elementPosition: function() {
             var
-              screen = module.get.screenSize()
+              element = module.cache.element,
+              screen  = module.get.screenSize()
             ;
             module.verbose('Saving element position');
-            $.extend(module.cache.element, {
-              margin : {
-                top    : parseInt($module.css('margin-top'), 10),
-                bottom : parseInt($module.css('margin-bottom'), 10)
-              },
-              fits   : (element.height < screen.height),
-              offset : $module.offset(),
-              width  : $module.outerWidth(),
-              height : $module.outerHeight()
-            });
-            return module.cache.element;
+            // (quicker than $.extend)
+            element.margin        = {};
+            element.margin.top    = parseInt($module.css('margin-top'), 10);
+            element.margin.bottom = parseInt($module.css('margin-bottom'), 10);
+            element.fits          = (element.height < screen.height);
+            element.offset        = $module.offset();
+            element.width         = $module.outerWidth();
+            element.height        = $module.outerHeight();
+            // store
+            module.cache.element = element;
+            return element;
           },
           elementCalculations: function() {
             var
-              screen  = module.get.screenCalculations(),
-              element = module.get.elementPosition()
+              screen     = module.get.screenCalculations(),
+              element    = module.get.elementPosition()
             ;
             // offset
             if(settings.includeMargin) {
-              $.extend(module.cache.element, {
-                top    : element.offset.top - element.margin.top,
-                bottom : element.offset.top + element.height + element.margin.bottom
-              });
+              element.top    = element.offset.top - element.margin.top;
+              element.bottom = element.offset.top + element.height + element.margin.bottom;
             }
             else {
-              $.extend(module.cache.element, {
-                top    : element.offset.top,
-                bottom : element.offset.top + element.height
-              });
+              element.top    = element.offset.top;
+              element.bottom = element.offset.top + element.height;
             }
+
             // visibility
-            $.extend(module.cache.element, {
-              topVisible       : (screen.bottom >= element.top),
-              topPassed        : (screen.top >= element.top),
-              bottomVisible    : (screen.bottom >= element.bottom),
-              bottomPassed     : (screen.top >= element.bottom),
-              pixelsPassed     : 0,
-              percentagePassed : 0
-            });
+            element.topVisible       = (screen.bottom >= element.top);
+            element.topPassed        = (screen.top >= element.top);
+            element.bottomVisible    = (screen.bottom >= element.bottom);
+            element.bottomPassed     = (screen.top >= element.bottom);
+            element.pixelsPassed     = 0;
+            element.percentagePassed = 0;
+
             // meta calculations
-            $.extend(module.cache.element, {
-              visible : (module.cache.element.topVisible || module.cache.element.bottomVisible),
-              passing : (module.cache.element.topPassed && !module.cache.element.bottomPassed),
-              hidden  : (!module.cache.element.topVisible && !module.cache.element.bottomVisible)
-            });
-            if(module.cache.element.passing) {
-              module.cache.element.pixelsPassed = (screen.top - element.top);
-              module.cache.element.percentagePassed = (screen.top - element.top) / element.height;
+            element.visible = (element.topVisible || element.bottomVisible);
+            element.passing = (element.topPassed && !element.bottomPassed);
+            element.hidden  = (!element.topVisible && !element.bottomVisible);
+
+            // passing calculations
+            if(element.passing) {
+              element.pixelsPassed     = (screen.top - element.top);
+              element.percentagePassed = (screen.top - element.top) / element.height;
             }
-            module.verbose('Updated element calculations', module.cache.element);
+            module.cache.element = element;
+            module.verbose('Updated element calculations', element);
+            return element;
           },
           screenCalculations: function() {
             var
@@ -18553,6 +18604,8 @@ $.fn.visibility.settings = {
     fixed: 'fixed'
   },
 
+  observeChanges         : true,
+
   debug                  : false,
   verbose                : false,
   performance            : true,
@@ -18562,6 +18615,9 @@ $.fn.visibility.settings = {
 
   context                : window,
 
+  // check position immediately on init
+  initialCheck           : true,
+
   // visibility check delay in ms (defaults to animationFrame)
   throttle               : false,
 
@@ -18570,7 +18626,7 @@ $.fn.visibility.settings = {
 
   // image only animation settings
   transition             : false,
-  duration               : 500,
+  duration               : 1000,
 
   // array of callbacks for percentage
   onPassed               : {},

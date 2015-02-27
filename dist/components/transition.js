@@ -1,9 +1,9 @@
-/*
- * # Semantic - Transition
+/*!
+ * # Semantic UI 1.10.3 - Transition
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -394,7 +394,6 @@ $.fn.transition = function() {
             }
             if(module.cache.style) {
               module.verbose('Restoring original style attribute', module.cache.style);
-              console.log('restoring cache', module.cache.style);
               $module.attr('style', module.cache.style);
             }
             if(module.is.looping()) {

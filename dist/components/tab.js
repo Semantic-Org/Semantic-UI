@@ -1,9 +1,9 @@
- /*
- * # Semantic - Tab
+/*!
+ * # Semantic UI 1.10.3 - Tab
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2014 Contributorss
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *

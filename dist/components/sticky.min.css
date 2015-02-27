@@ -1,11 +1,10 @@
- /*
- * # Semantic UI - 1.10.2
- * https://github.com/Semantic-Org/Semantic-UI
- * http://www.semantic-ui.com/
+/*!
+ * # Semantic UI 1.10.3 - Sticky
+ * http://github.com/semantic-org/semantic-ui/
+ *
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
- */
-.ui.sticky{position:static;-webkit-transition:width .2s ease,height .2s ease,top .2s ease,bottom .2s ease;transition:width .2s ease,height .2s ease,top .2s ease,bottom .2s ease;z-index:800}.ui.sticky.bound{position:absolute;left:auto;right:auto}.ui.sticky.fixed{position:fixed;left:auto;right:auto}.ui.sticky.bound.top,.ui.sticky.fixed.top{top:0;bottom:auto}.ui.sticky.bound.bottom,.ui.sticky.fixed.bottom{top:auto;bottom:0}.ui.native.sticky{position:-webkit-sticky;position:-moz-sticky;position:-ms-sticky;position:-o-sticky;position:sticky}
+ */.ui.sticky{position:static;-webkit-transition:width .2s ease,height .2s ease,top .2s ease,bottom .2s ease;transition:width .2s ease,height .2s ease,top .2s ease,bottom .2s ease;z-index:800}.ui.sticky.bound{position:absolute;left:auto;right:auto}.ui.sticky.fixed{position:fixed;left:auto;right:auto}.ui.sticky.bound.top,.ui.sticky.fixed.top{top:0;bottom:auto}.ui.sticky.bound.bottom,.ui.sticky.fixed.bottom{top:auto;bottom:0}.ui.native.sticky{position:-webkit-sticky;position:-moz-sticky;position:-ms-sticky;position:-o-sticky;position:sticky}

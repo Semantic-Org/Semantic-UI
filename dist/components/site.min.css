@@ -1,11 +1,10 @@
- /*
- * # Semantic UI - 1.10.2
- * https://github.com/Semantic-Org/Semantic-UI
- * http://www.semantic-ui.com/
+@import 'https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&subset=latin';/*!
+ * # Semantic UI - Site
+ * http://github.com/semantic-org/semantic-ui/
+ *
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
- */
-@import 'https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&subset=latin';body,html{height:100%}html{font-size:14px}body{margin:0;padding:0;min-width:278px;background:#f7f7f7;font-family:Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;font-size:14px;line-height:1.33;color:rgba(0,0,0,.8);font-smoothing:antialiased}h1,h2,h3,h4,h5{font-family:Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;line-height:1.33em;margin:-webkit-calc(2rem - .165em) 0 1rem;margin:calc(2rem - .165em) 0 1rem;font-weight:700;padding:0}h1{min-height:1rem;font-size:2rem}h2{font-size:1.714rem}h3{font-size:1.28rem}h4{font-size:1.071rem}h5{font-size:1rem}p{margin:0 0 1em;line-height:1.33}p:first-child{margin-top:0}p:last-child{margin-bottom:0}a{color:#009fda;text-decoration:none}a:hover{color:#00b2f3}::-webkit-selection{background-color:#cce2ff;color:rgba(0,0,0,.8)}::-moz-selection{background-color:#cce2ff;color:rgba(0,0,0,.8)}::selection{background-color:#cce2ff;color:rgba(0,0,0,.8)}input::-webkit-selection,textarea::-webkit-selection{background-color:rgba(100,100,100,.4);color:rgba(0,0,0,.8)}input::-moz-selection,textarea::-moz-selection{background-color:rgba(100,100,100,.4);color:rgba(0,0,0,.8)}input::selection,textarea::selection{background-color:rgba(100,100,100,.4);color:rgba(0,0,0,.8)}
+ */body,html{height:100%}html{font-size:14px}body{margin:0;padding:0;min-width:278px;background:#f7f7f7;font-family:Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;font-size:14px;line-height:1.33;color:rgba(0,0,0,.8);font-smoothing:antialiased}h1,h2,h3,h4,h5{font-family:Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;line-height:1.33em;margin:-webkit-calc(2rem - .165em) 0 1rem;margin:calc(2rem - .165em) 0 1rem;font-weight:700;padding:0}h1{min-height:1rem;font-size:2rem}h2{font-size:1.714rem}h3{font-size:1.28rem}h4{font-size:1.071rem}h5{font-size:1rem}p{margin:0 0 1em;line-height:1.33}p:first-child{margin-top:0}p:last-child{margin-bottom:0}a{color:#009fda;text-decoration:none}a:hover{color:#00b2f3}::-webkit-selection{background-color:#cce2ff;color:rgba(0,0,0,.8)}::-moz-selection{background-color:#cce2ff;color:rgba(0,0,0,.8)}::selection{background-color:#cce2ff;color:rgba(0,0,0,.8)}input::-webkit-selection,textarea::-webkit-selection{background-color:rgba(100,100,100,.4);color:rgba(0,0,0,.8)}input::-moz-selection,textarea::-moz-selection{background-color:rgba(100,100,100,.4);color:rgba(0,0,0,.8)}input::selection,textarea::selection{background-color:rgba(100,100,100,.4);color:rgba(0,0,0,.8)}

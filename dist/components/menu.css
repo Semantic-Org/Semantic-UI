@@ -1,14 +1,13 @@
- /*
- * # Semantic UI - 1.10.2
- * https://github.com/Semantic-Org/Semantic-UI
- * http://www.semantic-ui.com/
+/*!
+ * # Semantic UI 1.10.3 - Menu
+ * http://github.com/semantic-org/semantic-ui/
+ *
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
  */
-
 
 
 /*******************************
@@ -1145,6 +1144,12 @@
 }
 .ui.inverted.menu .dropdown .menu .item {
   color: rgba(0, 0, 0, 0.8) !important;
+  -webkit-transition: none;
+          transition: none;
+}
+.ui.inverted.menu .dropdown .menu .item:hover {
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: rgba(0, 0, 0, 0.85) !important;
 }
 .ui.inverted.menu .item.disabled,
 .ui.inverted.menu .item.disabled:hover {
