@@ -310,7 +310,7 @@ $.fn.search = function(parameters) {
               $.each(results, function(index, category) {
                 if($.isArray(category.results)) {
                   result = module.search.object(value, category.results)[0];
-                  if(result.length > 0) {
+                  if(result && result.length > 0) {
                     return true;
                   }
                 }
