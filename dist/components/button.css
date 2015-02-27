@@ -2354,6 +2354,7 @@
 .ui.vertical.buttons .button {
   display: block;
   float: none;
+  width: 100%;
   margin: 0px 0px 0px 0px;
   box-shadow: none;
 }

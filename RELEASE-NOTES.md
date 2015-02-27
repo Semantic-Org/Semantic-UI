@@ -6,6 +6,7 @@
 - **Build Tools** - All UI components now have component name in comment banners and release version
 - **Menu** - Fixes dropdown menu item not having a hover state inside inverted menu
 - **Search** - Fixes bug in category search causing item selection to sometimes produce a javascript error.
+- **Button** - Fixes `<button>` inside `vertical buttons` not taking full container width
 
 ### Version 1.10.1-2 - February 24, 2015
 
