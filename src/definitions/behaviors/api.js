@@ -549,7 +549,7 @@ $.api = $.fn.api = function(parameters) {
             var
               formData
             ;
-            if($(this).serializeObject() !== undefined) {
+            if($(this).serializeObject !== undefined) {
               formData = $form.serializeObject();
             }
             else {
