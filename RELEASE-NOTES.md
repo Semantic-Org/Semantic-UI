@@ -2,8 +2,8 @@
 
 ### Version 1.10.4 - February 28, 2015
 
-- **API** - Fix unnecessary message when no API url is specified but element is a `form` (defaults to `form` action)
-- **API** - Fix `api` check for [serialize object](https://github.com/macek/jquery-serialize-object) optional dependency to not produce an error when `serialize: true` and dep is not found.
+- **API** - Remove console error message when no API url is specified but element is a `form` (defaults to `form` action)
+- **API** - `api` check for [serialize object](https://github.com/macek/jquery-serialize-object) optional dependency no longer produces error when `serializeForm: true` and dependency is not found.
 
 ### Version 1.10.3 - February 27, 2015
 
