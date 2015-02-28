@@ -21,7 +21,6 @@ Package.onUse(function(api) {
     'themes/default/assets/fonts/icons.ttf',
     'themes/default/assets/fonts/icons.woff',
     'themes/default/assets/fonts/icons.woff2',
-    'themes/default/assets/fonts/icons.woff2',
 
     // flags
     'themes/default/assets/images/flags.png',
