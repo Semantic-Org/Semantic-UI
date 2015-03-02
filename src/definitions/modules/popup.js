@@ -426,12 +426,21 @@ $.fn.popup = function(parameters) {
           },
           startEvent: function() {
             if(settings.on == 'hover') {
-              return 'mouseenter';
+              return (hasTouch)
+                ? 'touchstart mouseenter'
+                : 'mouseenter'
+              ;
             }
             else if(settings.on == 'focus') {
               return 'focus';
             }
             return false;
+          },
+          scrollEvent: function() {
+            return (hasTouch)
+              ? 'touchmove scroll'
+              : 'scroll'
+            ;
           },
           endEvent: function() {
             if(settings.on == 'hover') {
@@ -791,6 +800,7 @@ $.fn.popup = function(parameters) {
               ;
             }
             else if( module.get.startEvent() ) {
+              console.log(module.get.startEvent());
               $module
                 .on(module.get.startEvent() + eventNamespace, module.event.start)
                 .on(module.get.endEvent() + eventNamespace, module.event.end)
@@ -813,12 +823,10 @@ $.fn.popup = function(parameters) {
           close:function() {
             if(settings.hideOnScroll === true || settings.hideOnScroll == 'auto' && settings.on != 'click') {
               $document
-                .one('touchmove' + elementNamespace, module.hideGracefully)
-                .one('scroll' + elementNamespace, module.hideGracefully)
+                .one(module.get.scrollEvent() + elementNamespace, module.hideGracefully)
               ;
               $context
-                .one('touchmove' + elementNamespace, module.hideGracefully)
-                .one('scroll' + elementNamespace, module.hideGracefully)
+                .one(module.get.scrollEvent() + elementNamespace, module.hideGracefully)
               ;
             }
             if(settings.on == 'click' && settings.closable) {

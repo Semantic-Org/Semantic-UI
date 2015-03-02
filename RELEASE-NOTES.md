@@ -14,6 +14,7 @@
 
 **Bugs**
 - **Dropdown** - Fixes issue where dropdown would not open after restoring previus value on failed `search dropdown` search
+- **Popup** - Fix issue with `popup` not re-opening until another element gains focus on a mobile touchscreen
 - **Popup** - Fix popup not namespacing `window` events and unbinding on `destroy` **Thanks @revov**
 - **Transition** - Fixes `swing out` animations not working correctly
 - **Transition** - Fixed display state other than `block` not determined when using `show` and `hide` without an animation
