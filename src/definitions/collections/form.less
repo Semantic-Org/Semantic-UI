@@ -359,6 +359,7 @@
 }
 
 .ui.form .fields.error .field textarea,
+.ui.form .fields.error .field select,
 .ui.form .fields.error .field input:not([type]),
 .ui.form .fields.error .field input[type="date"],
 .ui.form .fields.error .field input[type="datetime-local"],
@@ -370,6 +371,7 @@
 .ui.form .fields.error .field input[type="text"],
 .ui.form .fields.error .field input[type="url"],
 .ui.form .field.error textarea,
+.ui.form .field.error select,
 .ui.form .field.error input:not([type]),
 .ui.form .field.error input[type="date"],
 .ui.form .field.error input[type="datetime-local"],
@@ -387,6 +389,7 @@
   box-shadow: @inputErrorBoxShadow;
 }
 .ui.form .field.error textarea:focus,
+.ui.form .field.error select:focus,
 .ui.form .field.error input:not([type]):focus,
 .ui.form .field.error input[type="date"]:focus,
 .ui.form .field.error input[type="datetime-local"]:focus,
@@ -403,6 +406,10 @@
 
   -webkit-appearance: none;
   box-shadow: @inputErrorFocusBoxShadow;
+}
+
+.ui.form .field.error select:focus { 
+  -webkit-appearance: menulist-button;
 }
 
 /*------------------
