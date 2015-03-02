@@ -152,6 +152,9 @@ $.fn.popup = function(parameters) {
             .off(eventNamespace)
             .removeData(moduleNamespace)
           ;
+          $window
+              .off('resize' + eventNamespace, module.event.resize)
+          ;
         },
 
         event: {
