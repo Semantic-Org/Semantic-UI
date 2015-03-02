@@ -6,6 +6,7 @@
 - **Visibiliity** - Attach callbacks to elements visibility conditions like `top visible` `bottom visible`, `passing`. Useful for things like: image lazy loading, infinite scroll content, and recording tracking metrics
 
 **Enhancements**
+- **Form** - `<select>` now receive error formatting on `form error` **Thanks @davialexandre**
 - **Transition** - Added more reasonable default durations for each animation
 - **Loader** - `inline loader` now has a `centered` variation
 - **Transition** - Added `toggle` behavior and docs for `show` and `hide`
