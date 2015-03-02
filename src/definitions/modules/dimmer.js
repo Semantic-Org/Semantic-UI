@@ -382,7 +382,6 @@ $.fn.dimmer = function(parameters) {
               color = 'rgba(0, 0, 0, ' + opacity + ')';
             }
             module.debug('Setting opacity to', opacity);
-            console.log(color);
             $dimmer.css('background-color', color);
           },
           active: function() {
