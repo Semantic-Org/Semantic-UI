@@ -813,18 +813,18 @@ $.fn.popup = function(parameters) {
           close:function() {
             if(settings.hideOnScroll === true || settings.hideOnScroll == 'auto' && settings.on != 'click') {
               $document
-                .one('touchmove' + eventNamespace, module.hideGracefully)
-                .one('scroll' + eventNamespace, module.hideGracefully)
+                .one('touchmove' + elementNamespace, module.hideGracefully)
+                .one('scroll' + elementNamespace, module.hideGracefully)
               ;
               $context
-                .one('touchmove' + eventNamespace, module.hideGracefully)
-                .one('scroll' + eventNamespace, module.hideGracefully)
+                .one('touchmove' + elementNamespace, module.hideGracefully)
+                .one('scroll' + elementNamespace, module.hideGracefully)
               ;
             }
             if(settings.on == 'click' && settings.closable) {
               module.verbose('Binding popup close event to document');
               $document
-                .on('click' + eventNamespace, function(event) {
+                .on('click' + elementNamespace, function(event) {
                   module.verbose('Pop-up clickaway intent detected');
                   module.hideGracefully.call(element, event);
                 })
@@ -837,16 +837,16 @@ $.fn.popup = function(parameters) {
           close: function() {
             if(settings.hideOnScroll === true || settings.hideOnScroll == 'auto' && settings.on != 'click') {
               $document
-                .off('scroll' + eventNamespace, module.hide)
+                .off('scroll' + elementNamespace, module.hide)
               ;
               $context
-                .off('scroll' + eventNamespace, module.hide)
+                .off('scroll' + elementNamespace, module.hide)
               ;
             }
             if(settings.on == 'click' && settings.closable) {
               module.verbose('Removing close event from document');
               $document
-                .off('click' + eventNamespace)
+                .off('click' + elementNamespace)
               ;
             }
           }
