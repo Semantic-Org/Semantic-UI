@@ -62,6 +62,9 @@ $.fn.popup = function(parameters) {
 
         element            = this,
         instance           = $module.data(moduleNamespace),
+
+        elementNamespace,
+        id,
         module
       ;
 
@@ -69,24 +72,9 @@ $.fn.popup = function(parameters) {
 
         // binds events
         initialize: function() {
-          module.debug('Initializing module', $module);
-          if(settings.on == 'click') {
-            $module
-              .on('click' + eventNamespace, module.toggle)
-            ;
-          }
-          else if( module.get.startEvent() ) {
-            $module
-              .on(module.get.startEvent() + eventNamespace, module.event.start)
-              .on(module.get.endEvent() + eventNamespace, module.event.end)
-            ;
-          }
-          if(settings.target) {
-            module.debug('Target set to element', $target);
-          }
-          $window
-            .on('resize' + eventNamespace, module.event.resize)
-          ;
+          module.debug('Initializing', $module);
+          module.createID();
+          module.bind.events();
           if( !module.exists() && settings.preserve) {
             module.create();
           }
@@ -94,7 +82,7 @@ $.fn.popup = function(parameters) {
         },
 
         instantiate: function() {
-          module.verbose('Storing instance of module', module);
+          module.verbose('Storing instance', module);
           instance = module;
           $module
             .data(moduleNamespace, instance)
@@ -143,17 +131,18 @@ $.fn.popup = function(parameters) {
 
         destroy: function() {
           module.debug('Destroying previous module');
+          // remove element only if was created dynamically
           if($popup && !settings.preserve) {
             module.removePopup();
           }
+          // clear all timeouts
           clearTimeout(module.hideTimer);
           clearTimeout(module.showTimer);
+          // remove events
+          $window.off(elementNamespace);
           $module
             .off(eventNamespace)
             .removeData(moduleNamespace)
-          ;
-          $window
-              .off('resize' + eventNamespace, module.event.resize)
           ;
         },
 
@@ -254,6 +243,12 @@ $.fn.popup = function(parameters) {
           else {
             module.debug('No content specified skipping display', element);
           }
+        },
+
+        createID: function() {
+          module.verbose('Creating unique id for element');
+          id = module.get.uniqueID();
+          elementNamespace = '.' + id;
         },
 
         // determines popup state
@@ -426,6 +421,9 @@ $.fn.popup = function(parameters) {
         },
 
         get: {
+          id: function() {
+            return id;
+          },
           startEvent: function() {
             if(settings.on == 'hover') {
               return 'mouseenter';
@@ -785,6 +783,24 @@ $.fn.popup = function(parameters) {
         },
 
         bind: {
+          events: function() {
+            module.debug('Binding popup events to module');
+            if(settings.on == 'click') {
+              $module
+                .on('click' + eventNamespace, module.toggle)
+              ;
+            }
+            else if( module.get.startEvent() ) {
+              $module
+                .on(module.get.startEvent() + eventNamespace, module.event.start)
+                .on(module.get.endEvent() + eventNamespace, module.event.end)
+              ;
+            }
+            if(settings.target) {
+              module.debug('Target set to element', $target);
+            }
+            $window.on('resize' + elementNamespace, module.event.resize);
+          },
           popup: function() {
             module.verbose('Allowing hover events on popup to prevent closing');
             if( $popup && module.has.popup() ) {
