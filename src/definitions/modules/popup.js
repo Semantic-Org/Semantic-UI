@@ -246,9 +246,9 @@ $.fn.popup = function(parameters) {
         },
 
         createID: function() {
-          module.verbose('Creating unique id for element');
-          id = module.get.uniqueID();
+          id = (Math.random().toString(16) + '000000000').substr(2,8);
           elementNamespace = '.' + id;
+          module.verbose('Creating unique id for element', id);
         },
 
         // determines popup state
