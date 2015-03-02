@@ -20,6 +20,7 @@
 - **Dropdown** - Fixes issue where dropdown would not open after restoring previus value on failed `search dropdown` search
 - **Icon** - Fix `clockwise rotated icon` causing `clockwise` icon to appear
 - **Popup** - Fix issue with `popup` not re-opening until another element gains focus on a mobile touchscreen
+- **Modal** - Fixed issue with modal not appearing when calling `show` during another modal `hide`
 - **Popup** - Popup will now fire `onHidden` when an element is hidden by opening a different popup
 - **Popup** - Fix popup not namespacing `window` events and unbinding on `destroy` **Thanks @revov**
 - **Transition** - Fixes `swing out` animations not working correctly
