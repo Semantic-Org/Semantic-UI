@@ -142,7 +142,7 @@ $.fn.form = function(fields, parameters) {
               var
                 $field       = $(this),
                 $element     = $field.parent(),
-                $fieldGroup  = $field.closest($group),
+                $fieldGroup  = module.get.fieldGroup($field),
                 $prompt      = $fieldGroup.find(selector.prompt),
                 defaultValue = $field.data(metadata.defaultValue) || '',
                 isCheckbox   = $element.is(selector.uiCheckbox),
@@ -175,7 +175,7 @@ $.fn.form = function(fields, parameters) {
               var
                 $field       = $(this),
                 $element     = $field.parent(),
-                $fieldGroup  = $field.closest($group),
+                $fieldGroup  = module.get.fieldGroup($field),
                 $prompt      = $fieldGroup.find(selector.prompt),
                 defaultValue = $field.data(metadata.defaultValue) || '',
                 isCheckbox   = $element.is(selector.uiCheckbox),
@@ -261,7 +261,7 @@ $.fn.form = function(fields, parameters) {
             blur: function() {
               var
                 $field      = $(this),
-                $fieldGroup = $field.closest($group)
+                $fieldGroup = module.get.fieldGroup($field)
               ;
               if( $fieldGroup.hasClass(className.error) ) {
                 module.debug('Revalidating field', $field,  module.get.validation($field));
@@ -274,7 +274,7 @@ $.fn.form = function(fields, parameters) {
             change: function() {
               var
                 $field      = $(this),
-                $fieldGroup = $field.closest($group)
+                $fieldGroup = module.get.fieldGroup($field)
               ;
               if(settings.on == 'change' || ( $fieldGroup.hasClass(className.error) && settings.revalidate) ) {
                 clearTimeout(module.timer);
@@ -320,6 +320,9 @@ $.fn.form = function(fields, parameters) {
               return $field.filter('[data-' + metadata.validate + '="'+ identifier +'"]');
             }
             return $('<input/>');
+          },
+          fieldGroup: function($field) {
+          	return ($field.is(selector.uiInput) ? $field.parent() : $field).closest($group);
           },
           fields: function(fields) {
             var
@@ -436,19 +439,23 @@ $.fn.form = function(fields, parameters) {
           prompt: function(identifier, errors) {
             var
               $field       = module.get.field(identifier),
-              $fieldGroup  = $field.closest($group),
+              $fieldGroup  = module.get.fieldGroup($field),
               $prompt      = $fieldGroup.children(selector.prompt),
               promptExists = ($prompt.length !== 0)
-            ;
+          	;
             errors = (typeof errors == 'string')
               ? [errors]
               : errors
-            ;
+          	;
             module.verbose('Adding field error state', identifier);
             $fieldGroup
               .addClass(className.error)
             ;
             if(settings.inline) {
+              if (!errors.filter(function(value) { return value !== undefined; }).length) {
+                promptExists && $prompt.remove();
+                return;
+              }
               if(!promptExists) {
                 $prompt = settings.templates.prompt(errors);
                 $prompt
@@ -458,21 +465,19 @@ $.fn.form = function(fields, parameters) {
               $prompt
                 .html(errors[0])
               ;
-              if(!promptExists) {
-                if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
-                  module.verbose('Displaying error with css transition', settings.transition);
-                  $prompt.transition(settings.transition + ' in', settings.duration);
-                }
-                else {
-                  module.verbose('Displaying error with fallback javascript animation');
-                  $prompt
-                    .fadeIn(settings.duration)
-                  ;
-                }
+              if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
+                module.verbose('Displaying error with css transition', settings.transition);
+                $prompt.transition(settings.transition + ' in', settings.duration);
               }
               else {
-                module.verbose('Inline errors are disabled, no inline error added', identifier);
+                module.verbose('Displaying error with fallback javascript animation');
+                $prompt
+                  .fadeIn(settings.duration)
+                ;
               }
+			}
+            else {
+              module.verbose('Inline errors are disabled, no inline error added', identifier);
             }
           },
           errors: function(errors) {
@@ -487,9 +492,9 @@ $.fn.form = function(fields, parameters) {
           prompt: function(field) {
             var
               $field      = module.get.field(field.identifier),
-              $fieldGroup = $field.closest($group),
+              $fieldGroup = module.get.fieldGroup($field),
               $prompt     = $fieldGroup.children(selector.prompt)
-            ;
+          	;
             $fieldGroup
               .removeClass(className.error)
             ;
@@ -925,7 +930,8 @@ $.fn.form.settings = {
     reset      : '.reset',
     submit     : '.submit',
     uiCheckbox : '.ui.checkbox',
-    uiDropdown : '.ui.dropdown'
+    uiDropdown : '.ui.dropdown',
+	uiInput    : '.ui.input'
   },
 
   className : {
