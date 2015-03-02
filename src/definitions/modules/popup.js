@@ -1119,7 +1119,7 @@ $.fn.popup.settings = {
 
   delay        : {
     show : 30,
-    hide : 1000
+    hide : 0
   },
 
   setFluidWidth  : true,
