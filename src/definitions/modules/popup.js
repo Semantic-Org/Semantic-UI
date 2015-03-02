@@ -800,7 +800,6 @@ $.fn.popup = function(parameters) {
               ;
             }
             else if( module.get.startEvent() ) {
-              console.log(module.get.startEvent());
               $module
                 .on(module.get.startEvent() + eventNamespace, module.event.start)
                 .on(module.get.endEvent() + eventNamespace, module.event.end)
