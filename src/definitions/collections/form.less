@@ -263,13 +263,13 @@
 ---------------------*/
 
 /* browsers require these rules separate */
-.ui.form ::input-placeholder {
+.ui.form ::-webkit-input-placeholder {
   color: @inputPlaceholderColor;
 }
 .ui.form ::-moz-placeholder {
   color: @inputPlaceholderColor;
 }
-.ui.form :focus::input-placeholder {
+.ui.form :focus::-webkit-input-placeholder {
   color: @inputPlaceholderFocusColor;
 }
 .ui.form :focus::-moz-placeholder {
@@ -277,13 +277,13 @@
 }
 
 /* Error Placeholder */
-.ui.form .error ::input-placeholder {
+.ui.form .error ::-webkit-input-placeholder {
   color: @inputErrorPlaceholderColor;
 }
 .ui.form .error ::-moz-placeholder {
   color: @inputErrorPlaceholderColor;
 }
-.ui.form .error :focus::input-placeholder {
+.ui.form .error :focus::-webkit-input-placeholder {
   color: @inputErrorPlaceholderFocusColor;
 }
 .ui.form .error :focus::-moz-placeholder {
