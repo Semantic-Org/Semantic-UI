@@ -1,9 +1,9 @@
-/*
- * # Semantic - Form
+/*!
+ * # Semantic UI - Form
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -121,7 +121,7 @@
   margin: 0em;
   outline: none;
   -webkit-appearance: none;
-  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+  tap-highlight-color:  rgba(255, 255, 255, 0);
 
   line-height: @inputLineHeight;
   padding: @inputPadding;
@@ -140,7 +140,7 @@
 .ui.form textarea {
   margin: 0em;
   -webkit-appearance: none;
-  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+  tap-highlight-color:  rgba(255, 255, 255, 0);
 
   padding: @textAreaPadding;
   font-size: @textAreaFontSize;
@@ -362,6 +362,7 @@
 }
 
 .ui.form .fields.error .field textarea,
+.ui.form .fields.error .field select,
 .ui.form .fields.error .field input:not([type]),
 .ui.form .fields.error .field input[type="date"],
 .ui.form .fields.error .field input[type="datetime-local"],
@@ -374,6 +375,7 @@
 .ui.form .fields.error .field input[type="text"],
 .ui.form .fields.error .field input[type="url"],
 .ui.form .field.error textarea,
+.ui.form .field.error select,
 .ui.form .field.error input:not([type]),
 .ui.form .field.error input[type="date"],
 .ui.form .field.error input[type="datetime-local"],
@@ -392,6 +394,7 @@
   box-shadow: @inputErrorBoxShadow;
 }
 .ui.form .field.error textarea:focus,
+.ui.form .field.error select:focus,
 .ui.form .field.error input:not([type]):focus,
 .ui.form .field.error input[type="date"]:focus,
 .ui.form .field.error input[type="datetime-local"]:focus,
@@ -409,6 +412,11 @@
 
   -webkit-appearance: none;
   box-shadow: @inputErrorFocusBoxShadow;
+}
+
+/* Preserve Native Select Stylings */
+.ui.form .field.error select {
+  -webkit-appearance: menulist-button;
 }
 
 /*------------------

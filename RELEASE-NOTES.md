@@ -1,20 +1,33 @@
 ## RELEASE NOTES
 
-### Version 1.11.0 - February xx, 2015
+### Version 1.11.0 - March xx, 2015
 
 **New Components**
 - **Visibiliity** - Attach callbacks to elements visibility conditions like `top visible` `bottom visible`, `passing`. Useful for things like: image lazy loading, infinite scroll content, and recording tracking metrics
 
 **Enhancements**
 - **Menu** - Horizontal menus now use flexbox so they can resize automatically to content size.
+- **Form** - `<select>` now receive error formatting on `form error` **Thanks @davialexandre**
 - **Transition** - Added more reasonable default durations for each animation
 - **Loader** - `inline loader` now has a `centered` variation
+- **Modal** - Modal no longer hides and reshows dimmer when opening a modal with another modal open with `exclusive: true`
+- **Popup** - Added `exclusive` parameter to automatically close other popups on open
 - **Transition** - Added `toggle` behavior and docs for `show` and `hide`
 - **Transition** - transition now has `stop`, `stop all`, and `clear queue` for removing transitions, (undocumented method `stop`, and `start` renamed to `enable` and `disable`)
+- **Dimmer** - Add `opacity` setting to override css value. Add to docs several undocumented settings, like `useCSS`, and `variation`.
+- **Icon** - added `@src` variable to make it adjustable with themes that dont support all types like `woff2`
+
+**Deprecations**
+- **Menu** - `ui tiered menu` has been deprecated. It has been removed from the docs, and will be removed eventually in `2.0`
 
 **Bugs**
 - **Input** - Fix bug with vertical centering of `ui action input` inside `menu` due to `flexbox` changes
 - **Dropdown** - Fixes issue where dropdown would not open after restoring previus value on failed `search dropdown` search
+- **Icon** - Fix `clockwise rotated icon` causing `clockwise` icon to appear
+- **Popup** - Fix issue with `popup` not re-opening until another element gains focus on a mobile touchscreen
+- **Modal** - Fixed issue with modal not appearing when calling `show` during another modal `hide`
+- **Popup** - Popup will now fire `onHidden` when an element is hidden by opening a different popup
+- **Popup** - Fix popup not namespacing `window` events and unbinding on `destroy` **Thanks @revov**
 - **Transition** - Fixes `swing out` animations not working correctly
 - **Transition** - Fixed display state other than `block` not determined when using `show` and `hide` without an animation
 - **Transition** - Fix bug in `remove looping` causing next animation to use same duration
@@ -25,6 +38,19 @@
 **Docs**
 - **Transition** - Adds examples of `hide, `show`, `toggle`, `stop`, `stop all`, and `clear queue`
 - **Item** - Significant rewrite of `ui item` documentation
+
+### Version 1.10.4 - February 28, 2015
+
+- **API** - Remove console error message when no API url is specified but element is a `form` (defaults to `form` action)
+- **API** - `api` check for [serialize object](https://github.com/macek/jquery-serialize-object) optional dependency no longer produces error when `serializeForm: true` and dependency is not found.
+
+### Version 1.10.3 - February 27, 2015
+
+**Bugs**
+- **Build Tools** - All UI components now have component name in comment banners and release version
+- **Menu** - Fixes dropdown menu item not having a hover state inside inverted menu
+- **Search** - Fixes bug in category search causing item selection to sometimes produce a javascript error.
+- **Button** - Fixes `<button>` inside `vertical buttons` not taking full container width
 
 ### Version 1.10.1-2 - February 24, 2015
 

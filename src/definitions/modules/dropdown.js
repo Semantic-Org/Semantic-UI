@@ -1,9 +1,9 @@
-/*
- * # Semantic - Dropdown
+/*!
+ * # Semantic UI - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -141,9 +141,9 @@ $.fn.dropdown = function(parameters) {
 
         create: {
           id: function() {
-            module.verbose('Creating unique id for element');
-            id = module.get.uniqueID();
+            id = (Math.random().toString(16) + '000000000').substr(2,8);
             elementNamespace = '.' + id;
+            module.verbose('Creating unique id for element', id);
           }
         },
 
@@ -823,6 +823,9 @@ $.fn.dropdown = function(parameters) {
         },
 
         get: {
+          id: function() {
+            return id;
+          },
           text: function() {
             return $text.text();
           },
@@ -970,9 +973,6 @@ $.fn.dropdown = function(parameters) {
               value = module.get.text();
             }
             return $selectedItem || false;
-          },
-          uniqueID: function() {
-            return (Math.random().toString(16) + '000000000').substr(2,8);
           }
         },
 

@@ -305,29 +305,6 @@
   opacity: @activeIconOpacity;
 }
 
-/* Vertical Active */
-.ui.vertical.menu .active.item {
-  background: @activeBackground;
-  border-radius: 0em;
-  box-shadow: @activeVerticalBoxShadow;
-}
-.ui.vertical.menu > .active.item:first-child {
-  border-radius: 0em @borderRadius 0em 0em;
-}
-.ui.vertical.menu > .active.item:last-child {
-  border-radius: 0em 0em @borderRadius 0em;
-}
-.ui.vertical.menu > .active.item:only-child {
-  border-radius: 0em @borderRadius @borderRadius 0em;
-}
-.ui.vertical.menu .active.item .menu .active.item {
-  border-left: none;
-}
-.ui.vertical.menu .item .menu .active.item {
-  background-color: @subMenuActiveBackground;
-  box-shadow: none;
-}
-
 
 /*--------------
   Active Hover
@@ -372,13 +349,9 @@
 }
 
 /* Floated Borders */
-.ui.menu > .right.menu:first-child:before {
+.ui.menu > .right.menu:first-child:before,
+.ui.menu > .right.menu:last-child:before {
   display: none;
-}
-.ui.menu .menu.right .item:before,
-.ui.menu .item.right:before {
-  right: auto;
-  left: 0px;
 }
 
 
@@ -475,6 +448,29 @@
 }
 .ui.vertical.menu .item > .menu > .item:before {
   display: none;
+}
+
+/* Vertical Active */
+.ui.vertical.menu .active.item {
+  background: @activeBackground;
+  border-radius: 0em;
+  box-shadow: @verticalActiveBoxShadow;
+}
+.ui.vertical.menu > .active.item:first-child {
+  border-radius: 0em @borderRadius 0em 0em;
+}
+.ui.vertical.menu > .active.item:last-child {
+  border-radius: 0em 0em @borderRadius 0em;
+}
+.ui.vertical.menu > .active.item:only-child {
+  border-radius: 0em @borderRadius @borderRadius 0em;
+}
+.ui.vertical.menu .active.item .menu .active.item {
+  border-left: none;
+}
+.ui.vertical.menu .item .menu .active.item {
+  background-color: @subMenuActiveBackground;
+  box-shadow: none;
 }
 
 
@@ -909,46 +905,36 @@
 ---------------*/
 
 .ui.text.menu {
-  display: inline-flex;
   background: none transparent;
-
-  margin: 1em -1em;
   border-radius: 0px;
-
   box-shadow: none;
-}
-.ui.vertical.text.menu {
-  display: inline-block;
-}
-.ui.text.menu > .item {
-  opacity: 0.8;
 
-  margin: 0em 1em;
+  margin: @textMenuMargin;
+}
+.ui.text.menu > .item,
+.ui.text.menu .menu > .item {
   padding: 0em;
-  height: auto !important;
-
   border-radius: 0px;
-
   box-shadow: none;
+  opacity: @textMenuItemOpacity;
+  margin: @textMenuItemMargin;
   transition: @textMenuTransition;
 }
-.ui.text.menu > .item:before {
+.ui.text.menu > .item:before,
+.ui.text.menu .menu > .item:before {
   display: none !important;
 }
 .ui.text.menu .header.item {
   background-color: transparent;
-
-  opacity: 1;
-  color: rgba(50, 50, 50, 0.8);
-  font-size: 0.875rem;
   padding: 0em;
-  text-transform: uppercase;
-  font-weight: bold;
+  opacity: 1;
+  color: @textMenuHeaderColor;
+  font-size: @textMenuHeaderSize;
+  text-transform: @textMenuHeaderTextTransform;
+  font-weight: @textMenuHeaderFontWeight;
 }
 .ui.text.menu .text.item {
   opacity: 1;
-  color: rgba(50, 50, 50, 0.8);
-  font-weight: bold;
 }
 
 /*--- fluid text ---*/
@@ -958,7 +944,7 @@
 
 /*--- vertical text ---*/
 .ui.vertical.text.menu {
-  margin: 1em 0em;
+  margin: @textVerticalMenuMargin;
 }
 .ui.vertical.text.menu:first-child {
   margin-top: 0rem;
@@ -967,16 +953,14 @@
   margin-bottom: 0rem;
 }
 .ui.vertical.text.menu .item {
-  float: left;
-  clear: left;
-  margin: 0.5em 0em;
+  margin: @textVerticalMenuItemMargin;
 }
 .ui.vertical.text.menu .item > i.icon {
-  float: none;
-  margin: 0em @itemVerticalPadding 0em 0em;
+  float: @textVerticalMenuIconFloat;
+  margin: @iconMargin;
 }
 .ui.vertical.text.menu .header.item {
-  margin: 0.8em 0em;
+  margin: @textVerticalMenuHeaderMargin;
 }
 
 /*--- hover ---*/

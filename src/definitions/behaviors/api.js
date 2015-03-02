@@ -1,15 +1,17 @@
-/*
- * # Semantic - API
+/*!
+ * # Semantic UI - API
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
  */
 
 ;(function ( $, window, document, undefined ) {
+
+"use strict";
 
 $.api = $.fn.api = function(parameters) {
 
@@ -160,9 +162,9 @@ $.api = $.fn.api = function(parameters) {
 
           // exit conditions reached, missing url parameters
           if( !url ) {
-            if($module.is('form')) {
-              module.debug('No url or action specified, defaulting to form action');
-              url = $module.attr('action');
+            if( module.is.form() ) {
+              url = $module.attr('action') || '';
+              module.debug('No url or action specified, defaulting to form action', url);
             }
             else {
               module.error(error.missingURL, settings.action);
@@ -209,6 +211,12 @@ $.api = $.fn.api = function(parameters) {
         is: {
           disabled: function() {
             return ($module.filter(settings.filter).length > 0);
+          },
+          form: function() {
+            return $module.is('form');
+          },
+          input: function() {
+            return $module.is('input');
           },
           loading: function() {
             return (module.request && module.request.state() == 'pending');
@@ -506,10 +514,10 @@ $.api = $.fn.api = function(parameters) {
               data = {}
             ;
             if( !$.isWindow(element) ) {
-              if( $module.is('input') ) {
+              if( module.is.input() ) {
                 data.value = $module.val();
               }
-              else if( $module.is('form') ) {
+              else if( !module.is.form() ) {
 
               }
               else {
@@ -547,7 +555,7 @@ $.api = $.fn.api = function(parameters) {
             var
               formData
             ;
-            if($(this).serializeObject() !== undefined) {
+            if($module.serializeObject !== undefined) {
               formData = $form.serializeObject();
             }
             else {
@@ -568,7 +576,7 @@ $.api = $.fn.api = function(parameters) {
                 url = settings.api[action];
                 module.debug('Found template url', url);
               }
-              else {
+              else if( !module.is.form() ) {
                 module.error(error.missingAction, settings.action, settings.api);
               }
             }

@@ -160,8 +160,7 @@
 @activePointerSize: 0px;
 @activeFontWeight: normal;
 @activeIconOpacity: 1;
-@activeBoxShadow: 0em @activePointerSize 0em inset;
-@activeVerticalBoxShadow: @verticalActivePointerSize 0em 0em inset;
+@activeBoxShadow: none;
 
 @activeHoverBackground: @hoverBackground;
 @subMenuActiveBackground: transparent;
@@ -184,7 +183,9 @@
   rgba(0, 0, 0, 0.1) 1.5em,
   rgba(0, 0, 0, 0.03) 100%)
 ;
+
 @verticalActivePointerSize: 2px;
+@verticalActiveBoxShadow: @verticalActivePointerSize 0em 0em inset;
 
 
 /* Secondary */
@@ -269,7 +270,24 @@
 @labeledIconTextMargin: 0.5em;
 
 /* Text */
-@textMenuTransition: opacity 0.2s ease;
+@textMenuItemSpacing: 1em;
+@textMenuItemOpacity: 0.8;
+@textMenuItemMargin: 0em @textMenuItemSpacing;
+
+@textMenuMargin: 1em -@textMenuItemSpacing;
+@textMenuTransition: opacity @transitionDuration @transitionEasing;
+
+@textMenuHeaderSize: @relativeSmall;
+@textMenuHeaderColor: @darkTextColor;
+@textMenuHeaderFontWeight: bold;
+@textMenuHeaderTextTransform: uppercase;
+
+@textVerticalMenuMargin: 1em 0em;
+@textVerticalMenuHeaderMargin: 1.25em 0em;
+@textVerticalMenuItemMargin: @textMenuItemSpacing 0em;
+
+@textVerticalMenuIconFloat: none;
+@textVerticalMenuIconMargin: @iconMargin;
 
 /*--------------
    Variations
