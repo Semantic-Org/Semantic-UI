@@ -363,7 +363,6 @@ $.fn.search = function(parameters) {
             module.debug('Reading result for ' + searchTerm + ' from cache');
             module.save.results(cache.results);
             module.addResults(cache.html);
-
           }
           else {
             module.debug('Querying for ' + searchTerm);

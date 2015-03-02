@@ -26,6 +26,8 @@
 - **Transition** - Fixes `swing out` animations not working correctly
 - **Transition** - Fixed display state other than `block` not determined when using `show` and `hide` without an animation
 - **Transition** - Fix bug in `remove looping` causing next animation to use same duration
+- **Search** - Fix a bug with `onSelect` returning `null` when `minCharacters: 0`
+- **Search** - Fix a bug with `onSelect returning `null` when results retrieved from cached API query
 - **Menu** - Fix vertical pointing menu, sub menu arrow color
 - **Item ** - `img` inside of `ui item content` now do not receive size formatting by default
 - **Form** - Added `input[type="search"]` styles to `ui form`
