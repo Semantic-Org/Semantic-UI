@@ -9,6 +9,7 @@
 - **Form** - `<select>` now receive error formatting on `form error` **Thanks @davialexandre**
 - **Transition** - Added more reasonable default durations for each animation
 - **Loader** - `inline loader` now has a `centered` variation
+- **Popup** - Added `exclusive` parameter to automatically close other popups on open
 - **Transition** - Added `toggle` behavior and docs for `show` and `hide`
 - **Transition** - transition now has `stop`, `stop all`, and `clear queue` for removing transitions, (undocumented method `stop`, and `start` renamed to `enable` and `disable`)
 - **Dimmer** - Add `opacity` setting to override css value. Add to docs several undocumented settings, like `useCSS`, and `variation`.
@@ -16,7 +17,9 @@
 
 **Bugs**
 - **Dropdown** - Fixes issue where dropdown would not open after restoring previus value on failed `search dropdown` search
+- **Icon** - Fix `clockwise rotated icon` causing `clockwise` icon to appear
 - **Popup** - Fix issue with `popup` not re-opening until another element gains focus on a mobile touchscreen
+- **Popup** - Popup will now fire `onHidden` when an element is hidden by opening a different popup
 - **Popup** - Fix popup not namespacing `window` events and unbinding on `destroy` **Thanks @revov**
 - **Transition** - Fixes `swing out` animations not working correctly
 - **Transition** - Fixed display state other than `block` not determined when using `show` and `hide` without an animation

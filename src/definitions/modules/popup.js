@@ -199,6 +199,7 @@ $.fn.popup = function(parameters) {
             $popup = $('<div/>')
               .addClass(className.popup)
               .addClass(variation)
+              .data(metadata.activator, $module)
               .html(html)
             ;
             if(variation) {
@@ -227,13 +228,14 @@ $.fn.popup = function(parameters) {
           else if($target.next(selector.popup).length !== 0) {
             module.verbose('Pre-existing popup found');
             settings.inline = true;
-            settings.popup  = $target.next(selector.popup);
+            settings.popup  = $target.next(selector.popup).data(metadata.activator, $module);
             module.refresh();
             if(settings.hoverable) {
               module.bind.popup();
             }
           }
           else if(settings.popup) {
+            settings.popup.data(metadata.activator, $module);
             module.verbose('Used popup specified in settings');
             module.refresh();
             if(settings.hoverable) {
@@ -257,7 +259,6 @@ $.fn.popup = function(parameters) {
           if( module.is.hidden() ) {
             module.debug('Popup is hidden, showing pop-up');
             module.unbind.close();
-            module.hideAll();
             module.show();
           }
           else {
@@ -277,6 +278,9 @@ $.fn.popup = function(parameters) {
           }
           if( $popup && module.set.position() ) {
             module.save.conditions();
+            if(settings.exclusive) {
+              module.hideAll();
+            }
             module.animate.show(callback);
           }
         },
@@ -294,8 +298,13 @@ $.fn.popup = function(parameters) {
 
         hideAll: function() {
           $(selector.popup)
-            .filter(':visible')
-              .transition(settings.transition)
+            .filter('.' + className.visible)
+            .each(function() {
+              $(this)
+                .data(metadata.activator)
+                .popup('hide')
+              ;
+            })
           ;
         },
 
@@ -1100,6 +1109,7 @@ $.fn.popup.settings = {
   on           : 'hover',
   closable     : true,
   hideOnScroll : 'auto',
+  exclusive    : true,
 
   context      : 'body',
 
@@ -1109,7 +1119,7 @@ $.fn.popup.settings = {
 
   delay        : {
     show : 30,
-    hide : 0
+    hide : 1000
   },
 
   setFluidWidth  : true,
@@ -1136,6 +1146,7 @@ $.fn.popup.settings = {
   },
 
   metadata: {
+    activator : 'activator',
     content   : 'content',
     html      : 'html',
     offset    : 'offset',
