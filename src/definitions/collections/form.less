@@ -121,7 +121,7 @@
   margin: 0em;
   outline: none;
   -webkit-appearance: none;
-  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+  tap-highlight-color:  rgba(255, 255, 255, 0);
 
   line-height: @inputLineHeight;
   padding: @inputPadding;
@@ -140,7 +140,7 @@
 .ui.form textarea {
   margin: 0em;
   -webkit-appearance: none;
-  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+  tap-highlight-color:  rgba(255, 255, 255, 0);
 
   padding: @textAreaPadding;
   font-size: @textAreaFontSize;
@@ -263,13 +263,13 @@
 ---------------------*/
 
 /* browsers require these rules separate */
-.ui.form ::-webkit-input-placeholder {
+.ui.form ::input-placeholder {
   color: @inputPlaceholderColor;
 }
 .ui.form ::-moz-placeholder {
   color: @inputPlaceholderColor;
 }
-.ui.form :focus::-webkit-input-placeholder {
+.ui.form :focus::input-placeholder {
   color: @inputPlaceholderFocusColor;
 }
 .ui.form :focus::-moz-placeholder {
@@ -277,13 +277,13 @@
 }
 
 /* Error Placeholder */
-.ui.form .error ::-webkit-input-placeholder {
+.ui.form .error ::input-placeholder {
   color: @inputErrorPlaceholderColor;
 }
 .ui.form .error ::-moz-placeholder {
   color: @inputErrorPlaceholderColor;
 }
-.ui.form .error :focus::-webkit-input-placeholder {
+.ui.form .error :focus::input-placeholder {
   color: @inputErrorPlaceholderFocusColor;
 }
 .ui.form .error :focus::-moz-placeholder {
@@ -414,7 +414,8 @@
   box-shadow: @inputErrorFocusBoxShadow;
 }
 
-.ui.form .field.error select:focus { 
+/* Preserve Native Select Stylings */
+.ui.form .field.error select {
   -webkit-appearance: menulist-button;
 }
 
