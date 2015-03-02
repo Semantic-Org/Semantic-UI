@@ -68,6 +68,7 @@ $.fn.search = function(parameters) {
           if(settings.automatic) {
             $prompt
               .on(inputEvent + eventNamespace, module.throttle)
+              .attr('autocomplete', 'off')
             ;
           }
           $prompt
@@ -356,11 +357,13 @@ $.fn.search = function(parameters) {
         query: function() {
           var
             searchTerm = module.get.value(),
-            cachedHTML = module.read.cachedHTML(searchTerm)
+            cache = module.read.cache(searchTerm)
           ;
-          if(cachedHTML) {
+          if(cache) {
             module.debug('Reading result for ' + searchTerm + ' from cache');
-            module.addResults(cachedHTML);
+            module.save.results(cache.results);
+            module.addResults(cache.html);
+
           }
           else {
             module.debug('Querying for ' + searchTerm);
@@ -375,6 +378,9 @@ $.fn.search = function(parameters) {
               else if($.api.settings.api.search !== undefined) {
                 module.debug('Searching with default search API endpoint');
                 module.search.remote(searchTerm);
+              }
+              else {
+                module.error(error.noEndpoint);
               }
             }
             else {
@@ -398,7 +404,10 @@ $.fn.search = function(parameters) {
               results: searchResults
             });
             module.remove.loading();
-            module.write.cachedHTML(searchTerm, searchHTML);
+            module.write.cache(searchTerm, {
+              html    : searchHTML,
+              results : searchResults
+            });
             module.addResults(searchHTML);
           },
           remote: function(searchTerm) {
@@ -470,13 +479,14 @@ $.fn.search = function(parameters) {
             ;
             module.verbose('Parsing server response', response);
             if(response !== undefined) {
-              if(searchTerm) {
-                module.write.cachedHTML(searchTerm, searchHTML);
-                if(response.results !== undefined) {
-                  module.save.results(response.results);
-                }
+              if(searchTerm !== undefined && response.results !== undefined) {
+                module.write.cache(searchTerm, {
+                  html    : searchHTML,
+                  results : response.results
+                });
+                module.save.results(response.results);
+                module.addResults(searchHTML);
               }
-              module.addResults(searchHTML);
             }
           }
         },
@@ -510,7 +520,7 @@ $.fn.search = function(parameters) {
         },
 
         read: {
-          cachedHTML: function(name) {
+          cache: function(name) {
             var
               cache = $module.data(metadata.cache)
             ;
@@ -533,7 +543,7 @@ $.fn.search = function(parameters) {
         },
 
         write: {
-          cachedHTML: function(name, value) {
+          cache: function(name, value) {
             var
               cache = ($module.data(metadata.cache) !== undefined)
                 ? $module.data(metadata.cache)
@@ -878,6 +888,7 @@ $.fn.search.settings = {
     source      : 'Cannot search. No source used, and Semantic API module was not included',
     noResults   : 'Your search returned no results',
     logging     : 'Error in debug logging, exiting.',
+    noEndpoint  : 'No search endpoint was specified',
     noTemplate  : 'A valid template name was not specified.',
     serverError : 'There was an issue with querying the server.',
     maxResults  : 'Results must be an array to use maxResults setting',
