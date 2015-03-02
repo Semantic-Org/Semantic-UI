@@ -11,6 +11,7 @@
 - **Transition** - Added `toggle` behavior and docs for `show` and `hide`
 - **Transition** - transition now has `stop`, `stop all`, and `clear queue` for removing transitions, (undocumented method `stop`, and `start` renamed to `enable` and `disable`)
 - **Dimmer** - Add `opacity` setting to override css value. Add to docs several undocumented settings, like `useCSS`, and `variation`.
+- **Icon** - added `@src` variable to make it adjustable with themes that dont support all types like `woff2`
 
 **Bugs**
 - **Dropdown** - Fixes issue where dropdown would not open after restoring previus value on failed `search dropdown` search
