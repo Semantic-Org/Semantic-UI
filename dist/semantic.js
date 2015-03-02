@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.10.3
+ * # Semantic UI - 1.10.4
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -9,7 +9,7 @@
  *
  */
 /*!
- * # Semantic UI 1.10.3 - Site
+ * # Semantic UI 1.10.4 - Site
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -496,7 +496,7 @@ $.extend($.expr[ ":" ], {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 1.10.3 - Form Validation
+ * # Semantic UI 1.10.4 - Form Validation
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -1615,7 +1615,7 @@ $.fn.form.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.10.3 - Accordion
+ * # Semantic UI 1.10.4 - Accordion
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -2174,7 +2174,7 @@ $.extend( $.easing, {
 
 
 /*!
- * # Semantic UI 1.10.3 - Checkbox
+ * # Semantic UI 1.10.4 - Checkbox
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -2684,7 +2684,7 @@ $.fn.checkbox.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.10.3 - Dimmer
+ * # Semantic UI 1.10.4 - Dimmer
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -3315,7 +3315,7 @@ $.fn.dimmer.settings = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 1.10.3 - Dropdown
+ * # Semantic UI 1.10.4 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -5098,7 +5098,7 @@ $.extend( $.easing, {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.10.3 - Modal
+ * # Semantic UI 1.10.4 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -5955,7 +5955,7 @@ $.fn.modal.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.10.3 - Nag
+ * # Semantic UI 1.10.4 - Nag
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -6433,7 +6433,7 @@ $.fn.nag.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.10.3 - Popup
+ * # Semantic UI 1.10.4 - Popup
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -7621,7 +7621,7 @@ $.extend( $.easing, {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.10.3 - Progress
+ * # Semantic UI 1.10.4 - Progress
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -8406,7 +8406,7 @@ $.fn.progress.settings = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 1.10.3 - Rating
+ * # Semantic UI 1.10.4 - Rating
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -8858,7 +8858,7 @@ $.fn.rating.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.10.3 - Search
+ * # Semantic UI 1.10.4 - Search
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -9917,7 +9917,7 @@ $.fn.search.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.10.3 - Shape
+ * # Semantic UI 1.10.4 - Shape
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -10747,7 +10747,7 @@ $.fn.shape.settings = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 1.10.3 - Sidebar
+ * # Semantic UI 1.10.4 - Sidebar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -11840,7 +11840,7 @@ $.extend( $.easing, {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.10.3 - Sticky
+ * # Semantic UI 1.10.4 - Sticky
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -12617,7 +12617,7 @@ $.fn.sticky.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.10.3 - Tab
+ * # Semantic UI 1.10.4 - Tab
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -13419,7 +13419,7 @@ $.fn.tab.settings = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 1.10.3 - Transition
+ * # Semantic UI 1.10.4 - Transition
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -14421,7 +14421,7 @@ $.fn.transition.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.10.3 - Video
+ * # Semantic UI 1.10.4 - Video
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -14962,7 +14962,7 @@ $.fn.video.settings.templates = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.10.3 - API
+ * # Semantic UI 1.10.4 - API
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -15125,9 +15125,9 @@ $.api = $.fn.api = function(parameters) {
 
           // exit conditions reached, missing url parameters
           if( !url ) {
-            if($module.is('form')) {
-              module.debug('No url or action specified, defaulting to form action');
-              url = $module.attr('action');
+            if( module.is.form() ) {
+              url = $module.attr('action') || '';
+              module.debug('No url or action specified, defaulting to form action', url);
             }
             else {
               module.error(error.missingURL, settings.action);
@@ -15174,6 +15174,12 @@ $.api = $.fn.api = function(parameters) {
         is: {
           disabled: function() {
             return ($module.filter(settings.filter).length > 0);
+          },
+          form: function() {
+            return $module.is('form');
+          },
+          input: function() {
+            return $module.is('input');
           },
           loading: function() {
             return (module.request && module.request.state() == 'pending');
@@ -15471,10 +15477,10 @@ $.api = $.fn.api = function(parameters) {
               data = {}
             ;
             if( !$.isWindow(element) ) {
-              if( $module.is('input') ) {
+              if( module.is.input() ) {
                 data.value = $module.val();
               }
-              else if( $module.is('form') ) {
+              else if( !module.is.form() ) {
 
               }
               else {
@@ -15512,7 +15518,7 @@ $.api = $.fn.api = function(parameters) {
             var
               formData
             ;
-            if($(this).serializeObject() !== undefined) {
+            if($module.serializeObject !== undefined) {
               formData = $form.serializeObject();
             }
             else {
@@ -15533,7 +15539,7 @@ $.api = $.fn.api = function(parameters) {
                 url = settings.api[action];
                 module.debug('Found template url', url);
               }
-              else {
+              else if( !module.is.form() ) {
                 module.error(error.missingAction, settings.action, settings.api);
               }
             }
@@ -15827,7 +15833,7 @@ $.api.settings.api = {};
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 1.10.3 - Form Validation
+ * # Semantic UI 1.10.4 - Form Validation
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -16946,7 +16952,7 @@ $.fn.form.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.10.3 - State
+ * # Semantic UI 1.10.4 - State
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -17642,7 +17648,7 @@ $.fn.state.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.10.3 - Visibility
+ * # Semantic UI 1.10.4 - Visibility
  * http://github.com/semantic-org/semantic-ui/
  *
  *

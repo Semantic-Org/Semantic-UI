@@ -1,5 +1,6 @@
 ## RELEASE NOTES
 
+<<<<<<< HEAD
 ### Version 1.11.0 - February xx, 2015
 
 **New Components**
@@ -23,6 +24,12 @@
 **Docs**
 - **Transition** - Adds examples of `hide, `show`, `toggle`, `stop`, `stop all`, and `clear queue`
 - **Item** - Significant rewrite of `ui item` documentation
+=======
+### Version 1.10.4 - February 28, 2015
+
+- **API** - Remove console error message when no API url is specified but element is a `form` (defaults to `form` action)
+- **API** - `api` check for [serialize object](https://github.com/macek/jquery-serialize-object) optional dependency no longer produces error when `serializeForm: true` and dependency is not found.
+>>>>>>> 698f0710ccfbec0bf1ceaa8421c77f1b9c8186aa
 
 ### Version 1.10.3 - February 27, 2015
 
