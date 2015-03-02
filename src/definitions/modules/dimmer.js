@@ -215,6 +215,9 @@ $.fn.dimmer = function(parameters) {
               : function(){}
             ;
             if(settings.useCSS && $.fn.transition !== undefined && $dimmer.transition('is supported')) {
+              if(settings.opacity !== 'auto') {
+                module.set.opacity();
+              }
               $dimmer
                 .transition({
                   animation   : settings.transition + ' in',
@@ -234,6 +237,9 @@ $.fn.dimmer = function(parameters) {
             else {
               module.verbose('Showing dimmer animation with javascript');
               module.set.dimmed();
+              if(settings.opacity == 'auto') {
+                settings.opacity = 0.8;
+              }
               $dimmer
                 .stop()
                 .css({
@@ -241,7 +247,7 @@ $.fn.dimmer = function(parameters) {
                   width   : '100%',
                   height  : '100%'
                 })
-                .fadeTo(module.get.duration(), 1, function() {
+                .fadeTo(module.get.duration(), settings.opacity, function() {
                   $dimmer.removeAttr('style');
                   module.set.active();
                   callback();
@@ -361,6 +367,24 @@ $.fn.dimmer = function(parameters) {
         },
 
         set: {
+          opacity: function(opacity) {
+            var
+              opacity    = settings.opacity || opacity,
+              color      = $dimmer.css('background-color'),
+              colorArray = color.split(','),
+              isRGBA     = (colorArray && colorArray.length == 4)
+            ;
+            if(isRGBA) {
+              colorArray[3] = opacity + ')';
+              color         = colorArray.join(',');
+            }
+            else {
+              color = 'rgba(0, 0, 0, ' + opacity + ')';
+            }
+            module.debug('Setting opacity to', opacity);
+            console.log(color);
+            $dimmer.css('background-color', color);
+          },
           active: function() {
             $dimmer.addClass(className.active);
           },
@@ -583,13 +607,28 @@ $.fn.dimmer.settings = {
   verbose     : true,
   performance : true,
 
+  // name to distinguish between multiple dimmers in context
   dimmerName  : false,
+
+  // whether to add a variation type
   variation   : false,
+
+  // whether to bind close events
   closable    : 'auto',
-  transition  : 'fade',
+
+  // whether to use css animations
   useCSS      : true,
+
+  // css animation to use
+  transition  : 'fade',
+
+  // event to bind to
   on          : false,
 
+  // overriding opacity value
+  opacity     : 'auto',
+
+  // transition durations
   duration    : {
     show : 500,
     hide : 500
