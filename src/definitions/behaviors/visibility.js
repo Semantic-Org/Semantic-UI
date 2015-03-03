@@ -142,13 +142,11 @@ $.fn.visibility = function(parameters) {
             if(settings.throttle) {
               clearTimeout(module.timer);
               module.timer = setTimeout(function() {
-                settings.onScroll.call(element);
                 module.checkVisibility();
               }, settings.throttle);
             }
             else {
               requestAnimationFrame(function() {
-                settings.onScroll.call(element);
                 module.checkVisibility();
               });
             }
@@ -1020,7 +1018,6 @@ $.fn.visibility.settings = {
   // utility callbacks
   onUpdate               : false, // disabled by default for performance
   onRefresh              : function(){},
-  onScroll               : function(){},
 
   className: {
     fixed: 'fixed'
