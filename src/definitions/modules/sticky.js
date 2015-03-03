@@ -468,7 +468,7 @@ $.fn.sticky = function(parameters) {
           $module
             .css('left' , '')
             .css('top' , '')
-            .css('bottom' , '')
+            .css('margin-bottom' , '')
             .removeClass(className.fixed)
             .removeClass(className.bottom)
             .addClass(className.bound)
@@ -483,7 +483,7 @@ $.fn.sticky = function(parameters) {
           $module
             .css('left' , '')
             .css('top' , '')
-            .css('bottom' , module.cache.context.bottomPadding)
+            .css('margin-bottom' , module.cache.context.bottomPadding)
             .removeClass(className.fixed)
             .removeClass(className.top)
             .addClass(className.bound)
