@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.10.4
+ * # Semantic UI - 1.11.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -10,7 +10,7 @@
  */
 @import 'https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&subset=latin';
 /*!
- * # Semantic UI 1.10.4 - Reset
+ * # Semantic UI 1.11.0 - Reset
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -652,7 +652,7 @@ input::selection {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Button
+ * # Semantic UI 1.11.0 - Button
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -857,6 +857,7 @@ input::selection {
 
 .ui.buttons .disabled.button,
 .ui.disabled.button,
+.ui.button:disabled,
 .ui.disabled.button:hover,
 .ui.disabled.active.button {
   cursor: default;
@@ -3372,7 +3373,7 @@ input::selection {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Divider
+ * # Semantic UI 1.11.0 - Divider
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -3617,7 +3618,7 @@ input::selection {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Flag
+ * # Semantic UI 1.11.0 - Flag
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -4879,7 +4880,7 @@ i.flag.zimbabwe:before {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Header
+ * # Semantic UI 1.11.0 - Header
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -5946,7 +5947,7 @@ i.massive.icon {
 }
 
 /*!
- * # Semantic UI 1.10.4 - Icon
+ * # Semantic UI 1.11.0 - Icon
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -8176,10 +8177,6 @@ i.icon.play.circle.outline:before {
   content: "\f01d";
 }
 
-i.icon.clockwise:before {
-  content: "\f01e";
-}
-
 i.icon.headphone:before {
   content: "\f025";
 }
@@ -8761,7 +8758,7 @@ i.icon.bed:before {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Image
+ * # Semantic UI 1.11.0 - Image
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -8907,6 +8904,7 @@ img.ui.bordered.image {
 .ui.fluid.image img {
   display: block;
   width: 100%;
+  height: auto;
 }
 
 /*--------------
@@ -8965,6 +8963,7 @@ img.ui.bordered.image {
 .ui.mini.images svg,
 .ui.mini.image {
   width: 20px;
+  height: auto;
   font-size: 0.71428571rem;
 }
 
@@ -8973,6 +8972,7 @@ img.ui.bordered.image {
 .ui.tiny.images svg,
 .ui.tiny.image {
   width: 80px;
+  height: auto;
   font-size: 0.85714286rem;
 }
 
@@ -8981,6 +8981,7 @@ img.ui.bordered.image {
 .ui.small.images svg,
 .ui.small.image {
   width: 150px;
+  height: auto;
   font-size: 0.92857143rem;
 }
 
@@ -8989,6 +8990,7 @@ img.ui.bordered.image {
 .ui.medium.images svg,
 .ui.medium.image {
   width: 300px;
+  height: auto;
   font-size: 1rem;
 }
 
@@ -8997,6 +8999,7 @@ img.ui.bordered.image {
 .ui.large.images svg,
 .ui.large.image {
   width: 450px;
+  height: auto;
   font-size: 1.14285714rem;
 }
 
@@ -9005,6 +9008,7 @@ img.ui.bordered.image {
 .ui.big.images svg,
 .ui.big.image {
   width: 600px;
+  height: auto;
   font-size: 1.28571429rem;
 }
 
@@ -9013,6 +9017,7 @@ img.ui.bordered.image {
 .ui.huge.images svg,
 .ui.huge.image {
   width: 800px;
+  height: auto;
   font-size: 1.42857143rem;
 }
 
@@ -9021,6 +9026,7 @@ img.ui.bordered.image {
 .ui.massive.images svg,
 .ui.massive.image {
   width: 960px;
+  height: auto;
   font-size: 1.71428571rem;
 }
 
@@ -9048,7 +9054,7 @@ img.ui.bordered.image {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Input
+ * # Semantic UI 1.11.0 - Input
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -9524,7 +9530,7 @@ img.ui.bordered.image {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Label
+ * # Semantic UI 1.11.0 - Label
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -10579,7 +10585,7 @@ a.ui.yellow.label:hover:before {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - List
+ * # Semantic UI 1.11.0 - List
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -10732,7 +10738,7 @@ ol.ui.list ol,
 .ui.list .list > .item > .icon + .content .ui.list > .item > .image + .content,
 .ui.list > .item > .icon + .content {
   display: table-cell;
-  padding-left: 0.5em;
+  padding: 0em 0em 0em 0.5em;
   vertical-align: middle;
 }
 
@@ -10741,7 +10747,7 @@ ol.ui.list ol,
 .ui.list > .item > .image + .content,
 .ui.list > .item > .icon + .content {
   display: table-cell;
-  padding-left: 0.5em;
+  padding: 0em 0em 0em 0.5em;
   vertical-align: middle;
 }
 
@@ -11570,7 +11576,7 @@ ol.ui.horizontal.list li:before,
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Loader
+ * # Semantic UI 1.11.0 - Loader
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -11873,7 +11879,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Rail
+ * # Semantic UI 1.11.0 - Rail
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -11997,7 +12003,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Reveal
+ * # Semantic UI 1.11.0 - Reveal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -12313,7 +12319,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Segment
+ * # Semantic UI 1.11.0 - Segment
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -12958,6 +12964,18 @@ ol.ui.horizontal.list li:before,
        Groups
 --------------------*/
 
+.ui.segments {
+  margin: 1rem 0em;
+}
+
+.ui.segments:first-child {
+  margin-top: 0em;
+}
+
+.ui.segments:last-child {
+  margin-bottom: 0em;
+}
+
 .ui.segments > .segment {
   top: 0px;
   bottom: 0px;
@@ -12982,7 +13000,6 @@ ol.ui.horizontal.list li:before,
   bottom: 0px;
   margin-bottom: 0em;
   top: 0px;
-  margin-top: 1rem;
   border-radius: 0.2857rem 0.2857rem 0em 0em;
 }
 
@@ -13005,7 +13022,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Step
+ * # Semantic UI 1.11.0 - Step
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -13478,7 +13495,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Breadcrumb
+ * # Semantic UI 1.11.0 - Breadcrumb
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -13609,7 +13626,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Form
+ * # Semantic UI 1.11.0 - Form
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -13697,6 +13714,7 @@ ol.ui.horizontal.list li:before,
 .ui.form input[type="email"],
 .ui.form input[type="number"],
 .ui.form input[type="password"],
+.ui.form input[type="search"],
 .ui.form input[type="tel"],
 .ui.form input[type="time"],
 .ui.form input[type="text"],
@@ -13712,6 +13730,7 @@ ol.ui.horizontal.list li:before,
 .ui.form input[type="email"],
 .ui.form input[type="number"],
 .ui.form input[type="password"],
+.ui.form input[type="search"],
 .ui.form input[type="tel"],
 .ui.form input[type="time"],
 .ui.form input[type="text"],
@@ -13720,7 +13739,7 @@ ol.ui.horizontal.list li:before,
   margin: 0em;
   outline: none;
   -webkit-appearance: none;
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  tap-highlight-color: rgba(255, 255, 255, 0);
   line-height: 1.2142em;
   padding: 0.67861em 1em;
   font-size: 1em;
@@ -13737,7 +13756,7 @@ ol.ui.horizontal.list li:before,
 .ui.form textarea {
   margin: 0em;
   -webkit-appearance: none;
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  tap-highlight-color: rgba(255, 255, 255, 0);
   padding: 0.78571em 1em;
   background: #ffffff;
   border: 1px solid rgba(39, 41, 43, 0.15);
@@ -13905,6 +13924,7 @@ ol.ui.horizontal.list li:before,
 .ui.form input[type="email"]:focus,
 .ui.form input[type="number"]:focus,
 .ui.form input[type="password"]:focus,
+.ui.form input[type="search"]:focus,
 .ui.form input[type="tel"]:focus,
 .ui.form input[type="time"]:focus,
 .ui.form input[type="text"]:focus,
@@ -13971,23 +13991,27 @@ ol.ui.horizontal.list li:before,
 }
 
 .ui.form .fields.error .field textarea,
+.ui.form .fields.error .field select,
 .ui.form .fields.error .field input:not([type]),
 .ui.form .fields.error .field input[type="date"],
 .ui.form .fields.error .field input[type="datetime-local"],
 .ui.form .fields.error .field input[type="email"],
 .ui.form .fields.error .field input[type="number"],
 .ui.form .fields.error .field input[type="password"],
+.ui.form .fields.error .field input[type="search"],
 .ui.form .fields.error .field input[type="tel"],
 .ui.form .fields.error .field input[type="time"],
 .ui.form .fields.error .field input[type="text"],
 .ui.form .fields.error .field input[type="url"],
 .ui.form .field.error textarea,
+.ui.form .field.error select,
 .ui.form .field.error input:not([type]),
 .ui.form .field.error input[type="date"],
 .ui.form .field.error input[type="datetime-local"],
 .ui.form .field.error input[type="email"],
 .ui.form .field.error input[type="number"],
 .ui.form .field.error input[type="password"],
+.ui.form .field.error input[type="search"],
 .ui.form .field.error input[type="tel"],
 .ui.form .field.error input[type="time"],
 .ui.form .field.error input[type="text"],
@@ -14000,12 +14024,14 @@ ol.ui.horizontal.list li:before,
 }
 
 .ui.form .field.error textarea:focus,
+.ui.form .field.error select:focus,
 .ui.form .field.error input:not([type]):focus,
 .ui.form .field.error input[type="date"]:focus,
 .ui.form .field.error input[type="datetime-local"]:focus,
 .ui.form .field.error input[type="email"]:focus,
 .ui.form .field.error input[type="number"]:focus,
 .ui.form .field.error input[type="password"]:focus,
+.ui.form .field.error input[type="search"]:focus,
 .ui.form .field.error input[type="tel"]:focus,
 .ui.form .field.error input[type="time"]:focus,
 .ui.form .field.error input[type="text"]:focus,
@@ -14015,6 +14041,12 @@ ol.ui.horizontal.list li:before,
   color: #dc6868;
   -webkit-appearance: none;
   box-shadow: 2px 0em 0em 0em #dc6868 inset;
+}
+
+/* Preserve Native Select Stylings */
+
+.ui.form .field.error select {
+  -webkit-appearance: menulist-button;
 }
 
 /*------------------
@@ -14562,7 +14594,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Grid
+ * # Semantic UI 1.11.0 - Grid
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -16026,7 +16058,7 @@ ol.ui.horizontal.list li:before,
 -----------------------*/
 
 .ui.grid > .white.row,
-.ui.grid .white.column {
+.ui.grid > .row > .white.column {
   background-color: #ffffff !important;
   color: rgba(0, 0, 0, 0.8);
 }
@@ -16039,7 +16071,7 @@ ol.ui.horizontal.list li:before,
 }
 
 .ui.grid > .black.row,
-.ui.grid .black.column {
+.ui.grid > .row > .black.column {
   background-color: #1b1c1d !important;
   color: #ffffff;
 }
@@ -16052,7 +16084,7 @@ ol.ui.horizontal.list li:before,
 }
 
 .ui.grid > .blue.row,
-.ui.grid .blue.column {
+.ui.grid > .row > .blue.column {
   background-color: #3b83c0 !important;
   color: #ffffff;
 }
@@ -16065,7 +16097,7 @@ ol.ui.horizontal.list li:before,
 }
 
 .ui.grid > .green.row,
-.ui.grid .green.column {
+.ui.grid > .row > .green.column {
   background-color: #5bbd72 !important;
   color: #ffffff;
 }
@@ -16078,7 +16110,7 @@ ol.ui.horizontal.list li:before,
 }
 
 .ui.grid > .orange.row,
-.ui.grid .orange.column {
+.ui.grid > .row > .orange.column {
   background-color: #e07b53 !important;
   color: #ffffff;
 }
@@ -16104,7 +16136,7 @@ ol.ui.horizontal.list li:before,
 }
 
 .ui.grid > .purple.row,
-.ui.grid .purple.column {
+.ui.grid > .row > .purple.column {
   background-color: #564f8a !important;
   color: #ffffff;
 }
@@ -16117,7 +16149,7 @@ ol.ui.horizontal.list li:before,
 }
 
 .ui.grid > .red.row,
-.ui.grid .red.column {
+.ui.grid > .row > .red.column {
   background-color: #d95c5c !important;
   color: #ffffff;
 }
@@ -16130,7 +16162,7 @@ ol.ui.horizontal.list li:before,
 }
 
 .ui.grid > .teal.row,
-.ui.grid .teal.column {
+.ui.grid > .row > .teal.column {
   background-color: #00b5ad !important;
   color: #ffffff;
 }
@@ -16143,7 +16175,7 @@ ol.ui.horizontal.list li:before,
 }
 
 .ui.grid > .yellow.row,
-.ui.grid .yellow.column {
+.ui.grid > .row > .yellow.column {
   background-color: #f2c61f !important;
   color: #ffffff;
 }
@@ -16646,7 +16678,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Menu
+ * # Semantic UI 1.11.0 - Menu
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -17780,14 +17812,14 @@ ol.ui.horizontal.list li:before,
 .ui.icon.menu > .item {
   height: auto;
   text-align: center;
-  color: rgba(60, 60, 60, 0.7);
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .ui.icon.menu > .item > .icon {
   display: block;
   float: none !important;
-  opacity: 1;
   margin: 0em auto !important;
+  opacity: 1;
 }
 
 .ui.icon.menu .icon:before {
@@ -18373,6 +18405,10 @@ ol.ui.horizontal.list li:before,
   background-color: #f7f7f7;
 }
 
+.ui.vertical.pointing.menu .menu .active.item:after {
+  background-color: #ffffff;
+}
+
 /*--------------
     Attached
 ---------------*/
@@ -18442,7 +18478,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Message
+ * # Semantic UI 1.11.0 - Message
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -18918,7 +18954,7 @@ ol.ui.horizontal.list li:before,
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Table
+ * # Semantic UI 1.11.0 - Table
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -19082,12 +19118,15 @@ ol.ui.horizontal.list li:before,
 /* Responsive */
 
 @media only screen and (max-width: 767px) {
-  .ui.table:not(.unstackable),
+  .ui.table:not(.unstackable) {
+    width: 100%;
+  }
+
   .ui.table:not(.unstackable) tbody,
   .ui.table:not(.unstackable) tr,
   .ui.table:not(.unstackable) tr > th,
   .ui.table:not(.unstackable) tr > td {
-    width: 100% !important;
+    width: auto !important;
     display: block !important;
   }
 
@@ -20057,7 +20096,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Ad
+ * # Semantic UI 1.11.0 - Ad
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -20347,7 +20386,7 @@ ol.ui.horizontal.list li:before,
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Item
+ * # Semantic UI 1.11.0 - Item
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -21352,7 +21391,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Comment
+ * # Semantic UI 1.11.0 - Comment
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -21622,7 +21661,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Feed
+ * # Semantic UI 1.11.0 - Feed
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -21917,7 +21956,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Item
+ * # Semantic UI 1.11.0 - Item
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -22055,7 +22094,7 @@ a.ui.card:hover,
 }
 
 .ui.items > .item > .content > .header {
-  display: inline-block;
+  display: block;
   margin: -0.165em 0em 0em;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: bold;
@@ -22085,15 +22124,14 @@ a.ui.card:hover,
 ---------------*/
 
 .ui.items > .item .content img {
-  display: inline-block;
   vertical-align: middle;
-  width: 2em;
+  width: '';
 }
 
 .ui.items > .item img.avatar,
 .ui.items > .item .avatar img {
-  width: 2em;
-  height: 2em;
+  width: '';
+  height: '';
   border-radius: 500rem;
 }
 
@@ -22201,7 +22239,7 @@ a.ui.card:hover,
 }
 
 .ui.items > .item > .content .active.favorite.icon {
-  color: #ffb70a;
+  color: #ffe623;
 }
 
 /*-----Like----- */
@@ -22409,7 +22447,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Statistic
+ * # Semantic UI 1.11.0 - Statistic
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -22856,7 +22894,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Accordion
+ * # Semantic UI 1.11.0 - Accordion
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -23122,7 +23160,7 @@ a.ui.card:hover,
         User Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Checkbox
+ * # Semantic UI 1.11.0 - Checkbox
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -23652,7 +23690,7 @@ a.ui.card:hover,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Dimmer
+ * # Semantic UI 1.11.0 - Dimmer
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -23844,7 +23882,7 @@ body.dimmed.dimmable > :not(.dimmer) {
         User Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Dropdown
+ * # Semantic UI 1.11.0 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -24241,6 +24279,15 @@ select.ui.dropdown {
 .ui.selection.dropdown .menu:after,
 .ui.selection.dropdown .menu:before {
   display: none;
+}
+
+/* Scrollbar in IE */
+
+@media all and (-ms-high-contrast: none) {
+  .ui.selection.dropdown .menu {
+    min-width: -webkit-calc(85%);
+    min-width: calc(85%);
+  }
 }
 
 @media only screen and (max-width: 767px) {
@@ -25031,7 +25078,7 @@ select.ui.dropdown {
         User Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Modal
+ * # Semantic UI 1.11.0 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -25499,7 +25546,7 @@ select.ui.dropdown {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Nag
+ * # Semantic UI 1.11.0 - Nag
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -25645,7 +25692,7 @@ a.ui.nag {
         User Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Popup
+ * # Semantic UI 1.11.0 - Popup
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -25947,7 +25994,7 @@ a.ui.nag {
         User Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Progress Bar
+ * # Semantic UI 1.11.0 - Progress Bar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -26467,7 +26514,7 @@ a.ui.nag {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Rating
+ * # Semantic UI 1.11.0 - Rating
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -26736,7 +26783,7 @@ a.ui.nag {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Search
+ * # Semantic UI 1.11.0 - Search
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -27078,7 +27125,7 @@ a.ui.nag {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Shape
+ * # Semantic UI 1.11.0 - Shape
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -27235,7 +27282,7 @@ a.ui.nag {
         User Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Sidebar
+ * # Semantic UI 1.11.0 - Sidebar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -27919,7 +27966,7 @@ html.ios {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Sticky
+ * # Semantic UI 1.11.0 - Sticky
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -27994,7 +28041,7 @@ html.ios {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Tab
+ * # Semantic UI 1.11.0 - Tab
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -28082,7 +28129,7 @@ html.ios {
         User Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Table
+ * # Semantic UI 1.11.0 - Table
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -28246,12 +28293,15 @@ html.ios {
 /* Responsive */
 
 @media only screen and (max-width: 767px) {
-  .ui.table:not(.unstackable),
+  .ui.table:not(.unstackable) {
+    width: 100%;
+  }
+
   .ui.table:not(.unstackable) tbody,
   .ui.table:not(.unstackable) tr,
   .ui.table:not(.unstackable) tr > th,
   .ui.table:not(.unstackable) tr > td {
-    width: 100% !important;
+    width: auto !important;
     display: block !important;
   }
 
@@ -29221,7 +29271,7 @@ html.ios {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Transition
+ * # Semantic UI 1.11.0 - Transition
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -29317,6 +29367,11 @@ html.ios {
 /*--------------
      Browse
 ---------------*/
+
+.transition.browse {
+  -webkit-animation-duration: 500ms;
+  animation-duration: 500ms;
+}
 
 .transition.browse.in {
   -webkit-animation-name: browseIn;
@@ -29502,8 +29557,8 @@ html.ios {
   -webkit-transform-origin: top center;
   -ms-transform-origin: top center;
   transform-origin: top center;
-  -webkit-animation-duration: 0.5s;
-  animation-duration: 0.5s;
+  -webkit-animation-duration: 500ms;
+  animation-duration: 500ms;
   -webkit-animation-timing-function: cubic-bezier(0.34, 1.61, 0.7, 1);
   animation-timing-function: cubic-bezier(0.34, 1.61, 0.7, 1);
 }
@@ -29904,6 +29959,8 @@ html.ios {
 
 .flip.transition.in,
 .flip.transition.out {
+  -webkit-animation-duration: 600ms;
+  animation-duration: 600ms;
   -webkit-perspective: 2000px;
   perspective: 2000px;
 }
@@ -30849,34 +30906,38 @@ html.ios {
      Swing
 ---------------*/
 
-.transition.swing.in,
+.transition.swing {
+  -webkit-animation-duration: 800ms;
+  animation-duration: 800ms;
+}
+
 .transition[class*="swing down"].in {
-  -webkit-animation-name: swingInY;
-  animation-name: swingInY;
+  -webkit-animation-name: swingInX;
+  animation-name: swingInX;
   -webkit-transform-origin: top center;
   -ms-transform-origin: top center;
   transform-origin: top center;
 }
 
 .transition[class*="swing up"].in {
-  -webkit-animation-name: swingInY;
-  animation-name: swingInY;
+  -webkit-animation-name: swingInX;
+  animation-name: swingInX;
   -webkit-transform-origin: bottom center;
   -ms-transform-origin: bottom center;
   transform-origin: bottom center;
 }
 
 .transition[class*="swing left"].in {
-  -webkit-animation-name: swingInX;
-  animation-name: swingInX;
+  -webkit-animation-name: swingInY;
+  animation-name: swingInY;
   -webkit-transform-origin: center right;
   -ms-transform-origin: center right;
   transform-origin: center right;
 }
 
 .transition[class*="swing right"].in {
-  -webkit-animation-name: swingInX;
-  animation-name: swingInX;
+  -webkit-animation-name: swingInY;
+  animation-name: swingInY;
   -webkit-transform-origin: center left;
   -ms-transform-origin: center left;
   transform-origin: center left;
@@ -30884,32 +30945,32 @@ html.ios {
 
 .transition.swing.out,
 .transition[class*="swing down"].out {
-  -webkit-animation-name: swingOutY;
-  animation-name: swingOutY;
+  -webkit-animation-name: swingOutX;
+  animation-name: swingOutX;
   -webkit-transform-origin: top center;
   -ms-transform-origin: top center;
   transform-origin: top center;
 }
 
 .transition[class*="swing up"].out {
-  -webkit-animation-name: swingOutY;
-  animation-name: swingOutY;
+  -webkit-animation-name: swingOutX;
+  animation-name: swingOutX;
   -webkit-transform-origin: bottom center;
   -ms-transform-origin: bottom center;
   transform-origin: bottom center;
 }
 
 .transition[class*="swing left"].out {
-  -webkit-animation-name: swingOutX;
-  animation-name: swingOutX;
+  -webkit-animation-name: swingOutY;
+  animation-name: swingOutY;
   -webkit-transform-origin: center right;
   -ms-transform-origin: center right;
   transform-origin: center right;
 }
 
 .transition[class*="swing right"].out {
-  -webkit-animation-name: swingOutX;
-  animation-name: swingOutX;
+  -webkit-animation-name: swingOutY;
+  animation-name: swingOutY;
   -webkit-transform-origin: center left;
   -ms-transform-origin: center left;
   transform-origin: center left;
@@ -30925,19 +30986,19 @@ html.ios {
   }
 
   40% {
-    -webkit-transform: perspective(1000px) rotateX(-20deg);
-    transform: perspective(1000px) rotateX(-20deg);
+    -webkit-transform: perspective(1000px) rotateX(-30deg);
+    transform: perspective(1000px) rotateX(-30deg);
+    opacity: 1;
   }
 
   60% {
-    -webkit-transform: perspective(1000px) rotateX(10deg);
-    transform: perspective(1000px) rotateX(10deg);
+    -webkit-transform: perspective(1000px) rotateX(15deg);
+    transform: perspective(1000px) rotateX(15deg);
   }
 
   80% {
-    -webkit-transform: perspective(1000px) rotateX(-5deg);
-    transform: perspective(1000px) rotateX(-5deg);
-    opacity: 1;
+    -webkit-transform: perspective(1000px) rotateX(-7.5deg);
+    transform: perspective(1000px) rotateX(-7.5deg);
   }
 
   100% {
@@ -30954,19 +31015,19 @@ html.ios {
   }
 
   40% {
-    -webkit-transform: perspective(1000px) rotateX(-20deg);
-    transform: perspective(1000px) rotateX(-20deg);
+    -webkit-transform: perspective(1000px) rotateX(-30deg);
+    transform: perspective(1000px) rotateX(-30deg);
+    opacity: 1;
   }
 
   60% {
-    -webkit-transform: perspective(1000px) rotateX(10deg);
-    transform: perspective(1000px) rotateX(10deg);
+    -webkit-transform: perspective(1000px) rotateX(15deg);
+    transform: perspective(1000px) rotateX(15deg);
   }
 
   80% {
-    -webkit-transform: perspective(1000px) rotateX(-5deg);
-    transform: perspective(1000px) rotateX(-5deg);
-    opacity: 1;
+    -webkit-transform: perspective(1000px) rotateX(-7.5deg);
+    transform: perspective(1000px) rotateX(-7.5deg);
   }
 
   100% {
@@ -30983,19 +31044,19 @@ html.ios {
   }
 
   40% {
-    -webkit-transform: perspective(1000px) rotateY(20deg);
-    transform: perspective(1000px) rotateY(20deg);
+    -webkit-transform: perspective(1000px) rotateY(30deg);
+    transform: perspective(1000px) rotateY(30deg);
+    opacity: 1;
   }
 
   60% {
-    -webkit-transform: perspective(1000px) rotateY(-10deg);
-    transform: perspective(1000px) rotateY(-10deg);
+    -webkit-transform: perspective(1000px) rotateY(-17.5deg);
+    transform: perspective(1000px) rotateY(-17.5deg);
   }
 
   80% {
-    -webkit-transform: perspective(1000px) rotateY(5deg);
-    transform: perspective(1000px) rotateY(5deg);
-    opacity: 1;
+    -webkit-transform: perspective(1000px) rotateY(7.5deg);
+    transform: perspective(1000px) rotateY(7.5deg);
   }
 
   100% {
@@ -31012,19 +31073,19 @@ html.ios {
   }
 
   40% {
-    -webkit-transform: perspective(1000px) rotateY(20deg);
-    transform: perspective(1000px) rotateY(20deg);
+    -webkit-transform: perspective(1000px) rotateY(30deg);
+    transform: perspective(1000px) rotateY(30deg);
+    opacity: 1;
   }
 
   60% {
-    -webkit-transform: perspective(1000px) rotateY(-10deg);
-    transform: perspective(1000px) rotateY(-10deg);
+    -webkit-transform: perspective(1000px) rotateY(-17.5deg);
+    transform: perspective(1000px) rotateY(-17.5deg);
   }
 
   80% {
-    -webkit-transform: perspective(1000px) rotateY(5deg);
-    transform: perspective(1000px) rotateY(5deg);
-    opacity: 1;
+    -webkit-transform: perspective(1000px) rotateY(7.5deg);
+    transform: perspective(1000px) rotateY(7.5deg);
   }
 
   100% {
@@ -31035,15 +31096,25 @@ html.ios {
 
 /* Out */
 
-@-webkit-keyframes swingOutUp {
+@-webkit-keyframes swingOutX {
   0% {
     -webkit-transform: perspective(1000px) rotateX(0deg);
     transform: perspective(1000px) rotateX(0deg);
   }
 
-  30% {
-    -webkit-transform: perspective(1000px) rotateX(-20deg);
-    transform: perspective(1000px) rotateX(-20deg);
+  40% {
+    -webkit-transform: perspective(1000px) rotateX(-7.5deg);
+    transform: perspective(1000px) rotateX(-7.5deg);
+  }
+
+  60% {
+    -webkit-transform: perspective(1000px) rotateX(17.5deg);
+    transform: perspective(1000px) rotateX(17.5deg);
+  }
+
+  80% {
+    -webkit-transform: perspective(1000px) rotateX(-30deg);
+    transform: perspective(1000px) rotateX(-30deg);
     opacity: 1;
   }
 
@@ -31054,15 +31125,25 @@ html.ios {
   }
 }
 
-@keyframes swingOutUp {
+@keyframes swingOutX {
   0% {
     -webkit-transform: perspective(1000px) rotateX(0deg);
     transform: perspective(1000px) rotateX(0deg);
   }
 
-  30% {
-    -webkit-transform: perspective(1000px) rotateX(-20deg);
-    transform: perspective(1000px) rotateX(-20deg);
+  40% {
+    -webkit-transform: perspective(1000px) rotateX(-7.5deg);
+    transform: perspective(1000px) rotateX(-7.5deg);
+  }
+
+  60% {
+    -webkit-transform: perspective(1000px) rotateX(17.5deg);
+    transform: perspective(1000px) rotateX(17.5deg);
+  }
+
+  80% {
+    -webkit-transform: perspective(1000px) rotateX(-30deg);
+    transform: perspective(1000px) rotateX(-30deg);
     opacity: 1;
   }
 
@@ -31073,53 +31154,25 @@ html.ios {
   }
 }
 
-@-webkit-keyframes swingOutDown {
-  0% {
-    -webkit-transform: perspective(1000px) rotateX(0deg);
-    transform: perspective(1000px) rotateX(0deg);
-  }
-
-  30% {
-    -webkit-transform: perspective(1000px) rotateX(20deg);
-    transform: perspective(1000px) rotateX(20deg);
-    opacity: 1;
-  }
-
-  100% {
-    -webkit-transform: perspective(1000px) rotateX(-90deg);
-    transform: perspective(1000px) rotateX(-90deg);
-    opacity: 0;
-  }
-}
-
-@keyframes swingOutDown {
-  0% {
-    -webkit-transform: perspective(1000px) rotateX(0deg);
-    transform: perspective(1000px) rotateX(0deg);
-  }
-
-  30% {
-    -webkit-transform: perspective(1000px) rotateX(20deg);
-    transform: perspective(1000px) rotateX(20deg);
-    opacity: 1;
-  }
-
-  100% {
-    -webkit-transform: perspective(1000px) rotateX(-90deg);
-    transform: perspective(1000px) rotateX(-90deg);
-    opacity: 0;
-  }
-}
-
-@-webkit-keyframes swingOutLeft {
+@-webkit-keyframes swingOutY {
   0% {
     -webkit-transform: perspective(1000px) rotateY(0deg);
     transform: perspective(1000px) rotateY(0deg);
   }
 
-  30% {
-    -webkit-transform: perspective(1000px) rotateY(20deg);
-    transform: perspective(1000px) rotateY(20deg);
+  40% {
+    -webkit-transform: perspective(1000px) rotateY(7.5deg);
+    transform: perspective(1000px) rotateY(7.5deg);
+  }
+
+  60% {
+    -webkit-transform: perspective(1000px) rotateY(-10deg);
+    transform: perspective(1000px) rotateY(-10deg);
+  }
+
+  80% {
+    -webkit-transform: perspective(1000px) rotateY(30deg);
+    transform: perspective(1000px) rotateY(30deg);
     opacity: 1;
   }
 
@@ -31130,59 +31183,31 @@ html.ios {
   }
 }
 
-@keyframes swingOutLeft {
+@keyframes swingOutY {
   0% {
     -webkit-transform: perspective(1000px) rotateY(0deg);
     transform: perspective(1000px) rotateY(0deg);
   }
 
-  30% {
-    -webkit-transform: perspective(1000px) rotateY(20deg);
-    transform: perspective(1000px) rotateY(20deg);
+  40% {
+    -webkit-transform: perspective(1000px) rotateY(7.5deg);
+    transform: perspective(1000px) rotateY(7.5deg);
+  }
+
+  60% {
+    -webkit-transform: perspective(1000px) rotateY(-10deg);
+    transform: perspective(1000px) rotateY(-10deg);
+  }
+
+  80% {
+    -webkit-transform: perspective(1000px) rotateY(30deg);
+    transform: perspective(1000px) rotateY(30deg);
     opacity: 1;
   }
 
   100% {
     -webkit-transform: perspective(1000px) rotateY(-90deg);
     transform: perspective(1000px) rotateY(-90deg);
-    opacity: 0;
-  }
-}
-
-@-webkit-keyframes swingOutRight {
-  0% {
-    -webkit-transform: perspective(1000px) rotateY(0deg);
-    transform: perspective(1000px) rotateY(0deg);
-  }
-
-  30% {
-    -webkit-transform: perspective(1000px) rotateY(-20deg);
-    transform: perspective(1000px) rotateY(-20deg);
-    opacity: 1;
-  }
-
-  100% {
-    -webkit-transform: perspective(1000px) rotateY(90deg);
-    transform: perspective(1000px) rotateY(90deg);
-    opacity: 0;
-  }
-}
-
-@keyframes swingOutRight {
-  0% {
-    -webkit-transform: perspective(1000px) rotateY(0deg);
-    transform: perspective(1000px) rotateY(0deg);
-  }
-
-  30% {
-    -webkit-transform: perspective(1000px) rotateY(-20deg);
-    transform: perspective(1000px) rotateY(-20deg);
-    opacity: 1;
-  }
-
-  100% {
-    -webkit-transform: perspective(1000px) rotateY(90deg);
-    transform: perspective(1000px) rotateY(90deg);
     opacity: 0;
   }
 }
@@ -31196,31 +31221,43 @@ html.ios {
 ---------------*/
 
 .flash.transition {
+  -webkit-animation-duration: 750ms;
+  animation-duration: 750ms;
   -webkit-animation-name: flash;
   animation-name: flash;
 }
 
 .shake.transition {
+  -webkit-animation-duration: 750ms;
+  animation-duration: 750ms;
   -webkit-animation-name: shake;
   animation-name: shake;
 }
 
 .bounce.transition {
+  -webkit-animation-duration: 750ms;
+  animation-duration: 750ms;
   -webkit-animation-name: bounce;
   animation-name: bounce;
 }
 
 .tada.transition {
+  -webkit-animation-duration: 750ms;
+  animation-duration: 750ms;
   -webkit-animation-name: tada;
   animation-name: tada;
 }
 
 .pulse.transition {
+  -webkit-animation-duration: 500ms;
+  animation-duration: 500ms;
   -webkit-animation-name: pulse;
   animation-name: pulse;
 }
 
 .jiggle.transition {
+  -webkit-animation-duration: 750ms;
+  animation-duration: 750ms;
   -webkit-animation-name: jiggle;
   animation-name: jiggle;
 }
@@ -31497,7 +31534,7 @@ html.ios {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Video
+ * # Semantic UI 1.11.0 - Video
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -31620,7 +31657,7 @@ html.ios {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.10.4 - Form
+ * # Semantic UI 1.11.0 - Form
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -31708,6 +31745,7 @@ html.ios {
 .ui.form input[type="email"],
 .ui.form input[type="number"],
 .ui.form input[type="password"],
+.ui.form input[type="search"],
 .ui.form input[type="tel"],
 .ui.form input[type="time"],
 .ui.form input[type="text"],
@@ -31723,6 +31761,7 @@ html.ios {
 .ui.form input[type="email"],
 .ui.form input[type="number"],
 .ui.form input[type="password"],
+.ui.form input[type="search"],
 .ui.form input[type="tel"],
 .ui.form input[type="time"],
 .ui.form input[type="text"],
@@ -31731,7 +31770,7 @@ html.ios {
   margin: 0em;
   outline: none;
   -webkit-appearance: none;
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  tap-highlight-color: rgba(255, 255, 255, 0);
   line-height: 1.2142em;
   padding: 0.67861em 1em;
   font-size: 1em;
@@ -31748,7 +31787,7 @@ html.ios {
 .ui.form textarea {
   margin: 0em;
   -webkit-appearance: none;
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  tap-highlight-color: rgba(255, 255, 255, 0);
   padding: 0.78571em 1em;
   background: #ffffff;
   border: 1px solid rgba(39, 41, 43, 0.15);
@@ -31916,6 +31955,7 @@ html.ios {
 .ui.form input[type="email"]:focus,
 .ui.form input[type="number"]:focus,
 .ui.form input[type="password"]:focus,
+.ui.form input[type="search"]:focus,
 .ui.form input[type="tel"]:focus,
 .ui.form input[type="time"]:focus,
 .ui.form input[type="text"]:focus,
@@ -31982,23 +32022,27 @@ html.ios {
 }
 
 .ui.form .fields.error .field textarea,
+.ui.form .fields.error .field select,
 .ui.form .fields.error .field input:not([type]),
 .ui.form .fields.error .field input[type="date"],
 .ui.form .fields.error .field input[type="datetime-local"],
 .ui.form .fields.error .field input[type="email"],
 .ui.form .fields.error .field input[type="number"],
 .ui.form .fields.error .field input[type="password"],
+.ui.form .fields.error .field input[type="search"],
 .ui.form .fields.error .field input[type="tel"],
 .ui.form .fields.error .field input[type="time"],
 .ui.form .fields.error .field input[type="text"],
 .ui.form .fields.error .field input[type="url"],
 .ui.form .field.error textarea,
+.ui.form .field.error select,
 .ui.form .field.error input:not([type]),
 .ui.form .field.error input[type="date"],
 .ui.form .field.error input[type="datetime-local"],
 .ui.form .field.error input[type="email"],
 .ui.form .field.error input[type="number"],
 .ui.form .field.error input[type="password"],
+.ui.form .field.error input[type="search"],
 .ui.form .field.error input[type="tel"],
 .ui.form .field.error input[type="time"],
 .ui.form .field.error input[type="text"],
@@ -32011,12 +32055,14 @@ html.ios {
 }
 
 .ui.form .field.error textarea:focus,
+.ui.form .field.error select:focus,
 .ui.form .field.error input:not([type]):focus,
 .ui.form .field.error input[type="date"]:focus,
 .ui.form .field.error input[type="datetime-local"]:focus,
 .ui.form .field.error input[type="email"]:focus,
 .ui.form .field.error input[type="number"]:focus,
 .ui.form .field.error input[type="password"]:focus,
+.ui.form .field.error input[type="search"]:focus,
 .ui.form .field.error input[type="tel"]:focus,
 .ui.form .field.error input[type="time"]:focus,
 .ui.form .field.error input[type="text"]:focus,
@@ -32026,6 +32072,12 @@ html.ios {
   color: #dc6868;
   -webkit-appearance: none;
   box-shadow: 2px 0em 0em 0em #dc6868 inset;
+}
+
+/* Preserve Native Select Stylings */
+
+.ui.form .field.error select {
+  -webkit-appearance: menulist-button;
 }
 
 /*------------------

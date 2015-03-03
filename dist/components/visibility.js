@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.10.4 - Visibility
+ * # Semantic UI 1.11.0 - Visibility
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -30,7 +30,9 @@ $.fn.visibility = function(parameters) {
   $allModules
     .each(function() {
       var
-        settings        = $.extend(true, {}, $.fn.visibility.settings, parameters),
+        settings        = ( $.isPlainObject(parameters) )
+          ? $.extend(true, {}, $.fn.visibility.settings, parameters)
+          : $.extend({}, $.fn.visibility.settings),
 
         className       = settings.className,
         namespace       = settings.namespace,
@@ -58,16 +60,16 @@ $.fn.visibility = function(parameters) {
         module
       ;
 
-      module      = {
+      module = {
 
         initialize: function() {
-          module.verbose('Initializing visibility', settings);
+          module.debug('Initializing', settings);
 
           module.setup.cache();
           module.save.position();
 
           if( module.should.trackChanges() ) {
-            module.bindEvents();
+            module.bind.events();
             if(settings.type == 'image') {
               module.setup.image();
             }
@@ -85,11 +87,11 @@ $.fn.visibility = function(parameters) {
         },
 
         instantiate: function() {
-          module.verbose('Storing instance of module', module);
-          instance = module;
+          module.debug('Storing instance', module);
           $module
             .data(moduleNamespace, module)
           ;
+          instance = module;
         },
 
         destroy: function() {
@@ -98,6 +100,8 @@ $.fn.visibility = function(parameters) {
             .off(eventNamespace)
             .removeData(moduleNamespace)
           ;
+          $window.off('resize' + eventNamespace, module.event.refresh);
+          $context.off('scroll' + eventNamespace, module.event.scroll);
         },
 
         observeChanges: function() {
@@ -117,14 +121,16 @@ $.fn.visibility = function(parameters) {
           }
         },
 
-        bindEvents: function() {
-          module.verbose('Binding visibility events to scroll and resize');
-          $window
-            .on('resize' + eventNamespace, module.event.refresh)
-          ;
-          $context
-            .on('scroll' + eventNamespace, module.event.scroll)
-          ;
+        bind: {
+          events: function() {
+            module.verbose('Binding visibility events to scroll and resize');
+            $window
+              .on('resize' + eventNamespace, module.event.refresh)
+            ;
+            $context
+              .on('scroll' + eventNamespace, module.event.scroll)
+            ;
+          }
         },
 
         event: {
@@ -135,10 +141,14 @@ $.fn.visibility = function(parameters) {
             module.verbose('Scroll position changed');
             if(settings.throttle) {
               clearTimeout(module.timer);
-              module.timer = setTimeout(module.checkVisibility, settings.throttle);
+              module.timer = setTimeout(function() {
+                module.checkVisibility();
+              }, settings.throttle);
             }
             else {
-              requestAnimationFrame(module.checkVisibility);
+              requestAnimationFrame(function() {
+                module.checkVisibility();
+              });
             }
           }
         },
@@ -171,16 +181,14 @@ $.fn.visibility = function(parameters) {
         },
 
         should: {
-
           trackChanges: function() {
             if(methodInvoked && queryArguments.length > 0) {
               module.debug('One time query, no need to bind events');
               return false;
             }
-            module.debug('Query is attaching callbacks, watching for changes with scroll');
+            module.debug('Callbacks being attached');
             return true;
           }
-
         },
 
         setup: {
@@ -197,6 +205,7 @@ $.fn.visibility = function(parameters) {
             ;
             if(src) {
               module.verbose('Lazy loading image', src);
+              settings.observeChanges = false;
               // show when top visible
               module.topVisible(function() {
                 module.debug('Image top visible', element);
@@ -209,35 +218,29 @@ $.fn.visibility = function(parameters) {
           },
           fixed: function() {
             module.verbose('Setting up fixed on element pass');
-            $module
-              .visibility({
-                once: false,
-                continuous: false,
-                onTopPassed: function() {
-                  $module
-                    .addClass(className.fixed)
-                    .css({
-                      position: 'fixed',
-                      top: settings.offset + 'px'
-                    })
-                  ;
-                  if(settings.transition) {
-                    if($.fn.transition !== undefined) {
-                      $module.transition(settings.transition, settings.duration);
-                    }
-                  }
-                },
-                onTopPassedReverse: function() {
-                  $module
-                    .removeClass(className.fixed)
-                    .css({
-                      position: '',
-                      top: ''
-                    })
-                  ;
+            settings.once = false;
+            settings.onTopPassed = function() {
+              $module
+                .addClass(className.fixed)
+                .css({
+                  top: settings.offset + 'px'
+                })
+              ;
+              if(settings.transition) {
+                if($.fn.transition !== undefined) {
+                  $module.transition(settings.transition, settings.duration);
                 }
-              })
-            ;
+              }
+            };
+            settings.onTopPassedReverse = function() {
+              $module
+                .removeClass(className.fixed)
+                .css({
+                  position: '',
+                  top: ''
+                })
+              ;
+            };
           }
         },
 
@@ -272,7 +275,7 @@ $.fn.visibility = function(parameters) {
         is: {
           visible: function() {
             if(module.cache && module.cache.element) {
-              return (module.cache.element.height > 0 && module.cache.element.width > 0);
+              return (module.cache.element.width > 0);
             }
             return false;
           }
@@ -296,9 +299,12 @@ $.fn.visibility = function(parameters) {
 
         checkVisibility: function() {
           module.verbose('Checking visibility of element', module.cache.element);
-          module.save.calculations();
 
           if( module.is.visible() ) {
+
+            // update calculations derived from scroll
+            module.save.calculations();
+
             // percentage
             module.passed();
 
@@ -315,6 +321,11 @@ $.fn.visibility = function(parameters) {
             module.bottomVisible();
             module.topPassed();
             module.bottomPassed();
+
+            // on update callback
+            if(settings.onUpdate) {
+              settings.onUpdate.call(element, module.get.elementCalculations());
+            }
           }
         },
 
@@ -641,9 +652,6 @@ $.fn.visibility = function(parameters) {
             ;
             module.verbose('Saving element position');
             // (quicker than $.extend)
-            element.margin        = {};
-            element.margin.top    = parseInt($module.css('margin-top'), 10);
-            element.margin.bottom = parseInt($module.css('margin-bottom'), 10);
             element.fits          = (element.height < screen.height);
             element.offset        = $module.offset();
             element.width         = $module.outerWidth();
@@ -659,6 +667,9 @@ $.fn.visibility = function(parameters) {
             ;
             // offset
             if(settings.includeMargin) {
+              element.margin        = {};
+              element.margin.top    = parseInt($module.css('margin-top'), 10);
+              element.margin.bottom = parseInt($module.css('margin-bottom'), 10);
               element.top    = element.offset.top - element.margin.top;
               element.bottom = element.offset.top + element.height + element.margin.bottom;
             }
@@ -691,16 +702,11 @@ $.fn.visibility = function(parameters) {
           },
           screenCalculations: function() {
             var
-              scroll = $context.scrollTop() + settings.offset
+              scroll = module.get.scroll()
             ;
-            if(module.cache.scroll === undefined) {
-              module.cache.scroll = $context.scrollTop() + settings.offset;
-            }
             module.save.direction();
-            $.extend(module.cache.screen, {
-              top    : scroll,
-              bottom : scroll + module.cache.screen.height
-            });
+            module.cache.screen.top    = scroll;
+            module.cache.screen.bottom = scroll + module.cache.screen.height;
             return module.cache.screen;
           },
           screenSize: function() {
@@ -957,19 +963,26 @@ $.fn.visibility.settings = {
   name                   : 'Visibility',
   namespace              : 'visibility',
 
-  className: {
-    fixed: 'fixed'
-  },
-
-  observeChanges         : true,
-
   debug                  : false,
   verbose                : false,
   performance            : true,
 
+  // whether to use mutation observers to follow changes
+  observeChanges         : true,
+
+  // callback should only occur one time
+  once                   : true,
+
+  // callback should fire continuously whe evaluates to true
+  continuous             : false,
+
+  // offset to use with scroll top
   offset                 : 0,
+
+  // whether to include margin in elements position
   includeMargin          : false,
 
+  // scroll context for visibility checks
   context                : window,
 
   // check position immediately on init
@@ -1002,12 +1015,13 @@ $.fn.visibility.settings = {
   onTopPassedReverse     : false,
   onBottomPassedReverse  : false,
 
-  once                   : true,
-  continuous             : false,
-
   // utility callbacks
+  onUpdate               : false, // disabled by default for performance
   onRefresh              : function(){},
-  onScroll               : function(){},
+
+  className: {
+    fixed: 'fixed'
+  },
 
   error : {
     method : 'The method you called is not defined.'

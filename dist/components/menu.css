@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.10.4 - Menu
+ * # Semantic UI 1.11.0 - Menu
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -1016,13 +1016,13 @@
 .ui.icon.menu > .item {
   height: auto;
   text-align: center;
-  color: rgba(60, 60, 60, 0.7);
+  color: rgba(0, 0, 0, 0.6);
 }
 .ui.icon.menu > .item > .icon {
   display: block;
   float: none !important;
-  opacity: 1;
   margin: 0em auto !important;
+  opacity: 1;
 }
 .ui.icon.menu .icon:before {
   opacity: 1;
@@ -1537,6 +1537,9 @@
 }
 .ui.vertical.pointing.menu .active.item:after {
   background-color: #f7f7f7;
+}
+.ui.vertical.pointing.menu .menu .active.item:after {
+  background-color: #ffffff;
 }
 
 /*--------------

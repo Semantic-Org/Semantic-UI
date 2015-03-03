@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.10.4 - Button
+ * # Semantic UI 1.11.0 - Button
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -194,6 +194,7 @@
 
 .ui.buttons .disabled.button,
 .ui.disabled.button,
+.ui.button:disabled,
 .ui.disabled.button:hover,
 .ui.disabled.active.button {
   cursor: default;

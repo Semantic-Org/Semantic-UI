@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.10.4 - Dropdown
+ * # Semantic UI 1.11.0 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -380,6 +380,14 @@ select.ui.dropdown {
 .ui.selection.dropdown .menu:after,
 .ui.selection.dropdown .menu:before {
   display: none;
+}
+
+/* Scrollbar in IE */
+@media all and (-ms-high-contrast: none) {
+  .ui.selection.dropdown .menu {
+    min-width: -webkit-calc(85%);
+    min-width: calc(85%);
+  }
 }
 @media only screen and (max-width: 767px) {
   .ui.selection.dropdown .menu {

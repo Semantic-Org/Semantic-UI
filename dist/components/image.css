@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.10.4 - Image
+ * # Semantic UI 1.11.0 - Image
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -143,6 +143,7 @@ img.ui.bordered.image {
 .ui.fluid.image img {
   display: block;
   width: 100%;
+  height: auto;
 }
 
 /*--------------
@@ -198,6 +199,7 @@ img.ui.bordered.image {
 .ui.mini.images svg,
 .ui.mini.image {
   width: 20px;
+  height: auto;
   font-size: 0.71428571rem;
 }
 .ui.tiny.images .image,
@@ -205,6 +207,7 @@ img.ui.bordered.image {
 .ui.tiny.images svg,
 .ui.tiny.image {
   width: 80px;
+  height: auto;
   font-size: 0.85714286rem;
 }
 .ui.small.images .image,
@@ -212,6 +215,7 @@ img.ui.bordered.image {
 .ui.small.images svg,
 .ui.small.image {
   width: 150px;
+  height: auto;
   font-size: 0.92857143rem;
 }
 .ui.medium.images .image,
@@ -219,6 +223,7 @@ img.ui.bordered.image {
 .ui.medium.images svg,
 .ui.medium.image {
   width: 300px;
+  height: auto;
   font-size: 1rem;
 }
 .ui.large.images .image,
@@ -226,6 +231,7 @@ img.ui.bordered.image {
 .ui.large.images svg,
 .ui.large.image {
   width: 450px;
+  height: auto;
   font-size: 1.14285714rem;
 }
 .ui.big.images .image,
@@ -233,6 +239,7 @@ img.ui.bordered.image {
 .ui.big.images svg,
 .ui.big.image {
   width: 600px;
+  height: auto;
   font-size: 1.28571429rem;
 }
 .ui.huge.images .image,
@@ -240,6 +247,7 @@ img.ui.bordered.image {
 .ui.huge.images svg,
 .ui.huge.image {
   width: 800px;
+  height: auto;
   font-size: 1.42857143rem;
 }
 .ui.massive.images .image,
@@ -247,6 +255,7 @@ img.ui.bordered.image {
 .ui.massive.images svg,
 .ui.massive.image {
   width: 960px;
+  height: auto;
   font-size: 1.71428571rem;
 }
 

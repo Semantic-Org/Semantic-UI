@@ -363,7 +363,6 @@ $.fn.search = function(parameters) {
             module.debug('Reading result for ' + searchTerm + ' from cache');
             module.save.results(cache.results);
             module.addResults(cache.html);
-
           }
           else {
             module.debug('Querying for ' + searchTerm);
@@ -439,8 +438,9 @@ $.fn.search = function(parameters) {
               searchFields    = $.isArray(settings.searchFields)
                 ? settings.searchFields
                 : [settings.searchFields],
-              searchRegExp    = new RegExp(regExp.exact + searchTerm, 'i'),
-              fullTextRegExp  = new RegExp(searchTerm, 'i')
+              searchExp       = searchTerm.replace(regExp.escape, '\\$&'),
+              searchRegExp    = new RegExp(regExp.exact + searchExp, 'i'),
+              fullTextRegExp  = new RegExp(searchExp, 'i')
             ;
 
             source = source || settings.source;
@@ -901,7 +901,8 @@ $.fn.search.settings = {
   },
 
   regExp: {
-    exact: '(?:\s|^)'
+    escape : /[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g,
+    exact  : '(?:\s|^)'
   },
 
   selector : {
