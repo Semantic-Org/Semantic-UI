@@ -151,13 +151,15 @@
 
 /* Responsive */
 @media only screen and (max-width : @largestMobileScreen) {
-  .ui.table:not(.unstackable),
+  .ui.table:not(.unstackable) {
+    width: 100%;
+  }
   .ui.table:not(.unstackable) tbody,
   .ui.table:not(.unstackable) tr,
   .ui.table:not(.unstackable) tr > th,
   .ui.table:not(.unstackable) tr > td  {
     display: block !important;
-    width: 100% !important;
+    width: auto !important;
     display: block !important;
   }
 
