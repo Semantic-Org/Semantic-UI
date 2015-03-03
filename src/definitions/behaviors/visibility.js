@@ -98,6 +98,8 @@ $.fn.visibility = function(parameters) {
             .off(eventNamespace)
             .removeData(moduleNamespace)
           ;
+          $window.off('resize' + eventNamespace, module.event.refresh);
+          $context.off('scroll' + eventNamespace, module.event.scroll);
         },
 
         observeChanges: function() {
@@ -313,6 +315,12 @@ $.fn.visibility = function(parameters) {
             module.bottomVisible();
             module.topPassed();
             module.bottomPassed();
+
+            // on update callback
+            if(settings.onUpdate) {
+              settings.onUpdate.call(element, module.get.elementCalculations());
+            }
+
           }
         },
 
@@ -1003,6 +1011,7 @@ $.fn.visibility.settings = {
   onBottomPassedReverse  : false,
 
   // utility callbacks
+  onUpdate               : false, // disabled by default for performance
   onRefresh              : function(){},
   onScroll               : function(){},
 
