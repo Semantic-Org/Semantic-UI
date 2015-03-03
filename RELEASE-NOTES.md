@@ -18,16 +18,22 @@
 
 **Bugs**
 - **Dropdown** - Fixes issue where dropdown would not open after restoring previus value on failed `search dropdown` search
+- **Grid** - Fixes specificity of grid `column` colors to not affect other elements with columns
 - **Icon** - Fix `clockwise rotated icon` causing `clockwise` icon to appear
 - **Popup** - Fix issue with `popup` not re-opening until another element gains focus on a mobile touchscreen
 - **Modal** - Fixed issue with modal not appearing when calling `show` during another modal `hide`
 - **Popup** - Popup will now fire `onHidden` when an element is hidden by opening a different popup
 - **Popup** - Fix popup not namespacing `window` events and unbinding on `destroy` **Thanks @revov**
+- **Table** - Fixes table on `mobile` sizes can surpass parent container width
 - **Transition** - Fixes `swing out` animations not working correctly
 - **Transition** - Fixed display state other than `block` not determined when using `show` and `hide` without an animation
 - **Transition** - Fix bug in `remove looping` causing next animation to use same duration
+- **Segment** - Fix first/last margins on `ui segments`
+- **Search** - Fix special characters not searching correctly with local search
 - **Search** - Fix a bug with `onSelect` returning `null` when `minCharacters: 0`
 - **Search** - Fix a bug with `onSelect returning `null` when results retrieved from cached API query
+- **Sticky** - Fixed sticky position when page loads and content is below sticky content.
+- **Sticky** - Fix bottom attached position not adjusting for bottom padding on container element
 - **Menu** - Fix vertical pointing menu, sub menu arrow color
 - **Item ** - `img` inside of `ui item content` now do not receive size formatting by default
 - **Form** - Added `input[type="search"]` styles to `ui form`
