@@ -30,7 +30,9 @@ $.fn.visibility = function(parameters) {
   $allModules
     .each(function() {
       var
-        settings        = $.extend(true, {}, $.fn.visibility.settings, parameters),
+        settings        = ( $.isPlainObject(parameters) )
+          ? $.extend(true, {}, $.fn.visibility.settings, parameters)
+          : $.extend({}, $.fn.visibility.settings),
 
         className       = settings.className,
         namespace       = settings.namespace,
@@ -58,16 +60,16 @@ $.fn.visibility = function(parameters) {
         module
       ;
 
-      module      = {
+      module = {
 
         initialize: function() {
-          module.verbose('Initializing visibility', settings);
+          module.debug('Initializing', settings);
 
           module.setup.cache();
           module.save.position();
 
           if( module.should.trackChanges() ) {
-            module.bindEvents();
+            module.bind.events();
             if(settings.type == 'image') {
               module.setup.image();
             }
@@ -85,11 +87,11 @@ $.fn.visibility = function(parameters) {
         },
 
         instantiate: function() {
-          module.verbose('Storing instance of module', module);
-          instance = module;
+          module.debug('Storing instance', module);
           $module
             .data(moduleNamespace, module)
           ;
+          instance = module;
         },
 
         destroy: function() {
@@ -119,14 +121,16 @@ $.fn.visibility = function(parameters) {
           }
         },
 
-        bindEvents: function() {
-          module.verbose('Binding visibility events to scroll and resize');
-          $window
-            .on('resize' + eventNamespace, module.event.refresh)
-          ;
-          $context
-            .on('scroll' + eventNamespace, module.event.scroll)
-          ;
+        bind: {
+          events: function() {
+            module.verbose('Binding visibility events to scroll and resize');
+            $window
+              .on('resize' + eventNamespace, module.event.refresh)
+            ;
+            $context
+              .on('scroll' + eventNamespace, module.event.scroll)
+            ;
+          }
         },
 
         event: {
@@ -297,8 +301,12 @@ $.fn.visibility = function(parameters) {
 
         checkVisibility: function() {
           module.verbose('Checking visibility of element', module.cache.element);
-          module.save.calculations();
+
           if( module.is.visible() ) {
+
+            // update calculations derived from scroll
+            module.save.calculations();
+
             // percentage
             module.passed();
 
@@ -320,7 +328,6 @@ $.fn.visibility = function(parameters) {
             if(settings.onUpdate) {
               settings.onUpdate.call(element, module.get.elementCalculations());
             }
-
           }
         },
 
