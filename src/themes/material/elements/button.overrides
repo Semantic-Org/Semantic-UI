@@ -3,6 +3,9 @@
 .ui.button {
   min-width: 72px;
 }
+.ui.buttons .button {
+  min-width: 0px;
+}
 
 .ui.primary.button:hover {
   box-shadow:
