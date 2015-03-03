@@ -23,6 +23,7 @@
 
 /* Elements */
 @button     : 'default';
+@container  : 'default';
 @divider    : 'default';
 @flag       : 'default';
 @header     : 'default';
@@ -70,17 +71,6 @@
 @feed       : 'default';
 @item       : 'default';
 @statistic  : 'default';
-
-/*******************************
-            Folders
-*******************************/
-
-/* Path to theme packages */
-@themesFolder : 'themes/';
-
-/* Path to site override folder */
-@siteFolder  : 'site/';
-
 
 /*******************************
             Folders

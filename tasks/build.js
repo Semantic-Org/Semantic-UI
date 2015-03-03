@@ -66,7 +66,7 @@ module.exports = function(callback) {
 
   // unified css stream
   stream = gulp.src(source.definitions + '/**/' + globs.components + '.less')
-    .pipe(plumber())
+    .pipe(plumber(settings.plumber.less))
     .pipe(less(settings.less))
     .pipe(autoprefixer(settings.prefix))
     .pipe(replace(comments.variables.in, comments.variables.out))

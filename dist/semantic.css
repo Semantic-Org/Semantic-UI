@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.10.4
+ * # Semantic UI - 1.11.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -3363,6 +3363,36 @@ input::selection {
   margin-bottom: 0px;
   border-radius: 0px 0px 0.2857rem 0.2857rem;
 }
+
+/*******************************
+         Theme Overrides
+*******************************/
+
+/*******************************
+         Site Overrides
+*******************************/
+/*!
+ * # Semantic UI 1.11.0 - Container
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Copyright 2014 Contributorss
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+/*******************************
+            Container
+*******************************/
+
+/*-------------------
+       Animated
+--------------------*/
+
+/*******************************
+             Types
+*******************************/
 
 /*******************************
          Theme Overrides

@@ -134,7 +134,7 @@ module.exports = function(callback) {
 
         // unified css stream
         stream = gulp.src(lessPath)
-          .pipe(plumber())
+          .pipe(plumber(settings.plumber.less))
           .pipe(less(settings.less))
           .pipe(replace(comments.variables.in, comments.variables.out))
           .pipe(replace(comments.license.in, comments.license.out))
