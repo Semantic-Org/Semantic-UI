@@ -322,7 +322,7 @@ $.fn.form = function(fields, parameters) {
             return $('<input/>');
           },
           fieldGroup: function($field) {
-          	return ($field.is(selector.uiInput) ? $field.parent() : $field).closest($group);
+            return ($field.is(selector.uiInput) ? $field.parent() : $field).closest($group);
           },
           fields: function(fields) {
             var
@@ -442,14 +442,14 @@ $.fn.form = function(fields, parameters) {
               $fieldGroup  = module.get.fieldGroup($field),
               $prompt      = $fieldGroup.children(selector.prompt),
               promptExists = ($prompt.length !== 0)
-          	;
-            errors = (typeof errors == 'string')
-              ? [errors]
-              : errors
-          	;
+            ;
             module.verbose('Adding field error state', identifier);
             $fieldGroup
               .addClass(className.error)
+            ;
+            errors = (typeof errors == 'string')
+              ? [errors]
+              : errors
             ;
             if(settings.inline) {
               if (!errors.filter(function(value) { return value !== undefined; }).length) {
@@ -475,7 +475,7 @@ $.fn.form = function(fields, parameters) {
                   .fadeIn(settings.duration)
                 ;
               }
-			}
+            }
             else {
               module.verbose('Inline errors are disabled, no inline error added', identifier);
             }
