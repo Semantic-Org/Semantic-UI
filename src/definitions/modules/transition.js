@@ -20,6 +20,7 @@ $.fn.transition = function() {
 
     time            = new Date().getTime(),
     performance     = [],
+    timer,
 
     moduleArguments = arguments,
     query           = moduleArguments[0],
@@ -205,7 +206,7 @@ $.fn.transition = function() {
         },
 
         complete: function (event) {
-          module.verbose('CSS animation complete', settings.animation);
+          module.debug('Animation complete', settings.animation);
           module.remove.completeCallback();
           module.remove.failSafe();
           if(!module.is.looping()) {
@@ -285,8 +286,8 @@ $.fn.transition = function() {
               ? duration + 'ms'
               : duration
             ;
-            module.verbose('Setting animation duration', duration);
             if(duration || duration === 0) {
+              module.verbose('Setting animation duration', duration);
               $module
                 .css({
                   '-webkit-animation-duration': duration,
@@ -851,7 +852,7 @@ $.fn.transition = function() {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 600);
+            timer = setTimeout(module.performance.display, 600);
           },
           display: function() {
             var

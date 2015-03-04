@@ -120,7 +120,10 @@
 @selectionZIndex: 10;
 
 /* <select> */
-@selectPreInitHeight: 38px;
+@selectBorder: 1px solid @borderColor;
+@selectPadding: 0.5em;
+@selectVisibility: visible;
+@selectHeight: 38px;
 
 @selectionTextIconDistance: 2em;
 @selectionTextColor: @textColor;
