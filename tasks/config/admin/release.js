@@ -104,6 +104,7 @@ module.exports = {
     'tab',
     'table',
     'transition',
-    'video'
+    'video',
+    'visibility'
   ]
 };
