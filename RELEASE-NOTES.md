@@ -1,10 +1,10 @@
 ## RELEASE NOTES
 
-### Version 1.12.0 - March x, 2015
+### Version 1.11.1 - March 5, 2015
 
-**New Components**
 
-- **Container** - Added a simple container element that can act as an alternative to `ui page grid`. Containers have fixed sizes which make layout resizing simpler than `page grid` which uses percentage width gutters. Containers also automatically scale for table and mobile
+**Enhancements**
+- **Dropdown** - Calling behaviors on a dropdown `select` will now automatically route them to the appropriate parent `ui dropdown`
 
 **Bugs**
 
