@@ -20,7 +20,6 @@ $.fn.transition = function() {
 
     time            = new Date().getTime(),
     performance     = [],
-    timer,
 
     moduleArguments = arguments,
     query           = moduleArguments[0],
@@ -852,7 +851,7 @@ $.fn.transition = function() {
               });
             }
             clearTimeout(module.performance.timer);
-            timer = setTimeout(module.performance.display, 600);
+            module.performance.timer = setTimeout(module.performance.display, 100);
           },
           display: function() {
             var
