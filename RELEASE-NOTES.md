@@ -2,7 +2,6 @@
 
 ### Version 1.11.1 - March 5, 2015
 
-
 **Enhancements**
 - **Dropdown** - Calling behaviors on a dropdown `select` will now automatically route them to the appropriate parent `ui dropdown`
 

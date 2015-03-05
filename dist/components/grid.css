@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.0 - Grid
+ * # Semantic UI 1.11.1 - Grid
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -945,7 +945,6 @@
 }
 .ui.centered.grid > .column:not(.aligned):not(.row),
 .ui.centered.grid > .row > .column:not(.aligned),
-.ui.centered.grid > .row:not(.centered),
 .ui.grid .centered.row > .column:not(.aligned) {
   text-align: left;
 }
