@@ -1,5 +1,16 @@
 ## RELEASE NOTES
 
+### Version 1.12.0 - March x, 2015
+
+**New Components**
+
+- **Container** - Added a simple container element that can act as an alternative to `ui page grid`. Containers have fixed sizes which make layout resizing simpler than `page grid` which uses percentage width gutters. Containers also automatically scale for table and mobile
+
+**Bugs**
+
+- **Grid** - Fix issue in `centered grid` not centering `column` inside `row`
+- **Dropdown** - Added select styles for elements before they are initialized instead of FOIC (Flash of invisible content)
+
 ### Version 1.11.0 - March 3, 2015
 
 **New Components**
