@@ -100,6 +100,7 @@ module.exports = {
     /* Minified CSS Concat */
     minify: {
       processImport       : false,
+      restructuring       : false,
       keepSpecialComments : 1
     },
 
