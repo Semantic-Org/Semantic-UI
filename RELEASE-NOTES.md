@@ -4,11 +4,15 @@
 
 **Enhancements**
 - **Accordion** - Accordion can now specify a trigger element instead of `title`, added an [example in docs](http://www.semantic-ui.com/modules/accordion.html#changing-trigger)
+- **Accordion** - Accordion can now hide while opening animation is still occuring
+- **Grid** - Equal width grids will now make column content stretch to full height, not just the column itself (requires flexbox)
+- **Header** - Labels inside headers have been slightly increased in size
 
 **Important Fixes**
 - **Build Tools** - Fix issues with minified component CSS `@import` not always being on top of files due to [bug in clean-css](https://github.com/jakubpawlowicz/clean-css/issues/476)
 
 **Bugs**
+- **Accordion** - Removed mistaken extra `1px` top border on nested `styled accordion`
 - **Modal** - Fixes modal `buttons` on mobile devices to not have extra bottom padding.
 - **Card/Dimmer** - Fix dimmer z-index being too high when inside a `ui card`. Added variable for specifying default dimmer color inside card.
 - **Site** - `h1-h5` now have no top margin when `first-child` and no bottom margin when `last-child`
