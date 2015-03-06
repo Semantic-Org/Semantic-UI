@@ -176,6 +176,10 @@ $.fn.transition = function() {
               module.debug('Animation is already occurring, will not execute repeated animation', settings.animation);
               return false;
             }
+            else {
+              module.debug('New animation started, completing previous early', settings.animation);
+              module.complete();
+            }
           }
           if( module.can.animate() ) {
             module.set.animating(settings.animation);
