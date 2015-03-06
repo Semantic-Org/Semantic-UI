@@ -1391,7 +1391,6 @@
   padding-bottom: (@rowSpacing / 2);
 }
 
-
 /*----------------------
       Equal Width
 -----------------------*/
@@ -1426,7 +1425,7 @@
 .ui[class*="equal width"].grid > .column,
 .ui[class*="equal width"].grid > .row > .column,
 .ui.grid > [class*="equal width"].row > .column {
-  display: inline-block;
+  display: flex;
   flex-direction: column;
   flex: 1 0 auto;
 }
@@ -1463,10 +1462,17 @@
 .ui[class*="equal height"].grid > .column,
 .ui[class*="equal height"].grid > .row > .column,
 .ui.grid > [class*="equal height"].row > .column {
-  display: inline-block;
+  display: flex;
   flex-direction: column;
-  flex: 0 0 auto;
+  flex: 1 0 auto;
+  align-items: stretch;
 }
+.ui[class*="equal height"].grid > .column > *,
+.ui[class*="equal height"].grid > .row > .column > *,
+.ui.grid > [class*="equal height"].row > .column > * {
+  flex: 1 0 auto;
+}
+
 
 /*-------------------
       Doubling
