@@ -1,8 +1,17 @@
 ## RELEASE NOTES
 
-
 ### Version 1.11.2 - March 6, 2015
 
+**Enhancements**
+- **Accordion** - Accordion can now specify a trigger element instead of `title`, added an [example in docs](http://www.semantic-ui.com/modules/accordion.html#changing-trigger)
+
+**Important Fixes**
+- **Build Tools** - Fix issues with minified component CSS `@import` not always being on top of files due to [bug in clean-css](https://github.com/jakubpawlowicz/clean-css/issues/476)
+
+**Bugs**
+- **Modal** - Fixes modal `buttons` on mobile devices to not have extra bottom padding.
+- **Card/Dimmer** - Fix dimmer z-index being too high when inside a `ui card`. Added variable for specifying default dimmer color inside card.
+- **Site** - `h1-h5` now have no top margin when `first-child` and no bottom margin when `last-child`
 - **Dropdown** - Fix issue in `setup reference` (added in `1.11.1`) where chaining would not return `ui dropdown` immediately after initialization
 
 ### Version 1.11.1 - March 5, 2015
