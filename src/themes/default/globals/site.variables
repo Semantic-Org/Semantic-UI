@@ -377,17 +377,17 @@
 /* Rendered Scrollbar Width */
 @scrollBarWidth: 15px;
 
-/* Header Spacing */
-@headerLineHeightOffset : (@lineHeight - 1em) / 2;
-@headerTopMargin        : ~"calc(2rem - "@lineHeightOffset~")";
-@headerBottomMargin     : 1rem;
-@headerMargin           : @headerTopMargin 0em @headerBottomMargin;
-
-/* Makes sure padded grid can fit at 320px */
-@pageMinWidth        : (320px - (@fontSize * 3));
-
 /* Used to match floats with text */
-@lineHeightOffset    : ((@lineHeight - 1em) / 2);
+@lineHeightOffset       : ((@lineHeight - 1em) / 2);
+@headerLineHeightOffset : (@headerLineHeight - 1em) / 2;
+
+/* Header Spacing */
+@headerTopMargin    : ~"calc(2rem - "@headerLineHeightOffset~")";
+@headerBottomMargin : 1rem;
+@headerMargin       : @headerTopMargin 0em @headerBottomMargin;
+
+/* Minimum Mobile Width */
+@pageMinWidth       : 320px;
 
 /* Positive / Negative Dupes */
 @successColor           : @positiveColor;
