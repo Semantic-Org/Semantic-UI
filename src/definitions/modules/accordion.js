@@ -61,10 +61,8 @@ $.fn.accordion = function(parameters) {
       module = {
 
         initialize: function() {
-          module.debug('Initializing accordion with bound events', $module);
-          $module
-            .on('click' + eventNamespace, selector.title, module.event.click)
-          ;
+          module.debug('Initializing', $module);
+          module.bind.events();
           module.observeChanges();
           module.instantiate();
         },
@@ -77,12 +75,10 @@ $.fn.accordion = function(parameters) {
         },
 
         destroy: function() {
-          module.debug('Destroying previous accordion for', $module);
+          module.debug('Destroying previous instance', $module);
           $module
-            .removeData(moduleNamespace)
-          ;
-          $title
             .off(eventNamespace)
+            .removeData(moduleNamespace)
           ;
         },
 
@@ -105,6 +101,14 @@ $.fn.accordion = function(parameters) {
           }
         },
 
+        bind: {
+          events: function() {
+            module.debug('Binding delegated events');
+            $module
+              .on('click' + eventNamespace, selector.trigger, module.event.click)
+            ;
+          }
+        },
 
         event: {
           click: function() {
@@ -117,8 +121,8 @@ $.fn.accordion = function(parameters) {
             $activeTitle = (query !== undefined)
               ? (typeof query === 'number')
                 ? $title.eq(query)
-                : $(query)
-              : $(this),
+                : $(query).closest(selector.title)
+              : $(this).closest(selector.title),
             $activeContent = $activeTitle.next($content),
             contentIsOpen  = $activeContent.is(':visible')
           ;
@@ -141,8 +145,8 @@ $.fn.accordion = function(parameters) {
             $activeTitle = (query !== undefined)
               ? (typeof query === 'number')
                 ? $title.eq(query)
-                : $(query)
-              : $(this),
+                : $(query).closest(selector.title)
+              : $(this).closest(selector.title),
             $activeContent     = $activeTitle.next($content),
             currentlyAnimating = $activeContent.is(':animated'),
             currentlyActive    = $activeContent.hasClass(className.active)
@@ -197,8 +201,8 @@ $.fn.accordion = function(parameters) {
             $activeTitle = (query !== undefined)
               ? (typeof query === 'number')
                 ? $title.eq(query)
-                : $(query)
-              : $(this),
+                : $(query).closest(selector.title)
+              : $(this).closest(selector.title),
             $activeContent = $activeTitle.next($content),
             isActive       = $activeContent.hasClass(className.active)
           ;
@@ -249,7 +253,7 @@ $.fn.accordion = function(parameters) {
           var
             $activeTitle = (index !== undefined)
               ? $title.eq(index)
-              : $(this),
+              : $(this).closest(selector.title),
             $parentTitles    = $activeTitle.parents(selector.content).prev(selector.title),
             $activeAccordion = $activeTitle.closest(selector.accordion),
             activeSelector   = selector.title + '.' + className.active + ':visible',
@@ -542,6 +546,7 @@ $.fn.accordion.settings = {
   selector    : {
     accordion : '.accordion',
     title     : '.title',
+    trigger   : '.title',
     content   : '.content'
   }
 
