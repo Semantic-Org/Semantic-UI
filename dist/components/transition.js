@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.1 - Transition
+ * # Semantic UI 1.11.2 - Transition
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -175,6 +175,10 @@ $.fn.transition = function() {
             else if(!settings.allowRepeats && module.is.occurring()) {
               module.debug('Animation is already occurring, will not execute repeated animation', settings.animation);
               return false;
+            }
+            else {
+              module.debug('New animation started, completing previous early', settings.animation);
+              module.complete();
             }
           }
           if( module.can.animate() ) {
