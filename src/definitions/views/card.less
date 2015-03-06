@@ -93,8 +93,6 @@
   margin-top: @consecutiveGroupDistance;
 }
 
-
-
 /*--------------
   Rounded Edges
 ---------------*/
@@ -327,6 +325,16 @@
 .ui.card > .button:last-child {
   margin: @buttonMargin;
   width: @buttonWidth;
+}
+
+/*--------------
+      Dimmer
+---------------*/
+
+.ui.cards > .card .dimmer,
+.ui.card .dimmer {
+  background: @dimmerBackground;
+  z-index: @dimmerZIndex;
 }
 
 /*--------------
