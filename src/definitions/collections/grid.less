@@ -1182,6 +1182,7 @@
 .ui.grid [class*="left aligned"].column,
 .ui.grid > [class*="left aligned"].row > .column {
   text-align: left;
+  align-items: flex-start;
 }
 .ui.grid [class*="left aligned"].column{
   text-align: left !important;
@@ -1193,6 +1194,7 @@
 .ui[class*="center aligned"].grid > .column,
 .ui.grid > [class*="center aligned"].row > .column {
   text-align: center;
+  align-items: center;
 }
 .ui.grid [class*="center aligned"].column{
   text-align: center !important;
@@ -1204,6 +1206,7 @@
 .ui[class*="right aligned"].grid > .column,
 .ui.grid > [class*="right aligned"].row > .column {
   text-align: right;
+  align-items: flex-end;
 }
 .ui.grid [class*="right aligned"].column{
   text-align: right !important;
@@ -1234,11 +1237,11 @@
 .ui.grid [class*="top aligned"].column,
 .ui.grid > [class*="top aligned"].row > .column {
   vertical-align: top;
-  align-self: flex-start;
+  justify-content: flex-start;
 }
 .ui.grid [class*="top aligned"].column {
   vertical-align: top !important;
-  align-self: flex-start;
+  justify-content: flex-start;
 }
 
 /* Middle Aligned */
@@ -1247,11 +1250,11 @@
 .ui[class*="middle aligned"].grid > .column,
 .ui.grid > [class*="middle aligned"].row > .column {
   vertical-align: middle;
-  align-self: center;
+  justify-content: center;
 }
 .ui.grid [class*="middle aligned"].column{
   vertical-align: middle !important;
-  align-self: center;
+  justify-content: center;
 }
 
 /* Bottom Aligned */
@@ -1260,10 +1263,10 @@
 .ui[class*="bottom aligned"].grid > .column,
 .ui.grid > [class*="bottom aligned"].row > .column {
   vertical-align: bottom;
-  align-self: flex-end;
+  justify-content: flex-end;
 }
 .ui.grid [class*="bottom aligned"].column {
-  align-self: flex-end;
+  justify-content: flex-end;
   vertical-align: bottom !important;
 }
 
@@ -1420,14 +1423,12 @@
 .ui.grid > [class*="equal width"].row  {
   display: flex;
   flex-direction: row;
-  align-items: stretch;
 }
 .ui[class*="equal width"].grid > .column,
 .ui[class*="equal width"].grid > .row > .column,
 .ui.grid > [class*="equal width"].row > .column {
   display: flex;
   flex-direction: column;
-  flex: 1 0 auto;
 }
 
 
@@ -1457,20 +1458,18 @@
 .ui.grid > [class*="equal height"].row  {
   display: flex;
   flex-direction: row;
-  align-items: stretch;
 }
 .ui[class*="equal height"].grid > .column,
 .ui[class*="equal height"].grid > .row > .column,
 .ui.grid > [class*="equal height"].row > .column {
   display: flex;
   flex-direction: column;
-  flex: 1 0 auto;
-  align-items: stretch;
+  flex: 0 0 auto;
 }
 .ui[class*="equal height"].grid > .column > *,
 .ui[class*="equal height"].grid > .row > .column > *,
 .ui.grid > [class*="equal height"].row > .column > * {
-  flex: 1 0 auto;
+  flex: 0 0 auto;
 }
 
 
@@ -1690,6 +1689,7 @@
     padding: (@stackableRowSpacing / 2) (@stackableGutter / 2) !important;
   }
   .ui.stackable.grid > .row {
+    display: block !important;
     margin: 0em;
     padding: 0em;
   }
