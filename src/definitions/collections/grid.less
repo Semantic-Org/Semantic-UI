@@ -1244,6 +1244,14 @@
   justify-content: flex-start;
 }
 
+/* Stretched */
+.ui.stretched.grid > .row > .column > *,
+.ui.stretched.grid > .column > *,
+.ui.grid .stretched.column > *,
+.ui.grid > .stretched.row > .column > * {
+  flex-grow: 1;
+}
+
 /* Middle Aligned */
 .ui[class*="middle aligned"].grid,
 .ui[class*="middle aligned"].grid > .row > .column,
@@ -1429,6 +1437,7 @@
 .ui.grid > [class*="equal width"].row > .column {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
 }
 
 
@@ -1464,14 +1473,8 @@
 .ui.grid > [class*="equal height"].row > .column {
   display: flex;
   flex-direction: column;
-  flex: 0 0 auto;
+  flex-grow: 1;
 }
-.ui[class*="equal height"].grid > .column > *,
-.ui[class*="equal height"].grid > .row > .column > *,
-.ui.grid > [class*="equal height"].row > .column > * {
-  flex: 0 0 auto;
-}
-
 
 /*-------------------
       Doubling
