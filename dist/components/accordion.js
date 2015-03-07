@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.2 - Accordion
+ * # Semantic UI 1.11.3 - Accordion
  * http://github.com/semantic-org/semantic-ui/
  *
  *
