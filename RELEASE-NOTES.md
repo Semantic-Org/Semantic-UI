@@ -3,7 +3,7 @@
 ### Version 1.11.3 - March 6, 2015
 
 **Fixes**
-- **Build Tools** - Fix issues with minified CSS `@import` not being on top of minified semantic ui concatenated release [bug in clean-css](https://github.com/jakubpawlowicz/clean-css/issues/476)
+- **Build Tools** - Fix issues with minified CSS `@import` not being on top of minified semantic ui concatenated release due to [bug in clean-css](https://github.com/jakubpawlowicz/clean-css/issues/476)
 - **Grid** - Fixes `stackable` `equal height/width` grid to remove `flex` on mobile when stacking
 - **Grid** - Fixed `right/left/center aligned` to adjust `align-items` in flex containers like `equal height/width`
 
