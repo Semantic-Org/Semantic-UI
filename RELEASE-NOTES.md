@@ -3,7 +3,7 @@
 ### Version 1.11.3-4 - March 6, 2015
 
 **Enhancements**
-- **Grid** - Added variation for `equal height`, `stretched equal height` instead of forcing all equal height grids to stretch content.
+- **Grid** - Added opt-in `stretched` variation for `equal height` instead of forcing `flex` on all `equal height columns` which may cause layout issues due to changes in rendering with `flexbox`.
 
 **Fixes**
 - **Build Tools** - Fix issues with minified CSS `@import` not being on top of minified semantic ui concatenated release [bug in clean-css](https://github.com/jakubpawlowicz/clean-css/issues/476)

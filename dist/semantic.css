@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.11.3
+ * # Semantic UI - 1.11.4
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -10,7 +10,7 @@
  */
 @import 'https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&subset=latin';
 /*!
- * # Semantic UI 1.11.3 - Reset
+ * # Semantic UI 1.11.4 - Reset
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -668,7 +668,7 @@ input::selection {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Button
+ * # Semantic UI 1.11.4 - Button
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -3389,7 +3389,7 @@ input::selection {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Divider
+ * # Semantic UI 1.11.4 - Divider
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -3634,7 +3634,7 @@ input::selection {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Flag
+ * # Semantic UI 1.11.4 - Flag
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -4896,7 +4896,7 @@ i.flag.zimbabwe:before {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Header
+ * # Semantic UI 1.11.4 - Header
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -5584,7 +5584,7 @@ a.ui.inverted.yellow.header:hover {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Icon
+ * # Semantic UI 1.11.4 - Icon
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -8764,7 +8764,7 @@ i.icon.bed:before {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Image
+ * # Semantic UI 1.11.4 - Image
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -9060,7 +9060,7 @@ img.ui.bordered.image {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Input
+ * # Semantic UI 1.11.4 - Input
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -9536,7 +9536,7 @@ img.ui.bordered.image {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Label
+ * # Semantic UI 1.11.4 - Label
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -10591,7 +10591,7 @@ a.ui.yellow.label:hover:before {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - List
+ * # Semantic UI 1.11.4 - List
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -11582,7 +11582,7 @@ ol.ui.horizontal.list li:before,
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Loader
+ * # Semantic UI 1.11.4 - Loader
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -11885,7 +11885,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Rail
+ * # Semantic UI 1.11.4 - Rail
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -12009,7 +12009,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Reveal
+ * # Semantic UI 1.11.4 - Reveal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -12325,7 +12325,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Segment
+ * # Semantic UI 1.11.4 - Segment
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -13028,7 +13028,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Step
+ * # Semantic UI 1.11.4 - Step
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -13501,7 +13501,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Breadcrumb
+ * # Semantic UI 1.11.4 - Breadcrumb
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -13632,7 +13632,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Form
+ * # Semantic UI 1.11.4 - Form
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -14600,7 +14600,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Grid
+ * # Semantic UI 1.11.4 - Grid
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -15942,10 +15942,10 @@ ol.ui.horizontal.list li:before,
 .ui.grid [class*="left aligned"].column,
 .ui.grid > [class*="left aligned"].row > .column {
   text-align: left;
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-  -ms-flex-align: start;
-  align-items: flex-start;
+  -webkit-box-align: start !important;
+  -webkit-align-items: flex-start !important;
+  -ms-flex-align: start !important;
+  align-items: flex-start !important;
 }
 
 .ui.grid [class*="left aligned"].column {
@@ -15959,10 +15959,10 @@ ol.ui.horizontal.list li:before,
 .ui[class*="center aligned"].grid > .column,
 .ui.grid > [class*="center aligned"].row > .column {
   text-align: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-box-align: center !important;
+  -webkit-align-items: center !important;
+  -ms-flex-align: center !important;
+  align-items: center !important;
 }
 
 .ui.grid [class*="center aligned"].column {
@@ -15976,10 +15976,10 @@ ol.ui.horizontal.list li:before,
 .ui[class*="right aligned"].grid > .column,
 .ui.grid > [class*="right aligned"].row > .column {
   text-align: right;
-  -webkit-box-align: end;
-  -webkit-align-items: flex-end;
-  -ms-flex-align: end;
-  align-items: flex-end;
+  -webkit-box-align: end !important;
+  -webkit-align-items: flex-end !important;
+  -ms-flex-align: end !important;
+  align-items: flex-end !important;
 }
 
 .ui.grid [class*="right aligned"].column {
@@ -16020,18 +16020,38 @@ ol.ui.horizontal.list li:before,
 .ui.grid [class*="top aligned"].column,
 .ui.grid > [class*="top aligned"].row > .column {
   vertical-align: top;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
+  -webkit-box-pack: start !important;
+  -webkit-justify-content: flex-start !important;
+  -ms-flex-pack: start !important;
+  justify-content: flex-start !important;
 }
 
 .ui.grid [class*="top aligned"].column {
   vertical-align: top !important;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
+  -webkit-box-pack: start !important;
+  -webkit-justify-content: flex-start !important;
+  -ms-flex-pack: start !important;
+  justify-content: flex-start !important;
+}
+
+.ui.stretched.grid > .row > .column,
+.ui.stretched.grid > .column,
+.ui.grid .stretched.column,
+.ui.grid > .stretched.row > .column {
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
+.ui.stretched.grid > .row > .column > *,
+.ui.stretched.grid > .column > *,
+.ui.grid .stretched.column > *,
+.ui.grid > .stretched.row > .column > * {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
 }
 
 /* Middle Aligned */
@@ -16041,18 +16061,18 @@ ol.ui.horizontal.list li:before,
 .ui[class*="middle aligned"].grid > .column,
 .ui.grid > [class*="middle aligned"].row > .column {
   vertical-align: middle;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  -webkit-box-pack: center !important;
+  -webkit-justify-content: center !important;
+  -ms-flex-pack: center !important;
+  justify-content: center !important;
 }
 
 .ui.grid [class*="middle aligned"].column {
   vertical-align: middle !important;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  -webkit-box-pack: center !important;
+  -webkit-justify-content: center !important;
+  -ms-flex-pack: center !important;
+  justify-content: center !important;
 }
 
 /* Bottom Aligned */
@@ -16062,17 +16082,17 @@ ol.ui.horizontal.list li:before,
 .ui[class*="bottom aligned"].grid > .column,
 .ui.grid > [class*="bottom aligned"].row > .column {
   vertical-align: bottom;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
+  -webkit-box-pack: end !important;
+  -webkit-justify-content: flex-end !important;
+  -ms-flex-pack: end !important;
+  justify-content: flex-end !important;
 }
 
 .ui.grid [class*="bottom aligned"].column {
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
+  -webkit-box-pack: end !important;
+  -webkit-justify-content: flex-end !important;
+  -ms-flex-pack: end !important;
+  justify-content: flex-end !important;
   vertical-align: bottom !important;
 }
 
@@ -16262,15 +16282,16 @@ ol.ui.horizontal.list li:before,
 .ui[class*="equal width"].grid > .column,
 .ui[class*="equal width"].grid > .row > .column,
 .ui.grid > [class*="equal width"].row > .column {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  display: block;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
 }
 
 /*----------------------
@@ -16297,7 +16318,18 @@ ol.ui.horizontal.list li:before,
 
 /* Flexbox (Experimental / Overrides Where Supported) */
 
-.ui[class*="equal height"].grid,
+.ui[class*="equal height"].grid {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
 .ui[class*="equal height"].grid > .row,
 .ui.grid > [class*="equal height"].row {
   display: -webkit-box;
@@ -16314,28 +16346,16 @@ ol.ui.horizontal.list li:before,
 .ui[class*="equal height"].grid > .column,
 .ui[class*="equal height"].grid > .row > .column,
 .ui.grid > [class*="equal height"].row > .column {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  display: block;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-}
-
-.ui[class*="equal height"].grid > .column > *,
-.ui[class*="equal height"].grid > .row > .column > *,
-.ui.grid > [class*="equal height"].row > .column > * {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
 }
 
 /*-------------------
@@ -16705,7 +16725,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Menu
+ * # Semantic UI 1.11.4 - Menu
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -18505,7 +18525,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Message
+ * # Semantic UI 1.11.4 - Message
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -18981,7 +19001,7 @@ ol.ui.horizontal.list li:before,
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Table
+ * # Semantic UI 1.11.4 - Table
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -20123,7 +20143,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Ad
+ * # Semantic UI 1.11.4 - Ad
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -20413,7 +20433,7 @@ ol.ui.horizontal.list li:before,
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Item
+ * # Semantic UI 1.11.4 - Item
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -21428,7 +21448,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Comment
+ * # Semantic UI 1.11.4 - Comment
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -21698,7 +21718,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Feed
+ * # Semantic UI 1.11.4 - Feed
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -21993,7 +22013,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Item
+ * # Semantic UI 1.11.4 - Item
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -22484,7 +22504,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Statistic
+ * # Semantic UI 1.11.4 - Statistic
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -22931,7 +22951,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Accordion
+ * # Semantic UI 1.11.4 - Accordion
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -23197,7 +23217,7 @@ a.ui.card:hover,
         User Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Checkbox
+ * # Semantic UI 1.11.4 - Checkbox
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -23727,7 +23747,7 @@ a.ui.card:hover,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Dimmer
+ * # Semantic UI 1.11.4 - Dimmer
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -23919,7 +23939,7 @@ body.dimmed.dimmable > :not(.dimmer) {
         User Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Dropdown
+ * # Semantic UI 1.11.4 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -25115,7 +25135,7 @@ select.ui.dropdown {
         User Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Modal
+ * # Semantic UI 1.11.4 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -25585,7 +25605,7 @@ select.ui.dropdown {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Nag
+ * # Semantic UI 1.11.4 - Nag
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -25731,7 +25751,7 @@ a.ui.nag {
         User Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Popup
+ * # Semantic UI 1.11.4 - Popup
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -26033,7 +26053,7 @@ a.ui.nag {
         User Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Progress Bar
+ * # Semantic UI 1.11.4 - Progress Bar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -26553,7 +26573,7 @@ a.ui.nag {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Rating
+ * # Semantic UI 1.11.4 - Rating
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -26822,7 +26842,7 @@ a.ui.nag {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Search
+ * # Semantic UI 1.11.4 - Search
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -27164,7 +27184,7 @@ a.ui.nag {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Shape
+ * # Semantic UI 1.11.4 - Shape
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -27321,7 +27341,7 @@ a.ui.nag {
         User Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Sidebar
+ * # Semantic UI 1.11.4 - Sidebar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -28005,7 +28025,7 @@ html.ios {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Sticky
+ * # Semantic UI 1.11.4 - Sticky
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -28080,7 +28100,7 @@ html.ios {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Tab
+ * # Semantic UI 1.11.4 - Tab
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -28168,7 +28188,7 @@ html.ios {
         User Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Table
+ * # Semantic UI 1.11.4 - Table
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -29310,7 +29330,7 @@ html.ios {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Transition
+ * # Semantic UI 1.11.4 - Transition
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -31573,7 +31593,7 @@ html.ios {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Video
+ * # Semantic UI 1.11.4 - Video
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -31696,7 +31716,7 @@ html.ios {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.3 - Form
+ * # Semantic UI 1.11.4 - Form
  * http://github.com/semantic-org/semantic-ui/
  *
  *
