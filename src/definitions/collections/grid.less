@@ -1182,7 +1182,7 @@
 .ui.grid [class*="left aligned"].column,
 .ui.grid > [class*="left aligned"].row > .column {
   text-align: left;
-  align-items: flex-start;
+  align-items: flex-start !important;
 }
 .ui.grid [class*="left aligned"].column{
   text-align: left !important;
@@ -1194,7 +1194,7 @@
 .ui[class*="center aligned"].grid > .column,
 .ui.grid > [class*="center aligned"].row > .column {
   text-align: center;
-  align-items: center;
+  align-items: center !important;
 }
 .ui.grid [class*="center aligned"].column{
   text-align: center !important;
@@ -1206,7 +1206,7 @@
 .ui[class*="right aligned"].grid > .column,
 .ui.grid > [class*="right aligned"].row > .column {
   text-align: right;
-  align-items: flex-end;
+  align-items: flex-end !important;
 }
 .ui.grid [class*="right aligned"].column{
   text-align: right !important;
@@ -1237,14 +1237,19 @@
 .ui.grid [class*="top aligned"].column,
 .ui.grid > [class*="top aligned"].row > .column {
   vertical-align: top;
-  justify-content: flex-start;
+  justify-content: flex-start !important;
 }
 .ui.grid [class*="top aligned"].column {
   vertical-align: top !important;
-  justify-content: flex-start;
+  justify-content: flex-start !important;
 }
 
-/* Stretched */
+.ui.stretched.grid > .row > .column,
+.ui.stretched.grid > .column,
+.ui.grid .stretched.column,
+.ui.grid > .stretched.row > .column {
+  display: flex !important;
+}
 .ui.stretched.grid > .row > .column > *,
 .ui.stretched.grid > .column > *,
 .ui.grid .stretched.column > *,
@@ -1258,11 +1263,11 @@
 .ui[class*="middle aligned"].grid > .column,
 .ui.grid > [class*="middle aligned"].row > .column {
   vertical-align: middle;
-  justify-content: center;
+  justify-content: center !important;
 }
 .ui.grid [class*="middle aligned"].column{
   vertical-align: middle !important;
-  justify-content: center;
+  justify-content: center !important;
 }
 
 /* Bottom Aligned */
@@ -1271,10 +1276,10 @@
 .ui[class*="bottom aligned"].grid > .column,
 .ui.grid > [class*="bottom aligned"].row > .column {
   vertical-align: bottom;
-  justify-content: flex-end;
+  justify-content: flex-end !important;
 }
 .ui.grid [class*="bottom aligned"].column {
-  justify-content: flex-end;
+  justify-content: flex-end !important;
   vertical-align: bottom !important;
 }
 
@@ -1435,7 +1440,7 @@
 .ui[class*="equal width"].grid > .column,
 .ui[class*="equal width"].grid > .row > .column,
 .ui.grid > [class*="equal width"].row > .column {
-  display: flex;
+  display: block;
   flex-direction: column;
   flex-grow: 1;
 }
@@ -1462,7 +1467,10 @@
 }
 
 /* Flexbox (Experimental / Overrides Where Supported) */
-.ui[class*="equal height"].grid,
+.ui[class*="equal height"].grid {
+  display: flex;
+  flex-direction: column;
+}
 .ui[class*="equal height"].grid > .row,
 .ui.grid > [class*="equal height"].row  {
   display: flex;
@@ -1471,10 +1479,12 @@
 .ui[class*="equal height"].grid > .column,
 .ui[class*="equal height"].grid > .row > .column,
 .ui.grid > [class*="equal height"].row > .column {
-  display: flex;
+  display: block;
   flex-direction: column;
   flex-grow: 1;
 }
+
+
 
 /*-------------------
       Doubling
