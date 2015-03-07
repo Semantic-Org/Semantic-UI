@@ -40,7 +40,7 @@
 @imageAlignment: middle;
 
 /* Label */
-@labelSize: @medium;
+@labelSize: '';
 @labelDistance: 0.5rem;
 @labelVerticalAlign: middle;
 
