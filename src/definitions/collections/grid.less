@@ -1245,10 +1245,11 @@
 }
 
 .ui.stretched.grid > .row > .column,
-.ui.stretched.grid > .column,
+.ui.stretched.grid > .column:not(.row),
 .ui.grid .stretched.column,
 .ui.grid > .stretched.row > .column {
   display: flex !important;
+  flex-direction: column;
 }
 .ui.stretched.grid > .row > .column > *,
 .ui.stretched.grid > .column > *,
@@ -1421,27 +1422,24 @@
   table-layout: fixed;
   width: 100% !important;
 }
-.ui[class*="equal width"].grid > .column,
+.ui[class*="equal width"].grid > .column:not(.row),
 .ui[class*="equal width"].grid > .row > .column,
 .ui.grid > [class*="equal width"].row > .column {
   display: table-cell;
 }
 
 /* Flexbox (Experimental / Overrides Where Supported) */
-.ui[class*="equal width"].grid {
-  display: flex;
-  flex-direction: column;
-}
+.ui[class*="equal width"].grid,
 .ui[class*="equal width"].grid > .row,
 .ui.grid > [class*="equal width"].row  {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
-.ui[class*="equal width"].grid > .column,
+.ui[class*="equal width"].grid > .column:not(.row),
 .ui[class*="equal width"].grid > .row > .column,
 .ui.grid > [class*="equal width"].row > .column {
   display: block;
-  flex-direction: column;
   flex-grow: 1;
 }
 
@@ -1460,23 +1458,21 @@
   table-layout: fixed;
   width: 100% !important;
 }
-.ui[class*="equal height"].grid > .column,
+.ui[class*="equal height"].grid > .column:not(.row),
 .ui[class*="equal height"].grid > .row > .column,
 .ui.grid > [class*="equal height"].row > .column {
   display: table-cell;
 }
 
 /* Flexbox (Experimental / Overrides Where Supported) */
-.ui[class*="equal height"].grid {
-  display: flex;
-  flex-direction: column;
-}
+.ui[class*="equal height"].grid,
 .ui[class*="equal height"].grid > .row,
-.ui.grid > [class*="equal height"].row  {
+.ui.grid > [class*="equal height"].row {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
-.ui[class*="equal height"].grid > .column,
+.ui[class*="equal height"].grid > .column:not(.row),
 .ui[class*="equal height"].grid > .row > .column,
 .ui.grid > [class*="equal height"].row > .column {
   display: block;
