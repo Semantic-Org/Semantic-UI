@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.0 - Modal
+ * # Semantic UI 1.11.4 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -232,12 +232,14 @@
     padding: 1rem 0rem !important;
     box-shadow: none;
   }
+  
+/* Let Buttons Stack */
   .ui.modal > .actions {
-    padding: 1rem 1rem -1rem !important;
+    padding: 1rem 1rem 0rem !important;
   }
   .ui.modal .actions > .buttons,
   .ui.modal .actions > .button {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
 }
 

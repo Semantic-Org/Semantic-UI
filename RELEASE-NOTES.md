@@ -1,7 +1,35 @@
 ## RELEASE NOTES
 
-### Version 1.11.1 - March 5, 2015
+### Version 1.11.3-4 - March 6, 2015
 
+**Enhancements**
+- **Grid** - Added opt-in `stretched` variation for `equal height` instead of forcing `flex` on all `equal height columns` which may cause layout issues due to changes in rendering with `flexbox`.
+
+**Fixes**
+- **Build Tools** - Fix issues with minified CSS `@import` not being on top of minified semantic ui concatenated release due to [bug in clean-css](https://github.com/jakubpawlowicz/clean-css/issues/476)
+- **Grid** - Fixes `stackable` `equal height/width` grid to remove `flex` on mobile when stacking
+- **Grid** - Fixed `right/left/center aligned` to adjust `align-items` in flex containers like `equal height/width`
+
+### Version 1.11.2 - March 6, 2015
+
+**Enhancements**
+- **Accordion** - Accordion can now specify a trigger element instead of `title`, added an [example in docs](http://www.semantic-ui.com/modules/accordion.html#changing-trigger)
+- **Accordion** - Accordion can now hide while opening animation is still occuring
+- **Grid** - Equal width grids will now make column content stretch to full height, not just the column itself (requires flexbox). See examples [in the grid docs](http://www.semantic-ui.com/collections/grid.html#equal-height)
+- **Header** - Labels inside headers have been slightly increased in size
+- **Search** - Search now uses internally [fuzzy search](https://github.com/bevacqua/fuzzysearch) as its new full text search algorithm.
+
+**Important Fixes**
+- **Build Tools** - Fix issues with minified component CSS `@import` not always being on top of files due to [bug in clean-css](https://github.com/jakubpawlowicz/clean-css/issues/476)
+
+**Bugs**
+- **Accordion** - Removed mistaken extra `1px` top border on nested `styled accordion`
+- **Modal** - Fixes modal `buttons` on mobile devices to not have extra bottom padding.
+- **Card/Dimmer** - Fix dimmer z-index being too high when inside a `ui card`. Added variable for specifying default dimmer color inside card.
+- **Site** - `h1-h5` now have no top margin when `first-child` and no bottom margin when `last-child`
+- **Dropdown** - Fix issue in `setup reference` (added in `1.11.1`) where chaining would not return `ui dropdown` immediately after initialization
+
+### Version 1.11.1 - March 5, 2015
 
 **Enhancements**
 - **Dropdown** - Calling behaviors on a dropdown `select` will now automatically route them to the appropriate parent `ui dropdown`

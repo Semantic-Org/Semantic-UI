@@ -1182,6 +1182,7 @@
 .ui.grid [class*="left aligned"].column,
 .ui.grid > [class*="left aligned"].row > .column {
   text-align: left;
+  align-items: flex-start !important;
 }
 .ui.grid [class*="left aligned"].column{
   text-align: left !important;
@@ -1193,6 +1194,7 @@
 .ui[class*="center aligned"].grid > .column,
 .ui.grid > [class*="center aligned"].row > .column {
   text-align: center;
+  align-items: center !important;
 }
 .ui.grid [class*="center aligned"].column{
   text-align: center !important;
@@ -1204,6 +1206,7 @@
 .ui[class*="right aligned"].grid > .column,
 .ui.grid > [class*="right aligned"].row > .column {
   text-align: right;
+  align-items: flex-end !important;
 }
 .ui.grid [class*="right aligned"].column{
   text-align: right !important;
@@ -1234,11 +1237,25 @@
 .ui.grid [class*="top aligned"].column,
 .ui.grid > [class*="top aligned"].row > .column {
   vertical-align: top;
-  align-self: flex-start;
+  justify-content: flex-start !important;
 }
 .ui.grid [class*="top aligned"].column {
   vertical-align: top !important;
-  align-self: flex-start;
+  justify-content: flex-start !important;
+}
+
+.ui.stretched.grid > .row > .column,
+.ui.stretched.grid > .column:not(.row),
+.ui.grid .stretched.column,
+.ui.grid > .stretched.row > .column {
+  display: flex !important;
+  flex-direction: column;
+}
+.ui.stretched.grid > .row > .column > *,
+.ui.stretched.grid > .column > *,
+.ui.grid .stretched.column > *,
+.ui.grid > .stretched.row > .column > * {
+  flex-grow: 1;
 }
 
 /* Middle Aligned */
@@ -1247,11 +1264,11 @@
 .ui[class*="middle aligned"].grid > .column,
 .ui.grid > [class*="middle aligned"].row > .column {
   vertical-align: middle;
-  align-self: center;
+  justify-content: center !important;
 }
 .ui.grid [class*="middle aligned"].column{
   vertical-align: middle !important;
-  align-self: center;
+  justify-content: center !important;
 }
 
 /* Bottom Aligned */
@@ -1260,10 +1277,10 @@
 .ui[class*="bottom aligned"].grid > .column,
 .ui.grid > [class*="bottom aligned"].row > .column {
   vertical-align: bottom;
-  align-self: flex-end;
+  justify-content: flex-end !important;
 }
 .ui.grid [class*="bottom aligned"].column {
-  align-self: flex-end;
+  justify-content: flex-end !important;
   vertical-align: bottom !important;
 }
 
@@ -1391,7 +1408,6 @@
   padding-bottom: (@rowSpacing / 2);
 }
 
-
 /*----------------------
       Equal Width
 -----------------------*/
@@ -1406,29 +1422,25 @@
   table-layout: fixed;
   width: 100% !important;
 }
-.ui[class*="equal width"].grid > .column,
+.ui[class*="equal width"].grid > .column:not(.row),
 .ui[class*="equal width"].grid > .row > .column,
 .ui.grid > [class*="equal width"].row > .column {
   display: table-cell;
 }
 
 /* Flexbox (Experimental / Overrides Where Supported) */
-.ui[class*="equal width"].grid {
-  display: flex;
-  flex-direction: column;
-}
+.ui[class*="equal width"].grid,
 .ui[class*="equal width"].grid > .row,
 .ui.grid > [class*="equal width"].row  {
   display: flex;
   flex-direction: row;
-  align-items: stretch;
+  flex-wrap: wrap;
 }
-.ui[class*="equal width"].grid > .column,
+.ui[class*="equal width"].grid > .column:not(.row),
 .ui[class*="equal width"].grid > .row > .column,
 .ui.grid > [class*="equal width"].row > .column {
-  display: inline-block;
-  flex-direction: column;
-  flex: 1 0 auto;
+  display: block;
+  flex-grow: 1;
 }
 
 
@@ -1446,7 +1458,7 @@
   table-layout: fixed;
   width: 100% !important;
 }
-.ui[class*="equal height"].grid > .column,
+.ui[class*="equal height"].grid > .column:not(.row),
 .ui[class*="equal height"].grid > .row > .column,
 .ui.grid > [class*="equal height"].row > .column {
   display: table-cell;
@@ -1455,18 +1467,20 @@
 /* Flexbox (Experimental / Overrides Where Supported) */
 .ui[class*="equal height"].grid,
 .ui[class*="equal height"].grid > .row,
-.ui.grid > [class*="equal height"].row  {
+.ui.grid > [class*="equal height"].row {
   display: flex;
   flex-direction: row;
-  align-items: stretch;
+  flex-wrap: wrap;
 }
-.ui[class*="equal height"].grid > .column,
+.ui[class*="equal height"].grid > .column:not(.row),
 .ui[class*="equal height"].grid > .row > .column,
 .ui.grid > [class*="equal height"].row > .column {
-  display: inline-block;
+  display: block;
   flex-direction: column;
-  flex: 0 0 auto;
+  flex-grow: 1;
 }
+
+
 
 /*-------------------
       Doubling
@@ -1684,6 +1698,7 @@
     padding: (@stackableRowSpacing / 2) (@stackableGutter / 2) !important;
   }
   .ui.stackable.grid > .row {
+    display: block !important;
     margin: 0em;
     padding: 0em;
   }

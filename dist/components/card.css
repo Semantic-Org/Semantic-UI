@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.0 - Item
+ * # Semantic UI 1.11.4 - Item
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -325,6 +325,16 @@
 .ui.card > .button:last-child {
   margin: 0em 0em -1px;
   width: 100%;
+}
+
+/*--------------
+      Dimmer
+---------------*/
+
+.ui.cards > .card .dimmer,
+.ui.card .dimmer {
+  background: '';
+  z-index: 10;
 }
 
 /*--------------

@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.0 - Search
+ * # Semantic UI 1.11.4 - Search
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -439,8 +439,7 @@ $.fn.search = function(parameters) {
                 ? settings.searchFields
                 : [settings.searchFields],
               searchExp       = searchTerm.replace(regExp.escape, '\\$&'),
-              searchRegExp    = new RegExp(regExp.exact + searchExp, 'i'),
-              fullTextRegExp  = new RegExp(searchExp, 'i')
+              searchRegExp    = new RegExp(regExp.exact + searchExp, 'i')
             ;
 
             source = source || settings.source;
@@ -462,7 +461,7 @@ $.fn.search = function(parameters) {
                   if( content[field].match(searchRegExp) ) {
                     results.push(content);
                   }
-                  else if( settings.searchFullText && content[field].match(fullTextRegExp) ) {
+                  else if(settings.searchFullText && module.fuzzySearch(searchTerm, content[field]) ) {
                     fullTextResults.push(content);
                   }
                 }
@@ -470,6 +469,33 @@ $.fn.search = function(parameters) {
             });
             return $.merge(results, fullTextResults);
           }
+        },
+
+        fuzzySearch: function(query, term) {
+          var
+            termLength  = term.length,
+            queryLength = query.length
+          ;
+          query = query.toLowerCase();
+          term  = term.toLowerCase();
+          if(queryLength > termLength) {
+            return false;
+          }
+          if(queryLength === termLength) {
+            return (query === term);
+          }
+          search: for (var characterIndex = 0, nextCharacterIndex = 0; characterIndex < queryLength; characterIndex++) {
+            var
+              queryCharacter = query.charCodeAt(characterIndex)
+            ;
+            while(nextCharacterIndex < termLength) {
+              if(term.charCodeAt(nextCharacterIndex++) === queryCharacter) {
+                continue search;
+              }
+            }
+            return false;
+          }
+          return true;
         },
 
         parse: {
@@ -795,7 +821,7 @@ $.fn.search = function(parameters) {
               }
             });
           }
-          if ( $.isFunction( found ) ) {
+          if( $.isFunction( found ) ) {
             response = found.apply(context, passedArguments);
           }
           else if(found !== undefined) {

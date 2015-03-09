@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.11.0
+ * # Semantic UI - 1.11.4
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -9,7 +9,7 @@
  *
  */
 /*!
- * # Semantic UI 1.11.0 - Site
+ * # Semantic UI 1.11.4 - Site
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -496,7 +496,7 @@ $.extend($.expr[ ":" ], {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 1.11.0 - Form Validation
+ * # Semantic UI 1.11.4 - Form Validation
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -1615,7 +1615,7 @@ $.fn.form.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.11.0 - Accordion
+ * # Semantic UI 1.11.4 - Accordion
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -1677,10 +1677,8 @@ $.fn.accordion = function(parameters) {
       module = {
 
         initialize: function() {
-          module.debug('Initializing accordion with bound events', $module);
-          $module
-            .on('click' + eventNamespace, selector.title, module.event.click)
-          ;
+          module.debug('Initializing', $module);
+          module.bind.events();
           module.observeChanges();
           module.instantiate();
         },
@@ -1693,12 +1691,10 @@ $.fn.accordion = function(parameters) {
         },
 
         destroy: function() {
-          module.debug('Destroying previous accordion for', $module);
+          module.debug('Destroying previous instance', $module);
           $module
-            .removeData(moduleNamespace)
-          ;
-          $title
             .off(eventNamespace)
+            .removeData(moduleNamespace)
           ;
         },
 
@@ -1721,6 +1717,14 @@ $.fn.accordion = function(parameters) {
           }
         },
 
+        bind: {
+          events: function() {
+            module.debug('Binding delegated events');
+            $module
+              .on('click' + eventNamespace, selector.trigger, module.event.click)
+            ;
+          }
+        },
 
         event: {
           click: function() {
@@ -1733,13 +1737,16 @@ $.fn.accordion = function(parameters) {
             $activeTitle = (query !== undefined)
               ? (typeof query === 'number')
                 ? $title.eq(query)
-                : $(query)
-              : $(this),
+                : $(query).closest(selector.title)
+              : $(this).closest(selector.title),
             $activeContent = $activeTitle.next($content),
-            contentIsOpen  = $activeContent.is(':visible')
+            isAnimating = $activeContent.hasClass(className.animating),
+            isActive    = $activeContent.hasClass(className.active),
+            isOpen      = (isActive && !isAnimating),
+            isOpening   = (!isActive && isAnimating)
           ;
           module.debug('Toggling visibility of content', $activeTitle);
-          if(contentIsOpen) {
+          if(isOpen || isOpening) {
             if(settings.collapsible) {
               module.close.call($activeTitle);
             }
@@ -1748,7 +1755,7 @@ $.fn.accordion = function(parameters) {
             }
           }
           else {
-              module.open.call($activeTitle);
+            module.open.call($activeTitle);
           }
         },
 
@@ -1757,13 +1764,14 @@ $.fn.accordion = function(parameters) {
             $activeTitle = (query !== undefined)
               ? (typeof query === 'number')
                 ? $title.eq(query)
-                : $(query)
-              : $(this),
-            $activeContent     = $activeTitle.next($content),
-            currentlyAnimating = $activeContent.is(':animated'),
-            currentlyActive    = $activeContent.hasClass(className.active)
+                : $(query).closest(selector.title)
+              : $(this).closest(selector.title),
+            $activeContent = $activeTitle.next($content),
+            isAnimating = $activeContent.hasClass(className.animating),
+            isActive    = $activeContent.hasClass(className.active),
+            isUnopen    = (!isActive && !isAnimating)
           ;
-          if(!currentlyAnimating && !currentlyActive) {
+          if(isUnopen) {
             module.debug('Opening accordion content', $activeTitle);
             if(settings.exclusive) {
               module.closeOthers.call($activeTitle);
@@ -1771,23 +1779,25 @@ $.fn.accordion = function(parameters) {
             $activeTitle
               .addClass(className.active)
             ;
+            $activeContent.addClass(className.animating);
             if(settings.animateChildren) {
               if($.fn.transition !== undefined && $module.transition('is supported')) {
                 $activeContent
                   .children()
                     .transition({
-                      animation  : 'fade in',
+                      animation   : 'fade in',
+                      queue       : false,
                       useFailSafe : true,
-                      debug      : settings.debug,
-                      verbose    : settings.verbose,
-                      duration   : settings.duration
+                      debug       : settings.debug,
+                      verbose     : settings.verbose,
+                      duration    : settings.duration
                     })
                 ;
               }
               else {
                 $activeContent
                   .children()
-                    .stop()
+                    .stop(true)
                     .animate({
                       opacity: 1
                     }, settings.duration, module.resetOpacity)
@@ -1795,9 +1805,10 @@ $.fn.accordion = function(parameters) {
               }
             }
             $activeContent
-              .stop()
+              .stop(true)
               .slideDown(settings.duration, settings.easing, function() {
                 $activeContent
+                  .removeClass(className.animating)
                   .addClass(className.active)
                 ;
                 module.reset.display.call(this);
@@ -1813,19 +1824,21 @@ $.fn.accordion = function(parameters) {
             $activeTitle = (query !== undefined)
               ? (typeof query === 'number')
                 ? $title.eq(query)
-                : $(query)
-              : $(this),
+                : $(query).closest(selector.title)
+              : $(this).closest(selector.title),
             $activeContent = $activeTitle.next($content),
-            isActive       = $activeContent.hasClass(className.active)
+            isAnimating    = $activeContent.hasClass(className.animating),
+            isActive       = $activeContent.hasClass(className.active),
+            isOpening      = (!isActive && isAnimating),
+            isClosing      = (isActive && isAnimating)
           ;
-          if(isActive) {
+          if((isActive || isOpening) && !isClosing) {
             module.debug('Closing accordion content', $activeContent);
             $activeTitle
               .removeClass(className.active)
             ;
             $activeContent
-              .removeClass(className.active)
-              .show()
+              .addClass(className.animating)
             ;
             if(settings.animateChildren) {
               if($.fn.transition !== undefined && $module.transition('is supported')) {
@@ -1833,6 +1846,7 @@ $.fn.accordion = function(parameters) {
                   .children()
                     .transition({
                       animation   : 'fade out',
+                      queue       : false,
                       useFailSafe : true,
                       debug       : settings.debug,
                       verbose     : settings.verbose,
@@ -1843,7 +1857,7 @@ $.fn.accordion = function(parameters) {
               else {
                 $activeContent
                   .children()
-                    .stop()
+                    .stop(true)
                     .animate({
                       opacity: 0
                     }, settings.duration, module.resetOpacity)
@@ -1851,8 +1865,12 @@ $.fn.accordion = function(parameters) {
               }
             }
             $activeContent
-              .stop()
+              .stop(true)
               .slideUp(settings.duration, settings.easing, function() {
+                $activeContent
+                  .removeClass(className.animating)
+                  .removeClass(className.active)
+                ;
                 module.reset.display.call(this);
                 settings.onClose.call(this);
                 settings.onChange.call(this);
@@ -1865,7 +1883,7 @@ $.fn.accordion = function(parameters) {
           var
             $activeTitle = (index !== undefined)
               ? $title.eq(index)
-              : $(this),
+              : $(this).closest(selector.title),
             $parentTitles    = $activeTitle.parents(selector.content).prev(selector.title),
             $activeAccordion = $activeTitle.closest(selector.accordion),
             activeSelector   = selector.title + '.' + className.active + ':visible',
@@ -2140,8 +2158,8 @@ $.fn.accordion.settings = {
   closeNested     : false,
   animateChildren : true,
 
-  duration        : 500,
-  easing          : 'easeOutQuint',
+  duration        : 350,
+  easing          : 'easeOutQuad',
 
   onOpen          : function(){},
   onClose         : function(){},
@@ -2152,12 +2170,14 @@ $.fn.accordion.settings = {
   },
 
   className   : {
-    active : 'active'
+    active    : 'active',
+    animating : 'animating'
   },
 
   selector    : {
     accordion : '.accordion',
     title     : '.title',
+    trigger   : '.title',
     content   : '.content'
   }
 
@@ -2165,8 +2185,8 @@ $.fn.accordion.settings = {
 
 // Adds easing
 $.extend( $.easing, {
-  easeOutQuint: function (x, t, b, c, d) {
-    return c*((t=t/d-1)*t*t*t*t + 1) + b;
+  easeOutQuad: function (x, t, b, c, d) {
+    return -c *(t/=d)*(t-2) + b;
   }
 });
 
@@ -2174,7 +2194,7 @@ $.extend( $.easing, {
 
 
 /*!
- * # Semantic UI 1.11.0 - Checkbox
+ * # Semantic UI 1.11.4 - Checkbox
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -2684,7 +2704,7 @@ $.fn.checkbox.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.11.0 - Dimmer
+ * # Semantic UI 1.11.4 - Dimmer
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -3353,7 +3373,7 @@ $.fn.dimmer.settings = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 1.11.0 - Dropdown
+ * # Semantic UI 1.11.4 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -3385,7 +3405,7 @@ $.fn.dropdown = function(parameters) {
   ;
 
   $allModules
-    .each(function() {
+    .each(function(index) {
       var
         settings          = ( $.isPlainObject(parameters) )
           ? $.extend(true, {}, $.fn.dropdown.settings, parameters)
@@ -3429,25 +3449,25 @@ $.fn.dropdown = function(parameters) {
           module.debug('Initializing dropdown', settings);
 
           if( module.is.alreadySetup() ) {
-            module.error(error.alreadySetup);
+            module.setup.reference();
           }
           else {
             module.setup.layout();
+
+            module.save.defaults();
+            module.set.selected();
+
+            module.create.id();
+
+            if(hasTouch) {
+              module.bind.touchEvents();
+            }
+            module.bind.mouseEvents();
+            module.bind.keyboardEvents();
+
+            module.observeChanges();
+            module.instantiate();
           }
-
-          module.save.defaults();
-          module.set.selected();
-
-          module.create.id();
-
-          if(hasTouch) {
-            module.bind.touchEvents();
-          }
-          module.bind.mouseEvents();
-          module.bind.keyboardEvents();
-
-          module.observeChanges();
-          module.instantiate();
         },
 
         instantiate: function() {
@@ -3515,7 +3535,6 @@ $.fn.dropdown = function(parameters) {
         },
 
         setup: {
-
           layout: function() {
             if( $module.is('select') ) {
               module.setup.select();
@@ -3565,7 +3584,21 @@ $.fn.dropdown = function(parameters) {
                 .prependTo($module)
               ;
             }
+            module.setup.reference();
+          },
+          reference: function() {
+            var
+              $firstModules,
+              $lastModules
+            ;
+            module.debug('Dropdown behavior was called on select, replacing with closest dropdown');
+            // replace module reference
+            $module = $module.closest(selector.dropdown);
             module.refresh();
+            // adjust all modules
+            $firstModules = $allModules.slice(0, index);
+            $lastModules = $allModules.slice(index + 1);
+            $allModules = $firstModules.add($module).add($lastModules);
           }
         },
 
@@ -5001,10 +5034,9 @@ $.fn.dropdown = function(parameters) {
       }
     })
   ;
-
   return (returnedValue !== undefined)
     ? returnedValue
-    : this
+    : $allModules
   ;
 };
 
@@ -5137,7 +5169,7 @@ $.extend( $.easing, {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.11.0 - Modal
+ * # Semantic UI 1.11.4 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -5998,7 +6030,7 @@ $.fn.modal.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.11.0 - Nag
+ * # Semantic UI 1.11.4 - Nag
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -6476,7 +6508,7 @@ $.fn.nag.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.11.0 - Popup
+ * # Semantic UI 1.11.4 - Popup
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -7701,7 +7733,7 @@ $.extend( $.easing, {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.11.0 - Progress
+ * # Semantic UI 1.11.4 - Progress
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -8486,7 +8518,7 @@ $.fn.progress.settings = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 1.11.0 - Rating
+ * # Semantic UI 1.11.4 - Rating
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -8938,7 +8970,7 @@ $.fn.rating.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.11.0 - Search
+ * # Semantic UI 1.11.4 - Search
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -9378,8 +9410,7 @@ $.fn.search = function(parameters) {
                 ? settings.searchFields
                 : [settings.searchFields],
               searchExp       = searchTerm.replace(regExp.escape, '\\$&'),
-              searchRegExp    = new RegExp(regExp.exact + searchExp, 'i'),
-              fullTextRegExp  = new RegExp(searchExp, 'i')
+              searchRegExp    = new RegExp(regExp.exact + searchExp, 'i')
             ;
 
             source = source || settings.source;
@@ -9401,7 +9432,7 @@ $.fn.search = function(parameters) {
                   if( content[field].match(searchRegExp) ) {
                     results.push(content);
                   }
-                  else if( settings.searchFullText && content[field].match(fullTextRegExp) ) {
+                  else if(settings.searchFullText && module.fuzzySearch(searchTerm, content[field]) ) {
                     fullTextResults.push(content);
                   }
                 }
@@ -9409,6 +9440,33 @@ $.fn.search = function(parameters) {
             });
             return $.merge(results, fullTextResults);
           }
+        },
+
+        fuzzySearch: function(query, term) {
+          var
+            termLength  = term.length,
+            queryLength = query.length
+          ;
+          query = query.toLowerCase();
+          term  = term.toLowerCase();
+          if(queryLength > termLength) {
+            return false;
+          }
+          if(queryLength === termLength) {
+            return (query === term);
+          }
+          search: for (var characterIndex = 0, nextCharacterIndex = 0; characterIndex < queryLength; characterIndex++) {
+            var
+              queryCharacter = query.charCodeAt(characterIndex)
+            ;
+            while(nextCharacterIndex < termLength) {
+              if(term.charCodeAt(nextCharacterIndex++) === queryCharacter) {
+                continue search;
+              }
+            }
+            return false;
+          }
+          return true;
         },
 
         parse: {
@@ -9734,7 +9792,7 @@ $.fn.search = function(parameters) {
               }
             });
           }
-          if ( $.isFunction( found ) ) {
+          if( $.isFunction( found ) ) {
             response = found.apply(context, passedArguments);
           }
           else if(found !== undefined) {
@@ -10009,7 +10067,7 @@ $.fn.search.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.11.0 - Shape
+ * # Semantic UI 1.11.4 - Shape
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -10839,7 +10897,7 @@ $.fn.shape.settings = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 1.11.0 - Sidebar
+ * # Semantic UI 1.11.4 - Sidebar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -11929,7 +11987,7 @@ $.extend( $.easing, {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.11.0 - Sticky
+ * # Semantic UI 1.11.4 - Sticky
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -12722,7 +12780,7 @@ $.fn.sticky.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.11.0 - Tab
+ * # Semantic UI 1.11.4 - Tab
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -13524,7 +13582,7 @@ $.fn.tab.settings = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 1.11.0 - Transition
+ * # Semantic UI 1.11.4 - Transition
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -13701,6 +13759,10 @@ $.fn.transition = function() {
               module.debug('Animation is already occurring, will not execute repeated animation', settings.animation);
               return false;
             }
+            else {
+              module.debug('New animation started, completing previous early', settings.animation);
+              module.complete();
+            }
           }
           if( module.can.animate() ) {
             module.set.animating(settings.animation);
@@ -13730,7 +13792,7 @@ $.fn.transition = function() {
         },
 
         complete: function (event) {
-          module.verbose('CSS animation complete', settings.animation);
+          module.debug('Animation complete', settings.animation);
           module.remove.completeCallback();
           module.remove.failSafe();
           if(!module.is.looping()) {
@@ -13810,8 +13872,8 @@ $.fn.transition = function() {
               ? duration + 'ms'
               : duration
             ;
-            module.verbose('Setting animation duration', duration);
             if(duration || duration === 0) {
+              module.verbose('Setting animation duration', duration);
               $module
                 .css({
                   '-webkit-animation-duration': duration,
@@ -14376,7 +14438,7 @@ $.fn.transition = function() {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 600);
+            module.performance.timer = setTimeout(module.performance.display, 100);
           },
           display: function() {
             var
@@ -14559,7 +14621,7 @@ $.fn.transition.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.11.0 - Video
+ * # Semantic UI 1.11.4 - Video
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -15100,7 +15162,7 @@ $.fn.video.settings.templates = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.11.0 - API
+ * # Semantic UI 1.11.4 - API
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -15971,7 +16033,7 @@ $.api.settings.api = {};
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 1.11.0 - Form Validation
+ * # Semantic UI 1.11.4 - Form Validation
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -17090,7 +17152,7 @@ $.fn.form.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.11.0 - State
+ * # Semantic UI 1.11.4 - State
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -17786,7 +17848,7 @@ $.fn.state.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.11.0 - Visibility
+ * # Semantic UI 1.11.4 - Visibility
  * http://github.com/semantic-org/semantic-ui/
  *
  *

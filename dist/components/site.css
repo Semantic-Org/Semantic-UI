@@ -25,7 +25,7 @@ html {
 body {
   margin: 0px;
   padding: 0px;
-  min-width: 278px;
+  min-width: 320px;
   background: #f7f7f7;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 14px;
@@ -66,6 +66,20 @@ h4 {
 }
 h5 {
   font-size: 1rem;
+}
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child {
+  margin-top: 0em;
+}
+h1:last-child,
+h2:last-child,
+h3:last-child,
+h4:last-child,
+h5:last-child {
+  margin-bottom: 0em;
 }
 
 
