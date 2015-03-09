@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.0 - Container
+ * # Semantic UI 1.11.4 - Container
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -7,4 +7,4 @@
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
- */
+ */.ui.container{display:block;margin:0 auto;width:1190px}@media only screen and (max-width:1188px){.ui.container{width:auto;margin:0 1em}}

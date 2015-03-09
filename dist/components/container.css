@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.0 - Container
+ * # Semantic UI 1.11.4 - Container
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -19,6 +19,17 @@
        Animated
 --------------------*/
 
+.ui.container {
+  display: block;
+  margin: 0px auto;
+  width: 1190px;
+}
+@media only screen and (max-width: 1188px) {
+  .ui.container {
+    width: auto;
+    margin: 0em 1em;
+  }
+}
 
 
 /*******************************

@@ -6,7 +6,25 @@
        Element
 --------------------*/
 
-@width: 1200px;
 @maxWidth: 100%;
+
+/* Devices */
+@mobileWidth: auto;
+@tabletWidth: 752px;
+@smallComputerWidth: 960px;
+@largeComputerWidth: 1200px;
+
+@mobileGutter: 1em;
+@tabletGutter: auto;
+@smallComputerGutter: auto;
+@largeComputerGutter: auto;
+
+/* Adjust breakpoints to match fixed width */
+@smallComputerBreakpoint: @smallComputerWidth + 28px;
+@largeComputerBreakpoint: @largeComputerWidth + 28px;
+
+/*-------------------
+       Types
+--------------------*/
 
 @textWidth: 700px;

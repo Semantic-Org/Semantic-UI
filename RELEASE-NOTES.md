@@ -1,5 +1,16 @@
 ## RELEASE NOTES
 
+### Version 1.12.0 - March 6, 2015
+
+**Enhancements**
+- **Grid** - `equal height` and `equal width` now work without `row` wrappers
+
+**Bugs**
+- **All Modules** - Performance logging now delays 500ms instead of 100ms for console logging to ensure all logs are captured in one group
+- **Label** - Labels inside `header` now vertical align better by accounting for line height offset
+- **Dropdown** - Fix bug where `onChange` would call even when reselecting current value
+- **Popup** - Fixes issue with `min-width` in firefox exceeding `max-width` causing element to not wrap correctly
+
 ### Version 1.11.3-4 - March 6, 2015
 
 **Enhancements**

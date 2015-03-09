@@ -28,8 +28,36 @@
 .ui.container {
   display: block;
   margin: 0px auto !important;
-  width: @width;
   max-width: @maxWidth;
+}
+
+@media only screen and (max-width: (@largestMobileScreen)) {
+  .ui.container {
+    width: @mobileWidth;
+    margin-left: @mobileGutter;
+    margin-right: @mobileGutter;
+  }
+}
+@media only screen and (min-width: @tabletBreakpoint ) {
+  .ui.container {
+    width: @tabletWidth;
+    margin-left: @tabletGutter;
+    margin-right: @tabletGutter;
+  }
+}
+@media only screen and (min-width: @smallComputerBreakpoint) {
+  .ui.container {
+    width: @smallComputerWidth;
+    margin-left: @smallComputerGutter;
+    margin-right: @smallComputerGutter;
+  }
+}
+@media only screen and (min-width: @largeComputerBreakpoint) {
+  .ui.container {
+    width: @largeComputerWidth;
+    margin-left: @largeComputerGutter;
+    margin-right: @largeComputerGutter;
+  }
 }
 
 
