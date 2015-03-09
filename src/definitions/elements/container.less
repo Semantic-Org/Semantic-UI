@@ -24,12 +24,12 @@
             Container
 *******************************/
 
-/*-------------------
-       Animated
---------------------*/
 
 .ui.container {
-
+  display: block;
+  margin: 0px auto !important;
+  width: @width;
+  max-width: @maxWidth;
 }
 
 
@@ -38,8 +38,26 @@
 *******************************/
 
 
+.ui.text.container {
+  display: block;
+  margin: 0px auto;
+  width: @textWidth;
+}
 
 
-.loadUIOverrides();
+/*******************************
+           Variations
+*******************************/
+
+.ui[class*="left aligned"].container {
+  text-align: left;
+}
+.ui[class*="center aligned"].container {
+  text-align: center;
+}
+.ui[class*="right aligned"].container {
+  text-align: right;
+}
+
 
 }
