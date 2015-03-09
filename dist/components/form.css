@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.10.4 - Form
+ * # Semantic UI 1.11.0 - Form
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -86,6 +86,7 @@
 .ui.form input[type="email"],
 .ui.form input[type="number"],
 .ui.form input[type="password"],
+.ui.form input[type="search"],
 .ui.form input[type="tel"],
 .ui.form input[type="time"],
 .ui.form input[type="text"],
@@ -100,6 +101,7 @@
 .ui.form input[type="email"],
 .ui.form input[type="number"],
 .ui.form input[type="password"],
+.ui.form input[type="search"],
 .ui.form input[type="tel"],
 .ui.form input[type="time"],
 .ui.form input[type="text"],
@@ -108,7 +110,7 @@
   margin: 0em;
   outline: none;
   -webkit-appearance: none;
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  tap-highlight-color: rgba(255, 255, 255, 0);
   line-height: 1.2142em;
   padding: 0.67861em 1em;
   font-size: 1em;
@@ -124,7 +126,7 @@
 .ui.form textarea {
   margin: 0em;
   -webkit-appearance: none;
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  tap-highlight-color: rgba(255, 255, 255, 0);
   padding: 0.78571em 1em;
   background: #ffffff;
   border: 1px solid rgba(39, 41, 43, 0.15);
@@ -280,6 +282,7 @@
 .ui.form input[type="email"]:focus,
 .ui.form input[type="number"]:focus,
 .ui.form input[type="password"]:focus,
+.ui.form input[type="search"]:focus,
 .ui.form input[type="tel"]:focus,
 .ui.form input[type="time"]:focus,
 .ui.form input[type="text"]:focus,
@@ -342,23 +345,27 @@
   color: #ffffff;
 }
 .ui.form .fields.error .field textarea,
+.ui.form .fields.error .field select,
 .ui.form .fields.error .field input:not([type]),
 .ui.form .fields.error .field input[type="date"],
 .ui.form .fields.error .field input[type="datetime-local"],
 .ui.form .fields.error .field input[type="email"],
 .ui.form .fields.error .field input[type="number"],
 .ui.form .fields.error .field input[type="password"],
+.ui.form .fields.error .field input[type="search"],
 .ui.form .fields.error .field input[type="tel"],
 .ui.form .fields.error .field input[type="time"],
 .ui.form .fields.error .field input[type="text"],
 .ui.form .fields.error .field input[type="url"],
 .ui.form .field.error textarea,
+.ui.form .field.error select,
 .ui.form .field.error input:not([type]),
 .ui.form .field.error input[type="date"],
 .ui.form .field.error input[type="datetime-local"],
 .ui.form .field.error input[type="email"],
 .ui.form .field.error input[type="number"],
 .ui.form .field.error input[type="password"],
+.ui.form .field.error input[type="search"],
 .ui.form .field.error input[type="tel"],
 .ui.form .field.error input[type="time"],
 .ui.form .field.error input[type="text"],
@@ -370,12 +377,14 @@
   box-shadow: 2px 0em 0em 0em #d95c5c inset;
 }
 .ui.form .field.error textarea:focus,
+.ui.form .field.error select:focus,
 .ui.form .field.error input:not([type]):focus,
 .ui.form .field.error input[type="date"]:focus,
 .ui.form .field.error input[type="datetime-local"]:focus,
 .ui.form .field.error input[type="email"]:focus,
 .ui.form .field.error input[type="number"]:focus,
 .ui.form .field.error input[type="password"]:focus,
+.ui.form .field.error input[type="search"]:focus,
 .ui.form .field.error input[type="tel"]:focus,
 .ui.form .field.error input[type="time"]:focus,
 .ui.form .field.error input[type="text"]:focus,
@@ -385,6 +394,11 @@
   color: #dc6868;
   -webkit-appearance: none;
   box-shadow: 2px 0em 0em 0em #dc6868 inset;
+}
+
+/* Preserve Native Select Stylings */
+.ui.form .field.error select {
+  -webkit-appearance: menulist-button;
 }
 
 /*------------------

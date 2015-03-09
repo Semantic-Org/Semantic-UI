@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.10.4 - Item
+ * # Semantic UI 1.11.0 - Item
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -128,7 +128,7 @@
   padding-left: 1.5em;
 }
 .ui.items > .item > .content > .header {
-  display: inline-block;
+  display: block;
   margin: -0.165em 0em 0em;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: bold;
@@ -156,14 +156,13 @@
 ---------------*/
 
 .ui.items > .item .content img {
-  display: inline-block;
   vertical-align: middle;
-  width: 2em;
+  width: '';
 }
 .ui.items > .item img.avatar,
 .ui.items > .item .avatar img {
-  width: 2em;
-  height: 2em;
+  width: '';
+  height: '';
   border-radius: 500rem;
 }
 
@@ -261,7 +260,7 @@
   color: #ffb70a;
 }
 .ui.items > .item > .content .active.favorite.icon {
-  color: #ffb70a;
+  color: #ffe623;
 }
 
 /*-----Like----- */

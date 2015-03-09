@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.10.4 - Transition
+ * # Semantic UI 1.11.0 - Transition
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -96,6 +96,10 @@
      Browse
 ---------------*/
 
+.transition.browse {
+  -webkit-animation-duration: 500ms;
+          animation-duration: 500ms;
+}
 .transition.browse.in {
   -webkit-animation-name: browseIn;
           animation-name: browseIn;
@@ -254,8 +258,8 @@
   -webkit-transform-origin: top center;
       -ms-transform-origin: top center;
           transform-origin: top center;
-  -webkit-animation-duration: 0.5s;
-          animation-duration: 0.5s;
+  -webkit-animation-duration: 500ms;
+          animation-duration: 500ms;
   -webkit-animation-timing-function: cubic-bezier(0.34, 1.61, 0.7, 1);
           animation-timing-function: cubic-bezier(0.34, 1.61, 0.7, 1);
 }
@@ -597,6 +601,8 @@
 
 .flip.transition.in,
 .flip.transition.out {
+  -webkit-animation-duration: 600ms;
+          animation-duration: 600ms;
   -webkit-perspective: 2000px;
           perspective: 2000px;
 }
@@ -1408,60 +1414,63 @@
      Swing
 ---------------*/
 
-.transition.swing.in,
+.transition.swing {
+  -webkit-animation-duration: 800ms;
+          animation-duration: 800ms;
+}
 .transition[class*="swing down"].in {
-  -webkit-animation-name: swingInY;
-          animation-name: swingInY;
+  -webkit-animation-name: swingInX;
+          animation-name: swingInX;
   -webkit-transform-origin: top center;
       -ms-transform-origin: top center;
           transform-origin: top center;
 }
 .transition[class*="swing up"].in {
-  -webkit-animation-name: swingInY;
-          animation-name: swingInY;
+  -webkit-animation-name: swingInX;
+          animation-name: swingInX;
   -webkit-transform-origin: bottom center;
       -ms-transform-origin: bottom center;
           transform-origin: bottom center;
 }
 .transition[class*="swing left"].in {
-  -webkit-animation-name: swingInX;
-          animation-name: swingInX;
+  -webkit-animation-name: swingInY;
+          animation-name: swingInY;
   -webkit-transform-origin: center right;
       -ms-transform-origin: center right;
           transform-origin: center right;
 }
 .transition[class*="swing right"].in {
-  -webkit-animation-name: swingInX;
-          animation-name: swingInX;
+  -webkit-animation-name: swingInY;
+          animation-name: swingInY;
   -webkit-transform-origin: center left;
       -ms-transform-origin: center left;
           transform-origin: center left;
 }
 .transition.swing.out,
 .transition[class*="swing down"].out {
-  -webkit-animation-name: swingOutY;
-          animation-name: swingOutY;
+  -webkit-animation-name: swingOutX;
+          animation-name: swingOutX;
   -webkit-transform-origin: top center;
       -ms-transform-origin: top center;
           transform-origin: top center;
 }
 .transition[class*="swing up"].out {
-  -webkit-animation-name: swingOutY;
-          animation-name: swingOutY;
+  -webkit-animation-name: swingOutX;
+          animation-name: swingOutX;
   -webkit-transform-origin: bottom center;
       -ms-transform-origin: bottom center;
           transform-origin: bottom center;
 }
 .transition[class*="swing left"].out {
-  -webkit-animation-name: swingOutX;
-          animation-name: swingOutX;
+  -webkit-animation-name: swingOutY;
+          animation-name: swingOutY;
   -webkit-transform-origin: center right;
       -ms-transform-origin: center right;
           transform-origin: center right;
 }
 .transition[class*="swing right"].out {
-  -webkit-animation-name: swingOutX;
-          animation-name: swingOutX;
+  -webkit-animation-name: swingOutY;
+          animation-name: swingOutY;
   -webkit-transform-origin: center left;
       -ms-transform-origin: center left;
           transform-origin: center left;
@@ -1475,17 +1484,17 @@
     opacity: 0;
   }
   40% {
-    -webkit-transform: perspective(1000px) rotateX(-20deg);
-            transform: perspective(1000px) rotateX(-20deg);
+    -webkit-transform: perspective(1000px) rotateX(-30deg);
+            transform: perspective(1000px) rotateX(-30deg);
+    opacity: 1;
   }
   60% {
-    -webkit-transform: perspective(1000px) rotateX(10deg);
-            transform: perspective(1000px) rotateX(10deg);
+    -webkit-transform: perspective(1000px) rotateX(15deg);
+            transform: perspective(1000px) rotateX(15deg);
   }
   80% {
-    -webkit-transform: perspective(1000px) rotateX(-5deg);
-            transform: perspective(1000px) rotateX(-5deg);
-    opacity: 1;
+    -webkit-transform: perspective(1000px) rotateX(-7.5deg);
+            transform: perspective(1000px) rotateX(-7.5deg);
   }
   100% {
     -webkit-transform: perspective(1000px) rotateX(0deg);
@@ -1499,17 +1508,17 @@
     opacity: 0;
   }
   40% {
-    -webkit-transform: perspective(1000px) rotateX(-20deg);
-            transform: perspective(1000px) rotateX(-20deg);
+    -webkit-transform: perspective(1000px) rotateX(-30deg);
+            transform: perspective(1000px) rotateX(-30deg);
+    opacity: 1;
   }
   60% {
-    -webkit-transform: perspective(1000px) rotateX(10deg);
-            transform: perspective(1000px) rotateX(10deg);
+    -webkit-transform: perspective(1000px) rotateX(15deg);
+            transform: perspective(1000px) rotateX(15deg);
   }
   80% {
-    -webkit-transform: perspective(1000px) rotateX(-5deg);
-            transform: perspective(1000px) rotateX(-5deg);
-    opacity: 1;
+    -webkit-transform: perspective(1000px) rotateX(-7.5deg);
+            transform: perspective(1000px) rotateX(-7.5deg);
   }
   100% {
     -webkit-transform: perspective(1000px) rotateX(0deg);
@@ -1523,17 +1532,17 @@
     opacity: 0;
   }
   40% {
-    -webkit-transform: perspective(1000px) rotateY(20deg);
-            transform: perspective(1000px) rotateY(20deg);
+    -webkit-transform: perspective(1000px) rotateY(30deg);
+            transform: perspective(1000px) rotateY(30deg);
+    opacity: 1;
   }
   60% {
-    -webkit-transform: perspective(1000px) rotateY(-10deg);
-            transform: perspective(1000px) rotateY(-10deg);
+    -webkit-transform: perspective(1000px) rotateY(-17.5deg);
+            transform: perspective(1000px) rotateY(-17.5deg);
   }
   80% {
-    -webkit-transform: perspective(1000px) rotateY(5deg);
-            transform: perspective(1000px) rotateY(5deg);
-    opacity: 1;
+    -webkit-transform: perspective(1000px) rotateY(7.5deg);
+            transform: perspective(1000px) rotateY(7.5deg);
   }
   100% {
     -webkit-transform: perspective(1000px) rotateY(0deg);
@@ -1547,17 +1556,17 @@
     opacity: 0;
   }
   40% {
-    -webkit-transform: perspective(1000px) rotateY(20deg);
-            transform: perspective(1000px) rotateY(20deg);
+    -webkit-transform: perspective(1000px) rotateY(30deg);
+            transform: perspective(1000px) rotateY(30deg);
+    opacity: 1;
   }
   60% {
-    -webkit-transform: perspective(1000px) rotateY(-10deg);
-            transform: perspective(1000px) rotateY(-10deg);
+    -webkit-transform: perspective(1000px) rotateY(-17.5deg);
+            transform: perspective(1000px) rotateY(-17.5deg);
   }
   80% {
-    -webkit-transform: perspective(1000px) rotateY(5deg);
-            transform: perspective(1000px) rotateY(5deg);
-    opacity: 1;
+    -webkit-transform: perspective(1000px) rotateY(7.5deg);
+            transform: perspective(1000px) rotateY(7.5deg);
   }
   100% {
     -webkit-transform: perspective(1000px) rotateY(0deg);
@@ -1566,14 +1575,22 @@
 }
 
 /* Out */
-@-webkit-keyframes swingOutUp {
+@-webkit-keyframes swingOutX {
   0% {
     -webkit-transform: perspective(1000px) rotateX(0deg);
             transform: perspective(1000px) rotateX(0deg);
   }
-  30% {
-    -webkit-transform: perspective(1000px) rotateX(-20deg);
-            transform: perspective(1000px) rotateX(-20deg);
+  40% {
+    -webkit-transform: perspective(1000px) rotateX(-7.5deg);
+            transform: perspective(1000px) rotateX(-7.5deg);
+  }
+  60% {
+    -webkit-transform: perspective(1000px) rotateX(17.5deg);
+            transform: perspective(1000px) rotateX(17.5deg);
+  }
+  80% {
+    -webkit-transform: perspective(1000px) rotateX(-30deg);
+            transform: perspective(1000px) rotateX(-30deg);
     opacity: 1;
   }
   100% {
@@ -1582,14 +1599,22 @@
     opacity: 0;
   }
 }
-@keyframes swingOutUp {
+@keyframes swingOutX {
   0% {
     -webkit-transform: perspective(1000px) rotateX(0deg);
             transform: perspective(1000px) rotateX(0deg);
   }
-  30% {
-    -webkit-transform: perspective(1000px) rotateX(-20deg);
-            transform: perspective(1000px) rotateX(-20deg);
+  40% {
+    -webkit-transform: perspective(1000px) rotateX(-7.5deg);
+            transform: perspective(1000px) rotateX(-7.5deg);
+  }
+  60% {
+    -webkit-transform: perspective(1000px) rotateX(17.5deg);
+            transform: perspective(1000px) rotateX(17.5deg);
+  }
+  80% {
+    -webkit-transform: perspective(1000px) rotateX(-30deg);
+            transform: perspective(1000px) rotateX(-30deg);
     opacity: 1;
   }
   100% {
@@ -1598,46 +1623,22 @@
     opacity: 0;
   }
 }
-@-webkit-keyframes swingOutDown {
-  0% {
-    -webkit-transform: perspective(1000px) rotateX(0deg);
-            transform: perspective(1000px) rotateX(0deg);
-  }
-  30% {
-    -webkit-transform: perspective(1000px) rotateX(20deg);
-            transform: perspective(1000px) rotateX(20deg);
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: perspective(1000px) rotateX(-90deg);
-            transform: perspective(1000px) rotateX(-90deg);
-    opacity: 0;
-  }
-}
-@keyframes swingOutDown {
-  0% {
-    -webkit-transform: perspective(1000px) rotateX(0deg);
-            transform: perspective(1000px) rotateX(0deg);
-  }
-  30% {
-    -webkit-transform: perspective(1000px) rotateX(20deg);
-            transform: perspective(1000px) rotateX(20deg);
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: perspective(1000px) rotateX(-90deg);
-            transform: perspective(1000px) rotateX(-90deg);
-    opacity: 0;
-  }
-}
-@-webkit-keyframes swingOutLeft {
+@-webkit-keyframes swingOutY {
   0% {
     -webkit-transform: perspective(1000px) rotateY(0deg);
             transform: perspective(1000px) rotateY(0deg);
   }
-  30% {
-    -webkit-transform: perspective(1000px) rotateY(20deg);
-            transform: perspective(1000px) rotateY(20deg);
+  40% {
+    -webkit-transform: perspective(1000px) rotateY(7.5deg);
+            transform: perspective(1000px) rotateY(7.5deg);
+  }
+  60% {
+    -webkit-transform: perspective(1000px) rotateY(-10deg);
+            transform: perspective(1000px) rotateY(-10deg);
+  }
+  80% {
+    -webkit-transform: perspective(1000px) rotateY(30deg);
+            transform: perspective(1000px) rotateY(30deg);
     opacity: 1;
   }
   100% {
@@ -1646,51 +1647,27 @@
     opacity: 0;
   }
 }
-@keyframes swingOutLeft {
+@keyframes swingOutY {
   0% {
     -webkit-transform: perspective(1000px) rotateY(0deg);
             transform: perspective(1000px) rotateY(0deg);
   }
-  30% {
-    -webkit-transform: perspective(1000px) rotateY(20deg);
-            transform: perspective(1000px) rotateY(20deg);
+  40% {
+    -webkit-transform: perspective(1000px) rotateY(7.5deg);
+            transform: perspective(1000px) rotateY(7.5deg);
+  }
+  60% {
+    -webkit-transform: perspective(1000px) rotateY(-10deg);
+            transform: perspective(1000px) rotateY(-10deg);
+  }
+  80% {
+    -webkit-transform: perspective(1000px) rotateY(30deg);
+            transform: perspective(1000px) rotateY(30deg);
     opacity: 1;
   }
   100% {
     -webkit-transform: perspective(1000px) rotateY(-90deg);
             transform: perspective(1000px) rotateY(-90deg);
-    opacity: 0;
-  }
-}
-@-webkit-keyframes swingOutRight {
-  0% {
-    -webkit-transform: perspective(1000px) rotateY(0deg);
-            transform: perspective(1000px) rotateY(0deg);
-  }
-  30% {
-    -webkit-transform: perspective(1000px) rotateY(-20deg);
-            transform: perspective(1000px) rotateY(-20deg);
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: perspective(1000px) rotateY(90deg);
-            transform: perspective(1000px) rotateY(90deg);
-    opacity: 0;
-  }
-}
-@keyframes swingOutRight {
-  0% {
-    -webkit-transform: perspective(1000px) rotateY(0deg);
-            transform: perspective(1000px) rotateY(0deg);
-  }
-  30% {
-    -webkit-transform: perspective(1000px) rotateY(-20deg);
-            transform: perspective(1000px) rotateY(-20deg);
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: perspective(1000px) rotateY(90deg);
-            transform: perspective(1000px) rotateY(90deg);
     opacity: 0;
   }
 }
@@ -1706,26 +1683,38 @@
 ---------------*/
 
 .flash.transition {
+  -webkit-animation-duration: 750ms;
+          animation-duration: 750ms;
   -webkit-animation-name: flash;
           animation-name: flash;
 }
 .shake.transition {
+  -webkit-animation-duration: 750ms;
+          animation-duration: 750ms;
   -webkit-animation-name: shake;
           animation-name: shake;
 }
 .bounce.transition {
+  -webkit-animation-duration: 750ms;
+          animation-duration: 750ms;
   -webkit-animation-name: bounce;
           animation-name: bounce;
 }
 .tada.transition {
+  -webkit-animation-duration: 750ms;
+          animation-duration: 750ms;
   -webkit-animation-name: tada;
           animation-name: tada;
 }
 .pulse.transition {
+  -webkit-animation-duration: 500ms;
+          animation-duration: 500ms;
   -webkit-animation-name: pulse;
           animation-name: pulse;
 }
 .jiggle.transition {
+  -webkit-animation-duration: 750ms;
+          animation-duration: 750ms;
   -webkit-animation-name: jiggle;
           animation-name: jiggle;
 }

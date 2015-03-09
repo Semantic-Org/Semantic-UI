@@ -337,7 +337,7 @@ i.massive.icon {
   vertical-align: middle;
 }
 /*!
- * # Semantic UI 1.10.4 - Icon
+ * # Semantic UI 1.11.0 - Icon
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -2034,9 +2034,6 @@ i.icon.time:before {
 }
 i.icon.play.circle.outline:before {
   content: "\f01d";
-}
-i.icon.clockwise:before {
-  content: "\f01e";
 }
 i.icon.headphone:before {
   content: "\f025";

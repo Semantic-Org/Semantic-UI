@@ -1,9 +1,22 @@
 ## RELEASE NOTES
 
-### Version 1.11.0 - March xx, 2015
+### Version 1.11.1 - March 5, 2015
+
+
+**Enhancements**
+- **Dropdown** - Calling behaviors on a dropdown `select` will now automatically route them to the appropriate parent `ui dropdown`
+
+**Bugs**
+
+- **Grid** - Fix issue in `centered grid` not centering `column` inside `row`
+- **Dropdown** - Added select styles for elements before they are initialized instead of FOIC (Flash of invisible content)
+
+### Version 1.11.0 - March 3, 2015
 
 **New Components**
-- **Visibiliity** - Attach callbacks to elements visibility conditions like `top visible` `bottom visible`, `passing`. Useful for things like: image lazy loading, infinite scroll content, and recording tracking metrics
+- **Visibiliity** - Attach callbacks to elements visibility conditions like `top visible` `bottom visible`, `passing`. Useful for things like: image lazy loading, infinite scroll content, and recording tracking metrics.
+
+[See the examples](http://www.semantic-ui.com/behaviors/visibility.html#/examples) online for a demonstration.
 
 **Enhancements**
 - **Form** - `<select>` now receive error formatting on `form error` **Thanks @davialexandre**

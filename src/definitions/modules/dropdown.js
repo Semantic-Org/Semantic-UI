@@ -75,25 +75,25 @@ $.fn.dropdown = function(parameters) {
           module.debug('Initializing dropdown', settings);
 
           if( module.is.alreadySetup() ) {
-            module.error(error.alreadySetup);
+            module.setup.reference();
           }
           else {
             module.setup.layout();
+
+            module.save.defaults();
+            module.set.selected();
+
+            module.create.id();
+
+            if(hasTouch) {
+              module.bind.touchEvents();
+            }
+            module.bind.mouseEvents();
+            module.bind.keyboardEvents();
+
+            module.observeChanges();
+            module.instantiate();
           }
-
-          module.save.defaults();
-          module.set.selected();
-
-          module.create.id();
-
-          if(hasTouch) {
-            module.bind.touchEvents();
-          }
-          module.bind.mouseEvents();
-          module.bind.keyboardEvents();
-
-          module.observeChanges();
-          module.instantiate();
         },
 
         instantiate: function() {
@@ -161,7 +161,6 @@ $.fn.dropdown = function(parameters) {
         },
 
         setup: {
-
           layout: function() {
             if( $module.is('select') ) {
               module.setup.select();
@@ -212,6 +211,21 @@ $.fn.dropdown = function(parameters) {
               ;
             }
             module.refresh();
+          },
+          reference: function() {
+            var
+              index = $allModules.index($module),
+              $firstModules,
+              $lastModules
+            ;
+            module.debug('Dropdown behavior was called on select, replacing with closest dropdown');
+            // replace module reference
+            $module = $module.parent(selector.dropdown);
+            module.refresh();
+            // adjust all modules
+            $firstModules = $allModules.slice(0, index);
+            $lastModules = $allModules.slice(index + 1);
+            $allModules = $firstModules.add($module).add($lastModules);
           }
         },
 
@@ -951,19 +965,23 @@ $.fn.dropdown = function(parameters) {
                     module.verbose('Ambiguous dropdown value using strict type check', $choice, value);
                     if( optionValue === value ) {
                       $selectedItem = $(this);
+                      return true;
                     }
                     else if( !$selectedItem && optionText === value ) {
                       $selectedItem = $(this);
+                      return true;
                     }
                   }
                   else {
                     if( optionValue == value ) {
                       module.verbose('Found select item by value', optionValue, value);
                       $selectedItem = $(this);
+                      return true;
                     }
                     else if( !$selectedItem && optionText == value ) {
                       module.verbose('Found select item by text', optionText, value);
                       $selectedItem = $(this);
+                      return true;
                     }
                   }
                 })
@@ -1166,7 +1184,7 @@ $.fn.dropdown = function(parameters) {
               selectedText,
               selectedValue
             ;
-            if($selectedItem) {
+            if($selectedItem && !$selectedItem.hasClass(className.active) ) {
               module.debug('Setting selected menu item to', $selectedItem);
               module.remove.activeItem();
               module.remove.selectedItem();
@@ -1647,10 +1665,9 @@ $.fn.dropdown = function(parameters) {
       }
     })
   ;
-
   return (returnedValue !== undefined)
     ? returnedValue
-    : this
+    : $allModules
   ;
 };
 

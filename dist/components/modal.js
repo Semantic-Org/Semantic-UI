@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.10.4 - Modal
+ * # Semantic UI 1.11.0 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -120,9 +120,9 @@ $.fn.modal = function(parameters) {
             $dimmer = $dimmable.dimmer('get dimmer');
           },
           id: function() {
-            module.verbose('Creating unique id for element');
-            id = module.get.uniqueID();
+            id = (Math.random().toString(16) + '000000000').substr(2,8);
             elementNamespace = '.' + id;
+            module.verbose('Creating unique id for element', id);
           }
         },
 
@@ -192,7 +192,7 @@ $.fn.modal = function(parameters) {
         },
 
         get: {
-          uniqueID: function() {
+          id: function() {
             return (Math.random().toString(16) + '000000000').substr(2,8);
           }
         },
@@ -302,7 +302,7 @@ $.fn.modal = function(parameters) {
             module.set.type();
             module.set.clickaway();
 
-            if( !settings.allowMultiple && $otherModals.filter(':visible').length > 0) {
+            if( !settings.allowMultiple && $otherModals.filter('.' + className.active).length > 0) {
               module.debug('Other modals visible, queueing show animation');
               module.hideOthers(module.showModal);
             }
@@ -347,7 +347,7 @@ $.fn.modal = function(parameters) {
           }
         },
 
-        hideModal: function(callback) {
+        hideModal: function(callback, keepDimmed) {
           callback = $.isFunction(callback)
             ? callback
             : function(){}
@@ -366,7 +366,7 @@ $.fn.modal = function(parameters) {
                   duration    : settings.duration,
                   useFailSafe : true,
                   onStart     : function() {
-                    if( !module.othersActive() ) {
+                    if(!module.othersActive() && !keepDimmed) {
                       module.hideDimmer();
                     }
                     module.remove.keyboardShortcuts();
@@ -422,30 +422,34 @@ $.fn.modal = function(parameters) {
         },
 
         hideAll: function(callback) {
+          var
+            $visibleModals = $allModals.filter(':visible')
+          ;
           callback = $.isFunction(callback)
             ? callback
             : function(){}
           ;
-          if( $allModals.is(':visible') ) {
+          if( $visibleModals.length > 0 ) {
             module.debug('Hiding all visible modals');
             module.hideDimmer();
-            $allModals
-              .filter(':visible')
-                .modal('hide modal', callback)
+            $visibleModals
+              .modal('hide modal', callback)
             ;
           }
         },
 
         hideOthers: function(callback) {
+          var
+            $visibleModals = $otherModals.filter(':visible')
+          ;
           callback = $.isFunction(callback)
             ? callback
             : function(){}
           ;
-          if( $otherModals.is(':visible') ) {
+          if( $visibleModals.length > 0 ) {
             module.debug('Hiding other modals', $otherModals);
-            $otherModals
-              .filter(':visible')
-                .modal('hide modal', callback)
+            $visibleModals
+              .modal('hide modal', callback, true)
             ;
           }
         },

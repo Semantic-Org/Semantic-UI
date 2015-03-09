@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.10.4 - List
+ * # Semantic UI 1.11.0 - List
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -139,7 +139,7 @@ ol.ui.list ol,
 .ui.list .list > .item > .icon + .content .ui.list > .item > .image + .content,
 .ui.list > .item > .icon + .content {
   display: table-cell;
-  padding-left: 0.5em;
+  padding: 0em 0em 0em 0.5em;
   vertical-align: middle;
 }
 .ui.list .list > .item > .image + .content,
@@ -147,7 +147,7 @@ ol.ui.list ol,
 .ui.list > .item > .image + .content,
 .ui.list > .item > .icon + .content {
   display: table-cell;
-  padding-left: 0.5em;
+  padding: 0em 0em 0em 0.5em;
   vertical-align: middle;
 }
 .ui.list .list > .item > img.image + .content,
