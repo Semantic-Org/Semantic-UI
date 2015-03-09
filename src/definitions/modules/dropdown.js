@@ -31,7 +31,7 @@ $.fn.dropdown = function(parameters) {
   ;
 
   $allModules
-    .each(function(index) {
+    .each(function() {
       var
         settings          = ( $.isPlainObject(parameters) )
           ? $.extend(true, {}, $.fn.dropdown.settings, parameters)
@@ -210,16 +210,17 @@ $.fn.dropdown = function(parameters) {
                 .prependTo($module)
               ;
             }
-            module.setup.reference();
+            module.refresh();
           },
           reference: function() {
             var
+              index = $allModules.index($module),
               $firstModules,
               $lastModules
             ;
             module.debug('Dropdown behavior was called on select, replacing with closest dropdown');
             // replace module reference
-            $module = $module.closest(selector.dropdown);
+            $module = $module.parent(selector.dropdown);
             module.refresh();
             // adjust all modules
             $firstModules = $allModules.slice(0, index);
@@ -1563,7 +1564,7 @@ $.fn.dropdown = function(parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
