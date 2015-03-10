@@ -117,7 +117,7 @@
 --------------------*/
 
 @paragraphMargin     : 0em 0em 1em;
-@paragraphLineHeight : @lineHeight;
+@paragraphLineHeight : '';
 
 /*-------------------
        Links
@@ -404,6 +404,7 @@
 /* Responsive */
 @largestMobileScreen : (@tabletBreakpoint - 1px);
 @largestTabletScreen : (@computerBreakpoint - 1px);
+@largestSmallMonitor : (@largeMonitorBreakpoint - 1px);
 @largestLargeMonitor : (@widescreenMonitorBreakpoint - 1px);
 
 /* Columns */
