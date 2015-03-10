@@ -3,12 +3,14 @@
 ### Version 1.12.0 - March 6, 2015
 
 **Enhancements**
+- **Segment** - Added `padded` and `very padded` segment variations
 - **Grid** - `equal height` and `equal width` now work without `row` wrappers
 - **Visibility/Sticky** - Visibility now uses pub/sub pattern to greatly improve scroll performance when attaching multiple events
 - **Visibility/Sticky** - Visibility and sticky now refresh automatically after page content loading to deal with changes in position from images loading
 
 **Bugs**
 - **All Modules** - Performance logging now delays 500ms instead of 100ms for console logging to ensure all logs are captured in one group
+- **Grid** - Fixes colored grid columns not appearing when not nested in rows
 - **Label** - Labels inside `header` now vertical align better by accounting for line height offset
 - **Dropdown** - Fix bug where `onChange` would call even when reselecting current value
 - **Popup** - Fixes issue with `min-width` in firefox exceeding `max-width` causing element to not wrap correctly
