@@ -42,10 +42,11 @@ $.fn.visibility = function(parameters) {
         moduleNamespace = 'module-' + namespace,
 
         $window         = $(window),
+
         $module         = $(this),
         $context        = $(settings.context),
-
         selector        = $module.selector || '',
+
         instance        = $module.data(moduleNamespace),
 
         requestAnimationFrame = window.requestAnimationFrame
@@ -75,12 +76,15 @@ $.fn.visibility = function(parameters) {
             if(settings.type == 'fixed') {
               module.setup.fixed();
             }
+            if(settings.observeChanges) {
+              module.observeChanges();
+            }
+            if( !module.is.visible() ) {
+              module.error(error.visible, $module);
+            }
           }
           if(settings.initialCheck) {
             module.checkVisibility();
-          }
-          if(settings.observeChanges) {
-            module.observeChanges();
           }
           module.instantiate();
         },
@@ -98,9 +102,11 @@ $.fn.visibility = function(parameters) {
           if(observer) {
             observer.disconnect();
           }
-          $window.off('load' + eventNamespace);
-          $window.off('resize' + eventNamespace);
-          $context.off('scrollchange' + eventNamespace);
+          $window
+            .off('load' + eventNamespace, module.event.load)
+            .off('resize' + eventNamespace, module.event.resize)
+          ;
+          $context.off('scrollchange' + eventNamespace, module.event.scrollchange);
           $module
             .off(eventNamespace)
             .removeData(moduleNamespace)
@@ -128,8 +134,8 @@ $.fn.visibility = function(parameters) {
           events: function() {
             module.verbose('Binding visibility events to scroll and resize');
             $window
-              .on('load' + eventNamespace, module.event.refresh)
-              .on('resize' + eventNamespace, module.event.refresh)
+              .on('load' + eventNamespace, module.event.load)
+              .on('resize' + eventNamespace, module.event.resize)
             ;
             // pub/sub pattern
             $context
@@ -173,10 +179,13 @@ $.fn.visibility = function(parameters) {
         },
 
         event: {
-          refresh: function() {
+          resize: function() {
             requestAnimationFrame(module.refresh);
           },
-          // published event
+          load: function() {
+            requestAnimationFrame(module.refresh);
+          },
+          // publishes scrollchange event on one scroll
           scroll: function() {
             if(settings.throttle) {
               clearTimeout(module.timer);
@@ -190,7 +199,7 @@ $.fn.visibility = function(parameters) {
               });
             }
           },
-          // subscribed event
+          // subscribes to scrollchange
           scrollchange: function(event, scrollPosition) {
             module.checkVisibility(scrollPosition);
           },
@@ -225,7 +234,7 @@ $.fn.visibility = function(parameters) {
 
         should: {
           trackChanges: function() {
-            if(methodInvoked && queryArguments.length > 0) {
+            if(methodInvoked) {
               module.debug('One time query, no need to bind events');
               return false;
             }
@@ -1073,7 +1082,8 @@ $.fn.visibility.settings = {
   },
 
   error : {
-    method : 'The method you called is not defined.'
+    method  : 'The method you called is not defined.',
+    visible : 'Element is hidden, you must call refresh after element becomes visible'
   }
 
 };

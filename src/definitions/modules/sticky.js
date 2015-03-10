@@ -87,14 +87,18 @@ $.fn.sticky = function(parameters) {
         },
 
         destroy: function() {
-          module.verbose('Destroying previous module');
+          module.verbose('Destroying previous instance');
           module.reset();
           if(observer) {
             observer.disconnect();
           }
-          $window.off('load' + eventNamespace);
-          $window.off('resize' + eventNamespace);
-          $scroll.off('scrollchange' + eventNamespace);
+          $window
+            .off('load' + eventNamespace, module.event.load)
+            .off('resize' + eventNamespace, module.event.resize)
+          ;
+          $scroll
+            .off('scrollchange' + eventNamespace, module.event.scrollchange)
+          ;
           $module.removeData(moduleNamespace);
         },
 
@@ -149,8 +153,8 @@ $.fn.sticky = function(parameters) {
         bind: {
           events: function() {
             $window
-              .on('load' + eventNamespace, module.event.refresh)
-              .on('resize' + eventNamespace, module.event.refresh)
+              .on('load' + eventNamespace, module.event.load)
+              .on('resize' + eventNamespace, module.event.resize)
             ;
             // pub/sub pattern
             $scroll
@@ -162,7 +166,10 @@ $.fn.sticky = function(parameters) {
         },
 
         event: {
-          refresh: function() {
+          load: function() {
+            requestAnimationFrame(module.refresh);
+          },
+          resize: function() {
             requestAnimationFrame(module.refresh);
           },
           scroll: function() {
