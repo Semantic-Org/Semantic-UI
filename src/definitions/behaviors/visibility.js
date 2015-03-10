@@ -180,9 +180,11 @@ $.fn.visibility = function(parameters) {
 
         event: {
           resize: function() {
+            module.verbose('Window resized');
             requestAnimationFrame(module.refresh);
           },
           load: function() {
+            module.verbose('Page finished loading');
             requestAnimationFrame(module.refresh);
           },
           // publishes scrollchange event on one scroll
@@ -349,13 +351,13 @@ $.fn.visibility = function(parameters) {
           }
         },
 
-        checkVisibility: function(scrollPosition) {
+        checkVisibility: function(scroll) {
           module.verbose('Checking visibility of element', module.cache.element);
 
           if( module.is.visible() ) {
 
             // save scroll position
-            module.save.scroll(scrollPosition);
+            module.save.scroll(scroll);
 
             // update calculations derived from scroll
             module.save.calculations();
@@ -679,7 +681,7 @@ $.fn.visibility = function(parameters) {
             }
           },
           scroll: function(scrollPosition) {
-            scrollPosition = scrollPosition || $context.scrollTop();
+            scrollPosition      = scrollPosition + settings.offset || $context.scrollTop() + settings.offset;
             module.cache.scroll = scrollPosition;
           },
           direction: function() {

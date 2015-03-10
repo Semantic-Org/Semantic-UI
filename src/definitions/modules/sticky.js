@@ -167,9 +167,11 @@ $.fn.sticky = function(parameters) {
 
         event: {
           load: function() {
+            module.verbose('Page contents finished loading');
             requestAnimationFrame(module.refresh);
           },
           resize: function() {
+            module.verbose('Window resized');
             requestAnimationFrame(module.refresh);
           },
           scroll: function() {
