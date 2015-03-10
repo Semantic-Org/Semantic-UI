@@ -2,6 +2,8 @@
 
 # Semantic UI
 
+[![Join the chat at https://gitter.im/Semantic-Org/Semantic-UI](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Semantic-Org/Semantic-UI?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Semantic is a UI framework designed for theming.
 
 Key Features
@@ -58,7 +60,7 @@ Browser prefixes are present for Internet Explorer 9, but the browser is not off
 Resource | Description
 --- | --- |
 Bugs & Feature Requests |  Make a test case by forking this [jsfiddle](http://jsfiddle.net/efp8z6Ln/), then submit a [bug on GitHub](https://github.com/Semantic-Org/Semantic-UI/issues)
-Live Chat | [Request an Invite](https://docs.google.com/forms/d/1hI1z136sXLkTQKtsv8SIvjjAvzpH77YzMQKrU-P8GAc/viewform?usp=send_form) to join [our Slack chatroom](http://semanticui.slack.com)
+Live Chat | Join our [Gitter.im Room](https://gitter.im/Semantic-Org/Semantic-UI)
 Newsletter Updates | Sign up for updates at [semantic-ui.com](http:/www.semantic-ui.com)
 Additional Resources  | Submit a question on [StackOverflow](http://www.stackoverflow.com) or ask our [Google Group](https://groups.google.com/forum/#!forum/semantic-ui)
 

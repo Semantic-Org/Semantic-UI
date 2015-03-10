@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.0 - Transition
+ * # Semantic UI 1.11.4 - Transition
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -176,6 +176,10 @@ $.fn.transition = function() {
               module.debug('Animation is already occurring, will not execute repeated animation', settings.animation);
               return false;
             }
+            else {
+              module.debug('New animation started, completing previous early', settings.animation);
+              module.complete();
+            }
           }
           if( module.can.animate() ) {
             module.set.animating(settings.animation);
@@ -205,7 +209,7 @@ $.fn.transition = function() {
         },
 
         complete: function (event) {
-          module.verbose('CSS animation complete', settings.animation);
+          module.debug('Animation complete', settings.animation);
           module.remove.completeCallback();
           module.remove.failSafe();
           if(!module.is.looping()) {
@@ -285,8 +289,8 @@ $.fn.transition = function() {
               ? duration + 'ms'
               : duration
             ;
-            module.verbose('Setting animation duration', duration);
             if(duration || duration === 0) {
+              module.verbose('Setting animation duration', duration);
               $module
                 .css({
                   '-webkit-animation-duration': duration,
@@ -851,7 +855,7 @@ $.fn.transition = function() {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 600);
+            module.performance.timer = setTimeout(module.performance.display, 100);
           },
           display: function() {
             var

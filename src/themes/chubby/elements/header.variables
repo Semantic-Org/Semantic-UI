@@ -14,8 +14,8 @@
 @h5: 0.8rem;
 
 /* Sizing */
-@tiny: 1.33em;
-@small: 1.2em;
+@huge: 1.33em;
+@large: 1.2em;
 @medium: 1em;
-@large: 0.9em;
-@huge: 0.8em;
+@small: 0.9em;
+@tiny: 0.8em;

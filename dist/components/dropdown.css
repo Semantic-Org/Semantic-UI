@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.0 - Dropdown
+ * # Semantic UI 1.11.4 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -333,9 +333,9 @@
 }
 select.ui.dropdown {
   height: 38px;
-  padding: 0em;
-  margin: 0em;
-  visibility: hidden;
+  padding: 0.5em;
+  border: 1px solid rgba(39, 41, 43, 0.15);
+  visibility: visible;
 }
 .ui.selection.dropdown > .text {
   margin-right: 2em;

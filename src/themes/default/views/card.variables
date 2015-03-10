@@ -113,6 +113,10 @@
 /* Paragraph */
 @paragraphDistance: 0.5em;
 
+/* Dimmer */
+@dimmerZIndex: 10;
+@dimmerBackground: '';
+
 /* Additional Content */
 @extraDivider: 1px solid rgba(0, 0, 0, 0.05);
 @extraBackground: none;

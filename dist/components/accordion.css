@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.0 - Accordion
+ * # Semantic UI 1.11.4 - Accordion
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -144,7 +144,7 @@
           transition: background 0.2s ease, color 0.2s ease;
 }
 .ui.styled.accordion > .title:first-child,
-.ui.styled.accordion > .accordion .title:first-child {
+.ui.styled.accordion .accordion .title:first-child {
   border-top: none;
 }
 
