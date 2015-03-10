@@ -92,6 +92,7 @@ $.fn.sticky = function(parameters) {
           if(observer) {
             observer.disconnect();
           }
+          $window.off('load' + eventNamespace);
           $window.off('resize' + eventNamespace);
           $scroll.off('scrollchange' + eventNamespace);
           $module.removeData(moduleNamespace);
@@ -197,7 +198,7 @@ $.fn.sticky = function(parameters) {
         },
 
         save: {
-          scroll: function(scroll) {
+          lastScroll: function(scroll) {
             module.lastScroll = scroll;
           },
           positions: function() {
@@ -402,7 +403,7 @@ $.fn.sticky = function(parameters) {
           ;
 
           // save current scroll for next run
-          module.save.scroll(scroll.top);
+          module.save.lastScroll(scroll.top);
 
           if(elementVisible) {
 
@@ -562,6 +563,7 @@ $.fn.sticky = function(parameters) {
           module.unbind();
           module.unfix();
           module.resetCSS();
+          module.remove.offset();
         },
 
         resetCSS: function() {

@@ -95,12 +95,16 @@ $.fn.visibility = function(parameters) {
 
         destroy: function() {
           module.verbose('Destroying previous module');
+          if(observer) {
+            observer.disconnect();
+          }
+          $window.off('load' + eventNamespace);
+          $window.off('resize' + eventNamespace);
+          $context.off('scrollchange' + eventNamespace);
           $module
             .off(eventNamespace)
             .removeData(moduleNamespace)
           ;
-          $window.off(eventNamespace);
-          $context.off('scrollchange');
         },
 
         observeChanges: function() {
@@ -325,7 +329,6 @@ $.fn.visibility = function(parameters) {
           module.reset();
           module.save.position();
           module.checkVisibility();
-
           settings.onRefresh.call(element);
         },
 
