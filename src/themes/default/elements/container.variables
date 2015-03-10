@@ -20,11 +20,13 @@
 @largeComputerGutter: auto;
 
 /* Adjust breakpoints to match fixed width */
-@smallComputerBreakpoint: @smallComputerWidth + 28px;
-@largeComputerBreakpoint: @largeComputerWidth + 28px;
+@smallComputerBreakpoint: 988px;
+@largeComputerBreakpoint: 1228px;
 
 /*-------------------
        Types
 --------------------*/
 
 @textWidth: 700px;
+@textParagraphSize: @large;
+@textParagraphLineHeight: 1.5;

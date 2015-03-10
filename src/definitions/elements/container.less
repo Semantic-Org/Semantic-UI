@@ -27,36 +27,35 @@
 
 .ui.container {
   display: block;
-  margin: 0px auto !important;
   max-width: @maxWidth;
 }
 
-@media only screen and (max-width: (@largestMobileScreen)) {
+@media only screen and (max-width: @largestMobileScreen) {
   .ui.container {
     width: @mobileWidth;
-    margin-left: @mobileGutter;
-    margin-right: @mobileGutter;
+    margin-left: @mobileGutter !important;
+    margin-right: @mobileGutter !important;
   }
 }
-@media only screen and (min-width: @tabletBreakpoint ) {
+@media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
   .ui.container {
     width: @tabletWidth;
-    margin-left: @tabletGutter;
-    margin-right: @tabletGutter;
+    margin-left: @tabletGutter !important;
+    margin-right: @tabletGutter !important;
   }
 }
-@media only screen and (min-width: @smallComputerBreakpoint) {
+@media only screen and (min-width: @smallComputerBreakpoint) and (max-width: @largeComputerBreakpoint) {
   .ui.container {
     width: @smallComputerWidth;
-    margin-left: @smallComputerGutter;
-    margin-right: @smallComputerGutter;
+    margin-left: @smallComputerGutter !important;
+    margin-right: @smallComputerGutter !important;
   }
 }
 @media only screen and (min-width: @largeComputerBreakpoint) {
   .ui.container {
     width: @largeComputerWidth;
-    margin-left: @largeComputerGutter;
-    margin-right: @largeComputerGutter;
+    margin-left: @largeComputerGutter !important;
+    margin-right: @largeComputerGutter !important;
   }
 }
 
@@ -69,7 +68,12 @@
 .ui.text.container {
   display: block;
   margin: 0px auto;
-  width: @textWidth;
+  max-width: @textWidth;
+}
+
+.ui.text.container p {
+  font-size: @textParagraphSize;
+  line-height: @textParagraphLineHeight;
 }
 
 
