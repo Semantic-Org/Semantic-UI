@@ -44,7 +44,6 @@ $.fn.visibility = function(parameters) {
         $window         = $(window),
         $module         = $(this),
         $context        = $(settings.context),
-        $images         = $module.find('img'),
 
         selector        = $module.selector || '',
         instance        = $module.data(moduleNamespace),
@@ -100,8 +99,8 @@ $.fn.visibility = function(parameters) {
             .off(eventNamespace)
             .removeData(moduleNamespace)
           ;
-          $window.off('resize' + eventNamespace, module.event.refresh);
-          $context.off('scroll' + eventNamespace, module.event.scroll);
+          $window.off(eventNamespace);
+          $context.off('scrollchange');
         },
 
         observeChanges: function() {
@@ -125,17 +124,19 @@ $.fn.visibility = function(parameters) {
           events: function() {
             module.verbose('Binding visibility events to scroll and resize');
             $window
+              .on('load' + eventNamespace, module.event.refresh)
               .on('resize' + eventNamespace, module.event.refresh)
             ;
+            // pub/sub pattern
             $context
+              .off('scroll' + eventNamespace)
               .on('scroll' + eventNamespace, module.event.scroll)
+              .on('scrollchange' + eventNamespace, module.event.scrollchange)
             ;
-            if($images.length > 0) {
-              module.bind.imageLoad();
-            }
           },
           imageLoad: function() {
             var
+              $images       = $module.find('img'),
               imageCount    = $images.length,
               index         = imageCount,
               loadedCount   = 0,
@@ -150,17 +151,19 @@ $.fn.visibility = function(parameters) {
                 }
               }
             ;
-            $images
-              .each(function() {
-                images.push( $(this).attr('src') );
-              })
-            ;
-            while(index--) {
-              cacheImage         = document.createElement('img');
-              cacheImage.onload  = handleLoad;
-              cacheImage.onerror = handleLoad;
-              cacheImage.src     = images[index];
-              cache.push(cacheImage);
+            if(imageCount > 0) {
+              $images
+                .each(function() {
+                  images.push( $(this).attr('src') );
+                })
+              ;
+              while(index--) {
+                cacheImage         = document.createElement('img');
+                cacheImage.onload  = handleLoad;
+                cacheImage.onerror = handleLoad;
+                cacheImage.src     = images[index];
+                cache.push(cacheImage);
+              }
             }
           }
         },
@@ -169,19 +172,50 @@ $.fn.visibility = function(parameters) {
           refresh: function() {
             requestAnimationFrame(module.refresh);
           },
+          // published event
           scroll: function() {
-            module.verbose('Scroll position changed');
             if(settings.throttle) {
               clearTimeout(module.timer);
               module.timer = setTimeout(function() {
-                module.checkVisibility();
+                $context.trigger('scrollchange' + eventNamespace, [ $context.scrollTop() ]);
               }, settings.throttle);
             }
             else {
               requestAnimationFrame(function() {
-                module.checkVisibility();
+                $context.trigger('scrollchange' + eventNamespace, [ $context.scrollTop() ]);
               });
             }
+          },
+          // subscribed event
+          scrollchange: function(event, scrollPosition) {
+            module.checkVisibility(scrollPosition);
+          },
+        },
+
+        precache: function(images, callback) {
+          if (!(images instanceof Array)) {
+            images = [images];
+          }
+          var
+            imagesLength  = images.length,
+            loadedCounter = 0,
+            cache         = [],
+            cacheImage    = document.createElement('img'),
+            handleLoad    = function() {
+              loadedCounter++;
+              if (loadedCounter >= images.length) {
+                if ($.isFunction(callback)) {
+                  callback();
+                }
+              }
+            }
+          ;
+          while (imagesLength--) {
+            cacheImage         = document.createElement('img');
+            cacheImage.onload  = handleLoad;
+            cacheImage.onerror = handleLoad;
+            cacheImage.src     = images[imagesLength];
+            cache.push(cacheImage);
           }
         },
 
@@ -291,6 +325,7 @@ $.fn.visibility = function(parameters) {
           module.reset();
           module.save.position();
           module.checkVisibility();
+
           settings.onRefresh.call(element);
         },
 
@@ -302,10 +337,13 @@ $.fn.visibility = function(parameters) {
           }
         },
 
-        checkVisibility: function() {
+        checkVisibility: function(scrollPosition) {
           module.verbose('Checking visibility of element', module.cache.element);
 
           if( module.is.visible() ) {
+
+            // save scroll position
+            module.save.scroll(scrollPosition);
 
             // update calculations derived from scroll
             module.save.calculations();
@@ -616,7 +654,6 @@ $.fn.visibility = function(parameters) {
         save: {
           calculations: function() {
             module.verbose('Saving all calculations necessary to determine positioning');
-            module.save.scroll();
             module.save.direction();
             module.save.screenCalculations();
             module.save.elementCalculations();
@@ -629,8 +666,9 @@ $.fn.visibility = function(parameters) {
               }
             }
           },
-          scroll: function() {
-            module.cache.scroll = $context.scrollTop() + settings.offset;
+          scroll: function(scrollPosition) {
+            scrollPosition = scrollPosition || $context.scrollTop();
+            module.cache.scroll = scrollPosition;
           },
           direction: function() {
             var
@@ -974,6 +1012,9 @@ $.fn.visibility.settings = {
 
   // whether to use mutation observers to follow changes
   observeChanges         : true,
+
+  // whether to refresh calculations after all page images load
+  refreshOnLoad          : true,
 
   // callback should only occur one time
   once                   : true,
