@@ -28,7 +28,6 @@
 /* Page Grid Segment */
 @pageGridMargin: (2 * @verticalPadding);
 
-
 /*******************************
             States
 *******************************/
@@ -69,6 +68,10 @@
   @borderShadow,
   @raisedShadow
 ;
+
+/* Padded */
+@paddedSegmentPadding: 2em;
+@veryPaddedSegmentPadding: 3em;
 
 /* Attached */
 @attachedTopOffset: 0px;
