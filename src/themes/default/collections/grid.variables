@@ -41,7 +41,7 @@
 
 @computerWidth: auto;
 @computerMargin: 0em;
-@computerGutter: 8%;
+@computerGutter: 3%;
 
 @largeMonitorWidth: auto;
 @largeMonitorMargin: 0em;
