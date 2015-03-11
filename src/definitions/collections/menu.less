@@ -60,7 +60,6 @@
   margin: 0em;
 }
 
-.ui.menu:not(.vertical) > *,
 .ui.menu:not(.vertical) > .menu {
   display: flex;
 }
@@ -151,6 +150,14 @@
   font-size: @buttonSize;
 }
 
+/*----------------
+ Grid / Container
+-----------------*/
+
+.ui.menu >  .grid,
+.ui.menu > .container {
+  display: flex;
+}
 
 /*--------------
      Inputs
@@ -193,6 +200,17 @@
   margin: @verticalHeaderMargin;
   font-size: @verticalHeaderFontSize;
   font-weight: @verticalHeaderFontWeight;
+}
+
+/*--------------
+     Popup
+---------------*/
+
+.ui.menu .popup {
+  display: none;
+}
+.ui.menu .visible.popup {
+  display: block;
 }
 
 

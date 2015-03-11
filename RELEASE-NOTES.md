@@ -6,7 +6,7 @@
 - **Container** - Containers are fixed width containers meant for holding page contents, and are a simpler alternative to `ui page grid`, view more [examples in docs](http://www.semantic-ui.com/elements/container.html#examples)
 
 **Major Changes**
-- **Menu** - Menu now uses flexbox. This allows menu items to match each others heights regardless of each items content size
+- **Menu** - Menu now uses flexbox. This allows menu items to match each others heights regardless of each items content size. You may need to adjust `floated` content to appear **after**, for example `right menu` should appear after normal menu. This is because `flex` does not use `float`
 
 **Enhancements**
 - **Headers** - Added new header type `sub header`, useful for displaying small headers alongside text content. See examples [in the header docs](http://www.semantic-ui.com/elements/header.html#sub-headers)
@@ -18,6 +18,9 @@
 - **Visibility/Sticky** - Visibility and sticky now refresh automatically after page content loading to deal with changes in position from images loading
 
 **Changes**
+- **Site** - Adjusted global line height to the closest even pixel value
+- **Input** - Input now use `em` instead of `rem` so they will inherit the size of the elements they are nested inside
+- **Message** - Slightly increases `box-shadow`
 - **Menu** - Horizontal menus no longer use pointers on `active item` in the default theme
 - **Menu** - Active sub-menu items are now `bold`
 - **Table** - Table cells now default to top vertical alignment.
@@ -25,11 +28,14 @@
 
 **Bugs**
 - **All Modules** - Performance logging now delays 500ms instead of 100ms for console logging to ensure all logs are captured in one group
+- **Form** - Form sizes and input sizes now inherit from `site.variables`
 - **Dropdown** - Fixes issue with disappearing headers inside of `ui dropdown` when nested in `ui menu`
 - **Grid** - Fixes colored grid columns not appearing when not nested in rows
 - **Label** - Labels inside `header` now vertical align better by accounting for line height offset
+- **Message** - Message now uses `@lineHeight` from `site.variables`
 - **Dropdown** - Fix bug where `onChange` would call even when reselecting current value
 - **Popup** - Fixes issue with `min-width` in firefox exceeding `max-width` causing element to not wrap correctly
+- **Transition** - Fixed bug where transition could sometimes not occur when an element was determined to always be hidden
 
 ### Version 1.11.3-4 - March 6, 2015
 
