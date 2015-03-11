@@ -9,6 +9,7 @@
 - **Menu** - Menu now uses flexbox. This is a *significant* change which means
 
 **Enhancements**
+- **Menu** - Horizontal menus now set a default image size when none specified
 - **Segment** - Added `padded` and `very padded` segment variations
 - **Grid** - `equal height` and `equal width` now work without `row` wrappers
 - **Visibility/Sticky** - Visibility now uses pub/sub pattern to greatly improve scroll performance when attaching multiple events

@@ -106,15 +106,6 @@
 }
 
 /*--------------
-    Sub-Item
----------------*/
-
-.ui.menu .item .menu a.item:hover,
-.ui.menu .item .menu .link.item:hover {
-  color: @darkTextColor;
-}
-
-/*--------------
   Text Content
 ---------------*/
 
@@ -230,7 +221,6 @@
   margin: 0px !important;
 }
 
-
 /*--------------
      Labels
 ---------------*/
@@ -242,6 +232,9 @@
   padding: @labelVerticalPadding @labelHorizontalPadding;
   vertical-align: baseline;
 }
+.ui.menu .item > .label:before {
+  background-color: @labelBackground;
+}
 .ui.menu .item > .floating.label {
   padding: @labelVerticalPadding @labelHorizontalPadding;
 }
@@ -250,10 +243,15 @@
      Images
 ---------------*/
 
-.ui.menu .item > img:only-child {
-  display: block;
+.ui.menu .item > img:not(.ui) {
+  display: inline-block;
+  vertical-align: middle;
   max-width: 100%;
-  margin: 0em auto;
+  width: @imageWidth;
+}
+.ui.vertical.menu .item > img:only-child {
+  display: block;
+  width: @verticalImageWidth;
 }
 
 
@@ -441,6 +439,12 @@ Floated Menu / Item
   font-size: @subMenuFontSize;
   color: @subMenuTextColor;
 }
+
+.ui.vertical.menu .item:not(.dropdown) .menu a.item:hover,
+.ui.vertical.menu .item:not(.dropdown) .menu .link.item:hover {
+  color: @darkTextColor;
+}
+
 .ui.vertical.menu .item > .menu > .item:before {
   display: none;
 }
@@ -1148,10 +1152,12 @@ Floated Menu / Item
   background: @invertedSubMenuBackground;
 }
 
-.ui.inverted.menu .item .item,
-.ui.inverted.menu .item .item > a:not(.ui) {
+.ui.vertical.inverted.menu .item:not(.dropdown) > .menu > .item,
+.ui.vertical.inverted.menu .item:not(.dropdown) > .menu > .item a:not(.ui) {
   color: @invertedSubMenuColor;
 }
+
+/* Inverted Dropdown */
 .ui.inverted.menu .dropdown .menu .item {
   background: @dropdownItemBackground !important;
   color: @dropdownItemColor !important;

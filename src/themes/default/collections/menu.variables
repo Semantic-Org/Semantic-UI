@@ -102,10 +102,14 @@
 @largeInputOffset: -0.125em;
 @largeInputVerticalPadding: 0.6em;
 
+/* Image */
+@imageWidth: 2.5em;
+@verticalImageWidth: auto;
+
 /* Label */
 @labelOffset: -0.15em;
-@labelBackground: rgba(0, 0, 0, 0.35);
-@labelTextColor: #FFFFFF;
+@labelBackground: #999999;
+@labelTextColor: @white;
 
 @labelTextMargin: 0.5em;
 @labelVerticalPadding: 0.3em;
