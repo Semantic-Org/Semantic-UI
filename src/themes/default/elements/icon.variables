@@ -10,7 +10,7 @@
 
 @opacity: 1;
 @width: 1.23em;
-@height: 0.9em;
+@height: 1em;
 @distanceFromText: 0.25rem;
 
 @linkOpacity: 0.8;
