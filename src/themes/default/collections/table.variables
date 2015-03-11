@@ -53,7 +53,7 @@
 /* Table Cell */
 @cellVerticalPadding: 0.7em;
 @cellHorizontalPadding: 0.8em;
-@cellVerticalAlign: middle;
+@cellVerticalAlign: top;
 @cellTextAlign: @textAlign;
 @cellBorder: 1px solid @solidBorderColor;
 
