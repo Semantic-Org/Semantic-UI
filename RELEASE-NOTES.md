@@ -2,6 +2,12 @@
 
 ### Version 1.12.0 - March 6, 2015
 
+**New UI**
+- **Container** -
+
+**Major Changes**
+- **Menu** - Menu now uses flexbox. This is a *significant* change which means
+
 **Enhancements**
 - **Segment** - Added `padded` and `very padded` segment variations
 - **Grid** - `equal height` and `equal width` now work without `row` wrappers
@@ -10,6 +16,7 @@
 
 **Changes**
 - **Table** - Table cells now default to top vertical alignment.
+- **Grid** - Small computer `page grid` gutters have been adjusted from 8% to 3% to allow for roomier layouts on small screens.
 
 **Bugs**
 - **All Modules** - Performance logging now delays 500ms instead of 100ms for console logging to ensure all logs are captured in one group

@@ -27,7 +27,7 @@
 
 .ui.container {
   display: block;
-  max-width: @maxWidth;
+  max-width: @maxWidth !important;
 }
 
 @media only screen and (max-width: @largestMobileScreen) {
@@ -67,8 +67,7 @@
 
 .ui.text.container {
   display: block;
-  margin: 0px auto;
-  max-width: @textWidth;
+  max-width: @textWidth !important;
 }
 
 .ui.text.container p {
