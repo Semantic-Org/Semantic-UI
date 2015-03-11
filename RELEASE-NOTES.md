@@ -1,26 +1,31 @@
 ## RELEASE NOTES
 
-### Version 1.12.0 - March 6, 2015
+### Version 1.12.0 - March 11, 2015
 
 **New UI**
-- **Container** -
+- **Container** - Containers are fixed width containers meant for holding page contents, and are a simpler alternative to `ui page grid`, view more [examples in docs](http://www.semantic-ui.com/elements/container.html#examples)
 
 **Major Changes**
-- **Menu** - Menu now uses flexbox. This is a *significant* change which means
+- **Menu** - Menu now uses flexbox. This allows menu items to match each others heights regardless of each items content size
 
 **Enhancements**
-- **Menu** - Horizontal menus now set a default image size when none specified
+- **Headers** - Added new header type `sub header`, useful for displaying small headers alongside text content. See examples [in the header docs](http://www.semantic-ui.com/elements/header.html#sub-headers)
+- **Menu** - Horizontal menus now set a default image size for images / logos
+- **Menu** - Added many new variables to menu theme
 - **Segment** - Added `padded` and `very padded` segment variations
 - **Grid** - `equal height` and `equal width` now work without `row` wrappers
 - **Visibility/Sticky** - Visibility now uses pub/sub pattern to greatly improve scroll performance when attaching multiple events
 - **Visibility/Sticky** - Visibility and sticky now refresh automatically after page content loading to deal with changes in position from images loading
 
 **Changes**
+- **Menu** - Horizontal menus no longer use pointers on `active item` in the default theme
+- **Menu** - Active sub-menu items are now `bold`
 - **Table** - Table cells now default to top vertical alignment.
 - **Grid** - Small computer `page grid` gutters have been adjusted from 8% to 3% to allow for roomier layouts on small screens.
 
 **Bugs**
 - **All Modules** - Performance logging now delays 500ms instead of 100ms for console logging to ensure all logs are captured in one group
+- **Dropdown** - Fixes issue with disappearing headers inside of `ui dropdown` when nested in `ui menu`
 - **Grid** - Fixes colored grid columns not appearing when not nested in rows
 - **Label** - Labels inside `header` now vertical align better by accounting for line height offset
 - **Dropdown** - Fix bug where `onChange` would call even when reselecting current value

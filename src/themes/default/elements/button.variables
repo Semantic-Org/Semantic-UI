@@ -41,6 +41,7 @@
 ;
 
 /* Icon */
+@iconHeight: 0.9em;
 @iconOpacity: 0.8;
 @iconDistance: 0.4em;
 @iconColor: '';
@@ -57,11 +58,11 @@
 @invertedLoaderFillColor: rgba(0, 0, 0, 0.15);
 
 @transition:
-  opacity 0.1s @transitionEasing,
-  background-color 0.1s @transitionEasing,
-  color 0.1s @transitionEasing,
-  box-shadow 0.1s @transitionEasing,
-  background 0.1s @transitionEasing
+  opacity @transitionDuration @transitionEasing,
+  background-color @transitionDuration @transitionEasing,
+  color @transitionDuration @transitionEasing,
+  box-shadow @transitionDuration @transitionEasing,
+  background @transitionDuration @transitionEasing
 ;
 /*
 @willChange: box-shadow, transform, opacity, color, background;

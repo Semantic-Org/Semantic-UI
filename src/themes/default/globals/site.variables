@@ -318,8 +318,8 @@
 
 @unselectedTextColor         : rgba(0, 0, 0, 0.4);
 @hoveredTextColor            : rgba(0, 0, 0, 0.8);
-@pressedTextColor            : rgba(0, 0, 0, 0.8);
-@selectedTextColor           : rgba(0, 0, 0, 0.8);
+@pressedTextColor            : rgba(0, 0, 0, 0.9);
+@selectedTextColor           : rgba(0, 0, 0, 0.9);
 @disabledTextColor           : rgba(0, 0, 0, 0.2);
 
 @invertedTextColor           : rgba(255, 255, 255, 1);
