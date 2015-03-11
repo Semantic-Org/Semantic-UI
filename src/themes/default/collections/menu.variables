@@ -76,18 +76,22 @@
 @headerWeight: bold;
 @headerTextTransform: normal;
 
+@verticalHeaderMargin: 0em 0em 0.5em;
+@verticalHeaderFontSize: @relativeMedium;
+@verticalHeaderFontWeight: bold;
+
 /*--------------
     Couplings
 ---------------*/
 
 /* Button */
-@buttonSize: @medium;
+@buttonSize: @relativeMedium;
 @buttonOffset: 0em;
 @buttonMargin: -0.4em 0em;
 @buttonVerticalPadding: 0.6em;
 
 /* Input */
-@inputSize: @medium;
+@inputSize: @relativeMedium;
 @inputVerticalMargin: -0.5em;
 @inputOffset: 0em;
 @inputVerticalPadding: 0.5em;
@@ -286,8 +290,8 @@
 @textMenuHeaderFontWeight: bold;
 @textMenuHeaderTextTransform: uppercase;
 
-@textVerticalMenuMargin: 1em 0em;
-@textVerticalMenuHeaderMargin: 1.25em 0em;
+@textVerticalMenuMargin: @relativeSmall 0em;
+@textVerticalMenuHeaderMargin: @relativeLarge 0em;
 @textVerticalMenuItemMargin: @relativeLarge 0em;
 
 @textVerticalMenuIconFloat: none;

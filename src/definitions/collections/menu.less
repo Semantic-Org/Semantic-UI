@@ -189,6 +189,12 @@
   font-weight: @headerWeight;
 }
 
+.ui.vertical.menu .item > .header:not(.ui) {
+  margin: @verticalHeaderMargin;
+  font-size: @verticalHeaderFontSize;
+  font-weight: @verticalHeaderFontWeight;
+}
+
 
 /*--------------
     Dropdowns
@@ -747,11 +753,6 @@ Floated Menu / Item
 .ui.secondary.menu > .menu > .active.dropdown.item {
   background-color: transparent;
 }
-.ui.secondary.menu .dropdown.item .menu {
-  left: 0px;
-  min-width: 100%;
-}
-
 
 /* Disable variations */
 .ui.secondary.item.menu > .item {
@@ -874,6 +875,8 @@ Floated Menu / Item
 .ui.secondary.vertical.pointing.menu {
   border-bottom-width: 0px;
   border-right-width: @secondaryPointingBorderWidth;
+  border-right-style: solid;
+  border-right-color: transparent;
 }
 .ui.secondary.vertical.pointing.menu > .item {
   border-bottom: none;
@@ -1191,8 +1194,8 @@ Floated Menu / Item
   color: @invertedHoverColor;
 }
 
-.ui.vertical.menu .item:not(.dropdown) .menu a.item:hover,
-.ui.vertical.menu .item:not(.dropdown) .menu .link.item:hover {
+.ui.vertical.inverted.menu .item:not(.dropdown) .menu a.item:hover,
+.ui.vertical.inverted.menu .item:not(.dropdown) .menu .link.item:hover {
   background: @invertedSubMenuBackground;
   color: @invertedSubMenuHoverColor;
 }
@@ -1587,7 +1590,7 @@ Floated Menu / Item
 ---------------*/
 
 /* Small */
-.ui.small.menu .item {
+.ui.small.menu {
   font-size: @small;
 }
 .ui.small.vertical.menu {
@@ -1595,7 +1598,7 @@ Floated Menu / Item
 }
 
 /* Medium */
-.ui.menu .item {
+.ui.menu {
   font-size: @medium;
 }
 .ui.vertical.menu {
@@ -1603,7 +1606,7 @@ Floated Menu / Item
 }
 
 /* Large */
-.ui.large.menu .item {
+.ui.large.menu {
   font-size: @large;
 }
 .ui.large.vertical.menu {
