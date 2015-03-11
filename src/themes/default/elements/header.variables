@@ -21,6 +21,12 @@
 @horizontalPadding: 0em;
 @verticalPadding: 0em;
 
+/* Sub Heading */
+@subHeadingFontSize: @relativeTiny;
+@subHeadingFontWeight: bold;
+@subHeadingTextTransform: uppercase;
+@subHeadingColor: '';
+
 /* Sub Header */
 @subHeaderLineHeight: 1.2em;
 @subHeaderColor: rgba(0, 0, 0, 0.5);
