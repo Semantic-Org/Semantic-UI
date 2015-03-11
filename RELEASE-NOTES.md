@@ -65,6 +65,7 @@
 [See the examples](http://www.semantic-ui.com/behaviors/visibility.html#/examples) online for a demonstration.
 
 **Enhancements**
+- **Menu** - Horizontal menus now use flexbox so they can resize automatically to content size.
 - **Form** - `<select>` now receive error formatting on `form error` **Thanks @davialexandre**
 - **Transition** - Added more reasonable default durations for each animation
 - **Loader** - `inline loader` now has a `centered` variation
@@ -75,7 +76,11 @@
 - **Dimmer** - Add `opacity` setting to override css value. Add to docs several undocumented settings, like `useCSS`, and `variation`.
 - **Icon** - added `@src` variable to make it adjustable with themes that dont support all types like `woff2`
 
+**Deprecations**
+- **Menu** - `ui tiered menu` has been deprecated. It has been removed from the docs, and will be removed eventually in `2.0`
+
 **Bugs**
+- **Input** - Fix bug with vertical centering of `ui action input` inside `menu` due to `flexbox` changes
 - **Dropdown** - Fixes issue where dropdown would not open after restoring previus value on failed `search dropdown` search
 - **Grid** - Fixes specificity of grid `column` colors to not affect other elements with columns
 - **Icon** - Fix `clockwise rotated icon` causing `clockwise` icon to appear
