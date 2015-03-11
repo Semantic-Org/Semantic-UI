@@ -281,7 +281,9 @@ $.fn.checkbox = function(parameters) {
         toggle: function(event) {
           if( !module.can.change() ) {
             console.log(module.can.change());
-            module.debug('Checkbox is read-only or disabled, ignoring toggle');
+            if(!module.is.radio()) {
+              module.debug('Checkbox is read-only or disabled, ignoring toggle');
+            }
             return;
           }
           module.verbose('Determining new checkbox state');
