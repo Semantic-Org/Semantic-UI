@@ -109,9 +109,6 @@
     Sub-Item
 ---------------*/
 
-.ui.menu .item .menu .item {
-  color: @subMenuTextColor;
-}
 .ui.menu .item .menu a.item:hover,
 .ui.menu .item .menu .link.item:hover {
   color: @darkTextColor;
@@ -268,12 +265,10 @@
       Hover
 ---------------*/
 
-.ui.link.menu > .item:hover,
-.ui.menu > .link.item:hover,
-.ui.menu > a.item:hover,
-.ui.link.menu .menu > .item:hover,
-.ui.menu .menu > .link.item:hover,
-.ui.menu .menu > a.item:hover {
+
+.ui.link.menu .item:hover,
+.ui.menu .link.item:hover,
+.ui.menu a.item:hover {
   cursor: pointer;
   background: @hoverBackground;
   color: @hoverColor;
@@ -331,9 +326,9 @@
              Types
 *******************************/
 
-/*--------------
- Floated Content
----------------*/
+/*------------------
+Floated Menu / Item
+-------------------*/
 
 /* Left Floated */
 .ui.menu:not(.vertical) .item.left,
@@ -349,8 +344,8 @@
 }
 
 /* Floated Borders */
-.ui.menu > .right.menu:first-child:before,
-.ui.menu > .right.menu:last-child:before {
+.ui.menu .right.menu > .item:first-child:before,
+.ui.menu .right.menu > .item:last-child:before {
   display: none;
 }
 
@@ -363,7 +358,6 @@
   display: block;
   background: @verticalBackground;
 }
-
 
 /*--- Item ---*/
 .ui.vertical.menu .item {
@@ -445,6 +439,7 @@
   background: none;
   padding: @subMenuHorizontalPadding @subMenuVerticalPadding;
   font-size: @subMenuFontSize;
+  color: @subMenuTextColor;
 }
 .ui.vertical.menu .item > .menu > .item:before {
   display: none;
