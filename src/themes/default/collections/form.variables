@@ -180,12 +180,6 @@
 @inlineLabelFontWeight: @labelFontWeight;
 @inlineLabelTextTransform: @labelTextTransform;
 
-/* Sizes */
-@small: 0.875em;
-@medium: auto;
-@large: 1.125em;
-@huge: 1.2em;
-
 /*-------------------
        Groups
 --------------------*/
