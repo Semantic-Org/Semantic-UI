@@ -53,10 +53,6 @@
 @subMenuHorizontalPadding: 0.5em;
 @subMenuVerticalPadding: 1.5em;
 
-/* Header Item */
-@headerBackground: rgba(0, 0, 0, 0.04);
-@headerWeight: bold;
-
 /* Text Item */
 @textLineHeight: 1.3;
 
@@ -76,7 +72,7 @@
 @verticalIconMargin: 0em 0em 0em 0.5em;
 
 /* Header */
-@headerBackground: rgba(0, 0, 0, 0.04);
+@headerBackground: '';
 @headerWeight: bold;
 @headerTextTransform: normal;
 
@@ -103,6 +99,7 @@
 @largeInputVerticalPadding: 0.6em;
 
 /* Image */
+@imageMargin: -0.5em -0.2em;
 @imageWidth: 2.5em;
 @verticalImageWidth: auto;
 
@@ -111,7 +108,7 @@
 @labelBackground: #999999;
 @labelTextColor: @white;
 
-@labelTextMargin: 0.5em;
+@labelTextMargin: 1em;
 @labelVerticalPadding: 0.3em;
 @labelHorizontalPadding: 0.8em;
 
@@ -160,7 +157,7 @@
 @pressedColor: @pressedTextColor;
 
 @activeBackground: @subtleTransparentBlack;
-@activeColor: @darkTextColor;
+@activeColor: @selectedTextColor;
 @activePointerSize: 0px;
 @activeFontWeight: normal;
 @activeIconOpacity: 1;
@@ -168,10 +165,8 @@
 
 @activeHoverBackground: @hoverBackground;
 @subMenuActiveBackground: transparent;
-
-@loadingBackgroundColor: rgba(255, 255, 255, 0.8);
-@loadingImage: "@{imagePath}/loader-large.gif";
-@loadingPosition: 50% 50%;
+@subMenuActiveColor: @selectedTextColor;
+@subMenuActiveFontWeight: bold;
 
 
 /*--------------
@@ -202,8 +197,8 @@
 
 @secondaryMargin: 0.25em;
 @secondaryVerticalMargin: 0.3em;
-@secondaryVerticalPadding: 0.5em;
-@secondaryHorizontalPadding: 0.8em;
+@secondaryVerticalPadding: @relativeMini;
+@secondaryHorizontalPadding: @relativeSmall;
 
 @secondaryLinkOpacity: 0.8;
 
@@ -215,17 +210,22 @@
 
 
 /* Pointing */
-@secondaryPointingBorderWidth: 3px;
-@secondaryPointingVerticalPadding: 0.6em;
-@secondaryPointingHorizontalPadding: 0.95em;
+@secondaryPointingBorderWidth: 2px;
 
-@secondaryPointingBorderColor: rgba(0, 0, 0, 0.2);
+@secondaryPointingBorderColor: @borderColor;
+@secondaryPointingInvertedBorderColor: @whiteBorderColor;
+@secondaryPointingActiveBorderColor: @black;
+@secondaryPointinInvertedActiveColor: @white;
+
+@secondaryPointingItemMargin: 0em 0em -@secondaryPointingBorderWidth;
+@secondaryPointingItemVerticalPadding: @relativeTiny;
+@secondaryPointingItemHorizontalPadding: @relativeMedium;
 @secondaryPointingHoverTextColor: @textColor;
-
-@secondaryPointingActiveBorderColor: rgba(0, 0, 0, 0.4);
+@secondaryPointingActiveFontWeight: bold;
 @secondaryPointingActiveTextColor: @selectedTextColor;
-
 @secondaryPointingHeaderColor: @darkTextColor;
+
+@secondaryVerticalPointingItemMargin: 0em -@secondaryPointingBorderWidth 0em 0em;
 
 /* Tiered */
 @tieredActiveItemBackground: #FCFCFC;
@@ -274,12 +274,12 @@
 @labeledIconTextMargin: 0.5em;
 
 /* Text */
+@textMenuMargin: @relativeLarge -@textMenuItemSpacing;
+
 @textMenuItemSpacing: 1em;
 @textMenuItemOpacity: 0.8;
 @textMenuItemMargin: 0em @textMenuItemSpacing;
-
-@textMenuMargin: 1em -@textMenuItemSpacing;
-@textMenuTransition: opacity @transitionDuration @transitionEasing;
+@textMenuItemTransition: opacity @transitionDuration @transitionEasing;
 
 @textMenuHeaderSize: @relativeSmall;
 @textMenuHeaderColor: @darkTextColor;
@@ -288,7 +288,7 @@
 
 @textVerticalMenuMargin: 1em 0em;
 @textVerticalMenuHeaderMargin: 1.25em 0em;
-@textVerticalMenuItemMargin: @textMenuItemSpacing 0em;
+@textVerticalMenuItemMargin: @relativeLarge 0em;
 
 @textVerticalMenuIconFloat: none;
 @textVerticalMenuIconMargin: @iconMargin;

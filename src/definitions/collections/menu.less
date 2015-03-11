@@ -228,9 +228,15 @@
 .ui.menu .item > .label {
   background: @labelBackground;
   color: @labelTextColor;
-  margin: @labelOffset 0em @labelOffset @labelTextMargin;
+  margin-left: @labelTextMargin;
   padding: @labelVerticalPadding @labelHorizontalPadding;
-  vertical-align: baseline;
+}
+.ui.vertical.menu .item > .label {
+  background: @labelBackground;
+  color: @labelTextColor;
+  margin-top: @labelOffset;
+  margin-bottom: @labelOffset;
+  padding: @labelVerticalPadding @labelHorizontalPadding;
 }
 .ui.menu .item > .label:before {
   background-color: @labelBackground;
@@ -246,11 +252,12 @@
 .ui.menu .item > img:not(.ui) {
   display: inline-block;
   vertical-align: middle;
-  max-width: 100%;
+  margin: @imageMargin;
   width: @imageWidth;
 }
 .ui.vertical.menu .item > img:only-child {
   display: block;
+  max-width: 100%;
   width: @verticalImageWidth;
 }
 
@@ -468,8 +475,10 @@ Floated Menu / Item
   border-left: none;
 }
 .ui.vertical.menu .item .menu .active.item {
-  background-color: @subMenuActiveBackground;
   box-shadow: none;
+  background-color: @subMenuActiveBackground;
+  font-weight: @subMenuActiveFontWeight;
+  color: @subMenuActiveColor;
 }
 
 
@@ -770,9 +779,9 @@ Floated Menu / Item
 .ui.secondary.inverted.menu {
   background-color: transparent;
 }
-
 .ui.secondary.inverted.pointing.menu {
-  border-bottom: @secondaryPointingBorderWidth solid rgba(255, 255, 255, 0.1);
+  border-width: @secondaryPointingBorderWidth;
+  border-color: @secondaryPointingBorderColor;
 }
 .ui.secondary.inverted.pointing.menu > .item {
   color: rgba(255, 255, 255, 0.7);
@@ -806,24 +815,23 @@ Floated Menu / Item
 -----------------------*/
 
 .ui.secondary.pointing.menu {
-  border-bottom: @secondaryPointingBorderWidth solid rgba(0, 0, 0, 0.1);
+  border-bottom: @secondaryPointingBorderWidth solid @secondaryPointingBorderColor;
 }
 
-.ui.secondary.pointing.menu > .menu > .item,
-.ui.secondary.pointing.menu > .item {
-  margin: 0em 0em -@secondaryPointingBorderWidth;
-  padding: @secondaryPointingVerticalPadding @secondaryPointingHorizontalPadding;
-  border-bottom: @secondaryPointingBorderWidth solid transparent;
+.ui.secondary.pointing.menu > .item,
+.ui.secondary.pointing.menu .menu > .item {
+  border-bottom-color: transparent;
+  border-bottom-style: solid;
   border-radius: 0em;
+
+  margin: @secondaryPointingItemMargin;
+  padding: @secondaryPointingItemVerticalPadding @secondaryPointingItemHorizontalPadding;
+  border-bottom-width: @secondaryPointingBorderWidth;
   transition: @secondaryTransition;
 }
 
 /* Item Types */
 .ui.secondary.pointing.menu .header.item {
-  margin-bottom: -@secondaryPointingBorderWidth;
-  background-color: transparent !important;
-  border-right-width: 0px !important;
-  font-weight: bold !important;
   color: @secondaryPointingHeaderColor !important;
 }
 .ui.secondary.pointing.menu .text.item {
@@ -856,48 +864,40 @@ Floated Menu / Item
 .ui.secondary.pointing.menu > .menu > .item.active,
 .ui.secondary.pointing.menu > .item.active {
   background-color: transparent;
-  border-color: rgba(0, 0, 0, 0.4);
   box-shadow: none;
+  border-color: @secondaryPointingActiveBorderColor;
+  font-weight: @secondaryPointingActiveFontWeight;
   color: @secondaryPointingActiveTextColor;
 }
 
-/* Secondary Vertical Pointing */
+/* Vertical Pointing */
 .ui.secondary.vertical.pointing.menu {
-  border: none;
-  border-right: @secondaryPointingBorderWidth solid rgba(0, 0, 0, 0.1);
+  border-bottom-width: 0px;
+  border-right-width: @secondaryPointingBorderWidth;
 }
 .ui.secondary.vertical.pointing.menu > .item {
-  margin: 0em -@secondaryPointingBorderWidth 0em 0em;
   border-bottom: none;
-  border-right: @secondaryPointingBorderWidth solid transparent;
+  border-right-style: solid;
+  border-right-color: transparent;
   border-radius: 0em;
+  margin: @secondaryVerticalPointingItemMargin;
+  border-right-width: @secondaryPointingBorderWidth;
 }
 
-/* Hover */
-.ui.secondary.vertical.pointing.menu > .item:hover {
-  background-color: transparent;
-  color: rgba(0, 0, 0, 0.7);
-}
-
-/* Pressed */
-.ui.secondary.vertical.pointing.menu > .item:active {
-  background-color: transparent;
-  border-color: rgba(0, 0, 0, 0.2);
-}
-
-/* Active */
+/* Vertical Active */
+.ui.secondary.vertical.pointing.menu > .menu > .item.active,
 .ui.secondary.vertical.pointing.menu > .item.active {
-  background-color: transparent;
-  border-color: rgba(0, 0, 0, 0.4);
-  color: rgba(0, 0, 0, 0.85);
+  border-color: @secondaryPointingActiveBorderColor;
 }
 
-/* Inverted Vertical Pointing Secondary */
-.ui.secondary.inverted.vertical.pointing.menu {
-  border-right: @secondaryPointingBorderWidth solid rgba(255, 255, 255, 0.1);
-  border-bottom: none;
+/* Inverted */
+.ui.secondary.inverted.pointing.menu {
+  border-color: @secondaryPointingInvertedBorderColor;
 }
-
+.ui.secondary.inverted.pointing.menu > .menu > .item.active,
+.ui.secondary.inverted.pointing.menu > .item.active {
+  border-color: @secondaryPointinInvertedActiveColor;
+}
 
 /*--------------
     Text Menu
@@ -911,13 +911,13 @@ Floated Menu / Item
   margin: @textMenuMargin;
 }
 .ui.text.menu > .item,
-.ui.text.menu .menu > .item {
+.ui.text.menu > .menu > .item {
   padding: 0em;
   border-radius: 0px;
   box-shadow: none;
   opacity: @textMenuItemOpacity;
   margin: @textMenuItemMargin;
-  transition: @textMenuTransition;
+  transition: @textMenuItemTransition;
 }
 .ui.text.menu > .item:before,
 .ui.text.menu .menu > .item:before {
@@ -937,7 +937,7 @@ Floated Menu / Item
 }
 
 /*--- fluid text ---*/
-.ui.text.item.menu .item {
+.ui.text.item.menu > .item {
   margin: 0em;
 }
 
@@ -1190,11 +1190,13 @@ Floated Menu / Item
   background: @invertedHoverBackground;
   color: @invertedHoverColor;
 }
-.ui.inverted.menu .item .menu a.item:hover,
-.ui.inverted.menu .item .menu .link.item:hover {
+
+.ui.vertical.menu .item:not(.dropdown) .menu a.item:hover,
+.ui.vertical.menu .item:not(.dropdown) .menu .link.item:hover {
   background: @invertedSubMenuBackground;
   color: @invertedSubMenuHoverColor;
 }
+
 
 /*--- Pressed ---*/
 .ui.inverted.menu a.item:active,
@@ -1371,7 +1373,7 @@ Floated Menu / Item
 --------------------*/
 
 .ui.compact.menu {
-  display: inline-block;
+  display: inline-flex;
   margin: 0em;
   vertical-align: middle;
 }
