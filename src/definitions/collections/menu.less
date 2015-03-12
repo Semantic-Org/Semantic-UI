@@ -236,6 +236,9 @@
   min-width: ~"calc(100% - 1px)";
   box-shadow: @dropdownBoxShadow;
 }
+.ui.menu .dropdown.item .menu .item {
+  display: block;
+}
 .ui.menu:not(.secondary) .pointing.dropdown.item .menu {
   border-top-left-radius: 0em;
   border-top-right-radius: 0em;
@@ -651,10 +654,6 @@ Floated Menu / Item
 }
 
 /* Coupling with segment for attachment */
-.ui.attached.tabular.menu {
-  position: relative;
-  z-index: 2;
-}
 .ui.tabular.menu + .bottom.attached.segment,
 .ui.tabular.menu ~ .bottom.attached.segment + .bottom.attached.segment {
   border-top: none;

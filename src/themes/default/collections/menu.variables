@@ -188,7 +188,10 @@
 ;
 
 @verticalActivePointerSize: 2px;
-@verticalActiveBoxShadow: @verticalActivePointerSize 0em 0em inset;
+@verticalActiveBoxShadow:
+  (@verticalActivePointerSize - @borderWidth) 0em 0em inset,
+  -@borderWidth 0em 0em
+;
 
 
 /* Secondary */
