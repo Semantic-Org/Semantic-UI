@@ -1447,6 +1447,12 @@
   flex-grow: 1;
 }
 
+.ui[class*="equal width"].grid > .wide.column,
+.ui[class*="equal width"].grid > .row > .wide.column,
+.ui.grid > [class*="equal width"].row > .wide.column {
+  flex-grow: 0;
+}
+
 
 /*----------------------
   Equal Height Columns
@@ -1482,6 +1488,11 @@
   display: block;
   flex-grow: 1;
 }
+.ui[class*="equal height"].grid > .wide.column,
+.ui[class*="equal height"].grid > .row > .wide.column,
+.ui.grid > [class*="equal height"].row > .wide.column {
+  flex-grow: 0;
+}
 
 
 
@@ -1504,6 +1515,7 @@
     display: inline-block !important;
     padding-top: (@rowSpacing / 2) !important;
     padding-bottom: (@rowSpacing / 2) !important;
+    box-shadow: none !important;
     margin: 0em;
   }
   .ui[class*="two column"].doubling.grid > .row > .column,
@@ -1597,6 +1609,7 @@
     padding-top: (@rowSpacing / 2) !important;
     padding-bottom: (@rowSpacing / 2) !important;
     margin: 0em !important;
+    box-shadow: none !important;
   }
   .ui[class*="two column"].doubling:not(.stackable).grid > .row > .column,
   .ui[class*="two column"].doubling:not(.stackable).grid > .column,
