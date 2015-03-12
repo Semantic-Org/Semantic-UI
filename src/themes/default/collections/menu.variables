@@ -256,7 +256,8 @@
 @tabularBorderColor: @solidBorderColor;
 @tabularBackgroundColor: #FFFFFF;
 @tabularBorderWidth: 1px;
-@tabularHorizontalPadding: 1.4em;
+@tabularOppositeBorderWidth: @tabularBorderWidth + 1px;
+@tabularHorizontalPadding: @relativeHuge;
 @tabularMenuTextColor: @itemTextColor;
 
 @tabularFluidOffset: 1px;
