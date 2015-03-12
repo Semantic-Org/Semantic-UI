@@ -349,9 +349,9 @@
 
 @circularRadius                : 500rem;
 
-@borderColor                   : rgba(39, 41, 43, 0.15);
-@selectedBorderColor           : rgba(39, 41, 43, 0.3);
-@disabledBorderColor           : rgba(39, 41, 43, 0.5);
+@borderColor                   : rgba(34, 36, 38, 0.15);
+@selectedBorderColor           : rgba(34, 36, 38, 0.3);
+@disabledBorderColor           : rgba(34, 36, 38, 0.5);
 
 @solidBorderColor              : #D4D4D5;
 @solidSelectedBorderColor      : #BEBEBF;
