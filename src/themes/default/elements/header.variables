@@ -95,7 +95,7 @@
 @iconHeaderFirstMargin: 0em;
 
 /* Divided */
-@dividedBorder: 1px solid rgba(0, 0, 0, 0.1);
+@dividedBorder: 1px solid @borderColor;
 @dividedColoredBorderWidth: 2px;
 
 @dividedBorderPadding: 0.25rem;
