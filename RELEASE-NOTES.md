@@ -16,14 +16,17 @@
 - **Grid** - `equal height` and `equal width` now work without `row` wrappers
 - **Visibility/Sticky** - Visibility now uses pub/sub pattern to greatly improve scroll performance when attaching multiple events
 - **Visibility/Sticky** - Visibility and sticky now refresh automatically after page content loading to deal with changes in position from images loading
+- **Table** - Added `vertical alignment` variations to `ui table`
 
 **Changes**
+- **Menu** - `secondary pointing menu` has had some slight design tweaks, thinner lines, more padding
+- **Header/Table/Divider** - These components now pull border color defaults from `site.variables` instead of using their own values
 - **Site** - Adjusted global line height to the closest even pixel value
 - **Input** - Input now use `em` instead of `rem` so they will inherit the size of the elements they are nested inside
 - **Message** - Slightly increases `box-shadow`
 - **Menu** - Horizontal menus no longer use pointers on `active item` in the default theme
 - **Menu** - Active sub-menu items are now `bold`
-- **Table** - Table cells now default to top vertical alignment.
+- **Table** - Horizontal cell padding has been slightly reduced, and cell borders are slightly lighter.
 - **Grid** - Small computer `page grid` gutters have been adjusted from 8% to 3% to allow for roomier layouts on small screens.
 
 **Bugs**
@@ -31,10 +34,13 @@
 - **Form** - Form sizes and input sizes now inherit from `site.variables`
 - **Dropdown** - Fixes issue with disappearing headers inside of `ui dropdown` when nested in `ui menu`
 - **Grid** - Fixes colored grid columns not appearing when not nested in rows
+- **Grid** - `x column wide` inside `equal width/height` now cannot grow beyond column size
+- **Table** - Fix inheritance of text alignment and vertical alignment
 - **Label** - Labels inside `header` now vertical align better by accounting for line height offset
 - **Message** - Message now uses `@lineHeight` from `site.variables`
 - **Dropdown** - Fix bug where `onChange` would call even when reselecting current value
 - **Popup** - Fixes issue with `min-width` in firefox exceeding `max-width` causing element to not wrap correctly
+- **Table** - `very basic table` now works together with `padded table`
 - **Transition** - Fixed bug where transition could sometimes not occur when an element was determined to always be hidden
 
 ### Version 1.11.3-4 - March 6, 2015
