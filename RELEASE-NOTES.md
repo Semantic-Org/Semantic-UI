@@ -17,6 +17,7 @@
 - **Visibility/Sticky** - Visibility now uses pub/sub pattern to greatly improve scroll performance when attaching multiple events
 - **Visibility/Sticky** - Visibility and sticky now refresh automatically after page content loading to deal with changes in position from images loading
 - **Table** - Added `vertical alignment` variations to `ui table`
+- **Grid** - `celled grid` now removes internal cells on mobile and tablet when used with `doubling` grid responsive variation
 
 **Changes**
 - **Menu** - `secondary pointing menu` has had some slight design tweaks, thinner lines, more padding
