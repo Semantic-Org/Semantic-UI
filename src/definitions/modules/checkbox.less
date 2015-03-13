@@ -201,10 +201,8 @@
 
 .ui.disabled.checkbox .box:after,
 .ui.disabled.checkbox label,
-.ui.checkbox input[type="checkbox"][disabled] ~ .box:after,
-.ui.checkbox input[type="checkbox"][disabled] ~ label,
-.ui.checkbox input[type="radio"][disabled] ~ .box:after,
-.ui.checkbox input[type="radio"][disabled] ~ label {
+.ui.checkbox input[disabled] ~ .box:after,
+.ui.checkbox input[disabled] ~ label {
   cursor: default;
   opacity: @disabledCheckboxOpacity;
   color: @disabledCheckboxLabelColor;
@@ -262,7 +260,6 @@
 ---------------*/
 
 .ui.slider.checkbox {
-  cursor: pointer;
   min-height: @sliderHeight;
 }
 
@@ -276,7 +273,6 @@
 /* Line */
 .ui.slider.checkbox .box:before,
 .ui.slider.checkbox label:before {
-  cursor: pointer;
   display: block;
 
   position: absolute;
@@ -365,7 +361,6 @@
 ---------------*/
 
 .ui.toggle.checkbox {
-  cursor: pointer;
   min-height: @toggleHeight;
 }
 
@@ -382,7 +377,6 @@
 /* Switch */
 .ui.toggle.checkbox .box:before,
 .ui.toggle.checkbox label:before {
-  cursor: pointer;
   display: block;
 
   position: absolute;

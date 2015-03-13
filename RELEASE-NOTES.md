@@ -6,42 +6,45 @@
 - **Container** - Containers are fixed width containers meant for holding page contents, and are a simpler alternative to `ui page grid`, view more [examples in docs](http://www.semantic-ui.com/elements/container.html#examples)
 
 **Major Changes**
-- **Menu** - Menu now uses flexbox. This allows menu items to match each others heights regardless of each items content size. You may need to adjust `floated` content to appear **after**, for example `right menu` should appear after normal menu. This is because `flex` does not use `float`
+- **Menu** - Menu now uses flexbox. This allows menu items to match each others heights regardless of each items content size. `right menu` content should now follow left menu content, instead of preceding it (with float).
 
 **Enhancements**
-- **Headers** - Added new header type `sub header`, useful for displaying small headers alongside text content. See examples [in the header docs](http://www.semantic-ui.com/elements/header.html#sub-headers)
-- **Menu** - Horizontal menus now set a default image size for images / logos
-- **Menu** - Added many new variables to menu theme
-- **Segment** - Added `padded` and `very padded` segment variations
-- **Grid** - `equal height` and `equal width` now work without `row` wrappers
-- **Visibility/Sticky** - Visibility now uses pub/sub pattern to greatly improve scroll performance when attaching multiple events
-- **Visibility/Sticky** - Visibility and sticky now refresh automatically after page content loading to deal with changes in position from images loading
-- **Table** - Added `vertical alignment` variations to `ui table`
 - **Grid** - `celled grid` now removes internal cells on mobile and tablet when used with `doubling` grid responsive variation
+- **Grid** - `equal height` and `equal width` now work without `row` wrappers
+- **Grid** - `equal height` rows can now be `stretched` as well as `middle aligned`, `bottom aligned` and `top aligned`!
+- **Headers** - Added new header type `sub header`, useful for displaying small headers alongside text content. See examples [in the header docs](http://www.semantic-ui.com/elements/header.html#sub-headers)
+- **Menu** - Added many new variables to menu
+- **Menu** - Horizontal menus now set a default image size for images / logos
+- **Menu** - Menus items are now slightly more padded
+- **Segment** - Added `padded` and `very padded` segment variations
+- **Table** - Added `vertical alignment` variations to `ui table`
+- **Visibility/Sticky** - Visibility and sticky now refresh automatically after page content loading to deal with changes in position from images loading
+- **Visibility/Sticky** - Visibility now uses pub/sub pattern to greatly improve scroll performance when attaching multiple events
 
 **Changes**
-- **Menu** - `secondary pointing menu` has had some slight design tweaks, thinner lines, more padding
-- **Header/Table/Divider** - These components now pull border color defaults from `site.variables` instead of using their own values
-- **Site** - Adjusted global line height to the closest even pixel value
-- **Input** - Input now use `em` instead of `rem` so they will inherit the size of the elements they are nested inside
-- **Message** - Slightly increases `box-shadow`
-- **Menu** - Horizontal menus no longer use pointers on `active item` in the default theme
-- **Menu** - Active sub-menu items are now `bold`
-- **Table** - Horizontal cell padding has been slightly reduced, and cell borders are slightly lighter.
 - **Grid** - Small computer `page grid` gutters have been adjusted from 8% to 3% to allow for roomier layouts on small screens.
+- **Header/Table/Divider** - These components now pull border color defaults from `site.variables` instead of using their own values
+- **Input** - Input now use `em` instead of `rem` so they will inherit the size of the elements they are nested inside
+- **Menu** - `secondary pointing menu` has had some slight design tweaks, thinner lines, more padding
+- **Menu** - Active sub-menu items are now `bold`
+- **Menu** - Horizontal menus no longer use pointers on `active item` in the default theme
+- **Message** - Slightly increases `box-shadow`
+- **Site** - Adjusted global line height to the closest even pixel value
+- **Table** - Horizontal cell padding has been slightly reduced, and cell borders are slightly lighter.
 
 **Bugs**
 - **All Modules** - Performance logging now delays 500ms instead of 100ms for console logging to ensure all logs are captured in one group
-- **Form** - Form sizes and input sizes now inherit from `site.variables`
+- **Checkbox** - Fix `disabled checkbox` sometimes displaying hand cursor
+- **Dropdown** - Fix bug where `onChange` would call even when reselecting current value
 - **Dropdown** - Fixes issue with disappearing headers inside of `ui dropdown` when nested in `ui menu`
-- **Grid** - Fixes colored grid columns not appearing when not nested in rows
+- **Form** - Form sizes and input sizes now inherit from `site.variables`
 - **Grid** - `x column wide` inside `equal width/height` now cannot grow beyond column size
-- **Table** - Fix inheritance of text alignment and vertical alignment
+- **Grid** - Fixes colored grid columns not appearing when not nested in rows
 - **Label** - Labels inside `header` now vertical align better by accounting for line height offset
 - **Message** - Message now uses `@lineHeight` from `site.variables`
-- **Dropdown** - Fix bug where `onChange` would call even when reselecting current value
 - **Popup** - Fixes issue with `min-width` in firefox exceeding `max-width` causing element to not wrap correctly
 - **Table** - `very basic table` now works together with `padded table`
+- **Table** - Fix inheritance of text alignment and vertical alignment
 - **Transition** - Fixed bug where transition could sometimes not occur when an element was determined to always be hidden
 
 ### Version 1.11.3-4 - March 6, 2015
