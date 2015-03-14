@@ -474,6 +474,7 @@ $.fn.sidebar = function(parameters) {
                 ? $module
                 : $pusher,
             animate,
+            dim,
             transitionEnd
           ;
           callback = $.isFunction(callback)
@@ -490,11 +491,9 @@ $.fn.sidebar = function(parameters) {
             module.add.bodyCSS();
             module.set.animating();
             module.set.visible();
-            if(!module.othersVisible()) {
-              if(settings.dimPage) {
-                $pusher.addClass(className.dimmed);
-              }
-            }
+          };
+          dim = function() {
+            module.set.dimmed();
           };
           transitionEnd = function(event) {
             if( event.target == $transition[0] ) {
@@ -507,6 +506,9 @@ $.fn.sidebar = function(parameters) {
           $transition.off(transitionEvent + elementNamespace);
           $transition.on(transitionEvent + elementNamespace, transitionEnd);
           requestAnimationFrame(animate);
+          if(settings.dimPage && !module.othersVisible()) {
+            requestAnimationFrame(dim);
+          }
         },
 
         pullPage: function(callback) {
@@ -635,16 +637,17 @@ $.fn.sidebar = function(parameters) {
             $html.addClass(className.ios);
           },
 
-          dimmed: function() {
-            $pusher.addClass(className.dimmed);
-          },
-
           // container
           pushed: function() {
             $context.addClass(className.pushed);
           },
           pushable: function() {
             $context.addClass(className.pushable);
+          },
+
+          // pusher
+          dimmed: function() {
+            $pusher.addClass(className.dimmed);
           },
 
           // sidebar
