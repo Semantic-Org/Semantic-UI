@@ -17,6 +17,7 @@
 - **Menu** - Horizontal menus now set a default image size for images / logos
 - **Menu** - Menus items are now slightly more padded
 - **Segment** - Added `padded` and `very padded` segment variations
+- **Sidebar** - Improved animation performance through performance debugging. Sidebar now caches, width, height, rtl direction on load.
 - **Table** - Added `vertical alignment` variations to `ui table`
 - **Visibility/Sticky** - Visibility and sticky now refresh automatically after page content loading to deal with changes in position from images loading
 - **Visibility/Sticky** - Visibility now uses pub/sub pattern to greatly improve scroll performance when attaching multiple events

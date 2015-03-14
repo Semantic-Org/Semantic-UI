@@ -1233,7 +1233,7 @@
   vertical-align: top;
   display: inline-flex !important;
   flex-direction: column;
-  align-items: flex-start !important;
+  justify-content: flex-start !important;
 }
 
 /* Middle Aligned */
@@ -1244,7 +1244,7 @@
   vertical-align: middle;
   display: inline-flex !important;
   flex-direction: column;
-  align-items: center !important;
+  justify-content: center !important;
 }
 
 /* Bottom Aligned */
@@ -1255,7 +1255,7 @@
   vertical-align: bottom;
   display: inline-flex !important;
   flex-direction: column;
-  align-items: flex-end !important;
+  justify-content: flex-end !important;
 }
 
 /* Stretched */
@@ -1481,11 +1481,6 @@
 .ui[class*="equal height"].grid > .row > .column,
 .ui.grid > [class*="equal height"].row > .column {
   display: inline-block;
-  flex-grow: 1;
-}
-.ui[class*="equal height"].grid > .wide.column,
-.ui[class*="equal height"].grid > .row > .wide.column,
-.ui.grid > [class*="equal height"].row > .wide.column {
   flex-grow: 0;
 }
 
