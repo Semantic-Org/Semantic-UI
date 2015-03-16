@@ -258,6 +258,7 @@
 .ui.dropdown .menu > .item > .image,
 .ui.dropdown .menu > .item > img  {
   margin-left: 0em;
+  float: @itemElementFloat;
   margin-right: @itemElementDistance;
 }
 
@@ -606,7 +607,7 @@ select.ui.dropdown {
 .ui.dropdown .menu > .item:hover {
   background: @hoveredItemBackground;
   color: @hoveredItemColor;
-  z-index: 12;
+  z-index: @hoveredZIndex;
 }
 
 /*--------------------

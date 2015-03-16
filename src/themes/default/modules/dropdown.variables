@@ -49,10 +49,10 @@
 @itemHeight: auto;
 @itemDivider: none;
 @itemColor: @textColor;
-@itemVerticalPadding: 0.65rem;
-@itemHorizontalPadding: 1.25rem;
+@itemVerticalPadding: @relativeMini;
+@itemHorizontalPadding: @relativeLarge;
 @itemFontWeight: normal;
-@itemLineHeight: 1.2em;
+@itemLineHeight: 1em;
 @itemLineHeightOffset: (@itemLineHeight - 1em);
 @itemTextTransform: none;
 @itemBoxShadow: none;
@@ -91,6 +91,7 @@
 @menuImageMaxHeight: 2.5em;
 
 /* Item Sub-Element */
+@itemElementFloat: none;
 @itemElementDistance: 0.75em;
 
 /* Sub-Menu Dropdown Icon */
@@ -212,6 +213,7 @@
 /* Hovered */
 @hoveredItemBackground: @transparentBlack;
 @hoveredItemColor: @selectedTextColor;
+@hoveredZIndex: @menuZIndex + 2;
 
 /* Default Text */
 @defaultTextColor: rgba(179, 179, 179, 0.7);
@@ -221,8 +223,8 @@
 @loadingZIndex: -1;
 
 /* Active Menu Item */
-@activeItemBackground: transparent;
 @activeItemZIndex: @menuZIndex + 1;
+@activeItemBackground: transparent;
 @activeItemBoxShadow: none;
 @activeItemFontWeight: bold;
 @activeItemColor: @selectedTextColor;
