@@ -1227,10 +1227,12 @@ body > .ui.grid {
 .ui.grid > .stretched.column:not(.row),
 .ui.grid > .row > .stretched.column {
   display: inline-flex !important;
+  align-items: stretch;
   flex-direction: column;
 }
 
 .ui.stretched.grid > .row > .column > *,
+.ui.stretched.grid > .column > *,
 .ui.grid > .stretched.row > .column > *,
 .ui.grid > .stretched.column:not(.row) > *,
 .ui.grid > .row > .stretched.column > * {
