@@ -115,7 +115,7 @@
 
 /* Dimmer */
 @dimmerZIndex: 10;
-@dimmerBackground: '';
+@dimmerColor: '';
 
 /* Additional Content */
 @extraDivider: 1px solid rgba(0, 0, 0, 0.05);
