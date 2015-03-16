@@ -47,7 +47,7 @@
 
 /* Sub Menu */
 @subMenuMargin: 0.5em;
-@subMenuFontSize: 0.875em;
+@subMenuFontSize: @tiny;
 @subMenuTextColor: rgba(0, 0, 0, 0.5);
 
 @subMenuHorizontalPadding: 0.5em;
@@ -119,22 +119,34 @@
 @labelAndIconFloat: none;
 @labelAndIconMargin: 0em 0.5em 0em 0em;
 
-/* Dropdown */
-@dropdownBackground: #FFFFFF;
-@dropdownMenuOffset: 0px;
-@dropdownPointingDistance: 0px;
+/* Dropdown (Overrides UI Dropdown) */
 
+@dropdownMenuBoxShadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+
+@dropdownBackground: #FFFFFF;
+@dropdownMenuDistance: 0em;
+@dropdownMenuBorderRadius: @borderRadius;
+
+@dropdownItemFontSize: @relativeMedium;
+@dropdownItemPadding: @relativeSmall @relativeLarge;
 @dropdownItemBackground: transparent;
-@dropdownItemTextColorHover: @selectedTextColor;
-@dropdownIconMargin: 0em 0em 0em 1em;
 @dropdownItemColor: @textColor;
+@dropdownItemTextTransform: none;
+@dropdownItemFontWeight: normal;
+@dropdownItemBoxShadow: none;
 @dropdownItemTransition: none;
 
 @dropdownHoveredItemBackground: @transparentBlack;
 @dropdownHoveredItemColor: @selectedTextColor;
 
-@dropdownBoxShadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
-@dropdownVerticalBoxShadow: 0 1px 3px 0px rgba(0, 0, 0, 0.08);
+@dropdownActiveItemBackground: @transparentBlack;
+@dropdownActiveItemColor: @selectedTextColor;
+@dropdownActiveItemFontWeight: bold;
+
+/* Dropdown Variations */
+@dropdownVerticalMenuBoxShadow: 0 1px 3px 0px rgba(0, 0, 0, 0.08);
+@secondaryDropdownMenuDistance: 0.25em;
+@pointingDropdownMenuDistance: 0.75em;
 
 /* Pointing Arrow */
 @arrowSize: 0.6em;
@@ -196,29 +208,30 @@
 
 /* Secondary */
 @secondaryBackground: none;
+
 @secondaryItemBackground: none;
+@secondaryItemMargin: 0em 0.25em;
+@secondaryItemPadding: @relativeMini @relativeSmall;
+@secondaryItemBorderRadius: @defaultBorderRadius;
+@secondaryItemTransition: color @transitionDuration @transitionEasing;
+@secondaryItemColor: @unselectedTextColor;
 
-@secondaryTransition: color 0.2s ease;
+@secondaryHoveredItemBackground: @transparentBlack;
+@secondaryHoveredItemColor: @selectedTextColor;
 
-@secondaryBorderRadius: @defaultBorderRadius;
-
-@secondaryMargin: 0.25em;
-@secondaryVerticalMargin: 0.3em;
-@secondaryVerticalPadding: @relativeMini;
-@secondaryHorizontalPadding: @relativeSmall;
-
-@secondaryLinkOpacity: 0.8;
+@secondaryActiveItemBackground: @transparentBlack;
+@secondaryActiveItemColor: @selectedTextColor;
 
 @secondaryHeaderBackground: none transparent;
 @secondaryHeaderBorder: 0.1em solid rgba(0, 0, 0, 0.1);
 
-@secondaryActiveBackground: @transparentBlack;
 @secondaryInvertedActiveBackground: @transparentWhite;
 
+@secondaryVerticalItemMargin: 0em 0em 0.3em;
+@secondaryVerticalItemBorderRadius: @defaultBorderRadius;
 
 /* Pointing */
 @secondaryPointingBorderWidth: 2px;
-
 @secondaryPointingBorderColor: @borderColor;
 @secondaryPointingInvertedBorderColor: @whiteBorderColor;
 @secondaryPointingActiveBorderColor: @black;

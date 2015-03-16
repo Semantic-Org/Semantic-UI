@@ -9,12 +9,17 @@
 - **Menu** - Menu now uses flexbox. This allows menu items to match each others heights regardless of each items content size. `right menu` content should now follow left menu content, instead of preceding it (with float).
 
 **Enhancements**
+- **Site** - Added in `pageOverflowX` variable, default theme hides horizontal scrollbars on `body`
+- **Divider** - `vertical divider` inside `ui grid` now accounts for column padding
 - **Grid** - `celled grid` now removes internal cells on mobile and tablet when used with `doubling` grid responsive variation
 - **Grid** - `equal height` and `equal width` now work without `row` wrappers
 - **Grid** - `equal height` rows can now be `stretched` as well as `middle aligned`, `bottom aligned` and `top aligned`!
 - **Headers** - Added new header type `sub header`, useful for displaying small headers alongside text content. See examples [in the header docs](http://www.semantic-ui.com/elements/header.html#sub-headers)
 - **Menu** - Added many new variables to menu
 - **Menu** - Horizontal menus now set a default image size for images / logos
+- **Menu** - Fixed several inheritance issues for `dropdown item` inside `menu` appearing as `menu item`.
+- **Menu** - The hover/active state of `dropdown item` have been adjusted to match `item`.
+- **Menu** - Vertical dropdown menus are no longer 100% width
 - **Menu** - Menus items are now slightly more padded
 - **Segment** - Added `padded` and `very padded` segment variations
 - **Sidebar** - Improved animation performance through performance debugging. Sidebar now caches, width, height, rtl direction on load.
@@ -23,6 +28,7 @@
 - **Visibility/Sticky** - Visibility now uses pub/sub pattern to greatly improve scroll performance when attaching multiple events
 
 **Changes**
+- **Dropdown** - Dropdown padding values now resolve to exact pixel values from em
 - **Grid** - Small computer `page grid` gutters have been adjusted from 8% to 3% to allow for roomier layouts on small screens.
 - **Header/Table/Divider** - These components now pull border color defaults from `site.variables` instead of using their own values
 - **Input** - Input now use `em` instead of `rem` so they will inherit the size of the elements they are nested inside
@@ -35,9 +41,11 @@
 
 **Bugs**
 - **All Modules** - Performance logging now delays 500ms instead of 100ms for console logging to ensure all logs are captured in one group
+- **Card** - Fix card dimmer not appearing in minified release due to use of background shorthand property
 - **Checkbox** - Fix `disabled checkbox` sometimes displaying hand cursor
+- **Checkbox** - Fixes nested `dropdown` inside `checkbox` causing issues
 - **Dropdown** - Fix bug where `onChange` would call even when reselecting current value
-- **Dropdown** - Fixes issue with disappearing headers inside of `ui dropdown` when nested in `ui menu`
+- **Dropdown** - Fixes issue with headers disappearing inside of `ui dropdown` when nested in `ui menu`
 - **Form** - Form sizes and input sizes now inherit from `site.variables`
 - **Grid** - `x column wide` inside `equal width/height` now cannot grow beyond column size
 - **Grid** - Fixes colored grid columns not appearing when not nested in rows
