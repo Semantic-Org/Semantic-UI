@@ -41,7 +41,7 @@ $.fn.checkbox = function(parameters) {
         moduleNamespace = 'module-' + namespace,
 
         $module         = $(this),
-        $label          = $(this).find(selector.label).first(),
+        $label          = $(this).find(selector.label),
         $input          = $(this).find(selector.input),
 
         instance        = $module.data(moduleNamespace),
@@ -58,6 +58,8 @@ $.fn.checkbox = function(parameters) {
 
           module.create.label();
           module.add.events();
+
+          console.log($input);
 
           if( module.is.checked() ) {
             module.set.checked();
@@ -93,9 +95,8 @@ $.fn.checkbox = function(parameters) {
         },
 
         refresh: function() {
-          $module = $(this);
-          $label  = $(this).find(selector.label).first();
-          $input  = $(this).find(selector.input);
+          $label  = $module.find(selector.label);
+          $input  = $module.find(selector.input);
         },
 
         observeChanges: function() {
@@ -502,8 +503,8 @@ $.fn.checkbox.settings = {
   },
 
   selector : {
-    input  : 'input[type="checkbox"], input[type="radio"]',
-    label  : 'label'
+    input  : '> input[type="checkbox"], > input[type="radio"]',
+    label  : '> label'
   }
 
 };
