@@ -212,10 +212,15 @@
     Dropdowns
 ---------------*/
 
+.ui.menu .ui.dropdown.item {
+  display: block;
+}
+
 /* Dropdown Icon */
 .ui.menu .item > i.dropdown.icon {
+  padding: 0em;
   float: @dropdownIconFloat;
-  margin-left: @dropdownIconDistance;
+  margin: 0em 0em 0em @dropdownIconDistance;
 }
 
 /* Menu */
@@ -251,7 +256,6 @@
 }
 
 
-
 /* Secondary */
 .ui.secondary.menu .dropdown.item > .menu,
 .ui.text.menu .dropdown.item > .menu {
@@ -262,6 +266,12 @@
 /* Pointing */
 .ui.menu .pointing.dropdown.item .menu {
   margin-top: @pointingDropdownMenuDistance;
+}
+
+/* Inverted */
+.ui.inverted.menu .search.dropdown.item > .search,
+.ui.inverted.menu .search.dropdown.item > .text {
+  color: @invertedSelectionDropdownColor;
 }
 
 /* Vertical */
@@ -1196,7 +1206,8 @@ Floated Menu / Item
 /* Menu Item */
 .ui.inverted.menu .item,
 .ui.inverted.menu .item > a:not(.ui) {
-  color: @invertedTextColor;
+  background: @invertedItemBackground;
+  color: @invertedItemTextColor;
 }
 .ui.inverted.menu .item.menu {
   background: @invertedSubMenuBackground;

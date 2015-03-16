@@ -147,6 +147,7 @@
 @dropdownVerticalMenuBoxShadow: 0 1px 3px 0px rgba(0, 0, 0, 0.08);
 @secondaryDropdownMenuDistance: 0.25em;
 @pointingDropdownMenuDistance: 0.75em;
+@invertedSelectionDropdownColor: @invertedTextColor;
 
 /* Pointing Arrow */
 @arrowSize: 0.6em;
@@ -322,6 +323,9 @@
 @invertedBackground: @black;
 @invertedBoxShadow: none;
 @invertedHeaderBackground: rgba(0, 0, 0, 0.3);
+
+@invertedItemBackground: transparent;
+@invertedItemTextColor: @invertedTextColor;
 
 /* Inverted Sub Menu */
 @invertedSubMenuBackground: transparent;
