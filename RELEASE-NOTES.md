@@ -1,29 +1,30 @@
 ## RELEASE NOTES
 
-### Version 1.12.0 - March 11, 2015
+### Version 2.0.0 - March 17, 2015
 
 **New UI**
 - **Container** - Containers are fixed width containers meant for holding page contents, and are a simpler alternative to `ui page grid`, view more [examples in docs](http://www.semantic-ui.com/elements/container.html#examples)
 
 **Major Changes**
-- **Menu** - Menu now uses flexbox. This allows menu items to match each others heights regardless of each items content size. `right menu` content should now follow left menu content, instead of preceding it (with float).
+- **Menu** - Menu now uses flexbox. This allows menu items to match each others heights regardless of each items content size. `right menu` content should now follow other menu content instead of preceding it (no longer uses float).
 
 **Enhancements**
-- **Site** - Added in `pageOverflowX` variable, default theme hides horizontal scrollbars on `body`
+- **Build Tools** - Adjusting `site.variables` will now rebuild all UI, instead of just `site.less`
 - **Divider** - `vertical divider` inside `ui grid` now accounts for column padding
 - **Grid** - `celled grid` now removes internal cells on mobile and tablet when used with `doubling` grid responsive variation
 - **Grid** - `equal height` and `equal width` now work without `row` wrappers
 - **Grid** - `equal height` rows can now be `stretched` as well as `middle aligned`, `bottom aligned` and `top aligned`!
 - **Headers** - Added new header type `sub header`, useful for displaying small headers alongside text content. See examples [in the header docs](http://www.semantic-ui.com/elements/header.html#sub-headers)
-- **Menu** - Added `stackable` menu variation for responsive menus
+- **Menu** - Added `stackable` menu variation for simple responsive menus
 - **Menu** - Added many new variables to menu
-- **Menu** - Horizontal menus now set a default image size for images / logos
 - **Menu** - Fixed several inheritance issues for `dropdown item` inside `menu` appearing as `menu item`.
-- **Menu** - The hover/active state of `dropdown item` have been adjusted to match `item`.
-- **Menu** - Vertical dropdown menus are no longer 100% width
+- **Menu** - Horizontal menus now set a default image size for images / logos
 - **Menu** - Menus items are now slightly more padded
+- **Menu** - The hover/active state of `dropdown item` have been adjusted to match `item`. Dropdown styles can be themed specifically inside `menu`.
+- **Menu** - Vertical dropdown menus are no longer 100% `min-width`
 - **Segment** - Added `padded` and `very padded` segment variations
 - **Sidebar** - Improved animation performance through performance debugging. Sidebar now caches, width, height, rtl direction on load.
+- **Site** - Added in `pageOverflowX` variable, default theme hides horizontal scrollbars on `body`
 - **Table** - Added `vertical alignment` variations to `ui table`
 - **Visibility/Sticky** - Visibility and sticky now refresh automatically after page content loading to deal with changes in position from images loading
 - **Visibility/Sticky** - Visibility now uses pub/sub pattern to greatly improve scroll performance when attaching multiple events
@@ -31,7 +32,9 @@
 **Changes**
 - **Dropdown** - Dropdown padding values now resolve to exact pixel values from em
 - **Grid** - Small computer `page grid` gutters have been adjusted from 8% to 3% to allow for roomier layouts on small screens.
+- **Grid** - `center aligned` no longer centers rows, just text. Use `centered grid` to center a grid column on the page.
 - **Header/Table/Divider** - These components now pull border color defaults from `site.variables` instead of using their own values
+- **Icon** - `disabled icon` now have `pointer-events` again.
 - **Input** - Input now use `em` instead of `rem` so they will inherit the size of the elements they are nested inside
 - **Menu** - `secondary pointing menu` has had some slight design tweaks, thinner lines, more padding
 - **Menu** - Active sub-menu items are now `bold`
@@ -47,6 +50,7 @@
 - **Checkbox** - Fixes nested `dropdown` inside `checkbox` causing issues
 - **Dimmer** - Fixed `variation` setting not working correctly
 - **Dropdown** - Fix bug where `onChange` would call even when reselecting current value
+- **Dropdown** - Fix bug where element will not blur on tab key when `search selection` and no selection made
 - **Dropdown** - Fixes issue with headers disappearing inside of `ui dropdown` when nested in `ui menu`
 - **Form** - Form sizes and input sizes now inherit from `site.variables`
 - **Grid** - `x column wide` inside `equal width/height` now cannot grow beyond column size
