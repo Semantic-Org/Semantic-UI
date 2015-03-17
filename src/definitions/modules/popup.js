@@ -228,14 +228,14 @@ $.fn.popup = function(parameters) {
           else if($target.next(selector.popup).length !== 0) {
             module.verbose('Pre-existing popup found');
             settings.inline = true;
-            settings.popup  = $target.next(selector.popup).data(metadata.activator, $module);
+            settings.popups  = $target.next(selector.popup).data(metadata.activator, $module);
             module.refresh();
             if(settings.hoverable) {
               module.bind.popup();
             }
           }
           else if(settings.popup) {
-            settings.popup.data(metadata.activator, $module);
+            $(settings.popup).data(metadata.activator, $module);
             module.verbose('Used popup specified in settings');
             module.refresh();
             if(settings.hoverable) {

@@ -15,6 +15,7 @@
 - **Grid** - `equal height` and `equal width` now work without `row` wrappers
 - **Grid** - `equal height` rows can now be `stretched` as well as `middle aligned`, `bottom aligned` and `top aligned`!
 - **Headers** - Added new header type `sub header`, useful for displaying small headers alongside text content. See examples [in the header docs](http://www.semantic-ui.com/elements/header.html#sub-headers)
+- **Menu** - Added `stackable` menu variation for responsive menus
 - **Menu** - Added many new variables to menu
 - **Menu** - Horizontal menus now set a default image size for images / logos
 - **Menu** - Fixed several inheritance issues for `dropdown item` inside `menu` appearing as `menu item`.
@@ -51,6 +52,7 @@
 - **Grid** - `x column wide` inside `equal width/height` now cannot grow beyond column size
 - **Grid** - Fixes colored grid columns not appearing when not nested in rows
 - **Label** - Labels inside `header` now vertical align better by accounting for line height offset
+- **Loader** - Fix position of `inline centered loader` to be centered correctly
 - **Message** - Message now uses `@lineHeight` from `site.variables`
 - **Modal** - `scrollable modal` now correctly adds padding below modal
 - **Modal** - Modal with `detachable: false` inside `ui sidebar`  `pusher` element will now show correctly
