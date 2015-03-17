@@ -59,7 +59,7 @@ Browser prefixes are present for Internet Explorer 9, but the browser is not off
 
 Resource | Description
 --- | --- |
-Bugs & Feature Requests |  Make a test case by forking this [jsfiddle](http://jsfiddle.net/efp8z6Ln/), then submit a [bug on GitHub](https://github.com/Semantic-Org/Semantic-UI/issues)
+Bugs & Feature Requests |  All bug submission **require** a link to a test case, and a set of steps to reproduce the issue. You can make a test case by forking this [jsfiddle](http://jsfiddle.net/efp8z6Ln/), then submit your [bug report on GitHub Issues](https://github.com/Semantic-Org/Semantic-UI/issues)
 Live Chat | Join our [Gitter.im Room](https://gitter.im/Semantic-Org/Semantic-UI)
 Newsletter Updates | Sign up for updates at [semantic-ui.com](http://www.semantic-ui.com)
 Additional Resources  | Submit a question on [StackOverflow](http://www.stackoverflow.com) or ask our [Google Group](https://groups.google.com/forum/#!forum/semantic-ui)
