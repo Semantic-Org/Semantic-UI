@@ -30,6 +30,7 @@
 .ui.menu {
   display: flex;
   margin: @margin;
+  font-family: @fontFamily;
   background: @background;
   font-weight: @fontWeight;
   box-shadow: @boxShadow;
@@ -84,7 +85,9 @@
 
   background: @itemBackground;
   padding: @itemVerticalPadding @itemHorizontalPadding;
-  color: @textColor;
+  text-transform: @itemTextTransform;
+  color: @itemTextColor;
+  font-weight: @itemFontWeight;
   transition: @itemTransition;
 }
 
@@ -212,9 +215,6 @@
     Dropdowns
 ---------------*/
 
-.ui.menu .ui.dropdown.item .visible.menu {
-  display: block;
-}
 
 .ui.menu .ui.active.dropdown.item {
   font-weight: normal;
@@ -256,6 +256,9 @@
   background: @dropdownActiveItemBackground !important;
   font-weight: @dropdownActiveItemFontWeight !important;
   color: @dropdownActiveItemColor !important;
+}
+.ui.menu .ui.dropdown.item .menu .item:not(.filtered) {
+  display: block;
 }
 
 
@@ -362,8 +365,8 @@
 .ui.menu .link.item:hover,
 .ui.menu a.item:hover {
   cursor: pointer;
-  background: @hoverBackground;
-  color: @hoverColor;
+  background: @hoverItemBackground;
+  color: @hoverItemTextColor;
 }
 
 
@@ -374,8 +377,8 @@
 .ui.link.menu .item:active,
 .ui.menu .link.item:active,
 .ui.menu a.item:active {
-  background: @pressedBackground;
-  color: @pressedColor;
+  background: @pressedItemBackground;
+  color: @pressedItemColor;
 }
 
 /*--------------
@@ -383,10 +386,10 @@
 ---------------*/
 
 .ui.menu .active.item:not(.dropdown)  {
-  background: @activeBackground;
-  color: @selectedTextColor;
-  font-weight: @activeFontWeight;
-  box-shadow: @activeBoxShadow;
+  background: @activeItemBackground;
+  color: @activeItemTextColor;
+  font-weight: @activeItemFontWeight;
+  box-shadow: @activeItemBoxShadow;
 }
 .ui.menu .active.item:not(.dropdown) > i.icon {
   opacity: @activeIconOpacity;
@@ -399,7 +402,8 @@
 
 .ui.vertical.menu .active.item:hover,
 .ui.menu .active.item:hover {
-  background-color: @activeHoverBackground;
+  background-color: @activeHoverItemBackground;
+  color: @activeHoverItemColor;
 }
 
 /*--------------
@@ -449,6 +453,7 @@ Floated Menu / Item
 .ui.vertical.menu {
   display: block;
   background: @verticalBackground;
+  box-shadow: @verticalBoxShadow;
 }
 
 /*--- Item ---*/
@@ -502,11 +507,11 @@ Floated Menu / Item
 
 /*--- Sub Menu ---*/
 .ui.vertical.menu .item > .menu {
-  margin: @subMenuMargin -@itemHorizontalPadding 0em;
+  margin: @subMenuMargin;
 }
 .ui.vertical.menu .menu .item {
   background: none;
-  padding: @subMenuHorizontalPadding @subMenuVerticalPadding;
+  padding: @subMenuVerticalPadding @subMenuHorizontalPadding;
   font-size: @subMenuFontSize;
   color: @subMenuTextColor;
 }
@@ -520,7 +525,7 @@ Floated Menu / Item
 
 /* Vertical Active */
 .ui.vertical.menu .active.item {
-  background: @activeBackground;
+  background: @activeItemBackground;
   border-radius: 0em;
   box-shadow: @verticalActiveBoxShadow;
 }
@@ -540,7 +545,7 @@ Floated Menu / Item
   box-shadow: none;
   background-color: @subMenuActiveBackground;
   font-weight: @subMenuActiveFontWeight;
-  color: @subMenuActiveColor;
+  color: @subMenuActiveTextColor;
 }
 
 
@@ -749,6 +754,7 @@ Floated Menu / Item
   border-top: none;
   padding-top: @itemVerticalPadding;
   background-color: @paginationActiveBackground;
+  color: @paginationActiveTextColor;
   box-shadow: none;
 }
 
@@ -797,8 +803,8 @@ Floated Menu / Item
 .ui.secondary.menu .dropdown.item:hover,
 .ui.secondary.menu .link.item:hover,
 .ui.secondary.menu a.item:hover {
-  background: @secondaryHoveredItemBackground;
-  color: @secondaryHoveredItemColor;
+  background: @secondaryHoverItemBackground;
+  color: @secondaryHoverItemColor;
 }
 
 /* Active */
@@ -808,6 +814,15 @@ Floated Menu / Item
   background: @secondaryActiveItemBackground;
   color: @secondaryActiveItemColor;
 }
+
+/* Active Hover */
+.ui.secondary.menu > .menu > .active.item:hover,
+.ui.secondary.menu > .active.item:hover {
+  box-shadow: none;
+  background: @secondaryActiveHoverItemBackground;
+  color: @secondaryActiveHoverItemColor;
+}
+
 
 /* Inverted */
 .ui.secondary.inverted.menu .link.item,
@@ -942,6 +957,13 @@ Floated Menu / Item
   color: @secondaryPointingActiveTextColor;
 }
 
+/* Active Hover */
+.ui.secondary.pointing.menu > .menu > .item.active:hover,
+.ui.secondary.pointing.menu > .item.active:hover {
+  border-color: @secondaryPointingActiveHoverBorderColor;
+  color: @secondaryPointingActiveHoverTextColor;
+}
+
 /* Vertical Pointing */
 .ui.secondary.vertical.pointing.menu {
   border-bottom-width: 0px;
@@ -991,6 +1013,7 @@ Floated Menu / Item
   box-shadow: none;
   align-self: center;
   margin: @textMenuItemMargin;
+  font-weight: @textMenuItemFontWeight;
   color: @textMenuItemColor;
   transition: @textMenuItemTransition;
 }
@@ -1314,12 +1337,17 @@ Floated Menu / Item
 }
 
 /*--- Pointers ---*/
+.ui.inverted.pointing.menu .item:hover:after {
+  background: @invertedArrowHoverColor;
+  box-shadow: none;
+}
+.ui.inv
 .ui.inverted.pointing.menu .active.item:after {
-  background: #5B5B5B;
+  background: @invertedArrowActiveColor;
   box-shadow: none;
 }
 .ui.inverted.pointing.menu .active.item:hover:after {
-  background: #4A4A4A;
+  background: @invertedArrowActiveHoverColor;
 }
 
 
@@ -1639,6 +1667,9 @@ Floated Menu / Item
 }
 .ui.pointing.menu .active.item:after {
   background-color: @arrowActiveColor;
+}
+.ui.pointing.menu .active.item:hover:after {
+  background-color: @arrowActiveHoverColor;
 }
 
 .ui.vertical.pointing.menu .item:hover:after {
