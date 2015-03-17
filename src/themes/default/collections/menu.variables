@@ -299,9 +299,12 @@
 @textMenuMargin: @relativeLarge -@textMenuItemSpacing;
 
 @textMenuItemSpacing: 1em;
-@textMenuItemOpacity: 0.8;
+@textMenuItemColor: rgba(0, 0, 0, 0.6);
 @textMenuItemMargin: 0em @textMenuItemSpacing;
 @textMenuItemTransition: opacity @transitionDuration @transitionEasing;
+
+@textMenuActiveItemFontWeight: bold;
+@textMenuActiveItemColor: @selectedTextColor;
 
 @textMenuHeaderSize: @relativeSmall;
 @textMenuHeaderColor: @darkTextColor;

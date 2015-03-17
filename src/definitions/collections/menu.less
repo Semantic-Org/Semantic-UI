@@ -212,8 +212,12 @@
     Dropdowns
 ---------------*/
 
-.ui.menu .ui.dropdown.item {
+.ui.menu .ui.dropdown.item .visible.menu {
   display: block;
+}
+
+.ui.menu .ui.active.dropdown.item {
+  font-weight: normal;
 }
 
 /* Dropdown Icon */
@@ -784,6 +788,11 @@ Floated Menu / Item
   background: @secondaryHeaderBackground;
 }
 
+/* Image */
+.ui.secondary.menu .item > img:not(.ui) {
+  margin: 0em;
+}
+
 /* Hover */
 .ui.secondary.menu .dropdown.item:hover,
 .ui.secondary.menu .link.item:hover,
@@ -938,7 +947,7 @@ Floated Menu / Item
   border-bottom-width: 0px;
   border-right-width: @secondaryPointingBorderWidth;
   border-right-style: solid;
-  border-right-color: transparent;
+  border-right-color: @secondaryPointingBorderColor;
 }
 .ui.secondary.vertical.pointing.menu > .item {
   border-bottom: none;
@@ -980,14 +989,19 @@ Floated Menu / Item
   padding: 0em;
   border-radius: 0px;
   box-shadow: none;
-  opacity: @textMenuItemOpacity;
+  align-self: center;
   margin: @textMenuItemMargin;
+  color: @textMenuItemColor;
   transition: @textMenuItemTransition;
 }
+
+/* Border */
 .ui.text.menu > .item:before,
 .ui.text.menu .menu > .item:before {
   display: none !important;
 }
+
+/* Header */
 .ui.text.menu .header.item {
   background-color: transparent;
   padding: 0em;
@@ -997,8 +1011,10 @@ Floated Menu / Item
   text-transform: @textMenuHeaderTextTransform;
   font-weight: @textMenuHeaderFontWeight;
 }
-.ui.text.menu .text.item {
-  opacity: 1;
+
+/* Image */
+.ui.text.menu .item > img:not(.ui) {
+  margin: 0em;
 }
 
 /*--- fluid text ---*/
@@ -1038,9 +1054,9 @@ Floated Menu / Item
   background-color: transparent;
   padding: 0em;
   border: none;
-  opacity: 1;
-  font-weight: bold;
   box-shadow: none;
+  font-weight: @textMenuActiveItemFontWeight;
+  color: @textMenuActiveItemColor;
 }
 
 /*--- active hover ---*/
@@ -1144,6 +1160,27 @@ Floated Menu / Item
 /*******************************
            Variations
 *******************************/
+
+/*--------------
+    Stackable
+---------------*/
+
+
+@media only screen and (max-width: @largestMobileScreen) {
+  .ui.stackable.menu {
+    flex-direction: column;
+  }
+  .ui.stackable.menu .item:before {
+    position: absolute;
+    content: '';
+    top: 0%;
+    left: 0px;
+    width: 100%;
+    height: @dividerSize;
+    background: @verticalDividerBackground;
+    height: 1px;
+  }
+}
 
 /*--------------
      Colors
