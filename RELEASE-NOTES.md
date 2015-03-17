@@ -52,6 +52,8 @@
 - **Grid** - Fixes colored grid columns not appearing when not nested in rows
 - **Label** - Labels inside `header` now vertical align better by accounting for line height offset
 - **Message** - Message now uses `@lineHeight` from `site.variables`
+- **Modal** - `scrollable modal` now correctly adds padding below modal
+- **Modal** - Modal with `detachable: false` inside `ui sidebar`  `pusher` element will now show correctly
 - **Popup** - Fixes issue with `min-width` in firefox exceeding `max-width` causing element to not wrap correctly
 - **Table** - `very basic table` now works together with `padded table`
 - **Table** - Fix inheritance of text alignment and vertical alignment
