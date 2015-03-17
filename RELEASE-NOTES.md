@@ -44,6 +44,7 @@
 - **Card** - Fix card dimmer not appearing in minified release due to use of background shorthand property
 - **Checkbox** - Fix `disabled checkbox` sometimes displaying hand cursor
 - **Checkbox** - Fixes nested `dropdown` inside `checkbox` causing issues
+- **Dimmer** - Fixed `variation` setting not working correctly
 - **Dropdown** - Fix bug where `onChange` would call even when reselecting current value
 - **Dropdown** - Fixes issue with headers disappearing inside of `ui dropdown` when nested in `ui menu`
 - **Form** - Form sizes and input sizes now inherit from `site.variables`
