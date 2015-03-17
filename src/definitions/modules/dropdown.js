@@ -472,6 +472,9 @@ $.fn.dropdown = function(parameters) {
             module.event.item.click.call($selectedItem);
             module.remove.filteredItem();
           }
+          else {
+            module.hide();
+          }
         },
 
         event: {
