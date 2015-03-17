@@ -35,6 +35,19 @@
 }
 
 /*--------------
+   Sub Heading
+---------------*/
+
+.ui.sub.header {
+  margin: 0em;
+  padding: 0em;
+  font-weight: bold;
+  font-size: 0.85714286em;
+  text-transform: uppercase;
+  color: '';
+}
+
+/*--------------
    Sub Header
 ---------------*/
 
@@ -111,8 +124,8 @@
 ---------------*/
 
 .ui.header .ui.label {
-  font-size: 1.28em;
-  margin: 0em 0em 0em 0.5rem;
+  font-size: '';
+  margin-left: 0.5rem;
   vertical-align: middle;
 }
 
@@ -486,7 +499,7 @@ a.ui.inverted.yellow.header:hover {
 
 .ui.dividing.header {
   padding-bottom: 0.25rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
 }
 .ui.dividing.header .sub.header {
   padding-bottom: 0.25rem;
@@ -495,7 +508,7 @@ a.ui.inverted.yellow.header:hover {
   margin-bottom: 0em;
 }
 .ui.inverted.dividing.header {
-  border-bottom-color: rgba(255, 255, 255, 0.2);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
 }
 
 /*-------------------

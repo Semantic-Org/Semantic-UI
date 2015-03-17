@@ -41,7 +41,7 @@ $.fn.checkbox = function(parameters) {
         moduleNamespace = 'module-' + namespace,
 
         $module         = $(this),
-        $label          = $(this).find(selector.label).first(),
+        $label          = $(this).find(selector.label),
         $input          = $(this).find(selector.input),
 
         instance        = $module.data(moduleNamespace),
@@ -93,9 +93,8 @@ $.fn.checkbox = function(parameters) {
         },
 
         refresh: function() {
-          $module = $(this);
-          $label  = $(this).find(selector.label).first();
-          $input  = $(this).find(selector.input);
+          $label  = $module.find(selector.label);
+          $input  = $module.find(selector.input);
         },
 
         observeChanges: function() {
@@ -155,9 +154,18 @@ $.fn.checkbox = function(parameters) {
           }
         },
 
+        get: {
+          radios: function() {
+            return $('input[name="' + module.get.name() + '"]').closest(selector.checkbox);
+          },
+          name: function() {
+            return $input.attr('name');
+          }
+        },
+
         is: {
           radio: function() {
-            return $module.hasClass(className.radio);
+            return ($input.hasClass(className.radio) || $input.attr('type') == 'radio');
           },
           checked: function() {
             return $input.prop('checked') !== undefined && $input.prop('checked');
@@ -181,6 +189,14 @@ $.fn.checkbox = function(parameters) {
 
         set: {
           checked: function() {
+            var
+              $radios
+            ;
+            if( module.is.radio() ) {
+              $radios = module.get.radios();
+              module.debug('Unchecking other radios', $radios);
+              $radios.removeClass(className.checked);
+            }
             $module.addClass(className.checked);
           },
           tab: function() {
@@ -244,14 +260,14 @@ $.fn.checkbox = function(parameters) {
           module.debug('Enabling checkbox functionality');
           $module.removeClass(className.disabled);
           $input.prop('disabled', false);
-          settings.onEnabled.call($input.get());
+          settings.onEnabled.call($input[0]);
         },
 
         disable: function() {
           module.debug('Disabling checkbox functionality');
           $module.addClass(className.disabled);
           $input.prop('disabled', 'disabled');
-          settings.onDisabled.call($input.get());
+          settings.onDisabled.call($input[0]);
         },
 
         check: function() {
@@ -262,8 +278,8 @@ $.fn.checkbox = function(parameters) {
           ;
           module.set.checked();
           $input.trigger('blur');
-          settings.onChange.call($input.get());
-          settings.onChecked.call($input.get());
+          settings.onChange.call($input[0]);
+          settings.onChecked.call($input[0]);
         },
 
         uncheck: function() {
@@ -274,14 +290,15 @@ $.fn.checkbox = function(parameters) {
           ;
           module.remove.checked();
           $input.trigger('blur');
-          settings.onChange.call($input.get());
-          settings.onUnchecked.call($input.get());
+          settings.onChange.call($input[0]);
+          settings.onUnchecked.call($input[0]);
         },
 
         toggle: function(event) {
           if( !module.can.change() ) {
-            console.log(module.can.change());
-            module.debug('Checkbox is read-only or disabled, ignoring toggle');
+            if(!module.is.radio()) {
+              module.debug('Checkbox is read-only or disabled, ignoring toggle');
+            }
             return;
           }
           module.verbose('Determining new checkbox state');
@@ -361,7 +378,7 @@ $.fn.checkbox = function(parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -500,8 +517,9 @@ $.fn.checkbox.settings = {
   },
 
   selector : {
-    input  : 'input[type="checkbox"], input[type="radio"]',
-    label  : 'label'
+    checkbox : '.ui.checkbox',
+    input    : '> input[type="checkbox"], > input[type="radio"]',
+    label    : '> label'
   }
 
 };

@@ -173,7 +173,7 @@
 .ui.card > .content > .header:not(.ui) {
   font-weight: bold;
   font-size: 1.2em;
-  margin-top: -0.165em;
+  margin-top: -0.21425em;
   line-height: 1.33em;
 }
 .ui.cards > .card > .content > .meta + .description,
@@ -333,7 +333,7 @@
 
 .ui.cards > .card .dimmer,
 .ui.card .dimmer {
-  background: '';
+  background-color: '';
   z-index: 10;
 }
 
@@ -445,7 +445,7 @@ a.ui.card:hover,
   z-index: 5;
   background: '';
   border: none;
-  box-shadow: 0px 3px 0px 0px #bebebf, 0px 0px 0px 1px rgba(39, 41, 43, 0.3);
+  box-shadow: 0px 3px 0px 0px #bebebf, 0px 0px 0px 1px rgba(34, 36, 38, 0.3);
 }
 
 /*-------------------

@@ -330,7 +330,7 @@ $.site = $.fn.site = function(parameters) {
           });
         }
         clearTimeout(module.performance.timer);
-        module.performance.timer = setTimeout(module.performance.display, 100);
+        module.performance.timer = setTimeout(module.performance.display, 500);
       },
       display: function() {
         var
@@ -1272,7 +1272,7 @@ $.fn.form = function(fields, parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -2038,7 +2038,7 @@ $.fn.accordion = function(parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -2236,7 +2236,7 @@ $.fn.checkbox = function(parameters) {
         moduleNamespace = 'module-' + namespace,
 
         $module         = $(this),
-        $label          = $(this).find(selector.label).first(),
+        $label          = $(this).find(selector.label),
         $input          = $(this).find(selector.input),
 
         instance        = $module.data(moduleNamespace),
@@ -2288,9 +2288,8 @@ $.fn.checkbox = function(parameters) {
         },
 
         refresh: function() {
-          $module = $(this);
-          $label  = $(this).find(selector.label).first();
-          $input  = $(this).find(selector.input);
+          $label  = $module.find(selector.label);
+          $input  = $module.find(selector.input);
         },
 
         observeChanges: function() {
@@ -2350,9 +2349,18 @@ $.fn.checkbox = function(parameters) {
           }
         },
 
+        get: {
+          radios: function() {
+            return $('input[name="' + module.get.name() + '"]').closest(selector.checkbox);
+          },
+          name: function() {
+            return $input.attr('name');
+          }
+        },
+
         is: {
           radio: function() {
-            return $module.hasClass(className.radio);
+            return ($input.hasClass(className.radio) || $input.attr('type') == 'radio');
           },
           checked: function() {
             return $input.prop('checked') !== undefined && $input.prop('checked');
@@ -2376,6 +2384,14 @@ $.fn.checkbox = function(parameters) {
 
         set: {
           checked: function() {
+            var
+              $radios
+            ;
+            if( module.is.radio() ) {
+              $radios = module.get.radios();
+              module.debug('Unchecking other radios', $radios);
+              $radios.removeClass(className.checked);
+            }
             $module.addClass(className.checked);
           },
           tab: function() {
@@ -2439,14 +2455,14 @@ $.fn.checkbox = function(parameters) {
           module.debug('Enabling checkbox functionality');
           $module.removeClass(className.disabled);
           $input.prop('disabled', false);
-          settings.onEnabled.call($input.get());
+          settings.onEnabled.call($input[0]);
         },
 
         disable: function() {
           module.debug('Disabling checkbox functionality');
           $module.addClass(className.disabled);
           $input.prop('disabled', 'disabled');
-          settings.onDisabled.call($input.get());
+          settings.onDisabled.call($input[0]);
         },
 
         check: function() {
@@ -2457,8 +2473,8 @@ $.fn.checkbox = function(parameters) {
           ;
           module.set.checked();
           $input.trigger('blur');
-          settings.onChange.call($input.get());
-          settings.onChecked.call($input.get());
+          settings.onChange.call($input[0]);
+          settings.onChecked.call($input[0]);
         },
 
         uncheck: function() {
@@ -2469,14 +2485,15 @@ $.fn.checkbox = function(parameters) {
           ;
           module.remove.checked();
           $input.trigger('blur');
-          settings.onChange.call($input.get());
-          settings.onUnchecked.call($input.get());
+          settings.onChange.call($input[0]);
+          settings.onUnchecked.call($input[0]);
         },
 
         toggle: function(event) {
           if( !module.can.change() ) {
-            console.log(module.can.change());
-            module.debug('Checkbox is read-only or disabled, ignoring toggle');
+            if(!module.is.radio()) {
+              module.debug('Checkbox is read-only or disabled, ignoring toggle');
+            }
             return;
           }
           module.verbose('Determining new checkbox state');
@@ -2556,7 +2573,7 @@ $.fn.checkbox = function(parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -2695,8 +2712,9 @@ $.fn.checkbox.settings = {
   },
 
   selector : {
-    input  : 'input[type="checkbox"], input[type="radio"]',
-    label  : 'label'
+    checkbox : '.ui.checkbox',
+    input    : '> input[type="checkbox"], > input[type="radio"]',
+    label    : '> label'
   }
 
 };
@@ -2859,7 +2877,7 @@ $.fn.dimmer = function(parameters) {
           ;
           if(settings.variation) {
             module.debug('Creating dimmer with variation', settings.variation);
-            $element.addClass(className.variation);
+            $element.addClass(settings.variation);
           }
           if(settings.dimmerName) {
             module.debug('Creating named dimmer', settings.dimmerName);
@@ -3189,7 +3207,7 @@ $.fn.dimmer = function(parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -3405,7 +3423,7 @@ $.fn.dropdown = function(parameters) {
   ;
 
   $allModules
-    .each(function(index) {
+    .each(function() {
       var
         settings          = ( $.isPlainObject(parameters) )
           ? $.extend(true, {}, $.fn.dropdown.settings, parameters)
@@ -3584,16 +3602,17 @@ $.fn.dropdown = function(parameters) {
                 .prependTo($module)
               ;
             }
-            module.setup.reference();
+            module.refresh();
           },
           reference: function() {
             var
+              index = $allModules.index($module),
               $firstModules,
               $lastModules
             ;
             module.debug('Dropdown behavior was called on select, replacing with closest dropdown');
             // replace module reference
-            $module = $module.closest(selector.dropdown);
+            $module = $module.parent(selector.dropdown);
             module.refresh();
             // adjust all modules
             $firstModules = $allModules.slice(0, index);
@@ -4338,19 +4357,23 @@ $.fn.dropdown = function(parameters) {
                     module.verbose('Ambiguous dropdown value using strict type check', $choice, value);
                     if( optionValue === value ) {
                       $selectedItem = $(this);
+                      return true;
                     }
                     else if( !$selectedItem && optionText === value ) {
                       $selectedItem = $(this);
+                      return true;
                     }
                   }
                   else {
                     if( optionValue == value ) {
                       module.verbose('Found select item by value', optionValue, value);
                       $selectedItem = $(this);
+                      return true;
                     }
                     else if( !$selectedItem && optionText == value ) {
                       module.verbose('Found select item by text', optionText, value);
                       $selectedItem = $(this);
+                      return true;
                     }
                   }
                 })
@@ -4553,7 +4576,7 @@ $.fn.dropdown = function(parameters) {
               selectedText,
               selectedValue
             ;
-            if($selectedItem) {
+            if($selectedItem && !$selectedItem.hasClass(className.active) ) {
               module.debug('Setting selected menu item to', $selectedItem);
               module.remove.activeItem();
               module.remove.selectedItem();
@@ -4933,7 +4956,7 @@ $.fn.dropdown = function(parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -5286,6 +5309,9 @@ $.fn.modal = function(parameters) {
             if(settings.detachable) {
               module.verbose('Modal is detachable, moving content into dimmer');
               $dimmable.dimmer('add content', $module);
+            }
+            else {
+              module.set.undetached();
             }
             $dimmer = $dimmable.dimmer('get dimmer');
           },
@@ -5750,7 +5776,7 @@ $.fn.modal = function(parameters) {
             else {
               module.debug('Modal is taller than page content, resizing page height');
               $body
-                .css('height', module.cache.height + (settings.padding / 2) )
+                .css('height', module.cache.height + (settings.padding * 2) )
               ;
             }
           },
@@ -5791,6 +5817,9 @@ $.fn.modal = function(parameters) {
                 })
               ;
             }
+          },
+          undetached: function() {
+            $dimmable.addClass(className.undetached);
           }
         },
 
@@ -5863,7 +5892,7 @@ $.fn.modal = function(parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -6020,9 +6049,10 @@ $.fn.modal.settings = {
     notFound  : 'The element you specified could not be found'
   },
   className : {
-    active    : 'active',
-    animating : 'animating',
-    scrolling : 'scrolling'
+    active     : 'active',
+    animating  : 'animating',
+    scrolling  : 'scrolling',
+    undetached : 'undetached'
   }
 };
 
@@ -6341,7 +6371,7 @@ $.fn.nag = function(parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -7486,7 +7516,7 @@ $.fn.popup = function(parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -7597,55 +7627,86 @@ $.fn.popup.settings = {
 
   name         : 'Popup',
 
+  // module settings
   debug        : false,
   verbose      : true,
   performance  : true,
   namespace    : 'popup',
 
+  // callback only when element added to dom
   onCreate     : function(){},
+  // callback before element removed from dom
   onRemove     : function(){},
-
+  // callback before show animation
   onShow       : function(){},
+  // callback after show animation
   onVisible    : function(){},
+  // callback before hide animation
   onHide       : function(){},
+  // callback after hide animation
   onHidden     : function(){},
 
+  // when to show popup
+  on           : 'hover',
+
+  // default position relative to element
+  position     : 'top left',
+  // name of variation to use
   variation    : '',
+  // whether popup should be moved to context
+  movePopup      : true,
+  // element which popup should be relative to
+  target         : false,
+  // jq selector or element that should be used as popup
+  popup          : false,
+  // popup should remain inline next to activator
+  inline         : false,
+  // popup should be removed from page on hide
+  preserve       : false,
+  // popup should not close when being hovered on
+  hoverable      : false,
+
+  // explicitly set content
   content      : false,
+  // explicitly set html
   html         : false,
+  // explicitly set title
   title        : false,
 
-  on           : 'hover',
+  // whether automatically close on clickaway when on click
   closable     : true,
+  // automatically hide on scroll
   hideOnScroll : 'auto',
+  // hide other popups on show
   exclusive    : true,
-
+  // context to attach popups
   context      : 'body',
-
-  position     : 'top left',
+  // position to prefer when calculating new position
   prefer       : 'opposite',
+
+  // specify position to appear even if it doesn't fit
   lastResort   : false,
 
+  // delay used to prevent accidental refiring of animations due to user error
   delay        : {
     show : 30,
     hide : 0
   },
 
+  // whether fluid variation should assign width explicitly
   setFluidWidth  : true,
-  movePopup      : true,
-
-  target         : false,
-  popup          : false,
-  inline         : false,
-  preserve       : false,
-  hoverable      : false,
 
   duration       : 200,
   easing         : 'easeOutQuint',
   transition     : 'scale',
 
+  // distance away from activating element in px
   distanceAway   : 0,
+
+  // offset on aligning axis from calculated position
   offset         : 0,
+
+  // maximum times to look for a position before failing
   maxSearchDepth : 20,
 
   error: {
@@ -8332,7 +8393,7 @@ $.fn.progress = function(parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -8804,7 +8865,7 @@ $.fn.rating = function(parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -9722,7 +9783,7 @@ $.fn.search = function(parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -10735,7 +10796,7 @@ $.fn.shape = function(parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -10999,6 +11060,8 @@ $.fn.sidebar = function(parameters) {
             module.setup.layout();
           }
 
+          module.setup.cache();
+
           module.instantiate();
         },
 
@@ -11106,8 +11169,9 @@ $.fn.sidebar = function(parameters) {
         add: {
           bodyCSS: function() {
             var
-              width     = $module.outerWidth(),
-              height    = $module.outerHeight(),
+              width     = module.cache.width  || $module.outerWidth(),
+              height    = module.cache.height || $module.outerHeight(),
+              isRTL     = module.is.rtl(),
               direction = module.get.direction(),
               distance  = {
                 left   : width,
@@ -11117,7 +11181,8 @@ $.fn.sidebar = function(parameters) {
               },
               style
             ;
-            if( module.is.rtl() ){
+
+            if(isRTL){
               module.verbose('RTL detected, flipping widths');
               distance.left = -width;
               distance.right = width;
@@ -11187,6 +11252,7 @@ $.fn.sidebar = function(parameters) {
           $sidebars = $context.children(selector.sidebar);
           $pusher   = $context.children(selector.pusher);
           $fixed    = $context.children(selector.fixed);
+          module.clear.cache();
         },
 
         refreshSidebars: function() {
@@ -11196,13 +11262,20 @@ $.fn.sidebar = function(parameters) {
 
         repaint: function() {
           module.verbose('Forcing repaint event');
-          element.style.display='none';
+          element.style.display = 'none';
           element.offsetHeight;
           element.scrollTop = element.scrollTop;
-          element.style.display='';
+          element.style.display = '';
         },
 
         setup: {
+          cache: function() {
+            module.cache = {
+              width  : $module.outerWidth(),
+              height : $module.outerHeight(),
+              rtl    : ($module.css('direction') == 'rtl')
+            };
+          },
           layout: function() {
             if( $context.children(selector.pusher).length === 0 ) {
               module.debug('Adding wrapper element for sidebar');
@@ -11222,6 +11295,7 @@ $.fn.sidebar = function(parameters) {
               $module.detach().prependTo($context);
               module.refresh();
             }
+            module.clear.cache();
             module.set.pushable();
             module.set.direction();
           }
@@ -11359,6 +11433,7 @@ $.fn.sidebar = function(parameters) {
                 ? $module
                 : $pusher,
             animate,
+            dim,
             transitionEnd
           ;
           callback = $.isFunction(callback)
@@ -11375,11 +11450,9 @@ $.fn.sidebar = function(parameters) {
             module.add.bodyCSS();
             module.set.animating();
             module.set.visible();
-            if(!module.othersVisible()) {
-              if(settings.dimPage) {
-                $pusher.addClass(className.dimmed);
-              }
-            }
+          };
+          dim = function() {
+            module.set.dimmed();
           };
           transitionEnd = function(event) {
             if( event.target == $transition[0] ) {
@@ -11392,6 +11465,9 @@ $.fn.sidebar = function(parameters) {
           $transition.off(transitionEvent + elementNamespace);
           $transition.on(transitionEvent + elementNamespace, transitionEnd);
           requestAnimationFrame(animate);
+          if(settings.dimPage && !module.othersVisible()) {
+            requestAnimationFrame(dim);
+          }
         },
 
         pullPage: function(callback) {
@@ -11411,11 +11487,11 @@ $.fn.sidebar = function(parameters) {
           ;
           module.verbose('Removing context push state', module.get.direction());
 
-          module.set.transition(transition);
           module.unbind.clickaway();
           module.unbind.scrollLock();
 
           animate = function() {
+            module.set.transition(transition);
             module.set.animating();
             module.remove.visible();
             if(settings.dimPage && !module.othersVisible()) {
@@ -11507,6 +11583,13 @@ $.fn.sidebar = function(parameters) {
           window.scrollTo(0, currentScroll);
         },
 
+        clear: {
+          cache: function() {
+            module.verbose('Clearing cached dimensions');
+            module.cache = {};
+          }
+        },
+
         set: {
           // html
           ios: function() {
@@ -11519,6 +11602,11 @@ $.fn.sidebar = function(parameters) {
           },
           pushable: function() {
             $context.addClass(className.pushable);
+          },
+
+          // pusher
+          dimmed: function() {
+            $pusher.addClass(className.dimmed);
           },
 
           // sidebar
@@ -11712,7 +11800,10 @@ $.fn.sidebar = function(parameters) {
             return $context.hasClass(className.animating);
           },
           rtl: function () {
-            return $module.css('direction') == 'rtl';
+            if(module.cache.rtl === undefined) {
+              module.cache.rtl = ($module.css('direction') == 'rtl');
+            }
+            return module.cache.rtl;
           }
         },
 
@@ -11785,7 +11876,7 @@ $.fn.sidebar = function(parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -12075,13 +12166,18 @@ $.fn.sticky = function(parameters) {
         },
 
         destroy: function() {
-          module.verbose('Destroying previous module');
+          module.verbose('Destroying previous instance');
           module.reset();
           if(observer) {
             observer.disconnect();
           }
-          $window.off('resize' + eventNamespace, module.event.resize);
-          $scroll.off('scroll' + eventNamespace, module.event.scroll);
+          $window
+            .off('load' + eventNamespace, module.event.load)
+            .off('resize' + eventNamespace, module.event.resize)
+          ;
+          $scroll
+            .off('scrollchange' + eventNamespace, module.event.scrollchange)
+          ;
           $module.removeData(moduleNamespace);
         },
 
@@ -12135,23 +12231,36 @@ $.fn.sticky = function(parameters) {
 
         bind: {
           events: function() {
-            $window.on('resize' + eventNamespace, module.event.resize);
-            $scroll.on('scroll' + eventNamespace, module.event.scroll);
+            $window
+              .on('load' + eventNamespace, module.event.load)
+              .on('resize' + eventNamespace, module.event.resize)
+            ;
+            // pub/sub pattern
+            $scroll
+              .off('scroll' + eventNamespace)
+              .on('scroll' + eventNamespace, module.event.scroll)
+              .on('scrollchange' + eventNamespace, module.event.scrollchange)
+            ;
           }
         },
 
         event: {
+          load: function() {
+            module.verbose('Page contents finished loading');
+            requestAnimationFrame(module.refresh);
+          },
           resize: function() {
-            requestAnimationFrame(function() {
-              module.refresh();
-              module.stick();
-            });
+            module.verbose('Window resized');
+            requestAnimationFrame(module.refresh);
           },
           scroll: function() {
             requestAnimationFrame(function() {
-              module.stick();
-              settings.onScroll.call(element);
+              $scroll.trigger('scrollchange' + eventNamespace, $scroll.scrollTop() );
             });
+          },
+          scrollchange: function(event, scrollPosition) {
+            module.stick(scrollPosition);
+            settings.onScroll.call(element);
           }
         },
 
@@ -12177,7 +12286,7 @@ $.fn.sticky = function(parameters) {
         },
 
         save: {
-          scroll: function(scroll) {
+          lastScroll: function(scroll) {
             module.lastScroll = scroll;
           },
           positions: function() {
@@ -12256,6 +12365,7 @@ $.fn.sticky = function(parameters) {
               : Math.abs(parseInt($module.css('bottom'), 10)) || 0
             ;
           },
+
           elementScroll: function(scroll) {
             scroll = scroll || $scroll.scrollTop();
             var
@@ -12357,8 +12467,9 @@ $.fn.sticky = function(parameters) {
           }
         },
 
-        stick: function() {
+        stick: function(scroll) {
           var
+            cachedPosition = scroll || $scroll.scrollTop(),
             cache          = module.cache,
             fits           = cache.fits,
             element        = cache.element,
@@ -12368,8 +12479,8 @@ $.fn.sticky = function(parameters) {
               ? settings.bottomOffset
               : settings.offset,
             scroll         = {
-              top    : $scroll.scrollTop() + offset,
-              bottom : $scroll.scrollTop() + offset + window.height
+              top    : cachedPosition + offset,
+              bottom : cachedPosition + offset + window.height
             },
             direction      = module.get.direction(scroll.top),
             elementScroll  = module.get.elementScroll(scroll.top),
@@ -12380,13 +12491,12 @@ $.fn.sticky = function(parameters) {
           ;
 
           // save current scroll for next run
-          module.save.scroll(scroll.top);
+          module.save.lastScroll(scroll.top);
 
           if(elementVisible) {
 
             if( module.is.initialPosition() ) {
               if(scroll.top >= context.bottom) {
-                console.log(scroll.top, context.bottom);
                 module.debug('Element bottom of container');
                 module.bindBottom();
               }
@@ -12541,6 +12651,7 @@ $.fn.sticky = function(parameters) {
           module.unbind();
           module.unfix();
           module.resetCSS();
+          module.remove.offset();
         },
 
         resetCSS: function() {
@@ -13407,7 +13518,7 @@ $.fn.tab = function(parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -13946,17 +14057,15 @@ $.fn.transition = function() {
 
         save: {
           displayType: function(displayType) {
-            $module.data(metadata.displayType, displayType);
+            if(displayType !== 'none') {
+              $module.data(metadata.displayType, displayType);
+            }
           },
           transitionExists: function(animation, exists) {
             $.fn.transition.exists[animation] = exists;
             module.verbose('Saving existence of transition', animation, exists);
           },
           conditions: function() {
-            var
-              clasName = $module.attr('class') || false,
-              style    = $module.attr('style') || ''
-            ;
             $module.removeClass(settings.animation);
             module.remove.direction();
             module.cache = {
@@ -14438,7 +14547,7 @@ $.fn.transition = function() {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -14972,7 +15081,7 @@ $.fn.video = function(parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -15833,7 +15942,7 @@ $.api = $.fn.api = function(parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -16809,7 +16918,7 @@ $.fn.form = function(fields, parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -17625,7 +17734,7 @@ $.fn.state = function(parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -17891,11 +18000,11 @@ $.fn.visibility = function(parameters) {
         moduleNamespace = 'module-' + namespace,
 
         $window         = $(window),
+
         $module         = $(this),
         $context        = $(settings.context),
-        $container      = $module.offsetParent(),
-
         selector        = $module.selector || '',
+
         instance        = $module.data(moduleNamespace),
 
         requestAnimationFrame = window.requestAnimationFrame
@@ -17925,12 +18034,15 @@ $.fn.visibility = function(parameters) {
             if(settings.type == 'fixed') {
               module.setup.fixed();
             }
+            if(settings.observeChanges) {
+              module.observeChanges();
+            }
+            if( !module.is.visible() ) {
+              module.error(error.visible, $module);
+            }
           }
           if(settings.initialCheck) {
             module.checkVisibility();
-          }
-          if(settings.observeChanges) {
-            module.observeChanges();
           }
           module.instantiate();
         },
@@ -17945,12 +18057,18 @@ $.fn.visibility = function(parameters) {
 
         destroy: function() {
           module.verbose('Destroying previous module');
+          if(observer) {
+            observer.disconnect();
+          }
+          $window
+            .off('load' + eventNamespace, module.event.load)
+            .off('resize' + eventNamespace, module.event.resize)
+          ;
+          $context.off('scrollchange' + eventNamespace, module.event.scrollchange);
           $module
             .off(eventNamespace)
             .removeData(moduleNamespace)
           ;
-          $window.off('resize' + eventNamespace, module.event.refresh);
-          $context.off('scroll' + eventNamespace, module.event.scroll);
         },
 
         observeChanges: function() {
@@ -17974,32 +18092,77 @@ $.fn.visibility = function(parameters) {
           events: function() {
             module.verbose('Binding visibility events to scroll and resize');
             $window
-              .on('resize' + eventNamespace, module.event.refresh)
+              .on('load' + eventNamespace, module.event.load)
+              .on('resize' + eventNamespace, module.event.resize)
             ;
+            // pub/sub pattern
             $context
+              .off('scroll' + eventNamespace)
               .on('scroll' + eventNamespace, module.event.scroll)
+              .on('scrollchange' + eventNamespace, module.event.scrollchange)
             ;
+          },
+          imageLoad: function() {
+            var
+              $images       = $module.find('img'),
+              imageCount    = $images.length,
+              index         = imageCount,
+              loadedCount   = 0,
+              images        = [],
+              cache         = [],
+              cacheImage    = document.createElement('img'),
+              handleLoad    = function() {
+                loadedCount++;
+                if(loadedCount >= imageCount) {
+                  module.debug('Images finished loading inside element, refreshing position');
+                  module.refresh();
+                }
+              }
+            ;
+            if(imageCount > 0) {
+              $images
+                .each(function() {
+                  images.push( $(this).attr('src') );
+                })
+              ;
+              while(index--) {
+                cacheImage         = document.createElement('img');
+                cacheImage.onload  = handleLoad;
+                cacheImage.onerror = handleLoad;
+                cacheImage.src     = images[index];
+                cache.push(cacheImage);
+              }
+            }
           }
         },
 
         event: {
-          refresh: function() {
+          resize: function() {
+            module.verbose('Window resized');
             requestAnimationFrame(module.refresh);
           },
+          load: function() {
+            module.verbose('Page finished loading');
+            requestAnimationFrame(module.refresh);
+          },
+          // publishes scrollchange event on one scroll
           scroll: function() {
-            module.verbose('Scroll position changed');
             if(settings.throttle) {
               clearTimeout(module.timer);
               module.timer = setTimeout(function() {
-                module.checkVisibility();
+                $context.trigger('scrollchange' + eventNamespace, [ $context.scrollTop() ]);
               }, settings.throttle);
             }
             else {
               requestAnimationFrame(function() {
-                module.checkVisibility();
+                $context.trigger('scrollchange' + eventNamespace, [ $context.scrollTop() ]);
               });
             }
-          }
+          },
+          // subscribes to scrollchange
+          scrollchange: function(event, scrollPosition) {
+            module.checkVisibility(scrollPosition);
+          },
         },
 
         precache: function(images, callback) {
@@ -18031,7 +18194,7 @@ $.fn.visibility = function(parameters) {
 
         should: {
           trackChanges: function() {
-            if(methodInvoked && queryArguments.length > 0) {
+            if(methodInvoked) {
               module.debug('One time query, no need to bind events');
               return false;
             }
@@ -18146,10 +18309,13 @@ $.fn.visibility = function(parameters) {
           }
         },
 
-        checkVisibility: function() {
+        checkVisibility: function(scroll) {
           module.verbose('Checking visibility of element', module.cache.element);
 
           if( module.is.visible() ) {
+
+            // save scroll position
+            module.save.scroll(scroll);
 
             // update calculations derived from scroll
             module.save.calculations();
@@ -18460,7 +18626,6 @@ $.fn.visibility = function(parameters) {
         save: {
           calculations: function() {
             module.verbose('Saving all calculations necessary to determine positioning');
-            module.save.scroll();
             module.save.direction();
             module.save.screenCalculations();
             module.save.elementCalculations();
@@ -18473,8 +18638,9 @@ $.fn.visibility = function(parameters) {
               }
             }
           },
-          scroll: function() {
-            module.cache.scroll = $context.scrollTop() + settings.offset;
+          scroll: function(scrollPosition) {
+            scrollPosition      = scrollPosition + settings.offset || $context.scrollTop() + settings.offset;
+            module.cache.scroll = scrollPosition;
           },
           direction: function() {
             var
@@ -18699,7 +18865,7 @@ $.fn.visibility = function(parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -18819,6 +18985,9 @@ $.fn.visibility.settings = {
   // whether to use mutation observers to follow changes
   observeChanges         : true,
 
+  // whether to refresh calculations after all page images load
+  refreshOnLoad          : true,
+
   // callback should only occur one time
   once                   : true,
 
@@ -18873,7 +19042,8 @@ $.fn.visibility.settings = {
   },
 
   error : {
-    method : 'The method you called is not defined.'
+    method  : 'The method you called is not defined.',
+    visible : 'Element is hidden, you must call refresh after element becomes visible'
   }
 
 };

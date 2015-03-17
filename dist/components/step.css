@@ -35,8 +35,8 @@
   background-color: #ffffff;
   width: 1.5em;
   height: 1.5em;
-  border-bottom: 1px solid rgba(39, 41, 43, 0.15);
-  border-right: 1px solid rgba(39, 41, 43, 0.15);
+  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+  border-right: 1px solid rgba(34, 36, 38, 0.15);
   -webkit-transform: translateY(-50%) translateX(50%) rotate(-45deg);
       -ms-transform: translateY(-50%) translateX(50%) rotate(-45deg);
           transform: translateY(-50%) translateX(50%) rotate(-45deg);
@@ -228,7 +228,7 @@
 .ui.steps a.step:active::after,
 .ui.steps a.step:active {
   background: #f0f0f0;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.9);
 }
 
 /* Active */

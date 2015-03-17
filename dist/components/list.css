@@ -381,11 +381,11 @@ ol.ui.list ol,
 }
 .ui.link.list a.item:active,
 .ui.link.list .item a:active {
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.9);
 }
 .ui.link.list .active.item,
 .ui.link.list .active.item a {
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.9);
 }
 
 /* Inverted */
@@ -434,12 +434,12 @@ ol.ui.list ol,
 .ui.selection.list .list > .item:active,
 .ui.selection.list > .item:active {
   background: rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.9);
 }
 .ui.selection.list .list > .item.active,
 .ui.selection.list > .item.active {
   background: rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.9);
 }
 
 /* Inverted */
@@ -607,7 +607,7 @@ ol.ui.horizontal.list li:before,
 --------------------*/
 
 .ui.divided.list > .item {
-  border-top: 1px solid rgba(39, 41, 43, 0.15);
+  border-top: 1px solid rgba(34, 36, 38, 0.15);
 }
 .ui.divided.list .list > .item {
   border-top: none;
@@ -666,7 +666,7 @@ ol.ui.horizontal.list li:before,
 }
 .ui.divided.horizontal.list > .item {
   border-top: none;
-  border-left: 1px solid rgba(39, 41, 43, 0.15);
+  border-left: 1px solid rgba(34, 36, 38, 0.15);
   margin: 0em;
   padding-left: 0.5em;
   padding-right: 0.5em;
@@ -680,7 +680,7 @@ ol.ui.horizontal.list li:before,
 .ui.divided.inverted.list > .item,
 .ui.divided.inverted.list > .list,
 .ui.divided.inverted.horizontal.list > .item {
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 /*-------------------
@@ -689,12 +689,12 @@ ol.ui.horizontal.list li:before,
 
 .ui.celled.list > .item,
 .ui.celled.list > .list {
-  border-top: 1px solid rgba(39, 41, 43, 0.15);
+  border-top: 1px solid rgba(34, 36, 38, 0.15);
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
 .ui.celled.list > .item:last-child {
-  border-bottom: 1px solid rgba(39, 41, 43, 0.15);
+  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
 }
 
 /* Padding on all elements */
@@ -750,7 +750,7 @@ ol.ui.horizontal.list li:before,
 .ui.horizontal.celled.list .list > .item,
 .ui.horizontal.celled.list > .item {
   border-top: none;
-  border-left: 1px solid rgba(39, 41, 43, 0.15);
+  border-left: 1px solid rgba(34, 36, 38, 0.15);
   margin: 0em;
   padding-left: 0.5em;
   padding-right: 0.5em;
@@ -759,17 +759,17 @@ ol.ui.horizontal.list li:before,
 .ui.horizontal.celled.list .list > .item:last-child,
 .ui.horizontal.celled.list > .item:last-child {
   border-bottom: none;
-  border-right: 1px solid rgba(39, 41, 43, 0.15);
+  border-right: 1px solid rgba(34, 36, 38, 0.15);
 }
 
 /* Inverted */
 .ui.celled.inverted.list > .item,
 .ui.celled.inverted.list > .list {
-  border-color: 1px solid rgba(255, 255, 255, 0.2);
+  border-color: 1px solid rgba(255, 255, 255, 0.1);
 }
 .ui.celled.inverted.horizontal.list .list > .item,
 .ui.celled.inverted.horizontal.list > .item {
-  border-color: 1px solid rgba(255, 255, 255, 0.2);
+  border-color: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /*-------------------

@@ -977,7 +977,7 @@ $.fn.popup = function(parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -1088,55 +1088,86 @@ $.fn.popup.settings = {
 
   name         : 'Popup',
 
+  // module settings
   debug        : false,
   verbose      : true,
   performance  : true,
   namespace    : 'popup',
 
+  // callback only when element added to dom
   onCreate     : function(){},
+  // callback before element removed from dom
   onRemove     : function(){},
-
+  // callback before show animation
   onShow       : function(){},
+  // callback after show animation
   onVisible    : function(){},
+  // callback before hide animation
   onHide       : function(){},
+  // callback after hide animation
   onHidden     : function(){},
 
+  // when to show popup
+  on           : 'hover',
+
+  // default position relative to element
+  position     : 'top left',
+  // name of variation to use
   variation    : '',
+  // whether popup should be moved to context
+  movePopup      : true,
+  // element which popup should be relative to
+  target         : false,
+  // jq selector or element that should be used as popup
+  popup          : false,
+  // popup should remain inline next to activator
+  inline         : false,
+  // popup should be removed from page on hide
+  preserve       : false,
+  // popup should not close when being hovered on
+  hoverable      : false,
+
+  // explicitly set content
   content      : false,
+  // explicitly set html
   html         : false,
+  // explicitly set title
   title        : false,
 
-  on           : 'hover',
+  // whether automatically close on clickaway when on click
   closable     : true,
+  // automatically hide on scroll
   hideOnScroll : 'auto',
+  // hide other popups on show
   exclusive    : true,
-
+  // context to attach popups
   context      : 'body',
-
-  position     : 'top left',
+  // position to prefer when calculating new position
   prefer       : 'opposite',
+
+  // specify position to appear even if it doesn't fit
   lastResort   : false,
 
+  // delay used to prevent accidental refiring of animations due to user error
   delay        : {
     show : 30,
     hide : 0
   },
 
+  // whether fluid variation should assign width explicitly
   setFluidWidth  : true,
-  movePopup      : true,
-
-  target         : false,
-  popup          : false,
-  inline         : false,
-  preserve       : false,
-  hoverable      : false,
 
   duration       : 200,
   easing         : 'easeOutQuint',
   transition     : 'scale',
 
+  // distance away from activating element in px
   distanceAway   : 0,
+
+  // offset on aligning axis from calculated position
   offset         : 0,
+
+  // maximum times to look for a position before failing
   maxSearchDepth : 20,
 
   error: {

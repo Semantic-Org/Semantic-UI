@@ -129,7 +129,7 @@
 }
 .ui.items > .item > .content > .header {
   display: block;
-  margin: -0.165em 0em 0em;
+  margin: -0.21425em 0em 0em;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.85);
@@ -398,7 +398,7 @@
 --------------------*/
 
 .ui.divided.items > .item {
-  border-top: 1px solid rgba(39, 41, 43, 0.15);
+  border-top: 1px solid rgba(34, 36, 38, 0.15);
   margin: 0em;
   padding: 1em 0em;
 }

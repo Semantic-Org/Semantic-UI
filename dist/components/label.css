@@ -22,7 +22,7 @@
   background-color: #e8e8e8;
   border-color: #e8e8e8;
   background-image: none;
-  padding: 0.6em 0.8em;
+  padding: 0.5833em 0.833em;
   color: rgba(0, 0, 0, 0.6);
   text-transform: none;
   font-weight: bold;
@@ -99,6 +99,9 @@ a.ui.label {
        Coupling
 --------------------*/
 
+.ui.header > .ui.label {
+  margin-top: -0.29165em;
+}
 
 /* Remove border radius on attached segment */
 .ui.attached.segment > .ui.top.left.attached.label,
@@ -138,21 +141,21 @@ a.ui.label {
   vertical-align: baseline;
   text-transform: none;
   background: #e8e8e8;
-  padding: 0.6em 0.8em 0.6em 0.5em;
+  padding: 0.5833em 0.833em 0.5833em 0.5em;
   border-radius: 0.2857rem;
   box-shadow: none;
 }
 .ui.image.label img {
   display: inline-block;
   vertical-align: top;
-  height: 2.2em;
-  margin: -0.6em 0.5em -0.6em -0.5em;
+  height: 2.1666em;
+  margin: -0.5833em 0.5em -0.5833em -0.5em;
   border-radius: 0.2857rem;
 }
 .ui.image.label .detail {
   background: rgba(0, 0, 0, 0.1);
-  margin: -0.6em -0.8em -0.6em 0.5em;
-  padding: 0.6em 0.8em;
+  margin: -0.5833em -0.833em -0.5833em 0.5em;
+  padding: 0.5833em 0.833em;
   border-radius: 0em 0.2857rem 0.2857rem 0em;
 }
 
@@ -316,7 +319,7 @@ a.ui.label {
       -ms-transform: translateX(-100%);
           transform: translateX(-100%);
   border-radius: 0.2857rem 0em 0em 0.2857rem;
-  padding-left: 0.8em;
+  padding-left: 0.833em;
 }
 .ui[class*="right ribbon"].label:after {
   left: auto;
@@ -359,7 +362,7 @@ a.ui.label {
 .ui.image > .ui[class*="right ribbon"].label {
   left: -webkit-calc(100% +  -0.05rem  +  1.2em );
   left: calc(100% +  -0.05rem  +  1.2em );
-  padding-left: 0.8em;
+  padding-left: 0.833em;
   padding-right: -webkit-calc( -0.05rem  +  1.2em );
   padding-right: calc( -0.05rem  +  1.2em );
 }
@@ -788,7 +791,7 @@ a.ui.yellow.label:hover:before {
 .ui.horizontal.labels .label,
 .ui.horizontal.label {
   margin: 0em 0.5em 0em 0em;
-  padding: 0.4em 0.8em;
+  padding: 0.4em 0.833em;
   min-width: 3em;
   text-align: center;
 }

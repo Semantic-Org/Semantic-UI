@@ -29,7 +29,7 @@ i.icon {
   opacity: 1;
   margin: 0em 0.25rem 0em 0em;
   width: 1.23em;
-  height: 0.9em;
+  height: 1em;
   font-family: 'Icons';
   font-style: normal;
   line-height: 1;
@@ -179,7 +179,7 @@ i.counterclockwise.rotated.icon {
 i.bordered.icon {
   width: 2em;
   height: 2em;
-  padding: 0.55em 0.385em !important;
+  padding: 0.5em 0.385em !important;
   box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
   vertical-align: baseline;
 }
