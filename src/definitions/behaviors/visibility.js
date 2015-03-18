@@ -120,7 +120,10 @@ $.fn.visibility = function(parameters) {
           if('MutationObserver' in window) {
             observer = new MutationObserver(function(mutations) {
               module.verbose('DOM tree modified, updating visibility calculations');
-              module.refresh();
+              module.timer = setTimeout(function() {
+                module.verbose('DOM tree modified, updating sticky menu');
+                module.refresh();
+              }, 100);
             });
             observer.observe(element, {
               childList : true,
