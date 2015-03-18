@@ -106,7 +106,7 @@ module.exports = function(callback) {
       isDefinition    = (file.path.indexOf(source.definitions) !== -1);
 
       if(isConfig) {
-        console.info('Change detected in theme config');
+        console.info('Rebuilding all UI');
         // impossible to tell which file was updated in theme.config, rebuild all
         gulp.start('build');
         return;

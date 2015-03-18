@@ -117,8 +117,9 @@ module.exports = function () {
       isDefinition    = (file.path.indexOf(source.definitions) !== -1);
 
       if(isConfig) {
-        console.info('Change detected in theme config, rebuild docs with `build-docs`');
-        // impossible to tell which file was updated in theme.config
+        // console.info('Rebuilding all files');
+        // cant rebuild paths are wrong
+        // gulp.start('build-docs');
         return;
       }
       else if(isPackagedTheme) {
