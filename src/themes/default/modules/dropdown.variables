@@ -172,7 +172,7 @@
 @selectionHoverBoxShadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.05);
 
 /* Visible */
-@selectionVisibleBorderColor: @borderColor;
+@selectionVisibleBorderColor: @selectedBorderColor;
 @selectionVisibleBoxShadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
 @selectionVisibleTextFontWeight: normal;
 @selectionVisibleTextColor: @hoveredTextColor;
@@ -180,8 +180,7 @@
 /* Visible Hover */
 @selectionVisibleHoverBorderColor: @selectedBorderColor;
 @selectionVisibleHoverBoxShadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
-@selectionVisibleHoverMenuBorder: 1px solid @selectedBorderColor;
-@selectionVisibleHoverMenuBoxShadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.1);
+@selectionVisibleHoverMenuBoxShadow: 0px 2px 6px 0px @borderColor;
 
 @selectionVisibleConnectingBorder: 0em;
 @selectionVisibleIconOpacity: 1;
