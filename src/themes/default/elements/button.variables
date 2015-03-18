@@ -95,8 +95,7 @@
 @focusBackgroundImage: '';
 @focusBoxShadow:
   @borderBoxShadow,
-  0px 0px 1px rgba(81, 167, 232, 0.8) inset,
-  0px 0px 3px 2px rgba(81, 167, 232, 0.8)
+  @defaultFocusBoxShadow
 ;
 @focusColor: @hoveredTextColor;
 @iconFocusOpacity: 0.85;
