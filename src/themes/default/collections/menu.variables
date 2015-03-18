@@ -117,7 +117,7 @@
 
 @labelTextMargin: 1em;
 @labelVerticalPadding: 0.3em;
-@labelHorizontalPadding: 0.8em;
+@labelHorizontalPadding: @relativeMini;
 
 @labelAndIconFloat: none;
 @labelAndIconMargin: 0em 0.5em 0em 0em;
@@ -255,12 +255,10 @@
 /* Pointing */
 @secondaryPointingBorderWidth: 2px;
 @secondaryPointingBorderColor: @borderColor;
-@secondaryPointingInvertedBorderColor: @whiteBorderColor;
-@secondaryPointinInvertedActiveColor: @white;
-
 @secondaryPointingItemMargin: 0em 0em -@secondaryPointingBorderWidth;
 @secondaryPointingItemVerticalPadding: @relativeTiny;
 @secondaryPointingItemHorizontalPadding: @relativeMedium;
+
 @secondaryPointingHoverTextColor: @textColor;
 
 @secondaryPointingActiveBorderColor: @black;
@@ -270,10 +268,16 @@
 @secondaryPointingActiveHoverBorderColor: @secondaryPointingActiveBorderColor;
 @secondaryPointingActiveHoverTextColor: @secondaryPointingActiveTextColor;
 
-
 @secondaryPointingHeaderColor: @darkTextColor;
 
 @secondaryVerticalPointingItemMargin: 0em -@secondaryPointingBorderWidth 0em 0em;
+
+@secondaryPointingInvertedBorderColor: @whiteBorderColor;
+@secondaryPointingInvertedItemTextColor: @invertedTextColor;
+@secondaryPointingInvertedItemHeaderColor: @white;
+@secondaryPointingInvertedItemHoverTextColor: @selectedTextColor;
+@secondaryPointingInvertedActiveBorderColor: @white;
+@secondaryPointingInvertedActiveColor: @invertedSelectedTextColor;
 
 
 /* Tiered */
@@ -312,7 +316,9 @@
 @tabularActiveColor: @selectedTextColor;
 @tabularActiveBoxShadow: none;
 
-@tabularMenuActiveBackground: #FFFFFF;
+@tabularMenuActiveBackground: @white;
+@tabularMenuActiveColor: @selectedTextColor;
+
 @tabularActiveWeight: bold;
 @tabularBorderRadius: 5px;
 

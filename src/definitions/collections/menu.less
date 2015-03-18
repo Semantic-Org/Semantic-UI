@@ -721,6 +721,7 @@ Floated Menu / Item
 /* Active */
 .ui.vertical.tabular.menu .active.item {
   background-color: @tabularMenuActiveBackground;
+  color: @tabularMenuActiveColor;
   border-color: @tabularBorderColor;
   margin: 0px -@tabularBorderWidth 0px 0px;
   border-radius: @tabularBorderRadius 0px 0px @tabularBorderRadius;
@@ -862,40 +863,15 @@ Floated Menu / Item
   border-radius: 0em;
 }
 
+/* Sub Menu */
+.ui.vertical.secondary.menu .item > .menu .item {
+  background-color: transparent;
+}
+
 /* Inverted */
 .ui.secondary.inverted.menu {
   background-color: transparent;
 }
-.ui.secondary.inverted.pointing.menu {
-  border-width: @secondaryPointingBorderWidth;
-  border-color: @secondaryPointingBorderColor;
-}
-.ui.secondary.inverted.pointing.menu > .item {
-  color: rgba(255, 255, 255, 0.7);
-}
-.ui.secondary.inverted.pointing.menu > .header.item {
-  color: #FFFFFF !important;
-}
-
-/* Hover */
-.ui.secondary.inverted.pointing.menu > .menu > .item:hover,
-.ui.secondary.inverted.pointing.menu > .item:hover {
-  color: rgba(255, 255, 255, 0.85);
-}
-
-/* Pressed */
-.ui.secondary.inverted.pointing.menu > .menu > .item:active,
-.ui.secondary.inverted.pointing.menu > .item:active {
-  border-color: rgba(255, 255, 255, 0.4);
-}
-
-/* Active */
-.ui.secondary.inverted.pointing.menu > .menu > .item.active,
-.ui.secondary.inverted.pointing.menu > .item.active {
-  border-color: rgba(255, 255, 255, 0.8);
-  color: rgba(255, 255, 255, 1);
-}
-
 
 /*---------------------
    Secondary Pointing
@@ -910,6 +886,7 @@ Floated Menu / Item
   border-bottom-color: transparent;
   border-bottom-style: solid;
   border-radius: 0em;
+  align-self: flex-end;
 
   margin: @secondaryPointingItemMargin;
   padding: @secondaryPointingItemVerticalPadding @secondaryPointingItemHorizontalPadding;
@@ -992,9 +969,29 @@ Floated Menu / Item
 .ui.secondary.inverted.pointing.menu {
   border-color: @secondaryPointingInvertedBorderColor;
 }
+
+.ui.secondary.inverted.pointing.menu {
+  border-width: @secondaryPointingBorderWidth;
+  border-color: @secondaryPointingBorderColor;
+}
+.ui.secondary.inverted.pointing.menu > .item {
+  color: @secondaryPointingInvertedItemTextColor;
+}
+.ui.secondary.inverted.pointing.menu > .header.item {
+  color: @secondaryPointingInvertedItemHeaderColor !important;
+}
+
+/* Hover */
+.ui.secondary.inverted.pointing.menu > .menu > .item:hover,
+.ui.secondary.inverted.pointing.menu > .item:hover {
+  color: @secondaryPointingInvertedItemHoverTextColor;
+}
+
+/* Active */
 .ui.secondary.inverted.pointing.menu > .menu > .item.active,
 .ui.secondary.inverted.pointing.menu > .item.active {
-  border-color: @secondaryPointinInvertedActiveColor;
+  border-color: @secondaryPointingInvertedActiveBorderColor;
+  color: @secondaryPointingInvertedActiveColor;
 }
 
 /*--------------
