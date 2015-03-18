@@ -104,12 +104,6 @@
 @inputOffset: 0em;
 @inputVerticalPadding: 0.5em;
 
-@smallInputOffset: 0em;
-@smallInputVerticalPadding: 0.4em;
-
-@largeInputOffset: -0.125em;
-@largeInputVerticalPadding: 0.6em;
-
 /* Image */
 @imageMargin: -0.5em -0.2em;
 @imageWidth: 2.5em;
@@ -416,3 +410,4 @@
 @smallWidth: 13rem;
 @mediumWidth: 15rem;
 @largeWidth: 18rem;
+@hugeWidth: 20rem;
