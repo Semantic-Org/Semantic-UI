@@ -72,7 +72,7 @@
 /* All Results Link */
 @actionBorder: none;
 @actionBackground: @darkWhite;
-@actionPadding: 0.5em 1em;
+@actionPadding: @relativeSmall @relativeMedium;
 @actionColor: @textColor;
 @actionFontWeight: bold;
 @actionAlign: center;
