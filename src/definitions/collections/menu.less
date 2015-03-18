@@ -35,6 +35,7 @@
   font-weight: @fontWeight;
   box-shadow: @boxShadow;
   border-radius: @borderRadius;
+  min-height: @minHeight;
 }
 
 .ui.menu:after {
@@ -203,10 +204,10 @@
      Popup
 ---------------*/
 
-.ui.menu .popup {
+.ui.menu .ui.popup {
   display: none;
 }
-.ui.menu .visible.popup {
+.ui.menu .ui.visible.popup {
   display: block;
 }
 
@@ -813,6 +814,7 @@ Floated Menu / Item
   box-shadow: none;
   background: @secondaryActiveItemBackground;
   color: @secondaryActiveItemColor;
+  border-radius: @secondaryItemBorderRadius;
 }
 
 /* Active Hover */
@@ -1691,8 +1693,7 @@ Floated Menu / Item
 .ui.menu.attached {
   margin: 0rem;
   border-radius: 0px;
-  /* avoid rgba multiplying */
-  box-shadow: @attachedBoxShadow;
+  box-shadow: @attachedBoxShadow; /* avoid rgba multiplying */
 }
 .ui.top.attached.menu {
   border-radius: @borderRadius @borderRadius 0em 0em;

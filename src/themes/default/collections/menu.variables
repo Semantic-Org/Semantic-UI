@@ -27,6 +27,7 @@
   @subtleShadow
 ;
 @borderRadius: @defaultBorderRadius;
+@minHeight: (@itemVerticalPadding * 2) + 1em;
 
 /* Menu Item */
 @itemVerticalPadding: @relativeSmall;
