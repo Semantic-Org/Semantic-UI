@@ -100,7 +100,7 @@ $.fn.form = function(fields, parameters) {
         attachEvents: function(selector, action) {
           action = action || 'submit';
           $(selector)
-            .on('click', function(event) {
+            .on('click' + eventNamespace, function(event) {
               module[action]();
               event.preventDefault();
             })
