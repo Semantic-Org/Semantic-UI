@@ -227,6 +227,9 @@ $.fn.dropdown = function(parameters) {
                 .prependTo($module)
               ;
             }
+            if($input.is('[multiple]')) {
+              module.set.multiple();
+            }
             module.refresh();
           },
           reference: function() {
@@ -865,10 +868,24 @@ $.fn.dropdown = function(parameters) {
           text: function() {
             return $text.text();
           },
+          uniqueArray: function(array) {
+            return $.grep(array, function (value, index) {
+                return $.inArray(value, array) === index;
+            });
+          },
           value: function() {
             return ($input.length > 0)
               ? $input.val()
               : $module.data(metadata.value)
+            ;
+          },
+          values: function() {
+            var
+              value = module.get.value()
+            ;
+            return $.isArray(value)
+              ? value
+              : [value]
             ;
           },
           choiceText: function($choice, preserveHTML) {
@@ -963,6 +980,7 @@ $.fn.dropdown = function(parameters) {
           },
           item: function(value, strict) {
             var
+              isMultiple    = module.is.multiple(),
               $selectedItem = false
             ;
             value = (value !== undefined)
@@ -1053,7 +1071,7 @@ $.fn.dropdown = function(parameters) {
             module.save.defaultValue();
           },
           defaultValue: function() {
-            $module.data(metadata.defaultValue, module.get.value() );
+            $module.data(metadata.defaultValue, module.get.value());
           },
           defaultText: function() {
             $module.data(metadata.defaultText, $text.text() );
@@ -1070,10 +1088,14 @@ $.fn.dropdown = function(parameters) {
             placeholderText = $module.data(metadata.placeholderText)
           ;
           module.set.text(placeholderText);
-          module.set.value('');
+          module.clearValue();
           module.remove.activeItem();
           module.remove.selectedItem();
           $text.addClass(className.placeholder);
+        },
+
+        clearValue: function() {
+          module.set.value('');
         },
 
         set: {
@@ -1183,19 +1205,50 @@ $.fn.dropdown = function(parameters) {
           value: function(value) {
             module.debug('Adding selected value to hidden input', value, $input);
             if($input.length > 0) {
-              $input
-                .val(value)
-                .trigger('change')
-              ;
+              if( module.is.multiple() ) {
+                var
+                  values = module.get.values()
+                ;
+                if($.isArray(values)) {
+                  values.push(value);
+                  values = module.get.uniqueArray(values);
+                }
+                else {
+                  values = [value];
+                }
+                module.debug('Adding value to multiple', value, values);
+                module.set.values(values);
+              }
+              else {
+                module.debug('Updating input value', value);
+                $input
+                  .val(value)
+                  .trigger('change')
+                ;
+              }
             }
             else {
               $module.data(metadata.value, value);
+            }
+          },
+          values: function(values) {
+            if( $input.is('select') ) {
+              $input.val(values);
+              module.debug('Setting mutiple select values', values, $input);
+            }
+            else {
+              values = values.join(',');
+              $input.val(values);
+              module.debug('Setting hidden input to comma separatd values', values, $input);
             }
           },
           active: function() {
             $module
               .addClass(className.active)
             ;
+          },
+          multiple: function() {
+            $module.addClass(className.multiple);
           },
           visible: function() {
             $module.addClass(className.visible);
@@ -1302,7 +1355,7 @@ $.fn.dropdown = function(parameters) {
             ;
           },
           multiple: function() {
-            return $module.hasClass(className.multiple) || ($module.is('select') && $module.attr('multiple'));
+            return $module.hasClass(className.multiple);
           },
           selectMutation: function(mutations) {
             var
