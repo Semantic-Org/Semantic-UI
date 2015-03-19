@@ -49,6 +49,7 @@ $.fn.dropdown = function(parameters) {
         $module         = $(this),
         $text           = $module.find(selector.text),
         $search         = $module.find(selector.search),
+        $labels         = $module.find(selector.labels),
         $input          = $module.find(selector.input),
 
         $combo = ($module.prev().find(selector.text).length > 0)
@@ -65,7 +66,8 @@ $.fn.dropdown = function(parameters) {
 
         elementNamespace,
         id,
-        observer,
+        selectObserver,
+        menuObserver,
         module
       ;
 
@@ -117,25 +119,37 @@ $.fn.dropdown = function(parameters) {
           $document
             .off(elementNamespace)
           ;
+          if(selectObserver) {
+            selectObserver.disconnect();
+          }
+          if(menuObserver) {
+            menuObserver.disconnect();
+          }
         },
 
         observeChanges: function() {
           if('MutationObserver' in window) {
-            observer = new MutationObserver(function(mutations) {
-              if( module.is.selectMutation(mutations) ) {
-                module.debug('<select> modified, recreating menu');
-                module.setup.select();
-              }
-              else {
-                module.debug('DOM tree modified, updating selector cache');
-                module.refresh();
-              }
+            selectObserver = new MutationObserver(function(mutations) {
+              module.debug('<select> modified, recreating menu');
+              module.setup.select();
             });
-            observer.observe(element, {
-              childList : true,
-              subtree   : true
+            menuObserver = new MutationObserver(function(mutations) {
+              module.debug('Menu modified, updating selector cache');
+              module.refresh();
             });
-            module.debug('Setting up mutation observer', observer);
+            if(module.has.input()) {
+              selectObserver.observe($input[0], {
+                childList : true,
+                subtree   : true
+              });
+            }
+            if(module.has.menu()) {
+              menuObserver.observe($menu[0], {
+                childList : true,
+                subtree   : true
+              });
+            }
+            module.debug('Setting up mutation observer', selectObserver, menuObserver);
           }
         },
 
@@ -165,11 +179,14 @@ $.fn.dropdown = function(parameters) {
             if( $module.is('select') ) {
               module.setup.select();
             }
-            if( module.is.search() && !module.is.searchable() ) {
+            if( module.is.search() && !module.has.search() ) {
               $search = $('<input />')
                 .addClass(className.search)
                 .insertBefore($text)
               ;
+            }
+            if( module.is.multiple() && !module.has.labels()) {
+              $labels = $('<div />').addClass(className.labels).insertBefore($search);
             }
             if(settings.allowTab) {
               module.set.tabbable();
@@ -238,8 +255,10 @@ $.fn.dropdown = function(parameters) {
             ? $module.prev().find(selector.text)
             : $module.prev()
           ;
-          $menu   = $module.children(selector.menu);
-          $item   = $menu.find(selector.item);
+          $menu    = $module.children(selector.menu);
+          $item    = $menu.find(selector.item);
+          // multiple
+          $labels  = $module.find(selector.labels);
         },
 
         toggle: function() {
@@ -310,7 +329,7 @@ $.fn.dropdown = function(parameters) {
             $module
               .on('keydown' + eventNamespace, module.event.keydown)
             ;
-            if( module.is.searchable() ) {
+            if( module.has.search() ) {
               $module
                 .on(module.get.inputEvent(), selector.search, module.event.input)
               ;
@@ -1071,7 +1090,7 @@ $.fn.dropdown = function(parameters) {
             }
           },
           tabbable: function() {
-            if( module.is.searchable() ) {
+            if( module.has.search() ) {
               module.debug('Searchable dropdown initialized');
               $search
                 .val('')
@@ -1224,7 +1243,7 @@ $.fn.dropdown = function(parameters) {
             $item.removeClass(className.selected);
           },
           tabbable: function() {
-            if( module.is.searchable() ) {
+            if( module.has.search() ) {
               module.debug('Searchable dropdown initialized');
               $search
                 .attr('tabindex', '-1')
@@ -1242,6 +1261,21 @@ $.fn.dropdown = function(parameters) {
                 .attr('tabindex', '-1')
               ;
             }
+          }
+        },
+
+        has: {
+          labels: function() {
+            return ($labels.length > 0);
+          },
+          search: function() {
+            return ($search.length > 0);
+          },
+          input: function() {
+            return ($input.length > 0);
+          },
+          menu: function() {
+            return ($menu.length > 0);
           }
         },
 
@@ -1267,6 +1301,9 @@ $.fn.dropdown = function(parameters) {
               : $menu.is(':hidden')
             ;
           },
+          multiple: function() {
+            return $module.hasClass(className.multiple) || ($module.is('select') && $module.attr('multiple'));
+          },
           selectMutation: function(mutations) {
             var
               selectChanged = false
@@ -1282,11 +1319,8 @@ $.fn.dropdown = function(parameters) {
           search: function() {
             return $module.hasClass(className.search);
           },
-          searchable: function() {
-            return ($search.length > 0);
-          },
           searchSelection: function() {
-            return ( module.is.searchable() && $search.parent().is($module) );
+            return ( module.has.search() && $search.closest(selector.menu).length == 0 );
           },
           selection: function() {
             return $module.hasClass(className.selection);
@@ -1732,9 +1766,10 @@ $.fn.dropdown.settings = {
     dropdown : '.ui.dropdown',
     input    : '> input[type="hidden"], > select',
     item     : '.item',
+    labels   : '> .labels',
     menu     : '.menu',
     menuIcon : '.dropdown.icon',
-    search   : '> input.search, .menu > .search > input, .menu > input.search',
+    search   : 'input.search, .menu > .search > input',
     text     : '> .text:not(.icon)'
   },
 
@@ -1744,8 +1779,10 @@ $.fn.dropdown.settings = {
     disabled    : 'disabled',
     dropdown    : 'ui dropdown',
     filtered    : 'filtered',
+    labels      : 'labels',
     loading     : 'loading',
     menu        : 'menu',
+    multiple    : 'multiple',
     placeholder : 'default',
     search      : 'search',
     selected    : 'selected',

@@ -457,7 +457,7 @@ select.ui.dropdown {
   box-shadow: @selectionVisibleHoverBoxShadow;
 }
 .ui.selection.visible.dropdown:hover .menu {
-  border: @selectionVisibleHoverMenuBorder;
+  border-color: @selectionVisibleHoverBorderColor;
   box-shadow: @selectionVisibleHoverMenuBoxShadow;
 }
 
@@ -513,10 +513,12 @@ select.ui.dropdown {
 }
 
 /* Text Layering */
+.ui.search.dropdown > .pointer > input.search,
 .ui.search.dropdown > input.search {
   position: absolute;
   z-index: 2;
 }
+.ui.search.dropdown > .pointer > .text,
 .ui.search.dropdown > .text {
   cursor: text;
   position: relative;
@@ -524,22 +526,33 @@ select.ui.dropdown {
 }
 
 /* Search Selection */
+.ui.search.selection.dropdown > .pointer > input.search,
 .ui.search.selection.dropdown > input.search {
   line-height: @searchSelectionLineHeight;
   padding: @searchSelectionInputPadding;
 }
 
 /* Active/Visible Search */
+.ui.search.dropdown.active > .pointer > input.search,
+.ui.search.dropdown.visible > .pointer > input.search,
 .ui.search.dropdown.active > input.search,
 .ui.search.dropdown.visible > input.search {
   cursor: auto;
 }
+.ui.search.dropdown.active > .pointer > .text,
+.ui.search.dropdown.visible > .pointer > .text,
 .ui.search.dropdown.active > .text,
 .ui.search.dropdown.visible > .text {
   pointer-events: none;
 }
-.ui.active.search.dropdown > input.search:focus + .text {
-  color: @unselectedTextColor !important;
+
+/* Filtered Text */
+.ui.active.search.dropdown input.search:focus + .text .icon,
+.ui.active.search.dropdown input.search:focus + .text .flag {
+  opacity: @selectionTextUnderlayIconOpacity;
+}
+.ui.active.search.dropdown input.search:focus + .text {
+  color: @selectionTextUnderlayColor !important;
 }
 
 /* Search Menu */
@@ -568,6 +581,30 @@ select.ui.dropdown {
   .ui.search.dropdown .menu {
     max-height: @searchWidescreenMaxMenuHeight;
   }
+}
+
+/*--------------
+    Multiple
+---------------*/
+
+/* Multiple Search Selection */
+.ui.multiple.dropdown > .labels {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Search Selection */
+.ui.multiple.search.selection.dropdown > .labels {
+  margin: -@selectionVerticalPadding 0em;
+}
+.ui.multiple.search.selection.dropdown > input.search {
+  left: auto;
+  min-width: 200px;
+  padding-left: 0;
+}
+.ui.multiple.search.selection.dropdown > .labels + input.search,
+.ui.multiple.search.selection.dropdown > .labels ~ .text {
+  padding-left: 0.5em;
 }
 
 

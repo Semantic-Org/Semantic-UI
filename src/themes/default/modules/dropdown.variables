@@ -114,7 +114,7 @@
 @selectionMinWidth: 180px;
 @selectionBackground: @white;
 @selectionDisplay: inline-block;
-@selectionItemDivider: 1px solid rgba(0, 0, 0, 0.05);
+@selectionItemDivider: 1px solid @borderColor;
 @selectionVerticalPadding: 0.8em;
 @selectionHorizontalPadding: 1.1em;
 @selectionPadding: @selectionVerticalPadding @selectionHorizontalPadding;
@@ -128,6 +128,9 @@
 
 @selectionTextIconDistance: 2em;
 @selectionTextColor: @textColor;
+
+@selectionTextUnderlayIconOpacity: @disabledOpacity;
+@selectionTextUnderlayColor: @unselectedTextColor;
 
 @selectionBoxShadow: none;
 @selectionBorderColor: @borderColor;
