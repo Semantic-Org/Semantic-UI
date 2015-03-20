@@ -49,10 +49,10 @@
 @itemHeight: auto;
 @itemDivider: none;
 @itemColor: @textColor;
-@itemVerticalPadding: 0.65rem;
-@itemHorizontalPadding: 1.25rem;
+@itemVerticalPadding: @relativeMini;
+@itemHorizontalPadding: @relativeLarge;
 @itemFontWeight: normal;
-@itemLineHeight: 1.2em;
+@itemLineHeight: 1em;
 @itemLineHeightOffset: (@itemLineHeight - 1em);
 @itemTextTransform: none;
 @itemBoxShadow: none;
@@ -91,6 +91,7 @@
 @menuImageMaxHeight: 2.5em;
 
 /* Item Sub-Element */
+@itemElementFloat: none;
 @itemElementDistance: 0.75em;
 
 /* Sub-Menu Dropdown Icon */
@@ -171,16 +172,17 @@
 @selectionHoverBoxShadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.05);
 
 /* Visible */
-@selectionVisibleBorderColor: @borderColor;
-@selectionVisibleBoxShadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
 @selectionVisibleTextFontWeight: normal;
 @selectionVisibleTextColor: @hoveredTextColor;
 
+@selectionVisibleBorderColor: @selectedBorderColor;
+@selectionVisibleBoxShadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
+@selectionVisibleMenuBoxShadow: 0px 2px 6px 0px @borderColor;
+
 /* Visible Hover */
 @selectionVisibleHoverBorderColor: @selectedBorderColor;
-@selectionVisibleHoverBoxShadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
-@selectionVisibleHoverMenuBorder: 1px solid @selectedBorderColor;
-@selectionVisibleHoverMenuBoxShadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.1);
+@selectionVisibleHoverBoxShadow: @selectionVisibleBoxShadow;
+@selectionVisibleHoverMenuBoxShadow: @selectionVisibleMenuBoxShadow;
 
 @selectionVisibleConnectingBorder: 0em;
 @selectionVisibleIconOpacity: 1;
@@ -212,6 +214,7 @@
 /* Hovered */
 @hoveredItemBackground: @transparentBlack;
 @hoveredItemColor: @selectedTextColor;
+@hoveredZIndex: @menuZIndex + 2;
 
 /* Default Text */
 @defaultTextColor: rgba(179, 179, 179, 0.7);
@@ -221,8 +224,8 @@
 @loadingZIndex: -1;
 
 /* Active Menu Item */
-@activeItemBackground: transparent;
 @activeItemZIndex: @menuZIndex + 1;
+@activeItemBackground: transparent;
 @activeItemBoxShadow: none;
 @activeItemFontWeight: bold;
 @activeItemColor: @selectedTextColor;

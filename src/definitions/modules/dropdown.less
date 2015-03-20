@@ -449,22 +449,29 @@ select.ui.dropdown {
   border: @selectionBorder;
   opacity: @disabledOpacity !important;
 }
+/* Visible */
+.ui.selection.dropdown.visible {
+  border-color: @selectionVisibleBorderColor;
+  box-shadow: @selectionVisibleBoxShadow;
+}
+
+.ui.selection.visible.dropdown .menu {
+  border-color: @selectionVisibleBorderColor;
+  box-shadow: @selectionVisibleMenuBoxShadow;
+}
+
 
 /* Visible Hover */
 .ui.selection.visible.dropdown:hover {
   border-color: @selectionVisibleHoverBorderColor;
   box-shadow: @selectionVisibleHoverBoxShadow;
 }
-.ui.selection.visible.dropdown:hover .menu {
-  border: @selectionVisibleHoverMenuBorder;
+
+.ui.selection.visible.dropdown .menu {
+  border-color: @selectionVisibleHoverBorderColor;
   box-shadow: @selectionVisibleHoverMenuBoxShadow;
 }
 
-/* Visible */
-.ui.selection.dropdown.visible {
-  border-color: @selectionVisibleBorderColor;
-  box-shadow: @selectionVisibleBoxShadow;
-}
 
 /* Active Item */
 .ui.selection.active.dropdown > .text:not(.default),

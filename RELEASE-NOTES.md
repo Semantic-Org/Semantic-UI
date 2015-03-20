@@ -8,8 +8,9 @@ This version backports several bugs that are being packed in `2.0` to `1.x`
 **Bugs**
 - **Card** - Fixes dimmer background shorthand property causes transparent dimmer in minified version
 - **Dimmer** - Fixed `variation` setting not working correctly
-- **Dropdown** - `onchange` no longer fires when reselecting same value
+- **Dropdown** - `onChange` no longer fires when reselecting same value
 - **Dropdown** - Dropdown init on `select` now returns `ui dropdown` created for chaining
+- **Dropdown** - Dropdown `focus` color has been adjusted to match forms more closely
 
 ### Version 1.11.3-4 - March 6, 2015
 
