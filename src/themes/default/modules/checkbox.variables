@@ -130,7 +130,7 @@
 @toggleHoverColor: @toggleFocusColor;
 
 @toggleOffLabelColor: @checkboxColor;
-@toggleOnLabelColor: @positiveCheckbox;
+@toggleOnLabelColor: @positiveTextColor;
 @toggleOnLaneColor: @positiveCheckbox;
 
 
