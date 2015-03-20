@@ -30,6 +30,7 @@
 - **Visibility/Sticky** - Visibility now uses pub/sub pattern to greatly improve scroll performance when attaching multiple events
 
 **Changes**
+- **Checkbox** - Slider now uses `positive text color` a slightly more legible green for label
 - **Dropdown** - Dropdown padding values now resolve to exact pixel values from em
 - **Grid** - Small computer `page grid` gutters have been adjusted from 8% to 3% to allow for roomier layouts on small screens.
 - **Grid** - `center aligned` no longer centers rows, just text. Use `centered grid` to center a grid column on the page.
