@@ -112,7 +112,7 @@ $.fn.sticky = function(parameters) {
               module.timer = setTimeout(function() {
                 module.verbose('DOM tree modified, updating sticky menu');
                 module.refresh();
-              }, 20);
+              }, 100);
             });
             observer.observe(element, {
               childList : true,

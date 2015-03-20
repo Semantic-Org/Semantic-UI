@@ -175,15 +175,17 @@
 @selectionHoverBoxShadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.05);
 
 /* Visible */
-@selectionVisibleBorderColor: @selectedBorderColor;
-@selectionVisibleBoxShadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
 @selectionVisibleTextFontWeight: normal;
 @selectionVisibleTextColor: @hoveredTextColor;
 
+@selectionVisibleBorderColor: @selectedBorderColor;
+@selectionVisibleBoxShadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
+@selectionVisibleMenuBoxShadow: 0px 2px 6px 0px @borderColor;
+
 /* Visible Hover */
 @selectionVisibleHoverBorderColor: @selectedBorderColor;
-@selectionVisibleHoverBoxShadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
-@selectionVisibleHoverMenuBoxShadow: 0px 2px 6px 0px @borderColor;
+@selectionVisibleHoverBoxShadow: @selectionVisibleBoxShadow;
+@selectionVisibleHoverMenuBoxShadow: @selectionVisibleMenuBoxShadow;
 
 @selectionVisibleConnectingBorder: 0em;
 @selectionVisibleIconOpacity: 1;

@@ -258,6 +258,9 @@ $.fn.tab = function(parameters) {
 
         changeTab: function(tabPath) {
           var
+            tabPath = (typeof tabPath == 'string')
+              ? tabPath.toLowerCase()
+              : tabPath,
             pushStateAvailable = (window.history && window.history.pushState),
             shouldIgnoreLoad   = (pushStateAvailable && settings.ignoreFirstLoad && firstLoad),
             remoteContent      = (settings.auto || $.isPlainObject(settings.apiSettings) ),

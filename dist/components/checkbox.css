@@ -86,8 +86,8 @@
   text-align: center;
   opacity: 0;
   color: rgba(0, 0, 0, 0.8);
-  -webkit-transition: all 0.1s ease;
-          transition: all 0.1s ease;
+  -webkit-transition: all 0.2s ease;
+          transition: all 0.2s ease;
 }
 
 /*--------------
@@ -431,7 +431,7 @@
 .ui.toggle.checkbox input[type="checkbox"]:checked ~ label,
 .ui.toggle.checkbox input[type="radio"]:checked ~ .box,
 .ui.toggle.checkbox input[type="radio"]:checked ~ label {
-  color: #5bbd72;
+  color: #3c763d;
 }
 .ui.toggle.checkbox input[type="checkbox"]:checked ~ .box:before,
 .ui.toggle.checkbox input[type="checkbox"]:checked ~ label:before,

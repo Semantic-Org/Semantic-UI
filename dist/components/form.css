@@ -289,16 +289,16 @@
 .ui.form input[type="url"]:focus {
   color: rgba(0, 0, 0, 0.85);
   border-color: rgba(34, 36, 38, 0.3);
-  border-radius: 0em 0.2857rem 0.2857rem 0em;
+  border-radius: 0.2857rem;
   background: #ffffff;
-  box-shadow: 1px 0em 0em 0em rgba(34, 36, 38, 0.3) inset;
+  box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.3) inset;
 }
 .ui.form textarea:focus {
   color: rgba(0, 0, 0, 0.85);
   border-color: rgba(34, 36, 38, 0.3);
-  border-radius: 0em 0.2857rem 0.2857rem 0em;
+  border-radius: 0.2857rem;
   background: #ffffff;
-  box-shadow: 1px 0em 0em 0em rgba(34, 36, 38, 0.3) inset;
+  box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.3) inset;
   -webkit-appearance: none;
 }
 
@@ -373,8 +373,8 @@
   background: #fff0f0;
   border-color: #dbb1b1;
   color: #d95c5c;
-  border-radius: 0em 0.2857rem 0.2857rem 0em;
-  box-shadow: 2px 0em 0em 0em #d95c5c inset;
+  border-radius: 0.2857rem;
+  box-shadow: none;
 }
 .ui.form .field.error textarea:focus,
 .ui.form .field.error select:focus,
@@ -391,9 +391,9 @@
 .ui.form .field.error input[type="url"]:focus {
   background: #fff0f0;
   border-color: #dbb1b1;
-  color: #dc6868;
+  color: #e07979;
   -webkit-appearance: none;
-  box-shadow: 2px 0em 0em 0em #dc6868 inset;
+  box-shadow: none;
 }
 
 /* Preserve Native Select Stylings */

@@ -30,6 +30,7 @@
 - **Visibility/Sticky** - Visibility now uses pub/sub pattern to greatly improve scroll performance when attaching multiple events
 
 **Changes**
+- **Checkbox** - Slider now uses `positive text color` a slightly more legible green for label
 - **Dropdown** - Dropdown padding values now resolve to exact pixel values from em
 - **Grid** - Small computer `page grid` gutters have been adjusted from 8% to 3% to allow for roomier layouts on small screens.
 - **Grid** - `center aligned` no longer centers rows, just text. Use `centered grid` to center a grid column on the page.
@@ -63,6 +64,7 @@
 - **Modal** - `scrollable modal` now correctly adds padding below modal
 - **Modal** - Modal with `detachable: false` inside `ui sidebar`  `pusher` element will now show correctly
 - **Popup** - Fixes issue with `min-width` in firefox exceeding `max-width` causing element to not wrap correctly
+- **Tab** - Tab name is no longer case sensitive
 - **Table** - `very basic table` now works together with `padded table`
 - **Table** - Fix inheritance of text alignment and vertical alignment
 - **Transition** - Fixed bug where transition could sometimes not occur when an element was determined to always be hidden

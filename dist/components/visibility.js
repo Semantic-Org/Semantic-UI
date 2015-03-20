@@ -120,7 +120,10 @@ $.fn.visibility = function(parameters) {
           if('MutationObserver' in window) {
             observer = new MutationObserver(function(mutations) {
               module.verbose('DOM tree modified, updating visibility calculations');
-              module.refresh();
+              module.timer = setTimeout(function() {
+                module.verbose('DOM tree modified, updating sticky menu');
+                module.refresh();
+              }, 100);
             });
             observer.observe(element, {
               childList : true,
@@ -180,11 +183,11 @@ $.fn.visibility = function(parameters) {
 
         event: {
           resize: function() {
-            module.verbose('Window resized');
+            module.debug('Window resized');
             requestAnimationFrame(module.refresh);
           },
           load: function() {
-            module.verbose('Page finished loading');
+            module.debug('Page finished loading');
             requestAnimationFrame(module.refresh);
           },
           // publishes scrollchange event on one scroll
@@ -336,7 +339,7 @@ $.fn.visibility = function(parameters) {
         },
 
         refresh: function() {
-          module.debug('Refreshing constants (element width/height)');
+          module.debug('Refreshing constants (width/height)');
           module.reset();
           module.save.position();
           module.checkVisibility();

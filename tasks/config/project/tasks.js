@@ -83,6 +83,10 @@ module.exports = {
           if(error.filename.match(/theme.less/)) {
             console.error('Looks like your theme.config is out of date. You will need to add new elements from theme.config.example');
           }
+          else {
+            console.log(error);
+            this.emit('end');
+          }
         }
       }
     },
