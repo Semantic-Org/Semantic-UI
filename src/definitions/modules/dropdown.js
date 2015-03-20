@@ -278,6 +278,9 @@ $.fn.dropdown = function(parameters) {
           }
           if( module.can.show() && !module.is.active() ) {
             module.debug('Showing dropdown');
+            if(module.is.multiple()) {
+              module.filterActive();
+            }
             module.animate.show(function() {
               if( module.can.click() ) {
                 module.bind.intent();
@@ -357,6 +360,11 @@ $.fn.dropdown = function(parameters) {
                 .on('blur'      + eventNamespace, selector.search, module.event.searchBlur)
                 .on('click'     + eventNamespace, selector.text, module.event.searchTextFocus)
               ;
+              if(module.is.multiple()) {
+                $module
+                  .on('click' + eventNamespace, module.event.click)
+                ;
+              }
             }
             else {
               if(settings.on == 'click') {
@@ -450,6 +458,9 @@ $.fn.dropdown = function(parameters) {
             .not($results)
             .addClass(className.filtered)
           ;
+          if(module.is.multiple()) {
+            module.filterActive();
+          }
           module.verbose('Selecting first non-filtered element');
           module.remove.selectedItem();
           $item
@@ -464,6 +475,12 @@ $.fn.dropdown = function(parameters) {
             }
             settings.onNoResults.call(element, searchTerm);
           }
+        },
+
+        filterActive: function() {
+          $item.filter('.' + className.active)
+            .addClass(className.filtered)
+          ;
         },
 
         focusSearch: function() {
@@ -483,7 +500,7 @@ $.fn.dropdown = function(parameters) {
               : $activeItem,
             hasSelected = ($selectedItem.size() > 0)
           ;
-          if(hasSelected) {
+          if(hasSelected && !module.is.multiple()) {
             module.event.item.click.call($selectedItem);
             module.remove.filteredItem();
           }
@@ -493,6 +510,12 @@ $.fn.dropdown = function(parameters) {
         },
 
         event: {
+          click: function(event) {
+            // focus search
+            if($(event.target).is($module) && !(document.activeElement === $search[0])) {
+              $search.focus();
+            }
+          },
           // prevents focus callback from occuring on mousedown
           mousedown: function() {
             activated = true;
@@ -1243,12 +1266,16 @@ $.fn.dropdown = function(parameters) {
           selected: function(value) {
             var
               $selectedItem = module.get.item(value),
+              isMultiple    = module.is.multiple(),
+              shouldAnimate = (isMultiple && $selectedItem.length == 1),
               selectedText,
               selectedValue
             ;
             if($selectedItem && !$selectedItem.hasClass(className.active) ) {
               module.debug('Setting selected menu item to', $selectedItem);
-              module.remove.activeItem();
+              if(!module.is.multiple()) {
+                module.remove.activeItem();
+              }
               module.remove.selectedItem();
               $selectedItem
                 .addClass(className.active)
@@ -1259,8 +1286,8 @@ $.fn.dropdown = function(parameters) {
                   ;
                   selectedText  = module.get.choiceText($selected);
                   selectedValue = module.get.choiceValue($selected, selectedText);
-                  if(module.is.multiple()) {
-                    module.add.label(selectedValue, selectedText);
+                  if(isMultiple) {
+                    module.add.label(selectedValue, selectedText, shouldAnimate);
                   }
                   else {
                     module.set.text(selectedText);
@@ -1274,18 +1301,30 @@ $.fn.dropdown = function(parameters) {
         },
 
         add: {
-          label: function(value, text) {
+          label: function(value, text, shouldAnimate) {
             var
               $label = $('<a />')
                 .addClass(className.label)
-                .data('value', value)
+                .attr('data-value', value)
                 .html(text + '<i class="delete icon"></i>')
             ;
             if(settings.label.variation) {
               $label.addClass(settings.label.variation);
             }
-            module.debug('Adding selection label', $label);
-            $label.insertBefore($search);
+            if(shouldAnimate) {
+              module.debug('Animating in label', $label);
+              $label
+                .addClass(className.hidden)
+                .insertBefore($search)
+                .transition(settings.label.transition, settings.label.duration)
+              ;
+            }
+            else {
+              module.debug('Adding selection label', $label);
+              $label
+                .insertBefore($search)
+              ;
+            }
           }
         },
 
@@ -1307,6 +1346,15 @@ $.fn.dropdown = function(parameters) {
           },
           selectedItem: function() {
             $item.removeClass(className.selected);
+          },
+          label: function(value) {
+            $module
+              .find(selector.label)
+              .filter('[data-value="' + value +'"]')
+                .transition(settings.label.transition, settings.label.duration, function() {
+                  $(this).remove();
+                })
+            ;
           },
           tabbable: function() {
             if( module.has.search() ) {
@@ -1424,7 +1472,9 @@ $.fn.dropdown = function(parameters) {
               ? callback
               : function(){}
             ;
-            module.set.scrollPosition(module.get.activeItem(), true);
+            if(!module.is.multiple()) {
+              module.set.scrollPosition(module.get.activeItem(), true);
+            }
             module.verbose('Doing menu show animation', $currentMenu);
             if( module.is.hidden($currentMenu) || module.is.animating($currentMenu) ) {
 
@@ -1786,7 +1836,9 @@ $.fn.dropdown.settings = {
   sortSelect             : false,
 
   label: {
-    variation: false
+    transition : 'horizontal flip',
+    duration   : 250,
+    variation  : false
   },
 
   allowCategorySelection : false,
@@ -1798,10 +1850,10 @@ $.fn.dropdown.settings = {
     touch  : 50
   },
 
-  forceSelection: true,
+  forceSelection  : true,
 
-  transition : 'auto',
-  duration   : 250,
+  transition      : 'auto',
+  duration        : 250,
 
   /* Callbacks */
   onNoResults : function(searchTerm){},
@@ -1833,6 +1885,7 @@ $.fn.dropdown.settings = {
     dropdown : '.ui.dropdown',
     input    : '> input[type="hidden"], > select',
     item     : '.item',
+    label    : '> .label',
     menu     : '.menu',
     menuIcon : '.dropdown.icon',
     search   : 'input.search, .menu > .search > input',
@@ -1845,6 +1898,7 @@ $.fn.dropdown.settings = {
     disabled    : 'disabled',
     dropdown    : 'ui dropdown',
     filtered    : 'filtered',
+    hidden      : 'hidden transition',
     label       : 'ui label',
     loading     : 'loading',
     menu        : 'menu',

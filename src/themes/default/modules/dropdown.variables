@@ -114,7 +114,7 @@
 @selectionMinWidth: 180px;
 @selectionBackground: @white;
 @selectionDisplay: inline-block;
-@selectionItemDivider: 1px solid @borderColor;
+@selectionItemDivider: 1px solid rgba(0, 0, 0, 0.05);
 @selectionVerticalPadding: 0.8em;
 @selectionHorizontalPadding: 1.1em;
 @selectionIconDistance: 2em;
@@ -205,15 +205,21 @@
 
 /* Multiple */
 @labelVerticalPadding: 0.4285em;
+@labelSize: @relativeSmall;
 @labelHorizontalPadding: @relativeMini;
 @labelPadding: @labelVerticalPadding @labelHorizontalPadding;
-@labelSpacing: 0.21428em;
 
-@multipleSelectionTopPadding: (@selectionVerticalPadding - @labelVerticalPadding);
+@labelHorizontalSpacing: 0.5em;
+@labelVerticalSpacing: 0.5em;
+
+
+/* This is calculated from @selectionPadding - @labelSize * labelPadding */
+@multipleSelectionTopPadding: 0.2857em;
 @multipleSelectionRightPadding: @selectionIconDistance;
-@multipleSelectionBottomPadding: @selectionTopPadding - @labelSpacing;
+@multipleSelectionBottomPadding: @multipleSelectionTopPadding;
 @multipleSelectionLeftPadding: (@selectionHorizontalPadding - @labelHorizontalPadding);
-@multipleSearchOffset: (@labelVerticalPadding - @searchSelectionLineHeightOffset);
+
+@multipleSelectionSearchMargin: 0.4em 0em 0.4em 0.5em;
 
 /* Inline */
 @inlineIconMargin: 0em 0.5em 0em 0.25em;

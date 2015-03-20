@@ -590,10 +590,17 @@ select.ui.dropdown {
     Multiple
 ---------------*/
 
-/* Multiple Search Selection */
+/* Multiple Selection */
 .ui.multiple.dropdown {
-  cursor: auto;
   padding: @multipleSelectionTopPadding @multipleSelectionRightPadding @multipleSelectionBottomPadding @multipleSelectionLeftPadding;
+}
+.ui.multiple.dropdown .menu {
+  cursor: auto;
+}
+
+/* Multiple Search Selection */
+.ui.multiple.search.dropdown {
+  cursor: text;
 }
 
 /* Selection Label */
@@ -601,7 +608,10 @@ select.ui.dropdown {
   display: inline-block;
   vertical-align: middle;
   padding: @labelPadding;
-  margin: 0em @labelSpacing @labelSpacing 0em;
+  margin: (@labelVerticalSpacing / 2) @labelHorizontalSpacing (@labelVerticalSpacing / 2) 0em;
+}
+.ui.multiple.dropdown > .label .delete {
+  opacity: 0.4;
 }
 
 /* Prompt Text */
@@ -616,19 +626,14 @@ select.ui.dropdown {
 .ui.multiple.selection.dropdown > input.search {
   position: static;
   padding: 0;
-  width: auto;
-  margin-top: @searchSelectionLineHeightOffset;
-  padding-top: @labelVerticalPadding;
+  width: 5em;
+  margin: @multipleSelectionSearchMargin;
 }
-.ui.multiple.selection.dropdown > .label + input.search {
-  margin-left: 0.5em;
-}
-
 
 /* Dropdown Icon */
 .ui.multiple.selection.dropdown .dropdown.icon {
-  padding: 0em;
-  margin: 0em;
+  margin: 0em -@labelHorizontalPadding 0em 0em;
+  padding: @labelPadding;
 }
 
 
