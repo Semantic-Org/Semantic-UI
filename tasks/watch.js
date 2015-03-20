@@ -136,6 +136,7 @@ module.exports = function(callback) {
         stream = gulp.src(lessPath)
           .pipe(plumber(settings.plumber.less))
           .pipe(less(settings.less))
+          .pipe(print(log.created))
           .pipe(replace(comments.variables.in, comments.variables.out))
           .pipe(replace(comments.license.in, comments.license.out))
           .pipe(replace(comments.large.in, comments.large.out))
@@ -170,7 +171,6 @@ module.exports = function(callback) {
             gulp.start('package compressed css');
           })
         ;
-
       }
       else {
         console.log('Cannot find UI definition at path', lessPath);
