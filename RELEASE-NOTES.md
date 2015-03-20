@@ -63,6 +63,7 @@
 - **Modal** - `scrollable modal` now correctly adds padding below modal
 - **Modal** - Modal with `detachable: false` inside `ui sidebar`  `pusher` element will now show correctly
 - **Popup** - Fixes issue with `min-width` in firefox exceeding `max-width` causing element to not wrap correctly
+- **Tab** - Tab name is no longer case sensitive
 - **Table** - `very basic table` now works together with `padded table`
 - **Table** - Fix inheritance of text alignment and vertical alignment
 - **Transition** - Fixed bug where transition could sometimes not occur when an element was determined to always be hidden
