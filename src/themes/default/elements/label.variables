@@ -10,7 +10,7 @@
 
 @verticalAlign: baseline;
 @verticalMargin: 0em;
-@horizontalMargin: 0.125em;
+@horizontalMargin: 0.142857em;
 @backgroundColor: #E8E8E8;
 @backgroundImage: none;
 @labelTextColor: rgba(0, 0, 0, 0.6);
@@ -27,7 +27,7 @@
 @transition: background @labelTransitionDuration @labelTransitionEasing;
 
 /* Group */
-@groupVerticalMargin: 0.75em;
+@groupVerticalMargin: 0.5em;
 @groupHorizontalMargin: 0.5em;
 
 

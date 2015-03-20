@@ -49,7 +49,6 @@ $.fn.dropdown = function(parameters) {
         $module         = $(this),
         $text           = $module.find(selector.text),
         $search         = $module.find(selector.search),
-        $labels         = $module.find(selector.labels),
         $input          = $module.find(selector.input),
 
         $combo = ($module.prev().find(selector.text).length > 0)
@@ -185,9 +184,6 @@ $.fn.dropdown = function(parameters) {
                 .insertBefore($text)
               ;
             }
-            if( module.is.multiple() && !module.has.labels()) {
-              $labels = $('<div />').addClass(className.labels).insertBefore($search);
-            }
             if(settings.allowTab) {
               module.set.tabbable();
             }
@@ -260,8 +256,6 @@ $.fn.dropdown = function(parameters) {
           ;
           $menu    = $module.children(selector.menu);
           $item    = $menu.find(selector.item);
-          // multiple
-          $labels  = $module.find(selector.labels);
         },
 
         toggle: function() {
@@ -456,7 +450,6 @@ $.fn.dropdown = function(parameters) {
             .not($results)
             .addClass(className.filtered)
           ;
-
           module.verbose('Selecting first non-filtered element');
           module.remove.selectedItem();
           $item
@@ -980,8 +973,8 @@ $.fn.dropdown = function(parameters) {
           },
           item: function(value, strict) {
             var
-              isMultiple    = module.is.multiple(),
-              $selectedItem = false
+              $selectedItem = false,
+              isMultiple
             ;
             value = (value !== undefined)
               ? value
@@ -989,7 +982,8 @@ $.fn.dropdown = function(parameters) {
                 ? module.get.value()
                 : module.get.text()
             ;
-            strict = (value === '' || value === 0)
+            isMultiple = (module.is.multiple() && $.isArray(value));
+            strict     = (value === '' || value === 0)
               ? true
               : strict || false
             ;
@@ -1001,36 +995,32 @@ $.fn.dropdown = function(parameters) {
                     optionText    = module.get.choiceText($choice),
                     optionValue   = module.get.choiceValue($choice, optionText)
                   ;
-                  if(strict) {
-                    module.verbose('Ambiguous dropdown value using strict type check', $choice, value);
-                    if( optionValue === value ) {
-                      $selectedItem = $(this);
-                      return true;
+                  if(isMultiple) {
+                    if($.inArray(optionValue, value) !== -1 || $.inArray(optionText, value) !== -1) {
+                      $selectedItem = ($selectedItem)
+                        ? $selectedItem.add($choice)
+                        : $choice
+                      ;
                     }
-                    else if( !$selectedItem && optionText === value ) {
-                      $selectedItem = $(this);
+                  }
+                  else if(strict) {
+                    module.verbose('Ambiguous dropdown value using strict type check', $choice, value);
+                    if( optionValue === value || optionText === value) {
+                      $selectedItem = $choice;
                       return true;
                     }
                   }
                   else {
-                    if( optionValue == value ) {
+                    if( optionValue == value || optionText == value) {
                       module.verbose('Found select item by value', optionValue, value);
-                      $selectedItem = $(this);
-                      return true;
-                    }
-                    else if( !$selectedItem && optionText == value ) {
-                      module.verbose('Found select item by text', optionText, value);
-                      $selectedItem = $(this);
+                      $selectedItem = $choice;
                       return true;
                     }
                   }
                 })
               ;
             }
-            else {
-              value = module.get.text();
-            }
-            return $selectedItem || false;
+            return $selectedItem;
           }
         },
 
@@ -1154,13 +1144,10 @@ $.fn.dropdown = function(parameters) {
               ? forceScroll
               : false
             ;
-
             if($item && hasActive) {
-
               if(!$menu.hasClass(className.visible)) {
                 $menu.addClass(className.loading);
               }
-
               menuHeight = $menu.height();
               itemHeight = $item.height();
               menuScroll = $menu.scrollTop();
@@ -1266,13 +1253,39 @@ $.fn.dropdown = function(parameters) {
               $selectedItem
                 .addClass(className.active)
                 .addClass(className.selected)
+                .each(function() {
+                  var
+                    $selected = $(this)
+                  ;
+                  selectedText  = module.get.choiceText($selected);
+                  selectedValue = module.get.choiceValue($selected, selectedText);
+                  if(module.is.multiple()) {
+                    module.add.label(selectedValue, selectedText);
+                  }
+                  else {
+                    module.set.text(selectedText);
+                  }
+                  module.set.value(selectedValue);
+                  settings.onChange.call(element, selectedValue, selectedText, $selected);
+                })
               ;
-              selectedText  = module.get.choiceText($selectedItem);
-              selectedValue = module.get.choiceValue($selectedItem, selectedText);
-              module.set.text(selectedText);
-              module.set.value(selectedValue);
-              settings.onChange.call(element, value, selectedText, $selectedItem);
             }
+          }
+        },
+
+        add: {
+          label: function(value, text) {
+            var
+              $label = $('<a />')
+                .addClass(className.label)
+                .data('value', value)
+                .html(text + '<i class="delete icon"></i>')
+            ;
+            if(settings.label.variation) {
+              $label.addClass(settings.label.variation);
+            }
+            module.debug('Adding selection label', $label);
+            $label.insertBefore($search);
           }
         },
 
@@ -1318,9 +1331,6 @@ $.fn.dropdown = function(parameters) {
         },
 
         has: {
-          labels: function() {
-            return ($labels.length > 0);
-          },
           search: function() {
             return ($search.length > 0);
           },
@@ -1775,6 +1785,10 @@ $.fn.dropdown.settings = {
   preserveHTML           : true,
   sortSelect             : false,
 
+  label: {
+    variation: false
+  },
+
   allowCategorySelection : false,
 
   delay                  : {
@@ -1819,7 +1833,6 @@ $.fn.dropdown.settings = {
     dropdown : '.ui.dropdown',
     input    : '> input[type="hidden"], > select',
     item     : '.item',
-    labels   : '> .labels',
     menu     : '.menu',
     menuIcon : '.dropdown.icon',
     search   : 'input.search, .menu > .search > input',
@@ -1832,7 +1845,7 @@ $.fn.dropdown.settings = {
     disabled    : 'disabled',
     dropdown    : 'ui dropdown',
     filtered    : 'filtered',
-    labels      : 'labels',
+    label       : 'ui label',
     loading     : 'loading',
     menu        : 'menu',
     multiple    : 'multiple',

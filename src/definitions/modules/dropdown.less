@@ -354,9 +354,6 @@ select.ui.dropdown {
   border: @selectBorder;
   visibility: @selectVisibility;
 }
-.ui.selection.dropdown > .text {
-  margin-right: @selectionTextIconDistance;
-}
 .ui.selection.dropdown > .search.icon,
 .ui.selection.dropdown > .delete.icon,
 .ui.selection.dropdown > .dropdown.icon {
@@ -594,28 +591,44 @@ select.ui.dropdown {
 ---------------*/
 
 /* Multiple Search Selection */
-.ui.multiple.dropdown > .labels {
+.ui.multiple.dropdown {
+  cursor: auto;
+  padding: @multipleSelectionTopPadding @multipleSelectionRightPadding @multipleSelectionBottomPadding @multipleSelectionLeftPadding;
+}
+
+/* Selection Label */
+.ui.multiple.dropdown > .label {
   display: inline-block;
   vertical-align: middle;
+  padding: @labelPadding;
+  margin: 0em @labelSpacing @labelSpacing 0em;
 }
 
-/* Search Selection */
-.ui.multiple.search.selection.dropdown > .labels {
-  margin: -@selectionVerticalPadding 0em;
-}
-.ui.multiple.search.selection.dropdown > input.search {
-  left: auto;
-  min-width: 200px;
-  padding-left: 0;
-}
-.ui.multiple.search.selection.dropdown > .labels + input.search,
-.ui.multiple.search.selection.dropdown > .labels ~ .text {
-  padding-left: 0.5em;
-}
-
-/* Don't Allow Repeat Selections */
-.ui.multiple.search.selection.dropdown .menu .active.item {
+/* Prompt Text */
+.ui.multiple.dropdown > .text {
   display: none;
+  position: absolute;
+  top: auto;
+  left: auto;
+}
+
+/* Input */
+.ui.multiple.selection.dropdown > input.search {
+  position: static;
+  padding: 0;
+  width: auto;
+  margin-top: @searchSelectionLineHeightOffset;
+  padding-top: @labelVerticalPadding;
+}
+.ui.multiple.selection.dropdown > .label + input.search {
+  margin-left: 0.5em;
+}
+
+
+/* Dropdown Icon */
+.ui.multiple.selection.dropdown .dropdown.icon {
+  padding: 0em;
+  margin: 0em;
 }
 
 

@@ -117,7 +117,8 @@
 @selectionItemDivider: 1px solid @borderColor;
 @selectionVerticalPadding: 0.8em;
 @selectionHorizontalPadding: 1.1em;
-@selectionPadding: @selectionVerticalPadding @selectionHorizontalPadding;
+@selectionIconDistance: 2em;
+@selectionPadding: @selectionVerticalPadding @selectionIconDistance @selectionVerticalPadding @selectionHorizontalPadding;
 @selectionZIndex: 10;
 
 /* <select> */
@@ -126,7 +127,6 @@
 @selectVisibility: visible;
 @selectHeight: 38px;
 
-@selectionTextIconDistance: 2em;
 @selectionTextColor: @textColor;
 
 @selectionTextUnderlayIconOpacity: @disabledOpacity;
@@ -202,6 +202,18 @@
 @searchTabletMaxMenuHeight: @selectionTabletMaxMenuHeight;
 @searchComputerMaxMenuHeight: @selectionComputerMaxMenuHeight;
 @searchWidescreenMaxMenuHeight: @selectionWidescreenMaxMenuHeight;
+
+/* Multiple */
+@labelVerticalPadding: 0.4285em;
+@labelHorizontalPadding: @relativeMini;
+@labelPadding: @labelVerticalPadding @labelHorizontalPadding;
+@labelSpacing: 0.21428em;
+
+@multipleSelectionTopPadding: (@selectionVerticalPadding - @labelVerticalPadding);
+@multipleSelectionRightPadding: @selectionIconDistance;
+@multipleSelectionBottomPadding: @selectionTopPadding - @labelSpacing;
+@multipleSelectionLeftPadding: (@selectionHorizontalPadding - @labelHorizontalPadding);
+@multipleSearchOffset: (@labelVerticalPadding - @searchSelectionLineHeightOffset);
 
 /* Inline */
 @inlineIconMargin: 0em 0.5em 0em 0.25em;
