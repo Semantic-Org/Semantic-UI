@@ -47,12 +47,8 @@
 **Bugs**
 - **All Modules** - Performance logging now delays 500ms instead of 100ms for console logging to ensure all logs are captured in one group
 - **All Modules/Transition** - Transitions no longer use `rotateZ(0deg)` to trigger GPU display of visible state. This causes issues with `transform` creating new stacking context that can disrupt `z-index`.
-- **Card** - Fix card dimmer not appearing in minified release due to use of background shorthand property
 - **Checkbox** - Fix `disabled checkbox` sometimes displaying hand cursor
 - **Checkbox** - Fixes nested `dropdown` inside `checkbox` causing issues
-- **Dimmer** - Fixed `variation` setting not working correctly
-- **Dropdown** - Fix bug where `onChange` would call even when reselecting current value
-- **Dropdown** - Fix bug where element will not blur on tab key when `search selection` and no selection made
 - **Dropdown** - Fixes issue with headers disappearing inside of `ui dropdown` when nested in `ui menu`
 - **Form** - Form sizes and input sizes now inherit from `site.variables`
 - **Grid** - `x column wide` inside `equal width/height` now cannot grow beyond column size
@@ -68,6 +64,22 @@
 - **Table** - `very basic table` now works together with `padded table`
 - **Table** - Fix inheritance of text alignment and vertical alignment
 - **Transition** - Fixed bug where transition could sometimes not occur when an element was determined to always be hidden
+
+### Version 1.11.5 - March 23, 2015
+
+This version backports several bugs that were being packed in `2.0` to `1.x`.
+2.0 will be coming in the next 1-2 weeks.
+
+**Bugs**
+- **Build Tools** - Adjusting site.variables will now rebuild all UI, instead of just site.less
+- **Build Tools** - LESS will now throw errors correctly in `watch`
+- **Card** - Fixes dimmer background shorthand property causes transparent dimmer in minified version
+- **Dimmer** - Fixed `variation` setting not working correctly
+- **Dropdown** - `onChange` no longer fires when reselecting same value
+- **Dropdown** - Fix bug where element will not blur on tab key when search selection and no selection made
+- **Dropdown** - Dropdown init on `select` now returns `ui dropdown` created for chaining
+- **Dropdown** - Dropdown `focus` color has been adjusted to match forms more closely
+- **Dropdown** - Fixes IE10 scrollbar width in menu (calc was being precompiled in LESS) **Thanks @gabormeszoly**
 
 ### Version 1.11.3-4 - March 6, 2015
 
