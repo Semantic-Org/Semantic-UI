@@ -731,6 +731,10 @@ $.fn.dropdown = function(parameters) {
                 ;
                 if(pressedKey == keys.delimiter) {
                   // tokenize on comma
+                  if(module.is.visible()) {
+                    module.event.item.click.call($selectedItem, event);
+                    event.preventDefault();
+                  }
                 }
                 else if(pressedKey == keys.leftArrow) {
                   // activate previous label
@@ -986,16 +990,10 @@ $.fn.dropdown = function(parameters) {
               return range.text.length - rangeLength;
             }
           },
-          keyCode: function(letter) {
-            return (typeof letter == 'string')
-              ? letter.charCodeAt(0)
-              : false
-            ;
-          },
           shortcutKeys: function() {
             return {
               backspace  : 8,
-              delimiter  : module.get.keyCode(settings.delimiter),
+              delimiter  : 188, // comma
               deleteKey  : 46,
               enter      : 13,
               escape     : 27,
