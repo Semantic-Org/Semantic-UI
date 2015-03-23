@@ -51,6 +51,7 @@ $.fn.dropdown = function(parameters) {
         $text           = $module.find(selector.text),
         $search         = $module.find(selector.search),
         $input          = $module.find(selector.input),
+        $icon           = $module.find(selector.icon),
 
         $combo = ($module.prev().find(selector.text).length > 0)
           ? $module.prev().find(selector.text)
@@ -251,6 +252,7 @@ $.fn.dropdown = function(parameters) {
           $text   = $module.find(selector.text);
           $search = $module.find(selector.search);
           $input  = $module.find(selector.input);
+          $icon   = $module.find(selector.icon);
           $combo  = ($module.prev().find(selector.text).length > 0)
             ? $module.prev().find(selector.text)
             : $module.prev()
@@ -513,8 +515,11 @@ $.fn.dropdown = function(parameters) {
 
         event: {
           click: function(event) {
+            var
+              $target = $(event.target)
+            ;
             // focus search
-            if($(event.target).is($module) && !(document.activeElement === $search[0])) {
+            if(($target.is($module) || $target.is($icon)) && !(document.activeElement === $search[0])) {
               $search.focus();
             }
           },
@@ -2069,6 +2074,7 @@ $.fn.dropdown.settings = {
 
   selector : {
     dropdown : '.ui.dropdown',
+    icon     : '> .dropdown.icon',
     input    : '> input[type="hidden"], > select',
     item     : '.item',
     label    : '> .label',
