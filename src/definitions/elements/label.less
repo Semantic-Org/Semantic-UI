@@ -93,7 +93,8 @@ a.ui.label {
   cursor: pointer;
   margin-right: 0em;
   margin-left: @deleteMargin;
-  opacity: @linkOpacity;
+  font-size: @deleteSize;
+  opacity: @deleteOpacity;
   transition: @deleteTransition;
 }
 .ui.label .delete.icon:hover {
@@ -471,6 +472,43 @@ a.ui.label:hover:before {
   background-image: @labelHoverBackgroundImage;
   color: @labelHoverTextColor;
 }
+
+/*-------------------
+        Active
+--------------------*/
+
+.ui.active.label {
+  background-color: @labelActiveBackgroundColor;
+  border-color: @labelActiveBackgroundColor;
+
+  background-image: @labelActiveBackgroundImage;
+  color: @labelActiveTextColor;
+}
+.ui.active.label:before {
+  background-color: @labelActiveBackgroundColor;
+  background-image: @labelActiveBackgroundImage;
+  color: @labelActiveTextColor;
+}
+
+/*-------------------
+     Active Hover
+--------------------*/
+
+a.ui.labels .active.label:hover,
+a.ui.active.label:hover {
+  background-color: @labelActiveHoverBackgroundColor;
+  border-color: @labelActiveHoverBackgroundColor;
+
+  background-image: @labelActiveHoverBackgroundImage;
+  color: @labelActiveHoverTextColor;
+}
+.ui.labels a.active.label:ActiveHover:before,
+a.ui.active.label:ActiveHover:before {
+  background-color: @labelActiveHoverBackgroundColor;
+  background-image: @labelActiveHoverBackgroundImage;
+  color: @labelActiveHoverTextColor;
+}
+
 
 /*-------------------
       Visible

@@ -35,7 +35,7 @@
         Parts
 --------------------*/
 
-@linkOpacity: 0.8;
+@linkOpacity: 0.5;
 @linkTransition: @labelTransitionDuration opacity @labelTransitionEasing;
 
 @iconDistance: 0.75em;
@@ -45,6 +45,8 @@
 @detailIconDistance: 0.25em;
 @detailMargin: 1em;
 
+@deleteOpacity: @linkOpacity;
+@deleteSize: @relativeSmall;
 @deleteMargin: 0.5em;
 @deleteTransition: background @labelTransitionDuration @labelTransitionEasing;
 
@@ -78,12 +80,23 @@
 @labelHoverBackgroundImage: none;
 @labelHoverTextColor: @hoveredTextColor;
 
+/* Hover */
+@labelActiveBackgroundColor: #D0D0D0;
+@labelActiveBackgroundImage: none;
+@labelActiveTextColor: @selectedTextColor;
+
+/* Active Hover */
+@labelActiveHoverBackgroundColor: #C8C8C8;
+@labelActiveHoverBackgroundImage: none;
+@labelActiveHoverTextColor: @selectedTextColor;
+
+
 /*-------------------
       Variations
 --------------------*/
 
 /* Tag */
-@tagCircleColor: #FFFFFF;
+@tagCircleColor: @white;
 @tagCircleSize: 0.5em;
 @tagHorizontalPadding: 1.5em;
 @tagCircleBoxShadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.3);

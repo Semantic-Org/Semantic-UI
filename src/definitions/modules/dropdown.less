@@ -599,19 +599,17 @@ select.ui.dropdown {
 }
 
 /* Multiple Search Selection */
-.ui.multiple.search.dropdown {
+.ui.multiple.search.dropdown,
+.ui.multiple.search.dropdown > input.search {
   cursor: text;
 }
 
 /* Selection Label */
 .ui.multiple.dropdown > .label {
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: baseline;
   padding: @labelPadding;
   margin: (@labelVerticalSpacing / 2) @labelHorizontalSpacing (@labelVerticalSpacing / 2) 0em;
-}
-.ui.multiple.dropdown > .label .delete {
-  opacity: 0.4;
 }
 
 /* Prompt Text */
@@ -626,7 +624,8 @@ select.ui.dropdown {
 .ui.multiple.selection.dropdown > input.search {
   position: static;
   padding: 0;
-  width: 5em;
+  width: @multipleSelectionSearchWidth;
+  max-width: 100%;
   margin: @multipleSelectionSearchMargin;
 }
 

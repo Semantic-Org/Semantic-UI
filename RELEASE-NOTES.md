@@ -15,6 +15,7 @@
 - **Grid** - `equal height` and `equal width` now work without `row` wrappers
 - **Grid** - `equal height` rows can now be `stretched` as well as `middle aligned`, `bottom aligned` and `top aligned`!
 - **Headers** - Added new header type `sub header`, useful for displaying small headers alongside text content. See examples [in the header docs](http://www.semantic-ui.com/elements/header.html#sub-headers)
+- **Label** - Labels now have `active` and `active hover` states
 - **Menu** - Added `stackable` menu variation for simple responsive menus
 - **Menu** - Added many new variables to menu
 - **Menu** - Fixed several inheritance issues for `dropdown item` inside `menu` appearing as `menu item`.

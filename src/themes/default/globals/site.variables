@@ -386,6 +386,9 @@
 /* Rendered Scrollbar Width */
 @scrollBarWidth: 15px;
 
+/* Maximum Single Character Glyph Width, aka Capital "W" */
+@glyphWidth: 1.1em;
+
 /* Used to match floats with text */
 @lineHeightOffset       : ((@lineHeight - 1em) / 2);
 @headerLineHeightOffset : (@headerLineHeight - 1em) / 2;

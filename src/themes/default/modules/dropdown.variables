@@ -220,6 +220,7 @@
 @multipleSelectionLeftPadding: (@selectionHorizontalPadding - @labelHorizontalPadding);
 
 @multipleSelectionSearchMargin: 0.4em 0em 0.4em 0.5em;
+@multipleSelectionSearchWidth: (@glyphWidth * 2);
 
 /* Inline */
 @inlineIconMargin: 0em 0.5em 0em 0.25em;
