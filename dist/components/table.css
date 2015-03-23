@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.4 - Table
+ * # Semantic UI 1.11.5 - Table
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -166,7 +166,7 @@
     background: none;
     border: none !important;
     padding: 0.25em 0.75em;
-    box-shadow: none;
+    box-shadow: none !important;
   }
   .ui.table:not(.unstackable) th:first-child,
   .ui.table:not(.unstackable) td:first-child {
@@ -175,7 +175,7 @@
   }
   .ui.table:not(.unstackable) th:last-child,
   .ui.table:not(.unstackable) td:last-child {
-    box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset !important;
     padding-bottom: 1em;
   }
   
@@ -436,7 +436,7 @@
     background: none;
     border: none !important;
     padding: 0.25em 0.75em;
-    box-shadow: none;
+    box-shadow: none !important;
   }
   .ui[class*="tablet stackable"].table th:first-child,
   .ui[class*="tablet stackable"].table td:first-child {
@@ -445,7 +445,7 @@
   }
   .ui[class*="tablet stackable"].table th:last-child,
   .ui[class*="tablet stackable"].table td:last-child {
-    box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset !important;
     padding-bottom: 1em;
   }
   

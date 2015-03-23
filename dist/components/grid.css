@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.4 - Grid
+ * # Semantic UI 1.11.5 - Grid
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -1256,13 +1256,18 @@
           justify-content: flex-start !important;
 }
 .ui.stretched.grid > .row > .column,
-.ui.stretched.grid > .column,
+.ui.stretched.grid > .column:not(.row),
 .ui.grid .stretched.column,
 .ui.grid > .stretched.row > .column {
   display: -webkit-box !important;
   display: -webkit-flex !important;
   display: -ms-flexbox !important;
   display: flex !important;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 .ui.stretched.grid > .row > .column > *,
 .ui.stretched.grid > .column > *,
@@ -1441,24 +1446,14 @@
   table-layout: fixed;
   width: 100% !important;
 }
-.ui[class*="equal width"].grid > .column,
+.ui[class*="equal width"].grid > .column:not(.row),
 .ui[class*="equal width"].grid > .row > .column,
 .ui.grid > [class*="equal width"].row > .column {
   display: table-cell;
 }
 
 /* Flexbox (Experimental / Overrides Where Supported) */
-.ui[class*="equal width"].grid {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
+.ui[class*="equal width"].grid,
 .ui[class*="equal width"].grid > .row,
 .ui.grid > [class*="equal width"].row {
   display: -webkit-box;
@@ -1470,16 +1465,14 @@
   -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
 }
-.ui[class*="equal width"].grid > .column,
+.ui[class*="equal width"].grid > .column:not(.row),
 .ui[class*="equal width"].grid > .row > .column,
 .ui.grid > [class*="equal width"].row > .column {
   display: block;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
@@ -1500,24 +1493,14 @@
   table-layout: fixed;
   width: 100% !important;
 }
-.ui[class*="equal height"].grid > .column,
+.ui[class*="equal height"].grid > .column:not(.row),
 .ui[class*="equal height"].grid > .row > .column,
 .ui.grid > [class*="equal height"].row > .column {
   display: table-cell;
 }
 
 /* Flexbox (Experimental / Overrides Where Supported) */
-.ui[class*="equal height"].grid {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
+.ui[class*="equal height"].grid,
 .ui[class*="equal height"].grid > .row,
 .ui.grid > [class*="equal height"].row {
   display: -webkit-box;
@@ -1529,8 +1512,11 @@
   -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
 }
-.ui[class*="equal height"].grid > .column,
+.ui[class*="equal height"].grid > .column:not(.row),
 .ui[class*="equal height"].grid > .row > .column,
 .ui.grid > [class*="equal height"].row > .column {
   display: block;

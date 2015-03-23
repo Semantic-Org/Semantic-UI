@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.11.4
+ * # Semantic UI - 1.11.5
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -9,7 +9,7 @@
  *
  */
 /*!
- * # Semantic UI 1.11.4 - Site
+ * # Semantic UI 1.11.5 - Site
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -496,7 +496,7 @@ $.extend($.expr[ ":" ], {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 1.11.4 - Form Validation
+ * # Semantic UI 1.11.5 - Form Validation
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -1615,7 +1615,7 @@ $.fn.form.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.11.4 - Accordion
+ * # Semantic UI 1.11.5 - Accordion
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -2194,7 +2194,7 @@ $.extend( $.easing, {
 
 
 /*!
- * # Semantic UI 1.11.4 - Checkbox
+ * # Semantic UI 1.11.5 - Checkbox
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -2704,7 +2704,7 @@ $.fn.checkbox.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.11.4 - Dimmer
+ * # Semantic UI 1.11.5 - Dimmer
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -2859,7 +2859,7 @@ $.fn.dimmer = function(parameters) {
           ;
           if(settings.variation) {
             module.debug('Creating dimmer with variation', settings.variation);
-            $element.addClass(className.variation);
+            $element.addClass(settings.variation);
           }
           if(settings.dimmerName) {
             module.debug('Creating named dimmer', settings.dimmerName);
@@ -3373,7 +3373,7 @@ $.fn.dimmer.settings = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 1.11.4 - Dropdown
+ * # Semantic UI 1.11.5 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -3405,7 +3405,7 @@ $.fn.dropdown = function(parameters) {
   ;
 
   $allModules
-    .each(function(index) {
+    .each(function() {
       var
         settings          = ( $.isPlainObject(parameters) )
           ? $.extend(true, {}, $.fn.dropdown.settings, parameters)
@@ -3584,16 +3584,17 @@ $.fn.dropdown = function(parameters) {
                 .prependTo($module)
               ;
             }
-            module.setup.reference();
+            module.refresh();
           },
           reference: function() {
             var
+              index = $allModules.index($module),
               $firstModules,
               $lastModules
             ;
             module.debug('Dropdown behavior was called on select, replacing with closest dropdown');
             // replace module reference
-            $module = $module.closest(selector.dropdown);
+            $module = $module.parent(selector.dropdown);
             module.refresh();
             // adjust all modules
             $firstModules = $allModules.slice(0, index);
@@ -3844,6 +3845,9 @@ $.fn.dropdown = function(parameters) {
           if(hasSelected) {
             module.event.item.click.call($selectedItem);
             module.remove.filteredItem();
+          }
+          else {
+            module.hide();
           }
         },
 
@@ -4338,19 +4342,23 @@ $.fn.dropdown = function(parameters) {
                     module.verbose('Ambiguous dropdown value using strict type check', $choice, value);
                     if( optionValue === value ) {
                       $selectedItem = $(this);
+                      return true;
                     }
                     else if( !$selectedItem && optionText === value ) {
                       $selectedItem = $(this);
+                      return true;
                     }
                   }
                   else {
                     if( optionValue == value ) {
                       module.verbose('Found select item by value', optionValue, value);
                       $selectedItem = $(this);
+                      return true;
                     }
                     else if( !$selectedItem && optionText == value ) {
                       module.verbose('Found select item by text', optionText, value);
                       $selectedItem = $(this);
+                      return true;
                     }
                   }
                 })
@@ -4553,7 +4561,7 @@ $.fn.dropdown = function(parameters) {
               selectedText,
               selectedValue
             ;
-            if($selectedItem) {
+            if($selectedItem && !$selectedItem.hasClass(className.active) ) {
               module.debug('Setting selected menu item to', $selectedItem);
               module.remove.activeItem();
               module.remove.selectedItem();
@@ -4933,7 +4941,7 @@ $.fn.dropdown = function(parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -5169,7 +5177,7 @@ $.extend( $.easing, {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.11.4 - Modal
+ * # Semantic UI 1.11.5 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -6030,7 +6038,7 @@ $.fn.modal.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.11.4 - Nag
+ * # Semantic UI 1.11.5 - Nag
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -6508,7 +6516,7 @@ $.fn.nag.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.11.4 - Popup
+ * # Semantic UI 1.11.5 - Popup
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -7733,7 +7741,7 @@ $.extend( $.easing, {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.11.4 - Progress
+ * # Semantic UI 1.11.5 - Progress
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -8518,7 +8526,7 @@ $.fn.progress.settings = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 1.11.4 - Rating
+ * # Semantic UI 1.11.5 - Rating
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -8970,7 +8978,7 @@ $.fn.rating.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.11.4 - Search
+ * # Semantic UI 1.11.5 - Search
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -10067,7 +10075,7 @@ $.fn.search.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.11.4 - Shape
+ * # Semantic UI 1.11.5 - Shape
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -10897,7 +10905,7 @@ $.fn.shape.settings = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 1.11.4 - Sidebar
+ * # Semantic UI 1.11.5 - Sidebar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -11987,7 +11995,7 @@ $.extend( $.easing, {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.11.4 - Sticky
+ * # Semantic UI 1.11.5 - Sticky
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -12780,7 +12788,7 @@ $.fn.sticky.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.11.4 - Tab
+ * # Semantic UI 1.11.5 - Tab
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -13582,7 +13590,7 @@ $.fn.tab.settings = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 1.11.4 - Transition
+ * # Semantic UI 1.11.5 - Transition
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -14621,7 +14629,7 @@ $.fn.transition.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.11.4 - Video
+ * # Semantic UI 1.11.5 - Video
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -15162,7 +15170,7 @@ $.fn.video.settings.templates = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.11.4 - API
+ * # Semantic UI 1.11.5 - API
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -16033,7 +16041,7 @@ $.api.settings.api = {};
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 1.11.4 - Form Validation
+ * # Semantic UI 1.11.5 - Form Validation
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -17152,7 +17160,7 @@ $.fn.form.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.11.4 - State
+ * # Semantic UI 1.11.5 - State
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -17848,7 +17856,7 @@ $.fn.state.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 1.11.4 - Visibility
+ * # Semantic UI 1.11.5 - Visibility
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -17893,7 +17901,7 @@ $.fn.visibility = function(parameters) {
         $window         = $(window),
         $module         = $(this),
         $context        = $(settings.context),
-        $container      = $module.offsetParent(),
+        $images         = $module.find('img'),
 
         selector        = $module.selector || '',
         instance        = $module.data(moduleNamespace),
@@ -17979,6 +17987,38 @@ $.fn.visibility = function(parameters) {
             $context
               .on('scroll' + eventNamespace, module.event.scroll)
             ;
+            if($images.length > 0) {
+              module.bind.imageLoad();
+            }
+          },
+          imageLoad: function() {
+            var
+              imageCount    = $images.length,
+              index         = imageCount,
+              loadedCount   = 0,
+              images        = [],
+              cache         = [],
+              cacheImage    = document.createElement('img'),
+              handleLoad    = function() {
+                loadedCount++;
+                if(loadedCount >= imageCount) {
+                  module.debug('Images finished loading inside element, refreshing position');
+                  module.refresh();
+                }
+              }
+            ;
+            $images
+              .each(function() {
+                images.push( $(this).attr('src') );
+              })
+            ;
+            while(index--) {
+              cacheImage         = document.createElement('img');
+              cacheImage.onload  = handleLoad;
+              cacheImage.onerror = handleLoad;
+              cacheImage.src     = images[index];
+              cache.push(cacheImage);
+            }
           }
         },
 
@@ -17999,33 +18039,6 @@ $.fn.visibility = function(parameters) {
                 module.checkVisibility();
               });
             }
-          }
-        },
-
-        precache: function(images, callback) {
-          if (!(images instanceof Array)) {
-            images = [images];
-          }
-          var
-            imagesLength  = images.length,
-            loadedCounter = 0,
-            cache         = [],
-            cacheImage    = document.createElement('img'),
-            handleLoad    = function() {
-              loadedCounter++;
-              if (loadedCounter >= images.length) {
-                if ($.isFunction(callback)) {
-                  callback();
-                }
-              }
-            }
-          ;
-          while (imagesLength--) {
-            cacheImage         = document.createElement('img');
-            cacheImage.onload  = handleLoad;
-            cacheImage.onerror = handleLoad;
-            cacheImage.src     = images[imagesLength];
-            cache.push(cacheImage);
           }
         },
 

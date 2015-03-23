@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.4 - Dropdown
+ * # Semantic UI 1.11.5 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -79,7 +79,7 @@
 .ui.dropdown .menu > .item .dropdown.icon {
   width: auto;
   float: right;
-  margin: 0.2em 0em 0em 1em;
+  margin: 0em 0em 0em 1em;
 }
 .ui.dropdown .menu > .item .dropdown.icon + .text {
   margin-right: 1em;
@@ -106,9 +106,9 @@
   border: none;
   height: auto;
   border-top: none;
-  line-height: 1.2em;
+  line-height: 1em;
   color: rgba(0, 0, 0, 0.8);
-  padding: 0.65rem 1.25rem !important;
+  padding: 0.71428571em 1.14285714em !important;
   font-size: 1rem;
   text-transform: none;
   font-weight: normal;
@@ -139,7 +139,7 @@
 .ui.dropdown .menu .item > .flag.floated,
 .ui.dropdown .menu .item > .image.floated,
 .ui.dropdown .menu .item > img.floated {
-  margin-top: 0.2em;
+  margin-top: 0em;
 }
 
 /*--------------
@@ -148,7 +148,7 @@
 
 .ui.dropdown .menu > .header {
   margin: 1rem 0rem 0.75rem;
-  padding: 0em 1.25rem;
+  padding: 0em 1.14285714em;
   color: rgba(0, 0, 0, 0.85);
   font-size: 0.8em;
   font-weight: bold;
@@ -160,7 +160,7 @@
   margin: 0.5em 0em;
 }
 .ui.dropdown .menu > .input {
-  margin: 0.75rem 1.25rem;
+  margin: 0.75rem 1.14285714em;
   min-width: 200px;
 }
 .ui.dropdown .menu > .header + .input {
@@ -228,7 +228,7 @@
 .ui.dropdown .menu > .item > .flag,
 .ui.dropdown .menu > .item > .image,
 .ui.dropdown .menu > .item > img {
-  margin-top: 0.2em;
+  margin-top: 0em;
 }
 .ui.dropdown > .text > .icon,
 .ui.dropdown > .text > .label,
@@ -241,6 +241,7 @@
 .ui.dropdown .menu > .item > .image,
 .ui.dropdown .menu > .item > img {
   margin-left: 0em;
+  float: none;
   margin-right: 0.75em;
 }
 
@@ -385,28 +386,28 @@ select.ui.dropdown {
 /* Scrollbar in IE */
 @media all and (-ms-high-contrast: none) {
   .ui.selection.dropdown .menu {
-    min-width: -webkit-calc(85%);
-    min-width: calc(85%);
+    min-width: -webkit-calc(100% -  15px );
+    min-width: calc(100% -  15px );
   }
 }
 @media only screen and (max-width: 767px) {
   .ui.selection.dropdown .menu {
-    max-height: 7.7142rem;
+    max-height: 7.49991429em;
   }
 }
 @media only screen and (min-width: 768px) {
   .ui.selection.dropdown .menu {
-    max-height: 10.2856rem;
+    max-height: 9.99988571em;
   }
 }
 @media only screen and (min-width: 992px) {
   .ui.selection.dropdown .menu {
-    max-height: 15.4284rem;
+    max-height: 14.99982857em;
   }
 }
 @media only screen and (min-width: 1920px) {
   .ui.selection.dropdown .menu {
-    max-height: 20.5712rem;
+    max-height: 19.99977143em;
   }
 }
 
@@ -416,8 +417,8 @@ select.ui.dropdown {
   padding-left: 1.1em !important;
   
 /* Add in spacing for scroll bar */
-  padding-right: -webkit-calc(2.1em) !important;
-  padding-right: calc(2.1em) !important;
+  padding-right: -webkit-calc( 1.1em  + 1em) !important~;
+  padding-right: calc( 1.1em  + 1em) !important~;
   white-space: normal;
   word-wrap: normal;
 }
@@ -438,20 +439,24 @@ select.ui.dropdown {
   opacity: 0.3 !important;
 }
 
+/* Visible */
+.ui.selection.dropdown.visible {
+  border-color: rgba(39, 41, 43, 0.3);
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
+}
+.ui.selection.visible.dropdown .menu {
+  border-color: rgba(39, 41, 43, 0.3);
+  box-shadow: 0px 2px 6px 0px rgba(39, 41, 43, 0.15);
+}
+
 /* Visible Hover */
 .ui.selection.visible.dropdown:hover {
   border-color: rgba(39, 41, 43, 0.3);
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
 }
-.ui.selection.visible.dropdown:hover .menu {
-  border: 1px solid rgba(39, 41, 43, 0.3);
-  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.1);
-}
-
-/* Visible */
-.ui.selection.dropdown.visible {
-  border-color: rgba(39, 41, 43, 0.15);
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
+.ui.selection.visible.dropdown .menu {
+  border-color: rgba(39, 41, 43, 0.3);
+  box-shadow: 0px 2px 6px 0px rgba(39, 41, 43, 0.15);
 }
 
 /* Active Item */
@@ -540,22 +545,22 @@ select.ui.dropdown {
 }
 @media only screen and (max-width: 767px) {
   .ui.search.dropdown .menu {
-    max-height: 7.7142rem;
+    max-height: 7.49991429em;
   }
 }
 @media only screen and (min-width: 768px) {
   .ui.search.dropdown .menu {
-    max-height: 10.2856rem;
+    max-height: 9.99988571em;
   }
 }
 @media only screen and (min-width: 992px) {
   .ui.search.dropdown .menu {
-    max-height: 15.4284rem;
+    max-height: 14.99982857em;
   }
 }
 @media only screen and (min-width: 1920px) {
   .ui.search.dropdown .menu {
-    max-height: 20.5712rem;
+    max-height: 19.99977143em;
   }
 }
 
@@ -596,7 +601,7 @@ select.ui.dropdown {
 .ui.dropdown .menu > .item:hover {
   background: rgba(0, 0, 0, 0.05);
   color: rgba(0, 0, 0, 0.8);
-  z-index: 12;
+  z-index: 13;
 }
 
 /*--------------------
@@ -662,7 +667,7 @@ select.ui.dropdown {
   visibility: hidden;
 }
 .ui.dropdown .filtered.item {
-  display: none;
+  display: none !important;
 }
 
 /*--------------------
@@ -744,13 +749,13 @@ select.ui.dropdown {
 .ui.dropdown .left.menu .item .dropdown.icon {
   width: auto;
   float: left;
-  margin: 0.2em 0.75em 0em 0em;
+  margin: 0em 0.75em 0em 0em;
 }
 .ui.dropdown .item .left.dropdown.icon,
 .ui.dropdown .left.menu .item .dropdown.icon {
   width: auto;
   float: left;
-  margin: 0.2em 0.75em 0em 0em;
+  margin: 0em 0.75em 0em 0em;
 }
 .ui.dropdown .item .left.dropdown.icon + .text,
 .ui.dropdown .left.menu .item .dropdown.icon + .text {

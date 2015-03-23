@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.4 - Item
+ * # Semantic UI 1.11.5 - Item
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -333,7 +333,7 @@
 
 .ui.cards > .card .dimmer,
 .ui.card .dimmer {
-  background: '';
+  background-color: '';
   z-index: 10;
 }
 

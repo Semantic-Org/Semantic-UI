@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.4 - Rail
+ * # Semantic UI 1.11.5 - Rail
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -7,4 +7,4 @@
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
- */.ui.rail{position:absolute;top:0;width:300px;height:100%;box-sizing:content-box}.ui.left.rail{left:auto;right:100%;padding:0 2rem 0 0;margin:0 2rem 0 0}.ui.right.rail{left:100%;right:auto;padding:0 0 0 2rem;margin:0 0 0 2rem}.ui.left.internal.rail{left:0;right:auto;padding:0 0 0 2rem;margin:0 0 0 2rem}.ui.right.internal.rail{left:auto;right:0;padding:0 2rem 0 0;margin:0 2rem 0 0}.ui.left.dividing.rail{padding:0 2.5rem 0 0;margin:0 2.5rem 0 0;border-right:1px solid rgba(39,41,43,.15)}.ui.right.dividing.rail{border-left:1px solid rgba(39,41,43,.15);padding:0 0 0 2.5rem;margin:0 0 0 2.5rem}.ui.close.left.rail{padding:0 1em 0 0;margin:0 1em 0 0}.ui.close.right.rail{padding:0 0 0 1em;margin:0 0 0 1em}.ui.very.close.left.rail{padding:0 .5em 0 0;margin:0 .5em 0 0}.ui.very.close.right.rail{padding:0 0 0 .5em;margin:0 0 0 .5em}.ui.attached.left.rail,.ui.attached.right.rail{padding:0;margin:0}.ui.rail{font-size:1em}
+ */.ui.rail{position:absolute;top:0;width:300px;height:100%;box-sizing:content-box;font-size:1em}.ui.left.rail{left:auto;right:100%;padding:0 2rem 0 0;margin:0 2rem 0 0}.ui.right.rail{left:100%;right:auto;padding:0 0 0 2rem;margin:0 0 0 2rem}.ui.left.internal.rail{left:0;right:auto;padding:0 0 0 2rem;margin:0 0 0 2rem}.ui.right.internal.rail{left:auto;right:0;padding:0 2rem 0 0;margin:0 2rem 0 0}.ui.left.dividing.rail{padding:0 2.5rem 0 0;margin:0 2.5rem 0 0;border-right:1px solid rgba(39,41,43,.15)}.ui.right.dividing.rail{border-left:1px solid rgba(39,41,43,.15);padding:0 0 0 2.5rem;margin:0 0 0 2.5rem}.ui.close.left.rail{padding:0 1em 0 0;margin:0 1em 0 0}.ui.close.right.rail{padding:0 0 0 1em;margin:0 0 0 1em}.ui.very.close.left.rail{padding:0 .5em 0 0;margin:0 .5em 0 0}.ui.very.close.right.rail{padding:0 0 0 .5em;margin:0 0 0 .5em}.ui.attached.left.rail,.ui.attached.right.rail{padding:0;margin:0}

@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.4 - Header
+ * # Semantic UI 1.11.5 - Header
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -111,7 +111,7 @@
 ---------------*/
 
 .ui.header .ui.label {
-  font-size: 1.28em;
+  font-size: '';
   margin: 0em 0em 0em 0.5rem;
   vertical-align: middle;
 }

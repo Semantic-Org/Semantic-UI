@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.4 - Button
+ * # Semantic UI 1.11.5 - Button
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -89,7 +89,7 @@
   background-color: #cccccc;
   background-image: '';
   color: rgba(0, 0, 0, 0.8);
-  box-shadow: 0px 0px 0px 1px transparent inset, 0px 1px 4px 0px rgba(39, 41, 43, 0.15) inset;
+  box-shadow: 0px 0px 0px 1px transparent inset, 0px 1px 4px 0px rgba(39, 41, 43, 0.15) inset !important;
 }
 
 /*--------------
