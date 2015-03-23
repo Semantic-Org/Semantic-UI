@@ -100,13 +100,13 @@ module.exports = function(callback) {
       ---------------*/
 
       // recompile on *.override , *.variable change
-      isConfig        = (file.path.indexOf('theme.config') !== -1);
+      isConfig        = (file.path.indexOf('theme.config') !== -1 || file.path.indexOf('site.variables') !== -1);
       isPackagedTheme = (file.path.indexOf(source.themes) !== -1);
       isSiteTheme     = (file.path.indexOf(source.site) !== -1);
       isDefinition    = (file.path.indexOf(source.definitions) !== -1);
 
       if(isConfig) {
-        console.info('Change detected in theme config');
+        console.info('Rebuilding all UI');
         // impossible to tell which file was updated in theme.config, rebuild all
         gulp.start('build');
         return;
