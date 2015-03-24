@@ -49,6 +49,14 @@
     margin-top: 10em;
   }
 
+  img {
+    display: block;
+    max-width: 100%;
+  }
+  img + img {
+    margin-top: 0.5em;
+  }
+
   /* Shows content box (not negative margins) */
   .grid {
     position: relative;
@@ -67,8 +75,8 @@
   .celled.grid:before {
     display: none;
   }
-  .ui.aligned .column:before {
-    display: none;
+  .ui.aligned .column:after {
+    display: none !important;
   }
   .grid .column:not(.row):not(.grid):after {
     background-color: rgba(86,61,124,.15);
@@ -83,8 +91,6 @@
 <body>
   <div class="ui text container">
       <h1 class="ui inverted block header">Top Level Grids</h1>
-
-      <p>There are two ways to lay out page content inside a grid. Each has its own benefits and drawbacks</p>
 
       <h3 class="first">Page Grid</h3>
       <p>A <code>ui page grid</code> uses <code>padding</code> to maintain fluid page gutters. Each columns width will continuously adjust as your browser width changes to maintain the same percentage of overall browser width</p>
@@ -162,7 +168,7 @@
         <div class="four wide column"></div>
       </div>
 
-      <h3 class="first">Clearing Rows</h3>
+      <h3>Clearing Rows</h3>
       <p>Adding row wrappers allow you to manually specify you want a new row to begin. This can be useful when centering content with a  <code>ui centered grid</code>.</p>
 
       <div class="ui centered grid">
@@ -179,7 +185,7 @@
       </div>
 
 
-      <h3 class="first">Special Variations</h3>
+      <h3>Special Variations</h3>
       <p>Some special variations that format grids like tables require you to specify rows. For example a <code>divided grid</code> or a <code>celled grid</code> requires row wrappers.</p>
 
       <div class="ui horizontal section divider">Celled Grid</div>
@@ -253,7 +259,7 @@
       <h1 class="ui inverted block header">Adjusting Grids</h1>
 
 
-      <h3 class="ui header">Centering Content</h3>
+      <h3>Centering Content</h3>
       <p>If a row does not take up all sixteen grid columns, you can use a <code>ui centered grid</code>, <code>centered row</code>, or <code>centered column</code> to center the column contents inside the grid.
       </p>
       <div class="ui two column centered grid">
@@ -264,7 +270,7 @@
         </div>
       </div>
 
-      <h3 class="ui header">Floating Rows</h3>
+      <h3>Floating Rows</h3>
       <p>Since Semantic UI's grid is based on flex box, a <code>left floated</code> item should come first, and a <code>right floated</code> item last in its row.</p>
 
       <div class="ui grid">
@@ -281,7 +287,7 @@
       </div>
 
 
-      <h3 class="ui header">Text Alignment</h3>
+      <h3>Text Alignment</h3>
       <p>You can specify text alignment using alignment variations on a grid, row, or column level.</p>
 
       <div class="ui grid">
@@ -304,7 +310,7 @@
         </div>
       </div>
 
-      <h3 class="ui header">Vertical Alignment</h3>
+      <h3>Vertical Alignment</h3>
       <p>You can specify vertical alignment on a grid, row, or column level.</p>
       <div class="ui middle aligned four column centered grid">
         <div class="row">
@@ -321,8 +327,7 @@
         </div>
       </div>
 
-
-      <h3 class="first">Specifying Columns</h3>
+      <h3 class="first">Specifying Column Count</h3>
       <p>Specifying a column count will divide columns into rows of predetermined column count. Additional columns will automatically flow to the next row.</p>
       <div class="ui three column grid">
         <div class="column">column</div>
@@ -349,8 +354,7 @@
         </div>
       </div>
 
-      <h3>Specifying Column Width</h3>
-      <p>Get three columns <strong>starting at desktops and scaling to large desktops</strong> of various widths Remember, grid columns should add up to sixteen for a single horizontal block More than that, and columns start stacking no matter the viewport</p>
+      <h3>Individual Column Width</h3>
       <div class="ui three column grid">
         <div class="four wide column">four wide column</div>
         <div class="eight wide column">eight wide column</div>

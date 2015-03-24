@@ -16143,10 +16143,9 @@ body > .ui.grid {
   -ms-flex-direction: column;
   flex-direction: column;
   vertical-align: top;
-  -webkit-box-pack: start !important;
-  -webkit-justify-content: flex-start !important;
-  -ms-flex-pack: start !important;
-  justify-content: flex-start !important;
+  -webkit-align-self: flex-start !important;
+  -ms-flex-item-align: start !important;
+  align-self: flex-start !important;
 }
 
 /* Middle Aligned */
@@ -16161,10 +16160,9 @@ body > .ui.grid {
   -ms-flex-direction: column;
   flex-direction: column;
   vertical-align: middle;
-  -webkit-box-pack: center !important;
-  -webkit-justify-content: center !important;
-  -ms-flex-pack: center !important;
-  justify-content: center !important;
+  -webkit-align-self: center !important;
+  -ms-flex-item-align: center !important;
+  align-self: center !important;
 }
 
 /* Bottom Aligned */
@@ -16179,10 +16177,9 @@ body > .ui.grid {
   -ms-flex-direction: column;
   flex-direction: column;
   vertical-align: bottom;
-  -webkit-box-pack: end !important;
-  -webkit-justify-content: flex-end !important;
-  -ms-flex-pack: end !important;
-  justify-content: flex-end !important;
+  -webkit-align-self: flex-end !important;
+  -ms-flex-item-align: end !important;
+  align-self: flex-end !important;
 }
 
 /* Stretched */
@@ -16196,10 +16193,9 @@ body > .ui.grid {
   display: -webkit-inline-flex !important;
   display: -ms-inline-flexbox !important;
   display: inline-flex !important;
-  -webkit-box-pack: stretch;
-  -webkit-justify-content: stretch;
-  -ms-flex-pack: stretch;
-  justify-content: stretch;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;

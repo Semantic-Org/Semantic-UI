@@ -1185,7 +1185,7 @@ body > .ui.grid {
 .ui.grid > .row > [class*="top aligned"].column {
   flex-direction: column;
   vertical-align: top;
-  justify-content: flex-start !important;
+  align-self: flex-start !important;
 }
 
 /* Middle Aligned */
@@ -1195,7 +1195,7 @@ body > .ui.grid {
 .ui.grid > .row > [class*="middle aligned"].column {
   flex-direction: column;
   vertical-align: middle;
-  justify-content: center !important;
+  align-self: center !important;
 }
 
 /* Bottom Aligned */
@@ -1205,7 +1205,7 @@ body > .ui.grid {
 .ui.grid > .row > [class*="bottom aligned"].column {
   flex-direction: column;
   vertical-align: bottom;
-  justify-content: flex-end !important;
+  align-self: flex-end !important;
 }
 
 /* Stretched */
@@ -1215,7 +1215,7 @@ body > .ui.grid {
 .ui.grid > .stretched.column:not(.row),
 .ui.grid > .row > .stretched.column {
   display: inline-flex !important;
-  justify-content: stretch;
+  align-self: stretch;
   flex-direction: column;
 }
 
