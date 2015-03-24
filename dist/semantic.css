@@ -18332,8 +18332,11 @@ Floated Menu / Item
 /*--- Border ---*/
 
 .ui.inverted.menu .item:before {
-  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.06) 100%);
-  background: linear-gradient(rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.06) 100%);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.ui.inverted.menu .item:hover:before {
+  background: none;
 }
 
 .ui.vertical.inverted.menu .item:before {

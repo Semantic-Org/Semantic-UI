@@ -396,11 +396,7 @@
 @secondaryInvertedHoverColor: @invertedSelectedTextColor;
 
 /* Inverted Menu Divider */
-@invertedDividerBackground: linear-gradient(
-  rgba(255, 255, 255, 0.06) 0%,
-  rgba(255, 255, 255, 0.1) 50%,
-  rgba(255, 255, 255, 0.06) 100%)
-;
+@invertedDividerBackground: rgba(255, 255, 255, 0.08);
 @invertedVerticalDividerBackground: linear-gradient(to right,
   rgba(255, 255, 255, 0.06) 0%,
   rgba(255, 255, 255, 0.1) 50%,
