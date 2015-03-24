@@ -5,11 +5,12 @@
 **New UI**
 - **Container** - Containers are fixed width containers meant for holding page contents, and are a simpler alternative to `ui page grid`, view more [examples in docs](http://www.semantic-ui.com/elements/container.html#examples)
 - **Multiselect** - New dropdown component has been added for multi-select
-- **Grid** - `Equal height` and `Equal width` `flexbox` grids now have mainstream support, works correctly with or without `row` wrapper, and support vertical alignment including `stretch` alignment for matching child element heights.
+- **Grid** - `equal height` and `equal width` grids, which use `flexbox` are now recommended for usage. Works correctly with or without `row` wrapper, and support vertical alignment including `stretch` alignment for matching child element heights.
+- **Headers** - Added new header type `sub header`, useful for displaying small headers alongside text content. See examples [in the header docs](http://www.semantic-ui.com/elements/header.html#sub-headers)
 
 **Major Changes**
 - **Menu** - Menu now uses flexbox. This allows menu items to match each others heights regardless of each items content size. `right menu` content should now follow other menu content instead of preceding it (no longer uses float).
-- **Transition** - Fallback javascript animations have been removed from most UI components to help reduce file size since all modern browsers now support css animations. The `transition` component should be included when using `dropdown`, `popup` etc.
+- **Transition** - Fallback javascript animations have been removed from most UI components to help reduce file size since all modern browsers now support css animations. The `transition` component should be included when using `dropdown`, `popup` to allow for animations.
 
 **Enhancements**
 - **Build Tools** - Adjusting `site.variables` will now rebuild all UI, instead of just `site.less`
@@ -17,7 +18,7 @@
 - **Grid** - `celled grid` now removes internal cells on mobile and tablet when used with `doubling` grid responsive variation
 - **Grid** - `equal height` and `equal width` now work without `row` wrappers
 - **Grid** - `equal height` rows can now be `stretched` as well as `middle aligned`, `bottom aligned` and `top aligned`!
-- **Headers** - Added new header type `sub header`, useful for displaying small headers alongside text content. See examples [in the header docs](http://www.semantic-ui.com/elements/header.html#sub-headers)
+
 - **Label** - Labels now have `active` and `active hover` states
 - **Menu** - Added `stackable` menu variation for simple responsive menus
 - **Menu** - Added many new variables to menu
