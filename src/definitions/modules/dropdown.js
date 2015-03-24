@@ -337,6 +337,11 @@ $.fn.dropdown = function(parameters) {
                 .on(module.get.inputEvent() + eventNamespace, selector.search, module.event.input)
               ;
             }
+            if( module.is.multiple() ) {
+              $document
+                .on('keydown' + elementNamespace, module.event.document.keydown)
+              ;
+            }
           },
           touchEvents: function() {
             module.debug('Touch device detected binding additional touch events');
@@ -356,16 +361,18 @@ $.fn.dropdown = function(parameters) {
             module.verbose('Mouse detected binding mouse events');
             if( module.is.searchSelection() ) {
               $module
-                .on('mousedown' + eventNamespace, selector.menu, module.event.menu.activate)
-                .on('mouseup'   + eventNamespace, selector.menu, module.event.menu.deactivate)
+                .on('mousedown' + eventNamespace, selector.menu,   module.event.menu.mousedown)
+                .on('mouseup'   + eventNamespace, selector.menu,   module.event.menu.mouseup)
                 .on('click'     + eventNamespace, selector.search, module.show)
-                .on('focus'     + eventNamespace, selector.search, module.event.searchFocus)
-                .on('blur'      + eventNamespace, selector.search, module.event.searchBlur)
-                .on('click'     + eventNamespace, selector.text, module.event.searchTextFocus)
+                .on('focus'     + eventNamespace, selector.search, module.event.search.focus)
+                .on('blur'      + eventNamespace, selector.search, module.event.search.blur)
+                .on('click'     + eventNamespace, selector.text,   module.event.text.focus)
               ;
               if(module.is.multiple()) {
                 $module
-                  .on('click' + eventNamespace, module.event.click)
+                  .on('click'   + eventNamespace, module.event.click)
+                  .on('click'   + eventNamespace, selector.label, module.event.label.click)
+                  .on('click'   + eventNamespace, selector.remove, module.event.remove.click)
                 ;
               }
             }
@@ -514,25 +521,18 @@ $.fn.dropdown = function(parameters) {
         },
 
         event: {
+          focus: function() {
+            if(!activated && module.is.hidden()) {
+              module.show();
+            }
+          },
           click: function(event) {
             var
               $target = $(event.target)
             ;
             // focus search
-            if(($target.is($module) || $target.is($icon)) && !(document.activeElement === $search[0])) {
+            if(($target.is($module) || $target.is($icon)) && !module.is.focusedOnSearch()) {
               $search.focus();
-            }
-          },
-          // prevents focus callback from occuring on mousedown
-          mousedown: function() {
-            activated = true;
-          },
-          mouseup: function() {
-            activated = false;
-          },
-          focus: function() {
-            if(!activated && module.is.hidden()) {
-              module.show();
             }
           },
           blur: function(event) {
@@ -543,29 +543,40 @@ $.fn.dropdown = function(parameters) {
               module.hide();
             }
           },
-          searchFocus: function() {
+          // prevents focus callback from occuring on mousedown
+          mousedown: function() {
             activated = true;
-            module.show();
           },
-          searchBlur: function(event) {
-            var
-              pageLostFocus = (document.activeElement === this)
-            ;
-            if(!itemActivated && !pageLostFocus) {
-              if(module.is.multiple()) {
-                module.remove.activeLabel();
-              }
-              else if(settings.forceSelection) {
-                module.forceSelection();
-              }
-              else {
-                module.hide();
+          mouseup: function() {
+            activated = false;
+          },
+          search: {
+            focus: function() {
+              activated = true;
+              module.show();
+            },
+            blur: function(event) {
+              var
+                pageLostFocus = (document.activeElement === this)
+              ;
+              if(!itemActivated && !pageLostFocus) {
+                if(module.is.multiple()) {
+                  module.remove.activeLabel();
+                }
+                else if(settings.forceSelection) {
+                  module.forceSelection();
+                }
+                else {
+                  module.hide();
+                }
               }
             }
           },
-          searchTextFocus: function(event) {
-            activated = true;
-            $search.focus();
+          text: {
+            focus: function(event) {
+              activated = true;
+              $search.focus();
+            }
           },
           input: function(event) {
             if(module.is.searchSelection()) {
@@ -574,6 +585,204 @@ $.fn.dropdown = function(parameters) {
             clearTimeout(module.timer);
             module.timer = setTimeout(module.search, settings.delay.search);
           },
+          label: {
+            click: function(event) {
+              var
+                $label        = $(this),
+                $labels       = $module.find(selector.label),
+                $activeLabels = $labels.filter('.' + className.active),
+                $nextActive   = $label.nextAll('.' + className.active),
+                $prevActive   = $label.prevAll('.' + className.active),
+                $range = ($nextActive.length > 0)
+                  ? $label.nextUntil($nextActive).add($activeLabels).add($label)
+                  : $label.prevUntil($prevActive).add($activeLabels).add($label)
+                ;
+              ;
+              if(event.shiftKey) {
+                $activeLabels.removeClass(className.active);
+                $range.addClass(className.active);
+              }
+              else if(event.ctrlKey) {
+                $label.toggleClass(className.active);
+              }
+              else {
+                $activeLabels.removeClass(className.active);
+                $label.addClass(className.active);
+              }
+              settings.onLabelClick.apply(this, $labels.filter('.' + className.active));
+            }
+          },
+          remove: {
+            click: function() {
+              var
+                $label = $(this).parent()
+              ;
+              if( $label.hasClass(className.active) ) {
+                // remove all selected labels
+                module.remove.labels();
+              }
+              else {
+                // remove this label only
+                module.remove.labels( $label );
+              }
+            }
+          },
+          test: {
+            toggle: function(event) {
+              if( module.determine.eventInMenu(event, module.toggle) ) {
+                event.preventDefault();
+              }
+            },
+            touch: function(event) {
+              module.determine.eventInMenu(event, function() {
+                if(event.type == 'touchstart') {
+                  module.timer = setTimeout(module.hide, settings.delay.touch);
+                }
+                else if(event.type == 'touchmove') {
+                  clearTimeout(module.timer);
+                }
+              });
+              event.stopPropagation();
+            },
+            hide: function(event) {
+              module.determine.eventInModule(event, module.hide);
+            }
+          },
+          menu: {
+            mousedown: function() {
+              itemActivated = true;
+            },
+            mouseup: function() {
+              itemActivated = false;
+            }
+          },
+          item: {
+            mouseenter: function(event) {
+              var
+                $subMenu    = $(this).children(selector.menu),
+                $otherMenus = $(this).siblings(selector.item).children(selector.menu)
+              ;
+              if( $subMenu.length > 0 ) {
+                clearTimeout(module.itemTimer);
+                module.itemTimer = setTimeout(function() {
+                  module.verbose('Showing sub-menu', $subMenu);
+                  $.each($otherMenus, function() {
+                    module.animate.hide(false, $(this));
+                  });
+                  module.animate.show(false,  $subMenu);
+                }, settings.delay.show);
+                event.preventDefault();
+              }
+            },
+            mouseleave: function(event) {
+              var
+                $subMenu = $(this).children(selector.menu)
+              ;
+              if($subMenu.length > 0) {
+                clearTimeout(module.itemTimer);
+                module.itemTimer = setTimeout(function() {
+                  module.verbose('Hiding sub-menu', $subMenu);
+                  module.animate.hide(false,  $subMenu);
+                }, settings.delay.hide);
+              }
+            },
+            click: function (event) {
+              var
+                $choice  = $(this),
+                $target  = (event)
+                  ? $(event.target)
+                  : $(''),
+                $subMenu = $choice.find(selector.menu),
+                text     = module.get.choiceText($choice),
+                value    = module.get.choiceValue($choice, text),
+                callback = function() {
+                  module.remove.searchTerm();
+                  module.determine.selectAction(text, value);
+                },
+                hasSubMenu     = ($subMenu.length > 0),
+                isBubbledEvent = ($subMenu.find($target).length > 0)
+              ;
+              if(!isBubbledEvent && (!hasSubMenu || settings.allowCategorySelection)) {
+                callback();
+              }
+            }
+          },
+
+          document: {
+            // label selection should occur even when element has no focus
+            keydown: function(event) {
+              var
+                pressedKey    = event.which,
+                keys          = module.get.shortcutKeys(),
+                isShortcutKey = module.is.inObject(pressedKey, keys)
+              ;
+              if(isShortcutKey) {
+                var
+                  $label            = $module.find(selector.label),
+                  $activeLabel      = $label.filter('.' + className.active),
+                  activeValue       = $activeLabel.data('value'),
+                  labelIndex        = $label.index($activeLabel),
+                  labelCount        = $label.length,
+                  hasActiveLabel    = ($activeLabel.length > 0),
+                  isFirstLabel      = (labelIndex == 0),
+                  isLastLabel       = (labelIndex + 1 == labelCount),
+                  isFocusedOnSearch = module.is.focusedOnSearch(),
+                  caretAtStart      = (isFocusedOnSearch && module.get.caretPosition() == 0)
+                ;
+                if(isFocusedOnSearch && (pressedKey == keys.delimiter)) {
+                  // tokenize on comma
+                  if(module.is.visible()) {
+                    module.event.item.click.call($selectedItem, event);
+                    event.preventDefault();
+                  }
+                }
+                else if(pressedKey == keys.leftArrow) {
+                  // activate previous label
+                  if(caretAtStart && !hasActiveLabel) {
+                    $label.last().addClass(className.active);
+                  }
+                  else if(hasActiveLabel && !isFirstLabel) {
+                    if(!event.shiftKey) {
+                      $label.removeClass(className.active)
+                    }
+                    $activeLabel.prev()
+                      .addClass(className.active)
+                      .end()
+                    ;
+                    event.preventDefault();
+                  }
+                }
+                else if(pressedKey == keys.rightArrow) {
+                  // activate next label
+                  if(hasActiveLabel) {
+                    if(!event.shiftKey) {
+                      $label.removeClass(className.active)
+                    }
+                    $activeLabel.next()
+                      .addClass(className.active)
+                      .end()
+                    ;
+                    event.preventDefault();
+                  }
+                }
+                else if(pressedKey == keys.deleteKey || pressedKey == keys.backspace) {
+                  if(hasActiveLabel) {
+                    $activeLabel.last().next().addClass(className.active);
+                    module.remove.labels($activeLabel);
+                  }
+                  else if(caretAtStart && !hasActiveLabel && pressedKey == keys.backspace) {
+                    $activeLabel = $label.last().addClass(className.active);
+                    activeValue  = $activeLabel.data('value');
+                    module.remove.selected(activeValue);
+                  }
+                }
+                else {
+                  $activeLabel.removeClass(className.active);
+                }
+              }
+            }
+          },
+
           keydown: function(event) {
             var
               pressedKey    = event.which,
@@ -716,152 +925,6 @@ $.fn.dropdown = function(parameters) {
                 }
               }
 
-              // multiple selection shortcuts
-              if( module.is.multiple() ) {
-                var
-                  $label         = $module.find(selector.label),
-                  $activeLabel   = $label.filter('.' + className.active),
-                  activeValue    = $activeLabel.data('value'),
-                  labelIndex     = $label.index($activeLabel),
-                  labelCount     = $label.length,
-                  hasActiveLabel = ($activeLabel.length > 0),
-                  isFirstLabel   = (labelIndex == 0),
-                  isLastLabel    = (labelIndex + 1 == labelCount),
-                  caretAtStart   = (module.get.caretPosition() == 0)
-                ;
-                if(pressedKey == keys.delimiter) {
-                  // tokenize on comma
-                  if(module.is.visible()) {
-                    module.event.item.click.call($selectedItem, event);
-                    event.preventDefault();
-                  }
-                }
-                else if(pressedKey == keys.leftArrow) {
-                  // activate previous label
-                  if(caretAtStart && !hasActiveLabel) {
-                    $label.last().addClass(className.active);
-                  }
-                  else if(hasActiveLabel && !isFirstLabel) {
-                    $activeLabel
-                      .removeClass(className.active)
-                      .prev()
-                        .addClass(className.active)
-                        .end()
-                    ;
-                    event.preventDefault();
-                  }
-                }
-                else if(pressedKey == keys.rightArrow) {
-                  // activate next label
-                  if(hasActiveLabel) {
-                    $activeLabel
-                      .removeClass(className.active)
-                      .next()
-                        .addClass(className.active)
-                        .end()
-                    ;
-                    event.preventDefault();
-                  }
-                }
-                else if(pressedKey == keys.deleteKey || pressedKey == keys.backspace) {
-                  if(caretAtStart && !hasActiveLabel) {
-                    $activeLabel = $label.last().addClass(className.active);
-                    activeValue  = $activeLabel.data('value');
-                    module.remove.selected(activeValue);
-                  }
-                  else if(hasActiveLabel) {
-                    $activeLabel.next().addClass(className.active);
-                    module.remove.selected(activeValue);
-                  }
-                  // delete tag if empty search and selected tag
-                }
-                else {
-                  $activeLabel.removeClass(className.active);
-                }
-
-              }
-
-            }
-          },
-          test: {
-            toggle: function(event) {
-              if( module.determine.eventInMenu(event, module.toggle) ) {
-                event.preventDefault();
-              }
-            },
-            touch: function(event) {
-              module.determine.eventInMenu(event, function() {
-                if(event.type == 'touchstart') {
-                  module.timer = setTimeout(module.hide, settings.delay.touch);
-                }
-                else if(event.type == 'touchmove') {
-                  clearTimeout(module.timer);
-                }
-              });
-              event.stopPropagation();
-            },
-            hide: function(event) {
-              module.determine.eventInModule(event, module.hide);
-            }
-          },
-
-          menu: {
-            activate: function() {
-              itemActivated = true;
-            },
-            deactivate: function() {
-              itemActivated = false;
-            }
-          },
-          item: {
-            mouseenter: function(event) {
-              var
-                $subMenu    = $(this).children(selector.menu),
-                $otherMenus = $(this).siblings(selector.item).children(selector.menu)
-              ;
-              if( $subMenu.length > 0 ) {
-                clearTimeout(module.itemTimer);
-                module.itemTimer = setTimeout(function() {
-                  module.verbose('Showing sub-menu', $subMenu);
-                  $.each($otherMenus, function() {
-                    module.animate.hide(false, $(this));
-                  });
-                  module.animate.show(false,  $subMenu);
-                }, settings.delay.show);
-                event.preventDefault();
-              }
-            },
-            mouseleave: function(event) {
-              var
-                $subMenu = $(this).children(selector.menu)
-              ;
-              if($subMenu.length > 0) {
-                clearTimeout(module.itemTimer);
-                module.itemTimer = setTimeout(function() {
-                  module.verbose('Hiding sub-menu', $subMenu);
-                  module.animate.hide(false,  $subMenu);
-                }, settings.delay.hide);
-              }
-            },
-            click: function (event) {
-              var
-                $choice  = $(this),
-                $target  = (event)
-                  ? $(event.target)
-                  : $(''),
-                $subMenu = $choice.find(selector.menu),
-                text     = module.get.choiceText($choice),
-                value    = module.get.choiceValue($choice, text),
-                callback = function() {
-                  module.remove.searchTerm();
-                  module.determine.selectAction(text, value);
-                },
-                hasSubMenu     = ($subMenu.length > 0),
-                isBubbledEvent = ($subMenu.find($target).length > 0)
-              ;
-              if(!isBubbledEvent && (!hasSubMenu || settings.allowCategorySelection)) {
-                callback();
-              }
             }
           },
           resetStyle: function() {
@@ -1516,9 +1579,12 @@ $.fn.dropdown = function(parameters) {
               $labels       = $module.find(selector.label),
               $removedLabel = $labels.filter('[data-value="' + value +'"]'),
               labelCount    = $labels.length,
-              shouldAnimate = (labelCount == 1 || $labels.index($removedLabel) + 1 == labelCount)
+              isLastLabel   = ($labels.index($removedLabel) + 1 == labelCount),
+              isOnlyLabel   = (labelCount == 1),
+              shouldAnimate = (isOnlyLabel || isLastLabel)
             ;
             if(shouldAnimate) {
+              module.verbose('Animating and removing label', $removedLabel);
               $removedLabel
                 .transition(settings.label.transition, settings.label.duration, function() {
                   $removedLabel.remove();
@@ -1526,8 +1592,18 @@ $.fn.dropdown = function(parameters) {
               ;
             }
             else {
+              module.verbose('Removing label', $removedLabel);
               $removedLabel.remove();
             }
+          },
+          labels: function($activeLabels) {
+            $activeLabels = $activeLabels || $module.find(selector.label).filter('.' + className.active);
+            module.verbose('Removing active labels', $activeLabels);
+            $activeLabels
+              .each(function(){
+                module.remove.selected($(this).data('value'));
+              })
+            ;
           },
           tabbable: function() {
             if( module.has.search() ) {
@@ -1575,6 +1651,9 @@ $.fn.dropdown = function(parameters) {
               ? $subMenu.is(':animated') || $subMenu.transition && $subMenu.transition('is animating')
               : $menu.is(':animated') || $menu.transition && $menu.transition('is animating')
             ;
+          },
+          focusedOnSearch: function() {
+            return (document.activeElement === $search[0]);
           },
           allFiltered: function() {
             return ($item.filter('.' + className.filtered).length === $item.length);
@@ -1688,36 +1767,6 @@ $.fn.dropdown = function(parameters) {
                   })
                 ;
               }
-              else if(settings.transition == 'slide down') {
-                start();
-                $currentMenu
-                  .hide()
-                  .clearQueue()
-                  .children()
-                    .clearQueue()
-                    .css('opacity', 0)
-                    .delay(50)
-                    .animate({
-                      opacity : 1
-                    }, settings.duration, 'easeOutQuad', module.event.resetStyle)
-                    .end()
-                  .slideDown(100, 'easeOutQuad', function() {
-                    module.event.resetStyle.call(this);
-                    callback.call(element);
-                  })
-                ;
-              }
-              else if(settings.transition == 'fade') {
-                start();
-                $currentMenu
-                  .hide()
-                  .clearQueue()
-                  .fadeIn(settings.duration, function() {
-                    module.event.resetStyle.call(this);
-                    callback.call(element);
-                  })
-                ;
-              }
               else {
                 module.error(error.transition, settings.transition);
               }
@@ -1770,36 +1819,6 @@ $.fn.dropdown = function(parameters) {
                     onComplete : function() {
                       callback.call(element);
                     }
-                  })
-                ;
-              }
-              else if(settings.transition == 'slide down') {
-                start();
-                $currentMenu
-                  .show()
-                  .clearQueue()
-                  .children()
-                    .clearQueue()
-                    .css('opacity', 1)
-                    .animate({
-                      opacity : 0
-                    }, 100, 'easeOutQuad', module.event.resetStyle)
-                    .end()
-                  .delay(50)
-                  .slideUp(100, 'easeOutQuad', function() {
-                    module.event.resetStyle.call(this);
-                    callback.call(element);
-                  })
-                ;
-              }
-              else if(settings.transition == 'fade') {
-                start();
-                $currentMenu
-                  .show()
-                  .clearQueue()
-                  .fadeOut(150, function() {
-                    module.event.resetStyle.call(this);
-                    callback.call(element);
                   })
                 ;
               }
@@ -2045,10 +2064,11 @@ $.fn.dropdown.settings = {
   duration       : 250,
 
   /* Callbacks */
-  onNoResults : function(searchTerm){},
-  onChange    : function(value, text){},
-  onShow      : function(){},
-  onHide      : function(){},
+  onLabelClick : function($selectedLabels){},
+  onNoResults  : function(searchTerm){},
+  onChange     : function(value, text){},
+  onShow       : function(){},
+  onHide       : function(){},
 
   /* Component */
 
@@ -2076,6 +2096,7 @@ $.fn.dropdown.settings = {
     input    : '> input[type="hidden"], > select',
     item     : '.item',
     label    : '> .label',
+    remove   : '> .label > .delete.icon',
     menu     : '.menu',
     menuIcon : '.dropdown.icon',
     search   : 'input.search, .menu > .search > input',
