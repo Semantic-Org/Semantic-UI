@@ -42,6 +42,7 @@ $.fn.dropdown = function(parameters) {
         namespace       = settings.namespace,
         selector        = settings.selector,
         error           = settings.error,
+        templates       = settings.templates,
 
         eventNamespace  = '.' + namespace,
         moduleNamespace = 'module-' + namespace,
@@ -49,8 +50,8 @@ $.fn.dropdown = function(parameters) {
         $module         = $(this),
         $text           = $module.find(selector.text),
         $search         = $module.find(selector.search),
-        $labels         = $module.find(selector.labels),
         $input          = $module.find(selector.input),
+        $icon           = $module.find(selector.icon),
 
         $combo = ($module.prev().find(selector.text).length > 0)
           ? $module.prev().find(selector.text)
@@ -185,9 +186,6 @@ $.fn.dropdown = function(parameters) {
                 .insertBefore($text)
               ;
             }
-            if( module.is.multiple() && !module.has.labels()) {
-              $labels = $('<div />').addClass(className.labels).insertBefore($search);
-            }
             if(settings.allowTab) {
               module.set.tabbable();
             }
@@ -211,7 +209,7 @@ $.fn.dropdown = function(parameters) {
                   .appendTo($module)
                 ;
               }
-              $menu.html( settings.templates.menu( selectValues ));
+              $menu.html( templates.menu( selectValues ));
             }
             else {
               module.debug('Creating entire dropdown from select');
@@ -219,7 +217,7 @@ $.fn.dropdown = function(parameters) {
                 .attr('class', $input.attr('class') )
                 .addClass(className.selection)
                 .addClass(className.dropdown)
-                .html( settings.templates.dropdown(selectValues) )
+                .html( templates.dropdown(selectValues) )
                 .insertBefore($input)
               ;
               $input
@@ -254,14 +252,13 @@ $.fn.dropdown = function(parameters) {
           $text   = $module.find(selector.text);
           $search = $module.find(selector.search);
           $input  = $module.find(selector.input);
+          $icon   = $module.find(selector.icon);
           $combo  = ($module.prev().find(selector.text).length > 0)
             ? $module.prev().find(selector.text)
             : $module.prev()
           ;
           $menu    = $module.children(selector.menu);
           $item    = $menu.find(selector.item);
-          // multiple
-          $labels  = $module.find(selector.labels);
         },
 
         toggle: function() {
@@ -284,6 +281,9 @@ $.fn.dropdown = function(parameters) {
           }
           if( module.can.show() && !module.is.active() ) {
             module.debug('Showing dropdown');
+            if(module.is.multiple()) {
+              module.filterActive();
+            }
             module.animate.show(function() {
               if( module.can.click() ) {
                 module.bind.intent();
@@ -334,7 +334,12 @@ $.fn.dropdown = function(parameters) {
             ;
             if( module.has.search() ) {
               $module
-                .on(module.get.inputEvent(), selector.search, module.event.input)
+                .on(module.get.inputEvent() + eventNamespace, selector.search, module.event.input)
+              ;
+            }
+            if( module.is.multiple() ) {
+              $document
+                .on('keydown' + elementNamespace, module.event.document.keydown)
               ;
             }
           },
@@ -356,13 +361,20 @@ $.fn.dropdown = function(parameters) {
             module.verbose('Mouse detected binding mouse events');
             if( module.is.searchSelection() ) {
               $module
-                .on('mousedown' + eventNamespace, selector.menu, module.event.menu.activate)
-                .on('mouseup'   + eventNamespace, selector.menu, module.event.menu.deactivate)
+                .on('mousedown' + eventNamespace, selector.menu,   module.event.menu.mousedown)
+                .on('mouseup'   + eventNamespace, selector.menu,   module.event.menu.mouseup)
                 .on('click'     + eventNamespace, selector.search, module.show)
-                .on('focus'     + eventNamespace, selector.search, module.event.searchFocus)
-                .on('blur'      + eventNamespace, selector.search, module.event.searchBlur)
-                .on('click'     + eventNamespace, selector.text, module.event.searchTextFocus)
+                .on('focus'     + eventNamespace, selector.search, module.event.search.focus)
+                .on('blur'      + eventNamespace, selector.search, module.event.search.blur)
+                .on('click'     + eventNamespace, selector.text,   module.event.text.focus)
               ;
+              if(module.is.multiple()) {
+                $module
+                  .on('click'   + eventNamespace, module.event.click)
+                  .on('click'   + eventNamespace, selector.label, module.event.label.click)
+                  .on('click'   + eventNamespace, selector.remove, module.event.remove.click)
+                ;
+              }
             }
             else {
               if(settings.on == 'click') {
@@ -456,7 +468,9 @@ $.fn.dropdown = function(parameters) {
             .not($results)
             .addClass(className.filtered)
           ;
-
+          if(module.is.multiple()) {
+            module.filterActive();
+          }
           module.verbose('Selecting first non-filtered element');
           module.remove.selectedItem();
           $item
@@ -471,6 +485,12 @@ $.fn.dropdown = function(parameters) {
             }
             settings.onNoResults.call(element, searchTerm);
           }
+        },
+
+        filterActive: function() {
+          $item.filter('.' + className.active)
+            .addClass(className.filtered)
+          ;
         },
 
         focusSearch: function() {
@@ -491,6 +511,7 @@ $.fn.dropdown = function(parameters) {
             hasSelected = ($selectedItem.size() > 0)
           ;
           if(hasSelected) {
+            module.debug('Forcing partial selection to selected item', $selectedItem);
             module.event.item.click.call($selectedItem);
             module.remove.filteredItem();
           }
@@ -500,16 +521,18 @@ $.fn.dropdown = function(parameters) {
         },
 
         event: {
-          // prevents focus callback from occuring on mousedown
-          mousedown: function() {
-            activated = true;
-          },
-          mouseup: function() {
-            activated = false;
-          },
           focus: function() {
             if(!activated && module.is.hidden()) {
               module.show();
+            }
+          },
+          click: function(event) {
+            var
+              $target = $(event.target)
+            ;
+            // focus search
+            if(($target.is($module) || $target.is($icon)) && !module.is.focusedOnSearch()) {
+              $search.focus();
             }
           },
           blur: function(event) {
@@ -520,26 +543,40 @@ $.fn.dropdown = function(parameters) {
               module.hide();
             }
           },
-          searchFocus: function() {
+          // prevents focus callback from occuring on mousedown
+          mousedown: function() {
             activated = true;
-            module.show();
           },
-          searchBlur: function(event) {
-            var
-              pageLostFocus = (document.activeElement === this)
-            ;
-            if(!itemActivated && !pageLostFocus) {
-              if(settings.forceSelection) {
-                module.forceSelection();
-              }
-              else {
-                module.hide();
+          mouseup: function() {
+            activated = false;
+          },
+          search: {
+            focus: function() {
+              activated = true;
+              module.show();
+            },
+            blur: function(event) {
+              var
+                pageLostFocus = (document.activeElement === this)
+              ;
+              if(!itemActivated && !pageLostFocus) {
+                if(module.is.multiple()) {
+                  module.remove.activeLabel();
+                }
+                else if(settings.forceSelection) {
+                  module.forceSelection();
+                }
+                else {
+                  module.hide();
+                }
               }
             }
           },
-          searchTextFocus: function(event) {
-            activated = true;
-            $search.focus();
+          text: {
+            focus: function(event) {
+              activated = true;
+              $search.focus();
+            }
           },
           input: function(event) {
             if(module.is.searchSelection()) {
@@ -548,138 +585,45 @@ $.fn.dropdown = function(parameters) {
             clearTimeout(module.timer);
             module.timer = setTimeout(module.search, settings.delay.search);
           },
-          keydown: function(event) {
-            var
-              $currentlySelected = $item.not(className.filtered).filter('.' + className.selected).eq(0),
-              $activeItem        = $menu.children('.' + className.active).eq(0),
-              $selectedItem      = ($currentlySelected.length > 0)
-                ? $currentlySelected
-                : $activeItem,
-              $visibleItems = ($selectedItem.length > 0)
-                ? $selectedItem.siblings(':not(.' + className.filtered +')').andSelf()
-                : $menu.children(':not(.' + className.filtered +')'),
-              $subMenu      = $selectedItem.children(selector.menu),
-              $parentMenu   = $selectedItem.closest(selector.menu),
-              isSubMenuItem = $parentMenu[0] !== $menu[0],
-              inVisibleMenu = $parentMenu.is(':visible'),
-              pressedKey    = event.which,
-              keys          = {
-                enter      : 13,
-                escape     : 27,
-                leftArrow  : 37,
-                upArrow    : 38,
-                rightArrow : 39,
-                downArrow  : 40
-              },
-              hasSubMenu       = ($subMenu.length> 0),
-              hasSelectedItem  = ($selectedItem.length > 0),
-              lastVisibleIndex = ($visibleItems.size() - 1),
-              $nextItem,
-              newIndex
-            ;
-            // visible menu keyboard shortcuts
-            if(module.is.visible()) {
-              // enter (select or sub-menu)
-              if(pressedKey == keys.enter && hasSelectedItem) {
-                if(hasSubMenu && !settings.allowCategorySelection) {
-                  module.verbose('Pressed enter on unselectable category, opening sub menu');
-                  pressedKey = keys.rightArrow;
-                }
-                else {
-                  module.verbose('Enter key pressed, choosing selected item');
-                  module.event.item.click.call($selectedItem, event);
-                }
-              }
-              // left arrow (hide sub-menu)
-              if(pressedKey == keys.leftArrow) {
-                if(isSubMenuItem) {
-                  module.verbose('Left key pressed, closing sub-menu');
-                  module.animate.hide(false,  $parentMenu);
-                  $selectedItem
-                    .removeClass(className.selected)
-                  ;
-                  $parentMenu
-                    .closest(selector.item)
-                      .addClass(className.selected)
-                  ;
-                }
-                event.preventDefault();
-              }
-              // right arrow (show sub-menu)
-              if(pressedKey == keys.rightArrow) {
-                if(hasSubMenu) {
-                  module.verbose('Right key pressed, opening sub-menu');
-                  module.animate.show(false,  $subMenu);
-                  $selectedItem
-                    .removeClass(className.selected)
-                  ;
-                  $subMenu
-                    .find(selector.item).eq(0)
-                      .addClass(className.selected)
-                  ;
-                }
-                event.preventDefault();
-              }
-              // up arrow (traverse menu up)
-              if(pressedKey == keys.upArrow) {
-                $nextItem = (hasSelectedItem && inVisibleMenu)
-                  ? $selectedItem.prevAll(selector.item + ':not(.' + className.filtered + ')').eq(0)
-                  : $item.eq(0)
+          label: {
+            click: function(event) {
+              var
+                $label        = $(this),
+                $labels       = $module.find(selector.label),
+                $activeLabels = $labels.filter('.' + className.active),
+                $nextActive   = $label.nextAll('.' + className.active),
+                $prevActive   = $label.prevAll('.' + className.active),
+                $range = ($nextActive.length > 0)
+                  ? $label.nextUntil($nextActive).add($activeLabels).add($label)
+                  : $label.prevUntil($prevActive).add($activeLabels).add($label)
                 ;
-                if($visibleItems.index( $nextItem ) < 0) {
-                  module.verbose('Up key pressed but reached top of current menu');
-                  return;
-                }
-                else {
-                  module.verbose('Up key pressed, changing active item');
-                  $selectedItem
-                    .removeClass(className.selected)
-                  ;
-                  $nextItem
-                    .addClass(className.selected)
-                  ;
-                  module.set.scrollPosition($nextItem);
-                }
-                event.preventDefault();
+              ;
+              if(event.shiftKey) {
+                $activeLabels.removeClass(className.active);
+                $range.addClass(className.active);
               }
-              // down arrow (traverse menu down)
-              if(pressedKey == keys.downArrow) {
-                $nextItem = (hasSelectedItem && inVisibleMenu)
-                  ? $nextItem = $selectedItem.nextAll(selector.item + ':not(.' + className.filtered + ')').eq(0)
-                  : $item.eq(0)
-                ;
-                if($nextItem.length === 0) {
-                  module.verbose('Down key pressed but reached bottom of current menu');
-                  return;
-                }
-                else {
-                  module.verbose('Down key pressed, changing active item');
-                  $item
-                    .removeClass(className.selected)
-                  ;
-                  $nextItem
-                    .addClass(className.selected)
-                  ;
-                  module.set.scrollPosition($nextItem);
-                }
-                event.preventDefault();
+              else if(event.ctrlKey) {
+                $label.toggleClass(className.active);
               }
+              else {
+                $activeLabels.removeClass(className.active);
+                $label.addClass(className.active);
+              }
+              settings.onLabelClick.apply(this, $labels.filter('.' + className.active));
             }
-            else {
-              // enter (open menu)
-              if(pressedKey == keys.enter) {
-                module.verbose('Enter key pressed, showing dropdown');
-                module.show();
+          },
+          remove: {
+            click: function() {
+              var
+                $label = $(this).parent()
+              ;
+              if( $label.hasClass(className.active) ) {
+                // remove all selected labels
+                module.remove.labels();
               }
-              // escape (close menu)
-              if(pressedKey == keys.escape) {
-                module.verbose('Escape key pressed, closing dropdown');
-                module.hide();
-              }
-              // down arrow (open menu)
-              if(pressedKey == keys.downArrow) {
-                module.verbose('Down key pressed, showing dropdown');
-                module.show();
+              else {
+                // remove this label only
+                module.remove.labels( $label );
               }
             }
           },
@@ -704,12 +648,11 @@ $.fn.dropdown = function(parameters) {
               module.determine.eventInModule(event, module.hide);
             }
           },
-
           menu: {
-            activate: function() {
+            mousedown: function() {
               itemActivated = true;
             },
-            deactivate: function() {
+            mouseup: function() {
               itemActivated = false;
             }
           },
@@ -762,6 +705,226 @@ $.fn.dropdown = function(parameters) {
               if(!isBubbledEvent && (!hasSubMenu || settings.allowCategorySelection)) {
                 callback();
               }
+            }
+          },
+
+          document: {
+            // label selection should occur even when element has no focus
+            keydown: function(event) {
+              var
+                pressedKey    = event.which,
+                keys          = module.get.shortcutKeys(),
+                isShortcutKey = module.is.inObject(pressedKey, keys)
+              ;
+              if(isShortcutKey) {
+                var
+                  $label            = $module.find(selector.label),
+                  $activeLabel      = $label.filter('.' + className.active),
+                  activeValue       = $activeLabel.data('value'),
+                  labelIndex        = $label.index($activeLabel),
+                  labelCount        = $label.length,
+                  hasActiveLabel    = ($activeLabel.length > 0),
+                  isFirstLabel      = (labelIndex == 0),
+                  isLastLabel       = (labelIndex + 1 == labelCount),
+                  isFocusedOnSearch = module.is.focusedOnSearch(),
+                  caretAtStart      = (isFocusedOnSearch && module.get.caretPosition() == 0)
+                ;
+                if(isFocusedOnSearch && (pressedKey == keys.delimiter)) {
+                  // tokenize on comma
+                  if(module.is.visible()) {
+                    module.event.item.click.call($selectedItem, event);
+                    event.preventDefault();
+                  }
+                }
+                else if(pressedKey == keys.leftArrow) {
+                  // activate previous label
+                  if(caretAtStart && !hasActiveLabel) {
+                    $label.last().addClass(className.active);
+                  }
+                  else if(hasActiveLabel && !isFirstLabel) {
+                    if(!event.shiftKey) {
+                      $label.removeClass(className.active)
+                    }
+                    $activeLabel.prev()
+                      .addClass(className.active)
+                      .end()
+                    ;
+                    event.preventDefault();
+                  }
+                }
+                else if(pressedKey == keys.rightArrow) {
+                  // activate next label
+                  if(hasActiveLabel) {
+                    if(!event.shiftKey) {
+                      $label.removeClass(className.active)
+                    }
+                    $activeLabel.next()
+                      .addClass(className.active)
+                      .end()
+                    ;
+                    event.preventDefault();
+                  }
+                }
+                else if(pressedKey == keys.deleteKey || pressedKey == keys.backspace) {
+                  if(hasActiveLabel) {
+                    $activeLabel.last().next().addClass(className.active);
+                    module.remove.labels($activeLabel);
+                  }
+                  else if(caretAtStart && !hasActiveLabel && pressedKey == keys.backspace) {
+                    $activeLabel = $label.last().addClass(className.active);
+                    activeValue  = $activeLabel.data('value');
+                    module.remove.selected(activeValue);
+                  }
+                }
+                else {
+                  $activeLabel.removeClass(className.active);
+                }
+              }
+            }
+          },
+
+          keydown: function(event) {
+            var
+              pressedKey    = event.which,
+              keys          = module.get.shortcutKeys(),
+              isShortcutKey = module.is.inObject(pressedKey, keys)
+            ;
+            if(isShortcutKey) {
+              var
+                $currentlySelected = $item.not(className.filtered).filter('.' + className.selected).eq(0),
+                $activeItem        = $menu.children('.' + className.active).eq(0),
+                $selectedItem      = ($currentlySelected.length > 0)
+                  ? $currentlySelected
+                  : $activeItem,
+                $visibleItems = ($selectedItem.length > 0)
+                  ? $selectedItem.siblings(':not(.' + className.filtered +')').andSelf()
+                  : $menu.children(':not(.' + className.filtered +')'),
+                $subMenu        = $selectedItem.children(selector.menu),
+                $parentMenu     = $selectedItem.closest(selector.menu),
+                inVisibleMenu   = ($parentMenu.hasClass(className.visible) || $parentMenu.hasClass(className.animating)),
+                hasSubMenu      = ($subMenu.length> 0),
+                hasSelectedItem = ($selectedItem.length > 0),
+                $nextItem,
+                isSubMenuItem,
+                newIndex
+              ;
+
+              // visible menu keyboard shortcuts
+              if( module.is.visible() ) {
+
+                // enter (select or open sub-menu)
+                if(pressedKey == keys.enter && hasSelectedItem) {
+                  if(hasSubMenu && !settings.allowCategorySelection) {
+                    module.verbose('Pressed enter on unselectable category, opening sub menu');
+                    pressedKey = keys.rightArrow;
+                  }
+                  else {
+                    module.verbose('Enter key pressed, choosing selected item');
+                    module.event.item.click.call($selectedItem, event);
+                  }
+                }
+
+                // left arrow (hide sub-menu)
+                if(pressedKey == keys.leftArrow) {
+
+                  isSubMenuItem = ($parentMenu[0] !== $menu[0]);
+
+                  if(isSubMenuItem) {
+                    module.verbose('Left key pressed, closing sub-menu');
+                    module.animate.hide(false,  $parentMenu);
+                    $selectedItem
+                      .removeClass(className.selected)
+                    ;
+                    $parentMenu
+                      .closest(selector.item)
+                        .addClass(className.selected)
+                    ;
+                    event.preventDefault();
+                  }
+                }
+
+                // right arrow (show sub-menu)
+                if(pressedKey == keys.rightArrow) {
+                  if(hasSubMenu) {
+                    module.verbose('Right key pressed, opening sub-menu');
+                    module.animate.show(false,  $subMenu);
+                    $selectedItem
+                      .removeClass(className.selected)
+                    ;
+                    $subMenu
+                      .find(selector.item).eq(0)
+                        .addClass(className.selected)
+                    ;
+                    event.preventDefault();
+                  }
+                }
+
+                // up arrow (traverse menu up)
+                if(pressedKey == keys.upArrow) {
+                  $nextItem = (hasSelectedItem && inVisibleMenu)
+                    ? $selectedItem.prevAll(selector.item + ':not(.' + className.filtered + ')').eq(0)
+                    : $item.eq(0)
+                  ;
+                  if($visibleItems.index( $nextItem ) < 0) {
+                    module.verbose('Up key pressed but reached top of current menu');
+                    return;
+                  }
+                  else {
+                    module.verbose('Up key pressed, changing active item');
+                    $selectedItem
+                      .removeClass(className.selected)
+                    ;
+                    $nextItem
+                      .addClass(className.selected)
+                    ;
+                    module.set.scrollPosition($nextItem);
+                  }
+                  event.preventDefault();
+                }
+
+                // down arrow (traverse menu down)
+                if(pressedKey == keys.downArrow) {
+                  $nextItem = (hasSelectedItem && inVisibleMenu)
+                    ? $nextItem = $selectedItem.nextAll(selector.item + ':not(.' + className.filtered + ')').eq(0)
+                    : $item.eq(0)
+                  ;
+                  if($nextItem.length === 0) {
+                    module.verbose('Down key pressed but reached bottom of current menu');
+                    return;
+                  }
+                  else {
+                    module.verbose('Down key pressed, changing active item');
+                    $item
+                      .removeClass(className.selected)
+                    ;
+                    $nextItem
+                      .addClass(className.selected)
+                    ;
+                    module.set.scrollPosition($nextItem);
+                  }
+
+                  event.preventDefault();
+                }
+
+              }
+              else {
+                // enter (open menu)
+                if(pressedKey == keys.enter) {
+                  module.verbose('Enter key pressed, showing dropdown');
+                  module.show();
+                }
+                // escape (close menu)
+                if(pressedKey == keys.escape) {
+                  module.verbose('Escape key pressed, closing dropdown');
+                  module.hide();
+                }
+                // down arrow (open menu)
+                if(pressedKey == keys.downArrow) {
+                  module.verbose('Down key pressed, showing dropdown');
+                  module.show();
+                }
+              }
+
             }
           },
           resetStyle: function() {
@@ -873,6 +1036,36 @@ $.fn.dropdown = function(parameters) {
                 return $.inArray(value, array) === index;
             });
           },
+          caretPosition: function() {
+            var
+              input = $search.get(0),
+              range,
+              rangeLength
+            ;
+            if ('selectionStart' in input) {
+              return input.selectionStart;
+            }
+            else if (document.selection) {
+              input.focus();
+              range       = document.selection.createRange();
+              rangeLength = range.text.length;
+              range.moveStart('character', -input.value.length);
+              return range.text.length - rangeLength;
+            }
+          },
+          shortcutKeys: function() {
+            return {
+              backspace  : 8,
+              delimiter  : 188, // comma
+              deleteKey  : 46,
+              enter      : 13,
+              escape     : 27,
+              leftArrow  : 37,
+              upArrow    : 38,
+              rightArrow : 39,
+              downArrow  : 40
+            };
+          },
           value: function() {
             return ($input.length > 0)
               ? $input.val()
@@ -883,9 +1076,12 @@ $.fn.dropdown = function(parameters) {
             var
               value = module.get.value()
             ;
-            return $.isArray(value)
+            if(value == '') {
+              return '';
+            }
+            return ($input.is('select') || !module.is.multiple())
               ? value
-              : [value]
+              : value.split(settings.delimiter)
             ;
           },
           choiceText: function($choice, preserveHTML) {
@@ -980,16 +1176,17 @@ $.fn.dropdown = function(parameters) {
           },
           item: function(value, strict) {
             var
-              isMultiple    = module.is.multiple(),
-              $selectedItem = false
+              $selectedItem = false,
+              isMultiple
             ;
             value = (value !== undefined)
               ? value
-              : ( module.get.value() !== undefined)
-                ? module.get.value()
+              : ( module.get.values() !== undefined)
+                ? module.get.values()
                 : module.get.text()
             ;
-            strict = (value === '' || value === 0)
+            isMultiple = (module.is.multiple() && $.isArray(value));
+            strict     = (value === '' || value === 0)
               ? true
               : strict || false
             ;
@@ -1001,36 +1198,32 @@ $.fn.dropdown = function(parameters) {
                     optionText    = module.get.choiceText($choice),
                     optionValue   = module.get.choiceValue($choice, optionText)
                   ;
-                  if(strict) {
-                    module.verbose('Ambiguous dropdown value using strict type check', $choice, value);
-                    if( optionValue === value ) {
-                      $selectedItem = $(this);
-                      return true;
+                  if(isMultiple) {
+                    if($.inArray(optionValue, value) !== -1 || $.inArray(optionText, value) !== -1) {
+                      $selectedItem = ($selectedItem)
+                        ? $selectedItem.add($choice)
+                        : $choice
+                      ;
                     }
-                    else if( !$selectedItem && optionText === value ) {
-                      $selectedItem = $(this);
+                  }
+                  else if(strict) {
+                    module.verbose('Ambiguous dropdown value using strict type check', $choice, value);
+                    if( optionValue === value || optionText === value) {
+                      $selectedItem = $choice;
                       return true;
                     }
                   }
                   else {
-                    if( optionValue == value ) {
+                    if( optionValue == value || optionText == value) {
                       module.verbose('Found select item by value', optionValue, value);
-                      $selectedItem = $(this);
-                      return true;
-                    }
-                    else if( !$selectedItem && optionText == value ) {
-                      module.verbose('Found select item by text', optionText, value);
-                      $selectedItem = $(this);
+                      $selectedItem = $choice;
                       return true;
                     }
                   }
                 })
               ;
             }
-            else {
-              value = module.get.text();
-            }
-            return $selectedItem || false;
+            return $selectedItem;
           }
         },
 
@@ -1102,10 +1295,15 @@ $.fn.dropdown = function(parameters) {
           filtered: function() {
             var
               searchValue    = $search.val(),
+              searchWidth    = ((searchValue.length) * settings.glyphWidth) + 'em',
               hasSearchValue = (typeof searchValue === 'string' && searchValue.length > 0)
             ;
             if(hasSearchValue) {
               $text.addClass(className.filtered);
+              if(module.is.multiple()) {
+                module.verbose('Adjusting input width', searchWidth, settings.glyphWidth)
+                $search.css('width', searchWidth);
+              }
             }
             else {
               $text.removeClass(className.filtered);
@@ -1154,13 +1352,10 @@ $.fn.dropdown = function(parameters) {
               ? forceScroll
               : false
             ;
-
             if($item && hasActive) {
-
               if(!$menu.hasClass(className.visible)) {
                 $menu.addClass(className.loading);
               }
-
               menuHeight = $menu.height();
               itemHeight = $item.height();
               menuScroll = $menu.scrollTop();
@@ -1237,9 +1432,9 @@ $.fn.dropdown = function(parameters) {
               module.debug('Setting mutiple select values', values, $input);
             }
             else {
-              values = values.join(',');
+              values = values.join(settings.delimiter);
               $input.val(values);
-              module.debug('Setting hidden input to comma separatd values', values, $input);
+              module.debug('Setting hidden input to delimited values', values, $input);
             }
           },
           active: function() {
@@ -1256,22 +1451,64 @@ $.fn.dropdown = function(parameters) {
           selected: function(value) {
             var
               $selectedItem = module.get.item(value),
+              isMultiple    = module.is.multiple(),
+              shouldAnimate = (isMultiple && $selectedItem.length == 1),
               selectedText,
               selectedValue
             ;
             if($selectedItem && !$selectedItem.hasClass(className.active) ) {
               module.debug('Setting selected menu item to', $selectedItem);
-              module.remove.activeItem();
+              if(!module.is.multiple()) {
+                module.remove.activeItem();
+              }
               module.remove.selectedItem();
               $selectedItem
                 .addClass(className.active)
                 .addClass(className.selected)
+                .each(function() {
+                  var
+                    $selected = $(this)
+                  ;
+                  selectedText  = module.get.choiceText($selected);
+                  selectedValue = module.get.choiceValue($selected, selectedText);
+                  if(isMultiple) {
+                    module.add.label(selectedValue, selectedText, shouldAnimate);
+                  }
+                  else {
+                    module.set.text(selectedText);
+                  }
+                  module.set.value(selectedValue);
+                  settings.onChange.call(element, selectedValue, selectedText, $selected);
+                })
               ;
-              selectedText  = module.get.choiceText($selectedItem);
-              selectedValue = module.get.choiceValue($selectedItem, selectedText);
-              module.set.text(selectedText);
-              module.set.value(selectedValue);
-              settings.onChange.call(element, value, selectedText, $selectedItem);
+            }
+          }
+        },
+
+        add: {
+          label: function(value, text, shouldAnimate) {
+            var
+              $label = $('<a />')
+                .addClass(className.label)
+                .attr('data-value', value)
+                .html(templates.label(value, text))
+            ;
+            if(settings.label.variation) {
+              $label.addClass(settings.label.variation);
+            }
+            if(shouldAnimate == true) {
+              module.debug('Animating in label', $label);
+              $label
+                .addClass(className.hidden)
+                .insertBefore($search)
+                .transition(settings.label.transition, settings.label.duration)
+              ;
+            }
+            else {
+              module.debug('Adding selection label', $label);
+              $label
+                .insertBefore($search)
+              ;
             }
           }
         },
@@ -1279,6 +1516,9 @@ $.fn.dropdown = function(parameters) {
         remove: {
           active: function() {
             $module.removeClass(className.active);
+          },
+          activeLabel: function() {
+            $module.find(selector.label).removeClass(className.active);
           },
           visible: function() {
             $module.removeClass(className.visible);
@@ -1290,10 +1530,80 @@ $.fn.dropdown = function(parameters) {
             $item.removeClass(className.filtered);
           },
           searchTerm: function() {
+            module.verbose('Cleared search term');
             $search.val('');
+          },
+          selected: function(value) {
+            var
+              $selectedItem = module.get.item(value),
+              $option,
+              values = $input.val(),
+              selectedValue = module.get.choiceValue($selectedItem)
+            ;
+            if($selectedItem) {
+              if( $input.is('select') ) {
+                $input
+                  .find('option[value="' + selectedValue + '"]')
+                  .prop('selected', false)
+                ;
+              }
+              else {
+                values = module.remove.delimitedValue(selectedValue, values);
+                $input.val(values);
+              }
+              if(module.is.multiple()) {
+                module.remove.label(selectedValue);
+              }
+              $selectedItem
+                .removeClass(className.active)
+              ;
+            }
           },
           selectedItem: function() {
             $item.removeClass(className.selected);
+          },
+          delimitedValue: function(removedValue, values) {
+            if(typeof values != 'string') {
+              return false;
+            }
+            values = values.split(settings.delimiter);
+            values = $.grep(values, function(value){
+              return (removedValue != value);
+            });
+            values = values.join(settings.delimiter);
+            module.verbose('Removed value from delimited string', removedValue, values);
+            return values;
+          },
+          label: function(value) {
+            var
+              $labels       = $module.find(selector.label),
+              $removedLabel = $labels.filter('[data-value="' + value +'"]'),
+              labelCount    = $labels.length,
+              isLastLabel   = ($labels.index($removedLabel) + 1 == labelCount),
+              isOnlyLabel   = (labelCount == 1),
+              shouldAnimate = (isOnlyLabel || isLastLabel)
+            ;
+            if(shouldAnimate) {
+              module.verbose('Animating and removing label', $removedLabel);
+              $removedLabel
+                .transition(settings.label.transition, settings.label.duration, function() {
+                  $removedLabel.remove();
+                })
+              ;
+            }
+            else {
+              module.verbose('Removing label', $removedLabel);
+              $removedLabel.remove();
+            }
+          },
+          labels: function($activeLabels) {
+            $activeLabels = $activeLabels || $module.find(selector.label).filter('.' + className.active);
+            module.verbose('Removing active labels', $activeLabels);
+            $activeLabels
+              .each(function(){
+                module.remove.selected($(this).data('value'));
+              })
+            ;
           },
           tabbable: function() {
             if( module.has.search() ) {
@@ -1318,9 +1628,6 @@ $.fn.dropdown = function(parameters) {
         },
 
         has: {
-          labels: function() {
-            return ($labels.length > 0);
-          },
           search: function() {
             return ($search.length > 0);
           },
@@ -1345,6 +1652,9 @@ $.fn.dropdown = function(parameters) {
               : $menu.is(':animated') || $menu.transition && $menu.transition('is animating')
             ;
           },
+          focusedOnSearch: function() {
+            return (document.activeElement === $search[0]);
+          },
           allFiltered: function() {
             return ($item.filter('.' + className.filtered).length === $item.length);
           },
@@ -1353,6 +1663,18 @@ $.fn.dropdown = function(parameters) {
               ? $subMenu.is(':hidden')
               : $menu.is(':hidden')
             ;
+          },
+          inObject: function(needle, object) {
+            var
+              found = false
+            ;
+            $.each(object, function(index, property) {
+              if(property == needle) {
+                found = true;
+                return true;
+              }
+            });
+            return found;
           },
           multiple: function() {
             return $module.hasClass(className.multiple);
@@ -1414,7 +1736,9 @@ $.fn.dropdown = function(parameters) {
               ? callback
               : function(){}
             ;
-            module.set.scrollPosition(module.get.activeItem(), true);
+            if(!module.is.multiple()) {
+              module.set.scrollPosition(module.get.activeItem(), true);
+            }
             module.verbose('Doing menu show animation', $currentMenu);
             if( module.is.hidden($currentMenu) || module.is.animating($currentMenu) ) {
 
@@ -1440,36 +1764,6 @@ $.fn.dropdown = function(parameters) {
                     onComplete : function() {
                       callback.call(element);
                     }
-                  })
-                ;
-              }
-              else if(settings.transition == 'slide down') {
-                start();
-                $currentMenu
-                  .hide()
-                  .clearQueue()
-                  .children()
-                    .clearQueue()
-                    .css('opacity', 0)
-                    .delay(50)
-                    .animate({
-                      opacity : 1
-                    }, settings.duration, 'easeOutQuad', module.event.resetStyle)
-                    .end()
-                  .slideDown(100, 'easeOutQuad', function() {
-                    module.event.resetStyle.call(this);
-                    callback.call(element);
-                  })
-                ;
-              }
-              else if(settings.transition == 'fade') {
-                start();
-                $currentMenu
-                  .hide()
-                  .clearQueue()
-                  .fadeIn(settings.duration, function() {
-                    module.event.resetStyle.call(this);
-                    callback.call(element);
                   })
                 ;
               }
@@ -1525,36 +1819,6 @@ $.fn.dropdown = function(parameters) {
                     onComplete : function() {
                       callback.call(element);
                     }
-                  })
-                ;
-              }
-              else if(settings.transition == 'slide down') {
-                start();
-                $currentMenu
-                  .show()
-                  .clearQueue()
-                  .children()
-                    .clearQueue()
-                    .css('opacity', 1)
-                    .animate({
-                      opacity : 0
-                    }, 100, 'easeOutQuad', module.event.resetStyle)
-                    .end()
-                  .delay(50)
-                  .slideUp(100, 'easeOutQuad', function() {
-                    module.event.resetStyle.call(this);
-                    callback.call(element);
-                  })
-                ;
-              }
-              else if(settings.transition == 'fade') {
-                start();
-                $currentMenu
-                  .show()
-                  .clearQueue()
-                  .fadeOut(150, function() {
-                    module.event.resetStyle.call(this);
-                    callback.call(element);
                   })
                 ;
               }
@@ -1775,6 +2039,12 @@ $.fn.dropdown.settings = {
   preserveHTML           : true,
   sortSelect             : false,
 
+  label: {
+    transition : 'horizontal flip',
+    duration   : 250,
+    variation  : false
+  },
+
   allowCategorySelection : false,
 
   delay                  : {
@@ -1784,16 +2054,21 @@ $.fn.dropdown.settings = {
     touch  : 50
   },
 
-  forceSelection: true,
+  forceSelection : true,
 
-  transition : 'auto',
-  duration   : 250,
+  // widest glyph width in em (W is 1.0714 em)
+  glyphWidth     : 1.0714,
+
+  transition     : 'auto',
+  delimiter      : ',',
+  duration       : 250,
 
   /* Callbacks */
-  onNoResults : function(searchTerm){},
-  onChange    : function(value, text){},
-  onShow      : function(){},
-  onHide      : function(){},
+  onLabelClick : function($selectedLabels){},
+  onNoResults  : function(searchTerm){},
+  onChange     : function(value, text){},
+  onShow       : function(){},
+  onHide       : function(){},
 
   /* Component */
 
@@ -1817,9 +2092,11 @@ $.fn.dropdown.settings = {
 
   selector : {
     dropdown : '.ui.dropdown',
+    icon     : '> .dropdown.icon',
     input    : '> input[type="hidden"], > select',
     item     : '.item',
-    labels   : '> .labels',
+    label    : '> .label',
+    remove   : '> .label > .delete.icon',
     menu     : '.menu',
     menuIcon : '.dropdown.icon',
     search   : 'input.search, .menu > .search > input',
@@ -1832,7 +2109,8 @@ $.fn.dropdown.settings = {
     disabled    : 'disabled',
     dropdown    : 'ui dropdown',
     filtered    : 'filtered',
-    labels      : 'labels',
+    hidden      : 'hidden transition',
+    label       : 'ui label',
     loading     : 'loading',
     menu        : 'menu',
     multiple    : 'multiple',
@@ -1858,6 +2136,9 @@ $.fn.dropdown.settings.templates = {
       html += '<div class="item" data-value="' + option.value + '">' + option.name + '</div>';
     });
     return html;
+  },
+  label: function(value, text) {
+    return text + '<i class="delete icon"></i>';
   },
   dropdown: function(select) {
     var

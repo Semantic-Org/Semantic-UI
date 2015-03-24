@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.4 - Header
+ * # Semantic UI 1.11.5 - Header
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -291,49 +291,49 @@ a.ui.black.header:hover {
   color: #3b83c0 !important;
 }
 a.ui.blue.header:hover {
-  color: #458ac6 !important;
+  color: #5494cb !important;
 }
 .ui.green.header {
   color: #5bbd72 !important;
 }
 a.ui.green.header:hover {
-  color: #66c17b !important;
+  color: #74c788 !important;
 }
 .ui.orange.header {
   color: #e07b53 !important;
 }
 a.ui.orange.header:hover {
-  color: #e28560 !important;
+  color: #e59271 !important;
 }
 .ui.pink.header {
   color: #d9499a !important;
 }
 a.ui.pink.header:hover {
-  color: #dc56a1 !important;
+  color: #df67aa !important;
 }
 .ui.purple.header {
   color: #564f8a !important;
 }
 a.ui.purple.header:hover {
-  color: #5c5594 !important;
+  color: #645ca1 !important;
 }
 .ui.red.header {
   color: #d95c5c !important;
 }
 a.ui.red.header:hover {
-  color: #dc6868 !important;
+  color: #e07979 !important;
 }
 .ui.teal.header {
   color: #00b5ad !important;
 }
 a.ui.teal.header:hover {
-  color: #00c4bc !important;
+  color: #00d9cf !important;
 }
 .ui.yellow.header {
   color: #f2c61f !important;
 }
 a.ui.yellow.header:hover {
-  color: #f3ca2d !important;
+  color: #f4cf41 !important;
 }
 .ui.black.dividing.header {
   border-bottom: 2px solid #1b1c1d;
@@ -392,55 +392,55 @@ a.ui.yellow.header:hover {
   color: #aaaaaa !important;
 }
 a.ui.inverted.black.header:hover {
-  color: #b2b2b2 !important;
+  color: #bcbcbc !important;
 }
 .ui.inverted.blue.header {
   color: #54c8ff !important;
 }
 a.ui.inverted.blue.header:hover {
-  color: #63cdff !important;
+  color: #78d3ff !important;
 }
 .ui.inverted.green.header {
   color: #2ecc40 !important;
 }
 a.ui.inverted.green.header:hover {
-  color: #37d249 !important;
+  color: #48d658 !important;
 }
 .ui.inverted.orange.header {
   color: #ff851b !important;
 }
 a.ui.inverted.orange.header:hover {
-  color: #ff8d2a !important;
+  color: #ff983f !important;
 }
 .ui.inverted.pink.header {
   color: #ff8edf !important;
 }
 a.ui.inverted.pink.header:hover {
-  color: #ff9de3 !important;
+  color: #ffb2e9 !important;
 }
 .ui.inverted.purple.header {
   color: #cdc6ff !important;
 }
 a.ui.inverted.purple.header:hover {
-  color: #dad5ff !important;
+  color: #eceaff !important;
 }
 .ui.inverted.red.header {
   color: #ff695e !important;
 }
 a.ui.inverted.red.header:hover {
-  color: #ff776d !important;
+  color: #ff8a82 !important;
 }
 .ui.inverted.teal.header {
   color: #6dffff !important;
 }
 a.ui.inverted.teal.header:hover {
-  color: #7cffff !important;
+  color: #91ffff !important;
 }
 .ui.inverted.yellow.header {
   color: #ffe21f !important;
 }
 a.ui.inverted.yellow.header:hover {
-  color: #ffe42e !important;
+  color: #ffe743 !important;
 }
 .ui.inverted.block.header {
   border-bottom: none;

@@ -97,7 +97,6 @@ i.emphasized.icon {
   opacity: 1;
 }
 i.disabled.icon {
-  pointer-events: none;
   opacity: 0.3 !important;
 }
 

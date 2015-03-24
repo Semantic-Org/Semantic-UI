@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.11.4
+ * # Semantic UI - 1.11.5
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -10,7 +10,7 @@
  */
 @import 'https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&subset=latin';
 /*!
- * # Semantic UI 1.11.4 - Reset
+ * # Semantic UI 1.11.5 - Reset
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -669,7 +669,7 @@ input::selection {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Button
+ * # Semantic UI 1.11.5 - Button
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -742,7 +742,7 @@ input::selection {
   background-color: '';
   color: rgba(0, 0, 0, 0.8);
   background-image: '' !important;
-  box-shadow: 0px 0px 0px 1px transparent inset, 0px 0px 1px rgba(81, 167, 232, 0.8) inset, 0px 0px 3px 2px rgba(81, 167, 232, 0.8) !important;
+  box-shadow: 0px 0px 0px 1px transparent inset, 0px 1px 2px rgba(0, 0, 0, 0.075) inset, 0px 0px 5px rgba(81, 167, 232, 0.5) !important;
 }
 
 .ui.button:focus .icon {
@@ -1081,7 +1081,7 @@ input::selection {
 }
 
 .ui.facebook.button:hover {
-  background-color: #3f5da8;
+  background-color: #4565b7;
   color: #ffffff;
   text-shadow: none;
 }
@@ -1103,7 +1103,7 @@ input::selection {
 }
 
 .ui.twitter.button:hover {
-  background-color: #4c99cf;
+  background-color: #5ca2d4;
   color: #ffffff;
   text-shadow: none;
 }
@@ -1125,7 +1125,7 @@ input::selection {
 }
 
 .ui.google.plus.button:hover {
-  background-color: #d65343;
+  background-color: #d96353;
   color: #ffffff;
   text-shadow: none;
 }
@@ -1145,7 +1145,7 @@ input::selection {
 }
 
 .ui.linkedin.button:hover {
-  background-color: #2191cb;
+  background-color: #259edb;
   color: #ffffff;
   text-shadow: none;
 }
@@ -1167,7 +1167,7 @@ input::selection {
 }
 
 .ui.youtube.button:hover {
-  background-color: #da1a20;
+  background-color: #e52329;
   color: #ffffff;
   text-shadow: none;
 }
@@ -1189,7 +1189,7 @@ input::selection {
 }
 
 .ui.instagram.button:hover {
-  background-color: #4e7ea6;
+  background-color: #5888b1;
   color: #ffffff;
   text-shadow: none;
 }
@@ -1211,7 +1211,7 @@ input::selection {
 }
 
 .ui.pinterest.button:hover {
-  background-color: #00b7fc;
+  background-color: #12beff;
   color: #ffffff;
   text-shadow: none;
 }
@@ -1232,7 +1232,7 @@ input::selection {
 }
 
 .ui.vk.button:hover {
-  background-color: #5279a2;
+  background-color: #5c83ad;
   color: #ffffff;
 }
 
@@ -1598,7 +1598,7 @@ input::selection {
 }
 
 .ui.button.toggle.active:hover {
-  background-color: #66c17b !important;
+  background-color: #74c788 !important;
   text-shadow: none;
   color: #ffffff !important;
 }
@@ -2116,7 +2116,7 @@ input::selection {
 
 .ui.blue.buttons .button:hover,
 .ui.blue.button:hover {
-  background-color: #458ac6;
+  background-color: #5494cb;
   color: #ffffff;
   text-shadow: none;
 }
@@ -2148,8 +2148,8 @@ input::selection {
 .ui.basic.blue.buttons .button:hover,
 .ui.basic.blue.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #458ac6 inset !important;
-  color: #458ac6 !important;
+  box-shadow: 0px 0px 0px 2px #5494cb inset !important;
+  color: #5494cb !important;
 }
 
 .ui.basic.blue.buttons .button:active,
@@ -2246,7 +2246,7 @@ input::selection {
 
 .ui.green.buttons .button:hover,
 .ui.green.button:hover {
-  background-color: #66c17b;
+  background-color: #74c788;
   color: #ffffff;
   text-shadow: none;
 }
@@ -2278,8 +2278,8 @@ input::selection {
 .ui.basic.green.buttons .button:hover,
 .ui.basic.green.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #66c17b inset !important;
-  color: #66c17b !important;
+  box-shadow: 0px 0px 0px 2px #74c788 inset !important;
+  color: #74c788 !important;
 }
 
 .ui.basic.green.buttons .button:active,
@@ -2376,7 +2376,7 @@ input::selection {
 
 .ui.orange.buttons .button:hover,
 .ui.orange.button:hover {
-  background-color: #e28560;
+  background-color: #e59271;
   color: #ffffff;
   text-shadow: none;
 }
@@ -2408,8 +2408,8 @@ input::selection {
 .ui.basic.orange.buttons .button:hover,
 .ui.basic.orange.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #e28560 inset !important;
-  color: #e28560 !important;
+  box-shadow: 0px 0px 0px 2px #e59271 inset !important;
+  color: #e59271 !important;
 }
 
 .ui.basic.orange.buttons .button:active,
@@ -2506,7 +2506,7 @@ input::selection {
 
 .ui.pink.buttons .button:hover,
 .ui.pink.button:hover {
-  background-color: #dc56a1;
+  background-color: #df67aa;
   color: #ffffff;
   text-shadow: none;
 }
@@ -2538,8 +2538,8 @@ input::selection {
 .ui.basic.pink.buttons .button:hover,
 .ui.basic.pink.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #dc56a1 inset !important;
-  color: #dc56a1 !important;
+  box-shadow: 0px 0px 0px 2px #df67aa inset !important;
+  color: #df67aa !important;
 }
 
 .ui.basic.pink.buttons .button:active,
@@ -2636,7 +2636,7 @@ input::selection {
 
 .ui.purple.buttons .button:hover,
 .ui.purple.button:hover {
-  background-color: #5c5594;
+  background-color: #645ca1;
   color: #ffffff;
   text-shadow: none;
 }
@@ -2668,8 +2668,8 @@ input::selection {
 .ui.basic.purple.buttons .button:hover,
 .ui.basic.purple.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #5c5594 inset !important;
-  color: #5c5594 !important;
+  box-shadow: 0px 0px 0px 2px #645ca1 inset !important;
+  color: #645ca1 !important;
 }
 
 .ui.basic.purple.buttons .button:active,
@@ -2766,7 +2766,7 @@ input::selection {
 
 .ui.red.buttons .button:hover,
 .ui.red.button:hover {
-  background-color: #dc6868;
+  background-color: #e07979;
   color: #ffffff;
   text-shadow: none;
 }
@@ -2798,8 +2798,8 @@ input::selection {
 .ui.basic.red.buttons .button:hover,
 .ui.basic.red.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #dc6868 inset !important;
-  color: #dc6868 !important;
+  box-shadow: 0px 0px 0px 2px #e07979 inset !important;
+  color: #e07979 !important;
 }
 
 .ui.basic.red.buttons .button:active,
@@ -2896,7 +2896,7 @@ input::selection {
 
 .ui.teal.buttons .button:hover,
 .ui.teal.button:hover {
-  background-color: #00c4bc;
+  background-color: #00d9cf;
   color: #ffffff;
   text-shadow: none;
 }
@@ -2928,8 +2928,8 @@ input::selection {
 .ui.basic.teal.buttons .button:hover,
 .ui.basic.teal.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #00c4bc inset !important;
-  color: #00c4bc !important;
+  box-shadow: 0px 0px 0px 2px #00d9cf inset !important;
+  color: #00d9cf !important;
 }
 
 .ui.basic.teal.buttons .button:active,
@@ -3026,7 +3026,7 @@ input::selection {
 
 .ui.yellow.buttons .button:hover,
 .ui.yellow.button:hover {
-  background-color: #f3ca2d;
+  background-color: #f4cf41;
   color: #ffffff;
   text-shadow: none;
 }
@@ -3058,8 +3058,8 @@ input::selection {
 .ui.basic.yellow.buttons .button:hover,
 .ui.basic.yellow.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #f3ca2d inset !important;
-  color: #f3ca2d !important;
+  box-shadow: 0px 0px 0px 2px #f4cf41 inset !important;
+  color: #f4cf41 !important;
 }
 
 .ui.basic.yellow.buttons .button:active,
@@ -3158,7 +3158,7 @@ input::selection {
 
 .ui.primary.buttons .button:hover,
 .ui.primary.button:hover {
-  background-color: #458ac6;
+  background-color: #5494cb;
   color: #ffffff;
   text-shadow: none;
 }
@@ -3195,7 +3195,7 @@ input::selection {
 
 .ui.secondary.buttons .button:hover,
 .ui.secondary.button:hover {
-  background-color: #222425;
+  background-color: #2c2e2f;
   color: #ffffff;
   text-shadow: none;
 }
@@ -3234,7 +3234,7 @@ input::selection {
 .ui.positive.button:hover,
 .ui.positive.buttons .active.button,
 .ui.positive.active.button {
-  background-color: #66c17b !important;
+  background-color: #74c788 !important;
   color: #ffffff;
   text-shadow: none;
 }
@@ -3275,7 +3275,7 @@ input::selection {
 .ui.negative.button:hover,
 .ui.negative.buttons .active.button,
 .ui.negative.active.button {
-  background-color: #dc6868 !important;
+  background-color: #e07979 !important;
   color: #ffffff;
   text-shadow: none;
 }
@@ -3392,7 +3392,7 @@ input::selection {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Container
+ * # Semantic UI 1.11.5 - Container
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -3474,7 +3474,7 @@ input::selection {
   text-align: right;
 }
 /*!
- * # Semantic UI 1.11.4 - Divider
+ * # Semantic UI 1.11.5 - Divider
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -3722,7 +3722,7 @@ input::selection {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Flag
+ * # Semantic UI 1.11.5 - Flag
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -4984,7 +4984,7 @@ i.flag.zimbabwe:before {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Header
+ * # Semantic UI 1.11.5 - Header
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -5306,7 +5306,7 @@ a.ui.black.header:hover {
 }
 
 a.ui.blue.header:hover {
-  color: #458ac6 !important;
+  color: #5494cb !important;
 }
 
 .ui.green.header {
@@ -5314,7 +5314,7 @@ a.ui.blue.header:hover {
 }
 
 a.ui.green.header:hover {
-  color: #66c17b !important;
+  color: #74c788 !important;
 }
 
 .ui.orange.header {
@@ -5322,7 +5322,7 @@ a.ui.green.header:hover {
 }
 
 a.ui.orange.header:hover {
-  color: #e28560 !important;
+  color: #e59271 !important;
 }
 
 .ui.pink.header {
@@ -5330,7 +5330,7 @@ a.ui.orange.header:hover {
 }
 
 a.ui.pink.header:hover {
-  color: #dc56a1 !important;
+  color: #df67aa !important;
 }
 
 .ui.purple.header {
@@ -5338,7 +5338,7 @@ a.ui.pink.header:hover {
 }
 
 a.ui.purple.header:hover {
-  color: #5c5594 !important;
+  color: #645ca1 !important;
 }
 
 .ui.red.header {
@@ -5346,7 +5346,7 @@ a.ui.purple.header:hover {
 }
 
 a.ui.red.header:hover {
-  color: #dc6868 !important;
+  color: #e07979 !important;
 }
 
 .ui.teal.header {
@@ -5354,7 +5354,7 @@ a.ui.red.header:hover {
 }
 
 a.ui.teal.header:hover {
-  color: #00c4bc !important;
+  color: #00d9cf !important;
 }
 
 .ui.yellow.header {
@@ -5362,7 +5362,7 @@ a.ui.teal.header:hover {
 }
 
 a.ui.yellow.header:hover {
-  color: #f3ca2d !important;
+  color: #f4cf41 !important;
 }
 
 .ui.black.dividing.header {
@@ -5434,7 +5434,7 @@ a.ui.yellow.header:hover {
 }
 
 a.ui.inverted.black.header:hover {
-  color: #b2b2b2 !important;
+  color: #bcbcbc !important;
 }
 
 .ui.inverted.blue.header {
@@ -5442,7 +5442,7 @@ a.ui.inverted.black.header:hover {
 }
 
 a.ui.inverted.blue.header:hover {
-  color: #63cdff !important;
+  color: #78d3ff !important;
 }
 
 .ui.inverted.green.header {
@@ -5450,7 +5450,7 @@ a.ui.inverted.blue.header:hover {
 }
 
 a.ui.inverted.green.header:hover {
-  color: #37d249 !important;
+  color: #48d658 !important;
 }
 
 .ui.inverted.orange.header {
@@ -5458,7 +5458,7 @@ a.ui.inverted.green.header:hover {
 }
 
 a.ui.inverted.orange.header:hover {
-  color: #ff8d2a !important;
+  color: #ff983f !important;
 }
 
 .ui.inverted.pink.header {
@@ -5466,7 +5466,7 @@ a.ui.inverted.orange.header:hover {
 }
 
 a.ui.inverted.pink.header:hover {
-  color: #ff9de3 !important;
+  color: #ffb2e9 !important;
 }
 
 .ui.inverted.purple.header {
@@ -5474,7 +5474,7 @@ a.ui.inverted.pink.header:hover {
 }
 
 a.ui.inverted.purple.header:hover {
-  color: #dad5ff !important;
+  color: #eceaff !important;
 }
 
 .ui.inverted.red.header {
@@ -5482,7 +5482,7 @@ a.ui.inverted.purple.header:hover {
 }
 
 a.ui.inverted.red.header:hover {
-  color: #ff776d !important;
+  color: #ff8a82 !important;
 }
 
 .ui.inverted.teal.header {
@@ -5490,7 +5490,7 @@ a.ui.inverted.red.header:hover {
 }
 
 a.ui.inverted.teal.header:hover {
-  color: #7cffff !important;
+  color: #91ffff !important;
 }
 
 .ui.inverted.yellow.header {
@@ -5498,7 +5498,7 @@ a.ui.inverted.teal.header:hover {
 }
 
 a.ui.inverted.yellow.header:hover {
-  color: #ffe42e !important;
+  color: #ffe743 !important;
 }
 
 .ui.inverted.block.header {
@@ -5685,7 +5685,7 @@ a.ui.inverted.yellow.header:hover {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Icon
+ * # Semantic UI 1.11.5 - Icon
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -5788,7 +5788,6 @@ i.emphasized.icon {
 }
 
 i.disabled.icon {
-  pointer-events: none;
   opacity: 0.3 !important;
 }
 
@@ -8865,7 +8864,7 @@ i.icon.bed:before {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Image
+ * # Semantic UI 1.11.5 - Image
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -9161,7 +9160,7 @@ img.ui.bordered.image {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Input
+ * # Semantic UI 1.11.5 - Input
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -9646,7 +9645,7 @@ img.ui.bordered.image {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Label
+ * # Semantic UI 1.11.5 - Label
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -9664,7 +9663,7 @@ img.ui.bordered.image {
   display: inline-block;
   vertical-align: baseline;
   line-height: 1;
-  margin: 0em 0.125em;
+  margin: 0em 0.142857em;
   background-color: #e8e8e8;
   border-color: #e8e8e8;
   background-image: none;
@@ -9697,7 +9696,7 @@ a.ui.label {
 .ui.label a {
   cursor: pointer;
   color: inherit;
-  opacity: 0.8;
+  opacity: 0.5;
   -webkit-transition: 0.2s opacity ease;
   transition: 0.2s opacity ease;
 }
@@ -9734,7 +9733,8 @@ a.ui.label {
   cursor: pointer;
   margin-right: 0em;
   margin-left: 0.5em;
-  opacity: 0.8;
+  font-size: 0.92857143em;
+  opacity: 0.5;
   -webkit-transition: background 0.2s ease;
   transition: background 0.2s ease;
 }
@@ -9748,7 +9748,7 @@ a.ui.label {
 --------------------*/
 
 .ui.labels .label {
-  margin: 0em 0.5em 0.75em 0em;
+  margin: 0em 0.5em 0.5em 0em;
 }
 
 /*-------------------
@@ -10132,6 +10132,42 @@ a.ui.label:hover:before {
 }
 
 /*-------------------
+        Active
+--------------------*/
+
+.ui.active.label {
+  background-color: #d0d0d0;
+  border-color: #d0d0d0;
+  background-image: none;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.ui.active.label:before {
+  background-color: #d0d0d0;
+  background-image: none;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+/*-------------------
+     Active Hover
+--------------------*/
+
+a.ui.labels .active.label:hover,
+a.ui.active.label:hover {
+  background-color: #c8c8c8;
+  border-color: #c8c8c8;
+  background-image: none;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.ui.labels a.active.label:ActiveHover:before,
+a.ui.active.label:ActiveHover:before {
+  background-color: #c8c8c8;
+  background-image: none;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+/*-------------------
       Visible
 --------------------*/
 
@@ -10211,15 +10247,15 @@ a.ui.black.label:hover:before {
 a.ui.blue.labels .label:hover,
 .ui.blue.labels a.label:hover,
 a.ui.blue.label:hover {
-  background-color: #458ac6 !important;
-  border-color: #458ac6 !important;
+  background-color: #5494cb !important;
+  border-color: #5494cb !important;
   color: #ffffff !important;
 }
 
 .ui.labels a.blue.label:hover:before,
 .ui.blue.labels a.label:hover:before,
 a.ui.blue.label:hover:before {
-  background-color: #458ac6 !important;
+  background-color: #5494cb !important;
 }
 
 .ui.blue.corner.label,
@@ -10248,14 +10284,14 @@ a.ui.blue.label:hover:before {
 
 a.ui.green.labels .label:hover,
 a.ui.green.label:hover {
-  background-color: #66c17b !important;
-  border-color: #66c17b !important;
+  background-color: #74c788 !important;
+  border-color: #74c788 !important;
 }
 
 .ui.labels a.green.label:hover:before,
 .ui.green.labels a.label:hover:before,
 a.ui.green.label:hover:before {
-  background-color: #66c17b !important;
+  background-color: #74c788 !important;
 }
 
 .ui.green.corner.label,
@@ -10285,15 +10321,15 @@ a.ui.green.label:hover:before {
 a.ui.orange.labels .label:hover,
 .ui.orange.labels a.label:hover,
 a.ui.orange.label:hover {
-  background-color: #e28560 !important;
-  border-color: #e28560 !important;
+  background-color: #e59271 !important;
+  border-color: #e59271 !important;
   color: #ffffff !important;
 }
 
 .ui.labels a.orange.label:hover:before,
 .ui.orange.labels a.label:hover:before,
 a.ui.orange.label:hover:before {
-  background-color: #e28560 !important;
+  background-color: #e59271 !important;
 }
 
 .ui.orange.corner.label,
@@ -10323,15 +10359,15 @@ a.ui.orange.label:hover:before {
 a.ui.pink.labels .label:hover,
 .ui.pink.labels a.label:hover,
 a.ui.pink.label:hover {
-  background-color: #dc56a1 !important;
-  border-color: #dc56a1 !important;
+  background-color: #df67aa !important;
+  border-color: #df67aa !important;
   color: #ffffff !important;
 }
 
 .ui.labels a.pink.label:hover:before,
 .ui.pink.labels a.label:hover:before,
 a.ui.pink.label:hover:before {
-  background-color: #dc56a1 !important;
+  background-color: #df67aa !important;
 }
 
 .ui.pink.corner.label,
@@ -10361,15 +10397,15 @@ a.ui.pink.label:hover:before {
 a.ui.purple.labels .label:hover,
 .ui.purple.labels a.label:hover,
 a.ui.purple.label:hover {
-  background-color: #5c5594 !important;
-  border-color: #5c5594 !important;
+  background-color: #645ca1 !important;
+  border-color: #645ca1 !important;
   color: #ffffff !important;
 }
 
 .ui.labels a.purple.label:hover:before,
 .ui.purple.labels a.label:hover:before,
 a.ui.purple.label:hover:before {
-  background-color: #5c5594 !important;
+  background-color: #645ca1 !important;
 }
 
 .ui.purple.corner.label,
@@ -10403,15 +10439,15 @@ a.ui.purple.label:hover:before {
 
 a.ui.red.labels .label:hover,
 a.ui.red.label:hover {
-  background-color: #dc6868 !important;
-  border-color: #dc6868 !important;
+  background-color: #e07979 !important;
+  border-color: #e07979 !important;
   color: #ffffff !important;
 }
 
 .ui.labels a.red.label:hover:before,
 .ui.red.labels a.label:hover:before,
 a.ui.red.label:hover:before {
-  background-color: #dc6868 !important;
+  background-color: #e07979 !important;
 }
 
 .ui.red.ribbon.label {
@@ -10436,15 +10472,15 @@ a.ui.red.label:hover:before {
 a.ui.teal.labels .label:hover,
 .ui.teal.labels a.label:hover,
 a.ui.teal.label:hover {
-  background-color: #00c4bc !important;
-  border-color: #00c4bc !important;
+  background-color: #00d9cf !important;
+  border-color: #00d9cf !important;
   color: #ffffff !important;
 }
 
 .ui.labels a.teal.label:hover:before,
 .ui.teal.labels a.label:hover:before,
 a.ui.teal.label:hover:before {
-  background-color: #00c4bc !important;
+  background-color: #00d9cf !important;
 }
 
 .ui.teal.corner.label,
@@ -10474,15 +10510,15 @@ a.ui.teal.label:hover:before {
 a.ui.yellow.labels .label:hover,
 .ui.yellow.labels a.label:hover,
 a.ui.yellow.label:hover {
-  background-color: #f3ca2d !important;
-  border-color: #f3ca2d !important;
+  background-color: #f4cf41 !important;
+  border-color: #f4cf41 !important;
   color: #ffffff !important;
 }
 
 .ui.labels a.yellow.label:hover:before,
 .ui.yellow.labels a.label:hover:before,
 a.ui.yellow.label:hover:before {
-  background-color: #f3ca2d !important;
+  background-color: #f4cf41 !important;
 }
 
 .ui.yellow.corner.label,
@@ -10705,7 +10741,7 @@ a.ui.yellow.label:hover:before {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - List
+ * # Semantic UI 1.11.5 - List
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -11696,7 +11732,7 @@ ol.ui.horizontal.list li:before,
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Loader
+ * # Semantic UI 1.11.5 - Loader
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -11989,6 +12025,8 @@ ol.ui.horizontal.list li:before,
 .ui.centered.inline.loader.active,
 .ui.centered.inline.loader.visible {
   display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*******************************
@@ -11999,7 +12037,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Rail
+ * # Semantic UI 1.11.5 - Rail
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -12123,7 +12161,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Reveal
+ * # Semantic UI 1.11.5 - Reveal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -12439,7 +12477,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Segment
+ * # Semantic UI 1.11.5 - Segment
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -13154,7 +13192,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Step
+ * # Semantic UI 1.11.5 - Step
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -13627,7 +13665,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Breadcrumb
+ * # Semantic UI 1.11.5 - Breadcrumb
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -13758,7 +13796,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Form
+ * # Semantic UI 1.11.5 - Form
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -14726,7 +14764,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Grid
+ * # Semantic UI 1.11.5 - Grid
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -14866,7 +14904,7 @@ body > .ui.grid {
 
 /* Segment inside Aligned Grid */
 
-.ui.grid .aligned.row > .column,
+.ui.grid .aligned.row > .column > .segment:not(.compact),
 .ui.aligned.grid .column > .segment:not(.compact) {
   width: 100%;
 }
@@ -16090,10 +16128,6 @@ body > .ui.grid {
   -ms-flex-direction: column;
   flex-direction: column;
   vertical-align: top;
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-  -ms-flex-align: start;
-  align-items: flex-start;
   -webkit-box-pack: start !important;
   -webkit-justify-content: flex-start !important;
   -ms-flex-pack: start !important;
@@ -16112,10 +16146,6 @@ body > .ui.grid {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-  -ms-flex-align: start;
-  align-items: flex-start;
   display: -webkit-inline-box !important;
   display: -webkit-inline-flex !important;
   display: -ms-inline-flexbox !important;
@@ -16141,10 +16171,6 @@ body > .ui.grid {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-  -ms-flex-align: start;
-  align-items: flex-start;
   vertical-align: bottom;
   -webkit-box-pack: end !important;
   -webkit-justify-content: flex-end !important;
@@ -16163,10 +16189,10 @@ body > .ui.grid {
   display: -webkit-inline-flex !important;
   display: -ms-inline-flexbox !important;
   display: inline-flex !important;
-  -webkit-box-align: stretch;
-  -webkit-align-items: stretch;
-  -ms-flex-align: stretch;
-  align-items: stretch;
+  -webkit-box-pack: stretch;
+  -webkit-justify-content: stretch;
+  -ms-flex-pack: stretch;
+  justify-content: stretch;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
@@ -16204,6 +16230,7 @@ body > .ui.grid {
 
 /* Center Aligned */
 
+.ui[class*="center aligned"].grid,
 .ui[class*="center aligned"].grid .column,
 .ui.grid > [class*="center aligned"].row > .column,
 .ui.grid > [class*="center aligned"].column:not(.row),
@@ -16897,10 +16924,12 @@ body > .ui.grid {
   display: -ms-flexbox;
   display: flex;
   margin: 1em 0rem;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   background: #ffffff;
   font-weight: normal;
   box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
   border-radius: 0.2857rem;
+  min-height: 2.85714286em;
 }
 
 .ui.menu:after {
@@ -16962,7 +16991,9 @@ body > .ui.grid {
   user-select: none;
   background: none;
   padding: 0.92857143em 1.14285714em;
+  text-transform: none;
   color: rgba(0, 0, 0, 0.8);
+  font-weight: normal;
   -webkit-transition: opacity 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
   transition: opacity 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
@@ -17089,11 +17120,11 @@ body > .ui.grid {
      Popup
 ---------------*/
 
-.ui.menu .popup {
+.ui.menu .ui.popup {
   display: none;
 }
 
-.ui.menu .visible.popup {
+.ui.menu .ui.visible.popup {
   display: block;
 }
 
@@ -17101,8 +17132,8 @@ body > .ui.grid {
     Dropdowns
 ---------------*/
 
-.ui.menu .ui.dropdown.item {
-  display: block;
+.ui.menu .ui.active.dropdown.item {
+  font-weight: normal;
 }
 
 /* Dropdown Icon */
@@ -17147,6 +17178,10 @@ body > .ui.grid {
   background: rgba(0, 0, 0, 0.05) !important;
   font-weight: bold !important;
   color: rgba(0, 0, 0, 0.9) !important;
+}
+
+.ui.menu .ui.dropdown.item .menu .item:not(.filtered) {
+  display: block;
 }
 
 /* Secondary */
@@ -17214,7 +17249,7 @@ body > .ui.grid {
   background: #999999;
   color: #ffffff;
   margin-left: 1em;
-  padding: 0.3em 0.8em;
+  padding: 0.3em 0.71428571em;
 }
 
 .ui.vertical.menu .item > .label {
@@ -17222,7 +17257,7 @@ body > .ui.grid {
   color: #ffffff;
   margin-top: -0.15em;
   margin-bottom: -0.15em;
-  padding: 0.3em 0.8em;
+  padding: 0.3em 0.71428571em;
 }
 
 .ui.menu .item > .label:before {
@@ -17230,7 +17265,7 @@ body > .ui.grid {
 }
 
 .ui.menu .item > .floating.label {
-  padding: 0.3em 0.8em;
+  padding: 0.3em 0.71428571em;
 }
 
 /*--------------
@@ -17300,6 +17335,7 @@ body > .ui.grid {
 .ui.vertical.menu .active.item:hover,
 .ui.menu .active.item:hover {
   background-color: rgba(0, 0, 0, 0.03);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 /*--------------
@@ -17357,6 +17393,7 @@ Floated Menu / Item
 .ui.vertical.menu {
   display: block;
   background: #ffffff;
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
 /*--- Item ---*/
@@ -17421,8 +17458,8 @@ Floated Menu / Item
 
 .ui.vertical.menu .menu .item {
   background: none;
-  padding: 0.5em 1.5em;
-  font-size: 0.85714286rem;
+  padding: 0.5em 1.33333333em;
+  font-size: 0.85714286em;
   color: rgba(0, 0, 0, 0.5);
 }
 
@@ -17512,7 +17549,7 @@ Floated Menu / Item
   color: rgba(0, 0, 0, 0.4);
   font-weight: normal;
   text-transform: normal;
-  font-size: 0.85714286rem;
+  font-size: 0.85714286em;
 }
 
 /* Sub Menu Divider */
@@ -17662,6 +17699,7 @@ Floated Menu / Item
 
 .ui.vertical.tabular.menu .active.item {
   background-color: #ffffff;
+  color: rgba(0, 0, 0, 0.9);
   border-color: #d4d4d5;
   margin: 0px -1px 0px 0px;
   border-radius: 5px 0px 0px 5px;
@@ -17698,7 +17736,8 @@ Floated Menu / Item
 .ui.pagination.menu .active.item {
   border-top: none;
   padding-top: 0.92857143em;
-  background-color: rgba(0, 0, 0, 0.03);
+  background-color: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.9);
   box-shadow: none;
 }
 
@@ -17744,6 +17783,12 @@ Floated Menu / Item
   background: none transparent;
 }
 
+/* Image */
+
+.ui.secondary.menu .item > img:not(.ui) {
+  margin: 0em;
+}
+
 /* Hover */
 
 .ui.secondary.menu .dropdown.item:hover,
@@ -17757,6 +17802,16 @@ Floated Menu / Item
 
 .ui.secondary.menu > .menu > .active.item,
 .ui.secondary.menu > .active.item {
+  box-shadow: none;
+  background: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.9);
+  border-radius: 0.2857rem;
+}
+
+/* Active Hover */
+
+.ui.secondary.menu > .menu > .active.item:hover,
+.ui.secondary.menu > .active.item:hover {
   box-shadow: none;
   background: rgba(0, 0, 0, 0.05);
   color: rgba(0, 0, 0, 0.9);
@@ -17803,45 +17858,16 @@ Floated Menu / Item
   border-radius: 0em;
 }
 
+/* Sub Menu */
+
+.ui.vertical.secondary.menu .item > .menu .item {
+  background-color: transparent;
+}
+
 /* Inverted */
 
 .ui.secondary.inverted.menu {
   background-color: transparent;
-}
-
-.ui.secondary.inverted.pointing.menu {
-  border-width: 2px;
-  border-color: rgba(34, 36, 38, 0.15);
-}
-
-.ui.secondary.inverted.pointing.menu > .item {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.ui.secondary.inverted.pointing.menu > .header.item {
-  color: #FFFFFF !important;
-}
-
-/* Hover */
-
-.ui.secondary.inverted.pointing.menu > .menu > .item:hover,
-.ui.secondary.inverted.pointing.menu > .item:hover {
-  color: rgba(255, 255, 255, 0.85);
-}
-
-/* Pressed */
-
-.ui.secondary.inverted.pointing.menu > .menu > .item:active,
-.ui.secondary.inverted.pointing.menu > .item:active {
-  border-color: rgba(255, 255, 255, 0.4);
-}
-
-/* Active */
-
-.ui.secondary.inverted.pointing.menu > .menu > .item.active,
-.ui.secondary.inverted.pointing.menu > .item.active {
-  border-color: rgba(255, 255, 255, 0.8);
-  color: #ffffff;
 }
 
 /*---------------------
@@ -17857,6 +17883,9 @@ Floated Menu / Item
   border-bottom-color: transparent;
   border-bottom-style: solid;
   border-radius: 0em;
+  -webkit-align-self: flex-end;
+  -ms-flex-item-align: end;
+  align-self: flex-end;
   margin: 0em 0em -2px;
   padding: 0.85714286em 1em;
   border-bottom-width: 2px;
@@ -17912,13 +17941,21 @@ Floated Menu / Item
   color: rgba(0, 0, 0, 0.9);
 }
 
+/* Active Hover */
+
+.ui.secondary.pointing.menu > .menu > .item.active:hover,
+.ui.secondary.pointing.menu > .item.active:hover {
+  border-color: #1b1c1d;
+  color: rgba(0, 0, 0, 0.9);
+}
+
 /* Vertical Pointing */
 
 .ui.secondary.vertical.pointing.menu {
   border-bottom-width: 0px;
   border-right-width: 2px;
   border-right-style: solid;
-  border-right-color: transparent;
+  border-right-color: rgba(34, 36, 38, 0.15);
 }
 
 .ui.secondary.vertical.pointing.menu > .item {
@@ -17943,9 +17980,32 @@ Floated Menu / Item
   border-color: rgba(255, 255, 255, 0.1);
 }
 
+.ui.secondary.inverted.pointing.menu {
+  border-width: 2px;
+  border-color: rgba(34, 36, 38, 0.15);
+}
+
+.ui.secondary.inverted.pointing.menu > .item {
+  color: #ffffff;
+}
+
+.ui.secondary.inverted.pointing.menu > .header.item {
+  color: #ffffff !important;
+}
+
+/* Hover */
+
+.ui.secondary.inverted.pointing.menu > .menu > .item:hover,
+.ui.secondary.inverted.pointing.menu > .item:hover {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+/* Active */
+
 .ui.secondary.inverted.pointing.menu > .menu > .item.active,
 .ui.secondary.inverted.pointing.menu > .item.active {
   border-color: #ffffff;
+  color: #ffffff;
 }
 
 /*--------------
@@ -17964,16 +18024,24 @@ Floated Menu / Item
   padding: 0em;
   border-radius: 0px;
   box-shadow: none;
-  opacity: 0.8;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
   margin: 0em 1em;
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.6);
   -webkit-transition: opacity 0.2s ease;
   transition: opacity 0.2s ease;
 }
+
+/* Border */
 
 .ui.text.menu > .item:before,
 .ui.text.menu .menu > .item:before {
   display: none !important;
 }
+
+/* Header */
 
 .ui.text.menu .header.item {
   background-color: transparent;
@@ -17985,8 +18053,10 @@ Floated Menu / Item
   font-weight: bold;
 }
 
-.ui.text.menu .text.item {
-  opacity: 1;
+/* Image */
+
+.ui.text.menu .item > img:not(.ui) {
+  margin: 0em;
 }
 
 /*--- fluid text ---*/
@@ -18035,9 +18105,9 @@ Floated Menu / Item
   background-color: transparent;
   padding: 0em;
   border: none;
-  opacity: 1;
-  font-weight: bold;
   box-shadow: none;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.9);
 }
 
 /*--- active hover ---*/
@@ -18158,6 +18228,31 @@ Floated Menu / Item
 /*******************************
            Variations
 *******************************/
+
+/*--------------
+    Stackable
+---------------*/
+
+@media only screen and (max-width: 767px) {
+  .ui.stackable.menu {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .ui.stackable.menu .item:before {
+    position: absolute;
+    content: '';
+    top: 0%;
+    left: 0px;
+    width: 100%;
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
+    height: 1px;
+  }
+}
 
 /*--------------
      Colors
@@ -18308,13 +18403,18 @@ Floated Menu / Item
 
 /*--- Pointers ---*/
 
-.ui.inverted.pointing.menu .active.item:after {
-  background: #5B5B5B;
+.ui.inverted.pointing.menu .item:hover:after {
+  background: #5b5b5b;
+  box-shadow: none;
+}
+
+.ui.inv .ui.inverted.pointing.menu .active.item:after {
+  background: #4a4a4a;
   box-shadow: none;
 }
 
 .ui.inverted.pointing.menu .active.item:hover:after {
-  background: #4A4A4A;
+  background: #5b5b5b;
 }
 
 /*--------------
@@ -18687,6 +18787,10 @@ Floated Menu / Item
   background-color: #f7f7f7;
 }
 
+.ui.pointing.menu .active.item:hover:after {
+  background-color: #fafafa;
+}
+
 .ui.vertical.pointing.menu .item:hover:after {
   background-color: #fafafa;
 }
@@ -18706,8 +18810,8 @@ Floated Menu / Item
 .ui.menu.attached {
   margin: 0rem;
   border-radius: 0px;
+  box-shadow: 0px 0px 0px 1px #d4d4d5;
   /* avoid rgba multiplying */
-  box-shadow: 0px 0px 0px 1px #dddddd;
 }
 
 .ui.top.attached.menu {
@@ -18745,11 +18849,21 @@ Floated Menu / Item
 /* Large */
 
 .ui.large.menu {
-  font-size: 1.125rem;
+  font-size: 1.14285714rem;
 }
 
 .ui.large.vertical.menu {
   width: 18rem;
+}
+
+/* Huge */
+
+.ui.huge.menu {
+  font-size: 1.42857143rem;
+}
+
+.ui.huge.vertical.menu {
+  width: 20rem;
 }
 
 /*******************************
@@ -18760,7 +18874,7 @@ Floated Menu / Item
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Message
+ * # Semantic UI 1.11.5 - Message
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -19236,7 +19350,7 @@ Floated Menu / Item
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Table
+ * # Semantic UI 1.11.5 - Table
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -20397,7 +20511,7 @@ Floated Menu / Item
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Ad
+ * # Semantic UI 1.11.5 - Ad
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -20687,7 +20801,7 @@ Floated Menu / Item
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Item
+ * # Semantic UI 1.11.5 - Item
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -21233,49 +21347,49 @@ a.ui.card:hover,
 .ui.blue.cards > .card:hover,
 .ui.cards > .blue.card:hover,
 .ui.blue.card:hover {
-  box-shadow: 0px 3px 0px 0px #458ac6, 0px 0px 0px 1px #d4d4d5;
+  box-shadow: 0px 3px 0px 0px #5494cb, 0px 0px 0px 1px #d4d4d5;
 }
 
 .ui.green.cards > .card:hover,
 .ui.cards > .green.card:hover,
 .ui.green.card:hover {
-  box-shadow: 0px 3px 0px 0px #66c17b, 0px 0px 0px 1px #d4d4d5;
+  box-shadow: 0px 3px 0px 0px #74c788, 0px 0px 0px 1px #d4d4d5;
 }
 
 .ui.orange.cards > .card:hover,
 .ui.cards > .orange.card:hover,
 .ui.orange.card:hover {
-  box-shadow: 0px 3px 0px 0px #e28560, 0px 0px 0px 1px #d4d4d5;
+  box-shadow: 0px 3px 0px 0px #e59271, 0px 0px 0px 1px #d4d4d5;
 }
 
 .ui.pink.cards > .card:hover,
 .ui.cards > .pink.card:hover,
 .ui.pink.card:hover {
-  box-shadow: 0px 3px 0px 0px #dc56a1, 0px 0px 0px 1px #d4d4d5;
+  box-shadow: 0px 3px 0px 0px #df67aa, 0px 0px 0px 1px #d4d4d5;
 }
 
 .ui.purple.cards > .card:hover,
 .ui.cards > .purple.card:hover,
 .ui.purple.card:hover {
-  box-shadow: 0px 3px 0px 0px #5c5594, 0px 0px 0px 1px #d4d4d5;
+  box-shadow: 0px 3px 0px 0px #645ca1, 0px 0px 0px 1px #d4d4d5;
 }
 
 .ui.red.cards > .card:hover,
 .ui.cards > .red.card:hover,
 .ui.red.card:hover {
-  box-shadow: 0px 3px 0px 0px #dc6868, 0px 0px 0px 1px #d4d4d5;
+  box-shadow: 0px 3px 0px 0px #e07979, 0px 0px 0px 1px #d4d4d5;
 }
 
 .ui.teal.cards > .card:hover,
 .ui.cards > .teal.card:hover,
 .ui.teal.card:hover {
-  box-shadow: 0px 3px 0px 0px #00c4bc, 0px 0px 0px 1px #d4d4d5;
+  box-shadow: 0px 3px 0px 0px #00d9cf, 0px 0px 0px 1px #d4d4d5;
 }
 
 .ui.yellow.cards > .card:hover,
 .ui.cards > .yellow.card:hover,
 .ui.yellow.card:hover {
-  box-shadow: 0px 3px 0px 0px #f3ca2d, 0px 0px 0px 1px #d4d4d5;
+  box-shadow: 0px 3px 0px 0px #f4cf41, 0px 0px 0px 1px #d4d4d5;
 }
 
 /*--------------
@@ -21288,6 +21402,9 @@ a.ui.card:hover,
 }
 
 .ui.one.cards > .card {
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
   width: 100%;
 }
 
@@ -21297,6 +21414,9 @@ a.ui.card:hover,
 }
 
 .ui.two.cards > .card {
+  -webkit-flex-basis: -webkit-calc( 50%  -  2em );
+  -ms-flex-preferred-size: calc( 50%  -  2em );
+  flex-basis: calc( 50%  -  2em );
   width: -webkit-calc( 50%  -  2em );
   width: calc( 50%  -  2em );
   margin-left: 1em;
@@ -21313,6 +21433,9 @@ a.ui.card:hover,
 }
 
 .ui.three.cards > .card {
+  -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
+  -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
+  flex-basis: calc( 33.33333333%  -  2em );
   width: -webkit-calc( 33.33333333%  -  2em );
   width: calc( 33.33333333%  -  2em );
   margin-left: 1em;
@@ -21329,6 +21452,9 @@ a.ui.card:hover,
 }
 
 .ui.four.cards > .card {
+  -webkit-flex-basis: -webkit-calc( 25%  -  1.5em );
+  -ms-flex-preferred-size: calc( 25%  -  1.5em );
+  flex-basis: calc( 25%  -  1.5em );
   width: -webkit-calc( 25%  -  1.5em );
   width: calc( 25%  -  1.5em );
   margin-left: 0.75em;
@@ -21345,6 +21471,9 @@ a.ui.card:hover,
 }
 
 .ui.five.cards > .card {
+  -webkit-flex-basis: -webkit-calc( 20%  -  1.5em );
+  -ms-flex-preferred-size: calc( 20%  -  1.5em );
+  flex-basis: calc( 20%  -  1.5em );
   width: -webkit-calc( 20%  -  1.5em );
   width: calc( 20%  -  1.5em );
   margin-left: 0.75em;
@@ -21361,6 +21490,9 @@ a.ui.card:hover,
 }
 
 .ui.six.cards > .card {
+  -webkit-flex-basis: -webkit-calc( 16.66666667%  -  1.5em );
+  -ms-flex-preferred-size: calc( 16.66666667%  -  1.5em );
+  flex-basis: calc( 16.66666667%  -  1.5em );
   width: -webkit-calc( 16.66666667%  -  1.5em );
   width: calc( 16.66666667%  -  1.5em );
   margin-left: 0.75em;
@@ -21377,6 +21509,9 @@ a.ui.card:hover,
 }
 
 .ui.seven.cards > .card {
+  -webkit-flex-basis: -webkit-calc( 14.28571429%  -  1em );
+  -ms-flex-preferred-size: calc( 14.28571429%  -  1em );
+  flex-basis: calc( 14.28571429%  -  1em );
   width: -webkit-calc( 14.28571429%  -  1em );
   width: calc( 14.28571429%  -  1em );
   margin-left: 0.5em;
@@ -21393,6 +21528,9 @@ a.ui.card:hover,
 }
 
 .ui.eight.cards > .card {
+  -webkit-flex-basis: -webkit-calc( 12.5%  -  1em );
+  -ms-flex-preferred-size: calc( 12.5%  -  1em );
+  flex-basis: calc( 12.5%  -  1em );
   width: -webkit-calc( 12.5%  -  1em );
   width: calc( 12.5%  -  1em );
   margin-left: 0.5em;
@@ -21410,6 +21548,9 @@ a.ui.card:hover,
 }
 
 .ui.nine.cards > .card {
+  -webkit-flex-basis: -webkit-calc( 11.11111111%  -  1em );
+  -ms-flex-preferred-size: calc( 11.11111111%  -  1em );
+  flex-basis: calc( 11.11111111%  -  1em );
   width: -webkit-calc( 11.11111111%  -  1em );
   width: calc( 11.11111111%  -  1em );
   margin-left: 0.5em;
@@ -21427,6 +21568,9 @@ a.ui.card:hover,
 }
 
 .ui.ten.cards > .card {
+  -webkit-flex-basis: -webkit-calc( 10%  -  1em );
+  -ms-flex-preferred-size: calc( 10%  -  1em );
+  flex-basis: calc( 10%  -  1em );
   width: -webkit-calc( 10%  -  1em );
   width: calc( 10%  -  1em );
   margin-left: 0.5em;
@@ -21450,6 +21594,9 @@ a.ui.card:hover,
   }
 
   .ui.two.doubling.cards .card {
+    -webkit-flex-basis: 100%;
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
     width: 100%;
     margin-left: 0em;
     margin-right: 0em;
@@ -21461,6 +21608,9 @@ a.ui.card:hover,
   }
 
   .ui.three.doubling.cards .card {
+    -webkit-flex-basis: -webkit-calc( 50%  -  2em );
+    -ms-flex-preferred-size: calc( 50%  -  2em );
+    flex-basis: calc( 50%  -  2em );
     width: -webkit-calc( 50%  -  2em );
     width: calc( 50%  -  2em );
     margin-left: 1em;
@@ -21473,6 +21623,9 @@ a.ui.card:hover,
   }
 
   .ui.four.doubling.cards .card {
+    -webkit-flex-basis: -webkit-calc( 50%  -  2em );
+    -ms-flex-preferred-size: calc( 50%  -  2em );
+    flex-basis: calc( 50%  -  2em );
     width: -webkit-calc( 50%  -  2em );
     width: calc( 50%  -  2em );
     margin-left: 1em;
@@ -21485,6 +21638,9 @@ a.ui.card:hover,
   }
 
   .ui.five.doubling.cards .card {
+    -webkit-flex-basis: -webkit-calc( 50%  -  2em );
+    -ms-flex-preferred-size: calc( 50%  -  2em );
+    flex-basis: calc( 50%  -  2em );
     width: -webkit-calc( 50%  -  2em );
     width: calc( 50%  -  2em );
     margin-left: 1em;
@@ -21497,6 +21653,9 @@ a.ui.card:hover,
   }
 
   .ui.six.doubling.cards .card {
+    -webkit-flex-basis: -webkit-calc( 50%  -  2em );
+    -ms-flex-preferred-size: calc( 50%  -  2em );
+    flex-basis: calc( 50%  -  2em );
     width: -webkit-calc( 50%  -  2em );
     width: calc( 50%  -  2em );
     margin-left: 1em;
@@ -21509,6 +21668,9 @@ a.ui.card:hover,
   }
 
   .ui.seven.doubling.cards .card {
+    -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
+    -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
+    flex-basis: calc( 33.33333333%  -  2em );
     width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
@@ -21521,6 +21683,9 @@ a.ui.card:hover,
   }
 
   .ui.eight.doubling.cards .card {
+    -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
+    -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
+    flex-basis: calc( 33.33333333%  -  2em );
     width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
@@ -21533,6 +21698,9 @@ a.ui.card:hover,
   }
 
   .ui.nine.doubling.cards .card {
+    -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
+    -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
+    flex-basis: calc( 33.33333333%  -  2em );
     width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
@@ -21545,6 +21713,9 @@ a.ui.card:hover,
   }
 
   .ui.ten.doubling.cards .card {
+    -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
+    -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
+    flex-basis: calc( 33.33333333%  -  2em );
     width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
@@ -21561,6 +21732,9 @@ a.ui.card:hover,
   }
 
   .ui.two.doubling.cards .card {
+    -webkit-flex-basis: 100%;
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
     width: 100%;
     margin-left: 0em;
     margin-right: 0em;
@@ -21572,6 +21746,9 @@ a.ui.card:hover,
   }
 
   .ui.three.doubling.cards .card {
+    -webkit-flex-basis: -webkit-calc( 50%  -  2em );
+    -ms-flex-preferred-size: calc( 50%  -  2em );
+    flex-basis: calc( 50%  -  2em );
     width: -webkit-calc( 50%  -  2em );
     width: calc( 50%  -  2em );
     margin-left: 1em;
@@ -21584,6 +21761,9 @@ a.ui.card:hover,
   }
 
   .ui.four.doubling.cards .card {
+    -webkit-flex-basis: -webkit-calc( 50%  -  2em );
+    -ms-flex-preferred-size: calc( 50%  -  2em );
+    flex-basis: calc( 50%  -  2em );
     width: -webkit-calc( 50%  -  2em );
     width: calc( 50%  -  2em );
     margin-left: 1em;
@@ -21596,6 +21776,9 @@ a.ui.card:hover,
   }
 
   .ui.five.doubling.cards .card {
+    -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
+    -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
+    flex-basis: calc( 33.33333333%  -  2em );
     width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
@@ -21608,6 +21791,9 @@ a.ui.card:hover,
   }
 
   .ui.six.doubling.cards .card {
+    -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
+    -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
+    flex-basis: calc( 33.33333333%  -  2em );
     width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
@@ -21620,6 +21806,9 @@ a.ui.card:hover,
   }
 
   .ui.eight.doubling.cards .card {
+    -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
+    -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
+    flex-basis: calc( 33.33333333%  -  2em );
     width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
@@ -21632,6 +21821,9 @@ a.ui.card:hover,
   }
 
   .ui.eight.doubling.cards .card {
+    -webkit-flex-basis: -webkit-calc( 25%  -  1.5em );
+    -ms-flex-preferred-size: calc( 25%  -  1.5em );
+    flex-basis: calc( 25%  -  1.5em );
     width: -webkit-calc( 25%  -  1.5em );
     width: calc( 25%  -  1.5em );
     margin-left: 0.75em;
@@ -21644,6 +21836,9 @@ a.ui.card:hover,
   }
 
   .ui.nine.doubling.cards .card {
+    -webkit-flex-basis: -webkit-calc( 25%  -  1.5em );
+    -ms-flex-preferred-size: calc( 25%  -  1.5em );
+    flex-basis: calc( 25%  -  1.5em );
     width: -webkit-calc( 25%  -  1.5em );
     width: calc( 25%  -  1.5em );
     margin-left: 0.75em;
@@ -21656,6 +21851,9 @@ a.ui.card:hover,
   }
 
   .ui.ten.doubling.cards .card {
+    -webkit-flex-basis: -webkit-calc( 20%  -  1.5em );
+    -ms-flex-preferred-size: calc( 20%  -  1.5em );
+    flex-basis: calc( 20%  -  1.5em );
     width: -webkit-calc( 20%  -  1.5em );
     width: calc( 20%  -  1.5em );
     margin-left: 0.75em;
@@ -21702,7 +21900,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Comment
+ * # Semantic UI 1.11.5 - Comment
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -21972,7 +22170,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Feed
+ * # Semantic UI 1.11.5 - Feed
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -22267,7 +22465,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Item
+ * # Semantic UI 1.11.5 - Item
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -22758,7 +22956,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Statistic
+ * # Semantic UI 1.11.5 - Statistic
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -23205,7 +23403,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Accordion
+ * # Semantic UI 1.11.5 - Accordion
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -23471,7 +23669,7 @@ a.ui.card:hover,
         User Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Checkbox
+ * # Semantic UI 1.11.5 - Checkbox
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -23995,7 +24193,7 @@ a.ui.card:hover,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Dimmer
+ * # Semantic UI 1.11.5 - Dimmer
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -24187,7 +24385,7 @@ body.dimmed.dimmable > :not(.dimmer) {
         User Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Dropdown
+ * # Semantic UI 1.11.5 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -24517,7 +24715,7 @@ body.dimmed.dimmable > :not(.dimmer) {
   min-width: 180px;
   background: #ffffff;
   display: inline-block;
-  padding: 0.8em 1.1em;
+  padding: 0.8em 2em 0.8em 1.1em;
   color: rgba(0, 0, 0, 0.8);
   box-shadow: none;
   border: 1px solid rgba(34, 36, 38, 0.15);
@@ -24536,10 +24734,6 @@ select.ui.dropdown {
   padding: 0.5em;
   border: 1px solid rgba(34, 36, 38, 0.15);
   visibility: visible;
-}
-
-.ui.selection.dropdown > .text {
-  margin-right: 2em;
 }
 
 .ui.selection.dropdown > .search.icon,
@@ -24591,8 +24785,8 @@ select.ui.dropdown {
 
 @media all and (-ms-high-contrast: none) {
   .ui.selection.dropdown .menu {
-    min-width: -webkit-calc(85%);
-    min-width: calc(85%);
+    min-width: -webkit-calc(100% -  15px );
+    min-width: calc(100% -  15px );
   }
 }
 
@@ -24623,11 +24817,11 @@ select.ui.dropdown {
 /* Menu Item */
 
 .ui.selection.dropdown .menu > .item {
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
   padding-left: 1.1em !important;
   /* Add in spacing for scroll bar */
-  padding-right: -webkit-calc(2.1em) !important;
-  padding-right: calc(2.1em) !important;
+  padding-right: -webkit-calc( 1.1em  + 1em) !important~;
+  padding-right: calc( 1.1em  + 1em) !important~;
   white-space: normal;
   word-wrap: normal;
 }
@@ -24650,6 +24844,18 @@ select.ui.dropdown {
   opacity: 0.3 !important;
 }
 
+/* Visible */
+
+.ui.selection.dropdown.visible {
+  border-color: rgba(34, 36, 38, 0.3);
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
+}
+
+.ui.selection.visible.dropdown .menu {
+  border-color: rgba(34, 36, 38, 0.3);
+  box-shadow: 0px 2px 6px 0px rgba(34, 36, 38, 0.15);
+}
+
 /* Visible Hover */
 
 .ui.selection.visible.dropdown:hover {
@@ -24660,13 +24866,6 @@ select.ui.dropdown {
 .ui.selection.visible.dropdown:hover .menu {
   border-color: rgba(34, 36, 38, 0.3);
   box-shadow: 0px 2px 6px 0px rgba(34, 36, 38, 0.15);
-}
-
-/* Visible */
-
-.ui.selection.dropdown.visible {
-  border-color: rgba(34, 36, 38, 0.3);
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
 }
 
 /* Active Item */
@@ -24807,34 +25006,60 @@ select.ui.dropdown {
     Multiple
 ---------------*/
 
+/* Multiple Selection */
+
+.ui.multiple.dropdown {
+  padding: 0.2857em 2em 0.2857em 0.38571429em;
+}
+
+.ui.multiple.dropdown .menu {
+  cursor: auto;
+}
+
 /* Multiple Search Selection */
 
-.ui.multiple.dropdown > .labels {
+.ui.multiple.search.dropdown,
+.ui.multiple.search.dropdown > input.search {
+  cursor: text;
+}
+
+/* Selection Label */
+
+.ui.multiple.dropdown > .label {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: baseline;
+  padding: 0.4285em 0.71428571em;
+  margin: 0.25em 0.5em 0.25em 0em;
 }
 
-/* Search Selection */
+/* Prompt Text */
 
-.ui.multiple.search.selection.dropdown > .labels {
-  margin: -0.8em 0em;
-}
-
-.ui.multiple.search.selection.dropdown > input.search {
-  left: auto;
-  min-width: 200px;
-  padding-left: 0;
-}
-
-.ui.multiple.search.selection.dropdown > .labels + input.search,
-.ui.multiple.search.selection.dropdown > .labels ~ .text {
-  padding-left: 0.5em;
-}
-
-/* Don't Allow Repeat Selections */
-
-.ui.multiple.search.selection.dropdown .menu .active.item {
+.ui.multiple.dropdown > .text {
   display: none;
+  position: absolute;
+  top: auto;
+  left: auto;
+}
+
+/* Input */
+
+.ui.multiple.selection.dropdown > input.search {
+  position: static;
+  padding: 0;
+  width: 2.2em;
+  max-width: 100%;
+  margin: 0.4em 0em 0.4em 0.5em;
+}
+
+/* Dropdown Icon */
+
+.ui.multiple.selection.dropdown .dropdown.icon {
+  margin: 0em -0.71428571em 0em 0em;
+  padding: 0.4285em 0.71428571em;
 }
 
 /*--------------
@@ -25432,7 +25657,7 @@ select.ui.dropdown {
         User Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Modal
+ * # Semantic UI 1.11.5 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -25925,7 +26150,7 @@ select.ui.dropdown {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Nag
+ * # Semantic UI 1.11.5 - Nag
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -26071,7 +26296,7 @@ a.ui.nag {
         User Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Popup
+ * # Semantic UI 1.11.5 - Popup
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -26373,7 +26598,7 @@ a.ui.nag {
         User Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Progress Bar
+ * # Semantic UI 1.11.5 - Progress Bar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -26893,7 +27118,7 @@ a.ui.nag {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Rating
+ * # Semantic UI 1.11.5 - Rating
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -27162,7 +27387,7 @@ a.ui.nag {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Search
+ * # Semantic UI 1.11.5 - Search
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -27317,7 +27542,7 @@ a.ui.nag {
   display: block;
   border-top: none;
   background: #f0f0f0;
-  padding: 0.5em 1em;
+  padding: 0.92857143em 1em;
   color: rgba(0, 0, 0, 0.8);
   font-weight: bold;
   text-align: center;
@@ -27504,7 +27729,7 @@ a.ui.nag {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Shape
+ * # Semantic UI 1.11.5 - Shape
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -27661,7 +27886,7 @@ a.ui.nag {
         User Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Sidebar
+ * # Semantic UI 1.11.5 - Sidebar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -28343,7 +28568,7 @@ html.ios {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Sticky
+ * # Semantic UI 1.11.5 - Sticky
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -28418,7 +28643,7 @@ html.ios {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Tab
+ * # Semantic UI 1.11.5 - Tab
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -28506,7 +28731,7 @@ html.ios {
         User Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Table
+ * # Semantic UI 1.11.5 - Table
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -29667,7 +29892,7 @@ html.ios {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Transition
+ * # Semantic UI 1.11.5 - Transition
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -31928,7 +32153,7 @@ html.ios {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Video
+ * # Semantic UI 1.11.5 - Video
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -32051,7 +32276,7 @@ html.ios {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 1.11.4 - Form
+ * # Semantic UI 1.11.5 - Form
  * http://github.com/semantic-org/semantic-ui/
  *
  *

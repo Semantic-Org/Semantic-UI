@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.4 - Grid
+ * # Semantic UI 1.11.5 - Grid
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -131,7 +131,7 @@ body > .ui.grid {
 }
 
 /* Segment inside Aligned Grid */
-.ui.grid .aligned.row > .column,
+.ui.grid .aligned.row > .column > .segment:not(.compact),
 .ui.aligned.grid .column > .segment:not(.compact) {
   width: 100%;
 }
@@ -1192,10 +1192,6 @@ body > .ui.grid {
       -ms-flex-direction: column;
           flex-direction: column;
   vertical-align: top;
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-      -ms-flex-align: start;
-          align-items: flex-start;
   -webkit-box-pack: start !important;
   -webkit-justify-content: flex-start !important;
       -ms-flex-pack: start !important;
@@ -1213,10 +1209,6 @@ body > .ui.grid {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-      -ms-flex-align: start;
-          align-items: flex-start;
   display: -webkit-inline-box !important;
   display: -webkit-inline-flex !important;
   display: -ms-inline-flexbox !important;
@@ -1241,10 +1233,6 @@ body > .ui.grid {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-      -ms-flex-align: start;
-          align-items: flex-start;
   vertical-align: bottom;
   -webkit-box-pack: end !important;
   -webkit-justify-content: flex-end !important;
@@ -1262,10 +1250,10 @@ body > .ui.grid {
   display: -webkit-inline-flex !important;
   display: -ms-inline-flexbox !important;
   display: inline-flex !important;
-  -webkit-box-align: stretch;
-  -webkit-align-items: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
+  -webkit-box-pack: stretch;
+  -webkit-justify-content: stretch;
+      -ms-flex-pack: stretch;
+          justify-content: stretch;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
@@ -1301,6 +1289,7 @@ body > .ui.grid {
 }
 
 /* Center Aligned */
+.ui[class*="center aligned"].grid,
 .ui[class*="center aligned"].grid .column,
 .ui.grid > [class*="center aligned"].row > .column,
 .ui.grid > [class*="center aligned"].column:not(.row),
