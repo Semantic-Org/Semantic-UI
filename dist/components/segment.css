@@ -38,7 +38,7 @@
 }
 
 /* Vertical */
-.ui[class*="vertical segment"] {
+.ui.vertical.segment {
   margin: 0em;
   padding-left: 0em;
   padding-right: 0em;
@@ -47,12 +47,12 @@
   border: none;
   box-shadow: 0px -1px 0px rgba(34, 36, 38, 0.15) inset;
 }
-.ui[class*="vertical segment"]:last-child {
+.ui.vertical.segment:last-child {
   box-shadow: none;
 }
 
 /* Horizontal */
-.ui[class*="horizontal segment"] {
+.ui.horizontal.segment {
   margin: 0em;
   padding-top: 0em;
   padding-bottom: 0em;

@@ -521,7 +521,7 @@ ul.ui.list li:before,
   margin-left: -1rem;
   content: '•';
   opacity: 1;
-  color: rgba(0, 0, 0, 0.8);
+  color: inherit;
   vertical-align: top;
 }
 ul.ui.list ul,

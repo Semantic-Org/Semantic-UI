@@ -40,6 +40,7 @@
 - **Grid** - Small computer `page grid` gutters have been adjusted from 8% to 3% to allow for roomier layouts on small screens.
 - **Grid** - `center aligned` no longer centers rows, just text. Use `centered grid` to center a grid column on the page.
 - **Header/Table/Divider** - These components now pull border color defaults from `site.variables` instead of using their own values
+- **Image** - `mini image` default width has been increased to `35px`
 - **Icon** - `disabled icon` now have `pointer-events` again.
 - **Input** - Input now use `em` instead of `rem` so they will inherit the size of the elements they are nested inside
 - **Menu** - `secondary pointing menu` has had some slight design tweaks, thinner lines, more padding
@@ -56,9 +57,11 @@
 - **Checkbox** - Fixes nested `dropdown` inside `checkbox` causing issues
 - **Dropdown** - Fixes issue with headers disappearing inside of `ui dropdown` when nested in `ui menu`
 - **Form** - Form sizes and input sizes now inherit from `site.variables`
+- **Grid** - First column on `stackable grid` no longer receives top margin
 - **Grid** - `x column wide` inside `equal width/height` now cannot grow beyond column size
 - **Grid** - Fixes colored grid columns not appearing when not nested in rows
 - **Label** - Labels inside `header` now vertical align better by accounting for line height offset
+- **List** - Fixed `inverted bulleted list` bullet color
 - **Loader** - Fix position of `inline centered loader` to be centered correctly
 - **Message** - Message now uses `@lineHeight` from `site.variables`
 - **Menu** - Menu now has a `min-height` that matches standard item padding

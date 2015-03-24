@@ -147,7 +147,7 @@
 
 @bulletOpacity: 1;
 @bulletCharacter: '•';
-@bulletColor: @textColor;
+@bulletColor: inherit;
 @bulletVerticalAlign: top;
 @bulletChildDistance: @bulletDistance;
 

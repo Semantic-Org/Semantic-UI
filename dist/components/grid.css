@@ -35,7 +35,7 @@
 
 .ui.grid {
   margin-top: -1rem;
-  margin-bottom: -1rem;
+  margin-bottom: 0em;
   margin-left: -1rem;
   margin-right: -1rem;
 }
@@ -50,7 +50,7 @@
 
 /* Collapse Margins on Consecutive Grids */
 .ui.grid + .grid {
-  margin-top: 1rem;
+  margin-top: 0rem;
 }
 
 /*-------------------
@@ -1182,10 +1182,6 @@ body > .ui.grid {
 .ui.grid > [class*="top aligned"].row > .column,
 .ui.grid > [class*="top aligned"].column:not(.row),
 .ui.grid > .row > [class*="top aligned"].column {
-  display: -webkit-inline-box !important;
-  display: -webkit-inline-flex !important;
-  display: -ms-inline-flexbox !important;
-  display: inline-flex !important;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
@@ -1203,16 +1199,12 @@ body > .ui.grid {
 .ui.grid > [class*="middle aligned"].row > .column,
 .ui.grid > [class*="middle aligned"].column:not(.row),
 .ui.grid > .row > [class*="middle aligned"].column {
-  vertical-align: middle;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  display: -webkit-inline-box !important;
-  display: -webkit-inline-flex !important;
-  display: -ms-inline-flexbox !important;
-  display: inline-flex !important;
+  vertical-align: middle;
   -webkit-box-pack: center !important;
   -webkit-justify-content: center !important;
       -ms-flex-pack: center !important;
@@ -1224,10 +1216,6 @@ body > .ui.grid {
 .ui.grid > [class*="bottom aligned"].row > .column,
 .ui.grid > [class*="bottom aligned"].column:not(.row),
 .ui.grid > .row > [class*="bottom aligned"].column {
-  display: -webkit-inline-box !important;
-  display: -webkit-inline-flex !important;
-  display: -ms-inline-flexbox !important;
-  display: inline-flex !important;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
@@ -1286,6 +1274,9 @@ body > .ui.grid {
   -webkit-align-items: flex-start !important;
       -ms-flex-align: start !important;
           align-items: flex-start !important;
+  -webkit-align-self: inherit;
+      -ms-flex-item-align: inherit;
+          align-self: inherit;
 }
 
 /* Center Aligned */
@@ -1299,6 +1290,9 @@ body > .ui.grid {
   -webkit-align-items: center !important;
       -ms-flex-align: center !important;
           align-items: center !important;
+  -webkit-align-self: inherit;
+      -ms-flex-item-align: inherit;
+          align-self: inherit;
 }
 
 /* Right Aligned */
@@ -1311,6 +1305,9 @@ body > .ui.grid {
   -webkit-align-items: flex-end !important;
       -ms-flex-align: end !important;
           align-items: flex-end !important;
+  -webkit-align-self: inherit;
+      -ms-flex-item-align: inherit;
+          align-self: inherit;
 }
 
 /* Justified */
@@ -1783,6 +1780,13 @@ body > .ui.grid {
     padding: 0em;
   }
   
+/* Coupling */
+  .ui.container > .ui.stackable.grid > .column,
+  .ui.container > .ui.stackable.grid > .row > .column {
+    padding-left: 0em !important;
+    padding-right: 0em !important;
+  }
+  
 /* Don't pad inside segment or nested grid */
   .ui.grid .ui.stackable.grid,
   .ui.segment:not(.vertical) .ui.stackable.page.grid {
@@ -1816,6 +1820,12 @@ body > .ui.grid {
     box-shadow: none !important;
     padding-top: 2rem !important;
     padding-bottom: 2rem !important;
+  }
+  .ui.stackable.celled.grid > .column:not(.row):first-child,
+  .ui.stackable.divided.grid > .column:not(.row):first-child,
+  .ui.stackable.celled.grid > .row > .column:first-child,
+  .ui.stackable.divided.grid > .row > .column:first-child {
+    padding-top: 0em !important;
   }
 }
 

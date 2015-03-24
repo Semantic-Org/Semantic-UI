@@ -9,16 +9,35 @@
   <!-- Site Properities -->
   <title>Fixed Menu Example - Semantic</title>
 
+  <link rel="stylesheet" type="text/css" href="../dist/components/reset.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/site.css">
+
   <link rel="stylesheet" type="text/css" href="../dist/components/container.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/grid.css">
   <link rel="stylesheet" type="text/css" href="../dist/components/header.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/image.css">
   <link rel="stylesheet" type="text/css" href="../dist/components/menu.css">
 
+  <link rel="stylesheet" type="text/css" href="../dist/components/divider.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/list.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/segment.css">
+
   <style type="text/css">
-  body > .container {
-    padding-top: 7em;
+  body {
+    background-color: #FFFFFF;
+  }
+  .ui.menu .item img.logo {
+    margin-right: 1.5em;
+  }
+  .main.container {
+    margin-top: 7em;
   }
   .wireframe {
     margin-top: 2em;
+  }
+  .ui.footer.segment {
+    margin: 5em 0em 0em;
+    padding: 5em 0em;
   }
   </style>
 
@@ -27,18 +46,21 @@
 
   <div class="ui fixed inverted menu">
     <div class="ui container">
-      <a href="#" class="item">Project Name</a>
+      <div href="#" class="header item">
+        <img class="logo" src="images/logo.png">
+        Project Name
+      </div>
       <a href="#" class="item">Home</a>
       <a href="#" class="item">Features</a>
       <a href="#" class="item">Contact</a>
     </div>
   </div>
 
-  <div class="ui center aligned container">
-    <h1 class="ui header">Semantic UI starter template</h1>
-    <p>Use this document as a way to quickly start any new project.</p>
-    <p>All you get is this text and a mostly barebones HTML document.</p>
-    <img class="wireframe" src="images/wireframe/paragraph.png">
+  <div class="ui main text container">
+    <h1 class="ui header">Semantic UI Fixed Template</h1>
+    <p>This is a basic fixed menu template using fixed size containers.</p>
+    <p>A text container is used for the main container, which is useful for single column layouts</p>
+    <img class="wireframe" src="images/wireframe/media-paragraph.png">
     <img class="wireframe" src="images/wireframe/paragraph.png">
     <img class="wireframe" src="images/wireframe/paragraph.png">
     <img class="wireframe" src="images/wireframe/paragraph.png">
@@ -47,6 +69,51 @@
     <img class="wireframe" src="images/wireframe/paragraph.png">
   </div>
 
+  <div class="ui inverted vertical footer segment">
+    <div class="ui center aligned container">
+      <div class="ui stackable inverted divided equal height grid">
+        <div class="three wide column">
+          <h4 class="ui inverted header">Group 1</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Link One</a>
+            <a href="#" class="item">Link Two</a>
+            <a href="#" class="item">Link Three</a>
+            <a href="#" class="item">Link Four</a>
+          </div>
+        </div>
+        <div class="three wide column">
+          <h4 class="ui inverted header">Group 2</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Link One</a>
+            <a href="#" class="item">Link Two</a>
+            <a href="#" class="item">Link Three</a>
+            <a href="#" class="item">Link Four</a>
+          </div>
+        </div>
+        <div class="three wide column">
+          <h4 class="ui inverted header">Group 3</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Link One</a>
+            <a href="#" class="item">Link Two</a>
+            <a href="#" class="item">Link Three</a>
+            <a href="#" class="item">Link Four</a>
+          </div>
+        </div>
+        <div class="seven wide column">
+          <h4 class="ui inverted header">Footer Header</h4>
+          <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+        </div>
+      </div>
+      <div class="ui inverted section divider"></div>
+      <img src="images/logo.png" class="ui centered mini image">
+      <div class="ui horizontal inverted small divided link list">
+        <a class="item" href="#">Site Map</a>
+        <a class="item" href="#">Contact Us</a>
+        <a class="item" href="#">Terms and Conditions</a>
+        <a class="item" href="#">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

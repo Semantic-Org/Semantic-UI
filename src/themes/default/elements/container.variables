@@ -20,6 +20,8 @@
 @largeComputerGutter: auto;
 
 /* Adjust breakpoints to match fixed width */
+@largestMobileScreen: 780px;
+@tabletBreakpoint: 781px;
 @smallComputerBreakpoint: 988px;
 @largeComputerBreakpoint: 1228px;
 

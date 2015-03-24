@@ -106,7 +106,7 @@
 @inputVerticalPadding: 0.5em;
 
 /* Image */
-@imageMargin: -0.5em -0.2em;
+@imageMargin: -0.3em 0em;
 @imageWidth: 2.5em;
 @verticalImageWidth: auto;
 
@@ -366,7 +366,7 @@
 /* Inverted */
 @invertedBackground: @black;
 @invertedBoxShadow: none;
-@invertedHeaderBackground: rgba(0, 0, 0, 0.3);
+@invertedHeaderBackground: transparent;
 
 @invertedItemBackground: transparent;
 @invertedItemTextColor: @invertedTextColor;

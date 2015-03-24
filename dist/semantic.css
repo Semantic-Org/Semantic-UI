@@ -3411,7 +3411,7 @@ input::selection {
   max-width: 100% !important;
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 780px) {
   .ui.container {
     width: auto;
     margin-left: 1em !important;
@@ -3419,7 +3419,7 @@ input::selection {
   }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media only screen and (min-width: 781px) and (max-width: 991px) {
   .ui.container {
     width: 752px;
     margin-left: auto !important;
@@ -9068,7 +9068,7 @@ img.ui.bordered.image {
 .ui.mini.images img,
 .ui.mini.images svg,
 .ui.mini.image {
-  width: 20px;
+  width: 35px;
   height: auto;
   font-size: 0.71428571rem;
 }
@@ -11318,7 +11318,7 @@ ul.ui.list li:before,
   margin-left: -1rem;
   content: '•';
   opacity: 1;
-  color: rgba(0, 0, 0, 0.8);
+  color: inherit;
   vertical-align: top;
 }
 
@@ -12519,7 +12519,7 @@ ol.ui.horizontal.list li:before,
 
 /* Vertical */
 
-.ui[class*="vertical segment"] {
+.ui.vertical.segment {
   margin: 0em;
   padding-left: 0em;
   padding-right: 0em;
@@ -12529,13 +12529,13 @@ ol.ui.horizontal.list li:before,
   box-shadow: 0px -1px 0px rgba(34, 36, 38, 0.15) inset;
 }
 
-.ui[class*="vertical segment"]:last-child {
+.ui.vertical.segment:last-child {
   box-shadow: none;
 }
 
 /* Horizontal */
 
-.ui[class*="horizontal segment"] {
+.ui.horizontal.segment {
   margin: 0em;
   padding-top: 0em;
   padding-bottom: 0em;
@@ -14800,7 +14800,7 @@ ol.ui.horizontal.list li:before,
 
 .ui.grid {
   margin-top: -1rem;
-  margin-bottom: -1rem;
+  margin-bottom: 0em;
   margin-left: -1rem;
   margin-right: -1rem;
 }
@@ -14818,7 +14818,7 @@ ol.ui.horizontal.list li:before,
 /* Collapse Margins on Consecutive Grids */
 
 .ui.grid + .grid {
-  margin-top: 1rem;
+  margin-top: 0rem;
 }
 
 /*-------------------
@@ -16118,10 +16118,6 @@ body > .ui.grid {
 .ui.grid > [class*="top aligned"].row > .column,
 .ui.grid > [class*="top aligned"].column:not(.row),
 .ui.grid > .row > [class*="top aligned"].column {
-  display: -webkit-inline-box !important;
-  display: -webkit-inline-flex !important;
-  display: -ms-inline-flexbox !important;
-  display: inline-flex !important;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
@@ -16140,16 +16136,12 @@ body > .ui.grid {
 .ui.grid > [class*="middle aligned"].row > .column,
 .ui.grid > [class*="middle aligned"].column:not(.row),
 .ui.grid > .row > [class*="middle aligned"].column {
-  vertical-align: middle;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  display: -webkit-inline-box !important;
-  display: -webkit-inline-flex !important;
-  display: -ms-inline-flexbox !important;
-  display: inline-flex !important;
+  vertical-align: middle;
   -webkit-box-pack: center !important;
   -webkit-justify-content: center !important;
   -ms-flex-pack: center !important;
@@ -16162,10 +16154,6 @@ body > .ui.grid {
 .ui.grid > [class*="bottom aligned"].row > .column,
 .ui.grid > [class*="bottom aligned"].column:not(.row),
 .ui.grid > .row > [class*="bottom aligned"].column {
-  display: -webkit-inline-box !important;
-  display: -webkit-inline-flex !important;
-  display: -ms-inline-flexbox !important;
-  display: inline-flex !important;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
@@ -16226,6 +16214,9 @@ body > .ui.grid {
   -webkit-align-items: flex-start !important;
   -ms-flex-align: start !important;
   align-items: flex-start !important;
+  -webkit-align-self: inherit;
+  -ms-flex-item-align: inherit;
+  align-self: inherit;
 }
 
 /* Center Aligned */
@@ -16240,6 +16231,9 @@ body > .ui.grid {
   -webkit-align-items: center !important;
   -ms-flex-align: center !important;
   align-items: center !important;
+  -webkit-align-self: inherit;
+  -ms-flex-item-align: inherit;
+  align-self: inherit;
 }
 
 /* Right Aligned */
@@ -16253,6 +16247,9 @@ body > .ui.grid {
   -webkit-align-items: flex-end !important;
   -ms-flex-align: end !important;
   align-items: flex-end !important;
+  -webkit-align-self: inherit;
+  -ms-flex-item-align: inherit;
+  align-self: inherit;
 }
 
 /* Justified */
@@ -16791,6 +16788,14 @@ body > .ui.grid {
     padding: 0em;
   }
 
+  /* Coupling */
+
+  .ui.container > .ui.stackable.grid > .column,
+  .ui.container > .ui.stackable.grid > .row > .column {
+    padding-left: 0em !important;
+    padding-right: 0em !important;
+  }
+
   /* Don't pad inside segment or nested grid */
 
   .ui.grid .ui.stackable.grid,
@@ -16829,6 +16834,13 @@ body > .ui.grid {
     box-shadow: none !important;
     padding-top: 2rem !important;
     padding-bottom: 2rem !important;
+  }
+
+  .ui.stackable.celled.grid > .column:not(.row):first-child,
+  .ui.stackable.divided.grid > .column:not(.row):first-child,
+  .ui.stackable.celled.grid > .row > .column:first-child,
+  .ui.stackable.divided.grid > .row > .column:first-child {
+    padding-top: 0em !important;
   }
 }
 
@@ -17072,6 +17084,10 @@ body > .ui.grid {
   display: flex;
 }
 
+.ui.menu > .ui.container > .item:first-child {
+  padding-left: 0em;
+}
+
 /*--------------
      Inputs
 ---------------*/
@@ -17275,7 +17291,7 @@ body > .ui.grid {
 .ui.menu .item > img:not(.ui) {
   display: inline-block;
   vertical-align: middle;
-  margin: -0.5em -0.2em;
+  margin: -0.3em 0em;
   width: 2.5em;
 }
 
@@ -18355,7 +18371,7 @@ Floated Menu / Item
 
 .ui.inverted.menu .header.item {
   margin: 0em;
-  background: rgba(0, 0, 0, 0.3);
+  background: transparent;
   box-shadow: none;
 }
 

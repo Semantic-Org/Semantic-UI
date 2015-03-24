@@ -157,6 +157,10 @@
   display: flex;
 }
 
+.ui.menu > .ui.container > .item:first-child {
+  padding-left: 0em;
+}
+
 /*--------------
      Inputs
 ---------------*/
@@ -1275,7 +1279,9 @@ Floated Menu / Item
 .ui.inverted.menu .item:before {
   background: @invertedDividerBackground;
 }
-.ui.inverted.menu .item:hover:before {
+.ui.inverted.menu .dropdown.item:hover:before,
+.ui.inverted.menu .link.item:hover:before,
+.ui.inverted.menu a.item:hover:before {
   background: none;
 }
 .ui.vertical.inverted.menu .item:before {

@@ -163,6 +163,9 @@
   display: -ms-flexbox;
   display: flex;
 }
+.ui.menu > .ui.container > .item:first-child {
+  padding-left: 0em;
+}
 
 /*--------------
      Inputs
@@ -344,7 +347,7 @@
 .ui.menu .item > img:not(.ui) {
   display: inline-block;
   vertical-align: middle;
-  margin: -0.5em -0.2em;
+  margin: -0.3em 0em;
   width: 2.5em;
 }
 .ui.vertical.menu .item > img:only-child {
@@ -1296,7 +1299,9 @@ Floated Menu / Item
 .ui.inverted.menu .item:before {
   background: rgba(255, 255, 255, 0.08);
 }
-.ui.inverted.menu .item:hover:before {
+.ui.inverted.menu .dropdown.item:hover:before,
+.ui.inverted.menu .link.item:hover:before,
+.ui.inverted.menu a.item:hover:before {
   background: none;
 }
 .ui.vertical.inverted.menu .item:before {
@@ -1313,7 +1318,7 @@ Floated Menu / Item
 /* Header */
 .ui.inverted.menu .header.item {
   margin: 0em;
-  background: rgba(0, 0, 0, 0.3);
+  background: transparent;
   box-shadow: none;
 }
 
