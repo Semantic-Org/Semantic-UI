@@ -12,7 +12,7 @@
 @mobileWidth: auto;
 @tabletWidth: 752px;
 @smallComputerWidth: 960px;
-@largeComputerWidth: 1200px;
+@largeComputerWidth: 1120px;
 
 @mobileGutter: 1em;
 @tabletGutter: auto;
@@ -23,7 +23,7 @@
 @largestMobileScreen: 780px;
 @tabletBreakpoint: 781px;
 @smallComputerBreakpoint: 988px;
-@largeComputerBreakpoint: 1228px;
+@largeComputerBreakpoint: 1148px;
 
 /*-------------------
        Types
@@ -33,4 +33,4 @@
 @textWidth: 700px;
 @textFontFamily: @pageFont;
 @textLineHeight: 1.5;
-@textParagraphSize: @large;
+@textSize: @large;

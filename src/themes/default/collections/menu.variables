@@ -130,7 +130,7 @@
 @dropdownMenuBorderRadius: @borderRadius;
 
 @dropdownItemFontSize: @relativeMedium;
-@dropdownItemPadding: @relativeSmall @relativeLarge;
+@dropdownItemPadding: @relativeMini @relativeLarge;
 @dropdownItemBackground: transparent;
 @dropdownItemColor: @textColor;
 @dropdownItemTextTransform: none;

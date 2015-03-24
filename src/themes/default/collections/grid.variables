@@ -45,7 +45,7 @@
 
 @largeMonitorWidth: auto;
 @largeMonitorMargin: 0em;
-@largeMonitorGutter: 15%;
+@largeMonitorGutter: 18%;
 
 @widescreenMonitorWidth: auto;
 @widescreenMargin: 0em;

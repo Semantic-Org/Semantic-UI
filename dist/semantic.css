@@ -3427,7 +3427,7 @@ input::selection {
   }
 }
 
-@media only screen and (min-width: 988px) and (max-width: 1228px) {
+@media only screen and (min-width: 988px) and (max-width: 1148px) {
   .ui.container {
     width: 960px;
     margin-left: auto !important;
@@ -3435,9 +3435,9 @@ input::selection {
   }
 }
 
-@media only screen and (min-width: 1228px) {
+@media only screen and (min-width: 1148px) {
   .ui.container {
-    width: 1200px;
+    width: 1120px;
     margin-left: auto !important;
     margin-right: auto !important;
   }
@@ -3454,7 +3454,7 @@ input::selection {
   line-height: 1.5;
 }
 
-.ui.text.container p {
+.ui.text.container {
   font-size: 1.14285714rem;
 }
 
@@ -14779,19 +14779,23 @@ ol.ui.horizontal.list li:before,
 *******************************/
 
 .ui.grid {
-  display: block;
-  text-align: left;
-  font-size: 0em;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
   padding: 0em;
-}
-
-.ui.grid:after,
-.ui.grid > .row:after {
-  content: '';
-  display: block;
-  height: 0px;
-  clear: both;
-  visibility: hidden;
 }
 
 /*----------------------
@@ -14831,7 +14835,6 @@ ol.ui.horizontal.list li:before,
 .ui.grid > .row > .column {
   position: relative;
   display: inline-block;
-  font-size: 1rem;
   width: 6.25%;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -14849,10 +14852,24 @@ ol.ui.horizontal.list li:before,
 
 .ui.grid > .row {
   position: relative;
-  display: block;
-  width: auto !important;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  width: 100% !important;
   padding: 0rem;
-  font-size: 0rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
@@ -14970,8 +14987,8 @@ body > .ui.grid {
     width: auto;
     margin-left: 0em;
     margin-right: 0em;
-    padding-left: 15%;
-    padding-right: 15%;
+    padding-left: 18%;
+    padding-right: 18%;
   }
 }
 
@@ -15929,10 +15946,12 @@ body > .ui.grid {
 
 .ui.grid [class*="left floated"].column {
   float: left;
+  margin-right: auto;
 }
 
 .ui.grid [class*="right floated"].column {
   float: right;
+  margin-left: auto;
 }
 
 /*----------------------
@@ -16421,43 +16440,6 @@ body > .ui.grid {
       Equal Height
 -----------------------*/
 
-.ui[class*="equal height"].grid {
-  display: table;
-  table-layout: fixed;
-}
-
-.ui[class*="equal height"].grid > .row,
-.ui.grid > [class*="equal height"].row {
-  display: table;
-  table-layout: fixed;
-  width: 100% !important;
-}
-
-.ui[class*="equal height"].grid > .column:not(.row),
-.ui[class*="equal height"].grid > .row > .column,
-.ui.grid > [class*="equal height"].row > .column {
-  display: table-cell;
-}
-
-/* Flexbox (Experimental / Overrides Where Supported) */
-
-.ui[class*="equal height"].grid,
-.ui[class*="equal height"].grid > .row,
-.ui.grid > [class*="equal height"].row {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-}
-
 .ui[class*="equal height"].grid > .column:not(.row),
 .ui[class*="equal height"].grid > .row > .column,
 .ui.grid > [class*="equal height"].row > .column {
@@ -16471,43 +16453,6 @@ body > .ui.grid {
 /*----------------------
       Equal Width
 -----------------------*/
-
-.ui[class*="equal width"].grid {
-  display: table;
-  table-layout: fixed;
-}
-
-.ui[class*="equal width"].grid > .row,
-.ui.grid > [class*="equal width"].row {
-  display: table;
-  table-layout: fixed;
-  width: 100% !important;
-}
-
-.ui[class*="equal width"].grid > .column:not(.row),
-.ui[class*="equal width"].grid > .row > .column,
-.ui.grid > [class*="equal width"].row > .column {
-  display: table-cell;
-}
-
-/* Flexbox (Experimental / Overrides Where Supported) */
-
-.ui[class*="equal width"].grid,
-.ui[class*="equal width"].grid > .row,
-.ui.grid > [class*="equal width"].row {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-}
 
 .ui[class*="equal width"].grid > .column:not(.row),
 .ui[class*="equal width"].grid > .row > .column,
@@ -17175,7 +17120,7 @@ body > .ui.grid {
 
 .ui.menu .ui.dropdown .menu > .item {
   font-size: 1em !important;
-  padding: 0.92857143em 1.14285714em !important;
+  padding: 0.71428571em 1.14285714em !important;
   background: transparent !important;
   color: rgba(0, 0, 0, 0.8) !important;
   text-transform: none !important;
@@ -18351,7 +18296,9 @@ Floated Menu / Item
   background: rgba(255, 255, 255, 0.08);
 }
 
-.ui.inverted.menu .item:hover:before {
+.ui.inverted.menu .dropdown.item:hover:before,
+.ui.inverted.menu .link.item:hover:before,
+.ui.inverted.menu a.item:hover:before {
   background: none;
 }
 

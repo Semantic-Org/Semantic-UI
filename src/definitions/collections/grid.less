@@ -23,20 +23,11 @@
 *******************************/
 
 .ui.grid {
-  display: block;
-  text-align: left;
-
-  font-size: 0em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
   padding: 0em;
-}
-
-.ui.grid:after,
-.ui.grid > .row:after {
-  content: '';
-  display: block;
-  height: 0px;
-  clear: both;
-  visibility: hidden;
 }
 
 /*----------------------
@@ -73,7 +64,6 @@
 .ui.grid > .row > .column {
   position: relative;
   display: inline-block;
-  font-size: 1rem;
 
   width: @oneWide;
   padding-left: (@gutterWidth / 2);
@@ -92,10 +82,12 @@
 
 .ui.grid > .row {
   position: relative;
-  display: block;
-  width: auto !important;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  width: 100% !important;
   padding: 0rem;
-  font-size: 0rem;
   padding-top: (@rowSpacing / 2);
   padding-bottom: (@rowSpacing / 2);
 }
@@ -1025,9 +1017,11 @@ body > .ui.grid {
 
 .ui.grid [class*="left floated"].column {
   float: left;
+  margin-right: auto;
 }
 .ui.grid [class*="right floated"].column {
   float: right;
+  margin-left: auto;
 }
 
 
@@ -1419,30 +1413,6 @@ body > .ui.grid {
       Equal Height
 -----------------------*/
 
-.ui[class*="equal height"].grid {
-  display: table;
-  table-layout: fixed;
-}
-.ui[class*="equal height"].grid > .row,
-.ui.grid > [class*="equal height"].row  {
-  display: table;
-  table-layout: fixed;
-  width: 100% !important;
-}
-.ui[class*="equal height"].grid > .column:not(.row),
-.ui[class*="equal height"].grid > .row > .column,
-.ui.grid > [class*="equal height"].row > .column {
-  display: table-cell;
-}
-
-/* Flexbox (Experimental / Overrides Where Supported) */
-.ui[class*="equal height"].grid,
-.ui[class*="equal height"].grid > .row,
-.ui.grid > [class*="equal height"].row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
 .ui[class*="equal height"].grid > .column:not(.row),
 .ui[class*="equal height"].grid > .row > .column,
 .ui.grid > [class*="equal height"].row > .column {
@@ -1454,37 +1424,12 @@ body > .ui.grid {
       Equal Width
 -----------------------*/
 
-.ui[class*="equal width"].grid {
-  display: table;
-  table-layout: fixed;
-}
-.ui[class*="equal width"].grid > .row,
-.ui.grid > [class*="equal width"].row  {
-  display: table;
-  table-layout: fixed;
-  width: 100% !important;
-}
-.ui[class*="equal width"].grid > .column:not(.row),
-.ui[class*="equal width"].grid > .row > .column,
-.ui.grid > [class*="equal width"].row > .column {
-  display: table-cell;
-}
-
-/* Flexbox (Experimental / Overrides Where Supported) */
-.ui[class*="equal width"].grid,
-.ui[class*="equal width"].grid > .row,
-.ui.grid > [class*="equal width"].row  {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
 .ui[class*="equal width"].grid > .column:not(.row),
 .ui[class*="equal width"].grid > .row > .column,
 .ui.grid > [class*="equal width"].row > .column {
   display: inline-block;
   flex-grow: 1;
 }
-
 .ui[class*="equal width"].grid > .wide.column,
 .ui[class*="equal width"].grid > .row > .wide.column,
 .ui.grid > [class*="equal width"].row > .wide.column {

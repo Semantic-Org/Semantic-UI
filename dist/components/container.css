@@ -32,16 +32,16 @@
     margin-right: auto !important;
   }
 }
-@media only screen and (min-width: 988px) and (max-width: 1228px) {
+@media only screen and (min-width: 988px) and (max-width: 1148px) {
   .ui.container {
     width: 960px;
     margin-left: auto !important;
     margin-right: auto !important;
   }
 }
-@media only screen and (min-width: 1228px) {
+@media only screen and (min-width: 1148px) {
   .ui.container {
-    width: 1200px;
+    width: 1120px;
     margin-left: auto !important;
     margin-right: auto !important;
   }
@@ -58,7 +58,7 @@
   max-width: 700px !important;
   line-height: 1.5;
 }
-.ui.text.container p {
+.ui.text.container {
   font-size: 1.14285714rem;
 }
 
