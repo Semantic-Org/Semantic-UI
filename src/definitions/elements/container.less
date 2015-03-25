@@ -36,6 +36,9 @@
     margin-left: @mobileGutter !important;
     margin-right: @mobileGutter !important;
   }
+  .ui.grid.container {
+    width: @mobileGridWidth;
+  }
 }
 @media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
   .ui.container {
@@ -43,19 +46,28 @@
     margin-left: @tabletGutter !important;
     margin-right: @tabletGutter !important;
   }
+  .ui.grid.container {
+    width: @tabletGridWidth;
+  }
 }
-@media only screen and (min-width: @smallComputerBreakpoint) and (max-width: @largeMonitorBreakpoint) {
+@media only screen and (min-width: @smallMonitorBreakpoint) and (max-width: @largeMonitorBreakpoint) {
   .ui.container {
-    width: @smallComputerWidth;
-    margin-left: @smallComputerGutter !important;
-    margin-right: @smallComputerGutter !important;
+    width: @smallMonitorWidth;
+    margin-left: @smallMonitorGutter !important;
+    margin-right: @smallMonitorGutter !important;
+  }
+  .ui.grid.container {
+    width: @smallMonitorGridWidth;
   }
 }
 @media only screen and (min-width: @largeMonitorBreakpoint) {
   .ui.container {
-    width: @largeMWidth;
-    margin-left: @largeMGutter !important;
-    margin-right: @largeMGutter !important;
+    width: @largeMonitorWidth;
+    margin-left: @largeMonitorGutter !important;
+    margin-right: @largeMonitorGutter !important;
+  }
+  .ui.grid.container {
+    width: @largeMonitorGridWidth;
   }
 }
 
