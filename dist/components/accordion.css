@@ -131,7 +131,7 @@
 .ui.styled.accordion .accordion {
   border-radius: 0.2857rem;
   background: #ffffff;
-  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(34, 36, 38, 0.2);
 }
 .ui.styled.accordion .title,
 .ui.styled.accordion .accordion .title {
@@ -139,7 +139,7 @@
   padding: 0.75em 1em;
   color: rgba(0, 0, 0, 0.4);
   font-weight: bold;
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-top: 1px solid rgba(34, 36, 38, 0.2);
   -webkit-transition: background 0.2s ease, color 0.2s ease;
           transition: background 0.2s ease, color 0.2s ease;
 }

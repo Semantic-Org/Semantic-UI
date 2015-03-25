@@ -445,7 +445,7 @@ a.ui.card:hover,
   z-index: 5;
   background: '';
   border: none;
-  box-shadow: 0px 3px 0px 0px #bebebf, 0px 0px 0px 1px rgba(34, 36, 38, 0.3);
+  box-shadow: 0px 3px 0px 0px #bcbdbd, 0px 0px 0px 1px rgba(34, 36, 38, 0.3);
 }
 
 /*-------------------

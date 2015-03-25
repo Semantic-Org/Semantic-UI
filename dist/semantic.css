@@ -528,10 +528,10 @@ body {
   padding: 0px;
   overflow-x: hidden;
   min-width: 320px;
-  background: #f7f7f7;
+  background: #ffffff;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 14px;
-  line-height: 1.4285;
+  line-height: 1.4285em;
   color: rgba(0, 0, 0, 0.8);
   font-smoothing: antialiased;
 }
@@ -596,7 +596,7 @@ h5:last-child {
 
 p {
   margin: 0em 0em 1em;
-  line-height: '';
+  line-height: 1.4285em;
 }
 
 p:first-child {
@@ -704,7 +704,7 @@ input::selection {
   text-decoration: none;
   background-image: none;
   border-radius: 0.2857rem;
-  box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(34, 36, 38, 0.2) inset;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -758,7 +758,7 @@ input::selection {
   background-color: #cccccc;
   background-image: '';
   color: rgba(0, 0, 0, 0.9);
-  box-shadow: 0px 0px 0px 1px transparent inset, 0px 1px 4px 0px rgba(34, 36, 38, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 1px transparent inset, 0px 1px 4px 0px rgba(34, 36, 38, 0.2) inset !important;
 }
 
 /*--------------
@@ -1077,7 +1077,7 @@ input::selection {
   color: #ffffff;
   text-shadow: none;
   background-image: none;
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.2) inset;
 }
 
 .ui.facebook.button:hover {
@@ -1099,7 +1099,7 @@ input::selection {
   color: #ffffff;
   text-shadow: none;
   background-image: none;
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.2) inset;
 }
 
 .ui.twitter.button:hover {
@@ -1121,7 +1121,7 @@ input::selection {
   color: #ffffff;
   text-shadow: none;
   background-image: none;
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.2) inset;
 }
 
 .ui.google.plus.button:hover {
@@ -1163,7 +1163,7 @@ input::selection {
   color: #ffffff;
   text-shadow: none;
   background-image: none;
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.2) inset;
 }
 
 .ui.youtube.button:hover {
@@ -1185,7 +1185,7 @@ input::selection {
   color: #ffffff;
   text-shadow: none;
   background-image: none;
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.2) inset;
 }
 
 .ui.instagram.button:hover {
@@ -1207,7 +1207,7 @@ input::selection {
   color: #ffffff;
   text-shadow: none;
   background-image: none;
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.2) inset;
 }
 
 .ui.pinterest.button:hover {
@@ -1228,7 +1228,7 @@ input::selection {
   background-color: #4D7198;
   color: #ffffff;
   background-image: none;
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.2) inset;
 }
 
 .ui.vk.button:hover {
@@ -1381,11 +1381,11 @@ input::selection {
   border-radius: 0.2857rem;
   text-transform: none;
   text-shadow: none !important;
-  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.2) inset;
 }
 
 .ui.basic.buttons {
-  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.2);
   border-radius: 0.2857rem;
 }
 
@@ -1397,14 +1397,14 @@ input::selection {
 .ui.basic.button:hover {
   background: #fafafa !important;
   color: rgba(0, 0, 0, 0.8) !important;
-  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset, 0px 0px 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.2) inset, 0px 0px 0px 0px rgba(34, 36, 38, 0.2) inset;
 }
 
 .ui.basic.buttons .button:active,
 .ui.basic.button:active {
   background: #f8f8f8 !important;
   color: rgba(0, 0, 0, 0.9) !important;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset, 0px 1px 4px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset, 0px 1px 4px 0px rgba(34, 36, 38, 0.2) inset;
 }
 
 .ui.basic.buttons .active.button,
@@ -1423,11 +1423,11 @@ input::selection {
 /* Vertical */
 
 .ui.basic.buttons .button:hover {
-  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset, 0px 0px 0px 0px rgba(34, 36, 38, 0.15) inset inset;
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.2) inset, 0px 0px 0px 0px rgba(34, 36, 38, 0.2) inset inset;
 }
 
 .ui.basic.buttons .button:active {
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset, 0px 1px 4px 0px rgba(34, 36, 38, 0.15) inset inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset, 0px 1px 4px 0px rgba(34, 36, 38, 0.2) inset inset;
 }
 
 .ui.basic.buttons .active.button {
@@ -1473,7 +1473,7 @@ input::selection {
 /* Basic Group */
 
 .ui.basic.buttons .button {
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(34, 36, 38, 0.2);
   box-shadow: none;
 }
 
@@ -1483,7 +1483,7 @@ input::selection {
 
 .ui.basic.vertical.buttons .button {
   border-left-width: 0px;
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-top: 1px solid rgba(34, 36, 38, 0.2);
 }
 
 .ui.basic.vertical.buttons .button:first-child {
@@ -1623,7 +1623,7 @@ input::selection {
 .ui.attached.button {
   display: block;
   margin: 0em;
-  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) !important;
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.2) !important;
   border-radius: 0em;
 }
 
@@ -1981,7 +1981,7 @@ input::selection {
 }
 
 .ui.black.button {
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.2) inset;
 }
 
 .ui.black.buttons .button:hover,
@@ -2011,7 +2011,7 @@ input::selection {
 
 .ui.basic.black.buttons .button,
 .ui.basic.black.button {
-  box-shadow: 0px 0px 0px 2px rgba(34, 36, 38, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(34, 36, 38, 0.2) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 
@@ -2111,7 +2111,7 @@ input::selection {
 }
 
 .ui.blue.button {
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.2) inset;
 }
 
 .ui.blue.buttons .button:hover,
@@ -2141,7 +2141,7 @@ input::selection {
 
 .ui.basic.blue.buttons .button,
 .ui.basic.blue.button {
-  box-shadow: 0px 0px 0px 2px rgba(34, 36, 38, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(34, 36, 38, 0.2) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 
@@ -2241,7 +2241,7 @@ input::selection {
 }
 
 .ui.green.button {
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.2) inset;
 }
 
 .ui.green.buttons .button:hover,
@@ -2271,7 +2271,7 @@ input::selection {
 
 .ui.basic.green.buttons .button,
 .ui.basic.green.button {
-  box-shadow: 0px 0px 0px 2px rgba(34, 36, 38, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(34, 36, 38, 0.2) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 
@@ -2371,7 +2371,7 @@ input::selection {
 }
 
 .ui.orange.button {
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.2) inset;
 }
 
 .ui.orange.buttons .button:hover,
@@ -2401,7 +2401,7 @@ input::selection {
 
 .ui.basic.orange.buttons .button,
 .ui.basic.orange.button {
-  box-shadow: 0px 0px 0px 2px rgba(34, 36, 38, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(34, 36, 38, 0.2) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 
@@ -2501,7 +2501,7 @@ input::selection {
 }
 
 .ui.pink.button {
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.2) inset;
 }
 
 .ui.pink.buttons .button:hover,
@@ -2531,7 +2531,7 @@ input::selection {
 
 .ui.basic.pink.buttons .button,
 .ui.basic.pink.button {
-  box-shadow: 0px 0px 0px 2px rgba(34, 36, 38, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(34, 36, 38, 0.2) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 
@@ -2631,7 +2631,7 @@ input::selection {
 }
 
 .ui.purple.button {
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.2) inset;
 }
 
 .ui.purple.buttons .button:hover,
@@ -2661,7 +2661,7 @@ input::selection {
 
 .ui.basic.purple.buttons .button,
 .ui.basic.purple.button {
-  box-shadow: 0px 0px 0px 2px rgba(34, 36, 38, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(34, 36, 38, 0.2) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 
@@ -2761,7 +2761,7 @@ input::selection {
 }
 
 .ui.red.button {
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.2) inset;
 }
 
 .ui.red.buttons .button:hover,
@@ -2791,7 +2791,7 @@ input::selection {
 
 .ui.basic.red.buttons .button,
 .ui.basic.red.button {
-  box-shadow: 0px 0px 0px 2px rgba(34, 36, 38, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(34, 36, 38, 0.2) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 
@@ -2891,7 +2891,7 @@ input::selection {
 }
 
 .ui.teal.button {
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.2) inset;
 }
 
 .ui.teal.buttons .button:hover,
@@ -2921,7 +2921,7 @@ input::selection {
 
 .ui.basic.teal.buttons .button,
 .ui.basic.teal.button {
-  box-shadow: 0px 0px 0px 2px rgba(34, 36, 38, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(34, 36, 38, 0.2) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 
@@ -3021,7 +3021,7 @@ input::selection {
 }
 
 .ui.yellow.button {
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.2) inset;
 }
 
 .ui.yellow.buttons .button:hover,
@@ -3051,7 +3051,7 @@ input::selection {
 
 .ui.basic.yellow.buttons .button,
 .ui.basic.yellow.button {
-  box-shadow: 0px 0px 0px 2px rgba(34, 36, 38, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(34, 36, 38, 0.2) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 
@@ -3153,7 +3153,7 @@ input::selection {
 }
 
 .ui.primary.button {
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.2) inset;
 }
 
 .ui.primary.buttons .button:hover,
@@ -3190,7 +3190,7 @@ input::selection {
 }
 
 .ui.secondary.button {
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.2) inset;
 }
 
 .ui.secondary.buttons .button:hover,
@@ -3227,7 +3227,7 @@ input::selection {
 }
 
 .ui.positive.button {
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.2) inset;
 }
 
 .ui.positive.buttons .button:hover,
@@ -3268,7 +3268,7 @@ input::selection {
 }
 
 .ui.negative.button {
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.2) inset;
 }
 
 .ui.negative.buttons .button:hover,
@@ -3329,7 +3329,7 @@ input::selection {
 
 .ui.buttons > .ui.button:not(.basic):not(.inverted),
 .ui.buttons:not(.basic):not(.inverted) > .button {
-  box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(34, 36, 38, 0.2) inset;
 }
 
 .ui.buttons .button {
@@ -3508,7 +3508,7 @@ input::selection {
 ---------------*/
 
 .ui.divider:not(.vertical):not(.horizontal) {
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-top: 1px solid rgba(34, 36, 38, 0.2);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -3578,7 +3578,7 @@ input::selection {
   left: 50%;
   content: '';
   z-index: 3;
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(34, 36, 38, 0.2);
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   width: 0%;
   height: -webkit-calc(100% -  1rem );
@@ -3619,7 +3619,7 @@ input::selection {
     width: 50%;
     top: 50%;
     height: 0px;
-    border-top: 1px solid rgba(34, 36, 38, 0.15);
+    border-top: 1px solid rgba(34, 36, 38, 0.2);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
@@ -3670,8 +3670,8 @@ input::selection {
 .ui.divider.inverted,
 .ui.divider.inverted:after,
 .ui.divider.inverted:before {
-  border-top-color: rgba(34, 36, 38, 0.15) !important;
-  border-left-color: rgba(34, 36, 38, 0.15) !important;
+  border-top-color: rgba(34, 36, 38, 0.2) !important;
+  border-left-color: rgba(34, 36, 38, 0.2) !important;
   border-bottom-color: rgba(255, 255, 255, 0.15) !important;
   border-right-color: rgba(255, 255, 255, 0.15) !important;
 }
@@ -5417,6 +5417,7 @@ a.ui.yellow.header:hover {
   background: #333333 -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   background: #333333 linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   box-shadow: none;
+  border-color: transparent;
 }
 
 .ui.inverted.block.header {
@@ -5563,7 +5564,7 @@ a.ui.inverted.yellow.header:hover {
 
 .ui.dividing.header {
   padding-bottom: 0.25rem;
-  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+  border-bottom: 1px solid rgba(34, 36, 38, 0.2);
 }
 
 .ui.dividing.header .sub.header {
@@ -11415,7 +11416,7 @@ ol.ui.horizontal.list li:before,
 --------------------*/
 
 .ui.divided.list > .item {
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-top: 1px solid rgba(34, 36, 38, 0.2);
 }
 
 .ui.divided.list .list > .item {
@@ -11487,7 +11488,7 @@ ol.ui.horizontal.list li:before,
 
 .ui.divided.horizontal.list > .item {
   border-top: none;
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(34, 36, 38, 0.2);
   margin: 0em;
   padding-left: 0.5em;
   padding-right: 0.5em;
@@ -11512,13 +11513,13 @@ ol.ui.horizontal.list li:before,
 
 .ui.celled.list > .item,
 .ui.celled.list > .list {
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-top: 1px solid rgba(34, 36, 38, 0.2);
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
 
 .ui.celled.list > .item:last-child {
-  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+  border-bottom: 1px solid rgba(34, 36, 38, 0.2);
 }
 
 /* Padding on all elements */
@@ -11586,7 +11587,7 @@ ol.ui.horizontal.list li:before,
 .ui.horizontal.celled.list .list > .item,
 .ui.horizontal.celled.list > .item {
   border-top: none;
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(34, 36, 38, 0.2);
   margin: 0em;
   padding-left: 0.5em;
   padding-right: 0.5em;
@@ -11596,7 +11597,7 @@ ol.ui.horizontal.list li:before,
 .ui.horizontal.celled.list .list > .item:last-child,
 .ui.horizontal.celled.list > .item:last-child {
   border-bottom: none;
-  border-right: 1px solid rgba(34, 36, 38, 0.15);
+  border-right: 1px solid rgba(34, 36, 38, 0.2);
 }
 
 /* Inverted */
@@ -12102,11 +12103,11 @@ ol.ui.horizontal.list li:before,
 .ui.left.dividing.rail {
   padding: 0em 2.5rem 0em 0em;
   margin: 0em 2.5rem 0em 0em;
-  border-right: 1px solid rgba(34, 36, 38, 0.15);
+  border-right: 1px solid rgba(34, 36, 38, 0.2);
 }
 
 .ui.right.dividing.rail {
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(34, 36, 38, 0.2);
   padding: 0em 0em 0em 2.5rem;
   margin: 0em 0em 0em 2.5rem;
 }
@@ -12494,7 +12495,7 @@ ol.ui.horizontal.list li:before,
 .ui.segment {
   position: relative;
   background-color: #ffffff;
-  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.2), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
   margin: 1rem 0em;
   padding: 1em 1em;
   border-radius: 0.2857rem;
@@ -12526,7 +12527,7 @@ ol.ui.horizontal.list li:before,
   background-color: transparent;
   border-radius: 0px;
   border: none;
-  box-shadow: 0px -1px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px -1px 0px rgba(34, 36, 38, 0.2) inset;
 }
 
 .ui.vertical.segment:last-child {
@@ -12542,7 +12543,7 @@ ol.ui.horizontal.list li:before,
   background-color: transparent;
   border-radius: 0px;
   border: none;
-  box-shadow: 1px 0px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: 1px 0px 0px rgba(34, 36, 38, 0.2);
 }
 
 /*-------------------
@@ -12595,7 +12596,7 @@ ol.ui.horizontal.list li:before,
 .ui.basic.table.segment {
   background: #ffffff;
   border: none;
-  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.2), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
 .ui[class*="very basic"].table.segment {
@@ -12612,7 +12613,7 @@ ol.ui.horizontal.list li:before,
 
 .ui.piled.segment {
   margin: 3em 0em;
-  box-shadow: 0px 0px 1px 1px rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 0px 1px 1px rgba(34, 36, 38, 0.2);
   z-index: auto;
 }
 
@@ -12634,7 +12635,7 @@ ol.ui.horizontal.list li:before,
   left: 0px;
   position: absolute;
   width: 100%;
-  box-shadow: 0px 0px 1px 1px rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 0px 1px 1px rgba(34, 36, 38, 0.2);
 }
 
 .ui.piled.segment:after {
@@ -12687,7 +12688,7 @@ ol.ui.horizontal.list li:before,
   position: absolute;
   bottom: -3px;
   left: 0%;
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-top: 1px solid rgba(34, 36, 38, 0.2);
   background-color: rgba(0, 0, 0, 0.03);
   width: 100%;
   height: 6px;
@@ -12750,7 +12751,7 @@ ol.ui.horizontal.list li:before,
 --------------------*/
 
 .ui.raised.segment {
-  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15), 0px 1px 4px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.2), 0px 1px 4px 0px rgba(0, 0, 0, 0.15);
 }
 
 /*******************************
@@ -13159,8 +13160,8 @@ ol.ui.horizontal.list li:before,
   border: 1px solid #d4d4d5;
 }
 
-.ui.segments > .segment:not(:first-child) {
-  border-top: none;
+.ui.segments > .segment:not(:last-child) {
+  border-bottom: none;
 }
 
 /* Top */
@@ -13228,8 +13229,8 @@ ol.ui.horizontal.list li:before,
   background-color: #ffffff;
   width: 1.5em;
   height: 1.5em;
-  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
-  border-right: 1px solid rgba(34, 36, 38, 0.15);
+  border-bottom: 1px solid rgba(34, 36, 38, 0.2);
+  border-right: 1px solid rgba(34, 36, 38, 0.2);
   -webkit-transform: translateY(-50%) translateX(50%) rotate(-45deg);
   -ms-transform: translateY(-50%) translateX(50%) rotate(-45deg);
   transform: translateY(-50%) translateX(50%) rotate(-45deg);
@@ -13914,7 +13915,7 @@ ol.ui.horizontal.list li:before,
   padding: 0.67861em 1em;
   font-size: 1em;
   background: #ffffff;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(34, 36, 38, 0.2);
   color: rgba(0, 0, 0, 0.8);
   border-radius: 0.2857rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
@@ -13929,7 +13930,7 @@ ol.ui.horizontal.list li:before,
   tap-highlight-color: rgba(255, 255, 255, 0);
   padding: 0.78571em 1em;
   background: #ffffff;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(34, 36, 38, 0.2);
   outline: none;
   color: rgba(0, 0, 0, 0.8);
   border-radius: 0.2857rem;
@@ -13966,7 +13967,7 @@ ol.ui.horizontal.list li:before,
   height: auto;
   width: 100%;
   background: #ffffff;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(34, 36, 38, 0.2);
   border-radius: 0.2857rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
   padding: 0.62em 1em;
@@ -15958,7 +15959,7 @@ body > .ui.grid {
 
 .ui.divided.grid:not([class*="vertically divided"]) > .column:not(.row),
 .ui.divided.grid:not([class*="vertically divided"]) > .row > .column {
-  box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.2);
 }
 
 /* Swap from padding to margin on columns to have dividers align */
@@ -15988,7 +15989,7 @@ body > .ui.grid {
 /* Divided Row */
 
 .ui.grid > .divided.row > .column {
-  box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.2);
 }
 
 .ui.grid > .divided.row > .column:first-child {
@@ -16010,7 +16011,7 @@ body > .ui.grid {
   width: calc(100% -  2rem );
   height: 1px;
   margin: 0% 1rem;
-  box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.2);
 }
 
 /* Padded Horizontally Divided */
@@ -16755,7 +16756,7 @@ body > .ui.grid {
   .ui.stackable.divided.grid > .column:not(.row),
   .ui.stackable.celled.grid > .row > .column,
   .ui.stackable.divided.grid > .row > .column {
-    border-top: 1px solid rgba(34, 36, 38, 0.15);
+    border-top: 1px solid rgba(34, 36, 38, 0.2);
     box-shadow: none !important;
     padding-top: 2rem !important;
     padding-bottom: 2rem !important;
@@ -16864,7 +16865,7 @@ body > .ui.grid {
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   background: #ffffff;
   font-weight: normal;
-  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.2), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
   border-radius: 0.2857rem;
   min-height: 2.85714286em;
 }
@@ -17334,7 +17335,7 @@ Floated Menu / Item
 .ui.vertical.menu {
   display: block;
   background: #ffffff;
-  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.2), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
 /*--- Item ---*/
@@ -17482,7 +17483,7 @@ Floated Menu / Item
 .ui.tiered.menu .sub.menu {
   background-color: #fcfcfc;
   border-radius: 0em 0em 0.2857rem 0.2857rem;
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-top: 1px solid rgba(34, 36, 38, 0.2);
   box-shadow: none;
 }
 
@@ -17816,7 +17817,7 @@ Floated Menu / Item
 -----------------------*/
 
 .ui.secondary.pointing.menu {
-  border-bottom: 2px solid rgba(34, 36, 38, 0.15);
+  border-bottom: 2px solid rgba(34, 36, 38, 0.2);
 }
 
 .ui.secondary.pointing.menu > .item,
@@ -17868,7 +17869,7 @@ Floated Menu / Item
 .ui.secondary.pointing.menu > .menu > a.item:active,
 .ui.secondary.pointing.menu > a.item:active {
   background-color: transparent;
-  border-color: rgba(34, 36, 38, 0.15);
+  border-color: rgba(34, 36, 38, 0.2);
 }
 
 /* Active */
@@ -17896,7 +17897,7 @@ Floated Menu / Item
   border-bottom-width: 0px;
   border-right-width: 2px;
   border-right-style: solid;
-  border-right-color: rgba(34, 36, 38, 0.15);
+  border-right-color: rgba(34, 36, 38, 0.2);
 }
 
 .ui.secondary.vertical.pointing.menu > .item {
@@ -17923,7 +17924,7 @@ Floated Menu / Item
 
 .ui.secondary.inverted.pointing.menu {
   border-width: 2px;
-  border-color: rgba(34, 36, 38, 0.15);
+  border-color: rgba(34, 36, 38, 0.2);
 }
 
 .ui.secondary.inverted.pointing.menu > .item {
@@ -18840,12 +18841,12 @@ Floated Menu / Item
   margin: 1em 0em;
   background: #efefef;
   padding: 1em 1.5em;
-  line-height: 1.4285;
+  line-height: 1.4285em;
   color: rgba(0, 0, 0, 0.8);
   -webkit-transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
   transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
   border-radius: 0.2857rem;
-  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.2) inset, 0px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .ui.message:first-child {
@@ -19072,7 +19073,7 @@ Floated Menu / Item
 ---------------*/
 
 .ui.floating.message {
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15), 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15), 0px 0px 0px 1px rgba(34, 36, 38, 0.2) inset;
 }
 
 /*--------------
@@ -19316,7 +19317,7 @@ Floated Menu / Item
   width: 100%;
   background: #ffffff;
   margin: 1em 0em;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(34, 36, 38, 0.2);
   box-shadow: none;
   border-radius: 0.2857rem;
   text-align: left;
@@ -19361,7 +19362,7 @@ Floated Menu / Item
   font-style: none;
   font-weight: bold;
   text-transform: none;
-  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+  border-bottom: 1px solid rgba(34, 36, 38, 0.2);
   border-left: none;
 }
 
@@ -19389,7 +19390,7 @@ Floated Menu / Item
 
 .ui.table tfoot th {
   cursor: auto;
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-top: 1px solid rgba(34, 36, 38, 0.2);
   background: #ffffff;
   text-align: inherit;
   color: rgba(0, 0, 0, 0.8);
@@ -19419,7 +19420,7 @@ Floated Menu / Item
 /* Table Row */
 
 .ui.table tr td {
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-top: 1px solid rgba(34, 36, 38, 0.2);
 }
 
 .ui.table tr:first-child td {
@@ -19560,8 +19561,8 @@ Floated Menu / Item
 }
 
 .ui.structured.sortable.table thead th {
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
-  border-right: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(34, 36, 38, 0.2);
+  border-right: 1px solid rgba(34, 36, 38, 0.2);
 }
 
 .ui.structured.basic.table th {
@@ -19571,8 +19572,8 @@ Floated Menu / Item
 
 .ui.structured.celled.table tr th,
 .ui.structured.celled.table tr td {
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
-  border-right: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(34, 36, 38, 0.2);
+  border-right: 1px solid rgba(34, 36, 38, 0.2);
 }
 
 /*--------------
@@ -19616,15 +19617,15 @@ Floated Menu / Item
 /* Fix 2nd Column */
 
 .ui.definition.table thead:not(.full-width) th:nth-child(2) {
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(34, 36, 38, 0.2);
 }
 
 .ui.definition.table tfoot:not(.full-width) th:nth-child(2) {
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(34, 36, 38, 0.2);
 }
 
 .ui.definition.table td:nth-child(2) {
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(34, 36, 38, 0.2);
 }
 
 /*******************************
@@ -20175,7 +20176,7 @@ Floated Menu / Item
 .ui.sortable.table thead th {
   cursor: pointer;
   white-space: nowrap;
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(34, 36, 38, 0.2);
   color: rgba(0, 0, 0, 0.8);
 }
 
@@ -20313,7 +20314,7 @@ Floated Menu / Item
 
 .ui.basic.table {
   background: transparent;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(34, 36, 38, 0.2);
   box-shadow: none;
 }
 
@@ -20370,7 +20371,7 @@ Floated Menu / Item
 
 .ui.celled.table tr th,
 .ui.celled.table tr td {
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(34, 36, 38, 0.2);
 }
 
 .ui.celled.table tr th:first-child,
@@ -21221,7 +21222,7 @@ a.ui.card:hover,
   z-index: 5;
   background: '';
   border: none;
-  box-shadow: 0px 3px 0px 0px #bebebf, 0px 0px 0px 1px rgba(34, 36, 38, 0.3);
+  box-shadow: 0px 3px 0px 0px #bcbdbd, 0px 0px 0px 1px rgba(34, 36, 38, 0.3);
 }
 
 /*-------------------
@@ -22065,7 +22066,7 @@ a.ui.card:hover,
 .ui.threaded.comments .comment .comments {
   margin: -1.5em 0 -1em 1.25em;
   padding: 3em 0em 2em 2.25em;
-  box-shadow: -1px 0px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: -1px 0px 0px rgba(34, 36, 38, 0.2);
 }
 
 /*--------------------
@@ -22844,7 +22845,7 @@ a.ui.card:hover,
 --------------------*/
 
 .ui.divided.items > .item {
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-top: 1px solid rgba(34, 36, 38, 0.2);
   margin: 0em;
   padding: 1em 0em;
 }
@@ -23488,7 +23489,7 @@ a.ui.card:hover,
 .ui.styled.accordion .accordion {
   border-radius: 0.2857rem;
   background: #ffffff;
-  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(34, 36, 38, 0.2);
 }
 
 .ui.styled.accordion .title,
@@ -23497,7 +23498,7 @@ a.ui.card:hover,
   padding: 0.75em 1em;
   color: rgba(0, 0, 0, 0.4);
   font-weight: bold;
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-top: 1px solid rgba(34, 36, 38, 0.2);
   -webkit-transition: background 0.2s ease, color 0.2s ease;
   transition: background 0.2s ease, color 0.2s ease;
 }
@@ -23915,7 +23916,7 @@ a.ui.card:hover,
   opacity: 1;
   z-index: 2;
   border: none;
-  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(34, 36, 38, 0.2) inset;
   width: 1.5rem;
   height: 1.5rem;
   top: -0.25rem;
@@ -24019,7 +24020,7 @@ a.ui.card:hover,
   opacity: 1;
   z-index: 2;
   border: none;
-  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(34, 36, 38, 0.2) inset;
   width: 1.5rem;
   height: 1.5rem;
   top: 0rem;
@@ -24379,8 +24380,8 @@ body.dimmed.dimmable > :not(.dimmer) {
   font-size: 1rem;
   text-shadow: none;
   text-align: left;
-  box-shadow: 0px 1px 4px 0px rgba(34, 36, 38, 0.15);
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 1px 4px 0px rgba(34, 36, 38, 0.2);
+  border: 1px solid rgba(34, 36, 38, 0.2);
   border-radius: 0em 0em 0.2857rem 0.2857rem;
   -webkit-transition: opacity 0.2s ease;
   transition: opacity 0.2s ease;
@@ -24664,7 +24665,7 @@ body.dimmed.dimmable > :not(.dimmer) {
   padding: 0.8em 2em 0.8em 1.1em;
   color: rgba(0, 0, 0, 0.8);
   box-shadow: none;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(34, 36, 38, 0.2);
   border-radius: 0.2857rem;
   -webkit-transition: border-radius 0.1s ease, width 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
   transition: border-radius 0.1s ease, width 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
@@ -24678,7 +24679,7 @@ body.dimmed.dimmable > :not(.dimmer) {
 select.ui.dropdown {
   height: 38px;
   padding: 0.5em;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(34, 36, 38, 0.2);
   visibility: visible;
 }
 
@@ -24786,7 +24787,7 @@ select.ui.dropdown {
   cursor: default;
   box-shadow: none;
   color: rgba(0, 0, 0, 0.8);
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(34, 36, 38, 0.2);
   opacity: 0.3 !important;
 }
 
@@ -24799,7 +24800,7 @@ select.ui.dropdown {
 
 .ui.selection.visible.dropdown .menu {
   border-color: rgba(34, 36, 38, 0.3);
-  box-shadow: 0px 2px 6px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 2px 6px 0px rgba(34, 36, 38, 0.2);
 }
 
 /* Visible Hover */
@@ -24811,7 +24812,7 @@ select.ui.dropdown {
 
 .ui.selection.visible.dropdown:hover .menu {
   border-color: rgba(34, 36, 38, 0.3);
-  box-shadow: 0px 2px 6px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 2px 6px 0px rgba(34, 36, 38, 0.2);
 }
 
 /* Active Item */
@@ -25226,7 +25227,7 @@ select.ui.dropdown {
 .ui.upward.dropdown > .menu {
   top: auto;
   bottom: 100%;
-  box-shadow: 0px 0px 4px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 0px 4px 0px rgba(34, 36, 38, 0.2);
   border-radius: 0.2857rem 0.2857rem 0em 0em;
 }
 
@@ -25690,7 +25691,7 @@ select.ui.dropdown {
   line-height: 1.3em;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.85);
-  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+  border-bottom: 1px solid rgba(34, 36, 38, 0.2);
 }
 
 /*--------------
@@ -25753,7 +25754,7 @@ select.ui.dropdown {
 .ui.modal .actions {
   background: #efefef;
   padding: 1rem 2rem;
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-top: 1px solid rgba(34, 36, 38, 0.2);
   text-align: right;
 }
 
@@ -26562,7 +26563,7 @@ a.ui.nag {
   position: relative;
   display: block;
   max-width: 100%;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(34, 36, 38, 0.2);
   margin: 1em 0em 2.5em;
   box-shadow: none;
   background: rgba(0, 0, 0, 0.03);
@@ -27363,7 +27364,7 @@ a.ui.nag {
   padding: 0.68571em 1em;
   font-size: 1em;
   background: #ffffff;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(34, 36, 38, 0.2);
   color: rgba(0, 0, 0, 0.8);
   box-shadow: 0em 0em 0em 0em transparent inset;
   -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
@@ -27411,7 +27412,7 @@ a.ui.nag {
   padding: 0.5em 1em;
   color: rgba(0, 0, 0, 0.8);
   line-height: 1.33;
-  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+  border-bottom: 1px solid rgba(34, 36, 38, 0.2);
 }
 
 .ui.search > .results .result:last-child {
@@ -27563,7 +27564,7 @@ a.ui.nag {
   position: relative;
   border-left-color: transparent;
   background: #f0f0f0;
-  box-shadow: 3px 0px 3px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: 3px 0px 3px 0px rgba(34, 36, 38, 0.2);
 }
 
 .ui.search > .results .result.active .title {
@@ -27591,7 +27592,7 @@ a.ui.nag {
 .ui.category.search > .results .category {
   background: #f0f0f0;
   box-shadow: none;
-  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+  border-bottom: 1px solid rgba(34, 36, 38, 0.2);
   -webkit-transition: background 0.2s ease, border-color 0.2s ease;
   transition: background 0.2s ease, border-color 0.2s ease;
 }
@@ -27605,8 +27606,8 @@ a.ui.nag {
 .ui.category.search > .results .category .result {
   background: #ffffff;
   margin-left: 100px;
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
-  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(34, 36, 38, 0.2);
+  border-bottom: 1px solid rgba(34, 36, 38, 0.2);
   -webkit-transition: background 0.2s ease, border-color 0.2s ease;
   transition: background 0.2s ease, border-color 0.2s ease;
 }
@@ -27975,7 +27976,7 @@ body.pushable {
 }
 
 body.pushable > .pusher {
-  background: #f7f7f7;
+  background: #ffffff;
 }
 
 .pushable > .pusher {
@@ -28044,12 +28045,12 @@ body.pushable > .pusher {
 
 .ui.left.visible.sidebar,
 .ui.right.visible.sidebar {
-  box-shadow: 0px 0px 20px rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 0px 20px rgba(34, 36, 38, 0.2);
 }
 
 .ui.top.visible.sidebar,
 .ui.bottom.visible.sidebar {
-  box-shadow: 0px 0px 20px rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 0px 20px rgba(34, 36, 38, 0.2);
 }
 
 /* Visible On Load */
@@ -28697,7 +28698,7 @@ html.ios {
   width: 100%;
   background: #ffffff;
   margin: 1em 0em;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(34, 36, 38, 0.2);
   box-shadow: none;
   border-radius: 0.2857rem;
   text-align: left;
@@ -28742,7 +28743,7 @@ html.ios {
   font-style: none;
   font-weight: bold;
   text-transform: none;
-  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+  border-bottom: 1px solid rgba(34, 36, 38, 0.2);
   border-left: none;
 }
 
@@ -28770,7 +28771,7 @@ html.ios {
 
 .ui.table tfoot th {
   cursor: auto;
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-top: 1px solid rgba(34, 36, 38, 0.2);
   background: #ffffff;
   text-align: inherit;
   color: rgba(0, 0, 0, 0.8);
@@ -28800,7 +28801,7 @@ html.ios {
 /* Table Row */
 
 .ui.table tr td {
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-top: 1px solid rgba(34, 36, 38, 0.2);
 }
 
 .ui.table tr:first-child td {
@@ -28941,8 +28942,8 @@ html.ios {
 }
 
 .ui.structured.sortable.table thead th {
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
-  border-right: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(34, 36, 38, 0.2);
+  border-right: 1px solid rgba(34, 36, 38, 0.2);
 }
 
 .ui.structured.basic.table th {
@@ -28952,8 +28953,8 @@ html.ios {
 
 .ui.structured.celled.table tr th,
 .ui.structured.celled.table tr td {
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
-  border-right: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(34, 36, 38, 0.2);
+  border-right: 1px solid rgba(34, 36, 38, 0.2);
 }
 
 /*--------------
@@ -28997,15 +28998,15 @@ html.ios {
 /* Fix 2nd Column */
 
 .ui.definition.table thead:not(.full-width) th:nth-child(2) {
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(34, 36, 38, 0.2);
 }
 
 .ui.definition.table tfoot:not(.full-width) th:nth-child(2) {
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(34, 36, 38, 0.2);
 }
 
 .ui.definition.table td:nth-child(2) {
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(34, 36, 38, 0.2);
 }
 
 /*******************************
@@ -29556,7 +29557,7 @@ html.ios {
 .ui.sortable.table thead th {
   cursor: pointer;
   white-space: nowrap;
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(34, 36, 38, 0.2);
   color: rgba(0, 0, 0, 0.8);
 }
 
@@ -29694,7 +29695,7 @@ html.ios {
 
 .ui.basic.table {
   background: transparent;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(34, 36, 38, 0.2);
   box-shadow: none;
 }
 
@@ -29751,7 +29752,7 @@ html.ios {
 
 .ui.celled.table tr th,
 .ui.celled.table tr td {
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(34, 36, 38, 0.2);
 }
 
 .ui.celled.table tr th:first-child,
@@ -32340,7 +32341,7 @@ html.ios {
   padding: 0.67861em 1em;
   font-size: 1em;
   background: #ffffff;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(34, 36, 38, 0.2);
   color: rgba(0, 0, 0, 0.8);
   border-radius: 0.2857rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
@@ -32355,7 +32356,7 @@ html.ios {
   tap-highlight-color: rgba(255, 255, 255, 0);
   padding: 0.78571em 1em;
   background: #ffffff;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(34, 36, 38, 0.2);
   outline: none;
   color: rgba(0, 0, 0, 0.8);
   border-radius: 0.2857rem;
@@ -32392,7 +32393,7 @@ html.ios {
   height: auto;
   width: 100%;
   background: #ffffff;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(34, 36, 38, 0.2);
   border-radius: 0.2857rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
   padding: 0.62em 1em;

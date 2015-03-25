@@ -115,7 +115,7 @@
   padding: 0.67861em 1em;
   font-size: 1em;
   background: #ffffff;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(34, 36, 38, 0.2);
   color: rgba(0, 0, 0, 0.8);
   border-radius: 0.2857rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
@@ -129,7 +129,7 @@
   tap-highlight-color: rgba(255, 255, 255, 0);
   padding: 0.78571em 1em;
   background: #ffffff;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(34, 36, 38, 0.2);
   outline: none;
   color: rgba(0, 0, 0, 0.8);
   border-radius: 0.2857rem;
@@ -165,7 +165,7 @@
   height: auto;
   width: 100%;
   background: #ffffff;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(34, 36, 38, 0.2);
   border-radius: 0.2857rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
   padding: 0.62em 1em;

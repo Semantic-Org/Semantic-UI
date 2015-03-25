@@ -1047,7 +1047,7 @@ body > .ui.grid {
 
 .ui.divided.grid:not([class*="vertically divided"]) > .column:not(.row),
 .ui.divided.grid:not([class*="vertically divided"]) > .row > .column {
-  box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.2);
 }
 
 /* Swap from padding to margin on columns to have dividers align */
@@ -1073,7 +1073,7 @@ body > .ui.grid {
 
 /* Divided Row */
 .ui.grid > .divided.row > .column {
-  box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.2);
 }
 .ui.grid > .divided.row > .column:first-child {
   box-shadow: none;
@@ -1092,7 +1092,7 @@ body > .ui.grid {
   width: calc(100% -  2rem );
   height: 1px;
   margin: 0% 1rem;
-  box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.2);
 }
 
 /* Padded Horizontally Divided */
@@ -1750,7 +1750,7 @@ body > .ui.grid {
   .ui.stackable.divided.grid > .column:not(.row),
   .ui.stackable.celled.grid > .row > .column,
   .ui.stackable.divided.grid > .row > .column {
-    border-top: 1px solid rgba(34, 36, 38, 0.15);
+    border-top: 1px solid rgba(34, 36, 38, 0.2);
     box-shadow: none !important;
     padding-top: 2rem !important;
     padding-bottom: 2rem !important;

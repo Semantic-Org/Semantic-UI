@@ -377,6 +377,7 @@ a.ui.yellow.header:hover {
   background: #333333 -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   background: #333333 linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   box-shadow: none;
+  border-color: transparent;
 }
 .ui.inverted.block.header {
   background: #333333 -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
@@ -499,7 +500,7 @@ a.ui.inverted.yellow.header:hover {
 
 .ui.dividing.header {
   padding-bottom: 0.25rem;
-  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+  border-bottom: 1px solid rgba(34, 36, 38, 0.2);
 }
 .ui.dividing.header .sub.header {
   padding-bottom: 0.25rem;

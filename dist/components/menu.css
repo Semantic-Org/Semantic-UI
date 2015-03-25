@@ -28,7 +28,7 @@
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   background: #ffffff;
   font-weight: normal;
-  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.2), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
   border-radius: 0.2857rem;
   min-height: 2.85714286em;
 }
@@ -465,7 +465,7 @@ Floated Menu / Item
 .ui.vertical.menu {
   display: block;
   background: #ffffff;
-  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.2), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
 /*--- Item ---*/
@@ -595,7 +595,7 @@ Floated Menu / Item
 .ui.tiered.menu .sub.menu {
   background-color: #fcfcfc;
   border-radius: 0em 0em 0.2857rem 0.2857rem;
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-top: 1px solid rgba(34, 36, 38, 0.2);
   box-shadow: none;
 }
 .ui.tiered.menu > .sub.menu > .item {
@@ -888,7 +888,7 @@ Floated Menu / Item
 -----------------------*/
 
 .ui.secondary.pointing.menu {
-  border-bottom: 2px solid rgba(34, 36, 38, 0.15);
+  border-bottom: 2px solid rgba(34, 36, 38, 0.2);
 }
 .ui.secondary.pointing.menu > .item,
 .ui.secondary.pointing.menu .menu > .item {
@@ -934,7 +934,7 @@ Floated Menu / Item
 .ui.secondary.pointing.menu > .menu > a.item:active,
 .ui.secondary.pointing.menu > a.item:active {
   background-color: transparent;
-  border-color: rgba(34, 36, 38, 0.15);
+  border-color: rgba(34, 36, 38, 0.2);
 }
 
 /* Active */
@@ -959,7 +959,7 @@ Floated Menu / Item
   border-bottom-width: 0px;
   border-right-width: 2px;
   border-right-style: solid;
-  border-right-color: rgba(34, 36, 38, 0.15);
+  border-right-color: rgba(34, 36, 38, 0.2);
 }
 .ui.secondary.vertical.pointing.menu > .item {
   border-bottom: none;
@@ -982,7 +982,7 @@ Floated Menu / Item
 }
 .ui.secondary.inverted.pointing.menu {
   border-width: 2px;
-  border-color: rgba(34, 36, 38, 0.15);
+  border-color: rgba(34, 36, 38, 0.2);
 }
 .ui.secondary.inverted.pointing.menu > .item {
   color: #ffffff;
