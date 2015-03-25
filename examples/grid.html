@@ -16,109 +16,14 @@
   <link rel="stylesheet" type="text/css" href="../dist/components/divider.css">
   <link rel="stylesheet" type="text/css" href="../dist/components/grid.css">
   <link rel="stylesheet" type="text/css" href="../dist/components/header.css">
-
-  <style type="text/css">
-
-  /* Some basic formatting */
-  code {
-    background-color: #E0E0E0;
-    padding: 0.25em 0.3em;
-    font-family: 'Lato';
-    font-weight: bold;
-  }
-  .container {
-    padding: 5em 0em;
-  }
-  .ui.block.header,
-  .first {
-    margin-top: 5em;
-  }
-
-  .ui.block.header:first-child {
-    margin-top: 0em;
-  }
-  .ui.block.header {
-    margin-left: -4rem;
-    margin-right: -4rem;
-    padding-left: 4rem;
-    padding-right: 4rem;
-  }
-
-  h1,
-  h3 {
-    margin-top: 10em;
-  }
-
-  img {
-    display: block;
-    max-width: 100%;
-  }
-  img + img {
-    margin-top: 0.5em;
-  }
-
-  /* Shows content box (not negative margins) */
-  .grid {
-    position: relative;
-  }
-  .grid:before {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    background-color: #F0F0F0;
-    content: '';
-    width: calc(100% - 2rem);
-    height: calc(100% - 2rem);
-    box-shadow: 0px 0px 0px 1px #DDDDDD inset;
-  }
-  .ui.divided.grid:before,
-  .celled.grid:before {
-    display: none;
-  }
-  .ui.aligned .column:after {
-    display: none !important;
-  }
-  .grid .column:not(.row):not(.grid):after {
-    background-color: rgba(86,61,124,.15);
-    box-shadow: 0px 0px 0px 1px rgba(86,61,124,.2) inset;
-    content: "";
-    display: block;
-    min-height: 50px;
-  }
-  </style>
-
 </head>
 <body>
-  <div class="ui text container">
-      <h1 class="ui inverted block header">Top Level Grids</h1>
-
-      <h3 class="first">Page Grid</h3>
-      <p>A <code>ui page grid</code> uses <code>padding</code> to maintain fluid page gutters. Each columns width will continuously adjust as your browser width changes to maintain the same percentage of overall browser width</p>
-      <p>Page grids work best for wide multi-column pages like homepages.</p>
-  </div>
-
-  <div class="ui page grid">
-    <div class="column"></div>
-    <div class="column"></div>
-    <div class="column"></div>
-    <div class="column"></div>
-    <div class="column"></div>
-    <div class="column"></div>
-    <div class="column"></div>
-    <div class="column"></div>
-    <div class="column"></div>
-    <div class="column"></div>
-    <div class="column"></div>
-    <div class="column"></div>
-    <div class="column"></div>
-    <div class="column"></div>
-    <div class="column"></div>
-    <div class="column"></div>
-  </div>
 
   <div class="ui text container">
+      <h1 class="ui inverted block header">Using Grids</h1>
+
       <h3 class="first">Container</h3>
-      <p>A container is a fixed width element that wraps your site's content. It is not fluid in size and uses <b>margin</b> to center. Containers work best for centered content that is placed inside a containing box like a <code>ui segment</code>
+      <p>A container is a fixed width element that wraps your site's content. It remains a constant size and uses <b>margin</b> to center. Containers are the simplest way to center page content inside a grid.</code>
       </p>
   </div>
 
@@ -142,17 +47,50 @@
       <div class="column"></div>
     </div>
   </div>
+
+  <div class="ui text container">
+
+      <h3>Page Grid</h3>
+      <p>A <code>page grid</code> uses <code>padding</code> to create fluid page gutters. Each columns width will continuously adjust as your browser width changes to maintain the same percentage of overall browser width.</p>
+      <p>A page grid adjusts its gutters as a percentage of total page width for each device. This causes it to snap to a new width on each breakpoint.</p>
+  </div>
+
+  <div class="ui page grid">
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+  </div>
+
   <div class="ui text container">
     <h3 class="first">Text Container</h3>
-    <p>Sometimes you just need to put a single column of centered text on a page. A <code>ui text container</code> is a special type of container designed to optimize for a single flowing column of text, like this instructions on this page.
+    <p>Sometimes you just need to put a single column of centered text on a page. A <code>text container</code> is a special type of container optimized for a single flowing column of text, like this instructions on this page.
     </p>
-    <p>Text containers <b>do not need to use grids</b> and help simplify basic page layouts.</p.
+    <p>Text containers <b>do not need to use grids</b> and help simplify basic page layouts.</p>
+  </div>
+
+  <div class="ui text container">
+    <div class="ui one column grid">
+      <div class="column"></div>
+    </div>
   </div>
 
 
   <div class="ui text container">
 
-      <h1 class="ui inverted block header">Setting Up Grids</h1>
+      <h1 class="ui inverted block header">Grid Content</h1>
 
       <h3 class="first">Column Flow</h3>
       <p>A grid does not necessarily need to specify rows. If you include <code>columns</code> as direct child of <code>ui grid</code> content will automatically flow to the next row when all the grid columns are taken in the current row</b>.</p>
@@ -169,19 +107,15 @@
       </div>
 
       <h3>Clearing Rows</h3>
-      <p>Adding row wrappers allow you to manually specify you want a new row to begin. This can be useful when centering content with a  <code>ui centered grid</code>.</p>
+      <p>Adding row wrappers allow you to manually specify you want a new row to begin.</p>
 
-      <div class="ui centered grid">
-        <div class="four wide column"></div>
-        <div class="four wide column"></div>
-        <div class="four wide column"></div>
+      <div class="ui three column grid">
+        <div class="column"></div>
         <div class="row">
-          <div class="four wide column"></div>
-          <div class="four wide column"></div>
-          <div class="four wide column"></div>
-          <div class="four wide column"></div>
+          <div class="column"></div>
+          <div class="column"></div>
+          <div class="column"></div>
         </div>
-        <div class="four wide column"></div>
       </div>
 
 
@@ -361,11 +295,45 @@
         <div class="four wide column">four wide column</div>
       </div>
 
+      <h1>Responsive Patterns</h1>
+
+      <h3>Doubling</h3>
+      <p>You can set columns to double in width at each device jump</p>
+      <div class="ui five column doubling grid">
+        <div class="column">column</div>
+        <div class="column">column</div>
+        <div class="column">column</div>
+        <div class="column">column</div>
+        <div class="column">column</div>
+      </div>
+
+      <h3>Stackable</h3>
+      <p>You can set columns to stack on mobile</p>
+      <div class="ui three column stackable grid">
+        <div class="column">column</div>
+        <div class="column">column</div>
+        <div class="column">column</div>
+      </div>
+
+      <h3>Responsive Width Adjustments</h3>
+      <p>You can specify columns to appear at different widths on different screens</p>
+
+      <div class="ui grid">
+        <div class="eight wide mobile six wide tablet four wide computer column"></div>
+        <div class="eight wide mobile six wide tablet four wide computer column"></div>
+        <div class="eight wide mobile six wide tablet four wide computer column"></div>
+        <div class="eight wide mobile six wide tablet four wide computer column"></div>
+        <div class="eight wide mobile six wide tablet four wide computer column"></div>
+      </div>
+      <div class="ui grid">
+        <div class="four wide two wide large screen one wide widescreen column"></div>
+        <div class="four wide two wide large screen one wide widescreen column"></div>
+        <div class="four wide two wide large screen one wide widescreen column"></div>
+        <div class="four wide two wide large screen one wide widescreen column"></div>
+      </div>
 
       <h3>Specifying Device Visibility</h3>
-      <p>The Semantic grid system has three tiers of classes: mobile (phones), tablet (tablets), computer (desktops and larger desktops) You can use nearly any combination of these classes to create more dynamic and flexible layouts</p>
-      <p>Breakpoints are 768px and below for mobile, 768-992px for tablet and 992px+ for computer</p>
-      <p>In these cases below, we'd like to recommend you to change size of your viewport or use right devices for responsiveness experience</p>
+      <p>You can specify columns to appear only a particular screen</p>
       <div class="ui grid">
         <div class="two column computer only row">
           <div class="ten wide column">ten wide column computer only</div>
@@ -386,8 +354,86 @@
           <div class="column">column</div>
         </div>
       </div>
+
     </div>
   </div>
+
+
+<style type="text/css">
+
+/* Some basic formatting */
+code {
+  background-color: #E0E0E0;
+  padding: 0.25em 0.3em;
+  font-family: 'Lato';
+  font-weight: bold;
+}
+.container {
+  padding: 5em 0em;
+}
+.ui.block.header,
+.first {
+  margin-top: 5em;
+}
+
+.ui.block.header:first-child {
+  margin-top: 0em;
+}
+.ui.block.header {
+  margin-left: -4rem;
+  margin-right: -4rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+h1,
+h3 {
+  margin-top: 10em;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+img + img {
+  margin-top: 0.5em;
+}
+
+/* Shows content box (not negative margins) */
+.grid {
+  position: relative;
+}
+.grid:before {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: #F0F0F0;
+  content: '';
+  width: calc(100% - 2rem);
+  height: calc(100% - 2rem);
+  box-shadow: 0px 0px 0px 1px #DDDDDD inset;
+}
+.ui.divided.grid:before,
+.celled.grid:before {
+  display: none;
+}
+.ui.aligned .column:after {
+  display: none !important;
+}
+.grid .column:not(.row):not(.grid):after {
+  background-color: rgba(86, 61, 124, .15);
+  box-shadow: 0px 0px 0px 1px rgba(86, 61, 124, 0.2) inset;
+  content: "";
+  display: block;
+  min-height: 50px;
+}
+@media only screen and (max-width: 768px) {
+  .stackable.grid:before {
+    width: 100%;
+    left: 0em;
+  }
+}
+</style>
 </body>
 
 </html>

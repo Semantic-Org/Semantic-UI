@@ -14791,10 +14791,10 @@ ol.ui.horizontal.list li:before,
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-  -ms-flex-align: start;
-  align-items: flex-start;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
   padding: 0em;
 }
 
@@ -14804,7 +14804,7 @@ ol.ui.horizontal.list li:before,
 
 .ui.grid {
   margin-top: -1rem;
-  margin-bottom: 0em;
+  margin-bottom: -1rem;
   margin-left: -1rem;
   margin-right: -1rem;
 }
@@ -14864,10 +14864,10 @@ ol.ui.horizontal.list li:before,
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-  -ms-flex-align: start;
-  align-items: flex-start;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
   width: 100% !important;
   padding: 0rem;
   padding-top: 1rem;
@@ -14967,8 +14967,8 @@ body > .ui.grid {
     width: auto;
     margin-left: 0em;
     margin-right: 0em;
-    padding-left: 4em;
-    padding-right: 4em;
+    padding-left: 8%;
+    padding-right: 8%;
   }
 }
 
@@ -14987,8 +14987,8 @@ body > .ui.grid {
     width: auto;
     margin-left: 0em;
     margin-right: 0em;
-    padding-left: 18%;
-    padding-right: 18%;
+    padding-left: 15%;
+    padding-right: 15%;
   }
 }
 
@@ -15945,12 +15945,10 @@ body > .ui.grid {
 -----------------------*/
 
 .ui.grid [class*="left floated"].column {
-  float: left;
   margin-right: auto;
 }
 
 .ui.grid [class*="right floated"].column {
-  float: right;
   margin-left: auto;
 }
 
@@ -16430,20 +16428,6 @@ body > .ui.grid {
   margin-bottom: -1rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
-}
-
-/*----------------------
-      Equal Height
------------------------*/
-
-.ui[class*="equal height"].grid > .column:not(.row),
-.ui[class*="equal height"].grid > .row > .column,
-.ui.grid > [class*="equal height"].row > .column {
-  display: inline-block;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -ms-flex-positive: 0;
-  flex-grow: 0;
 }
 
 /*----------------------

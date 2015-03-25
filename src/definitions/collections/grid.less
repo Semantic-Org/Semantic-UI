@@ -26,7 +26,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: flex-start;
+  align-items: stretch;
   padding: 0em;
 }
 
@@ -36,7 +36,7 @@
 
 .ui.grid {
   margin-top: -(@rowSpacing / 2);
-  margin-bottom: 0em;
+  margin-bottom: -(@rowSpacing / 2);
   margin-left: -(@gutterWidth / 2);
   margin-right: -(@gutterWidth / 2);
 }
@@ -85,7 +85,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: flex-start;
+  align-items: stretch;
   width: 100% !important;
   padding: 0rem;
   padding-top: (@rowSpacing / 2);
@@ -1016,11 +1016,9 @@ body > .ui.grid {
 -----------------------*/
 
 .ui.grid [class*="left floated"].column {
-  float: left;
   margin-right: auto;
 }
 .ui.grid [class*="right floated"].column {
-  float: right;
   margin-left: auto;
 }
 
@@ -1407,17 +1405,6 @@ body > .ui.grid {
   margin-bottom: -(@rowSpacing / 2);
   padding-top: (@rowSpacing / 2);
   padding-bottom: (@rowSpacing / 2);
-}
-
-/*----------------------
-      Equal Height
------------------------*/
-
-.ui[class*="equal height"].grid > .column:not(.row),
-.ui[class*="equal height"].grid > .row > .column,
-.ui.grid > [class*="equal height"].row > .column {
-  display: inline-block;
-  flex-grow: 0;
 }
 
 /*----------------------

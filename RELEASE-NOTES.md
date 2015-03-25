@@ -5,7 +5,7 @@
 **New UI**
 - **Container** - Containers are fixed width containers meant for holding page contents, and are a simpler alternative to `ui page grid`, view more [examples in docs](http://www.semantic-ui.com/elements/container.html#examples)
 - **Multiselect** - New dropdown component has been added for multi-select
-- **Grid** - `equal height` and `equal width` grids, which use `flexbox` are now recommended for usage. Works correctly with or without `row` wrapper, and support vertical alignment including `stretch` alignment for matching child element heights.
+- **Grid** - Grids are now based on `flexbox`, columns are now `equal height` by default. Flexbox alignment has been added for easier vertical alignment.
 - **Headers** - Added new header type `sub header`, useful for displaying small headers alongside text content. See examples [in the header docs](http://www.semantic-ui.com/elements/header.html#sub-headers)
 
 **Major Changes**

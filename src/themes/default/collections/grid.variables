@@ -37,7 +37,7 @@
 
 @tabletWidth: auto;
 @tabletMargin: 0em;
-@tabletGutter: 4em;
+@tabletGutter: 8%;
 
 @computerWidth: auto;
 @computerMargin: 0em;
@@ -45,7 +45,7 @@
 
 @largeMonitorWidth: auto;
 @largeMonitorMargin: 0em;
-@largeMonitorGutter: 18%;
+@largeMonitorGutter: 15%;
 
 @widescreenMonitorWidth: auto;
 @widescreenMargin: 0em;

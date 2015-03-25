@@ -10,20 +10,22 @@
 
 /* Devices */
 @mobileWidth: auto;
-@tabletWidth: 752px;
-@smallComputerWidth: 960px;
-@largeComputerWidth: 1120px;
-
 @mobileGutter: 1em;
+@largestMobileScreen: 780px;
+
+@tabletWidth: 752px;
+@tabletBreakpoint: 781px;
 @tabletGutter: auto;
-@smallComputerGutter: auto;
-@largeComputerGutter: auto;
+
+@smallMonitorBreakpoint: 988px;
+@smallMonitorWidth: 960px;
+@smallMonitorGutter: auto;
+
+@largeMonitorWidth: 1120px;
+@largeMonitorBreakpoint: 1148px;
+@largeMonitorGutter: auto;
 
 /* Adjust breakpoints to match fixed width */
-@largestMobileScreen: 780px;
-@tabletBreakpoint: 781px;
-@smallComputerBreakpoint: 988px;
-@largeComputerBreakpoint: 1148px;
 
 /*-------------------
        Types
