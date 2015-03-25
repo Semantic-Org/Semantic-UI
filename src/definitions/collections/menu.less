@@ -746,11 +746,12 @@ Floated Menu / Item
 .ui.secondary.inverted.menu .dropdown.item:hover,
 .ui.secondary.inverted.menu .link.item:hover,
 .ui.secondary.inverted.menu a.item:hover {
+  background-color: @secondaryInvertedHoverBackground;
   color: @secondaryInvertedHoverColor !important;
 }
 .ui.secondary.inverted.menu .active.item {
-  color: @secondaryInvertedActiveColor !important;
   background-color: @secondaryInvertedActiveBackground;
+  color: @secondaryInvertedActiveColor !important;
 }
 
 /* Disable variations */
@@ -1012,7 +1013,7 @@ Floated Menu / Item
 .ui.inverted.text.menu .item,
 .ui.inverted.text.menu .item:hover,
 .ui.inverted.text.menu .item.active {
-  background-color: transparent;
+  background-color: transparent !important;
 }
 
 /* Fluid */
