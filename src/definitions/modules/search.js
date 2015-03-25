@@ -258,6 +258,7 @@ $.fn.search = function(parameters) {
           api: function() {
             var
               apiSettings = {
+                debug     : settings.debug,
                 on        : false,
                 action    : 'search',
                 onFailure : module.error
