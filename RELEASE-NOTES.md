@@ -47,6 +47,7 @@
 - **Menu** - Active sub-menu items are now `bold`
 - **Menu** - Horizontal menus no longer use pointers on `active item` in the default theme
 - **Message** - Slightly increases `box-shadow`
+- **Site** - Page background is now `#FFFFFF` by default instead of an offwhite `#F7F7F7`
 - **Site** - Adjusted global line height to the closest even pixel value
 - **Table** - Horizontal cell padding has been slightly reduced, and cell borders are slightly lighter.
 
