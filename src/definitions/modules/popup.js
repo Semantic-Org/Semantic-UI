@@ -96,6 +96,7 @@ $.fn.popup = function(parameters) {
           else {
             if(settings.inline) {
               $popup = $target.next(selector.popup).eq(0);
+              settings.popup = $popup;
             }
           }
           if(settings.popup) {
@@ -337,6 +338,8 @@ $.fn.popup = function(parameters) {
         removePopup: function() {
           module.debug('Removing popup', $popup);
           if( module.has.popup() && !settings.popup) {
+            console.log('removing');
+            debugger;
             $popup.remove();
             $popup = undefined;
           }
