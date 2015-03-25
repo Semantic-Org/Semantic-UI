@@ -43,9 +43,11 @@
 - **Image** - `mini image` default width has been increased to `35px`
 - **Icon** - `disabled icon` now have `pointer-events` again.
 - **Input** - Input now use `em` instead of `rem` so they will inherit the size of the elements they are nested inside
+- **Menu** - Menu now uses `border` for borders instead of `box-shadow`
 - **Menu** - `secondary pointing menu` has had some slight design tweaks, thinner lines, more padding
 - **Menu** - Active sub-menu items are now `bold`
-- **Menu** - Horizontal menus no longer use pointers on `active item` in the default theme
+- **Menu** - Menus no longer have additional borders on `active item` in the default theme
+- **Menu** - `tiered menu` has been removed
 - **Message** - Slightly increases `box-shadow`
 - **Site** - Page background is now `#FFFFFF` by default instead of an offwhite `#F7F7F7`
 - **Site** - Adjusted global line height to the closest even pixel value
