@@ -22,10 +22,8 @@
 @itemBackground: none;
 @fontWeight: normal;
 @borderWidth: 1px;
-@boxShadow:
-  0px 0px 0px @borderWidth @borderColor,
-  @subtleShadow
-;
+@border: @borderWidth solid @borderColor;
+@boxShadow: @subtleShadow;
 @borderRadius: @defaultBorderRadius;
 @minHeight: (@itemVerticalPadding * 2) + 1em;
 
@@ -43,11 +41,7 @@
 
 /* Divider */
 @dividerSize: 1px;
-@dividerBackground: linear-gradient(
-  rgba(0, 0, 0, 0.05) 0%,
-  rgba(0, 0, 0, 0.1) 50%,
-  rgba(0, 0, 0, 0.05) 100%)
-;
+@dividerBackground: @borderColor;
 
 /* Sub Menu */
 @subMenuDistance: 0.5em;
@@ -138,6 +132,9 @@
 @dropdownItemBoxShadow: none;
 @dropdownItemTransition: none;
 
+@dropdownItemIconFloat: none;
+@dropdownItemIconMargin: 0em 0.75em 0em 0em;
+
 @dropdownHoveredItemBackground: @transparentBlack;
 @dropdownHoveredItemColor: @selectedTextColor;
 
@@ -210,17 +207,9 @@
 @verticalPointerWidth: 2px;
 @verticalBackground: #FFFFFF;
 @verticalItemBackground: none;
-@verticalDividerBackground: linear-gradient(to right,
-  rgba(0, 0, 0, 0.03) 0%,
-  rgba(0, 0, 0, 0.1) 1.5em,
-  rgba(0, 0, 0, 0.03) 100%)
-;
+@verticalDividerBackground: @borderColor;
 
-@verticalActivePointerSize: @verticalPointerWidth;
-@verticalActiveBoxShadow:
-  (@verticalActivePointerSize - @borderWidth) 0em 0em inset,
-  -@borderWidth 0em 0em
-;
+@verticalActiveBoxShadow: none;
 
 
 /* Secondary */
@@ -396,18 +385,15 @@
 @secondaryInvertedHoverColor: @invertedSelectedTextColor;
 
 /* Inverted Menu Divider */
-@invertedDividerBackground: rgba(255, 255, 255, 0.08);
-@invertedVerticalDividerBackground: linear-gradient(to right,
-  rgba(255, 255, 255, 0.06) 0%,
-  rgba(255, 255, 255, 0.1) 50%,
-  rgba(255, 255, 255, 0.06) 100%)
-;
+@invertedDividerBackground: @invertedBorderColor;
+@invertedVerticalDividerBackground: @invertedBorderColor;
 
 /* Fixed */
 @fixedGridMargin: 2.75rem;
 
 /* Attached */
-@attachedBoxShadow: 0px 0px 0px 1px @solidBorderColor;
+@attachedBoxShadow: none;
+@attachedWidth: ~"calc(100% + "@borderWidth * 2~")";
 
 /* Sizes */
 @smallWidth: 13rem;

@@ -33,6 +33,7 @@
   font-family: @fontFamily;
   background: @background;
   font-weight: @fontWeight;
+  border: @border;
   box-shadow: @boxShadow;
   border-radius: @borderRadius;
   min-height: @minHeight;
@@ -266,6 +267,11 @@
   display: block;
 }
 
+.ui.menu .ui.dropdown .menu > .item .icon:not(.dropdown) {
+  float: @dropdownItemIconFloat;
+  margin: @dropdownItemIconMargin;
+}
+
 
 /* Secondary */
 .ui.secondary.menu .dropdown.item > .menu,
@@ -302,9 +308,6 @@
 .ui.vertical.menu .active.dropdown.item {
   border-top-right-radius: 0em;
   border-bottom-right-radius: 0em;
-}
-.ui.vertical.menu .dropdown.item .menu .item i.icon {
-  margin-right: 0em;
 }
 .ui.vertical.menu .dropdown.item.active {
   box-shadow: none;
@@ -659,6 +662,7 @@ Floated Menu / Item
   background-color: transparent;
   border-radius: 0em;
   box-shadow: none !important;
+  border: none;
   border-bottom: @tabularBorderWidth solid @tabularBorderColor;
 }
 .ui.tabular.fluid.menu {
@@ -771,6 +775,7 @@ Floated Menu / Item
 .ui.secondary.menu {
   background: @secondaryBackground;
   border-radius: 0em;
+  border: none;
   box-shadow: none;
 }
 
@@ -861,7 +866,7 @@ Floated Menu / Item
 .ui.secondary.vertical.menu > .item {
   border: none;
   margin: @secondaryVerticalItemMargin;
-  border-radius: @secondaryVerticalItemBorderRadius;
+  border-radius: @secondaryVerticalItemBorderRadius !important;
 }
 .ui.secondary.vertical.menu > .header.item {
   border-radius: 0em;
@@ -958,7 +963,7 @@ Floated Menu / Item
   border-bottom: none;
   border-right-style: solid;
   border-right-color: transparent;
-  border-radius: 0em;
+  border-radius: 0em !important;
   margin: @secondaryVerticalPointingItemMargin;
   border-right-width: @secondaryPointingBorderWidth;
 }
@@ -1006,6 +1011,7 @@ Floated Menu / Item
   background: none transparent;
   border-radius: 0px;
   box-shadow: none;
+  border: none;
 
   margin: @textMenuMargin;
 }
@@ -1699,13 +1705,27 @@ Floated Menu / Item
 .ui.menu.attached {
   margin: 0rem;
   border-radius: 0px;
+  margin-left: -@borderWidth;
+  margin-right: -@borderWidth;
+  width: @attachedWidth;
   box-shadow: @attachedBoxShadow; /* avoid rgba multiplying */
 }
 .ui.top.attached.menu {
   border-radius: @borderRadius @borderRadius 0em 0em;
 }
-.ui.menu.bottom.attached {
+.ui.bottom.attached.menu {
+  border-top: none;
   border-radius: 0em 0em @borderRadius @borderRadius;
+}
+
+.ui.top.attached.menu:not(.tabular) {
+  border-bottom: none;
+}
+
+.ui.attached.tabular.menu {
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
 }
 
 /*--------------
