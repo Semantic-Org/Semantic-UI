@@ -49,6 +49,7 @@
 - **Menu** - Menus no longer have additional borders on `active item` in the default theme
 - **Menu** - `tiered menu` has been removed
 - **Message** - Slightly increases `box-shadow`
+- **Site** - Increase contrast on default hovered/down colors for colored variations
 - **Site** - Page background is now `#FFFFFF` by default instead of an offwhite `#F7F7F7`
 - **Site** - Adjusted global line height to the closest even pixel value
 - **Table** - Horizontal cell padding has been slightly reduced, and cell borders are slightly lighter.
