@@ -156,7 +156,7 @@
 @sortableColor: @textColor;
 
 @sortableBorder: 1px solid @borderColor;
-@sortableIconWidth: 1em;
+@sortableIconWidth: auto;
 @sortableIconDistance: 0.5em;
 @sortableIconOpacity: 0.8;
 @sortableIconFont: 'Icons';

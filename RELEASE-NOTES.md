@@ -63,6 +63,7 @@
 - **Grid** - First column on `stackable grid` no longer receives top margin
 - **Grid** - `x column wide` inside `equal width/height` now cannot grow beyond column size
 - **Grid** - Fixes colored grid columns not appearing when not nested in rows
+- **Icon** - Fixes `ascending` and `descending` icon being swapped
 - **Label** - Labels inside `header` now vertical align better by accounting for line height offset
 - **List** - Fixed `inverted bulleted list` bullet color
 - **Loader** - Fix position of `inline centered loader` to be centered correctly
@@ -74,6 +75,7 @@
 - **Popup** - Fixed bug which could cause pre-existing inline popup to be removed from DOM after hiding
 - **Search** - Search API calls now use the same level debug settings as search
 - **Tab** - Tab name is no longer case sensitive
+- **Table** - Fixes `ascending` and `descending` icons were reversed in table
 - **Table** - `very basic table` now works together with `padded table`
 - **Table** - Fix inheritance of text alignment and vertical alignment
 - **Transition** - Fixed bug where transition could sometimes not occur when an element was determined to always be hidden

@@ -431,8 +431,8 @@ i.icon.subway:before { content: "\f239"; }
 i.icon.table:before { content: "\f0ce"; }
 i.icon.columns:before { content: "\f0db"; }
 i.icon.sort:before { content: "\f0dc"; }
-i.icon.sort.ascending:before { content: "\f0dd"; }
-i.icon.sort.descending:before { content: "\f0de"; }
+i.icon.sort.ascending:before { content: "\f0de"; }
+i.icon.sort.descending:before { content: "\f0dd"; }
 i.icon.sort.alphabet.ascending:before { content: "\f15d"; }
 i.icon.sort.alphabet.descending:before { content: "\f15e"; }
 i.icon.sort.content.ascending:before { content: "\f160"; }

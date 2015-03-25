@@ -85,6 +85,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: inherit;
   align-items: stretch;
   width: 100% !important;
   padding: 0rem;
@@ -1248,6 +1249,9 @@ body > .ui.grid {
   text-align: center;
   align-items: center !important;
   align-self: inherit;
+}
+.ui[class*="center aligned"].grid {
+  justify-content: center;
 }
 
 /* Right Aligned */
