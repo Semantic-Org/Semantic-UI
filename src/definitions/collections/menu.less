@@ -550,107 +550,9 @@ Floated Menu / Item
   border-left: none;
 }
 .ui.vertical.menu .item .menu .active.item {
-  box-shadow: none;
   background-color: @subMenuActiveBackground;
   font-weight: @subMenuActiveFontWeight;
   color: @subMenuActiveTextColor;
-}
-
-
-/*--------------
-     Tiered
----------------*/
-
-.ui.tiered.menu {
-  flex-wrap: wrap;
-}
-.ui.tiered.menu > .menu {
-  width: 100%;
-}
-.ui.tiered.menu > .menu > .item:hover {
-  color: @tieredSubMenuActiveColor;
-}
-.ui.tiered.menu .active.item {
-  background: @tieredActiveItemBackground;
-}
-.ui.tiered.menu > .menu .item.active:after {
-  position: absolute;
-  content: '';
-  margin-top: -@dividerSize;
-  top: 100%;
-  left: 0px;
-
-  width: 100%;
-  height: 2px;
-  background-color: @tieredActiveMenuBackground;
-}
-
-/* Sub Menu */
-.ui.tiered.menu .sub.menu {
-  background-color: @tieredActiveMenuBackground;
-  border-radius: 0em 0em @borderRadius @borderRadius;
-  border-top: 1px solid @borderColor;
-  box-shadow: none;
-}
-.ui.tiered.menu > .sub.menu > .item {
-  color: @tieredSubMenuColor;
-  font-weight: @tieredSubMenuFontWeight;
-  text-transform: @tieredSubMenuTextTransform;
-  font-size: @subMenuFontSize;
-}
-
-/* Sub Menu Divider */
-.ui.tiered.menu .sub.menu .item:before {
-  background: none;
-}
-
-/* Sub Menu Hover */
-.ui.tiered.menu .sub.menu .item:hover {
-  background: @tieredSubMenuHoverBackground;
-  color: @tieredSubMenuHoverColor;
-}
-
-/* Sub Menu Active */
-.ui.tiered.menu .sub.menu .active.item {
-  padding-top: @itemVerticalPadding;
-  background: @tieredSubMenuActiveBackground;
-  border-radius: 0;
-  border-top: medium none;
-  box-shadow: none;
-  color: @tieredSubMenuActiveColor !important;
-}
-.ui.tiered.menu .sub.menu .active.item:after {
-  display: none;
-}
-
-/* Inverted Tiered Menu */
-.ui.inverted.tiered.menu > .menu > .item {
-  color: @invertedUnselectedTextColor;
-}
-.ui.inverted.tiered.menu .sub.menu {
-  background-color: @tieredInvertedSubMenuBackground;
-}
-.ui.inverted.tiered.menu .sub.menu .item {
-  color: @invertedLightTextColor;
-}
-.ui.inverted.tiered.menu > .menu > .item:hover {
-  color: @invertedHoveredTextColor;
-}
-.ui.inverted.tiered.menu .active.item:after {
-  display: none;
-}
-.ui.inverted.tiered.menu > .sub.menu > .active.item,
-.ui.inverted.tiered.menu > .menu > .active.item {
-  color: @invertedSelectedTextColor !important;
-  box-shadow: none;
-}
-
-/* Tiered Pointing */
-.ui.pointing.tiered.menu > .menu > .item:after {
-  display: none;
-}
-.ui.pointing.tiered.menu > .sub.menu > .item:after {
-  display: block;
 }
 
 
@@ -839,14 +741,15 @@ Floated Menu / Item
 /* Inverted */
 .ui.secondary.inverted.menu .link.item,
 .ui.secondary.inverted.menu a.item {
-  color: @secondaryInvertedColor;
+  color: @secondaryInvertedColor !important;
 }
 .ui.secondary.inverted.menu .dropdown.item:hover,
 .ui.secondary.inverted.menu .link.item:hover,
 .ui.secondary.inverted.menu a.item:hover {
-  color: @secondaryInvertedHoverColor;
+  color: @secondaryInvertedHoverColor !important;
 }
 .ui.secondary.inverted.menu .active.item {
+  color: @secondaryInvertedActiveColor !important;
   background-color: @secondaryInvertedActiveBackground;
 }
 
@@ -1285,11 +1188,6 @@ Floated Menu / Item
 .ui.inverted.menu .item:before {
   background: @invertedDividerBackground;
 }
-.ui.inverted.menu .dropdown.item:hover:before,
-.ui.inverted.menu .link.item:hover:before,
-.ui.inverted.menu a.item:hover:before {
-  background: none;
-}
 .ui.vertical.inverted.menu .item:before {
   background: @invertedVerticalDividerBackground;
 }
@@ -1329,8 +1227,6 @@ Floated Menu / Item
   background: @invertedSubMenuBackground;
   color: @invertedSubMenuHoverColor;
 }
-
-
 /*--- Pressed ---*/
 .ui.inverted.menu a.item:active,
 .ui.inverted.menu .link.item:active,
@@ -1341,7 +1237,6 @@ Floated Menu / Item
 
 /*--- Active ---*/
 .ui.inverted.menu .active.item {
-  box-shadow: none !important;
   background: @invertedActiveBackground;
   color: @invertedActiveColor !important;
 }
@@ -1349,19 +1244,18 @@ Floated Menu / Item
   background: @invertedSubMenuActiveBackground;
   color: @invertedSubMenuActiveColor;
 }
-
-/*--- Pointers ---*/
-.ui.inverted.pointing.menu .item:hover:after {
-  background: @invertedArrowHoverColor;
-  box-shadow: none;
-}
-.ui.inv
 .ui.inverted.pointing.menu .active.item:after {
-  background: @invertedArrowActiveColor;
-  box-shadow: none;
+  background: @invertedArrowActiveColor !important;
+  box-shadow: none !important;
+}
+
+/*--- Active Hover ---*/
+.ui.inverted.menu .active.item:hover {
+  background: @invertedActiveHoverBackground;
+  color: @invertedActiveHoverColor !important;
 }
 .ui.inverted.pointing.menu .active.item:hover:after {
-  background: @invertedArrowActiveHoverColor;
+  background: @invertedArrowActiveHoverColor !important;
 }
 
 
@@ -1407,11 +1301,6 @@ Floated Menu / Item
 /*--------------
  Inverted Colors
 ---------------*/
-
-/*--- Light Colors  ---*/
-.ui.grey.menu {
-  background-color: @offWhite;
-}
 
 /*--- Inverted Colors  ---*/
 
