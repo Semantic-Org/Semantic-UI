@@ -193,8 +193,8 @@ body > .ui.grid {
     width: auto;
     margin-left: 0em;
     margin-right: 0em;
-    padding-left: 8%;
-    padding-right: 8%;
+    padding-left: 2em;
+    padding-right: 2em;
   }
 }
 @media only screen and (min-width: 992px) and (max-width: 1399px) {

@@ -21,11 +21,16 @@
 @smallMonitorWidth: 960px;
 @smallMonitorGutter: auto;
 
-@largeMonitorWidth: 1120px;
-@largeMonitorBreakpoint: 1148px;
+@largeMonitorWidth: 1200px;
+@largeMonitorBreakpoint: 1228px;
 @largeMonitorGutter: auto;
 
-/* Adjust breakpoints to match fixed width */
+/* Coupling (Add Negative Margin to container size) */
+@gridGutterWidth: 2em;
+@mobileGridWidth: @mobileWidth;
+@tabletGridWidth: ~"calc("@tabletWidth~" + "@gridGutterWidth~")";
+@smallMonitorGridWidth: ~"calc("@smallMonitorWidth~" + "@gridGutterWidth~")";
+@largeMonitorGridWidth: ~"calc("@largeMonitorWidth~" + "@gridGutterWidth~")";
 
 /*-------------------
        Types

@@ -36,12 +36,18 @@
     margin-left: @mobileGutter !important;
     margin-right: @mobileGutter !important;
   }
+  .ui.grid.container {
+    width: @mobileGridWidth;
+  }
 }
 @media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
   .ui.container {
     width: @tabletWidth;
     margin-left: @tabletGutter !important;
     margin-right: @tabletGutter !important;
+  }
+  .ui.grid.container {
+    width: @tabletGridWidth;
   }
 }
 @media only screen and (min-width: @smallMonitorBreakpoint) and (max-width: @largeMonitorBreakpoint) {
@@ -50,12 +56,18 @@
     margin-left: @smallMonitorGutter !important;
     margin-right: @smallMonitorGutter !important;
   }
+  .ui.grid.container {
+    width: @smallMonitorGridWidth;
+  }
 }
 @media only screen and (min-width: @largeMonitorBreakpoint) {
   .ui.container {
     width: @largeMonitorWidth;
     margin-left: @largeMonitorGutter !important;
     margin-right: @largeMonitorGutter !important;
+  }
+  .ui.grid.container {
+    width: @largeMonitorGridWidth;
   }
 }
 
