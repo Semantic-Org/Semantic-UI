@@ -311,7 +311,7 @@ $.fn.search = function(parameters) {
               module.debug('Finding result that matches', value);
               $.each(results, function(index, category) {
                 if($.isArray(category.results)) {
-                  result = module.search.object(value, category.results)[0];
+                  result = module.search.object(value, category.results, true)[0];
                   if(result && result.length > 0) {
                     return true;
                   }
@@ -320,7 +320,7 @@ $.fn.search = function(parameters) {
             }
             else {
               module.debug('Finding result in results object', value);
-              result = module.search.object(value, results)[0];
+              result = module.search.object(value, results, true)[0];
             }
             return result;
           },
@@ -432,7 +432,7 @@ $.fn.search = function(parameters) {
               .api('query')
             ;
           },
-          object: function(searchTerm, source) {
+          object: function(searchTerm, source, matchExact) {
             var
               results         = [],
               fullTextResults = [],
@@ -450,7 +450,6 @@ $.fn.search = function(parameters) {
               module.error(error.source);
               return [];
             }
-
             // iterate through search fields in array order
             $.each(searchFields, function(index, field) {
               $.each(source, function(label, content) {
@@ -458,12 +457,20 @@ $.fn.search = function(parameters) {
                   fieldExists = (typeof content[field] == 'string'),
                   notAlreadyResult = ($.inArray(content, results) == -1 && $.inArray(content, fullTextResults) == -1)
                 ;
-                if(fieldExists && notAlreadyResult) {
-                  if( content[field].match(searchRegExp) ) {
+                if(matchExact) {
+                  if(content[field] == searchTerm) {
                     results.push(content);
+                    return true;
                   }
-                  else if(settings.searchFullText && module.fuzzySearch(searchTerm, content[field]) ) {
-                    fullTextResults.push(content);
+                }
+                else {
+                  if(fieldExists && notAlreadyResult) {
+                    if( content[field].match(searchRegExp) ) {
+                      results.push(content);
+                    }
+                    else if(settings.searchFullText && module.fuzzySearch(searchTerm, content[field]) ) {
+                      fullTextResults.push(content);
+                    }
                   }
                 }
               });
