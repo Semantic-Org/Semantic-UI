@@ -106,10 +106,10 @@
         Page
 --------------------*/
 
-@pageBackground      : #F7F7F7;
+@pageBackground      : #FFFFFF;
 @pageOverflowX       : hidden;
 
-@lineHeight          : 1.4285;
+@lineHeight          : 1.4285em;
 @textColor           : rgba(0, 0, 0, 0.8);
 
 /*-------------------
@@ -117,7 +117,7 @@
 --------------------*/
 
 @paragraphMargin     : 0em 0em 1em;
-@paragraphLineHeight : '';
+@paragraphLineHeight : @lineHeight;
 
 /*-------------------
        Links
@@ -358,12 +358,12 @@
 
 @circularRadius                : 500rem;
 
-@borderColor                   : rgba(34, 36, 38, 0.15);
+@borderColor                   : rgba(34, 36, 38, 0.2);
 @selectedBorderColor           : rgba(34, 36, 38, 0.3);
 @disabledBorderColor           : rgba(34, 36, 38, 0.5);
 
 @solidBorderColor              : #D4D4D5;
-@solidSelectedBorderColor      : #BEBEBF;
+@solidSelectedBorderColor      : #BCBDBD;
 
 @whiteBorderColor              : rgba(255, 255, 255, 0.1);
 @selectedWhiteBorderColor      : rgba(255, 255, 255, 0.8);
