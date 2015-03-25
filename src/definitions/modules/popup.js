@@ -338,8 +338,6 @@ $.fn.popup = function(parameters) {
         removePopup: function() {
           module.debug('Removing popup', $popup);
           if( module.has.popup() && !settings.popup) {
-            console.log('removing');
-            debugger;
             $popup.remove();
             $popup = undefined;
           }
