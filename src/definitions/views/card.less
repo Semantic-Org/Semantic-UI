@@ -93,6 +93,14 @@
   margin-top: @consecutiveGroupDistance;
 }
 
+/* Disable flex in IE */
+@media all and (-ms-high-contrast:none) {
+  .ui.cards > .card,
+  .ui.card {
+    display: block;
+  }
+}
+
 /*--------------
   Rounded Edges
 ---------------*/
