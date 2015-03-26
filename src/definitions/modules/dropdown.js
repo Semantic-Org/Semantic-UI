@@ -1110,7 +1110,7 @@ $.fn.dropdown = function(parameters) {
               ? $choice.data(metadata.value)
               : (typeof choiceText === 'string')
                 ? choiceText.toLowerCase().trim()
-                : choiceText.trim()
+                : choiceText
             ;
           },
           inputEvent: function() {
