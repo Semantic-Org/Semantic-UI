@@ -156,7 +156,7 @@ $.fn.dropdown = function(parameters) {
 
         create: {
           id: function() {
-            id = (Math.random().toString(16) + '000000000').substr(2,8);
+            id = (Math.random().toString(16) + '000000000').substr(2, 8);
             elementNamespace = '.' + id;
             module.verbose('Creating unique id for element', id);
           }
@@ -222,6 +222,7 @@ $.fn.dropdown = function(parameters) {
               ;
               $input
                 .removeAttr('class')
+                .detach()
                 .prependTo($module)
               ;
             }
@@ -242,8 +243,8 @@ $.fn.dropdown = function(parameters) {
             module.refresh();
             // adjust all modules
             $firstModules = $allModules.slice(0, index);
-            $lastModules = $allModules.slice(index + 1);
-            $allModules = $firstModules.add($module).add($lastModules);
+            $lastModules  = $allModules.slice(index + 1);
+            $allModules   = $firstModules.add($module).add($lastModules);
           }
         },
 
@@ -1079,9 +1080,9 @@ $.fn.dropdown = function(parameters) {
             if(value == '') {
               return '';
             }
-            return ($input.is('select') || !module.is.multiple())
-              ? value
-              : value.split(settings.delimiter)
+            return (!$input.is('select') && module.is.multiple())
+              ? value.split(settings.delimiter)
+              : value
             ;
           },
           choiceText: function($choice, preserveHTML) {
@@ -1397,44 +1398,48 @@ $.fn.dropdown = function(parameters) {
               }
             }
           },
-          value: function(value) {
-            module.debug('Adding selected value to hidden input', value, $input);
+          value: function(value, text, $selected) {
+            var
+              hasInput     = ($input.length > 0),
+              currentValue = module.get.values()
+            ;
             if($input.length > 0) {
               if( module.is.multiple() ) {
-                var
-                  values = module.get.values()
-                ;
-                if($.isArray(values)) {
-                  values.push(value);
-                  values = module.get.uniqueArray(values);
+
+                value = [value];
+
+                if($.isArray(currentValue)) {
+                  value = currentValue.concat(value);
+                  value = module.get.uniqueArray(value);
+                }
+
+                // set values
+                if( $input.is('select') ) {
+                  module.debug('Setting multiple <select> values', value, $input);
                 }
                 else {
-                  values = [value];
+                  value = value.join(settings.delimiter);
+                  module.debug('Setting hidden input to delimited values', value, $input);
                 }
-                module.debug('Adding value to multiple', value, values);
-                module.set.values(values);
               }
-              else {
-                module.debug('Updating input value', value);
-                $input
-                  .val(value)
-                  .trigger('change')
-                ;
+              if(value == currentValue) {
+                module.verbose('Skipping value update already same value', value, currentValue);
+                return;
               }
+              module.debug('Updating input value', value, currentValue);
+              $input
+                .val(value)
+                .trigger('change')
+              ;
+              settings.onChange.call(element, value, text, $selected);
+
             }
             else {
-              $module.data(metadata.value, value);
-            }
-          },
-          values: function(values) {
-            if( $input.is('select') ) {
-              $input.val(values);
-              module.debug('Setting mutiple select values', values, $input);
-            }
-            else {
-              values = values.join(settings.delimiter);
-              $input.val(values);
-              module.debug('Setting hidden input to delimited values', values, $input);
+              module.verbose('Storing value in metadata', value, $input);
+              if(value !== currentValue) {
+                $module.data(metadata.value, value);
+                settings.onChange.call(element, value, text, $selected);
+              }
             }
           },
           active: function() {
@@ -1477,8 +1482,7 @@ $.fn.dropdown = function(parameters) {
                   else {
                     module.set.text(selectedText);
                   }
-                  module.set.value(selectedValue);
-                  settings.onChange.call(element, selectedValue, selectedText, $selected);
+                  module.set.value(selectedValue, selectedText, $selected);
                 })
               ;
             }
@@ -2066,7 +2070,7 @@ $.fn.dropdown.settings = {
   /* Callbacks */
   onLabelClick : function($selectedLabels){},
   onNoResults  : function(searchTerm){},
-  onChange     : function(value, text){},
+  onChange     : function(value, text, $selected){},
   onShow       : function(){},
   onHide       : function(){},
 
