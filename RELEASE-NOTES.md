@@ -7,17 +7,19 @@
 - **Multiselect** - New dropdown component has been added for multi-select
 - **Grid** - Grids are now based on `flexbox`, columns are now `equal height` by default. Flexbox alignment has been added for easier vertical alignment.
 - **Headers** - Added new header type `sub header`, useful for displaying small headers alongside text content. See examples [in the header docs](http://www.semantic-ui.com/elements/header.html#sub-headers)
+- **Dropdown** - Added new dropdown variation `scrolling dropdown` and `scrolling menu`, see docs or try it out with the language menu in the navigation bar
 
 **Major Changes**
 - **Menu** - Menu now uses flexbox. This allows menu items to match each others heights regardless of each items content size. `right menu` content should now follow other menu content instead of preceding it (no longer uses float).
-- **Transition** - Fallback javascript animations have been removed from most UI components to help reduce file size since all modern browsers now support css animations. The `transition` component should be included when using `dropdown`, `popup` to allow for animations.
+- **Grid** - grids are now all `equal height` by default, the `equal height` variation can safely be removed
+- **Transition** - Fallback javascript animations have been removed from some UI components like dropdown to reduce redundant code and file.
 
 **Enhancements**
 - **Build Tools** - Adjusting `site.variables` will now rebuild all UI, instead of just `site.less`
 - **Divider** - `vertical divider` inside `ui grid` now accounts for column padding
 - **Grid** - `celled grid` now removes internal cells on mobile and tablet when used with `doubling` grid responsive variation
-- **Grid** - `equal height` and `equal width` now work without `row` wrappers
-- **Grid** - `equal height` rows can now be `stretched` as well as `middle aligned`, `bottom aligned` and `top aligned`!
+- **Grid** - `equal width` now works without `row` wrappers
+- **Grid** - rows can now be `stretched` as well as `middle aligned`, `bottom aligned` and `top aligned`!
 
 - **Label** - Labels now have `active` and `active hover` states
 - **Menu** - Added `stackable` menu variation for simple responsive menus
@@ -57,9 +59,11 @@
 **Bugs**
 - **All Modules** - Performance logging now delays 500ms instead of 100ms for console logging to ensure all logs are captured in one group
 - **All Modules/Transition** - Transitions no longer use `rotateZ(0deg)` to trigger GPU display of visible state. This causes issues with `transform` creating new stacking context that can disrupt `z-index`.
+- **Card**- `flexbox` has been disabled in IE due to issues with [images in `flex-direction: column`](https://github.com/Modernizr/Modernizr/issues/1301)
 - **Checkbox** - Fix `disabled checkbox` sometimes displaying hand cursor
 - **Checkbox** - Fixes nested `dropdown` inside `checkbox` causing issues
 - **Dropdown** - Fixes issue with headers disappearing inside of `ui dropdown` when nested in `ui menu`
+- **Dropdown** - Fixes `onChange` to fire when input value changes, not just when menu UI changes
 - **Form** - Form sizes and input sizes now inherit from `site.variables`
 - **Grid** - First column on `stackable grid` no longer receives top margin
 - **Grid** - `x column wide` inside `equal width/height` now cannot grow beyond column size
