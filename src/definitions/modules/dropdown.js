@@ -495,7 +495,7 @@ $.fn.dropdown = function(parameters) {
         },
 
         focusSearch: function() {
-          if( module.is.search() ) {
+          if( module.is.search() && !module.is.focusedOnSearch() ) {
             $search
               .focus()
             ;
@@ -1294,18 +1294,23 @@ $.fn.dropdown = function(parameters) {
         set: {
           filtered: function() {
             var
-              searchValue    = $search.val(),
-              searchWidth    = ((searchValue.length) * settings.glyphWidth) + 'em',
-              hasSearchValue = (typeof searchValue === 'string' && searchValue.length > 0)
+              isMultiple      = module.is.multiple(),
+              searchValue     = $search.val(),
+              hasSearchValue  = (typeof searchValue === 'string' && searchValue.length > 0),
+              searchWidth     = (searchValue.length * settings.glyphWidth) + 'em',
+              valueIsSet      = $input.val() != ''
             ;
-            if(hasSearchValue) {
-              $text.addClass(className.filtered);
-              if(module.is.multiple()) {
-                module.verbose('Adjusting input width', searchWidth, settings.glyphWidth)
-                $search.css('width', searchWidth);
-              }
+            if(isMultiple && hasSearchValue) {
+              module.verbose('Adjusting input width', searchWidth, settings.glyphWidth)
+              $search.css('width', searchWidth);
             }
-            else if( !module.is.multiple() || module.is.multiple() && $input.val() == '') {
+
+            if(hasSearchValue || (isMultiple && valueIsSet)) {
+              module.verbose('Hiding placeholder text');
+              $text.addClass(className.filtered);
+            }
+            else if(!isMultiple || (isMultiple && !valueIsSet)) {
+              module.verbose('Showing placeholder text');
               $text.removeClass(className.filtered);
             }
           },
@@ -1483,11 +1488,13 @@ $.fn.dropdown = function(parameters) {
                   selectedValue = module.get.choiceValue($selected, selectedText);
                   if(isMultiple) {
                     module.add.label(selectedValue, selectedText, shouldAnimate);
+                    module.set.value(selectedValue, selectedText, $selected);
+                    module.set.filtered();
                   }
                   else {
+                    module.set.value(selectedValue, selectedText, $selected);
                     module.set.text(selectedText);
                   }
-                  module.set.value(selectedValue, selectedText, $selected);
                 })
               ;
             }
@@ -1658,8 +1665,8 @@ $.fn.dropdown = function(parameters) {
           },
           animating: function($subMenu) {
             return ($subMenu)
-              ? $subMenu.is(':animated') || $subMenu.transition && $subMenu.transition('is animating')
-              : $menu.is(':animated') || $menu.transition && $menu.transition('is animating')
+              ? $subMenu.transition && $subMenu.transition('is animating')
+              : $menu.transition    && $menu.transition('is animating')
             ;
           },
           focusedOnSearch: function() {
@@ -1811,8 +1818,6 @@ $.fn.dropdown = function(parameters) {
                   : 'slide down'
                 ;
               }
-
-              $input.trigger('blur');
 
               if(settings.transition == 'none') {
                 callback.call(element);
