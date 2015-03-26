@@ -177,6 +177,7 @@
 }
 
 .ui.dropdown .menu > .input {
+  display: block;
   margin: @menuInputMargin;
   min-width: @menuInputMinWidth;
 }
@@ -879,6 +880,66 @@ select.ui.dropdown {
 }
 .ui.upward.selection.visible.dropdown:hover .menu {
   box-shadow: @upwardSelectionVisibleHoverMenuBoxShadow;
+}
+
+/*--------------
+     Simple
+---------------*/
+
+/*  Selection Menu */
+.ui.scrolling.dropdown .menu {
+  overflow-x: hidden;
+  overflow-y: auto;
+  backface-visibility: hidden;
+  -webkit-overflow-scrolling: touch;
+  min-width: @scrollingMinWidth !important;
+}
+
+.ui.dropdown .scrolling.menu {
+  position: static;
+  overflow: auto;
+  min-width: @scrollingMinWidth !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  border: none;
+  border-top: 1px solid @menuBorderColor;
+}
+.ui.dropdown > .animating.menu .scrolling.menu,
+.ui.dropdown > .visible.menu .scrolling.menu {
+  display: block;
+}
+
+/* Scrollbar in IE */
+@media all and (-ms-high-contrast:none) {
+  .ui.scrolling.dropdown .menu,
+  .ui.dropdown .scrolling.menu {
+    min-width: ~"calc(100% - "@scrollBarWidth~")";
+  }
+}
+@media only screen and (max-width : @largestMobileScreen) {
+  .ui.scrolling.dropdown .menu,
+  .ui.dropdown .scrolling.menu {
+    max-height: @scrollingMobileMaxMenuHeight;
+  }
+}
+@media only screen and (min-width: @tabletBreakpoint) {
+  .ui.scrolling.dropdown .menu,
+  .ui.dropdown .scrolling.menu {
+    max-height: @scrollingTabletMaxMenuHeight;
+  }
+}
+@media only screen and (min-width: @computerBreakpoint) {
+  .ui.scrolling.dropdown .menu,
+  .ui.dropdown .scrolling.menu {
+    max-height: @scrollingComputerMaxMenuHeight;
+  }
+}
+@media only screen and (min-width: @widescreenMonitorBreakpoint) {
+  .ui.scrolling.dropdown .menu,
+  .ui.dropdown .scrolling.menu {
+    max-height: @scrollingWidescreenMaxMenuHeight;
+  }
 }
 
 /*--------------

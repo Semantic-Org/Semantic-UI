@@ -321,7 +321,7 @@ $.fn.dropdown = function(parameters) {
 
         hideSubMenus: function() {
           var
-            $subMenus = $menu.find(selector.menu)
+            $subMenus = $menu.children(selector.item).find(selector.menu)
           ;
           $subMenus.transition('hide');
         },
@@ -1768,7 +1768,7 @@ $.fn.dropdown = function(parameters) {
                 ;
               }
               else {
-                module.error(error.transition, settings.transition);
+                module.error(error.noTransition, settings.transition);
               }
             }
           },
@@ -2079,7 +2079,7 @@ $.fn.dropdown.settings = {
     action       : 'You called a dropdown action that was not defined',
     alreadySetup : 'Once a select has been initialized behaviors must be called on the created ui dropdown',
     method       : 'The method you called is not defined.',
-    transition   : 'The requested transition was not found'
+    noTransition : 'This module requires ui transitions <https://github.com/Semantic-Org/UI-Transition>'
   },
 
   metadata: {

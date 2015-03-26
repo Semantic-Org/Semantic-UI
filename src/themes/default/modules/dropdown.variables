@@ -32,7 +32,8 @@
 @menuTransition: none;
 
 @menuBorderWidth: 1px;
-@menuBorder: @menuBorderWidth solid @borderColor;
+@menuBorderColor: @borderColor;
+@menuBorder: @menuBorderWidth solid @menuBorderColor;
 @menuBoxShadow: 0px 1px 4px 0px @borderColor;
 @menuBorderRadius: 0em 0em @borderRadius @borderRadius;
 @menuTransition: opacity 0.2s ease;
@@ -82,7 +83,7 @@
 
 /* Menu Input */
 @menuInputMargin: 0.75rem @itemHorizontalPadding;
-@menuInputMinWidth: 200px;
+@menuInputMinWidth: 140px;
 @menuInputVerticalPadding: 0.5em;
 @menuInputHorizontalPadding: 1em;
 @menuInputPadding: @menuInputVerticalPadding @menuInputHorizontalPadding;
@@ -111,7 +112,7 @@
 --------------------*/
 
 /* Selection */
-@selectionMinWidth: 180px;
+@selectionMinWidth: 200px;
 @selectionBackground: @white;
 @selectionDisplay: inline-block;
 @selectionItemDivider: 1px solid rgba(0, 0, 0, 0.05);
@@ -164,11 +165,11 @@
 
 /* Derived */
 @selectedBorderEMWidth: 0.0714em;
-@selectionItemActualHeight: (@itemVerticalPadding * 2) + @itemLineHeight + @selectedBorderEMWidth;
-@selectionMobileMaxMenuHeight: (@selectionItemActualHeight * @selectionMobileMaxItems);
-@selectionTabletMaxMenuHeight: (@selectionItemActualHeight * @selectionTabletMaxItems);
-@selectionComputerMaxMenuHeight: (@selectionItemActualHeight * @selectionComputerMaxItems);
-@selectionWidescreenMaxMenuHeight: (@selectionItemActualHeight * @selectionWidescreenMaxItems);
+@selectionItemHeight: (@itemVerticalPadding * 2) + @itemLineHeight + @selectedBorderEMWidth;
+@selectionMobileMaxMenuHeight: (@selectionItemHeight * @selectionMobileMaxItems);
+@selectionTabletMaxMenuHeight: (@selectionItemHeight * @selectionTabletMaxItems);
+@selectionComputerMaxMenuHeight: (@selectionItemHeight * @selectionComputerMaxItems);
+@selectionWidescreenMaxMenuHeight: (@selectionItemHeight * @selectionWidescreenMaxItems);
 
 /* Hover */
 @selectionHoverBorderColor: @selectedBorderColor;
@@ -264,6 +265,19 @@
 /*-------------------
       Variations
 --------------------*/
+
+/* Scrolling */
+@scrollingMinWidth: 250px;
+@scrollingMobileMaxItems: 4;
+@scrollingTabletMaxItems: 6;
+@scrollingComputerMaxItems: 8;
+@scrollingWidescreenMaxItems: 12;
+
+@scrollingItemHeight: (@itemVerticalPadding * 2) + @itemLineHeight;
+@scrollingMobileMaxMenuHeight: (@scrollingItemHeight * @scrollingMobileMaxItems);
+@scrollingTabletMaxMenuHeight: (@scrollingItemHeight * @scrollingTabletMaxItems);
+@scrollingComputerMaxMenuHeight: (@scrollingItemHeight * @scrollingComputerMaxItems);
+@scrollingWidescreenMaxMenuHeight: (@scrollingItemHeight * @selectionWidescreenMaxItems);
 
 /* Upward */
 @upwardMenuBoxShadow: 0px 0px 4px 0px @borderColor;
