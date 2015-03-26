@@ -616,18 +616,20 @@ select.ui.dropdown {
 
 /* Prompt Text */
 .ui.multiple.dropdown > .text {
-  display: none;
   position: absolute;
-  top: auto;
-  left: auto;
+  top: 0;
+  left: 0;
+  padding: inherit;
+  margin: @multipleSelectionSearchMargin;
+  line-height: @searchSelectionLineHeight;
 }
 
 /* Input */
 .ui.multiple.selection.dropdown > input.search {
   position: static;
   padding: 0;
-  width: @multipleSelectionSearchWidth;
   max-width: 100%;
+  width: @multipleSelectionSearchWidth;
   margin: @multipleSelectionSearchMargin;
 }
 

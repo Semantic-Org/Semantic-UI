@@ -580,7 +580,7 @@ $.fn.dropdown = function(parameters) {
             }
           },
           input: function(event) {
-            if(module.is.searchSelection()) {
+            if(module.is.multiple() || module.is.searchSelection()) {
               module.set.filtered();
             }
             clearTimeout(module.timer);
@@ -1090,7 +1090,7 @@ $.fn.dropdown = function(parameters) {
               ? preserveHTML
               : settings.preserveHTML
             ;
-            if($choice !== undefined) {
+            if($choice) {
               if($choice.find(selector.menu).length > 0) {
                 module.verbose('Retreiving text of element with sub-menu');
                 $choice = $choice.clone();
@@ -1107,6 +1107,9 @@ $.fn.dropdown = function(parameters) {
           },
           choiceValue: function($choice, choiceText) {
             choiceText = choiceText || module.get.choiceText($choice);
+            if(!$choice) {
+              return false;
+            }
             return ($choice.data(metadata.value) !== undefined)
               ? $choice.data(metadata.value)
               : (typeof choiceText === 'string')
@@ -1278,14 +1281,10 @@ $.fn.dropdown = function(parameters) {
         },
 
         clear: function() {
-          var
-            placeholderText = $module.data(metadata.placeholderText)
-          ;
-          module.set.text(placeholderText);
+          module.set.placeholderText();
           module.clearValue();
           module.remove.activeItem();
           module.remove.selectedItem();
-          $text.addClass(className.placeholder);
         },
 
         clearValue: function() {
@@ -1306,9 +1305,15 @@ $.fn.dropdown = function(parameters) {
                 $search.css('width', searchWidth);
               }
             }
-            else {
+            else if( !module.is.multiple() || module.is.multiple() && $input.val() == '') {
               $text.removeClass(className.filtered);
             }
+          },
+          placeholderText: function(text) {
+            module.debug('Restoring placeholder text');
+            text = text || $module.data(metadata.placeholderText);
+            module.set.text(placeholderText);
+            $text.addClass(className.placeholder);
           },
           tabbable: function() {
             if( module.has.search() ) {
@@ -1375,16 +1380,7 @@ $.fn.dropdown = function(parameters) {
             }
           },
           text: function(text) {
-            if(settings.action == 'combo') {
-              module.debug('Changing combo button text', text, $combo);
-              if(settings.preserveHTML) {
-                $combo.html(text);
-              }
-              else {
-                $combo.text(text);
-              }
-            }
-            else if(settings.action !== 'select') {
+            if(settings.action !== 'select') {
               module.debug('Changing text', text, $text);
               $text
                 .removeClass(className.filtered)
@@ -1395,6 +1391,15 @@ $.fn.dropdown = function(parameters) {
               }
               else {
                 $text.text(text);
+              }
+            }
+            else if(settings.action == 'combo') {
+              module.debug('Changing combo button text', text, $combo);
+              if(settings.preserveHTML) {
+                $combo.html(text);
+              }
+              else {
+                $combo.text(text);
               }
             }
           },
@@ -1557,6 +1562,7 @@ $.fn.dropdown = function(parameters) {
               }
               if(module.is.multiple()) {
                 module.remove.label(selectedValue);
+                module.set.filtered();
               }
               $selectedItem
                 .removeClass(className.active)
