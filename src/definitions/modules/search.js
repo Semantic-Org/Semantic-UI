@@ -875,7 +875,7 @@ $.fn.search.settings = {
   namespace      : 'search',
 
   debug          : false,
-  verbose        : true,
+  verbose        : false,
   performance    : true,
 
   type           : 'standard',

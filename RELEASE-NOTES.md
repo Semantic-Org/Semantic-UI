@@ -40,6 +40,7 @@
 - **Visibility/Sticky** - Visibility now uses pub/sub pattern to greatly improve scroll performance when attaching multiple events
 
 **Changes**
+- **All Modules** - All modules now default to `verbose: false`
 - **Checkbox** - Toggle now uses `@primaryColor`
 - **Dropdown** - Dropdown padding values now resolve to exact pixel values from em
 - **Grid** - Small computer `page grid` gutters have been adjusted from 8% to 3% to allow for roomier layouts on small screens.

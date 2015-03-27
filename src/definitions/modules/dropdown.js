@@ -2067,7 +2067,7 @@ $.fn.dropdown = function(parameters) {
 $.fn.dropdown.settings = {
 
   debug          : false,
-  verbose        : true,
+  verbose        : false,
   performance    : true,
 
   on             : 'click',

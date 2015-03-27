@@ -423,7 +423,7 @@ $.fn.nag.settings = {
   name        : 'Nag',
 
   debug       : false,
-  verbose     : true,
+  verbose     : false,
   performance : true,
 
   namespace   : 'Nag',

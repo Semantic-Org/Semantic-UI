@@ -466,7 +466,7 @@ $.fn.video.settings = {
   namespace   : 'video',
 
   debug       : false,
-  verbose     : true,
+  verbose     : false,
   performance : true,
 
   metadata    : {

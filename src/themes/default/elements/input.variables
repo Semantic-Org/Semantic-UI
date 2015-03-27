@@ -58,6 +58,7 @@
 @labelCornerRight: @borderWidth;
 @labelCornerSize: 0.75em;
 @labelSize: 1em;
+@labelVerticalPadding: (@verticalPadding - @lineHeightOffset);
 
 @labeledMargin: 2.5em;
 @labeledIconInputMargin: 3.25em;
