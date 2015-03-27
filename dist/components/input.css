@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.5 - Input
+ * # Semantic UI 1.11.6 - Input
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -21,12 +21,18 @@
 
 .ui.input {
   position: relative;
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   color: rgba(0, 0, 0, 0.8);
 }
 .ui.input input {
   margin: 0em;
-  width: 100%;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
   outline: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   text-align: left;
@@ -265,10 +271,10 @@
   display: inline-flex;
 }
 .ui.labeled.input > .label {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1 0 auto;
-      -ms-flex: 1 0 auto;
-          flex: 1 0 auto;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
   margin: 0;
   font-size: 1em;
 }
@@ -338,10 +344,10 @@
 }
 .ui.action.input > .button,
 .ui.action.input > .buttons {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1 0 auto;
-      -ms-flex: 1 0 auto;
-          flex: 1 0 auto;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
 }
 .ui.action.input > .button,
 .ui.action.input > .buttons > .button {

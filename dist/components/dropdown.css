@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.5 - Dropdown
+ * # Semantic UI 1.11.6 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -150,7 +150,7 @@
   margin: 1rem 0rem 0.75rem;
   padding: 0em 1.14285714em;
   color: rgba(0, 0, 0, 0.85);
-  font-size: 0.8em;
+  font-size: 0.7857rem;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -414,11 +414,7 @@ select.ui.dropdown {
 /* Menu Item */
 .ui.selection.dropdown .menu > .item {
   border-top: 1px solid rgba(0, 0, 0, 0.05);
-  padding-left: 1.1em !important;
-  
-/* Add in spacing for scroll bar */
-  padding-right: -webkit-calc( 1.1em  + 1em) !important~;
-  padding-right: calc( 1.1em  + 1em) !important~;
+  padding: 0.71428571em 1.14285714em !important;
   white-space: normal;
   word-wrap: normal;
 }

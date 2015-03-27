@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.5 - Form
+ * # Semantic UI 1.11.6 - Form
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -552,20 +552,22 @@
      Required Field
 ---------------------*/
 
-.ui.form .required.fields > .field > label:after,
+.ui.form .required.fields:not(.grouped) > .field > label:after,
+.ui.form .required.fields.grouped > label:after,
 .ui.form .required.field > label:after,
-.ui.form .required.fields > .field > .checkbox:after,
+.ui.form .required.fields:not(.grouped) > .field > .checkbox:after,
 .ui.form .required.field > .checkbox:after {
   margin: -0.2em 0em 0em 0.2em;
   content: '*';
   color: #d95c5c;
 }
-.ui.form .required.fields > .field > label:after,
+.ui.form .required.fields:not(.grouped) > .field > label:after,
+.ui.form .required.fields.grouped > label:after,
 .ui.form .required.field > label:after {
   display: inline-block;
   vertical-align: top;
 }
-.ui.form .required.fields > .field > .checkbox:after,
+.ui.form .required.fields:not(.grouped) > .field > .checkbox:after,
 .ui.form .required.field > .checkbox:after {
   position: absolute;
   top: 0%;
