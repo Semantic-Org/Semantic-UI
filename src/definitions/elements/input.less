@@ -30,12 +30,12 @@
 
 .ui.input {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
   color: @inputColor;
 }
 .ui.input input {
   margin: 0em;
-  width: 100%;
+  flex-grow: 1;
   outline: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   text-align: @textAlign;
@@ -278,7 +278,7 @@
   display: inline-flex;
 }
 .ui.labeled.input > .label {
-  flex: 1 0 auto;
+  flex-grow: 0;
   margin: 0;
   font-size: 1em;
 }
@@ -344,7 +344,7 @@
 
 .ui.action.input > .button,
 .ui.action.input > .buttons {
-  flex: 1 0 auto;
+  flex-grow: 0;
 }
 .ui.action.input > .button,
 .ui.action.input > .buttons > .button {
