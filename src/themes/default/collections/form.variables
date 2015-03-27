@@ -99,7 +99,7 @@
 @textAreaFocusBorderRadius: @inputFocusBorderRadius;
 
 /* Error */
-@formErrorColor: @negativeColor;
+@formErrorColor: @negativeTextColor;
 @formErrorBorder: @negativeBorderColor;
 @formErrorBackground: @negativeBackgroundColor;
 
@@ -110,10 +110,12 @@
 /* Dropdown Error */
 @dropdownErrorHoverBackground: #FBE7E7;
 @dropdownErrorActiveBackground: #FDCFCF;
+@dropdownErrorLabelBackground: #EACBCB;
+@dropdownErrorLabelColor: @errorTextColor;
 
 /* Focused Error */
 @inputErrorFocusBackground: @negativeBackgroundColor;
-@inputErrorFocusColor: @negativeColorHover;
+@inputErrorFocusColor: @negativeTextColor;
 @inputErrorFocusBorder: @negativeBorderColor;
 @inputErrorFocusBoxShadow: none;
 

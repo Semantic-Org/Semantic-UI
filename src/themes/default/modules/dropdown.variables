@@ -168,8 +168,8 @@
 @selectionWidescreenMaxItems: 8;
 
 /* Derived */
-@selectedBorderEMWidth: 0.0714em;
-@selectionItemHeight: (@itemVerticalPadding * 2) + @itemLineHeight + @selectedBorderEMWidth;
+@selectedBorderEMWidth: 0.14285em; /* 2px / em size */
+@selectionItemHeight: (@selectionItemVerticalPadding * 2) + @itemLineHeight + @selectedBorderEMWidth;
 @selectionMobileMaxMenuHeight: (@selectionItemHeight * @selectionMobileMaxItems);
 @selectionTabletMaxMenuHeight: (@selectionItemHeight * @selectionTabletMaxItems);
 @selectionComputerMaxMenuHeight: (@selectionItemHeight * @selectionComputerMaxItems);
@@ -224,8 +224,10 @@
 @multipleSelectionBottomPadding: @multipleSelectionTopPadding;
 @multipleSelectionLeftPadding: (@selectionHorizontalPadding - @labelHorizontalPadding);
 
-@multipleSelectionSearchMargin: 0.4em 0em 0.4em 0.5em;
-@multipleSelectionSearchWidth: (@glyphWidth * 2);
+@multipleSelectionInlineMargin: 0.4em 0em 0.4em 0.5em;
+@multipleSelectionInlineLineHeight: @searchSelectionLineHeight;
+
+@multipleSelectionSearchStartWidth: (@glyphWidth * 2);
 
 /* Inline */
 @inlineIconMargin: 0em 0.5em 0em 0.25em;
@@ -262,7 +264,10 @@
 @selectedColor: @selectedTextColor;
 
 /* Error */
-@errorItemTextColor: #D95C5C;
+@errorLabelBackground: #EACBCB;
+@errorLabelColor: @errorTextColor;
+
+@errorItemTextColor: @errorTextColor;
 @errorItemHoverBackground: #FFF2F2;
 @errorItemActiveBackground: #FDCFCF;
 

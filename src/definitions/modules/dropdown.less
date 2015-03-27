@@ -612,29 +612,50 @@ select.ui.dropdown {
   margin: (@labelVerticalSpacing / 2) @labelHorizontalSpacing (@labelVerticalSpacing / 2) 0em;
 }
 
-/* Prompt Text */
+/* Dropdown Icon */
+.ui.multiple.dropdown .dropdown.icon {
+  margin: 0em -@labelHorizontalPadding 0em 0em;
+  padding: @labelPadding;
+}
+
+/* Text */
 .ui.multiple.dropdown > .text {
+  position: static;
+  padding: 0;
+  max-width: 100%;
+  line-height: @searchSelectionLineHeight;
+  margin: @multipleSelectionInlineMargin;
+}
+.ui.multiple.dropdown > .label ~ .text {
+  display: none;
+}
+
+/*-----------------
+  Multiple Search
+-----------------*/
+
+/* Prompt Text */
+.ui.multiple.search.dropdown > .text {
+  display: inline-block;
   position: absolute;
   top: 0;
   left: 0;
   padding: inherit;
-  margin: @multipleSelectionSearchMargin;
+  margin: @multipleSelectionInlineMargin;
   line-height: @searchSelectionLineHeight;
 }
 
-/* Input */
-.ui.multiple.selection.dropdown > input.search {
+.ui.multiple.search.dropdown > .label ~ .text {
+  display: none;
+}
+
+/* Search */
+.ui.multiple.search.dropdown > input.search {
   position: static;
   padding: 0;
   max-width: 100%;
-  width: @multipleSelectionSearchWidth;
-  margin: @multipleSelectionSearchMargin;
-}
-
-/* Dropdown Icon */
-.ui.multiple.selection.dropdown .dropdown.icon {
-  margin: 0em -@labelHorizontalPadding 0em 0em;
-  padding: @labelPadding;
+  width: @multipleSelectionSearchStartWidth;
+  margin: @multipleSelectionInlineMargin;
 }
 
 
@@ -755,7 +776,6 @@ select.ui.dropdown {
   background: @errorBackgroundColor;
   border-color: @errorBorderColor;
 }
-
 .ui.selection.dropdown.error:hover {
   border-color: @errorBorderColor;
 }
@@ -764,9 +784,12 @@ select.ui.dropdown {
 .ui.dropdown.error > .menu .menu {
   border-color: @errorBorderColor;
 }
-
 .ui.dropdown.error > .menu > .item {
   color: @errorItemTextColor;
+}
+.ui.multiple.selection.error.dropdown > .label {
+  background: @errorBackgroundColor;
+  border-color: @errorBorderColor;
 }
 
 /* Item Hover */
