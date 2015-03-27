@@ -1,6 +1,6 @@
 ## RELEASE NOTES
 
-### Version 2.0.0 - March 17, 2015
+### Version 2.0.0 - March xx, 2015
 
 **New UI**
 - **Container** - Containers are fixed width containers meant for holding page contents, and are a simpler alternative to `ui page grid`, view more [examples in docs](http://www.semantic-ui.com/elements/container.html#examples)
@@ -85,6 +85,17 @@
 - **Table** - `very basic table` now works together with `padded table`
 - **Table** - Fix inheritance of text alignment and vertical alignment
 - **Transition** - Fixed bug where transition could sometimes not occur when an element was determined to always be hidden
+
+### Version 1.11.6 - March 27, 2015
+
+More critical bug backports from `2.x` branch, as well as fixes for browserify
+
+**Bugs**
+- **Menu/Dropdown** - Fix dropdown headers disappearing inside menus
+- **Dropdown** - Fix unescaped character in css property causing css validation errors
+- **Form** - Fix `grouped required` fields display issues **Thanks @palmsey**
+- **All UI** - Fix `index.js` npm build to work with browserify in individual component repos **Thanks @sdimit**
+- **LESS Repo** - Add missing `semantic.less` file to less repo for importing components
 
 ### Version 1.11.5 - March 23, 2015
 

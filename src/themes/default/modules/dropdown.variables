@@ -69,7 +69,7 @@
 
 /* Menu Header */
 @menuHeaderColor: @darkTextColor;
-@menuHeaderFontSize: 0.8em;
+@menuHeaderFontSize: 0.7857rem;
 @menuHeaderFontWeight: bold;
 @menuHeaderTextTransform: uppercase;
 @menuHeaderMargin: 1rem 0rem 0.75rem;
@@ -146,6 +146,10 @@
 
 @selectionMenuBoxShadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
 @selectionMenuItemBoxShadow: none;
+
+@selectionItemHorizontalPadding: @itemHorizontalPadding;
+@selectionItemVerticalPadding: @itemVerticalPadding;
+@selectionItemPadding: @selectionItemVerticalPadding @selectionItemHorizontalPadding;
 
 @selectionTransition:
   @transition,

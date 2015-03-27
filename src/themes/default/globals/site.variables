@@ -384,7 +384,7 @@
 --------------------*/
 
 /* Rendered Scrollbar Width */
-@scrollBarWidth: 15px;
+@scrollbarWidth: 15px;
 
 /* Maximum Single Character Glyph Width, aka Capital "W" */
 @glyphWidth: 1.1em;

@@ -111,8 +111,8 @@ module.exports = function(callback) {
             unrelatedNotes    : '',
             whitespace        : '\n\n',
             // npm
-            export            :  'module.exports = function(parameters) {\n  var _module = module;\n',
-            formExport        :  'module.exports = function(fields, parameters) {\n  var _module = module;\n',
+            export            :  'var _module = module;\nmodule.exports = function(parameters) {',
+            formExport        :  'var _module = module;\nmodule.exports = function(fields, parameters) {',
             settingsExport    :  'module.exports.settings =',
             settingsReference :  '_module.exports.settings',
             jQuery            :  'require("jquery")'
