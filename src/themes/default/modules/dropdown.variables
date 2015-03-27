@@ -68,7 +68,7 @@
 
 /* Menu Header */
 @menuHeaderColor: @darkTextColor;
-@menuHeaderFontSize: 0.8em;
+@menuHeaderFontSize: 0.7857rem;
 @menuHeaderFontWeight: bold;
 @menuHeaderTextTransform: uppercase;
 @menuHeaderMargin: 1rem 0rem 0.75rem;
