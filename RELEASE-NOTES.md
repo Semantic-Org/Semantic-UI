@@ -13,10 +13,13 @@
 - **Menu** - Menu now uses flexbox. This allows menu items to match each others heights regardless of each items content size. `right menu` content should now follow other menu content instead of preceding it (no longer uses float).
 - **Grid** - grids are now all `equal height` by default, the `equal height` variation can safely be removed
 - **Transition** - Fallback javascript animations have been removed from some UI components like dropdown to reduce redundant code and file.
+- **Form Validation** - Form validation now uses a single `settings` object like other modules. Using `(fields, settings)` will continue to work but will produce a deprecation notifications in `console`
+- **Form Validation** - Form validation now supports several validation for multiple
 
 **Enhancements**
 - **Build Tools** - Adjusting `site.variables` will now rebuild all UI, instead of just `site.less`
 - **Divider** - `vertical divider` inside `ui grid` now accounts for column padding
+- **Form Validation** - Form validation now has `minCount`, `maxCount`, and `exactCount` for validating multiple selections
 - **Grid** - `celled grid` now removes internal cells on mobile and tablet when used with `doubling` grid responsive variation
 - **Grid** - `equal width` now works without `row` wrappers
 - **Grid** - rows can now be `stretched` as well as `middle aligned`, `bottom aligned` and `top aligned`!
@@ -37,7 +40,7 @@
 - **Visibility/Sticky** - Visibility now uses pub/sub pattern to greatly improve scroll performance when attaching multiple events
 
 **Changes**
-- **Checkbox** - Slider now uses `positive text color` a slightly more legible green for label
+- **Checkbox** - Toggle now uses `@primaryColor`
 - **Dropdown** - Dropdown padding values now resolve to exact pixel values from em
 - **Grid** - Small computer `page grid` gutters have been adjusted from 8% to 3% to allow for roomier layouts on small screens.
 - **Grid** - `center aligned` no longer centers rows, just text. Use `centered grid` to center a grid column on the page.
@@ -64,7 +67,10 @@
 - **Checkbox** - Fixes nested `dropdown` inside `checkbox` causing issues
 - **Dropdown** - Fixes issue with headers disappearing inside of `ui dropdown` when nested in `ui menu`
 - **Dropdown** - Fixes `onChange` to fire when input value changes, not just when menu UI changes
+- **Dropdown** - Dropdowns with `transition: none` now work correctly.
+- **Dropdown** - Fixed issue with `search selection` not changing text when reselecting same value from list
 - **Form** - Form sizes and input sizes now inherit from `site.variables`
+- **Form Validation** - Form validation now validates correctly on `<select>` change
 - **Grid** - First column on `stackable grid` no longer receives top margin
 - **Grid** - `x column wide` inside `equal width/height` now cannot grow beyond column size
 - **Grid** - Fixes colored grid columns not appearing when not nested in rows
