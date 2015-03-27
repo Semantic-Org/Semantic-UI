@@ -973,7 +973,7 @@ $.fn.dropdown = function(parameters) {
               ? callback
               : function(){}
             ;
-            if($target.is($module) || $target.is($icon) || $target.is($text)) {
+            if($target.closest($menu).length == 0) {
               module.verbose('Triggering event', callback);
               callback();
               return true;

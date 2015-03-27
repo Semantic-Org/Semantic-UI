@@ -928,6 +928,12 @@ select.ui.dropdown {
   border: none;
   border-top: 1px solid @menuBorderColor;
 }
+.ui.dropdown .scrolling.menu .item {
+  border-top: @scrollingMenuItemBorder;
+}
+.ui.dropdown .scrolling.menu .item:first-child {
+  border-top: none;
+}
 .ui.dropdown > .animating.menu .scrolling.menu,
 .ui.dropdown > .visible.menu .scrolling.menu {
   display: block;
