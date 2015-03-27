@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - Modal
+ * # Semantic UI 2.0.0 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -86,7 +86,7 @@
   line-height: 1.3em;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.85);
-  border-bottom: 1px solid rgba(34, 36, 38, 0.2);
+  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
 }
 
 /*--------------
@@ -142,7 +142,7 @@
 .ui.modal .actions {
   background: #efefef;
   padding: 1rem 2rem;
-  border-top: 1px solid rgba(34, 36, 38, 0.2);
+  border-top: 1px solid rgba(34, 36, 38, 0.15);
   text-align: right;
 }
 .ui.modal .actions > .button {

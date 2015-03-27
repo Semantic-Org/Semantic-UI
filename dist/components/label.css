@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - Label
+ * # Semantic UI 2.0.0 - Label
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -523,13 +523,13 @@ a.ui.active.label:ActiveHover:before {
 }
 a.ui.black.labels .label:hover,
 a.ui.black.label:hover {
-  background-color: #1b1c1d !important;
-  border-color: #1b1c1d !important;
+  background-color: #23292e !important;
+  border-color: #23292e !important;
 }
 .ui.labels a.black.label:hover:before,
 .ui.black.labels a.label:hover:before,
 a.ui.black.label:hover:before {
-  background-color: #1b1c1d !important;
+  background-color: #23292e !important;
 }
 .ui.black.corner.label,
 .ui.black.corner.label:hover {
@@ -555,14 +555,14 @@ a.ui.black.label:hover:before {
 a.ui.blue.labels .label:hover,
 .ui.blue.labels a.label:hover,
 a.ui.blue.label:hover {
-  background-color: #5494cb !important;
-  border-color: #5494cb !important;
+  background-color: #2a77b8 !important;
+  border-color: #2a77b8 !important;
   color: #ffffff !important;
 }
 .ui.labels a.blue.label:hover:before,
 .ui.blue.labels a.label:hover:before,
 a.ui.blue.label:hover:before {
-  background-color: #5494cb !important;
+  background-color: #2a77b8 !important;
 }
 .ui.blue.corner.label,
 .ui.blue.corner.label:hover {
@@ -587,13 +587,13 @@ a.ui.blue.label:hover:before {
 }
 a.ui.green.labels .label:hover,
 a.ui.green.label:hover {
-  background-color: #74c788 !important;
-  border-color: #74c788 !important;
+  background-color: #3cc25c !important;
+  border-color: #3cc25c !important;
 }
 .ui.labels a.green.label:hover:before,
 .ui.green.labels a.label:hover:before,
 a.ui.green.label:hover:before {
-  background-color: #74c788 !important;
+  background-color: #3cc25c !important;
 }
 .ui.green.corner.label,
 .ui.green.corner.label:hover {
@@ -619,14 +619,14 @@ a.ui.green.label:hover:before {
 a.ui.orange.labels .label:hover,
 .ui.orange.labels a.label:hover,
 a.ui.orange.label:hover {
-  background-color: #e59271 !important;
-  border-color: #e59271 !important;
+  background-color: #e86532 !important;
+  border-color: #e86532 !important;
   color: #ffffff !important;
 }
 .ui.labels a.orange.label:hover:before,
 .ui.orange.labels a.label:hover:before,
 a.ui.orange.label:hover:before {
-  background-color: #e59271 !important;
+  background-color: #e86532 !important;
 }
 .ui.orange.corner.label,
 .ui.orange.corner.label:hover {
@@ -652,14 +652,14 @@ a.ui.orange.label:hover:before {
 a.ui.pink.labels .label:hover,
 .ui.pink.labels a.label:hover,
 a.ui.pink.label:hover {
-  background-color: #df67aa !important;
-  border-color: #df67aa !important;
+  background-color: #e12890 !important;
+  border-color: #e12890 !important;
   color: #ffffff !important;
 }
 .ui.labels a.pink.label:hover:before,
 .ui.pink.labels a.label:hover:before,
 a.ui.pink.label:hover:before {
-  background-color: #df67aa !important;
+  background-color: #e12890 !important;
 }
 .ui.pink.corner.label,
 .ui.pink.corner.label:hover {
@@ -685,14 +685,14 @@ a.ui.pink.label:hover:before {
 a.ui.purple.labels .label:hover,
 .ui.purple.labels a.label:hover,
 a.ui.purple.label:hover {
-  background-color: #645ca1 !important;
-  border-color: #645ca1 !important;
+  background-color: #453c83 !important;
+  border-color: #453c83 !important;
   color: #ffffff !important;
 }
 .ui.labels a.purple.label:hover:before,
 .ui.purple.labels a.label:hover:before,
 a.ui.purple.label:hover:before {
-  background-color: #645ca1 !important;
+  background-color: #453c83 !important;
 }
 .ui.purple.corner.label,
 .ui.purple.corner.label:hover {
@@ -721,14 +721,14 @@ a.ui.purple.label:hover:before {
 }
 a.ui.red.labels .label:hover,
 a.ui.red.label:hover {
-  background-color: #e07979 !important;
-  border-color: #e07979 !important;
+  background-color: #e03c3c !important;
+  border-color: #e03c3c !important;
   color: #ffffff !important;
 }
 .ui.labels a.red.label:hover:before,
 .ui.red.labels a.label:hover:before,
 a.ui.red.label:hover:before {
-  background-color: #e07979 !important;
+  background-color: #e03c3c !important;
 }
 .ui.red.ribbon.label {
   border-color: #cf3333 !important;
@@ -750,14 +750,14 @@ a.ui.red.label:hover:before {
 a.ui.teal.labels .label:hover,
 .ui.teal.labels a.label:hover,
 a.ui.teal.label:hover {
-  background-color: #00d9cf !important;
-  border-color: #00d9cf !important;
+  background-color: #009c95 !important;
+  border-color: #009c95 !important;
   color: #ffffff !important;
 }
 .ui.labels a.teal.label:hover:before,
 .ui.teal.labels a.label:hover:before,
 a.ui.teal.label:hover:before {
-  background-color: #00d9cf !important;
+  background-color: #009c95 !important;
 }
 .ui.teal.corner.label,
 .ui.teal.corner.label:hover {
@@ -783,14 +783,14 @@ a.ui.teal.label:hover:before {
 a.ui.yellow.labels .label:hover,
 .ui.yellow.labels a.label:hover,
 a.ui.yellow.label:hover {
-  background-color: #f4cf41 !important;
-  border-color: #f4cf41 !important;
+  background-color: #f6c301 !important;
+  border-color: #f6c301 !important;
   color: #ffffff !important;
 }
 .ui.labels a.yellow.label:hover:before,
 .ui.yellow.labels a.label:hover:before,
 a.ui.yellow.label:hover:before {
-  background-color: #f4cf41 !important;
+  background-color: #f6c301 !important;
 }
 .ui.yellow.corner.label,
 .ui.yellow.corner.label:hover {

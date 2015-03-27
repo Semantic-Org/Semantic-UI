@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - Checkbox
+ * # Semantic UI 2.0.0 - Checkbox
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -59,18 +59,7 @@ $.fn.checkbox = function(parameters) {
           module.create.label();
           module.add.events();
 
-          if( module.is.checked() ) {
-            module.set.checked();
-            if(settings.fireOnInit) {
-              settings.onChecked.call($input.get());
-            }
-          }
-          else {
-            module.remove.checked();
-            if(settings.fireOnInit) {
-              settings.onUnchecked.call($input.get());
-            }
-          }
+          module.setup();
           module.observeChanges();
 
           module.instantiate();
@@ -90,6 +79,23 @@ $.fn.checkbox = function(parameters) {
           $module
             .removeData(moduleNamespace)
           ;
+        },
+
+        setup: function() {
+          if( module.is.checked() ) {
+            module.debug('Setting initial value to checked');
+            module.set.checked();
+            if(settings.fireOnInit) {
+              settings.onChecked.call($input.get());
+            }
+          }
+          else {
+            module.debug('Setting initial value to unchecked');
+            module.remove.checked();
+            if(settings.fireOnInit) {
+              settings.onUnchecked.call($input.get());
+            }
+          }
         },
 
         refresh: function() {

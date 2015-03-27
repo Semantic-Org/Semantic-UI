@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - Icon
+ * # Semantic UI 2.0.0 - Icon
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -1505,10 +1505,10 @@ i.icon.sort:before {
   content: "\f0dc";
 }
 i.icon.sort.ascending:before {
-  content: "\f0dd";
+  content: "\f0de";
 }
 i.icon.sort.descending:before {
-  content: "\f0de";
+  content: "\f0dd";
 }
 i.icon.sort.alphabet.ascending:before {
   content: "\f15d";

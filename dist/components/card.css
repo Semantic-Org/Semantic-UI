@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - Item
+ * # Semantic UI 2.0.0 - Item
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -94,6 +94,14 @@
 /* Consecutive Card Groups Preserve Row Spacing */
 .ui.cards ~ .ui.cards {
   margin-top: 0.875em;
+}
+
+/* Disable flex in IE */
+@media all and (-ms-high-contrast: none) {
+  .ui.cards > .card,
+  .ui.card {
+    display: block;
+  }
 }
 
 /*--------------
@@ -502,47 +510,47 @@ a.ui.card:hover,
 .ui.black.cards > .card:hover,
 .ui.cards > .black.card:hover,
 .ui.black.card:hover {
-  box-shadow: 0px 3px 0px 0px #1b1c1d, 0px 0px 0px 1px #d4d4d5;
+  box-shadow: 0px 3px 0px 0px #23292e, 0px 0px 0px 1px #d4d4d5;
 }
 .ui.blue.cards > .card:hover,
 .ui.cards > .blue.card:hover,
 .ui.blue.card:hover {
-  box-shadow: 0px 3px 0px 0px #5494cb, 0px 0px 0px 1px #d4d4d5;
+  box-shadow: 0px 3px 0px 0px #2a77b8, 0px 0px 0px 1px #d4d4d5;
 }
 .ui.green.cards > .card:hover,
 .ui.cards > .green.card:hover,
 .ui.green.card:hover {
-  box-shadow: 0px 3px 0px 0px #74c788, 0px 0px 0px 1px #d4d4d5;
+  box-shadow: 0px 3px 0px 0px #3cc25c, 0px 0px 0px 1px #d4d4d5;
 }
 .ui.orange.cards > .card:hover,
 .ui.cards > .orange.card:hover,
 .ui.orange.card:hover {
-  box-shadow: 0px 3px 0px 0px #e59271, 0px 0px 0px 1px #d4d4d5;
+  box-shadow: 0px 3px 0px 0px #e86532, 0px 0px 0px 1px #d4d4d5;
 }
 .ui.pink.cards > .card:hover,
 .ui.cards > .pink.card:hover,
 .ui.pink.card:hover {
-  box-shadow: 0px 3px 0px 0px #df67aa, 0px 0px 0px 1px #d4d4d5;
+  box-shadow: 0px 3px 0px 0px #e12890, 0px 0px 0px 1px #d4d4d5;
 }
 .ui.purple.cards > .card:hover,
 .ui.cards > .purple.card:hover,
 .ui.purple.card:hover {
-  box-shadow: 0px 3px 0px 0px #645ca1, 0px 0px 0px 1px #d4d4d5;
+  box-shadow: 0px 3px 0px 0px #453c83, 0px 0px 0px 1px #d4d4d5;
 }
 .ui.red.cards > .card:hover,
 .ui.cards > .red.card:hover,
 .ui.red.card:hover {
-  box-shadow: 0px 3px 0px 0px #e07979, 0px 0px 0px 1px #d4d4d5;
+  box-shadow: 0px 3px 0px 0px #e03c3c, 0px 0px 0px 1px #d4d4d5;
 }
 .ui.teal.cards > .card:hover,
 .ui.cards > .teal.card:hover,
 .ui.teal.card:hover {
-  box-shadow: 0px 3px 0px 0px #00d9cf, 0px 0px 0px 1px #d4d4d5;
+  box-shadow: 0px 3px 0px 0px #009c95, 0px 0px 0px 1px #d4d4d5;
 }
 .ui.yellow.cards > .card:hover,
 .ui.cards > .yellow.card:hover,
 .ui.yellow.card:hover {
-  box-shadow: 0px 3px 0px 0px #f4cf41, 0px 0px 0px 1px #d4d4d5;
+  box-shadow: 0px 3px 0px 0px #f6c301, 0px 0px 0px 1px #d4d4d5;
 }
 
 /*--------------

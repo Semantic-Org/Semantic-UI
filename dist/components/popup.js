@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - Popup
+ * # Semantic UI 2.0.0 - Popup
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -96,6 +96,7 @@ $.fn.popup = function(parameters) {
           else {
             if(settings.inline) {
               $popup = $target.next(selector.popup).eq(0);
+              settings.popup = $popup;
             }
           }
           if(settings.popup) {

@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - Transition
+ * # Semantic UI 2.0.0 - Transition
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -57,8 +57,7 @@
   visibility: visible !important;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
-  -webkit-transform: rotateZ(0deg);
-          transform: rotateZ(0deg);
+  /*transform: rotateZ(0deg);*/
 }
 
 /* Disabled */

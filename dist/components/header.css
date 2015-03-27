@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - Header
+ * # Semantic UI 2.0.0 - Header
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -285,55 +285,55 @@ h5.ui.header .sub.header {
   color: #1b1c1d !important;
 }
 a.ui.black.header:hover {
-  color: #1b1c1d !important;
+  color: #23292e !important;
 }
 .ui.blue.header {
   color: #3b83c0 !important;
 }
 a.ui.blue.header:hover {
-  color: #5494cb !important;
+  color: #2a77b8 !important;
 }
 .ui.green.header {
   color: #5bbd72 !important;
 }
 a.ui.green.header:hover {
-  color: #74c788 !important;
+  color: #3cc25c !important;
 }
 .ui.orange.header {
   color: #e07b53 !important;
 }
 a.ui.orange.header:hover {
-  color: #e59271 !important;
+  color: #e86532 !important;
 }
 .ui.pink.header {
   color: #d9499a !important;
 }
 a.ui.pink.header:hover {
-  color: #df67aa !important;
+  color: #e12890 !important;
 }
 .ui.purple.header {
   color: #564f8a !important;
 }
 a.ui.purple.header:hover {
-  color: #645ca1 !important;
+  color: #453c83 !important;
 }
 .ui.red.header {
   color: #d95c5c !important;
 }
 a.ui.red.header:hover {
-  color: #e07979 !important;
+  color: #e03c3c !important;
 }
 .ui.teal.header {
   color: #00b5ad !important;
 }
 a.ui.teal.header:hover {
-  color: #00d9cf !important;
+  color: #009c95 !important;
 }
 .ui.yellow.header {
   color: #f2c61f !important;
 }
 a.ui.yellow.header:hover {
-  color: #f4cf41 !important;
+  color: #f6c301 !important;
 }
 .ui.black.dividing.header {
   border-bottom: 2px solid #1b1c1d;
@@ -393,55 +393,55 @@ a.ui.yellow.header:hover {
   color: #aaaaaa !important;
 }
 a.ui.inverted.black.header:hover {
-  color: #bcbcbc !important;
+  color: #beb0b0 !important;
 }
 .ui.inverted.blue.header {
   color: #54c8ff !important;
 }
 a.ui.inverted.blue.header:hover {
-  color: #78d3ff !important;
+  color: #3ac0ff !important;
 }
 .ui.inverted.green.header {
   color: #2ecc40 !important;
 }
 a.ui.inverted.green.header:hover {
-  color: #48d658 !important;
+  color: #1ec231 !important;
 }
 .ui.inverted.orange.header {
   color: #ff851b !important;
 }
 a.ui.inverted.orange.header:hover {
-  color: #ff983f !important;
+  color: #ff7701 !important;
 }
 .ui.inverted.pink.header {
   color: #ff8edf !important;
 }
 a.ui.inverted.pink.header:hover {
-  color: #ffb2e9 !important;
+  color: #ff74d8 !important;
 }
 .ui.inverted.purple.header {
   color: #cdc6ff !important;
 }
 a.ui.inverted.purple.header:hover {
-  color: #eceaff !important;
+  color: #b7acff !important;
 }
 .ui.inverted.red.header {
   color: #ff695e !important;
 }
 a.ui.inverted.red.header:hover {
-  color: #ff8a82 !important;
+  color: #ff5144 !important;
 }
 .ui.inverted.teal.header {
   color: #6dffff !important;
 }
 a.ui.inverted.teal.header:hover {
-  color: #91ffff !important;
+  color: #54ffff !important;
 }
 .ui.inverted.yellow.header {
   color: #ffe21f !important;
 }
 a.ui.inverted.yellow.header:hover {
-  color: #ffe743 !important;
+  color: #ffdf05 !important;
 }
 .ui.inverted.block.header {
   border-bottom: none;
@@ -500,7 +500,7 @@ a.ui.inverted.yellow.header:hover {
 
 .ui.dividing.header {
   padding-bottom: 0.25rem;
-  border-bottom: 1px solid rgba(34, 36, 38, 0.2);
+  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
 }
 .ui.dividing.header .sub.header {
   padding-bottom: 0.25rem;

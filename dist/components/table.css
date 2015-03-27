@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - Table
+ * # Semantic UI 2.0.0 - Table
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -20,7 +20,7 @@
   width: 100%;
   background: #ffffff;
   margin: 1em 0em;
-  border: 1px solid rgba(34, 36, 38, 0.2);
+  border: 1px solid rgba(34, 36, 38, 0.15);
   box-shadow: none;
   border-radius: 0.2857rem;
   text-align: left;
@@ -62,7 +62,7 @@
   font-style: none;
   font-weight: bold;
   text-transform: none;
-  border-bottom: 1px solid rgba(34, 36, 38, 0.2);
+  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
   border-left: none;
 }
 .ui.table thead tr > th:first-child {
@@ -84,7 +84,7 @@
 }
 .ui.table tfoot th {
   cursor: auto;
-  border-top: 1px solid rgba(34, 36, 38, 0.2);
+  border-top: 1px solid rgba(34, 36, 38, 0.15);
   background: #ffffff;
   text-align: inherit;
   color: rgba(0, 0, 0, 0.8);
@@ -109,7 +109,7 @@
 
 /* Table Row */
 .ui.table tr td {
-  border-top: 1px solid rgba(34, 36, 38, 0.2);
+  border-top: 1px solid rgba(34, 36, 38, 0.15);
 }
 .ui.table tr:first-child td {
   border-top: none;
@@ -232,8 +232,8 @@
   border-right: none;
 }
 .ui.structured.sortable.table thead th {
-  border-left: 1px solid rgba(34, 36, 38, 0.2);
-  border-right: 1px solid rgba(34, 36, 38, 0.2);
+  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-right: 1px solid rgba(34, 36, 38, 0.15);
 }
 .ui.structured.basic.table th {
   border-left: none;
@@ -241,8 +241,8 @@
 }
 .ui.structured.celled.table tr th,
 .ui.structured.celled.table tr td {
-  border-left: 1px solid rgba(34, 36, 38, 0.2);
-  border-right: 1px solid rgba(34, 36, 38, 0.2);
+  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-right: 1px solid rgba(34, 36, 38, 0.15);
 }
 
 /*--------------
@@ -281,13 +281,13 @@
 
 /* Fix 2nd Column */
 .ui.definition.table thead:not(.full-width) th:nth-child(2) {
-  border-left: 1px solid rgba(34, 36, 38, 0.2);
+  border-left: 1px solid rgba(34, 36, 38, 0.15);
 }
 .ui.definition.table tfoot:not(.full-width) th:nth-child(2) {
-  border-left: 1px solid rgba(34, 36, 38, 0.2);
+  border-left: 1px solid rgba(34, 36, 38, 0.15);
 }
 .ui.definition.table td:nth-child(2) {
-  border-left: 1px solid rgba(34, 36, 38, 0.2);
+  border-left: 1px solid rgba(34, 36, 38, 0.15);
 }
 
 
@@ -766,7 +766,7 @@
 .ui.sortable.table thead th {
   cursor: pointer;
   white-space: nowrap;
-  border-left: 1px solid rgba(34, 36, 38, 0.2);
+  border-left: 1px solid rgba(34, 36, 38, 0.15);
   color: rgba(0, 0, 0, 0.8);
 }
 .ui.sortable.table thead th:first-child {
@@ -782,7 +782,7 @@
 .ui.sortable.table thead th:after {
   display: inline-block;
   content: '';
-  width: 1em;
+  width: auto;
   height: 1em;
   opacity: 0.8;
   margin: 0em 0em 0em 0.5em;
@@ -887,7 +887,7 @@
 
 .ui.basic.table {
   background: transparent;
-  border: 1px solid rgba(34, 36, 38, 0.2);
+  border: 1px solid rgba(34, 36, 38, 0.15);
   box-shadow: none;
 }
 .ui.basic.table thead,
@@ -934,7 +934,7 @@
 
 .ui.celled.table tr th,
 .ui.celled.table tr td {
-  border-left: 1px solid rgba(34, 36, 38, 0.2);
+  border-left: 1px solid rgba(34, 36, 38, 0.15);
 }
 .ui.celled.table tr th:first-child,
 .ui.celled.table tr td:first-child {
@@ -1003,12 +1003,6 @@
 .ui.large.table {
   font-size: 1.1em;
 }
-
-
-/*******************************
-         Theme Overrides
-*******************************/
-
 
 
 /*******************************
