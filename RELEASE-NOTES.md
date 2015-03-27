@@ -1,5 +1,15 @@
 ## RELEASE NOTES
 
+### Version 1.11.6 - March 27, 2015
+
+More critical bug backports from `2.x` branch, as well as fixes for browserify
+
+**Bugs**
+- **Menu/Dropdown** - Fix dropdown headers disappearing inside menus
+- **Dropdown** - Fix unescaped character in css property causing css validation errors
+- **Form** - Fix `grouped required` fields display issues **Thanks @palmsey**
+- **All UI** - Fix `index.js` npm build to work with browserify in individual component repos **Thanks @sdimit**
+
 ### Version 1.11.5 - March 23, 2015
 
 This version backports several bugs that were being packed in `2.0` to `1.x`.
