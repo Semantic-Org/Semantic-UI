@@ -400,7 +400,7 @@ select.ui.dropdown {
 /* Scrollbar in IE */
 @media all and (-ms-high-contrast:none) {
   .ui.selection.dropdown .menu {
-    min-width: ~"calc(100% - "@scrollBarWidth~")";
+    min-width: ~"calc(100% - "@scrollbarWidth~")";
   }
 }
 
@@ -428,9 +428,7 @@ select.ui.dropdown {
 /* Menu Item */
 .ui.selection.dropdown .menu > .item {
   border-top: @selectionItemDivider;
-  padding-left: @selectionHorizontalPadding !important;
-  /* Add in spacing for scroll bar */
-  padding-right: ~"calc("@selectionHorizontalPadding~" + 1em) !important~";
+  padding: @selectionItemPadding !important;
   white-space: normal;
   word-wrap: normal;
 }

@@ -143,6 +143,10 @@
 @selectionMenuBoxShadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
 @selectionMenuItemBoxShadow: none;
 
+@selectionItemHorizontalPadding: @itemHorizontalPadding;
+@selectionItemVerticalPadding: @itemVerticalPadding;
+@selectionItemPadding: @selectionItemVerticalPadding @selectionItemHorizontalPadding;
+
 @selectionTransition:
   @transition,
   box-shadow 0.2s @defaultEasing,
