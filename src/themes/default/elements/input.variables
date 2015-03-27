@@ -105,14 +105,3 @@
 /* Inverted */
 @transparentInvertedPlaceholderColor: @invertedUnselectedTextColor;
 @transparentInvertedColor: @white;
-
-
-/* Sizing */
-@mini: 0.8125rem;
-@small: 0.875rem;
-@medium: 1rem;
-@large: 1.125rem;
-@big: 1.25rem;
-@huge: 1.375rem;
-@massive: 1.5rem;
-
