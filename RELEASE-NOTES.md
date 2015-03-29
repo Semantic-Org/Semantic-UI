@@ -41,6 +41,7 @@
 
 **Changes**
 - **All Modules** - All modules now default to `verbose: false`
+- **Breadcrumb** - Increased `divider` spacing to add more whitespace
 - **Checkbox** - Toggle now uses `@primaryColor`
 - **Dropdown** - Dropdown padding values now resolve to exact pixel values from em
 - **Grid** - Small computer `page grid` gutters have been adjusted from 8% to 3% to allow for roomier layouts on small screens.
