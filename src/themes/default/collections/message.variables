@@ -11,13 +11,13 @@
 @verticalMargin: 1em;
 @verticalPadding: 1em;
 @horizontalPadding: 1.5em;
-@background: #EFEFEF;
+@background: @darkWhite;
 @lineHeightOffset: ((@lineHeight - 1em) / 2);
 
 @borderRadius: @defaultBorderRadius;
 @borderWidth: 1px;
 @borderShadow: 0px 0px 0px @borderWidth @borderColor inset;
-@shadowShadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+@shadowShadow: 0px 0px 0px transparent;
 @boxShadow:
   @borderShadow,
   @shadowShadow
@@ -31,10 +31,11 @@
 ;
 
 /* Header */
-@headerFontSize: 1.1em;
+@headerFontSize: @relativeLarge;
 @headerFontWeight: bold;
 @headerDisplay: block;
-@headerDistance: 0.5rem;
+@headerDistance: 0rem;
+@headerMargin: -@headerLineHeightOffset 0em @headerDistance 0em;
 @headerParagraphDistance: 0.25em;
 
 /* Paragraph */
@@ -64,9 +65,8 @@
 /* Icon Message */
 @iconSize: 3em;
 @iconOpacity: 0.8;
-@iconContentDistance: 1.5rem;
+@iconContentDistance: 0rem;
 @iconVerticalAlign: middle;
-@circularIconContentDistance: 2em;
 
 /* Attached */
 @attachedXOffset: -1px;
@@ -82,4 +82,38 @@
 @floatingBoxShadow:
   @floatingShadow,
   @borderShadow
+;
+
+/* Warning / Positive / Negative / Info */
+/*@positiveBorderColor: transparent;
+@negativeBorderColor: transparent;
+@negativeBorderColor: transparent;
+@infoBorderColor: transparent;
+@warningBorderColor: transparent;
+@errorBorderColor: transparent;
+@successBorderColor: transparent;*/
+
+@positiveBoxShadow:
+  0px 0px 0px @borderWidth @positiveBorderColor inset,
+  @shadowShadow
+;
+@negativeBoxShadow:
+  0px 0px 0px @borderWidth @negativeBorderColor inset,
+  @shadowShadow
+;
+@infoBoxShadow:
+  0px 0px 0px @borderWidth @infoBorderColor inset,
+  @shadowShadow
+;
+@warningBoxShadow:
+  0px 0px 0px @borderWidth @warningBorderColor inset,
+  @shadowShadow
+;
+@errorBoxShadow:
+  0px 0px 0px @borderWidth @errorBorderColor inset,
+  @shadowShadow
+;
+@successBoxShadow:
+  0px 0px 0px @borderWidth @successBorderColor inset,
+  @shadowShadow
 ;
