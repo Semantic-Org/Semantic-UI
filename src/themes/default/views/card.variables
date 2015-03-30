@@ -154,7 +154,7 @@
 @shadowHoverBoxShadow: 0px @shadowDistance @linkHoverRaiseDistance 0px @solidSelectedBorderColor;
 @linkHoverBoxShadow:
   @shadowHoverBoxShadow,
-  0px 0px 0px @borderWidth @borderColor
+  @borderShadow
 ;
 
 /* Card Count */
