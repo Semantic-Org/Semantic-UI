@@ -79,6 +79,7 @@
 - **Dropdown** - Fixes `onChange` to fire when input value changes, not just when menu UI changes
 - **Dropdown** - Dropdowns with `transition: none` now work correctly.
 - **Dropdown** - Fixed issue with `search selection` not changing text when reselecting same value from list
+- **Dropdown** - Dropdown `menu` now use same font size as dropdown
 - **Form** - Form sizes and input sizes now inherit from `site.variables`
 - **Form Validation** - Form validation now validates correctly on `<select>` change
 - **Grid** - First column on `stackable grid` no longer receives top margin
