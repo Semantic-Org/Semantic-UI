@@ -750,11 +750,11 @@ Floated Menu / Item
 .ui.secondary.inverted.menu .dropdown.item:hover,
 .ui.secondary.inverted.menu .link.item:hover,
 .ui.secondary.inverted.menu a.item:hover {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.08);
   color: #ffffff !important;
 }
 .ui.secondary.inverted.menu .active.item {
-  background-color: rgba(255, 255, 255, 0.07);
+  background-color: rgba(255, 255, 255, 0.15);
   color: #ffffff !important;
 }
 
@@ -1459,6 +1459,9 @@ Floated Menu / Item
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+.ui.item.menu .item:last-child:before {
+  display: none;
 }
 .ui.menu.two.item .item {
   width: 50%;

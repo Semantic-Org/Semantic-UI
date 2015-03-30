@@ -25,7 +25,7 @@
   -webkit-transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
           transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
   border-radius: 0.2857rem;
-  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset, 0px 0px 0px transparent;
 }
 .ui.message:first-child {
   margin-top: 0em;
@@ -49,7 +49,7 @@
 
 /* Default font size */
 .ui.message .header:not(.ui) {
-  font-size: 1.1em;
+  font-size: 1.14285714em;
 }
 
 /* Paragraph */
@@ -249,25 +249,25 @@
 
 /* Positive */
 .ui.positive.message {
-  background-color: #eeffe7;
-  color: #3c763d;
+  background-color: #f3ffec;
+  color: #255f26;
 }
 .ui.positive.message,
 .ui.attached.positive.message {
-  box-shadow: 0px 0px 0px 1px #b7caa7 inset, 0px 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px #b4d3a4 inset, 0px 0px 0px transparent;
 }
 .ui.positive.message .header {
-  color: #356e36;
+  color: #387139;
 }
 
 /* Negative */
 .ui.negative.message {
-  background-color: #fff0f0;
-  color: #a94442;
+  background-color: #e0b4b4;
+  color: #973230;
 }
 .ui.negative.message,
 .ui.attached.negative.message {
-  box-shadow: 0px 0px 0px 1px #dbb1b1 inset, 0px 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px #e0b4b4 inset, 0px 0px 0px transparent;
 }
 .ui.negative.message .header {
   color: #912d2b;
@@ -275,38 +275,38 @@
 
 /* Info */
 .ui.info.message {
-  background-color: #e9faff;
-  color: #337b92;
+  background-color: #eef9f9;
+  color: #256d84;
 }
 .ui.info.message,
 .ui.attached.info.message {
-  box-shadow: 0px 0px 0px 1px #aad6df inset, 0px 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px #a3cfd8 inset, 0px 0px 0px transparent;
 }
 .ui.info.message .header {
-  color: #297187;
+  color: #226a80;
 }
 
 /* Warning */
 .ui.warning.message {
-  background-color: #fffbe6;
-  color: #876a38;
+  background-color: #fffbe8;
+  color: #715422;
 }
 .ui.warning.message,
 .ui.attached.warning.message {
-  box-shadow: 0px 0px 0px 1px #d9caab inset, 0px 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px #c9ba9b inset, 0px 0px 0px transparent;
 }
 .ui.warning.message .header {
-  color: #825c01;
+  color: #7c5600;
 }
 
 /* Error */
 .ui.error.message {
-  background-color: #fff0f0;
-  color: #a94442;
+  background-color: #e0b4b4;
+  color: #973230;
 }
 .ui.error.message,
 .ui.attached.error.message {
-  box-shadow: 0px 0px 0px 1px #dbb1b1 inset, 0px 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px #e0b4b4 inset, 0px 0px 0px transparent;
 }
 .ui.error.message .header {
   color: #912d2b;
@@ -314,15 +314,15 @@
 
 /* Success */
 .ui.success.message {
-  background-color: #eeffe7;
-  color: #3c763d;
+  background-color: #f3ffec;
+  color: #255f26;
 }
 .ui.success.message,
 .ui.attached.success.message {
-  box-shadow: 0px 0px 0px 1px #b7caa7 inset, 0px 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px #b4d3a4 inset, 0px 0px 0px transparent;
 }
 .ui.success.message .header {
-  color: #356e36;
+  color: #387139;
 }
 
 /* Colors */

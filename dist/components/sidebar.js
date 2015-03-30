@@ -1031,7 +1031,7 @@ $.fn.sidebar.settings = {
   namespace         : 'sidebar',
 
   debug             : false,
-  verbose           : true,
+  verbose           : false,
   performance       : true,
 
   transition        : 'auto',

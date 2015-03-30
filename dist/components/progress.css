@@ -18,11 +18,11 @@
   position: relative;
   display: block;
   max-width: 100%;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: none;
   margin: 1em 0em 2.5em;
   box-shadow: none;
-  background: rgba(0, 0, 0, 0.03);
-  padding: 0.2857em;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 0em;
   border-radius: 0.2857rem;
 }
 .ui.progress:first-child {
@@ -33,63 +33,63 @@
 }
 
 /* Indicating */
-.ui.indicating.progress .bar[style*="width: 1"],
-.ui.indicating.progress .bar[style*="width: 2"] {
+.ui.indicating.progress[data-percent^="1"] .bar,
+.ui.indicating.progress[data-percent^="2"] .bar {
   background-color: #d95c5c;
 }
-.ui.indicating.progress .bar[style*="width: 3"] {
-  background-color: #d9a65c;
+.ui.indicating.progress[data-percent^="3"] .bar {
+  background-color: #efbc72;
 }
-.ui.indicating.progress .bar[style*="width: 4"],
-.ui.indicating.progress .bar[style*="width: 5"] {
+.ui.indicating.progress[data-percent^="4"] .bar,
+.ui.indicating.progress[data-percent^="5"] .bar {
   background-color: #e6bb48;
 }
-.ui.indicating.progress .bar[style*="width: 6"] {
+.ui.indicating.progress[data-percent^="6"] .bar {
   background-color: #ddc928;
 }
-.ui.indicating.progress .bar[style*="width: 7"],
-.ui.indicating.progress .bar[style*="width: 8"] {
+.ui.indicating.progress[data-percent^="7"] .bar,
+.ui.indicating.progress[data-percent^="8"] .bar {
   background-color: #b4d95c;
 }
-.ui.indicating.progress .bar[style*="width: 9"],
-.ui.indicating.progress .bar[style*="width: 100"] {
+.ui.indicating.progress[data-percent^="9"] .bar,
+.ui.indicating.progress[data-percent^="100"] .bar {
   background-color: #66da81;
 }
 
 /* Indicating Label */
 .ui.indicating.progress[data-percent^="1"] .label,
 .ui.indicating.progress[data-percent^="2"] .label {
-  color: #d95c5c;
+  color: #ca4d4d;
 }
 .ui.indicating.progress[data-percent^="3"] .label {
-  color: #d9a65c;
+  color: #b27f22;
 }
 .ui.indicating.progress[data-percent^="4"] .label,
 .ui.indicating.progress[data-percent^="5"] .label {
-  color: #e6bb48;
+  color: #c09522;
 }
 .ui.indicating.progress[data-percent^="6"] .label {
-  color: #ddc928;
+  color: #ada422;
 }
 .ui.indicating.progress[data-percent^="7"] .label,
 .ui.indicating.progress[data-percent^="8"] .label {
-  color: #b4d95c;
+  color: #7a9f22;
 }
 .ui.indicating.progress[data-percent^="9"] .label,
 .ui.indicating.progress[data-percent^="100"] .label {
-  color: #66da81;
+  color: #22963d;
 }
 
 /* Single Digits */
-.ui.indicating.progress .bar[style^="width: 1%"],
-.ui.indicating.progress .bar[style^="width: 2%"],
-.ui.indicating.progress .bar[style^="width: 3%"],
-.ui.indicating.progress .bar[style^="width: 4%"],
-.ui.indicating.progress .bar[style^="width: 5%"],
-.ui.indicating.progress .bar[style^="width: 6%"],
-.ui.indicating.progress .bar[style^="width: 7%"],
-.ui.indicating.progress .bar[style^="width: 8%"],
-.ui.indicating.progress .bar[style^="width: 9%"] {
+.ui.indicating.progress[data-percent="1"] .bar,
+.ui.indicating.progress[data-percent="2"] .bar,
+.ui.indicating.progress[data-percent="3"] .bar,
+.ui.indicating.progress[data-percent="4"] .bar,
+.ui.indicating.progress[data-percent="5"] .bar,
+.ui.indicating.progress[data-percent="6"] .bar,
+.ui.indicating.progress[data-percent="7"] .bar,
+.ui.indicating.progress[data-percent="8"] .bar,
+.ui.indicating.progress[data-percent="9"] .bar {
   background-color: #d95c5c;
 }
 .ui.indicating.progress[data-percent="1"] .label,
@@ -101,12 +101,12 @@
 .ui.indicating.progress[data-percent="7"] .label,
 .ui.indicating.progress[data-percent="8"] .label,
 .ui.indicating.progress[data-percent="9"] .label {
-  color: #d95c5c;
+  color: #ca4d4d;
 }
 
 /* Indicating Success */
 .ui.indicating.progress.success .label {
-  color: #356e36;
+  color: #387139;
 }
 
 
@@ -124,8 +124,8 @@
   min-width: 2em;
   background: #888888;
   border-radius: 0.2857rem;
-  -webkit-transition: width 0.3s ease, background-color 0.3s ease;
-          transition: width 0.3s ease, background-color 0.3s ease;
+  -webkit-transition: width 0.2s ease, background-color 0.2s ease;
+          transition: width 0.2s ease, background-color 0.2s ease;
 }
 
 /* Percent Complete */
@@ -133,7 +133,7 @@
   white-space: nowrap;
   position: absolute;
   width: auto;
-  font-size: 0.9em;
+  font-size: 0.92857143em;
   top: 50%;
   right: 0.5em;
   left: auto;
@@ -182,7 +182,7 @@
           animation: none !important;
 }
 .ui.progress.success > .label {
-  color: #356e36;
+  color: #387139;
 }
 
 /*--------------
@@ -198,7 +198,7 @@
           animation: none !important;
 }
 .ui.progress.warning > .label {
-  color: #825c01;
+  color: #7c5600;
 }
 
 /*--------------
@@ -283,7 +283,7 @@
 ---------------*/
 
 .ui.inverted.progress {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.08);
   border: none;
 }
 .ui.inverted.progress .bar {

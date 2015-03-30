@@ -15,6 +15,9 @@
 - **Transition** - Fallback javascript animations have been removed from some UI components like dropdown to reduce redundant code and file.
 - **Form Validation** - Form validation now uses a single `settings` object like other modules. Using `(fields, settings)` will continue to work but will produce a deprecation notifications in `console`
 - **Form Validation** - Form validation now supports several validation for multiple
+- **Item** - Item now uses `flexbox` for layout
+- **Message** - `icon message` now uses `flexbox`
+- **Input** - All `input` types use `flexbox`
 
 **Enhancements**
 - **Build Tools** - Adjusting `site.variables` will now rebuild all UI, instead of just `site.less`
@@ -32,6 +35,7 @@
 - **Menu** - Menus items are now slightly more padded
 - **Menu** - The hover/active state of `dropdown item` have been adjusted to match `item`. Dropdown styles can be themed specifically inside `menu`.
 - **Menu** - Vertical dropdown menus are no longer 100% `min-width`
+- **Progress** - `indicating` labels now are more legible use separate css variables from `indicating` bar color
 - **Segment** - Added `padded` and `very padded` segment variations
 - **Sidebar** - Improved animation performance through performance debugging. Sidebar now caches, width, height, rtl direction on load.
 - **Site** - Added in `pageOverflowX` variable, default theme hides horizontal scrollbars on `body`
@@ -42,19 +46,23 @@
 **Changes**
 - **All Modules** - All modules now default to `verbose: false`
 - **Breadcrumb** - Increased `divider` spacing to add more whitespace
+- **Card** - Card styles have been adjusted, `link card` now raise to show selection. Colored variations now have shadows.
 - **Checkbox** - Toggle now uses `@primaryColor`
 - **Dropdown** - Dropdown padding values now resolve to exact pixel values from em
 - **Grid** - Small computer `page grid` gutters have been adjusted from 8% to 3% to allow for roomier layouts on small screens.
 - **Grid** - `center aligned` no longer centers rows, just text. Use `centered grid` to center a grid column on the page.
 - **Header/Table/Divider** - These components now pull border color defaults from `site.variables` instead of using their own values
 - **Image** - `mini image` default width has been increased to `35px`
+- **Item** - item `description` now longer sets a `max-width`
 - **Icon** - `disabled icon` now have `pointer-events` again.
 - **Input** - Input now use `em` instead of `rem` so they will inherit the size of the elements they are nested inside
+- **Progress* - Update contrast on `indicating`, update default styles. Fixed some examples
 - **Menu** - Menu now uses `border` for borders instead of `box-shadow`
 - **Menu** - `secondary pointing menu` has had some slight design tweaks, thinner lines, more padding
 - **Menu** - Active sub-menu items are now `bold`
 - **Menu** - Menus no longer have additional borders on `active item` in the default theme
 - **Menu** - `tiered menu` has been removed
+- **Menu** - Increased contrast on `inverted` menu selection for legibility
 - **Message** - Slightly increases `box-shadow`
 - **Site** - Increase contrast on default hovered/down colors for colored variations
 - **Site** - Page background is now `#FFFFFF` by default instead of an offwhite `#F7F7F7`
@@ -81,6 +89,8 @@
 - **List** - Fixed `inverted bulleted list` bullet color
 - **Loader** - Fix position of `inline centered loader` to be centered correctly
 - **Message** - Message now uses `@lineHeight` from `site.variables`
+- **Message** - Updated all message colors for legibility
+- **Menu** - Fixes divider appears on last element of `(x) item menu`
 - **Menu** - Menu now has a `min-height` that matches standard item padding
 - **Modal** - `scrollable modal` now correctly adds padding below modal
 - **Modal** - Modal with `detachable: false` inside `ui sidebar`  `pusher` element will now show correctly

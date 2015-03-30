@@ -138,8 +138,8 @@
 ---------------------*/
 
 .ui.input.error input {
-  background-color: #fff0f0;
-  border-color: #dbb1b1;
+  background-color: #e0b4b4;
+  border-color: #e0b4b4;
   color: #d95c5c;
   box-shadow: none;
 }

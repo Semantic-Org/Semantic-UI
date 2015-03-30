@@ -712,7 +712,7 @@ $.fn.progress.settings = {
   namespace    : 'progress',
 
   debug        : false,
-  verbose      : true,
+  verbose      : false,
   performance  : true,
 
   random       : {

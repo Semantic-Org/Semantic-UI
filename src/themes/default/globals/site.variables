@@ -257,12 +257,12 @@
 
 /*--- Colored Backgrounds ---*/
 @blueBackground   : #DFF0FF;
-@greenBackground  : #EBFFED;
+@greenBackground  : #E5F9E7;
 @orangeBackground : #FFEDDE;
 @pinkBackground   : #FFE3FB;
 @purpleBackground : #EAE7FF;
 @redBackground    : #FFE8E6;
-@tealBackground   : #E9FFFF;
+@tealBackground   : #E1F7F7;
 @yellowBackground : #FFF8DB;
 
 /*--- Colored Text ---*/
@@ -294,12 +294,12 @@
 @positiveColor           : @green;
 @positiveBackgroundColor : #F3FFEC;
 @positiveBorderColor     : #B4D3A4;
-@positiveHeaderColor     : #387139;
+@positiveHeaderColor     : #1A531B;
 @positiveTextColor       : #255F26;
 
 /* Negative */
 @negativeColor           : @red;
-@negativeBackgroundColor : #E0B4B4;
+@negativeBackgroundColor : #FFF0F0;
 @negativeBorderColor     : #E0B4B4;
 @negativeHeaderColor     : #912D2B;
 @negativeTextColor       : #973230;
@@ -308,14 +308,14 @@
 @infoColor              : #31CCEC;
 @infoBackgroundColor    : #EEF9F9;
 @infoBorderColor        : #A3CFD8;
-@infoHeaderColor        : #226A80;
-@infoTextColor          : #256D84;
+@infoHeaderColor        : #0E566C;
+@infoTextColor          : #196178;
 
 /* Warning */
 @warningColor           : #F2C037;
 @warningBorderColor     : #C9BA9B;
-@warningBackgroundColor : #FFFBE8;
-@warningHeaderColor     : #7C5600;
+@warningBackgroundColor : #FDF6E0;
+@warningHeaderColor     : #794B02;
 @warningTextColor       : #715422;
 
 
