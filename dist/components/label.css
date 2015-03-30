@@ -16,8 +16,9 @@
 
 .ui.label {
   display: inline-block;
-  vertical-align: baseline;
+  white-space: nowrap;
   line-height: 1;
+  vertical-align: baseline;
   margin: 0em 0.142857em;
   background-color: #e8e8e8;
   border-color: #e8e8e8;
@@ -27,7 +28,6 @@
   text-transform: none;
   font-weight: bold;
   border-radius: 0.2857rem;
-  box-sizing: border-box;
   -webkit-transition: background 0.2s ease;
           transition: background 0.2s ease;
 }

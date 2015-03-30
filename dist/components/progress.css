@@ -106,7 +106,7 @@
 
 /* Indicating Success */
 .ui.indicating.progress.success .label {
-  color: #387139;
+  color: #1a531b;
 }
 
 
@@ -182,7 +182,7 @@
           animation: none !important;
 }
 .ui.progress.success > .label {
-  color: #387139;
+  color: #1a531b;
 }
 
 /*--------------
@@ -198,7 +198,7 @@
           animation: none !important;
 }
 .ui.progress.warning > .label {
-  color: #7c5600;
+  color: #794b02;
 }
 
 /*--------------

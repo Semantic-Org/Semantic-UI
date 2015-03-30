@@ -30,9 +30,9 @@
 .ui.input input {
   margin: 0em;
   -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  -webkit-flex: 1 0 auto;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
   outline: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   text-align: left;
@@ -138,7 +138,7 @@
 ---------------------*/
 
 .ui.input.error input {
-  background-color: #e0b4b4;
+  background-color: #fff0f0;
   border-color: #e0b4b4;
   color: #d95c5c;
   box-shadow: none;
@@ -265,31 +265,17 @@
 
 
 /* Adjacent Label */
-.ui.labeled.input {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-}
 .ui.labeled.input > .label {
   -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-      -ms-flex-positive: 0;
-          flex-grow: 0;
+  -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
   margin: 0;
-  font-size: 1em;
+  font-size: 1rem;
 }
 .ui.labeled.input > .label:not(.corner) {
   padding-top: 0.78571em;
   padding-bottom: 0.78571em;
-}
-
-/* Fluid Labeled */
-.ui.fluid.labeled.input {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 /* Label on Left */
@@ -337,12 +323,6 @@
         Action
 ---------------------*/
 
-.ui.action.input {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-}
 .ui.action.input > .button,
 .ui.action.input > .buttons {
   display: -webkit-box;
@@ -354,23 +334,15 @@
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-      -ms-flex-positive: 0;
-          flex-grow: 0;
+  -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
 }
 .ui.action.input > .button,
 .ui.action.input > .buttons > .button {
   padding-top: 0.78571em;
   padding-bottom: 0.78571em;
   margin: 0;
-}
-
-/* Fluid */
-.ui.fluid.action.input {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 /* Button on Right */
@@ -412,7 +384,10 @@
 ---------------------*/
 
 .ui.fluid.input {
-  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 /*--------------------

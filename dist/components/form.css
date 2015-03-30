@@ -370,7 +370,7 @@
 .ui.form .field.error input[type="time"],
 .ui.form .field.error input[type="text"],
 .ui.form .field.error input[type="url"] {
-  background: #e0b4b4;
+  background: #fff0f0;
   border-color: #e0b4b4;
   color: #973230;
   border-radius: 0.2857rem;
@@ -389,7 +389,7 @@
 .ui.form .field.error input[type="time"]:focus,
 .ui.form .field.error input[type="text"]:focus,
 .ui.form .field.error input[type="url"]:focus {
-  background: #e0b4b4;
+  background: #fff0f0;
   border-color: #e0b4b4;
   color: #973230;
   -webkit-appearance: none;
@@ -410,7 +410,7 @@
 .ui.form .field.error .ui.dropdown,
 .ui.form .field.error .ui.dropdown .text,
 .ui.form .field.error .ui.dropdown .item {
-  background: #e0b4b4;
+  background: #fff0f0;
   color: #973230;
 }
 .ui.form .fields.error .field .ui.dropdown,
@@ -457,7 +457,7 @@
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) label:before,
 .ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) .box:before,
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) .box:before {
-  background: #e0b4b4;
+  background: #fff0f0;
   border-color: #e0b4b4;
 }
 .ui.form .fields.error .field .checkbox label:after,

@@ -764,7 +764,7 @@ select.ui.dropdown {
   color: #973230;
 }
 .ui.selection.dropdown.error {
-  background: #e0b4b4;
+  background: #fff0f0;
   border-color: #e0b4b4;
 }
 .ui.selection.dropdown.error:hover {
@@ -778,7 +778,7 @@ select.ui.dropdown {
   color: #973230;
 }
 .ui.multiple.selection.error.dropdown > .label {
-  background: #e0b4b4;
+  background: #fff0f0;
   border-color: #e0b4b4;
 }
 
