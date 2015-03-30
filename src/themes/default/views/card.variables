@@ -74,7 +74,7 @@
 @headerColor: @darkTextColor;
 
 /* Metadata */
-@metaFontSize: 0.9em;
+@metaFontSize: @relativeSmall;
 @metaSpacing: 0.3em;
 @metaColor: @lightTextColor;
 

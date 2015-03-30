@@ -68,10 +68,11 @@
 /* Header */
 @headerMargin: -@lineHeightOffset 0em 0em;
 @headerFontWeight: bold;
-@headerFontSize: 1.2em;
+@headerFontSize: @relativeBig;
 @headerColor: @darkTextColor;
 
 /* Metadata */
+@metaMargin: 0.5em 0em 0.5em;
 @metaFontSize: 1em;
 @metaLineHeight: 1em;
 @metaSpacing: 0.3em;
@@ -100,9 +101,9 @@
 
 /* Description */
 @descriptionDistance: 0.6em;
-@descriptionMaxWidth: 550px;
+@descriptionMaxWidth: auto;
 @descriptionFontSize: 1em;
-@descriptionLineHeight: 1.33;
+@descriptionLineHeight: @lineHeight;
 @descriptionColor: @textColor;
 
 /* Content Image */
