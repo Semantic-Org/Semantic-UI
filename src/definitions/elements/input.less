@@ -35,7 +35,7 @@
 }
 .ui.input input {
   margin: 0em;
-  flex-grow: 1;
+  flex: 1 0 auto;
   outline: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   text-align: @textAlign;
@@ -276,22 +276,14 @@
 ---------------------*/
 
 /* Adjacent Label */
-.ui.labeled.input {
-  display: inline-flex;
-}
 .ui.labeled.input > .label {
-  flex-grow: 0;
+  flex: 0 0 auto;
   margin: 0;
-  font-size: 1em;
+  font-size: @medium;
 }
 .ui.labeled.input > .label:not(.corner) {
   padding-top: @verticalPadding;
   padding-bottom: @verticalPadding;
-}
-
-/* Fluid Labeled */
-.ui.fluid.labeled.input {
-  display: flex;
 }
 
 /* Label on Left */
@@ -340,26 +332,17 @@
         Action
 ---------------------*/
 
-.ui.action.input {
-  display: inline-flex;
-}
-
 .ui.action.input > .button,
 .ui.action.input > .buttons {
   display: flex;
   align-items: center;
-  flex-grow: 0;
+  flex: 0 0 auto;
 }
 .ui.action.input > .button,
 .ui.action.input > .buttons > .button {
   padding-top: @verticalPadding;
   padding-bottom: @verticalPadding;
   margin: 0;
-}
-
-/* Fluid */
-.ui.fluid.action.input {
-  display: flex;
 }
 
 /* Button on Right */
@@ -395,13 +378,12 @@
   border: none;
 }
 
-
 /*--------------------
         Fluid
 ---------------------*/
 
 .ui.fluid.input {
-  display: block;
+  display: flex;
 }
 
 /*--------------------
