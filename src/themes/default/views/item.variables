@@ -10,7 +10,7 @@
 @groupMargin: 1.5em 0em;
 
 /* Item */
-@display: table;
+@display: flex;
 @background: transparent;
 @borderRadius: 0rem;
 @minHeight: 0px;
@@ -40,7 +40,7 @@
 --------------------*/
 
 /* Image */
-@imageDisplay: table-cell;
+@imageDisplay: block;
 @imageFloat: none;
 @imageMaxHeight: '';
 @imageVerticalAlign: top;
@@ -52,10 +52,10 @@
 @imageBorder: none;
 
 /* Content */
-@contentDisplay: table-cell;
+@contentDisplay: block;
 @contentVerticalAlign: top;
 
-@contentWidth: 100%;
+@contentWidth: auto;
 @contentOffset: 0em;
 @contentBackground: none;
 @contentMargin: 0em;
