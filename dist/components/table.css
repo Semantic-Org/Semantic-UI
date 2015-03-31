@@ -302,17 +302,17 @@
 
 .ui.table tr.positive,
 .ui.table td.positive {
-  box-shadow: 0px 0px 0px #b7caa7 inset;
+  box-shadow: 0px 0px 0px #b4d3a4 inset;
 }
 .ui.table tr.positive td,
 .ui.table td.positive {
-  background: #eeffe7 !important;
-  color: #3c763d !important;
+  background: #f3ffec !important;
+  color: #255f26 !important;
 }
 .ui.celled.table tr.positive:hover td,
 .ui.celled.table tr:hover td.positive {
-  background: #e3ffd8 !important;
-  color: #376c38 !important;
+  background: #e9ffdd !important;
+  color: #215422 !important;
 }
 
 /*--------------
@@ -321,17 +321,17 @@
 
 .ui.table tr.negative,
 .ui.table td.negative {
-  box-shadow: 0px 0px 0px #dbb1b1 inset;
+  box-shadow: 0px 0px 0px #e0b4b4 inset;
 }
 .ui.table tr.negative td,
 .ui.table td.negative {
   background: #fff0f0 !important;
-  color: #a94442 !important;
+  color: #973230 !important;
 }
 .ui.celled.table tr.negative:hover td,
 .ui.celled.table tr:hover td.negative {
   background: #ffe1e1 !important;
-  color: #9e403e !important;
+  color: #8b2e2c !important;
 }
 
 /*--------------
@@ -340,17 +340,17 @@
 
 .ui.table tr.error,
 .ui.table td.error {
-  box-shadow: 0px 0px 0px #dbb1b1 inset;
+  box-shadow: 0px 0px 0px #e0b4b4 inset;
 }
 .ui.table tr.error td,
 .ui.table td.error {
   background: #fff0f0 !important;
-  color: #a94442 !important;
+  color: #973230 !important;
 }
 .ui.celled.table tr.error:hover td,
 .ui.celled.table tr:hover td.error {
   background: #ffe1e1 !important;
-  color: #9e403e !important;
+  color: #8b2e2c !important;
 }
 
 /*--------------
@@ -359,17 +359,17 @@
 
 .ui.table tr.warning,
 .ui.table td.warning {
-  box-shadow: 0px 0px 0px #d9caab inset;
+  box-shadow: 0px 0px 0px #c9ba9b inset;
 }
 .ui.table tr.warning td,
 .ui.table td.warning {
-  background: #fffbe6 !important;
-  color: #876a38 !important;
+  background: #fdf6e0 !important;
+  color: #715422 !important;
 }
 .ui.celled.table tr.warning:hover td,
 .ui.celled.table tr:hover td.warning {
-  background: #fff9d7 !important;
-  color: #7c6234 !important;
+  background: #fcf2d2 !important;
+  color: #654b1e !important;
 }
 
 /*--------------
@@ -822,13 +822,13 @@
 
 /* Inverted */
 .ui.inverted.sortable.table thead th.sorted {
-  background: rgba(255, 255, 255, 0.07) -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  background: rgba(255, 255, 255, 0.07) linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: rgba(255, 255, 255, 0.15) -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: rgba(255, 255, 255, 0.15) linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   color: #ffffff;
 }
 .ui.inverted.sortable.table thead th:hover {
-  background: rgba(255, 255, 255, 0.05) -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  background: rgba(255, 255, 255, 0.05) linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: rgba(255, 255, 255, 0.08) -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: rgba(255, 255, 255, 0.08) linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   color: #ffffff;
 }
 .ui.inverted.sortable.table thead th {

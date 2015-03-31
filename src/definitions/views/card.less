@@ -435,6 +435,14 @@
         Link
 --------------------*/
 
+.ui.cards a.card,
+.ui.link.cards .card,
+a.ui.card,
+.ui.link.card {
+  transform: none;
+}
+
+
 .ui.cards a.card:hover,
 .ui.link.cards .card:hover,
 a.ui.card:hover,
@@ -444,6 +452,7 @@ a.ui.card:hover,
   background: @linkHoverBackground;
   border: @linkHoverBorder;
   box-shadow: @linkHoverBoxShadow;
+  transform: @linkHoverTransform;
 }
 
 /*-------------------
@@ -454,72 +463,81 @@ a.ui.card:hover,
 .ui.cards > .black.card,
 .ui.black.card {
   box-shadow:
-    0px @shadowDistance 0px 0px @black,
-    @borderShadow
+    @borderShadow,
+    0px @coloredShadowDistance 0px 0px @black,
+    @shadowBoxShadow
   ;
 }
 .ui.blue.cards > .card,
 .ui.cards > .blue.card,
 .ui.blue.card {
    box-shadow:
-    0px @shadowDistance 0px 0px @blue,
-    @borderShadow
+    @borderShadow,
+    0px @coloredShadowDistance 0px 0px @blue,
+    @shadowBoxShadow
   ;
 }
 .ui.green.cards > .card,
 .ui.cards > .green.card,
 .ui.green.card {
     box-shadow:
-      0px @shadowDistance 0px 0px @green,
-      @borderShadow
+      @borderShadow,
+      0px @coloredShadowDistance 0px 0px @green,
+      @shadowBoxShadow
     ;
 }
 .ui.orange.cards > .card,
 .ui.cards > .orange.card,
 .ui.orange.card {
   box-shadow:
-    0px @shadowDistance 0px 0px @orange,
-    @borderShadow
+    @borderShadow,
+    0px @coloredShadowDistance 0px 0px @orange,
+    @shadowBoxShadow
   ;
 }
 .ui.pink.cards > .card,
 .ui.cards > .pink.card,
 .ui.pink.card {
   box-shadow:
-    0px @shadowDistance 0px 0px @pink,
-    @borderShadow
+    @borderShadow,
+    0px @coloredShadowDistance 0px 0px @pink,
+    @shadowBoxShadow
   ;
 }
 .ui.purple.cards > .card,
 .ui.cards > .purple.card,
 .ui.purple.card {
   box-shadow:
-    0px @shadowDistance 0px 0px @purple,
-    @borderShadow
+    @borderShadow,
+    0px @coloredShadowDistance 0px 0px @purple,
+    @shadowBoxShadow
   ;
 }
 .ui.red.cards > .card,
 .ui.cards > .red.card,
 .ui.red.card {
   box-shadow:
-    0px @shadowDistance 0px 0px @red,
-    @borderShadow
+    @borderShadow,
+    0px @coloredShadowDistance 0px 0px @red,
+    @shadowBoxShadow
   ;
 }
 .ui.teal.cards > .card,
 .ui.cards > .teal.card,
 .ui.teal.card {
   box-shadow:
-    0px @shadowDistance 0px 0px @teal,
-    @borderShadow
+    @borderShadow,
+    0px @coloredShadowDistance 0px 0px @teal,
+    @shadowBoxShadow
   ;
 }
 .ui.yellow.cards > .card,
 .ui.cards > .yellow.card,
 .ui.yellow.card {
   box-shadow:
-    0px @shadowDistance 0px 0px @yellow,
-    @borderShadow
+    @borderShadow,
+    0px @coloredShadowDistance 0px 0px @yellow,
+    @shadowBoxShadow
   ;
 }
 
@@ -528,72 +546,81 @@ a.ui.card:hover,
 .ui.cards > .black.card:hover,
 .ui.black.card:hover {
   box-shadow:
-    0px @shadowDistance 0px 0px @blackHover,
-    @borderShadow
+    @borderShadow,
+    0px @coloredShadowDistance 0px 0px @blackHover,
+    @shadowHoverBoxShadow
   ;
 }
 .ui.blue.cards > .card:hover,
 .ui.cards > .blue.card:hover,
 .ui.blue.card:hover {
    box-shadow:
-    0px @shadowDistance 0px 0px @blueHover,
-    @borderShadow
+    @borderShadow,
+    0px @coloredShadowDistance 0px 0px @blueHover,
+    @shadowHoverBoxShadow
   ;
 }
 .ui.green.cards > .card:hover,
 .ui.cards > .green.card:hover,
 .ui.green.card:hover {
     box-shadow:
-      0px @shadowDistance 0px 0px @greenHover,
-      @borderShadow
+      @borderShadow,
+      0px @coloredShadowDistance 0px 0px @greenHover,
+      @shadowHoverBoxShadow
     ;
 }
 .ui.orange.cards > .card:hover,
 .ui.cards > .orange.card:hover,
 .ui.orange.card:hover {
   box-shadow:
-    0px @shadowDistance 0px 0px @orangeHover,
-    @borderShadow
+    @borderShadow,
+    0px @coloredShadowDistance 0px 0px @orangeHover,
+    @shadowHoverBoxShadow
   ;
 }
 .ui.pink.cards > .card:hover,
 .ui.cards > .pink.card:hover,
 .ui.pink.card:hover {
   box-shadow:
-    0px @shadowDistance 0px 0px @pinkHover,
-    @borderShadow
+    @borderShadow,
+    0px @coloredShadowDistance 0px 0px @pinkHover,
+    @shadowHoverBoxShadow
   ;
 }
 .ui.purple.cards > .card:hover,
 .ui.cards > .purple.card:hover,
 .ui.purple.card:hover {
   box-shadow:
-    0px @shadowDistance 0px 0px @purpleHover,
-    @borderShadow
+    @borderShadow,
+    0px @coloredShadowDistance 0px 0px @purpleHover,
+    @shadowHoverBoxShadow
   ;
 }
 .ui.red.cards > .card:hover,
 .ui.cards > .red.card:hover,
 .ui.red.card:hover {
   box-shadow:
-    0px @shadowDistance 0px 0px @redHover,
-    @borderShadow
+    @borderShadow,
+    0px @coloredShadowDistance 0px 0px @redHover,
+    @shadowHoverBoxShadow
   ;
 }
 .ui.teal.cards > .card:hover,
 .ui.cards > .teal.card:hover,
 .ui.teal.card:hover {
   box-shadow:
-    0px @shadowDistance 0px 0px @tealHover,
-    @borderShadow
+    @borderShadow,
+    0px @coloredShadowDistance 0px 0px @tealHover,
+    @shadowHoverBoxShadow
   ;
 }
 .ui.yellow.cards > .card:hover,
 .ui.cards > .yellow.card:hover,
 .ui.yellow.card:hover {
   box-shadow:
-    0px @shadowDistance 0px 0px @yellowHover,
-    @borderShadow
+    @borderShadow,
+    0px @coloredShadowDistance 0px 0px @yellowHover,
+    @shadowHoverBoxShadow
   ;
 }
 

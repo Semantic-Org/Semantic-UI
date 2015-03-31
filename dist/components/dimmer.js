@@ -603,7 +603,7 @@ $.fn.dimmer.settings = {
   namespace   : 'dimmer',
 
   debug       : false,
-  verbose     : true,
+  verbose     : false,
   performance : true,
 
   // name to distinguish between multiple dimmers in context

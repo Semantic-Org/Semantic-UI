@@ -1091,7 +1091,7 @@ $.fn.popup.settings = {
 
   // module settings
   debug        : false,
-  verbose      : true,
+  verbose      : false,
   performance  : true,
   namespace    : 'popup',
 

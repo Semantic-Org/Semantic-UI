@@ -11,10 +11,10 @@
 @verticalAlign: middle;
 
 @dividerSpacing: 0.5rem;
-@dividerOpacity: 0.5;
+@dividerOpacity: 0.7;
 @dividerColor: @lightTextColor;
 
-@dividerSize: 0.9em;
+@dividerSize: @relativeSmall;
 @dividerVerticalAlign: baseline;
 
 @iconDividerSize: @relativeTiny;
@@ -24,7 +24,7 @@
 @sectionPadding: 0em;
 
 /* Coupling */
-@segmentPadding: 0.5em 1em;
+@segmentPadding: @relativeMini @relativeMedium;
 
 /*-------------------
        States

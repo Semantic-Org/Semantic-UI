@@ -183,8 +183,8 @@
 @strongTransparentBlack : rgba(0, 0, 0, 0.10);
 
 @subtleTransparentWhite : rgba(255, 255, 255, 0.02);
-@transparentWhite       : rgba(255, 255, 255, 0.05);
-@strongTransparentWhite : rgba(255, 255, 255, 0.07);
+@transparentWhite       : rgba(255, 255, 255, 0.08);
+@strongTransparentWhite : rgba(255, 255, 255, 0.15);
 
 /*-------------------
        Accents
@@ -249,6 +249,7 @@
 --------------------*/
 
 @defaultEasing: ease;
+@defaultDuration: 0.2s;
 
 /*-------------------
      All Colors
@@ -256,12 +257,12 @@
 
 /*--- Colored Backgrounds ---*/
 @blueBackground   : #DFF0FF;
-@greenBackground  : #EBFFED;
+@greenBackground  : #E5F9E7;
 @orangeBackground : #FFEDDE;
 @pinkBackground   : #FFE3FB;
 @purpleBackground : #EAE7FF;
 @redBackground    : #FFE8E6;
-@tealBackground   : #E9FFFF;
+@tealBackground   : #E1F7F7;
 @yellowBackground : #FFF8DB;
 
 /*--- Colored Text ---*/
@@ -291,31 +292,31 @@
 
 /* Positive */
 @positiveColor           : @green;
-@positiveBackgroundColor : #EEFFE7;
-@positiveBorderColor     : #B7CAA7;
-@positiveHeaderColor     : #356E36;
-@positiveTextColor       : #3C763D;
+@positiveBackgroundColor : #F3FFEC;
+@positiveBorderColor     : #B4D3A4;
+@positiveHeaderColor     : #1A531B;
+@positiveTextColor       : #255F26;
 
 /* Negative */
 @negativeColor           : @red;
 @negativeBackgroundColor : #FFF0F0;
-@negativeBorderColor     : #DBB1B1;
+@negativeBorderColor     : #E0B4B4;
 @negativeHeaderColor     : #912D2B;
-@negativeTextColor       : #A94442;
+@negativeTextColor       : #973230;
 
 /* Info */
 @infoColor              : #31CCEC;
-@infoBackgroundColor    : #E9FAFF;
-@infoBorderColor        : #AAD6DF;
-@infoHeaderColor        : #297187;
-@infoTextColor          : #337B92;
+@infoBackgroundColor    : #EEF9F9;
+@infoBorderColor        : #A3CFD8;
+@infoHeaderColor        : #0E566C;
+@infoTextColor          : #196178;
 
 /* Warning */
 @warningColor           : #F2C037;
-@warningBorderColor     : #D9CAAB;
-@warningBackgroundColor : #FFFBE6;
-@warningHeaderColor     : #825C01;
-@warningTextColor       : #876A38;
+@warningBorderColor     : #C9BA9B;
+@warningBackgroundColor : #FDF6E0;
+@warningHeaderColor     : #794B02;
+@warningTextColor       : #715422;
 
 
 /*-------------------

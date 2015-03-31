@@ -108,7 +108,7 @@ module.exports = function(callback) {
       if(isConfig) {
         console.info('Rebuilding all UI');
         // impossible to tell which file was updated in theme.config, rebuild all
-        gulp.start('build');
+        gulp.start('build-css');
         return;
       }
       else if(isPackagedTheme) {

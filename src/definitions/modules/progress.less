@@ -43,63 +43,63 @@
 }
 
 /* Indicating */
-.ui.indicating.progress .bar[style*="width: 1"],
-.ui.indicating.progress .bar[style*="width: 2"] {
+.ui.indicating.progress[data-percent^="1"] .bar,
+.ui.indicating.progress[data-percent^="2"] .bar {
   background-color: @indicatingFirstColor;
 }
-.ui.indicating.progress .bar[style*="width: 3"] {
+.ui.indicating.progress[data-percent^="3"] .bar {
   background-color: @indicatingSecondColor;
 }
-.ui.indicating.progress .bar[style*="width: 4"],
-.ui.indicating.progress .bar[style*="width: 5"] {
+.ui.indicating.progress[data-percent^="4"] .bar,
+.ui.indicating.progress[data-percent^="5"] .bar {
   background-color: @indicatingThirdColor;
 }
-.ui.indicating.progress .bar[style*="width: 6"] {
+.ui.indicating.progress[data-percent^="6"] .bar {
   background-color: @indicatingFourthColor;
 }
-.ui.indicating.progress .bar[style*="width: 7"],
-.ui.indicating.progress .bar[style*="width: 8"] {
+.ui.indicating.progress[data-percent^="7"] .bar,
+.ui.indicating.progress[data-percent^="8"] .bar {
   background-color: @indicatingFifthColor;
 }
-.ui.indicating.progress .bar[style*="width: 9"],
-.ui.indicating.progress .bar[style*="width: 100"] {
+.ui.indicating.progress[data-percent^="9"] .bar,
+.ui.indicating.progress[data-percent^="100"] .bar {
   background-color: @indicatingSixthColor;
 }
 
 /* Indicating Label */
 .ui.indicating.progress[data-percent^="1"] .label,
 .ui.indicating.progress[data-percent^="2"] .label {
-  color: @indicatingFirstColor;
+  color: @indicatingFirstLabelColor;
 }
 .ui.indicating.progress[data-percent^="3"] .label {
-  color: @indicatingSecondColor;
+  color: @indicatingSecondLabelColor;
 }
 .ui.indicating.progress[data-percent^="4"] .label,
 .ui.indicating.progress[data-percent^="5"] .label {
-  color: @indicatingThirdColor;
+  color: @indicatingThirdLabelColor;
 }
 .ui.indicating.progress[data-percent^="6"] .label {
-  color: @indicatingFourthColor;
+  color: @indicatingFourthLabelColor;
 }
 .ui.indicating.progress[data-percent^="7"] .label,
 .ui.indicating.progress[data-percent^="8"] .label {
-  color: @indicatingFifthColor;
+  color: @indicatingFifthLabelColor;
 }
 .ui.indicating.progress[data-percent^="9"] .label,
 .ui.indicating.progress[data-percent^="100"] .label {
-  color: @indicatingSixthColor;
+  color: @indicatingSixthLabelColor;
 }
 
 /* Single Digits */
-.ui.indicating.progress .bar[style^="width: 1%"],
-.ui.indicating.progress .bar[style^="width: 2%"],
-.ui.indicating.progress .bar[style^="width: 3%"],
-.ui.indicating.progress .bar[style^="width: 4%"],
-.ui.indicating.progress .bar[style^="width: 5%"],
-.ui.indicating.progress .bar[style^="width: 6%"],
-.ui.indicating.progress .bar[style^="width: 7%"],
-.ui.indicating.progress .bar[style^="width: 8%"],
-.ui.indicating.progress .bar[style^="width: 9%"] {
+.ui.indicating.progress[data-percent="1"] .bar,
+.ui.indicating.progress[data-percent="2"] .bar,
+.ui.indicating.progress[data-percent="3"] .bar,
+.ui.indicating.progress[data-percent="4"] .bar,
+.ui.indicating.progress[data-percent="5"] .bar,
+.ui.indicating.progress[data-percent="6"] .bar,
+.ui.indicating.progress[data-percent="7"] .bar,
+.ui.indicating.progress[data-percent="8"] .bar,
+.ui.indicating.progress[data-percent="9"] .bar {
   background-color: @indicatingFirstColor;
 }
 .ui.indicating.progress[data-percent="1"] .label,
@@ -111,7 +111,7 @@
 .ui.indicating.progress[data-percent="7"] .label,
 .ui.indicating.progress[data-percent="8"] .label,
 .ui.indicating.progress[data-percent="9"] .label {
-  color: @indicatingFirstColor;
+  color: @indicatingFirstLabelColor;
 }
 
 /* Indicating Success */
