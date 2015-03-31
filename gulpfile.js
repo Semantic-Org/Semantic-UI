@@ -8,15 +8,18 @@ var
   // read user config to know what task to load
   config       = require('./tasks/config/user'),
 
-  // import tasks
+  // watch for file changes and build
+  watch        = require('./tasks/watch'),
+
+  // build all files
   build        = require('./tasks/build'),
   buildJS      = require('./tasks/build/javascript'),
   buildCSS     = require('./tasks/build/css'),
   buildAssets  = require('./tasks/build/assets'),
 
+  // utility tasks
   clean        = require('./tasks/clean'),
   version      = require('./tasks/version'),
-  watch        = require('./tasks/watch'),
 
   // install tasks
   install      = require('./tasks/install'),

@@ -8,19 +8,18 @@ var
   // read user config to know what task to load
   config       = require('./tasks/config/user'),
 
-  // import tasks
+  // watch changes
+  watch        = require('./tasks/watch'),
+
+  // build all files
   build        = require('./tasks/build'),
   buildJS      = require('./tasks/build/javascript'),
   buildCSS     = require('./tasks/build/css'),
   buildAssets  = require('./tasks/build/assets'),
 
+  // utility
   clean        = require('./tasks/clean'),
   version      = require('./tasks/version'),
-  watch        = require('./tasks/watch'),
-
-  // install tasks
-  install      = require('./tasks/install'),
-  checkInstall = require('./tasks/check-install'),
 
   // docs tasks
   serveDocs    = require('./tasks/docs/serve'),
@@ -37,7 +36,7 @@ var
 *******************************/
 
 gulp.task('default', false, [
-  'check-install'
+  'watch'
 ]);
 
 gulp.task('watch', 'Watch for site/theme changes', watch);
@@ -49,9 +48,6 @@ gulp.task('build-assets', 'Copies all assets from source', buildAssets);
 
 gulp.task('clean', 'Clean dist folder', clean);
 gulp.task('version', 'Displays current version of Semantic', version);
-
-gulp.task('install', 'Runs set-up', install);
-gulp.task('check-install', 'Displays current version of Semantic', checkInstall);
 
 /*--------------
       Docs
