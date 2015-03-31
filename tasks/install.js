@@ -117,8 +117,6 @@ module.exports = function () {
           .pipe(plumber())
           .pipe(gulp.dest(updateFolder))
         ;
-        console.info(source.userGulpFile);
-        console.info(updateFolder);
 
         // copy theme import
         console.info('Updating theme import file');
