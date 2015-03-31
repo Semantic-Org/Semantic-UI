@@ -71,18 +71,17 @@ $.fn.search = function(parameters) {
               .attr('autocomplete', 'off')
             ;
           }
-          $prompt
-            .on('focus' + eventNamespace, module.event.focus)
-            .on('blur' + eventNamespace, module.event.blur)
-            .on('keydown' + eventNamespace, module.handleKeyboard)
-          ;
-          $searchButton
-            .on('click' + eventNamespace, module.query)
-          ;
-          $results
-            .on('mousedown' + eventNamespace, module.event.result.mousedown)
-            .on('mouseup' + eventNamespace, module.event.result.mouseup)
-            .on('click' + eventNamespace, selector.result, module.event.result.click)
+          $module
+            // prompt
+            .on('focus' + eventNamespace, selector.prompt, module.event.focus)
+            .on('blur' + eventNamespace, selector.prompt, module.event.blur)
+            .on('keydown' + eventNamespace, selector.prompt, module.handleKeyboard)
+            // search button
+            .on('click' + eventNamespace, selector.searchButton, module.query)
+            // results
+            .on('mousedown' + eventNamespace, selector.results, module.event.result.mousedown)
+            .on('mouseup' + eventNamespace, selector.results, module.event.result.mouseup)
+            .on('click' + eventNamespace, selector.results, selector.result, module.event.result.click)
           ;
           module.instantiate();
         },
@@ -96,16 +95,8 @@ $.fn.search = function(parameters) {
         destroy: function() {
           module.verbose('Destroying instance');
           $module
+            .off(eventNamespace)
             .removeData(moduleNamespace)
-          ;
-          $prompt
-            .off(eventNamespace)
-          ;
-          $searchButton
-            .off(eventNamespace)
-          ;
-          $results
-            .off(eventNamespace)
           ;
         },
         event: {
