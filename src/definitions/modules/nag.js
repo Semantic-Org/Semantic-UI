@@ -76,10 +76,8 @@ $.fn.nag = function(parameters) {
           module.verbose('Initializing element');
 
           $module
+            .on('click' + eventNamespace, selector.close, module.dismiss)
             .data(moduleNamespace, module)
-          ;
-          $close
-            .on('click' + eventNamespace, module.dismiss)
           ;
 
           if(settings.detachable && $module.parent()[0] !== $context[0]) {
