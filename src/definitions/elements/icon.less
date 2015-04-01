@@ -314,27 +314,75 @@ i.inverted.circular.yellow.icon {
         Sizes
 --------------------*/
 
-i.small.icon {
+i.small.icon,
+i.small.icons {
   font-size: @small;
 }
-i.icon {
+i.icon,
+i.icons {
   font-size: @medium;
 }
-i.large.icon {
+i.large.icon,
+i.large.icons {
   font-size: @large;
   vertical-align: middle;
 }
-i.big.icon {
+i.big.icon,
+i.big.icons {
   font-size: @big;
   vertical-align: middle;
 }
-i.huge.icon {
+i.huge.icon,
+i.huge.icons {
   font-size: @huge;
   vertical-align: middle;
 }
-i.massive.icon {
+i.massive.icon,
+i.massive.icons {
   font-size: @massive;
   vertical-align: middle;
+}
+
+/*******************************
+            Groups
+*******************************/
+
+i.icons {
+  display: inline-block;
+  position: relative;
+}
+
+i.icons .icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  margin: 0em;
+  margin: 0;
+}
+
+i.icons .icon:first-child {
+  position: static;
+  width: auto;
+  height: auto;
+  vertical-align: top;
+  transform: none;
+  margin-right: @distanceFromText;
+}
+
+/* Corner Icon */
+i.icons .corner.icon {
+  top: auto;
+  left: auto;
+  right: 0;
+  bottom: 0;
+  transform: none;
+  font-size: @cornerIconSize;
+  text-shadow: @cornerIconShadow;
+}
+
+i.icons .inverted.corner.icon {
+  text-shadow: @cornerIconInvertedShadow;
 }
 
 .loadUIOverrides();
