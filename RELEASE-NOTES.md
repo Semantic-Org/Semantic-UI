@@ -11,9 +11,10 @@
 - **Dimmer** - Dimmers now have a `blurring` variation which apply a glass-like effect when dimmed
 
 **Major Changes**
+- **Colors** - Global colors defaults have been adjusted to improve contrast with white text
 - **Menu** - Menu now uses flexbox. This allows menu items to match each others heights regardless of each items content size. `right menu` content should now follow other menu content instead of preceding it (no longer uses float).
 - **Grid** - grids are now all `equal height` by default, the `equal height` variation can safely be removed
-- **Transition** - Fallback javascript animations have been removed from some UI components like dropdown to reduce redundant code and file.
+- **Transition** - Fallback javascript animations have been removed from some UI components like dropdown to reduce redundant code and filesizes.
 - **Form Validation** - Form validation now uses a single `settings` object like other modules. Using `(fields, settings)` will continue to work but will produce a deprecation notifications in `console`
 - **Form Validation** - Form validation now supports several validation for multiple
 - **Item** - Item now uses `flexbox` for layout

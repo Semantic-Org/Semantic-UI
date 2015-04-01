@@ -41,12 +41,12 @@
 ;
 
 /* Icon */
-@iconHeight: 0.9em;
+@iconHeight: @relativeSmall;
 @iconOpacity: 0.8;
-@iconDistance: 0.4em;
+@iconDistance: 0.4285em;
 @iconColor: '';
 @iconTransition: opacity @transitionDuration @transitionEasing;
-@iconVerticalAlign: baseline;
+@iconVerticalAlign: '';
 
 @iconMargin: 0em @iconDistance 0em -(@iconDistance / 2);
 @rightIconMargin: 0em -(@iconDistance / 2) 0em @iconDistance;
