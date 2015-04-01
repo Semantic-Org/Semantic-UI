@@ -19,7 +19,7 @@
 @googleFontRequest : '@{googleFontName}:@{googleFontSizes}&subset=@{googleSubset}';
 
 /*-------------------
-      Base Sizes
+      Base Sizes0.
 --------------------*/
 
 @emSize   : 14px;
@@ -44,18 +44,18 @@
 
 /*---  Colors  ---*/
 @black            : #1B1C1D;
-@blue             : #3B83C0;
-@green            : #5BBD72;
+@blue             : #1D75B7;
+@green            : #1EAF40;
 @grey             : #CCCCCC;
-@orange           : #E07B53;
-@pink             : #D9499A;
-@purple           : #564F8A;
-@red              : #D95C5C;
-@teal             : #00B5AD;
-@yellow           : #F2C61F;
+@orange           : #F2711C;
+@pink             : #E03997;
+@purple           : #6A33C8;
+@red              : #DB2828;
+@teal             : #18B5A4;
+@yellow           : #FBBD08;
 
 /*---  Light Colors  ---*/
-@lightBlack       : #333333;
+@lightBlack       : #545454;
 @lightBlue        : #54C8FF;
 @lightGreen       : #2ECC40;
 @lightOrange      : #FF851B;
@@ -314,7 +314,7 @@
 /* Warning */
 @warningColor           : #F2C037;
 @warningBorderColor     : #C9BA9B;
-@warningBackgroundColor : #FDF6E0;
+@warningBackgroundColor : #FFF8E2;
 @warningHeaderColor     : #794B02;
 @warningTextColor       : #715422;
 
@@ -344,9 +344,9 @@
      Brand Colors
 --------------------*/
 
-@facebookColor   : #3B579D;
-@twitterColor    : #4092CC;
-@googlePlusColor : #D34836;
+@facebookColor   : #3B5998;
+@twitterColor    : #0084B4;
+@googlePlusColor : #DC4A38;
 @linkedInColor   : #1F88BE;
 @youtubeColor    : #CC181E;
 @instagramColor  : #49769C;
