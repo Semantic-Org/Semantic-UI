@@ -171,7 +171,7 @@
 @selectionWidescreenMaxItems: 8;
 
 /* Derived */
-@selectedBorderEMWidth: 0.14285em; /* 2px / em size */
+@selectedBorderEMWidth: 0.1em; /* 1px / em size */
 @selectionItemHeight: (@selectionItemVerticalPadding * 2) + @itemLineHeight + @selectedBorderEMWidth;
 @selectionMobileMaxMenuHeight: (@selectionItemHeight * @selectionMobileMaxItems);
 @selectionTabletMaxMenuHeight: (@selectionItemHeight * @selectionTabletMaxItems);
