@@ -15,15 +15,15 @@
    Packaged Theme
 -------------------*/
 
-@import "@{themesFolder}/@{site}/globals/site.variables";
-@import "@{themesFolder}/@{theme}/@{type}s/@{element}.variables";
+@import (optional) "@{themesFolder}/@{site}/globals/site.variables";
+@import (optional) "@{themesFolder}/@{theme}/@{type}s/@{element}.variables";
 
 /*------------------
      Site Theme
 -------------------*/
 
-@import "@{siteFolder}/globals/site.variables";
-@import "@{siteFolder}/@{type}s/@{element}.variables";
+@import (optional) "@{siteFolder}/globals/site.variables";
+@import (optional) "@{siteFolder}/@{type}s/@{element}.variables";
 
 
 /*******************************
@@ -43,6 +43,6 @@
 -------------------*/
 
 .loadUIOverrides() {
-  @import "@{themesFolder}/@{theme}/@{type}s/@{element}.overrides";
-  @import "@{siteFolder}/@{type}s/@{element}.overrides";
+  @import (optional) "@{themesFolder}/@{theme}/@{type}s/@{element}.overrides";
+  @import (optional) "@{siteFolder}/@{type}s/@{element}.overrides";
 }
