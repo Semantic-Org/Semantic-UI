@@ -180,7 +180,7 @@
 
 /* Hover */
 @selectionHoverBorderColor: @selectedBorderColor;
-@selectionHoverBoxShadow: @raisedShadow;
+@selectionHoverBoxShadow: none;
 
 /* Visible */
 @selectionVisibleTextFontWeight: normal;
