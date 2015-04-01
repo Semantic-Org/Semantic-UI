@@ -12,6 +12,8 @@
 ;
 @borderRadius: @defaultBorderRadius;
 
+@raisedShadow: 0px 2px 3px 0px @borderColor;
+
 /*-------------------
        Content
 --------------------*/
@@ -34,7 +36,7 @@
 @menuBorderWidth: 1px;
 @menuBorderColor: @borderColor;
 @menuBorder: @menuBorderWidth solid @menuBorderColor;
-@menuBoxShadow: 0px 1px 4px 0px @borderColor;
+@menuBoxShadow: @raisedShadow;
 @menuBorderRadius: 0em 0em @borderRadius @borderRadius;
 @menuTransition: opacity 0.2s ease;
 @menuMinWidth: ~"calc(100% + "(@menuBorderWidth * 2)~")";
@@ -145,7 +147,7 @@
 @selectionIconPadding: @selectionIconHitbox;
 @selectionIconTransition: opacity 0.2s ease;
 
-@selectionMenuBoxShadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
+@selectionMenuBoxShadow: @raisedShadow;
 @selectionMenuItemBoxShadow: none;
 
 @selectionItemHorizontalPadding: @itemHorizontalPadding;
@@ -154,12 +156,12 @@
 
 @selectionTransition:
   @transition,
-  box-shadow 0.2s @defaultEasing,
-  border 0.2s @defaultEasing
+  box-shadow @defaultDuration @defaultEasing,
+  border @defaultDuration @defaultEasing
 ;
 @selectionMenuTransition:
-  box-shadow 0.2s @defaultEasing,
-  border 0.2s @defaultEasing
+  box-shadow @defaultDuration @defaultEasing,
+  border @defaultDuration @defaultEasing
 ;
 
 /* Responsive */
@@ -178,15 +180,15 @@
 
 /* Hover */
 @selectionHoverBorderColor: @selectedBorderColor;
-@selectionHoverBoxShadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.05);
+@selectionHoverBoxShadow: @raisedShadow;
 
 /* Visible */
 @selectionVisibleTextFontWeight: normal;
 @selectionVisibleTextColor: @hoveredTextColor;
 
 @selectionVisibleBorderColor: @selectedBorderColor;
-@selectionVisibleBoxShadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
-@selectionVisibleMenuBoxShadow: 0px 2px 6px 0px @borderColor;
+@selectionVisibleBoxShadow: @raisedShadow;
+@selectionVisibleMenuBoxShadow: @raisedShadow;
 
 /* Visible Hover */
 @selectionVisibleHoverBorderColor: @selectedBorderColor;
@@ -306,7 +308,7 @@
 @leftMenuDropdownIconMargin: @itemLineHeightOffset @itemElementDistance 0em 0em;
 
 /* Simple */
-@simpleTransitionDuration: 0.2s;
+@simpleTransitionDuration: @defaultDuration;
 @simpleTransition: opacity @simpleTransitionDuration @defaultEasing;
 
 /* Floating */
