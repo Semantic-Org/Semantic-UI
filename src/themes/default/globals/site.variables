@@ -306,7 +306,7 @@
 
 /* Info */
 @infoColor              : #31CCEC;
-@infoBackgroundColor    : #EEF9F9;
+@infoBackgroundColor    : #F1FCFC;
 @infoBorderColor        : #A3CFD8;
 @infoHeaderColor        : #0E566C;
 @infoTextColor          : #196178;
@@ -360,6 +360,7 @@
 @circularRadius                : 500rem;
 
 @borderColor                   : rgba(34, 36, 38, 0.15);
+@internalBorderColor           : rgba(34, 36, 38, 0.1);
 @selectedBorderColor           : rgba(34, 36, 38, 0.3);
 @disabledBorderColor           : rgba(34, 36, 38, 0.5);
 
