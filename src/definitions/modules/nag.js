@@ -452,8 +452,9 @@ $.fn.nag.settings = {
   value         : 'dismiss',
 
   error: {
-    noStorage : 'Neither $.cookie or store is defined. A storage solution is required for storing state',
-    method    : 'The method you called is not defined.'
+    noCookieStorage : '$.cookie is not included. A storage solution is required.',
+    noStorage       : 'Neither $.cookie or store is defined. A storage solution is required for storing state',
+    method          : 'The method you called is not defined.'
   },
 
   className     : {
