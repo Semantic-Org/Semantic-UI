@@ -19,7 +19,7 @@
 @googleFontRequest : '@{googleFontName}:@{googleFontSizes}&subset=@{googleSubset}';
 
 /*-------------------
-      Base Sizes0.
+      Base Sizes
 --------------------*/
 
 @emSize   : 14px;
