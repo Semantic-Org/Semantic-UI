@@ -22,6 +22,14 @@ function startsWith(str, prefix) {
   return str.indexOf(prefix) === 0;
 };
 
+function inArray(needle, haystack) {
+  var length = haystack.length;
+  for(var i = 0; i < length; i++) {
+      if(haystack[i] == needle) return true;
+  }
+  return false;
+}
+
 /**
  * Parses a file for metadata and stores result in data object.
  * @param {File} file - object provided by map-stream.
@@ -46,7 +54,8 @@ function parser(file, callback) {
       lines    = text.split('\n')
       filename = file.path.substring(0, file.path.length - 4),
       key      = 'server/documents',
-      position = filename.indexOf(key)
+      position = filename.indexOf(key),
+      categories
     ;
 
     // exit conditions
@@ -67,7 +76,8 @@ function parser(file, callback) {
       meta,
       line
     ;
-    for (index = 0; index < lineCount; index++) {
+
+    for(index = 0; index < lineCount; index++) {
 
       line = lines[index];
 
@@ -85,9 +95,17 @@ function parser(file, callback) {
       yaml.push(line);
     }
 
+    categories = [
+      'UI Element',
+      'UI Collection',
+      'UI View',
+      'UI Module',
+      'UI Behavior'
+    ];
+
     // Parse yaml.
     meta = YAML.parse(yaml.join('\n'));
-    if(meta && meta.category !== 'Draft' && meta.title !== undefined) {
+    if(meta && inArray(meta.category, categories) && meta.title !== undefined) {
       meta.category  = meta.type;
       meta.filename  = filename;
       meta.title     = meta.title;

@@ -66,22 +66,24 @@ $.fn.search = function(parameters) {
                 : 'keyup'
           ;
           if(settings.automatic) {
+            $module
+              .on(inputEvent + eventNamespace, selector.prompt, module.throttle)
+            ;
             $prompt
-              .on(inputEvent + eventNamespace, module.throttle)
               .attr('autocomplete', 'off')
             ;
           }
           $module
             // prompt
-            .on('focus' + eventNamespace, selector.prompt, module.event.focus)
-            .on('blur' + eventNamespace, selector.prompt, module.event.blur)
-            .on('keydown' + eventNamespace, selector.prompt, module.handleKeyboard)
+            .on('focus'     + eventNamespace, selector.prompt, module.event.focus)
+            .on('blur'      + eventNamespace, selector.prompt, module.event.blur)
+            .on('keydown'   + eventNamespace, selector.prompt, module.handleKeyboard)
             // search button
-            .on('click' + eventNamespace, selector.searchButton, module.query)
+            .on('click'     + eventNamespace, selector.searchButton, module.query)
             // results
             .on('mousedown' + eventNamespace, selector.results, module.event.result.mousedown)
-            .on('mouseup' + eventNamespace, selector.results, module.event.result.mouseup)
-            .on('click' + eventNamespace, selector.results, selector.result, module.event.result.click)
+            .on('mouseup'   + eventNamespace, selector.results, module.event.result.mouseup)
+            .on('click'     + eventNamespace, selector.results, selector.result, module.event.result.click)
           ;
           module.instantiate();
         },
@@ -102,8 +104,6 @@ $.fn.search = function(parameters) {
         event: {
           focus: function() {
             module.set.focus();
-            clearTimeout(module.timer);
-            module.throttle();
             if( module.has.minimumCharacters() ) {
               module.showResults();
             }
@@ -882,7 +882,7 @@ $.fn.search.settings = {
   ],
   searchFullText : true,
 
-  automatic      : 'true',
+  automatic      : true,
   hideDelay      : 0,
   searchDelay    : 100,
   maxResults     : 7,
