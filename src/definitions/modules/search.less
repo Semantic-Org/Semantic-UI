@@ -91,7 +91,7 @@
   display: block;
   overflow: hidden;
   font-size: @resultFontSize;
-  padding: @resultVerticalPadding @resultHorizontalPadding;
+  padding: @resultPadding;
   color: @resultTextColor;
   line-height: @resultLineHeight;
   border-bottom: @resultDivider;
@@ -124,6 +124,7 @@
 }
 
 .ui.search > .results .result .title {
+  margin: @resultTitleMargin;
   font-family: @resultTitleFont;
   font-weight: @resultTitleFontWeight;
   font-size: @resultTitleFontSize;

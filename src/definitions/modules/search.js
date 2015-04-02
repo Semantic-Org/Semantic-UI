@@ -604,6 +604,8 @@ $.fn.search = function(parameters) {
               $results
                 .transition({
                   animation  : settings.transition + ' in',
+                  debug      : settings.debug,
+                  verbose    : settings.verbose,
                   duration   : settings.duration,
                   queue      : true
                 })
@@ -622,10 +624,19 @@ $.fn.search = function(parameters) {
         hideResults: function() {
           if( module.is.visible() ) {
             if( module.can.transition() ) {
+              console.log('here', {
+                  animation  : settings.transition + ' out',
+                  debug      : settings.debug,
+                  verbose    : settings.verbose,
+                  duration   : settings.duration,
+                  queue      : true
+                });
               module.debug('Hiding results with css animations');
               $results
                 .transition({
                   animation  : settings.transition + ' out',
+                  debug      : settings.debug,
+                  verbose    : settings.verbose,
                   duration   : settings.duration,
                   queue      : true
                 })

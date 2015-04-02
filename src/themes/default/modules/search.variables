@@ -29,7 +29,7 @@
 
 /* Result */
 @resultFontSize: 1em;
-@resultVerticalPadding: 0.5em;
+@resultVerticalPadding: @relativeMini;
 @resultHorizontalPadding: @relativeLarge;
 @resultPadding: @resultVerticalPadding @resultHorizontalPadding;
 @resultTextColor: @textColor;
@@ -47,6 +47,7 @@
 
 /* Result Content */
 @resultTitleFont: @headerFont;
+@resultTitleMargin: -@headerLineHeightOffset 0em 0em;
 @resultTitleFontWeight: bold;
 @resultTitleFontSize: @relativeMedium;
 @resultTitleColor: @darkTextColor;
@@ -63,10 +64,10 @@
 /* Special Message */
 @messageVerticalPadding: 1em;
 @messageHorizontalPadding: 1em;
-@messageHeaderFontSize: 1.1428em;
+@messageHeaderFontSize: @medium;
 @messageHeaderFontWeight: bold;
 @messageHeaderColor: @textColor;
-@messageDescriptionDistance: 0.75rem;
+@messageDescriptionDistance: 0.25rem;
 @messageDescriptionFontSize: 1em;
 @messageDescriptionColor: @textColor;
 
