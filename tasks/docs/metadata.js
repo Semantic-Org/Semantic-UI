@@ -54,8 +54,7 @@ function parser(file, callback) {
       lines    = text.split('\n')
       filename = file.path.substring(0, file.path.length - 4),
       key      = 'server/documents',
-      position = filename.indexOf(key),
-      categories
+      position = filename.indexOf(key)
     ;
 
     // exit conditions
@@ -72,6 +71,14 @@ function parser(file, callback) {
       lineCount = lines.length,
       active    = false,
       yaml      = [],
+      categories = [
+        'UI Element',
+        'UI Global',
+        'UI Collection',
+        'UI View',
+        'UI Module',
+        'UI Behavior'
+      ],
       index,
       meta,
       line
@@ -95,24 +102,21 @@ function parser(file, callback) {
       yaml.push(line);
     }
 
-    categories = [
-      'UI Element',
-      'UI Collection',
-      'UI View',
-      'UI Module',
-      'UI Behavior'
-    ];
 
     // Parse yaml.
     meta = YAML.parse(yaml.join('\n'));
-    if(meta && inArray(meta.category, categories) && meta.title !== undefined) {
+    if(meta && meta.type && meta.title && inArray(meta.type, categories) ) {
       meta.category  = meta.type;
       meta.filename  = filename;
       meta.title     = meta.title;
+      // Primary key will by filepath
+      data[filename] = meta;
+    }
+    else {
+      // skip
+      // console.log(meta);
     }
 
-    // Primary key will by filepath
-    data[filename] = meta;
 
   }
 
