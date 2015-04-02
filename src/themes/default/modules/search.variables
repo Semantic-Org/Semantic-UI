@@ -3,37 +3,38 @@
 *******************************/
 
 /* Search Prompt */
-@promptFontSize: 1em;
+@promptFontSize: @relativeMedium;
 @promptVerticalPadding: 0.78571em;
 @promptHorizontalPadding: 1em;
-@promptLineHeight: 1.2;
+@promptLineHeight: 1.2142em;
 @promptPadding: (@promptVerticalPadding + ((1em - @promptLineHeight) / 2)) @promptHorizontalPadding;
-@promptBackground: #FFFFFF;
+@promptBackground: @white;
 @promptBorder: 1px solid @borderColor;
 @promptBorderRadius: @circularRadius;
 @promptColor: @textColor;
 @promptTransition:
-  background-color 0.2s ease,
-  color 0.2s ease,
-  box-shadow 0.2s ease,
-  border-color 0.2s ease
+  background-color @transitionDuration @transitionEasing,
+  color @transitionDuration @transitionEasing,
+  box-shadow @transitionDuration @transitionEasing,
+  border-color @transitionDuration @transitionEasing
 ;
 @promptBoxShadow: 0em 0em 0em 0em transparent inset;
 
 /* Result Box */
-@resultsWidth: 16em;
+@resultsWidth: 18em;
 @resultsBackground: #FFFFFF;
 @resultsDistance: 0.5em;
-@resultsBorderRadius: 0.25em;
-@resultsBoxShadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.2);
+@resultsBorderRadius: @defaultBorderRadius;
+@resultsBoxShadow: 0px 1px 3px 1px @borderColor;
 
 /* Result */
 @resultFontSize: 1em;
 @resultVerticalPadding: 0.5em;
-@resultHorizontalPadding: 1em;
+@resultHorizontalPadding: @relativeLarge;
+@resultPadding: @resultVerticalPadding @resultHorizontalPadding;
 @resultTextColor: @textColor;
 @resultLineHeight: 1.33;
-@resultDivider: 1px solid @borderColor;
+@resultDivider: 1px solid @internalBorderColor;
 @resultLastDivider: none;
 
 /* Result Image */
@@ -47,12 +48,12 @@
 /* Result Content */
 @resultTitleFont: @headerFont;
 @resultTitleFontWeight: bold;
-@resultTitleFontSize: 1em;
+@resultTitleFontSize: @relativeMedium;
 @resultTitleColor: @darkTextColor;
 
 /* Description */
-@resultDescriptionFontSize: 0.9285em;
-@resultDescriptionDistance: 0em;
+@resultDescriptionFontSize: @relativeSmall;
+@resultDescriptionDistance: 0;
 @resultDescriptionColor: @lightTextColor;
 
 /* Price */
@@ -65,7 +66,7 @@
 @messageHeaderFontSize: 1.1428em;
 @messageHeaderFontWeight: bold;
 @messageHeaderColor: @textColor;
-@messageDescriptionDistance: 0.25rem;
+@messageDescriptionDistance: 0.75rem;
 @messageDescriptionFontSize: 1em;
 @messageDescriptionColor: @textColor;
 
@@ -99,7 +100,7 @@
 /* Active Result */
 @resultActiveBorderLeft: transparent;
 @resultActiveBackground: @darkWhite;
-@resultActiveBoxShadow: 3px 0px 3px 0px @borderColor;
+@resultActiveBoxShadow: none;
 @resultActiveTitleColor: @darkTextColor;
 @resultActiveDescriptionColor: @darkTextColor;
 @resultsZIndex: 998;
@@ -122,8 +123,9 @@
 
 @categoryResultBackground: @white;
 @categoryResultLeftBorder: 1px solid @borderColor;
-@categoryResultDivider: 1px solid @borderColor;
+@categoryResultDivider: @resultDivider;
 @categoryResultLastDivider: none;
+@categoryResultPadding: @resultPadding;
 @categoryResultTransition: @categoryTransition;
 
 @categoryNameWidth: 100px;
