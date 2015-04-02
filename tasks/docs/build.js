@@ -8,6 +8,7 @@ var
   // node dependencies
   console      = require('better-console'),
   fs           = require('fs'),
+  map          = require('map-stream'),
 
   // gulp dependencies
   autoprefixer = require('gulp-autoprefixer'),
@@ -31,6 +32,9 @@ var
   configSetup  = require('../config/project/config'),
   tasks        = require('../config/project/tasks'),
   install      = require('../config/project/install'),
+
+  // metadata parsing
+  metadata     = require('./metadata'),
 
   // shorthand
   globs,
@@ -65,6 +69,21 @@ module.exports = function(callback) {
   source = config.paths.source;
 
   /*--------------
+   Parse metadata
+   ---------------*/
+
+  // parse all *.html.eco in docs repo, data will end up in
+  // metadata.result object.  Note this assumes that the docs
+  // repository is present and in proper directory location as
+  // specified by docs.json.
+  gulp.src(config.paths.template.eco + '**/*.html.eco')
+    .pipe(map(metadata.parser))
+    .on('end', function() {
+      fs.writeFile(output.less + '/metadata.json', JSON.stringify(metadata.result, null, 2));
+    });
+  ;
+
+  /*--------------
      Copy Source
   ---------------*/
 
@@ -73,7 +92,6 @@ module.exports = function(callback) {
     .pipe(gulp.dest(output.less))
     .pipe(print(log.created))
   ;
-
 
   /*--------------
         Build
