@@ -9,7 +9,7 @@
 /* Animation */
 @perspective: 1500px;
 @duration: 500ms;
-@easing: ease;
+@easing: @defaultEasing;
 
 /* Dimmer */
 @dimmerColor: rgba(0, 0, 0, 0.4);

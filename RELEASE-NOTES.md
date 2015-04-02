@@ -38,6 +38,7 @@
 - **Menu** - The hover/active state of `dropdown item` have been adjusted to match `item`. Dropdown styles can be themed specifically inside `menu`.
 - **Menu** - Vertical dropdown menus are no longer 100% `min-width`
 - **Progress** - `indicating` labels now are more legible use separate css variables from `indicating` bar color
+- **Reveal** - Added new `active` state that allows you to show `reveal` programatically
 - **Segment** - Added `padded` and `very padded` segment variations
 - **Sidebar** - Improved animation performance through performance debugging. Sidebar now caches, width, height, rtl direction on load.
 - **Site** - Added in `pageOverflowX` variable, default theme hides horizontal scrollbars on `body`
@@ -99,6 +100,7 @@
 - **Modal** - Modal with `detachable: false` inside `ui sidebar`  `pusher` element will now show correctly
 - **Popup** - Fixes issue with `min-width` in firefox exceeding `max-width` causing element to not wrap correctly
 - **Popup** - Fixed bug which could cause pre-existing inline popup to be removed from DOM after hiding
+- **Reveal** - Removed `masked` reveal, all reveals are masked by default
 - **Search** - Fixed `onSelect` returning the first term that matches the beginining of the selected value not the exact value.
 - **Search** - Search API calls now use the same level debug settings as search
 - **Tab** - Tab name is no longer case sensitive
