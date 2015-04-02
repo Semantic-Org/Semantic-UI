@@ -19,6 +19,9 @@ module.exports = {
       compressed   : '../docs/out/dist/components/',
       themes       : '../docs/out/dist/themes/'
     },
+    template: {
+      eco: '../docs/server/documents/'
+    },
     clean: '../docs/out/dist/'
   }
 };
