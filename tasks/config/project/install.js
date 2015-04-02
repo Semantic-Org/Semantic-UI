@@ -92,7 +92,6 @@ module.exports = {
           folder        = pathArray[pathArray.length - 1],
           nextDirectory = path.join(directory, path.sep, '..')
         ;
-        console.log(folder, nextDirectory);
         if( folder == 'bower_components') {
           return {
             name: 'Bower',

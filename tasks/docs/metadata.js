@@ -1,3 +1,4 @@
+
 /*******************************
            Summarize Docs
 *******************************/
@@ -27,74 +28,81 @@ function startsWith(str, prefix) {
  * @param {function(?,File)} - callback provided by map-stream to
  * reply when done.
  */
-function parseFile(file, cb) {
+function parser(file, callback) {
+  // file exit conditions
+  if(file.isNull()) {
+    return callback(null, file); // pass along
+  }
 
-  if (file.isNull())
-    return cb(null, file); // pass along
-  if (file.isStream())
-    return cb(new Error("Streaming not supported"));
+  if(file.isStream()) {
+    return callback(new Error('Streaming not supported'));
+  }
 
   try {
 
     var
-    /** @type {string} */
-    text = String(file.contents.toString('utf8')),
-    lines = text.split('\n');
-
-    if (!lines)
-      return;
-
-    var filename = file.path;
-    filename = filename.substring(0, filename.length - 4);
-    var key = 'server/documents';
-    var position = filename.indexOf(key);
-    if (position < 0)
-      return cb(null, file);
-    filename = filename.substring(position + key.length + 1, filename.length);
-
-    //console.log('Parsing ' + filename);
-
-    var n = lines.length,
-        active = false,
-        yaml = [],
-        line
+      /** @type {string} */
+      text     = String(file.contents.toString('utf8')),
+      lines    = text.split('\n')
+      filename = file.path.substring(0, file.path.length - 4),
+      key      = 'server/documents',
+      position = filename.indexOf(key)
     ;
 
-    var line;
-    for (var i = 0; i < n; i++) {
-      line = lines[i];
+    // exit conditions
+    if(!lines) {
+      return;
+    }
+    if(position < 0) {
+      return callback(null, file);
+    }
+
+    filename = filename.substring(position + key.length + 1, filename.length);
+
+    var
+      lineCount = lines.length,
+      active    = false,
+      yaml      = [],
+      index,
+      meta,
+      line
+    ;
+    for (index = 0; index < lineCount; index++) {
+
+      line = lines[index];
 
       // Wait for metadata block to begin
-      if (!active) {
-        if (startsWith(line, '---'))
+      if(!active) {
+        if(startsWith(line, '---')) {
           active = true;
+        }
         continue;
       }
-
-
       // End of metadata block, stop parsing.
-      if (startsWith(line, '---'))
+      if(startsWith(line, '---')) {
         break;
-
+      }
       yaml.push(line);
     }
 
     // Parse yaml.
-    var meta = YAML.parse(yaml.join('\n'));
-    meta.category = meta.type;
-    meta.filename = filename;
-    meta._title = meta.title; // preserve original, just in case
-    meta.title = meta.type + ': ' + meta.title;
+    meta = YAML.parse(yaml.join('\n'));
+    if(meta && meta.category !== 'Draft' && meta.title !== undefined) {
+      meta.category  = meta.type;
+      meta.filename  = filename;
+      meta.title     = meta.title;
+    }
+
     // Primary key will by filepath
     data[filename] = meta;
 
-    //console.log("Parsed " + filename + ": " + JSON.stringify(meta));
-
-  } catch(e) {
-    console.log(e);
   }
 
-  cb(null,file);
+  catch(error) {
+    console.log(error, filename);
+  }
+
+  callback(null, file);
 
 }
 
@@ -102,6 +110,6 @@ function parseFile(file, cb) {
  * Export function expected by map-stream.
  */
 module.exports = {
-  result: data,
-  parser: parseFile
+  result : data,
+  parser : parser
 };

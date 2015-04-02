@@ -76,10 +76,11 @@ module.exports = function(callback) {
   // metadata.result object.  Note this assumes that the docs
   // repository is present and in proper directory location as
   // specified by docs.json.
-  gulp.src(config.paths.template.eco + '**/*.html.eco')
+  console.info('Building Metadata');
+  gulp.src(config.paths.template.eco + globs.eco)
     .pipe(map(metadata.parser))
     .on('end', function() {
-      fs.writeFile(output.less + '/metadata.json', JSON.stringify(metadata.result, null, 2));
+      fs.writeFile(output.metadata + '/metadata.json', JSON.stringify(metadata.result, null, 2));
     });
   ;
 
@@ -87,6 +88,7 @@ module.exports = function(callback) {
      Copy Source
   ---------------*/
 
+  console.info('Copying LESS source');
   // copy src/ to server
   gulp.src('src/**/*.*')
     .pipe(gulp.dest(output.less))
