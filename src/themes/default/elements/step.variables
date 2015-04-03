@@ -94,5 +94,5 @@
 
 
 /* Disabled */
-@disabledBackground: @white;
+@disabledBackground: @background;
 @disabledColor: @disabledTextColor;
