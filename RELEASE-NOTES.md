@@ -67,6 +67,7 @@
 - **Menu** - `tiered menu` has been removed
 - **Menu** - Increased contrast on `inverted` menu selection for legibility
 - **Message** - Slightly increases `box-shadow`
+- **Segment** - **Clearfix** has been removed from `ui segment`
 - **Search** - Slightly adjusted search result theme for clarity
 - **Site** - Increase contrast on default hovered/down colors for colored variations
 - **Site** - Page background is now `#FFFFFF` by default instead of an offwhite `#F7F7F7`
