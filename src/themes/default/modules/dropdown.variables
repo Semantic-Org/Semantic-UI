@@ -7,8 +7,8 @@
 --------------------*/
 
 @transition:
-  border-radius 0.1s ease,
-  width 0.2s ease
+  border-radius @transitionDuration @transitionEasing,
+  width @transitionDuration @transitionEasing
 ;
 @borderRadius: @defaultBorderRadius;
 
@@ -22,7 +22,7 @@
 @dropdownIconMargin: 0em 0em 0em 1em;
 
 /* Current Text */
-@textTransition: color 0.2s @defaultEasing;
+@textTransition: color @transitionDuration @defaultEasing;
 
 /* Menu */
 @menuBackground: #FFFFFF;
@@ -38,7 +38,7 @@
 @menuBorder: @menuBorderWidth solid @menuBorderColor;
 @menuBoxShadow: @raisedShadow;
 @menuBorderRadius: 0em 0em @borderRadius @borderRadius;
-@menuTransition: opacity 0.2s ease;
+@menuTransition: opacity @transitionDuration @transitionEasing;
 @menuMinWidth: ~"calc(100% + "(@menuBorderWidth * 2)~")";
 @menuZIndex: 11;
 
@@ -145,7 +145,7 @@
 @selectionIconHitbox: @selectionVerticalPadding;
 @selectionIconMargin: -@selectionIconHitbox;
 @selectionIconPadding: @selectionIconHitbox;
-@selectionIconTransition: opacity 0.2s ease;
+@selectionIconTransition: opacity @transitionDuration @transitionEasing;
 
 @selectionMenuBoxShadow: @raisedShadow;
 @selectionMenuItemBoxShadow: none;
