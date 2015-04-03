@@ -41,7 +41,7 @@
 
 /* Divider */
 @dividerSize: 1px;
-@dividerBackground: @borderColor;
+@dividerBackground: @internalBorderColor;
 
 /* Sub Menu */
 @subMenuDistance: 0.5em;
@@ -203,7 +203,7 @@
 @verticalPointerWidth: 2px;
 @verticalBackground: #FFFFFF;
 @verticalItemBackground: none;
-@verticalDividerBackground: @borderColor;
+@verticalDividerBackground: @dividerBackground;
 
 @verticalActiveBoxShadow: none;
 
