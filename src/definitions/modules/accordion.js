@@ -157,6 +157,7 @@ $.fn.accordion = function(parameters) {
           ;
           if(isUnopen) {
             module.debug('Opening accordion content', $activeTitle);
+            settings.onOpening.call(this);
             if(settings.exclusive) {
               module.closeOthers.call($activeTitle);
             }
@@ -545,6 +546,7 @@ $.fn.accordion.settings = {
   duration        : 350,
   easing          : 'easeOutQuad',
 
+  onOpening       : function(){},
   onOpen          : function(){},
   onClose         : function(){},
   onChange        : function(){},
