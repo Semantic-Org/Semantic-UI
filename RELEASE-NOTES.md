@@ -20,6 +20,7 @@
 - **Item** - Item now uses `flexbox` for layout
 - **Message** - `icon message` now uses `flexbox`
 - **Input** - All `input` types use `flexbox`
+- **Steps** - Steps now use `flexbox`, the default horizontal theme has the active element point downward now instead of to the right. Steps no longer need `item count` and will automatically divide evenly
 
 **Enhancements**
 - **Build Tools** - Adjusting `site.variables` will now rebuild all UI, instead of just `site.less`
@@ -105,6 +106,7 @@
 - **Reveal** - Removed `masked` reveal, all reveals are masked by default
 - **Search** - Fixed `onSelect` returning the first term that matches the beginining of the selected value not the exact value.
 - **Search** - Search API calls now use the same level debug settings as search
+- **Steps** - Fixed bug where `stackable steps` were not working correctly
 - **Tab** - Tab name is no longer case sensitive
 - **Table** - Fixes `ascending` and `descending` icons were reversed in table
 - **Table** - `very basic table` now works together with `padded table`

@@ -24,55 +24,16 @@
 @import (multiple) '../../theme.config';
 
 /*******************************
-           Singular
-*******************************/
-
-.ui.steps .step {
-  position: relative;
-  display: table-cell;
-  vertical-align: middle;
-
-  margin: @verticalMargin @horizontalMargin;
-  padding: @verticalPadding @horizontalPadding @verticalPadding @leftPadding;
-  background: @background;
-  color: @textColor;
-  box-shadow: @boxShadow;
-  border-radius: @borderRadius;
-}
-
-
-.ui.steps .step:after {
-  position: absolute;
-  z-index: 2;
-  content: '';
-  top: @arrowTopOffset;
-  right: @arrowRightOffset;
-  border: medium none;
-  background-color: @arrowBackgroundColor;
-  width: @arrowSize;
-  height: @arrowSize;
-  border-bottom: 1px solid @arrowBorderColor;
-  border-right: 1px solid @arrowBorderColor;
-  transform: translateY(-50%) translateX(50%) rotate(-45deg);
-}
-
-.ui.steps .step,
-.ui.steps .step:after {
-  transition: @transition;
-}
-
-/*******************************
             Plural
 *******************************/
 
 .ui.steps {
-  display: table;
-  table-layout: fixed;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: stretch;
   background: @stepsBackground;
   box-shadow: @stepsBoxShadow;
-
   line-height: @lineHeight;
-  box-sizing: border-box;
   border-radius: @stepsBorderRadius;
 }
 
@@ -96,6 +57,50 @@
   display: none;
 }
 
+/*******************************
+           Singular
+*******************************/
+
+.ui.steps .step {
+  position: relative;
+  display: flex;
+  flex: 1 0 auto;
+  flex-wrap: wrap;
+  flex-direction: row;
+  vertical-align: middle;
+  align-items: center;
+
+  margin: @verticalMargin @horizontalMargin;
+  padding: @verticalPadding @horizontalPadding;
+  background: @background;
+  color: @textColor;
+  box-shadow: @boxShadow;
+  border-radius: @borderRadius;
+}
+
+
+.ui.steps .step:after {
+  position: absolute;
+  z-index: 2;
+  content: '';
+  top: @arrowTopOffset;
+  right: @arrowRightOffset;
+  border: medium none;
+  background-color: @arrowBackgroundColor;
+  width: @arrowSize;
+  height: @arrowSize;
+
+  border-style: solid;
+  border-color: @borderColor;
+  border-width: @arrowBorderWidth;
+
+  transform: translateY(-50%) translateX(50%) rotate(-45deg);
+}
+
+.ui.steps .step,
+.ui.steps .step:after {
+  transition: @transition;
+}
 
 /*******************************
             Content
@@ -107,6 +112,9 @@
   font-size: @titleFontSize;
   font-weight: @titleFontWeight;
 }
+.ui.steps .step > .title {
+  width: 100%;
+}
 
 /* Description */
 .ui.steps .step .description {
@@ -114,20 +122,31 @@
   font-size: @descriptionFontSize;
   color: @descriptionColor;
 }
+.ui.steps .step > .description {
+  width: 100%;
+}
 .ui.steps .step .title ~ .description {
   margin-top: @descriptionDistance;
 }
 
 /* Icon */
-.ui.steps .step > .icon,
-.ui.steps .step > .icon ~ .content {
-  display: table-cell;
-  vertical-align: @iconVerticalAlign;
-}
 .ui.steps .step > .icon {
   font-size: @iconSize;
-  margin: 0em;
-  padding-right: @iconDistance;
+  margin: 0em @iconDistance 0em 0em;
+}
+.ui.steps .step > .icon,
+.ui.steps .step > .icon ~ .content {
+  display: block;
+  flex: 0 1 auto;
+  align-self: @iconAlign;
+}
+.ui.steps .step > .icon ~ .content {
+  flex-grow: 1 0 auto;
+}
+
+/* Horizontal Icon */
+.ui.steps:not(.vertical) .step > .icon {
+  width: auto;
 }
 
 /* Link */
@@ -148,19 +167,21 @@
   counter-reset: ordered;
 }
 .ui.ordered.steps .step:before {
-  display: table-cell;
+  display: block;
   position: static;
   text-align: center;
   content: counters(ordered, ".");
-  vertical-align: @iconVerticalAlign;
-  padding-right: @iconDistance;
+  align-self: @iconAlign;
+  margin-right: @iconDistance;
   font-size: @iconSize;
   counter-increment: ordered;
+  font-family: @orderedFontFamily;
+  font-weight: @orderedFontWeight;
 }
 
 .ui.ordered.steps .step > * {
-  display: table-cell;
-  vertical-align: @iconVerticalAlign;
+  display: block;
+  align-self: @iconAlign;
 }
 
 
@@ -169,11 +190,11 @@
 ---------------*/
 
 .ui.vertical.steps {
-  display: inline-block;
+  display: inline-flex;
+  flex-direction: column;
   overflow: visible;
 }
 .ui.vertical.steps .step {
-  display: block;
   border-radius: @borderRadius;
   padding: @verticalPadding @horizontalPadding;
 }
@@ -189,6 +210,12 @@
 .ui.vertical.steps .step:after {
   display: none;
 }
+.ui.vertical.steps .step:after {
+  top: @verticalArrowTopOffset;
+  right: @verticalArrowRightOffset;
+  border-width: @verticalArrowBorderWidth;
+}
+
 
 /* Active Arrow */
 .ui.vertical.steps .active.step:after {
@@ -307,27 +334,27 @@
 
 
 /* Tablet Or Below */
-@media only screen and (min-width: @computerBreakpoint) {
+@media only screen and (max-width: @computerBreakpoint) {
 
-.ui[class*="tablet stackable"].steps {
-  overflow: visible;
-}
-.ui[class*="tablet stackable"].steps .step {
-  display: block;
-  border-radius: @borderRadius;
-  padding: @verticalPadding @horizontalPadding;
-}
-.ui[class*="tablet stackable"].steps .step:first-child {
-  padding: @verticalPadding @horizontalPadding;
-  border-radius: @stepsBorderRadius @stepsBorderRadius 0em 0em;
-}
-.ui[class*="tablet stackable"].steps .step:last-child {
-  border-radius: 0em 0em @stepsBorderRadius @stepsBorderRadius;
-}
-/* Arrow */
-.ui[class*="tablet stackable"].steps .step:after {
-  display: none;
-}
+  .ui[class*="tablet stackable"].steps {
+    overflow: visible;
+    flex-direction: column;
+  }
+  .ui[class*="tablet stackable"].steps .step {
+    border-radius: @borderRadius;
+    padding: @verticalPadding @horizontalPadding;
+  }
+  .ui[class*="tablet stackable"].steps .step:first-child {
+    padding: @verticalPadding @horizontalPadding;
+    border-radius: @stepsBorderRadius @stepsBorderRadius 0em 0em;
+  }
+  .ui[class*="tablet stackable"].steps .step:last-child {
+    border-radius: 0em 0em @stepsBorderRadius @stepsBorderRadius;
+  }
+  /* Arrow */
+  .ui[class*="tablet stackable"].steps .step:after {
+    display: none;
+  }
 
 }
 
@@ -338,6 +365,7 @@
 
 /* Fluid */
 .ui.fluid.steps {
+  display: flex;
   width: 100%;
 }
 
@@ -382,6 +410,16 @@
 .ui.seven.steps,
 .ui.eight.steps {
   width: 100%;
+}
+.ui.one.steps > .step,
+.ui.two.steps > .step,
+.ui.three.steps > .step,
+.ui.four.steps > .step,
+.ui.five.steps > .step,
+.ui.six.steps > .step,
+.ui.seven.steps > .step,
+.ui.eight.steps > .step {
+  flex-wrap: nowrap;
 }
 .ui.one.steps > .step {
   width: 100%;

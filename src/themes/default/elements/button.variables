@@ -124,7 +124,7 @@
 
 /* Loading */
 @loadingOpacity: 1;
-@loadingPointerEvents: none;
+@loadingPointerEvents: auto;
 @loadingTransition:
   all 0s linear,
   opacity @transitionDuration @defaultEasing
