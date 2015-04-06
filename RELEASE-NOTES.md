@@ -40,6 +40,7 @@
 - **Menu** - Vertical dropdown menus are no longer 100% `min-width`
 - **Progress** - `indicating` labels now are more legible use separate css variables from `indicating` bar color
 - **Reveal** - Added new `active` state that allows you to show `reveal` programatically
+- **Search** - Cache can now be cleared using `$('.search').search('clear cache')`
 - **Segment** - Added `padded` and `very padded` segment variations
 - **Sidebar** - Improved animation performance through performance debugging. Sidebar now caches, width, height, rtl direction on load.
 - **Site** - Added in `pageOverflowX` variable, default theme hides horizontal scrollbars on `body`
@@ -59,6 +60,7 @@
 - **Image** - `mini image` default width has been increased to `35px`
 - **Item** - item `description` now longer sets a `max-width`
 - **Icon** - `disabled icon` now have `pointer-events` again.
+- **Label** - Label size now varies by type. `pointing label` are now `1em` by default.
 - **Input** - Input now use `em` instead of `rem` so they will inherit the size of the elements they are nested inside
 - **Progress* - Update contrast on `indicating`, update default styles. Fixed some examples
 - **Menu** - Menu now uses `border` for borders instead of `box-shadow`
@@ -107,6 +109,8 @@
 - **Search** - Fixed `onSelect` returning the first term that matches the beginining of the selected value not the exact value.
 - **Search** - Search API calls now use the same level debug settings as search
 - **Steps** - Fixed bug where `stackable steps` were not working correctly
+- **Sticky** - Fix issue with sticky content scroll css transition causing element to scroll too slowly when cannot fit on screen.
+- **Sticky** - Fixed issue with sticky content animating width on display in some cases.
 - **Tab** - Tab name is no longer case sensitive
 - **Table** - Fixes `ascending` and `descending` icons were reversed in table
 - **Table** - `very basic table` now works together with `padded table`
