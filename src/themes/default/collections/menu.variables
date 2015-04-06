@@ -83,6 +83,21 @@
 @verticalHeaderFontSize: @relativeMedium;
 @verticalHeaderFontWeight: bold;
 
+/* Pointing Arrow */
+@arrowSize: 0.6em;
+@arrowBorderSize: 1px;
+@arrowBorder: @arrowBorderSize solid @solidBorderColor;
+@arrowTransition: background @transitionDuration @transitionEasing;
+@arrowZIndex: 11;
+
+@arrowHoverColor: #FAFAFA;
+@arrowActiveColor: #F7F7F7;
+@arrowActiveHoverColor: @arrowHoverColor;
+
+@arrowVerticalHoverColor: @arrowHoverColor;
+@arrowVerticalActiveColor: @arrowActiveColor;
+@arrowVerticalSubMenuColor: @white;
+
 /*--------------
     Couplings
 ---------------*/
@@ -144,44 +159,29 @@
 @pointingDropdownMenuDistance: 0.75em;
 @invertedSelectionDropdownColor: @invertedTextColor;
 
-/* Pointing Arrow */
-@arrowSize: 0.6em;
-@arrowBorderSize: 1px;
-@arrowBorder: @arrowBorderSize solid @solidBorderColor;
-@arrowTransition: background @transitionDuration @transitionEasing;
-@arrowZIndex: 11;
-
-@arrowHoverColor: #FAFAFA;
-@arrowActiveColor: #F7F7F7;
-@arrowActiveHoverColor: @arrowHoverColor;
-
-@arrowVerticalHoverColor: @arrowHoverColor;
-@arrowVerticalActiveColor: @arrowActiveColor;
-@arrowVerticalSubMenuColor: @white;
-
 /*--------------
      States
 ---------------*/
 
 /* Hovered Item */
-@hoverItemBackground: @subtleTransparentBlack;
-@hoverItemTextColor: @textColor;
+@hoverItemBackground: transparent;
+@hoverItemTextColor: @selectedTextColor;
 
 /* Pressed Item */
-@pressedItemBackground: @subtleTransparentBlack;
+@pressedItemBackground: transparent;
 @pressedItemColor: @pressedTextColor;
 
 
 /* Active Item */
-@activeItemBackground: @subtleTransparentBlack;
+@activeItemBackground: @transparentBlack;
 @activeItemTextColor: @selectedTextColor;
 @activeItemFontWeight: normal;
 @activeIconOpacity: 1;
 @activeItemBoxShadow: none;
 
 /* Active Hovered Item */
-@activeHoverItemBackground: @hoverItemBackground;
-@activeHoverItemColor: @hoverItemTextColor;
+@activeHoverItemBackground: @transparentBlack;
+@activeHoverItemColor: @selectedTextColor;
 
 /* Active Dropdown */
 @dropdownActiveItemBackground: @transparentBlack;
@@ -367,22 +367,23 @@
 @invertedSubMenuColor: @invertedUnselectedTextColor;
 
 /* Inverted Hover */
-@invertedHoverBackground: rgba(255, 255, 255, 0.1);
-@invertedHoverColor: @white;
+@invertedHoverBackground: transparent;
+@invertedHoverColor: @invertedSelectedTextColor;
+
 @invertedSubMenuHoverBackground: transparent;
-@invertedSubMenuHoverColor: @white;
+@invertedSubMenuHoverColor: @invertedSelectedTextColor;
 
 /* Pressed */
-@invertedMenuPressedBackground: rgba(255, 255, 255, 0.05);
-@invertedMenuPressedColor: @white;
+@invertedMenuPressedBackground: @transparentBlack;
+@invertedMenuPressedColor: @invertedSelectedTextColor;
 
 /* Inverted Active */
-@invertedActiveBackground: rgba(255, 255, 255, 0.15);
-@invertedActiveColor: @white;
+@invertedActiveBackground: @strongTransparentWhite;
+@invertedActiveColor: @invertedSelectedTextColor;
 @invertedArrowActiveColor: #3C3C3C;
 
 /* Inverted Active Hover  */
-@invertedActiveHoverBackground: rgba(255, 255, 255, 0.15);
+@invertedActiveHoverBackground: @invertedActiveBackground;
 @invertedActiveHoverColor: @white;
 @invertedArrowActiveHoverColor: #3C3C3C;
 

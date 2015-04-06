@@ -222,10 +222,6 @@
 ---------------*/
 
 
-.ui.menu .ui.active.dropdown.item {
-  font-weight: normal;
-}
-
 /* Dropdown Icon */
 .ui.menu .item > i.dropdown.icon {
   padding: 0em;
@@ -389,30 +385,31 @@
   color: @pressedItemColor;
 }
 
+
 /*--------------
      Active
 ---------------*/
 
-.ui.menu .active.item:not(.dropdown)  {
+.ui.menu .active.item  {
   background: @activeItemBackground;
   color: @activeItemTextColor;
   font-weight: @activeItemFontWeight;
   box-shadow: @activeItemBoxShadow;
 }
-.ui.menu .active.item:not(.dropdown) > i.icon {
+.ui.menu .active.item > i.icon {
   opacity: @activeIconOpacity;
 }
-
 
 /*--------------
   Active Hover
 ---------------*/
 
-.ui.vertical.menu .active.item:hover,
-.ui.menu .active.item:hover {
+.ui.menu .active.item:hover,
+.ui.vertical.menu .active.item:hover {
   background-color: @activeHoverItemBackground;
   color: @activeHoverItemColor;
 }
+
 
 /*--------------
      Disabled
@@ -421,8 +418,8 @@
 .ui.menu .item.disabled,
 .ui.menu .item.disabled:hover {
   cursor: default;
-  color: @disabledTextColor;
   background-color: transparent !important;
+  color: @disabledTextColor;
 }
 
 
