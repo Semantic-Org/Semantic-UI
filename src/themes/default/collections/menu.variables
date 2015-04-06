@@ -63,7 +63,7 @@
 /* Icon */
 @iconFloat: none;
 @iconMargin: 0em 0.25em 0em 0em;
-@iconOpacity: 0.75;
+@iconOpacity: 0.9;
 
 /* Dropdown Icon */
 @dropdownIconFloat: right;
@@ -164,11 +164,11 @@
 ---------------*/
 
 /* Hovered Item */
-@hoverItemBackground: transparent;
+@hoverItemBackground: @subtleTransparentBlack;
 @hoverItemTextColor: @selectedTextColor;
 
 /* Pressed Item */
-@pressedItemBackground: transparent;
+@pressedItemBackground: @subtleTransparentBlack;
 @pressedItemColor: @pressedTextColor;
 
 
