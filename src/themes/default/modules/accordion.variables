@@ -32,7 +32,7 @@
 @childAccordionPadding: 0em;
 
 /* Content */
-@contentMargin: 0em;
+@contentMargin: '';
 @contentPadding: 0.5em 0em 1em;
 
 /*-------------------
