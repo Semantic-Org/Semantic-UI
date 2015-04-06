@@ -84,9 +84,9 @@
 --------------------*/
 
 /* Hovered */
-@hoverBackgroundColor: #E8E8E8;
+@hoverBackgroundColor: #CACACA;
 @hoverBackgroundImage: none;
-@hoverBoxShadow: '';
+@hoverBoxShadow: none;
 @hoverColor: @hoveredTextColor;
 @iconHoverOpacity: 0.85;
 
@@ -101,9 +101,9 @@
 @iconFocusOpacity: 0.85;
 
 /* Pressed Down */
-@downBackgroundColor: #CCCCCC;
+@downBackgroundColor: #BABABA;
 @downBackgroundImage: '';
-@downPressedShadow: 0px 1px 4px 0px @borderColor inset !important;
+@downPressedShadow: none;
 @downBoxShadow:
   @borderBoxShadow,
   @downPressedShadow
@@ -111,13 +111,13 @@
 @downColor: @pressedTextColor;
 
 /* Active */
-@activeBackgroundColor: #D0D0D0;
+@activeBackgroundColor: #C0C0C0;
 @activeBackgroundImage: none;
 @activeColor: @selectedTextColor;
 @activeBoxShadow: @borderBoxShadow;
 
 /* Active + Hovered */
-@activeHoverBackgroundColor: @activeBackgroundColor;
+@activeHoverBackgroundColor: #C0C0C0;
 @activeHoverBackgroundImage: none;
 @activeHoverColor: @activeColor;
 @activeHoverBoxShadow: @activeBoxShadow;
