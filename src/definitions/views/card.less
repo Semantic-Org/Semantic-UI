@@ -233,7 +233,11 @@
   height: @avatarSize;
   border-radius: @avatarBorderRadius;
 }
-
+@media all and (-ms-high-contrast:none) {
+  .card.ui > .image, .cards.ui > .card > .image {
+    overflow: hidden;
+  }
+}
 
 /*--------------
    Description
