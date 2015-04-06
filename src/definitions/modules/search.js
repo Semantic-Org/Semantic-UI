@@ -544,6 +544,20 @@ $.fn.search = function(parameters) {
           }
         },
 
+        clear: {
+          cache: function(value) {
+            if(!value) {
+              module.debug('Clearing cache', value);
+              $module.removeData(metadata.cache);
+            }
+            else if(value && cache && cache[value]) {
+              module.debug('Removing value from cache', value);
+              delete cache[value];
+              $module.data(metadata.cache, cache);
+            }
+          }
+        },
+
         read: {
           cache: function(name) {
             var
