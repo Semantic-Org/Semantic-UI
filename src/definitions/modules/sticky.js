@@ -580,8 +580,6 @@ $.fn.sticky = function(parameters) {
         resetCSS: function() {
           $module
             .css({
-              top    : '',
-              bottom : '',
               width  : '',
               height : ''
             })
