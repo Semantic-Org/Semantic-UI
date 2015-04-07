@@ -25,6 +25,7 @@
 **Enhancements**
 - **Build Tools** - Adjusting `site.variables` will now rebuild all UI, instead of just `site.less`
 - **Divider** - `vertical divider` inside `ui grid` now accounts for column padding
+- **Dropdown** - Dropdowns now automatically observe changes in `menu` and will update selector cache with new additions
 - **Form Validation** - Form validation now has `minCount`, `maxCount`, and `exactCount` for validating multiple selections
 - **Grid** - `celled grid` now removes internal cells on mobile and tablet when used with `doubling` grid responsive variation
 - **Grid** - `equal width` now works without `row` wrappers
@@ -94,6 +95,7 @@
 - **Grid** - `x column wide` inside `equal width/height` now cannot grow beyond column size
 - **Grid** - Fixes colored grid columns not appearing when not nested in rows
 - **Icon** - Fixes `ascending` and `descending` icon being swapped
+- **Input** - Fixed improper left padding on `transparent left icon input`
 - **Label** - Labels inside `header` now vertical align better by accounting for line height offset
 - **List** - Fixed `inverted bulleted list` bullet color
 - **Loader** - Fix position of `inline centered loader` to be centered correctly
