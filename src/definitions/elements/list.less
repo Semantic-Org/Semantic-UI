@@ -279,7 +279,7 @@ ol.ui.list ol,
   margin-left: @horizontalSpacing;
   font-size: 1rem;
 }
-.ui.horizontal.list > .item:first-child {
+.ui.horizontal.list:not(.celled) > .item:first-child {
   margin-left: 0em !important;
   padding-left: 0em !important;
 }
@@ -524,6 +524,8 @@ ul.ui.list li,
 ul.ui.list li:before,
 .ui.bulleted.list .list > .item:before,
 .ui.bulleted.list > .item:before {
+  user-select: none;
+  pointer-events: none;
   position: absolute;
   top: auto;
   left: auto;
@@ -582,6 +584,8 @@ ol.ui.list li:before,
   position: absolute;
   top: auto;
   left: auto;
+  user-select: none;
+  pointer-events: none;
   margin-left: -(@orderedCountDistance);
   counter-increment: @orderedCountName;
   content: @orderedCountContent;
