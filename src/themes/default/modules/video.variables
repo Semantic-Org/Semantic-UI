@@ -2,15 +2,25 @@
              Video
 *******************************/
 
+/*-------------------
+       Element
+--------------------*/
+
 @background: #DDDDDD;
 @placeholderBackground: #333333;
 
-@playSize: 8rem;
-@playColor: #FFFFFF;
-@playOpacity: 0.8;
-@playHoverOpacity: 1;
-@playShadow: none;
+@playBackground: transparent;
+@playTransition: background @defaultDuration @defaultEasing;
 
-@playBorderSize: 0rem;
-@playBackground: rgba(0, 0, 0, 0.3);
-@playBorderRadius: @circularRadius;
+@playIconSize: 7rem;
+@playIconTransition: color @defaultDuration @defaultEasing;
+@playIconColor: rgba(255, 255, 255, 0.7);
+@playIconShadow: 2px 2px 0px rgba(0, 0, 0, 0.15);
+
+
+/*-------------------
+       States
+--------------------*/
+
+@playHoverBackground: rgba(0, 0, 0, 0);
+@playHoverIconColor: @white;
