@@ -95,7 +95,8 @@
 - **Grid** - `x column wide` inside `equal width/height` now cannot grow beyond column size
 - **Grid** - Fixes colored grid columns not appearing when not nested in rows
 - **Icon** - Fixes `ascending` and `descending` icon being swapped
-- **Input** - Fixed improper left padding on `transparent left icon input`
+- **Input** - Fixed improper left padding on `transparent left icon input` **Thanks @zxfwinder**
+- **Input** - Fixed `placeholder` color not changing correctly on focus **Thanks @zxfwinder**
 - **Label** - Labels inside `header` now vertical align better by accounting for line height offset
 - **List** - Fixed `inverted bulleted list` bullet color
 - **Loader** - Fix position of `inline centered loader` to be centered correctly
