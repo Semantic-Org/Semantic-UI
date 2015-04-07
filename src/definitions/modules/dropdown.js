@@ -526,7 +526,7 @@ $.fn.dropdown = function(parameters) {
 
         event: {
           focus: function() {
-            if(!activated && module.is.hidden()) {
+            if(settings.showonFocus && !activated && module.is.hidden()) {
               module.show();
             }
           },
@@ -558,7 +558,9 @@ $.fn.dropdown = function(parameters) {
           search: {
             focus: function() {
               activated = true;
-              module.show();
+              if(settings.showOnFocus) {
+                module.show();
+              }
             },
             blur: function(event) {
               var
@@ -2074,6 +2076,8 @@ $.fn.dropdown.settings = {
   action         : 'activate',
 
   allowTab       : true,
+  showOnFocus    : true,
+
   fullTextSearch : false,
   preserveHTML   : true,
   sortSelect     : false,
