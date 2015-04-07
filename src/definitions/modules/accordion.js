@@ -157,7 +157,7 @@ $.fn.accordion = function(parameters) {
           ;
           if(isUnopen) {
             module.debug('Opening accordion content', $activeTitle);
-            settings.onOpening.call(this);
+            settings.onOpening.call($activeContent);
             if(settings.exclusive) {
               module.closeOthers.call($activeTitle);
             }
@@ -219,6 +219,7 @@ $.fn.accordion = function(parameters) {
           ;
           if((isActive || isOpening) && !isClosing) {
             module.debug('Closing accordion content', $activeContent);
+            settings.onClosing.call($activeContent);
             $activeTitle
               .removeClass(className.active)
             ;
@@ -548,6 +549,7 @@ $.fn.accordion.settings = {
 
   onOpening       : function(){},
   onOpen          : function(){},
+  onClosing       : function(){},
   onClose         : function(){},
   onChange        : function(){},
 
