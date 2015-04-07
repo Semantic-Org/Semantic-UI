@@ -11,7 +11,7 @@
 @firstMargin: 0em 0em (@labelHeight + @verticalSpacing);
 @lastMargin: 0em 0em (@labelHeight);
 
-@background: @transparentBlack;
+@background: @strongTransparentBlack;
 @border: none;
 @boxShadow: none;
 @padding: 0em;

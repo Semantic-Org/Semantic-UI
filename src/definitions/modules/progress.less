@@ -42,6 +42,62 @@
   margin: @lastMargin;
 }
 
+/*******************************
+            Content
+*******************************/
+
+/* Activity Bar */
+.ui.progress .bar {
+  display: block;
+  line-height: 1;
+  position: @barPosition;
+  width: @barInitialWidth;
+  min-width: @barMinWidth;
+  background: @barBackground;
+  border-radius: @barBorderRadius;
+  transition: @barTransition;
+}
+
+/* Percent Complete */
+.ui.progress .bar > .progress {
+  white-space: nowrap;
+  position: @progressPosition;
+  width: @progressWidth;
+  font-size: @progressSize;
+  top: @progressTop;
+  right: @progressRight;
+  left: @progressLeft;
+  bottom: @progressBottom;
+  color: @progressColor;
+  text-shadow: @progressTextShadow;
+  margin-top: @progressOffset;
+  font-weight: @progressFontWeight;
+  text-align: @progressTextAlign;
+}
+
+/* Label */
+.ui.progress > .label {
+  position: absolute;
+  width: @labelWidth;
+  font-size: @labelSize;
+  top: @labelTop;
+  right: @labelRight;
+  left: @labelLeft;
+  bottom: @labelBottom;
+  color: @labelColor;
+  font-weight: @labelFontWeight;
+  text-shadow: @labelTextShadow;
+  margin-top: @labelOffset;
+  text-align: @labelTextAlign;
+  transition: @labelTransition;
+}
+
+
+/*******************************
+            Types
+*******************************/
+
+
 /* Indicating */
 .ui.indicating.progress[data-percent^="1"] .bar,
 .ui.indicating.progress[data-percent^="2"] .bar {
@@ -118,57 +174,6 @@
 .ui.indicating.progress.success .label {
   color: @successHeaderColor;
 }
-
-/*******************************
-            Content
-*******************************/
-
-/* Activity Bar */
-.ui.progress .bar {
-  display: block;
-  line-height: 1;
-  position: @barPosition;
-  width: @barInitialWidth;
-  min-width: @barMinWidth;
-  background: @barBackground;
-  border-radius: @barBorderRadius;
-  transition: @barTransition;
-}
-
-/* Percent Complete */
-.ui.progress .bar > .progress {
-  white-space: nowrap;
-  position: @progressPosition;
-  width: @progressWidth;
-  font-size: @progressSize;
-  top: @progressTop;
-  right: @progressRight;
-  left: @progressLeft;
-  bottom: @progressBottom;
-  color: @progressColor;
-  text-shadow: @progressTextShadow;
-  margin-top: @progressOffset;
-  font-weight: @progressFontWeight;
-  text-align: @progressTextAlign;
-}
-
-/* Label */
-.ui.progress > .label {
-  position: absolute;
-  width: @labelWidth;
-  font-size: @labelSize;
-  top: @labelTop;
-  right: @labelRight;
-  left: @labelLeft;
-  bottom: @labelBottom;
-  color: @labelColor;
-  font-weight: @labelFontWeight;
-  text-shadow: @labelTextShadow;
-  margin-top: @labelOffset;
-  text-align: @labelTextAlign;
-  transition: @labelTransition;
-}
-
 
 /*******************************
              States
