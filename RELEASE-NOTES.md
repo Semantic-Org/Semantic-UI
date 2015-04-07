@@ -27,6 +27,7 @@
 - **Build Tools** - Adjusting `site.variables` will now rebuild all UI, instead of just `site.less`
 - **Divider** - `vertical divider` inside `ui grid` now accounts for column padding
 - **Dropdown** - Dropdowns now automatically observe changes in `menu` and will update selector cache with new additions
+- **Dropdown** - Added `showOnFocus` option
 - **Form** - Added placeholder color rules for IE, `ms-input-placeholder`
 - **Form Validation** - Form validation now has `minCount`, `maxCount`, and `exactCount` for validating multiple selections
 - **Grid** - `celled grid` now removes internal cells on mobile and tablet when used with `doubling` grid responsive variation
@@ -94,6 +95,8 @@
 - **Dropdown** - Dropdown `menu` now use same font size as dropdown
 - **Form** - Form sizes and input sizes now inherit from `site.variables`
 - **Form Validation** - Form validation now validates correctly on `<select>` change
+- **Grid** - Fix `doubling row` not working correctly inside a different `doubling grid` (css spec issue)
+- **Grid** - Fix `doubling grid` incorrectly applying width to `(x) column row`
 - **Grid** - First column on `stackable grid` no longer receives top margin
 - **Grid** - `x column wide` inside `equal width/height` now cannot grow beyond column size
 - **Grid** - Fixes colored grid columns not appearing when not nested in rows
