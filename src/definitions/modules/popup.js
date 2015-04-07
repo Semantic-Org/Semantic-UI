@@ -1158,6 +1158,8 @@ $.fn.popup.settings = {
   // whether fluid variation should assign width explicitly
   setFluidWidth  : true,
 
+
+  // transition settings
   duration       : 200,
   easing         : 'easeOutQuint',
   transition     : 'scale',
