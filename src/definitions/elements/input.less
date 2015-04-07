@@ -60,10 +60,14 @@
 ---------------------*/
 
 /* browsers require these rules separate */
-.ui.input input::-webkit-input-placeholder {
+
+.ui.input input::input-placeholder {
   color: @placeholderColor;
 }
 .ui.input input::-moz-placeholder {
+  color: @placeholderColor;
+}
+.ui.input input::-ms-input-placeholder {
   color: @placeholderColor;
 }
 
@@ -143,6 +147,11 @@
 .ui.input input:focus input::-moz-placeholder {
   color: @placeholderFocusColor;
 }
+.ui.input.focus input::-ms-input-placeholder,
+.ui.input input:focus input::-ms-input-placeholder {
+  color: @placeholderFocusColor;
+}
+
 
 
 /*--------------------
@@ -163,12 +172,18 @@
 .ui.input.error input ::-moz-placeholder {
   color: @placeholderErrorColor;
 }
+.ui.input.error input ::-ms-input-placeholder {
+  color: @placeholderErrorColor;
+}
 
 /* Focused Error Placeholder */
 .ui.input.error input :focus::-webkit-input-placeholder {
   color: @placeholderErrorFocusColor;
 }
 .ui.input.error input :focus::-moz-placeholder {
+  color: @placeholderErrorFocusColor;
+}
+.ui.input.error input :focus::-ms-input-placeholder {
   color: @placeholderErrorFocusColor;
 }
 
@@ -202,14 +217,21 @@
 }
 
 /* Transparent Inverted */
-.ui.transparent.inverted.input input::-moz-placeholder {
-  color: @transparentInvertedPlaceholderColor;
-}
 .ui.transparent.inverted.input {
   color: @transparentInvertedColor;
 }
 .ui.transparent.inverted.input input {
   color: inherit;
+}
+
+.ui.transparent.inverted.input input::-webkit-input-placeholder {
+  color: @transparentInvertedPlaceholderColor;
+}
+.ui.transparent.inverted.input input::-moz-placeholder {
+  color: @transparentInvertedPlaceholderColor;
+}
+.ui.transparent.inverted.input input::-ms-input-placeholder {
+  color: @transparentInvertedPlaceholderColor;
 }
 
 

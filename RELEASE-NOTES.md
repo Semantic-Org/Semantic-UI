@@ -27,11 +27,13 @@
 - **Build Tools** - Adjusting `site.variables` will now rebuild all UI, instead of just `site.less`
 - **Divider** - `vertical divider` inside `ui grid` now accounts for column padding
 - **Dropdown** - Dropdowns now automatically observe changes in `menu` and will update selector cache with new additions
+- **Form** - Added placeholder color rules for IE, `ms-input-placeholder`
 - **Form Validation** - Form validation now has `minCount`, `maxCount`, and `exactCount` for validating multiple selections
 - **Grid** - `celled grid` now removes internal cells on mobile and tablet when used with `doubling` grid responsive variation
 - **Grid** - `equal width` now works without `row` wrappers
 - **Grid** - rows can now be `stretched` as well as `middle aligned`, `bottom aligned` and `top aligned`!
 
+- **Input** - Added placeholder color rules for IE, `ms-input-placeholder`
 - **Label** - Labels now have `active` and `active hover` states
 - **Menu** - Added `stackable` menu variation for simple responsive menus
 - **Menu** - Added many new variables to menu
