@@ -81,7 +81,7 @@
 **Bugs**
 - **All Modules** - Performance logging now delays 500ms instead of 100ms for console logging to ensure all logs are captured in one group
 - **All Modules/Transition** - Transitions no longer use `rotateZ(0deg)` to trigger GPU display of visible state. This causes issues with `transform` creating new stacking context that can disrupt `z-index`.
-- **Card**- `flexbox` has been disabled in IE due to issues with [images in `flex-direction: column`](https://github.com/Modernizr/Modernizr/issues/1301)
+- **Card** - IE11 now can correctly use  `flexbox` cards
 - **Checkbox** - Fix `disabled checkbox` sometimes displaying hand cursor
 - **Checkbox** - Fixes nested `dropdown` inside `checkbox` causing issues
 - **Dropdown** - Fixes issue with headers disappearing inside of `ui dropdown` when nested in `ui menu`
