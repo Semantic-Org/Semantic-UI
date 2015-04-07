@@ -65,7 +65,7 @@
 @checkboxRadioTop: 1px;
 @checkboxRadioLeft: 0px;
 
-@checkboxBulletScale: 0.428571428;
+@checkboxBulletScale: 0.428571428; /* 6px @ 14pxrem */
 @checkboxBulletColor: @textColor;
 @checkboxBulletRadius: @circularRadius;
 
@@ -84,7 +84,7 @@
 @sliderWidth: @sliderLineWidth;
 @sliderHeight: (@sliderHandleSize + @sliderHandleOffset);
 
-@sliderLineHeight: 0.25rem;
+@sliderLineHeight: 0.2142rem;
 @sliderLineVerticalOffset: 0.4rem;
 @sliderLineColor: @neutralCheckbox;
 @sliderLineRadius: @circularRadius;
@@ -94,11 +94,11 @@
 @sliderLabelDistance: @sliderLineWidth + 1rem;
 @sliderOffLabelColor: @unselectedTextColor;
 
-@sliderOnLineColor: @strongTransparentBlack;
+@sliderOnLineColor: @lightBlack;
 @sliderOnLabelColor: @selectedTextColor;
 @sliderLabelLineHeight: 1rem;
 
-@sliderHoverLaneBackground: @strongTransparentBlack;
+@sliderHoverLaneBackground: @veryStrongTransparentBlack;
 @sliderHoverLabelColor: @hoveredTextColor;
 
 
@@ -126,7 +126,7 @@
 @toggleLabelOffset: 0.15em;
 
 
-@toggleFocusColor: @strongTransparentBlack;
+@toggleFocusColor: @veryStrongTransparentBlack;
 @toggleHoverColor: @toggleFocusColor;
 
 @toggleOffLabelColor: @checkboxColor;

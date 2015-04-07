@@ -104,7 +104,9 @@
 - **Input** - Fixed improper left padding on `transparent left icon input` **Thanks @zxfwinder**
 - **Input** - Fixed `placeholder` color not changing correctly on focus **Thanks @zxfwinder**
 - **Label** - Labels inside `header` now vertical align better by accounting for line height offset
+- **List** - Bullets and numbers are no longer selectable in `bulleted list` and `ordered list`
 - **List** - Fixed `inverted bulleted list` bullet color
+- **List** - Fix first element touches border on `ui horizontal celled list`
 - **Loader** - Fix position of `inline centered loader` to be centered correctly
 - **Message** - Message now uses `@lineHeight` from `site.variables`
 - **Message** - Updated all message colors for legibility

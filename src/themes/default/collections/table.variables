@@ -188,7 +188,7 @@
 @invertedBorder: none;
 @invertedCellBorderColor: @whiteBorderColor;
 @invertedCellColor: @invertedTextColor;
-@invertedHeaderBackground: rgba(0, 0, 0, 0.15);
+@invertedHeaderBackground: @veryStrongTransparentBlack;
 @invertedHeaderColor: @invertedTextColor;
 
 @invertedDefinitionColumnBackground: @subtleTransparentWhite;

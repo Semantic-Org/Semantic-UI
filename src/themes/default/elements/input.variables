@@ -18,7 +18,7 @@
 @textAlign: left;
 @background: #FFFFFF;
 @borderWidth: 1px;
-@border: @borderWidth solid rgba(0, 0, 0, 0.15);
+@border: @borderWidth solid @borderColor;
 @boxShadow: none;
 
 @borderRadius: @defaultBorderRadius;
