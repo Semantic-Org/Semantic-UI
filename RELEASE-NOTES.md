@@ -119,6 +119,7 @@
 - **Modal** - Modal with `detachable: false` inside `ui sidebar`  `pusher` element will now show correctly
 - **Popup** - Fixes issue with `min-width` in firefox exceeding `max-width` causing element to not wrap correctly
 - **Popup** - Popup will now produce an error message and not mistakenly appear in the top left corner of page, if called with a `popup` or `target` that does not exist.
+- **Popup** - Popup will no longer appear incorrectly if the targeted element is not visible on page
 - **Popup** - Fixed bug which could cause pre-existing inline popup to be removed from DOM after hiding
 - **Reveal** - Removed `masked` reveal, all reveals are masked by default
 - **Search** - Search will no longer incorrectly produce an error when API settings are passed through metadata

@@ -604,7 +604,6 @@ $.fn.popup = function(parameters) {
               module.error(error.notFound);
               return;
             }
-
             var
               windowWidth   = $(window).width(),
               windowHeight  = $(window).height(),
@@ -641,6 +640,11 @@ $.fn.popup = function(parameters) {
             ;
             position    = position    || $module.data(metadata.position)    || settings.position;
             arrowOffset = arrowOffset || $module.data(metadata.offset)      || settings.offset;
+
+            if(target.top == 0 && target.left == 0) {
+              module.debug('Popup target is hidden, no action taken');
+              return false;
+            }
 
             if(searchDepth == settings.maxSearchDepth && settings.lastResort) {
               module.debug('Using last resort position to display', settings.lastResort);
