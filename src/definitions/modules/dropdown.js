@@ -287,7 +287,7 @@ $.fn.dropdown = function(parameters) {
           }
           if( module.can.show() && !module.is.active() ) {
             module.debug('Showing dropdown');
-            if(module.is.multiple()) {
+            if(module.is.multiple() && module.is.searchSelection()) {
               module.filterActive();
             }
             module.animate.show(function() {
@@ -515,9 +515,11 @@ $.fn.dropdown = function(parameters) {
         },
 
         filterActive: function() {
-          $item.filter('.' + className.active)
-            .addClass(className.filtered)
-          ;
+          if(settings.filterActive) {
+            $item.filter('.' + className.active)
+              .addClass(className.filtered)
+            ;
+          }
         },
 
         focusSearch: function() {
@@ -1038,8 +1040,8 @@ $.fn.dropdown = function(parameters) {
               : text
             ;
             module.set.selected(value, $(this));
-            if(module.is.multiple() && !module.is.searchSelection() && !module.is.allFiltered()) {
-              module.filterActive();
+            if(module.is.multiple() && !module.is.allFiltered()) {
+              return;
             }
             else {
               module.hide(function() {
@@ -1195,7 +1197,7 @@ $.fn.dropdown = function(parameters) {
                       ? $(this).attr('value')
                       : name
                   ;
-                  if(value === '') {
+                  if(value === '' && settings.placeholder !== false) {
                     select.placeholder = name;
                   }
                   else {
@@ -1214,6 +1216,10 @@ $.fn.dropdown = function(parameters) {
                   }
                 })
             ;
+            if(typeof settings.placeholder !== 'boolean') {
+              module.debug('Setting placeholder value to', settings.placeholder);
+              select.placeholder = settings.placeholder;
+            }
             if(settings.sortSelect) {
               module.debug('Retrieved and sorted values from select', select);
             }
@@ -1529,8 +1535,6 @@ $.fn.dropdown = function(parameters) {
               }
               module.remove.selectedItem();
               $selectedItem
-                .addClass(className.active)
-                .addClass(className.selected)
                 .each(function() {
                   var
                     $selected     = $(this),
@@ -1539,12 +1543,23 @@ $.fn.dropdown = function(parameters) {
                   selectedText  = module.get.choiceText($selected);
                   selectedValue = module.get.choiceValue($selected, selectedText);
                   if(isMultiple) {
-                    module.add.label(selectedValue, selectedText, shouldAnimate);
-                    module.set.value(selectedValue, selectedText, $selected);
+                    if(!$selected.hasClass(className.active)) {
+                      module.add.label(selectedValue, selectedText, shouldAnimate);
+                      module.set.value(selectedValue, selectedText, $selected);
+                      $selected.addClass(className.active);
+                      module.filterActive();
+                    }
+                    else {
+                      module.remove.selected(selectedValue);
+                    }
                   }
                   else {
                     module.set.value(selectedValue, selectedText, $selected);
                     module.set.text(selectedText);
+                    $selected
+                      .addClass(className.active)
+                      .addClass(className.selected)
+                    ;
                   }
                 })
               ;
@@ -2127,11 +2142,15 @@ $.fn.dropdown.settings = {
   // search anywhere in value
   fullTextSearch : false,
 
+  // whether to convert blank <select> values to placeholder text
+  placeholder: 'auto',
+
   // preserve html when selecting value
   preserveHTML   : true,
 
   // sort selection on init
   sortSelect     : false,
+
   // what to match against with search selection (both, text, or label)
   match: 'both',
 
@@ -2156,6 +2175,9 @@ $.fn.dropdown.settings = {
   // widest glyph width in em (W is 1.0714 em) used to calculate multiselect input width
   glyphWidth     : 1.0714,
 
+  // whether multiple select should allow user added values
+  allowAdditions : true,
+
   // multi select delimiting key
   delimiter      : ',',
 
@@ -2165,6 +2187,9 @@ $.fn.dropdown.settings = {
     duration   : 250,
     variation  : false
   },
+
+  // whether multiple selects should filter active selections from menu
+  filterActive : true,
 
   /* Callbacks */
   onLabelSelect : function($selectedLabels){},
