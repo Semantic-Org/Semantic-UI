@@ -119,6 +119,7 @@
 - **Popup** - Fixes issue with `min-width` in firefox exceeding `max-width` causing element to not wrap correctly
 - **Popup** - Fixed bug which could cause pre-existing inline popup to be removed from DOM after hiding
 - **Reveal** - Removed `masked` reveal, all reveals are masked by default
+- **Search** - Search will no longer incorrectly produce an error when API settings are passed through metadata
 - **Search** - Fixed `onSelect` returning the first term that matches the beginining of the selected value not the exact value.
 - **Search** - Search API calls now use the same level debug settings as search
 - **Steps** - Fixed bug where `stackable steps` were not working correctly
