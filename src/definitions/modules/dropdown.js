@@ -759,6 +759,7 @@ $.fn.dropdown = function(parameters) {
                 if(isFocusedOnSearch && (pressedKey == keys.delimiter)) {
                   // tokenize on comma
                   if(module.is.visible()) {
+                    module.verbose('Delimiter key pressed. Tokenizing');
                     module.event.item.click.call($selectedItem, event);
                     event.preventDefault();
                   }
@@ -766,11 +767,16 @@ $.fn.dropdown = function(parameters) {
                 else if(pressedKey == keys.leftArrow) {
                   // activate previous label
                   if((isFocused || caretAtStart) && !hasActiveLabel) {
+                    module.verbose('Selecting previous label');
                     $label.last().addClass(className.active);
                   }
                   else if(hasActiveLabel && !isFirstLabel) {
                     if(!event.shiftKey) {
+                      module.verbose('Selecting previous label');
                       $label.removeClass(className.active)
+                    }
+                    else {
+                      module.verbose('Adding previous label to selection');
                     }
                     $activeLabel.prev()
                       .addClass(className.active)
@@ -787,7 +793,11 @@ $.fn.dropdown = function(parameters) {
                   // activate next label
                   if(hasActiveLabel) {
                     if(!event.shiftKey) {
+                      module.verbose('Selecting next label');
                       $label.removeClass(className.active)
+                    }
+                    else {
+                      module.verbose('Adding next label to selection');
                     }
                     $activeLabel.next()
                       .addClass(className.active)
@@ -798,10 +808,12 @@ $.fn.dropdown = function(parameters) {
                 }
                 else if(pressedKey == keys.deleteKey || pressedKey == keys.backspace) {
                   if(hasActiveLabel) {
+                    module.verbose('Removing active labels');
                     $activeLabel.last().next().addClass(className.active);
                     module.remove.labels($activeLabel);
                   }
                   else if(caretAtStart && !hasActiveLabel && pressedKey == keys.backspace) {
+                    module.verbose('Removing last label on input backspace');
                     $activeLabel = $label.last().addClass(className.active);
                     activeValue  = $activeLabel.data('value');
                     module.remove.selected(activeValue);
@@ -937,17 +949,18 @@ $.fn.dropdown = function(parameters) {
                   event.preventDefault();
                 }
 
+                // escape (close menu)
+                if(pressedKey == keys.escape) {
+                  module.verbose('Escape key pressed, closing dropdown');
+                  module.hide();
+                }
+
               }
               else {
                 // enter (open menu)
                 if(pressedKey == keys.enter) {
                   module.verbose('Enter key pressed, showing dropdown');
                   module.show();
-                }
-                // escape (close menu)
-                if(pressedKey == keys.escape) {
-                  module.verbose('Escape key pressed, closing dropdown');
-                  module.hide();
                 }
                 // down arrow (open menu)
                 if(pressedKey == keys.downArrow) {
