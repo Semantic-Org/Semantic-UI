@@ -367,7 +367,6 @@ $.fn.dropdown = function(parameters) {
             module.verbose('Mouse detected binding mouse events');
             if(module.is.multiple()) {
               $module
-                .on('click'   + eventNamespace, module.event.click)
                 .on('click'   + eventNamespace, selector.label, module.event.label.click)
                 .on('click'   + eventNamespace, selector.remove, module.event.remove.click)
               ;
@@ -548,7 +547,7 @@ $.fn.dropdown = function(parameters) {
 
         event: {
           focus: function() {
-            if(settings.showonFocus && !activated && module.is.hidden()) {
+            if(settings.showOnFocus && !activated && module.is.hidden()) {
               module.show();
             }
           },
@@ -658,7 +657,12 @@ $.fn.dropdown = function(parameters) {
           },
           test: {
             toggle: function(event) {
-              if( module.determine.eventOnElement(event, module.toggle) ) {
+              var
+                toggleBehavior = (module.is.multiple())
+                  ? module.show
+                  : module.toggle
+                ;
+              if( module.determine.eventOnElement(event, toggleBehavior) ) {
                 event.preventDefault();
               }
             },
@@ -911,6 +915,7 @@ $.fn.dropdown = function(parameters) {
                   ;
                   if($visibleItems.index( $nextItem ) < 0) {
                     module.verbose('Up key pressed but reached top of current menu');
+                    event.preventDefault();
                     return;
                   }
                   else {
@@ -934,6 +939,7 @@ $.fn.dropdown = function(parameters) {
                   ;
                   if($nextItem.length === 0) {
                     module.verbose('Down key pressed but reached bottom of current menu');
+                    event.preventDefault();
                     return;
                   }
                   else {
@@ -1032,20 +1038,19 @@ $.fn.dropdown = function(parameters) {
               : text
             ;
             module.set.selected(value, $(this));
-            module.hide(function() {
-              module.remove.filteredItem();
-            });
+            if(module.is.multiple() && !module.is.searchSelection() && !module.is.allFiltered()) {
+              module.filterActive();
+            }
+            else {
+              module.hide(function() {
+                module.remove.filteredItem();
+              });
+            }
           },
 
           select: function(text, value) {
-            value = (value !== undefined)
-              ? value
-              : text
-            ;
-            module.set.selected(value, $(this));
-            module.hide(function() {
-              module.remove.filteredItem();
-            });
+            // mimics action.activate but does not select text
+            module.action.activate.call(this);
           },
 
           combo: function(text, value) {
@@ -2107,41 +2112,59 @@ $.fn.dropdown.settings = {
   verbose        : false,
   performance    : true,
 
+  // what event should show menu
   on             : 'click',
+
+  // action on item selection
   action         : 'activate',
 
+  // add tabindex to element
   allowTab       : true,
+
+  // show menu on focus
   showOnFocus    : true,
 
+  // search anywhere in value
   fullTextSearch : false,
+
+  // preserve html when selecting value
   preserveHTML   : true,
+
+  // sort selection on init
   sortSelect     : false,
-
-  label: {
-    transition : 'horizontal flip',
-    duration   : 250,
-    variation  : false
-  },
-
+  // what to match against with search selection (both, text, or label)
   match: 'both',
 
+  // allow elements with sub-menus to be selected
   allowCategorySelection : false,
 
-  delay                  : {
+  // delay before event
+  delay : {
     hide   : 300,
     show   : 200,
     search : 50,
     touch  : 50
   },
 
+  // force a value selection on search selection
   forceSelection : true,
 
-  // widest glyph width in em (W is 1.0714 em)
+  // menu transiton
+  transition     : 'auto',
+  duration       : 250,
+
+  // widest glyph width in em (W is 1.0714 em) used to calculate multiselect input width
   glyphWidth     : 1.0714,
 
-  transition     : 'auto',
+  // multi select delimiting key
   delimiter      : ',',
-  duration       : 250,
+
+  // label settings on multi-select
+  label: {
+    transition : 'horizontal flip',
+    duration   : 250,
+    variation  : false
+  },
 
   /* Callbacks */
   onLabelSelect : function($selectedLabels){},
@@ -2151,7 +2174,6 @@ $.fn.dropdown.settings = {
   onHide        : function(){},
 
   /* Component */
-
   name           : 'Dropdown',
   namespace      : 'dropdown',
 

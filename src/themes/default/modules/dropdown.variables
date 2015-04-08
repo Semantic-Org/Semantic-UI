@@ -182,6 +182,11 @@
 @selectionHoverBorderColor: @selectedBorderColor;
 @selectionHoverBoxShadow: none;
 
+/* Hover */
+@selectionFocusBorderColor: @selectedBorderColor;
+@selectionFocusBoxShadow: none;
+@selectionFocusMenuBoxShadow: @raisedShadow;
+
 /* Visible */
 @selectionVisibleTextFontWeight: normal;
 @selectionVisibleTextColor: @hoveredTextColor;
@@ -226,6 +231,7 @@
 @multipleSelectionRightPadding: @selectionIconDistance;
 @multipleSelectionBottomPadding: @multipleSelectionTopPadding;
 @multipleSelectionLeftPadding: (@selectionHorizontalPadding - @labelHorizontalPadding);
+@multipleSelectionPadding: @multipleSelectionTopPadding @multipleSelectionRightPadding @multipleSelectionBottomPadding @multipleSelectionLeftPadding;
 
 @multipleSelectionInlineMargin: 0.4em 0em 0.4em 0.5em;
 @multipleSelectionInlineLineHeight: @searchSelectionLineHeight;
@@ -301,7 +307,7 @@
 @upwardSelectionVisibleBoxShadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
 @upwardSelectionVisibleHoverBoxShadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.05);
 @upwardSelectionVisibleHoverMenuBoxShadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
-@upwardSelectionVisibleBorderRadius:  @selectionVisibleConnectingBorder @selectionVisibleConnectingBorder @borderRadius @borderRadius;
+@upwardSelectionVisibleBorderRadius: @selectionVisibleConnectingBorder @selectionVisibleConnectingBorder @borderRadius @borderRadius;
 
 /* Flyout Direction */
 @leftMenuDropdownIconFloat: left;

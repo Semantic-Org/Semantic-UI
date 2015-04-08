@@ -457,6 +457,21 @@ select.ui.dropdown {
   box-shadow: @selectionVisibleMenuBoxShadow;
 }
 
+/* Focus */
+.ui.selection.dropdown:focus {
+  border-color: @selectionFocusBorderColor;
+  box-shadow: @selectionFocusBoxShadow;
+}
+.ui.selection.dropdown:focus .menu {
+  border-color: @selectionFocusBorderColor;
+  box-shadow: @selectionFocusMenuBoxShadow;
+}
+
+/* Visible */
+.ui.selection.visible.dropdown > .text:not(.default) {
+  font-weight: @selectionVisibleTextFontWeight;
+  color: @selectionVisibleTextColor;
+}
 
 /* Visible Hover */
 .ui.selection.visible.dropdown:hover {
@@ -466,14 +481,6 @@ select.ui.dropdown {
 .ui.selection.visible.dropdown:hover .menu {
   border-color: @selectionVisibleHoverBorderColor;
   box-shadow: @selectionVisibleHoverMenuBoxShadow;
-}
-
-
-/* Active Item */
-.ui.selection.active.dropdown > .text:not(.default),
-.ui.selection.visible.dropdown > .text:not(.default) {
-  font-weight: @selectionVisibleTextFontWeight;
-  color: @selectionVisibleTextColor;
 }
 
 /* Dropdown Icon */
@@ -591,7 +598,7 @@ select.ui.dropdown {
 
 /* Multiple Selection */
 .ui.multiple.dropdown {
-  padding: @multipleSelectionTopPadding @multipleSelectionRightPadding @multipleSelectionBottomPadding @multipleSelectionLeftPadding;
+  padding: @multipleSelectionPadding;
 }
 .ui.multiple.dropdown .menu {
   cursor: auto;
@@ -710,6 +717,7 @@ select.ui.dropdown {
   box-shadow: @activeItemBoxShadow;
   z-index: @activeItemZIndex;
 }
+
 
 /*--------------------
      Default Text
