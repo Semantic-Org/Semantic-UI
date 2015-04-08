@@ -710,6 +710,7 @@ i.icon.target:before { content: "\f140"; }
 i.icon.play.circle:before { content: "\f144"; }
 i.icon.pencil.square:before { content: "\f14b"; }
 i.icon.compass:before { content: "\f14e"; }
+i.icon.amex:before { content: "\f1f3"; }
 i.icon.eur:before { content: "\f153"; }
 i.icon.gbp:before { content: "\f154"; }
 i.icon.usd:before { content: "\f155"; }

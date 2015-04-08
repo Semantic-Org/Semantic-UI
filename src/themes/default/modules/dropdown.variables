@@ -209,14 +209,16 @@
 /* Search Selection */
 @searchSelectionLineHeight: 1.2142em; /* browser default for webkit <input> */
 @searchSelectionLineHeightOffset: ((@searchSelectionLineHeight - 1em) / 2);
-@searchSelectionInputPadding: (@selectionVerticalPadding - @searchSelectionLineHeightOffset) @selectionHorizontalPadding;
+@searchSelectionVerticalPadding: (@selectionVerticalPadding - @searchSelectionLineHeightOffset);
+@searchSelectionHorizontalPadding: @selectionHorizontalPadding;
+@searchSelectionInputPadding: @searchSelectionVerticalPadding @selectionIconDistance @searchSelectionVerticalPadding @searchSelectionHorizontalPadding;
 
 @searchMobileMaxMenuHeight: @selectionMobileMaxMenuHeight;
 @searchTabletMaxMenuHeight: @selectionTabletMaxMenuHeight;
 @searchComputerMaxMenuHeight: @selectionComputerMaxMenuHeight;
 @searchWidescreenMaxMenuHeight: @selectionWidescreenMaxMenuHeight;
 
-/* Multiple */
+/* Multiple Selection */
 @labelVerticalPadding: 0.4285em;
 @labelSize: @relativeSmall;
 @labelHorizontalPadding: @relativeMini;

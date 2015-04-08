@@ -96,6 +96,8 @@
 - **Dropdown** - Fixed issue with `search selection` not changing text when reselecting same value from list
 - **Dropdown** - Dropdown `menu` now use same font size as dropdown
 - **Dropdown** - Fixed behaviors called on `<select>` after initialization not being correctly applied to `ui dropdown`
+- **Dropdown** - Fixed `search dropdown` submitting parent form when enter shortcut pressed
+- **Form** - `field` inside `fields` no longer produce double sized margins.
 - **Form** - Form sizes and input sizes now inherit from `site.variables`
 - **Form Validation** - Form validation now validates correctly on `<select>` change
 - **Grid** - Fix `doubling row` not working correctly inside a different `doubling grid` (css spec issue)

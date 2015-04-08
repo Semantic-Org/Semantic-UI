@@ -872,6 +872,7 @@ $.fn.dropdown = function(parameters) {
                     module.event.item.click.call($selectedItem, event);
                     event.stopImmediatePropagation();
                   }
+                  event.preventDefault();
                 }
 
                 // left arrow (hide sub-menu)
@@ -969,11 +970,13 @@ $.fn.dropdown = function(parameters) {
                 if(pressedKey == keys.enter) {
                   module.verbose('Enter key pressed, showing dropdown');
                   module.show();
+                  event.preventDefault();
                 }
                 // down arrow (open menu)
                 if(pressedKey == keys.downArrow) {
                   module.verbose('Down key pressed, showing dropdown');
                   module.show();
+                  event.preventDefault();
                 }
               }
             }
@@ -1197,7 +1200,7 @@ $.fn.dropdown = function(parameters) {
                       ? $(this).attr('value')
                       : name
                   ;
-                  if(settings.placeholder !== 'auto' && value === '') {
+                  if(settings.placeholder === 'auto' && value === '') {
                     select.placeholder = name;
                   }
                   else {
