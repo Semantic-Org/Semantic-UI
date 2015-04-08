@@ -1197,7 +1197,7 @@ $.fn.dropdown = function(parameters) {
                       ? $(this).attr('value')
                       : name
                   ;
-                  if(value === '' && settings.placeholder !== false) {
+                  if(settings.placeholder !== 'auto') {
                     select.placeholder = name;
                   }
                   else {
