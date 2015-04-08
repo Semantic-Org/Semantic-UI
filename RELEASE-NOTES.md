@@ -26,6 +26,7 @@
 - **Accordion** - adds `onOpening` and `onClosing` callback (before animation) to go with `onOpen`, `onClose` (after animation) **Thanks @cluppric**
 - **Build Tools** - Adjusting `site.variables` will now rebuild all UI, instead of just `site.less`
 - **Divider** - `vertical divider` inside `ui grid` now accounts for column padding
+- **Dropdown** - Dropdowns now have `match` setting to specify whether to match on `text`, `value` or `both`
 - **Dropdown** - Dropdowns now automatically observe changes in `menu` and will update selector cache with new additions
 - **Dropdown** - Added `showOnFocus` option
 - **Form** - Added placeholder color rules for IE, `ms-input-placeholder`
