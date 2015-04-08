@@ -362,17 +362,7 @@ $.fn.search = function(parameters) {
               module.search.local(searchTerm);
             }
             else if( module.can.useAPI() ) {
-              if(settings.apiSettings) {
-                module.debug('Searching with specified API settings', settings.apiSettings);
-                module.search.remote(searchTerm);
-              }
-              else if($.api.settings.api.search !== undefined) {
-                module.debug('Searching with default search API endpoint');
-                module.search.remote(searchTerm);
-              }
-              else {
-                module.error(error.noEndpoint);
-              }
+              module.search.remote(searchTerm);
             }
             else {
               module.error(error.source);
