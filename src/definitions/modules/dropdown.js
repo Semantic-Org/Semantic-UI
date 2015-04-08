@@ -1216,7 +1216,7 @@ $.fn.dropdown = function(parameters) {
                   }
                 })
             ;
-            if(typeof settings.placeholder !== 'boolean') {
+            if(settings.placeholder && settings.placeholder !== 'auto') {
               module.debug('Setting placeholder value to', settings.placeholder);
               select.placeholder = settings.placeholder;
             }
