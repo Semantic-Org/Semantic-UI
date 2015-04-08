@@ -598,10 +598,13 @@ $.fn.popup = function(parameters) {
 
         set: {
           position: function(position, arrowOffset) {
+
+            // exit conditions
             if($target.length == 0 || $popup.length == 0) {
               module.error(error.notFound);
               return;
             }
+
             var
               windowWidth   = $(window).width(),
               windowHeight  = $(window).height(),
@@ -623,7 +626,9 @@ $.fn.popup = function(parameters) {
                 ? parseInt( window.getComputedStyle(targetElement).getPropertyValue('margin-top'), 10)
                 : 0,
               marginLeft    = (settings.inline)
-                ? parseInt( window.getComputedStyle(targetElement).getPropertyValue(module.is.rtl() ? 'margin-right' : 'margin-left'), 10)
+                ? module.is.rtl()
+                  ? parseInt( window.getComputedStyle(targetElement).getPropertyValue('margin-right'), 10)
+                  : parseInt( window.getComputedStyle(targetElement).getPropertyValue('margin-left') , 10)
                 : 0,
 
               target        = (settings.inline || settings.popup)
