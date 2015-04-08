@@ -454,15 +454,32 @@ $.fn.dropdown = function(parameters) {
             .each(function(){
               var
                 $choice = $(this),
-                text    = String(module.get.choiceText($choice, false)),
-                value   = String(module.get.choiceValue($choice, text))
+                text,
+                value
               ;
-              if( text.match(exactRegExp) || value.match(exactRegExp) ) {
-                $results = $results.add($choice);
-              }
-              else if(settings.fullTextSearch) {
-                if( text.match(fullTextRegExp) || value.match(fullTextRegExp) ) {
+              if(settings.match == 'both' || settings.match == 'text') {
+                text = String(module.get.choiceText($choice, false));
+
+                if(text.match(exactRegExp)) {
                   $results = $results.add($choice);
+                  return true;
+                }
+                else if(settings.fullTextSearch && text.match(fullTextRegExp)) {
+                  $results = $results.add($choice);
+                  return true;
+                }
+              }
+              if(settings.match == 'both' || settings.match == 'value') {
+                console.log('here');
+                value = String(module.get.choiceValue($choice, text));
+
+                if(value.match(exactRegExp)) {
+                  $results = $results.add($choice);
+                  return true;
+                }
+                else if(settings.fullTextSearch && value.match(fullTextRegExp)) {
+                  $results = $results.add($choice);
+                  return true;
                 }
               }
             })
@@ -2087,6 +2104,8 @@ $.fn.dropdown.settings = {
     duration   : 250,
     variation  : false
   },
+
+  match: 'both',
 
   allowCategorySelection : false,
 
