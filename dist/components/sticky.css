@@ -16,8 +16,8 @@
 
 .ui.sticky {
   position: static;
-  -webkit-transition: width 0.2s ease, height 0.2s ease, top 0.2s ease, bottom 0.2s ease;
-          transition: width 0.2s ease, height 0.2s ease, top 0.2s ease, bottom 0.2s ease;
+  -webkit-transition: none;
+          transition: none;
   z-index: 800;
 }
 

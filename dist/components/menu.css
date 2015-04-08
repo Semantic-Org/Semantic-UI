@@ -106,7 +106,7 @@
   right: 0px;
   height: 100%;
   width: 1px;
-  background: rgba(34, 36, 38, 0.15);
+  background: rgba(34, 36, 38, 0.1);
 }
 
 /*--------------
@@ -134,7 +134,7 @@
 ---------------*/
 
 .ui.menu .item > i.icon {
-  opacity: 0.75;
+  opacity: 0.9;
   float: none;
   margin: 0em 0.25em 0em 0em;
 }
@@ -222,9 +222,6 @@
     Dropdowns
 ---------------*/
 
-.ui.menu .ui.active.dropdown.item {
-  font-weight: normal;
-}
 
 /* Dropdown Icon */
 .ui.menu .item > i.dropdown.icon {
@@ -287,7 +284,7 @@
 /* Inverted */
 .ui.inverted.menu .search.dropdown.item > .search,
 .ui.inverted.menu .search.dropdown.item > .text {
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /* Vertical */
@@ -373,7 +370,7 @@
 .ui.menu a.item:hover {
   cursor: pointer;
   background: rgba(0, 0, 0, 0.03);
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.9);
 }
 
 /*--------------
@@ -391,13 +388,13 @@
      Active
 ---------------*/
 
-.ui.menu .active.item:not(.dropdown) {
-  background: rgba(0, 0, 0, 0.03);
+.ui.menu .active.item {
+  background: rgba(0, 0, 0, 0.05);
   color: rgba(0, 0, 0, 0.9);
   font-weight: normal;
   box-shadow: none;
 }
-.ui.menu .active.item:not(.dropdown) > i.icon {
+.ui.menu .active.item > i.icon {
   opacity: 1;
 }
 
@@ -405,10 +402,10 @@
   Active Hover
 ---------------*/
 
-.ui.vertical.menu .active.item:hover,
-.ui.menu .active.item:hover {
-  background-color: rgba(0, 0, 0, 0.03);
-  color: rgba(0, 0, 0, 0.8);
+.ui.menu .active.item:hover,
+.ui.vertical.menu .active.item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.9);
 }
 
 /*--------------
@@ -418,8 +415,8 @@
 .ui.menu .item.disabled,
 .ui.menu .item.disabled:hover {
   cursor: default;
-  color: rgba(40, 40, 40, 0.3);
   background-color: transparent !important;
+  color: rgba(40, 40, 40, 0.3);
 }
 
 
@@ -454,9 +451,9 @@ Floated Menu / Item
 }
 
 /* Floated Borders */
-.ui.menu .right.menu > .item:first-child:before,
-.ui.menu .right.menu > .item:last-child:before {
-  display: none;
+.ui.menu .right.menu > .item::before {
+  right: auto;
+  left: 0;
 }
 
 /*--------------
@@ -511,7 +508,7 @@ Floated Menu / Item
   top: 0%;
   left: 0px;
   width: 100%;
-  background: rgba(34, 36, 38, 0.15);
+  background: rgba(34, 36, 38, 0.1);
   height: 1px;
 }
 .ui.vertical.menu .item:first-child:before {
@@ -539,7 +536,7 @@ Floated Menu / Item
 
 /* Vertical Active */
 .ui.vertical.menu .active.item {
-  background: rgba(0, 0, 0, 0.03);
+  background: rgba(0, 0, 0, 0.05);
   border-radius: 0em;
   box-shadow: none;
 }
@@ -745,7 +742,7 @@ Floated Menu / Item
 /* Inverted */
 .ui.secondary.inverted.menu .link.item,
 .ui.secondary.inverted.menu a.item {
-  color: rgba(255, 255, 255, 0.8) !important;
+  color: rgba(255, 255, 255, 0.7) !important;
 }
 .ui.secondary.inverted.menu .dropdown.item:hover,
 .ui.secondary.inverted.menu .link.item:hover,
@@ -891,7 +888,7 @@ Floated Menu / Item
   border-color: rgba(34, 36, 38, 0.15);
 }
 .ui.secondary.inverted.pointing.menu > .item {
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.9);
 }
 .ui.secondary.inverted.pointing.menu > .header.item {
   color: #ffffff !important;
@@ -1128,7 +1125,7 @@ Floated Menu / Item
     top: 0%;
     left: 0px;
     width: 100%;
-    background: rgba(34, 36, 38, 0.15);
+    background: rgba(34, 36, 38, 0.1);
     height: 1px;
   }
 }
@@ -1142,33 +1139,33 @@ Floated Menu / Item
 
 .ui.menu .blue.active.item,
 .ui.blue.menu .active.item {
-  border-color: #3b83c0 !important;
-  color: #3b83c0 !important;
+  border-color: #2185d0 !important;
+  color: #2185d0 !important;
 }
 .ui.menu .green.active.item,
 .ui.green.menu .active.item {
-  border-color: #5bbd72 !important;
-  color: #5bbd72 !important;
+  border-color: #21ba45 !important;
+  color: #21ba45 !important;
 }
 .ui.menu .orange.active.item,
 .ui.orange.menu .active.item {
-  border-color: #e07b53 !important;
-  color: #e07b53 !important;
+  border-color: #f2711c !important;
+  color: #f2711c !important;
 }
 .ui.menu .pink.active.item,
 .ui.pink.menu .active.item {
-  border-color: #d9499a !important;
-  color: #d9499a !important;
+  border-color: #e03997 !important;
+  color: #e03997 !important;
 }
 .ui.menu .purple.active.item,
 .ui.purple.menu .active.item {
-  border-color: #564f8a !important;
-  color: #564f8a !important;
+  border-color: #6a33c8 !important;
+  color: #6a33c8 !important;
 }
 .ui.menu .red.active.item,
 .ui.red.menu .active.item {
-  border-color: #d95c5c !important;
-  color: #d95c5c !important;
+  border-color: #db2828 !important;
+  color: #db2828 !important;
 }
 .ui.menu .teal.active.item,
 .ui.teal.menu .active.item {
@@ -1177,8 +1174,8 @@ Floated Menu / Item
 }
 .ui.menu .yellow.active.item,
 .ui.yellow.menu .active.item {
-  border-color: #f2c61f !important;
-  color: #f2c61f !important;
+  border-color: #fbbd08 !important;
+  color: #fbbd08 !important;
 }
 
 /*--------------
@@ -1186,6 +1183,7 @@ Floated Menu / Item
 ---------------*/
 
 .ui.inverted.menu {
+  border-width: 0px;
   background: #1b1c1d;
   box-shadow: none;
 }
@@ -1194,7 +1192,7 @@ Floated Menu / Item
 .ui.inverted.menu .item,
 .ui.inverted.menu .item > a:not(.ui) {
   background: transparent;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.9);
 }
 .ui.inverted.menu .item.menu {
   background: transparent;
@@ -1212,7 +1210,7 @@ Floated Menu / Item
 /* Sub Menu */
 .ui.vertical.inverted.menu .menu .item,
 .ui.vertical.inverted.menu .menu .item a:not(.ui) {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 /* Header */
@@ -1234,7 +1232,7 @@ Floated Menu / Item
 .ui.inverted.menu .dropdown.item:hover,
 .ui.inverted.menu .link.item:hover,
 .ui.inverted.menu a.item:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: transparent;
   color: #ffffff;
 }
 .ui.vertical.inverted.menu .item .menu a.item:hover,
@@ -1248,7 +1246,7 @@ Floated Menu / Item
 .ui.inverted.menu a.item:active,
 .ui.inverted.menu .link.item:active,
 .ui.inverted.menu a.item:active {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.05);
   color: #ffffff;
 }
 
@@ -1323,50 +1321,50 @@ Floated Menu / Item
 
 /* Blue */
 .ui.inverted.blue.menu {
-  background-color: #3b83c0;
+  background-color: #2185d0;
 }
 .ui.inverted.blue.pointing.menu .active.item:after {
-  background-color: #3b83c0;
+  background-color: #2185d0;
 }
 
 /* Green */
 .ui.inverted.green.menu {
-  background-color: #5bbd72;
+  background-color: #21ba45;
 }
 .ui.inverted.green.pointing.menu .active.item:after {
-  background-color: #5bbd72;
+  background-color: #21ba45;
 }
 
 /* Orange */
 .ui.inverted.orange.menu {
-  background-color: #e07b53;
+  background-color: #f2711c;
 }
 .ui.inverted.orange.pointing.menu .active.item:after {
-  background-color: #e07b53;
+  background-color: #f2711c;
 }
 
 /* Pink */
 .ui.inverted.pink.menu {
-  background-color: #d9499a;
+  background-color: #e03997;
 }
 .ui.inverted.pink.pointing.menu .active.item:after {
-  background-color: #d9499a;
+  background-color: #e03997;
 }
 
 /* Purple */
 .ui.inverted.purple.menu {
-  background-color: #564f8a;
+  background-color: #6a33c8;
 }
 .ui.inverted.purple.pointing.menu .active.item:after {
-  background-color: #564f8a;
+  background-color: #6a33c8;
 }
 
 /* Red */
 .ui.inverted.red.menu {
-  background-color: #d95c5c;
+  background-color: #db2828;
 }
 .ui.inverted.red.pointing.menu .active.item:after {
-  background-color: #d95c5c;
+  background-color: #db2828;
 }
 
 /* Teal */
@@ -1379,10 +1377,10 @@ Floated Menu / Item
 
 /* Yellow */
 .ui.inverted.yellow.menu {
-  background-color: #f2c61f;
+  background-color: #fbbd08;
 }
 .ui.inverted.yellow.pointing.menu .active.item:after {
-  background-color: #f2c61f;
+  background-color: #fbbd08;
 }
 
 /*--------------
@@ -1505,7 +1503,6 @@ Floated Menu / Item
   position: fixed;
   z-index: 101;
   margin: 0em;
-  border: none;
   width: 100%;
 }
 .ui.menu.fixed,
@@ -1515,12 +1512,14 @@ Floated Menu / Item
 }
 .ui.fixed.menu,
 .ui.top.fixed.menu {
+  border-top: none;
   top: 0px;
   left: 0px;
   right: auto;
   bottom: auto;
 }
 .ui.right.fixed.menu {
+  border-right: none;
   top: 0px;
   right: 0px;
   left: auto;
@@ -1529,12 +1528,14 @@ Floated Menu / Item
   height: 100%;
 }
 .ui.bottom.fixed.menu {
+  border-bottom: none;
   bottom: 0px;
   left: 0px;
   top: auto;
   right: auto;
 }
 .ui.left.fixed.menu {
+  border-left: none;
   top: 0px;
   left: 0px;
   right: auto;

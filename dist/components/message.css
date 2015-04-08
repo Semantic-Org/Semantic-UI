@@ -25,7 +25,7 @@
   -webkit-transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
           transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
   border-radius: 0.2857rem;
-  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset, 0px 0px 0px transparent;
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 .ui.message:first-child {
   margin-top: 0em;
@@ -252,7 +252,7 @@
 
 .ui.black.message {
   background-color: #1b1c1d;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /*--------------
@@ -267,7 +267,7 @@
 }
 .ui.positive.message,
 .ui.attached.positive.message {
-  box-shadow: 0px 0px 0px 1px #b4d3a4 inset, 0px 0px 0px transparent;
+  box-shadow: 0px 0px 0px 1px #b4d3a4 inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 .ui.positive.message .header {
   color: #1a531b;
@@ -280,7 +280,7 @@
 }
 .ui.negative.message,
 .ui.attached.negative.message {
-  box-shadow: 0px 0px 0px 1px #e0b4b4 inset, 0px 0px 0px transparent;
+  box-shadow: 0px 0px 0px 1px #e0b4b4 inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 .ui.negative.message .header {
   color: #912d2b;
@@ -288,12 +288,12 @@
 
 /* Info */
 .ui.info.message {
-  background-color: #eef9f9;
+  background-color: #f1fcfc;
   color: #196178;
 }
 .ui.info.message,
 .ui.attached.info.message {
-  box-shadow: 0px 0px 0px 1px #a3cfd8 inset, 0px 0px 0px transparent;
+  box-shadow: 0px 0px 0px 1px #a3cfd8 inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 .ui.info.message .header {
   color: #0e566c;
@@ -301,12 +301,12 @@
 
 /* Warning */
 .ui.warning.message {
-  background-color: #fdf6e0;
+  background-color: #fff8e2;
   color: #715422;
 }
 .ui.warning.message,
 .ui.attached.warning.message {
-  box-shadow: 0px 0px 0px 1px #c9ba9b inset, 0px 0px 0px transparent;
+  box-shadow: 0px 0px 0px 1px #c9ba9b inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 .ui.warning.message .header {
   color: #794b02;
@@ -319,7 +319,7 @@
 }
 .ui.error.message,
 .ui.attached.error.message {
-  box-shadow: 0px 0px 0px 1px #e0b4b4 inset, 0px 0px 0px transparent;
+  box-shadow: 0px 0px 0px 1px #e0b4b4 inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 .ui.error.message .header {
   color: #912d2b;
@@ -332,7 +332,7 @@
 }
 .ui.success.message,
 .ui.attached.success.message {
-  box-shadow: 0px 0px 0px 1px #b4d3a4 inset, 0px 0px 0px transparent;
+  box-shadow: 0px 0px 0px 1px #b4d3a4 inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 .ui.success.message .header {
   color: #1a531b;
@@ -342,14 +342,14 @@
 .ui.inverted.message,
 .ui.black.message {
   background-color: #1b1c1d;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.9);
 }
 .ui.blue.message {
   background-color: #dff0ff;
-  color: #3b83c0;
+  color: #2185d0;
 }
 .ui.blue.message .header {
-  color: #3576ac;
+  color: #1e77ba;
 }
 .ui.green.message {
   background-color: #e5f9e7;
@@ -360,31 +360,31 @@
 }
 .ui.orange.message {
   background-color: #ffedde;
-  color: #e07b53;
+  color: #f2711c;
 }
 .ui.orange.message .header {
-  color: #dc6a3d;
+  color: #e7640d;
 }
 .ui.pink.message {
   background-color: #ffe3fb;
-  color: #d9499a;
+  color: #e03997;
 }
 .ui.pink.message .header {
-  color: #d5348e;
+  color: #dd238b;
 }
 .ui.purple.message {
   background-color: #eae7ff;
-  color: #564f8a;
+  color: #6a33c8;
 }
 .ui.purple.message .header {
-  color: #4c467a;
+  color: #5f2eb4;
 }
 .ui.red.message {
   background-color: #ffe8e6;
-  color: #d95c5c;
+  color: #db2828;
 }
 .ui.red.message .header {
-  color: #d44747;
+  color: #c82121;
 }
 .ui.teal.message {
   background-color: #e1f7f7;

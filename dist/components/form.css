@@ -248,10 +248,16 @@
 .ui.form ::-webkit-input-placeholder {
   color: rgba(140, 140, 140, 0.8);
 }
+.ui.form ::-ms-input-placeholder {
+  color: rgba(140, 140, 140, 0.8);
+}
 .ui.form ::-moz-placeholder {
   color: rgba(140, 140, 140, 0.8);
 }
 .ui.form :focus::-webkit-input-placeholder {
+  color: rgba(89, 89, 89, 0.8);
+}
+.ui.form :focus::-ms-input-placeholder {
   color: rgba(89, 89, 89, 0.8);
 }
 .ui.form :focus::-moz-placeholder {
@@ -262,10 +268,16 @@
 .ui.form .error ::-webkit-input-placeholder {
   color: #be3f3c;
 }
+.ui.form .error ::-ms-input-placeholder {
+  color: #be3f3c;
+}
 .ui.form .error ::-moz-placeholder {
   color: #be3f3c;
 }
 .ui.form .error :focus::-webkit-input-placeholder {
+  color: #aa3836;
+}
+.ui.form .error :focus::-ms-input-placeholder {
   color: #aa3836;
 }
 .ui.form .error :focus::-moz-placeholder {
@@ -564,7 +576,7 @@
 .ui.form .required.field > .checkbox:after {
   margin: -0.2em 0em 0em 0.2em;
   content: '*';
-  color: #d95c5c;
+  color: #db2828;
 }
 .ui.form .required.fields:not(.grouped) > .field > label:after,
 .ui.form .required.fields.grouped > label:after,
@@ -595,7 +607,7 @@
 .ui.form .inverted.segment .ui.checkbox .box,
 .ui.inverted.form .ui.checkbox label,
 .ui.inverted.form .ui.checkbox .box {
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /*--------------------

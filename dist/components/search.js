@@ -66,23 +66,24 @@ $.fn.search = function(parameters) {
                 : 'keyup'
           ;
           if(settings.automatic) {
+            $module
+              .on(inputEvent + eventNamespace, selector.prompt, module.throttle)
+            ;
             $prompt
-              .on(inputEvent + eventNamespace, module.throttle)
               .attr('autocomplete', 'off')
             ;
           }
-          $prompt
-            .on('focus' + eventNamespace, module.event.focus)
-            .on('blur' + eventNamespace, module.event.blur)
-            .on('keydown' + eventNamespace, module.handleKeyboard)
-          ;
-          $searchButton
-            .on('click' + eventNamespace, module.query)
-          ;
-          $results
-            .on('mousedown' + eventNamespace, module.event.result.mousedown)
-            .on('mouseup' + eventNamespace, module.event.result.mouseup)
-            .on('click' + eventNamespace, selector.result, module.event.result.click)
+          $module
+            // prompt
+            .on('focus'     + eventNamespace, selector.prompt, module.event.focus)
+            .on('blur'      + eventNamespace, selector.prompt, module.event.blur)
+            .on('keydown'   + eventNamespace, selector.prompt, module.handleKeyboard)
+            // search button
+            .on('click'     + eventNamespace, selector.searchButton, module.query)
+            // results
+            .on('mousedown' + eventNamespace, selector.results, module.event.result.mousedown)
+            .on('mouseup'   + eventNamespace, selector.results, module.event.result.mouseup)
+            .on('click'     + eventNamespace, selector.results, selector.result, module.event.result.click)
           ;
           module.instantiate();
         },
@@ -96,23 +97,13 @@ $.fn.search = function(parameters) {
         destroy: function() {
           module.verbose('Destroying instance');
           $module
+            .off(eventNamespace)
             .removeData(moduleNamespace)
-          ;
-          $prompt
-            .off(eventNamespace)
-          ;
-          $searchButton
-            .off(eventNamespace)
-          ;
-          $results
-            .off(eventNamespace)
           ;
         },
         event: {
           focus: function() {
             module.set.focus();
-            clearTimeout(module.timer);
-            module.throttle();
             if( module.has.minimumCharacters() ) {
               module.showResults();
             }
@@ -371,17 +362,7 @@ $.fn.search = function(parameters) {
               module.search.local(searchTerm);
             }
             else if( module.can.useAPI() ) {
-              if(settings.apiSettings) {
-                module.debug('Searching with specified API settings', settings.apiSettings);
-                module.search.remote(searchTerm);
-              }
-              else if($.api.settings.api.search !== undefined) {
-                module.debug('Searching with default search API endpoint');
-                module.search.remote(searchTerm);
-              }
-              else {
-                module.error(error.noEndpoint);
-              }
+              module.search.remote(searchTerm);
             }
             else {
               module.error(error.source);
@@ -553,6 +534,20 @@ $.fn.search = function(parameters) {
           }
         },
 
+        clear: {
+          cache: function(value) {
+            if(!value) {
+              module.debug('Clearing cache', value);
+              $module.removeData(metadata.cache);
+            }
+            else if(value && cache && cache[value]) {
+              module.debug('Removing value from cache', value);
+              delete cache[value];
+              $module.data(metadata.cache, cache);
+            }
+          }
+        },
+
         read: {
           cache: function(name) {
             var
@@ -613,6 +608,8 @@ $.fn.search = function(parameters) {
               $results
                 .transition({
                   animation  : settings.transition + ' in',
+                  debug      : settings.debug,
+                  verbose    : settings.verbose,
                   duration   : settings.duration,
                   queue      : true
                 })
@@ -631,10 +628,19 @@ $.fn.search = function(parameters) {
         hideResults: function() {
           if( module.is.visible() ) {
             if( module.can.transition() ) {
+              console.log('here', {
+                  animation  : settings.transition + ' out',
+                  debug      : settings.debug,
+                  verbose    : settings.verbose,
+                  duration   : settings.duration,
+                  queue      : true
+                });
               module.debug('Hiding results with css animations');
               $results
                 .transition({
                   animation  : settings.transition + ' out',
+                  debug      : settings.debug,
+                  verbose    : settings.verbose,
                   duration   : settings.duration,
                   queue      : true
                 })
@@ -891,7 +897,7 @@ $.fn.search.settings = {
   ],
   searchFullText : true,
 
-  automatic      : 'true',
+  automatic      : true,
   hideDelay      : 0,
   searchDelay    : 100,
   maxResults     : 7,

@@ -21,7 +21,7 @@
   border: none;
   margin: 1em 0em 2.5em;
   box-shadow: none;
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(0, 0, 0, 0.1);
   padding: 0em;
   border-radius: 0.2857rem;
 }
@@ -31,6 +31,66 @@
 .ui.progress:last-child {
   margin: 0em 0em 1.5em;
 }
+
+
+/*******************************
+            Content
+*******************************/
+
+
+/* Activity Bar */
+.ui.progress .bar {
+  display: block;
+  line-height: 1;
+  position: relative;
+  width: 0%;
+  min-width: 2em;
+  background: #888888;
+  border-radius: 0.2857rem;
+  -webkit-transition: width 0.2s ease, background-color 0.2s ease;
+          transition: width 0.2s ease, background-color 0.2s ease;
+}
+
+/* Percent Complete */
+.ui.progress .bar > .progress {
+  white-space: nowrap;
+  position: absolute;
+  width: auto;
+  font-size: 0.92857143em;
+  top: 50%;
+  right: 0.5em;
+  left: auto;
+  bottom: auto;
+  color: rgba(255, 255, 255, 0.7);
+  text-shadow: none;
+  margin-top: -0.5em;
+  font-weight: bold;
+  text-align: left;
+}
+
+/* Label */
+.ui.progress > .label {
+  position: absolute;
+  width: 100%;
+  font-size: 1em;
+  top: 100%;
+  right: auto;
+  left: 0%;
+  bottom: auto;
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: bold;
+  text-shadow: none;
+  margin-top: 0.2em;
+  text-align: center;
+  -webkit-transition: color 0.4s ease;
+          transition: color 0.4s ease;
+}
+
+
+/*******************************
+            Types
+*******************************/
+
 
 /* Indicating */
 .ui.indicating.progress[data-percent^="1"] .bar,
@@ -111,60 +171,6 @@
 
 
 /*******************************
-            Content
-*******************************/
-
-
-/* Activity Bar */
-.ui.progress .bar {
-  display: block;
-  line-height: 1;
-  position: relative;
-  width: 0%;
-  min-width: 2em;
-  background: #888888;
-  border-radius: 0.2857rem;
-  -webkit-transition: width 0.2s ease, background-color 0.2s ease;
-          transition: width 0.2s ease, background-color 0.2s ease;
-}
-
-/* Percent Complete */
-.ui.progress .bar > .progress {
-  white-space: nowrap;
-  position: absolute;
-  width: auto;
-  font-size: 0.92857143em;
-  top: 50%;
-  right: 0.5em;
-  left: auto;
-  bottom: auto;
-  color: rgba(255, 255, 255, 0.8);
-  text-shadow: none;
-  margin-top: -0.5em;
-  font-weight: bold;
-  text-align: left;
-}
-
-/* Label */
-.ui.progress > .label {
-  position: absolute;
-  width: 100%;
-  font-size: 1em;
-  top: 100%;
-  right: auto;
-  left: 0%;
-  bottom: auto;
-  color: rgba(0, 0, 0, 0.8);
-  font-weight: bold;
-  text-shadow: none;
-  margin-top: 0.2em;
-  text-align: center;
-  -webkit-transition: color 0.4s ease;
-          transition: color 0.4s ease;
-}
-
-
-/*******************************
              States
 *******************************/
 
@@ -174,7 +180,7 @@
 ---------------*/
 
 .ui.progress.success .bar {
-  background-color: #5bbd72 !important;
+  background-color: #21ba45 !important;
 }
 .ui.progress.success .bar,
 .ui.progress.success .bar::after {
@@ -206,7 +212,7 @@
 ---------------*/
 
 .ui.progress.error .bar {
-  background-color: #d95c5c !important;
+  background-color: #db2828 !important;
 }
 .ui.progress.error .bar,
 .ui.progress.error .bar::after {
@@ -296,13 +302,13 @@
   color: #ffffff;
 }
 .ui.inverted.progress.success > .label {
-  color: #5bbd72;
+  color: #21ba45;
 }
 .ui.inverted.progress.warning > .label {
   color: #f2c037;
 }
 .ui.inverted.progress.error > .label {
-  color: #d95c5c;
+  color: #db2828;
 }
 
 /*--------------
@@ -362,31 +368,31 @@
   background-color: #1b1c1d;
 }
 .ui.blue.progress .bar {
-  background-color: #3b83c0;
+  background-color: #2185d0;
 }
 .ui.green.progress .bar {
-  background-color: #5bbd72;
+  background-color: #21ba45;
 }
 .ui.orange.progress .bar {
-  background-color: #e07b53;
+  background-color: #f2711c;
 }
 .ui.pink.progress .bar {
-  background-color: #d9499a;
+  background-color: #e03997;
 }
 .ui.purple.progress .bar {
-  background-color: #564f8a;
+  background-color: #6a33c8;
 }
 .ui.red.progress .bar {
-  background-color: #d95c5c;
+  background-color: #db2828;
 }
 .ui.teal.progress .bar {
   background-color: #00b5ad;
 }
 .ui.yellow.progress .bar {
-  background-color: #f2c61f;
+  background-color: #fbbd08;
 }
 .ui.black.inverted.progress .bar {
-  background-color: #333333;
+  background-color: #545454;
 }
 .ui.blue.inverted.progress .bar {
   background-color: #54c8ff;

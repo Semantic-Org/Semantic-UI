@@ -120,7 +120,7 @@
 
 /* Black Dimmer */
 .ui.dimmer .ui.loader {
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.9);
 }
 .ui.dimmer .ui.loader:before {
   border-color: rgba(255, 255, 255, 0.15);
@@ -237,7 +237,7 @@
 --------------------*/
 
 .ui.inverted.loader {
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.9);
 }
 .ui.inverted.loader:before {
   border-color: rgba(255, 255, 255, 0.15);

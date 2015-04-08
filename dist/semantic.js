@@ -624,23 +624,18 @@ $.fn.form = function(parameters) {
 
         bindEvents: function() {
           module.verbose('Attaching form events');
-          if(settings.keyboardShortcuts) {
-            $field
-              .on('keydown' + eventNamespace, module.event.field.keydown)
-            ;
-          }
           $module
             .on('submit' + eventNamespace, module.validate.form)
+            .on('blur'   + eventNamespace, selector.field, module.event.field.blur)
+            .on('click'  + eventNamespace, selector.submit, module.submit)
+            .on('click'  + eventNamespace, selector.reset, module.reset)
+            .on('click'  + eventNamespace, selector.clear, module.clear)
           ;
-          $field
-            .on('blur' + eventNamespace, module.event.field.blur)
-          ;
-
-          // attach events to common elements
-          module.attachEvents($submit, 'submit');
-          module.attachEvents($reset, 'reset');
-          module.attachEvents($clear, 'clear');
-
+          if(settings.keyboardShortcuts) {
+            $module
+              .on('keydown' + eventNamespace, selector.field, module.event.field.keydown)
+            ;
+          }
           $field
             .each(function() {
               var
@@ -1843,6 +1838,7 @@ $.fn.accordion = function(parameters) {
           ;
           if(isUnopen) {
             module.debug('Opening accordion content', $activeTitle);
+            settings.onOpening.call($activeContent);
             if(settings.exclusive) {
               module.closeOthers.call($activeTitle);
             }
@@ -1904,6 +1900,7 @@ $.fn.accordion = function(parameters) {
           ;
           if((isActive || isOpening) && !isClosing) {
             module.debug('Closing accordion content', $activeContent);
+            settings.onClosing.call($activeContent);
             $activeTitle
               .removeClass(className.active)
             ;
@@ -2231,7 +2228,9 @@ $.fn.accordion.settings = {
   duration        : 350,
   easing          : 'easeOutQuad',
 
+  onOpening       : function(){},
   onOpen          : function(){},
+  onClosing       : function(){},
   onClose         : function(){},
   onChange        : function(){},
 
@@ -2866,10 +2865,10 @@ $.fn.dimmer = function(parameters) {
             $dimmable = $module;
             if( module.has.dimmer() ) {
               if(settings.dimmerName) {
-                $dimmer = $dimmable.children(selector.dimmer).filter('.' + settings.dimmerName);
+                $dimmer = $dimmable.find(selector.dimmer).filter('.' + settings.dimmerName);
               }
               else {
-                $dimmer = $dimmable.children(selector.dimmer);
+                $dimmer = $dimmable.find(selector.dimmer);
               }
             }
             else {
@@ -2898,8 +2897,8 @@ $.fn.dimmer = function(parameters) {
 
           if( module.is.closable() ) {
             module.verbose('Adding dimmer close event', $dimmer);
-            $dimmer
-              .on(clickEvent + eventNamespace, module.event.click)
+            $dimmable
+              .on(clickEvent + eventNamespace, selector.dimmer, module.event.click)
             ;
           }
           module.set.dimmable();
@@ -2920,9 +2919,6 @@ $.fn.dimmer = function(parameters) {
             .removeData(moduleNamespace)
           ;
           $dimmable
-            .off(eventNamespace)
-          ;
-          $dimmer
             .off(eventNamespace)
           ;
         },
@@ -3112,10 +3108,10 @@ $.fn.dimmer = function(parameters) {
         has: {
           dimmer: function() {
             if(settings.dimmerName) {
-              return ($module.children(selector.dimmer).filter('.' + settings.dimmerName).length > 0);
+              return ($module.find(selector.dimmer).filter('.' + settings.dimmerName).length > 0);
             }
             else {
-              return ( $module.children(selector.dimmer).length > 0 );
+              return ( $module.find(selector.dimmer).length > 0 );
             }
           }
         },
@@ -3137,10 +3133,10 @@ $.fn.dimmer = function(parameters) {
             return settings.closable;
           },
           dimmer: function() {
-            return $module.is(selector.dimmer);
+            return $module.hasClass(className.dimmer);
           },
           dimmable: function() {
-            return $module.is(selector.dimmable);
+            return $module.hasClass(className.dimmable);
           },
           dimmed: function() {
             return $dimmable.hasClass(className.dimmed);
@@ -3440,9 +3436,20 @@ $.fn.dimmer.settings = {
     method   : 'The method you called is not defined.'
   },
 
+  className : {
+    active     : 'active',
+    animating  : 'animating',
+    dimmable   : 'dimmable',
+    dimmed     : 'dimmed',
+    dimmer     : 'ui dimmer',
+    disabled   : 'disabled',
+    hide       : 'hide',
+    pageDimmer : 'page',
+    show       : 'show'
+  },
+
   selector: {
-    dimmable : '.dimmable',
-    dimmer   : '.ui.dimmer',
+    dimmer   : '> .ui.dimmer',
     content  : '.ui.dimmer > .content, .ui.dimmer > .content > .center'
   },
 
@@ -3450,17 +3457,6 @@ $.fn.dimmer.settings = {
     dimmer: function() {
      return $('<div />').attr('class', 'ui dimmer');
     }
-  },
-
-  className : {
-    active     : 'active',
-    animating  : 'animating',
-    dimmable   : 'dimmable',
-    dimmed     : 'dimmed',
-    disabled   : 'disabled',
-    hide       : 'hide',
-    pageDimmer : 'page',
-    show       : 'show'
   }
 
 };
@@ -3713,6 +3709,11 @@ $.fn.dropdown = function(parameters) {
             $firstModules = $allModules.slice(0, index);
             $lastModules  = $allModules.slice(index + 1);
             $allModules   = $firstModules.add($module).add($lastModules);
+            // invoke method in context of current instance
+            if(methodInvoked) {
+              instance = module;
+              module.invoke(query);
+            }
           }
         },
 
@@ -3750,7 +3751,7 @@ $.fn.dropdown = function(parameters) {
           }
           if( module.can.show() && !module.is.active() ) {
             module.debug('Showing dropdown');
-            if(module.is.multiple()) {
+            if(module.is.multiple() && module.is.searchSelection()) {
               module.filterActive();
             }
             module.animate.show(function() {
@@ -3830,7 +3831,6 @@ $.fn.dropdown = function(parameters) {
             module.verbose('Mouse detected binding mouse events');
             if(module.is.multiple()) {
               $module
-                .on('click'   + eventNamespace, module.event.click)
                 .on('click'   + eventNamespace, selector.label, module.event.label.click)
                 .on('click'   + eventNamespace, selector.remove, module.event.remove.click)
               ;
@@ -3922,15 +3922,32 @@ $.fn.dropdown = function(parameters) {
             .each(function(){
               var
                 $choice = $(this),
-                text    = String(module.get.choiceText($choice, false)),
-                value   = String(module.get.choiceValue($choice, text))
+                text,
+                value
               ;
-              if( text.match(exactRegExp) || value.match(exactRegExp) ) {
-                $results = $results.add($choice);
-              }
-              else if(settings.fullTextSearch) {
-                if( text.match(fullTextRegExp) || value.match(fullTextRegExp) ) {
+              if(settings.match == 'both' || settings.match == 'text') {
+                text = String(module.get.choiceText($choice, false));
+
+                if(text.match(exactRegExp)) {
                   $results = $results.add($choice);
+                  return true;
+                }
+                else if(settings.fullTextSearch && text.match(fullTextRegExp)) {
+                  $results = $results.add($choice);
+                  return true;
+                }
+              }
+              if(settings.match == 'both' || settings.match == 'value') {
+                console.log('here');
+                value = String(module.get.choiceValue($choice, text));
+
+                if(value.match(exactRegExp)) {
+                  $results = $results.add($choice);
+                  return true;
+                }
+                else if(settings.fullTextSearch && value.match(fullTextRegExp)) {
+                  $results = $results.add($choice);
+                  return true;
                 }
               }
             })
@@ -3962,9 +3979,11 @@ $.fn.dropdown = function(parameters) {
         },
 
         filterActive: function() {
-          $item.filter('.' + className.active)
-            .addClass(className.filtered)
-          ;
+          if(settings.filterActive) {
+            $item.filter('.' + className.active)
+              .addClass(className.filtered)
+            ;
+          }
         },
 
         focusSearch: function() {
@@ -3994,7 +4013,7 @@ $.fn.dropdown = function(parameters) {
 
         event: {
           focus: function() {
-            if(!activated && module.is.hidden()) {
+            if(settings.showOnFocus && !activated && module.is.hidden()) {
               module.show();
             }
           },
@@ -4026,7 +4045,9 @@ $.fn.dropdown = function(parameters) {
           search: {
             focus: function() {
               activated = true;
-              module.show();
+              if(settings.showOnFocus) {
+                module.show();
+              }
             },
             blur: function(event) {
               var
@@ -4102,7 +4123,12 @@ $.fn.dropdown = function(parameters) {
           },
           test: {
             toggle: function(event) {
-              if( module.determine.eventOnElement(event, module.toggle) ) {
+              var
+                toggleBehavior = (module.is.multiple())
+                  ? module.show
+                  : module.toggle
+                ;
+              if( module.determine.eventOnElement(event, toggleBehavior) ) {
                 event.preventDefault();
               }
             },
@@ -4203,6 +4229,7 @@ $.fn.dropdown = function(parameters) {
                 if(isFocusedOnSearch && (pressedKey == keys.delimiter)) {
                   // tokenize on comma
                   if(module.is.visible()) {
+                    module.verbose('Delimiter key pressed. Tokenizing');
                     module.event.item.click.call($selectedItem, event);
                     event.preventDefault();
                   }
@@ -4210,11 +4237,16 @@ $.fn.dropdown = function(parameters) {
                 else if(pressedKey == keys.leftArrow) {
                   // activate previous label
                   if((isFocused || caretAtStart) && !hasActiveLabel) {
+                    module.verbose('Selecting previous label');
                     $label.last().addClass(className.active);
                   }
                   else if(hasActiveLabel && !isFirstLabel) {
                     if(!event.shiftKey) {
+                      module.verbose('Selecting previous label');
                       $label.removeClass(className.active)
+                    }
+                    else {
+                      module.verbose('Adding previous label to selection');
                     }
                     $activeLabel.prev()
                       .addClass(className.active)
@@ -4231,7 +4263,11 @@ $.fn.dropdown = function(parameters) {
                   // activate next label
                   if(hasActiveLabel) {
                     if(!event.shiftKey) {
+                      module.verbose('Selecting next label');
                       $label.removeClass(className.active)
+                    }
+                    else {
+                      module.verbose('Adding next label to selection');
                     }
                     $activeLabel.next()
                       .addClass(className.active)
@@ -4242,10 +4278,12 @@ $.fn.dropdown = function(parameters) {
                 }
                 else if(pressedKey == keys.deleteKey || pressedKey == keys.backspace) {
                   if(hasActiveLabel) {
+                    module.verbose('Removing active labels');
                     $activeLabel.last().next().addClass(className.active);
                     module.remove.labels($activeLabel);
                   }
                   else if(caretAtStart && !hasActiveLabel && pressedKey == keys.backspace) {
+                    module.verbose('Removing last label on input backspace');
                     $activeLabel = $label.last().addClass(className.active);
                     activeValue  = $activeLabel.data('value');
                     module.remove.selected(activeValue);
@@ -4343,6 +4381,7 @@ $.fn.dropdown = function(parameters) {
                   ;
                   if($visibleItems.index( $nextItem ) < 0) {
                     module.verbose('Up key pressed but reached top of current menu');
+                    event.preventDefault();
                     return;
                   }
                   else {
@@ -4366,6 +4405,7 @@ $.fn.dropdown = function(parameters) {
                   ;
                   if($nextItem.length === 0) {
                     module.verbose('Down key pressed but reached bottom of current menu');
+                    event.preventDefault();
                     return;
                   }
                   else {
@@ -4381,17 +4421,18 @@ $.fn.dropdown = function(parameters) {
                   event.preventDefault();
                 }
 
+                // escape (close menu)
+                if(pressedKey == keys.escape) {
+                  module.verbose('Escape key pressed, closing dropdown');
+                  module.hide();
+                }
+
               }
               else {
                 // enter (open menu)
                 if(pressedKey == keys.enter) {
                   module.verbose('Enter key pressed, showing dropdown');
                   module.show();
-                }
-                // escape (close menu)
-                if(pressedKey == keys.escape) {
-                  module.verbose('Escape key pressed, closing dropdown');
-                  module.hide();
                 }
                 // down arrow (open menu)
                 if(pressedKey == keys.downArrow) {
@@ -4463,20 +4504,19 @@ $.fn.dropdown = function(parameters) {
               : text
             ;
             module.set.selected(value, $(this));
-            module.hide(function() {
-              module.remove.filteredItem();
-            });
+            if(module.is.multiple() && !module.is.allFiltered()) {
+              return;
+            }
+            else {
+              module.hide(function() {
+                module.remove.filteredItem();
+              });
+            }
           },
 
           select: function(text, value) {
-            value = (value !== undefined)
-              ? value
-              : text
-            ;
-            module.set.selected(value, $(this));
-            module.hide(function() {
-              module.remove.filteredItem();
-            });
+            // mimics action.activate but does not select text
+            module.action.activate.call(this);
           },
 
           combo: function(text, value) {
@@ -4621,7 +4661,7 @@ $.fn.dropdown = function(parameters) {
                       ? $(this).attr('value')
                       : name
                   ;
-                  if(value === '') {
+                  if(settings.placeholder !== 'auto' && value === '') {
                     select.placeholder = name;
                   }
                   else {
@@ -4640,6 +4680,10 @@ $.fn.dropdown = function(parameters) {
                   }
                 })
             ;
+            if(settings.placeholder && settings.placeholder !== 'auto') {
+              module.debug('Setting placeholder value to', settings.placeholder);
+              select.placeholder = settings.placeholder;
+            }
             if(settings.sortSelect) {
               module.debug('Retrieved and sorted values from select', select);
             }
@@ -4955,8 +4999,6 @@ $.fn.dropdown = function(parameters) {
               }
               module.remove.selectedItem();
               $selectedItem
-                .addClass(className.active)
-                .addClass(className.selected)
                 .each(function() {
                   var
                     $selected     = $(this),
@@ -4965,12 +5007,23 @@ $.fn.dropdown = function(parameters) {
                   selectedText  = module.get.choiceText($selected);
                   selectedValue = module.get.choiceValue($selected, selectedText);
                   if(isMultiple) {
-                    module.add.label(selectedValue, selectedText, shouldAnimate);
-                    module.set.value(selectedValue, selectedText, $selected);
+                    if(!$selected.hasClass(className.active)) {
+                      module.add.label(selectedValue, selectedText, shouldAnimate);
+                      module.set.value(selectedValue, selectedText, $selected);
+                      $selected.addClass(className.active);
+                      module.filterActive();
+                    }
+                    else {
+                      module.remove.selected(selectedValue);
+                    }
                   }
                   else {
                     module.set.value(selectedValue, selectedText, $selected);
                     module.set.text(selectedText);
+                    $selected
+                      .addClass(className.active)
+                      .addClass(className.selected)
+                    ;
                   }
                 })
               ;
@@ -5538,37 +5591,69 @@ $.fn.dropdown.settings = {
   verbose        : false,
   performance    : true,
 
+  // what event should show menu
   on             : 'click',
+
+  // action on item selection
   action         : 'activate',
 
+  // add tabindex to element
   allowTab       : true,
+
+  // show menu on focus
+  showOnFocus    : true,
+
+  // search anywhere in value
   fullTextSearch : false,
+
+  // whether to convert blank <select> values to placeholder text
+  placeholder: 'auto',
+
+  // preserve html when selecting value
   preserveHTML   : true,
+
+  // sort selection on init
   sortSelect     : false,
 
-  label: {
-    transition : 'horizontal flip',
-    duration   : 250,
-    variation  : false
-  },
+  // what to match against with search selection (both, text, or label)
+  match: 'both',
 
+  // allow elements with sub-menus to be selected
   allowCategorySelection : false,
 
-  delay                  : {
+  // delay before event
+  delay : {
     hide   : 300,
     show   : 200,
     search : 50,
     touch  : 50
   },
 
+  // force a value selection on search selection
   forceSelection : true,
 
-  // widest glyph width in em (W is 1.0714 em)
+  // menu transiton
+  transition     : 'auto',
+  duration       : 250,
+
+  // widest glyph width in em (W is 1.0714 em) used to calculate multiselect input width
   glyphWidth     : 1.0714,
 
-  transition     : 'auto',
+  // whether multiple select should allow user added values
+  allowAdditions : true,
+
+  // multi select delimiting key
   delimiter      : ',',
-  duration       : 250,
+
+  // label settings on multi-select
+  label: {
+    transition : 'horizontal flip',
+    duration   : 250,
+    variation  : false
+  },
+
+  // whether multiple selects should filter active selections from menu
+  filterActive : true,
 
   /* Callbacks */
   onLabelSelect : function($selectedLabels){},
@@ -5578,7 +5663,6 @@ $.fn.dropdown.settings = {
   onHide        : function(){},
 
   /* Component */
-
   name           : 'Dropdown',
   namespace      : 'dropdown',
 
@@ -5762,7 +5846,6 @@ $.fn.modal = function(parameters) {
           module.create.dimmer();
           module.refreshModals();
 
-          module.verbose('Attaching close events', $close);
           module.bind.events();
           module.observeChanges();
           module.instantiate();
@@ -5871,8 +5954,13 @@ $.fn.modal = function(parameters) {
 
         bind: {
           events: function() {
-            $close.on('click' + eventNamespace, module.event.close);
-            $window.on('resize' + elementNamespace, module.event.resize);
+            module.verbose('Attaching events');
+            $module
+              .on('click' + eventNamespace, selector.close, module.event.close)
+            ;
+            $window
+              .on('resize' + elementNamespace, module.event.resize)
+            ;
           }
         },
 
@@ -6626,10 +6714,8 @@ $.fn.nag = function(parameters) {
           module.verbose('Initializing element');
 
           $module
+            .on('click' + eventNamespace, selector.close, module.dismiss)
             .data(moduleNamespace, module)
-          ;
-          $close
-            .on('click' + eventNamespace, module.dismiss)
           ;
 
           if(settings.detachable && $module.parent()[0] !== $context[0]) {
@@ -7004,8 +7090,9 @@ $.fn.nag.settings = {
   value         : 'dismiss',
 
   error: {
-    noStorage : 'Neither $.cookie or store is defined. A storage solution is required for storing state',
-    method    : 'The method you called is not defined.'
+    noCookieStorage : '$.cookie is not included. A storage solution is required.',
+    noStorage       : 'Neither $.cookie or store is defined. A storage solution is required for storing state',
+    method          : 'The method you called is not defined.'
   },
 
   className     : {
@@ -7626,6 +7713,12 @@ $.fn.popup = function(parameters) {
 
         set: {
           position: function(position, arrowOffset) {
+
+            // exit conditions
+            if($target.length == 0 || $popup.length == 0) {
+              module.error(error.notFound);
+              return;
+            }
             var
               windowWidth   = $(window).width(),
               windowHeight  = $(window).height(),
@@ -7647,7 +7740,9 @@ $.fn.popup = function(parameters) {
                 ? parseInt( window.getComputedStyle(targetElement).getPropertyValue('margin-top'), 10)
                 : 0,
               marginLeft    = (settings.inline)
-                ? parseInt( window.getComputedStyle(targetElement).getPropertyValue(module.is.rtl() ? 'margin-right' : 'margin-left'), 10)
+                ? module.is.rtl()
+                  ? parseInt( window.getComputedStyle(targetElement).getPropertyValue('margin-right'), 10)
+                  : parseInt( window.getComputedStyle(targetElement).getPropertyValue('margin-left') , 10)
                 : 0,
 
               target        = (settings.inline || settings.popup)
@@ -7660,6 +7755,11 @@ $.fn.popup = function(parameters) {
             ;
             position    = position    || $module.data(metadata.position)    || settings.position;
             arrowOffset = arrowOffset || $module.data(metadata.offset)      || settings.offset;
+
+            if(target.top == 0 && target.left == 0) {
+              module.debug('Popup target is hidden, no action taken');
+              return false;
+            }
 
             if(searchDepth == settings.maxSearchDepth && settings.lastResort) {
               module.debug('Using last resort position to display', settings.lastResort);
@@ -7789,7 +7889,7 @@ $.fn.popup = function(parameters) {
               }
               else if(!settings.lastResort) {
                 module.debug('Popup could not find a position in view', $popup);
-                module.error(error.cannotPlace, element);
+                // module.error(error.cannotPlace, element);
                 module.remove.attempts();
                 module.remove.loading();
                 module.reset();
@@ -8186,6 +8286,8 @@ $.fn.popup.settings = {
   // whether fluid variation should assign width explicitly
   setFluidWidth  : true,
 
+
+  // transition settings
   duration       : 200,
   easing         : 'easeOutQuint',
   transition     : 'scale',
@@ -8202,7 +8304,8 @@ $.fn.popup.settings = {
   error: {
     invalidPosition : 'The position you specified is not a valid position',
     cannotPlace     : 'No visible position could be found for the popup',
-    method          : 'The method you called is not defined.'
+    method          : 'The method you called is not defined.',
+    notFound        : 'The target or popup you specified does not exist on the page'
   },
 
   metadata: {
@@ -9157,11 +9260,9 @@ $.fn.rating = function(parameters) {
 
         destroy: function() {
           module.verbose('Destroying previous instance', instance);
+          module.remove.events();
           $module
             .removeData(moduleNamespace)
-          ;
-          $icon
-            .off(eventNamespace)
           ;
         },
 
@@ -9239,13 +9340,29 @@ $.fn.rating = function(parameters) {
           return currentRating;
         },
 
+        bind: {
+          events: function() {
+            module.verbose('Binding events');
+            $module
+              .on('mouseenter' + eventNamespace, selector.icon, module.event.mouseenter)
+              .on('mouseleave' + eventNamespace, selector.icon, module.event.mouseleave)
+              .on('click'      + eventNamespace, selector.icon, module.event.click)
+            ;
+          }
+        },
+
+        remove: {
+          events: function() {
+            module.verbose('Removing events');
+            $module
+              .off(eventNamespace)
+            ;
+          }
+        },
+
         enable: function() {
           module.debug('Setting rating to interactive mode');
-          $icon
-            .on('mouseenter' + eventNamespace, module.event.mouseenter)
-            .on('mouseleave' + eventNamespace, module.event.mouseleave)
-            .on('click' + eventNamespace, module.event.click)
-          ;
+          module.bind.events();
           $module
             .removeClass(className.disabled)
           ;
@@ -9253,9 +9370,7 @@ $.fn.rating = function(parameters) {
 
         disable: function() {
           module.debug('Setting rating to read-only mode');
-          $icon
-            .off(eventNamespace)
-          ;
+          module.remove.events();
           $module
             .addClass(className.disabled)
           ;
@@ -9588,23 +9703,24 @@ $.fn.search = function(parameters) {
                 : 'keyup'
           ;
           if(settings.automatic) {
+            $module
+              .on(inputEvent + eventNamespace, selector.prompt, module.throttle)
+            ;
             $prompt
-              .on(inputEvent + eventNamespace, module.throttle)
               .attr('autocomplete', 'off')
             ;
           }
-          $prompt
-            .on('focus' + eventNamespace, module.event.focus)
-            .on('blur' + eventNamespace, module.event.blur)
-            .on('keydown' + eventNamespace, module.handleKeyboard)
-          ;
-          $searchButton
-            .on('click' + eventNamespace, module.query)
-          ;
-          $results
-            .on('mousedown' + eventNamespace, module.event.result.mousedown)
-            .on('mouseup' + eventNamespace, module.event.result.mouseup)
-            .on('click' + eventNamespace, selector.result, module.event.result.click)
+          $module
+            // prompt
+            .on('focus'     + eventNamespace, selector.prompt, module.event.focus)
+            .on('blur'      + eventNamespace, selector.prompt, module.event.blur)
+            .on('keydown'   + eventNamespace, selector.prompt, module.handleKeyboard)
+            // search button
+            .on('click'     + eventNamespace, selector.searchButton, module.query)
+            // results
+            .on('mousedown' + eventNamespace, selector.results, module.event.result.mousedown)
+            .on('mouseup'   + eventNamespace, selector.results, module.event.result.mouseup)
+            .on('click'     + eventNamespace, selector.results, selector.result, module.event.result.click)
           ;
           module.instantiate();
         },
@@ -9618,23 +9734,13 @@ $.fn.search = function(parameters) {
         destroy: function() {
           module.verbose('Destroying instance');
           $module
+            .off(eventNamespace)
             .removeData(moduleNamespace)
-          ;
-          $prompt
-            .off(eventNamespace)
-          ;
-          $searchButton
-            .off(eventNamespace)
-          ;
-          $results
-            .off(eventNamespace)
           ;
         },
         event: {
           focus: function() {
             module.set.focus();
-            clearTimeout(module.timer);
-            module.throttle();
             if( module.has.minimumCharacters() ) {
               module.showResults();
             }
@@ -9893,17 +9999,7 @@ $.fn.search = function(parameters) {
               module.search.local(searchTerm);
             }
             else if( module.can.useAPI() ) {
-              if(settings.apiSettings) {
-                module.debug('Searching with specified API settings', settings.apiSettings);
-                module.search.remote(searchTerm);
-              }
-              else if($.api.settings.api.search !== undefined) {
-                module.debug('Searching with default search API endpoint');
-                module.search.remote(searchTerm);
-              }
-              else {
-                module.error(error.noEndpoint);
-              }
+              module.search.remote(searchTerm);
             }
             else {
               module.error(error.source);
@@ -10075,6 +10171,20 @@ $.fn.search = function(parameters) {
           }
         },
 
+        clear: {
+          cache: function(value) {
+            if(!value) {
+              module.debug('Clearing cache', value);
+              $module.removeData(metadata.cache);
+            }
+            else if(value && cache && cache[value]) {
+              module.debug('Removing value from cache', value);
+              delete cache[value];
+              $module.data(metadata.cache, cache);
+            }
+          }
+        },
+
         read: {
           cache: function(name) {
             var
@@ -10135,6 +10245,8 @@ $.fn.search = function(parameters) {
               $results
                 .transition({
                   animation  : settings.transition + ' in',
+                  debug      : settings.debug,
+                  verbose    : settings.verbose,
                   duration   : settings.duration,
                   queue      : true
                 })
@@ -10153,10 +10265,19 @@ $.fn.search = function(parameters) {
         hideResults: function() {
           if( module.is.visible() ) {
             if( module.can.transition() ) {
+              console.log('here', {
+                  animation  : settings.transition + ' out',
+                  debug      : settings.debug,
+                  verbose    : settings.verbose,
+                  duration   : settings.duration,
+                  queue      : true
+                });
               module.debug('Hiding results with css animations');
               $results
                 .transition({
                   animation  : settings.transition + ' out',
+                  debug      : settings.debug,
+                  verbose    : settings.verbose,
                   duration   : settings.duration,
                   queue      : true
                 })
@@ -10413,7 +10534,7 @@ $.fn.search.settings = {
   ],
   searchFullText : true,
 
-  automatic      : 'true',
+  automatic      : true,
   hideDelay      : 0,
   searchDelay    : 100,
   maxResults     : 7,
@@ -12871,14 +12992,14 @@ $.fn.sticky = function(parameters) {
               window         = module.cache.window,
               delta          = module.get.scrollChange(scroll),
               maxScroll      = (element.height - window.height + settings.offset),
-              currentScroll  = module.get.currentElementScroll(),
-              possibleScroll = (currentScroll + delta),
+              elementScroll  = module.get.currentElementScroll(),
+              possibleScroll = (elementScroll + delta),
               elementScroll
             ;
             if(module.cache.fits || possibleScroll < 0) {
               elementScroll = 0;
             }
-            else if (possibleScroll > maxScroll ) {
+            else if(possibleScroll > maxScroll ) {
               elementScroll = maxScroll;
             }
             else {
@@ -12981,7 +13102,9 @@ $.fn.sticky = function(parameters) {
               bottom : cachedPosition + offset + window.height
             },
             direction      = module.get.direction(scroll.top),
-            elementScroll  = module.get.elementScroll(scroll.top),
+            elementScroll  = (fits)
+              ? 0
+              : module.get.elementScroll(scroll.top),
 
             // shorthand
             doesntFit      = !fits,
@@ -13155,8 +13278,6 @@ $.fn.sticky = function(parameters) {
         resetCSS: function() {
           $module
             .css({
-              top    : '',
-              bottom : '',
               width  : '',
               height : ''
             })
@@ -15301,11 +15422,9 @@ $.fn.video = function(parameters) {
         initialize: function() {
           module.debug('Initializing video');
           module.create();
-          $placeholder
-            .on('click' + eventNamespace, module.play)
-          ;
-          $playButton
-            .on('click' + eventNamespace, module.play)
+          $module
+            .on('click' + eventNamespace, selector.placeholder, module.play)
+            .on('click' + eventNamespace, selector.playButton, module.play)
           ;
           module.instantiate();
         },
@@ -15336,12 +15455,6 @@ $.fn.video = function(parameters) {
           module.reset();
           $module
             .removeData(moduleNamespace)
-            .off(eventNamespace)
-          ;
-          $placeholder
-            .off(eventNamespace)
-          ;
-          $playButton
             .off(eventNamespace)
           ;
         },
@@ -16771,23 +16884,18 @@ $.fn.form = function(parameters) {
 
         bindEvents: function() {
           module.verbose('Attaching form events');
-          if(settings.keyboardShortcuts) {
-            $field
-              .on('keydown' + eventNamespace, module.event.field.keydown)
-            ;
-          }
           $module
             .on('submit' + eventNamespace, module.validate.form)
+            .on('blur'   + eventNamespace, selector.field, module.event.field.blur)
+            .on('click'  + eventNamespace, selector.submit, module.submit)
+            .on('click'  + eventNamespace, selector.reset, module.reset)
+            .on('click'  + eventNamespace, selector.clear, module.clear)
           ;
-          $field
-            .on('blur' + eventNamespace, module.event.field.blur)
-          ;
-
-          // attach events to common elements
-          module.attachEvents($submit, 'submit');
-          module.attachEvents($reset, 'reset');
-          module.attachEvents($clear, 'clear');
-
+          if(settings.keyboardShortcuts) {
+            $module
+              .on('keydown' + eventNamespace, selector.field, module.event.field.keydown)
+            ;
+          }
           $field
             .each(function() {
               var

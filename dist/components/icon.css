@@ -198,28 +198,28 @@ i.black.icon {
   color: #1b1c1d !important;
 }
 i.blue.icon {
-  color: #3b83c0 !important;
+  color: #2185d0 !important;
 }
 i.green.icon {
-  color: #5bbd72 !important;
+  color: #21ba45 !important;
 }
 i.orange.icon {
-  color: #e07b53 !important;
+  color: #f2711c !important;
 }
 i.pink.icon {
-  color: #d9499a !important;
+  color: #e03997 !important;
 }
 i.purple.icon {
-  color: #564f8a !important;
+  color: #6a33c8 !important;
 }
 i.red.icon {
-  color: #d95c5c !important;
+  color: #db2828 !important;
 }
 i.teal.icon {
   color: #00b5ad !important;
 }
 i.yellow.icon {
-  color: #f2c61f !important;
+  color: #fbbd08 !important;
 }
 
 /*-------------------
@@ -230,7 +230,7 @@ i.inverted.icon {
   color: #ffffff;
 }
 i.inverted.black.icon {
-  color: #333333 !important;
+  color: #545454 !important;
 }
 i.inverted.blue.icon {
   color: #54c8ff !important;
@@ -270,32 +270,32 @@ i.inverted.circular.black.icon {
 }
 i.inverted.bordered.blue.icon,
 i.inverted.circular.blue.icon {
-  background-color: #3b83c0 !important;
+  background-color: #2185d0 !important;
   color: #FFFFFF !important;
 }
 i.inverted.bordered.green.icon,
 i.inverted.circular.green.icon {
-  background-color: #5bbd72 !important;
+  background-color: #21ba45 !important;
   color: #FFFFFF !important;
 }
 i.inverted.bordered.orange.icon,
 i.inverted.circular.orange.icon {
-  background-color: #e07b53 !important;
+  background-color: #f2711c !important;
   color: #FFFFFF !important;
 }
 i.inverted.bordered.pink.icon,
 i.inverted.circular.pink.icon {
-  background-color: #d9499a !important;
+  background-color: #e03997 !important;
   color: #FFFFFF !important;
 }
 i.inverted.bordered.purple.icon,
 i.inverted.circular.purple.icon {
-  background-color: #564f8a !important;
+  background-color: #6a33c8 !important;
   color: #FFFFFF !important;
 }
 i.inverted.bordered.red.icon,
 i.inverted.circular.red.icon {
-  background-color: #d95c5c !important;
+  background-color: #db2828 !important;
   color: #FFFFFF !important;
 }
 i.inverted.bordered.teal.icon,
@@ -305,7 +305,7 @@ i.inverted.circular.teal.icon {
 }
 i.inverted.bordered.yellow.icon,
 i.inverted.circular.yellow.icon {
-  background-color: #f2c61f !important;
+  background-color: #fbbd08 !important;
   color: #FFFFFF !important;
 }
 
@@ -313,27 +313,79 @@ i.inverted.circular.yellow.icon {
         Sizes
 --------------------*/
 
-i.small.icon {
-  font-size: 0.875em;
+i.small.icon,
+i.small.icons {
+  font-size: 0.92857143em;
 }
-i.icon {
+i.icon,
+i.icons {
   font-size: 1em;
 }
-i.large.icon {
+i.large.icon,
+i.large.icons {
   font-size: 1.5em;
   vertical-align: middle;
 }
-i.big.icon {
+i.big.icon,
+i.big.icons {
   font-size: 2em;
   vertical-align: middle;
 }
-i.huge.icon {
+i.huge.icon,
+i.huge.icons {
   font-size: 4em;
   vertical-align: middle;
 }
-i.massive.icon {
+i.massive.icon,
+i.massive.icons {
   font-size: 8em;
   vertical-align: middle;
+}
+
+
+/*******************************
+            Groups
+*******************************/
+
+i.icons {
+  display: inline-block;
+  position: relative;
+}
+i.icons .icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+      -ms-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  margin: 0em;
+  margin: 0;
+}
+i.icons .icon:first-child {
+  position: static;
+  width: auto;
+  height: auto;
+  vertical-align: top;
+  -webkit-transform: none;
+      -ms-transform: none;
+          transform: none;
+  margin-right: 0.25rem;
+}
+
+/* Corner Icon */
+i.icons .corner.icon {
+  top: auto;
+  left: auto;
+  right: 0;
+  bottom: 0;
+  -webkit-transform: none;
+      -ms-transform: none;
+          transform: none;
+  font-size: 0.45em;
+  text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff;
+}
+i.icons .inverted.corner.icon {
+  text-shadow: -1px -1px 0 #1b1c1d, 1px -1px 0 #1b1c1d, -1px 1px 0 #1b1c1d, 1px 1px 0 #1b1c1d;
 }
 /*
  * Font Awesome 4.3.0 by @davegandy - http://fontawesome.io - @fontawesome

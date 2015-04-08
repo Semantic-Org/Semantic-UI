@@ -363,12 +363,12 @@
 }
 .ui.table tr.warning td,
 .ui.table td.warning {
-  background: #fdf6e0 !important;
+  background: #fff8e2 !important;
   color: #715422 !important;
 }
 .ui.celled.table tr.warning:hover td,
 .ui.celled.table tr:hover td.warning {
-  background: #fcf2d2 !important;
+  background: #fff4d3 !important;
   color: #654b1e !important;
 }
 
@@ -572,28 +572,28 @@
   border-top: 0.2em solid #1b1c1d;
 }
 .ui.blue.table {
-  border-top: 0.2em solid #3b83c0;
+  border-top: 0.2em solid #2185d0;
 }
 .ui.green.table {
-  border-top: 0.2em solid #5bbd72;
+  border-top: 0.2em solid #21ba45;
 }
 .ui.orange.table {
-  border-top: 0.2em solid #e07b53;
+  border-top: 0.2em solid #f2711c;
 }
 .ui.pink.table {
-  border-top: 0.2em solid #d9499a;
+  border-top: 0.2em solid #e03997;
 }
 .ui.purple.table {
-  border-top: 0.2em solid #564f8a;
+  border-top: 0.2em solid #6a33c8;
 }
 .ui.red.table {
-  border-top: 0.2em solid #d95c5c;
+  border-top: 0.2em solid #db2828;
 }
 .ui.teal.table {
   border-top: 0.2em solid #00b5ad;
 }
 .ui.yellow.table {
-  border-top: 0.2em solid #f2c61f;
+  border-top: 0.2em solid #fbbd08;
 }
 
 /*-------------------
@@ -606,27 +606,27 @@
   color: #ffffff !important;
 }
 .ui.inverted.blue.table {
-  background-color: #3b83c0 !important;
+  background-color: #2185d0 !important;
   color: #ffffff !important;
 }
 .ui.inverted.green.table {
-  background-color: #5bbd72 !important;
+  background-color: #21ba45 !important;
   color: #ffffff !important;
 }
 .ui.inverted.orange.table {
-  background-color: #e07b53 !important;
+  background-color: #f2711c !important;
   color: #ffffff !important;
 }
 .ui.inverted.pink.table {
-  background-color: #d9499a !important;
+  background-color: #e03997 !important;
   color: #ffffff !important;
 }
 .ui.inverted.purple.table {
-  background-color: #564f8a !important;
+  background-color: #6a33c8 !important;
   color: #ffffff !important;
 }
 .ui.inverted.red.table {
-  background-color: #d95c5c !important;
+  background-color: #db2828 !important;
   color: #ffffff !important;
 }
 .ui.inverted.teal.table {
@@ -634,7 +634,7 @@
   color: #ffffff !important;
 }
 .ui.inverted.yellow.table {
-  background-color: #f2c61f !important;
+  background-color: #fbbd08 !important;
   color: #ffffff !important;
 }
 
@@ -844,13 +844,13 @@
 /* Text Color */
 .ui.inverted.table {
   background: #333333;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.9);
   border: none;
 }
 .ui.inverted.table th {
   background-color: rgba(0, 0, 0, 0.15);
   border-color: rgba(255, 255, 255, 0.1) !important;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.9);
 }
 .ui.inverted.table tr td {
   border-color: rgba(255, 255, 255, 0.1) !important;

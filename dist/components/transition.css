@@ -55,12 +55,10 @@
 .visible.transition {
   display: block !important;
   visibility: visible !important;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  -webkit-transform: rotateZ(0deg);
-          transform: rotateZ(0deg);
+  
+/*  backface-visibility: @backfaceVisibility;
+  transform: @use3DAcceleration;*/
 }
-
 /* Disabled */
 .disabled.transition {
   -webkit-animation-play-state: paused;
@@ -601,8 +599,6 @@
 .flip.transition.out {
   -webkit-animation-duration: 600ms;
           animation-duration: 600ms;
-  -webkit-perspective: 2000px;
-          perspective: 2000px;
 }
 .horizontal.flip.transition.in {
   -webkit-animation-name: horizontalFlipIn;
