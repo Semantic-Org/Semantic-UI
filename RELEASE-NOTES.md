@@ -76,6 +76,7 @@
 - **Menu** - `tiered menu` has been removed
 - **Menu** - Increased contrast on `inverted` menu selection for legibility
 - **Message** - Slightly increases `box-shadow`
+- **Popup** - Popup no longer produces an error when a position cannot be found on the page.
 - **Segment** - **Clearfix** has been removed from `ui segment`
 - **Search** - Slightly adjusted search result theme for clarity
 - **Site** - Increase contrast on default hovered/down colors for colored variations
@@ -117,6 +118,7 @@
 - **Modal** - `scrollable modal` now correctly adds padding below modal
 - **Modal** - Modal with `detachable: false` inside `ui sidebar`  `pusher` element will now show correctly
 - **Popup** - Fixes issue with `min-width` in firefox exceeding `max-width` causing element to not wrap correctly
+- **Popup** - Popup will now produce an error message and not mistakenly appear in the top left corner of page, if called with a `popup` or `target` that does not exist.
 - **Popup** - Fixed bug which could cause pre-existing inline popup to be removed from DOM after hiding
 - **Reveal** - Removed `masked` reveal, all reveals are masked by default
 - **Search** - Search will no longer incorrectly produce an error when API settings are passed through metadata

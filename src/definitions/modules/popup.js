@@ -598,6 +598,10 @@ $.fn.popup = function(parameters) {
 
         set: {
           position: function(position, arrowOffset) {
+            if($target.length == 0 || $popup.length == 0) {
+              module.error(error.notFound);
+              return;
+            }
             var
               windowWidth   = $(window).width(),
               windowHeight  = $(window).height(),
@@ -761,7 +765,7 @@ $.fn.popup = function(parameters) {
               }
               else if(!settings.lastResort) {
                 module.debug('Popup could not find a position in view', $popup);
-                module.error(error.cannotPlace, element);
+                // module.error(error.cannotPlace, element);
                 module.remove.attempts();
                 module.remove.loading();
                 module.reset();
@@ -1176,7 +1180,8 @@ $.fn.popup.settings = {
   error: {
     invalidPosition : 'The position you specified is not a valid position',
     cannotPlace     : 'No visible position could be found for the popup',
-    method          : 'The method you called is not defined.'
+    method          : 'The method you called is not defined.',
+    notFound        : 'The target or popup you specified does not exist on the page'
   },
 
   metadata: {
