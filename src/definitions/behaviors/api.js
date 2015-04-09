@@ -367,15 +367,22 @@ $.api = $.fn.api = function(parameters) {
             },
             done: function(response) {
               module.debug('API Response Received', response);
-              if(settings.dataType == 'json') {
-                if( $.isFunction(settings.successTest) ) {
-                  module.debug('Checking JSON returned success', settings.successTest, response);
-                  if( settings.successTest(response) ) {
-                    settings.onSuccess.call(context, response, $module);
+              if( $.isFunction(settings.filter) ) {
+                response = settings.filter(response);
+                module.debug('Response filter applied', settings.filter, response);
+                if(settings.dataType == 'json') {
+                  if( $.isFunction(settings.successTest) ) {
+                    module.debug('Checking JSON returned success', settings.successTest, response);
+                    if( settings.successTest(response) ) {
+                      settings.onSuccess.call(context, response, $module);
+                    }
+                    else {
+                      module.debug('JSON test specified by user and response failed', response);
+                      settings.onFailure.call(context, response, $module);
+                    }
                   }
                   else {
-                    module.debug('JSON test specified by user and response failed', response);
-                    settings.onFailure.call(context, response, $module);
+                    settings.onSuccess.call(context, response, $module);
                   }
                 }
                 else {
@@ -825,6 +832,7 @@ $.api.settings = {
   onError     : function(errorMessage, $module) {},
   onAbort     : function(errorMessage, $module) {},
 
+  filter      : false,
   successTest : false,
 
   // errors
