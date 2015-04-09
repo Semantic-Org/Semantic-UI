@@ -370,19 +370,16 @@ $.api = $.fn.api = function(parameters) {
               if( $.isFunction(settings.filter) ) {
                 response = settings.filter(response);
                 module.debug('Response filter applied', settings.filter, response);
-                if(settings.dataType == 'json') {
-                  if( $.isFunction(settings.successTest) ) {
-                    module.debug('Checking JSON returned success', settings.successTest, response);
-                    if( settings.successTest(response) ) {
-                      settings.onSuccess.call(context, response, $module);
-                    }
-                    else {
-                      module.debug('JSON test specified by user and response failed', response);
-                      settings.onFailure.call(context, response, $module);
-                    }
+              }
+              if(settings.dataType == 'json') {
+                if( $.isFunction(settings.successTest) ) {
+                  module.debug('Checking JSON returned success', settings.successTest, response);
+                  if( settings.successTest(response) ) {
+                    settings.onSuccess.call(context, response, $module);
                   }
                   else {
-                    settings.onSuccess.call(context, response, $module);
+                    module.debug('JSON test specified by user and response failed', response);
+                    settings.onFailure.call(context, response, $module);
                   }
                 }
                 else {
@@ -392,6 +389,7 @@ $.api = $.fn.api = function(parameters) {
               else {
                 settings.onSuccess.call(context, response, $module);
               }
+            }
             },
             error: function(xhr, status, httpMessage) {
               var
