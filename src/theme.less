@@ -30,19 +30,4 @@
         Import Mix-ins
 *******************************/
 
-/*------------------
-       Fonts
--------------------*/
-
-.loadFonts() when (@importGoogleFonts) {
-  @import (css) '@{googleProtocol}fonts.googleapis.com/css?family=@{googleFontRequest}';
-}
-
-/*------------------
-     Overrides
--------------------*/
-
-.loadUIOverrides() {
-  @import "@{themesFolder}/@{theme}/@{type}s/@{element}.overrides";
-  @import "@{siteFolder}/@{type}s/@{element}.overrides";
-}
+@import "@{definitionsFolder}/globals/mixins";

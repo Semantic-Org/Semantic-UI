@@ -680,6 +680,30 @@
 .ui.form .ten.fields > .field {
   width: 10%;
 }
+.ui.form .eleven.fields > .fields,
+.ui.form .eleven.fields > .field {
+  width: 9.09090909%;
+}
+.ui.form .twelve.fields > .fields,
+.ui.form .twelve.fields > .field {
+  width: 8.33333333%;
+}
+.ui.form .thirteen.fields > .fields,
+.ui.form .thirteen.fields > .field {
+  width: 7.69230769%;
+}
+.ui.form .fourteen.fields > .fields,
+.ui.form .fourteen.fields > .field {
+  width: 7.14285714%;
+}
+.ui.form .fifteen.fields > .fields,
+.ui.form .fifteen.fields > .field {
+  width: 6.66666667%;
+}
+.ui.form .sixteen.fields > .fields,
+.ui.form .sixteen.fields > .field {
+  width: 6.25%;
+}
 
 /* Swap to full width on mobile */
 @media only screen and (max-width: 767px) {
@@ -777,15 +801,14 @@
 
 /* Swap to full width on mobile */
 @media only screen and (max-width: 767px) {
-  .ui.form .two.fields > .fields,
   .ui.form .two.fields > .field,
-  .ui.form .three.fields > .fields,
+  .ui.form .two.fields > .fields,
   .ui.form .three.fields > .field,
-  .ui.form .four.fields > .fields,
+  .ui.form .three.fields > .fields,
   .ui.form .four.fields > .field,
-  .ui.form .five.fields > .fields,
+  .ui.form .four.fields > .fields,
   .ui.form .five.fields > .field,
-  .ui.form .fields > .two.wide.field,
+  .ui.form .five.fields > .fields,
   .ui.form .fields > .three.wide.field,
   .ui.form .fields > .four.wide.field,
   .ui.form .fields > .five.wide.field,

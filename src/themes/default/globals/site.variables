@@ -406,7 +406,14 @@
 @largestTabletScreen : (@computerBreakpoint - 1px);
 @largestLargeMonitor : (@widescreenMonitorBreakpoint - 1px);
 
-/* Columns */
+/* Grid class number names */
+@numbers: one, two, three, four, five,
+          six, seven, eight, nine, ten,
+          eleven, twelve, thirteen, fourteen,
+          fifteen, sixteen, seventeen, eighteen,
+          nineteen, twenty, twentyone, twentytwo;
+
+/* Legacy grid variables */
 @oneWide        : (1 / @columnCount * 100%);
 @twoWide        : (2 / @columnCount * 100%);
 @threeWide      : (3 / @columnCount * 100%);
@@ -440,7 +447,6 @@
 @fourteenColumn : (1 / 14 * 100%);
 @fifteenColumn  : (1 / 15 * 100%);
 @sixteenColumn  : (1 / 16 * 100%);
-
 
 /*******************************
            States
