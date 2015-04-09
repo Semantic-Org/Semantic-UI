@@ -389,7 +389,6 @@ $.api = $.fn.api = function(parameters) {
               else {
                 settings.onSuccess.call(context, response, $module);
               }
-            }
             },
             error: function(xhr, status, httpMessage) {
               var
