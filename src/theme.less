@@ -31,3 +31,12 @@
 *******************************/
 
 @import "@{definitionsFolder}/globals/mixins";
+
+/*------------------
+     Overrides
+-------------------*/
+
+.loadUIOverrides() {
+  @import "@{themesFolder}/@{theme}/@{type}s/@{element}.overrides";
+  @import "@{siteFolder}/@{type}s/@{element}.overrides";
+}
