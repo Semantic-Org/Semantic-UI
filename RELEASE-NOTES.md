@@ -9,6 +9,7 @@
 - **Headers** - Added new header type `sub header`, useful for displaying small headers alongside text content. See examples [in the header docs](http://www.semantic-ui.com/elements/header.html#sub-headers)
 - **Dropdown** - Added new dropdown variation `scrolling dropdown` and `scrolling menu`, see docs or try it out with the language menu in the navigation bar
 - **Dimmer** - Dimmers now have a `blurring` variation which apply a glass-like effect when dimmed
+- **Steps** - Steps can now be attached to other UI like `segment`
 
 **Major Changes**
 - **Colors** - Global colors defaults have been adjusted to improve contrast with white text
@@ -128,6 +129,7 @@
 - **Search** - Search will no longer incorrectly produce an error when API settings are passed through metadata
 - **Search** - Fixed `onSelect` returning the first term that matches the beginining of the selected value not the exact value.
 - **Search** - Search API calls now use the same level debug settings as search
+- **Steps** - Fixes bug where `ordered steps` had smaller numbers in `IE10`
 - **Steps** - Fixed bug where `stackable steps` were not working correctly
 - **Sticky** - Fix issue with sticky content scroll css transition causing element to scroll too slowly when cannot fit on screen.
 - **Sticky** - Fixed issue with sticky content animating width on display in some cases.

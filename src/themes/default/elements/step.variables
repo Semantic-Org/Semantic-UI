@@ -31,7 +31,7 @@
 
 /* Icon */
 @iconDistance: 1rem;
-@iconSize: 2.75em;
+@iconSize: 2.5em;
 @iconAlign: middle;
 
 /* Title */
