@@ -114,6 +114,7 @@
 - **List** - Fix first element touches border on `ui horizontal celled list`
 - **Loader** - Fix position of `inline centered loader` to be centered correctly
 - **Message** - Message now uses `@lineHeight` from `site.variables`
+- **Modal** - Fixed bug where clicking an element detached from dom would cause modal to hide prematurely
 - **Message** - Updated all message colors for legibility
 - **Menu** - Fixes divider appears on last element of `(x) item menu`
 - **Menu** - Menu now has a `min-height` that matches standard item padding
