@@ -230,10 +230,10 @@ $.fn.modal = function(parameters) {
           click: function(event) {
             var
               $target   = $(event.target),
-              isInModal = ($target.closest($module).length === 0),
+              isInModal = ($target.closest($module).length > 0),
               isInDOM   = $.contains(document.documentElement, event.target)
             ;
-            if(isInModal && isInDOM) {
+            if(!isInModal && isInDOM) {
               module.debug('Dimmer clicked, hiding all modals');
               if( module.is.active() ) {
                 module.remove.clickaway();
