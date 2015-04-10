@@ -1,0 +1,43 @@
+/*******************************
+            Container
+*******************************/
+
+/*-------------------
+       Element
+--------------------*/
+
+@maxWidth: 100%;
+
+/* Devices */
+@mobileWidth: auto;
+@mobileGutter: 1em;
+@largestMobileScreen: 780px;
+
+@tabletWidth: 752px;
+@tabletBreakpoint: 781px;
+@tabletGutter: auto;
+
+@smallMonitorBreakpoint: 988px;
+@smallMonitorWidth: 960px;
+@smallMonitorGutter: auto;
+
+@largeMonitorWidth: 1200px;
+@largeMonitorBreakpoint: 1228px;
+@largeMonitorGutter: auto;
+
+/* Coupling (Add Negative Margin to container size) */
+@gridGutterWidth: 2em;
+@mobileGridWidth: @mobileWidth;
+@tabletGridWidth: ~"calc("@tabletWidth~" + "@gridGutterWidth~")";
+@smallMonitorGridWidth: ~"calc("@smallMonitorWidth~" + "@gridGutterWidth~")";
+@largeMonitorGridWidth: ~"calc("@largeMonitorWidth~" + "@gridGutterWidth~")";
+
+/*-------------------
+       Types
+--------------------*/
+
+/* Text */
+@textWidth: 700px;
+@textFontFamily: @pageFont;
+@textLineHeight: 1.5;
+@textSize: @large;

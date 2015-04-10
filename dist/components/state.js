@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - State
+ * # Semantic UI 2.0.0 - State
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -472,7 +472,7 @@ $.fn.state = function(parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -589,7 +589,7 @@ $.fn.state.settings = {
   debug          : false,
 
   // verbose debug output
-  verbose        : true,
+  verbose        : false,
 
   // namespace for events
   namespace      : 'state',

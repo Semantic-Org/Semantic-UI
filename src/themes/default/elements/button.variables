@@ -41,11 +41,12 @@
 ;
 
 /* Icon */
+@iconHeight: @relativeSmall;
 @iconOpacity: 0.8;
-@iconDistance: 0.4em;
+@iconDistance: 0.4285em;
 @iconColor: '';
 @iconTransition: opacity @transitionDuration @transitionEasing;
-@iconVerticalAlign: baseline;
+@iconVerticalAlign: '';
 
 @iconMargin: 0em @iconDistance 0em -(@iconDistance / 2);
 @rightIconMargin: 0em -(@iconDistance / 2) 0em @iconDistance;
@@ -57,11 +58,11 @@
 @invertedLoaderFillColor: rgba(0, 0, 0, 0.15);
 
 @transition:
-  opacity 0.1s @transitionEasing,
-  background-color 0.1s @transitionEasing,
-  color 0.1s @transitionEasing,
-  box-shadow 0.1s @transitionEasing,
-  background 0.1s @transitionEasing
+  opacity @transitionDuration @transitionEasing,
+  background-color @transitionDuration @transitionEasing,
+  color @transitionDuration @transitionEasing,
+  box-shadow @transitionDuration @transitionEasing,
+  background @transitionDuration @transitionEasing
 ;
 /*
 @willChange: box-shadow, transform, opacity, color, background;
@@ -83,9 +84,9 @@
 --------------------*/
 
 /* Hovered */
-@hoverBackgroundColor: #E8E8E8;
+@hoverBackgroundColor: #CACACA;
 @hoverBackgroundImage: none;
-@hoverBoxShadow: '';
+@hoverBoxShadow: none;
 @hoverColor: @hoveredTextColor;
 @iconHoverOpacity: 0.85;
 
@@ -94,16 +95,15 @@
 @focusBackgroundImage: '';
 @focusBoxShadow:
   @borderBoxShadow,
-  0px 0px 1px rgba(81, 167, 232, 0.8) inset,
-  0px 0px 3px 2px rgba(81, 167, 232, 0.8)
+  @defaultFocusBoxShadow
 ;
 @focusColor: @hoveredTextColor;
 @iconFocusOpacity: 0.85;
 
 /* Pressed Down */
-@downBackgroundColor: #CCCCCC;
+@downBackgroundColor: #BABABA;
 @downBackgroundImage: '';
-@downPressedShadow: 0px 1px 4px 0px @borderColor inset !important;
+@downPressedShadow: none;
 @downBoxShadow:
   @borderBoxShadow,
   @downPressedShadow
@@ -111,20 +111,20 @@
 @downColor: @pressedTextColor;
 
 /* Active */
-@activeBackgroundColor: #D0D0D0;
+@activeBackgroundColor: #C0C0C0;
 @activeBackgroundImage: none;
 @activeColor: @selectedTextColor;
 @activeBoxShadow: @borderBoxShadow;
 
 /* Active + Hovered */
-@activeHoverBackgroundColor: @activeBackgroundColor;
+@activeHoverBackgroundColor: #C0C0C0;
 @activeHoverBackgroundImage: none;
 @activeHoverColor: @activeColor;
 @activeHoverBoxShadow: @activeBoxShadow;
 
 /* Loading */
 @loadingOpacity: 1;
-@loadingPointerEvents: none;
+@loadingPointerEvents: auto;
 @loadingTransition:
   all 0s linear,
   opacity @transitionDuration @defaultEasing

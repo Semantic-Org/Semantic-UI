@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - Modal
+ * # Semantic UI 2.0.0 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -86,7 +86,7 @@
   line-height: 1.3em;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.85);
-  border-bottom: 1px solid rgba(39, 41, 43, 0.15);
+  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
 }
 
 /*--------------
@@ -142,7 +142,7 @@
 .ui.modal .actions {
   background: #efefef;
   padding: 1rem 2rem;
-  border-top: 1px solid rgba(39, 41, 43, 0.15);
+  border-top: 1px solid rgba(34, 36, 38, 0.15);
   text-align: right;
 }
 .ui.modal .actions > .button {
@@ -192,7 +192,7 @@
     padding-right: 2.25rem;
   }
   .ui.modal > .close {
-    top: 0.905rem;
+    top: 1.0035rem;
     right: 1rem;
     color: rgba(0, 0, 0, 0.8);
   }
@@ -277,8 +277,22 @@
 
 
 /*******************************
-            Variations
+             States
 *******************************/
+
+.ui.active.modal {
+  display: block;
+}
+
+
+/*******************************
+           Variations
+*******************************/
+
+
+/*--------------
+    Scrolling
+---------------*/
 
 
 /* A modal that cannot fit on the page */
@@ -292,9 +306,28 @@
 .scrolling.dimmable > .dimmer {
   position: fixed;
 }
-.ui.scrolling.modal {
-  position: static;
+.modals.dimmer .ui.scrolling.modal {
+  position: static !important;
   margin: 3.5rem auto !important;
+}
+
+/* undetached scrolling */
+.scrolling.undetached.dimmable.dimmed {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.scrolling.undetached.dimmable.dimmed > .dimmer {
+  overflow: hidden;
+}
+.scrolling.undetached.dimmable .ui.scrolling.modal {
+  position: absolute;
+  left: 50%;
+  margin-top: 3.5rem !important;
+}
+
+/* Coupling with Sidebar */
+.undetached.dimmable.dimmed > .pusher {
+  z-index: auto;
 }
 @media only screen and (max-width: 992px) {
   .ui.scrolling.modal {
@@ -302,21 +335,6 @@
     margin-bottom: 1rem;
   }
 }
-
-
-/*******************************
-             States
-*******************************/
-
-.ui.active.modal {
-  display: block;
-}
-
-
-/*******************************
-           Variations
-*******************************/
-
 
 /*--------------
    Full Screen
@@ -334,7 +352,7 @@
   padding-right: 2.25rem;
 }
 .ui.fullscreen.modal > .close {
-  top: 0.905rem;
+  top: 1.0035rem;
   right: 1rem;
   color: rgba(0, 0, 0, 0.8);
 }

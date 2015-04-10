@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - Site
+ * # Semantic UI 2.0.0 - Site
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -320,7 +320,7 @@ $.site = $.fn.site = function(parameters) {
           });
         }
         clearTimeout(module.performance.timer);
-        module.performance.timer = setTimeout(module.performance.display, 100);
+        module.performance.timer = setTimeout(module.performance.display, 500);
       },
       display: function() {
         var
@@ -433,7 +433,7 @@ $.site.settings = {
   },
 
   debug       : false,
-  verbose     : true,
+  verbose     : false,
   performance : true,
 
   modules: [

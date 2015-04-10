@@ -10,29 +10,32 @@
 
 @verticalAlign: baseline;
 @verticalMargin: 0em;
-@horizontalMargin: 0.125em;
+@horizontalMargin: 0.142857em;
 @backgroundColor: #E8E8E8;
 @backgroundImage: none;
 @labelTextColor: rgba(0, 0, 0, 0.6);
-@verticalPadding: 0.6em;
-@horizontalPadding: 0.8em;
+@verticalPadding: 0.5833em;
+@horizontalPadding: 0.833em;
 @borderRadius: @absoluteBorderRadius;
 @textTransform: none;
 @fontWeight: bold;
+
+@lineHeightOffset: -(@verticalPadding / 2);
 
 @labelTransitionDuration: @transitionDuration;
 @labelTransitionEasing: @transitionEasing;
 @transition: background @labelTransitionDuration @labelTransitionEasing;
 
 /* Group */
-@groupVerticalMargin: 0.75em;
+@groupVerticalMargin: 0.5em;
 @groupHorizontalMargin: 0.5em;
+
 
 /*-------------------
         Parts
 --------------------*/
 
-@linkOpacity: 0.8;
+@linkOpacity: 0.5;
 @linkTransition: @labelTransitionDuration opacity @labelTransitionEasing;
 
 @iconDistance: 0.75em;
@@ -42,6 +45,8 @@
 @detailIconDistance: 0.25em;
 @detailMargin: 1em;
 
+@deleteOpacity: @linkOpacity;
+@deleteSize: @relativeSmall;
 @deleteMargin: 0.5em;
 @deleteTransition: background @labelTransitionDuration @labelTransitionEasing;
 
@@ -75,12 +80,23 @@
 @labelHoverBackgroundImage: none;
 @labelHoverTextColor: @hoveredTextColor;
 
+/* Hover */
+@labelActiveBackgroundColor: #D0D0D0;
+@labelActiveBackgroundImage: none;
+@labelActiveTextColor: @selectedTextColor;
+
+/* Active Hover */
+@labelActiveHoverBackgroundColor: #C8C8C8;
+@labelActiveHoverBackgroundImage: none;
+@labelActiveHoverTextColor: @selectedTextColor;
+
+
 /*-------------------
       Variations
 --------------------*/
 
 /* Tag */
-@tagCircleColor: #FFFFFF;
+@tagCircleColor: @white;
 @tagCircleSize: 0.5em;
 @tagHorizontalPadding: 1.5em;
 @tagCircleBoxShadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.3);

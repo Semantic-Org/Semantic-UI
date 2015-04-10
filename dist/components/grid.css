@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - Grid
+ * # Semantic UI 2.0.0 - Grid
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -15,18 +15,23 @@
 *******************************/
 
 .ui.grid {
-  display: block;
-  text-align: left;
-  font-size: 0em;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
   padding: 0em;
-}
-.ui.grid:after,
-.ui.grid > .row:after {
-  content: '';
-  display: block;
-  height: 0px;
-  clear: both;
-  visibility: hidden;
 }
 
 /*----------------------
@@ -50,7 +55,7 @@
 
 /* Collapse Margins on Consecutive Grids */
 .ui.grid + .grid {
-  margin-top: 1rem;
+  margin-top: 0rem;
 }
 
 /*-------------------
@@ -63,7 +68,6 @@
 .ui.grid > .row > .column {
   position: relative;
   display: inline-block;
-  font-size: 1rem;
   width: 6.25%;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -80,10 +84,28 @@
 
 .ui.grid > .row {
   position: relative;
-  display: block;
-  width: auto !important;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-pack: inherit;
+  -webkit-justify-content: inherit;
+      -ms-flex-pack: inherit;
+          justify-content: inherit;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  width: 100% !important;
   padding: 0rem;
-  font-size: 0rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
@@ -116,11 +138,40 @@
     Loose Coupling
 --------------------*/
 
-.ui.grid .row + .ui.divider {
-  margin: 1rem 1rem;
+
+/* Top level grid doesn't use negative margin */
+body > .ui.grid {
+  margin: 0em;
 }
 
-/* remove Border on last horizontal segment */
+/* Collapse Margin on Consecutive Grid */
+.ui.grid > .ui.grid:first-child {
+  margin-top: 0em;
+}
+.ui.grid > .ui.grid:last-child {
+  margin-bottom: 0em;
+}
+
+/* Segment inside Aligned Grid */
+.ui.grid .aligned.row > .column > .segment:not(.compact),
+.ui.aligned.grid .column > .segment:not(.compact) {
+  width: 100%;
+}
+
+/* Align Dividers with Gutter */
+.ui.grid .row + .ui.divider {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  margin: 1rem 1rem;
+}
+.ui.grid .column + .ui.vertical.divider {
+  height: -webkit-calc(50% -  1rem );
+  height: calc(50% -  1rem );
+}
+
+/* Remove Border on Last Horizontal Segment */
 .ui.grid > .row > .column:last-child > .horizontal.segment,
 .ui.grid > .column:last-child > .horizontal.segment {
   box-shadow: none;
@@ -136,19 +187,6 @@
        Page Grid
 -------------------------*/
 
-.ui.page.grid {
-  padding-left: 8%;
-  padding-right: 8%;
-  width: auto;
-}
-
-/* Collapse Margin */
-.ui.grid > .ui.grid:first-child {
-  margin-top: 0em;
-}
-.ui.grid > .ui.grid:last-child {
-  margin-bottom: 0em;
-}
 @media only screen and (max-width: 767px) {
   .ui.page.grid {
     width: auto;
@@ -158,25 +196,25 @@
     margin-right: 0em;
   }
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 768px) and (max-width: 991px) {
   .ui.page.grid {
     width: auto;
     margin-left: 0em;
     margin-right: 0em;
-    padding-left: 4em;
-    padding-right: 4em;
+    padding-left: 2em;
+    padding-right: 2em;
   }
 }
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 992px) and (max-width: 1399px) {
   .ui.page.grid {
     width: auto;
     margin-left: 0em;
     margin-right: 0em;
-    padding-left: 8%;
-    padding-right: 8%;
+    padding-left: 3%;
+    padding-right: 3%;
   }
 }
-@media only screen and (min-width: 1400px) {
+@media only screen and (min-width: 1400px) and (max-width: 1919px) {
   .ui.page.grid {
     width: auto;
     margin-left: 0em;
@@ -208,67 +246,67 @@
 
 /* Generate single column widths for all grid/row fractions (up to @columnCount) */
 .ui[class*="one column"].grid > .row > .column,
-.ui[class*="one column"].grid > .column {
+.ui[class*="one column"].grid > .column:not(.row) {
   width: 100%;
 }
 .ui[class*="two column"].grid > .row > .column,
-.ui[class*="two column"].grid > .column {
+.ui[class*="two column"].grid > .column:not(.row) {
   width: 50%;
 }
 .ui[class*="three column"].grid > .row > .column,
-.ui[class*="three column"].grid > .column {
+.ui[class*="three column"].grid > .column:not(.row) {
   width: 33.33333333%;
 }
 .ui[class*="four column"].grid > .row > .column,
-.ui[class*="four column"].grid > .column {
+.ui[class*="four column"].grid > .column:not(.row) {
   width: 25%;
 }
 .ui[class*="five column"].grid > .row > .column,
-.ui[class*="five column"].grid > .column {
+.ui[class*="five column"].grid > .column:not(.row) {
   width: 20%;
 }
 .ui[class*="six column"].grid > .row > .column,
-.ui[class*="six column"].grid > .column {
+.ui[class*="six column"].grid > .column:not(.row) {
   width: 16.66666667%;
 }
 .ui[class*="seven column"].grid > .row > .column,
-.ui[class*="seven column"].grid > .column {
+.ui[class*="seven column"].grid > .column:not(.row) {
   width: 14.28571429%;
 }
 .ui[class*="eight column"].grid > .row > .column,
-.ui[class*="eight column"].grid > .column {
+.ui[class*="eight column"].grid > .column:not(.row) {
   width: 12.5%;
 }
 .ui[class*="nine column"].grid > .row > .column,
-.ui[class*="nine column"].grid > .column {
+.ui[class*="nine column"].grid > .column:not(.row) {
   width: 11.11111111%;
 }
 .ui[class*="ten column"].grid > .row > .column,
-.ui[class*="ten column"].grid > .column {
+.ui[class*="ten column"].grid > .column:not(.row) {
   width: 10%;
 }
 .ui[class*="eleven column"].grid > .row > .column,
-.ui[class*="eleven column"].grid > .column {
+.ui[class*="eleven column"].grid > .column:not(.row) {
   width: 9.09090909%;
 }
 .ui[class*="twelve column"].grid > .row > .column,
-.ui[class*="twelve column"].grid > .column {
+.ui[class*="twelve column"].grid > .column:not(.row) {
   width: 8.33333333%;
 }
 .ui[class*="thirteen column"].grid > .row > .column,
-.ui[class*="thirteen column"].grid > .column {
+.ui[class*="thirteen column"].grid > .column:not(.row) {
   width: 7.69230769%;
 }
 .ui[class*="fourteen column"].grid > .row > .column,
-.ui[class*="fourteen column"].grid > .column {
+.ui[class*="fourteen column"].grid > .column:not(.row) {
   width: 7.14285714%;
 }
 .ui[class*="fifteen column"].grid > .row > .column,
-.ui[class*="fifteen column"].grid > .column {
+.ui[class*="fifteen column"].grid > .column:not(.row) {
   width: 6.66666667%;
 }
 .ui[class*="sixteen column"].grid > .row > .column,
-.ui[class*="sixteen column"].grid > .column {
+.ui[class*="sixteen column"].grid > .column:not(.row) {
   width: 6.25%;
 }
 
@@ -427,543 +465,543 @@
 
 /* Column span permutations for non-standard grids/rows */
 .ui.grid > [class*="two column"].row > [class*="one wide"].column,
-.ui[class*="two column"].grid > [class*="one wide"].column {
+.ui[class*="two column"].grid > [class*="one wide"].column:not(.row) {
   width: 50% !important;
 }
 .ui.grid > [class*="two column"].row > [class*="two wide"].column,
-.ui[class*="two column"].grid > [class*="two wide"].column {
+.ui[class*="two column"].grid > [class*="two wide"].column:not(.row) {
   width: 100% !important;
 }
 .ui.grid > [class*="three column"].row > [class*="one wide"].column,
-.ui[class*="three column"].grid > [class*="one wide"].column {
+.ui[class*="three column"].grid > [class*="one wide"].column:not(.row) {
   width: 33.33333333% !important;
 }
 .ui.grid > [class*="three column"].row > [class*="two wide"].column,
-.ui[class*="three column"].grid > [class*="two wide"].column {
+.ui[class*="three column"].grid > [class*="two wide"].column:not(.row) {
   width: 66.66666667% !important;
 }
 .ui.grid > [class*="three column"].row > [class*="three wide"].column,
-.ui[class*="three column"].grid > [class*="three wide"].column {
+.ui[class*="three column"].grid > [class*="three wide"].column:not(.row) {
   width: 100% !important;
 }
 .ui.grid > [class*="four column"].row > [class*="one wide"].column,
-.ui[class*="four column"].grid > [class*="one wide"].column {
+.ui[class*="four column"].grid > [class*="one wide"].column:not(.row) {
   width: 25% !important;
 }
 .ui.grid > [class*="four column"].row > [class*="two wide"].column,
-.ui[class*="four column"].grid > [class*="two wide"].column {
+.ui[class*="four column"].grid > [class*="two wide"].column:not(.row) {
   width: 50% !important;
 }
 .ui.grid > [class*="four column"].row > [class*="three wide"].column,
-.ui[class*="four column"].grid > [class*="three wide"].column {
+.ui[class*="four column"].grid > [class*="three wide"].column:not(.row) {
   width: 75% !important;
 }
 .ui.grid > [class*="four column"].row > [class*="four wide"].column,
-.ui[class*="four column"].grid > [class*="four wide"].column {
+.ui[class*="four column"].grid > [class*="four wide"].column:not(.row) {
   width: 100% !important;
 }
 .ui.grid > [class*="five column"].row > [class*="one wide"].column,
-.ui[class*="five column"].grid > [class*="one wide"].column {
+.ui[class*="five column"].grid > [class*="one wide"].column:not(.row) {
   width: 20% !important;
 }
 .ui.grid > [class*="five column"].row > [class*="two wide"].column,
-.ui[class*="five column"].grid > [class*="two wide"].column {
+.ui[class*="five column"].grid > [class*="two wide"].column:not(.row) {
   width: 40% !important;
 }
 .ui.grid > [class*="five column"].row > [class*="three wide"].column,
-.ui[class*="five column"].grid > [class*="three wide"].column {
+.ui[class*="five column"].grid > [class*="three wide"].column:not(.row) {
   width: 60% !important;
 }
 .ui.grid > [class*="five column"].row > [class*="four wide"].column,
-.ui[class*="five column"].grid > [class*="four wide"].column {
+.ui[class*="five column"].grid > [class*="four wide"].column:not(.row) {
   width: 80% !important;
 }
 .ui.grid > [class*="five column"].row > [class*="five wide"].column,
-.ui[class*="five column"].grid > [class*="five wide"].column {
+.ui[class*="five column"].grid > [class*="five wide"].column:not(.row) {
   width: 100% !important;
 }
 .ui.grid > [class*="six column"].row > [class*="one wide"].column,
-.ui[class*="six column"].grid > [class*="one wide"].column {
+.ui[class*="six column"].grid > [class*="one wide"].column:not(.row) {
   width: 16.66666667% !important;
 }
 .ui.grid > [class*="six column"].row > [class*="two wide"].column,
-.ui[class*="six column"].grid > [class*="two wide"].column {
+.ui[class*="six column"].grid > [class*="two wide"].column:not(.row) {
   width: 33.33333333% !important;
 }
 .ui.grid > [class*="six column"].row > [class*="three wide"].column,
-.ui[class*="six column"].grid > [class*="three wide"].column {
+.ui[class*="six column"].grid > [class*="three wide"].column:not(.row) {
   width: 50% !important;
 }
 .ui.grid > [class*="six column"].row > [class*="four wide"].column,
-.ui[class*="six column"].grid > [class*="four wide"].column {
+.ui[class*="six column"].grid > [class*="four wide"].column:not(.row) {
   width: 66.66666667% !important;
 }
 .ui.grid > [class*="six column"].row > [class*="five wide"].column,
-.ui[class*="six column"].grid > [class*="five wide"].column {
+.ui[class*="six column"].grid > [class*="five wide"].column:not(.row) {
   width: 83.33333333% !important;
 }
 .ui.grid > [class*="six column"].row > [class*="six wide"].column,
-.ui[class*="six column"].grid > [class*="six wide"].column {
+.ui[class*="six column"].grid > [class*="six wide"].column:not(.row) {
   width: 100% !important;
 }
 .ui.grid > [class*="seven column"].row > [class*="one wide"].column,
-.ui[class*="seven column"].grid > [class*="one wide"].column {
+.ui[class*="seven column"].grid > [class*="one wide"].column:not(.row) {
   width: 14.28571429% !important;
 }
 .ui.grid > [class*="seven column"].row > [class*="two wide"].column,
-.ui[class*="seven column"].grid > [class*="two wide"].column {
+.ui[class*="seven column"].grid > [class*="two wide"].column:not(.row) {
   width: 28.57142857% !important;
 }
 .ui.grid > [class*="seven column"].row > [class*="three wide"].column,
-.ui[class*="seven column"].grid > [class*="three wide"].column {
+.ui[class*="seven column"].grid > [class*="three wide"].column:not(.row) {
   width: 42.85714286% !important;
 }
 .ui.grid > [class*="seven column"].row > [class*="four wide"].column,
-.ui[class*="seven column"].grid > [class*="four wide"].column {
+.ui[class*="seven column"].grid > [class*="four wide"].column:not(.row) {
   width: 57.14285714% !important;
 }
 .ui.grid > [class*="seven column"].row > [class*="five wide"].column,
-.ui[class*="seven column"].grid > [class*="five wide"].column {
+.ui[class*="seven column"].grid > [class*="five wide"].column:not(.row) {
   width: 71.42857143% !important;
 }
 .ui.grid > [class*="seven column"].row > [class*="six wide"].column,
-.ui[class*="seven column"].grid > [class*="six wide"].column {
+.ui[class*="seven column"].grid > [class*="six wide"].column:not(.row) {
   width: 85.71428571% !important;
 }
 .ui.grid > [class*="seven column"].row > [class*="seven wide"].column,
-.ui[class*="seven column"].grid > [class*="seven wide"].column {
+.ui[class*="seven column"].grid > [class*="seven wide"].column:not(.row) {
   width: 100% !important;
 }
 .ui.grid > [class*="eight column"].row > [class*="one wide"].column,
-.ui[class*="eight column"].grid > [class*="one wide"].column {
+.ui[class*="eight column"].grid > [class*="one wide"].column:not(.row) {
   width: 12.5% !important;
 }
 .ui.grid > [class*="eight column"].row > [class*="two wide"].column,
-.ui[class*="eight column"].grid > [class*="two wide"].column {
+.ui[class*="eight column"].grid > [class*="two wide"].column:not(.row) {
   width: 25% !important;
 }
 .ui.grid > [class*="eight column"].row > [class*="three wide"].column,
-.ui[class*="eight column"].grid > [class*="three wide"].column {
+.ui[class*="eight column"].grid > [class*="three wide"].column:not(.row) {
   width: 37.5% !important;
 }
 .ui.grid > [class*="eight column"].row > [class*="four wide"].column,
-.ui[class*="eight column"].grid > [class*="four wide"].column {
+.ui[class*="eight column"].grid > [class*="four wide"].column:not(.row) {
   width: 50% !important;
 }
 .ui.grid > [class*="eight column"].row > [class*="five wide"].column,
-.ui[class*="eight column"].grid > [class*="five wide"].column {
+.ui[class*="eight column"].grid > [class*="five wide"].column:not(.row) {
   width: 62.5% !important;
 }
 .ui.grid > [class*="eight column"].row > [class*="six wide"].column,
-.ui[class*="eight column"].grid > [class*="six wide"].column {
+.ui[class*="eight column"].grid > [class*="six wide"].column:not(.row) {
   width: 75% !important;
 }
 .ui.grid > [class*="eight column"].row > [class*="seven wide"].column,
-.ui[class*="eight column"].grid > [class*="seven wide"].column {
+.ui[class*="eight column"].grid > [class*="seven wide"].column:not(.row) {
   width: 87.5% !important;
 }
 .ui.grid > [class*="eight column"].row > [class*="eight wide"].column,
-.ui[class*="eight column"].grid > [class*="eight wide"].column {
+.ui[class*="eight column"].grid > [class*="eight wide"].column:not(.row) {
   width: 100% !important;
 }
 .ui.grid > [class*="nine column"].row > [class*="one wide"].column,
-.ui[class*="nine column"].grid > [class*="one wide"].column {
+.ui[class*="nine column"].grid > [class*="one wide"].column:not(.row) {
   width: 11.11111111% !important;
 }
 .ui.grid > [class*="nine column"].row > [class*="two wide"].column,
-.ui[class*="nine column"].grid > [class*="two wide"].column {
+.ui[class*="nine column"].grid > [class*="two wide"].column:not(.row) {
   width: 22.22222222% !important;
 }
 .ui.grid > [class*="nine column"].row > [class*="three wide"].column,
-.ui[class*="nine column"].grid > [class*="three wide"].column {
+.ui[class*="nine column"].grid > [class*="three wide"].column:not(.row) {
   width: 33.33333333% !important;
 }
 .ui.grid > [class*="nine column"].row > [class*="four wide"].column,
-.ui[class*="nine column"].grid > [class*="four wide"].column {
+.ui[class*="nine column"].grid > [class*="four wide"].column:not(.row) {
   width: 44.44444444% !important;
 }
 .ui.grid > [class*="nine column"].row > [class*="five wide"].column,
-.ui[class*="nine column"].grid > [class*="five wide"].column {
+.ui[class*="nine column"].grid > [class*="five wide"].column:not(.row) {
   width: 55.55555556% !important;
 }
 .ui.grid > [class*="nine column"].row > [class*="six wide"].column,
-.ui[class*="nine column"].grid > [class*="six wide"].column {
+.ui[class*="nine column"].grid > [class*="six wide"].column:not(.row) {
   width: 66.66666667% !important;
 }
 .ui.grid > [class*="nine column"].row > [class*="seven wide"].column,
-.ui[class*="nine column"].grid > [class*="seven wide"].column {
+.ui[class*="nine column"].grid > [class*="seven wide"].column:not(.row) {
   width: 77.77777778% !important;
 }
 .ui.grid > [class*="nine column"].row > [class*="eight wide"].column,
-.ui[class*="nine column"].grid > [class*="eight wide"].column {
+.ui[class*="nine column"].grid > [class*="eight wide"].column:not(.row) {
   width: 88.88888889% !important;
 }
 .ui.grid > [class*="nine column"].row > [class*="nine wide"].column,
-.ui[class*="nine column"].grid > [class*="nine wide"].column {
+.ui[class*="nine column"].grid > [class*="nine wide"].column:not(.row) {
   width: 100% !important;
 }
 .ui.grid > [class*="ten column"].row > [class*="one wide"].column,
-.ui[class*="ten column"].grid > [class*="one wide"].column {
+.ui[class*="ten column"].grid > [class*="one wide"].column:not(.row) {
   width: 10% !important;
 }
 .ui.grid > [class*="ten column"].row > [class*="two wide"].column,
-.ui[class*="ten column"].grid > [class*="two wide"].column {
+.ui[class*="ten column"].grid > [class*="two wide"].column:not(.row) {
   width: 20% !important;
 }
 .ui.grid > [class*="ten column"].row > [class*="three wide"].column,
-.ui[class*="ten column"].grid > [class*="three wide"].column {
+.ui[class*="ten column"].grid > [class*="three wide"].column:not(.row) {
   width: 30% !important;
 }
 .ui.grid > [class*="ten column"].row > [class*="four wide"].column,
-.ui[class*="ten column"].grid > [class*="four wide"].column {
+.ui[class*="ten column"].grid > [class*="four wide"].column:not(.row) {
   width: 40% !important;
 }
 .ui.grid > [class*="ten column"].row > [class*="five wide"].column,
-.ui[class*="ten column"].grid > [class*="five wide"].column {
+.ui[class*="ten column"].grid > [class*="five wide"].column:not(.row) {
   width: 50% !important;
 }
 .ui.grid > [class*="ten column"].row > [class*="six wide"].column,
-.ui[class*="ten column"].grid > [class*="six wide"].column {
+.ui[class*="ten column"].grid > [class*="six wide"].column:not(.row) {
   width: 60% !important;
 }
 .ui.grid > [class*="ten column"].row > [class*="seven wide"].column,
-.ui[class*="ten column"].grid > [class*="seven wide"].column {
+.ui[class*="ten column"].grid > [class*="seven wide"].column:not(.row) {
   width: 70% !important;
 }
 .ui.grid > [class*="ten column"].row > [class*="eight wide"].column,
-.ui[class*="ten column"].grid > [class*="eight wide"].column {
+.ui[class*="ten column"].grid > [class*="eight wide"].column:not(.row) {
   width: 80% !important;
 }
 .ui.grid > [class*="ten column"].row > [class*="nine wide"].column,
-.ui[class*="ten column"].grid > [class*="nine wide"].column {
+.ui[class*="ten column"].grid > [class*="nine wide"].column:not(.row) {
   width: 90% !important;
 }
 .ui.grid > [class*="ten column"].row > [class*="ten wide"].column,
-.ui[class*="ten column"].grid > [class*="ten wide"].column {
+.ui[class*="ten column"].grid > [class*="ten wide"].column:not(.row) {
   width: 100% !important;
 }
 .ui.grid > [class*="eleven column"].row > [class*="one wide"].column,
-.ui[class*="eleven column"].grid > [class*="one wide"].column {
+.ui[class*="eleven column"].grid > [class*="one wide"].column:not(.row) {
   width: 9.09090909% !important;
 }
 .ui.grid > [class*="eleven column"].row > [class*="two wide"].column,
-.ui[class*="eleven column"].grid > [class*="two wide"].column {
+.ui[class*="eleven column"].grid > [class*="two wide"].column:not(.row) {
   width: 18.18181818% !important;
 }
 .ui.grid > [class*="eleven column"].row > [class*="three wide"].column,
-.ui[class*="eleven column"].grid > [class*="three wide"].column {
+.ui[class*="eleven column"].grid > [class*="three wide"].column:not(.row) {
   width: 27.27272727% !important;
 }
 .ui.grid > [class*="eleven column"].row > [class*="four wide"].column,
-.ui[class*="eleven column"].grid > [class*="four wide"].column {
+.ui[class*="eleven column"].grid > [class*="four wide"].column:not(.row) {
   width: 36.36363636% !important;
 }
 .ui.grid > [class*="eleven column"].row > [class*="five wide"].column,
-.ui[class*="eleven column"].grid > [class*="five wide"].column {
+.ui[class*="eleven column"].grid > [class*="five wide"].column:not(.row) {
   width: 45.45454545% !important;
 }
 .ui.grid > [class*="eleven column"].row > [class*="six wide"].column,
-.ui[class*="eleven column"].grid > [class*="six wide"].column {
+.ui[class*="eleven column"].grid > [class*="six wide"].column:not(.row) {
   width: 54.54545455% !important;
 }
 .ui.grid > [class*="eleven column"].row > [class*="seven wide"].column,
-.ui[class*="eleven column"].grid > [class*="seven wide"].column {
+.ui[class*="eleven column"].grid > [class*="seven wide"].column:not(.row) {
   width: 63.63636364% !important;
 }
 .ui.grid > [class*="eleven column"].row > [class*="eight wide"].column,
-.ui[class*="eleven column"].grid > [class*="eight wide"].column {
+.ui[class*="eleven column"].grid > [class*="eight wide"].column:not(.row) {
   width: 72.72727273% !important;
 }
 .ui.grid > [class*="eleven column"].row > [class*="nine wide"].column,
-.ui[class*="eleven column"].grid > [class*="nine wide"].column {
+.ui[class*="eleven column"].grid > [class*="nine wide"].column:not(.row) {
   width: 81.81818182% !important;
 }
 .ui.grid > [class*="eleven column"].row > [class*="ten wide"].column,
-.ui[class*="eleven column"].grid > [class*="ten wide"].column {
+.ui[class*="eleven column"].grid > [class*="ten wide"].column:not(.row) {
   width: 90.90909091% !important;
 }
 .ui.grid > [class*="eleven column"].row > [class*="eleven wide"].column,
-.ui[class*="eleven column"].grid > [class*="eleven wide"].column {
+.ui[class*="eleven column"].grid > [class*="eleven wide"].column:not(.row) {
   width: 100% !important;
 }
 .ui.grid > [class*="twelve column"].row > [class*="one wide"].column,
-.ui[class*="twelve column"].grid > [class*="one wide"].column {
+.ui[class*="twelve column"].grid > [class*="one wide"].column:not(.row) {
   width: 8.33333333% !important;
 }
 .ui.grid > [class*="twelve column"].row > [class*="two wide"].column,
-.ui[class*="twelve column"].grid > [class*="two wide"].column {
+.ui[class*="twelve column"].grid > [class*="two wide"].column:not(.row) {
   width: 16.66666667% !important;
 }
 .ui.grid > [class*="twelve column"].row > [class*="three wide"].column,
-.ui[class*="twelve column"].grid > [class*="three wide"].column {
+.ui[class*="twelve column"].grid > [class*="three wide"].column:not(.row) {
   width: 25% !important;
 }
 .ui.grid > [class*="twelve column"].row > [class*="four wide"].column,
-.ui[class*="twelve column"].grid > [class*="four wide"].column {
+.ui[class*="twelve column"].grid > [class*="four wide"].column:not(.row) {
   width: 33.33333333% !important;
 }
 .ui.grid > [class*="twelve column"].row > [class*="five wide"].column,
-.ui[class*="twelve column"].grid > [class*="five wide"].column {
+.ui[class*="twelve column"].grid > [class*="five wide"].column:not(.row) {
   width: 41.66666667% !important;
 }
 .ui.grid > [class*="twelve column"].row > [class*="six wide"].column,
-.ui[class*="twelve column"].grid > [class*="six wide"].column {
+.ui[class*="twelve column"].grid > [class*="six wide"].column:not(.row) {
   width: 50% !important;
 }
 .ui.grid > [class*="twelve column"].row > [class*="seven wide"].column,
-.ui[class*="twelve column"].grid > [class*="seven wide"].column {
+.ui[class*="twelve column"].grid > [class*="seven wide"].column:not(.row) {
   width: 58.33333333% !important;
 }
 .ui.grid > [class*="twelve column"].row > [class*="eight wide"].column,
-.ui[class*="twelve column"].grid > [class*="eight wide"].column {
+.ui[class*="twelve column"].grid > [class*="eight wide"].column:not(.row) {
   width: 66.66666667% !important;
 }
 .ui.grid > [class*="twelve column"].row > [class*="nine wide"].column,
-.ui[class*="twelve column"].grid > [class*="nine wide"].column {
+.ui[class*="twelve column"].grid > [class*="nine wide"].column:not(.row) {
   width: 75% !important;
 }
 .ui.grid > [class*="twelve column"].row > [class*="ten wide"].column,
-.ui[class*="twelve column"].grid > [class*="ten wide"].column {
+.ui[class*="twelve column"].grid > [class*="ten wide"].column:not(.row) {
   width: 83.33333333% !important;
 }
 .ui.grid > [class*="twelve column"].row > [class*="eleven wide"].column,
-.ui[class*="twelve column"].grid > [class*="eleven wide"].column {
+.ui[class*="twelve column"].grid > [class*="eleven wide"].column:not(.row) {
   width: 91.66666667% !important;
 }
 .ui.grid > [class*="twelve column"].row > [class*="twelve wide"].column,
-.ui[class*="twelve column"].grid > [class*="twelve wide"].column {
+.ui[class*="twelve column"].grid > [class*="twelve wide"].column:not(.row) {
   width: 100% !important;
 }
 .ui.grid > [class*="thirteen column"].row > [class*="one wide"].column,
-.ui[class*="thirteen column"].grid > [class*="one wide"].column {
+.ui[class*="thirteen column"].grid > [class*="one wide"].column:not(.row) {
   width: 7.69230769% !important;
 }
 .ui.grid > [class*="thirteen column"].row > [class*="two wide"].column,
-.ui[class*="thirteen column"].grid > [class*="two wide"].column {
+.ui[class*="thirteen column"].grid > [class*="two wide"].column:not(.row) {
   width: 15.38461538% !important;
 }
 .ui.grid > [class*="thirteen column"].row > [class*="three wide"].column,
-.ui[class*="thirteen column"].grid > [class*="three wide"].column {
+.ui[class*="thirteen column"].grid > [class*="three wide"].column:not(.row) {
   width: 23.07692308% !important;
 }
 .ui.grid > [class*="thirteen column"].row > [class*="four wide"].column,
-.ui[class*="thirteen column"].grid > [class*="four wide"].column {
+.ui[class*="thirteen column"].grid > [class*="four wide"].column:not(.row) {
   width: 30.76923077% !important;
 }
 .ui.grid > [class*="thirteen column"].row > [class*="five wide"].column,
-.ui[class*="thirteen column"].grid > [class*="five wide"].column {
+.ui[class*="thirteen column"].grid > [class*="five wide"].column:not(.row) {
   width: 38.46153846% !important;
 }
 .ui.grid > [class*="thirteen column"].row > [class*="six wide"].column,
-.ui[class*="thirteen column"].grid > [class*="six wide"].column {
+.ui[class*="thirteen column"].grid > [class*="six wide"].column:not(.row) {
   width: 46.15384615% !important;
 }
 .ui.grid > [class*="thirteen column"].row > [class*="seven wide"].column,
-.ui[class*="thirteen column"].grid > [class*="seven wide"].column {
+.ui[class*="thirteen column"].grid > [class*="seven wide"].column:not(.row) {
   width: 53.84615385% !important;
 }
 .ui.grid > [class*="thirteen column"].row > [class*="eight wide"].column,
-.ui[class*="thirteen column"].grid > [class*="eight wide"].column {
+.ui[class*="thirteen column"].grid > [class*="eight wide"].column:not(.row) {
   width: 61.53846154% !important;
 }
 .ui.grid > [class*="thirteen column"].row > [class*="nine wide"].column,
-.ui[class*="thirteen column"].grid > [class*="nine wide"].column {
+.ui[class*="thirteen column"].grid > [class*="nine wide"].column:not(.row) {
   width: 69.23076923% !important;
 }
 .ui.grid > [class*="thirteen column"].row > [class*="ten wide"].column,
-.ui[class*="thirteen column"].grid > [class*="ten wide"].column {
+.ui[class*="thirteen column"].grid > [class*="ten wide"].column:not(.row) {
   width: 76.92307692% !important;
 }
 .ui.grid > [class*="thirteen column"].row > [class*="eleven wide"].column,
-.ui[class*="thirteen column"].grid > [class*="eleven wide"].column {
+.ui[class*="thirteen column"].grid > [class*="eleven wide"].column:not(.row) {
   width: 84.61538462% !important;
 }
 .ui.grid > [class*="thirteen column"].row > [class*="twelve wide"].column,
-.ui[class*="thirteen column"].grid > [class*="twelve wide"].column {
+.ui[class*="thirteen column"].grid > [class*="twelve wide"].column:not(.row) {
   width: 92.30769231% !important;
 }
 .ui.grid > [class*="thirteen column"].row > [class*="thirteen wide"].column,
-.ui[class*="thirteen column"].grid > [class*="thirteen wide"].column {
+.ui[class*="thirteen column"].grid > [class*="thirteen wide"].column:not(.row) {
   width: 100% !important;
 }
 .ui.grid > [class*="fourteen column"].row > [class*="one wide"].column,
-.ui[class*="fourteen column"].grid > [class*="one wide"].column {
+.ui[class*="fourteen column"].grid > [class*="one wide"].column:not(.row) {
   width: 7.14285714% !important;
 }
 .ui.grid > [class*="fourteen column"].row > [class*="two wide"].column,
-.ui[class*="fourteen column"].grid > [class*="two wide"].column {
+.ui[class*="fourteen column"].grid > [class*="two wide"].column:not(.row) {
   width: 14.28571429% !important;
 }
 .ui.grid > [class*="fourteen column"].row > [class*="three wide"].column,
-.ui[class*="fourteen column"].grid > [class*="three wide"].column {
+.ui[class*="fourteen column"].grid > [class*="three wide"].column:not(.row) {
   width: 21.42857143% !important;
 }
 .ui.grid > [class*="fourteen column"].row > [class*="four wide"].column,
-.ui[class*="fourteen column"].grid > [class*="four wide"].column {
+.ui[class*="fourteen column"].grid > [class*="four wide"].column:not(.row) {
   width: 28.57142857% !important;
 }
 .ui.grid > [class*="fourteen column"].row > [class*="five wide"].column,
-.ui[class*="fourteen column"].grid > [class*="five wide"].column {
+.ui[class*="fourteen column"].grid > [class*="five wide"].column:not(.row) {
   width: 35.71428571% !important;
 }
 .ui.grid > [class*="fourteen column"].row > [class*="six wide"].column,
-.ui[class*="fourteen column"].grid > [class*="six wide"].column {
+.ui[class*="fourteen column"].grid > [class*="six wide"].column:not(.row) {
   width: 42.85714286% !important;
 }
 .ui.grid > [class*="fourteen column"].row > [class*="seven wide"].column,
-.ui[class*="fourteen column"].grid > [class*="seven wide"].column {
+.ui[class*="fourteen column"].grid > [class*="seven wide"].column:not(.row) {
   width: 50% !important;
 }
 .ui.grid > [class*="fourteen column"].row > [class*="eight wide"].column,
-.ui[class*="fourteen column"].grid > [class*="eight wide"].column {
+.ui[class*="fourteen column"].grid > [class*="eight wide"].column:not(.row) {
   width: 57.14285714% !important;
 }
 .ui.grid > [class*="fourteen column"].row > [class*="nine wide"].column,
-.ui[class*="fourteen column"].grid > [class*="nine wide"].column {
+.ui[class*="fourteen column"].grid > [class*="nine wide"].column:not(.row) {
   width: 64.28571429% !important;
 }
 .ui.grid > [class*="fourteen column"].row > [class*="ten wide"].column,
-.ui[class*="fourteen column"].grid > [class*="ten wide"].column {
+.ui[class*="fourteen column"].grid > [class*="ten wide"].column:not(.row) {
   width: 71.42857143% !important;
 }
 .ui.grid > [class*="fourteen column"].row > [class*="eleven wide"].column,
-.ui[class*="fourteen column"].grid > [class*="eleven wide"].column {
+.ui[class*="fourteen column"].grid > [class*="eleven wide"].column:not(.row) {
   width: 78.57142857% !important;
 }
 .ui.grid > [class*="fourteen column"].row > [class*="twelve wide"].column,
-.ui[class*="fourteen column"].grid > [class*="twelve wide"].column {
+.ui[class*="fourteen column"].grid > [class*="twelve wide"].column:not(.row) {
   width: 85.71428571% !important;
 }
 .ui.grid > [class*="fourteen column"].row > [class*="thirteen wide"].column,
-.ui[class*="fourteen column"].grid > [class*="thirteen wide"].column {
+.ui[class*="fourteen column"].grid > [class*="thirteen wide"].column:not(.row) {
   width: 92.85714286% !important;
 }
 .ui.grid > [class*="fourteen column"].row > [class*="fourteen wide"].column,
-.ui[class*="fourteen column"].grid > [class*="fourteen wide"].column {
+.ui[class*="fourteen column"].grid > [class*="fourteen wide"].column:not(.row) {
   width: 100% !important;
 }
 .ui.grid > [class*="fifteen column"].row > [class*="one wide"].column,
-.ui[class*="fifteen column"].grid > [class*="one wide"].column {
+.ui[class*="fifteen column"].grid > [class*="one wide"].column:not(.row) {
   width: 6.66666667% !important;
 }
 .ui.grid > [class*="fifteen column"].row > [class*="two wide"].column,
-.ui[class*="fifteen column"].grid > [class*="two wide"].column {
+.ui[class*="fifteen column"].grid > [class*="two wide"].column:not(.row) {
   width: 13.33333333% !important;
 }
 .ui.grid > [class*="fifteen column"].row > [class*="three wide"].column,
-.ui[class*="fifteen column"].grid > [class*="three wide"].column {
+.ui[class*="fifteen column"].grid > [class*="three wide"].column:not(.row) {
   width: 20% !important;
 }
 .ui.grid > [class*="fifteen column"].row > [class*="four wide"].column,
-.ui[class*="fifteen column"].grid > [class*="four wide"].column {
+.ui[class*="fifteen column"].grid > [class*="four wide"].column:not(.row) {
   width: 26.66666667% !important;
 }
 .ui.grid > [class*="fifteen column"].row > [class*="five wide"].column,
-.ui[class*="fifteen column"].grid > [class*="five wide"].column {
+.ui[class*="fifteen column"].grid > [class*="five wide"].column:not(.row) {
   width: 33.33333333% !important;
 }
 .ui.grid > [class*="fifteen column"].row > [class*="six wide"].column,
-.ui[class*="fifteen column"].grid > [class*="six wide"].column {
+.ui[class*="fifteen column"].grid > [class*="six wide"].column:not(.row) {
   width: 40% !important;
 }
 .ui.grid > [class*="fifteen column"].row > [class*="seven wide"].column,
-.ui[class*="fifteen column"].grid > [class*="seven wide"].column {
+.ui[class*="fifteen column"].grid > [class*="seven wide"].column:not(.row) {
   width: 46.66666667% !important;
 }
 .ui.grid > [class*="fifteen column"].row > [class*="eight wide"].column,
-.ui[class*="fifteen column"].grid > [class*="eight wide"].column {
+.ui[class*="fifteen column"].grid > [class*="eight wide"].column:not(.row) {
   width: 53.33333333% !important;
 }
 .ui.grid > [class*="fifteen column"].row > [class*="nine wide"].column,
-.ui[class*="fifteen column"].grid > [class*="nine wide"].column {
+.ui[class*="fifteen column"].grid > [class*="nine wide"].column:not(.row) {
   width: 60% !important;
 }
 .ui.grid > [class*="fifteen column"].row > [class*="ten wide"].column,
-.ui[class*="fifteen column"].grid > [class*="ten wide"].column {
+.ui[class*="fifteen column"].grid > [class*="ten wide"].column:not(.row) {
   width: 66.66666667% !important;
 }
 .ui.grid > [class*="fifteen column"].row > [class*="eleven wide"].column,
-.ui[class*="fifteen column"].grid > [class*="eleven wide"].column {
+.ui[class*="fifteen column"].grid > [class*="eleven wide"].column:not(.row) {
   width: 73.33333333% !important;
 }
 .ui.grid > [class*="fifteen column"].row > [class*="twelve wide"].column,
-.ui[class*="fifteen column"].grid > [class*="twelve wide"].column {
+.ui[class*="fifteen column"].grid > [class*="twelve wide"].column:not(.row) {
   width: 80% !important;
 }
 .ui.grid > [class*="fifteen column"].row > [class*="thirteen wide"].column,
-.ui[class*="fifteen column"].grid > [class*="thirteen wide"].column {
+.ui[class*="fifteen column"].grid > [class*="thirteen wide"].column:not(.row) {
   width: 86.66666667% !important;
 }
 .ui.grid > [class*="fifteen column"].row > [class*="fourteen wide"].column,
-.ui[class*="fifteen column"].grid > [class*="fourteen wide"].column {
+.ui[class*="fifteen column"].grid > [class*="fourteen wide"].column:not(.row) {
   width: 93.33333333% !important;
 }
 .ui.grid > [class*="fifteen column"].row > [class*="fifteen wide"].column,
-.ui[class*="fifteen column"].grid > [class*="fifteen wide"].column {
+.ui[class*="fifteen column"].grid > [class*="fifteen wide"].column:not(.row) {
   width: 100% !important;
 }
 .ui.grid > [class*="sixteen column"].row > [class*="one wide"].column,
-.ui[class*="sixteen column"].grid > [class*="one wide"].column {
+.ui[class*="sixteen column"].grid > [class*="one wide"].column:not(.row) {
   width: 6.25% !important;
 }
 .ui.grid > [class*="sixteen column"].row > [class*="two wide"].column,
-.ui[class*="sixteen column"].grid > [class*="two wide"].column {
+.ui[class*="sixteen column"].grid > [class*="two wide"].column:not(.row) {
   width: 12.5% !important;
 }
 .ui.grid > [class*="sixteen column"].row > [class*="three wide"].column,
-.ui[class*="sixteen column"].grid > [class*="three wide"].column {
+.ui[class*="sixteen column"].grid > [class*="three wide"].column:not(.row) {
   width: 18.75% !important;
 }
 .ui.grid > [class*="sixteen column"].row > [class*="four wide"].column,
-.ui[class*="sixteen column"].grid > [class*="four wide"].column {
+.ui[class*="sixteen column"].grid > [class*="four wide"].column:not(.row) {
   width: 25% !important;
 }
 .ui.grid > [class*="sixteen column"].row > [class*="five wide"].column,
-.ui[class*="sixteen column"].grid > [class*="five wide"].column {
+.ui[class*="sixteen column"].grid > [class*="five wide"].column:not(.row) {
   width: 31.25% !important;
 }
 .ui.grid > [class*="sixteen column"].row > [class*="six wide"].column,
-.ui[class*="sixteen column"].grid > [class*="six wide"].column {
+.ui[class*="sixteen column"].grid > [class*="six wide"].column:not(.row) {
   width: 37.5% !important;
 }
 .ui.grid > [class*="sixteen column"].row > [class*="seven wide"].column,
-.ui[class*="sixteen column"].grid > [class*="seven wide"].column {
+.ui[class*="sixteen column"].grid > [class*="seven wide"].column:not(.row) {
   width: 43.75% !important;
 }
 .ui.grid > [class*="sixteen column"].row > [class*="eight wide"].column,
-.ui[class*="sixteen column"].grid > [class*="eight wide"].column {
+.ui[class*="sixteen column"].grid > [class*="eight wide"].column:not(.row) {
   width: 50% !important;
 }
 .ui.grid > [class*="sixteen column"].row > [class*="nine wide"].column,
-.ui[class*="sixteen column"].grid > [class*="nine wide"].column {
+.ui[class*="sixteen column"].grid > [class*="nine wide"].column:not(.row) {
   width: 56.25% !important;
 }
 .ui.grid > [class*="sixteen column"].row > [class*="ten wide"].column,
-.ui[class*="sixteen column"].grid > [class*="ten wide"].column {
+.ui[class*="sixteen column"].grid > [class*="ten wide"].column:not(.row) {
   width: 62.5% !important;
 }
 .ui.grid > [class*="sixteen column"].row > [class*="eleven wide"].column,
-.ui[class*="sixteen column"].grid > [class*="eleven wide"].column {
+.ui[class*="sixteen column"].grid > [class*="eleven wide"].column:not(.row) {
   width: 68.75% !important;
 }
 .ui.grid > [class*="sixteen column"].row > [class*="twelve wide"].column,
-.ui[class*="sixteen column"].grid > [class*="twelve wide"].column {
+.ui[class*="sixteen column"].grid > [class*="twelve wide"].column:not(.row) {
   width: 75% !important;
 }
 .ui.grid > [class*="sixteen column"].row > [class*="thirteen wide"].column,
-.ui[class*="sixteen column"].grid > [class*="thirteen wide"].column {
+.ui[class*="sixteen column"].grid > [class*="thirteen wide"].column:not(.row) {
   width: 81.25% !important;
 }
 .ui.grid > [class*="sixteen column"].row > [class*="fourteen wide"].column,
-.ui[class*="sixteen column"].grid > [class*="fourteen wide"].column {
+.ui[class*="sixteen column"].grid > [class*="fourteen wide"].column:not(.row) {
   width: 87.5% !important;
 }
 .ui.grid > [class*="sixteen column"].row > [class*="fifteen wide"].column,
-.ui[class*="sixteen column"].grid > [class*="fifteen wide"].column {
+.ui[class*="sixteen column"].grid > [class*="fifteen wide"].column:not(.row) {
   width: 93.75% !important;
 }
 .ui.grid > [class*="sixteen column"].row > [class*="sixteen wide"].column,
-.ui[class*="sixteen column"].grid > [class*="sixteen wide"].column {
+.ui[class*="sixteen column"].grid > [class*="sixteen wide"].column:not(.row) {
   width: 100% !important;
 }
 
@@ -1547,10 +1585,10 @@
 -----------------------*/
 
 .ui.grid [class*="left floated"].column {
-  float: left;
+  margin-right: auto;
 }
 .ui.grid [class*="right floated"].column {
-  float: right;
+  margin-left: auto;
 }
 
 /*----------------------
@@ -1559,7 +1597,7 @@
 
 .ui.divided.grid:not([class*="vertically divided"]) > .column:not(.row),
 .ui.divided.grid:not([class*="vertically divided"]) > .row > .column {
-  box-shadow: -1px 0px 0px 0px rgba(39, 41, 43, 0.15);
+  box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
 }
 
 /* Swap from padding to margin on columns to have dividers align */
@@ -1585,7 +1623,7 @@
 
 /* Divided Row */
 .ui.grid > .divided.row > .column {
-  box-shadow: -1px 0px 0px 0px rgba(39, 41, 43, 0.15);
+  box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
 }
 .ui.grid > .divided.row > .column:first-child {
   box-shadow: none;
@@ -1604,7 +1642,7 @@
   width: calc(100% -  2rem );
   height: 1px;
   margin: 0% 1rem;
-  box-shadow: 0px -1px 0px 0px rgba(39, 41, 43, 0.15);
+  box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
 }
 
 /* Padded Horizontally Divided */
@@ -1621,14 +1659,14 @@
 /* Inverted Divided */
 .ui.inverted.divided.grid:not([class*="vertically divided"]) > .column:not(.row),
 .ui.inverted.divided.grid:not([class*="vertically divided"]) > .row > .column {
-  box-shadow: -1px 0px 0px 0px rgba(255, 255, 255, 0.2);
+  box-shadow: -1px 0px 0px 0px rgba(255, 255, 255, 0.1);
 }
 .ui.inverted.divided.grid:not([class*="vertically divided"]) > .column:not(.row):first-child,
 .ui.inverted.divided.grid:not([class*="vertically divided"]) > .row > .column:first-child {
   box-shadow: none;
 }
 .ui.inverted[class*="vertically divided"].grid > .row:before {
-  box-shadow: 0px -1px 0px 0px rgba(255, 255, 255, 0.2);
+  box-shadow: 0px -1px 0px 0px rgba(255, 255, 255, 0.1);
 }
 
 /* Relaxed */
@@ -1703,54 +1741,131 @@
 }
 
 /*----------------------
+   Vertically Aligned
+-----------------------*/
+
+
+/* Top Aligned */
+.ui[class*="top aligned"].grid .column,
+.ui.grid > [class*="top aligned"].row > .column,
+.ui.grid > [class*="top aligned"].column:not(.row),
+.ui.grid > .row > [class*="top aligned"].column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  vertical-align: top;
+  -webkit-align-self: flex-start !important;
+      -ms-flex-item-align: start !important;
+          align-self: flex-start !important;
+}
+
+/* Middle Aligned */
+.ui[class*="middle aligned"].grid .column,
+.ui.grid > [class*="middle aligned"].row > .column,
+.ui.grid > [class*="middle aligned"].column:not(.row),
+.ui.grid > .row > [class*="middle aligned"].column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  vertical-align: middle;
+  -webkit-align-self: center !important;
+      -ms-flex-item-align: center !important;
+          align-self: center !important;
+}
+
+/* Bottom Aligned */
+.ui[class*="bottom aligned"].grid .column,
+.ui.grid > [class*="bottom aligned"].row > .column,
+.ui.grid > [class*="bottom aligned"].column:not(.row),
+.ui.grid > .row > [class*="bottom aligned"].column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  vertical-align: bottom;
+  -webkit-align-self: flex-end !important;
+      -ms-flex-item-align: end !important;
+          align-self: flex-end !important;
+}
+
+/* Stretched */
+.ui.stretched.grid > .row > .column,
+.ui.stretched.grid > .column,
+.ui.grid > .stretched.row > .column,
+.ui.grid > .stretched.column:not(.row),
+.ui.grid > .row > .stretched.column {
+  display: -webkit-inline-box !important;
+  display: -webkit-inline-flex !important;
+  display: -ms-inline-flexbox !important;
+  display: inline-flex !important;
+  -webkit-align-self: stretch;
+      -ms-flex-item-align: stretch;
+          align-self: stretch;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.ui.stretched.grid > .row > .column > *,
+.ui.stretched.grid > .column > *,
+.ui.grid > .stretched.row > .column > *,
+.ui.grid > .stretched.column:not(.row) > *,
+.ui.grid > .row > .stretched.column > * {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+/*----------------------
   Horizontally Centered
 -----------------------*/
 
 
 /* Left Aligned */
-.ui[class*="left aligned"].grid,
-.ui[class*="left aligned"].grid > .row > .column,
-.ui[class*="left aligned"].grid > .column,
-.ui.grid [class*="left aligned"].column,
-.ui.grid > [class*="left aligned"].row > .column {
+.ui[class*="left aligned"].grid .column,
+.ui.grid > [class*="left aligned"].row > .column,
+.ui.grid > [class*="left aligned"].column:not(.row),
+.ui.grid > .row > [class*="left aligned"].column {
   text-align: left;
-  -webkit-box-align: start !important;
-  -webkit-align-items: flex-start !important;
-      -ms-flex-align: start !important;
-          align-items: flex-start !important;
-}
-.ui.grid [class*="left aligned"].column {
-  text-align: left !important;
+  -webkit-align-self: inherit;
+      -ms-flex-item-align: inherit;
+          align-self: inherit;
 }
 
 /* Center Aligned */
 .ui[class*="center aligned"].grid,
-.ui[class*="center aligned"].grid > .row > .column,
-.ui[class*="center aligned"].grid > .column,
-.ui.grid > [class*="center aligned"].row > .column {
+.ui[class*="center aligned"].grid .column,
+.ui.grid > [class*="center aligned"].row > .column,
+.ui.grid > [class*="center aligned"].column:not(.row),
+.ui.grid > .row > [class*="center aligned"].column {
   text-align: center;
-  -webkit-box-align: center !important;
-  -webkit-align-items: center !important;
-      -ms-flex-align: center !important;
-          align-items: center !important;
+  -webkit-align-self: inherit;
+      -ms-flex-item-align: inherit;
+          align-self: inherit;
 }
-.ui.grid [class*="center aligned"].column {
-  text-align: center !important;
+.ui[class*="center aligned"].grid {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 /* Right Aligned */
-.ui[class*="right aligned"].grid,
-.ui[class*="right aligned"].grid > .row > .column,
-.ui[class*="right aligned"].grid > .column,
-.ui.grid > [class*="right aligned"].row > .column {
+.ui[class*="right aligned"].grid .column,
+.ui.grid > [class*="right aligned"].row > .column,
+.ui.grid > [class*="right aligned"].column:not(.row),
+.ui.grid > .row > [class*="right aligned"].column {
   text-align: right;
-  -webkit-box-align: end !important;
-  -webkit-align-items: flex-end !important;
-      -ms-flex-align: end !important;
-          align-items: flex-end !important;
-}
-.ui.grid [class*="right aligned"].column {
-  text-align: right !important;
+  -webkit-align-self: inherit;
+      -ms-flex-item-align: inherit;
+          align-self: inherit;
 }
 
 /* Justified */
@@ -1774,96 +1889,11 @@
 }
 
 /*----------------------
-   Vertically Aligned
------------------------*/
-
-
-/* Top Aligned */
-.ui[class*="top aligned"].grid,
-.ui[class*="top aligned"].grid > .row > .column,
-.ui[class*="top aligned"].grid > .column,
-.ui.grid [class*="top aligned"].column,
-.ui.grid > [class*="top aligned"].row > .column {
-  vertical-align: top;
-  -webkit-box-pack: start !important;
-  -webkit-justify-content: flex-start !important;
-      -ms-flex-pack: start !important;
-          justify-content: flex-start !important;
-}
-.ui.grid [class*="top aligned"].column {
-  vertical-align: top !important;
-  -webkit-box-pack: start !important;
-  -webkit-justify-content: flex-start !important;
-      -ms-flex-pack: start !important;
-          justify-content: flex-start !important;
-}
-.ui.stretched.grid > .row > .column,
-.ui.stretched.grid > .column:not(.row),
-.ui.grid .stretched.column,
-.ui.grid > .stretched.row > .column {
-  display: -webkit-box !important;
-  display: -webkit-flex !important;
-  display: -ms-flexbox !important;
-  display: flex !important;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-.ui.stretched.grid > .row > .column > *,
-.ui.stretched.grid > .column > *,
-.ui.grid .stretched.column > *,
-.ui.grid > .stretched.row > .column > * {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-}
-
-/* Middle Aligned */
-.ui[class*="middle aligned"].grid,
-.ui[class*="middle aligned"].grid > .row > .column,
-.ui[class*="middle aligned"].grid > .column,
-.ui.grid > [class*="middle aligned"].row > .column {
-  vertical-align: middle;
-  -webkit-box-pack: center !important;
-  -webkit-justify-content: center !important;
-      -ms-flex-pack: center !important;
-          justify-content: center !important;
-}
-.ui.grid [class*="middle aligned"].column {
-  vertical-align: middle !important;
-  -webkit-box-pack: center !important;
-  -webkit-justify-content: center !important;
-      -ms-flex-pack: center !important;
-          justify-content: center !important;
-}
-
-/* Bottom Aligned */
-.ui[class*="bottom aligned"].grid,
-.ui[class*="bottom aligned"].grid > .row > .column,
-.ui[class*="bottom aligned"].grid > .column,
-.ui.grid > [class*="bottom aligned"].row > .column {
-  vertical-align: bottom;
-  -webkit-box-pack: end !important;
-  -webkit-justify-content: flex-end !important;
-      -ms-flex-pack: end !important;
-          justify-content: flex-end !important;
-}
-.ui.grid [class*="bottom aligned"].column {
-  -webkit-box-pack: end !important;
-  -webkit-justify-content: flex-end !important;
-      -ms-flex-pack: end !important;
-          justify-content: flex-end !important;
-  vertical-align: bottom !important;
-}
-
-/*----------------------
          Colored
 -----------------------*/
 
 .ui.grid > .white.row,
+.ui.grid > .white.column,
 .ui.grid > .row > .white.column {
   background-color: #ffffff !important;
   color: rgba(0, 0, 0, 0.8);
@@ -1875,6 +1905,7 @@
   padding-bottom: 1rem;
 }
 .ui.grid > .black.row,
+.ui.grid > .black.column,
 .ui.grid > .row > .black.column {
   background-color: #1b1c1d !important;
   color: #ffffff;
@@ -1886,8 +1917,9 @@
   padding-bottom: 1rem;
 }
 .ui.grid > .blue.row,
+.ui.grid > .blue.column,
 .ui.grid > .row > .blue.column {
-  background-color: #3b83c0 !important;
+  background-color: #2185d0 !important;
   color: #ffffff;
 }
 .ui.grid > .row > .blue.column {
@@ -1897,8 +1929,9 @@
   padding-bottom: 1rem;
 }
 .ui.grid > .green.row,
+.ui.grid > .green.column,
 .ui.grid > .row > .green.column {
-  background-color: #5bbd72 !important;
+  background-color: #21ba45 !important;
   color: #ffffff;
 }
 .ui.grid > .row > .green.column {
@@ -1908,8 +1941,9 @@
   padding-bottom: 1rem;
 }
 .ui.grid > .orange.row,
+.ui.grid > .orange.column,
 .ui.grid > .row > .orange.column {
-  background-color: #e07b53 !important;
+  background-color: #f2711c !important;
   color: #ffffff;
 }
 .ui.grid > .row > .orange.column {
@@ -1920,7 +1954,7 @@
 }
 .ui.grid > .pink.row,
 .ui.grid .pink.column {
-  background-color: #d9499a !important;
+  background-color: #e03997 !important;
   color: #ffffff;
 }
 .ui.grid > .row > .pink.column {
@@ -1930,8 +1964,9 @@
   padding-bottom: 1rem;
 }
 .ui.grid > .purple.row,
+.ui.grid > .purple.column,
 .ui.grid > .row > .purple.column {
-  background-color: #564f8a !important;
+  background-color: #6a33c8 !important;
   color: #ffffff;
 }
 .ui.grid > .row > .purple.column {
@@ -1941,8 +1976,9 @@
   padding-bottom: 1rem;
 }
 .ui.grid > .red.row,
+.ui.grid > .red.column,
 .ui.grid > .row > .red.column {
-  background-color: #d95c5c !important;
+  background-color: #db2828 !important;
   color: #ffffff;
 }
 .ui.grid > .row > .red.column {
@@ -1952,6 +1988,7 @@
   padding-bottom: 1rem;
 }
 .ui.grid > .teal.row,
+.ui.grid > .teal.column,
 .ui.grid > .row > .teal.column {
   background-color: #00b5ad !important;
   color: #ffffff;
@@ -1963,8 +2000,9 @@
   padding-bottom: 1rem;
 }
 .ui.grid > .yellow.row,
+.ui.grid > .yellow.column,
 .ui.grid > .row > .yellow.column {
-  background-color: #f2c61f !important;
+  background-color: #fbbd08 !important;
   color: #ffffff;
 }
 .ui.grid > .row > .yellow.column {
@@ -1978,99 +2016,22 @@
       Equal Width
 -----------------------*/
 
-.ui[class*="equal width"].grid {
-  display: table;
-  table-layout: fixed;
-}
-.ui[class*="equal width"].grid > .row,
-.ui.grid > [class*="equal width"].row {
-  display: table;
-  table-layout: fixed;
-  width: 100% !important;
-}
 .ui[class*="equal width"].grid > .column:not(.row),
 .ui[class*="equal width"].grid > .row > .column,
 .ui.grid > [class*="equal width"].row > .column {
-  display: table-cell;
-}
-
-/* Flexbox (Experimental / Overrides Where Supported) */
-.ui[class*="equal width"].grid,
-.ui[class*="equal width"].grid > .row,
-.ui.grid > [class*="equal width"].row {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-}
-.ui[class*="equal width"].grid > .column:not(.row),
-.ui[class*="equal width"].grid > .row > .column,
-.ui.grid > [class*="equal width"].row > .column {
-  display: block;
+  display: inline-block;
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
 }
-
-/*----------------------
-  Equal Height Columns
------------------------*/
-
-.ui[class*="equal height"].grid {
-  display: table;
-  table-layout: fixed;
-}
-.ui[class*="equal height"].grid > .row,
-.ui.grid > [class*="equal height"].row {
-  display: table;
-  table-layout: fixed;
-  width: 100% !important;
-}
-.ui[class*="equal height"].grid > .column:not(.row),
-.ui[class*="equal height"].grid > .row > .column,
-.ui.grid > [class*="equal height"].row > .column {
-  display: table-cell;
-}
-
-/* Flexbox (Experimental / Overrides Where Supported) */
-.ui[class*="equal height"].grid,
-.ui[class*="equal height"].grid > .row,
-.ui.grid > [class*="equal height"].row {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-}
-.ui[class*="equal height"].grid > .column:not(.row),
-.ui[class*="equal height"].grid > .row > .column,
-.ui.grid > [class*="equal height"].row > .column {
-  display: block;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+.ui[class*="equal width"].grid > .wide.column,
+.ui[class*="equal width"].grid > .row > .wide.column,
+.ui.grid > [class*="equal width"].row > .wide.column {
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
 }
 
 /*-------------------
@@ -2093,81 +2054,82 @@
     display: inline-block !important;
     padding-top: 1rem !important;
     padding-bottom: 1rem !important;
+    box-shadow: none !important;
     margin: 0em;
   }
   .ui[class*="two column"].doubling.grid > .row > .column,
-  .ui[class*="two column"].doubling.grid > .column,
-  .ui.grid > [class*="two column"].doubling.row > .column {
+  .ui[class*="two column"].doubling.grid > .column:now(.row),
+  .ui.grid > [class*="two column"].doubling.row.row > .column {
     width: 100% !important;
   }
   .ui[class*="three column"].doubling.grid > .row > .column,
-  .ui[class*="three column"].doubling.grid > .column,
-  .ui.grid > [class*="three column"].doubling.row > .column {
+  .ui[class*="three column"].doubling.grid > .column:now(.row),
+  .ui.grid > [class*="three column"].doubling.row.row > .column {
     width: 50% !important;
   }
   .ui[class*="four column"].doubling.grid > .row > .column,
-  .ui[class*="four column"].doubling.grid > .column,
-  .ui.grid > [class*="four column"].doubling.row > .column {
+  .ui[class*="four column"].doubling.grid > .column:now(.row),
+  .ui.grid > [class*="four column"].doubling.row.row > .column {
     width: 50% !important;
   }
   .ui[class*="five column"].doubling.grid > .row > .column,
-  .ui[class*="five column"].doubling.grid > .column,
-  .ui.grid > [class*="five column"].doubling.row > .column {
+  .ui[class*="five column"].doubling.grid > .column:now(.row),
+  .ui.grid > [class*="five column"].doubling.row.row > .column {
     width: 33.33333333% !important;
   }
   .ui[class*="six column"].doubling.grid > .row > .column,
-  .ui[class*="six column"].doubling.grid > .column,
-  .ui.grid > [class*="six column"].doubling.row > .column {
+  .ui[class*="six column"].doubling.grid > .column:now(.row),
+  .ui.grid > [class*="six column"].doubling.row.row > .column {
     width: 33.33333333% !important;
   }
   .ui[class*="seven column"].doubling.grid > .row > .column,
-  .ui[class*="seven column"].doubling.grid > .column,
-  .ui.grid > [class*="seven column"].doubling.row > .column {
+  .ui[class*="seven column"].doubling.grid > .column:now(.row),
+  .ui.grid > [class*="seven column"].doubling.row.row > .column {
     width: 33.33333333% !important;
   }
   .ui[class*="eight column"].doubling.grid > .row > .column,
-  .ui[class*="eight column"].doubling.grid > .column,
-  .ui.grid > [class*="eight column"].doubling.row > .column {
+  .ui[class*="eight column"].doubling.grid > .column:now(.row),
+  .ui.grid > [class*="eight column"].doubling.row.row > .column {
     width: 25% !important;
   }
   .ui[class*="nine column"].doubling.grid > .row > .column,
-  .ui[class*="nine column"].doubling.grid > .column,
-  .ui.grid > [class*="nine column"].doubling.row > .column {
+  .ui[class*="nine column"].doubling.grid > .column:now(.row),
+  .ui.grid > [class*="nine column"].doubling.row.row > .column {
     width: 25% !important;
   }
   .ui[class*="ten column"].doubling.grid > .row > .column,
-  .ui[class*="ten column"].doubling.grid > .column,
-  .ui.grid > [class*="ten column"].doubling.row > .column {
+  .ui[class*="ten column"].doubling.grid > .column:now(.row),
+  .ui.grid > [class*="ten column"].doubling.row.row > .column {
     width: 20% !important;
   }
   .ui[class*="eleven column"].doubling.grid > .row > .column,
-  .ui[class*="eleven column"].doubling.grid > .column,
-  .ui.grid > [class*="eleven column"].doubling.row > .column {
+  .ui[class*="eleven column"].doubling.grid > .column:now(.row),
+  .ui.grid > [class*="eleven column"].doubling.row.row > .column {
     width: 20% !important;
   }
   .ui[class*="twelve column"].doubling.grid > .row > .column,
-  .ui[class*="twelve column"].doubling.grid > .column,
-  .ui.grid > [class*="twelve column"].doubling.row > .column {
+  .ui[class*="twelve column"].doubling.grid > .column:now(.row),
+  .ui.grid > [class*="twelve column"].doubling.row.row > .column {
     width: 16.66666667% !important;
   }
   .ui[class*="thirteen column"].doubling.grid > .row > .column,
-  .ui[class*="thirteen column"].doubling.grid > .column,
-  .ui.grid > [class*="thirteen column"].doubling.row > .column {
+  .ui[class*="thirteen column"].doubling.grid > .column:now(.row),
+  .ui.grid > [class*="thirteen column"].doubling.row.row > .column {
     width: 16.66666667% !important;
   }
   .ui[class*="fourteen column"].doubling.grid > .row > .column,
-  .ui[class*="fourteen column"].doubling.grid > .column,
-  .ui.grid > [class*="fourteen column"].doubling.row > .column {
+  .ui[class*="fourteen column"].doubling.grid > .column:now(.row),
+  .ui.grid > [class*="fourteen column"].doubling.row.row > .column {
     width: 14.28571429% !important;
   }
   .ui[class*="fifteen column"].doubling.grid > .row > .column,
-  .ui[class*="fifteen column"].doubling.grid > .column,
-  .ui.grid > [class*="fifteen column"].doubling.row > .column {
+  .ui[class*="fifteen column"].doubling.grid > .column:now(.row),
+  .ui.grid > [class*="fifteen column"].doubling.row.row > .column {
     width: 14.28571429% !important;
   }
   .ui[class*="sixteen column"].doubling.grid > .row > .column,
-  .ui[class*="sixteen column"].doubling.grid > .column,
-  .ui.grid > [class*="sixteen column"].doubling.row > .column {
+  .ui[class*="sixteen column"].doubling.grid > .column:now(.row),
+  .ui.grid > [class*="sixteen column"].doubling.row.row > .column {
     width: 12.5% !important;
   }
 }
@@ -2186,80 +2148,81 @@
     padding-top: 1rem !important;
     padding-bottom: 1rem !important;
     margin: 0em !important;
+    box-shadow: none !important;
   }
-  .ui[class*="two column"].doubling.grid > .row > .column,
-  .ui[class*="two column"].doubling.grid > .column,
-  .ui.grid > [class*="two column"].doubling.row > .column {
+  .ui[class*="two column"].doubling:not(.stackable).grid > .row > .column,
+  .ui[class*="two column"].doubling:not(.stackable).grid > .column:not(.row),
+  .ui.grid > [class*="two column"].doubling:not(.stackable).row.row > .column {
     width: 100% !important;
   }
-  .ui[class*="three column"].doubling.grid > .row > .column,
-  .ui[class*="three column"].doubling.grid > .column,
-  .ui.grid > [class*="three column"].doubling.row > .column {
+  .ui[class*="three column"].doubling:not(.stackable).grid > .row > .column,
+  .ui[class*="three column"].doubling:not(.stackable).grid > .column:not(.row),
+  .ui.grid > [class*="three column"].doubling:not(.stackable).row.row > .column {
     width: 50% !important;
   }
-  .ui[class*="four column"].doubling.grid > .row > .column,
-  .ui[class*="four column"].doubling.grid > .column,
-  .ui.grid > [class*="four column"].doubling.row > .column {
+  .ui[class*="four column"].doubling:not(.stackable).grid > .row > .column,
+  .ui[class*="four column"].doubling:not(.stackable).grid > .column:not(.row),
+  .ui.grid > [class*="four column"].doubling:not(.stackable).row.row > .column {
     width: 50% !important;
   }
-  .ui[class*="five column"].doubling.grid > .row > .column,
-  .ui[class*="five column"].doubling.grid > .column,
-  .ui.grid > [class*="five column"].doubling.row > .column {
+  .ui[class*="five column"].doubling:not(.stackable).grid > .row > .column,
+  .ui[class*="five column"].doubling:not(.stackable).grid > .column:not(.row),
+  .ui.grid > [class*="five column"].doubling:not(.stackable).row.row > .column {
     width: 50% !important;
   }
-  .ui[class*="six column"].doubling.grid > .row > .column,
-  .ui[class*="six column"].doubling.grid > .column,
-  .ui.grid > [class*="six column"].doubling.row > .column {
+  .ui[class*="six column"].doubling:not(.stackable).grid > .row > .column,
+  .ui[class*="six column"].doubling:not(.stackable).grid > .column:not(.row),
+  .ui.grid > [class*="six column"].doubling:not(.stackable).row.row > .column {
     width: 50% !important;
   }
-  .ui[class*="seven column"].doubling.grid > .row > .column,
-  .ui[class*="seven column"].doubling.grid > .column,
-  .ui.grid > [class*="seven column"].doubling.row > .column {
+  .ui[class*="seven column"].doubling:not(.stackable).grid > .row > .column,
+  .ui[class*="seven column"].doubling:not(.stackable).grid > .column:not(.row),
+  .ui.grid > [class*="seven column"].doubling:not(.stackable).row.row > .column {
     width: 50% !important;
   }
-  .ui[class*="eight column"].doubling.grid > .row > .column,
-  .ui[class*="eight column"].doubling.grid > .column,
-  .ui.grid > [class*="eight column"].doubling.row > .column {
+  .ui[class*="eight column"].doubling:not(.stackable).grid > .row > .column,
+  .ui[class*="eight column"].doubling:not(.stackable).grid > .column:not(.row),
+  .ui.grid > [class*="eight column"].doubling:not(.stackable).row.row > .column {
     width: 50% !important;
   }
-  .ui[class*="nine column"].doubling.grid > .row > .column,
-  .ui[class*="nine column"].doubling.grid > .column,
-  .ui.grid > [class*="nine column"].doubling.row > .column {
+  .ui[class*="nine column"].doubling:not(.stackable).grid > .row > .column,
+  .ui[class*="nine column"].doubling:not(.stackable).grid > .column:not(.row),
+  .ui.grid > [class*="nine column"].doubling:not(.stackable).row.row > .column {
     width: 33.33333333% !important;
   }
-  .ui[class*="ten column"].doubling.grid > .row > .column,
-  .ui[class*="ten column"].doubling.grid > .column,
-  .ui.grid > [class*="ten column"].doubling.row > .column {
+  .ui[class*="ten column"].doubling:not(.stackable).grid > .row > .column,
+  .ui[class*="ten column"].doubling:not(.stackable).grid > .column:not(.row),
+  .ui.grid > [class*="ten column"].doubling:not(.stackable).row.row > .column {
     width: 33.33333333% !important;
   }
-  .ui[class*="eleven column"].doubling.grid > .row > .column,
-  .ui[class*="eleven column"].doubling.grid > .column,
-  .ui.grid > [class*="eleven column"].doubling.row > .column {
+  .ui[class*="eleven column"].doubling:not(.stackable).grid > .row > .column,
+  .ui[class*="eleven column"].doubling:not(.stackable).grid > .column:not(.row),
+  .ui.grid > [class*="eleven column"].doubling:not(.stackable).row.row > .column {
     width: 33.33333333% !important;
   }
-  .ui[class*="twelve column"].doubling.grid > .row > .column,
-  .ui[class*="twelve column"].doubling.grid > .column,
-  .ui.grid > [class*="twelve column"].doubling.row > .column {
+  .ui[class*="twelve column"].doubling:not(.stackable).grid > .row > .column,
+  .ui[class*="twelve column"].doubling:not(.stackable).grid > .column:not(.row),
+  .ui.grid > [class*="twelve column"].doubling:not(.stackable).row.row > .column {
     width: 33.33333333% !important;
   }
-  .ui[class*="thirteen column"].doubling.grid > .row > .column,
-  .ui[class*="thirteen column"].doubling.grid > .column,
-  .ui.grid > [class*="thirteen column"].doubling.row > .column {
+  .ui[class*="thirteen column"].doubling:not(.stackable).grid > .row > .column,
+  .ui[class*="thirteen column"].doubling:not(.stackable).grid > .column:not(.row),
+  .ui.grid > [class*="thirteen column"].doubling:not(.stackable).row.row > .column {
     width: 33.33333333% !important;
   }
-  .ui[class*="fourteen column"].doubling.grid > .row > .column,
-  .ui[class*="fourteen column"].doubling.grid > .column,
-  .ui.grid > [class*="fourteen column"].doubling.row > .column {
+  .ui[class*="fourteen column"].doubling:not(.stackable).grid > .row > .column,
+  .ui[class*="fourteen column"].doubling:not(.stackable).grid > .column:not(.row),
+  .ui.grid > [class*="fourteen column"].doubling:not(.stackable).row.row > .column {
     width: 25% !important;
   }
-  .ui[class*="fifteen column"].doubling.grid > .row > .column,
-  .ui[class*="fifteen column"].doubling.grid > .column,
-  .ui.grid > [class*="fifteen column"].doubling.row > .column {
+  .ui[class*="fifteen column"].doubling:not(.stackable).grid > .row > .column,
+  .ui[class*="fifteen column"].doubling:not(.stackable).grid > .column:not(.row),
+  .ui.grid > [class*="fifteen column"].doubling:not(.stackable).row.row > .column {
     width: 25% !important;
   }
-  .ui[class*="sixteen column"].doubling.grid > .row > .column,
-  .ui[class*="sixteen column"].doubling.grid > .column,
-  .ui.grid > [class*="sixteen column"].doubling.row > .column {
+  .ui[class*="sixteen column"].doubling:not(.stackable).grid > .row > .column,
+  .ui[class*="sixteen column"].doubling:not(.stackable).grid > .column:not(.row),
+  .ui.grid > [class*="sixteen column"].doubling:not(.stackable).row.row > .column {
     width: 25% !important;
   }
 }
@@ -2295,6 +2258,13 @@
     padding: 0em;
   }
   
+/* Coupling */
+  .ui.container > .ui.stackable.grid > .column,
+  .ui.container > .ui.stackable.grid > .row > .column {
+    padding-left: 0em !important;
+    padding-right: 0em !important;
+  }
+  
 /* Don't pad inside segment or nested grid */
   .ui.grid .ui.stackable.grid,
   .ui.segment:not(.vertical) .ui.stackable.page.grid {
@@ -2318,16 +2288,22 @@
   .ui.inverted.stackable.divided.grid > .column:not(.row),
   .ui.inverted.stackable.celled.grid > .row > .column,
   .ui.inverted.stackable.divided.grid > .row > .column {
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
   .ui.stackable.celled.grid > .column:not(.row),
   .ui.stackable.divided.grid > .column:not(.row),
   .ui.stackable.celled.grid > .row > .column,
   .ui.stackable.divided.grid > .row > .column {
-    border-top: 1px solid rgba(39, 41, 43, 0.15);
+    border-top: 1px solid rgba(34, 36, 38, 0.15);
     box-shadow: none !important;
     padding-top: 2rem !important;
     padding-bottom: 2rem !important;
+  }
+  .ui.stackable.celled.grid > .column:not(.row):first-child,
+  .ui.stackable.divided.grid > .column:not(.row):first-child,
+  .ui.stackable.celled.grid > .row > .column:first-child,
+  .ui.stackable.divided.grid > .row > .column:first-child {
+    padding-top: 0em !important;
   }
 }
 

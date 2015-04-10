@@ -23,6 +23,7 @@
 
 /* Elements */
 @button     : 'default';
+@container  : 'default';
 @divider    : 'default';
 @flag       : 'default';
 @header     : 'default';
@@ -83,6 +84,7 @@
 
 /* Path to site override folder */
 @siteFolder  : 'site/';
+
 
 /*******************************
          Import Theme

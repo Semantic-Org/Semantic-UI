@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - Transition
+ * # Semantic UI 2.0.0 - Transition
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -35,8 +35,6 @@
 .animating.transition {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
-  -webkit-transform: translateZ(0);
-          transform: translateZ(0);
   visibility: visible !important;
 }
 
@@ -57,12 +55,10 @@
 .visible.transition {
   display: block !important;
   visibility: visible !important;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  -webkit-transform: translateZ(0);
-          transform: translateZ(0);
+  
+/*  backface-visibility: @backfaceVisibility;
+  transform: @use3DAcceleration;*/
 }
-
 /* Disabled */
 .disabled.transition {
   -webkit-animation-play-state: paused;
@@ -603,8 +599,6 @@
 .flip.transition.out {
   -webkit-animation-duration: 600ms;
           animation-duration: 600ms;
-  -webkit-perspective: 2000px;
-          perspective: 2000px;
 }
 .horizontal.flip.transition.in {
   -webkit-animation-name: horizontalFlipIn;

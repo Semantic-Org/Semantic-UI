@@ -49,6 +49,7 @@ module.exports = {
 
     // elements
     'button',
+    'container',
     'divider',
     'flag',
     'header',

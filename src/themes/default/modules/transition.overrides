@@ -270,7 +270,6 @@
 .flip.transition.in,
 .flip.transition.out {
   animation-duration: 600ms;
-  perspective: 2000px;
 }
 .horizontal.flip.transition.in {
   animation-name: horizontalFlipIn;

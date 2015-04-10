@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - Progress
+ * # Semantic UI 2.0.0 - Progress
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -598,7 +598,7 @@ $.fn.progress = function(parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -712,7 +712,7 @@ $.fn.progress.settings = {
   namespace    : 'progress',
 
   debug        : false,
-  verbose      : true,
+  verbose      : false,
   performance  : true,
 
   random       : {

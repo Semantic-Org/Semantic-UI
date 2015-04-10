@@ -38,11 +38,11 @@
 
 @tabletWidth: auto;
 @tabletMargin: 0em;
-@tabletGutter: 4em;
+@tabletGutter: 2em;
 
 @computerWidth: auto;
 @computerMargin: 0em;
-@computerGutter: 8%;
+@computerGutter: 3%;
 
 @largeMonitorWidth: auto;
 @largeMonitorMargin: 0em;
@@ -51,7 +51,6 @@
 @widescreenMonitorWidth: auto;
 @widescreenMargin: 0em;
 @widescreenMonitorGutter: 23%;
-
 
 /*--------------
      Relaxed

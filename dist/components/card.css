@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - Item
+ * # Semantic UI 2.0.0 - Item
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -38,9 +38,9 @@
   padding: 0em;
   border: none;
   border-radius: 0.2857rem;
-  box-shadow: 0px 3px 0px 0px #d4d4d5, 0px 0px 0px 1px #d4d4d5;
-  -webkit-transition: box-shadow 0.2s ease;
-          transition: box-shadow 0.2s ease;
+  box-shadow: 0px 1px 3px 0px #d4d4d5, 0px 0px 0px 1px #d4d4d5;
+  -webkit-transition: box-shadow 0.2s ease, -webkit-transform 0.2s ease;
+          transition: box-shadow 0.2s ease, transform 0.2s ease;
   z-index: '';
 }
 .ui.card {
@@ -115,8 +115,12 @@
 
 .ui.cards > .card > .image,
 .ui.card > .image {
-  display: block;
   position: relative;
+  display: block;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
   padding: 0em;
   background: rgba(0, 0, 0, 0.05);
 }
@@ -172,8 +176,8 @@
 .ui.cards > .card > .content > .header:not(.ui),
 .ui.card > .content > .header:not(.ui) {
   font-weight: bold;
-  font-size: 1.2em;
-  margin-top: -0.165em;
+  font-size: 1.28571429em;
+  margin-top: -0.21425em;
   line-height: 1.33em;
 }
 .ui.cards > .card > .content > .meta + .description,
@@ -261,7 +265,7 @@
 
 .ui.cards > .card .meta,
 .ui.card .meta {
-  font-size: 0.9em;
+  font-size: 0.92857143em;
   color: rgba(0, 0, 0, 0.4);
 }
 .ui.cards > .card .meta *,
@@ -437,6 +441,14 @@
         Link
 --------------------*/
 
+.ui.cards a.card,
+.ui.link.cards .card,
+a.ui.card,
+.ui.link.card {
+  -webkit-transform: none;
+      -ms-transform: none;
+          transform: none;
+}
 .ui.cards a.card:hover,
 .ui.link.cards .card:hover,
 a.ui.card:hover,
@@ -445,7 +457,10 @@ a.ui.card:hover,
   z-index: 5;
   background: '';
   border: none;
-  box-shadow: 0px 3px 0px 0px #bebebf, 0px 0px 0px 1px rgba(39, 41, 43, 0.3);
+  box-shadow: 0px 1px 3px 0px #bcbdbd, 0px 0px 0px 1px #d4d4d5;
+  -webkit-transform: translateY(-3px);
+      -ms-transform: translateY(-3px);
+          transform: translateY(-3px);
 }
 
 /*-------------------
@@ -455,94 +470,94 @@ a.ui.card:hover,
 .ui.black.cards > .card,
 .ui.cards > .black.card,
 .ui.black.card {
-  box-shadow: 0px 3px 0px 0px #1b1c1d, 0px 0px 0px 1px #d4d4d5;
+  box-shadow: 0px 0px 0px 1px #d4d4d5, 0px 2px 0px 0px #1b1c1d, 0px 1px 3px 0px #d4d4d5;
 }
 .ui.blue.cards > .card,
 .ui.cards > .blue.card,
 .ui.blue.card {
-  box-shadow: 0px 3px 0px 0px #3b83c0, 0px 0px 0px 1px #d4d4d5;
+  box-shadow: 0px 0px 0px 1px #d4d4d5, 0px 2px 0px 0px #2185d0, 0px 1px 3px 0px #d4d4d5;
 }
 .ui.green.cards > .card,
 .ui.cards > .green.card,
 .ui.green.card {
-  box-shadow: 0px 3px 0px 0px #5bbd72, 0px 0px 0px 1px #d4d4d5;
+  box-shadow: 0px 0px 0px 1px #d4d4d5, 0px 2px 0px 0px #21ba45, 0px 1px 3px 0px #d4d4d5;
 }
 .ui.orange.cards > .card,
 .ui.cards > .orange.card,
 .ui.orange.card {
-  box-shadow: 0px 3px 0px 0px #e07b53, 0px 0px 0px 1px #d4d4d5;
+  box-shadow: 0px 0px 0px 1px #d4d4d5, 0px 2px 0px 0px #f2711c, 0px 1px 3px 0px #d4d4d5;
 }
 .ui.pink.cards > .card,
 .ui.cards > .pink.card,
 .ui.pink.card {
-  box-shadow: 0px 3px 0px 0px #d9499a, 0px 0px 0px 1px #d4d4d5;
+  box-shadow: 0px 0px 0px 1px #d4d4d5, 0px 2px 0px 0px #e03997, 0px 1px 3px 0px #d4d4d5;
 }
 .ui.purple.cards > .card,
 .ui.cards > .purple.card,
 .ui.purple.card {
-  box-shadow: 0px 3px 0px 0px #564f8a, 0px 0px 0px 1px #d4d4d5;
+  box-shadow: 0px 0px 0px 1px #d4d4d5, 0px 2px 0px 0px #6a33c8, 0px 1px 3px 0px #d4d4d5;
 }
 .ui.red.cards > .card,
 .ui.cards > .red.card,
 .ui.red.card {
-  box-shadow: 0px 3px 0px 0px #d95c5c, 0px 0px 0px 1px #d4d4d5;
+  box-shadow: 0px 0px 0px 1px #d4d4d5, 0px 2px 0px 0px #db2828, 0px 1px 3px 0px #d4d4d5;
 }
 .ui.teal.cards > .card,
 .ui.cards > .teal.card,
 .ui.teal.card {
-  box-shadow: 0px 3px 0px 0px #00b5ad, 0px 0px 0px 1px #d4d4d5;
+  box-shadow: 0px 0px 0px 1px #d4d4d5, 0px 2px 0px 0px #00b5ad, 0px 1px 3px 0px #d4d4d5;
 }
 .ui.yellow.cards > .card,
 .ui.cards > .yellow.card,
 .ui.yellow.card {
-  box-shadow: 0px 3px 0px 0px #f2c61f, 0px 0px 0px 1px #d4d4d5;
+  box-shadow: 0px 0px 0px 1px #d4d4d5, 0px 2px 0px 0px #fbbd08, 0px 1px 3px 0px #d4d4d5;
 }
 
 /* Hover */
 .ui.black.cards > .card:hover,
 .ui.cards > .black.card:hover,
 .ui.black.card:hover {
-  box-shadow: 0px 3px 0px 0px #1b1c1d, 0px 0px 0px 1px #d4d4d5;
+  box-shadow: 0px 0px 0px 1px #d4d4d5, 0px 2px 0px 0px #23292e, 0px 1px 3px 0px #bcbdbd;
 }
 .ui.blue.cards > .card:hover,
 .ui.cards > .blue.card:hover,
 .ui.blue.card:hover {
-  box-shadow: 0px 3px 0px 0px #458ac6, 0px 0px 0px 1px #d4d4d5;
+  box-shadow: 0px 0px 0px 1px #d4d4d5, 0px 2px 0px 0px #1378c5, 0px 1px 3px 0px #bcbdbd;
 }
 .ui.green.cards > .card:hover,
 .ui.cards > .green.card:hover,
 .ui.green.card:hover {
-  box-shadow: 0px 3px 0px 0px #66c17b, 0px 0px 0px 1px #d4d4d5;
+  box-shadow: 0px 0px 0px 1px #d4d4d5, 0px 2px 0px 0px #13ae38, 0px 1px 3px 0px #bcbdbd;
 }
 .ui.orange.cards > .card:hover,
 .ui.cards > .orange.card:hover,
 .ui.orange.card:hover {
-  box-shadow: 0px 3px 0px 0px #e28560, 0px 0px 0px 1px #d4d4d5;
+  box-shadow: 0px 0px 0px 1px #d4d4d5, 0px 2px 0px 0px #f36101, 0px 1px 3px 0px #bcbdbd;
 }
 .ui.pink.cards > .card:hover,
 .ui.cards > .pink.card:hover,
 .ui.pink.card:hover {
-  box-shadow: 0px 3px 0px 0px #dc56a1, 0px 0px 0px 1px #d4d4d5;
+  box-shadow: 0px 0px 0px 1px #d4d4d5, 0px 2px 0px 0px #e9168d, 0px 1px 3px 0px #bcbdbd;
 }
 .ui.purple.cards > .card:hover,
 .ui.cards > .purple.card:hover,
 .ui.purple.card:hover {
-  box-shadow: 0px 3px 0px 0px #5c5594, 0px 0px 0px 1px #d4d4d5;
+  box-shadow: 0px 0px 0px 1px #d4d4d5, 0px 2px 0px 0px #5c23bf, 0px 1px 3px 0px #bcbdbd;
 }
 .ui.red.cards > .card:hover,
 .ui.cards > .red.card:hover,
 .ui.red.card:hover {
-  box-shadow: 0px 3px 0px 0px #dc6868, 0px 0px 0px 1px #d4d4d5;
+  box-shadow: 0px 0px 0px 1px #d4d4d5, 0px 2px 0px 0px #d41616, 0px 1px 3px 0px #bcbdbd;
 }
 .ui.teal.cards > .card:hover,
 .ui.cards > .teal.card:hover,
 .ui.teal.card:hover {
-  box-shadow: 0px 3px 0px 0px #00c4bc, 0px 0px 0px 1px #d4d4d5;
+  box-shadow: 0px 0px 0px 1px #d4d4d5, 0px 2px 0px 0px #009c95, 0px 1px 3px 0px #bcbdbd;
 }
 .ui.yellow.cards > .card:hover,
 .ui.cards > .yellow.card:hover,
 .ui.yellow.card:hover {
-  box-shadow: 0px 3px 0px 0px #f3ca2d, 0px 0px 0px 1px #d4d4d5;
+  box-shadow: 0px 0px 0px 1px #d4d4d5, 0px 2px 0px 0px #eaae00, 0px 1px 3px 0px #bcbdbd;
 }
 
 /*--------------
@@ -554,6 +569,9 @@ a.ui.card:hover,
   margin-right: 0em;
 }
 .ui.one.cards > .card {
+  -webkit-flex-basis: 100%;
+      -ms-flex-preferred-size: 100%;
+          flex-basis: 100%;
   width: 100%;
 }
 .ui.two.cards {
@@ -561,6 +579,9 @@ a.ui.card:hover,
   margin-right: -1em;
 }
 .ui.two.cards > .card {
+  -webkit-flex-basis: -webkit-calc( 50%  -  2em );
+      -ms-flex-preferred-size: calc( 50%  -  2em );
+          flex-basis: calc( 50%  -  2em );
   width: -webkit-calc( 50%  -  2em );
   width: calc( 50%  -  2em );
   margin-left: 1em;
@@ -574,6 +595,9 @@ a.ui.card:hover,
   margin-right: -1em;
 }
 .ui.three.cards > .card {
+  -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
+      -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
+          flex-basis: calc( 33.33333333%  -  2em );
   width: -webkit-calc( 33.33333333%  -  2em );
   width: calc( 33.33333333%  -  2em );
   margin-left: 1em;
@@ -587,6 +611,9 @@ a.ui.card:hover,
   margin-right: -0.75em;
 }
 .ui.four.cards > .card {
+  -webkit-flex-basis: -webkit-calc( 25%  -  1.5em );
+      -ms-flex-preferred-size: calc( 25%  -  1.5em );
+          flex-basis: calc( 25%  -  1.5em );
   width: -webkit-calc( 25%  -  1.5em );
   width: calc( 25%  -  1.5em );
   margin-left: 0.75em;
@@ -600,6 +627,9 @@ a.ui.card:hover,
   margin-right: -0.75em;
 }
 .ui.five.cards > .card {
+  -webkit-flex-basis: -webkit-calc( 20%  -  1.5em );
+      -ms-flex-preferred-size: calc( 20%  -  1.5em );
+          flex-basis: calc( 20%  -  1.5em );
   width: -webkit-calc( 20%  -  1.5em );
   width: calc( 20%  -  1.5em );
   margin-left: 0.75em;
@@ -613,6 +643,9 @@ a.ui.card:hover,
   margin-right: -0.75em;
 }
 .ui.six.cards > .card {
+  -webkit-flex-basis: -webkit-calc( 16.66666667%  -  1.5em );
+      -ms-flex-preferred-size: calc( 16.66666667%  -  1.5em );
+          flex-basis: calc( 16.66666667%  -  1.5em );
   width: -webkit-calc( 16.66666667%  -  1.5em );
   width: calc( 16.66666667%  -  1.5em );
   margin-left: 0.75em;
@@ -626,6 +659,9 @@ a.ui.card:hover,
   margin-right: -0.5em;
 }
 .ui.seven.cards > .card {
+  -webkit-flex-basis: -webkit-calc( 14.28571429%  -  1em );
+      -ms-flex-preferred-size: calc( 14.28571429%  -  1em );
+          flex-basis: calc( 14.28571429%  -  1em );
   width: -webkit-calc( 14.28571429%  -  1em );
   width: calc( 14.28571429%  -  1em );
   margin-left: 0.5em;
@@ -639,6 +675,9 @@ a.ui.card:hover,
   margin-right: -0.5em;
 }
 .ui.eight.cards > .card {
+  -webkit-flex-basis: -webkit-calc( 12.5%  -  1em );
+      -ms-flex-preferred-size: calc( 12.5%  -  1em );
+          flex-basis: calc( 12.5%  -  1em );
   width: -webkit-calc( 12.5%  -  1em );
   width: calc( 12.5%  -  1em );
   margin-left: 0.5em;
@@ -653,6 +692,9 @@ a.ui.card:hover,
   margin-right: -0.5em;
 }
 .ui.nine.cards > .card {
+  -webkit-flex-basis: -webkit-calc( 11.11111111%  -  1em );
+      -ms-flex-preferred-size: calc( 11.11111111%  -  1em );
+          flex-basis: calc( 11.11111111%  -  1em );
   width: -webkit-calc( 11.11111111%  -  1em );
   width: calc( 11.11111111%  -  1em );
   margin-left: 0.5em;
@@ -667,6 +709,9 @@ a.ui.card:hover,
   margin-right: -0.5em;
 }
 .ui.ten.cards > .card {
+  -webkit-flex-basis: -webkit-calc( 10%  -  1em );
+      -ms-flex-preferred-size: calc( 10%  -  1em );
+          flex-basis: calc( 10%  -  1em );
   width: -webkit-calc( 10%  -  1em );
   width: calc( 10%  -  1em );
   margin-left: 0.5em;
@@ -688,6 +733,9 @@ a.ui.card:hover,
     margin-right: 0em;
   }
   .ui.two.doubling.cards .card {
+    -webkit-flex-basis: 100%;
+        -ms-flex-preferred-size: 100%;
+            flex-basis: 100%;
     width: 100%;
     margin-left: 0em;
     margin-right: 0em;
@@ -697,6 +745,9 @@ a.ui.card:hover,
     margin-right: -1em;
   }
   .ui.three.doubling.cards .card {
+    -webkit-flex-basis: -webkit-calc( 50%  -  2em );
+        -ms-flex-preferred-size: calc( 50%  -  2em );
+            flex-basis: calc( 50%  -  2em );
     width: -webkit-calc( 50%  -  2em );
     width: calc( 50%  -  2em );
     margin-left: 1em;
@@ -707,6 +758,9 @@ a.ui.card:hover,
     margin-right: -1em;
   }
   .ui.four.doubling.cards .card {
+    -webkit-flex-basis: -webkit-calc( 50%  -  2em );
+        -ms-flex-preferred-size: calc( 50%  -  2em );
+            flex-basis: calc( 50%  -  2em );
     width: -webkit-calc( 50%  -  2em );
     width: calc( 50%  -  2em );
     margin-left: 1em;
@@ -717,6 +771,9 @@ a.ui.card:hover,
     margin-right: -1em;
   }
   .ui.five.doubling.cards .card {
+    -webkit-flex-basis: -webkit-calc( 50%  -  2em );
+        -ms-flex-preferred-size: calc( 50%  -  2em );
+            flex-basis: calc( 50%  -  2em );
     width: -webkit-calc( 50%  -  2em );
     width: calc( 50%  -  2em );
     margin-left: 1em;
@@ -727,6 +784,9 @@ a.ui.card:hover,
     margin-right: -1em;
   }
   .ui.six.doubling.cards .card {
+    -webkit-flex-basis: -webkit-calc( 50%  -  2em );
+        -ms-flex-preferred-size: calc( 50%  -  2em );
+            flex-basis: calc( 50%  -  2em );
     width: -webkit-calc( 50%  -  2em );
     width: calc( 50%  -  2em );
     margin-left: 1em;
@@ -737,6 +797,9 @@ a.ui.card:hover,
     margin-right: -1em;
   }
   .ui.seven.doubling.cards .card {
+    -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
+        -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
+            flex-basis: calc( 33.33333333%  -  2em );
     width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
@@ -747,6 +810,9 @@ a.ui.card:hover,
     margin-right: -1em;
   }
   .ui.eight.doubling.cards .card {
+    -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
+        -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
+            flex-basis: calc( 33.33333333%  -  2em );
     width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
@@ -757,6 +823,9 @@ a.ui.card:hover,
     margin-right: -1em;
   }
   .ui.nine.doubling.cards .card {
+    -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
+        -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
+            flex-basis: calc( 33.33333333%  -  2em );
     width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
@@ -767,6 +836,9 @@ a.ui.card:hover,
     margin-right: -1em;
   }
   .ui.ten.doubling.cards .card {
+    -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
+        -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
+            flex-basis: calc( 33.33333333%  -  2em );
     width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
@@ -781,6 +853,9 @@ a.ui.card:hover,
     margin-right: 0em;
   }
   .ui.two.doubling.cards .card {
+    -webkit-flex-basis: 100%;
+        -ms-flex-preferred-size: 100%;
+            flex-basis: 100%;
     width: 100%;
     margin-left: 0em;
     margin-right: 0em;
@@ -790,6 +865,9 @@ a.ui.card:hover,
     margin-right: -1em;
   }
   .ui.three.doubling.cards .card {
+    -webkit-flex-basis: -webkit-calc( 50%  -  2em );
+        -ms-flex-preferred-size: calc( 50%  -  2em );
+            flex-basis: calc( 50%  -  2em );
     width: -webkit-calc( 50%  -  2em );
     width: calc( 50%  -  2em );
     margin-left: 1em;
@@ -800,6 +878,9 @@ a.ui.card:hover,
     margin-right: -1em;
   }
   .ui.four.doubling.cards .card {
+    -webkit-flex-basis: -webkit-calc( 50%  -  2em );
+        -ms-flex-preferred-size: calc( 50%  -  2em );
+            flex-basis: calc( 50%  -  2em );
     width: -webkit-calc( 50%  -  2em );
     width: calc( 50%  -  2em );
     margin-left: 1em;
@@ -810,6 +891,9 @@ a.ui.card:hover,
     margin-right: -1em;
   }
   .ui.five.doubling.cards .card {
+    -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
+        -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
+            flex-basis: calc( 33.33333333%  -  2em );
     width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
@@ -820,6 +904,9 @@ a.ui.card:hover,
     margin-right: -1em;
   }
   .ui.six.doubling.cards .card {
+    -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
+        -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
+            flex-basis: calc( 33.33333333%  -  2em );
     width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
@@ -830,6 +917,9 @@ a.ui.card:hover,
     margin-right: -1em;
   }
   .ui.eight.doubling.cards .card {
+    -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
+        -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
+            flex-basis: calc( 33.33333333%  -  2em );
     width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
@@ -840,6 +930,9 @@ a.ui.card:hover,
     margin-right: -0.75em;
   }
   .ui.eight.doubling.cards .card {
+    -webkit-flex-basis: -webkit-calc( 25%  -  1.5em );
+        -ms-flex-preferred-size: calc( 25%  -  1.5em );
+            flex-basis: calc( 25%  -  1.5em );
     width: -webkit-calc( 25%  -  1.5em );
     width: calc( 25%  -  1.5em );
     margin-left: 0.75em;
@@ -850,6 +943,9 @@ a.ui.card:hover,
     margin-right: -0.75em;
   }
   .ui.nine.doubling.cards .card {
+    -webkit-flex-basis: -webkit-calc( 25%  -  1.5em );
+        -ms-flex-preferred-size: calc( 25%  -  1.5em );
+            flex-basis: calc( 25%  -  1.5em );
     width: -webkit-calc( 25%  -  1.5em );
     width: calc( 25%  -  1.5em );
     margin-left: 0.75em;
@@ -860,6 +956,9 @@ a.ui.card:hover,
     margin-right: -0.75em;
   }
   .ui.ten.doubling.cards .card {
+    -webkit-flex-basis: -webkit-calc( 20%  -  1.5em );
+        -ms-flex-preferred-size: calc( 20%  -  1.5em );
+            flex-basis: calc( 20%  -  1.5em );
     width: -webkit-calc( 20%  -  1.5em );
     width: calc( 20%  -  1.5em );
     margin-left: 0.75em;

@@ -61,7 +61,8 @@
 ---------------*/
 
 .ui.horizontal.divider {
-  position: relative;
+  display: table;
+  white-space: nowrap;
 
   height: auto;
   margin: @horizontalMargin;
@@ -72,24 +73,19 @@
 
 .ui.horizontal.divider:before,
 .ui.horizontal.divider:after {
-  position: absolute;
-  top: 50%;
   content: '';
-  z-index: 3;
-
-  width: 50%;
+  display: table-cell;
+  position: relative;
   top: 50%;
-  height: 0px;
-
-  border-top: @shadowWidth solid @shadowColor;
-  border-bottom: @highlightWidth solid @highlightColor;
+  width: 50%;
+  background-repeat: no-repeat;
 }
 
 .ui.horizontal.divider:before {
-  margin-left: @horizontalRulerOffset;
+  background-position: right @horizontalDividerMargin top 50%;
 }
 .ui.horizontal.divider:after {
-  margin-left: @horizontalDividerMargin;
+  background-position: left @horizontalDividerMargin top 50%;
 }
 
 /*--------------
@@ -211,9 +207,8 @@
 .ui.divider.inverted:after,
 .ui.divider.inverted:before {
   border-top-color: @invertedShadowColor !important;
-  border-bottom-color: @invertedHighlightColor !important;
-
   border-left-color: @invertedShadowColor !important;
+  border-bottom-color: @invertedHighlightColor !important;
   border-right-color: @invertedHighlightColor !important;
 }
 

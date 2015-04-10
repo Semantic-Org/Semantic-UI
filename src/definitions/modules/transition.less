@@ -38,7 +38,6 @@
 /* Animating */
 .animating.transition {
   backface-visibility: @backfaceVisibility;
-  transform: @use3DAcceleration;
   visibility: visible !important;
 }
 
@@ -59,8 +58,8 @@
 .visible.transition {
   display: block !important;
   visibility: visible !important;
-  backface-visibility: @backfaceVisibility;
-  transform: @use3DAcceleration;
+/*  backface-visibility: @backfaceVisibility;
+  transform: @use3DAcceleration;*/
 }
 
 /* Disabled */

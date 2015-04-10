@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - Header
+ * # Semantic UI 2.0.0 - Header
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -112,7 +112,7 @@
 
 .ui.header .ui.label {
   font-size: '';
-  margin: 0em 0em 0em 0.5rem;
+  margin-left: 0.5rem;
   vertical-align: middle;
 }
 
@@ -202,6 +202,31 @@ h5.ui.header .sub.header {
   font-size: 0.9285rem;
 }
 
+/*--------------
+   Sub Heading
+---------------*/
+
+.ui.sub.header {
+  margin: 0em;
+  padding: 0em;
+  font-weight: bold;
+  font-size: 0.85714286em;
+  text-transform: uppercase;
+  color: '';
+}
+.ui.small.sub.header {
+  font-size: 0.71428571em;
+}
+.ui.sub.header {
+  font-size: 0.85714286em;
+}
+.ui.large.sub.header {
+  font-size: 0.92857143em;
+}
+.ui.huge.sub.header {
+  font-size: 1em;
+}
+
 /*-------------------
         Icon
 --------------------*/
@@ -272,82 +297,82 @@ h5.ui.header .sub.header {
   color: #1b1c1d !important;
 }
 a.ui.black.header:hover {
-  color: #1b1c1d !important;
+  color: #23292e !important;
 }
 .ui.blue.header {
-  color: #3b83c0 !important;
+  color: #2185d0 !important;
 }
 a.ui.blue.header:hover {
-  color: #458ac6 !important;
+  color: #1378c5 !important;
 }
 .ui.green.header {
-  color: #5bbd72 !important;
+  color: #21ba45 !important;
 }
 a.ui.green.header:hover {
-  color: #66c17b !important;
+  color: #13ae38 !important;
 }
 .ui.orange.header {
-  color: #e07b53 !important;
+  color: #f2711c !important;
 }
 a.ui.orange.header:hover {
-  color: #e28560 !important;
+  color: #f36101 !important;
 }
 .ui.pink.header {
-  color: #d9499a !important;
+  color: #e03997 !important;
 }
 a.ui.pink.header:hover {
-  color: #dc56a1 !important;
+  color: #e9168d !important;
 }
 .ui.purple.header {
-  color: #564f8a !important;
+  color: #6a33c8 !important;
 }
 a.ui.purple.header:hover {
-  color: #5c5594 !important;
+  color: #5c23bf !important;
 }
 .ui.red.header {
-  color: #d95c5c !important;
+  color: #db2828 !important;
 }
 a.ui.red.header:hover {
-  color: #dc6868 !important;
+  color: #d41616 !important;
 }
 .ui.teal.header {
   color: #00b5ad !important;
 }
 a.ui.teal.header:hover {
-  color: #00c4bc !important;
+  color: #009c95 !important;
 }
 .ui.yellow.header {
-  color: #f2c61f !important;
+  color: #fbbd08 !important;
 }
 a.ui.yellow.header:hover {
-  color: #f3ca2d !important;
+  color: #eaae00 !important;
 }
 .ui.black.dividing.header {
   border-bottom: 2px solid #1b1c1d;
 }
 .ui.blue.dividing.header {
-  border-bottom: 2px solid #3b83c0;
+  border-bottom: 2px solid #2185d0;
 }
 .ui.green.dividing.header {
-  border-bottom: 2px solid #5bbd72;
+  border-bottom: 2px solid #21ba45;
 }
 .ui.orange.dividing.header {
-  border-bottom: 2px solid #e07b53;
+  border-bottom: 2px solid #f2711c;
 }
 .ui.pink.dividing.header {
-  border-bottom: 2px solid #d9499a;
+  border-bottom: 2px solid #e03997;
 }
 .ui.purple.dividing.header {
-  border-bottom: 2px solid #564f8a;
+  border-bottom: 2px solid #6a33c8;
 }
 .ui.red.dividing.header {
-  border-bottom: 2px solid #d95c5c;
+  border-bottom: 2px solid #db2828;
 }
 .ui.teal.dividing.header {
   border-bottom: 2px solid #00b5ad;
 }
 .ui.yellow.dividing.header {
-  border-bottom: 2px solid #f2c61f;
+  border-bottom: 2px solid #fbbd08;
 }
 
 /*-------------------
@@ -361,13 +386,14 @@ a.ui.yellow.header:hover {
   color: rgba(255, 255, 255, 0.85);
 }
 .ui.inverted.attached.header {
-  background: #333333 -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  background: #333333 linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: #545454 -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: #545454 linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   box-shadow: none;
+  border-color: transparent;
 }
 .ui.inverted.block.header {
-  background: #333333 -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  background: #333333 linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: #545454 -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: #545454 linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   box-shadow: none;
 }
 
@@ -379,55 +405,55 @@ a.ui.yellow.header:hover {
   color: #aaaaaa !important;
 }
 a.ui.inverted.black.header:hover {
-  color: #b2b2b2 !important;
+  color: #beb0b0 !important;
 }
 .ui.inverted.blue.header {
   color: #54c8ff !important;
 }
 a.ui.inverted.blue.header:hover {
-  color: #63cdff !important;
+  color: #3ac0ff !important;
 }
 .ui.inverted.green.header {
   color: #2ecc40 !important;
 }
 a.ui.inverted.green.header:hover {
-  color: #37d249 !important;
+  color: #1ec231 !important;
 }
 .ui.inverted.orange.header {
   color: #ff851b !important;
 }
 a.ui.inverted.orange.header:hover {
-  color: #ff8d2a !important;
+  color: #ff7701 !important;
 }
 .ui.inverted.pink.header {
   color: #ff8edf !important;
 }
 a.ui.inverted.pink.header:hover {
-  color: #ff9de3 !important;
+  color: #ff74d8 !important;
 }
 .ui.inverted.purple.header {
   color: #cdc6ff !important;
 }
 a.ui.inverted.purple.header:hover {
-  color: #dad5ff !important;
+  color: #b7acff !important;
 }
 .ui.inverted.red.header {
   color: #ff695e !important;
 }
 a.ui.inverted.red.header:hover {
-  color: #ff776d !important;
+  color: #ff5144 !important;
 }
 .ui.inverted.teal.header {
   color: #6dffff !important;
 }
 a.ui.inverted.teal.header:hover {
-  color: #7cffff !important;
+  color: #54ffff !important;
 }
 .ui.inverted.yellow.header {
   color: #ffe21f !important;
 }
 a.ui.inverted.yellow.header:hover {
-  color: #ffe42e !important;
+  color: #ffdf05 !important;
 }
 .ui.inverted.block.header {
   border-bottom: none;
@@ -486,7 +512,7 @@ a.ui.inverted.yellow.header:hover {
 
 .ui.dividing.header {
   padding-bottom: 0.25rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
 }
 .ui.dividing.header .sub.header {
   padding-bottom: 0.25rem;
@@ -495,7 +521,7 @@ a.ui.inverted.yellow.header:hover {
   margin-bottom: 0em;
 }
 .ui.inverted.dividing.header {
-  border-bottom-color: rgba(255, 255, 255, 0.2);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
 }
 
 /*-------------------

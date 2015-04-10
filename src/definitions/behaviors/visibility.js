@@ -42,11 +42,11 @@ $.fn.visibility = function(parameters) {
         moduleNamespace = 'module-' + namespace,
 
         $window         = $(window),
+
         $module         = $(this),
         $context        = $(settings.context),
-        $images         = $module.find('img'),
-
         selector        = $module.selector || '',
+
         instance        = $module.data(moduleNamespace),
 
         requestAnimationFrame = window.requestAnimationFrame
@@ -76,12 +76,15 @@ $.fn.visibility = function(parameters) {
             if(settings.type == 'fixed') {
               module.setup.fixed();
             }
+            if(settings.observeChanges) {
+              module.observeChanges();
+            }
+            if( !module.is.visible() ) {
+              module.error(error.visible, $module);
+            }
           }
           if(settings.initialCheck) {
             module.checkVisibility();
-          }
-          if(settings.observeChanges) {
-            module.observeChanges();
           }
           module.instantiate();
         },
@@ -96,12 +99,18 @@ $.fn.visibility = function(parameters) {
 
         destroy: function() {
           module.verbose('Destroying previous module');
+          if(observer) {
+            observer.disconnect();
+          }
+          $window
+            .off('load' + eventNamespace, module.event.load)
+            .off('resize' + eventNamespace, module.event.resize)
+          ;
+          $context.off('scrollchange' + eventNamespace, module.event.scrollchange);
           $module
             .off(eventNamespace)
             .removeData(moduleNamespace)
           ;
-          $window.off('resize' + eventNamespace, module.event.refresh);
-          $context.off('scroll' + eventNamespace, module.event.scroll);
         },
 
         observeChanges: function() {
@@ -111,7 +120,10 @@ $.fn.visibility = function(parameters) {
           if('MutationObserver' in window) {
             observer = new MutationObserver(function(mutations) {
               module.verbose('DOM tree modified, updating visibility calculations');
-              module.refresh();
+              module.timer = setTimeout(function() {
+                module.verbose('DOM tree modified, updating sticky menu');
+                module.refresh();
+              }, 100);
             });
             observer.observe(element, {
               childList : true,
@@ -125,17 +137,19 @@ $.fn.visibility = function(parameters) {
           events: function() {
             module.verbose('Binding visibility events to scroll and resize');
             $window
-              .on('resize' + eventNamespace, module.event.refresh)
+              .on('load' + eventNamespace, module.event.load)
+              .on('resize' + eventNamespace, module.event.resize)
             ;
+            // pub/sub pattern
             $context
+              .off('scroll' + eventNamespace)
               .on('scroll' + eventNamespace, module.event.scroll)
+              .on('scrollchange' + eventNamespace, module.event.scrollchange)
             ;
-            if($images.length > 0) {
-              module.bind.imageLoad();
-            }
           },
           imageLoad: function() {
             var
+              $images       = $module.find('img'),
               imageCount    = $images.length,
               index         = imageCount,
               loadedCount   = 0,
@@ -150,44 +164,82 @@ $.fn.visibility = function(parameters) {
                 }
               }
             ;
-            $images
-              .each(function() {
-                images.push( $(this).attr('src') );
-              })
-            ;
-            while(index--) {
-              cacheImage         = document.createElement('img');
-              cacheImage.onload  = handleLoad;
-              cacheImage.onerror = handleLoad;
-              cacheImage.src     = images[index];
-              cache.push(cacheImage);
+            if(imageCount > 0) {
+              $images
+                .each(function() {
+                  images.push( $(this).attr('src') );
+                })
+              ;
+              while(index--) {
+                cacheImage         = document.createElement('img');
+                cacheImage.onload  = handleLoad;
+                cacheImage.onerror = handleLoad;
+                cacheImage.src     = images[index];
+                cache.push(cacheImage);
+              }
             }
           }
         },
 
         event: {
-          refresh: function() {
+          resize: function() {
+            module.debug('Window resized');
             requestAnimationFrame(module.refresh);
           },
+          load: function() {
+            module.debug('Page finished loading');
+            requestAnimationFrame(module.refresh);
+          },
+          // publishes scrollchange event on one scroll
           scroll: function() {
-            module.verbose('Scroll position changed');
             if(settings.throttle) {
               clearTimeout(module.timer);
               module.timer = setTimeout(function() {
-                module.checkVisibility();
+                $context.trigger('scrollchange' + eventNamespace, [ $context.scrollTop() ]);
               }, settings.throttle);
             }
             else {
               requestAnimationFrame(function() {
-                module.checkVisibility();
+                $context.trigger('scrollchange' + eventNamespace, [ $context.scrollTop() ]);
               });
             }
+          },
+          // subscribes to scrollchange
+          scrollchange: function(event, scrollPosition) {
+            module.checkVisibility(scrollPosition);
+          },
+        },
+
+        precache: function(images, callback) {
+          if (!(images instanceof Array)) {
+            images = [images];
+          }
+          var
+            imagesLength  = images.length,
+            loadedCounter = 0,
+            cache         = [],
+            cacheImage    = document.createElement('img'),
+            handleLoad    = function() {
+              loadedCounter++;
+              if (loadedCounter >= images.length) {
+                if ($.isFunction(callback)) {
+                  callback();
+                }
+              }
+            }
+          ;
+          while (imagesLength--) {
+            cacheImage         = document.createElement('img');
+            cacheImage.onload  = handleLoad;
+            cacheImage.onerror = handleLoad;
+            cacheImage.src     = images[imagesLength];
+            cache.push(cacheImage);
           }
         },
 
         should: {
           trackChanges: function() {
-            if(methodInvoked && queryArguments.length > 0) {
+            if(methodInvoked) {
               module.debug('One time query, no need to bind events');
               return false;
             }
@@ -287,7 +339,7 @@ $.fn.visibility = function(parameters) {
         },
 
         refresh: function() {
-          module.debug('Refreshing constants (element width/height)');
+          module.debug('Refreshing constants (width/height)');
           module.reset();
           module.save.position();
           module.checkVisibility();
@@ -302,10 +354,13 @@ $.fn.visibility = function(parameters) {
           }
         },
 
-        checkVisibility: function() {
+        checkVisibility: function(scroll) {
           module.verbose('Checking visibility of element', module.cache.element);
 
           if( module.is.visible() ) {
+
+            // save scroll position
+            module.save.scroll(scroll);
 
             // update calculations derived from scroll
             module.save.calculations();
@@ -616,7 +671,6 @@ $.fn.visibility = function(parameters) {
         save: {
           calculations: function() {
             module.verbose('Saving all calculations necessary to determine positioning');
-            module.save.scroll();
             module.save.direction();
             module.save.screenCalculations();
             module.save.elementCalculations();
@@ -629,8 +683,9 @@ $.fn.visibility = function(parameters) {
               }
             }
           },
-          scroll: function() {
-            module.cache.scroll = $context.scrollTop() + settings.offset;
+          scroll: function(scrollPosition) {
+            scrollPosition      = scrollPosition + settings.offset || $context.scrollTop() + settings.offset;
+            module.cache.scroll = scrollPosition;
           },
           direction: function() {
             var
@@ -855,7 +910,7 @@ $.fn.visibility = function(parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -975,6 +1030,9 @@ $.fn.visibility.settings = {
   // whether to use mutation observers to follow changes
   observeChanges         : true,
 
+  // whether to refresh calculations after all page images load
+  refreshOnLoad          : true,
+
   // callback should only occur one time
   once                   : true,
 
@@ -1029,7 +1087,8 @@ $.fn.visibility.settings = {
   },
 
   error : {
-    method : 'The method you called is not defined.'
+    method  : 'The method you called is not defined.',
+    visible : 'Element is hidden, you must call refresh after element becomes visible'
   }
 
 };

@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - Search
+ * # Semantic UI 2.0.0 - Search
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -25,11 +25,11 @@
   text-shadow: none;
   font-style: normal;
   font-weight: normal;
-  line-height: 1.2;
-  padding: 0.68571em 1em;
+  line-height: 1.2142em;
+  padding: 0.67861em 1em;
   font-size: 1em;
   background: #ffffff;
-  border: 1px solid rgba(39, 41, 43, 0.15);
+  border: 1px solid rgba(34, 36, 38, 0.15);
   color: rgba(0, 0, 0, 0.8);
   box-shadow: 0em 0em 0em 0em transparent inset;
   -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
@@ -58,9 +58,9 @@
   left: 0%;
   background: #ffffff;
   margin-top: 0.5em;
-  width: 16em;
-  border-radius: 0.25em;
-  box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.2);
+  width: 18em;
+  border-radius: 0.2857rem;
+  box-shadow: 0px 1px 3px 1px rgba(34, 36, 38, 0.15);
   z-index: 998;
 }
 
@@ -73,10 +73,10 @@
   display: block;
   overflow: hidden;
   font-size: 1em;
-  padding: 0.5em 1em;
+  padding: 0.71428571em 1.14285714em;
   color: rgba(0, 0, 0, 0.8);
   line-height: 1.33;
-  border-bottom: 1px solid rgba(39, 41, 43, 0.15);
+  border-bottom: 1px solid rgba(34, 36, 38, 0.1);
 }
 .ui.search > .results .result:last-child {
   border-bottom: none;
@@ -105,19 +105,20 @@
   margin: 0em 6em 0em 0em;
 }
 .ui.search > .results .result .title {
+  margin: -0.165em 0em 0em;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 1em;
   color: rgba(0, 0, 0, 0.85);
 }
 .ui.search > .results .result .description {
-  margin-top: 0em;
-  font-size: 0.9285em;
+  margin-top: 0;
+  font-size: 0.92857143em;
   color: rgba(0, 0, 0, 0.4);
 }
 .ui.search > .results .result .price {
   float: right;
-  color: #5bbd72;
+  color: #21ba45;
 }
 
 /*--------------
@@ -129,7 +130,7 @@
 }
 .ui.search > .results > .message .header {
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  font-size: 1.1428em;
+  font-size: 1em;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.8);
 }
@@ -144,7 +145,7 @@
   display: block;
   border-top: none;
   background: #f0f0f0;
-  padding: 0.5em 1em;
+  padding: 0.92857143em 1em;
   color: rgba(0, 0, 0, 0.8);
   font-weight: bold;
   text-align: center;
@@ -217,7 +218,7 @@
   position: relative;
   border-left-color: transparent;
   background: #f0f0f0;
-  box-shadow: 3px 0px 3px 0px rgba(39, 41, 43, 0.15);
+  box-shadow: none;
 }
 .ui.search > .results .result.active .title {
   color: rgba(0, 0, 0, 0.85);
@@ -244,7 +245,7 @@
 .ui.category.search > .results .category {
   background: #f0f0f0;
   box-shadow: none;
-  border-bottom: 1px solid rgba(39, 41, 43, 0.15);
+  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
   -webkit-transition: background 0.2s ease, border-color 0.2s ease;
           transition: background 0.2s ease, border-color 0.2s ease;
 }
@@ -256,10 +257,11 @@
 .ui.category.search > .results .category .result {
   background: #ffffff;
   margin-left: 100px;
-  border-left: 1px solid rgba(39, 41, 43, 0.15);
-  border-bottom: 1px solid rgba(39, 41, 43, 0.15);
+  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-bottom: 1px solid rgba(34, 36, 38, 0.1);
   -webkit-transition: background 0.2s ease, border-color 0.2s ease;
           transition: background 0.2s ease, border-color 0.2s ease;
+  padding: 0.71428571em 1.14285714em;
 }
 .ui.category.search > .results .category .result:last-child {
   border-bottom: none;

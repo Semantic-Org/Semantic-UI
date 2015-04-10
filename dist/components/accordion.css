@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - Accordion
+ * # Semantic UI 2.0.0 - Accordion
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -47,7 +47,7 @@
 /* Default Styling */
 .ui.accordion:not(.styled) .title ~ .content:not(.ui),
 .ui.accordion:not(.styled) .accordion .title ~ .content:not(.ui) {
-  margin: 0em;
+  margin: '';
   padding: 0.5em 0em 1em;
 }
 .ui.accordion:not(.styled) .title ~ .content:not(.ui):last-child {
@@ -85,7 +85,7 @@
 }
 .ui.accordion.menu .item .title > .dropdown.icon {
   float: right;
-  margin: 0.165em 0em 0em 1em;
+  margin: 0.21425em 0em 0em 1em;
   -webkit-transform: rotate(180deg);
       -ms-transform: rotate(180deg);
           transform: rotate(180deg);
@@ -131,7 +131,7 @@
 .ui.styled.accordion .accordion {
   border-radius: 0.2857rem;
   background: #ffffff;
-  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(39, 41, 43, 0.15);
+  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(34, 36, 38, 0.15);
 }
 .ui.styled.accordion .title,
 .ui.styled.accordion .accordion .title {
@@ -139,7 +139,7 @@
   padding: 0.75em 1em;
   color: rgba(0, 0, 0, 0.4);
   font-weight: bold;
-  border-top: 1px solid rgba(39, 41, 43, 0.15);
+  border-top: 1px solid rgba(34, 36, 38, 0.15);
   -webkit-transition: background 0.2s ease, color 0.2s ease;
           transition: background 0.2s ease, color 0.2s ease;
 }
@@ -176,11 +176,11 @@
 /* Active */
 .ui.styled.accordion .active.title {
   background: transparent;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.9);
 }
 .ui.styled.accordion .accordion .active.title {
   background: transparent;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.9);
 }
 
 
@@ -218,7 +218,7 @@
 ---------------*/
 
 .ui.inverted.accordion .title:not(.ui) {
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 

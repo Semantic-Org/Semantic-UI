@@ -44,18 +44,17 @@
 
 /*---  Colors  ---*/
 @black            : #1B1C1D;
-@blue             : #3B83C0;
-@green            : #5BBD72;
-@grey             : #CCCCCC;
-@orange           : #E07B53;
-@pink             : #D9499A;
-@purple           : #564F8A;
-@red              : #D95C5C;
+@blue             : #2185D0;
+@green            : #21BA45;
+@orange           : #F2711C;
+@pink             : #E03997;
+@purple           : #6A33C8;
+@red              : #DB2828;
 @teal             : #00B5AD;
-@yellow           : #F2C61F;
+@yellow           : #FBBD08;
 
 /*---  Light Colors  ---*/
-@lightBlack       : #333333;
+@lightBlack       : #545454;
 @lightBlue        : #54C8FF;
 @lightGreen       : #2ECC40;
 @lightOrange      : #FF851B;
@@ -67,6 +66,7 @@
 
 /*---   Neutrals  ---*/
 @fullBlack        : #000000;
+@grey             : #CCCCCC;
 @darkGrey         : #AAAAAA;
 @lightGrey        : #DCDDDE;
 @offWhite         : #FAFAFA;
@@ -106,10 +106,10 @@
         Page
 --------------------*/
 
-@pageBackground      : #F7F7F7;
+@pageBackground      : #FFFFFF;
 @pageOverflowX       : hidden;
 
-@lineHeight          : 1.33;
+@lineHeight          : 1.4285em;
 @textColor           : rgba(0, 0, 0, 0.8);
 
 /*-------------------
@@ -150,6 +150,15 @@
 @invertedLoaderLineColor: @white;
 
 /*-------------------
+    Element Focus
+--------------------*/
+
+@defaultFocusBoxShadow:
+  0px 1px 2px rgba(0, 0, 0, 0.075) inset,
+  0px 0px 5px rgba(81, 167, 232, 0.5)
+;
+
+/*-------------------
         Grid
 --------------------*/
 
@@ -169,13 +178,14 @@
      Alpha Colors
 --------------------*/
 
-@subtleTransparentBlack : rgba(0, 0, 0, 0.03);
-@transparentBlack       : rgba(0, 0, 0, 0.05);
-@strongTransparentBlack : rgba(0, 0, 0, 0.10);
+@subtleTransparentBlack     : rgba(0, 0, 0, 0.03);
+@transparentBlack           : rgba(0, 0, 0, 0.05);
+@strongTransparentBlack     : rgba(0, 0, 0, 0.10);
+@veryStrongTransparentBlack : rgba(0, 0, 0, 0.15);
 
-@subtleTransparentWhite : rgba(255, 255, 255, 0.02);
-@transparentWhite       : rgba(255, 255, 255, 0.05);
-@strongTransparentWhite : rgba(255, 255, 255, 0.07);
+@subtleTransparentWhite     : rgba(255, 255, 255, 0.02);
+@transparentWhite           : rgba(255, 255, 255, 0.08);
+@strongTransparentWhite     : rgba(255, 255, 255, 0.15);
 
 /*-------------------
        Accents
@@ -240,6 +250,7 @@
 --------------------*/
 
 @defaultEasing: ease;
+@defaultDuration: 0.2s;
 
 /*-------------------
      All Colors
@@ -247,12 +258,12 @@
 
 /*--- Colored Backgrounds ---*/
 @blueBackground   : #DFF0FF;
-@greenBackground  : #EBFFED;
+@greenBackground  : #E5F9E7;
 @orangeBackground : #FFEDDE;
 @pinkBackground   : #FFE3FB;
 @purpleBackground : #EAE7FF;
 @redBackground    : #FFE8E6;
-@tealBackground   : #E9FFFF;
+@tealBackground   : #E1F7F7;
 @yellowBackground : #FFF8DB;
 
 /*--- Colored Text ---*/
@@ -282,31 +293,31 @@
 
 /* Positive */
 @positiveColor           : @green;
-@positiveBackgroundColor : #EEFFE7;
-@positiveBorderColor     : #B7CAA7;
-@positiveHeaderColor     : #356E36;
-@positiveTextColor       : #3C763D;
+@positiveBackgroundColor : #F3FFEC;
+@positiveBorderColor     : #B4D3A4;
+@positiveHeaderColor     : #1A531B;
+@positiveTextColor       : #255F26;
 
 /* Negative */
 @negativeColor           : @red;
 @negativeBackgroundColor : #FFF0F0;
-@negativeBorderColor     : #DBB1B1;
+@negativeBorderColor     : #E0B4B4;
 @negativeHeaderColor     : #912D2B;
-@negativeTextColor       : #A94442;
+@negativeTextColor       : #973230;
 
 /* Info */
 @infoColor              : #31CCEC;
-@infoBackgroundColor    : #E9FAFF;
-@infoBorderColor        : #AAD6DF;
-@infoHeaderColor        : #297187;
-@infoTextColor          : #337B92;
+@infoBackgroundColor    : #F1FCFC;
+@infoBorderColor        : #A3CFD8;
+@infoHeaderColor        : #0E566C;
+@infoTextColor          : #196178;
 
 /* Warning */
 @warningColor           : #F2C037;
-@warningBorderColor     : #D9CAAB;
-@warningBackgroundColor : #FFFBE6;
-@warningHeaderColor     : #825C01;
-@warningTextColor       : #876A38;
+@warningBorderColor     : #C9BA9B;
+@warningBackgroundColor : #FFF8E2;
+@warningHeaderColor     : #794B02;
+@warningTextColor       : #715422;
 
 
 /*-------------------
@@ -318,13 +329,13 @@
 
 @unselectedTextColor         : rgba(0, 0, 0, 0.4);
 @hoveredTextColor            : rgba(0, 0, 0, 0.8);
-@pressedTextColor            : rgba(0, 0, 0, 0.8);
-@selectedTextColor           : rgba(0, 0, 0, 0.8);
+@pressedTextColor            : rgba(0, 0, 0, 0.9);
+@selectedTextColor           : rgba(0, 0, 0, 0.9);
 @disabledTextColor           : rgba(0, 0, 0, 0.2);
 
-@invertedTextColor           : rgba(255, 255, 255, 1);
-@invertedLightTextColor      : rgba(255, 255, 255, 0.8);
-@invertedUnselectedTextColor : rgba(255, 255, 255, 0.5);
+@invertedTextColor           : rgba(255, 255, 255, 0.9);
+@invertedLightTextColor      : rgba(255, 255, 255, 0.7);
+@invertedUnselectedTextColor : rgba(255, 255, 255, 0.6);
 @invertedHoveredTextColor    : rgba(255, 255, 255, 1);
 @invertedPressedTextColor    : rgba(255, 255, 255, 1);
 @invertedSelectedTextColor   : rgba(255, 255, 255, 1);
@@ -334,9 +345,9 @@
      Brand Colors
 --------------------*/
 
-@facebookColor   : #3B579D;
-@twitterColor    : #4092CC;
-@googlePlusColor : #D34836;
+@facebookColor   : #3B5998;
+@twitterColor    : #0084B4;
+@googlePlusColor : #DC4A38;
 @linkedInColor   : #1F88BE;
 @youtubeColor    : #CC181E;
 @instagramColor  : #49769C;
@@ -349,14 +360,15 @@
 
 @circularRadius                : 500rem;
 
-@borderColor                   : rgba(39, 41, 43, 0.15);
-@selectedBorderColor           : rgba(39, 41, 43, 0.3);
-@disabledBorderColor           : rgba(39, 41, 43, 0.5);
+@borderColor                   : rgba(34, 36, 38, 0.15);
+@internalBorderColor           : rgba(34, 36, 38, 0.1);
+@selectedBorderColor           : rgba(34, 36, 38, 0.3);
+@disabledBorderColor           : rgba(34, 36, 38, 0.5);
 
 @solidBorderColor              : #D4D4D5;
-@solidSelectedBorderColor      : #BEBEBF;
+@solidSelectedBorderColor      : #BCBDBD;
 
-@whiteBorderColor              : rgba(255, 255, 255, 0.2);
+@whiteBorderColor              : rgba(255, 255, 255, 0.1);
 @selectedWhiteBorderColor      : rgba(255, 255, 255, 0.8);
 
 @solidWhiteBorderColor         : #555555;
@@ -376,6 +388,9 @@
 
 /* Rendered Scrollbar Width */
 @scrollbarWidth: 15px;
+
+/* Maximum Single Character Glyph Width, aka Capital "W" */
+@glyphWidth: 1.1em;
 
 /* Used to match floats with text */
 @lineHeightOffset       : ((@lineHeight - 1em) / 2);
@@ -404,6 +419,7 @@
 /* Responsive */
 @largestMobileScreen : (@tabletBreakpoint - 1px);
 @largestTabletScreen : (@computerBreakpoint - 1px);
+@largestSmallMonitor : (@largeMonitorBreakpoint - 1px);
 @largestLargeMonitor : (@widescreenMonitorBreakpoint - 1px);
 
 /* Grid class number names */
@@ -465,155 +481,161 @@
 --------------------*/
 
 /*---  Colors  ---*/
-@primaryColorHover    : lighten(@primaryColor, 3);
-@secondaryColorHover  : lighten(@secondaryColor, 3);
+@primaryColorHover    : saturate(darken(@primaryColor, 5), 10);
+@secondaryColorHover  : saturate(lighten(@secondaryColor, 5), 10);
 
-@blueHover            : lighten(@blue, 3);
-@greenHover           : lighten(@green, 3);
-@orangeHover          : lighten(@orange, 3);
-@pinkHover            : lighten(@pink, 3);
-@purpleHover          : lighten(@purple, 3);
-@redHover             : lighten(@red, 3);
-@tealHover            : lighten(@teal, 3);
-@yellowHover          : lighten(@yellow, 3);
+@blueHover            : saturate(darken(@blue, 5), 10);
+@greenHover           : saturate(darken(@green, 5), 10);
+@orangeHover          : saturate(darken(@orange, 5), 10);
+@pinkHover            : saturate(darken(@pink, 5), 10);
+@purpleHover          : saturate(darken(@purple, 5), 10);
+@redHover             : saturate(darken(@red, 5), 10);
+@tealHover            : saturate(darken(@teal, 5), 10);
+@yellowHover          : saturate(darken(@yellow, 5), 10);
 
-@lightBlueHover       : lighten(@lightBlue, 3);
-@lightGreenHover      : lighten(@lightGreen, 3);
-@lightOrangeHover     : lighten(@lightOrange, 3);
-@lightPinkHover       : lighten(@lightPink, 3);
-@lightPurpleHover     : lighten(@lightPurple, 3);
-@lightRedHover        : lighten(@lightRed, 3);
-@lightTealHover       : lighten(@lightTeal, 3);
-@lightYellowHover     : lighten(@lightYellow, 3);
+@lightBlueHover       : saturate(darken(@lightBlue, 5), 10);
+@lightGreenHover      : saturate(darken(@lightGreen, 5), 10);
+@lightOrangeHover     : saturate(darken(@lightOrange, 5), 10);
+@lightPinkHover       : saturate(darken(@lightPink, 5), 10);
+@lightPurpleHover     : saturate(darken(@lightPurple, 5), 10);
+@lightRedHover        : saturate(darken(@lightRed, 5), 10);
+@lightTealHover       : saturate(darken(@lightTeal, 5), 10);
+@lightYellowHover     : saturate(darken(@lightYellow, 5), 10);
 
 /*---  Emotive  ---*/
-@positiveColorHover   : lighten(@positiveColor, 3);
-@negativeColorHover   : lighten(@negativeColor, 3);
+@positiveColorHover   : saturate(darken(@positiveColor, 5), 10);
+@negativeColorHover   : saturate(darken(@negativeColor, 5), 10);
 
-/*---  Neutrals  ---*/
-@fullBlackHover       : lighten(@fullBlack, 3);
-@blackHover           : @black;
+/*---  Brand   ---*/
+@facebookHoverColor   : saturate(darken(@facebookColor, 5), 10);
+@twitterHoverColor    : saturate(darken(@twitterColor, 5), 10);
+@googlePlusHoverColor : saturate(darken(@googlePlusColor, 5), 10);
+@linkedInHoverColor   : saturate(darken(@linkedInColor, 5), 10);
+@youtubeHoverColor    : saturate(darken(@youtubeColor, 5), 10);
+@instagramHoverColor  : saturate(darken(@instagramColor, 5), 10);
+@pinterestHoverColor  : saturate(darken(@pinterestColor, 5), 10);
+@vkHoverColor         : saturate(darken(@vkColor, 5), 10);
 
-@lightGreyHover       : lighten(@lightGrey, 3);
-@greyHover            : lighten(@grey, 3);
-@darkGreyHover        : lighten(@darkGrey, 3);
+/*---  Dark Tones  ---*/
+@fullBlackHover       : saturate(lighten(@fullBlack, 5), 10);
+@lightBlackHover      : saturate(lighten(@fullBlack, 5), 10);
+@blackHover           : saturate(lighten(@black, 5), 10);
 
-@whiteHover           : lighten(@white, 3);
-@offWhiteHover        : lighten(@offWhite, 3);
-@darkWhiteHover       : lighten(@darkWhite, 3);
+@lightGreyHover       : saturate(lighten(@lightGrey, 5), 10);
+@greyHover            : saturate(lighten(@grey, 5), 10);
+@darkGreyHover        : saturate(lighten(@darkGrey, 5), 10);
 
-@facebookHoverColor   : lighten(@facebookColor, 3);
-@twitterHoverColor    : lighten(@twitterColor, 3);
-@googlePlusHoverColor : lighten(@googlePlusColor, 3);
-@linkedInHoverColor   : lighten(@linkedInColor, 3);
-@youtubeHoverColor    : lighten(@youtubeColor, 3);
-@instagramHoverColor  : lighten(@instagramColor, 3);
-@pinterestHoverColor  : lighten(@pinterestColor, 3);
-@vkHoverColor         : lighten(@vkColor, 3);
+/*---  Light Tones  ---*/
+@whiteHover           : saturate(darken(@white, 5), 10);
+@offWhiteHover        : saturate(darken(@offWhite, 5), 10);
+@darkWhiteHover       : saturate(darken(@darkWhite, 5), 10);
 
 
 /*-------------------
     Down (:active)
 --------------------*/
 
-
 /*---  Colors  ---*/
-@primaryColorDown    : darken(@primaryColor, 7);
-@secondaryColorDown  : darken(@secondaryColor, 7);
+@primaryColorDown    : darken(@primaryColor, 10);
+@secondaryColorDown  : lighten(@secondaryColor, 10);
 
-@blueDown            : darken(@blue, 7);
-@greenDown           : darken(@green, 7);
-@orangeDown          : darken(@orange, 7);
-@pinkDown            : darken(@pink, 7);
-@purpleDown          : darken(@purple, 7);
-@redDown             : darken(@red, 7);
-@tealDown            : darken(@teal, 7);
-@yellowDown          : darken(@yellow, 7);
+@blueDown            : darken(@blue, 10);
+@greenDown           : darken(@green, 10);
+@orangeDown          : darken(@orange, 10);
+@pinkDown            : darken(@pink, 10);
+@purpleDown          : darken(@purple, 10);
+@redDown             : darken(@red, 10);
+@tealDown            : darken(@teal, 10);
+@yellowDown          : darken(@yellow, 10);
 
-@lightBlueDown       : darken(@lightBlue, 7);
-@lightGreenDown      : darken(@lightGreen, 7);
-@lightOrangeDown     : darken(@lightOrange, 7);
-@lightPinkDown       : darken(@lightPink, 7);
-@lightPurpleDown     : darken(@lightPurple, 7);
-@lightRedDown        : darken(@lightRed, 7);
-@lightTealDown       : darken(@lightTeal, 7);
-@lightYellowDown     : darken(@lightYellow, 7);
+@lightBlueDown       : darken(@lightBlue, 10);
+@lightGreenDown      : darken(@lightGreen, 10);
+@lightOrangeDown     : darken(@lightOrange, 10);
+@lightPinkDown       : darken(@lightPink, 10);
+@lightPurpleDown     : darken(@lightPurple, 10);
+@lightRedDown        : darken(@lightRed, 10);
+@lightTealDown       : darken(@lightTeal, 10);
+@lightYellowDown     : darken(@lightYellow, 10);
 
 /*---  Emotive  ---*/
-@positiveColorDown   : darken(@positiveColor, 7);
-@negativeColorDown   : darken(@negativeColor, 7);
+@positiveColorDown   : darken(@positiveColor, 10);
+@negativeColorDown   : darken(@negativeColor, 10);
 
-/*---  Neutrals  ---*/
-@fullBlackDown       : darken(@fullBlack, 7);
-@blackDown           : darken(@black, 7);
-@lightBlackDown      : darken(@lightBlack, 7);
+/*---  Brand   ---*/
+@facebookDownColor   : darken(@facebookColor, 10);
+@twitterDownColor    : darken(@twitterColor, 10);
+@googlePlusDownColor : darken(@googlePlusColor, 10);
+@linkedInDownColor   : darken(@linkedInColor, 10);
+@youtubeDownColor    : darken(@youtubeColor, 10);
+@instagramDownColor  : darken(@instagramColor, 10);
+@pinterestDownColor  : darken(@pinterestColor, 10);
+@vkDownColor         : darken(@vkColor, 10);
 
-@lightGreyDown       : darken(@lightGrey, 7);
-@greyDown            : darken(@grey, 7);
-@darkGreyDown        : darken(@darkGrey, 7);
+/*---  Dark Tones  ---*/
+@fullBlackDown       : lighten(@fullBlack, 10);
+@lightBlackDown      : lighten(@fullBlack, 10);
+@blackDown           : lighten(@black, 10);
 
-@whiteDown           : darken(@white, 7);
-@offWhiteDown        : darken(@offWhite, 7);
-@darkWhiteDown       : darken(@darkWhite, 7);
+@lightGreyDown       : lighten(@lightGrey, 10);
+@greyDown            : lighten(@grey, 10);
+@darkGreyDown        : lighten(@darkGrey, 10);
 
-@facebookDownColor   : darken(@facebookColor, 7);
-@twitterDownColor    : darken(@twitterColor, 7);
-@googlePlusDownColor : darken(@googlePlusColor, 7);
-@linkedInDownColor   : darken(@linkedInColor, 7);
-@youtubeDownColor    : darken(@youtubeColor, 7);
-@instagramDownColor  : darken(@instagramColor, 7);
-@pinterestDownColor  : darken(@pinterestColor, 7);
-@vkDownColor         : darken(@vkColor, 7);
+/*---  Light Tones  ---*/
+@whiteDown           : darken(@white, 10);
+@offWhiteDown        : darken(@offWhite, 10);
+@darkWhiteDown       : darken(@darkWhite, 10);
 
 
 /*-------------------
         Active
 --------------------*/
 
-/*---  Standard  ---*/
-@primaryColorActive    : darken(@primaryColor, 5);
-@secondaryColorActive  : darken(@secondaryColor, 5);
+/*---  Colors  ---*/
+@primaryColorActive    : saturate(darken(@primaryColor, 5), 15);
+@secondaryColorActive  : saturate(lighten(@secondaryColor, 5), 15);
 
-@blueActive            : darken(@blue, 5);
-@greenActive           : darken(@green, 5);
-@orangeActive          : darken(@orange, 5);
-@pinkActive            : darken(@pink, 5);
-@purpleActive          : darken(@purple, 5);
-@redActive             : darken(@red, 5);
-@tealActive            : darken(@teal, 5);
-@yellowActive          : darken(@yellow, 5);
+@blueActive            : saturate(darken(@blue, 5), 15);
+@greenActive           : saturate(darken(@green, 5), 15);
+@orangeActive          : saturate(darken(@orange, 5), 15);
+@pinkActive            : saturate(darken(@pink, 5), 15);
+@purpleActive          : saturate(darken(@purple, 5), 15);
+@redActive             : saturate(darken(@red, 5), 15);
+@tealActive            : saturate(darken(@teal, 5), 15);
+@yellowActive          : saturate(darken(@yellow, 5), 15);
 
-@lightBlueActive       : darken(@lightBlue, 5);
-@lightGreenActive      : darken(@lightGreen, 5);
-@lightOrangeActive     : darken(@lightOrange, 5);
-@lightPinkActive       : darken(@lightPink, 5);
-@lightPurpleActive     : darken(@lightPurple, 5);
-@lightRedActive        : darken(@lightRed, 5);
-@lightTealActive       : darken(@lightTeal, 5);
-@lightYellowActive     : darken(@lightYellow, 5);
+@lightBlueActive       : saturate(darken(@lightBlue, 5), 15);
+@lightGreenActive      : saturate(darken(@lightGreen, 5), 15);
+@lightOrangeActive     : saturate(darken(@lightOrange, 5), 15);
+@lightPinkActive       : saturate(darken(@lightPink, 5), 15);
+@lightPurpleActive     : saturate(darken(@lightPurple, 5), 15);
+@lightRedActive        : saturate(darken(@lightRed, 5), 15);
+@lightTealActive       : saturate(darken(@lightTeal, 5), 15);
+@lightYellowActive     : saturate(darken(@lightYellow, 5), 15);
 
 /*---  Emotive  ---*/
-@positiveColorActive   : darken(@positiveColor, 5);
-@negativeColorActive   : darken(@negativeColor, 5);
+@positiveColorActive   : saturate(darken(@positiveColor, 5), 15);
+@negativeColorActive   : saturate(darken(@negativeColor, 5), 15);
 
-/*---  Neutrals  ---*/
-@fullBlackActive       : darken(@fullBlack, 5);
-@blackActive           : darken(@black, 5);
-@lightBlackActive      : darken(@lightBlack, 5);
+/*---  Brand   ---*/
+@facebookActiveColor   : saturate(darken(@facebookColor, 5), 15);
+@twitterActiveColor    : saturate(darken(@twitterColor, 5), 15);
+@googlePlusActiveColor : saturate(darken(@googlePlusColor, 5), 15);
+@linkedInActiveColor   : saturate(darken(@linkedInColor, 5), 15);
+@youtubeActiveColor    : saturate(darken(@youtubeColor, 5), 15);
+@instagramActiveColor  : saturate(darken(@instagramColor, 5), 15);
+@pinterestActiveColor  : saturate(darken(@pinterestColor, 5), 15);
+@vkActiveColor         : saturate(darken(@vkColor, 5), 15);
 
-@lightGreyActive       : darken(@lightGrey, 5);
-@greyActive            : darken(@grey, 5);
-@darkGreyActive        : darken(@darkGrey, 5);
+/*---  Dark Tones  ---*/
+@fullBlackActive       : saturate(lighten(@fullBlack, 5), 15);
+@lightBlackActive      : saturate(lighten(@fullBlack, 5), 15);
+@blackActive           : saturate(lighten(@black, 5), 15);
 
-@whiteActive           : darken(@white, 5);
-@offWhiteActive        : darken(@offWhite, 5);
-@darkWhiteActive       : darken(@darkWhite, 5);
+@lightGreyActive       : saturate(lighten(@lightGrey, 5), 15);
+@greyActive            : saturate(lighten(@grey, 5), 15);
+@darkGreyActive        : saturate(lighten(@darkGrey, 5), 15);
 
-@facebookActiveColor   : darken(@facebookColor, 5);
-@twitterActiveColor    : darken(@twitterColor, 5);
-@googlePlusActiveColor : darken(@googlePlusColor, 5);
-@linkedInActiveColor   : darken(@linkedInColor, 5);
-@youtubeActiveColor    : darken(@youtubeColor, 5);
-@instagramActiveColor  : darken(@instagramColor, 5);
-@pinterestActiveColor  : darken(@pinterestColor, 5);
-@vkActiveColor         : darken(@vkColor, 5);
+/*---  Light Tones  ---*/
+@whiteActive           : saturate(darken(@white, 5), 15);
+@offWhiteActive        : saturate(darken(@offWhite, 5), 15);
+@darkWhiteActive       : saturate(darken(@darkWhite, 5), 15);

@@ -7,8 +7,8 @@
 --------------------*/
 
 /* Shadow */
-@shadowDistance: 3px;
-@shadowBoxShadow: 0px @shadowDistance 0px 0px @solidBorderColor;
+@shadowDistance: 1px;
+@shadowBoxShadow: 0px @shadowDistance 3px 0px @solidBorderColor;
 
 /* Card */
 @display: flex;
@@ -26,7 +26,10 @@
 ;
 @border: none;
 @zIndex: '';
-@transition: box-shadow @transitionDuration @transitionEasing;
+@transition:
+  box-shadow @transitionDuration @transitionEasing,
+  transform @transitionDuration @transitionEasing
+;
 
 /* Card Group */
 @horizontalSpacing: 1em;
@@ -66,13 +69,12 @@
 /* Header */
 @headerMargin: 0em;
 @headerFontWeight: bold;
-@headerFontSize: 1.2em;
-@headerLineHeight: 1.33em;
+@headerFontSize: @relativeBig;
 @headerLineHeightOffset: -(@lineHeight - 1em) / 2;
 @headerColor: @darkTextColor;
 
 /* Metadata */
-@metaFontSize: 0.9em;
+@metaFontSize: @relativeSmall;
 @metaSpacing: 0.3em;
 @metaColor: @lightTextColor;
 
@@ -146,11 +148,13 @@
 @linkHoverBackground: '';
 @linkHoverBorder: none;
 @linkHoverZIndex: 5;
+@linkHoverRaiseDistance: 3px;
+@linkHoverTransform: translateY(-@linkHoverRaiseDistance);
 
-@shadowHoverBoxShadow: 0px @shadowDistance 0px 0px @solidSelectedBorderColor;
+@shadowHoverBoxShadow: 0px @shadowDistance @linkHoverRaiseDistance 0px @solidSelectedBorderColor;
 @linkHoverBoxShadow:
   @shadowHoverBoxShadow,
-  0px 0px 0px 1px @selectedBorderColor
+  @borderShadow
 ;
 
 /* Card Count */
@@ -197,3 +201,6 @@
 
 /* Sizes */
 @medium: 1em;
+
+/* Colored */
+@coloredShadowDistance: 2px;

@@ -52,7 +52,7 @@
   display: @headerDisplay;
   font-family: @headerFont;
   font-weight: @headerFontWeight;
-  margin: 0em 0em @headerDistance 0em;
+  margin: @headerMargin;
 }
 
 /* Default font size */
@@ -149,7 +149,7 @@
 }
 
 .ui.icon.visible.visible.visible.visible.message {
-  display: table;
+  display: flex;
 }
 
 /*--------------
@@ -207,19 +207,21 @@
 ---------------*/
 
 .ui.icon.message {
-  display: table;
+  display: flex;
   width: 100%;
+  align-items: center;
 }
 .ui.icon.message > .icon:not(.close) {
-  display: table-cell;
+  display: block;
+  flex: 0 1 auto;
   width: auto;
   vertical-align: @iconVerticalAlign;
   font-size: @iconSize;
   opacity: @iconOpacity;
 }
 .ui.icon.message > .content {
-  display: table-cell;
-  width: 100%;
+  display: block;
+  flex: 1 1 auto;
   vertical-align: @iconVerticalAlign;
 }
 
@@ -230,11 +232,6 @@
 .ui.icon.message .circular.icon {
   width: 1em;
 }
-.ui.icon.message .circular.icon + .content {
-  width: auto;
-  padding-left: @circularIconContentDistance;
-}
-
 /*--------------
     Floating
 ---------------*/
@@ -264,10 +261,7 @@
 }
 .ui.positive.message,
 .ui.attached.positive.message {
-  box-shadow:
-    0px 0px 0px 1px @positiveBorderColor inset,
-    @subtleShadow
-  ;
+  box-shadow: @positiveBoxShadow;
 }
 .ui.positive.message .header {
   color: @positiveHeaderColor;
@@ -280,10 +274,7 @@
 }
 .ui.negative.message,
 .ui.attached.negative.message {
-  box-shadow:
-    0px 0px 0px 1px @negativeBorderColor inset,
-    @subtleShadow
-  ;
+  box-shadow: @negativeBoxShadow;
 }
 .ui.negative.message .header {
   color: @negativeHeaderColor;
@@ -296,10 +287,7 @@
 }
 .ui.info.message,
 .ui.attached.info.message {
-  box-shadow:
-    0px 0px 0px 1px @infoBorderColor inset,
-    @subtleShadow
-  ;
+  box-shadow: @infoBoxShadow;
 }
 .ui.info.message .header {
   color: @infoHeaderColor;
@@ -312,10 +300,7 @@
 }
 .ui.warning.message,
 .ui.attached.warning.message {
-  box-shadow:
-    0px 0px 0px 1px @warningBorderColor inset,
-    @subtleShadow
-  ;
+  box-shadow: @warningBoxShadow;
 }
 .ui.warning.message .header {
   color: @warningHeaderColor;
@@ -328,10 +313,7 @@
 }
 .ui.error.message,
 .ui.attached.error.message {
-  box-shadow:
-    0px 0px 0px 1px @errorBorderColor inset,
-    @subtleShadow
-  ;
+  box-shadow: @errorBoxShadow;
 }
 .ui.error.message .header {
   color: @errorHeaderColor;
@@ -344,10 +326,7 @@
 }
 .ui.success.message,
 .ui.attached.success.message {
-  box-shadow:
-    0px 0px 0px 1px @successBorderColor inset,
-    @subtleShadow
-  ;
+  box-shadow: @successBoxShadow;
 }
 .ui.success.message .header {
   color: @successHeaderColor;

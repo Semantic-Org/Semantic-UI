@@ -21,6 +21,16 @@
 @horizontalPadding: 0em;
 @verticalPadding: 0em;
 
+/* Sub Heading */
+@subHeadingFontSize: @relativeTiny;
+@subHeadingFontWeight: bold;
+@subHeadingTextTransform: uppercase;
+@subHeadingColor: '';
+
+@smallSubHeadingSize: @relativeMini;
+@largeSubHeadingSize: @relativeSmall;
+@hugeSubHeadingSize: @relativeMedium;
+
 /* Sub Header */
 @subHeaderLineHeight: 1.2em;
 @subHeaderColor: rgba(0, 0, 0, 0.5);
@@ -89,7 +99,7 @@
 @iconHeaderFirstMargin: 0em;
 
 /* Divided */
-@dividedBorder: 1px solid rgba(0, 0, 0, 0.1);
+@dividedBorder: 1px solid @borderColor;
 @dividedColoredBorderWidth: 2px;
 
 @dividedBorderPadding: 0.25rem;

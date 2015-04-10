@@ -87,11 +87,9 @@ $.fn.rating = function(parameters) {
 
         destroy: function() {
           module.verbose('Destroying previous instance', instance);
+          module.remove.events();
           $module
             .removeData(moduleNamespace)
-          ;
-          $icon
-            .off(eventNamespace)
           ;
         },
 
@@ -169,13 +167,29 @@ $.fn.rating = function(parameters) {
           return currentRating;
         },
 
+        bind: {
+          events: function() {
+            module.verbose('Binding events');
+            $module
+              .on('mouseenter' + eventNamespace, selector.icon, module.event.mouseenter)
+              .on('mouseleave' + eventNamespace, selector.icon, module.event.mouseleave)
+              .on('click'      + eventNamespace, selector.icon, module.event.click)
+            ;
+          }
+        },
+
+        remove: {
+          events: function() {
+            module.verbose('Removing events');
+            $module
+              .off(eventNamespace)
+            ;
+          }
+        },
+
         enable: function() {
           module.debug('Setting rating to interactive mode');
-          $icon
-            .on('mouseenter' + eventNamespace, module.event.mouseenter)
-            .on('mouseleave' + eventNamespace, module.event.mouseleave)
-            .on('click' + eventNamespace, module.event.click)
-          ;
+          module.bind.events();
           $module
             .removeClass(className.disabled)
           ;
@@ -183,9 +197,7 @@ $.fn.rating = function(parameters) {
 
         disable: function() {
           module.debug('Setting rating to read-only mode');
-          $icon
-            .off(eventNamespace)
-          ;
+          module.remove.events();
           $module
             .addClass(className.disabled)
           ;
@@ -285,7 +297,7 @@ $.fn.rating = function(parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -400,7 +412,7 @@ $.fn.rating.settings = {
   namespace     : 'rating',
 
   debug         : false,
-  verbose       : true,
+  verbose       : false,
   performance   : true,
 
   initialRating : 0,

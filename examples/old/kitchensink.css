@@ -21,7 +21,7 @@
   border-top: 1px solid #DDD;
 }
 
-#sink .demo h4 {
+#sink .demo h4:first-child {
   font-size: 1.5em;
   margin: 2em 0em 1em;
 }

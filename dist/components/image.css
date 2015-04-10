@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - Image
+ * # Semantic UI 2.0.0 - Image
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -198,7 +198,7 @@ img.ui.bordered.image {
 .ui.mini.images img,
 .ui.mini.images svg,
 .ui.mini.image {
-  width: 20px;
+  width: 35px;
   height: auto;
   font-size: 0.71428571rem;
 }

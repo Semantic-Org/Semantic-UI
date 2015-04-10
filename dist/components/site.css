@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - Site
+ * # Semantic UI 2.0.0 - Site
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -25,11 +25,12 @@ html {
 body {
   margin: 0px;
   padding: 0px;
+  overflow-x: hidden;
   min-width: 320px;
-  background: #f7f7f7;
+  background: #ffffff;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 14px;
-  line-height: 1.33;
+  line-height: 1.4285em;
   color: rgba(0, 0, 0, 0.8);
   font-smoothing: antialiased;
 }
@@ -89,7 +90,7 @@ h5:last-child {
 
 p {
   margin: 0em 0em 1em;
-  line-height: 1.33;
+  line-height: 1.4285em;
 }
 p:first-child {
   margin-top: 0em;

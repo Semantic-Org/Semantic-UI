@@ -28,7 +28,6 @@
 /* Page Grid Segment */
 @pageGridMargin: (2 * @verticalPadding);
 
-
 /*******************************
             States
 *******************************/
@@ -70,13 +69,17 @@
   @raisedShadow
 ;
 
+/* Padded */
+@paddedSegmentPadding: 2em;
+@veryPaddedSegmentPadding: 3em;
+
 /* Attached */
 @attachedTopOffset: 0px;
 @attachedBottomOffset: 0px;
-@attachedHorizontalOffset: -1px;
+@attachedHorizontalOffset: -@borderWidth;
 @attachedWidth: ~"calc(100% + "-@attachedHorizontalOffset * 2~")";
 @attachedBoxShadow: none;
-@attachedBorder: 1px solid @solidBorderColor;
+@attachedBorder: @borderWidth solid @solidBorderColor;
 @attachedBottomBoxShadow:
   @attachedBoxShadow,
   @subtleShadow

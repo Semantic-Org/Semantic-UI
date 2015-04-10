@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - Checkbox
+ * # Semantic UI 2.0.0 - Checkbox
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -86,8 +86,8 @@
   text-align: center;
   opacity: 0;
   color: rgba(0, 0, 0, 0.8);
-  -webkit-transition: all 0.1s ease;
-          transition: all 0.1s ease;
+  -webkit-transition: all 0.2s ease;
+          transition: all 0.2s ease;
 }
 
 /*--------------
@@ -126,7 +126,7 @@
 .ui.checkbox .box:hover::before,
 .ui.checkbox label:hover::before {
   background: #ffffff;
-  border: 1px solid rgba(39, 41, 43, 0.3);
+  border: 1px solid rgba(34, 36, 38, 0.3);
 }
 .ui.checkbox label:hover,
 .ui.checkbox + label:hover {
@@ -140,11 +140,11 @@
 .ui.checkbox .box:active::before,
 .ui.checkbox label:active::before {
   background: #f5f5f5;
-  border: 1px solid 1px solid rgba(39, 41, 43, 0.3);
+  border: 1px solid 1px solid rgba(34, 36, 38, 0.3);
 }
 .ui.checkbox input[type="checkbox"]:active ~ label,
 .ui.checkbox input[type="radio"]:active ~ label {
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.9);
 }
 
 /*--------------
@@ -156,11 +156,11 @@
 .ui.checkbox input[type="radio"]:focus ~ .box:before,
 .ui.checkbox input[type="radio"]:focus ~ label:before {
   background: #f5f5f5;
-  border: 1px solid 1px solid rgba(39, 41, 43, 0.3);
+  border: 1px solid 1px solid rgba(34, 36, 38, 0.3);
 }
 .ui.checkbox input[type="checkbox"]:focus ~ label,
 .ui.checkbox input[type="radio"]:focus ~ label {
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.9);
 }
 
 /*--------------
@@ -189,10 +189,8 @@
 
 .ui.disabled.checkbox .box:after,
 .ui.disabled.checkbox label,
-.ui.checkbox input[type="checkbox"][disabled] ~ .box:after,
-.ui.checkbox input[type="checkbox"][disabled] ~ label,
-.ui.checkbox input[type="radio"][disabled] ~ .box:after,
-.ui.checkbox input[type="radio"][disabled] ~ label {
+.ui.checkbox input[disabled] ~ .box:after,
+.ui.checkbox input[disabled] ~ label {
   cursor: default;
   opacity: 0.5;
   color: #000000;
@@ -254,7 +252,6 @@
 ---------------*/
 
 .ui.slider.checkbox {
-  cursor: pointer;
   min-height: 1.25rem;
 }
 .ui.slider.checkbox .box,
@@ -267,7 +264,6 @@
 /* Line */
 .ui.slider.checkbox .box:before,
 .ui.slider.checkbox label:before {
-  cursor: pointer;
   display: block;
   position: absolute;
   content: '';
@@ -277,7 +273,7 @@
   border: none !important;
   background-color: rgba(0, 0, 0, 0.05);
   width: 3.5rem;
-  height: 0.25rem;
+  height: 0.2142rem;
   -webkit-transform: none;
       -ms-transform: none;
           transform: none;
@@ -298,7 +294,7 @@
   opacity: 1;
   z-index: 2;
   border: none;
-  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(39, 41, 43, 0.15) inset;
+  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset;
   width: 1.5rem;
   height: 1.5rem;
   top: -0.25rem;
@@ -318,7 +314,7 @@
 .ui.slider.checkbox input[type="checkbox"]:focus ~ label:before,
 .ui.slider.checkbox input[type="radio"]:focus ~ .box:before,
 .ui.slider.checkbox input[type="radio"]:focus ~ label:before {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.15);
   border: none;
 }
 
@@ -329,7 +325,7 @@
 }
 .ui.slider.checkbox .box:hover::before,
 .ui.slider.checkbox label:hover::before {
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.15);
 }
 
 /* Active */
@@ -337,13 +333,13 @@
 .ui.slider.checkbox input[type="checkbox"]:checked ~ label,
 .ui.slider.checkbox input[type="radio"]:checked ~ .box,
 .ui.slider.checkbox input[type="radio"]:checked ~ label {
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.9);
 }
 .ui.slider.checkbox input[type="checkbox"]:checked ~ .box:before,
 .ui.slider.checkbox input[type="checkbox"]:checked ~ label:before,
 .ui.slider.checkbox input[type="radio"]:checked ~ .box:before,
 .ui.slider.checkbox input[type="radio"]:checked ~ label:before {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: #545454;
 }
 .ui.slider.checkbox input[type="checkbox"]:checked ~ .box:after,
 .ui.slider.checkbox input[type="checkbox"]:checked ~ label:after,
@@ -357,7 +353,6 @@
 ---------------*/
 
 .ui.toggle.checkbox {
-  cursor: pointer;
   min-height: 1.5rem;
 }
 .ui.toggle.checkbox .box,
@@ -373,7 +368,6 @@
 /* Switch */
 .ui.toggle.checkbox .box:before,
 .ui.toggle.checkbox label:before {
-  cursor: pointer;
   display: block;
   position: absolute;
   content: '';
@@ -396,7 +390,7 @@
   opacity: 1;
   z-index: 2;
   border: none;
-  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(39, 41, 43, 0.15) inset;
+  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset;
   width: 1.5rem;
   height: 1.5rem;
   top: 0rem;
@@ -421,14 +415,14 @@
 .ui.toggle.checkbox input[type="checkbox"]:focus ~ label:before,
 .ui.toggle.checkbox input[type="radio"]:focus ~ .box:before,
 .ui.toggle.checkbox input[type="radio"]:focus ~ label:before {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.15);
   border: none;
 }
 
 /* Hover */
 .ui.toggle.checkbox .box:hover::before,
 .ui.toggle.checkbox label:hover::before {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.15);
   border: none;
 }
 
@@ -437,19 +431,19 @@
 .ui.toggle.checkbox input[type="checkbox"]:checked ~ label,
 .ui.toggle.checkbox input[type="radio"]:checked ~ .box,
 .ui.toggle.checkbox input[type="radio"]:checked ~ label {
-  color: #5bbd72;
+  color: rgba(0, 0, 0, 0.9);
 }
 .ui.toggle.checkbox input[type="checkbox"]:checked ~ .box:before,
 .ui.toggle.checkbox input[type="checkbox"]:checked ~ label:before,
 .ui.toggle.checkbox input[type="radio"]:checked ~ .box:before,
 .ui.toggle.checkbox input[type="radio"]:checked ~ label:before {
-  background-color: #5bbd72;
+  background-color: #2185d0;
 }
 .ui.toggle.checkbox input[type="checkbox"]:checked ~ .box:after,
 .ui.toggle.checkbox input[type="checkbox"]:checked ~ label:after,
 .ui.toggle.checkbox input[type="radio"]:checked ~ .box:after,
 .ui.toggle.checkbox input[type="radio"]:checked ~ label:after {
-  left: 2.05rem;
+  left: 2.15rem;
 }
 
 

@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - Sidebar
+ * # Semantic UI 2.0.0 - Sidebar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -91,7 +91,7 @@
 
 /* Whole Page */
 body.pushable {
-  background: #333333 !important;
+  background: #545454 !important;
 }
 
 /* Page Context */
@@ -134,7 +134,7 @@ body.pushable {
   z-index: 2;
 }
 body.pushable > .pusher {
-  background: #f7f7f7;
+  background: #ffffff;
 }
 .pushable > .pusher {
   background: inherit;
@@ -150,12 +150,10 @@ body.pushable > .pusher {
   right: 0px;
   content: '';
   background-color: rgba(0, 0, 0, 0.4);
-  width: 0px;
-  height: 0px;
   overflow: hidden;
   opacity: 0;
-  -webkit-transition: -webkit-transform 500ms, opacity 500ms;
-          transition: transform 500ms, opacity 500ms;
+  -webkit-transition: opacity 500ms;
+          transition: opacity 500ms;
   will-change: opacity;
   z-index: 1000;
 }
@@ -205,11 +203,11 @@ body.pushable > .pusher {
 /* Shadow Direction */
 .ui.left.visible.sidebar,
 .ui.right.visible.sidebar {
-  box-shadow: 0px 0px 20px rgba(39, 41, 43, 0.15);
+  box-shadow: 0px 0px 20px rgba(34, 36, 38, 0.15);
 }
 .ui.top.visible.sidebar,
 .ui.bottom.visible.sidebar {
-  box-shadow: 0px 0px 20px rgba(39, 41, 43, 0.15);
+  box-shadow: 0px 0px 20px rgba(34, 36, 38, 0.15);
 }
 
 /* Visible On Load */

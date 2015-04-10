@@ -157,6 +157,7 @@ $.fn.accordion = function(parameters) {
           ;
           if(isUnopen) {
             module.debug('Opening accordion content', $activeTitle);
+            settings.onOpening.call($activeContent);
             if(settings.exclusive) {
               module.closeOthers.call($activeTitle);
             }
@@ -218,6 +219,7 @@ $.fn.accordion = function(parameters) {
           ;
           if((isActive || isOpening) && !isClosing) {
             module.debug('Closing accordion content', $activeContent);
+            settings.onClosing.call($activeContent);
             $activeTitle
               .removeClass(className.active)
             ;
@@ -422,7 +424,7 @@ $.fn.accordion = function(parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -534,7 +536,7 @@ $.fn.accordion.settings = {
   namespace       : 'accordion',
 
   debug           : false,
-  verbose         : true,
+  verbose         : false,
   performance     : true,
 
   exclusive       : true,
@@ -545,7 +547,9 @@ $.fn.accordion.settings = {
   duration        : 350,
   easing          : 'easeOutQuad',
 
+  onOpening       : function(){},
   onOpen          : function(){},
+  onClosing       : function(){},
   onClose         : function(){},
   onChange        : function(){},
 

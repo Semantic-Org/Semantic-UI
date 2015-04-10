@@ -258,6 +258,9 @@ $.fn.tab = function(parameters) {
 
         changeTab: function(tabPath) {
           var
+            tabPath = (typeof tabPath == 'string')
+              ? tabPath.toLowerCase()
+              : tabPath,
             pushStateAvailable = (window.history && window.history.pushState),
             shouldIgnoreLoad   = (pushStateAvailable && settings.ignoreFirstLoad && firstLoad),
             remoteContent      = (settings.auto || $.isPlainObject(settings.apiSettings) ),
@@ -626,7 +629,7 @@ $.fn.tab = function(parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -747,7 +750,7 @@ $.fn.tab.settings = {
   namespace       : 'tab',
 
   debug           : false,
-  verbose         : true,
+  verbose         : false,
   performance     : true,
 
   auto            : false,  // uses pjax style endpoints fetching content from same url with remote-content headers

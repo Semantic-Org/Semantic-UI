@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - API
+ * # Semantic UI 2.0.0 - API
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -670,7 +670,7 @@ $.api = $.fn.api = function(parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var

@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - Step
+ * # Semantic UI 2.0.0 - Step
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -11,58 +11,30 @@
 
 
 /*******************************
-           Singular
-*******************************/
-
-.ui.steps .step {
-  position: relative;
-  display: table-cell;
-  vertical-align: middle;
-  margin: 0em 0em;
-  padding: 0.9285em 1.5em 0.9285em 2.25em;
-  background: #ffffff;
-  color: rgba(0, 0, 0, 0.8);
-  box-shadow: 0px 0px 0px 1px #d4d4d5;
-  border-radius: 0em;
-}
-.ui.steps .step:after {
-  position: absolute;
-  z-index: 2;
-  content: '';
-  top: 50%;
-  right: 0em;
-  border: medium none;
-  background-color: #ffffff;
-  width: 1.5em;
-  height: 1.5em;
-  border-bottom: 1px solid rgba(39, 41, 43, 0.15);
-  border-right: 1px solid rgba(39, 41, 43, 0.15);
-  -webkit-transform: translateY(-50%) translateX(50%) rotate(-45deg);
-      -ms-transform: translateY(-50%) translateX(50%) rotate(-45deg);
-          transform: translateY(-50%) translateX(50%) rotate(-45deg);
-}
-.ui.steps .step,
-.ui.steps .step:after {
-  -webkit-transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
-          transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
-}
-
-
-/*******************************
             Plural
 *******************************/
 
 .ui.steps {
-  display: table;
-  table-layout: fixed;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
   background: '';
   box-shadow: '';
-  line-height: 1.142rem;
-  box-sizing: border-box;
+  line-height: 1.14285714em;
   border-radius: 0.2857rem;
 }
 .ui.steps .step:first-child {
-  padding-left: 1.5em;
+  padding-left: 1.42857143em;
   border-radius: 0.2857rem 0em 0em 0.2857rem;
 }
 .ui.steps .step:last-child {
@@ -80,6 +52,64 @@
 
 
 /*******************************
+           Singular
+*******************************/
+
+.ui.steps .step {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  vertical-align: middle;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0em 0em;
+  padding: 1.14285714em 1.42857143em;
+  background: #ffffff;
+  color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0px 0px 0px 1px #d4d4d5;
+  border-radius: 0em;
+}
+.ui.steps .step:after {
+  position: absolute;
+  z-index: 2;
+  content: '';
+  top: 100%;
+  right: 50%;
+  border: medium none;
+  background-color: #ffffff;
+  width: 1.14285714em;
+  height: 1.14285714em;
+  border-style: solid;
+  border-color: rgba(34, 36, 38, 0.15);
+  border-width: 0px 0px 1px 1px;
+  -webkit-transform: translateY(-50%) translateX(50%) rotate(-45deg);
+      -ms-transform: translateY(-50%) translateX(50%) rotate(-45deg);
+          transform: translateY(-50%) translateX(50%) rotate(-45deg);
+}
+.ui.steps .step,
+.ui.steps .step:after {
+  -webkit-transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+          transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+
+/*******************************
             Content
 *******************************/
 
@@ -87,30 +117,52 @@
 /* Title */
 .ui.steps .step .title {
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  font-size: 1.0714em;
+  font-size: 1.14285714em;
   font-weight: bold;
+}
+.ui.steps .step > .title {
+  width: 100%;
 }
 
 /* Description */
 .ui.steps .step .description {
   font-weight: normal;
-  font-size: 0.9285em;
+  font-size: 0.92857143em;
   color: rgba(0, 0, 0, 0.8);
 }
+.ui.steps .step > .description {
+  width: 100%;
+}
 .ui.steps .step .title ~ .description {
-  margin-top: 0.1em;
+  margin-top: 0.25em;
 }
 
 /* Icon */
+.ui.steps .step > .icon {
+  font-size: 2.75em;
+  margin: 0em 1rem 0em 0em;
+}
 .ui.steps .step > .icon,
 .ui.steps .step > .icon ~ .content {
-  display: table-cell;
-  vertical-align: middle;
+  display: block;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 1 auto;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
+  -webkit-align-self: middle;
+      -ms-flex-item-align: middle;
+          align-self: middle;
 }
-.ui.steps .step > .icon {
-  font-size: 2em;
-  margin: 0em;
-  padding-right: 0.6em;
+.ui.steps .step > .icon ~ .content {
+  -webkit-box-flex: 1 0 auto;
+  -webkit-flex-grow: 1 0 auto;
+      -ms-flex-positive: 1 0 auto;
+          flex-grow: 1 0 auto;
+}
+
+/* Horizontal Icon */
+.ui.steps:not(.vertical) .step > .icon {
+  width: auto;
 }
 
 /* Link */
@@ -133,18 +185,24 @@
   counter-reset: ordered;
 }
 .ui.ordered.steps .step:before {
-  display: table-cell;
+  display: block;
   position: static;
   text-align: center;
   content: counters(ordered, ".");
-  vertical-align: middle;
-  padding-right: 0.6em;
-  font-size: 2em;
+  -webkit-align-self: middle;
+      -ms-flex-item-align: middle;
+          align-self: middle;
+  margin-right: 1rem;
+  font-size: 2.75em;
   counter-increment: ordered;
+  font-family: inherit;
+  font-weight: bold;
 }
 .ui.ordered.steps .step > * {
-  display: table-cell;
-  vertical-align: middle;
+  display: block;
+  -webkit-align-self: middle;
+      -ms-flex-item-align: middle;
+          align-self: middle;
 }
 
 /*--------------
@@ -152,16 +210,23 @@
 ---------------*/
 
 .ui.vertical.steps {
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   overflow: visible;
 }
 .ui.vertical.steps .step {
-  display: block;
   border-radius: 0em;
-  padding: 0.9285em 1.5em;
+  padding: 1.14285714em 1.42857143em;
 }
 .ui.vertical.steps .step:first-child {
-  padding: 0.9285em 1.5em;
+  padding: 1.14285714em 1.42857143em;
   border-radius: 0.2857rem 0.2857rem 0em 0em;
 }
 .ui.vertical.steps .step:last-child {
@@ -171,6 +236,11 @@
 /* Arrow */
 .ui.vertical.steps .step:after {
   display: none;
+}
+.ui.vertical.steps .step:after {
+  top: 50%;
+  right: 0%;
+  border-width: 0px 1px 1px 0px;
 }
 
 /* Active Arrow */
@@ -191,10 +261,10 @@
   .ui.steps .step {
     display: block;
     border-radius: 0em;
-    padding: 0.9285em 1.5em;
+    padding: 1.14285714em 1.42857143em;
   }
   .ui.steps .step:first-child {
-    padding: 0.9285em 1.5em;
+    padding: 1.14285714em 1.42857143em;
     border-radius: 0.2857rem 0.2857rem 0em 0em;
   }
   .ui.steps .step:last-child {
@@ -228,7 +298,7 @@
 .ui.steps a.step:active::after,
 .ui.steps a.step:active {
   background: #f0f0f0;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.9);
 }
 
 /* Active */
@@ -253,14 +323,14 @@
 .ui.steps a.active.step:hover::after,
 .ui.steps a.active.step:hover {
   cursor: pointer;
-  background: #ececec;
+  background: #dcddde;
   color: rgba(0, 0, 0, 0.8);
 }
 
 /* Completed */
 .ui.steps .step.completed > .icon:before,
 .ui.ordered.steps .step.completed:before {
-  color: #5bbd72;
+  color: #21ba45;
 }
 
 /* Disabled */
@@ -290,17 +360,21 @@
 
 
 /* Tablet Or Below */
-@media only screen and (min-width: 992px) {
+@media only screen and (max-width: 992px) {
   .ui[class*="tablet stackable"].steps {
     overflow: visible;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
   .ui[class*="tablet stackable"].steps .step {
-    display: block;
     border-radius: 0em;
-    padding: 0.9285em 1.5em;
+    padding: 1.14285714em 1.42857143em;
   }
   .ui[class*="tablet stackable"].steps .step:first-child {
-    padding: 0.9285em 1.5em;
+    padding: 1.14285714em 1.42857143em;
     border-radius: 0.2857rem 0.2857rem 0em 0em;
   }
   .ui[class*="tablet stackable"].steps .step:last-child {
@@ -320,6 +394,10 @@
 
 /* Fluid */
 .ui.fluid.steps {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   width: 100%;
 }
 
@@ -365,6 +443,18 @@
 .ui.seven.steps,
 .ui.eight.steps {
   width: 100%;
+}
+.ui.one.steps > .step,
+.ui.two.steps > .step,
+.ui.three.steps > .step,
+.ui.four.steps > .step,
+.ui.five.steps > .step,
+.ui.six.steps > .step,
+.ui.seven.steps > .step,
+.ui.eight.steps > .step {
+  -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
 }
 .ui.one.steps > .step {
   width: 100%;

@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - Shape
+ * # Semantic UI 2.0.0 - Shape
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -667,7 +667,7 @@ $.fn.shape = function(parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -786,7 +786,7 @@ $.fn.shape.settings = {
   debug      : false,
 
   // verbose debug output
-  verbose    : true,
+  verbose    : false,
 
   // performance data output
   performance: true,

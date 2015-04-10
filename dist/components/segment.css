@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - Segment
+ * # Semantic UI 2.0.0 - Segment
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -17,7 +17,7 @@
 .ui.segment {
   position: relative;
   background-color: #ffffff;
-  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
   margin: 1rem 0em;
   padding: 1em 1em;
   border-radius: 0.2857rem;
@@ -29,37 +29,30 @@
 .ui.segment:last-child {
   margin-bottom: 0em;
 }
-.ui.segment:after {
-  content: '';
-  display: block;
-  height: 0px;
-  clear: both;
-  visibility: hidden;
-}
 
 /* Vertical */
-.ui[class*="vertical segment"] {
+.ui.vertical.segment {
   margin: 0em;
   padding-left: 0em;
   padding-right: 0em;
   background-color: transparent;
   border-radius: 0px;
   border: none;
-  box-shadow: 0px -1px 0px rgba(39, 41, 43, 0.15) inset;
+  box-shadow: 0px -1px 0px rgba(34, 36, 38, 0.15) inset;
 }
-.ui[class*="vertical segment"]:last-child {
+.ui.vertical.segment:last-child {
   box-shadow: none;
 }
 
 /* Horizontal */
-.ui[class*="horizontal segment"] {
+.ui.horizontal.segment {
   margin: 0em;
   padding-top: 0em;
   padding-bottom: 0em;
   background-color: transparent;
   border-radius: 0px;
   border: none;
-  box-shadow: 1px 0px 0px rgba(39, 41, 43, 0.15);
+  box-shadow: 1px 0px 0px rgba(34, 36, 38, 0.15);
 }
 
 /*-------------------
@@ -105,7 +98,7 @@
 .ui.basic.table.segment {
   background: #ffffff;
   border: none;
-  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 .ui[class*="very basic"].table.segment {
   padding: 1em 1em;
@@ -123,7 +116,7 @@
 
 .ui.piled.segment {
   margin: 3em 0em;
-  box-shadow: 0px 0px 1px 1px rgba(39, 41, 43, 0.15);
+  box-shadow: 0px 0px 1px 1px rgba(34, 36, 38, 0.15);
   z-index: auto;
 }
 .ui.piled.segment:first-child {
@@ -142,7 +135,7 @@
   left: 0px;
   position: absolute;
   width: 100%;
-  box-shadow: 0px 0px 1px 1px rgba(39, 41, 43, 0.15);
+  box-shadow: 0px 0px 1px 1px rgba(34, 36, 38, 0.15);
 }
 .ui.piled.segment:after {
   -webkit-transform: rotate(1.2deg);
@@ -188,7 +181,7 @@
   position: absolute;
   bottom: -3px;
   left: 0%;
-  border-top: 1px solid rgba(39, 41, 43, 0.15);
+  border-top: 1px solid rgba(34, 36, 38, 0.15);
   background-color: rgba(0, 0, 0, 0.03);
   width: 100%;
   height: 6px;
@@ -208,7 +201,18 @@
 .ui.stacked.inverted.segment:after,
 .ui.stacked.inverted.segment:before {
   background-color: rgba(0, 0, 0, 0.03);
-  border-top: 1px solid rgba(39, 41, 43, 0.3);
+  border-top: 1px solid rgba(34, 36, 38, 0.3);
+}
+
+/*-------------------
+       Padded
+--------------------*/
+
+.ui.padded.segment {
+  padding: 2em;
+}
+.ui[class*="very padded"].segment {
+  padding: 3em;
 }
 
 /*-------------------
@@ -236,7 +240,7 @@
 --------------------*/
 
 .ui.raised.segment {
-  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15), 0px 1px 4px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15), 0px 1px 4px 0px rgba(0, 0, 0, 0.15);
 }
 
 
@@ -352,28 +356,28 @@
   border-top: 2px solid #1b1c1d;
 }
 .ui.blue.segment:not(.inverted) {
-  border-top: 2px solid #3b83c0;
+  border-top: 2px solid #2185d0;
 }
 .ui.green.segment:not(.inverted) {
-  border-top: 2px solid #5bbd72;
+  border-top: 2px solid #21ba45;
 }
 .ui.orange.segment:not(.inverted) {
-  border-top: 2px solid #e07b53;
+  border-top: 2px solid #f2711c;
 }
 .ui.pink.segment:not(.inverted) {
-  border-top: 2px solid #d9499a;
+  border-top: 2px solid #e03997;
 }
 .ui.purple.segment:not(.inverted) {
-  border-top: 2px solid #564f8a;
+  border-top: 2px solid #6a33c8;
 }
 .ui.red.segment:not(.inverted) {
-  border-top: 2px solid #d95c5c;
+  border-top: 2px solid #db2828;
 }
 .ui.teal.segment:not(.inverted) {
   border-top: 2px solid #00b5ad;
 }
 .ui.yellow.segment:not(.inverted) {
-  border-top: 2px solid #f2c61f;
+  border-top: 2px solid #fbbd08;
 }
 .ui.black.segment:not(.inverted):not(.attached) {
   border-top-left-radius: 0.2857rem !important;
@@ -422,27 +426,27 @@
   color: #ffffff !important;
 }
 .ui.inverted.blue.segment {
-  background-color: #3b83c0 !important;
+  background-color: #2185d0 !important;
   color: #ffffff !important;
 }
 .ui.inverted.green.segment {
-  background-color: #5bbd72 !important;
+  background-color: #21ba45 !important;
   color: #ffffff !important;
 }
 .ui.inverted.orange.segment {
-  background-color: #e07b53 !important;
+  background-color: #f2711c !important;
   color: #ffffff !important;
 }
 .ui.inverted.pink.segment {
-  background-color: #d9499a !important;
+  background-color: #e03997 !important;
   color: #ffffff !important;
 }
 .ui.inverted.purple.segment {
-  background-color: #564f8a !important;
+  background-color: #6a33c8 !important;
   color: #ffffff !important;
 }
 .ui.inverted.red.segment {
-  background-color: #d95c5c !important;
+  background-color: #db2828 !important;
   color: #ffffff !important;
 }
 .ui.inverted.teal.segment {
@@ -450,7 +454,7 @@
   color: #ffffff !important;
 }
 .ui.inverted.yellow.segment {
-  background-color: #f2c61f !important;
+  background-color: #fbbd08 !important;
   color: #ffffff !important;
 }
 
@@ -599,8 +603,8 @@
   box-shadow: none;
   border: 1px solid #d4d4d5;
 }
-.ui.segments > .segment:not(:first-child) {
-  border-top: none;
+.ui.segments > .segment:not(:last-child) {
+  border-bottom: none;
 }
 
 /* Top */

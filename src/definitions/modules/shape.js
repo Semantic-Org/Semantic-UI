@@ -667,7 +667,7 @@ $.fn.shape = function(parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -786,7 +786,7 @@ $.fn.shape.settings = {
   debug      : false,
 
   // verbose debug output
-  verbose    : true,
+  verbose    : false,
 
   // performance data output
   performance: true,

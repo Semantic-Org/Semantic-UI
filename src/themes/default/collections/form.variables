@@ -81,17 +81,15 @@
         States
 --------------------*/
 
-/* Disabled */
-
 /* Focus */
-@inputFocusPointerSize: 1px;
+@inputFocusPointerSize: 0px;
 
 /* Input Focus */
 @inputFocusBackground: @inputBackground;
 @inputFocusBorderColor: @selectedBorderColor;
 @inputFocusColor: rgba(0, 0, 0, 0.85);
 @inputFocusBoxShadow: @inputFocusPointerSize 0em 0em 0em @selectedBorderColor inset;
-@inputFocusBorderRadius: 0em @inputBorderRadius @inputBorderRadius 0em;
+@inputFocusBorderRadius: @inputBorderRadius;
 
 /* Text Area Focus */
 @textAreaFocusBackground: @inputFocusBackground;
@@ -101,24 +99,25 @@
 @textAreaFocusBorderRadius: @inputFocusBorderRadius;
 
 /* Error */
-@formErrorColor: @negativeColor;
+@formErrorColor: @negativeTextColor;
 @formErrorBorder: @negativeBorderColor;
 @formErrorBackground: @negativeBackgroundColor;
 
 /* Input Error */
-@inputErrorPointerSize: 2px;
-@inputErrorBorderRadius: 0em @inputBorderRadius @inputBorderRadius 0em;
-@inputErrorBoxShadow: @inputErrorPointerSize 0em 0em 0em @formErrorColor inset;
+@inputErrorBorderRadius: @inputBorderRadius;
+@inputErrorBoxShadow: none;
 
 /* Dropdown Error */
 @dropdownErrorHoverBackground: #FBE7E7;
 @dropdownErrorActiveBackground: #FDCFCF;
+@dropdownErrorLabelBackground: #EACBCB;
+@dropdownErrorLabelColor: @errorTextColor;
 
 /* Focused Error */
 @inputErrorFocusBackground: @negativeBackgroundColor;
-@inputErrorFocusColor: @negativeColorHover;
+@inputErrorFocusColor: @negativeTextColor;
 @inputErrorFocusBorder: @negativeBorderColor;
-@inputErrorFocusBoxShadow: @inputErrorPointerSize 0em 0em 0em @negativeColorHover inset;
+@inputErrorFocusBoxShadow: none;
 
 /* Placeholder */
 @inputPlaceholderColor: lighten(@inputColor, 55);
@@ -179,12 +178,6 @@
 @inlineLabelFontSize: @labelFontSize;
 @inlineLabelFontWeight: @labelFontWeight;
 @inlineLabelTextTransform: @labelTextTransform;
-
-/* Sizes */
-@small: 0.875em;
-@medium: auto;
-@large: 1.125em;
-@huge: 1.2em;
 
 /*-------------------
        Groups

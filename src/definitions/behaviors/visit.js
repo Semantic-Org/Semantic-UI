@@ -365,7 +365,7 @@ $.visit = $.fn.visit = function(parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -479,7 +479,7 @@ $.fn.visit.settings = {
   name          : 'Visit',
 
   debug         : false,
-  verbose       : true,
+  verbose       : false,
   performance   : true,
 
   namespace     : 'visit',

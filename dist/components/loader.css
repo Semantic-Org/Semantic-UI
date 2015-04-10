@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - Loader
+ * # Semantic UI 2.0.0 - Loader
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -120,7 +120,7 @@
 
 /* Black Dimmer */
 .ui.dimmer .ui.loader {
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.9);
 }
 .ui.dimmer .ui.loader:before {
   border-color: rgba(255, 255, 255, 0.15);
@@ -237,7 +237,7 @@
 --------------------*/
 
 .ui.inverted.loader {
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.9);
 }
 .ui.inverted.loader:before {
   border-color: rgba(255, 255, 255, 0.15);
@@ -269,6 +269,8 @@
 .ui.centered.inline.loader.active,
 .ui.centered.inline.loader.visible {
   display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 

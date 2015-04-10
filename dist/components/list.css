@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - List
+ * # Semantic UI 2.0.0 - List
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -265,7 +265,7 @@ ol.ui.list ol,
   margin-left: 1em;
   font-size: 1rem;
 }
-.ui.horizontal.list > .item:first-child {
+.ui.horizontal.list:not(.celled) > .item:first-child {
   margin-left: 0em !important;
   padding-left: 0em !important;
 }
@@ -333,22 +333,22 @@ ol.ui.list ol,
 
 .ui.inverted.list .list > a.item > .icon,
 .ui.inverted.list > a.item > .icon {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.7);
 }
 .ui.inverted.list .list > .item .header,
 .ui.inverted.list > .item .header {
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.9);
 }
 .ui.inverted.list .list > .item .description,
 .ui.inverted.list > .item .description {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 /* Item Link */
 .ui.inverted.list .list > a.item,
 .ui.inverted.list > a.item {
   cursor: pointer;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.9);
 }
 .ui.inverted.list .list > a.item:hover,
 .ui.inverted.list > a.item:hover {
@@ -358,7 +358,7 @@ ol.ui.list ol,
 /* Linking Content */
 .ui.inverted.list .item a {
   cursor: pointer;
-  color: #ffffff !important;
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 .ui.inverted.list .item a:hover {
   color: #00b2f3 !important;
@@ -381,18 +381,18 @@ ol.ui.list ol,
 }
 .ui.link.list a.item:active,
 .ui.link.list .item a:active {
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.9);
 }
 .ui.link.list .active.item,
 .ui.link.list .active.item a {
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.9);
 }
 
 /* Inverted */
 .ui.inverted.link.list .item,
 .ui.inverted.link.list a.item,
 .ui.inverted.link.list .item a {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.6);
 }
 .ui.inverted.link.list a.item:hover,
 .ui.inverted.link.list .item a:hover {
@@ -434,19 +434,19 @@ ol.ui.list ol,
 .ui.selection.list .list > .item:active,
 .ui.selection.list > .item:active {
   background: rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.9);
 }
 .ui.selection.list .list > .item.active,
 .ui.selection.list > .item.active {
   background: rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.9);
 }
 
 /* Inverted */
 .ui.inverted.selection.list > .item,
 .ui.inverted.selection.list > .item {
   background: transparent;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.6);
 }
 .ui.inverted.selection.list > .item:hover,
 .ui.inverted.selection.list > .item:hover {
@@ -455,12 +455,12 @@ ol.ui.list ol,
 }
 .ui.inverted.selection.list > .item:active,
 .ui.inverted.selection.list > .item:active {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.08);
   color: #ffffff;
 }
 .ui.inverted.selection.list > .item.active,
 .ui.inverted.selection.list > .item.active {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.08);
   color: #ffffff;
 }
 
@@ -515,13 +515,18 @@ ul.ui.list li,
 ul.ui.list li:before,
 .ui.bulleted.list .list > .item:before,
 .ui.bulleted.list > .item:before {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  pointer-events: none;
   position: absolute;
   top: auto;
   left: auto;
   margin-left: -1rem;
   content: '•';
   opacity: 1;
-  color: rgba(0, 0, 0, 0.8);
+  color: inherit;
   vertical-align: top;
 }
 ul.ui.list ul,
@@ -571,6 +576,11 @@ ol.ui.list li:before,
   position: absolute;
   top: auto;
   left: auto;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  pointer-events: none;
   margin-left: -1.25rem;
   counter-increment: ordered;
   content: counters(ordered, ".") " ";
@@ -607,7 +617,7 @@ ol.ui.horizontal.list li:before,
 --------------------*/
 
 .ui.divided.list > .item {
-  border-top: 1px solid rgba(39, 41, 43, 0.15);
+  border-top: 1px solid rgba(34, 36, 38, 0.15);
 }
 .ui.divided.list .list > .item {
   border-top: none;
@@ -666,7 +676,7 @@ ol.ui.horizontal.list li:before,
 }
 .ui.divided.horizontal.list > .item {
   border-top: none;
-  border-left: 1px solid rgba(39, 41, 43, 0.15);
+  border-left: 1px solid rgba(34, 36, 38, 0.15);
   margin: 0em;
   padding-left: 0.5em;
   padding-right: 0.5em;
@@ -680,7 +690,7 @@ ol.ui.horizontal.list li:before,
 .ui.divided.inverted.list > .item,
 .ui.divided.inverted.list > .list,
 .ui.divided.inverted.horizontal.list > .item {
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 /*-------------------
@@ -689,12 +699,12 @@ ol.ui.horizontal.list li:before,
 
 .ui.celled.list > .item,
 .ui.celled.list > .list {
-  border-top: 1px solid rgba(39, 41, 43, 0.15);
+  border-top: 1px solid rgba(34, 36, 38, 0.15);
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
 .ui.celled.list > .item:last-child {
-  border-bottom: 1px solid rgba(39, 41, 43, 0.15);
+  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
 }
 
 /* Padding on all elements */
@@ -750,7 +760,7 @@ ol.ui.horizontal.list li:before,
 .ui.horizontal.celled.list .list > .item,
 .ui.horizontal.celled.list > .item {
   border-top: none;
-  border-left: 1px solid rgba(39, 41, 43, 0.15);
+  border-left: 1px solid rgba(34, 36, 38, 0.15);
   margin: 0em;
   padding-left: 0.5em;
   padding-right: 0.5em;
@@ -759,17 +769,17 @@ ol.ui.horizontal.list li:before,
 .ui.horizontal.celled.list .list > .item:last-child,
 .ui.horizontal.celled.list > .item:last-child {
   border-bottom: none;
-  border-right: 1px solid rgba(39, 41, 43, 0.15);
+  border-right: 1px solid rgba(34, 36, 38, 0.15);
 }
 
 /* Inverted */
 .ui.celled.inverted.list > .item,
 .ui.celled.inverted.list > .list {
-  border-color: 1px solid rgba(255, 255, 255, 0.2);
+  border-color: 1px solid rgba(255, 255, 255, 0.1);
 }
 .ui.celled.inverted.horizontal.list .list > .item,
 .ui.celled.inverted.horizontal.list > .item {
-  border-color: 1px solid rgba(255, 255, 255, 0.2);
+  border-color: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /*-------------------

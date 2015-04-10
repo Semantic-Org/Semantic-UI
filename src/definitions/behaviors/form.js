@@ -13,60 +13,71 @@
 
 "use strict";
 
-$.fn.form = function(fields, parameters) {
+$.fn.form = function(parameters) {
   var
-    $allModules     = $(this),
+    $allModules      = $(this),
+    moduleSelector   = $allModules.selector || '',
 
-    settings        = $.extend(true, {}, $.fn.form.settings, parameters),
-    validation      = $.extend({}, $.fn.form.settings.defaults, fields),
+    time             = new Date().getTime(),
+    performance      = [],
 
-    namespace       = settings.namespace,
-    metadata        = settings.metadata,
-    selector        = settings.selector,
-    className       = settings.className,
-    error           = settings.error,
-
-    eventNamespace  = '.' + namespace,
-    moduleNamespace = 'module-' + namespace,
-
-    moduleSelector  = $allModules.selector || '',
-
-    time            = new Date().getTime(),
-    performance     = [],
-
-    query           = arguments[0],
-    methodInvoked   = (typeof query == 'string'),
-    queryArguments  = [].slice.call(arguments, 1),
+    query            = arguments[0],
+    legacyParameters = arguments[1],
+    methodInvoked    = (typeof query == 'string'),
+    queryArguments   = [].slice.call(arguments, 1),
     returnedValue
   ;
   $allModules
     .each(function() {
       var
         $module     = $(this),
-        $field      = $(this).find(selector.field),
-        $group      = $(this).find(selector.group),
-        $message    = $(this).find(selector.message),
-        $prompt     = $(this).find(selector.prompt),
-
-        $submit     = $(this).find(selector.submit),
-        $clear      = $(this).find(selector.clear),
-        $reset      = $(this).find(selector.reset),
+        element     = this,
 
         formErrors  = [],
         keyHeldDown = false,
 
-        element     = this,
-        instance    = $module.data(moduleNamespace),
+        // set at run-time
+        $field,
+        $group,
+        $message,
+        $prompt,
+        $submit,
+        $clear,
+        $reset,
+
+        settings,
+        validation,
+
+        namespace,
+        metadata,
+        selector,
+        className,
+        error,
+
+        namespace,
+        moduleNamespace,
+        eventNamespace,
+
+        instance,
         module
       ;
 
       module      = {
 
         initialize: function() {
-          module.verbose('Initializing form validation', $module, validation, settings);
-          module.bindEvents();
-          module.set.defaults();
-          module.instantiate();
+
+          // settings grabbed at run time
+          module.get.settings();
+
+          if(methodInvoked) {
+            module.invoke(query);
+          }
+          else {
+            module.verbose('Initializing form validation', $module, settings);
+            module.bindEvents();
+            module.set.defaults();
+            module.instantiate();
+          }
         },
 
         instantiate: function() {
@@ -87,7 +98,14 @@ $.fn.form = function(fields, parameters) {
 
         refresh: function() {
           module.verbose('Refreshing selector cache');
-          $field = $module.find(selector.field);
+          $field      = $module.find(selector.field);
+          $group      = $module.find(selector.group);
+          $message    = $module.find(selector.message);
+          $prompt     = $module.find(selector.prompt);
+
+          $submit     = $module.find(selector.submit);
+          $clear      = $module.find(selector.clear);
+          $reset      = $module.find(selector.reset);
         },
 
         submit: function() {
@@ -100,7 +118,7 @@ $.fn.form = function(fields, parameters) {
         attachEvents: function(selector, action) {
           action = action || 'submit';
           $(selector)
-            .on('click', function(event) {
+            .on('click' + eventNamespace, function(event) {
               module[action]();
               event.preventDefault();
             })
@@ -108,28 +126,25 @@ $.fn.form = function(fields, parameters) {
         },
 
         bindEvents: function() {
-          if(settings.keyboardShortcuts) {
-            $field
-              .on('keydown' + eventNamespace, module.event.field.keydown)
-            ;
-          }
+          module.verbose('Attaching form events');
           $module
             .on('submit' + eventNamespace, module.validate.form)
+            .on('blur'   + eventNamespace, selector.field, module.event.field.blur)
+            .on('click'  + eventNamespace, selector.submit, module.submit)
+            .on('click'  + eventNamespace, selector.reset, module.reset)
+            .on('click'  + eventNamespace, selector.clear, module.clear)
           ;
-          $field
-            .on('blur' + eventNamespace, module.event.field.blur)
-          ;
-
-          // attach events to common elements
-          module.attachEvents($submit, 'submit');
-          module.attachEvents($reset, 'reset');
-          module.attachEvents($clear, 'clear');
-
+          if(settings.keyboardShortcuts) {
+            $module
+              .on('keydown' + eventNamespace, selector.field, module.event.field.keydown)
+            ;
+          }
           $field
             .each(function() {
               var
-                type       = $(this).prop('type'),
-                inputEvent = module.get.changeEvent(type)
+                $input     = $(this),
+                type       = $input.prop('type'),
+                inputEvent = module.get.changeEvent(type, $input)
               ;
               $(this)
                 .on(inputEvent + eventNamespace, module.event.field.change)
@@ -291,8 +306,8 @@ $.fn.form = function(fields, parameters) {
         },
 
         get: {
-          changeEvent: function(type) {
-            if(type == 'checkbox' || type == 'radio' || type == 'hidden') {
+          changeEvent: function(type, $input) {
+            if(type == 'checkbox' || type == 'radio' || type == 'hidden' || $input.is('select')) {
               return 'change';
             }
             else {
@@ -306,6 +321,52 @@ $.fn.form = function(fields, parameters) {
                 ? 'propertychange'
                 : 'keyup'
             ;
+          },
+          settings: function() {
+            var
+              firstProperty
+            ;
+            if($.isPlainObject(parameters)) {
+              var
+                keys             = Object.keys(parameters),
+                isLegacySettings = (keys.length > 0)
+                  ? (parameters[keys[0]].identifier !== undefined)
+                  : false
+              ;
+              if(isLegacySettings) {
+                // 1.x (ducktyped)
+                settings   = $.extend(true, {}, $.fn.form.settings, legacyParameters);
+                validation = $.extend({}, $.fn.form.settings.defaults, parameters);
+                module.error(settings.error.oldSyntax, element);
+                module.verbose('Extending settings from legacy parameters', validation, settings);
+              }
+              else {
+                // 2.x
+                settings   = $.extend(true, {}, $.fn.form.settings, parameters),
+                validation = $.extend({}, $.fn.form.settings.defaults, settings.fields),
+                module.verbose('Extending settings', validation, settings);
+              }
+            }
+            else {
+              settings   = $.fn.form.settings;
+              validation = $.fn.form.settings.defaults;
+              module.verbose('Using default form validation', validation, settings);
+            }
+
+            // shorthand
+            namespace       = settings.namespace;
+            metadata        = settings.metadata;
+            selector        = settings.selector;
+            className       = settings.className;
+            error           = settings.error;
+            moduleNamespace = 'module-' + namespace;
+            eventNamespace  = '.' + namespace;
+
+            // grab instance
+            instance = $module.data(moduleNamespace);
+
+            // refresh selector cache
+            module.refresh();
           },
           field: function(identifier) {
             module.verbose('Finding field with identifier', identifier);
@@ -685,14 +746,15 @@ $.fn.form = function(fields, parameters) {
             var
               $field        = module.get.field(field.identifier),
               type          = validation.type,
-              value         = $.trim($field.val() + ''),
-
+              value         = $field.val(),
               bracketRegExp = /\[(.*)\]/i,
               bracket       = bracketRegExp.exec(type),
               isValid       = true,
               ancillary,
               functionType
             ;
+            // typecast to string
+            value = $.trim($field.val() + '');
             // if bracket notation is used, pass in extra parameters
             if(bracket !== undefined && bracket !== null) {
               ancillary    = '' + bracket[1];
@@ -775,7 +837,7 @@ $.fn.form = function(fields, parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -863,19 +925,7 @@ $.fn.form = function(fields, parameters) {
           return found;
         }
       };
-      if(methodInvoked) {
-        if(instance === undefined) {
-          module.initialize();
-        }
-        module.invoke(query);
-      }
-      else {
-        if(instance !== undefined) {
-          instance.invoke('destroy');
-        }
-        module.initialize();
-      }
-
+      module.initialize();
     })
   ;
 
@@ -891,9 +941,10 @@ $.fn.form.settings = {
   namespace         : 'form',
 
   debug             : false,
-  verbose           : true,
+  verbose           : false,
   performance       : true,
 
+  fields            : false,
 
   keyboardShortcuts : true,
   on                : 'submit',
@@ -924,8 +975,8 @@ $.fn.form.settings = {
     message    : '.error.message',
     prompt     : '.prompt.label',
     radio      : 'input[type="radio"]',
-    reset      : '.reset',
-    submit     : '.submit',
+    reset      : '.reset:not([type="reset"])',
+    submit     : '.submit:not([type="submit"])',
     uiCheckbox : '.ui.checkbox',
     uiDropdown : '.ui.dropdown'
   },
@@ -938,7 +989,8 @@ $.fn.form.settings = {
   },
 
   error: {
-    method   : 'The method you called is not defined.'
+    oldSyntax : 'Starting in 2.0 forms now only take a single settings object. Validation settings converted to new syntax automatically.',
+    method    : 'The method you called is not defined.'
   },
 
   templates: {
@@ -995,7 +1047,7 @@ $.fn.form.settings = {
 
     // is not empty or blank string
     empty: function(value) {
-      return !(value === undefined || '' === value);
+      return !(value === undefined || '' === value || $.isArray(value) && value.length == 0);
     },
 
     // is valid integer
@@ -1076,6 +1128,19 @@ $.fn.form.settings = {
         ? ( value.toString() == matchingValue.toString() )
         : false
       ;
+    },
+
+    maxCount: function(value, count) {
+      value = value.split(',');
+      return ($.isArray(value) && value.length <= count);
+    },
+    exactCount: function(value, count) {
+      value = value.split(',');
+      return ($.isArray(value) && value.length == count);
+    },
+    minCount: function(value, count) {
+      value = value.split(',');
+      return ($.isArray(value) && value.length >= count);
     },
 
     // string length is less than max length

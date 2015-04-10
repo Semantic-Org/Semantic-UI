@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - Transition
+ * # Semantic UI 2.0.0 - Transition
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -363,17 +363,15 @@ $.fn.transition = function() {
 
         save: {
           displayType: function(displayType) {
-            $module.data(metadata.displayType, displayType);
+            if(displayType !== 'none') {
+              $module.data(metadata.displayType, displayType);
+            }
           },
           transitionExists: function(animation, exists) {
             $.fn.transition.exists[animation] = exists;
             module.verbose('Saving existence of transition', animation, exists);
           },
           conditions: function() {
-            var
-              clasName = $module.attr('class') || false,
-              style    = $module.attr('style') || ''
-            ;
             $module.removeClass(settings.animation);
             module.remove.direction();
             module.cache = {
@@ -855,7 +853,7 @@ $.fn.transition = function() {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -969,7 +967,7 @@ $.fn.transition.settings = {
   debug         : false,
 
   // verbose debug output
-  verbose       : true,
+  verbose       : false,
 
   // performance data output
   performance   : true,

@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - Label
+ * # Semantic UI 2.0.0 - Label
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -16,18 +16,18 @@
 
 .ui.label {
   display: inline-block;
-  vertical-align: baseline;
+  white-space: nowrap;
   line-height: 1;
-  margin: 0em 0.125em;
+  vertical-align: baseline;
+  margin: 0em 0.142857em;
   background-color: #e8e8e8;
   border-color: #e8e8e8;
   background-image: none;
-  padding: 0.6em 0.8em;
+  padding: 0.5833em 0.833em;
   color: rgba(0, 0, 0, 0.6);
   text-transform: none;
   font-weight: bold;
   border-radius: 0.2857rem;
-  box-sizing: border-box;
   -webkit-transition: background 0.2s ease;
           transition: background 0.2s ease;
 }
@@ -47,7 +47,7 @@ a.ui.label {
 .ui.label a {
   cursor: pointer;
   color: inherit;
-  opacity: 0.8;
+  opacity: 0.5;
   -webkit-transition: 0.2s opacity ease;
           transition: 0.2s opacity ease;
 }
@@ -79,7 +79,8 @@ a.ui.label {
   cursor: pointer;
   margin-right: 0em;
   margin-left: 0.5em;
-  opacity: 0.8;
+  font-size: 0.92857143em;
+  opacity: 0.5;
   -webkit-transition: background 0.2s ease;
           transition: background 0.2s ease;
 }
@@ -92,13 +93,16 @@ a.ui.label {
 --------------------*/
 
 .ui.labels .label {
-  margin: 0em 0.5em 0.75em 0em;
+  margin: 0em 0.5em 0.5em 0em;
 }
 
 /*-------------------
        Coupling
 --------------------*/
 
+.ui.header > .ui.label {
+  margin-top: -0.29165em;
+}
 
 /* Remove border radius on attached segment */
 .ui.attached.segment > .ui.top.left.attached.label,
@@ -138,21 +142,21 @@ a.ui.label {
   vertical-align: baseline;
   text-transform: none;
   background: #e8e8e8;
-  padding: 0.6em 0.8em 0.6em 0.5em;
+  padding: 0.5833em 0.833em 0.5833em 0.5em;
   border-radius: 0.2857rem;
   box-shadow: none;
 }
 .ui.image.label img {
   display: inline-block;
   vertical-align: top;
-  height: 2.2em;
-  margin: -0.6em 0.5em -0.6em -0.5em;
+  height: 2.1666em;
+  margin: -0.5833em 0.5em -0.5833em -0.5em;
   border-radius: 0.2857rem;
 }
 .ui.image.label .detail {
   background: rgba(0, 0, 0, 0.1);
-  margin: -0.6em -0.8em -0.6em 0.5em;
-  padding: 0.6em 0.8em;
+  margin: -0.5833em -0.833em -0.5833em 0.5em;
+  padding: 0.5833em 0.833em;
   border-radius: 0em 0.2857rem 0.2857rem 0em;
 }
 
@@ -316,7 +320,7 @@ a.ui.label {
       -ms-transform: translateX(-100%);
           transform: translateX(-100%);
   border-radius: 0.2857rem 0em 0em 0.2857rem;
-  padding-left: 0.8em;
+  padding-left: 0.833em;
 }
 .ui[class*="right ribbon"].label:after {
   left: auto;
@@ -359,7 +363,7 @@ a.ui.label {
 .ui.image > .ui[class*="right ribbon"].label {
   left: -webkit-calc(100% +  -0.05rem  +  1.2em );
   left: calc(100% +  -0.05rem  +  1.2em );
-  padding-left: 0.8em;
+  padding-left: 0.833em;
   padding-right: -webkit-calc( -0.05rem  +  1.2em );
   padding-right: calc( -0.05rem  +  1.2em );
 }
@@ -442,6 +446,40 @@ a.ui.label:hover:before {
 }
 
 /*-------------------
+        Active
+--------------------*/
+
+.ui.active.label {
+  background-color: #d0d0d0;
+  border-color: #d0d0d0;
+  background-image: none;
+  color: rgba(0, 0, 0, 0.9);
+}
+.ui.active.label:before {
+  background-color: #d0d0d0;
+  background-image: none;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+/*-------------------
+     Active Hover
+--------------------*/
+
+a.ui.labels .active.label:hover,
+a.ui.active.label:hover {
+  background-color: #c8c8c8;
+  border-color: #c8c8c8;
+  background-image: none;
+  color: rgba(0, 0, 0, 0.9);
+}
+.ui.labels a.active.label:ActiveHover:before,
+a.ui.active.label:ActiveHover:before {
+  background-color: #c8c8c8;
+  background-image: none;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+/*-------------------
       Visible
 --------------------*/
 
@@ -476,7 +514,7 @@ a.ui.label:hover:before {
 .ui.black.label {
   background-color: #1b1c1d !important;
   border-color: #1b1c1d !important;
-  color: #ffffff !important;
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 .ui.labels .black.label:before,
 .ui.black.labels .label:before,
@@ -485,13 +523,13 @@ a.ui.label:hover:before {
 }
 a.ui.black.labels .label:hover,
 a.ui.black.label:hover {
-  background-color: #1b1c1d !important;
-  border-color: #1b1c1d !important;
+  background-color: #23292e !important;
+  border-color: #23292e !important;
 }
 .ui.labels a.black.label:hover:before,
 .ui.black.labels a.label:hover:before,
 a.ui.black.label:hover:before {
-  background-color: #1b1c1d !important;
+  background-color: #23292e !important;
 }
 .ui.black.corner.label,
 .ui.black.corner.label:hover {
@@ -505,177 +543,177 @@ a.ui.black.label:hover:before {
 
 .ui.blue.labels .label,
 .ui.blue.label {
-  background-color: #3b83c0 !important;
-  border-color: #3b83c0 !important;
-  color: #ffffff !important;
+  background-color: #2185d0 !important;
+  border-color: #2185d0 !important;
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 .ui.labels .blue.label:before,
 .ui.blue.labels .label:before,
 .ui.blue.label:before {
-  background-color: #3b83c0 !important;
+  background-color: #2185d0 !important;
 }
 a.ui.blue.labels .label:hover,
 .ui.blue.labels a.label:hover,
 a.ui.blue.label:hover {
-  background-color: #458ac6 !important;
-  border-color: #458ac6 !important;
-  color: #ffffff !important;
+  background-color: #1378c5 !important;
+  border-color: #1378c5 !important;
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 .ui.labels a.blue.label:hover:before,
 .ui.blue.labels a.label:hover:before,
 a.ui.blue.label:hover:before {
-  background-color: #458ac6 !important;
+  background-color: #1378c5 !important;
 }
 .ui.blue.corner.label,
 .ui.blue.corner.label:hover {
   background-color: transparent !important;
 }
 .ui.blue.ribbon.label {
-  border-color: #2f6899 !important;
+  border-color: #1a69a4 !important;
 }
 
 /*--- Green ---*/
 
 .ui.green.labels .label,
 .ui.green.label {
-  background-color: #5bbd72 !important;
-  border-color: #5bbd72 !important;
-  color: #ffffff !important;
+  background-color: #21ba45 !important;
+  border-color: #21ba45 !important;
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 .ui.labels .green.label:before,
 .ui.green.labels .label:before,
 .ui.green.label:before {
-  background-color: #5bbd72 !important;
+  background-color: #21ba45 !important;
 }
 a.ui.green.labels .label:hover,
 a.ui.green.label:hover {
-  background-color: #66c17b !important;
-  border-color: #66c17b !important;
+  background-color: #13ae38 !important;
+  border-color: #13ae38 !important;
 }
 .ui.labels a.green.label:hover:before,
 .ui.green.labels a.label:hover:before,
 a.ui.green.label:hover:before {
-  background-color: #66c17b !important;
+  background-color: #13ae38 !important;
 }
 .ui.green.corner.label,
 .ui.green.corner.label:hover {
   background-color: transparent !important;
 }
 .ui.green.ribbon.label {
-  border-color: #42a359 !important;
+  border-color: #198f35 !important;
 }
 
 /*--- Orange ---*/
 
 .ui.orange.labels .label,
 .ui.orange.label {
-  background-color: #e07b53 !important;
-  border-color: #e07b53 !important;
-  color: #ffffff !important;
+  background-color: #f2711c !important;
+  border-color: #f2711c !important;
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 .ui.labels .orange.label:before,
 .ui.orange.labels .label:before,
 .ui.orange.label:before {
-  background-color: #e07b53 !important;
+  background-color: #f2711c !important;
 }
 a.ui.orange.labels .label:hover,
 .ui.orange.labels a.label:hover,
 a.ui.orange.label:hover {
-  background-color: #e28560 !important;
-  border-color: #e28560 !important;
-  color: #ffffff !important;
+  background-color: #f36101 !important;
+  border-color: #f36101 !important;
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 .ui.labels a.orange.label:hover:before,
 .ui.orange.labels a.label:hover:before,
 a.ui.orange.label:hover:before {
-  background-color: #e28560 !important;
+  background-color: #f36101 !important;
 }
 .ui.orange.corner.label,
 .ui.orange.corner.label:hover {
   background-color: transparent !important;
 }
 .ui.orange.ribbon.label {
-  border-color: #d85a28 !important;
+  border-color: #cf590c !important;
 }
 
 /*--- Pink ---*/
 
 .ui.pink.labels .label,
 .ui.pink.label {
-  background-color: #d9499a !important;
-  border-color: #d9499a !important;
-  color: #ffffff !important;
+  background-color: #e03997 !important;
+  border-color: #e03997 !important;
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 .ui.labels .pink.label:before,
 .ui.pink.labels .label:before,
 .ui.pink.label:before {
-  background-color: #d9499a !important;
+  background-color: #e03997 !important;
 }
 a.ui.pink.labels .label:hover,
 .ui.pink.labels a.label:hover,
 a.ui.pink.label:hover {
-  background-color: #dc56a1 !important;
-  border-color: #dc56a1 !important;
-  color: #ffffff !important;
+  background-color: #e9168d !important;
+  border-color: #e9168d !important;
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 .ui.labels a.pink.label:hover:before,
 .ui.pink.labels a.label:hover:before,
 a.ui.pink.label:hover:before {
-  background-color: #dc56a1 !important;
+  background-color: #e9168d !important;
 }
 .ui.pink.corner.label,
 .ui.pink.corner.label:hover {
   background-color: transparent !important;
 }
 .ui.pink.ribbon.label {
-  border-color: #c62981 !important;
+  border-color: #c71f7e !important;
 }
 
 /*--- Purple ---*/
 
 .ui.purple.labels .label,
 .ui.purple.label {
-  background-color: #564f8a !important;
-  border-color: #564f8a !important;
-  color: #ffffff !important;
+  background-color: #6a33c8 !important;
+  border-color: #6a33c8 !important;
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 .ui.labels .purple.label:before,
 .ui.purple.labels .label:before,
 .ui.purple.label:before {
-  background-color: #564f8a !important;
+  background-color: #6a33c8 !important;
 }
 a.ui.purple.labels .label:hover,
 .ui.purple.labels a.label:hover,
 a.ui.purple.label:hover {
-  background-color: #5c5594 !important;
-  border-color: #5c5594 !important;
-  color: #ffffff !important;
+  background-color: #5c23bf !important;
+  border-color: #5c23bf !important;
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 .ui.labels a.purple.label:hover:before,
 .ui.purple.labels a.label:hover:before,
 a.ui.purple.label:hover:before {
-  background-color: #5c5594 !important;
+  background-color: #5c23bf !important;
 }
 .ui.purple.corner.label,
 .ui.purple.corner.label:hover {
   background-color: transparent !important;
 }
 .ui.purple.ribbon.label {
-  border-color: #423c6a !important;
+  border-color: #54299f !important;
 }
 
 /*--- Red ---*/
 
 .ui.red.labels .label,
 .ui.red.label {
-  background-color: #d95c5c !important;
-  border-color: #d95c5c !important;
-  color: #ffffff !important;
+  background-color: #db2828 !important;
+  border-color: #db2828 !important;
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 .ui.labels .red.label:before,
 .ui.red.labels .label:before,
 .ui.red.label:before {
-  background-color: #d95c5c !important;
+  background-color: #db2828 !important;
 }
 .ui.red.corner.label,
 .ui.red.corner.label:hover {
@@ -683,17 +721,17 @@ a.ui.purple.label:hover:before {
 }
 a.ui.red.labels .label:hover,
 a.ui.red.label:hover {
-  background-color: #dc6868 !important;
-  border-color: #dc6868 !important;
-  color: #ffffff !important;
+  background-color: #d41616 !important;
+  border-color: #d41616 !important;
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 .ui.labels a.red.label:hover:before,
 .ui.red.labels a.label:hover:before,
 a.ui.red.label:hover:before {
-  background-color: #dc6868 !important;
+  background-color: #d41616 !important;
 }
 .ui.red.ribbon.label {
-  border-color: #cf3333 !important;
+  border-color: #b21e1e !important;
 }
 
 /*--- Teal ---*/
@@ -702,7 +740,7 @@ a.ui.red.label:hover:before {
 .ui.teal.label {
   background-color: #00b5ad !important;
   border-color: #00b5ad !important;
-  color: #ffffff !important;
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 .ui.labels .teal.label:before,
 .ui.teal.labels .label:before,
@@ -712,14 +750,14 @@ a.ui.red.label:hover:before {
 a.ui.teal.labels .label:hover,
 .ui.teal.labels a.label:hover,
 a.ui.teal.label:hover {
-  background-color: #00c4bc !important;
-  border-color: #00c4bc !important;
-  color: #ffffff !important;
+  background-color: #009c95 !important;
+  border-color: #009c95 !important;
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 .ui.labels a.teal.label:hover:before,
 .ui.teal.labels a.label:hover:before,
 a.ui.teal.label:hover:before {
-  background-color: #00c4bc !important;
+  background-color: #009c95 !important;
 }
 .ui.teal.corner.label,
 .ui.teal.corner.label:hover {
@@ -733,33 +771,33 @@ a.ui.teal.label:hover:before {
 
 .ui.yellow.labels .label,
 .ui.yellow.label {
-  background-color: #f2c61f !important;
-  border-color: #f2c61f !important;
-  color: #ffffff !important;
+  background-color: #fbbd08 !important;
+  border-color: #fbbd08 !important;
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 .ui.labels .yellow.label:before,
 .ui.yellow.labels .label:before,
 .ui.yellow.label:before {
-  background-color: #f2c61f !important;
+  background-color: #fbbd08 !important;
 }
 a.ui.yellow.labels .label:hover,
 .ui.yellow.labels a.label:hover,
 a.ui.yellow.label:hover {
-  background-color: #f3ca2d !important;
-  border-color: #f3ca2d !important;
-  color: #ffffff !important;
+  background-color: #eaae00 !important;
+  border-color: #eaae00 !important;
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 .ui.labels a.yellow.label:hover:before,
 .ui.yellow.labels a.label:hover:before,
 a.ui.yellow.label:hover:before {
-  background-color: #f3ca2d !important;
+  background-color: #eaae00 !important;
 }
 .ui.yellow.corner.label,
 .ui.yellow.corner.label:hover {
   background-color: transparent !important;
 }
 .ui.yellow.ribbon.label {
-  border-color: #d2a90c !important;
+  border-color: #cd9903 !important;
 }
 
 /*-------------------
@@ -778,7 +816,7 @@ a.ui.yellow.label:hover:before {
 
 .ui.inverted.labels .label,
 .ui.inverted.label {
-  color: #ffffff !important;
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 
 /*-------------------
@@ -788,7 +826,7 @@ a.ui.yellow.label:hover:before {
 .ui.horizontal.labels .label,
 .ui.horizontal.label {
   margin: 0em 0.5em 0em 0em;
-  padding: 0.4em 0.8em;
+  padding: 0.4em 0.833em;
   min-width: 3em;
   text-align: center;
 }

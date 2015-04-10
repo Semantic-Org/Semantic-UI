@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - Modal
+ * # Semantic UI 2.0.0 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -80,7 +80,6 @@ $.fn.modal = function(parameters) {
           module.create.dimmer();
           module.refreshModals();
 
-          module.verbose('Attaching close events', $close);
           module.bind.events();
           module.observeChanges();
           module.instantiate();
@@ -116,6 +115,9 @@ $.fn.modal = function(parameters) {
             if(settings.detachable) {
               module.verbose('Modal is detachable, moving content into dimmer');
               $dimmable.dimmer('add content', $module);
+            }
+            else {
+              module.set.undetached();
             }
             $dimmer = $dimmable.dimmer('get dimmer');
           },
@@ -186,8 +188,13 @@ $.fn.modal = function(parameters) {
 
         bind: {
           events: function() {
-            $close.on('click' + eventNamespace, module.event.close);
-            $window.on('resize' + elementNamespace, module.event.resize);
+            module.verbose('Attaching events');
+            $module
+              .on('click' + eventNamespace, selector.close, module.event.close)
+            ;
+            $window
+              .on('resize' + elementNamespace, module.event.resize)
+            ;
           }
         },
 
@@ -580,7 +587,7 @@ $.fn.modal = function(parameters) {
             else {
               module.debug('Modal is taller than page content, resizing page height');
               $body
-                .css('height', module.cache.height + (settings.padding / 2) )
+                .css('height', module.cache.height + (settings.padding * 2) )
               ;
             }
           },
@@ -621,6 +628,9 @@ $.fn.modal = function(parameters) {
                 })
               ;
             }
+          },
+          undetached: function() {
+            $dimmable.addClass(className.undetached);
           }
         },
 
@@ -693,7 +703,7 @@ $.fn.modal = function(parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -806,7 +816,7 @@ $.fn.modal.settings = {
   namespace      : 'modal',
 
   debug          : false,
-  verbose        : true,
+  verbose        : false,
   performance    : true,
 
   allowMultiple  : false,
@@ -850,9 +860,10 @@ $.fn.modal.settings = {
     notFound  : 'The element you specified could not be found'
   },
   className : {
-    active    : 'active',
-    animating : 'animating',
-    scrolling : 'scrolling'
+    active     : 'active',
+    animating  : 'animating',
+    scrolling  : 'scrolling',
+    undetached : 'undetached'
   }
 };
 
