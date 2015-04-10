@@ -75,6 +75,9 @@
             Folders
 *******************************/
 
+/* Path to definitions folder */
+@definitionsFolder : 'definitions/';
+
 /* Path to theme packages */
 @themesFolder : 'themes/';
 
