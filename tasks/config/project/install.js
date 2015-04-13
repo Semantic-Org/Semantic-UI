@@ -743,13 +743,6 @@ module.exports = {
         preserveFiles     : false
       },
 
-      // copy for node_modules
-      modules: {
-        forceDelete       : true,
-        excludeHiddenUnix : true,
-        preserveFiles     : false
-      },
-
       // copy for site theme
       site: {
         forceDelete       : false,

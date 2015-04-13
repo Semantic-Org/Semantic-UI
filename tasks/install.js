@@ -92,7 +92,7 @@ module.exports = function () {
         themeImport : path.join(updateFolder, folders.themeImport),
         definition  : path.join(currentConfig.paths.source.definitions),
         site        : path.join(currentConfig.paths.source.site),
-        theme       : path.join(currentConfig.paths.source.themes)
+        theme       : path.join(currentConfig.paths.source.themes, folders.defaultTheme)
       }
     ;
 
@@ -126,7 +126,7 @@ module.exports = function () {
         ;
 
         console.info('Adding new site theme files...');
-        wrench.copyDirSyncRecursive(source.site, updatePaths.site, settings.wrench.site);
+        wrench.copyDirSyncRecursive(source.site, updatePaths.site, settings.wrench.merge);
 
         console.info('Updating version...');
 
