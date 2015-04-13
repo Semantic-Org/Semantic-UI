@@ -255,14 +255,15 @@ module.exports = {
   folders: {
     config       : './',
     definitions  : 'src/definitions/',
-    defaultTheme : 'default/',
     lessImport   : 'src/',
     modules      : 'node_modules/',
     site         : 'src/site/',
     tasks        : 'tasks/',
     themeConfig  : 'src/',
     themeImport  : 'src/',
-    themes       : 'src/themes/'
+    themes       : 'src/themes/',
+
+    defaultTheme : 'default/' // only path that is relative to another directory and not root
   },
 
   // questions asked during install

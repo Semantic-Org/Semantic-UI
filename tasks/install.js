@@ -87,12 +87,13 @@ module.exports = function () {
     var
       updateFolder = path.join(manager.root, currentConfig.base),
       updatePaths  = {
-        config      : path.join(manager.root, files.config),
-        tasks       : path.join(updateFolder, folders.tasks),
-        themeImport : path.join(updateFolder, folders.themeImport),
-        definition  : path.join(currentConfig.paths.source.definitions),
-        site        : path.join(currentConfig.paths.source.site),
-        theme       : path.join(currentConfig.paths.source.themes, folders.defaultTheme)
+        config       : path.join(manager.root, files.config),
+        tasks        : path.join(updateFolder, folders.tasks),
+        themeImport  : path.join(updateFolder, folders.themeImport),
+        definition   : path.join(currentConfig.paths.source.definitions),
+        site         : path.join(currentConfig.paths.source.site),
+        theme        : path.join(currentConfig.paths.source.themes),
+        defaultTheme : path.join(currentConfig.paths.source.themes, folders.defaultTheme)
       }
     ;
 
@@ -107,7 +108,8 @@ module.exports = function () {
         wrench.copyDirSyncRecursive(source.definitions, updatePaths.definition, settings.wrench.overwrite);
 
         console.info('Updating default theme...');
-        wrench.copyDirSyncRecursive(source.themes, updatePaths.theme, settings.wrench.overwrite);
+        wrench.copyDirSyncRecursive(source.themes, updatePaths.theme, settings.wrench.merge);
+        wrench.copyDirSyncRecursive(source.defaultTheme, updatePaths.defaultTheme, settings.wrench.overwrite);
 
         console.info('Updating tasks...');
         wrench.copyDirSyncRecursive(source.tasks, updatePaths.tasks, settings.wrench.overwrite);
@@ -233,11 +235,12 @@ module.exports = function () {
 
         // special install paths only for PM install
         installPaths = extend(false, {}, installPaths, {
-          definition  : folders.definitions,
-          lessImport  : folders.lessImport,
-          tasks       : folders.tasks,
-          theme       : folders.themes,
-          themeImport : folders.themeImport
+          definition   : folders.definitions,
+          lessImport   : folders.lessImport,
+          tasks        : folders.tasks,
+          theme        : folders.themes,
+          defaultTheme : folders.defaultTheme,
+          themeImport  : folders.themeImport
         });
 
         // add project root to semantic root
@@ -269,7 +272,10 @@ module.exports = function () {
 
         console.info('Copying UI definitions');
         wrench.copyDirSyncRecursive(source.definitions, installPaths.definition, settings.wrench.overwrite);
-        wrench.copyDirSyncRecursive(source.themes, installPaths.theme, settings.wrench.overwrite);
+
+        console.info('Copying UI themes');
+        wrench.copyDirSyncRecursive(source.themes, installPaths.theme, settings.wrench.merge);
+        wrench.copyDirSyncRecursive(source.defaultTheme, installPaths.defaultTheme, settings.wrench.overwrite);
 
         console.info('Copying gulp tasks');
         wrench.copyDirSyncRecursive(source.tasks, installPaths.tasks, settings.wrench.overwrite);
