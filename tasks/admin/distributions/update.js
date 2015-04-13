@@ -114,7 +114,7 @@ module.exports = function(callback) {
     function commitFiles() {
       // commit files
       console.info('Committing ' + distribution + ' files', commitArgs);
-      gulp.src('**/*', gitOptions)
+      gulp.src('./', gitOptions)
         .pipe(git.add(gitOptions))
         .pipe(git.commit(commitMessage, commitOptions))
         .on('error', function(error) {

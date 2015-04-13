@@ -141,6 +141,14 @@
 - **Table** - Fix inheritance of text alignment and vertical alignment
 - **Transition** - Fixed bug where transition could sometimes not occur when an element was determined to always be hidden
 
+### Version 1.11.7 - April 13, 2015
+
+**Bugs**
+
+- **Sticky** - Fixes errant `console.log` statement appearing in source
+- **Card** - Fixes card `flex` display issues in IE
+- **Build Tools** - Fixes issue where `npm update` install scripts would remove custom themes from `src/themes/` during copy after updating Semantic UI
+
 ### Version 1.11.6 - March 27, 2015
 
 More critical bug backports from `2.x` branch, as well as fixes for browserify
