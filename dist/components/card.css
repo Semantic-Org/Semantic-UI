@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - Item
+ * # Semantic UI 1.11.7 - Item
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -116,6 +116,10 @@
 .ui.cards > .card > .image,
 .ui.card > .image {
   display: block;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
   position: relative;
   padding: 0em;
   background: rgba(0, 0, 0, 0.05);
