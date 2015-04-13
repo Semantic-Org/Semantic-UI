@@ -512,12 +512,10 @@ select.ui.dropdown {
 }
 
 /* Text Layering */
-.ui.search.dropdown > .pointer > input.search,
 .ui.search.dropdown > input.search {
   position: absolute;
   z-index: 2;
 }
-.ui.search.dropdown > .pointer > .text,
 .ui.search.dropdown > .text {
   cursor: text;
   position: relative;
@@ -525,21 +523,16 @@ select.ui.dropdown {
 }
 
 /* Search Selection */
-.ui.search.selection.dropdown > .pointer > input.search,
 .ui.search.selection.dropdown > input.search {
   line-height: 1.2142em;
-  padding: 0.67861em 1.1em;
+  padding: 0.67861em 2em 0.67861em 1.1em;
 }
 
 /* Active/Visible Search */
-.ui.search.dropdown.active > .pointer > input.search,
-.ui.search.dropdown.visible > .pointer > input.search,
 .ui.search.dropdown.active > input.search,
 .ui.search.dropdown.visible > input.search {
   cursor: auto;
 }
-.ui.search.dropdown.active > .pointer > .text,
-.ui.search.dropdown.visible > .pointer > .text,
 .ui.search.dropdown.active > .text,
 .ui.search.dropdown.visible > .text {
   pointer-events: none;
@@ -625,6 +618,7 @@ select.ui.dropdown {
   position: static;
   padding: 0;
   max-width: 100%;
+  min-height: 1.2142em;
   line-height: 1.2142em;
   margin: 0.4em 0em 0.4em 0.5em;
 }

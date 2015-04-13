@@ -409,6 +409,9 @@
   display: -ms-flexbox;
   display: flex;
 }
+.ui.fluid.input > input {
+  width: 0px !important;
+}
 
 /*--------------------
         Size

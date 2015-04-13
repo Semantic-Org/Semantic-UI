@@ -8762,6 +8762,10 @@ i.icon.compass:before {
   content: "\f14e";
 }
 
+i.icon.amex:before {
+  content: "\f1f3";
+}
+
 i.icon.eur:before {
   content: "\f153";
 }
@@ -9697,6 +9701,10 @@ img.ui.bordered.image {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+}
+
+.ui.fluid.input > input {
+  width: 0px !important;
 }
 
 /*--------------------
@@ -13398,6 +13406,7 @@ ol.ui.horizontal.list li:before,
 }
 
 .ui.steps .step:after {
+  display: none;
   position: absolute;
   z-index: 2;
   content: '';
@@ -13456,7 +13465,7 @@ ol.ui.horizontal.list li:before,
 /* Icon */
 
 .ui.steps .step > .icon {
-  font-size: 2.75em;
+  font-size: 2.5em;
   margin: 0em 1rem 0em 0em;
 }
 
@@ -13513,7 +13522,7 @@ ol.ui.horizontal.list li:before,
   -ms-flex-item-align: middle;
   align-self: middle;
   margin-right: 1rem;
-  font-size: 2.75em;
+  font-size: 2.5em;
   counter-increment: ordered;
   font-family: inherit;
   font-weight: bold;
@@ -13571,7 +13580,7 @@ ol.ui.horizontal.list li:before,
 
 /* Active Arrow */
 
-.ui.vertical.steps .active.step:after {
+.ui.steps .active.step:after {
   display: block;
 }
 
@@ -14049,6 +14058,7 @@ ol.ui.horizontal.list li:before,
   margin: 0em 0em 1em;
 }
 
+.ui.form .field .field,
 .ui.form .fields:last-child,
 .ui.form .field:last-child {
   margin-bottom: 0em;
@@ -14133,6 +14143,14 @@ ol.ui.horizontal.list li:before,
   -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
+
+/* Collapse Flex */
+
+.ui.form .ui.input > input {
+  width: 0px !important;
+}
+
+/* Text Area */
 
 .ui.textarea,
 .ui.form textarea {
@@ -25076,13 +25094,11 @@ select.ui.dropdown {
 
 /* Text Layering */
 
-.ui.search.dropdown > .pointer > input.search,
 .ui.search.dropdown > input.search {
   position: absolute;
   z-index: 2;
 }
 
-.ui.search.dropdown > .pointer > .text,
 .ui.search.dropdown > .text {
   cursor: text;
   position: relative;
@@ -25091,23 +25107,18 @@ select.ui.dropdown {
 
 /* Search Selection */
 
-.ui.search.selection.dropdown > .pointer > input.search,
 .ui.search.selection.dropdown > input.search {
   line-height: 1.2142em;
-  padding: 0.67861em 1.1em;
+  padding: 0.67861em 2em 0.67861em 1.1em;
 }
 
 /* Active/Visible Search */
 
-.ui.search.dropdown.active > .pointer > input.search,
-.ui.search.dropdown.visible > .pointer > input.search,
 .ui.search.dropdown.active > input.search,
 .ui.search.dropdown.visible > input.search {
   cursor: auto;
 }
 
-.ui.search.dropdown.active > .pointer > .text,
-.ui.search.dropdown.visible > .pointer > .text,
 .ui.search.dropdown.active > .text,
 .ui.search.dropdown.visible > .text {
   pointer-events: none;
@@ -25205,6 +25216,7 @@ select.ui.dropdown {
   position: static;
   padding: 0;
   max-width: 100%;
+  min-height: 1.2142em;
   line-height: 1.2142em;
   margin: 0.4em 0em 0.4em 0.5em;
 }
@@ -32579,6 +32591,7 @@ html.ios {
   margin: 0em 0em 1em;
 }
 
+.ui.form .field .field,
 .ui.form .fields:last-child,
 .ui.form .field:last-child {
   margin-bottom: 0em;
@@ -32663,6 +32676,14 @@ html.ios {
   -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
+
+/* Collapse Flex */
+
+.ui.form .ui.input > input {
+  width: 0px !important;
+}
+
+/* Text Area */
 
 .ui.textarea,
 .ui.form textarea {

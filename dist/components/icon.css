@@ -2367,6 +2367,9 @@ i.icon.pencil.square:before {
 i.icon.compass:before {
   content: "\f14e";
 }
+i.icon.amex:before {
+  content: "\f1f3";
+}
 i.icon.eur:before {
   content: "\f153";
 }
