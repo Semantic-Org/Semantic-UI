@@ -253,15 +253,16 @@ module.exports = {
 
   // folder paths to files relative to root
   folders: {
-    config      : './',
-    definitions : 'src/definitions/',
-    lessImport  : 'src/',
-    modules     : 'node_modules/',
-    site        : 'src/site/',
-    tasks       : 'tasks/',
-    themeConfig : 'src/',
-    themeImport : 'src/',
-    themes      : 'src/themes/'
+    config       : './',
+    definitions  : 'src/definitions/',
+    defaultTheme : 'default/',
+    lessImport   : 'src/',
+    modules      : 'node_modules/',
+    site         : 'src/site/',
+    tasks        : 'tasks/',
+    themeConfig  : 'src/',
+    themeImport  : 'src/',
+    themes       : 'src/themes/'
   },
 
   // questions asked during install
@@ -736,19 +737,19 @@ module.exports = {
         preserveFiles     : false
       },
 
+      // only create files that don't exist (site theme)
+      merge: {
+        forceDelete       : false,
+        excludeHiddenUnix : true,
+        preserveFiles     : true
+      }
+
       // copy during first npm install
       install: {
         forceDelete       : true,
         excludeHiddenUnix : true,
         preserveFiles     : false
       },
-
-      // copy for site theme
-      site: {
-        forceDelete       : false,
-        excludeHiddenUnix : true,
-        preserveFiles     : true
-      }
     }
   }
 
