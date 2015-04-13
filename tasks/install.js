@@ -64,7 +64,7 @@ module.exports = function () {
 
   console.clear();
 
-  /* Test NPM
+  /* Test NPM install
   manager = {
     name : 'NPM',
     root : path.normalize(__dirname + '/../')
@@ -311,7 +311,7 @@ module.exports = function () {
       else {
         console.info('Creating site theme folder', installPaths.site);
       }
-      wrench.copyDirSyncRecursive(source.site, installPaths.site, settings.wrench.site);
+      wrench.copyDirSyncRecursive(source.site, installPaths.site, settings.wrench.merge);
 
       /*--------------
         Theme Config

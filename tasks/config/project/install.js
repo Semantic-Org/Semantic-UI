@@ -228,7 +228,7 @@ module.exports = {
     siteVariable: /@siteFolder .*\'(.*)/mg
   },
 
-  // source paths (relative to tasks/install.js )
+  // source paths (when installing)
   source: {
     config       : './semantic.json.example',
     definitions  : './src/definitions',
@@ -239,6 +239,7 @@ module.exports = {
     themeConfig  : './src/theme.config.example',
     themeImport  : './src/theme.less',
     themes       : './src/themes',
+    defaultTheme : './src/themes/default',
     userGulpFile : './tasks/config/npm/gulpfile.js'
   },
 
