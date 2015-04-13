@@ -730,26 +730,20 @@ module.exports = {
     /* Copy Install Folders */
     wrench: {
 
-      // copy during npm update (default theme / definition)
-      update: {
+      // overwrite existing files update & install (default theme / definition)
+      overwrite: {
         forceDelete       : true,
         excludeHiddenUnix : true,
         preserveFiles     : false
       },
 
-      // only create files that don't exist (site theme)
+      // only create files that don't exist (site theme update)
       merge: {
         forceDelete       : false,
         excludeHiddenUnix : true,
         preserveFiles     : true
       }
 
-      // copy during first npm install
-      install: {
-        forceDelete       : true,
-        excludeHiddenUnix : true,
-        preserveFiles     : false
-      },
     }
   }
 
