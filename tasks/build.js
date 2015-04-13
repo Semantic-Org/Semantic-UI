@@ -54,7 +54,7 @@ module.exports = function(callback) {
   console.info('Building Semantic');
 
   if( !install.isSetup() ) {
-    console.error('Cannot build files. Run "gulp install" to set-up Semantic');
+    console.error('Cannot find semantic.json. Run "gulp install" to set-up Semantic');
     return;
   }
 
