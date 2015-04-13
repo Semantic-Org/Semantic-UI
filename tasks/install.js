@@ -239,7 +239,7 @@ module.exports = function () {
           lessImport   : folders.lessImport,
           tasks        : folders.tasks,
           theme        : folders.themes,
-          defaultTheme : folders.defaultTheme,
+          defaultTheme : path.join(folders.themes, folders.defaultTheme),
           themeImport  : folders.themeImport
         });
 
