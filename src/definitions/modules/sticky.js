@@ -398,7 +398,6 @@ $.fn.sticky = function(parameters) {
 
             if( module.is.initialPosition() ) {
               if(scroll.top >= context.bottom) {
-                console.log(scroll.top, context.bottom);
                 module.debug('Element bottom of container');
                 module.bindBottom();
               }
