@@ -102,6 +102,7 @@
 - **Form** - `field` inside `fields` no longer produce double sized margins.
 - **Form** - Form sizes and input sizes now inherit from `site.variables`
 - **Form Validation** - Form validation now validates correctly on `<select>` change
+- **Form/Input** - `ui labeled input` inside `form` will no longer escape column width. `ui fluid input` will now use input widths shorter than browser default.
 - **Grid** - Fix `doubling row` not working correctly inside a different `doubling grid` (css spec issue)
 - **Grid** - Fix `doubling grid` incorrectly applying width to `(x) column row`
 - **Grid** - First column on `stackable grid` no longer receives top margin
