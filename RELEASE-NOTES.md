@@ -6,6 +6,7 @@
 **Bugs**
 
 - **Sticky** - Fixes errant `console.log` statement appearing in source
+- **Card** - Fixes card `flex` display issues in IE
 - **Build Tools** - Fixes issue where `npm update` install scripts would remove custom themes from `src/themes/` during copy after updating Semantic UI
 
 ### Version 1.11.6 - March 27, 2015
