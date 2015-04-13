@@ -4,6 +4,7 @@
 
 **Bugs**
 - **Build Tools** - Fixed `npm install` without `semantic.json` to merge changes with site theme and packaged themes in a similar fashion to `npm update`
+- **Build** - `gulp build` now properly warns against missing `semantic.json` **Thanks @rudyrk**
 
 ### Version 1.11.7 - April 13, 2015
 
