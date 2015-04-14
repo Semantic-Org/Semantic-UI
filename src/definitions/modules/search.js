@@ -134,11 +134,12 @@ $.fn.search = function(parameters) {
                 href    = $link.attr('href')   || false,
                 target  = $link.attr('target') || false,
                 title   = $title.html(),
-                name    = ($title.length > 0)
+                // title is used for result lookup
+                value   = ($title.length > 0)
                   ? $title.text()
                   : false,
                 results = module.get.results(),
-                result  = module.get.result(name, results),
+                result  = module.get.result(value, results),
                 returnedValue
               ;
               if( $.isFunction(settings.onSelect) ) {
@@ -148,8 +149,8 @@ $.fn.search = function(parameters) {
                 }
               }
               module.hideResults();
-              if(name) {
-                module.set.value(name);
+              if(value) {
+                module.set.value(value);
               }
               if(href) {
                 module.verbose('Opening search link found in result', $link);
@@ -304,7 +305,7 @@ $.fn.search = function(parameters) {
                 if($.isArray(category.results)) {
                   result = module.search.object(value, category.results, true)[0];
                   if(result && result.length > 0) {
-                    return true;
+                    return false;
                   }
                 }
               });
