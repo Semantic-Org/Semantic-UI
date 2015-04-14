@@ -2,7 +2,8 @@
 
 ### Version 2.0.0 - March xx, 2015
 
-**New UI**
+**New UI / Major Changes**
+- **API** - API can now be used without `$.ajax`. `mockResponse` can be used to resolve request with a local function that receives the same function as the server. `mockResponseAsync` allows you to specify to return server response from a custom async callback.
 - **Container** - Containers are fixed width containers meant for holding page contents, and are a simpler alternative to `ui page grid`, view more [examples in docs](http://www.semantic-ui.com/elements/container.html#examples)
 - **Multiselect** - New dropdown component has been added for multi-select
 - **Grid** - Grids are now based on `flexbox`, columns are now `equal height` by default. Flexbox alignment has been added for easier vertical alignment.
@@ -27,6 +28,7 @@
 
 **Enhancements**
 - **Accordion** - adds `onOpening` and `onClosing` callback (before animation) to go with `onOpen`, `onClose` (after animation) **Thanks @cluppric**
+
 - **API** - API callbacks now have an `onResponse` callback that can modified a server response before it is parsed by other callbacks for success or failure conditions. **Thanks @mnquintana**
 - **Accordion** - Added `on` setting for accordion trigger event
 - **Build Tools** - Adjusting `site.variables` will now rebuild all UI, instead of just `site.less`

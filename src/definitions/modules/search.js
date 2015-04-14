@@ -83,7 +83,7 @@ $.fn.search = function(parameters) {
             // results
             .on('mousedown' + eventNamespace, selector.results, module.event.result.mousedown)
             .on('mouseup'   + eventNamespace, selector.results, module.event.result.mouseup)
-            .on('click'     + eventNamespace, selector.results, selector.result, module.event.result.click)
+            .on('click'     + eventNamespace, selector.result,  module.event.result.click)
           ;
           module.instantiate();
         },
@@ -304,7 +304,7 @@ $.fn.search = function(parameters) {
               $.each(results, function(index, category) {
                 if($.isArray(category.results)) {
                   result = module.search.object(value, category.results, true)[0];
-                  if(result && result.length > 0) {
+                  if(result) {
                     return false;
                   }
                 }
@@ -416,48 +416,61 @@ $.fn.search = function(parameters) {
           },
           object: function(searchTerm, source, matchExact) {
             var
-              results         = [],
-              fullTextResults = [],
-              searchFields    = $.isArray(settings.searchFields)
+              results      = [],
+              fuzzyResults = [],
+              searchExp    = searchTerm.replace(regExp.escape, '\\$&'),
+              matchRegExp  = new RegExp(regExp.beginsWith + searchExp, 'i'),
+              searchFields = $.isArray(settings.searchFields)
                 ? settings.searchFields
                 : [settings.searchFields],
-              searchExp       = searchTerm.replace(regExp.escape, '\\$&'),
-              searchRegExp    = new RegExp(regExp.exact + searchExp, 'i')
+
+              // avoid duplicates when pushing results
+              addResult = function(array, value) {
+                var
+                  notResult      = ($.inArray(content, results) == -1),
+                  notFuzzyResult = ($.inArray(content, fuzzyResults) == -1)
+                ;
+                if(notResult && notFuzzyResult) {
+                  array.push(value);
+                }
+              }
             ;
 
             source = source || settings.source;
 
-            // exit conditions on no source
+            // exit conditions if no source
             if(source === undefined) {
               module.error(error.source);
               return [];
             }
-            // iterate through search fields in array order
+
+            // iterate through search fields looking for matches
             $.each(searchFields, function(index, field) {
               $.each(source, function(label, content) {
                 var
-                  fieldExists = (typeof content[field] == 'string'),
-                  notAlreadyResult = ($.inArray(content, results) == -1 && $.inArray(content, fullTextResults) == -1)
+                  fieldExists = (typeof content[field] == 'string')
                 ;
-                if(matchExact) {
-                  if(content[field] == searchTerm) {
-                    results.push(content);
-                    return true;
+                if(fieldExists) {
+                  if(matchExact) {
+                    if(content[field] == searchTerm) {
+                      // match exact value
+                      addResult(results, content);
+                    }
                   }
-                }
-                else {
-                  if(fieldExists && notAlreadyResult) {
-                    if( content[field].match(searchRegExp) ) {
-                      results.push(content);
+                  else {
+                    if( content[field].match(matchRegExp) ) {
+                      // content starts with value (first in results)
+                      addResult(results, content);
                     }
                     else if(settings.searchFullText && module.fuzzySearch(searchTerm, content[field]) ) {
-                      fullTextResults.push(content);
+                      // content fuzzy matches (last in results)
+                      addResult(fuzzyResults, content);
                     }
                   }
                 }
               });
             });
-            return $.merge(results, fullTextResults);
+            return $.merge(results, fuzzyResults);
           }
         },
 
@@ -893,7 +906,9 @@ $.fn.search.settings = {
 
   automatic      : true,
   hideDelay      : 0,
-  searchDelay    : 100,
+
+  searchDelay    : 200,
+
   maxResults     : 7,
   cache          : true,
 
@@ -935,8 +950,8 @@ $.fn.search.settings = {
   },
 
   regExp: {
-    escape : /[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g,
-    exact  : '(?:\s|^)'
+    escape     : /[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g,
+    beginsWith : '(?:\s|^)'
   },
 
   selector : {
