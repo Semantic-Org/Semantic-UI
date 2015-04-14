@@ -137,7 +137,7 @@ $.api = $.fn.api = function(parameters) {
           }
 
           // call beforesend and get any settings changes
-          requestSettings         = module.get.settings();
+          requestSettings = module.get.settings();
 
           // check if before send cancelled request
           if(requestSettings === false) {
@@ -366,11 +366,18 @@ $.api = $.fn.api = function(parameters) {
               settings.onComplete.call(context, response, $module);
             },
             done: function(response) {
+              var
+                translatedResponse = ( $.isFunction(settings.onResponse) )
+                  ? settings.onResponse.call(context, $.extend(true, {}, response))
+                  : false
+              ;
               module.debug('API Response Received', response);
-              if( $.isFunction(settings.filter) ) {
-                response = settings.filter(response);
-                module.debug('Response filter applied', settings.filter, response);
+
+              if(translatedResponse) {
+                module.debug('Modified API response in onResponse callback', settings.onResponse, translatedResponse, response);
+                response = translatedResponse;
               }
+
               if(settings.dataType == 'json') {
                 if( $.isFunction(settings.successTest) ) {
                   module.debug('Checking JSON returned success', settings.successTest, response);
@@ -438,6 +445,7 @@ $.api = $.fn.api = function(parameters) {
         },
 
         create: {
+          // api promise
           request: function() {
             return $.Deferred()
               .always(module.event.request.complete)
@@ -445,6 +453,7 @@ $.api = $.fn.api = function(parameters) {
               .fail(module.event.request.error)
             ;
           },
+          // xhr promise
           xhr: function() {
             return $.ajax(ajaxSettings)
               .always(module.event.xhr.always)
@@ -818,18 +827,19 @@ $.api.settings = {
   data            : {},
   dataType        : 'json',
 
-  // callbacks
+  // callbacks before request
   beforeSend  : function(settings) { return settings; },
   beforeXHR   : function(xhr) {},
-
   onRequest   : function(promise, xhr) {},
+
+  // after request
+  onResponse  : function(response) { response.id = 2; return response; },
   onSuccess   : function(response, $module) {},
   onComplete  : function(response, $module) {},
   onFailure   : function(errorMessage, $module) {},
   onError     : function(errorMessage, $module) {},
   onAbort     : function(errorMessage, $module) {},
 
-  filter      : false,
   successTest : false,
 
   // errors
