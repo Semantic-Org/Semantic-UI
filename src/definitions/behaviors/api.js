@@ -463,11 +463,11 @@ $.api = $.fn.api = function(parameters) {
             if( module.is.mocked() ) {
               if(settings.mockResponse) {
                 if($.isFunction(settings.mockResponse)) {
-                  module.verbose('Using sync mocked response callback', settings.mockResponse);
+                  module.debug('Using sync mocked response callback', settings.mockResponse);
                   module.request.resolveWith(context, [ settings.mockResponse.call(context, settings) ]);
                 }
                 else {
-                  module.verbose('Using mocked response', settings.mockResponse);
+                  module.debug('Using mocked response', settings.mockResponse);
                   module.request.resolveWith(context, [ settings.mockResponse ]);
                 }
               }
@@ -476,6 +476,7 @@ $.api = $.fn.api = function(parameters) {
                   module.verbose('Async callback returned response', response);
                   module.request.resolveWith(context, response);
                 };
+                module.debug('Using async mocked response', settings.mockResponseAsync);
                 settings.mockResponseAsync.call(context, settings, callback);
               }
             }
