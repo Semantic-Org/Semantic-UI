@@ -833,7 +833,7 @@ $.api.settings = {
   onRequest   : function(promise, xhr) {},
 
   // after request
-  onResponse  : function(response) { response.id = 2; return response; },
+  onResponse  : false, // function(response) { },
   onSuccess   : function(response, $module) {},
   onComplete  : function(response, $module) {},
   onFailure   : function(errorMessage, $module) {},
