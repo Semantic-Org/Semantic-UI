@@ -207,7 +207,6 @@ $.api = $.fn.api = function(parameters) {
 
         },
 
-
         is: {
           disabled: function() {
             return ($module.filter(settings.filter).length > 0);
@@ -216,7 +215,7 @@ $.api = $.fn.api = function(parameters) {
             return $module.is('form');
           },
           mocked: function() {
-            return settings.mockResponse;
+            return (settings.mockResponse || settings.mockResponseAsync);
           },
           input: function() {
             return $module.is('input');
@@ -458,14 +457,27 @@ $.api = $.fn.api = function(parameters) {
           },
           // xhr promise
           xhr: function() {
+            var
+              callback
+            ;
             if( module.is.mocked() ) {
-              var
-                response = $.isFunction(settings.mockResponse)
-                  ? settings.mockResponse.call(context, settings)
-                  : settings.mockResponse
-              ;
-              module.verbose('Using mocked server response', response);
-              return module.request.resolveWith(context, [response]);
+              if(settings.mockResponse) {
+                if($.isFunction(settings.mockResponse)) {
+                  module.verbose('Using sync mocked response callback', settings.mockResponse);
+                  module.request.resolveWith(context, [ settings.mockResponse.call(context, settings) ]);
+                }
+                else {
+                  module.verbose('Using mocked response', settings.mockResponse);
+                  module.request.resolveWith(context, [ settings.mockResponse ]);
+                }
+              }
+              else if( $.isFunction(settings.mockResponseAsync) ) {
+                callback = function(response) {
+                  module.verbose('Async callback returned response', response);
+                  module.request.resolveWith(context, response);
+                };
+                settings.mockResponseAsync.call(context, settings, callback);
+              }
             }
             else {
               return $.ajax(ajaxSettings)
@@ -842,7 +854,8 @@ $.api.settings = {
   dataType        : 'json',
 
   // mock response
-  mockResponse    : false,
+  mockResponse      : false,
+  mockResponseAsync : false,
 
   // callbacks before request
   beforeSend  : function(settings) { return settings; },
