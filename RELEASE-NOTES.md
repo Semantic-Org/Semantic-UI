@@ -14,8 +14,9 @@
 
 **Major Changes**
 - **Colors** - Global colors defaults have been adjusted to improve contrast with white text
+- **Multiple UI** - Many components now use flexbox, which means previous confusing fixes like `font-size: 0;` to remove [white-space from inline block](https://css-tricks.com/fighting-the-space-between-inline-block-elements/) have been removed. This means any element can be a direct child of `grid` or `menu`.
 - **Menu** - Menu now uses flexbox. This allows menu items to match each others heights regardless of each items content size. `right menu` content should now follow other menu content instead of preceding it (no longer uses float).
-- **Grid** - grids are now all `equal height` by default, the `equal height` variation can safely be removed
+- **Grid** - Grids are now `flexbox` and `equal height` by default, the `equal height` variation can safely be removed
 - **Transition** - Fallback javascript animations have been removed from some UI components like dropdown to reduce redundant code and filesizes.
 - **Form Validation** - Form validation now uses a single `settings` object like other modules. Using `(fields, settings)` will continue to work but will produce a deprecation notifications in `console`
 - **Form Validation** - Form validation now supports several validation for multiple
@@ -26,6 +27,7 @@
 
 **Enhancements**
 - **Accordion** - adds `onOpening` and `onClosing` callback (before animation) to go with `onOpen`, `onClose` (after animation) **Thanks @cluppric**
+- **Accordion** - Added `on` setting for accordion trigger event
 - **Build Tools** - Adjusting `site.variables` will now rebuild all UI, instead of just `site.less`
 - **Divider** - `vertical divider` inside `ui grid` now accounts for column padding
 - **Dropdown** - Dropdowns now have `match` setting to specify whether to match on `text`, `value` or `both`

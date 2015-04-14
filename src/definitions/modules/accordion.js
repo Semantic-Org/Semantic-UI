@@ -105,7 +105,7 @@ $.fn.accordion = function(parameters) {
           events: function() {
             module.debug('Binding delegated events');
             $module
-              .on('click' + eventNamespace, selector.trigger, module.event.click)
+              .on(settings.on + eventNamespace, selector.trigger, module.event.click)
             ;
           }
         },
@@ -546,6 +546,8 @@ $.fn.accordion.settings = {
 
   duration        : 350,
   easing          : 'easeOutQuad',
+
+  on              : 'click',
 
   onOpening       : function(){},
   onOpen          : function(){},
