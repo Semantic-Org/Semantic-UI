@@ -86,6 +86,7 @@
   border-radius: 0em;
 }
 .ui.steps .step:after {
+  display: none;
   position: absolute;
   z-index: 2;
   content: '';
@@ -139,7 +140,7 @@
 
 /* Icon */
 .ui.steps .step > .icon {
-  font-size: 2.75em;
+  font-size: 2.5em;
   margin: 0em 1rem 0em 0em;
 }
 .ui.steps .step > .icon,
@@ -193,7 +194,7 @@
       -ms-flex-item-align: middle;
           align-self: middle;
   margin-right: 1rem;
-  font-size: 2.75em;
+  font-size: 2.5em;
   counter-increment: ordered;
   font-family: inherit;
   font-weight: bold;
@@ -244,7 +245,7 @@
 }
 
 /* Active Arrow */
-.ui.vertical.steps .active.step:after {
+.ui.steps .active.step:after {
   display: block;
 }
 

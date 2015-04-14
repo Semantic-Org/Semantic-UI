@@ -9703,6 +9703,10 @@ img.ui.bordered.image {
   display: flex;
 }
 
+.ui.fluid.input > input {
+  width: 0px !important;
+}
+
 /*--------------------
         Size
 ---------------------*/
@@ -13402,6 +13406,7 @@ ol.ui.horizontal.list li:before,
 }
 
 .ui.steps .step:after {
+  display: none;
   position: absolute;
   z-index: 2;
   content: '';
@@ -13460,7 +13465,7 @@ ol.ui.horizontal.list li:before,
 /* Icon */
 
 .ui.steps .step > .icon {
-  font-size: 2.75em;
+  font-size: 2.5em;
   margin: 0em 1rem 0em 0em;
 }
 
@@ -13517,7 +13522,7 @@ ol.ui.horizontal.list li:before,
   -ms-flex-item-align: middle;
   align-self: middle;
   margin-right: 1rem;
-  font-size: 2.75em;
+  font-size: 2.5em;
   counter-increment: ordered;
   font-family: inherit;
   font-weight: bold;
@@ -13575,7 +13580,7 @@ ol.ui.horizontal.list li:before,
 
 /* Active Arrow */
 
-.ui.vertical.steps .active.step:after {
+.ui.steps .active.step:after {
   display: block;
 }
 
@@ -14138,6 +14143,14 @@ ol.ui.horizontal.list li:before,
   -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
+
+/* Collapse Flex */
+
+.ui.form .ui.input > input {
+  width: 0px !important;
+}
+
+/* Text Area */
 
 .ui.textarea,
 .ui.form textarea {
@@ -33369,6 +33382,14 @@ html.ios {
   -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
+
+/* Collapse Flex */
+
+.ui.form .ui.input > input {
+  width: 0px !important;
+}
+
+/* Text Area */
 
 .ui.textarea,
 .ui.form textarea {

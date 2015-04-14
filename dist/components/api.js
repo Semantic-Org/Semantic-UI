@@ -137,7 +137,7 @@ $.api = $.fn.api = function(parameters) {
           }
 
           // call beforesend and get any settings changes
-          requestSettings         = module.get.settings();
+          requestSettings = module.get.settings();
 
           // check if before send cancelled request
           if(requestSettings === false) {
@@ -161,7 +161,7 @@ $.api = $.fn.api = function(parameters) {
           }
 
           // exit conditions reached, missing url parameters
-          if( !url ) {
+          if( !url && !module.is.mocked()) {
             if( module.is.form() ) {
               url = $module.attr('action') || '';
               module.debug('No url or action specified, defaulting to form action', url);
@@ -207,13 +207,15 @@ $.api = $.fn.api = function(parameters) {
 
         },
 
-
         is: {
           disabled: function() {
             return ($module.filter(settings.filter).length > 0);
           },
           form: function() {
             return $module.is('form');
+          },
+          mocked: function() {
+            return (settings.mockResponse || settings.mockResponseAsync);
           },
           input: function() {
             return $module.is('input');
@@ -366,7 +368,18 @@ $.api = $.fn.api = function(parameters) {
               settings.onComplete.call(context, response, $module);
             },
             done: function(response) {
+              var
+                translatedResponse = ( $.isFunction(settings.onResponse) )
+                  ? settings.onResponse.call(context, $.extend(true, {}, response))
+                  : false
+              ;
               module.debug('API Response Received', response);
+
+              if(translatedResponse) {
+                module.debug('Modified API response in onResponse callback', settings.onResponse, translatedResponse, response);
+                response = translatedResponse;
+              }
+
               if(settings.dataType == 'json') {
                 if( $.isFunction(settings.successTest) ) {
                   module.debug('Checking JSON returned success', settings.successTest, response);
@@ -434,6 +447,7 @@ $.api = $.fn.api = function(parameters) {
         },
 
         create: {
+          // api promise
           request: function() {
             return $.Deferred()
               .always(module.event.request.complete)
@@ -441,12 +455,38 @@ $.api = $.fn.api = function(parameters) {
               .fail(module.event.request.error)
             ;
           },
+          // xhr promise
           xhr: function() {
-            return $.ajax(ajaxSettings)
-              .always(module.event.xhr.always)
-              .done(module.event.xhr.done)
-              .fail(module.event.xhr.fail)
+            var
+              callback
             ;
+            if( module.is.mocked() ) {
+              if(settings.mockResponse) {
+                if($.isFunction(settings.mockResponse)) {
+                  module.debug('Using sync mocked response callback', settings.mockResponse);
+                  module.request.resolveWith(context, [ settings.mockResponse.call(context, settings) ]);
+                }
+                else {
+                  module.debug('Using mocked response', settings.mockResponse);
+                  module.request.resolveWith(context, [ settings.mockResponse ]);
+                }
+              }
+              else if( $.isFunction(settings.mockResponseAsync) ) {
+                callback = function(response) {
+                  module.verbose('Async callback returned response', response);
+                  module.request.resolveWith(context, response);
+                };
+                module.debug('Using async mocked response', settings.mockResponseAsync);
+                settings.mockResponseAsync.call(context, settings, callback);
+              }
+            }
+            else {
+              return $.ajax(ajaxSettings)
+                .always(module.event.xhr.always)
+                .done(module.event.xhr.done)
+                .fail(module.event.xhr.fail)
+              ;
+            }
           }
         },
 
@@ -576,7 +616,7 @@ $.api = $.fn.api = function(parameters) {
                 url = settings.api[action];
                 module.debug('Found template url', url);
               }
-              else if( !module.is.form() ) {
+              else if( !module.is.form() && !module.is.mocked() ) {
                 module.error(error.missingAction, settings.action, settings.api);
               }
             }
@@ -814,11 +854,17 @@ $.api.settings = {
   data            : {},
   dataType        : 'json',
 
-  // callbacks
+  // mock response
+  mockResponse      : false,
+  mockResponseAsync : false,
+
+  // callbacks before request
   beforeSend  : function(settings) { return settings; },
   beforeXHR   : function(xhr) {},
-
   onRequest   : function(promise, xhr) {},
+
+  // after request
+  onResponse  : false, // function(response) { },
   onSuccess   : function(response, $module) {},
   onComplete  : function(response, $module) {},
   onFailure   : function(errorMessage, $module) {},

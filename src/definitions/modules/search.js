@@ -83,7 +83,7 @@ $.fn.search = function(parameters) {
             // results
             .on('mousedown' + eventNamespace, selector.results, module.event.result.mousedown)
             .on('mouseup'   + eventNamespace, selector.results, module.event.result.mouseup)
-            .on('click'     + eventNamespace, selector.results, selector.result, module.event.result.click)
+            .on('click'     + eventNamespace, selector.result,  module.event.result.click)
           ;
           module.instantiate();
         },
@@ -134,11 +134,12 @@ $.fn.search = function(parameters) {
                 href    = $link.attr('href')   || false,
                 target  = $link.attr('target') || false,
                 title   = $title.html(),
-                name    = ($title.length > 0)
+                // title is used for result lookup
+                value   = ($title.length > 0)
                   ? $title.text()
                   : false,
                 results = module.get.results(),
-                result  = module.get.result(name, results),
+                result  = module.get.result(value, results),
                 returnedValue
               ;
               if( $.isFunction(settings.onSelect) ) {
@@ -148,8 +149,8 @@ $.fn.search = function(parameters) {
                 }
               }
               module.hideResults();
-              if(name) {
-                module.set.value(name);
+              if(value) {
+                module.set.value(value);
               }
               if(href) {
                 module.verbose('Opening search link found in result', $link);
@@ -303,8 +304,8 @@ $.fn.search = function(parameters) {
               $.each(results, function(index, category) {
                 if($.isArray(category.results)) {
                   result = module.search.object(value, category.results, true)[0];
-                  if(result && result.length > 0) {
-                    return true;
+                  if(result) {
+                    return false;
                   }
                 }
               });
@@ -415,48 +416,61 @@ $.fn.search = function(parameters) {
           },
           object: function(searchTerm, source, matchExact) {
             var
-              results         = [],
-              fullTextResults = [],
-              searchFields    = $.isArray(settings.searchFields)
+              results      = [],
+              fuzzyResults = [],
+              searchExp    = searchTerm.replace(regExp.escape, '\\$&'),
+              matchRegExp  = new RegExp(regExp.beginsWith + searchExp, 'i'),
+              searchFields = $.isArray(settings.searchFields)
                 ? settings.searchFields
                 : [settings.searchFields],
-              searchExp       = searchTerm.replace(regExp.escape, '\\$&'),
-              searchRegExp    = new RegExp(regExp.exact + searchExp, 'i')
+
+              // avoid duplicates when pushing results
+              addResult = function(array, value) {
+                var
+                  notResult      = ($.inArray(content, results) == -1),
+                  notFuzzyResult = ($.inArray(content, fuzzyResults) == -1)
+                ;
+                if(notResult && notFuzzyResult) {
+                  array.push(value);
+                }
+              }
             ;
 
             source = source || settings.source;
 
-            // exit conditions on no source
+            // exit conditions if no source
             if(source === undefined) {
               module.error(error.source);
               return [];
             }
-            // iterate through search fields in array order
+
+            // iterate through search fields looking for matches
             $.each(searchFields, function(index, field) {
               $.each(source, function(label, content) {
                 var
-                  fieldExists = (typeof content[field] == 'string'),
-                  notAlreadyResult = ($.inArray(content, results) == -1 && $.inArray(content, fullTextResults) == -1)
+                  fieldExists = (typeof content[field] == 'string')
                 ;
-                if(matchExact) {
-                  if(content[field] == searchTerm) {
-                    results.push(content);
-                    return true;
+                if(fieldExists) {
+                  if(matchExact) {
+                    if(content[field] == searchTerm) {
+                      // match exact value
+                      addResult(results, content);
+                    }
                   }
-                }
-                else {
-                  if(fieldExists && notAlreadyResult) {
-                    if( content[field].match(searchRegExp) ) {
-                      results.push(content);
+                  else {
+                    if( content[field].match(matchRegExp) ) {
+                      // content starts with value (first in results)
+                      addResult(results, content);
                     }
                     else if(settings.searchFullText && module.fuzzySearch(searchTerm, content[field]) ) {
-                      fullTextResults.push(content);
+                      // content fuzzy matches (last in results)
+                      addResult(fuzzyResults, content);
                     }
                   }
                 }
               });
             });
-            return $.merge(results, fullTextResults);
+            return $.merge(results, fuzzyResults);
           }
         },
 
@@ -628,13 +642,6 @@ $.fn.search = function(parameters) {
         hideResults: function() {
           if( module.is.visible() ) {
             if( module.can.transition() ) {
-              console.log('here', {
-                  animation  : settings.transition + ' out',
-                  debug      : settings.debug,
-                  verbose    : settings.verbose,
-                  duration   : settings.duration,
-                  queue      : true
-                });
               module.debug('Hiding results with css animations');
               $results
                 .transition({
@@ -884,29 +891,46 @@ $.fn.search.settings = {
   verbose        : false,
   performance    : true,
 
+  // template to use (specified in settings.templates)
   type           : 'standard',
+
+  // minimum characters required to search
   minCharacters  : 1,
 
-  // api config
+  // API config
   apiSettings    : false,
 
+  // object to search
   source         : false,
+
+  // fields to search
   searchFields   : [
     'title',
     'description'
   ],
+
+  // whether to include fuzzy results in local search
   searchFullText : true,
 
+  // whether to add events to prompt automatically
   automatic      : true,
+
   hideDelay      : 0,
-  searchDelay    : 100,
+  // delay before searching
+  searchDelay    : 200,
+
+  // maximum results returned from local
   maxResults     : 7,
+
+  // whether to store lookups in local cache
   cache          : true,
 
+  // transition settings
   transition     : 'scale',
   duration       : 300,
   easing         : 'easeOutExpo',
 
+  // callbacks
   onSelect       : false,
   onResultsAdd   : false,
 
@@ -941,8 +965,8 @@ $.fn.search.settings = {
   },
 
   regExp: {
-    escape : /[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g,
-    exact  : '(?:\s|^)'
+    escape     : /[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g,
+    beginsWith : '(?:\s|^)'
   },
 
   selector : {
