@@ -455,11 +455,23 @@ $.api = $.fn.api = function(parameters) {
           },
           // xhr promise
           xhr: function() {
-            return $.ajax(ajaxSettings)
-              .always(module.event.xhr.always)
-              .done(module.event.xhr.done)
-              .fail(module.event.xhr.fail)
-            ;
+            if(settings.mockResponse) {
+              if( $.isFunction(settings.mockResponse) ) {
+                response = settings.mockResponse.call(context, settings);
+              }
+              else {
+                response = settings.mockResponse;
+              }
+              module.verbose('Using mocked server response', response);
+              return module.request.resolveWith(context, [response]);
+            }
+            else {
+              return $.ajax(ajaxSettings)
+                .always(module.event.xhr.always)
+                .done(module.event.xhr.done)
+                .fail(module.event.xhr.fail)
+              ;
+            }
           }
         },
 
@@ -826,6 +838,9 @@ $.api.settings = {
   method          : 'get',
   data            : {},
   dataType        : 'json',
+
+  // mock response
+  mockResponse    : false,
 
   // callbacks before request
   beforeSend  : function(settings) { return settings; },
