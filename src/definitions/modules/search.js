@@ -891,31 +891,46 @@ $.fn.search.settings = {
   verbose        : false,
   performance    : true,
 
+  // template to use (specified in settings.templates)
   type           : 'standard',
+
+  // minimum characters required to search
   minCharacters  : 1,
 
-  // api config
+  // API config
   apiSettings    : false,
 
+  // object to search
   source         : false,
+
+  // fields to search
   searchFields   : [
     'title',
     'description'
   ],
+
+  // whether to include fuzzy results in local search
   searchFullText : true,
 
+  // whether to add events to prompt automatically
   automatic      : true,
-  hideDelay      : 0,
 
+  hideDelay      : 0,
+  // delay before searching
   searchDelay    : 200,
 
+  // maximum results returned from local
   maxResults     : 7,
+
+  // whether to store lookups in local cache
   cache          : true,
 
+  // transition settings
   transition     : 'scale',
   duration       : 300,
   easing         : 'easeOutExpo',
 
+  // callbacks
   onSelect       : false,
   onResultsAdd   : false,
 
