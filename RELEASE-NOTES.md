@@ -27,6 +27,7 @@
 
 **Enhancements**
 - **Accordion** - adds `onOpening` and `onClosing` callback (before animation) to go with `onOpen`, `onClose` (after animation) **Thanks @cluppric**
+- **API** - API callbacks now have an `onResponse` callback that can modified a server response before it is parsed by other callbacks for success or failure conditions. **Thanks @mnquintana**
 - **Accordion** - Added `on` setting for accordion trigger event
 - **Build Tools** - Adjusting `site.variables` will now rebuild all UI, instead of just `site.less`
 - **Divider** - `vertical divider` inside `ui grid` now accounts for column padding
