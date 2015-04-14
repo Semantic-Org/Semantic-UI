@@ -161,7 +161,7 @@ $.api = $.fn.api = function(parameters) {
           }
 
           // exit conditions reached, missing url parameters
-          if( !url ) {
+          if( !url && !module.is.mocked()) {
             if( module.is.form() ) {
               url = $module.attr('action') || '';
               module.debug('No url or action specified, defaulting to form action', url);
@@ -214,6 +214,9 @@ $.api = $.fn.api = function(parameters) {
           },
           form: function() {
             return $module.is('form');
+          },
+          mocked: function() {
+            return settings.mockResponse;
           },
           input: function() {
             return $module.is('input');
@@ -455,13 +458,12 @@ $.api = $.fn.api = function(parameters) {
           },
           // xhr promise
           xhr: function() {
-            if(settings.mockResponse) {
-              if( $.isFunction(settings.mockResponse) ) {
-                response = settings.mockResponse.call(context, settings);
-              }
-              else {
-                response = settings.mockResponse;
-              }
+            if( module.is.mocked() ) {
+              var
+                response = $.isFunction(settings.mockResponse)
+                  ? settings.mockResponse.call(context, settings)
+                  : settings.mockResponse
+              ;
               module.verbose('Using mocked server response', response);
               return module.request.resolveWith(context, [response]);
             }
@@ -601,7 +603,7 @@ $.api = $.fn.api = function(parameters) {
                 url = settings.api[action];
                 module.debug('Found template url', url);
               }
-              else if( !module.is.form() ) {
+              else if( !module.is.form() && !module.is.mocked() ) {
                 module.error(error.missingAction, settings.action, settings.api);
               }
             }
