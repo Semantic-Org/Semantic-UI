@@ -19,25 +19,18 @@
 @checkboxBorder: 1px solid @solidBorderColor;
 @checkboxBorderRadius: 0.25em;
 @checkboxTransition:
-  background-color 0.3s ease,
-  border 0.3s ease,
-  box-shadow 0.3s ease
+  background-color @defaultDuration @defaultEasing,
+  border @defaultDuration @defaultEasing,
+  box-shadow @defaultDuration @defaultEasing
 ;
 
 /* Checkmark */
 @checkboxCheckTop: 0px;
 @checkboxCheckLeft: 0px;
 
-
-/*-------------------
-      Coupling
---------------------*/
-
+/* Label */
 @labelColor: @textColor;
-
-@labelOpacity: 0.6;
-@labelHoverOpacity: 0.8;
-@labelSelectedOpacity: 1;
+@labelTransition: color @defaultDuration @defaultEasing;
 
 /*-------------------
         States
@@ -47,19 +40,19 @@
 @checkboxHoverBorder: 1px solid @selectedBorderColor;
 @labelHoverColor: @hoveredTextColor;
 
-@checkboxPressedBackground: #F5F5F5;
+@checkboxPressedBackground: @offWhite;
 @checkboxPressedBorder: 1px solid @selectedBorderColor;
-@checkboxPressedColor: inherit;
+@checkboxPressedColor: @selectedTextColor;
 @labelPressedColor: @selectedTextColor;
 
-@checkboxFocusedBackground: #F5F5F5;
+@checkboxFocusedBackground: @offWhite;
 @checkboxFocusedBorder: 1px solid @selectedBorderColor;
-@checkboxFocusedColor: inherit;
+@checkboxFocusedColor: @selectedTextColor;
 @labelFocusedColor: @selectedTextColor;
 
 @checkboxActiveBackground: #FFFFFF;
 @checkboxActiveBorder: 1px solid @borderColor;
-@checkboxActiveColor: inherit;
+@checkboxActiveColor: @selectedTextColor;
 @labelActiveColor: @selectedTextColor;
 
 
@@ -81,6 +74,9 @@
 @checkboxBulletColor: @textColor;
 @checkboxBulletRadius: @circularRadius;
 
+@checkboxActiveBulletColor: @checkboxActiveColor;
+@checkboxRadioActiveBackground: @white;
+
 /* Slider & Toggle Handle */
 @handleBackground: @white @subtleGradient;
 @handleBoxShadow:
@@ -91,6 +87,7 @@
 /* Slider */
 @sliderHandleSize: 1.5rem;
 @sliderHandleOffset: (1rem - @sliderHandleSize) / 2;
+@sliderHandleTransition: left @defaultDuration @defaultEasing;
 @sliderLineWidth: 3.5rem;
 
 @sliderWidth: @sliderLineWidth;
@@ -100,6 +97,7 @@
 @sliderLineVerticalOffset: 0.4rem;
 @sliderLineColor: @neutralCheckbox;
 @sliderLineRadius: @circularRadius;
+@sliderLineTransition: background @defaultDuration @defaultEasing;
 
 @sliderTravelDistance: @sliderLineWidth - @sliderHandleSize;
 
@@ -124,8 +122,8 @@
 @toggleHandleRadius: @circularRadius;
 @toggleHandleOffset: 0rem;
 @toggleHandleTransition:
-  background 0.3s ease 0s,
-  left 0.3s ease 0s
+  background @defaultDuration @defaultEasing,
+  left @defaultDuration @defaultEasing
 ;
 
 @toggleLaneHeight: @toggleHandleSize;

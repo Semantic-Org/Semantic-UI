@@ -114,7 +114,7 @@
 .ui.checkbox + label {
   cursor: pointer;
   color: @labelColor;
-  transition: color 0.2s ease;
+  transition: @labelTransition;
   user-select: none;
 }
 
@@ -170,7 +170,7 @@
 .ui.checkbox input[type="radio"]:focus ~ .box:before,
 .ui.checkbox input[type="radio"]:focus ~ label:before {
   background: @checkboxFocusedBackground;
-  border: 1px solid @checkboxFocusedBorder;
+  border: @checkboxFocusedBorder;
 }
 .ui.checkbox input[type="checkbox"]:focus ~ .box:after,
 .ui.checkbox input[type="checkbox"]:focus ~ label:after,
@@ -194,7 +194,7 @@
 .ui.checkbox input[type="radio"]:checked ~ .box:before,
 .ui.checkbox input[type="radio"]:checked ~ label:before {
   background: @checkboxActiveBackground;
-  border: 1px solid @checkboxActiveBorder;
+  border: @checkboxActiveBorder;
 }
 
 .ui.checkbox input[type="checkbox"]:checked ~ .box:after,
@@ -204,6 +204,7 @@
   opacity: 1;
   color: @checkboxActiveColor;
 }
+
 
 /*--------------
     Read-Only
@@ -265,6 +266,7 @@
   left: @checkboxRadioLeft;
   font-size: @checkboxRadioCircleSize;
 }
+
 /* Radio Checkbox */
 .ui.radio.checkbox .box:after,
 .ui.radio.checkbox label:after {
@@ -275,6 +277,16 @@
   background-color: @checkboxBulletColor;
 }
 
+/* Active */
+
+.ui.radio.checkbox input[type="radio"]:checked ~ .box:before,
+.ui.radio.checkbox input[type="radio"]:checked ~ label:before {
+  background-color: @checkboxRadioActiveBackground;
+}
+.ui.radio.checkbox input[type="radio"]:checked ~ .box:after,
+.ui.radio.checkbox input[type="radio"]:checked ~ label:after {
+  background-color: @checkboxActiveBulletColor;
+}
 
 /*--------------
      Slider
@@ -309,9 +321,8 @@
 
   transform: none;
   border-radius: @sliderLineRadius;
-  transition:
-    background 0.3s ease
-  ;
+  transition: @sliderLineTransition;
+
 }
 
 /* Handle */
@@ -332,9 +343,7 @@
   transform: none;
 
   border-radius: @circularRadius;
-  transition:
-    left 0.3s ease 0s
-  ;
+  transition: @sliderHandleTransition;
 }
 
 /* Focus */
@@ -430,10 +439,7 @@
   left: 0em;
 
   border-radius: @circularRadius;
-  transition:
-    background 0.3s ease 0s,
-    left 0.3s ease 0s
-  ;
+  transition: @toggleHandleTransition;
 }
 
 .ui.toggle.checkbox input[type="checkbox"] ~ .box:after,
