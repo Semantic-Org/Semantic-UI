@@ -218,15 +218,24 @@
 @searchComputerMaxMenuHeight: @selectionComputerMaxMenuHeight;
 @searchWidescreenMaxMenuHeight: @selectionWidescreenMaxMenuHeight;
 
-/* Multiple Selection */
-@multipleSelectionVerticalPadding: (@searchSelectionVerticalPadding / 2); /* Split Padding Between Child and Group */
+/* Inline */
+@inlineIconMargin: 0em 0.5em 0em 0.25em;
+@inlineTextColor: inherit;
+@inlineTextFontWeight: bold;
+@inlineMenuDistance: 0.25em;
+@inlineMenuBorderRadius: @borderRadius;
+
+
+/* Multiple */
+
+/* Split Actual Padding Between Child and Group (allows for label spacing) */
+@multipleSelectionVerticalPadding: (@searchSelectionVerticalPadding * (1/3));
 @multipleSelectionLeftPadding: (@selectionHorizontalPadding - @labelHorizontalPadding);
 @multipleSelectionRightPadding: @selectionIconDistance;
 @multipleSelectionPadding: @multipleSelectionVerticalPadding @multipleSelectionRightPadding @multipleSelectionVerticalPadding @multipleSelectionLeftPadding;
-@multipleSelectionMinHeight: (@multipleSelectionVerticalPadding * 2) + @multipleSelectionChildLineHeight + (@multipleSelectionChildVerticalMargin * 2);
 
 /* Child Elements */
-@multipleSelectionChildVerticalMargin: (@searchSelectionVerticalPadding / 2);
+@multipleSelectionChildVerticalMargin: (@searchSelectionVerticalPadding * (2/3));
 @multipleSelectionChildSpacing: 0.4285em;
 @multipleSelectionChildMargin: @multipleSelectionChildVerticalMargin 0em @multipleSelectionChildVerticalMargin @multipleSelectionChildSpacing;
 @multipleSelectionChildLineHeight: @searchSelectionLineHeight;
@@ -237,21 +246,15 @@
 @multipleSelectionDropdownIconPadding: @labelPadding;
 
 /* Selection Label */
-@labelVerticalPadding: 0.4285em;
 @labelSize: @relativeSmall;
+@labelHorizontalSpacing: 0.5em;
+@labelVerticalSpacing: (0.46153em / 2); /* 6px @ 13em */
+@labelMargin: @labelVerticalSpacing @labelHorizontalSpacing @labelVerticalSpacing 0em;
+
+@labelVerticalPadding: 0.3846em; /* 5px @ 13px/em */
 @labelHorizontalPadding: @relativeMini;
 @labelPadding: @labelVerticalPadding @labelHorizontalPadding;
-@labelHorizontalSpacing: 0.5em;
-@labelVerticalSpacing: (0.3333em / 2);
 
-
-
-/* Inline */
-@inlineIconMargin: 0em 0.5em 0em 0.25em;
-@inlineTextColor: inherit;
-@inlineTextFontWeight: bold;
-@inlineMenuDistance: 0.25em;
-@inlineMenuBorderRadius: @borderRadius;
 
 /*-------------------
        States

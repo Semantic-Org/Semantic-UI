@@ -592,7 +592,6 @@ select.ui.dropdown {
 /* Multiple Selection */
 .ui.multiple.dropdown {
   padding: @multipleSelectionPadding;
-  min-height: @multipleSelectionMinHeight;
 }
 .ui.multiple.dropdown .menu {
   cursor: auto;
@@ -609,8 +608,9 @@ select.ui.dropdown {
   user-select: none;
   display: inline-block;
   vertical-align: baseline;
+  font-size: @labelSize;
   padding: @labelPadding;
-  margin: @labelVerticalSpacing @labelHorizontalSpacing @labelVerticalSpacing 0em;
+  margin: @labelMargin;
 }
 
 /* Dropdown Icon */
@@ -655,8 +655,9 @@ select.ui.dropdown {
   position: static;
   padding: 0;
   max-width: 100%;
-  width: @multipleSelectionSearchStartWidth;
   margin: @multipleSelectionChildMargin;
+  width: @multipleSelectionSearchStartWidth;
+  line-height: @multipleSelectionChildLineHeight;
 }
 
 
