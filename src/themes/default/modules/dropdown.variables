@@ -207,7 +207,7 @@
 @searchMinWidth: '';
 
 /* Search Selection */
-@searchSelectionLineHeight: 1.2142em; /* browser default for webkit <input> */
+@searchSelectionLineHeight: @defaultInputLineHeight;
 @searchSelectionLineHeightOffset: ((@searchSelectionLineHeight - 1em) / 2);
 @searchSelectionVerticalPadding: (@selectionVerticalPadding - @searchSelectionLineHeightOffset);
 @searchSelectionHorizontalPadding: @selectionHorizontalPadding;
@@ -219,26 +219,32 @@
 @searchWidescreenMaxMenuHeight: @selectionWidescreenMaxMenuHeight;
 
 /* Multiple Selection */
+@multipleSelectionVerticalPadding: (@searchSelectionVerticalPadding / 2); /* Split Padding Between Child and Group */
+@multipleSelectionLeftPadding: (@selectionHorizontalPadding - @labelHorizontalPadding);
+@multipleSelectionRightPadding: @selectionIconDistance;
+@multipleSelectionPadding: @multipleSelectionVerticalPadding @multipleSelectionRightPadding @multipleSelectionVerticalPadding @multipleSelectionLeftPadding;
+@multipleSelectionMinHeight: (@multipleSelectionVerticalPadding * 2) + @multipleSelectionChildLineHeight + (@multipleSelectionChildVerticalMargin * 2);
+
+/* Child Elements */
+@multipleSelectionChildVerticalMargin: (@searchSelectionVerticalPadding / 2);
+@multipleSelectionChildSpacing: 0.4285em;
+@multipleSelectionChildMargin: @multipleSelectionChildVerticalMargin 0em @multipleSelectionChildVerticalMargin @multipleSelectionChildSpacing;
+@multipleSelectionChildLineHeight: @searchSelectionLineHeight;
+@multipleSelectionSearchStartWidth: (@glyphWidth * 2);
+
+/* Dropdown Icon */
+@multipleSelectionDropdownIconMargin: 0em -@labelHorizontalPadding 0em 0em;
+@multipleSelectionDropdownIconPadding: @labelPadding;
+
+/* Selection Label */
 @labelVerticalPadding: 0.4285em;
 @labelSize: @relativeSmall;
 @labelHorizontalPadding: @relativeMini;
 @labelPadding: @labelVerticalPadding @labelHorizontalPadding;
-
 @labelHorizontalSpacing: 0.5em;
-@labelVerticalSpacing: 0.5em;
+@labelVerticalSpacing: (0.3333em / 2);
 
 
-/* This is calculated from @selectionPadding - @labelSize * labelPadding */
-@multipleSelectionTopPadding: 0.2857em;
-@multipleSelectionRightPadding: @selectionIconDistance;
-@multipleSelectionBottomPadding: @multipleSelectionTopPadding;
-@multipleSelectionLeftPadding: (@selectionHorizontalPadding - @labelHorizontalPadding);
-@multipleSelectionPadding: @multipleSelectionTopPadding @multipleSelectionRightPadding @multipleSelectionBottomPadding @multipleSelectionLeftPadding;
-
-@multipleSelectionInlineMargin: 0.4em 0em 0.4em 0.5em;
-@multipleSelectionInlineLineHeight: @searchSelectionLineHeight;
-
-@multipleSelectionSearchStartWidth: (@glyphWidth * 2);
 
 /* Inline */
 @inlineIconMargin: 0em 0.5em 0em 0.25em;

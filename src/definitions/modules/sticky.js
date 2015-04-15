@@ -332,8 +332,8 @@ $.fn.sticky = function(parameters) {
               $container = $module.offsetParent();
             }
             else {
-              module.debug('Settings container size', module.cache.context.height);
               if( Math.abs($container.height() - module.cache.context.height) > 5) {
+                module.debug('Context has padding, specifying exact height for container', module.cache.context.height);
                 $container.css({
                   height: module.cache.context.height
                 });

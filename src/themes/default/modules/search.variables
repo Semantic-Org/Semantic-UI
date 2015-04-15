@@ -6,7 +6,7 @@
 @promptFontSize: @relativeMedium;
 @promptVerticalPadding: 0.78571em;
 @promptHorizontalPadding: 1em;
-@promptLineHeight: 1.2142em;
+@promptLineHeight: @defaultInputLineHeight;
 @promptPadding: (@promptVerticalPadding + ((1em - @promptLineHeight) / 2)) @promptHorizontalPadding;
 @promptBackground: @white;
 @promptBorder: 1px solid @borderColor;

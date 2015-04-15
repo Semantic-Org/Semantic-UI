@@ -386,6 +386,9 @@
     Derived Values
 --------------------*/
 
+/* Line Height Default For Inputs in Browser */
+@defaultInputLineHeight: 1.2142em;
+
 /* Rendered Scrollbar Width */
 @scrollbarWidth: 15px;
 
