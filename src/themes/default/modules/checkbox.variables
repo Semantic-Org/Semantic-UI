@@ -47,9 +47,21 @@
 @checkboxHoverBorder: 1px solid @selectedBorderColor;
 @labelHoverColor: @hoveredTextColor;
 
-@checkboxSelectedBackground: #F5F5F5;
-@checkboxSelectedBorder: 1px solid @selectedBorderColor;
-@labelSelectedColor: @selectedTextColor;
+@checkboxPressedBackground: #F5F5F5;
+@checkboxPressedBorder: 1px solid @selectedBorderColor;
+@checkboxPressedColor: inherit;
+@labelPressedColor: @selectedTextColor;
+
+@checkboxFocusedBackground: #F5F5F5;
+@checkboxFocusedBorder: 1px solid @selectedBorderColor;
+@checkboxFocusedColor: inherit;
+@labelFocusedColor: @selectedTextColor;
+
+@checkboxActiveBackground: #FFFFFF;
+@checkboxActiveBorder: 1px solid @borderColor;
+@checkboxActiveColor: inherit;
+@labelActiveColor: @selectedTextColor;
+
 
 /* Disabled */
 @disabledCheckboxOpacity: 0.5;

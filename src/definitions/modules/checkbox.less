@@ -149,12 +149,16 @@
 
 .ui.checkbox .box:active::before,
 .ui.checkbox label:active::before {
-  background: @checkboxSelectedBackground;
-  border: 1px solid @checkboxSelectedBorder;
+  background: @checkboxPressedBackground;
+  border: @checkboxPressedBorder;
+}
+.ui.checkbox .box:active::after,
+.ui.checkbox label:active::after {
+  color: @checkboxPressedColor;
 }
 .ui.checkbox input[type="checkbox"]:active ~ label,
 .ui.checkbox input[type="radio"]:active ~ label {
-  color: @labelSelectedColor;
+  color: @labelPressedColor;
 }
 
 /*--------------
@@ -165,12 +169,19 @@
 .ui.checkbox input[type="checkbox"]:focus ~ label:before,
 .ui.checkbox input[type="radio"]:focus ~ .box:before,
 .ui.checkbox input[type="radio"]:focus ~ label:before {
-  background: @checkboxSelectedBackground;
-  border: 1px solid @checkboxSelectedBorder;
+  background: @checkboxFocusedBackground;
+  border: 1px solid @checkboxFocusedBorder;
+}
+.ui.checkbox input[type="checkbox"]:focus ~ .box:after,
+.ui.checkbox input[type="checkbox"]:focus ~ label:after,
+.ui.checkbox input[type="radio"]:focus ~ .box:after,
+.ui.checkbox input[type="radio"]:focus ~ label:after {
+  opacity: 1;
+  color: @checkboxFocusedColor;
 }
 .ui.checkbox input[type="checkbox"]:focus ~ label,
 .ui.checkbox input[type="radio"]:focus ~ label {
-  color: @labelSelectedColor;
+  color: @labelFocusedColor;
 }
 
 
@@ -178,11 +189,20 @@
      Active
 ---------------*/
 
+.ui.checkbox input[type="checkbox"]:checked ~ .box:before,
+.ui.checkbox input[type="checkbox"]:checked ~ label:before,
+.ui.checkbox input[type="radio"]:checked ~ .box:before,
+.ui.checkbox input[type="radio"]:checked ~ label:before {
+  background: @checkboxActiveBackground;
+  border: 1px solid @checkboxActiveBorder;
+}
+
 .ui.checkbox input[type="checkbox"]:checked ~ .box:after,
 .ui.checkbox input[type="checkbox"]:checked ~ label:after,
 .ui.checkbox input[type="radio"]:checked ~ .box:after,
 .ui.checkbox input[type="radio"]:checked ~ label:after {
   opacity: 1;
+  color: @checkboxActiveColor;
 }
 
 /*--------------
@@ -237,6 +257,7 @@
 .ui.radio.checkbox .box:after,
 .ui.radio.checkbox label:after {
   border: none;
+  content: '';
   width: @checkboxRadioSize;
   height: @checkboxRadioSize;
   line-height: @checkboxRadioSize;
