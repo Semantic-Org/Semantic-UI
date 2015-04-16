@@ -106,6 +106,12 @@ $.fn.modal = function(parameters) {
               },
               dimmerSettings = $.extend(true, defaultSettings, settings.dimmerSettings)
             ;
+            if(settings.inverted) {
+              dimmerSettings.variation = (dimmerSettings.variation !== undefined)
+                ? dimmer.settings.variation + ' inverted'
+                : 'inverted'
+              ;
+            }
             if($.fn.dimmer === undefined) {
               module.error(error.dimmer);
               return;
@@ -118,6 +124,9 @@ $.fn.modal = function(parameters) {
             }
             else {
               module.set.undetached();
+            }
+            if(settings.blurring) {
+              $dimmable.addClass(className.blurring);
             }
             $dimmer = $dimmable.dimmer('get dimmer');
           },
@@ -829,6 +838,9 @@ $.fn.modal.settings = {
   closable       : true,
   autofocus      : true,
 
+  inverted       : true,
+  blurring       : true,
+
   dimmerSettings : {
     closable : false,
     useCSS   : true
@@ -877,6 +889,7 @@ $.fn.modal.settings = {
   className : {
     active     : 'active',
     animating  : 'animating',
+    blurring   : 'blurring',
     scrolling  : 'scrolling',
     undetached : 'undetached'
   }
