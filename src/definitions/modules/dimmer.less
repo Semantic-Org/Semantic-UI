@@ -119,11 +119,11 @@ body.dimmable > .dimmer {
     Blurring
 ---------------*/
 
-.blurring.dimmable > :not(.dimmer) > * {
+.blurring.dimmable > :not(.dimmer) {
   filter: @blurredStartFilter;
   transition: @blurredTransition;
 }
-.blurring.dimmed.dimmable > :not(.dimmer) > * {
+.blurring.dimmed.dimmable > :not(.dimmer) {
   filter: @blurredEndFilter;
 }
 

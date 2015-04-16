@@ -838,8 +838,8 @@ $.fn.modal.settings = {
   closable       : true,
   autofocus      : true,
 
-  inverted       : true,
-  blurring       : true,
+  inverted       : false,
+  blurring       : false,
 
   dimmerSettings : {
     closable : false,
