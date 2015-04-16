@@ -59,7 +59,9 @@ $.fn.dimmer = function(parameters) {
       module = {
 
         preinitialize: function() {
+          console.log($module, module.is.dimmer());
           if( module.is.dimmer() ) {
+
             $dimmable = $module.parent();
             $dimmer   = $module;
           }
@@ -643,7 +645,7 @@ $.fn.dimmer.settings = {
     animating  : 'animating',
     dimmable   : 'dimmable',
     dimmed     : 'dimmed',
-    dimmer     : 'ui dimmer',
+    dimmer     : 'dimmer',
     disabled   : 'disabled',
     hide       : 'hide',
     pageDimmer : 'page',
