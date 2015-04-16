@@ -227,7 +227,7 @@ module.exports = {
     siteVariable: /@siteFolder .*\'(.*)/mg
   },
 
-  // source paths (relative to tasks/install.js )
+  // source paths (when installing)
   source: {
     config       : './semantic.json.example',
     definitions  : './src/definitions',
@@ -238,6 +238,7 @@ module.exports = {
     themeConfig  : './src/theme.config.example',
     themeImport  : './src/theme.less',
     themes       : './src/themes',
+    defaultTheme : './src/themes/default',
     userGulpFile : './tasks/config/npm/gulpfile.js'
   },
 
@@ -254,14 +255,15 @@ module.exports = {
   folders: {
     config       : './',
     definitions  : 'src/definitions/',
-    defaultTheme : 'default/',
     lessImport   : 'src/',
     modules      : 'node_modules/',
     site         : 'src/site/',
     tasks        : 'tasks/',
     themeConfig  : 'src/',
     themeImport  : 'src/',
-    themes       : 'src/themes/'
+    themes       : 'src/themes/',
+
+    defaultTheme : 'default/' // only path that is relative to another directory and not root
   },
 
   // questions asked during install

@@ -119,6 +119,13 @@ module.exports = {
       config.globs = {};
     }
 
+    // remove duplicates from component array
+    if(config.components instanceof Array) {
+      config.components = config.components.filter(function(component, index) {
+        return config.components.indexOf(component) == index;
+      });
+    }
+
     // takes component object and creates file glob matching selected components
     config.globs.components = (typeof config.components == 'object')
       ? (config.components.length > 1)
