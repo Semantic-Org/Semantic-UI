@@ -230,7 +230,7 @@ $.fn.modal = function(parameters) {
           click: function(event) {
             var
               $target   = $(event.target),
-              isInModal = ($target.closest($module).length > 0),
+              isInModal = ($target.closest(selector.modal).length > 0),
               isInDOM   = $.contains(document.documentElement, event.target)
             ;
             if(!isInModal && isInDOM) {
@@ -467,7 +467,7 @@ $.fn.modal = function(parameters) {
         },
 
         othersActive: function() {
-          return ($otherModals.filter('.' + className.active).length > 0);
+          return ($otherModals.filter('.' + className.active + ', .' + className.animating).length > 0);
         },
 
         add: {
@@ -820,7 +820,7 @@ $.fn.modal.settings = {
   name           : 'Modal',
   namespace      : 'modal',
 
-  debug          : false,
+  debug          : true,
   verbose        : false,
   performance    : true,
 
@@ -834,24 +834,34 @@ $.fn.modal.settings = {
     useCSS   : true
   },
 
-  context        : 'body',
+  context    : 'body',
 
-  queue          : false,
-  duration       : 500,
-  easing         : 'easeOutExpo',
-  offset         : 0,
-  transition     : 'scale',
+  queue      : false,
+  duration   : 500,
+  easing     : 'easeOutExpo',
+  offset     : 0,
+  transition : 'scale',
 
-  padding        : 50,
+  // padding with edge of page
+  padding    : 50,
 
-  onShow         : function(){},
-  onHide         : function(){},
+  // called before show animation
+  onShow     : function(){},
 
-  onVisible      : function(){},
-  onHidden       : function(){},
+  // called after show animation
+  onVisible  : function(){},
 
-  onApprove      : function(){ return true; },
-  onDeny         : function(){ return true; },
+  // called before hide animation
+  onHide     : function(){},
+
+  // called after hide animation
+  onHidden   : function(){},
+
+  // called after approve selector match
+  onApprove  : function(){ return true; },
+
+  // called after deny selector match
+  onDeny     : function(){ return true; },
 
   selector    : {
     close    : '.close, .actions .button',
