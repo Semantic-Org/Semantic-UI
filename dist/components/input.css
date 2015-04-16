@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.8 - Input
+ * # Semantic UI 1.12.0 - Input
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -403,7 +403,10 @@
 ---------------------*/
 
 .ui.fluid.input {
-  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 /*--------------------

@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.8 - Dropdown
+ * # Semantic UI 1.12.0 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
