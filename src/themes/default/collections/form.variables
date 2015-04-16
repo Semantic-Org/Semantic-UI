@@ -109,6 +109,7 @@
 
 /* Dropdown Error */
 @dropdownErrorHoverBackground: #FBE7E7;
+@dropdownErrorSelectedBackground: @dropdownErrorHoverBackground;
 @dropdownErrorActiveBackground: #FDCFCF;
 @dropdownErrorLabelBackground: #EACBCB;
 @dropdownErrorLabelColor: @errorTextColor;
