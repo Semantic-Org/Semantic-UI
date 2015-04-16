@@ -6,6 +6,9 @@
 - **Visibility** - Adds updated visibility module from `2.x` channel. Visibility will automatically refresh by default after images load on page refresh. Fixes issues with element positions after image loading.
 - **Sticky** - Adds sticky module from `2.x` branch. Sticky elements now use pub/sub with drastically improved performance. Sticky elements that do not fit on page will now scroll at the same speed as the page is scrolled instead of slower.
 
+**Changes**
+- **Popup** - Popup no longer produces a console error when it cannot find an adequate position in the browser viewport.
+
 **Bugs**
 - **Build Tools** - Fixes issue with component glob matching twice (causing build to include file twice) if duplicate values found in `semantic.json` component.
 - **Input** - Backports fix from `2.x` for `ui fluid input` not appearing correctly.
