@@ -788,11 +788,14 @@ $.fn.dropdown = function(parameters) {
                   labelIndex        = $label.index($activeLabel),
                   labelCount        = $label.length,
                   hasActiveLabel    = ($activeLabel.length > 0),
+                  hasMultipleActive = ($activeLabel.length > 1),
                   isFirstLabel      = (labelIndex == 0),
                   isLastLabel       = (labelIndex + 1 == labelCount),
+                  isSearch          = module.is.searchSelection(),
                   isFocusedOnSearch = module.is.focusedOnSearch(),
                   isFocused         = module.is.focused(),
-                  caretAtStart      = (isFocusedOnSearch && module.get.caretPosition() == 0)
+                  caretAtStart      = (isFocusedOnSearch && module.get.caretPosition() == 0),
+                  $nextLabel
                 ;
                 if(isFocusedOnSearch && (pressedKey == keys.delimiter)) {
                   // tokenize on comma
@@ -808,7 +811,7 @@ $.fn.dropdown = function(parameters) {
                     module.verbose('Selecting previous label');
                     $label.last().addClass(className.active);
                   }
-                  else if(hasActiveLabel && !isFirstLabel) {
+                  else if(hasActiveLabel) {
                     if(!event.shiftKey) {
                       module.verbose('Selecting previous label');
                       $label.removeClass(className.active)
@@ -816,17 +819,22 @@ $.fn.dropdown = function(parameters) {
                     else {
                       module.verbose('Adding previous label to selection');
                     }
-                    $activeLabel.prev()
-                      .addClass(className.active)
-                      .end()
-                    ;
+                    if(isFirstLabel && !hasMultipleActive) {
+                      $activeLabel.addClass(className.active);
+                    }
+                    else {
+                      $activeLabel.prev(selector.siblingLabel)
+                        .addClass(className.active)
+                        .end()
+                      ;
+                    }
                     event.preventDefault();
                   }
                 }
                 else if(pressedKey == keys.rightArrow) {
                   // activate first label
                   if(isFocused && !hasActiveLabel) {
-                    $label.last().addClass(className.active);
+                    $label.first().addClass(className.active);
                   }
                   // activate next label
                   if(hasActiveLabel) {
@@ -837,17 +845,32 @@ $.fn.dropdown = function(parameters) {
                     else {
                       module.verbose('Adding next label to selection');
                     }
-                    $activeLabel.next()
-                      .addClass(className.active)
-                      .end()
-                    ;
+                    if(isLastLabel) {
+                      if(isSearch && !isFocusedOnSearch) {
+                        module.focusSearch();
+                      }
+                      else if(hasMultipleActive) {
+                        $activeLabel.next(selector.siblingLabel).addClass(className.active);
+                      }
+                      else {
+                        $activeLabel.addClass(className.active);
+                      }
+                    }
+                    else {
+                      $activeLabel.next(selector.siblingLabel).addClass(className.active);
+                    }
                     event.preventDefault();
                   }
                 }
                 else if(pressedKey == keys.deleteKey || pressedKey == keys.backspace) {
                   if(hasActiveLabel) {
                     module.verbose('Removing active labels');
-                    $activeLabel.last().next().addClass(className.active);
+                    if(isLastLabel) {
+                      if(isSearch && !isFocusedOnSearch) {
+                        module.focusSearch();
+                      }
+                    }
+                    $activeLabel.last().next(selector.siblingLabel).addClass(className.active);
                     module.remove.labels($activeLabel);
                     event.preventDefault();
                   }
@@ -2275,16 +2298,17 @@ $.fn.dropdown.settings = {
   },
 
   selector : {
-    dropdown : '.ui.dropdown',
-    icon     : '> .dropdown.icon',
-    input    : '> input[type="hidden"], > select',
-    item     : '.item',
-    label    : '> .label',
-    remove   : '> .label > .delete.icon',
-    menu     : '.menu',
-    menuIcon : '.dropdown.icon',
-    search   : 'input.search, .menu > .search > input',
-    text     : '> .text:not(.icon)'
+    dropdown     : '.ui.dropdown',
+    icon         : '> .dropdown.icon',
+    input        : '> input[type="hidden"], > select',
+    item         : '.item',
+    label        : '> .label',
+    remove       : '> .label > .delete.icon',
+    siblingLabel : '.label',
+    menu         : '.menu',
+    menuIcon     : '.dropdown.icon',
+    search       : 'input.search, .menu > .search > input',
+    text         : '> .text:not(.icon)'
   },
 
   className : {
