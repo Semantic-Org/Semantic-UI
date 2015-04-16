@@ -606,7 +606,7 @@ $.fn.modal = function(parameters) {
           type: function() {
             if(module.can.fit()) {
               module.verbose('Modal fits on screen');
-              if(!module.othersActive) {
+              if(!module.othersActive()) {
                 module.remove.scrolling();
               }
             }
@@ -820,7 +820,7 @@ $.fn.modal.settings = {
   name           : 'Modal',
   namespace      : 'modal',
 
-  debug          : true,
+  debug          : false,
   verbose        : false,
   performance    : true,
 

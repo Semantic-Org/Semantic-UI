@@ -1,6 +1,5 @@
 ## RELEASE NOTES
 
-<<<<<<< HEAD
 ### Version 2.0.0 - March xx, 2015
 
 **New UI / Major Changes**
@@ -123,7 +122,10 @@
 - **List** - Fix first element touches border on `ui horizontal celled list`
 - **Loader** - Fix position of `inline centered loader` to be centered correctly
 - **Message** - Message now uses `@lineHeight` from `site.variables`
+- **Modal** - Modal no longer hides page scroll bar causing dimmed page content to jump positions.
 - **Modal** - Fixed bug where clicking an element detached from dom would cause modal to hide prematurely
+- **Modal** - Clicking on other modals will no longer close open modal when `allowMultiple: true`
+- **Modal** - Fixed `scrolling` class not being removed after opening a normal modal after a `scrolling` modal.
 - **Message** - Updated all message colors for legibility
 - **Menu** - Fixes divider appears on last element of `(x) item menu`
 - **Menu** - Menu now has a `min-height` that matches standard item padding
@@ -147,7 +149,7 @@
 - **Table** - `very basic table` now works together with `padded table`
 - **Table** - Fix inheritance of text alignment and vertical alignment
 - **Transition** - Fixed bug where transition could sometimes not occur when an element was determined to always be hidden
-=======
+
 ### Version 1.12.0 - April 13, 2015
 
 **Enhancements**
@@ -161,7 +163,6 @@
 - **Build Tools** - Fixes issue with component glob matching twice (causing build to include file twice) if duplicate values found in `semantic.json` component.
 - **Input** - Backports fix from `2.x` for `ui fluid input` not appearing correctly.
 - **Visibility** - Fixed issue where `precache` behavior was missing from visibility causing `image` lazy loading to fail
->>>>>>> ca030ebb332ab9249a9eafc2d158e49f48c294dc
 
 ### Version 1.11.8 - April 13, 2015
 
