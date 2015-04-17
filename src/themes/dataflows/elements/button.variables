@@ -1,0 +1,4 @@
+@backgroundColor: #57175E;
+@hoverBackgroundColor: #862191;
+@textColor: #ffffff;
+@hoverColor: #ffffff;
