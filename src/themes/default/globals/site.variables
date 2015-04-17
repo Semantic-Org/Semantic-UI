@@ -335,7 +335,7 @@
 
 @invertedTextColor           : rgba(255, 255, 255, 0.9);
 @invertedLightTextColor      : rgba(255, 255, 255, 0.7);
-@invertedUnselectedTextColor : rgba(255, 255, 255, 0.6);
+@invertedUnselectedTextColor : rgba(255, 255, 255, 0.5);
 @invertedHoveredTextColor    : rgba(255, 255, 255, 1);
 @invertedPressedTextColor    : rgba(255, 255, 255, 1);
 @invertedSelectedTextColor   : rgba(255, 255, 255, 1);

@@ -259,10 +259,10 @@
   font-weight: @dropdownActiveItemFontWeight !important;
   color: @dropdownActiveItemColor !important;
 }
+
 .ui.menu .ui.dropdown.item .menu .item:not(.filtered) {
   display: block;
 }
-
 .ui.menu .ui.dropdown .menu > .item .icon:not(.dropdown) {
   float: @dropdownItemIconFloat;
   margin: @dropdownItemIconMargin;
@@ -353,6 +353,26 @@
   max-width: 100%;
   width: @verticalImageWidth;
 }
+
+/*******************************
+             Coupling
+*******************************/
+
+/*--------------
+     Sidebar
+---------------*/
+
+/* Show vertical dividers below last */
+
+.ui.vertical.sidebar.menu > .item:first-child:before {
+  display: block !important;
+}
+.ui.vertical.sidebar.menu > .item::before {
+  top: auto;
+  bottom: 0px;
+}
+
+
 
 
 /*******************************
@@ -506,7 +526,7 @@ Floated Menu / Item
 }
 
 .ui.vertical.menu .item:first-child:before {
-  background: none !important;
+  display: none !important;
 }
 
 
@@ -743,11 +763,11 @@ Floated Menu / Item
 .ui.secondary.inverted.menu .dropdown.item:hover,
 .ui.secondary.inverted.menu .link.item:hover,
 .ui.secondary.inverted.menu a.item:hover {
-  background-color: @secondaryInvertedHoverBackground;
+  background: @secondaryInvertedHoverBackground;
   color: @secondaryInvertedHoverColor !important;
 }
 .ui.secondary.inverted.menu .active.item {
-  background-color: @secondaryInvertedActiveBackground;
+  background: @secondaryInvertedActiveBackground;
   color: @secondaryInvertedActiveColor !important;
 }
 
@@ -1522,7 +1542,7 @@ Floated Menu / Item
 
 /* Coupling with Grid */
 .ui.fixed.menu + .ui.grid {
-  padding-top: @fixedGridMargin;
+  padding-top: @fixedPrecedingGridMargin;
 }
 
 
@@ -1551,11 +1571,6 @@ Floated Menu / Item
   transition: @arrowTransition;
 }
 
-/* Don't double up pointers */
-.ui.pointing.menu .active.item .menu .active.item:after {
-  display: none;
-}
-
 .ui.vertical.pointing.menu .active.item:after {
   position: absolute;
   top: 50%;
@@ -1569,6 +1584,12 @@ Floated Menu / Item
   border: none;
   border-top: @arrowBorder;
   border-right: @arrowBorder;
+}
+
+/* Don't double up pointers */
+.ui.pointing.menu .dropdown.active.item:after,
+.ui.pointing.menu .active.item .menu .active.item:after {
+  display: none;
 }
 
 /* Colors */

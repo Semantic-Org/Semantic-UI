@@ -38,6 +38,7 @@
 - **Dropdown** - Dropdowns now automatically observe changes in `menu` and will update selector cache with new additions
 - **Dropdown** - Added `showOnFocus` option
 - **Form** - Added placeholder color rules for IE, `ms-input-placeholder`
+- **Form** - Fix `errored field` dropdown keyboard selection color
 - **Form Validation** - Form validation now has `minCount`, `maxCount`, and `exactCount` for validating multiple selections
 - **Grid** - `celled grid` now removes internal cells on mobile and tablet when used with `doubling` grid responsive variation
 - **Grid** - `equal width` now works without `row` wrappers
@@ -64,6 +65,7 @@
 
 **Changes**
 - **All Modules** - All modules now default to `verbose: false`
+- **Accordion** - Accordion no longer sets a `font-size` to better couple with other components defaults
 - **Breadcrumb** - Increased `divider` spacing to add more whitespace
 - **Card** - Card styles have been adjusted, `link card` now raise to show selection. Colored variations now have shadows.
 - **Checkbox** - Toggle now uses `@primaryColor`
@@ -138,6 +140,7 @@
 - **Popup** - Fixed bug which could cause pre-existing inline popup to be removed from DOM after hiding
 - **Reveal** - Removed `masked` reveal, all reveals are masked by default
 - **Search** - Search will no longer incorrectly produce an error when API settings are passed through metadata
+- **Sidebar** - Last menu item now has a border when sidebar and menu are used together
 - **Search** - Fixed `onSelect` not returning the correct value when using `type: category`
 - **Search** - Fixed `onSelect` returning the first term that matches the beginining of the selected value not the exact value.
 - **Search** - Search API calls now use the same level debug settings as search

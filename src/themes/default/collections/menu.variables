@@ -257,8 +257,10 @@
 
 /* Inverted Secondary */
 @secondaryInvertedColor: @invertedLightTextColor;
+
 @secondaryInvertedHoverBackground: @transparentWhite;
 @secondaryInvertedHoverColor: @invertedSelectedTextColor;
+
 @secondaryInvertedActiveBackground: @strongTransparentWhite;
 @secondaryInvertedActiveColor: @invertedSelectedTextColor;
 
@@ -367,18 +369,18 @@
 @invertedSubMenuColor: @invertedUnselectedTextColor;
 
 /* Inverted Hover */
-@invertedHoverBackground: transparent;
+@invertedHoverBackground: @transparentWhite;
 @invertedHoverColor: @invertedSelectedTextColor;
 
 @invertedSubMenuHoverBackground: transparent;
 @invertedSubMenuHoverColor: @invertedSelectedTextColor;
 
 /* Pressed */
-@invertedMenuPressedBackground: @transparentBlack;
+@invertedMenuPressedBackground: @transparentWhite;
 @invertedMenuPressedColor: @invertedSelectedTextColor;
 
 /* Inverted Active */
-@invertedActiveBackground: @strongTransparentWhite;
+@invertedActiveBackground: @strongTransparentBlack;
 @invertedActiveColor: @invertedSelectedTextColor;
 @invertedArrowActiveColor: #3C3C3C;
 
@@ -391,11 +393,11 @@
 @invertedSubMenuActiveColor: @white;
 
 /* Inverted Menu Divider */
-@invertedDividerBackground: rgba(255, 255, 255, 0.05);
+@invertedDividerBackground: @dividerBackground;
 @invertedVerticalDividerBackground: @invertedDividerBackground;
 
 /* Fixed */
-@fixedGridMargin: 2.75rem;
+@fixedPrecedingGridMargin: 2.75rem;
 
 /* Attached */
 @attachedBoxShadow: none;
