@@ -12,7 +12,7 @@
 
 /* Card */
 @display: flex;
-@background: #FFFFFF;
+@background: @white;
 @borderRadius: @defaultBorderRadius;
 @margin: 1em 0em;
 @minHeight: 0px;
@@ -145,7 +145,7 @@
 --------------------*/
 
 /* Link */
-@linkHoverBackground: '';
+@linkHoverBackground: @white;
 @linkHoverBorder: none;
 @linkHoverZIndex: 5;
 @linkHoverRaiseDistance: 3px;
