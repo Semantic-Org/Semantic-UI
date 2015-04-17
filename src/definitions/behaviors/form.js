@@ -1115,14 +1115,14 @@ $.fn.form.settings = {
         $form = $(this),
         matchingValue
       ;
-      if($form.find('#' + fieldIdentifier).length > 0) {
+      if( $form.find('[data-validate="'+ fieldIdentifier +'"]').length > 0 ) {
+        matchingValue = $form.find('[data-validate="'+ fieldIdentifier +'"]').val();
+      }
+      else if($form.find('#' + fieldIdentifier).length > 0) {
         matchingValue = $form.find('#' + fieldIdentifier).val();
       }
       else if($form.find('[name="' + fieldIdentifier +'"]').length > 0) {
         matchingValue = $form.find('[name="' + fieldIdentifier + '"]').val();
-      }
-      else if( $form.find('[data-validate="'+ fieldIdentifier +'"]').length > 0 ) {
-        matchingValue = $form.find('[data-validate="'+ fieldIdentifier +'"]').val();
       }
       return (matchingValue !== undefined)
         ? ( value.toString() == matchingValue.toString() )

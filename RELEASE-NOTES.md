@@ -39,6 +39,7 @@
 - **Dropdown** - Added `showOnFocus` option
 - **Form** - Added placeholder color rules for IE, `ms-input-placeholder`
 - **Form** - Fix `errored field` dropdown keyboard selection color
+- **Form Validation** - `data-validate` now takes precedence over other validation matching schemes like `name` or `id`
 - **Form Validation** - Form validation now has `minCount`, `maxCount`, and `exactCount` for validating multiple selections
 - **Grid** - `celled grid` now removes internal cells on mobile and tablet when used with `doubling` grid responsive variation
 - **Grid** - `equal width` now works without `row` wrappers
