@@ -1181,7 +1181,6 @@ $.fn.form.settings = {
           : ''
         ;
       }
-      console.log(regExpParts, regExp, flags);
       return value.match( new RegExp(regExp, flags) );
     },
 
