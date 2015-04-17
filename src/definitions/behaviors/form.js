@@ -747,8 +747,7 @@ $.fn.form = function(parameters) {
               $field        = module.get.field(field.identifier),
               type          = validation.type,
               value         = $field.val(),
-              bracketRegExp = /\[(.*)\]/i,
-              bracket       = bracketRegExp.exec(type),
+              bracket       = settings.regExp.bracket.exec(type),
               isValid       = true,
               ancillary,
               functionType
@@ -966,6 +965,10 @@ $.fn.form.settings = {
     validate     : 'validate'
   },
 
+  regExp: {
+    bracket: /\[(.*)\]/i
+  },
+
   selector : {
     checkbox   : 'input[type="checkbox"], input[type="radio"]',
     clear      : '.clear',
@@ -1040,7 +1043,7 @@ $.fn.form.settings = {
     // is most likely an email
     email: function(value){
       var
-        emailRegExp = new RegExp("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", "i")
+        emailRegExp = new RegExp('[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?', 'i')
       ;
       return emailRegExp.test(value);
     },
@@ -1134,13 +1137,20 @@ $.fn.form.settings = {
       value = value.split(',');
       return ($.isArray(value) && value.length <= count);
     },
+
     exactCount: function(value, count) {
       value = value.split(',');
       return ($.isArray(value) && value.length == count);
     },
+
     minCount: function(value, count) {
       value = value.split(',');
       return ($.isArray(value) && value.length >= count);
+    },
+
+    regExp: function(value, regExp) {
+      regExp = new RegExp(regExp, '');
+      return value.match(regExp);
     },
 
     // string length is less than max length
