@@ -1,0 +1,8 @@
+@pageBackground: #FFFFFF;
+
+@orange: #ff7713;
+@blue: #00a8ff;
+
+@relativeBorderRadius: 0;
+@absoluteBorderRadius: 0;
+@defaultBorderRadius: @absoluteBorderRadius;
