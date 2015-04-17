@@ -22,7 +22,7 @@
 @dropdownIconMargin: 0em 0em 0em 1em;
 
 /* Current Text */
-@textTransition: color @transitionDuration @defaultEasing;
+@textTransition: none;
 
 /* Menu */
 @menuBackground: #FFFFFF;

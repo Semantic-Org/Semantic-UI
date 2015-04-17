@@ -766,7 +766,6 @@ $.fn.dropdown = function(parameters) {
                 isBubbledEvent = ($subMenu.find($target).length > 0)
               ;
               if(!isBubbledEvent && (!hasSubMenu || settings.allowCategorySelection)) {
-                module.remove.searchTerm();
                 module.determine.selectAction.call(this, text, value);
               }
             }
@@ -1106,9 +1105,7 @@ $.fn.dropdown = function(parameters) {
               return;
             }
             else {
-              module.hide(function() {
-                module.remove.filteredItem();
-              });
+              module.hideAndClear();
             }
           },
 
@@ -1123,15 +1120,11 @@ $.fn.dropdown = function(parameters) {
               : text
             ;
             module.set.selected(value, $(this));
-            module.hide(function() {
-              module.remove.filteredItem();
-            });
+            module.hideAndClear();
           },
 
           hide: function() {
-            module.hide(function() {
-              module.remove.filteredItem();
-            });
+            module.hideAndClear();
           }
 
         },
@@ -1691,7 +1684,6 @@ $.fn.dropdown = function(parameters) {
           searchTerm: function() {
             module.verbose('Cleared search term');
             $search.val('');
-            module.remove.filteredItem();
           },
           selected: function(value) {
             var
@@ -2002,6 +1994,18 @@ $.fn.dropdown = function(parameters) {
                 module.error(error.transition);
               }
             }
+          }
+        },
+
+        hideAndClear: function() {
+          if(module.is.searchSelection()) {
+            module.remove.searchTerm();
+            module.hide(function() {
+              module.remove.filteredItem();
+            });
+          }
+          else {
+            module.hide();
           }
         },
 
