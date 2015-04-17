@@ -747,22 +747,33 @@ $.fn.form = function(parameters) {
               $field        = module.get.field(field.identifier),
               type          = validation.type,
               value         = $field.val(),
-              bracket       = settings.regExp.bracket.exec(type),
+              bracket       = type.match(settings.regExp.bracket),
               isValid       = true,
+              rule,
               ancillary,
               functionType
             ;
-            // typecast to string
+            // cast to string
             value = $.trim($field.val() + '');
+
             // if bracket notation is used, pass in extra parameters
-            if(bracket !== undefined && bracket !== null) {
+            if(bracket) {
               ancillary    = '' + bracket[1];
               functionType = type.replace(bracket[0], '');
-              isValid      = settings.rules[functionType].call(element, value, ancillary);
+              rule         = settings.rules[functionType];
+              if( !$.isFunction(rule) ) {
+                module.error(error.noRule, functionType);
+                return;
+              }
+              isValid = rule.call($field, value, ancillary);
             }
-            // normal notation
             else {
-              isValid = settings.rules[type].call($field, value);
+              rule = settings.rules[type];
+              if( !$.isFunction(rule) ) {
+                module.error(error.noRule, type);
+                return;
+              }
+              isValid = rule.call($field, value);
             }
             return isValid;
           }
@@ -970,6 +981,7 @@ $.fn.form.settings = {
     escape  : /[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g,
     email   : "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?",
     integer : /^\-?\d+$/,
+    flags   : /^\/(.*)\/(.*)?/,
     url     : /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/i
   },
 
@@ -997,6 +1009,7 @@ $.fn.form.settings = {
 
   error: {
     oldSyntax : 'Starting in 2.0 forms now only take a single settings object. Validation settings converted to new syntax automatically.',
+    noRule    : 'There is no rule matching the one you specified',
     method    : 'The method you called is not defined.'
   },
 
@@ -1153,8 +1166,23 @@ $.fn.form.settings = {
     },
 
     regExp: function(value, regExp) {
-      regExp = new RegExp(regExp, '');
-      return value.match(regExp);
+      var
+        regExpParts = regExp.match($.fn.form.settings.regExp.flags),
+        flags
+      ;
+      // regular expression specified as /baz/gi (flags)
+      if(regExpParts) {
+        regExp      = (regExpParts.length >= 2)
+          ? regExpParts[1]
+          : regExp
+        ;
+        flags       = (regExpParts.length >= 3)
+          ? regExpParts[2]
+          : ''
+        ;
+      }
+      console.log(regExpParts, regExp, flags);
+      return value.match( new RegExp(regExp, flags) );
     },
 
     // string length is less than max length
