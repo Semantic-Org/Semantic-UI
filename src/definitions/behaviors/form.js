@@ -966,7 +966,11 @@ $.fn.form.settings = {
   },
 
   regExp: {
-    bracket: /\[(.*)\]/i
+    bracket : /\[(.*)\]/i,
+    escape  : /[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g,
+    email   : "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?",
+    integer : /^\-?\d+$/,
+    url     : /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/i
   },
 
   selector : {
@@ -1029,21 +1033,21 @@ $.fn.form.settings = {
     // value contains text (insensitive)
     contains: function(value, text) {
       // escape regex characters
-      text = text.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+      text = text.replace($.fn.form.settings.regExp.escape, "\\$&");
       return (value.search( new RegExp(text, 'i') ) !== -1);
     },
 
     // value contains text (case sensitive)
     containsExactly: function(value, text) {
       // escape regex characters
-      text = text.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+      text = text.replace($.fn.form.settings.regExp.escape, "\\$&");
       return (value.search( new RegExp(text) ) !== -1);
     },
 
     // is most likely an email
     email: function(value){
       var
-        emailRegExp = new RegExp('[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?', 'i')
+        emailRegExp = new RegExp($.fn.form.settings.regExp.email, 'i')
       ;
       return emailRegExp.test(value);
     },
@@ -1056,7 +1060,7 @@ $.fn.form.settings = {
     // is valid integer
     integer: function(value, range) {
       var
-        intRegExp = /^\-?\d+$/,
+        intRegExp = $.fn.form.settings.regExp.integer,
         min,
         max,
         parts
@@ -1181,10 +1185,7 @@ $.fn.form.settings = {
 
     // value is most likely url
     url: function(value) {
-      var
-        urlRegExp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
-      ;
-      return urlRegExp.test(value);
+      return $.fn.form.settings.regExp.url.match(value);
     }
   }
 
