@@ -293,7 +293,7 @@
 
 /* Icon */
 @iconMenuTextAlign: center;
-@iconMenuItemColor: rgba(0, 0, 0, 0.6);
+@iconMenuItemColor: @textColor;
 
 
 /* Tabular */
@@ -393,7 +393,7 @@
 @invertedSubMenuActiveColor: @white;
 
 /* Inverted Menu Divider */
-@invertedDividerBackground: @dividerBackground;
+@invertedDividerBackground: rgba(255, 255, 255, 0.08);
 @invertedVerticalDividerBackground: @invertedDividerBackground;
 
 /* Fixed */

@@ -1172,11 +1172,11 @@ $.fn.form.settings = {
       ;
       // regular expression specified as /baz/gi (flags)
       if(regExpParts) {
-        regExp      = (regExpParts.length >= 2)
+        regExp = (regExpParts.length >= 2)
           ? regExpParts[1]
           : regExp
         ;
-        flags       = (regExpParts.length >= 3)
+        flags = (regExpParts.length >= 3)
           ? regExpParts[2]
           : ''
         ;

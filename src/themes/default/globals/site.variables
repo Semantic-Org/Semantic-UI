@@ -123,9 +123,9 @@
        Links
 --------------------*/
 
-@linkColor           : #009FDA;
+@linkColor           : #4183C4;
 @linkUnderline       : none;
-@linkHoverColor      : lighten(@linkColor, 5);
+@linkHoverColor      : darken(saturate(@linkColor, 10), 5);
 
 /*-------------------
   Highlighted Text
