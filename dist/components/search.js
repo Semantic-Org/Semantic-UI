@@ -425,13 +425,13 @@ $.fn.search = function(parameters) {
                 : [settings.searchFields],
 
               // avoid duplicates when pushing results
-              addResult = function(array, content) {
+              addResult = function(array, result) {
                 var
-                  notResult      = ($.inArray(content, results) == -1),
-                  notFuzzyResult = ($.inArray(content, fuzzyResults) == -1)
+                  notResult      = ($.inArray(result, results) == -1),
+                  notFuzzyResult = ($.inArray(result, fuzzyResults) == -1)
                 ;
                 if(notResult && notFuzzyResult) {
-                  array.push(content);
+                  array.push(result);
                 }
               }
             ;
@@ -891,39 +891,41 @@ $.fn.search.settings = {
   verbose        : false,
   performance    : true,
 
-  // template to use (specified in settings.templates)
   type           : 'standard',
+  // template to use (specified in settings.templates)
 
-  // minimum characters required to search
   minCharacters  : 1,
+  // minimum characters required to search
 
-  // API config
   apiSettings    : false,
+  // API config
 
-  // object to search
   source         : false,
+  // object to search
 
-  // fields to search
   searchFields   : [
     'title',
     'description'
   ],
+  // fields to search
 
-  // whether to include fuzzy results in local search
   searchFullText : true,
+  // whether to include fuzzy results in local search
 
-  // whether to add events to prompt automatically
   automatic      : true,
+  // whether to add events to prompt automatically
 
   hideDelay      : 0,
-  // delay before searching
+  // delay before hiding menu after blur
+
   searchDelay    : 200,
+  // delay before searching
 
-  // maximum results returned from local
   maxResults     : 7,
+  // maximum results returned from local
 
-  // whether to store lookups in local cache
   cache          : true,
+  // whether to store lookups in local cache
 
   // transition settings
   transition     : 'scale',

@@ -5220,7 +5220,7 @@ $.fn.dropdown = function(parameters) {
                 .removeClass(className.filtered)
                 .removeClass(className.active)
               ;
-              if(!settings.hideSelections) {
+              if(settings.hideSelections) {
                 $selectedItem.removeClass(className.selected);
               }
             }
@@ -5747,6 +5747,13 @@ $.fn.dropdown.settings = {
   allowCategorySelection : false,
   // allow elements with sub-menus to be selected
 
+  forceSelection : true,
+  // force a value selection on search selection
+
+  transition     : 'auto',
+  duration       : 250,
+  // menu transiton
+
   delay : {
     hide   : 300,
     show   : 200,
@@ -5754,13 +5761,6 @@ $.fn.dropdown.settings = {
     touch  : 50
   },
   // delay before event
-
-  forceSelection : true,
-  // force a value selection on search selection
-
-  transition     : 'auto',
-  // menu transiton
-  duration       : 250,
 
   glyphWidth     : 1.0714,
   // widest glyph width in em (W is 1.0714 em) used to calculate multiselect input width
@@ -5772,11 +5772,11 @@ $.fn.dropdown.settings = {
   // multi select delimiting key
 
   label: {
-  // label settings on multi-select
     transition : 'horizontal flip',
     duration   : 150,
     variation  : false
   },
+  // label settings on multi-select
 
   hideSelections : true,
   // whether multiple selects should filter active selections from menu
@@ -10218,13 +10218,13 @@ $.fn.search = function(parameters) {
                 : [settings.searchFields],
 
               // avoid duplicates when pushing results
-              addResult = function(array, content) {
+              addResult = function(array, result) {
                 var
-                  notResult      = ($.inArray(content, results) == -1),
-                  notFuzzyResult = ($.inArray(content, fuzzyResults) == -1)
+                  notResult      = ($.inArray(result, results) == -1),
+                  notFuzzyResult = ($.inArray(result, fuzzyResults) == -1)
                 ;
                 if(notResult && notFuzzyResult) {
-                  array.push(content);
+                  array.push(result);
                 }
               }
             ;
@@ -10684,39 +10684,41 @@ $.fn.search.settings = {
   verbose        : false,
   performance    : true,
 
-  // template to use (specified in settings.templates)
   type           : 'standard',
+  // template to use (specified in settings.templates)
 
-  // minimum characters required to search
   minCharacters  : 1,
+  // minimum characters required to search
 
-  // API config
   apiSettings    : false,
+  // API config
 
-  // object to search
   source         : false,
+  // object to search
 
-  // fields to search
   searchFields   : [
     'title',
     'description'
   ],
+  // fields to search
 
-  // whether to include fuzzy results in local search
   searchFullText : true,
+  // whether to include fuzzy results in local search
 
-  // whether to add events to prompt automatically
   automatic      : true,
+  // whether to add events to prompt automatically
 
   hideDelay      : 0,
-  // delay before searching
+  // delay before hiding menu after blur
+
   searchDelay    : 200,
+  // delay before searching
 
-  // maximum results returned from local
   maxResults     : 7,
+  // maximum results returned from local
 
-  // whether to store lookups in local cache
   cache          : true,
+  // whether to store lookups in local cache
 
   // transition settings
   transition     : 'scale',
