@@ -425,13 +425,13 @@ $.fn.search = function(parameters) {
                 : [settings.searchFields],
 
               // avoid duplicates when pushing results
-              addResult = function(array, value) {
+              addResult = function(array, content) {
                 var
                   notResult      = ($.inArray(content, results) == -1),
                   notFuzzyResult = ($.inArray(content, fuzzyResults) == -1)
                 ;
                 if(notResult && notFuzzyResult) {
-                  array.push(value);
+                  array.push(content);
                 }
               }
             ;
