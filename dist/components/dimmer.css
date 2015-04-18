@@ -113,7 +113,7 @@ body.dimmable > .dimmer {
 }
 
 /*--------------
-   Blurring
+    Blurring
 ---------------*/
 
 .blurring.dimmable > :not(.dimmer) {

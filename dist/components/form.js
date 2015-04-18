@@ -747,23 +747,33 @@ $.fn.form = function(parameters) {
               $field        = module.get.field(field.identifier),
               type          = validation.type,
               value         = $field.val(),
-              bracketRegExp = /\[(.*)\]/i,
-              bracket       = bracketRegExp.exec(type),
+              bracket       = type.match(settings.regExp.bracket),
               isValid       = true,
+              rule,
               ancillary,
               functionType
             ;
-            // typecast to string
+            // cast to string
             value = $.trim($field.val() + '');
+
             // if bracket notation is used, pass in extra parameters
-            if(bracket !== undefined && bracket !== null) {
+            if(bracket) {
               ancillary    = '' + bracket[1];
               functionType = type.replace(bracket[0], '');
-              isValid      = settings.rules[functionType].call(element, value, ancillary);
+              rule         = settings.rules[functionType];
+              if( !$.isFunction(rule) ) {
+                module.error(error.noRule, functionType);
+                return;
+              }
+              isValid = rule.call($field, value, ancillary);
             }
-            // normal notation
             else {
-              isValid = settings.rules[type].call($field, value);
+              rule = settings.rules[type];
+              if( !$.isFunction(rule) ) {
+                module.error(error.noRule, type);
+                return;
+              }
+              isValid = rule.call($field, value);
             }
             return isValid;
           }
@@ -966,6 +976,15 @@ $.fn.form.settings = {
     validate     : 'validate'
   },
 
+  regExp: {
+    bracket : /\[(.*)\]/i,
+    escape  : /[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g,
+    email   : "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?",
+    integer : /^\-?\d+$/,
+    flags   : /^\/(.*)\/(.*)?/,
+    url     : /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/i
+  },
+
   selector : {
     checkbox   : 'input[type="checkbox"], input[type="radio"]',
     clear      : '.clear',
@@ -990,6 +1009,7 @@ $.fn.form.settings = {
 
   error: {
     oldSyntax : 'Starting in 2.0 forms now only take a single settings object. Validation settings converted to new syntax automatically.',
+    noRule    : 'There is no rule matching the one you specified',
     method    : 'The method you called is not defined.'
   },
 
@@ -1026,21 +1046,21 @@ $.fn.form.settings = {
     // value contains text (insensitive)
     contains: function(value, text) {
       // escape regex characters
-      text = text.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+      text = text.replace($.fn.form.settings.regExp.escape, "\\$&");
       return (value.search( new RegExp(text, 'i') ) !== -1);
     },
 
     // value contains text (case sensitive)
     containsExactly: function(value, text) {
       // escape regex characters
-      text = text.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+      text = text.replace($.fn.form.settings.regExp.escape, "\\$&");
       return (value.search( new RegExp(text) ) !== -1);
     },
 
     // is most likely an email
     email: function(value){
       var
-        emailRegExp = new RegExp("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", "i")
+        emailRegExp = new RegExp($.fn.form.settings.regExp.email, 'i')
       ;
       return emailRegExp.test(value);
     },
@@ -1053,7 +1073,7 @@ $.fn.form.settings = {
     // is valid integer
     integer: function(value, range) {
       var
-        intRegExp = /^\-?\d+$/,
+        intRegExp = $.fn.form.settings.regExp.integer,
         min,
         max,
         parts
@@ -1115,14 +1135,14 @@ $.fn.form.settings = {
         $form = $(this),
         matchingValue
       ;
-      if($form.find('#' + fieldIdentifier).length > 0) {
+      if( $form.find('[data-validate="'+ fieldIdentifier +'"]').length > 0 ) {
+        matchingValue = $form.find('[data-validate="'+ fieldIdentifier +'"]').val();
+      }
+      else if($form.find('#' + fieldIdentifier).length > 0) {
         matchingValue = $form.find('#' + fieldIdentifier).val();
       }
       else if($form.find('[name="' + fieldIdentifier +'"]').length > 0) {
         matchingValue = $form.find('[name="' + fieldIdentifier + '"]').val();
-      }
-      else if( $form.find('[data-validate="'+ fieldIdentifier +'"]').length > 0 ) {
-        matchingValue = $form.find('[data-validate="'+ fieldIdentifier +'"]').val();
       }
       return (matchingValue !== undefined)
         ? ( value.toString() == matchingValue.toString() )
@@ -1134,13 +1154,34 @@ $.fn.form.settings = {
       value = value.split(',');
       return ($.isArray(value) && value.length <= count);
     },
+
     exactCount: function(value, count) {
       value = value.split(',');
       return ($.isArray(value) && value.length == count);
     },
+
     minCount: function(value, count) {
       value = value.split(',');
       return ($.isArray(value) && value.length >= count);
+    },
+
+    regExp: function(value, regExp) {
+      var
+        regExpParts = regExp.match($.fn.form.settings.regExp.flags),
+        flags
+      ;
+      // regular expression specified as /baz/gi (flags)
+      if(regExpParts) {
+        regExp = (regExpParts.length >= 2)
+          ? regExpParts[1]
+          : regExp
+        ;
+        flags = (regExpParts.length >= 3)
+          ? regExpParts[2]
+          : ''
+        ;
+      }
+      return value.match( new RegExp(regExp, flags) );
     },
 
     // string length is less than max length
@@ -1171,10 +1212,7 @@ $.fn.form.settings = {
 
     // value is most likely url
     url: function(value) {
-      var
-        urlRegExp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
-      ;
-      return urlRegExp.test(value);
+      return $.fn.form.settings.regExp.url.match(value);
     }
   }
 

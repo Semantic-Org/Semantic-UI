@@ -356,6 +356,26 @@
 
 
 /*******************************
+             Coupling
+*******************************/
+
+
+/*--------------
+     Sidebar
+---------------*/
+
+
+/* Show vertical dividers below last */
+.ui.vertical.sidebar.menu > .item:first-child:before {
+  display: block !important;
+}
+.ui.vertical.sidebar.menu > .item::before {
+  top: auto;
+  bottom: 0px;
+}
+
+
+/*******************************
              States
 *******************************/
 
@@ -512,7 +532,7 @@ Floated Menu / Item
   height: 1px;
 }
 .ui.vertical.menu .item:first-child:before {
-  background: none !important;
+  display: none !important;
 }
 
 /*--- Sub Menu ---*/
@@ -747,11 +767,11 @@ Floated Menu / Item
 .ui.secondary.inverted.menu .dropdown.item:hover,
 .ui.secondary.inverted.menu .link.item:hover,
 .ui.secondary.inverted.menu a.item:hover {
-  background-color: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.08);
   color: #ffffff !important;
 }
 .ui.secondary.inverted.menu .active.item {
-  background-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.15);
   color: #ffffff !important;
 }
 
@@ -1048,7 +1068,7 @@ Floated Menu / Item
 .ui.icon.menu > .item {
   height: auto;
   text-align: center;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.8);
 }
 .ui.icon.menu > .item > .icon {
   display: block;
@@ -1201,16 +1221,16 @@ Floated Menu / Item
 /*--- Border ---*/
 
 .ui.inverted.menu .item:before {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.08);
 }
 .ui.vertical.inverted.menu .item:before {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 /* Sub Menu */
 .ui.vertical.inverted.menu .menu .item,
 .ui.vertical.inverted.menu .menu .item a:not(.ui) {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 /* Header */
@@ -1232,7 +1252,7 @@ Floated Menu / Item
 .ui.inverted.menu .dropdown.item:hover,
 .ui.inverted.menu .link.item:hover,
 .ui.inverted.menu a.item:hover {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.08);
   color: #ffffff;
 }
 .ui.vertical.inverted.menu .item .menu a.item:hover,
@@ -1246,14 +1266,14 @@ Floated Menu / Item
 .ui.inverted.menu a.item:active,
 .ui.inverted.menu .link.item:active,
 .ui.inverted.menu a.item:active {
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.08);
   color: #ffffff;
 }
 
 /*--- Active ---*/
 
 .ui.inverted.menu .active.item {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.1);
   color: #ffffff !important;
 }
 .ui.inverted.vertical.menu .item .menu .active.item {
@@ -1268,7 +1288,7 @@ Floated Menu / Item
 /*--- Active Hover ---*/
 
 .ui.inverted.menu .active.item:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.1);
   color: #ffffff !important;
 }
 .ui.inverted.pointing.menu .active.item:hover:after {
@@ -1572,11 +1592,6 @@ Floated Menu / Item
   -webkit-transition: background 0.2s ease;
           transition: background 0.2s ease;
 }
-
-/* Don't double up pointers */
-.ui.pointing.menu .active.item .menu .active.item:after {
-  display: none;
-}
 .ui.vertical.pointing.menu .active.item:after {
   position: absolute;
   top: 50%;
@@ -1590,6 +1605,12 @@ Floated Menu / Item
   border: none;
   border-top: 1px solid #d4d4d5;
   border-right: 1px solid #d4d4d5;
+}
+
+/* Don't double up pointers */
+.ui.pointing.menu .dropdown.active.item:after,
+.ui.pointing.menu .active.item .menu .active.item:after {
+  display: none;
 }
 
 /* Colors */
