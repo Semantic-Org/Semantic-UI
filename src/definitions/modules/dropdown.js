@@ -544,7 +544,7 @@ $.fn.dropdown = function(parameters) {
         },
 
         filterActive: function() {
-          if(settings.filterActive) {
+          if(settings.hideSelections) {
             $item.filter('.' + className.active)
               .addClass(className.filtered)
             ;
@@ -997,7 +997,6 @@ $.fn.dropdown = function(parameters) {
                     ? $nextItem = $selectedItem.nextAll(selector.item + ':not(.' + className.filtered + ')').eq(0)
                     : $item.eq(0)
                   ;
-                  console.log(hasSelectedItem, inVisibleMenu, $nextItem);
                   if($nextItem.length === 0) {
                     module.verbose('Down key pressed but reached bottom of current menu');
                     event.preventDefault();
@@ -1311,7 +1310,7 @@ $.fn.dropdown = function(parameters) {
                     optionValue   = module.get.choiceValue($choice, optionText)
                   ;
                   if(isMultiple) {
-                    if($.inArray(optionValue, value) !== -1 || $.inArray(optionText, value) !== -1) {
+                    if($.inArray(optionValue.toString(), value) !== -1 || $.inArray(optionText, value) !== -1) {
                       $selectedItem = ($selectedItem)
                         ? $selectedItem.add($choice)
                         : $choice
@@ -1589,7 +1588,7 @@ $.fn.dropdown = function(parameters) {
                 module.remove.activeItem();
                 module.remove.selectedItem();
               }
-              else if(settings.filterActive) {
+              else if(settings.hideSelections) {
                 module.remove.selectedItem();
               }
               $selectedItem
@@ -1674,7 +1673,7 @@ $.fn.dropdown = function(parameters) {
             $item.removeClass(className.active);
           },
           filteredItem: function() {
-            if(settings.filterActive) {
+            if(settings.hideSelections) {
               $item.not('.' + className.active).removeClass(className.filtered);
             }
             else {
@@ -1694,12 +1693,14 @@ $.fn.dropdown = function(parameters) {
             ;
             if($selectedItem) {
               if( $input.is('select') ) {
+                module.verbose('Input is <select> removing selected');
                 $input
                   .find('option[value="' + selectedValue + '"]')
                   .prop('selected', false)
                 ;
               }
               else {
+                module.verbose('Input is csv removing value');
                 values = module.remove.delimitedValue(selectedValue, values);
                 $input
                   .val(values)
@@ -1713,7 +1714,7 @@ $.fn.dropdown = function(parameters) {
                 .removeClass(className.filtered)
                 .removeClass(className.active)
               ;
-              if(!module.filterActive) {
+              if(!settings.hideSelections) {
                 $selectedItem.removeClass(className.selected);
               }
             }
@@ -1915,7 +1916,6 @@ $.fn.dropdown = function(parameters) {
                 module.verbose('Automatically determining animation based on animation direction', settings.transition);
               }
               if(settings.transition == 'none') {
-                console.log(settings.transition);
                 start();
                 $currentMenu.transition('show');
                 callback.call(element);
@@ -2211,69 +2211,70 @@ $.fn.dropdown.settings = {
   verbose        : false,
   performance    : true,
 
+  on                     : 'click',
   // what event should show menu
-  on             : 'click',
 
+  action                 : 'activate',
   // action on item selection
-  action         : 'activate',
 
+  allowTab               : true,
   // add tabindex to element
-  allowTab       : true,
 
+  showOnFocus            : true,
   // show menu on focus
-  showOnFocus    : true,
 
+  fullTextSearch         : false,
   // search anywhere in value
-  fullTextSearch : false,
 
+  placeholder            : 'auto',
   // whether to convert blank <select> values to placeholder text
-  placeholder: 'auto',
 
+  preserveHTML           : true,
   // preserve html when selecting value
-  preserveHTML   : true,
 
+  sortSelect             : false,
   // sort selection on init
-  sortSelect     : false,
 
+  match                  : 'both',
   // what to match against with search selection (both, text, or label)
-  match: 'both',
 
-  // allow elements with sub-menus to be selected
   allowCategorySelection : false,
+  // allow elements with sub-menus to be selected
 
-  // delay before event
   delay : {
     hide   : 300,
     show   : 200,
     search : 50,
     touch  : 50
   },
+  // delay before event
 
-  // force a value selection on search selection
   forceSelection : true,
+  // force a value selection on search selection
 
-  // menu transiton
   transition     : 'auto',
+  // menu transiton
   duration       : 250,
 
-  // widest glyph width in em (W is 1.0714 em) used to calculate multiselect input width
   glyphWidth     : 1.0714,
+  // widest glyph width in em (W is 1.0714 em) used to calculate multiselect input width
 
-  // whether multiple select should allow user added values
   allowAdditions : true,
+  // whether multiple select should allow user added values
 
-  // multi select delimiting key
   delimiter      : ',',
+  // multi select delimiting key
 
-  // label settings on multi-select
   label: {
+  // label settings on multi-select
     transition : 'horizontal flip',
     duration   : 150,
     variation  : false
   },
 
+  hideSelections : true,
   // whether multiple selects should filter active selections from menu
-  filterActive : true,
+
 
   /* Callbacks */
   onLabelSelect : function($selectedLabels){},
