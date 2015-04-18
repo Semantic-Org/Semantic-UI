@@ -1714,7 +1714,7 @@ $.fn.dropdown = function(parameters) {
                 .removeClass(className.filtered)
                 .removeClass(className.active)
               ;
-              if(!settings.hideSelections) {
+              if(settings.hideSelections) {
                 $selectedItem.removeClass(className.selected);
               }
             }
@@ -2241,6 +2241,13 @@ $.fn.dropdown.settings = {
   allowCategorySelection : false,
   // allow elements with sub-menus to be selected
 
+  forceSelection : true,
+  // force a value selection on search selection
+
+  transition     : 'auto',
+  duration       : 250,
+  // menu transiton
+
   delay : {
     hide   : 300,
     show   : 200,
@@ -2248,13 +2255,6 @@ $.fn.dropdown.settings = {
     touch  : 50
   },
   // delay before event
-
-  forceSelection : true,
-  // force a value selection on search selection
-
-  transition     : 'auto',
-  // menu transiton
-  duration       : 250,
 
   glyphWidth     : 1.0714,
   // widest glyph width in em (W is 1.0714 em) used to calculate multiselect input width
@@ -2266,11 +2266,11 @@ $.fn.dropdown.settings = {
   // multi select delimiting key
 
   label: {
-  // label settings on multi-select
     transition : 'horizontal flip',
     duration   : 150,
     variation  : false
   },
+  // label settings on multi-select
 
   hideSelections : true,
   // whether multiple selects should filter active selections from menu
