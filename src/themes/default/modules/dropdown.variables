@@ -55,6 +55,7 @@
 @itemColor: @textColor;
 @itemVerticalPadding: @relativeMini;
 @itemHorizontalPadding: @relativeLarge;
+@itemPadding: @itemVerticalPadding @itemHorizontalPadding;
 @itemFontWeight: normal;
 @itemLineHeight: 1em;
 @itemLineHeightOffset: (@itemLineHeight - 1em);
@@ -79,13 +80,13 @@
 @menuHeaderPadding: 0em @itemHorizontalPadding;
 
 /* Menu Divider */
-@menuDividerMargin: 0.5em 0em;
+@menuDividerMargin: 0.5em 0em 0em;
 @menuDividerColor: rgba(0, 0, 0, 0.05);
 @menuDividerSize: 1px;
 @menuDividerBorder: @menuDividerSize solid @menuDividerColor;
 
 /* Menu Input */
-@menuInputMargin: 0.75rem @itemHorizontalPadding;
+@menuInputMargin: @large @mini;
 @menuInputMinWidth: 140px;
 @menuInputVerticalPadding: 0.5em;
 @menuInputHorizontalPadding: 1em;
@@ -96,7 +97,7 @@
 
 /* Item Sub-Element */
 @itemElementFloat: none;
-@itemElementDistance: 0.75em;
+@itemElementDistance: @mini;
 
 /* Sub-Menu Dropdown Icon */
 @itemDropdownIconDistance: 1em;
@@ -106,6 +107,11 @@
 /* Description */
 @itemDescriptionMargin: 0em 0em 0em 1em;
 @itemDescriptionColor: @lightTextColor;
+
+/* Message */
+@messagePadding: @selectionItemPadding;
+@messageFontWeight: normal;
+@messageColor: @unselectedTextColor;
 
 /* Floated Content */
 @floatedDistance: 1em;
@@ -125,6 +131,7 @@
 @selectionZIndex: 10;
 
 @selectionItemDivider: 1px solid rgba(0, 0, 0, 0.05);
+@selectionMessagePadding: @selectionItemPadding;
 
 /* <select> */
 @selectBorder: 1px solid @borderColor;
@@ -343,5 +350,5 @@
 @pointingArrowBoxShadow: -1px -1px 0px 1px rgba(0, 0, 0, 0.1);
 @pointingArrowSize: 0.5em;
 
-@pointingMenuDistance: 0.75em;
+@pointingMenuDistance: @mini;
 @pointingMenuBorderRadius: @borderRadius;

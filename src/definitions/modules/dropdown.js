@@ -38,8 +38,10 @@ $.fn.dropdown = function(parameters) {
           : $.extend({}, $.fn.dropdown.settings),
 
         className       = settings.className,
+        message         = settings.message,
         metadata        = settings.metadata,
         namespace       = settings.namespace,
+        regExp          = settings.regExp,
         selector        = settings.selector,
         error           = settings.error,
         templates       = settings.templates,
@@ -309,9 +311,6 @@ $.fn.dropdown = function(parameters) {
             ? callback
             : function(){}
           ;
-          if( module.is.searchSelection() && module.is.allFiltered() ) {
-            return;
-          }
           if( module.can.show() && !module.is.active() ) {
             module.debug('Showing dropdown');
             if(module.is.multiple() && module.is.searchSelection()) {
@@ -534,11 +533,22 @@ $.fn.dropdown = function(parameters) {
           module.verbose('Selecting first non-filtered element');
           module.select.firstUnfiltered();
           if( module.is.allFiltered() ) {
-            module.debug('All items filtered, hiding dropdown', searchTerm);
-            if(module.is.searchSelection()) {
+            if( settings.onNoResults.call(element, searchTerm) ) {
+              module.debug('All items filtered, showing error', searchTerm);
+              if(settings.allowAdditions == true || settings.allowAdditions == 'missing') {
+                module.add.message(message.noResults, data);
+              }
+              else {
+                module.add.message(message.noResults);
+              }
+            }
+            else {
+              module.debug('All items filtered, hiding dropdown', searchTerm);
               module.hideMenu();
             }
-            settings.onNoResults.call(element, searchTerm);
+          }
+          else {
+            module.remove.message();
           }
         },
 
@@ -822,13 +832,9 @@ $.fn.dropdown = function(parameters) {
                   caretAtStart      = (isFocusedOnSearch && module.get.caretPosition() == 0),
                   $nextLabel
                 ;
-                if(isFocusedOnSearch && (pressedKey == keys.delimiter)) {
-                  // tokenize on comma
-                  if(module.is.visible()) {
-                    module.verbose('Delimiter key pressed. Tokenizing');
-                    // do tokenize
-                    event.preventDefault();
-                  }
+                if(settings.allowAdditions && isFocusedOnSearch && (pressedKey == keys.delimiter)) {
+                  module.verbose('Delimiter key pressed. Tokenizing');
+                  event.preventDefault();
                 }
                 else if(pressedKey == keys.leftArrow) {
                   // activate previous label
@@ -932,10 +938,10 @@ $.fn.dropdown = function(parameters) {
                   : $menu.children(':not(.' + className.filtered +')'),
                 $subMenu          = $selectedItem.children(selector.menu),
                 $parentMenu       = $selectedItem.closest(selector.menu),
-                inVisibleMenu     = ($parentMenu.hasClass(className.visible) || $parentMenu.hasClass(className.animating)),
+                inVisibleMenu     = ($parentMenu.hasClass(className.visible) || $parentMenu.hasClass(className.animating) || $parentMenu.parent(selector.menu).length > 0),
                 hasSubMenu        = ($subMenu.length> 0),
                 hasSelectedItem   = ($selectedItem.length > 0),
-                selectedIsVisible = ($selectedItem.not('.' + selector.filtered).length > 0),
+                selectedIsVisible = ($selectedItem.not('.' + className.filtered).length > 0),
                 $nextItem,
                 isSubMenuItem,
                 newIndex
@@ -1482,6 +1488,7 @@ $.fn.dropdown = function(parameters) {
           scrollPosition: function($item, forceScroll) {
             var
               edgeTolerance = 5,
+              $menu,
               hasActive,
               offset,
               itemHeight,
@@ -1494,6 +1501,7 @@ $.fn.dropdown = function(parameters) {
             ;
 
             $item       = $item || module.get.activeItem();
+            $menu       = $item.closest(selector.menu);
             hasActive   = ($item && $item.length > 0);
             forceScroll = (forceScroll !== undefined)
               ? forceScroll
@@ -1682,6 +1690,18 @@ $.fn.dropdown = function(parameters) {
                 .insertBefore($next)
               ;
             }
+          },
+          message: function(message) {
+            var
+              $message = $menu.children(selector.message),
+              html     = settings.templates.message(message)
+            ;
+            if($message.length > 0) {
+              module.remove.message();
+            }
+            $message = $(html)
+              .appendTo($menu)
+            ;
           }
         },
 
@@ -1705,6 +1725,9 @@ $.fn.dropdown = function(parameters) {
             else {
               $item.removeClass(className.filtered);
             }
+          },
+          message: function() {
+            $menu.children(selector.message).remove();
           },
           searchTerm: function() {
             module.verbose('Cleared search term');
@@ -1845,7 +1868,7 @@ $.fn.dropdown = function(parameters) {
             return (document.activeElement === $search[0]);
           },
           allFiltered: function() {
-            return ($item.filter('.' + className.filtered).length === $item.length);
+            return(module.is.multiple() || module.has.search()) && ($item.filter('.' + className.filtered).length === $item.length);
           },
           hidden: function($subMenu) {
             return ($subMenu)
@@ -2051,7 +2074,7 @@ $.fn.dropdown = function(parameters) {
         escape: {
           regExp: function(text) {
             text =  String(text);
-            return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+            return text.replace(regExp.escape, '\\$&');
           }
         },
 
@@ -2285,9 +2308,10 @@ $.fn.dropdown.settings = {
   glyphWidth     : 1.0714,
   // widest glyph width in em (W is 1.0714 em) used to calculate multiselect input width
 
-  allowAdditions : true,
+  allowAdditions : false,
   // whether multiple select should allow user added values
 
+  tokenize       : 'missing',
   delimiter      : ',',
   // multi select delimiting key
 
@@ -2299,12 +2323,12 @@ $.fn.dropdown.settings = {
   // label settings on multi-select
 
   hideSelections : true,
-  // whether multiple selects should filter active selections from menu
+  // whether multiple select should filter currently active selections from choices
 
 
   /* Callbacks */
   onLabelSelect : function($selectedLabels){},
-  onNoResults   : function(searchTerm){},
+  onNoResults   : function(searchTerm) { return true },
   onChange      : function(value, text, $selected){},
   onShow        : function(){},
   onHide        : function(){},
@@ -2313,14 +2337,23 @@ $.fn.dropdown.settings = {
   name           : 'Dropdown',
   namespace      : 'dropdown',
 
-  error   : {
+  message: {
+    addResult : 'Add <b>{term}</b>',
+    noResults : 'No results were found.'
+  },
+
+  error : {
     action       : 'You called a dropdown action that was not defined',
     alreadySetup : 'Once a select has been initialized behaviors must be called on the created ui dropdown',
     method       : 'The method you called is not defined.',
     noTransition : 'This module requires ui transitions <https://github.com/Semantic-Org/UI-Transition>'
   },
 
-  metadata: {
+  regExp: {
+    escape: /[-[\]{}()*+?.,\\^$|#\s]/g
+  },
+
+  metadata : {
     defaultText     : 'defaultText',
     defaultValue    : 'defaultValue',
     placeholderText : 'placeholderText',
@@ -2337,6 +2370,7 @@ $.fn.dropdown.settings = {
     remove       : '> .label > .delete.icon',
     siblingLabel : '.label',
     menu         : '.menu',
+    message      : '.message',
     menuIcon     : '.dropdown.icon',
     search       : 'input.search, .menu > .search > input',
     text         : '> .text:not(.icon)'
@@ -2352,6 +2386,7 @@ $.fn.dropdown.settings = {
     label       : 'ui label',
     loading     : 'loading',
     menu        : 'menu',
+    message     : 'message',
     multiple    : 'multiple',
     placeholder : 'default',
     search      : 'search',
@@ -2365,6 +2400,10 @@ $.fn.dropdown.settings = {
 
 /* Templates */
 $.fn.dropdown.settings.templates = {
+
+  message: function(message) {
+    return '<div class="message">' + message + '</div>';
+  },
   menu: function(select) {
     var
       placeholder = select.placeholder || false,

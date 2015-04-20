@@ -122,7 +122,7 @@
   font-size: @itemFontSize;
   color: @itemColor;
 
-  padding: @itemVerticalPadding @itemHorizontalPadding !important;
+  padding: @itemPadding !important;
   font-size: @itemFontSize;
   text-transform: @itemTextTransform;
   font-weight: @itemFontWeight;
@@ -205,6 +205,17 @@
   color: @itemDescriptionColor;
 }
 
+/*-----------------
+       Message
+-------------------*/
+
+.ui.dropdown .menu > .message {
+  padding: @messagePadding;
+  font-weight: @messageFontWeight;
+}
+.ui.dropdown .menu > .message:not(.ui) {
+  color: @messageColor;
+}
 
 /*--------------
     Sub Menu
@@ -395,6 +406,13 @@ select.ui.dropdown {
   display: none;
 }
 
+/*--------------
+    Message
+---------------*/
+
+.ui.selection.dropdown .menu > .message {
+  padding: @selectionMessagePadding;
+}
 
 /* Scrollbar in IE */
 @media all and (-ms-high-contrast:none) {
