@@ -106,6 +106,12 @@ $.fn.modal = function(parameters) {
               },
               dimmerSettings = $.extend(true, defaultSettings, settings.dimmerSettings)
             ;
+            if(settings.inverted) {
+              dimmerSettings.variation = (dimmerSettings.variation !== undefined)
+                ? dimmer.settings.variation + ' inverted'
+                : 'inverted'
+              ;
+            }
             if($.fn.dimmer === undefined) {
               module.error(error.dimmer);
               return;
@@ -118,6 +124,9 @@ $.fn.modal = function(parameters) {
             }
             else {
               module.set.undetached();
+            }
+            if(settings.blurring) {
+              $dimmable.addClass(className.blurring);
             }
             $dimmer = $dimmable.dimmer('get dimmer');
           },
@@ -230,7 +239,7 @@ $.fn.modal = function(parameters) {
           click: function(event) {
             var
               $target   = $(event.target),
-              isInModal = ($target.closest($module).length > 0),
+              isInModal = ($target.closest(selector.modal).length > 0),
               isInDOM   = $.contains(document.documentElement, event.target)
             ;
             if(!isInModal && isInDOM) {
@@ -467,7 +476,7 @@ $.fn.modal = function(parameters) {
         },
 
         othersActive: function() {
-          return ($otherModals.filter('.' + className.active).length > 0);
+          return ($otherModals.filter('.' + className.active + ', .' + className.animating).length > 0);
         },
 
         add: {
@@ -606,7 +615,7 @@ $.fn.modal = function(parameters) {
           type: function() {
             if(module.can.fit()) {
               module.verbose('Modal fits on screen');
-              if(!module.othersActive) {
+              if(!module.othersActive()) {
                 module.remove.scrolling();
               }
             }
@@ -829,29 +838,42 @@ $.fn.modal.settings = {
   closable       : true,
   autofocus      : true,
 
+  inverted       : false,
+  blurring       : false,
+
   dimmerSettings : {
     closable : false,
     useCSS   : true
   },
 
-  context        : 'body',
+  context    : 'body',
 
-  queue          : false,
-  duration       : 500,
-  easing         : 'easeOutExpo',
-  offset         : 0,
-  transition     : 'scale',
+  queue      : false,
+  duration   : 500,
+  easing     : 'easeOutExpo',
+  offset     : 0,
+  transition : 'scale',
 
-  padding        : 50,
+  // padding with edge of page
+  padding    : 50,
 
-  onShow         : function(){},
-  onHide         : function(){},
+  // called before show animation
+  onShow     : function(){},
 
-  onVisible      : function(){},
-  onHidden       : function(){},
+  // called after show animation
+  onVisible  : function(){},
 
-  onApprove      : function(){ return true; },
-  onDeny         : function(){ return true; },
+  // called before hide animation
+  onHide     : function(){},
+
+  // called after hide animation
+  onHidden   : function(){},
+
+  // called after approve selector match
+  onApprove  : function(){ return true; },
+
+  // called after deny selector match
+  onDeny     : function(){ return true; },
 
   selector    : {
     close    : '.close, .actions .button',
@@ -867,6 +889,7 @@ $.fn.modal.settings = {
   className : {
     active     : 'active',
     animating  : 'animating',
+    blurring   : 'blurring',
     scrolling  : 'scrolling',
     undetached : 'undetached'
   }

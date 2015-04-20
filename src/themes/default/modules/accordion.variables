@@ -2,7 +2,6 @@
            Accordion
 *******************************/
 
-@fontSize: 1em;
 @boxShadow: none;
 
 /* Title */

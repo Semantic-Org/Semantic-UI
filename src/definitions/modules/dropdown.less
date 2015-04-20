@@ -115,13 +115,14 @@
   display: block;
   border: @itemBorder;
   height: @itemHeight;
+  text-align: @itemTextAlign;
 
   border-top: @itemDivider;
   line-height: @itemLineHeight;
   font-size: @itemFontSize;
   color: @itemColor;
 
-  padding: @itemVerticalPadding @itemHorizontalPadding !important;
+  padding: @itemPadding !important;
   font-size: @itemFontSize;
   text-transform: @itemTextTransform;
   font-weight: @itemFontWeight;
@@ -204,6 +205,17 @@
   color: @itemDescriptionColor;
 }
 
+/*-----------------
+       Message
+-------------------*/
+
+.ui.dropdown .menu > .message {
+  padding: @messagePadding;
+  font-weight: @messageFontWeight;
+}
+.ui.dropdown .menu > .message:not(.ui) {
+  color: @messageColor;
+}
 
 /*--------------
     Sub Menu
@@ -394,6 +406,13 @@ select.ui.dropdown {
   display: none;
 }
 
+/*--------------
+    Message
+---------------*/
+
+.ui.selection.dropdown .menu > .message {
+  padding: @selectionMessagePadding;
+}
 
 /* Scrollbar in IE */
 @media all and (-ms-high-contrast:none) {
@@ -608,14 +627,15 @@ select.ui.dropdown {
   user-select: none;
   display: inline-block;
   vertical-align: baseline;
+  font-size: @labelSize;
   padding: @labelPadding;
-  margin: (@labelVerticalSpacing / 2) @labelHorizontalSpacing (@labelVerticalSpacing / 2) 0em;
+  margin: @labelMargin;
 }
 
 /* Dropdown Icon */
 .ui.multiple.dropdown .dropdown.icon {
-  margin: 0em -@labelHorizontalPadding 0em 0em;
-  padding: @labelPadding;
+  margin: @multipleSelectionDropdownIconMargin;
+  padding: @multipleSelectionDropdownIconPadding;
 }
 
 /* Text */
@@ -623,9 +643,8 @@ select.ui.dropdown {
   position: static;
   padding: 0;
   max-width: 100%;
-  min-height: @searchSelectionLineHeight;
-  line-height: @searchSelectionLineHeight;
-  margin: @multipleSelectionInlineMargin;
+  margin: @multipleSelectionChildMargin;
+  line-height: @multipleSelectionChildLineHeight;
 }
 .ui.multiple.dropdown > .label ~ .text {
   display: none;
@@ -642,8 +661,8 @@ select.ui.dropdown {
   top: 0;
   left: 0;
   padding: inherit;
-  margin: @multipleSelectionInlineMargin;
-  line-height: @searchSelectionLineHeight;
+  margin: @multipleSelectionChildMargin;
+  line-height: @multipleSelectionChildLineHeight;
 }
 
 .ui.multiple.search.dropdown > .label ~ .text {
@@ -655,8 +674,9 @@ select.ui.dropdown {
   position: static;
   padding: 0;
   max-width: 100%;
+  margin: @multipleSelectionChildMargin;
   width: @multipleSelectionSearchStartWidth;
-  margin: @multipleSelectionInlineMargin;
+  line-height: @multipleSelectionChildLineHeight;
 }
 
 

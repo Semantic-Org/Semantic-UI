@@ -123,9 +123,9 @@
        Links
 --------------------*/
 
-@linkColor           : #009FDA;
+@linkColor           : #4183C4;
 @linkUnderline       : none;
-@linkHoverColor      : lighten(@linkColor, 5);
+@linkHoverColor      : darken(saturate(@linkColor, 10), 5);
 
 /*-------------------
   Highlighted Text
@@ -335,7 +335,7 @@
 
 @invertedTextColor           : rgba(255, 255, 255, 0.9);
 @invertedLightTextColor      : rgba(255, 255, 255, 0.7);
-@invertedUnselectedTextColor : rgba(255, 255, 255, 0.6);
+@invertedUnselectedTextColor : rgba(255, 255, 255, 0.5);
 @invertedHoveredTextColor    : rgba(255, 255, 255, 1);
 @invertedPressedTextColor    : rgba(255, 255, 255, 1);
 @invertedSelectedTextColor   : rgba(255, 255, 255, 1);
@@ -385,6 +385,9 @@
 /*-------------------
     Derived Values
 --------------------*/
+
+/* Line Height Default For Inputs in Browser */
+@defaultInputLineHeight: 1.2142em;
 
 /* Rendered Scrollbar Width */
 @scrollbarWidth: 15px;

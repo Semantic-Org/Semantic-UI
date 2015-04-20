@@ -1,0 +1,14 @@
+@checkboxActiveBackground: @primaryColor;
+@checkboxActiveColor: @white;
+@checkboxActiveBorder: 1px solid @primaryColor;
+
+@sliderOnLineColor: @primaryColor;
+
+@checkboxRadioActiveBackground: @primaryColor;
+@checkboxActiveBulletColor: @primaryColor;
+
+
+@handleBackground: @white @subtleGradient;
+@handleBoxShadow:
+  0px 0px 0px 1px @selectedBorderColor inset
+;

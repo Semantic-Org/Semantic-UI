@@ -91,12 +91,9 @@
 @iconHoverOpacity: 0.85;
 
 /* Focused */
-@focusBackgroundColor: '';
+@focusBackgroundColor: @hoverBackgroundColor;
 @focusBackgroundImage: '';
-@focusBoxShadow:
-  @borderBoxShadow,
-  @defaultFocusBoxShadow
-;
+@focusBoxShadow: '';
 @focusColor: @hoveredTextColor;
 @iconFocusOpacity: 0.85;
 

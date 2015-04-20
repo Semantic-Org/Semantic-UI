@@ -10,7 +10,7 @@
 @verticalPadding: 0.78571em;
 @horizontalPadding: 1em;
 
-@lineHeight: 1.2142em;
+@lineHeight: @defaultInputLineHeight;
 @lineHeightOffset: ((@lineHeight - 1em) / 2);
 
 @padding: (@verticalPadding - @lineHeightOffset) @horizontalPadding;

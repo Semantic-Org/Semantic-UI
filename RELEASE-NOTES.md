@@ -9,9 +9,11 @@
 - **Grid** - Grids are now based on `flexbox`, columns are now `equal height` by default. Flexbox alignment has been added for easier vertical alignment.
 - **Headers** - Added new header type `sub header`, useful for displaying small headers alongside text content. See examples [in the header docs](http://www.semantic-ui.com/elements/header.html#sub-headers)
 - **Menu** - New `vertical tabular menu` is now available
+- **Modal** - Add new settings `blurring` and `inverted` which are simple shortcuts for setting modal's dimmer to use either blurring or inverted variations.
 - **Dropdown** - Added new dropdown variation `scrolling dropdown` and `scrolling menu`, see docs or try it out with the language menu in the navigation bar
 - **Dimmer** - Dimmers now have a `blurring` variation which apply a glass-like effect when dimmed
 - **Steps** - Steps can now be attached to other UI like `segment`
+- **Shapes** - Shapes now animate height/width when side changes sizes and now correctly adjusts for margin on shape elements
 
 **Major Changes**
 - **Colors** - Global colors defaults have been adjusted to improve contrast with white text
@@ -37,6 +39,9 @@
 - **Dropdown** - Dropdowns now automatically observe changes in `menu` and will update selector cache with new additions
 - **Dropdown** - Added `showOnFocus` option
 - **Form** - Added placeholder color rules for IE, `ms-input-placeholder`
+- **Form** - Fix `errored field` dropdown keyboard selection color
+- **Form Validation** - `data-validate` now takes precedence over other validation matching schemes like `name` or `id`
+- **Form Validation** - New rules for matching against custom regular expressions
 - **Form Validation** - Form validation now has `minCount`, `maxCount`, and `exactCount` for validating multiple selections
 - **Grid** - `celled grid` now removes internal cells on mobile and tablet when used with `doubling` grid responsive variation
 - **Grid** - `equal width` now works without `row` wrappers
@@ -61,8 +66,73 @@
 - **Visibility/Sticky** - Visibility and sticky now refresh automatically after page content loading to deal with changes in position from images loading
 - **Visibility/Sticky** - Visibility now uses pub/sub pattern to greatly improve scroll performance when attaching multiple events
 
+**Bugs**
+- **All Modules** - Performance logging now delays 500ms instead of 100ms for console logging to ensure all logs are captured in one group
+- **All Modules/Transition** - Transitions no longer use `rotateZ(0deg)` to trigger GPU display of visible state. This causes issues with `transform` creating new stacking context that can disrupt `z-index`.
+- **Card** - IE11 now can correctly use  `flexbox` cards **THanks @Widcket**
+- **Checkbox** - Fix `disabled checkbox` sometimes displaying hand cursor
+- **Checkbox** - Fixes nested `dropdown` inside `checkbox` causing issues
+- **Dropdown** - Fixes issue with headers disappearing inside of `ui dropdown` when nested in `ui menu`
+- **Dropdown** - Fixes `onChange` to fire when input value changes, not just when menu UI changes
+- **Dropdown** - Dropdowns with `transition: none` now work correctly.
+- **Dropdown** - Fixed issue with `search selection` not changing text when reselecting same value from list
+- **Dropdown** - Dropdown `menu` now use same font size as dropdown
+- **Dropdown** - Fixed behaviors called on `<select>` after initialization not being correctly applied to `ui dropdown`
+- **Dropdown** - Fixed `search dropdown` submitting parent form when enter shortcut pressed
+- **Dropdown** - Fixed dropdown menu items should not center inside of a center aligned container.
+- **Form** - `field` inside `fields` no longer produce double sized margins.
+- **Form** - Form sizes and input sizes now inherit from `site.variables`
+- **Form Validation** - Form validation now validates correctly on `<select>` change
+- **Form/Input** - `ui labeled input` inside `form` will no longer escape column width. `ui fluid input` will now use input widths shorter than browser default.
+- **Grid** - Fix `doubling row` not working correctly inside a different `doubling grid` (css spec issue)
+- **Grid** - Fix `doubling grid` incorrectly applying width to `(x) column row`
+- **Grid** - First column on `stackable grid` no longer receives top margin
+- **Grid** - `x column wide` inside `equal width/height` now cannot grow beyond column size
+- **Grid** - Fixes colored grid columns not appearing when not nested in rows
+- **Icon** - Fixes `ascending` and `descending` icon being swapped
+- **Input** - Fixed improper left padding on `transparent left icon input` **Thanks @zxfwinder**
+- **Input** - Fixed `placeholder` color not changing correctly on focus **Thanks @zxfwinder**
+- **Label** - Labels inside `header` now vertical align better by accounting for line height offset
+- **List** - Bullets and numbers are no longer selectable in `bulleted list` and `ordered list`
+- **List** - Fixed `inverted bulleted list` bullet color
+- **List** - Fix first element touches border on `ui horizontal celled list`
+- **Loader** - Fix position of `inline centered loader` to be centered correctly
+- **Message** - Message now uses `@lineHeight` from `site.variables`
+- **Modal** - Modal no longer hides page scroll bar causing dimmed page content to jump positions.
+- **Modal** - Fixed bug where clicking an element detached from dom would cause modal to hide prematurely
+- **Modal** - Clicking on other modals will no longer close open modal when `allowMultiple: true`
+- **Modal** - Fixed `scrolling` class not being removed after opening a normal modal after a `scrolling` modal.
+- **Message** - Updated all message colors for legibility
+- **Menu** - Fixes divider appears on last element of `(x) item menu`
+- **Menu** - Menu now has a `min-height` that matches standard item padding
+- **Modal** - `scrollable modal` now correctly adds padding below modal
+- **Modal** - Modal with `detachable: false` inside `ui sidebar`  `pusher` element will now show correctly
+- **Popup** - Fixes issue with `min-width` in firefox exceeding `max-width` causing element to not wrap correctly
+- **Popup** - Popup will now produce an error message and not mistakenly appear in the top left corner of page, if called with a `popup` or `target` that does not exist.
+- **Popup** - Popup will no longer appear incorrectly if the targeted element is not visible on page
+- **Popup** - Fixed bug which could cause pre-existing inline popup to be removed from DOM after hiding
+- **Reveal** - Removed `masked` reveal, all reveals are masked by default
+- **Search** - Search will no longer incorrectly produce an error when API settings are passed through metadata
+- **Sidebar** - Top/Bottom sidebar will now show scroll bars correctly when taller than 100% page height
+- **Sidebar** - Fixed bug where having a `style[title]` in page causing page not to be pushed correctly
+- **Sidebar** - Last menu item now has a border when sidebar and menu are used together
+- **Search** - Fixed `onSelect` not returning the correct value when using `type: category`
+- **Search** - Fixed `onSelect` returning the first term that matches the beginining of the selected value not the exact value.
+- **Search** - Search API calls now use the same level debug settings as search
+- **Steps** - Fixes bug where `ordered steps` had smaller numbers in `IE10`
+- **Steps** - Fixed bug where `stackable steps` were not working correctly
+- **Sticky** - Fix issue with sticky content scroll css transition causing element to scroll too slowly when cannot fit on screen.
+- **Sticky** - Fixed issue with sticky content animating width on display in some cases.
+- **Tab** - Tab name is no longer case sensitive
+- **Table** - Fixes `ascending` and `descending` icons were reversed in table
+- **Table** - `very basic table` now works together with `padded table`
+- **Table** - Fix inheritance of text alignment and vertical alignment
+- **Transition** - Fixed bug where transition could sometimes not occur when an element was determined to always be hidden
+
 **Changes**
 - **All Modules** - All modules now default to `verbose: false`
+- **Accordion** - Accordion no longer sets a `font-size` to better couple with other components defaults
+- **Button** - Button focus color now uses hoverColor background instead of blue box shadow
 - **Breadcrumb** - Increased `divider` spacing to add more whitespace
 - **Card** - Card styles have been adjusted, `link card` now raise to show selection. Colored variations now have shadows.
 - **Checkbox** - Toggle now uses `@primaryColor`
@@ -91,61 +161,26 @@
 - **Site** - Adjusted global line height to the closest even pixel value
 - **Table** - Horizontal cell padding has been slightly reduced, and cell borders are slightly lighter.
 
+
+### Version 1.12.0 - April 13, 2015
+
+**Enhancements**
+- **Visibility** - Adds updated visibility module from `2.x` channel. Visibility will automatically refresh by default after images load on page refresh. Fixes issues with element positions after image loading.
+- **Sticky** - Adds sticky module from `2.x` branch. Sticky elements now use pub/sub with drastically improved performance. Sticky elements that do not fit on page will now scroll at the same speed as the page is scrolled instead of slower.
+
+**Changes**
+- **Popup** - Popup no longer produces a console error when it cannot find an adequate position in the browser viewport.
+
 **Bugs**
-- **All Modules** - Performance logging now delays 500ms instead of 100ms for console logging to ensure all logs are captured in one group
-- **All Modules/Transition** - Transitions no longer use `rotateZ(0deg)` to trigger GPU display of visible state. This causes issues with `transform` creating new stacking context that can disrupt `z-index`.
-- **Card** - IE11 now can correctly use  `flexbox` cards **THanks @Widcket**
-- **Checkbox** - Fix `disabled checkbox` sometimes displaying hand cursor
-- **Checkbox** - Fixes nested `dropdown` inside `checkbox` causing issues
-- **Dropdown** - Fixes issue with headers disappearing inside of `ui dropdown` when nested in `ui menu`
-- **Dropdown** - Fixes `onChange` to fire when input value changes, not just when menu UI changes
-- **Dropdown** - Dropdowns with `transition: none` now work correctly.
-- **Dropdown** - Fixed issue with `search selection` not changing text when reselecting same value from list
-- **Dropdown** - Dropdown `menu` now use same font size as dropdown
-- **Dropdown** - Fixed behaviors called on `<select>` after initialization not being correctly applied to `ui dropdown`
-- **Dropdown** - Fixed `search dropdown` submitting parent form when enter shortcut pressed
-- **Form** - `field` inside `fields` no longer produce double sized margins.
-- **Form** - Form sizes and input sizes now inherit from `site.variables`
-- **Form Validation** - Form validation now validates correctly on `<select>` change
-- **Form/Input** - `ui labeled input` inside `form` will no longer escape column width. `ui fluid input` will now use input widths shorter than browser default.
-- **Grid** - Fix `doubling row` not working correctly inside a different `doubling grid` (css spec issue)
-- **Grid** - Fix `doubling grid` incorrectly applying width to `(x) column row`
-- **Grid** - First column on `stackable grid` no longer receives top margin
-- **Grid** - `x column wide` inside `equal width/height` now cannot grow beyond column size
-- **Grid** - Fixes colored grid columns not appearing when not nested in rows
-- **Icon** - Fixes `ascending` and `descending` icon being swapped
-- **Input** - Fixed improper left padding on `transparent left icon input` **Thanks @zxfwinder**
-- **Input** - Fixed `placeholder` color not changing correctly on focus **Thanks @zxfwinder**
-- **Label** - Labels inside `header` now vertical align better by accounting for line height offset
-- **List** - Bullets and numbers are no longer selectable in `bulleted list` and `ordered list`
-- **List** - Fixed `inverted bulleted list` bullet color
-- **List** - Fix first element touches border on `ui horizontal celled list`
-- **Loader** - Fix position of `inline centered loader` to be centered correctly
-- **Message** - Message now uses `@lineHeight` from `site.variables`
-- **Modal** - Fixed bug where clicking an element detached from dom would cause modal to hide prematurely
-- **Message** - Updated all message colors for legibility
-- **Menu** - Fixes divider appears on last element of `(x) item menu`
-- **Menu** - Menu now has a `min-height` that matches standard item padding
-- **Modal** - `scrollable modal` now correctly adds padding below modal
-- **Modal** - Modal with `detachable: false` inside `ui sidebar`  `pusher` element will now show correctly
-- **Popup** - Fixes issue with `min-width` in firefox exceeding `max-width` causing element to not wrap correctly
-- **Popup** - Popup will now produce an error message and not mistakenly appear in the top left corner of page, if called with a `popup` or `target` that does not exist.
-- **Popup** - Popup will no longer appear incorrectly if the targeted element is not visible on page
-- **Popup** - Fixed bug which could cause pre-existing inline popup to be removed from DOM after hiding
-- **Reveal** - Removed `masked` reveal, all reveals are masked by default
-- **Search** - Search will no longer incorrectly produce an error when API settings are passed through metadata
-- **Search** - Fixed `onSelect` not returning the correct value when using `type: category`
-- **Search** - Fixed `onSelect` returning the first term that matches the beginining of the selected value not the exact value.
-- **Search** - Search API calls now use the same level debug settings as search
-- **Steps** - Fixes bug where `ordered steps` had smaller numbers in `IE10`
-- **Steps** - Fixed bug where `stackable steps` were not working correctly
-- **Sticky** - Fix issue with sticky content scroll css transition causing element to scroll too slowly when cannot fit on screen.
-- **Sticky** - Fixed issue with sticky content animating width on display in some cases.
-- **Tab** - Tab name is no longer case sensitive
-- **Table** - Fixes `ascending` and `descending` icons were reversed in table
-- **Table** - `very basic table` now works together with `padded table`
-- **Table** - Fix inheritance of text alignment and vertical alignment
-- **Transition** - Fixed bug where transition could sometimes not occur when an element was determined to always be hidden
+- **Build Tools** - Fixes issue with component glob matching twice (causing build to include file twice) if duplicate values found in `semantic.json` component.
+- **Input** - Backports fix from `2.x` for `ui fluid input` not appearing correctly.
+- **Visibility** - Fixed issue where `precache` behavior was missing from visibility causing `image` lazy loading to fail
+
+### Version 1.11.8 - April 13, 2015
+
+**Bugs**
+- **Build Tools** - Fixed `npm install` without `semantic.json` to merge changes with site theme and packaged themes in a similar fashion to `npm update`
+- **Build** - `gulp build` now properly warns against missing `semantic.json` **Thanks @rudyrk**
 
 ### Version 1.11.7 - April 13, 2015
 

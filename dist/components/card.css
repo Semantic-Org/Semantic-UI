@@ -306,7 +306,7 @@
 }
 .ui.cards > .card > .content > a.header:hover,
 .ui.card > .content > a.header:hover {
-  color: #00b2f3;
+  color: #2c76bf;
 }
 
 /* Meta */
@@ -419,7 +419,7 @@
 }
 .ui.cards > .card > .extra a:not(.ui):hover,
 .ui.card > .extra a:not(.ui):hover {
-  color: #00b2f3;
+  color: #2c76bf;
 }
 
 
@@ -455,7 +455,7 @@ a.ui.card:hover,
 .ui.link.card:hover {
   cursor: pointer;
   z-index: 5;
-  background: '';
+  background: #ffffff;
   border: none;
   box-shadow: 0px 1px 3px 0px #bcbdbd, 0px 0px 0px 1px #d4d4d5;
   -webkit-transform: translateY(-3px);

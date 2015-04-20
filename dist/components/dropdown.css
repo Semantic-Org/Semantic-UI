@@ -91,8 +91,8 @@
 
 .ui.dropdown > .text {
   display: inline-block;
-  -webkit-transition: color 0.2s ease;
-          transition: color 0.2s ease;
+  -webkit-transition: none;
+          transition: none;
 }
 
 /*--------------
@@ -105,11 +105,12 @@
   display: block;
   border: none;
   height: auto;
+  text-align: left;
   border-top: none;
   line-height: 1em;
   color: rgba(0, 0, 0, 0.8);
   padding: 0.71428571em 1.14285714em !important;
-  font-size: 1rem;
+  font-size: 1em;
   text-transform: none;
   font-weight: normal;
   box-shadow: none;
@@ -157,14 +158,14 @@
 .ui.dropdown .menu > .divider {
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   height: 0em;
-  margin: 0.5em 0em;
+  margin: 0.5em 0em 0em;
 }
 .ui.dropdown .menu > .input {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin: 0.75rem 1.14285714em;
+  margin: 1.14285714rem 0.71428571rem;
   min-width: 140px;
 }
 .ui.dropdown .menu > .header + .input {
@@ -187,6 +188,18 @@
 .ui.dropdown > .text > .description,
 .ui.dropdown .menu > .item > .description {
   margin: 0em 0em 0em 1em;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+/*-----------------
+       Message
+-------------------*/
+
+.ui.dropdown .menu > .message {
+  padding: 0.71428571em 1.14285714em;
+  font-weight: normal;
+}
+.ui.dropdown .menu > .message:not(.ui) {
   color: rgba(0, 0, 0, 0.4);
 }
 
@@ -246,7 +259,7 @@
 .ui.dropdown .menu > .item > img {
   margin-left: 0em;
   float: none;
-  margin-right: 0.75em;
+  margin-right: 0.71428571rem;
 }
 
 /*--------------
@@ -382,6 +395,14 @@ select.ui.dropdown {
 .ui.selection.dropdown .menu:after,
 .ui.selection.dropdown .menu:before {
   display: none;
+}
+
+/*--------------
+    Message
+---------------*/
+
+.ui.selection.dropdown .menu > .message {
+  padding: 0.71428571em 1.14285714em;
 }
 
 /* Scrollbar in IE */
@@ -583,7 +604,7 @@ select.ui.dropdown {
 
 /* Multiple Selection */
 .ui.multiple.dropdown {
-  padding: 0.2857em 2em 0.2857em 0.38571429em;
+  padding: 0.22620333em 2em 0.22620333em 0.38571429em;
 }
 .ui.multiple.dropdown .menu {
   cursor: auto;
@@ -603,14 +624,15 @@ select.ui.dropdown {
           user-select: none;
   display: inline-block;
   vertical-align: baseline;
-  padding: 0.4285em 0.71428571em;
-  margin: 0.25em 0.5em 0.25em 0em;
+  font-size: 0.92857143em;
+  padding: 0.3846em 0.71428571em;
+  margin: 0.230765em 0.5em 0.230765em 0em;
 }
 
 /* Dropdown Icon */
 .ui.multiple.dropdown .dropdown.icon {
   margin: 0em -0.71428571em 0em 0em;
-  padding: 0.4285em 0.71428571em;
+  padding: 0.3846em 0.71428571em;
 }
 
 /* Text */
@@ -618,9 +640,8 @@ select.ui.dropdown {
   position: static;
   padding: 0;
   max-width: 100%;
-  min-height: 1.2142em;
+  margin: 0.45240667em 0em 0.45240667em 0.4285em;
   line-height: 1.2142em;
-  margin: 0.4em 0em 0.4em 0.5em;
 }
 .ui.multiple.dropdown > .label ~ .text {
   display: none;
@@ -638,7 +659,7 @@ select.ui.dropdown {
   top: 0;
   left: 0;
   padding: inherit;
-  margin: 0.4em 0em 0.4em 0.5em;
+  margin: 0.45240667em 0em 0.45240667em 0.4285em;
   line-height: 1.2142em;
 }
 .ui.multiple.search.dropdown > .label ~ .text {
@@ -650,8 +671,9 @@ select.ui.dropdown {
   position: static;
   padding: 0;
   max-width: 100%;
+  margin: 0.45240667em 0em 0.45240667em 0.4285em;
   width: 2.2em;
-  margin: 0.4em 0em 0.4em 0.5em;
+  line-height: 1.2142em;
 }
 
 /*--------------
@@ -843,13 +865,13 @@ select.ui.dropdown {
 .ui.dropdown .left.menu .item .dropdown.icon {
   width: auto;
   float: left;
-  margin: 0em 0.75em 0em 0em;
+  margin: 0em 0.71428571rem 0em 0em;
 }
 .ui.dropdown .item .left.dropdown.icon,
 .ui.dropdown .left.menu .item .dropdown.icon {
   width: auto;
   float: left;
-  margin: 0em 0.75em 0em 0em;
+  margin: 0em 0.71428571rem 0em 0em;
 }
 .ui.dropdown .item .left.dropdown.icon + .text,
 .ui.dropdown .left.menu .item .dropdown.icon + .text {
@@ -1055,7 +1077,7 @@ select.ui.dropdown {
 
 .ui.pointing.dropdown > .menu {
   top: 100%;
-  margin-top: 0.75em;
+  margin-top: 0.71428571rem;
   border-radius: 0.2857rem;
 }
 .ui.pointing.dropdown > .menu:after {

@@ -30,7 +30,7 @@
 @inputFontSize: 1em;
 @inputVerticalPadding: 0.78571em;
 @inputHorizontalPadding: 1em;
-@inputLineHeight: 1.2142em;
+@inputLineHeight: @defaultInputLineHeight;
 @inputPadding: (@inputVerticalPadding + ((1em - @inputLineHeight) / 2)) @inputHorizontalPadding;
 @inputBackground: #FFFFFF;
 @inputBorder: 1px solid @borderColor;
@@ -109,6 +109,7 @@
 
 /* Dropdown Error */
 @dropdownErrorHoverBackground: #FBE7E7;
+@dropdownErrorSelectedBackground: @dropdownErrorHoverBackground;
 @dropdownErrorActiveBackground: #FDCFCF;
 @dropdownErrorLabelBackground: #EACBCB;
 @dropdownErrorLabelColor: @errorTextColor;

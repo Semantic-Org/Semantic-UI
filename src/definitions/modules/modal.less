@@ -32,9 +32,6 @@
   left: 50%;
   text-align: left;
 
-  width: @width;
-  margin-left: @xOffset;
-
   background: @background;
   border: @border;
   box-shadow: @boxShadow;
@@ -106,8 +103,7 @@
 ---------------*/
 
 .ui.modal > .content {
-  display: table;
-  table-layout: fixed;
+  display: flex;
   width: 100%;
   font-size: @contentFontSize;
   line-height: @contentLineHeight;
@@ -117,26 +113,32 @@
 
 /* Image */
 .ui.modal > .content > .image {
-  display: table-cell;
+  display: block;
+  flex: 0 1 auto;
   width: @imageWidth;
-  vertical-align: @imageVerticalAlign;
+  align-self: @imageVerticalAlign;
 }
-.ui.modal > .content > .image[class*="top aligned"] {
-  vertical-align: top;
+.ui.modal > [class*="top aligned"] {
+  align-self: top;
 }
-.ui.modal > .content > .image[class*="middle aligned"] {
-  vertical-align: middle;
+.ui.modal > [class*="middle aligned"] {
+  align-self: middle;
+}
+.ui.modal > [class*="stretched"] {
+  align-self: stretch;
 }
 
 /* Description */
 .ui.modal > .content > .description {
-  display: table-cell;
-  vertical-align: top;
-  vertical-align: @descriptionVerticalAlign;
+  display: block;
+  flex: 1 0 auto;
+  min-width: 0px;
+  align-self: @descriptionVerticalAlign;
 }
 
 .ui.modal > .content > .icon + .description,
 .ui.modal > .content > .image + .description {
+  flex: 0 1 auto;
   min-width: @descriptionMinWidth;
   width: @descriptionWidth;
   padding-left: @descriptionDistance;
@@ -260,6 +262,14 @@
   }
 }
 
+/*--------------
+    Coupling
+---------------*/
+
+.ui.inverted.dimmer > .ui.modal {
+  box-shadow: @invertedBoxShadow;
+}
+
 /*******************************
              Types
 *******************************/
@@ -268,7 +278,7 @@
   background-color: transparent;
   border: none;
   border-radius: 0em;
-  box-shadow: 0px 0px 0px 0px;
+  box-shadow: none !important;
   color: @basicModalColor;
 }
 .ui.basic.modal > .header,
@@ -284,9 +294,15 @@
   right: @basicModalCloseRight;
 }
 
+.ui.inverted.dimmer > .basic.modal {
+  color: @basicInvertedModalColor;
+}
+.ui.inverted.dimmer > .ui.basic.modal > .header {
+  color: @basicInvertedModalHeaderColor;
+}
+
 /* Tablet and Mobile */
 @media only screen and (max-width : @computerBreakpoint) {
-
   .ui.basic.modal > .close {
     color: @basicInnerCloseColor;
   }

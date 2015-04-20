@@ -172,7 +172,7 @@ ol.ui.list ol,
 }
 .ui.list .list > a.item:hover,
 .ui.list > a.item:hover {
-  color: #00b2f3;
+  color: #2c76bf;
 }
 
 /* Linked Item Icons */
@@ -187,7 +187,7 @@ ol.ui.list ol,
   color: rgba(0, 0, 0, 0.8) !important;
 }
 .ui.list .item a:hover {
-  color: #00b2f3 !important;
+  color: #2c76bf !important;
 }
 
 /* Header */
@@ -352,7 +352,7 @@ ol.ui.list ol,
 }
 .ui.inverted.list .list > a.item:hover,
 .ui.inverted.list > a.item:hover {
-  color: #00b2f3;
+  color: #2c76bf;
 }
 
 /* Linking Content */
@@ -361,7 +361,7 @@ ol.ui.list ol,
   color: rgba(255, 255, 255, 0.9) !important;
 }
 .ui.inverted.list .item a:hover {
-  color: #00b2f3 !important;
+  color: #2c76bf !important;
 }
 
 /*-------------------
@@ -392,7 +392,7 @@ ol.ui.list ol,
 .ui.inverted.link.list .item,
 .ui.inverted.link.list a.item,
 .ui.inverted.link.list .item a {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.5);
 }
 .ui.inverted.link.list a.item:hover,
 .ui.inverted.link.list .item a:hover {
@@ -446,7 +446,7 @@ ol.ui.list ol,
 .ui.inverted.selection.list > .item,
 .ui.inverted.selection.list > .item {
   background: transparent;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.5);
 }
 .ui.inverted.selection.list > .item:hover,
 .ui.inverted.selection.list > .item:hover {

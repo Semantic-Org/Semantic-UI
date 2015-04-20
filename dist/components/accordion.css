@@ -17,7 +17,6 @@
 .ui.accordion,
 .ui.accordion .accordion {
   max-width: 100%;
-  font-size: 1em;
 }
 .ui.accordion .accordion {
   margin: 1em 0em 0em;

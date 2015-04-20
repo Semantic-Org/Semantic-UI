@@ -457,6 +457,12 @@
   background-color: #fbe7e7;
 }
 
+/* Selected */
+.ui.form .fields.error .field .ui.dropdown .menu .selected.item,
+.ui.form .field.error .ui.dropdown .menu .selected.item {
+  background-color: #fbe7e7;
+}
+
 /* Active */
 .ui.form .fields.error .field .ui.dropdown .menu .active.item,
 .ui.form .field.error .ui.dropdown .menu .active.item {

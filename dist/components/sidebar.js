@@ -229,7 +229,7 @@ $.fn.sidebar = function(parameters) {
               distance.right = width;
             }
 
-            style  = '<style title="' + namespace + '">';
+            style  = '<style>';
 
             if(direction === 'left' || direction === 'right') {
               module.debug('Adding CSS rules for animation distance', width);
@@ -281,8 +281,9 @@ $.fn.sidebar = function(parameters) {
               ;
             }
             style += '</style>';
-            $head.append(style);
-            $style = $('style[title=' + namespace + ']');
+            $style = $(style)
+              .appendTo($head)
+            ;
             module.debug('Adding sizing css to head', $style);
           }
         },

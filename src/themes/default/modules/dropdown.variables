@@ -22,7 +22,7 @@
 @dropdownIconMargin: 0em 0em 0em 1em;
 
 /* Current Text */
-@textTransition: color @transitionDuration @defaultEasing;
+@textTransition: none;
 
 /* Menu */
 @menuBackground: #FFFFFF;
@@ -47,13 +47,15 @@
 @textLineHeightOffset: (@textLineHeight - 1em);
 
 /* Menu Item */
-@itemFontSize: 1rem;
+@itemFontSize: @relativeMedium;
+@itemTextAlign: left;
 @itemBorder: none;
 @itemHeight: auto;
 @itemDivider: none;
 @itemColor: @textColor;
 @itemVerticalPadding: @relativeMini;
 @itemHorizontalPadding: @relativeLarge;
+@itemPadding: @itemVerticalPadding @itemHorizontalPadding;
 @itemFontWeight: normal;
 @itemLineHeight: 1em;
 @itemLineHeightOffset: (@itemLineHeight - 1em);
@@ -78,13 +80,13 @@
 @menuHeaderPadding: 0em @itemHorizontalPadding;
 
 /* Menu Divider */
-@menuDividerMargin: 0.5em 0em;
+@menuDividerMargin: 0.5em 0em 0em;
 @menuDividerColor: rgba(0, 0, 0, 0.05);
 @menuDividerSize: 1px;
 @menuDividerBorder: @menuDividerSize solid @menuDividerColor;
 
 /* Menu Input */
-@menuInputMargin: 0.75rem @itemHorizontalPadding;
+@menuInputMargin: @large @mini;
 @menuInputMinWidth: 140px;
 @menuInputVerticalPadding: 0.5em;
 @menuInputHorizontalPadding: 1em;
@@ -95,7 +97,7 @@
 
 /* Item Sub-Element */
 @itemElementFloat: none;
-@itemElementDistance: 0.75em;
+@itemElementDistance: @mini;
 
 /* Sub-Menu Dropdown Icon */
 @itemDropdownIconDistance: 1em;
@@ -105,6 +107,11 @@
 /* Description */
 @itemDescriptionMargin: 0em 0em 0em 1em;
 @itemDescriptionColor: @lightTextColor;
+
+/* Message */
+@messagePadding: @selectionItemPadding;
+@messageFontWeight: normal;
+@messageColor: @unselectedTextColor;
 
 /* Floated Content */
 @floatedDistance: 1em;
@@ -124,6 +131,7 @@
 @selectionZIndex: 10;
 
 @selectionItemDivider: 1px solid rgba(0, 0, 0, 0.05);
+@selectionMessagePadding: @selectionItemPadding;
 
 /* <select> */
 @selectBorder: 1px solid @borderColor;
@@ -207,7 +215,7 @@
 @searchMinWidth: '';
 
 /* Search Selection */
-@searchSelectionLineHeight: 1.2142em; /* browser default for webkit <input> */
+@searchSelectionLineHeight: @defaultInputLineHeight;
 @searchSelectionLineHeightOffset: ((@searchSelectionLineHeight - 1em) / 2);
 @searchSelectionVerticalPadding: (@selectionVerticalPadding - @searchSelectionLineHeightOffset);
 @searchSelectionHorizontalPadding: @selectionHorizontalPadding;
@@ -218,34 +226,43 @@
 @searchComputerMaxMenuHeight: @selectionComputerMaxMenuHeight;
 @searchWidescreenMaxMenuHeight: @selectionWidescreenMaxMenuHeight;
 
-/* Multiple Selection */
-@labelVerticalPadding: 0.4285em;
-@labelSize: @relativeSmall;
-@labelHorizontalPadding: @relativeMini;
-@labelPadding: @labelVerticalPadding @labelHorizontalPadding;
-
-@labelHorizontalSpacing: 0.5em;
-@labelVerticalSpacing: 0.5em;
-
-
-/* This is calculated from @selectionPadding - @labelSize * labelPadding */
-@multipleSelectionTopPadding: 0.2857em;
-@multipleSelectionRightPadding: @selectionIconDistance;
-@multipleSelectionBottomPadding: @multipleSelectionTopPadding;
-@multipleSelectionLeftPadding: (@selectionHorizontalPadding - @labelHorizontalPadding);
-@multipleSelectionPadding: @multipleSelectionTopPadding @multipleSelectionRightPadding @multipleSelectionBottomPadding @multipleSelectionLeftPadding;
-
-@multipleSelectionInlineMargin: 0.4em 0em 0.4em 0.5em;
-@multipleSelectionInlineLineHeight: @searchSelectionLineHeight;
-
-@multipleSelectionSearchStartWidth: (@glyphWidth * 2);
-
 /* Inline */
 @inlineIconMargin: 0em 0.5em 0em 0.25em;
 @inlineTextColor: inherit;
 @inlineTextFontWeight: bold;
 @inlineMenuDistance: 0.25em;
 @inlineMenuBorderRadius: @borderRadius;
+
+
+/* Multiple */
+
+/* Split Actual Padding Between Child and Group (allows for label spacing) */
+@multipleSelectionVerticalPadding: (@searchSelectionVerticalPadding * (1/3));
+@multipleSelectionLeftPadding: (@selectionHorizontalPadding - @labelHorizontalPadding);
+@multipleSelectionRightPadding: @selectionIconDistance;
+@multipleSelectionPadding: @multipleSelectionVerticalPadding @multipleSelectionRightPadding @multipleSelectionVerticalPadding @multipleSelectionLeftPadding;
+
+/* Child Elements */
+@multipleSelectionChildVerticalMargin: (@searchSelectionVerticalPadding * (2/3));
+@multipleSelectionChildSpacing: 0.4285em;
+@multipleSelectionChildMargin: @multipleSelectionChildVerticalMargin 0em @multipleSelectionChildVerticalMargin @multipleSelectionChildSpacing;
+@multipleSelectionChildLineHeight: @searchSelectionLineHeight;
+@multipleSelectionSearchStartWidth: (@glyphWidth * 2);
+
+/* Dropdown Icon */
+@multipleSelectionDropdownIconMargin: 0em -@labelHorizontalPadding 0em 0em;
+@multipleSelectionDropdownIconPadding: @labelPadding;
+
+/* Selection Label */
+@labelSize: @relativeSmall;
+@labelHorizontalSpacing: 0.5em;
+@labelVerticalSpacing: (0.46153em / 2); /* 6px @ 13em */
+@labelMargin: @labelVerticalSpacing @labelHorizontalSpacing @labelVerticalSpacing 0em;
+
+@labelVerticalPadding: 0.3846em; /* 5px @ 13px/em */
+@labelHorizontalPadding: @relativeMini;
+@labelPadding: @labelVerticalPadding @labelHorizontalPadding;
+
 
 /*-------------------
        States
@@ -333,5 +350,5 @@
 @pointingArrowBoxShadow: -1px -1px 0px 1px rgba(0, 0, 0, 0.1);
 @pointingArrowSize: 0.5em;
 
-@pointingMenuDistance: 0.75em;
+@pointingMenuDistance: @mini;
 @pointingMenuBorderRadius: @borderRadius;
