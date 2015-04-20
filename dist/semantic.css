@@ -28299,6 +28299,7 @@ a.ui.nag {
   visibility: hidden;
   -webkit-overflow-scrolling: touch;
   height: 100% !important;
+  max-height: 100%;
   border-radius: 0em !important;
   margin: 0em !important;
   overflow-y: auto !important;
@@ -28336,7 +28337,6 @@ a.ui.nag {
 .ui.bottom.sidebar {
   width: 100% !important;
   height: auto !important;
-  overflow-y: visible !important;
 }
 
 .ui.top.sidebar {

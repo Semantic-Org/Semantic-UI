@@ -59,7 +59,6 @@ $.fn.dimmer = function(parameters) {
       module = {
 
         preinitialize: function() {
-          console.log($module, module.is.dimmer());
           if( module.is.dimmer() ) {
 
             $dimmable = $module.parent();
