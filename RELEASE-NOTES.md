@@ -6,11 +6,13 @@
 - **API** - API can now be used without `$.ajax`. `mockResponse` can be used to resolve request with a local function that receives the same function as the server. `mockResponseAsync` allows you to specify to return server response from a custom async callback.
 - **Container** - Containers are fixed width containers meant for holding page contents, and are a simpler alternative to `ui page grid`, view more [examples in docs](http://www.semantic-ui.com/elements/container.html#examples)
 - **Multiselect** - New dropdown component has been added for multi-select
+- **Search Dropdowns** - Added ability to add custom choices to all search selection dropdowns (multi/single) using `allowAdditions: true` setting. Search now displays error messages on no results in all cases.
 - **Grid** - Grids are now based on `flexbox`, columns are now `equal height` by default. Flexbox alignment has been added for easier vertical alignment.
 - **Headers** - Added new header type `sub header`, useful for displaying small headers alongside text content. See examples [in the header docs](http://www.semantic-ui.com/elements/header.html#sub-headers)
 - **Menu** - New `vertical tabular menu` is now available
 - **Modal** - Add new settings `blurring` and `inverted` which are simple shortcuts for setting modal's dimmer to use either blurring or inverted variations.
 - **Dropdown** - Added new dropdown variation `scrolling dropdown` and `scrolling menu`, see docs or try it out with the language menu in the navigation bar
+- **Dropdown** - Nested scrolling menus can now use keyboard selection and filter with inline search. Nested menu scroll position will automatically adjust with keyboard selection.
 - **Dimmer** - Dimmers now have a `blurring` variation which apply a glass-like effect when dimmed
 - **Steps** - Steps can now be attached to other UI like `segment`
 - **Shapes** - Shapes now animate height/width when side changes sizes and now correctly adjusts for margin on shape elements
@@ -37,7 +39,8 @@
 - **Divider** - `vertical divider` inside `ui grid` now accounts for column padding
 - **Dropdown** - Dropdowns now have `match` setting to specify whether to match on `text`, `value` or `both`
 - **Dropdown** - Dropdowns now automatically observe changes in `menu` and will update selector cache with new additions
-- **Dropdown** - Added `showOnFocus` option
+- **Dropdown** - Added `showOnFocus` option that lets you specify whether dropdown menu should show on focus
+- **Dropdown** - `fullTextSearch: true` now uses fuzzy search (same as `ui search`)
 - **Form** - Added placeholder color rules for IE, `ms-input-placeholder`
 - **Form** - Fix `errored field` dropdown keyboard selection color
 - **Form Validation** - `data-validate` now takes precedence over other validation matching schemes like `name` or `id`
