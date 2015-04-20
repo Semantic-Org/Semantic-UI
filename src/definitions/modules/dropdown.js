@@ -485,7 +485,6 @@ $.fn.dropdown = function(parameters) {
             $results       = $(),
             escapedTerm    = module.escape.regExp(searchTerm),
             exactRegExp    = new RegExp('^' + escapedTerm, 'igm'),
-            fullTextRegExp = new RegExp(escapedTerm, 'ig'),
             allItemsFiltered
           ;
           module.verbose('Searching for matching values');
@@ -503,7 +502,7 @@ $.fn.dropdown = function(parameters) {
                   $results = $results.add($choice);
                   return true;
                 }
-                else if(settings.fullTextSearch && text.match(fullTextRegExp)) {
+                else if(settings.fullTextSearch && module.fuzzySearch(searchTerm, text)) {
                   $results = $results.add($choice);
                   return true;
                 }
@@ -515,7 +514,7 @@ $.fn.dropdown = function(parameters) {
                   $results = $results.add($choice);
                   return true;
                 }
-                else if(settings.fullTextSearch && value.match(fullTextRegExp)) {
+                else if(settings.fullTextSearch && module.fuzzySearch(searchTerm, value)) {
                   $results = $results.add($choice);
                   return true;
                 }
@@ -541,6 +540,33 @@ $.fn.dropdown = function(parameters) {
             }
             settings.onNoResults.call(element, searchTerm);
           }
+        },
+
+        fuzzySearch: function(query, term) {
+          var
+            termLength  = term.length,
+            queryLength = query.length
+          ;
+          query = query.toLowerCase();
+          term  = term.toLowerCase();
+          if(queryLength > termLength) {
+            return false;
+          }
+          if(queryLength === termLength) {
+            return (query === term);
+          }
+          search: for (var characterIndex = 0, nextCharacterIndex = 0; characterIndex < queryLength; characterIndex++) {
+            var
+              queryCharacter = query.charCodeAt(characterIndex)
+            ;
+            while(nextCharacterIndex < termLength) {
+              if(term.charCodeAt(nextCharacterIndex++) === queryCharacter) {
+                continue search;
+              }
+            }
+            return false;
+          }
+          return true;
         },
 
         filterActive: function() {
