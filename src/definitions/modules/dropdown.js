@@ -580,7 +580,7 @@ $.fn.dropdown = function(parameters) {
         },
 
         filterActive: function() {
-          if(settings.hideSelections) {
+          if(settings.useLabels) {
             $item.filter('.' + className.active)
               .addClass(className.filtered)
             ;
@@ -1216,7 +1216,9 @@ $.fn.dropdown = function(parameters) {
               return '';
             }
             return (!$input.is('select') && module.is.multiple())
-              ? value.split(settings.delimiter)
+              ? typeof value == 'string'
+                ? value.split(settings.delimiter)
+                : ''
               : value
             ;
           },
@@ -1622,7 +1624,7 @@ $.fn.dropdown = function(parameters) {
                 module.remove.activeItem();
                 module.remove.selectedItem();
               }
-              else if(settings.hideSelections) {
+              else if(settings.useLabels) {
                 module.remove.selectedItem();
               }
               $selectedItem
@@ -1637,12 +1639,14 @@ $.fn.dropdown = function(parameters) {
                   selectedValue = module.get.choiceValue($selected, selectedText);
                   if(isMultiple) {
                     if(isNotActive) {
-                      module.add.label(selectedValue, selectedText, shouldAnimate);
+                      if(settings.useLabels) {
+                        module.add.label(selectedValue, selectedText, shouldAnimate);
+                        // move keyboard pointer to next element
+                        module.filterActive();
+                        module.select.nextAvailable($selectedItem);
+                      }
                       module.set.value(selectedValue, selectedText, $selected);
                       $selected.addClass(className.active);
-                      // move keyboard pointer to next element
-                      module.filterActive();
-                      module.select.nextAvailable($selectedItem);
                     }
                     else if(isVisible) {
                       module.remove.selected(selectedValue);
@@ -1719,7 +1723,7 @@ $.fn.dropdown = function(parameters) {
             $item.removeClass(className.active);
           },
           filteredItem: function() {
-            if(settings.hideSelections) {
+            if(settings.useLabels) {
               $item.not('.' + className.active).removeClass(className.filtered);
             }
             else {
@@ -1756,14 +1760,14 @@ $.fn.dropdown = function(parameters) {
                   .trigger('change')
                 ;
               }
-              if(module.is.multiple()) {
+              if(module.is.multiple() && settings.useLabels) {
                 module.remove.label(selectedValue);
               }
               $selectedItem
                 .removeClass(className.filtered)
                 .removeClass(className.active)
               ;
-              if(settings.hideSelections) {
+              if(settings.useLabels) {
                 $selectedItem.removeClass(className.selected);
               }
             }
@@ -2290,12 +2294,12 @@ $.fn.dropdown.settings = {
   allowCategorySelection : false,
   // allow elements with sub-menus to be selected
 
-  forceSelection : true,
+  forceSelection         : true,
   // force a value selection on search selection
 
-  transition     : 'auto',
-  duration       : 250,
-  // menu transiton
+  transition             : 'auto',
+  duration               : 250,
+  // menu transition
 
   delay : {
     hide   : 300,
@@ -2322,7 +2326,7 @@ $.fn.dropdown.settings = {
   },
   // label settings on multi-select
 
-  hideSelections : true,
+  useLabels : false,
   // whether multiple select should filter currently active selections from choices
 
 
@@ -2339,7 +2343,7 @@ $.fn.dropdown.settings = {
 
   message: {
     addResult : 'Add <b>{term}</b>',
-    noResults : 'No results were found.'
+    noResults : 'No results found.'
   },
 
   error : {
