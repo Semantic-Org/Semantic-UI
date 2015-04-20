@@ -28,6 +28,7 @@
   position: relative;
   display: @display;
   perspective: @perspective;
+  transition: @transition;
 }
 
 .ui.shape .sides {
@@ -128,9 +129,6 @@
       CSS
 ---------------*/
 
-.ui.shape.animating {
-  transition: @transition;
-}
 .ui.shape.animating .sides {
   position: absolute;
 }
