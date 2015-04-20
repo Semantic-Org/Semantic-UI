@@ -105,6 +105,7 @@
   display: block;
   border: none;
   height: auto;
+  text-align: left;
   border-top: none;
   line-height: 1em;
   color: rgba(0, 0, 0, 0.8);

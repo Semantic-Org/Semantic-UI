@@ -4932,7 +4932,7 @@ $.fn.dropdown = function(parameters) {
           placeholderText: function(text) {
             module.debug('Restoring placeholder text');
             text = text || $module.data(metadata.placeholderText);
-            module.set.text(placeholderText);
+            module.set.text(text);
             $text.addClass(className.placeholder);
           },
           tabbable: function() {
@@ -11145,6 +11145,20 @@ $.fn.shape = function(parameters) {
             ;
           },
 
+          currentStageSize: function() {
+            var
+              $activeSide = $module.find('.' + settings.className.active),
+              width       = $activeSide.outerWidth(true),
+              height      = $activeSide.outerHeight(true)
+            ;
+            $module
+              .css({
+                width: width,
+                height: height
+              })
+            ;
+          },
+
           stageSize: function() {
             var
               $clone      = $module.clone().addClass(className.loading),
@@ -11156,12 +11170,13 @@ $.fn.shape = function(parameters) {
                   : $clone.find(selector.side).first(),
               newSize = {}
             ;
+            module.set.currentStageSize();
             $activeSide.removeClass(className.active);
             $nextSide.addClass(className.active);
             $clone.insertAfter($module);
             newSize = {
-              width  : $nextSide.outerWidth(),
-              height : $nextSide.outerHeight()
+              width  : $nextSide.outerWidth(true),
+              height : $nextSide.outerHeight(true)
             };
             $clone.remove();
             $module
@@ -11300,8 +11315,8 @@ $.fn.shape = function(parameters) {
             up: function() {
               var
                 translate = {
-                  y: -(($activeSide.outerHeight() - $nextSide.outerHeight()) / 2),
-                  z: -($activeSide.outerHeight() / 2)
+                  y: -(($activeSide.outerHeight(true) - $nextSide.outerHeight(true)) / 2),
+                  z: -($activeSide.outerHeight(true) / 2)
                 }
               ;
               return {
@@ -11312,8 +11327,8 @@ $.fn.shape = function(parameters) {
             down: function() {
               var
                 translate = {
-                  y: -(($activeSide.outerHeight() - $nextSide.outerHeight()) / 2),
-                  z: -($activeSide.outerHeight() / 2)
+                  y: -(($activeSide.outerHeight(true) - $nextSide.outerHeight(true)) / 2),
+                  z: -($activeSide.outerHeight(true) / 2)
                 }
               ;
               return {
@@ -11324,8 +11339,8 @@ $.fn.shape = function(parameters) {
             left: function() {
               var
                 translate = {
-                  x : -(($activeSide.outerWidth() - $nextSide.outerWidth()) / 2),
-                  z : -($activeSide.outerWidth() / 2)
+                  x : -(($activeSide.outerWidth(true) - $nextSide.outerWidth(true)) / 2),
+                  z : -($activeSide.outerWidth(true) / 2)
                 }
               ;
               return {
@@ -11336,8 +11351,8 @@ $.fn.shape = function(parameters) {
             right: function() {
               var
                 translate = {
-                  x : -(($activeSide.outerWidth() - $nextSide.outerWidth()) / 2),
-                  z : -($activeSide.outerWidth() / 2)
+                  x : -(($activeSide.outerWidth(true) - $nextSide.outerWidth(true)) / 2),
+                  z : -($activeSide.outerWidth(true) / 2)
                 }
               ;
               return {
@@ -11348,7 +11363,7 @@ $.fn.shape = function(parameters) {
             over: function() {
               var
                 translate = {
-                  x : -(($activeSide.outerWidth() - $nextSide.outerWidth()) / 2)
+                  x : -(($activeSide.outerWidth(true) - $nextSide.outerWidth(true)) / 2)
                 }
               ;
               return {
@@ -11359,7 +11374,7 @@ $.fn.shape = function(parameters) {
             back: function() {
               var
                 translate = {
-                  x : -(($activeSide.outerWidth() - $nextSide.outerWidth()) / 2)
+                  x : -(($activeSide.outerWidth(true) - $nextSide.outerWidth(true)) / 2)
                 }
               ;
               return {
@@ -11400,10 +11415,10 @@ $.fn.shape = function(parameters) {
           above: function() {
             var
               box = {
-                origin : (($activeSide.outerHeight() - $nextSide.outerHeight()) / 2),
+                origin : (($activeSide.outerHeight(true) - $nextSide.outerHeight(true)) / 2),
                 depth  : {
-                  active : ($nextSide.outerHeight() / 2),
-                  next   : ($activeSide.outerHeight() / 2)
+                  active : ($nextSide.outerHeight(true) / 2),
+                  next   : ($activeSide.outerHeight(true) / 2)
                 }
               }
             ;
@@ -11426,10 +11441,10 @@ $.fn.shape = function(parameters) {
           below: function() {
             var
               box = {
-                origin : (($activeSide.outerHeight() - $nextSide.outerHeight()) / 2),
+                origin : (($activeSide.outerHeight(true) - $nextSide.outerHeight(true)) / 2),
                 depth  : {
-                  active : ($nextSide.outerHeight() / 2),
-                  next   : ($activeSide.outerHeight() / 2)
+                  active : ($nextSide.outerHeight(true) / 2),
+                  next   : ($activeSide.outerHeight(true) / 2)
                 }
               }
             ;
@@ -11452,10 +11467,10 @@ $.fn.shape = function(parameters) {
           left: function() {
             var
               box = {
-                origin : ( ( $activeSide.outerWidth() - $nextSide.outerWidth() ) / 2),
+                origin : ( ( $activeSide.outerWidth(true) - $nextSide.outerWidth(true) ) / 2),
                 depth  : {
-                  active : ($nextSide.outerWidth() / 2),
-                  next   : ($activeSide.outerWidth() / 2)
+                  active : ($nextSide.outerWidth(true) / 2),
+                  next   : ($activeSide.outerWidth(true) / 2)
                 }
               }
             ;
@@ -11478,10 +11493,10 @@ $.fn.shape = function(parameters) {
           right: function() {
             var
               box = {
-                origin : ( ( $activeSide.outerWidth() - $nextSide.outerWidth() ) / 2),
+                origin : ( ( $activeSide.outerWidth(true) - $nextSide.outerWidth(true) ) / 2),
                 depth  : {
-                  active : ($nextSide.outerWidth() / 2),
-                  next   : ($activeSide.outerWidth() / 2)
+                  active : ($nextSide.outerWidth(true) / 2),
+                  next   : ($activeSide.outerWidth(true) / 2)
                 }
               }
             ;
@@ -11504,10 +11519,10 @@ $.fn.shape = function(parameters) {
           behind: function() {
             var
               box = {
-                origin : ( ( $activeSide.outerWidth() - $nextSide.outerWidth() ) / 2),
+                origin : ( ( $activeSide.outerWidth(true) - $nextSide.outerWidth(true) ) / 2),
                 depth  : {
-                  active : ($nextSide.outerWidth() / 2),
-                  next   : ($activeSide.outerWidth() / 2)
+                  active : ($nextSide.outerWidth(true) / 2),
+                  next   : ($activeSide.outerWidth(true) / 2)
                 }
               }
             ;
@@ -11988,7 +12003,7 @@ $.fn.sidebar = function(parameters) {
               distance.right = width;
             }
 
-            style  = '<style title="' + namespace + '">';
+            style  = '<style>';
 
             if(direction === 'left' || direction === 'right') {
               module.debug('Adding CSS rules for animation distance', width);
@@ -12040,8 +12055,9 @@ $.fn.sidebar = function(parameters) {
               ;
             }
             style += '</style>';
-            $head.append(style);
-            $style = $('style[title=' + namespace + ']');
+            $style = $(style)
+              .appendTo($head)
+            ;
             module.debug('Adding sizing css to head', $style);
           }
         },
