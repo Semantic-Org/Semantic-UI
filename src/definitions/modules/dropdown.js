@@ -2326,7 +2326,7 @@ $.fn.dropdown.settings = {
   },
   // label settings on multi-select
 
-  useLabels : false,
+  useLabels : true,
   // whether multiple select should filter currently active selections from choices
 
 
