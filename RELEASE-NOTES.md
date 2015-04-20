@@ -13,6 +13,7 @@
 - **Dropdown** - Added new dropdown variation `scrolling dropdown` and `scrolling menu`, see docs or try it out with the language menu in the navigation bar
 - **Dimmer** - Dimmers now have a `blurring` variation which apply a glass-like effect when dimmed
 - **Steps** - Steps can now be attached to other UI like `segment`
+- **Shapes** - Shapes now animate height/width when side changes sizes and now correctly adjusts for margin on shape elements
 
 **Major Changes**
 - **Colors** - Global colors defaults have been adjusted to improve contrast with white text
@@ -65,37 +66,6 @@
 - **Visibility/Sticky** - Visibility and sticky now refresh automatically after page content loading to deal with changes in position from images loading
 - **Visibility/Sticky** - Visibility now uses pub/sub pattern to greatly improve scroll performance when attaching multiple events
 
-**Changes**
-- **All Modules** - All modules now default to `verbose: false`
-- **Accordion** - Accordion no longer sets a `font-size` to better couple with other components defaults
-- **Breadcrumb** - Increased `divider` spacing to add more whitespace
-- **Card** - Card styles have been adjusted, `link card` now raise to show selection. Colored variations now have shadows.
-- **Checkbox** - Toggle now uses `@primaryColor`
-- **Dropdown** - Dropdown padding values now resolve to exact pixel values from em
-- **Grid** - Small computer `page grid` gutters have been adjusted from 8% to 3% to allow for roomier layouts on small screens.
-- **Grid** - `center aligned` no longer centers rows, just text. Use `centered grid` to center a grid column on the page.
-- **Header/Table/Divider** - These components now pull border color defaults from `site.variables` instead of using their own values
-- **Image** - `mini image` default width has been increased to `35px`
-- **Item** - item `description` now longer sets a `max-width`
-- **Icon** - `disabled icon` now have `pointer-events` again.
-- **Label** - Label size now varies by type. `pointing label` are now `1em` by default.
-- **Input** - Input now use `em` instead of `rem` so they will inherit the size of the elements they are nested inside
-- **Progress* - Update contrast on `indicating`, update default styles. Fixed some examples
-- **Menu** - Menu now uses `border` for borders instead of `box-shadow`
-- **Menu** - `secondary pointing menu` has had some slight design tweaks, thinner lines, more padding
-- **Menu** - Active sub-menu items are now `bold`
-- **Menu** - Menus no longer have additional borders on `active item` in the default theme
-- **Menu** - `tiered menu` has been removed
-- **Menu** - Increased contrast on `inverted` menu selection for legibility
-- **Message** - Slightly increases `box-shadow`
-- **Popup** - Popup no longer produces an error when a position cannot be found on the page.
-- **Segment** - **Clearfix** has been removed from `ui segment`
-- **Search** - Slightly adjusted search result theme for clarity
-- **Site** - Increase contrast on default hovered/down colors for colored variations
-- **Site** - Page background is now `#FFFFFF` by default instead of an offwhite `#F7F7F7`
-- **Site** - Adjusted global line height to the closest even pixel value
-- **Table** - Horizontal cell padding has been slightly reduced, and cell borders are slightly lighter.
-
 **Bugs**
 - **All Modules** - Performance logging now delays 500ms instead of 100ms for console logging to ensure all logs are captured in one group
 - **All Modules/Transition** - Transitions no longer use `rotateZ(0deg)` to trigger GPU display of visible state. This causes issues with `transform` creating new stacking context that can disrupt `z-index`.
@@ -109,6 +79,7 @@
 - **Dropdown** - Dropdown `menu` now use same font size as dropdown
 - **Dropdown** - Fixed behaviors called on `<select>` after initialization not being correctly applied to `ui dropdown`
 - **Dropdown** - Fixed `search dropdown` submitting parent form when enter shortcut pressed
+- **Dropdown** - Fixed dropdown menu items should not center inside of a center aligned container.
 - **Form** - `field` inside `fields` no longer produce double sized margins.
 - **Form** - Form sizes and input sizes now inherit from `site.variables`
 - **Form Validation** - Form validation now validates correctly on `<select>` change
@@ -142,6 +113,7 @@
 - **Popup** - Fixed bug which could cause pre-existing inline popup to be removed from DOM after hiding
 - **Reveal** - Removed `masked` reveal, all reveals are masked by default
 - **Search** - Search will no longer incorrectly produce an error when API settings are passed through metadata
+- **Sidebar** - Top/Bottom sidebar will now show scroll bars correctly when taller than 100% page height
 - **Sidebar** - Last menu item now has a border when sidebar and menu are used together
 - **Search** - Fixed `onSelect` not returning the correct value when using `type: category`
 - **Search** - Fixed `onSelect` returning the first term that matches the beginining of the selected value not the exact value.
@@ -155,6 +127,39 @@
 - **Table** - `very basic table` now works together with `padded table`
 - **Table** - Fix inheritance of text alignment and vertical alignment
 - **Transition** - Fixed bug where transition could sometimes not occur when an element was determined to always be hidden
+
+**Changes**
+- **All Modules** - All modules now default to `verbose: false`
+- **Accordion** - Accordion no longer sets a `font-size` to better couple with other components defaults
+- **Button** - Button focus color now uses hoverColor background instead of blue box shadow
+- **Breadcrumb** - Increased `divider` spacing to add more whitespace
+- **Card** - Card styles have been adjusted, `link card` now raise to show selection. Colored variations now have shadows.
+- **Checkbox** - Toggle now uses `@primaryColor`
+- **Dropdown** - Dropdown padding values now resolve to exact pixel values from em
+- **Grid** - Small computer `page grid` gutters have been adjusted from 8% to 3% to allow for roomier layouts on small screens.
+- **Grid** - `center aligned` no longer centers rows, just text. Use `centered grid` to center a grid column on the page.
+- **Header/Table/Divider** - These components now pull border color defaults from `site.variables` instead of using their own values
+- **Image** - `mini image` default width has been increased to `35px`
+- **Item** - item `description` now longer sets a `max-width`
+- **Icon** - `disabled icon` now have `pointer-events` again.
+- **Label** - Label size now varies by type. `pointing label` are now `1em` by default.
+- **Input** - Input now use `em` instead of `rem` so they will inherit the size of the elements they are nested inside
+- **Progress* - Update contrast on `indicating`, update default styles. Fixed some examples
+- **Menu** - Menu now uses `border` for borders instead of `box-shadow`
+- **Menu** - `secondary pointing menu` has had some slight design tweaks, thinner lines, more padding
+- **Menu** - Active sub-menu items are now `bold`
+- **Menu** - Menus no longer have additional borders on `active item` in the default theme
+- **Menu** - `tiered menu` has been removed
+- **Menu** - Increased contrast on `inverted` menu selection for legibility
+- **Message** - Slightly increases `box-shadow`
+- **Popup** - Popup no longer produces an error when a position cannot be found on the page.
+- **Segment** - **Clearfix** has been removed from `ui segment`
+- **Search** - Slightly adjusted search result theme for clarity
+- **Site** - Increase contrast on default hovered/down colors for colored variations
+- **Site** - Page background is now `#FFFFFF` by default instead of an offwhite `#F7F7F7`
+- **Site** - Adjusted global line height to the closest even pixel value
+- **Table** - Horizontal cell padding has been slightly reduced, and cell borders are slightly lighter.
+
 
 ### Version 1.12.0 - April 13, 2015
 
