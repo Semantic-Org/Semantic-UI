@@ -1427,7 +1427,7 @@ $.fn.dropdown = function(parameters) {
           placeholderText: function(text) {
             module.debug('Restoring placeholder text');
             text = text || $module.data(metadata.placeholderText);
-            module.set.text(placeholderText);
+            module.set.text(text);
             $text.addClass(className.placeholder);
           },
           tabbable: function() {

@@ -48,6 +48,7 @@
 
 /* Menu Item */
 @itemFontSize: @relativeMedium;
+@itemTextAlign: left;
 @itemBorder: none;
 @itemHeight: auto;
 @itemDivider: none;
