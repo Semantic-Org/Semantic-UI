@@ -19124,8 +19124,8 @@ Floated Menu / Item
   top: 1.21425em;
   right: 0.5em;
   opacity: 0.7;
-  -webkit-transition: opacity 0.1s linear;
-  transition: opacity 0.1s linear;
+  -webkit-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 
 .ui.message > .close.icon:hover {
@@ -19140,6 +19140,14 @@ Floated Menu / Item
 
 .ui.message > :last-child {
   margin-bottom: 0em;
+}
+
+/*******************************
+            Coupling
+*******************************/
+
+.ui.dropdown .menu > .message {
+  margin: 0px -1px;
 }
 
 /*******************************
@@ -24768,7 +24776,7 @@ body.dimmable > .dimmer {
 .ui.dropdown .menu > .divider {
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   height: 0em;
-  margin: 0.5em 0em;
+  margin: 0.5em 0em 0em;
 }
 
 .ui.dropdown .menu > .input {
@@ -24776,7 +24784,7 @@ body.dimmable > .dimmer {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin: 0.75rem 1.14285714em;
+  margin: 1.14285714rem 0.71428571rem;
   min-width: 140px;
 }
 
@@ -24802,6 +24810,19 @@ body.dimmable > .dimmer {
 .ui.dropdown > .text > .description,
 .ui.dropdown .menu > .item > .description {
   margin: 0em 0em 0em 1em;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+/*-----------------
+       Message
+-------------------*/
+
+.ui.dropdown .menu > .message {
+  padding: 0.71428571em 1.14285714em;
+  font-weight: normal;
+}
+
+.ui.dropdown .menu > .message:not(.ui) {
   color: rgba(0, 0, 0, 0.4);
 }
 
@@ -24862,7 +24883,7 @@ body.dimmable > .dimmer {
 .ui.dropdown .menu > .item > img {
   margin-left: 0em;
   float: none;
-  margin-right: 0.75em;
+  margin-right: 0.71428571rem;
 }
 
 /*--------------
@@ -25005,6 +25026,14 @@ select.ui.dropdown {
 .ui.selection.dropdown .menu:after,
 .ui.selection.dropdown .menu:before {
   display: none;
+}
+
+/*--------------
+    Message
+---------------*/
+
+.ui.selection.dropdown .menu > .message {
+  padding: 0.71428571em 1.14285714em;
 }
 
 /* Scrollbar in IE */
@@ -25517,14 +25546,14 @@ select.ui.dropdown {
 .ui.dropdown .left.menu .item .dropdown.icon {
   width: auto;
   float: left;
-  margin: 0em 0.75em 0em 0em;
+  margin: 0em 0.71428571rem 0em 0em;
 }
 
 .ui.dropdown .item .left.dropdown.icon,
 .ui.dropdown .left.menu .item .dropdown.icon {
   width: auto;
   float: left;
-  margin: 0em 0.75em 0em 0em;
+  margin: 0em 0.71428571rem 0em 0em;
 }
 
 .ui.dropdown .item .left.dropdown.icon + .text,
@@ -25756,7 +25785,7 @@ select.ui.dropdown {
 
 .ui.pointing.dropdown > .menu {
   top: 100%;
-  margin-top: 0.75em;
+  margin-top: 0.71428571rem;
   border-radius: 0.2857rem;
 }
 
