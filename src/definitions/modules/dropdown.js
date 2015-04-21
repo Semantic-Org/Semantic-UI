@@ -166,10 +166,8 @@ $.fn.dropdown = function(parameters) {
 
         search: function() {
           var
-            query
+            query = module.get.query()
           ;
-          query = $search.val();
-
           module.verbose('Searching for query', query);
           module.filter(query);
           if(module.is.searchSelection() && module.can.show() ) {
@@ -179,6 +177,7 @@ $.fn.dropdown = function(parameters) {
 
         select: {
           firstUnfiltered: function() {
+            module.verbose('Selecting first non-filtered element');
             module.remove.selectedItem();
             $item
               .not('.' + className.filtered)
@@ -313,8 +312,8 @@ $.fn.dropdown = function(parameters) {
           ;
           if( module.can.show() && !module.is.active() ) {
             module.debug('Showing dropdown');
-            if(module.is.multiple() && module.is.searchSelection()) {
-              module.filterActive();
+            if(module.is.multiple() && !module.has.search() && module.is.allFiltered()) {
+              return true;
             }
             module.animate.show(function() {
               if( module.can.click() ) {
@@ -530,20 +529,16 @@ $.fn.dropdown = function(parameters) {
           if(module.is.multiple()) {
             module.filterActive();
           }
-          module.verbose('Selecting first non-filtered element');
           module.select.firstUnfiltered();
           if( module.is.allFiltered() ) {
             if( settings.onNoResults.call(element, searchTerm) ) {
-              module.debug('All items filtered, showing error', searchTerm);
-              if(settings.allowAdditions == true || settings.allowAdditions == 'missing') {
-                module.add.message(message.noResults, data);
-              }
-              else {
+              if(!settings.allowAdditions) {
+                module.verbose('All items filtered, showing message', searchTerm);
                 module.add.message(message.noResults);
               }
             }
             else {
-              module.debug('All items filtered, hiding dropdown', searchTerm);
+              module.verbose('All items filtered, hiding dropdown', searchTerm);
               module.hideMenu();
             }
           }
@@ -959,6 +954,9 @@ $.fn.dropdown = function(parameters) {
                   else if(selectedIsVisible) {
                     module.verbose('Enter key pressed, choosing selected item');
                     module.event.item.click.call($selectedItem, event);
+                    if(!settings.useLabels) {
+                      module.remove.searchTerm();
+                    }
                     event.stopImmediatePropagation();
                   }
                   event.preventDefault();
@@ -1166,6 +1164,9 @@ $.fn.dropdown = function(parameters) {
           },
           text: function() {
             return $text.text();
+          },
+          query: function() {
+            return $search.val();
           },
           uniqueArray: function(array) {
             return $.grep(array, function (value, index) {
@@ -1439,7 +1440,7 @@ $.fn.dropdown = function(parameters) {
               isSearch         = module.is.searchSelection(),
               isSearchMultiple = (isMultiple && isSearch),
               searchValue      = (isSearch)
-                ? $search.val()
+                ? module.get.query()
                 : '',
               hasSearchValue   = (typeof searchValue === 'string' && searchValue.length > 0),
               searchWidth      = (searchValue.length * settings.glyphWidth) + 'em',
@@ -1641,12 +1642,16 @@ $.fn.dropdown = function(parameters) {
                     if(isNotActive) {
                       if(settings.useLabels) {
                         module.add.label(selectedValue, selectedText, shouldAnimate);
-                        // move keyboard pointer to next element
+                        module.set.value(selectedValue, selectedText, $selected);
+                        $selected.addClass(className.active);
                         module.filterActive();
                         module.select.nextAvailable($selectedItem);
                       }
-                      module.set.value(selectedValue, selectedText, $selected);
-                      $selected.addClass(className.active);
+                      else {
+                        module.set.value(selectedValue, selectedText, $selected);
+                        module.set.text(module.add.variables(message.count))
+                        $selected.addClass(className.active);
+                      }
                     }
                     else if(isVisible) {
                       module.remove.selected(selectedValue);
@@ -1706,6 +1711,28 @@ $.fn.dropdown = function(parameters) {
             $message = $(html)
               .appendTo($menu)
             ;
+          },
+          variables: function(message) {
+            var
+              hasCount = (message.search('{count}') !== -1),
+              hasTerm  = (message.search('{term}') !== -1),
+              values,
+              count,
+              query
+            ;
+            if(hasCount) {
+              values = module.get.values();
+              count = $.isArray(values)
+                ? values.length
+                : 1
+              ;
+              message = message.replace('{count}', count);
+            }
+            if(hasTerm) {
+              query   = module.get.query();
+              message = message.replace('{term}', query);
+            }
+            return message;
           }
         },
 
@@ -1760,8 +1787,13 @@ $.fn.dropdown = function(parameters) {
                   .trigger('change')
                 ;
               }
-              if(module.is.multiple() && settings.useLabels) {
-                module.remove.label(selectedValue);
+              if(module.is.multiple()) {
+                if(settings.useLabels) {
+                  module.remove.label(selectedValue);
+                }
+                else {
+                  module.set.text(module.add.variables(message.count))
+                }
               }
               $selectedItem
                 .removeClass(className.filtered)
@@ -2343,6 +2375,7 @@ $.fn.dropdown.settings = {
 
   message: {
     addResult : 'Add <b>{term}</b>',
+    count     : '{count} selected',
     noResults : 'No results found.'
   },
 
@@ -2353,8 +2386,8 @@ $.fn.dropdown.settings = {
     noTransition : 'This module requires ui transitions <https://github.com/Semantic-Org/UI-Transition>'
   },
 
-  regExp: {
-    escape: /[-[\]{}()*+?.,\\^$|#\s]/g
+  regExp : {
+    escape   : /[-[\]{}()*+?.,\\^$|#\s]/g,
   },
 
   metadata : {
