@@ -65,6 +65,7 @@
 - **Segment** - Added `padded` and `very padded` segment variations
 - **Sidebar** - Improved animation performance through performance debugging. Sidebar now caches, width, height, rtl direction on load.
 - **Site** - Added in `pageOverflowX` variable, default theme hides horizontal scrollbars on `body`
+- **Tabs* - Added `parseScripts` option
 - **Table** - Added `vertical alignment` variations to `ui table`
 - **Visibility/Sticky** - Visibility and sticky now refresh automatically after page content loading to deal with changes in position from images loading
 - **Visibility/Sticky** - Visibility now uses pub/sub pattern to greatly improve scroll performance when attaching multiple events
@@ -155,6 +156,7 @@
 - **Menu** - Menus no longer have additional borders on `active item` in the default theme
 - **Menu** - `tiered menu` has been removed
 - **Menu** - Increased contrast on `inverted` menu selection for legibility
+- **Modal** - Modals now used fixed widths and not percentage widths. Widths might be slightly different.
 - **Message** - Slightly increases `box-shadow`
 - **Popup** - Popup no longer produces an error when a position cannot be found on the page.
 - **Segment** - **Clearfix** has been removed from `ui segment`

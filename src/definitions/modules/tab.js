@@ -783,11 +783,12 @@ $.fn.tab.settings = {
   alwaysRefresh   : false,  // load tab content new every tab click
   cache           : true,   // cache the content requests to pull locally
   ignoreFirstLoad : false,  // don't load remote content on first load
-  apiSettings     : false,  // settings for api call
-  evaluateScripts    : 'once', // whether inline scripts should be parsed (true/false/once). Once will not re-evaluate on cached content
 
-  onTabInit    : function(tabPath, parameterArray, historyEvent) {}, // called first time loaded
-  onTabLoad    : function(tabPath, parameterArray, historyEvent) {}, // called on every load
+  apiSettings     : false,  // settings for api call
+  evaluateScripts : 'once', // whether inline scripts should be parsed (true/false/once). Once will not re-evaluate on cached content
+
+  onTabInit       : function(tabPath, parameterArray, historyEvent) {}, // called first time loaded
+  onTabLoad       : function(tabPath, parameterArray, historyEvent) {}, // called on every load
 
   templates    : {
     determineTitle: function(tabArray) {} // returns page title for path
