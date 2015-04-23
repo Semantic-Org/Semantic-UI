@@ -108,7 +108,7 @@ $.fn.modal = function(parameters) {
             ;
             if(settings.inverted) {
               dimmerSettings.variation = (dimmerSettings.variation !== undefined)
-                ? dimmer.settings.variation + ' inverted'
+                ? dimmerSettings.variation + ' inverted'
                 : 'inverted'
               ;
             }

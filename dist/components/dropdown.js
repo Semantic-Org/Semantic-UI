@@ -689,7 +689,6 @@ $.fn.dropdown = function(parameters) {
                 $range = ($nextActive.length > 0)
                   ? $label.nextUntil($nextActive).add($activeLabels).add($label)
                   : $label.prevUntil($prevActive).add($activeLabels).add($label)
-                ;
               ;
               if(event.shiftKey) {
                 $activeLabels.removeClass(className.active);
@@ -819,12 +818,12 @@ $.fn.dropdown = function(parameters) {
                   labelCount        = $label.length,
                   hasActiveLabel    = ($activeLabel.length > 0),
                   hasMultipleActive = ($activeLabel.length > 1),
-                  isFirstLabel      = (labelIndex == 0),
+                  isFirstLabel      = (labelIndex === 0),
                   isLastLabel       = (labelIndex + 1 == labelCount),
                   isSearch          = module.is.searchSelection(),
                   isFocusedOnSearch = module.is.focusedOnSearch(),
                   isFocused         = module.is.focused(),
-                  caretAtStart      = (isFocusedOnSearch && module.get.caretPosition() == 0),
+                  caretAtStart      = (isFocusedOnSearch && module.get.caretPosition() === 0),
                   $nextLabel
                 ;
                 if(settings.allowAdditions && isFocusedOnSearch && (pressedKey == keys.delimiter)) {
@@ -840,7 +839,7 @@ $.fn.dropdown = function(parameters) {
                   else if(hasActiveLabel) {
                     if(!event.shiftKey) {
                       module.verbose('Selecting previous label');
-                      $label.removeClass(className.active)
+                      $label.removeClass(className.active);
                     }
                     else {
                       module.verbose('Adding previous label to selection');
@@ -866,7 +865,7 @@ $.fn.dropdown = function(parameters) {
                   if(hasActiveLabel) {
                     if(!event.shiftKey) {
                       module.verbose('Selecting next label');
-                      $label.removeClass(className.active)
+                      $label.removeClass(className.active);
                     }
                     else {
                       module.verbose('Adding next label to selection');
@@ -1108,7 +1107,7 @@ $.fn.dropdown = function(parameters) {
               ? callback
               : function(){}
             ;
-            if($target.closest($menu).length == 0) {
+            if($target.closest($menu).length === 0) {
               module.verbose('Triggering event', callback);
               callback();
               return true;
@@ -1213,7 +1212,7 @@ $.fn.dropdown = function(parameters) {
             var
               value = module.get.value()
             ;
-            if(value == '') {
+            if(value === '') {
               return '';
             }
             return (!$input.is('select') && module.is.multiple())
@@ -1444,10 +1443,10 @@ $.fn.dropdown = function(parameters) {
                 : '',
               hasSearchValue   = (typeof searchValue === 'string' && searchValue.length > 0),
               searchWidth      = (searchValue.length * settings.glyphWidth) + 'em',
-              valueIsSet       = $input.val() != ''
+              valueIsSet       = $input.val() !== ''
             ;
             if(isMultiple && hasSearchValue) {
-              module.verbose('Adjusting input width', searchWidth, settings.glyphWidth)
+              module.verbose('Adjusting input width', searchWidth, settings.glyphWidth);
               $search.css('width', searchWidth);
             }
             if(hasSearchValue || (isSearchMultiple && valueIsSet)) {
@@ -1649,7 +1648,7 @@ $.fn.dropdown = function(parameters) {
                       }
                       else {
                         module.set.value(selectedValue, selectedText, $selected);
-                        module.set.text(module.add.variables(message.count))
+                        module.set.text(module.add.variables(message.count));
                         $selected.addClass(className.active);
                       }
                     }
@@ -1685,7 +1684,7 @@ $.fn.dropdown = function(parameters) {
             if(settings.label.variation) {
               $label.addClass(settings.label.variation);
             }
-            if(shouldAnimate == true) {
+            if(shouldAnimate === true) {
               module.debug('Animating in label', $label);
               $label
                 .addClass(className.hidden)
@@ -1792,7 +1791,7 @@ $.fn.dropdown = function(parameters) {
                   module.remove.label(selectedValue);
                 }
                 else {
-                  module.set.text(module.add.variables(message.count))
+                  module.set.text(module.add.variables(message.count));
                 }
               }
               $selectedItem
@@ -1843,7 +1842,7 @@ $.fn.dropdown = function(parameters) {
           },
           labels: function($activeLabels) {
             $activeLabels = $activeLabels || $module.find(selector.label).filter('.' + className.active);
-            module.verbose('Removing active labels', $activeLabels);
+            module.verbose('Removing active label selections', $activeLabels);
             $activeLabels
               .each(function(){
                 module.remove.selected($(this).data('value'));
@@ -1946,7 +1945,7 @@ $.fn.dropdown = function(parameters) {
             return $module.hasClass(className.search);
           },
           searchSelection: function() {
-            return ( module.has.search() && $search.closest(selector.menu).length == 0 );
+            return ( module.has.search() && $search.closest(selector.menu).length === 0 );
           },
           selection: function() {
             return $module.hasClass(className.selection);
@@ -2364,7 +2363,7 @@ $.fn.dropdown.settings = {
 
   /* Callbacks */
   onLabelSelect : function($selectedLabels){},
-  onNoResults   : function(searchTerm) { return true },
+  onNoResults   : function(searchTerm) { return true; },
   onChange      : function(value, text, $selected){},
   onShow        : function(){},
   onHide        : function(){},

@@ -4194,7 +4194,6 @@ $.fn.dropdown = function(parameters) {
                 $range = ($nextActive.length > 0)
                   ? $label.nextUntil($nextActive).add($activeLabels).add($label)
                   : $label.prevUntil($prevActive).add($activeLabels).add($label)
-                ;
               ;
               if(event.shiftKey) {
                 $activeLabels.removeClass(className.active);
@@ -4324,12 +4323,12 @@ $.fn.dropdown = function(parameters) {
                   labelCount        = $label.length,
                   hasActiveLabel    = ($activeLabel.length > 0),
                   hasMultipleActive = ($activeLabel.length > 1),
-                  isFirstLabel      = (labelIndex == 0),
+                  isFirstLabel      = (labelIndex === 0),
                   isLastLabel       = (labelIndex + 1 == labelCount),
                   isSearch          = module.is.searchSelection(),
                   isFocusedOnSearch = module.is.focusedOnSearch(),
                   isFocused         = module.is.focused(),
-                  caretAtStart      = (isFocusedOnSearch && module.get.caretPosition() == 0),
+                  caretAtStart      = (isFocusedOnSearch && module.get.caretPosition() === 0),
                   $nextLabel
                 ;
                 if(settings.allowAdditions && isFocusedOnSearch && (pressedKey == keys.delimiter)) {
@@ -4345,7 +4344,7 @@ $.fn.dropdown = function(parameters) {
                   else if(hasActiveLabel) {
                     if(!event.shiftKey) {
                       module.verbose('Selecting previous label');
-                      $label.removeClass(className.active)
+                      $label.removeClass(className.active);
                     }
                     else {
                       module.verbose('Adding previous label to selection');
@@ -4371,7 +4370,7 @@ $.fn.dropdown = function(parameters) {
                   if(hasActiveLabel) {
                     if(!event.shiftKey) {
                       module.verbose('Selecting next label');
-                      $label.removeClass(className.active)
+                      $label.removeClass(className.active);
                     }
                     else {
                       module.verbose('Adding next label to selection');
@@ -4613,7 +4612,7 @@ $.fn.dropdown = function(parameters) {
               ? callback
               : function(){}
             ;
-            if($target.closest($menu).length == 0) {
+            if($target.closest($menu).length === 0) {
               module.verbose('Triggering event', callback);
               callback();
               return true;
@@ -4718,7 +4717,7 @@ $.fn.dropdown = function(parameters) {
             var
               value = module.get.value()
             ;
-            if(value == '') {
+            if(value === '') {
               return '';
             }
             return (!$input.is('select') && module.is.multiple())
@@ -4949,10 +4948,10 @@ $.fn.dropdown = function(parameters) {
                 : '',
               hasSearchValue   = (typeof searchValue === 'string' && searchValue.length > 0),
               searchWidth      = (searchValue.length * settings.glyphWidth) + 'em',
-              valueIsSet       = $input.val() != ''
+              valueIsSet       = $input.val() !== ''
             ;
             if(isMultiple && hasSearchValue) {
-              module.verbose('Adjusting input width', searchWidth, settings.glyphWidth)
+              module.verbose('Adjusting input width', searchWidth, settings.glyphWidth);
               $search.css('width', searchWidth);
             }
             if(hasSearchValue || (isSearchMultiple && valueIsSet)) {
@@ -5154,7 +5153,7 @@ $.fn.dropdown = function(parameters) {
                       }
                       else {
                         module.set.value(selectedValue, selectedText, $selected);
-                        module.set.text(module.add.variables(message.count))
+                        module.set.text(module.add.variables(message.count));
                         $selected.addClass(className.active);
                       }
                     }
@@ -5190,7 +5189,7 @@ $.fn.dropdown = function(parameters) {
             if(settings.label.variation) {
               $label.addClass(settings.label.variation);
             }
-            if(shouldAnimate == true) {
+            if(shouldAnimate === true) {
               module.debug('Animating in label', $label);
               $label
                 .addClass(className.hidden)
@@ -5297,7 +5296,7 @@ $.fn.dropdown = function(parameters) {
                   module.remove.label(selectedValue);
                 }
                 else {
-                  module.set.text(module.add.variables(message.count))
+                  module.set.text(module.add.variables(message.count));
                 }
               }
               $selectedItem
@@ -5348,7 +5347,7 @@ $.fn.dropdown = function(parameters) {
           },
           labels: function($activeLabels) {
             $activeLabels = $activeLabels || $module.find(selector.label).filter('.' + className.active);
-            module.verbose('Removing active labels', $activeLabels);
+            module.verbose('Removing active label selections', $activeLabels);
             $activeLabels
               .each(function(){
                 module.remove.selected($(this).data('value'));
@@ -5451,7 +5450,7 @@ $.fn.dropdown = function(parameters) {
             return $module.hasClass(className.search);
           },
           searchSelection: function() {
-            return ( module.has.search() && $search.closest(selector.menu).length == 0 );
+            return ( module.has.search() && $search.closest(selector.menu).length === 0 );
           },
           selection: function() {
             return $module.hasClass(className.selection);
@@ -5869,7 +5868,7 @@ $.fn.dropdown.settings = {
 
   /* Callbacks */
   onLabelSelect : function($selectedLabels){},
-  onNoResults   : function(searchTerm) { return true },
+  onNoResults   : function(searchTerm) { return true; },
   onChange      : function(value, text, $selected){},
   onShow        : function(){},
   onHide        : function(){},
@@ -6103,7 +6102,7 @@ $.fn.modal = function(parameters) {
             ;
             if(settings.inverted) {
               dimmerSettings.variation = (dimmerSettings.variation !== undefined)
-                ? dimmer.settings.variation + ' inverted'
+                ? dimmerSettings.variation + ' inverted'
                 : 'inverted'
               ;
             }
@@ -7972,7 +7971,7 @@ $.fn.popup = function(parameters) {
           position: function(position, arrowOffset) {
 
             // exit conditions
-            if($target.length == 0 || $popup.length == 0) {
+            if($target.length === 0 || $popup.length === 0) {
               module.error(error.notFound);
               return;
             }
@@ -8013,7 +8012,7 @@ $.fn.popup = function(parameters) {
             position    = position    || $module.data(metadata.position)    || settings.position;
             arrowOffset = arrowOffset || $module.data(metadata.offset)      || settings.offset;
 
-            if(target.top == 0 && target.left == 0) {
+            if(target.top === 0 && target.left === 0) {
               module.debug('Popup target is hidden, no action taken');
               return false;
             }
@@ -10444,6 +10443,9 @@ $.fn.search = function(parameters) {
 
         clear: {
           cache: function(value) {
+            var
+              cache = $module.data(metadata.cache)
+            ;
             if(!value) {
               module.debug('Clearing cache', value);
               $module.removeData(metadata.cache);
@@ -14140,7 +14142,7 @@ $.fn.tab = function(parameters) {
             }
             else if(tabPath.search('/') == -1 && tabPath !== '') {
               // look for in page anchor
-              $anchor     = $('#' + tabPath + ', a[name="' + tabPath + '"]'),
+              $anchor     = $('#' + tabPath + ', a[name="' + tabPath + '"]');
               currentPath = $anchor.closest('[data-tab]').data('tab');
               $tab        = module.get.tabElement(currentPath);
               // if anchor exists use parent tab
@@ -14168,9 +14170,9 @@ $.fn.tab = function(parameters) {
             var
               $tab        = module.get.tabElement(tabPath),
               apiSettings = {
-                dataType : 'html',
-                on       : 'now',
-                onSuccess    : function(response) {
+                dataType  : 'html',
+                on        : 'now',
+                onSuccess : function(response) {
                   module.cache.add(fullTabPath, response);
                   module.content.update(tabPath, response);
                   if(tabPath == activeTabPath) {
@@ -14183,7 +14185,9 @@ $.fn.tab = function(parameters) {
                   settings.onTabInit.call($tab, tabPath, parameterArray, historyEvent);
                   settings.onTabLoad.call($tab, tabPath, parameterArray, historyEvent);
                 },
-                urlData: { tab: fullTabPath }
+                urlData: {
+                  tab: fullTabPath
+                }
               },
               request         = $tab.api('get request') || false,
               existingRequest = ( request && request.state() === 'pending' ),
@@ -14198,8 +14202,13 @@ $.fn.tab = function(parameters) {
             module.activate.tab(tabPath);
 
             if(settings.cache && cachedContent) {
-              module.debug('Showing existing content', fullTabPath);
-              module.content.update(tabPath, cachedContent);
+              module.debug('Adding cached content', fullTabPath);
+              if(settings.evaluateScripts == 'once') {
+                module.content.update(tabPath, cachedContent, false);
+              }
+              else {
+                module.content.update(tabPath, cachedContent);
+              }
               settings.onTabLoad.call($tab, tabPath, parameterArray, historyEvent);
             }
             else if(existingRequest) {
@@ -14208,24 +14217,35 @@ $.fn.tab = function(parameters) {
             }
             else if($.api !== undefined) {
               requestSettings = $.extend(true, {
-                headers: { 'X-Remote': true }
+                headers: {
+                  'X-Remote': true
+                }
               }, settings.apiSettings, apiSettings);
               module.debug('Retrieving remote content', fullTabPath, requestSettings);
-              $tab.api( requestSettings );
+              $tab.api(requestSettings);
             }
             else {
               module.error(error.api);
             }
           },
 
-          update: function(tabPath, html) {
-            module.debug('Updating html for', tabPath);
+          update: function(tabPath, html, evaluateScripts) {
             var
-              $tab = module.get.tabElement(tabPath)
+              $tab = module.get.tabElement(tabPath),
+              tab  = $tab[0]
             ;
-            $tab
-              .html(html)
+            evaluateScripts = (evaluateScripts !== undefined)
+              ? evaluateScripts
+              : settings.evaluateScripts
             ;
+            if(evaluateScripts) {
+              module.debug('Updating HTML and evaluating inline scripts', tabPath, html);
+              $tab.html(html);
+            }
+            else {
+              module.debug('Updating HTML', tabPath, html);
+              tab.innerHTML = html;
+            }
           }
         },
 
@@ -14574,10 +14594,12 @@ $.fn.tab.settings = {
   alwaysRefresh   : false,  // load tab content new every tab click
   cache           : true,   // cache the content requests to pull locally
   ignoreFirstLoad : false,  // don't load remote content on first load
-  apiSettings     : false,  // settings for api call
 
-  onTabInit    : function(tabPath, parameterArray, historyEvent) {}, // called first time loaded
-  onTabLoad    : function(tabPath, parameterArray, historyEvent) {}, // called on every load
+  apiSettings     : false,  // settings for api call
+  evaluateScripts : 'once', // whether inline scripts should be parsed (true/false/once). Once will not re-evaluate on cached content
+
+  onTabInit       : function(tabPath, parameterArray, historyEvent) {}, // called first time loaded
+  onTabLoad       : function(tabPath, parameterArray, historyEvent) {}, // called on every load
 
   templates    : {
     determineTitle: function(tabArray) {} // returns page title for path
@@ -15051,7 +15073,7 @@ $.fn.transition = function() {
             module.remove.completeCallback();
           },
           queueCallback: function() {
-            $module.off('.queue' + eventNamespace)
+            $module.off('.queue' + eventNamespace);
           },
           completeCallback: function() {
             $module.off('.complete' + eventNamespace);
@@ -15383,7 +15405,7 @@ $.fn.transition = function() {
 
         clear: {
           queue: function() {
-            module.debug('Clearing animation queue')
+            module.debug('Clearing animation queue');
             module.remove.queueCallback();
           }
         },
