@@ -65,7 +65,7 @@
 - **Segment** - Added `padded` and `very padded` segment variations
 - **Sidebar** - Improved animation performance through performance debugging. Sidebar now caches, width, height, rtl direction on load.
 - **Site** - Added in `pageOverflowX` variable, default theme hides horizontal scrollbars on `body`
-- **Tabs* - Added `parseScripts` option
+- **Tabs* - Added `parseScripts` option, defaults to `once` parsing inline scripts only first load
 - **Table** - Added `vertical alignment` variations to `ui table`
 - **Visibility/Sticky** - Visibility and sticky now refresh automatically after page content loading to deal with changes in position from images loading
 - **Visibility/Sticky** - Visibility now uses pub/sub pattern to greatly improve scroll performance when attaching multiple events
@@ -73,6 +73,7 @@
 **Bugs**
 - **All Modules** - Performance logging now delays 500ms instead of 100ms for console logging to ensure all logs are captured in one group
 - **All Modules/Transition** - Transitions no longer use `rotateZ(0deg)` to trigger GPU display of visible state. This causes issues with `transform` creating new stacking context that can disrupt `z-index`.
+- **Accordion** - Fixed bug where `exclusive: true` could sometimes cause other accordion element animations to get stuck when animating rapidly
 - **Card** - IE11 now can correctly use  `flexbox` cards **THanks @Widcket**
 - **Checkbox** - Fix `disabled checkbox` sometimes displaying hand cursor
 - **Checkbox** - Fixes nested `dropdown` inside `checkbox` causing issues
