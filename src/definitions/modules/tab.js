@@ -392,7 +392,7 @@ $.fn.tab = function(parameters) {
 
             if(settings.cache && cachedContent) {
               module.debug('Adding cached content', fullTabPath);
-              if(settings.parseScripts == 'once') {
+              if(settings.evaluateScripts == 'once') {
                 module.content.update(tabPath, cachedContent, false);
               }
               else {
@@ -418,16 +418,16 @@ $.fn.tab = function(parameters) {
             }
           },
 
-          update: function(tabPath, html, parseScripts) {
+          update: function(tabPath, html, evaluateScripts) {
             var
               $tab = module.get.tabElement(tabPath),
               tab  = $tab[0]
             ;
-            parseScripts = (parseScripts !== undefined)
-              ? parseScripts
-              : settings.parseScripts
+            evaluateScripts = (evaluateScripts !== undefined)
+              ? evaluateScripts
+              : settings.evaluateScripts
             ;
-            if(parseScripts) {
+            if(evaluateScripts) {
               module.debug('Updating HTML and evaluating inline scripts', tabPath, html);
               $tab.html(html);
             }
@@ -784,7 +784,7 @@ $.fn.tab.settings = {
   cache           : true,   // cache the content requests to pull locally
   ignoreFirstLoad : false,  // don't load remote content on first load
   apiSettings     : false,  // settings for api call
-  parseScripts    : 'once', // whether inline scripts should be parsed (true/false/once). Once will not re-evaluate on cached content
+  evaluateScripts    : 'once', // whether inline scripts should be parsed (true/false/once). Once will not re-evaluate on cached content
 
   onTabInit    : function(tabPath, parameterArray, historyEvent) {}, // called first time loaded
   onTabLoad    : function(tabPath, parameterArray, historyEvent) {}, // called on every load
