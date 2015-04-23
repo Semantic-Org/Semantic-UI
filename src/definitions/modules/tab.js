@@ -359,9 +359,9 @@ $.fn.tab = function(parameters) {
             var
               $tab        = module.get.tabElement(tabPath),
               apiSettings = {
-                dataType : 'html',
-                on       : 'now',
-                onSuccess    : function(response) {
+                dataType  : 'html',
+                on        : 'now',
+                onSuccess : function(response) {
                   module.cache.add(fullTabPath, response);
                   module.content.update(tabPath, response);
                   if(tabPath == activeTabPath) {
@@ -374,7 +374,9 @@ $.fn.tab = function(parameters) {
                   settings.onTabInit.call($tab, tabPath, parameterArray, historyEvent);
                   settings.onTabLoad.call($tab, tabPath, parameterArray, historyEvent);
                 },
-                urlData: { tab: fullTabPath }
+                urlData: {
+                  tab: fullTabPath
+                }
               },
               request         = $tab.api('get request') || false,
               existingRequest = ( request && request.state() === 'pending' ),
@@ -389,8 +391,13 @@ $.fn.tab = function(parameters) {
             module.activate.tab(tabPath);
 
             if(settings.cache && cachedContent) {
-              module.debug('Showing existing content', fullTabPath);
-              module.content.update(tabPath, cachedContent);
+              module.debug('Adding cached content', fullTabPath);
+              if(settings.parseScripts == 'once') {
+                module.content.update(tabPath, cachedContent, false);
+              }
+              else {
+                module.content.update(tabPath, cachedContent);
+              }
               settings.onTabLoad.call($tab, tabPath, parameterArray, historyEvent);
             }
             else if(existingRequest) {
@@ -399,24 +406,35 @@ $.fn.tab = function(parameters) {
             }
             else if($.api !== undefined) {
               requestSettings = $.extend(true, {
-                headers: { 'X-Remote': true }
+                headers: {
+                  'X-Remote': true
+                }
               }, settings.apiSettings, apiSettings);
               module.debug('Retrieving remote content', fullTabPath, requestSettings);
-              $tab.api( requestSettings );
+              $tab.api(requestSettings);
             }
             else {
               module.error(error.api);
             }
           },
 
-          update: function(tabPath, html) {
-            module.debug('Updating html for', tabPath);
+          update: function(tabPath, html, parseScripts) {
             var
-              $tab = module.get.tabElement(tabPath)
+              $tab = module.get.tabElement(tabPath),
+              tab  = $tab[0]
             ;
-            $tab
-              .html(html)
+            parseScripts = (parseScripts !== undefined)
+              ? parseScripts
+              : settings.parseScripts
             ;
+            if(parseScripts) {
+              module.debug('Updating HTML and evaluating inline scripts', tabPath, html);
+              $tab.html(html);
+            }
+            else {
+              module.debug('Updating HTML', tabPath, html);
+              tab.innerHTML = html;
+            }
           }
         },
 
@@ -766,6 +784,7 @@ $.fn.tab.settings = {
   cache           : true,   // cache the content requests to pull locally
   ignoreFirstLoad : false,  // don't load remote content on first load
   apiSettings     : false,  // settings for api call
+  parseScripts    : 'once', // whether inline scripts should be parsed (true/false/once). Once will not re-evaluate on cached content
 
   onTabInit    : function(tabPath, parameterArray, historyEvent) {}, // called first time loaded
   onTabLoad    : function(tabPath, parameterArray, historyEvent) {}, // called on every load
