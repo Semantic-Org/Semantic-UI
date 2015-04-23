@@ -550,6 +550,9 @@ $.fn.search = function(parameters) {
 
         clear: {
           cache: function(value) {
+            var
+              cache = $module.data(metadata.cache)
+            ;
             if(!value) {
               module.debug('Clearing cache', value);
               $module.removeData(metadata.cache);

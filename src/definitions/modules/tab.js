@@ -331,7 +331,7 @@ $.fn.tab = function(parameters) {
             }
             else if(tabPath.search('/') == -1 && tabPath !== '') {
               // look for in page anchor
-              $anchor     = $('#' + tabPath + ', a[name="' + tabPath + '"]'),
+              $anchor     = $('#' + tabPath + ', a[name="' + tabPath + '"]');
               currentPath = $anchor.closest('[data-tab]').data('tab');
               $tab        = module.get.tabElement(currentPath);
               // if anchor exists use parent tab

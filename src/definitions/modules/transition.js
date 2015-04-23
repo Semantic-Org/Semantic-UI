@@ -437,7 +437,7 @@ $.fn.transition = function() {
             module.remove.completeCallback();
           },
           queueCallback: function() {
-            $module.off('.queue' + eventNamespace)
+            $module.off('.queue' + eventNamespace);
           },
           completeCallback: function() {
             $module.off('.complete' + eventNamespace);
@@ -769,7 +769,7 @@ $.fn.transition = function() {
 
         clear: {
           queue: function() {
-            module.debug('Clearing animation queue')
+            module.debug('Clearing animation queue');
             module.remove.queueCallback();
           }
         },

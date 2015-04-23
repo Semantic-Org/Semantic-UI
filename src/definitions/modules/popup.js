@@ -600,7 +600,7 @@ $.fn.popup = function(parameters) {
           position: function(position, arrowOffset) {
 
             // exit conditions
-            if($target.length == 0 || $popup.length == 0) {
+            if($target.length === 0 || $popup.length === 0) {
               module.error(error.notFound);
               return;
             }
@@ -641,7 +641,7 @@ $.fn.popup = function(parameters) {
             position    = position    || $module.data(metadata.position)    || settings.position;
             arrowOffset = arrowOffset || $module.data(metadata.offset)      || settings.offset;
 
-            if(target.top == 0 && target.left == 0) {
+            if(target.top === 0 && target.left === 0) {
               module.debug('Popup target is hidden, no action taken');
               return false;
             }
