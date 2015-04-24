@@ -103,12 +103,12 @@ $.fn.calendar = function(parameters) {
               }
             }
             elements.body.column.clone().text(i + 1).appendTo(elements.body.row);
-            if((i - firstDay) % 7 === 0 && i > 0) {
+            if((i + firstDay + 1) % 7 === 0 && i > 0) {
               elements.body.row.appendTo($module);
               elements.body.row = $('<div />').addClass('row');
             }
             if(i + 1 === module.lookup('eom', settings.date.getMonth())) {
-              for(var j = 0; j < (i + 1) % 7; j++) {
+              for(var j = 0; j < (i + firstDay + 1) % 7; j++) {
                 $('<div />').addClass('disabled column').appendTo(elements.body.row);
               }
               elements.body.row.appendTo($module);
