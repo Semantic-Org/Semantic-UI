@@ -85,8 +85,8 @@
 
 /* Hovered */
 @hoverBackgroundColor: #CACACA;
-@hoverBackgroundImage: none;
-@hoverBoxShadow: none;
+@hoverBackgroundImage: @backgroundImage;
+@hoverBoxShadow: @boxShadow;
 @hoverColor: @hoveredTextColor;
 @iconHoverOpacity: 0.85;
 

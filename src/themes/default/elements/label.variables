@@ -138,13 +138,13 @@
 /* Corner */
 @cornerSizeRatio: 1;
 @cornerTransition: color @labelTransitionDuration @labelTransitionEasing;
-@cornerTriangleSize: 3.25em;
+@cornerTriangleSize: 4em;
 @cornerTriangleTransition: border-color @labelTransitionDuration @labelTransitionEasing;
 @cornerTriangleZIndex: 1;
 
-@cornerIconSize: 1em;
-@cornerIconTopOffset: 0.4em;
-@cornerIconLeftOffset: 0.75em;
+@cornerIconSize: @relativeLarge;
+@cornerIconTopOffset: 0.6428rem;
+@cornerIconLeftOffset: 0.7857rem;
 
 /* Corner Text */
 @cornerTextWidth: 3em;

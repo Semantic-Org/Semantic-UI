@@ -14,6 +14,7 @@
   background @transitionDuration @transitionEasing
 ;
 
+@hoverBackgroundColor: #E0E0E0;
 
 @borderRadius: 3px;
 @verticalPadding: 0.8em;

@@ -91,8 +91,8 @@
 @arrowZIndex: 11;
 
 @arrowHoverColor: #FAFAFA;
-@arrowActiveColor: #F7F7F7;
-@arrowActiveHoverColor: @arrowHoverColor;
+@arrowActiveColor: #F4F4F4;
+@arrowActiveHoverColor: @arrowActiveColor;
 
 @arrowVerticalHoverColor: @arrowHoverColor;
 @arrowVerticalActiveColor: @arrowActiveColor;
@@ -335,6 +335,8 @@
 @textMenuItemFontWeight: normal;
 @textMenuItemMargin: 0em @textMenuItemSpacing;
 @textMenuItemTransition: opacity @transitionDuration @transitionEasing;
+
+@textMenuSubMenuMargin: 0em;
 
 @textMenuActiveItemFontWeight: bold;
 @textMenuActiveItemColor: @selectedTextColor;
