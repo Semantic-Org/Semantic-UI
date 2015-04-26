@@ -1,5 +1,11 @@
 ## RELEASE NOTES
 
+
+### Version 1.12.1 - April 26, 2015
+
+**Bugs**
+- **Progress* - Fixes rounding error in precision settings *Thanks @aaroncox*
+
 ### Version 1.12.0 - April 13, 2015
 
 **Enhancements**
