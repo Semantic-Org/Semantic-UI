@@ -35,7 +35,8 @@
 }
 .ui.input input {
   margin: 0em;
-  flex-grow: 1;
+  max-width: 100%;
+  flex: 1 0 auto;
   outline: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   text-align: @textAlign;
@@ -59,10 +60,14 @@
 ---------------------*/
 
 /* browsers require these rules separate */
+
 .ui.input input::-webkit-input-placeholder {
   color: @placeholderColor;
 }
 .ui.input input::-moz-placeholder {
+  color: @placeholderColor;
+}
+.ui.input input::-ms-input-placeholder {
   color: @placeholderColor;
 }
 
@@ -134,14 +139,19 @@
   color: @focusColor;
   box-shadow: @focusBoxShadow;
 }
-.ui.input.focus input input::-webkit-input-placeholder,
+.ui.input.focus input::-webkit-input-placeholder,
 .ui.input input:focus input::-webkit-input-placeholder {
   color: @placeholderFocusColor;
 }
-.ui.input.focus input input::-moz-placeholder,
+.ui.input.focus input::-moz-placeholder,
 .ui.input input:focus input::-moz-placeholder {
   color: @placeholderFocusColor;
 }
+.ui.input.focus input::-ms-input-placeholder,
+.ui.input input:focus input::-ms-input-placeholder {
+  color: @placeholderFocusColor;
+}
+
 
 
 /*--------------------
@@ -162,12 +172,18 @@
 .ui.input.error input ::-moz-placeholder {
   color: @placeholderErrorColor;
 }
+.ui.input.error input ::-ms-input-placeholder {
+  color: @placeholderErrorColor;
+}
 
 /* Focused Error Placeholder */
 .ui.input.error input :focus::-webkit-input-placeholder {
   color: @placeholderErrorFocusColor;
 }
 .ui.input.error input :focus::-moz-placeholder {
+  color: @placeholderErrorFocusColor;
+}
+.ui.input.error input :focus::-ms-input-placeholder {
   color: @placeholderErrorFocusColor;
 }
 
@@ -179,10 +195,12 @@
       Transparent
 ---------------------*/
 
+
 .ui.transparent.input input {
-  border-color: transparent;
-  background-color: transparent;
-  padding: 0em;
+  border-color: transparent !important;
+  background-color: transparent !important;
+  padding: 0em !important;
+  box-shadow: none !important;
 }
 
 /* Transparent Icon */
@@ -194,19 +212,26 @@
   padding-right: @transparentIconMargin !important;
 }
 .ui.transparent[class*="left icon"].input > input {
-  padding-left: 0em !important;
   padding-left: @transparentIconMargin !important;
+  padding-right: 0em !important;
 }
 
 /* Transparent Inverted */
-.ui.transparent.inverted.input input::-moz-placeholder {
-  color: @transparentInvertedPlaceholderColor;
-}
 .ui.transparent.inverted.input {
   color: @transparentInvertedColor;
 }
 .ui.transparent.inverted.input input {
   color: inherit;
+}
+
+.ui.transparent.inverted.input input::-webkit-input-placeholder {
+  color: @transparentInvertedPlaceholderColor;
+}
+.ui.transparent.inverted.input input::-moz-placeholder {
+  color: @transparentInvertedPlaceholderColor;
+}
+.ui.transparent.inverted.input input::-ms-input-placeholder {
+  color: @transparentInvertedPlaceholderColor;
 }
 
 
@@ -274,22 +299,14 @@
 ---------------------*/
 
 /* Adjacent Label */
-.ui.labeled.input {
-  display: inline-flex;
-}
 .ui.labeled.input > .label {
-  flex-grow: 0;
+  flex: 0 0 auto;
   margin: 0;
-  font-size: 1em;
+  font-size: @medium;
 }
 .ui.labeled.input > .label:not(.corner) {
   padding-top: @verticalPadding;
   padding-bottom: @verticalPadding;
-}
-
-/* Fluid Labeled */
-.ui.fluid.labeled.input {
-  display: flex;
 }
 
 /* Label on Left */
@@ -338,24 +355,17 @@
         Action
 ---------------------*/
 
-.ui.action.input {
-  display: inline-flex;
-}
-
 .ui.action.input > .button,
 .ui.action.input > .buttons {
-  flex-grow: 0;
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
 }
 .ui.action.input > .button,
 .ui.action.input > .buttons > .button {
   padding-top: @verticalPadding;
   padding-bottom: @verticalPadding;
   margin: 0;
-}
-
-/* Fluid */
-.ui.fluid.action.input {
-  display: flex;
 }
 
 /* Button on Right */
@@ -391,7 +401,6 @@
   border: none;
 }
 
-
 /*--------------------
         Fluid
 ---------------------*/
@@ -399,31 +408,34 @@
 .ui.fluid.input {
   display: flex;
 }
+.ui.fluid.input > input {
+  width: 0px !important;
+}
 
 /*--------------------
         Size
 ---------------------*/
 
 .ui.mini.input {
-  font-size: @mini;
+  font-size: @relativeMini;
 }
 .ui.small.input {
-  font-size: @small;
+  font-size: @relativeSmall;
 }
 .ui.input {
-  font-size: @medium;
+  font-size: @relativeMedium;
 }
 .ui.large.input {
-  font-size: @large;
+  font-size: @relativeLarge;
 }
 .ui.big.input {
-  font-size: @big;
+  font-size: @relativeBig;
 }
 .ui.huge.input {
-  font-size: @huge;
+  font-size: @relativeHuge;
 }
 .ui.massive.input {
-  font-size: @massive;
+  font-size: @relativeMassive;
 }
 
 .loadUIOverrides();
