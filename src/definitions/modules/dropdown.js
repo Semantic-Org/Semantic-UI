@@ -224,8 +224,13 @@ $.fn.dropdown = function(parameters) {
             module.refresh();
             // adjust all modules
             $firstModules = $allModules.slice(0, index);
-            $lastModules = $allModules.slice(index + 1);
-            $allModules = $firstModules.add($module).add($lastModules);
+            $lastModules  = $allModules.slice(index + 1);
+            $allModules   = $firstModules.add($module).add($lastModules);
+            // invoke method in context of current instance
+            if(methodInvoked) {
+              instance = module;
+              module.invoke(query);
+            }
           }
         },
 
