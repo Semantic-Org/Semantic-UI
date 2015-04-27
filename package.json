@@ -75,7 +75,7 @@
     "jquery"            : "x.*",
     "mkdirp"            : "0.*",
     "require-dot-file"  : "0.*",
-    "wrench"            : "git://github.com/derekslife/wrench-js.git#156eaceed68ed31ffe2a3ecfbcb2be6ed1417fb2"
+    "wrench"            : "https://github.com/derekslife/wrench-js/tarball/156eaceed68ed31ffe2a3ecfbcb2be6ed1417fb2"
   },
   "devDependencies": {
     "github"                : "^0.2.3",
