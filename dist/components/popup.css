@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.12.0 - Popup
+ * # Semantic UI 1.12.1 - Popup
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -19,9 +19,6 @@
   position: absolute;
   top: 0px;
   right: 0px;
-  
-/* Fixes content being squished when inline (moz only) */
-  min-width: -moz-max-content;
   z-index: 1900;
   border: 1px solid #cccccc;
   max-width: 250px;
