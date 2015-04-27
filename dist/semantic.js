@@ -545,7 +545,6 @@ $.fn.form = function(parameters) {
         settings,
         validation,
 
-        namespace,
         metadata,
         selector,
         className,
@@ -565,8 +564,10 @@ $.fn.form = function(parameters) {
 
           // settings grabbed at run time
           module.get.settings();
-
           if(methodInvoked) {
+            if(instance === undefined) {
+              module.instantiate();
+            }
             module.invoke(query);
           }
           else {
@@ -839,8 +840,8 @@ $.fn.form = function(parameters) {
               }
               else {
                 // 2.x
-                settings   = $.extend(true, {}, $.fn.form.settings, parameters),
-                validation = $.extend({}, $.fn.form.settings.defaults, settings.fields),
+                settings   = $.extend(true, {}, $.fn.form.settings, parameters);
+                validation = $.extend({}, $.fn.form.settings.defaults, settings.fields);
                 module.verbose('Extending settings', validation, settings);
               }
             }
@@ -938,7 +939,7 @@ $.fn.form = function(parameters) {
                   }
                   if(isCheckbox) {
                     if(isChecked) {
-                      values[name].push(value)
+                      values[name].push(value);
                     }
                     else {
                       module.debug('Omitted unchecked checkbox', $field);
@@ -1158,7 +1159,6 @@ $.fn.form = function(parameters) {
                 }
               }
             });
-            module.validate.form();
           }
         },
 
@@ -1564,7 +1564,7 @@ $.fn.form.settings = {
 
     // is not empty or blank string
     empty: function(value) {
-      return !(value === undefined || '' === value || $.isArray(value) && value.length == 0);
+      return !(value === undefined || '' === value || $.isArray(value) && value.length === 0);
     },
 
     // is valid integer
@@ -1872,55 +1872,59 @@ $.fn.accordion = function(parameters) {
             $activeContent = $activeTitle.next($content),
             isAnimating = $activeContent.hasClass(className.animating),
             isActive    = $activeContent.hasClass(className.active),
-            isUnopen    = (!isActive && !isAnimating)
+            isOpen      = (isActive || isAnimating)
           ;
-          if(isUnopen) {
-            module.debug('Opening accordion content', $activeTitle);
-            settings.onOpening.call($activeContent);
-            if(settings.exclusive) {
-              module.closeOthers.call($activeTitle);
-            }
-            $activeTitle
-              .addClass(className.active)
-            ;
-            $activeContent.addClass(className.animating);
-            if(settings.animateChildren) {
-              if($.fn.transition !== undefined && $module.transition('is supported')) {
-                $activeContent
-                  .children()
-                    .transition({
-                      animation   : 'fade in',
-                      queue       : false,
-                      useFailSafe : true,
-                      debug       : settings.debug,
-                      verbose     : settings.verbose,
-                      duration    : settings.duration
-                    })
-                ;
-              }
-              else {
-                $activeContent
-                  .children()
-                    .stop(true)
-                    .animate({
-                      opacity: 1
-                    }, settings.duration, module.resetOpacity)
-                ;
-              }
-            }
-            $activeContent
-              .stop(true)
-              .slideDown(settings.duration, settings.easing, function() {
-                $activeContent
-                  .removeClass(className.animating)
-                  .addClass(className.active)
-                ;
-                module.reset.display.call(this);
-                settings.onOpen.call(this);
-                settings.onChange.call(this);
-              })
-            ;
+          if(isOpen) {
+            module.debug('Accordion already open, skipping', $activeContent);
+            return;
           }
+          module.debug('Opening accordion content', $activeTitle);
+          settings.onOpening.call($activeContent);
+          if(settings.exclusive) {
+            module.closeOthers.call($activeTitle);
+          }
+          $activeTitle
+            .addClass(className.active)
+          ;
+          $activeContent
+            .stop(true, true)
+            .addClass(className.animating)
+          ;
+          if(settings.animateChildren) {
+            if($.fn.transition !== undefined && $module.transition('is supported')) {
+              $activeContent
+                .children()
+                  .transition({
+                    animation   : 'fade in',
+                    queue       : false,
+                    useFailSafe : true,
+                    debug       : settings.debug,
+                    verbose     : settings.verbose,
+                    duration    : settings.duration
+                  })
+              ;
+            }
+            else {
+              $activeContent
+                .children()
+                  .stop(true, true)
+                  .animate({
+                    opacity: 1
+                  }, settings.duration, module.resetOpacity)
+              ;
+            }
+          }
+          $activeContent
+            .slideDown(settings.duration, settings.easing, function() {
+              $activeContent
+                .removeClass(className.animating)
+                .addClass(className.active)
+              ;
+              module.reset.display.call(this);
+              settings.onOpen.call(this);
+              settings.onChange.call(this);
+            })
+          ;
         },
 
         close: function(query) {
@@ -1943,6 +1947,7 @@ $.fn.accordion = function(parameters) {
               .removeClass(className.active)
             ;
             $activeContent
+              .stop(true, true)
               .addClass(className.animating)
             ;
             if(settings.animateChildren) {
@@ -1962,7 +1967,7 @@ $.fn.accordion = function(parameters) {
               else {
                 $activeContent
                   .children()
-                    .stop(true)
+                    .stop(true, true)
                     .animate({
                       opacity: 0
                     }, settings.duration, module.resetOpacity)
@@ -1970,7 +1975,6 @@ $.fn.accordion = function(parameters) {
               }
             }
             $activeContent
-              .stop(true)
               .slideUp(settings.duration, settings.easing, function() {
                 $activeContent
                   .removeClass(className.animating)
@@ -2012,6 +2016,10 @@ $.fn.accordion = function(parameters) {
             $openTitles
               .removeClass(className.active)
             ;
+            $openContents
+              .removeClass(className.animating)
+              .stop(true, true)
+            ;
             if(settings.animateChildren) {
               if($.fn.transition !== undefined && $module.transition('is supported')) {
                 $openContents
@@ -2028,7 +2036,7 @@ $.fn.accordion = function(parameters) {
               else {
                 $openContents
                   .children()
-                    .stop()
+                    .stop(true, true)
                     .animate({
                       opacity: 0
                     }, settings.duration, module.resetOpacity)
@@ -2036,7 +2044,6 @@ $.fn.accordion = function(parameters) {
               }
             }
             $openContents
-              .stop()
               .slideUp(settings.duration , settings.easing, function() {
                 $(this).removeClass(className.active);
                 module.reset.display.call(this);

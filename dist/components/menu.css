@@ -233,7 +233,6 @@
 /* Menu */
 .ui.menu .dropdown.item .menu {
   left: 0px;
-  min-width: -webkit-calc(100% - 1px);
   min-width: calc(100% - 1px);
   background: #ffffff;
   margin: 0em 0px 0px;
@@ -590,7 +589,6 @@ Floated Menu / Item
   border-bottom: 1px solid #d4d4d5;
 }
 .ui.tabular.fluid.menu {
-  width: -webkit-calc(100% +  2px ) !important;
   width: calc(100% +  2px ) !important;
 }
 .ui.tabular.menu .item {
@@ -641,7 +639,7 @@ Floated Menu / Item
   border-right: 1px solid #d4d4d5;
 }
 .ui.vertical.tabular.menu .item {
-  background-color: transparent;
+  background: none;
   border-left: 1px solid transparent;
   border-bottom: 1px solid transparent;
   border-top: 1px solid transparent;
@@ -951,6 +949,11 @@ Floated Menu / Item
   color: rgba(0, 0, 0, 0.6);
   -webkit-transition: opacity 0.2s ease;
           transition: opacity 0.2s ease;
+}
+
+/* Sub Menu */
+.ui.vertical.text.menu > .menu {
+  margin: 0em;
 }
 
 /* Border */
@@ -1618,16 +1621,16 @@ Floated Menu / Item
   background-color: #fafafa;
 }
 .ui.pointing.menu .active.item:after {
-  background-color: #f7f7f7;
+  background-color: #f4f4f4;
 }
 .ui.pointing.menu .active.item:hover:after {
-  background-color: #fafafa;
+  background-color: #f4f4f4;
 }
 .ui.vertical.pointing.menu .item:hover:after {
   background-color: #fafafa;
 }
 .ui.vertical.pointing.menu .active.item:after {
-  background-color: #f7f7f7;
+  background-color: #f4f4f4;
 }
 .ui.vertical.pointing.menu .menu .active.item:after {
   background-color: #ffffff;
@@ -1642,7 +1645,6 @@ Floated Menu / Item
   border-radius: 0px;
   margin-left: -1px;
   margin-right: -1px;
-  width: -webkit-calc(100% +  2px );
   width: calc(100% +  2px );
   box-shadow: none;
   

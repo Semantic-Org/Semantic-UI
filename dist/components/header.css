@@ -18,7 +18,6 @@
 /* Standard */
 .ui.header {
   border: none;
-  margin: -webkit-calc(2rem -  0.165em ) 0em 1rem;
   margin: calc(2rem -  0.165em ) 0em 1rem;
   padding: 0em 0em;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;

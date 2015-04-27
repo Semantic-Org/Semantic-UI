@@ -59,7 +59,7 @@
 .ui.button:hover {
   background-color: #cacaca;
   background-image: none;
-  box-shadow: none;
+  box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
   color: rgba(0, 0, 0, 0.8);
 }
 .ui.button:hover .icon {

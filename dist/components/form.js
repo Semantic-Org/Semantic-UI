@@ -48,7 +48,6 @@ $.fn.form = function(parameters) {
         settings,
         validation,
 
-        namespace,
         metadata,
         selector,
         className,
@@ -68,8 +67,10 @@ $.fn.form = function(parameters) {
 
           // settings grabbed at run time
           module.get.settings();
-
           if(methodInvoked) {
+            if(instance === undefined) {
+              module.instantiate();
+            }
             module.invoke(query);
           }
           else {
@@ -342,8 +343,8 @@ $.fn.form = function(parameters) {
               }
               else {
                 // 2.x
-                settings   = $.extend(true, {}, $.fn.form.settings, parameters),
-                validation = $.extend({}, $.fn.form.settings.defaults, settings.fields),
+                settings   = $.extend(true, {}, $.fn.form.settings, parameters);
+                validation = $.extend({}, $.fn.form.settings.defaults, settings.fields);
                 module.verbose('Extending settings', validation, settings);
               }
             }
@@ -441,7 +442,7 @@ $.fn.form = function(parameters) {
                   }
                   if(isCheckbox) {
                     if(isChecked) {
-                      values[name].push(value)
+                      values[name].push(value);
                     }
                     else {
                       module.debug('Omitted unchecked checkbox', $field);
@@ -661,7 +662,6 @@ $.fn.form = function(parameters) {
                 }
               }
             });
-            module.validate.form();
           }
         },
 
@@ -1067,7 +1067,7 @@ $.fn.form.settings = {
 
     // is not empty or blank string
     empty: function(value) {
-      return !(value === undefined || '' === value || $.isArray(value) && value.length == 0);
+      return !(value === undefined || '' === value || $.isArray(value) && value.length === 0);
     },
 
     // is valid integer

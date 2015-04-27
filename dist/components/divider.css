@@ -103,7 +103,6 @@
   border-left: 1px solid rgba(34, 36, 38, 0.15);
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   width: 0%;
-  height: -webkit-calc(100% -  1rem );
   height: calc(100% -  1rem );
 }
 .ui.vertical.divider:before {
