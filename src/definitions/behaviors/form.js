@@ -950,7 +950,7 @@ $.fn.form.settings = {
   name              : 'Form',
   namespace         : 'form',
 
-  debug             : true,
+  debug             : false,
   verbose           : false,
   performance       : true,
 
