@@ -661,7 +661,6 @@ $.fn.form = function(parameters) {
                 }
               }
             });
-            module.validate.form();
           }
         },
 
