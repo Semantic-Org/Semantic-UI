@@ -7,7 +7,6 @@
 --------------------*/
 
 @transition:
-  border-radius @transitionDuration @transitionEasing,
   width @transitionDuration @transitionEasing
 ;
 @borderRadius: @defaultBorderRadius;
@@ -31,7 +30,6 @@
 @menuTop: 100%;
 @menuWrap: nowrap;
 @menuTextAlign: left;
-@menuTransition: none;
 
 @menuBorderWidth: 1px;
 @menuBorderColor: @borderColor;
@@ -162,15 +160,8 @@
 @selectionItemVerticalPadding: @itemVerticalPadding;
 @selectionItemPadding: @selectionItemVerticalPadding @selectionItemHorizontalPadding;
 
-@selectionTransition:
-  @transition,
-  box-shadow @defaultDuration @defaultEasing,
-  border @defaultDuration @defaultEasing
-;
-@selectionMenuTransition:
-  box-shadow @defaultDuration @defaultEasing,
-  border @defaultDuration @defaultEasing
-;
+@selectionTransition: @transition;
+@selectionMenuTransition: @menuTransition;
 
 /* Responsive */
 @selectionMobileMaxItems: 3;

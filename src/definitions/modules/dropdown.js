@@ -2329,7 +2329,7 @@ $.fn.dropdown.settings = {
   // force a value selection on search selection
 
   transition             : 'auto',
-  duration               : 250,
+  duration               : 200,
   // menu transition
 
   delay : {
