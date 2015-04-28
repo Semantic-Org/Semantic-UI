@@ -1153,7 +1153,7 @@ $.fn.popup.settings = {
   // automatically hide on scroll
   hideOnScroll : 'auto',
   // hide other popups on show
-  exclusive    : true,
+  exclusive    : false,
   // context to attach popups
   context      : 'body',
   // position to prefer when calculating new position
