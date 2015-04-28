@@ -37,8 +37,10 @@ $.fn.shape = function(parameters) {
   $allModules
     .each(function() {
       var
-        moduleSelector  = $allModules.selector || '',
-        settings        = $.extend(true, {}, $.fn.shape.settings, parameters),
+        moduleSelector = $allModules.selector || '',
+        settings       = ( $.isPlainObject(parameters) )
+          ? $.extend(true, {}, $.fn.shape.settings, parameters)
+          : $.extend({}, $.fn.shape.settings),
 
         // internal aliases
         namespace     = settings.namespace,

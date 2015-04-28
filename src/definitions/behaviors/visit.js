@@ -31,7 +31,9 @@ $.visit = $.fn.visit = function(parameters) {
   $allModules
     .each(function() {
       var
-        settings        = $.extend(true, {}, $.fn.visit.settings, parameters),
+        settings          = ( $.isPlainObject(parameters) )
+          ? $.extend(true, {}, $.fn.visit.settings, parameters)
+          : $.extend({}, $.fn.visit.settings),
 
         error           = settings.error,
         namespace       = settings.namespace,
