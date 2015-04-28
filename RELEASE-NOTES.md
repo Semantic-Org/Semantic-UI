@@ -81,6 +81,7 @@
 - **Card** - IE11 now can correctly use  `flexbox` cards **THanks @Widcket**
 - **Checkbox** - Fix `disabled checkbox` sometimes displaying hand cursor
 - **Checkbox** - Fixes nested `dropdown` inside `checkbox` causing issues
+- **Divider**  - Hidden divider now correctly hides vertical dividers
 - **Dropdown** - Fixes issue with headers disappearing inside of `ui dropdown` when nested in `ui menu`
 - **Dropdown** - Fixes `onChange` to fire when input value changes, not just when menu UI changes
 - **Dropdown** - Dropdowns with `transition: none` now work correctly.
