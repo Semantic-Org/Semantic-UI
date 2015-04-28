@@ -639,32 +639,39 @@ $.fn.search = function(parameters) {
           },
           id: function(results) {
             module.debug('Injecting unique ids into results');
+            var
+              // since results may be object, we must use counters
+              categoryIndex = 0,
+              resultIndex   = 0
+            ;
             if(settings.type === 'category') {
               // iterate through each category result
-              $.each(results, function(categoryIndex, category) {
-                if($.isArray(category.results)) {
-                  $.each(category.results, function(resultIndex, value) {
-                    var
-                      result = category.results[resultIndex]
-                    ;
-                    if(result.id === undefined) {
-                      result.id = module.create.id(categoryIndex, resultIndex);
-                    }
-                    module.inject.result(result, resultIndex, categoryIndex);
-                  });
-                }
+              resultIndex = 0;
+              $.each(results, function(index, category) {
+                $.each(category.results, function(index, value) {
+                  var
+                    result = category.results[index]
+                  ;
+                  if(result.id === undefined) {
+                    result.id = module.create.id(resultIndex, categoryIndex);
+                  }
+                  module.inject.result(result, resultIndex, categoryIndex);
+                  resultIndex++;
+                });
+                categoryIndex++;
               });
             }
             else {
               // top level
-              $.each(results, function(resultIndex, value) {
+              $.each(results, function(index, value) {
                 var
-                  result = results[resultIndex]
+                  result = results[index]
                 ;
                 if(result.id === undefined) {
                   result.id = module.create.id(resultIndex);
                 }
                 module.inject.result(result, resultIndex);
+                resultIndex++;
               });
             }
             return results;
