@@ -149,6 +149,7 @@
 - **Card** - Card styles have been adjusted, `link card` now raise to show selection. Colored variations now have shadows.
 - **Checkbox** - Toggle now uses `@primaryColor`
 - **Dropdown** - Dropdown padding values now resolve to exact pixel values from em
+- **Feed** - Removed `extra text` pointer border
 - **Form** - `set value` no longer automatically calls `validate form`
 - **Grid** - Small computer `page grid` gutters have been adjusted from 8% to 3% to allow for roomier layouts on small screens.
 - **Grid** - `center aligned` no longer centers rows, just text. Use `centered grid` to center a grid column on the page.
@@ -157,6 +158,7 @@
 - **Item** - item `description` now longer sets a `max-width`
 - **Icon** - `disabled icon` now have `pointer-events` again.
 - **Label** - Label size now varies by type. `pointing label` are now `1em` by default.
+- **Label** - Padding on `corner label` has been increased
 - **Input** - Input now use `em` instead of `rem` so they will inherit the size of the elements they are nested inside
 - **Progress* - Update contrast on `indicating`, update default styles. Fixed some examples
 - **Menu** - Menu now uses `border` for borders instead of `box-shadow`
