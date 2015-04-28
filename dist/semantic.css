@@ -24969,7 +24969,6 @@ select.ui.dropdown {
   border-top-width: 0px !important;
   width: auto;
   margin: 0px -1px;
-  min-width: -webkit-calc(100% +  2px );
   min-width: calc(100% +  2px );
   outline: none;
   box-shadow: 0px 2px 3px 0px rgba(34, 36, 38, 0.15);
@@ -24994,7 +24993,6 @@ select.ui.dropdown {
 
 @media all and (-ms-high-contrast: none) {
   .ui.selection.dropdown .menu {
-    min-width: -webkit-calc(100% -  15px );
     min-width: calc(100% -  15px );
   }
 }
@@ -25610,7 +25608,6 @@ select.ui.dropdown {
 @media all and (-ms-high-contrast: none) {
   .ui.scrolling.dropdown .menu,
   .ui.dropdown .scrolling.menu {
-    min-width: -webkit-calc(100% -  15px );
     min-width: calc(100% -  15px );
   }
 }
@@ -26847,7 +26844,6 @@ a.ui.nag {
 /* Immediate Nested Grid */
 
 .ui.popup > .ui.grid:not(.padded) {
-  width: -webkit-calc(100% + 1.75rem);
   width: calc(100% + 1.75rem);
   margin: -0.7rem -0.875rem;
 }
