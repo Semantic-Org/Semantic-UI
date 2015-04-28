@@ -120,6 +120,27 @@
 @ribbonImageDistance: ~"calc("@ribbonImageMargin~" + "@ribbonTriangleSize~")";
 @rightRibbonImageOffset:  ~"calc(100% + "@ribbonImageMargin~" + "@ribbonTriangleSize~")";
 
+/* Colors */
+@blackTextColor: @white;
+@blueTextColor: @white;
+@greenTextColor: @white;
+@orangeTextColor: @white;
+@pinkTextColor: @white;
+@purpleTextColor: @white;
+@redTextColor: @white;
+@tealTextColor: @white;
+@yellowTextColor: @white;
+
+@blackHoverTextColor: @white;
+@blueHoverTextColor: @white;
+@greenHoverTextColor: @white;
+@orangeHoverTextColor: @white;
+@pinkHoverTextColor: @white;
+@purpleHoverTextColor: @white;
+@redHoverTextColor: @white;
+@tealHoverTextColor: @white;
+@yellowHoverTextColor: @white;
+
 @blackRibbonShadow: darken(@black, 10);
 @blueRibbonShadow: darken(@blue, 10);
 @greenRibbonShadow: darken(@green, 10);
