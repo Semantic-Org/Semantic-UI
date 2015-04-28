@@ -109,7 +109,7 @@ $.fn.search = function(parameters) {
           searchFields: function() {
             // this makes sure $.extend does not add specified search fields to default fields
             // this is the only setting which should not extend defaults
-            if(parameters.searchFields !== undefined && $.isArray(parameters.searchFields)) {
+            if(parameters && parameters.searchFields !== undefined) {
               settings.searchFields = parameters.searchFields;
             }
           }
