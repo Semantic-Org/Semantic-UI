@@ -338,7 +338,7 @@
 
 @textMenuSubMenuMargin: 0em;
 
-@textMenuActiveItemFontWeight: bold;
+@textMenuActiveItemFontWeight: normal;
 @textMenuActiveItemColor: @selectedTextColor;
 
 @textMenuHeaderSize: @relativeSmall;
