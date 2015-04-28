@@ -322,15 +322,22 @@ $.fn.search = function(parameters) {
           result: function(value, results) {
             var
               lookupFields = ['title', 'id'],
-              result = false
+              result       = false
             ;
-            value   = value   || module.get.value();
-            results = results || module.get.results();
+            value = (value !== undefined)
+              ? value
+              : module.get.value()
+            ;
+            results = (results !== undefined)
+              ? results
+              : module.get.results()
+            ;
             if(settings.type === 'category') {
               module.debug('Finding result that matches', value);
               $.each(results, function(index, category) {
                 if($.isArray(category.results)) {
                   result = module.search.object(value, category.results, lookupFields)[0];
+                  // dont continue searching if a result is found
                   if(result) {
                     return false;
                   }
@@ -341,7 +348,7 @@ $.fn.search = function(parameters) {
               module.debug('Finding result in results object', value);
               result = module.search.object(value, results, lookupFields)[0];
             }
-            return result;
+            return result || false;
           },
         },
 
@@ -446,7 +453,7 @@ $.fn.search = function(parameters) {
             var
               results      = [],
               fuzzyResults = [],
-              searchExp    = searchTerm.replace(regExp.escape, '\\$&'),
+              searchExp    = searchTerm.toString().replace(regExp.escape, '\\$&'),
               matchRegExp  = new RegExp(regExp.beginsWith + searchExp, 'i'),
               searchFields = (searchFields !== undefined)
                 ? searchFields
@@ -503,6 +510,9 @@ $.fn.search = function(parameters) {
             termLength  = term.length,
             queryLength = query.length
           ;
+          if(typeof query !== 'string') {
+            return false;
+          }
           query = query.toLowerCase();
           term  = term.toLowerCase();
           if(queryLength > termLength) {
@@ -641,12 +651,12 @@ $.fn.search = function(parameters) {
             module.debug('Injecting unique ids into results');
             var
               // since results may be object, we must use counters
-              categoryIndex = 0,
-              resultIndex   = 0
+              categoryIndex = 1,
+              resultIndex   = 1
             ;
             if(settings.type === 'category') {
               // iterate through each category result
-              resultIndex = 0;
+              resultIndex = 1;
               $.each(results, function(index, category) {
                 $.each(category.results, function(index, value) {
                   var
