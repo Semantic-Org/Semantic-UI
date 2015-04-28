@@ -56,19 +56,19 @@
 
 /* Image Label */
 @imageLabelBackground: @backgroundColor;
-@imageLabelBorderRadius: @circularRadius;
 @imageLabelVerticalPadding: @verticalPadding;
 @imageLabelHorizontalPadding: @horizontalPadding;
 @imageLabelTextDistance: 0.5em;
 @imageLabelDetailDistance: @imageLabelTextDistance;
 @imageLabelBorderRadius: @borderRadius;
 @imageLabelBoxShadow: none;
-@imageLabelDetailBackground: @strongTransparentBlack;
-
-/* Computed Values */
-@imageLabelImageHeight: (1em + @verticalPadding * 2);
 @imageLabelPadding: @imageLabelVerticalPadding @imageLabelHorizontalPadding @imageLabelVerticalPadding @imageLabelTextDistance;
+
 @imageLabelImageMargin: -@verticalPadding @imageLabelTextDistance -@verticalPadding -@imageLabelTextDistance;
+@imageLabelImageBorderRadius: @imageLabelBorderRadius 0em 0em @imageLabelBorderRadius;
+@imageLabelImageHeight: (1em + @verticalPadding * 2);
+
+@imageLabelDetailBackground: @strongTransparentBlack;
 @imageLabelDetailPadding: @imageLabelVerticalPadding @imageLabelHorizontalPadding;
 @imageLabelDetailMargin: -@imageLabelVerticalPadding -@imageLabelHorizontalPadding -@imageLabelVerticalPadding @imageLabelDetailDistance;
 
