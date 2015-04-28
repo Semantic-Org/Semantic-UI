@@ -632,10 +632,12 @@ $.fn.search = function(parameters) {
         },
 
         inject: {
-          result: function(result, resultIndex, categoryIndex) {
+          result: function(result, resultID, categoryID) {
             module.verbose('Injecting result into results');
             var
-              $selectedResult = (categoryIndex !== undefined)
+              resultIndex     = (resultID - 1),
+              categoryIndex   = (categoryID - 1),
+              $selectedResult = (categoryID !== undefined)
                 ? $results
                     .children().eq(categoryIndex)
                       .children().eq(resultIndex)
