@@ -20,8 +20,8 @@
 @inactiveBackground: transparent;
 @inactiveColor: rgba(0, 0, 0, 0.15);
 
-@hoverBackground: @inactiveBackground;
-@hoverColor: @textColor;
+@selectedBackground: @inactiveBackground;
+@selectedColor: @textColor;
 
 @activeBackground: @inactiveBackground;
 @activeColor: @darkTextColor;
