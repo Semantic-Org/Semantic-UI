@@ -37,25 +37,50 @@
   visibility: hidden;
   clear: both;
   height: 0;
+  vertical-align: middle;
 }
 
 /* Icon */
 .ui.rating .icon {
-  cursor: pointer;
-
-  margin: 0em;
-  width: @iconWidth;
-  height: auto;
-  text-align: center;
   padding: 0em;
+  margin: 0em;
+  text-align: center;
   font-weight: normal;
   font-style: normal;
+  cursor: @iconCursor;
+  width: @iconWidth;
+  height: @iconHeight;
 }
 
 
 /*******************************
              Types
 *******************************/
+
+
+/*-------------------
+      Standard
+--------------------*/
+
+/* Inactive Icon */
+.ui.rating .icon {
+  background: @inactiveBackground;
+  color: @inactiveColor;
+}
+
+/* Active Icon */
+.ui.rating .active.icon {
+  background: @activeBackground;
+  color: @activeColor;
+}
+
+/* Selected Icon */
+.ui.rating .icon.selected,
+.ui.rating .icon.selected.active {
+  background: @hoverBackground;
+  color: @hoverColor;
+}
+
 
 /*-------------------
         Star
@@ -64,11 +89,14 @@
 /* Inactive */
 .ui.star.rating .icon {
   width: @starIconWidth;
+  height: @starIconHeight;
+  background: @starInactiveBackground;
   color: @starInactiveColor;
 }
 
 /* Active Star */
 .ui.star.rating .active.icon {
+  background: @starActiveBackground !important;
   color: @starActiveColor !important;
   text-shadow: @starActiveShadow;
 }
@@ -76,18 +104,9 @@
 /* Selected Star */
 .ui.star.rating .icon.selected,
 .ui.star.rating .icon.selected.active {
+  background: @starSelectedBackground !important;
   color: @starSelectedColor !important;
 }
-
-.ui.star.rating.partial {
-  position: relative;
-  z-index: 1;
-}
-.ui.star.rating.partial:before {
-  position: absolute;
-  z-index: -1;
-}
-
 
 
 /*-------------------
@@ -96,11 +115,14 @@
 
 .ui.heart.rating .icon {
   width: @heartIconWidth;
+  height: @heartIconHeight;
+  background: @heartInactiveBackground;
   color: @heartInactiveColor;
 }
 
 /* Active Heart */
 .ui.heart.rating .active.icon {
+  background: @heartActiveBackground !important;
   color: @heartActiveColor !important;
   text-shadow: @heartActiveShadow;
 }
@@ -108,6 +130,7 @@
 /* Selected Heart */
 .ui.heart.rating .icon.selected,
 .ui.heart.rating .icon.selected.active {
+  background: @heartSelectedBackground !important;
   color: @heartSelectedColor !important;
 }
 
@@ -115,24 +138,6 @@
 /*******************************
              States
 *******************************/
-
-
-/* Inactive Icon */
-.ui.rating .icon {
-  color: @inactiveColor;
-}
-
-/* Active Icon */
-.ui.rating .active.icon {
-  color: @activeColor;
-}
-
-/* Selected Icon */
-.ui.rating .icon.selected,
-.ui.rating .icon.selected.active {
-  color: @hoverColor;
-}
-
 
 /*-------------------
        Disabled
@@ -145,7 +150,7 @@
 
 
 /*-------------------
-     Interacting (Active)
+   User Interactive
 --------------------*/
 
 /* Selected Rating */
