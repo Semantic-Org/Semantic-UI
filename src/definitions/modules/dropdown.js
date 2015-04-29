@@ -78,7 +78,7 @@ $.fn.dropdown = function(parameters) {
 
         initialize: function() {
           module.debug('Initializing dropdown', settings);
-
+          console.log(module.get.value());
           if( module.is.alreadySetup() ) {
             module.setup.reference();
           }
@@ -164,15 +164,16 @@ $.fn.dropdown = function(parameters) {
           }
         },
 
-        search: function() {
-          var
-            query = module.get.query()
+        search: function(query) {
+          query = (query !== undefined)
+            ? query
+            : module.get.query()
           ;
           module.verbose('Searching for query', query);
-          if(settings.allowAdditions) {
-            module.add.userChoice();
-          }
           module.filter(query);
+          if(settings.allowAdditions) {
+            module.add.userChoice(query);
+          }
           if(module.is.searchSelection() && module.can.show() ) {
             module.show();
           }
@@ -1173,7 +1174,7 @@ $.fn.dropdown = function(parameters) {
             return $text.text();
           },
           query: function() {
-            return $search.val();
+            return $.trim($search.val());
           },
           uniqueArray: function(array) {
             return $.grep(array, function (value, index) {
@@ -1612,6 +1613,7 @@ $.fn.dropdown = function(parameters) {
           value: function(value, text, $selected) {
             var
               hasInput     = ($input.length > 0),
+              isAddition   = !module.has.value(value),
               currentValue = module.get.values()
             ;
             if($input.length > 0) {
@@ -1639,6 +1641,7 @@ $.fn.dropdown = function(parameters) {
                 return;
               }
               module.debug('Updating input value', value, currentValue);
+              console.log($input, value);
               $input
                 .val(value)
                 .trigger('change')
@@ -1667,9 +1670,7 @@ $.fn.dropdown = function(parameters) {
           },
           selected: function(value, $selectedItem) {
             var
-              isMultiple    = module.is.multiple(),
-              selectedText,
-              selectedValue
+              isMultiple    = module.is.multiple()
             ;
             $selectedItem = $selectedItem || module.get.item(value);
 
@@ -1685,15 +1686,21 @@ $.fn.dropdown = function(parameters) {
               $selectedItem
                 .each(function() {
                   var
-                    $selected     = $(this),
-                    isNotActive   = (!$selected.hasClass(className.active)),
-                    isVisible     = (!$selected.is('.' + className.filtered)),
-                    shouldAnimate = (isMultiple && $selectedItem.length == 1)
+                    $selected      = $(this),
+                    selectedText   = module.get.choiceText($selected),
+                    selectedValue  = module.get.choiceValue($selected, selectedText),
+
+                    isVisible      = (!$selected.is('.' + className.filtered)),
+                    isUserAddition = $selected.hasClass(className.addition),
+                    hasValue       = module.has.value(selectedValue),
+                    shouldAnimate  = (isMultiple && $selectedItem.length == 1)
                   ;
-                  selectedText  = module.get.choiceText($selected);
-                  selectedValue = module.get.choiceValue($selected, selectedText);
+                  if(isUserAddition && hasValue) {
+                    module.debug('User selection already added, doing nothing');
+                    return true;
+                  }
                   if(isMultiple) {
-                    if(isNotActive) {
+                    if(!hasValue) {
                       if(settings.useLabels) {
                         module.add.label(selectedValue, selectedText, shouldAnimate);
                         module.set.value(selectedValue, selectedText, $selected);
@@ -1708,6 +1715,7 @@ $.fn.dropdown = function(parameters) {
                       }
                     }
                     else if(isVisible) {
+                      module.debug('Selected active value, removing label');
                       module.remove.selected(selectedValue);
                     }
                   }
@@ -1772,21 +1780,32 @@ $.fn.dropdown = function(parameters) {
               ;
             }
           },
-          userChoice: function(choice) {
+          userChoice: function(value) {
             var
               $addition = $menu.children(selector.addition),
-              html      = settings.templates.addition(choice)
+              html      = settings.templates.addition(value)
+            ;
+            if(value === '') {
+              $addition.remove();
+              return;
+            }
+            $item
+              .removeClass(className.selected)
             ;
             if($addition.length > 0) {
               $addition
                 .html(html)
+                .removeClass(className.filtered)
+                .addClass(className.selected)
               ;
             }
             else {
               $addition = $('<div/>')
                 .html(html)
                 .addClass(className.addition)
+                .addClass(className.item)
                 .prependTo($menu)
+                .addClass(className.selected)
               ;
             }
           },
@@ -1904,7 +1923,8 @@ $.fn.dropdown = function(parameters) {
               labelCount    = $labels.length,
               isLastLabel   = ($labels.index($removedLabel) + 1 == labelCount),
               isOnlyLabel   = (labelCount == 1),
-              shouldAnimate = (isOnlyLabel || isLastLabel)
+              shouldAnimate = false // animations on remove are a bit abrasive
+              //shouldAnimate = (isOnlyLabel || isLastLabel)
             ;
             if(shouldAnimate) {
               module.verbose('Animating and removing label', $removedLabel);
@@ -1959,6 +1979,18 @@ $.fn.dropdown = function(parameters) {
           },
           menu: function() {
             return ($menu.length > 0);
+          },
+          value: function(value) {
+            var
+              values   = module.get.values(),
+              hasValue = $.isArray(values)
+               ? values && ($.inArray(value, values) !== -1)
+               : (values == value)
+            ;
+            return (hasValue)
+              ? true
+              : false
+            ;
           }
         },
 
@@ -2392,8 +2424,8 @@ $.fn.dropdown.settings = {
   transition             : 'auto',     // auto transition will slide down or up based on direction
   duration               : 200,        // duration of transition
 
-  allowAdditions         : false,      // whether multiple select should allow user added values
-  delimiter              : ',',        // multi select delimiting key
+  allowAdditions         : true,       // whether multiple select should allow user added values
+  delimiter              : ',',        // when multiselect uses normal <input> the values will be delmited with this character
 
   glyphWidth             : 1.0714,     // widest glyph width in em (W is 1.0714 em) used to calculate multiselect input width
 
@@ -2472,6 +2504,7 @@ $.fn.dropdown.settings = {
     dropdown    : 'ui dropdown',
     filtered    : 'filtered',
     hidden      : 'hidden transition',
+    item        : 'item',
     label       : 'ui label',
     loading     : 'loading',
     menu        : 'menu',
