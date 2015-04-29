@@ -78,7 +78,6 @@ $.fn.dropdown = function(parameters) {
 
         initialize: function() {
           module.debug('Initializing dropdown', settings);
-          console.log(module.get.value());
           if( module.is.alreadySetup() ) {
             module.setup.reference();
           }
@@ -86,7 +85,11 @@ $.fn.dropdown = function(parameters) {
             module.setup.layout();
 
             module.save.defaults();
+
             module.set.selected();
+            if(settings.allowAdditions && module.is.multiple()) {
+              module.create.userLabels();
+            }
 
             module.create.id();
 
@@ -161,7 +164,19 @@ $.fn.dropdown = function(parameters) {
             id = (Math.random().toString(16) + '000000000').substr(2, 8);
             elementNamespace = '.' + id;
             module.verbose('Creating unique id for element', id);
-          }
+          },
+          userLabels: function() {
+            var
+              userValues = module.get.userValues()
+            ;
+            if(userValues) {
+              module.debug('Adding user labels', userValues);
+              $.each(userValues, function(index, value) {
+                module.verbose('Adding custom user value');
+                module.add.label(value, value);
+              });
+            }
+          },
         },
 
         search: function(query) {
@@ -1176,6 +1191,17 @@ $.fn.dropdown = function(parameters) {
           query: function() {
             return $.trim($search.val());
           },
+          userValues: function() {
+            var
+              values = module.get.values()
+            ;
+            if(!values) {
+              return false;
+            }
+            return $.grep(values, function(value) {
+              return (module.get.item(value) === false);
+            });
+          },
           uniqueArray: function(array) {
             return $.grep(array, function (value, index) {
                 return $.inArray(value, array) === index;
@@ -1641,7 +1667,6 @@ $.fn.dropdown = function(parameters) {
                 return;
               }
               module.debug('Updating input value', value, currentValue);
-              console.log($input, value);
               $input
                 .val(value)
                 .trigger('change')
@@ -1674,62 +1699,60 @@ $.fn.dropdown = function(parameters) {
             ;
             $selectedItem = $selectedItem || module.get.item(value);
 
-            if($selectedItem) {
-              module.debug('Setting selected menu item to', $selectedItem);
-              if(module.is.single()) {
-                module.remove.activeItem();
-                module.remove.selectedItem();
-              }
-              else if(settings.useLabels) {
-                module.remove.selectedItem();
-              }
-              $selectedItem
-                .each(function() {
-                  var
-                    $selected      = $(this),
-                    selectedText   = module.get.choiceText($selected),
-                    selectedValue  = module.get.choiceValue($selected, selectedText),
-
-                    isVisible      = (!$selected.is('.' + className.filtered)),
-                    isUserAddition = $selected.hasClass(className.addition),
-                    hasValue       = module.has.value(selectedValue),
-                    shouldAnimate  = (isMultiple && $selectedItem.length == 1)
-                  ;
-                  if(isUserAddition && hasValue) {
-                    module.debug('User selection already added, doing nothing');
-                    return true;
-                  }
-                  if(isMultiple) {
-                    if(!hasValue) {
-                      if(settings.useLabels) {
-                        module.add.label(selectedValue, selectedText, shouldAnimate);
-                        module.set.value(selectedValue, selectedText, $selected);
-                        $selected.addClass(className.active);
-                        module.filterActive();
-                        module.select.nextAvailable($selectedItem);
-                      }
-                      else {
-                        module.set.value(selectedValue, selectedText, $selected);
-                        module.set.text(module.add.variables(message.count));
-                        $selected.addClass(className.active);
-                      }
-                    }
-                    else if(isVisible) {
-                      module.debug('Selected active value, removing label');
-                      module.remove.selected(selectedValue);
-                    }
-                  }
-                  else {
-                    module.set.value(selectedValue, selectedText, $selected);
-                    module.set.text(selectedText);
-                    $selected
-                      .addClass(className.active)
-                      .addClass(className.selected)
-                    ;
-                  }
-                })
-              ;
+            if(!$selectedItem) {
+              return false;
             }
+
+            module.debug('Setting selected menu item to', $selectedItem);
+            if(module.is.single()) {
+              module.remove.activeItem();
+              module.remove.selectedItem();
+            }
+            else if(settings.useLabels) {
+              module.remove.selectedItem();
+            }
+            $selectedItem
+              .each(function() {
+                var
+                  $selected      = $(this),
+                  selectedText   = module.get.choiceText($selected),
+                  selectedValue  = module.get.choiceValue($selected, selectedText),
+
+                  isFiltered     = $selected.hasClass(className.filtered),
+                  isUserAddition = $selected.hasClass(className.addition),
+                  isActive       = $selected.hasClass(className.active),
+                  shouldAnimate  = (isMultiple && $selectedItem.length == 1)
+                ;
+                if(isMultiple) {
+                  if(!isActive || isUserAddition) {
+                    if(settings.useLabels) {
+                      module.add.label(selectedValue, selectedText, shouldAnimate);
+                      module.set.value(selectedValue, selectedText, $selected);
+                      $selected.addClass(className.active);
+                      module.filterActive();
+                      module.select.nextAvailable($selectedItem);
+                    }
+                    else {
+                      module.set.value(selectedValue, selectedText, $selected);
+                      module.set.text(module.add.variables(message.count));
+                      $selected.addClass(className.active);
+                    }
+                  }
+                  else if(!isFiltered) {
+                    module.debug('Selected active value, removing label');
+                    module.remove.selected(selectedValue);
+                  }
+                }
+                else {
+                  module.set.value(selectedValue, selectedText, $selected);
+                  module.set.text(selectedText);
+                  $selected
+                    .addClass(className.active)
+                    .addClass(className.selected)
+                  ;
+                }
+              })
+            ;
           }
         },
 
@@ -1744,6 +1767,10 @@ $.fn.dropdown = function(parameters) {
                 ? $search
                 : $text
             ;
+            if(module.has.label(value)) {
+              module.debug('Label already exists, skipping', value);
+              return;
+            }
             if(settings.label.variation) {
               $label.addClass(settings.label.variation);
             }
@@ -1864,45 +1891,51 @@ $.fn.dropdown = function(parameters) {
           selected: function(value) {
             var
               $selectedItem = module.get.item(value),
-              $option,
-              values        = $input.val(),
               selectedValue = module.get.choiceValue($selectedItem)
             ;
-            if($selectedItem) {
-              if( $input.is('select') ) {
-                module.verbose('Input is <select> removing selected');
-                $input
-                  .find('option[value="' + selectedValue + '"]')
-                  .prop('selected', false)
-                ;
+            if(!$selectedItem) {
+              return false;
+            }
+            module.remove.value(selectedValue);
+
+            if(module.is.multiple()) {
+              if(settings.useLabels) {
+                module.remove.label(selectedValue);
               }
               else {
-                module.verbose('Input is csv removing value');
-                values = module.remove.delimitedValue(selectedValue, values);
-                $input
-                  .val(values)
-                  .trigger('change')
-                ;
+                module.set.text(module.add.variables(message.count));
               }
-              if(module.is.multiple()) {
-                if(settings.useLabels) {
-                  module.remove.label(selectedValue);
-                }
-                else {
-                  module.set.text(module.add.variables(message.count));
-                }
-              }
-              $selectedItem
-                .removeClass(className.filtered)
-                .removeClass(className.active)
-              ;
-              if(settings.useLabels) {
-                $selectedItem.removeClass(className.selected);
-              }
+            }
+            $selectedItem
+              .removeClass(className.filtered)
+              .removeClass(className.active)
+            ;
+            if(settings.useLabels) {
+              $selectedItem.removeClass(className.selected);
             }
           },
           selectedItem: function() {
             $item.removeClass(className.selected);
+          },
+          value: function(value) {
+            var
+              values = $input.val()
+            ;
+            if( $input.is('select') ) {
+              module.verbose('Input is <select> removing selected');
+              $input
+                .find('option[value="' + value + '"]')
+                .prop('selected', false)
+              ;
+            }
+            else {
+              module.verbose('Input is csv removing value');
+              values = module.remove.delimitedValue(value, values);
+              $input
+                .val(values)
+                .trigger('change')
+              ;
+            }
           },
           delimitedValue: function(removedValue, values) {
             if(typeof values != 'string') {
@@ -1944,7 +1977,17 @@ $.fn.dropdown = function(parameters) {
             module.verbose('Removing active label selections', $activeLabels);
             $activeLabels
               .each(function(){
-                module.remove.selected($(this).data('value'));
+                var
+                  value       = $(this).data('value'),
+                  isUserValue = module.is.userValue(value)
+                ;
+                if(isUserValue) {
+                  module.remove.value(value);
+                  module.remove.label(value);
+                }
+                else {
+                  module.remove.selected(value);
+                }
               })
             ;
           },
@@ -1979,6 +2022,12 @@ $.fn.dropdown = function(parameters) {
           },
           menu: function() {
             return ($menu.length > 0);
+          },
+          label: function(value) {
+            var
+              $labels = $module.find(selector.label)
+            ;
+            return ($labels.filter('[data-value="' + value +'"]').length > 0);
           },
           value: function(value) {
             var
@@ -2060,6 +2109,9 @@ $.fn.dropdown = function(parameters) {
           },
           selection: function() {
             return $module.hasClass(className.selection);
+          },
+          userValue: function(value) {
+            return ($.inArray(value, module.get.userValues()) !== -1);
           },
           upward: function() {
             return $module.hasClass(className.upward);
