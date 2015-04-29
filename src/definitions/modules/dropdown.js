@@ -953,7 +953,10 @@ $.fn.dropdown = function(parameters) {
                   else if(selectedIsVisible) {
                     module.verbose('Enter key pressed, choosing selected item');
                     module.event.item.click.call($selectedItem, event);
-                    if(!settings.useLabels) {
+                    if(settings.useLabels) {
+                      module.hideAndClear();
+                    }
+                    else {
                       module.remove.searchTerm();
                     }
                     event.stopImmediatePropagation();
@@ -1044,6 +1047,14 @@ $.fn.dropdown = function(parameters) {
                   event.preventDefault();
                 }
 
+                // page down (show next page)
+                if(pressedKey == keys.pageUp) {
+                  module.scrollPage('up');
+                }
+                if(pressedKey == keys.pageDown) {
+                  module.scrollPage('down');
+                }
+
                 // escape (close menu)
                 if(pressedKey == keys.escape) {
                   module.verbose('Escape key pressed, closing dropdown');
@@ -1052,12 +1063,6 @@ $.fn.dropdown = function(parameters) {
 
               }
               else {
-                // enter (open menu)
-                if(pressedKey == keys.enter) {
-                  module.verbose('Enter key pressed, showing dropdown');
-                  module.show();
-                  event.preventDefault();
-                }
                 // down arrow (open menu)
                 if(pressedKey == keys.downArrow) {
                   module.verbose('Down key pressed, showing dropdown');
@@ -1196,6 +1201,8 @@ $.fn.dropdown = function(parameters) {
               deleteKey  : 46,
               enter      : 13,
               escape     : 27,
+              pageUp     : 33,
+              pageDown   : 34,
               leftArrow  : 37,
               upArrow    : 38,
               rightArrow : 39,
@@ -1319,6 +1326,15 @@ $.fn.dropdown = function(parameters) {
           activeItem: function() {
             return $item.filter('.'  + className.active);
           },
+          selectedItem: function() {
+            var
+              $selectedItem = $item.not('.' + className.filtered).filter('.'  + className.selected)
+            ;
+            return ($selectedItem.length > 0)
+              ? $selectedItem
+              : $item.eq(0)
+            ;
+          },
           item: function(value, strict) {
             var
               $selectedItem = false,
@@ -1432,6 +1448,42 @@ $.fn.dropdown = function(parameters) {
           module.set.value('');
         },
 
+        scrollPage: function(direction, $selectedItem) {
+          var
+            menuHeight    = $menu.outerHeight(),
+            currentScroll = $menu.scrollTop(),
+            itemHeight    = $item.eq(0).outerHeight(),
+            itemsPerPage  = Math.floor(menuHeight / itemHeight),
+            maxScroll     = $menu.prop('scrollHeight'),
+            newScroll     = (direction == 'up')
+              ? currentScroll - (itemHeight * itemsPerPage)
+              : currentScroll + (itemHeight * itemsPerPage),
+            $selectableItem = $item.not('.' + className.filtered),
+            isWithinRange   = (newScroll < maxScroll && newScroll > 0),
+
+            $nextSelectedItem,
+            elementIndex
+          ;
+          $selectedItem     = $selectedItem || module.get.selectedItem();
+          elementIndex      = (direction == 'up')
+            ? $selectableItem.index($selectedItem) - itemsPerPage
+            : $selectableItem.index($selectedItem) + itemsPerPage
+          ;
+          $nextSelectedItem = $selectableItem.eq(elementIndex);
+          if(isWithinRange && $nextSelectedItem.length > 0) {
+            module.debug('Scrolling page', direction, $nextSelectedItem);
+            $selectedItem
+              .removeClass(className.selected)
+            ;
+            $nextSelectedItem
+              .addClass(className.selected)
+            ;
+            $menu
+              .scrollTop(newScroll)
+            ;
+          }
+        },
+
         set: {
           filtered: function() {
             var
@@ -1502,7 +1554,7 @@ $.fn.dropdown = function(parameters) {
               belowPage
             ;
 
-            $item       = $item || module.get.activeItem();
+            $item       = $item || module.get.selectedItem();
             $menu       = $item.closest(selector.menu);
             hasActive   = ($item && $item.length > 0);
             forceScroll = (forceScroll !== undefined)
@@ -1986,9 +2038,7 @@ $.fn.dropdown = function(parameters) {
               ? callback
               : function(){}
             ;
-            if(module.is.single()) {
-              module.set.scrollPosition(module.get.activeItem(), true);
-            }
+            module.set.scrollPosition(module.get.selectedItem(), true);
             module.verbose('Doing menu show animation', $currentMenu);
             if( module.is.hidden($currentMenu) || module.is.animating($currentMenu) ) {
 

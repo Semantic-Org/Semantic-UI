@@ -266,7 +266,7 @@
 
 /* Default Text */
 @defaultTextColor: rgba(179, 179, 179, 0.7);
-@defaultTextHoverColor: rgba(140, 140, 140, 0.7);
+@defaultTextHoverColor: rgba(179, 179, 179, 0.7);
 
 /* Loading */
 @loadingZIndex: -1;
