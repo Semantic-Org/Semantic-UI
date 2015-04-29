@@ -16,14 +16,10 @@
 @activeBackground: rgba(0, 0, 0, 0.04);
 @activeHoverBackground: rgba(0, 0, 0, 0.04);
 
-@boxShadow:
-  0px 1px 2px 0px rgba(0, 0, 0, 0.15)
-;
 
 @headerBackground: rgba(0, 0, 0, 0.08);
 
-@subMenuMargin: 1em;
-@subMenuFontSize: 0.9rem;
+@subMenuMargin: 0.5em -0.6em 0;
 @subMenuHorizontalPadding: 0.7em;
 
 @arrowHoverColor: #EEEEEE;

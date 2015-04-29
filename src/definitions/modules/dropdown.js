@@ -169,6 +169,9 @@ $.fn.dropdown = function(parameters) {
             query = module.get.query()
           ;
           module.verbose('Searching for query', query);
+          if(settings.allowAdditions) {
+            module.add.userChoice();
+          }
           module.filter(query);
           if(module.is.searchSelection() && module.can.show() ) {
             module.show();
@@ -1757,11 +1760,35 @@ $.fn.dropdown = function(parameters) {
               html     = settings.templates.message(message)
             ;
             if($message.length > 0) {
-              module.remove.message();
+              $message
+                .html(html)
+              ;
             }
-            $message = $(html)
-              .appendTo($menu)
+            else {
+              $message = $('<div/>')
+                .html(html)
+                .addClass(className.message)
+                .appendTo($menu)
+              ;
+            }
+          },
+          userChoice: function(choice) {
+            var
+              $addition = $menu.children(selector.addition),
+              html      = settings.templates.addition(choice)
             ;
+            if($addition.length > 0) {
+              $addition
+                .html(html)
+              ;
+            }
+            else {
+              $addition = $('<div/>')
+                .html(html)
+                .addClass(className.addition)
+                .prependTo($menu)
+              ;
+            }
           },
           variables: function(message) {
             var
@@ -2345,71 +2372,45 @@ $.fn.dropdown.settings = {
   verbose        : false,
   performance    : true,
 
-  on                     : 'click',
-  // what event should show menu
+  on                     : 'click',    // what event should show menu action on item selection
+  action                 : 'activate', // action on item selection
 
-  action                 : 'activate',
-  // action on item selection
+  showOnFocus            : true,       // show menu on focus
+  allowTab               : true,       // add tabindex to element
+  allowCategorySelection : false,      // allow elements with sub-menus to be selected
 
-  allowTab               : true,
-  // add tabindex to element
+  match                  : 'both',     // what to match against with search selection (both, text, or label)
+  fullTextSearch         : false,      // search anywhere in value
 
-  showOnFocus            : true,
-  // show menu on focus
+  placeholder            : 'auto',     // whether to convert blank <select> values to placeholder text
+  preserveHTML           : true,       // preserve html when selecting value
+  sortSelect             : false,      // sort selection on init
 
-  fullTextSearch         : false,
-  // search anywhere in value
+  forceSelection         : true,       // force a choice on blur with search selection
+  useLabels              : true,       // whether multiple select should filter currently active selections from choices
 
-  placeholder            : 'auto',
-  // whether to convert blank <select> values to placeholder text
+  transition             : 'auto',     // auto transition will slide down or up based on direction
+  duration               : 200,        // duration of transition
 
-  preserveHTML           : true,
-  // preserve html when selecting value
+  allowAdditions         : false,      // whether multiple select should allow user added values
+  delimiter              : ',',        // multi select delimiting key
 
-  sortSelect             : false,
-  // sort selection on init
+  glyphWidth             : 1.0714,     // widest glyph width in em (W is 1.0714 em) used to calculate multiselect input width
 
-  match                  : 'both',
-  // what to match against with search selection (both, text, or label)
-
-  allowCategorySelection : false,
-  // allow elements with sub-menus to be selected
-
-  forceSelection         : true,
-  // force a value selection on search selection
-
-  transition             : 'auto',
-  duration               : 200,
-  // menu transition
-
+  // delay before event
   delay : {
     hide   : 300,
     show   : 200,
     search : 50,
     touch  : 50
   },
-  // delay before event
 
-  glyphWidth     : 1.0714,
-  // widest glyph width in em (W is 1.0714 em) used to calculate multiselect input width
-
-  allowAdditions : false,
-  // whether multiple select should allow user added values
-
-  tokenize       : 'missing',
-  delimiter      : ',',
-  // multi select delimiting key
-
+  // label settings on multi-select
   label: {
     transition : 'horizontal flip',
-    duration   : 150,
+    duration   : 200,
     variation  : false
   },
-  // label settings on multi-select
-
-  useLabels : true,
-  // whether multiple select should filter currently active selections from choices
-
 
   /* Callbacks */
   onLabelSelect : function($selectedLabels){},
@@ -2448,6 +2449,7 @@ $.fn.dropdown.settings = {
   },
 
   selector : {
+    addition     : '.addition',
     dropdown     : '.ui.dropdown',
     icon         : '> .dropdown.icon',
     input        : '> input[type="hidden"], > select',
@@ -2464,6 +2466,7 @@ $.fn.dropdown.settings = {
 
   className : {
     active      : 'active',
+    addition    : 'addition',
     animating   : 'animating',
     disabled    : 'disabled',
     dropdown    : 'ui dropdown',
@@ -2487,23 +2490,7 @@ $.fn.dropdown.settings = {
 /* Templates */
 $.fn.dropdown.settings.templates = {
 
-  message: function(message) {
-    return '<div class="message">' + message + '</div>';
-  },
-  menu: function(select) {
-    var
-      placeholder = select.placeholder || false,
-      values      = select.values || {},
-      html        = ''
-    ;
-    $.each(select.values, function(index, option) {
-      html += '<div class="item" data-value="' + option.value + '">' + option.name + '</div>';
-    });
-    return html;
-  },
-  label: function(value, text) {
-    return text + '<i class="delete icon"></i>';
-  },
+  // generates dropdown from select values
   dropdown: function(select) {
     var
       placeholder = select.placeholder || false,
@@ -2523,16 +2510,37 @@ $.fn.dropdown.settings.templates = {
     });
     html += '</div>';
     return html;
-  }
-};
-
-
-/* Dependencies */
-$.extend( $.easing, {
-  easeOutQuad: function (x, t, b, c, d) {
-    return -c *(t/=d)*(t-2) + b;
   },
-});
 
+  // generates just menu from select
+  menu: function(select) {
+    var
+      placeholder = select.placeholder || false,
+      values      = select.values || {},
+      html        = ''
+    ;
+    $.each(select.values, function(index, option) {
+      html += '<div class="item" data-value="' + option.value + '">' + option.name + '</div>';
+    });
+    return html;
+  },
+
+  // generates label for multiselect
+  label: function(value, text) {
+    return text + '<i class="delete icon"></i>';
+  },
+
+
+  // generates messages like "No results"
+  message: function(message) {
+    return message;
+  },
+
+  // generates user addition to selection menu
+  addition: function(choice) {
+    return choice;
+  }
+
+};
 
 })( jQuery, window , document );
