@@ -674,6 +674,7 @@ $.fn.dropdown = function(parameters) {
               if(!itemActivated && !pageLostFocus) {
                 if(module.is.multiple()) {
                   module.remove.activeLabel();
+                  module.hide();
                 }
                 else if(settings.forceSelection) {
                   module.forceSelection();
@@ -845,6 +846,10 @@ $.fn.dropdown = function(parameters) {
                   caretAtStart      = (isFocusedOnSearch && module.get.caretPosition() === 0),
                   $nextLabel
                 ;
+                if(!hasActiveLabel && !isFocusedOnSearch) {
+                  return;
+                }
+
                 if(pressedKey == keys.leftArrow) {
                   // activate previous label
                   if((isFocused || caretAtStart) && !hasActiveLabel) {
@@ -908,6 +913,7 @@ $.fn.dropdown = function(parameters) {
                   }
                 }
                 else if(pressedKey == keys.deleteKey || pressedKey == keys.backspace) {
+                  console.log(caretAtStart, hasActiveLabel);
                   if(hasActiveLabel) {
                     module.verbose('Removing active labels');
                     if(isLastLabel) {
@@ -922,8 +928,7 @@ $.fn.dropdown = function(parameters) {
                   else if(caretAtStart && !hasActiveLabel && pressedKey == keys.backspace) {
                     module.verbose('Removing last label on input backspace');
                     $activeLabel = $label.last().addClass(className.active);
-                    activeValue  = $activeLabel.data('value');
-                    module.remove.selected(activeValue);
+                    module.remove.labels($activeLabel);
                     event.preventDefault();
                   }
                 }
@@ -1591,7 +1596,7 @@ $.fn.dropdown = function(parameters) {
               ? forceScroll
               : false
             ;
-            if($item && hasActive) {
+            if($item && $menu.length > 0 && hasActive) {
               if(!$menu.hasClass(className.visible)) {
                 $menu.addClass(className.loading);
               }
@@ -2150,8 +2155,8 @@ $.fn.dropdown = function(parameters) {
           },
           visible: function($subMenu) {
             return ($subMenu)
-              ? $subMenu.is(':visible')
-              : $menu.is(':visible')
+              ? $subMenu.hasClass(className.visible)
+              : $menu.hasClass(className.visible)
             ;
           }
         },
