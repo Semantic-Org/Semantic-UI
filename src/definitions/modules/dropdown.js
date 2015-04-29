@@ -845,11 +845,7 @@ $.fn.dropdown = function(parameters) {
                   caretAtStart      = (isFocusedOnSearch && module.get.caretPosition() === 0),
                   $nextLabel
                 ;
-                if(settings.allowAdditions && isFocusedOnSearch && (pressedKey == keys.delimiter)) {
-                  module.verbose('Delimiter key pressed. Tokenizing');
-                  event.preventDefault();
-                }
-                else if(pressedKey == keys.leftArrow) {
+                if(pressedKey == keys.leftArrow) {
                   // activate previous label
                   if((isFocused || caretAtStart) && !hasActiveLabel) {
                     module.verbose('Selecting previous label');
@@ -890,8 +886,13 @@ $.fn.dropdown = function(parameters) {
                       module.verbose('Adding next label to selection');
                     }
                     if(isLastLabel) {
-                      if(isSearch && !isFocusedOnSearch) {
-                        module.focusSearch();
+                      if(isSearch) {
+                        if(!isFocusedOnSearch) {
+                          module.focusSearch();
+                        }
+                        else {
+                          $label.removeClass(className.active);
+                        }
                       }
                       else if(hasMultipleActive) {
                         $activeLabel.next(selector.siblingLabel).addClass(className.active);
@@ -964,8 +965,8 @@ $.fn.dropdown = function(parameters) {
               if( module.is.visible() ) {
 
                 // enter (select or open sub-menu)
-                if(pressedKey == keys.enter && hasSelectedItem) {
-                  if(hasSubMenu && !settings.allowCategorySelection) {
+                if(pressedKey == keys.enter || pressedKey == keys.delimiter && hasSelectedItem) {
+                  if(pressedKey == keys.enter && hasSubMenu && !settings.allowCategorySelection) {
                     module.verbose('Pressed enter on unselectable category, opening sub menu');
                     pressedKey = keys.rightArrow;
                   }
@@ -978,7 +979,6 @@ $.fn.dropdown = function(parameters) {
                     else {
                       module.remove.searchTerm();
                     }
-                    event.stopImmediatePropagation();
                   }
                   event.preventDefault();
                 }
@@ -1809,13 +1809,17 @@ $.fn.dropdown = function(parameters) {
           },
           userChoice: function(value) {
             var
+              alreadyHasValue = module.get.item(value),
               $addition = $menu.children(selector.addition),
-              html      = settings.templates.addition(value)
+              html
             ;
-            if(value === '') {
+            if(value === '' || alreadyHasValue) {
               $addition.remove();
               return;
             }
+
+            html = settings.templates.addition(value);
+
             $item
               .removeClass(className.selected)
             ;
