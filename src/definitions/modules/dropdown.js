@@ -1656,6 +1656,9 @@ $.fn.dropdown = function(parameters) {
                 // set values
                 if( $input.is('select') ) {
                   module.debug('Setting multiple <select> values', value, $input);
+                  if(settings.allowAdditions) {
+                    module.add.optionValue(value);
+                  }
                 }
                 else {
                   value = value.join(settings.delimiter);
@@ -1672,7 +1675,6 @@ $.fn.dropdown = function(parameters) {
                 .trigger('change')
               ;
               settings.onChange.call(element, value, text, $selected);
-
             }
             else {
               module.verbose('Storing value in metadata', value, $input);
@@ -1807,6 +1809,34 @@ $.fn.dropdown = function(parameters) {
               ;
             }
           },
+          optionValue: function(values) {
+            if(!$input.is('select')) {
+              return false;
+            }
+            if(selectObserver) {
+              selectObserver.disconnect();
+            }
+            $.each(values, function(index, value) {
+              var
+                $option   = $input.find('option[value="' + value + '"]'),
+                hasOption = ($option.length > 0)
+              ;
+              if(!hasOption) {
+                $('<option/>')
+                  .prop('value', value)
+                  .html(value)
+                  .appendTo($input)
+                ;
+                module.verbose('Adding user addition as an <option>', value);
+              }
+            });
+            if(selectObserver) {
+              selectObserver.observe($input[0], {
+                childList : true,
+                subtree   : true
+              });
+            }
+          },
           userChoice: function(value) {
             var
               alreadyHasValue = module.get.item(value),
@@ -1817,9 +1847,7 @@ $.fn.dropdown = function(parameters) {
               $addition.remove();
               return;
             }
-
             html = settings.templates.addition(value);
-
             $item
               .removeClass(className.selected)
             ;
