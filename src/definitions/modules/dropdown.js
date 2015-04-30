@@ -920,7 +920,6 @@ $.fn.dropdown = function(parameters) {
                   }
                 }
                 else if(pressedKey == keys.deleteKey || pressedKey == keys.backspace) {
-                  console.log(caretAtStart, hasActiveLabel);
                   if(hasActiveLabel) {
                     module.verbose('Removing active labels');
                     if(isLastLabel) {
@@ -1659,7 +1658,6 @@ $.fn.dropdown = function(parameters) {
                   firstLetter   = String(text).charAt(0).toLowerCase(),
                   matchedLetter = letter.toLowerCase()
                 ;
-                console.log(text, firstLetter, matchedLetter);
                 if(firstLetter == matchedLetter) {
                   if(!$choice.hasClass(className.selected)) {
                     $nextValue = $choice;
@@ -2538,7 +2536,7 @@ $.fn.dropdown.settings = {
 
   placeholder            : 'auto',     // whether to convert blank <select> values to placeholder text
   preserveHTML           : true,       // preserve html when selecting value
-  sortSelect             : true,      // sort selection on init
+  sortSelect             : false,      // sort selection on init
 
   forceSelection         : true,       // force a choice on blur with search selection
   useLabels              : true,       // whether multiple select should filter currently active selections from choices
@@ -2546,7 +2544,7 @@ $.fn.dropdown.settings = {
   transition             : 'auto',     // auto transition will slide down or up based on direction
   duration               : 200,        // duration of transition
 
-  allowAdditions         : true,       // whether multiple select should allow user added values
+  allowAdditions         : false,       // whether multiple select should allow user added values
   delimiter              : ',',        // when multiselect uses normal <input> the values will be delmited with this character
 
   glyphWidth             : 1.0714,     // widest glyph width in em (W is 1.0714 em) used to calculate multiselect input width
