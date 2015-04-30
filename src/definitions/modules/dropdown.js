@@ -991,13 +991,13 @@ $.fn.dropdown = function(parameters) {
               if( module.is.visible() ) {
 
                 // enter (select or open sub-menu)
-                if(pressedKey == keys.enter || pressedKey == keys.delimiter && hasSelectedItem) {
-                  if(pressedKey == keys.enter && hasSubMenu && !settings.allowCategorySelection) {
+                if(pressedKey == keys.enter || pressedKey == keys.delimiter) {
+                  if(pressedKey == keys.enter && hasSelectedItem && hasSubMenu && !settings.allowCategorySelection) {
                     module.verbose('Pressed enter on unselectable category, opening sub menu');
                     pressedKey = keys.rightArrow;
                   }
                   else if(selectedIsVisible) {
-                    module.verbose('Enter key pressed, choosing selected item');
+                    module.verbose('Selecting item from keyboard shortcut', $selectedItem);
                     module.event.item.click.call($selectedItem, event);
                     if(settings.useLabels && module.is.searchSelection()) {
                       module.hideAndClear();
@@ -1110,6 +1110,10 @@ $.fn.dropdown = function(parameters) {
 
               }
               else {
+                // delimiter key
+                if(pressedKey == keys.delimiter) {
+                  event.preventDefault();
+                }
                 // down arrow (open menu)
                 if(pressedKey == keys.downArrow) {
                   module.verbose('Down key pressed, showing dropdown');
@@ -1118,8 +1122,10 @@ $.fn.dropdown = function(parameters) {
                 }
               }
             }
-            else if( module.is.selection() && !module.is.search() ) {
-              module.set.selectedLetter( String.fromCharCode(pressedKey) );
+            else {
+              if( module.is.selection() && !module.is.search() ) {
+                module.set.selectedLetter( String.fromCharCode(pressedKey) );
+              }
             }
           }
         },
@@ -1230,7 +1236,7 @@ $.fn.dropdown = function(parameters) {
               ? values.length
               : (module.get.value() !== '')
                 ? 1
-                : 1
+                : 0
             ;
           },
           userValues: function() {
@@ -1457,24 +1463,28 @@ $.fn.dropdown = function(parameters) {
 
         check: {
           maxSelections: function(selectionCount) {
-            selectionCount = (selectionCount !== undefined)
-              ? selectionCount
-              : module.get.selectionCount()
-            ;
-            if(selectionCount >= settings.maxSelections) {
-              module.debug('Maximum selection count reached');
-              $item.addClass(className.filtered);
-              module.add.message(message.maxSelections);
-              return true;
-            }
-            else {
-              module.remove.message();
-              module.remove.filteredItem();
-              if(module.is.searchSelection()) {
-                module.filter();
+            if(settings.maxSelections) {
+              selectionCount = (selectionCount !== undefined)
+                ? selectionCount
+                : module.get.selectionCount()
+              ;
+              if(selectionCount >= settings.maxSelections) {
+                module.debug('Maximum selection count reached');
+                $item.addClass(className.filtered);
+                module.add.message(message.maxSelections);
+                return true;
+              }
+              else {
+                module.verbose('No longer maximum selection count, removing message');
+                module.remove.message();
+                module.remove.filteredItem();
+                if(module.is.searchSelection()) {
+                  module.filter();
+                }
+                return false;
               }
             }
-            return false;
+            return true;
           }
         },
 
@@ -1732,6 +1742,11 @@ $.fn.dropdown = function(parameters) {
 
               if( module.is.multiple() ) {
 
+                if(value === '') {
+                  module.debug('Cannot select blank values from multiselect');
+                  return;
+                }
+
                 // extend currently selected values
                 value = [value];
                 if($.isArray(currentValue)) {
@@ -1848,14 +1863,18 @@ $.fn.dropdown = function(parameters) {
         add: {
           label: function(value, text, shouldAnimate) {
             var
-              $label = $('<a />')
-                .addClass(className.label)
-                .attr('data-value', value)
-                .html(templates.label(value, text)),
               $next  = module.is.searchSelection()
                 ? $search
-                : $text
+                : $text,
+              $label
             ;
+            $label =  $('<a />')
+              .addClass(className.label)
+              .attr('data-value', value)
+              .html(templates.label(value, text))
+            ;
+            $label = settings.onLabelCreate.call($label, value, text);
+
             if(module.has.label(value)) {
               module.debug('Label already exists, skipping', value);
               return;
@@ -2589,10 +2608,6 @@ $.fn.dropdown.settings = {
   on                     : 'click',    // what event should show menu action on item selection
   action                 : 'activate', // action on item selection
 
-  showOnFocus            : true,       // show menu on focus
-  allowTab               : true,       // add tabindex to element
-  allowCategorySelection : false,      // allow elements with sub-menus to be selected
-
   match                  : 'both',     // what to match against with search selection (both, text, or label)
   fullTextSearch         : false,      // search anywhere in value
 
@@ -2601,37 +2616,41 @@ $.fn.dropdown.settings = {
   sortSelect             : false,      // sort selection on init
 
   forceSelection         : true,       // force a choice on blur with search selection
+  allowAdditions         : false,      // whether multiple select should allow user added values
 
-  maxSelections          : 5,          // When set to a number limits the number of selections to this count
+  maxSelections          : false,      // When set to a number limits the number of selections to this count
   useLabels              : true,       // whether multiple select should filter currently active selections from choices
+  delimiter              : ',',        // when multiselect uses normal <input> the values will be delmited with this character
+
+  showOnFocus            : true,       // show menu on focus
+  allowTab               : true,       // add tabindex to element
+  allowCategorySelection : false,      // allow elements with sub-menus to be selected
 
   transition             : 'auto',     // auto transition will slide down or up based on direction
   duration               : 200,        // duration of transition
 
-  allowAdditions         : true,       // whether multiple select should allow user added values
-  delimiter              : ',',        // when multiselect uses normal <input> the values will be delmited with this character
-
   glyphWidth             : 1.0714,     // widest glyph width in em (W is 1.0714 em) used to calculate multiselect input width
+
+  // label settings on multi-select
+  label: {
+    transition : 'scale',
+    duration   : 200,
+    variation  : false
+  },
 
   // delay before event
   delay : {
     hide   : 300,
     show   : 200,
-    search : 50,
+    search : 0,
     touch  : 50
   },
 
-  // label settings on multi-select
-  label: {
-    transition : 'horizontal flip',
-    duration   : 200,
-    variation  : false
-  },
-
   /* Callbacks */
-  onLabelSelect : function($selectedLabels){},
-  onNoResults   : function(searchTerm) { return true; },
   onChange      : function(value, text, $selected){},
+  onLabelSelect : function($selectedLabels){},
+  onLabelCreate : function(value, text) { return $(this); },
+  onNoResults   : function(searchTerm) { return true; },
   onShow        : function(){},
   onHide        : function(){},
 
