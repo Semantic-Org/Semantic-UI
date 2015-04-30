@@ -62,6 +62,7 @@
 - **Menu** - Menus items are now slightly more padded
 - **Menu** - The hover/active state of `dropdown item` have been adjusted to match `item`. Dropdown styles can be themed specifically inside `menu`.
 - **Menu** - Vertical dropdown menus are no longer 100% `min-width`
+- **Modal** - Modal `onApprove` and `onDeny` now receive the activating element as the first parameter. Added documentation about using `return false` to avoid hiding element on click.
 - **Progress** - `indicating` labels now are more legible use separate css variables from `indicating` bar color
 - **Reveal** - Added new `active` state that allows you to show `reveal` programatically
 - **Search** - Cache can now be cleared using `$('.search').search('clear cache')`
@@ -86,6 +87,7 @@
 - **Dropdown** - Fixes issue with headers disappearing inside of `ui dropdown` when nested in `ui menu`
 - **Dropdown** - Fixes `onChange` to fire when input value changes, not just when menu UI changes
 - **Dropdown** - Dropdowns with `transition: none` now work correctly.
+- **Dropdown** - Fixed issue where `sortSelect` was relying on object key enumeration order which is browser dependent and unreliable. It now uses a sort function which functions the same in all browsers
 - **Dropdown** - Fixed issue with `search selection` not changing text when reselecting same value from list
 - **Dropdown** - Dropdown `menu` now use same font size as dropdown
 - **Dropdown** - Fixed behaviors called on `<select>` after initialization not being correctly applied to `ui dropdown`

@@ -87,9 +87,15 @@ $.fn.dropdown = function(parameters) {
             module.save.defaults();
 
             module.set.selected();
+
             if(settings.allowAdditions && module.is.multiple()) {
+              if(!settings.useLabels) {
+                module.error(error.labels);
+                settings.useLabels = true;
+              }
               module.create.userLabels();
             }
+
 
             module.create.id();
 
@@ -228,6 +234,7 @@ $.fn.dropdown = function(parameters) {
               module.setup.select();
             }
             if( module.is.search() && !module.has.search() ) {
+              module.verbose('Adding search input');
               $search = $('<input />')
                 .addClass(className.search)
                 .insertBefore($text)
@@ -288,7 +295,7 @@ $.fn.dropdown = function(parameters) {
             // replace module reference
             $module = $module.parent(selector.dropdown);
             module.refresh();
-            // adjust all modules
+            // adjust all modules to compensate
             $firstModules = $allModules.slice(0, index);
             $lastModules  = $allModules.slice(index + 1);
             $allModules   = $firstModules.add($module).add($lastModules);
@@ -978,7 +985,7 @@ $.fn.dropdown = function(parameters) {
                   else if(selectedIsVisible) {
                     module.verbose('Enter key pressed, choosing selected item');
                     module.event.item.click.call($selectedItem, event);
-                    if(settings.useLabels) {
+                    if(settings.useLabels && module.is.searchSelection()) {
                       module.hideAndClear();
                     }
                     else {
@@ -1094,6 +1101,9 @@ $.fn.dropdown = function(parameters) {
                   event.preventDefault();
                 }
               }
+            }
+            else if( module.is.selection() && !module.is.search() ) {
+              module.set.selectedLetter( String.fromCharCode(pressedKey) );
             }
           }
         },
@@ -1314,10 +1324,7 @@ $.fn.dropdown = function(parameters) {
             var
               select = {}
             ;
-            select.values = (settings.sortSelect)
-              ? {} // properties will be sorted in object when re-accessed
-              : [] // properties will keep original order in array
-            ;
+            select.values = [];
             $module
               .find('option')
                 .each(function() {
@@ -1331,18 +1338,10 @@ $.fn.dropdown = function(parameters) {
                     select.placeholder = name;
                   }
                   else {
-                    if(settings.sortSelect) {
-                      select.values[value] = {
-                        name  : name,
-                        value : value
-                      };
-                    }
-                    else {
-                      select.values.push({
-                        name: name,
-                        value: value
-                      });
-                    }
+                    select.values.push({
+                      name: name,
+                      value: value
+                    });
                   }
                 })
             ;
@@ -1351,6 +1350,12 @@ $.fn.dropdown = function(parameters) {
               select.placeholder = settings.placeholder;
             }
             if(settings.sortSelect) {
+              select.values.sort(function(a, b) {
+                return (a.name > b.name)
+                  ? 1
+                  : -1
+                ;
+              });
               module.debug('Retrieved and sorted values from select', select);
             }
             else {
@@ -1641,6 +1646,35 @@ $.fn.dropdown = function(parameters) {
               }
             }
           },
+          selectedLetter: function(letter) {
+            var
+              $selectedItem = $item.filter('.' + className.selected),
+              $nextValue    = false
+            ;
+            $item
+              .each(function(){
+                var
+                  $choice       = $(this),
+                  text          = module.get.choiceText($choice, false),
+                  firstLetter   = String(text).charAt(0).toLowerCase(),
+                  matchedLetter = letter.toLowerCase()
+                ;
+                console.log(text, firstLetter, matchedLetter);
+                if(firstLetter == matchedLetter) {
+                  if(!$choice.hasClass(className.selected)) {
+                    $nextValue = $choice;
+                    return false;
+                  }
+                }
+              })
+            ;
+            if($nextValue) {
+              module.verbose('Scrolling to next value with letter', letter);
+              module.set.scrollPosition($nextValue);
+              $selectedItem.removeClass(className.selected);
+              $nextValue.addClass(className.selected);
+            }
+          },
           value: function(value, text, $selected) {
             var
               hasInput     = ($input.length > 0),
@@ -1726,12 +1760,11 @@ $.fn.dropdown = function(parameters) {
                   selectedValue  = module.get.choiceValue($selected, selectedText),
 
                   isFiltered     = $selected.hasClass(className.filtered),
-                  isUserAddition = $selected.hasClass(className.addition),
                   isActive       = $selected.hasClass(className.active),
                   shouldAnimate  = (isMultiple && $selectedItem.length == 1)
                 ;
                 if(isMultiple) {
-                  if(!isActive || isUserAddition) {
+                  if(!isActive) {
                     if(settings.useLabels) {
                       module.add.label(selectedValue, selectedText, shouldAnimate);
                       module.set.value(selectedValue, selectedText, $selected);
@@ -2505,7 +2538,7 @@ $.fn.dropdown.settings = {
 
   placeholder            : 'auto',     // whether to convert blank <select> values to placeholder text
   preserveHTML           : true,       // preserve html when selecting value
-  sortSelect             : false,      // sort selection on init
+  sortSelect             : true,      // sort selection on init
 
   forceSelection         : true,       // force a choice on blur with search selection
   useLabels              : true,       // whether multiple select should filter currently active selections from choices
@@ -2553,6 +2586,7 @@ $.fn.dropdown.settings = {
   error : {
     action       : 'You called a dropdown action that was not defined',
     alreadySetup : 'Once a select has been initialized behaviors must be called on the created ui dropdown',
+    labels       : 'Allowing user additions currently requires the use of labels.',
     method       : 'The method you called is not defined.',
     noTransition : 'This module requires ui transitions <https://github.com/Semantic-Org/UI-Transition>'
   },
