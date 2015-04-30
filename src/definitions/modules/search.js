@@ -491,7 +491,7 @@ $.fn.search = function(parameters) {
                   fieldExists = (typeof content[field] == 'string')
                 ;
                 if(fieldExists) {
-                  if( content[field].match(matchRegExp) ) {
+                  if( content[field].search(matchRegExp) !== -1) {
                     // content starts with value (first in results)
                     addResult(results, content);
                   }
