@@ -39,8 +39,11 @@
 - **Build Tools** - Build tools will now produce understandable errors when a theme file is missing or an element specifies an unavailable theme
 - **Build Tools** - Adjusting `site.variables` will now rebuild all UI, instead of just `site.less`
 - **Divider** - `vertical divider` inside `ui grid` now accounts for column padding
+- **Dropdown** - Using keyboard letter when any type of selection dropdown is used will
 - **Dropdown** - Dropdowns now have `match` setting to specify whether to match on `text`, `value` or `both`
 - **Dropdown** - Dropdowns now automatically observe changes in `menu` and will update selector cache with new additions
+- **Dropdown** - Multi select dropdowns now have new settings for specifying maximum selection count
+- **Dropdown** - Dropdown has new `placeholder` setting for setting placeholder text in javascript
 - **Dropdown** - Added `showOnFocus` option that lets you specify whether dropdown menu should show on focus
 - **Dropdown** - `fullTextSearch: true` now uses fuzzy search (same as `ui search`)
 - **Dropdown** - Page down and page up now works with dropdown menus
@@ -63,6 +66,7 @@
 - **Menu** - The hover/active state of `dropdown item` have been adjusted to match `item`. Dropdown styles can be themed specifically inside `menu`.
 - **Menu** - Vertical dropdown menus are no longer 100% `min-width`
 - **Modal** - Modal `onApprove` and `onDeny` now receive the activating element as the first parameter. Added documentation about using `return false` to avoid hiding element on click.
+- **Popup** - Added more size variations for popup `mini`, `tiny`
 - **Progress** - `indicating` labels now are more legible use separate css variables from `indicating` bar color
 - **Reveal** - Added new `active` state that allows you to show `reveal` programatically
 - **Search** - Cache can now be cleared using `$('.search').search('clear cache')`
@@ -571,7 +575,7 @@ Importing `semantic.less` still does not require any special syntax
 
 **Bugs**
 - **Video** - Video component now uses `//` instead of defaulting to `http`
-- **Dropdown** - `restore defaults` will now set placeholder styling and remove active elemenet. Added example in docs.
+- **Dropdown** - `restore defaults` will now set placeholder styling and remove active element. Added example in docs.
 - **Dropdown** - Fixed bug where sub menus may sometimes have dropdown icon overlap text
 - **Dropdown** - Fixes dropdown search input from filtering text values when input is inside menu, i.e "In-Menu Search"
 - **Dropdown** - Fix issue with search selection not correctly creating RegExp when select values are not strings **Thanks @alufers**
