@@ -338,8 +338,10 @@ $.fn.dropdown = function(parameters) {
           ;
           if( module.can.show() && !module.is.active() ) {
             module.debug('Showing dropdown');
-            if(module.is.multiple() && !module.has.search() && module.is.allFiltered()) {
-              return true;
+            if(module.is.multiple()) {
+              if(!module.has.search() && module.is.allFiltered()) {
+                return true;
+              }
             }
             module.animate.show(function() {
               if( module.can.click() ) {
@@ -506,47 +508,60 @@ $.fn.dropdown = function(parameters) {
 
         filter: function(searchTerm) {
           var
-            $results       = $(),
-            escapedTerm    = module.escape.regExp(searchTerm),
-            exactRegExp    = new RegExp('^' + escapedTerm, 'igm'),
-            allItemsFiltered
+            $results         = $(),
+            allItemsFiltered,
+            escapedTerm,
+            beginsWithRegExp
           ;
-          module.verbose('Searching for matching values');
-          $item
-            .each(function(){
-              var
-                $choice = $(this),
-                text,
-                value
-              ;
-              if(settings.match == 'both' || settings.match == 'text') {
-                text = String(module.get.choiceText($choice, false));
-
-                if(text.match(exactRegExp)) {
-                  $results = $results.add($choice);
-                  return true;
-                }
-                else if(settings.fullTextSearch && module.fuzzySearch(searchTerm, text)) {
-                  $results = $results.add($choice);
-                  return true;
-                }
-              }
-              if(settings.match == 'both' || settings.match == 'value') {
-                value = String(module.get.choiceValue($choice, text));
-
-                if(value.match(exactRegExp)) {
-                  $results = $results.add($choice);
-                  return true;
-                }
-                else if(settings.fullTextSearch && module.fuzzySearch(searchTerm, value)) {
-                  $results = $results.add($choice);
-                  return true;
-                }
-              }
-            })
+          searchTerm = (searchTerm !== undefined)
+            ? searchTerm
+            : module.get.query()
           ;
+          escapedTerm      = module.escape.regExp(searchTerm);
+          beginsWithRegExp = new RegExp('^' + escapedTerm, 'igm');
+          if(module.has.maxSelections()) {
+            return;
+          }
+          if(searchTerm === '') {
+            $results = $item;
+          }
+          else {
+            module.verbose('Searching for matching values', searchTerm);
+            $item
+              .each(function(){
+                var
+                  $choice = $(this),
+                  text,
+                  value
+                ;
+                if(settings.match == 'both' || settings.match == 'text') {
+                  text = String(module.get.choiceText($choice, false));
+                  if(text.search(beginsWithRegExp) !== -1) {
+                    $results = $results.add($choice);
+                    return true;
+                  }
+                  else if(settings.fullTextSearch && module.fuzzySearch(searchTerm, text)) {
+                    $results = $results.add($choice);
+                    return true;
+                  }
+                }
+                if(settings.match == 'both' || settings.match == 'value') {
+                  value = String(module.get.choiceValue($choice, text));
 
-          module.debug('Setting filter', searchTerm);
+                  if(value.search(beginsWithRegExp) !== -1) {
+                    $results = $results.add($choice);
+                    return true;
+                  }
+                  else if(settings.fullTextSearch && module.fuzzySearch(searchTerm, value)) {
+                    $results = $results.add($choice);
+                    return true;
+                  }
+                }
+              })
+            ;
+          }
+
+          module.debug('Showing only matched items', searchTerm);
           module.remove.filteredItem();
           $item
             .not($results)
@@ -1207,6 +1222,17 @@ $.fn.dropdown = function(parameters) {
           query: function() {
             return $.trim($search.val());
           },
+          selectionCount: function() {
+            var
+              values = module.get.values()
+            ;
+            return ( module.is.multiple() && $.isArray(values))
+              ? values.length
+              : (module.get.value() !== '')
+                ? 1
+                : 1
+            ;
+          },
           userValues: function() {
             var
               values = module.get.values()
@@ -1229,7 +1255,7 @@ $.fn.dropdown = function(parameters) {
               range,
               rangeLength
             ;
-            if ('selectionStart' in input) {
+            if('selectionStart' in input) {
               return input.selectionStart;
             }
             else if (document.selection) {
@@ -1426,6 +1452,29 @@ $.fn.dropdown = function(parameters) {
               ;
             }
             return $selectedItem;
+          }
+        },
+
+        check: {
+          maxSelections: function(selectionCount) {
+            selectionCount = (selectionCount !== undefined)
+              ? selectionCount
+              : module.get.selectionCount()
+            ;
+            if(selectionCount >= settings.maxSelections) {
+              module.debug('Maximum selection count reached');
+              $item.addClass(className.filtered);
+              module.add.message(message.maxSelections);
+              return true;
+            }
+            else {
+              module.remove.message();
+              module.remove.filteredItem();
+              if(module.is.searchSelection()) {
+                module.filter();
+              }
+            }
+            return false;
           }
         },
 
@@ -1720,6 +1769,7 @@ $.fn.dropdown = function(parameters) {
                 settings.onChange.call(element, value, text, $selected);
               }
             }
+            module.check.maxSelections();
           },
           active: function() {
             $module
@@ -1759,10 +1809,11 @@ $.fn.dropdown = function(parameters) {
 
                   isFiltered     = $selected.hasClass(className.filtered),
                   isActive       = $selected.hasClass(className.active),
+                  isUserValue    = $selected.hasClass(className.addition),
                   shouldAnimate  = (isMultiple && $selectedItem.length == 1)
                 ;
                 if(isMultiple) {
-                  if(!isActive) {
+                  if(!isActive || isUserValue) {
                     if(settings.useLabels) {
                       module.add.label(selectedValue, selectedText, shouldAnimate);
                       module.set.value(selectedValue, selectedText, $selected);
@@ -1830,7 +1881,7 @@ $.fn.dropdown = function(parameters) {
           message: function(message) {
             var
               $message = $menu.children(selector.message),
-              html     = settings.templates.message(message)
+              html     = settings.templates.message(module.add.variables(message))
             ;
             if($message.length > 0) {
               $message
@@ -1879,6 +1930,9 @@ $.fn.dropdown = function(parameters) {
               $addition = $menu.children(selector.addition),
               html
             ;
+            if(module.has.maxSelections()) {
+              return;
+            }
             if(value === '' || alreadyHasValue) {
               $addition.remove();
               return;
@@ -1906,19 +1960,20 @@ $.fn.dropdown = function(parameters) {
           },
           variables: function(message) {
             var
-              hasCount = (message.search('{count}') !== -1),
-              hasTerm  = (message.search('{term}') !== -1),
+              hasCount    = (message.search('{count}') !== -1),
+              hasMaxCount = (message.search('{maxCount}') !== -1),
+              hasTerm     = (message.search('{term}') !== -1),
               values,
               count,
               query
             ;
             if(hasCount) {
-              values = module.get.values();
-              count = $.isArray(values)
-                ? values.length
-                : 1
-              ;
+              count  = module.get.selectionCount();
               message = message.replace('{count}', count);
+            }
+            if(hasMaxCount) {
+              count  = module.get.selectionCount();
+              message = message.replace('{maxCount}', settings.maxSelections);
             }
             if(hasTerm) {
               query   = module.get.query();
@@ -1942,6 +1997,9 @@ $.fn.dropdown = function(parameters) {
             $item.removeClass(className.active);
           },
           filteredItem: function() {
+            if( module.has.maxSelections() ) {
+              return;
+            }
             if(settings.useLabels) {
               $item.not('.' + className.active).removeClass(className.filtered);
             }
@@ -2004,6 +2062,7 @@ $.fn.dropdown = function(parameters) {
                 .trigger('change')
               ;
             }
+            module.check.maxSelections();
           },
           delimitedValue: function(removedValue, values) {
             if(typeof values != 'string') {
@@ -2097,6 +2156,9 @@ $.fn.dropdown = function(parameters) {
             ;
             return ($labels.filter('[data-value="' + value +'"]').length > 0);
           },
+          maxSelections: function() {
+            return (settings.maxSelections && module.get.selectionCount() >= settings.maxSelections);
+          },
           value: function(value) {
             var
               values   = module.get.values(),
@@ -2131,7 +2193,7 @@ $.fn.dropdown = function(parameters) {
             return (document.activeElement === $search[0]);
           },
           allFiltered: function() {
-            return(module.is.multiple() || module.has.search()) && ($item.filter('.' + className.filtered).length === $item.length);
+            return(module.is.multiple() || module.has.search()) && $menu.children(selector.message).length === 0 && ($item.filter('.' + className.filtered).length === $item.length);
           },
           hidden: function($subMenu) {
             return ($subMenu)
@@ -2539,12 +2601,14 @@ $.fn.dropdown.settings = {
   sortSelect             : false,      // sort selection on init
 
   forceSelection         : true,       // force a choice on blur with search selection
+
+  maxSelections          : 5,          // When set to a number limits the number of selections to this count
   useLabels              : true,       // whether multiple select should filter currently active selections from choices
 
   transition             : 'auto',     // auto transition will slide down or up based on direction
   duration               : 200,        // duration of transition
 
-  allowAdditions         : false,       // whether multiple select should allow user added values
+  allowAdditions         : true,       // whether multiple select should allow user added values
   delimiter              : ',',        // when multiselect uses normal <input> the values will be delmited with this character
 
   glyphWidth             : 1.0714,     // widest glyph width in em (W is 1.0714 em) used to calculate multiselect input width
@@ -2576,9 +2640,10 @@ $.fn.dropdown.settings = {
   namespace      : 'dropdown',
 
   message: {
-    addResult : 'Add <b>{term}</b>',
-    count     : '{count} selected',
-    noResults : 'No results found.'
+    addResult     : 'Add <b>{term}</b>',
+    count         : '{count} selected',
+    maxSelections : 'Max {maxCount} selections',
+    noResults     : 'No results found.'
   },
 
   error : {
