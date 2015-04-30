@@ -215,17 +215,20 @@ $.fn.modal = function(parameters) {
 
         event: {
           close: function() {
-            module.verbose('Closing element pressed');
-            if( $(this).is(selector.approve) ) {
-              if(settings.onApprove.call(element) !== false) {
+            var
+              $element = $(this)
+            ;
+            module.verbose('Closing element activated');
+            if( $element.is(selector.approve) ) {
+              if(settings.onApprove.call(element, $element) !== false) {
                 module.hide();
               }
               else {
                 module.verbose('Approve callback returned false cancelling hide');
               }
             }
-            else if( $(this).is(selector.deny) ) {
-              if(settings.onDeny.call(element) !== false) {
+            else if( $element.is(selector.deny) ) {
+              if(settings.onDeny.call(element, $element) !== false) {
                 module.hide();
               }
               else {
