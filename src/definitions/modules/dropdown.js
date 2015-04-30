@@ -853,7 +853,7 @@ $.fn.dropdown = function(parameters) {
                   caretAtStart      = (isFocusedOnSearch && module.get.caretPosition() === 0),
                   $nextLabel
                 ;
-                if(!hasActiveLabel && !isFocusedOnSearch) {
+                if(isSearch && !hasActiveLabel && !isFocusedOnSearch) {
                   return;
                 }
 
@@ -1080,9 +1080,11 @@ $.fn.dropdown = function(parameters) {
                 // page down (show next page)
                 if(pressedKey == keys.pageUp) {
                   module.scrollPage('up');
+                  event.preventDefault();
                 }
                 if(pressedKey == keys.pageDown) {
                   module.scrollPage('down');
+                  event.preventDefault();
                 }
 
                 // escape (close menu)
@@ -1659,10 +1661,8 @@ $.fn.dropdown = function(parameters) {
                   matchedLetter = letter.toLowerCase()
                 ;
                 if(firstLetter == matchedLetter) {
-                  if(!$choice.hasClass(className.selected)) {
-                    $nextValue = $choice;
-                    return false;
-                  }
+                  $nextValue = $choice;
+                  return false;
                 }
               })
             ;
