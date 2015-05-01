@@ -427,7 +427,7 @@ $.fn.dropdown = function(parameters) {
             ;
           },
           mouseEvents: function() {
-            module.verbose('Mouse detected binding mouse events');
+            module.debug('Mouse detected binding mouse events');
             if(module.is.multiple()) {
               $module
                 .on('click'   + eventNamespace, selector.label, module.event.label.click)
@@ -1564,8 +1564,7 @@ $.fn.dropdown = function(parameters) {
               ? currentScroll - (itemHeight * itemsPerPage)
               : currentScroll + (itemHeight * itemsPerPage),
             $selectableItem = $item.not('.' + className.filtered),
-            isWithinRange   = (newScroll < maxScroll && newScroll > 0),
-
+            isWithinRange,
             $nextSelectedItem,
             elementIndex
           ;
@@ -1574,8 +1573,17 @@ $.fn.dropdown = function(parameters) {
             ? $selectableItem.index($selectedItem) - itemsPerPage
             : $selectableItem.index($selectedItem) + itemsPerPage
           ;
-          $nextSelectedItem = $selectableItem.eq(elementIndex);
-          if(isWithinRange && $nextSelectedItem.length > 0) {
+          isWithinRange = (direction == 'up')
+            ? (elementIndex >= 0)
+            : (elementIndex < $selectableItem.length)
+          ;
+          $nextSelectedItem = (isWithinRange)
+            ? $selectableItem.eq(elementIndex)
+            : (direction == 'up')
+              ? $selectableItem.first()
+              : $selectableItem.last()
+          ;
+          if($nextSelectedItem.length > 0) {
             module.debug('Scrolling page', direction, $nextSelectedItem);
             $selectedItem
               .removeClass(className.selected)

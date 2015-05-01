@@ -117,13 +117,14 @@
 /*-------------------
         Types
 --------------------*/
-
 /* Selection */
 @selectionMinWidth: 200px;
+@borderEmWidth:  0.0785em; /* 2px / em size */
+@selectionMinHeight: @defaultInputLineHeight + (@selectionVerticalPadding * 2) - @borderEmWidth;
 @selectionBackground: @white;
 @selectionDisplay: inline-block;
 @selectionVerticalPadding: 0.78571em;
-@selectionHorizontalPadding: 1.1em;
+@selectionHorizontalPadding: 1em;
 @selectionIconDistance: 2em;
 @selectionPadding: @selectionVerticalPadding @selectionIconDistance @selectionVerticalPadding @selectionHorizontalPadding;
 @selectionZIndex: 10;
