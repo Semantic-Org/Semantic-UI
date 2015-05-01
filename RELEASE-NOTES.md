@@ -2,33 +2,33 @@
 
 ### Version 2.0.0 - March xx, 2015
 
-**New UI / Major Changes**
-- **API** - API can now be used without `$.ajax`. `mockResponse` can be used to resolve request with a local function that receives the same function as the server. `mockResponseAsync` allows you to specify to return server response from a custom async callback.
+**New UI**
 - **Container** - Containers are fixed width containers meant for holding page contents, and are a simpler alternative to `ui page grid`, view more [examples in docs](http://www.semantic-ui.com/elements/container.html#examples)
-- **Multiselect** - New dropdown component has been added for multi-select
-- **Search Dropdowns** - Added ability to add custom choices to all search selection dropdowns (multi/single) using `allowAdditions: true` setting. Search now displays error messages on no results in all cases.
-- **Grid** - Grids are now based on `flexbox`, columns are now `equal height` by default. Flexbox alignment has been added for easier vertical alignment.
+- **Multiselect** - New dropdown types has been added for multi-select, including tagging/tokenizing features
 - **Headers** - Added new header type `sub header`, useful for displaying small headers alongside text content. See examples [in the header docs](http://www.semantic-ui.com/elements/header.html#sub-headers)
-- **Menu** - New `vertical tabular menu` is now available
+- **Menu** - New UI `vertical tabular menu` is now available with `menu`
 - **Modal** - Add new settings `blurring` and `inverted` which are simple shortcuts for setting modal's dimmer to use either blurring or inverted variations.
 - **Dropdown** - Added new dropdown variation `scrolling dropdown` and `scrolling menu`, see docs or try it out with the language menu in the navigation bar
-- **Dropdown** - Nested scrolling menus can now use keyboard selection and filter with inline search. Nested menu scroll position will automatically adjust with keyboard selection.
 - **Dimmer** - Dimmers now have a `blurring` variation which apply a glass-like effect when dimmed
 - **Popup** - Popups now  default as `exclusive: false` and will not hide other popups when opening
 - **Steps** - Steps can now be attached to other UI like `segment`
-- **Shapes** - Shapes now animate height/width when side changes sizes and now correctly adjusts for margin on shape elements
 
 **Major Changes**
+- **API** - API can now be used with custom XHR backends. `mockResponse` can be used to resolve request with a local function that receives the same settings as the server. `mockResponseAsync` allows you to specify to  server response from a custom async callback.
 - **Colors** - Global colors defaults have been adjusted to improve contrast with white text
+- **Dropdown** - Nested scrolling menus can now use keyboard selection and filter with inline search. Nested menu scroll position will automatically adjust with keyboard selection.
+- **Dropdowns** - Added ability to add custom choices to all search selection dropdowns (multi/single) using `allowAdditions: true` setting. Search now displays error messages on no results in all cases.
+- **Grid** - Grids are now based on `flexbox`, columns are now `equal height` by default. Flexbox alignment has been added for easier vertical alignment.
 - **Multiple UI** - Many components now use flexbox, which means previous confusing fixes like `font-size: 0;` to remove [white-space from inline block](https://css-tricks.com/fighting-the-space-between-inline-block-elements/) have been removed. This means any element can be a direct child of `grid` or `menu`.
 - **Menu** - Menu now uses flexbox. This allows menu items to match each others heights regardless of each items content size. `right menu` content should now follow other menu content instead of preceding it (no longer uses float).
 - **Grid** - Grids are now `flexbox` and `equal height` by default, the `equal height` variation can safely be removed
-- **Transition** - Fallback javascript animations have been removed from some UI components like dropdown to reduce redundant code and filesizes.
+- **Transition** - Fallback javascript animations have been removed from some UI components like dropdown and popup to reduce redundant code, increase performance (can remove `:visible`, and `:hidden` checks) and reduce filesizes.
 - **Form Validation** - Form validation now uses a single `settings` object like other modules. Using `(fields, settings)` will continue to work but will produce a deprecation notifications in `console`
 - **Form Validation** - Form validation now supports several validation for multiple
 - **Item** - Item now uses `flexbox` for layout
 - **Message** - `icon message` now uses `flexbox`
 - **Input** - All `input` types use `flexbox`
+- **Shapes** - Shapes now animate height/width when side changes sizes and now correctly adjusts for margin on shape elements
 - **Steps** - Steps now use `flexbox`, the default horizontal theme has the active element point downward now instead of to the right. Steps no longer need `item count` and will automatically divide evenly
 
 **Enhancements**
