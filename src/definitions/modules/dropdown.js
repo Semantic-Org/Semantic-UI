@@ -571,7 +571,7 @@ $.fn.dropdown = function(parameters) {
             module.filterActive();
           }
           module.select.firstUnfiltered();
-          if( module.is.allFiltered() ) {
+          if( module.has.allResultsFiltered() ) {
             if( settings.onNoResults.call(element, searchTerm) ) {
               if(!settings.allowAdditions) {
                 module.verbose('All items filtered, showing message', searchTerm);
@@ -2101,9 +2101,7 @@ $.fn.dropdown = function(parameters) {
               $removedLabel = $labels.filter('[data-value="' + value +'"]'),
               labelCount    = $labels.length,
               isLastLabel   = ($labels.index($removedLabel) + 1 == labelCount),
-              isOnlyLabel   = (labelCount == 1),
-              shouldAnimate = false // animations on remove are a bit abrasive
-              //shouldAnimate = (isOnlyLabel || isLastLabel)
+              shouldAnimate = ( (!module.is.searchSelection() || !module.is.focusedOnSearch()) && isLastLabel)
             ;
             if(shouldAnimate) {
               module.verbose('Animating and removing label', $removedLabel);
@@ -2169,6 +2167,9 @@ $.fn.dropdown = function(parameters) {
           menu: function() {
             return ($menu.length > 0);
           },
+          message: function() {
+            return ($menu.children(selector.message).length !== 0);
+          },
           label: function(value) {
             var
               $labels = $module.find(selector.label)
@@ -2177,6 +2178,9 @@ $.fn.dropdown = function(parameters) {
           },
           maxSelections: function() {
             return (settings.maxSelections && module.get.selectionCount() >= settings.maxSelections);
+          },
+          allResultsFiltered: function() {
+            return ($item.filter('.' + className.filtered).length === $item.length);
           },
           value: function(value) {
             var
@@ -2212,13 +2216,10 @@ $.fn.dropdown = function(parameters) {
             return (document.activeElement === $search[0]);
           },
           allFiltered: function() {
-            return(module.is.multiple() || module.has.search()) && $menu.children(selector.message).length === 0 && ($item.filter('.' + className.filtered).length === $item.length);
+            return( (module.is.multiple() || module.has.search()) && !module.has.message() && module.has.allResultsFiltered() );
           },
           hidden: function($subMenu) {
-            return ($subMenu)
-              ? $subMenu.is(':hidden')
-              : $menu.is(':hidden')
-            ;
+            return !module.is.visible($subMenu);
           },
           inObject: function(needle, object) {
             var
