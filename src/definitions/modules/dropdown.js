@@ -1689,25 +1689,27 @@ $.fn.dropdown = function(parameters) {
           },
           text: function(text) {
             if(settings.action !== 'select') {
-              module.debug('Changing text', text, $text);
-              $text
-                .removeClass(className.filtered)
-                .removeClass(className.placeholder)
-              ;
-              if(settings.preserveHTML) {
-                $text.html(text);
+              if(settings.action == 'combo') {
+                module.debug('Changing combo button text', text, $combo);
+                if(settings.preserveHTML) {
+                  $combo.html(text);
+                }
+                else {
+                  $combo.text(text);
+                }
               }
               else {
-                $text.text(text);
-              }
-            }
-            else if(settings.action == 'combo') {
-              module.debug('Changing combo button text', text, $combo);
-              if(settings.preserveHTML) {
-                $combo.html(text);
-              }
-              else {
-                $combo.text(text);
+                module.debug('Changing text', text, $text);
+                $text
+                  .removeClass(className.filtered)
+                  .removeClass(className.placeholder)
+                ;
+                if(settings.preserveHTML) {
+                  $text.html(text);
+                }
+                else {
+                  $text.text(text);
+                }
               }
             }
           },
@@ -2207,7 +2209,7 @@ $.fn.dropdown = function(parameters) {
             return $module.hasClass(className.active);
           },
           alreadySetup: function() {
-            return ($module.is('select') && $module.parent(selector.dropdown).length > 0);
+            return ($module.is('select') && $module.parent(selector.dropdown).length > 0  && $module.prev().length === 0);
           },
           animating: function($subMenu) {
             return ($subMenu)
@@ -2608,12 +2610,12 @@ $.fn.dropdown = function(parameters) {
 
 $.fn.dropdown.settings = {
 
-  debug          : false,
-  verbose        : false,
-  performance    : true,
+  debug                  : false,
+  verbose                : false,
+  performance            : true,
 
   on                     : 'click',    // what event should show menu action on item selection
-  action                 : 'activate', // action on item selection
+  action                 : 'activate', // action on item selection (nothing, activate, select, combo, hide, function(){})
 
   match                  : 'both',     // what to match against with search selection (both, text, or label)
   fullTextSearch         : false,      // search anywhere in value
