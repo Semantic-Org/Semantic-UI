@@ -128,7 +128,7 @@
 @selectionPadding: @selectionVerticalPadding @selectionIconDistance @selectionVerticalPadding @selectionHorizontalPadding;
 @selectionZIndex: 10;
 
-@selectionItemDivider: 1px solid rgba(0, 0, 0, 0.05);
+@selectionItemDivider: 1px solid @darkWhite;
 @selectionMessagePadding: @selectionItemPadding;
 
 /* <select> */
@@ -228,13 +228,13 @@
 /* Multiple */
 
 /* Split Actual Padding Between Child and Group (allows for label spacing) */
-@multipleSelectionVerticalPadding: (@searchSelectionVerticalPadding * (1/3));
+@multipleSelectionVerticalPadding: (@searchSelectionVerticalPadding * (4/9));
 @multipleSelectionLeftPadding: (@selectionHorizontalPadding - @labelHorizontalPadding);
 @multipleSelectionRightPadding: @selectionIconDistance;
 @multipleSelectionPadding: @multipleSelectionVerticalPadding @multipleSelectionRightPadding @multipleSelectionVerticalPadding @multipleSelectionLeftPadding;
 
 /* Child Elements */
-@multipleSelectionChildVerticalMargin: (@searchSelectionVerticalPadding * (2/3));
+@multipleSelectionChildVerticalMargin: (@searchSelectionVerticalPadding * (5/9));
 @multipleSelectionChildSpacing: 0.4285em;
 @multipleSelectionChildMargin: @multipleSelectionChildVerticalMargin 0em @multipleSelectionChildVerticalMargin @multipleSelectionChildSpacing;
 @multipleSelectionChildLineHeight: @searchSelectionLineHeight;
@@ -242,13 +242,14 @@
 
 /* Dropdown Icon */
 @multipleSelectionDropdownIconMargin: 0em -@labelHorizontalPadding 0em 0em;
-@multipleSelectionDropdownIconPadding: @labelPadding;
+@multipleSelectionDropdownIconPadding: 0.5em;
 
 /* Selection Label */
 @labelSize: @relativeSmall;
-@labelHorizontalSpacing: 0.5em;
-@labelVerticalSpacing: (0.46153em / 2); /* 6px @ 13em */
+@labelHorizontalSpacing: 0.46153em; /* 6px @ 13px/em */
+@labelVerticalSpacing: (0.46153em / 2);
 @labelMargin: @labelVerticalSpacing @labelHorizontalSpacing @labelVerticalSpacing 0em;
+@labelBoxShadow: 0px 0px 0px 1px @borderColor inset;
 
 @labelVerticalPadding: 0.3846em; /* 5px @ 13px/em */
 @labelHorizontalPadding: @relativeMini;

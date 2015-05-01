@@ -88,14 +88,16 @@ $.fn.dropdown = function(parameters) {
 
             module.set.selected();
 
-            if(settings.allowAdditions && module.is.multiple()) {
-              if(!settings.useLabels) {
-                module.error(error.labels);
-                settings.useLabels = true;
+            if(module.is.multiple()) {
+              if(settings.allowAdditions) {
+                if(!settings.useLabels) {
+                  module.error(error.labels);
+                  settings.useLabels = true;
+                }
+                module.create.userLabels();
               }
-              module.create.userLabels();
+              module.check.maxSelections();
             }
-
 
             module.create.id();
 
@@ -373,7 +375,7 @@ $.fn.dropdown = function(parameters) {
           module.verbose('Finding other dropdowns to hide');
           $allModules
             .not($module)
-              .has(selector.menu + ':visible:not(.' + className.animating + ')')
+              .has(selector.menu + '.' + className.visible)
                 .dropdown('hide')
           ;
         },
