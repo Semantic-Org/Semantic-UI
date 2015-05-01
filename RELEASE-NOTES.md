@@ -58,6 +58,7 @@
 
 - **Input** - Added placeholder color rules for IE, `ms-input-placeholder`
 - **Label** - Labels now have `active` and `active hover` states
+- **Label** - Label now sets an `img` height even when not using an `image label`
 - **Menu** - Added `stackable` menu variation for simple responsive menus
 - **Menu** - Added many new variables to menu
 - **Menu** - Fixed several inheritance issues for `dropdown item` inside `menu` appearing as `menu item`.
@@ -178,6 +179,7 @@
 - **Message** - Slightly increases `box-shadow`
 - **Popup** - Popup no longer produces an error when a position cannot be found on the page.
 - **Segment** - **Clearfix** has been removed from `ui segment`
+- **Sidebar** - Sidebar now defaults to `useLegacy: false` to avoid the overhead of feature detection for most users
 - **Search** - Slightly adjusted search result theme for clarity
 - **Site** - Increase contrast on default hovered/down colors for colored variations
 - **Site** - Page background is now `#FFFFFF` by default instead of an offwhite `#F7F7F7`

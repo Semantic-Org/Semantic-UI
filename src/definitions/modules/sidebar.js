@@ -101,7 +101,9 @@ $.fn.sidebar = function(parameters) {
             module.setup.layout();
           }
 
-          module.setup.cache();
+          requestAnimationFrame(function() {
+            module.setup.cache();
+          });
 
           module.instantiate();
         },
@@ -305,7 +307,7 @@ $.fn.sidebar = function(parameters) {
         repaint: function() {
           module.verbose('Forcing repaint event');
           element.style.display = 'none';
-          element.offsetHeight;
+          var ignored = element.offsetHeight;
           element.scrollTop = element.scrollTop;
           element.style.display = '';
         },
@@ -1061,7 +1063,7 @@ $.fn.sidebar.settings = {
   returnScroll      : false,
   delaySetup        : false,
 
-  useLegacy         : 'auto',
+  useLegacy         : false,
   duration          : 500,
   easing            : 'easeInOutQuint',
 
