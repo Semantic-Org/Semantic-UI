@@ -385,15 +385,7 @@ $.fn.popup = function(parameters) {
               ;
             }
             else {
-              module.set.visible();
-              $popup
-                .stop()
-                .fadeIn(settings.duration, settings.easing, function() {
-                  module.bind.close();
-                  callback.call($popup, element);
-                  settings.onVisible.call($popup, element);
-                })
-              ;
+              module.error(error.noTransition);
             }
             settings.onShow.call($popup, element);
           },
@@ -417,14 +409,7 @@ $.fn.popup = function(parameters) {
               ;
             }
             else {
-              $popup
-                .stop()
-                .fadeOut(settings.duration, settings.easing, function() {
-                  module.reset();
-                  callback.call($popup, element);
-                  settings.onHidden.call($popup, element);
-                })
-              ;
+              module.error(error.noTransition);
             }
             settings.onHide.call($popup, element);
           }
@@ -893,10 +878,10 @@ $.fn.popup = function(parameters) {
             return $module.hasClass(className.active);
           },
           animating: function() {
-            return ( $popup && $popup.is(':animated') || $popup.hasClass(className.animating) );
+            return ( $popup && $popup.hasClass(className.animating) );
           },
           visible: function() {
-            return $popup && $popup.is(':visible');
+            return $popup && $popup.hasClass(className.visible);
           },
           dropdown: function() {
             return $module.hasClass(className.dropdown);
@@ -1190,6 +1175,7 @@ $.fn.popup.settings = {
     invalidPosition : 'The position you specified is not a valid position',
     cannotPlace     : 'No visible position could be found for the popup',
     method          : 'The method you called is not defined.',
+    noTransition    : 'This module requires ui transitions <https://github.com/Semantic-Org/UI-Transition>',
     notFound        : 'The target or popup you specified does not exist on the page'
   },
 
