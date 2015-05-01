@@ -40,6 +40,8 @@
 
 @iconDistance: 0.75em;
 
+@imageHeight: (1em + @verticalPadding * 2);
+
 @detailFontWeight: bold;
 @detailOpacity: 0.8;
 @detailIconDistance: 0.25em;
@@ -66,7 +68,7 @@
 
 @imageLabelImageMargin: -@verticalPadding @imageLabelTextDistance -@verticalPadding -@imageLabelTextDistance;
 @imageLabelImageBorderRadius: @imageLabelBorderRadius 0em 0em @imageLabelBorderRadius;
-@imageLabelImageHeight: (1em + @verticalPadding * 2);
+@imageLabelImageHeight: @imageHeight;
 
 @imageLabelDetailBackground: @strongTransparentBlack;
 @imageLabelDetailPadding: @imageLabelVerticalPadding @imageLabelHorizontalPadding;

@@ -59,37 +59,44 @@ a.ui.label {
 }
 
 /* Inside Link */
-.ui.label a {
+.ui.label > a {
   cursor: pointer;
   color: inherit;
   opacity: @linkOpacity;
   transition: @linkTransition;
 }
-.ui.label a:hover {
+.ui.label > a:hover {
   opacity: 1;
 }
 
+/* Image */
+.ui.label > img {
+  width: auto !important;
+  height: @imageHeight !important;
+}
+
 /* Icon */
-.ui.label .icon {
+.ui.label > .icon {
   width: auto;
   margin: 0em @iconDistance 0em 0em;
 }
+
 /* Detail */
-.ui.label .detail {
+.ui.label > .detail {
   display: inline-block;
   vertical-align: top;
   font-weight: @detailFontWeight;
   margin-left: @detailMargin;
   opacity: @detailOpacity;
 }
-.ui.label .detail .icon {
+.ui.label > .detail .icon {
   margin: 0em @detailIconDistance 0em 0em;
 }
 
 
 /* Removable label */
-.ui.label .close.icon,
-.ui.label .delete.icon {
+.ui.label > .close.icon,
+.ui.label > .delete.icon {
   cursor: pointer;
   margin-right: 0em;
   margin-left: @deleteMargin;
@@ -97,7 +104,7 @@ a.ui.label {
   opacity: @deleteOpacity;
   transition: @deleteTransition;
 }
-.ui.label .delete.icon:hover {
+.ui.label > .delete.icon:hover {
   opacity: 1;
 }
 
@@ -105,7 +112,7 @@ a.ui.label {
        Group
 --------------------*/
 
-.ui.labels .label {
+.ui.labels > .label {
   margin: 0em @groupHorizontalMargin @groupVerticalMargin 0em;
 }
 
