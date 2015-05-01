@@ -1230,6 +1230,9 @@ $.fn.dropdown = function(parameters) {
           query: function() {
             return $.trim($search.val());
           },
+          searchWidth: function(characterCount) {
+            return (characterCount * settings.glyphWidth) + 'em';
+          },
           selectionCount: function() {
             var
               values = module.get.values()
@@ -1596,8 +1599,8 @@ $.fn.dropdown = function(parameters) {
                 ? module.get.query()
                 : '',
               hasSearchValue   = (typeof searchValue === 'string' && searchValue.length > 0),
-              searchWidth      = (searchValue.length * settings.glyphWidth) + 'em',
-              valueIsSet       = $input.val() !== ''
+              searchWidth      = module.get.searchWidth(searchValue.length),
+              valueIsSet       = searchValue !== ''
             ;
             if(isMultiple && hasSearchValue) {
               module.verbose('Adjusting input width', searchWidth, settings.glyphWidth);
@@ -2034,6 +2037,7 @@ $.fn.dropdown = function(parameters) {
           searchTerm: function() {
             module.verbose('Cleared search term');
             $search.val('');
+            module.set.filtered();
           },
           selected: function(value) {
             var
