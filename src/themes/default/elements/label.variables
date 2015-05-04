@@ -166,8 +166,8 @@
 @cornerTriangleZIndex: 1;
 
 @cornerIconSize: @relativeLarge;
-@cornerIconTopOffset: 0.6428rem;
-@cornerIconLeftOffset: 0.7857rem;
+@cornerIconTopOffset: 0.6428em;
+@cornerIconLeftOffset: 0.7857em;
 
 /* Corner Text */
 @cornerTextWidth: 3em;
