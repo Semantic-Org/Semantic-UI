@@ -24,7 +24,8 @@
 
 /* Standalone */
 .ui.statistic {
-  display: @display;
+  display: inline-flex;
+  flex-direction: column;
   margin: @margin;
   max-width: @maxWidth;
 }
@@ -40,21 +41,27 @@
   margin-bottom: 0em;
 }
 
-/* Grouped */
-.ui.statistics > .statistic {
-  display: @elementDisplay;
-  float: @elementFloat;
-  margin: @elementMargin;
-  max-width: @elementMaxWidth;
-}
 
 
 /*******************************
             Group
 *******************************/
 
+/* Grouped */
 .ui.statistics {
-  display: @groupDisplay;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.ui.statistics > .statistic {
+  display: inline-flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  margin: @elementMargin;
+  max-width: @elementMaxWidth;
+}
+.ui.statistics {
+  display: flex;
   margin: @groupMargin;
 }
 
@@ -145,8 +152,9 @@
 
 .ui.statistics .statistic > .text.value,
 .ui.statistic > .text.value {
-  line-height: @textLabelLineHeight;
-  min-height: @textLabelMinHeight;
+  line-height: @textValueLineHeight;
+  min-height: @textValueMinHeight;
+  font-weight: @textValueFontWeight;
   text-align: center;
 }
 .ui.statistics .statistic > .text.value + .label,
@@ -170,20 +178,113 @@
             Variations
 *******************************/
 
+
+/*--------------
+      Count
+---------------*/
+
+
+.ui.ten.statistics {
+  margin: @itemGroupMargin;
+}
+.ui.ten.statistics .statistic {
+  min-width: @tenColumn;
+  margin: @itemMargin;
+}
+
+.ui.nine.statistics {
+  margin: @itemGroupMargin;
+}
+.ui.nine.statistics .statistic {
+  min-width: @nineColumn;
+  margin: @itemMargin;
+}
+
+.ui.eight.statistics {
+  margin: @itemGroupMargin;
+}
+.ui.eight.statistics .statistic {
+  min-width: @eightColumn;
+  margin: @itemMargin;
+}
+
+.ui.seven.statistics {
+  margin: @itemGroupMargin;
+}
+.ui.seven.statistics .statistic {
+  min-width: @sevenColumn;
+  margin: @itemMargin;
+}
+
+.ui.six.statistics {
+  margin: @itemGroupMargin;
+}
+.ui.six.statistics .statistic {
+  min-width: @sixColumn;
+  margin: @itemMargin;
+}
+
+.ui.five.statistics {
+  margin: @itemGroupMargin;
+}
+.ui.five.statistics .statistic {
+  min-width: @fiveColumn;
+  margin: @itemMargin;
+}
+
+.ui.four.statistics {
+  margin: @itemGroupMargin;
+}
+.ui.four.statistics .statistic {
+  min-width: @fourColumn;
+  margin: @itemMargin;
+}
+
+.ui.three.statistics {
+  margin: @itemGroupMargin;
+}
+.ui.three.statistics .statistic {
+  min-width: @threeColumn;
+  margin: @itemMargin;
+}
+
+.ui.two.statistics {
+  margin: @itemGroupMargin;
+}
+.ui.two.statistics .statistic {
+  min-width: @twoColumn;
+  margin: @itemMargin;
+}
+
+.ui.one.statistics {
+  margin: @itemGroupMargin;
+}
+.ui.one.statistics .statistic {
+  min-width: @oneColumn;
+  margin: @itemMargin;
+}
+
+
+
+
 /*--------------
    Horizontal
 ---------------*/
 
-.ui.horizontal.statistics,
 .ui.horizontal.statistic {
-  display: block;
+  flex-direction: row;
+  align-items: center;
+}
+.ui.horizontal.statistics {
+  flex-direction: column;
   margin: 0em;
-  max-width: 9999px;
+  max-width: none;
 }
 .ui.horizontal.statistics .statistic {
-  float: none;
+  flex-direction: row;
+  align-items: center;
+  max-width: none;
   margin: @horizontalGroupElementMargin;
-  max-width: 9999px;
 }
 
 .ui.horizontal.statistic > .text.value,
@@ -336,7 +437,7 @@
 }
 .ui.mini.statistics .statistic > .text.value,
 .ui.mini.statistic > .text.value {
-  font-size: @miniTextLabelSize;
+  font-size: @miniTextValueSize;
 }
 
 
@@ -351,7 +452,7 @@
 }
 .ui.tiny.statistics .statistic > .text.value,
 .ui.tiny.statistic > .text.value {
-  font-size: @tinyTextLabelSize;
+  font-size: @tinyTextValueSize;
 }
 
 /* Small */
@@ -365,7 +466,7 @@
 }
 .ui.small.statistics .statistic > .text.value,
 .ui.small.statistic > .text.value {
-  font-size: @smallTextLabelSize;
+  font-size: @smallTextValueSize;
 }
 
 /* Medium */
@@ -379,7 +480,7 @@
 }
 .ui.statistics .statistic > .text.value,
 .ui.statistic > .text.value {
-  font-size: @textLabelSize;
+  font-size: @textValueSize;
 }
 
 /* Large */
@@ -393,7 +494,7 @@
 }
 .ui.large.statistics .statistic > .text.value,
 .ui.large.statistic > .text.value {
-  font-size: @largeTextLabelSize;
+  font-size: @largeTextValueSize;
 }
 
 /* Huge */
@@ -407,7 +508,7 @@
 }
 .ui.huge.statistics .statistic > .text.value,
 .ui.huge.statistic > .text.value {
-  font-size: @hugeTextLabelSize;
+  font-size: @hugeTextValueSize;
 }
 
 
