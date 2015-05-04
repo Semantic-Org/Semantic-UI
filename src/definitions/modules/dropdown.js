@@ -1675,19 +1675,22 @@ $.fn.dropdown = function(parameters) {
               : false
             ;
             if($item && $menu.length > 0 && hasActive) {
+              itemOffset = $item.position().top;
+
               if(!$menu.hasClass(className.visible)) {
                 $menu.addClass(className.loading);
               }
-              menuHeight = $menu.height();
-              itemHeight = $item.height();
               menuScroll = $menu.scrollTop();
               menuOffset = $menu.offset().top;
               itemOffset = $item.offset().top;
               offset     = menuScroll - menuOffset + itemOffset;
-              belowPage  = menuScroll + menuHeight < (offset + edgeTolerance);
-              abovePage  = ((offset - edgeTolerance) < menuScroll);
+              if(!forceScroll) {
+                menuHeight = $menu.height();
+                belowPage  = menuScroll + menuHeight < (offset + edgeTolerance);
+                abovePage  = ((offset - edgeTolerance) < menuScroll);
+              }
               module.debug('Scrolling to active item', offset);
-              if(abovePage || belowPage || forceScroll) {
+              if(forceScroll || abovePage || belowPage) {
                 $menu
                   .scrollTop(offset)
                   .removeClass(className.loading)
