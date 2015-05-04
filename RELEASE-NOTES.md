@@ -2,6 +2,12 @@
 
 ### Version 2.0.0 - March xx, 2015
 
+-**Migration Guide**
+
+- **Modal** - If you are using a modal with image content, you will need to use `image content` on the parent element. This is because `flex` rules require parent styling that the previous `table-row` rules did not.
+- **Grid** - `page grid` have been modified to have fixed widths. Fluid grid gutters make it very difficult to style responsive page content because they continuously adjust with the browser. Moving forward we will be recommending using `ui container` a fixed width container for holding page contents.
+- **Form Validation** - Form validation now passes settings through a `fields` object, the previous syntax will continue to work but produce deprecation notices in console
+
 **New UI**
 - **Container** - Containers are fixed width containers meant for holding page contents, and are a simpler alternative to `ui page grid`, view more [examples in docs](http://www.semantic-ui.com/elements/container.html#examples)
 - **Multiselect** - New dropdown types has been added for multi-select, including tagging/tokenizing features
@@ -67,6 +73,7 @@
 - **Menu** - The hover/active state of `dropdown item` have been adjusted to match `item`. Dropdown styles can be themed specifically inside `menu`.
 - **Menu** - Vertical dropdown menus are no longer 100% `min-width`
 - **Modal** - Modal `onApprove` and `onDeny` now receive the activating element as the first parameter. Added documentation about using `return false` to avoid hiding element on click.
+- **Modal** - Modal content now uses flex, image content now requires `image content` class on parent to allow for flex stylings.
 - **Popup** - Added more size variations for popup `mini`, `tiny`
 - **Progress** - `indicating` labels now are more legible use separate css variables from `indicating` bar color
 - **Reveal** - Added new `active` state that allows you to show `reveal` programatically
@@ -76,6 +83,8 @@
 - **Sidebar** - Improved animation performance through performance debugging. Sidebar now caches, width, height, rtl direction on load.
 - **Site** - Added in `pageOverflowX` variable, default theme hides horizontal scrollbars on `body`
 - **Sticky** - Sticky now internally caches current scroll position when `cantFit = true` to avoid getting DOM property  on scroll.
+- **Statistic** - Added new evenly divided group variation, for example `three statistics` shows 3 per row
+- **Statistic** - Statitic group now use `flex`. Styles have been updated.
 - **Tabs* - Added `parseScripts` option, defaults to `once` parsing inline scripts only first load
 - **Table** - Added `vertical alignment` variations to `ui table`
 - **Visibility/Sticky** - Visibility and sticky now refresh automatically after page content loading to deal with changes in position from images loading
@@ -181,6 +190,7 @@
 - **Segment** - **Clearfix** has been removed from `ui segment`
 - **Sidebar** - Sidebar now defaults to `useLegacy: false` to avoid the overhead of feature detection for most users
 - **Search** - Slightly adjusted search result theme for clarity
+- **Statistic** - Statistic label styles have been updated
 - **Site** - Increase contrast on default hovered/down colors for colored variations
 - **Site** - Page background is now `#FFFFFF` by default instead of an offwhite `#F7F7F7`
 - **Site** - Adjusted global line height to the closest even pixel value
