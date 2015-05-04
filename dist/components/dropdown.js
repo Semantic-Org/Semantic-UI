@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.12.1 - Dropdown
+ * # Semantic UI 1.12.2 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -585,8 +585,8 @@ $.fn.dropdown = function(parameters) {
                     .closest(selector.item)
                       .addClass(className.selected)
                   ;
+                  event.preventDefault();
                 }
-                event.preventDefault();
               }
               // right arrow (show sub-menu)
               if(pressedKey == keys.rightArrow) {
@@ -600,8 +600,8 @@ $.fn.dropdown = function(parameters) {
                     .find(selector.item).eq(0)
                       .addClass(className.selected)
                   ;
+                  event.preventDefault();
                 }
-                event.preventDefault();
               }
               // up arrow (traverse menu up)
               if(pressedKey == keys.upArrow) {
