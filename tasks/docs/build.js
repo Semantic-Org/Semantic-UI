@@ -29,8 +29,8 @@ var
   config       = require('../config/docs'),
 
   // install config
+  tasks        = require('../config/tasks'),
   configSetup  = require('../config/project/config'),
-  tasks        = require('../config/project/tasks'),
   install      = require('../config/project/install'),
 
   // metadata parsing

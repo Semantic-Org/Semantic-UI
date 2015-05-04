@@ -11,7 +11,7 @@ var
 
   // config
   config       = require('../config/user'),
-  tasks        = require('../config/project/tasks'),
+  tasks        = require('../config/tasks'),
 
   // shorthand
   globs        = config.globs,

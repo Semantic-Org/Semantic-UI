@@ -28,8 +28,8 @@ var
   config       = require('../config/docs'),
 
   // task config
+  tasks        = require('../config/tasks'),
   configSetup  = require('../config/project/config'),
-  tasks        = require('../config/project/tasks'),
   install      = require('../config/project/install'),
 
   // shorthand
