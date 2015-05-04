@@ -15,6 +15,7 @@
 - **Menu** - New UI `vertical tabular menu` is now available with `menu`
 - **Modal** - Add new settings `blurring` and `inverted` which are simple shortcuts for setting modal's dimmer to use either blurring or inverted variations.
 - **Dropdown** - Added new dropdown variation `scrolling dropdown` and `scrolling menu`, see docs or try it out with the language menu in the navigation bar
+- **Image** - Images now include a `spaced` variation for adding whitespace around images when used inline with text.
 - **Dimmer** - Dimmers now have a `blurring` variation which apply a glass-like effect when dimmed
 - **Popup** - Popups now  default as `exclusive: false` and will not hide other popups when opening
 - **Steps** - Steps can now be attached to other UI like `segment`
