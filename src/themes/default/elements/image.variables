@@ -17,7 +17,6 @@
        Types
 --------------------*/
 
-
 /* Avatar */
 @avatarSize: 2.5em;
 @avatarMargin: 0.25em;
@@ -26,6 +25,9 @@
 /*-------------------
        Variations
 --------------------*/
+
+/* Spaced */
+@spacedDistance: 0.5em;
 
 /* Floated */
 @floatedHorizontalMargin: 1em;
