@@ -47,7 +47,6 @@ $.fn.transition = function() {
         error,
         className,
         metadata,
-        animationStart,
         animationEnd,
         animationName,
 
@@ -76,8 +75,6 @@ $.fn.transition = function() {
 
           // get vendor specific events
           animationEnd    = module.get.animationEndEvent();
-          animationName   = module.get.animationName();
-          animationStart  = module.get.animationStartEvent();
 
           if(methodInvoked) {
             methodInvoked = module.invoke(query);
@@ -577,24 +574,6 @@ $.fn.transition = function() {
           transitionExists: function(animation) {
             return $.fn.transition.exists[animation];
           },
-          animationName: function() {
-            var
-              element     = document.createElement('div'),
-              animations  = {
-                'animation'       :'animationName',
-                'OAnimation'      :'oAnimationName',
-                'MozAnimation'    :'mozAnimationName',
-                'WebkitAnimation' :'webkitAnimationName'
-              },
-              animation
-            ;
-            for(animation in animations){
-              if( element.style[animation] !== undefined ){
-                return animations[animation];
-              }
-            }
-            return false;
-          },
           animationStartEvent: function() {
             var
               element     = document.createElement('div'),
@@ -637,10 +616,10 @@ $.fn.transition = function() {
         can: {
           transition: function(forced) {
             var
-              elementClass      = $module.attr('class'),
-              tagName           = $module.prop('tagName'),
               animation         = settings.animation,
               transitionExists  = module.get.transitionExists(animation),
+              elementClass,
+              tagName,
               $clone,
               currentAnimation,
               inAnimation,
@@ -649,6 +628,9 @@ $.fn.transition = function() {
             ;
             if( transitionExists === undefined || forced) {
               module.verbose('Determining whether animation exists');
+              elementClass = $module.attr('class');
+              tagName      = $module.prop('tagName');
+
               $clone = $('<' + tagName + ' />').addClass( elementClass ).insertAfter($module);
               currentAnimation = $clone
                 .addClass(animation)
@@ -656,11 +638,11 @@ $.fn.transition = function() {
                 .removeClass(className.outward)
                 .addClass(className.animating)
                 .addClass(className.transition)
-                .css(animationName)
+                .css('animationName')
               ;
               inAnimation = $clone
                 .addClass(className.inward)
-                .css(animationName)
+                .css('animationName')
               ;
               displayType = $clone
                 .attr('class', elementClass)
@@ -724,7 +706,7 @@ $.fn.transition = function() {
             return $module.css('visibility') === 'hidden';
           },
           supported: function() {
-            return(animationName !== false && animationEnd !== false);
+            return(animationEnd !== false);
           }
         },
 
