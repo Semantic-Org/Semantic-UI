@@ -270,7 +270,6 @@ $.fn.transition = function() {
             module.set.display();
             $module
               .addClass(className.animating + ' ' + className.transition + ' ' + animation)
-              .addClass(animation)
               .one(animationEnd + '.complete' + eventNamespace, module.complete)
             ;
             if(settings.useFailSafe) {
