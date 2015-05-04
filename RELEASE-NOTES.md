@@ -36,6 +36,7 @@
 - **Input** - All `input` types use `flexbox`
 - **Shapes** - Shapes now animate height/width when side changes sizes and now correctly adjusts for margin on shape elements
 - **Steps** - Steps now use `flexbox`, the default horizontal theme has the active element point downward now instead of to the right. Steps no longer need `item count` and will automatically divide evenly
+- **Transition** - Transition has been optimized to be more performant.
 
 **Enhancements**
 - **Accordion** - adds `onOpening` and `onClosing` callback (before animation) to go with `onOpen`, `onClose` (after animation) **Thanks @cluppric**
@@ -195,7 +196,7 @@
 - **Site** - Page background is now `#FFFFFF` by default instead of an offwhite `#F7F7F7`
 - **Site** - Adjusted global line height to the closest even pixel value
 - **Table** - Horizontal cell padding has been slightly reduced, and cell borders are slightly lighter.
-
+- **Transition - Transition no longer checks for vendor prefixed `animation-name` css property. This was introduced in jQuery `1.8`
 
 ### Version 1.12.0 - April 13, 2015
 
