@@ -110,7 +110,7 @@ $.fn.sticky = function(parameters) {
             observer = new MutationObserver(function(mutations) {
               clearTimeout(module.timer);
               module.timer = setTimeout(function() {
-                module.verbose('DOM tree modified, updating sticky menu');
+                module.verbose('DOM tree modified, updating sticky menu', mutations);
                 module.refresh();
               }, 100);
             });
@@ -778,8 +778,8 @@ $.fn.sticky.settings = {
   namespace      : 'sticky',
 
   debug          : false,
-  verbose        : false,
-  performance    : false,
+  verbose        : true,
+  performance    : true,
 
   pushing        : false,
   context        : false,
@@ -788,7 +788,7 @@ $.fn.sticky.settings = {
   offset         : 0,
   bottomOffset   : 0,
 
-  observeChanges : true,
+  observeChanges : false,
 
   onReposition   : function(){},
   onScroll       : function(){},
