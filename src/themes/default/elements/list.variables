@@ -166,6 +166,8 @@
 @orderedChildCountDistance: 1em;
 @orderedChildCountOffset: -2em;
 
+@orderedInvertedCountColor: @invertedLightTextColor;
+
 /* Horizontal Ordereded */
 @horizontalOrderedCountDistance: 0.5em;
 
