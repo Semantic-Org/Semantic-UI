@@ -66,6 +66,7 @@
 - **Grid** - rows can now be `stretched` as well as `middle aligned`, `bottom aligned` and `top aligned`!
 
 - **Input** - Added placeholder color rules for IE, `ms-input-placeholder`
+- **Input** - Action input now supports multiple buttons, and dropdown
 - **Label** - Labels now have `active` and `active hover` states
 - **Label** - Label now sets an `img` height even when not using an `image label`
 - **Menu** - Added `stackable` menu variation for simple responsive menus
