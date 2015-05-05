@@ -57,6 +57,7 @@
 - **Dropdown** - Page down and page up now works with dropdown menus
 - **Form** - Added placeholder color rules for IE, `ms-input-placeholder`
 - **Form** - Fix `errored field` dropdown keyboard selection color
+- **Form Validation** - Added `different[field]` rule which requires a field to be different than another field
 - **Form Validation** - `data-validate` now takes precedence over other validation matching schemes like `name` or `id`
 - **Form Validation** - New rules for matching against custom regular expressions
 - **Form Validation** - Form validation now has `minCount`, `maxCount`, and `exactCount` for validating multiple selections
@@ -111,6 +112,7 @@
 - **Dropdown** - Fixed dropdown menu items should not center inside of a center aligned container.
 - **Form** - `field` inside `fields` no longer produce double sized margins.
 - **Form** - Form sizes and input sizes now inherit from `site.variables`
+- **Form Validation** - Fixed bug causing `match` rule not to work as expected.
 - **Form Validation** - Form validation now validates correctly on `<select>` change
 - **Form/Input** - `ui labeled input` inside `form` will no longer escape column width. `ui fluid input` will now use input widths shorter than browser default.
 - **Grid** - Fix `doubling row` not working correctly inside a different `doubling grid` (css spec issue)
