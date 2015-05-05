@@ -1,7 +1,7 @@
 var
   console = require('better-console'),
-  config  = require('../user'),
-  release = require('./release')
+  config  = require('./user'),
+  release = require('./project/release')
 ;
 
 
