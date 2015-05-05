@@ -5515,6 +5515,7 @@ $.fn.dropdown = function(parameters) {
             if($addition.length > 0) {
               $addition
                 .html(html)
+                .data(metadata.value, value)
                 .removeClass(className.filtered)
                 .addClass(className.selected)
               ;
@@ -5522,6 +5523,7 @@ $.fn.dropdown = function(parameters) {
             else {
               $addition = $('<div/>')
                 .html(html)
+                .data(metadata.value, value)
                 .addClass(className.addition)
                 .addClass(className.item)
                 .prependTo($menu)
