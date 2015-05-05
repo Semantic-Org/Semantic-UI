@@ -107,6 +107,7 @@
 - **Dropdown** - Fixed issue where `sortSelect` was relying on object key enumeration order which is browser dependent and unreliable. It now uses a sort function which functions the same in all browsers
 - **Dropdown** - Fixed issue with `search selection` not changing text when reselecting same value from list
 - **Dropdown** - Dropdown `menu` now use same font size as dropdown
+- **Dropdown** - Fixed `inline dropdown` icon not aligning with content
 - **Dropdown** - Fixed behaviors called on `<select>` after initialization not being correctly applied to `ui dropdown`
 - **Dropdown** - Fixed `search dropdown` submitting parent form when enter shortcut pressed
 - **Dropdown** - Fixed dropdown menu items should not center inside of a center aligned container.
@@ -124,6 +125,7 @@
 - **Input** - Fixed improper left padding on `transparent left icon input` **Thanks @zxfwinder**
 - **Input** - Fixed `placeholder` color not changing correctly on focus **Thanks @zxfwinder**
 - **Label** - Labels inside `header` now vertical align better by accounting for line height offset
+- **List** - Fixes numbers not appearing when using `inverted ordered list` **Thanks @pcj**
 - **List** - `a` elements inside a `ui list` will no longer apply styles on `ui` elements like `button` **Thanks @ahtinurme**
 - **List** - Bullets and numbers are no longer selectable in `bulleted list` and `ordered list`
 - **List** - Fixed `inverted bulleted list` bullet color
