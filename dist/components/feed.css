@@ -118,7 +118,7 @@
 .ui.feed > .event > .content .summary img {
   display: inline-block;
   width: auto;
-  height: 2em;
+  height: 10em;
   margin: -0.25em 0.25em 0em 0em;
   border-radius: 0.25em;
   vertical-align: middle;
@@ -137,7 +137,7 @@
 .ui.feed > .event > .content .user img {
   margin: -0.25em 0.25em 0em 0em;
   width: auto;
-  height: 2em;
+  height: 10em;
   vertical-align: middle;
 }
 
@@ -151,7 +151,7 @@
   display: inline-block;
   float: none;
   font-weight: normal;
-  font-size: 0.875em;
+  font-size: 0.85714286em;
   font-style: normal;
   margin: 0em 0em 0em 0.5em;
   padding: 0em;
@@ -178,11 +178,11 @@
 
 /* Text */
 .ui.feed > .event > .content .extra.text {
-  padding: 0.5em 1em;
-  border-left: 3px solid rgba(0, 0, 0, 0.2);
+  padding: 0em;
+  border-left: none;
   font-size: 1em;
   max-width: 500px;
-  line-height: 1.33;
+  line-height: 1.4285em;
 }
 
 /*--------------
@@ -191,7 +191,7 @@
 
 .ui.feed > .event > .content .meta {
   display: inline-block;
-  font-size: 0.875em;
+  font-size: 0.85714286em;
   margin: 0.5em 0em 0em;
   background: none;
   border: none;

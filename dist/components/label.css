@@ -44,38 +44,45 @@ a.ui.label {
 }
 
 /* Inside Link */
-.ui.label a {
+.ui.label > a {
   cursor: pointer;
   color: inherit;
   opacity: 0.5;
   -webkit-transition: 0.2s opacity ease;
           transition: 0.2s opacity ease;
 }
-.ui.label a:hover {
+.ui.label > a:hover {
   opacity: 1;
 }
 
+/* Image */
+.ui.label > img {
+  width: auto !important;
+  vertical-align: middle;
+  height: 2.1666em !important;
+}
+
 /* Icon */
-.ui.label .icon {
+.ui.label > .icon {
   width: auto;
   margin: 0em 0.75em 0em 0em;
 }
 
 /* Detail */
-.ui.label .detail {
+.ui.label > .detail {
   display: inline-block;
   vertical-align: top;
   font-weight: bold;
   margin-left: 1em;
   opacity: 0.8;
 }
-.ui.label .detail .icon {
+.ui.label > .detail .icon {
   margin: 0em 0.25em 0em 0em;
 }
 
 /* Removable label */
-.ui.label .close.icon,
-.ui.label .delete.icon {
+.ui.label > .close.icon,
+.ui.label > .delete.icon {
   cursor: pointer;
   margin-right: 0em;
   margin-left: 0.5em;
@@ -84,7 +91,7 @@ a.ui.label {
   -webkit-transition: background 0.2s ease;
           transition: background 0.2s ease;
 }
-.ui.label .delete.icon:hover {
+.ui.label > .delete.icon:hover {
   opacity: 1;
 }
 
@@ -92,7 +99,7 @@ a.ui.label {
        Group
 --------------------*/
 
-.ui.labels .label {
+.ui.labels > .label {
   margin: 0em 0.5em 0.5em 0em;
 }
 
@@ -151,7 +158,7 @@ a.ui.label {
   vertical-align: top;
   height: 2.1666em;
   margin: -0.5833em 0.5em -0.5833em -0.5em;
-  border-radius: 0.2857rem;
+  border-radius: 0.2857rem 0em 0em 0.2857rem;
 }
 .ui.image.label .detail {
   background: rgba(0, 0, 0, 0.1);
@@ -243,8 +250,8 @@ a.ui.label {
 }
 .ui.corner.label .icon {
   position: relative;
-  top: 0.6428rem;
-  left: 0.7857rem;
+  top: 0.6428em;
+  left: 0.7857em;
   font-size: 1.14285714em;
   margin: 0em;
 }
@@ -263,7 +270,7 @@ a.ui.label {
   border-top-color: inherit;
 }
 .ui.left.corner.label .icon {
-  left: -0.7857rem;
+  left: -0.7857em;
 }
 
 /* Segment */
@@ -506,7 +513,7 @@ a.ui.active.label:ActiveHover:before {
 .ui.black.label {
   background-color: #1b1c1d !important;
   border-color: #1b1c1d !important;
-  color: rgba(255, 255, 255, 0.9) !important;
+  color: #ffffff !important;
 }
 .ui.labels .black.label:before,
 .ui.black.labels .label:before,
@@ -537,7 +544,7 @@ a.ui.black.label:hover:before {
 .ui.blue.label {
   background-color: #2185d0 !important;
   border-color: #2185d0 !important;
-  color: rgba(255, 255, 255, 0.9) !important;
+  color: #ffffff !important;
 }
 .ui.labels .blue.label:before,
 .ui.blue.labels .label:before,
@@ -549,7 +556,7 @@ a.ui.blue.labels .label:hover,
 a.ui.blue.label:hover {
   background-color: #1378c5 !important;
   border-color: #1378c5 !important;
-  color: rgba(255, 255, 255, 0.9) !important;
+  color: #ffffff !important;
 }
 .ui.labels a.blue.label:hover:before,
 .ui.blue.labels a.label:hover:before,
@@ -570,7 +577,7 @@ a.ui.blue.label:hover:before {
 .ui.green.label {
   background-color: #21ba45 !important;
   border-color: #21ba45 !important;
-  color: rgba(255, 255, 255, 0.9) !important;
+  color: #ffffff !important;
 }
 .ui.labels .green.label:before,
 .ui.green.labels .label:before,
@@ -601,7 +608,7 @@ a.ui.green.label:hover:before {
 .ui.orange.label {
   background-color: #f2711c !important;
   border-color: #f2711c !important;
-  color: rgba(255, 255, 255, 0.9) !important;
+  color: #ffffff !important;
 }
 .ui.labels .orange.label:before,
 .ui.orange.labels .label:before,
@@ -613,7 +620,7 @@ a.ui.orange.labels .label:hover,
 a.ui.orange.label:hover {
   background-color: #f36101 !important;
   border-color: #f36101 !important;
-  color: rgba(255, 255, 255, 0.9) !important;
+  color: #ffffff !important;
 }
 .ui.labels a.orange.label:hover:before,
 .ui.orange.labels a.label:hover:before,
@@ -634,7 +641,7 @@ a.ui.orange.label:hover:before {
 .ui.pink.label {
   background-color: #e03997 !important;
   border-color: #e03997 !important;
-  color: rgba(255, 255, 255, 0.9) !important;
+  color: #ffffff !important;
 }
 .ui.labels .pink.label:before,
 .ui.pink.labels .label:before,
@@ -646,7 +653,7 @@ a.ui.pink.labels .label:hover,
 a.ui.pink.label:hover {
   background-color: #e9168d !important;
   border-color: #e9168d !important;
-  color: rgba(255, 255, 255, 0.9) !important;
+  color: #ffffff !important;
 }
 .ui.labels a.pink.label:hover:before,
 .ui.pink.labels a.label:hover:before,
@@ -667,7 +674,7 @@ a.ui.pink.label:hover:before {
 .ui.purple.label {
   background-color: #6a33c8 !important;
   border-color: #6a33c8 !important;
-  color: rgba(255, 255, 255, 0.9) !important;
+  color: #ffffff !important;
 }
 .ui.labels .purple.label:before,
 .ui.purple.labels .label:before,
@@ -679,7 +686,7 @@ a.ui.purple.labels .label:hover,
 a.ui.purple.label:hover {
   background-color: #5c23bf !important;
   border-color: #5c23bf !important;
-  color: rgba(255, 255, 255, 0.9) !important;
+  color: #ffffff !important;
 }
 .ui.labels a.purple.label:hover:before,
 .ui.purple.labels a.label:hover:before,
@@ -700,7 +707,7 @@ a.ui.purple.label:hover:before {
 .ui.red.label {
   background-color: #db2828 !important;
   border-color: #db2828 !important;
-  color: rgba(255, 255, 255, 0.9) !important;
+  color: #ffffff !important;
 }
 .ui.labels .red.label:before,
 .ui.red.labels .label:before,
@@ -715,7 +722,7 @@ a.ui.red.labels .label:hover,
 a.ui.red.label:hover {
   background-color: #d41616 !important;
   border-color: #d41616 !important;
-  color: rgba(255, 255, 255, 0.9) !important;
+  color: #ffffff !important;
 }
 .ui.labels a.red.label:hover:before,
 .ui.red.labels a.label:hover:before,
@@ -732,7 +739,7 @@ a.ui.red.label:hover:before {
 .ui.teal.label {
   background-color: #00b5ad !important;
   border-color: #00b5ad !important;
-  color: rgba(255, 255, 255, 0.9) !important;
+  color: #ffffff !important;
 }
 .ui.labels .teal.label:before,
 .ui.teal.labels .label:before,
@@ -744,7 +751,7 @@ a.ui.teal.labels .label:hover,
 a.ui.teal.label:hover {
   background-color: #009c95 !important;
   border-color: #009c95 !important;
-  color: rgba(255, 255, 255, 0.9) !important;
+  color: #ffffff !important;
 }
 .ui.labels a.teal.label:hover:before,
 .ui.teal.labels a.label:hover:before,
@@ -765,7 +772,7 @@ a.ui.teal.label:hover:before {
 .ui.yellow.label {
   background-color: #fbbd08 !important;
   border-color: #fbbd08 !important;
-  color: rgba(255, 255, 255, 0.9) !important;
+  color: #ffffff !important;
 }
 .ui.labels .yellow.label:before,
 .ui.yellow.labels .label:before,
@@ -777,7 +784,7 @@ a.ui.yellow.labels .label:hover,
 a.ui.yellow.label:hover {
   background-color: #eaae00 !important;
   border-color: #eaae00 !important;
-  color: rgba(255, 255, 255, 0.9) !important;
+  color: #ffffff !important;
 }
 .ui.labels a.yellow.label:hover:before,
 .ui.yellow.labels a.label:hover:before,

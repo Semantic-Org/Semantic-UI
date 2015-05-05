@@ -39,8 +39,8 @@
 
 .ui.header .sub.header {
   font-weight: normal;
-  margin: 0em;
   padding: 0em;
+  margin: 0em;
   font-size: 1.1428rem;
   line-height: 1.2em;
   color: rgba(0, 0, 0, 0.5);
@@ -206,8 +206,8 @@ h5.ui.header .sub.header {
 ---------------*/
 
 .ui.sub.header {
-  margin: 0em;
   padding: 0em;
+  margin: calc(2rem -  0.165em ) 0em 0.1428rem;
   font-weight: bold;
   font-size: 0.85714286em;
   text-transform: uppercase;

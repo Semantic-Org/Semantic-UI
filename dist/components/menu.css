@@ -1020,7 +1020,7 @@ Floated Menu / Item
   padding: 0em;
   border: none;
   box-shadow: none;
-  font-weight: bold;
+  font-weight: normal;
   color: rgba(0, 0, 0, 0.9);
 }
 

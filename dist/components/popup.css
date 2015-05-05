@@ -266,17 +266,23 @@
      Sizes
 ---------------*/
 
+.ui.mini.popup {
+  font-size: 0.71428571rem;
+}
+.ui.tiny.popup {
+  font-size: 0.85714286rem;
+}
 .ui.small.popup {
-  font-size: 0.785714rem;
+  font-size: 0.92857143rem;
 }
 .ui.popup {
-  font-size: 0.85714rem;
-}
-.ui.large.popup {
   font-size: 1rem;
 }
+.ui.large.popup {
+  font-size: 1.14285714rem;
+}
 .ui.huge.popup {
-  font-size: 1.14285rem;
+  font-size: 1.42857143rem;
 }
 
 

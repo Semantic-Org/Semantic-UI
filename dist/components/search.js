@@ -455,9 +455,6 @@ $.fn.search = function(parameters) {
               fuzzyResults = [],
               searchExp    = searchTerm.toString().replace(regExp.escape, '\\$&'),
               matchRegExp  = new RegExp(regExp.beginsWith + searchExp, 'i'),
-              searchFields = (searchFields !== undefined)
-                ? searchFields
-                : settings.searchFields,
 
               // avoid duplicates when pushing results
               addResult = function(array, result) {
@@ -471,16 +468,20 @@ $.fn.search = function(parameters) {
               }
             ;
             source = source || settings.source;
+            searchFields = (searchFields !== undefined)
+              ? searchFields
+              : settings.searchFields
+            ;
+
+            // search fields should be array to loop correctly
+            if(!$.isArray(searchFields)) {
+              searchFields = [searchFields];
+            }
 
             // exit conditions if no source
             if(source === undefined) {
               module.error(error.source);
               return [];
-            }
-
-            // search fields should be array to loop correctly
-            if(!$.isArray(searchFields)) {
-              searchFields = [searchFields];
             }
 
             // iterate through search fields looking for matches
@@ -490,7 +491,7 @@ $.fn.search = function(parameters) {
                   fieldExists = (typeof content[field] == 'string')
                 ;
                 if(fieldExists) {
-                  if( content[field].match(matchRegExp) ) {
+                  if( content[field].search(matchRegExp) !== -1) {
                     // content starts with value (first in results)
                     addResult(results, content);
                   }

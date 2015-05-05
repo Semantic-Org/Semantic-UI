@@ -1129,20 +1129,42 @@ $.fn.form.settings = {
     },
 
     // matches another field
+    different: function(value, fieldIdentifier) {
+      // use either id or name of field
+      var
+        $form = $(this),
+        matchingValue
+      ;
+      if( $('[data-validate="'+ fieldIdentifier +'"]').length > 0 ) {
+        matchingValue = $('[data-validate="'+ fieldIdentifier +'"]').val();
+      }
+      else if($('#' + fieldIdentifier).length > 0) {
+        matchingValue = $('#' + fieldIdentifier).val();
+      }
+      else if($('[name="' + fieldIdentifier +'"]').length > 0) {
+        matchingValue = $('[name="' + fieldIdentifier + '"]').val();
+      }
+      return (matchingValue !== undefined)
+        ? ( value.toString() !== matchingValue.toString() )
+        : false
+      ;
+    },
+
+    // matches another field
     match: function(value, fieldIdentifier) {
       // use either id or name of field
       var
         $form = $(this),
         matchingValue
       ;
-      if( $form.find('[data-validate="'+ fieldIdentifier +'"]').length > 0 ) {
-        matchingValue = $form.find('[data-validate="'+ fieldIdentifier +'"]').val();
+      if( $('[data-validate="'+ fieldIdentifier +'"]').length > 0 ) {
+        matchingValue = $('[data-validate="'+ fieldIdentifier +'"]').val();
       }
-      else if($form.find('#' + fieldIdentifier).length > 0) {
-        matchingValue = $form.find('#' + fieldIdentifier).val();
+      else if($('#' + fieldIdentifier).length > 0) {
+        matchingValue = $('#' + fieldIdentifier).val();
       }
-      else if($form.find('[name="' + fieldIdentifier +'"]').length > 0) {
-        matchingValue = $form.find('[name="' + fieldIdentifier + '"]').val();
+      else if($('[name="' + fieldIdentifier +'"]').length > 0) {
+        matchingValue = $('[name="' + fieldIdentifier + '"]').val();
       }
       return (matchingValue !== undefined)
         ? ( value.toString() == matchingValue.toString() )

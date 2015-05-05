@@ -324,7 +324,7 @@
 .ui.labeled.input .corner.label {
   top: 1px;
   right: 1px;
-  font-size: 0.75em;
+  font-size: 0.64285em;
   border-radius: 0em 0.2857rem 0em 0em;
 }
 .ui.labeled.input input {

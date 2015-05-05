@@ -91,15 +91,18 @@
 ---------------*/
 
 .ui.modal > .content {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  display: block;
   width: 100%;
   font-size: 1em;
   line-height: 1.4;
   padding: 1.5rem;
   background: #ffffff;
+}
+.ui.modal > .image.content {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 /* Image */

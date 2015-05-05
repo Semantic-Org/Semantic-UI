@@ -164,6 +164,24 @@ img.ui.bordered.image {
 }
 
 /*-------------------
+       Spaced
+--------------------*/
+
+.ui.spaced.image {
+  display: inline-block !important;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+.ui[class*="left spaced"].image {
+  margin-left: 0.5em;
+  margin-right: 0em;
+}
+.ui[class*="right spaced"].image {
+  margin-left: 0em;
+  margin-right: 0.5em;
+}
+
+/*-------------------
        Floated
 --------------------*/
 
