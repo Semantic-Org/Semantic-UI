@@ -791,18 +791,16 @@
 }
 
 .ui.sortable.table thead th:after {
-  display: inline-block;
-  content: '';
-  width: @sortableIconWidth;
-  height: 1em;
-  opacity: @sortableIconOpacity;
-
-  margin: 0em 0em 0em @sortableIconDistance;
-
-  font-family: @sortableIconFont;
+  display: none;
   font-style: normal;
   font-weight: normal;
   text-decoration: inherit;
+  content: '';
+  height: 1em;
+  width: @sortableIconWidth;
+  opacity: @sortableIconOpacity;
+  margin: 0em 0em 0em @sortableIconDistance;
+  font-family: @sortableIconFont;
 }
 .ui.sortable.table thead th.ascending:after {
   content: @sortableIconAscending;
@@ -825,6 +823,9 @@
 .ui.sortable.table thead th.sorted {
   background: @sortableActiveBackground;
   color: @sortableActiveColor;
+}
+.ui.sortable.table thead th.sorted:after {
+  display: inline-block;
 }
 
 /* Sorted Hover */

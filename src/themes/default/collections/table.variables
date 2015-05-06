@@ -160,8 +160,8 @@
 @sortableIconDistance: 0.5em;
 @sortableIconOpacity: 0.8;
 @sortableIconFont: 'Icons';
-@sortableIconAscending: '\f0d7';
-@sortableIconDescending: '\f0d8';
+@sortableIconAscending: '\f0d8';
+@sortableIconDescending: '\f0d7';
 @sortableDisabledColor: @disabledTextColor;
 
 @sortableHoverBackground: @transparentBlack;
