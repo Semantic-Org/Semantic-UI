@@ -192,6 +192,7 @@
 - **Menu** - `tiered menu` has been removed
 - **Menu** - Increased contrast on `inverted` menu selection for legibility
 - **Modal** - Modals now used fixed widths and not percentage widths. Widths might be slightly different.
+- **Modal** - Modal no longer observes DOM changes by default, added setting to enable
 - **Message** - Slightly increases `box-shadow`
 - **Popup** - Popup no longer produces an error when a position cannot be found on the page.
 - **Segment** - **Clearfix** has been removed from `ui segment`
