@@ -1129,20 +1129,20 @@ $.fn.form.settings = {
     },
 
     // matches another field
-    different: function(value, fieldIdentifier) {
+    different: function(value, identifier) {
       // use either id or name of field
       var
         $form = $(this),
         matchingValue
       ;
-      if( $('[data-validate="'+ fieldIdentifier +'"]').length > 0 ) {
-        matchingValue = $('[data-validate="'+ fieldIdentifier +'"]').val();
+      if( $('[data-validate="'+ identifier +'"]').length > 0 ) {
+        matchingValue = $('[data-validate="'+ identifier +'"]').val();
       }
-      else if($('#' + fieldIdentifier).length > 0) {
-        matchingValue = $('#' + fieldIdentifier).val();
+      else if($('#' + identifier).length > 0) {
+        matchingValue = $('#' + identifier).val();
       }
-      else if($('[name="' + fieldIdentifier +'"]').length > 0) {
-        matchingValue = $('[name="' + fieldIdentifier + '"]').val();
+      else if($('[name="' + identifier +'"]').length > 0) {
+        matchingValue = $('[name="' + identifier + '"]').val();
       }
       else if( $('[name="' + identifier +'[]"]').length > 0 ) {
         matchingValue = $('[name="' + identifier +'[]"]');
@@ -1154,20 +1154,20 @@ $.fn.form.settings = {
     },
 
     // matches another field
-    match: function(value, fieldIdentifier) {
+    match: function(value, identifier) {
       // use either id or name of field
       var
         $form = $(this),
         matchingValue
       ;
-      if( $('[data-validate="'+ fieldIdentifier +'"]').length > 0 ) {
-        matchingValue = $('[data-validate="'+ fieldIdentifier +'"]').val();
+      if( $('[data-validate="'+ identifier +'"]').length > 0 ) {
+        matchingValue = $('[data-validate="'+ identifier +'"]').val();
       }
-      else if($('#' + fieldIdentifier).length > 0) {
-        matchingValue = $('#' + fieldIdentifier).val();
+      else if($('#' + identifier).length > 0) {
+        matchingValue = $('#' + identifier).val();
       }
-      else if($('[name="' + fieldIdentifier +'"]').length > 0) {
-        matchingValue = $('[name="' + fieldIdentifier + '"]').val();
+      else if($('[name="' + identifier +'"]').length > 0) {
+        matchingValue = $('[name="' + identifier + '"]').val();
       }
       else if( $('[name="' + identifier +'[]"]').length > 0 ) {
         matchingValue = $('[name="' + identifier +'[]"]');
