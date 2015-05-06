@@ -589,6 +589,11 @@ ol.ui.list li:before,
   vertical-align: middle;
   opacity: 0.8;
 }
+ol.ui.inverted.list li:before,
+.ui.ordered.inverted.list .list > .item:before,
+.ui.ordered.inverted.list > .item:before {
+  color: rgba(255, 255, 255, 0.7);
+}
 
 /* Child Lists */
 ol.ui.list ol,

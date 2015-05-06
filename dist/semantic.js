@@ -756,9 +756,6 @@ $.fn.form = function(parameters) {
                 ;
               }
               if(!event.ctrlKey && key == keyCode.enter && $field.is(selector.input) && $field.not(selector.checkbox).length > 0 ) {
-                $submit
-                  .addClass(className.pressed)
-                ;
                 if(!keyHeldDown) {
                   $field
                     .one('keyup' + eventNamespace, module.event.field.keyup)
@@ -771,7 +768,6 @@ $.fn.form = function(parameters) {
             },
             keyup: function() {
               keyHeldDown = false;
-              $submit.removeClass(className.pressed);
             },
             blur: function() {
               var
@@ -1626,20 +1622,23 @@ $.fn.form.settings = {
     },
 
     // matches another field
-    different: function(value, fieldIdentifier) {
+    different: function(value, identifier) {
       // use either id or name of field
       var
         $form = $(this),
         matchingValue
       ;
-      if( $('[data-validate="'+ fieldIdentifier +'"]').length > 0 ) {
-        matchingValue = $('[data-validate="'+ fieldIdentifier +'"]').val();
+      if( $('[data-validate="'+ identifier +'"]').length > 0 ) {
+        matchingValue = $('[data-validate="'+ identifier +'"]').val();
       }
-      else if($('#' + fieldIdentifier).length > 0) {
-        matchingValue = $('#' + fieldIdentifier).val();
+      else if($('#' + identifier).length > 0) {
+        matchingValue = $('#' + identifier).val();
       }
-      else if($('[name="' + fieldIdentifier +'"]').length > 0) {
-        matchingValue = $('[name="' + fieldIdentifier + '"]').val();
+      else if($('[name="' + identifier +'"]').length > 0) {
+        matchingValue = $('[name="' + identifier + '"]').val();
+      }
+      else if( $('[name="' + identifier +'[]"]').length > 0 ) {
+        matchingValue = $('[name="' + identifier +'[]"]');
       }
       return (matchingValue !== undefined)
         ? ( value.toString() !== matchingValue.toString() )
@@ -1648,20 +1647,23 @@ $.fn.form.settings = {
     },
 
     // matches another field
-    match: function(value, fieldIdentifier) {
+    match: function(value, identifier) {
       // use either id or name of field
       var
         $form = $(this),
         matchingValue
       ;
-      if( $('[data-validate="'+ fieldIdentifier +'"]').length > 0 ) {
-        matchingValue = $('[data-validate="'+ fieldIdentifier +'"]').val();
+      if( $('[data-validate="'+ identifier +'"]').length > 0 ) {
+        matchingValue = $('[data-validate="'+ identifier +'"]').val();
       }
-      else if($('#' + fieldIdentifier).length > 0) {
-        matchingValue = $('#' + fieldIdentifier).val();
+      else if($('#' + identifier).length > 0) {
+        matchingValue = $('#' + identifier).val();
       }
-      else if($('[name="' + fieldIdentifier +'"]').length > 0) {
-        matchingValue = $('[name="' + fieldIdentifier + '"]').val();
+      else if($('[name="' + identifier +'"]').length > 0) {
+        matchingValue = $('[name="' + identifier + '"]').val();
+      }
+      else if( $('[name="' + identifier +'[]"]').length > 0 ) {
+        matchingValue = $('[name="' + identifier +'[]"]');
       }
       return (matchingValue !== undefined)
         ? ( value.toString() == matchingValue.toString() )
@@ -6421,7 +6423,9 @@ $.fn.modal = function(parameters) {
           module.refreshModals();
 
           module.bind.events();
-          module.observeChanges();
+          if(settings.observeChanges) {
+            module.observeChanges();
+          }
           module.instantiate();
         },
 
@@ -7176,6 +7180,8 @@ $.fn.modal.settings = {
   verbose        : false,
   performance    : true,
 
+  observeChanges : false,
+
   allowMultiple  : false,
   detachable     : true,
   closable       : true,
@@ -7188,6 +7194,7 @@ $.fn.modal.settings = {
     closable : false,
     useCSS   : true
   },
+
 
   context    : 'body',
 
@@ -15381,10 +15388,6 @@ $.fn.transition = function() {
               module.verbose('Setting animation duration', duration);
               $module
                 .css({
-                  '-webkit-animation-duration': duration,
-                  '-moz-animation-duration': duration,
-                  '-ms-animation-duration': duration,
-                  '-o-animation-duration': duration,
                   'animation-duration':  duration
                 })
               ;
