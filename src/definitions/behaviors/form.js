@@ -259,9 +259,6 @@ $.fn.form = function(parameters) {
                 ;
               }
               if(!event.ctrlKey && key == keyCode.enter && $field.is(selector.input) && $field.not(selector.checkbox).length > 0 ) {
-                $submit
-                  .addClass(className.pressed)
-                ;
                 if(!keyHeldDown) {
                   $field
                     .one('keyup' + eventNamespace, module.event.field.keyup)
@@ -274,7 +271,6 @@ $.fn.form = function(parameters) {
             },
             keyup: function() {
               keyHeldDown = false;
-              $submit.removeClass(className.pressed);
             },
             blur: function() {
               var
