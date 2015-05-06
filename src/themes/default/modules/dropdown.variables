@@ -28,7 +28,7 @@
 @menuMargin: 0em;
 @menuPadding: 0em 0em;
 @menuTop: 100%;
-@menuWrap: nowrap;
+@menuWrap: normal;
 @menuTextAlign: left;
 
 @menuBorderWidth: 1px;
@@ -51,8 +51,8 @@
 @itemHeight: auto;
 @itemDivider: none;
 @itemColor: @textColor;
-@itemVerticalPadding: @relativeMini;
-@itemHorizontalPadding: @relativeLarge;
+@itemVerticalPadding: @mini;
+@itemHorizontalPadding: @large;
 @itemPadding: @itemVerticalPadding @itemHorizontalPadding;
 @itemFontWeight: normal;
 @itemLineHeight: 1em;
@@ -119,8 +119,8 @@
 --------------------*/
 /* Selection */
 @selectionMinWidth: 200px;
-@borderEmWidth:  0.0785em; /* 2px / em size */
-@selectionMinHeight: @defaultInputLineHeight + (@selectionVerticalPadding * 2) - @borderEmWidth;
+@selectionBorderEmWidth:  0.0785em; /* 2px / em size */
+@selectionMinHeight: @defaultInputLineHeight + (@selectionVerticalPadding * 2) - @selectionBorderEmWidth;
 @selectionBackground: @white;
 @selectionDisplay: inline-block;
 @selectionVerticalPadding: 0.78571em;
@@ -154,6 +154,7 @@
 @selectionIconPadding: @selectionIconHitbox;
 @selectionIconTransition: opacity @transitionDuration @transitionEasing;
 
+@selectionMenuBorderRadius: 0em 0em @borderRadius @borderRadius;
 @selectionMenuBoxShadow: @raisedShadow;
 @selectionMenuItemBoxShadow: none;
 
