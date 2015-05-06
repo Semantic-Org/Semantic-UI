@@ -1,10 +1,12 @@
 node_modules/
+bower_components/
 test/coverage/
 coverage/
 src/**/site/
 theme.config
 semantic.json
 tasks/**/oauth.js
+dist
 
 # Numerous always-ignore extensions
 *.diff
