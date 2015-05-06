@@ -1,0 +1,253 @@
+/*!
+ * # Semantic UI - Divider
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Copyright 2014 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+/*******************************
+            Theme
+*******************************/
+
+@type    : 'element';
+@element : 'divider';
+
+@import (multiple) '../../theme.config';
+
+
+/*******************************
+            Divider
+*******************************/
+
+.ui.divider {
+  margin: @margin;
+
+  line-height: 1;
+  height: 0em;
+
+  font-weight: @fontWeight;
+  text-transform: @textTransform;
+  letter-spacing: @letterSpacing;
+  color: @color;
+
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/*--------------
+      Basic
+---------------*/
+
+.ui.divider:not(.vertical):not(.horizontal) {
+  border-top: @shadowWidth solid @shadowColor;
+  border-bottom: @highlightWidth solid @highlightColor;
+}
+
+/*--------------
+    Coupling
+---------------*/
+
+.ui.grid > .ui.divider {
+  font-size: 1rem;
+}
+
+
+/*--------------
+   Horizontal
+---------------*/
+
+.ui.horizontal.divider {
+  display: table;
+  white-space: nowrap;
+
+  height: auto;
+  margin: @horizontalMargin;
+  overflow: hidden;
+  line-height: 1;
+  text-align: center;
+}
+
+.ui.horizontal.divider:before,
+.ui.horizontal.divider:after {
+  content: '';
+  display: table-cell;
+  position: relative;
+  top: 50%;
+  width: 50%;
+  background-repeat: no-repeat;
+}
+
+.ui.horizontal.divider:before {
+  background-position: right @horizontalDividerMargin top 50%;
+}
+.ui.horizontal.divider:after {
+  background-position: left @horizontalDividerMargin top 50%;
+}
+
+/*--------------
+    Vertical
+---------------*/
+
+.ui.vertical.divider {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+
+  margin: 0rem;
+  padding: 0em;
+  width: auto;
+  height: 50%;
+
+  line-height: 0em;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.ui.vertical.divider:before,
+.ui.vertical.divider:after {
+  position: absolute;
+  left: 50%;
+  content: '';
+  z-index: 3;
+
+  border-left: @shadowWidth solid @shadowColor;
+  border-right: @highlightWidth solid @highlightColor;
+
+  width: 0%;
+  height: @verticalDividerHeight;
+}
+
+.ui.vertical.divider:before {
+  top: -100%;
+}
+.ui.vertical.divider:after {
+  top: auto;
+  bottom: 0px;
+}
+
+/* Inside grid */
+@media only screen and (max-width : (@tabletBreakpoint - 1px)) {
+  .ui.stackable.grid .ui.vertical.divider,
+  .ui.grid .stackable.row .ui.vertical.divider {
+    position: relative;
+    margin: @margin;
+    left: 50%;
+    height: auto;
+    overflow: hidden;
+    line-height: 1;
+    text-align: center;
+  }
+
+  .ui.stackable.grid .ui.vertical.divider:before,
+  .ui.grid .stackable.row .ui.vertical.divider:before,
+  .ui.stackable.grid .ui.vertical.divider:after,
+  .ui.grid .stackable.row .ui.vertical.divider:after {
+    position: absolute;
+    top: 50%;
+    left: auto;
+    content: '';
+    z-index: 3;
+
+    width: 50%;
+    top: 50%;
+    height: 0px;
+
+    border-top: @shadowWidth solid @shadowColor;
+    border-bottom: @highlightWidth solid @highlightColor;
+  }
+
+  .ui.stackable.grid .ui.vertical.divider:before,
+  .ui.grid .stackable.row .ui.vertical.divider:before {
+    margin-left: -(50% + @horizontalDividerMargin);
+  }
+  .ui.stackable.grid .ui.vertical.divider:after,
+  .ui.grid .stackable.row .ui.vertical.divider:after {
+    margin-left: @horizontalDividerMargin;
+  }
+}
+
+/*--------------
+      Icon
+---------------*/
+
+.ui.divider > .icon {
+  margin: @dividerIconMargin;
+  font-size: @dividerIconSize;
+  height: 1em;
+  vertical-align: middle;
+}
+
+/*******************************
+          Variations
+*******************************/
+
+/*--------------
+    Hidden
+---------------*/
+
+.ui.hidden.divider {
+  border-color: transparent !important;
+}
+.ui.hidden.divider:before,
+.ui.hidden.divider:after {
+  display: none;
+}
+
+/*--------------
+    Inverted
+---------------*/
+
+.ui.divider.inverted,
+.ui.vertical.inverted.divider,
+.ui.horizontal.inverted.divider {
+  color: @invertedTextColor;
+}
+.ui.divider.inverted,
+.ui.divider.inverted:after,
+.ui.divider.inverted:before {
+  border-top-color: @invertedShadowColor !important;
+  border-left-color: @invertedShadowColor !important;
+  border-bottom-color: @invertedHighlightColor !important;
+  border-right-color: @invertedHighlightColor !important;
+}
+
+/*--------------
+    Fitted
+---------------*/
+
+.ui.fitted.divider {
+  margin: 0em;
+}
+
+/*--------------
+    Clearing
+---------------*/
+
+.ui.clearing.divider {
+  clear: both;
+}
+
+/*--------------
+    Section
+---------------*/
+
+.ui.section.divider {
+  margin-top: @sectionMargin;
+  margin-bottom: @sectionMargin;
+}
+
+/*--------------
+     Sizes
+---------------*/
+
+.ui.divider {
+  font-size: @medium;
+}
+
+
+.loadUIOverrides();

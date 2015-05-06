@@ -1,0 +1,48 @@
+/*******************************
+        Import Directives
+*******************************/
+
+@theme : @@element;
+
+/*------------------
+    Default Theme
+-------------------*/
+
+@import "@{themesFolder}/default/globals/site.variables";
+@import "@{themesFolder}/default/@{type}s/@{element}.variables";
+
+/*------------------
+   Packaged Theme
+-------------------*/
+
+@import "@{themesFolder}/@{site}/globals/site.variables";
+@import "@{themesFolder}/@{theme}/@{type}s/@{element}.variables";
+
+/*------------------
+     Site Theme
+-------------------*/
+
+@import (optional) "@{siteFolder}/globals/site.variables";
+@import (optional) "@{siteFolder}/@{type}s/@{element}.variables";
+
+
+/*******************************
+        Import Mix-ins
+*******************************/
+
+/*------------------
+       Fonts
+-------------------*/
+
+.loadFonts() when (@importGoogleFonts) {
+  @import (css) '@{googleProtocol}fonts.googleapis.com/css?family=@{googleFontRequest}';
+}
+
+/*------------------
+     Overrides
+-------------------*/
+
+.loadUIOverrides() {
+  @import "@{themesFolder}/@{theme}/@{type}s/@{element}.overrides";
+  @import (optional) "@{siteFolder}/@{type}s/@{element}.overrides";
+}

@@ -1,0 +1,10 @@
+/*-------------------
+   Step Variables
+--------------------*/
+
+@background: transparent;
+@borderRadius: 500em;
+@boxShadow: none;
+
+@activeBackground: #E5E5E5;
+@iconDistance: 0.8em;

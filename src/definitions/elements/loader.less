@@ -1,0 +1,269 @@
+/*!
+ * # Semantic UI - Loader
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Copyright 2014 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+/*******************************
+            Theme
+*******************************/
+
+@type    : 'element';
+@element : 'loader';
+
+@import (multiple) '../../theme.config';
+
+/*******************************
+            Loader
+*******************************/
+
+
+/* Standard Size */
+.ui.loader {
+  display: none;
+  position: absolute;
+  top: @loaderTopOffset;
+  left: @loaderLeftOffset;
+  margin: 0px;
+  text-align: center;
+  z-index: 1000;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+/* Static Shape */
+.ui.loader:before {
+  position: absolute;
+  content: '';
+  top: 0%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+
+  border-radius: @circularRadius;
+  border: @loaderLineWidth solid @loaderFillColor;
+}
+
+/* Active Shape */
+.ui.loader:after {
+  position: absolute;
+  content: '';
+  top: 0%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+
+  animation: loader @loaderSpeed linear;
+  animation-iteration-count: infinite;
+
+  border-radius: @circularRadius;
+
+  border-color: @shapeBorderColor;
+  border-style: solid;
+  border-width: @loaderLineWidth;
+
+  box-shadow: 0px 0px 0px 1px transparent;
+}
+
+/* Active Animation */
+@keyframes loader {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Sizes */
+.ui.loader:before,
+.ui.loader:after {
+  width: @medium;
+  height: @medium;
+  margin: @mediumOffset;
+}
+.ui.mini.loader:before,
+.ui.mini.loader:after {
+  width: @mini;
+  height: @mini;
+  margin: @miniOffset;
+}
+.ui.small.loader:before,
+.ui.small.loader:after {
+  width: @small;
+  height: @small;
+  margin: @smallOffset;
+}
+.ui.large.loader:before,
+.ui.large.loader:after {
+  width: @large;
+  height: @large;
+  margin: @largeOffset;
+}
+
+/*-------------------
+      Coupling
+--------------------*/
+
+/* Show inside active dimmer */
+.ui.dimmer .loader {
+  display: block;
+}
+
+/* Black Dimmer */
+.ui.dimmer .ui.loader {
+  color: @invertedLoaderTextColor;
+}
+.ui.dimmer .ui.loader:before {
+  border-color: @invertedLoaderFillColor;
+}
+.ui.dimmer .ui.loader:after {
+  border-color: @invertedShapeBorderColor;
+}
+
+/* White Dimmer (Inverted) */
+.ui.inverted.dimmer .ui.loader {
+  color: @loaderTextColor;
+}
+.ui.inverted.dimmer .ui.loader:before {
+  border-color: @loaderFillColor;
+}
+.ui.inverted.dimmer .ui.loader:after {
+  border-color: @shapeBorderColor;
+}
+
+/*******************************
+             Types
+*******************************/
+
+
+/*-------------------
+        Text
+--------------------*/
+
+.ui.text.loader {
+  width: auto !important;
+  height: auto !important;
+  text-align: center;
+  font-style: normal;
+}
+
+
+/*******************************
+            States
+*******************************/
+
+.ui.indeterminate.loader:after {
+  animation-direction: @indeterminateDirection;
+  animation-duration: @indeterminateSpeed;
+}
+
+.ui.loader.active,
+.ui.loader.visible {
+  display: block;
+}
+.ui.loader.disabled,
+.ui.loader.hidden {
+  display: none;
+}
+
+/*******************************
+            Variations
+*******************************/
+
+
+/*-------------------
+        Sizes
+--------------------*/
+
+
+/* Loader */
+.ui.inverted.dimmer .ui.mini.loader,
+.ui.mini.loader {
+  width: @mini;
+  height: @mini;
+  font-size: @miniFontSize;
+}
+.ui.inverted.dimmer .ui.small.loader,
+.ui.small.loader {
+  width: @small;
+  height: @small;
+  font-size: @smallFontSize;
+}
+.ui.inverted.dimmer .ui.loader,
+.ui.loader {
+  width: @medium;
+  height: @medium;
+  font-size: @mediumFontSize;
+}
+.ui.inverted.dimmer .ui.loader.large,
+.ui.loader.large {
+  width: @large;
+  height: @large;
+  font-size: @largeFontSize;
+}
+
+/* Text Loader */
+.ui.mini.text.loader {
+  min-width: @mini;
+  padding-top: (@mini + @textDistance);
+}
+.ui.small.text.loader {
+  min-width: @small;
+  padding-top: (@small + @textDistance);
+}
+.ui.text.loader {
+  min-width: @medium;
+  padding-top: (@medium + @textDistance);
+}
+.ui.large.text.loader {
+  min-width: @large;
+  padding-top: (@large + @textDistance);
+}
+
+
+/*-------------------
+       Inverted
+--------------------*/
+
+.ui.inverted.loader {
+  color: @invertedLoaderTextColor
+}
+.ui.inverted.loader:before {
+  border-color: @invertedLoaderFillColor;
+}
+.ui.inverted.loader:after {
+  border-top-color: @invertedLoaderLineColor;
+}
+
+/*-------------------
+       Inline
+--------------------*/
+
+.ui.inline.loader {
+  position: relative;
+  vertical-align: @inlineVerticalAlign;
+  margin: @inlineMargin;
+  left: 0em;
+  top: 0em;
+  transform: none;
+}
+
+.ui.inline.loader.active,
+.ui.inline.loader.visible {
+  display: inline-block;
+}
+
+/* Centered Inline */
+.ui.centered.inline.loader.active,
+.ui.centered.inline.loader.visible {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.loadUIOverrides();

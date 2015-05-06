@@ -1,7 +1,10 @@
-docs/
-node_modules
-node/server.json
-test/coverage
+node_modules/
+test/coverage/
+coverage/
+src/**/site/
+theme.config
+semantic.json
+tasks/**/oauth.js
 
 # Numerous always-ignore extensions
 *.diff
@@ -25,7 +28,9 @@ Thumbs.db
 .project
 .settings
 .tmproj
+.docpad.db
 *.esproj
 nbproject
 *.sublime-project
 *.sublime-workspace
+.build*

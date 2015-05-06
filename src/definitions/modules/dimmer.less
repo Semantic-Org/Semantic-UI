@@ -1,0 +1,190 @@
+/*!
+ * # Semantic UI - Dimmer
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Copyright 2014 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+/*******************************
+            Theme
+*******************************/
+
+@type    : 'module';
+@element : 'dimmer';
+
+@import (multiple) '../../theme.config';
+
+/*******************************
+            Dimmer
+*******************************/
+
+.dimmable {
+  position: @dimmablePosition;
+}
+
+.ui.dimmer {
+  display: none;
+  position: @dimmerPosition;
+  top: 0em !important;
+  left: 0em !important;
+
+  width: 100%;
+  height: 100%;
+
+  text-align: @textAlign;
+  vertical-align: @verticalAlign;
+
+  background-color: @backgroundColor;
+  opacity: @hiddenOpacity;
+  line-height: @lineHeight;
+
+  animation-fill-mode: both;
+  animation-duration: @duration;
+  transition: @transition;
+
+  user-select: none;
+  will-change: opacity;
+  z-index: @zIndex;
+}
+
+/* Dimmer Content */
+.ui.dimmer > .content {
+  width: 100%;
+  height: 100%;
+  display: @contentDisplay;
+  user-select: text;
+}
+.ui.dimmer > .content > * {
+  display: @contentChildDisplay;
+  vertical-align: @verticalAlign;
+  color: @textColor;
+}
+
+
+/* Loose Coupling */
+.ui.segment > .ui.dimmer {
+  border-radius: inherit !important;
+}
+
+/*******************************
+            States
+*******************************/
+
+.animating.dimmable:not(body),
+.dimmed.dimmable:not(body) {
+  overflow: @overflow;
+}
+
+.dimmed.dimmable > .ui.animating.dimmer,
+.dimmed.dimmable > .ui.visible.dimmer,
+.ui.active.dimmer {
+  display: block;
+  opacity: @visibleOpacity;
+}
+
+.ui.disabled.dimmer {
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/*******************************
+           Variations
+*******************************/
+
+/*--------------
+      Page
+---------------*/
+
+.ui.page.dimmer {
+  position: @pageDimmerPosition;
+  transform-style: @transformStyle;
+  perspective: @perspective;
+  transform-origin: center center;
+}
+
+body.animating.in.dimmable,
+body.dimmed.dimmable {
+  overflow: hidden;
+}
+
+body.dimmable > .dimmer {
+  position: fixed;
+}
+
+/*--------------
+    Blurring
+---------------*/
+
+.blurring.dimmable > :not(.dimmer) {
+  filter: @blurredStartFilter;
+  transition: @blurredTransition;
+}
+.blurring.dimmed.dimmable > :not(.dimmer) {
+  filter: @blurredEndFilter;
+}
+
+/* Dimmer Color */
+.blurring.dimmable > .dimmer {
+  background-color: @blurredBackgroundColor;
+}
+.blurring.dimmable > .inverted.dimmer {
+  background-color: @blurredInvertedBackgroundColor;
+}
+
+/*--------------
+    Aligned
+---------------*/
+
+.ui.dimmer > .top.aligned.content > * {
+  vertical-align: top;
+}
+.ui.dimmer > .bottom.aligned.content > * {
+  vertical-align: bottom;
+}
+
+/*--------------
+    Inverted
+---------------*/
+
+.ui.inverted.dimmer {
+  background-color: @invertedBackgroundColor;
+}
+.ui.inverted.dimmer > .content > * {
+  color: @textColor;
+}
+
+/*--------------
+     Simple
+---------------*/
+
+/* Displays without javascript */
+.ui.simple.dimmer {
+  display: block;
+  overflow: hidden;
+  opacity: 1;
+  width: 0%;
+  height: 0%;
+  z-index: -100;
+  background-color: @simpleStartBackgroundColor;
+}
+.dimmed.dimmable > .ui.simple.dimmer {
+  overflow: visible;
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  background-color: @simpleEndBackgroundColor;
+  z-index: @simpleZIndex;
+}
+
+.ui.simple.inverted.dimmer {
+  background-color: @simpleInvertedStartBackgroundColor;
+}
+.dimmed.dimmable > .ui.simple.inverted.dimmer {
+  background-color: @simpleInvertedEndBackgroundColor;
+}
+
+.loadUIOverrides();

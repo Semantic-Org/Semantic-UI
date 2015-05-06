@@ -1,0 +1,163 @@
+/*!
+ * # Semantic UI - Site
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Copyright 2014 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+
+/*******************************
+            Theme
+*******************************/
+
+@type    : 'global';
+@element : 'site';
+
+@import (multiple) '../../theme.config';
+
+/*******************************
+             Page
+*******************************/
+
+.loadFonts();
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  font-size: @emSize;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  overflow-x: @pageOverflowX;
+  min-width: @pageMinWidth;
+  background: @pageBackground;
+  font-family: @pageFont;
+  font-size: @fontSize;
+  line-height: @lineHeight;
+  color: @textColor;
+  font-smoothing: @fontSmoothing;
+}
+
+/*******************************
+             Headers
+*******************************/
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: @headerFont;
+  line-height: @headerLineHeight;
+  margin: @headerMargin;
+  font-weight: @headerFontWeight;
+  padding: 0em;
+}
+
+h1 {
+  min-height: 1rem;
+  font-size: @h1;
+}
+h2 {
+  font-size: @h2;
+}
+h3 {
+  font-size: @h3;
+}
+h4 {
+  font-size: @h4;
+}
+h5 {
+  font-size: @h5;
+}
+
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child {
+  margin-top: 0em;
+}
+
+h1:last-child,
+h2:last-child,
+h3:last-child,
+h4:last-child,
+h5:last-child {
+  margin-bottom: 0em;
+}
+
+
+/*******************************
+             Text
+*******************************/
+
+p {
+  margin: @paragraphMargin;
+  line-height: @paragraphLineHeight;
+}
+p:first-child {
+  margin-top: 0em;
+}
+p:last-child {
+  margin-bottom: 0em;
+}
+
+/*-------------------
+        Links
+--------------------*/
+
+a {
+  color: @linkColor;
+  text-decoration: @linkUnderline;
+}
+a:hover {
+  color: @linkHoverColor;
+}
+
+/*******************************
+          Highlighting
+*******************************/
+
+/* Site */
+::-webkit-selection {
+  background-color: @highlightBackground;
+  color: @highlightColor;
+}
+::-moz-selection {
+  background-color: @highlightBackground;
+  color: @highlightColor;
+}
+::selection {
+  background-color: @highlightBackground;
+  color: @highlightColor;
+}
+
+/* Form */
+textarea::-webkit-selection,
+input::-webkit-selection {
+  background-color: @inputHighlightBackground;
+  color: @inputHighlightColor;
+}
+textarea::-moz-selection,
+input::-moz-selection {
+  background-color: @inputHighlightBackground;
+  color: @inputHighlightColor;
+}
+textarea::selection,
+input::selection {
+  background-color: @inputHighlightBackground;
+  color: @inputHighlightColor;
+}
+
+
+.loadUIOverrides();

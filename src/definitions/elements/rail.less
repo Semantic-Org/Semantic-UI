@@ -1,0 +1,126 @@
+/*!
+ * # Semantic UI - Rail
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Copyright 2014 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+/*******************************
+            Theme
+*******************************/
+
+@type    : 'element';
+@element : 'rail';
+
+@import (multiple) '../../theme.config';
+
+/*******************************
+             Rails
+*******************************/
+
+.ui.rail {
+  position: absolute;
+  top: 0%;
+  width: @width;
+  height: @height;
+  box-sizing: @contentSizing;
+}
+
+.ui.left.rail {
+  left: auto;
+  right: 100%;
+  padding: 0em (@distance / 2) 0em 0em;
+  margin: 0em (@distance / 2) 0em 0em;
+}
+
+.ui.right.rail {
+  left: 100%;
+  right: auto;
+  padding: 0em 0em 0em (@distance / 2);
+  margin: 0em 0em 0em (@distance / 2);
+}
+
+/*******************************
+           Variations
+*******************************/
+
+/*--------------
+     Internal
+---------------*/
+
+.ui.left.internal.rail {
+  left: 0%;
+  right: auto;
+  padding: 0em 0em 0em (@distance / 2);
+  margin: 0em 0em 0em (@distance / 2);
+}
+
+.ui.right.internal.rail {
+  left: auto;
+  right: 0%;
+  padding: 0em (@distance / 2) 0em 0em;
+  margin: 0em (@distance / 2) 0em 0em;
+}
+
+
+/*--------------
+     Divided
+---------------*/
+
+.ui.left.dividing.rail {
+  padding: 0em (@dividedDistance / 2) 0em 0em;
+  margin: 0em (@dividedDistance / 2) 0em 0em;
+  border-right: @dividedBorder;
+}
+.ui.right.dividing.rail {
+  border-left: @dividedBorder;
+  padding: 0em 0em 0em (@dividedDistance / 2);
+  margin: 0em 0em 0em (@dividedDistance / 2);
+}
+
+/*--------------
+    Distance
+---------------*/
+
+.ui.close.left.rail {
+  padding: 0em (@closeDistance / 2) 0em 0em;
+  margin: 0em (@closeDistance / 2) 0em 0em;
+}
+.ui.close.right.rail {
+  padding: 0em 0em 0em (@closeDistance / 2);
+  margin: 0em 0em 0em (@closeDistance / 2);
+}
+.ui.very.close.left.rail {
+  padding: 0em (@veryCloseDistance / 2) 0em 0em;
+  margin: 0em (@veryCloseDistance / 2) 0em 0em;
+}
+.ui.very.close.right.rail {
+  padding: 0em 0em 0em (@veryCloseDistance / 2);
+  margin: 0em 0em 0em (@veryCloseDistance / 2);
+}
+
+/*--------------
+    Attached
+---------------*/
+
+.ui.attached.left.rail,
+.ui.attached.right.rail {
+  padding: 0em;
+  margin: 0em;
+}
+
+/*--------------
+     Sizing
+---------------*/
+
+.ui.rail {
+  font-size: @medium;
+}
+
+
+
+.loadUIOverrides();

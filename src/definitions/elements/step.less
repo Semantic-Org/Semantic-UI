@@ -1,0 +1,468 @@
+/*!
+ * # Semantic UI - Step
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Copyright 2014 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+
+/*******************************
+             Step
+*******************************/
+
+/*--------------
+   Load Theme
+---------------*/
+
+@type    : 'element';
+@element : 'step';
+
+@import (multiple) '../../theme.config';
+
+/*******************************
+            Plural
+*******************************/
+
+.ui.steps {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: stretch;
+  background: @stepsBackground;
+  box-shadow: @stepsBoxShadow;
+  line-height: @lineHeight;
+  border-radius: @stepsBorderRadius;
+}
+
+.ui.steps .step:first-child {
+  padding-left: @horizontalPadding;
+  border-radius: @stepsBorderRadius 0em 0em @stepsBorderRadius;
+}
+.ui.steps .step:last-child {
+  border-radius: 0em @stepsBorderRadius @stepsBorderRadius 0em;
+}
+.ui.steps .step:only-child {
+  -webkit-border-radius: @stepsBorderRadius;
+  -moz-border-radius: @stepsBorderRadius;
+  border-radius: @stepsBorderRadius;
+}
+
+.ui.steps .step:last-child {
+  margin-right: 0em;
+}
+.ui.steps .step:last-child:after {
+  display: none;
+}
+
+/*******************************
+           Singular
+*******************************/
+
+.ui.steps .step {
+  position: relative;
+  display: flex;
+  flex: 1 0 auto;
+  flex-wrap: wrap;
+  flex-direction: row;
+  vertical-align: middle;
+  align-items: center;
+
+  margin: @verticalMargin @horizontalMargin;
+  padding: @verticalPadding @horizontalPadding;
+  background: @background;
+  color: @textColor;
+  box-shadow: @boxShadow;
+  border-radius: @borderRadius;
+}
+
+
+.ui.steps .step:after {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  content: '';
+  top: @arrowTopOffset;
+  right: @arrowRightOffset;
+  border: medium none;
+  background-color: @arrowBackgroundColor;
+  width: @arrowSize;
+  height: @arrowSize;
+
+  border-style: solid;
+  border-color: @borderColor;
+  border-width: @arrowBorderWidth;
+
+  transform: translateY(-50%) translateX(50%) rotate(-45deg);
+}
+
+.ui.steps .step,
+.ui.steps .step:after {
+  transition: @transition;
+}
+
+/*******************************
+            Content
+*******************************/
+
+/* Title */
+.ui.steps .step .title {
+  font-family: @titleFontFamily;
+  font-size: @titleFontSize;
+  font-weight: @titleFontWeight;
+}
+.ui.steps .step > .title {
+  width: 100%;
+}
+
+/* Description */
+.ui.steps .step .description {
+  font-weight: @descriptionFontWeight;
+  font-size: @descriptionFontSize;
+  color: @descriptionColor;
+}
+.ui.steps .step > .description {
+  width: 100%;
+}
+.ui.steps .step .title ~ .description {
+  margin-top: @descriptionDistance;
+}
+
+/* Icon */
+.ui.steps .step > .icon {
+  font-size: @iconSize;
+  margin: 0em @iconDistance 0em 0em;
+}
+.ui.steps .step > .icon,
+.ui.steps .step > .icon ~ .content {
+  display: block;
+  flex: 0 1 auto;
+  align-self: @iconAlign;
+}
+.ui.steps .step > .icon ~ .content {
+  flex-grow: 1 0 auto;
+}
+
+/* Horizontal Icon */
+.ui.steps:not(.vertical) .step > .icon {
+  width: auto;
+}
+
+/* Link */
+.ui.steps .link.step,
+.ui.steps a.step {
+  cursor: pointer;
+}
+
+/*******************************
+            Types
+*******************************/
+
+/*--------------
+     Ordered
+---------------*/
+
+.ui.ordered.steps {
+  counter-reset: ordered;
+}
+.ui.ordered.steps .step:before {
+  display: block;
+  position: static;
+  text-align: center;
+  content: counters(ordered, ".");
+  align-self: @iconAlign;
+  margin-right: @iconDistance;
+  font-size: @iconSize;
+  counter-increment: ordered;
+  font-family: @orderedFontFamily;
+  font-weight: @orderedFontWeight;
+}
+
+.ui.ordered.steps .step > * {
+  display: block;
+  align-self: @iconAlign;
+}
+
+
+/*--------------
+    Vertical
+---------------*/
+
+.ui.vertical.steps {
+  display: inline-flex;
+  flex-direction: column;
+  overflow: visible;
+}
+.ui.vertical.steps .step {
+  border-radius: @borderRadius;
+  padding: @verticalPadding @horizontalPadding;
+}
+.ui.vertical.steps .step:first-child {
+  padding: @verticalPadding @horizontalPadding;
+  border-radius: @stepsBorderRadius @stepsBorderRadius 0em 0em;
+}
+.ui.vertical.steps .step:last-child {
+  border-radius: 0em 0em @stepsBorderRadius @stepsBorderRadius;
+}
+
+/* Arrow */
+.ui.vertical.steps .step:after {
+  display: none;
+}
+.ui.vertical.steps .step:after {
+  top: @verticalArrowTopOffset;
+  right: @verticalArrowRightOffset;
+  border-width: @verticalArrowBorderWidth;
+}
+
+
+/* Active Arrow */
+.ui.steps .active.step:after {
+  display: block;
+}
+
+
+/*---------------
+    Responsive
+----------------*/
+
+/* Mobile (Default) */
+@media only screen and (max-width: (@largestMobileScreen)) {
+
+.ui.steps {
+  overflow: visible;
+}
+.ui.steps .step {
+  display: block;
+  border-radius: @borderRadius;
+  padding: @verticalPadding @horizontalPadding;
+}
+.ui.steps .step:first-child {
+  padding: @verticalPadding @horizontalPadding;
+  border-radius: @stepsBorderRadius @stepsBorderRadius 0em 0em;
+}
+.ui.steps .step:last-child {
+  border-radius: 0em 0em @stepsBorderRadius @stepsBorderRadius;
+}
+
+/* Arrow */
+.ui.steps .step:after {
+  display: none;
+}
+
+}
+
+/*******************************
+             States
+*******************************/
+
+/* Link Hover */
+.ui.steps .link.step:hover::after,
+.ui.steps .link.step:hover,
+.ui.steps a.step:hover::after,
+.ui.steps a.step:hover {
+  background: @hoverBackground;
+  color: @hoverColor;
+}
+
+/* Link Down */
+.ui.steps .link.step:active::after,
+.ui.steps .link.step:active,
+.ui.steps a.step:active::after,
+.ui.steps a.step:active {
+  background: @downBackground;
+  color: @downColor;
+}
+
+/* Active */
+.ui.steps .step.active {
+  cursor: auto;
+  background: @activeBackground;
+}
+.ui.steps .step.active:after {
+  background: @activeBackground;
+}
+.ui.steps .step.active .title {
+  color: @activeColor;
+}
+.ui.ordered.steps .step.active:before,
+.ui.steps .active.step .icon {
+  color: @activeIconColor;
+}
+
+/* Active Hover */
+.ui.steps .link.active.step:hover::after,
+.ui.steps .link.active.step:hover,
+.ui.steps a.active.step:hover::after,
+.ui.steps a.active.step:hover {
+  cursor: pointer;
+  background: @activeHoverBackground;
+  color: @activeHoverColor;
+}
+
+/* Completed */
+.ui.steps .step.completed > .icon:before,
+.ui.ordered.steps .step.completed:before {
+  color: @completedColor;
+}
+
+/* Disabled */
+.ui.steps .disabled.step {
+  cursor: auto;
+  background: @disabledBackground;
+  pointer-events: none;
+}
+.ui.steps .disabled.step,
+.ui.steps .disabled.step .title,
+.ui.steps .disabled.step .description {
+  color: @disabledColor;
+}
+.ui.steps .disabled.step:after {
+  background: @disabledBackground;
+}
+
+
+/*******************************
+           Variations
+*******************************/
+
+
+/*--------------
+   Stackable
+---------------*/
+
+
+/* Tablet Or Below */
+@media only screen and (max-width: @computerBreakpoint) {
+
+  .ui[class*="tablet stackable"].steps {
+    overflow: visible;
+    flex-direction: column;
+  }
+  .ui[class*="tablet stackable"].steps .step {
+    border-radius: @borderRadius;
+    padding: @verticalPadding @horizontalPadding;
+  }
+  .ui[class*="tablet stackable"].steps .step:first-child {
+    padding: @verticalPadding @horizontalPadding;
+    border-radius: @stepsBorderRadius @stepsBorderRadius 0em 0em;
+  }
+  .ui[class*="tablet stackable"].steps .step:last-child {
+    border-radius: 0em 0em @stepsBorderRadius @stepsBorderRadius;
+  }
+  /* Arrow */
+  .ui[class*="tablet stackable"].steps .step:after {
+    display: none;
+  }
+
+}
+
+
+/*--------------
+      Fluid
+---------------*/
+
+/* Fluid */
+.ui.fluid.steps {
+  display: flex;
+  width: 100%;
+}
+
+/*--------------
+    Attached
+---------------*/
+
+/* Top */
+.attached.ui.steps {
+  margin: @attachedTopMargin;
+  border-radius: @stepsBorderRadius @stepsBorderRadius 0em 0em;
+}
+.attached.ui.steps .step:first-child {
+  border-radius: @stepsBorderRadius 0em 0em 0em;
+}
+.attached.ui.steps .step:last-child {
+  border-radius: 0em @stepsBorderRadius 0em 0em;
+}
+
+/* Bottom */
+.bottom.attached.ui.steps {
+  margin: @attachedBottomMargin;
+  border-radius: 0em 0em @stepsBorderRadius @stepsBorderRadius;
+}
+.bottom.attached.ui.steps .step:first-child {
+  border-radius: 0em 0em 0em @stepsBorderRadius;
+}
+.bottom.attached.ui.steps .step:last-child {
+  border-radius: 0em 0em @stepsBorderRadius 0em;
+}
+
+/*-------------------
+    Evenly Divided
+--------------------*/
+
+.ui.one.steps,
+.ui.two.steps,
+.ui.three.steps,
+.ui.four.steps,
+.ui.five.steps,
+.ui.six.steps,
+.ui.seven.steps,
+.ui.eight.steps {
+  width: 100%;
+}
+.ui.one.steps > .step,
+.ui.two.steps > .step,
+.ui.three.steps > .step,
+.ui.four.steps > .step,
+.ui.five.steps > .step,
+.ui.six.steps > .step,
+.ui.seven.steps > .step,
+.ui.eight.steps > .step {
+  flex-wrap: nowrap;
+}
+.ui.one.steps > .step {
+  width: 100%;
+}
+.ui.two.steps > .step {
+  width: 50%;
+}
+.ui.three.steps > .step {
+  width: 33.333%;
+}
+.ui.four.steps > .step {
+  width: 25%;
+}
+.ui.five.steps > .step {
+  width: 20%;
+}
+.ui.six.steps > .step {
+  width: 16.666%;
+}
+.ui.seven.steps > .step {
+  width: 14.285%;
+}
+.ui.eight.steps > .step {
+  width: 12.500%;
+}
+
+/*-------------------
+       Sizes
+--------------------*/
+
+
+.ui.small.step,
+.ui.small.steps .step {
+  font-size: @small;
+}
+.ui.step,
+.ui.steps .step {
+  font-size: @medium;
+}
+.ui.large.step,
+.ui.large.steps .step {
+  font-size: @large;
+}
+
+.loadUIOverrides();

@@ -1,0 +1,650 @@
+/*!
+ * # Semantic UI - Header
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Copyright 2014 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+
+/*******************************
+            Theme
+*******************************/
+
+@type    : 'element';
+@element : 'header';
+
+@import (multiple) '../../theme.config';
+
+
+/*******************************
+            Header
+*******************************/
+
+/* Standard */
+.ui.header {
+  border: none;
+  margin: @margin;
+  padding: @verticalPadding @horizontalPadding;
+  font-family: @fontFamily;
+  font-weight: @fontWeight;
+  line-height: @lineHeight;
+  text-transform: @textTransform;
+  color: @textColor;
+}
+
+.ui.header:first-child {
+  margin-top: @firstMargin;
+}
+.ui.header:last-child {
+  margin-bottom: @lastMargin;
+}
+
+/*--------------
+   Sub Header
+---------------*/
+
+.ui.header .sub.header {
+  font-weight: normal;
+  padding: 0em;
+  margin: @subHeaderMargin;
+  font-size: @subHeaderFontSize;
+  line-height: @subHeaderLineHeight;
+  color: @subHeaderColor;
+}
+
+/*--------------
+      Icon
+---------------*/
+
+.ui.header > .icon {
+  display: table-cell;
+  opacity: @iconOpacity;
+  font-size: @iconSize;
+  padding-top: @iconOffset;
+  vertical-align: @iconAlignment;
+}
+
+/* With Text Node */
+.ui.header .icon:only-child {
+  display: inline-block;
+  padding: 0em;
+  margin-right: @iconMargin;
+}
+
+/*-------------------
+        Image
+--------------------*/
+
+.ui.header > .image,
+.ui.header > img {
+  display: inline-block;
+  margin-top: @imageOffset;
+  width: @imageWidth;
+  height: @imageHeight;
+  vertical-align: @imageAlignment;
+}
+.ui.header > .image:only-child,
+.ui.header > img:only-child {
+  margin-right: @imageMargin;
+}
+
+/*--------------
+     Content
+---------------*/
+
+.ui.header .content {
+  display: inline-block;
+  vertical-align: @contentAlignment;
+}
+
+/* After Image */
+.ui.header > img + .content,
+.ui.header > .image + .content {
+  padding-left: @imageMargin;
+  vertical-align: @contentImageAlignment;
+}
+
+/* After Icon */
+.ui.header > .icon + .content {
+  padding-left: @iconMargin;
+  display: table-cell;
+  vertical-align: @contentIconAlignment;
+}
+
+
+/*--------------
+ Loose Coupling
+---------------*/
+
+.ui.header .ui.label {
+  font-size: @labelSize;
+  margin-left: @labelDistance;
+  vertical-align: @labelVerticalAlign;
+}
+
+/* Positioning */
+.ui.header + p {
+  margin-top: @nextParagraphDistance;
+}
+
+
+
+/*******************************
+            Types
+*******************************/
+
+
+/*--------------
+     Page
+---------------*/
+
+h1.ui.header {
+  font-size: @h1;
+}
+h2.ui.header {
+  font-size: @h2;
+}
+h3.ui.header {
+  font-size: @h3;
+}
+h4.ui.header {
+  font-size: @h4;
+}
+h5.ui.header {
+  font-size: @h5;
+}
+
+
+/* Sub Header */
+h1.ui.header .sub.header {
+  font-size: @h1SubHeaderFontSize;
+}
+h2.ui.header .sub.header {
+  font-size: @h2SubHeaderFontSize;
+}
+h3.ui.header .sub.header {
+  font-size: @h3SubHeaderFontSize;
+}
+h4.ui.header .sub.header {
+  font-size: @h4SubHeaderFontSize;
+}
+h5.ui.header .sub.header {
+  font-size: @h5SubHeaderFontSize;
+}
+
+
+/*--------------
+ Content Heading
+---------------*/
+
+.ui.huge.header {
+  min-height: 1em;
+  font-size: @huge;
+}
+.ui.large.header {
+  font-size: @large;
+}
+.ui.medium.header {
+  font-size: @medium;
+}
+.ui.small.header {
+  font-size: @small;
+}
+.ui.tiny.header {
+  font-size: @tiny;
+}
+
+/* Sub Header */
+.ui.huge.header .sub.header {
+  font-size: @hugeSubHeaderFontSize;
+}
+.ui.large.header .sub.header {
+  font-size: @hugeSubHeaderFontSize;
+}
+.ui.header .sub.header {
+  font-size: @subHeaderFontSize;
+}
+.ui.small.header .sub.header {
+  font-size: @smallSubHeaderFontSize;
+}
+.ui.tiny.header .sub.header {
+  font-size: @tinySubHeaderFontSize;
+}
+
+/*--------------
+   Sub Heading
+---------------*/
+
+.ui.sub.header {
+  padding: 0em;
+  margin: @subHeadingMargin;
+  font-weight: @subHeadingFontWeight;
+  font-size: @subHeadingFontSize;
+  text-transform: @subHeadingTextTransform;
+  color: @subHeadingColor;
+}
+
+.ui.small.sub.header {
+  font-size: @smallSubHeadingSize;
+}
+.ui.sub.header {
+  font-size: @subHeadingFontSize;
+}
+.ui.large.sub.header {
+  font-size: @largeSubHeadingSize;
+}
+.ui.huge.sub.header {
+  font-size: @hugeSubHeadingSize;
+}
+
+
+
+/*-------------------
+        Icon
+--------------------*/
+
+.ui.icon.header {
+  display: inline-block;
+  text-align: center;
+  margin: @iconHeaderTopMargin 0em @iconHeaderBottomMargin;
+}
+.ui.icon.header:after {
+  content: '';
+  display: block;
+  height: 0px;
+  clear: both;
+  visibility: hidden;
+}
+
+.ui.icon.header:first-child {
+  margin-top: @iconHeaderFirstMargin;
+}
+.ui.icon.header .icon {
+  float: none;
+  display: block;
+  width: auto;
+  height: auto;
+  padding: 0em;
+  font-size: @iconHeaderSize;
+  margin: 0em auto @iconHeaderMargin;
+  opacity: @iconHeaderOpacity;
+}
+.ui.icon.header .content {
+  display: block;
+}
+.ui.icon.header .circular.icon {
+  font-size: @circularHeaderIconSize;
+}
+.ui.icon.header .square.icon {
+  font-size: @squareHeaderIconSize;
+}
+.ui.block.icon.header .icon {
+  margin-bottom: 0em;
+}
+.ui.icon.header.aligned {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+/*******************************
+            States
+*******************************/
+
+.ui.disabled.header {
+  opacity: @disabledOpacity;
+}
+
+
+/*******************************
+           Variations
+*******************************/
+
+
+/*-------------------
+       Colors
+--------------------*/
+
+.ui.black.header {
+  color: @black !important;
+}
+a.ui.black.header:hover {
+  color: @blackHover !important;
+}
+
+.ui.blue.header {
+  color: @blue !important;
+}
+a.ui.blue.header:hover {
+  color: @blueHover !important;
+}
+
+.ui.green.header {
+  color: @green !important;
+}
+a.ui.green.header:hover {
+  color: @greenHover !important;
+}
+
+.ui.orange.header {
+  color: @orange !important;
+}
+a.ui.orange.header:hover {
+  color: @orangeHover !important;
+}
+
+.ui.pink.header {
+  color: @pink !important;
+}
+a.ui.pink.header:hover {
+  color: @pinkHover !important;
+}
+
+.ui.purple.header {
+  color: @purple !important;
+}
+a.ui.purple.header:hover {
+  color: @purpleHover !important;
+}
+
+.ui.red.header {
+  color: @red !important;
+}
+a.ui.red.header:hover {
+  color: @redHover !important;
+}
+
+.ui.teal.header {
+  color: @teal !important;
+}
+a.ui.teal.header:hover {
+  color: @tealHover !important;
+}
+
+.ui.yellow.header {
+  color: @yellow !important;
+}
+a.ui.yellow.header:hover {
+  color: @yellowHover !important;
+}
+
+.ui.black.dividing.header {
+  border-bottom: @dividedColoredBorderWidth solid @blackDividedBorderColor;
+}
+.ui.blue.dividing.header {
+  border-bottom: @dividedColoredBorderWidth solid @blueDividedBorderColor;
+}
+.ui.green.dividing.header {
+  border-bottom: @dividedColoredBorderWidth solid @greenDividedBorderColor;
+}
+.ui.orange.dividing.header {
+  border-bottom: @dividedColoredBorderWidth solid @orangeDividedBorderColor;
+}
+.ui.pink.dividing.header {
+  border-bottom: @dividedColoredBorderWidth solid @pinkDividedBorderColor;
+}
+.ui.purple.dividing.header {
+  border-bottom: @dividedColoredBorderWidth solid @purpleDividedBorderColor;
+}
+.ui.red.dividing.header {
+  border-bottom: @dividedColoredBorderWidth solid @redDividedBorderColor;
+}
+.ui.teal.dividing.header {
+  border-bottom: @dividedColoredBorderWidth solid @tealDividedBorderColor;
+}
+.ui.yellow.dividing.header {
+  border-bottom: @dividedColoredBorderWidth solid @yellowDividedBorderColor;
+}
+
+/*-------------------
+      Inverted
+--------------------*/
+
+.ui.inverted.header {
+  color: @invertedColor;
+}
+.ui.inverted.header .sub.header {
+  color: @invertedSubHeaderColor;
+}
+.ui.inverted.attached.header {
+  background: @invertedAttachedBackground;
+  box-shadow: none;
+  border-color: transparent;
+}
+.ui.inverted.block.header {
+  background: @invertedBlockBackground;
+  box-shadow: none;
+}
+
+
+/*-------------------
+   Inverted Colors
+--------------------*/
+
+.ui.inverted.black.header {
+  color: @darkGrey !important;
+}
+a.ui.inverted.black.header:hover {
+  color: @darkGreyHover !important;
+}
+
+.ui.inverted.blue.header {
+  color: @lightBlue !important;
+}
+a.ui.inverted.blue.header:hover {
+  color: @lightBlueHover !important;
+}
+
+.ui.inverted.green.header {
+  color: @lightGreen !important;
+}
+a.ui.inverted.green.header:hover {
+  color: @lightGreenHover !important;
+}
+
+.ui.inverted.orange.header {
+  color: @lightOrange !important;
+}
+a.ui.inverted.orange.header:hover {
+  color: @lightOrangeHover !important;
+}
+
+.ui.inverted.pink.header {
+  color: @lightPink !important;
+}
+a.ui.inverted.pink.header:hover {
+  color: @lightPinkHover !important;
+}
+
+.ui.inverted.purple.header {
+  color: @lightPurple !important;
+}
+a.ui.inverted.purple.header:hover {
+  color: @lightPurpleHover !important;
+}
+
+.ui.inverted.red.header {
+  color: @lightRed !important;
+}
+a.ui.inverted.red.header:hover {
+  color: @lightRedHover !important;
+}
+
+.ui.inverted.teal.header {
+  color: @lightTeal !important;
+}
+a.ui.inverted.teal.header:hover {
+  color: @lightTealHover !important;
+}
+
+.ui.inverted.yellow.header {
+  color: @lightYellow !important;
+}
+a.ui.inverted.yellow.header:hover {
+  color: @lightYellowHover !important;
+}
+
+.ui.inverted.block.header {
+  border-bottom: none;
+}
+
+/*-------------------
+       Aligned
+--------------------*/
+
+.ui.left.aligned.header {
+  text-align: left;
+}
+.ui.right.aligned.header {
+  text-align: right;
+}
+.ui.centered.header,
+.ui.center.aligned.header {
+  text-align: center;
+}
+.ui.justified.header {
+  text-align: justify;
+}
+.ui.justified.header:after {
+  display: inline-block;
+  content: '';
+  width: 100%;
+}
+
+/*-------------------
+       Floated
+--------------------*/
+
+.ui.floated.header,
+.ui[class*="left floated"].header {
+  float: left;
+  margin-top: 0em;
+  margin-right: @floatedMargin;
+}
+.ui[class*="right floated"].header {
+  float: right;
+  margin-top: 0em;
+  margin-left: @floatedMargin;
+}
+
+/*-------------------
+       Fittted
+--------------------*/
+
+.ui.fitted.header {
+  padding: 0em;
+}
+
+
+/*-------------------
+      Dividing
+--------------------*/
+
+.ui.dividing.header {
+  padding-bottom: @dividedBorderPadding;
+  border-bottom: @dividedBorder;
+}
+.ui.dividing.header .sub.header {
+  padding-bottom: @dividedSubHeaderPadding;
+}
+.ui.dividing.header .icon {
+  margin-bottom: @dividedIconPadding;
+}
+
+.ui.inverted.dividing.header {
+  border-bottom-color: @invertedDividedBorderColor;
+}
+
+
+/*-------------------
+        Block
+--------------------*/
+
+.ui.block.header {
+  background: @blockBackground;
+  padding: @blockVerticalPadding @blockHorizontalPadding;
+  box-shadow: @blockBoxShadow;
+  border: @blockBorder;
+  border-radius: @blockBorderRadius;
+}
+
+.ui.tiny.block.header {
+  font-size: @tinyBlock;
+}
+.ui.small.block.header {
+  font-size: @smallBlock;
+}
+.ui.block.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+  font-size: @mediumBlock;
+}
+.ui.large.block.header {
+  font-size: @largeBlock;
+}
+.ui.huge.block.header {
+  font-size: @hugeBlock;
+}
+
+/*-------------------
+       Attached
+--------------------*/
+
+.ui.attached.header {
+  background: @attachedBackground;
+  padding: @attachedVerticalPadding @attachedHorizontalPadding;
+  margin-left: @attachedOffset;
+  margin-right: @attachedOffset;
+  box-shadow: @attachedBoxShadow;
+  border: @attachedBorder;
+}
+.ui.attached.block.header {
+  background: @blockBackground;
+}
+
+.ui.attached:not(.top):not(.bottom).header {
+  margin-top: 0em;
+  margin-bottom: 0em;
+  border-top: none;
+  border-bottom: none;
+  border-radius: 0em;
+}
+.ui.top.attached.header {
+  margin-bottom: 0em;
+  border-bottom: none;
+  border-radius: @attachedBorderRadius @attachedBorderRadius 0em 0em;
+}
+.ui.bottom.attached.header {
+  margin-top: 0em;
+  border-top: none;
+  border-radius: 0em 0em @attachedBorderRadius @attachedBorderRadius;
+}
+
+/* Attached Sizes */
+.ui.tiny.attached.header {
+  font-size: @tinyAttached;
+}
+.ui.small.attached.header {
+  font-size: @smallAttached;
+}
+.ui.attached.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+  font-size: @mediumAttached;
+}
+.ui.large.attached.header {
+  font-size: @largeAttached;
+}
+.ui.huge.attached.header {
+  font-size: @hugeAttached;
+}
+
+/*-------------------
+        Sizing
+--------------------*/
+
+.ui.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+  font-size: @medium;
+}
+
+.loadUIOverrides();

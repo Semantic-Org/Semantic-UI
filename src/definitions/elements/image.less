@@ -1,0 +1,323 @@
+/*!
+ * # Semantic UI - Image
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Copyright 2014 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+
+/*******************************
+            Theme
+*******************************/
+
+@type    : 'element';
+@element : 'image';
+
+@import (multiple) '../../theme.config';
+
+/*******************************
+             Image
+*******************************/
+
+.ui.image {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 100%;
+  background-color: @placeholderColor;
+}
+
+img.ui.image {
+  display: block;
+}
+
+.ui.image svg,
+.ui.image img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+
+/*******************************
+            States
+*******************************/
+
+.ui.hidden.images,
+.ui.hidden.image {
+  display: none;
+}
+
+
+.ui.disabled.images,
+.ui.disabled.image {
+  cursor: default;
+  opacity: @disabledOpacity;
+}
+
+
+/*******************************
+          Variations
+*******************************/
+
+
+/*--------------
+     Inline
+---------------*/
+
+.ui.inline.image,
+.ui.inline.image svg,
+.ui.inline.image img {
+  display: inline-block;
+}
+
+/*------------------
+  Vertical Aligned
+-------------------*/
+
+.ui.top.aligned.images .image,
+.ui.top.aligned.image,
+.ui.top.aligned.image svg,
+.ui.top.aligned.image img {
+  display: inline-block;
+  vertical-align: top;
+}
+.ui.middle.aligned.images .image,
+.ui.middle.aligned.image,
+.ui.middle.aligned.image svg,
+.ui.middle.aligned.image img {
+  display: inline-block;
+  vertical-align: middle;
+}
+.ui.bottom.aligned.images .image,
+.ui.bottom.aligned.image,
+.ui.bottom.aligned.image svg,
+.ui.bottom.aligned.image img {
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+/*--------------
+     Rounded
+---------------*/
+
+.ui.rounded.images .image,
+.ui.rounded.images img,
+.ui.rounded.images svg,
+.ui.rounded.image img,
+.ui.rounded.image svg,
+.ui.rounded.image {
+  border-radius: @roundedBorderRadius;
+}
+
+/*--------------
+    Bordered
+---------------*/
+
+.ui.bordered.images .image,
+.ui.bordered.images img,
+.ui.bordered.images svg,
+.ui.bordered.image img,
+.ui.bordered.image svg,
+img.ui.bordered.image {
+  border: @imageBorder;
+}
+
+/*--------------
+    Circular
+---------------*/
+
+.ui.circular.images,
+.ui.circular.image {
+  overflow: hidden;
+}
+
+.ui.circular.images .image,
+.ui.circular.images img,
+.ui.circular.images svg,
+.ui.circular.image img,
+.ui.circular.image svg,
+.ui.circular.image {
+  -webkit-border-radius: @circularRadius;
+  -moz-border-radius: @circularRadius;
+  border-radius: @circularRadius;
+}
+
+/*--------------
+     Fluid
+---------------*/
+
+.ui.fluid.images,
+.ui.fluid.image,
+.ui.fluid.images img,
+.ui.fluid.images svg,
+.ui.fluid.image svg,
+.ui.fluid.image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+/*--------------
+     Avatar
+---------------*/
+
+.ui.avatar.images .image,
+.ui.avatar.images img,
+.ui.avatar.images svg,
+.ui.avatar.image img,
+.ui.avatar.image svg,
+.ui.avatar.image {
+  margin-right: @avatarMargin;
+
+  display: inline-block;
+  width: @avatarSize;
+  height: @avatarSize;
+
+  -webkit-border-radius: @circularRadius;
+  -moz-border-radius: @circularRadius;
+  border-radius: @circularRadius;
+}
+
+/*-------------------
+       Spaced
+--------------------*/
+
+.ui.spaced.image {
+  display: inline-block !important;
+  margin-left: @spacedDistance;
+  margin-right: @spacedDistance;
+}
+
+.ui[class*="left spaced"].image {
+  margin-left: @spacedDistance;
+  margin-right: 0em;
+}
+
+.ui[class*="right spaced"].image {
+  margin-left: 0em;
+  margin-right: @spacedDistance;
+}
+
+/*-------------------
+       Floated
+--------------------*/
+
+.ui.floated.image,
+.ui.floated.images {
+  float: left;
+  margin-right: @floatedHorizontalMargin;
+  margin-bottom: @floatedVerticalMargin;
+}
+.ui.right.floated.images,
+.ui.right.floated.image {
+  float: right;
+  margin-right: 0em;
+  margin-bottom: @floatedVerticalMargin;
+  margin-left: @floatedHorizontalMargin;
+}
+
+.ui.floated.images:last-child,
+.ui.floated.image:last-child {
+  margin-bottom: 0em;
+}
+
+
+.ui.centered.images,
+.ui.centered.image {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*--------------
+     Sizes
+---------------*/
+
+.ui.mini.images .image,
+.ui.mini.images img,
+.ui.mini.images svg,
+.ui.mini.image {
+  width: @miniWidth;
+  height: auto;
+  font-size: @mini;
+}
+.ui.tiny.images .image,
+.ui.tiny.images img,
+.ui.tiny.images svg,
+.ui.tiny.image {
+  width: @tinyWidth;
+  height: auto;
+  font-size: @tiny;
+}
+.ui.small.images .image,
+.ui.small.images img,
+.ui.small.images svg,
+.ui.small.image {
+  width: @smallWidth;
+  height: auto;
+  font-size: @small;
+}
+.ui.medium.images .image,
+.ui.medium.images img,
+.ui.medium.images svg,
+.ui.medium.image {
+  width: @mediumWidth;
+  height: auto;
+  font-size: @medium;
+}
+.ui.large.images .image,
+.ui.large.images img,
+.ui.large.images svg,
+.ui.large.image {
+  width: @largeWidth;
+  height: auto;
+  font-size: @large;
+}
+.ui.big.images .image,
+.ui.big.images img,
+.ui.big.images svg,
+.ui.big.image {
+  width: @bigWidth;
+  height: auto;
+  font-size: @big;
+}
+.ui.huge.images .image,
+.ui.huge.images img,
+.ui.huge.images svg,
+.ui.huge.image {
+  width: @hugeWidth;
+  height: auto;
+  font-size: @huge;
+}
+.ui.massive.images .image,
+.ui.massive.images img,
+.ui.massive.images svg,
+.ui.massive.image {
+  width: @massiveWidth;
+  height: auto;
+  font-size: @massive;
+}
+
+
+/*******************************
+              Groups
+*******************************/
+
+.ui.images {
+  font-size: 0em;
+  margin: 0em -@imageHorizontalMargin 0rem;
+}
+
+.ui.images .image,
+.ui.images img,
+.ui.images svg {
+  display: inline-block;
+  margin: 0em @imageHorizontalMargin @imageVerticalMargin;
+}
+
+.loadUIOverrides();

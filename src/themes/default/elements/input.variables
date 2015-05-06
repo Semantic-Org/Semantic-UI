@@ -1,0 +1,109 @@
+/*******************************
+            Input
+*******************************/
+
+/*-------------------
+      Element
+--------------------*/
+
+@inputFont: @pageFont;
+@verticalPadding: 0.78571em;
+@horizontalPadding: 1em;
+
+@lineHeight: @defaultInputLineHeight;
+@lineHeightOffset: ((@lineHeight - 1em) / 2);
+
+@padding: (@verticalPadding - @lineHeightOffset) @horizontalPadding;
+
+@textAlign: left;
+@background: #FFFFFF;
+@borderWidth: 1px;
+@border: @borderWidth solid @borderColor;
+@boxShadow: none;
+
+@borderRadius: @defaultBorderRadius;
+@transition:
+  background-color @transitionDuration @transitionEasing,
+  box-shadow @transitionDuration @transitionEasing,
+  border-color @transitionDuration @transitionEasing
+;
+
+@inputColor: @textColor;
+
+/*-------------------
+        Types
+--------------------*/
+
+/* Icon Input */
+@glyphWidth: 1.25em;
+
+@iconWidth: (@verticalPadding * 2) + @glyphWidth;
+@iconOpacity: 0.5;
+@iconFocusOpacity: 1;
+@iconOffset: -0.5em;
+
+@iconDistance: 0em;
+@iconMargin: @iconWidth + @iconDistance;
+@iconTransition: opacity 0.3s @defaultEasing;
+
+@transparentIconWidth: @glyphWidth;
+@transparentIconMargin: 2em;
+
+/* Circular Icon Input */
+@circularIconVerticalOffset: 0.35em;
+@circularIconHorizontalOffset: 0.5em;
+
+/* Labeled Input */
+@labelCornerTop: @borderWidth;
+@labelCornerRight: @borderWidth;
+@labelCornerSize: 0.64285em;
+@labelSize: 1em;
+@labelVerticalPadding: (@verticalPadding - @lineHeightOffset);
+
+@labeledMargin: 2.5em;
+@labeledIconInputMargin: 3.25em;
+@labeledIconMargin: 1.25em;
+
+/*-------------------
+        States
+--------------------*/
+
+/* Placeholder */
+@placeholderColor: @unselectedTextColor;
+@placeholderFocusColor: @textColor;
+
+@placeholderErrorColor: rgba(255, 80, 80, 0.4);
+@placeholderErrorFocusColor: rgba(255, 80, 80, 0.7);
+
+/* Down */
+@downBorderColor: rgba(0, 0, 0, 0.3);
+@downBackground: #FAFAFA;
+@downColor: @textColor;
+@downBoxShadow: none;
+
+/* Focus */
+@focusBorderColor: @selectedBorderColor;
+@focusBackground: @background;
+@focusColor: @hoveredTextColor;
+@focusBoxShadow: none;
+
+/* Error */
+@errorBackground: @negativeBackgroundColor;
+@errorBorder: @negativeBorderColor;
+@errorColor: @negativeColor;
+@errorBoxShadow: none;
+
+/* Loader */
+@loaderSize: 1.2857em;
+@loaderOffset: -(@loaderSize / 2);
+@loaderMargin: @loaderOffset 0em 0em @loaderOffset;
+@invertedLoaderFillColor: rgba(0, 0, 0, 0.15);
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Inverted */
+@transparentInvertedPlaceholderColor: @invertedUnselectedTextColor;
+@transparentInvertedColor: @white;
+

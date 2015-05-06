@@ -17,7 +17,7 @@ module.exports = function(config) {
       // read css from compiled css
       'docs/build/uncompressed/**/*.css',
       // read js from src js
-      'src/**/*.js',
+      'src/definitions/**/*.js',
       // require helpers
       'test/helpers/*.js',
       // require fixtures
@@ -39,12 +39,17 @@ module.exports = function(config) {
     ],
 
     preprocessors: {
-      '**/*.html': []
+      '**/*.html': [],
+      'src/definitions/**/*.js': 'coverage'
     },
 
     // test results reporter to use
     // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
-    reporters: ['spec'],
+    reporters: ['spec', 'coverage'],
+
+    coverageReporter: {
+      type: 'lcov'
+    },
 
     // web server port
     port: 9999,

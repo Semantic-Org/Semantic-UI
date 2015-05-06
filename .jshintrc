@@ -1,0 +1,38 @@
+{
+
+  "globals":  {
+    "$"                     : true,
+    "afterEach"             : true,
+    "AnimatedPNG"           : true,
+    "beforeEach"            : true,
+    "console"               : true,
+    "describe"              : true,
+    "expect"                : true,
+    "it"                    : true,
+    "jQuery"                : true,
+    "loadFixtures"          : true,
+    "module"                : true,
+    "requestAnimationFrame" : true,
+    "require"               : true,
+    "semantic"              : true
+  },
+
+  "debug"    : false,
+  "devel"    : true,
+
+  "browser"  : true,
+  "curly"    : true,
+  "immed"    : true,
+  "latedef"  : true,
+  "loopfunc" : true,
+  "noarg"    : true,
+  "undef"    : true,
+  "sub"      : true,
+  "loopfunc" : true,
+
+  "laxbreak" : true,
+  "evil"     : true,
+  "indent"   : false,
+  "trailing" : false
+
+}

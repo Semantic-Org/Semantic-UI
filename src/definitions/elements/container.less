@@ -1,0 +1,106 @@
+/*!
+ * # Semantic UI - Container
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Copyright 2014 Contributorss
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+/*******************************
+            Theme
+*******************************/
+
+@type    : 'element';
+@element : 'container';
+
+@import (multiple) '../../theme.config';
+
+& {
+
+/*******************************
+            Container
+*******************************/
+
+
+.ui.container {
+  display: block;
+  max-width: @maxWidth !important;
+}
+
+@media only screen and (max-width: @largestMobileScreen) {
+  .ui.container {
+    width: @mobileWidth;
+    margin-left: @mobileGutter !important;
+    margin-right: @mobileGutter !important;
+  }
+  .ui.grid.container {
+    width: @mobileGridWidth !important;
+  }
+}
+@media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
+  .ui.container {
+    width: @tabletWidth;
+    margin-left: @tabletGutter !important;
+    margin-right: @tabletGutter !important;
+  }
+  .ui.grid.container {
+    width: @tabletGridWidth !important;
+  }
+}
+@media only screen and (min-width: @smallMonitorBreakpoint) and (max-width: @largeMonitorBreakpoint) {
+  .ui.container {
+    width: @smallMonitorWidth;
+    margin-left: @smallMonitorGutter !important;
+    margin-right: @smallMonitorGutter !important;
+  }
+  .ui.grid.container {
+    width: @smallMonitorGridWidth !important;
+  }
+}
+@media only screen and (min-width: @largeMonitorBreakpoint) {
+  .ui.container {
+    width: @largeMonitorWidth;
+    margin-left: @largeMonitorGutter !important;
+    margin-right: @largeMonitorGutter !important;
+  }
+  .ui.grid.container {
+    width: @largeMonitorGridWidth !important;
+  }
+}
+
+/*******************************
+             Types
+*******************************/
+
+
+.ui.text.container {
+  display: block;
+  font-family: @textFontFamily;
+  max-width: @textWidth !important;
+  line-height: @textLineHeight;
+}
+
+.ui.text.container {
+  font-size: @textSize;
+}
+
+
+/*******************************
+           Variations
+*******************************/
+
+.ui[class*="left aligned"].container {
+  text-align: left;
+}
+.ui[class*="center aligned"].container {
+  text-align: center;
+}
+.ui[class*="right aligned"].container {
+  text-align: right;
+}
+
+
+}

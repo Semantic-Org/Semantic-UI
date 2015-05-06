@@ -1,0 +1,331 @@
+/*!
+ * # Semantic UI 2.0.0 - Search
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Copyright 2014 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+
+/*******************************
+             Search
+*******************************/
+
+.ui.search {
+  position: relative;
+}
+.ui.search > .prompt {
+  margin: 0em;
+  outline: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  text-shadow: none;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1.2142em;
+  padding: 0.67861em 1em;
+  font-size: 1em;
+  background: #ffffff;
+  border: 1px solid rgba(34, 36, 38, 0.15);
+  color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0em 0em 0em 0em transparent inset;
+  -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+          transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.ui.search .prompt {
+  border-radius: 500rem;
+}
+
+/*--------------
+     Icon
+---------------*/
+
+.ui.search .prompt ~ .search.icon {
+  cursor: pointer;
+}
+
+/*--------------
+    Results
+---------------*/
+
+.ui.search > .results {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  background: #ffffff;
+  margin-top: 0.5em;
+  width: 18em;
+  border-radius: 0.2857rem;
+  box-shadow: 0px 1px 3px 1px rgba(34, 36, 38, 0.15);
+  z-index: 998;
+}
+
+/*--------------
+    Result
+---------------*/
+
+.ui.search > .results .result {
+  cursor: pointer;
+  display: block;
+  overflow: hidden;
+  font-size: 1em;
+  padding: 0.71428571em 1.14285714em;
+  color: rgba(0, 0, 0, 0.8);
+  line-height: 1.33;
+  border-bottom: 1px solid rgba(34, 36, 38, 0.1);
+}
+.ui.search > .results .result:last-child {
+  border-bottom: none;
+}
+
+/* Image */
+.ui.search > .results .result .image {
+  float: right;
+  overflow: hidden;
+  background: none;
+  width: 5em;
+  height: 3em;
+  border-radius: 0.25em;
+}
+.ui.search > .results .result .image img {
+  display: block;
+  width: auto;
+  height: 100%;
+}
+
+/*--------------
+      Info
+---------------*/
+
+.ui.search > .results .result .image + .content {
+  margin: 0em 6em 0em 0em;
+}
+.ui.search > .results .result .title {
+  margin: -0.165em 0em 0em;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 1em;
+  color: rgba(0, 0, 0, 0.85);
+}
+.ui.search > .results .result .description {
+  margin-top: 0;
+  font-size: 0.92857143em;
+  color: rgba(0, 0, 0, 0.4);
+}
+.ui.search > .results .result .price {
+  float: right;
+  color: #21ba45;
+}
+
+/*--------------
+    Message
+---------------*/
+
+.ui.search > .results > .message {
+  padding: 1em 1em;
+}
+.ui.search > .results > .message .header {
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.8);
+}
+.ui.search > .results > .message .description {
+  margin-top: 0.25rem;
+  font-size: 1em;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+/* View All Results */
+.ui.search > .results > .action {
+  display: block;
+  border-top: none;
+  background: #f0f0f0;
+  padding: 0.92857143em 1em;
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: bold;
+  text-align: center;
+}
+
+
+/*******************************
+            States
+*******************************/
+
+
+/*--------------------
+       Loading
+---------------------*/
+
+.ui.loading.search .input > .icon:before {
+  position: absolute;
+  content: '';
+  top: 50%;
+  left: 50%;
+  margin: -0.64285em 0em 0em -0.64285em;
+  width: 1.2857em;
+  height: 1.2857em;
+  border-radius: 500rem;
+  border: 0.2em solid rgba(0, 0, 0, 0.1);
+}
+.ui.loading.search .input > .icon:after {
+  position: absolute;
+  content: '';
+  top: 50%;
+  left: 50%;
+  margin: -0.64285em 0em 0em -0.64285em;
+  width: 1.2857em;
+  height: 1.2857em;
+  -webkit-animation: button-spin 0.6s linear;
+          animation: button-spin 0.6s linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  border-radius: 500rem;
+  border-color: #aaaaaa transparent transparent;
+  border-style: solid;
+  border-width: 0.2em;
+  box-shadow: 0px 0px 0px 1px transparent;
+}
+
+/*--------------
+      Hover
+---------------*/
+
+.ui.search > .results .result:hover,
+.ui.category.search > .results .category .result:hover {
+  background: #fafafa;
+}
+.ui.search .action:hover {
+  background: #e0e0e0;
+}
+
+/*--------------
+      Active
+---------------*/
+
+.ui.search > .results .category.active {
+  background: #f0f0f0;
+}
+.ui.search > .results .category.active > .name {
+  color: rgba(0, 0, 0, 0.8);
+}
+.ui.search > .results .result.active,
+.ui.category.search > .results .category .result.active {
+  position: relative;
+  border-left-color: transparent;
+  background: #f0f0f0;
+  box-shadow: none;
+}
+.ui.search > .results .result.active .title {
+  color: rgba(0, 0, 0, 0.85);
+}
+.ui.search > .results .result.active .description {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+
+/*******************************
+           Types
+*******************************/
+
+
+/*--------------
+    Categories
+---------------*/
+
+.ui.category.search .results {
+  width: 28em;
+}
+
+/* Category */
+.ui.category.search > .results .category {
+  background: #f0f0f0;
+  box-shadow: none;
+  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+  -webkit-transition: background 0.2s ease, border-color 0.2s ease;
+          transition: background 0.2s ease, border-color 0.2s ease;
+}
+.ui.category.search > .results .category:last-child {
+  border-bottom: none;
+}
+
+/* Category Result */
+.ui.category.search > .results .category .result {
+  background: #ffffff;
+  margin-left: 100px;
+  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-bottom: 1px solid rgba(34, 36, 38, 0.1);
+  -webkit-transition: background 0.2s ease, border-color 0.2s ease;
+          transition: background 0.2s ease, border-color 0.2s ease;
+  padding: 0.71428571em 1.14285714em;
+}
+.ui.category.search > .results .category .result:last-child {
+  border-bottom: none;
+}
+
+/* Category Result Name */
+.ui.category.search > .results .category > .name {
+  width: 100px;
+  background: #f0f0f0;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  float: 1em;
+  float: left;
+  padding: 0.4em 1em;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+
+/*******************************
+           Variations
+*******************************/
+
+
+/*-------------------
+     Left / Right
+--------------------*/
+
+.ui[class*="left aligned"].search > .results {
+  right: auto;
+  left: 0%;
+}
+.ui[class*="right aligned"].search > .results {
+  right: 0%;
+  left: auto;
+}
+
+/*--------------
+    Fluid
+---------------*/
+
+.ui.fluid.search .results {
+  width: 100%;
+}
+
+/*--------------
+      Sizes
+---------------*/
+
+.ui.search {
+  font-size: 1em;
+}
+.ui.large.search {
+  font-size: 1.1em;
+}
+
+
+/*******************************
+         Theme Overrides
+*******************************/
+
+
+
+/*******************************
+         Site Overrides
+*******************************/
+
