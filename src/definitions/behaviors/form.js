@@ -1144,6 +1144,9 @@ $.fn.form.settings = {
       else if($('[name="' + fieldIdentifier +'"]').length > 0) {
         matchingValue = $('[name="' + fieldIdentifier + '"]').val();
       }
+      else if( $('[name="' + identifier +'[]"]').length > 0 ) {
+        matchingValue = $('[name="' + identifier +'[]"]');
+      }
       return (matchingValue !== undefined)
         ? ( value.toString() !== matchingValue.toString() )
         : false
@@ -1165,6 +1168,9 @@ $.fn.form.settings = {
       }
       else if($('[name="' + fieldIdentifier +'"]').length > 0) {
         matchingValue = $('[name="' + fieldIdentifier + '"]').val();
+      }
+      else if( $('[name="' + identifier +'[]"]').length > 0 ) {
+        matchingValue = $('[name="' + identifier +'[]"]');
       }
       return (matchingValue !== undefined)
         ? ( value.toString() == matchingValue.toString() )
