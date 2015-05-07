@@ -59,7 +59,7 @@ module.exports = function(callback) {
   // check for right-to-left language
   if(config.rtl === true || config.rtl === 'Yes') {
     gulp.start('watch-rtl');
-    if(config.rtl != 'both') {
+    if(config.rtl !== 'both') {
       return;
     }
   }
