@@ -57,11 +57,14 @@
             </div>
           </div>
           <div class="twelve wide column">
+            <input type="range" style="width:100%" value="0" min="0" max="1000" id="timerange" />
+            <!-- load progress
             <div class="ui progress">
               <div class="bar">
                 <div class="progress"></div>
               </div>
             </div>
+            -->
           </div>
           <div class="two wide column">
             <div class="ui tiny statistic">
@@ -127,8 +130,9 @@ $(document)
     // seems to have a upper limit with some browsers : 5 with FF 37.0.2
       .videohtml('control playbackrate', $('#backward'), -4)
       // negative value seems to not be handled by some browsers : NS_ERROR_NOT_IMPLEMENTED with FF 37.0.2, no visible effect with Chrome 42.0.2311.135
-      .videohtml('control time current', $('#timecurrent'))
-      .videohtml('control time remaining', $('#timeremaining'))
+      .videohtml('control timeDisplay current', $('#timecurrent'))
+      .videohtml('control timeDisplay remaining', $('#timeremaining'))
+      .videohtml('control timeRange', $('#timerange'))
     ;
   })
 ;

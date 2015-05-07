@@ -135,7 +135,7 @@ $.fn.videohtml = function(parameters) {
               });
           },
         
-          time: {
+          timeDisplay: {
 
             current: function($el) {
               $module.on('timeupdate' + eventNamespace, function() {
@@ -156,10 +156,25 @@ $.fn.videohtml = function(parameters) {
                   utilStringPad(String(remaining.getMinutes()), 2, '0') + ':' + 
                   utilStringPad(String(remaining.getSeconds()), 2,'0');
                 $el.text(readable);
-              })
+              });
             }
-          
+
           },
+          
+          timeRange: function($range) {
+            $range = $($range);
+            // from UI to video
+            $range.on('change', function(event) {
+              var ratio = $range.val() / ($range.prop('max') - $range.prop('min'));
+              element.currentTime = element.duration * ratio;
+            });
+            // from video to UI
+            $module.on('timeupdate' + eventNamespace, function() {
+              var ratio = element.currentTime / element.duration;
+              var position = ratio * ($range.prop('max') - $range.prop('min'));
+              $range.val(position);
+            });
+          }
           
         }, // end of control
        
