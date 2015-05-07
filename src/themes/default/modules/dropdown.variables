@@ -79,7 +79,7 @@
 
 /* Menu Divider */
 @menuDividerMargin: 0.5em 0em 0em;
-@menuDividerColor: rgba(0, 0, 0, 0.05);
+@menuDividerColor: @internalBorderColor;
 @menuDividerSize: 1px;
 @menuDividerBorder: @menuDividerSize solid @menuDividerColor;
 
@@ -129,7 +129,7 @@
 @selectionPadding: @selectionVerticalPadding @selectionIconDistance @selectionVerticalPadding @selectionHorizontalPadding;
 @selectionZIndex: 10;
 
-@selectionItemDivider: 1px solid @darkWhite;
+@selectionItemDivider: 1px solid @solidInternalBorderColor;
 @selectionMessagePadding: @selectionItemPadding;
 
 /* <select> */
