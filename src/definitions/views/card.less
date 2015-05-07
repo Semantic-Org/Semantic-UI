@@ -125,13 +125,14 @@
   display: block;
   width: 100%;
   height: auto;
-  border-radius: @imageBorderRadius;
+  border-radius: inherit;
   border: @imageBorder;
 }
-
-.ui.cards > .card > .image:only-child > img,
-.ui.card > .image:only-child > img {
-  border-radius: @borderRadius;
+.ui.cards > .card > :first-child {
+  border-radius: @borderRadius @borderRadius 0em 0em;
+}
+.ui.cards > .card > :last-child {
+  border-radius: 0em 0em @borderRadius @borderRadius;
 }
 
 /*--------------

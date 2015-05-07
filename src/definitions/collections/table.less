@@ -469,9 +469,13 @@
    Hoverable
 ---------------*/
 
-.ui.selectable.table tr:hover {
+.ui.selectable.table tbody tr:hover {
   background: @selectableBackground !important;
   color: @selectableTextColor !important;
+}
+.ui.selectable.inverted.table tbody tr:hover {
+  background: @selectableInvertedBackground !important;
+  color: @selectableInvertedTextColor !important;
 }
 
 /* Other States */
@@ -551,6 +555,14 @@
   background-color: @invertedStripedBackground;
 }
 
+/*--------------
+   Single Line
+---------------*/
+
+.ui.table[class*="single line"],
+.ui.table [class*="single line"] {
+  white-space: nowrap;
+}
 
 /*-------------------
        Colors

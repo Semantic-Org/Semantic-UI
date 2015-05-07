@@ -43,7 +43,7 @@
 @headerAlign: inherit;
 @headerVerticalAlign: inherit;
 @headerColor: @textColor;
-@headerVerticalPadding: @cellVerticalPadding;
+@headerVerticalPadding: @relativeMedium;
 @headerHorizontalPadding: @cellHorizontalPadding;
 @headerFontStyle: none;
 @headerFontWeight: bold;
@@ -150,8 +150,11 @@
 @stripedBackground: rgba(0, 0, 50, 0.03);
 @invertedStripedBackground: rgba(255, 255, 255, 0.06);
 
-@selectableBackground: @subtleTransparentBlack;
+/* Selectable */
+@selectableBackground: @transparentBlack;
 @selectableTextColor: @selectedTextColor;
+@selectableInvertedBackground: @transparentWhite;
+@selectableInvertedTextColor: @invertedSelectedTextColor;
 
 /* Sortable */
 @sortableBackground: '';
