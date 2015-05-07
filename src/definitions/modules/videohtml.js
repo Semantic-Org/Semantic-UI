@@ -35,7 +35,12 @@ $.fn.videohtml = function(parameters) {
 
     returnedValue
   ;
-
+  
+  // see http://stackoverflow.com/questions/2686855/is-there-a-javascript-function-that-can-pad-a-string-to-get-to-a-determined-leng
+  function utilStringPad(string, width, padding) { 
+    return (width <= string.length) ? string : utilStringPad(width, padding + string, padding)
+  }
+  
   $allModules
     .each(function() {
       var
@@ -85,6 +90,7 @@ $.fn.videohtml = function(parameters) {
         
         
         control: {
+          
           playpause: function($playpause) {
             $playpause = $($playpause);
             // from UI to video
@@ -103,6 +109,7 @@ $.fn.videohtml = function(parameters) {
                 $playpause.removeClass('active')
               });
           },
+          
           // see https://developer.mozilla.org/fr/docs/Web/API/HTMLMediaElement#playbackRate
           // mode from 'switch', 'push'
           playbackrate: function($playbackrate, rate, mode) {
@@ -126,9 +133,36 @@ $.fn.videohtml = function(parameters) {
               .on('ratechange' + eventNamespace, function(event) {
                 console.log(element.playbackRate)
               });
-          }
-        },
+          },
         
+          time: {
+
+            current: function($el) {
+              $module.on('timeupdate' + eventNamespace, function() {
+                var current = new Date(element.currentTime * 1000);
+                var readable = 
+                  utilStringPad(String(current.getHours() - 1), 1, '0')+ ':' + 
+                  utilStringPad(String(current.getMinutes()), 2, '0') + ':' + 
+                  utilStringPad(String(current.getSeconds()), 2,'0');
+                $el.text(readable);
+              });
+            },
+          
+            remaining: function($el) {
+              $module.on('timeupdate' + eventNamespace, function() {
+                var remaining = new Date((element.duration - element.currentTime) * 1000);
+                var readable = 
+                  utilStringPad(String(remaining.getHours() - 1), 1, '0')+ ':' + 
+                  utilStringPad(String(remaining.getMinutes()), 2, '0') + ':' + 
+                  utilStringPad(String(remaining.getSeconds()), 2,'0');
+                $el.text(readable);
+              })
+            }
+          
+          },
+          
+        }, // end of control
+       
         destroy: function() {
           module.verbose('Destroying previous instance of videohtml');
           $video = null
