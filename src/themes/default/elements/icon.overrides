@@ -650,7 +650,7 @@ i.icon.log.out:before { content: "\f08b"; }
 i.icon.thumb.tack:before { content: "\f08d"; }
 i.icon.winner:before { content: "\f091"; }
 i.icon.bookmark.outline:before { content: "\f097"; }
-i.icon.phone.square:before { content: "\f098"; }
+i.icon.phone:before { content: "\f095"; }
 i.icon.phone.square:before { content: "\f098"; }
 i.icon.credit.card:before { content: "\f09d"; }
 i.icon.hdd.outline:before { content: "\f0a0"; }
