@@ -19,9 +19,11 @@
 - **Dimmer** - Dimmers now have a `blurring` variation which apply a glass-like effect when dimmed
 - **Popup** - Popups now  default as `exclusive: false` and will not hide other popups when opening
 - **Steps** - Steps can now be attached to other UI like `segment`
+- **Table** - Adds `selectable table` variation, which shows hover effect on row when hovering
 
 **Major Changes**
 - **API** - API can now be used with custom XHR backends. `mockResponse` can be used to resolve request with a local function that receives the same settings as the server. `mockResponseAsync` allows you to specify to  server response from a custom async callback.
+- **Card** - Cards now support multiple `content` blocks, and varied orders, for example content above or below an image or both
 - **Colors** - Global colors defaults have been adjusted to improve contrast with white text
 - **Dropdown** - Nested scrolling menus can now use keyboard selection and filter with inline search. Nested menu scroll position will automatically adjust with keyboard selection.
 - **Dropdowns** - Added ability to add custom choices to all search selection dropdowns (multi/single) using `allowAdditions: true` setting. Search now displays error messages on no results in all cases.
@@ -161,6 +163,7 @@
 - **Sticky** - Fix issue with sticky content scroll css transition causing element to scroll too slowly when cannot fit on screen.
 - **Sticky** - Fixed issue with sticky content animating width on display in some cases.
 - **Tab** - Tab name is no longer case sensitive
+- **Table** - Fixes `sorted` column are not correctly centered with `center aligned` due to margin on sort icon
 - **Table** - Fixes `ascending` and `descending` icons were reversed in table
 - **Table** - `very basic table` now works together with `padded table`
 - **Table** - Fix inheritance of text alignment and vertical alignment
@@ -170,6 +173,7 @@
 - **All Modules** - All modules now default to `verbose: false`
 - **Accordion** - Accordion no longer sets a `font-size` to better couple with other components defaults
 - **Button** - Button focus color now uses hoverColor background instead of blue box shadow
+- **Button** - `basic colored button` now grow their border size to 2px in default theme on hover
 - **Breadcrumb** - Increased `divider` spacing to add more whitespace
 - **Card** - Card styles have been adjusted, `link card` now raise to show selection. Colored variations now have shadows.
 - **Checkbox** - Toggle now uses `@primaryColor`
@@ -203,6 +207,7 @@
 - **Site** - Increase contrast on default hovered/down colors for colored variations
 - **Site** - Page background is now `#FFFFFF` by default instead of an offwhite `#F7F7F7`
 - **Site** - Adjusted global line height to the closest even pixel value
+- **Table** - Table header colors and padding defaults have been slightly adjusted
 - **Table** - Horizontal cell padding has been slightly reduced, and cell borders are slightly lighter.
 - **Transition - Transition no longer checks for vendor prefixed `animation-name` css property. This was introduced in jQuery `1.8`
 
