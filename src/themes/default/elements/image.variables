@@ -18,7 +18,7 @@
 --------------------*/
 
 /* Avatar */
-@avatarSize: 2.5em;
+@avatarSize: 2em;
 @avatarMargin: 0.25em;
 
 
