@@ -455,7 +455,8 @@ $.site.settings = {
     'transition',
     'video',
     'visit',
-    'visibility'
+    'visibility',
+    'htmlvideo'
   ],
 
   siteNamespace   : 'site',

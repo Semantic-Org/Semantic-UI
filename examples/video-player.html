@@ -37,17 +37,14 @@
         
         <div class="row">
           <div class="column">
-            <div class="ui labeled icon button">
-              <i class="pause icon"></i>
-              Play
+            <div class="ui icon button" id="playpause">
+              <i class="play icon"></i>
             </div>
-            <div class="ui right labeled icon button">
+            <div class="ui icon button">
               <i class="left arrow icon"></i>
-              Previous
             </div>
-            <div class="ui right labeled icon button">
+            <div class="ui icon button">
               <i class="right arrow icon"></i>
-              Next
             </div>
           </div>
         </div>
@@ -112,7 +109,8 @@
 <script>
 $(document)
   .ready(function() {
-    $('.ui.dropdown').dropdown();
+    $('video').videohtml('initialize')
+      .videohtml('control playpause', $('#playpause'));
   })
 ;
 </script>
