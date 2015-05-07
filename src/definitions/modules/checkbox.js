@@ -93,9 +93,9 @@ $.fn.checkbox = function(parameters) {
         },
 
         refresh: function() {
-          $module = $(this);
-          $label  = $(this).find(selector.label).first();
-          $input  = $(this).find(selector.input);
+          $module = $(element);
+          $label  = $(element).find(selector.label).first();
+          $input  = $(element).find(selector.input);
         },
 
         observeChanges: function() {
