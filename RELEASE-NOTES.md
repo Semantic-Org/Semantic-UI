@@ -183,6 +183,7 @@
 - **Grid** - Small computer `page grid` gutters have been adjusted from 8% to 3% to allow for roomier layouts on small screens.
 - **Grid** - `center aligned` no longer centers rows, just text. Use `centered grid` to center a grid column on the page.
 - **Header/Table/Divider** - These components now pull border color defaults from `site.variables` instead of using their own values
+- **Image** - `avatar image` size has been slightly decreased
 - **Image** - `mini image` default width has been increased to `35px`
 - **Item** - item `description` now longer sets a `max-width`
 - **Icon** - `disabled icon` now have `pointer-events` again.
