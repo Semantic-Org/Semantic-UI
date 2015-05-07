@@ -123,6 +123,7 @@
 - **Grid** - `x column wide` inside `equal width/height` now cannot grow beyond column size
 - **Grid** - Fixes colored grid columns not appearing when not nested in rows
 - **Icon** - Fixes `ascending` and `descending` icon being swapped
+- **Icon** - Fixes phone icon only appearing as alias `call`
 - **Input** - Fixed improper left padding on `transparent left icon input` **Thanks @zxfwinder**
 - **Input** - Fixed `placeholder` color not changing correctly on focus **Thanks @zxfwinder**
 - **Label** - Labels inside `header` now vertical align better by accounting for line height offset
