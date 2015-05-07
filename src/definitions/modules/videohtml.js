@@ -102,6 +102,30 @@ $.fn.videohtml = function(parameters) {
               }).on('pause' + eventNamespace, function() {
                 $playpause.removeClass('active')
               });
+          },
+          // see https://developer.mozilla.org/fr/docs/Web/API/HTMLMediaElement#playbackRate
+          // mode from 'switch', 'push'
+          playbackrate: function($playbackrate, rate, mode) {
+            $playbackrate = $($playbackrate);
+            // from UI to video
+            switch(mode) {
+              case 'push': default:
+                $playbackrate.on('mousedown' + eventNamespace, function() {
+                  element.playbackRate = rate;
+                });
+                $playbackrate.on('mouseup' + eventNamespace + ' mouseleave' + eventNamespace, function() {
+                  element.playbackRate = element.defaultPlaybackRate;
+                });
+              break;
+              case 'switch':
+                // todo
+              break;
+            }
+            // from video to UI
+            $module
+              .on('ratechange' + eventNamespace, function(event) {
+                console.log(element.playbackRate)
+              });
           }
         },
         

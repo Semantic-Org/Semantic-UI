@@ -40,11 +40,11 @@
             <div class="ui icon button" id="playpause">
               <i class="play icon"></i>
             </div>
-            <div class="ui icon button">
-              <i class="left arrow icon"></i>
+            <div class="ui icon button" id="backward">
+              <i class="backward icon"></i>
             </div>
-            <div class="ui icon button">
-              <i class="right arrow icon"></i>
+            <div class="ui icon button" id="forward">
+              <i class="forward icon"></i>
             </div>
           </div>
         </div>
@@ -110,7 +110,12 @@
 $(document)
   .ready(function() {
     $('video').videohtml('initialize')
-      .videohtml('control playpause', $('#playpause'));
+      .videohtml('control playpause', $('#playpause'))
+      .videohtml('control playbackrate', $('#forward'), 10) 
+      // seems to have a upper limit with some browsers (?) : 5 with FF 37.0.2
+      .videohtml('control playbackrate', $('#backward'), -4)
+      // negative value seems to not be handled by some browsers : NS_ERROR_NOT_IMPLEMENTED with FF 37.0.2, no visible effect with Chrome 42.0.2311.135
+    ;
   })
 ;
 </script>
