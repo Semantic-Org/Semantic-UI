@@ -23,7 +23,9 @@ module.exports = function(callback) {
   // check for right-to-left language
   if(config.rtl === true || config.rtl === 'Yes') {
     gulp.start('build-rtl');
-    return;
+    if(config.rtl !== 'both') {
+      return;
+    }
   }
 
   gulp.start('build-javascript');
