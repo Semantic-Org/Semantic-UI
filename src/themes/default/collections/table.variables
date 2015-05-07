@@ -27,19 +27,19 @@
 ---------------*/
 
 /* Table Row */
-@rowBorder: 1px solid @borderColor;
+@rowBorder: 1px solid @internalBorderColor;
 
 /* Table Cell */
 @cellVerticalPadding: @relativeMini;
 @cellHorizontalPadding: @relativeMini;
 @cellVerticalAlign: inherit;
 @cellTextAlign: inherit;
-@cellBorder: 1px solid @borderColor;
+@cellBorder: 1px solid @internalBorderColor;
 
 /* Table Header */
 @headerBorder: 1px solid @borderColor;
 @headerDivider: none;
-@headerBackground: @darkWhite;
+@headerBackground: @offWhite;
 @headerAlign: inherit;
 @headerVerticalAlign: inherit;
 @headerColor: @textColor;
@@ -72,7 +72,6 @@
 @responsiveCellVerticalPadding: 0.25em;
 @responsiveCellHorizontalPadding: 0.75em;
 @responsiveCellBoxShadow: none !important;
-@responsiveStatusColor: transparent;
 
 /*-------------------
        Types
@@ -150,6 +149,9 @@
 /* Striped */
 @stripedBackground: rgba(0, 0, 50, 0.03);
 @invertedStripedBackground: rgba(255, 255, 255, 0.06);
+
+@selectableBackground: @subtleTransparentBlack;
+@selectableTextColor: @selectedTextColor;
 
 /* Sortable */
 @sortableBackground: '';
