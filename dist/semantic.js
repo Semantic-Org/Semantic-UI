@@ -16822,16 +16822,17 @@ $.fn.videohtml = function(parameters) {
                 var position = ratio * ($range.prop('max') - $range.prop('min'));
                 $range.val(position);
               })
-              .on('loadeddata' + eventNamespace + ' seeked' + eventNamespace, function() {
-                $range.prop('disabled', false);
-              })
-              .on('loadstart' + eventNamespace + ' seeking' + eventNamespace, function() {
-                $range.prop('disabled', true);
-              })
+              //.on('loadeddata' + eventNamespace + ' seeked' + eventNamespace, function() {
+              //  $range.prop('disabled', false);
+              //})
+              //.on('loadstart' + eventNamespace + ' seeking' + eventNamespace, function() {
+              //  $range.prop('disabled', true);
+              //})
             ;
             // TODO : don't update the position when input is 'mousdown'ed but not 'change'd yet
           },
           
+          /*
           loadProgress: function($progress) {
             $progress = $($progress)
             // from video to UI
@@ -16862,6 +16863,7 @@ $.fn.videohtml = function(parameters) {
               
             
           }
+          */
           
         }, // end of control
        
@@ -17271,16 +17273,17 @@ $.fn.videohtml = function(parameters) {
                 var position = ratio * ($range.prop('max') - $range.prop('min'));
                 $range.val(position);
               })
-              .on('loadeddata' + eventNamespace + ' seeked' + eventNamespace, function() {
-                $range.prop('disabled', false);
-              })
-              .on('loadstart' + eventNamespace + ' seeking' + eventNamespace, function() {
-                $range.prop('disabled', true);
-              })
+              //.on('loadeddata' + eventNamespace + ' seeked' + eventNamespace, function() {
+              //  $range.prop('disabled', false);
+              //})
+              //.on('loadstart' + eventNamespace + ' seeking' + eventNamespace, function() {
+              //  $range.prop('disabled', true);
+              //})
             ;
             // TODO : don't update the position when input is 'mousdown'ed but not 'change'd yet
           },
           
+          /*
           loadProgress: function($progress) {
             $progress = $($progress)
             // from video to UI
@@ -17311,6 +17314,7 @@ $.fn.videohtml = function(parameters) {
               
             
           }
+          */
           
         }, // end of control
        
