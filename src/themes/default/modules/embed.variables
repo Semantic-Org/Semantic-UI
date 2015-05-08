@@ -8,8 +8,6 @@
 
 /* Simple */
 @background: @lightGrey;
-@widescreenRatio: (9/16) * 100%;
-@standardRatio: (3/4) * 100%;
 
 /* Placeholder */
 @placeholderBackground: @background;
@@ -28,3 +26,14 @@
 /* Video */
 @hoverIconBackground: rgba(0, 0, 0, 0);
 @hoverIconColor: @white;
+
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Aspect Ratios */
+@squareRatio: (1/1) * 100%;
+@widescreenRatio: (9/16) * 100%;
+@ultraWidescreenRatio: (9/21) * 100%;
+@standardRatio: (3/4) * 100%;

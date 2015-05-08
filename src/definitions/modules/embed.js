@@ -207,7 +207,10 @@ $.fn.embed = function(parameters) {
           },
           type: function() {
             var source = module.get.source();
-            return sources[source].type;
+            return (sources[source] !== undefined)
+              ? sources[source].type
+              : false
+            ;
           },
           url: function() {
             return (settings.url)
@@ -225,19 +228,21 @@ $.fn.embed = function(parameters) {
               matchedSource = false
             ;
             url = url || module.get.url();
-            $.each(sources, function(name, source) {
-              if(url.search(source.domain) !== -1) {
-                matchedSource = name;
-                return false;
-              }
-            });
+            if(url) {
+              $.each(sources, function(name, source) {
+                if(url.search(source.domain) !== -1) {
+                  matchedSource = name;
+                  return false;
+                }
+              });
+            }
             return matchedSource;
           },
           icon: function() {
             var
               source = module.get.source()
             ;
-            return (sources[source].icon !== undefined)
+            return (sources[source] !== undefined)
               ? sources[source].icon
               : false
             ;
@@ -248,7 +253,7 @@ $.fn.embed = function(parameters) {
               source = settings.source || $module.data(metadata.source),
               url
             ;
-            url = (sources[source].url !== undefined)
+            url = (sources[source] !== undefined)
               ? sources[source].url.replace('{id}', id)
               : false
             ;
@@ -302,7 +307,7 @@ $.fn.embed = function(parameters) {
               html       = templates.iframe(url, parameters);
             }
             else {
-              module.error(error.noURL);
+              module.error(error.noURL, $module);
             }
             return html;
           },
