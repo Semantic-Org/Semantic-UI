@@ -16772,7 +16772,7 @@ $.fn.videohtml = function(parameters) {
                 });
               break;
               case 'switch':
-                // todo
+                // TODO
               break;
             }
             // from video to UI
@@ -16813,14 +16813,54 @@ $.fn.videohtml = function(parameters) {
             // from UI to video
             $range.on('change', function(event) {
               var ratio = $range.val() / ($range.prop('max') - $range.prop('min'));
-              element.currentTime = element.duration * ratio;
+              element.fastSeek(element.duration * ratio);
             });
             // from video to UI
-            $module.on('timeupdate' + eventNamespace, function() {
-              var ratio = element.currentTime / element.duration;
-              var position = ratio * ($range.prop('max') - $range.prop('min'));
-              $range.val(position);
-            });
+            $module
+              .on('timeupdate' + eventNamespace, function() {
+                var ratio = element.currentTime / element.duration;
+                var position = ratio * ($range.prop('max') - $range.prop('min'));
+                $range.val(position);
+              })
+              .on('loadeddata' + eventNamespace + ' seeked' + eventNamespace, function() {
+                $range.prop('disabled', false);
+              })
+              .on('loadstart' + eventNamespace + ' seeking' + eventNamespace, function() {
+                $range.prop('disabled', true);
+              })
+            ;
+            // TODO : don't update the position when input is 'mousdown'ed but not 'change'd yet
+          },
+          
+          loadProgress: function($progress) {
+            $progress = $($progress)
+            // from video to UI
+            $module
+              .on('progress' + eventNamespace, function() {
+                console.log('progress');
+                if(element.lengthComputable) {
+                  $progress.progress({ percent: loaded / total * 100 });
+                }
+              }).on('seeking' + eventNamespace, function() {
+                console.log('seeking')
+              }).on('seeked' + eventNamespace, function() {
+                console.log('seeked')
+                console.log(element.buffered)
+              }).on('stalled' + eventNamespace, function() {
+                console.log('stalled')
+              }).on('suspend' + eventNamespace, function() {
+                console.log('suspend')
+              }).on('loadstart' + eventNamespace, function() {
+                console.log('loadstart')
+              }).on('loadedmetadata' + eventNamespace, function() {
+                console.log('loadedmetadata')
+              }).on('' + eventNamespace, function() {
+                console.log('loadeddata')
+              });
+            
+              
+              
+            
           }
           
         }, // end of control
@@ -17181,7 +17221,7 @@ $.fn.videohtml = function(parameters) {
                 });
               break;
               case 'switch':
-                // todo
+                // TODO
               break;
             }
             // from video to UI
@@ -17222,14 +17262,54 @@ $.fn.videohtml = function(parameters) {
             // from UI to video
             $range.on('change', function(event) {
               var ratio = $range.val() / ($range.prop('max') - $range.prop('min'));
-              element.currentTime = element.duration * ratio;
+              element.fastSeek(element.duration * ratio);
             });
             // from video to UI
-            $module.on('timeupdate' + eventNamespace, function() {
-              var ratio = element.currentTime / element.duration;
-              var position = ratio * ($range.prop('max') - $range.prop('min'));
-              $range.val(position);
-            });
+            $module
+              .on('timeupdate' + eventNamespace, function() {
+                var ratio = element.currentTime / element.duration;
+                var position = ratio * ($range.prop('max') - $range.prop('min'));
+                $range.val(position);
+              })
+              .on('loadeddata' + eventNamespace + ' seeked' + eventNamespace, function() {
+                $range.prop('disabled', false);
+              })
+              .on('loadstart' + eventNamespace + ' seeking' + eventNamespace, function() {
+                $range.prop('disabled', true);
+              })
+            ;
+            // TODO : don't update the position when input is 'mousdown'ed but not 'change'd yet
+          },
+          
+          loadProgress: function($progress) {
+            $progress = $($progress)
+            // from video to UI
+            $module
+              .on('progress' + eventNamespace, function() {
+                console.log('progress');
+                if(element.lengthComputable) {
+                  $progress.progress({ percent: loaded / total * 100 });
+                }
+              }).on('seeking' + eventNamespace, function() {
+                console.log('seeking')
+              }).on('seeked' + eventNamespace, function() {
+                console.log('seeked')
+                console.log(element.buffered)
+              }).on('stalled' + eventNamespace, function() {
+                console.log('stalled')
+              }).on('suspend' + eventNamespace, function() {
+                console.log('suspend')
+              }).on('loadstart' + eventNamespace, function() {
+                console.log('loadstart')
+              }).on('loadedmetadata' + eventNamespace, function() {
+                console.log('loadedmetadata')
+              }).on('' + eventNamespace, function() {
+                console.log('loadeddata')
+              });
+            
+              
+              
+            
           }
           
         }, // end of control
