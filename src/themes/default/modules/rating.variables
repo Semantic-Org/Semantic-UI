@@ -4,6 +4,7 @@
 
 @display: inline-block;
 @margin: 0em 0.75rem;
+@whiteSpace: nowrap;
 
 @verticalAlign: middle;
 

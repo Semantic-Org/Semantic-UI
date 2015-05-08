@@ -49,11 +49,11 @@
        Content
 --------------------*/
 
+
 /* Image */
 @imageBackground: @transparentBlack;
 @imagePadding: 0em;
 @imageBorder: none;
-@imageBorderRadius: @borderRadius @borderRadius 0em 0em;
 @imageBoxShadow: none;
 @imageBorder: none;
 
@@ -102,14 +102,14 @@
 
 /* Description */
 @descriptionDistance: 0.5em;
-@descriptionColor: rgba(0, 0, 0, 0.5);
+@descriptionColor: rgba(0, 0, 0, 0.68);
 
 /* Content Image */
-@contentImageWidth: auto;
+@contentImageWidth: '';
 @contentImageVerticalAlign: middle;
 
 /* Avatar Image */
-@avatarSize: 2.5em;
+@avatarSize: 2em;
 @avatarBorderRadius: @circularRadius;
 
 /* Paragraph */

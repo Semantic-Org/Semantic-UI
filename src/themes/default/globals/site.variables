@@ -110,7 +110,7 @@
 @pageOverflowX       : hidden;
 
 @lineHeight          : 1.4285em;
-@textColor           : rgba(0, 0, 0, 0.8);
+@textColor           : rgba(0, 0, 0, 0.87);
 
 /*-------------------
       Paragraph
@@ -330,7 +330,7 @@
 @unselectedTextColor         : rgba(0, 0, 0, 0.4);
 @hoveredTextColor            : rgba(0, 0, 0, 0.8);
 @pressedTextColor            : rgba(0, 0, 0, 0.9);
-@selectedTextColor           : rgba(0, 0, 0, 0.9);
+@selectedTextColor           : rgba(0, 0, 0, 0.95);
 @disabledTextColor           : rgba(0, 0, 0, 0.2);
 
 @invertedTextColor           : rgba(255, 255, 255, 0.9);
@@ -365,6 +365,7 @@
 @selectedBorderColor           : rgba(34, 36, 38, 0.3);
 @disabledBorderColor           : rgba(34, 36, 38, 0.5);
 
+@solidInternalBorderColor      : #FAFAFA;
 @solidBorderColor              : #D4D4D5;
 @solidSelectedBorderColor      : #BCBDBD;
 
