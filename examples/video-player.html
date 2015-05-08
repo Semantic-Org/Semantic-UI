@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <!-- Site Properities -->
+  <title>Html5 Video - Semantic</title>
+  <link rel="stylesheet" type="text/css" href="../dist/semantic.css">
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+  <script src="../dist/semantic.js"></script>
+</head>
+<body>
+
+<div class="ui page grid">
+  
+  <header class="row">
+    <div class="column">
+      <h1 class="ui header">HTML5 Video setup</h1>
+    </div>
+  </header>
+  
+  <article class="row">
+    <div class="column">
+      
+      <section class="ui segment">
+        <video id="video" style="width:100%">
+          <source src="http://mooplay.challet.eu/media/video/sintel-1024-stereo.mp4" type='video/mp4'>
+          <source src="http://mooplay.challet.eu/media/video/sintel-1024-stereo.ogv" type='video/ogg'>
+        </video>
+      </section>
+      
+      <aside class="ui bottom attached stackable grid">
+        
+        <div class="row">
+          
+          <div class="five wide column" style="font-size: 0; white-space: nowrap;">
+            <div class="ui icon button" style="margin-right: 0;" id="mute">
+              <i class="icon volume off"></i>
+            </div>
+            <div class="ui icon button" style="margin-right: 0;" id="volumedown">
+              <i class="icon volume down"></i>
+            </div>
+            <div class="ui progress" style="display: inline-block; width: 10em; height: 100%; margin:0; vertical-align: bottom;" id="volumeprogress">
+              <div class="bar" style="height: 100%;">
+                <div class="progress"></div>
+              </div>
+            </div>
+            <div class="ui icon button" style="margin-left: 0;" id="volumeup">
+              <i class="icon volume up"></i>
+            </div>
+          </div>
+          
+          <div class="six wide column" style="text-align: center;">
+            <div class="ui icon button" id="playpause">
+              <i class="play icon"></i>
+            </div>
+            <div class="ui icon button" id="backward">
+              <i class="backward icon"></i>
+            </div>
+            <div class="ui icon button" id="forward">
+              <i class="forward icon"></i>
+            </div>
+          </div>
+          
+          <div class="five wide column">
+          </div>
+          
+        </div>
+        
+        <div class="row">
+          <div class="two wide column">
+            <div class="ui tiny statistic">
+              <div class="value" id="timecurrent">0:00:00</div>
+              <div class="label">current</div>
+            </div>
+          </div>
+          <div class="twelve wide column">
+            <input type="range" value="0" min="0" max="1000" autocomplete="off" id="timerange" style="width:100%;" class="ui input" disabled="disabled" />
+            <!--
+            <div class="ui small progress" id="loadprogress">
+              <div class="bar"></div>
+            </div>
+            -->
+          </div>
+          <div class="two wide column">
+            <div class="ui tiny statistic">
+              <div class="value" id="timeremaining">0:00:00</div>
+              <div class="label">remaining</div>
+            </div>
+          </div>
+        </div>
+        
+      </aside>
+
+        
+          
+          
+          
+      <!--
+      <select id="subtitles_select">
+          <option value="" class="none">no</option>
+          <option value="/media/subtitle/sintel_en.srt" class="en">en</option>
+          <option value="/media/subtitle/sintel_fr.srt" class="fr">fr</option>
+          <option value="/media/subtitle/sintel_es.srt" class="es">es</option>
+          <option value="/media/subtitle/sintel_de.srt" class="de">de</option>
+          <option value="/media/subtitle/sintel_it.srt" class="it">it</option>
+          <option value="/media/subtitle/sintel_nl.srt" class="nl">nl</option>
+          <option value="/media/subtitle/sintel_pl.srt" class="pl">pl</option>
+          <option value="/media/subtitle/sintel_pt.srt" class="pt">pt</option>
+          <option value="/media/subtitle/sintel_ru.srt" class="ru">ru</option>
+      </select>
+
+
+      <a id="mute" href="#"></a>
+
+      <div id="slider_volume">
+          <div id="full_volume"></div>
+          <div id="knob_volume"></div>
+      </div>
+
+      <a id="fullscreen" href="#"></a>
+
+      <div class="time">
+          <span id="current_time_container">0:00:00</span>
+      </div>
+
+
+      <div class="time">
+          - <span id="remaining_time_container">0:00:00</span>
+      </div>
+      -->
+      
+    </div>
+    
+  </article>
+  
+</div>
+
+
+<script>
+$(document)
+  .ready(function() {
+    $('video').videohtml('initialize')
+      .videohtml('control playpause', $('#playpause'))
+      .videohtml('control playbackrate', $('#forward'), 10) 
+      // seems to have a upper limit with some browsers : 5 with FF 37.0.2
+      .videohtml('control playbackrate', $('#backward'), -4)
+      // negative value seems to not be handled by some browsers : NS_ERROR_NOT_IMPLEMENTED with FF 37.0.2, no visible effect with Chrome 42.0.2311.135
+      .videohtml('control time current', $('#timecurrent'))
+      .videohtml('control time remaining', $('#timeremaining'))
+      .videohtml('control time range', $('#timerange'))
+      //.videohtml('control loadProgress', $('#loadprogress'))
+      .videohtml('control volume up', $('#volumeup'))
+      .videohtml('control volume down', $('#volumedown'))
+      .videohtml('control volume progress', $('#volumeprogress'))
+      .videohtml('control volume mute', $('#mute'))
+      .get(0).load()
+    ;
+  })
+;
+</script>
+
+</body>
+
+</html>
