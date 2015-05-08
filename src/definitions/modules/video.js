@@ -93,14 +93,13 @@ $.fn.video = function(parameters) {
         },
 
         create: function() {
-          $video = element
-          module.debug('Reefrencing html for video element');
+          module.debug('Video create called');
         },
         
         
-        control: {
+        add: {
           
-          playpause: function($playpause) {
+          playpauseButton: function($playpause) {
             $playpause = $($playpause);
             // from UI to video
             $playpause.on('click' + eventNamespace, function() {
@@ -121,7 +120,7 @@ $.fn.video = function(parameters) {
           
           // see https://developer.mozilla.org/fr/docs/Web/API/HTMLMediaElement#playbackRate
           // mode from 'switch', 'push'
-          playbackrate: function($playbackrate, rate, mode) {
+          playbackrateButton: function($playbackrate, rate, mode) {
             $playbackrate = $($playbackrate);
             // from UI to video
             switch(mode) {
@@ -144,81 +143,81 @@ $.fn.video = function(parameters) {
               });
           },
         
-          time: {
-            
-            current: function($el) {
-              $module.on('timeupdate' + eventNamespace, function() {
-                var current = new Date(element.currentTime * 1000);
-                var readable = 
-                  utilStringPad(String(current.getHours() - 1), 1, '0')+ ':' + 
-                  utilStringPad(String(current.getMinutes()), 2, '0') + ':' + 
-                  utilStringPad(String(current.getSeconds()), 2,'0');
-                $el.text(readable);
-              });
-            },
+          currentTime: function($el) {
+            $module.on('timeupdate' + eventNamespace, function() {
+              var current = new Date(element.currentTime * 1000);
+              var readable = 
+                utilStringPad(String(current.getHours() - 1), 1, '0')+ ':' + 
+                utilStringPad(String(current.getMinutes()), 2, '0') + ':' + 
+                utilStringPad(String(current.getSeconds()), 2,'0');
+              $el.text(readable);
+            });
+          },
+        
+          remainingTime: function($el) {
+            $module.on('timeupdate' + eventNamespace, function() {
+              var remaining = new Date((element.duration - element.currentTime) * 1000);
+              var readable = 
+                utilStringPad(String(remaining.getHours() - 1), 1, '0')+ ':' + 
+                utilStringPad(String(remaining.getMinutes()), 2, '0') + ':' + 
+                utilStringPad(String(remaining.getSeconds()), 2,'0');
+              $el.text(readable);
+            });
+          },
+        
+         timeRange: function($range) {
+            $range = $($range);
+            var update_enabled = true;
+            // from UI to video
+            $range
+              .on('change', function(event) {
+                var ratio = $range.val() / ($range.prop('max') - $range.prop('min'));
+                // use fastSeek if implemented
+                if(element.fastSeek) {
+                  element.fastSeek(element.duration * ratio);
+                } else {
+                  element.currentTime = element.duration * ratio;
+                }
+              })
+              // prevent the input to update when it has been 'mousedown'ed but not 'change'd yet
+              .on('mousedown' + eventNamespace, function() {
+                update_enabled = false;
+              })
+              .on('mouseup' + eventNamespace, function() {
+                update_enabled = true;
+              })
+            ;
+            // from video to UI
+            $module
+              .on('timeupdate' + eventNamespace, function() {
+                if(update_enabled) {
+                  var ratio = element.currentTime / element.duration;
+                  var position = ratio * ($range.prop('max') - $range.prop('min'));
+                  $range.val(position);
+                }
+              })
+              // the range input is disabled while a seek (or load) to an unbuffered area occurs
+              .on('loadstart' + eventNamespace + ' seeking' + eventNamespace, function() {
+                if(!utilTimeInRange(element.currentTime, element.buffered)) {
+                  $range.prop('disabled', true);
+                }
+              })
+              .on('loadeddata' + eventNamespace + ' seeked' + eventNamespace, function() {
+                $range.prop('disabled', false);
+              })
+            ;
           
-            remaining: function($el) {
-              $module.on('timeupdate' + eventNamespace, function() {
-                var remaining = new Date((element.duration - element.currentTime) * 1000);
-                var readable = 
-                  utilStringPad(String(remaining.getHours() - 1), 1, '0')+ ':' + 
-                  utilStringPad(String(remaining.getMinutes()), 2, '0') + ':' + 
-                  utilStringPad(String(remaining.getSeconds()), 2,'0');
-                $el.text(readable);
-              });
-            },
-          
-            range: function($range) {
-              $range = $($range);
-              var update_enabled = true;
-              // from UI to video
-              $range
-                .on('change', function(event) {
-                  var ratio = $range.val() / ($range.prop('max') - $range.prop('min'));
-                  // use fastSeek if implemented
-                  if(element.fastSeek) {
-                    element.fastSeek(element.duration * ratio);
-                  } else {
-                    element.currentTime = element.duration * ratio;
-                  }
-                })
-                // prevent the input to update when it has been 'mousedown'ed but not 'change'd yet
-                .on('mousedown' + eventNamespace, function() {
-                  update_enabled = false;
-                })
-                .on('mouseup' + eventNamespace, function() {
-                  update_enabled = true;
-                })
-              ;
-              // from video to UI
-              $module
-                .on('timeupdate' + eventNamespace, function() {
-                  if(update_enabled) {
-                    var ratio = element.currentTime / element.duration;
-                    var position = ratio * ($range.prop('max') - $range.prop('min'));
-                    $range.val(position);
-                  }
-                })
-                // the range input is disabled while a seek (or load) to an unbuffered area occurs
-                .on('loadstart' + eventNamespace + ' seeking' + eventNamespace, function() {
-                  if(!utilTimeInRange(element.currentTime, element.buffered)) {
-                    $range.prop('disabled', true);
-                  }
-                })
-                .on('loadeddata' + eventNamespace + ' seeked' + eventNamespace, function() {
-                  $range.prop('disabled', false);
-                })
-              ;
-            
-            }
-            
           },
           
           volume: {
-            up: function($up, step) {
+            
+            upButton: function($up, step) {
               var step = step == undefined ? 0.1 : step;
               $up.on('click' + eventNamespace, function() {
                 element.volume = Math.min(element.volume + step, 1);
+                if($(this).prop('disabled') && element.muted) {
+                  element.muted = false;
+                }
               });
               $module.on('volumechange' + eventNamespace, function() {
                 if(element.muted) {
@@ -228,10 +227,14 @@ $.fn.video = function(parameters) {
                 }
               });
             },
-            down: function($down, step) {
+          
+            downButton: function($down, step) {
               var step = step == undefined ? 0.1 : step;
               $down.on('click' + eventNamespace, function() {
                 element.volume = Math.max(element.volume - step, 0);
+                if($(this).prop('disabled') && element.muted) {
+                  element.muted = false;
+                }
               });
               $module.on('volumechange' + eventNamespace, function() {
                 if(element.muted) {
@@ -241,8 +244,15 @@ $.fn.video = function(parameters) {
                 }
               });
             },
+          
             progress: function($progress) {
               $progress.progress({ percent: 100 });
+              $progress.on('click' + eventNamespace, function() {
+                // TODO : check position of click within the progress
+                if($(this).prop('disabled') && element.muted) {
+                  element.muted = false;
+                }
+              });
               $module.on('volumechange' + eventNamespace, function() {
                 var volume = element.muted ? 0 : element.volume;
                 $progress.progress({ percent: volume * 100 });
@@ -252,19 +262,20 @@ $.fn.video = function(parameters) {
                   $progress.removeClass('disabled');
                 }
               });
-            },
-            mute: function($mute) {
-              $mute.on('click' + eventNamespace, function() {
-                element.muted = !element.muted;
-              });
-              $module.on('volumechange' + eventNamespace, function() {
-                if(element.muted) {
-                  $mute.addClass('active');
-                } else {
-                  $mute.removeClass('active');
-                }
-              });
             }
+          },
+          
+          muteButton: function($mute) {
+            $mute.on('click' + eventNamespace, function() {
+              element.muted = !element.muted;
+            });
+            $module.on('volumechange' + eventNamespace, function() {
+              if(element.muted) {
+                $mute.addClass('active');
+              } else {
+                $mute.removeClass('active');
+              }
+            });
           }
           
           /*
@@ -464,7 +475,7 @@ $.fn.video = function(parameters) {
                 return false;
               }
               else {
-                module.error(error.method, query);
+                module.error(query);
                 return false;
               }
             });
