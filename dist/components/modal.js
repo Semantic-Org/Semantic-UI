@@ -81,7 +81,9 @@ $.fn.modal = function(parameters) {
           module.refreshModals();
 
           module.bind.events();
-          module.observeChanges();
+          if(settings.observeChanges) {
+            module.observeChanges();
+          }
           module.instantiate();
         },
 
@@ -836,6 +838,8 @@ $.fn.modal.settings = {
   verbose        : false,
   performance    : true,
 
+  observeChanges : false,
+
   allowMultiple  : false,
   detachable     : true,
   closable       : true,
@@ -848,6 +852,7 @@ $.fn.modal.settings = {
     closable : false,
     useCSS   : true
   },
+
 
   context    : 'body',
 

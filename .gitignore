@@ -1,4 +1,5 @@
 node_modules/
+bower_components/
 test/coverage/
 coverage/
 src/**/site/

@@ -371,17 +371,27 @@
   border-top-right-radius: 0px !important;
   border-bottom-right-radius: 0px !important;
 }
+.ui.action.input:not([class*="left action"]) > .dropdown,
 .ui.action.input:not([class*="left action"]) > .button,
 .ui.action.input:not([class*="left action"]) > .buttons > .button {
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
+  border-radius: 0px;
+}
+.ui.action.input:not([class*="left action"]) > .dropdown:last-child,
+.ui.action.input:not([class*="left action"]) > .button:last-child,
+.ui.action.input:not([class*="left action"]) > .buttons:last-child > .button {
+  border-radius: 0px 0.2857rem 0.2857rem 0px;
 }
 
 /* Button on Left */
+.ui[class*="left action"].input > .dropdown,
 .ui[class*="left action"].input > .button,
 .ui[class*="left action"].input > .buttons > .button {
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
+  border-radius: 0px;
+}
+.ui[class*="left action"].input > .dropdown:first-child,
+.ui[class*="left action"].input > .button:first-child,
+.ui[class*="left action"].input > .buttons:first-child > .button {
+  border-radius: 0.2857rem 0px 0px 0.2857rem;
 }
 .ui[class*="left action"].input > input {
   border-left: none;

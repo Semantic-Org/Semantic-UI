@@ -779,22 +779,22 @@
           user-select: none;
 }
 .ui.sortable.table thead th:after {
-  display: inline-block;
-  content: '';
-  width: auto;
-  height: 1em;
-  opacity: 0.8;
-  margin: 0em 0em 0em 0.5em;
-  font-family: 'Icons';
+  display: none;
   font-style: normal;
   font-weight: normal;
   text-decoration: inherit;
+  content: '';
+  height: 1em;
+  width: auto;
+  opacity: 0.8;
+  margin: 0em 0em 0em 0.5em;
+  font-family: 'Icons';
 }
 .ui.sortable.table thead th.ascending:after {
-  content: '\f0d7';
+  content: '\f0d8';
 }
 .ui.sortable.table thead th.descending:after {
-  content: '\f0d8';
+  content: '\f0d7';
 }
 
 /* Hover */
@@ -811,6 +811,9 @@
 .ui.sortable.table thead th.sorted {
   background: rgba(0, 0, 0, 0.05);
   color: rgba(0, 0, 0, 0.9);
+}
+.ui.sortable.table thead th.sorted:after {
+  display: inline-block;
 }
 
 /* Sorted Hover */
