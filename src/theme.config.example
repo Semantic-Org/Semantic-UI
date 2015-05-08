@@ -63,6 +63,7 @@
 @tab        : 'default';
 @transition : 'default';
 @video      : 'default';
+@videohtml  : 'default';
 
 /* Views */
 @ad         : 'default';
