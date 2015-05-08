@@ -81,7 +81,9 @@ $.fn.modal = function(parameters) {
           module.refreshModals();
 
           module.bind.events();
-          module.observeChanges();
+          if(settings.observeChanges) {
+            module.observeChanges();
+          }
           module.instantiate();
         },
 
@@ -108,7 +110,7 @@ $.fn.modal = function(parameters) {
             ;
             if(settings.inverted) {
               dimmerSettings.variation = (dimmerSettings.variation !== undefined)
-                ? dimmer.settings.variation + ' inverted'
+                ? dimmerSettings.variation + ' inverted'
                 : 'inverted'
               ;
             }
@@ -215,17 +217,20 @@ $.fn.modal = function(parameters) {
 
         event: {
           close: function() {
-            module.verbose('Closing element pressed');
-            if( $(this).is(selector.approve) ) {
-              if(settings.onApprove.call(element) !== false) {
+            var
+              $element = $(this)
+            ;
+            module.verbose('Closing element activated');
+            if( $element.is(selector.approve) ) {
+              if(settings.onApprove.call(element, $element) !== false) {
                 module.hide();
               }
               else {
                 module.verbose('Approve callback returned false cancelling hide');
               }
             }
-            else if( $(this).is(selector.deny) ) {
-              if(settings.onDeny.call(element) !== false) {
+            else if( $element.is(selector.deny) ) {
+              if(settings.onDeny.call(element, $element) !== false) {
                 module.hide();
               }
               else {
@@ -833,6 +838,8 @@ $.fn.modal.settings = {
   verbose        : false,
   performance    : true,
 
+  observeChanges : false,
+
   allowMultiple  : false,
   detachable     : true,
   closable       : true,
@@ -845,6 +852,7 @@ $.fn.modal.settings = {
     closable : false,
     useCSS   : true
   },
+
 
   context    : 'body',
 

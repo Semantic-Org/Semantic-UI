@@ -103,12 +103,15 @@
 ---------------*/
 
 .ui.modal > .content {
-  display: flex;
+  display: block;
   width: 100%;
   font-size: @contentFontSize;
   line-height: @contentLineHeight;
   padding: @contentPadding;
   background: @contentBackground;
+}
+.ui.modal > .image.content {
+  display: flex;
 }
 
 /* Image */

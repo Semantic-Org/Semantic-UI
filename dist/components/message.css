@@ -21,7 +21,7 @@
   background: #f0f0f0;
   padding: 1em 1.5em;
   line-height: 1.4285em;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   -webkit-transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
           transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
   border-radius: 0.2857rem;
@@ -110,10 +110,8 @@
   top: 1.21425em;
   right: 0.5em;
   opacity: 0.7;
-  -webkit-transition: opacity 0.1s linear
-  ;
-          transition: opacity 0.1s linear
-  ;
+  -webkit-transition: opacity 0.2s ease;
+          transition: opacity 0.2s ease;
 }
 .ui.message > .close.icon:hover {
   opacity: 1;
@@ -125,6 +123,15 @@
 }
 .ui.message > :last-child {
   margin-bottom: 0em;
+}
+
+
+/*******************************
+            Coupling
+*******************************/
+
+.ui.dropdown .menu > .message {
+  margin: 0px -1px;
 }
 
 

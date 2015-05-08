@@ -56,6 +56,7 @@
 @closeTopDistance: (1em + @lineHeightOffset);
 @closeRightDistance: 0.5em;
 @closeOpacity: 0.7;
+@closeTransition: opacity @defaultDuration @defaultEasing;
 
 
 /*-------------------
@@ -85,14 +86,6 @@
 ;
 
 /* Warning / Positive / Negative / Info */
-/*@positiveBorderColor: transparent;
-@negativeBorderColor: transparent;
-@negativeBorderColor: transparent;
-@infoBorderColor: transparent;
-@warningBorderColor: transparent;
-@errorBorderColor: transparent;
-@successBorderColor: transparent;*/
-
 @positiveBoxShadow:
   0px 0px 0px @borderWidth @positiveBorderColor inset,
   @shadowShadow

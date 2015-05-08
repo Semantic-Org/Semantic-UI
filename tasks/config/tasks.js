@@ -1,7 +1,7 @@
 var
   console = require('better-console'),
-  config  = require('../user'),
-  release = require('./release')
+  config  = require('./user'),
+  release = require('./project/release')
 ;
 
 
@@ -80,13 +80,33 @@ module.exports = {
     plumber: {
       less: {
         errorHandler: function(error) {
+          var
+            regExp = {
+              variable : /@(\S.*?)\s/,
+              theme    : /themes[\/\\]+(.*?)[\/\\].*/,
+              element  : /[\/\\]([^\/\\*]*)\.overrides/
+            },
+            theme,
+            element
+          ;
           if(error.filename.match(/theme.less/)) {
-            console.error('Looks like your theme.config is out of date. You will need to add new elements from theme.config.example');
+            if(error.line == 5) {
+              element  = regExp.variable.exec(error.message)[1];
+              if(element) {
+                console.error('Missing theme.config value for ', element);
+              }
+              console.error('Most likely new UI was added in an update. You will need to add missing elements from theme.config.example');
+            }
+            if(error.line == 46) {
+              element = regExp.element.exec(error.message)[1];
+              theme   = regExp.theme.exec(error.message)[1];
+              console.error(theme + ' is not an available theme for ' + element);
+            }
           }
           else {
             console.log(error);
-            this.emit('end');
           }
+          this.emit('end');
         }
       }
     },
@@ -97,8 +117,6 @@ module.exports = {
         'last 2 version',
         '> 1%',
         'opera 12.1',
-        'safari 6',
-        'ie 9',
         'bb 10',
         'android 4'
       ]

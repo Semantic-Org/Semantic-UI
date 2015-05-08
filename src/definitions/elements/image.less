@@ -184,6 +184,25 @@ img.ui.bordered.image {
   border-radius: @circularRadius;
 }
 
+/*-------------------
+       Spaced
+--------------------*/
+
+.ui.spaced.image {
+  display: inline-block !important;
+  margin-left: @spacedDistance;
+  margin-right: @spacedDistance;
+}
+
+.ui[class*="left spaced"].image {
+  margin-left: @spacedDistance;
+  margin-right: 0em;
+}
+
+.ui[class*="right spaced"].image {
+  margin-left: 0em;
+  margin-right: @spacedDistance;
+}
 
 /*-------------------
        Floated

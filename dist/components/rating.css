@@ -15,6 +15,7 @@
 *******************************/
 
 .ui.rating {
+  white-space: nowrap;
   display: inline-block;
   vertical-align: middle;
 }
@@ -27,18 +28,19 @@
   visibility: hidden;
   clear: both;
   height: 0;
+  vertical-align: middle;
 }
 
 /* Icon */
 .ui.rating .icon {
-  cursor: pointer;
-  margin: 0em;
-  width: 1.1em;
-  height: auto;
-  text-align: center;
   padding: 0em;
+  margin: 0em;
+  text-align: center;
   font-weight: normal;
   font-style: normal;
+  cursor: pointer;
+  width: 1.25em;
+  height: auto;
 }
 
 
@@ -48,18 +50,45 @@
 
 
 /*-------------------
+      Standard
+--------------------*/
+
+
+/* Inactive Icon */
+.ui.rating .icon {
+  background: transparent;
+  color: rgba(0, 0, 0, 0.15);
+}
+
+/* Active Icon */
+.ui.rating .active.icon {
+  background: transparent;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+/* Selected Icon */
+.ui.rating .icon.selected,
+.ui.rating .icon.selected.active {
+  background: transparent;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+/*-------------------
         Star
 --------------------*/
 
 
 /* Inactive */
 .ui.star.rating .icon {
-  width: 1.1em;
+  width: 1.25em;
+  height: auto;
+  background: transparent;
   color: rgba(0, 0, 0, 0.15);
 }
 
 /* Active Star */
 .ui.star.rating .active.icon {
+  background: transparent !important;
   color: #ffe623 !important;
   text-shadow: 0px -1px 0px #cfa300, -1px 0px 0px #cfa300, 0px 1px 0px #cfa300, 1px 0px 0px #cfa300;
 }
@@ -67,15 +96,8 @@
 /* Selected Star */
 .ui.star.rating .icon.selected,
 .ui.star.rating .icon.selected.active {
+  background: transparent !important;
   color: #ffb70a !important;
-}
-.ui.star.rating.partial {
-  position: relative;
-  z-index: 1;
-}
-.ui.star.rating.partial:before {
-  position: absolute;
-  z-index: -1;
 }
 
 /*-------------------
@@ -83,12 +105,15 @@
 --------------------*/
 
 .ui.heart.rating .icon {
-  width: 1.25em;
+  width: 1.4em;
+  height: auto;
+  background: transparent;
   color: rgba(0, 0, 0, 0.15);
 }
 
 /* Active Heart */
 .ui.heart.rating .active.icon {
+  background: transparent !important;
   color: #ff2733 !important;
   text-shadow: 0px -1px 0px #9e0000, -1px 0px 0px #9e0000, 0px 1px 0px #9e0000, 1px 0px 0px #9e0000;
 }
@@ -96,6 +121,7 @@
 /* Selected Heart */
 .ui.heart.rating .icon.selected,
 .ui.heart.rating .icon.selected.active {
+  background: transparent !important;
   color: #ff2733 !important;
 }
 
@@ -104,22 +130,6 @@
              States
 *******************************/
 
-
-/* Inactive Icon */
-.ui.rating .icon {
-  color: rgba(0, 0, 0, 0.15);
-}
-
-/* Active Icon */
-.ui.rating .active.icon {
-  color: rgba(0, 0, 0, 0.85);
-}
-
-/* Selected Icon */
-.ui.rating .icon.selected,
-.ui.rating .icon.selected.active {
-  color: rgba(0, 0, 0, 0.8);
-}
 
 /*-------------------
        Disabled
@@ -132,7 +142,7 @@
 }
 
 /*-------------------
-     Interacting (Active)
+   User Interactive
 --------------------*/
 
 

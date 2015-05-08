@@ -4,21 +4,40 @@
 
 @display: inline-block;
 @margin: 0em 0.75rem;
+@whiteSpace: nowrap;
 
 @verticalAlign: middle;
 
-@iconWidth: 1.1em;
+@iconCursor: pointer;
+@iconWidth: 1.25em;
+@iconHeight: auto;
 
-@inactiveColor: rgba(0, 0, 0, 0.15);
 
 /*-------------------
         Types
 --------------------*/
 
+/* Standard */
+@inactiveBackground: transparent;
+@inactiveColor: rgba(0, 0, 0, 0.15);
+
+@selectedBackground: @inactiveBackground;
+@selectedColor: @textColor;
+
+@activeBackground: @inactiveBackground;
+@activeColor: @darkTextColor;
+
 /* Star */
 @starIconWidth: @iconWidth;
+@starIconHeight: @iconHeight;
+
+@starInactiveBackground: @inactiveBackground;
 @starInactiveColor: @inactiveColor;
+
+@starSelectedBackground: @selectedBackground;
 @starSelectedColor: #FFB70A;
+
+@starActiveBackground: @activeBackground;
 @starActiveColor: #FFE623;
 @starActiveShadow:
   0px -1px 0px #CFA300,
@@ -28,10 +47,18 @@
 ;
 
 /* Heart */
-@heartIconWidth: 1.25em;
+@heartIconWidth: 1.4em;
+@heartIconHeight: @iconHeight;
+
+@heartInactiveBackground: @inactiveBackground;
 @heartInactiveColor: @inactiveColor;
+
+@heartSelectedBackground: @selectedBackground;
 @heartSelectedColor: #FF2733;
+
+@heartActiveBackground: @activeBackground;
 @heartActiveColor: #FF2733;
+
 @heartActiveShadow:
   0px -1px 0px #9E0000,
   -1px 0px 0px #9E0000,
@@ -43,10 +70,6 @@
 /*-------------------
         States
 --------------------*/
-
-@inactiveColor: rgba(0, 0, 0, 0.15);
-@hoverColor: @textColor;
-@activeColor: @darkTextColor;
 
 @interactiveIconOpacity: 0.5;
 @interactiveSelectedIconOpacity: 1;

@@ -80,10 +80,10 @@
 @definitionsFolder : 'definitions/';
 
 /* Path to theme packages */
-@themesFolder : 'themes/';
+@themesFolder : 'themes';
 
 /* Path to site override folder */
-@siteFolder  : 'site/';
+@siteFolder  : 'site';
 
 
 /*******************************

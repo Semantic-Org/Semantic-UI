@@ -172,6 +172,12 @@
   .ui.table:not(.unstackable) tfoot {
     display: @responsiveFooterDisplay;
   }
+  .ui.table:not(.unstackable) tr {
+    padding-top: @responsiveRowVerticalPadding;
+    padding-bottom: @responsiveRowVerticalPadding;
+    box-shadow: @responsiveRowBoxShadow;
+  }
+
   .ui.table:not(.unstackable) tr > th,
   .ui.table:not(.unstackable) tr > td {
     background: none;
@@ -182,34 +188,12 @@
   .ui.table:not(.unstackable) th:first-child,
   .ui.table:not(.unstackable) td:first-child {
     font-weight: bold;
-    padding-top: @responsiveRowVerticalPadding;
-  }
-  .ui.table:not(.unstackable) th:last-child,
-  .ui.table:not(.unstackable) td:last-child {
-    box-shadow: @responsiveRowBoxShadow;
-    padding-bottom: @responsiveRowVerticalPadding;
-  }
-
-  /* Clear BG Colors */
-  .ui.table:not(.unstackable) tr > td.warning,
-  .ui.table:not(.unstackable) tr > td.error,
-  .ui.table:not(.unstackable) tr > td.active,
-  .ui.table:not(.unstackable) tr > td.positive,
-  .ui.table:not(.unstackable) tr > td.negative {
-    background-color: @responsiveStatusColor !important;
   }
 
   /* Definition Table */
   .ui.definition.table:not(.unstackable) thead th:first-child {
     box-shadow: none !important;
   }
-  .ui.definition.table:not(.unstackable) tr td:first-child {
-    padding-bottom: @responsiveRowVerticalPadding;
-  }
-  .ui.definition.table:not(.unstackable) tr td:nth-child(n+2) {
-    padding-top: @responsiveRowVerticalPadding;
-  }
-
 }
 
 
@@ -314,15 +298,10 @@
 .ui.table td.positive {
   box-shadow: @positiveBoxShadow;
 }
-.ui.table tr.positive td,
+.ui.table tr.positive,
 .ui.table td.positive {
   background: @positiveBackgroundColor !important;
   color: @positiveColor !important;
-}
-.ui.celled.table tr.positive:hover td,
-.ui.celled.table tr:hover td.positive {
-  background: @positiveBackgroundHover !important;
-  color: @positiveColorHover !important;
 }
 
 /*--------------
@@ -333,15 +312,10 @@
 .ui.table td.negative {
   box-shadow: @negativeBoxShadow;
 }
-.ui.table tr.negative td,
+.ui.table tr.negative,
 .ui.table td.negative {
   background: @negativeBackgroundColor !important;
   color: @negativeColor !important;
-}
-.ui.celled.table tr.negative:hover td,
-.ui.celled.table tr:hover td.negative {
-  background: @negativeBackgroundHover !important;
-  color: @negativeColorHover !important;
 }
 
 /*--------------
@@ -352,17 +326,11 @@
 .ui.table td.error {
   box-shadow: @errorBoxShadow;
 }
-.ui.table tr.error td,
+.ui.table tr.error,
 .ui.table td.error {
   background: @errorBackgroundColor !important;
   color: @errorColor !important;
 }
-.ui.celled.table tr.error:hover td,
-.ui.celled.table tr:hover td.error {
-  background: @errorBackgroundHover !important;
-  color: @errorColorHover !important;
-}
-
 /*--------------
      Warning
 ---------------*/
@@ -371,15 +339,10 @@
 .ui.table td.warning {
   box-shadow: @warningBoxShadow;
 }
-.ui.table tr.warning td,
+.ui.table tr.warning,
 .ui.table td.warning {
   background: @warningBackgroundColor !important;
   color: @warningColor !important;
-}
-.ui.celled.table tr.warning:hover td,
-.ui.celled.table tr:hover td.warning {
-  background: @warningBackgroundHover !important;
-  color: @warningColorHover !important;
 }
 
 /*--------------
@@ -390,16 +353,12 @@
 .ui.table td.active {
   box-shadow: @activeBoxShadow;
 }
-.ui.table tr.active td,
+.ui.table tr.active,
 .ui.table td.active {
   background: @activeBackgroundColor !important;
   color: @activeColor !important;
 }
-.ui.celled.table tr.active:hover td,
-.ui.celled.table tr:hover td.active {
-  background: @activeBackgroundColor !important;
-  color: @activeColor !important;
-}
+
 
 
 /*--------------
@@ -408,7 +367,7 @@
 
 .ui.table tr.disabled td,
 .ui.table tr td.disabled,
-.ui.table tr.disabled:hover td,
+.ui.table tr.disabled:hover,
 .ui.table tr:hover td.disabled {
   pointer-events: none;
   color: @disabledTextColor;
@@ -443,6 +402,11 @@
   .ui[class*="tablet stackable"].table tfoot {
     display: @responsiveFooterDisplay;
   }
+  .ui[class*="tablet stackable"].table tr {
+    padding-top: @responsiveRowVerticalPadding;
+    padding-bottom: @responsiveRowVerticalPadding;
+    box-shadow: @responsiveRowBoxShadow;
+  }
   .ui[class*="tablet stackable"].table tr > th,
   .ui[class*="tablet stackable"].table tr > td {
     background: none;
@@ -450,37 +414,11 @@
     padding: @responsiveCellVerticalPadding @responsiveCellHorizontalPadding;
     box-shadow: @responsiveCellBoxShadow;
   }
-  .ui[class*="tablet stackable"].table th:first-child,
-  .ui[class*="tablet stackable"].table td:first-child {
-    font-weight: bold;
-    padding-top: @responsiveRowVerticalPadding;
-  }
-  .ui[class*="tablet stackable"].table th:last-child,
-  .ui[class*="tablet stackable"].table td:last-child {
-    box-shadow: @responsiveRowBoxShadow;
-    padding-bottom: @responsiveRowVerticalPadding;
-  }
-
-  /* Clear BG Colors */
-  .ui[class*="tablet stackable"].table tr > td.warning,
-  .ui[class*="tablet stackable"].table tr > td.error,
-  .ui[class*="tablet stackable"].table tr > td.active,
-  .ui[class*="tablet stackable"].table tr > td.positive,
-  .ui[class*="tablet stackable"].table tr > td.negative {
-    background-color: @responsiveStatusColor !important;
-  }
 
   /* Definition Table */
   .ui.definition[class*="tablet stackable"].table thead th:first-child {
     box-shadow: none !important;
   }
-  .ui.definition[class*="tablet stackable"].table tr td:first-child {
-    padding-bottom: @responsiveRowVerticalPadding;
-  }
-  .ui.definition[class*="tablet stackable"].table tr td:nth-child(n+2) {
-    padding-top: @responsiveRowVerticalPadding;
-  }
-
 }
 
 /*--------------
@@ -508,8 +446,8 @@
 .ui.table [class*="top aligned"] {
   vertical-align: top;
 }
-.ui.table[class*="center aligned"],
-.ui.table [class*="center aligned"] {
+.ui.table[class*="middle aligned"],
+.ui.table [class*="middle aligned"] {
   vertical-align: middle;
 }
 .ui.table[class*="bottom aligned"],
@@ -526,6 +464,47 @@
   width: 1px;
   white-space: nowrap;
 }
+
+/*--------------
+   Hoverable
+---------------*/
+
+.ui.selectable.table tbody tr:hover {
+  background: @selectableBackground !important;
+  color: @selectableTextColor !important;
+}
+.ui.selectable.inverted.table tbody tr:hover {
+  background: @selectableInvertedBackground !important;
+  color: @selectableInvertedTextColor !important;
+}
+
+/* Other States */
+.ui.selectable.table tr.error:hover,
+.ui.selectable.table tr:hover td.error {
+  background: @errorBackgroundHover !important;
+  color: @errorColorHover !important;
+}
+.ui.selectable.table tr.warning:hover,
+.ui.selectable.table tr:hover td.warning {
+  background: @warningBackgroundHover !important;
+  color: @warningColorHover !important;
+}
+.ui.selectable.table tr.active:hover,
+.ui.selectable.table tr:hover td.active {
+  background: @activeBackgroundColor !important;
+  color: @activeColor !important;
+}
+.ui.selectable.table tr.positive:hover,
+.ui.selectable.table tr:hover td.positive {
+  background: @positiveBackgroundHover !important;
+  color: @positiveColorHover !important;
+}
+.ui.selectable.table tr.negative:hover,
+.ui.selectable.table tr:hover td.negative {
+  background: @negativeBackgroundHover !important;
+  color: @negativeColorHover !important;
+}
+
 
 
 /*--------------
@@ -576,6 +555,14 @@
   background-color: @invertedStripedBackground;
 }
 
+/*--------------
+   Single Line
+---------------*/
+
+.ui.table[class*="single line"],
+.ui.table [class*="single line"] {
+  white-space: nowrap;
+}
 
 /*-------------------
        Colors
@@ -692,18 +679,16 @@
 }
 
 .ui.sortable.table thead th:after {
-  display: inline-block;
-  content: '';
-  width: @sortableIconWidth;
-  height: 1em;
-  opacity: @sortableIconOpacity;
-
-  margin: 0em 0em 0em @sortableIconDistance;
-
-  font-family: @sortableIconFont;
+  display: none;
   font-style: normal;
   font-weight: normal;
   text-decoration: inherit;
+  content: '';
+  height: 1em;
+  width: @sortableIconWidth;
+  opacity: @sortableIconOpacity;
+  margin: 0em 0em 0em @sortableIconDistance;
+  font-family: @sortableIconFont;
 }
 .ui.sortable.table thead th.ascending:after {
   content: @sortableIconAscending;
@@ -726,6 +711,9 @@
 .ui.sortable.table thead th.sorted {
   background: @sortableActiveBackground;
   color: @sortableActiveColor;
+}
+.ui.sortable.table thead th.sorted:after {
+  display: inline-block;
 }
 
 /* Sorted Hover */

@@ -637,8 +637,7 @@ Floated Menu / Item
   border-right: @tabularBorderWidth solid @tabularBorderColor;
 }
 .ui.vertical.tabular.menu .item {
-  background-color: transparent;
-
+  background: none;
   border-left: @tabularBorderWidth solid transparent;
   border-bottom: @tabularBorderWidth solid transparent;
   border-top: @tabularBorderWidth solid transparent;
@@ -672,10 +671,6 @@ Floated Menu / Item
 }
 .ui.pagination.menu .icon.item i.icon {
   vertical-align: top;
-}
-
-.ui.pagination.menu.floated {
-  display: block;
 }
 
 /* Active */
@@ -946,6 +941,11 @@ Floated Menu / Item
   font-weight: @textMenuItemFontWeight;
   color: @textMenuItemColor;
   transition: @textMenuItemTransition;
+}
+
+/* Sub Menu */
+.ui.vertical.text.menu > .menu {
+  margin: @textMenuSubMenuMargin;
 }
 
 /* Border */

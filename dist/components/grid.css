@@ -167,7 +167,6 @@ body > .ui.grid {
   margin: 1rem 1rem;
 }
 .ui.grid .column + .ui.vertical.divider {
-  height: -webkit-calc(50% -  1rem );
   height: calc(50% -  1rem );
 }
 
@@ -1638,7 +1637,6 @@ body > .ui.grid {
   content: "";
   top: 0em;
   left: 0px;
-  width: -webkit-calc(100% -  2rem );
   width: calc(100% -  2rem );
   height: 1px;
   margin: 0% 1rem;
@@ -1673,13 +1671,11 @@ body > .ui.grid {
 .ui.relaxed[class*="vertically divided"].grid > .row:before {
   margin-left: 1.5rem;
   margin-right: 1.5rem;
-  width: -webkit-calc(100% -  3rem );
   width: calc(100% -  3rem );
 }
 .ui[class*="very relaxed"][class*="vertically divided"].grid > .row:before {
   margin-left: 5rem;
   margin-right: 5rem;
-  width: -webkit-calc(100% -  5rem );
   width: calc(100% -  5rem );
 }
 
@@ -1896,7 +1892,7 @@ body > .ui.grid {
 .ui.grid > .white.column,
 .ui.grid > .row > .white.column {
   background-color: #ffffff !important;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 .ui.grid > .row > .white.column {
   margin-top: -1rem;

@@ -28,7 +28,7 @@ var
   config       = require('./config/user'),
 
   // task config
-  tasks        = require('./config/project/tasks'),
+  tasks        = require('./config/tasks'),
   install      = require('./config/project/install'),
 
   // shorthand
@@ -59,7 +59,9 @@ module.exports = function(callback) {
   // check for right-to-left language
   if(config.rtl === true || config.rtl === 'Yes') {
     gulp.start('watch-rtl');
-    return;
+    if(config.rtl !== 'both') {
+      return;
+    }
   }
 
   //console.clear();

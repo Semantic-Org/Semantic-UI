@@ -22,6 +22,7 @@
 @verticalPadding: 0em;
 
 /* Sub Heading */
+@subHeadingMargin: @headerTopMargin 0em 0.1428rem;
 @subHeadingFontSize: @relativeTiny;
 @subHeadingFontWeight: bold;
 @subHeadingTextTransform: uppercase;
@@ -32,6 +33,7 @@
 @hugeSubHeadingSize: @relativeMedium;
 
 /* Sub Header */
+@subHeaderMargin: 0em;
 @subHeaderLineHeight: 1.2em;
 @subHeaderColor: rgba(0, 0, 0, 0.5);
 

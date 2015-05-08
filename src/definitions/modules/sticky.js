@@ -110,7 +110,7 @@ $.fn.sticky = function(parameters) {
             observer = new MutationObserver(function(mutations) {
               clearTimeout(module.timer);
               module.timer = setTimeout(function() {
-                module.verbose('DOM tree modified, updating sticky menu');
+                module.verbose('DOM tree modified, updating sticky menu', mutations);
                 module.refresh();
               }, 100);
             });
@@ -210,6 +210,9 @@ $.fn.sticky = function(parameters) {
           lastScroll: function(scroll) {
             module.lastScroll = scroll;
           },
+          elementScroll: function(scroll) {
+            module.elementScroll = scroll;
+          },
           positions: function() {
             var
               window = {
@@ -281,6 +284,9 @@ $.fn.sticky = function(parameters) {
             ;
           },
           currentElementScroll: function() {
+            if(module.elementScroll) {
+              return module.elementScroll;
+            }
             return ( module.is.top() )
               ? Math.abs(parseInt($module.css('top'), 10))    || 0
               : Math.abs(parseInt($module.css('bottom'), 10)) || 0
@@ -295,8 +301,7 @@ $.fn.sticky = function(parameters) {
               delta          = module.get.scrollChange(scroll),
               maxScroll      = (element.height - window.height + settings.offset),
               elementScroll  = module.get.currentElementScroll(),
-              possibleScroll = (elementScroll + delta),
-              elementScroll
+              possibleScroll = (elementScroll + delta)
             ;
             if(module.cache.fits || possibleScroll < 0) {
               elementScroll = 0;
@@ -415,6 +420,7 @@ $.fn.sticky = function(parameters) {
 
           // save current scroll for next run
           module.save.lastScroll(scroll.top);
+          module.save.elementScroll(elementScroll);
 
           if(elementVisible) {
 
@@ -772,8 +778,8 @@ $.fn.sticky.settings = {
   namespace      : 'sticky',
 
   debug          : false,
-  verbose        : false,
-  performance    : false,
+  verbose        : true,
+  performance    : true,
 
   pushing        : false,
   context        : false,
@@ -782,7 +788,7 @@ $.fn.sticky.settings = {
   offset         : 0,
   bottomOffset   : 0,
 
-  observeChanges : true,
+  observeChanges : false,
 
   onReposition   : function(){},
   onScroll       : function(){},

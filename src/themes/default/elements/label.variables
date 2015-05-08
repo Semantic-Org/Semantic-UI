@@ -40,6 +40,8 @@
 
 @iconDistance: 0.75em;
 
+@imageHeight: (1em + @verticalPadding * 2);
+
 @detailFontWeight: bold;
 @detailOpacity: 0.8;
 @detailIconDistance: 0.25em;
@@ -56,19 +58,19 @@
 
 /* Image Label */
 @imageLabelBackground: @backgroundColor;
-@imageLabelBorderRadius: @circularRadius;
 @imageLabelVerticalPadding: @verticalPadding;
 @imageLabelHorizontalPadding: @horizontalPadding;
 @imageLabelTextDistance: 0.5em;
 @imageLabelDetailDistance: @imageLabelTextDistance;
 @imageLabelBorderRadius: @borderRadius;
 @imageLabelBoxShadow: none;
-@imageLabelDetailBackground: @strongTransparentBlack;
-
-/* Computed Values */
-@imageLabelImageHeight: (1em + @verticalPadding * 2);
 @imageLabelPadding: @imageLabelVerticalPadding @imageLabelHorizontalPadding @imageLabelVerticalPadding @imageLabelTextDistance;
+
 @imageLabelImageMargin: -@verticalPadding @imageLabelTextDistance -@verticalPadding -@imageLabelTextDistance;
+@imageLabelImageBorderRadius: @imageLabelBorderRadius 0em 0em @imageLabelBorderRadius;
+@imageLabelImageHeight: @imageHeight;
+
+@imageLabelDetailBackground: @strongTransparentBlack;
 @imageLabelDetailPadding: @imageLabelVerticalPadding @imageLabelHorizontalPadding;
 @imageLabelDetailMargin: -@imageLabelVerticalPadding -@imageLabelHorizontalPadding -@imageLabelVerticalPadding @imageLabelDetailDistance;
 
@@ -120,6 +122,27 @@
 @ribbonImageDistance: ~"calc("@ribbonImageMargin~" + "@ribbonTriangleSize~")";
 @rightRibbonImageOffset:  ~"calc(100% + "@ribbonImageMargin~" + "@ribbonTriangleSize~")";
 
+/* Colors */
+@blackTextColor: @white;
+@blueTextColor: @white;
+@greenTextColor: @white;
+@orangeTextColor: @white;
+@pinkTextColor: @white;
+@purpleTextColor: @white;
+@redTextColor: @white;
+@tealTextColor: @white;
+@yellowTextColor: @white;
+
+@blackHoverTextColor: @white;
+@blueHoverTextColor: @white;
+@greenHoverTextColor: @white;
+@orangeHoverTextColor: @white;
+@pinkHoverTextColor: @white;
+@purpleHoverTextColor: @white;
+@redHoverTextColor: @white;
+@tealHoverTextColor: @white;
+@yellowHoverTextColor: @white;
+
 @blackRibbonShadow: darken(@black, 10);
 @blueRibbonShadow: darken(@blue, 10);
 @greenRibbonShadow: darken(@green, 10);
@@ -138,13 +161,13 @@
 /* Corner */
 @cornerSizeRatio: 1;
 @cornerTransition: color @labelTransitionDuration @labelTransitionEasing;
-@cornerTriangleSize: 3.25em;
+@cornerTriangleSize: 4em;
 @cornerTriangleTransition: border-color @labelTransitionDuration @labelTransitionEasing;
 @cornerTriangleZIndex: 1;
 
-@cornerIconSize: 1em;
-@cornerIconTopOffset: 0.4em;
-@cornerIconLeftOffset: 0.75em;
+@cornerIconSize: @relativeLarge;
+@cornerIconTopOffset: 0.6428em;
+@cornerIconLeftOffset: 0.7857em;
 
 /* Corner Text */
 @cornerTextWidth: 3em;

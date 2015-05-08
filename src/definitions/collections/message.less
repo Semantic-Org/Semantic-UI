@@ -119,9 +119,7 @@
   top: @closeTopDistance;
   right: @closeRightDistance;
   opacity: @closeOpacity;
-  transition:
-    opacity 0.1s linear
-  ;
+  transition: @closeTransition;
 }
 .ui.message > .close.icon:hover {
   opacity: 1;
@@ -135,6 +133,13 @@
   margin-bottom: 0em;
 }
 
+/*******************************
+            Coupling
+*******************************/
+
+.ui.dropdown .menu > .message {
+  margin: 0px -@borderWidth;
+}
 
 /*******************************
             States
@@ -159,6 +164,7 @@
 .ui.hidden.hidden.hidden.hidden.message {
   display: none;
 }
+
 
 /*******************************
             Variations
@@ -232,6 +238,7 @@
 .ui.icon.message .circular.icon {
   width: 1em;
 }
+
 /*--------------
     Floating
 ---------------*/

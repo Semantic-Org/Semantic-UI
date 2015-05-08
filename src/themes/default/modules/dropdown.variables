@@ -7,7 +7,6 @@
 --------------------*/
 
 @transition:
-  border-radius @transitionDuration @transitionEasing,
   width @transitionDuration @transitionEasing
 ;
 @borderRadius: @defaultBorderRadius;
@@ -29,9 +28,8 @@
 @menuMargin: 0em;
 @menuPadding: 0em 0em;
 @menuTop: 100%;
-@menuWrap: nowrap;
+@menuWrap: normal;
 @menuTextAlign: left;
-@menuTransition: none;
 
 @menuBorderWidth: 1px;
 @menuBorderColor: @borderColor;
@@ -47,14 +45,14 @@
 @textLineHeightOffset: (@textLineHeight - 1em);
 
 /* Menu Item */
-@itemFontSize: @relativeMedium;
+@itemFontSize: @medium;
 @itemTextAlign: left;
 @itemBorder: none;
 @itemHeight: auto;
 @itemDivider: none;
 @itemColor: @textColor;
-@itemVerticalPadding: @relativeMini;
-@itemHorizontalPadding: @relativeLarge;
+@itemVerticalPadding: @mini;
+@itemHorizontalPadding: @large;
 @itemPadding: @itemVerticalPadding @itemHorizontalPadding;
 @itemFontWeight: normal;
 @itemLineHeight: 1em;
@@ -81,7 +79,7 @@
 
 /* Menu Divider */
 @menuDividerMargin: 0.5em 0em 0em;
-@menuDividerColor: rgba(0, 0, 0, 0.05);
+@menuDividerColor: @internalBorderColor;
 @menuDividerSize: 1px;
 @menuDividerBorder: @menuDividerSize solid @menuDividerColor;
 
@@ -93,7 +91,7 @@
 @menuInputPadding: @menuInputVerticalPadding @menuInputHorizontalPadding;
 
 /* Menu Image */
-@menuImageMaxHeight: 2.5em;
+@menuImageMaxHeight: 2em;
 
 /* Item Sub-Element */
 @itemElementFloat: none;
@@ -119,18 +117,19 @@
 /*-------------------
         Types
 --------------------*/
-
 /* Selection */
 @selectionMinWidth: 200px;
+@selectionBorderEmWidth:  0.0785em; /* 2px / em size */
+@selectionMinHeight: @defaultInputLineHeight + (@selectionVerticalPadding * 2) - @selectionBorderEmWidth;
 @selectionBackground: @white;
 @selectionDisplay: inline-block;
 @selectionVerticalPadding: 0.78571em;
-@selectionHorizontalPadding: 1.1em;
+@selectionHorizontalPadding: 1em;
 @selectionIconDistance: 2em;
 @selectionPadding: @selectionVerticalPadding @selectionIconDistance @selectionVerticalPadding @selectionHorizontalPadding;
 @selectionZIndex: 10;
 
-@selectionItemDivider: 1px solid rgba(0, 0, 0, 0.05);
+@selectionItemDivider: 1px solid @solidInternalBorderColor;
 @selectionMessagePadding: @selectionItemPadding;
 
 /* <select> */
@@ -155,6 +154,7 @@
 @selectionIconPadding: @selectionIconHitbox;
 @selectionIconTransition: opacity @transitionDuration @transitionEasing;
 
+@selectionMenuBorderRadius: 0em 0em @borderRadius @borderRadius;
 @selectionMenuBoxShadow: @raisedShadow;
 @selectionMenuItemBoxShadow: none;
 
@@ -162,15 +162,8 @@
 @selectionItemVerticalPadding: @itemVerticalPadding;
 @selectionItemPadding: @selectionItemVerticalPadding @selectionItemHorizontalPadding;
 
-@selectionTransition:
-  @transition,
-  box-shadow @defaultDuration @defaultEasing,
-  border @defaultDuration @defaultEasing
-;
-@selectionMenuTransition:
-  box-shadow @defaultDuration @defaultEasing,
-  border @defaultDuration @defaultEasing
-;
+@selectionTransition: @transition;
+@selectionMenuTransition: @menuTransition;
 
 /* Responsive */
 @selectionMobileMaxItems: 3;
@@ -236,7 +229,7 @@
 
 /* Multiple */
 
-/* Split Actual Padding Between Child and Group (allows for label spacing) */
+/* Split Actual Padding Between Child and Parent (allows for label spacing) */
 @multipleSelectionVerticalPadding: (@searchSelectionVerticalPadding * (1/3));
 @multipleSelectionLeftPadding: (@selectionHorizontalPadding - @labelHorizontalPadding);
 @multipleSelectionRightPadding: @selectionIconDistance;
@@ -251,15 +244,16 @@
 
 /* Dropdown Icon */
 @multipleSelectionDropdownIconMargin: 0em -@labelHorizontalPadding 0em 0em;
-@multipleSelectionDropdownIconPadding: @labelPadding;
+@multipleSelectionDropdownIconPadding: 0.5em;
 
 /* Selection Label */
-@labelSize: @relativeSmall;
-@labelHorizontalSpacing: 0.5em;
-@labelVerticalSpacing: (0.46153em / 2); /* 6px @ 13em */
+@labelSize: @relativeMedium;
+@labelHorizontalSpacing: 0.2857142rem; /* 4px @ 14px/rem */
+@labelVerticalSpacing: (0.2857142em / 2);
 @labelMargin: @labelVerticalSpacing @labelHorizontalSpacing @labelVerticalSpacing 0em;
+@labelBoxShadow: 0px 0px 0px 1px @borderColor inset;
 
-@labelVerticalPadding: 0.3846em; /* 5px @ 13px/em */
+@labelVerticalPadding: 0.35714em; /* 5px @ 14px/em */
 @labelHorizontalPadding: @relativeMini;
 @labelPadding: @labelVerticalPadding @labelHorizontalPadding;
 
@@ -275,7 +269,7 @@
 
 /* Default Text */
 @defaultTextColor: rgba(179, 179, 179, 0.7);
-@defaultTextHoverColor: rgba(140, 140, 140, 0.7);
+@defaultTextHoverColor: rgba(179, 179, 179, 0.7);
 
 /* Loading */
 @loadingZIndex: -1;

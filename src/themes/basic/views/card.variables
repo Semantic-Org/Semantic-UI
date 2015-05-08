@@ -21,13 +21,15 @@
 @extraBoxShadow: none;
 @extraPadding: 0.5em 0em;
 
-@extraLinkColor: @linkColor;
-@extraLinkHoverColor: @linkColor;
+@extraLinkColor: @textColor;
+@extraLinkHoverColor: @linkHoverColor;
 
-@headerFontSize: 1.2em;
-@headerLinkColor: @linkColor;
+@headerFontSize: @relativeLarge;
+@headerLinkColor: @textColor;
+@headerLinkHoverColor: @linkHoverColor;
 
 @imageBorderRadius: @borderRadius;
 @imageBorder: 1px solid @borderColor;
 
+@linkHoverBackground: transparent;
 @linkHoverBoxShadow: none;

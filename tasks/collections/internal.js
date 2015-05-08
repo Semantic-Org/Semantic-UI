@@ -31,7 +31,7 @@ module.exports = function(gulp) {
     docsConfig = require('./../config/docs'),
 
     // install config
-    tasks      = require('./../config/project/tasks'),
+    tasks      = require('./../config/tasks'),
     release    = require('./../config/project/release'),
 
     // shorthand

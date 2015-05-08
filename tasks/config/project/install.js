@@ -440,6 +440,10 @@ module.exports = {
             name: 'Yes',
             value: true
           },
+          {
+            name: 'Build Both',
+            value: 'both'
+          }
         ]
       },
       {

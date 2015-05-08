@@ -5,7 +5,7 @@
 var
   del    = require('del'),
   config = require('./config/user'),
-  tasks  = require('./config/project/tasks')
+  tasks  = require('./config/tasks')
 ;
 
 // cleans distribution files

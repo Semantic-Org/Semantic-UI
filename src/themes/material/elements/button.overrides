@@ -3,6 +3,7 @@
 .ui.button {
   min-width: 72px;
 }
+.ui.circular.button,
 .ui.buttons .button {
   min-width: 0px;
 }

@@ -106,7 +106,7 @@
 
 .ui.comments .comment .author {
   font-size: 1em;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   font-weight: bold;
 }
 .ui.comments .comment a.author {
@@ -142,7 +142,7 @@
   margin: 0.25em 0em 0.5em;
   font-size: 1em;
   word-wrap: break-word;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   line-height: 1.3;
 }
 
