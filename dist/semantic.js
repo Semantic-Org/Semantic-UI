@@ -16838,12 +16838,10 @@ $.fn.videohtml = function(parameters) {
               })
               // prevent the input to update when it has been 'mousedown'ed but not 'change'd yet
               .on('mousedown' + eventNamespace, function() {
-                console.log('mousedown');
                 update_enabled = false;
               })
               .on('mouseup' + eventNamespace, function() {
                 update_enabled = true;
-                console.log('mouseup');
               })
             ;
             // from video to UI
@@ -16867,6 +16865,24 @@ $.fn.videohtml = function(parameters) {
             ;
             
           },
+          
+          volume: function($down, $up, $progress, step) {
+            // from UI to video
+            var step = step == undefined ? 0.1 : step;
+            $down.on('click' + eventNamespace, function() {
+              element.volume = Math.max(element.volume - step, 0);
+            });
+            $up.on('click' + eventNamespace, function() {
+              element.volume = Math.min(element.volume + step, 1);
+            });
+            // from video to UI
+            $progress.progress({ percent: 100 });
+            $module.on('volumechange' + eventNamespace, function() {
+              var volume = element.muted ? 0 : element.volume;
+              $progress.progress({ percent: volume * 100 });
+            });
+            
+          }
           
           /*
           loadProgress: function($progress) {
@@ -17325,12 +17341,10 @@ $.fn.videohtml = function(parameters) {
               })
               // prevent the input to update when it has been 'mousedown'ed but not 'change'd yet
               .on('mousedown' + eventNamespace, function() {
-                console.log('mousedown');
                 update_enabled = false;
               })
               .on('mouseup' + eventNamespace, function() {
                 update_enabled = true;
-                console.log('mouseup');
               })
             ;
             // from video to UI
@@ -17354,6 +17368,24 @@ $.fn.videohtml = function(parameters) {
             ;
             
           },
+          
+          volume: function($down, $up, $progress, step) {
+            // from UI to video
+            var step = step == undefined ? 0.1 : step;
+            $down.on('click' + eventNamespace, function() {
+              element.volume = Math.max(element.volume - step, 0);
+            });
+            $up.on('click' + eventNamespace, function() {
+              element.volume = Math.min(element.volume + step, 1);
+            });
+            // from video to UI
+            $progress.progress({ percent: 100 });
+            $module.on('volumechange' + eventNamespace, function() {
+              var volume = element.muted ? 0 : element.volume;
+              $progress.progress({ percent: volume * 100 });
+            });
+            
+          }
           
           /*
           loadProgress: function($progress) {

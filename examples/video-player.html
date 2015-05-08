@@ -36,7 +36,22 @@
       <aside class="ui bottom attached grid">
         
         <div class="row">
-          <div class="column">
+          
+          <div class="five wide column" style="font-size: 0;">
+            <div class="ui icon button" style="margin-right: 0;" id="volumedown">
+              <i class="icon volume down"></i>
+            </div>
+            <div class="ui progress" style="display: inline-block; width: 10em; height: 100%; margin:0; vertical-align: bottom;" id="volumeprogress">
+              <div class="bar" style="height: 100%;">
+                <div class="progress"></div>
+              </div>
+            </div>
+            <div class="ui icon button" style="margin-left: 0;" id="volumeup">
+              <i class="icon volume up"></i>
+            </div>
+          </div>
+          
+          <div class="six wide column" style="text-align: center;">
             <div class="ui icon button" id="playpause">
               <i class="play icon"></i>
             </div>
@@ -47,6 +62,10 @@
               <i class="forward icon"></i>
             </div>
           </div>
+          
+          <div class="five wide column">
+          </div>
+          
         </div>
         
         <div class="row">
@@ -132,6 +151,7 @@ $(document)
       .videohtml('control timeDisplay remaining', $('#timeremaining'))
       .videohtml('control timeRange', $('#timerange'))
       //.videohtml('control loadProgress', $('#loadprogress'))
+      .videohtml('control volume', $('#volumedown'), $('#volumeup'), $('#volumeprogress'))
       .get(0).load()
     ;
   })
