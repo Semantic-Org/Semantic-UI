@@ -41,6 +41,20 @@ $.fn.videohtml = function(parameters) {
     return (width <= string.length) ? string : utilStringPad(width, padding + string, padding)
   }
   
+  // see https://developer.mozilla.org/en-US/docs/Web/API/TimeRanges
+  function utilTimeInRange(time, range) {
+    console.log(time);
+    console.log(range);
+    for(var i = 0; i < range.length; i++) {
+      console.log(range.start(i));
+      console.log(range.end(i));
+      if(time >= range.start(i) && time <= range.end(i)) {
+        return true;
+      }
+    }
+    return false;
+  }
+  
   $allModules
     .each(function() {
       var
@@ -163,26 +177,48 @@ $.fn.videohtml = function(parameters) {
           
           timeRange: function($range) {
             $range = $($range);
+            var update_enabled = true;
             // from UI to video
-            $range.on('change', function(event) {
-              var ratio = $range.val() / ($range.prop('max') - $range.prop('min'));
-              element.fastSeek(element.duration * ratio);
-            });
+            $range
+              .on('change', function(event) {
+                var ratio = $range.val() / ($range.prop('max') - $range.prop('min'));
+                // use fastSeek if implemented
+                if(element.fastSeek) {
+                  element.fastSeek(element.duration * ratio);
+                } else {
+                  element.currentTime = element.duration * ratio;
+                }
+              })
+              // prevent the input to update when it has been 'mousedown'ed but not 'change'd yet
+              .on('mousedown' + eventNamespace, function() {
+                console.log('mousedown');
+                update_enabled = false;
+              })
+              .on('mouseup' + eventNamespace, function() {
+                update_enabled = true;
+                console.log('mouseup');
+              })
+            ;
             // from video to UI
             $module
               .on('timeupdate' + eventNamespace, function() {
-                var ratio = element.currentTime / element.duration;
-                var position = ratio * ($range.prop('max') - $range.prop('min'));
-                $range.val(position);
+                if(update_enabled) {
+                  var ratio = element.currentTime / element.duration;
+                  var position = ratio * ($range.prop('max') - $range.prop('min'));
+                  $range.val(position);
+                }
               })
-              //.on('loadeddata' + eventNamespace + ' seeked' + eventNamespace, function() {
-              //  $range.prop('disabled', false);
-              //})
-              //.on('loadstart' + eventNamespace + ' seeking' + eventNamespace, function() {
-              //  $range.prop('disabled', true);
-              //})
+              // the range input is disabled while a seek (or load) to an unbuffered area occurs
+              .on('loadstart' + eventNamespace + ' seeking' + eventNamespace, function() {
+                if(!utilTimeInRange(element.currentTime, element.buffered)) {
+                  $range.prop('disabled', true);
+                }
+              })
+              .on('loadeddata' + eventNamespace + ' seeked' + eventNamespace, function() {
+                $range.prop('disabled', false);
+              })
             ;
-            // TODO : don't update the position when input is 'mousdown'ed but not 'change'd yet
+            
           },
           
           /*
