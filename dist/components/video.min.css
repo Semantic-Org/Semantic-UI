@@ -1,0 +1,10 @@
+/*!
+ * # Semantic UI 2.0.0 - Video
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Copyright 2014 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */.ui.video{background-color:#ddd;position:relative;max-width:100%;padding-bottom:56.25%;height:0;overflow:hidden}.ui.video .placeholder{background-color:#333}.ui.video .play{cursor:pointer;position:absolute;top:0;left:0;z-index:10;width:100%;height:100%;background:0 0;-webkit-transition:background .2s ease;transition:background .2s ease}.ui.video .play.icon:before{position:absolute;top:50%;left:50%;z-index:11;-webkit-transform:translateX(-50%)translateY(-50%);-ms-transform:translateX(-50%)translateY(-50%);transform:translateX(-50%)translateY(-50%);color:rgba(255,255,255,.7);font-size:7rem;text-shadow:2px 2px 0 rgba(0,0,0,.15);-webkit-transition:color .2s ease;transition:color .2s ease}.ui.video .placeholder{position:absolute;top:0;left:0;display:block;width:100%;height:100%}.ui.video .embed embed,.ui.video .embed iframe,.ui.video .embed object{position:absolute;border:none;width:100%;height:100%;top:0;left:0;margin:0;padding:0}.ui.video .play:hover{background:0 0}.ui.video .play:hover:before{color:#fff}.ui.active.video .placeholder,.ui.active.video .play{display:none}.ui.active.video .embed{display:inline}
