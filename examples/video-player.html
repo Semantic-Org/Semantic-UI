@@ -144,20 +144,20 @@
 <script>
 $(document)
   .ready(function() {
-    $('video').videohtml('initialize')
-      .videohtml('control playpause', $('#playpause'))
-      .videohtml('control playbackrate', $('#forward'), 10) 
+    $('video').video('initialize')
+      .video('control playpause', $('#playpause'))
+      .video('control playbackrate', $('#forward'), 10) 
       // seems to have a upper limit with some browsers : 5 with FF 37.0.2
-      .videohtml('control playbackrate', $('#backward'), -4)
+      .video('control playbackrate', $('#backward'), -4)
       // negative value seems to not be handled by some browsers : NS_ERROR_NOT_IMPLEMENTED with FF 37.0.2, no visible effect with Chrome 42.0.2311.135
-      .videohtml('control time current', $('#timecurrent'))
-      .videohtml('control time remaining', $('#timeremaining'))
-      .videohtml('control time range', $('#timerange'))
-      //.videohtml('control loadProgress', $('#loadprogress'))
-      .videohtml('control volume up', $('#volumeup'))
-      .videohtml('control volume down', $('#volumedown'))
-      .videohtml('control volume progress', $('#volumeprogress'))
-      .videohtml('control volume mute', $('#mute'))
+      .video('control time current', $('#timecurrent'))
+      .video('control time remaining', $('#timeremaining'))
+      .video('control time range', $('#timerange'))
+      //.video('control loadProgress', $('#loadprogress'))
+      .video('control volume up', $('#volumeup'))
+      .video('control volume down', $('#volumedown'))
+      .video('control volume progress', $('#volumeprogress'))
+      .video('control volume mute', $('#mute'))
       .get(0).load()
     ;
   })

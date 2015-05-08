@@ -3,7 +3,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributorss
+ * Copyright 2015 Contributorss
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -35,7 +35,26 @@ $.fn.video = function(parameters) {
 
     returnedValue
   ;
-
+  
+  // see http://stackoverflow.com/questions/2686855/is-there-a-javascript-function-that-can-pad-a-string-to-get-to-a-determined-leng
+  function utilStringPad(string, width, padding) { 
+    return (width <= string.length) ? string : utilStringPad(width, padding + string, padding)
+  }
+  
+  // see https://developer.mozilla.org/en-US/docs/Web/API/TimeRanges
+  function utilTimeInRange(time, range) {
+    console.log(time);
+    console.log(range);
+    for(var i = 0; i < range.length; i++) {
+      console.log(range.start(i));
+      console.log(range.end(i));
+      if(time >= range.start(i) && time <= range.end(i)) {
+        return true;
+      }
+    }
+    return false;
+  }
+  
   $allModules
     .each(function() {
       var
@@ -55,9 +74,7 @@ $.fn.video = function(parameters) {
 
         $window         = $(window),
         $module         = $(this),
-        $placeholder    = $module.find(selector.placeholder),
-        $playButton     = $module.find(selector.playButton),
-        $embed          = $module.find(selector.embed),
+        $video          = null,
 
         element         = this,
         instance        = $module.data(moduleNamespace),
@@ -69,10 +86,6 @@ $.fn.video = function(parameters) {
         initialize: function() {
           module.debug('Initializing video');
           module.create();
-          $module
-            .on('click' + eventNamespace, selector.placeholder, module.play)
-            .on('click' + eventNamespace, selector.playButton, module.play)
-          ;
           module.instantiate();
         },
 
@@ -85,20 +98,218 @@ $.fn.video = function(parameters) {
         },
 
         create: function() {
-          var
-            image = $module.data(metadata.image),
-            html = templates.video(image)
-          ;
-          $module.html(html);
-          module.refresh();
-          if(!image) {
-            module.play();
-          }
-          module.debug('Creating html for video element', html);
+          $video = element
+          module.debug('Reefrencing html for video element');
         },
-
+        
+        
+        control: {
+          
+          playpause: function($playpause) {
+            $playpause = $($playpause);
+            // from UI to video
+            $playpause.on('click' + eventNamespace, function() {
+              if(element.paused) {
+                element.play();
+              } else {
+                element.pause();
+              }
+            });
+            // from video to UI
+            $module
+              .on('play' + eventNamespace, function() {
+                $playpause.addClass('active')
+              }).on('pause' + eventNamespace, function() {
+                $playpause.removeClass('active')
+              });
+          },
+          
+          // see https://developer.mozilla.org/fr/docs/Web/API/HTMLMediaElement#playbackRate
+          // mode from 'switch', 'push'
+          playbackrate: function($playbackrate, rate, mode) {
+            $playbackrate = $($playbackrate);
+            // from UI to video
+            switch(mode) {
+              case 'push': default:
+                $playbackrate.on('mousedown' + eventNamespace, function() {
+                  element.playbackRate = rate;
+                });
+                $playbackrate.on('mouseup' + eventNamespace + ' mouseleave' + eventNamespace, function() {
+                  element.playbackRate = element.defaultPlaybackRate;
+                });
+              break;
+              case 'switch':
+                // TODO
+              break;
+            }
+            // from video to UI
+            $module
+              .on('ratechange' + eventNamespace, function(event) {
+                console.log(element.playbackRate)
+              });
+          },
+        
+          time: {
+            
+            current: function($el) {
+              $module.on('timeupdate' + eventNamespace, function() {
+                var current = new Date(element.currentTime * 1000);
+                var readable = 
+                  utilStringPad(String(current.getHours() - 1), 1, '0')+ ':' + 
+                  utilStringPad(String(current.getMinutes()), 2, '0') + ':' + 
+                  utilStringPad(String(current.getSeconds()), 2,'0');
+                $el.text(readable);
+              });
+            },
+          
+            remaining: function($el) {
+              $module.on('timeupdate' + eventNamespace, function() {
+                var remaining = new Date((element.duration - element.currentTime) * 1000);
+                var readable = 
+                  utilStringPad(String(remaining.getHours() - 1), 1, '0')+ ':' + 
+                  utilStringPad(String(remaining.getMinutes()), 2, '0') + ':' + 
+                  utilStringPad(String(remaining.getSeconds()), 2,'0');
+                $el.text(readable);
+              });
+            },
+          
+            range: function($range) {
+              $range = $($range);
+              var update_enabled = true;
+              // from UI to video
+              $range
+                .on('change', function(event) {
+                  var ratio = $range.val() / ($range.prop('max') - $range.prop('min'));
+                  // use fastSeek if implemented
+                  if(element.fastSeek) {
+                    element.fastSeek(element.duration * ratio);
+                  } else {
+                    element.currentTime = element.duration * ratio;
+                  }
+                })
+                // prevent the input to update when it has been 'mousedown'ed but not 'change'd yet
+                .on('mousedown' + eventNamespace, function() {
+                  update_enabled = false;
+                })
+                .on('mouseup' + eventNamespace, function() {
+                  update_enabled = true;
+                })
+              ;
+              // from video to UI
+              $module
+                .on('timeupdate' + eventNamespace, function() {
+                  if(update_enabled) {
+                    var ratio = element.currentTime / element.duration;
+                    var position = ratio * ($range.prop('max') - $range.prop('min'));
+                    $range.val(position);
+                  }
+                })
+                // the range input is disabled while a seek (or load) to an unbuffered area occurs
+                .on('loadstart' + eventNamespace + ' seeking' + eventNamespace, function() {
+                  if(!utilTimeInRange(element.currentTime, element.buffered)) {
+                    $range.prop('disabled', true);
+                  }
+                })
+                .on('loadeddata' + eventNamespace + ' seeked' + eventNamespace, function() {
+                  $range.prop('disabled', false);
+                })
+              ;
+            
+            }
+            
+          },
+          
+          volume: {
+            up: function($up, step) {
+              var step = step == undefined ? 0.1 : step;
+              $up.on('click' + eventNamespace, function() {
+                element.volume = Math.min(element.volume + step, 1);
+              });
+              $module.on('volumechange' + eventNamespace, function() {
+                if(element.muted) {
+                  $up.addClass('disabled');
+                } else {
+                  $up.removeClass('disabled');
+                }
+              });
+            },
+            down: function($down, step) {
+              var step = step == undefined ? 0.1 : step;
+              $down.on('click' + eventNamespace, function() {
+                element.volume = Math.max(element.volume - step, 0);
+              });
+              $module.on('volumechange' + eventNamespace, function() {
+                if(element.muted) {
+                  $down.addClass('disabled');
+                } else {
+                  $down.removeClass('disabled');
+                }
+              });
+            },
+            progress: function($progress) {
+              $progress.progress({ percent: 100 });
+              $module.on('volumechange' + eventNamespace, function() {
+                var volume = element.muted ? 0 : element.volume;
+                $progress.progress({ percent: volume * 100 });
+                if(element.muted) {
+                  $progress.addClass('disabled');
+                } else {
+                  $progress.removeClass('disabled');
+                }
+              });
+            },
+            mute: function($mute) {
+              $mute.on('click' + eventNamespace, function() {
+                element.muted = !element.muted;
+              });
+              $module.on('volumechange' + eventNamespace, function() {
+                if(element.muted) {
+                  $mute.addClass('active');
+                } else {
+                  $mute.removeClass('active');
+                }
+              });
+            }
+          }
+          
+          /*
+          loadProgress: function($progress) {
+            $progress = $($progress)
+            // from video to UI
+            $module
+              .on('progress' + eventNamespace, function() {
+                console.log('progress');
+                if(element.lengthComputable) {
+                  $progress.progress({ percent: loaded / total * 100 });
+                }
+              }).on('seeking' + eventNamespace, function() {
+                console.log('seeking')
+              }).on('seeked' + eventNamespace, function() {
+                console.log('seeked')
+                console.log(element.buffered)
+              }).on('stalled' + eventNamespace, function() {
+                console.log('stalled')
+              }).on('suspend' + eventNamespace, function() {
+                console.log('suspend')
+              }).on('loadstart' + eventNamespace, function() {
+                console.log('loadstart')
+              }).on('loadedmetadata' + eventNamespace, function() {
+                console.log('loadedmetadata')
+              }).on('' + eventNamespace, function() {
+                console.log('loadeddata')
+              });
+            
+              
+              
+            
+          }
+          */
+          
+        }, // end of control
+       
         destroy: function() {
           module.verbose('Destroying previous instance of video');
+          $video = null
           module.reset();
           $module
             .removeData(moduleNamespace)
@@ -108,169 +319,12 @@ $.fn.video = function(parameters) {
 
         refresh: function() {
           module.verbose('Refreshing selector cache');
-          $placeholder    = $module.find(selector.placeholder);
-          $playButton     = $module.find(selector.playButton);
-          $embed          = $module.find(selector.embed);
+          $video          = element
         },
 
-        // sets new video
-        change: function(source, id, url) {
-          module.debug('Changing video to ', source, id, url);
-          $module
-            .data(metadata.source, source)
-            .data(metadata.id, id)
-            .data(metadata.url, url)
-          ;
-          settings.onChange();
-        },
-
-        // clears video embed
         reset: function() {
-          module.debug('Clearing video embed and showing placeholder');
-          $module
-            .removeClass(className.active)
-          ;
-          $embed
-            .html(' ')
-          ;
-          $placeholder
-            .show()
-          ;
+          module.debug('Clearing video');
           settings.onReset();
-        },
-
-        // plays current video
-        play: function() {
-          module.debug('Playing video');
-          var
-            source = $module.data(metadata.source) || false,
-            url    = $module.data(metadata.url)    || false,
-            id     = $module.data(metadata.id)     || false
-          ;
-          $embed
-            .html( module.generate.html(source, id, url) )
-          ;
-          $module
-            .addClass(className.active)
-          ;
-          settings.onPlay();
-        },
-
-        get: {
-          source: function(url) {
-            if(typeof url !== 'string') {
-              return false;
-            }
-            if(url.search('youtube.com') !== -1) {
-              return 'youtube';
-            }
-            else if(url.search('vimeo.com') !== -1) {
-              return 'vimeo';
-            }
-            return false;
-          },
-          id: function(url) {
-            if(url.match(settings.regExp.youtube)) {
-              return url.match(settings.regExp.youtube)[1];
-            }
-            else if(url.match(settings.regExp.vimeo)) {
-              return url.match(settings.regExp.vimeo)[2];
-            }
-            return false;
-          }
-        },
-
-        generate: {
-          // generates iframe html
-          html: function(source, id, url) {
-            module.debug('Generating embed html');
-            var
-              html
-            ;
-            // allow override of settings
-            source = source || settings.source;
-            id     = id     || settings.id;
-            if((source && id) || url) {
-              if(!source || !id) {
-                source = module.get.source(url);
-                id     = module.get.id(url);
-              }
-              if(source == 'vimeo') {
-                html = ''
-                  + '<iframe src="//player.vimeo.com/video/' + id + '?=' + module.generate.url(source) + '"'
-                  + ' width="100%" height="100%"'
-                  + ' frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
-                ;
-              }
-              else if(source == 'youtube') {
-                html = ''
-                  + '<iframe src="//www.youtube.com/embed/' + id + '?=' + module.generate.url(source) + '"'
-                  + ' width="100%" height="100%"'
-                  + ' frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
-                ;
-              }
-            }
-            else {
-              module.error(error.noVideo);
-            }
-            return html;
-          },
-
-          // generate url parameters
-          url: function(source) {
-            var
-              api      = (settings.api)
-                ? 1
-                : 0,
-              autoplay = (settings.autoplay === 'auto')
-                ? ($module.data('image') !== undefined)
-                : settings.autoplay,
-              hd       = (settings.hd)
-                ? 1
-                : 0,
-              showUI   = (settings.showUI)
-                ? 1
-                : 0,
-              // opposite used for some params
-              hideUI   = !(settings.showUI)
-                ? 1
-                : 0,
-              url = ''
-            ;
-            if(source == 'vimeo') {
-              url = ''
-                +      'api='      + api
-                + '&amp;title='    + showUI
-                + '&amp;byline='   + showUI
-                + '&amp;portrait=' + showUI
-                + '&amp;autoplay=' + autoplay
-              ;
-              if(settings.color) {
-                url += '&amp;color=' + settings.color;
-              }
-            }
-            if(source == 'ustream') {
-              url = ''
-                + 'autoplay=' + autoplay
-              ;
-              if(settings.color) {
-                url += '&amp;color=' + settings.color;
-              }
-            }
-            else if(source == 'youtube') {
-              url = ''
-                + 'enablejsapi='      + api
-                + '&amp;autoplay='    + autoplay
-                + '&amp;autohide='    + hideUI
-                + '&amp;hq='          + hd
-                + '&amp;modestbranding=1'
-              ;
-              if(settings.color) {
-                url += '&amp;color=' + settings.color;
-              }
-            }
-            return url;
-          }
         },
 
         setting: function(name, value) {
@@ -285,6 +339,7 @@ $.fn.video = function(parameters) {
             return settings[name];
           }
         },
+        
         internal: function(name, value) {
           if( $.isPlainObject(name) ) {
             $.extend(true, module, name);
@@ -296,6 +351,7 @@ $.fn.video = function(parameters) {
             return module[name];
           }
         },
+        
         debug: function() {
           if(settings.debug) {
             if(settings.performance) {
@@ -307,6 +363,7 @@ $.fn.video = function(parameters) {
             }
           }
         },
+        
         verbose: function() {
           if(settings.verbose && settings.debug) {
             if(settings.performance) {
@@ -318,10 +375,12 @@ $.fn.video = function(parameters) {
             }
           }
         },
+        
         error: function() {
           module.error = Function.prototype.bind.call(console.error, console, settings.name + ':');
           module.error.apply(console, arguments);
         },
+        
         performance: {
           log: function(message) {
             var
@@ -344,6 +403,7 @@ $.fn.video = function(parameters) {
             clearTimeout(module.performance.timer);
             module.performance.timer = setTimeout(module.performance.display, 500);
           },
+          
           display: function() {
             var
               title = settings.name + ':',
@@ -376,6 +436,7 @@ $.fn.video = function(parameters) {
             performance = [];
           }
         },
+        
         invoke: function(query, passedArguments, context) {
           var
             object = instance,
@@ -452,80 +513,24 @@ $.fn.video = function(parameters) {
   ;
 };
 
+
 $.fn.video.settings = {
 
   name        : 'Video',
   namespace   : 'video',
 
-  debug       : false,
-  verbose     : false,
+  debug       : true,
+  verbose     : true,
   performance : true,
-
-  metadata    : {
-    id     : 'id',
-    image  : 'image',
-    source : 'source',
-    url    : 'url'
-  },
-
-  source      : false,
-  url         : false,
-  id          : false,
-
-  aspectRatio : (16/9),
-
-  onPlay   : function(){},
-  onReset  : function(){},
-  onChange : function(){},
-
-  // callbacks not coded yet (needs to use jsapi)
-  onPause  : function() {},
-  onStop   : function() {},
-
-  width    : 'auto',
-  height   : 'auto',
-
-  autoplay : 'auto',
-  color    : '#442359',
-  hd       : true,
-  showUI   : false,
-  api      : true,
-
-  regExp : {
-    youtube : /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/,
-    vimeo   : /http:\/\/(www\.)?vimeo.com\/(\d+)($|\/)/
-  },
-
-  error      : {
-    noVideo     : 'No video specified',
-    method      : 'The method you called is not defined'
-  },
 
   className   : {
     active      : 'active'
   },
 
   selector    : {
-    embed       : '.embed',
-    placeholder : '.placeholder',
     playButton  : '.play'
   }
-};
-
-$.fn.video.settings.templates = {
-  video: function(image) {
-    var
-      html = ''
-    ;
-    if(image) {
-      html += ''
-        + '<i class="video play icon"></i>'
-        + '<img class="placeholder" src="' + image + '">'
-      ;
-    }
-    html += '<div class="embed"></div>';
-    return html;
-  }
+  
 };
 
 

@@ -454,7 +454,6 @@ $.site.settings = {
     'tab',
     'transition',
     'video',
-    'videohtml',
     'visit',
     'visibility'
   ],
