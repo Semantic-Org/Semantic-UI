@@ -13,6 +13,21 @@
 
 "use strict";
 
+// see http://stackoverflow.com/questions/2686855/is-there-a-javascript-function-that-can-pad-a-string-to-get-to-a-determined-leng
+function utilStringPad(string, width, padding) { 
+  return (width <= string.length) ? string : utilStringPad(width, padding + string, padding)
+}
+
+// see https://developer.mozilla.org/en-US/docs/Web/API/TimeRanges
+function utilTimeInRange(time, range) {
+  for(var i = 0; i < range.length; i++) {
+    if(time >= range.start(i) && time <= range.end(i)) {
+      return true;
+    }
+  }
+  return false;
+}
+
 $.fn.video = function(parameters) {
 
   var
@@ -36,25 +51,6 @@ $.fn.video = function(parameters) {
     returnedValue
   ;
   
-  // see http://stackoverflow.com/questions/2686855/is-there-a-javascript-function-that-can-pad-a-string-to-get-to-a-determined-leng
-  function utilStringPad(string, width, padding) { 
-    return (width <= string.length) ? string : utilStringPad(width, padding + string, padding)
-  }
-  
-  // see https://developer.mozilla.org/en-US/docs/Web/API/TimeRanges
-  function utilTimeInRange(time, range) {
-    console.log(time);
-    console.log(range);
-    for(var i = 0; i < range.length; i++) {
-      console.log(range.start(i));
-      console.log(range.end(i));
-      if(time >= range.start(i) && time <= range.end(i)) {
-        return true;
-      }
-    }
-    return false;
-  }
-  
   $allModules
     .each(function() {
       var
@@ -74,7 +70,6 @@ $.fn.video = function(parameters) {
 
         $window         = $(window),
         $module         = $(this),
-        $video          = null,
 
         element         = this,
         instance        = $module.data(moduleNamespace),
