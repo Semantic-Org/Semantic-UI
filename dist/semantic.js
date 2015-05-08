@@ -16796,8 +16796,8 @@ $.fn.videohtml = function(parameters) {
               });
           },
         
-          timeDisplay: {
-
+          time: {
+            
             current: function($el) {
               $module.on('timeupdate' + eventNamespace, function() {
                 var current = new Date(element.currentTime * 1000);
@@ -16818,70 +16818,105 @@ $.fn.videohtml = function(parameters) {
                   utilStringPad(String(remaining.getSeconds()), 2,'0');
                 $el.text(readable);
               });
+            },
+          
+            range: function($range) {
+              $range = $($range);
+              var update_enabled = true;
+              // from UI to video
+              $range
+                .on('change', function(event) {
+                  var ratio = $range.val() / ($range.prop('max') - $range.prop('min'));
+                  // use fastSeek if implemented
+                  if(element.fastSeek) {
+                    element.fastSeek(element.duration * ratio);
+                  } else {
+                    element.currentTime = element.duration * ratio;
+                  }
+                })
+                // prevent the input to update when it has been 'mousedown'ed but not 'change'd yet
+                .on('mousedown' + eventNamespace, function() {
+                  update_enabled = false;
+                })
+                .on('mouseup' + eventNamespace, function() {
+                  update_enabled = true;
+                })
+              ;
+              // from video to UI
+              $module
+                .on('timeupdate' + eventNamespace, function() {
+                  if(update_enabled) {
+                    var ratio = element.currentTime / element.duration;
+                    var position = ratio * ($range.prop('max') - $range.prop('min'));
+                    $range.val(position);
+                  }
+                })
+                // the range input is disabled while a seek (or load) to an unbuffered area occurs
+                .on('loadstart' + eventNamespace + ' seeking' + eventNamespace, function() {
+                  if(!utilTimeInRange(element.currentTime, element.buffered)) {
+                    $range.prop('disabled', true);
+                  }
+                })
+                .on('loadeddata' + eventNamespace + ' seeked' + eventNamespace, function() {
+                  $range.prop('disabled', false);
+                })
+              ;
+            
             }
-
+            
           },
           
-          timeRange: function($range) {
-            $range = $($range);
-            var update_enabled = true;
-            // from UI to video
-            $range
-              .on('change', function(event) {
-                var ratio = $range.val() / ($range.prop('max') - $range.prop('min'));
-                // use fastSeek if implemented
-                if(element.fastSeek) {
-                  element.fastSeek(element.duration * ratio);
+          volume: {
+            up: function($up, step) {
+              var step = step == undefined ? 0.1 : step;
+              $up.on('click' + eventNamespace, function() {
+                element.volume = Math.min(element.volume + step, 1);
+              });
+              $module.on('volumechange' + eventNamespace, function() {
+                if(element.muted) {
+                  $up.addClass('disabled');
                 } else {
-                  element.currentTime = element.duration * ratio;
+                  $up.removeClass('disabled');
                 }
-              })
-              // prevent the input to update when it has been 'mousedown'ed but not 'change'd yet
-              .on('mousedown' + eventNamespace, function() {
-                update_enabled = false;
-              })
-              .on('mouseup' + eventNamespace, function() {
-                update_enabled = true;
-              })
-            ;
-            // from video to UI
-            $module
-              .on('timeupdate' + eventNamespace, function() {
-                if(update_enabled) {
-                  var ratio = element.currentTime / element.duration;
-                  var position = ratio * ($range.prop('max') - $range.prop('min'));
-                  $range.val(position);
+              });
+            },
+            down: function($down, step) {
+              var step = step == undefined ? 0.1 : step;
+              $down.on('click' + eventNamespace, function() {
+                element.volume = Math.max(element.volume - step, 0);
+              });
+              $module.on('volumechange' + eventNamespace, function() {
+                if(element.muted) {
+                  $down.addClass('disabled');
+                } else {
+                  $down.removeClass('disabled');
                 }
-              })
-              // the range input is disabled while a seek (or load) to an unbuffered area occurs
-              .on('loadstart' + eventNamespace + ' seeking' + eventNamespace, function() {
-                if(!utilTimeInRange(element.currentTime, element.buffered)) {
-                  $range.prop('disabled', true);
+              });
+            },
+            progress: function($progress) {
+              $progress.progress({ percent: 100 });
+              $module.on('volumechange' + eventNamespace, function() {
+                var volume = element.muted ? 0 : element.volume;
+                $progress.progress({ percent: volume * 100 });
+                if(element.muted) {
+                  $progress.addClass('disabled');
+                } else {
+                  $progress.removeClass('disabled');
                 }
-              })
-              .on('loadeddata' + eventNamespace + ' seeked' + eventNamespace, function() {
-                $range.prop('disabled', false);
-              })
-            ;
-            
-          },
-          
-          volume: function($down, $up, $progress, step) {
-            // from UI to video
-            var step = step == undefined ? 0.1 : step;
-            $down.on('click' + eventNamespace, function() {
-              element.volume = Math.max(element.volume - step, 0);
-            });
-            $up.on('click' + eventNamespace, function() {
-              element.volume = Math.min(element.volume + step, 1);
-            });
-            // from video to UI
-            $progress.progress({ percent: 100 });
-            $module.on('volumechange' + eventNamespace, function() {
-              var volume = element.muted ? 0 : element.volume;
-              $progress.progress({ percent: volume * 100 });
-            });
-            
+              });
+            },
+            mute: function($mute) {
+              $mute.on('click' + eventNamespace, function() {
+                element.muted = !element.muted;
+              });
+              $module.on('volumechange' + eventNamespace, function() {
+                if(element.muted) {
+                  $mute.addClass('active');
+                } else {
+                  $mute.removeClass('active');
+                }
+              });
+            }
           }
           
           /*
@@ -17299,8 +17334,8 @@ $.fn.videohtml = function(parameters) {
               });
           },
         
-          timeDisplay: {
-
+          time: {
+            
             current: function($el) {
               $module.on('timeupdate' + eventNamespace, function() {
                 var current = new Date(element.currentTime * 1000);
@@ -17321,70 +17356,105 @@ $.fn.videohtml = function(parameters) {
                   utilStringPad(String(remaining.getSeconds()), 2,'0');
                 $el.text(readable);
               });
+            },
+          
+            range: function($range) {
+              $range = $($range);
+              var update_enabled = true;
+              // from UI to video
+              $range
+                .on('change', function(event) {
+                  var ratio = $range.val() / ($range.prop('max') - $range.prop('min'));
+                  // use fastSeek if implemented
+                  if(element.fastSeek) {
+                    element.fastSeek(element.duration * ratio);
+                  } else {
+                    element.currentTime = element.duration * ratio;
+                  }
+                })
+                // prevent the input to update when it has been 'mousedown'ed but not 'change'd yet
+                .on('mousedown' + eventNamespace, function() {
+                  update_enabled = false;
+                })
+                .on('mouseup' + eventNamespace, function() {
+                  update_enabled = true;
+                })
+              ;
+              // from video to UI
+              $module
+                .on('timeupdate' + eventNamespace, function() {
+                  if(update_enabled) {
+                    var ratio = element.currentTime / element.duration;
+                    var position = ratio * ($range.prop('max') - $range.prop('min'));
+                    $range.val(position);
+                  }
+                })
+                // the range input is disabled while a seek (or load) to an unbuffered area occurs
+                .on('loadstart' + eventNamespace + ' seeking' + eventNamespace, function() {
+                  if(!utilTimeInRange(element.currentTime, element.buffered)) {
+                    $range.prop('disabled', true);
+                  }
+                })
+                .on('loadeddata' + eventNamespace + ' seeked' + eventNamespace, function() {
+                  $range.prop('disabled', false);
+                })
+              ;
+            
             }
-
+            
           },
           
-          timeRange: function($range) {
-            $range = $($range);
-            var update_enabled = true;
-            // from UI to video
-            $range
-              .on('change', function(event) {
-                var ratio = $range.val() / ($range.prop('max') - $range.prop('min'));
-                // use fastSeek if implemented
-                if(element.fastSeek) {
-                  element.fastSeek(element.duration * ratio);
+          volume: {
+            up: function($up, step) {
+              var step = step == undefined ? 0.1 : step;
+              $up.on('click' + eventNamespace, function() {
+                element.volume = Math.min(element.volume + step, 1);
+              });
+              $module.on('volumechange' + eventNamespace, function() {
+                if(element.muted) {
+                  $up.addClass('disabled');
                 } else {
-                  element.currentTime = element.duration * ratio;
+                  $up.removeClass('disabled');
                 }
-              })
-              // prevent the input to update when it has been 'mousedown'ed but not 'change'd yet
-              .on('mousedown' + eventNamespace, function() {
-                update_enabled = false;
-              })
-              .on('mouseup' + eventNamespace, function() {
-                update_enabled = true;
-              })
-            ;
-            // from video to UI
-            $module
-              .on('timeupdate' + eventNamespace, function() {
-                if(update_enabled) {
-                  var ratio = element.currentTime / element.duration;
-                  var position = ratio * ($range.prop('max') - $range.prop('min'));
-                  $range.val(position);
+              });
+            },
+            down: function($down, step) {
+              var step = step == undefined ? 0.1 : step;
+              $down.on('click' + eventNamespace, function() {
+                element.volume = Math.max(element.volume - step, 0);
+              });
+              $module.on('volumechange' + eventNamespace, function() {
+                if(element.muted) {
+                  $down.addClass('disabled');
+                } else {
+                  $down.removeClass('disabled');
                 }
-              })
-              // the range input is disabled while a seek (or load) to an unbuffered area occurs
-              .on('loadstart' + eventNamespace + ' seeking' + eventNamespace, function() {
-                if(!utilTimeInRange(element.currentTime, element.buffered)) {
-                  $range.prop('disabled', true);
+              });
+            },
+            progress: function($progress) {
+              $progress.progress({ percent: 100 });
+              $module.on('volumechange' + eventNamespace, function() {
+                var volume = element.muted ? 0 : element.volume;
+                $progress.progress({ percent: volume * 100 });
+                if(element.muted) {
+                  $progress.addClass('disabled');
+                } else {
+                  $progress.removeClass('disabled');
                 }
-              })
-              .on('loadeddata' + eventNamespace + ' seeked' + eventNamespace, function() {
-                $range.prop('disabled', false);
-              })
-            ;
-            
-          },
-          
-          volume: function($down, $up, $progress, step) {
-            // from UI to video
-            var step = step == undefined ? 0.1 : step;
-            $down.on('click' + eventNamespace, function() {
-              element.volume = Math.max(element.volume - step, 0);
-            });
-            $up.on('click' + eventNamespace, function() {
-              element.volume = Math.min(element.volume + step, 1);
-            });
-            // from video to UI
-            $progress.progress({ percent: 100 });
-            $module.on('volumechange' + eventNamespace, function() {
-              var volume = element.muted ? 0 : element.volume;
-              $progress.progress({ percent: volume * 100 });
-            });
-            
+              });
+            },
+            mute: function($mute) {
+              $mute.on('click' + eventNamespace, function() {
+                element.muted = !element.muted;
+              });
+              $module.on('volumechange' + eventNamespace, function() {
+                if(element.muted) {
+                  $mute.addClass('active');
+                } else {
+                  $mute.removeClass('active');
+                }
+              });
+            }
           }
           
           /*

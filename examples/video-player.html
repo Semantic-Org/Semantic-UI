@@ -33,11 +33,14 @@
         </video>
       </section>
       
-      <aside class="ui bottom attached grid">
+      <aside class="ui bottom attached stackable grid">
         
         <div class="row">
           
-          <div class="five wide column" style="font-size: 0;">
+          <div class="five wide column" style="font-size: 0; white-space: nowrap;">
+            <div class="ui icon button" style="margin-right: 0;" id="mute">
+              <i class="icon volume off"></i>
+            </div>
             <div class="ui icon button" style="margin-right: 0;" id="volumedown">
               <i class="icon volume down"></i>
             </div>
@@ -147,11 +150,14 @@ $(document)
       // seems to have a upper limit with some browsers : 5 with FF 37.0.2
       .videohtml('control playbackrate', $('#backward'), -4)
       // negative value seems to not be handled by some browsers : NS_ERROR_NOT_IMPLEMENTED with FF 37.0.2, no visible effect with Chrome 42.0.2311.135
-      .videohtml('control timeDisplay current', $('#timecurrent'))
-      .videohtml('control timeDisplay remaining', $('#timeremaining'))
-      .videohtml('control timeRange', $('#timerange'))
+      .videohtml('control time current', $('#timecurrent'))
+      .videohtml('control time remaining', $('#timeremaining'))
+      .videohtml('control time range', $('#timerange'))
       //.videohtml('control loadProgress', $('#loadprogress'))
-      .videohtml('control volume', $('#volumedown'), $('#volumeup'), $('#volumeprogress'))
+      .videohtml('control volume up', $('#volumeup'))
+      .videohtml('control volume down', $('#volumedown'))
+      .videohtml('control volume progress', $('#volumeprogress'))
+      .videohtml('control volume mute', $('#mute'))
       .get(0).load()
     ;
   })
