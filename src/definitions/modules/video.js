@@ -215,7 +215,8 @@ $.fn.video = function(parameters) {
               var step = step == undefined ? 0.1 : step;
               $up.on('click' + eventNamespace, function() {
                 element.volume = Math.min(element.volume + step, 1);
-                if($(this).prop('disabled') && element.muted) {
+                console.log($(this));
+                if($(this).hasClass('disabled') && element.muted) {
                   element.muted = false;
                 }
               });
@@ -232,7 +233,7 @@ $.fn.video = function(parameters) {
               var step = step == undefined ? 0.1 : step;
               $down.on('click' + eventNamespace, function() {
                 element.volume = Math.max(element.volume - step, 0);
-                if($(this).prop('disabled') && element.muted) {
+                if($(this).hasClass('disabled') && element.muted) {
                   element.muted = false;
                 }
               });
@@ -249,7 +250,7 @@ $.fn.video = function(parameters) {
               $progress.progress({ percent: 100 });
               $progress.on('click' + eventNamespace, function() {
                 // TODO : check position of click within the progress
-                if($(this).prop('disabled') && element.muted) {
+                if($(this).hasClass('disabled') && element.muted) {
                   element.muted = false;
                 }
               });

@@ -37,11 +37,12 @@
         
         <div class="row">
           
+          <!-- TODO move video specific deinitions in .less -->
           <div class="five wide column" style="font-size: 0; white-space: nowrap;">
             <div class="ui icon button" id="mute">
               <i class="icon volume off"></i>
             </div>
-            <div class="ui icon button" style="margin-right: 0;" id="volumedown">
+            <div class="ui icon button" style="margin-right: 0; pointer-events: auto;" id="volumedown">
               <i class="icon volume down"></i>
             </div>
             <div class="ui progress" style="display: inline-block; width: 10em; height: 100%; margin:0; vertical-align: bottom;" id="volumeprogress">
@@ -49,7 +50,7 @@
                 <div class="progress"></div>
               </div>
             </div>
-            <div class="ui icon button" style="margin-left: 0;" id="volumeup">
+            <div class="ui icon button" style="margin-left: 0; pointer-events: auto;" id="volumeup">
               <i class="icon volume up"></i>
             </div>
           </div>
