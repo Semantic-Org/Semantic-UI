@@ -51,6 +51,7 @@
 @checkbox   : 'default';
 @dimmer     : 'default';
 @dropdown   : 'default';
+@embed      : 'default';
 @modal      : 'default';
 @nag        : 'default';
 @popup      : 'default';
@@ -62,7 +63,6 @@
 @sticky     : 'default';
 @tab        : 'default';
 @transition : 'default';
-@video      : 'default';
 
 /* Views */
 @ad         : 'default';
