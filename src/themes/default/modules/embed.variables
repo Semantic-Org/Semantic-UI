@@ -8,28 +8,23 @@
 
 /* Simple */
 @background: @lightGrey;
-
 @widescreenRatio: (9/16) * 100%;
 @standardRatio: (3/4) * 100%;
 
-
-/* Video */
+/* Placeholder */
 @placeholderBackground: @background;
 
-@playBackground: transparent;
-@playTransition: background @defaultDuration @defaultEasing;
-
-@playIconSize: 7rem;
-@playIconTransition: color @defaultDuration @defaultEasing;
-@playIconColor: @invertedTextColor;
-@playIconShadow: @subtleShadow;
-@playZIndex: 10;
-@playIconZIndex: 11;
+/* Icon */
+@iconSize: 7rem;
+@iconTransition: color @defaultDuration @defaultEasing;
+@iconColor: @invertedTextColor;
+@iconShadow: @subtleShadow;
+@iconZIndex: 10;
 
 /*-------------------
        States
 --------------------*/
 
 /* Video */
-@playHoverBackground: rgba(0, 0, 0, 0);
-@playHoverIconColor: @white;
+@hoverIconBackground: rgba(0, 0, 0, 0);
+@hoverIconColor: @white;

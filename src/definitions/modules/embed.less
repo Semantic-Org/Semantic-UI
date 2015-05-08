@@ -25,17 +25,17 @@
 
 .ui.embed {
   position: relative;
-  background-color: @background;
   position: relative;
   max-width: 100%;
-  padding-bottom: @widescreenRatio;
   height: 0px;
   overflow: hidden;
+  background: @background;
+  padding-bottom: @widescreenRatio;
 }
 
-/*--------------
-     Embed
----------------*/
+/*-----------------
+  Embedded Content
+------------------*/
 
 .ui.embed iframe,
 .ui.embed embed,
@@ -50,12 +50,20 @@
   padding: 0em;
 }
 
+/*-----------------
+      Embed
+------------------*/
+
+.ui.embed > .embed {
+  display: none;
+}
+
 /*--------------
   Placeholder
 ---------------*/
 
 /* Placeholder Image */
-.ui.embed .placeholder {
+.ui.embed > .placeholder {
   position: absolute;
   top: 0px;
   left: 0px;
@@ -70,28 +78,25 @@
 ---------------*/
 
 /* Play Icon */
-.ui.embed .play {
+.ui.embed > .icon {
   cursor: pointer;
   position: absolute;
   top: 0px;
   left: 0px;
   width: 100%;
   height: 100%;
-  z-index: @playZIndex;
-  background: @playBackground;
-  transition: @playTransition;
 }
-.ui.embed .play.icon:before {
+.ui.embed > .icon:before {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
 
-  z-index: @playIconZIndex;
-  color: @playIconColor;
-  font-size: @playIconSize;
-  text-shadow: @playIconShadow;
-  transition: @playIconTransition;
+  color: @iconColor;
+  font-size: @iconSize;
+  text-shadow: @iconShadow;
+  transition: @iconTransition;
+  z-index: @iconZIndex;
 }
 
 
@@ -103,11 +108,11 @@
      Hover
 ---------------*/
 
-.ui.embed .play:hover {
-  background: @playHoverBackground;
+.ui.embed .icon:hover {
+  background: @hoverIconBackground;
 }
-.ui.embed .play:hover:before {
-  color: @playHoverIconColor;
+.ui.embed .icon:hover:before {
+  color: @hoverIconColor;
 }
 
 /*--------------
@@ -118,10 +123,8 @@
 .ui.active.embed .placeholder {
   display: none;
 }
-.ui.active.embed iframe,
-.ui.active.embed embed,
-.ui.active.embed object {
-  display: inline;
+.ui.active.embed .embed {
+  display: block;
 }
 
 .loadUIOverrides();

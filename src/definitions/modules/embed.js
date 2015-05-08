@@ -42,7 +42,6 @@ $.fn.embed = function(parameters) {
         sources         = settings.sources,
         error           = settings.error,
         metadata        = settings.metadata,
-        regExp          = settings.regExp,
         namespace       = settings.namespace,
         templates       = settings.templates,
 
@@ -52,7 +51,7 @@ $.fn.embed = function(parameters) {
         $window         = $(window),
         $module         = $(this),
         $placeholder    = $module.find(selector.placeholder),
-        $playButton     = $module.find(selector.playButton),
+        $play           = $module.find(selector.play),
         $embed          = $module.find(selector.embed),
 
         element         = this,
@@ -88,44 +87,60 @@ $.fn.embed = function(parameters) {
 
         refresh: function() {
           module.verbose('Refreshing selector cache');
-          $placeholder    = $module.find(selector.placeholder);
-          $playButton     = $module.find(selector.playButton);
-          $embed          = $module.find(selector.embed);
+          $placeholder = $module.find(selector.placeholder);
+          $play        = $module.find(selector.play);
+          $embed       = $module.find(selector.embed);
         },
 
         bind: {
           events: function() {
             if( module.is.video() ) {
-              module.debug('Adding video play events');
+              module.debug('Adding placeholder events');
               $module
-                .on('click' + eventNamespace, selector.placeholder, module.play)
-                .on('click' + eventNamespace, selector.playButton, module.play)
+                .on('click' + eventNamespace, selector.placeholder, module.createAndShow)
+                .on('click' + eventNamespace, selector.play, module.createAndShow)
               ;
             }
           }
         },
 
         create: function() {
-          if(module.is.video()) {
-            module.createVideo();
+          var
+            placeholder = module.get.placeholder()
+          ;
+          if(placeholder) {
+            module.createPlaceholder();
+          }
+          else {
+            module.createAndShow();
           }
         },
 
-        createVideo: function() {
+        createPlaceholder: function(placeholder) {
           var
-            image = $module.data(metadata.image),
-            html  = templates.video(image),
-            url   = module.get.url()
+            icon  = module.get.icon(),
+            url   = module.get.url(),
+            embed = module.generate.embed(url)
           ;
-          $module.html(html);
+          placeholder = placeholder || module.get.placeholder();
+          $module.html( templates.placeholder(placeholder, icon) );
+          module.debug('Creating placeholder for embed', placeholder, icon);
+        },
+
+        createEmbed: function(url) {
           module.refresh();
-          $embed
-            .html( module.generate.html(url) )
+          url = url || module.get.url();
+          $embed = $('<div/>')
+            .addClass(className.embed)
+            .html( module.generate.embed(url) )
+            .appendTo($module)
           ;
-          if(!image && settings.autoplay) {
-            module.show();
-          }
-          module.debug('Creating html for video element', html);
+          module.debug('Creating embed object', $embed);
+        },
+
+        createAndShow: function() {
+          module.createEmbed();
+          module.show();
         },
 
         // sets new embed
@@ -136,7 +151,7 @@ $.fn.embed = function(parameters) {
             .data(metadata.id, id)
             .data(metadata.url, url)
           ;
-          module.createVideo();
+          module.create();
           settings.onChange.call(element);
         },
 
@@ -145,7 +160,7 @@ $.fn.embed = function(parameters) {
           module.debug('Clearing embed and showing placeholder');
           module.remove.active();
           module.remove.embed();
-          module.hide();
+          module.showPlaceholder();
           settings.onReset.call(element);
         },
 
@@ -158,33 +173,44 @@ $.fn.embed = function(parameters) {
 
         hide: function() {
           module.debug('Hiding embed');
+          module.showPlaceholder();
+        },
+
+        showPlaceholder: function() {
+          module.debug('Showing placeholder image');
           module.remove.active();
+          settings.onPlaceholderDisplay.call(element);
         },
 
         get: {
-          source: function(url) {
-            var
-              matchedSource = false
-            ;
-            url = url || module.get.url();
-            $.each(sources, function(name, source) {
-              if(source.regExp.match(url)) {
-                matchedSource = name;
-                return false;
-              }
-            });
-            return matchedSource;
-          },
           id: function() {
-            return (settings.id !== undefined)
-              ? settings.id
-              : ($module.data(metadata.id) !== undefined)
-                ? $module.data(metadata.id)
-                : module.determine.id()
+            return settings.id || $module.data(metadata.id);
+          },
+          placeholder: function() {
+            return settings.placeholder || $module.data(metadata.placeholder);
+          },
+          icon: function() {
+            return (settings.icon)
+              ? settings.icon
+              : ($module.data(metadata.icon) !== undefined)
+                ? $module.data(metadata.icon)
+                : module.determine.icon()
             ;
+          },
+          source: function(url) {
+            return (settings.source)
+              ? settings.source
+              : ($module.data(metadata.source) !== undefined)
+                ? $module.data(metadata.source)
+                : module.determine.source()
+            ;
+          },
+          type: function() {
+            var source = module.get.source();
+            return sources[source].type;
           },
           url: function() {
-            return (settings.url !== undefined)
+            return (settings.url)
               ? settings.url
               : ($module.data(metadata.url) !== undefined)
                 ? $module.data(metadata.url)
@@ -194,20 +220,42 @@ $.fn.embed = function(parameters) {
         },
 
         determine: {
-          id: function(url) {
+          source: function(url) {
+            var
+              matchedSource = false
+            ;
             url = url || module.get.url();
-            if(url.match(regExp.youtube)) {
-              return url.match(regExp.youtube)[1];
-            }
-            else if(url.match(regExp.vimeo)) {
-              return url.match(regExp.vimeo)[2];
-            }
-            return false;
+            $.each(sources, function(name, source) {
+              if(url.search(source.domain) !== -1) {
+                matchedSource = name;
+                return false;
+              }
+            });
+            return matchedSource;
           },
-          url: function(id, source) {
-            if(module.has.sourceURL()) {
-
+          icon: function() {
+            var
+              source = module.get.source()
+            ;
+            return (sources[source].icon !== undefined)
+              ? sources[source].icon
+              : false
+            ;
+          },
+          url: function() {
+            var
+              id     = settings.id     || $module.data(metadata.id),
+              source = settings.source || $module.data(metadata.source),
+              url
+            ;
+            url = (sources[source].url !== undefined)
+              ? sources[source].url.replace('{id}', id)
+              : false
+            ;
+            if(url) {
+              $module.data(metadata.url, url);
             }
+            return url;
           }
         },
 
@@ -241,7 +289,7 @@ $.fn.embed = function(parameters) {
         },
 
         generate: {
-          html: function(url) {
+          embed: function(url) {
             module.debug('Generating embed html');
             var
               source = module.get.source(),
@@ -274,8 +322,8 @@ $.fn.embed = function(parameters) {
         },
 
         has: {
-          sourceURL: function() {
-
+          placeholder: function() {
+            return settings.placeholder || $module.data(metadata.placeholder);
           }
         },
 
@@ -287,7 +335,7 @@ $.fn.embed = function(parameters) {
             ;
           },
           video: function() {
-
+            return module.get.type() == 'video';
           }
         },
 
@@ -479,6 +527,7 @@ $.fn.embed.settings = {
   verbose     : false,
   performance : true,
 
+  icon     : false,
   source   : false,
   url      : false,
   id       : false,
@@ -489,45 +538,11 @@ $.fn.embed.settings = {
   hd       : true,
   showUI   : false,
 
-  sources: {
-    youtube: {
-      name     : 'youtube',
-      type     : 'video',
-      regExp   : /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/,
-      template : '//www.youtube.com/embed/{$id}',
-      parameters: function(settings) {
-        return {
-          autohide       : !settings.showUI,
-          autoplay       : settings.autoplay,
-          color          : settings.colors || undefined,
-          hq             : settings.hd,
-          jsapi          : settings.api,
-          modestbranding : 1
-        };
-      }
-    },
-    vimeo: {
-      name     : 'vimeo',
-      type     : 'video',
-      regExp   : /(?:https?:\/\/)?(?:www\.)?vimeo.com\/(\d+)($|\/)/,
-      template : '//www.youtube.com/embed/{$id}',
-      parameters: function(settings) {
-        return {
-          api      : settings.api,
-          autoplay : settings.autoplay,
-          byline   : settings.showUI,
-          color    : settings.colors || undefined,
-          portrait : settings.showUI,
-          title    : settings.showUI
-        };
-      }
-    }
-  },
-
-  onDisplay : function() {},
-  onReset   : function() {},
-  onChange  : function() {},
-  onEmbed   : function(parameters) {
+  onDisplay            : function() {},
+  onPlaceholderDisplay : function() {},
+  onReset              : function() {},
+  onChange             : function() {},
+  onEmbed              : function(parameters) {
     return parameters;
   },
 
@@ -543,10 +558,11 @@ $.fn.embed.settings = {
   onStop   : function() {},
 
   metadata    : {
-    id     : 'id',
-    image  : 'image',
-    source : 'source',
-    url    : 'url'
+    id          : 'id',
+    icon        : 'icon',
+    placeholder : 'placeholder',
+    source      : 'source',
+    url         : 'url'
   },
 
   error : {
@@ -555,35 +571,72 @@ $.fn.embed.settings = {
   },
 
   className : {
-    active : 'active'
+    active : 'active',
+    embed  : 'embed'
   },
 
   selector : {
     embed       : '.embed',
     placeholder : '.placeholder',
-    playButton  : '.play'
+    play        : '.play'
+  }
+};
+
+$.fn.embed.settings.sources = {
+  youtube: {
+    name   : 'youtube',
+    type   : 'video',
+    icon   : 'video play',
+    domain : 'youtube.com',
+    url    : '//www.youtube.com/embed/{id}',
+    parameters: function(settings) {
+      return {
+        autohide       : !settings.showUI,
+        autoplay       : settings.autoplay,
+        color          : settings.colors || undefined,
+        hq             : settings.hd,
+        jsapi          : settings.api,
+        modestbranding : 1
+      };
+    }
+  },
+  vimeo: {
+    name   : 'vimeo',
+    type   : 'video',
+    icon   : 'video play',
+    domain : 'vimeo.com',
+    url    : '//www.youtube.com/embed/{id}',
+    parameters: function(settings) {
+      return {
+        api      : settings.api,
+        autoplay : settings.autoplay,
+        byline   : settings.showUI,
+        color    : settings.colors || undefined,
+        portrait : settings.showUI,
+        title    : settings.showUI
+      };
+    }
   }
 };
 
 $.fn.embed.settings.templates = {
-  iframe: function(url, parameters) {
+  iframe : function(url, parameters) {
     return ''
       + '<iframe src="' + url + '?=' + parameters + '"'
       + ' width="100%" height="100%"'
       + ' frameborder="0" scrolling="no" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
     ;
   },
-  video: function(image) {
+  placeholder : function(image, icon) {
     var
       html = ''
     ;
-    if(image) {
-      html += ''
-        + '<i class="video play icon"></i>'
-        + '<img class="placeholder" src="' + image + '">'
-      ;
+    if(icon) {
+      html += '<i class="' + icon + ' icon"></i>';
     }
-    html += '<div class="embed"></div>';
+    if(image) {
+      html += '<img class="placeholder" src="' + image + '">';
+    }
     return html;
   }
 };
