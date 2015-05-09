@@ -23,7 +23,7 @@
     </div>
   </header>
   
-  <article class="row">
+  <article class="row ui video">
     <div class="column">
       
       <section class="ui segment">
@@ -39,30 +39,30 @@
           
           <!-- TODO move video specific deinitions in .less -->
           <div class="five wide column" style="font-size: 0; white-space: nowrap;">
-            <div class="ui icon button" id="mute">
+            <div class="ui icon mute button">
               <i class="icon volume off"></i>
             </div>
-            <div class="ui icon button" style="margin-right: 0; pointer-events: auto;" id="volumedown">
+            <div class="ui icon volume down button" style="margin-right: 0; pointer-events: auto;">
               <i class="icon volume down"></i>
             </div>
-            <div class="ui progress" style="display: inline-block; width: 10em; height: 100%; margin:0; vertical-align: bottom;" id="volumeprogress">
+            <div class="ui volume progress" style="display: inline-block; width: 10em; height: 100%; margin:0; vertical-align: bottom;" id="volumeprogress">
               <div class="bar" style="height: 100%;">
                 <div class="progress"></div>
               </div>
             </div>
-            <div class="ui icon button" style="margin-left: 0; pointer-events: auto;" id="volumeup">
+            <div class="ui icon volume up button" style="margin-left: 0; pointer-events: auto;">
               <i class="icon volume up"></i>
             </div>
           </div>
           
           <div class="six wide column" style="text-align: center;">
-            <div class="ui icon button" id="playpause">
+            <div class="ui icon play button">
               <i class="play icon"></i>
             </div>
-            <div class="ui icon button" id="backward">
+            <div class="ui icon backward button">
               <i class="backward icon"></i>
             </div>
-            <div class="ui icon button" id="forward">
+            <div class="ui icon forward button">
               <i class="forward icon"></i>
             </div>
           </div>
@@ -75,12 +75,12 @@
         <div class="row">
           <div class="two wide column">
             <div class="ui tiny statistic">
-              <div class="value" id="timecurrent">0:00:00</div>
+              <div class="current time value">0:00:00</div>
               <div class="label">current</div>
             </div>
           </div>
           <div class="twelve wide column">
-            <input type="range" value="0" min="0" max="1000" autocomplete="off" id="timerange" style="width:100%;" class="ui input" disabled="disabled" />
+            <input type="range" value="0" min="0" max="1000" autocomplete="off" id="timerange" style="width:100%;" class="ui time input" disabled="disabled" />
             <!--
             <div class="ui small progress" id="loadprogress">
               <div class="bar"></div>
@@ -89,7 +89,7 @@
           </div>
           <div class="two wide column">
             <div class="ui tiny statistic">
-              <div class="value" id="timeremaining">0:00:00</div>
+              <div class="remaining time value">0:00:00</div>
               <div class="label">remaining</div>
             </div>
           </div>
@@ -97,10 +97,6 @@
         
       </aside>
 
-        
-          
-          
-          
       <!--
       <select id="subtitles_select">
           <option value="" class="none">no</option>
@@ -115,24 +111,7 @@
           <option value="/media/subtitle/sintel_ru.srt" class="ru">ru</option>
       </select>
 
-
-      <a id="mute" href="#"></a>
-
-      <div id="slider_volume">
-          <div id="full_volume"></div>
-          <div id="knob_volume"></div>
-      </div>
-
       <a id="fullscreen" href="#"></a>
-
-      <div class="time">
-          <span id="current_time_container">0:00:00</span>
-      </div>
-
-
-      <div class="time">
-          - <span id="remaining_time_container">0:00:00</span>
-      </div>
       -->
       
     </div>
@@ -145,22 +124,7 @@
 <script>
 $(document)
   .ready(function() {
-    $('video').video('initialize')
-      .video('add playpause button', $('#playpause'))
-      .video('add playbackrate button', $('#forward'), 10) 
-      // seems to have a upper limit with some browsers : 5 with FF 37.0.2
-      .video('add playbackrate button', $('#backward'), -4)
-      // negative value seems to not be handled by some browsers : NS_ERROR_NOT_IMPLEMENTED with FF 37.0.2, no visible effect with Chrome 42.0.2311.135
-      .video('add current time', $('#timecurrent'))
-      .video('add remaining time', $('#timeremaining'))
-      .video('add time range', $('#timerange'))
-      //.video('control loadProgress', $('#loadprogress'))
-      .video('add volume up button', $('#volumeup'))
-      .video('add volume down button', $('#volumedown'))
-      .video('add volume progress ', $('#volumeprogress'))
-      .video('add mute button', $('#mute'))
-      .get(0).load()
-    ;
+    $('.ui.video').video();
   })
 ;
 </script>

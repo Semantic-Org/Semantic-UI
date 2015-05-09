@@ -58,21 +58,33 @@ $.fn.video = function(parameters) {
           ? $.extend(true, {}, $.fn.video.settings, parameters)
           : $.extend({}, $.fn.video.settings),
 
-        selector        = settings.selector,
-        className       = settings.className,
-        error           = settings.error,
-        metadata        = settings.metadata,
-        namespace       = settings.namespace,
-        templates       = settings.templates,
+        selector          = settings.selector,
+        className         = settings.className,
+        error             = settings.error,
+        metadata          = settings.metadata,
+        namespace         = settings.namespace,
+        templates         = settings.templates,
 
-        eventNamespace  = '.' + namespace,
-        moduleNamespace = 'module-' + namespace,
+        eventNamespace    = '.' + namespace,
+        moduleNamespace   = 'module-' + namespace,
 
-        $window         = $(window),
-        $module         = $(this),
+        $window           = $(window),
+        $module           = $(this),
+        $video            = $module.find(settings.selector.video),
+        $playButton       = $module.find(settings.selector.playButton),
+        $backwardButton   = $module.find(settings.selector.backwardButton),
+        $forwardButton    = $module.find(settings.selector.forwardButton),
+        $currentTime      = $module.find(settings.selector.currentTime),
+        $remainingTime    = $module.find(settings.selector.remainingTime),
+        $timeRange        = $module.find(settings.selector.timeRange),
+        $volumeUpButton   = $module.find(settings.selector.volumeUpButton),
+        $volumeDownButton = $module.find(settings.selector.volumeDownButton),
+        $volumeProgress   = $module.find(settings.selector.volumeProgress),
+        $muteButton       = $module.find(settings.selector.muteButton),
 
-        element         = this,
-        instance        = $module.data(moduleNamespace),
+        element           = this,
+        video             = $video.get(0),
+        instance          = $module.data(moduleNamespace),
         module
       ;
 
@@ -80,7 +92,6 @@ $.fn.video = function(parameters) {
 
         initialize: function() {
           module.debug('Initializing video');
-          module.create();
           module.instantiate();
         },
 
@@ -90,93 +101,97 @@ $.fn.video = function(parameters) {
           $module
             .data(moduleNamespace, module)
           ;
+          module.debug('Add controls');
+          $module.video('add play button');
+          $module.video('add forward button') ;
+          //$module.video('add backward button',);
+          $module.video('add current time');
+          $module.video('add remaining time');
+          $module.video('add time range');
+          //$module.video('control loadProgress', $('#loadprogress'));
+          $module.video('add volume up button');
+          $module.video('add volume down button');
+          $module.video('add volume progress ');
+          $module.video('add mute button');
         },
-
-        create: function() {
-          module.debug('Video create called');
-        },
-        
         
         add: {
           
-          playpauseButton: function($playpause) {
-            $playpause = $($playpause);
+          playButton: function() {
             // from UI to video
-            $playpause.on('click' + eventNamespace, function() {
-              if(element.paused) {
-                element.play();
+            $playButton.on('click' + eventNamespace, function() {
+              if(video.paused) {
+                video.play();
               } else {
-                element.pause();
+                video.pause();
               }
             });
             // from video to UI
-            $module
+            $video
               .on('play' + eventNamespace, function() {
-                $playpause.addClass('active')
+                $playButton.addClass(settings.className.active)
               }).on('pause' + eventNamespace, function() {
-                $playpause.removeClass('active')
+                $playButton.removeClass(settings.className.active)
               });
           },
           
           // see https://developer.mozilla.org/fr/docs/Web/API/HTMLMediaElement#playbackRate
-          // mode from 'switch', 'push'
-          playbackrateButton: function($playbackrate, rate, mode) {
-            $playbackrate = $($playbackrate);
+          // seems to have a upper limit with some browsers : 
+          // - 5 with FF 37.0.2
+          // negative value seems to not be handled by some browsers :
+          // - NS_ERROR_NOT_IMPLEMENTED with FF 37.0.2, 
+          // - no visible effect with Chrome 42.0.2311.135
+          // TODO: abstract it for backward
+          // TODO: deal with modes (push, switch)
+          forwardButton: function() {
             // from UI to video
-            switch(mode) {
-              case 'push': default:
-                $playbackrate.on('mousedown' + eventNamespace, function() {
-                  element.playbackRate = rate;
-                });
-                $playbackrate.on('mouseup' + eventNamespace + ' mouseleave' + eventNamespace, function() {
-                  element.playbackRate = element.defaultPlaybackRate;
-                });
-              break;
-              case 'switch':
-                // TODO
-              break;
-            }
+            $forwardButton.on('mousedown' + eventNamespace, function() {
+              video.playbackRate = settings.backwardRate;
+            });
+            $forwardButton.on('mouseup' + eventNamespace + ' mouseleave' + eventNamespace, function() {
+              video.playbackRate = video.defaultPlaybackRate;
+            });
             // from video to UI
-            $module
+            $video
               .on('ratechange' + eventNamespace, function(event) {
-                console.log(element.playbackRate)
+                console.log(video.playbackRate)
               });
           },
         
-          currentTime: function($el) {
-            $module.on('timeupdate' + eventNamespace, function() {
-              var current = new Date(element.currentTime * 1000);
+          currentTime: function() {
+            $video.on('timeupdate' + eventNamespace, function() {
+              var current = new Date(video.currentTime * 1000);
               var readable = 
                 utilStringPad(String(current.getHours() - 1), 1, '0')+ ':' + 
                 utilStringPad(String(current.getMinutes()), 2, '0') + ':' + 
                 utilStringPad(String(current.getSeconds()), 2,'0');
-              $el.text(readable);
+              $currentTime.text(readable);
             });
           },
         
-          remainingTime: function($el) {
-            $module.on('timeupdate' + eventNamespace, function() {
-              var remaining = new Date((element.duration - element.currentTime) * 1000);
+          remainingTime: function() {
+            $video.on('timeupdate' + eventNamespace, function() {
+              var remaining = new Date((video.duration - video.currentTime) * 1000);
               var readable = 
                 utilStringPad(String(remaining.getHours() - 1), 1, '0')+ ':' + 
                 utilStringPad(String(remaining.getMinutes()), 2, '0') + ':' + 
                 utilStringPad(String(remaining.getSeconds()), 2,'0');
-              $el.text(readable);
+              $remainingTime.text(readable);
             });
           },
         
-         timeRange: function($range) {
-            $range = $($range);
+         timeRange: function() {
             var update_enabled = true;
+            var range_interval = $timeRange.prop('max') - $timeRange.prop('min');
             // from UI to video
-            $range
+            $timeRange
               .on('change', function(event) {
-                var ratio = $range.val() / ($range.prop('max') - $range.prop('min'));
+                var ratio = $timeRange.val() / range_interval;
                 // use fastSeek if implemented
-                if(element.fastSeek) {
-                  element.fastSeek(element.duration * ratio);
+                if(video.fastSeek) {
+                  video.fastSeek(video.duration * ratio);
                 } else {
-                  element.currentTime = element.duration * ratio;
+                  video.currentTime = video.duration * ratio;
                 }
               })
               // prevent the input to update when it has been 'mousedown'ed but not 'change'd yet
@@ -188,22 +203,22 @@ $.fn.video = function(parameters) {
               })
             ;
             // from video to UI
-            $module
+            $video
               .on('timeupdate' + eventNamespace, function() {
                 if(update_enabled) {
-                  var ratio = element.currentTime / element.duration;
-                  var position = ratio * ($range.prop('max') - $range.prop('min'));
-                  $range.val(position);
+                  var ratio = video.currentTime / video.duration;
+                  var position = ratio * range_interval;
+                  $timeRange.val(position);
                 }
               })
               // the range input is disabled while a seek (or load) to an unbuffered area occurs
               .on('loadstart' + eventNamespace + ' seeking' + eventNamespace, function() {
-                if(!utilTimeInRange(element.currentTime, element.buffered)) {
-                  $range.prop('disabled', true);
+                if(!utilTimeInRange(video.currentTime, video.buffered)) {
+                  $timeRange.prop('disabled', true).addClass(settings.className.disabled);
                 }
               })
               .on('loadeddata' + eventNamespace + ' seeked' + eventNamespace, function() {
-                $range.prop('disabled', false);
+                $timeRange.prop('disabled', false).removeClass(settings.className.disabled);
               })
             ;
           
@@ -211,70 +226,67 @@ $.fn.video = function(parameters) {
           
           volume: {
             
-            upButton: function($up, step) {
-              var step = step == undefined ? 0.1 : step;
-              $up.on('click' + eventNamespace, function() {
-                element.volume = Math.min(element.volume + step, 1);
-                console.log($(this));
-                if($(this).hasClass('disabled') && element.muted) {
-                  element.muted = false;
+            upButton: function() {
+              $volumeUpButton.on('click' + eventNamespace, function() {
+                video.volume = Math.min(video.volume + settings.volume_step, 1);
+                if($(this).hasClass(settings.className.disabled) && video.muted) {
+                  video.muted = false;
                 }
               });
-              $module.on('volumechange' + eventNamespace, function() {
-                if(element.muted) {
-                  $up.addClass('disabled');
+              $video.on('volumechange' + eventNamespace, function() {
+                if(video.muted) {
+                  $volumeUpButton.addClass(settings.className.disabled);
                 } else {
-                  $up.removeClass('disabled');
+                  $volumeUpButton.removeClass(settings.className.disabled);
                 }
               });
             },
           
-            downButton: function($down, step) {
-              var step = step == undefined ? 0.1 : step;
-              $down.on('click' + eventNamespace, function() {
-                element.volume = Math.max(element.volume - step, 0);
-                if($(this).hasClass('disabled') && element.muted) {
-                  element.muted = false;
+            downButton: function() {
+              $volumeDownButton.on('click' + eventNamespace, function() {
+                video.volume = Math.max(video.volume - settings.volume_step, 0);
+                if($(this).hasClass(settings.className.disabled) && video.muted) {
+                  video.muted = false;
                 }
               });
-              $module.on('volumechange' + eventNamespace, function() {
-                if(element.muted) {
-                  $down.addClass('disabled');
+              $video.on('volumechange' + eventNamespace, function() {
+                if(video.muted) {
+                  $volumeDownButton.addClass(settings.className.disabled);
                 } else {
-                  $down.removeClass('disabled');
+                  $volumeDownButton.removeClass(settings.className.disabled);
                 }
               });
             },
           
-            progress: function($progress) {
-              $progress.progress({ percent: 100 });
-              $progress.on('click' + eventNamespace, function() {
+            progress: function() {
+              $volumeProgress.progress({ percent: 100 });
+              $volumeProgress.on('click' + eventNamespace, function() {
                 // TODO : check position of click within the progress
-                if($(this).hasClass('disabled') && element.muted) {
-                  element.muted = false;
+                if($(this).hasClass(settings.className.disabled) && video.muted) {
+                  video.muted = false;
                 }
               });
-              $module.on('volumechange' + eventNamespace, function() {
-                var volume = element.muted ? 0 : element.volume;
-                $progress.progress({ percent: volume * 100 });
-                if(element.muted) {
-                  $progress.addClass('disabled');
+              $video.on('volumechange' + eventNamespace, function() {
+                var volume = video.muted ? 0 : video.volume;
+                $volumeProgress.progress({ percent: volume * 100 });
+                if(video.muted) {
+                  $volumeProgress.addClass(settings.className.disabled);
                 } else {
-                  $progress.removeClass('disabled');
+                  $volumeProgress.removeClass(settings.className.disabled);
                 }
               });
             }
           },
           
           muteButton: function($mute) {
-            $mute.on('click' + eventNamespace, function() {
-              element.muted = !element.muted;
+            $muteButton.on('click' + eventNamespace, function() {
+              video.muted = !video.muted;
             });
-            $module.on('volumechange' + eventNamespace, function() {
+            $video.on('volumechange' + eventNamespace, function() {
               if(element.muted) {
-                $mute.addClass('active');
+                $muteButton.addClass(settings.className.active);
               } else {
-                $mute.removeClass('active');
+                $muteButton.removeClass(settings.className.active);
               }
             });
           }
@@ -305,9 +317,6 @@ $.fn.video = function(parameters) {
               }).on('' + eventNamespace, function() {
                 console.log('loadeddata')
               });
-            
-              
-              
             
           }
           */
@@ -531,12 +540,27 @@ $.fn.video.settings = {
   performance : true,
 
   className   : {
-    active      : 'active'
+    active      : 'active',
+    disabled    : 'disabled'
   },
 
   selector    : {
-    playButton  : '.play'
-  }
+    video:             'video', 
+    playButton:        '.play',
+    backwardButton:    '.backward',
+    forwardButton:     '.forward',
+    currentTime:       '.current.time',
+    remainingTime:     '.remaining.time',
+    timeRange:         'input[type="range"].time',
+    volumeUpButton:    '.volume.up.button', // not to be conflicted with .ui.button.volume.up > i.icon.volume.up
+    volumeDownButton:  '.volume.down.button',
+    volumeProgress:    '.volume.progress',
+    muteButton:        '.mute.button'
+  },
+  
+  backwardRate: 6,
+  forwardRate: -4,
+  volume_step: 0.1
   
 };
 
