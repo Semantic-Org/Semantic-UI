@@ -27,7 +27,6 @@
   cursor: pointer;
   position: relative;
   display: inline-block;
-  line-height: 1em;
   tap-highlight-color: rgba(0, 0, 0, 0);
   outline: none;
   text-align: left;
@@ -49,14 +48,13 @@
   display: none;
   outline: none;
   top: 100%;
+  min-width: max-content;
   transition: @menuTransition;
 
   margin: @menuMargin;
   padding: @menuPadding;
   background: @menuBackground;
-  min-width: 100%;
 
-  white-space: @menuWrap;
   font-size: @relativeMedium;
   text-shadow: none;
   text-align: @menuTextAlign;
@@ -68,6 +66,11 @@
   z-index: @menuZIndex;
   will-change: transform, opacity;
 }
+
+.ui.dropdown .menu > * {
+  white-space: nowrap;
+}
+
 
 /*--------------
   Hidden Input
@@ -201,6 +204,7 @@
 
 .ui.dropdown > .text > .description,
 .ui.dropdown .menu > .item > .description {
+  float: @itemDescriptionFloat;
   margin: @itemDescriptionMargin;
   color: @itemDescriptionColor;
 }
@@ -340,6 +344,7 @@
 .ui.selection.dropdown {
   cursor: pointer;
   word-wrap: break-word;
+  line-height: 1em;
   white-space: normal;
   outline: 0;
   transform: rotateZ(0deg);
@@ -394,9 +399,9 @@ select.ui.dropdown {
   -webkit-overflow-scrolling: touch;
   border-top-width: 0px !important;
   width: auto;
+  outline: none;
   margin: 0px -@menuBorderWidth;
   min-width: @menuMinWidth;
-  outline: none;
 
   border-radius: @selectionMenuBorderRadius;
   box-shadow: @selectionMenuBoxShadow;

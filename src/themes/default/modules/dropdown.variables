@@ -28,7 +28,6 @@
 @menuMargin: 0em;
 @menuPadding: 0em 0em;
 @menuTop: 100%;
-@menuWrap: normal;
 @menuTextAlign: left;
 
 @menuBorderWidth: 1px;
@@ -103,6 +102,7 @@
 @itemDropdownIconMargin: @itemLineHeightOffset 0em 0em @itemDropdownIconDistance;
 
 /* Description */
+@itemDescriptionFloat: right;
 @itemDescriptionMargin: 0em 0em 0em 1em;
 @itemDescriptionColor: @lightTextColor;
 
