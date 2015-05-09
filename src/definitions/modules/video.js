@@ -28,6 +28,15 @@ function utilTimeInRange(time, range) {
   return false;
 }
 
+function utilReadableTime(timeMs) {
+  var time = new Date(timeMs * 1000);
+  var readable = 
+    utilStringPad(String(time.getHours() - 1), 1, '0')+ ':' + 
+    utilStringPad(String(time.getMinutes()), 2, '0') + ':' + 
+    utilStringPad(String(time.getSeconds()), 2,'0');
+  return readable;
+}
+
 $.fn.video = function(parameters) {
 
   var
@@ -72,8 +81,7 @@ $.fn.video = function(parameters) {
         $module           = $(this),
         $video            = $module.find(settings.selector.video),
         $playButton       = $module.find(settings.selector.playButton),
-        $backwardButton   = $module.find(settings.selector.backwardButton),
-        $forwardButton    = $module.find(settings.selector.forwardButton),
+        $playRateButton   = $module.find(settings.selector.playRateButton),
         $currentTime      = $module.find(settings.selector.currentTime),
         $remainingTime    = $module.find(settings.selector.remainingTime),
         $timeRange        = $module.find(settings.selector.timeRange),
@@ -81,6 +89,9 @@ $.fn.video = function(parameters) {
         $volumeDownButton = $module.find(settings.selector.volumeDownButton),
         $volumeProgress   = $module.find(settings.selector.volumeProgress),
         $muteButton       = $module.find(settings.selector.muteButton),
+
+        timeRangeUpdateEnabled = true,
+        timeRangeInterval = $timeRange.prop('max') - $timeRange.prop('min'),
 
         element           = this,
         video             = $video.get(0),
@@ -93,7 +104,7 @@ $.fn.video = function(parameters) {
         initialize: function() {
           module.debug('Initializing video');
           module.instantiate();
-          module.controls();
+          module.bind.events();
         },
 
         instantiate: function() {
@@ -104,237 +115,207 @@ $.fn.video = function(parameters) {
           ;
         },
         
-        controls: function() {
-          module.debug('Add controls');
-          $module.video('add play button');
-          $module.video('add forward button') ;
-          //$module.video('add backward button',);
-          $module.video('add current time');
-          $module.video('add remaining time');
-          $module.video('add time range');
-          //$module.video('control loadProgress', $('#loadprogress'));
-          $module.video('add volume up button');
-          $module.video('add volume down button');
-          $module.video('add volume progress ');
-          $module.video('add mute button');
+        bind: {
+          events: function() {
+            module.debug('Binding video module events');
+            // from video to UI
+            $video
+              .on('play' + eventNamespace, module.activate.playButton)
+              .on('pause' + eventNamespace, module.deactivate.playButton)
+              .on('ratechange' + eventNamespace, function(event) { console.log(video.playbackRate) })
+              .on('timeupdate' + eventNamespace, module.update.time)
+              // the range input is disabled while a seek (or load) to an unbuffered area occurs
+              .on('loadstart' + eventNamespace + ' seeking' + eventNamespace, module.update.loading)
+              .on('loadeddata' + eventNamespace + ' seeked' + eventNamespace, module.update.loaded)
+              .on('volumechange' + eventNamespace, module.update.volume)
+            ;
+            
+            // from UI to video
+            $playButton
+              .on('click' + eventNamespace, module.request.playToggle)
+            ;
+            $playRateButton
+               // TODO: deal with $playRateButton modes (push, switch)
+              .on('mousedown' + eventNamespace, module.request.playRate)
+              .on('mouseup' + eventNamespace, module.reset.playkRate)
+            ;
+            $timeRange
+              .on('change' + eventNamespace, module.request.seek) 
+              .on('mousedown' + eventNamespace, module.deactivate.timeRangeUpdate)
+              .on('mouseup' + eventNamespace, module.activate.timeRangeUpdate)
+            ;
+            $volumeUpButton.on('click' + eventNamespace, module.request.volumeUp);
+            $volumeDownButton.on('click' + eventNamespace, module.request.volumeDown);
+            $volumeProgress.on('click' + eventNamespace, module.request.unmute);
+            $muteButton.on('click' + eventNamespace, module.request.muteToggle);
+          }
         },
         
-        add: {
-          
-          playButton: function() {
-            module.debug('Add playButton');
-            // from UI to video
-            $playButton.on('click' + eventNamespace, function() {
-              if(video.paused) {
-                video.play();
-              } else {
-                video.pause();
-              }
-            });
-            // from video to UI
-            $video
-              .on('play' + eventNamespace, function() {
-                $playButton.addClass(settings.className.active)
-              }).on('pause' + eventNamespace, function() {
-                $playButton.removeClass(settings.className.active)
-              });
-          },
-          
-          // see https://developer.mozilla.org/fr/docs/Web/API/HTMLMediaElement#playbackRate
-          // seems to have a upper limit with some browsers : 
-          // - 5 with FF 37.0.2
-          // negative value seems to not be handled by some browsers :
-          // - NS_ERROR_NOT_IMPLEMENTED with FF 37.0.2, 
-          // - no visible effect with Chrome 42.0.2311.135
-          // TODO: abstract it for backward
-          // TODO: deal with modes (push, switch)
-          forwardButton: function() {
-            module.debug('Add forwardButton');
-            // from UI to video
-            $forwardButton.on('mousedown' + eventNamespace, function() {
-              video.playbackRate = settings.backwardRate;
-            });
-            $forwardButton.on('mouseup' + eventNamespace + ' mouseleave' + eventNamespace, function() {
-              video.playbackRate = video.defaultPlaybackRate;
-            });
-            // from video to UI
-            $video
-              .on('ratechange' + eventNamespace, function(event) {
-                console.log(video.playbackRate)
-              });
-          },
-        
-          currentTime: function() {
-            module.debug('Add currentTime');
-            $video.on('timeupdate' + eventNamespace, function() {
-              var current = new Date(video.currentTime * 1000);
-              var readable = 
-                utilStringPad(String(current.getHours() - 1), 1, '0')+ ':' + 
-                utilStringPad(String(current.getMinutes()), 2, '0') + ':' + 
-                utilStringPad(String(current.getSeconds()), 2,'0');
-              $currentTime.text(readable);
-            });
-          },
-        
-          remainingTime: function() {
-            module.debug('Add remainingTime');
-            $video.on('timeupdate' + eventNamespace, function() {
-              var remaining = new Date((video.duration - video.currentTime) * 1000);
-              var readable = 
-                utilStringPad(String(remaining.getHours() - 1), 1, '0')+ ':' + 
-                utilStringPad(String(remaining.getMinutes()), 2, '0') + ':' + 
-                utilStringPad(String(remaining.getSeconds()), 2,'0');
-              $remainingTime.text(readable);
-            });
-          },
-        
-         timeRange: function() {
-           module.debug('Add timeRange');
-            var update_enabled = true;
-            var range_interval = $timeRange.prop('max') - $timeRange.prop('min');
-            // from UI to video
-            $timeRange
-              .on('change', function(event) {
-                var ratio = $timeRange.val() / range_interval;
-                // use fastSeek if implemented
-                if(video.fastSeek) {
-                  video.fastSeek(video.duration * ratio);
-                } else {
-                  video.currentTime = video.duration * ratio;
-                }
-              })
-              // prevent the input to update when it has been 'mousedown'ed but not 'change'd yet
-              .on('mousedown' + eventNamespace, function() {
-                update_enabled = false;
-              })
-              .on('mouseup' + eventNamespace, function() {
-                update_enabled = true;
-              })
-            ;
-            // from video to UI
-            $video
-              .on('timeupdate' + eventNamespace, function() {
-                if(update_enabled) {
-                  var ratio = video.currentTime / video.duration;
-                  var position = ratio * range_interval;
-                  $timeRange.val(position);
-                }
-              })
-              // the range input is disabled while a seek (or load) to an unbuffered area occurs
-              .on('loadstart' + eventNamespace + ' seeking' + eventNamespace, function() {
-                if(!utilTimeInRange(video.currentTime, video.buffered)) {
-                  $timeRange.prop('disabled', true).addClass(settings.className.disabled);
-                }
-              })
-              .on('loadeddata' + eventNamespace + ' seeked' + eventNamespace, function() {
-                $timeRange.prop('disabled', false).removeClass(settings.className.disabled);
-              })
-            ;
-          
-          },
-          
-          volume: {
-            
-            upButton: function() {
-              module.debug('Add volume upButton');
-              $volumeUpButton.on('click' + eventNamespace, function() {
-                video.volume = Math.min(video.volume + settings.volume_step, 1);
-                if($(this).hasClass(settings.className.disabled) && video.muted) {
-                  video.muted = false;
-                }
-              });
-              $video.on('volumechange' + eventNamespace, function() {
-                if(video.muted) {
-                  $volumeUpButton.addClass(settings.className.disabled);
-                } else {
-                  $volumeUpButton.removeClass(settings.className.disabled);
-                }
-              });
-            },
-          
-            downButton: function() {
-              module.debug('Add volume downButton');
-              $volumeDownButton.on('click' + eventNamespace, function() {
-                video.volume = Math.max(video.volume - settings.volume_step, 0);
-                if($(this).hasClass(settings.className.disabled) && video.muted) {
-                  video.muted = false;
-                }
-              });
-              $video.on('volumechange' + eventNamespace, function() {
-                if(video.muted) {
-                  $volumeDownButton.addClass(settings.className.disabled);
-                } else {
-                  $volumeDownButton.removeClass(settings.className.disabled);
-                }
-              });
-            },
-          
-            progress: function() {
-              module.debug('Add volume progress');
-              $volumeProgress.progress({ percent: 100 });
-              $volumeProgress.on('click' + eventNamespace, function() {
-                // TODO : check position of click within the progress
-                if($(this).hasClass(settings.className.disabled) && video.muted) {
-                  video.muted = false;
-                }
-              });
-              $video.on('volumechange' + eventNamespace, function() {
-                var volume = video.muted ? 0 : video.volume;
-                $volumeProgress.progress({ percent: volume * 100 });
-                if(video.muted) {
-                  $volumeProgress.addClass(settings.className.disabled);
-                } else {
-                  $volumeProgress.removeClass(settings.className.disabled);
-                }
-              });
+        request: {
+          playToggle: function() {
+            module.debug('Request play toggle');
+            if(video.paused) {
+              return module.request.play();
+            } else {
+              return module.request.pause();
             }
           },
+          play: function() {
+            module.debug('Request play');
+            return video.play();
+          },
+          pause: function() {
+            module.debug('Request pause');
+            return video.pause();
+          },
+          playRate: function() {
+            // see https://developer.mozilla.org/fr/docs/Web/API/HTMLMediaElement#playbackRate
+            // seems to have a upper limit with some browsers : 
+            // - 5 with FF 37.0.2
+            // negative value seems to not be handled by some browsers :
+            // - NS_ERROR_NOT_IMPLEMENTED with FF 37.0.2, 
+            // - no visible effect with Chrome 42.0.2311.135
+            module.debug('Request playRate from button data');
+            video.playbackRate = parseFloat( $(this).data('play-rate') );
+          },
+          seek: function() {
+            module.debug('Request seek from range value');
+            var ratio = $timeRange.val() / timeRangeInterval;
+            var position = video.duration * ratio;
+            // use fastSeek if implemented
+            if(video.fastSeek) {
+              video.fastSeek(position);
+            } else {
+              video.currentTime = position;
+            }
+          },
+          volumeUp: function() {
+            module.debug('Request volume up');
+            if($(this).hasClass(settings.className.disabled)) {
+              video.muted = false;
+            } else {
+              video.volume = Math.min(video.volume + settings.volumeStep, 1);
+            }
+          },
+          volumeDown: function() {
+            module.debug('Request volume down');
+            if($(this).hasClass(settings.className.disabled)) {
+              video.muted = false;
+            } else {
+              video.volume = Math.max(video.volume - settings.volumeStep, 0);
+            }
+          },
+          mute: function() {
+            module.debug('Request mute');
+            video.muted = true;
+          },
+          unmute: function() {
+            module.debug('Request unmute');
+            video.muted = false;
+          },
+          muteToggle: function() {
+            module.debug('Request mute toggle');
+            video.muted = !video.muted;
+          }
+        },
+        
+        reset: {
+          playRate: function() {
+            module.debug('Reset play rate');
+            video.playbackRate = video.defaultPlaybackRate;
+          }
+        },
+        
+        update: {
+          time: function() {
+            module.debug('Update time');
+            // text displays
+            $currentTime.text(utilReadableTime(video.currentTime));
+            $remainingTime.text( utilReadableTime(video.duration - video.currentTime) );
+            // range display, prevent it to update when it has been 'mousedown'ed but not 'change'd yet
+            if(timeRangeUpdateEnabled) {
+              $timeRange.val( timeRangeInterval * video.currentTime / video.duration );
+            }
+          },
+          loading: function() {
+            module.debug('Update to loading state');
+            $timeRange.prop('disabled', true).addClass(settings.className.disabled);
+          },
+          loaded: function() {
+            module.debug('Update to loaded state');
+            $timeRange.prop('disabled', false).removeClass(settings.className.disabled);
+          },
+          volume: function() {
+            module.debug('Update volume and mute states');
+            if(video.muted) {
+              $volumeUpButton.addClass(settings.className.disabled);
+              $volumeDownButton.addClass(settings.className.disabled);
+              $volumeProgress.addClass(settings.className.disabled);
+              $muteButton.addClass(settings.className.active);
+            } else {
+              $volumeUpButton.removeClass(settings.className.disabled);
+              $volumeDownButton.removeClass(settings.className.disabled);
+              $volumeProgress.removeClass(settings.className.disabled);
+              $muteButton.removeClass(settings.className.active);
+            }
+            var volume = video.muted ? 0 : video.volume;
+            $volumeProgress.progress({ percent: volume * 100 });
+          }
+        },
+        
+        activate: {
+          playButton: function() {
+            module.debug('Activate playButton');
+            $playButton.addClass(settings.className.active);
+          },
+          timeRangeUpdate: function() {
+            module.debug('Activate timeRange autoupdate');
+            timeRangeUpdateEnabled = true;
+          }
+        },
+        
+        deactivate: {
+          playButton: function() {
+            module.debug('Deactivate playButton');
+            $playButton.removeClass(settings.className.active);
+          },
+          timeRangeUpdate: function() {
+            module.debug('Deactivate timeRange autoupdate');
+            timeRangeUpdateEnabled = false;
+          }
+        },
+        
+        
           
-          muteButton: function($mute) {
-            module.debug('Add muteButton');
-            $muteButton.on('click' + eventNamespace, function() {
-              video.muted = !video.muted;
-            });
-            $video.on('volumechange' + eventNamespace, function() {
-              if(element.muted) {
-                $muteButton.addClass(settings.className.active);
-              } else {
-                $muteButton.removeClass(settings.className.active);
+        /*
+        loadProgress: function($progress) {
+          $progress = $($progress)
+          // from video to UI
+          $module
+            .on('progress' + eventNamespace, function() {
+              console.log('progress');
+              if(element.lengthComputable) {
+                $progress.progress({ percent: loaded / total * 100 });
               }
+            }).on('seeking' + eventNamespace, function() {
+              console.log('seeking')
+            }).on('seeked' + eventNamespace, function() {
+              console.log('seeked')
+              console.log(element.buffered)
+            }).on('stalled' + eventNamespace, function() {
+              console.log('stalled')
+            }).on('suspend' + eventNamespace, function() {
+              console.log('suspend')
+            }).on('loadstart' + eventNamespace, function() {
+              console.log('loadstart')
+            }).on('loadedmetadata' + eventNamespace, function() {
+              console.log('loadedmetadata')
+            }).on('' + eventNamespace, function() {
+              console.log('loadeddata')
             });
-          }
           
-          /*
-          loadProgress: function($progress) {
-            $progress = $($progress)
-            // from video to UI
-            $module
-              .on('progress' + eventNamespace, function() {
-                console.log('progress');
-                if(element.lengthComputable) {
-                  $progress.progress({ percent: loaded / total * 100 });
-                }
-              }).on('seeking' + eventNamespace, function() {
-                console.log('seeking')
-              }).on('seeked' + eventNamespace, function() {
-                console.log('seeked')
-                console.log(element.buffered)
-              }).on('stalled' + eventNamespace, function() {
-                console.log('stalled')
-              }).on('suspend' + eventNamespace, function() {
-                console.log('suspend')
-              }).on('loadstart' + eventNamespace, function() {
-                console.log('loadstart')
-              }).on('loadedmetadata' + eventNamespace, function() {
-                console.log('loadedmetadata')
-              }).on('' + eventNamespace, function() {
-                console.log('loadeddata')
-              });
-            
-          }
-          */
-          
-        }, // end of control
+        }
+        */
        
         destroy: function() {
           module.verbose('Destroying previous instance of video');
@@ -559,21 +540,18 @@ $.fn.video.settings = {
 
   selector    : {
     video:             'video', 
-    playButton:        '.play.button',
-    backwardButton:    '.backward.button',
-    forwardButton:     '.forward.button',
+    playButton:        '.play.button',  // not to be conflicted with .play.button > i.icon.play
+    playRateButton:    '.playrate.button[data-play-rate]',
     currentTime:       '.current.time',
     remainingTime:     '.remaining.time',
     timeRange:         'input[type="range"].time',
-    volumeUpButton:    '.volume.up.button', // not to be conflicted with .ui.button.volume.up > i.icon.volume.up
+    volumeUpButton:    '.volume.up.button',
     volumeDownButton:  '.volume.down.button',
     volumeProgress:    '.volume.progress',
     muteButton:        '.mute.button'
   },
   
-  backwardRate: 6,
-  forwardRate: -4,
-  volume_step: 0.1
+  volumeStep: 0.1 // it moves from 0.0 to 1.0
   
 };
 
