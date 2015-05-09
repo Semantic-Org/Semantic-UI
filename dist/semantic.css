@@ -14,7 +14,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -500,11 +500,11 @@ th {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.0 - Site
+ * # Semantic UI - Site
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -532,7 +532,7 @@ body {
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 14px;
   line-height: 1.4285em;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   font-smoothing: antialiased;
 }
 
@@ -547,6 +547,7 @@ h4,
 h5 {
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   line-height: 1.33em;
+  margin: -webkit-calc(2rem -  0.165em ) 0em 1rem;
   margin: calc(2rem -  0.165em ) 0em 1rem;
   font-weight: bold;
   padding: 0em;
@@ -627,17 +628,17 @@ a:hover {
 
 ::-webkit-selection {
   background-color: #cce2ff;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 ::-moz-selection {
   background-color: #cce2ff;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 ::selection {
   background-color: #cce2ff;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 /* Form */
@@ -645,19 +646,19 @@ a:hover {
 textarea::-webkit-selection,
 input::-webkit-selection {
   background-color: rgba(100, 100, 100, 0.4);
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 textarea::-moz-selection,
 input::-moz-selection {
   background-color: rgba(100, 100, 100, 0.4);
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 textarea::selection,
 input::selection {
   background-color: rgba(100, 100, 100, 0.4);
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 /*******************************
@@ -672,7 +673,7 @@ input::selection {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributorss
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -768,13 +769,13 @@ input::selection {
   background-color: #c0c0c0;
   background-image: none;
   box-shadow: 0px 0px 0px 1px transparent inset;
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 .ui.active.button:hover {
   background-color: #c0c0c0;
   background-image: none;
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 .ui.active.button:active {
@@ -1410,7 +1411,7 @@ input::selection {
 .ui.basic.active.button {
   background: rgba(0, 0, 0, 0.05) !important;
   box-shadow: '' !important;
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
   box-shadow: rgba(34, 36, 38, 0.3);
 }
 
@@ -2010,7 +2011,7 @@ input::selection {
 
 .ui.basic.black.buttons .button,
 .ui.basic.black.button {
-  box-shadow: 0px 0px 0px 2px rgba(34, 36, 38, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 
@@ -2035,7 +2036,7 @@ input::selection {
 }
 
 .ui.buttons > .basic.black.button:not(:first-child) {
-  margin-left: -2px;
+  margin-left: -1px;
 }
 
 /* Inverted */
@@ -2140,7 +2141,7 @@ input::selection {
 
 .ui.basic.blue.buttons .button,
 .ui.basic.blue.button {
-  box-shadow: 0px 0px 0px 2px rgba(34, 36, 38, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 
@@ -2165,7 +2166,7 @@ input::selection {
 }
 
 .ui.buttons > .basic.blue.button:not(:first-child) {
-  margin-left: -2px;
+  margin-left: -1px;
 }
 
 /* Inverted */
@@ -2270,7 +2271,7 @@ input::selection {
 
 .ui.basic.green.buttons .button,
 .ui.basic.green.button {
-  box-shadow: 0px 0px 0px 2px rgba(34, 36, 38, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 
@@ -2295,7 +2296,7 @@ input::selection {
 }
 
 .ui.buttons > .basic.green.button:not(:first-child) {
-  margin-left: -2px;
+  margin-left: -1px;
 }
 
 /* Inverted */
@@ -2400,7 +2401,7 @@ input::selection {
 
 .ui.basic.orange.buttons .button,
 .ui.basic.orange.button {
-  box-shadow: 0px 0px 0px 2px rgba(34, 36, 38, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 
@@ -2425,7 +2426,7 @@ input::selection {
 }
 
 .ui.buttons > .basic.orange.button:not(:first-child) {
-  margin-left: -2px;
+  margin-left: -1px;
 }
 
 /* Inverted */
@@ -2530,7 +2531,7 @@ input::selection {
 
 .ui.basic.pink.buttons .button,
 .ui.basic.pink.button {
-  box-shadow: 0px 0px 0px 2px rgba(34, 36, 38, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 
@@ -2555,7 +2556,7 @@ input::selection {
 }
 
 .ui.buttons > .basic.pink.button:not(:first-child) {
-  margin-left: -2px;
+  margin-left: -1px;
 }
 
 /* Inverted */
@@ -2660,7 +2661,7 @@ input::selection {
 
 .ui.basic.purple.buttons .button,
 .ui.basic.purple.button {
-  box-shadow: 0px 0px 0px 2px rgba(34, 36, 38, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 
@@ -2685,7 +2686,7 @@ input::selection {
 }
 
 .ui.buttons > .basic.purple.button:not(:first-child) {
-  margin-left: -2px;
+  margin-left: -1px;
 }
 
 /* Inverted */
@@ -2790,7 +2791,7 @@ input::selection {
 
 .ui.basic.red.buttons .button,
 .ui.basic.red.button {
-  box-shadow: 0px 0px 0px 2px rgba(34, 36, 38, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 
@@ -2815,7 +2816,7 @@ input::selection {
 }
 
 .ui.buttons > .basic.red.button:not(:first-child) {
-  margin-left: -2px;
+  margin-left: -1px;
 }
 
 /* Inverted */
@@ -2920,7 +2921,7 @@ input::selection {
 
 .ui.basic.teal.buttons .button,
 .ui.basic.teal.button {
-  box-shadow: 0px 0px 0px 2px rgba(34, 36, 38, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 
@@ -2945,7 +2946,7 @@ input::selection {
 }
 
 .ui.buttons > .basic.teal.button:not(:first-child) {
-  margin-left: -2px;
+  margin-left: -1px;
 }
 
 /* Inverted */
@@ -3050,7 +3051,7 @@ input::selection {
 
 .ui.basic.yellow.buttons .button,
 .ui.basic.yellow.button {
-  box-shadow: 0px 0px 0px 2px rgba(34, 36, 38, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 
@@ -3075,7 +3076,7 @@ input::selection {
 }
 
 .ui.buttons > .basic.yellow.button:not(:first-child) {
-  margin-left: -2px;
+  margin-left: -1px;
 }
 
 /* Inverted */
@@ -3395,7 +3396,7 @@ input::selection {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributorss
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -3430,6 +3431,7 @@ input::selection {
   }
 
   .ui.grid.container {
+    width: -webkit-calc( 752px  +  2em ) !important;
     width: calc( 752px  +  2em ) !important;
   }
 }
@@ -3442,6 +3444,7 @@ input::selection {
   }
 
   .ui.grid.container {
+    width: -webkit-calc( 960px  +  2em ) !important;
     width: calc( 960px  +  2em ) !important;
   }
 }
@@ -3454,6 +3457,7 @@ input::selection {
   }
 
   .ui.grid.container {
+    width: -webkit-calc( 1200px  +  2em ) !important;
     width: calc( 1200px  +  2em ) !important;
   }
 }
@@ -3493,7 +3497,7 @@ input::selection {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -3596,6 +3600,7 @@ input::selection {
   border-left: 1px solid rgba(34, 36, 38, 0.15);
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   width: 0%;
+  height: -webkit-calc(100% -  1rem );
   height: calc(100% -  1rem );
 }
 
@@ -3745,7 +3750,7 @@ input::selection {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -5007,7 +5012,7 @@ i.flag.zimbabwe:before {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -5021,13 +5026,14 @@ i.flag.zimbabwe:before {
 
 .ui.header {
   border: none;
+  margin: -webkit-calc(2rem -  0.165em ) 0em 1rem;
   margin: calc(2rem -  0.165em ) 0em 1rem;
   padding: 0em 0em;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: bold;
   line-height: 1.33em;
   text-transform: none;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .ui.header:first-child {
@@ -5233,6 +5239,7 @@ h5.ui.header .sub.header {
 
 .ui.sub.header {
   padding: 0em;
+  margin: -webkit-calc(2rem -  0.165em ) 0em 0.1428rem;
   margin: calc(2rem -  0.165em ) 0em 0.1428rem;
   font-weight: bold;
   font-size: 0.85714286em;
@@ -5724,7 +5731,7 @@ a.ui.inverted.yellow.header:hover {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -8521,8 +8528,8 @@ i.icon.bookmark.outline:before {
   content: "\f097";
 }
 
-i.icon.phone.square:before {
-  content: "\f098";
+i.icon.phone:before {
+  content: "\f095";
 }
 
 i.icon.phone.square:before {
@@ -8962,7 +8969,7 @@ i.icon.bed:before {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -9119,8 +9126,8 @@ img.ui.bordered.image {
 .ui.avatar.image {
   margin-right: 0.25em;
   display: inline-block;
-  width: 2.5em;
-  height: 2.5em;
+  width: 2em;
+  height: 2em;
   border-radius: 500rem;
 }
 
@@ -9278,7 +9285,7 @@ img.ui.bordered.image {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -9298,7 +9305,7 @@ img.ui.bordered.image {
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .ui.input input {
@@ -9316,7 +9323,7 @@ img.ui.bordered.image {
   padding: 0.67861em 1em;
   background: #ffffff;
   border: 1px solid rgba(34, 36, 38, 0.15);
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   border-radius: 0.2857rem;
   -webkit-transition: background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   transition: background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
@@ -9353,7 +9360,7 @@ img.ui.bordered.image {
 .ui.input.down input {
   border-color: rgba(0, 0, 0, 0.3);
   background: #fafafa;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   box-shadow: none;
 }
 
@@ -9406,17 +9413,17 @@ img.ui.bordered.image {
 
 .ui.input.focus input::-webkit-input-placeholder,
 .ui.input input:focus input::-webkit-input-placeholder {
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .ui.input.focus input::-moz-placeholder,
 .ui.input input:focus input::-moz-placeholder {
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .ui.input.focus input::-ms-input-placeholder,
 .ui.input input:focus input::-ms-input-placeholder {
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 /*--------------------
@@ -9681,18 +9688,30 @@ img.ui.bordered.image {
   border-bottom-right-radius: 0px !important;
 }
 
+.ui.action.input:not([class*="left action"]) > .dropdown,
 .ui.action.input:not([class*="left action"]) > .button,
 .ui.action.input:not([class*="left action"]) > .buttons > .button {
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
+  border-radius: 0px;
+}
+
+.ui.action.input:not([class*="left action"]) > .dropdown:last-child,
+.ui.action.input:not([class*="left action"]) > .button:last-child,
+.ui.action.input:not([class*="left action"]) > .buttons:last-child > .button {
+  border-radius: 0px 0.2857rem 0.2857rem 0px;
 }
 
 /* Button on Left */
 
+.ui[class*="left action"].input > .dropdown,
 .ui[class*="left action"].input > .button,
 .ui[class*="left action"].input > .buttons > .button {
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
+  border-radius: 0px;
+}
+
+.ui[class*="left action"].input > .dropdown:first-child,
+.ui[class*="left action"].input > .button:first-child,
+.ui[class*="left action"].input > .buttons:first-child > .button {
+  border-radius: 0.2857rem 0px 0px 0.2857rem;
 }
 
 .ui[class*="left action"].input > input {
@@ -9770,7 +9789,7 @@ img.ui.bordered.image {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -10140,13 +10159,17 @@ a.ui.label {
 /* Positioning */
 
 .ui.ribbon.label {
+  left: -webkit-calc( -1rem  -  1.2em );
   left: calc( -1rem  -  1.2em );
   margin-right: -1.2em;
+  padding-left: -webkit-calc( 1rem  +  1.2em );
   padding-left: calc( 1rem  +  1.2em );
 }
 
 .ui[class*="right ribbon"].label {
+  left: -webkit-calc(100% +  1rem  +  1.2em );
   left: calc(100% +  1rem  +  1.2em );
+  padding-right: -webkit-calc( 1rem  +  1.2em );
   padding-right: calc( 1rem  +  1.2em );
 }
 
@@ -10160,14 +10183,18 @@ a.ui.label {
 
 .ui.card .image > .ui.ribbon.label,
 .ui.image > .ui.ribbon.label {
+  left: -webkit-calc( 0.05rem  -  1.2em );
   left: calc( 0.05rem  -  1.2em );
+  padding-left: -webkit-calc( -0.05rem  +  1.2em );
   padding-left: calc( -0.05rem  +  1.2em );
 }
 
 .ui.card .image > .ui[class*="right ribbon"].label,
 .ui.image > .ui[class*="right ribbon"].label {
+  left: -webkit-calc(100% +  -0.05rem  +  1.2em );
   left: calc(100% +  -0.05rem  +  1.2em );
   padding-left: 0.833em;
+  padding-right: -webkit-calc( -0.05rem  +  1.2em );
   padding-right: calc( -0.05rem  +  1.2em );
 }
 
@@ -10260,13 +10287,13 @@ a.ui.label:hover:before {
   background-color: #d0d0d0;
   border-color: #d0d0d0;
   background-image: none;
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 .ui.active.label:before {
   background-color: #d0d0d0;
   background-image: none;
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 /*-------------------
@@ -10278,14 +10305,14 @@ a.ui.active.label:hover {
   background-color: #c8c8c8;
   border-color: #c8c8c8;
   background-image: none;
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 .ui.labels a.active.label:ActiveHover:before,
 a.ui.active.label:ActiveHover:before {
   background-color: #c8c8c8;
   background-image: none;
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 /*-------------------
@@ -10866,7 +10893,7 @@ a.ui.yellow.label:hover:before {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributorss
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -11049,7 +11076,7 @@ ol.ui.list ol,
 .ui.list .list > a.item,
 .ui.list > a.item {
   cursor: pointer;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .ui.list .list > a.item:hover,
@@ -11068,7 +11095,7 @@ ol.ui.list ol,
 
 .ui.list .item a:not(.ui) {
   cursor: pointer;
-  color: rgba(0, 0, 0, 0.8) !important;
+  color: rgba(0, 0, 0, 0.87) !important;
 }
 
 .ui.list .item a:not(.ui):hover {
@@ -11083,13 +11110,13 @@ ol.ui.list ol,
   margin: 0em;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: bold;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .ui.list .list > .item .description,
 .ui.list > .item .description {
   display: block;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 /* Floated Content */
@@ -11212,7 +11239,7 @@ ol.ui.list ol,
 
 .ui.list .list > a.item:hover .icon,
 .ui.list > a.item:hover .icon {
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 /*******************************
@@ -11286,7 +11313,7 @@ ol.ui.list ol,
 
 .ui.link.list .active.item,
 .ui.link.list .active.item a:not(.ui) {
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 /* Inverted */
@@ -11348,7 +11375,7 @@ ol.ui.list ol,
 .ui.selection.list .list > .item.active,
 .ui.selection.list > .item.active {
   background: rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 /* Inverted */
@@ -11510,9 +11537,15 @@ ol.ui.list li:before,
   counter-increment: ordered;
   content: counters(ordered, ".") " ";
   text-align: right;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   vertical-align: middle;
   opacity: 0.8;
+}
+
+ol.ui.inverted.list li:before,
+.ui.ordered.inverted.list .list > .item:before,
+.ui.ordered.inverted.list > .item:before {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 /* Child Lists */
@@ -11867,7 +11900,7 @@ ol.ui.horizontal.list li:before,
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -12008,7 +12041,7 @@ ol.ui.horizontal.list li:before,
 /* White Dimmer (Inverted) */
 
 .ui.inverted.dimmer .ui.loader {
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .ui.inverted.dimmer .ui.loader:before {
@@ -12172,7 +12205,7 @@ ol.ui.horizontal.list li:before,
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -12296,7 +12329,7 @@ ol.ui.horizontal.list li:before,
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -12631,7 +12664,7 @@ ol.ui.horizontal.list li:before,
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -13178,7 +13211,7 @@ ol.ui.horizontal.list li:before,
 }
 
 .ui.inverted.segment .segment {
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .ui.inverted.segment .inverted.segment {
@@ -13202,12 +13235,12 @@ ol.ui.horizontal.list li:before,
 
 .ui.secondary.segment {
   background: #faf9fa;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .ui.tertiary.segment {
   background: #ebebeb;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .ui.secondary.inverted.segment {
@@ -13230,7 +13263,9 @@ ol.ui.horizontal.list li:before,
   top: 0px;
   bottom: 0px;
   margin: 0em -1px;
+  width: -webkit-calc(100% +  2px );
   width: calc(100% +  2px );
+  max-width: -webkit-calc(100% +  2px );
   max-width: calc(100% +  2px );
   border-radius: 0px;
   box-shadow: none;
@@ -13290,7 +13325,9 @@ ol.ui.horizontal.list li:before,
   top: 0px;
   bottom: 0px;
   margin: 0em -1px;
+  width: -webkit-calc(100% +  2px );
   width: calc(100% +  2px );
+  max-width: -webkit-calc(100% +  2px );
   max-width: calc(100% +  2px );
   border-radius: 0px;
   box-shadow: none;
@@ -13334,7 +13371,7 @@ ol.ui.horizontal.list li:before,
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -13415,7 +13452,7 @@ ol.ui.horizontal.list li:before,
   margin: 0em 0em;
   padding: 1.14285714em 1.42857143em;
   background: #ffffff;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   box-shadow: 0px 0px 0px 1px #d4d4d5;
   border-radius: 0em;
 }
@@ -13466,7 +13503,7 @@ ol.ui.horizontal.list li:before,
 .ui.steps .step .description {
   font-weight: normal;
   font-size: 0.92857143em;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .ui.steps .step > .description {
@@ -13684,7 +13721,7 @@ ol.ui.horizontal.list li:before,
 .ui.steps a.active.step:hover {
   cursor: pointer;
   background: #dcddde;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 /* Completed */
@@ -13904,7 +13941,7 @@ ol.ui.horizontal.list li:before,
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -14036,7 +14073,7 @@ ol.ui.horizontal.list li:before,
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -14086,7 +14123,7 @@ ol.ui.horizontal.list li:before,
 .ui.form .field > label {
   display: block;
   margin: 0em 0em 0.2857rem 0em;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   font-size: 0.9285em;
   font-weight: bold;
   text-transform: none;
@@ -14094,7 +14131,7 @@ ol.ui.horizontal.list li:before,
 
 .ui.form .grouped.fields > label {
   margin: 0em 0em 0.2857rem 0em;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   font-size: 0.9285em;
   font-weight: bold;
   text-transform: none;
@@ -14104,7 +14141,7 @@ ol.ui.horizontal.list li:before,
   display: inline-block;
   vertical-align: middle;
   margin: 0em 1em 0em 0em;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   font-size: 0.9285em;
   font-weight: bold;
   text-transform: none;
@@ -14152,7 +14189,7 @@ ol.ui.horizontal.list li:before,
   font-size: 1em;
   background: #ffffff;
   border: 1px solid rgba(34, 36, 38, 0.15);
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   border-radius: 0.2857rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
   -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
@@ -14176,7 +14213,7 @@ ol.ui.horizontal.list li:before,
   background: #ffffff;
   border: 1px solid rgba(34, 36, 38, 0.15);
   outline: none;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   border-radius: 0.2857rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
   -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
@@ -14215,7 +14252,7 @@ ol.ui.horizontal.list li:before,
   border-radius: 0.2857rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
   padding: 0.62em 1em;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
@@ -14296,27 +14333,27 @@ ol.ui.horizontal.list li:before,
 /* browsers require these rules separate */
 
 .ui.form ::-webkit-input-placeholder {
-  color: rgba(140, 140, 140, 0.8);
+  color: rgba(140, 140, 140, 0.87);
 }
 
 .ui.form ::-ms-input-placeholder {
-  color: rgba(140, 140, 140, 0.8);
+  color: rgba(140, 140, 140, 0.87);
 }
 
 .ui.form ::-moz-placeholder {
-  color: rgba(140, 140, 140, 0.8);
+  color: rgba(140, 140, 140, 0.87);
 }
 
 .ui.form :focus::-webkit-input-placeholder {
-  color: rgba(89, 89, 89, 0.8);
+  color: rgba(89, 89, 89, 0.87);
 }
 
 .ui.form :focus::-ms-input-placeholder {
-  color: rgba(89, 89, 89, 0.8);
+  color: rgba(89, 89, 89, 0.87);
 }
 
 .ui.form :focus::-moz-placeholder {
-  color: rgba(89, 89, 89, 0.8);
+  color: rgba(89, 89, 89, 0.87);
 }
 
 /* Error Placeholder */
@@ -15046,7 +15083,7 @@ ol.ui.horizontal.list li:before,
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -15219,6 +15256,7 @@ body > .ui.grid {
 }
 
 .ui.grid .column + .ui.vertical.divider {
+  height: -webkit-calc(50% -  1rem );
   height: calc(50% -  1rem );
 }
 
@@ -16291,6 +16329,7 @@ body > .ui.grid {
   content: "";
   top: 0em;
   left: 0px;
+  width: -webkit-calc(100% -  2rem );
   width: calc(100% -  2rem );
   height: 1px;
   margin: 0% 1rem;
@@ -16331,12 +16370,14 @@ body > .ui.grid {
 .ui.relaxed[class*="vertically divided"].grid > .row:before {
   margin-left: 1.5rem;
   margin-right: 1.5rem;
+  width: -webkit-calc(100% -  3rem );
   width: calc(100% -  3rem );
 }
 
 .ui[class*="very relaxed"][class*="vertically divided"].grid > .row:before {
   margin-left: 5rem;
   margin-right: 5rem;
+  width: -webkit-calc(100% -  5rem );
   width: calc(100% -  5rem );
 }
 
@@ -16572,7 +16613,7 @@ body > .ui.grid {
 .ui.grid > .white.column,
 .ui.grid > .row > .white.column {
   background-color: #ffffff !important;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .ui.grid > .row > .white.column {
@@ -17118,7 +17159,7 @@ body > .ui.grid {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2015 Contributor
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -17207,7 +17248,7 @@ body > .ui.grid {
   background: none;
   padding: 0.92857143em 1.14285714em;
   text-transform: none;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   font-weight: normal;
   -webkit-transition: opacity 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
   transition: opacity 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
@@ -17362,6 +17403,7 @@ body > .ui.grid {
 
 .ui.menu .dropdown.item .menu {
   left: 0px;
+  min-width: -webkit-calc(100% - 1px);
   min-width: calc(100% - 1px);
   background: #ffffff;
   margin: 0em 0px 0px;
@@ -17374,7 +17416,7 @@ body > .ui.grid {
   font-size: 1em !important;
   padding: 0.71428571em 1.14285714em !important;
   background: transparent !important;
-  color: rgba(0, 0, 0, 0.8) !important;
+  color: rgba(0, 0, 0, 0.87) !important;
   text-transform: none !important;
   font-weight: normal !important;
   box-shadow: none !important;
@@ -17384,13 +17426,13 @@ body > .ui.grid {
 
 .ui.menu .ui.dropdown .menu > .item:hover {
   background: rgba(0, 0, 0, 0.05) !important;
-  color: rgba(0, 0, 0, 0.9) !important;
+  color: rgba(0, 0, 0, 0.95) !important;
 }
 
 .ui.menu .ui.dropdown .menu > .active.item {
   background: rgba(0, 0, 0, 0.05) !important;
   font-weight: bold !important;
-  color: rgba(0, 0, 0, 0.9) !important;
+  color: rgba(0, 0, 0, 0.95) !important;
 }
 
 .ui.menu .ui.dropdown.item .menu .item:not(.filtered) {
@@ -17532,7 +17574,7 @@ body > .ui.grid {
 .ui.menu a.item:hover {
   cursor: pointer;
   background: rgba(0, 0, 0, 0.03);
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 /*--------------
@@ -17552,7 +17594,7 @@ body > .ui.grid {
 
 .ui.menu .active.item {
   background: rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
   font-weight: normal;
   box-shadow: none;
 }
@@ -17568,7 +17610,7 @@ body > .ui.grid {
 .ui.menu .active.item:hover,
 .ui.vertical.menu .active.item:hover {
   background-color: rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 /*--------------
@@ -17731,7 +17773,7 @@ Floated Menu / Item
 .ui.vertical.menu .item .menu .active.item {
   background-color: transparent;
   font-weight: bold;
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 /*--------------
@@ -17747,6 +17789,7 @@ Floated Menu / Item
 }
 
 .ui.tabular.fluid.menu {
+  width: -webkit-calc(100% +  2px ) !important;
   width: calc(100% +  2px ) !important;
 }
 
@@ -17758,7 +17801,7 @@ Floated Menu / Item
   border-bottom: none;
   padding-left: 1.42857143em;
   padding-right: 1.42857143em;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .ui.tabular.menu .item:before {
@@ -17776,7 +17819,7 @@ Floated Menu / Item
 
 .ui.tabular.menu .active.item {
   background-color: #ffffff;
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
   border-top-width: 1px;
   border-color: #d4d4d5;
   font-weight: bold;
@@ -17815,7 +17858,7 @@ Floated Menu / Item
 
 .ui.vertical.tabular.menu .active.item {
   background-color: #ffffff;
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
   border-color: #d4d4d5;
   margin: 0px -1px 0px 0px;
   border-radius: 5px 0px 0px 5px;
@@ -17843,17 +17886,13 @@ Floated Menu / Item
   vertical-align: top;
 }
 
-.ui.pagination.menu.floated {
-  display: block;
-}
-
 /* Active */
 
 .ui.pagination.menu .active.item {
   border-top: none;
   padding-top: 0.92857143em;
   background-color: rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
   box-shadow: none;
 }
 
@@ -17912,7 +17951,7 @@ Floated Menu / Item
 .ui.secondary.menu .link.item:hover,
 .ui.secondary.menu a.item:hover {
   background: rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 /* Active */
@@ -17921,7 +17960,7 @@ Floated Menu / Item
 .ui.secondary.menu > .active.item {
   box-shadow: none;
   background: rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
   border-radius: 0.2857rem;
 }
 
@@ -17931,7 +17970,7 @@ Floated Menu / Item
 .ui.secondary.menu > .active.item:hover {
   box-shadow: none;
   background: rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 /* Inverted */
@@ -18036,7 +18075,7 @@ Floated Menu / Item
 .ui.secondary.pointing.menu > .menu > a.item:hover,
 .ui.secondary.pointing.menu > a.item:hover {
   background-color: transparent;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 /* Pressed */
@@ -18057,7 +18096,7 @@ Floated Menu / Item
   box-shadow: none;
   border-color: #1b1c1d;
   font-weight: bold;
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 /* Active Hover */
@@ -18065,7 +18104,7 @@ Floated Menu / Item
 .ui.secondary.pointing.menu > .menu > .item.active:hover,
 .ui.secondary.pointing.menu > .item.active:hover {
   border-color: #1b1c1d;
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 /* Vertical Pointing */
@@ -18116,7 +18155,7 @@ Floated Menu / Item
 
 .ui.secondary.inverted.pointing.menu > .menu > .item:hover,
 .ui.secondary.inverted.pointing.menu > .item:hover {
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 /* Active */
@@ -18233,7 +18272,7 @@ Floated Menu / Item
   border: none;
   box-shadow: none;
   font-weight: normal;
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 /*--- active hover ---*/
@@ -18289,7 +18328,7 @@ Floated Menu / Item
 .ui.icon.menu > .item {
   height: auto;
   text-align: center;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .ui.icon.menu > .item > .icon {
@@ -18937,6 +18976,7 @@ Floated Menu / Item
   border-radius: 0px;
   margin-left: -1px;
   margin-right: -1px;
+  width: -webkit-calc(100% +  2px );
   width: calc(100% +  2px );
   box-shadow: none;
   /* avoid rgba multiplying */
@@ -19017,7 +19057,7 @@ Floated Menu / Item
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -19034,7 +19074,7 @@ Floated Menu / Item
   background: #f0f0f0;
   padding: 1em 1.5em;
   line-height: 1.4285em;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   -webkit-transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
   transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
   border-radius: 0.2857rem;
@@ -19513,7 +19553,7 @@ Floated Menu / Item
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -19533,7 +19573,7 @@ Floated Menu / Item
   box-shadow: none;
   border-radius: 0.2857rem;
   text-align: left;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   border-collapse: separate;
   border-spacing: 0px;
 }
@@ -19566,10 +19606,10 @@ Floated Menu / Item
 
 .ui.table thead th {
   cursor: auto;
-  background: #f0f0f0;
+  background: #fafafa;
   text-align: inherit;
-  color: rgba(0, 0, 0, 0.8);
-  padding: 0.71428571em 0.71428571em;
+  color: rgba(0, 0, 0, 0.87);
+  padding: 1em 0.71428571em;
   vertical-align: inherit;
   font-style: none;
   font-weight: bold;
@@ -19605,7 +19645,7 @@ Floated Menu / Item
   border-top: 1px solid rgba(34, 36, 38, 0.15);
   background: #ffffff;
   text-align: inherit;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   padding: 0.71428571em 0.71428571em;
   vertical-align: middle;
   font-style: normal;
@@ -19632,7 +19672,7 @@ Floated Menu / Item
 /* Table Row */
 
 .ui.table tr td {
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-top: 1px solid rgba(34, 36, 38, 0.1);
 }
 
 .ui.table tr:first-child td {
@@ -19697,6 +19737,12 @@ Floated Menu / Item
     display: block;
   }
 
+  .ui.table:not(.unstackable) tr {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset !important;
+  }
+
   .ui.table:not(.unstackable) tr > th,
   .ui.table:not(.unstackable) tr > td {
     background: none;
@@ -19708,37 +19754,12 @@ Floated Menu / Item
   .ui.table:not(.unstackable) th:first-child,
   .ui.table:not(.unstackable) td:first-child {
     font-weight: bold;
-    padding-top: 1em;
-  }
-
-  .ui.table:not(.unstackable) th:last-child,
-  .ui.table:not(.unstackable) td:last-child {
-    box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset !important;
-    padding-bottom: 1em;
-  }
-
-  /* Clear BG Colors */
-
-  .ui.table:not(.unstackable) tr > td.warning,
-  .ui.table:not(.unstackable) tr > td.error,
-  .ui.table:not(.unstackable) tr > td.active,
-  .ui.table:not(.unstackable) tr > td.positive,
-  .ui.table:not(.unstackable) tr > td.negative {
-    background-color: transparent !important;
   }
 
   /* Definition Table */
 
   .ui.definition.table:not(.unstackable) thead th:first-child {
     box-shadow: none !important;
-  }
-
-  .ui.definition.table:not(.unstackable) tr td:first-child {
-    padding-bottom: 1em;
-  }
-
-  .ui.definition.table:not(.unstackable) tr td:nth-child(n+2) {
-    padding-top: 1em;
   }
 }
 
@@ -19784,8 +19805,8 @@ Floated Menu / Item
 
 .ui.structured.celled.table tr th,
 .ui.structured.celled.table tr td {
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
-  border-right: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(34, 36, 38, 0.1);
+  border-right: 1px solid rgba(34, 36, 38, 0.1);
 }
 
 /*--------------
@@ -19823,7 +19844,7 @@ Floated Menu / Item
 .ui.definition.table tr td:first-child {
   background: rgba(0, 0, 0, 0.03);
   font-weight: bold;
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 /* Fix 2nd Column */
@@ -19853,16 +19874,10 @@ Floated Menu / Item
   box-shadow: 0px 0px 0px #b4d3a4 inset;
 }
 
-.ui.table tr.positive td,
+.ui.table tr.positive,
 .ui.table td.positive {
   background: #f3ffec !important;
   color: #255f26 !important;
-}
-
-.ui.celled.table tr.positive:hover td,
-.ui.celled.table tr:hover td.positive {
-  background: #e9ffdd !important;
-  color: #215422 !important;
 }
 
 /*--------------
@@ -19874,16 +19889,10 @@ Floated Menu / Item
   box-shadow: 0px 0px 0px #e0b4b4 inset;
 }
 
-.ui.table tr.negative td,
+.ui.table tr.negative,
 .ui.table td.negative {
   background: #fff0f0 !important;
   color: #973230 !important;
-}
-
-.ui.celled.table tr.negative:hover td,
-.ui.celled.table tr:hover td.negative {
-  background: #ffe1e1 !important;
-  color: #8b2e2c !important;
 }
 
 /*--------------
@@ -19895,16 +19904,10 @@ Floated Menu / Item
   box-shadow: 0px 0px 0px #e0b4b4 inset;
 }
 
-.ui.table tr.error td,
+.ui.table tr.error,
 .ui.table td.error {
   background: #fff0f0 !important;
   color: #973230 !important;
-}
-
-.ui.celled.table tr.error:hover td,
-.ui.celled.table tr:hover td.error {
-  background: #ffe1e1 !important;
-  color: #8b2e2c !important;
 }
 
 /*--------------
@@ -19916,16 +19919,10 @@ Floated Menu / Item
   box-shadow: 0px 0px 0px #c9ba9b inset;
 }
 
-.ui.table tr.warning td,
+.ui.table tr.warning,
 .ui.table td.warning {
   background: #fff8e2 !important;
   color: #715422 !important;
-}
-
-.ui.celled.table tr.warning:hover td,
-.ui.celled.table tr:hover td.warning {
-  background: #fff4d3 !important;
-  color: #654b1e !important;
 }
 
 /*--------------
@@ -19934,19 +19931,13 @@ Floated Menu / Item
 
 .ui.table tr.active,
 .ui.table td.active {
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.8) inset;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.87) inset;
 }
 
-.ui.table tr.active td,
+.ui.table tr.active,
 .ui.table td.active {
   background: #e0e0e0 !important;
-  color: rgba(0, 0, 0, 0.8) !important;
-}
-
-.ui.celled.table tr.active:hover td,
-.ui.celled.table tr:hover td.active {
-  background: #e0e0e0 !important;
-  color: rgba(0, 0, 0, 0.8) !important;
+  color: rgba(0, 0, 0, 0.87) !important;
 }
 
 /*--------------
@@ -19955,7 +19946,7 @@ Floated Menu / Item
 
 .ui.table tr.disabled td,
 .ui.table tr td.disabled,
-.ui.table tr.disabled:hover td,
+.ui.table tr.disabled:hover,
 .ui.table tr:hover td.disabled {
   pointer-events: none;
   color: rgba(40, 40, 40, 0.3);
@@ -19991,6 +19982,12 @@ Floated Menu / Item
     display: block;
   }
 
+  .ui[class*="tablet stackable"].table tr {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset !important;
+  }
+
   .ui[class*="tablet stackable"].table tr > th,
   .ui[class*="tablet stackable"].table tr > td {
     background: none;
@@ -19999,40 +19996,10 @@ Floated Menu / Item
     box-shadow: none !important;
   }
 
-  .ui[class*="tablet stackable"].table th:first-child,
-  .ui[class*="tablet stackable"].table td:first-child {
-    font-weight: bold;
-    padding-top: 1em;
-  }
-
-  .ui[class*="tablet stackable"].table th:last-child,
-  .ui[class*="tablet stackable"].table td:last-child {
-    box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset !important;
-    padding-bottom: 1em;
-  }
-
-  /* Clear BG Colors */
-
-  .ui[class*="tablet stackable"].table tr > td.warning,
-  .ui[class*="tablet stackable"].table tr > td.error,
-  .ui[class*="tablet stackable"].table tr > td.active,
-  .ui[class*="tablet stackable"].table tr > td.positive,
-  .ui[class*="tablet stackable"].table tr > td.negative {
-    background-color: transparent !important;
-  }
-
   /* Definition Table */
 
   .ui.definition[class*="tablet stackable"].table thead th:first-child {
     box-shadow: none !important;
-  }
-
-  .ui.definition[class*="tablet stackable"].table tr td:first-child {
-    padding-bottom: 1em;
-  }
-
-  .ui.definition[class*="tablet stackable"].table tr td:nth-child(n+2) {
-    padding-top: 1em;
   }
 }
 
@@ -20064,8 +20031,8 @@ Floated Menu / Item
   vertical-align: top;
 }
 
-.ui.table[class*="center aligned"],
-.ui.table [class*="center aligned"] {
+.ui.table[class*="middle aligned"],
+.ui.table [class*="middle aligned"] {
   vertical-align: middle;
 }
 
@@ -20085,12 +20052,59 @@ Floated Menu / Item
 }
 
 /*--------------
+   Hoverable
+---------------*/
+
+.ui.selectable.table tbody tr:hover {
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: rgba(0, 0, 0, 0.95) !important;
+}
+
+.ui.selectable.inverted.table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #ffffff !important;
+}
+
+/* Other States */
+
+.ui.selectable.table tr.error:hover,
+.ui.selectable.table tr:hover td.error {
+  background: #ffe1e1 !important;
+  color: #8b2e2c !important;
+}
+
+.ui.selectable.table tr.warning:hover,
+.ui.selectable.table tr:hover td.warning {
+  background: #fff4d3 !important;
+  color: #654b1e !important;
+}
+
+.ui.selectable.table tr.active:hover,
+.ui.selectable.table tr:hover td.active {
+  background: #e0e0e0 !important;
+  color: rgba(0, 0, 0, 0.87) !important;
+}
+
+.ui.selectable.table tr.positive:hover,
+.ui.selectable.table tr:hover td.positive {
+  background: #e9ffdd !important;
+  color: #215422 !important;
+}
+
+.ui.selectable.table tr.negative:hover,
+.ui.selectable.table tr:hover td.negative {
+  background: #ffe1e1 !important;
+  color: #8b2e2c !important;
+}
+
+/*--------------
      Attached
 ---------------*/
 
 /* All */
 
 .ui.attached.table {
+  width: -webkit-calc(100% +  2px );
   width: calc(100% +  2px );
   margin: 0em -1px;
   border-radius: 0px;
@@ -20136,6 +20150,15 @@ Floated Menu / Item
 .ui.inverted.striped.table > tr:nth-child(2n),
 .ui.inverted.striped.table tbody tr:nth-child(2n) {
   background-color: rgba(255, 255, 255, 0.06);
+}
+
+/*--------------
+   Single Line
+---------------*/
+
+.ui.table[class*="single line"],
+.ui.table [class*="single line"] {
+  white-space: nowrap;
 }
 
 /*-------------------
@@ -20388,7 +20411,7 @@ Floated Menu / Item
   cursor: pointer;
   white-space: nowrap;
   border-left: 1px solid rgba(34, 36, 38, 0.15);
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .ui.sortable.table thead th:first-child {
@@ -20404,24 +20427,24 @@ Floated Menu / Item
 }
 
 .ui.sortable.table thead th:after {
-  display: inline-block;
-  content: '';
-  width: auto;
-  height: 1em;
-  opacity: 0.8;
-  margin: 0em 0em 0em 0.5em;
-  font-family: 'Icons';
+  display: none;
   font-style: normal;
   font-weight: normal;
   text-decoration: inherit;
+  content: '';
+  height: 1em;
+  width: auto;
+  opacity: 0.8;
+  margin: 0em 0em 0em 0.5em;
+  font-family: 'Icons';
 }
 
 .ui.sortable.table thead th.ascending:after {
-  content: '\f0d7';
+  content: '\f0d8';
 }
 
 .ui.sortable.table thead th.descending:after {
-  content: '\f0d8';
+  content: '\f0d7';
 }
 
 /* Hover */
@@ -20440,14 +20463,18 @@ Floated Menu / Item
 
 .ui.sortable.table thead th.sorted {
   background: rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
+}
+
+.ui.sortable.table thead th.sorted:after {
+  display: inline-block;
 }
 
 /* Sorted Hover */
 
 .ui.sortable.table thead th.sorted:hover {
   background: rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 /* Inverted */
@@ -20582,7 +20609,7 @@ Floated Menu / Item
 
 .ui.celled.table tr th,
 .ui.celled.table tr td {
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(34, 36, 38, 0.1);
 }
 
 .ui.celled.table tr th:first-child,
@@ -20959,7 +20986,7 @@ Floated Menu / Item
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributorss
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -21092,13 +21119,16 @@ Floated Menu / Item
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 0.2857rem 0.2857rem 0em 0em;
+  border-radius: inherit;
   border: none;
 }
 
-.ui.cards > .card > .image:only-child > img,
-.ui.card > .image:only-child > img {
-  border-radius: 0.2857rem;
+.ui.cards > .card > :first-child {
+  border-radius: 0.2857rem 0.2857rem 0em 0em;
+}
+
+.ui.cards > .card > :last-child {
+  border-radius: 0em 0em 0.2857rem 0.2857rem;
 }
 
 /*--------------
@@ -21196,15 +21226,15 @@ Floated Menu / Item
 .ui.card .content img {
   display: inline-block;
   vertical-align: middle;
-  width: auto;
+  width: '';
 }
 
 .ui.cards > .card img.avatar,
 .ui.cards > .card .avatar img,
 .ui.card img.avatar,
 .ui.card .avatar img {
-  width: 2.5em;
-  height: 2.5em;
+  width: 2em;
+  height: 2em;
   border-radius: 500rem;
 }
 
@@ -21215,7 +21245,7 @@ Floated Menu / Item
 .ui.cards > .card > .content > .description,
 .ui.card > .content > .description {
   clear: both;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.68);
 }
 
 /*--------------
@@ -21297,7 +21327,7 @@ Floated Menu / Item
 
 .ui.cards > .card .meta > a:not(.ui):hover,
 .ui.card .meta > a:not(.ui):hover {
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 /*--------------
@@ -21584,9 +21614,10 @@ a.ui.card:hover,
 }
 
 .ui.two.cards > .card {
-  -webkit-flex-basis: calc( 50%  -  2em );
+  -webkit-flex-basis: -webkit-calc( 50%  -  2em );
   -ms-flex-preferred-size: calc( 50%  -  2em );
   flex-basis: calc( 50%  -  2em );
+  width: -webkit-calc( 50%  -  2em );
   width: calc( 50%  -  2em );
   margin-left: 1em;
   margin-right: 1em;
@@ -21602,9 +21633,10 @@ a.ui.card:hover,
 }
 
 .ui.three.cards > .card {
-  -webkit-flex-basis: calc( 33.33333333%  -  2em );
+  -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
   -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
   flex-basis: calc( 33.33333333%  -  2em );
+  width: -webkit-calc( 33.33333333%  -  2em );
   width: calc( 33.33333333%  -  2em );
   margin-left: 1em;
   margin-right: 1em;
@@ -21620,9 +21652,10 @@ a.ui.card:hover,
 }
 
 .ui.four.cards > .card {
-  -webkit-flex-basis: calc( 25%  -  1.5em );
+  -webkit-flex-basis: -webkit-calc( 25%  -  1.5em );
   -ms-flex-preferred-size: calc( 25%  -  1.5em );
   flex-basis: calc( 25%  -  1.5em );
+  width: -webkit-calc( 25%  -  1.5em );
   width: calc( 25%  -  1.5em );
   margin-left: 0.75em;
   margin-right: 0.75em;
@@ -21638,9 +21671,10 @@ a.ui.card:hover,
 }
 
 .ui.five.cards > .card {
-  -webkit-flex-basis: calc( 20%  -  1.5em );
+  -webkit-flex-basis: -webkit-calc( 20%  -  1.5em );
   -ms-flex-preferred-size: calc( 20%  -  1.5em );
   flex-basis: calc( 20%  -  1.5em );
+  width: -webkit-calc( 20%  -  1.5em );
   width: calc( 20%  -  1.5em );
   margin-left: 0.75em;
   margin-right: 0.75em;
@@ -21656,9 +21690,10 @@ a.ui.card:hover,
 }
 
 .ui.six.cards > .card {
-  -webkit-flex-basis: calc( 16.66666667%  -  1.5em );
+  -webkit-flex-basis: -webkit-calc( 16.66666667%  -  1.5em );
   -ms-flex-preferred-size: calc( 16.66666667%  -  1.5em );
   flex-basis: calc( 16.66666667%  -  1.5em );
+  width: -webkit-calc( 16.66666667%  -  1.5em );
   width: calc( 16.66666667%  -  1.5em );
   margin-left: 0.75em;
   margin-right: 0.75em;
@@ -21674,9 +21709,10 @@ a.ui.card:hover,
 }
 
 .ui.seven.cards > .card {
-  -webkit-flex-basis: calc( 14.28571429%  -  1em );
+  -webkit-flex-basis: -webkit-calc( 14.28571429%  -  1em );
   -ms-flex-preferred-size: calc( 14.28571429%  -  1em );
   flex-basis: calc( 14.28571429%  -  1em );
+  width: -webkit-calc( 14.28571429%  -  1em );
   width: calc( 14.28571429%  -  1em );
   margin-left: 0.5em;
   margin-right: 0.5em;
@@ -21692,9 +21728,10 @@ a.ui.card:hover,
 }
 
 .ui.eight.cards > .card {
-  -webkit-flex-basis: calc( 12.5%  -  1em );
+  -webkit-flex-basis: -webkit-calc( 12.5%  -  1em );
   -ms-flex-preferred-size: calc( 12.5%  -  1em );
   flex-basis: calc( 12.5%  -  1em );
+  width: -webkit-calc( 12.5%  -  1em );
   width: calc( 12.5%  -  1em );
   margin-left: 0.5em;
   margin-right: 0.5em;
@@ -21711,9 +21748,10 @@ a.ui.card:hover,
 }
 
 .ui.nine.cards > .card {
-  -webkit-flex-basis: calc( 11.11111111%  -  1em );
+  -webkit-flex-basis: -webkit-calc( 11.11111111%  -  1em );
   -ms-flex-preferred-size: calc( 11.11111111%  -  1em );
   flex-basis: calc( 11.11111111%  -  1em );
+  width: -webkit-calc( 11.11111111%  -  1em );
   width: calc( 11.11111111%  -  1em );
   margin-left: 0.5em;
   margin-right: 0.5em;
@@ -21730,9 +21768,10 @@ a.ui.card:hover,
 }
 
 .ui.ten.cards > .card {
-  -webkit-flex-basis: calc( 10%  -  1em );
+  -webkit-flex-basis: -webkit-calc( 10%  -  1em );
   -ms-flex-preferred-size: calc( 10%  -  1em );
   flex-basis: calc( 10%  -  1em );
+  width: -webkit-calc( 10%  -  1em );
   width: calc( 10%  -  1em );
   margin-left: 0.5em;
   margin-right: 0.5em;
@@ -21769,9 +21808,10 @@ a.ui.card:hover,
   }
 
   .ui.three.doubling.cards .card {
-    -webkit-flex-basis: calc( 50%  -  2em );
+    -webkit-flex-basis: -webkit-calc( 50%  -  2em );
     -ms-flex-preferred-size: calc( 50%  -  2em );
     flex-basis: calc( 50%  -  2em );
+    width: -webkit-calc( 50%  -  2em );
     width: calc( 50%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -21783,9 +21823,10 @@ a.ui.card:hover,
   }
 
   .ui.four.doubling.cards .card {
-    -webkit-flex-basis: calc( 50%  -  2em );
+    -webkit-flex-basis: -webkit-calc( 50%  -  2em );
     -ms-flex-preferred-size: calc( 50%  -  2em );
     flex-basis: calc( 50%  -  2em );
+    width: -webkit-calc( 50%  -  2em );
     width: calc( 50%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -21797,9 +21838,10 @@ a.ui.card:hover,
   }
 
   .ui.five.doubling.cards .card {
-    -webkit-flex-basis: calc( 50%  -  2em );
+    -webkit-flex-basis: -webkit-calc( 50%  -  2em );
     -ms-flex-preferred-size: calc( 50%  -  2em );
     flex-basis: calc( 50%  -  2em );
+    width: -webkit-calc( 50%  -  2em );
     width: calc( 50%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -21811,9 +21853,10 @@ a.ui.card:hover,
   }
 
   .ui.six.doubling.cards .card {
-    -webkit-flex-basis: calc( 50%  -  2em );
+    -webkit-flex-basis: -webkit-calc( 50%  -  2em );
     -ms-flex-preferred-size: calc( 50%  -  2em );
     flex-basis: calc( 50%  -  2em );
+    width: -webkit-calc( 50%  -  2em );
     width: calc( 50%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -21825,9 +21868,10 @@ a.ui.card:hover,
   }
 
   .ui.seven.doubling.cards .card {
-    -webkit-flex-basis: calc( 33.33333333%  -  2em );
+    -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
     -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
     flex-basis: calc( 33.33333333%  -  2em );
+    width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -21839,9 +21883,10 @@ a.ui.card:hover,
   }
 
   .ui.eight.doubling.cards .card {
-    -webkit-flex-basis: calc( 33.33333333%  -  2em );
+    -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
     -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
     flex-basis: calc( 33.33333333%  -  2em );
+    width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -21853,9 +21898,10 @@ a.ui.card:hover,
   }
 
   .ui.nine.doubling.cards .card {
-    -webkit-flex-basis: calc( 33.33333333%  -  2em );
+    -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
     -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
     flex-basis: calc( 33.33333333%  -  2em );
+    width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -21867,9 +21913,10 @@ a.ui.card:hover,
   }
 
   .ui.ten.doubling.cards .card {
-    -webkit-flex-basis: calc( 33.33333333%  -  2em );
+    -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
     -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
     flex-basis: calc( 33.33333333%  -  2em );
+    width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -21899,9 +21946,10 @@ a.ui.card:hover,
   }
 
   .ui.three.doubling.cards .card {
-    -webkit-flex-basis: calc( 50%  -  2em );
+    -webkit-flex-basis: -webkit-calc( 50%  -  2em );
     -ms-flex-preferred-size: calc( 50%  -  2em );
     flex-basis: calc( 50%  -  2em );
+    width: -webkit-calc( 50%  -  2em );
     width: calc( 50%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -21913,9 +21961,10 @@ a.ui.card:hover,
   }
 
   .ui.four.doubling.cards .card {
-    -webkit-flex-basis: calc( 50%  -  2em );
+    -webkit-flex-basis: -webkit-calc( 50%  -  2em );
     -ms-flex-preferred-size: calc( 50%  -  2em );
     flex-basis: calc( 50%  -  2em );
+    width: -webkit-calc( 50%  -  2em );
     width: calc( 50%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -21927,9 +21976,10 @@ a.ui.card:hover,
   }
 
   .ui.five.doubling.cards .card {
-    -webkit-flex-basis: calc( 33.33333333%  -  2em );
+    -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
     -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
     flex-basis: calc( 33.33333333%  -  2em );
+    width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -21941,9 +21991,10 @@ a.ui.card:hover,
   }
 
   .ui.six.doubling.cards .card {
-    -webkit-flex-basis: calc( 33.33333333%  -  2em );
+    -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
     -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
     flex-basis: calc( 33.33333333%  -  2em );
+    width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -21955,9 +22006,10 @@ a.ui.card:hover,
   }
 
   .ui.eight.doubling.cards .card {
-    -webkit-flex-basis: calc( 33.33333333%  -  2em );
+    -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
     -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
     flex-basis: calc( 33.33333333%  -  2em );
+    width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -21969,9 +22021,10 @@ a.ui.card:hover,
   }
 
   .ui.eight.doubling.cards .card {
-    -webkit-flex-basis: calc( 25%  -  1.5em );
+    -webkit-flex-basis: -webkit-calc( 25%  -  1.5em );
     -ms-flex-preferred-size: calc( 25%  -  1.5em );
     flex-basis: calc( 25%  -  1.5em );
+    width: -webkit-calc( 25%  -  1.5em );
     width: calc( 25%  -  1.5em );
     margin-left: 0.75em;
     margin-right: 0.75em;
@@ -21983,9 +22036,10 @@ a.ui.card:hover,
   }
 
   .ui.nine.doubling.cards .card {
-    -webkit-flex-basis: calc( 25%  -  1.5em );
+    -webkit-flex-basis: -webkit-calc( 25%  -  1.5em );
     -ms-flex-preferred-size: calc( 25%  -  1.5em );
     flex-basis: calc( 25%  -  1.5em );
+    width: -webkit-calc( 25%  -  1.5em );
     width: calc( 25%  -  1.5em );
     margin-left: 0.75em;
     margin-right: 0.75em;
@@ -21997,9 +22051,10 @@ a.ui.card:hover,
   }
 
   .ui.ten.doubling.cards .card {
-    -webkit-flex-basis: calc( 20%  -  1.5em );
+    -webkit-flex-basis: -webkit-calc( 20%  -  1.5em );
     -ms-flex-preferred-size: calc( 20%  -  1.5em );
     flex-basis: calc( 20%  -  1.5em );
+    width: -webkit-calc( 20%  -  1.5em );
     width: calc( 20%  -  1.5em );
     margin-left: 0.75em;
     margin-right: 0.75em;
@@ -22024,6 +22079,7 @@ a.ui.card:hover,
     height: auto !important;
     margin: 1em 1em;
     padding: 0 !important;
+    width: -webkit-calc( 100%  -  2em ) !important;
     width: calc( 100%  -  2em ) !important;
   }
 }
@@ -22048,7 +22104,7 @@ a.ui.card:hover,
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributorss
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -22156,7 +22212,7 @@ a.ui.card:hover,
 
 .ui.comments .comment .author {
   font-size: 1em;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   font-weight: bold;
 }
 
@@ -22196,7 +22252,7 @@ a.ui.card:hover,
   margin: 0.25em 0em 0.5em;
   font-size: 1em;
   word-wrap: break-word;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   line-height: 1.3;
 }
 
@@ -22318,7 +22374,7 @@ a.ui.card:hover,
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributorss
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -22435,7 +22491,7 @@ a.ui.card:hover,
   margin: 0em;
   font-size: 1em;
   font-weight: bold;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 /* Summary Image */
@@ -22492,7 +22548,7 @@ a.ui.card:hover,
   margin: 0.5em 0em 0em;
   background: none;
   padding: 0em;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 /* Images */
@@ -22582,7 +22638,7 @@ a.ui.card:hover,
 .ui.feed > .event > .content .meta a:hover,
 .ui.feed > .event > .content .meta a:hover .icon,
 .ui.feed > .event > .content .meta > .icon:hover {
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 /*******************************
@@ -22613,7 +22669,7 @@ a.ui.card:hover,
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributorss
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -22810,7 +22866,7 @@ a.ui.card:hover,
   max-width: auto;
   font-size: 1em;
   line-height: 1.4285em;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 /*--------------
@@ -22882,7 +22938,7 @@ a.ui.card:hover,
 }
 
 .ui.items > .item .meta > a:not(.ui):hover {
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 /*--------------
@@ -23129,7 +23185,7 @@ a.ui.card:hover,
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributorss
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -23260,7 +23316,7 @@ a.ui.card:hover,
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 1em;
   font-weight: bold;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   text-transform: uppercase;
   text-align: center;
 }
@@ -23730,7 +23786,7 @@ a.ui.card:hover,
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -23763,7 +23819,7 @@ a.ui.card:hover,
   padding: 0.5em 0em;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 1em;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 /* Content */
@@ -23903,25 +23959,25 @@ a.ui.card:hover,
 .ui.styled.accordion .accordion .title:hover,
 .ui.styled.accordion .accordion .active.title {
   background: transparent;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .ui.styled.accordion .accordion .title:hover,
 .ui.styled.accordion .accordion .active.title {
   background: transparent;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 /* Active */
 
 .ui.styled.accordion .active.title {
   background: transparent;
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 .ui.styled.accordion .accordion .active.title {
   background: transparent;
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 /*******************************
@@ -23995,7 +24051,7 @@ a.ui.card:hover,
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -24078,7 +24134,7 @@ a.ui.card:hover,
   height: 17px;
   text-align: center;
   opacity: 0;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
@@ -24092,7 +24148,7 @@ a.ui.card:hover,
 .ui.checkbox label,
 .ui.checkbox + label {
   cursor: pointer;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   -webkit-transition: color 0.2s ease;
   transition: color 0.2s ease;
   -webkit-user-select: none;
@@ -24138,12 +24194,12 @@ a.ui.card:hover,
 
 .ui.checkbox .box:active::after,
 .ui.checkbox label:active::after {
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 .ui.checkbox input[type="checkbox"]:active ~ label,
 .ui.checkbox input[type="radio"]:active ~ label {
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 /*--------------
@@ -24163,12 +24219,12 @@ a.ui.card:hover,
 .ui.checkbox input[type="radio"]:focus ~ .box:after,
 .ui.checkbox input[type="radio"]:focus ~ label:after {
   opacity: 1;
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 .ui.checkbox input[type="checkbox"]:focus ~ label,
 .ui.checkbox input[type="radio"]:focus ~ label {
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 /*--------------
@@ -24188,7 +24244,7 @@ a.ui.card:hover,
 .ui.checkbox input[type="radio"]:checked ~ .box:after,
 .ui.checkbox input[type="radio"]:checked ~ label:after {
   opacity: 1;
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 /*--------------
@@ -24263,7 +24319,7 @@ a.ui.card:hover,
   -webkit-transform: scale(0.42857143);
   -ms-transform: scale(0.42857143);
   transform: scale(0.42857143);
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.87);
 }
 
 /* Active */
@@ -24275,7 +24331,7 @@ a.ui.card:hover,
 
 .ui.radio.checkbox input[type="radio"]:checked ~ .box:after,
 .ui.radio.checkbox input[type="radio"]:checked ~ label:after {
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.95);
 }
 
 /*--------------
@@ -24367,7 +24423,7 @@ a.ui.card:hover,
 .ui.slider.checkbox input[type="checkbox"]:checked ~ label,
 .ui.slider.checkbox input[type="radio"]:checked ~ .box,
 .ui.slider.checkbox input[type="radio"]:checked ~ label {
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 .ui.slider.checkbox input[type="checkbox"]:checked ~ .box:before,
@@ -24396,7 +24452,7 @@ a.ui.card:hover,
 .ui.toggle.checkbox label {
   min-height: 1.5rem;
   padding-left: 4.5rem;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .ui.toggle.checkbox label {
@@ -24471,7 +24527,7 @@ a.ui.card:hover,
 .ui.toggle.checkbox input[type="checkbox"]:checked ~ label,
 .ui.toggle.checkbox input[type="radio"]:checked ~ .box,
 .ui.toggle.checkbox input[type="radio"]:checked ~ label {
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 .ui.toggle.checkbox input[type="checkbox"]:checked ~ .box:before,
@@ -24552,7 +24608,7 @@ a.ui.card:hover,
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -24760,7 +24816,7 @@ body.dimmable > .dimmer {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -24800,7 +24856,7 @@ body.dimmable > .dimmer {
   padding: 0em 0em;
   background: #ffffff;
   min-width: 100%;
-  white-space: nowrap;
+  white-space: normal;
   font-size: 1em;
   text-shadow: none;
   text-align: left;
@@ -24864,9 +24920,9 @@ body.dimmable > .dimmer {
   text-align: left;
   border-top: none;
   line-height: 1em;
-  color: rgba(0, 0, 0, 0.8);
-  padding: 0.71428571em 1.14285714em !important;
-  font-size: 1em;
+  color: rgba(0, 0, 0, 0.87);
+  padding: 0.71428571rem 1.14285714rem !important;
+  font-size: 1rem;
   text-transform: none;
   font-weight: normal;
   box-shadow: none;
@@ -24908,7 +24964,7 @@ body.dimmable > .dimmer {
 
 .ui.dropdown .menu > .header {
   margin: 1rem 0rem 0.75rem;
-  padding: 0em 1.14285714em;
+  padding: 0em 1.14285714rem;
   color: rgba(0, 0, 0, 0.85);
   font-size: 0.7857rem;
   font-weight: bold;
@@ -24916,7 +24972,7 @@ body.dimmable > .dimmer {
 }
 
 .ui.dropdown .menu > .divider {
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-top: 1px solid rgba(34, 36, 38, 0.1);
   height: 0em;
   margin: 0.5em 0em 0em;
 }
@@ -24960,7 +25016,7 @@ body.dimmable > .dimmer {
 -------------------*/
 
 .ui.dropdown .menu > .message {
-  padding: 0.71428571em 1.14285714em;
+  padding: 0.71428571rem 1.14285714rem;
   font-weight: normal;
 }
 
@@ -25105,7 +25161,7 @@ body.dimmable > .dimmer {
   background: #ffffff;
   display: inline-block;
   padding: 0.78571em 2em 0.78571em 1em;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   box-shadow: none;
   border: 1px solid rgba(34, 36, 38, 0.15);
   border-radius: 0.2857rem;
@@ -25157,8 +25213,10 @@ select.ui.dropdown {
   border-top-width: 0px !important;
   width: auto;
   margin: 0px -1px;
+  min-width: -webkit-calc(100% +  2px );
   min-width: calc(100% +  2px );
   outline: none;
+  border-radius: 0em 0em 0.2857rem 0.2857rem;
   box-shadow: 0px 2px 3px 0px rgba(34, 36, 38, 0.15);
   -webkit-transition: opacity 0.2s ease;
   transition: opacity 0.2s ease;
@@ -25174,46 +25232,47 @@ select.ui.dropdown {
 ---------------*/
 
 .ui.selection.dropdown .menu > .message {
-  padding: 0.71428571em 1.14285714em;
+  padding: 0.71428571rem 1.14285714rem;
 }
 
 /* Scrollbar in IE */
 
 @media all and (-ms-high-contrast: none) {
   .ui.selection.dropdown .menu {
+    min-width: -webkit-calc(100% -  15px );
     min-width: calc(100% -  15px );
   }
 }
 
 @media only screen and (max-width: 767px) {
   .ui.selection.dropdown .menu {
-    max-height: 7.58571429em;
+    max-height: 7.58571429rem;
   }
 }
 
 @media only screen and (min-width: 768px) {
   .ui.selection.dropdown .menu {
-    max-height: 10.11428571em;
+    max-height: 10.11428571rem;
   }
 }
 
 @media only screen and (min-width: 992px) {
   .ui.selection.dropdown .menu {
-    max-height: 15.17142857em;
+    max-height: 15.17142857rem;
   }
 }
 
 @media only screen and (min-width: 1920px) {
   .ui.selection.dropdown .menu {
-    max-height: 20.22857143em;
+    max-height: 20.22857143rem;
   }
 }
 
 /* Menu Item */
 
 .ui.selection.dropdown .menu > .item {
-  border-top: 1px solid #f0f0f0;
-  padding: 0.71428571em 1.14285714em !important;
+  border-top: 1px solid #fafafa;
+  padding: 0.71428571rem 1.14285714rem !important;
   white-space: normal;
   word-wrap: normal;
 }
@@ -25231,7 +25290,7 @@ select.ui.dropdown {
 .ui.selection.dropdown.disabled:hover {
   cursor: default;
   box-shadow: none;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   border: 1px solid rgba(34, 36, 38, 0.15);
   opacity: 0.3 !important;
 }
@@ -25375,25 +25434,25 @@ select.ui.dropdown {
 
 @media only screen and (max-width: 767px) {
   .ui.search.dropdown .menu {
-    max-height: 7.58571429em;
+    max-height: 7.58571429rem;
   }
 }
 
 @media only screen and (min-width: 768px) {
   .ui.search.dropdown .menu {
-    max-height: 10.11428571em;
+    max-height: 10.11428571rem;
   }
 }
 
 @media only screen and (min-width: 992px) {
   .ui.search.dropdown .menu {
-    max-height: 15.17142857em;
+    max-height: 15.17142857rem;
   }
 }
 
 @media only screen and (min-width: 1920px) {
   .ui.search.dropdown .menu {
-    max-height: 20.22857143em;
+    max-height: 20.22857143rem;
   }
 }
 
@@ -25497,7 +25556,7 @@ select.ui.dropdown {
 
 .ui.inline.dropdown .dropdown.icon {
   margin: 0em 0.5em 0em 0.25em;
-  vertical-align: top;
+  vertical-align: baseline;
 }
 
 .ui.inline.dropdown > .text {
@@ -25523,7 +25582,7 @@ select.ui.dropdown {
 .ui.dropdown .menu .active.item {
   background: transparent;
   font-weight: bold;
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
   box-shadow: none;
   z-index: 12;
 }
@@ -25536,7 +25595,7 @@ select.ui.dropdown {
 
 .ui.dropdown .menu > .item:hover {
   background: rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
   z-index: 13;
 }
 
@@ -25578,7 +25637,7 @@ select.ui.dropdown {
 .ui.dropdown.selected,
 .ui.dropdown .menu .selected.item {
   background: rgba(0, 0, 0, 0.03);
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 /*--------------------
@@ -25778,7 +25837,7 @@ select.ui.dropdown {
 }
 
 .ui.dropdown .scrolling.menu .item {
-  border-top: 1px solid #f0f0f0;
+  border-top: 1px solid #fafafa;
 }
 
 .ui.dropdown .scrolling.menu .item:first-child {
@@ -25795,6 +25854,7 @@ select.ui.dropdown {
 @media all and (-ms-high-contrast: none) {
   .ui.scrolling.dropdown .menu,
   .ui.dropdown .scrolling.menu {
+    min-width: -webkit-calc(100% -  15px );
     min-width: calc(100% -  15px );
   }
 }
@@ -25802,28 +25862,28 @@ select.ui.dropdown {
 @media only screen and (max-width: 767px) {
   .ui.scrolling.dropdown .menu,
   .ui.dropdown .scrolling.menu {
-    max-height: 10.02828571em;
+    max-height: 10.02828571rem;
   }
 }
 
 @media only screen and (min-width: 768px) {
   .ui.scrolling.dropdown .menu,
   .ui.dropdown .scrolling.menu {
-    max-height: 15.04242857em;
+    max-height: 15.04242857rem;
   }
 }
 
 @media only screen and (min-width: 992px) {
   .ui.scrolling.dropdown .menu,
   .ui.dropdown .scrolling.menu {
-    max-height: 20.05657143em;
+    max-height: 20.05657143rem;
   }
 }
 
 @media only screen and (min-width: 1920px) {
   .ui.scrolling.dropdown .menu,
   .ui.dropdown .scrolling.menu {
-    max-height: 20.05657143em;
+    max-height: 20.05657143rem;
   }
 }
 
@@ -29300,7 +29360,7 @@ html.ios {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -29320,7 +29380,7 @@ html.ios {
   box-shadow: none;
   border-radius: 0.2857rem;
   text-align: left;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   border-collapse: separate;
   border-spacing: 0px;
 }
@@ -29353,10 +29413,10 @@ html.ios {
 
 .ui.table thead th {
   cursor: auto;
-  background: #f0f0f0;
+  background: #fafafa;
   text-align: inherit;
-  color: rgba(0, 0, 0, 0.8);
-  padding: 0.71428571em 0.71428571em;
+  color: rgba(0, 0, 0, 0.87);
+  padding: 1em 0.71428571em;
   vertical-align: inherit;
   font-style: none;
   font-weight: bold;
@@ -29392,7 +29452,7 @@ html.ios {
   border-top: 1px solid rgba(34, 36, 38, 0.15);
   background: #ffffff;
   text-align: inherit;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   padding: 0.71428571em 0.71428571em;
   vertical-align: middle;
   font-style: normal;
@@ -29419,7 +29479,7 @@ html.ios {
 /* Table Row */
 
 .ui.table tr td {
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-top: 1px solid rgba(34, 36, 38, 0.1);
 }
 
 .ui.table tr:first-child td {
@@ -29484,6 +29544,12 @@ html.ios {
     display: block;
   }
 
+  .ui.table:not(.unstackable) tr {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset !important;
+  }
+
   .ui.table:not(.unstackable) tr > th,
   .ui.table:not(.unstackable) tr > td {
     background: none;
@@ -29495,37 +29561,12 @@ html.ios {
   .ui.table:not(.unstackable) th:first-child,
   .ui.table:not(.unstackable) td:first-child {
     font-weight: bold;
-    padding-top: 1em;
-  }
-
-  .ui.table:not(.unstackable) th:last-child,
-  .ui.table:not(.unstackable) td:last-child {
-    box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset !important;
-    padding-bottom: 1em;
-  }
-
-  /* Clear BG Colors */
-
-  .ui.table:not(.unstackable) tr > td.warning,
-  .ui.table:not(.unstackable) tr > td.error,
-  .ui.table:not(.unstackable) tr > td.active,
-  .ui.table:not(.unstackable) tr > td.positive,
-  .ui.table:not(.unstackable) tr > td.negative {
-    background-color: transparent !important;
   }
 
   /* Definition Table */
 
   .ui.definition.table:not(.unstackable) thead th:first-child {
     box-shadow: none !important;
-  }
-
-  .ui.definition.table:not(.unstackable) tr td:first-child {
-    padding-bottom: 1em;
-  }
-
-  .ui.definition.table:not(.unstackable) tr td:nth-child(n+2) {
-    padding-top: 1em;
   }
 }
 
@@ -29571,8 +29612,8 @@ html.ios {
 
 .ui.structured.celled.table tr th,
 .ui.structured.celled.table tr td {
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
-  border-right: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(34, 36, 38, 0.1);
+  border-right: 1px solid rgba(34, 36, 38, 0.1);
 }
 
 /*--------------
@@ -29610,7 +29651,7 @@ html.ios {
 .ui.definition.table tr td:first-child {
   background: rgba(0, 0, 0, 0.03);
   font-weight: bold;
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 /* Fix 2nd Column */
@@ -29640,16 +29681,10 @@ html.ios {
   box-shadow: 0px 0px 0px #b4d3a4 inset;
 }
 
-.ui.table tr.positive td,
+.ui.table tr.positive,
 .ui.table td.positive {
   background: #f3ffec !important;
   color: #255f26 !important;
-}
-
-.ui.celled.table tr.positive:hover td,
-.ui.celled.table tr:hover td.positive {
-  background: #e9ffdd !important;
-  color: #215422 !important;
 }
 
 /*--------------
@@ -29661,16 +29696,10 @@ html.ios {
   box-shadow: 0px 0px 0px #e0b4b4 inset;
 }
 
-.ui.table tr.negative td,
+.ui.table tr.negative,
 .ui.table td.negative {
   background: #fff0f0 !important;
   color: #973230 !important;
-}
-
-.ui.celled.table tr.negative:hover td,
-.ui.celled.table tr:hover td.negative {
-  background: #ffe1e1 !important;
-  color: #8b2e2c !important;
 }
 
 /*--------------
@@ -29682,16 +29711,10 @@ html.ios {
   box-shadow: 0px 0px 0px #e0b4b4 inset;
 }
 
-.ui.table tr.error td,
+.ui.table tr.error,
 .ui.table td.error {
   background: #fff0f0 !important;
   color: #973230 !important;
-}
-
-.ui.celled.table tr.error:hover td,
-.ui.celled.table tr:hover td.error {
-  background: #ffe1e1 !important;
-  color: #8b2e2c !important;
 }
 
 /*--------------
@@ -29703,16 +29726,10 @@ html.ios {
   box-shadow: 0px 0px 0px #c9ba9b inset;
 }
 
-.ui.table tr.warning td,
+.ui.table tr.warning,
 .ui.table td.warning {
   background: #fff8e2 !important;
   color: #715422 !important;
-}
-
-.ui.celled.table tr.warning:hover td,
-.ui.celled.table tr:hover td.warning {
-  background: #fff4d3 !important;
-  color: #654b1e !important;
 }
 
 /*--------------
@@ -29721,19 +29738,13 @@ html.ios {
 
 .ui.table tr.active,
 .ui.table td.active {
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.8) inset;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.87) inset;
 }
 
-.ui.table tr.active td,
+.ui.table tr.active,
 .ui.table td.active {
   background: #e0e0e0 !important;
-  color: rgba(0, 0, 0, 0.8) !important;
-}
-
-.ui.celled.table tr.active:hover td,
-.ui.celled.table tr:hover td.active {
-  background: #e0e0e0 !important;
-  color: rgba(0, 0, 0, 0.8) !important;
+  color: rgba(0, 0, 0, 0.87) !important;
 }
 
 /*--------------
@@ -29742,7 +29753,7 @@ html.ios {
 
 .ui.table tr.disabled td,
 .ui.table tr td.disabled,
-.ui.table tr.disabled:hover td,
+.ui.table tr.disabled:hover,
 .ui.table tr:hover td.disabled {
   pointer-events: none;
   color: rgba(40, 40, 40, 0.3);
@@ -29778,6 +29789,12 @@ html.ios {
     display: block;
   }
 
+  .ui[class*="tablet stackable"].table tr {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset !important;
+  }
+
   .ui[class*="tablet stackable"].table tr > th,
   .ui[class*="tablet stackable"].table tr > td {
     background: none;
@@ -29786,40 +29803,10 @@ html.ios {
     box-shadow: none !important;
   }
 
-  .ui[class*="tablet stackable"].table th:first-child,
-  .ui[class*="tablet stackable"].table td:first-child {
-    font-weight: bold;
-    padding-top: 1em;
-  }
-
-  .ui[class*="tablet stackable"].table th:last-child,
-  .ui[class*="tablet stackable"].table td:last-child {
-    box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset !important;
-    padding-bottom: 1em;
-  }
-
-  /* Clear BG Colors */
-
-  .ui[class*="tablet stackable"].table tr > td.warning,
-  .ui[class*="tablet stackable"].table tr > td.error,
-  .ui[class*="tablet stackable"].table tr > td.active,
-  .ui[class*="tablet stackable"].table tr > td.positive,
-  .ui[class*="tablet stackable"].table tr > td.negative {
-    background-color: transparent !important;
-  }
-
   /* Definition Table */
 
   .ui.definition[class*="tablet stackable"].table thead th:first-child {
     box-shadow: none !important;
-  }
-
-  .ui.definition[class*="tablet stackable"].table tr td:first-child {
-    padding-bottom: 1em;
-  }
-
-  .ui.definition[class*="tablet stackable"].table tr td:nth-child(n+2) {
-    padding-top: 1em;
   }
 }
 
@@ -29851,8 +29838,8 @@ html.ios {
   vertical-align: top;
 }
 
-.ui.table[class*="center aligned"],
-.ui.table [class*="center aligned"] {
+.ui.table[class*="middle aligned"],
+.ui.table [class*="middle aligned"] {
   vertical-align: middle;
 }
 
@@ -29872,12 +29859,59 @@ html.ios {
 }
 
 /*--------------
+   Hoverable
+---------------*/
+
+.ui.selectable.table tbody tr:hover {
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: rgba(0, 0, 0, 0.95) !important;
+}
+
+.ui.selectable.inverted.table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #ffffff !important;
+}
+
+/* Other States */
+
+.ui.selectable.table tr.error:hover,
+.ui.selectable.table tr:hover td.error {
+  background: #ffe1e1 !important;
+  color: #8b2e2c !important;
+}
+
+.ui.selectable.table tr.warning:hover,
+.ui.selectable.table tr:hover td.warning {
+  background: #fff4d3 !important;
+  color: #654b1e !important;
+}
+
+.ui.selectable.table tr.active:hover,
+.ui.selectable.table tr:hover td.active {
+  background: #e0e0e0 !important;
+  color: rgba(0, 0, 0, 0.87) !important;
+}
+
+.ui.selectable.table tr.positive:hover,
+.ui.selectable.table tr:hover td.positive {
+  background: #e9ffdd !important;
+  color: #215422 !important;
+}
+
+.ui.selectable.table tr.negative:hover,
+.ui.selectable.table tr:hover td.negative {
+  background: #ffe1e1 !important;
+  color: #8b2e2c !important;
+}
+
+/*--------------
      Attached
 ---------------*/
 
 /* All */
 
 .ui.attached.table {
+  width: -webkit-calc(100% +  2px );
   width: calc(100% +  2px );
   margin: 0em -1px;
   border-radius: 0px;
@@ -29923,6 +29957,15 @@ html.ios {
 .ui.inverted.striped.table > tr:nth-child(2n),
 .ui.inverted.striped.table tbody tr:nth-child(2n) {
   background-color: rgba(255, 255, 255, 0.06);
+}
+
+/*--------------
+   Single Line
+---------------*/
+
+.ui.table[class*="single line"],
+.ui.table [class*="single line"] {
+  white-space: nowrap;
 }
 
 /*-------------------
@@ -30175,7 +30218,7 @@ html.ios {
   cursor: pointer;
   white-space: nowrap;
   border-left: 1px solid rgba(34, 36, 38, 0.15);
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .ui.sortable.table thead th:first-child {
@@ -30191,24 +30234,24 @@ html.ios {
 }
 
 .ui.sortable.table thead th:after {
-  display: inline-block;
-  content: '';
-  width: auto;
-  height: 1em;
-  opacity: 0.8;
-  margin: 0em 0em 0em 0.5em;
-  font-family: 'Icons';
+  display: none;
   font-style: normal;
   font-weight: normal;
   text-decoration: inherit;
+  content: '';
+  height: 1em;
+  width: auto;
+  opacity: 0.8;
+  margin: 0em 0em 0em 0.5em;
+  font-family: 'Icons';
 }
 
 .ui.sortable.table thead th.ascending:after {
-  content: '\f0d7';
+  content: '\f0d8';
 }
 
 .ui.sortable.table thead th.descending:after {
-  content: '\f0d8';
+  content: '\f0d7';
 }
 
 /* Hover */
@@ -30227,14 +30270,18 @@ html.ios {
 
 .ui.sortable.table thead th.sorted {
   background: rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
+}
+
+.ui.sortable.table thead th.sorted:after {
+  display: inline-block;
 }
 
 /* Sorted Hover */
 
 .ui.sortable.table thead th.sorted:hover {
   background: rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 /* Inverted */
@@ -30369,7 +30416,7 @@ html.ios {
 
 .ui.celled.table tr th,
 .ui.celled.table tr td {
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(34, 36, 38, 0.1);
 }
 
 .ui.celled.table tr th:first-child,
@@ -32704,130 +32751,6 @@ html.ios {
     transform: scale3d(1, 1, 1);
   }
 }
-
-/*******************************
-         Site Overrides
-*******************************/
-/*!
- * # Semantic UI 2.0.0 - Video
- * http://github.com/semantic-org/semantic-ui/
- *
- *
- * Copyright 2014 Contributors
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- */
-
-/*******************************
-            Video
-*******************************/
-
-.ui.video {
-  background-color: #dddddd;
-  position: relative;
-  max-width: 100%;
-  padding-bottom: 56.25%;
-  height: 0px;
-  overflow: hidden;
-}
-
-/*--------------
-     Content
----------------*/
-
-/* Placeholder Image */
-
-.ui.video .placeholder {
-  background-color: #333333;
-}
-
-/* Play Icon Overlay */
-
-.ui.video .play {
-  cursor: pointer;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  z-index: 10;
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  -webkit-transition: background 0.2s ease;
-  transition: background 0.2s ease;
-}
-
-.ui.video .play.icon:before {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 11;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  -ms-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 7rem;
-  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.15);
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
-}
-
-.ui.video .placeholder {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-/* IFrame Embed */
-
-.ui.video .embed iframe,
-.ui.video .embed embed,
-.ui.video .embed object {
-  position: absolute;
-  border: none;
-  width: 100%;
-  height: 100%;
-  top: 0px;
-  left: 0px;
-  margin: 0em;
-  padding: 0em;
-}
-
-/*******************************
-            States
-*******************************/
-
-/*--------------
-    Hover
----------------*/
-
-.ui.video .play:hover {
-  background: rgba(0, 0, 0, 0);
-}
-
-.ui.video .play:hover:before {
-  color: #ffffff;
-}
-
-/*--------------
-     Active
----------------*/
-
-.ui.active.video .play,
-.ui.active.video .placeholder {
-  display: none;
-}
-
-.ui.active.video .embed {
-  display: inline;
-}
-
-/*******************************
-        Video Overrides
-*******************************/
 
 /*******************************
          Site Overrides

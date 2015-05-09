@@ -13,7 +13,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -500,7 +500,7 @@ $.extend($.expr[ ":" ], {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -756,9 +756,6 @@ $.fn.form = function(parameters) {
                 ;
               }
               if(!event.ctrlKey && key == keyCode.enter && $field.is(selector.input) && $field.not(selector.checkbox).length > 0 ) {
-                $submit
-                  .addClass(className.pressed)
-                ;
                 if(!keyHeldDown) {
                   $field
                     .one('keyup' + eventNamespace, module.event.field.keyup)
@@ -771,7 +768,6 @@ $.fn.form = function(parameters) {
             },
             keyup: function() {
               keyHeldDown = false;
-              $submit.removeClass(className.pressed);
             },
             blur: function() {
               var
@@ -1626,20 +1622,23 @@ $.fn.form.settings = {
     },
 
     // matches another field
-    different: function(value, fieldIdentifier) {
+    different: function(value, identifier) {
       // use either id or name of field
       var
         $form = $(this),
         matchingValue
       ;
-      if( $('[data-validate="'+ fieldIdentifier +'"]').length > 0 ) {
-        matchingValue = $('[data-validate="'+ fieldIdentifier +'"]').val();
+      if( $('[data-validate="'+ identifier +'"]').length > 0 ) {
+        matchingValue = $('[data-validate="'+ identifier +'"]').val();
       }
-      else if($('#' + fieldIdentifier).length > 0) {
-        matchingValue = $('#' + fieldIdentifier).val();
+      else if($('#' + identifier).length > 0) {
+        matchingValue = $('#' + identifier).val();
       }
-      else if($('[name="' + fieldIdentifier +'"]').length > 0) {
-        matchingValue = $('[name="' + fieldIdentifier + '"]').val();
+      else if($('[name="' + identifier +'"]').length > 0) {
+        matchingValue = $('[name="' + identifier + '"]').val();
+      }
+      else if( $('[name="' + identifier +'[]"]').length > 0 ) {
+        matchingValue = $('[name="' + identifier +'[]"]');
       }
       return (matchingValue !== undefined)
         ? ( value.toString() !== matchingValue.toString() )
@@ -1648,20 +1647,23 @@ $.fn.form.settings = {
     },
 
     // matches another field
-    match: function(value, fieldIdentifier) {
+    match: function(value, identifier) {
       // use either id or name of field
       var
         $form = $(this),
         matchingValue
       ;
-      if( $('[data-validate="'+ fieldIdentifier +'"]').length > 0 ) {
-        matchingValue = $('[data-validate="'+ fieldIdentifier +'"]').val();
+      if( $('[data-validate="'+ identifier +'"]').length > 0 ) {
+        matchingValue = $('[data-validate="'+ identifier +'"]').val();
       }
-      else if($('#' + fieldIdentifier).length > 0) {
-        matchingValue = $('#' + fieldIdentifier).val();
+      else if($('#' + identifier).length > 0) {
+        matchingValue = $('#' + identifier).val();
       }
-      else if($('[name="' + fieldIdentifier +'"]').length > 0) {
-        matchingValue = $('[name="' + fieldIdentifier + '"]').val();
+      else if($('[name="' + identifier +'"]').length > 0) {
+        matchingValue = $('[name="' + identifier + '"]').val();
+      }
+      else if( $('[name="' + identifier +'[]"]').length > 0 ) {
+        matchingValue = $('[name="' + identifier +'[]"]');
       }
       return (matchingValue !== undefined)
         ? ( value.toString() == matchingValue.toString() )
@@ -1744,7 +1746,7 @@ $.fn.form.settings = {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -2336,7 +2338,7 @@ $.extend( $.easing, {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -2870,7 +2872,7 @@ $.fn.checkbox.settings = {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -3537,7 +3539,7 @@ $.fn.dimmer.settings = {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -6339,11 +6341,662 @@ $.fn.dropdown.settings.templates = {
 
 })( jQuery, window , document );
 /*!
+ * # Semantic UI 2.0.0 - Video
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Copyright 2015 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+;(function ($, window, document, undefined) {
+
+"use strict";
+
+$.fn.embed = function(parameters) {
+
+  var
+    $allModules     = $(this),
+
+    moduleSelector  = $allModules.selector || '',
+
+    time            = new Date().getTime(),
+    performance     = [],
+
+    query           = arguments[0],
+    methodInvoked   = (typeof query == 'string'),
+    queryArguments  = [].slice.call(arguments, 1),
+
+    returnedValue
+  ;
+
+  $allModules
+    .each(function() {
+      var
+        settings        = ( $.isPlainObject(parameters) )
+          ? $.extend(true, {}, $.fn.embed.settings, parameters)
+          : $.extend({}, $.fn.embed.settings),
+
+        selector        = settings.selector,
+        className       = settings.className,
+        sources         = settings.sources,
+        error           = settings.error,
+        metadata        = settings.metadata,
+        namespace       = settings.namespace,
+        templates       = settings.templates,
+
+        eventNamespace  = '.' + namespace,
+        moduleNamespace = 'module-' + namespace,
+
+        $window         = $(window),
+        $module         = $(this),
+        $placeholder    = $module.find(selector.placeholder),
+        $play           = $module.find(selector.play),
+        $embed          = $module.find(selector.embed),
+
+        element         = this,
+        instance        = $module.data(moduleNamespace),
+        module
+      ;
+
+      module = {
+
+        initialize: function() {
+          module.debug('Initializing embed');
+          module.create();
+          module.bind.events();
+          module.instantiate();
+        },
+
+        instantiate: function() {
+          module.verbose('Storing instance of module', module);
+          instance = module;
+          $module
+            .data(moduleNamespace, module)
+          ;
+        },
+
+        destroy: function() {
+          module.verbose('Destroying previous instance of embed');
+          module.reset();
+          $module
+            .removeData(moduleNamespace)
+            .off(eventNamespace)
+          ;
+        },
+
+        refresh: function() {
+          module.verbose('Refreshing selector cache');
+          $placeholder = $module.find(selector.placeholder);
+          $play        = $module.find(selector.play);
+          $embed       = $module.find(selector.embed);
+        },
+
+        bind: {
+          events: function() {
+            if( module.is.video() ) {
+              module.debug('Adding placeholder events');
+              $module
+                .on('click' + eventNamespace, selector.placeholder, module.createAndShow)
+                .on('click' + eventNamespace, selector.play, module.createAndShow)
+              ;
+            }
+          }
+        },
+
+        create: function() {
+          var
+            placeholder = module.get.placeholder()
+          ;
+          if(placeholder) {
+            module.createPlaceholder();
+          }
+          else {
+            module.createAndShow();
+          }
+        },
+
+        createPlaceholder: function(placeholder) {
+          var
+            icon  = module.get.icon(),
+            url   = module.get.url(),
+            embed = module.generate.embed(url)
+          ;
+          placeholder = placeholder || module.get.placeholder();
+          $module.html( templates.placeholder(placeholder, icon) );
+          module.debug('Creating placeholder for embed', placeholder, icon);
+        },
+
+        createEmbed: function(url) {
+          module.refresh();
+          url = url || module.get.url();
+          $embed = $('<div/>')
+            .addClass(className.embed)
+            .html( module.generate.embed(url) )
+            .appendTo($module)
+          ;
+          module.debug('Creating embed object', $embed);
+        },
+
+        createAndShow: function() {
+          module.createEmbed();
+          module.show();
+        },
+
+        // sets new embed
+        change: function(source, id, url) {
+          module.debug('Changing video to ', source, id, url);
+          $module
+            .data(metadata.source, source)
+            .data(metadata.id, id)
+            .data(metadata.url, url)
+          ;
+          module.create();
+          settings.onChange.call(element);
+        },
+
+        // clears embed
+        reset: function() {
+          module.debug('Clearing embed and showing placeholder');
+          module.remove.active();
+          module.remove.embed();
+          module.showPlaceholder();
+          settings.onReset.call(element);
+        },
+
+        // shows current embed
+        show: function() {
+          module.debug('Showing embed');
+          module.set.active();
+          settings.onDisplay.call(element);
+        },
+
+        hide: function() {
+          module.debug('Hiding embed');
+          module.showPlaceholder();
+        },
+
+        showPlaceholder: function() {
+          module.debug('Showing placeholder image');
+          module.remove.active();
+          settings.onPlaceholderDisplay.call(element);
+        },
+
+        get: {
+          id: function() {
+            return settings.id || $module.data(metadata.id);
+          },
+          placeholder: function() {
+            return settings.placeholder || $module.data(metadata.placeholder);
+          },
+          icon: function() {
+            return (settings.icon)
+              ? settings.icon
+              : ($module.data(metadata.icon) !== undefined)
+                ? $module.data(metadata.icon)
+                : module.determine.icon()
+            ;
+          },
+          source: function(url) {
+            return (settings.source)
+              ? settings.source
+              : ($module.data(metadata.source) !== undefined)
+                ? $module.data(metadata.source)
+                : module.determine.source()
+            ;
+          },
+          type: function() {
+            var source = module.get.source();
+            return (sources[source] !== undefined)
+              ? sources[source].type
+              : false
+            ;
+          },
+          url: function() {
+            return (settings.url)
+              ? settings.url
+              : ($module.data(metadata.url) !== undefined)
+                ? $module.data(metadata.url)
+                : module.determine.url()
+            ;
+          }
+        },
+
+        determine: {
+          source: function(url) {
+            var
+              matchedSource = false
+            ;
+            url = url || module.get.url();
+            if(url) {
+              $.each(sources, function(name, source) {
+                if(url.search(source.domain) !== -1) {
+                  matchedSource = name;
+                  return false;
+                }
+              });
+            }
+            return matchedSource;
+          },
+          icon: function() {
+            var
+              source = module.get.source()
+            ;
+            return (sources[source] !== undefined)
+              ? sources[source].icon
+              : false
+            ;
+          },
+          url: function() {
+            var
+              id     = settings.id     || $module.data(metadata.id),
+              source = settings.source || $module.data(metadata.source),
+              url
+            ;
+            url = (sources[source] !== undefined)
+              ? sources[source].url.replace('{id}', id)
+              : false
+            ;
+            if(url) {
+              $module.data(metadata.url, url);
+            }
+            return url;
+          }
+        },
+
+
+        set: {
+          active: function() {
+            $module.addClass(className.active);
+          }
+        },
+
+        remove: {
+          active: function() {
+            $module.removeClass(className.active);
+          },
+          embed: function() {
+            $embed.empty();
+          }
+        },
+
+        encode: {
+          parameters: function(parameters) {
+            var
+              urlString = [],
+              index
+            ;
+            for (index in parameters) {
+              urlString.push( encodeURIComponent(index) + '=' + encodeURIComponent( parameters[index] ) );
+            }
+            return urlString.join('&amp;');
+          }
+        },
+
+        generate: {
+          embed: function(url) {
+            module.debug('Generating embed html');
+            var
+              source = module.get.source(),
+              html,
+              parameters
+            ;
+            url = module.get.url(url);
+            if(url) {
+              parameters = module.generate.parameters(source);
+              html       = templates.iframe(url, parameters);
+            }
+            else {
+              module.error(error.noURL, $module);
+            }
+            return html;
+          },
+          parameters: function(source, extraParameters) {
+            var
+              sourceParameters = (sources[source].parameters !== undefined)
+                ? sources[source].parameters(settings)
+                : {},
+              parameters
+            ;
+            if(extraParameters) {
+              parameters = $.extend({}, sourceParameters, extraParameters);
+            }
+            parameters = settings.onEmbed(parameters);
+            return module.encode.parameters(parameters);
+          }
+        },
+
+        has: {
+          placeholder: function() {
+            return settings.placeholder || $module.data(metadata.placeholder);
+          }
+        },
+
+        is: {
+          autoplay: function() {
+            return (settings.autoplay === 'auto')
+              ? ($module.data('image') !== undefined)
+              : settings.autoplay
+            ;
+          },
+          video: function() {
+            return module.get.type() == 'video';
+          }
+        },
+
+        setting: function(name, value) {
+          module.debug('Changing setting', name, value);
+          if( $.isPlainObject(name) ) {
+            $.extend(true, settings, name);
+          }
+          else if(value !== undefined) {
+            settings[name] = value;
+          }
+          else {
+            return settings[name];
+          }
+        },
+        internal: function(name, value) {
+          if( $.isPlainObject(name) ) {
+            $.extend(true, module, name);
+          }
+          else if(value !== undefined) {
+            module[name] = value;
+          }
+          else {
+            return module[name];
+          }
+        },
+        debug: function() {
+          if(settings.debug) {
+            if(settings.performance) {
+              module.performance.log(arguments);
+            }
+            else {
+              module.debug = Function.prototype.bind.call(console.info, console, settings.name + ':');
+              module.debug.apply(console, arguments);
+            }
+          }
+        },
+        verbose: function() {
+          if(settings.verbose && settings.debug) {
+            if(settings.performance) {
+              module.performance.log(arguments);
+            }
+            else {
+              module.verbose = Function.prototype.bind.call(console.info, console, settings.name + ':');
+              module.verbose.apply(console, arguments);
+            }
+          }
+        },
+        error: function() {
+          module.error = Function.prototype.bind.call(console.error, console, settings.name + ':');
+          module.error.apply(console, arguments);
+        },
+        performance: {
+          log: function(message) {
+            var
+              currentTime,
+              executionTime,
+              previousTime
+            ;
+            if(settings.performance) {
+              currentTime   = new Date().getTime();
+              previousTime  = time || currentTime;
+              executionTime = currentTime - previousTime;
+              time          = currentTime;
+              performance.push({
+                'Name'           : message[0],
+                'Arguments'      : [].slice.call(message, 1) || '',
+                'Element'        : element,
+                'Execution Time' : executionTime
+              });
+            }
+            clearTimeout(module.performance.timer);
+            module.performance.timer = setTimeout(module.performance.display, 500);
+          },
+          display: function() {
+            var
+              title = settings.name + ':',
+              totalTime = 0
+            ;
+            time = false;
+            clearTimeout(module.performance.timer);
+            $.each(performance, function(index, data) {
+              totalTime += data['Execution Time'];
+            });
+            title += ' ' + totalTime + 'ms';
+            if(moduleSelector) {
+              title += ' \'' + moduleSelector + '\'';
+            }
+            if($allModules.length > 1) {
+              title += ' ' + '(' + $allModules.length + ')';
+            }
+            if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
+              console.groupCollapsed(title);
+              if(console.table) {
+                console.table(performance);
+              }
+              else {
+                $.each(performance, function(index, data) {
+                  console.log(data['Name'] + ': ' + data['Execution Time']+'ms');
+                });
+              }
+              console.groupEnd();
+            }
+            performance = [];
+          }
+        },
+        invoke: function(query, passedArguments, context) {
+          var
+            object = instance,
+            maxDepth,
+            found,
+            response
+          ;
+          passedArguments = passedArguments || queryArguments;
+          context         = element         || context;
+          if(typeof query == 'string' && object !== undefined) {
+            query    = query.split(/[\. ]/);
+            maxDepth = query.length - 1;
+            $.each(query, function(depth, value) {
+              var camelCaseValue = (depth != maxDepth)
+                ? value + query[depth + 1].charAt(0).toUpperCase() + query[depth + 1].slice(1)
+                : query
+              ;
+              if( $.isPlainObject( object[camelCaseValue] ) && (depth != maxDepth) ) {
+                object = object[camelCaseValue];
+              }
+              else if( object[camelCaseValue] !== undefined ) {
+                found = object[camelCaseValue];
+                return false;
+              }
+              else if( $.isPlainObject( object[value] ) && (depth != maxDepth) ) {
+                object = object[value];
+              }
+              else if( object[value] !== undefined ) {
+                found = object[value];
+                return false;
+              }
+              else {
+                module.error(error.method, query);
+                return false;
+              }
+            });
+          }
+          if ( $.isFunction( found ) ) {
+            response = found.apply(context, passedArguments);
+          }
+          else if(found !== undefined) {
+            response = found;
+          }
+          if($.isArray(returnedValue)) {
+            returnedValue.push(response);
+          }
+          else if(returnedValue !== undefined) {
+            returnedValue = [returnedValue, response];
+          }
+          else if(response !== undefined) {
+            returnedValue = response;
+          }
+          return found;
+        }
+      };
+
+      if(methodInvoked) {
+        if(instance === undefined) {
+          module.initialize();
+        }
+        module.invoke(query);
+      }
+      else {
+        if(instance !== undefined) {
+          instance.invoke('destroy');
+        }
+        module.initialize();
+      }
+    })
+  ;
+  return (returnedValue !== undefined)
+    ? returnedValue
+    : this
+  ;
+};
+
+$.fn.embed.settings = {
+
+  name        : 'Embed',
+  namespace   : 'embed',
+
+  debug       : false,
+  verbose     : false,
+  performance : true,
+
+  icon     : false,
+  source   : false,
+  url      : false,
+  id       : false,
+
+  // standard video settings
+  autoplay : 'auto',
+  color    : '#444444',
+  hd       : true,
+  showUI   : false,
+
+  onDisplay            : function() {},
+  onPlaceholderDisplay : function() {},
+  onReset              : function() {},
+  onChange             : function() {},
+  onEmbed              : function(parameters) {
+    return parameters;
+  },
+
+  width    : 'auto',
+  height   : 'auto',
+
+  // additional parameters to include with the embed
+  parameters: false,
+
+  // callbacks not coded yet (needs to use jsapi)
+  api      : true,
+  onPause  : function() {},
+  onStop   : function() {},
+
+  metadata    : {
+    id          : 'id',
+    icon        : 'icon',
+    placeholder : 'placeholder',
+    source      : 'source',
+    url         : 'url'
+  },
+
+  error : {
+    noURL  : 'No URL specified',
+    method : 'The method you called is not defined'
+  },
+
+  className : {
+    active : 'active',
+    embed  : 'embed'
+  },
+
+  selector : {
+    embed       : '.embed',
+    placeholder : '.placeholder',
+    play        : '.play'
+  }
+};
+
+$.fn.embed.settings.sources = {
+  youtube: {
+    name   : 'youtube',
+    type   : 'video',
+    icon   : 'video play',
+    domain : 'youtube.com',
+    url    : '//www.youtube.com/embed/{id}',
+    parameters: function(settings) {
+      return {
+        autohide       : !settings.showUI,
+        autoplay       : settings.autoplay,
+        color          : settings.colors || undefined,
+        hq             : settings.hd,
+        jsapi          : settings.api,
+        modestbranding : 1
+      };
+    }
+  },
+  vimeo: {
+    name   : 'vimeo',
+    type   : 'video',
+    icon   : 'video play',
+    domain : 'vimeo.com',
+    url    : '//www.youtube.com/embed/{id}',
+    parameters: function(settings) {
+      return {
+        api      : settings.api,
+        autoplay : settings.autoplay,
+        byline   : settings.showUI,
+        color    : settings.colors || undefined,
+        portrait : settings.showUI,
+        title    : settings.showUI
+      };
+    }
+  }
+};
+
+$.fn.embed.settings.templates = {
+  iframe : function(url, parameters) {
+    return ''
+      + '<iframe src="' + url + '?=' + parameters + '"'
+      + ' width="100%" height="100%"'
+      + ' frameborder="0" scrolling="no" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
+    ;
+  },
+  placeholder : function(image, icon) {
+    var
+      html = ''
+    ;
+    if(icon) {
+      html += '<i class="' + icon + ' icon"></i>';
+    }
+    if(image) {
+      html += '<img class="placeholder" src="' + image + '">';
+    }
+    return html;
+  }
+};
+
+
+})( jQuery, window , document );
+
+/*!
  * # Semantic UI 2.0.0 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -6421,7 +7074,9 @@ $.fn.modal = function(parameters) {
           module.refreshModals();
 
           module.bind.events();
-          module.observeChanges();
+          if(settings.observeChanges) {
+            module.observeChanges();
+          }
           module.instantiate();
         },
 
@@ -7176,6 +7831,8 @@ $.fn.modal.settings = {
   verbose        : false,
   performance    : true,
 
+  observeChanges : false,
+
   allowMultiple  : false,
   detachable     : true,
   closable       : true,
@@ -7188,6 +7845,7 @@ $.fn.modal.settings = {
     closable : false,
     useCSS   : true
   },
+
 
   context    : 'body',
 
@@ -7246,7 +7904,7 @@ $.fn.modal.settings = {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -7723,7 +8381,7 @@ $.fn.nag.settings = {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -8982,7 +9640,7 @@ $.extend( $.easing, {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -9767,7 +10425,7 @@ $.fn.progress.settings = {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -10231,7 +10889,7 @@ $.fn.rating.settings = {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -11482,7 +12140,7 @@ $.fn.search.settings = {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -12329,7 +12987,7 @@ $.fn.shape.settings = {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -13452,7 +14110,7 @@ $.extend( $.easing, {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributorss
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -14270,7 +14928,7 @@ $.fn.sticky.settings = {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributorss
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -15095,7 +15753,7 @@ $.fn.tab.settings = {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -15381,10 +16039,6 @@ $.fn.transition = function() {
               module.verbose('Setting animation duration', duration);
               $module
                 .css({
-                  '-webkit-animation-duration': duration,
-                  '-moz-animation-duration': duration,
-                  '-ms-animation-duration': duration,
-                  '-o-animation-duration': duration,
                   'animation-duration':  duration
                 })
               ;
@@ -16109,544 +16763,11 @@ $.fn.transition.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.0 - Video
- * http://github.com/semantic-org/semantic-ui/
- *
- *
- * Copyright 2014 Contributorss
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- */
-
-;(function ($, window, document, undefined) {
-
-"use strict";
-
-$.fn.video = function(parameters) {
-
-  var
-    $allModules     = $(this),
-
-    moduleSelector  = $allModules.selector || '',
-
-    time            = new Date().getTime(),
-    performance     = [],
-
-    query           = arguments[0],
-    methodInvoked   = (typeof query == 'string'),
-    queryArguments  = [].slice.call(arguments, 1),
-
-    requestAnimationFrame = window.requestAnimationFrame
-      || window.mozRequestAnimationFrame
-      || window.webkitRequestAnimationFrame
-      || window.msRequestAnimationFrame
-      || function(callback) { setTimeout(callback, 0); },
-
-    returnedValue
-  ;
-
-  $allModules
-    .each(function() {
-      var
-        settings        = ( $.isPlainObject(parameters) )
-          ? $.extend(true, {}, $.fn.video.settings, parameters)
-          : $.extend({}, $.fn.video.settings),
-
-        selector        = settings.selector,
-        className       = settings.className,
-        error           = settings.error,
-        metadata        = settings.metadata,
-        namespace       = settings.namespace,
-        templates       = settings.templates,
-
-        eventNamespace  = '.' + namespace,
-        moduleNamespace = 'module-' + namespace,
-
-        $window         = $(window),
-        $module         = $(this),
-        $placeholder    = $module.find(selector.placeholder),
-        $playButton     = $module.find(selector.playButton),
-        $embed          = $module.find(selector.embed),
-
-        element         = this,
-        instance        = $module.data(moduleNamespace),
-        module
-      ;
-
-      module = {
-
-        initialize: function() {
-          module.debug('Initializing video');
-          module.create();
-          $module
-            .on('click' + eventNamespace, selector.placeholder, module.play)
-            .on('click' + eventNamespace, selector.playButton, module.play)
-          ;
-          module.instantiate();
-        },
-
-        instantiate: function() {
-          module.verbose('Storing instance of module', module);
-          instance = module;
-          $module
-            .data(moduleNamespace, module)
-          ;
-        },
-
-        create: function() {
-          var
-            image = $module.data(metadata.image),
-            html = templates.video(image)
-          ;
-          $module.html(html);
-          module.refresh();
-          if(!image) {
-            module.play();
-          }
-          module.debug('Creating html for video element', html);
-        },
-
-        destroy: function() {
-          module.verbose('Destroying previous instance of video');
-          module.reset();
-          $module
-            .removeData(moduleNamespace)
-            .off(eventNamespace)
-          ;
-        },
-
-        refresh: function() {
-          module.verbose('Refreshing selector cache');
-          $placeholder    = $module.find(selector.placeholder);
-          $playButton     = $module.find(selector.playButton);
-          $embed          = $module.find(selector.embed);
-        },
-
-        // sets new video
-        change: function(source, id, url) {
-          module.debug('Changing video to ', source, id, url);
-          $module
-            .data(metadata.source, source)
-            .data(metadata.id, id)
-            .data(metadata.url, url)
-          ;
-          settings.onChange();
-        },
-
-        // clears video embed
-        reset: function() {
-          module.debug('Clearing video embed and showing placeholder');
-          $module
-            .removeClass(className.active)
-          ;
-          $embed
-            .html(' ')
-          ;
-          $placeholder
-            .show()
-          ;
-          settings.onReset();
-        },
-
-        // plays current video
-        play: function() {
-          module.debug('Playing video');
-          var
-            source = $module.data(metadata.source) || false,
-            url    = $module.data(metadata.url)    || false,
-            id     = $module.data(metadata.id)     || false
-          ;
-          $embed
-            .html( module.generate.html(source, id, url) )
-          ;
-          $module
-            .addClass(className.active)
-          ;
-          settings.onPlay();
-        },
-
-        get: {
-          source: function(url) {
-            if(typeof url !== 'string') {
-              return false;
-            }
-            if(url.search('youtube.com') !== -1) {
-              return 'youtube';
-            }
-            else if(url.search('vimeo.com') !== -1) {
-              return 'vimeo';
-            }
-            return false;
-          },
-          id: function(url) {
-            if(url.match(settings.regExp.youtube)) {
-              return url.match(settings.regExp.youtube)[1];
-            }
-            else if(url.match(settings.regExp.vimeo)) {
-              return url.match(settings.regExp.vimeo)[2];
-            }
-            return false;
-          }
-        },
-
-        generate: {
-          // generates iframe html
-          html: function(source, id, url) {
-            module.debug('Generating embed html');
-            var
-              html
-            ;
-            // allow override of settings
-            source = source || settings.source;
-            id     = id     || settings.id;
-            if((source && id) || url) {
-              if(!source || !id) {
-                source = module.get.source(url);
-                id     = module.get.id(url);
-              }
-              if(source == 'vimeo') {
-                html = ''
-                  + '<iframe src="//player.vimeo.com/video/' + id + '?=' + module.generate.url(source) + '"'
-                  + ' width="100%" height="100%"'
-                  + ' frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
-                ;
-              }
-              else if(source == 'youtube') {
-                html = ''
-                  + '<iframe src="//www.youtube.com/embed/' + id + '?=' + module.generate.url(source) + '"'
-                  + ' width="100%" height="100%"'
-                  + ' frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
-                ;
-              }
-            }
-            else {
-              module.error(error.noVideo);
-            }
-            return html;
-          },
-
-          // generate url parameters
-          url: function(source) {
-            var
-              api      = (settings.api)
-                ? 1
-                : 0,
-              autoplay = (settings.autoplay === 'auto')
-                ? ($module.data('image') !== undefined)
-                : settings.autoplay,
-              hd       = (settings.hd)
-                ? 1
-                : 0,
-              showUI   = (settings.showUI)
-                ? 1
-                : 0,
-              // opposite used for some params
-              hideUI   = !(settings.showUI)
-                ? 1
-                : 0,
-              url = ''
-            ;
-            if(source == 'vimeo') {
-              url = ''
-                +      'api='      + api
-                + '&amp;title='    + showUI
-                + '&amp;byline='   + showUI
-                + '&amp;portrait=' + showUI
-                + '&amp;autoplay=' + autoplay
-              ;
-              if(settings.color) {
-                url += '&amp;color=' + settings.color;
-              }
-            }
-            if(source == 'ustream') {
-              url = ''
-                + 'autoplay=' + autoplay
-              ;
-              if(settings.color) {
-                url += '&amp;color=' + settings.color;
-              }
-            }
-            else if(source == 'youtube') {
-              url = ''
-                + 'enablejsapi='      + api
-                + '&amp;autoplay='    + autoplay
-                + '&amp;autohide='    + hideUI
-                + '&amp;hq='          + hd
-                + '&amp;modestbranding=1'
-              ;
-              if(settings.color) {
-                url += '&amp;color=' + settings.color;
-              }
-            }
-            return url;
-          }
-        },
-
-        setting: function(name, value) {
-          module.debug('Changing setting', name, value);
-          if( $.isPlainObject(name) ) {
-            $.extend(true, settings, name);
-          }
-          else if(value !== undefined) {
-            settings[name] = value;
-          }
-          else {
-            return settings[name];
-          }
-        },
-        internal: function(name, value) {
-          if( $.isPlainObject(name) ) {
-            $.extend(true, module, name);
-          }
-          else if(value !== undefined) {
-            module[name] = value;
-          }
-          else {
-            return module[name];
-          }
-        },
-        debug: function() {
-          if(settings.debug) {
-            if(settings.performance) {
-              module.performance.log(arguments);
-            }
-            else {
-              module.debug = Function.prototype.bind.call(console.info, console, settings.name + ':');
-              module.debug.apply(console, arguments);
-            }
-          }
-        },
-        verbose: function() {
-          if(settings.verbose && settings.debug) {
-            if(settings.performance) {
-              module.performance.log(arguments);
-            }
-            else {
-              module.verbose = Function.prototype.bind.call(console.info, console, settings.name + ':');
-              module.verbose.apply(console, arguments);
-            }
-          }
-        },
-        error: function() {
-          module.error = Function.prototype.bind.call(console.error, console, settings.name + ':');
-          module.error.apply(console, arguments);
-        },
-        performance: {
-          log: function(message) {
-            var
-              currentTime,
-              executionTime,
-              previousTime
-            ;
-            if(settings.performance) {
-              currentTime   = new Date().getTime();
-              previousTime  = time || currentTime;
-              executionTime = currentTime - previousTime;
-              time          = currentTime;
-              performance.push({
-                'Name'           : message[0],
-                'Arguments'      : [].slice.call(message, 1) || '',
-                'Element'        : element,
-                'Execution Time' : executionTime
-              });
-            }
-            clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 500);
-          },
-          display: function() {
-            var
-              title = settings.name + ':',
-              totalTime = 0
-            ;
-            time = false;
-            clearTimeout(module.performance.timer);
-            $.each(performance, function(index, data) {
-              totalTime += data['Execution Time'];
-            });
-            title += ' ' + totalTime + 'ms';
-            if(moduleSelector) {
-              title += ' \'' + moduleSelector + '\'';
-            }
-            if($allModules.length > 1) {
-              title += ' ' + '(' + $allModules.length + ')';
-            }
-            if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
-              console.groupCollapsed(title);
-              if(console.table) {
-                console.table(performance);
-              }
-              else {
-                $.each(performance, function(index, data) {
-                  console.log(data['Name'] + ': ' + data['Execution Time']+'ms');
-                });
-              }
-              console.groupEnd();
-            }
-            performance = [];
-          }
-        },
-        invoke: function(query, passedArguments, context) {
-          var
-            object = instance,
-            maxDepth,
-            found,
-            response
-          ;
-          passedArguments = passedArguments || queryArguments;
-          context         = element         || context;
-          if(typeof query == 'string' && object !== undefined) {
-            query    = query.split(/[\. ]/);
-            maxDepth = query.length - 1;
-            $.each(query, function(depth, value) {
-              var camelCaseValue = (depth != maxDepth)
-                ? value + query[depth + 1].charAt(0).toUpperCase() + query[depth + 1].slice(1)
-                : query
-              ;
-              if( $.isPlainObject( object[camelCaseValue] ) && (depth != maxDepth) ) {
-                object = object[camelCaseValue];
-              }
-              else if( object[camelCaseValue] !== undefined ) {
-                found = object[camelCaseValue];
-                return false;
-              }
-              else if( $.isPlainObject( object[value] ) && (depth != maxDepth) ) {
-                object = object[value];
-              }
-              else if( object[value] !== undefined ) {
-                found = object[value];
-                return false;
-              }
-              else {
-                module.error(error.method, query);
-                return false;
-              }
-            });
-          }
-          if ( $.isFunction( found ) ) {
-            response = found.apply(context, passedArguments);
-          }
-          else if(found !== undefined) {
-            response = found;
-          }
-          if($.isArray(returnedValue)) {
-            returnedValue.push(response);
-          }
-          else if(returnedValue !== undefined) {
-            returnedValue = [returnedValue, response];
-          }
-          else if(response !== undefined) {
-            returnedValue = response;
-          }
-          return found;
-        }
-      };
-
-      if(methodInvoked) {
-        if(instance === undefined) {
-          module.initialize();
-        }
-        module.invoke(query);
-      }
-      else {
-        if(instance !== undefined) {
-          instance.invoke('destroy');
-        }
-        module.initialize();
-      }
-    })
-  ;
-  return (returnedValue !== undefined)
-    ? returnedValue
-    : this
-  ;
-};
-
-$.fn.video.settings = {
-
-  name        : 'Video',
-  namespace   : 'video',
-
-  debug       : false,
-  verbose     : false,
-  performance : true,
-
-  metadata    : {
-    id     : 'id',
-    image  : 'image',
-    source : 'source',
-    url    : 'url'
-  },
-
-  source      : false,
-  url         : false,
-  id          : false,
-
-  aspectRatio : (16/9),
-
-  onPlay   : function(){},
-  onReset  : function(){},
-  onChange : function(){},
-
-  // callbacks not coded yet (needs to use jsapi)
-  onPause  : function() {},
-  onStop   : function() {},
-
-  width    : 'auto',
-  height   : 'auto',
-
-  autoplay : 'auto',
-  color    : '#442359',
-  hd       : true,
-  showUI   : false,
-  api      : true,
-
-  regExp : {
-    youtube : /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/,
-    vimeo   : /http:\/\/(www\.)?vimeo.com\/(\d+)($|\/)/
-  },
-
-  error      : {
-    noVideo     : 'No video specified',
-    method      : 'The method you called is not defined'
-  },
-
-  className   : {
-    active      : 'active'
-  },
-
-  selector    : {
-    embed       : '.embed',
-    placeholder : '.placeholder',
-    playButton  : '.play'
-  }
-};
-
-$.fn.video.settings.templates = {
-  video: function(image) {
-    var
-      html = ''
-    ;
-    if(image) {
-      html += ''
-        + '<i class="video play icon"></i>'
-        + '<img class="placeholder" src="' + image + '">'
-      ;
-    }
-    html += '<div class="embed"></div>';
-    return html;
-  }
-};
-
-
-})( jQuery, window , document );
-
-/*!
  * # Semantic UI 2.0.0 - API
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -17564,7 +17685,7 @@ $.api.settings.api = {};
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -18260,7 +18381,7 @@ $.fn.state.settings = {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *

@@ -3,7 +3,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -54,14 +54,14 @@
 .ui.form .field > label {
   display: block;
   margin: 0em 0em 0.2857rem 0em;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   font-size: 0.9285em;
   font-weight: bold;
   text-transform: none;
 }
 .ui.form .grouped.fields > label {
   margin: 0em 0em 0.2857rem 0em;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   font-size: 0.9285em;
   font-weight: bold;
   text-transform: none;
@@ -70,7 +70,7 @@
   display: inline-block;
   vertical-align: middle;
   margin: 0em 1em 0em 0em;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   font-size: 0.9285em;
   font-weight: bold;
   text-transform: none;
@@ -117,7 +117,7 @@
   font-size: 1em;
   background: #ffffff;
   border: 1px solid rgba(34, 36, 38, 0.15);
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   border-radius: 0.2857rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
   -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
@@ -139,7 +139,7 @@
   background: #ffffff;
   border: 1px solid rgba(34, 36, 38, 0.15);
   outline: none;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   border-radius: 0.2857rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
   -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
@@ -177,7 +177,7 @@
   border-radius: 0.2857rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
   padding: 0.62em 1em;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
           transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
@@ -254,22 +254,22 @@
 
 /* browsers require these rules separate */
 .ui.form ::-webkit-input-placeholder {
-  color: rgba(140, 140, 140, 0.8);
+  color: rgba(140, 140, 140, 0.87);
 }
 .ui.form ::-ms-input-placeholder {
-  color: rgba(140, 140, 140, 0.8);
+  color: rgba(140, 140, 140, 0.87);
 }
 .ui.form ::-moz-placeholder {
-  color: rgba(140, 140, 140, 0.8);
+  color: rgba(140, 140, 140, 0.87);
 }
 .ui.form :focus::-webkit-input-placeholder {
-  color: rgba(89, 89, 89, 0.8);
+  color: rgba(89, 89, 89, 0.87);
 }
 .ui.form :focus::-ms-input-placeholder {
-  color: rgba(89, 89, 89, 0.8);
+  color: rgba(89, 89, 89, 0.87);
 }
 .ui.form :focus::-moz-placeholder {
-  color: rgba(89, 89, 89, 0.8);
+  color: rgba(89, 89, 89, 0.87);
 }
 
 /* Error Placeholder */

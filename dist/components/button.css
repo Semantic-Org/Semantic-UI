@@ -3,7 +3,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributorss
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -100,12 +100,12 @@
   background-color: #c0c0c0;
   background-image: none;
   box-shadow: 0px 0px 0px 1px transparent inset;
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 .ui.active.button:hover {
   background-color: #c0c0c0;
   background-image: none;
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 .ui.active.button:active {
   background-color: #c0c0c0;
@@ -670,7 +670,7 @@
 .ui.basic.active.button {
   background: rgba(0, 0, 0, 0.05) !important;
   box-shadow: '' !important;
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
   box-shadow: rgba(34, 36, 38, 0.3);
 }
 .ui.basic.buttons .active.button:hover,
@@ -1182,7 +1182,7 @@
 /* Basic */
 .ui.basic.black.buttons .button,
 .ui.basic.black.button {
-  box-shadow: 0px 0px 0px 2px rgba(34, 36, 38, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 .ui.basic.black.buttons .button:hover,
@@ -1203,7 +1203,7 @@
   color: #343637 !important;
 }
 .ui.buttons > .basic.black.button:not(:first-child) {
-  margin-left: -2px;
+  margin-left: -1px;
 }
 
 /* Inverted */
@@ -1295,7 +1295,7 @@
 /* Basic */
 .ui.basic.blue.buttons .button,
 .ui.basic.blue.button {
-  box-shadow: 0px 0px 0px 2px rgba(34, 36, 38, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 .ui.basic.blue.buttons .button:hover,
@@ -1316,7 +1316,7 @@
   color: #1a69a4 !important;
 }
 .ui.buttons > .basic.blue.button:not(:first-child) {
-  margin-left: -2px;
+  margin-left: -1px;
 }
 
 /* Inverted */
@@ -1408,7 +1408,7 @@
 /* Basic */
 .ui.basic.green.buttons .button,
 .ui.basic.green.button {
-  box-shadow: 0px 0px 0px 2px rgba(34, 36, 38, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 .ui.basic.green.buttons .button:hover,
@@ -1429,7 +1429,7 @@
   color: #198f35 !important;
 }
 .ui.buttons > .basic.green.button:not(:first-child) {
-  margin-left: -2px;
+  margin-left: -1px;
 }
 
 /* Inverted */
@@ -1521,7 +1521,7 @@
 /* Basic */
 .ui.basic.orange.buttons .button,
 .ui.basic.orange.button {
-  box-shadow: 0px 0px 0px 2px rgba(34, 36, 38, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 .ui.basic.orange.buttons .button:hover,
@@ -1542,7 +1542,7 @@
   color: #cf590c !important;
 }
 .ui.buttons > .basic.orange.button:not(:first-child) {
-  margin-left: -2px;
+  margin-left: -1px;
 }
 
 /* Inverted */
@@ -1634,7 +1634,7 @@
 /* Basic */
 .ui.basic.pink.buttons .button,
 .ui.basic.pink.button {
-  box-shadow: 0px 0px 0px 2px rgba(34, 36, 38, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 .ui.basic.pink.buttons .button:hover,
@@ -1655,7 +1655,7 @@
   color: #c71f7e !important;
 }
 .ui.buttons > .basic.pink.button:not(:first-child) {
-  margin-left: -2px;
+  margin-left: -1px;
 }
 
 /* Inverted */
@@ -1747,7 +1747,7 @@
 /* Basic */
 .ui.basic.purple.buttons .button,
 .ui.basic.purple.button {
-  box-shadow: 0px 0px 0px 2px rgba(34, 36, 38, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 .ui.basic.purple.buttons .button:hover,
@@ -1768,7 +1768,7 @@
   color: #54299f !important;
 }
 .ui.buttons > .basic.purple.button:not(:first-child) {
-  margin-left: -2px;
+  margin-left: -1px;
 }
 
 /* Inverted */
@@ -1860,7 +1860,7 @@
 /* Basic */
 .ui.basic.red.buttons .button,
 .ui.basic.red.button {
-  box-shadow: 0px 0px 0px 2px rgba(34, 36, 38, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 .ui.basic.red.buttons .button:hover,
@@ -1881,7 +1881,7 @@
   color: #b21e1e !important;
 }
 .ui.buttons > .basic.red.button:not(:first-child) {
-  margin-left: -2px;
+  margin-left: -1px;
 }
 
 /* Inverted */
@@ -1973,7 +1973,7 @@
 /* Basic */
 .ui.basic.teal.buttons .button,
 .ui.basic.teal.button {
-  box-shadow: 0px 0px 0px 2px rgba(34, 36, 38, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 .ui.basic.teal.buttons .button:hover,
@@ -1994,7 +1994,7 @@
   color: #00827c !important;
 }
 .ui.buttons > .basic.teal.button:not(:first-child) {
-  margin-left: -2px;
+  margin-left: -1px;
 }
 
 /* Inverted */
@@ -2086,7 +2086,7 @@
 /* Basic */
 .ui.basic.yellow.buttons .button,
 .ui.basic.yellow.button {
-  box-shadow: 0px 0px 0px 2px rgba(34, 36, 38, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 .ui.basic.yellow.buttons .button:hover,
@@ -2107,7 +2107,7 @@
   color: #cd9903 !important;
 }
 .ui.buttons > .basic.yellow.button:not(:first-child) {
-  margin-left: -2px;
+  margin-left: -1px;
 }
 
 /* Inverted */

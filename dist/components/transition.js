@@ -3,7 +3,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -289,10 +289,6 @@ $.fn.transition = function() {
               module.verbose('Setting animation duration', duration);
               $module
                 .css({
-                  '-webkit-animation-duration': duration,
-                  '-moz-animation-duration': duration,
-                  '-ms-animation-duration': duration,
-                  '-o-animation-duration': duration,
                   'animation-duration':  duration
                 })
               ;

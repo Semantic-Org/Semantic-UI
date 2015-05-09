@@ -109,6 +109,7 @@
 - **Dropdown** - Dropdowns with `transition: none` now work correctly.
 - **Dropdown** - Fixed issue where `sortSelect` was relying on object key enumeration order which is browser dependent and unreliable. It now uses a sort function which functions the same in all browsers
 - **Dropdown** - Fixed issue with `search selection` not changing text when reselecting same value from list
+- **Dropdown** - Fixed `min-width` issues causing background to not appear behind unwrapped text with `white-space: nowrap`
 - **Dropdown** - Dropdown `menu` now use same font size as dropdown
 - **Dropdown** - Fixed `inline dropdown` icon not aligning with content
 - **Dropdown** - Fixed behaviors called on `<select>` after initialization not being correctly applied to `ui dropdown`
@@ -178,6 +179,7 @@
 - **Card** - Card styles have been adjusted, `link card` now raise to show selection. Colored variations now have shadows.
 - **Checkbox** - Toggle now uses `@primaryColor`
 - **Dropdown** - Dropdown padding values now resolve to exact pixel values from em
+- **Dropdown** - `item` `description` is now floated by default
 - **Feed** - Removed `extra text` pointer border
 - **Form** - `set value` no longer automatically calls `validate form`
 - **Grid** - Small computer `page grid` gutters have been adjusted from 8% to 3% to allow for roomier layouts on small screens.

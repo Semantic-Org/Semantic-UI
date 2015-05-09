@@ -3,7 +3,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -24,7 +24,7 @@
   box-shadow: none;
   border-radius: 0.2857rem;
   text-align: left;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   border-collapse: separate;
   border-spacing: 0px;
 }
@@ -54,10 +54,10 @@
 }
 .ui.table thead th {
   cursor: auto;
-  background: #f0f0f0;
+  background: #fafafa;
   text-align: inherit;
-  color: rgba(0, 0, 0, 0.8);
-  padding: 0.71428571em 0.71428571em;
+  color: rgba(0, 0, 0, 0.87);
+  padding: 1em 0.71428571em;
   vertical-align: inherit;
   font-style: none;
   font-weight: bold;
@@ -87,7 +87,7 @@
   border-top: 1px solid rgba(34, 36, 38, 0.15);
   background: #ffffff;
   text-align: inherit;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   padding: 0.71428571em 0.71428571em;
   vertical-align: middle;
   font-style: normal;
@@ -109,7 +109,7 @@
 
 /* Table Row */
 .ui.table tr td {
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-top: 1px solid rgba(34, 36, 38, 0.1);
 }
 .ui.table tr:first-child td {
   border-top: none;
@@ -161,6 +161,11 @@
   .ui.table:not(.unstackable) tfoot {
     display: block;
   }
+  .ui.table:not(.unstackable) tr {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset !important;
+  }
   .ui.table:not(.unstackable) tr > th,
   .ui.table:not(.unstackable) tr > td {
     background: none;
@@ -171,32 +176,11 @@
   .ui.table:not(.unstackable) th:first-child,
   .ui.table:not(.unstackable) td:first-child {
     font-weight: bold;
-    padding-top: 1em;
-  }
-  .ui.table:not(.unstackable) th:last-child,
-  .ui.table:not(.unstackable) td:last-child {
-    box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset !important;
-    padding-bottom: 1em;
-  }
-  
-/* Clear BG Colors */
-  .ui.table:not(.unstackable) tr > td.warning,
-  .ui.table:not(.unstackable) tr > td.error,
-  .ui.table:not(.unstackable) tr > td.active,
-  .ui.table:not(.unstackable) tr > td.positive,
-  .ui.table:not(.unstackable) tr > td.negative {
-    background-color: transparent !important;
   }
   
 /* Definition Table */
   .ui.definition.table:not(.unstackable) thead th:first-child {
     box-shadow: none !important;
-  }
-  .ui.definition.table:not(.unstackable) tr td:first-child {
-    padding-bottom: 1em;
-  }
-  .ui.definition.table:not(.unstackable) tr td:nth-child(n+2) {
-    padding-top: 1em;
   }
 }
 
@@ -241,8 +225,8 @@
 }
 .ui.structured.celled.table tr th,
 .ui.structured.celled.table tr td {
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
-  border-right: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(34, 36, 38, 0.1);
+  border-right: 1px solid rgba(34, 36, 38, 0.1);
 }
 
 /*--------------
@@ -276,7 +260,7 @@
 .ui.definition.table tr td:first-child {
   background: rgba(0, 0, 0, 0.03);
   font-weight: bold;
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 /* Fix 2nd Column */
@@ -304,15 +288,10 @@
 .ui.table td.positive {
   box-shadow: 0px 0px 0px #b4d3a4 inset;
 }
-.ui.table tr.positive td,
+.ui.table tr.positive,
 .ui.table td.positive {
   background: #f3ffec !important;
   color: #255f26 !important;
-}
-.ui.celled.table tr.positive:hover td,
-.ui.celled.table tr:hover td.positive {
-  background: #e9ffdd !important;
-  color: #215422 !important;
 }
 
 /*--------------
@@ -323,15 +302,10 @@
 .ui.table td.negative {
   box-shadow: 0px 0px 0px #e0b4b4 inset;
 }
-.ui.table tr.negative td,
+.ui.table tr.negative,
 .ui.table td.negative {
   background: #fff0f0 !important;
   color: #973230 !important;
-}
-.ui.celled.table tr.negative:hover td,
-.ui.celled.table tr:hover td.negative {
-  background: #ffe1e1 !important;
-  color: #8b2e2c !important;
 }
 
 /*--------------
@@ -342,15 +316,10 @@
 .ui.table td.error {
   box-shadow: 0px 0px 0px #e0b4b4 inset;
 }
-.ui.table tr.error td,
+.ui.table tr.error,
 .ui.table td.error {
   background: #fff0f0 !important;
   color: #973230 !important;
-}
-.ui.celled.table tr.error:hover td,
-.ui.celled.table tr:hover td.error {
-  background: #ffe1e1 !important;
-  color: #8b2e2c !important;
 }
 
 /*--------------
@@ -361,15 +330,10 @@
 .ui.table td.warning {
   box-shadow: 0px 0px 0px #c9ba9b inset;
 }
-.ui.table tr.warning td,
+.ui.table tr.warning,
 .ui.table td.warning {
   background: #fff8e2 !important;
   color: #715422 !important;
-}
-.ui.celled.table tr.warning:hover td,
-.ui.celled.table tr:hover td.warning {
-  background: #fff4d3 !important;
-  color: #654b1e !important;
 }
 
 /*--------------
@@ -378,17 +342,12 @@
 
 .ui.table tr.active,
 .ui.table td.active {
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.8) inset;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.87) inset;
 }
-.ui.table tr.active td,
+.ui.table tr.active,
 .ui.table td.active {
   background: #e0e0e0 !important;
-  color: rgba(0, 0, 0, 0.8) !important;
-}
-.ui.celled.table tr.active:hover td,
-.ui.celled.table tr:hover td.active {
-  background: #e0e0e0 !important;
-  color: rgba(0, 0, 0, 0.8) !important;
+  color: rgba(0, 0, 0, 0.87) !important;
 }
 
 /*--------------
@@ -397,7 +356,7 @@
 
 .ui.table tr.disabled td,
 .ui.table tr td.disabled,
-.ui.table tr.disabled:hover td,
+.ui.table tr.disabled:hover,
 .ui.table tr:hover td.disabled {
   pointer-events: none;
   color: rgba(40, 40, 40, 0.3);
@@ -431,6 +390,11 @@
   .ui[class*="tablet stackable"].table tfoot {
     display: block;
   }
+  .ui[class*="tablet stackable"].table tr {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset !important;
+  }
   .ui[class*="tablet stackable"].table tr > th,
   .ui[class*="tablet stackable"].table tr > td {
     background: none;
@@ -438,35 +402,10 @@
     padding: 0.25em 0.75em;
     box-shadow: none !important;
   }
-  .ui[class*="tablet stackable"].table th:first-child,
-  .ui[class*="tablet stackable"].table td:first-child {
-    font-weight: bold;
-    padding-top: 1em;
-  }
-  .ui[class*="tablet stackable"].table th:last-child,
-  .ui[class*="tablet stackable"].table td:last-child {
-    box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset !important;
-    padding-bottom: 1em;
-  }
-  
-/* Clear BG Colors */
-  .ui[class*="tablet stackable"].table tr > td.warning,
-  .ui[class*="tablet stackable"].table tr > td.error,
-  .ui[class*="tablet stackable"].table tr > td.active,
-  .ui[class*="tablet stackable"].table tr > td.positive,
-  .ui[class*="tablet stackable"].table tr > td.negative {
-    background-color: transparent !important;
-  }
   
 /* Definition Table */
   .ui.definition[class*="tablet stackable"].table thead th:first-child {
     box-shadow: none !important;
-  }
-  .ui.definition[class*="tablet stackable"].table tr td:first-child {
-    padding-bottom: 1em;
-  }
-  .ui.definition[class*="tablet stackable"].table tr td:nth-child(n+2) {
-    padding-top: 1em;
   }
 }
 
@@ -495,8 +434,8 @@
 .ui.table [class*="top aligned"] {
   vertical-align: top;
 }
-.ui.table[class*="center aligned"],
-.ui.table [class*="center aligned"] {
+.ui.table[class*="middle aligned"],
+.ui.table [class*="middle aligned"] {
   vertical-align: middle;
 }
 .ui.table[class*="bottom aligned"],
@@ -515,12 +454,53 @@
 }
 
 /*--------------
+   Hoverable
+---------------*/
+
+.ui.selectable.table tbody tr:hover {
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: rgba(0, 0, 0, 0.95) !important;
+}
+.ui.selectable.inverted.table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #ffffff !important;
+}
+
+/* Other States */
+.ui.selectable.table tr.error:hover,
+.ui.selectable.table tr:hover td.error {
+  background: #ffe1e1 !important;
+  color: #8b2e2c !important;
+}
+.ui.selectable.table tr.warning:hover,
+.ui.selectable.table tr:hover td.warning {
+  background: #fff4d3 !important;
+  color: #654b1e !important;
+}
+.ui.selectable.table tr.active:hover,
+.ui.selectable.table tr:hover td.active {
+  background: #e0e0e0 !important;
+  color: rgba(0, 0, 0, 0.87) !important;
+}
+.ui.selectable.table tr.positive:hover,
+.ui.selectable.table tr:hover td.positive {
+  background: #e9ffdd !important;
+  color: #215422 !important;
+}
+.ui.selectable.table tr.negative:hover,
+.ui.selectable.table tr:hover td.negative {
+  background: #ffe1e1 !important;
+  color: #8b2e2c !important;
+}
+
+/*--------------
      Attached
 ---------------*/
 
 
 /* All */
 .ui.attached.table {
+  width: -webkit-calc(100% +  2px );
   width: calc(100% +  2px );
   margin: 0em -1px;
   border-radius: 0px;
@@ -561,6 +541,15 @@
 .ui.inverted.striped.table > tr:nth-child(2n),
 .ui.inverted.striped.table tbody tr:nth-child(2n) {
   background-color: rgba(255, 255, 255, 0.06);
+}
+
+/*--------------
+   Single Line
+---------------*/
+
+.ui.table[class*="single line"],
+.ui.table [class*="single line"] {
+  white-space: nowrap;
 }
 
 /*-------------------
@@ -766,7 +755,7 @@
   cursor: pointer;
   white-space: nowrap;
   border-left: 1px solid rgba(34, 36, 38, 0.15);
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 .ui.sortable.table thead th:first-child {
   border-left: none;
@@ -779,22 +768,22 @@
           user-select: none;
 }
 .ui.sortable.table thead th:after {
-  display: inline-block;
-  content: '';
-  width: auto;
-  height: 1em;
-  opacity: 0.8;
-  margin: 0em 0em 0em 0.5em;
-  font-family: 'Icons';
+  display: none;
   font-style: normal;
   font-weight: normal;
   text-decoration: inherit;
+  content: '';
+  height: 1em;
+  width: auto;
+  opacity: 0.8;
+  margin: 0em 0em 0em 0.5em;
+  font-family: 'Icons';
 }
 .ui.sortable.table thead th.ascending:after {
-  content: '\f0d7';
+  content: '\f0d8';
 }
 .ui.sortable.table thead th.descending:after {
-  content: '\f0d8';
+  content: '\f0d7';
 }
 
 /* Hover */
@@ -810,13 +799,16 @@
 /* Sorted */
 .ui.sortable.table thead th.sorted {
   background: rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
+}
+.ui.sortable.table thead th.sorted:after {
+  display: inline-block;
 }
 
 /* Sorted Hover */
 .ui.sortable.table thead th.sorted:hover {
   background: rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 /* Inverted */
@@ -933,7 +925,7 @@
 
 .ui.celled.table tr th,
 .ui.celled.table tr td {
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(34, 36, 38, 0.1);
 }
 .ui.celled.table tr th:first-child,
 .ui.celled.table tr td:first-child {

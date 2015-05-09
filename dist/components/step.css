@@ -3,7 +3,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -81,7 +81,7 @@
   margin: 0em 0em;
   padding: 1.14285714em 1.42857143em;
   background: #ffffff;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   box-shadow: 0px 0px 0px 1px #d4d4d5;
   border-radius: 0em;
 }
@@ -129,7 +129,7 @@
 .ui.steps .step .description {
   font-weight: normal;
   font-size: 0.92857143em;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 .ui.steps .step > .description {
   width: 100%;
@@ -325,7 +325,7 @@
 .ui.steps a.active.step:hover {
   cursor: pointer;
   background: #dcddde;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 /* Completed */

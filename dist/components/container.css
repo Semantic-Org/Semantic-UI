@@ -3,7 +3,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributorss
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -35,6 +35,7 @@
     margin-right: auto !important;
   }
   .ui.grid.container {
+    width: -webkit-calc( 752px  +  2em ) !important;
     width: calc( 752px  +  2em ) !important;
   }
 }
@@ -45,6 +46,7 @@
     margin-right: auto !important;
   }
   .ui.grid.container {
+    width: -webkit-calc( 960px  +  2em ) !important;
     width: calc( 960px  +  2em ) !important;
   }
 }
@@ -55,6 +57,7 @@
     margin-right: auto !important;
   }
   .ui.grid.container {
+    width: -webkit-calc( 1200px  +  2em ) !important;
     width: calc( 1200px  +  2em ) !important;
   }
 }

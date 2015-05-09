@@ -3,7 +3,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -495,7 +495,7 @@
   box-shadow: none;
 }
 .ui.inverted.segment .segment {
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 .ui.inverted.segment .inverted.segment {
   color: #ffffff;
@@ -516,11 +516,11 @@
 
 .ui.secondary.segment {
   background: #faf9fa;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 .ui.tertiary.segment {
   background: #ebebeb;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 .ui.secondary.inverted.segment {
   background: -webkit-linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
@@ -541,7 +541,9 @@
   top: 0px;
   bottom: 0px;
   margin: 0em -1px;
+  width: -webkit-calc(100% +  2px );
   width: calc(100% +  2px );
+  max-width: -webkit-calc(100% +  2px );
   max-width: calc(100% +  2px );
   border-radius: 0px;
   box-shadow: none;
@@ -593,7 +595,9 @@
   top: 0px;
   bottom: 0px;
   margin: 0em -1px;
+  width: -webkit-calc(100% +  2px );
   width: calc(100% +  2px );
+  max-width: -webkit-calc(100% +  2px );
   max-width: calc(100% +  2px );
   border-radius: 0px;
   box-shadow: none;
