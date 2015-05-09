@@ -193,6 +193,7 @@ $.fn.video = function(parameters) {
             },
             toRelativeTime: function() {
               module.debug('Request time relative seek from current position)');
+              console.log($(this).data('seek-step'));
               var position = video.currentTime + $(this).data('seek-step');
               module.request.seek.toAbsoluteTime(position);
             },
@@ -209,9 +210,11 @@ $.fn.video = function(parameters) {
                 // force pause while loop seeking
                 seekLoopInitialPlayState = !video.paused;
                 module.request.pause();
+              } else {
+                // don't move on the first iteration
+                module.request.seek.toRelativeTime.bind(this)();
               }
               // bindings are made in order to later access $(this)
-              module.request.seek.toRelativeTime.bind(this)();
               seekLoopCounter = window.setTimeout(module.request.seek.tickLoop.bind(this), parseInt( $(this).data('seek-interval') ));
             },
             stopLoop: function() {
