@@ -546,9 +546,9 @@ $.fn.video.settings = {
 
   selector    : {
     video:             'video', 
-    playButton:        '.play',
-    backwardButton:    '.backward',
-    forwardButton:     '.forward',
+    playButton:        '.play.button',
+    backwardButton:    '.backward.button',
+    forwardButton:     '.forward.button',
     currentTime:       '.current.time',
     remainingTime:     '.remaining.time',
     timeRange:         'input[type="range"].time',
