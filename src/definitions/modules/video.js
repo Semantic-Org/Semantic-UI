@@ -93,6 +93,7 @@ $.fn.video = function(parameters) {
         initialize: function() {
           module.debug('Initializing video');
           module.instantiate();
+          module.controls();
         },
 
         instantiate: function() {
@@ -101,6 +102,9 @@ $.fn.video = function(parameters) {
           $module
             .data(moduleNamespace, module)
           ;
+        },
+        
+        controls: function() {
           module.debug('Add controls');
           $module.video('add play button');
           $module.video('add forward button') ;
@@ -118,6 +122,7 @@ $.fn.video = function(parameters) {
         add: {
           
           playButton: function() {
+            module.debug('Add playButton');
             // from UI to video
             $playButton.on('click' + eventNamespace, function() {
               if(video.paused) {
@@ -144,6 +149,7 @@ $.fn.video = function(parameters) {
           // TODO: abstract it for backward
           // TODO: deal with modes (push, switch)
           forwardButton: function() {
+            module.debug('Add forwardButton');
             // from UI to video
             $forwardButton.on('mousedown' + eventNamespace, function() {
               video.playbackRate = settings.backwardRate;
@@ -159,6 +165,7 @@ $.fn.video = function(parameters) {
           },
         
           currentTime: function() {
+            module.debug('Add currentTime');
             $video.on('timeupdate' + eventNamespace, function() {
               var current = new Date(video.currentTime * 1000);
               var readable = 
@@ -170,6 +177,7 @@ $.fn.video = function(parameters) {
           },
         
           remainingTime: function() {
+            module.debug('Add remainingTime');
             $video.on('timeupdate' + eventNamespace, function() {
               var remaining = new Date((video.duration - video.currentTime) * 1000);
               var readable = 
@@ -181,6 +189,7 @@ $.fn.video = function(parameters) {
           },
         
          timeRange: function() {
+           module.debug('Add timeRange');
             var update_enabled = true;
             var range_interval = $timeRange.prop('max') - $timeRange.prop('min');
             // from UI to video
@@ -227,6 +236,7 @@ $.fn.video = function(parameters) {
           volume: {
             
             upButton: function() {
+              module.debug('Add volume upButton');
               $volumeUpButton.on('click' + eventNamespace, function() {
                 video.volume = Math.min(video.volume + settings.volume_step, 1);
                 if($(this).hasClass(settings.className.disabled) && video.muted) {
@@ -243,6 +253,7 @@ $.fn.video = function(parameters) {
             },
           
             downButton: function() {
+              module.debug('Add volume downButton');
               $volumeDownButton.on('click' + eventNamespace, function() {
                 video.volume = Math.max(video.volume - settings.volume_step, 0);
                 if($(this).hasClass(settings.className.disabled) && video.muted) {
@@ -259,6 +270,7 @@ $.fn.video = function(parameters) {
             },
           
             progress: function() {
+              module.debug('Add volume progress');
               $volumeProgress.progress({ percent: 100 });
               $volumeProgress.on('click' + eventNamespace, function() {
                 // TODO : check position of click within the progress
@@ -279,6 +291,7 @@ $.fn.video = function(parameters) {
           },
           
           muteButton: function($mute) {
+            module.debug('Add muteButton');
             $muteButton.on('click' + eventNamespace, function() {
               video.muted = !video.muted;
             });
