@@ -81,7 +81,7 @@ $.fn.video = function(parameters) {
         $module           = $(this),
         $video            = $module.find(settings.selector.video),
         $playButton       = $module.find(settings.selector.playButton),
-        $playRateButton   = $module.find(settings.selector.playRateButton),
+        $seekButton       = $module.find(settings.selector.seekButton),
         $currentTime      = $module.find(settings.selector.currentTime),
         $remainingTime    = $module.find(settings.selector.remainingTime),
         $timeRange        = $module.find(settings.selector.timeRange),
@@ -92,6 +92,8 @@ $.fn.video = function(parameters) {
 
         timeRangeUpdateEnabled = true,
         timeRangeInterval = $timeRange.prop('max') - $timeRange.prop('min'),
+        seekLoopCounter   = window.setTimeout(1, function(){} ), // subsequent calls to window.clearTimeout won't break
+        seekLoopInitialPlayState = undefined, // it actually means undefined, see seek.tickLoop and seek.stopLoop functions
 
         element           = this,
         video             = $video.get(0),
@@ -120,8 +122,8 @@ $.fn.video = function(parameters) {
             module.debug('Binding video module events');
             // from video to UI
             $video
-              .on('play' + eventNamespace, module.activate.playButton)
-              .on('pause' + eventNamespace, module.deactivate.playButton)
+              .on('play' + eventNamespace + ' playing' + eventNamespace, module.activate.playButton)
+              .on('pause' + eventNamespace + ' ended' + eventNamespace, module.deactivate.playButton)
               .on('ratechange' + eventNamespace, function(event) { console.log(video.playbackRate) })
               .on('timeupdate' + eventNamespace, module.update.time)
               // the range input is disabled while a seek (or load) to an unbuffered area occurs
@@ -134,13 +136,13 @@ $.fn.video = function(parameters) {
             $playButton
               .on('click' + eventNamespace, module.request.playToggle)
             ;
-            $playRateButton
-               // TODO: deal with $playRateButton modes (push, switch)
-              .on('mousedown' + eventNamespace, module.request.playRate)
-              .on('mouseup' + eventNamespace, module.reset.playkRate)
+            $seekButton
+              .on('click' + eventNamespace, module.request.seek.toRelativeTime)
+              .on('mousedown' + eventNamespace, module.request.seek.tickLoop)
+              .on('mouseup' + eventNamespace + 'mouseleave' + eventNamespace, module.request.seek.stopLoop)
             ;
             $timeRange
-              .on('change' + eventNamespace, module.request.seek) 
+              .on('change' + eventNamespace, module.request.seek.fromRangeValue) 
               .on('mousedown' + eventNamespace, module.deactivate.timeRangeUpdate)
               .on('mouseup' + eventNamespace, module.activate.timeRangeUpdate)
             ;
@@ -175,18 +177,50 @@ $.fn.video = function(parameters) {
             // negative value seems to not be handled by some browsers :
             // - NS_ERROR_NOT_IMPLEMENTED with FF 37.0.2, 
             // - no visible effect with Chrome 42.0.2311.135
-            module.debug('Request playRate from button data');
+            module.debug('Request playRate (from button data)');
             video.playbackRate = parseFloat( $(this).data('play-rate') );
           },
-          seek: function() {
-            module.debug('Request seek from range value');
-            var ratio = $timeRange.val() / timeRangeInterval;
-            var position = video.duration * ratio;
-            // use fastSeek if implemented
-            if(video.fastSeek) {
-              video.fastSeek(position);
-            } else {
-              video.currentTime = position;
+          seek: {
+            // TODO: better functions and data-* attributes naming ?
+            toAbsoluteTime: function(time) {
+              module.debug('Request time absolute seek');
+              // use fastSeek if implemented
+              if(video.fastSeek) {
+                video.fastSeek(time);
+              } else {
+                video.currentTime = time;
+              }
+            },
+            toRelativeTime: function() {
+              module.debug('Request time relative seek from current position)');
+              var position = video.currentTime + $(this).data('seek-step');
+              module.request.seek.toAbsoluteTime(position);
+            },
+            fromRangeValue: function() {
+              module.debug('Request time seek from absolute range value');
+              var ratio = $timeRange.val() / timeRangeInterval;
+              var position = video.duration * ratio;
+              module.request.seek.toAbsoluteTime(position);
+            },
+            tickLoop: function() {
+              module.debug('Start seek loop');
+              window.clearTimeout(seekLoopCounter);
+              if(seekLoopInitialPlayState === undefined) {
+                // force pause while loop seeking
+                seekLoopInitialPlayState = !video.paused;
+                module.request.pause();
+              }
+              // bindings are made in order to later access $(this)
+              module.request.seek.toRelativeTime.bind(this)();
+              seekLoopCounter = window.setTimeout(module.request.seek.tickLoop.bind(this), parseInt( $(this).data('seek-interval') ));
+            },
+            stopLoop: function() {
+              module.debug('Stop seek loop');
+              window.clearTimeout(seekLoopCounter);
+              if(seekLoopInitialPlayState) {
+                module.request.play();
+              }
+              seekLoopInitialPlayState = undefined;
             }
           },
           volumeUp: function() {
@@ -258,8 +292,7 @@ $.fn.video = function(parameters) {
               $volumeProgress.removeClass(settings.className.disabled);
               $muteButton.removeClass(settings.className.active);
             }
-            var volume = video.muted ? 0 : video.volume;
-            $volumeProgress.progress({ percent: volume * 100 });
+            $volumeProgress.progress({ percent: video.volume * 100 });
           }
         },
         
@@ -285,8 +318,6 @@ $.fn.video = function(parameters) {
           }
         },
         
-        
-          
         /*
         loadProgress: function($progress) {
           $progress = $($progress)
@@ -541,7 +572,7 @@ $.fn.video.settings = {
   selector    : {
     video:             'video', 
     playButton:        '.play.button',  // not to be conflicted with .play.button > i.icon.play
-    playRateButton:    '.playrate.button[data-play-rate]',
+    seekButton:        '.seek.button',
     currentTime:       '.current.time',
     remainingTime:     '.remaining.time',
     timeRange:         'input[type="range"].time',
