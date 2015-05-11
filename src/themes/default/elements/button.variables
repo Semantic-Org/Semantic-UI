@@ -45,7 +45,7 @@
 @iconOpacity: 0.8;
 @iconDistance: 0.4285em;
 @iconColor: '';
-@iconTransition: opacity @transitionDuration @transitionEasing;
+@iconTransition: opacity @defaultDuration @defaultEasing;
 @iconVerticalAlign: '';
 
 @iconMargin: 0em @iconDistance 0em -(@iconDistance / 2);
@@ -58,11 +58,11 @@
 @invertedLoaderFillColor: rgba(0, 0, 0, 0.15);
 
 @transition:
-  opacity @transitionDuration @transitionEasing,
-  background-color @transitionDuration @transitionEasing,
-  color @transitionDuration @transitionEasing,
-  box-shadow @transitionDuration @transitionEasing,
-  background @transitionDuration @transitionEasing
+  opacity @defaultDuration @defaultEasing,
+  background-color @defaultDuration @defaultEasing,
+  color @defaultDuration @defaultEasing,
+  box-shadow @defaultDuration @defaultEasing,
+  background @defaultDuration @defaultEasing
 ;
 /*
 @willChange: box-shadow, transform, opacity, color, background;
@@ -124,7 +124,7 @@
 @loadingPointerEvents: auto;
 @loadingTransition:
   all 0s linear,
-  opacity @transitionDuration @defaultEasing
+  opacity @defaultDuration @defaultEasing
 ;
 
 /*-------------------

@@ -68,7 +68,7 @@
 
   margin: 0em;
   transition:
-    transform @transitionDuration @transitionEasing @transitionDelay,
+    transform @defaultDuration @defaultEasing @transitionDelay,
   ;
 }
 
@@ -159,7 +159,7 @@
 
   margin: 0em;
   transition:
-    transform @transitionDuration @transitionEasing @transitionDelay,
+    transform @defaultDuration @defaultEasing @transitionDelay,
   ;
 }
 
@@ -195,7 +195,7 @@
 ---------------*/
 
 .ui.rotate.reveal > .visible.content {
-  transition-duration: @transitionDuration;
+  transition-duration: @defaultDuration;
   transform: rotate(0deg);
 }
 

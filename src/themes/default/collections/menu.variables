@@ -32,9 +32,9 @@
 @itemHorizontalPadding: @relativeLarge;
 @itemTextTransform: none;
 @itemTransition:
-  opacity @transitionDuration @transitionEasing,
-  background @transitionDuration @transitionEasing,
-  box-shadow @transitionDuration @transitionEasing
+  opacity @defaultDuration @defaultEasing,
+  background @defaultDuration @defaultEasing,
+  box-shadow @defaultDuration @defaultEasing
 ;
 @itemFontWeight: normal;
 @itemTextColor: @textColor;
@@ -87,7 +87,7 @@
 @arrowSize: 0.6em;
 @arrowBorderSize: 1px;
 @arrowBorder: @arrowBorderSize solid @solidBorderColor;
-@arrowTransition: background @transitionDuration @transitionEasing;
+@arrowTransition: background @defaultDuration @defaultEasing;
 @arrowZIndex: 11;
 
 @arrowHoverColor: #FAFAFA;
@@ -215,7 +215,7 @@
 @secondaryItemMargin: 0em 0.25em;
 @secondaryItemPadding: @relativeMini @relativeSmall;
 @secondaryItemBorderRadius: @defaultBorderRadius;
-@secondaryItemTransition: color @transitionDuration @transitionEasing;
+@secondaryItemTransition: color @defaultDuration @defaultEasing;
 @secondaryItemColor: @unselectedTextColor;
 
 @secondaryHoverItemBackground: @transparentBlack;
@@ -334,7 +334,7 @@
 @textMenuItemColor: rgba(0, 0, 0, 0.6);
 @textMenuItemFontWeight: normal;
 @textMenuItemMargin: 0em @textMenuItemSpacing;
-@textMenuItemTransition: opacity @transitionDuration @transitionEasing;
+@textMenuItemTransition: opacity @defaultDuration @defaultEasing;
 
 @textMenuSubMenuMargin: 0em;
 

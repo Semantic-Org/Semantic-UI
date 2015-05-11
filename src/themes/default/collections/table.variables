@@ -11,9 +11,9 @@
 @borderSpacing: 0px;
 @borderRadius: @defaultBorderRadius;
 @transition:
-  background @transitionDuration @transitionEasing,
-  border-color @transitionDuration @transitionEasing,
-  color @transitionDuration @transitionEasing
+  background @defaultDuration @defaultEasing,
+  border-color @defaultDuration @defaultEasing,
+  color @defaultDuration @defaultEasing
 ;
 @background: @white;
 @color: @textColor;

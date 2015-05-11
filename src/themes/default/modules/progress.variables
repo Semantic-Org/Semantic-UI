@@ -22,8 +22,8 @@
 @barHeight: 1.75em;
 @barBackground: #888888;
 @barBorderRadius: @borderRadius;
-@barTransitionEasing: @transitionEasing;
-@barTransitionDuration: @transitionDuration;
+@barTransitionEasing: @defaultEasing;
+@barTransitionDuration: @defaultDuration;
 @barTransition:
   width @barTransitionDuration @barTransitionEasing,
   background-color @barTransitionDuration @barTransitionEasing

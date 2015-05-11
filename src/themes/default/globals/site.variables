@@ -165,6 +165,13 @@
 @columnCount: 16;
 
 /*-------------------
+     Transitions
+--------------------*/
+
+@defaultDuration : 0.2s;
+@defaultEasing   : ease;
+
+/*-------------------
      Breakpoints
 --------------------*/
 
@@ -244,13 +251,6 @@
 
 /* Maximum Glyph Width of Icon */
 @iconWidth : 1.18em;
-
-/*-------------------
-       Easing
---------------------*/
-
-@defaultEasing: ease;
-@defaultDuration: 0.2s;
 
 /*-------------------
      All Colors
@@ -375,13 +375,6 @@
 @solidWhiteBorderColor         : #555555;
 @selectedSolidWhiteBorderColor : #999999;
 
-
-/*-------------------
-     Transitions
---------------------*/
-
-@transitionDuration : 0.2s;
-@transitionEasing   : ease;
 
 /*-------------------
     Derived Values

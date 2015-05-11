@@ -22,8 +22,8 @@
 
 @lineHeightOffset: -(@verticalPadding / 2);
 
-@labelTransitionDuration: @transitionDuration;
-@labelTransitionEasing: @transitionEasing;
+@labelTransitionDuration: @defaultDuration;
+@labelTransitionEasing: @defaultEasing;
 @transition: background @labelTransitionDuration @labelTransitionEasing;
 
 /* Group */

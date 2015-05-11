@@ -23,9 +23,9 @@
 
 @borderRadius: @defaultBorderRadius;
 @transition:
-  background-color @transitionDuration @transitionEasing,
-  box-shadow @transitionDuration @transitionEasing,
-  border-color @transitionDuration @transitionEasing
+  background-color @defaultDuration @defaultEasing,
+  box-shadow @defaultDuration @defaultEasing,
+  border-color @defaultDuration @defaultEasing
 ;
 
 @inputColor: @textColor;

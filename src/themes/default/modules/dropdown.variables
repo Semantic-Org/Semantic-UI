@@ -7,7 +7,7 @@
 --------------------*/
 
 @transition:
-  width @transitionDuration @transitionEasing
+  width @defaultDuration @defaultEasing
 ;
 @borderRadius: @defaultBorderRadius;
 
@@ -35,7 +35,7 @@
 @menuBorder: @menuBorderWidth solid @menuBorderColor;
 @menuBoxShadow: @raisedShadow;
 @menuBorderRadius: 0em 0em @borderRadius @borderRadius;
-@menuTransition: opacity @transitionDuration @transitionEasing;
+@menuTransition: opacity @defaultDuration @defaultEasing;
 @menuMinWidth: ~"calc(100% + "(@menuBorderWidth * 2)~")";
 @menuZIndex: 11;
 
@@ -152,7 +152,7 @@
 @selectionIconHitbox: @selectionVerticalPadding;
 @selectionIconMargin: -@selectionIconHitbox;
 @selectionIconPadding: @selectionIconHitbox;
-@selectionIconTransition: opacity @transitionDuration @transitionEasing;
+@selectionIconTransition: opacity @defaultDuration @defaultEasing;
 
 @selectionMenuBorderRadius: 0em 0em @borderRadius @borderRadius;
 @selectionMenuBoxShadow: @raisedShadow;

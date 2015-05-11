@@ -19,7 +19,7 @@
 @boxShadow: none;
 @border: none;
 @zIndex: '';
-@transition: box-shadow @transitionDuration @transitionEasing;
+@transition: box-shadow @defaultDuration @defaultEasing;
 
 /* Responsive */
 @itemSpacing: 1em;
@@ -81,7 +81,7 @@
 /* Icons */
 @actionOpacity: 0.75;
 @actionHoverOpacity: 1;
-@actionTransition: color @transitionDuration @transitionEasing;
+@actionTransition: color @defaultDuration @defaultEasing;
 
 /* Actions */
 @favoriteColor: #FFB70A;
@@ -96,7 +96,7 @@
 @metaLinkHoverColor: @textColor;
 @contentLinkColor: '';
 @contentLinkHoverColor: '';
-@contentLinkTransition: color @transitionDuration @transitionEasing;
+@contentLinkTransition: color @defaultDuration @defaultEasing;
 
 
 /* Description */
@@ -132,7 +132,7 @@
 @extraPadding: 0em 0em 0em;
 @extraBoxShadow: none;
 @extraColor: @lightTextColor;
-@extraTransition: color @transitionDuration @transitionEasing;
+@extraTransition: color @defaultDuration @defaultEasing;
 
 /*-------------------
       Variations

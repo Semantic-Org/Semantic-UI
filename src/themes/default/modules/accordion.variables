@@ -20,8 +20,8 @@
 @iconMargin: 0em 0.25rem 0em 0rem;
 @iconPadding: 0em;
 @iconTransition:
-  transform @transitionDuration @transitionEasing,
-  opacity @transitionDuration @transitionEasing
+  transform @defaultDuration @defaultEasing,
+  opacity @defaultDuration @defaultEasing
 ;
 @iconVerticalAlign: baseline;
 @iconTransform: none;
@@ -76,11 +76,11 @@
 @styledTitlePadding: 0.75em 1em;
 @styledTitleFontWeight: bold;
 @styledTitleColor: @unselectedTextColor;
-@styledTitleTransition: background-color @transitionDuration @transitionEasing;
+@styledTitleTransition: background-color @defaultDuration @defaultEasing;
 @styledTitleBorder: 1px solid @borderColor;
 @styledTitleTransition:
-  background @transitionDuration @transitionEasing,
-  color @transitionDuration @transitionEasing
+  background @defaultDuration @defaultEasing,
+  color @defaultDuration @defaultEasing
 ;
 
 /* Styled Title States */
