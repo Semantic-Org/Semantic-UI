@@ -479,7 +479,7 @@ $.fn.popup = function(parameters) {
               boundary = {
                 top    : screen.top,
                 bottom : screen.top + screen.height,
-                left   : 0,
+                left   : screen.left,
                 right  : screen.left + screen.width
               },
               popup = {
