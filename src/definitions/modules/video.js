@@ -91,6 +91,8 @@ $.fn.video = function(parameters) {
         $muteButton       = $module.find(settings.selector.muteButton),
         $rateInput        = $module.find(settings.selector.rateInput),
         $rateReset        = $module.find(settings.selector.rateReset),
+        $readyStateRadio  = $module.find(settings.selector.readyStateRadio),
+        $networkStateRadio= $module.find(settings.selector.networkStateRadio),
 
         timeRangeUpdateEnabled = true,
         timeRangeInterval = $timeRange.prop('max') - $timeRange.prop('min'),
@@ -129,9 +131,10 @@ $.fn.video = function(parameters) {
               .on('ratechange' + eventNamespace, module.update.rate)
               .on('timeupdate' + eventNamespace, module.update.time) // TODO: reduce throttle
               // the range input is disabled while a seek (or load) to an unbuffered area occurs
-              .on('loadstart' + eventNamespace + ' seeking' + eventNamespace, module.update.loading)
-              .on('loadeddata' + eventNamespace + ' seeked' + eventNamespace, module.update.loaded)
+              .on('seeking' + eventNamespace + ' seeked' + eventNamespace, module.update.seek)
               .on('volumechange' + eventNamespace, module.update.volume)
+              .on('canplaythrough' + eventNamespace + ' canplay' + eventNamespace + ' loadeddata' + eventNamespace + ' loadedmetadata' + eventNamespace + ' emptied' + eventNamespace + ' waiting' + eventNamespace, module.update.readyState)
+              .on('error' + eventNamespace + ' loadstart' + eventNamespace + ' emptied' + eventNamespace + ' stalled' + eventNamespace + ' suspend' + eventNamespace + ' waiting' + eventNamespace + ' loadedmetadata' + eventNamespace + ' loadeddata' + eventNamespace, module.update.networkState)
             ;
             
             // from UI to video
@@ -153,10 +156,7 @@ $.fn.video = function(parameters) {
             $volumeProgress.on('click' + eventNamespace, module.request.unmute);
             $muteButton.on('click' + eventNamespace, module.request.muteToggle);
             $rateInput.on('change' + eventNamespace, module.request.rate);
-            $rateReset.on('click' + eventNamespace, function() {
-              console.log('plop');
-              module.reset.rate();
-            });
+            $rateReset.on('click' + eventNamespace, module.reset.rate);
           }
         },
         
@@ -190,7 +190,7 @@ $.fn.video = function(parameters) {
             // negative value seems to not be handled by some browsers :
             // - NS_ERROR_NOT_IMPLEMENTED with FF 37.0.2, 
             // - no visible effect with Chrome 42.0.2311.135
-            // works with float, but the input[type=number] arrows go by integer step
+            // TODO: add a ln/exp step behavior to the input[type=number] step attribtute
             module.debug('Request playBack rate (from button data)');
             video.playbackRate = parseFloat( $(this).val() );
           },
@@ -284,7 +284,7 @@ $.fn.video = function(parameters) {
         
         update: {
           playState: function() {
-            module.debug('Deactivate playButton');
+            module.debug('Update play state');
             if(video.paused) {
               $playButton.removeClass(settings.className.active);
             } else {
@@ -301,13 +301,13 @@ $.fn.video = function(parameters) {
               $timeRange.val( timeRangeInterval * video.currentTime / video.duration );
             }
           },
-          loading: function() {
-            module.debug('Update to loading state');
-            $timeRange.prop('disabled', true).addClass(settings.className.disabled);
-          },
-          loaded: function() {
-            module.debug('Update to loaded state');
-            $timeRange.prop('disabled', false).removeClass(settings.className.disabled);
+          seek: function() {
+            module.debug('Update seek state');
+            if(video.seeking) {
+              $timeRange.prop('disabled', true).addClass(settings.className.disabled);
+            } else {
+              $timeRange.prop('disabled', false).removeClass(settings.className.disabled);
+            }
           },
           volume: function() {
             module.debug('Update volume and mute states');
@@ -327,8 +327,15 @@ $.fn.video = function(parameters) {
           rate: function() {
             module.debug('Update playBack rate');
             $rateInput.val(video.playbackRate);
-          }
+          },
+          readyState: function() {
+            $readyStateRadio.filter('[value=' + video.readyState + ']').prop('checked', true);
+          },
+          networkState: function() {
+            $networkStateRadio.filter('[value=' + video.networkState + ']').prop('checked', true);
+          },
         },
+        
         
         activate: {
           timeRangeUpdate: function() {
@@ -602,7 +609,9 @@ $.fn.video.settings = {
     volumeProgress:    '.volume.progress',
     muteButton:        '.mute.button',
     rateInput:         '.rate input[type="number"]',
-    rateReset:         '.rate .reset'
+    rateReset:         '.rate .reset',
+    readyStateRadio:   '.ready.state input[type="radio"]', // could work with <select>
+    networkStateRadio: '.network.state input[type="radio"]'
   },
   
   volumeStep: 0.1 // it moves from 0.0 to 1.0
