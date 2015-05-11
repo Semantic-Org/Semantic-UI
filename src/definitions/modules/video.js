@@ -89,6 +89,8 @@ $.fn.video = function(parameters) {
         $volumeDownButton = $module.find(settings.selector.volumeDownButton),
         $volumeProgress   = $module.find(settings.selector.volumeProgress),
         $muteButton       = $module.find(settings.selector.muteButton),
+        $rateInput        = $module.find(settings.selector.rateInput),
+        $rateReset        = $module.find(settings.selector.rateReset),
 
         timeRangeUpdateEnabled = true,
         timeRangeInterval = $timeRange.prop('max') - $timeRange.prop('min'),
@@ -107,6 +109,7 @@ $.fn.video = function(parameters) {
           module.debug('Initializing video');
           module.instantiate();
           module.bind.events();
+          module.initialValues(); 
         },
 
         instantiate: function() {
@@ -122,10 +125,9 @@ $.fn.video = function(parameters) {
             module.debug('Binding video module events');
             // from video to UI
             $video
-              .on('play' + eventNamespace + ' playing' + eventNamespace, module.activate.playButton)
-              .on('pause' + eventNamespace + ' ended' + eventNamespace, module.deactivate.playButton)
-              .on('ratechange' + eventNamespace, function(event) { console.log(video.playbackRate) })
-              .on('timeupdate' + eventNamespace, module.update.time)
+              .on('play' + eventNamespace + ' playing' + eventNamespace + ' pause' + eventNamespace + ' ended' + eventNamespace, module.update.playState)
+              .on('ratechange' + eventNamespace, module.update.rate)
+              .on('timeupdate' + eventNamespace, module.update.time) // TODO: reduce throttle
               // the range input is disabled while a seek (or load) to an unbuffered area occurs
               .on('loadstart' + eventNamespace + ' seeking' + eventNamespace, module.update.loading)
               .on('loadeddata' + eventNamespace + ' seeked' + eventNamespace, module.update.loaded)
@@ -150,7 +152,18 @@ $.fn.video = function(parameters) {
             $volumeDownButton.on('click' + eventNamespace, module.request.volumeDown);
             $volumeProgress.on('click' + eventNamespace, module.request.unmute);
             $muteButton.on('click' + eventNamespace, module.request.muteToggle);
+            $rateInput.on('change' + eventNamespace, module.request.rate);
+            $rateReset.on('click' + eventNamespace, function() {
+              console.log('plop');
+              module.reset.rate();
+            });
           }
+        },
+        
+        initialValues: function() {
+          module.update.playState();
+          module.update.time();
+          module.update.volume();
         },
         
         request: {
@@ -170,15 +183,16 @@ $.fn.video = function(parameters) {
             module.debug('Request pause');
             return video.pause();
           },
-          playRate: function() {
+          rate: function() {
             // see https://developer.mozilla.org/fr/docs/Web/API/HTMLMediaElement#playbackRate
             // seems to have a upper limit with some browsers : 
             // - 5 with FF 37.0.2
             // negative value seems to not be handled by some browsers :
             // - NS_ERROR_NOT_IMPLEMENTED with FF 37.0.2, 
             // - no visible effect with Chrome 42.0.2311.135
-            module.debug('Request playRate (from button data)');
-            video.playbackRate = parseFloat( $(this).data('play-rate') );
+            // works with float, but the input[type=number] arrows go by integer step
+            module.debug('Request playBack rate (from button data)');
+            video.playbackRate = parseFloat( $(this).val() );
           },
           seek: {
             // TODO: better functions and data-* attributes naming ?
@@ -193,7 +207,6 @@ $.fn.video = function(parameters) {
             },
             toRelativeTime: function() {
               module.debug('Request time relative seek from current position)');
-              console.log($(this).data('seek-step'));
               var position = video.currentTime + $(this).data('seek-step');
               module.request.seek.toAbsoluteTime(position);
             },
@@ -204,7 +217,8 @@ $.fn.video = function(parameters) {
               module.request.seek.toAbsoluteTime(position);
             },
             tickLoop: function() {
-              module.debug('Start seek loop');
+              // TODO: abstract to a 'push' button behavior ?
+              module.debug('Tick seek loop');
               window.clearTimeout(seekLoopCounter);
               if(seekLoopInitialPlayState === undefined) {
                 // force pause while loop seeking
@@ -227,18 +241,18 @@ $.fn.video = function(parameters) {
             }
           },
           volumeUp: function() {
-            module.debug('Request volume up');
-            if($(this).hasClass(settings.className.disabled)) {
-              video.muted = false;
+            if(video.muted) {
+              module.request.unmute();
             } else {
+              module.debug('Request volume up');
               video.volume = Math.min(video.volume + settings.volumeStep, 1);
             }
           },
           volumeDown: function() {
-            module.debug('Request volume down');
-            if($(this).hasClass(settings.className.disabled)) {
-              video.muted = false;
+            if(video.muted) {
+              module.request.unmute();
             } else {
+              module.debug('Request volume down');
               video.volume = Math.max(video.volume - settings.volumeStep, 0);
             }
           },
@@ -257,13 +271,26 @@ $.fn.video = function(parameters) {
         },
         
         reset: {
-          playRate: function() {
-            module.debug('Reset play rate');
+          rate: function() {
+            module.debug('Reset playBack rate');
             video.playbackRate = video.defaultPlaybackRate;
+          },
+          all: function() {
+            // TODO: check modules integration
+            module.debug('Clearing video');
+            settings.onReset();
           }
         },
         
         update: {
+          playState: function() {
+            module.debug('Deactivate playButton');
+            if(video.paused) {
+              $playButton.removeClass(settings.className.active);
+            } else {
+              $playButton.addClass(settings.className.active);
+            }
+          },
           time: function() {
             module.debug('Update time');
             // text displays
@@ -296,14 +323,14 @@ $.fn.video = function(parameters) {
               $muteButton.removeClass(settings.className.active);
             }
             $volumeProgress.progress({ percent: video.volume * 100 });
+          },
+          rate: function() {
+            module.debug('Update playBack rate');
+            $rateInput.val(video.playbackRate);
           }
         },
         
         activate: {
-          playButton: function() {
-            module.debug('Activate playButton');
-            $playButton.addClass(settings.className.active);
-          },
           timeRangeUpdate: function() {
             module.debug('Activate timeRange autoupdate');
             timeRangeUpdateEnabled = true;
@@ -311,10 +338,6 @@ $.fn.video = function(parameters) {
         },
         
         deactivate: {
-          playButton: function() {
-            module.debug('Deactivate playButton');
-            $playButton.removeClass(settings.className.active);
-          },
           timeRangeUpdate: function() {
             module.debug('Deactivate timeRange autoupdate');
             timeRangeUpdateEnabled = false;
@@ -364,11 +387,6 @@ $.fn.video = function(parameters) {
         refresh: function() {
           module.verbose('Refreshing selector cache');
           $video          = element
-        },
-
-        reset: function() {
-          module.debug('Clearing video');
-          settings.onReset();
         },
 
         setting: function(name, value) {
@@ -582,7 +600,9 @@ $.fn.video.settings = {
     volumeUpButton:    '.volume.up.button',
     volumeDownButton:  '.volume.down.button',
     volumeProgress:    '.volume.progress',
-    muteButton:        '.mute.button'
+    muteButton:        '.mute.button',
+    rateInput:         '.rate input[type="number"]',
+    rateReset:         '.rate .reset'
   },
   
   volumeStep: 0.1 // it moves from 0.0 to 1.0
