@@ -330,6 +330,18 @@ $.fn.visibility = function(parameters) {
         },
 
         is: {
+          onScreen: function() {
+            var
+              calculations   = module.get.elementCalculations()
+            ;
+            return calculations.onScreen;
+          },
+          offScreen: function() {
+            var
+              calculations   = module.get.elementCalculations()
+            ;
+            return calculations.offScreen;
+          },
           visible: function() {
             if(module.cache && module.cache.element) {
               return (module.cache.element.width > 0);
@@ -376,6 +388,8 @@ $.fn.visibility = function(parameters) {
             module.bottomPassedReverse();
 
             // one time
+            module.onScreen();
+            module.offScreen();
             module.passing();
             module.topVisible();
             module.bottomVisible();
@@ -410,6 +424,48 @@ $.fn.visibility = function(parameters) {
                 module.remove.occurred(callback);
               }
             });
+          }
+        },
+
+        onScreen: function(newCallback) {
+          var
+            calculations = module.get.elementCalculations(),
+            callback     = newCallback || settings.onOnScreen,
+            callbackName = 'onScreen'
+          ;
+          if(newCallback) {
+            module.debug('Adding callback for onScreen', newCallback);
+            settings.onOnScreen = newCallback;
+          }
+          if(calculations.onScreen) {
+            module.execute(callback, callbackName);
+          }
+          else if(!settings.once) {
+            module.remove.occurred(callbackName);
+          }
+          if(newCallback !== undefined) {
+            return calculations.onOnScreen;
+          }
+        },
+
+        offScreen: function(newCallback) {
+          var
+            calculations = module.get.elementCalculations(),
+            callback     = newCallback || settings.onOffScreen,
+            callbackName = 'offScreen'
+          ;
+          if(newCallback) {
+            module.debug('Adding callback for offScreen', newCallback);
+            settings.onOffScreen = newCallback;
+          }
+          if(calculations.offScreen) {
+            module.execute(callback, callbackName);
+          }
+          else if(!settings.once) {
+            module.remove.occurred(callbackName);
+          }
+          if(newCallback !== undefined) {
+            return calculations.onOffScreen;
           }
         },
 
@@ -747,9 +803,9 @@ $.fn.visibility = function(parameters) {
             element.percentagePassed = 0;
 
             // meta calculations
-            element.visible = (element.topVisible || element.bottomVisible);
-            element.passing = (element.topPassed && !element.bottomPassed);
-            element.hidden  = (!element.topVisible && !element.bottomVisible);
+            element.onScreen  = (element.topVisible && !element.bottomPassed);
+            element.passing   = (element.topPassed && !element.bottomPassed);
+            element.offScreen = (!element.onScreen);
 
             // passing calculations
             if(element.passing) {
@@ -1065,6 +1121,8 @@ $.fn.visibility.settings = {
   onPassed               : {},
 
   // standard callbacks
+  onOnScreen             : false,
+  onOffScreen            : false,
   onPassing              : false,
   onTopVisible           : false,
   onBottomVisible        : false,
