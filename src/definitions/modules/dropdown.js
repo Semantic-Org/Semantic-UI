@@ -2256,7 +2256,7 @@ $.fn.dropdown = function(parameters) {
               onScreen
             ;
             $currentMenu.addClass(className.loading);
-            onScreen = (false && $.fn.visibility !== undefined)
+            onScreen = ($.fn.visibility !== undefined)
               ? $currentMenu.visibility('bottom visible')
               : $(window).scrollTop() + $(window).height() >= $currentMenu.offset().top + $currentMenu.height()
             ;
