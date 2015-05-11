@@ -345,6 +345,14 @@ $.fn.dropdown = function(parameters) {
                 return true;
               }
             }
+            if(settings.keepOnScreen) {
+              if(module.is.onScreen()) {
+                module.remove.upward();
+              }
+              else {
+                module.set.upward();
+              }
+            }
             module.animate.show(function() {
               if( module.can.click() ) {
                 module.bind.intent();
@@ -1244,6 +1252,14 @@ $.fn.dropdown = function(parameters) {
                 : 0
             ;
           },
+          transition: function() {
+            return (settings.transition == 'auto')
+              ? module.is.upward()
+                ? 'slide up'
+                : 'slide down'
+              : settings.transition
+            ;
+          },
           userValues: function() {
             var
               values = module.get.values()
@@ -1744,6 +1760,9 @@ $.fn.dropdown = function(parameters) {
               $nextValue.addClass(className.selected);
             }
           },
+          upward: function() {
+            $module.addClass(className.upward);
+          },
           value: function(value, text, $selected) {
             var
               hasInput     = ($input.length > 0),
@@ -2023,6 +2042,9 @@ $.fn.dropdown = function(parameters) {
           activeLabel: function() {
             $module.find(selector.label).removeClass(className.active);
           },
+          upward: function() {
+            $module.removeClass(className.upward);
+          },
           visible: function() {
             $module.removeClass(className.visible);
           },
@@ -2236,6 +2258,23 @@ $.fn.dropdown = function(parameters) {
           hidden: function($subMenu) {
             return !module.is.visible($subMenu);
           },
+          onScreen: function() {
+            var
+              isVisible,
+              height
+            ;
+            if(!$menu.hasClass(className.visible)) {
+              $menu.addClass(className.loading);
+            }
+            if($.fn.visibility !== undefined) {
+              isVisible = $menu.visibility('bottom visible');
+            }
+            else {
+
+            }
+            $menu.removeClass(className.loading);
+            return isVisible;
+          },
           inObject: function(needle, object) {
             var
               found = false
@@ -2279,7 +2318,7 @@ $.fn.dropdown = function(parameters) {
             return ($.inArray(value, module.get.userValues()) !== -1);
           },
           upward: function() {
-            return $module.hasClass(className.upward);
+            return ($module.hasClass(className.upward));
           },
           visible: function($subMenu) {
             return ($subMenu)
@@ -2308,7 +2347,8 @@ $.fn.dropdown = function(parameters) {
                   module.hideSubMenus();
                   module.hideOthers();
                   module.set.active();
-                }
+                },
+              transition = module.get.transition()
             ;
             callback = $.isFunction(callback)
               ? callback
@@ -2319,15 +2359,7 @@ $.fn.dropdown = function(parameters) {
             }
             module.verbose('Doing menu show animation', $currentMenu);
             if( module.is.hidden($currentMenu) || module.is.animating($currentMenu) ) {
-
-              if(settings.transition == 'auto') {
-                settings.transition = module.is.upward()
-                  ? 'slide up'
-                  : 'slide down'
-                ;
-                module.verbose('Automatically determining animation based on animation direction', settings.transition);
-              }
-              if(settings.transition == 'none') {
+              if(transition == 'none') {
                 start();
                 $currentMenu.transition('show');
                 callback.call(element);
@@ -2335,7 +2367,7 @@ $.fn.dropdown = function(parameters) {
               else if($.fn.transition !== undefined && $module.transition('is supported')) {
                 $currentMenu
                   .transition({
-                    animation  : settings.transition + ' in',
+                    animation  : transition + ' in',
                     debug      : settings.debug,
                     verbose    : settings.verbose,
                     duration   : settings.duration,
@@ -2348,7 +2380,7 @@ $.fn.dropdown = function(parameters) {
                 ;
               }
               else {
-                module.error(error.noTransition, settings.transition);
+                module.error(error.noTransition, transition);
               }
             }
           },
@@ -2366,7 +2398,8 @@ $.fn.dropdown = function(parameters) {
                   }
                   module.focusSearch();
                   module.remove.active();
-                }
+                },
+              transition = module.get.transition()
             ;
             callback = $.isFunction(callback)
               ? callback
@@ -2375,14 +2408,7 @@ $.fn.dropdown = function(parameters) {
             if( module.is.visible($currentMenu) || module.is.animating($currentMenu) ) {
               module.verbose('Doing menu hide animation', $currentMenu);
 
-              if(settings.transition == 'auto') {
-                settings.transition = module.is.upward()
-                  ? 'slide up'
-                  : 'slide down'
-                ;
-              }
-
-              if(settings.transition == 'none') {
+              if(transition == 'none') {
                 start();
                 $currentMenu.transition('hide');
                 callback.call(element);
@@ -2390,7 +2416,7 @@ $.fn.dropdown = function(parameters) {
               else if($.fn.transition !== undefined && $module.transition('is supported')) {
                 $currentMenu
                   .transition({
-                    animation  : settings.transition + ' out',
+                    animation  : transition + ' out',
                     duration   : settings.duration,
                     debug      : settings.debug,
                     verbose    : settings.verbose,
@@ -2625,6 +2651,8 @@ $.fn.dropdown.settings = {
 
   on                     : 'click',    // what event should show menu action on item selection
   action                 : 'activate', // action on item selection (nothing, activate, select, combo, hide, function(){})
+
+  keepOnScreen           : true,
 
   match                  : 'both',     // what to match against with search selection (both, text, or label)
   fullTextSearch         : false,      // search anywhere in value
