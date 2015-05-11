@@ -183,7 +183,7 @@ $.fn.progress = function(parameters) {
             var
               value   = module.value                || 0,
               total   = module.total                || 0,
-              percent = (module.is.visible() && animating)
+              percent = (animating)
                 ? module.get.displayPercent()
                 : module.percent || 0,
               left = (module.total > 0)
@@ -376,9 +376,7 @@ $.fn.progress = function(parameters) {
               ;
             }
             module.set.barWidth(percent);
-            if( module.is.visible() ) {
-              module.set.labelInterval();
-            }
+            module.set.labelInterval();
             module.set.labels();
             settings.onChange.call(element, percent, module.value, module.total);
           },
