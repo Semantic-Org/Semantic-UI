@@ -1631,23 +1631,17 @@ $.fn.dropdown = function(parameters) {
           },
           tabbable: function() {
             if( module.has.search() ) {
-              module.debug('Searchable dropdown initialized');
+              module.debug('Added tabindex to searchable dropdown');
               $search
                 .val('')
                 .attr('tabindex', 0)
               ;
-              $menu
-                .attr('tabindex', '-1')
-              ;
             }
             else {
-              module.debug('Simple selection dropdown initialized');
+              module.debug('Added tabindex to dropdown');
               if(!$module.attr('tabindex') ) {
                 $module
                   .attr('tabindex', 0)
-                ;
-                $menu
-                  .attr('tabindex', '-1')
                 ;
               }
             }
@@ -2320,7 +2314,9 @@ $.fn.dropdown = function(parameters) {
               ? callback
               : function(){}
             ;
-            module.set.scrollPosition(module.get.selectedItem(), true);
+            if(module.is.selection()) {
+              module.set.scrollPosition(module.get.selectedItem(), true);
+            }
             module.verbose('Doing menu show animation', $currentMenu);
             if( module.is.hidden($currentMenu) || module.is.animating($currentMenu) ) {
 
