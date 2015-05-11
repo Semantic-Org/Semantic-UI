@@ -409,7 +409,7 @@ $.fn.visibility = function(parameters) {
             amountInPixels
           ;
           // assign callback
-          if(amount !== undefined && newCallback !== undefined) {
+          if(amount && newCallback) {
             settings.onPassed[amount] = newCallback;
           }
           else if(amount !== undefined) {
@@ -1057,6 +1057,8 @@ $.fn.visibility = function(parameters) {
         if(instance === undefined) {
           module.initialize();
         }
+        instance.save.scroll();
+        instance.save.calculations();
         module.invoke(query);
       }
       else {
