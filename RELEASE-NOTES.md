@@ -156,6 +156,7 @@
 - **Popup** - Popup will now produce an error message and not mistakenly appear in the top left corner of page, if called with a `popup` or `target` that does not exist.
 - **Popup** - Popup will no longer appear incorrectly if the targeted element is not visible on page
 - **Popup** - Fixed bug which could cause pre-existing inline popup to be removed from DOM after hiding
+- **Popup** - Fixes popup offstage position calculations with pages including horizontal scrollbars
 - **Reveal** - Removed `masked` reveal, all reveals are masked by default
 - **Search** - Search will no longer incorrectly produce an error when API settings are passed through metadata
 - **Sidebar** - Top/Bottom sidebar will now show scroll bars correctly when taller than 100% page height
