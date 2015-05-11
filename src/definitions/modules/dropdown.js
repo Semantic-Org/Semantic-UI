@@ -2256,11 +2256,10 @@ $.fn.dropdown = function(parameters) {
               onScreen
             ;
             $currentMenu.addClass(className.loading);
-            onScreen = ($.fn.visibility !== undefined)
+            onScreen = (false && $.fn.visibility !== undefined)
               ? $currentMenu.visibility('bottom visible')
               : $('body').scrollTop() + $(window).height() >= $currentMenu.offset().top + $currentMenu.height()
             ;
-            console.log(onScreen, $currentMenu);
             module.debug('Checking if menu can fit on screen', onScreen, $menu);
             $currentMenu.removeClass(className.loading);
             return onScreen;
@@ -2423,6 +2422,7 @@ $.fn.dropdown = function(parameters) {
                     queue      : true,
                     onStart    : start,
                     onComplete : function() {
+                      module.remove.upward($subMenu);
                       callback.call(element);
                     }
                   })
