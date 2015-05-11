@@ -14,3 +14,6 @@ Anyone can jump on the issues board and grab off bugs to fix. This is probably t
 
 * [Create a Pull Request](https://github.com/Semantic-Org/Semantic-UI/compare)
 * [View Open Issues](https://github.com/Semantic-Org/Semantic-UI/issues)
+
+### Usage questions
+For usage questions please use [StackOverflow](http://stackoverflow.com/questions/tagged/semantic-ui) or [Gitter Chatroom](https://gitter.im/Semantic-Org/Semantic-UI)
