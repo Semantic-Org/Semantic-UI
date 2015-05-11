@@ -474,7 +474,7 @@ $.fn.popup = function(parameters) {
                 top    : $(window).scrollTop(),
                 bottom : $(window).scrollTop() + $(window).height(),
                 left   : 0,
-                right  : $(window).width()
+                right  : $(window).scrollLeft() + $(window).width()
               },
               popup     = {
                 width  : $popup.width(),
@@ -742,7 +742,7 @@ $.fn.popup = function(parameters) {
 
             // recursively find new positioning
             if(offstagePosition) {
-              module.debug('Popup cant fit into viewport', offstagePosition);
+              module.debug('Popup cant fit into viewport', position, offstagePosition);
               if(searchDepth < settings.maxSearchDepth) {
                 searchDepth++;
                 position = module.get.nextPosition(position);
