@@ -500,7 +500,7 @@ th {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI - Site
+ * # Semantic UI 2.0.0 - Site
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -547,7 +547,6 @@ h4,
 h5 {
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   line-height: 1.33em;
-  margin: -webkit-calc(2rem -  0.165em ) 0em 1rem;
   margin: calc(2rem -  0.165em ) 0em 1rem;
   font-weight: bold;
   padding: 0em;
@@ -1506,13 +1505,13 @@ input::selection {
 .ui.labeled.icon.buttons > .button > .icon,
 .ui.labeled.icon.button > .icon {
   position: absolute;
-  width: 2.57142em;
   height: 100%;
+  line-height: 1;
+  width: 2.57142em;
   background-color: rgba(0, 0, 0, 0.05);
   text-align: center;
   color: '';
   border-radius: 0.2857rem 0px 0px 0.2857rem;
-  line-height: 1;
   box-shadow: -1px 0px 0px 0px transparent inset;
 }
 
@@ -3431,7 +3430,6 @@ input::selection {
   }
 
   .ui.grid.container {
-    width: -webkit-calc( 752px  +  2em ) !important;
     width: calc( 752px  +  2em ) !important;
   }
 }
@@ -3444,7 +3442,6 @@ input::selection {
   }
 
   .ui.grid.container {
-    width: -webkit-calc( 960px  +  2em ) !important;
     width: calc( 960px  +  2em ) !important;
   }
 }
@@ -3457,7 +3454,6 @@ input::selection {
   }
 
   .ui.grid.container {
-    width: -webkit-calc( 1200px  +  2em ) !important;
     width: calc( 1200px  +  2em ) !important;
   }
 }
@@ -3600,7 +3596,6 @@ input::selection {
   border-left: 1px solid rgba(34, 36, 38, 0.15);
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   width: 0%;
-  height: -webkit-calc(100% -  1rem );
   height: calc(100% -  1rem );
 }
 
@@ -5026,7 +5021,6 @@ i.flag.zimbabwe:before {
 
 .ui.header {
   border: none;
-  margin: -webkit-calc(2rem -  0.165em ) 0em 1rem;
   margin: calc(2rem -  0.165em ) 0em 1rem;
   padding: 0em 0em;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
@@ -5239,7 +5233,6 @@ h5.ui.header .sub.header {
 
 .ui.sub.header {
   padding: 0em;
-  margin: -webkit-calc(2rem -  0.165em ) 0em 0.1428rem;
   margin: calc(2rem -  0.165em ) 0em 0.1428rem;
   font-weight: bold;
   font-size: 0.85714286em;
@@ -5760,7 +5753,6 @@ i.icon {
   height: 1em;
   font-family: 'Icons';
   font-style: normal;
-  line-height: 1;
   font-weight: normal;
   text-decoration: inherit;
   text-align: center;
@@ -9525,6 +9517,7 @@ img.ui.bordered.image {
 .ui.icon.input > i.icon {
   cursor: default;
   position: absolute;
+  line-height: 1;
   text-align: center;
   top: 0px;
   right: 0px;
@@ -10159,17 +10152,13 @@ a.ui.label {
 /* Positioning */
 
 .ui.ribbon.label {
-  left: -webkit-calc( -1rem  -  1.2em );
   left: calc( -1rem  -  1.2em );
   margin-right: -1.2em;
-  padding-left: -webkit-calc( 1rem  +  1.2em );
   padding-left: calc( 1rem  +  1.2em );
 }
 
 .ui[class*="right ribbon"].label {
-  left: -webkit-calc(100% +  1rem  +  1.2em );
   left: calc(100% +  1rem  +  1.2em );
-  padding-right: -webkit-calc( 1rem  +  1.2em );
   padding-right: calc( 1rem  +  1.2em );
 }
 
@@ -10183,18 +10172,14 @@ a.ui.label {
 
 .ui.card .image > .ui.ribbon.label,
 .ui.image > .ui.ribbon.label {
-  left: -webkit-calc( 0.05rem  -  1.2em );
   left: calc( 0.05rem  -  1.2em );
-  padding-left: -webkit-calc( -0.05rem  +  1.2em );
   padding-left: calc( -0.05rem  +  1.2em );
 }
 
 .ui.card .image > .ui[class*="right ribbon"].label,
 .ui.image > .ui[class*="right ribbon"].label {
-  left: -webkit-calc(100% +  -0.05rem  +  1.2em );
   left: calc(100% +  -0.05rem  +  1.2em );
   padding-left: 0.833em;
-  padding-right: -webkit-calc( -0.05rem  +  1.2em );
   padding-right: calc( -0.05rem  +  1.2em );
 }
 
@@ -12350,8 +12335,8 @@ ol.ui.horizontal.list li:before,
   top: 0em !important;
   left: 0em !important;
   z-index: 3 !important;
-  -webkit-transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
-  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
+  -webkit-transition: all 0.2s ease 0.15s;
+  transition: all 0.2s ease 0.15s;
 }
 
 .ui.reveal > .hidden.content {
@@ -12384,8 +12369,8 @@ ol.ui.horizontal.list li:before,
   display: block;
   float: left;
   margin: 0em;
-  -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
-  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
+  -webkit-transition: -webkit-transform 0.2s ease 0.15s;
+  transition: transform 0.2s ease 0.15s;
 }
 
 .ui.slide.reveal > .visible.content {
@@ -12508,8 +12493,8 @@ ol.ui.horizontal.list li:before,
   display: block;
   float: left;
   margin: 0em;
-  -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
-  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
+  -webkit-transition: -webkit-transform 0.2s ease 0.15s;
+  transition: transform 0.2s ease 0.15s;
 }
 
 .ui.move.reveal > .visible.content {
@@ -12555,8 +12540,8 @@ ol.ui.horizontal.list li:before,
 ---------------*/
 
 .ui.rotate.reveal > .visible.content {
-  -webkit-transition-duration: 0.8s;
-  transition-duration: 0.8s;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
   -webkit-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
   transform: rotate(0deg);
@@ -13263,9 +13248,7 @@ ol.ui.horizontal.list li:before,
   top: 0px;
   bottom: 0px;
   margin: 0em -1px;
-  width: -webkit-calc(100% +  2px );
   width: calc(100% +  2px );
-  max-width: -webkit-calc(100% +  2px );
   max-width: calc(100% +  2px );
   border-radius: 0px;
   box-shadow: none;
@@ -13325,9 +13308,7 @@ ol.ui.horizontal.list li:before,
   top: 0px;
   bottom: 0px;
   margin: 0em -1px;
-  width: -webkit-calc(100% +  2px );
   width: calc(100% +  2px );
-  max-width: -webkit-calc(100% +  2px );
   max-width: calc(100% +  2px );
   border-radius: 0px;
   box-shadow: none;
@@ -15256,7 +15237,6 @@ body > .ui.grid {
 }
 
 .ui.grid .column + .ui.vertical.divider {
-  height: -webkit-calc(50% -  1rem );
   height: calc(50% -  1rem );
 }
 
@@ -16329,7 +16309,6 @@ body > .ui.grid {
   content: "";
   top: 0em;
   left: 0px;
-  width: -webkit-calc(100% -  2rem );
   width: calc(100% -  2rem );
   height: 1px;
   margin: 0% 1rem;
@@ -16370,14 +16349,12 @@ body > .ui.grid {
 .ui.relaxed[class*="vertically divided"].grid > .row:before {
   margin-left: 1.5rem;
   margin-right: 1.5rem;
-  width: -webkit-calc(100% -  3rem );
   width: calc(100% -  3rem );
 }
 
 .ui[class*="very relaxed"][class*="vertically divided"].grid > .row:before {
   margin-left: 5rem;
   margin-right: 5rem;
-  width: -webkit-calc(100% -  5rem );
   width: calc(100% -  5rem );
 }
 
@@ -17403,7 +17380,6 @@ body > .ui.grid {
 
 .ui.menu .dropdown.item .menu {
   left: 0px;
-  min-width: -webkit-calc(100% - 1px);
   min-width: calc(100% - 1px);
   background: #ffffff;
   margin: 0em 0px 0px;
@@ -17789,7 +17765,6 @@ Floated Menu / Item
 }
 
 .ui.tabular.fluid.menu {
-  width: -webkit-calc(100% +  2px ) !important;
   width: calc(100% +  2px ) !important;
 }
 
@@ -18976,7 +18951,6 @@ Floated Menu / Item
   border-radius: 0px;
   margin-left: -1px;
   margin-right: -1px;
-  width: -webkit-calc(100% +  2px );
   width: calc(100% +  2px );
   box-shadow: none;
   /* avoid rgba multiplying */
@@ -20104,7 +20078,6 @@ Floated Menu / Item
 /* All */
 
 .ui.attached.table {
-  width: -webkit-calc(100% +  2px );
   width: calc(100% +  2px );
   margin: 0em -1px;
   border-radius: 0px;
@@ -21614,10 +21587,9 @@ a.ui.card:hover,
 }
 
 .ui.two.cards > .card {
-  -webkit-flex-basis: -webkit-calc( 50%  -  2em );
+  -webkit-flex-basis: calc( 50%  -  2em );
   -ms-flex-preferred-size: calc( 50%  -  2em );
   flex-basis: calc( 50%  -  2em );
-  width: -webkit-calc( 50%  -  2em );
   width: calc( 50%  -  2em );
   margin-left: 1em;
   margin-right: 1em;
@@ -21633,10 +21605,9 @@ a.ui.card:hover,
 }
 
 .ui.three.cards > .card {
-  -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
+  -webkit-flex-basis: calc( 33.33333333%  -  2em );
   -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
   flex-basis: calc( 33.33333333%  -  2em );
-  width: -webkit-calc( 33.33333333%  -  2em );
   width: calc( 33.33333333%  -  2em );
   margin-left: 1em;
   margin-right: 1em;
@@ -21652,10 +21623,9 @@ a.ui.card:hover,
 }
 
 .ui.four.cards > .card {
-  -webkit-flex-basis: -webkit-calc( 25%  -  1.5em );
+  -webkit-flex-basis: calc( 25%  -  1.5em );
   -ms-flex-preferred-size: calc( 25%  -  1.5em );
   flex-basis: calc( 25%  -  1.5em );
-  width: -webkit-calc( 25%  -  1.5em );
   width: calc( 25%  -  1.5em );
   margin-left: 0.75em;
   margin-right: 0.75em;
@@ -21671,10 +21641,9 @@ a.ui.card:hover,
 }
 
 .ui.five.cards > .card {
-  -webkit-flex-basis: -webkit-calc( 20%  -  1.5em );
+  -webkit-flex-basis: calc( 20%  -  1.5em );
   -ms-flex-preferred-size: calc( 20%  -  1.5em );
   flex-basis: calc( 20%  -  1.5em );
-  width: -webkit-calc( 20%  -  1.5em );
   width: calc( 20%  -  1.5em );
   margin-left: 0.75em;
   margin-right: 0.75em;
@@ -21690,10 +21659,9 @@ a.ui.card:hover,
 }
 
 .ui.six.cards > .card {
-  -webkit-flex-basis: -webkit-calc( 16.66666667%  -  1.5em );
+  -webkit-flex-basis: calc( 16.66666667%  -  1.5em );
   -ms-flex-preferred-size: calc( 16.66666667%  -  1.5em );
   flex-basis: calc( 16.66666667%  -  1.5em );
-  width: -webkit-calc( 16.66666667%  -  1.5em );
   width: calc( 16.66666667%  -  1.5em );
   margin-left: 0.75em;
   margin-right: 0.75em;
@@ -21709,10 +21677,9 @@ a.ui.card:hover,
 }
 
 .ui.seven.cards > .card {
-  -webkit-flex-basis: -webkit-calc( 14.28571429%  -  1em );
+  -webkit-flex-basis: calc( 14.28571429%  -  1em );
   -ms-flex-preferred-size: calc( 14.28571429%  -  1em );
   flex-basis: calc( 14.28571429%  -  1em );
-  width: -webkit-calc( 14.28571429%  -  1em );
   width: calc( 14.28571429%  -  1em );
   margin-left: 0.5em;
   margin-right: 0.5em;
@@ -21728,10 +21695,9 @@ a.ui.card:hover,
 }
 
 .ui.eight.cards > .card {
-  -webkit-flex-basis: -webkit-calc( 12.5%  -  1em );
+  -webkit-flex-basis: calc( 12.5%  -  1em );
   -ms-flex-preferred-size: calc( 12.5%  -  1em );
   flex-basis: calc( 12.5%  -  1em );
-  width: -webkit-calc( 12.5%  -  1em );
   width: calc( 12.5%  -  1em );
   margin-left: 0.5em;
   margin-right: 0.5em;
@@ -21748,10 +21714,9 @@ a.ui.card:hover,
 }
 
 .ui.nine.cards > .card {
-  -webkit-flex-basis: -webkit-calc( 11.11111111%  -  1em );
+  -webkit-flex-basis: calc( 11.11111111%  -  1em );
   -ms-flex-preferred-size: calc( 11.11111111%  -  1em );
   flex-basis: calc( 11.11111111%  -  1em );
-  width: -webkit-calc( 11.11111111%  -  1em );
   width: calc( 11.11111111%  -  1em );
   margin-left: 0.5em;
   margin-right: 0.5em;
@@ -21768,10 +21733,9 @@ a.ui.card:hover,
 }
 
 .ui.ten.cards > .card {
-  -webkit-flex-basis: -webkit-calc( 10%  -  1em );
+  -webkit-flex-basis: calc( 10%  -  1em );
   -ms-flex-preferred-size: calc( 10%  -  1em );
   flex-basis: calc( 10%  -  1em );
-  width: -webkit-calc( 10%  -  1em );
   width: calc( 10%  -  1em );
   margin-left: 0.5em;
   margin-right: 0.5em;
@@ -21808,10 +21772,9 @@ a.ui.card:hover,
   }
 
   .ui.three.doubling.cards .card {
-    -webkit-flex-basis: -webkit-calc( 50%  -  2em );
+    -webkit-flex-basis: calc( 50%  -  2em );
     -ms-flex-preferred-size: calc( 50%  -  2em );
     flex-basis: calc( 50%  -  2em );
-    width: -webkit-calc( 50%  -  2em );
     width: calc( 50%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -21823,10 +21786,9 @@ a.ui.card:hover,
   }
 
   .ui.four.doubling.cards .card {
-    -webkit-flex-basis: -webkit-calc( 50%  -  2em );
+    -webkit-flex-basis: calc( 50%  -  2em );
     -ms-flex-preferred-size: calc( 50%  -  2em );
     flex-basis: calc( 50%  -  2em );
-    width: -webkit-calc( 50%  -  2em );
     width: calc( 50%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -21838,10 +21800,9 @@ a.ui.card:hover,
   }
 
   .ui.five.doubling.cards .card {
-    -webkit-flex-basis: -webkit-calc( 50%  -  2em );
+    -webkit-flex-basis: calc( 50%  -  2em );
     -ms-flex-preferred-size: calc( 50%  -  2em );
     flex-basis: calc( 50%  -  2em );
-    width: -webkit-calc( 50%  -  2em );
     width: calc( 50%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -21853,10 +21814,9 @@ a.ui.card:hover,
   }
 
   .ui.six.doubling.cards .card {
-    -webkit-flex-basis: -webkit-calc( 50%  -  2em );
+    -webkit-flex-basis: calc( 50%  -  2em );
     -ms-flex-preferred-size: calc( 50%  -  2em );
     flex-basis: calc( 50%  -  2em );
-    width: -webkit-calc( 50%  -  2em );
     width: calc( 50%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -21868,10 +21828,9 @@ a.ui.card:hover,
   }
 
   .ui.seven.doubling.cards .card {
-    -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
+    -webkit-flex-basis: calc( 33.33333333%  -  2em );
     -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
     flex-basis: calc( 33.33333333%  -  2em );
-    width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -21883,10 +21842,9 @@ a.ui.card:hover,
   }
 
   .ui.eight.doubling.cards .card {
-    -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
+    -webkit-flex-basis: calc( 33.33333333%  -  2em );
     -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
     flex-basis: calc( 33.33333333%  -  2em );
-    width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -21898,10 +21856,9 @@ a.ui.card:hover,
   }
 
   .ui.nine.doubling.cards .card {
-    -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
+    -webkit-flex-basis: calc( 33.33333333%  -  2em );
     -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
     flex-basis: calc( 33.33333333%  -  2em );
-    width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -21913,10 +21870,9 @@ a.ui.card:hover,
   }
 
   .ui.ten.doubling.cards .card {
-    -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
+    -webkit-flex-basis: calc( 33.33333333%  -  2em );
     -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
     flex-basis: calc( 33.33333333%  -  2em );
-    width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -21946,10 +21902,9 @@ a.ui.card:hover,
   }
 
   .ui.three.doubling.cards .card {
-    -webkit-flex-basis: -webkit-calc( 50%  -  2em );
+    -webkit-flex-basis: calc( 50%  -  2em );
     -ms-flex-preferred-size: calc( 50%  -  2em );
     flex-basis: calc( 50%  -  2em );
-    width: -webkit-calc( 50%  -  2em );
     width: calc( 50%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -21961,10 +21916,9 @@ a.ui.card:hover,
   }
 
   .ui.four.doubling.cards .card {
-    -webkit-flex-basis: -webkit-calc( 50%  -  2em );
+    -webkit-flex-basis: calc( 50%  -  2em );
     -ms-flex-preferred-size: calc( 50%  -  2em );
     flex-basis: calc( 50%  -  2em );
-    width: -webkit-calc( 50%  -  2em );
     width: calc( 50%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -21976,10 +21930,9 @@ a.ui.card:hover,
   }
 
   .ui.five.doubling.cards .card {
-    -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
+    -webkit-flex-basis: calc( 33.33333333%  -  2em );
     -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
     flex-basis: calc( 33.33333333%  -  2em );
-    width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -21991,10 +21944,9 @@ a.ui.card:hover,
   }
 
   .ui.six.doubling.cards .card {
-    -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
+    -webkit-flex-basis: calc( 33.33333333%  -  2em );
     -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
     flex-basis: calc( 33.33333333%  -  2em );
-    width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -22006,10 +21958,9 @@ a.ui.card:hover,
   }
 
   .ui.eight.doubling.cards .card {
-    -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
+    -webkit-flex-basis: calc( 33.33333333%  -  2em );
     -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
     flex-basis: calc( 33.33333333%  -  2em );
-    width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -22021,10 +21972,9 @@ a.ui.card:hover,
   }
 
   .ui.eight.doubling.cards .card {
-    -webkit-flex-basis: -webkit-calc( 25%  -  1.5em );
+    -webkit-flex-basis: calc( 25%  -  1.5em );
     -ms-flex-preferred-size: calc( 25%  -  1.5em );
     flex-basis: calc( 25%  -  1.5em );
-    width: -webkit-calc( 25%  -  1.5em );
     width: calc( 25%  -  1.5em );
     margin-left: 0.75em;
     margin-right: 0.75em;
@@ -22036,10 +21986,9 @@ a.ui.card:hover,
   }
 
   .ui.nine.doubling.cards .card {
-    -webkit-flex-basis: -webkit-calc( 25%  -  1.5em );
+    -webkit-flex-basis: calc( 25%  -  1.5em );
     -ms-flex-preferred-size: calc( 25%  -  1.5em );
     flex-basis: calc( 25%  -  1.5em );
-    width: -webkit-calc( 25%  -  1.5em );
     width: calc( 25%  -  1.5em );
     margin-left: 0.75em;
     margin-right: 0.75em;
@@ -22051,10 +22000,9 @@ a.ui.card:hover,
   }
 
   .ui.ten.doubling.cards .card {
-    -webkit-flex-basis: -webkit-calc( 20%  -  1.5em );
+    -webkit-flex-basis: calc( 20%  -  1.5em );
     -ms-flex-preferred-size: calc( 20%  -  1.5em );
     flex-basis: calc( 20%  -  1.5em );
-    width: -webkit-calc( 20%  -  1.5em );
     width: calc( 20%  -  1.5em );
     margin-left: 0.75em;
     margin-right: 0.75em;
@@ -22079,7 +22027,6 @@ a.ui.card:hover,
     height: auto !important;
     margin: 1em 1em;
     padding: 0 !important;
-    width: -webkit-calc( 100%  -  2em ) !important;
     width: calc( 100%  -  2em ) !important;
   }
 }
@@ -24830,7 +24777,6 @@ body.dimmable > .dimmer {
   cursor: pointer;
   position: relative;
   display: inline-block;
-  line-height: 1em;
   tap-highlight-color: rgba(0, 0, 0, 0);
   outline: none;
   text-align: left;
@@ -24852,11 +24798,12 @@ body.dimmable > .dimmer {
   display: none;
   outline: none;
   top: 100%;
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
   margin: 0em;
   padding: 0em 0em;
   background: #ffffff;
-  min-width: 100%;
-  white-space: normal;
   font-size: 1em;
   text-shadow: none;
   text-align: left;
@@ -24867,6 +24814,10 @@ body.dimmable > .dimmer {
   transition: opacity 0.2s ease;
   z-index: 11;
   will-change: transform, opacity;
+}
+
+.ui.dropdown .menu > * {
+  white-space: nowrap;
 }
 
 /*--------------
@@ -25007,6 +24958,7 @@ body.dimmable > .dimmer {
 
 .ui.dropdown > .text > .description,
 .ui.dropdown .menu > .item > .description {
+  float: right;
   margin: 0em 0em 0em 1em;
   color: rgba(0, 0, 0, 0.4);
 }
@@ -25152,6 +25104,7 @@ body.dimmable > .dimmer {
 .ui.selection.dropdown {
   cursor: pointer;
   word-wrap: break-word;
+  line-height: 1em;
   white-space: normal;
   outline: 0;
   -webkit-transform: rotateZ(0deg);
@@ -25212,10 +25165,9 @@ select.ui.dropdown {
   -webkit-overflow-scrolling: touch;
   border-top-width: 0px !important;
   width: auto;
-  margin: 0px -1px;
-  min-width: -webkit-calc(100% +  2px );
-  min-width: calc(100% +  2px );
   outline: none;
+  margin: 0px -1px;
+  min-width: calc(100% +  2px );
   border-radius: 0em 0em 0.2857rem 0.2857rem;
   box-shadow: 0px 2px 3px 0px rgba(34, 36, 38, 0.15);
   -webkit-transition: opacity 0.2s ease;
@@ -25239,7 +25191,6 @@ select.ui.dropdown {
 
 @media all and (-ms-high-contrast: none) {
   .ui.selection.dropdown .menu {
-    min-width: -webkit-calc(100% -  15px );
     min-width: calc(100% -  15px );
   }
 }
@@ -25622,7 +25573,9 @@ select.ui.dropdown {
   transition: none;
 }
 
-.ui.dropdown > .loading.menu {
+/* Used To Check Position */
+
+.ui.dropdown .loading.menu {
   display: block;
   visibility: hidden;
   z-index: -1;
@@ -25731,6 +25684,7 @@ select.ui.dropdown {
 .ui.dropdown .menu .right.menu {
   left: 100% !important;
   right: auto !important;
+  border-radius: 0em 0.2857rem 0.2857rem 0em !important;
 }
 
 /* Left Flyout Menu */
@@ -25739,6 +25693,7 @@ select.ui.dropdown {
 .ui.dropdown .menu .left.menu {
   left: auto !important;
   right: 100% !important;
+  border-radius: 0.2857rem 0em 0em 0.2857rem !important;
 }
 
 .ui.dropdown .item .left.dropdown.icon,
@@ -25764,11 +25719,20 @@ select.ui.dropdown {
      Upward
 ---------------*/
 
+/* Upward Main Menu */
+
 .ui.upward.dropdown > .menu {
   top: auto;
   bottom: 100%;
-  box-shadow: 0px 0px 4px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.08);
   border-radius: 0.2857rem 0.2857rem 0em 0em;
+}
+
+/* Upward Sub Menu */
+
+.ui.dropdown .upward.menu {
+  top: auto !important;
+  bottom: 0 !important;
 }
 
 /* Active Upward */
@@ -25787,27 +25751,34 @@ select.ui.dropdown {
 .ui.upward.selection.dropdown .menu {
   border-top-width: 1px !important;
   border-bottom-width: 0px !important;
+  box-shadow: 0px -2px 3px 0px rgba(0, 0, 0, 0.08);
 }
 
 .ui.upward.selection.dropdown:hover {
   box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.05);
 }
 
-.ui.upward.selection.visible.dropdown:hover {
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.05);
-}
+/* Active Upward */
 
-.ui.active.upward.selection.dropdown,
-.ui.visible.upward.selection.dropdown {
+.ui.active.upward.selection.dropdown {
   border-radius: 0em 0em 0.2857rem 0.2857rem !important;
 }
 
+/* Visible Upward */
+
 .ui.upward.selection.dropdown.visible {
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.08);
+  border-radius: 0em 0em 0.2857rem 0.2857rem !important;
+}
+
+/* Visible Hover Upward */
+
+.ui.upward.selection.visible.dropdown:hover {
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.05);
 }
 
 .ui.upward.selection.visible.dropdown:hover .menu {
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px -2px 3px 0px rgba(0, 0, 0, 0.08);
 }
 
 /*--------------
@@ -25854,7 +25825,6 @@ select.ui.dropdown {
 @media all and (-ms-high-contrast: none) {
   .ui.scrolling.dropdown .menu,
   .ui.dropdown .scrolling.menu {
-    min-width: -webkit-calc(100% -  15px );
     min-width: calc(100% -  15px );
   }
 }
@@ -26189,12 +26159,6 @@ select.ui.dropdown {
   content: "\f0d9" ;
 }
 
-/* Upward Dropdown */
-
-.ui.upward.dropdown > .dropdown.icon:before {
-  content: "\f0d8";
-}
-
 /* Vertical Menu Dropdown */
 
 .ui.vertical.menu .dropdown.item > .dropdown.icon:before {
@@ -26220,11 +26184,162 @@ select.ui.dropdown {
         User Overrides
 *******************************/
 /*!
+ * # Semantic UI 2.0.0 - Video
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Copyright 2015 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+/*******************************
+            Types
+*******************************/
+
+.ui.embed {
+  position: relative;
+  max-width: 100%;
+  height: 0px;
+  overflow: hidden;
+  background: #dcddde;
+  padding-bottom: 56.25%;
+}
+
+/*-----------------
+  Embedded Content
+------------------*/
+
+.ui.embed iframe,
+.ui.embed embed,
+.ui.embed object {
+  position: absolute;
+  border: none;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  margin: 0em;
+  padding: 0em;
+}
+
+/*-----------------
+      Embed
+------------------*/
+
+.ui.embed > .embed {
+  display: none;
+}
+
+/*--------------
+  Placeholder
+---------------*/
+
+/* Placeholder Image */
+
+.ui.embed > .placeholder {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #dcddde;
+}
+
+/*--------------
+      Play
+---------------*/
+
+/* Play Icon */
+
+.ui.embed > .icon {
+  cursor: pointer;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+.ui.embed > .icon:before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 7rem;
+  text-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  -webkit-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+  z-index: 10;
+}
+
+/*******************************
+            States
+*******************************/
+
+/*--------------
+     Hover
+---------------*/
+
+.ui.embed .icon:hover {
+  background: rgba(0, 0, 0, 0);
+}
+
+.ui.embed .icon:hover:before {
+  color: #ffffff;
+}
+
+/*--------------
+     Active
+---------------*/
+
+.ui.active.embed .play,
+.ui.active.embed .placeholder {
+  display: none;
+}
+
+.ui.active.embed .embed {
+  display: block;
+}
+
+/*******************************
+        Video Overrides
+*******************************/
+
+/*******************************
+         Site Overrides
+*******************************/
+
+/*******************************
+          Variations
+*******************************/
+
+.ui.square.embed {
+  padding-bottom: 100%;
+}
+
+.ui[class*="4:3"].embed {
+  padding-bottom: 75%;
+}
+
+.ui[class*="16:9"].embed {
+  padding-bottom: 56.25%;
+}
+
+.ui[class*="21:9"].embed {
+  padding-bottom: 42.85714286%;
+}
+/*!
  * # Semantic UI 2.0.0 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -26459,7 +26574,7 @@ select.ui.dropdown {
   .ui.modal > .close {
     top: 1.0535rem;
     right: 1rem;
-    color: rgba(0, 0, 0, 0.8);
+    color: rgba(0, 0, 0, 0.87);
   }
 }
 
@@ -26554,7 +26669,7 @@ select.ui.dropdown {
 }
 
 .ui.inverted.dimmer > .basic.modal {
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .ui.inverted.dimmer > .ui.basic.modal > .header {
@@ -26656,7 +26771,7 @@ select.ui.dropdown {
 .ui.fullscreen.modal > .close {
   top: 1.0535rem;
   right: 1rem;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 /*--------------
@@ -26763,7 +26878,7 @@ select.ui.dropdown {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -26788,7 +26903,7 @@ select.ui.dropdown {
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
   font-size: 1rem;
   text-align: center;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   border-radius: 0em 0em 0.2857rem 0.2857rem;
   -webkit-transition: 0.2s background ease;
   transition: 0.2s background ease;
@@ -26909,7 +27024,7 @@ a.ui.nag {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -26925,7 +27040,9 @@ a.ui.nag {
   top: 0px;
   right: 0px;
   /* Fixes content being squished when inline (moz only) */
+  min-width: -webkit-min-content;
   min-width: -moz-min-content;
+  min-width: min-content;
   z-index: 1900;
   border: 1px solid #cccccc;
   max-width: 250px;
@@ -26933,7 +27050,7 @@ a.ui.nag {
   padding: 0.833em 1em;
   font-weight: normal;
   font-style: normal;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   border-radius: 0.2857rem;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -27218,7 +27335,7 @@ a.ui.nag {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributorss
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -27294,7 +27411,7 @@ a.ui.nag {
   right: auto;
   left: 0%;
   bottom: auto;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   font-weight: bold;
   text-shadow: none;
   margin-top: 0.2em;
@@ -27742,7 +27859,7 @@ a.ui.nag {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -27753,6 +27870,7 @@ a.ui.nag {
 *******************************/
 
 .ui.rating {
+  white-space: nowrap;
   display: inline-block;
   vertical-align: middle;
 }
@@ -27810,7 +27928,7 @@ a.ui.nag {
 .ui.rating .icon.selected,
 .ui.rating .icon.selected.active {
   background: transparent;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 /*-------------------
@@ -28017,7 +28135,7 @@ a.ui.nag {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -28044,7 +28162,7 @@ a.ui.nag {
   font-size: 1em;
   background: #ffffff;
   border: 1px solid rgba(34, 36, 38, 0.15);
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   box-shadow: 0em 0em 0em 0em transparent inset;
   -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
@@ -28089,7 +28207,7 @@ a.ui.nag {
   overflow: hidden;
   font-size: 1em;
   padding: 0.71428571em 1.14285714em;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   line-height: 1.33;
   border-bottom: 1px solid rgba(34, 36, 38, 0.1);
 }
@@ -28154,13 +28272,13 @@ a.ui.nag {
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 1em;
   font-weight: bold;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .ui.search > .results > .message .description {
   margin-top: 0.25rem;
   font-size: 1em;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 /* View All Results */
@@ -28170,7 +28288,7 @@ a.ui.nag {
   border-top: none;
   background: #f0f0f0;
   padding: 0.92857143em 1em;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   font-weight: bold;
   text-align: center;
 }
@@ -28236,7 +28354,7 @@ a.ui.nag {
 }
 
 .ui.search > .results .category.active > .name {
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .ui.search > .results .result.active,
@@ -28361,7 +28479,7 @@ a.ui.nag {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -28411,7 +28529,7 @@ a.ui.nag {
   height: 15em;
   padding: 2em;
   background-color: #e6e6e6;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
 }
 
@@ -28515,7 +28633,7 @@ a.ui.nag {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributorss
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -29197,7 +29315,7 @@ html.ios {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -29272,7 +29390,7 @@ html.ios {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -29911,7 +30029,6 @@ html.ios {
 /* All */
 
 .ui.attached.table {
-  width: -webkit-calc(100% +  2px );
   width: calc(100% +  2px );
   margin: 0em -1px;
   border-radius: 0px;
@@ -30503,7 +30620,7 @@ html.ios {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributorss
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *

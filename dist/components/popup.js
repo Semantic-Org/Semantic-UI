@@ -155,11 +155,7 @@ $.fn.popup = function(parameters) {
                 : settings.delay
             ;
             clearTimeout(module.hideTimer);
-            module.showTimer = setTimeout(function() {
-              if(module.is.hidden() && !( module.is.active() && module.is.dropdown()) ) {
-                module.show();
-              }
-            }, delay);
+            module.showTimer = setTimeout(module.show, delay);
           },
           end:  function() {
             var
@@ -168,11 +164,7 @@ $.fn.popup = function(parameters) {
                 : settings.delay
             ;
             clearTimeout(module.showTimer);
-            module.hideTimer = setTimeout(function() {
-              if(module.is.visible() ) {
-                module.hide();
-              }
-            }, delay);
+            module.hideTimer = setTimeout(module.hide, delay);
           },
           resize: function() {
             if( module.is.visible() ) {
@@ -271,27 +263,30 @@ $.fn.popup = function(parameters) {
         show: function(callback) {
           callback = $.isFunction(callback) ? callback : function(){};
           module.debug('Showing pop-up', settings.transition);
-          if( !module.exists() ) {
-            module.create();
-          }
-          else if(!settings.preserve && !settings.popup) {
-            module.refresh();
-          }
-          if( $popup && module.set.position() ) {
-            module.save.conditions();
-            if(settings.exclusive) {
-              module.hideAll();
+
+          if(module.is.hidden() && !( module.is.active() && module.is.dropdown()) ) {
+            if( !module.exists() ) {
+              module.create();
             }
-            module.animate.show(callback);
+            else if(!settings.preserve && !settings.popup) {
+              module.refresh();
+            }
+            if( $popup && module.set.position() ) {
+              module.save.conditions();
+              if(settings.exclusive) {
+                module.hideAll();
+              }
+              module.animate.show(callback);
+            }
           }
         },
 
 
         hide: function(callback) {
           callback = $.isFunction(callback) ? callback : function(){};
-          module.remove.visible();
-          module.unbind.close();
-          if( module.is.visible() ) {
+          if( module.is.visible() || module.is.animating() ) {
+            module.remove.visible();
+            module.unbind.close();
             module.restore.conditions();
             module.animate.hide(callback);
           }
@@ -1149,8 +1144,8 @@ $.fn.popup.settings = {
 
   // delay used to prevent accidental refiring of animations due to user error
   delay        : {
-    show : 30,
-    hide : 0
+    show : 50,
+    hide : 70
   },
 
   // whether fluid variation should assign width explicitly

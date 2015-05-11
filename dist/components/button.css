@@ -751,13 +751,13 @@
 .ui.labeled.icon.buttons > .button > .icon,
 .ui.labeled.icon.button > .icon {
   position: absolute;
-  width: 2.57142em;
   height: 100%;
+  line-height: 1;
+  width: 2.57142em;
   background-color: rgba(0, 0, 0, 0.05);
   text-align: center;
   color: '';
   border-radius: 0.2857rem 0px 0px 0.2857rem;
-  line-height: 1;
   box-shadow: -1px 0px 0px 0px transparent inset;
 }
 

@@ -1,0 +1,153 @@
+/*!
+ * # Semantic UI 2.0.0 - Video
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Copyright 2015 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+
+/*******************************
+            Types
+*******************************/
+
+.ui.embed {
+  position: relative;
+  max-width: 100%;
+  height: 0px;
+  overflow: hidden;
+  background: #dcddde;
+  padding-bottom: 56.25%;
+}
+
+/*-----------------
+  Embedded Content
+------------------*/
+
+.ui.embed iframe,
+.ui.embed embed,
+.ui.embed object {
+  position: absolute;
+  border: none;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  margin: 0em;
+  padding: 0em;
+}
+
+/*-----------------
+      Embed
+------------------*/
+
+.ui.embed > .embed {
+  display: none;
+}
+
+/*--------------
+  Placeholder
+---------------*/
+
+
+/* Placeholder Image */
+.ui.embed > .placeholder {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #dcddde;
+}
+
+/*--------------
+      Play
+---------------*/
+
+
+/* Play Icon */
+.ui.embed > .icon {
+  cursor: pointer;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+}
+.ui.embed > .icon:before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+      -ms-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 7rem;
+  text-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  -webkit-transition: color 0.2s ease;
+          transition: color 0.2s ease;
+  z-index: 10;
+}
+
+
+/*******************************
+            States
+*******************************/
+
+
+/*--------------
+     Hover
+---------------*/
+
+.ui.embed .icon:hover {
+  background: rgba(0, 0, 0, 0);
+}
+.ui.embed .icon:hover:before {
+  color: #ffffff;
+}
+
+/*--------------
+     Active
+---------------*/
+
+.ui.active.embed .play,
+.ui.active.embed .placeholder {
+  display: none;
+}
+.ui.active.embed .embed {
+  display: block;
+}
+
+
+/*******************************
+        Video Overrides
+*******************************/
+
+
+
+/*******************************
+         Site Overrides
+*******************************/
+
+
+
+/*******************************
+          Variations
+*******************************/
+
+.ui.square.embed {
+  padding-bottom: 100%;
+}
+.ui[class*="4:3"].embed {
+  padding-bottom: 75%;
+}
+.ui[class*="16:9"].embed {
+  padding-bottom: 56.25%;
+}
+.ui[class*="21:9"].embed {
+  padding-bottom: 42.85714286%;
+}

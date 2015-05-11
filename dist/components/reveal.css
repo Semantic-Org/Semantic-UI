@@ -24,8 +24,8 @@
   top: 0em !important;
   left: 0em !important;
   z-index: 3 !important;
-  -webkit-transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
-          transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
+  -webkit-transition: all 0.2s ease 0.15s;
+          transition: all 0.2s ease 0.15s;
 }
 .ui.reveal > .hidden.content {
   position: relative !important;
@@ -57,8 +57,8 @@
   display: block;
   float: left;
   margin: 0em;
-  -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
-          transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
+  -webkit-transition: -webkit-transform 0.2s ease 0.15s;
+          transition: transform 0.2s ease 0.15s;
 }
 .ui.slide.reveal > .visible.content {
   position: relative !important;
@@ -165,8 +165,8 @@
   display: block;
   float: left;
   margin: 0em;
-  -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
-          transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
+  -webkit-transition: -webkit-transform 0.2s ease 0.15s;
+          transition: transform 0.2s ease 0.15s;
 }
 .ui.move.reveal > .visible.content {
   position: relative !important;
@@ -206,8 +206,8 @@
 ---------------*/
 
 .ui.rotate.reveal > .visible.content {
-  -webkit-transition-duration: 0.8s;
-          transition-duration: 0.8s;
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
   -webkit-transform: rotate(0deg);
       -ms-transform: rotate(0deg);
           transform: rotate(0deg);
