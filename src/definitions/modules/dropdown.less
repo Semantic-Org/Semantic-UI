@@ -760,7 +760,9 @@ select.ui.dropdown {
 .ui.loading.dropdown > .text {
   transition: none;
 }
-.ui.dropdown > .loading.menu {
+
+/* Used To Check Position */
+.ui.dropdown .loading.menu {
   display: block;
   visibility: hidden;
   z-index: @loadingZIndex;
@@ -864,6 +866,7 @@ select.ui.dropdown {
 .ui.dropdown .menu .right.menu {
   left: 100% !important;
   right: auto !important;
+  border-radius: @subMenuBorderRadius !important;
 }
 
 /* Left Flyout Menu */
@@ -871,6 +874,7 @@ select.ui.dropdown {
 .ui.dropdown .menu .left.menu {
   left: auto !important;
   right: 100% !important;
+  border-radius: @leftSubMenuBorderRadius !important;
 }
 
 .ui.dropdown .item .left.dropdown.icon,
@@ -895,11 +899,18 @@ select.ui.dropdown {
      Upward
 ---------------*/
 
+/* Upward Main Menu */
 .ui.upward.dropdown > .menu {
   top: auto;
   bottom: 100%;
   box-shadow: @upwardMenuBoxShadow;
   border-radius: @upwardMenuBorderRadius;
+}
+
+/* Upward Sub Menu */
+.ui.dropdown .upward.menu {
+  top: auto !important;
+  bottom: 0 !important;
 }
 
 /* Active Upward */
@@ -915,19 +926,26 @@ select.ui.dropdown {
 .ui.upward.selection.dropdown .menu {
   border-top-width: @menuBorderWidth !important;
   border-bottom-width: 0px !important;
+  box-shadow: @upwardSelectionMenuBoxShadow;
 }
 .ui.upward.selection.dropdown:hover {
   box-shadow: @upwardSelectionHoverBoxShadow;
 }
-.ui.upward.selection.visible.dropdown:hover {
-  box-shadow: @upwardSelectionVisibleHoverBoxShadow;
-}
-.ui.active.upward.selection.dropdown,
-.ui.visible.upward.selection.dropdown {
+
+/* Active Upward */
+.ui.active.upward.selection.dropdown {
   border-radius: @upwardSelectionVisibleBorderRadius !important;
 }
+
+/* Visible Upward */
 .ui.upward.selection.dropdown.visible {
   box-shadow: @upwardSelectionVisibleBoxShadow;
+  border-radius: @upwardSelectionVisibleBorderRadius !important;
+}
+
+/* Visible Hover Upward */
+.ui.upward.selection.visible.dropdown:hover {
+  box-shadow: @upwardSelectionVisibleHoverBoxShadow;
 }
 .ui.upward.selection.visible.dropdown:hover .menu {
   box-shadow: @upwardSelectionVisibleHoverMenuBoxShadow;

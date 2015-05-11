@@ -314,17 +314,21 @@
 @scrollingWidescreenMaxMenuHeight: (@scrollingItemHeight * @selectionWidescreenMaxItems);
 
 /* Upward */
-@upwardMenuBoxShadow: 0px 0px 4px 0px @borderColor;
+@upwardSelectionVisibleBorderRadius: @selectionVisibleConnectingBorder @selectionVisibleConnectingBorder @borderRadius @borderRadius;
+@upwardMenuBoxShadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.08);
+@upwardSelectionMenuBoxShadow: 0px -2px 3px 0px rgba(0, 0, 0, 0.08);
 @upwardMenuBorderRadius: @borderRadius @borderRadius 0em 0em;
 @upwardSelectionHoverBoxShadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.05);
-@upwardSelectionVisibleBoxShadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
-@upwardSelectionVisibleHoverBoxShadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.05);
-@upwardSelectionVisibleHoverMenuBoxShadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
-@upwardSelectionVisibleBorderRadius: @selectionVisibleConnectingBorder @selectionVisibleConnectingBorder @borderRadius @borderRadius;
+@upwardSelectionVisibleBoxShadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.08);
+@upwardSelectionVisibleHoverBoxShadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.05);
+@upwardSelectionVisibleHoverMenuBoxShadow: 0px -2px 3px 0px rgba(0, 0, 0, 0.08);
 
 /* Flyout Direction */
 @leftMenuDropdownIconFloat: left;
 @leftMenuDropdownIconMargin: @itemLineHeightOffset @itemElementDistance 0em 0em;
+
+/* Left */
+@leftSubMenuBorderRadius: @borderRadius 0em 0em @borderRadius;
 
 /* Simple */
 @simpleTransitionDuration: @defaultDuration;

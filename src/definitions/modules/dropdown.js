@@ -345,14 +345,6 @@ $.fn.dropdown = function(parameters) {
                 return true;
               }
             }
-            if(settings.keepOnScreen) {
-              if(module.is.onScreen()) {
-                module.remove.upward();
-              }
-              else {
-                module.set.upward();
-              }
-            }
             module.animate.show(function() {
               if( module.can.click() ) {
                 module.bind.intent();
@@ -1252,9 +1244,9 @@ $.fn.dropdown = function(parameters) {
                 : 0
             ;
           },
-          transition: function() {
+          transition: function($subMenu) {
             return (settings.transition == 'auto')
-              ? module.is.upward()
+              ? module.is.upward($subMenu)
                 ? 'slide up'
                 : 'slide down'
               : settings.transition
@@ -1687,9 +1679,7 @@ $.fn.dropdown = function(parameters) {
             if($item && $menu.length > 0 && hasActive) {
               itemOffset = $item.position().top;
 
-              if(!$menu.hasClass(className.visible)) {
-                $menu.addClass(className.loading);
-              }
+              $menu.addClass(className.loading);
               menuScroll = $menu.scrollTop();
               menuOffset = $menu.offset().top;
               itemOffset = $item.offset().top;
@@ -1760,8 +1750,9 @@ $.fn.dropdown = function(parameters) {
               $nextValue.addClass(className.selected);
             }
           },
-          upward: function() {
-            $module.addClass(className.upward);
+          upward: function($menu) {
+            var $element = $menu || $module;
+            $element.addClass(className.upward);
           },
           value: function(value, text, $selected) {
             var
@@ -2042,8 +2033,9 @@ $.fn.dropdown = function(parameters) {
           activeLabel: function() {
             $module.find(selector.label).removeClass(className.active);
           },
-          upward: function() {
-            $module.removeClass(className.upward);
+          upward: function($menu) {
+            var $element = $menu || $module;
+            $element.removeClass(className.upward);
           },
           visible: function() {
             $module.removeClass(className.visible);
@@ -2258,22 +2250,20 @@ $.fn.dropdown = function(parameters) {
           hidden: function($subMenu) {
             return !module.is.visible($subMenu);
           },
-          onScreen: function() {
+          onScreen: function($subMenu) {
             var
-              isVisible,
-              height
+              $currentMenu = $subMenu || $menu,
+              onScreen
             ;
-            if(!$menu.hasClass(className.visible)) {
-              $menu.addClass(className.loading);
-            }
-            if($.fn.visibility !== undefined) {
-              isVisible = $menu.visibility('bottom visible');
-            }
-            else {
-
-            }
-            $menu.removeClass(className.loading);
-            return isVisible;
+            $currentMenu.addClass(className.loading);
+            onScreen = ($.fn.visibility !== undefined)
+              ? $currentMenu.visibility('bottom visible')
+              : $('body').scrollTop() + $(window).height() >= $currentMenu.offset().top + $currentMenu.height()
+            ;
+            console.log(onScreen, $currentMenu);
+            module.debug('Checking if menu can fit on screen', onScreen, $menu);
+            $currentMenu.removeClass(className.loading);
+            return onScreen;
           },
           inObject: function(needle, object) {
             var
@@ -2317,8 +2307,9 @@ $.fn.dropdown = function(parameters) {
           userValue: function(value) {
             return ($.inArray(value, module.get.userValues()) !== -1);
           },
-          upward: function() {
-            return ($module.hasClass(className.upward));
+          upward: function($menu) {
+            var $element = $menu || $module;
+            return $element.hasClass(className.upward);
           },
           visible: function($subMenu) {
             return ($subMenu)
@@ -2348,16 +2339,25 @@ $.fn.dropdown = function(parameters) {
                   module.hideOthers();
                   module.set.active();
                 },
-              transition = module.get.transition()
+              transition
             ;
             callback = $.isFunction(callback)
               ? callback
               : function(){}
             ;
-            if(module.is.selection()) {
+            module.verbose('Doing menu show animation', $currentMenu);
+            if(settings.keepOnScreen) {
+              if(module.is.onScreen($subMenu)) {
+                module.remove.upward($subMenu);
+              }
+              else {
+                module.set.upward($subMenu);
+              }
+            }
+            transition = module.get.transition($subMenu);
+            if( module.is.selection() ) {
               module.set.scrollPosition(module.get.selectedItem(), true);
             }
-            module.verbose('Doing menu show animation', $currentMenu);
             if( module.is.hidden($currentMenu) || module.is.animating($currentMenu) ) {
               if(transition == 'none') {
                 start();
@@ -2399,7 +2399,7 @@ $.fn.dropdown = function(parameters) {
                   module.focusSearch();
                   module.remove.active();
                 },
-              transition = module.get.transition()
+              transition = module.get.transition($subMenu)
             ;
             callback = $.isFunction(callback)
               ? callback
@@ -2652,7 +2652,7 @@ $.fn.dropdown.settings = {
   on                     : 'click',    // what event should show menu action on item selection
   action                 : 'activate', // action on item selection (nothing, activate, select, combo, hide, function(){})
 
-  keepOnScreen           : true,
+  keepOnScreen           : true,       // Whether dropdown should check whether it is on screen before showing
 
   match                  : 'both',     // what to match against with search selection (both, text, or label)
   fullTextSearch         : false,      // search anywhere in value
