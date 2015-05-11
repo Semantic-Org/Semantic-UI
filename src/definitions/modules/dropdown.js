@@ -2258,7 +2258,7 @@ $.fn.dropdown = function(parameters) {
             $currentMenu.addClass(className.loading);
             onScreen = (false && $.fn.visibility !== undefined)
               ? $currentMenu.visibility('bottom visible')
-              : $('body').scrollTop() + $(window).height() >= $currentMenu.offset().top + $currentMenu.height()
+              : $(window).scrollTop() + $(window).height() >= $currentMenu.offset().top + $currentMenu.height()
             ;
             module.debug('Checking if menu can fit on screen', onScreen, $menu);
             $currentMenu.removeClass(className.loading);
