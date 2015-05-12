@@ -7,6 +7,7 @@
 --------------------*/
 
 @transition:
+  box-shadow @defaultDuration @defaultEasing,
   width @defaultDuration @defaultEasing
 ;
 @borderRadius: @defaultBorderRadius;
@@ -65,7 +66,7 @@
 @subMenuRight: auto;
 @subMenuDistanceAway: -0.5em;
 @subMenuMargin: 0em 0em 0em @subMenuDistanceAway;
-@subMenuBorderRadius: 0em @borderRadius @borderRadius 0em;
+@subMenuBorderRadius: @borderRadius;
 @subMenuZIndex: 21;
 
 /* Menu Header */
@@ -197,9 +198,9 @@
 @selectionVisibleMenuBoxShadow: @raisedShadow;
 
 /* Visible Hover */
-@selectionVisibleHoverBorderColor: @selectedBorderColor;
-@selectionVisibleHoverBoxShadow: @selectionVisibleBoxShadow;
-@selectionVisibleHoverMenuBoxShadow: @selectionVisibleMenuBoxShadow;
+@selectionActiveHoverBorderColor: @selectedBorderColor;
+@selectionActiveHoverBoxShadow: @selectionVisibleBoxShadow;
+@selectionActiveHoverMenuBoxShadow: @selectionVisibleMenuBoxShadow;
 
 @selectionVisibleConnectingBorder: 0em;
 @selectionVisibleIconOpacity: 1;
@@ -262,6 +263,12 @@
        States
 --------------------*/
 
+/* Loading */
+@loaderSize: 1.2857em;
+@loaderOffset: -(@loaderSize / 2);
+@loaderMargin: @loaderOffset 0em 0em @loaderOffset;
+
+
 /* Hovered */
 @hoveredItemBackground: @transparentBlack;
 @hoveredItemColor: @selectedTextColor;
@@ -320,15 +327,15 @@
 @upwardMenuBorderRadius: @borderRadius @borderRadius 0em 0em;
 @upwardSelectionHoverBoxShadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.05);
 @upwardSelectionVisibleBoxShadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.08);
-@upwardSelectionVisibleHoverBoxShadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.05);
-@upwardSelectionVisibleHoverMenuBoxShadow: 0px -2px 3px 0px rgba(0, 0, 0, 0.08);
+@upwardSelectionActiveHoverBoxShadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.05);
+@upwardSelectionActiveHoverMenuBoxShadow: 0px -2px 3px 0px rgba(0, 0, 0, 0.08);
 
 /* Flyout Direction */
 @leftMenuDropdownIconFloat: left;
 @leftMenuDropdownIconMargin: @itemLineHeightOffset @itemElementDistance 0em 0em;
 
 /* Left */
-@leftSubMenuBorderRadius: @borderRadius 0em 0em @borderRadius;
+@leftSubMenuBorderRadius: @borderRadius;
 
 /* Simple */
 @simpleTransitionDuration: @defaultDuration;

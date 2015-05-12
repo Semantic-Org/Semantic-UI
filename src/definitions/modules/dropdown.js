@@ -231,6 +231,18 @@ $.fn.dropdown = function(parameters) {
         },
 
         setup: {
+          api: function() {
+            var
+              apiSettings = {
+                debug     : settings.debug,
+                on        : false,
+                action    : 'select'
+              },
+              searchHTML
+            ;
+            module.verbose('First request, initializing API');
+            $module.api(apiSettings);
+          },
           layout: function() {
             if( $module.is('select') ) {
               module.setup.select();
@@ -259,13 +271,7 @@ $.fn.dropdown = function(parameters) {
               module.debug('UI dropdown already exists. Creating dropdown menu only');
               $module = $input.closest(selector.dropdown);
               $menu   = $module.children(selector.menu);
-              if($menu.length === 0) {
-                $menu = $('<div />')
-                  .addClass(className.menu)
-                  .appendTo($module)
-                ;
-              }
-              $menu.html( templates.menu( selectValues ));
+              module.setup.menu(selectValues);
             }
             else {
               module.debug('Creating entire dropdown from select');
@@ -286,6 +292,15 @@ $.fn.dropdown = function(parameters) {
               module.set.multiple();
             }
             module.refresh();
+          },
+          menu: function(values) {
+            if($menu.length === 0) {
+              $menu = $('<div />')
+                .addClass(className.menu)
+                .appendTo($module)
+              ;
+            }
+            $menu.html( templates.menu( values ));
           },
           reference: function() {
             var
@@ -508,22 +523,103 @@ $.fn.dropdown = function(parameters) {
           }
         },
 
-        filter: function(searchTerm) {
+        filter: function(query) {
           var
-            $results         = $(),
-            allItemsFiltered,
-            escapedTerm,
-            beginsWithRegExp
+            searchTerm = (query !== undefined)
+              ? query
+              : module.get.query(),
+            afterFiltered = function() {
+              if(module.is.multiple()) {
+                module.filterActive();
+              }
+              module.select.firstUnfiltered();
+              if( module.has.allResultsFiltered() ) {
+                if( settings.onNoResults.call(element, searchTerm) ) {
+                  if(!settings.allowAdditions) {
+                    module.verbose('All items filtered, showing message', searchTerm);
+                    module.add.message(message.noResults);
+                  }
+                }
+                else {
+                  module.verbose('All items filtered, hiding dropdown', searchTerm);
+                  module.hideMenu();
+                }
+              }
+              else {
+                module.remove.message();
+              }
+            }
           ;
-          searchTerm = (searchTerm !== undefined)
-            ? searchTerm
-            : module.get.query()
-          ;
-          escapedTerm      = module.escape.regExp(searchTerm);
-          beginsWithRegExp = new RegExp('^' + escapedTerm, 'igm');
           if(module.has.maxSelections()) {
             return;
           }
+          if(false) {
+            // async
+            module.queryRemote(searchTerm, function() {
+              afterFiltered();
+            });
+          }
+          else {
+            // sync
+            module.filterItems(searchTerm);
+            afterFiltered();
+          }
+        },
+
+        queryRemote: function(query, callback) {
+          var
+            apiSettings = {
+              mockResponseAsync: function(settings, callback) {
+                setTimeout(function() {
+                  callback({
+                    success: true,
+                    results: [
+                      {
+                        name  : 'Apple',
+                        value : 'apple'
+                      },
+                      {
+                        name  : 'Bear',
+                        value : 'bear'
+                      },
+                      {
+                        name  : 'Pineapple',
+                        value : 'pineapple'
+                      }
+                    ]
+                  });
+                }, 300);
+              },
+              onSuccess : function(response) {
+                module.setup.menu({
+                  values: response.results
+                });
+                callback();
+              },
+              urlData: {
+                query: query
+              }
+            }
+          ;
+          if( !$module.api('get request') ) {
+            module.setup.api();
+          }
+          $.extend(true, apiSettings, settings.apiSettings);
+          module.debug('Executing remote search', apiSettings);
+          $module
+            .api('abort')
+            .api('setting', apiSettings)
+            .api('query')
+          ;
+        },
+
+        filterItems: function(searchTerm) {
+          var
+            $results         = $(),
+            escapedTerm      = module.escape.regExp(searchTerm),
+            beginsWithRegExp = new RegExp('^' + escapedTerm, 'igm')
+          ;
+          // avoid loop if we're matching nothing
           if(searchTerm === '') {
             $results = $item;
           }
@@ -569,25 +665,6 @@ $.fn.dropdown = function(parameters) {
             .not($results)
             .addClass(className.filtered)
           ;
-          if(module.is.multiple()) {
-            module.filterActive();
-          }
-          module.select.firstUnfiltered();
-          if( module.has.allResultsFiltered() ) {
-            if( settings.onNoResults.call(element, searchTerm) ) {
-              if(!settings.allowAdditions) {
-                module.verbose('All items filtered, showing message', searchTerm);
-                module.add.message(message.noResults);
-              }
-            }
-            else {
-              module.verbose('All items filtered, hiding dropdown', searchTerm);
-              module.hideMenu();
-            }
-          }
-          else {
-            module.remove.message();
-          }
         },
 
         fuzzySearch: function(query, term) {
@@ -1631,6 +1708,9 @@ $.fn.dropdown = function(parameters) {
               $text.removeClass(className.filtered);
             }
           },
+          loading: function() {
+            $module.addClass(className.loading);
+          },
           placeholderText: function(text) {
             module.debug('Restoring placeholder text');
             text = text || $module.data(metadata.placeholderText);
@@ -1691,11 +1771,9 @@ $.fn.dropdown = function(parameters) {
               }
               module.debug('Scrolling to active item', offset);
               if(forceScroll || abovePage || belowPage) {
-                $menu
-                  .scrollTop(offset)
-                  .removeClass(className.loading)
-                ;
+                $menu.scrollTop(offset);
               }
+              $menu.removeClass(className.loading);
             }
           },
           text: function(text) {
@@ -2032,6 +2110,9 @@ $.fn.dropdown = function(parameters) {
           },
           activeLabel: function() {
             $module.find(selector.label).removeClass(className.active);
+          },
+          loading: function() {
+            $module.removeClass(className.loading);
           },
           upward: function($menu) {
             var $element = $menu || $module;
@@ -2652,6 +2733,8 @@ $.fn.dropdown.settings = {
   on                     : 'click',    // what event should show menu action on item selection
   action                 : 'activate', // action on item selection (nothing, activate, select, combo, hide, function(){})
 
+  apiSettings            : {},
+
   keepOnScreen           : true,       // Whether dropdown should check whether it is on screen before showing
 
   match                  : 'both',     // what to match against with search selection (both, text, or label)
@@ -2797,13 +2880,12 @@ $.fn.dropdown.settings.templates = {
   },
 
   // generates just menu from select
-  menu: function(select) {
+  menu: function(response) {
     var
-      placeholder = select.placeholder || false,
-      values      = select.values || {},
-      html        = ''
+      values = response.values || {},
+      html   = ''
     ;
-    $.each(select.values, function(index, option) {
+    $.each(response.values, function(index, option) {
       html += '<div class="item" data-value="' + option.value + '">' + option.name + '</div>';
     });
     return html;

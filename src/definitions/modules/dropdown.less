@@ -86,6 +86,7 @@
 ---------------*/
 
 .ui.dropdown > .dropdown.icon {
+  position: relative;
   width: auto;
   margin: @dropdownIconMargin;
 }
@@ -499,13 +500,13 @@ select.ui.dropdown {
 }
 
 /* Visible Hover */
-.ui.selection.visible.dropdown:hover {
-  border-color: @selectionVisibleHoverBorderColor;
-  box-shadow: @selectionVisibleHoverBoxShadow;
+.ui.selection.active.dropdown:hover {
+  border-color: @selectionActiveHoverBorderColor;
+  box-shadow: @selectionActiveHoverBoxShadow;
 }
-.ui.selection.visible.dropdown:hover .menu {
-  border-color: @selectionVisibleHoverBorderColor;
-  box-shadow: @selectionVisibleHoverMenuBoxShadow;
+.ui.selection.active.dropdown:hover .menu {
+  border-color: @selectionActiveHoverBorderColor;
+  box-shadow: @selectionActiveHoverMenuBoxShadow;
 }
 
 /* Dropdown Icon */
@@ -738,6 +739,59 @@ select.ui.dropdown {
   z-index: @hoveredZIndex;
 }
 
+/*--------------------
+       Loading
+---------------------*/
+
+/* Positioning */
+.ui.loading.dropdown > i.icon:before,
+.ui.loading.dropdown > i.icon:after {
+  left: 30% !important;
+}
+.ui.loading.dropdown > i.icon {
+  top: 50% !important;
+}
+.ui.multiple.loading.dropdown > i.icon:before,
+.ui.multiple.loading.dropdown > i.icon:after {
+  top: 0% !important;
+  left: 0% !important;
+}
+
+.ui.loading.dropdown > i.icon:before {
+  position: absolute;
+  content: '';
+  top: 50%;
+  left: 50%;
+
+  margin: @loaderMargin;
+  width: @loaderSize;
+  height: @loaderSize;
+
+  border-radius: @circularRadius;
+  border: @loaderLineWidth solid @loaderFillColor;
+}
+.ui.loading.dropdown > i.icon:after {
+  position: absolute;
+  content: '';
+  top: 50%;
+  left: 50%;
+
+  margin: @loaderMargin;
+  width: @loaderSize;
+  height: @loaderSize;
+
+  animation: button-spin @loaderSpeed linear;
+  animation-iteration-count: infinite;
+
+  border-radius: @circularRadius;
+
+  border-color: @loaderLineColor transparent transparent;
+  border-style: solid;
+  border-width: @loaderLineWidth;
+
+  box-shadow: 0px 0px 0px 1px transparent;
+}
+
 
 
 /*--------------------
@@ -944,11 +998,11 @@ select.ui.dropdown {
 }
 
 /* Visible Hover Upward */
-.ui.upward.selection.visible.dropdown:hover {
-  box-shadow: @upwardSelectionVisibleHoverBoxShadow;
+.ui.upward.active.selection.dropdown:hover {
+  box-shadow: @upwardSelectionActiveHoverBoxShadow;
 }
-.ui.upward.selection.visible.dropdown:hover .menu {
-  box-shadow: @upwardSelectionVisibleHoverMenuBoxShadow;
+.ui.upward.active.selection.dropdown:hover .menu {
+  box-shadow: @upwardSelectionActiveHoverMenuBoxShadow;
 }
 
 /*--------------
