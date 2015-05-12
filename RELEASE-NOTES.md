@@ -1,5 +1,6 @@
 ## RELEASE NOTES
 
+<<<<<<< HEAD
 ### Version 2.0.0 - March xx, 2015
 
 -**Migration Guide**
@@ -222,6 +223,22 @@
 - **Table** - Horizontal cell padding has been slightly reduced, and cell borders are slightly lighter.
 - **Transition - Transition no longer checks for vendor prefixed `animation-name` css property. This was introduced in jQuery `1.8`
 - **Visibility** - In returned `calculations` object, `visible` and `hidden` are renamed to `onScreen` and `offScreen`, since this describes more accurately what the value represents.
+=======
+### Version 1.12.2 - May 4, 2015
+
+**Bugs**
+- **Dropdown** - Fixed `left` and `right` arrow does not move input cursor with `visible selection dropdown`. Event accidentally prevented by `sub menu` shortcut keys.
+
+### Version 1.12.1 - April 26, 2015
+
+**Bugs**
+- **Dropdown** - Fixes issue with chained dropdown methods used on a `<select>` not applying to the generated `ui dropdown` **Backport from 2.0**
+- **Input** - Fixes labeled inputs not adjusting correctly with flex. **Backported from 2.0**
+- **Input** - Fixes placeholder text color prefixes for `webkit` **Backport from 2.0**
+- **Progress* - Fixes rounding error in precision settings *Thanks @aaroncox*
+- **Popup** - Removes `min-width: moz-max-content` from popups, which may cause display differences between chrome and FF
+
+>>>>>>> 8d9f4e684156e4f62f5ff8c2a2e65cb657d7949e
 
 ### Version 1.12.0 - April 13, 2015
 

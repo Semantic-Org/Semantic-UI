@@ -1,6 +1,10 @@
 {
   "name"        : "semantic-ui",
+<<<<<<< HEAD
   "version"     : "2.0.0",
+=======
+  "version"     : "1.12.2",
+>>>>>>> 8d9f4e684156e4f62f5ff8c2a2e65cb657d7949e
   "title"       : "Semantic UI",
   "description" : "Semantic empowers designers and developers by creating a shared vocabulary for UI.",
   "homepage"    : "http://www.semantic-ui.com",
@@ -45,6 +49,7 @@
     "require-dot-file": "*"
   },
   "dependencies": {
+<<<<<<< HEAD
     "better-console": "*",
     "del": "^1.1.1",
     "extend": "^2.0.0",
@@ -78,6 +83,39 @@
     "map-stream": "^0.1.0",
     "yamljs": "^0.2.1",
     "wrench": "git://github.com/derekslife/wrench-js.git#156eaceed68ed31ffe2a3ecfbcb2be6ed1417fb2"
+=======
+    "better-console"    : "0.*",
+    "del"               : "1.*",
+    "extend"            : "2.*",
+    "gulp"              : "3.*",
+    "gulp-autoprefixer" : "2.*",
+    "gulp-chmod"        : "1.*",
+    "gulp-clone"        : "1.*",
+    "gulp-concat"       : "2.*",
+    "gulp-concat-css"   : "2.*",
+    "gulp-copy"         : "0.*",
+    "gulp-flatten"      : "0.*",
+    "gulp-header"       : "1.*",
+    "gulp-help"         : "1.*",
+    "gulp-if"           : "1.*",
+    "gulp-json-editor"  : "2.*",
+    "gulp-less"         : "3.*",
+    "gulp-minify-css"   : "0.*",
+    "gulp-notify"       : "2.*",
+    "gulp-plumber"      : "0.*",
+    "gulp-print"        : "1.*",
+    "gulp-prompt"       : "0.*",
+    "gulp-rename"       : "1.*",
+    "gulp-replace"      : "0.*",
+    "gulp-rtlcss"       : "0.*",
+    "gulp-uglify"       : "1.*",
+    "gulp-util"         : "3.*",
+    "gulp-watch"        : "4.*",
+    "jquery"            : "x.*",
+    "mkdirp"            : "0.*",
+    "require-dot-file"  : "0.*",
+    "wrench"            : "https://github.com/derekslife/wrench-js/tarball/156eaceed68ed31ffe2a3ecfbcb2be6ed1417fb2"
+>>>>>>> 8d9f4e684156e4f62f5ff8c2a2e65cb657d7949e
   },
   "devDependencies": {
     "github": "^0.2.3",
