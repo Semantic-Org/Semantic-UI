@@ -474,7 +474,7 @@ $.api = $.fn.api = function(parameters) {
               else if( $.isFunction(settings.mockResponseAsync) ) {
                 callback = function(response) {
                   module.verbose('Async callback returned response', response);
-                  module.request.resolveWith(context, response);
+                  module.request.resolveWith(context, [response]);
                 };
                 module.debug('Using async mocked response', settings.mockResponseAsync);
                 settings.mockResponseAsync.call(context, settings, callback);
