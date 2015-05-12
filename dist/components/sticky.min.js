@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.0 - Sticky
+ * # Semantic UI x.x - Sticky
  * http://github.com/semantic-org/semantic-ui/
  *
  *

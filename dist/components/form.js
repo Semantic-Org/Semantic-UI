@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.0 - Form Validation
+ * # Semantic UI x.x - Form Validation
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -177,7 +177,7 @@ $.fn.form = function(parameters) {
                 $element.dropdown('clear');
               }
               else if(isCheckbox) {
-                $element.checkbox('uncheck');
+                $field.prop('checked', false);
               }
               else {
                 module.verbose('Resetting field value', $field, defaultValue);
@@ -195,11 +195,14 @@ $.fn.form = function(parameters) {
                 $element     = $field.parent(),
                 $fieldGroup  = $field.closest($group),
                 $prompt      = $fieldGroup.find(selector.prompt),
-                defaultValue = $field.data(metadata.defaultValue) || '',
+                defaultValue = $field.data(metadata.defaultValue),
                 isCheckbox   = $element.is(selector.uiCheckbox),
                 isDropdown   = $element.is(selector.uiDropdown),
                 isErrored    = $fieldGroup.hasClass(className.error)
               ;
+              if(defaultValue === undefined) {
+                defaultValue = '';
+              }
               if(isErrored) {
                 module.verbose('Resetting error on field', $fieldGroup);
                 $fieldGroup.removeClass(className.error);
@@ -211,12 +214,7 @@ $.fn.form = function(parameters) {
               }
               else if(isCheckbox) {
                 module.verbose('Resetting checkbox value', $element, defaultValue);
-                if(defaultValue === true) {
-                  $element.checkbox('check');
-                }
-                else {
-                  $element.checkbox('uncheck');
-                }
+                $field.prop('checked', defaultValue);
               }
               else {
                 module.verbose('Resetting field value', $field, defaultValue);
@@ -589,6 +587,9 @@ $.fn.form = function(parameters) {
                     : $field.val()
                 ;
                 $field.data(metadata.defaultValue, value);
+                if(isCheckbox) {
+                  console.log($field.is(':checked'), $field, $field.data(metadata.defaultValue));
+                }
               })
             ;
           },

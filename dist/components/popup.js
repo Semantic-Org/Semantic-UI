@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.0 - Popup
+ * # Semantic UI x.x - Popup
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -470,18 +470,24 @@ $.fn.popup = function(parameters) {
           },
           offstagePosition: function(position) {
             var
-              boundary  = {
+              screen = {
                 top    : $(window).scrollTop(),
-                bottom : $(window).scrollTop() + $(window).height(),
-                left   : 0,
-                right  : $(window).width()
+                left   : $(window).scrollLeft(),
+                width  : $(window).width(),
+                height : $(window).height()
               },
-              popup     = {
+              boundary = {
+                top    : screen.top,
+                bottom : screen.top + screen.height,
+                left   : screen.left,
+                right  : screen.left + screen.width
+              },
+              popup = {
                 width  : $popup.width(),
                 height : $popup.height(),
                 offset : $popup.offset()
               },
-              offstage  = {},
+              offstage = {},
               offstagePositions = []
             ;
             position = position || false;
@@ -742,7 +748,7 @@ $.fn.popup = function(parameters) {
 
             // recursively find new positioning
             if(offstagePosition) {
-              module.debug('Popup cant fit into viewport', offstagePosition);
+              module.debug('Popup cant fit into viewport', position, offstagePosition);
               if(searchDepth < settings.maxSearchDepth) {
                 searchDepth++;
                 position = module.get.nextPosition(position);

@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.0 - Item
+ * # Semantic UI x.x - Item
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -140,7 +140,7 @@
   padding-left: 1.5em;
 }
 .ui.items > .item > .content > .header {
-  display: block;
+  display: inline-block;
   margin: -0.21425em 0em 0em;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: bold;

@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.0 - Dropdown
+ * # Semantic UI x.x - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -2256,9 +2256,9 @@ $.fn.dropdown = function(parameters) {
               onScreen
             ;
             $currentMenu.addClass(className.loading);
-            onScreen = (false && $.fn.visibility !== undefined)
+            onScreen = ($.fn.visibility !== undefined)
               ? $currentMenu.visibility('bottom visible')
-              : $('body').scrollTop() + $(window).height() >= $currentMenu.offset().top + $currentMenu.height()
+              : $(window).scrollTop() + $(window).height() >= $currentMenu.offset().top + $currentMenu.height()
             ;
             module.debug('Checking if menu can fit on screen', onScreen, $menu);
             $currentMenu.removeClass(className.loading);

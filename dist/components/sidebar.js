@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.0 - Sidebar
+ * # Semantic UI x.x - Sidebar
  * http://github.com/semantic-org/semantic-ui/
  *
  *

@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 2.0.0
+ * # Semantic UI - x.x
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -9,7 +9,7 @@
  *
  */
 /*!
- * # Semantic UI 2.0.0 - Site
+ * # Semantic UI x.x - Site
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -496,7 +496,7 @@ $.extend($.expr[ ":" ], {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 2.0.0 - Form Validation
+ * # Semantic UI x.x - Form Validation
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -674,7 +674,7 @@ $.fn.form = function(parameters) {
                 $element.dropdown('clear');
               }
               else if(isCheckbox) {
-                $element.checkbox('uncheck');
+                $field.prop('checked', false);
               }
               else {
                 module.verbose('Resetting field value', $field, defaultValue);
@@ -692,11 +692,14 @@ $.fn.form = function(parameters) {
                 $element     = $field.parent(),
                 $fieldGroup  = $field.closest($group),
                 $prompt      = $fieldGroup.find(selector.prompt),
-                defaultValue = $field.data(metadata.defaultValue) || '',
+                defaultValue = $field.data(metadata.defaultValue),
                 isCheckbox   = $element.is(selector.uiCheckbox),
                 isDropdown   = $element.is(selector.uiDropdown),
                 isErrored    = $fieldGroup.hasClass(className.error)
               ;
+              if(defaultValue === undefined) {
+                defaultValue = '';
+              }
               if(isErrored) {
                 module.verbose('Resetting error on field', $fieldGroup);
                 $fieldGroup.removeClass(className.error);
@@ -708,12 +711,7 @@ $.fn.form = function(parameters) {
               }
               else if(isCheckbox) {
                 module.verbose('Resetting checkbox value', $element, defaultValue);
-                if(defaultValue === true) {
-                  $element.checkbox('check');
-                }
-                else {
-                  $element.checkbox('uncheck');
-                }
+                $field.prop('checked', defaultValue);
               }
               else {
                 module.verbose('Resetting field value', $field, defaultValue);
@@ -1086,6 +1084,9 @@ $.fn.form = function(parameters) {
                     : $field.val()
                 ;
                 $field.data(metadata.defaultValue, value);
+                if(isCheckbox) {
+                  console.log($field.is(':checked'), $field, $field.data(metadata.defaultValue));
+                }
               })
             ;
           },
@@ -1742,7 +1743,7 @@ $.fn.form.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.0 - Accordion
+ * # Semantic UI x.x - Accordion
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -2334,7 +2335,7 @@ $.extend( $.easing, {
 
 
 /*!
- * # Semantic UI 2.0.0 - Checkbox
+ * # Semantic UI x.x - Checkbox
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -2868,7 +2869,7 @@ $.fn.checkbox.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.0 - Dimmer
+ * # Semantic UI x.x - Dimmer
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -3535,7 +3536,7 @@ $.fn.dimmer.settings = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 2.0.0 - Dropdown
+ * # Semantic UI x.x - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -5792,9 +5793,9 @@ $.fn.dropdown = function(parameters) {
               onScreen
             ;
             $currentMenu.addClass(className.loading);
-            onScreen = (false && $.fn.visibility !== undefined)
+            onScreen = ($.fn.visibility !== undefined)
               ? $currentMenu.visibility('bottom visible')
-              : $('body').scrollTop() + $(window).height() >= $currentMenu.offset().top + $currentMenu.height()
+              : $(window).scrollTop() + $(window).height() >= $currentMenu.offset().top + $currentMenu.height()
             ;
             module.debug('Checking if menu can fit on screen', onScreen, $menu);
             $currentMenu.removeClass(className.loading);
@@ -6365,7 +6366,7 @@ $.fn.dropdown.settings.templates = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 2.0.0 - Video
+ * # Semantic UI x.x - Video
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -7016,7 +7017,7 @@ $.fn.embed.settings.templates = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.0 - Modal
+ * # Semantic UI x.x - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -7924,7 +7925,7 @@ $.fn.modal.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.0 - Nag
+ * # Semantic UI x.x - Nag
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -8401,7 +8402,7 @@ $.fn.nag.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.0 - Popup
+ * # Semantic UI x.x - Popup
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -8872,18 +8873,24 @@ $.fn.popup = function(parameters) {
           },
           offstagePosition: function(position) {
             var
-              boundary  = {
+              screen = {
                 top    : $(window).scrollTop(),
-                bottom : $(window).scrollTop() + $(window).height(),
-                left   : 0,
-                right  : $(window).width()
+                left   : $(window).scrollLeft(),
+                width  : $(window).width(),
+                height : $(window).height()
               },
-              popup     = {
+              boundary = {
+                top    : screen.top,
+                bottom : screen.top + screen.height,
+                left   : screen.left,
+                right  : screen.left + screen.width
+              },
+              popup = {
                 width  : $popup.width(),
                 height : $popup.height(),
                 offset : $popup.offset()
               },
-              offstage  = {},
+              offstage = {},
               offstagePositions = []
             ;
             position = position || false;
@@ -9144,7 +9151,7 @@ $.fn.popup = function(parameters) {
 
             // recursively find new positioning
             if(offstagePosition) {
-              module.debug('Popup cant fit into viewport', offstagePosition);
+              module.debug('Popup cant fit into viewport', position, offstagePosition);
               if(searchDepth < settings.maxSearchDepth) {
                 searchDepth++;
                 position = module.get.nextPosition(position);
@@ -9655,7 +9662,7 @@ $.extend( $.easing, {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.0 - Progress
+ * # Semantic UI x.x - Progress
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -9839,7 +9846,7 @@ $.fn.progress = function(parameters) {
             var
               value   = module.value                || 0,
               total   = module.total                || 0,
-              percent = (module.is.visible() && animating)
+              percent = (animating)
                 ? module.get.displayPercent()
                 : module.percent || 0,
               left = (module.total > 0)
@@ -9892,7 +9899,7 @@ $.fn.progress = function(parameters) {
             if(settings.precision === 0) {
               return Math.round(displayPercent);
             }
-            return Math.round(displayPercent * (10 * settings.precision) / (10 * settings.precision) );
+            return Math.round(displayPercent * (10 * settings.precision)) / (10 * settings.precision);
           },
 
           percent: function() {
@@ -10017,11 +10024,11 @@ $.fn.progress = function(parameters) {
               percent = Math.round(percent);
             }
             else {
-              percent = Math.round(percent * (10 * settings.precision) / (10 * settings.precision) );
+              percent = Math.round(percent * (10 * settings.precision)) / (10 * settings.precision);
             }
             module.percent = percent;
             if(module.total) {
-              module.value = Math.round( (percent / 100) * module.total);
+              module.value = Math.round( (percent / 100) * module.total * (10 * settings.precision)) / (10 * settings.precision);
             }
             else if(settings.limitValues) {
               module.value = (module.value > 100)
@@ -10032,9 +10039,7 @@ $.fn.progress = function(parameters) {
               ;
             }
             module.set.barWidth(percent);
-            if( module.is.visible() ) {
-              module.set.labelInterval();
-            }
+            module.set.labelInterval();
             module.set.labels();
             settings.onChange.call(element, percent, module.value, module.total);
           },
@@ -10440,7 +10445,7 @@ $.fn.progress.settings = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 2.0.0 - Rating
+ * # Semantic UI x.x - Rating
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -10904,7 +10909,7 @@ $.fn.rating.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.0 - Search
+ * # Semantic UI x.x - Search
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -12155,7 +12160,7 @@ $.fn.search.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.0 - Shape
+ * # Semantic UI x.x - Shape
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -13002,7 +13007,7 @@ $.fn.shape.settings = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 2.0.0 - Sidebar
+ * # Semantic UI x.x - Sidebar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -14125,7 +14130,7 @@ $.extend( $.easing, {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.0 - Sticky
+ * # Semantic UI x.x - Sticky
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -14943,7 +14948,7 @@ $.fn.sticky.settings = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 2.0.0 - Tab
+ * # Semantic UI x.x - Tab
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -15768,7 +15773,7 @@ $.fn.tab.settings = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 2.0.0 - Transition
+ * # Semantic UI x.x - Transition
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -15993,6 +15998,7 @@ $.fn.transition = function() {
             }
             else {
               module.restore.conditions();
+              module.show();
             }
             module.remove.animation();
             module.remove.animating();
@@ -16046,7 +16052,7 @@ $.fn.transition = function() {
             }
             module.set.duration(settings.duration);
             settings.onStart.call(this);
-            module.debug('Starting tween', animation, $module.attr('class'));
+            module.debug('Starting tween', animation);
           },
           duration: function(animationName, duration) {
             duration = duration || settings.duration;
@@ -16782,7 +16788,7 @@ $.fn.transition.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.0 - API
+ * # Semantic UI x.x - API
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -17700,7 +17706,7 @@ $.api.settings.api = {};
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.0 - State
+ * # Semantic UI x.x - State
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -18396,7 +18402,7 @@ $.fn.state.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.0 - Visibility
+ * # Semantic UI x.x - Visibility
  * http://github.com/semantic-org/semantic-ui/
  *
  *

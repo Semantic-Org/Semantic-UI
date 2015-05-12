@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.0 - Progress
+ * # Semantic UI x.x - Progress
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -183,7 +183,7 @@ $.fn.progress = function(parameters) {
             var
               value   = module.value                || 0,
               total   = module.total                || 0,
-              percent = (module.is.visible() && animating)
+              percent = (animating)
                 ? module.get.displayPercent()
                 : module.percent || 0,
               left = (module.total > 0)
@@ -236,7 +236,7 @@ $.fn.progress = function(parameters) {
             if(settings.precision === 0) {
               return Math.round(displayPercent);
             }
-            return Math.round(displayPercent * (10 * settings.precision) / (10 * settings.precision) );
+            return Math.round(displayPercent * (10 * settings.precision)) / (10 * settings.precision);
           },
 
           percent: function() {
@@ -361,11 +361,11 @@ $.fn.progress = function(parameters) {
               percent = Math.round(percent);
             }
             else {
-              percent = Math.round(percent * (10 * settings.precision) / (10 * settings.precision) );
+              percent = Math.round(percent * (10 * settings.precision)) / (10 * settings.precision);
             }
             module.percent = percent;
             if(module.total) {
-              module.value = Math.round( (percent / 100) * module.total);
+              module.value = Math.round( (percent / 100) * module.total * (10 * settings.precision)) / (10 * settings.precision);
             }
             else if(settings.limitValues) {
               module.value = (module.value > 100)
@@ -376,9 +376,7 @@ $.fn.progress = function(parameters) {
               ;
             }
             module.set.barWidth(percent);
-            if( module.is.visible() ) {
-              module.set.labelInterval();
-            }
+            module.set.labelInterval();
             module.set.labels();
             settings.onChange.call(element, percent, module.value, module.total);
           },

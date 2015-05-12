@@ -587,9 +587,6 @@ $.fn.form = function(parameters) {
                     : $field.val()
                 ;
                 $field.data(metadata.defaultValue, value);
-                if(isCheckbox) {
-                  console.log($field.is(':checked'), $field, $field.data(metadata.defaultValue));
-                }
               })
             ;
           },
