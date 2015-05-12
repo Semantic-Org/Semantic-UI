@@ -553,7 +553,7 @@ $.fn.dropdown = function(parameters) {
           if(module.has.maxSelections()) {
             return;
           }
-          if(false) {
+          if(true) {
             // async
             module.queryRemote(searchTerm, function() {
               afterFiltered();
@@ -720,7 +720,6 @@ $.fn.dropdown = function(parameters) {
           if(hasSelected) {
             module.debug('Forcing partial selection to selected item', $selectedItem);
             module.event.item.click.call($selectedItem);
-            module.remove.filteredItem();
           }
           else {
             module.hide();
@@ -1565,7 +1564,7 @@ $.fn.dropdown = function(parameters) {
                 return true;
               }
               else {
-                module.verbose('No longer maximum selection count, removing message');
+                module.verbose('No longer at maximum selection count');
                 module.remove.message();
                 module.remove.filteredItem();
                 if(module.is.searchSelection()) {
