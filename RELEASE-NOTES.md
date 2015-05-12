@@ -124,6 +124,7 @@
 - **Form** - `field` inside `fields` no longer produce double sized margins.
 - **Form** - Form sizes and input sizes now inherit from `site.variables`
 - **Form Validation** - Fixed bug causing `match` rule not to work as expected.
+- **Form Validation** - Fixed `clear` and `reset` causing validation error to appear on checkbox if empty rule was set on checkbox.
 - **Form Validation** - Form validation now validates correctly on `<select>` change
 - **Form/Input** - `ui labeled input` inside `form` will no longer escape column width. `ui fluid input` will now use input widths shorter than browser default.
 - **Grid** - Fix `doubling row` not working correctly inside a different `doubling grid` (css spec issue)
