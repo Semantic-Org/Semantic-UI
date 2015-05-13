@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI x.x - Popup
+ * # Semantic UI 2.0.0 - Popup
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -1160,7 +1160,6 @@ $.fn.popup.settings = {
 
   // transition settings
   duration       : 200,
-  easing         : 'easeOutQuint',
   transition     : 'scale',
 
   // distance away from activating element in px

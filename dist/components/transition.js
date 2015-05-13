@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI x.x - Transition
+ * # Semantic UI 2.0.0 - Transition
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -175,7 +175,7 @@ $.fn.transition = function() {
             }
             else {
               module.debug('New animation started, completing previous early', settings.animation);
-              module.complete();
+              instance.complete();
             }
           }
           if( module.can.animate() ) {
@@ -404,7 +404,7 @@ $.fn.transition = function() {
               duration = module.get.duration()
             ;
             module.timer = setTimeout(function() {
-              $module.trigger(animationEnd);
+              $module.triggerHandler(animationEnd);
             }, duration + settings.failSafeDelay);
             module.verbose('Adding fail safe timer', module.timer);
           }
@@ -736,13 +736,13 @@ $.fn.transition = function() {
 
         stop: function() {
           module.debug('Stopping current animation');
-          $module.trigger(animationEnd);
+          $module.triggerHandler(animationEnd);
         },
 
         stopAll: function() {
           module.debug('Stopping all animation');
           module.remove.queueCallback();
-          $module.trigger(animationEnd);
+          $module.triggerHandler(animationEnd);
         },
 
         clear: {

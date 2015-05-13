@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI x.x - Sticky
+ * # Semantic UI 2.0.0 - Sticky
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -176,7 +176,7 @@ $.fn.sticky = function(parameters) {
           },
           scroll: function() {
             requestAnimationFrame(function() {
-              $scroll.trigger('scrollchange' + eventNamespace, $scroll.scrollTop() );
+              $scroll.triggerHandler('scrollchange' + eventNamespace, $scroll.scrollTop() );
             });
           },
           scrollchange: function(event, scrollPosition) {

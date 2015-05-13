@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI x.x - Form Validation
+ * # Semantic UI 2.0.0 - Form Validation
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -587,9 +587,6 @@ $.fn.form = function(parameters) {
                     : $field.val()
                 ;
                 $field.data(metadata.defaultValue, value);
-                if(isCheckbox) {
-                  console.log($field.is(':checked'), $field, $field.data(metadata.defaultValue));
-                }
               })
             ;
           },

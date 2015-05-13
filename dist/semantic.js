@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - x.x
+ * # Semantic UI - 2.0.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -9,7 +9,7 @@
  *
  */
 /*!
- * # Semantic UI x.x - Site
+ * # Semantic UI 2.0.0 - Site
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -496,7 +496,7 @@ $.extend($.expr[ ":" ], {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI x.x - Form Validation
+ * # Semantic UI 2.0.0 - Form Validation
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -1084,9 +1084,6 @@ $.fn.form = function(parameters) {
                     : $field.val()
                 ;
                 $field.data(metadata.defaultValue, value);
-                if(isCheckbox) {
-                  console.log($field.is(':checked'), $field, $field.data(metadata.defaultValue));
-                }
               })
             ;
           },
@@ -1743,7 +1740,7 @@ $.fn.form.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI x.x - Accordion
+ * # Semantic UI 2.0.0 - Accordion
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -2335,7 +2332,7 @@ $.extend( $.easing, {
 
 
 /*!
- * # Semantic UI x.x - Checkbox
+ * # Semantic UI 2.0.0 - Checkbox
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -2869,7 +2866,7 @@ $.fn.checkbox.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI x.x - Dimmer
+ * # Semantic UI 2.0.0 - Dimmer
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -3536,7 +3533,7 @@ $.fn.dimmer.settings = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI x.x - Dropdown
+ * # Semantic UI 2.0.0 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -3731,12 +3728,6 @@ $.fn.dropdown = function(parameters) {
           ;
           module.verbose('Searching for query', query);
           module.filter(query);
-          if(settings.allowAdditions) {
-            module.add.userChoice(query);
-          }
-          if(module.is.searchSelection() && module.can.show() ) {
-            module.show();
-          }
         },
 
         select: {
@@ -3782,6 +3773,12 @@ $.fn.dropdown = function(parameters) {
             if(settings.allowTab) {
               module.set.tabbable();
             }
+            if($menu.length === 0) {
+              $menu = $('<div />')
+                .addClass(className.menu)
+                .appendTo($module)
+              ;
+            }
           },
           select: function() {
             var
@@ -3796,13 +3793,7 @@ $.fn.dropdown = function(parameters) {
               module.debug('UI dropdown already exists. Creating dropdown menu only');
               $module = $input.closest(selector.dropdown);
               $menu   = $module.children(selector.menu);
-              if($menu.length === 0) {
-                $menu = $('<div />')
-                  .addClass(className.menu)
-                  .appendTo($module)
-                ;
-              }
-              $menu.html( templates.menu( selectValues ));
+              module.setup.menu(selectValues);
             }
             else {
               module.debug('Creating entire dropdown from select');
@@ -3823,6 +3814,10 @@ $.fn.dropdown = function(parameters) {
               module.set.multiple();
             }
             module.refresh();
+          },
+          menu: function(values) {
+            $menu.html( templates.menu( values ));
+            $item = $menu.find(selector.item);
           },
           reference: function() {
             var
@@ -4045,22 +4040,95 @@ $.fn.dropdown = function(parameters) {
           }
         },
 
-        filter: function(searchTerm) {
+        filter: function(query) {
           var
-            $results         = $(),
-            allItemsFiltered,
-            escapedTerm,
-            beginsWithRegExp
+            searchTerm = (query !== undefined)
+              ? query
+              : module.get.query(),
+            afterFiltered = function() {
+              if(module.is.multiple()) {
+                module.filterActive();
+              }
+              module.select.firstUnfiltered();
+              if( module.has.allResultsFiltered() ) {
+                if( settings.onNoResults.call(element, searchTerm) ) {
+                  if(!settings.allowAdditions) {
+                    module.verbose('All items filtered, showing message', searchTerm);
+                    module.add.message(message.noResults);
+                  }
+                }
+                else {
+                  module.verbose('All items filtered, hiding dropdown', searchTerm);
+                  module.hideMenu();
+                }
+              }
+              else {
+                module.remove.message();
+              }
+              if(settings.allowAdditions) {
+                module.add.userChoice(query);
+              }
+              if(module.is.searchSelection() && module.can.show() ) {
+                module.show();
+              }
+            }
           ;
-          searchTerm = (searchTerm !== undefined)
-            ? searchTerm
-            : module.get.query()
-          ;
-          escapedTerm      = module.escape.regExp(searchTerm);
-          beginsWithRegExp = new RegExp('^' + escapedTerm, 'igm');
           if(module.has.maxSelections()) {
             return;
           }
+          if(settings.apiSettings) {
+            module.queryRemote(searchTerm, function() {
+              afterFiltered();
+            });
+          }
+          else {
+            module.filterItems(searchTerm);
+            afterFiltered();
+          }
+        },
+
+        queryRemote: function(query, callback) {
+          var
+            apiSettings = {
+              debug         : settings.debug,
+              on            : false,
+              errorDuration : false,
+              urlData: {
+                query: query
+              },
+              onError: function() {
+                module.add.message(message.serverError);
+              },
+              onFailure: function() {
+                module.add.message(message.serverError);
+              },
+              onSuccess : function(response) {
+                module.remove.message();
+                module.setup.menu({
+                  values: response.results
+                });
+                callback();
+              }
+            }
+          ;
+          apiSettings = $.extend(true, {}, apiSettings, settings.apiSettings);
+          $module
+            .api(apiSettings)
+            .api('abort')
+            .api('query')
+          ;
+        },
+
+        filterItems: function(query) {
+          var
+            searchTerm = (query !== undefined)
+              ? query
+              : module.get.query(),
+            $results         = $(),
+            escapedTerm      = module.escape.regExp(searchTerm),
+            beginsWithRegExp = new RegExp('^' + escapedTerm, 'igm')
+          ;
+          // avoid loop if we're matching nothing
           if(searchTerm === '') {
             $results = $item;
           }
@@ -4106,25 +4174,6 @@ $.fn.dropdown = function(parameters) {
             .not($results)
             .addClass(className.filtered)
           ;
-          if(module.is.multiple()) {
-            module.filterActive();
-          }
-          module.select.firstUnfiltered();
-          if( module.has.allResultsFiltered() ) {
-            if( settings.onNoResults.call(element, searchTerm) ) {
-              if(!settings.allowAdditions) {
-                module.verbose('All items filtered, showing message', searchTerm);
-                module.add.message(message.noResults);
-              }
-            }
-            else {
-              module.verbose('All items filtered, hiding dropdown', searchTerm);
-              module.hideMenu();
-            }
-          }
-          else {
-            module.remove.message();
-          }
         },
 
         fuzzySearch: function(query, term) {
@@ -4180,7 +4229,6 @@ $.fn.dropdown = function(parameters) {
           if(hasSelected) {
             module.debug('Forcing partial selection to selected item', $selectedItem);
             module.event.item.click.call($selectedItem);
-            module.remove.filteredItem();
           }
           else {
             module.hide();
@@ -4226,6 +4274,9 @@ $.fn.dropdown = function(parameters) {
               }
               if(settings.showOnFocus) {
                 module.show();
+              }
+              if(module.is.searchSelection()) {
+                module.search();
               }
             },
             blur: function(event) {
@@ -4489,7 +4540,6 @@ $.fn.dropdown = function(parameters) {
                     module.verbose('Removing last label on input backspace');
                     $activeLabel = $label.last().addClass(className.active);
                     module.remove.labels($activeLabel);
-                    event.preventDefault();
                   }
                 }
                 else {
@@ -5025,11 +5075,11 @@ $.fn.dropdown = function(parameters) {
                 return true;
               }
               else {
-                module.verbose('No longer maximum selection count, removing message');
+                module.verbose('No longer at maximum selection count');
                 module.remove.message();
                 module.remove.filteredItem();
                 if(module.is.searchSelection()) {
-                  module.filter();
+                  module.filterItems();
                 }
                 return false;
               }
@@ -5168,6 +5218,9 @@ $.fn.dropdown = function(parameters) {
               $text.removeClass(className.filtered);
             }
           },
+          loading: function() {
+            $module.addClass(className.loading);
+          },
           placeholderText: function(text) {
             module.debug('Restoring placeholder text');
             text = text || $module.data(metadata.placeholderText);
@@ -5181,12 +5234,18 @@ $.fn.dropdown = function(parameters) {
                 .val('')
                 .attr('tabindex', 0)
               ;
+              $menu
+                .attr('tabindex', -1)
+              ;
             }
             else {
               module.debug('Added tabindex to dropdown');
               if(!$module.attr('tabindex') ) {
                 $module
                   .attr('tabindex', 0)
+                ;
+                $menu
+                  .attr('tabindex', -1)
                 ;
               }
             }
@@ -5228,11 +5287,9 @@ $.fn.dropdown = function(parameters) {
               }
               module.debug('Scrolling to active item', offset);
               if(forceScroll || abovePage || belowPage) {
-                $menu
-                  .scrollTop(offset)
-                  .removeClass(className.loading)
-                ;
+                $menu.scrollTop(offset);
               }
+              $menu.removeClass(className.loading);
             }
           },
           text: function(text) {
@@ -5569,6 +5626,9 @@ $.fn.dropdown = function(parameters) {
           },
           activeLabel: function() {
             $module.find(selector.label).removeClass(className.active);
+          },
+          loading: function() {
+            $module.removeClass(className.loading);
           },
           upward: function($menu) {
             var $element = $menu || $module;
@@ -6189,6 +6249,8 @@ $.fn.dropdown.settings = {
   on                     : 'click',    // what event should show menu action on item selection
   action                 : 'activate', // action on item selection (nothing, activate, select, combo, hide, function(){})
 
+  apiSettings            : false,
+
   keepOnScreen           : true,       // Whether dropdown should check whether it is on screen before showing
 
   match                  : 'both',     // what to match against with search selection (both, text, or label)
@@ -6225,7 +6287,7 @@ $.fn.dropdown.settings = {
   delay : {
     hide   : 300,
     show   : 200,
-    search : 0,
+    search : 20,
     touch  : 50
   },
 
@@ -6245,7 +6307,8 @@ $.fn.dropdown.settings = {
     addResult     : 'Add <b>{term}</b>',
     count         : '{count} selected',
     maxSelections : 'Max {maxCount} selections',
-    noResults     : 'No results found.'
+    noResults     : 'No results found.',
+    serverError   : 'There was an error contacting the server'
   },
 
   error : {
@@ -6334,13 +6397,12 @@ $.fn.dropdown.settings.templates = {
   },
 
   // generates just menu from select
-  menu: function(select) {
+  menu: function(response) {
     var
-      placeholder = select.placeholder || false,
-      values      = select.values || {},
-      html        = ''
+      values = response.values || {},
+      html   = ''
     ;
-    $.each(select.values, function(index, option) {
+    $.each(response.values, function(index, option) {
       html += '<div class="item" data-value="' + option.value + '">' + option.name + '</div>';
     });
     return html;
@@ -6365,8 +6427,9 @@ $.fn.dropdown.settings.templates = {
 };
 
 })( jQuery, window , document );
+
 /*!
- * # Semantic UI x.x - Video
+ * # Semantic UI 2.0.0 - Video
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -7017,7 +7080,7 @@ $.fn.embed.settings.templates = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI x.x - Modal
+ * # Semantic UI 2.0.0 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -7925,7 +7988,7 @@ $.fn.modal.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI x.x - Nag
+ * # Semantic UI 2.0.0 - Nag
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -8402,7 +8465,7 @@ $.fn.nag.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI x.x - Popup
+ * # Semantic UI 2.0.0 - Popup
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -9563,7 +9626,6 @@ $.fn.popup.settings = {
 
   // transition settings
   duration       : 200,
-  easing         : 'easeOutQuint',
   transition     : 'scale',
 
   // distance away from activating element in px
@@ -9662,7 +9724,7 @@ $.extend( $.easing, {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI x.x - Progress
+ * # Semantic UI 2.0.0 - Progress
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -10445,7 +10507,7 @@ $.fn.progress.settings = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI x.x - Rating
+ * # Semantic UI 2.0.0 - Rating
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -10909,7 +10971,7 @@ $.fn.rating.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI x.x - Search
+ * # Semantic UI 2.0.0 - Search
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -12160,7 +12222,7 @@ $.fn.search.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI x.x - Shape
+ * # Semantic UI 2.0.0 - Shape
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -13007,7 +13069,7 @@ $.fn.shape.settings = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI x.x - Sidebar
+ * # Semantic UI 2.0.0 - Sidebar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -14130,7 +14192,7 @@ $.extend( $.easing, {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI x.x - Sticky
+ * # Semantic UI 2.0.0 - Sticky
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -14307,7 +14369,7 @@ $.fn.sticky = function(parameters) {
           },
           scroll: function() {
             requestAnimationFrame(function() {
-              $scroll.trigger('scrollchange' + eventNamespace, $scroll.scrollTop() );
+              $scroll.triggerHandler('scrollchange' + eventNamespace, $scroll.scrollTop() );
             });
           },
           scrollchange: function(event, scrollPosition) {
@@ -14948,7 +15010,7 @@ $.fn.sticky.settings = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI x.x - Tab
+ * # Semantic UI 2.0.0 - Tab
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -15773,7 +15835,7 @@ $.fn.tab.settings = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI x.x - Transition
+ * # Semantic UI 2.0.0 - Transition
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -15949,7 +16011,7 @@ $.fn.transition = function() {
             }
             else {
               module.debug('New animation started, completing previous early', settings.animation);
-              module.complete();
+              instance.complete();
             }
           }
           if( module.can.animate() ) {
@@ -16178,7 +16240,7 @@ $.fn.transition = function() {
               duration = module.get.duration()
             ;
             module.timer = setTimeout(function() {
-              $module.trigger(animationEnd);
+              $module.triggerHandler(animationEnd);
             }, duration + settings.failSafeDelay);
             module.verbose('Adding fail safe timer', module.timer);
           }
@@ -16510,13 +16572,13 @@ $.fn.transition = function() {
 
         stop: function() {
           module.debug('Stopping current animation');
-          $module.trigger(animationEnd);
+          $module.triggerHandler(animationEnd);
         },
 
         stopAll: function() {
           module.debug('Stopping all animation');
           module.remove.queueCallback();
-          $module.trigger(animationEnd);
+          $module.triggerHandler(animationEnd);
         },
 
         clear: {
@@ -16788,7 +16850,7 @@ $.fn.transition.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI x.x - API
+ * # Semantic UI 2.0.0 - API
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -17142,11 +17204,13 @@ $.api = $.fn.api = function(parameters) {
               ;
               // page triggers abort on navigation, dont show error
               setTimeout(function() {
-                if(status !== 'abort') {
-                  module.request.rejectWith(context, [xhr, status, httpMessage]);
+                if(xhr.readyState !== undefined && xhr.readyState === 0) {
+                  module.debug('Request Aborted (Most likely caused by page navigation or CORS Policy)', status, httpMessage);
+                  settings.onAbort.call(context, status, $module);
+                  module.reset();
                 }
                 else {
-                  module.reset();
+                  module.request.rejectWith(context, [xhr, status, httpMessage]);
                 }
               }, timeLeft);
             }
@@ -17197,39 +17261,32 @@ $.api = $.fn.api = function(parameters) {
               ;
               // let em know unless request aborted
               if(xhr !== undefined) {
-                // readyState 4 = done, anything less is not really sent
-                if(xhr.readyState !== undefined && xhr.readyState == 4) {
 
-                  // if http status code returned and json returned error, look for it
-                  if( xhr.status != 200 && httpMessage !== undefined && httpMessage !== '') {
-                    module.error(error.statusMessage + httpMessage, ajaxSettings.url);
-                  }
-                  else {
-                    if(status == 'error' && settings.dataType == 'json') {
-                      try {
-                        response = $.parseJSON(xhr.responseText);
-                        if(response && response.error !== undefined) {
-                          errorMessage = response.error;
-                        }
-                      }
-                      catch(e) {
-                        module.error(error.JSONParse);
-                      }
-                    }
-                  }
-                  module.remove.loading();
-                  module.set.error();
-                  // show error state only for duration specified in settings
-                  if(settings.errorDuration) {
-                    setTimeout(module.remove.error, settings.errorDuration);
-                  }
-                  module.debug('API Request error:', errorMessage);
-                  settings.onError.call(context, errorMessage, $module);
+                // if http status code returned and json returned error, look for it
+                if( xhr.status != 200 && httpMessage !== undefined && httpMessage !== '') {
+                  module.error(error.statusMessage + httpMessage, ajaxSettings.url);
                 }
                 else {
-                  settings.onAbort.call(context, errorMessage, $module);
-                  module.debug('Request Aborted (Most likely caused by page change or CORS Policy)', status, httpMessage);
+                  if(status == 'error' && settings.dataType == 'json') {
+                    try {
+                      response = $.parseJSON(xhr.responseText);
+                      if(response && response.error !== undefined) {
+                        errorMessage = response.error;
+                      }
+                    }
+                    catch(e) {
+                      module.error(error.JSONParse);
+                    }
+                  }
                 }
+                module.remove.loading();
+                // show error state only for duration specified in settings
+                if(settings.errorDuration !== false) {
+                  module.set.error();
+                  setTimeout(module.remove.error, settings.errorDuration);
+                }
+                module.debug('API Request error:', errorMessage);
+                settings.onError.call(context, errorMessage, $module);
               }
             }
           }
@@ -17263,7 +17320,7 @@ $.api = $.fn.api = function(parameters) {
               else if( $.isFunction(settings.mockResponseAsync) ) {
                 callback = function(response) {
                   module.verbose('Async callback returned response', response);
-                  module.request.resolveWith(context, response);
+                  module.request.resolveWith(context, [response]);
                 };
                 module.debug('Using async mocked response', settings.mockResponseAsync);
                 settings.mockResponseAsync.call(context, settings, callback);
@@ -17420,7 +17477,6 @@ $.api = $.fn.api = function(parameters) {
           if( xhr && xhr.state() !== 'resolved') {
             module.debug('Cancelling API request');
             xhr.abort();
-            module.request.rejectWith(settings.apiSettings);
           }
         },
 
@@ -17706,7 +17762,7 @@ $.api.settings.api = {};
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI x.x - State
+ * # Semantic UI 2.0.0 - State
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -18402,7 +18458,7 @@ $.fn.state.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI x.x - Visibility
+ * # Semantic UI 2.0.0 - Visibility
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -18506,10 +18562,12 @@ $.fn.visibility = function(parameters) {
             observer.disconnect();
           }
           $window
-            .off('load' + eventNamespace, module.event.load)
+            .off('load'   + eventNamespace, module.event.load)
             .off('resize' + eventNamespace, module.event.resize)
           ;
-          $context.off('scrollchange' + eventNamespace, module.event.scrollchange);
+          $context
+            .off('scrollchange' + eventNamespace, module.event.scrollchange)
+          ;
           $module
             .off(eventNamespace)
             .removeData(moduleNamespace)
@@ -18540,13 +18598,13 @@ $.fn.visibility = function(parameters) {
           events: function() {
             module.verbose('Binding visibility events to scroll and resize');
             $window
-              .on('load' + eventNamespace, module.event.load)
+              .on('load'   + eventNamespace, module.event.load)
               .on('resize' + eventNamespace, module.event.resize)
             ;
             // pub/sub pattern
             $context
-              .off('scroll' + eventNamespace)
-              .on('scroll' + eventNamespace, module.event.scroll)
+              .off('scroll'      + eventNamespace)
+              .on('scroll'       + eventNamespace, module.event.scroll)
               .on('scrollchange' + eventNamespace, module.event.scrollchange)
             ;
           },
@@ -18598,12 +18656,12 @@ $.fn.visibility = function(parameters) {
             if(settings.throttle) {
               clearTimeout(module.timer);
               module.timer = setTimeout(function() {
-                $context.trigger('scrollchange' + eventNamespace, [ $context.scrollTop() ]);
+                $context.triggerHandler('scrollchange' + eventNamespace, [ $context.scrollTop() ]);
               }, settings.throttle);
             }
             else {
               requestAnimationFrame(function() {
-                $context.trigger('scrollchange' + eventNamespace, [ $context.scrollTop() ]);
+                $context.triggerHandler('scrollchange' + eventNamespace, [ $context.scrollTop() ]);
               });
             }
           },
@@ -19116,7 +19174,10 @@ $.fn.visibility = function(parameters) {
         remove: {
           occurred: function(callback) {
             if(callback) {
-              if(module.cache.occurred[callback] !== undefined && module.cache.occurred[callback] === true) {
+              var
+                occurred = module.cache.occurred
+              ;
+              if(occurred[callback] !== undefined && occurred[callback] === true) {
                 module.debug('Callback can now be called again', callback);
                 module.cache.occurred[callback] = false;
               }

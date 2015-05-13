@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI x.x - Visibility
+ * # Semantic UI 2.0.0 - Visibility
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -103,10 +103,12 @@ $.fn.visibility = function(parameters) {
             observer.disconnect();
           }
           $window
-            .off('load' + eventNamespace, module.event.load)
+            .off('load'   + eventNamespace, module.event.load)
             .off('resize' + eventNamespace, module.event.resize)
           ;
-          $context.off('scrollchange' + eventNamespace, module.event.scrollchange);
+          $context
+            .off('scrollchange' + eventNamespace, module.event.scrollchange)
+          ;
           $module
             .off(eventNamespace)
             .removeData(moduleNamespace)
@@ -137,13 +139,13 @@ $.fn.visibility = function(parameters) {
           events: function() {
             module.verbose('Binding visibility events to scroll and resize');
             $window
-              .on('load' + eventNamespace, module.event.load)
+              .on('load'   + eventNamespace, module.event.load)
               .on('resize' + eventNamespace, module.event.resize)
             ;
             // pub/sub pattern
             $context
-              .off('scroll' + eventNamespace)
-              .on('scroll' + eventNamespace, module.event.scroll)
+              .off('scroll'      + eventNamespace)
+              .on('scroll'       + eventNamespace, module.event.scroll)
               .on('scrollchange' + eventNamespace, module.event.scrollchange)
             ;
           },
@@ -195,12 +197,12 @@ $.fn.visibility = function(parameters) {
             if(settings.throttle) {
               clearTimeout(module.timer);
               module.timer = setTimeout(function() {
-                $context.trigger('scrollchange' + eventNamespace, [ $context.scrollTop() ]);
+                $context.triggerHandler('scrollchange' + eventNamespace, [ $context.scrollTop() ]);
               }, settings.throttle);
             }
             else {
               requestAnimationFrame(function() {
-                $context.trigger('scrollchange' + eventNamespace, [ $context.scrollTop() ]);
+                $context.triggerHandler('scrollchange' + eventNamespace, [ $context.scrollTop() ]);
               });
             }
           },
@@ -713,7 +715,10 @@ $.fn.visibility = function(parameters) {
         remove: {
           occurred: function(callback) {
             if(callback) {
-              if(module.cache.occurred[callback] !== undefined && module.cache.occurred[callback] === true) {
+              var
+                occurred = module.cache.occurred
+              ;
+              if(occurred[callback] !== undefined && occurred[callback] === true) {
                 module.debug('Callback can now be called again', callback);
                 module.cache.occurred[callback] = false;
               }
