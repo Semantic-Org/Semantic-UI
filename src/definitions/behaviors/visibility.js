@@ -106,7 +106,9 @@ $.fn.visibility = function(parameters) {
             .off('load'   + eventNamespace, module.event.load)
             .off('resize' + eventNamespace, module.event.resize)
           ;
-          $context.off('scrollchange' + eventNamespace, module.event.scrollchange);
+          $context
+            .off('scrollchange' + eventNamespace, module.event.scrollchange)
+          ;
           $module
             .off(eventNamespace)
             .removeData(moduleNamespace)
