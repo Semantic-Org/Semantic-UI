@@ -353,11 +353,13 @@ $.api = $.fn.api = function(parameters) {
               ;
               // page triggers abort on navigation, dont show error
               setTimeout(function() {
-                if(status !== 'abort') {
-                  module.request.rejectWith(context, [xhr, status, httpMessage]);
+                if(xhr.readyState !== undefined && xhr.readyState === 0) {
+                  module.debug('Request Aborted (Most likely caused by page navigation or CORS Policy)', status, httpMessage);
+                  settings.onAbort.call(context, status, $module);
+                  module.reset();
                 }
                 else {
-                  module.reset();
+                  module.request.rejectWith(context, [xhr, status, httpMessage]);
                 }
               }, timeLeft);
             }
@@ -408,39 +410,32 @@ $.api = $.fn.api = function(parameters) {
               ;
               // let em know unless request aborted
               if(xhr !== undefined) {
-                // readyState 4 = done, anything less is not really sent
-                if(xhr.readyState !== undefined && xhr.readyState == 4) {
 
-                  // if http status code returned and json returned error, look for it
-                  if( xhr.status != 200 && httpMessage !== undefined && httpMessage !== '') {
-                    module.error(error.statusMessage + httpMessage, ajaxSettings.url);
-                  }
-                  else {
-                    if(status == 'error' && settings.dataType == 'json') {
-                      try {
-                        response = $.parseJSON(xhr.responseText);
-                        if(response && response.error !== undefined) {
-                          errorMessage = response.error;
-                        }
-                      }
-                      catch(e) {
-                        module.error(error.JSONParse);
-                      }
-                    }
-                  }
-                  module.remove.loading();
-                  module.set.error();
-                  // show error state only for duration specified in settings
-                  if(settings.errorDuration) {
-                    setTimeout(module.remove.error, settings.errorDuration);
-                  }
-                  module.debug('API Request error:', errorMessage);
-                  settings.onError.call(context, errorMessage, $module);
+                // if http status code returned and json returned error, look for it
+                if( xhr.status != 200 && httpMessage !== undefined && httpMessage !== '') {
+                  module.error(error.statusMessage + httpMessage, ajaxSettings.url);
                 }
                 else {
-                  settings.onAbort.call(context, errorMessage, $module);
-                  module.debug('Request Aborted (Most likely caused by page change or CORS Policy)', status, httpMessage);
+                  if(status == 'error' && settings.dataType == 'json') {
+                    try {
+                      response = $.parseJSON(xhr.responseText);
+                      if(response && response.error !== undefined) {
+                        errorMessage = response.error;
+                      }
+                    }
+                    catch(e) {
+                      module.error(error.JSONParse);
+                    }
+                  }
                 }
+                module.remove.loading();
+                // show error state only for duration specified in settings
+                if(settings.errorDuration !== false) {
+                  module.set.error();
+                  setTimeout(module.remove.error, settings.errorDuration);
+                }
+                module.debug('API Request error:', errorMessage);
+                settings.onError.call(context, errorMessage, $module);
               }
             }
           }
@@ -631,7 +626,6 @@ $.api = $.fn.api = function(parameters) {
           if( xhr && xhr.state() !== 'resolved') {
             module.debug('Cancelling API request');
             xhr.abort();
-            module.request.rejectWith(settings.apiSettings);
           }
         },
 
