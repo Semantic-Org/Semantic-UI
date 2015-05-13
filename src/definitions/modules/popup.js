@@ -1160,7 +1160,6 @@ $.fn.popup.settings = {
 
   // transition settings
   duration       : 200,
-  easing         : 'easeOutQuint',
   transition     : 'scale',
 
   // distance away from activating element in px
