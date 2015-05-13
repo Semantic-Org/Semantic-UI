@@ -1723,12 +1723,18 @@ $.fn.dropdown = function(parameters) {
                 .val('')
                 .attr('tabindex', 0)
               ;
+              $menu
+                .attr('tabindex', -1)
+              ;
             }
             else {
               module.debug('Added tabindex to dropdown');
               if(!$module.attr('tabindex') ) {
                 $module
                   .attr('tabindex', 0)
+                ;
+                $menu
+                  .attr('tabindex', -1)
                 ;
               }
             }
