@@ -194,12 +194,6 @@ $.fn.dropdown = function(parameters) {
           ;
           module.verbose('Searching for query', query);
           module.filter(query);
-          if(settings.allowAdditions) {
-            module.add.userChoice(query);
-          }
-          if(module.is.searchSelection() && module.can.show() ) {
-            module.show();
-          }
         },
 
         select: {
@@ -231,18 +225,6 @@ $.fn.dropdown = function(parameters) {
         },
 
         setup: {
-          api: function() {
-            var
-              apiSettings = {
-                debug     : settings.debug,
-                on        : false,
-                action    : 'select'
-              },
-              searchHTML
-            ;
-            module.verbose('First request, initializing API');
-            $module.api(apiSettings);
-          },
           layout: function() {
             if( $module.is('select') ) {
               module.setup.select();
@@ -256,6 +238,12 @@ $.fn.dropdown = function(parameters) {
             }
             if(settings.allowTab) {
               module.set.tabbable();
+            }
+            if($menu.length === 0) {
+              $menu = $('<div />')
+                .addClass(className.menu)
+                .appendTo($module)
+              ;
             }
           },
           select: function() {
@@ -294,13 +282,8 @@ $.fn.dropdown = function(parameters) {
             module.refresh();
           },
           menu: function(values) {
-            if($menu.length === 0) {
-              $menu = $('<div />')
-                .addClass(className.menu)
-                .appendTo($module)
-              ;
-            }
             $menu.html( templates.menu( values ));
+            $item = $menu.find(selector.item);
           },
           reference: function() {
             var
@@ -548,19 +531,23 @@ $.fn.dropdown = function(parameters) {
               else {
                 module.remove.message();
               }
+              if(settings.allowAdditions) {
+                module.add.userChoice(query);
+              }
+              if(module.is.searchSelection() && module.can.show() ) {
+                module.show();
+              }
             }
           ;
           if(module.has.maxSelections()) {
             return;
           }
-          if(true) {
-            // async
+          if(settings.apiSettings) {
             module.queryRemote(searchTerm, function() {
               afterFiltered();
             });
           }
           else {
-            // sync
             module.filterItems(searchTerm);
             afterFiltered();
           }
@@ -569,52 +556,40 @@ $.fn.dropdown = function(parameters) {
         queryRemote: function(query, callback) {
           var
             apiSettings = {
-              mockResponseAsync: function(settings, callback) {
-                setTimeout(function() {
-                  callback({
-                    success: true,
-                    results: [
-                      {
-                        name  : 'Apple',
-                        value : 'apple'
-                      },
-                      {
-                        name  : 'Bear',
-                        value : 'bear'
-                      },
-                      {
-                        name  : 'Pineapple',
-                        value : 'pineapple'
-                      }
-                    ]
-                  });
-                }, 300);
+              debug         : settings.debug,
+              on            : false,
+              errorDuration : false,
+              urlData: {
+                query: query
+              },
+              onError: function() {
+                module.add.message(message.serverError);
+              },
+              onFailure: function() {
+                module.add.message(message.serverError);
               },
               onSuccess : function(response) {
+                module.remove.message();
                 module.setup.menu({
                   values: response.results
                 });
                 callback();
-              },
-              urlData: {
-                query: query
               }
             }
           ;
-          if( !$module.api('get request') ) {
-            module.setup.api();
-          }
-          $.extend(true, apiSettings, settings.apiSettings);
-          module.debug('Executing remote search', apiSettings);
+          apiSettings = $.extend(true, {}, apiSettings, settings.apiSettings);
           $module
+            .api(apiSettings)
             .api('abort')
-            .api('setting', apiSettings)
             .api('query')
           ;
         },
 
-        filterItems: function(searchTerm) {
+        filterItems: function(query) {
           var
+            searchTerm = (query !== undefined)
+              ? query
+              : module.get.query(),
             $results         = $(),
             escapedTerm      = module.escape.regExp(searchTerm),
             beginsWithRegExp = new RegExp('^' + escapedTerm, 'igm')
@@ -765,6 +740,9 @@ $.fn.dropdown = function(parameters) {
               }
               if(settings.showOnFocus) {
                 module.show();
+              }
+              if(module.is.searchSelection()) {
+                module.search();
               }
             },
             blur: function(event) {
@@ -1028,7 +1006,6 @@ $.fn.dropdown = function(parameters) {
                     module.verbose('Removing last label on input backspace');
                     $activeLabel = $label.last().addClass(className.active);
                     module.remove.labels($activeLabel);
-                    event.preventDefault();
                   }
                 }
                 else {
@@ -1568,7 +1545,7 @@ $.fn.dropdown = function(parameters) {
                 module.remove.message();
                 module.remove.filteredItem();
                 if(module.is.searchSelection()) {
-                  module.filter();
+                  module.filterItems();
                 }
                 return false;
               }
@@ -2738,7 +2715,7 @@ $.fn.dropdown.settings = {
   on                     : 'click',    // what event should show menu action on item selection
   action                 : 'activate', // action on item selection (nothing, activate, select, combo, hide, function(){})
 
-  apiSettings            : {},
+  apiSettings            : false,
 
   keepOnScreen           : true,       // Whether dropdown should check whether it is on screen before showing
 
@@ -2776,7 +2753,7 @@ $.fn.dropdown.settings = {
   delay : {
     hide   : 300,
     show   : 200,
-    search : 0,
+    search : 20,
     touch  : 50
   },
 
@@ -2796,7 +2773,8 @@ $.fn.dropdown.settings = {
     addResult     : 'Add <b>{term}</b>',
     count         : '{count} selected',
     maxSelections : 'Max {maxCount} selections',
-    noResults     : 'No results found.'
+    noResults     : 'No results found.',
+    serverError   : 'There was an error contacting the server'
   },
 
   error : {
