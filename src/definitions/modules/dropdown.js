@@ -86,7 +86,9 @@ $.fn.dropdown = function(parameters) {
 
             module.save.defaults();
 
-            module.set.selected();
+            if(!settings.apiSettings) {
+              module.set.selected();
+            }
 
             if(module.is.multiple()) {
               if(settings.allowAdditions) {
@@ -225,6 +227,19 @@ $.fn.dropdown = function(parameters) {
         },
 
         setup: {
+          api: function() {
+            var
+              apiSettings = {
+                debug : settings.debug,
+                cache : true,
+                on    : false
+              }
+            ;
+            module.verbose('First request, initializing API');
+            $module
+              .api(apiSettings)
+            ;
+          },
           layout: function() {
             if( $module.is('select') ) {
               module.setup.select();
@@ -534,7 +549,7 @@ $.fn.dropdown = function(parameters) {
               if(settings.allowAdditions) {
                 module.add.userChoice(query);
               }
-              if(module.is.searchSelection() && module.can.show() ) {
+              if(module.is.searchSelection() && module.can.show() && module.is.focusedOnSearch() ) {
                 module.show();
               }
             }
@@ -556,8 +571,6 @@ $.fn.dropdown = function(parameters) {
         queryRemote: function(query, callback) {
           var
             apiSettings = {
-              debug         : settings.debug,
-              on            : false,
               errorDuration : false,
               urlData: {
                 query: query
@@ -577,10 +590,12 @@ $.fn.dropdown = function(parameters) {
               }
             }
           ;
+          if( !$module.api('get request') ) {
+            module.setup.api();
+          }
           apiSettings = $.extend(true, {}, apiSettings, settings.apiSettings);
           $module
-            .api(apiSettings)
-            .api('abort')
+            .api('setting', apiSettings)
             .api('query')
           ;
         },
@@ -740,9 +755,6 @@ $.fn.dropdown = function(parameters) {
               }
               if(settings.showOnFocus) {
                 module.show();
-              }
-              if(module.is.searchSelection()) {
-                module.search();
               }
             },
             blur: function(event) {
@@ -2386,7 +2398,7 @@ $.fn.dropdown = function(parameters) {
             return (hasTouch || settings.on == 'click');
           },
           show: function() {
-            return !$module.hasClass(className.disabled);
+            return !$module.hasClass(className.disabled) && $item.length > 0;
           }
         },
 
