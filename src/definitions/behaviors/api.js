@@ -74,21 +74,9 @@ $.api = $.fn.api = function(parameters) {
       module = {
 
         initialize: function() {
-          var
-            triggerEvent = module.get.event()
-          ;
-          // bind events
           if(!methodInvoked) {
-            if( triggerEvent ) {
-              module.debug('Attaching API events to element', triggerEvent);
-              $module
-                .on(triggerEvent + eventNamespace, module.event.trigger)
-              ;
-            }
-            else if(settings.on == 'now') {
-              module.debug('Querying API now', triggerEvent);
-              module.query();
-            }
+            module.create.cache();
+            module.bind.events();
           }
           module.instantiate();
         },
@@ -107,6 +95,24 @@ $.api = $.fn.api = function(parameters) {
             .removeData(moduleNamespace)
             .off(eventNamespace)
           ;
+        },
+
+        bind: {
+          events: function() {
+            var
+              triggerEvent = module.get.event()
+            ;
+            if( triggerEvent ) {
+              module.debug('Attaching API events to element', triggerEvent);
+              $module
+                .on(triggerEvent + eventNamespace, module.event.trigger)
+              ;
+            }
+            else if(settings.on == 'now') {
+              module.debug('Querying API now', triggerEvent);
+              module.query();
+            }
+          }
         },
 
         query: function() {
@@ -189,6 +195,14 @@ $.api = $.fn.api = function(parameters) {
           module.debug('Querying URL', ajaxSettings.url);
           module.debug('Sending data', data, ajaxSettings.method);
           module.verbose('Using AJAX settings', ajaxSettings);
+
+          // pull from cache
+          if(settings.cache && module.cache.response[url] !== undefined) {
+            module.debug('Pulling response from cache');
+            module.request = module.create.request();
+            module.request.resolveWith(context, [ module.cache.response[url] ]);
+            return;
+          }
 
           if( module.is.loading() ) {
             // throttle additional requests
@@ -377,6 +391,11 @@ $.api = $.fn.api = function(parameters) {
               ;
               module.debug('API Response Received', response);
 
+              if(settings.cache && url) {
+                module.cache.response[url] = response;
+                module.debug('Caching response for next lookup', module.cache);
+              }
+
               if(translatedResponse) {
                 module.debug('Modified API response in onResponse callback', settings.onResponse, translatedResponse, response);
                 response = translatedResponse;
@@ -442,6 +461,14 @@ $.api = $.fn.api = function(parameters) {
         },
 
         create: {
+
+          cache: function() {
+            module.verbose('Creating local response cache');
+            module.cache = {
+              response: {}
+            };
+          },
+
           // api promise
           request: function() {
             return $.Deferred()
@@ -820,6 +847,9 @@ $.api.settings = {
   debug           : true,
   verbose         : false,
   performance     : true,
+
+  // cache
+  cache           : false,
 
   // event binding
   on              : 'auto',
