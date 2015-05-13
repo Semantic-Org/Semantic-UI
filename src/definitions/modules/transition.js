@@ -175,7 +175,7 @@ $.fn.transition = function() {
             }
             else {
               module.debug('New animation started, completing previous early', settings.animation);
-              module.complete();
+              instance.complete();
             }
           }
           if( module.can.animate() ) {

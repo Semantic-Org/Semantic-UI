@@ -176,6 +176,7 @@
 - **Table** - Fixes `ascending` and `descending` icons were reversed in table
 - **Table** - `very basic table` now works together with `padded table`
 - **Table** - Fix inheritance of text alignment and vertical alignment
+- **Transition** - Calling an `out` animation during an `in` animation with `queue: false` now correctly calls the `complete` event of the original animation
 - **Transition** - Fixed bug where transition could sometimes not occur when an element was determined to always be hidden
 
 **Changes**
