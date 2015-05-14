@@ -151,6 +151,7 @@
 - **Modal** - Clicking on other modals will no longer close open modal when `allowMultiple: true`
 - **Modal** - Fixed `scrolling` class not being removed after opening a normal modal after a `scrolling` modal.
 - **Message** - Updated all message colors for legibility
+- **Message** - Close icon position adjusted to align with headers
 - **Menu** - Fixes divider appears on last element of `(x) item menu`
 - **Menu** - Menu now has a `min-height` that matches standard item padding
 - **Modal** - `scrollable modal` now correctly adds padding below modal
