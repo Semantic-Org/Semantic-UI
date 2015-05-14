@@ -119,7 +119,6 @@
 
 @ribbonImageMargin: -0.05rem; /* Rounding Offset on Triangle */
 @ribbonImageOffset: ~"calc("-@ribbonImageMargin~" - "@ribbonTriangleSize~")";
-@ribbonImageDistance: ~"calc("@ribbonImageMargin~" + "@ribbonTriangleSize~")";
 @rightRibbonImageOffset:  ~"calc(100% + "@ribbonImageMargin~" + "@ribbonTriangleSize~")";
 
 /* Colors */

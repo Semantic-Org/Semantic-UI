@@ -351,13 +351,24 @@ a.ui.label {
   width: 0em;
   height: 0em;
 }
+/* Positioning */
+.ui.ribbon.label {
+  left: @ribbonOffset;
+  margin-right: -@ribbonTriangleSize;
+  padding-left: @ribbonDistance;
+  padding-right: @ribbonTriangleSize;
+}
+.ui[class*="right ribbon"].label {
+  left: @rightRibbonOffset;
+  padding-left: @ribbonTriangleSize;
+  padding-right: @ribbonDistance;
+}
 
 /* Right Ribbon */
 .ui[class*="right ribbon"].label {
   text-align: left;
   transform: translateX(-100%);
   border-radius: @borderRadius 0em 0em @borderRadius;
-  padding-left: @horizontalPadding;
 }
 .ui[class*="right ribbon"].label:after {
   left: auto;
@@ -369,16 +380,6 @@ a.ui.label {
   border-top-color: inherit;
 }
 
-/* Positioning */
-.ui.ribbon.label {
-  left: @ribbonOffset;
-  margin-right: -@ribbonTriangleSize;
-  padding-left: @ribbonDistance;
-}
-.ui[class*="right ribbon"].label {
-  left: @rightRibbonOffset;
-  padding-right: @ribbonDistance;
-}
 
 
 /* Inside Image */
@@ -390,13 +391,11 @@ a.ui.label {
 .ui.card .image > .ui.ribbon.label,
 .ui.image > .ui.ribbon.label {
   left: @ribbonImageOffset;
-  padding-left: @ribbonImageDistance;
 }
 .ui.card .image > .ui[class*="right ribbon"].label,
 .ui.image > .ui[class*="right ribbon"].label {
   left: @rightRibbonImageOffset;
   padding-left: @horizontalPadding;
-  padding-right: @ribbonImageDistance;
 }
 
 

@@ -70,7 +70,7 @@
 @darkGrey         : #AAAAAA;
 @lightGrey        : #DCDDDE;
 @offWhite         : #FAFAFA;
-@darkWhite        : #F0F0F0;
+@darkWhite        : #F4F4F4;
 @white            : #FFFFFF;
 
 /*-------------------
@@ -293,31 +293,31 @@
 
 /* Positive */
 @positiveColor           : @green;
-@positiveBackgroundColor : #F3FFEC;
-@positiveBorderColor     : #B4D3A4;
+@positiveBackgroundColor : #FCFFF5;
+@positiveBorderColor     : #A3C293;
 @positiveHeaderColor     : #1A531B;
-@positiveTextColor       : #255F26;
+@positiveTextColor       : #1D571E;
 
 /* Negative */
 @negativeColor           : @red;
-@negativeBackgroundColor : #FFF0F0;
+@negativeBackgroundColor : #FFF6F6;
 @negativeBorderColor     : #E0B4B4;
 @negativeHeaderColor     : #912D2B;
-@negativeTextColor       : #973230;
+@negativeTextColor       : #922D2B;
 
 /* Info */
 @infoColor              : #31CCEC;
-@infoBackgroundColor    : #F1FCFC;
+@infoBackgroundColor    : #FAFEFE;
 @infoBorderColor        : #A3CFD8;
 @infoHeaderColor        : #0E566C;
-@infoTextColor          : #196178;
+@infoTextColor          : #0E566D;
 
 /* Warning */
 @warningColor           : #F2C037;
 @warningBorderColor     : #C9BA9B;
-@warningBackgroundColor : #FFF8E2;
+@warningBackgroundColor : #FFFCED;
 @warningHeaderColor     : #794B02;
-@warningTextColor       : #715422;
+@warningTextColor       : #664917;
 
 
 /*-------------------
@@ -361,6 +361,7 @@
 @circularRadius                : 500rem;
 
 @borderColor                   : rgba(34, 36, 38, 0.15);
+@strongBorderColor             : rgba(34, 36, 38, 0.22);
 @internalBorderColor           : rgba(34, 36, 38, 0.1);
 @selectedBorderColor           : rgba(34, 36, 38, 0.3);
 @disabledBorderColor           : rgba(34, 36, 38, 0.5);
