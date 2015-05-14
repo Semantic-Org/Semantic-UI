@@ -86,7 +86,12 @@ $.fn.dropdown = function(parameters) {
 
             module.save.defaults();
 
-            if(!settings.apiSettings) {
+            if(settings.apiSettings) {
+              if( module.is.multiple() ) {
+                module.restore.labels();
+              }
+            }
+            else {
               module.set.selected();
             }
 
@@ -230,9 +235,9 @@ $.fn.dropdown = function(parameters) {
           api: function() {
             var
               apiSettings = {
-                debug : settings.debug,
-                cache : true,
-                on    : false
+                debug    : settings.debug,
+                cache    : 'local',
+                on       : false
               }
             ;
             module.verbose('First request, initializing API');
@@ -558,9 +563,14 @@ $.fn.dropdown = function(parameters) {
             return;
           }
           if(settings.apiSettings) {
-            module.queryRemote(searchTerm, function() {
-              afterFiltered();
-            });
+            if( module.can.useAPI() ) {
+              module.queryRemote(searchTerm, function() {
+                afterFiltered();
+              });
+            }
+            else {
+              module.error(error.noAPI);
+            }
           }
           else {
             module.filterItems(searchTerm);
@@ -577,9 +587,11 @@ $.fn.dropdown = function(parameters) {
               },
               onError: function() {
                 module.add.message(message.serverError);
+                callback();
               },
               onFailure: function() {
                 module.add.message(message.serverError);
+                callback();
               },
               onSuccess : function(response) {
                 module.remove.message();
@@ -596,6 +608,7 @@ $.fn.dropdown = function(parameters) {
           apiSettings = $.extend(true, {}, apiSettings, settings.apiSettings);
           $module
             .api('setting', apiSettings)
+            .api('abort')
             .api('query')
           ;
         },
@@ -1593,6 +1606,17 @@ $.fn.dropdown = function(parameters) {
                 module.remove.selectedItem();
               }
             }
+          },
+          labels: function() {
+            var
+              values = module.get.values()
+            ;
+            if(values) {
+              $.each(values, function(index, value) {
+                module.add.label(value, value);
+              });
+            }
+            module.debug('Recreating all labels');
           }
         },
 
@@ -2399,6 +2423,9 @@ $.fn.dropdown = function(parameters) {
           },
           show: function() {
             return !$module.hasClass(className.disabled) && $item.length > 0;
+          },
+          useAPI: function() {
+            return $.fn.api !== undefined;
           }
         },
 
@@ -2794,6 +2821,7 @@ $.fn.dropdown.settings = {
     alreadySetup : 'Once a select has been initialized behaviors must be called on the created ui dropdown',
     labels       : 'Allowing user additions currently requires the use of labels.',
     method       : 'The method you called is not defined.',
+    noAPI        : 'The API module is required to load resources remotely',
     noTransition : 'This module requires ui transitions <https://github.com/Semantic-Org/UI-Transition>'
   },
 
