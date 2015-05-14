@@ -23,7 +23,7 @@
 
 **Major Changes**
 - **API** - API can now be used with mocked responses, and custom XHR backends. `mockResponse` can be used to resolve request with a local function that receives the same settings as the server. `mockResponseAsync` allows you to specify to  server response from a custom async callback.
-- **API** - API provides a client-side caching option to avoid server roundtrips for identical urls `cache: true`
+- **API** - API now provides a client-side caching setting to avoid server roundtrips for identical urls `cache: 'local'`, this is useful for caching results for things like autocomplete, which does not need to requery server on identical searches.
 - **Card** - Cards now support multiple `content` blocks, and varied orders, for example content above or below an image or both
 - **Colors** - Global colors defaults have been adjusted to improve contrast with white text
 - **Dropdown** - Nested scrolling menus can now use keyboard selection and filter with inline search. Nested menu scroll position will automatically adjust with keyboard selection.
