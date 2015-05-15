@@ -307,13 +307,13 @@
 
 /* Info */
 @infoColor              : #31CCEC;
-@infoBackgroundColor    : #FAFEFE;
-@infoBorderColor        : #A3CFD8;
+@infoBackgroundColor    : #F8FCFC;
+@infoBorderColor        : #9ECAD3;
 @infoHeaderColor        : #0E566C;
 @infoTextColor          : #0E566D;
 
 /* Warning */
-@warningColor           : #F2C037;
+@warningColor           : #FFF9EA;
 @warningBorderColor     : #C9BA9B;
 @warningBackgroundColor : #FFFCED;
 @warningHeaderColor     : #794B02;
