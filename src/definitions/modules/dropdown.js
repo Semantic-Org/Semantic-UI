@@ -60,6 +60,7 @@ $.fn.dropdown = function(parameters) {
 
         activated       = false,
         itemActivated   = false,
+        pageLostFocus   = false,
         element         = this,
         instance        = $module.data(moduleNamespace),
 
@@ -491,14 +492,15 @@ $.fn.dropdown = function(parameters) {
             activated = false;
           },
           focus: function() {
-            if(!activated && module.is.hidden()) {
+            // if we are focusing after the page lost focus
+            // then do not show because that is awkward behavior
+            if(!activated && module.is.hidden() && !pageLostFocus) {
               module.show();
             }
           },
           blur: function(event) {
-            var
-              pageLostFocus = (document.activeElement === this)
-            ;
+            pageLostFocus = (document.activeElement === this)
+
             if(!activated && !pageLostFocus) {
               module.hide();
             }
@@ -508,9 +510,8 @@ $.fn.dropdown = function(parameters) {
             module.show();
           },
           searchBlur: function(event) {
-            var
-              pageLostFocus = (document.activeElement === this)
-            ;
+            pageLostFocus = (document.activeElement === this)
+
             if(!itemActivated && !pageLostFocus) {
               if(settings.forceSelection) {
                 module.forceSelection();
