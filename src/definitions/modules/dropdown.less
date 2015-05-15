@@ -774,12 +774,13 @@ select.ui.dropdown {
   content: '';
   top: 50%;
   left: 50%;
+  box-shadow: 0px 0px 0px 1px transparent;
 
   margin: @loaderMargin;
   width: @loaderSize;
   height: @loaderSize;
 
-  animation: button-spin @loaderSpeed linear;
+  animation: dropdown-spin @loaderSpeed linear;
   animation-iteration-count: infinite;
 
   border-radius: @circularRadius;
@@ -787,10 +788,16 @@ select.ui.dropdown {
   border-color: @loaderLineColor transparent transparent;
   border-style: solid;
   border-width: @loaderLineWidth;
-
-  box-shadow: 0px 0px 0px 1px transparent;
 }
 
+@keyframes dropdown-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 
 
 /*--------------------
