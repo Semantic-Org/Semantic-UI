@@ -1318,8 +1318,10 @@ $.fn.dropdown = function(parameters) {
             var
               values = module.get.values()
             ;
-            return ( module.is.multiple() && $.isArray(values))
-              ? values.length
+            return ( module.is.multiple() )
+              ? $.isArray(values)
+                ? values.length
+                : 0
               : (module.get.value() !== '')
                 ? 1
                 : 0
