@@ -511,7 +511,6 @@ $.fn.shape = function(parameters) {
             $nextSide
               .addClass(className.animating)
               .css({
-                'display'   : 'block',
                 'top'       : box.origin + 'px',
                 'transform' : 'rotateX(90deg) translateZ(' + box.depth.next + 'px)'
               })
@@ -542,7 +541,6 @@ $.fn.shape = function(parameters) {
             $nextSide
               .addClass(className.animating)
               .css({
-                'display'   : 'block',
                 'top'       : box.origin + 'px',
                 'transform' : 'rotateX(-90deg) translateZ(' + box.depth.next + 'px)'
               })
@@ -551,11 +549,15 @@ $.fn.shape = function(parameters) {
 
           left: function() {
             var
+              height = {
+                active : $activeSide.outerWidth(true),
+                next   : $nextSide.outerWidth(true)
+              },
               box = {
-                origin : ( ( $activeSide.outerWidth(true) - $nextSide.outerWidth(true) ) / 2),
+                origin : ( ( height.active - height.next ) / 2),
                 depth  : {
-                  active : ($nextSide.outerWidth(true) / 2),
-                  next   : ($activeSide.outerWidth(true) / 2)
+                  active : (height.next / 2),
+                  next   : (height.active / 2)
                 }
               }
             ;
@@ -573,7 +575,6 @@ $.fn.shape = function(parameters) {
             $nextSide
               .addClass(className.animating)
               .css({
-                'display'   : 'block',
                 'left'      : box.origin + 'px',
                 'transform' : 'rotateY(-90deg) translateZ(' + box.depth.next + 'px)'
               })
@@ -582,11 +583,15 @@ $.fn.shape = function(parameters) {
 
           right: function() {
             var
+              height = {
+                active : $activeSide.outerWidth(true),
+                next   : $nextSide.outerWidth(true)
+              },
               box = {
-                origin : ( ( $activeSide.outerWidth(true) - $nextSide.outerWidth(true) ) / 2),
+                origin : ( ( height.active - height.next ) / 2),
                 depth  : {
-                  active : ($nextSide.outerWidth(true) / 2),
-                  next   : ($activeSide.outerWidth(true) / 2)
+                  active : (height.next / 2),
+                  next   : (height.active / 2)
                 }
               }
             ;
@@ -604,7 +609,6 @@ $.fn.shape = function(parameters) {
             $nextSide
               .addClass(className.animating)
               .css({
-                'display'   : 'block',
                 'left'      : box.origin + 'px',
                 'transform' : 'rotateY(90deg) translateZ(' + box.depth.next + 'px)'
               })
@@ -613,11 +617,15 @@ $.fn.shape = function(parameters) {
 
           behind: function() {
             var
+              height = {
+                active : $activeSide.outerWidth(true),
+                next   : $nextSide.outerWidth(true)
+              },
               box = {
-                origin : ( ( $activeSide.outerWidth(true) - $nextSide.outerWidth(true) ) / 2),
+                origin : ( ( height.active - height.next ) / 2),
                 depth  : {
-                  active : ($nextSide.outerWidth(true) / 2),
-                  next   : ($activeSide.outerWidth(true) / 2)
+                  active : (height.next / 2),
+                  next   : (height.active / 2)
                 }
               }
             ;
@@ -630,7 +638,6 @@ $.fn.shape = function(parameters) {
             $nextSide
               .addClass(className.animating)
               .css({
-                'display'   : 'block',
                 'left'      : box.origin + 'px',
                 'transform' : 'rotateY(-180deg)'
               })
