@@ -37,7 +37,7 @@
 @cellBorder: 1px solid @internalBorderColor;
 
 /* Table Header */
-@headerBorder: 1px solid @borderColor;
+@headerBorder: 1px solid @internalBorderColor;
 @headerDivider: none;
 @headerBackground: @offWhite;
 @headerAlign: inherit;
