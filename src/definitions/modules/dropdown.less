@@ -462,16 +462,6 @@ select.ui.dropdown {
   box-shadow: @selectionHoverBoxShadow;
 }
 
-/* Disabled */
-.ui.selection.dropdown.disabled,
-.ui.selection.dropdown.disabled:hover {
-  cursor: default;
-  box-shadow: none;
-  color: @selectionTextColor;
-  border: @selectionBorder;
-  opacity: @disabledOpacity !important;
-}
-
 /* Active */
 .ui.selection.active.dropdown {
   border-color: @selectionVisibleBorderColor;
@@ -899,7 +889,8 @@ select.ui.dropdown {
 ----------------------*/
 
 /* Disabled */
-.ui.disabled.dropdown {
+.ui.disabled.dropdown,
+.ui.dropdown .menu > .disabled.item {
   cursor: default;
   pointer-events: none;
   opacity: @disabledOpacity;

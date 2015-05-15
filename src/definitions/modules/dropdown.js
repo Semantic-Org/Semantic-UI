@@ -211,7 +211,7 @@ $.fn.dropdown = function(parameters) {
             module.verbose('Selecting first non-filtered element');
             module.remove.selectedItem();
             $item
-              .not('.' + className.filtered)
+              .not(selector.unselectable)
                 .eq(0)
                 .addClass(className.selected)
             ;
@@ -219,8 +219,8 @@ $.fn.dropdown = function(parameters) {
           nextAvailable: function($selected) {
             $selected = $selected.eq(0);
             var
-              $nextAvailable = $selected.nextAll(selector.item).not('.' + className.filtered).eq(0),
-              $prevAvailable = $selected.prevAll(selector.item).not('.' + className.filtered).eq(0),
+              $nextAvailable = $selected.nextAll(selector.item).not(selector.unselectable).eq(0),
+              $prevAvailable = $selected.prevAll(selector.item).not(selector.unselectable).eq(0),
               hasNext        = ($nextAvailable.length > 0)
             ;
             if(hasNext) {
@@ -1051,7 +1051,7 @@ $.fn.dropdown = function(parameters) {
             ;
             if(isShortcutKey) {
               var
-                $currentlySelected = $item.not('.' + className.filtered).filter('.' + className.selected).eq(0),
+                $currentlySelected = $item.not(selector.unselectable).filter('.' + className.selected).eq(0),
                 $activeItem        = $menu.children('.' + className.active).eq(0),
                 $selectedItem      = ($currentlySelected.length > 0)
                   ? $currentlySelected
@@ -1064,7 +1064,7 @@ $.fn.dropdown = function(parameters) {
                 inVisibleMenu     = ($parentMenu.hasClass(className.visible) || $parentMenu.hasClass(className.animating) || $parentMenu.parent(selector.menu).length > 0),
                 hasSubMenu        = ($subMenu.length> 0),
                 hasSelectedItem   = ($selectedItem.length > 0),
-                selectedIsVisible = ($selectedItem.not('.' + className.filtered).length > 0),
+                selectedIsVisible = ($selectedItem.not(selector.unselectable).length > 0),
                 $nextItem,
                 isSubMenuItem,
                 newIndex
@@ -1130,7 +1130,7 @@ $.fn.dropdown = function(parameters) {
                 // up arrow (traverse menu up)
                 if(pressedKey == keys.upArrow) {
                   $nextItem = (hasSelectedItem && inVisibleMenu)
-                    ? $selectedItem.prevAll(selector.item + ':not(.' + className.filtered + ')').eq(0)
+                    ? $selectedItem.prevAll(selector.item + ':not(' + selector.unselectable + ')').eq(0)
                     : $item.eq(0)
                   ;
                   if($visibleItems.index( $nextItem ) < 0) {
@@ -1154,7 +1154,7 @@ $.fn.dropdown = function(parameters) {
                 // down arrow (traverse menu down)
                 if(pressedKey == keys.downArrow) {
                   $nextItem = (hasSelectedItem && inVisibleMenu)
-                    ? $nextItem = $selectedItem.nextAll(selector.item + ':not(.' + className.filtered + ')').eq(0)
+                    ? $nextItem = $selectedItem.nextAll(selector.item + ':not(' + selector.unselectable + ')').eq(0)
                     : $item.eq(0)
                   ;
                   if($nextItem.length === 0) {
@@ -1517,7 +1517,7 @@ $.fn.dropdown = function(parameters) {
           },
           selectedItem: function() {
             var
-              $selectedItem = $item.not('.' + className.filtered).filter('.'  + className.selected)
+              $selectedItem = $item.not(selector.unselectable).filter('.'  + className.selected)
             ;
             return ($selectedItem.length > 0)
               ? $selectedItem
@@ -1720,7 +1720,7 @@ $.fn.dropdown = function(parameters) {
             newScroll     = (direction == 'up')
               ? currentScroll - (itemHeight * itemsPerPage)
               : currentScroll + (itemHeight * itemsPerPage),
-            $selectableItem = $item.not('.' + className.filtered),
+            $selectableItem = $item.not(selector.unselectable),
             isWithinRange,
             $nextSelectedItem,
             elementIndex
@@ -2371,7 +2371,7 @@ $.fn.dropdown = function(parameters) {
             return (settings.maxSelections && module.get.selectionCount() >= settings.maxSelections);
           },
           allResultsFiltered: function() {
-            return ($item.filter('.' + className.filtered).length === $item.length);
+            return ($item.filter(selector.unselectable).length === $item.length);
           },
           value: function(value) {
             var
@@ -2915,7 +2915,8 @@ $.fn.dropdown.settings = {
     message      : '.message',
     menuIcon     : '.dropdown.icon',
     search       : 'input.search, .menu > .search > input',
-    text         : '> .text:not(.icon)'
+    text         : '> .text:not(.icon)',
+    unselectable : '.disabled, .filtered'
   },
 
   className : {

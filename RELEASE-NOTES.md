@@ -60,6 +60,7 @@
 - **Dropdown** - Added `showOnFocus` option that lets you specify whether dropdown menu should show on focus
 - **Dropdown** - `fullTextSearch: true` now uses fuzzy search (same as `ui search`)
 - **Dropdown** - Page down and page up now works with dropdown menus
+- **Dropdown** - Added `disabled item` state, disabled items will automatically be skipped with keyboard selection
 - **Form** - Added placeholder color rules for IE, `ms-input-placeholder`
 - **Form** - Fix `errored field` dropdown keyboard selection color
 - **Form Validation** - Added `different[field]` rule which requires a field to be different than another field
