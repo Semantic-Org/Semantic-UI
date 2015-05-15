@@ -12,3 +12,4 @@
 @handleBoxShadow:
   0px 0px 0px 1px @selectedBorderColor inset
 ;
+@checkboxTransition: none;

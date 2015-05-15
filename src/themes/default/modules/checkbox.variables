@@ -21,6 +21,7 @@
 @checkboxTransition:
   background-color @defaultDuration @defaultEasing,
   border @defaultDuration @defaultEasing,
+  opacity @defaultDuration @defaultEasing,
   box-shadow @defaultDuration @defaultEasing
 ;
 
