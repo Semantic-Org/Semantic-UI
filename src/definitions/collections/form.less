@@ -516,17 +516,17 @@
        Disabled
 ---------------------*/
 
-.ui.form .field :disabled,
-.ui.form .field.disabled {
-  opacity: 0.5;
+.ui.form .disabled.fields .field,
+.ui.form .disabled.field,
+.ui.form .field :disabled {
+  opacity: @disabledOpacity;
 }
 .ui.form .field.disabled label {
-  opacity: 0.5;
+  opacity: @disabledLabelOpacity;
 }
 .ui.form .field.disabled :disabled {
   opacity: 1;
 }
-
 
 /*--------------
     Loading

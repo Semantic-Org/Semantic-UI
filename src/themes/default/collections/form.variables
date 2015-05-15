@@ -98,6 +98,9 @@
 @textAreaFocusBoxShadow: @inputFocusBoxShadow;
 @textAreaFocusBorderRadius: @inputFocusBorderRadius;
 
+/* Disabled */
+@disabledLabelOpacity: @disabledOpacity;
+
 /* Error */
 @formErrorColor: @negativeTextColor;
 @formErrorBorder: @negativeBorderColor;
