@@ -883,7 +883,7 @@ $.api.settings = {
   performance     : true,
 
   // cache
-  cache           : 'local',
+  cache           : true,
 
   // event binding
   on              : 'auto',
