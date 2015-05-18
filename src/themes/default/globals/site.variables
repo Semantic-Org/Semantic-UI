@@ -307,7 +307,7 @@
 
 /* Info */
 @infoColor              : #31CCEC;
-@infoBackgroundColor    : #F8FCFC;
+@infoBackgroundColor    : #F8FFFF;
 @infoBorderColor        : #9ECAD3;
 @infoHeaderColor        : #0E566C;
 @infoTextColor          : #0E566D;
@@ -315,7 +315,7 @@
 /* Warning */
 @warningColor           : #FFF9EA;
 @warningBorderColor     : #C9BA9B;
-@warningBackgroundColor : #FFFCED;
+@warningBackgroundColor : #FFFAF3;
 @warningHeaderColor     : #794B02;
 @warningTextColor       : #664917;
 
