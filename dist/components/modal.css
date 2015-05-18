@@ -23,7 +23,7 @@
   text-align: left;
   background: #ffffff;
   border: none;
-  box-shadow: 1px 3px 10px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 3px 3px 0px rgba(0, 0, 0, 0.2), 1px 3px 15px 2px rgba(0, 0, 0, 0.2);
   border-radius: 0.2857rem;
   -webkit-user-select: text;
      -moz-user-select: text;

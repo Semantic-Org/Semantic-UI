@@ -3596,6 +3596,8 @@ $.fn.dropdown = function(parameters) {
         element         = this,
         instance        = $module.data(moduleNamespace),
 
+        initialLoad,
+        pageLostFocus,
         elementNamespace,
         id,
         selectObserver,
@@ -3615,27 +3617,10 @@ $.fn.dropdown = function(parameters) {
 
             module.save.defaults();
 
-            if(settings.apiSettings) {
-              if(settings.saveRemoteData) {
-                module.restore.remoteValues();
-              }
-              else {
-                module.clearValue();
-              }
-            }
-            else {
-              module.set.selected();
-            }
+            module.restore.values();
 
             if(module.is.multiple()) {
-              if(settings.allowAdditions) {
-                if(!settings.useLabels) {
-                  module.error(error.labels);
-                  settings.useLabels = true;
-                }
-                module.create.userLabels();
-              }
-              module.check.maxSelections();
+              module.restore.labels();
             }
 
             module.create.id();
@@ -4263,7 +4248,7 @@ $.fn.dropdown = function(parameters) {
 
         event: {
           focus: function() {
-            if(settings.showOnFocus && !activated && module.is.hidden()) {
+            if(settings.showOnFocus && !activated && module.is.hidden() && !pageLostFocus) {
               module.show();
             }
           },
@@ -4277,9 +4262,7 @@ $.fn.dropdown = function(parameters) {
             }
           },
           blur: function(event) {
-            var
-              pageLostFocus = (document.activeElement === this)
-            ;
+            pageLostFocus = (document.activeElement === this);
             if(!activated && !pageLostFocus) {
               module.remove.activeLabel();
               module.hide();
@@ -4303,9 +4286,7 @@ $.fn.dropdown = function(parameters) {
               }
             },
             blur: function(event) {
-              var
-                pageLostFocus = (document.activeElement === this)
-              ;
+              pageLostFocus = (document.activeElement === this);
               if(!itemActivated && !pageLostFocus) {
                 if(module.is.multiple()) {
                   module.remove.activeLabel();
@@ -5163,6 +5144,37 @@ $.fn.dropdown = function(parameters) {
               }
             }
           },
+          labels: function() {
+            if(settings.allowAdditions) {
+              if(!settings.useLabels) {
+                module.error(error.labels);
+                settings.useLabels = true;
+              }
+              module.debug('Restoring selected values');
+              module.create.userLabels();
+            }
+            module.check.maxSelections();
+          },
+          values: function() {
+            module.debug('Restoring selected values');
+            if(settings.fireOnInit === false) {
+              initialLoad = true;
+            }
+            if(settings.apiSettings) {
+              if(settings.saveRemoteData) {
+                module.restore.remoteValues();
+              }
+              else {
+                module.clearValue();
+              }
+            }
+            else {
+              module.set.selected();
+            }
+            if(settings.fireOnInit === false) {
+              initialLoad = false;
+            }
+          },
           remoteValues: function() {
             var
               values = module.get.remoteValues()
@@ -5170,14 +5182,12 @@ $.fn.dropdown = function(parameters) {
             module.debug('Recreating selected from session data', values);
             if(values) {
               if( module.is.single() ) {
-                console.log('single text', values, name);
                 $.each(values, function(value, name) {
                   module.set.text(name);
                 });
               }
               else {
                 $.each(values, function(value, name) {
-                  console.log(value, name);
                   module.add.label(value, name);
                 });
               }
@@ -5195,7 +5205,6 @@ $.fn.dropdown = function(parameters) {
               return;
             }
             name = sessionStorage.getItem(value);
-            console.log('reading', value, name);
             return (name !== undefined)
               ? name
               : false
@@ -5225,7 +5234,6 @@ $.fn.dropdown = function(parameters) {
               module.error(error.noStorage);
               return;
             }
-            console.log('saving', value, name);
             sessionStorage.setItem(value, name);
           }
         },
@@ -5319,6 +5327,9 @@ $.fn.dropdown = function(parameters) {
             text = text || $module.data(metadata.placeholderText);
             module.set.text(text);
             $text.addClass(className.placeholder);
+          },
+          input: function() {
+
           },
           tabbable: function() {
             if( module.has.search() ) {
@@ -5445,36 +5456,10 @@ $.fn.dropdown = function(parameters) {
             var
               hasInput     = ($input.length > 0),
               isAddition   = !module.has.value(value),
-              currentValue = module.get.values()
+              currentValue = module.get.values(),
+              newValue
             ;
-            if($input.length > 0) {
-
-              if( module.is.multiple() ) {
-
-                if(value === '') {
-                  module.debug('Cannot select blank values from multiselect');
-                  return;
-                }
-
-                // extend currently selected values
-                value = [value];
-                if($.isArray(currentValue)) {
-                  value = currentValue.concat(value);
-                  value = module.get.uniqueArray(value);
-                }
-
-                // set values
-                if( $input.is('select') ) {
-                  module.debug('Setting multiple <select> values', value, $input);
-                  if(settings.allowAdditions) {
-                    module.add.optionValue(value);
-                  }
-                }
-                else {
-                  value = value.join(settings.delimiter);
-                  module.debug('Setting hidden input to delimited values', value, $input);
-                }
-              }
+            if(hasInput) {
               if(value == currentValue) {
                 module.verbose('Skipping value update already same value', value, currentValue);
                 return;
@@ -5484,16 +5469,16 @@ $.fn.dropdown = function(parameters) {
                 .val(value)
                 .trigger('change')
               ;
-              settings.onChange.call(element, value, text, $selected);
             }
             else {
               module.verbose('Storing value in metadata', value, $input);
               if(value !== currentValue) {
                 $module.data(metadata.value, value);
-                settings.onChange.call(element, value, text, $selected);
               }
             }
-            module.check.maxSelections();
+            if(!initialLoad) {
+              settings.onChange.call(element, value, text, $selected);
+            }
           },
           active: function() {
             $module
@@ -5542,14 +5527,14 @@ $.fn.dropdown = function(parameters) {
                       module.save.remoteData(selectedText, selectedValue);
                     }
                     if(settings.useLabels) {
+                      module.add.value(selectedValue, selectedText, $selected);
                       module.add.label(selectedValue, selectedText, shouldAnimate);
-                      module.set.value(selectedValue, selectedText, $selected);
                       $selected.addClass(className.active);
                       module.filterActive();
                       module.select.nextAvailable($selectedItem);
                     }
                     else {
-                      module.set.value(selectedValue, selectedText, $selected);
+                      module.add.value(selectedValue, selectedText, $selected);
                       module.set.text(module.add.variables(message.count));
                       $selected.addClass(className.active);
                     }
@@ -5627,27 +5612,25 @@ $.fn.dropdown = function(parameters) {
               ;
             }
           },
-          optionValue: function(values) {
-            if(!$input.is('select')) {
-              return false;
+          optionValue: function(value) {
+            var
+              $option   = $input.find('option[value="' + value + '"]'),
+              hasOption = ($option.length > 0)
+            ;
+            if(hasOption) {
+              return;
             }
+            // temporarily disconnect observer
             if(selectObserver) {
               selectObserver.disconnect();
+              module.verbose('Temporarily disconnecting mutation observer', value);
             }
-            $.each(values, function(index, value) {
-              var
-                $option   = $input.find('option[value="' + value + '"]'),
-                hasOption = ($option.length > 0)
-              ;
-              if(!hasOption) {
-                $('<option/>')
-                  .prop('value', value)
-                  .html(value)
-                  .appendTo($input)
-                ;
-                module.verbose('Adding user addition as an <option>', value);
-              }
-            });
+            $('<option/>')
+              .prop('value', value)
+              .html(value)
+              .appendTo($input)
+            ;
+            module.verbose('Adding user addition as an <option>', value);
             if(selectObserver) {
               selectObserver.observe($input[0], {
                 childList : true,
@@ -5713,6 +5696,40 @@ $.fn.dropdown = function(parameters) {
               message = message.replace('{term}', query);
             }
             return message;
+          },
+          value: function(addedValue, addedText, $selectedItem) {
+            var
+              currentValue = module.get.values(),
+              newValue
+            ;
+            if(addedValue === '') {
+              module.debug('Cannot select blank values from multiselect');
+              return;
+            }
+            // extend currently array
+            if($.isArray(currentValue)) {
+              newValue = currentValue.concat([addedValue]);
+              newValue = module.get.uniqueArray(newValue);
+            }
+            else {
+              newValue = [addedValue];
+            }
+            // add values
+            if( $input.is('select')) {
+              if(settings.allowAdditions) {
+                module.add.optionValue(addedValue);
+                module.debug('Adding value to select', addedValue, newValue, $input);
+              }
+            }
+            else {
+              newValue = newValue.join(settings.delimiter);
+              module.debug('Setting hidden input to delimited value', newValue, $input);
+            }
+            if(!initialLoad) {
+              settings.onAdd.call(element, addedValue, addedText, $selectedItem);
+            }
+            module.set.value(newValue, addedValue, addedText, $selectedItem);
+            module.check.maxSelections();
           }
         },
 
@@ -5758,20 +5775,24 @@ $.fn.dropdown = function(parameters) {
           selected: function(value) {
             var
               $selectedItem = module.get.item(value),
-              selectedValue = module.get.choiceValue($selectedItem)
+              selectedText  = module.get.choiceText($selectedItem),
+              selectedValue = module.get.choiceValue($selectedItem, selectedText)
             ;
             if(!$selectedItem) {
               return false;
             }
-            module.remove.value(selectedValue);
-
             if(module.is.multiple()) {
               if(settings.useLabels) {
+                module.remove.value(selectedValue, selectedText, $selectedItem);
                 module.remove.label(selectedValue);
               }
               else {
+                module.remove.value(selectedValue, selectedText, $selectedItem);
                 module.set.text(module.add.variables(message.count));
               }
+            }
+            else {
+              module.remove.value(selectedValue, selectedText, $selectedItem);
             }
             $selectedItem
               .removeClass(className.filtered)
@@ -5784,36 +5805,30 @@ $.fn.dropdown = function(parameters) {
           selectedItem: function() {
             $item.removeClass(className.selected);
           },
-          value: function(value) {
+          value: function(removedValue, removedText, $removedItem) {
             var
-              values = $input.val()
+              values   = $input.val(),
+              newValue
             ;
             if( $input.is('select') ) {
-              module.verbose('Input is <select> removing selected');
-              $input
-                .find('option[value="' + value + '"]')
-                .prop('selected', false)
-              ;
+              module.verbose('Input is <select> removing selected option', removedValue);
+              newValue = module.remove.arrayValue(removedValue, values);
             }
             else {
-              module.verbose('Input is csv removing value');
-              values = module.remove.delimitedValue(value, values);
-              $input
-                .val(values)
-                .trigger('change')
-              ;
+              module.verbose('Removing from delimited values', removedValue);
+              values = values.split(settings.delimiter);
+              newValue = module.remove.arrayValue(removedValue, values);
+              newValue = newValue.join(settings.delimiter);
             }
-            module.check.maxSelections();
+            if(!initialLoad) {
+              settings.onRemove.call(element, removedValue, removedText, $removedItem);
+            }
+            module.set.value(newValue, removedText, $removedItem);
           },
-          delimitedValue: function(removedValue, values) {
-            if(typeof values != 'string') {
-              return false;
-            }
-            values = values.split(settings.delimiter);
+          arrayValue: function(removedValue, values) {
             values = $.grep(values, function(value){
               return (removedValue != value);
             });
-            values = values.join(settings.delimiter);
             module.verbose('Removed value from delimited string', removedValue, values);
             return values;
           },
@@ -6371,6 +6386,8 @@ $.fn.dropdown.settings = {
   allowTab               : true,       // add tabindex to element
   allowCategorySelection : false,      // allow elements with sub-menus to be selected
 
+  fireOnInit             : false,      // Whether callbacks should fire when initializing dropdown values
+
   transition             : 'auto',     // auto transition will slide down or up based on direction
   duration               : 200,        // duration of transition
 
@@ -6393,6 +6410,9 @@ $.fn.dropdown.settings = {
 
   /* Callbacks */
   onChange      : function(value, text, $selected){},
+  onAdd         : function(value, text, $selected){},
+  onRemove      : function(value, text, $selected){},
+
   onLabelSelect : function($selectedLabels){},
   onLabelCreate : function(value, text) { return $(this); },
   onNoResults   : function(searchTerm) { return true; },
@@ -7386,6 +7406,8 @@ $.fn.modal = function(parameters) {
             module.verbose('Attaching events');
             $module
               .on('click' + eventNamespace, selector.close, module.event.close)
+              .on('click' + eventNamespace, selector.approve, module.event.approve)
+              .on('click' + eventNamespace, selector.deny, module.event.deny)
             ;
             $window
               .on('resize' + elementNamespace, module.event.resize)
@@ -7400,30 +7422,22 @@ $.fn.modal = function(parameters) {
         },
 
         event: {
+          approve: function() {
+            if(settings.onApprove.call(element, $(this)) === false) {
+              module.verbose('Approve callback returned false cancelling hide');
+              return;
+            }
+            module.hide();
+          },
+          deny: function() {
+            if(settings.onDeny.call(element, $(this)) === false) {
+              module.verbose('Deny callback returned false cancelling hide');
+              return;
+            }
+            module.hide();
+          },
           close: function() {
-            var
-              $element = $(this)
-            ;
-            module.verbose('Closing element activated');
-            if( $element.is(selector.approve) ) {
-              if(settings.onApprove.call(element, $element) !== false) {
-                module.hide();
-              }
-              else {
-                module.verbose('Approve callback returned false cancelling hide');
-              }
-            }
-            else if( $element.is(selector.deny) ) {
-              if(settings.onDeny.call(element, $element) !== false) {
-                module.hide();
-              }
-              else {
-                module.verbose('Deny callback returned false cancelling hide');
-              }
-            }
-            else {
-              module.hide();
-            }
+            module.hide();
           },
           click: function(event) {
             var
@@ -8068,7 +8082,7 @@ $.fn.modal.settings = {
   onDeny     : function(){ return true; },
 
   selector    : {
-    close    : '.close, .actions .button',
+    close    : '.close',
     approve  : '.actions .positive, .actions .approve, .actions .ok',
     deny     : '.actions .negative, .actions .deny, .actions .cancel',
     modal    : '.ui.modal'
@@ -17561,7 +17575,7 @@ $.api = $.fn.api = function(parameters) {
             var
               runSettings
             ;
-            runSettings = settings.beforeSend.call($module, settings);
+            runSettings = settings.beforeSend.call(context, settings);
             if(runSettings) {
               if(runSettings.success !== undefined) {
                 module.debug('Legacy success callback detected', runSettings);
@@ -17865,7 +17879,7 @@ $.api.settings = {
   performance     : true,
 
   // cache
-  cache           : 'local',
+  cache           : true,
 
   // event binding
   on              : 'auto',

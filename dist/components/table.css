@@ -332,7 +332,7 @@
 }
 .ui.table tr.warning,
 .ui.table td.warning {
-  background: #fffced !important;
+  background: #fffaf3 !important;
   color: #664917 !important;
 }
 
@@ -474,7 +474,7 @@
 }
 .ui.selectable.table tr.warning:hover,
 .ui.selectable.table tr:hover td.warning {
-  background: #fff9de !important;
+  background: #fff4e4 !important;
   color: #5a4014 !important;
 }
 .ui.selectable.table tr.active:hover,

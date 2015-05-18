@@ -18,7 +18,7 @@
   position: relative;
   min-height: 1em;
   margin: 1em 0em;
-  background: #f4f4f4;
+  background: #f8f8f9;
   padding: 1em 1.5em;
   line-height: 1.4285em;
   color: rgba(0, 0, 0, 0.87);
@@ -251,7 +251,7 @@
 ---------------*/
 
 .ui.floating.message {
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15), 0px 0px 0px 1px rgba(34, 36, 38, 0.22) inset;
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.22) inset, 0 1px 4px 0 rgba(34, 36, 38, 0.15);
 }
 
 /*--------------
@@ -296,7 +296,7 @@
 
 /* Info */
 .ui.info.message {
-  background-color: #f8fcfc;
+  background-color: #f8ffff;
   color: #0e566d;
 }
 .ui.info.message,
@@ -309,7 +309,7 @@
 
 /* Warning */
 .ui.warning.message {
-  background-color: #fffced;
+  background-color: #fffaf3;
   color: #664917;
 }
 .ui.warning.message,
