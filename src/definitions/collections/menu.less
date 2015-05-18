@@ -1330,7 +1330,7 @@ Floated Menu / Item
   background-color: @blue;
 }
 .ui.inverted.blue.menu .active.item,
-.ui.inverted.blue.pointing.menu .active.item:after {
+.ui.inverted.blue.pointing.menu .item:after {
   background-color: @blueActive !important;
 }
 /* Green */
@@ -1338,7 +1338,7 @@ Floated Menu / Item
   background-color: @green;
 }
 .ui.inverted.green.menu .active.item,
-.ui.inverted.green.pointing.menu .active.item:after {
+.ui.inverted.green.pointing.menu .item:after {
   background-color: @greenActive !important;
 }
 /* Orange */
@@ -1346,7 +1346,7 @@ Floated Menu / Item
   background-color: @orange;
 }
 .ui.inverted.orange.menu .active.item,
-.ui.inverted.orange.pointing.menu .active.item:after {
+.ui.inverted.orange.pointing.menu .item:after {
   background-color: @orangeActive !important;
 }
 /* Pink */
@@ -1354,7 +1354,7 @@ Floated Menu / Item
   background-color: @pink;
 }
 .ui.inverted.pink.menu .active.item,
-.ui.inverted.pink.pointing.menu .active.item:after {
+.ui.inverted.pink.pointing.menu .item:after {
   background-color: @pinkActive !important;
 }
 /* Purple */
@@ -1362,7 +1362,7 @@ Floated Menu / Item
   background-color: @purple;
 }
 .ui.inverted.purple.menu .active.item,
-.ui.inverted.purple.pointing.menu .active.item:after {
+.ui.inverted.purple.pointing.menu .item:after {
   background-color: @purpleActive !important;
 }
 /* Red */
@@ -1370,7 +1370,7 @@ Floated Menu / Item
   background-color: @red;
 }
 .ui.inverted.red.menu .active.item,
-.ui.inverted.red.pointing.menu .active.item:after {
+.ui.inverted.red.pointing.menu .item:after {
   background-color: @redActive !important;
 }
 /* Teal */
@@ -1599,6 +1599,9 @@ Floated Menu / Item
 .ui.pointing.menu .active.item:after {
   visibility: visible;
 }
+.ui.pointing.menu .active.dropdown.item:after {
+  visibility: hidden;
+}
 
 /* Don't double up pointers */
 .ui.pointing.menu .dropdown.active.item:after,
@@ -1617,7 +1620,7 @@ Floated Menu / Item
   background-color: @arrowActiveHoverColor;
 }
 
-.ui.vertical.pointing.menu .item:hover:after {
+.ui.vertical.pointing.menu .active.item:hover:after {
   background-color: @arrowVerticalHoverColor;
 }
 .ui.vertical.pointing.menu .active.item:after {
