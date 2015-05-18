@@ -6,7 +6,10 @@
 @border: none;
 @zIndex: 1001;
 @borderRadius: @defaultBorderRadius;
-@boxShadow: 1px 3px 10px 2px rgba(0, 0, 0, 0.5);
+@boxShadow:
+  1px 3px 3px 0px rgba(0, 0, 0, 0.2),
+  1px 3px 15px 2px rgba(0, 0, 0, 0.2)
+;
 
 /* Close Icon */
 @closeOpacity: 0.8;
