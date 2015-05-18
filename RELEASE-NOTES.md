@@ -112,6 +112,7 @@
 - **Checkbox** - Fixes nested `dropdown` inside `checkbox` causing issues
 - **Divider**  - Hidden divider now correctly hides vertical dividers
 - **Divider** - Fixes single icon alignment inside `vertical divider` or `horizontal divider`
+- **Dropdown** - `focus` after changing tabs will no longer cause menu to re-open **Thanks @trevorharwell**
 - **Dropdown** - Fixes issue with headers disappearing inside of `ui dropdown` when nested in `ui menu`
 - **Dropdown** - Fixes `onChange` to fire when input value changes, not just when menu UI changes
 - **Dropdown** - Dropdowns with `transition: none` now work correctly.

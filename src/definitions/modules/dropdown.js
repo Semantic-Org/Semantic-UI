@@ -67,6 +67,7 @@ $.fn.dropdown = function(parameters) {
         element         = this,
         instance        = $module.data(moduleNamespace),
 
+        pageLostFocus,
         elementNamespace,
         id,
         selectObserver,
@@ -734,7 +735,7 @@ $.fn.dropdown = function(parameters) {
 
         event: {
           focus: function() {
-            if(settings.showOnFocus && !activated && module.is.hidden()) {
+            if(settings.showOnFocus && !activated && module.is.hidden() && !pageLostFocus) {
               module.show();
             }
           },
@@ -748,9 +749,7 @@ $.fn.dropdown = function(parameters) {
             }
           },
           blur: function(event) {
-            var
-              pageLostFocus = (document.activeElement === this)
-            ;
+            pageLostFocus = (document.activeElement === this);
             if(!activated && !pageLostFocus) {
               module.remove.activeLabel();
               module.hide();
@@ -774,9 +773,7 @@ $.fn.dropdown = function(parameters) {
               }
             },
             blur: function(event) {
-              var
-                pageLostFocus = (document.activeElement === this)
-              ;
+              pageLostFocus = (document.activeElement === this);
               if(!itemActivated && !pageLostFocus) {
                 if(module.is.multiple()) {
                   module.remove.activeLabel();
@@ -1214,6 +1211,9 @@ $.fn.dropdown = function(parameters) {
         },
 
         determine: {
+          pageLostFocus: function() {
+            pageLostFocus = (document.activeElement === this);
+          },
           selectAction: function(text, value) {
             module.verbose('Determining action', settings.action);
             if( $.isFunction( module.action[settings.action] ) ) {
