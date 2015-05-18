@@ -18940,7 +18940,7 @@ Floated Menu / Item
 /* Colors */
 
 .ui.pointing.menu .active.item:hover:after {
-  background-color: #fafafa;
+  background-color: #f4f4f4;
 }
 
 .ui.pointing.menu .active.item:after {
@@ -18952,10 +18952,14 @@ Floated Menu / Item
 }
 
 .ui.vertical.pointing.menu .active.item:hover:after {
-  background-color: #fafafa;
+  background-color: #f4f4f4;
 }
 
 .ui.vertical.pointing.menu .active.item:after {
+  background-color: #f4f4f4;
+}
+
+.ui.pointing.menu .active.item:hover:after {
   background-color: #f4f4f4;
 }
 
