@@ -5,6 +5,7 @@
 -**Migration Guide**
 
 - **Modal** - If you are using a modal with image content, you will need to use `image content` on the parent element. This is because `flex` rules require parent styling that the previous `table-row` rules did not.
+- **Modal** - Only buttons matching `deny` or `approve` selector will now close a modal automatically. Any button that should hide modal on click should either match one of these selectors, or call `$('.ui.modal').modal('hide')`
 - **Grid** - `page grid` have been modified to have fixed widths. Fluid grid gutters make it very difficult to style responsive page content because they continuously adjust with the browser. Moving forward we will be recommending using `ui container` a fixed width container for holding page contents.
 - **Form Validation** - Form validation now passes settings through a `fields` object, the previous syntax will continue to work but produce deprecation notices in console
 
@@ -107,6 +108,7 @@
 - **All Modules/Transition** - Transitions no longer use `rotateZ(0deg)` to trigger GPU display of visible state. This causes issues with `transform` creating new stacking context that can disrupt `z-index`.
 - **Accordion** - Fixed bug where `exclusive: true` could sometimes cause other accordion element animations to get stuck when animating rapidly
 - **API** - API longer uses `readyState = 0` as sole check for request abort, this may accidentally trigger with `JSONP` or `CORS` requests.
+- **API** - Fixed `this` context of `beforeSend` to use `stateContext` not `element`
 - **Card** - IE11 now can correctly use  `flexbox` cards **THanks @Widcket**
 - **Checkbox** - Fix `disabled checkbox` sometimes displaying hand cursor
 - **Checkbox** - Fixes nested `dropdown` inside `checkbox` causing issues
