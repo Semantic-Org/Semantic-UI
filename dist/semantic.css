@@ -17227,8 +17227,8 @@ body > .ui.grid {
   text-transform: none;
   color: rgba(0, 0, 0, 0.87);
   font-weight: normal;
-  -webkit-transition: none;
-  transition: none;
+  -webkit-transition: background 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+  transition: background 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
 }
 
 .ui.menu > .item:first-child {
