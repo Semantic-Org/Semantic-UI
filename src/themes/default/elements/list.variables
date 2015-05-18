@@ -20,28 +20,28 @@
 /* List Item */
 @itemVerticalPadding: 0.285714em;
 @itemHorizontalPadding: 0em;
-@itemLineHeight: 1.2;
+@itemLineHeight: @relativeLarge;
 
 /*-------------------
       Elements
 --------------------*/
 
 /* Icon */
-@iconDistance: 0.3em;
+@iconDistance: 0.285714em;
 @iconOffset: ((@itemLineHeight - 1rem) / 2);
 @iconTransition: color @defaultDuration @defaultEasing;
 @iconVerticalAlign: top;
-@iconContentVerticalAlign: middle;
+@iconContentVerticalAlign: top;
 
 /* Image */
 @imageDistance: 0.5em;
-@imageAlign: middle;
+@imageAlign: top;
 
 /* Content */
 @contentDistance: 0.5em;
-@contentLineHeight: 1.2em;
+@contentLineHeight: @itemLineHeight;
 @contentLineHeightOffset: (@contentLineHeight - 1em) / 2;
-@contentVerticalAlign: middle;
+@contentVerticalAlign: top;
 
 /* Link */
 @itemLinkColor: @textColor;
@@ -58,7 +58,7 @@
 @itemHeaderColor: @textColor;
 
 /* Description */
-@itemDescriptionColor: @textColor;
+@itemDescriptionColor: rgba(0, 0, 0, 0.7);
 
 /*-------------------
         States
