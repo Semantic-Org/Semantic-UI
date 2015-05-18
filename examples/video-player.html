@@ -59,10 +59,10 @@
             <div class="ui icon play button">
               <i class="play icon"></i>
             </div>
-            <div class="ui icon seek button" data-seek-step="-5" data-seek-interval="1000">
+            <div class="ui icon seek button" data-seek-step="-3" data-seek-interval="250">
               <i class="backward icon"></i>
             </div>
-            <div class="ui icon seek button" data-seek-step="10" data-seek-interval="1000">
+            <div class="ui icon seek button" data-seek-step="4" data-seek-interval="250">
               <i class="forward icon"></i>
             </div>
           </div>
@@ -93,13 +93,42 @@
               <div class="label">current</div>
             </div>
           </div>
-          <div class="twelve wide column">
+          <div class="twelve wide column" style="text-align: center;">
             <input type="range" value="0" min="0" max="1000" autocomplete="off" id="timerange" style="width:100%;" class="ui time input" />
             <!--
             <div class="ui small progress" id="loadprogress">
               <div class="bar"></div>
             </div>
             -->
+            <div class="five fields">
+              <div class="field">
+                <div class="ui buffer checkbox">
+                  <input name="in-buffer" id="state-in-buffer" type="checkbox"><label for="state-in-buffer">in buffer</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui seekable checkbox">
+                  <input name="seekable" id="state-seekable" type="checkbox"><label for="state-seekable">seekable</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui played checkbox">
+                  <input name="already-played" id="state-already-played" type="checkbox"><label for="state-already-played">already played</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui checkbox">
+                  <input name="loop" id="state-loop" type="checkbox"><label for="state-loop">loop</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui left icon mini rate input">
+                  <input placeholder="play rate" type="number" min="-1" max="5" step="0.25" value="1.0" autocomplete="off" />
+                  <i class="small undo link reset icon "></i>
+                </div>
+              </div>
+            </div>
+            
           </div>
           <div class="two wide column">
             <div class="ui tiny statistic">
@@ -111,32 +140,6 @@
         
         <div class="centered row">
           <div class="twelve wide column" style="text-align: center;">
-            
-            <div class="four fields">
-              <div class="field">
-                <div class="ui left icon mini rate input">
-                  <input placeholder="play rate" type="number" min="-1" max="5" step="0.25" value="1.0" autocomplete="off" />
-                  <i class="small undo link reset icon "></i>
-                </div>
-              </div>
-              <!--
-              <div class="field">
-                <div class="ui checkbox">
-                  <input name="loop" id="state-loop" type="checkbox"><label for="state-loop">loop</label>
-                </div>
-              </div>
-              <div class="field">
-                <div class="ui checkbox">
-                  <input name="in-buffer" id="state-in-buffer" type="checkbox"><label for="state-in-buffer">in buffer</label>
-                </div>
-              </div>
-              <div class="field">
-                <div class="ui checkbox">
-                  <input name="already-played" id="state-already-played" type="checkbox"><label for="state-already-played">already played</label>
-                </div>
-              </div>
-              -->
-            </div>
             
             <div class="field">
               <label>ready State</label>
@@ -210,8 +213,6 @@
       </aside>
 
       <!--
-     
-
       <a id="fullscreen" href="#"></a>
       -->
       

@@ -93,6 +93,10 @@ $.fn.video = function(parameters) {
         $rateReset        = $module.find(settings.selector.rateReset),
         $readyStateRadio  = $module.find(settings.selector.readyStateRadio),
         $networkStateRadio= $module.find(settings.selector.networkStateRadio),
+        $statesLabel      = $module.find(settings.selector.statesLabel),
+        $bufferCheckbox   = $module.find(settings.selector.bufferCheckbox),
+        $seekableCheckbox = $module.find(settings.selector.seekableCheckbox),
+        $playedCheckbox   = $module.find(settings.selector.playedCheckbox),
 
         timeRangeUpdateEnabled = true,
         timeRangeInterval = $timeRange.prop('max') - $timeRange.prop('min'),
@@ -129,8 +133,7 @@ $.fn.video = function(parameters) {
             $video
               .on('play' + eventNamespace + ' playing' + eventNamespace + ' pause' + eventNamespace + ' ended' + eventNamespace, module.update.playState)
               .on('ratechange' + eventNamespace, module.update.rate)
-              .on('timeupdate' + eventNamespace, module.update.time) // TODO: reduce throttle
-              // the range input is disabled while a seek (or load) to an unbuffered area occurs
+              .on('timeupdate' + eventNamespace, module.update.time) // TODO limit throttle
               .on('seeking' + eventNamespace + ' seeked' + eventNamespace, module.update.seek)
               .on('volumechange' + eventNamespace, module.update.volume)
               .on('canplaythrough' + eventNamespace + ' canplay' + eventNamespace + ' loadeddata' + eventNamespace + ' loadedmetadata' + eventNamespace + ' emptied' + eventNamespace + ' waiting' + eventNamespace, module.update.readyState)
@@ -142,9 +145,8 @@ $.fn.video = function(parameters) {
               .on('click' + eventNamespace, module.request.playToggle)
             ;
             $seekButton
-              .on('click' + eventNamespace, module.request.seek.toRelativeTime)
               .on('mousedown' + eventNamespace, module.request.seek.tickLoop)
-              .on('mouseup' + eventNamespace + 'mouseleave' + eventNamespace, module.request.seek.stopLoop)
+              .on('mouseup' + eventNamespace + 'mouseleave' + eventNamespace + 'mouseout' + eventNamespace + 'click' + eventNamespace, module.request.seek.stopLoop)
             ;
             $timeRange
               .on('change' + eventNamespace, module.request.seek.fromRangeValue) 
@@ -157,31 +159,188 @@ $.fn.video = function(parameters) {
             $muteButton.on('click' + eventNamespace, module.request.muteToggle);
             $rateInput.on('change' + eventNamespace, module.request.rate);
             $rateReset.on('click' + eventNamespace, module.reset.rate);
+            $readyStateRadio.on('click' + eventNamespace, module.request.denied);
+            $networkStateRadio.on('click' + eventNamespace, module.request.denied); // preventDefault
+            $statesLabel.on('click' + eventNamespace, module.request.denied); // preventDefault
           }
         },
         
         initialValues: function() {
           module.update.playState();
-          module.update.time();
           module.update.volume();
         },
         
-        request: {
-          playToggle: function() {
-            module.debug('Request play toggle');
-            if(video.paused) {
-              return module.request.play();
-            } else {
-              return module.request.pause();
+        // the functions in the both 'get' and 'is' range will query the video element and return the current value
+        get: {
+          
+          pausedState: function() {
+            module.debug('Get paused state');
+            return $video.prop('paused'); // boolean
+          },
+          endedState: function() {
+            module.debug('Get ended state');
+            return $video.prop('ended'); // boolean
+          },
+          currentTime: function() {
+            module.debug('Get current time value');
+            return $video.prop('currentTime'); // double, in seconds
+          },
+          duration: function() {
+            module.debug('Get duration value');
+            return $video.prop('duration'); // double, in seconds
+          },
+          bufferedRanges: function() {
+            module.debug('Get buffered ranges');
+            return $video.prop('buffered'); // TimeRanges type
+          },
+          seekableRanges: function() {
+            module.debug('Get seekable ranges');
+            return $video.prop('seekable'); // TimeRanges type
+          },
+          playedRanges: function() {
+            module.debug('Get played ranges');
+            return $video.prop('played'); // TimeRanges type
+          },
+          
+          volume: function() {
+            module.debug('Get volume value');
+            return $video.prop('volume'); // float, between 0.0 and 1.0
+          },
+          playbackRate: function() {
+            module.debug('Get playback rate value');
+            return $video.prop('playbackRate'); // float, limits depend on browsers implementations
+          },
+          readyState: function() {
+            module.debug('Get ready state value');
+            // use module related constants
+            switch($video.prop('readyState')) {
+              default: case $module.prop('HAVE_NOTHING'): return settings.constants.HAVE_NOTHING; break;
+              case $video.prop('HAVE_METADATA'): return settings.constants.HAVE_METADATA; break;
+              case $video.prop('HAVE_CURRENT_DATA'): return settings.constants.HAVE_CURRENT_DATA; break;
+              case $video.prop('HAVE_FUTURE_DATA'): return settings.constants.HAVE_FUTURE_DATA; break;
+              case $video.prop('HAVE_ENOUGH_DATA'): return settings.constants.HAVE_ENOUGH_DATA; break;
             }
           },
+          networkState: function() {
+            module.debug('Get network state value');
+            // use module related constants
+            switch($module.prop('neworkState')) {
+              default: case $module.prop('NETWORK_EMPTY'): return settings.constants.NETWORK_EMPTY; break;
+              case $video.prop('NETWORK_IDLE'): return settings.constants.NETWORK_IDLE; break;
+              case $video.prop('NETWORK_LOADING'): return settings.constants.NETWORK_LOADING; break;
+              case $video.prop('NETWORK_NO_SOURCE'): return settings.constants.NETWORK_NO_SOURCE; break;
+            } 
+          }
+        },
+        is: {
+          playing: function() {
+            module.debug('Is playing');
+            return !module.get.pausedState() && !module.get.endedState();
+          },
+          seeking: function() {
+            module.debug('Is seeking');
+            return $video.prop('seeking'); // boolean
+          },
+          muted: function() {
+            module.debug('Is muted');
+            return $video.prop('muted'); // boolean
+          },
+          timeBuffered: function(time) {
+            return utilTimeInRange(time, module.get.bufferedRanges());
+          },
+          timePlayed: function(time) {
+            return utilTimeInRange(time, module.get.playedRanges());
+          },
+          timeSeekable: function(time) {
+            return utilTimeInRange(time, module.get.seekableRanges());
+          }
+        },
+        
+        // the functions in this range will update the UI elements from the current video state, with no relevant return value
+        update: {
+          playState: function() {
+            module.debug('Update play state');
+            if(module.is.playing()) {
+              $playButton.addClass(settings.className.active);
+            } else {
+              $playButton.removeClass(settings.className.active);
+            }
+          },
+          time: function() {
+            var
+              currentTime = module.get.currentTime(),
+              duration = module.get.duration();
+            module.debug('Update time');
+            // text displays
+            $currentTime.text(utilReadableTime(currentTime));
+            $remainingTime.text( utilReadableTime(duration - currentTime) );
+            // range display, prevent it to update when it has been 'mousedown'ed but not 'change'd yet
+            if(timeRangeUpdateEnabled) {
+              $timeRange.val( timeRangeInterval * currentTime / duration );
+            }
+            // is currentTime in various TimeRanges (should always be true whern play is on)
+            $bufferCheckbox.prop('checked', module.is.timeBuffered(currentTime));
+            $seekableCheckbox.prop('checked', module.is.timeSeekable(currentTime));
+            $playedCheckbox.prop('checked', module.is.timePlayed(currentTime));
+          },
+          seek: function() {
+            module.debug('Update seek state');
+            if(module.is.seeking()) {
+              $timeRange.prop('disabled', true).addClass(settings.className.disabled);
+            } else {
+              $timeRange.prop('disabled', false).removeClass(settings.className.disabled);
+            }
+          },
+          volume: function() {
+            var 
+              muted = module.is.muted(),
+              volume = module.get.volume();
+                
+            module.debug('Update volume and mute states');
+            if(muted) {
+              $volumeUpButton.addClass(settings.className.disabled);
+              $volumeDownButton.addClass(settings.className.disabled);
+              $volumeProgress.addClass(settings.className.disabled);
+              $muteButton.addClass(settings.className.active);
+            } else {
+              $volumeUpButton.removeClass(settings.className.disabled);
+              $volumeDownButton.removeClass(settings.className.disabled);
+              $volumeProgress.removeClass(settings.className.disabled);
+              $muteButton.removeClass(settings.className.active);
+            }
+            $volumeProgress.progress({ percent: volume * 100 });
+          },
+          rate: function() {
+            module.debug('Update playBack rate');
+            $rateInput.val(module.get.playbackRate());
+          },
+          readyState: function() {
+            module.debug('Update ready state');
+            $readyStateRadio.filter('[value=' + module.get.readyState() + ']').prop('checked', true);
+          },
+          networkState: function() {
+            module.debug('Update network state');
+            $networkStateRadio.filter('[value=' + module.get.networkState() + ']').prop('checked', true);
+          },
+        },
+        
+        // the functions in this range will change the video element state, with no relevant return value
+        request: {
           play: function() {
             module.debug('Request play');
-            return video.play();
+            video.play();
           },
           pause: function() {
             module.debug('Request pause');
-            return video.pause();
+            video.pause();
+          },
+          playToggle: function() {
+            module.debug('Request play toggle');
+            if(module.is.playing()) {
+              video.pause();
+            } else {
+              video.play();
+            }
           },
           rate: function() {
             // see https://developer.mozilla.org/fr/docs/Web/API/HTMLMediaElement#playbackRate
@@ -191,7 +350,7 @@ $.fn.video = function(parameters) {
             // - NS_ERROR_NOT_IMPLEMENTED with FF 37.0.2, 
             // - no visible effect with Chrome 42.0.2311.135
             // TODO: add a ln/exp step behavior to the input[type=number] step attribtute
-            module.debug('Request playBack rate (from button data)');
+            module.debug('Request playback rate (from button data)');
             video.playbackRate = parseFloat( $(this).val() );
           },
           seek: {
@@ -207,13 +366,13 @@ $.fn.video = function(parameters) {
             },
             toRelativeTime: function() {
               module.debug('Request time relative seek from current position)');
-              var position = video.currentTime + $(this).data('seek-step');
+              var position = module.get.currentTime() + $(this).data('seek-step');
               module.request.seek.toAbsoluteTime(position);
             },
             fromRangeValue: function() {
               module.debug('Request time seek from absolute range value');
               var ratio = $timeRange.val() / timeRangeInterval;
-              var position = video.duration * ratio;
+              var position = module.get.duration() * ratio;
               module.request.seek.toAbsoluteTime(position);
             },
             tickLoop: function() {
@@ -222,7 +381,7 @@ $.fn.video = function(parameters) {
               window.clearTimeout(seekLoopCounter);
               if(seekLoopInitialPlayState === undefined) {
                 // force pause while loop seeking
-                seekLoopInitialPlayState = !video.paused;
+                seekLoopInitialPlayState = module.is.playing();
                 module.request.pause();
               } else {
                 // don't move on the first iteration
@@ -267,6 +426,24 @@ $.fn.video = function(parameters) {
           muteToggle: function() {
             module.debug('Request mute toggle');
             video.muted = !video.muted;
+          },
+          denied: function(event) {
+            module.debug('Requet denied');
+            event.preventDefault();
+          }
+        },
+         
+        activate: {
+          timeRangeUpdate: function() {
+            module.debug('Activate timeRange autoupdate');
+            timeRangeUpdateEnabled = true;
+          }
+        },
+        
+        deactivate: {
+          timeRangeUpdate: function() {
+            module.debug('Deactivate timeRange autoupdate');
+            timeRangeUpdateEnabled = false;
           }
         },
         
@@ -282,105 +459,6 @@ $.fn.video = function(parameters) {
           }
         },
         
-        update: {
-          playState: function() {
-            module.debug('Update play state');
-            if(video.paused) {
-              $playButton.removeClass(settings.className.active);
-            } else {
-              $playButton.addClass(settings.className.active);
-            }
-          },
-          time: function() {
-            module.debug('Update time');
-            // text displays
-            $currentTime.text(utilReadableTime(video.currentTime));
-            $remainingTime.text( utilReadableTime(video.duration - video.currentTime) );
-            // range display, prevent it to update when it has been 'mousedown'ed but not 'change'd yet
-            if(timeRangeUpdateEnabled) {
-              $timeRange.val( timeRangeInterval * video.currentTime / video.duration );
-            }
-          },
-          seek: function() {
-            module.debug('Update seek state');
-            if(video.seeking) {
-              $timeRange.prop('disabled', true).addClass(settings.className.disabled);
-            } else {
-              $timeRange.prop('disabled', false).removeClass(settings.className.disabled);
-            }
-          },
-          volume: function() {
-            module.debug('Update volume and mute states');
-            if(video.muted) {
-              $volumeUpButton.addClass(settings.className.disabled);
-              $volumeDownButton.addClass(settings.className.disabled);
-              $volumeProgress.addClass(settings.className.disabled);
-              $muteButton.addClass(settings.className.active);
-            } else {
-              $volumeUpButton.removeClass(settings.className.disabled);
-              $volumeDownButton.removeClass(settings.className.disabled);
-              $volumeProgress.removeClass(settings.className.disabled);
-              $muteButton.removeClass(settings.className.active);
-            }
-            $volumeProgress.progress({ percent: video.volume * 100 });
-          },
-          rate: function() {
-            module.debug('Update playBack rate');
-            $rateInput.val(video.playbackRate);
-          },
-          readyState: function() {
-            $readyStateRadio.filter('[value=' + video.readyState + ']').prop('checked', true);
-          },
-          networkState: function() {
-            $networkStateRadio.filter('[value=' + video.networkState + ']').prop('checked', true);
-          },
-        },
-        
-        
-        activate: {
-          timeRangeUpdate: function() {
-            module.debug('Activate timeRange autoupdate');
-            timeRangeUpdateEnabled = true;
-          }
-        },
-        
-        deactivate: {
-          timeRangeUpdate: function() {
-            module.debug('Deactivate timeRange autoupdate');
-            timeRangeUpdateEnabled = false;
-          }
-        },
-        
-        /*
-        loadProgress: function($progress) {
-          $progress = $($progress)
-          // from video to UI
-          $module
-            .on('progress' + eventNamespace, function() {
-              console.log('progress');
-              if(element.lengthComputable) {
-                $progress.progress({ percent: loaded / total * 100 });
-              }
-            }).on('seeking' + eventNamespace, function() {
-              console.log('seeking')
-            }).on('seeked' + eventNamespace, function() {
-              console.log('seeked')
-              console.log(element.buffered)
-            }).on('stalled' + eventNamespace, function() {
-              console.log('stalled')
-            }).on('suspend' + eventNamespace, function() {
-              console.log('suspend')
-            }).on('loadstart' + eventNamespace, function() {
-              console.log('loadstart')
-            }).on('loadedmetadata' + eventNamespace, function() {
-              console.log('loadedmetadata')
-            }).on('' + eventNamespace, function() {
-              console.log('loadeddata')
-            });
-          
-        }
-        */
-       
         destroy: function() {
           module.verbose('Destroying previous instance of video');
           $video = null
@@ -390,12 +468,12 @@ $.fn.video = function(parameters) {
             .off(eventNamespace)
           ;
         },
-
+        
         refresh: function() {
           module.verbose('Refreshing selector cache');
           $video          = element
         },
-
+        
         setting: function(name, value) {
           module.debug('Changing setting', name, value);
           if( $.isPlainObject(name) ) {
@@ -503,64 +581,66 @@ $.fn.video = function(parameters) {
               console.groupEnd();
             }
             performance = [];
-          }
-        },
+          },
         
-        invoke: function(query, passedArguments, context) {
-          var
-            object = instance,
-            maxDepth,
-            found,
-            response
-          ;
-          passedArguments = passedArguments || queryArguments;
-          context         = element         || context;
-          if(typeof query == 'string' && object !== undefined) {
-            query    = query.split(/[\. ]/);
-            maxDepth = query.length - 1;
-            $.each(query, function(depth, value) {
-              var camelCaseValue = (depth != maxDepth)
-                ? value + query[depth + 1].charAt(0).toUpperCase() + query[depth + 1].slice(1)
-                : query
-              ;
-              if( $.isPlainObject( object[camelCaseValue] ) && (depth != maxDepth) ) {
-                object = object[camelCaseValue];
-              }
-              else if( object[camelCaseValue] !== undefined ) {
-                found = object[camelCaseValue];
-                return false;
-              }
-              else if( $.isPlainObject( object[value] ) && (depth != maxDepth) ) {
-                object = object[value];
-              }
-              else if( object[value] !== undefined ) {
-                found = object[value];
-                return false;
-              }
-              else {
-                module.error(query);
-                return false;
-              }
-            });
+          invoke: function(query, passedArguments, context) {
+            var
+              object = instance,
+              maxDepth,
+              found,
+              response
+            ;
+            passedArguments = passedArguments || queryArguments;
+            context         = element         || context;
+            if(typeof query == 'string' && object !== undefined) {
+              query    = query.split(/[\. ]/);
+              maxDepth = query.length - 1;
+              $.each(query, function(depth, value) {
+                var camelCaseValue = (depth != maxDepth)
+                  ? value + query[depth + 1].charAt(0).toUpperCase() + query[depth + 1].slice(1)
+                  : query
+                ;
+                if( $.isPlainObject( object[camelCaseValue] ) && (depth != maxDepth) ) {
+                  object = object[camelCaseValue];
+                }
+                else if( object[camelCaseValue] !== undefined ) {
+                  found = object[camelCaseValue];
+                  return false;
+                }
+                else if( $.isPlainObject( object[value] ) && (depth != maxDepth) ) {
+                  object = object[value];
+                }
+                else if( object[value] !== undefined ) {
+                  found = object[value];
+                  return false;
+                }
+                else {
+                  module.error(query);
+                  return false;
+                }
+              });
+            }
+            if ( $.isFunction( found ) ) {
+              response = found.apply(context, passedArguments);
+            }
+            else if(found !== undefined) {
+              response = found;
+            }
+            if($.isArray(returnedValue)) {
+              returnedValue.push(response);
+            }
+            else if(returnedValue !== undefined) {
+              returnedValue = [returnedValue, response];
+            }
+            else if(response !== undefined) {
+              returnedValue = response;
+            }
+            return found;
           }
-          if ( $.isFunction( found ) ) {
-            response = found.apply(context, passedArguments);
-          }
-          else if(found !== undefined) {
-            response = found;
-          }
-          if($.isArray(returnedValue)) {
-            returnedValue.push(response);
-          }
-          else if(returnedValue !== undefined) {
-            returnedValue = [returnedValue, response];
-          }
-          else if(response !== undefined) {
-            returnedValue = response;
-          }
-          return found;
-        }
-      };
+        
+        } 
+        
+      }; 
 
       if(methodInvoked) {
         if(instance === undefined) {
@@ -611,12 +691,30 @@ $.fn.video.settings = {
     rateInput:         '.rate input[type="number"]',
     rateReset:         '.rate .reset',
     readyStateRadio:   '.ready.state input[type="radio"]', // could work with <select>
-    networkStateRadio: '.network.state input[type="radio"]'
+    networkStateRadio: '.network.state input[type="radio"]',
+    bufferCheckbox:    '.buffer.checkbox input[type="checkbox"]',
+    seekableCheckbox:  '.seekable.checkbox input[type="checkbox"]',
+    playedCheckbox:    '.played.checkbox input[type="checkbox"]',
+    statesLabel:       '.ready.state label, .network.state label, .buffer.checkbox label, .seekable.checkbox label, .played.checkbox label' // disable click on them
   },
   
-  volumeStep: 0.1 // it moves from 0.0 to 1.0
+  constants: {
+    // used for the ready state
+    HAVE_NOTHING: 0,
+    HAVE_METADATA: 1,
+    HAVE_CURRENT_DATA: 2,
+    HAVE_FUTURE_DATA: 3,
+    HAVE_ENOUGH_DATA: 4,
+  
+    // used for the network state
+    NETWORK_EMPTY: 0,
+    NETWORK_IDLE: 1,
+    NETWORK_LOADING: 2,
+    NETWORK_NO_SOURCE: 3
+  },
+  
+  volumeStep: 0.1 // it moves from 0.0 to 1.0, TODO: use a data-* attribute
   
 };
-
 
 })( jQuery, window , document );
