@@ -1211,9 +1211,6 @@ $.fn.dropdown = function(parameters) {
         },
 
         determine: {
-          pageLostFocus: function() {
-            pageLostFocus = (document.activeElement === this);
-          },
           selectAction: function(text, value) {
             module.verbose('Determining action', settings.action);
             if( $.isFunction( module.action[settings.action] ) ) {
