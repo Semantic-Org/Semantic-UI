@@ -35,7 +35,7 @@
 @menuBorderColor: @borderColor;
 @menuBorder: @menuBorderWidth solid @menuBorderColor;
 @menuBoxShadow: @raisedShadow;
-@menuBorderRadius: 0em 0em @borderRadius @borderRadius;
+@menuBorderRadius: @borderRadius;
 @menuTransition: opacity @defaultDuration @defaultEasing;
 @menuMinWidth: ~"calc(100% + "(@menuBorderWidth * 2)~")";
 @menuZIndex: 11;
@@ -343,7 +343,7 @@
 
 /* Floating */
 @floatingMenuDistance: 0.5em;
-@floatingMenuBoxShadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
+@floatingMenuBoxShadow: 0 3px 15px 0 @borderColor;
 @floatingMenuBorderRadius: @borderRadius;
 
 /* Pointing */
