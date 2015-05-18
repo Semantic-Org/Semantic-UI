@@ -86,7 +86,17 @@ $.fn.dropdown = function(parameters) {
 
             module.save.defaults();
 
-            module.set.selected();
+            if(settings.apiSettings) {
+              if(settings.saveRemoteData) {
+                module.restore.remoteValues();
+              }
+              else {
+                module.clearValue();
+              }
+            }
+            else {
+              module.set.selected();
+            }
 
             if(module.is.multiple()) {
               if(settings.allowAdditions) {
@@ -201,7 +211,7 @@ $.fn.dropdown = function(parameters) {
             module.verbose('Selecting first non-filtered element');
             module.remove.selectedItem();
             $item
-              .not('.' + className.filtered)
+              .not(selector.unselectable)
                 .eq(0)
                 .addClass(className.selected)
             ;
@@ -209,8 +219,8 @@ $.fn.dropdown = function(parameters) {
           nextAvailable: function($selected) {
             $selected = $selected.eq(0);
             var
-              $nextAvailable = $selected.nextAll(selector.item).not('.' + className.filtered).eq(0),
-              $prevAvailable = $selected.prevAll(selector.item).not('.' + className.filtered).eq(0),
+              $nextAvailable = $selected.nextAll(selector.item).not(selector.unselectable).eq(0),
+              $prevAvailable = $selected.prevAll(selector.item).not(selector.unselectable).eq(0),
               hasNext        = ($nextAvailable.length > 0)
             ;
             if(hasNext) {
@@ -225,6 +235,19 @@ $.fn.dropdown = function(parameters) {
         },
 
         setup: {
+          api: function() {
+            var
+              apiSettings = {
+                debug    : settings.debug,
+                cache    : 'local',
+                on       : false
+              }
+            ;
+            module.verbose('First request, initializing API');
+            $module
+              .api(apiSettings)
+            ;
+          },
           layout: function() {
             if( $module.is('select') ) {
               module.setup.select();
@@ -534,7 +557,7 @@ $.fn.dropdown = function(parameters) {
               if(settings.allowAdditions) {
                 module.add.userChoice(query);
               }
-              if(module.is.searchSelection() && module.can.show() ) {
+              if(module.is.searchSelection() && module.can.show() && module.is.focusedOnSearch() ) {
                 module.show();
               }
             }
@@ -543,9 +566,14 @@ $.fn.dropdown = function(parameters) {
             return;
           }
           if(settings.apiSettings) {
-            module.queryRemote(searchTerm, function() {
-              afterFiltered();
-            });
+            if( module.can.useAPI() ) {
+              module.queryRemote(searchTerm, function() {
+                afterFiltered();
+              });
+            }
+            else {
+              module.error(error.noAPI);
+            }
           }
           else {
             module.filterItems(searchTerm);
@@ -556,17 +584,17 @@ $.fn.dropdown = function(parameters) {
         queryRemote: function(query, callback) {
           var
             apiSettings = {
-              debug         : settings.debug,
-              on            : false,
               errorDuration : false,
               urlData: {
                 query: query
               },
               onError: function() {
                 module.add.message(message.serverError);
+                callback();
               },
               onFailure: function() {
                 module.add.message(message.serverError);
+                callback();
               },
               onSuccess : function(response) {
                 module.remove.message();
@@ -577,9 +605,12 @@ $.fn.dropdown = function(parameters) {
               }
             }
           ;
+          if( !$module.api('get request') ) {
+            module.setup.api();
+          }
           apiSettings = $.extend(true, {}, apiSettings, settings.apiSettings);
           $module
-            .api(apiSettings)
+            .api('setting', apiSettings)
             .api('abort')
             .api('query')
           ;
@@ -740,9 +771,6 @@ $.fn.dropdown = function(parameters) {
               }
               if(settings.showOnFocus) {
                 module.show();
-              }
-              if(module.is.searchSelection()) {
-                module.search();
               }
             },
             blur: function(event) {
@@ -1023,7 +1051,7 @@ $.fn.dropdown = function(parameters) {
             ;
             if(isShortcutKey) {
               var
-                $currentlySelected = $item.not('.' + className.filtered).filter('.' + className.selected).eq(0),
+                $currentlySelected = $item.not(selector.unselectable).filter('.' + className.selected).eq(0),
                 $activeItem        = $menu.children('.' + className.active).eq(0),
                 $selectedItem      = ($currentlySelected.length > 0)
                   ? $currentlySelected
@@ -1036,7 +1064,7 @@ $.fn.dropdown = function(parameters) {
                 inVisibleMenu     = ($parentMenu.hasClass(className.visible) || $parentMenu.hasClass(className.animating) || $parentMenu.parent(selector.menu).length > 0),
                 hasSubMenu        = ($subMenu.length> 0),
                 hasSelectedItem   = ($selectedItem.length > 0),
-                selectedIsVisible = ($selectedItem.not('.' + className.filtered).length > 0),
+                selectedIsVisible = ($selectedItem.not(selector.unselectable).length > 0),
                 $nextItem,
                 isSubMenuItem,
                 newIndex
@@ -1102,7 +1130,7 @@ $.fn.dropdown = function(parameters) {
                 // up arrow (traverse menu up)
                 if(pressedKey == keys.upArrow) {
                   $nextItem = (hasSelectedItem && inVisibleMenu)
-                    ? $selectedItem.prevAll(selector.item + ':not(.' + className.filtered + ')').eq(0)
+                    ? $selectedItem.prevAll(selector.item + ':not(' + selector.unselectable + ')').eq(0)
                     : $item.eq(0)
                   ;
                   if($visibleItems.index( $nextItem ) < 0) {
@@ -1126,7 +1154,7 @@ $.fn.dropdown = function(parameters) {
                 // down arrow (traverse menu down)
                 if(pressedKey == keys.downArrow) {
                   $nextItem = (hasSelectedItem && inVisibleMenu)
-                    ? $nextItem = $selectedItem.nextAll(selector.item + ':not(.' + className.filtered + ')').eq(0)
+                    ? $nextItem = $selectedItem.nextAll(selector.item + ':not(' + selector.unselectable + ')').eq(0)
                     : $item.eq(0)
                   ;
                   if($nextItem.length === 0) {
@@ -1290,8 +1318,10 @@ $.fn.dropdown = function(parameters) {
             var
               values = module.get.values()
             ;
-            return ( module.is.multiple() && $.isArray(values))
-              ? values.length
+            return ( module.is.multiple() )
+              ? $.isArray(values)
+                ? values.length
+                : 0
               : (module.get.value() !== '')
                 ? 1
                 : 0
@@ -1372,6 +1402,28 @@ $.fn.dropdown = function(parameters) {
                 : ''
               : value
             ;
+          },
+          remoteValues: function() {
+            var
+              values = module.get.values(),
+              remoteValues = false
+            ;
+            if(values) {
+              if(typeof values == 'string') {
+                values = [values];
+              }
+              remoteValues = {};
+              $.each(values, function(index, value) {
+                var
+                  name = module.read.remoteData(value)
+                ;
+                remoteValues[value] = (name)
+                  ? name
+                  : value
+                ;
+              });
+            }
+            return remoteValues;
           },
           choiceText: function($choice, preserveHTML) {
             preserveHTML = (preserveHTML !== undefined)
@@ -1467,7 +1519,7 @@ $.fn.dropdown = function(parameters) {
           },
           selectedItem: function() {
             var
-              $selectedItem = $item.not('.' + className.filtered).filter('.'  + className.selected)
+              $selectedItem = $item.not(selector.unselectable).filter('.'  + className.selected)
             ;
             return ($selectedItem.length > 0)
               ? $selectedItem
@@ -1581,6 +1633,44 @@ $.fn.dropdown = function(parameters) {
                 module.remove.selectedItem();
               }
             }
+          },
+          remoteValues: function() {
+            var
+              values = module.get.remoteValues()
+            ;
+            module.debug('Recreating selected from session data', values);
+            if(values) {
+              if( module.is.single() ) {
+                console.log('single text', values, name);
+                $.each(values, function(value, name) {
+                  module.set.text(name);
+                });
+              }
+              else {
+                $.each(values, function(value, name) {
+                  console.log(value, name);
+                  module.add.label(value, name);
+                });
+              }
+            }
+          }
+        },
+
+        read: {
+          remoteData: function(value) {
+            var
+              name
+            ;
+            if(window.Storage === undefined) {
+              module.error(error.noStorage);
+              return;
+            }
+            name = sessionStorage.getItem(value);
+            console.log('reading', value, name);
+            return (name !== undefined)
+              ? name
+              : false
+            ;
           }
         },
 
@@ -1600,6 +1690,14 @@ $.fn.dropdown = function(parameters) {
             if($text.hasClass(className.placeholder)) {
               $module.data(metadata.placeholderText, $text.text());
             }
+          },
+          remoteData: function(name, value) {
+            if(window.Storage === undefined) {
+              module.error(error.noStorage);
+              return;
+            }
+            console.log('saving', value, name);
+            sessionStorage.setItem(value, name);
           }
         },
 
@@ -1624,7 +1722,7 @@ $.fn.dropdown = function(parameters) {
             newScroll     = (direction == 'up')
               ? currentScroll - (itemHeight * itemsPerPage)
               : currentScroll + (itemHeight * itemsPerPage),
-            $selectableItem = $item.not('.' + className.filtered),
+            $selectableItem = $item.not(selector.unselectable),
             isWithinRange,
             $nextSelectedItem,
             elementIndex
@@ -1911,6 +2009,9 @@ $.fn.dropdown = function(parameters) {
                 ;
                 if(isMultiple) {
                   if(!isActive || isUserValue) {
+                    if(settings.apiSettings && settings.saveRemoteData) {
+                      module.save.remoteData(selectedText, selectedValue);
+                    }
                     if(settings.useLabels) {
                       module.add.label(selectedValue, selectedText, shouldAnimate);
                       module.set.value(selectedValue, selectedText, $selected);
@@ -2272,7 +2373,7 @@ $.fn.dropdown = function(parameters) {
             return (settings.maxSelections && module.get.selectionCount() >= settings.maxSelections);
           },
           allResultsFiltered: function() {
-            return ($item.filter('.' + className.filtered).length === $item.length);
+            return ($item.filter(selector.unselectable).length === $item.length);
           },
           value: function(value) {
             var
@@ -2386,7 +2487,10 @@ $.fn.dropdown = function(parameters) {
             return (hasTouch || settings.on == 'click');
           },
           show: function() {
-            return !$module.hasClass(className.disabled);
+            return !$module.hasClass(className.disabled) && $item.length > 0;
+          },
+          useAPI: function() {
+            return $.fn.api !== undefined;
           }
         },
 
@@ -2716,6 +2820,7 @@ $.fn.dropdown.settings = {
   action                 : 'activate', // action on item selection (nothing, activate, select, combo, hide, function(){})
 
   apiSettings            : false,
+  saveRemoteData         : false,       // Whether remote name/value pairs should be stored in sessionStorage to allow remote data to be restored on page refresh
 
   keepOnScreen           : true,       // Whether dropdown should check whether it is on screen before showing
 
@@ -2782,6 +2887,8 @@ $.fn.dropdown.settings = {
     alreadySetup : 'Once a select has been initialized behaviors must be called on the created ui dropdown',
     labels       : 'Allowing user additions currently requires the use of labels.',
     method       : 'The method you called is not defined.',
+    noAPI        : 'The API module is required to load resources remotely',
+    noStorage    : 'Saving remote data requires local storage',
     noTransition : 'This module requires ui transitions <https://github.com/Semantic-Org/UI-Transition>'
   },
 
@@ -2810,7 +2917,8 @@ $.fn.dropdown.settings = {
     message      : '.message',
     menuIcon     : '.dropdown.icon',
     search       : 'input.search, .menu > .search > input',
-    text         : '> .text:not(.icon)'
+    text         : '> .text:not(.icon)',
+    unselectable : '.disabled, .filtered'
   },
 
   className : {

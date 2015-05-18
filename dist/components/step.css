@@ -140,6 +140,7 @@
 
 /* Icon */
 .ui.steps .step > .icon {
+  line-height: 1;
   font-size: 2.5em;
   margin: 0em 1rem 0em 0em;
 }
@@ -298,17 +299,17 @@
 .ui.steps .link.step:active,
 .ui.steps a.step:active::after,
 .ui.steps a.step:active {
-  background: #f0f0f0;
+  background: #f4f4f4;
   color: rgba(0, 0, 0, 0.9);
 }
 
 /* Active */
 .ui.steps .step.active {
   cursor: auto;
-  background: #f0f0f0;
+  background: #f4f4f4;
 }
 .ui.steps .step.active:after {
-  background: #f0f0f0;
+  background: #f4f4f4;
 }
 .ui.steps .step.active .title {
   color: #4183c4;

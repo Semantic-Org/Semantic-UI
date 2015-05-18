@@ -198,9 +198,7 @@
 .ui.disabled.button:hover,
 .ui.disabled.active.button {
   cursor: default;
-  background-color: #dcddde !important;
-  color: rgba(0, 0, 0, 0.4) !important;
-  opacity: 0.3 !important;
+  opacity: 0.45 !important;
   background-image: none !important;
   box-shadow: none !important;
   pointer-events: none;

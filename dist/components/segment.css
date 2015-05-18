@@ -254,7 +254,7 @@
 ---------------*/
 
 .ui.disabled.segment {
-  opacity: 0.3;
+  opacity: 0.45;
   color: rgba(40, 40, 40, 0.3);
 }
 
@@ -530,7 +530,7 @@
 .ui.tertiary.inverted.segment {
   background: -webkit-linear-gradient(rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 100%);
   background: linear-gradient(rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 100%);
-  color: #f0f0f0;
+  color: #f4f4f4;
 }
 
 /*-------------------

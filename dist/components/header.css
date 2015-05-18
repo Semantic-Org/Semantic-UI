@@ -250,6 +250,7 @@ h5.ui.header .sub.header {
   display: block;
   width: auto;
   height: auto;
+  line-height: 1;
   padding: 0em;
   font-size: 3em;
   margin: 0em auto 0.25rem;
@@ -279,7 +280,7 @@ h5.ui.header .sub.header {
 *******************************/
 
 .ui.disabled.header {
-  opacity: 0.3;
+  opacity: 0.45;
 }
 
 
@@ -528,7 +529,7 @@ a.ui.inverted.yellow.header:hover {
 --------------------*/
 
 .ui.block.header {
-  background: #f0f0f0;
+  background: #f4f4f4;
   padding: 0.75rem 1rem;
   box-shadow: none;
   border: 1px solid #d4d4d5;
@@ -563,7 +564,7 @@ a.ui.inverted.yellow.header:hover {
   border: 1px solid #d4d4d5;
 }
 .ui.attached.block.header {
-  background: #f0f0f0;
+  background: #f4f4f4;
 }
 .ui.attached:not(.top):not(.bottom).header {
   margin-top: 0em;

@@ -91,8 +91,8 @@
   text-transform: none;
   color: rgba(0, 0, 0, 0.87);
   font-weight: normal;
-  -webkit-transition: opacity 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-          transition: opacity 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  -webkit-transition: none;
+          transition: none;
 }
 .ui.menu > .item:first-child {
   border-radius: 0.2857rem 0px 0px 0.2857rem;
@@ -1114,11 +1114,11 @@ Floated Menu / Item
 .ui.labeled.icon.menu > .item > .icon {
   height: 1em;
   display: block;
-  font-size: 1.5em !important;
-  margin: 0em 0.5em 0em 0em !important;
+  font-size: 1.71428571em !important;
+  margin: 0em 0.5rem 0em 0em !important;
 }
 .ui.vertical.labeled.icon.menu > .item > .icon {
-  margin: 0em auto 0.5em !important;
+  margin: 0em auto 0.5rem !important;
 }
 
 
@@ -1281,8 +1281,10 @@ Floated Menu / Item
   color: #ffffff;
 }
 .ui.inverted.pointing.menu .active.item:after {
-  background: #3c3c3c !important;
+  background: #1a1a1a !important;
+  margin: 0em !important;
   box-shadow: none !important;
+  border: none !important;
 }
 
 /*--- Active Hover ---*/
@@ -1292,7 +1294,7 @@ Floated Menu / Item
   color: #ffffff !important;
 }
 .ui.inverted.pointing.menu .active.item:hover:after {
-  background: #3c3c3c !important;
+  background: #1a1a1a !important;
 }
 
 /*--------------
@@ -1343,64 +1345,72 @@ Floated Menu / Item
 .ui.inverted.blue.menu {
   background-color: #2185d0;
 }
+.ui.inverted.blue.menu .active.item,
 .ui.inverted.blue.pointing.menu .active.item:after {
-  background-color: #2185d0;
+  background-color: #0d79ca !important;
 }
 
 /* Green */
 .ui.inverted.green.menu {
   background-color: #21ba45;
 }
+.ui.inverted.green.menu .active.item,
 .ui.inverted.green.pointing.menu .active.item:after {
-  background-color: #21ba45;
+  background-color: #0fb335 !important;
 }
 
 /* Orange */
 .ui.inverted.orange.menu {
   background-color: #f2711c;
 }
+.ui.inverted.orange.menu .active.item,
 .ui.inverted.orange.pointing.menu .active.item:after {
-  background-color: #f2711c;
+  background-color: #f56100 !important;
 }
 
 /* Pink */
 .ui.inverted.pink.menu {
   background-color: #e03997;
 }
+.ui.inverted.pink.menu .active.item,
 .ui.inverted.pink.pointing.menu .active.item:after {
-  background-color: #e03997;
+  background-color: #f0108e !important;
 }
 
 /* Purple */
 .ui.inverted.purple.menu {
   background-color: #6a33c8;
 }
+.ui.inverted.purple.menu .active.item,
 .ui.inverted.purple.pointing.menu .active.item:after {
-  background-color: #6a33c8;
+  background-color: #5b1dc5 !important;
 }
 
 /* Red */
 .ui.inverted.red.menu {
   background-color: #db2828;
 }
+.ui.inverted.red.menu .active.item,
 .ui.inverted.red.pointing.menu .active.item:after {
-  background-color: #db2828;
+  background-color: #da1010 !important;
 }
 
 /* Teal */
 .ui.inverted.teal.menu {
   background-color: #00b5ad;
 }
+.ui.inverted.teal.menu .active.item,
 .ui.inverted.teal.pointing.menu .active.item:after {
-  background-color: #00b5ad;
+  background-color: #009c95 !important;
 }
 
 /* Yellow */
 .ui.inverted.yellow.menu {
   background-color: #fbbd08;
 }
+.ui.inverted.yellow.menu .active.item,
 .ui.inverted.yellow.pointing.menu .active.item:after {
-  background-color: #fbbd08;
+  background-color: #eaae00 !important;
 }
 
 /*--------------
@@ -1573,7 +1583,8 @@ Floated Menu / Item
        Pointing
 --------------------*/
 
-.ui.pointing.menu .active.item:after {
+.ui.pointing.menu .item:after {
+  visibility: hidden;
   position: absolute;
   content: '';
   top: 100%;
@@ -1581,10 +1592,10 @@ Floated Menu / Item
   -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
       -ms-transform: translateX(-50%) translateY(-50%) rotate(45deg);
           transform: translateX(-50%) translateY(-50%) rotate(45deg);
-  margin: 0em;
   background: none;
-  width: 0.6em;
-  height: 0.6em;
+  margin: 0.5px 0em 0em;
+  width: 0.5714em;
+  height: 0.5714em;
   border: none;
   border-bottom: 1px solid #d4d4d5;
   border-right: 1px solid #d4d4d5;
@@ -1592,7 +1603,7 @@ Floated Menu / Item
   -webkit-transition: background 0.2s ease;
           transition: background 0.2s ease;
 }
-.ui.vertical.pointing.menu .active.item:after {
+.ui.vertical.pointing.menu .item:after {
   position: absolute;
   top: 50%;
   right: 0%;
@@ -1601,10 +1612,15 @@ Floated Menu / Item
   -webkit-transform: translateX(50%) translateY(-50%) rotate(45deg);
       -ms-transform: translateX(50%) translateY(-50%) rotate(45deg);
           transform: translateX(50%) translateY(-50%) rotate(45deg);
-  margin: 0em -1px 0em 0em;
+  margin: 0em -0.5px 0em 0em;
   border: none;
   border-top: 1px solid #d4d4d5;
   border-right: 1px solid #d4d4d5;
+}
+
+/* Active */
+.ui.pointing.menu .active.item:after {
+  visibility: visible;
 }
 
 /* Don't double up pointers */

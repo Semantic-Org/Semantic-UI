@@ -74,21 +74,9 @@ $.api = $.fn.api = function(parameters) {
       module = {
 
         initialize: function() {
-          var
-            triggerEvent = module.get.event()
-          ;
-          // bind events
           if(!methodInvoked) {
-            if( triggerEvent ) {
-              module.debug('Attaching API events to element', triggerEvent);
-              $module
-                .on(triggerEvent + eventNamespace, module.event.trigger)
-              ;
-            }
-            else if(settings.on == 'now') {
-              module.debug('Querying API now', triggerEvent);
-              module.query();
-            }
+            module.create.cache();
+            module.bind.events();
           }
           module.instantiate();
         },
@@ -107,6 +95,54 @@ $.api = $.fn.api = function(parameters) {
             .removeData(moduleNamespace)
             .off(eventNamespace)
           ;
+        },
+
+        bind: {
+          events: function() {
+            var
+              triggerEvent = module.get.event()
+            ;
+            if( triggerEvent ) {
+              module.debug('Attaching API events to element', triggerEvent);
+              $module
+                .on(triggerEvent + eventNamespace, module.event.trigger)
+              ;
+            }
+            else if(settings.on == 'now') {
+              module.debug('Querying API now', triggerEvent);
+              module.query();
+            }
+          }
+        },
+
+        read: {
+          cachedResponse: function(url) {
+            var
+              response
+            ;
+            if(!module.cache) {
+              module.create.cache();
+            }
+            response = (module.cache.response[url] !== undefined)
+              ? module.cache.response[url]
+              : false
+            ;
+            module.debug('Using cached response', url, response);
+            return response;
+          }
+        },
+        write: {
+          cachedResponse: function(url, response) {
+            if(!module.cache) {
+              module.create.cache();
+            }
+            if(response && response === '') {
+              module.debug('Response empty, not caching', response);
+              return;
+            }
+            module.verbose('Storing cached response for url', url, response);
+            module.cache.response[url] = response;
+          }
         },
 
         query: function() {
@@ -190,19 +226,26 @@ $.api = $.fn.api = function(parameters) {
           module.debug('Sending data', data, ajaxSettings.method);
           module.verbose('Using AJAX settings', ajaxSettings);
 
-          if( module.is.loading() ) {
-            // throttle additional requests
+          // pull from cache
+          if(settings.cache === 'local' && module.read.cachedResponse(url)) {
+            module.request = module.create.request();
+            module.request.resolveWith(context, [ module.read.cachedResponse(url) ]);
+            return;
+          }
+
+          if( !module.is.loading() ) {
+            module.request = module.create.request();
+            module.xhr     = module.create.xhr();
+            settings.onRequest.call(context, module.request, module.xhr);
+          }
+          else {
+            // throttle repeated api requests
+            module.debug('Repeated request throttled', settings.throttle);
             module.timer = setTimeout(function() {
               module.request = module.create.request();
               module.xhr     = module.create.xhr();
               settings.onRequest.call(context, module.request, module.xhr);
             }, settings.throttle);
-          }
-          else {
-            // immediately on first request
-            module.request = module.create.request();
-            module.xhr     = module.create.xhr();
-            settings.onRequest.call(context, module.request, module.xhr);
           }
 
         },
@@ -354,9 +397,7 @@ $.api = $.fn.api = function(parameters) {
               // page triggers abort on navigation, dont show error
               setTimeout(function() {
                 if(xhr.readyState !== undefined && xhr.readyState === 0) {
-                  module.debug('Request Aborted (Most likely caused by page navigation or CORS Policy)', status, httpMessage);
-                  settings.onAbort.call(context, status, $module);
-                  module.reset();
+                  module.request.rejectWith(context, [xhr, 'aborted', httpMessage]);
                 }
                 else {
                   module.request.rejectWith(context, [xhr, status, httpMessage]);
@@ -376,6 +417,11 @@ $.api = $.fn.api = function(parameters) {
                   : false
               ;
               module.debug('API Response Received', response);
+
+              if(settings.cache === 'local' && url) {
+                module.write.cachedResponse(url, response);
+                module.debug('Adding url to local cache', module.cache);
+              }
 
               if(translatedResponse) {
                 module.debug('Modified API response in onResponse callback', settings.onResponse, translatedResponse, response);
@@ -401,16 +447,23 @@ $.api = $.fn.api = function(parameters) {
                 settings.onSuccess.call(context, response, $module);
               }
             },
-            error: function(xhr, status, httpMessage) {
+            fail: function(xhr, status, httpMessage) {
               var
                 errorMessage = (settings.error[status] !== undefined)
                   ? settings.error[status]
                   : httpMessage,
                 response
               ;
-              // let em know unless request aborted
-              if(xhr !== undefined) {
 
+              // request aborted, don't show error state
+              if(status == 'aborted') {
+                module.debug('Request Aborted (Most likely caused by page navigation or CORS Policy)', status, httpMessage);
+                module.reset();
+                settings.onAbort.call(context, status, $module);
+                return;
+              }
+
+              if(xhr !== undefined) {
                 // if http status code returned and json returned error, look for it
                 if( xhr.status != 200 && httpMessage !== undefined && httpMessage !== '') {
                   module.error(error.statusMessage + httpMessage, ajaxSettings.url);
@@ -429,7 +482,7 @@ $.api = $.fn.api = function(parameters) {
                   }
                 }
                 module.remove.loading();
-                // show error state only for duration specified in settings
+                // show error state if specified with length
                 if(settings.errorDuration !== false) {
                   module.set.error();
                   setTimeout(module.remove.error, settings.errorDuration);
@@ -442,12 +495,20 @@ $.api = $.fn.api = function(parameters) {
         },
 
         create: {
+
+          cache: function() {
+            module.verbose('Creating local response cache');
+            module.cache = {
+              response: {}
+            };
+          },
+
           // api promise
           request: function() {
             return $.Deferred()
               .always(module.event.request.complete)
               .done(module.event.request.done)
-              .fail(module.event.request.error)
+              .fail(module.event.request.fail)
             ;
           },
           // xhr promise
@@ -820,6 +881,9 @@ $.api.settings = {
   debug           : true,
   verbose         : false,
   performance     : true,
+
+  // cache
+  cache           : 'local',
 
   // event binding
   on              : 'auto',

@@ -274,22 +274,22 @@
 
 /* Error Placeholder */
 .ui.form .error ::-webkit-input-placeholder {
-  color: #be3f3c;
+  color: #b93937;
 }
 .ui.form .error ::-ms-input-placeholder {
-  color: #be3f3c;
+  color: #b93937;
 }
 .ui.form .error ::-moz-placeholder {
-  color: #be3f3c;
+  color: #b93937;
 }
 .ui.form .error :focus::-webkit-input-placeholder {
-  color: #aa3836;
+  color: #a63331;
 }
 .ui.form .error :focus::-ms-input-placeholder {
-  color: #aa3836;
+  color: #a63331;
 }
 .ui.form .error :focus::-moz-placeholder {
-  color: #aa3836;
+  color: #a63331;
 }
 
 /*--------------------
@@ -357,11 +357,11 @@
 .ui.form .field.error label,
 .ui.form .fields.error .field .input,
 .ui.form .field.error .input {
-  color: #973230;
+  color: #922d2b;
 }
 .ui.form .fields.error .field .corner.label,
 .ui.form .field.error .corner.label {
-  border-color: #973230;
+  border-color: #922d2b;
   color: #ffffff;
 }
 .ui.form .fields.error .field textarea,
@@ -390,9 +390,9 @@
 .ui.form .field.error input[type="time"],
 .ui.form .field.error input[type="text"],
 .ui.form .field.error input[type="url"] {
-  background: #fff0f0;
+  background: #fff6f6;
   border-color: #e0b4b4;
-  color: #973230;
+  color: #922d2b;
   border-radius: 0.2857rem;
   box-shadow: none;
 }
@@ -409,9 +409,9 @@
 .ui.form .field.error input[type="time"]:focus,
 .ui.form .field.error input[type="text"]:focus,
 .ui.form .field.error input[type="url"]:focus {
-  background: #fff0f0;
+  background: #fff6f6;
   border-color: #e0b4b4;
-  color: #973230;
+  color: #922d2b;
   -webkit-appearance: none;
   box-shadow: none;
 }
@@ -430,8 +430,8 @@
 .ui.form .field.error .ui.dropdown,
 .ui.form .field.error .ui.dropdown .text,
 .ui.form .field.error .ui.dropdown .item {
-  background: #fff0f0;
-  color: #973230;
+  background: #fff6f6;
+  color: #922d2b;
 }
 .ui.form .fields.error .field .ui.dropdown,
 .ui.form .field.error .ui.dropdown {
@@ -448,7 +448,7 @@
 .ui.form .fields.error .field .ui.multiple.selection.dropdown > .label,
 .ui.form .field.error .ui.multiple.selection.dropdown > .label {
   background-color: #eacbcb;
-  color: #973230;
+  color: #922d2b;
 }
 
 /* Hover */
@@ -477,32 +477,33 @@
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) label,
 .ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) .box,
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) .box {
-  color: #973230;
+  color: #922d2b;
 }
 .ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) label:before,
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) label:before,
 .ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) .box:before,
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) .box:before {
-  background: #fff0f0;
+  background: #fff6f6;
   border-color: #e0b4b4;
 }
 .ui.form .fields.error .field .checkbox label:after,
 .ui.form .field.error .checkbox label:after,
 .ui.form .fields.error .field .checkbox .box:after,
 .ui.form .field.error .checkbox .box:after {
-  color: #973230;
+  color: #922d2b;
 }
 
 /*--------------------
        Disabled
 ---------------------*/
 
-.ui.form .field :disabled,
-.ui.form .field.disabled {
-  opacity: 0.5;
+.ui.form .disabled.fields .field,
+.ui.form .disabled.field,
+.ui.form .field :disabled {
+  opacity: 0.45;
 }
 .ui.form .field.disabled label {
-  opacity: 0.5;
+  opacity: 0.45;
 }
 .ui.form .field.disabled :disabled {
   opacity: 1;

@@ -320,6 +320,19 @@ a.ui.label {
   height: 0em;
 }
 
+/* Positioning */
+.ui.ribbon.label {
+  left: calc( -1rem  -  1.2em );
+  margin-right: -1.2em;
+  padding-left: calc( 1rem  +  1.2em );
+  padding-right: 1.2em;
+}
+.ui[class*="right ribbon"].label {
+  left: calc(100% +  1rem  +  1.2em );
+  padding-left: 1.2em;
+  padding-right: calc( 1rem  +  1.2em );
+}
+
 /* Right Ribbon */
 .ui[class*="right ribbon"].label {
   text-align: left;
@@ -327,7 +340,6 @@ a.ui.label {
       -ms-transform: translateX(-100%);
           transform: translateX(-100%);
   border-radius: 0.2857rem 0em 0em 0.2857rem;
-  padding-left: 0.833em;
 }
 .ui[class*="right ribbon"].label:after {
   left: auto;
@@ -336,17 +348,6 @@ a.ui.label {
   border-width: 1.2em 1.2em 0em 0em;
   border-color: transparent;
   border-top-color: inherit;
-}
-
-/* Positioning */
-.ui.ribbon.label {
-  left: calc( -1rem  -  1.2em );
-  margin-right: -1.2em;
-  padding-left: calc( 1rem  +  1.2em );
-}
-.ui[class*="right ribbon"].label {
-  left: calc(100% +  1rem  +  1.2em );
-  padding-right: calc( 1rem  +  1.2em );
 }
 
 /* Inside Image */
@@ -358,13 +359,11 @@ a.ui.label {
 .ui.card .image > .ui.ribbon.label,
 .ui.image > .ui.ribbon.label {
   left: calc( 0.05rem  -  1.2em );
-  padding-left: calc( -0.05rem  +  1.2em );
 }
 .ui.card .image > .ui[class*="right ribbon"].label,
 .ui.image > .ui[class*="right ribbon"].label {
   left: calc(100% +  -0.05rem  +  1.2em );
   padding-left: 0.833em;
-  padding-right: calc( -0.05rem  +  1.2em );
 }
 
 /*-------------------

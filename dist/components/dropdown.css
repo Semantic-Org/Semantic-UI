@@ -452,16 +452,6 @@ select.ui.dropdown {
   box-shadow: none;
 }
 
-/* Disabled */
-.ui.selection.dropdown.disabled,
-.ui.selection.dropdown.disabled:hover {
-  cursor: default;
-  box-shadow: none;
-  color: rgba(0, 0, 0, 0.87);
-  border: 1px solid rgba(34, 36, 38, 0.15);
-  opacity: 0.3 !important;
-}
-
 /* Active */
 .ui.selection.active.dropdown {
   border-color: rgba(34, 36, 38, 0.3);
@@ -566,7 +556,7 @@ select.ui.dropdown {
 /* Filtered Text */
 .ui.active.search.dropdown input.search:focus + .text .icon,
 .ui.active.search.dropdown input.search:focus + .text .flag {
-  opacity: 0.3;
+  opacity: 0.45;
 }
 .ui.active.search.dropdown input.search:focus + .text {
   color: rgba(0, 0, 0, 0.4) !important;
@@ -769,18 +759,38 @@ select.ui.dropdown {
   content: '';
   top: 50%;
   left: 50%;
+  box-shadow: 0px 0px 0px 1px transparent;
   margin: -0.64285em 0em 0em -0.64285em;
   width: 1.2857em;
   height: 1.2857em;
-  -webkit-animation: button-spin 0.6s linear;
-          animation: button-spin 0.6s linear;
+  -webkit-animation: dropdown-spin 0.6s linear;
+          animation: dropdown-spin 0.6s linear;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
   border-radius: 500rem;
   border-color: #aaaaaa transparent transparent;
   border-style: solid;
   border-width: 0.2em;
-  box-shadow: 0px 0px 0px 1px transparent;
+}
+@-webkit-keyframes dropdown-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes dropdown-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
 
 /*--------------------
@@ -844,10 +854,10 @@ select.ui.dropdown {
 .ui.dropdown.error,
 .ui.dropdown.error > .text,
 .ui.dropdown.error > .default.text {
-  color: #973230;
+  color: #922d2b;
 }
 .ui.selection.dropdown.error {
-  background: #fff0f0;
+  background: #fff6f6;
   border-color: #e0b4b4;
 }
 .ui.selection.dropdown.error:hover {
@@ -858,7 +868,7 @@ select.ui.dropdown {
   border-color: #e0b4b4;
 }
 .ui.dropdown.error > .menu > .item {
-  color: #973230;
+  color: #922d2b;
 }
 .ui.multiple.selection.error.dropdown > .label {
   border-color: #e0b4b4;
@@ -880,10 +890,11 @@ select.ui.dropdown {
 
 
 /* Disabled */
-.ui.disabled.dropdown {
+.ui.disabled.dropdown,
+.ui.dropdown .menu > .disabled.item {
   cursor: default;
   pointer-events: none;
-  opacity: 0.3;
+  opacity: 0.45;
 }
 
 

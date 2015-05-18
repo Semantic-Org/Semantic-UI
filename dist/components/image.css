@@ -43,7 +43,7 @@ img.ui.image {
 .ui.disabled.images,
 .ui.disabled.image {
   cursor: default;
-  opacity: 0.3;
+  opacity: 0.45;
 }
 
 

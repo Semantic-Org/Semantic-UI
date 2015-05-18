@@ -62,7 +62,7 @@
   font-style: none;
   font-weight: bold;
   text-transform: none;
-  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+  border-bottom: 1px solid rgba(34, 36, 38, 0.1);
   border-left: none;
 }
 .ui.table thead tr > th:first-child {
@@ -286,12 +286,12 @@
 
 .ui.table tr.positive,
 .ui.table td.positive {
-  box-shadow: 0px 0px 0px #b4d3a4 inset;
+  box-shadow: 0px 0px 0px #a3c293 inset;
 }
 .ui.table tr.positive,
 .ui.table td.positive {
-  background: #f3ffec !important;
-  color: #255f26 !important;
+  background: #fcfff5 !important;
+  color: #1d571e !important;
 }
 
 /*--------------
@@ -304,8 +304,8 @@
 }
 .ui.table tr.negative,
 .ui.table td.negative {
-  background: #fff0f0 !important;
-  color: #973230 !important;
+  background: #fff6f6 !important;
+  color: #922d2b !important;
 }
 
 /*--------------
@@ -318,8 +318,8 @@
 }
 .ui.table tr.error,
 .ui.table td.error {
-  background: #fff0f0 !important;
-  color: #973230 !important;
+  background: #fff6f6 !important;
+  color: #922d2b !important;
 }
 
 /*--------------
@@ -332,8 +332,8 @@
 }
 .ui.table tr.warning,
 .ui.table td.warning {
-  background: #fff8e2 !important;
-  color: #715422 !important;
+  background: #fffced !important;
+  color: #664917 !important;
 }
 
 /*--------------
@@ -469,13 +469,13 @@
 /* Other States */
 .ui.selectable.table tr.error:hover,
 .ui.selectable.table tr:hover td.error {
-  background: #ffe1e1 !important;
-  color: #8b2e2c !important;
+  background: #ffe7e7 !important;
+  color: #862928 !important;
 }
 .ui.selectable.table tr.warning:hover,
 .ui.selectable.table tr:hover td.warning {
-  background: #fff4d3 !important;
-  color: #654b1e !important;
+  background: #fff9de !important;
+  color: #5a4014 !important;
 }
 .ui.selectable.table tr.active:hover,
 .ui.selectable.table tr:hover td.active {
@@ -484,13 +484,13 @@
 }
 .ui.selectable.table tr.positive:hover,
 .ui.selectable.table tr:hover td.positive {
-  background: #e9ffdd !important;
-  color: #215422 !important;
+  background: #f7ffe6 !important;
+  color: #194c1a !important;
 }
 .ui.selectable.table tr.negative:hover,
 .ui.selectable.table tr:hover td.negative {
-  background: #ffe1e1 !important;
-  color: #8b2e2c !important;
+  background: #ffe7e7 !important;
+  color: #862928 !important;
 }
 
 /*--------------

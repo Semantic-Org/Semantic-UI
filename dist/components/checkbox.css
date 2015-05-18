@@ -66,8 +66,8 @@
   content: '';
   background: #ffffff;
   border-radius: 0.25em;
-  -webkit-transition: background-color 0.2s ease, border 0.2s ease, box-shadow 0.2s ease;
-          transition: background-color 0.2s ease, border 0.2s ease, box-shadow 0.2s ease;
+  -webkit-transition: background-color 0.2s ease, border 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+          transition: background-color 0.2s ease, border 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
   border: 1px solid #d4d4d5;
 }
 
@@ -86,8 +86,8 @@
   text-align: center;
   opacity: 0;
   color: rgba(0, 0, 0, 0.87);
-  -webkit-transition: all 0.2s ease;
-          transition: all 0.2s ease;
+  -webkit-transition: background-color 0.2s ease, border 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+          transition: background-color 0.2s ease, border 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
 }
 
 /*--------------
@@ -166,7 +166,6 @@
 .ui.checkbox input[type="checkbox"]:focus ~ label:after,
 .ui.checkbox input[type="radio"]:focus ~ .box:after,
 .ui.checkbox input[type="radio"]:focus ~ label:after {
-  opacity: 1;
   color: rgba(0, 0, 0, 0.95);
 }
 .ui.checkbox input[type="checkbox"]:focus ~ label,

@@ -157,10 +157,11 @@
 }
 /*rtl:ignore*/
 .ui.modal > .content > .image > i.icon {
-  font-size: 8rem;
   margin: 0em;
   opacity: 1;
   width: auto;
+  line-height: 1;
+  font-size: 8rem;
 }
 
 /*--------------
