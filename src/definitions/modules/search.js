@@ -84,7 +84,7 @@ $.fn.search = function(parameters) {
             module.verbose('Binding events to search');
             if(settings.automatic) {
               $module
-                .on(module.get.inputEvent() + eventNamespace, selector.prompt, module.throttle)
+                .on(module.get.inputEvent() + eventNamespace, selector.prompt, module.event.input)
               ;
               $prompt
                 .attr('autocomplete', 'off')
@@ -116,6 +116,10 @@ $.fn.search = function(parameters) {
         },
 
         event: {
+          input: function() {
+            clearTimeout(module.timer);
+            module.timer = setTimeout(module.query, settings.searchDelay);
+          },
           focus: function() {
             module.set.focus();
             if( module.has.minimumCharacters() ) {
@@ -385,24 +389,29 @@ $.fn.search = function(parameters) {
             searchTerm = module.get.value(),
             cache = module.read.cache(searchTerm)
           ;
-          if(cache) {
-            module.debug('Reading result from cache', searchTerm);
-            module.save.results(cache.results);
-            module.addResults(cache.html);
-            module.inject.id(cache.results);
-          }
-          else {
-            module.debug('Querying for', searchTerm);
-            if($.isPlainObject(settings.source) || $.isArray(settings.source)) {
-              module.search.local(searchTerm);
-            }
-            else if( module.can.useAPI() ) {
-              module.search.remote(searchTerm);
+          if( module.has.minimumCharacters() )  {
+            if(cache) {
+              module.debug('Reading result from cache', searchTerm);
+              module.save.results(cache.results);
+              module.addResults(cache.html);
+              module.inject.id(cache.results);
             }
             else {
-              module.error(error.source);
+              module.debug('Querying for', searchTerm);
+              if($.isPlainObject(settings.source) || $.isArray(settings.source)) {
+                module.search.local(searchTerm);
+              }
+              else if( module.can.useAPI() ) {
+                module.search.remote(searchTerm);
+              }
+              else {
+                module.error(error.source);
+              }
+              settings.onSearchQuery.call(element, searchTerm);
             }
-            settings.onSearchQuery.call(element, searchTerm);
+          }
+          else {
+            module.hideResults();
           }
         },
 
@@ -553,16 +562,6 @@ $.fn.search = function(parameters) {
                 module.save.results(response.results);
               }
             }
-          }
-        },
-
-        throttle: function() {
-          clearTimeout(module.timer);
-          if(module.has.minimumCharacters())  {
-            module.timer = setTimeout(module.query, settings.searchDelay);
-          }
-          else {
-            module.hideResults();
           }
         },
 
