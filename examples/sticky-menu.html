@@ -23,6 +23,10 @@
   <link rel="stylesheet" type="text/css" href="../dist/components/segment.css">
   <link rel="stylesheet" type="text/css" href="../dist/components/dropdown.css">
   <link rel="stylesheet" type="text/css" href="../dist/components/icon.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/transition.css">
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+  <script src="../dist/semantic.js"></script>
 
   <style type="text/css">
   body {
@@ -32,7 +36,7 @@
     margin-right: 1.5em;
   }
   .main.container {
-    margin-top: 7em;
+    margin-top: 2em;
   }
   .wireframe {
     margin-top: 2em;
@@ -41,19 +45,41 @@
     margin: 5em 0em 0em;
     padding: 5em 0em;
   }
+  .main.menu {
+    margin-top: 4em;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    transition:
+      box-shadow 0.5s ease
+    ;
+  }
+  .main.menu.fixed {
+    border: 1px solid #DDD;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+  }
+  .main.menu.fixed + .container {
+    margin-top: 60px;
+  }
   </style>
 
 </head>
 <body>
 
-  <div class="ui fixed inverted menu">
-    <div class="ui container">
+  <div class="ui main text container">
+    <h1 class="ui header">Semantic UI Fixed Template</h1>
+    <p>This is a basic fixed menu template using fixed size containers.</p>
+    <p>A text container is used for the main container, which is useful for single column layouts</p>
+  </div>
+
+
+  <div class="ui main menu">
+    <div class="ui text container">
       <div href="#" class="header item">
-        <img class="logo" src="images/logo.png">
         Project Name
       </div>
       <a href="#" class="item">Home</a>
-      <a href="#" class="ui simple dropdown item">
+      <a href="#" class="ui dropdown item">
         Dropdown <i class="dropdown icon"></i>
         <div class="menu">
           <div class="item">Link Item</div>
@@ -74,10 +100,7 @@
     </div>
   </div>
 
-  <div class="ui main text container">
-    <h1 class="ui header">Semantic UI Fixed Template</h1>
-    <p>This is a basic fixed menu template using fixed size containers.</p>
-    <p>A text container is used for the main container, which is useful for single column layouts</p>
+  <div class="ui text container">
     <img class="wireframe" src="images/wireframe/media-paragraph.png">
     <img class="wireframe" src="images/wireframe/paragraph.png">
     <img class="wireframe" src="images/wireframe/paragraph.png">
@@ -132,6 +155,18 @@
       </div>
     </div>
   </div>
+  <script>
+  $(document)
+    .ready(function() {
+      $('.main.menu').visibility({
+        type: 'fixed'
+      });
+      $('.main.menu  .ui.dropdown').dropdown({
+        on: 'hover'
+      });
+    })
+  ;
+  </script>
 </body>
 
 </html>

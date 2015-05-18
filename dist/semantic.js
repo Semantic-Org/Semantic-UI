@@ -18947,6 +18947,7 @@ $.fn.visibility = function(parameters) {
             module.verbose('Setting up fixed on element pass');
             settings.once = false;
             settings.onTopPassed = function() {
+              console.log('here');
               $module
                 .addClass(className.fixed)
                 .css({
@@ -18960,6 +18961,7 @@ $.fn.visibility = function(parameters) {
               }
             };
             settings.onTopPassedReverse = function() {
+              console.log('there');
               $module
                 .removeClass(className.fixed)
                 .css({
@@ -19730,8 +19732,8 @@ $.fn.visibility = function(parameters) {
         if(instance === undefined) {
           module.initialize();
         }
-        instance.save.scroll();
-        instance.save.calculations();
+        //instance.save.scroll();
+        //instance.save.calculations();
         module.invoke(query);
       }
       else {
@@ -19754,8 +19756,8 @@ $.fn.visibility.settings = {
   name                   : 'Visibility',
   namespace              : 'visibility',
 
-  debug                  : false,
-  verbose                : false,
+  debug                  : true,
+  verbose                : true,
   performance            : true,
 
   // whether to use mutation observers to follow changes
