@@ -1265,7 +1265,9 @@ Floated Menu / Item
 }
 .ui.inverted.pointing.menu .active.item:after {
   background: @invertedArrowActiveColor !important;
+  margin: 0em !important;
   box-shadow: none !important;
+  border: none !important;
 }
 
 /*--- Active Hover ---*/
@@ -1327,57 +1329,65 @@ Floated Menu / Item
 .ui.inverted.blue.menu {
   background-color: @blue;
 }
+.ui.inverted.blue.menu .active.item,
 .ui.inverted.blue.pointing.menu .active.item:after {
-  background-color: @blue;
+  background-color: @blueActive !important;
 }
 /* Green */
 .ui.inverted.green.menu {
   background-color: @green;
 }
+.ui.inverted.green.menu .active.item,
 .ui.inverted.green.pointing.menu .active.item:after {
-  background-color: @green;
+  background-color: @greenActive !important;
 }
 /* Orange */
 .ui.inverted.orange.menu {
   background-color: @orange;
 }
+.ui.inverted.orange.menu .active.item,
 .ui.inverted.orange.pointing.menu .active.item:after {
-  background-color: @orange;
+  background-color: @orangeActive !important;
 }
 /* Pink */
 .ui.inverted.pink.menu {
   background-color: @pink;
 }
+.ui.inverted.pink.menu .active.item,
 .ui.inverted.pink.pointing.menu .active.item:after {
-  background-color: @pink;
+  background-color: @pinkActive !important;
 }
 /* Purple */
 .ui.inverted.purple.menu {
   background-color: @purple;
 }
+.ui.inverted.purple.menu .active.item,
 .ui.inverted.purple.pointing.menu .active.item:after {
-  background-color: @purple;
+  background-color: @purpleActive !important;
 }
 /* Red */
 .ui.inverted.red.menu {
   background-color: @red;
 }
+.ui.inverted.red.menu .active.item,
 .ui.inverted.red.pointing.menu .active.item:after {
-  background-color: @red;
+  background-color: @redActive !important;
 }
 /* Teal */
 .ui.inverted.teal.menu {
   background-color: @teal;
 }
+.ui.inverted.teal.menu .active.item,
 .ui.inverted.teal.pointing.menu .active.item:after {
-  background-color: @teal;
+  background-color: @tealActive !important;
 }
 /* Yellow */
 .ui.inverted.yellow.menu {
   background-color: @yellow;
 }
+.ui.inverted.yellow.menu .active.item,
 .ui.inverted.yellow.pointing.menu .active.item:after {
-  background-color: @yellow;
+  background-color: @yellowActive !important;
 }
 
 
@@ -1550,15 +1560,16 @@ Floated Menu / Item
        Pointing
 --------------------*/
 
-.ui.pointing.menu .active.item:after {
+.ui.pointing.menu .item:after {
+  visibility: hidden;
   position: absolute;
   content: '';
   top: 100%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%) rotate(45deg);
-  margin: 0em;
   background: none;
 
+  margin: (@arrowBorderWidth / 2) 0em 0em;
   width: @arrowSize;
   height: @arrowSize;
 
@@ -1567,11 +1578,9 @@ Floated Menu / Item
   border-right: @arrowBorder;
 
   z-index: @arrowZIndex;
-
   transition: @arrowTransition;
 }
-
-.ui.vertical.pointing.menu .active.item:after {
+.ui.vertical.pointing.menu .item:after {
   position: absolute;
   top: 50%;
   right: 0%;
@@ -1579,11 +1588,16 @@ Floated Menu / Item
   left: auto;
 
   transform: translateX(50%) translateY(-50%) rotate(45deg);
-  margin: 0em -@arrowBorderSize 0em 0em;
+  margin: 0em -(@arrowBorderWidth / 2) 0em 0em;
 
   border: none;
   border-top: @arrowBorder;
   border-right: @arrowBorder;
+}
+
+/* Active */
+.ui.pointing.menu .active.item:after {
+  visibility: visible;
 }
 
 /* Don't double up pointers */

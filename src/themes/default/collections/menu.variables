@@ -31,11 +31,7 @@
 @itemVerticalPadding: @relativeSmall;
 @itemHorizontalPadding: @relativeLarge;
 @itemTextTransform: none;
-@itemTransition:
-  opacity @defaultDuration @defaultEasing,
-  background @defaultDuration @defaultEasing,
-  box-shadow @defaultDuration @defaultEasing
-;
+@itemTransition: none;
 @itemFontWeight: normal;
 @itemTextColor: @textColor;
 
@@ -84,9 +80,9 @@
 @verticalHeaderFontWeight: bold;
 
 /* Pointing Arrow */
-@arrowSize: 0.6em;
-@arrowBorderSize: 1px;
-@arrowBorder: @arrowBorderSize solid @solidBorderColor;
+@arrowSize: 0.5714em;
+@arrowBorderWidth: 1px;
+@arrowBorder: @arrowBorderWidth solid @solidBorderColor;
 @arrowTransition: background @defaultDuration @defaultEasing;
 @arrowZIndex: 11;
 
@@ -322,9 +318,9 @@
 @paginationActiveTextColor: @selectedTextColor;
 
 /* Labeled Icon */
-@labeledIconSize: 1.5em;
+@labeledIconSize: @relativeMassive;
 @labeledIconMinWidth: 6em;
-@labeledIconTextMargin: 0.5em;
+@labeledIconTextMargin: 0.5rem;
 
 
 /* Text */
@@ -384,12 +380,12 @@
 /* Inverted Active */
 @invertedActiveBackground: @strongTransparentBlack;
 @invertedActiveColor: @invertedSelectedTextColor;
-@invertedArrowActiveColor: #3C3C3C;
+@invertedArrowActiveColor: #1A1A1A;
 
 /* Inverted Active Hover  */
 @invertedActiveHoverBackground: @invertedActiveBackground;
 @invertedActiveHoverColor: @white;
-@invertedArrowActiveHoverColor: #3C3C3C;
+@invertedArrowActiveHoverColor: @invertedArrowActiveColor;
 
 @invertedSubMenuActiveBackground: transparent;
 @invertedSubMenuActiveColor: @white;
