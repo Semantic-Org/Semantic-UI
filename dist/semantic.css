@@ -18611,7 +18611,7 @@ Floated Menu / Item
 }
 
 .ui.inverted.blue.menu .active.item,
-.ui.inverted.blue.pointing.menu .active.item:after {
+.ui.inverted.blue.pointing.menu .item:after {
   background-color: #0d79ca !important;
 }
 
@@ -18622,7 +18622,7 @@ Floated Menu / Item
 }
 
 .ui.inverted.green.menu .active.item,
-.ui.inverted.green.pointing.menu .active.item:after {
+.ui.inverted.green.pointing.menu .item:after {
   background-color: #0fb335 !important;
 }
 
@@ -18633,7 +18633,7 @@ Floated Menu / Item
 }
 
 .ui.inverted.orange.menu .active.item,
-.ui.inverted.orange.pointing.menu .active.item:after {
+.ui.inverted.orange.pointing.menu .item:after {
   background-color: #f56100 !important;
 }
 
@@ -18644,7 +18644,7 @@ Floated Menu / Item
 }
 
 .ui.inverted.pink.menu .active.item,
-.ui.inverted.pink.pointing.menu .active.item:after {
+.ui.inverted.pink.pointing.menu .item:after {
   background-color: #f0108e !important;
 }
 
@@ -18655,7 +18655,7 @@ Floated Menu / Item
 }
 
 .ui.inverted.purple.menu .active.item,
-.ui.inverted.purple.pointing.menu .active.item:after {
+.ui.inverted.purple.pointing.menu .item:after {
   background-color: #5b1dc5 !important;
 }
 
@@ -18666,7 +18666,7 @@ Floated Menu / Item
 }
 
 .ui.inverted.red.menu .active.item,
-.ui.inverted.red.pointing.menu .active.item:after {
+.ui.inverted.red.pointing.menu .item:after {
   background-color: #da1010 !important;
 }
 
@@ -18926,6 +18926,10 @@ Floated Menu / Item
   visibility: visible;
 }
 
+.ui.pointing.menu .active.dropdown.item:after {
+  visibility: hidden;
+}
+
 /* Don't double up pointers */
 
 .ui.pointing.menu .dropdown.active.item:after,
@@ -18947,7 +18951,7 @@ Floated Menu / Item
   background-color: #f4f4f4;
 }
 
-.ui.vertical.pointing.menu .item:hover:after {
+.ui.vertical.pointing.menu .active.item:hover:after {
   background-color: #fafafa;
 }
 
