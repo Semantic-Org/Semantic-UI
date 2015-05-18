@@ -11,7 +11,7 @@
 @verticalMargin: 1em;
 @verticalPadding: 1em;
 @horizontalPadding: 1.5em;
-@background: @darkWhite;
+@background: #F8F8F9;
 @lineHeightOffset: ((@lineHeight - 1em) / 2);
 
 @borderRadius: @defaultBorderRadius;
@@ -24,10 +24,10 @@
 ;
 
 @transition:
-  opacity 0.2s ease,
-  color 0.2s ease,
-  background 0.2s ease,
-  box-shadow 0.2s ease
+  opacity @defaultDuration @defaultEasing,
+  color @defaultDuration @defaultEasing,
+  background @defaultDuration @defaultEasing,
+  box-shadow @defaultDuration @defaultEasing
 ;
 
 /* Header */
@@ -79,10 +79,10 @@
 ;
 
 /* Floating */
-@floatingShadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15);
+@floatingShadow: 0 1px 4px 0 @borderColor;
 @floatingBoxShadow:
-  @floatingShadow,
-  @borderShadow
+  @borderShadow,
+  @floatingShadow
 ;
 
 /* Warning / Positive / Negative / Info */
