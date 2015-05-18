@@ -170,6 +170,7 @@
 - **Search** - Fixed `onSelect` not returning the correct value when using `type: category`
 - **Search** - Fixed `onSelect` returning the first term that matches the beginining of the selected value not the exact value.
 - **Search** - `searchFields` setting now correctly replaces default fields instead of adding the user fields to defaults
+- **Search** - Calls to `set value` or `query` now obey `minCharacterLength`
 - **Search** - Search API calls now use the same level debug settings as search
 - **Steps** - Fixes bug where `ordered steps` had smaller numbers in `IE10`
 - **Steps** - Fixed bug where `stackable steps` were not working correctly
