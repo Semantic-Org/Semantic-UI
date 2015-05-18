@@ -90,7 +90,7 @@
 @arrowTransition: background @defaultDuration @defaultEasing;
 @arrowZIndex: 11;
 
-@arrowHoverColor: #FAFAFA;
+@arrowHoverColor: #F4F4F4;
 @arrowActiveColor: #F4F4F4;
 @arrowActiveHoverColor: @arrowActiveColor;
 
