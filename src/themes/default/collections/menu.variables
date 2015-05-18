@@ -31,7 +31,11 @@
 @itemVerticalPadding: @relativeSmall;
 @itemHorizontalPadding: @relativeLarge;
 @itemTextTransform: none;
-@itemTransition: none;
+@itemTransition:
+  background @defaultDuration @defaultEasing,
+  box-shadow @defaultDuration @defaultEasing,
+  color @defaultDuration @defaultEasing
+;
 @itemFontWeight: normal;
 @itemTextColor: @textColor;
 
