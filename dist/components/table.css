@@ -170,7 +170,7 @@
   .ui.table:not(.unstackable) tr > td {
     background: none;
     border: none !important;
-    padding: 0.25em 0.75em;
+    padding: 0.25em 0.75em !important;
     box-shadow: none !important;
   }
   .ui.table:not(.unstackable) th:first-child,

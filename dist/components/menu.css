@@ -256,8 +256,12 @@
   background: rgba(0, 0, 0, 0.05) !important;
   color: rgba(0, 0, 0, 0.95) !important;
 }
-.ui.menu .ui.dropdown .menu > .active.item {
+.ui.menu .ui.dropdown .menu > .selected.item {
   background: rgba(0, 0, 0, 0.05) !important;
+  color: rgba(0, 0, 0, 0.95) !important;
+}
+.ui.menu .ui.dropdown .menu > .active.item {
+  background: rgba(0, 0, 0, 0.03) !important;
   font-weight: bold !important;
   color: rgba(0, 0, 0, 0.95) !important;
 }
@@ -1332,7 +1336,7 @@ Floated Menu / Item
 }
 
 /*--------------
- Inverted Colors
+    Inverted
 ---------------*/
 
 

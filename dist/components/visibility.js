@@ -247,8 +247,8 @@ $.fn.visibility = function(parameters) {
               settings.observeChanges = false;
 
               // show when top visible
-              settings.onTopVisible = function() {
-                module.debug('Image top visible', element);
+              settings.onOnScreen = function() {
+                module.debug('Image on screen', element);
                 module.precache(src, function() {
                   module.set.image(src);
                 });
@@ -810,7 +810,6 @@ $.fn.visibility = function(parameters) {
             element.height        = $module.outerHeight();
             // store
             module.cache.element = element;
-            console.log(element.offset, $module);
             return element;
           },
           elementCalculations: function() {

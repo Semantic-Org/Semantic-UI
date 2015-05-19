@@ -9969,7 +9969,7 @@ $.fn.progress = function(parameters) {
             newValue
           ;
           if(total) {
-            startValue     = module.value || 0;
+            startValue     = module.value   || 0;
             incrementValue = incrementValue || 1;
             newValue       = startValue + incrementValue;
             edgeValue      = module.total;
@@ -10075,10 +10075,10 @@ $.fn.progress = function(parameters) {
                 ? (barWidth / totalWidth * 100)
                 : module.percent
             ;
-            if(settings.precision === 0) {
-              return Math.round(displayPercent);
-            }
-            return Math.round(displayPercent * (10 * settings.precision)) / (10 * settings.precision);
+            return (settings.precision > 0)
+              ? Math.round(displayPercent * (10 * settings.precision)) / (10 * settings.precision)
+              : Math.round(displayPercent)
+            ;
           },
 
           percent: function() {
@@ -10199,15 +10199,16 @@ $.fn.progress = function(parameters) {
               percent = percent * 100;
             }
             // round percentage
-            if(settings.precision === 0) {
-              percent = Math.round(percent);
-            }
-            else {
-              percent = Math.round(percent * (10 * settings.precision)) / (10 * settings.precision);
-            }
+            percent = (settings.precision > 0)
+              ? Math.round(percent * (10 * settings.precision)) / (10 * settings.precision)
+              : Math.round(percent)
+            ;
             module.percent = percent;
             if(module.total) {
-              module.value = Math.round( (percent / 100) * module.total * (10 * settings.precision)) / (10 * settings.precision);
+              module.value = (settings.precision > 0)
+                ? Math.round( (percent / 100) * module.total * (10 * settings.precision)) / (10 * settings.precision)
+                : Math.round( (percent / 100) * module.total * 10) / 10
+              ;
             }
             else if(settings.limitValues) {
               module.value = (module.value > 100)
@@ -10567,7 +10568,7 @@ $.fn.progress.settings = {
   limitValues  : true,
 
   label        : 'percent',
-  precision    : 1,
+  precision    : 0,
   framerate    : (1000 / 30), /// 30 fps
 
   percent      : false,
@@ -18915,8 +18916,8 @@ $.fn.visibility = function(parameters) {
               settings.observeChanges = false;
 
               // show when top visible
-              settings.onTopVisible = function() {
-                module.debug('Image top visible', element);
+              settings.onOnScreen = function() {
+                module.debug('Image on screen', element);
                 module.precache(src, function() {
                   module.set.image(src);
                 });
@@ -19478,7 +19479,6 @@ $.fn.visibility = function(parameters) {
             element.height        = $module.outerHeight();
             // store
             module.cache.element = element;
-            console.log(element.offset, $module);
             return element;
           },
           elementCalculations: function() {

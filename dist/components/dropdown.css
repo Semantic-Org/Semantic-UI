@@ -162,7 +162,7 @@
 .ui.dropdown .menu > .divider {
   border-top: 1px solid rgba(34, 36, 38, 0.1);
   height: 0em;
-  margin: 0.5em 0em 0em;
+  margin: 0.5em 0em;
 }
 .ui.dropdown .menu > .input {
   display: -webkit-box;
