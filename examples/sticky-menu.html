@@ -39,7 +39,7 @@
       });
       $('.overlay').visibility({
         type: 'fixed',
-        offset: 70
+        offset: 80
       });
 
       // lazy load images
@@ -81,12 +81,8 @@
   }
 
   .overlay {
-    margin: 1em 0em;
-    transition:
-      box-shadow 0.5s ease,
-      margin 0.5s ease,
-      padding 0.5s ease
-    ;
+    float: left;
+    margin: 0em 3em 1em 0em;
   }
 
   .main.menu.fixed {
@@ -95,12 +91,8 @@
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
   }
   .overlay.fixed {
-    background-color: #FFFFFF;
-    border: 1px solid #DDD;
-    box-shadow: 0px 2px 14px rgba(0, 0, 0, 0.1);
-    border-radius: 0.25em;
-    padding: 0.5em 1em;
     margin-left: 800px;
+    transition: margin 0.5s ease;
   }
 
   .text.container .left.floated.image {
@@ -159,7 +151,7 @@
     <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
     <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
     <div class="overlay">
-      <div class="ui secondary menu">
+      <div class="ui labeled icon vertical menu">
         <a class="item"><i class="twitter icon"></i> Tweet</a>
         <a class="item"><i class="facebook icon"></i> Share</a>
         <a class="item"><i class="mail icon"></i> E-mail</a>
