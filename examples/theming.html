@@ -17,6 +17,13 @@
     body > .ui.container {
       margin-top: 3em;
     }
+    .ui.container > h1 {
+      font-size: 4em;
+    }
+    .ui.container > h2.dividing.header {
+      font-size: 2.5em;
+      margin: 4em 0em 3em;
+    }
     .color.grid {
       margin: -1.5em;
       width: 400px;
@@ -31,9 +38,6 @@
     }
     .spaced > .button {
       margin-bottom: 1em;
-    }
-    .container > h2 {
-      margin: 5em 0em 1em;
     }
     .ui.menu {
       margin: 3em 0em;
@@ -57,11 +61,11 @@
 
 <div class="ui container">
 
-  <h1 class="center aligned ui block header">Theming Examples</h1>
+  <h1>Theming Examples</h1>
 
 
   <!--- Site !-->
-  <h2>Site</h2>
+  <h2 class="ui dividing header">Site</h2>
   <div class="ui three column stackable grid">
     <div class="column">
       <h1>Heading 1</h1>
@@ -95,7 +99,7 @@
   </div>
 
   <!--- Menu !-->
-  <h2>Menu</h2>
+  <h2 class="ui dividing header">Menu</h2>
 
   <div class="ui menu">
     <div class="header item">Brand</div>
@@ -221,7 +225,7 @@
   </div>
 
   <!--- Button !-->
-  <h2>Buttons</h2>
+  <h2 class="ui dividing header">Buttons</h2>
 
   <div class="ui stackable equal width grid">
     <div class="column">
@@ -333,7 +337,8 @@
         <button class="ui button">2</button>
       </div>
 
-      <div class="ui divider"></div>
+    </div>
+    <div class="column">
       <button class="ui mini button">Mini</button>
       <button class="ui tiny button">Tiny</button>
       <button class="ui small button">Small</button>
@@ -341,11 +346,7 @@
       <button class="ui big button">Big</button>
       <button class="ui huge button">Huge</button>
       <button class="ui massive button">Massive</button>
-
-    </div>
-    <div class="column">
-      <div class="ui hidden divider"></div>
-
+      <div class="ui divider"></div>
       <div class="spaced">
         <button class="yellow ui button">Yellow</button>
         <button class="orange ui button">Orange</button>
@@ -370,7 +371,7 @@
 
 
   <!--- Tables !-->
-  <h2>Tables</h2>
+  <h2 class="ui dividing header">Tables</h2>
 
   <div class="ui two column relaxed grid">
     <div class="column">
