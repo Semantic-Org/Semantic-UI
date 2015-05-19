@@ -43,6 +43,7 @@
 - **Shapes** - Shapes now animate height/width when side changes sizes and now correctly adjusts for margin on shape elements
 - **Steps** - Steps now use `flexbox`, the default horizontal theme has the active element point downward now instead of to the right. Steps no longer need `item count` and will automatically divide evenly
 - **Transition** - Transition has been optimized to be much more performant.
+- **Visibility** - Visibility can now handle "sticky" `fixed` content, adding a placeholder duplicate element which will automatically appear when an element swaps to fixed position
 - **Visibility** - Visibility and sticky now are much more performance and include two new callbacks `onOnScreen` and `onOffScreen`
 
 **Enhancements**
