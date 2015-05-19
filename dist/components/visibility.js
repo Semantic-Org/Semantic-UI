@@ -37,6 +37,7 @@ $.fn.visibility = function(parameters) {
         className       = settings.className,
         namespace       = settings.namespace,
         error           = settings.error,
+        metadata        = settings.metadata,
 
         eventNamespace  = '.' + namespace,
         moduleNamespace = 'module-' + namespace,
@@ -45,8 +46,10 @@ $.fn.visibility = function(parameters) {
 
         $module         = $(this),
         $context        = $(settings.context),
-        selector        = $module.selector || '',
 
+        $placeholder,
+
+        selector        = $module.selector || '',
         instance        = $module.data(moduleNamespace),
 
         requestAnimationFrame = window.requestAnimationFrame
@@ -66,23 +69,27 @@ $.fn.visibility = function(parameters) {
           module.debug('Initializing', settings);
 
           module.setup.cache();
-          module.save.position();
 
           if( module.should.trackChanges() ) {
-            module.bind.events();
+
             if(settings.type == 'image') {
               module.setup.image();
             }
             if(settings.type == 'fixed') {
               module.setup.fixed();
             }
+
             if(settings.observeChanges) {
               module.observeChanges();
             }
-            if( !module.is.visible() ) {
-              module.error(error.visible, $module);
-            }
+            module.bind.events();
           }
+
+          module.save.position();
+          if( !module.is.visible() ) {
+            module.error(error.visible, $module);
+          }
+
           if(settings.initialCheck) {
             module.checkVisibility();
           }
@@ -138,8 +145,12 @@ $.fn.visibility = function(parameters) {
         bind: {
           events: function() {
             module.verbose('Binding visibility events to scroll and resize');
+            if(settings.refreshOnLoad) {
+              $window
+                .on('load'   + eventNamespace, module.event.load)
+              ;
+            }
             $window
-              .on('load'   + eventNamespace, module.event.load)
               .on('resize' + eventNamespace, module.event.resize)
             ;
             // pub/sub pattern
@@ -260,29 +271,50 @@ $.fn.visibility = function(parameters) {
           },
           image: function() {
             var
-              src = $module.data('src')
+              src = $module.data(metadata.src)
             ;
             if(src) {
               module.verbose('Lazy loading image', src);
+              settings.once           = true;
               settings.observeChanges = false;
+
               // show when top visible
-              module.topVisible(function() {
+              settings.onTopVisible = function() {
                 module.debug('Image top visible', element);
                 module.precache(src, function() {
                   module.set.image(src);
-                  settings.onTopVisible = false;
                 });
-              });
+              };
             }
           },
           fixed: function() {
-            module.verbose('Setting up fixed on element pass');
-            settings.once = false;
+            module.debug('Setting up fixed');
+            settings.once           = false;
+            settings.observeChanges = false;
+            settings.refreshOnLoad  = false;
+            if(!parameters.transition) {
+              settings.transition = false;
+            }
+            $placeholder = $module
+              .clone(false)
+              .css('display', 'none')
+              .addClass(className.placeholder)
+              .insertAfter($module)
+            ;
+            module.debug('Added placeholder', $placeholder);
             settings.onTopPassed = function() {
+              module.debug('Element passed, adding fixed position', $module);
+              $placeholder
+                .css('display', 'block')
+                .css('visibility', 'hidden')
+              ;
               $module
                 .addClass(className.fixed)
                 .css({
-                  top: settings.offset + 'px'
+                  position : 'fixed',
+                  top      : settings.offset + 'px',
+                  left     : 'auto',
+                  zIndex   : '1'
                 })
               ;
               if(settings.transition) {
@@ -292,11 +324,18 @@ $.fn.visibility = function(parameters) {
               }
             };
             settings.onTopPassedReverse = function() {
+              module.debug('Element returned to position, removing fixed', $module);
+              $placeholder
+                .css('display', 'none')
+                .css('visibility', '')
+              ;
               $module
                 .removeClass(className.fixed)
                 .css({
-                  position: '',
-                  top: ''
+                  position : '',
+                  top      : '',
+                  left     : '',
+                  zIndex   : ''
                 })
               ;
             };
@@ -305,28 +344,19 @@ $.fn.visibility = function(parameters) {
 
         set: {
           image: function(src) {
-            var
-              offScreen = (module.cache.screen.bottom < module.cache.element.top)
-            ;
             $module
               .attr('src', src)
             ;
-            if(offScreen) {
-              module.verbose('Image outside browser, no show animation');
-              $module.show();
-            }
-            else {
-              if(settings.transition) {
-                if( $.fn.transition !== undefined ) {
-                  $module.transition(settings.transition, settings.duration);
-                }
-                else {
-                  $module.fadeIn(settings.duration);
-                }
+            if(settings.transition) {
+              if( $.fn.transition !== undefined ) {
+                $module.transition(settings.transition, settings.duration);
               }
               else {
-                $module.show();
+                $module.fadeIn(settings.duration);
               }
+            }
+            else {
+              $module.show();
             }
           }
         },
@@ -346,7 +376,7 @@ $.fn.visibility = function(parameters) {
           },
           visible: function() {
             if(module.cache && module.cache.element) {
-              return (module.cache.element.width > 0);
+              return !(module.cache.element.width === 0 && module.cache.element.offset.top === 0);
             }
             return false;
           }
@@ -1121,7 +1151,7 @@ $.fn.visibility.settings = {
   type                   : false,
 
   // image only animation settings
-  transition             : false,
+  transition             : 'fade in',
   duration               : 1000,
 
   // array of callbacks for percentage
@@ -1147,8 +1177,13 @@ $.fn.visibility.settings = {
   onUpdate               : false, // disabled by default for performance
   onRefresh              : function(){},
 
+  metadata : {
+    src: 'src'
+  },
+
   className: {
-    fixed: 'fixed'
+    fixed       : 'fixed',
+    placeholder : 'placeholder'
   },
 
   error : {

@@ -151,6 +151,7 @@
 - **List** - Fix first element touches border on `ui horizontal celled list`
 - **Loader** - Fix position of `inline centered loader` to be centered correctly
 - **Message** - Message now uses `@lineHeight` from `site.variables`
+- **Menu** - Fixed menus like `left fixed` `right fixed` are all now class order dependent.
 - **Modal** - Modal no longer hides page scroll bar causing dimmed page content to jump positions.
 - **Modal** - Fixed bug where clicking an element detached from dom would cause modal to hide prematurely
 - **Modal** - Clicking on other modals will no longer close open modal when `allowMultiple: true`
