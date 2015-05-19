@@ -522,6 +522,60 @@
 @offWhiteHover        : saturate(darken(@offWhite, 5), 10);
 @darkWhiteHover       : saturate(darken(@darkWhite, 5), 10);
 
+/*-------------------
+        Focus
+--------------------*/
+
+/*---  Colors  ---*/
+@primaryColorFocus    : saturate(darken(@primaryColor, 8), 20);
+@secondaryColorFocus  : saturate(lighten(@secondaryColor, 8), 20);
+
+@blueFocus            : saturate(darken(@blue, 8), 20);
+@greenFocus           : saturate(darken(@green, 8), 20);
+@orangeFocus          : saturate(darken(@orange, 8), 20);
+@pinkFocus            : saturate(darken(@pink, 8), 20);
+@purpleFocus          : saturate(darken(@purple, 8), 20);
+@redFocus             : saturate(darken(@red, 8), 20);
+@tealFocus            : saturate(darken(@teal, 8), 20);
+@yellowFocus          : saturate(darken(@yellow, 8), 20);
+
+@lightBlueFocus       : saturate(darken(@lightBlue, 8), 20);
+@lightGreenFocus      : saturate(darken(@lightGreen, 8), 20);
+@lightOrangeFocus     : saturate(darken(@lightOrange, 8), 20);
+@lightPinkFocus       : saturate(darken(@lightPink, 8), 20);
+@lightPurpleFocus     : saturate(darken(@lightPurple, 8), 20);
+@lightRedFocus        : saturate(darken(@lightRed, 8), 20);
+@lightTealFocus       : saturate(darken(@lightTeal, 8), 20);
+@lightYellowFocus     : saturate(darken(@lightYellow, 8), 20);
+
+/*---  Emotive  ---*/
+@positiveColorFocus   : saturate(darken(@positiveColor, 8), 20);
+@negativeColorFocus   : saturate(darken(@negativeColor, 8), 20);
+
+/*---  Brand   ---*/
+@facebookFocusColor   : saturate(darken(@facebookColor, 8), 20);
+@twitterFocusColor    : saturate(darken(@twitterColor, 8), 20);
+@googlePlusFocusColor : saturate(darken(@googlePlusColor, 8), 20);
+@linkedInFocusColor   : saturate(darken(@linkedInColor, 8), 20);
+@youtubeFocusColor    : saturate(darken(@youtubeColor, 8), 20);
+@instagramFocusColor  : saturate(darken(@instagramColor, 8), 20);
+@pinterestFocusColor  : saturate(darken(@pinterestColor, 8), 20);
+@vkFocusColor         : saturate(darken(@vkColor, 8), 20);
+
+/*---  Dark Tones  ---*/
+@fullBlackFocus       : saturate(lighten(@fullBlack, 8), 20);
+@lightBlackFocus      : saturate(lighten(@fullBlack, 8), 20);
+@blackFocus           : saturate(lighten(@black, 8), 20);
+
+@lightGreyFocus       : saturate(lighten(@lightGrey, 8), 20);
+@greyFocus            : saturate(lighten(@grey, 8), 20);
+@darkGreyFocus        : saturate(lighten(@darkGrey, 8), 20);
+
+/*---  Light Tones  ---*/
+@whiteFocus           : saturate(darken(@white, 8), 20);
+@offWhiteFocus        : saturate(darken(@offWhite, 8), 20);
+@darkWhiteFocus       : saturate(darken(@darkWhite, 8), 20);
+
 
 /*-------------------
     Down (:active)

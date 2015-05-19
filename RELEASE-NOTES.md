@@ -53,6 +53,7 @@
 - **Accordion** - Added `on` setting for accordion trigger event
 - **Build Tools** - Build tools will now produce understandable errors when a theme file is missing or an element specifies an unavailable theme
 - **Build Tools** - Adjusting `site.variables` will now rebuild all UI, instead of just `site.less`
+- **Button** - Added `:focus` styles for all button types, all button examples in docs now are keyboard focusable using either `<button>` or `tabindex` where appropriate.
 - **Divider** - `vertical divider` inside `ui grid` now accounts for column padding
 - **Dropdown** - Using keyboard letter when any type of selection dropdown is used will
 - **Dropdown** - Dropdowns now have `match` setting to specify whether to match on `text`, `value` or `both`
@@ -95,6 +96,7 @@
 - **Sidebar** - Improved animation performance through performance debugging. Sidebar now caches, width, height, rtl direction on load.
 - **Site** - Fixed mixed globals `@defaultDuration` and `@transitionDuration` usage to use a single variable across all UI `@defaultDuration`, the same for `@defaultEasing` and `@transitionEasing`
 - **Site** - Added in `pageOverflowX` variable, default theme hides horizontal scrollbars on `body`
+- **Site** - Added default `focus` colors for all color variations
 - **Sticky** - Sticky now internally caches current scroll position when `cantFit = true` to avoid getting DOM property  on scroll.
 - **Statistic** - Added new evenly divided group variation, for example `three statistics` shows 3 per row
 - **Statistic** - Statitic group now use `flex`. Styles have been updated.

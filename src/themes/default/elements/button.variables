@@ -189,12 +189,17 @@
 @basicTextTransform: none;
 
 /* Basic Hover */
-@basicHoverBackground: #FAFAFA;
+@basicHoverBackground: #FFFFFF;
 @basicHoverTextColor: @hoveredTextColor;
 @basicHoverBoxShadow:
-  0px 0px 0px @basicBorderSize @borderColor inset,
+  0px 0px 0px @basicBorderSize @selectedBorderColor inset,
   0px 0px 0px 0px @borderColor inset
 ;
+/* Basic Focus */
+@basicFocusBackground: @basicHoverBackground;
+@basicFocusTextColor: @basicHoverTextColor;
+@basicFocusBoxShadow: @basicHoverBoxShadow;
+
 /* Basic Down */
 @basicDownBackground: #F8F8F8;
 @basicDownTextColor: @pressedTextColor;
@@ -209,12 +214,13 @@
 
 /* Basic Inverted */
 @basicInvertedBackground: transparent;
-@basicInvertedHoverBackground: transparent;
+@basicInvertedFocusBackground: transparent;
 @basicInvertedDownBackground: @transparentWhite;
 @basicInvertedActiveBackground: @transparentWhite;
 
 @basicInvertedBoxShadow: 0px 0px 0px @invertedBorderSize rgba(255, 255, 255, 0.5) inset;
 @basicInvertedHoverBoxShadow: 0px 0px 0px @invertedBorderSize rgba(255, 255, 255, 1) inset;
+@basicInvertedFocusBoxShadow: 0px 0px 0px @invertedBorderSize rgba(255, 255, 255, 1) inset;
 @basicInvertedDownBoxShadow: 0px 0px 0px @invertedBorderSize rgba(255, 255, 255, 0.9) inset;
 @basicInvertedActiveBoxShadow: 0px 0px 0px @invertedBorderSize rgba(255, 255, 255, 0.7) inset;
 
