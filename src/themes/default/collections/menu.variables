@@ -183,8 +183,12 @@
 @activeHoverItemBackground: @transparentBlack;
 @activeHoverItemColor: @selectedTextColor;
 
+/* Selected Dropdown */
+@dropdownSelectedItemBackground: @transparentBlack;
+@dropdownSelectedItemColor: @selectedTextColor;
+
 /* Active Dropdown */
-@dropdownActiveItemBackground: @transparentBlack;
+@dropdownActiveItemBackground: @subtleTransparentBlack;
 @dropdownActiveItemColor: @selectedTextColor;
 @dropdownActiveItemFontWeight: bold;
 
