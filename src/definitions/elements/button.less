@@ -917,7 +917,6 @@
 
 .ui.buttons .or {
   position: relative;
-  float: left;
   width: @orGap;
   height: @orHeight;
   z-index: 3;
@@ -1037,7 +1036,7 @@
 .ui.fluid.buttons,
 .ui.button.fluid,
 .ui.fluid.buttons > .button {
-  display: block;
+  display: flex;
   width: 100%;
 }
 
@@ -2582,8 +2581,9 @@
 *******************************/
 
 .ui.buttons {
-  display: inline-block;
-  vertical-align: middle;
+  display: inline-flex;
+  flex-direction: row;
+  vertical-align: baseline;
   margin: @verticalMargin @horizontalMargin 0em 0em;
 }
 .ui.buttons > .button:hover,
@@ -2612,7 +2612,6 @@
 
 .ui.buttons .button {
   margin: 0em;
-  float: left;
   border-radius: 0em;
   margin: @groupButtonOffset;
 }
@@ -2630,7 +2629,8 @@
 
 /* Vertical  Style */
 .ui.vertical.buttons {
-  display: inline-block;
+  display: inline-flex;
+  flex-direction: column;
 }
 .ui.vertical.buttons .button {
   display: block;
