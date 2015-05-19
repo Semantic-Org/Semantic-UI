@@ -810,7 +810,6 @@ $.fn.visibility = function(parameters) {
             element.height        = $module.outerHeight();
             // store
             module.cache.element = element;
-            console.log(element.offset, $module);
             return element;
           },
           elementCalculations: function() {
