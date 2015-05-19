@@ -78,7 +78,7 @@
 @menuHeaderPadding: 0em @itemHorizontalPadding;
 
 /* Menu Divider */
-@menuDividerMargin: 0.5em 0em 0em;
+@menuDividerMargin: 0.5em 0em;
 @menuDividerColor: @internalBorderColor;
 @menuDividerSize: 1px;
 @menuDividerBorder: @menuDividerSize solid @menuDividerColor;
