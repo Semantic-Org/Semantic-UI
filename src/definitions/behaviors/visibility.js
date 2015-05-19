@@ -299,7 +299,7 @@ $.fn.visibility = function(parameters) {
               .clone(false)
               .css('display', 'none')
               .addClass(className.placeholder)
-              .insertBefore($module)
+              .insertAfter($module)
             ;
             module.debug('Added placeholder', $placeholder);
             settings.onTopPassed = function() {
@@ -313,6 +313,7 @@ $.fn.visibility = function(parameters) {
                 .css({
                   position : 'fixed',
                   top      : settings.offset + 'px',
+                  left     : 'auto',
                   zIndex   : '1'
                 })
               ;
@@ -333,6 +334,7 @@ $.fn.visibility = function(parameters) {
                 .css({
                   position : '',
                   top      : '',
+                  left     : '',
                   zIndex   : ''
                 })
               ;
@@ -382,7 +384,6 @@ $.fn.visibility = function(parameters) {
 
         refresh: function() {
           module.debug('Refreshing constants (width/height)');
-          console.log('here');
           module.reset();
           module.save.position();
           module.checkVisibility();
