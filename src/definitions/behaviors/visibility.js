@@ -306,6 +306,7 @@ $.fn.visibility = function(parameters) {
               module.debug('Element passed, adding fixed position', $module);
               $placeholder
                 .css('display', 'block')
+                .css('visibility', 'hidden')
               ;
               $module
                 .addClass(className.fixed)
@@ -325,6 +326,7 @@ $.fn.visibility = function(parameters) {
               module.debug('Element returned to position, removing fixed', $module);
               $placeholder
                 .css('display', 'none')
+                .css('visibility', '')
               ;
               $module
                 .removeClass(className.fixed)
