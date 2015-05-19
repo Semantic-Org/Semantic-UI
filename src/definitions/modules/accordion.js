@@ -546,6 +546,8 @@ $.fn.accordion.settings = {
   verbose         : false,
   performance     : true,
 
+  on              : 'click',
+
   exclusive       : true,
   collapsible     : true,
   closeNested     : false,
@@ -554,7 +556,6 @@ $.fn.accordion.settings = {
   duration        : 350,
   easing          : 'easeOutQuad',
 
-  on              : 'click',
 
   onOpening       : function(){},
   onOpen          : function(){},
