@@ -127,7 +127,7 @@ $.fn.progress = function(parameters) {
             newValue
           ;
           if(total) {
-            startValue     = module.value || 0;
+            startValue     = module.value   || 0;
             incrementValue = incrementValue || 1;
             newValue       = startValue + incrementValue;
             edgeValue      = module.total;
@@ -233,10 +233,10 @@ $.fn.progress = function(parameters) {
                 ? (barWidth / totalWidth * 100)
                 : module.percent
             ;
-            if(settings.precision === 0) {
-              return Math.round(displayPercent);
-            }
-            return Math.round(displayPercent * (10 * settings.precision)) / (10 * settings.precision);
+            return (settings.precision === 0)
+              ? Math.round(displayPercent)
+              : Math.round(displayPercent * (10 * settings.precision)) / (10 * settings.precision)
+            ;
           },
 
           percent: function() {
@@ -357,15 +357,16 @@ $.fn.progress = function(parameters) {
               percent = percent * 100;
             }
             // round percentage
-            if(settings.precision === 0) {
-              percent = Math.round(percent);
-            }
-            else {
-              percent = Math.round(percent * (10 * settings.precision)) / (10 * settings.precision);
-            }
+            percent = (settings.precision === 0)
+              ? Math.round(percent)
+              : Math.round(percent * (10 * settings.precision)) / (10 * settings.precision)
+            ;
             module.percent = percent;
             if(module.total) {
-              module.value = Math.round( (percent / 100) * module.total * (10 * settings.precision)) / (10 * settings.precision);
+              module.value = (settings.precision === 0)
+                ? Math.round( (percent / 100) * module.total * 10) / 10
+                : Math.round( (percent / 100) * module.total * (10 * settings.precision)) / (10 * settings.precision)
+              ;
             }
             else if(settings.limitValues) {
               module.value = (module.value > 100)
@@ -725,7 +726,7 @@ $.fn.progress.settings = {
   limitValues  : true,
 
   label        : 'percent',
-  precision    : 1,
+  precision    : 0,
   framerate    : (1000 / 30), /// 30 fps
 
   percent      : false,
