@@ -12,6 +12,17 @@
 
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
   <script src="../dist/semantic.js"></script>
+
+  <script>
+  $(document)
+    .ready(function() {
+      $('.ui.selection.dropdown').dropdown();
+      $('.ui.menu .ui.dropdown').dropdown({
+        on: 'hover'
+      });
+    })
+  ;
+  </script>
 </head>
 <body>
 
@@ -425,18 +436,6 @@
     </div>
   </div>
 </div>
-
-
-<script>
-$(document)
-  .ready(function() {
-    $('.ui.selection.dropdown').dropdown();
-    $('.ui.menu .dropdown').dropdown({
-      on: 'hover'
-    });
-  })
-;
-</script>
 
 </body>
 
