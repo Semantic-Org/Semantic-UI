@@ -1074,10 +1074,6 @@ Floated Menu / Item
   width: auto;
 }
 
-.ui.vertical.icon.menu {
-  float: none;
-}
-
 /*--- inverted ---*/
 .ui.inverted.icon.menu .item {
   color: rgba(255, 255, 255, 0.8);
@@ -1518,14 +1514,14 @@ Floated Menu / Item
 }
 
 .ui.fixed.menu,
-.ui.top.fixed.menu {
+.ui[class*="top fixed"].menu {
   border-top: none;
   top: 0px;
   left: 0px;
   right: auto;
   bottom: auto;
 }
-.ui.right.fixed.menu {
+.ui[class*="right fixed"].menu {
   border-right: none;
   top: 0px;
   right: 0px;
@@ -1534,14 +1530,14 @@ Floated Menu / Item
   width: auto;
   height: 100%;
 }
-.ui.bottom.fixed.menu {
+.ui[class*="bottom fixed"].menu {
   border-bottom: none;
   bottom: 0px;
   left: 0px;
   top: auto;
   right: auto;
 }
-.ui.left.fixed.menu {
+.ui[class*="left fixed"].menu {
   border-left: none;
   top: 0px;
   left: 0px;
