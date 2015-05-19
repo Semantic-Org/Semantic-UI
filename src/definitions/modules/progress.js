@@ -233,9 +233,9 @@ $.fn.progress = function(parameters) {
                 ? (barWidth / totalWidth * 100)
                 : module.percent
             ;
-            return (settings.precision === 0)
-              ? Math.round(displayPercent)
-              : Math.round(displayPercent * (10 * settings.precision)) / (10 * settings.precision)
+            return (settings.precision > 0)
+              ? Math.round(displayPercent * (10 * settings.precision)) / (10 * settings.precision)
+              : Math.round(displayPercent)
             ;
           },
 
@@ -357,15 +357,15 @@ $.fn.progress = function(parameters) {
               percent = percent * 100;
             }
             // round percentage
-            percent = (settings.precision === 0)
-              ? Math.round(percent)
-              : Math.round(percent * (10 * settings.precision)) / (10 * settings.precision)
+            percent = (settings.precision > 0)
+              ? Math.round(percent * (10 * settings.precision)) / (10 * settings.precision)
+              : Math.round(percent)
             ;
             module.percent = percent;
             if(module.total) {
-              module.value = (settings.precision === 0)
-                ? Math.round( (percent / 100) * module.total * 10) / 10
-                : Math.round( (percent / 100) * module.total * (10 * settings.precision)) / (10 * settings.precision)
+              module.value = (settings.precision > 0)
+                ? Math.round( (percent / 100) * module.total * (10 * settings.precision)) / (10 * settings.precision)
+                : Math.round( (percent / 100) * module.total * 10) / 10
               ;
             }
             else if(settings.limitValues) {
