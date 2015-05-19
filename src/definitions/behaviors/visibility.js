@@ -159,38 +159,6 @@ $.fn.visibility = function(parameters) {
               .on('scroll'       + eventNamespace, module.event.scroll)
               .on('scrollchange' + eventNamespace, module.event.scrollchange)
             ;
-          },
-          imageLoad: function() {
-            var
-              $images       = $module.find('img'),
-              imageCount    = $images.length,
-              index         = imageCount,
-              loadedCount   = 0,
-              images        = [],
-              cache         = [],
-              cacheImage    = document.createElement('img'),
-              handleLoad    = function() {
-                loadedCount++;
-                if(loadedCount >= imageCount) {
-                  module.debug('Images finished loading inside element, refreshing position');
-                  module.refresh();
-                }
-              }
-            ;
-            if(imageCount > 0) {
-              $images
-                .each(function() {
-                  images.push( $(this).attr('src') );
-                })
-              ;
-              while(index--) {
-                cacheImage         = document.createElement('img');
-                cacheImage.onload  = handleLoad;
-                cacheImage.onerror = handleLoad;
-                cacheImage.src     = images[index];
-                cache.push(cacheImage);
-              }
-            }
           }
         },
 
@@ -279,8 +247,8 @@ $.fn.visibility = function(parameters) {
               settings.observeChanges = false;
 
               // show when top visible
-              settings.onTopVisible = function() {
-                module.debug('Image top visible', element);
+              settings.onOnScreen = function() {
+                module.debug('Image on screen', element);
                 module.precache(src, function() {
                   module.set.image(src);
                 });
@@ -291,32 +259,17 @@ $.fn.visibility = function(parameters) {
             module.debug('Setting up fixed');
             settings.once           = false;
             settings.observeChanges = false;
-            settings.refreshOnLoad  = false;
+            settings.initialCheck   = true;
+            settings.refreshOnLoad  = true;
             if(!parameters.transition) {
               settings.transition = false;
             }
-            $placeholder = $module
-              .clone(false)
-              .css('display', 'none')
-              .addClass(className.placeholder)
-              .insertAfter($module)
-            ;
+            module.create.placeholder();
             module.debug('Added placeholder', $placeholder);
             settings.onTopPassed = function() {
               module.debug('Element passed, adding fixed position', $module);
-              $placeholder
-                .css('display', 'block')
-                .css('visibility', 'hidden')
-              ;
-              $module
-                .addClass(className.fixed)
-                .css({
-                  position : 'fixed',
-                  top      : settings.offset + 'px',
-                  left     : 'auto',
-                  zIndex   : '1'
-                })
-              ;
+              module.show.placeholder();
+              module.set.fixed();
               if(settings.transition) {
                 if($.fn.transition !== undefined) {
                   $module.transition(settings.transition, settings.duration);
@@ -325,24 +278,56 @@ $.fn.visibility = function(parameters) {
             };
             settings.onTopPassedReverse = function() {
               module.debug('Element returned to position, removing fixed', $module);
-              $placeholder
-                .css('display', 'none')
-                .css('visibility', '')
-              ;
-              $module
-                .removeClass(className.fixed)
-                .css({
-                  position : '',
-                  top      : '',
-                  left     : '',
-                  zIndex   : ''
-                })
-              ;
+              module.hide.placeholder();
+              module.remove.fixed();
             };
           }
         },
 
+        create: {
+          placeholder: function() {
+            module.verbose('Creating fixed position placeholder');
+            $placeholder = $module
+              .clone(false)
+              .css('display', 'none')
+              .addClass(className.placeholder)
+              .insertAfter($module)
+            ;
+          }
+        },
+
+        show: {
+          placeholder: function() {
+            module.verbose('Showing placeholder');
+            $placeholder
+              .css('display', 'block')
+              .css('visibility', 'hidden')
+            ;
+          }
+        },
+        hide: {
+          placeholder: function() {
+            module.verbose('Hiding placeholder');
+            $placeholder
+              .css('display', 'none')
+              .css('visibility', '')
+            ;
+          }
+        },
+
         set: {
+          fixed: function() {
+            module.verbose('Setting element to fixed position');
+            $module
+              .addClass(className.fixed)
+              .css({
+                position : 'fixed',
+                top      : settings.offset + 'px',
+                left     : 'auto',
+                zIndex   : '1'
+              })
+            ;
+          },
           image: function(src) {
             $module
               .attr('src', src)
@@ -384,6 +369,10 @@ $.fn.visibility = function(parameters) {
 
         refresh: function() {
           module.debug('Refreshing constants (width/height)');
+          if(settings.type == 'fixed') {
+            module.remove.fixed();
+            module.remove.occurred();
+          }
           module.reset();
           module.save.position();
           module.checkVisibility();
@@ -743,6 +732,18 @@ $.fn.visibility = function(parameters) {
         },
 
         remove: {
+          fixed: function() {
+            module.debug('Removing fixed position');
+            $module
+              .removeClass(className.fixed)
+              .css({
+                position : '',
+                top      : '',
+                left     : '',
+                zIndex   : ''
+              })
+            ;
+          },
           occurred: function(callback) {
             if(callback) {
               var
@@ -809,6 +810,7 @@ $.fn.visibility = function(parameters) {
             element.height        = $module.outerHeight();
             // store
             module.cache.element = element;
+            console.log(element.offset, $module);
             return element;
           },
           elementCalculations: function() {
