@@ -84,15 +84,19 @@
     float: left;
     margin: 0em 3em 1em 0em;
   }
+  .overlay .menu {
+    position: relative;
+    left: 0;
+    transition: left 0.5s ease;
+  }
 
   .main.menu.fixed {
     background-color: #FFFFFF;
     border: 1px solid #DDD;
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
   }
-  .overlay.fixed {
-    margin-left: 800px;
-    transition: margin 0.5s ease;
+  .overlay.fixed .menu {
+    left: 800px;
   }
 
   .text.container .left.floated.image {
