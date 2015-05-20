@@ -263,7 +263,14 @@
             States
 *******************************/
 
+/*--------------------
+      Autofilled
+---------------------*/
 
+.ui.form input:-webkit-autofill {
+  box-shadow: 0px 0px 0px 100px @inputAutoFillBackground inset;
+  border-color: @inputAutoFillBorder;
+}
 /*--------------------
       Placeholder
 ---------------------*/
@@ -310,6 +317,7 @@
   color: @inputErrorPlaceholderFocusColor;
 }
 
+
 /*--------------------
         Focus
 ---------------------*/
@@ -339,6 +347,13 @@
   box-shadow: @textAreaFocusBoxShadow;
   -webkit-appearance: none;
 }
+
+/* Autofill Focus */
+.ui.form input:-webkit-autofill:focus {
+  box-shadow: 0px 0px 0px 100px @inputAutoFillFocusBackground inset !important;
+  border-color: @inputAutoFillFocusBorder !important;
+}
+
 
 /*--------------------
         Success

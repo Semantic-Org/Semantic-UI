@@ -39,7 +39,6 @@
 @inputTransition:
   background-color 0.2s ease,
   color 0.2s ease,
-  box-shadow 0.2s ease,
   border-color 0.2s ease
 ;
 @inputBoxShadow: 0em 0em 0em 0em transparent inset;
@@ -87,7 +86,7 @@
 /* Input Focus */
 @inputFocusBackground: @inputBackground;
 @inputFocusBorderColor: @selectedBorderColor;
-@inputFocusColor: rgba(0, 0, 0, 0.85);
+@inputFocusColor: @selectedTextColor;
 @inputFocusBoxShadow: @inputFocusPointerSize 0em 0em 0em @selectedBorderColor inset;
 @inputFocusBorderRadius: @inputBorderRadius;
 
@@ -105,6 +104,15 @@
 @formErrorColor: @negativeTextColor;
 @formErrorBorder: @negativeBorderColor;
 @formErrorBackground: @negativeBackgroundColor;
+
+/* AutoFill */
+@inputAutoFillBackground: #FFFFF0;
+@inputAutoFillBorder: #E5DFA1;
+
+/* Focused AutoFill */
+@inputAutoFillFocusBackground: @inputAutoFillBackground;
+@inputAutoFillFocusBorder: #DDCC27;
+
 
 /* Input Error */
 @inputErrorBorderRadius: @inputBorderRadius;
