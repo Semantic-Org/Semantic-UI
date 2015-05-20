@@ -1,5 +1,14 @@
 ## RELEASE NOTES
 
+
+### Version 1.12.3 - May 20, 2015
+
+**Announcement**
+Version 2.0 will be launching on June 1st, which will include 100+ bug fixes, enhancements, new ui, and default theme improvements.
+
+**Bugs**
+- **Grid** - Fixes bug causing colored variations not to work on columns without row wrappers. Backport from `2.x`
+
 ### Version 1.12.2 - May 4, 2015
 
 **Bugs**
