@@ -1,0 +1,20 @@
+/*******************************
+         Theme Overrides
+*******************************/
+
+.ui.modal {
+    .close.icon {
+        top: 0.05em !important;
+        right: 0.05em !important;
+        float: right;
+        cursor: hand;
+        color: #CCD6D0;
+        font-family: museo-sans, sans-serif;
+        font-size: 32px;
+        font-weight: 100;
+    }
+
+    i.icon.close:before {
+        content: '\2715';
+    }
+}

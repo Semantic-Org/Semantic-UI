@@ -1,0 +1,174 @@
+/*******************************
+             Label
+*******************************/
+
+
+/*-------------------
+       Element
+--------------------*/
+
+
+@verticalAlign: baseline;
+@verticalMargin: 0em;
+@horizontalMargin: 0.125em;
+@backgroundColor: #E8E8E8;
+@backgroundImage: none;
+@labelTextColor: rgba(0, 0, 0, 0.6);
+@verticalPadding: 0.6em;
+@horizontalPadding: 0.8em;
+@borderRadius: @absoluteBorderRadius;
+@textTransform: none;
+@fontWeight: bold;
+
+@labelTransitionDuration: @transitionDuration;
+@labelTransitionEasing: @transitionEasing;
+@transition: background @labelTransitionDuration @labelTransitionEasing;
+
+/* Group */
+@groupVerticalMargin: 0.75em;
+@groupHorizontalMargin: 0.5em;
+
+/*-------------------
+        Parts
+--------------------*/
+
+@linkOpacity: 0.8;
+@linkTransition: @labelTransitionDuration opacity @labelTransitionEasing;
+
+@iconDistance: 0.75em;
+
+@detailFontWeight: bold;
+@detailOpacity: 0.8;
+@detailIconDistance: 0.25em;
+@detailMargin: 1em;
+
+@deleteMargin: 0.5em;
+@deleteTransition: background @labelTransitionDuration @labelTransitionEasing;
+
+/*-------------------
+        Types
+--------------------*/
+
+/* Image Label */
+@imageLabelBackground: @backgroundColor;
+@imageLabelBorderRadius: @circularRadius;
+@imageLabelVerticalPadding: @verticalPadding;
+@imageLabelHorizontalPadding: @horizontalPadding;
+@imageLabelTextDistance: 0.5em;
+@imageLabelDetailDistance: @imageLabelTextDistance;
+@imageLabelBorderRadius: @borderRadius;
+@imageLabelBoxShadow: none;
+@imageLabelDetailBackground: @strongTransparentBlack;
+
+/* Computed Values */
+@imageLabelImageHeight: (1em + @verticalPadding * 2);
+@imageLabelPadding: @imageLabelVerticalPadding @imageLabelHorizontalPadding @imageLabelVerticalPadding @imageLabelTextDistance;
+@imageLabelImageMargin: -@verticalPadding @imageLabelTextDistance -@verticalPadding -@imageLabelTextDistance;
+@imageLabelDetailPadding: @imageLabelVerticalPadding @imageLabelHorizontalPadding;
+@imageLabelDetailMargin: -@imageLabelVerticalPadding -@imageLabelHorizontalPadding -@imageLabelVerticalPadding @imageLabelDetailDistance;
+
+/*-------------------
+        States
+--------------------*/
+
+@labelHoverBackgroundColor: #E0E0E0;
+@labelHoverBackgroundImage: none;
+@labelHoverTextColor: @hoveredTextColor;
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Tag */
+@tagCircleColor: #FFFFFF;
+@tagCircleSize: 0.5em;
+@tagHorizontalPadding: 1.5em;
+@tagCircleBoxShadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
+@tagTriangleRightOffset: 100%;
+@tagTriangleTopOffset: 50%;
+@tagTriangleSize: 1.56em;
+@tagTransition: background @labelTransitionDuration @labelTransitionEasing;
+
+/* Ribbon */
+@ribbonImageTopDistance: 1rem;
+@ribbonTriangleSize: 1.2em;
+@ribbonShadowColor: rgba(0, 0, 0, 0.15);
+
+@ribbonMargin: 1rem;
+@ribbonOffset: ~"calc("-@ribbonMargin~" - "@ribbonTriangleSize~")";
+@ribbonDistance: ~"calc("@ribbonMargin~" + "@ribbonTriangleSize~")";
+@rightRibbonOffset:  ~"calc(100% + "@ribbonMargin~" + "@ribbonTriangleSize~")";
+
+@ribbonImageMargin: -0.05rem; /* Rounding Offset on Triangle */
+@ribbonImageOffset: ~"calc("-@ribbonImageMargin~" - "@ribbonTriangleSize~")";
+@ribbonImageDistance: ~"calc("@ribbonImageMargin~" + "@ribbonTriangleSize~")";
+@rightRibbonImageOffset:  ~"calc(100% + "@ribbonImageMargin~" + "@ribbonTriangleSize~")";
+
+@blackRibbonShadow: darken(@black, 10);
+@blueRibbonShadow: darken(@blue, 10);
+@greenRibbonShadow: darken(@green, 10);
+@orangeRibbonShadow: darken(@orange, 10);
+@pinkRibbonShadow: darken(@pink, 10);
+@purpleRibbonShadow: darken(@purple, 10);
+@redRibbonShadow: darken(@red, 10);
+@tealRibbonShadow: darken(@teal, 10);
+@yellowRibbonShadow: darken(@yellow, 10);
+
+/* Attached */
+@attachedSegmentPadding: 2rem;
+@attachedVerticalPadding: 0.75em;
+@attachedHorizontalPadding: 1em;
+
+/* Corner */
+@cornerSizeRatio: 1;
+@cornerTransition: color @labelTransitionDuration @labelTransitionEasing;
+@cornerTriangleSize: 3.25em;
+@cornerTriangleTransition: border-color @labelTransitionDuration @labelTransitionEasing;
+@cornerTriangleZIndex: 1;
+
+@cornerIconSize: 1em;
+@cornerIconTopOffset: 0.4em;
+@cornerIconLeftOffset: 0.75em;
+
+/* Corner Text */
+@cornerTextWidth: 3em;
+@cornerTextWeight: bold;
+@cornerTextSize: 1em;
+
+/* Horizontal */
+@horizontalLabelMinWidth: 3em;
+@horizontalLabelMargin: 0.5em;
+@horizontalLabelVerticalPadding: 0.4em;
+
+/* Circular Padding */
+@circularPadding: 0.5em;
+@circularMinSize: 2em;
+@emptyCircleSize: 0.5em;
+
+/* Pointing */
+@pointingVerticalDistance: 1em;
+@pointingTriangleSize: 0.6em;
+@pointingHorizontalDistance: @pointingTriangleSize;
+
+@pointingTriangleOffset: (@pointingTriangleSize / 2);
+@pointingTriangleTransition: background @labelTransitionDuration @labelTransitionEasing;
+@pointingTriangleZIndex: 2;
+
+/* Floating */
+@floatingTopOffset: -1em;
+@floatingLeftOffset: -1.5em;
+@floatingZIndex: 100;
+
+/*-------------------
+        Group
+--------------------*/
+
+/* Sizing */
+@mini    : 0.6428rem;
+@tiny    : 0.7142rem;
+@small   : 0.7857rem;
+@medium  : 0.8571rem;
+@large   : 1rem;
+@big     : 1.1428rem;
+@huge    : 1.2857rem;
+@massive : 1.4285rem;

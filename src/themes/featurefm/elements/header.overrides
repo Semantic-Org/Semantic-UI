@@ -1,0 +1,41 @@
+/*******************************
+         Theme Overrides
+*******************************/
+
+.ui.header {
+  line-height: 1.0em;
+}
+
+.ui.medium.header {
+  font-weight: @font-weight-thin;
+}
+
+.ui.huge.header {
+  font-weight: @font-weight-regular;
+}
+
+.ui.large.header {
+  font-weight: @font-weight-regular;
+}
+
+.ui.tiny.header {
+	font-weight: @font-weight-bold;
+}
+
+.ui.micro.header {
+  font-size: @micro;	
+  font-weight: @font-weight-bold;
+}
+
+.ui.micro.header .sub.header {
+  font-size: @microSubHeaderFontSize;
+}
+
+.ui.micro.block.header {
+  font-size: @microBlock;
+}
+
+/* Attached Sizes */
+.ui.micro.attached.header {
+  font-size: @microAttached;
+}

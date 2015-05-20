@@ -1,0 +1,13 @@
+/*******************************
+         Theme Overrides
+*******************************/
+
+.ui.menu .item:before {
+      top: 0%;
+      height: 0%;
+}
+
+.ui.menu:not(.vertical),
+.ui.menu:not(.vertical) .item {
+  display: inline-flex;
+}

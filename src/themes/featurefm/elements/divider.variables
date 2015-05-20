@@ -1,0 +1,54 @@
+/*******************************
+            Divider
+*******************************/
+
+/*-------------------
+       Element
+--------------------*/
+
+@margin: 1rem 0rem;
+
+@highlightWidth: 1px;
+@highlightColor: rgba(255, 255, 255, 0.2);
+
+@shadowWidth: 1px;
+@shadowColor: rgba(0, 0, 0, 0.1);
+
+/* Text */
+@letterSpacing: 0.05em;
+@fontWeight: bold;
+@color: @darkTextColor;
+@textTransform: uppercase;
+
+/*-------------------
+       Coupling
+--------------------*/
+
+/* Icon */
+@dividerIconSize: 1rem;
+@dividerIconMargin: 0rem;
+
+
+/*******************************
+         Variations
+*******************************/
+
+/* Horizontal / Vertical */
+@horizontalMargin: '';
+@horizontalDividerMargin: 1em;
+@horizontalRulerOffset: ~"calc(-50% - "(@horizontalDividerMargin)~")";
+
+@verticalDividerMargin: 1rem;
+@verticalDividerHeight: ~"calc(100% - "(@verticalDividerMargin)~")";
+
+/* Inverted */
+@invertedTextColor: @white;
+@invertedHighlightColor: rgba(255, 255, 255, 0.15);
+@invertedShadowColor: rgba(0, 0, 0, 0.15);
+
+/* Section */
+@sectionMargin: 2rem;
+
+
+/* Sizes */
+@medium: 1rem;

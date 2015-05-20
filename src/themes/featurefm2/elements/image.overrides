@@ -1,0 +1,37 @@
+/*******************************
+         Theme Overrides
+*******************************/
+
+.ui.image {
+  max-width: inherit;
+ }
+
+.ui.avatar.image.tiny {
+  width: 30px !important;
+  height: 30px !important;
+}
+
+.ui.avatar.image.small {
+  width: 50px !important;
+  height: 50px !important;
+}
+
+.ui.avatar.image.medium {
+  width: 60px !important;
+  height: 60px !important;
+}
+
+.ui.avatar.image.large {
+  width: 100px !important;
+  height: 100px !important;
+}
+
+.ui.avatar.image.huge {
+  width: 140px !important;
+  height: 140px !important;
+}
+
+.ui.avatar.image.massive {
+  width: 280px !important;
+  height: 280px !important;
+}

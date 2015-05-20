@@ -1,0 +1,140 @@
+/*******************************
+            Search
+*******************************/
+
+/* Search Prompt */
+@promptFontSize: 1em;
+@promptVerticalPadding: 0.78571em;
+@promptHorizontalPadding: 1em;
+@promptLineHeight: 1.2;
+@promptPadding: (@promptVerticalPadding + ((1em - @promptLineHeight) / 2)) @promptHorizontalPadding;
+@promptBackground: #FFFFFF;
+@promptBorder: 1px solid @borderColor;
+@promptBorderRadius: @circularRadius;
+@promptColor: @textColor;
+@promptTransition:
+  background-color 0.2s ease,
+  color 0.2s ease,
+  box-shadow 0.2s ease,
+  border-color 0.2s ease
+;
+@promptBoxShadow: 0em 0em 0em 0em transparent inset;
+
+/* Result Box */
+@resultsWidth: 16em;
+@resultsBackground: #FFFFFF;
+@resultsDistance: 0.5em;
+@resultsBorderRadius: 0.25em;
+@resultsBoxShadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.2);
+
+/* Result */
+@resultFontSize: 1em;
+@resultVerticalPadding: 0.5em;
+@resultHorizontalPadding: 1em;
+@resultTextColor: @textColor;
+@resultLineHeight: 1.33;
+@resultDivider: 1px solid @borderColor;
+@resultLastDivider: none;
+
+/* Result Image */
+@resultImageFloat: right;
+@resultImageBackground: none;
+@resultImageWidth: 5em;
+@resultImageHeight: 3em;
+@resultImageBorderRadius: 0.25em;
+@resultImageMargin: 0em 6em 0em 0em;
+
+/* Result Content */
+@resultTitleFont: @headerFont;
+@resultTitleFontWeight: bold;
+@resultTitleFontSize: 1em;
+@resultTitleColor: @darkTextColor;
+
+/* Description */
+@resultDescriptionFontSize: 0.9285em;
+@resultDescriptionDistance: 0em;
+@resultDescriptionColor: @lightTextColor;
+
+/* Price */
+@resultPriceFloat: right;
+@resultPriceColor: @green;
+
+/* Special Message */
+@messageVerticalPadding: 1em;
+@messageHorizontalPadding: 1em;
+@messageHeaderFontSize: 1.1428em;
+@messageHeaderFontWeight: bold;
+@messageHeaderColor: @textColor;
+@messageDescriptionDistance: 0.25rem;
+@messageDescriptionFontSize: 1em;
+@messageDescriptionColor: @textColor;
+
+/* All Results Link */
+@actionBorder: none;
+@actionBackground: @darkWhite;
+@actionPadding: 0.5em 1em;
+@actionColor: @textColor;
+@actionFontWeight: bold;
+@actionAlign: center;
+
+
+/*******************************
+            States
+*******************************/
+
+/* Hover */
+@resultHoverBackground: @offWhite;
+@actionHoverBackground: #E0E0E0;
+
+/* Loading */
+@loaderSize: 1.2857em;
+@loaderOffset: -(@loaderSize / 2);
+@loaderMargin: @loaderOffset 0em 0em @loaderOffset;
+@invertedLoaderFillColor: rgba(0, 0, 0, 0.15);
+
+/* Active Category */
+@categoryActiveBackground: @darkWhite;
+@categoryNameActiveColor: @textColor;
+
+/* Active Result */
+@resultActiveBorderLeft: transparent;
+@resultActiveBackground: @darkWhite;
+@resultActiveBoxShadow: 3px 0px 3px 0px @borderColor;
+@resultActiveTitleColor: @darkTextColor;
+@resultActiveDescriptionColor: @darkTextColor;
+@resultsZIndex: 998;
+
+
+/*******************************
+            Types
+*******************************/
+
+/* Category */
+@categoryBackground: @darkWhite;
+@categoryBoxShadow: none;
+@categoryDivider: 1px solid @borderColor;
+@categoryTransition:
+  background 0.2s ease,
+  border-color 0.2s ease
+;
+
+@categoryResultsWidth: 28em;
+
+@categoryResultBackground: @white;
+@categoryResultLeftBorder: 1px solid @borderColor;
+@categoryResultDivider: 1px solid @borderColor;
+@categoryResultLastDivider: none;
+@categoryResultTransition: @categoryTransition;
+
+@categoryNameWidth: 100px;
+@categoryNameBackground: @darkWhite;
+@categoryNameFont: @pageFont;
+@categoryNameFontSize: 1em;
+@categoryNameFloat: left;
+@categoryNamePadding: 0.4em 1em;
+@categoryNameFontWeight: bold;
+@categoryNameColor: @lightTextColor;
+
+/* Sizes */
+@medium: 1em;
+@large: 1.1em;

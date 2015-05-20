@@ -1,0 +1,26 @@
+/*******************************
+            Rail
+*******************************/
+
+/*-------------------
+       Element
+--------------------*/
+
+@contentSizing: content-box;
+@width: 300px;
+@height: 100%;
+@distance: 4rem;
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Close */
+@closeDistance: 2em;
+@veryCloseDistance: 1em;
+
+/* Divided */
+@dividedBorder: 1px solid @borderColor;
+@dividedDistance: 5rem;
+
+@medium: 1em;

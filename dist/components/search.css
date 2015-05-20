@@ -29,7 +29,7 @@
   padding: 0.67861em 1em;
   font-size: 1em;
   background: #ffffff;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid #cccccc;
   color: rgba(0, 0, 0, 0.8);
   box-shadow: 0em 0em 0em 0em transparent inset;
   -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
@@ -59,8 +59,8 @@
   background: #ffffff;
   margin-top: 0.5em;
   width: 18em;
-  border-radius: 0.2857rem;
-  box-shadow: 0px 1px 3px 1px rgba(34, 36, 38, 0.15);
+  border-radius: 0;
+  box-shadow: 0px 1px 3px 1px #cccccc;
   z-index: 998;
 }
 
@@ -73,7 +73,7 @@
   display: block;
   overflow: hidden;
   font-size: 1em;
-  padding: 0.71428571em 1.14285714em;
+  padding: 0.72222222em 1.16666667em;
   color: rgba(0, 0, 0, 0.8);
   line-height: 1.33;
   border-bottom: 1px solid rgba(34, 36, 38, 0.1);
@@ -106,14 +106,14 @@
 }
 .ui.search > .results .result .title {
   margin: -0.165em 0em 0em;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: museo-sans, sans-serif;
   font-weight: bold;
   font-size: 1em;
   color: rgba(0, 0, 0, 0.85);
 }
 .ui.search > .results .result .description {
   margin-top: 0;
-  font-size: 0.92857143em;
+  font-size: 0.94444444em;
   color: rgba(0, 0, 0, 0.4);
 }
 .ui.search > .results .result .price {
@@ -129,7 +129,7 @@
   padding: 1em 1em;
 }
 .ui.search > .results > .message .header {
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: museo-sans, sans-serif;
   font-size: 1em;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.8);
@@ -145,7 +145,7 @@
   display: block;
   border-top: none;
   background: #f0f0f0;
-  padding: 0.92857143em 1em;
+  padding: 0.94444444em 1em;
   color: rgba(0, 0, 0, 0.8);
   font-weight: bold;
   text-align: center;
@@ -245,7 +245,7 @@
 .ui.category.search > .results .category {
   background: #f0f0f0;
   box-shadow: none;
-  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+  border-bottom: 1px solid #cccccc;
   -webkit-transition: background 0.2s ease, border-color 0.2s ease;
           transition: background 0.2s ease, border-color 0.2s ease;
 }
@@ -257,11 +257,11 @@
 .ui.category.search > .results .category .result {
   background: #ffffff;
   margin-left: 100px;
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid #cccccc;
   border-bottom: 1px solid rgba(34, 36, 38, 0.1);
   -webkit-transition: background 0.2s ease, border-color 0.2s ease;
           transition: background 0.2s ease, border-color 0.2s ease;
-  padding: 0.71428571em 1.14285714em;
+  padding: 0.72222222em 1.16666667em;
 }
 .ui.category.search > .results .category .result:last-child {
   border-bottom: none;
@@ -271,7 +271,7 @@
 .ui.category.search > .results .category > .name {
   width: 100px;
   background: #f0f0f0;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: museo-sans, sans-serif;
   font-size: 1em;
   float: 1em;
   float: left;

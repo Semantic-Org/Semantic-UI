@@ -140,15 +140,15 @@
 }
 .ui.items > .item > .content > .header {
   display: block;
-  margin: -0.21425em 0em 0em;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  margin: -0.2em 0em 0em;
+  font-family: museo-sans, sans-serif;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.85);
 }
 
 /* Default Header Size */
 .ui.items > .item > .content > .header:not(.ui) {
-  font-size: 1.28571429em;
+  font-size: 1.27777778em;
 }
 
 /*--------------
@@ -187,7 +187,7 @@
   margin-top: 0.6em;
   max-width: auto;
   font-size: 1em;
-  line-height: 1.4285em;
+  line-height: 1.4;
   color: rgba(0, 0, 0, 0.8);
 }
 
@@ -243,7 +243,7 @@
   color: rgba(0, 0, 0, 0.85);
 }
 .ui.items > .item > .content > a.header:hover {
-  color: #00b2f3;
+  color: #ffffff;
 }
 
 /* Meta */
@@ -341,7 +341,7 @@
 }
 
 /* Tablet Only */
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media only screen and (min-width: 480px) and (max-width: 1023px) {
   .ui.items > .item {
     margin: 1em 0em;
   }
@@ -355,7 +355,7 @@
 }
 
 /* Mobily Only */
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 479px) {
   .ui.items > .item {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -423,7 +423,7 @@
 --------------------*/
 
 .ui.divided.items > .item {
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-top: 1px solid #cccccc;
   margin: 0em;
   padding: 1em 0em;
 }
@@ -457,7 +457,7 @@
 }
 .ui.items a.item:hover .content .header,
 .ui.link.items > .item:hover .content .header {
-  color: #00b2f3;
+  color: #ffffff;
 }
 
 /*--------------
@@ -473,6 +473,25 @@
          Theme Overrides
 *******************************/
 
+.item.footer {
+  color: #999999 !important;
+  font-size: 14px !important;
+  font-weight: 300 !important;
+  line-height: 0.8 !important;
+  padding-left: 0px !important;
+  display: block !important;
+}
+.ui.list .item a {
+  font-family: museo-sans, sans-serif !important;
+  font-weight: 500 !important;
+  color: #1dadea !important;
+}
+.ui.list .item a:hover {
+  font-family: museo-sans, sans-serif !important;
+  font-weight: 500 !important;
+  color: #0c93cd !important;
+  text-decoration: none !important;
+}
 
 
 /*******************************

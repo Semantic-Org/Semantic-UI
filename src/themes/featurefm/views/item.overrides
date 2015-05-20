@@ -1,0 +1,27 @@
+/*******************************
+         Theme Overrides
+*******************************/
+
+
+.item.footer {
+  color: #999999 !important;
+  font-size: 14px !important;
+
+  font-weight: 300 !important;
+  line-height: 0.8 !important;
+  padding-left: 0px !important;
+  display: block !important;
+}
+
+.ui.list .item a {
+  font-family: @app-font-family !important;
+  font-weight: @font-weight-regular !important;
+  color: @ffm-blue !important;
+}
+
+.ui.list .item a:hover {
+  font-family: @app-font-family !important;
+  font-weight: @font-weight-regular !important;
+  color: @ffm-dark-blue !important;
+  text-decoration: none !important;
+}

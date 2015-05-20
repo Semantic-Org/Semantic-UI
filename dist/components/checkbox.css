@@ -22,10 +22,10 @@
 .ui.checkbox {
   position: relative;
   display: inline-block;
-  min-height: 17px;
+  min-height: 24px;
   font-size: 1rem;
   line-height: 15px;
-  min-width: 17px;
+  min-width: 24px;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   outline: none;
@@ -53,22 +53,22 @@
   outline: none;
 }
 .ui.checkbox label {
-  font-size: 1em;
+  font-size: 14px;
 }
 .ui.checkbox .box:before,
 .ui.checkbox label:before {
   position: absolute;
   line-height: 1;
-  width: 17px;
-  height: 17px;
+  width: 24px;
+  height: 24px;
   top: 0em;
   left: 0em;
   content: '';
   background: #ffffff;
-  border-radius: 0.25em;
+  border-radius: 0px;
   -webkit-transition: background-color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
           transition: background-color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid #d4d4d5;
+  border: 2px solid #cccccc;
 }
 
 /*--------------
@@ -80,9 +80,9 @@
   position: absolute;
   top: 0px;
   left: 0px;
-  line-height: 17px;
-  width: 17px;
-  height: 17px;
+  line-height: 24px;
+  width: 24px;
+  height: 24px;
   text-align: center;
   opacity: 0;
   color: rgba(0, 0, 0, 0.8);
@@ -99,7 +99,7 @@
 .ui.checkbox label,
 .ui.checkbox + label {
   cursor: pointer;
-  color: rgba(0, 0, 0, 0.8);
+  color: #999999;
   -webkit-transition: color 0.2s ease;
           transition: color 0.2s ease;
   -webkit-user-select: none;
@@ -126,7 +126,7 @@
 .ui.checkbox .box:hover::before,
 .ui.checkbox label:hover::before {
   background: #ffffff;
-  border: 1px solid rgba(34, 36, 38, 0.3);
+  border: 1px solid #1dadea;
 }
 .ui.checkbox label:hover,
 .ui.checkbox + label:hover {
@@ -140,7 +140,7 @@
 .ui.checkbox .box:active::before,
 .ui.checkbox label:active::before {
   background: #f5f5f5;
-  border: 1px solid 1px solid rgba(34, 36, 38, 0.3);
+  border: 1px solid 1px solid #1dadea;
 }
 .ui.checkbox input[type="checkbox"]:active ~ label,
 .ui.checkbox input[type="radio"]:active ~ label {
@@ -156,7 +156,7 @@
 .ui.checkbox input[type="radio"]:focus ~ .box:before,
 .ui.checkbox input[type="radio"]:focus ~ label:before {
   background: #f5f5f5;
-  border: 1px solid 1px solid rgba(34, 36, 38, 0.3);
+  border: 1px solid 1px solid #1dadea;
 }
 .ui.checkbox input[type="checkbox"]:focus ~ label,
 .ui.checkbox input[type="radio"]:focus ~ label {
@@ -294,7 +294,7 @@
   opacity: 1;
   z-index: 2;
   border: none;
-  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px #cccccc inset;
   width: 1.5rem;
   height: 1.5rem;
   top: -0.25rem;
@@ -390,7 +390,7 @@
   opacity: 1;
   z-index: 2;
   border: none;
-  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px #cccccc inset;
   width: 1.5rem;
   height: 1.5rem;
   top: 0rem;
@@ -437,7 +437,7 @@
 .ui.toggle.checkbox input[type="checkbox"]:checked ~ label:before,
 .ui.toggle.checkbox input[type="radio"]:checked ~ .box:before,
 .ui.toggle.checkbox input[type="radio"]:checked ~ label:before {
-  background-color: #2185d0;
+  background-color: #333333;
 }
 .ui.toggle.checkbox input[type="checkbox"]:checked ~ .box:after,
 .ui.toggle.checkbox input[type="checkbox"]:checked ~ label:after,
@@ -499,6 +499,35 @@
 .radio:before { content: '\e803'; }
 
 */
+.ui.checkbox label:before {
+  width: 24px !important;
+  height: 24px !important;
+  border: 2px solid #cccccc !important;
+  border-radius: 0 !important;
+  line-height: 1;
+}
+.ui.checkbox label,
+.ui.checkbox + label {
+  font-family: museo-sans, sans-serif;
+  font-weight: 500;
+  color: #999999 !important;
+  padding-left: 30px !important;
+  padding-top: 5px !important;
+}
+.ui.checkbox label:before,
+.ui.checkbox .box:before,
+.ui.checkbox label:after,
+.ui.checkbox .box:after {
+  font-family: 'Checkbox';
+  font-weight: 100 !important;
+  font-size: 14px !important;
+}
+.ui.checkbox label,
+.ui.checkbox label:hover,
+.ui.checkbox label:before {
+  background: transparent !important;
+  color: #999999 !important;
+}
 
 
 /*******************************

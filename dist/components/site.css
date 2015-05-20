@@ -1,6 +1,5 @@
-@import 'https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&subset=latin';
 /*!
- * # Semantic UI - Site
+ * # Semantic UI 2.0.0 - Site
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -15,12 +14,13 @@
              Page
 *******************************/
 
+@import 'https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&subset=latin';
 html,
 body {
   height: 100%;
 }
 html {
-  font-size: 14px;
+  font-size: 18px;
 }
 body {
   margin: 0px;
@@ -28,9 +28,9 @@ body {
   overflow-x: hidden;
   min-width: 320px;
   background: #ffffff;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  line-height: 1.4285em;
+  font-family: museo-sans, sans-serif;
+  font-size: 18px;
+  line-height: 1.4;
   color: rgba(0, 0, 0, 0.8);
   font-smoothing: antialiased;
 }
@@ -45,7 +45,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: museo-sans, sans-serif;
   line-height: 1.33em;
   margin: -webkit-calc(2rem -  0.165em ) 0em 1rem;
   margin: calc(2rem -  0.165em ) 0em 1rem;
@@ -90,7 +90,7 @@ h5:last-child {
 
 p {
   margin: 0em 0em 1em;
-  line-height: 1.4285em;
+  line-height: 1.4;
 }
 p:first-child {
   margin-top: 0em;
@@ -153,6 +153,9 @@ input::selection {
         Global Overrides
 *******************************/
 
+body {
+  font-weight: 500 !important;
+}
 
 
 /*******************************

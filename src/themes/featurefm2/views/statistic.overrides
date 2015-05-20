@@ -1,0 +1,18 @@
+/*******************************
+         Theme Overrides
+*******************************/
+
+.ui.statistics .lined.statistic {
+   border-left: @linedBorder;
+   padding-left: @linedBorderHorizontalPadding;
+}
+
+.ui.down.bordered.statistics {
+	border-bottom: @linedBorder;
+	padding-bottom: @linedBorderVerticalPadding;
+	line-height: @valueLineHeight;
+}
+
+.ui.large.statistics .statistic > .value {
+    line-height: 0.7em;
+}

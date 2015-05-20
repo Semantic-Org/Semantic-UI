@@ -1,0 +1,7 @@
+/*******************************
+        Global Overrides
+*******************************/
+
+body {
+  font-weight: @font-weight-regular !important;
+}

@@ -38,7 +38,7 @@
   display: inline-block;
   opacity: 0.7;
   margin: 0em 0.5rem 0em;
-  font-size: 0.92857143em;
+  font-size: 0.94444444em;
   color: rgba(0, 0, 0, 0.4);
   vertical-align: baseline;
 }
@@ -53,7 +53,7 @@
 
 /* Icon Divider */
 .ui.breadcrumb .icon.divider {
-  font-size: 0.85714286em;
+  font-size: 0.83333333em;
   vertical-align: baseline;
 }
 
@@ -70,7 +70,7 @@
 /* Loose Coupling */
 .ui.breadcrumb.segment {
   display: inline-block;
-  padding: 0.71428571em 1em;
+  padding: 0.72222222em 1em;
 }
 
 

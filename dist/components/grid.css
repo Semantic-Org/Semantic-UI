@@ -187,7 +187,7 @@ body > .ui.grid {
        Page Grid
 -------------------------*/
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 479px) {
   .ui.page.grid {
     width: auto;
     padding-left: 0em;
@@ -196,7 +196,7 @@ body > .ui.grid {
     margin-right: 0em;
   }
 }
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media only screen and (min-width: 480px) and (max-width: 1023px) {
   .ui.page.grid {
     width: auto;
     margin-left: 0em;
@@ -205,7 +205,7 @@ body > .ui.grid {
     padding-right: 2em;
   }
 }
-@media only screen and (min-width: 992px) and (max-width: 1399px) {
+@media only screen and (min-width: 1024px) and (max-width: 1024px) {
   .ui.page.grid {
     width: auto;
     margin-left: 0em;
@@ -214,7 +214,7 @@ body > .ui.grid {
     padding-right: 3%;
   }
 }
-@media only screen and (min-width: 1400px) and (max-width: 1919px) {
+@media only screen and (min-width: 1025px) and (max-width: 1025px) {
   .ui.page.grid {
     width: auto;
     margin-left: 0em;
@@ -223,7 +223,7 @@ body > .ui.grid {
     padding-right: 15%;
   }
 }
-@media only screen and (min-width: 1920px) {
+@media only screen and (min-width: 1026px) {
   .ui.page.grid {
     width: auto;
     margin-left: 0em;
@@ -469,7 +469,7 @@ body > .ui.grid {
 
 
 /* Mobile Sizing Combinations */
-@media only screen and (min-width: 320px) and (max-width: 767px) {
+@media only screen and (min-width: 320px) and (max-width: 479px) {
   .ui.grid > .row > [class*="one wide mobile"].column,
   .ui.grid > .column.row > [class*="one wide mobile"].column,
   .ui.grid > [class*="one wide mobile"].column,
@@ -569,7 +569,7 @@ body > .ui.grid {
 }
 
 /* Tablet Sizing Combinations */
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media only screen and (min-width: 480px) and (max-width: 1023px) {
   .ui.grid > .row > [class*="one wide tablet"].column,
   .ui.grid > .column.row > [class*="one wide tablet"].column,
   .ui.grid > [class*="one wide tablet"].column,
@@ -669,7 +669,7 @@ body > .ui.grid {
 }
 
 /* Computer/Desktop Sizing Combinations */
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 1024px) {
   .ui.grid > .row > [class*="one wide computer"].column,
   .ui.grid > .column.row > [class*="one wide computer"].column,
   .ui.grid > [class*="one wide computer"].column,
@@ -769,7 +769,7 @@ body > .ui.grid {
 }
 
 /* Large Monitor Sizing Combinations */
-@media only screen and (min-width: 1400px) and (max-width: 1919px) {
+@media only screen and (min-width: 1025px) and (max-width: 1025px) {
   .ui.grid > .row > [class*="one wide large screen"].column,
   .ui.grid > .column.row > [class*="one wide large screen"].column,
   .ui.grid > [class*="one wide large screen"].column,
@@ -869,7 +869,7 @@ body > .ui.grid {
 }
 
 /* Widescreen Sizing Combinations */
-@media only screen and (min-width: 1920px) {
+@media only screen and (min-width: 1026px) {
   .ui.grid > .row > [class*="one wide widescreen"].column,
   .ui.grid > .column.row > [class*="one wide widescreen"].column,
   .ui.grid > [class*="one wide widescreen"].column,
@@ -1055,7 +1055,7 @@ body > .ui.grid {
 
 .ui.divided.grid:not([class*="vertically divided"]) > .column:not(.row),
 .ui.divided.grid:not([class*="vertically divided"]) > .row > .column {
-  box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: -1px 0px 0px 0px #cccccc;
 }
 
 /* Swap from padding to margin on columns to have dividers align */
@@ -1081,7 +1081,7 @@ body > .ui.grid {
 
 /* Divided Row */
 .ui.grid > .divided.row > .column {
-  box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: -1px 0px 0px 0px #cccccc;
 }
 .ui.grid > .divided.row > .column:first-child {
   box-shadow: none;
@@ -1100,7 +1100,7 @@ body > .ui.grid {
   width: calc(100% -  2rem );
   height: 1px;
   margin: 0% 1rem;
-  box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: 0px -1px 0px 0px #cccccc;
 }
 
 /* Padded Horizontally Divided */
@@ -1377,7 +1377,7 @@ body > .ui.grid {
 .ui.grid > .blue.row,
 .ui.grid > .blue.column,
 .ui.grid > .row > .blue.column {
-  background-color: #2185d0 !important;
+  background-color: #1dadea !important;
   color: #ffffff;
 }
 .ui.grid > .row > .blue.column {
@@ -1412,7 +1412,7 @@ body > .ui.grid {
 }
 .ui.grid > .pink.row,
 .ui.grid .pink.column {
-  background-color: #e03997 !important;
+  background-color: #e52d98 !important;
   color: #ffffff;
 }
 .ui.grid > .row > .pink.column {
@@ -1498,7 +1498,7 @@ body > .ui.grid {
 
 
 /* Tablet Only */
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media only screen and (min-width: 480px) and (max-width: 1023px) {
   .ui.doubling.grid {
     width: 100% !important;
   }
@@ -1593,7 +1593,7 @@ body > .ui.grid {
 }
 
 /* Mobily Only */
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 479px) {
   .ui.grid > .doubling.row,
   .ui.doubling.grid > .row {
     display: block !important;
@@ -1689,7 +1689,7 @@ body > .ui.grid {
       Stackable
 --------------------*/
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 479px) {
   .ui.stackable.grid {
     display: block !important;
     width: auto;
@@ -1752,7 +1752,7 @@ body > .ui.grid {
   .ui.stackable.divided.grid > .column:not(.row),
   .ui.stackable.celled.grid > .row > .column,
   .ui.stackable.divided.grid > .row > .column {
-    border-top: 1px solid rgba(34, 36, 38, 0.15);
+    border-top: 1px solid #cccccc;
     box-shadow: none !important;
     padding-top: 2rem !important;
     padding-bottom: 2rem !important;
@@ -1773,7 +1773,7 @@ body > .ui.grid {
 /* These include arbitrary class repetitions for forced specificity */
 
 /* Mobile Only Hide */
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 479px) {
   .ui.tablet:not(.mobile).only.grid.grid.grid,
   .ui.grid.grid.grid > [class*="tablet only"].row:not(.mobile),
   .ui.grid.grid.grid > [class*="tablet only"].column:not(.mobile),
@@ -1789,7 +1789,7 @@ body > .ui.grid {
 }
 
 /* Tablet Only Hide */
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media only screen and (min-width: 480px) and (max-width: 1023px) {
   .ui[class*="mobile only"].grid.grid.grid:not(.tablet),
   .ui.grid.grid.grid > [class*="mobile only"].row:not(.tablet),
   .ui.grid.grid.grid > [class*="mobile only"].column:not(.tablet),
@@ -1805,7 +1805,7 @@ body > .ui.grid {
 }
 
 /* Computer Only Hide */
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 1024px) {
   .ui[class*="mobile only"].grid.grid.grid:not(.computer),
   .ui.grid.grid.grid > [class*="mobile only"].row:not(.computer),
   .ui.grid.grid.grid > [class*="mobile only"].column:not(.computer),

@@ -28,7 +28,7 @@
     width: auto !important;
   }
 }
-@media only screen and (min-width: 781px) and (max-width: 991px) {
+@media only screen and (min-width: 781px) and (max-width: 1023px) {
   .ui.container {
     width: 752px;
     margin-left: auto !important;
@@ -69,12 +69,12 @@
 
 .ui.text.container {
   display: block;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: museo-sans, sans-serif;
   max-width: 700px !important;
   line-height: 1.5;
 }
 .ui.text.container {
-  font-size: 1.14285714rem;
+  font-size: 1.16666667rem;
 }
 
 

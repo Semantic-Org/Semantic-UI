@@ -1,0 +1,28 @@
+/*******************************
+         Theme Overrides
+*******************************/
+
+.ui.large.buttons .button,
+.ui.large.buttons .or,
+.ui.large.button {
+  width: @large_button_width !important;
+  height: @large_button_height !important;
+}
+
+.ui.small.buttons .button,
+.ui.small.buttons .or,
+.ui.small.button {
+  width: @small_button_width !important;
+  height: @small_button_height !important;
+}
+
+.ui.blue.disabled.button {
+  background-color: rgba(29, 173, 234, 0.2) !important;
+}
+
+.ui.pink.disabled.button {
+  background-color: rgba(229, 45, 152, 0.2) !important;
+}
+
+
+

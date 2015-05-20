@@ -1,0 +1,43 @@
+/*******************************
+             Icon
+*******************************/
+
+/*-------------------
+   Icon Variables
+--------------------*/
+
+@fontName: 'icons';
+
+@opacity: 1;
+@width: 1.23em;
+@height: 0.9em;
+@distanceFromText: 0.25rem;
+
+@linkOpacity: 0.8;
+@linkDuration: 0.3s;
+@loadingDuration: 2s;
+
+@circularSize: 2em;
+@circularPadding: 0.5em 0.5em;
+@circularShadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
+
+@borderedSize: 2em;
+@borderedVerticalPadding: ((@borderedSize - @height) / 2);
+@borderedHorizontalPadding: ((@borderedSize - @width) / 2);
+@borderedShadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
+
+@small: 0.875em;
+@medium: 1em;
+@large: 1.5em;
+@big: 2em;
+@huge: 4em;
+@massive: 8em;
+
+@fallbackSRC: url("@{fontPath}/@{fontName}.eot");
+@src:
+  url("@{fontPath}/@{fontName}.eot?#iefix") format('embedded-opentype'),
+  url("@{fontPath}/@{fontName}.woff2") format('woff'),
+  url("@{fontPath}/@{fontName}.woff") format('woff'),
+  url("@{fontPath}/@{fontName}.ttf") format('truetype'),
+  url("@{fontPath}/@{fontName}.svg#icons") format('svg')
+;

@@ -1,0 +1,50 @@
+/*******************************
+         Theme Overrides
+*******************************/
+
+.field > input, .ui.input > input {
+    background-color: transparent !important;
+    position: relative;
+}
+
+.field > input:focus, .ui.input > input:focus {
+    z-index: 1;
+}
+
+/*
+@media (max-width: 479px) {
+  .ui.form .input input,
+  .ui.input input {
+    height: 34px;
+    font-weight: @font-weight-regular;
+    font-size: 16px;
+    padding-left: 5px;
+  }
+
+  .ui.form .input input::placeholder,
+  .ui.input input::placeholder {
+    font-weight: @font-weight-light;
+    font-family: @app-font-family;
+    font-size: 16px;
+
+  }
+}
+
+@media (min-width: 480px){
+  .ui.form .input input,
+  .ui.input input {
+    height: 44px;
+    font-weight: @font-weight-regular;
+    font-size: 18px;
+    padding-left: 5px;
+  }
+
+  .ui.form .input input::placeholder,
+  .ui.input input::placeholder {
+    font-weight: @font-weight-light;
+    font-family: @app-font-family;
+    font-size: 18px;
+
+  }
+}
+*/

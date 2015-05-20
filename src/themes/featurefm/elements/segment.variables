@@ -1,0 +1,100 @@
+/*******************************
+            Segment
+*******************************/
+
+/*-------------------
+       Element
+--------------------*/
+
+@background: @white;
+@borderWidth: 1px;
+@border: none;
+
+@borderShadow: 0px 0px 0px @borderWidth @borderColor;
+@boxShadow:
+  @borderShadow,
+  @subtleShadow
+;
+@verticalPadding: 1em;
+@horizontalPadding: 1em;
+
+@margin: 1rem;
+@borderRadius: @defaultBorderRadius;
+
+/*-------------------
+       Coupling
+--------------------*/
+
+/* Page Grid Segment */
+@pageGridMargin: (2 * @verticalPadding);
+
+
+/*******************************
+            States
+*******************************/
+
+/* Loading Dimmer */
+@loaderDimmerColor: rgba(255, 255, 255, 0.8);
+@loaderDimmerZIndex: 100;
+
+/* Loading Spinner */
+@loaderSize: 3em;
+@loaderOffset: -(@loaderSize / 2);
+@loaderMargin: @loaderOffset 0em 0em @loaderOffset;
+@loaderLineZIndex: 101;
+
+
+/*******************************
+            Variations
+*******************************/
+
+/* Piled */
+@piledZIndex: auto;
+@piledMargin: 3em;
+@piledBoxShadow: 0px 0px 1px 1px @borderColor;
+@piledDegrees: 1.2deg;
+
+/* Circular */
+@circularPadding: 2em;
+
+/* Stacked */
+@stackedHeight: 6px;
+@stackedPageBackground: @subtleTransparentBlack;
+@stackedPadding: @verticalPadding + (0.4em);
+@tallStackedPadding: @verticalPadding + (0.8em);
+
+/* Raised */
+@raisedShadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.15);
+@raisedBoxShadow:
+  @borderShadow,
+  @raisedShadow
+;
+
+/* Attached */
+@attachedTopOffset: 0px;
+@attachedBottomOffset: 0px;
+@attachedHorizontalOffset: -1px;
+@attachedWidth: ~"calc(100% + "-@attachedHorizontalOffset * 2~")";
+@attachedBoxShadow: none;
+@attachedBorder: 1px solid @solidBorderColor;
+@attachedBottomBoxShadow:
+  @attachedBoxShadow,
+  @subtleShadow
+;
+
+/* Colors */
+@coloredBorderSize: 2px;
+@coloredBorderRadius: @borderRadius;
+
+/* Ordinality */
+@secondaryBackground: #FAF9FA;
+@secondaryColor: @textColor;
+
+@tertiaryBackground:  #EBEBEB;
+@tertiaryColor: @lightTextColor;
+
+@secondaryInvertedBackground: linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
+@secondaryInvertedColor: @offWhite;
+
+@tertiaryInvertedBackground: linear-gradient(rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 100%);
+@tertiaryInvertedColor: @darkWhite;

@@ -1,0 +1,92 @@
+/*******************************
+             Grid
+*******************************/
+
+/* Inherited From Site */
+
+// @mobileBreakpoint
+// @tabletBreakpoint
+// @computerBreakpoint
+// @largeMonitorBreakpoint
+// @widescreenMonitorBreakpoint
+
+/*******************************
+            Grid
+*******************************/
+
+@minWidth: 320px;
+
+@gutterWidth: 2rem;
+@rowSpacing: 2rem;
+
+@tableWidth: ~"calc(100% + "@gutterWidth~")";
+@columnMaxImageWidth: 100%;
+
+/*******************************
+           Variations
+*******************************/
+
+/*--------------
+     Page
+---------------*/
+
+/* Column Gutters */
+@mobileWidth: auto;
+@mobileMargin: 0em;
+@mobileGutter: 0em;
+
+@tabletWidth: auto;
+@tabletMargin: 0em;
+@tabletGutter: 4em;
+
+@computerWidth: auto;
+@computerMargin: 0em;
+@computerGutter: 8%;
+
+@largeMonitorWidth: auto;
+@largeMonitorMargin: 0em;
+@largeMonitorGutter: 15%;
+
+@widescreenMonitorWidth: auto;
+@widescreenMargin: 0em;
+@widescreenMonitorGutter: 23%;
+
+
+/*--------------
+     Relaxed
+---------------*/
+
+@relaxedGutterWidth: 3rem;
+@veryRelaxedGutterWidth: 5rem;
+
+/*--------------
+     Divided
+---------------*/
+
+@dividedBorder: -1px 0px 0px 0px @borderColor;
+@verticallyDividedBorder: 0px -1px 0px 0px @borderColor;
+
+@dividedInvertedBorder: -1px 0px 0px 0px @whiteBorderColor;
+@verticallyDividedInvertedBorder: 0px -1px 0px 0px @whiteBorderColor;
+
+/*--------------
+    Celled
+---------------*/
+
+@celledMargin: 1em 0em;
+@celledWidth: 1px;
+@celledBorderColor: @solidBorderColor;
+
+@celledPadding: 0.75em;
+@celledRelaxedPadding: 1em;
+@celledVeryRelaxedPadding: 2em;
+
+/*--------------
+    Stackable
+---------------*/
+
+@stackableRowSpacing: @rowSpacing;
+@stackableGutter: @gutterWidth;
+@stackableMobileBorder: 1px solid @borderColor;
+@stackableInvertedMobileBorder: 1px solid @whiteBorderColor;
+

@@ -1,0 +1,111 @@
+/*******************************
+            Input
+*******************************/
+
+/*-------------------
+      Element
+--------------------*/
+@ffm_blue: #1dadea; //ffm
+
+@inputFont: @pageFont;
+@verticalPadding: 0.78571em;
+@horizontalPadding: 5px; //ffm
+
+@lineHeight: 44px; //ffm
+@lineHeightOffset: ((@lineHeight - 1em) / 2);
+
+@padding: (@verticalPadding - @lineHeightOffset) @horizontalPadding;
+
+@textAlign: left;
+@background: #FFFFFF;
+@borderWidth: 1px;
+@border: @borderWidth solid #cccccc; //ffm
+@boxShadow: none;
+
+@borderRadius: 0; //ffm
+@transition:
+  background-color @transitionDuration @transitionEasing,
+  box-shadow @transitionDuration @transitionEasing,
+  border-color @transitionDuration @transitionEasing
+;
+
+@inputColor: @textColor;
+
+/*-------------------
+        Types
+--------------------*/
+
+/* Icon Input */
+@glyphWidth: 1.25em;
+
+@iconWidth: (@verticalPadding * 2) + @glyphWidth;
+@iconOpacity: 0.5;
+@iconFocusOpacity: 1;
+@iconOffset: -0.5em;
+
+@iconDistance: 0em;
+@iconMargin: @iconWidth + @iconDistance;
+@iconTransition: opacity 0.3s @defaultEasing;
+
+@transparentIconWidth: @glyphWidth;
+@transparentIconMargin: 2em;
+
+/* Circular Icon Input */
+@circularIconVerticalOffset: 0.35em;
+@circularIconHorizontalOffset: 0.5em;
+
+/* Labeled Input */
+@labelCornerTop: @borderWidth;
+@labelCornerRight: @borderWidth;
+@labelCornerSize: 0.75em;
+@labelSize: 1em;
+@labelVerticalPadding: (@verticalPadding - @lineHeightOffset);
+
+@labeledMargin: 2.5em;
+@labeledIconInputMargin: 3.25em;
+@labeledIconMargin: 1.25em;
+
+/*-------------------
+        States
+--------------------*/
+
+/* Placeholder */
+@placeholderColor: #cccccc; //ffm
+@placeholderFocusColor: #cccccc; //ffm
+
+@placeholderErrorColor: #ff0000; //ffm
+@placeholderErrorFocusColor: #ff0000; //ffm
+
+/* Down */
+@downBorderColor: rgba(0, 0, 0, 0.3);
+@downBackground: #FAFAFA;
+@downColor: @textColor;
+@downBoxShadow: none;
+
+/* Focus */
+@focusBorderColor: @ffm_blue; //ffm
+@focusBackground: @background;
+@focusColor: #333333; //ffm
+@focusBoxShadow: none;
+
+/* Error */
+@errorBackground: #f7e3e3; //ffm
+@errorBorder: #ff0000; //ffm
+@errorColor: @negativeColor;
+@errorBoxShadow: none;
+@errorColor: #ff0000; //ffm
+
+/* Loader */
+@loaderSize: 1.2857em;
+@loaderOffset: -(@loaderSize / 2);
+@loaderMargin: @loaderOffset 0em 0em @loaderOffset;
+@invertedLoaderFillColor: rgba(0, 0, 0, 0.15);
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Inverted */
+@transparentInvertedPlaceholderColor: @invertedUnselectedTextColor;
+@transparentInvertedColor: @white;
+

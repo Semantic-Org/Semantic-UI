@@ -1,0 +1,639 @@
+/*******************************
+         Site Settings
+*******************************/
+
+/*-------------------
+       Fonts
+--------------------*/
+
+@app-font-family: museo-sans, sans-serif;
+
+@ffm-blue: #1dadea;
+@ffm-dark-blue: #0c93cd;
+@ffm-pink: #e52d98;
+@ffm-dark-pink: #cc1a81;
+@input-outline-error-color: #ff0000;
+@inputColor: #333333;
+@inputErrorColor: #f7e3e3;
+@inputFocusBoxShadow: none;
+@inputBorderRadius: 0;
+
+
+
+@headerFont        : museo-sans, sans-serif;
+@pageFont          : museo-sans, sans-serif;
+@fontSmoothing     : antialiased;
+
+@importGoogleFonts : true;
+@googleFontName    : 'Lato';
+@googleFontSizes   : '400,700,400italic,700italic';
+@googleSubset      : 'latin';
+
+@font-weight-thin: 100;
+@font-weight-light: 300;
+@font-weight-regular: 500;
+@font-weight-bold: 700;
+@font-weight-boldest: 900;
+
+@googleProtocol    : 'https://';
+@googleFontRequest : '@{googleFontName}:@{googleFontSizes}&subset=@{googleSubset}';
+
+/*-------------------
+      Base Sizes
+--------------------*/
+
+@emSize   : 18px;
+@fontSize : 18px;
+
+/*--------------
+  Page Heading
+---------------*/
+
+@headerFontWeight : bold;
+@headerLineHeight : 1em;
+
+@h1               : 2rem;
+@h2               : 1.714rem;
+@h3               : 1.28rem;
+@h4               : 1.071rem;
+@h5               : 1rem;
+
+/*-------------------
+      Site Colors
+--------------------*/
+
+/*---  Colors  ---*/
+@black            : #1B1C1D;
+@blue             : @ffm-blue;
+@green            : #5BBD72;
+@grey             : #CCCCCC;
+@orange           : #E07B53;
+@pink             : @ffm-pink;
+@purple           : #564F8A;
+@red              : #D95C5C;
+@teal             : #00B5AD;
+@yellow           : #F2C61F;
+
+/*---  Light Colors  ---*/
+@lightBlack       : #333333;
+@lightBlue        : @ffm-blue;
+@lightGreen       : #2ECC40;
+@lightOrange      : #FF851B;
+@lightPink        : @ffm-pink;
+@lightPurple      : #CDC6FF;
+@lightRed         : #FF695E;
+@lightTeal        : #6DFFFF;
+@lightYellow      : #FFE21F;
+
+/*---   Neutrals  ---*/
+@fullBlack        : #000000;
+@darkGrey         : #AAAAAA;
+@lightGrey        : #DCDDDE;
+@offWhite         : #FAFAFA;
+@darkWhite        : #F0F0F0;
+@white            : #FFFFFF;
+
+/*-------------------
+    Brand Colors
+--------------------*/
+
+@primaryColor        : #333333;
+@secondaryColor      : #999999;
+
+@lightPrimaryColor   : @lightBlue;
+@lightSecondaryColor : @lightBlack;
+
+/*-------------------
+        Sizes
+--------------------*/
+
+/*
+  To have sizing resolve to a specified pixel values adjust
+  the numerator to the desired font size and the denominator
+  to the base em size
+*/
+
+@miniSize        : (10 / 14);
+@tinySize        : (12 / 14);
+@smallSize       : (13 / 14);
+@mediumSize      : (14 / 14);
+@largeSize       : (16 / 14);
+@bigSize         : (18 / 14);
+@hugeSize        : (20 / 14);
+@massiveSize     : (24 / 14);
+
+/*-------------------
+        Page
+--------------------*/
+
+@pageBackground      : #F7F7F7;
+@pageOverflowX       : hidden;
+
+@lineHeight          : 1.4;
+@textColor           : rgba(0, 0, 0, 0.8);
+
+/*-------------------
+      Paragraph
+--------------------*/
+
+@paragraphMargin     : 0em 0em 1em;
+@paragraphLineHeight : @lineHeight;
+
+/*-------------------
+       Links
+--------------------*/
+
+@linkColor           : #009FDA;
+@linkUnderline       : none;
+@linkHoverColor      : lighten(@linkColor, 5);
+
+/*-------------------
+  Highlighted Text
+--------------------*/
+
+@highlightBackground      : #CCE2FF;
+@highlightColor           : @textColor;
+
+@inputHighlightBackground : rgba(100, 100, 100, 0.4);
+@inputHighlightColor      : @textColor;
+
+/*-------------------
+       Loader
+--------------------*/
+
+@loaderSpeed: 0.6s;
+@loaderLineWidth: 0.2em;
+@loaderFillColor: rgba(0, 0, 0, 0.1);
+@loaderLineColor: @darkGrey;
+
+@invertedLoaderFillColor: rgba(255, 255, 255, 0.15);
+@invertedLoaderLineColor: @white;
+
+/*-------------------
+        Grid
+--------------------*/
+
+@columnCount: 16;
+
+/*-------------------
+     Breakpoints
+--------------------*/
+
+//@mobileBreakpoint            : 320px;
+//@tabletBreakpoint            : 768px;
+//@computerBreakpoint          : 992px;
+//@largeMonitorBreakpoint      : 1400px;
+//@widescreenMonitorBreakpoint : 1920px;
+
+@mobileBreakpoint            : 320px;
+@tabletBreakpoint            : 480px;
+@computerBreakpoint          : 1024px;
+@largeMonitorBreakpoint      : 1025px;
+@widescreenMonitorBreakpoint : 1026px;
+
+/*-------------------
+     Alpha Colors
+--------------------*/
+
+@subtleTransparentBlack : rgba(0, 0, 0, 0.03);
+@transparentBlack       : rgba(0, 0, 0, 0.05);
+@strongTransparentBlack : rgba(0, 0, 0, 0.10);
+
+@subtleTransparentWhite : rgba(255, 255, 255, 0.02);
+@transparentWhite       : rgba(255, 255, 255, 0.05);
+@strongTransparentWhite : rgba(255, 255, 255, 0.07);
+
+/*-------------------
+       Accents
+--------------------*/
+
+/* 4px @ default em */
+@relativeBorderRadius: 0.2857em;
+@absoluteBorderRadius: 0;
+@defaultBorderRadius: @absoluteBorderRadius;
+
+/* Differentiating Neutrals */
+@subtleGradient: linear-gradient(transparent, @transparentBlack);
+
+/* Differentiating Layers */
+@subtleShadow: 0px 1px 2px 0 @transparentBlack;
+
+
+/*******************************
+           Power-User
+*******************************/
+
+/*-------------------
+        Paths
+--------------------*/
+
+/* For source only. Modified in gulp for dist */
+@imagePath : '../../themes/default/assets/images';
+@fontPath  : '../../themes/default/assets/fonts';
+
+/*-------------------
+       Em Sizes
+--------------------*/
+
+/* Exact pixel values expressed in em */
+@mini            : unit( round(@miniSize * @emSize) / @emSize, rem);
+@tiny            : unit( round(@tinySize * @emSize) / @emSize, rem);
+@small           : unit( round(@smallSize * @emSize) / @emSize, rem);
+@medium          : unit( round(@mediumSize * @emSize) / @emSize, rem);
+@large           : unit( round(@largeSize * @emSize) / @emSize, rem);
+@big             : unit( round(@bigSize * @emSize) / @emSize, rem);
+@huge            : unit( round(@hugeSize * @emSize) / @emSize, rem);
+@massive         : unit( round(@massiveSize * @emSize) / @emSize, rem);
+
+@relativeMini    : unit( round(@miniSize * @emSize) / @emSize, em);
+@relativeTiny    : unit( round(@tinySize * @emSize) / @emSize, em);
+@relativeSmall   : unit( round(@smallSize * @emSize) / @emSize, em);
+@relativeMedium  : unit( round(@mediumSize * @emSize) / @emSize, em);
+@relativeLarge   : unit( round(@largeSize * @emSize) / @emSize, em);
+@relativeBig     : unit( round(@bigSize * @emSize) / @emSize, em);
+@relativeHuge    : unit( round(@hugeSize * @emSize) / @emSize, em);
+@relativeMassive : unit( round(@massiveSize * @emSize) / @emSize, em);
+
+/*-------------------
+       Icons
+--------------------*/
+
+/* Maximum Glyph Width of Icon */
+@iconWidth : 1.18em;
+
+/*-------------------
+       Easing
+--------------------*/
+
+@defaultEasing: ease;
+
+/*-------------------
+     All Colors
+--------------------*/
+
+/*--- Colored Backgrounds ---*/
+@blueBackground   : #DFF0FF;
+@greenBackground  : #EBFFED;
+@orangeBackground : #FFEDDE;
+@pinkBackground   : #FFE3FB;
+@purpleBackground : #EAE7FF;
+@redBackground    : #FFE8E6;
+@tealBackground   : #E9FFFF;
+@yellowBackground : #FFF8DB;
+
+/*--- Colored Text ---*/
+@blueTextColor    : @blue;
+@orangeTextColor  : @orange;
+@pinkTextColor    : @pink;
+@purpleTextColor  : @purple;
+@redTextColor     : @red;
+@greenTextColor   : #1EBC30; // Green is difficult to read
+@tealTextColor    : #10A3A3; // Teal text is difficult to read
+@yellowTextColor  : #B58105; // Yellow text is difficult to read
+
+/*--- Colored Headers ---*/
+@blueHeaderColor   : darken(@blueTextColor, 5);
+@greenHeaderColor  : darken(@greenTextColor, 5);
+@orangeHeaderColor : darken(@orangeTextColor, 5);
+@pinkHeaderColor   : darken(@pinkTextColor, 5);
+@purpleHeaderColor : darken(@purpleTextColor, 5);
+@redHeaderColor    : darken(@redTextColor, 5);
+@tealHeaderColor   : darken(@tealTextColor, 5);
+@yellowHeaderColor : darken(@yellowTextColor, 5);
+
+
+/*-------------------
+    Emotive Colors
+--------------------*/
+
+/* Positive */
+@positiveColor           : @green;
+@positiveBackgroundColor : #EEFFE7;
+@positiveBorderColor     : #B7CAA7;
+@positiveHeaderColor     : #356E36;
+@positiveTextColor       : #3C763D;
+
+/* Negative */
+@negativeColor           : @black;
+@negativeBackgroundColor : #f7e3e3;
+@negativeBorderColor     : #ff0000;
+@negativeHeaderColor     : #912D2B;
+@negativeTextColor       : #A94442;
+
+/* Info */
+@infoColor              : #31CCEC;
+@infoBackgroundColor    : #E9FAFF;
+@infoBorderColor        : #AAD6DF;
+@infoHeaderColor        : #297187;
+@infoTextColor          : #337B92;
+
+/* Warning */
+@warningColor           : #F2C037;
+@warningBorderColor     : #D9CAAB;
+@warningBackgroundColor : #FFFBE6;
+@warningHeaderColor     : #825C01;
+@warningTextColor       : #876A38;
+
+
+/*-------------------
+     Neutral Text
+--------------------*/
+
+@darkTextColor               : rgba(0, 0, 0, 0.85);
+@lightTextColor              : rgba(0, 0, 0, 0.4);
+
+@unselectedTextColor         : rgba(0, 0, 0, 0.4);
+@hoveredTextColor            : rgba(0, 0, 0, 0.8);
+@pressedTextColor            : rgba(0, 0, 0, 0.8);
+@selectedTextColor           : rgba(0, 0, 0, 0.8);
+@disabledTextColor           : rgba(0, 0, 0, 0.2);
+
+@invertedTextColor           : rgba(255, 255, 255, 1);
+@invertedLightTextColor      : rgba(255, 255, 255, 0.8);
+@invertedUnselectedTextColor : rgba(255, 255, 255, 0.5);
+@invertedHoveredTextColor    : rgba(255, 255, 255, 1);
+@invertedPressedTextColor    : rgba(255, 255, 255, 1);
+@invertedSelectedTextColor   : rgba(255, 255, 255, 1);
+@invertedDisabledTextColor   : rgba(255, 255, 255, 0.2);
+
+/*-------------------
+     Brand Colors
+--------------------*/
+
+@facebookColor   : #3B579D;
+@twitterColor    : #4092CC;
+@googlePlusColor : #D34836;
+@linkedInColor   : #1F88BE;
+@youtubeColor    : #CC181E;
+@instagramColor  : #49769C;
+@pinterestColor  : #00ACED;
+@vkColor         : #4D7198;
+
+/*-------------------
+      Borders
+--------------------*/
+
+@circularRadius                : 500rem;
+
+@borderColor                   : #cccccc;
+@selectedBorderColor           : @ffm-blue;
+@disabledBorderColor           : rgba(39, 41, 43, 0.5);
+
+@solidBorderColor              : #D4D4D5;
+@solidSelectedBorderColor      : #BEBEBF;
+
+@whiteBorderColor              : rgba(255, 255, 255, 0.2);
+@selectedWhiteBorderColor      : rgba(255, 255, 255, 0.8);
+
+@solidWhiteBorderColor         : #555555;
+@selectedSolidWhiteBorderColor : #999999;
+
+
+/*-------------------
+     Transitions
+--------------------*/
+
+@transitionDuration : 0.2s;
+@transitionEasing   : ease;
+
+/*-------------------
+    Derived Values
+--------------------*/
+
+/* Rendered Scrollbar Width */
+@scrollbarWidth: 10px;
+
+/* Used to match floats with text */
+@lineHeightOffset       : ((@lineHeight - 1em) / 2);
+@headerLineHeightOffset : (@headerLineHeight - 1em) / 2;
+
+/* Header Spacing */
+@headerTopMargin    : ~"calc(2rem - "@headerLineHeightOffset~")";
+@headerBottomMargin : 1rem;
+@headerMargin       : @headerTopMargin 0em @headerBottomMargin;
+
+/* Minimum Mobile Width */
+@pageMinWidth       : 320px;
+
+/* Positive / Negative Dupes */
+@successColor           : @positiveColor;
+@errorColor             : @negativeColor;
+@successBackgroundColor : @positiveBackgroundColor;
+@errorBackgroundColor   : @negativeBackgroundColor;
+@successTextColor       : @positiveTextColor;
+@errorTextColor         : @negativeTextColor;
+@successBorderColor     : @positiveBorderColor;
+@errorBorderColor       : @negativeBorderColor;
+@successHeaderColor     : @positiveHeaderColor;
+@errorHeaderColor       : @negativeHeaderColor;
+
+/* Responsive */
+@largestMobileScreen : (@tabletBreakpoint - 1px);
+@largestTabletScreen : (@computerBreakpoint - 1px);
+@largestLargeMonitor : (@widescreenMonitorBreakpoint - 1px);
+
+/* Columns */
+@oneWide        : (1 / @columnCount * 100%);
+@twoWide        : (2 / @columnCount * 100%);
+@threeWide      : (3 / @columnCount * 100%);
+@fourWide       : (4 / @columnCount * 100%);
+@fiveWide       : (5 / @columnCount * 100%);
+@sixWide        : (6 / @columnCount * 100%);
+@sevenWide      : (7 / @columnCount * 100%);
+@eightWide      : (8 / @columnCount * 100%);
+@nineWide       : (9 / @columnCount * 100%);
+@tenWide        : (10 / @columnCount * 100%);
+@elevenWide     : (11 / @columnCount * 100%);
+@twelveWide     : (12 / @columnCount * 100%);
+@thirteenWide   : (13 / @columnCount * 100%);
+@fourteenWide   : (14 / @columnCount * 100%);
+@fifteenWide    : (15 / @columnCount * 100%);
+@sixteenWide    : (16 / @columnCount * 100%);
+
+@oneColumn      : (1 / 1 * 100%);
+@twoColumn      : (1 / 2 * 100%);
+@threeColumn    : (1 / 3 * 100%);
+@fourColumn     : (1 / 4 * 100%);
+@fiveColumn     : (1 / 5 * 100%);
+@sixColumn      : (1 / 6 * 100%);
+@sevenColumn    : (1 / 7 * 100%);
+@eightColumn    : (1 / 8 * 100%);
+@nineColumn     : (1 / 9 * 100%);
+@tenColumn      : (1 / 10 * 100%);
+@elevenColumn   : (1 / 11 * 100%);
+@twelveColumn   : (1 / 12 * 100%);
+@thirteenColumn : (1 / 13 * 100%);
+@fourteenColumn : (1 / 14 * 100%);
+@fifteenColumn  : (1 / 15 * 100%);
+@sixteenColumn  : (1 / 16 * 100%);
+
+
+/*******************************
+           States
+*******************************/
+
+/*-------------------
+      Disabled
+--------------------*/
+
+@disabledOpacity: 0.3;
+@disabledTextColor: rgba(40, 40, 40, 0.3);
+@invertedDisabledTextColor: rgba(225, 225, 225, 0.3);
+
+/*-------------------
+        Hover
+--------------------*/
+
+/*---  Colors  ---*/
+@primaryColorHover    : lighten(@primaryColor, 3);
+@secondaryColorHover  : lighten(@secondaryColor, 3);
+
+@blueHover            : @ffm-dark-blue;
+@greenHover           : lighten(@green, 3);
+@orangeHover          : lighten(@orange, 3);
+@pinkHover            : @ffm-dark-pink;
+@purpleHover          : lighten(@purple, 3);
+@redHover             : lighten(@red, 3);
+@tealHover            : lighten(@teal, 3);
+@yellowHover          : lighten(@yellow, 3);
+
+@lightBlueHover       : lighten(@lightBlue, 3);
+@lightGreenHover      : lighten(@lightGreen, 3);
+@lightOrangeHover     : lighten(@lightOrange, 3);
+@lightPinkHover       : lighten(@lightPink, 3);
+@lightPurpleHover     : lighten(@lightPurple, 3);
+@lightRedHover        : lighten(@lightRed, 3);
+@lightTealHover       : lighten(@lightTeal, 3);
+@lightYellowHover     : lighten(@lightYellow, 3);
+
+/*---  Emotive  ---*/
+@positiveColorHover   : lighten(@positiveColor, 3);
+@negativeColorHover   : lighten(@negativeColor, 3);
+
+/*---  Neutrals  ---*/
+@fullBlackHover       : lighten(@fullBlack, 3);
+@blackHover           : @black;
+
+@lightGreyHover       : lighten(@lightGrey, 3);
+@greyHover            : lighten(@grey, 3);
+@darkGreyHover        : lighten(@darkGrey, 3);
+
+@whiteHover           : lighten(@white, 3);
+@offWhiteHover        : lighten(@offWhite, 3);
+@darkWhiteHover       : lighten(@darkWhite, 3);
+
+@facebookHoverColor   : lighten(@facebookColor, 3);
+@twitterHoverColor    : lighten(@twitterColor, 3);
+@googlePlusHoverColor : lighten(@googlePlusColor, 3);
+@linkedInHoverColor   : lighten(@linkedInColor, 3);
+@youtubeHoverColor    : lighten(@youtubeColor, 3);
+@instagramHoverColor  : lighten(@instagramColor, 3);
+@pinterestHoverColor  : lighten(@pinterestColor, 3);
+@vkHoverColor         : lighten(@vkColor, 3);
+
+
+/*-------------------
+    Down (:active)
+--------------------*/
+
+
+/*---  Colors  ---*/
+@primaryColorDown    : darken(@primaryColor, 7);
+@secondaryColorDown  : darken(@secondaryColor, 7);
+
+@blueDown            : darken(@blue, 7);
+@greenDown           : darken(@green, 7);
+@orangeDown          : darken(@orange, 7);
+@pinkDown            : darken(@pink, 7);
+@purpleDown          : darken(@purple, 7);
+@redDown             : darken(@red, 7);
+@tealDown            : darken(@teal, 7);
+@yellowDown          : darken(@yellow, 7);
+
+@lightBlueDown       : darken(@lightBlue, 7);
+@lightGreenDown      : darken(@lightGreen, 7);
+@lightOrangeDown     : darken(@lightOrange, 7);
+@lightPinkDown       : darken(@lightPink, 7);
+@lightPurpleDown     : darken(@lightPurple, 7);
+@lightRedDown        : darken(@lightRed, 7);
+@lightTealDown       : darken(@lightTeal, 7);
+@lightYellowDown     : darken(@lightYellow, 7);
+
+/*---  Emotive  ---*/
+@positiveColorDown   : darken(@positiveColor, 7);
+@negativeColorDown   : darken(@negativeColor, 7);
+
+/*---  Neutrals  ---*/
+@fullBlackDown       : darken(@fullBlack, 7);
+@blackDown           : darken(@black, 7);
+@lightBlackDown      : darken(@lightBlack, 7);
+
+@lightGreyDown       : darken(@lightGrey, 7);
+@greyDown            : darken(@grey, 7);
+@darkGreyDown        : darken(@darkGrey, 7);
+
+@whiteDown           : darken(@white, 7);
+@offWhiteDown        : darken(@offWhite, 7);
+@darkWhiteDown       : darken(@darkWhite, 7);
+
+@facebookDownColor   : darken(@facebookColor, 7);
+@twitterDownColor    : darken(@twitterColor, 7);
+@googlePlusDownColor : darken(@googlePlusColor, 7);
+@linkedInDownColor   : darken(@linkedInColor, 7);
+@youtubeDownColor    : darken(@youtubeColor, 7);
+@instagramDownColor  : darken(@instagramColor, 7);
+@pinterestDownColor  : darken(@pinterestColor, 7);
+@vkDownColor         : darken(@vkColor, 7);
+
+
+/*-------------------
+        Active
+--------------------*/
+
+/*---  Standard  ---*/
+@primaryColorActive    : darken(@primaryColor, 5);
+@secondaryColorActive  : darken(@secondaryColor, 5);
+
+@blueActive            : darken(@blue, 5);
+@greenActive           : darken(@green, 5);
+@orangeActive          : darken(@orange, 5);
+@pinkActive            : darken(@pink, 5);
+@purpleActive          : darken(@purple, 5);
+@redActive             : darken(@red, 5);
+@tealActive            : darken(@teal, 5);
+@yellowActive          : darken(@yellow, 5);
+
+@lightBlueActive       : darken(@lightBlue, 5);
+@lightGreenActive      : darken(@lightGreen, 5);
+@lightOrangeActive     : darken(@lightOrange, 5);
+@lightPinkActive       : darken(@lightPink, 5);
+@lightPurpleActive     : darken(@lightPurple, 5);
+@lightRedActive        : darken(@lightRed, 5);
+@lightTealActive       : darken(@lightTeal, 5);
+@lightYellowActive     : darken(@lightYellow, 5);
+
+/*---  Emotive  ---*/
+@positiveColorActive   : darken(@positiveColor, 5);
+@negativeColorActive   : darken(@negativeColor, 5);
+
+/*---  Neutrals  ---*/
+@fullBlackActive       : darken(@fullBlack, 5);
+@blackActive           : darken(@black, 5);
+@lightBlackActive      : darken(@lightBlack, 5);
+
+@lightGreyActive       : darken(@lightGrey, 5);
+@greyActive            : darken(@grey, 5);
+@darkGreyActive        : darken(@darkGrey, 5);
+
+@whiteActive           : darken(@white, 5);
+@offWhiteActive        : darken(@offWhite, 5);
+@darkWhiteActive       : darken(@darkWhite, 5);
+
+@facebookActiveColor   : darken(@facebookColor, 5);
+@twitterActiveColor    : darken(@twitterColor, 5);
+@googlePlusActiveColor : darken(@googlePlusColor, 5);
+@linkedInActiveColor   : darken(@linkedInColor, 5);
+@youtubeActiveColor    : darken(@youtubeColor, 5);
+@instagramActiveColor  : darken(@instagramColor, 5);
+@pinterestActiveColor  : darken(@pinterestColor, 5);
+@vkActiveColor         : darken(@vkColor, 5);

@@ -1,0 +1,65 @@
+/*******************************
+             Rating
+*******************************/
+
+@display: inline-block;
+@margin: 0em 0.75rem;
+
+@verticalAlign: middle;
+
+@iconWidth: 1.1em;
+
+@inactiveColor: rgba(0, 0, 0, 0.15);
+
+/*-------------------
+        Types
+--------------------*/
+
+/* Star */
+@starIconWidth: @iconWidth;
+@starInactiveColor: @inactiveColor;
+@starSelectedColor: #FFB70A;
+@starActiveColor: #FFE623;
+@starActiveShadow:
+  0px -1px 0px #CFA300,
+  -1px 0px 0px #CFA300,
+  0px 1px 0px #CFA300,
+  1px 0px 0px #CFA300
+;
+
+/* Heart */
+@heartIconWidth: 1.25em;
+@heartInactiveColor: @inactiveColor;
+@heartSelectedColor: #FF2733;
+@heartActiveColor: #FF2733;
+@heartActiveShadow:
+  0px -1px 0px #9E0000,
+  -1px 0px 0px #9E0000,
+  0px 1px 0px #9E0000,
+  1px 0px 0px #9E0000
+;
+
+
+/*-------------------
+        States
+--------------------*/
+
+@inactiveColor: rgba(0, 0, 0, 0.15);
+@hoverColor: @textColor;
+@activeColor: @darkTextColor;
+
+@interactiveIconOpacity: 0.5;
+@interactiveSelectedIconOpacity: 1;
+
+/*-------------------
+      Variations
+--------------------*/
+
+@mini: 0.7rem;
+@tiny: 0.8rem;
+@small: 0.875rem;
+@medium: 1rem;
+@large: 1.1rem;
+@big: 1.25rem;
+@huge: 1.5rem;
+@massive: 2rem;

@@ -20,12 +20,12 @@
   margin: 1em 0em;
   background: #f0f0f0;
   padding: 1em 1.5em;
-  line-height: 1.4285em;
+  line-height: 1.4;
   color: rgba(0, 0, 0, 0.8);
   -webkit-transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
           transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-  border-radius: 0.2857rem;
-  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 0;
+  box-shadow: none, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 .ui.message:first-child {
   margin-top: 0em;
@@ -42,14 +42,14 @@
 /* Header */
 .ui.message .header {
   display: block;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: museo-sans, sans-serif;
   font-weight: bold;
   margin: -0.165em 0em 0rem 0em;
 }
 
 /* Default font size */
 .ui.message .header:not(.ui) {
-  font-size: 1.14285714em;
+  font-size: 1.16666667em;
 }
 
 /* Paragraph */
@@ -107,7 +107,7 @@
   cursor: pointer;
   position: absolute;
   margin: 0em;
-  top: 1.21425em;
+  top: 1.2em;
   right: 0.5em;
   opacity: 0.7;
   -webkit-transition: opacity 0.1s linear
@@ -175,7 +175,7 @@
 
 .ui.attached.message {
   margin-bottom: -1px;
-  border-radius: 0.2857rem 0.2857rem 0em 0em;
+  border-radius: 0 0 0em 0em;
   box-shadow: 0em 0em 0em 1px rgba(0, 0, 0, 0.1) inset;
   margin-left: -1px;
   margin-right: -1px;
@@ -186,7 +186,7 @@
 }
 .ui.bottom.attached.message {
   margin-top: -1px;
-  border-radius: 0em 0em 0.2857rem 0.2857rem;
+  border-radius: 0em 0em 0 0;
   box-shadow: 0em 0em 0em 1px rgba(0, 0, 0, 0.1) inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 .ui.bottom.attached.message:not(:last-child) {
@@ -243,7 +243,7 @@
 ---------------*/
 
 .ui.floating.message {
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15), 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15), none;
 }
 
 /*--------------
@@ -275,12 +275,12 @@
 
 /* Negative */
 .ui.negative.message {
-  background-color: #fff0f0;
+  background-color: #f7e3e3;
   color: #973230;
 }
 .ui.negative.message,
 .ui.attached.negative.message {
-  box-shadow: 0px 0px 0px 1px #e0b4b4 inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 0px 0px 1px #ff0000 inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 .ui.negative.message .header {
   color: #912d2b;
@@ -314,12 +314,12 @@
 
 /* Error */
 .ui.error.message {
-  background-color: #fff0f0;
+  background-color: #f7e3e3;
   color: #973230;
 }
 .ui.error.message,
 .ui.attached.error.message {
-  box-shadow: 0px 0px 0px 1px #e0b4b4 inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 0px 0px 1px #ff0000 inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 .ui.error.message .header {
   color: #912d2b;
@@ -346,10 +346,10 @@
 }
 .ui.blue.message {
   background-color: #dff0ff;
-  color: #2185d0;
+  color: #1dadea;
 }
 .ui.blue.message .header {
-  color: #1e77ba;
+  color: #149fd9;
 }
 .ui.green.message {
   background-color: #e5f9e7;
@@ -367,10 +367,10 @@
 }
 .ui.pink.message {
   background-color: #ffe3fb;
-  color: #e03997;
+  color: #e52d98;
 }
 .ui.pink.message .header {
-  color: #dd238b;
+  color: #dd1b8c;
 }
 .ui.purple.message {
   background-color: #eae7ff;
@@ -406,19 +406,19 @@
 ---------------*/
 
 .ui.small.message {
-  font-size: 0.92857143em;
+  font-size: 0.94444444em;
 }
 .ui.message {
   font-size: 1em;
 }
 .ui.large.message {
-  font-size: 1.14285714em;
+  font-size: 1.16666667em;
 }
 .ui.huge.message {
-  font-size: 1.42857143em;
+  font-size: 1.44444444em;
 }
 .ui.massive.message {
-  font-size: 1.71428571em;
+  font-size: 1.72222222em;
 }
 
 

@@ -1,0 +1,191 @@
+/*******************************
+             Form
+*******************************/
+
+/*-------------------
+       Elements
+--------------------*/
+
+/* Form */
+@gutterWidth: 1em;
+@rowDistance: 1em;
+@textColor: #333333; //ffm
+
+/* Text */
+@paragraphMargin: @rowDistance 0em;
+
+/* Field */
+@fieldMargin: 0em 0em @rowDistance;
+
+/* Form Label */
+@labelDistance: 0.2857rem;
+@labelMargin: 0em 0em @labelDistance 0em;
+@labelFontSize: 0.9285em;
+@labelFontWeight: bold;
+@labelTextTransform: none;
+@labelColor: @textColor;
+
+/* Input */
+@inputFont: @pageFont;
+@inputWidth: 100%;
+@inputFontSize: 18px; //ffm
+@inputVerticalPadding: 0.78571em;
+@inputHorizontalPadding: 1em;
+@inputLineHeight: 42px; //ffm
+//@inputPadding: (@inputVerticalPadding + ((1em - @inputLineHeight) / 2)) @inputHorizontalPadding;
+@inputPadding: 0 20px; //ffm
+@inputBackground: #FFFFFF;
+@inputBorder: 1px solid #cccccc;  //ffm
+@inputBorderRadius: @absoluteBorderRadius;
+@inputColor: @textColor;
+@inputTransition:
+  background-color 0.2s ease,
+  color 0.2s ease,
+  box-shadow 0.2s ease,
+  border-color 0.2s ease
+;
+//@inputBoxShadow: 0em 0em 0em 0em transparent inset;
+@inputBoxShadow: none; //ffm
+
+/* Select */
+@selectBackground: @white;
+@selectBorderRadius: @inputBorderRadius;
+@selectBorder: @inputBorder;
+@selectPadding: 0.62em @inputHorizontalPadding;
+@selectBoxShadow: @inputBoxShadow;
+@selectTransition: @inputTransition;
+@selectColor: @inputColor;
+
+/* Text Area */
+//@textAreaPadding: @inputVerticalPadding @inputHorizontalPadding;
+@textAreaPadding: 0 20px; //ffm
+@textAreaHeight: 100%; // ffm
+@textAreaResize: vertical;
+@textAreaLineHeight: 42px; //ffm
+@textAreaMinHeight: 42px; //ffm
+@textAreaMaxHeight: 24em;
+@textAreaBackground: @inputBackground;
+@textAreaBorder: @inputBorder;
+@textAreaFontSize: @inputFontSize;
+@textAreaTransition: @inputTransition;
+
+/* Checkbox */
+@checkboxVerticalAlign: top;
+@checkboxLabelFontSize: 1em;
+@checkboxLabelTextTransform: @labelTextTransform;
+
+/* Divider */
+@dividerMargin: @rowDistance 0em;
+
+/* Inline Validation Prompt */
+@inlineValidationMargin: -0.5em 0em -0.5em @rowDistance;
+@inlineValidationArrowOffset: -0.3em;
+
+/*-------------------
+        States
+--------------------*/
+
+/* Focus */
+@inputFocusPointerSize: 0px;
+
+/* Input Focus */
+@inputFocusBackground: @inputBackground;
+@inputFocusBorderColor: @ffm-blue; //ffm
+@inputFocusColor: rgba(0, 0, 0, 0.85);
+//@inputFocusBoxShadow: @inputFocusPointerSize 0em 0em 0em @selectedBorderColor inset;
+@inputFocusBoxShadow: none; //ffm
+@inputFocusBorderRadius: @inputBorderRadius;
+
+/* Text Area Focus */
+@textAreaFocusBackground: @inputFocusBackground;
+@textAreaFocusBorderColor: @inputFocusBorderColor;
+@textAreaFocusColor: @inputFocusColor;
+@textAreaFocusBoxShadow: @inputFocusBoxShadow;
+@textAreaFocusBorderRadius: @inputFocusBorderRadius;
+
+/* Error */
+@formErrorColor: @black; //ffm
+@formErrorBorder: @negativeBorderColor;
+@formErrorBackground: @negativeBackgroundColor;
+
+/* Input Error */
+@inputErrorBorderRadius: @inputBorderRadius;
+@inputErrorBoxShadow: none;
+
+/* Dropdown Error */
+@dropdownErrorHoverBackground: #FBE7E7;
+@dropdownErrorActiveBackground: #FDCFCF;
+@dropdownErrorLabelBackground: #EACBCB;
+@dropdownErrorLabelColor: @errorTextColor;
+
+/* Focused Error */
+@inputErrorFocusBackground: @negativeBackgroundColor;
+@inputErrorFocusColor: @negativeTextColor;
+@inputErrorFocusBorder: @negativeBorderColor;
+@inputErrorFocusBoxShadow: none;
+
+/* Placeholder */
+@inputPlaceholderColor: #cccccc; //ffm
+@inputPlaceholderFocusColor: #cccccc; //ffm
+@inputErrorPlaceholderColor: #cccccc; //ffm
+@inputErrorPlaceholderFocusColor: #cccccc; //ffm
+
+
+/* Loading Dimmer */
+@loaderDimmerColor: rgba(255, 255, 255, 0.8);
+@loaderDimmerZIndex: 100;
+
+/* Loading Spinner */
+@loaderSize: 3em;
+@loaderOffset: -(@loaderSize / 2);
+@loaderMargin: @loaderOffset 0em 0em @loaderOffset;
+@loaderLineZIndex: 101;
+
+/*-------------------
+        Types
+--------------------*/
+
+/* Required */
+@requiredContent: '*';
+@requiredColor: @negativeColor;
+@requiredVerticalOffset: -0.2em;
+@requiredDistance: 0.2em;
+@requiredMargin: @requiredVerticalOffset 0em 0em @requiredDistance;
+
+/* Inverted */
+@invertedLabelColor: @invertedTextColor;
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Grouped Fields */
+@groupedMargin: @fieldMargin;
+@groupedFieldMargin: 0.5em 0em;
+
+@groupedLabelDistance: @labelDistance;
+@groupedLabelColor: @labelColor;
+@groupedLabelMargin: @labelMargin;
+@groupedLabelFontSize: @labelFontSize;
+@groupedLabelFontWeight: @labelFontWeight;
+@groupedLabelTextTransform: @labelTextTransform;
+
+
+/* Inline */
+@inlineLabelFontSize: @labelFontSize;
+@inlineLabelVerticalAlign: middle;
+@inlineGroupedFieldLabelDistance: 0.5rem;
+@inlineCheckboxLabelDistance: 1.75em;
+
+@inlineLabelMargin: 0em 1em 0em 0em;
+@inlineLabelDistance: @labelDistance;
+@inlineLabelColor: @labelColor;
+@inlineLabelFontSize: @labelFontSize;
+@inlineLabelFontWeight: @labelFontWeight;
+@inlineLabelTextTransform: @labelTextTransform;
+
+/*-------------------
+       Groups
+--------------------*/
+
+@inlineFieldsMargin: 0em 1em 0em 0em;

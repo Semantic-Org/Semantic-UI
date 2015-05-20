@@ -4336,6 +4336,7 @@ $.fn.dropdown = function(parameters) {
                     module.event.item.click.call($selectedItem, event);
                     event.stopImmediatePropagation();
                   }
+                  event.preventDefault();
                 }
 
                 // left arrow (hide sub-menu)
@@ -4433,11 +4434,13 @@ $.fn.dropdown = function(parameters) {
                 if(pressedKey == keys.enter) {
                   module.verbose('Enter key pressed, showing dropdown');
                   module.show();
+                  event.preventDefault();
                 }
                 // down arrow (open menu)
                 if(pressedKey == keys.downArrow) {
                   module.verbose('Down key pressed, showing dropdown');
                   module.show();
+                  event.preventDefault();
                 }
               }
             }
@@ -4661,7 +4664,7 @@ $.fn.dropdown = function(parameters) {
                       ? $(this).attr('value')
                       : name
                   ;
-                  if(settings.placeholder !== 'auto' && value === '') {
+                  if(settings.placeholder === 'auto' && value === '') {
                     select.placeholder = name;
                   }
                   else {
@@ -5994,7 +5997,12 @@ $.fn.modal = function(parameters) {
             }
           },
           click: function(event) {
-            if( $(event.target).closest($module).length === 0 ) {
+            var
+              $target   = $(event.target),
+              isInModal = ($target.closest($module).length > 0),
+              isInDOM   = $.contains(document.documentElement, event.target)
+            ;
+            if(!isInModal && isInDOM) {
               module.debug('Dimmer clicked, hiding all modals');
               if( module.is.active() ) {
                 module.remove.clickaway();
@@ -10265,13 +10273,6 @@ $.fn.search = function(parameters) {
         hideResults: function() {
           if( module.is.visible() ) {
             if( module.can.transition() ) {
-              console.log('here', {
-                  animation  : settings.transition + ' out',
-                  debug      : settings.debug,
-                  verbose    : settings.verbose,
-                  duration   : settings.duration,
-                  queue      : true
-                });
               module.debug('Hiding results with css animations');
               $results
                 .transition({

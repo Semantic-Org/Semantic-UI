@@ -18,10 +18,9 @@
 /* Standard */
 .ui.header {
   border: none;
-  margin: -webkit-calc(2rem -  0.165em ) 0em 1rem;
-  margin: calc(2rem -  0.165em ) 0em 1rem;
+  margin: 0em 0em;
   padding: 0em 0em;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: museo-sans, sans-serif;
   font-weight: bold;
   line-height: 1.33em;
   text-transform: none;
@@ -170,19 +169,19 @@ h5.ui.header .sub.header {
 
 .ui.huge.header {
   min-height: 1em;
-  font-size: 2em;
+  font-size: 46px;
 }
 .ui.large.header {
-  font-size: 1.714em;
+  font-size: 36px;
 }
 .ui.medium.header {
-  font-size: 1.28em;
+  font-size: 30px;
 }
 .ui.small.header {
   font-size: 1.071em;
 }
 .ui.tiny.header {
-  font-size: 1em;
+  font-size: 18px;
 }
 
 /* Sub Header */
@@ -210,18 +209,18 @@ h5.ui.header .sub.header {
   margin: 0em;
   padding: 0em;
   font-weight: bold;
-  font-size: 0.85714286em;
+  font-size: 0.83333333em;
   text-transform: uppercase;
   color: '';
 }
 .ui.small.sub.header {
-  font-size: 0.71428571em;
+  font-size: 0.72222222em;
 }
 .ui.sub.header {
-  font-size: 0.85714286em;
+  font-size: 0.83333333em;
 }
 .ui.large.sub.header {
-  font-size: 0.92857143em;
+  font-size: 0.94444444em;
 }
 .ui.huge.sub.header {
   font-size: 1em;
@@ -234,7 +233,7 @@ h5.ui.header .sub.header {
 .ui.icon.header {
   display: inline-block;
   text-align: center;
-  margin: 2rem 0em 1rem;
+  margin: 2rem 0em 0em;
 }
 .ui.icon.header:after {
   content: '';
@@ -300,10 +299,10 @@ a.ui.black.header:hover {
   color: #23292e !important;
 }
 .ui.blue.header {
-  color: #2185d0 !important;
+  color: #1dadea !important;
 }
 a.ui.blue.header:hover {
-  color: #1378c5 !important;
+  color: #0c93cd !important;
 }
 .ui.green.header {
   color: #21ba45 !important;
@@ -318,10 +317,10 @@ a.ui.orange.header:hover {
   color: #f36101 !important;
 }
 .ui.pink.header {
-  color: #e03997 !important;
+  color: #e52d98 !important;
 }
 a.ui.pink.header:hover {
-  color: #e9168d !important;
+  color: #cc1a81 !important;
 }
 .ui.purple.header {
   color: #6a33c8 !important;
@@ -351,7 +350,7 @@ a.ui.yellow.header:hover {
   border-bottom: 2px solid #1b1c1d;
 }
 .ui.blue.dividing.header {
-  border-bottom: 2px solid #2185d0;
+  border-bottom: 2px solid #1dadea;
 }
 .ui.green.dividing.header {
   border-bottom: 2px solid #21ba45;
@@ -360,7 +359,7 @@ a.ui.yellow.header:hover {
   border-bottom: 2px solid #f2711c;
 }
 .ui.pink.dividing.header {
-  border-bottom: 2px solid #e03997;
+  border-bottom: 2px solid #e52d98;
 }
 .ui.purple.dividing.header {
   border-bottom: 2px solid #6a33c8;
@@ -408,10 +407,10 @@ a.ui.inverted.black.header:hover {
   color: #beb0b0 !important;
 }
 .ui.inverted.blue.header {
-  color: #54c8ff !important;
+  color: #1dadea !important;
 }
 a.ui.inverted.blue.header:hover {
-  color: #3ac0ff !important;
+  color: #08a3e5 !important;
 }
 .ui.inverted.green.header {
   color: #2ecc40 !important;
@@ -426,10 +425,10 @@ a.ui.inverted.orange.header:hover {
   color: #ff7701 !important;
 }
 .ui.inverted.pink.header {
-  color: #ff8edf !important;
+  color: #e52d98 !important;
 }
 a.ui.inverted.pink.header:hover {
-  color: #ff74d8 !important;
+  color: #ea0f8e !important;
 }
 .ui.inverted.purple.header {
   color: #cdc6ff !important;
@@ -512,7 +511,7 @@ a.ui.inverted.yellow.header:hover {
 
 .ui.dividing.header {
   padding-bottom: 0.25rem;
-  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+  border-bottom: 1px solid #cccccc;
 }
 .ui.dividing.header .sub.header {
   padding-bottom: 0.25rem;
@@ -536,19 +535,19 @@ a.ui.inverted.yellow.header:hover {
   border-radius: 0.3125rem;
 }
 .ui.tiny.block.header {
-  font-size: 1em;
+  font-size: 18px;
 }
 .ui.small.block.header {
   font-size: 1.071em;
 }
 .ui.block.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
-  font-size: 1.28em;
+  font-size: 30px;
 }
 .ui.large.block.header {
-  font-size: 1.714em;
+  font-size: 36px;
 }
 .ui.huge.block.header {
-  font-size: 2em;
+  font-size: 46px;
 }
 
 /*-------------------
@@ -606,7 +605,7 @@ a.ui.inverted.yellow.header:hover {
 --------------------*/
 
 .ui.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
-  font-size: 1.28em;
+  font-size: 30px;
 }
 
 
@@ -614,6 +613,36 @@ a.ui.inverted.yellow.header:hover {
          Theme Overrides
 *******************************/
 
+.ui.header {
+  line-height: 1.0em;
+}
+.ui.medium.header {
+  font-weight: 100;
+}
+.ui.huge.header {
+  font-weight: 500;
+}
+.ui.large.header {
+  font-weight: 500;
+}
+.ui.tiny.header {
+  font-weight: 700;
+}
+.ui.micro.header {
+  font-size: 14px;
+  font-weight: 700;
+}
+.ui.micro.header .sub.header {
+  font-size: 0.9285rem;
+}
+.ui.micro.block.header {
+  font-size: 14px;
+}
+
+/* Attached Sizes */
+.ui.micro.attached.header {
+  font-size: 0.8191em;
+}
 
 
 /*******************************

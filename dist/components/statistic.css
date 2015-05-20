@@ -22,7 +22,7 @@
   max-width: 175px;
 }
 .ui.statistic + .ui.statistic {
-  margin: 0em 0em 0em 1em;
+  margin: 0em 0em 0em 0em;
 }
 .ui.statistic:first-child {
   margin-top: 0em;
@@ -35,7 +35,7 @@
 .ui.statistics > .statistic {
   display: block;
   float: left;
-  margin: 0em 1em 2em;
+  margin: 0em 0em 0em;
   max-width: 175px;
 }
 
@@ -46,7 +46,7 @@
 
 .ui.statistics {
   display: block;
-  margin: 1em -1em;
+  margin: 1em 0em;
 }
 
 /* Clearing */
@@ -77,13 +77,13 @@
 
 .ui.statistics .statistic > .value,
 .ui.statistic > .value {
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  font-size: 4rem;
-  font-weight: normal;
-  line-height: 1em;
+  font-family: museo-sans, sans-serif;
+  font-size: 2.2rem;
+  font-weight: 500;
+  line-height: 1.5em;
   color: #1b1c1d;
   text-transform: uppercase;
-  text-align: center;
+  text-align: left;
 }
 
 /*--------------
@@ -92,12 +92,12 @@
 
 .ui.statistics .statistic > .label,
 .ui.statistic > .label {
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  font-size: 1rem;
+  font-family: museo-sans, sans-serif;
+  font-size: 14px;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.4);
   text-transform: none;
-  text-align: center;
+  text-align: left;
 }
 
 /* Top Label */
@@ -202,7 +202,7 @@
 .ui.blue.statistics .statistic > .value,
 .ui.statistics .blue.statistic > .value,
 .ui.blue.statistic > .value {
-  color: #2185d0;
+  color: #1dadea;
 }
 .ui.green.statistics .statistic > .value,
 .ui.statistics .green.statistic > .value,
@@ -217,7 +217,7 @@
 .ui.pink.statistics .statistic > .value,
 .ui.statistics .pink.statistic > .value,
 .ui.pink.statistic > .value {
-  color: #e03997;
+  color: #e52d98;
 }
 .ui.purple.statistics .statistic > .value,
 .ui.statistics .purple.statistic > .value,
@@ -261,15 +261,15 @@
 ---------------*/
 
 .ui.inverted.statistic .value {
-  color: rgba(255, 255, 255, 0.9);
+  color: #ffffff;
 }
 .ui.inverted.statistic .label {
-  color: rgba(255, 255, 255, 0.7);
+  color: #999999;
 }
 .ui.inverted.blue.statistics .statistic > .value,
 .ui.statistics .inverted.blue.statistic > .value,
 .ui.inverted.blue.statistic > .value {
-  color: #54c8ff;
+  color: #1dadea;
 }
 .ui.inverted.green.statistics .statistic > .value,
 .ui.statistics .inverted.green.statistic > .value,
@@ -284,7 +284,7 @@
 .ui.inverted.pink.statistics .statistic > .value,
 .ui.statistics .inverted.pink.statistic > .value,
 .ui.inverted.pink.statistic > .value {
-  color: #ff8edf;
+  color: #e52d98;
 }
 .ui.inverted.purple.statistics .statistic > .value,
 .ui.statistics .inverted.purple.statistic > .value,
@@ -357,7 +357,7 @@
 /* Medium */
 .ui.statistics .statistic > .value,
 .ui.statistic > .value {
-  font-size: 4rem;
+  font-size: 2.2rem;
 }
 .ui.horizontal.statistics .statistic > .value,
 .ui.horizontal.statistic > .value {
@@ -371,7 +371,7 @@
 /* Large */
 .ui.large.statistics .statistic > .value,
 .ui.large.statistic > .value {
-  font-size: 5rem;
+  font-size: 46px;
 }
 .ui.large.horizontal.statistics .statistic > .value,
 .ui.large.horizontal.statistic > .value {
@@ -379,7 +379,7 @@
 }
 .ui.large.statistics .statistic > .text.value,
 .ui.large.statistic > .text.value {
-  font-size: 2.5rem;
+  font-size: 14px;
 }
 
 /* Huge */
@@ -401,6 +401,18 @@
          Theme Overrides
 *******************************/
 
+.ui.statistics .lined.statistic {
+  border-left: 1px solid rgba(153, 153, 153, 0.5);
+  padding-left: 20px;
+}
+.ui.down.bordered.statistics {
+  border-bottom: 1px solid rgba(153, 153, 153, 0.5);
+  padding-bottom: 25px;
+  line-height: 1.5em;
+}
+.ui.large.statistics .statistic > .value {
+  line-height: 0.7em;
+}
 
 
 /*******************************
