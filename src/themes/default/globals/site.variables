@@ -168,7 +168,7 @@
      Transitions
 --------------------*/
 
-@defaultDuration : 0.2s;
+@defaultDuration : 0.1s;
 @defaultEasing   : ease;
 
 /*-------------------
