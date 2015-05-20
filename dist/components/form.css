@@ -120,8 +120,8 @@
   color: rgba(0, 0, 0, 0.87);
   border-radius: 0.2857rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
-  -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-          transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  -webkit-transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+          transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 /* Collapse Flex */
@@ -142,8 +142,8 @@
   color: rgba(0, 0, 0, 0.87);
   border-radius: 0.2857rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
-  -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-          transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  -webkit-transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+          transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
   font-size: 1em;
   height: 12em;
   min-height: 8em;
@@ -178,8 +178,8 @@
   box-shadow: 0em 0em 0em 0em transparent inset;
   padding: 0.62em 1em;
   color: rgba(0, 0, 0, 0.87);
-  -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-          transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  -webkit-transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+          transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 /*--------------------
@@ -248,6 +248,15 @@
 
 
 /*--------------------
+      Autofilled
+---------------------*/
+
+.ui.form input:-webkit-autofill {
+  box-shadow: 0px 0px 0px 100px #fffff0 inset;
+  border-color: #e5dfa1;
+}
+
+/*--------------------
       Placeholder
 ---------------------*/
 
@@ -307,19 +316,25 @@
 .ui.form input[type="time"]:focus,
 .ui.form input[type="text"]:focus,
 .ui.form input[type="url"]:focus {
-  color: rgba(0, 0, 0, 0.85);
+  color: rgba(0, 0, 0, 0.95);
   border-color: rgba(34, 36, 38, 0.3);
   border-radius: 0.2857rem;
   background: #ffffff;
   box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.3) inset;
 }
 .ui.form textarea:focus {
-  color: rgba(0, 0, 0, 0.85);
+  color: rgba(0, 0, 0, 0.95);
   border-color: rgba(34, 36, 38, 0.3);
   border-radius: 0.2857rem;
   background: #ffffff;
   box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.3) inset;
   -webkit-appearance: none;
+}
+
+/* Autofill Focus */
+.ui.form input:-webkit-autofill:focus {
+  box-shadow: 0px 0px 0px 100px #fffff0 inset !important;
+  border-color: #ddcc27 !important;
 }
 
 /*--------------------

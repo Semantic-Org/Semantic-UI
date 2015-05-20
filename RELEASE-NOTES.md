@@ -65,6 +65,7 @@
 - **Dropdown** - `fullTextSearch: true` now uses fuzzy search (same as `ui search`)
 - **Dropdown** - Page down and page up now works with dropdown menus
 - **Dropdown** - Added `disabled item` state, disabled items will automatically be skipped with keyboard selection
+- **Form** - Added form styles for `-webkit-autofill` fields, fields autofilled by your browser
 - **Form** - Added placeholder color rules for IE, `ms-input-placeholder`
 - **Form** - Fix `errored field` dropdown keyboard selection color
 - **Form Validation** - Added `different[field]` rule which requires a field to be different than another field
@@ -74,7 +75,8 @@
 - **Grid** - `celled grid` now removes internal cells on mobile and tablet when used with `doubling` grid responsive variation
 - **Grid** - `equal width` now works without `row` wrappers
 - **Grid** - rows can now be `stretched` as well as `middle aligned`, `bottom aligned` and `top aligned`!
-
+- **Grid** - Fixed margins on `internally celled` grid
+- **Grid** - `celled` and `internally celled` grid now use flexbox instead of `display: table;`
 - **Input** - Added placeholder color rules for IE, `ms-input-placeholder`
 - **Input** - Action input now supports multiple buttons, and dropdown
 - **Label** - Labels now have `active` and `active hover` states
@@ -116,6 +118,7 @@
 - **Card** - IE11 now can correctly use  `flexbox` cards **THanks @Widcket**
 - **Checkbox** - Fix `disabled checkbox` sometimes displaying hand cursor
 - **Checkbox** - Fixes nested `dropdown` inside `checkbox` causing issues
+- **Checkbox** - Fix `:focus` styles only applying if checkbox is unchecked
 - **Divider**  - Hidden divider now correctly hides vertical dividers
 - **Divider** - Fixes single icon alignment inside `vertical divider` or `horizontal divider`
 - **Dropdown** - `focus` after changing tabs will no longer cause menu to re-open **Thanks @trevorharwell**

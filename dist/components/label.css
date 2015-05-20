@@ -28,8 +28,8 @@
   text-transform: none;
   font-weight: bold;
   border-radius: 0.2857rem;
-  -webkit-transition: background 0.2s ease;
-          transition: background 0.2s ease;
+  -webkit-transition: background 0.1s ease;
+          transition: background 0.1s ease;
 }
 .ui.label:first-child {
   margin-left: 0em;
@@ -48,8 +48,8 @@ a.ui.label {
   cursor: pointer;
   color: inherit;
   opacity: 0.5;
-  -webkit-transition: 0.2s opacity ease;
-          transition: 0.2s opacity ease;
+  -webkit-transition: 0.1s opacity ease;
+          transition: 0.1s opacity ease;
 }
 .ui.label > a:hover {
   opacity: 1;
@@ -88,8 +88,8 @@ a.ui.label {
   margin-left: 0.5em;
   font-size: 0.92857143em;
   opacity: 0.5;
-  -webkit-transition: background 0.2s ease;
-          transition: background 0.2s ease;
+  -webkit-transition: background 0.1s ease;
+          transition: background 0.1s ease;
 }
 .ui.label > .delete.icon:hover {
   opacity: 1;
@@ -192,8 +192,8 @@ a.ui.label {
   background-image: none;
   width: 1.56em;
   height: 1.56em;
-  -webkit-transition: background 0.2s ease;
-          transition: background 0.2s ease;
+  -webkit-transition: background 0.1s ease;
+          transition: background 0.1s ease;
 }
 .ui.tag.labels .label:after,
 .ui.tag.label:after {
@@ -223,8 +223,8 @@ a.ui.label {
   width: 4em;
   height: 4em;
   z-index: 1;
-  -webkit-transition: border-color 0.2s ease;
-          transition: border-color 0.2s ease;
+  -webkit-transition: border-color 0.1s ease;
+          transition: border-color 0.1s ease;
 }
 
 /* Icon Label */
@@ -245,8 +245,8 @@ a.ui.label {
   border-bottom: 4em solid transparent;
   border-left: 0em solid transparent;
   border-right-color: inherit;
-  -webkit-transition: border-color 0.2s ease;
-          transition: border-color 0.2s ease;
+  -webkit-transition: border-color 0.1s ease;
+          transition: border-color 0.1s ease;
 }
 .ui.corner.label .icon {
   position: relative;
@@ -872,8 +872,8 @@ a.ui.yellow.label:hover:before {
   z-index: 2;
   width: 0.6em;
   height: 0.6em;
-  -webkit-transition: background 0.2s ease;
-          transition: background 0.2s ease;
+  -webkit-transition: background 0.1s ease;
+          transition: background 0.1s ease;
 }
 
 /*--- Above ---*/

@@ -88,8 +88,8 @@
   color: rgba(255, 255, 255, 0.9);
   font-size: 7rem;
   text-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
-  -webkit-transition: color 0.2s ease;
-          transition: color 0.2s ease;
+  -webkit-transition: color 0.1s ease;
+          transition: color 0.1s ease;
   z-index: 10;
 }
 

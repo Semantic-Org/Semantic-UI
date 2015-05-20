@@ -25,7 +25,7 @@
   color: rgba(0, 0, 0, 0.6);
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   margin: 0em 0.25em 0em 0em;
-  padding: 0.78571em 1.5em 0.78571em;
+  padding: 0.7857142em 1.5em 0.7857142em;
   text-transform: none;
   text-shadow: none;
   font-weight: bold;
@@ -40,8 +40,8 @@
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  -webkit-transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-          transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  -webkit-transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+          transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
   will-change: '';
   -webkit-tap-highlight-color: transparent;
 }
@@ -125,8 +125,8 @@
   color: transparent !important;
   opacity: 1;
   pointer-events: auto;
-  -webkit-transition: all 0s linear, opacity 0.2s ease;
-          transition: all 0s linear, opacity 0.2s ease;
+  -webkit-transition: all 0s linear, opacity 0.1s ease;
+          transition: all 0s linear, opacity 0.1s ease;
 }
 .ui.loading.button:before {
   position: absolute;
@@ -536,8 +536,8 @@
   height: 0.92857143em;
   opacity: 0.8;
   margin: 0em 0.4285em 0em -0.21425em;
-  -webkit-transition: opacity 0.2s ease;
-          transition: opacity 0.2s ease;
+  -webkit-transition: opacity 0.1s ease;
+          transition: opacity 0.1s ease;
   vertical-align: '';
   color: '';
 }
@@ -574,15 +574,15 @@
 
 .ui.compact.buttons .button,
 .ui.compact.button {
-  padding: 0.5892825em 1.125em 0.5892825em;
+  padding: 0.58928565em 1.125em 0.58928565em;
 }
 .ui.compact.icon.buttons .button,
 .ui.compact.icon.button {
-  padding: 0.5892825em 0.5892825em 0.5892825em;
+  padding: 0.58928565em 0.58928565em 0.58928565em;
 }
 .ui.compact.labeled.icon.buttons .button,
 .ui.compact.labeled.icon.button {
-  padding: 0.5892825em 3.69642em 0.5892825em;
+  padding: 0.58928565em 3.6964284em 0.58928565em;
 }
 
 /*-------------------
@@ -636,7 +636,7 @@
 
 .ui.icon.buttons .button,
 .ui.icon.button {
-  padding: 0.78571em 0.78571em 0.78571em;
+  padding: 0.7857142em 0.7857142em 0.7857142em;
 }
 .ui.icon.buttons .button > .icon,
 .ui.icon.button > .icon {
@@ -767,7 +767,7 @@
 .ui.labeled.icon.buttons .button,
 .ui.labeled.icon.button {
   position: relative;
-  padding-left: 4.07142em !important;
+  padding-left: 4.0714284em !important;
   padding-right: 1.5em !important;
 }
 
@@ -777,7 +777,7 @@
   position: absolute;
   height: 100%;
   line-height: 1;
-  width: 2.57142em;
+  width: 2.5714284em;
   background-color: rgba(0, 0, 0, 0.05);
   text-align: center;
   color: '';
@@ -794,7 +794,7 @@
 
 /* Right Labeled */
 .ui[class*="right labeled"].icon.button {
-  padding-right: 4.07142em !important;
+  padding-right: 4.0714284em !important;
   padding-left: 1.5em !important;
 }
 .ui[class*="right labeled"].icon.button > .icon {
@@ -910,7 +910,7 @@
 .ui.buttons .or {
   position: relative;
   width: 0.3em;
-  height: 2.57142em;
+  height: 2.5714284em;
   z-index: 3;
 }
 .ui.buttons .or:before {
@@ -922,11 +922,11 @@
   left: 50%;
   background-color: #ffffff;
   text-shadow: none;
-  margin-top: -0.892855em;
-  margin-left: -0.892855em;
-  width: 1.78571em;
-  height: 1.78571em;
-  line-height: 1.78571em;
+  margin-top: -0.8928571em;
+  margin-left: -0.8928571em;
+  width: 1.7857142em;
+  height: 1.7857142em;
+  line-height: 1.7857142em;
   color: rgba(0, 0, 0, 0.4);
   font-style: normal;
   font-weight: bold;
@@ -1024,6 +1024,15 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
   width: 100%;
 }
 .ui.\32.buttons,

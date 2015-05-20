@@ -47,8 +47,8 @@
   min-width: 2em;
   background: #888888;
   border-radius: 0.2857rem;
-  -webkit-transition: width 0.2s ease, background-color 0.2s ease;
-          transition: width 0.2s ease, background-color 0.2s ease;
+  -webkit-transition: width 0.1s ease, background-color 0.1s ease;
+          transition: width 0.1s ease, background-color 0.1s ease;
 }
 
 /* Percent Complete */

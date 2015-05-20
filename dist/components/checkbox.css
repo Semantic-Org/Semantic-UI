@@ -66,8 +66,8 @@
   content: '';
   background: #ffffff;
   border-radius: 0.25em;
-  -webkit-transition: background-color 0.2s ease, border 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
-          transition: background-color 0.2s ease, border 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+  -webkit-transition: background-color 0.1s ease, border 0.1s ease, opacity 0.1s ease, box-shadow 0.1s ease;
+          transition: background-color 0.1s ease, border 0.1s ease, opacity 0.1s ease, box-shadow 0.1s ease;
   border: 1px solid #d4d4d5;
 }
 
@@ -86,8 +86,8 @@
   text-align: center;
   opacity: 0;
   color: rgba(0, 0, 0, 0.87);
-  -webkit-transition: background-color 0.2s ease, border 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
-          transition: background-color 0.2s ease, border 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+  -webkit-transition: background-color 0.1s ease, border 0.1s ease, opacity 0.1s ease, box-shadow 0.1s ease;
+          transition: background-color 0.1s ease, border 0.1s ease, opacity 0.1s ease, box-shadow 0.1s ease;
 }
 
 /*--------------
@@ -100,8 +100,8 @@
 .ui.checkbox + label {
   cursor: pointer;
   color: rgba(0, 0, 0, 0.87);
-  -webkit-transition: color 0.2s ease;
-          transition: color 0.2s ease;
+  -webkit-transition: color 0.1s ease;
+          transition: color 0.1s ease;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -152,28 +152,6 @@
 }
 
 /*--------------
-      Focus
----------------*/
-
-.ui.checkbox input[type="checkbox"]:focus ~ .box:before,
-.ui.checkbox input[type="checkbox"]:focus ~ label:before,
-.ui.checkbox input[type="radio"]:focus ~ .box:before,
-.ui.checkbox input[type="radio"]:focus ~ label:before {
-  background: #fafafa;
-  border: 1px solid rgba(34, 36, 38, 0.3);
-}
-.ui.checkbox input[type="checkbox"]:focus ~ .box:after,
-.ui.checkbox input[type="checkbox"]:focus ~ label:after,
-.ui.checkbox input[type="radio"]:focus ~ .box:after,
-.ui.checkbox input[type="radio"]:focus ~ label:after {
-  color: rgba(0, 0, 0, 0.95);
-}
-.ui.checkbox input[type="checkbox"]:focus ~ label,
-.ui.checkbox input[type="radio"]:focus ~ label {
-  color: rgba(0, 0, 0, 0.95);
-}
-
-/*--------------
      Active
 ---------------*/
 
@@ -189,6 +167,32 @@
 .ui.checkbox input[type="radio"]:checked ~ .box:after,
 .ui.checkbox input[type="radio"]:checked ~ label:after {
   opacity: 1;
+  color: rgba(0, 0, 0, 0.95);
+}
+
+/*--------------
+      Focus
+---------------*/
+
+.ui.checkbox input[type="checkbox"]:focus ~ .box:before,
+.ui.checkbox input[type="checkbox"]:focus ~ label:before,
+.ui.checkbox input[type="radio"]:focus ~ .box:before,
+.ui.checkbox input[type="radio"]:focus ~ label:before,
+.ui.checkbox input[type="checkbox"]:checked:focus ~ .box:before,
+.ui.checkbox input[type="checkbox"]:checked:focus ~ label:before,
+.ui.checkbox input[type="radio"]:checked:focus ~ .box:before,
+.ui.checkbox input[type="radio"]:checked:focus ~ label:before {
+  background: #fafafa;
+  border: 1px solid rgba(34, 36, 38, 0.3);
+}
+.ui.checkbox input[type="checkbox"]:focus ~ .box:after,
+.ui.checkbox input[type="checkbox"]:focus ~ label:after,
+.ui.checkbox input[type="radio"]:focus ~ .box:after,
+.ui.checkbox input[type="radio"]:focus ~ label:after {
+  color: rgba(0, 0, 0, 0.95);
+}
+.ui.checkbox input[type="checkbox"]:focus ~ label,
+.ui.checkbox input[type="radio"]:focus ~ label {
   color: rgba(0, 0, 0, 0.95);
 }
 
@@ -307,8 +311,8 @@
       -ms-transform: none;
           transform: none;
   border-radius: 500rem;
-  -webkit-transition: background 0.2s ease;
-          transition: background 0.2s ease;
+  -webkit-transition: background 0.1s ease;
+          transition: background 0.1s ease;
 }
 
 /* Handle */
@@ -330,8 +334,8 @@
       -ms-transform: none;
           transform: none;
   border-radius: 500rem;
-  -webkit-transition: left 0.2s ease;
-          transition: left 0.2s ease;
+  -webkit-transition: left 0.1s ease;
+          transition: left 0.1s ease;
 }
 
 /* Focus */
@@ -421,8 +425,8 @@
   top: 0rem;
   left: 0em;
   border-radius: 500rem;
-  -webkit-transition: background 0.2s ease, left 0.2s ease;
-          transition: background 0.2s ease, left 0.2s ease;
+  -webkit-transition: background 0.1s ease, left 0.1s ease;
+          transition: background 0.1s ease, left 0.1s ease;
 }
 .ui.toggle.checkbox input[type="checkbox"] ~ .box:after,
 .ui.toggle.checkbox input[type="checkbox"] ~ label:after,

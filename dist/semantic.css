@@ -693,7 +693,7 @@ input::selection {
   color: rgba(0, 0, 0, 0.6);
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   margin: 0em 0.25em 0em 0em;
-  padding: 0.78571em 1.5em 0.78571em;
+  padding: 0.7857142em 1.5em 0.7857142em;
   text-transform: none;
   text-shadow: none;
   font-weight: bold;
@@ -708,8 +708,8 @@ input::selection {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  -webkit-transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-  transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  -webkit-transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+  transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
   will-change: '';
   -webkit-tap-highlight-color: transparent;
 }
@@ -795,8 +795,8 @@ input::selection {
   color: transparent !important;
   opacity: 1;
   pointer-events: auto;
-  -webkit-transition: all 0s linear, opacity 0.2s ease;
-  transition: all 0s linear, opacity 0.2s ease;
+  -webkit-transition: all 0s linear, opacity 0.1s ease;
+  transition: all 0s linear, opacity 0.1s ease;
 }
 
 .ui.loading.button:before {
@@ -1262,8 +1262,8 @@ input::selection {
   height: 0.92857143em;
   opacity: 0.8;
   margin: 0em 0.4285em 0em -0.21425em;
-  -webkit-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease;
+  -webkit-transition: opacity 0.1s ease;
+  transition: opacity 0.1s ease;
   vertical-align: '';
   color: '';
 }
@@ -1300,17 +1300,17 @@ input::selection {
 
 .ui.compact.buttons .button,
 .ui.compact.button {
-  padding: 0.5892825em 1.125em 0.5892825em;
+  padding: 0.58928565em 1.125em 0.58928565em;
 }
 
 .ui.compact.icon.buttons .button,
 .ui.compact.icon.button {
-  padding: 0.5892825em 0.5892825em 0.5892825em;
+  padding: 0.58928565em 0.58928565em 0.58928565em;
 }
 
 .ui.compact.labeled.icon.buttons .button,
 .ui.compact.labeled.icon.button {
-  padding: 0.5892825em 3.69642em 0.5892825em;
+  padding: 0.58928565em 3.6964284em 0.58928565em;
 }
 
 /*-------------------
@@ -1371,7 +1371,7 @@ input::selection {
 
 .ui.icon.buttons .button,
 .ui.icon.button {
-  padding: 0.78571em 0.78571em 0.78571em;
+  padding: 0.7857142em 0.7857142em 0.7857142em;
 }
 
 .ui.icon.buttons .button > .icon,
@@ -1523,7 +1523,7 @@ input::selection {
 .ui.labeled.icon.buttons .button,
 .ui.labeled.icon.button {
   position: relative;
-  padding-left: 4.07142em !important;
+  padding-left: 4.0714284em !important;
   padding-right: 1.5em !important;
 }
 
@@ -1534,7 +1534,7 @@ input::selection {
   position: absolute;
   height: 100%;
   line-height: 1;
-  width: 2.57142em;
+  width: 2.5714284em;
   background-color: rgba(0, 0, 0, 0.05);
   text-align: center;
   color: '';
@@ -1553,7 +1553,7 @@ input::selection {
 /* Right Labeled */
 
 .ui[class*="right labeled"].icon.button {
-  padding-right: 4.07142em !important;
+  padding-right: 4.0714284em !important;
   padding-left: 1.5em !important;
 }
 
@@ -1683,7 +1683,7 @@ input::selection {
 .ui.buttons .or {
   position: relative;
   width: 0.3em;
-  height: 2.57142em;
+  height: 2.5714284em;
   z-index: 3;
 }
 
@@ -1696,11 +1696,11 @@ input::selection {
   left: 50%;
   background-color: #ffffff;
   text-shadow: none;
-  margin-top: -0.892855em;
-  margin-left: -0.892855em;
-  width: 1.78571em;
-  height: 1.78571em;
-  line-height: 1.78571em;
+  margin-top: -0.8928571em;
+  margin-left: -0.8928571em;
+  width: 1.7857142em;
+  height: 1.7857142em;
+  line-height: 1.7857142em;
   color: rgba(0, 0, 0, 0.4);
   font-style: normal;
   font-weight: bold;
@@ -1817,6 +1817,15 @@ input::selection {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   width: 100%;
 }
 
@@ -3771,7 +3780,6 @@ input::selection {
 *******************************/
 
 .ui.text.container {
-  display: block;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   max-width: 700px !important;
   line-height: 1.5;
@@ -6145,8 +6153,8 @@ i.disabled.icon {
 i.link.icon {
   cursor: pointer;
   opacity: 0.8;
-  -webkit-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease;
+  -webkit-transition: opacity 0.1s ease;
+  transition: opacity 0.1s ease;
 }
 
 i.link.icon:hover {
@@ -9626,8 +9634,8 @@ img.ui.bordered.image {
   border: 1px solid rgba(34, 36, 38, 0.15);
   color: rgba(0, 0, 0, 0.87);
   border-radius: 0.2857rem;
-  -webkit-transition: background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-  transition: background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  -webkit-transition: background-color 0.1s ease, box-shadow 0.1s ease, border-color 0.1s ease;
+  transition: background-color 0.1s ease, box-shadow 0.1s ease, border-color 0.1s ease;
   box-shadow: none;
 }
 
@@ -10115,8 +10123,8 @@ img.ui.bordered.image {
   text-transform: none;
   font-weight: bold;
   border-radius: 0.2857rem;
-  -webkit-transition: background 0.2s ease;
-  transition: background 0.2s ease;
+  -webkit-transition: background 0.1s ease;
+  transition: background 0.1s ease;
 }
 
 .ui.label:first-child {
@@ -10139,8 +10147,8 @@ a.ui.label {
   cursor: pointer;
   color: inherit;
   opacity: 0.5;
-  -webkit-transition: 0.2s opacity ease;
-  transition: 0.2s opacity ease;
+  -webkit-transition: 0.1s opacity ease;
+  transition: 0.1s opacity ease;
 }
 
 .ui.label > a:hover {
@@ -10185,8 +10193,8 @@ a.ui.label {
   margin-left: 0.5em;
   font-size: 0.92857143em;
   opacity: 0.5;
-  -webkit-transition: background 0.2s ease;
-  transition: background 0.2s ease;
+  -webkit-transition: background 0.1s ease;
+  transition: background 0.1s ease;
 }
 
 .ui.label > .delete.icon:hover {
@@ -10298,8 +10306,8 @@ a.ui.label {
   background-image: none;
   width: 1.56em;
   height: 1.56em;
-  -webkit-transition: background 0.2s ease;
-  transition: background 0.2s ease;
+  -webkit-transition: background 0.1s ease;
+  transition: background 0.1s ease;
 }
 
 .ui.tag.labels .label:after,
@@ -10330,8 +10338,8 @@ a.ui.label {
   width: 4em;
   height: 4em;
   z-index: 1;
-  -webkit-transition: border-color 0.2s ease;
-  transition: border-color 0.2s ease;
+  -webkit-transition: border-color 0.1s ease;
+  transition: border-color 0.1s ease;
 }
 
 /* Icon Label */
@@ -10354,8 +10362,8 @@ a.ui.label {
   border-bottom: 4em solid transparent;
   border-left: 0em solid transparent;
   border-right-color: inherit;
-  -webkit-transition: border-color 0.2s ease;
-  transition: border-color 0.2s ease;
+  -webkit-transition: border-color 0.1s ease;
+  transition: border-color 0.1s ease;
 }
 
 .ui.corner.label .icon {
@@ -11048,8 +11056,8 @@ a.ui.yellow.label:hover:before {
   z-index: 2;
   width: 0.6em;
   height: 0.6em;
-  -webkit-transition: background 0.2s ease;
-  transition: background 0.2s ease;
+  -webkit-transition: background 0.1s ease;
+  transition: background 0.1s ease;
 }
 
 /*--- Above ---*/
@@ -11280,8 +11288,8 @@ ol.ui.list ol,
   padding-top: 0.07142857em;
   padding-right: 0.285714em;
   vertical-align: top;
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  -webkit-transition: color 0.1s ease;
+  transition: color 0.1s ease;
 }
 
 .ui.list .list > .item i[class*="top aligned"].icon,
@@ -11582,8 +11590,8 @@ ol.ui.list ol,
 .ui.link.list a.item,
 .ui.link.list .item a:not(.ui) {
   color: rgba(0, 0, 0, 0.4);
-  -webkit-transition: 0.2s color ease;
-  transition: 0.2s color ease;
+  -webkit-transition: 0.1s color ease;
+  transition: 0.1s color ease;
 }
 
 .ui.link.list a.item:hover,
@@ -11636,8 +11644,8 @@ ol.ui.list ol,
   margin: 0em;
   color: rgba(0, 0, 0, 0.4);
   border-radius: 0.5em;
-  -webkit-transition: 0.2s color ease, 0.2s padding-left ease, 0.2s background-color ease;
-  transition: 0.2s color ease, 0.2s padding-left ease, 0.2s background-color ease;
+  -webkit-transition: 0.1s color ease, 0.1s padding-left ease, 0.1s background-color ease;
+  transition: 0.1s color ease, 0.1s padding-left ease, 0.1s background-color ease;
 }
 
 .ui.selection.list .list > .item:last-child,
@@ -11703,8 +11711,8 @@ ol.ui.list ol,
 --------------------*/
 
 .ui.animated.list > .item {
-  -webkit-transition: 0.2s color ease, 0.2s padding-left ease, 0.2s background-color ease;
-  transition: 0.2s color ease, 0.2s padding-left ease, 0.2s background-color ease;
+  -webkit-transition: 0.1s color ease, 0.1s padding-left ease, 0.1s background-color ease;
+  transition: 0.1s color ease, 0.1s padding-left ease, 0.1s background-color ease;
 }
 
 .ui.animated.list:not(.horizontal) > .item:hover {
@@ -12625,8 +12633,8 @@ ol.ui.horizontal.list li:before,
   top: 0em !important;
   left: 0em !important;
   z-index: 3 !important;
-  -webkit-transition: all 0.2s ease 0.15s;
-  transition: all 0.2s ease 0.15s;
+  -webkit-transition: all 0.1s ease 0.15s;
+  transition: all 0.1s ease 0.15s;
 }
 
 .ui.reveal > .hidden.content {
@@ -12659,8 +12667,8 @@ ol.ui.horizontal.list li:before,
   display: block;
   float: left;
   margin: 0em;
-  -webkit-transition: -webkit-transform 0.2s ease 0.15s;
-  transition: transform 0.2s ease 0.15s;
+  -webkit-transition: -webkit-transform 0.1s ease 0.15s;
+  transition: transform 0.1s ease 0.15s;
 }
 
 .ui.slide.reveal > .visible.content {
@@ -12783,8 +12791,8 @@ ol.ui.horizontal.list li:before,
   display: block;
   float: left;
   margin: 0em;
-  -webkit-transition: -webkit-transform 0.2s ease 0.15s;
-  transition: transform 0.2s ease 0.15s;
+  -webkit-transition: -webkit-transform 0.1s ease 0.15s;
+  transition: transform 0.1s ease 0.15s;
 }
 
 .ui.move.reveal > .visible.content {
@@ -12830,8 +12838,8 @@ ol.ui.horizontal.list li:before,
 ---------------*/
 
 .ui.rotate.reveal > .visible.content {
-  -webkit-transition-duration: 0.2s;
-  transition-duration: 0.2s;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
   -webkit-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
   transform: rotate(0deg);
@@ -13749,8 +13757,8 @@ ol.ui.horizontal.list li:before,
 
 .ui.steps .step,
 .ui.steps .step:after {
-  -webkit-transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
-  transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  -webkit-transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
+  transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
 }
 
 /*******************************
@@ -14464,8 +14472,8 @@ ol.ui.horizontal.list li:before,
   color: rgba(0, 0, 0, 0.87);
   border-radius: 0.2857rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
-  -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  -webkit-transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 /* Collapse Flex */
@@ -14488,8 +14496,8 @@ ol.ui.horizontal.list li:before,
   color: rgba(0, 0, 0, 0.87);
   border-radius: 0.2857rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
-  -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  -webkit-transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
   font-size: 1em;
   height: 12em;
   min-height: 8em;
@@ -14525,8 +14533,8 @@ ol.ui.horizontal.list li:before,
   box-shadow: 0em 0em 0em 0em transparent inset;
   padding: 0.62em 1em;
   color: rgba(0, 0, 0, 0.87);
-  -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  -webkit-transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 /*--------------------
@@ -14599,6 +14607,15 @@ ol.ui.horizontal.list li:before,
 *******************************/
 
 /*--------------------
+      Autofilled
+---------------------*/
+
+.ui.form input:-webkit-autofill {
+  box-shadow: 0px 0px 0px 100px #fffff0 inset;
+  border-color: #e5dfa1;
+}
+
+/*--------------------
       Placeholder
 ---------------------*/
 
@@ -14669,7 +14686,7 @@ ol.ui.horizontal.list li:before,
 .ui.form input[type="time"]:focus,
 .ui.form input[type="text"]:focus,
 .ui.form input[type="url"]:focus {
-  color: rgba(0, 0, 0, 0.85);
+  color: rgba(0, 0, 0, 0.95);
   border-color: rgba(34, 36, 38, 0.3);
   border-radius: 0.2857rem;
   background: #ffffff;
@@ -14677,12 +14694,19 @@ ol.ui.horizontal.list li:before,
 }
 
 .ui.form textarea:focus {
-  color: rgba(0, 0, 0, 0.85);
+  color: rgba(0, 0, 0, 0.95);
   border-color: rgba(34, 36, 38, 0.3);
   border-radius: 0.2857rem;
   background: #ffffff;
   box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.3) inset;
   -webkit-appearance: none;
+}
+
+/* Autofill Focus */
+
+.ui.form input:-webkit-autofill:focus {
+  box-shadow: 0px 0px 0px 100px #fffff0 inset !important;
+  border-color: #ddcc27 !important;
 }
 
 /*--------------------
@@ -16655,8 +16679,6 @@ body > .ui.grid {
 -----------------------*/
 
 .ui.celled.grid {
-  display: table;
-  table-layout: fixed;
   width: 100%;
   margin: 1em 0em;
   box-shadow: 0px 0px 0px 1px #d4d4d5;
@@ -16665,8 +16687,6 @@ body > .ui.grid {
 .ui.celled.grid > .row,
 .ui.celled.grid > .column.row,
 .ui.celled.grid > .column.row:first-child {
-  display: table;
-  table-layout: fixed;
   width: 100% !important;
   margin: 0em;
   padding: 0em;
@@ -16675,7 +16695,6 @@ body > .ui.grid {
 
 .ui.celled.grid > .column:not(.row),
 .ui.celled.grid > .row > .column {
-  display: table-cell;
   box-shadow: -1px 0px 0px 0px #d4d4d5;
 }
 
@@ -16707,6 +16726,7 @@ body > .ui.grid {
 
 .ui[class*="internally celled"].grid {
   box-shadow: none;
+  margin: 0em;
 }
 
 .ui[class*="internally celled"].grid > .row:first-child {
@@ -16723,7 +16743,7 @@ body > .ui.grid {
 
 /* Top Aligned */
 
-.ui[class*="top aligned"].grid .column,
+.ui[class*="top aligned"].grid .column:not(.row),
 .ui.grid > [class*="top aligned"].row > .column,
 .ui.grid > [class*="top aligned"].column:not(.row),
 .ui.grid > .row > [class*="top aligned"].column {
@@ -16740,7 +16760,7 @@ body > .ui.grid {
 
 /* Middle Aligned */
 
-.ui[class*="middle aligned"].grid .column,
+.ui[class*="middle aligned"].grid .column:not(.row),
 .ui.grid > [class*="middle aligned"].row > .column,
 .ui.grid > [class*="middle aligned"].column:not(.row),
 .ui.grid > .row > [class*="middle aligned"].column {
@@ -16757,7 +16777,7 @@ body > .ui.grid {
 
 /* Bottom Aligned */
 
-.ui[class*="bottom aligned"].grid .column,
+.ui[class*="bottom aligned"].grid .column:not(.row),
 .ui.grid > [class*="bottom aligned"].row > .column,
 .ui.grid > [class*="bottom aligned"].column:not(.row),
 .ui.grid > .row > [class*="bottom aligned"].column {
@@ -16810,7 +16830,7 @@ body > .ui.grid {
 
 /* Left Aligned */
 
-.ui[class*="left aligned"].grid .column,
+.ui[class*="left aligned"].grid .column:not(.row),
 .ui.grid > [class*="left aligned"].row > .column,
 .ui.grid > [class*="left aligned"].column:not(.row),
 .ui.grid > .row > [class*="left aligned"].column {
@@ -16823,7 +16843,7 @@ body > .ui.grid {
 /* Center Aligned */
 
 .ui[class*="center aligned"].grid,
-.ui[class*="center aligned"].grid .column,
+.ui[class*="center aligned"].grid .column:not(.row),
 .ui.grid > [class*="center aligned"].row > .column,
 .ui.grid > [class*="center aligned"].column:not(.row),
 .ui.grid > .row > [class*="center aligned"].column {
@@ -16842,7 +16862,7 @@ body > .ui.grid {
 
 /* Right Aligned */
 
-.ui[class*="right aligned"].grid .column,
+.ui[class*="right aligned"].grid .column:not(.row),
 .ui.grid > [class*="right aligned"].row > .column,
 .ui.grid > [class*="right aligned"].column:not(.row),
 .ui.grid > .row > [class*="right aligned"].column {
@@ -17519,8 +17539,8 @@ body > .ui.grid {
   text-transform: none;
   color: rgba(0, 0, 0, 0.87);
   font-weight: normal;
-  -webkit-transition: background 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
-  transition: background 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+  -webkit-transition: background 0.1s ease, box-shadow 0.1s ease, color 0.1s ease;
+  transition: background 0.1s ease, box-shadow 0.1s ease, color 0.1s ease;
 }
 
 .ui.menu > .item:first-child {
@@ -17578,9 +17598,9 @@ body > .ui.grid {
 .ui.menu:not(.vertical) .item > .button {
   position: relative;
   top: 0em;
-  margin: -0.4em 0em;
-  padding-bottom: 0.6em;
-  padding-top: 0.6em;
+  margin: -0.5em 0em;
+  padding-bottom: 0.71428571em;
+  padding-top: 0.71428571em;
   font-size: 1em;
 }
 
@@ -17616,14 +17636,14 @@ body > .ui.grid {
 
 .ui.menu .item > .input input {
   font-size: 1em;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
+  padding-top: 0.57142em;
+  padding-bottom: 0.57142em;
 }
 
 .ui.menu .item > .input .button,
 .ui.menu .item > .input .label {
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
+  padding-top: 0.57142em;
+  padding-bottom: 0.57142em;
 }
 
 /*--------------
@@ -17914,7 +17934,7 @@ Floated Menu / Item
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin-right: auto;
+  margin-right: auto !important;
 }
 
 /* Right Floated */
@@ -17925,7 +17945,7 @@ Floated Menu / Item
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin-left: auto;
+  margin-left: auto !important;
 }
 
 /* Floated Borders */
@@ -18193,8 +18213,8 @@ Floated Menu / Item
   margin: 0em 0.25em;
   padding: 0.71428571em 0.92857143em;
   border-radius: 0.2857rem;
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  -webkit-transition: color 0.1s ease;
+  transition: color 0.1s ease;
 }
 
 /* Border */
@@ -18317,11 +18337,11 @@ Floated Menu / Item
   -webkit-align-self: flex-end;
   -ms-flex-item-align: end;
   align-self: flex-end;
-  margin: 0em 0em -2px;
+  margin-bottom: -2px;
   padding: 0.85714286em 1em;
   border-bottom-width: 2px;
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  -webkit-transition: color 0.1s ease;
+  transition: color 0.1s ease;
 }
 
 /* Item Types */
@@ -18462,8 +18482,8 @@ Floated Menu / Item
   margin: 0em 1em;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.6);
-  -webkit-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease;
+  -webkit-transition: opacity 0.1s ease;
+  transition: opacity 0.1s ease;
 }
 
 /* Sub Menu */
@@ -19195,8 +19215,8 @@ Floated Menu / Item
   border-bottom: 1px solid #d4d4d5;
   border-right: 1px solid #d4d4d5;
   z-index: 11;
-  -webkit-transition: background 0.2s ease;
-  transition: background 0.2s ease;
+  -webkit-transition: background 0.1s ease;
+  transition: background 0.1s ease;
 }
 
 .ui.vertical.pointing.menu .item:after {
@@ -19364,8 +19384,8 @@ Floated Menu / Item
   padding: 1em 1.5em;
   line-height: 1.4285em;
   color: rgba(0, 0, 0, 0.87);
-  -webkit-transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-  transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  -webkit-transition: opacity 0.1s ease, color 0.1s ease, background 0.1s ease, box-shadow 0.1s ease;
+  transition: opacity 0.1s ease, color 0.1s ease, background 0.1s ease, box-shadow 0.1s ease;
   border-radius: 0.2857rem;
   box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.22) inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
 }
@@ -19419,10 +19439,11 @@ Floated Menu / Item
 /* List */
 
 .ui.message ul.list {
+  text-align: left;
+  padding: 0em;
   opacity: 0.85;
   list-style-position: inside;
   margin: 0.5em 0em 0em;
-  padding: 0em;
 }
 
 .ui.message ul.list:first-child {
@@ -19467,8 +19488,8 @@ Floated Menu / Item
   top: 0.78575em;
   right: 0.5em;
   opacity: 0.7;
-  -webkit-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease;
+  -webkit-transition: opacity 0.1s ease;
+  transition: opacity 0.1s ease;
 }
 
 .ui.message > .close.icon:hover {
@@ -19537,6 +19558,7 @@ Floated Menu / Item
 ---------------*/
 
 .ui.attached.message {
+  width: 100%;
   margin-bottom: -1px;
   border-radius: 0.2857rem 0.2857rem 0em 0em;
   box-shadow: 0em 0em 0em 1px rgba(34, 36, 38, 0.15) inset;
@@ -19884,8 +19906,8 @@ Floated Menu / Item
 
 .ui.table th,
 .ui.table td {
-  -webkit-transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  -webkit-transition: background 0.1s ease, border-color 0.1s ease, color 0.1s ease;
+  transition: background 0.1s ease, border-color 0.1s ease, color 0.1s ease;
 }
 
 /* Headers */
@@ -21309,8 +21331,8 @@ Floated Menu / Item
   border: none;
   border-radius: 0.2857rem;
   box-shadow: 0px 1px 3px 0px #d4d4d5, 0px 0px 0px 1px #d4d4d5;
-  -webkit-transition: box-shadow 0.2s ease, -webkit-transform 0.2s ease;
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  -webkit-transition: box-shadow 0.1s ease, -webkit-transform 0.1s ease;
+  transition: box-shadow 0.1s ease, transform 0.1s ease;
   z-index: '';
 }
 
@@ -21586,8 +21608,8 @@ Floated Menu / Item
 .ui.cards > .card > .content a:not(.ui),
 .ui.card > .content a:not(.ui) {
   color: '';
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  -webkit-transition: color 0.1s ease;
+  transition: color 0.1s ease;
 }
 
 .ui.cards > .card > .content a:not(.ui):hover,
@@ -21653,8 +21675,8 @@ Floated Menu / Item
 .ui.card > .content .star.icon {
   cursor: pointer;
   opacity: 0.75;
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  -webkit-transition: color 0.1s ease;
+  transition: color 0.1s ease;
 }
 
 .ui.cards > .card > .content .star.icon:hover,
@@ -21676,8 +21698,8 @@ Floated Menu / Item
 .ui.card > .content .like.icon {
   cursor: pointer;
   opacity: 0.75;
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  -webkit-transition: color 0.1s ease;
+  transition: color 0.1s ease;
 }
 
 .ui.cards > .card > .content .like.icon:hover,
@@ -21712,8 +21734,8 @@ Floated Menu / Item
   left: 0em;
   color: rgba(0, 0, 0, 0.4);
   box-shadow: none;
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  -webkit-transition: color 0.1s ease;
+  transition: color 0.1s ease;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
@@ -22894,8 +22916,8 @@ a.ui.card:hover,
   cursor: pointer;
   opacity: 1;
   color: rgba(0, 0, 0, 0.5);
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  -webkit-transition: color 0.1s ease;
+  transition: color 0.1s ease;
 }
 
 .ui.feed > .event > .content .meta a:hover,
@@ -22959,8 +22981,8 @@ a.ui.card:hover,
   border: none;
   border-radius: 0rem;
   box-shadow: none;
-  -webkit-transition: box-shadow 0.2s ease;
-  transition: box-shadow 0.2s ease;
+  -webkit-transition: box-shadow 0.1s ease;
+  transition: box-shadow 0.1s ease;
   z-index: '';
 }
 
@@ -23176,8 +23198,8 @@ a.ui.card:hover,
 
 .ui.items > .item > .content a:not(.ui) {
   color: '';
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  -webkit-transition: color 0.1s ease;
+  transition: color 0.1s ease;
 }
 
 .ui.items > .item > .content a:not(.ui):hover {
@@ -23215,8 +23237,8 @@ a.ui.card:hover,
 .ui.items > .item > .content .favorite.icon {
   cursor: pointer;
   opacity: 0.75;
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  -webkit-transition: color 0.1s ease;
+  transition: color 0.1s ease;
 }
 
 .ui.items > .item > .content .favorite.icon:hover {
@@ -23235,8 +23257,8 @@ a.ui.card:hover,
 .ui.items > .item > .content .like.icon {
   cursor: pointer;
   opacity: 0.75;
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  -webkit-transition: color 0.1s ease;
+  transition: color 0.1s ease;
 }
 
 .ui.items > .item > .content .like.icon:hover {
@@ -23263,8 +23285,8 @@ a.ui.card:hover,
   left: 0em;
   color: rgba(0, 0, 0, 0.4);
   box-shadow: none;
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  -webkit-transition: color 0.1s ease;
+  transition: color 0.1s ease;
   border-top: none;
 }
 
@@ -24116,8 +24138,8 @@ a.ui.card:hover,
   margin: 0em 0.25rem 0em 0rem;
   padding: 0em;
   font-size: 1em;
-  -webkit-transition: -webkit-transform 0.2s ease, opacity 0.2s ease;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  -webkit-transition: -webkit-transform 0.1s ease, opacity 0.1s ease;
+  transition: transform 0.1s ease, opacity 0.1s ease;
   vertical-align: baseline;
   -webkit-transform: none;
   -ms-transform: none;
@@ -24193,8 +24215,8 @@ a.ui.card:hover,
   color: rgba(0, 0, 0, 0.4);
   font-weight: bold;
   border-top: 1px solid rgba(34, 36, 38, 0.15);
-  -webkit-transition: background 0.2s ease, color 0.2s ease;
-  transition: background 0.2s ease, color 0.2s ease;
+  -webkit-transition: background 0.1s ease, color 0.1s ease;
+  transition: background 0.1s ease, color 0.1s ease;
 }
 
 .ui.styled.accordion > .title:first-child,
@@ -24378,8 +24400,8 @@ a.ui.card:hover,
   content: '';
   background: #ffffff;
   border-radius: 0.25em;
-  -webkit-transition: background-color 0.2s ease, border 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
-  transition: background-color 0.2s ease, border 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+  -webkit-transition: background-color 0.1s ease, border 0.1s ease, opacity 0.1s ease, box-shadow 0.1s ease;
+  transition: background-color 0.1s ease, border 0.1s ease, opacity 0.1s ease, box-shadow 0.1s ease;
   border: 1px solid #d4d4d5;
 }
 
@@ -24398,8 +24420,8 @@ a.ui.card:hover,
   text-align: center;
   opacity: 0;
   color: rgba(0, 0, 0, 0.87);
-  -webkit-transition: background-color 0.2s ease, border 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
-  transition: background-color 0.2s ease, border 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+  -webkit-transition: background-color 0.1s ease, border 0.1s ease, opacity 0.1s ease, box-shadow 0.1s ease;
+  transition: background-color 0.1s ease, border 0.1s ease, opacity 0.1s ease, box-shadow 0.1s ease;
 }
 
 /*--------------
@@ -24412,8 +24434,8 @@ a.ui.card:hover,
 .ui.checkbox + label {
   cursor: pointer;
   color: rgba(0, 0, 0, 0.87);
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  -webkit-transition: color 0.1s ease;
+  transition: color 0.1s ease;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -24466,30 +24488,6 @@ a.ui.card:hover,
 }
 
 /*--------------
-      Focus
----------------*/
-
-.ui.checkbox input[type="checkbox"]:focus ~ .box:before,
-.ui.checkbox input[type="checkbox"]:focus ~ label:before,
-.ui.checkbox input[type="radio"]:focus ~ .box:before,
-.ui.checkbox input[type="radio"]:focus ~ label:before {
-  background: #fafafa;
-  border: 1px solid rgba(34, 36, 38, 0.3);
-}
-
-.ui.checkbox input[type="checkbox"]:focus ~ .box:after,
-.ui.checkbox input[type="checkbox"]:focus ~ label:after,
-.ui.checkbox input[type="radio"]:focus ~ .box:after,
-.ui.checkbox input[type="radio"]:focus ~ label:after {
-  color: rgba(0, 0, 0, 0.95);
-}
-
-.ui.checkbox input[type="checkbox"]:focus ~ label,
-.ui.checkbox input[type="radio"]:focus ~ label {
-  color: rgba(0, 0, 0, 0.95);
-}
-
-/*--------------
      Active
 ---------------*/
 
@@ -24506,6 +24504,34 @@ a.ui.card:hover,
 .ui.checkbox input[type="radio"]:checked ~ .box:after,
 .ui.checkbox input[type="radio"]:checked ~ label:after {
   opacity: 1;
+  color: rgba(0, 0, 0, 0.95);
+}
+
+/*--------------
+      Focus
+---------------*/
+
+.ui.checkbox input[type="checkbox"]:focus ~ .box:before,
+.ui.checkbox input[type="checkbox"]:focus ~ label:before,
+.ui.checkbox input[type="radio"]:focus ~ .box:before,
+.ui.checkbox input[type="radio"]:focus ~ label:before,
+.ui.checkbox input[type="checkbox"]:checked:focus ~ .box:before,
+.ui.checkbox input[type="checkbox"]:checked:focus ~ label:before,
+.ui.checkbox input[type="radio"]:checked:focus ~ .box:before,
+.ui.checkbox input[type="radio"]:checked:focus ~ label:before {
+  background: #fafafa;
+  border: 1px solid rgba(34, 36, 38, 0.3);
+}
+
+.ui.checkbox input[type="checkbox"]:focus ~ .box:after,
+.ui.checkbox input[type="checkbox"]:focus ~ label:after,
+.ui.checkbox input[type="radio"]:focus ~ .box:after,
+.ui.checkbox input[type="radio"]:focus ~ label:after {
+  color: rgba(0, 0, 0, 0.95);
+}
+
+.ui.checkbox input[type="checkbox"]:focus ~ label,
+.ui.checkbox input[type="radio"]:focus ~ label {
   color: rgba(0, 0, 0, 0.95);
 }
 
@@ -24629,8 +24655,8 @@ a.ui.card:hover,
   -ms-transform: none;
   transform: none;
   border-radius: 500rem;
-  -webkit-transition: background 0.2s ease;
-  transition: background 0.2s ease;
+  -webkit-transition: background 0.1s ease;
+  transition: background 0.1s ease;
 }
 
 /* Handle */
@@ -24653,8 +24679,8 @@ a.ui.card:hover,
   -ms-transform: none;
   transform: none;
   border-radius: 500rem;
-  -webkit-transition: left 0.2s ease;
-  transition: left 0.2s ease;
+  -webkit-transition: left 0.1s ease;
+  transition: left 0.1s ease;
 }
 
 /* Focus */
@@ -24754,8 +24780,8 @@ a.ui.card:hover,
   top: 0rem;
   left: 0em;
   border-radius: 500rem;
-  -webkit-transition: background 0.2s ease, left 0.2s ease;
-  transition: background 0.2s ease, left 0.2s ease;
+  -webkit-transition: background 0.1s ease, left 0.1s ease;
+  transition: background 0.1s ease, left 0.1s ease;
 }
 
 .ui.toggle.checkbox input[type="checkbox"] ~ .box:after,
@@ -25095,8 +25121,8 @@ body.dimmable > .dimmer {
   tap-highlight-color: rgba(0, 0, 0, 0);
   outline: none;
   text-align: left;
-  -webkit-transition: box-shadow 0.2s ease, width 0.2s ease;
-  transition: box-shadow 0.2s ease, width 0.2s ease;
+  -webkit-transition: box-shadow 0.1s ease, width 0.1s ease;
+  transition: box-shadow 0.1s ease, width 0.1s ease;
 }
 
 /*******************************
@@ -25125,8 +25151,8 @@ body.dimmable > .dimmer {
   box-shadow: 0px 2px 3px 0px rgba(34, 36, 38, 0.15);
   border: 1px solid rgba(34, 36, 38, 0.15);
   border-radius: 0.2857rem;
-  -webkit-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease;
+  -webkit-transition: opacity 0.1s ease;
+  transition: opacity 0.1s ease;
   z-index: 11;
   will-change: transform, opacity;
 }
@@ -25434,8 +25460,8 @@ body.dimmable > .dimmer {
   box-shadow: none;
   border: 1px solid rgba(34, 36, 38, 0.15);
   border-radius: 0.2857rem;
-  -webkit-transition: box-shadow 0.2s ease, width 0.2s ease;
-  transition: box-shadow 0.2s ease, width 0.2s ease;
+  -webkit-transition: box-shadow 0.1s ease, width 0.1s ease;
+  transition: box-shadow 0.1s ease, width 0.1s ease;
 }
 
 .ui.selection.dropdown.visible,
@@ -25461,8 +25487,8 @@ select.ui.dropdown {
   padding: 0.78571em;
   right: 1em;
   opacity: 0.8;
-  -webkit-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease;
+  -webkit-transition: opacity 0.1s ease;
+  transition: opacity 0.1s ease;
 }
 
 /* Compact */
@@ -25486,8 +25512,8 @@ select.ui.dropdown {
   min-width: calc(100% +  2px );
   border-radius: 0em 0em 0.2857rem 0.2857rem;
   box-shadow: 0px 2px 3px 0px rgba(34, 36, 38, 0.15);
-  -webkit-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease;
+  -webkit-transition: opacity 0.1s ease;
+  transition: opacity 0.1s ease;
 }
 
 .ui.selection.dropdown .menu:after,
@@ -26257,8 +26283,8 @@ select.ui.dropdown {
   opacity: 0;
   width: 0;
   height: 0;
-  -webkit-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease;
+  -webkit-transition: opacity 0.1s ease;
+  transition: opacity 0.1s ease;
 }
 
 .ui.simple.active.dropdown,
@@ -26654,8 +26680,8 @@ select.ui.dropdown {
   color: rgba(255, 255, 255, 0.9);
   font-size: 7rem;
   text-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  -webkit-transition: color 0.1s ease;
+  transition: color 0.1s ease;
   z-index: 10;
 }
 
@@ -27761,8 +27787,8 @@ a.ui.nag {
   min-width: 2em;
   background: #888888;
   border-radius: 0.2857rem;
-  -webkit-transition: width 0.2s ease, background-color 0.2s ease;
-  transition: width 0.2s ease, background-color 0.2s ease;
+  -webkit-transition: width 0.1s ease, background-color 0.1s ease;
+  transition: width 0.1s ease, background-color 0.1s ease;
 }
 
 /* Percent Complete */
@@ -28546,8 +28572,8 @@ a.ui.nag {
   border: 1px solid rgba(34, 36, 38, 0.15);
   color: rgba(0, 0, 0, 0.87);
   box-shadow: 0em 0em 0em 0em transparent inset;
-  -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  -webkit-transition: background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, border-color 0.1s ease;
+  transition: background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, border-color 0.1s ease;
 }
 
 .ui.search .prompt {
@@ -29903,8 +29929,8 @@ html.ios {
 
 .ui.table th,
 .ui.table td {
-  -webkit-transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  -webkit-transition: background 0.1s ease, border-color 0.1s ease, color 0.1s ease;
+  transition: background 0.1s ease, border-color 0.1s ease, color 0.1s ease;
 }
 
 /* Headers */
