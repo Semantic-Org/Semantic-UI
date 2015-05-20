@@ -92,6 +92,9 @@
   padding-top: (@rowSpacing / 2);
   padding-bottom: (@rowSpacing / 2);
 }
+.ui.grid > .row:last-child {
+  padding-bottom: 0em;
+}
 
 /*-------------------
        Columns
@@ -1179,7 +1182,7 @@ body > .ui.grid {
 -----------------------*/
 
 /* Top Aligned */
-.ui[class*="top aligned"].grid .column,
+.ui[class*="top aligned"].grid .column:not(.row),
 .ui.grid > [class*="top aligned"].row > .column,
 .ui.grid > [class*="top aligned"].column:not(.row),
 .ui.grid > .row > [class*="top aligned"].column {
@@ -1189,7 +1192,7 @@ body > .ui.grid {
 }
 
 /* Middle Aligned */
-.ui[class*="middle aligned"].grid .column,
+.ui[class*="middle aligned"].grid .column:not(.row),
 .ui.grid > [class*="middle aligned"].row > .column,
 .ui.grid > [class*="middle aligned"].column:not(.row),
 .ui.grid > .row > [class*="middle aligned"].column {
@@ -1199,7 +1202,7 @@ body > .ui.grid {
 }
 
 /* Bottom Aligned */
-.ui[class*="bottom aligned"].grid .column,
+.ui[class*="bottom aligned"].grid .column:not(.row),
 .ui.grid > [class*="bottom aligned"].row > .column,
 .ui.grid > [class*="bottom aligned"].column:not(.row),
 .ui.grid > .row > [class*="bottom aligned"].column {
@@ -1232,7 +1235,7 @@ body > .ui.grid {
 -----------------------*/
 
 /* Left Aligned */
-.ui[class*="left aligned"].grid .column,
+.ui[class*="left aligned"].grid .column:not(.row),
 .ui.grid > [class*="left aligned"].row > .column,
 .ui.grid > [class*="left aligned"].column:not(.row),
 .ui.grid > .row > [class*="left aligned"].column {
@@ -1242,7 +1245,7 @@ body > .ui.grid {
 
 /* Center Aligned */
 .ui[class*="center aligned"].grid,
-.ui[class*="center aligned"].grid .column,
+.ui[class*="center aligned"].grid .column:not(.row),
 .ui.grid > [class*="center aligned"].row > .column,
 .ui.grid > [class*="center aligned"].column:not(.row),
 .ui.grid > .row > [class*="center aligned"].column {
@@ -1254,7 +1257,7 @@ body > .ui.grid {
 }
 
 /* Right Aligned */
-.ui[class*="right aligned"].grid .column,
+.ui[class*="right aligned"].grid .column:not(.row),
 .ui.grid > [class*="right aligned"].row > .column,
 .ui.grid > [class*="right aligned"].column:not(.row),
 .ui.grid > .row > [class*="right aligned"].column {
