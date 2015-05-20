@@ -49,6 +49,16 @@
   <script>
   $(document)
     .ready(function() {
+      $('.ui:not(.container, .grid)').each(function() {
+        $(this)
+          .popup({
+            on        : 'hover',
+            variation : 'small inverted',
+            exclusive : true,
+            content   : $(this).attr('class')
+          })
+        ;
+      });
       $('.ui.dropdown').dropdown();
       $('.ui.buttons .dropdown.button').dropdown({
         action: 'combo'

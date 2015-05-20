@@ -8,6 +8,7 @@
 - **Modal** - Only buttons matching `deny` or `approve` selector will now close a modal automatically. Any button that should hide modal on click should either match one of these selectors, or call `$('.ui.modal').modal('hide')`
 - **Grid** - `page grid` have been modified to have fixed widths. Fluid grid gutters make it very difficult to style responsive page content because they continuously adjust with the browser. Moving forward we will be recommending using `ui container` a fixed width container for holding page contents.
 - **Form Validation** - Form validation now passes settings through a `fields` object, the previous syntax will continue to work but produce deprecation notices in console
+- **Popup** - Popups are no longer exclusive by default. Opening a popup will not necessarily close other visible popups. You can adjust this by setting `exclusive: true` in your popup init.
 
 **New UI**
 - **Container** - Containers are fixed width containers meant for holding page contents, and are a simpler alternative to `ui page grid`, view more [examples in docs](http://www.semantic-ui.com/elements/container.html#examples)
