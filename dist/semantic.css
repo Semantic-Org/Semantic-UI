@@ -9911,14 +9911,14 @@ img.ui.bordered.image {
   line-height: 1;
   vertical-align: baseline;
   margin: 0em 0.142857em;
-  background-color: #e8e8e8;
-  border-color: #e8e8e8;
+  background-color: #1dadea;
+  border-color: #1dadea;
   background-image: none;
   padding: 0.5833em 0.833em;
-  color: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
   text-transform: none;
-  font-weight: bold;
-  border-radius: 0;
+  font-weight: 500;
+  border-radius: 4px;
   -webkit-transition: background 0.2s ease;
   transition: background 0.2s ease;
 }
@@ -10047,9 +10047,9 @@ a.ui.label {
   max-width: 9999px;
   vertical-align: baseline;
   text-transform: none;
-  background: #e8e8e8;
+  background: #1dadea;
   padding: 0.5833em 0.833em 0.5833em 0.5em;
-  border-radius: 0;
+  border-radius: 4px;
   box-shadow: none;
 }
 
@@ -10058,14 +10058,14 @@ a.ui.label {
   vertical-align: top;
   height: 2.1666em;
   margin: -0.5833em 0.5em -0.5833em -0.5em;
-  border-radius: 0;
+  border-radius: 4px;
 }
 
 .ui.image.label .detail {
   background: rgba(0, 0, 0, 0.1);
   margin: -0.5833em -0.833em -0.5833em 0.5em;
   padding: 0.5833em 0.833em;
-  border-radius: 0em 0 0 0em;
+  border-radius: 0em 4px 4px 0em;
 }
 
 /*-------------------
@@ -10078,7 +10078,7 @@ a.ui.label {
   position: relative;
   padding-left: 1.5em;
   padding-right: 1.5em;
-  border-radius: 0em 0 0 0em;
+  border-radius: 0em 4px 4px 0em;
 }
 
 .ui.tag.labels .label:before,
@@ -10090,7 +10090,7 @@ a.ui.label {
   top: 50%;
   right: 100%;
   content: '';
-  background-color: #e8e8e8;
+  background-color: #1dadea;
   background-image: none;
   width: 1.56em;
   height: 1.56em;
@@ -10216,7 +10216,7 @@ a.ui.label {
   min-width: -webkit-max-content;
   min-width: -moz-max-content;
   min-width: max-content;
-  border-radius: 0em 0 0 0em;
+  border-radius: 0em 4px 4px 0em;
   border-color: rgba(0, 0, 0, 0.15);
 }
 
@@ -10241,7 +10241,7 @@ a.ui.label {
   -webkit-transform: translateX(-100%);
   -ms-transform: translateX(-100%);
   transform: translateX(-100%);
-  border-radius: 0 0em 0em 0;
+  border-radius: 4px 0em 0em 4px;
   padding-left: 0.833em;
 }
 
@@ -10308,33 +10308,33 @@ a.ui.label {
   top: 0em;
   left: 0em;
   padding: 0.75em 1em;
-  border-radius: 0 0 0em 0em;
+  border-radius: 4px 4px 0em 0em;
 }
 
 .ui.bottom.attached.label {
   top: auto;
   bottom: 0em;
-  border-radius: 0em 0em 0 0;
+  border-radius: 0em 0em 4px 4px;
 }
 
 .ui.top.left.attached.label {
   width: auto;
   margin-top: 0em !important;
-  border-radius: 0 0em 0 0em;
+  border-radius: 4px 0em 4px 0em;
 }
 
 .ui.top.right.attached.label {
   width: auto;
   left: auto;
   right: 0em;
-  border-radius: 0em 0 0em 0;
+  border-radius: 0em 4px 0em 4px;
 }
 
 .ui.bottom.left.attached.label {
   width: auto;
   top: auto;
   bottom: 0em;
-  border-radius: 0em 0 0em 0;
+  border-radius: 0em 4px 0em 4px;
 }
 
 .ui.bottom.right.attached.label {
@@ -10343,7 +10343,7 @@ a.ui.label {
   left: auto;
   right: 0em;
   width: auto;
-  border-radius: 0 0em 0 0em;
+  border-radius: 4px 0em 4px 0em;
 }
 
 /*******************************
@@ -10364,17 +10364,17 @@ a.ui.label {
 
 a.ui.labels .label:hover,
 a.ui.label:hover {
-  background-color: #e0e0e0;
-  border-color: #e0e0e0;
+  background-color: #0c93cd;
+  border-color: #0c93cd;
   background-image: none;
-  color: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
 }
 
 .ui.labels a.label:hover:before,
 a.ui.label:hover:before {
-  background-color: #e0e0e0;
+  background-color: #0c93cd;
   background-image: none;
-  color: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
 }
 
 /*-------------------
@@ -10382,16 +10382,16 @@ a.ui.label:hover:before {
 --------------------*/
 
 .ui.active.label {
-  background-color: #d0d0d0;
-  border-color: #d0d0d0;
+  background-color: #0c93cd;
+  border-color: #0c93cd;
   background-image: none;
-  color: rgba(0, 0, 0, 0.9);
+  color: #ffffff;
 }
 
 .ui.active.label:before {
-  background-color: #d0d0d0;
+  background-color: #0c93cd;
   background-image: none;
-  color: rgba(0, 0, 0, 0.9);
+  color: #ffffff;
 }
 
 /*-------------------
@@ -10860,7 +10860,7 @@ a.ui.yellow.label:hover:before {
 /*--- Above ---*/
 
 .ui.pointing.label:before {
-  background-color: #e8e8e8;
+  background-color: #1dadea;
   background-image: none;
 }
 
@@ -26160,6 +26160,10 @@ select.ui.dropdown {
 
 .ui.form .field.error .ui.dropdown .default.text {
   color: #cccccc;
+}
+
+.dropdown.icon {
+  display: none;
 }
 
 /*******************************

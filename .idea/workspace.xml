@@ -2,291 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="22501cb0-3e05-47e9-99dd-e4fe9de583e1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/assets/images/flags.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/assets/images/flags.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/assets/fonts/icons.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/assets/fonts/icons.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/assets/fonts/icons.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/assets/fonts/icons.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/assets/fonts/icons.woff2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/assets/fonts/icons.woff2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/assets/fonts/icons.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/assets/fonts/icons.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/collections/table.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/modules/accordion.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/modules/accordion.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/modules/accordion.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/modules/accordion.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/views/ad.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/views/ad.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/views/ad.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/views/ad.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/collections/breadcrumb.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/collections/breadcrumb.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/collections/breadcrumb.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/collections/breadcrumb.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/elements/button.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/elements/button.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/elements/button.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/elements/button.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/views/card.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/views/card.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/views/card.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/views/card.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/modules/chatroom.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/modules/chatroom.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/modules/chatroom.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/modules/chatroom.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/modules/checkbox.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/modules/checkbox.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/modules/checkbox.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/modules/checkbox.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/views/comment.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/views/comment.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/views/comment.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/views/comment.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/elements/container.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/elements/container.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/modules/dimmer.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/modules/dimmer.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/modules/dimmer.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/modules/dimmer.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/elements/divider.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/elements/divider.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/elements/divider.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/elements/divider.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/modules/dropdown.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/modules/dropdown.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/modules/dropdown.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/modules/dropdown.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/views/feed.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/views/feed.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/views/feed.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/views/feed.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/elements/flag.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/elements/flag.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/elements/flag.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/elements/flag.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/collections/form.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/collections/form.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/collections/form.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/collections/form.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/collections/grid.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/collections/grid.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/collections/grid.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/collections/grid.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/elements/header.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/elements/header.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/elements/header.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/elements/header.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/elements/icon.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/elements/icon.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/elements/icon.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/elements/icon.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/assets/fonts/icons.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/assets/fonts/icons.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/elements/image.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/elements/image.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/elements/image.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/elements/image.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/elements/input.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/elements/input.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/elements/input.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/elements/input.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/views/item.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/views/item.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/views/item.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/views/item.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/elements/label.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/elements/label.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/elements/label.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/elements/label.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/elements/list.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/elements/list.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/elements/list.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/elements/list.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/elements/loader.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/elements/loader.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/elements/loader.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/elements/loader.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/collections/menu.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/collections/menu.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/collections/menu.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/collections/menu.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/collections/message.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/collections/message.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/collections/message.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/collections/message.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/modules/modal.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/modules/modal.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/modules/modal.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/modules/modal.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/modules/nag.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/modules/nag.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/modules/nag.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/modules/nag.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/modules/popup.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/modules/popup.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/modules/popup.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/modules/popup.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/modules/progress.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/modules/progress.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/modules/progress.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/modules/progress.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/elements/rail.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/elements/rail.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/elements/rail.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/elements/rail.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/modules/rating.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/modules/rating.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/modules/rating.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/modules/rating.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/globals/reset.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/globals/reset.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/globals/reset.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/globals/reset.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/elements/reveal.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/elements/reveal.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/elements/reveal.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/elements/reveal.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/modules/search.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/modules/search.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/modules/search.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/modules/search.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/elements/segment.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/elements/segment.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/elements/segment.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/elements/segment.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/modules/shape.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/modules/shape.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/modules/shape.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/modules/shape.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/modules/sidebar.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/modules/sidebar.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/modules/sidebar.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/modules/sidebar.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/globals/site.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/globals/site.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/globals/site.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/globals/site.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/views/statistic.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/views/statistic.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/views/statistic.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/views/statistic.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/elements/step.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/elements/step.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/elements/step.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/elements/step.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/modules/sticky.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/modules/sticky.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/modules/sticky.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/modules/sticky.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/modules/tab.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/modules/tab.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/modules/tab.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/modules/tab.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/collections/table.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/collections/table.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/collections/table.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/modules/transition.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/modules/transition.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/modules/transition.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/modules/transition.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/modules/video.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/modules/video.overrides" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm/modules/video.variables" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/themes/featurefm2/modules/video.variables" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/accordion.css" afterPath="$PROJECT_DIR$/dist/components/accordion.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/accordion.min.css" afterPath="$PROJECT_DIR$/dist/components/accordion.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/accordion.min.js" afterPath="$PROJECT_DIR$/dist/components/accordion.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/ad.css" afterPath="$PROJECT_DIR$/dist/components/ad.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/ad.min.css" afterPath="$PROJECT_DIR$/dist/components/ad.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/api.min.js" afterPath="$PROJECT_DIR$/dist/components/api.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/breadcrumb.css" afterPath="$PROJECT_DIR$/dist/components/breadcrumb.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/breadcrumb.min.css" afterPath="$PROJECT_DIR$/dist/components/breadcrumb.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/button.css" afterPath="$PROJECT_DIR$/dist/components/button.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/button.min.css" afterPath="$PROJECT_DIR$/dist/components/button.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/card.css" afterPath="$PROJECT_DIR$/dist/components/card.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/card.min.css" afterPath="$PROJECT_DIR$/dist/components/card.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/checkbox.css" afterPath="$PROJECT_DIR$/dist/components/checkbox.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/checkbox.min.css" afterPath="$PROJECT_DIR$/dist/components/checkbox.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/checkbox.min.js" afterPath="$PROJECT_DIR$/dist/components/checkbox.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/comment.css" afterPath="$PROJECT_DIR$/dist/components/comment.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/comment.min.css" afterPath="$PROJECT_DIR$/dist/components/comment.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/container.css" afterPath="$PROJECT_DIR$/dist/components/container.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/container.min.css" afterPath="$PROJECT_DIR$/dist/components/container.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/divider.css" afterPath="$PROJECT_DIR$/dist/components/divider.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/divider.min.css" afterPath="$PROJECT_DIR$/dist/components/divider.min.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/dropdown.css" afterPath="$PROJECT_DIR$/dist/components/dropdown.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/dropdown.js" afterPath="$PROJECT_DIR$/dist/components/dropdown.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/dropdown.min.css" afterPath="$PROJECT_DIR$/dist/components/dropdown.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/dropdown.min.js" afterPath="$PROJECT_DIR$/dist/components/dropdown.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/form.css" afterPath="$PROJECT_DIR$/dist/components/form.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/form.min.css" afterPath="$PROJECT_DIR$/dist/components/form.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/grid.css" afterPath="$PROJECT_DIR$/dist/components/grid.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/grid.min.css" afterPath="$PROJECT_DIR$/dist/components/grid.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/header.css" afterPath="$PROJECT_DIR$/dist/components/header.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/header.min.css" afterPath="$PROJECT_DIR$/dist/components/header.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/icon.css" afterPath="$PROJECT_DIR$/dist/components/icon.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/icon.min.css" afterPath="$PROJECT_DIR$/dist/components/icon.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/image.css" afterPath="$PROJECT_DIR$/dist/components/image.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/image.min.css" afterPath="$PROJECT_DIR$/dist/components/image.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/input.css" afterPath="$PROJECT_DIR$/dist/components/input.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/input.min.css" afterPath="$PROJECT_DIR$/dist/components/input.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/item.css" afterPath="$PROJECT_DIR$/dist/components/item.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/item.min.css" afterPath="$PROJECT_DIR$/dist/components/item.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/themes/featurefm2/modules/dropdown.overrides" afterPath="$PROJECT_DIR$/src/themes/featurefm2/modules/dropdown.overrides" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/label.css" afterPath="$PROJECT_DIR$/dist/components/label.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/label.min.css" afterPath="$PROJECT_DIR$/dist/components/label.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/list.css" afterPath="$PROJECT_DIR$/dist/components/list.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/list.min.css" afterPath="$PROJECT_DIR$/dist/components/list.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/menu.css" afterPath="$PROJECT_DIR$/dist/components/menu.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/menu.min.css" afterPath="$PROJECT_DIR$/dist/components/menu.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/message.css" afterPath="$PROJECT_DIR$/dist/components/message.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/message.min.css" afterPath="$PROJECT_DIR$/dist/components/message.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/modal.css" afterPath="$PROJECT_DIR$/dist/components/modal.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/modal.js" afterPath="$PROJECT_DIR$/dist/components/modal.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/modal.min.css" afterPath="$PROJECT_DIR$/dist/components/modal.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/modal.min.js" afterPath="$PROJECT_DIR$/dist/components/modal.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/nag.css" afterPath="$PROJECT_DIR$/dist/components/nag.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/nag.min.css" afterPath="$PROJECT_DIR$/dist/components/nag.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/nag.min.js" afterPath="$PROJECT_DIR$/dist/components/nag.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/popup.css" afterPath="$PROJECT_DIR$/dist/components/popup.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/popup.min.css" afterPath="$PROJECT_DIR$/dist/components/popup.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/popup.min.js" afterPath="$PROJECT_DIR$/dist/components/popup.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/progress.css" afterPath="$PROJECT_DIR$/dist/components/progress.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/progress.min.css" afterPath="$PROJECT_DIR$/dist/components/progress.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/progress.min.js" afterPath="$PROJECT_DIR$/dist/components/progress.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/rail.css" afterPath="$PROJECT_DIR$/dist/components/rail.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/rail.min.css" afterPath="$PROJECT_DIR$/dist/components/rail.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/rating.min.css" afterPath="$PROJECT_DIR$/dist/components/rating.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/rating.min.js" afterPath="$PROJECT_DIR$/dist/components/rating.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/reset.css" afterPath="$PROJECT_DIR$/dist/components/reset.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/reset.min.css" afterPath="$PROJECT_DIR$/dist/components/reset.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/search.css" afterPath="$PROJECT_DIR$/dist/components/search.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/search.js" afterPath="$PROJECT_DIR$/dist/components/search.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/search.min.css" afterPath="$PROJECT_DIR$/dist/components/search.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/search.min.js" afterPath="$PROJECT_DIR$/dist/components/search.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/segment.css" afterPath="$PROJECT_DIR$/dist/components/segment.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/segment.min.css" afterPath="$PROJECT_DIR$/dist/components/segment.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/themes/featurefm2/elements/label.variables" afterPath="$PROJECT_DIR$/src/themes/featurefm2/elements/label.variables" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/semantic.css" afterPath="$PROJECT_DIR$/dist/semantic.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/semantic.js" afterPath="$PROJECT_DIR$/dist/semantic.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/semantic.min.css" afterPath="$PROJECT_DIR$/dist/semantic.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/semantic.min.js" afterPath="$PROJECT_DIR$/dist/semantic.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/sidebar.css" afterPath="$PROJECT_DIR$/dist/components/sidebar.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/sidebar.min.css" afterPath="$PROJECT_DIR$/dist/components/sidebar.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/sidebar.min.js" afterPath="$PROJECT_DIR$/dist/components/sidebar.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/site.css" afterPath="$PROJECT_DIR$/dist/components/site.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/site.min.css" afterPath="$PROJECT_DIR$/dist/components/site.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/statistic.css" afterPath="$PROJECT_DIR$/dist/components/statistic.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/statistic.min.css" afterPath="$PROJECT_DIR$/dist/components/statistic.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/step.css" afterPath="$PROJECT_DIR$/dist/components/step.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/step.min.css" afterPath="$PROJECT_DIR$/dist/components/step.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/sticky.min.js" afterPath="$PROJECT_DIR$/dist/components/sticky.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/tab.min.js" afterPath="$PROJECT_DIR$/dist/components/tab.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/table.css" afterPath="$PROJECT_DIR$/dist/components/table.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/table.min.css" afterPath="$PROJECT_DIR$/dist/components/table.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/transition.min.js" afterPath="$PROJECT_DIR$/dist/components/transition.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/visibility.min.js" afterPath="$PROJECT_DIR$/dist/components/visibility.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Semantic-UI.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -308,41 +32,51 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="item.overrides" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/themes/featurefm2/views/item.overrides">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="statistic.overrides" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/themes/featurefm2/views/statistic.overrides">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="statistic.variables" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/themes/featurefm2/views/statistic.variables">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.62963">
-              <caret line="98" column="32" selection-start-line="98" selection-start-column="32" selection-end-line="98" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="menu.variables" pinned="false" current-in-tab="true">
+      <file leaf-file-name="menu.variables" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/themes/featurefm2/collections/menu.variables">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.47432432">
-              <caret line="255" column="44" selection-start-line="255" selection-start-column="44" selection-end-line="255" selection-end-column="44" />
+            <state vertical-scroll-proportion="-12.444445">
+              <caret line="254" column="0" selection-start-line="254" selection-start-column="0" selection-end-line="254" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dropdown.variables" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/themes/featurefm2/modules/dropdown.variables">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.111111">
+              <caret line="119" column="20" selection-start-line="119" selection-start-column="10" selection-end-line="119" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="label.variables" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/themes/featurefm2/elements/label.variables">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="3.5270271">
+              <caret line="174" column="84" selection-start-line="174" selection-start-column="84" selection-end-line="174" selection-end-column="84" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="label.less" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/definitions/elements/label.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-16.25">
+              <caret line="26" column="24" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="label.overrides" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/themes/featurefm2/elements/label.overrides">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -353,16 +87,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="349" column="31" selection-start-line="349" selection-start-column="31" selection-end-line="349" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="theme.config" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/theme.config">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-38.333332">
-              <caret line="69" column="25" selection-start-line="69" selection-start-column="15" selection-end-line="69" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -391,8 +115,8 @@
       <file leaf-file-name="dropdown.overrides" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/themes/featurefm2/modules/dropdown.overrides">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="66" column="2" selection-start-line="66" selection-start-column="2" selection-end-line="66" selection-end-column="2" />
+            <state vertical-scroll-proportion="-9.62963">
+              <caret line="57" column="19" selection-start-line="57" selection-start-column="19" selection-end-line="57" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -455,12 +179,13 @@
         <option value="$PROJECT_DIR$/src/themes/featurefm2/views/item.overrides" />
         <option value="$PROJECT_DIR$/src/themes/featurefm2/views/statistic.overrides" />
         <option value="$PROJECT_DIR$/src/themes/featurefm2/views/statistic.variables" />
-        <option value="$PROJECT_DIR$/src/themes/featurefm2/modules/dropdown.overrides" />
         <option value="$PROJECT_DIR$/src/definitions/collections/menu.less" />
         <option value="$PROJECT_DIR$/src/themes/featurefm2/collections/menu.overrides" />
         <option value="$PROJECT_DIR$/src/themes/featurefm2/collections/menu.variables" />
         <option value="$PROJECT_DIR$/src/themes/featurefm2/globals/site.variables" />
         <option value="$PROJECT_DIR$/src/themes/featurefm2/views/item.variables" />
+        <option value="$PROJECT_DIR$/src/themes/featurefm2/modules/dropdown.overrides" />
+        <option value="$PROJECT_DIR$/src/themes/featurefm2/elements/label.variables" />
       </list>
     </option>
   </component>
@@ -584,22 +309,8 @@
               <option name="myItemId" value="featurefm2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Semantic-UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Semantic-UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="definitions" />
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -617,11 +328,129 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="definitions" />
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="featurefm2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Semantic-UI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Semantic-UI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="featurefm2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Semantic-UI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Semantic-UI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="featurefm2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="elements" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Semantic-UI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Semantic-UI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="featurefm2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="collections" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Semantic-UI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Semantic-UI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="definitions" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Semantic-UI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Semantic-UI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="definitions" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="elements" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -943,12 +772,12 @@
       <workItem from="1431337929010" duration="10000" />
       <workItem from="1431505720165" duration="10002000" />
       <workItem from="1431599886733" duration="34000" />
-      <workItem from="1432039724895" duration="9919000" />
+      <workItem from="1432039724895" duration="11841000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33655000" />
+    <option name="totallyTimeSpent" value="35577000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1005,27 +834,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/definitions/globals/site.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3329753">
-          <caret line="350" column="33" selection-start-line="350" selection-start-column="29" selection-end-line="350" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/definitions/globals/reset.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5952381">
-          <caret line="35" column="79" selection-start-line="35" selection-start-column="76" selection-end-line="35" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="14" selection-start-line="33" selection-start-column="14" selection-end-line="33" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/site/collections/menu.overrides">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.071428575">
@@ -1291,14 +1099,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/themes/featurefm2/modules/dropdown.variables">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.296296">
-          <caret line="260" column="2" selection-start-line="260" selection-start-column="2" selection-end-line="260" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/themes/featurefm2/modules/modal.overrides">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1343,14 +1143,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-16.62963">
           <caret line="98" column="32" selection-start-line="98" selection-start-column="32" selection-end-line="98" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/themes/featurefm2/modules/dropdown.overrides">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="66" column="2" selection-start-line="66" selection-start-column="2" selection-end-line="66" selection-end-column="2" />
           <folding />
         </state>
       </provider>
@@ -1405,8 +1197,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/themes/featurefm2/collections/menu.variables">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47432432">
-          <caret line="255" column="44" selection-start-line="255" selection-start-column="44" selection-end-line="255" selection-end-column="44" />
+        <state vertical-scroll-proportion="-12.444445">
+          <caret line="254" column="0" selection-start-line="254" selection-start-column="0" selection-end-line="254" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/themes/featurefm2/modules/dropdown.overrides">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.62963">
+          <caret line="57" column="19" selection-start-line="57" selection-start-column="19" selection-end-line="57" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/themes/featurefm2/elements/label.overrides">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/definitions/elements/label.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.25">
+          <caret line="26" column="24" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/themes/featurefm2/modules/dropdown.variables">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.111111">
+          <caret line="119" column="20" selection-start-line="119" selection-start-column="10" selection-end-line="119" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/themes/featurefm2/elements/label.variables">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.5270271">
+          <caret line="174" column="84" selection-start-line="174" selection-start-column="84" selection-end-line="174" selection-end-column="84" />
           <folding />
         </state>
       </provider>

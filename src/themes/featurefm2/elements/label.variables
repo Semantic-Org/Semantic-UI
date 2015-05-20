@@ -11,14 +11,15 @@
 @verticalAlign: baseline;
 @verticalMargin: 0em;
 @horizontalMargin: 0.142857em;
-@backgroundColor: #E8E8E8;
+@backgroundColor: @ffm-blue; //ffm
 @backgroundImage: none;
-@labelTextColor: rgba(0, 0, 0, 0.6);
+@labelTextColor: #ffffff; //rgba(0, 0, 0, 0.6); //ffm
 @verticalPadding: 0.5833em;
 @horizontalPadding: 0.833em;
-@borderRadius: @absoluteBorderRadius;
+//@borderRadius: @absoluteBorderRadius;
+@borderRadius: 4px; //ffm
 @textTransform: none;
-@fontWeight: bold;
+@fontWeight: @font-weight-regular; //ffm
 
 @lineHeightOffset: -(@verticalPadding / 2);
 
@@ -76,14 +77,18 @@
         States
 --------------------*/
 
-@labelHoverBackgroundColor: #E0E0E0;
+//@labelHoverBackgroundColor: #E0E0E0;
+@labelHoverBackgroundColor: @ffm-dark-blue; //ffm
 @labelHoverBackgroundImage: none;
-@labelHoverTextColor: @hoveredTextColor;
+//@labelHoverTextColor: @hoveredTextColor;
+@labelHoverTextColor: #ffffff;
 
 /* Hover */
-@labelActiveBackgroundColor: #D0D0D0;
+//@labelActiveBackgroundColor: #D0D0D0;
+@labelActiveBackgroundColor: @ffm-dark-blue; //ffm
 @labelActiveBackgroundImage: none;
-@labelActiveTextColor: @selectedTextColor;
+//@labelActiveTextColor: @selectedTextColor;
+@labelActiveTextColor: #ffffff; //ffm
 
 /* Active Hover */
 @labelActiveHoverBackgroundColor: #C8C8C8;

@@ -1273,6 +1273,9 @@ select.ui.dropdown {
 .ui.form .field.error .ui.dropdown .default.text {
   color: #cccccc;
 }
+.dropdown.icon {
+  display: none;
+}
 
 
 /*******************************
