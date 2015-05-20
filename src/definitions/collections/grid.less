@@ -92,9 +92,6 @@
   padding-top: (@rowSpacing / 2);
   padding-bottom: (@rowSpacing / 2);
 }
-.ui.grid > .row:last-child {
-  padding-bottom: 0em;
-}
 
 /*-------------------
        Columns
@@ -1124,8 +1121,6 @@ body > .ui.grid {
 -----------------------*/
 
 .ui.celled.grid {
-  display: table;
-  table-layout: fixed;
   width: 100%;
   margin: @celledMargin;
   box-shadow: 0px 0px 0px @celledWidth @celledBorderColor;
@@ -1133,8 +1128,6 @@ body > .ui.grid {
 .ui.celled.grid > .row,
 .ui.celled.grid > .column.row,
 .ui.celled.grid > .column.row:first-child {
-  display: table;
-  table-layout: fixed;
   width: 100% !important;
   margin: 0em;
   padding: 0em;
@@ -1142,7 +1135,6 @@ body > .ui.grid {
 }
 .ui.celled.grid > .column:not(.row),
 .ui.celled.grid > .row > .column {
-  display: table-cell;
   box-shadow: (-@celledWidth) 0px 0px 0px @celledBorderColor;
 }
 .ui.celled.grid > .column:first-child,
@@ -1169,6 +1161,7 @@ body > .ui.grid {
 /* Internally Celled */
 .ui[class*="internally celled"].grid {
   box-shadow: none;
+  margin: 0em;
 }
 .ui[class*="internally celled"].grid > .row:first-child {
   box-shadow: none;
