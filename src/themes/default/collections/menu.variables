@@ -105,14 +105,14 @@
 /* Button */
 @buttonSize: @relativeMedium;
 @buttonOffset: 0em;
-@buttonMargin: -0.4em 0em;
-@buttonVerticalPadding: 0.6em;
+@buttonMargin: -0.5em 0em;
+@buttonVerticalPadding: @relativeMini;
 
 /* Input */
 @inputSize: @relativeMedium;
 @inputVerticalMargin: -0.5em;
 @inputOffset: 0em;
-@inputVerticalPadding: 0.5em;
+@inputVerticalPadding: 0.57142em;
 
 /* Image */
 @imageMargin: -0.3em 0em;
@@ -242,7 +242,6 @@
 /* Pointing */
 @secondaryPointingBorderWidth: 2px;
 @secondaryPointingBorderColor: @borderColor;
-@secondaryPointingItemMargin: 0em 0em -@secondaryPointingBorderWidth;
 @secondaryPointingItemVerticalPadding: @relativeTiny;
 @secondaryPointingItemHorizontalPadding: @relativeMedium;
 

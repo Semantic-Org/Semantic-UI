@@ -460,13 +460,13 @@ Floated Menu / Item
 .ui.menu:not(.vertical) .item.left,
 .ui.menu:not(.vertical) .menu.left {
   display: flex;
-  margin-right: auto;
+  margin-right: auto !important;
 }
 /* Right Floated */
 .ui.menu:not(.vertical) .item.right,
 .ui.menu:not(.vertical) .menu.right {
   display: flex;
-  margin-left: auto;
+  margin-left: auto !important;
 }
 
 /* Floated Borders */
@@ -818,7 +818,7 @@ Floated Menu / Item
   border-radius: 0em;
   align-self: flex-end;
 
-  margin: @secondaryPointingItemMargin;
+  margin-bottom: -@secondaryPointingBorderWidth;
   padding: @secondaryPointingItemVerticalPadding @secondaryPointingItemHorizontalPadding;
   border-bottom-width: @secondaryPointingBorderWidth;
   transition: @secondaryItemTransition;
