@@ -12,7 +12,7 @@
 /* Style */
 @backgroundColor: #E0E0E0;
 @backgroundImage: none;
-@verticalPadding: 0.78571em;
+@verticalPadding: 0.7857142em;
 @horizontalPadding: 1.5em;
 
 /* Text */
