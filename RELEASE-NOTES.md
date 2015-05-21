@@ -5,51 +5,52 @@
 -**Migration Guide**
 
 - **Modal** - If you are using a modal with image content, you will need to use `image content` on the parent element. This is because `flex` rules require parent styling that the previous `table-row` rules did not.
-- **Modal** - Only buttons matching `deny` or `approve` selector will now close a modal automatically. Any button that should hide modal on click should either match one of these selectors, or call `$('.ui.modal').modal('hide')`
-- **Grid** - `page grid` have been modified to have fixed widths. Fluid grid gutters make it very difficult to style responsive page content because they continuously adjust with the browser. Moving forward we will be recommending using `ui container` a fixed width container for holding page contents.
-- **Form Validation** - Form validation now passes settings through a `fields` object, the previous syntax will continue to work but produce deprecation notices in console
-- **Popup** - Popups are no longer exclusive by default. Opening a popup will not necessarily close other visible popups. You can adjust this by setting `exclusive: true` in your popup init.
+- **Modal** - Modal will now only close on buttons matching `deny` or `approve` selector. Any button that should hide modal on click should either match one of these selectors, or call `$('.ui.modal').modal('hide')` `onclick`.
+- **Grid** - `page grid` has been deprecated.  `page grids` used percentage gutters which made it unnecessarily difficult to style responsive page content. Moving forward we recommend using `ui container` a fixed width responsinve container for holding page contents.
+- **Form Validation** - Form validation now passes settings through a `fields` object. This is to make form initialization match other components. The previous syntax will continue to work but produce deprecation notices in console
+- **Popup** - Popups are no longer exclusive by default. Opening a popup will not necessarily close other visible popups. You can change this behavior by using the setting `exclusive: true`
 
 **New UI**
 - **Container** - Containers are fixed width containers meant for holding page contents, and are a simpler alternative to `ui page grid`, view more [examples in docs](http://www.semantic-ui.com/elements/container.html#examples)
-- **Multiselect** - New dropdown types has been added for multi-select, including tagging/tokenizing features
+- **Multiselect** - New `multiple` dropdown types have been added, including tagging/tokenizing features.
+- **Embed* - New embed component allows for responsive embeds that maintain aspect ratio. Javascript component allows simple embeds for third party video services like youtube or vimeo.
 - **Headers** - Added new header type `sub header`, useful for displaying small headers alongside text content. See examples [in the header docs](http://www.semantic-ui.com/elements/header.html#sub-headers)
-- **Menu** - New UI `vertical tabular menu` is now available with `menu`
-- **Modal** - Add new settings `blurring` and `inverted` which are simple shortcuts for setting modal's dimmer to use either blurring or inverted variations.
+- **Menu** - `vertical tabular menu`, a vertical tab menu, has been added
 - **Dropdown** - Added new dropdown variation `scrolling dropdown` and `scrolling menu`, see docs or try it out with the language menu in the navigation bar
 - **Image** - Images now include a `spaced` variation for adding whitespace around images when used inline with text.
 - **Dimmer** - Dimmers now have a `blurring` variation which apply a glass-like effect when dimmed
-- **Popup** - Popups now  default as `exclusive: false` and will not hide other popups when opening
-- **Steps** - Steps can now be attached to other UI like `segment`
+- **Steps** - Added `attached` steps, which can now be attached to other UI like `segment`
 - **Table** - Adds `selectable table` variation, which shows hover effect on row when hovering
+- **Visibility** - Visibility can now handle "sticky" `fixed` content, adding a placeholder duplicate element which will automatically appear when an element swaps to fixed position
 
-**Major Changes**
-- **API** - API can now be used with mocked responses, and custom XHR backends. `mockResponse` can be used to resolve request with a local function that receives the same settings as the server. `mockResponseAsync` allows you to specify to  server response from a custom async callback.
-- **API** - API now provides a client-side caching setting to avoid server roundtrips for identical urls `cache: 'local'`, this is useful for caching results for things like autocomplete, which does not need to requery server on identical searches.
-- **Card** - Cards now support multiple `content` blocks, and varied orders, for example content above or below an image or both
+**Major Changes (Please Read)**
+- **API** - API can now be used with mocked responses, and custom AJAX requests. `mockResponse` can be used to resolve request with a local function that receives the same settings as the server. `mockResponseAsync` allows you to specify an asynchronous callback that can resolve a request.
+- **API** - API now provides a client-side cache setting to avoid server roundtrips for identical urls `cache: 'local'`. This is useful for caching results that will return the same results across a page view: things like autocomplete.
+- **Card** - Cards now support multiple `content` blocks. Content blocks can now appear above or below an image and will adjust formatting.
 - **Colors** - Global colors defaults have been adjusted to improve contrast with white text
+- **Dropdown** - Added remote API integration with dropdown, to allow `search selection` to query against a remote dataset.
 - **Dropdown** - Nested scrolling menus can now use keyboard selection and filter with inline search. Nested menu scroll position will automatically adjust with keyboard selection.
 - **Dropdowns** - Added ability to add custom choices to all search selection dropdowns (multi/single) using `allowAdditions: true` setting. Search now displays error messages on no results in all cases.
-- **Dropdown** - Dropdown will automatically animate upward if necessary to make sure contents remain on screen
+- **Dropdown** - Dropdown will automatically animate upward if necessary to remain on screen
 - **Grid** - Grids are now based on `flexbox`, columns are now `equal height` by default. Flexbox alignment has been added for easier vertical alignment.
 - **Multiple UI** - Many components now use flexbox, which means previous confusing fixes like `font-size: 0;` to remove [white-space from inline block](https://css-tricks.com/fighting-the-space-between-inline-block-elements/) have been removed. This means any element can be a direct child of `grid` or `menu`.
+- **Modal** - Added new settings `blurring` and `inverted` which set a modals dimmer to either inverted or blurring.
 - **Menu** - Menu now uses flexbox. This allows menu items to match each others heights regardless of each items content size. `right menu` content should now follow other menu content instead of preceding it (no longer uses float).
 - **Grid** - Grids are now `flexbox` and `equal height` by default, the `equal height` variation can safely be removed
-- **Transition** - Fallback javascript animations have been removed from some UI components like dropdown and popup to reduce redundant code, increase performance (can remove `:visible`, and `:hidden` checks) and reduce filesizes.
+- **Transition** - Fallback javascript animations have been removed from UI components like dropdown and popup to increase performance (can remove `:visible`, `:animated` and `:hidden`) and reduce filesize.
 - **Form Validation** - Form validation now uses a single `settings` object like other modules. Using `(fields, settings)` will continue to work but will produce a deprecation notifications in `console`
-- **Form Validation** - Form validation now supports several validation for multiple
-- **Item** - Item now uses `flexbox` for layout
-- **Message** - `icon message` now uses `flexbox`
-- **Input** - All `input` types use `flexbox`
-- **Shapes** - Shapes now animate height/width when side changes sizes and now correctly adjusts for margin on shape elements
-- **Steps** - Steps now use `flexbox`, the default horizontal theme has the active element point downward now instead of to the right. Steps no longer need `item count` and will automatically divide evenly
-- **Transition** - Transition has been optimized to be much more performant.
-- **Visibility** - Visibility can now handle "sticky" `fixed` content, adding a placeholder duplicate element which will automatically appear when an element swaps to fixed position
+- **Form Validation** - Form validation now supports several validation rules specifically for multiple selection
+- **Item** - Items now uses `flexbox` for layout
+- **Message** - `icon message` now uses `flexbox` for layout
+- **Input** - All `input` types use `flexbox` for layout
+- **Shapes** - Shapes now correctly adjusts for margin on shape elements
+- **Steps** - Steps now use `flexbox`, the default horizontal theme has the active element point downward now instead of to the right.
+- **Steps** - Steps no longer need `item count` and will automatically divide evenly
+- **Transition** - Transition has been optimized for increased performance.
 - **Visibility** - Visibility and sticky now are much more performance and include two new callbacks `onOnScreen` and `onOffScreen`
 
 **Enhancements**
 - **Accordion** - adds `onOpening` and `onClosing` callback (before animation) to go with `onOpen`, `onClose` (after animation) **Thanks @cluppric**
-
 - **API** - API callbacks now have an `onResponse` callback that can modified a server response before it is parsed by other callbacks for success or failure conditions. **Thanks @mnquintana**
 - **Accordion** - Added `on` setting for accordion trigger event
 - **Build Tools** - Build tools will now produce understandable errors when a theme file is missing or an element specifies an unavailable theme
@@ -105,6 +106,7 @@
 - **Statistic** - Statitic group now use `flex`. Styles have been updated.
 - **Tabs* - Added `parseScripts` option, defaults to `once` parsing inline scripts only first load
 - **Table** - Added `vertical alignment` variations to `ui table`
+- **Table** - Added `single line` table variation which prevents text from wrapping
 - **Visibility/Sticky** - Visibility and sticky now refresh automatically after page content loading to deal with changes in position from images loading
 - **Visibility/Sticky** - Visibility now uses pub/sub pattern to greatly improve scroll performance when attaching multiple events
 - **Visibility** - Visibility `image` will now wait to lazy load images that are *above* the current screen position, not just below.
@@ -158,6 +160,7 @@
 - **Loader** - Fix position of `inline centered loader` to be centered correctly
 - **Message** - Message now uses `@lineHeight` from `site.variables`
 - **Menu** - Fixed menus like `left fixed` `right fixed` are all now class order dependent.
+- **Menu** - Fixed 1px border on last element of inline menus like `pagination menu` or `compact menu`
 - **Modal** - Modal no longer hides page scroll bar causing dimmed page content to jump positions.
 - **Modal** - Fixed bug where clicking an element detached from dom would cause modal to hide prematurely
 - **Modal** - Clicking on other modals will no longer close open modal when `allowMultiple: true`
@@ -228,7 +231,8 @@
 - **Modal** - Modals now used fixed widths and not percentage widths. Widths might be slightly different.
 - **Modal** - Modal no longer observes DOM changes by default, added setting to enable
 - **Message** - Slightly increases `box-shadow`
-- **Popup** - Popup no longer produces an error when a position cannot be found on the page.
+- **Popup** - Popups now default to `exclusive: false` and will not hide other popups when opening
+- **Popup** - Popup no longer produces a console error when a position cannot be found on the page.
 - **Segment** - **Clearfix** has been removed from `ui segment`
 - **Sidebar** - Sidebar now defaults to `useLegacy: false` to avoid the overhead of feature detection for most users
 - **Search** - Slightly adjusted search result theme for clarity
