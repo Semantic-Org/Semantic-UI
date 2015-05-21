@@ -182,7 +182,6 @@
 ---------------*/
 
 .ui.attached.message {
-  width: 100%;
   margin-bottom: -1px;
   border-radius: 0.2857rem 0.2857rem 0em 0em;
   box-shadow: 0em 0em 0em 1px rgba(34, 36, 38, 0.15) inset;

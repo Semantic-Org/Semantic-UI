@@ -6427,6 +6427,7 @@ i.massive.icons {
 i.icons {
   display: inline-block;
   position: relative;
+  line-height: 1;
 }
 
 i.icons .icon {
@@ -18170,6 +18171,10 @@ Floated Menu / Item
   vertical-align: middle;
 }
 
+.ui.pagination.menu .item:last-child:before {
+  display: none;
+}
+
 .ui.pagination.menu .item {
   min-width: 3em;
   text-align: center;
@@ -19053,6 +19058,10 @@ Floated Menu / Item
   vertical-align: middle;
 }
 
+.ui.compact.menu .item:last-child:before {
+  display: none;
+}
+
 .ui.compact.vertical.menu {
   width: auto !important;
 }
@@ -19558,7 +19567,6 @@ Floated Menu / Item
 ---------------*/
 
 .ui.attached.message {
-  width: 100%;
   margin-bottom: -1px;
   border-radius: 0.2857rem 0.2857rem 0em 0em;
   box-shadow: 0em 0em 0em 1px rgba(34, 36, 38, 0.15) inset;
@@ -19921,7 +19929,7 @@ Floated Menu / Item
   background: #fafafa;
   text-align: inherit;
   color: rgba(0, 0, 0, 0.87);
-  padding: 1em 0.71428571em;
+  padding: 0.92857143em 0.71428571em;
   vertical-align: inherit;
   font-style: none;
   font-weight: bold;
@@ -29944,7 +29952,7 @@ html.ios {
   background: #fafafa;
   text-align: inherit;
   color: rgba(0, 0, 0, 0.87);
-  padding: 1em 0.71428571em;
+  padding: 0.92857143em 0.71428571em;
   vertical-align: inherit;
   font-style: none;
   font-weight: bold;
