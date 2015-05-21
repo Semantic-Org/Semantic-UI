@@ -11,6 +11,10 @@
     z-index: 1;
 }
 
+.field.error > input {
+    z-index: 2;
+}
+
 /*
 @media (max-width: 479px) {
   .ui.form .input input,

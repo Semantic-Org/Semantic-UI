@@ -322,7 +322,7 @@
 @negativeBackgroundColor : #f7e3e3; //ffm
 @negativeBorderColor     : #ff0000; //ffm
 @negativeHeaderColor     : #912D2B;
-@negativeTextColor       : #973230;
+@negativeTextColor       : @textColor;   //ffm
 
 /* Info */
 @infoColor              : #31CCEC;
