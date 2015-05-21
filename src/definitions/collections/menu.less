@@ -669,6 +669,9 @@ Floated Menu / Item
   display: inline-flex;
   vertical-align: middle;
 }
+.ui.pagination.menu .item:last-child:before {
+  display: none;
+}
 
 .ui.pagination.menu .item {
   min-width: @paginationMinWidth;
@@ -1432,6 +1435,9 @@ Floated Menu / Item
   display: inline-flex;
   margin: 0em;
   vertical-align: middle;
+}
+.ui.compact.menu .item:last-child:before {
+  display: none;
 }
 .ui.compact.vertical.menu {
   width: auto !important;
