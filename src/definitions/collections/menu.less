@@ -1149,47 +1149,56 @@ Floated Menu / Item
 ---------------*/
 
 /*--- Light Colors  ---*/
-.ui.menu .blue.active.item,
-.ui.blue.menu .active.item {
-  border-color: @blue !important;
-  color: @blue !important;
-}
-.ui.menu .green.active.item,
-.ui.green.menu .active.item {
-  border-color: @green !important;
-  color: @green !important;
+.ui.menu .red.active.item,
+.ui.red.menu .active.item {
+  border-color: @red !important;
+  color: @red !important;
 }
 .ui.menu .orange.active.item,
 .ui.orange.menu .active.item {
   border-color: @orange !important;
   color: @orange !important;
 }
-.ui.menu .pink.active.item,
-.ui.pink.menu .active.item {
-  border-color: @pink !important;
-  color: @pink !important;
+.ui.menu .yellow.active.item,
+.ui.yellow.menu .active.item {
+  border-color: @yellow !important;
+  color: @yellow !important;
 }
-.ui.menu .purple.active.item,
-.ui.purple.menu .active.item {
-  border-color: @purple !important;
-  color: @purple !important;
-}
-.ui.menu .red.active.item,
-.ui.red.menu .active.item {
-  border-color: @red !important;
-  color: @red !important;
+.ui.menu .green.active.item,
+.ui.green.menu .active.item {
+  border-color: @green !important;
+  color: @green !important;
 }
 .ui.menu .teal.active.item,
 .ui.teal.menu .active.item {
   border-color: @teal !important;
   color: @teal !important;
 }
-.ui.menu .yellow.active.item,
-.ui.yellow.menu .active.item {
-  border-color: @yellow !important;
-  color: @yellow !important;
+.ui.menu .blue.active.item,
+.ui.blue.menu .active.item {
+  border-color: @blue !important;
+  color: @blue !important;
 }
-
+.ui.menu .violet.active.item,
+.ui.violet.menu .active.item {
+  border-color: @violet !important;
+  color: @violet !important;
+}
+.ui.menu .purple.active.item,
+.ui.purple.menu .active.item {
+  border-color: @purple !important;
+  color: @purple !important;
+}
+.ui.menu .pink.active.item,
+.ui.pink.menu .active.item {
+  border-color: @pink !important;
+  color: @pink !important;
+}
+.ui.menu .brown.active.item,
+.ui.brown.menu .active.item {
+  border-color: @brown !important;
+  color: @brown !important;
+}
 
 
 /*--------------
@@ -1239,8 +1248,6 @@ Floated Menu / Item
   color: @invertedDisabledTextColor;
 }
 
-
-
 /*--- Hover ---*/
 .ui.link.inverted.menu .item:hover,
 .ui.inverted.menu .dropdown.item:hover,
@@ -1249,12 +1256,12 @@ Floated Menu / Item
   background: @invertedHoverBackground;
   color: @invertedHoverColor;
 }
-
 .ui.vertical.inverted.menu .item .menu a.item:hover,
 .ui.vertical.inverted.menu .item .menu .link.item:hover {
   background: @invertedSubMenuBackground;
   color: @invertedSubMenuHoverColor;
 }
+
 /*--- Pressed ---*/
 .ui.inverted.menu a.item:active,
 .ui.inverted.menu .link.item:active,
@@ -1320,11 +1327,11 @@ Floated Menu / Item
 
 .ui.floated.menu {
   float: left;
-  margin: 0rem 0.5rem 0rem 0rem;
+  margin: 0rem @floatedDistance 0rem 0rem;
 }
 .ui.right.floated.menu {
   float: right;
-  margin: 0rem 0rem 0rem 0.5rem;
+  margin: 0rem 0rem 0rem @floatedDistance;
 }
 
 
@@ -1332,71 +1339,114 @@ Floated Menu / Item
     Inverted
 ---------------*/
 
-/*--- Inverted Colors  ---*/
+/* Red */
+.ui.inverted.red.menu {
+  background-color: @red;
+}
+.ui.inverted.red.menu .item:before {
+  background-color: @invertedColoredDividerBackground;
+}
+.ui.inverted.red.menu .active.item {
+  background-color: @invertedColoredActiveBackground !important;
+}
+
+/* Orange */
+.ui.inverted.orange.menu {
+  background-color: @orange;
+}
+.ui.inverted.orange.menu .item:before {
+  background-color: @invertedColoredDividerBackground;
+}
+.ui.inverted.orange.menu .active.item {
+  background-color: @invertedColoredActiveBackground !important;
+}
+
+/* Yellow */
+.ui.inverted.yellow.menu {
+  background-color: @yellow;
+}
+.ui.inverted.yellow.menu .item:before {
+  background-color: @invertedColoredDividerBackground;
+}
+.ui.inverted.yellow.menu .active.item {
+  background-color: @invertedColoredActiveBackground !important;
+}
+
+/* Green */
+.ui.inverted.green.menu {
+  background-color: @green;
+}
+.ui.inverted.green.menu .item:before {
+  background-color: @invertedColoredDividerBackground;
+}
+.ui.inverted.green.menu .active.item {
+  background-color: @invertedColoredActiveBackground !important;
+}
+
+/* Teal */
+.ui.inverted.teal.menu {
+  background-color: @teal;
+}
+.ui.inverted.teal.menu .item:before {
+  background-color: @invertedColoredDividerBackground;
+}
+.ui.inverted.teal.menu .active.item {
+  background-color: @invertedColoredActiveBackground !important;
+}
 
 /* Blue */
 .ui.inverted.blue.menu {
   background-color: @blue;
 }
-.ui.inverted.blue.menu .active.item,
-.ui.inverted.blue.pointing.menu .item:after {
-  background-color: @blueActive !important;
+.ui.inverted.blue.menu .item:before {
+  background-color: @invertedColoredDividerBackground;
 }
-/* Green */
-.ui.inverted.green.menu {
-  background-color: @green;
+.ui.inverted.blue.menu .active.item {
+  background-color: @invertedColoredActiveBackground !important;
 }
-.ui.inverted.green.menu .active.item,
-.ui.inverted.green.pointing.menu .item:after {
-  background-color: @greenActive !important;
+
+/* Violet */
+.ui.inverted.violet.menu {
+  background-color: @violet;
 }
-/* Orange */
-.ui.inverted.orange.menu {
-  background-color: @orange;
+.ui.inverted.violet.menu .item:before {
+  background-color: @invertedColoredDividerBackground;
 }
-.ui.inverted.orange.menu .active.item,
-.ui.inverted.orange.pointing.menu .item:after {
-  background-color: @orangeActive !important;
+.ui.inverted.violet.menu .active.item {
+  background-color: @invertedColoredActiveBackground !important;
 }
-/* Pink */
-.ui.inverted.pink.menu {
-  background-color: @pink;
-}
-.ui.inverted.pink.menu .active.item,
-.ui.inverted.pink.pointing.menu .item:after {
-  background-color: @pinkActive !important;
-}
+
 /* Purple */
 .ui.inverted.purple.menu {
   background-color: @purple;
 }
-.ui.inverted.purple.menu .active.item,
-.ui.inverted.purple.pointing.menu .item:after {
-  background-color: @purpleActive !important;
+.ui.inverted.purple.menu .item:before {
+  background-color: @invertedColoredDividerBackground;
 }
-/* Red */
-.ui.inverted.red.menu {
-  background-color: @red;
+.ui.inverted.purple.menu .active.item {
+  background-color: @invertedColoredActiveBackground !important;
 }
-.ui.inverted.red.menu .active.item,
-.ui.inverted.red.pointing.menu .item:after {
-  background-color: @redActive !important;
+
+/* Pink */
+.ui.inverted.pink.menu {
+  background-color: @pink;
 }
-/* Teal */
-.ui.inverted.teal.menu {
-  background-color: @teal;
+.ui.inverted.pink.menu .item:before {
+  background-color: @invertedColoredDividerBackground;
 }
-.ui.inverted.teal.menu .active.item,
-.ui.inverted.teal.pointing.menu .active.item:after {
-  background-color: @tealActive !important;
+.ui.inverted.pink.menu .active.item {
+  background-color: @invertedColoredActiveBackground !important;
 }
-/* Yellow */
-.ui.inverted.yellow.menu {
-  background-color: @yellow;
+
+/* Brown */
+.ui.inverted.brown.menu {
+  background-color: @brown;
 }
-.ui.inverted.yellow.menu .active.item,
-.ui.inverted.yellow.pointing.menu .active.item:after {
-  background-color: @yellowActive !important;
+.ui.inverted.brown.menu .item:before {
+  background-color: @invertedColoredDividerBackground;
+}
+.ui.inverted.brown.menu .active.item {
+  background-color: @invertedColoredActiveBackground !important;
 }
 
 
