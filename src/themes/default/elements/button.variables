@@ -183,8 +183,8 @@
 
 @basicBackground: transparent;
 @basicFontWeight: normal;
+@basicBorder: 1px solid @borderColor;
 @basicBoxShadow: 0px 0px 0px @basicBorderSize @borderColor inset;
-@iconOffset: 0.05em;
 @basicLoadingColor: @offWhite;
 @basicTextTransform: none;
 
@@ -232,7 +232,7 @@
 
 /* Basic Group */
 @basicGroupBorder: @basicBorderSize solid @borderColor;
-@basicGroupBoxShadow: 0px 0px 0px @basicBorderSize @borderColor;
+@basicGroupBoxShadow: none;
 
 /*-------------------
       Variations

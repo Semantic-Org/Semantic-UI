@@ -176,7 +176,7 @@
 @lightViolet      : #CDC6FF;
 @lightPurple      : #CDC6FF;
 @lightPink        : #FF8EDF;
-@lightBrown       : #FF695E;
+@lightBrown       : #C67D36;
 @lightGrey        : #DCDDDE;
 @lightBlack       : #545454;
 
@@ -197,7 +197,7 @@
 @violetBackground : #EAE7FF;
 @purpleBackground : #EAE7FF;
 @pinkBackground   : #FFE3FB;
-@brownBackground    : #FFE8E6;
+@brownBackground  : #FFE8E6;
 
 /*--- Colored Headers ---*/
 @redHeaderColor    : darken(@redTextColor, 5);
@@ -212,18 +212,16 @@
 @brownHeaderColor    : darken(@redTextColor, 5);
 
 /*--- Colored Text ---*/
-@redTextColor     : @red;
-@orangeTextColor  : @orange;
-@tealTextColor    : #10A3A3; // Teal text is difficult to read
-@blueTextColor    : @blue;
-@greenTextColor   : #1EBC30; // Green is difficult to read
-@violetTextColor  : @violet;
-@purpleTextColor  : @purple;
-@pinkTextColor    : @pink;
-@yellowTextColor  : #B58105; // Yellow text is difficult to read
-@brownTextColor     : @red;
-
-/*-- Inverted Text Color */
+@redTextColor    : @red;
+@orangeTextColor : @orange;
+@tealTextColor   : #10A3A3; // Teal text is difficult to read
+@blueTextColor   : @blue;
+@greenTextColor  : #1EBC30; // Green is difficult to read
+@violetTextColor : @violet;
+@purpleTextColor : @purple;
+@pinkTextColor   : @pink;
+@yellowTextColor : #B58105; // Yellow text is difficult to read
+@brownTextColor  : @brown;
 
 
 
