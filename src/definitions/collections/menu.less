@@ -81,7 +81,6 @@
   vertical-align: middle;
   line-height: 1;
   text-decoration: none;
-  box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
 
@@ -668,6 +667,12 @@ Floated Menu / Item
   margin: 0em;
   display: inline-flex;
   vertical-align: middle;
+}
+.ui.pagination.menu .item:last-child {
+  border-radius: 0em @borderRadius @borderRadius 0em;
+}
+.ui.compact.menu .item:last-child {
+  border-radius: 0em @borderRadius @borderRadius 0em;
 }
 .ui.pagination.menu .item:last-child:before {
   display: none;
@@ -1435,6 +1440,9 @@ Floated Menu / Item
   display: inline-flex;
   margin: 0em;
   vertical-align: middle;
+}
+.ui.compact.menu .item:last-child {
+  border-radius: 0em @borderRadius @borderRadius 0em;
 }
 .ui.compact.menu .item:last-child:before {
   display: none;
