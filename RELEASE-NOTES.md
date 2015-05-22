@@ -9,6 +9,7 @@
 - **Grid** - `page grid` has been deprecated.  `page grids` used percentage gutters which made it unnecessarily difficult to style responsive page content. Moving forward we recommend using `ui container` a fixed width responsinve container for holding page contents.
 - **Form Validation** - Form validation now passes settings through a `fields` object. This is to make form initialization match other components. The previous syntax will continue to work but produce deprecation notices in console
 - **Popup** - Popups are no longer exclusive by default. Opening a popup will not necessarily close other visible popups. You can change this behavior by using the setting `exclusive: true`
+- **Colors** - Default colors have been slightly adjusted, and new colors have been added, which may cause slight changes in your design.
 
 **New UI**
 - **Container** - Containers are fixed width containers meant for holding page contents, and are a simpler alternative to `ui page grid`, view more [examples in docs](http://www.semantic-ui.com/elements/container.html#examples)
@@ -24,7 +25,9 @@
 - **Visibility** - Visibility can now handle "sticky" `fixed` content, adding a placeholder duplicate element which will automatically appear when an element swaps to fixed position
 
 **Major Changes (Please Read)**
+- **Site** - Added new colors `brown`, `violet`, and `grey`. These are available in all elements with color variations.  **Thanks @lemartialou**
 - **API** - API can now be used with mocked responses, and custom AJAX requests. `mockResponse` can be used to resolve request with a local function that receives the same settings as the server. `mockResponseAsync` allows you to specify an asynchronous callback that can resolve a request.
+- **API** - API callbacks now have an `onResponse` callback that can modified a server response before it is parsed by other callbacks for success or failure conditions. **Thanks @mnquintana**
 - **API** - API now provides a client-side cache setting to avoid server roundtrips for identical urls `cache: 'local'`. This is useful for caching results that will return the same results across a page view: things like autocomplete.
 - **Card** - Cards now support multiple `content` blocks. Content blocks can now appear above or below an image and will adjust formatting.
 - **Colors** - Global colors defaults have been adjusted to improve contrast with white text
@@ -51,7 +54,6 @@
 
 **Enhancements**
 - **Accordion** - adds `onOpening` and `onClosing` callback (before animation) to go with `onOpen`, `onClose` (after animation) **Thanks @cluppric**
-- **API** - API callbacks now have an `onResponse` callback that can modified a server response before it is parsed by other callbacks for success or failure conditions. **Thanks @mnquintana**
 - **Accordion** - Added `on` setting for accordion trigger event
 - **Build Tools** - Build tools will now produce understandable errors when a theme file is missing or an element specifies an unavailable theme
 - **Build Tools** - Adjusting `site.variables` will now rebuild all UI, instead of just `site.less`
