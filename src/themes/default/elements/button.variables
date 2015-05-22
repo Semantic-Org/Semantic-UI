@@ -243,38 +243,30 @@
 @coloredBoxShadow: @shadowBoxShadow;
 
 /* Inverted by default for solids */
-@blueTextColor: @invertedTextColor;
-@blueTextShadow: @invertedTextShadow;
-
-@greenTextColor: @invertedTextColor;
-@greenTextShadow: @invertedTextShadow;
-
-@greyTextColor: @invertedTextColor;
-@greyTextShadow: @invertedTextShadow;
-
-@orangeTextColor: @invertedTextColor;
-@orangeTextShadow: @invertedTextShadow;
-
-@pinkTextColor: @invertedTextColor;
-@pinkTextShadow: @invertedTextShadow;
-
-@violetTextColor: @invertedTextColor;
-@violetTextShadow: @invertedTextShadow;
-
-@purpleTextColor: @invertedTextColor;
-@purpleTextShadow: @invertedTextShadow;
-
+@brownTextColor: @invertedTextColor;
+@brownTextShadow: @invertedTextShadow;
 @redTextColor: @invertedTextColor;
 @redTextShadow: @invertedTextShadow;
-
-@tealTextColor: @invertedTextColor;
-@tealTextShadow: @invertedTextShadow;
-
+@orangeTextColor: @invertedTextColor;
+@orangeTextShadow: @invertedTextShadow;
 @yellowTextColor: @invertedTextColor;
 @yellowTextShadow: @invertedTextShadow;
-
+@greenTextColor: @invertedTextColor;
+@greenTextShadow: @invertedTextShadow;
+@tealTextColor: @invertedTextColor;
+@tealTextShadow: @invertedTextShadow;
+@blueTextColor: @invertedTextColor;
+@blueTextShadow: @invertedTextShadow;
+@violetTextColor: @invertedTextColor;
+@violetTextShadow: @invertedTextShadow;
+@purpleTextColor: @invertedTextColor;
+@purpleTextShadow: @invertedTextShadow;
+@pinkTextColor: @invertedTextColor;
+@pinkTextShadow: @invertedTextShadow;
 @blackTextColor: @invertedTextColor;
 @blackTextShadow: @invertedTextShadow;
+@greyTextColor: @invertedTextColor;
+@greyTextShadow: @invertedTextShadow;
 
 
 /* Ordinality */
