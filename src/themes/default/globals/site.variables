@@ -208,7 +208,7 @@
 @violetHeaderColor : darken(@violetTextColor, 5);
 @purpleHeaderColor : darken(@purpleTextColor, 5);
 @orangeHeaderColor : darken(@orangeTextColor, 5);
-@brownHeaderColor    : darken(@redTextColor, 5);
+@brownHeaderColor  : darken(@brownTextColor, 5);
 
 /*--- Colored Text ---*/
 @redTextColor    : @red;

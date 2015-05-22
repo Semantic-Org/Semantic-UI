@@ -122,35 +122,44 @@
 @rightRibbonImageOffset:  ~"calc(100% + "@ribbonImageMargin~" + "@ribbonTriangleSize~")";
 
 /* Colors */
-@blackTextColor: @white;
-@blueTextColor: @white;
-@greenTextColor: @white;
-@orangeTextColor: @white;
-@pinkTextColor: @white;
-@purpleTextColor: @white;
 @redTextColor: @white;
-@tealTextColor: @white;
+@orangeTextColor: @white;
 @yellowTextColor: @white;
+@greenTextColor: @white;
+@tealTextColor: @white;
+@blueTextColor: @white;
+@violetTextColor: @white;
+@purpleTextColor: @white;
+@pinkTextColor: @white;
+@brownTextColor: @white;
+@greyTextColor: @white;
+@blackTextColor: @white;
 
-@blackHoverTextColor: @white;
-@blueHoverTextColor: @white;
-@greenHoverTextColor: @white;
-@orangeHoverTextColor: @white;
-@pinkHoverTextColor: @white;
-@purpleHoverTextColor: @white;
 @redHoverTextColor: @white;
-@tealHoverTextColor: @white;
+@orangeHoverTextColor: @white;
 @yellowHoverTextColor: @white;
+@greenHoverTextColor: @white;
+@tealHoverTextColor: @white;
+@blueHoverTextColor: @white;
+@violetHoverTextColor: @white;
+@purpleHoverTextColor: @white;
+@pinkHoverTextColor: @white;
+@brownHoverTextColor: @white;
+@greyHoverTextColor: @white;
+@blackHoverTextColor: @white;
 
-@blackRibbonShadow: darken(@black, 10);
-@blueRibbonShadow: darken(@blue, 10);
-@greenRibbonShadow: darken(@green, 10);
-@orangeRibbonShadow: darken(@orange, 10);
-@pinkRibbonShadow: darken(@pink, 10);
-@purpleRibbonShadow: darken(@purple, 10);
 @redRibbonShadow: darken(@red, 10);
-@tealRibbonShadow: darken(@teal, 10);
+@orangeRibbonShadow: darken(@orange, 10);
 @yellowRibbonShadow: darken(@yellow, 10);
+@greenRibbonShadow: darken(@green, 10);
+@tealRibbonShadow: darken(@teal, 10);
+@blueRibbonShadow: darken(@blue, 10);
+@violetRibbonShadow: darken(@violet, 10);
+@purpleRibbonShadow: darken(@purple, 10);
+@pinkRibbonShadow: darken(@pink, 10);
+@brownRibbonShadow: darken(@brown, 10);
+@greyRibbonShadow: darken(@grey, 10);
+@blackRibbonShadow: darken(@black, 10);
 
 /* Attached */
 @attachedSegmentPadding: 2rem;
