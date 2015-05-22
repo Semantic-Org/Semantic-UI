@@ -1276,25 +1276,17 @@ body > .ui.grid {
          Colored
 -----------------------*/
 
-.ui.grid > .white.row,
-.ui.grid > .white.column,
-.ui.grid > .row > .white.column {
-  background-color: @white !important;
-  color: @textColor;
-}
-.ui.grid > .row > .white.column {
-  margin-top: -(@rowSpacing / 2);
-  margin-bottom: -(@rowSpacing / 2);
-  padding-top: (@rowSpacing / 2);
-  padding-bottom: (@rowSpacing / 2);
-}
-
-.ui.grid > .black.row,
-.ui.grid > .black.column,
-.ui.grid > .row > .black.column {
-  background-color: @black !important;
-  color: @white;
-}
+.ui.grid > .row > .red.column,
+.ui.grid > .row > .orange.column,
+.ui.grid > .row > .yellow.column,
+.ui.grid > .row > .green.column,
+.ui.grid > .row > .teal.column,
+.ui.grid > .row > .blue.column,
+.ui.grid > .row > .violet.column,
+.ui.grid > .row > .purple.column,
+.ui.grid > .row > .pink.column,
+.ui.grid > .row > .brown.column,
+.ui.grid > .row > .grey.column,
 .ui.grid > .row > .black.column {
   margin-top: -(@rowSpacing / 2);
   margin-bottom: -(@rowSpacing / 2);
@@ -1302,108 +1294,91 @@ body > .ui.grid {
   padding-bottom: (@rowSpacing / 2);
 }
 
-.ui.grid > .blue.row,
-.ui.grid > .blue.column,
-.ui.grid > .row > .blue.column {
-  background-color: @blue !important;
-  color: @white;
-}
-.ui.grid > .row > .blue.column {
-  margin-top: -(@rowSpacing / 2);
-  margin-bottom: -(@rowSpacing / 2);
-  padding-top: (@rowSpacing / 2);
-  padding-bottom: (@rowSpacing / 2);
-}
-
-.ui.grid > .green.row,
-.ui.grid > .green.column,
-.ui.grid > .row > .green.column {
-  background-color: @green !important;
-  color: @white;
-}
-.ui.grid > .row > .green.column {
-  margin-top: -(@rowSpacing / 2);
-  margin-bottom: -(@rowSpacing / 2);
-  padding-top: (@rowSpacing / 2);
-  padding-bottom: (@rowSpacing / 2);
-}
-
-.ui.grid > .orange.row,
-.ui.grid > .orange.column,
-.ui.grid > .row > .orange.column {
-  background-color: @orange !important;
-  color: @white;
-}
-.ui.grid > .row > .orange.column {
-  margin-top: -(@rowSpacing / 2);
-  margin-bottom: -(@rowSpacing / 2);
-  padding-top: (@rowSpacing / 2);
-  padding-bottom: (@rowSpacing / 2);
-}
-
-.ui.grid > .pink.row,
-.ui.grid .pink.column {
-  background-color: @pink !important;
-  color: @white;
-}
-.ui.grid > .row > .pink.column {
-  margin-top: -(@rowSpacing / 2);
-  margin-bottom: -(@rowSpacing / 2);
-  padding-top: (@rowSpacing / 2);
-  padding-bottom: (@rowSpacing / 2);
-}
-
-.ui.grid > .purple.row,
-.ui.grid > .purple.column,
-.ui.grid > .row > .purple.column {
-  background-color: @purple !important;
-  color: @white;
-}
-.ui.grid > .row > .purple.column {
-  margin-top: -(@rowSpacing / 2);
-  margin-bottom: -(@rowSpacing / 2);
-  padding-top: (@rowSpacing / 2);
-  padding-bottom: (@rowSpacing / 2);
-}
-
+/* Red */
 .ui.grid > .red.row,
 .ui.grid > .red.column,
 .ui.grid > .row > .red.column {
   background-color: @red !important;
   color: @white;
 }
-.ui.grid > .row > .red.column {
-  margin-top: -(@rowSpacing / 2);
-  margin-bottom: -(@rowSpacing / 2);
-  padding-top: (@rowSpacing / 2);
-  padding-bottom: (@rowSpacing / 2);
-}
-
-.ui.grid > .teal.row,
-.ui.grid > .teal.column,
-.ui.grid > .row > .teal.column {
-  background-color: @teal !important;
+/* Orange */
+.ui.grid > .orange.row,
+.ui.grid > .orange.column,
+.ui.grid > .row > .orange.column {
+  background-color: @orange !important;
   color: @white;
 }
-.ui.grid > .row > .teal.column {
-  margin-top: -(@rowSpacing / 2);
-  margin-bottom: -(@rowSpacing / 2);
-  padding-top: (@rowSpacing / 2);
-  padding-bottom: (@rowSpacing / 2);
-}
-
+/* Yellow */
 .ui.grid > .yellow.row,
 .ui.grid > .yellow.column,
 .ui.grid > .row > .yellow.column {
   background-color: @yellow !important;
   color: @white;
 }
-.ui.grid > .row > .yellow.column {
-  margin-top: -(@rowSpacing / 2);
-  margin-bottom: -(@rowSpacing / 2);
-  padding-top: (@rowSpacing / 2);
-  padding-bottom: (@rowSpacing / 2);
+/* Green */
+.ui.grid > .green.row,
+.ui.grid > .green.column,
+.ui.grid > .row > .green.column {
+  background-color: @green !important;
+  color: @white;
 }
+/* Teal */
+.ui.grid > .teal.row,
+.ui.grid > .teal.column,
+.ui.grid > .row > .teal.column {
+  background-color: @teal !important;
+  color: @white;
+}
+/* Blue */
+.ui.grid > .blue.row,
+.ui.grid > .blue.column,
+.ui.grid > .row > .blue.column {
+  background-color: @blue !important;
+  color: @white;
+}
+/* Violet */
+.ui.grid > .violet.row,
+.ui.grid > .violet.column,
+.ui.grid > .row > .violet.column {
+  background-color: @violet !important;
+  color: @white;
+}
+/* Purple */
+.ui.grid > .purple.row,
+.ui.grid > .purple.column,
+.ui.grid > .row > .purple.column {
+  background-color: @purple !important;
+  color: @white;
+}
+/* Pink */
+.ui.grid > .pink.row,
+.ui.grid > .pink.column,
+.ui.grid > .row > .pink.column {
+  background-color: @pink !important;
+  color: @white;
+}
+/* Brown */
+.ui.grid > .brown.row,
+.ui.grid > .brown.column,
+.ui.grid > .row > .brown.column {
+  background-color: @brown !important;
+  color: @white;
+}
+/* Grey */
+.ui.grid > .grey.row,
+.ui.grid > .grey.column,
+.ui.grid > .row > .grey.column {
+  background-color: @grey !important;
+  color: @white;
+}
+/* Black */
+.ui.grid > .black.row,
+.ui.grid > .black.column,
+.ui.grid > .row > .black.column {
+  background-color: @black !important;
+  color: @white;
+}
+
 
 /*----------------------
       Equal Width
