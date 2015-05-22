@@ -10,7 +10,7 @@
 @horizontalMargin: 0.25em;
 
 /* Style */
-@backgroundColor: #E0E0E0;
+@backgroundColor: #E0E2E4;
 @backgroundImage: none;
 @verticalPadding: 0.7857142em;
 @horizontalPadding: 1.5em;
@@ -84,7 +84,7 @@
 --------------------*/
 
 /* Hovered */
-@hoverBackgroundColor: #CACACA;
+@hoverBackgroundColor: #CACCCE;
 @hoverBackgroundImage: @backgroundImage;
 @hoverBoxShadow: @boxShadow;
 @hoverColor: @hoveredTextColor;
@@ -98,7 +98,7 @@
 @iconFocusOpacity: 0.85;
 
 /* Pressed Down */
-@downBackgroundColor: #BABABA;
+@downBackgroundColor: #BABCBE;
 @downBackgroundImage: '';
 @downPressedShadow: none;
 @downBoxShadow:
@@ -242,7 +242,7 @@
 @coloredBackgroundImage: none;
 @coloredBoxShadow: @shadowBoxShadow;
 
-/* Inverted by default for solids */
+/* Whether color should invert its text (light colors may require dark text) */
 @brownTextColor: @invertedTextColor;
 @brownTextShadow: @invertedTextShadow;
 @redTextColor: @invertedTextColor;
