@@ -14,7 +14,7 @@
 **New UI**
 - **Container** - Containers are fixed width containers meant for holding page contents, and are a simpler alternative to `ui page grid`, view more [examples in docs](http://www.semantic-ui.com/elements/container.html#examples)
 - **Multiselect** - New `multiple` dropdown types have been added, including tagging/tokenizing features.
-- **Embed* - New embed component allows for responsive embeds that maintain aspect ratio. Javascript component allows simple embeds for third party video services like youtube or vimeo.
+- **Embed** - New embed component allows for responsive embeds that maintain aspect ratio. Javascript component allows simple embeds for third party video services like youtube or vimeo.
 - **Headers** - Added new header type `sub header`, useful for displaying small headers alongside text content. See examples [in the header docs](http://www.semantic-ui.com/elements/header.html#sub-headers)
 - **Menu** - `vertical tabular menu`, a vertical tab menu, has been added
 - **Dropdown** - Added new dropdown variation `scrolling dropdown` and `scrolling menu`, see docs or try it out with the language menu in the navigation bar
@@ -26,7 +26,7 @@
 
 **Major Changes (Please Read)**
 - **Site** - Added new colors `brown`, `violet`, and `grey`. These are available in all elements with color variations.  **Thanks @lemartialou**
-- **API** - API can now be used with mocked responses, and custom AJAX requests. `mockResponse` can be used to resolve request with a local function that receives the same settings as the server. `mockResponseAsync` allows you to specify an asynchronous callback that can resolve a request.
+- **API** - API can now be used with mocked responses, and custom AJAX requests. `mockResponse` can be used to resolve request with a specified returned JSON object, or a function that receives the same request settings as the server. `mockResponseAsync` allows you to specify an asynchronous callback that can resolve a request using a custom XHR backend.
 - **API** - API callbacks now have an `onResponse` callback that can modified a server response before it is parsed by other callbacks for success or failure conditions. **Thanks @mnquintana**
 - **API** - API now provides a client-side cache setting to avoid server roundtrips for identical urls `cache: 'local'`. This is useful for caching results that will return the same results across a page view: things like autocomplete.
 - **Card** - Cards now support multiple `content` blocks. Content blocks can now appear above or below an image and will adjust formatting.
