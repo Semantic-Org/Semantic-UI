@@ -27,6 +27,9 @@
     <div class="column">
       
       <section class="ui segment">
+        <div class="ui seeking dimmer" style="background: none;">
+          <div class="ui loader"></div>
+        </div>
         <video id="video" style="width:100%">
           <source src="http://mooplay.challet.eu/media/video/sintel-1024-stereo.mp4" type='video/mp4'>
           <source src="http://mooplay.challet.eu/media/video/sintel-1024-stereo.ogv" type='video/ogg'>
@@ -105,8 +108,8 @@
                   </div>
                 </div>
                 <div class="field">
-                  <div class="ui checkbox">
-                    <input name="loop" type="checkbox"><label for="state-loop">seeking</label>
+                  <div class="ui seeking checkbox">
+                    <input id="state-seeking" type="checkbox"><label for="state-seeking">seeking</label>
                   </div>
                 </div>
               
