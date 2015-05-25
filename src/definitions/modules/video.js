@@ -42,6 +42,14 @@ function utilCallbackPreventDefault(event) {
   $(this).blur();
 }
 
+function utilAddNamespaceToEvents(events, namespace) {
+  var events_with_namespace = [];
+  while(events.length > 0) {
+    events_with_namespace.push(events.pop() + namespace)
+  }
+  return events_with_namespace.join(' ');
+}
+
 $.fn.video = function(parameters) {
 
   var
@@ -103,7 +111,7 @@ $.fn.video = function(parameters) {
         $seekableCheckbox           = $module.find(settings.selector.seekableCheckbox),
         $playedCheckbox             = $module.find(settings.selector.playedCheckbox),
         $seekingStateCheckbox       = $module.find(settings.selector.seekingStateCheckbox),
-        $seekingStateDimmer         = $module.find(settings.selector.seekingStateDimmer).dimmer({duration:{hide:1000}}),
+        $seekingStateDimmer         = $module.find(settings.selector.seekingStateDimmer),
 
         timeRangeUpdateEnabled      = true,
         timeRangeInterval           = $timeRange.prop('max') - $timeRange.prop('min'),
@@ -142,40 +150,39 @@ $.fn.video = function(parameters) {
             module.debug('Binding video module events');
             // from video to UI
             $video
-              .on('play' + eventNamespace + ' playing' + eventNamespace + ' pause' + eventNamespace + ' ended' + eventNamespace, module.update.playState)
-              .on('ratechange' + eventNamespace, module.update.rate)
-              .on('timeupdate' + eventNamespace, module.update.time) // TODO limit throttle
-              .on('seeking' + eventNamespace, module.update.seeking)
-              .on('seeked' + eventNamespace, module.update.seeked)
-              .on('volumechange' + eventNamespace, module.update.volume)
-              .on('canplaythrough' + eventNamespace + ' canplay' + eventNamespace + ' loadeddata' + eventNamespace + ' loadedmetadata' + eventNamespace + ' emptied' + eventNamespace + ' waiting' + eventNamespace, module.update.readyState)
-              .on('error' + eventNamespace + ' loadstart' + eventNamespace + ' emptied' + eventNamespace + ' stalled' + eventNamespace + ' suspend' + eventNamespace + ' waiting' + eventNamespace + ' loadedmetadata' + eventNamespace + ' loadeddata' + eventNamespace, module.update.networkState)
+              .on(utilAddNamespaceToEvents(['play', 'playing', 'pause', 'ended'], eventNamespace), module.update.playState)
+              .on(utilAddNamespaceToEvents(['ratechange'], eventNamespace), module.update.rate)
+              .on(utilAddNamespaceToEvents(['timeupdate'], eventNamespace), module.update.time) // TODO limit throttle
+              .on(utilAddNamespaceToEvents(['seeking'], eventNamespace), module.update.seeking)
+              .on(utilAddNamespaceToEvents(['seeked'], eventNamespace), module.update.seeked)
+              .on(utilAddNamespaceToEvents(['volumechange'], eventNamespace), module.update.volume)
+              .on(utilAddNamespaceToEvents(['canplaythrough', 'canplay', 'loadeddata', 'emptied', 'waiting'], eventNamespace), module.update.readyState)
+              .on(utilAddNamespaceToEvents(['error', 'loadstart', 'emptied', 'stalled', 'suspend', 'waiting', 'loadedmetadata', 'loadeddata'], eventNamespace), module.update.networkState)
             ;
             
             // from UI to video
-            $playButton
-              .on('click' + eventNamespace, module.request.playToggle)
-            ;
+            $playButton.on(utilAddNamespaceToEvents(['click'], eventNamespace), module.request.playToggle);
             $seekButton
-              .on('mousedown' + eventNamespace, module.request.seek.tickLoop)
-              .on('mouseup' + eventNamespace + 'mouseleave' + eventNamespace + 'mouseout' + eventNamespace + 'click' + eventNamespace, module.request.seek.stopLoop)
+              .on(utilAddNamespaceToEvents(['mousedown'], eventNamespace), module.request.seek.tickLoop)
+              .on(utilAddNamespaceToEvents(['mouseup', 'mouseleave', 'mouseout', 'click'], eventNamespace), module.request.seek.stopLoop)
             ;
             $timeRange
-              .on('change' + eventNamespace, module.request.seek.fromRangeValue) 
-              .on('mousedown' + eventNamespace, module.deactivate.timeRangeUpdate)
-              .on('mouseup' + eventNamespace, module.activate.timeRangeUpdate)
-              .on('click' + eventNamespace, utilCallbackPreventDefault)
+              .on(utilAddNamespaceToEvents(['change'], eventNamespace), module.request.seek.fromRangeValue)
+              .on(utilAddNamespaceToEvents(['mousedown'], eventNamespace), module.deactivate.timeRangeUpdate)
+              .on(utilAddNamespaceToEvents(['mouseup'], eventNamespace), module.activate.timeRangeUpdate)
+              .on(utilAddNamespaceToEvents(['click'], eventNamespace), utilCallbackPreventDefault)
+              //.on(utilAddNamespaceToEvents(['focus'], eventNamespace), module.activate.timeLookup) // better naming than timeLookup ?
+              //.on(utilAddNamespaceToEvents(['blur'], eventNamespace), module.deactivate.timeLookup)
             ;
-            $volumeUpButton.on('click' + eventNamespace, module.request.volumeUp);
-            $volumeDownButton.on('click' + eventNamespace, module.request.volumeDown);
-            $volumeProgress.on('click' + eventNamespace, module.request.unmute);
-            $muteButton.on('click' + eventNamespace, module.request.muteToggle);
-            $rateInput.on('change' + eventNamespace, module.request.rate);
-            $rateReset.on('click' + eventNamespace, module.reset.rate);
-            $readyStateRadio.on('click' + eventNamespace, module.request.denied);
-            $networkStateRadio.on('click' + eventNamespace, utilCallbackPreventDefault); 
-            $statesLabel.on('click' + eventNamespace, utilCallbackPreventDefault);
-            
+            $volumeUpButton.on(utilAddNamespaceToEvents(['click'], eventNamespace), module.request.volumeUp);
+            $volumeDownButton.on(utilAddNamespaceToEvents(['click'], eventNamespace), module.request.volumeDown);
+            $volumeProgress.on(utilAddNamespaceToEvents(['click'], eventNamespace), module.request.unmute);
+            $muteButton.on(utilAddNamespaceToEvents(['click'], eventNamespace), module.request.muteToggle);
+            $rateInput.on(utilAddNamespaceToEvents(['change'], eventNamespace), module.request.rate);
+            $rateReset.on(utilAddNamespaceToEvents(['click'], eventNamespace), module.reset.rate);
+            $readyStateRadio.on(utilAddNamespaceToEvents(['click'], eventNamespace), module.request.denied);
+            $networkStateRadio.on(utilAddNamespaceToEvents(['click'], eventNamespace), utilCallbackPreventDefault);
+            $statesLabel.on(utilAddNamespaceToEvents(['click'], eventNamespace), utilCallbackPreventDefault);
           }
         },
         
