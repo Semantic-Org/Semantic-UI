@@ -37,6 +37,11 @@ function utilReadableTime(timeMs) {
   return readable;
 }
 
+function utilCallbackPreventDefault(event) {
+  event.preventDefault();
+  $(this).blur();
+}
+
 $.fn.video = function(parameters) {
 
   var
@@ -159,6 +164,7 @@ $.fn.video = function(parameters) {
               .on('change' + eventNamespace, module.request.seek.fromRangeValue) 
               .on('mousedown' + eventNamespace, module.deactivate.timeRangeUpdate)
               .on('mouseup' + eventNamespace, module.activate.timeRangeUpdate)
+              .on('click' + eventNamespace, utilCallbackPreventDefault)
             ;
             $volumeUpButton.on('click' + eventNamespace, module.request.volumeUp);
             $volumeDownButton.on('click' + eventNamespace, module.request.volumeDown);
@@ -167,8 +173,9 @@ $.fn.video = function(parameters) {
             $rateInput.on('change' + eventNamespace, module.request.rate);
             $rateReset.on('click' + eventNamespace, module.reset.rate);
             $readyStateRadio.on('click' + eventNamespace, module.request.denied);
-            $networkStateRadio.on('click' + eventNamespace, module.request.denied); // preventDefault
-            $statesLabel.on('click' + eventNamespace, module.request.denied); // preventDefault
+            $networkStateRadio.on('click' + eventNamespace, utilCallbackPreventDefault); 
+            $statesLabel.on('click' + eventNamespace, utilCallbackPreventDefault);
+            
           }
         },
         
