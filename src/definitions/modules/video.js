@@ -37,7 +37,7 @@ function utilReadableTime(timeMs) {
   return readable;
 }
 
-function utilCallbackPreventDefault(event) {
+function utilVoidCallback(event) {
   event.preventDefault();
   $(this).blur();
 }
@@ -116,10 +116,7 @@ $.fn.video = function(parameters) {
         timeRangeUpdateEnabled      = true,
         timeRangeInterval           = $timeRange.prop('max') - $timeRange.prop('min'),
         
-        seekLoopCounter             = window.setTimeout(1, function(){} ), // subsequent calls to window.clearTimeout won't break
         seekLoopInitialPlayState    = undefined, // it actually means undefined, see seek.tickLoop and seek.stopLoop functions,
-        seekLoopStarted             = false,
-      
         seekedDelay                 = window.setTimeout(1, function(){} ), // subsequent calls to window.clearTimeout won't break
 
         element                     = this,
@@ -162,15 +159,12 @@ $.fn.video = function(parameters) {
             
             // from UI to video
             $playButton.on(utilAddNamespaceToEvents(['click'], eventNamespace), module.request.playToggle);
-            $seekButton
-              .on(utilAddNamespaceToEvents(['mousedown'], eventNamespace), module.request.seek.tickLoop)
-              .on(utilAddNamespaceToEvents(['mouseup', 'mouseleave', 'mouseout', 'click'], eventNamespace), module.request.seek.stopLoop)
-            ;
+            $seekButton.on(utilAddNamespaceToEvents(['click'], eventNamespace), module.request.seek.toRelativeTime);
             $timeRange
               .on(utilAddNamespaceToEvents(['change'], eventNamespace), module.request.seek.fromRangeValue)
               .on(utilAddNamespaceToEvents(['mousedown'], eventNamespace), module.deactivate.timeRangeUpdate)
               .on(utilAddNamespaceToEvents(['mouseup'], eventNamespace), module.activate.timeRangeUpdate)
-              .on(utilAddNamespaceToEvents(['click'], eventNamespace), utilCallbackPreventDefault)
+              .on(utilAddNamespaceToEvents(['click'], eventNamespace), utilVoidCallback)
               //.on(utilAddNamespaceToEvents(['focus'], eventNamespace), module.activate.timeLookup) // better naming than timeLookup ?
               //.on(utilAddNamespaceToEvents(['blur'], eventNamespace), module.deactivate.timeLookup)
             ;
@@ -181,8 +175,8 @@ $.fn.video = function(parameters) {
             $rateInput.on(utilAddNamespaceToEvents(['change'], eventNamespace), module.request.rate);
             $rateReset.on(utilAddNamespaceToEvents(['click'], eventNamespace), module.reset.rate);
             $readyStateRadio.on(utilAddNamespaceToEvents(['click'], eventNamespace), module.request.denied);
-            $networkStateRadio.on(utilAddNamespaceToEvents(['click'], eventNamespace), utilCallbackPreventDefault);
-            $statesLabel.on(utilAddNamespaceToEvents(['click'], eventNamespace), utilCallbackPreventDefault);
+            $networkStateRadio.on(utilAddNamespaceToEvents(['click'], eventNamespace), utilVoidCallback);
+            $statesLabel.on(utilAddNamespaceToEvents(['click'], eventNamespace), utilVoidCallback);
           }
         },
         
@@ -302,10 +296,12 @@ $.fn.video = function(parameters) {
             if(timeRangeUpdateEnabled) {
               $timeRange.val( timeRangeInterval * currentTime / duration );
             }
-            // is currentTime in various TimeRanges (should always be true whern play is on)
-            $bufferCheckbox.prop('checked', module.is.timeBuffered(currentTime));
-            $seekableCheckbox.prop('checked', module.is.timeSeekable(currentTime));
-            $playedCheckbox.prop('checked', module.is.timePlayed(currentTime));
+            // TODO: refactor as a virtual time indicator based on the time range "dragged" time
+            // wether the currentTime fits in various TimeRanges ()
+            // NOTE: should always be true when normal expected play is on, since "played" seems to be written before to be read (on FF 38.0.1)
+            // $bufferCheckbox.prop('checked', module.is.timeBuffered(currentTime));
+            // $seekableCheckbox.prop('checked', module.is.timeSeekable(currentTime));
+            // $playedCheckbox.prop('checked', module.is.timePlayed(currentTime));
           },
           seeking: function() {
             module.debug('Update seek state (seeking)');
@@ -315,11 +311,9 @@ $.fn.video = function(parameters) {
           },
           seeked: function() {
             module.debug('Update seek state (seeked)');
-            // a seeking loop makes "seeking" and "seeked" events to fire alternatively, making the elements to blink
-            if(!seekLoopStarted && !module.is.seeking()) { 
-              $seekingStateCheckbox.prop('checked', false);
-              $seekingStateDimmer.dimmer('hide');
-            }
+            // TODO a seeking loop makes "seeking" and "seeked" events to fire alternatively, making the elements to blink
+            $seekingStateCheckbox.prop('checked', false);
+            $seekingStateDimmer.dimmer('hide');
           },
           volume: function() {
             var 
@@ -394,6 +388,7 @@ $.fn.video = function(parameters) {
               }
             },
             toRelativeTime: function() {
+              console.info('seek relative');
               module.debug('Request time relative seek from current position)');
               var position = module.get.currentTime() + $(this).data('seek-step');
               module.request.seek.toAbsoluteTime(position);
@@ -403,39 +398,6 @@ $.fn.video = function(parameters) {
               var ratio = $timeRange.val() / timeRangeInterval;
               var position = module.get.duration() * ratio;
               module.request.seek.toAbsoluteTime(position);
-            },
-            tickLoop: function() {
-              // TODO: abstract to a 'push' button behavior ?
-              module.debug('Tick seek loop');
-              window.clearTimeout(seekLoopCounter);
-              if(seekLoopInitialPlayState === undefined) {
-                // force pause while loop seeking
-                seekLoopInitialPlayState = module.is.playing();
-                module.request.pause();
-              } else {
-                // don't move on the first iteration
-                seekLoopStarted = true;
-                module.request.seek.toRelativeTime.bind(this)();
-              }
-              // bindings are made in order to later access $(this)
-              seekLoopCounter = window.setTimeout(module.request.seek.tickLoop.bind(this), parseInt( $(this).data('seek-interval') ));
-            },
-            stopLoop: function() {
-              module.debug('Stop seek loop');
-              window.clearTimeout(seekLoopCounter);
-              if(seekLoopInitialPlayState) {
-                module.request.play();
-              } 
-              seekLoopInitialPlayState = undefined;
-              
-              // one final move if the loop has 0 iteration (~ click)
-              if(!seekLoopStarted) {
-                module.request.seek.toRelativeTime.bind(this)();
-              }
-              seekLoopStarted = false;
-              
-              // the seek indicator might have been force-enabled during the loop
-              module.update.seeked();
             }
           },
           volumeUp: function() {
