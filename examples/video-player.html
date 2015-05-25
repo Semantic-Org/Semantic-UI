@@ -33,183 +33,184 @@
         </video>
       </section>
       
-      <aside class="ui bottom attached stackable grid form">
+      <aside class="ui bottom attached form">
+        <div class="ui stackable grid">
         
-        <div class="row">
+          <div class="row">
           
-          <!-- TODO move video specific deinitions in .less -->
-          <div class="five wide column" style="font-size: 0; white-space: nowrap;">
-            <div class="ui icon mute button">
-              <i class="icon volume off"></i>
-            </div>
-            <div class="ui icon volume down button" style="margin-right: 0; pointer-events: auto;">
-              <i class="icon volume down"></i>
-            </div>
-            <div class="ui volume progress" style="display: inline-block; width: 10em; height: 100%; margin:0; vertical-align: bottom;" id="volumeprogress">
-              <div class="bar" style="height: 100%;">
-                <div class="progress"></div>
+            <!-- TODO move video specific deinitions in .less -->
+            <div class="five wide column" style="font-size: 0; white-space: nowrap;">
+              <div class="ui icon mute button">
+                <i class="icon volume off"></i>
+              </div>
+              <div class="ui icon volume down button" style="margin-right: 0; pointer-events: auto;">
+                <i class="icon volume down"></i>
+              </div>
+              <div class="ui volume progress" style="display: inline-block; width: 10em; height: 100%; margin:0; vertical-align: bottom;" id="volumeprogress">
+                <div class="bar" style="height: 100%;">
+                  <div class="progress"></div>
+                </div>
+              </div>
+              <div class="ui icon volume up button" style="margin-left: 0; pointer-events: auto;">
+                <i class="icon volume up"></i>
               </div>
             </div>
-            <div class="ui icon volume up button" style="margin-left: 0; pointer-events: auto;">
-              <i class="icon volume up"></i>
+          
+            <div class="six wide column" style="text-align: center;">
+              <div class="ui icon play button">
+                <i class="play icon"></i>
+              </div>
+              <div class="ui icon seek button" data-seek-step="-3" data-seek-interval="250">
+                <i class="backward icon"></i>
+              </div>
+              <div class="ui icon seek button" data-seek-step="4" data-seek-interval="250">
+                <i class="forward icon"></i>
+              </div>
+            </div>
+          
+            <div class="five wide column">
+            
+              <!--
+              <select id="subtitles_select">
+                  <option value="" class="none">no</option>
+                  <option value="/media/subtitle/sintel_en.srt" class="en">en</option>
+                  <option value="/media/subtitle/sintel_fr.srt" class="fr">fr</option>
+                  <option value="/media/subtitle/sintel_es.srt" class="es">es</option>
+                  <option value="/media/subtitle/sintel_de.srt" class="de">de</option>
+                  <option value="/media/subtitle/sintel_it.srt" class="it">it</option>
+                  <option value="/media/subtitle/sintel_nl.srt" class="nl">nl</option>
+                  <option value="/media/subtitle/sintel_pl.srt" class="pl">pl</option>
+                  <option value="/media/subtitle/sintel_pt.srt" class="pt">pt</option>
+                  <option value="/media/subtitle/sintel_ru.srt" class="ru">ru</option>
+              </select>
+              -->
+            </div>
+          
+          </div>
+        
+          <div class="row">
+            <div class="two wide column">
+              <div class="ui tiny statistic">
+                <div class="current time value">0:00:00</div>
+                <div class="label">current</div>
+              </div>
+            </div>
+            <div class="twelve wide column" style="text-align: center;">
+              <input type="range" value="0" min="0" max="1000" autocomplete="off" style="width:100%;" class="ui time input" />
+              <div class="grouped inline fields">
+                <div class="field">
+                  <div class="ui left icon mini rate input">
+                    <input placeholder="play rate" type="number" min="-1" max="5" step="0.25" value="1.0" autocomplete="off" length="2" style="box-sizing: content-box; width: 3em !important;" />
+                    <i class="small undo link reset icon "></i>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui checkbox">
+                    <input name="loop" type="checkbox"><label for="state-loop">seeking</label>
+                  </div>
+                </div>
+              
+                <!-- of course current time is (almost) always in buffer, seekable, and already played (the limit includes the being played time)
+                <div class="field">
+                  <div class="ui buffer checkbox">
+                    <input name="in-buffer" id="state-in-buffer" type="checkbox"><label for="state-in-buffer">in buffer</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui seekable checkbox">
+                    <input name="seekable" id="state-seekable" type="checkbox"><label for="state-seekable">seekable</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui played checkbox">
+                    <input name="already-played" id="state-already-played" type="checkbox"><label for="state-already-played">already played</label>
+                  </div>
+                </div>
+                -->
+              </div>
+            
+            </div>
+            <div class="two wide column">
+              <div class="ui tiny statistic">
+                <div class="remaining time value">0:00:00</div>
+                <div class="label">remaining</div>
+              </div>
             </div>
           </div>
-          
-          <div class="six wide column" style="text-align: center;">
-            <div class="ui icon play button">
-              <i class="play icon"></i>
-            </div>
-            <div class="ui icon seek button" data-seek-step="-3" data-seek-interval="250">
-              <i class="backward icon"></i>
-            </div>
-            <div class="ui icon seek button" data-seek-step="4" data-seek-interval="250">
-              <i class="forward icon"></i>
+        
+          <div class="centered row">
+            <div class="twelve wide column" style="text-align: center;">
+            
+              <div class="field">
+                <div class="grouped inline fields ready state">
+                  <label>ready state :</label>
+                  <div class="field">
+                    <div class="ui radio checkbox">
+                      <input name="ready_state" type="radio" value="0" id="HAVE_NOTHING" autocomplete="off" />
+                      <label for="HAVE_NOTHING">nothing</label>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="ui radio checkbox">
+                      <input name="ready_state" type="radio" value="1" id="HAVE_METADATA" autocomplete="off" />
+                      <label for="HAVE_METADATA">metadata</label>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="ui radio checkbox">
+                      <input name="ready_state" type="radio" value="2" id="HAVE_CURRENT_DATA" autocomplete="off" />
+                      <label for="HAVE_CURRENT_DATA">current data</label>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="ui radio checkbox">
+                      <input name="ready_state" type="radio" value="3" id="HAVE_FUTURE_DATA" autocomplete="off" />
+                      <label for="HAVE_FUTURE_DATA">future data</label>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="ui radio checkbox">
+                      <input name="ready_state" type="radio" value="4" id="HAVE_ENOUGH_DATA" autocomplete="off" />
+                      <label for="HAVE_ENOUGH_DATA">enough data</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+              <div class="field">
+              
+                <div class="grouped inline fields network state">
+                  <label>network state :</label>
+                  <div class="field">
+                    <div class="ui radio checkbox">
+                      <input name="network_state" type="radio" value="0" id="NETWORK_EMPTY" autocomplete="off" />
+                      <label for="NETWORK_EMPTY">empty</label>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="ui radio checkbox">
+                      <input name="network_state" type="radio" value="1" id="NETWORK_IDLE" autocomplete="off" />
+                      <label for="NETWORK_IDLE">idle</label>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="ui radio checkbox">
+                      <input name="network_state" type="radio" value="2" id="NETWORK_LOADING" autocomplete="off" />
+                      <label for="NETWORK_LOADING">loading</label>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="ui radio checkbox">
+                      <input name="network_state" type="radio" value="3" id="NETWORK_NO_SOURCE" autocomplete="off" />
+                      <label for="NETWORK_NO_SOURCE">no source</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
             </div>
           </div>
-          
-          <div class="five wide column">
-            <!--
-            <select id="subtitles_select">
-                <option value="" class="none">no</option>
-                <option value="/media/subtitle/sintel_en.srt" class="en">en</option>
-                <option value="/media/subtitle/sintel_fr.srt" class="fr">fr</option>
-                <option value="/media/subtitle/sintel_es.srt" class="es">es</option>
-                <option value="/media/subtitle/sintel_de.srt" class="de">de</option>
-                <option value="/media/subtitle/sintel_it.srt" class="it">it</option>
-                <option value="/media/subtitle/sintel_nl.srt" class="nl">nl</option>
-                <option value="/media/subtitle/sintel_pl.srt" class="pl">pl</option>
-                <option value="/media/subtitle/sintel_pt.srt" class="pt">pt</option>
-                <option value="/media/subtitle/sintel_ru.srt" class="ru">ru</option>
-            </select>
-            -->
-          </div>
-          
         </div>
-        
-        <div class="row">
-          <div class="two wide column">
-            <div class="ui tiny statistic">
-              <div class="current time value">0:00:00</div>
-              <div class="label">current</div>
-            </div>
-          </div>
-          <div class="twelve wide column" style="text-align: center;">
-            <input type="range" value="0" min="0" max="1000" autocomplete="off" id="timerange" style="width:100%;" class="ui time input" />
-            <!--
-            <div class="ui small progress" id="loadprogress">
-              <div class="bar"></div>
-            </div>
-            -->
-            <div class="five fields">
-              <div class="field">
-                <div class="ui buffer checkbox">
-                  <input name="in-buffer" id="state-in-buffer" type="checkbox"><label for="state-in-buffer">in buffer</label>
-                </div>
-              </div>
-              <div class="field">
-                <div class="ui seekable checkbox">
-                  <input name="seekable" id="state-seekable" type="checkbox"><label for="state-seekable">seekable</label>
-                </div>
-              </div>
-              <div class="field">
-                <div class="ui played checkbox">
-                  <input name="already-played" id="state-already-played" type="checkbox"><label for="state-already-played">already played</label>
-                </div>
-              </div>
-              <div class="field">
-                <div class="ui checkbox">
-                  <input name="loop" id="state-loop" type="checkbox"><label for="state-loop">loop</label>
-                </div>
-              </div>
-              <div class="field">
-                <div class="ui left icon mini rate input">
-                  <input placeholder="play rate" type="number" min="-1" max="5" step="0.25" value="1.0" autocomplete="off" />
-                  <i class="small undo link reset icon "></i>
-                </div>
-              </div>
-            </div>
-            
-          </div>
-          <div class="two wide column">
-            <div class="ui tiny statistic">
-              <div class="remaining time value">0:00:00</div>
-              <div class="label">remaining</div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="centered row">
-          <div class="twelve wide column" style="text-align: center;">
-            
-            <div class="field">
-              <label>ready State</label>
-              <div class="grouped inline fields ready state">
-                <div class="field">
-                  <div class="ui radio checkbox">
-                    <input name="ready_state" type="radio" value="0" id="HAVE_NOTHING" autocomplete="off" />
-                    <label for="HAVE_NOTHING">nothing</label>
-                  </div>
-                </div>
-                <div class="field">
-                  <div class="ui radio checkbox">
-                    <input name="ready_state" type="radio" value="1" id="HAVE_METADATA" autocomplete="off" />
-                    <label for="HAVE_METADATA">metadata</label>
-                  </div>
-                </div>
-                <div class="field">
-                  <div class="ui radio checkbox">
-                    <input name="ready_state" type="radio" value="2" id="HAVE_CURRENT_DATA" autocomplete="off" />
-                    <label for="HAVE_CURRENT_DATA">current data</label>
-                  </div>
-                </div>
-                <div class="field">
-                  <div class="ui radio checkbox">
-                    <input name="ready_state" type="radio" value="3" id="HAVE_FUTURE_DATA" autocomplete="off" />
-                    <label for="HAVE_FUTURE_DATA">future data</label>
-                  </div>
-                </div>
-                <div class="field">
-                  <div class="ui radio checkbox">
-                    <input name="ready_state" type="radio" value="4" id="HAVE_ENOUGH_DATA" autocomplete="off" />
-                    <label for="HAVE_ENOUGH_DATA">enough data</label>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="field">
-              <label>network State</label>
-              <div class="grouped inline fields network state">
-                <div class="field">
-                  <div class="ui radio checkbox">
-                    <input name="network_state" type="radio" value="0" id="NETWORK_EMPTY" autocomplete="off" />
-                    <label for="NETWORK_EMPTY">empty</label>
-                  </div>
-                </div>
-                <div class="field">
-                  <div class="ui radio checkbox">
-                    <input name="network_state" type="radio" value="1" id="NETWORK_IDLE" autocomplete="off" />
-                    <label for="NETWORK_IDLE">idle</label>
-                  </div>
-                </div>
-                <div class="field">
-                  <div class="ui radio checkbox">
-                    <input name="network_state" type="radio" value="2" id="NETWORK_LOADING" autocomplete="off" />
-                    <label for="NETWORK_LOADING">loading</label>
-                  </div>
-                </div>
-                <div class="field">
-                  <div class="ui radio checkbox">
-                    <input name="network_state" type="radio" value="3" id="NETWORK_NO_SOURCE" autocomplete="off" />
-                    <label for="NETWORK_NO_SOURCE">no source</label>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-          </div>
-        </div>
-        
       </aside>
 
       <!--
