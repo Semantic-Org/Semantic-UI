@@ -101,7 +101,8 @@ $.fn.video = function(parameters) {
         timeRangeUpdateEnabled = true,
         timeRangeInterval = $timeRange.prop('max') - $timeRange.prop('min'),
         seekLoopCounter   = window.setTimeout(1, function(){} ), // subsequent calls to window.clearTimeout won't break
-        seekLoopInitialPlayState = undefined, // it actually means undefined, see seek.tickLoop and seek.stopLoop functions
+        seekLoopInitialPlayState = undefined, // it actually means undefined, see seek.tickLoop and seek.stopLoop functions,
+        seekLoopStarted   = false,
 
         element           = this,
         video             = $video.get(0),
@@ -385,6 +386,7 @@ $.fn.video = function(parameters) {
                 module.request.pause();
               } else {
                 // don't move on the first iteration
+                seekLoopStarted = true;
                 module.request.seek.toRelativeTime.bind(this)();
               }
               // bindings are made in order to later access $(this)
@@ -395,8 +397,15 @@ $.fn.video = function(parameters) {
               window.clearTimeout(seekLoopCounter);
               if(seekLoopInitialPlayState) {
                 module.request.play();
+              } else {
+               
               }
               seekLoopInitialPlayState = undefined;
+              // one move if the loop has 0 iteration (~ click)
+              if(!seekLoopStarted) {
+                module.request.seek.toRelativeTime.bind(this)();
+              }
+              seekLoopStarted = false;
             }
           },
           volumeUp: function() {
