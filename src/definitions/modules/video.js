@@ -67,47 +67,51 @@ $.fn.video = function(parameters) {
           ? $.extend(true, {}, $.fn.video.settings, parameters)
           : $.extend({}, $.fn.video.settings),
 
-        selector          = settings.selector,
-        className         = settings.className,
-        error             = settings.error,
-        metadata          = settings.metadata,
-        namespace         = settings.namespace,
-        templates         = settings.templates,
+        selector                    = settings.selector,
+        className                   = settings.className,
+        error                       = settings.error,
+        metadata                    = settings.metadata,
+        namespace                   = settings.namespace,
+        templates                   = settings.templates,
 
-        eventNamespace    = '.' + namespace,
-        moduleNamespace   = 'module-' + namespace,
+        eventNamespace              = '.' + namespace,
+        moduleNamespace             = 'module-' + namespace,
 
-        $window           = $(window),
-        $module           = $(this),
-        $video            = $module.find(settings.selector.video),
-        $playButton       = $module.find(settings.selector.playButton),
-        $seekButton       = $module.find(settings.selector.seekButton),
-        $currentTime      = $module.find(settings.selector.currentTime),
-        $remainingTime    = $module.find(settings.selector.remainingTime),
-        $timeRange        = $module.find(settings.selector.timeRange),
-        $volumeUpButton   = $module.find(settings.selector.volumeUpButton),
-        $volumeDownButton = $module.find(settings.selector.volumeDownButton),
-        $volumeProgress   = $module.find(settings.selector.volumeProgress),
-        $muteButton       = $module.find(settings.selector.muteButton),
-        $rateInput        = $module.find(settings.selector.rateInput),
-        $rateReset        = $module.find(settings.selector.rateReset),
-        $readyStateRadio  = $module.find(settings.selector.readyStateRadio),
-        $networkStateRadio= $module.find(settings.selector.networkStateRadio),
-        $statesLabel      = $module.find(settings.selector.statesLabel),
-        $bufferCheckbox   = $module.find(settings.selector.bufferCheckbox),
-        $seekableCheckbox = $module.find(settings.selector.seekableCheckbox),
-        $playedCheckbox   = $module.find(settings.selector.playedCheckbox),
-        $seekingState     = $module.find(settings.selector.seekingState),
+        $window                     = $(window),
+        $module                     = $(this),
+        $video                      = $module.find(settings.selector.video),
+        $playButton                 = $module.find(settings.selector.playButton),
+        $seekButton                 = $module.find(settings.selector.seekButton),
+        $currentTime                = $module.find(settings.selector.currentTime),
+        $remainingTime              = $module.find(settings.selector.remainingTime),
+        $timeRange                  = $module.find(settings.selector.timeRange),
+        $volumeUpButton             = $module.find(settings.selector.volumeUpButton),
+        $volumeDownButton           = $module.find(settings.selector.volumeDownButton),
+        $volumeProgress             = $module.find(settings.selector.volumeProgress),
+        $muteButton                 = $module.find(settings.selector.muteButton),
+        $rateInput                  = $module.find(settings.selector.rateInput),
+        $rateReset                  = $module.find(settings.selector.rateReset),
+        $readyStateRadio            = $module.find(settings.selector.readyStateRadio),
+        $networkStateRadio          = $module.find(settings.selector.networkStateRadio),
+        $statesLabel                = $module.find(settings.selector.statesLabel),
+        $bufferCheckbox             = $module.find(settings.selector.bufferCheckbox),
+        $seekableCheckbox           = $module.find(settings.selector.seekableCheckbox),
+        $playedCheckbox             = $module.find(settings.selector.playedCheckbox),
+        $seekingStateCheckbox       = $module.find(settings.selector.seekingStateCheckbox),
+        $seekingStateDimmer         = $module.find(settings.selector.seekingStateDimmer).dimmer({duration:{hide:1000}}),
 
-        timeRangeUpdateEnabled = true,
-        timeRangeInterval = $timeRange.prop('max') - $timeRange.prop('min'),
-        seekLoopCounter   = window.setTimeout(1, function(){} ), // subsequent calls to window.clearTimeout won't break
-        seekLoopInitialPlayState = undefined, // it actually means undefined, see seek.tickLoop and seek.stopLoop functions,
-        seekLoopStarted   = false,
+        timeRangeUpdateEnabled      = true,
+        timeRangeInterval           = $timeRange.prop('max') - $timeRange.prop('min'),
+        
+        seekLoopCounter             = window.setTimeout(1, function(){} ), // subsequent calls to window.clearTimeout won't break
+        seekLoopInitialPlayState    = undefined, // it actually means undefined, see seek.tickLoop and seek.stopLoop functions,
+        seekLoopStarted             = false,
+      
+        seekedDelay                 = window.setTimeout(1, function(){} ), // subsequent calls to window.clearTimeout won't break
 
-        element           = this,
-        video             = $video.get(0),
-        instance          = $module.data(moduleNamespace),
+        element                     = this,
+        video                       = $video.get(0),
+        instance                    = $module.data(moduleNamespace),
         module
       ;
 
@@ -136,7 +140,8 @@ $.fn.video = function(parameters) {
               .on('play' + eventNamespace + ' playing' + eventNamespace + ' pause' + eventNamespace + ' ended' + eventNamespace, module.update.playState)
               .on('ratechange' + eventNamespace, module.update.rate)
               .on('timeupdate' + eventNamespace, module.update.time) // TODO limit throttle
-              .on('seeking' + eventNamespace + ' seeked' + eventNamespace, module.update.seeking)
+              .on('seeking' + eventNamespace, module.update.seeking)
+              .on('seeked' + eventNamespace, module.update.seeked)
               .on('volumechange' + eventNamespace, module.update.volume)
               .on('canplaythrough' + eventNamespace + ' canplay' + eventNamespace + ' loadeddata' + eventNamespace + ' loadedmetadata' + eventNamespace + ' emptied' + eventNamespace + ' waiting' + eventNamespace, module.update.readyState)
               .on('error' + eventNamespace + ' loadstart' + eventNamespace + ' emptied' + eventNamespace + ' stalled' + eventNamespace + ' suspend' + eventNamespace + ' waiting' + eventNamespace + ' loadedmetadata' + eventNamespace + ' loadeddata' + eventNamespace, module.update.networkState)
@@ -248,12 +253,15 @@ $.fn.video = function(parameters) {
             return $video.prop('muted'); // boolean
           },
           timeBuffered: function(time) {
+            module.debug('Is timeBuffered');
             return utilTimeInRange(time, module.get.bufferedRanges());
           },
           timePlayed: function(time) {
+            module.debug('Is timePlayed');
             return utilTimeInRange(time, module.get.playedRanges());
           },
           timeSeekable: function(time) {
+            module.debug('Is timeSeekable');
             return utilTimeInRange(time, module.get.seekableRanges());
           }
         },
@@ -286,15 +294,23 @@ $.fn.video = function(parameters) {
             $playedCheckbox.prop('checked', module.is.timePlayed(currentTime));
           },
           seeking: function() {
-            module.debug('Update seek state');
-            $seekingState.filter('input').prop('checked', module.is.seeking());
-            $seekingState.filter('.dimmer').dimmer(module.is.seeking() ? 'show' : 'hide');
+            module.debug('Update seek state (seeking)');
+            window.clearTimeout(seekedDelay);
+            $seekingStateCheckbox.prop('checked', true);
+            $seekingStateDimmer.dimmer('show');
+          },
+          seeked: function() {
+            module.debug('Update seek state (seeked)');
+            // a seeking loop makes "seeking" and "seeked" events to fire alternatively, making the elements to blink
+            if(!seekLoopStarted && !module.is.seeking()) { 
+              $seekingStateCheckbox.prop('checked', false);
+              $seekingStateDimmer.dimmer('hide');
+            }
           },
           volume: function() {
             var 
               muted = module.is.muted(),
               volume = module.get.volume();
-                
             module.debug('Update volume and mute states');
             if(muted) {
               $volumeUpButton.addClass(settings.className.disabled);
@@ -395,15 +411,17 @@ $.fn.video = function(parameters) {
               window.clearTimeout(seekLoopCounter);
               if(seekLoopInitialPlayState) {
                 module.request.play();
-              } else {
-               
-              }
+              } 
               seekLoopInitialPlayState = undefined;
-              // one move if the loop has 0 iteration (~ click)
+              
+              // one final move if the loop has 0 iteration (~ click)
               if(!seekLoopStarted) {
                 module.request.seek.toRelativeTime.bind(this)();
               }
               seekLoopStarted = false;
+              
+              // the seek indicator might have been force-enabled during the loop
+              module.update.seeked();
             }
           },
           volumeUp: function() {
@@ -685,25 +703,26 @@ $.fn.video.settings = {
   },
 
   selector    : {
-    video:                 'video', 
-    playButton:            '.play.button',  // not to be conflicted with .play.button > i.icon.play
-    seekButton:            '.seek.button',
-    currentTime:           '.current.time',
-    remainingTime:         '.remaining.time',
-    timeRange:             'input[type="range"].time',
-    volumeUpButton:        '.volume.up.button',    // could be a input[type="range"]
-    volumeDownButton:      '.volume.down.button',  // |
-    volumeProgress:        '.volume.progress',     // |
-    muteButton:            '.mute.button',
-    rateInput:             '.rate input[type="number"]',
-    rateReset:             '.rate .reset',
-    seekingState:          '.seeking.checkbox input[type="checkbox"], .seeking.dimmer',
-    readyStateRadio:       '.ready.state input[type="radio"]',           // could work with <select>
-    networkStateRadio:     '.network.state input[type="radio"]',         // |
-    bufferCheckbox:        '.buffer.checkbox input[type="checkbox"]',    // 
-    seekableCheckbox:      '.seekable.checkbox input[type="checkbox"]',  //
-    playedCheckbox:        '.played.checkbox input[type="checkbox"]',    //
-    statesLabel:           '.ready.state label, .network.state label, .buffer.checkbox label, .seekable.checkbox label, .played.checkbox label'
+    video:                  'video', 
+    playButton:             '.play.button',  // not to be conflicted with .play.button > i.icon.play
+    seekButton:             '.seek.button',
+    currentTime:            '.current.time',
+    remainingTime:          '.remaining.time',
+    timeRange:              'input[type="range"].time',
+    volumeUpButton:         '.volume.up.button',    // could be a input[type="range"]
+    volumeDownButton:       '.volume.down.button',  // |
+    volumeProgress:         '.volume.progress',     // |
+    muteButton:             '.mute.button',
+    rateInput:              '.rate input[type="number"]',
+    rateReset:              '.rate .reset',
+    seekingStateCheckbox:   '.seeking.checkbox input[type="checkbox"]',
+    seekingStateDimmer:     '.seeking.dimmer',
+    readyStateRadio:        '.ready.state input[type="radio"]',           // could work with <select>
+    networkStateRadio:      '.network.state input[type="radio"]',         // |
+    bufferCheckbox:         '.buffer.checkbox input[type="checkbox"]',    // 
+    seekableCheckbox:       '.seekable.checkbox input[type="checkbox"]',  //
+    playedCheckbox:         '.played.checkbox input[type="checkbox"]',    //
+    statesLabel:            '.ready.state label, .network.state label, .buffer.checkbox label, .seekable.checkbox label, .played.checkbox label'
     
   },
   
