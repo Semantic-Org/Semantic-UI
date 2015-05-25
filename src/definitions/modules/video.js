@@ -117,7 +117,7 @@ $.fn.video = function(parameters) {
         timeRangeInterval           = $timeRange.prop('max') - $timeRange.prop('min'),
         
         seekLoopInitialPlayState    = undefined, // it actually means undefined, see seek.tickLoop and seek.stopLoop functions,
-        seekedDelay                 = window.setTimeout(1, function(){} ), // subsequent calls to window.clearTimeout won't break
+        seekedTimer                 = window.setTimeout(1, function(){} ), // subsequent calls to window.clearTimeout won't break
 
         element                     = this,
         video                       = $video.get(0),
@@ -130,6 +130,7 @@ $.fn.video = function(parameters) {
         initialize: function() {
           module.debug('Initializing video');
           module.instantiate();
+          module.bind.pushes();
           module.bind.events();
           module.initialValues(); 
         },
@@ -143,6 +144,13 @@ $.fn.video = function(parameters) {
         },
         
         bind: {
+          pushes: function() {
+            // sub-module init
+            $seekButton.push({
+              onStart: module.activate.holdPlayState,
+              onStop: module.deactivate.holdPlayState
+            });
+          },
           events: function() {
             module.debug('Binding video module events');
             // from video to UI
@@ -305,15 +313,21 @@ $.fn.video = function(parameters) {
           },
           seeking: function() {
             module.debug('Update seek state (seeking)');
-            window.clearTimeout(seekedDelay);
+            window.clearTimeout(seekedTimer);
             $seekingStateCheckbox.prop('checked', true);
             $seekingStateDimmer.dimmer('show');
           },
-          seeked: function() {
+          seeked: function(event) {
             module.debug('Update seek state (seeked)');
-            // TODO a seeking loop makes "seeking" and "seeked" events to fire alternatively, making the elements to blink
-            $seekingStateCheckbox.prop('checked', false);
-            $seekingStateDimmer.dimmer('hide');
+            // a seeking loop makes "seeking" and "seeked" events to fire alternatively, add a delay to prevent the elements to blink
+            if(event !== undefined) {
+              // an real undelayed event has occured 
+              seekedTimer = window.setTimeout(module.update.seeked, setttings.seekedDelay);
+            } else {
+              // it has been delayed and now is handled through the UI
+              $seekingStateCheckbox.prop('checked', false);
+              $seekingStateDimmer.dimmer('hide');
+            }
           },
           volume: function() {
             var 
@@ -388,7 +402,6 @@ $.fn.video = function(parameters) {
               }
             },
             toRelativeTime: function() {
-              console.info('seek relative');
               module.debug('Request time relative seek from current position)');
               var position = module.get.currentTime() + $(this).data('seek-step');
               module.request.seek.toAbsoluteTime(position);
@@ -438,6 +451,11 @@ $.fn.video = function(parameters) {
           timeRangeUpdate: function() {
             module.debug('Activate timeRange autoupdate');
             timeRangeUpdateEnabled = true;
+          },
+          holdPlayState: function() {
+            module.debug('Hold play state (while an other operation is occuring)');
+            seekLoopInitialPlayState = module.is.playing();
+            module.request.pause();
           }
         },
         
@@ -445,6 +463,13 @@ $.fn.video = function(parameters) {
           timeRangeUpdate: function() {
             module.debug('Deactivate timeRange autoupdate');
             timeRangeUpdateEnabled = false;
+          },
+          holdPlayState: function() {
+            module.debug('Unhold play state (after an other operation has occured)');
+            if(seekLoopInitialPlayState) {
+              module.request.play();
+            }
+            seekLoopInitialPlayState = undefined;
           }
         },
         
@@ -671,7 +696,7 @@ $.fn.video.settings = {
 
   debug       : true,
   verbose     : true,
-  performance : true,
+  performance : false,
 
   className   : {
     active      : 'active',
@@ -718,6 +743,7 @@ $.fn.video.settings = {
   },
   
   volumeStep: 0.1 // it moves from 0.0 to 1.0, TODO: use a data-* attribute
+  seekedDelay: 250 // ms
   
 };
 
