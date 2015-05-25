@@ -322,7 +322,7 @@ $.fn.video = function(parameters) {
             // a seeking loop makes "seeking" and "seeked" events to fire alternatively, add a delay to prevent the elements to blink
             if(event !== undefined) {
               // an real undelayed event has occured 
-              seekedTimer = window.setTimeout(module.update.seeked, setttings.seekedDelay);
+              seekedTimer = window.setTimeout(module.update.seeked, settings.seekedDelay);
             } else {
               // it has been delayed and now is handled through the UI
               $seekingStateCheckbox.prop('checked', false);
@@ -742,7 +742,7 @@ $.fn.video.settings = {
     NETWORK_NO_SOURCE: 3
   },
   
-  volumeStep: 0.1 // it moves from 0.0 to 1.0, TODO: use a data-* attribute
+  volumeStep: 0.1, // it moves from 0.0 to 1.0, TODO: use a data-* attribute
   seekedDelay: 250 // ms
   
 };
