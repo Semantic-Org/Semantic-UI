@@ -63,10 +63,10 @@
               <div class="ui icon play button">
                 <i class="play icon"></i>
               </div>
-              <div class="ui icon seek button" data-seek-step="-3" data-seek-interval="250">
+              <div class="ui icon seek push button" data-seek-step="-0.5" data-push-interval="150">
                 <i class="backward icon"></i>
               </div>
-              <div class="ui icon seek button" data-seek-step="4" data-seek-interval="250">
+              <div class="ui icon seek push button" data-seek-step="1" data-push-interval="150">
                 <i class="forward icon"></i>
               </div>
             </div>
@@ -230,6 +230,7 @@
 <script>
 $(document)
   .ready(function() {
+    $('.button.push').push();
     $('.ui.video').video();
   })
 ;

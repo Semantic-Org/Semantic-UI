@@ -388,6 +388,7 @@ module.exports = {
           { name: "nag", checked: true },
           { name: "popup", checked: true },
           { name: "progress", checked: true },
+          { name: "push", checked: true },
           { name: "rating", checked: true },
           { name: "search", checked: true },
           { name: "shape", checked: true },

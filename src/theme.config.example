@@ -55,6 +55,7 @@
 @nag        : 'default';
 @popup      : 'default';
 @progress   : 'default';
+@push       : 'default';
 @rating     : 'default';
 @search     : 'default';
 @shape      : 'default';
