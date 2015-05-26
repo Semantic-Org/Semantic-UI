@@ -99,37 +99,43 @@
               </div>
             </div>
             <div class="twelve wide column" style="text-align: center;">
-              <input type="range" value="0" min="0" max="1000" autocomplete="off" style="width:100%;" class="ui time input" />
+              
+              <div class="ui transparent input">
+                <input type="range" value="0" min="0" max="1000" autocomplete="off" style="width:100%;outline: none;" class="time" />
+              </div>
+              <div class="ui timelookup flowing popup">
+                <div class="grouped inline fields">
+                  <label class="time">0:00:00</label>
+                  <div class="field">
+                    <div class="ui buffer checkbox">
+                      <input name="in-buffer" id="state-in-buffer" type="checkbox"><label for="state-in-buffer">in buffer</label>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="ui seekable checkbox">
+                      <input name="seekable" id="state-seekable" type="checkbox"><label for="state-seekable">seekable</label>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="ui played checkbox">
+                      <input name="already-played" id="state-already-played" type="checkbox"><label for="state-already-played">already played</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
               <div class="grouped inline fields">
+                <div class="field">
+                  <div class="ui seeking checkbox">
+                    <input id="state-seeking" type="checkbox"><label for="state-seeking">seeking</label>
+                  </div>
+                </div>
                 <div class="field">
                   <div class="ui left icon mini rate input">
                     <input placeholder="play rate" type="number" min="-1" max="5" step="0.25" value="1.0" autocomplete="off" length="2" style="box-sizing: content-box; width: 3em !important;" />
                     <i class="small undo link reset icon "></i>
                   </div>
                 </div>
-                <div class="field">
-                  <div class="ui seeking checkbox">
-                    <input id="state-seeking" type="checkbox"><label for="state-seeking">seeking</label>
-                  </div>
-                </div>
-              
-                <!-- of course current time is (almost) always in buffer, seekable, and already played (the limit includes the being played time)
-                <div class="field">
-                  <div class="ui buffer checkbox">
-                    <input name="in-buffer" id="state-in-buffer" type="checkbox"><label for="state-in-buffer">in buffer</label>
-                  </div>
-                </div>
-                <div class="field">
-                  <div class="ui seekable checkbox">
-                    <input name="seekable" id="state-seekable" type="checkbox"><label for="state-seekable">seekable</label>
-                  </div>
-                </div>
-                <div class="field">
-                  <div class="ui played checkbox">
-                    <input name="already-played" id="state-already-played" type="checkbox"><label for="state-already-played">already played</label>
-                  </div>
-                </div>
-                -->
               </div>
             
             </div>
@@ -139,8 +145,8 @@
                 <div class="label">remaining</div>
               </div>
             </div>
+            
           </div>
-        
           <div class="centered row">
             <div class="twelve wide column" style="text-align: center;">
             
@@ -181,7 +187,6 @@
               </div>
             
               <div class="field">
-              
                 <div class="grouped inline fields network state">
                   <label>network state :</label>
                   <div class="field">
