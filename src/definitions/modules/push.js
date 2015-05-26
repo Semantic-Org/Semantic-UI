@@ -351,6 +351,9 @@ $.fn.push.settings = {
     disabled    : 'disabled'
   },
   
+  onStart: function() {},
+  onStop: function() {},
+  
 };
 
 })( jQuery, window , document );
