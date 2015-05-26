@@ -188,6 +188,7 @@
 - **Sidebar** - Last menu item now has a border when sidebar and menu are used together
 - **Search** - Fixed `onSelect` not returning the correct value when using `type: category`
 - **Search** - Fixed `onSelect` returning the first term that matches the beginining of the selected value not the exact value.
+- **Search** - Fix `loading search` with an `icon button` causing double loaders.
 - **Search** - `searchFields` setting now correctly replaces default fields instead of adding the user fields to defaults
 - **Search** - Calls to `set value` or `query` now obey `minCharacterLength`
 - **Search** - Search API calls now use the same level debug settings as search
