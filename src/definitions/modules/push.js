@@ -93,7 +93,7 @@ $.fn.push = function(parameters) {
             module.debug('Binding push module events');
             $module
               .on(utilAddNamespaceToEvents(['mousedown'], eventNamespace), module.tickLoop)
-              .on(utilAddNamespaceToEvents(['mouseup'/*, 'mouseleave', 'mouseout'*/], eventNamespace), module.stopLoop) // /!\ don't add 'click' or recursive hole
+              .on(utilAddNamespaceToEvents(['mouseup', 'mouseleave', 'mouseout'], eventNamespace), module.stopLoop) // /!\ don't add 'click' or recursive hole
               .on(utilAddNamespaceToEvents(['click'], eventNamespace), module.filterClick)
             ;
           }
