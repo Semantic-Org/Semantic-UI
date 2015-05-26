@@ -1151,11 +1151,12 @@ select.ui.dropdown {
 .ui.floating.dropdown .menu {
   left: 0;
   right: auto;
-  box-shadow: @floatingMenuBoxShadow;
-  border-radius: @floatingMenuBorderRadius;
+  box-shadow: @floatingMenuBoxShadow !important;
+  border-radius: @floatingMenuBorderRadius !important;
 }
 .ui.floating.dropdown > .menu {
   margin-top: @floatingMenuDistance !important;
+  border-radius: @floatingMenuBorderRadius !important;
 }
 
 /*--------------

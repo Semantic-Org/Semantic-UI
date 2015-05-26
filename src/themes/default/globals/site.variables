@@ -250,8 +250,13 @@
 @subtleGradient: linear-gradient(transparent, @transparentBlack);
 
 /* Differentiating Layers */
-@subtleShadow: 0px 1px 2px 0 @transparentBlack;
-
+@subtleShadow:
+  0px 1px 2px 0 @borderColor
+;
+@floatingShadow:
+  0px 2px 4px 0px rgba(34, 36, 38, 0.1),
+  0px 0px 10px 0px rgba(34, 36, 38, 0.05)
+;
 
 /*******************************
            Power-User
@@ -332,6 +337,7 @@
 --------------------*/
 
 @darkTextColor               : rgba(0, 0, 0, 0.85);
+@mutedTextColor              : rgba(0, 0, 0, 0.6);
 @lightTextColor              : rgba(0, 0, 0, 0.4);
 
 @unselectedTextColor         : rgba(0, 0, 0, 0.4);
@@ -341,6 +347,7 @@
 @disabledTextColor           : rgba(0, 0, 0, 0.2);
 
 @invertedTextColor           : rgba(255, 255, 255, 0.9);
+@invertedMutedTextColor      : rgba(255, 255, 255, 0.8);
 @invertedLightTextColor      : rgba(255, 255, 255, 0.7);
 @invertedUnselectedTextColor : rgba(255, 255, 255, 0.5);
 @invertedHoveredTextColor    : rgba(255, 255, 255, 1);

@@ -1056,15 +1056,6 @@ Floated Menu / Item
     Icon Only
 ---------------*/
 
-.ui.icon.menu,
-.ui.vertical.icon.menu {
-  display: inline-flex;
-  width: auto;
-  height: auto;
-}
-.ui.vertical.icon.menu {
-  display: inline-block;
-}
 .ui.icon.menu > .item {
   height: auto;
   text-align: @iconMenuTextAlign;
@@ -1302,31 +1293,6 @@ Floated Menu / Item
 
 
 /*--------------
-    Selection
----------------*/
-
-.ui.selection.menu > .item {
-  color: rgba(0, 0, 0, 0.4);
-}
-.ui.selection.menu > .item:hover {
-  color: rgba(0, 0, 0, 0.6);
-}
-.ui.selection.menu > .item.active {
-  color: rgba(0, 0, 0, 0.85);
-}
-
-.ui.inverted.selection.menu > .item {
-  color: rgba(255, 255, 255, 0.4);
-}
-.ui.inverted.selection.menu > .item:hover {
-  color: rgba(255, 255, 255, 0.9);
-}
-.ui.inverted.selection.menu > .item.active {
-  color: #FFFFFF;
-}
-
-
-/*--------------
      Floated
 ---------------*/
 
@@ -1334,6 +1300,10 @@ Floated Menu / Item
   float: left;
   margin: 0rem @floatedDistance 0rem 0rem;
 }
+.ui.floated.menu .item:last-child:before {
+  display: none;
+}
+
 .ui.right.floated.menu {
   float: right;
   margin: 0rem 0rem 0rem @floatedDistance;

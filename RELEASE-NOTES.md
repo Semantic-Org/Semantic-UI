@@ -8,6 +8,7 @@
 - **Modal** - Modal will now only close on buttons matching `deny` or `approve` selector. Any button that should hide modal on click should either match one of these selectors, or call `$('.ui.modal').modal('hide')` `onclick`.
 - **Grid** - `page grid` has been deprecated.  `page grids` used percentage gutters which made it unnecessarily difficult to style responsive page content. Moving forward we recommend using `ui container` a fixed width responsinve container for holding page contents.
 - **Form Validation** - Form validation now passes settings through a `fields` object. This is to make form initialization match other components. The previous syntax will continue to work but produce deprecation notices in console
+- **Dropdown** - Dropdown item `description` now float right in default theme and should be included before other content
 - **Popup** - Popups are no longer exclusive by default. Opening a popup will not necessarily close other visible popups. You can change this behavior by using the setting `exclusive: true`
 - **Colors** - Default colors have been slightly adjusted, and new colors have been added, which may cause slight changes in your design.
 
@@ -103,6 +104,7 @@
 - **Site** - Fixed mixed globals `@defaultDuration` and `@transitionDuration` usage to use a single variable across all UI `@defaultDuration`, the same for `@defaultEasing` and `@transitionEasing`
 - **Site** - Added in `pageOverflowX` variable, default theme hides horizontal scrollbars on `body`
 - **Site** - Added default `focus` colors for all color variations
+- **Site** - All floating/raised variations now inherit from a global `@floatedShadow` making theming easier
 - **Sticky** - Sticky now internally caches current scroll position when `cantFit = true` to avoid getting DOM property  on scroll.
 - **Statistic** - Added new evenly divided group variation, for example `three statistics` shows 3 per row
 - **Statistic** - Statitic group now use `flex`. Styles have been updated.

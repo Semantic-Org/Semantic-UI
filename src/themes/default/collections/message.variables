@@ -79,7 +79,6 @@
 ;
 
 /* Floating */
-@floatingShadow: 0 1px 4px 0 @borderColor;
 @floatingBoxShadow:
   @borderShadow,
   @floatingShadow

@@ -35,7 +35,7 @@
 /* Sub Header */
 @subHeaderMargin: 0em;
 @subHeaderLineHeight: 1.2em;
-@subHeaderColor: rgba(0, 0, 0, 0.5);
+@subHeaderColor: @mutedTextColor;
 
 /* Icon */
 @iconOpacity: 1;
@@ -76,9 +76,9 @@
 @tiny   : unit(@h5, em);
 
 /* Sub Header */
-@h1SubHeaderFontSize: 1.4285rem;
+@h1SubHeaderFontSize: 1.1428rem;
 @h2SubHeaderFontSize: 1.1428rem;
-@h3SubHeaderFontSize: 1.1428rem;
+@h3SubHeaderFontSize: 1rem;
 @h4SubHeaderFontSize: 1rem;
 @h5SubHeaderFontSize: 0.9285rem;
 
@@ -140,7 +140,7 @@
 
 /* Inverted */
 @invertedColor: @white;
-@invertedSubHeaderColor: rgba(255, 255, 255, 0.85);
+@invertedSubHeaderColor: @invertedMutedTextColor;
 @invertedDividedBorderColor: @whiteBorderColor;
 @invertedBlockBackground: @lightBlack @subtleGradient;
 @invertedAttachedBackground: @invertedBlockBackground;

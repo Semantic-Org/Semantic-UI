@@ -343,7 +343,10 @@
 
 /* Floating */
 @floatingMenuDistance: 0.5em;
-@floatingMenuBoxShadow: 0 3px 15px 0 @borderColor;
+@floatingMenuBoxShadow:
+  0px 2px 4px 0px @borderColor,
+  0px 0px 10px 0px @internalBorderColor !important
+;
 @floatingMenuBorderRadius: @borderRadius;
 
 /* Pointing */
