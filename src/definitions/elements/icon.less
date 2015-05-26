@@ -70,6 +70,7 @@ i.icon:before {
 
 i.icon.loading {
   height: 1em;
+  line-height: 1;
   animation: icon-loading @loadingDuration linear infinite;
 }
 @keyframes icon-loading {
@@ -243,6 +244,19 @@ i.inverted.circular.yellow.icon {
   color: @white !important;
 }
 
+/* Olive */
+i.olive.icon {
+  color: @olive !important;
+}
+i.inverted.olive.icon {
+  color: @lightGreen !important;
+}
+i.inverted.bordered.olive.icon,
+i.inverted.circular.olive.icon {
+  background-color: @olive !important;
+  color: @white !important;
+}
+
 /* Green */
 i.green.icon {
   color: @green !important;
@@ -358,7 +372,6 @@ i.small.icons {
 }
 i.icon,
 i.icons {
-  line-height: 1;
   font-size: @medium;
 }
 i.large.icon,

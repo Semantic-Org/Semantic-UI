@@ -125,6 +125,7 @@
 @redTextColor: @white;
 @orangeTextColor: @white;
 @yellowTextColor: @white;
+@oliveTextColor: @white;
 @greenTextColor: @white;
 @tealTextColor: @white;
 @blueTextColor: @white;
@@ -138,6 +139,7 @@
 @redHoverTextColor: @white;
 @orangeHoverTextColor: @white;
 @yellowHoverTextColor: @white;
+@oliveHoverTextColor: @white;
 @greenHoverTextColor: @white;
 @tealHoverTextColor: @white;
 @blueHoverTextColor: @white;
@@ -151,6 +153,7 @@
 @redRibbonShadow: darken(@red, 10);
 @orangeRibbonShadow: darken(@orange, 10);
 @yellowRibbonShadow: darken(@yellow, 10);
+@oliveRibbonShadow: darken(@olive, 10);
 @greenRibbonShadow: darken(@green, 10);
 @tealRibbonShadow: darken(@teal, 10);
 @blueRibbonShadow: darken(@blue, 10);

@@ -156,6 +156,7 @@
 @red              : #DB2828;
 @orange           : #F2711C;
 @yellow           : #FBBD08;
+@olive            : #B5CC18;
 @green            : #21BA45;
 @teal             : #00B5AD;
 @blue             : #2185D0;
@@ -170,6 +171,7 @@
 @lightRed         : #FF695E;
 @lightOrange      : #FF851B;
 @lightYellow      : #FFE21F;
+@lightOlive       : #D9E778;
 @lightGreen       : #2ECC40;
 @lightTeal        : #6DFFFF;
 @lightBlue        : #54C8FF;
@@ -190,6 +192,7 @@
 @redBackground    : #FFE8E6;
 @orangeBackground : #FFEDDE;
 @yellowBackground : #FFF8DB;
+@oliveBackground  : #FBFDEF;
 @greenBackground  : #E5F9E7;
 @tealBackground   : #E1F7F7;
 @blueBackground   : #DFF0FF;
@@ -200,6 +203,7 @@
 
 /*--- Colored Headers ---*/
 @redHeaderColor    : darken(@redTextColor, 5);
+@oliveHeaderColor  : darken(@oliveTextColor, 5);
 @greenHeaderColor  : darken(@greenTextColor, 5);
 @yellowHeaderColor : darken(@yellowTextColor, 5);
 @blueHeaderColor   : darken(@blueTextColor, 5);
@@ -213,13 +217,14 @@
 /*--- Colored Text ---*/
 @redTextColor    : @red;
 @orangeTextColor : @orange;
+@yellowTextColor : #B58105; // Yellow text is difficult to read
+@oliveTextColor  : #8ABC1E; // Olive is difficult to read
+@greenTextColor  : #1EBC30; // Green is difficult to read
 @tealTextColor   : #10A3A3; // Teal text is difficult to read
 @blueTextColor   : @blue;
-@greenTextColor  : #1EBC30; // Green is difficult to read
 @violetTextColor : @violet;
 @purpleTextColor : @purple;
 @pinkTextColor   : @pink;
-@yellowTextColor : #B58105; // Yellow text is difficult to read
 @brownTextColor  : @brown;
 
 
@@ -491,6 +496,7 @@
 @redHover             : saturate(darken(@red, 5), 10);
 @orangeHover          : saturate(darken(@orange, 5), 10);
 @yellowHover          : saturate(darken(@yellow, 5), 10);
+@oliveHover           : saturate(darken(@olive, 5), 10);
 @greenHover           : saturate(darken(@green, 5), 10);
 @tealHover            : saturate(darken(@teal, 5), 10);
 @blueHover            : saturate(darken(@blue, 5), 10);
@@ -502,6 +508,7 @@
 @lightRedHover        : saturate(darken(@lightRed, 5), 10);
 @lightOrangeHover     : saturate(darken(@lightOrange, 5), 10);
 @lightYellowHover     : saturate(darken(@lightYellow, 5), 10);
+@lightOliveHover      : saturate(darken(@lightOlive, 5), 10);
 @lightGreenHover      : saturate(darken(@lightGreen, 5), 10);
 @lightTealHover       : saturate(darken(@lightTeal, 5), 10);
 @lightBlueHover       : saturate(darken(@lightBlue, 5), 10);
@@ -547,6 +554,7 @@
 @redFocus             : saturate(darken(@red, 8), 20);
 @orangeFocus          : saturate(darken(@orange, 8), 20);
 @yellowFocus          : saturate(darken(@yellow, 8), 20);
+@oliveFocus           : saturate(darken(@olive, 8), 20);
 @greenFocus           : saturate(darken(@green, 8), 20);
 @tealFocus            : saturate(darken(@teal, 8), 20);
 @blueFocus            : saturate(darken(@blue, 8), 20);
@@ -558,6 +566,7 @@
 @lightRedFocus        : saturate(darken(@lightRed, 8), 20);
 @lightOrangeFocus     : saturate(darken(@lightOrange, 8), 20);
 @lightYellowFocus     : saturate(darken(@lightYellow, 8), 20);
+@lightOliveFocus      : saturate(darken(@lightOlive, 8), 20);
 @lightGreenFocus      : saturate(darken(@lightGreen, 8), 20);
 @lightTealFocus       : saturate(darken(@lightTeal, 8), 20);
 @lightBlueFocus       : saturate(darken(@lightBlue, 8), 20);
@@ -604,6 +613,7 @@
 @redDown             : darken(@red, 10);
 @orangeDown          : darken(@orange, 10);
 @yellowDown          : darken(@yellow, 10);
+@oliveDown           : darken(@olive, 10);
 @greenDown           : darken(@green, 10);
 @tealDown            : darken(@teal, 10);
 @blueDown            : darken(@blue, 10);
@@ -615,6 +625,7 @@
 @lightRedDown        : darken(@lightRed, 10);
 @lightOrangeDown     : darken(@lightOrange, 10);
 @lightYellowDown     : darken(@lightYellow, 10);
+@lightOliveDown      : darken(@lightOlive, 10);
 @lightGreenDown      : darken(@lightGreen, 10);
 @lightTealDown       : darken(@lightTeal, 10);
 @lightBlueDown       : darken(@lightBlue, 10);
@@ -661,6 +672,7 @@
 @redActive             : saturate(darken(@red, 5), 15);
 @orangeActive          : saturate(darken(@orange, 5), 15);
 @yellowActive          : saturate(darken(@yellow, 5), 15);
+@oliveActive           : saturate(darken(@olive, 5), 15);
 @greenActive           : saturate(darken(@green, 5), 15);
 @tealActive            : saturate(darken(@teal, 5), 15);
 @blueActive            : saturate(darken(@blue, 5), 15);
@@ -672,6 +684,7 @@
 @lightRedActive        : saturate(darken(@lightRed, 5), 15);
 @lightOrangeActive     : saturate(darken(@lightOrange, 5), 15);
 @lightYellowActive     : saturate(darken(@lightYellow, 5), 15);
+@lightOliveActive      : saturate(darken(@lightOlive, 5), 15);
 @lightGreenActive      : saturate(darken(@lightGreen, 5), 15);
 @lightTealActive       : saturate(darken(@lightTeal, 5), 15);
 @lightBlueActive       : saturate(darken(@lightBlue, 5), 15);

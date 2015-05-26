@@ -242,19 +242,15 @@
 @coloredBackgroundImage: none;
 @coloredBoxShadow: @shadowBoxShadow;
 
-/* Whether color should invert its text (light colors may require dark text) */
+/* Colored */
 @brownTextColor: @invertedTextColor;
 @brownTextShadow: @invertedTextShadow;
 @redTextColor: @invertedTextColor;
 @redTextShadow: @invertedTextShadow;
 @orangeTextColor: @invertedTextColor;
 @orangeTextShadow: @invertedTextShadow;
-@yellowTextColor: @invertedTextColor;
-@yellowTextShadow: @invertedTextShadow;
 @greenTextColor: @invertedTextColor;
 @greenTextShadow: @invertedTextShadow;
-@tealTextColor: @invertedTextColor;
-@tealTextShadow: @invertedTextShadow;
 @blueTextColor: @invertedTextColor;
 @blueTextShadow: @invertedTextShadow;
 @violetTextColor: @invertedTextColor;
@@ -265,8 +261,42 @@
 @pinkTextShadow: @invertedTextShadow;
 @blackTextColor: @invertedTextColor;
 @blackTextShadow: @invertedTextShadow;
+@oliveTextColor: @invertedTextColor;
+@oliveTextShadow: @invertedTextShadow;
+@yellowTextColor: @invertedTextColor;
+@yellowTextShadow: @invertedTextShadow;
+@tealTextColor: @invertedTextColor;
+@tealTextShadow: @invertedTextShadow;
 @greyTextColor: @invertedTextColor;
 @greyTextShadow: @invertedTextShadow;
+
+/* Inverted */
+@lightBrownTextColor: @invertedTextColor;
+@lightBrownTextShadow: @invertedTextShadow;
+@lightRedTextColor: @invertedTextColor;
+@lightRedTextShadow: @invertedTextShadow;
+@lightOrangeTextColor: @invertedTextColor;
+@lightOrangeTextShadow: @invertedTextShadow;
+@lightGreenTextColor: @invertedTextColor;
+@lightGreenTextShadow: @invertedTextShadow;
+@lightBlueTextColor: @invertedTextColor;
+@lightBlueTextShadow: @invertedTextShadow;
+@lightVioletTextColor: @invertedTextColor;
+@lightVioletTextShadow: @invertedTextShadow;
+@lightPurpleTextColor: @invertedTextColor;
+@lightPurpleTextShadow: @invertedTextShadow;
+@lightPinkTextColor: @invertedTextColor;
+@lightPinkTextShadow: @invertedTextShadow;
+@lightBlackTextColor: @invertedTextColor;
+@lightBlackTextShadow: @invertedTextShadow;
+@lightOliveTextColor: @textColor;
+@lightOliveTextShadow: @textShadow;
+@lightYellowTextColor: @textColor;
+@lightYellowTextShadow: @textShadow;
+@lightTealTextColor: @textColor;
+@lightTealTextShadow: @textShadow;
+@lightGreyTextColor: @textColor;
+@lightGreyTextShadow: @textShadow;
 
 
 /* Ordinality */

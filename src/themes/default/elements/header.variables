@@ -122,17 +122,6 @@
 @largeBlock: @large;
 @hugeBlock: @huge;
 
-/* Divided */
-@blackDividedBorderColor: @black;
-@blueDividedBorderColor: @blue;
-@greenDividedBorderColor: @green;
-@orangeDividedBorderColor: @orange;
-@pinkDividedBorderColor: @pink;
-@purpleDividedBorderColor: @purple;
-@redDividedBorderColor: @red;
-@tealDividedBorderColor: @teal;
-@yellowDividedBorderColor: @yellow;
-
 /* Attached */
 @attachedOffset: -1px;
 @attachedBoxShadow: none;
@@ -142,11 +131,12 @@
 @attachedBackground: @white;
 @attachedBorderRadius: @blockBorderRadius;
 
-@tinyAttached: 0.8571em;
-@smallAttached: 0.9285em;
-@mediumAttached: 1em;
-@largeAttached: 1.0714em;
-@hugeAttached: 1.1428em;
+@tinyAttachedSize: @relativeTiny;
+@smallAttachedSize: @relativeSmall;
+@mediumAttachedSize: @relativeMedium;
+@largeAttachedSize: @relativeLarge;
+@bigAttachedSize: @relativeBig;
+@hugeAttachedSize: @relativeHuge;
 
 /* Inverted */
 @invertedColor: @white;

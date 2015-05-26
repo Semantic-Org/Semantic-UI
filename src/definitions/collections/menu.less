@@ -1148,7 +1148,7 @@ Floated Menu / Item
      Colors
 ---------------*/
 
-/*--- Light Colors  ---*/
+/*--- Standard Colors  ---*/
 .ui.menu .red.active.item,
 .ui.red.menu .active.item {
   border-color: @red !important;
@@ -1163,6 +1163,11 @@ Floated Menu / Item
 .ui.yellow.menu .active.item {
   border-color: @yellow !important;
   color: @yellow !important;
+}
+.ui.menu .olive.active.item,
+.ui.olive.menu .active.item {
+  border-color: @olive !important;
+  color: @olive !important;
 }
 .ui.menu .green.active.item,
 .ui.green.menu .active.item {
@@ -1369,6 +1374,17 @@ Floated Menu / Item
   background-color: @invertedColoredDividerBackground;
 }
 .ui.inverted.yellow.menu .active.item {
+  background-color: @invertedColoredActiveBackground !important;
+}
+
+/* Olive */
+.ui.inverted.olive.menu {
+  background-color: @olive;
+}
+.ui.inverted.olive.menu .item:before {
+  background-color: @invertedColoredDividerBackground;
+}
+.ui.inverted.olive.menu .active.item {
   background-color: @invertedColoredActiveBackground !important;
 }
 
