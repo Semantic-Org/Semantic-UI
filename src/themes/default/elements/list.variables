@@ -79,6 +79,7 @@
 /* Horizontal */
 @horizontalSpacing: 1em;
 @horizontalIconDistance: 0.25em;
+@horizontalVerticalAlign: middle;
 
 /* Inverted */
 @invertedListIconColor: @invertedLightTextColor;

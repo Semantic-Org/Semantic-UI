@@ -85,6 +85,7 @@
 - **Input** - Action input now supports multiple buttons, and dropdown
 - **Label** - Labels now have `active` and `active hover` states
 - **Label** - Label now sets an `img` height even when not using an `image label`
+- **List** - Any content inside a `ui list` can now be vertically aligned
 - **Menu** - Added `stackable` menu variation for simple responsive menus
 - **Menu** - Added many new variables to menu
 - **Menu** - Fixed several inheritance issues for `dropdown item` inside `menu` appearing as `menu item`.
@@ -156,6 +157,7 @@
 - **Input** - Fixed improper left padding on `transparent left icon input` **Thanks @zxfwinder**
 - **Input** - Fixed `placeholder` color not changing correctly on focus **Thanks @zxfwinder**
 - **Label** - Labels inside `header` now vertical align better by accounting for line height offset
+- **List** - `horizontal list` are now aligned `middle` by default, while vertical lists are aligned `top`.
 - **List** - Fixes numbers not appearing when using `inverted ordered list` **Thanks @pcj**
 - **List** - `a` elements inside a `ui list` will no longer apply styles on `ui` elements like `button` **Thanks @ahtinurme**
 - **List** - Bullets and numbers are no longer selectable in `bulleted list` and `ordered list`
