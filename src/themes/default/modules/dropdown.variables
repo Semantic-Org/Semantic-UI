@@ -120,7 +120,7 @@
 --------------------*/
 /* Selection */
 @selectionMinWidth: 200px;
-@selectionBorderEmWidth:  0.0785em; /* 2px / em size */
+@selectionBorderEmWidth:  0.0714285em; /* 1px / em size */
 @selectionMinHeight: @defaultInputLineHeight + (@selectionVerticalPadding * 2) - @selectionBorderEmWidth;
 @selectionBackground: @white;
 @selectionDisplay: inline-block;
@@ -305,7 +305,7 @@
 --------------------*/
 
 /* Scrolling */
-@scrollingMinWidth: 250px;
+@scrollingMinWidth: 15em;
 @scrollingMenuItemBorder: @selectionItemDivider;
 
 @scrollingMobileMaxItems: 4;
@@ -313,7 +313,7 @@
 @scrollingComputerMaxItems: 8;
 @scrollingWidescreenMaxItems: 12;
 
-@scrollingBorderEMWidth: 0.0785em; /* 1px / em size */
+@scrollingBorderEMWidth: 0em; /* 0px / em size */
 @scrollingItemHeight: (@itemVerticalPadding * 2) + @itemLineHeight + @scrollingBorderEMWidth;
 @scrollingMobileMaxMenuHeight: (@scrollingItemHeight * @scrollingMobileMaxItems);
 @scrollingTabletMaxMenuHeight: (@scrollingItemHeight * @scrollingTabletMaxItems);
@@ -343,10 +343,7 @@
 
 /* Floating */
 @floatingMenuDistance: 0.5em;
-@floatingMenuBoxShadow:
-  0px 2px 4px 0px @borderColor,
-  0px 0px 10px 0px @internalBorderColor !important
-;
+@floatingMenuBoxShadow: @floatingShadow;
 @floatingMenuBorderRadius: @borderRadius;
 
 /* Pointing */
