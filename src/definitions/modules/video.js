@@ -153,6 +153,8 @@ $.fn.video = function(parameters) {
               onStart: module.activate.holdPlayState,
               onStop: module.deactivate.holdPlayState
             });
+            $volumeUpButton.push()
+            $volumeDownButton.push();
           },
           popups: function() {
             $timeLookupActivator.popup({
@@ -432,7 +434,7 @@ $.fn.video = function(parameters) {
               module.request.unmute();
             } else {
               module.debug('Request volume up');
-              video.volume = Math.min(video.volume + settings.volumeStep, 1);
+              video.volume = Math.min(video.volume + $(this).data('volume-step'), 1);
             }
           },
           volumeDown: function() {
@@ -440,7 +442,7 @@ $.fn.video = function(parameters) {
               module.request.unmute();
             } else {
               module.debug('Request volume down');
-              video.volume = Math.max(video.volume - settings.volumeStep, 0);
+              video.volume = Math.max(video.volume - $(this).data('volume-step'), 0);
             }
           },
           mute: function() {
