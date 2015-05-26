@@ -332,45 +332,133 @@
      Colors
 ---------------*/
 
-.ui.blue.statistics .statistic > .value,
-.ui.statistics .blue.statistic > .value,
-.ui.blue.statistic > .value {
-  color: #2185d0;
-}
-.ui.green.statistics .statistic > .value,
-.ui.statistics .green.statistic > .value,
-.ui.green.statistic > .value {
-  color: #21ba45;
+.ui.red.statistics .statistic > .value,
+.ui.statistics .red.statistic > .value,
+.ui.red.statistic > .value {
+  color: #db2828;
 }
 .ui.orange.statistics .statistic > .value,
 .ui.statistics .orange.statistic > .value,
 .ui.orange.statistic > .value {
   color: #f2711c;
 }
-.ui.pink.statistics .statistic > .value,
-.ui.statistics .pink.statistic > .value,
-.ui.pink.statistic > .value {
-  color: #e03997;
+.ui.yellow.statistics .statistic > .value,
+.ui.statistics .yellow.statistic > .value,
+.ui.yellow.statistic > .value {
+  color: #fbbd08;
 }
-.ui.purple.statistics .statistic > .value,
-.ui.statistics .purple.statistic > .value,
-.ui.purple.statistic > .value {
-  color: #6a33c8;
+.ui.olive.statistics .statistic > .value,
+.ui.statistics .olive.statistic > .value,
+.ui.olive.statistic > .value {
+  color: #b5cc18;
 }
-.ui.red.statistics .statistic > .value,
-.ui.statistics .red.statistic > .value,
-.ui.red.statistic > .value {
-  color: #db2828;
+.ui.green.statistics .statistic > .value,
+.ui.statistics .green.statistic > .value,
+.ui.green.statistic > .value {
+  color: #21ba45;
 }
 .ui.teal.statistics .statistic > .value,
 .ui.statistics .teal.statistic > .value,
 .ui.teal.statistic > .value {
   color: #00b5ad;
 }
-.ui.yellow.statistics .statistic > .value,
-.ui.statistics .yellow.statistic > .value,
-.ui.yellow.statistic > .value {
-  color: #fbbd08;
+.ui.blue.statistics .statistic > .value,
+.ui.statistics .blue.statistic > .value,
+.ui.blue.statistic > .value {
+  color: #2185d0;
+}
+.ui.violet.statistics .statistic > .value,
+.ui.statistics .violet.statistic > .value,
+.ui.violet.statistic > .value {
+  color: #6435c9;
+}
+.ui.purple.statistics .statistic > .value,
+.ui.statistics .purple.statistic > .value,
+.ui.purple.statistic > .value {
+  color: #a333c8;
+}
+.ui.pink.statistics .statistic > .value,
+.ui.statistics .pink.statistic > .value,
+.ui.pink.statistic > .value {
+  color: #e03997;
+}
+.ui.brown.statistics .statistic > .value,
+.ui.statistics .brown.statistic > .value,
+.ui.brown.statistic > .value {
+  color: #a5673f;
+}
+.ui.grey.statistics .statistic > .value,
+.ui.statistics .grey.statistic > .value,
+.ui.grey.statistic > .value {
+  color: #889090;
+}
+
+/*--------------
+    Inverted
+---------------*/
+
+.ui.inverted.statistics .statistic > .value,
+.ui.inverted.statistic .value {
+  color: #ffffff;
+}
+.ui.inverted.statistics .statistic > .label,
+.ui.inverted.statistic .label {
+  color: rgba(255, 255, 255, 0.9);
+}
+.ui.inverted.red.statistics .statistic > .value,
+.ui.statistics .inverted.red.statistic > .value,
+.ui.inverted.red.statistic > .value {
+  color: #ff695e;
+}
+.ui.inverted.orange.statistics .statistic > .value,
+.ui.statistics .inverted.orange.statistic > .value,
+.ui.inverted.orange.statistic > .value {
+  color: #ff851b;
+}
+.ui.inverted.yellow.statistics .statistic > .value,
+.ui.statistics .inverted.yellow.statistic > .value,
+.ui.inverted.yellow.statistic > .value {
+  color: #ffe21f;
+}
+.ui.inverted.green.statistics .statistic > .value,
+.ui.statistics .inverted.green.statistic > .value,
+.ui.inverted.green.statistic > .value {
+  color: #2ecc40;
+}
+.ui.inverted.teal.statistics .statistic > .value,
+.ui.statistics .inverted.teal.statistic > .value,
+.ui.inverted.teal.statistic > .value {
+  color: #6dffff;
+}
+.ui.inverted.blue.statistics .statistic > .value,
+.ui.statistics .inverted.blue.statistic > .value,
+.ui.inverted.blue.statistic > .value {
+  color: #54c8ff;
+}
+.ui.inverted.violet.statistics .statistic > .value,
+.ui.statistics .inverted.violet.statistic > .value,
+.ui.inverted.violet.statistic > .value {
+  color: #a291fb;
+}
+.ui.inverted.purple.statistics .statistic > .value,
+.ui.statistics .inverted.purple.statistic > .value,
+.ui.inverted.purple.statistic > .value {
+  color: #dc73ff;
+}
+.ui.inverted.pink.statistics .statistic > .value,
+.ui.statistics .inverted.pink.statistic > .value,
+.ui.inverted.pink.statistic > .value {
+  color: #ff8edf;
+}
+.ui.inverted.brown.statistics .statistic > .value,
+.ui.statistics .inverted.brown.statistic > .value,
+.ui.inverted.brown.statistic > .value {
+  color: #d67c1c;
+}
+.ui.inverted.grey.statistics .statistic > .value,
+.ui.statistics .inverted.grey.statistic > .value,
+.ui.inverted.grey.statistic > .value {
+  color: #dcddde;
 }
 
 /*--------------
@@ -387,57 +475,6 @@
 }
 .ui.floated.statistic:last-child {
   margin-bottom: 0em;
-}
-
-/*--------------
-    Inverted
----------------*/
-
-.ui.inverted.statistic .value {
-  color: #ffffff;
-}
-.ui.inverted.statistic .label {
-  color: rgba(255, 255, 255, 0.9);
-}
-.ui.inverted.blue.statistics .statistic > .value,
-.ui.statistics .inverted.blue.statistic > .value,
-.ui.inverted.blue.statistic > .value {
-  color: #54c8ff;
-}
-.ui.inverted.green.statistics .statistic > .value,
-.ui.statistics .inverted.green.statistic > .value,
-.ui.inverted.green.statistic > .value {
-  color: #2ecc40;
-}
-.ui.inverted.orange.statistics .statistic > .value,
-.ui.statistics .inverted.orange.statistic > .value,
-.ui.inverted.orange.statistic > .value {
-  color: #ff851b;
-}
-.ui.inverted.pink.statistics .statistic > .value,
-.ui.statistics .inverted.pink.statistic > .value,
-.ui.inverted.pink.statistic > .value {
-  color: #ff8edf;
-}
-.ui.inverted.purple.statistics .statistic > .value,
-.ui.statistics .inverted.purple.statistic > .value,
-.ui.inverted.purple.statistic > .value {
-  color: #cdc6ff;
-}
-.ui.inverted.red.statistics .statistic > .value,
-.ui.statistics .inverted.red.statistic > .value,
-.ui.inverted.red.statistic > .value {
-  color: #ff695e;
-}
-.ui.inverted.teal.statistics .statistic > .value,
-.ui.statistics .inverted.teal.statistic > .value,
-.ui.inverted.teal.statistic > .value {
-  color: #6dffff;
-}
-.ui.inverted.yellow.statistics .statistic > .value,
-.ui.statistics .inverted.yellow.statistic > .value,
-.ui.inverted.yellow.statistic > .value {
-  color: #ffe21f;
 }
 
 /*--------------

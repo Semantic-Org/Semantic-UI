@@ -24,7 +24,7 @@
   background: #ffffff;
   border: none;
   box-shadow: 1px 3px 3px 0px rgba(0, 0, 0, 0.2), 1px 3px 15px 2px rgba(0, 0, 0, 0.2);
-  border-radius: 0.2857rem;
+  border-radius: 0.285714rem;
   -webkit-user-select: text;
      -moz-user-select: text;
       -ms-user-select: text;
@@ -33,12 +33,12 @@
 }
 .ui.modal > :first-child:not(.icon),
 .ui.modal > .icon:first-child + * {
-  border-top-left-radius: 0.2857rem;
-  border-top-right-radius: 0.2857rem;
+  border-top-left-radius: 0.285714rem;
+  border-top-right-radius: 0.285714rem;
 }
 .ui.modal > :last-child {
-  border-bottom-left-radius: 0.2857rem;
-  border-bottom-right-radius: 0.2857rem;
+  border-bottom-left-radius: 0.285714rem;
+  border-bottom-right-radius: 0.285714rem;
 }
 
 

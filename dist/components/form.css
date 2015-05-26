@@ -118,7 +118,7 @@
   background: #ffffff;
   border: 1px solid rgba(34, 36, 38, 0.15);
   color: rgba(0, 0, 0, 0.87);
-  border-radius: 0.2857rem;
+  border-radius: 0.285714rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
   -webkit-transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
           transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
@@ -140,7 +140,7 @@
   border: 1px solid rgba(34, 36, 38, 0.15);
   outline: none;
   color: rgba(0, 0, 0, 0.87);
-  border-radius: 0.2857rem;
+  border-radius: 0.285714rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
   -webkit-transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
           transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
@@ -174,7 +174,7 @@
   width: 100%;
   background: #ffffff;
   border: 1px solid rgba(34, 36, 38, 0.15);
-  border-radius: 0.2857rem;
+  border-radius: 0.285714rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
   padding: 0.62em 1em;
   color: rgba(0, 0, 0, 0.87);
@@ -318,14 +318,14 @@
 .ui.form input[type="url"]:focus {
   color: rgba(0, 0, 0, 0.95);
   border-color: rgba(34, 36, 38, 0.3);
-  border-radius: 0.2857rem;
+  border-radius: 0.285714rem;
   background: #ffffff;
   box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.3) inset;
 }
 .ui.form textarea:focus {
   color: rgba(0, 0, 0, 0.95);
   border-color: rgba(34, 36, 38, 0.3);
-  border-radius: 0.2857rem;
+  border-radius: 0.285714rem;
   background: #ffffff;
   box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.3) inset;
   -webkit-appearance: none;
@@ -408,7 +408,7 @@
   background: #fff6f6;
   border-color: #e0b4b4;
   color: #922d2b;
-  border-radius: 0.2857rem;
+  border-radius: 0.285714rem;
   box-shadow: none;
 }
 .ui.form .field.error textarea:focus,
@@ -561,7 +561,7 @@
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
   border-radius: 500rem;
-  border-color: #aaaaaa rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1);
+  border-color: #889090 rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1);
   border-style: solid;
   border-width: 0.2em;
   box-shadow: 0px 0px 0px 1px transparent;

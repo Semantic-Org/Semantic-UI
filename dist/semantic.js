@@ -5252,6 +5252,8 @@ $.fn.dropdown = function(parameters) {
 
         scrollPage: function(direction, $selectedItem) {
           var
+            $selectedItem = $selectedItem || module.get.selectedItem(),
+            $menu         = $selectedItem.closest(selector.menu),
             menuHeight    = $menu.outerHeight(),
             currentScroll = $menu.scrollTop(),
             itemHeight    = $item.eq(0).outerHeight(),
@@ -5265,7 +5267,6 @@ $.fn.dropdown = function(parameters) {
             $nextSelectedItem,
             elementIndex
           ;
-          $selectedItem     = $selectedItem || module.get.selectedItem();
           elementIndex      = (direction == 'up')
             ? $selectableItem.index($selectedItem) - itemsPerPage
             : $selectableItem.index($selectedItem) + itemsPerPage
@@ -6148,7 +6149,7 @@ $.fn.dropdown = function(parameters) {
         },
 
         hideAndClear: function() {
-          if(module.is.searchSelection()) {
+          if(module.has.search()) {
             module.remove.searchTerm();
             module.hide(function() {
               module.remove.filteredItem();

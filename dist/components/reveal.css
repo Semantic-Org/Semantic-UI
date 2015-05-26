@@ -24,8 +24,8 @@
   top: 0em !important;
   left: 0em !important;
   z-index: 3 !important;
-  -webkit-transition: all 0.1s ease 0.15s;
-          transition: all 0.1s ease 0.15s;
+  -webkit-transition: all 0.8s ease 0.15s;
+          transition: all 0.8s ease 0.15s;
 }
 .ui.reveal > .hidden.content {
   position: relative !important;

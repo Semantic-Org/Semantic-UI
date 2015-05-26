@@ -128,9 +128,9 @@
 }
 .ui.styled.accordion,
 .ui.styled.accordion .accordion {
-  border-radius: 0.2857rem;
+  border-radius: 0.285714rem;
   background: #ffffff;
-  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15), 0px 0px 0px 1px rgba(34, 36, 38, 0.15);
 }
 .ui.styled.accordion .title,
 .ui.styled.accordion .accordion .title {
