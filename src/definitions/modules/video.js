@@ -313,6 +313,7 @@ $.fn.video = function(parameters) {
             $currentTime.text(utilReadableTime(currentTime));
             $remainingTime.text( utilReadableTime(duration - currentTime) );
             // range display, prevent it to update when it has been 'mousedown'ed but not 'change'd yet
+            console.log(timeRangeUpdateEnabled);
             if(timeRangeUpdateEnabled) {
               $timeRange.val( timeRangeInterval * currentTime / duration );
             }
@@ -469,7 +470,7 @@ $.fn.video = function(parameters) {
           timeLookup: function() {
             module.debug('Activate time lookup');
             $timeLookupActivator.popup('show');
-            timeRangeUpdateEnabled = true;
+            timeRangeUpdateEnabled = false;
           }
         },
         
@@ -483,9 +484,8 @@ $.fn.video = function(parameters) {
           },
           timeLookup: function() {
             module.debug('Deactivate time lookup');
-            console.log($timeLookupActivator.popup('is visible'));
             $timeLookupActivator.popup('hide');
-            timeRangeUpdateEnabled = false;
+            timeRangeUpdateEnabled = true;
           }
         },
         
