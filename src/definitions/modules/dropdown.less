@@ -781,6 +781,12 @@ select.ui.dropdown {
   border-width: @loaderLineWidth;
 }
 
+/* Coupling */
+.ui.loading.dropdown.button > i.icon:before,
+.ui.loading.dropdown.button > i.icon:after {
+  display: none;
+}
+
 @keyframes dropdown-spin {
   from {
     transform: rotate(0deg);
