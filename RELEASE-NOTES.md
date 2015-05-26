@@ -245,6 +245,7 @@
 - **Sidebar** - Sidebar now defaults to `useLegacy: false` to avoid the overhead of feature detection for most users
 - **Search** - Slightly adjusted search result theme for clarity
 - **Statistic** - Statistic label styles have been updated
+- **Site** - Additional font variables have been added to site to help clarify variable purpose.
 - **Site** - Increase contrast on default hovered/down colors for colored variations
 - **Site** - Page background is now `#FFFFFF` by default instead of an offwhite `#F7F7F7`
 - **Site** - Adjusted global line height to the closest even pixel value
