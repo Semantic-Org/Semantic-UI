@@ -89,14 +89,28 @@
 @coloredBorderSize: 2px;
 
 /* Ordinality */
-@secondaryBackground: #FAF9FA;
-@secondaryColor: @textColor;
+@secondaryBackground: @darkWhite;
+@secondaryColor: @mutedTextColor;
 
-@tertiaryBackground:  #EBEBEB;
-@tertiaryColor: @lightTextColor;
+@tertiaryBackground:  @midWhite;
+@tertiaryColor: @mutedTextColor;
 
-@secondaryInvertedBackground: linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
-@secondaryInvertedColor: @offWhite;
+@secondaryInvertedLightness: 0.2;
+@secondaryInvertedBackground:
+  lighten(@black, (@secondaryInvertedLightness * 100))
+  linear-gradient(
+    rgba(255, 255, 255, @secondaryInvertedLightness) 0%,
+    rgba(255, 255, 255, @secondaryInvertedLightness) 100%
+  )
+;
+@secondaryInvertedColor: @invertedMutedTextColor;
 
-@tertiaryInvertedBackground: linear-gradient(rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 100%);
-@tertiaryInvertedColor: @darkWhite;
+@tertiaryInvertedLightness: 0.35;
+@tertiaryInvertedBackground:
+  lighten(@black, (@tertiaryInvertedLightness * 100))
+  linear-gradient(
+    rgba(255, 255, 255, @tertiaryInvertedLightness) 0%,
+    rgba(255, 255, 255, @tertiaryInvertedLightness) 100%
+  )
+;
+@tertiaryInvertedColor: @invertedMutedTextColor;

@@ -186,8 +186,9 @@
 
 /*---   Neutrals  ---*/
 @fullBlack        : #000000;
-@offWhite         : #FAFAFA;
-@darkWhite        : #F4F4F4;
+@offWhite         : #F9FAFB;
+@darkWhite        : #F3F4F5;
+@midWhite         : #DCDDDE;
 @white            : #FFFFFF;
 
 /*--- Colored Backgrounds ---*/
