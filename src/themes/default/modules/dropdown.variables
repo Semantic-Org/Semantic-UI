@@ -150,6 +150,7 @@
 @selectionBorderRadius: @borderRadius;
 
 @selectionIconOpacity: 0.8;
+@selectionIconZIndex: 3;
 @selectionIconHitbox: @selectionVerticalPadding;
 @selectionIconMargin: -@selectionIconHitbox;
 @selectionIconPadding: @selectionIconHitbox;
