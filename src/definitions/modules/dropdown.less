@@ -1014,27 +1014,36 @@ select.ui.dropdown {
 ---------------*/
 
 /*  Selection Menu */
+.ui.scrolling.dropdown .menu,
+.ui.dropdown .scrolling.menu {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
 .ui.scrolling.dropdown .menu {
   overflow-x: hidden;
   overflow-y: auto;
   backface-visibility: hidden;
   -webkit-overflow-scrolling: touch;
-  min-width: @scrollingMinWidth !important;
+  width: @scrollingMenuWidth !important;
 }
 
 .ui.dropdown .scrolling.menu {
   position: static;
-  overflow: auto;
-  min-width: @scrollingMinWidth !important;
-  box-shadow: none !important;
-  margin: 0 !important;
-  border-radius: 0 !important;
+  overflow-y: auto;
   border: none;
-  border-top: 1px solid @menuBorderColor;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  width: @scrollingMenuWidth !important;
+  border-top: @menuBorder;
 }
-.ui.dropdown .scrolling.menu .item {
+.ui.scrolling.dropdown .menu .item.item.item,
+.ui.dropdown .scrolling.menu > .item.item.item {
   border-top: @scrollingMenuItemBorder;
+  padding-right: @scrollingMenuRightItemPadding !important;
 }
+.ui.scrolling.dropdown .menu .item:first-child,
 .ui.dropdown .scrolling.menu .item:first-child {
   border-top: none;
 }

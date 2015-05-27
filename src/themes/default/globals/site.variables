@@ -411,7 +411,7 @@
 @defaultInputLineHeight: 1.2142em;
 
 /* Rendered Scrollbar Width */
-@scrollbarWidth: 15px;
+@scrollbarWidth: 17px;
 
 /* Maximum Single Character Glyph Width, aka Capital "W" */
 @glyphWidth: 1.1em;

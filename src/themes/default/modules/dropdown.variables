@@ -306,8 +306,9 @@
 --------------------*/
 
 /* Scrolling */
-@scrollingMinWidth: 15em;
-@scrollingMenuItemBorder: @selectionItemDivider;
+@scrollingMenuWidth: 100%;
+@scrollingMenuItemBorder: none;
+@scrollingMenuRightItemPadding: ~"calc("(@itemHorizontalPadding)~" + "(@scrollbarWidth)~")";
 
 @scrollingMobileMaxItems: 4;
 @scrollingTabletMaxItems: 6;
