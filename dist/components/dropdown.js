@@ -85,17 +85,10 @@ $.fn.dropdown = function(parameters) {
           }
           else {
             module.setup.layout();
-
             module.save.defaults();
-
-            module.restore.values();
-
-            if(module.is.multiple()) {
-              module.restore.labels();
-            }
+            module.restore.selected();
 
             module.create.id();
-
             if(hasTouch) {
               module.bind.touchEvents();
             }
@@ -818,11 +811,11 @@ $.fn.dropdown = function(parameters) {
               ;
               if( $label.hasClass(className.active) ) {
                 // remove all selected labels
-                module.remove.labels();
+                module.remove.activeLabels();
               }
               else {
                 // remove this label only
-                module.remove.labels( $label );
+                module.remove.activeLabels( $label );
               }
             }
           },
@@ -1008,13 +1001,13 @@ $.fn.dropdown = function(parameters) {
                       }
                     }
                     $activeLabel.last().next(selector.siblingLabel).addClass(className.active);
-                    module.remove.labels($activeLabel);
+                    module.remove.activeLabels($activeLabel);
                     event.preventDefault();
                   }
                   else if(caretAtStart && !hasActiveLabel && pressedKey == keys.backspace) {
                     module.verbose('Removing last label on input backspace');
                     $activeLabel = $label.last().addClass(className.active);
-                    module.remove.labels($activeLabel);
+                    module.remove.activeLabels($activeLabel);
                   }
                 }
                 else {
@@ -1547,7 +1540,7 @@ $.fn.dropdown = function(parameters) {
                     }
                   }
                   else {
-                    if( optionValue == value || optionText == value) {
+                    if( optionValue.toString() == value.toString() || optionText == value) {
                       module.verbose('Found select item by value', optionValue, value);
                       $selectedItem = $choice;
                       return true;
@@ -1606,8 +1599,9 @@ $.fn.dropdown = function(parameters) {
             ;
             if(defaultValue !== undefined) {
               module.debug('Restoring default value', defaultValue);
-              if(defaultValue.length) {
-                module.set.selected(defaultValue);
+              if(defaultValue !== '') {
+                module.set.value(defaultValue);
+                module.set.selected();
               }
               else {
                 module.remove.activeItem();
@@ -1626,11 +1620,19 @@ $.fn.dropdown = function(parameters) {
             }
             module.check.maxSelections();
           },
+          selected: function() {
+            module.restore.values();
+            if(module.is.multiple()) {
+              module.debug('Restoring previously selected values and labels');
+              module.restore.labels();
+            }
+            else {
+              module.debug('Restoring previously selected values');
+            }
+          },
           values: function() {
             module.debug('Restoring selected values');
-            if(settings.fireOnInit === false) {
-              initialLoad = true;
-            }
+            module.set.initialLoad();
             if(settings.apiSettings) {
               if(settings.saveRemoteData) {
                 module.restore.remoteValues();
@@ -1642,9 +1644,7 @@ $.fn.dropdown = function(parameters) {
             else {
               module.set.selected();
             }
-            if(settings.fireOnInit === false) {
-              initialLoad = false;
-            }
+            module.remove.initialLoad();
           },
           remoteValues: function() {
             var
@@ -1710,10 +1710,15 @@ $.fn.dropdown = function(parameters) {
         },
 
         clear: function() {
+          if(module.is.multiple()) {
+            module.remove.labels();
+          }
+          else {
+            module.remove.activeItem();
+            module.remove.selectedItem();
+          }
           module.set.placeholderText();
           module.clearValue();
-          module.remove.activeItem();
-          module.remove.selectedItem();
         },
 
         clearValue: function() {
@@ -1800,9 +1805,6 @@ $.fn.dropdown = function(parameters) {
             module.set.text(text);
             $text.addClass(className.placeholder);
           },
-          input: function() {
-
-          },
           tabbable: function() {
             if( module.has.search() ) {
               module.debug('Added tabindex to searchable dropdown');
@@ -1825,6 +1827,10 @@ $.fn.dropdown = function(parameters) {
                 ;
               }
             }
+          },
+          initialLoad: function() {
+            module.verbose('Setting initial load');
+            initialLoad = true;
           },
           scrollPosition: function($item, forceScroll) {
             var
@@ -1948,7 +1954,10 @@ $.fn.dropdown = function(parameters) {
                 $module.data(metadata.value, value);
               }
             }
-            if(!initialLoad) {
+            if(settings.fireOnInit === false && module.is.initialLoad()) {
+              module.verbose('No callback on initial load', settings.onChange);
+            }
+            else {
               settings.onChange.call(element, value, text, $selected);
             }
           },
@@ -1965,14 +1974,12 @@ $.fn.dropdown = function(parameters) {
           },
           selected: function(value, $selectedItem) {
             var
-              isMultiple    = module.is.multiple()
+              isMultiple = module.is.multiple()
             ;
             $selectedItem = $selectedItem || module.get.item(value);
-
             if(!$selectedItem) {
               return false;
             }
-
             module.debug('Setting selected menu item to', $selectedItem);
             if(module.is.single()) {
               module.remove.activeItem();
@@ -2197,7 +2204,11 @@ $.fn.dropdown = function(parameters) {
               newValue = newValue.join(settings.delimiter);
               module.debug('Setting hidden input to delimited value', newValue, $input);
             }
-            if(!initialLoad) {
+
+            if(settings.fireOnInit === false && module.is.initialLoad()) {
+              module.verbose('No callback on initial load', settings.onAdd);
+            }
+            else {
               settings.onAdd.call(element, addedValue, addedText, $selectedItem);
             }
             module.set.value(newValue, addedValue, addedText, $selectedItem);
@@ -2214,6 +2225,9 @@ $.fn.dropdown = function(parameters) {
           },
           loading: function() {
             $module.removeClass(className.loading);
+          },
+          initialLoad: function() {
+            initialLoad = false;
           },
           upward: function($menu) {
             var $element = $menu || $module;
@@ -2292,7 +2306,10 @@ $.fn.dropdown = function(parameters) {
               newValue = module.remove.arrayValue(removedValue, values);
               newValue = newValue.join(settings.delimiter);
             }
-            if(!initialLoad) {
+            if(settings.fireOnInit === false && module.is.initialLoad()) {
+              module.verbose('No callback on initial load', settings.onRemove);
+            }
+            else {
               settings.onRemove.call(element, removedValue, removedText, $removedItem);
             }
             module.set.value(newValue, removedText, $removedItem);
@@ -2325,10 +2342,15 @@ $.fn.dropdown = function(parameters) {
               $removedLabel.remove();
             }
           },
-          labels: function($activeLabels) {
+          activeLabels: function($activeLabels) {
             $activeLabels = $activeLabels || $module.find(selector.label).filter('.' + className.active);
             module.verbose('Removing active label selections', $activeLabels);
-            $activeLabels
+            module.remove.labels($activeLabels);
+          },
+          labels: function($labels) {
+            $labels = $labels || $module.find(selector.label);
+            module.verbose('Removing labels', $labels);
+            $labels
               .each(function(){
                 var
                   value       = $(this).data('value'),
@@ -2429,6 +2451,9 @@ $.fn.dropdown = function(parameters) {
           },
           hidden: function($subMenu) {
             return !module.is.visible($subMenu);
+          },
+          initialLoad: function() {
+            return initialLoad;
           },
           onScreen: function($subMenu) {
             var
@@ -2835,7 +2860,7 @@ $.fn.dropdown.settings = {
   action                 : 'activate', // action on item selection (nothing, activate, select, combo, hide, function(){})
 
   apiSettings            : false,
-  saveRemoteData         : false,       // Whether remote name/value pairs should be stored in sessionStorage to allow remote data to be restored on page refresh
+  saveRemoteData         : false,      // Whether remote name/value pairs should be stored in sessionStorage to allow remote data to be restored on page refresh
 
   keepOnScreen           : true,       // Whether dropdown should check whether it is on screen before showing
 
