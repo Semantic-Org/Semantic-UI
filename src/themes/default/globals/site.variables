@@ -290,7 +290,7 @@
 @infoTextColor          : #0E566D;
 
 /* Warning */
-@warningColor           : #FFF9EA;
+@warningColor           : #F2C037;
 @warningBorderColor     : #C9BA9B;
 @warningBackgroundColor : #FFFAF3;
 @warningHeaderColor     : #794B02;
@@ -429,16 +429,18 @@
 @pageMinWidth       : 320px;
 
 /* Positive / Negative Dupes */
-@successColor           : @positiveColor;
-@errorColor             : @negativeColor;
 @successBackgroundColor : @positiveBackgroundColor;
-@errorBackgroundColor   : @negativeBackgroundColor;
-@successTextColor       : @positiveTextColor;
-@errorTextColor         : @negativeTextColor;
+@successColor           : @positiveColor;
 @successBorderColor     : @positiveBorderColor;
-@errorBorderColor       : @negativeBorderColor;
 @successHeaderColor     : @positiveHeaderColor;
+@successTextColor       : @positiveTextColor;
+
+@errorBackgroundColor   : @negativeBackgroundColor;
+@errorColor             : @negativeColor;
+@errorBorderColor       : @negativeBorderColor;
 @errorHeaderColor       : @negativeHeaderColor;
+@errorTextColor         : @negativeTextColor;
+
 
 /* Responsive */
 @largestMobileScreen : (@tabletBreakpoint - 1px);
