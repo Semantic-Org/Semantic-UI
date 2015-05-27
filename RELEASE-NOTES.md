@@ -140,6 +140,7 @@
 - **Dropdown** - Fixed border radius on `sub menu` when aligned `left`
 - **Dropdown** - Fixed `inline dropdown` icon not aligning with content
 - **Dropdown** - Fixed behaviors called on `<select>` after initialization not being correctly applied to `ui dropdown`
+- **Dropdown** - Fixed issue with matching boolean values, and using `set selected` with `true` or `false`
 - **Dropdown** - Fixed `search dropdown` submitting parent form when enter shortcut pressed
 - **Dropdown** - Fixed dropdown menu items should not center inside of a center aligned container.
 - **Form** - `field` inside `fields` no longer produce double sized margins.
