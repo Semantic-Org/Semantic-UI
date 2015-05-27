@@ -54,7 +54,7 @@
 @footerBoxShadow: none;
 @footerBorder: 1px solid @borderColor;
 @footerDivider: none;
-@footerBackground: @white;
+@footerBackground: @offWhite;
 @footerAlign: inherit;
 @footerVerticalAlign: middle;
 @footerColor: @textColor;
