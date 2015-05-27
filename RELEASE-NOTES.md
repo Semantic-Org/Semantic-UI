@@ -26,7 +26,7 @@
 - **Visibility** - Visibility can now handle "sticky" `fixed` content, adding a placeholder duplicate element which will automatically appear when an element swaps to fixed position
 
 **Major Changes (Please Read)**
-- **Site** - Added new colors `brown`, `violet`, and `grey`. These are available in all elements with color variations.  **Thanks @lemartialou**
+- **Site** - Added new colors `olive`, `violet`, `brown` and `grey`. These are available in all elements with color variations.  **Thanks @lemartialou**
 - **API** - API can now be used with mocked responses, and custom AJAX requests. `mockResponse` can be used to resolve request with a specified returned JSON object, or a function that receives the same request settings as the server. `mockResponseAsync` allows you to specify an asynchronous callback that can resolve a request using a custom XHR backend.
 - **API** - API callbacks now have an `onResponse` callback that can modified a server response before it is parsed by other callbacks for success or failure conditions. **Thanks @mnquintana**
 - **API** - API now provides a client-side cache setting to avoid server roundtrips for identical urls `cache: 'local'`. This is useful for caching results that will return the same results across a page view: things like autocomplete.
