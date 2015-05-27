@@ -9,7 +9,7 @@
 - **Grid** - `page grid` has been deprecated.  `page grids` used percentage gutters which made it unnecessarily difficult to style responsive page content. Moving forward we recommend using `ui container` a fixed width responsinve container for holding page contents.
 - **Form Validation** - Form validation now passes settings through a `fields` object. This is to make form initialization match other components. The previous syntax will continue to work but produce deprecation notices in console
 - **Dropdown** - Dropdown item `description` now float right in default theme and should be included before other content
-- **Popup** - Popups are no longer exclusive by default. Opening a popup will not necessarily close other visible popups. You can change this behavior by using the setting `exclusive: true`
+- **Popup** - Popups are no longer exclusive by default. Opening a popup will not necessarily close other visible popups. You can change this behavior by using the setting `exclusive: true`. Additionally the default theme now uses `1em` size for `medium` popups.
 - **Colors** - Default colors have been slightly adjusted, and new colors have been added, which may cause slight changes in your design.
 
 **New UI**
