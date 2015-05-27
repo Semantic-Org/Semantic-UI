@@ -69,7 +69,7 @@
 - **Dropdown** - `fullTextSearch: true` now uses fuzzy search (same as `ui search`)
 - **Dropdown** - Page down and page up now works with dropdown menus
 - **Dropdown** - Added `disabled item` state, disabled items will automatically be skipped with keyboard selection
-- **Form** - Added form styles for `-webkit-autofill` fields, fields autofilled by your browser
+- **Form** - Added a host of new styles for form fields autocompleted by your browser, including autocompleted error, and focus states
 - **Form** - Added placeholder color rules for IE, `ms-input-placeholder`
 - **Form** - Fix `errored field` dropdown keyboard selection color
 - **Form Validation** - Added `different[field]` rule which requires a field to be different than another field
@@ -129,6 +129,7 @@
 - **Divider**  - Hidden divider now correctly hides vertical dividers
 - **Divider** - Fixes single icon alignment inside `vertical divider` or `horizontal divider`
 - **Dropdown** - `focus` after changing tabs will no longer cause menu to re-open **Thanks @trevorharwell**
+- **Dropdown** - Fix issue with search dropdown refocusing on self the first time after "tabbing" away in Chrome
 - **Dropdown** - Fixes issue with headers disappearing inside of `ui dropdown` when nested in `ui menu`
 - **Dropdown** - Fixes `onChange` to fire when input value changes, not just when menu UI changes
 - **Dropdown** - Dropdowns with `transition: none` now work correctly.
@@ -146,6 +147,7 @@
 - **Form Validation** - Fixed bug causing `match` rule not to work as expected.
 - **Form Validation** - Fixed `clear` and `reset` causing validation error to appear on checkbox if empty rule was set on checkbox.
 - **Form Validation** - Form validation now validates correctly on `<select>` change
+- **Form** - Fixed autocompleted `ui selection dropdown` having dropdown icon z-index issues
 - **Form/Input** - `ui labeled input` inside `form` will no longer escape column width. `ui fluid input` will now use input widths shorter than browser default.
 - **Grid** - Fix `doubling row` not working correctly inside a different `doubling grid` (css spec issue)
 - **Grid** - Fix `doubling grid` incorrectly applying width to `(x) column row`

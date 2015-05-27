@@ -267,10 +267,25 @@
       Autofilled
 ---------------------*/
 
-.ui.form input:-webkit-autofill {
-  box-shadow: 0px 0px 0px 100px @inputAutoFillBackground inset;
-  border-color: @inputAutoFillBorder;
+.ui.form .field.field input:-webkit-autofill {
+  box-shadow: 0px 0px 0px 100px @inputAutoFillBackground inset !important;
+  border-color: @inputAutoFillBorder !important;
 }
+
+/* Focus */
+.ui.form .field.field input:-webkit-autofill:focus {
+  box-shadow: 0px 0px 0px 100px @inputAutoFillFocusBackground inset !important;
+  border-color: @inputAutoFillFocusBorder !important;
+}
+
+/* Error */
+.ui.form .error.error input:-webkit-autofill {
+  box-shadow: 0px 0px 0px 100px @inputAutoFillErrorBackground inset !important;
+  border-color: @inputAutoFillErrorBorder !important;
+}
+
+
+
 /*--------------------
       Placeholder
 ---------------------*/
@@ -346,12 +361,6 @@
   background: @textAreaFocusBackground;
   box-shadow: @textAreaFocusBoxShadow;
   -webkit-appearance: none;
-}
-
-/* Autofill Focus */
-.ui.form input:-webkit-autofill:focus {
-  box-shadow: 0px 0px 0px 100px @inputAutoFillFocusBackground inset !important;
-  border-color: @inputAutoFillFocusBorder !important;
 }
 
 
