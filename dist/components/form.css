@@ -120,8 +120,8 @@
   color: rgba(0, 0, 0, 0.87);
   border-radius: 0.285714rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
-  -webkit-transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-          transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  -webkit-transition: color 0.1s ease, border-color 0.1s ease;
+          transition: color 0.1s ease, border-color 0.1s ease;
 }
 
 /* Collapse Flex */
@@ -142,8 +142,8 @@
   color: rgba(0, 0, 0, 0.87);
   border-radius: 0.285714rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
-  -webkit-transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-          transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  -webkit-transition: color 0.1s ease, border-color 0.1s ease;
+          transition: color 0.1s ease, border-color 0.1s ease;
   font-size: 1em;
   height: 12em;
   min-height: 8em;
@@ -178,8 +178,8 @@
   box-shadow: 0em 0em 0em 0em transparent inset;
   padding: 0.62em 1em;
   color: rgba(0, 0, 0, 0.87);
-  -webkit-transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-          transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  -webkit-transition: color 0.1s ease, border-color 0.1s ease;
+          transition: color 0.1s ease, border-color 0.1s ease;
 }
 
 /*--------------------
@@ -251,9 +251,21 @@
       Autofilled
 ---------------------*/
 
-.ui.form input:-webkit-autofill {
-  box-shadow: 0px 0px 0px 100px #fffff0 inset;
-  border-color: #e5dfa1;
+.ui.form .field.field input:-webkit-autofill {
+  box-shadow: 0px 0px 0px 100px #fffff0 inset !important;
+  border-color: #e5dfa1 !important;
+}
+
+/* Focus */
+.ui.form .field.field input:-webkit-autofill:focus {
+  box-shadow: 0px 0px 0px 100px #fffff0 inset !important;
+  border-color: #d5c315 !important;
+}
+
+/* Error */
+.ui.form .error.error input:-webkit-autofill {
+  box-shadow: 0px 0px 0px 100px #fffaf0 inset !important;
+  border-color: #e0b4b4 !important;
 }
 
 /*--------------------
@@ -329,12 +341,6 @@
   background: #ffffff;
   box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.3) inset;
   -webkit-appearance: none;
-}
-
-/* Autofill Focus */
-.ui.form input:-webkit-autofill:focus {
-  box-shadow: 0px 0px 0px 100px #fffff0 inset !important;
-  border-color: #ddcc27 !important;
 }
 
 /*--------------------

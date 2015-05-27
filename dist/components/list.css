@@ -95,10 +95,6 @@ ol.ui.list ol,
   -webkit-transition: color 0.1s ease;
           transition: color 0.1s ease;
 }
-.ui.list .list > .item i[class*="top aligned"].icon,
-.ui.list > .item > i[class*="top aligned"].icon {
-  vertical-align: top;
-}
 .ui.list .list > .item > i.icon:only-child,
 .ui.list > .item > i.icon:only-child {
   display: inline-block;
@@ -112,10 +108,6 @@ ol.ui.list ol,
   background-color: transparent;
   margin: 0em;
   padding-right: 0.5em;
-  vertical-align: top;
-}
-.ui.list .list > .item > [class*="top aligned"].image,
-.ui.list > .item > [class*="top aligned"].image {
   vertical-align: top;
 }
 .ui.list .list > .item > .image img,
@@ -146,10 +138,6 @@ ol.ui.list ol,
 .ui.list .list > .item > img.image + .content,
 .ui.list > .item > img.image + .content {
   display: inline-block;
-}
-.ui.list .list > .item [class*="top aligned"].content,
-.ui.list > .item > [class*="top aligned"].content {
-  vertical-align: top;
 }
 .ui.list .list > .item > .content > .list,
 .ui.list > .item > .content > .list {
@@ -266,6 +254,14 @@ ol.ui.list ol,
   padding-left: 0em;
   padding-bottom: 0em;
 }
+.ui.horizontal.list > .item > .image,
+.ui.horizontal.list .list > .item > .image,
+.ui.horizontal.list > .item > .icon,
+.ui.horizontal.list .list > .item > .icon,
+.ui.horizontal.list > .item > .content,
+.ui.horizontal.list .list > .item > .content {
+  vertical-align: middle;
+}
 
 /* Padding on all elements */
 .ui.horizontal.list > .item:first-child,
@@ -355,6 +351,23 @@ ol.ui.list ol,
 }
 .ui.inverted.list .item a:not(.ui):hover {
   color: #2c76bf !important;
+}
+
+/*-------------------
+       Aligned
+--------------------*/
+
+.ui.list[class*="top aligned"],
+.ui.list [class*="top aligned"] {
+  vertical-align: top;
+}
+.ui.list[class*="middle aligned"],
+.ui.list [class*="middle aligned"] {
+  vertical-align: middle;
+}
+.ui.list[class*="bottom aligned"],
+.ui.list [class*="bottom aligned"] {
+  vertical-align: bottom;
 }
 
 /*-------------------

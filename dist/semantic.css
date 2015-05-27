@@ -500,7 +500,7 @@ th {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.0 - Site
+ * # Semantic UI - Site
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -547,6 +547,7 @@ h4,
 h5 {
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   line-height: 1.33em;
+  margin: -webkit-calc(2rem -  0.165em ) 0em 1rem;
   margin: calc(2rem -  0.165em ) 0em 1rem;
   font-weight: bold;
   padding: 0em;
@@ -4429,6 +4430,7 @@ input::selection {
   }
 
   .ui.grid.container {
+    width: -webkit-calc( 752px  +  2em ) !important;
     width: calc( 752px  +  2em ) !important;
   }
 }
@@ -4441,6 +4443,7 @@ input::selection {
   }
 
   .ui.grid.container {
+    width: -webkit-calc( 960px  +  2em ) !important;
     width: calc( 960px  +  2em ) !important;
   }
 }
@@ -4453,6 +4456,7 @@ input::selection {
   }
 
   .ui.grid.container {
+    width: -webkit-calc( 1200px  +  2em ) !important;
     width: calc( 1200px  +  2em ) !important;
   }
 }
@@ -4594,6 +4598,7 @@ input::selection {
   border-left: 1px solid rgba(34, 36, 38, 0.15);
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   width: 0%;
+  height: -webkit-calc(100% -  1rem );
   height: calc(100% -  1rem );
 }
 
@@ -6019,6 +6024,7 @@ i.flag.zimbabwe:before {
 
 .ui.header {
   border: none;
+  margin: -webkit-calc(2rem -  0.165em ) 0em 1rem;
   margin: calc(2rem -  0.165em ) 0em 1rem;
   padding: 0em 0em;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
@@ -6231,6 +6237,7 @@ h5.ui.header .sub.header {
 
 .ui.sub.header {
   padding: 0em;
+  margin: -webkit-calc(2rem -  0.165em ) 0em 0.1428rem;
   margin: calc(2rem -  0.165em ) 0em 0.1428rem;
   font-weight: bold;
   font-size: 0.85714286em;
@@ -11304,15 +11311,19 @@ a.ui.label {
 /* Positioning */
 
 .ui.ribbon.label {
+  left: -webkit-calc( -1rem  -  1.2em );
   left: calc( -1rem  -  1.2em );
   margin-right: -1.2em;
+  padding-left: -webkit-calc( 1rem  +  1.2em );
   padding-left: calc( 1rem  +  1.2em );
   padding-right: 1.2em;
 }
 
 .ui[class*="right ribbon"].label {
+  left: -webkit-calc(100% +  1rem  +  1.2em );
   left: calc(100% +  1rem  +  1.2em );
   padding-left: 1.2em;
+  padding-right: -webkit-calc( 1rem  +  1.2em );
   padding-right: calc( 1rem  +  1.2em );
 }
 
@@ -11345,11 +11356,13 @@ a.ui.label {
 
 .ui.card .image > .ui.ribbon.label,
 .ui.image > .ui.ribbon.label {
+  left: -webkit-calc( 0.05rem  -  1.2em );
   left: calc( 0.05rem  -  1.2em );
 }
 
 .ui.card .image > .ui[class*="right ribbon"].label,
 .ui.image > .ui[class*="right ribbon"].label {
+  left: -webkit-calc(100% +  -0.05rem  +  1.2em );
   left: calc(100% +  -0.05rem  +  1.2em );
   padding-left: 0.833em;
 }
@@ -12291,11 +12304,6 @@ ol.ui.list ol,
   transition: color 0.1s ease;
 }
 
-.ui.list .list > .item i[class*="top aligned"].icon,
-.ui.list > .item > i[class*="top aligned"].icon {
-  vertical-align: top;
-}
-
 .ui.list .list > .item > i.icon:only-child,
 .ui.list > .item > i.icon:only-child {
   display: inline-block;
@@ -12310,11 +12318,6 @@ ol.ui.list ol,
   background-color: transparent;
   margin: 0em;
   padding-right: 0.5em;
-  vertical-align: top;
-}
-
-.ui.list .list > .item > [class*="top aligned"].image,
-.ui.list > .item > [class*="top aligned"].image {
   vertical-align: top;
 }
 
@@ -12350,11 +12353,6 @@ ol.ui.list ol,
 .ui.list .list > .item > img.image + .content,
 .ui.list > .item > img.image + .content {
   display: inline-block;
-}
-
-.ui.list .list > .item [class*="top aligned"].content,
-.ui.list > .item > [class*="top aligned"].content {
-  vertical-align: top;
 }
 
 .ui.list .list > .item > .content > .list,
@@ -12485,6 +12483,15 @@ ol.ui.list ol,
   padding-bottom: 0em;
 }
 
+.ui.horizontal.list > .item > .image,
+.ui.horizontal.list .list > .item > .image,
+.ui.horizontal.list > .item > .icon,
+.ui.horizontal.list .list > .item > .icon,
+.ui.horizontal.list > .item > .content,
+.ui.horizontal.list .list > .item > .content {
+  vertical-align: middle;
+}
+
 /* Padding on all elements */
 
 .ui.horizontal.list > .item:first-child,
@@ -12579,6 +12586,25 @@ ol.ui.list ol,
 
 .ui.inverted.list .item a:not(.ui):hover {
   color: #2c76bf !important;
+}
+
+/*-------------------
+       Aligned
+--------------------*/
+
+.ui.list[class*="top aligned"],
+.ui.list [class*="top aligned"] {
+  vertical-align: top;
+}
+
+.ui.list[class*="middle aligned"],
+.ui.list [class*="middle aligned"] {
+  vertical-align: middle;
+}
+
+.ui.list[class*="bottom aligned"],
+.ui.list [class*="bottom aligned"] {
+  vertical-align: bottom;
 }
 
 /*-------------------
@@ -13632,8 +13658,8 @@ ol.ui.horizontal.list li:before,
   top: 0em !important;
   left: 0em !important;
   z-index: 3 !important;
-  -webkit-transition: all 0.8s ease 0.15s;
-  transition: all 0.8s ease 0.15s;
+  -webkit-transition: all 0.5s ease 0.1s;
+  transition: all 0.5s ease 0.1s;
 }
 
 .ui.reveal > .hidden.content {
@@ -13666,8 +13692,8 @@ ol.ui.horizontal.list li:before,
   display: block;
   float: left;
   margin: 0em;
-  -webkit-transition: -webkit-transform 0.1s ease 0.15s;
-  transition: transform 0.1s ease 0.15s;
+  -webkit-transition: -webkit-transform 0.1s ease 0.1s;
+  transition: transform 0.1s ease 0.1s;
 }
 
 .ui.slide.reveal > .visible.content {
@@ -13790,8 +13816,8 @@ ol.ui.horizontal.list li:before,
   display: block;
   float: left;
   margin: 0em;
-  -webkit-transition: -webkit-transform 0.1s ease 0.15s;
-  transition: transform 0.1s ease 0.15s;
+  -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1) 0.1s;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1) 0.1s;
 }
 
 .ui.move.reveal > .visible.content {
@@ -14557,7 +14583,9 @@ ol.ui.horizontal.list li:before,
   top: 0px;
   bottom: 0px;
   margin: 0em -1px;
+  width: -webkit-calc(100% +  2px );
   width: calc(100% +  2px );
+  max-width: -webkit-calc(100% +  2px );
   max-width: calc(100% +  2px );
   border-radius: 0px;
   box-shadow: none;
@@ -14617,7 +14645,9 @@ ol.ui.horizontal.list li:before,
   top: 0px;
   bottom: 0px;
   margin: 0em -1px;
+  width: -webkit-calc(100% +  2px );
   width: calc(100% +  2px );
+  max-width: -webkit-calc(100% +  2px );
   max-width: calc(100% +  2px );
   border-radius: 0px;
   box-shadow: none;
@@ -15483,8 +15513,8 @@ ol.ui.horizontal.list li:before,
   color: rgba(0, 0, 0, 0.87);
   border-radius: 0.285714rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
-  -webkit-transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  -webkit-transition: color 0.1s ease, border-color 0.1s ease;
+  transition: color 0.1s ease, border-color 0.1s ease;
 }
 
 /* Collapse Flex */
@@ -15507,8 +15537,8 @@ ol.ui.horizontal.list li:before,
   color: rgba(0, 0, 0, 0.87);
   border-radius: 0.285714rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
-  -webkit-transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  -webkit-transition: color 0.1s ease, border-color 0.1s ease;
+  transition: color 0.1s ease, border-color 0.1s ease;
   font-size: 1em;
   height: 12em;
   min-height: 8em;
@@ -15544,8 +15574,8 @@ ol.ui.horizontal.list li:before,
   box-shadow: 0em 0em 0em 0em transparent inset;
   padding: 0.62em 1em;
   color: rgba(0, 0, 0, 0.87);
-  -webkit-transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  -webkit-transition: color 0.1s ease, border-color 0.1s ease;
+  transition: color 0.1s ease, border-color 0.1s ease;
 }
 
 /*--------------------
@@ -15621,9 +15651,23 @@ ol.ui.horizontal.list li:before,
       Autofilled
 ---------------------*/
 
-.ui.form input:-webkit-autofill {
-  box-shadow: 0px 0px 0px 100px #fffff0 inset;
-  border-color: #e5dfa1;
+.ui.form .field.field input:-webkit-autofill {
+  box-shadow: 0px 0px 0px 100px #fffff0 inset !important;
+  border-color: #e5dfa1 !important;
+}
+
+/* Focus */
+
+.ui.form .field.field input:-webkit-autofill:focus {
+  box-shadow: 0px 0px 0px 100px #fffff0 inset !important;
+  border-color: #d5c315 !important;
+}
+
+/* Error */
+
+.ui.form .error.error input:-webkit-autofill {
+  box-shadow: 0px 0px 0px 100px #fffaf0 inset !important;
+  border-color: #e0b4b4 !important;
 }
 
 /*--------------------
@@ -15711,13 +15755,6 @@ ol.ui.horizontal.list li:before,
   background: #ffffff;
   box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.3) inset;
   -webkit-appearance: none;
-}
-
-/* Autofill Focus */
-
-.ui.form input:-webkit-autofill:focus {
-  box-shadow: 0px 0px 0px 100px #fffff0 inset !important;
-  border-color: #ddcc27 !important;
 }
 
 /*--------------------
@@ -16564,6 +16601,7 @@ body > .ui.grid {
 }
 
 .ui.grid .column + .ui.vertical.divider {
+  height: -webkit-calc(50% -  1rem );
   height: calc(50% -  1rem );
 }
 
@@ -17636,6 +17674,7 @@ body > .ui.grid {
   content: "";
   top: 0em;
   left: 0px;
+  width: -webkit-calc(100% -  2rem );
   width: calc(100% -  2rem );
   height: 1px;
   margin: 0% 1rem;
@@ -17676,12 +17715,14 @@ body > .ui.grid {
 .ui.relaxed[class*="vertically divided"].grid > .row:before {
   margin-left: 1.5rem;
   margin-right: 1.5rem;
+  width: -webkit-calc(100% -  3rem );
   width: calc(100% -  3rem );
 }
 
 .ui[class*="very relaxed"][class*="vertically divided"].grid > .row:before {
   margin-left: 5rem;
   margin-right: 5rem;
+  width: -webkit-calc(100% -  5rem );
   width: calc(100% -  5rem );
 }
 
@@ -18699,6 +18740,7 @@ body > .ui.grid {
 
 .ui.menu .dropdown.item .menu {
   left: 0px;
+  min-width: -webkit-calc(100% - 1px);
   min-width: calc(100% - 1px);
   border-radius: 0em 0em 0.285714rem 0.285714rem;
   background: #ffffff;
@@ -19090,6 +19132,7 @@ Floated Menu / Item
 }
 
 .ui.tabular.fluid.menu {
+  width: -webkit-calc(100% +  2px ) !important;
   width: calc(100% +  2px ) !important;
 }
 
@@ -20357,6 +20400,7 @@ Floated Menu / Item
   border-radius: 0px;
   margin-left: -1px;
   margin-right: -1px;
+  width: -webkit-calc(100% +  2px );
   width: calc(100% +  2px );
   box-shadow: none;
   /* avoid rgba multiplying */
@@ -21513,6 +21557,7 @@ Floated Menu / Item
 /* All */
 
 .ui.attached.table {
+  width: -webkit-calc(100% +  2px );
   width: calc(100% +  2px );
   margin: 0em -1px;
   border-radius: 0px;
@@ -23151,9 +23196,10 @@ a.ui.card:hover,
 }
 
 .ui.two.cards > .card {
-  -webkit-flex-basis: calc( 50%  -  2em );
+  -webkit-flex-basis: -webkit-calc( 50%  -  2em );
   -ms-flex-preferred-size: calc( 50%  -  2em );
   flex-basis: calc( 50%  -  2em );
+  width: -webkit-calc( 50%  -  2em );
   width: calc( 50%  -  2em );
   margin-left: 1em;
   margin-right: 1em;
@@ -23169,9 +23215,10 @@ a.ui.card:hover,
 }
 
 .ui.three.cards > .card {
-  -webkit-flex-basis: calc( 33.33333333%  -  2em );
+  -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
   -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
   flex-basis: calc( 33.33333333%  -  2em );
+  width: -webkit-calc( 33.33333333%  -  2em );
   width: calc( 33.33333333%  -  2em );
   margin-left: 1em;
   margin-right: 1em;
@@ -23187,9 +23234,10 @@ a.ui.card:hover,
 }
 
 .ui.four.cards > .card {
-  -webkit-flex-basis: calc( 25%  -  1.5em );
+  -webkit-flex-basis: -webkit-calc( 25%  -  1.5em );
   -ms-flex-preferred-size: calc( 25%  -  1.5em );
   flex-basis: calc( 25%  -  1.5em );
+  width: -webkit-calc( 25%  -  1.5em );
   width: calc( 25%  -  1.5em );
   margin-left: 0.75em;
   margin-right: 0.75em;
@@ -23205,9 +23253,10 @@ a.ui.card:hover,
 }
 
 .ui.five.cards > .card {
-  -webkit-flex-basis: calc( 20%  -  1.5em );
+  -webkit-flex-basis: -webkit-calc( 20%  -  1.5em );
   -ms-flex-preferred-size: calc( 20%  -  1.5em );
   flex-basis: calc( 20%  -  1.5em );
+  width: -webkit-calc( 20%  -  1.5em );
   width: calc( 20%  -  1.5em );
   margin-left: 0.75em;
   margin-right: 0.75em;
@@ -23223,9 +23272,10 @@ a.ui.card:hover,
 }
 
 .ui.six.cards > .card {
-  -webkit-flex-basis: calc( 16.66666667%  -  1.5em );
+  -webkit-flex-basis: -webkit-calc( 16.66666667%  -  1.5em );
   -ms-flex-preferred-size: calc( 16.66666667%  -  1.5em );
   flex-basis: calc( 16.66666667%  -  1.5em );
+  width: -webkit-calc( 16.66666667%  -  1.5em );
   width: calc( 16.66666667%  -  1.5em );
   margin-left: 0.75em;
   margin-right: 0.75em;
@@ -23241,9 +23291,10 @@ a.ui.card:hover,
 }
 
 .ui.seven.cards > .card {
-  -webkit-flex-basis: calc( 14.28571429%  -  1em );
+  -webkit-flex-basis: -webkit-calc( 14.28571429%  -  1em );
   -ms-flex-preferred-size: calc( 14.28571429%  -  1em );
   flex-basis: calc( 14.28571429%  -  1em );
+  width: -webkit-calc( 14.28571429%  -  1em );
   width: calc( 14.28571429%  -  1em );
   margin-left: 0.5em;
   margin-right: 0.5em;
@@ -23259,9 +23310,10 @@ a.ui.card:hover,
 }
 
 .ui.eight.cards > .card {
-  -webkit-flex-basis: calc( 12.5%  -  1em );
+  -webkit-flex-basis: -webkit-calc( 12.5%  -  1em );
   -ms-flex-preferred-size: calc( 12.5%  -  1em );
   flex-basis: calc( 12.5%  -  1em );
+  width: -webkit-calc( 12.5%  -  1em );
   width: calc( 12.5%  -  1em );
   margin-left: 0.5em;
   margin-right: 0.5em;
@@ -23278,9 +23330,10 @@ a.ui.card:hover,
 }
 
 .ui.nine.cards > .card {
-  -webkit-flex-basis: calc( 11.11111111%  -  1em );
+  -webkit-flex-basis: -webkit-calc( 11.11111111%  -  1em );
   -ms-flex-preferred-size: calc( 11.11111111%  -  1em );
   flex-basis: calc( 11.11111111%  -  1em );
+  width: -webkit-calc( 11.11111111%  -  1em );
   width: calc( 11.11111111%  -  1em );
   margin-left: 0.5em;
   margin-right: 0.5em;
@@ -23297,9 +23350,10 @@ a.ui.card:hover,
 }
 
 .ui.ten.cards > .card {
-  -webkit-flex-basis: calc( 10%  -  1em );
+  -webkit-flex-basis: -webkit-calc( 10%  -  1em );
   -ms-flex-preferred-size: calc( 10%  -  1em );
   flex-basis: calc( 10%  -  1em );
+  width: -webkit-calc( 10%  -  1em );
   width: calc( 10%  -  1em );
   margin-left: 0.5em;
   margin-right: 0.5em;
@@ -23336,9 +23390,10 @@ a.ui.card:hover,
   }
 
   .ui.three.doubling.cards .card {
-    -webkit-flex-basis: calc( 50%  -  2em );
+    -webkit-flex-basis: -webkit-calc( 50%  -  2em );
     -ms-flex-preferred-size: calc( 50%  -  2em );
     flex-basis: calc( 50%  -  2em );
+    width: -webkit-calc( 50%  -  2em );
     width: calc( 50%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -23350,9 +23405,10 @@ a.ui.card:hover,
   }
 
   .ui.four.doubling.cards .card {
-    -webkit-flex-basis: calc( 50%  -  2em );
+    -webkit-flex-basis: -webkit-calc( 50%  -  2em );
     -ms-flex-preferred-size: calc( 50%  -  2em );
     flex-basis: calc( 50%  -  2em );
+    width: -webkit-calc( 50%  -  2em );
     width: calc( 50%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -23364,9 +23420,10 @@ a.ui.card:hover,
   }
 
   .ui.five.doubling.cards .card {
-    -webkit-flex-basis: calc( 50%  -  2em );
+    -webkit-flex-basis: -webkit-calc( 50%  -  2em );
     -ms-flex-preferred-size: calc( 50%  -  2em );
     flex-basis: calc( 50%  -  2em );
+    width: -webkit-calc( 50%  -  2em );
     width: calc( 50%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -23378,9 +23435,10 @@ a.ui.card:hover,
   }
 
   .ui.six.doubling.cards .card {
-    -webkit-flex-basis: calc( 50%  -  2em );
+    -webkit-flex-basis: -webkit-calc( 50%  -  2em );
     -ms-flex-preferred-size: calc( 50%  -  2em );
     flex-basis: calc( 50%  -  2em );
+    width: -webkit-calc( 50%  -  2em );
     width: calc( 50%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -23392,9 +23450,10 @@ a.ui.card:hover,
   }
 
   .ui.seven.doubling.cards .card {
-    -webkit-flex-basis: calc( 33.33333333%  -  2em );
+    -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
     -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
     flex-basis: calc( 33.33333333%  -  2em );
+    width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -23406,9 +23465,10 @@ a.ui.card:hover,
   }
 
   .ui.eight.doubling.cards .card {
-    -webkit-flex-basis: calc( 33.33333333%  -  2em );
+    -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
     -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
     flex-basis: calc( 33.33333333%  -  2em );
+    width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -23420,9 +23480,10 @@ a.ui.card:hover,
   }
 
   .ui.nine.doubling.cards .card {
-    -webkit-flex-basis: calc( 33.33333333%  -  2em );
+    -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
     -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
     flex-basis: calc( 33.33333333%  -  2em );
+    width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -23434,9 +23495,10 @@ a.ui.card:hover,
   }
 
   .ui.ten.doubling.cards .card {
-    -webkit-flex-basis: calc( 33.33333333%  -  2em );
+    -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
     -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
     flex-basis: calc( 33.33333333%  -  2em );
+    width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -23466,9 +23528,10 @@ a.ui.card:hover,
   }
 
   .ui.three.doubling.cards .card {
-    -webkit-flex-basis: calc( 50%  -  2em );
+    -webkit-flex-basis: -webkit-calc( 50%  -  2em );
     -ms-flex-preferred-size: calc( 50%  -  2em );
     flex-basis: calc( 50%  -  2em );
+    width: -webkit-calc( 50%  -  2em );
     width: calc( 50%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -23480,9 +23543,10 @@ a.ui.card:hover,
   }
 
   .ui.four.doubling.cards .card {
-    -webkit-flex-basis: calc( 50%  -  2em );
+    -webkit-flex-basis: -webkit-calc( 50%  -  2em );
     -ms-flex-preferred-size: calc( 50%  -  2em );
     flex-basis: calc( 50%  -  2em );
+    width: -webkit-calc( 50%  -  2em );
     width: calc( 50%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -23494,9 +23558,10 @@ a.ui.card:hover,
   }
 
   .ui.five.doubling.cards .card {
-    -webkit-flex-basis: calc( 33.33333333%  -  2em );
+    -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
     -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
     flex-basis: calc( 33.33333333%  -  2em );
+    width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -23508,9 +23573,10 @@ a.ui.card:hover,
   }
 
   .ui.six.doubling.cards .card {
-    -webkit-flex-basis: calc( 33.33333333%  -  2em );
+    -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
     -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
     flex-basis: calc( 33.33333333%  -  2em );
+    width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -23522,9 +23588,10 @@ a.ui.card:hover,
   }
 
   .ui.eight.doubling.cards .card {
-    -webkit-flex-basis: calc( 33.33333333%  -  2em );
+    -webkit-flex-basis: -webkit-calc( 33.33333333%  -  2em );
     -ms-flex-preferred-size: calc( 33.33333333%  -  2em );
     flex-basis: calc( 33.33333333%  -  2em );
+    width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -23536,9 +23603,10 @@ a.ui.card:hover,
   }
 
   .ui.eight.doubling.cards .card {
-    -webkit-flex-basis: calc( 25%  -  1.5em );
+    -webkit-flex-basis: -webkit-calc( 25%  -  1.5em );
     -ms-flex-preferred-size: calc( 25%  -  1.5em );
     flex-basis: calc( 25%  -  1.5em );
+    width: -webkit-calc( 25%  -  1.5em );
     width: calc( 25%  -  1.5em );
     margin-left: 0.75em;
     margin-right: 0.75em;
@@ -23550,9 +23618,10 @@ a.ui.card:hover,
   }
 
   .ui.nine.doubling.cards .card {
-    -webkit-flex-basis: calc( 25%  -  1.5em );
+    -webkit-flex-basis: -webkit-calc( 25%  -  1.5em );
     -ms-flex-preferred-size: calc( 25%  -  1.5em );
     flex-basis: calc( 25%  -  1.5em );
+    width: -webkit-calc( 25%  -  1.5em );
     width: calc( 25%  -  1.5em );
     margin-left: 0.75em;
     margin-right: 0.75em;
@@ -23564,9 +23633,10 @@ a.ui.card:hover,
   }
 
   .ui.ten.doubling.cards .card {
-    -webkit-flex-basis: calc( 20%  -  1.5em );
+    -webkit-flex-basis: -webkit-calc( 20%  -  1.5em );
     -ms-flex-preferred-size: calc( 20%  -  1.5em );
     flex-basis: calc( 20%  -  1.5em );
+    width: -webkit-calc( 20%  -  1.5em );
     width: calc( 20%  -  1.5em );
     margin-left: 0.75em;
     margin-right: 0.75em;
@@ -23591,6 +23661,7 @@ a.ui.card:hover,
     height: auto !important;
     margin: 1em 1em;
     padding: 0 !important;
+    width: -webkit-calc( 100%  -  2em ) !important;
     width: calc( 100%  -  2em ) !important;
   }
 }
@@ -25155,6 +25226,12 @@ a.ui.card:hover,
 .ui.statistics .inverted.yellow.statistic > .value,
 .ui.inverted.yellow.statistic > .value {
   color: #ffe21f;
+}
+
+.ui.inverted.olive.statistics .statistic > .value,
+.ui.statistics .inverted.olive.statistic > .value,
+.ui.inverted.olive.statistic > .value {
+  color: #d9e778;
 }
 
 .ui.inverted.green.statistics .statistic > .value,
@@ -26753,6 +26830,7 @@ select.ui.dropdown {
   position: absolute;
   top: auto;
   width: auto;
+  z-index: 3;
   margin: -0.78571em;
   padding: 0.78571em;
   right: 1em;
@@ -26779,6 +26857,7 @@ select.ui.dropdown {
   width: auto;
   outline: none;
   margin: 0px -1px;
+  min-width: -webkit-calc(100% +  2px );
   min-width: calc(100% +  2px );
   border-radius: 0em 0em 0.285714rem 0.285714rem;
   box-shadow: 0px 2px 3px 0px rgba(34, 36, 38, 0.15);
@@ -26803,6 +26882,7 @@ select.ui.dropdown {
 
 @media all and (-ms-high-contrast: none) {
   .ui.selection.dropdown .menu {
+    min-width: -webkit-calc(100% -  15px );
     min-width: calc(100% -  15px );
   }
 }
@@ -27510,6 +27590,7 @@ select.ui.dropdown {
 @media all and (-ms-high-contrast: none) {
   .ui.scrolling.dropdown .menu,
   .ui.dropdown .scrolling.menu {
+    min-width: -webkit-calc(100% -  15px );
     min-width: calc(100% -  15px );
   }
 }
@@ -27995,10 +28076,6 @@ select.ui.dropdown {
 
 /*******************************
         Video Overrides
-*******************************/
-
-/*******************************
-         Site Overrides
 *******************************/
 
 /*******************************
@@ -28899,6 +28976,7 @@ a.ui.nag {
 /* Immediate Nested Grid */
 
 .ui.popup > .ui.grid:not(.padded) {
+  width: -webkit-calc(100% + 1.75rem);
   width: calc(100% + 1.75rem);
   margin: -0.7rem -0.875rem;
 }
@@ -31776,6 +31854,7 @@ html.ios {
 /* All */
 
 .ui.attached.table {
+  width: -webkit-calc(100% +  2px );
   width: calc(100% +  2px );
   margin: 0em -1px;
   border-radius: 0px;

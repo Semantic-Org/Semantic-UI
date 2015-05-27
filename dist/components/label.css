@@ -322,14 +322,18 @@ a.ui.label {
 
 /* Positioning */
 .ui.ribbon.label {
+  left: -webkit-calc( -1rem  -  1.2em );
   left: calc( -1rem  -  1.2em );
   margin-right: -1.2em;
+  padding-left: -webkit-calc( 1rem  +  1.2em );
   padding-left: calc( 1rem  +  1.2em );
   padding-right: 1.2em;
 }
 .ui[class*="right ribbon"].label {
+  left: -webkit-calc(100% +  1rem  +  1.2em );
   left: calc(100% +  1rem  +  1.2em );
   padding-left: 1.2em;
+  padding-right: -webkit-calc( 1rem  +  1.2em );
   padding-right: calc( 1rem  +  1.2em );
 }
 
@@ -358,10 +362,12 @@ a.ui.label {
 }
 .ui.card .image > .ui.ribbon.label,
 .ui.image > .ui.ribbon.label {
+  left: -webkit-calc( 0.05rem  -  1.2em );
   left: calc( 0.05rem  -  1.2em );
 }
 .ui.card .image > .ui[class*="right ribbon"].label,
 .ui.image > .ui[class*="right ribbon"].label {
+  left: -webkit-calc(100% +  -0.05rem  +  1.2em );
   left: calc(100% +  -0.05rem  +  1.2em );
   padding-left: 0.833em;
 }

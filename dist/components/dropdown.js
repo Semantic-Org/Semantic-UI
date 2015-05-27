@@ -729,7 +729,7 @@ $.fn.dropdown = function(parameters) {
             ;
             // focus search
             if(($target.is($module) || $target.is($icon)) && !module.is.focusedOnSearch()) {
-              $search.focus();
+              module.focusSearch();
             }
           },
           blur: function(event) {
@@ -775,7 +775,7 @@ $.fn.dropdown = function(parameters) {
           text: {
             focus: function(event) {
               activated = true;
-              $search.focus();
+              module.focusSearch();
             }
           },
           input: function(event) {
@@ -2578,7 +2578,6 @@ $.fn.dropdown = function(parameters) {
                   if( module.can.click() ) {
                     module.unbind.intent();
                   }
-                  module.focusSearch();
                   module.remove.active();
                 },
               transition = module.get.transition($subMenu)
@@ -2920,7 +2919,7 @@ $.fn.dropdown.settings = {
   metadata : {
     defaultText     : 'defaultText',
     defaultValue    : 'defaultValue',
-    placeholderText : 'placeholderText',
+    placeholderText : 'placeholder',
     text            : 'text',
     value           : 'value'
   },
