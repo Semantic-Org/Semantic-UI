@@ -1516,7 +1516,7 @@ $.fn.dropdown = function(parameters) {
               ? true
               : strict || false
             ;
-            if(value !== undefined) {
+            if(value !== undefined && value !== null) {
               $item
                 .each(function() {
                   var
@@ -1524,6 +1524,10 @@ $.fn.dropdown = function(parameters) {
                     optionText    = module.get.choiceText($choice),
                     optionValue   = module.get.choiceValue($choice, optionText)
                   ;
+                  // safe early exit
+                  if(optionValue === null || optionValue === undefined) {
+                    return;
+                  }
                   if(isMultiple) {
                     if($.inArray(optionValue.toString(), value) !== -1 || $.inArray(optionText, value) !== -1) {
                       $selectedItem = ($selectedItem)
