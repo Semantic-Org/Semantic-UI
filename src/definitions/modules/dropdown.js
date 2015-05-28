@@ -2330,6 +2330,7 @@ $.fn.dropdown = function(parameters) {
               settings.onRemove.call(element, removedValue, removedText, $removedItem);
             }
             module.set.value(newValue, removedText, $removedItem);
+            module.check.maxSelections();
           },
           arrayValue: function(removedValue, values) {
             values = $.grep(values, function(value){
@@ -2378,6 +2379,7 @@ $.fn.dropdown = function(parameters) {
                   module.remove.label(value);
                 }
                 else {
+                  // selected will also remove label
                   module.remove.selected(value);
                 }
               })
