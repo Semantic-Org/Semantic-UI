@@ -129,6 +129,7 @@
 - **Checkbox** - Fix `:focus` styles only applying if checkbox is unchecked
 - **Divider**  - Hidden divider now correctly hides vertical dividers
 - **Divider** - Fixes single icon alignment inside `vertical divider` or `horizontal divider`
+- **Divider** - Fixed slight offset in `vertical divider` when it automatically adjusts to `horizontal divider` inside a `stackable grid`
 - **Dropdown** - `focus` after changing tabs will no longer cause menu to re-open **Thanks @trevorharwell**
 - **Dropdown** - Fix issue with search dropdown refocusing on self the first time after "tabbing" away in Chrome
 - **Dropdown** - Fixes issue with headers disappearing inside of `ui dropdown` when nested in `ui menu`
