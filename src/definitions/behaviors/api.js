@@ -63,6 +63,7 @@ $.api = $.fn.api = function(parameters) {
         requestSettings,
         url,
         data,
+        requestStartTime,
 
         // standard module
         element         = this,
@@ -151,10 +152,16 @@ $.api = $.fn.api = function(parameters) {
             module.debug('Element is disabled API request aborted');
             return;
           }
-          // determine if an api event already occurred
-          if(module.is.loading() && settings.throttle === 0 ) {
-            module.debug('Cancelling request, previous request is still pending');
-            return;
+
+          if(module.is.loading()) {
+            if(settings.interruptRequests) {
+              module.debug('Interrupting previous request');
+              module.abort();
+            }
+            else {
+              module.debug('Cancelling request, previous request is still pending');
+              return;
+            }
           }
 
           // pass element metadata to url (value, text)
@@ -208,8 +215,6 @@ $.api = $.fn.api = function(parameters) {
             }
           }
 
-          // add loading state
-          module.set.loading();
 
           // look for jQuery ajax parameters in settings
           ajaxSettings = $.extend(true, {}, settings, {
@@ -223,29 +228,36 @@ $.api = $.fn.api = function(parameters) {
           });
 
           module.debug('Querying URL', ajaxSettings.url);
-          module.debug('Sending data', data, ajaxSettings.method);
           module.verbose('Using AJAX settings', ajaxSettings);
 
-          // pull from cache
           if(settings.cache === 'local' && module.read.cachedResponse(url)) {
+            module.debug('Response returned from local cache');
             module.request = module.create.request();
             module.request.resolveWith(context, [ module.read.cachedResponse(url) ]);
             return;
           }
 
-          if( !module.is.loading() ) {
-            module.request = module.create.request();
-            module.xhr     = module.create.xhr();
-            settings.onRequest.call(context, module.request, module.xhr);
+          if( !settings.throttle ) {
+            module.debug('Sending data', data, ajaxSettings.method);
+            module.send.request();
           }
           else {
-            // throttle repeated api requests
-            module.debug('Repeated request throttled', settings.throttle);
-            module.timer = setTimeout(function() {
-              module.request = module.create.request();
-              module.xhr     = module.create.xhr();
-              settings.onRequest.call(context, module.request, module.xhr);
-            }, settings.throttle);
+            if(!settings.throttleFirstRequest && !module.timer) {
+              module.debug('Sending data', data, ajaxSettings.method);
+              module.send.request();
+              module.timer = setTimeout(function(){}, settings.throttle);
+            }
+            else {
+              module.debug('Throttling request', settings.throttle);
+              clearTimeout(module.timer);
+              module.timer = setTimeout(function() {
+                if(module.timer) {
+                  delete module.timer;
+                }
+                module.debug('Sending throttled request', data, ajaxSettings.method);
+                module.send.request();
+              }, settings.throttle);
+            }
           }
 
         },
@@ -359,6 +371,16 @@ $.api = $.fn.api = function(parameters) {
           }
         },
 
+        send: {
+          request: function() {
+            module.set.loading();
+            module.request = module.create.request();
+            module.xhr     = module.create.xhr();
+            settings.onRequest.call(context, module.request, module.xhr);
+          }
+        },
+
+
         event: {
           trigger: function(event) {
             module.query();
@@ -373,7 +395,7 @@ $.api = $.fn.api = function(parameters) {
             done: function(response) {
               var
                 context      = this,
-                elapsedTime  = (new Date().getTime() - time),
+                elapsedTime  = (new Date().getTime() - requestStartTime),
                 timeLeft     = (settings.loadingDuration - elapsedTime)
               ;
               timeLeft = (timeLeft > 0)
@@ -387,7 +409,7 @@ $.api = $.fn.api = function(parameters) {
             fail: function(xhr, status, httpMessage) {
               var
                 context     = this,
-                elapsedTime = (new Date().getTime() - time),
+                elapsedTime = (new Date().getTime() - requestStartTime),
                 timeLeft    = (settings.loadingDuration - elapsedTime)
               ;
               timeLeft = (timeLeft > 0)
@@ -554,6 +576,7 @@ $.api = $.fn.api = function(parameters) {
           loading: function() {
             module.verbose('Adding loading state to element', $context);
             $context.addClass(className.loading);
+            requestStartTime = new Date().getTime();
           }
         },
 
@@ -875,42 +898,44 @@ $.api = $.fn.api = function(parameters) {
 
 $.api.settings = {
 
-  name            : 'API',
-  namespace       : 'api',
+  name              : 'API',
+  namespace         : 'api',
 
-  debug           : true,
-  verbose         : false,
-  performance     : true,
+  debug             : true,
+  verbose           : false,
+  performance       : true,
 
   // cache
-  cache           : true,
+  cache             : true,
+  interruptRequests : true,
 
   // event binding
-  on              : 'auto',
-  filter          : '.disabled',
-  stateContext    : false,
+  on                : 'auto',
+  filter            : '.disabled',
+  stateContext      : false,
 
   // state
-  loadingDuration : 0,
-  errorDuration   : 2000,
+  loadingDuration   : 0,
+  errorDuration     : 2000,
 
   // templating
-  action          : false,
-  url             : false,
-  base            : '',
+  action            : false,
+  url               : false,
+  base              : '',
 
   // data
-  urlData         : {},
+  urlData           : {},
 
   // ui
-  defaultData     : true,
-  serializeForm   : false,
-  throttle        : 0,
+  defaultData          : true,
+  serializeForm        : false,
+  throttle             : 0,
+  throttleFirstRequest : true,
 
   // jQ ajax
-  method          : 'get',
-  data            : {},
-  dataType        : 'json',
+  method            : 'get',
+  data              : {},
+  dataType          : 'json',
 
   // mock response
   mockResponse      : false,
