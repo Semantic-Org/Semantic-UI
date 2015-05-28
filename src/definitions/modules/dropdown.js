@@ -1930,6 +1930,19 @@ $.fn.dropdown = function(parameters) {
               $nextValue.addClass(className.selected);
             }
           },
+          direction: function($menu) {
+            if(settings.direction == 'auto') {
+              if(module.is.onScreen($menu)) {
+                module.remove.upward($menu);
+              }
+              else {
+                module.set.upward($menu);
+              }
+            }
+            else if(settings.direction == 'upward') {
+              module.set.upward($menu);
+            }
+          },
           upward: function($menu) {
             var $element = $menu || $module;
             $element.addClass(className.upward);
@@ -2557,14 +2570,7 @@ $.fn.dropdown = function(parameters) {
               : function(){}
             ;
             module.verbose('Doing menu show animation', $currentMenu);
-            if(settings.keepOnScreen) {
-              if(module.is.onScreen($subMenu)) {
-                module.remove.upward($subMenu);
-              }
-              else {
-                module.set.upward($subMenu);
-              }
-            }
+            module.set.direction($subMenu);
             transition = module.get.transition($subMenu);
             if( module.is.selection() ) {
               module.set.scrollPosition(module.get.selectedItem(), true);
@@ -2633,7 +2639,9 @@ $.fn.dropdown = function(parameters) {
                     queue      : true,
                     onStart    : start,
                     onComplete : function() {
-                      module.remove.upward($subMenu);
+                      if(settings.direction == 'auto') {
+                        module.remove.upward($subMenu);
+                      }
                       callback.call(element);
                     }
                   })
@@ -2866,6 +2874,7 @@ $.fn.dropdown.settings = {
   apiSettings            : false,
   saveRemoteData         : false,      // Whether remote name/value pairs should be stored in sessionStorage to allow remote data to be restored on page refresh
 
+  direction              : 'auto',     // Whether dropdown should always open in one direction
   keepOnScreen           : true,       // Whether dropdown should check whether it is on screen before showing
 
   match                  : 'both',     // what to match against with search selection (both, text, or label)
