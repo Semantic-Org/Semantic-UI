@@ -51,7 +51,7 @@
 ---------------*/
 
 @headerFontWeight : bold;
-@headerLineHeight : 1.33em;
+@headerLineHeight : 1.2857em;
 
 @h1               : 2rem;
 @h2               : 1.714rem;
