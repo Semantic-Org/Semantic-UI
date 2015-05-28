@@ -14,6 +14,7 @@
 "use strict";
 
 $.fn.popup = function(parameters) {
+
   var
     $allModules    = $(this),
     $document      = $(document),
@@ -25,7 +26,7 @@ $.fn.popup = function(parameters) {
     performance    = [],
 
     query          = arguments[0],
-    methodInvoked  = (typeof query == 'string'),
+    methodInvoked  = (typeof query === 'string'),
     queryArguments = [].slice.call(arguments, 1),
 
     returnedValue
@@ -90,6 +91,7 @@ $.fn.popup = function(parameters) {
         },
 
         refresh: function() {
+
           if(settings.popup) {
             $popup = $(settings.popup).eq(0);
           }
@@ -99,6 +101,7 @@ $.fn.popup = function(parameters) {
               settings.popup = $popup;
             }
           }
+
           if(settings.popup) {
             $popup.addClass(className.loading);
             $offsetParent = module.get.offsetParent();
@@ -118,6 +121,29 @@ $.fn.popup = function(parameters) {
                 ? module.get.offsetParent($popup)
                 : $body
             ;
+            if ($popup) {
+
+              var
+                html      = $module.attr(metadata.html)      || settings.html,
+                title     = $module.attr(metadata.title)     || settings.title,
+                content   = $module.attr(metadata.content)   || $module.attr('title') || settings.content
+              ;
+
+              if (html || content || title) {
+                module.debug('Refreshing pop-up html');
+                if (!html) {
+                  html = settings.templates.popup({
+                    title   : title,
+                    content : content
+                  });
+                }
+
+                $popup
+                  .html(html);
+              }
+
+            }
+
           }
           if( $offsetParent.is('html') ) {
             module.debug('Setting page as offset parent');
@@ -176,11 +202,12 @@ $.fn.popup = function(parameters) {
         // generates popup html from metadata
         create: function() {
           var
-            html      = $module.data(metadata.html)      || settings.html,
-            variation = $module.data(metadata.variation) || settings.variation,
-            title     = $module.data(metadata.title)     || settings.title,
-            content   = $module.data(metadata.content)   || $module.attr('title') || settings.content
+            html      = $module.attr(metadata.html)      || settings.html,
+            variation = $module.attr(metadata.variation) || settings.variation,
+            title     = $module.attr(metadata.title)     || settings.title,
+            content   = $module.attr(metadata.content)   || $module.attr('title') || settings.content
           ;
+
           if(html || content || title) {
             module.debug('Creating pop-up html');
             if(!html) {
@@ -192,7 +219,7 @@ $.fn.popup = function(parameters) {
             $popup = $('<div/>')
               .addClass(className.popup)
               .addClass(variation)
-              .data(metadata.activator, $module)
+              .attr(metadata.activator, $module)
               .html(html)
             ;
             if(variation) {
@@ -221,14 +248,14 @@ $.fn.popup = function(parameters) {
           else if($target.next(selector.popup).length !== 0) {
             module.verbose('Pre-existing popup found');
             settings.inline = true;
-            settings.popups  = $target.next(selector.popup).data(metadata.activator, $module);
+            settings.popup  = $target.next(selector.popup).attr(metadata.activator, $module);
             module.refresh();
             if(settings.hoverable) {
               module.bind.popup();
             }
           }
           else if(settings.popup) {
-            $(settings.popup).data(metadata.activator, $module);
+            $(settings.popup).attr(metadata.activator, $module);
             module.verbose('Used popup specified in settings');
             module.refresh();
             if(settings.hoverable) {
@@ -297,7 +324,7 @@ $.fn.popup = function(parameters) {
             .filter('.' + className.visible)
             .each(function() {
               $(this)
-                .data(metadata.activator)
+                .attr(metadata.activator)
                 .popup('hide')
               ;
             })
@@ -624,8 +651,8 @@ $.fn.popup = function(parameters) {
               positioning,
               offstagePosition
             ;
-            position    = position    || $module.data(metadata.position)    || settings.position;
-            arrowOffset = arrowOffset || $module.data(metadata.offset)      || settings.offset;
+            position    = position    || $module.attr(metadata.position)    || settings.position;
+            arrowOffset = arrowOffset || $module.attr(metadata.offset)      || settings.offset;
 
             if(target.top === 0 && target.left === 0) {
               module.debug('Popup target is hidden, no action taken');
@@ -1180,13 +1207,13 @@ $.fn.popup.settings = {
   },
 
   metadata: {
-    activator : 'activator',
-    content   : 'content',
-    html      : 'html',
-    offset    : 'offset',
-    position  : 'position',
-    title     : 'title',
-    variation : 'variation'
+    activator : 'data-activator',
+    content   : 'data-content',
+    html      : 'data-html',
+    offset    : 'data-offset',
+    position  : 'data-position',
+    title     : 'data-title',
+    variation : 'data-variation'
   },
 
   className   : {
@@ -1227,6 +1254,7 @@ $.fn.popup.settings = {
       return string;
     },
     popup: function(text) {
+
       var
         html   = '',
         escape = $.fn.popup.settings.templates.escape
@@ -1255,4 +1283,4 @@ $.extend( $.easing, {
 });
 
 
-})( jQuery, window , document );
+})( jQuery, window, document );
