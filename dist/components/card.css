@@ -180,7 +180,7 @@
   font-weight: bold;
   font-size: 1.28571429em;
   margin-top: -0.21425em;
-  line-height: 1.33em;
+  line-height: 1.2857em;
 }
 .ui.cards > .card > .content > .meta + .description,
 .ui.cards > .card > .content > .header + .description,
@@ -606,12 +606,12 @@ a.ui.card:hover,
 .ui.grey.cards > .card,
 .ui.cards > .grey.card,
 .ui.grey.card {
-  box-shadow: 0px 0px 0px 1px #d4d4d5, 0px 2px 0px 0px #889090, 0px 1px 3px 0px #d4d4d5;
+  box-shadow: 0px 0px 0px 1px #d4d4d5, 0px 2px 0px 0px #757676, 0px 1px 3px 0px #d4d4d5;
 }
 .ui.grey.cards > .card:hover,
 .ui.cards > .grey.card:hover,
 .ui.grey.card:hover {
-  box-shadow: 0px 0px 0px 1px #d4d4d5, 0px 2px 0px 0px #959c9c, 0px 1px 3px 0px #bcbdbd;
+  box-shadow: 0px 0px 0px 1px #d4d4d5, 0px 2px 0px 0px #828383, 0px 1px 3px 0px #bcbdbd;
 }
 
 /* Black */

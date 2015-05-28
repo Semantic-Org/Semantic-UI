@@ -415,7 +415,7 @@ select.ui.dropdown {
 /* Scrollbar in IE */
 @media all and (-ms-high-contrast: none) {
   .ui.selection.dropdown .menu {
-    min-width: calc(100% -  15px );
+    min-width: calc(100% -  17px );
   }
 }
 @media only screen and (max-width: 767px) {
@@ -770,7 +770,7 @@ select.ui.dropdown {
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
   border-radius: 500rem;
-  border-color: #889090 transparent transparent;
+  border-color: #757676 transparent transparent;
   border-style: solid;
   border-width: 0.2em;
 }
@@ -1016,27 +1016,35 @@ select.ui.dropdown {
 
 
 /*  Selection Menu */
+.ui.scrolling.dropdown .menu,
+.ui.dropdown .scrolling.menu {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
 .ui.scrolling.dropdown .menu {
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   -webkit-overflow-scrolling: touch;
-  min-width: 15em !important;
+  width: 100% !important;
 }
 .ui.dropdown .scrolling.menu {
   position: static;
-  overflow: auto;
-  min-width: 15em !important;
-  box-shadow: none !important;
-  margin: 0 !important;
-  border-radius: 0 !important;
+  overflow-y: auto;
   border: none;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
   border-top: 1px solid rgba(34, 36, 38, 0.15);
 }
-.ui.dropdown .scrolling.menu .item {
-  border-top: 1px solid #fafafa;
+.ui.scrolling.dropdown .menu .item.item.item,
+.ui.dropdown .scrolling.menu > .item.item.item {
+  border-top: none;
+  padding-right: calc( 1.14285714rem  +  17px ) !important;
 }
+.ui.scrolling.dropdown .menu .item:first-child,
 .ui.dropdown .scrolling.menu .item:first-child {
   border-top: none;
 }
@@ -1049,7 +1057,7 @@ select.ui.dropdown {
 @media all and (-ms-high-contrast: none) {
   .ui.scrolling.dropdown .menu,
   .ui.dropdown .scrolling.menu {
-    min-width: calc(100% -  15px );
+    min-width: calc(100% -  17px );
   }
 }
 @media only screen and (max-width: 767px) {

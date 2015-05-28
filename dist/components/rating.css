@@ -15,8 +15,11 @@
 *******************************/
 
 .ui.rating {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   white-space: nowrap;
-  display: inline-block;
   vertical-align: middle;
 }
 .ui.rating:last-child {
@@ -38,6 +41,10 @@
   text-align: center;
   font-weight: normal;
   font-style: normal;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
   cursor: pointer;
   width: 1.25em;
   height: auto;

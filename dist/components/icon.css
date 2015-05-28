@@ -252,7 +252,7 @@ i.olive.icon {
   color: #b5cc18 !important;
 }
 i.inverted.olive.icon {
-  color: #2ecc40 !important;
+  color: #d9e778 !important;
 }
 i.inverted.bordered.olive.icon,
 i.inverted.circular.olive.icon {
@@ -353,14 +353,14 @@ i.inverted.circular.brown.icon {
 
 /* Grey */
 i.grey.icon {
-  color: #889090 !important;
+  color: #757676 !important;
 }
 i.inverted.grey.icon {
   color: #dcddde !important;
 }
 i.inverted.bordered.grey.icon,
 i.inverted.circular.grey.icon {
-  background-color: #889090 !important;
+  background-color: #757676 !important;
   color: #ffffff !important;
 }
 
@@ -397,6 +397,7 @@ i.huge.icons {
 }
 i.massive.icon,
 i.massive.icons {
+  line-height: 1;
   vertical-align: middle;
   font-size: 8em;
 }

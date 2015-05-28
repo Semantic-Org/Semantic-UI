@@ -1453,7 +1453,7 @@ body > .ui.grid {
 .ui.grid > .grey.row,
 .ui.grid > .grey.column,
 .ui.grid > .row > .grey.column {
-  background-color: #889090 !important;
+  background-color: #757676 !important;
   color: #ffffff;
 }
 
@@ -1723,11 +1723,6 @@ body > .ui.grid {
   .ui.segment:not(.vertical) .ui.stackable.page.grid {
     margin-left: -1rem !important;
     margin-right: -1rem !important;
-  }
-  
-/* Equal Height Stackable */
-  .ui[class*="equal height"].stackable.page.grid {
-    display: block !important;
   }
   
 /* Divided Stackable */

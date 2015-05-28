@@ -185,7 +185,7 @@
   border-color: rgba(0, 0, 0, 0.1);
 }
 .ui.basic.loading.button:not(.inverted):after {
-  border-top-color: #889090;
+  border-top-color: #757676;
 }
 
 /*-------------------
@@ -713,7 +713,7 @@
 .ui.basic.inverted.buttons .button,
 .ui.basic.inverted.button {
   background-color: transparent !important;
-  color: #fafafa !important;
+  color: #f9fafb !important;
   box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
 }
 .ui.basic.inverted.buttons .button:hover,
@@ -1324,7 +1324,7 @@
 
 .ui.grey.buttons .button,
 .ui.grey.button {
-  background-color: #889090;
+  background-color: #757676;
   color: #ffffff;
   text-shadow: none;
   background-image: none;
@@ -1334,19 +1334,19 @@
 }
 .ui.grey.buttons .button:hover,
 .ui.grey.button:hover {
-  background-color: #959c9c;
+  background-color: #828383;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.grey.buttons .button:focus,
 .ui.grey.button:focus {
-  background-color: #9da4a4;
+  background-color: #898a8a;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.grey.buttons .button:active,
 .ui.grey.button:active {
-  background-color: #a2a9a9;
+  background-color: #8f8f8f;
   color: #ffffff;
   text-shadow: none;
 }
@@ -1354,7 +1354,7 @@
 .ui.grey.buttons .active.button:active,
 .ui.grey.active.button,
 .ui.grey.button .active.button:active {
-  background-color: #7b8484;
+  background-color: #686969;
   color: #ffffff;
   text-shadow: none;
 }
@@ -1368,24 +1368,24 @@
 .ui.basic.grey.buttons .button:hover,
 .ui.basic.grey.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #959c9c inset !important;
-  color: #959c9c !important;
+  box-shadow: 0px 0px 0px 2px #828383 inset !important;
+  color: #828383 !important;
 }
 .ui.basic.grey.buttons .button:focus,
 .ui.basic.grey.button:focus {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #9da4a4 inset !important;
+  box-shadow: 0px 0px 0px 2px #898a8a inset !important;
 }
 .ui.basic.grey.buttons .active.button,
 .ui.basic.grey.active.button {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #7b8484 inset !important;
-  color: #a2a9a9 !important;
+  box-shadow: 0px 0px 0px 2px #686969 inset !important;
+  color: #8f8f8f !important;
 }
 .ui.basic.grey.buttons .button:active,
 .ui.basic.grey.button:active {
-  box-shadow: 0px 0px 0px 2px #a2a9a9 inset !important;
-  color: #a2a9a9 !important;
+  box-shadow: 0px 0px 0px 2px #8f8f8f inset !important;
+  color: #8f8f8f !important;
 }
 .ui.buttons > .basic.grey.button:not(:first-child) {
   margin-left: -2px;

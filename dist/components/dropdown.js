@@ -216,9 +216,8 @@ $.fn.dropdown = function(parameters) {
           api: function() {
             var
               apiSettings = {
-                debug    : settings.debug,
-                cache    : 'local',
-                on       : false
+                debug : settings.debug,
+                on    : false
               }
             ;
             module.verbose('First request, initializing API');
@@ -562,8 +561,10 @@ $.fn.dropdown = function(parameters) {
         queryRemote: function(query, callback) {
           var
             apiSettings = {
-              errorDuration : false,
-              urlData: {
+              errorDuration        : false,
+              throttle             : settings.throttle,
+              cache                : 'local',
+              urlData              : {
                 query: query
               },
               onError: function() {
@@ -589,7 +590,6 @@ $.fn.dropdown = function(parameters) {
           apiSettings = $.extend(true, {}, apiSettings, settings.apiSettings);
           $module
             .api('setting', apiSettings)
-            .api('abort')
             .api('query')
           ;
         },
@@ -896,6 +896,9 @@ $.fn.dropdown = function(parameters) {
                 isBubbledEvent = ($subMenu.find($target).length > 0)
               ;
               if(!isBubbledEvent && (!hasSubMenu || settings.allowCategorySelection)) {
+                if(!settings.useLabels) {
+                  module.remove.searchTerm();
+                }
                 module.determine.selectAction.call(this, text, value);
               }
             }
@@ -1049,6 +1052,7 @@ $.fn.dropdown = function(parameters) {
 
                 // enter (select or open sub-menu)
                 if(pressedKey == keys.enter || pressedKey == keys.delimiter) {
+
                   if(pressedKey == keys.enter && hasSelectedItem && hasSubMenu && !settings.allowCategorySelection) {
                     module.verbose('Pressed enter on unselectable category, opening sub menu');
                     pressedKey = keys.rightArrow;
@@ -1391,6 +1395,7 @@ $.fn.dropdown = function(parameters) {
                 var
                   name = module.read.remoteData(value)
                 ;
+                module.verbose('Restoring value from session data', name, value);
                 remoteValues[value] = (name)
                   ? name
                   : value
@@ -1516,7 +1521,7 @@ $.fn.dropdown = function(parameters) {
               ? true
               : strict || false
             ;
-            if(value !== undefined) {
+            if(value !== undefined && value !== null) {
               $item
                 .each(function() {
                   var
@@ -1524,6 +1529,10 @@ $.fn.dropdown = function(parameters) {
                     optionText    = module.get.choiceText($choice),
                     optionValue   = module.get.choiceValue($choice, optionText)
                   ;
+                  // safe early exit
+                  if(optionValue === null || optionValue === undefined) {
+                    return;
+                  }
                   if(isMultiple) {
                     if($.inArray(optionValue.toString(), value) !== -1 || $.inArray(optionText, value) !== -1) {
                       $selectedItem = ($selectedItem)
@@ -1631,7 +1640,6 @@ $.fn.dropdown = function(parameters) {
             }
           },
           values: function() {
-            module.debug('Restoring selected values');
             module.set.initialLoad();
             if(settings.apiSettings) {
               if(settings.saveRemoteData) {
@@ -1924,6 +1932,19 @@ $.fn.dropdown = function(parameters) {
               module.set.scrollPosition($nextValue);
               $selectedItem.removeClass(className.selected);
               $nextValue.addClass(className.selected);
+            }
+          },
+          direction: function($menu) {
+            if(settings.direction == 'auto') {
+              if(module.is.onScreen($menu)) {
+                module.remove.upward($menu);
+              }
+              else {
+                module.set.upward($menu);
+              }
+            }
+            else if(settings.direction == 'upward') {
+              module.set.upward($menu);
             }
           },
           upward: function($menu) {
@@ -2313,6 +2334,7 @@ $.fn.dropdown = function(parameters) {
               settings.onRemove.call(element, removedValue, removedText, $removedItem);
             }
             module.set.value(newValue, removedText, $removedItem);
+            module.check.maxSelections();
           },
           arrayValue: function(removedValue, values) {
             values = $.grep(values, function(value){
@@ -2361,6 +2383,7 @@ $.fn.dropdown = function(parameters) {
                   module.remove.label(value);
                 }
                 else {
+                  // selected will also remove label
                   module.remove.selected(value);
                 }
               })
@@ -2553,14 +2576,7 @@ $.fn.dropdown = function(parameters) {
               : function(){}
             ;
             module.verbose('Doing menu show animation', $currentMenu);
-            if(settings.keepOnScreen) {
-              if(module.is.onScreen($subMenu)) {
-                module.remove.upward($subMenu);
-              }
-              else {
-                module.set.upward($subMenu);
-              }
-            }
+            module.set.direction($subMenu);
             transition = module.get.transition($subMenu);
             if( module.is.selection() ) {
               module.set.scrollPosition(module.get.selectedItem(), true);
@@ -2629,7 +2645,9 @@ $.fn.dropdown = function(parameters) {
                     queue      : true,
                     onStart    : start,
                     onComplete : function() {
-                      module.remove.upward($subMenu);
+                      if(settings.direction == 'auto') {
+                        module.remove.upward($subMenu);
+                      }
                       callback.call(element);
                     }
                   })
@@ -2860,8 +2878,10 @@ $.fn.dropdown.settings = {
   action                 : 'activate', // action on item selection (nothing, activate, select, combo, hide, function(){})
 
   apiSettings            : false,
-  saveRemoteData         : false,      // Whether remote name/value pairs should be stored in sessionStorage to allow remote data to be restored on page refresh
+  saveRemoteData         : true,      // Whether remote name/value pairs should be stored in sessionStorage to allow remote data to be restored on page refresh
+  throttle               : 100,        // How long to wait after last user input to search remotely
 
+  direction              : 'auto',     // Whether dropdown should always open in one direction
   keepOnScreen           : true,       // Whether dropdown should check whether it is on screen before showing
 
   match                  : 'both',     // what to match against with search selection (both, text, or label)

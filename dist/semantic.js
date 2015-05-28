@@ -3746,9 +3746,8 @@ $.fn.dropdown = function(parameters) {
           api: function() {
             var
               apiSettings = {
-                debug    : settings.debug,
-                cache    : 'local',
-                on       : false
+                debug : settings.debug,
+                on    : false
               }
             ;
             module.verbose('First request, initializing API');
@@ -4092,8 +4091,10 @@ $.fn.dropdown = function(parameters) {
         queryRemote: function(query, callback) {
           var
             apiSettings = {
-              errorDuration : false,
-              urlData: {
+              errorDuration        : false,
+              throttle             : settings.throttle,
+              cache                : 'local',
+              urlData              : {
                 query: query
               },
               onError: function() {
@@ -4119,7 +4120,6 @@ $.fn.dropdown = function(parameters) {
           apiSettings = $.extend(true, {}, apiSettings, settings.apiSettings);
           $module
             .api('setting', apiSettings)
-            .api('abort')
             .api('query')
           ;
         },
@@ -4426,6 +4426,9 @@ $.fn.dropdown = function(parameters) {
                 isBubbledEvent = ($subMenu.find($target).length > 0)
               ;
               if(!isBubbledEvent && (!hasSubMenu || settings.allowCategorySelection)) {
+                if(!settings.useLabels) {
+                  module.remove.searchTerm();
+                }
                 module.determine.selectAction.call(this, text, value);
               }
             }
@@ -4579,6 +4582,7 @@ $.fn.dropdown = function(parameters) {
 
                 // enter (select or open sub-menu)
                 if(pressedKey == keys.enter || pressedKey == keys.delimiter) {
+
                   if(pressedKey == keys.enter && hasSelectedItem && hasSubMenu && !settings.allowCategorySelection) {
                     module.verbose('Pressed enter on unselectable category, opening sub menu');
                     pressedKey = keys.rightArrow;
@@ -4921,6 +4925,7 @@ $.fn.dropdown = function(parameters) {
                 var
                   name = module.read.remoteData(value)
                 ;
+                module.verbose('Restoring value from session data', name, value);
                 remoteValues[value] = (name)
                   ? name
                   : value
@@ -5046,7 +5051,7 @@ $.fn.dropdown = function(parameters) {
               ? true
               : strict || false
             ;
-            if(value !== undefined) {
+            if(value !== undefined && value !== null) {
               $item
                 .each(function() {
                   var
@@ -5054,6 +5059,10 @@ $.fn.dropdown = function(parameters) {
                     optionText    = module.get.choiceText($choice),
                     optionValue   = module.get.choiceValue($choice, optionText)
                   ;
+                  // safe early exit
+                  if(optionValue === null || optionValue === undefined) {
+                    return;
+                  }
                   if(isMultiple) {
                     if($.inArray(optionValue.toString(), value) !== -1 || $.inArray(optionText, value) !== -1) {
                       $selectedItem = ($selectedItem)
@@ -5161,7 +5170,6 @@ $.fn.dropdown = function(parameters) {
             }
           },
           values: function() {
-            module.debug('Restoring selected values');
             module.set.initialLoad();
             if(settings.apiSettings) {
               if(settings.saveRemoteData) {
@@ -5454,6 +5462,19 @@ $.fn.dropdown = function(parameters) {
               module.set.scrollPosition($nextValue);
               $selectedItem.removeClass(className.selected);
               $nextValue.addClass(className.selected);
+            }
+          },
+          direction: function($menu) {
+            if(settings.direction == 'auto') {
+              if(module.is.onScreen($menu)) {
+                module.remove.upward($menu);
+              }
+              else {
+                module.set.upward($menu);
+              }
+            }
+            else if(settings.direction == 'upward') {
+              module.set.upward($menu);
             }
           },
           upward: function($menu) {
@@ -5843,6 +5864,7 @@ $.fn.dropdown = function(parameters) {
               settings.onRemove.call(element, removedValue, removedText, $removedItem);
             }
             module.set.value(newValue, removedText, $removedItem);
+            module.check.maxSelections();
           },
           arrayValue: function(removedValue, values) {
             values = $.grep(values, function(value){
@@ -5891,6 +5913,7 @@ $.fn.dropdown = function(parameters) {
                   module.remove.label(value);
                 }
                 else {
+                  // selected will also remove label
                   module.remove.selected(value);
                 }
               })
@@ -6083,14 +6106,7 @@ $.fn.dropdown = function(parameters) {
               : function(){}
             ;
             module.verbose('Doing menu show animation', $currentMenu);
-            if(settings.keepOnScreen) {
-              if(module.is.onScreen($subMenu)) {
-                module.remove.upward($subMenu);
-              }
-              else {
-                module.set.upward($subMenu);
-              }
-            }
+            module.set.direction($subMenu);
             transition = module.get.transition($subMenu);
             if( module.is.selection() ) {
               module.set.scrollPosition(module.get.selectedItem(), true);
@@ -6159,7 +6175,9 @@ $.fn.dropdown = function(parameters) {
                     queue      : true,
                     onStart    : start,
                     onComplete : function() {
-                      module.remove.upward($subMenu);
+                      if(settings.direction == 'auto') {
+                        module.remove.upward($subMenu);
+                      }
                       callback.call(element);
                     }
                   })
@@ -6390,8 +6408,10 @@ $.fn.dropdown.settings = {
   action                 : 'activate', // action on item selection (nothing, activate, select, combo, hide, function(){})
 
   apiSettings            : false,
-  saveRemoteData         : false,      // Whether remote name/value pairs should be stored in sessionStorage to allow remote data to be restored on page refresh
+  saveRemoteData         : true,      // Whether remote name/value pairs should be stored in sessionStorage to allow remote data to be restored on page refresh
+  throttle               : 100,        // How long to wait after last user input to search remotely
 
+  direction              : 'auto',     // Whether dropdown should always open in one direction
   keepOnScreen           : true,       // Whether dropdown should check whether it is on screen before showing
 
   match                  : 'both',     // what to match against with search selection (both, text, or label)
@@ -17069,6 +17089,7 @@ $.api = $.fn.api = function(parameters) {
         requestSettings,
         url,
         data,
+        requestStartTime,
 
         // standard module
         element         = this,
@@ -17157,10 +17178,16 @@ $.api = $.fn.api = function(parameters) {
             module.debug('Element is disabled API request aborted');
             return;
           }
-          // determine if an api event already occurred
-          if(module.is.loading() && settings.throttle === 0 ) {
-            module.debug('Cancelling request, previous request is still pending');
-            return;
+
+          if(module.is.loading()) {
+            if(settings.interruptRequests) {
+              module.debug('Interrupting previous request');
+              module.abort();
+            }
+            else {
+              module.debug('Cancelling request, previous request is still pending');
+              return;
+            }
           }
 
           // pass element metadata to url (value, text)
@@ -17214,8 +17241,6 @@ $.api = $.fn.api = function(parameters) {
             }
           }
 
-          // add loading state
-          module.set.loading();
 
           // look for jQuery ajax parameters in settings
           ajaxSettings = $.extend(true, {}, settings, {
@@ -17229,29 +17254,36 @@ $.api = $.fn.api = function(parameters) {
           });
 
           module.debug('Querying URL', ajaxSettings.url);
-          module.debug('Sending data', data, ajaxSettings.method);
           module.verbose('Using AJAX settings', ajaxSettings);
 
-          // pull from cache
           if(settings.cache === 'local' && module.read.cachedResponse(url)) {
+            module.debug('Response returned from local cache');
             module.request = module.create.request();
             module.request.resolveWith(context, [ module.read.cachedResponse(url) ]);
             return;
           }
 
-          if( !module.is.loading() ) {
-            module.request = module.create.request();
-            module.xhr     = module.create.xhr();
-            settings.onRequest.call(context, module.request, module.xhr);
+          if( !settings.throttle ) {
+            module.debug('Sending data', data, ajaxSettings.method);
+            module.send.request();
           }
           else {
-            // throttle repeated api requests
-            module.debug('Repeated request throttled', settings.throttle);
-            module.timer = setTimeout(function() {
-              module.request = module.create.request();
-              module.xhr     = module.create.xhr();
-              settings.onRequest.call(context, module.request, module.xhr);
-            }, settings.throttle);
+            if(!settings.throttleFirstRequest && !module.timer) {
+              module.debug('Sending data', data, ajaxSettings.method);
+              module.send.request();
+              module.timer = setTimeout(function(){}, settings.throttle);
+            }
+            else {
+              module.debug('Throttling request', settings.throttle);
+              clearTimeout(module.timer);
+              module.timer = setTimeout(function() {
+                if(module.timer) {
+                  delete module.timer;
+                }
+                module.debug('Sending throttled request', data, ajaxSettings.method);
+                module.send.request();
+              }, settings.throttle);
+            }
           }
 
         },
@@ -17365,6 +17397,16 @@ $.api = $.fn.api = function(parameters) {
           }
         },
 
+        send: {
+          request: function() {
+            module.set.loading();
+            module.request = module.create.request();
+            module.xhr     = module.create.xhr();
+            settings.onRequest.call(context, module.request, module.xhr);
+          }
+        },
+
+
         event: {
           trigger: function(event) {
             module.query();
@@ -17379,7 +17421,7 @@ $.api = $.fn.api = function(parameters) {
             done: function(response) {
               var
                 context      = this,
-                elapsedTime  = (new Date().getTime() - time),
+                elapsedTime  = (new Date().getTime() - requestStartTime),
                 timeLeft     = (settings.loadingDuration - elapsedTime)
               ;
               timeLeft = (timeLeft > 0)
@@ -17393,7 +17435,7 @@ $.api = $.fn.api = function(parameters) {
             fail: function(xhr, status, httpMessage) {
               var
                 context     = this,
-                elapsedTime = (new Date().getTime() - time),
+                elapsedTime = (new Date().getTime() - requestStartTime),
                 timeLeft    = (settings.loadingDuration - elapsedTime)
               ;
               timeLeft = (timeLeft > 0)
@@ -17560,6 +17602,7 @@ $.api = $.fn.api = function(parameters) {
           loading: function() {
             module.verbose('Adding loading state to element', $context);
             $context.addClass(className.loading);
+            requestStartTime = new Date().getTime();
           }
         },
 
@@ -17881,42 +17924,44 @@ $.api = $.fn.api = function(parameters) {
 
 $.api.settings = {
 
-  name            : 'API',
-  namespace       : 'api',
+  name              : 'API',
+  namespace         : 'api',
 
-  debug           : true,
-  verbose         : false,
-  performance     : true,
+  debug             : true,
+  verbose           : false,
+  performance       : true,
 
   // cache
-  cache           : true,
+  cache             : true,
+  interruptRequests : true,
 
   // event binding
-  on              : 'auto',
-  filter          : '.disabled',
-  stateContext    : false,
+  on                : 'auto',
+  filter            : '.disabled',
+  stateContext      : false,
 
   // state
-  loadingDuration : 0,
-  errorDuration   : 2000,
+  loadingDuration   : 0,
+  errorDuration     : 2000,
 
   // templating
-  action          : false,
-  url             : false,
-  base            : '',
+  action            : false,
+  url               : false,
+  base              : '',
 
   // data
-  urlData         : {},
+  urlData           : {},
 
   // ui
-  defaultData     : true,
-  serializeForm   : false,
-  throttle        : 0,
+  defaultData          : true,
+  serializeForm        : false,
+  throttle             : 0,
+  throttleFirstRequest : true,
 
   // jQ ajax
-  method          : 'get',
-  data            : {},
-  dataType        : 'json',
+  method            : 'get',
+  data              : {},
+  dataType          : 'json',
 
   // mock response
   mockResponse      : false,

@@ -54,7 +54,7 @@
 }
 .ui.table thead th {
   cursor: auto;
-  background: #fafafa;
+  background: #f9fafb;
   text-align: inherit;
   color: rgba(0, 0, 0, 0.87);
   padding: 0.92857143em 0.71428571em;
@@ -85,7 +85,7 @@
 .ui.table tfoot th {
   cursor: auto;
   border-top: 1px solid rgba(34, 36, 38, 0.15);
-  background: #ffffff;
+  background: #f9fafb;
   text-align: inherit;
   color: rgba(0, 0, 0, 0.87);
   padding: 0.71428571em 0.71428571em;
@@ -657,10 +657,10 @@
 
 /* Grey */
 .ui.grey.table {
-  border-top: 0.2em solid #889090;
+  border-top: 0.2em solid #757676;
 }
 .ui.inverted.grey.table {
-  background-color: #889090 !important;
+  background-color: #757676 !important;
   color: #ffffff !important;
 }
 

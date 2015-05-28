@@ -64,6 +64,8 @@
              Types
 *******************************/
 
+
+/* Text Container */
 .ui.text.container {
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   max-width: 700px !important;
@@ -71,6 +73,11 @@
 }
 .ui.text.container {
   font-size: 1.14285714rem;
+}
+
+/* Fluid */
+.ui.fluid.container {
+  width: 100%;
 }
 
 

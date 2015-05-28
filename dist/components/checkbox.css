@@ -139,7 +139,7 @@
 
 .ui.checkbox .box:active::before,
 .ui.checkbox label:active::before {
-  background: #fafafa;
+  background: #f9fafb;
   border: 1px solid rgba(34, 36, 38, 0.3);
 }
 .ui.checkbox .box:active::after,
@@ -182,7 +182,7 @@
 .ui.checkbox input[type="checkbox"]:checked:focus ~ label:before,
 .ui.checkbox input[type="radio"]:checked:focus ~ .box:before,
 .ui.checkbox input[type="radio"]:checked:focus ~ label:before {
-  background: #fafafa;
+  background: #f9fafb;
   border: 1px solid rgba(34, 36, 38, 0.3);
 }
 .ui.checkbox input[type="checkbox"]:focus ~ .box:after,

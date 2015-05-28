@@ -296,7 +296,7 @@
   background: #888888;
 }
 .ui.inverted.progress .bar > .progress {
-  color: #fafafa;
+  color: #f9fafb;
 }
 .ui.inverted.progress > .label {
   color: #ffffff;
@@ -394,7 +394,7 @@
   background-color: #b5cc18;
 }
 .ui.olive.inverted.progress .bar {
-  background-color: #2ecc40;
+  background-color: #d9e778;
 }
 
 /* Green */
@@ -455,7 +455,7 @@
 
 /* Grey */
 .ui.grey.progress .bar {
-  background-color: #889090;
+  background-color: #757676;
 }
 .ui.grey.inverted.progress .bar {
   background-color: #dcddde;

@@ -57,6 +57,7 @@
 **Enhancements**
 - **Accordion** - adds `onOpening` and `onClosing` callback (before animation) to go with `onOpen`, `onClose` (after animation) **Thanks @cluppric**
 - **Accordion** - Added `on` setting for accordion trigger event
+- **API** - API now has new settings `throttleFirstRequest` and `interruptRequests`. Interrupt requests will abort a previous request on an element when making a new request. `throttleFirstRequest`, sets whether the first request or only subsequent requests should be throttled when a `throttle` duration is specified
 - **Build Tools** - Build tools will now produce understandable errors when a theme file is missing or an element specifies an unavailable theme
 - **Build Tools** - Adjusting `site.variables` will now rebuild all UI, instead of just `site.less`
 - **Button** - Added `:focus` styles for all button types, all button examples in docs now are keyboard focusable using either `<button>` or `tabindex` where appropriate.
@@ -123,6 +124,7 @@
 - **Accordion** - Fixed bug where `exclusive: true` could sometimes cause other accordion element animations to get stuck when animating rapidly
 - **API** - API longer uses `readyState = 0` as sole check for request abort, this may accidentally trigger with `JSONP` or `CORS` requests.
 - **API** - Fixed `this` context of `beforeSend` to use `stateContext` not `element`
+- **API** - Fixed `loadingDuration` not correctly delaying requests when invoking with  `.api('query')`
 - **Card** - IE11 now can correctly use  `flexbox` cards **THanks @Widcket**
 - **Checkbox** - Fix `disabled checkbox` sometimes displaying hand cursor
 - **Checkbox** - Fixes nested `dropdown` inside `checkbox` causing issues

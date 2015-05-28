@@ -290,7 +290,7 @@
 .ui.steps .link.step:hover,
 .ui.steps a.step:hover::after,
 .ui.steps a.step:hover {
-  background: #fafafa;
+  background: #f9fafb;
   color: rgba(0, 0, 0, 0.8);
 }
 
@@ -299,17 +299,17 @@
 .ui.steps .link.step:active,
 .ui.steps a.step:active::after,
 .ui.steps a.step:active {
-  background: #f4f4f4;
+  background: #f3f4f5;
   color: rgba(0, 0, 0, 0.9);
 }
 
 /* Active */
 .ui.steps .step.active {
   cursor: auto;
-  background: #f4f4f4;
+  background: #f3f4f5;
 }
 .ui.steps .step.active:after {
-  background: #f4f4f4;
+  background: #f3f4f5;
 }
 .ui.steps .step.active .title {
   color: #4183c4;
