@@ -1228,19 +1228,18 @@ body > .ui.grid {
 -----------------------*/
 
 /* Left Aligned */
-.ui[class*="left aligned"].grid .column:not(.row),
+.ui[class*="left aligned"].grid .column,
 .ui.grid > [class*="left aligned"].row > .column,
-.ui.grid > [class*="left aligned"].column:not(.row),
+.ui.grid > [class*="left aligned"].column.column,
 .ui.grid > .row > [class*="left aligned"].column {
   text-align: left;
   align-self: inherit;
 }
 
 /* Center Aligned */
-.ui[class*="center aligned"].grid,
-.ui[class*="center aligned"].grid .column:not(.row),
+.ui[class*="center aligned"].grid .column,
 .ui.grid > [class*="center aligned"].row > .column,
-.ui.grid > [class*="center aligned"].column:not(.row),
+.ui.grid > [class*="center aligned"].column.column,
 .ui.grid > .row > [class*="center aligned"].column {
   text-align: center;
   align-self: inherit;
@@ -1250,9 +1249,9 @@ body > .ui.grid {
 }
 
 /* Right Aligned */
-.ui[class*="right aligned"].grid .column:not(.row),
+.ui[class*="right aligned"].grid .column,
 .ui.grid > [class*="right aligned"].row > .column,
-.ui.grid > [class*="right aligned"].column:not(.row),
+.ui.grid > [class*="right aligned"].column.column,
 .ui.grid > .row > [class*="right aligned"].column {
   text-align: right;
   align-self: inherit;
