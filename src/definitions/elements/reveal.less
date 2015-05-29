@@ -67,9 +67,7 @@
   float: left;
 
   margin: 0em;
-  transition:
-    transform @defaultDuration @defaultEasing @transitionDelay,
-  ;
+  transition: @slideTransition;
 }
 
 .ui.slide.reveal > .visible.content {
@@ -193,7 +191,7 @@
 ---------------*/
 
 .ui.rotate.reveal > .visible.content {
-  transition-duration: @defaultDuration;
+  transition-duration: @transitionDuration;
   transform: rotate(0deg);
 }
 

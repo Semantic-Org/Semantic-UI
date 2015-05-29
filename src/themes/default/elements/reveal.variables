@@ -14,3 +14,4 @@
 /* Types */
 @rotateDegrees: 110deg;
 @moveTransition: transform @transitionDuration @transitionEasing @transitionDelay;
+@slideTransition: transform @transitionDuration @defaultEasing @transitionDelay;
