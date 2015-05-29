@@ -125,14 +125,6 @@ $.fn.popup = function(parameters) {
           }
         },
 
-        refreshData: function() {
-          module.verbose('Refreshing metadata attributes');
-          $module.removeData(metadata.html);
-          $module.removeData(metadata.title);
-          $module.removeData(metadata.content);
-          $module.removeData(metadata.variation);
-        },
-
         reposition: function() {
           module.refresh();
           module.set.position();
@@ -184,18 +176,11 @@ $.fn.popup = function(parameters) {
         // generates popup html from metadata
         create: function() {
           var
-            html,
-            variation,
-            title,
-            content
+            html      = module.get.html(),
+            variation = module.get.variation(),
+            title     = module.get.title(),
+            content   = module.get.content()
           ;
-
-          module.refreshData();
-
-          html      = $module.data(metadata.html)      || settings.html;
-          variation = $module.data(metadata.variation) || settings.variation;
-          title     = $module.data(metadata.title)     || settings.title;
-          content   = $module.data(metadata.content)   || $module.attr('title') || settings.content;
 
           if(html || content || title) {
             module.debug('Creating pop-up html');
@@ -422,11 +407,26 @@ $.fn.popup = function(parameters) {
             else {
               module.error(error.noTransition);
             }
-            settings.onHide.call($popup, element);
           }
         },
 
         get: {
+          html: function() {
+            $module.removeData(metadata.html);
+            return $module.data(metadata.html) || settings.html;
+          },
+          title: function() {
+            $module.removeData(metadata.title);
+            return $module.data(metadata.title) || settings.title;
+          },
+          content: function() {
+            $module.removeData(metadata.content);
+            return $module.data(metadata.content) || $module.attr('title') || settings.content;
+          },
+          variation: function() {
+            $module.removeData(metadata.variation);
+            return $module.data(metadata.variation) || settings.variation;
+          },
           id: function() {
             return id;
           },
