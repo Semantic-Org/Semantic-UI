@@ -269,6 +269,10 @@ $.fn.popup = function(parameters) {
             if( !module.exists() ) {
               module.create();
             }
+            if(settings.onShow.call($popup, element) === false) {
+              module.debug('onShow callback returned false, cancelling popup animation');
+              return;
+            }
             else if(!settings.preserve && !settings.popup) {
               module.refresh();
             }
@@ -286,6 +290,10 @@ $.fn.popup = function(parameters) {
         hide: function(callback) {
           callback = $.isFunction(callback) ? callback : function(){};
           if( module.is.visible() || module.is.animating() ) {
+            if(settings.onHide.call($popup, element) === false) {
+              module.debug('onHide callback returned false, cancelling popup animation');
+              return;
+            }
             module.remove.visible();
             module.unbind.close();
             module.restore.conditions();
@@ -383,11 +391,14 @@ $.fn.popup = function(parameters) {
             else {
               module.error(error.noTransition);
             }
-            settings.onShow.call($popup, element);
           },
           hide: function(callback) {
             callback = $.isFunction(callback) ? callback : function(){};
             module.debug('Hiding pop-up');
+            if(settings.onShow.call($popup, element) === false) {
+              module.debug('onShow callback returned false, cancelling popup animation');
+              return;
+            }
             if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
               $popup
                 .transition({
