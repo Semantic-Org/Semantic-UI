@@ -186,11 +186,13 @@
 - **Menu** - Fixed arrow position in `pointing menu` to be more consistent, round to exact pixels and account for arrow border width
 - **Modal** - `scrollable modal` now correctly adds padding below modal
 - **Modal** - Modal with `detachable: false` inside `ui sidebar`  `pusher` element will now show correctly
+- **Popup** - Popup now correctly adjusts if `data` attributes change
 - **Popup** - Fixes issue with `min-width` in firefox exceeding `max-width` causing element to not wrap correctly
 - **Popup** - Popup will now produce an error message and not mistakenly appear in the top left corner of page, if called with a `popup` or `target` that does not exist.
 - **Popup** - Popup will no longer appear incorrectly if the targeted element is not visible on page
 - **Popup** - Fixed bug which could cause pre-existing inline popup to be removed from DOM after hiding
 - **Popup** - Fixes popup offstage position calculations with pages including horizontal scrollbars
+- **Rating** - Rating now correctly adjusts if `data` attributes change
 - **Reveal** - Removed `masked` reveal, all reveals are masked by default
 - **RTL** - Fixed `rtl: 'both'` in `semantic.json` not building both versions of source correctly.
 - **Search** - Search will no longer incorrectly produce an error when API settings are passed through metadata
