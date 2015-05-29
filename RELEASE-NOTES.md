@@ -192,6 +192,7 @@
 - **Popup** - Popup will no longer appear incorrectly if the targeted element is not visible on page
 - **Popup** - Fixed bug which could cause pre-existing inline popup to be removed from DOM after hiding
 - **Popup** - Fixes popup offstage position calculations with pages including horizontal scrollbars
+- **Popup** - Added `addTouchEvents` to specify whether touch events should be added to trigger popup on mobile
 - **Rating** - Rating now correctly adjusts if `data` attributes change
 - **Reveal** - Removed `masked` reveal, all reveals are masked by default
 - **RTL** - Fixed `rtl: 'both'` in `semantic.json` not building both versions of source correctly.
