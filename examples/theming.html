@@ -10,13 +10,25 @@
   <title>Theming - Semantic</title>
   <link rel="stylesheet" type="text/css" href="../dist/semantic.css">
 
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
-  <script src="../dist/semantic.js"></script>
+  <script src="assets/library/jquery.min.js"></script>
 
   <style type="text/css">
     body > .ui.container {
       margin-top: 3em;
     }
+
+    iframe {
+      border: none;
+      width: 100%;
+      height: 300px;
+    }
+    iframe html {
+      overflow: hidden;
+    }
+    iframe body {
+      padding: 0em;
+    }
+
     .ui.container > h1 {
       font-size: 3em;
       text-align: center;
@@ -27,45 +39,32 @@
       font-weight: normal;
       margin: 4em 0em 3em;
     }
-    .color.grid {
-      margin: -1.5em;
-      width: 400px;
-    }
+
+
     .ui.table {
       table-layout: fixed;
-    }
-    .color.grid .column {
-      margin: 1em;
-      width: 100px;
-      height: 100px;
-    }
-    .spaced > .button {
-      margin-bottom: 1em;
-    }
-    .ui.menu {
-      margin: 3em 0em;
     }
   </style>
   <script>
   $(document)
     .ready(function() {
-      $('.ui:not(.container, .grid)').each(function() {
+
+      function fitContent() {
         $(this)
-          .popup({
-            on        : 'hover',
-            variation : 'small inverted',
-            exclusive : true,
-            content   : $(this).attr('class')
-          })
+          .removeAttr('style')
+          .css('height', $(this).contents().outerHeight() + 20)
         ;
-      });
-      $('.ui.dropdown').dropdown();
-      $('.ui.buttons .dropdown.button').dropdown({
-        action: 'combo'
-      });
-      $('.ui.menu .ui.dropdown').dropdown({
-        on: 'hover'
-      });
+      };
+
+      $(window)
+        .on('resize', function() {
+          $('iframe').each(fitContent);
+        })
+      ;
+      $('iframe')
+        .on('load', fitContent)
+      ;
+
     })
   ;
   </script>
@@ -76,741 +75,26 @@
 
   <h1>Theming Examples</h1>
 
-
-  <!--- Site !-->
   <h2 class="ui dividing header">Site</h2>
-  <div class="ui three column stackable grid">
-    <div class="column">
-      <h1>Heading 1</h1>
-      <h2>Heading 2</h2>
-      <h3>Heading 3</h3>
-      <h4>Heading 4</h4>
-      <h5>Heading 5</h5>
-      <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
-    </div>
-    <div class="column">
-      <h2>Example body text</h2>
-      <p>Nullam quis risus eget <a href="#">urna mollis ornare</a> vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
-      <p><small>This line of text is meant to be treated as fine print.</small></p>
-      <p>The following snippet of text is <strong>rendered as bold text</strong>.</p>
-      <p>The following snippet of text is <em>rendered as italicized text</em>.</p>
-      <p>An abbreviation of the word attribute is <abbr title="attribute">attr</abbr>.</p>
-    </div>
-    <div class="column">
-      <div class="ui four column stackable middle aligned centered color grid">
-        <div class="red column">Red</div>
-        <div class="orange column">Orange</div>
-        <div class="yellow column">Yellow</div>
-        <div class="olive column">Olive</div>
-        <div class="green column">Green</div>
-        <div class="teal column">Teal</div>
-        <div class="blue column">Blue</div>
-        <div class="violet column">Violet</div>
-        <div class="purple column">Purple</div>
-        <div class="pink column">Pink</div>
-        <div class="brown column">Brown</div>
-        <div class="grey column">Grey</div>
-        <div class="black column">Black</div>
-      </div>
-    </div>
-  </div>
+  <iframe src="components/site.html"></iframe>
 
-  <!--- Menu !-->
   <h2 class="ui dividing header">Menu</h2>
+  <iframe src="components/menu.html"></iframe>
 
-  <div class="ui menu">
-    <div class="header item">Brand</div>
-    <a class="active item">Link</a>
-    <a class="item">Link</a>
-    <div class="ui dropdown item">
-      Dropdown
-      <i class="dropdown icon"></i>
-      <div class="menu">
-        <div class="item">Action</div>
-        <div class="item">Another Action</div>
-        <div class="item">Something else here</div>
-        <div class="divider"></div>
-        <div class="item">Separated Link</div>
-        <div class="divider"></div>
-        <div class="item">One more separated link</div>
-      </div>
-    </div>
-    <div class="right menu">
-      <div class="item">
-        <div class="ui action left icon input">
-          <i class="search icon"></i>
-          <input type="text" placeholder="Search">
-          <button class="ui button">Submit</button>
-        </div>
-      </div>
-      <a class="item">Link</a>
-    </div>
-  </div>
-
-  <div class="ui inverted menu">
-    <div class="header item">Brand</div>
-    <div class="active item">Link</div>
-    <a class="item">Link</a>
-    <div class="ui dropdown item">
-      Dropdown
-      <i class="dropdown icon"></i>
-      <div class="menu">
-        <div class="item">Action</div>
-        <div class="item">Another Action</div>
-        <div class="item">Something else here</div>
-        <div class="divider"></div>
-        <div class="item">Separated Link</div>
-        <div class="divider"></div>
-        <div class="item">One more separated link</div>
-      </div>
-    </div>
-    <div class="right menu">
-      <div class="item">
-        <div class="ui transparent inverted icon input">
-          <i class="search icon"></i>
-          <input type="text" placeholder="Search">
-        </div>
-      </div>
-      <a class="item">Link</a>
-    </div>
-  </div>
-
-  <div class="ui secondary menu">
-    <div class="active item">Link</div>
-    <a class="item">Link</a>
-    <div class="ui dropdown item">
-      Dropdown
-      <i class="dropdown icon"></i>
-      <div class="menu">
-        <div class="item">Action</div>
-        <div class="item">Another Action</div>
-        <div class="item">Something else here</div>
-        <div class="divider"></div>
-        <div class="item">Separated Link</div>
-        <div class="divider"></div>
-        <div class="item">One more separated link</div>
-      </div>
-    </div>
-    <div class="right menu">
-      <div class="item">
-        <div class="ui action left icon input">
-          <i class="search icon"></i>
-          <input type="text" placeholder="Search">
-          <button class="ui button">Submit</button>
-        </div>
-      </div>
-      <a class="item">Link</a>
-    </div>
-  </div>
-
-  <div class="ui three column doubling grid">
-    <div class="column">
-      <div class="ui secondary pointing menu">
-        <div class="active item">Link</div>
-        <a class="item">Link</a>
-        <a class="item">Link</a>
-      </div>
-    </div>
-
-    <div class="column">
-      <div class="ui tabular menu">
-        <div class="active item">Link</div>
-        <a class="item">Link</a>
-        <a class="item">Link</a>
-      </div>
-    </div>
-
-    <div class="column">
-      <div class="ui pointing menu">
-        <div class="active item">Link</div>
-        <a class="item">Link</a>
-        <div class="ui right dropdown item">
-          Dropdown
-          <i class="dropdown icon"></i>
-          <div class="menu">
-            <div class="item">Action</div>
-            <div class="item">Another Action</div>
-            <div class="item">Something else here</div>
-            <div class="divider"></div>
-            <div class="item">Separated Link</div>
-            <div class="divider"></div>
-            <div class="item">One more separated link</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!--- Button !-->
   <h2 class="ui dividing header">Buttons</h2>
+  <iframe src="components/button.html"></iframe>
 
-  <div class="ui stackable equal width grid">
-    <div class="column">
-      <button class="ui button">Default</button>
-      <button class="ui primary button">Primary</button>
-      <button class="ui secondary button">Secondary</button>
-      <button class="ui basic button">Basic</button>
-      <button class="ui compact button">
-        Compact
-      </button>
+  <h2 class="ui dividing header">Table</h2>
+  <iframe src="components/table.html"></iframe>
 
-      <div class="ui divider"></div>
-      <button class="ui icon button">
-        <i class="heart icon"></i>
-      </button>
-      <button class="ui labeled icon button">
-        <i class="heart icon"></i>
-        Labeled
-      </button>
-      <button class="ui right labeled icon button">
-        <i class="heart icon"></i>
-        Labeled
-      </button>
-
-      <div class="ui divider"></div>
-
-      <div class="ui buttons">
-        <button class="ui button">Combo</button>
-        <div class="ui floating dropdown icon button">
-          <i class="dropdown icon"></i>
-          <div class="menu">
-            <div class="item">Choice 1</div>
-            <div class="item">Choice 2</div>
-            <div class="item">Choice 3</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="ui floating search dropdown button">
-        <span class="text">Search Dropdown</span>
-        <div class="menu">
-          <div class="item">Arabic</div>
-          <div class="item">Chinese</div>
-          <div class="item">Danish</div>
-          <div class="item">Dutch</div>
-          <div class="item">English</div>
-          <div class="item">French</div>
-          <div class="item">German</div>
-          <div class="item">Greek</div>
-          <div class="item">Hungarian</div>
-          <div class="item">Italian</div>
-          <div class="item">Japanese</div>
-          <div class="item">Korean</div>
-          <div class="item">Lithuanian</div>
-          <div class="item">Persian</div>
-          <div class="item">Polish</div>
-          <div class="item">Portuguese</div>
-          <div class="item">Russian</div>
-          <div class="item">Spanish</div>
-          <div class="item">Swedish</div>
-          <div class="item">Turkish</div>
-          <div class="item">Vietnamese</div>
-        </div>
-      </div>
-
-      <div class="ui divider"></div>
-
-      <div class="ui animated button" tabindex="0">
-        <div class="visible content">Horizontal</div>
-        <div class="hidden content">
-          Hidden
-        </div>
-      </div>
-      <div class="ui vertical animated button" tabindex="0">
-        <div class="visible content">Vertical</div>
-        <div class="hidden content">
-          Hidden
-        </div>
-      </div>
-      <div class="ui animated fade button" tabindex="0">
-        <div class="visible content">Fade In</div>
-        <div class="hidden content">
-          Hidden
-        </div>
-      </div>
-
-      <div class="ui divider"></div>
-      <button class="ui disabled button">Disabled</button>
-      <button class="ui loading button">Loading</button>
-
-      <div class="ui divider"></div>
-
-      <div class="ui buttons">
-        <button class="ui button">1</button>
-        <button class="ui button">2</button>
-        <button class="ui button">3</button>
-      </div>
-
-      <div class="ui icon buttons">
-        <button class="ui button"><i class="align left icon"></i></button>
-        <button class="ui button"><i class="align center icon"></i></button>
-        <button class="ui button"><i class="align right icon"></i></button>
-        <button class="ui button"><i class="align justify icon"></i></button>
-      </div>
-
-      <div class="ui buttons">
-        <button class="ui button">1</button>
-        <div class="or"></div>
-        <button class="ui button">2</button>
-      </div>
-
-    </div>
-    <div class="column">
-      <button class="ui mini button">Mini</button>
-      <button class="ui tiny button">Tiny</button>
-      <button class="ui small button">Small</button>
-      <button class="ui large button">Large</button>
-      <button class="ui big button">Big</button>
-      <button class="ui huge button">Huge</button>
-      <button class="ui massive button">Massive</button>
-      <div class="ui divider"></div>
-      <div class="spaced">
-        <button class="yellow ui button">Yellow</button>
-        <button class="orange ui button">Orange</button>
-        <button class="green ui button">Green</button>
-        <button class="teal ui button">Teal</button>
-        <button class="blue ui button">Blue</button>
-        <button class="purple ui button">Purple</button>
-        <button class="pink ui button">Pink</button>
-        <button class="red ui button">Red</button>
-        <button class="black ui button">Black</button>
-      </div>
-
-      <div class="ui inverted segment">
-        <button class="ui inverted button">Inverted</button>
-        <button class="ui inverted basic button">Basic</button>
-        <button class="ui inverted blue button">Colored</button>
-        <button class="ui inverted blue basic button">Basic Colored</button>
-      </div>
-
-    </div>
-  </div>
+  <h2 class="ui dividing header">Input</h2>
+  <iframe src="components/input.html"></iframe>
 
 
-  <!--- Tables !-->
-  <h2 class="ui dividing header">Tables</h2>
+  <h2 class="ui dividing header">Card</h2>
+  <iframe src="components/card.html"></iframe>
 
-  <div class="ui two column relaxed grid">
-    <div class="column">
-      <table class="ui right aligned table">
-        <thead>
-          <th class="left aligned">Person</th>
-          <th>Calories</th>
-          <th>Fat</th>
-          <th>Protein</th>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="left aligned">Delmar</td>
-            <td>36</td>
-            <td>36g</td>
-            <td>2g</td>
-          </tr>
-          <tr>
-            <td class="left aligned">Louise</td>
-            <td>24</td>
-            <td>24g</td>
-            <td>29g</td>
-          </tr>
-          <tr>
-            <td class="left aligned">Terrell</td>
-            <td>22</td>
-            <td>11g</td>
-            <td>9g</td>
-          </tr>
-          <tr>
-            <td class="left aligned">Marion</td>
-            <td>7</td>
-            <td>35g</td>
-            <td>3g</td>
-          </tr>
-          <tr>
-            <td class="left aligned">Clayton</td>
-            <td>7</td>
-            <td>38g</td>
-            <td>20g</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="column">
-      <table class="ui right aligned celled table">
-        <thead>
-          <th class="left aligned">Person</th>
-          <th>Calories</th>
-          <th>Fat</th>
-          <th>Protein</th>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="left aligned">Drema</td>
-            <td class="positive">15</td>
-            <td class="negative">26g</td>
-            <td class="warning">8g</td>
-          </tr>
-          <tr class="positive">
-            <td class="left aligned">Nona</td>
-            <td>11</td>
-            <td>21g</td>
-            <td>16g</td>
-          </tr>
-          <tr class="negative">
-            <td class="left aligned">Isidra</td>
-            <td>34</td>
-            <td>43g</td>
-            <td>11g</td>
-          </tr>
-          <tr class="warning">
-            <td class="left aligned">Bart</td>
-            <td>41</td>
-            <td>40g</td>
-            <td>30g</td>
-          </tr>
-          <tr class="selected">
-            <td class="left aligned">Nguyet</td>
-            <td>41</td>
-            <td>44g</td>
-            <td>28g</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="column">
-      <table class="ui basic right aligned table">
-        <thead>
-          <th class="left aligned">Person</th>
-          <th>Calories</th>
-          <th>Fat</th>
-          <th>Protein</th>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="left aligned">Mirna</td>
-            <td>1</td>
-            <td>28g</td>
-            <td>29g</td>
-          </tr>
-          <tr>
-            <td class="left aligned">Fernando</td>
-            <td>38</td>
-            <td>2g</td>
-            <td>48g</td>
-          </tr>
-          <tr>
-            <td class="left aligned">Lisette</td>
-            <td>18</td>
-            <td>9g</td>
-            <td>23g</td>
-          </tr>
-          <tr>
-            <td class="left aligned">Ahmad</td>
-            <td>42</td>
-            <td>26g</td>
-            <td>49g</td>
-          </tr>
-          <tr>
-            <td class="left aligned">Laquanda</td>
-            <td>27</td>
-            <td>27g</td>
-            <td>49g</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="column">
-      <table class="ui very basic right aligned table">
-        <thead>
-          <th class="left aligned">Person</th>
-          <th>Calories</th>
-          <th>Fat</th>
-          <th>Protein</th>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="left aligned">Drema</td>
-            <td>15</td>
-            <td>26g</td>
-            <td>8g</td>
-          </tr>
-          <tr>
-            <td class="left aligned">Nona</td>
-            <td>11</td>
-            <td>21g</td>
-            <td>16g</td>
-          </tr>
-          <tr>
-            <td class="left aligned">Isidra</td>
-            <td>34</td>
-            <td>43g</td>
-            <td>11g</td>
-          </tr>
-          <tr>
-            <td class="left aligned">Bart</td>
-            <td>41</td>
-            <td>40g</td>
-            <td>30g</td>
-          </tr>
-          <tr>
-            <td class="left aligned">Nguyet</td>
-            <td>41</td>
-            <td>44g</td>
-            <td>28g</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="column">
-      <table class="ui celled selectable right aligned table">
-        <thead>
-          <th class="left aligned">Person</th>
-          <th>Calories</th>
-          <th>Fat</th>
-          <th>Protein</th>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="left aligned">Tasia</td>
-            <td>12</td>
-            <td>7g</td>
-            <td>21g</td>
-          </tr>
-          <tr>
-            <td class="left aligned">Ronnie</td>
-            <td>38</td>
-            <td>37g</td>
-            <td>38g</td>
-          </tr>
-          <tr>
-            <td class="left aligned">Gabriel</td>
-            <td>30</td>
-            <td>46g</td>
-            <td>46g</td>
-          </tr>
-          <tr>
-            <td class="left aligned">Logan</td>
-            <td>12</td>
-            <td>21g</td>
-            <td>39g</td>
-          </tr>
-          <tr>
-            <td class="left aligned">Clare</td>
-            <td>39</td>
-            <td>41g</td>
-            <td>2g</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="column">
-      <table class="ui striped right aligned table">
-        <thead>
-          <th class="left aligned">Person</th>
-          <th>Calories</th>
-          <th>Fat</th>
-          <th>Protein</th>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="left aligned">Rosaline</td>
-            <td>5</td>
-            <td>35g</td>
-            <td>6g</td>
-          </tr>
-          <tr>
-            <td class="left aligned">Barrie</td>
-            <td>27</td>
-            <td>23g</td>
-            <td>28g</td>
-          </tr>
-          <tr>
-            <td class="left aligned">Trinidad</td>
-            <td>14</td>
-            <td>50g</td>
-            <td>7g</td>
-          </tr>
-          <tr>
-            <td class="left aligned">Jaqueline</td>
-            <td>31</td>
-            <td>30g</td>
-            <td>50g</td>
-          </tr>
-          <tr>
-            <td class="left aligned">Tamala</td>
-            <td>18</td>
-            <td>6g</td>
-            <td>13g</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="column">
-      <table class="ui padded celled right aligned table">
-        <thead>
-          <th class="left aligned">Person</th>
-          <th>Calories</th>
-          <th>Fat</th>
-          <th>Protein</th>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="left aligned">Lianne</td>
-            <td>23</td>
-            <td>32g</td>
-            <td>43g</td>
-          </tr>
-          <tr>
-            <td class="left aligned">Joette</td>
-            <td>21</td>
-            <td>13g</td>
-            <td>31g</td>
-          </tr>
-          <tr>
-            <td class="left aligned">Le</td>
-            <td>28</td>
-            <td>39g</td>
-            <td>23g</td>
-          </tr>
-          <tr>
-            <td class="left aligned">Sacha</td>
-            <td>46</td>
-            <td>43g</td>
-            <td>13g</td>
-          </tr>
-          <tr>
-            <td class="left aligned">Bruna</td>
-            <td>9</td>
-            <td>47g</td>
-            <td>12g</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="column">
-      <table class="ui definition celled right aligned table">
-        <thead>
-          <th></th>
-          <th>Calories</th>
-          <th>Fat</th>
-          <th>Protein</th>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="left aligned">Lianne</td>
-            <td>23</td>
-            <td>32g</td>
-            <td>43g</td>
-          </tr>
-          <tr>
-            <td class="left aligned">Joette</td>
-            <td>21</td>
-            <td>13g</td>
-            <td>31g</td>
-          </tr>
-          <tr>
-            <td class="left aligned">Le</td>
-            <td>28</td>
-            <td>39g</td>
-            <td>23g</td>
-          </tr>
-          <tr>
-            <td class="left aligned">Sacha</td>
-            <td>46</td>
-            <td>43g</td>
-            <td>13g</td>
-          </tr>
-          <tr>
-            <td class="left aligned">Bruna</td>
-            <td>9</td>
-            <td>47g</td>
-            <td>12g</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="column">
-      <table class="ui inverted right aligned table">
-        <thead>
-          <th class="left aligned">Person</th>
-          <th>Calories</th>
-          <th>Fat</th>
-          <th>Protein</th>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="left aligned">Lianne</td>
-            <td>23</td>
-            <td>32g</td>
-            <td>43g</td>
-          </tr>
-          <tr>
-            <td class="left aligned">Joette</td>
-            <td>21</td>
-            <td>13g</td>
-            <td>31g</td>
-          </tr>
-          <tr>
-            <td class="left aligned">Le</td>
-            <td>28</td>
-            <td>39g</td>
-            <td>23g</td>
-          </tr>
-          <tr>
-            <td class="left aligned">Sacha</td>
-            <td>46</td>
-            <td>43g</td>
-            <td>13g</td>
-          </tr>
-          <tr>
-            <td class="left aligned">Bruna</td>
-            <td>9</td>
-            <td>47g</td>
-            <td>12g</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="column">
-      <table class="ui inverted blue selectable celled right aligned table">
-        <thead>
-          <th class="left aligned">Person</th>
-          <th>Calories</th>
-          <th>Fat</th>
-          <th>Protein</th>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="left aligned">Lianne</td>
-            <td>23</td>
-            <td>32g</td>
-            <td>43g</td>
-          </tr>
-          <tr>
-            <td class="left aligned">Joette</td>
-            <td>21</td>
-            <td>13g</td>
-            <td>31g</td>
-          </tr>
-          <tr>
-            <td class="left aligned">Le</td>
-            <td>28</td>
-            <td>39g</td>
-            <td>23g</td>
-          </tr>
-          <tr>
-            <td class="left aligned">Sacha</td>
-            <td>46</td>
-            <td>43g</td>
-            <td>13g</td>
-          </tr>
-          <tr>
-            <td class="left aligned">Bruna</td>
-            <td>9</td>
-            <td>47g</td>
-            <td>12g</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+
 
 </div>
 
