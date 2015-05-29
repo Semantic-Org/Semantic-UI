@@ -97,6 +97,7 @@
 - **Menu** - Vertical dropdown menus are no longer 100% `min-width`
 - **Modal** - Modal `onApprove` and `onDeny` now receive the activating element as the first parameter. Added documentation about using `return false` to avoid hiding element on click.
 - **Modal** - Modal content now uses flex, image content now requires `image content` class on parent to allow for flex stylings.
+- **Popup** - `onShow` and `onHide` callback can now cancel popup from showing or hiding by returning false
 - **Popup** - Added more size variations for popup `mini`, `tiny`
 - **Progress** - `indicating` labels now are more legible use separate css variables from `indicating` bar color
 - **Reveal** - Added new `active` state that allows you to show `reveal` programatically

@@ -125,6 +125,14 @@ $.fn.popup = function(parameters) {
           }
         },
 
+        refreshData: function() {
+          module.verbose('Refreshing metadata attributes');
+          $module.removeData(metadata.html);
+          $module.removeData(metadata.title);
+          $module.removeData(metadata.content);
+          $module.removeData(metadata.variation);
+        },
+
         reposition: function() {
           module.refresh();
           module.set.position();
@@ -176,11 +184,19 @@ $.fn.popup = function(parameters) {
         // generates popup html from metadata
         create: function() {
           var
-            html      = $module.data(metadata.html)      || settings.html,
-            variation = $module.data(metadata.variation) || settings.variation,
-            title     = $module.data(metadata.title)     || settings.title,
-            content   = $module.data(metadata.content)   || $module.attr('title') || settings.content
+            html,
+            variation,
+            title,
+            content
           ;
+
+          module.refreshData();
+
+          html      = $module.data(metadata.html)      || settings.html;
+          variation = $module.data(metadata.variation) || settings.variation;
+          title     = $module.data(metadata.title)     || settings.title;
+          content   = $module.data(metadata.content)   || $module.attr('title') || settings.content;
+
           if(html || content || title) {
             module.debug('Creating pop-up html');
             if(!html) {
