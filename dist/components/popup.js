@@ -176,11 +176,12 @@ $.fn.popup = function(parameters) {
         // generates popup html from metadata
         create: function() {
           var
-            html      = $module.data(metadata.html)      || settings.html,
-            variation = $module.data(metadata.variation) || settings.variation,
-            title     = $module.data(metadata.title)     || settings.title,
-            content   = $module.data(metadata.content)   || $module.attr('title') || settings.content
+            html      = module.get.html(),
+            variation = module.get.variation(),
+            title     = module.get.title(),
+            content   = module.get.content()
           ;
+
           if(html || content || title) {
             module.debug('Creating pop-up html');
             if(!html) {
@@ -268,6 +269,10 @@ $.fn.popup = function(parameters) {
             if( !module.exists() ) {
               module.create();
             }
+            if(settings.onShow.call($popup, element) === false) {
+              module.debug('onShow callback returned false, cancelling popup animation');
+              return;
+            }
             else if(!settings.preserve && !settings.popup) {
               module.refresh();
             }
@@ -285,6 +290,10 @@ $.fn.popup = function(parameters) {
         hide: function(callback) {
           callback = $.isFunction(callback) ? callback : function(){};
           if( module.is.visible() || module.is.animating() ) {
+            if(settings.onHide.call($popup, element) === false) {
+              module.debug('onHide callback returned false, cancelling popup animation');
+              return;
+            }
             module.remove.visible();
             module.unbind.close();
             module.restore.conditions();
@@ -382,11 +391,14 @@ $.fn.popup = function(parameters) {
             else {
               module.error(error.noTransition);
             }
-            settings.onShow.call($popup, element);
           },
           hide: function(callback) {
             callback = $.isFunction(callback) ? callback : function(){};
             module.debug('Hiding pop-up');
+            if(settings.onShow.call($popup, element) === false) {
+              module.debug('onShow callback returned false, cancelling popup animation');
+              return;
+            }
             if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
               $popup
                 .transition({
@@ -406,11 +418,26 @@ $.fn.popup = function(parameters) {
             else {
               module.error(error.noTransition);
             }
-            settings.onHide.call($popup, element);
           }
         },
 
         get: {
+          html: function() {
+            $module.removeData(metadata.html);
+            return $module.data(metadata.html) || settings.html;
+          },
+          title: function() {
+            $module.removeData(metadata.title);
+            return $module.data(metadata.title) || settings.title;
+          },
+          content: function() {
+            $module.removeData(metadata.content);
+            return $module.data(metadata.content) || $module.attr('title') || settings.content;
+          },
+          variation: function() {
+            $module.removeData(metadata.variation);
+            return $module.data(metadata.variation) || settings.variation;
+          },
           id: function() {
             return id;
           },
