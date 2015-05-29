@@ -11,6 +11,7 @@
   <link rel="stylesheet" type="text/css" href="../dist/semantic.css">
 
   <script src="assets/library/jquery.min.js"></script>
+  <script src="assets/library/iframe.js"></script>
 
   <style type="text/css">
     body > .ui.container {
@@ -45,29 +46,6 @@
       table-layout: fixed;
     }
   </style>
-  <script>
-  $(document)
-    .ready(function() {
-
-      function fitContent() {
-        $(this)
-          .removeAttr('style')
-          .css('height', $(this).contents().outerHeight() + 20)
-        ;
-      };
-
-      $(window)
-        .on('resize', function() {
-          $('iframe').each(fitContent);
-        })
-      ;
-      $('iframe')
-        .on('load', fitContent)
-      ;
-
-    })
-  ;
-  </script>
 </head>
 <body>
 
@@ -76,28 +54,35 @@
   <h1>Theming Examples</h1>
 
   <h2 class="ui dividing header">Site</h2>
-  <iframe src="components/site.html"></iframe>
+  <iframe src="components/site.html" width="100%" scrolling="no"></iframe>
 
   <h2 class="ui dividing header">Menu</h2>
-  <iframe src="components/menu.html"></iframe>
+  <iframe src="components/menu.html" width="100%" scrolling="no"></iframe>
 
   <h2 class="ui dividing header">Buttons</h2>
-  <iframe src="components/button.html"></iframe>
+  <iframe src="components/button.html" width="100%" scrolling="no"></iframe>
 
   <h2 class="ui dividing header">Table</h2>
-  <iframe src="components/table.html"></iframe>
+  <iframe src="components/table.html" width="100%" scrolling="no"></iframe>
 
   <h2 class="ui dividing header">Input</h2>
-  <iframe src="components/input.html"></iframe>
+  <iframe src="components/input.html" width="100%" scrolling="no"></iframe>
 
 
   <h2 class="ui dividing header">Card</h2>
-  <iframe src="components/card.html"></iframe>
+  <iframe src="components/card.html" width="100%" scrolling="no"></iframe>
 
 
 
 </div>
 
+
+<script>
+$('iframe').iFrameResize({
+  autoResize: true,
+  heightCalculationMethod: 'bodyScroll'
+});
+</script>
 </body>
 
 </html>
