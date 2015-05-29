@@ -108,6 +108,11 @@
   border-radius: 0em 0em @borderRadius @borderRadius !important;
 }
 
+.ui.cards > .card > :only-child,
+.ui.card > :only-child {
+  border-radius: @borderRadius !important;
+}
+
 /*--------------
      Images
 ---------------*/
@@ -128,12 +133,6 @@
   border-radius: inherit;
   border: @imageBorder;
 }
-.ui.cards > .card > :first-child {
-  border-radius: @borderRadius @borderRadius 0em 0em;
-}
-.ui.cards > .card > :last-child {
-  border-radius: 0em 0em @borderRadius @borderRadius;
-}
 
 /*--------------
      Content
@@ -149,6 +148,10 @@
   font-size: @contentFontSize;
   border: @contentBorder;
   border-radius: @contentBorderRadius;
+}
+.ui.cards > .card > .content ~ .content,
+.ui.card > .content ~ .content {
+  border-top: @repeatedContentBorder;
 }
 
 .ui.cards > .card > .content:after,
@@ -185,9 +188,9 @@
   margin-top: @descriptionDistance;
 }
 
-/*--------------
-     Floated
----------------*/
+/*----------------
+ Floated Content
+-----------------*/
 
 .ui.cards > .card  [class*="left floated"],
 .ui.card [class*="left floated"] {
@@ -322,10 +325,10 @@
      Buttons
 ---------------*/
 
-.ui.cards > .card > .buttons:last-child,
-.ui.card > .buttons:last-child,
-.ui.cards > .card > .button:last-child,
-.ui.card > .button:last-child {
+.ui.cards > .card > .buttons,
+.ui.card > .buttons,
+.ui.cards > .card > .button,
+.ui.card > .button {
   margin: @buttonMargin;
   width: @buttonWidth;
 }
@@ -723,7 +726,6 @@ a.ui.card:hover,
   margin-right: @oneCardOffset;
 }
 .ui.one.cards > .card {
-  flex-basis: @oneCard;
   width: @oneCard;
 }
 
@@ -732,13 +734,9 @@ a.ui.card:hover,
   margin-right: @twoCardOffset;
 }
 .ui.two.cards > .card {
-  flex-basis: @twoCard;
   width: @twoCard;
   margin-left: @twoCardSpacing;
   margin-right: @twoCardSpacing;
-}
-.ui.two.cards > .card:nth-child(2n+1) {
-  clear: left;
 }
 
 .ui.three.cards {
@@ -746,13 +744,9 @@ a.ui.card:hover,
   margin-right: @threeCardOffset;
 }
 .ui.three.cards > .card {
-  flex-basis: @threeCard;
   width: @threeCard;
   margin-left: @threeCardSpacing;
   margin-right: @threeCardSpacing;
-}
-.ui.three.cards > .card:nth-child(3n+1) {
-  clear: left;
 }
 
 .ui.four.cards {
@@ -760,13 +754,9 @@ a.ui.card:hover,
   margin-right: @fourCardOffset;
 }
 .ui.four.cards > .card {
-  flex-basis: @fourCard;
   width: @fourCard;
   margin-left: @fourCardSpacing;
   margin-right: @fourCardSpacing;
-}
-.ui.four.cards > .card:nth-child(4n+1) {
-  clear: left;
 }
 
 .ui.five.cards {
@@ -774,13 +764,9 @@ a.ui.card:hover,
   margin-right: @fiveCardOffset;
 }
 .ui.five.cards > .card {
-  flex-basis: @fiveCard;
   width: @fiveCard;
   margin-left: @fiveCardSpacing;
   margin-right: @fiveCardSpacing;
-}
-.ui.five.cards > .card:nth-child(5n+1) {
-  clear: left;
 }
 
 .ui.six.cards {
@@ -788,13 +774,9 @@ a.ui.card:hover,
   margin-right: @sixCardOffset;
 }
 .ui.six.cards > .card {
-  flex-basis: @sixCard;
   width: @sixCard;
   margin-left: @sixCardSpacing;
   margin-right: @sixCardSpacing;
-}
-.ui.six.cards > .card:nth-child(6n+1) {
-  clear: left;
 }
 
 .ui.seven.cards {
@@ -802,13 +784,9 @@ a.ui.card:hover,
   margin-right: @sevenCardOffset;
 }
 .ui.seven.cards > .card {
-  flex-basis: @sevenCard;
   width: @sevenCard;
   margin-left: @sevenCardSpacing;
   margin-right: @sevenCardSpacing;
-}
-.ui.seven.cards > .card:nth-child(7n+1) {
-  clear: left;
 }
 
 .ui.eight.cards {
@@ -816,14 +794,10 @@ a.ui.card:hover,
   margin-right: @eightCardOffset;
 }
 .ui.eight.cards > .card {
-  flex-basis: @eightCard;
   width: @eightCard;
   margin-left: @eightCardSpacing;
   margin-right: @eightCardSpacing;
   font-size: 11px;
-}
-.ui.eight.cards > .card:nth-child(8n+1) {
-  clear: left;
 }
 
 .ui.nine.cards {
@@ -831,14 +805,10 @@ a.ui.card:hover,
   margin-right: @nineCardOffset;
 }
 .ui.nine.cards > .card {
-  flex-basis: @nineCard;
   width: @nineCard;
   margin-left: @nineCardSpacing;
   margin-right: @nineCardSpacing;
   font-size: 10px;
-}
-.ui.nine.cards > .card:nth-child(9n+1) {
-  clear: left;
 }
 
 .ui.ten.cards {
@@ -846,13 +816,9 @@ a.ui.card:hover,
   margin-right: @tenCardOffset;
 }
 .ui.ten.cards > .card {
-  flex-basis: @tenCard;
   width: @tenCard;
   margin-left: @tenCardSpacing;
   margin-right: @tenCardSpacing;
-}
-.ui.ten.cards > .card:nth-child(10n+1) {
-  clear: left;
 }
 
 
@@ -867,7 +833,6 @@ a.ui.card:hover,
     margin-right: @oneCardOffset;
   }
   .ui.two.doubling.cards .card {
-    flex-basis: @oneCard;
     width: @oneCard;
     margin-left: @oneCardSpacing;
     margin-right: @oneCardSpacing;
@@ -877,7 +842,6 @@ a.ui.card:hover,
     margin-right: @twoCardOffset;
   }
   .ui.three.doubling.cards .card {
-    flex-basis: @twoCard;
     width: @twoCard;
     margin-left: @twoCardSpacing;
     margin-right: @twoCardSpacing;
@@ -887,7 +851,6 @@ a.ui.card:hover,
     margin-right: @twoCardOffset;
   }
   .ui.four.doubling.cards .card {
-    flex-basis: @twoCard;
     width: @twoCard;
     margin-left: @twoCardSpacing;
     margin-right: @twoCardSpacing;
@@ -897,7 +860,6 @@ a.ui.card:hover,
     margin-right: @twoCardOffset;
   }
   .ui.five.doubling.cards .card {
-    flex-basis: @twoCard;
     width: @twoCard;
     margin-left: @twoCardSpacing;
     margin-right: @twoCardSpacing;
@@ -907,7 +869,6 @@ a.ui.card:hover,
     margin-right: @twoCardOffset;
   }
   .ui.six.doubling.cards .card {
-    flex-basis: @twoCard;
     width: @twoCard;
     margin-left: @twoCardSpacing;
     margin-right: @twoCardSpacing;
@@ -917,7 +878,6 @@ a.ui.card:hover,
     margin-right: @threeCardOffset;
   }
   .ui.seven.doubling.cards .card {
-    flex-basis: @threeCard;
     width: @threeCard;
     margin-left: @threeCardSpacing;
     margin-right: @threeCardSpacing;
@@ -927,7 +887,6 @@ a.ui.card:hover,
     margin-right: @threeCardOffset;
   }
   .ui.eight.doubling.cards .card {
-    flex-basis: @threeCard;
     width: @threeCard;
     margin-left: @threeCardSpacing;
     margin-right: @threeCardSpacing;
@@ -937,7 +896,6 @@ a.ui.card:hover,
     margin-right: @threeCardOffset;
   }
   .ui.nine.doubling.cards .card {
-    flex-basis: @threeCard;
     width: @threeCard;
     margin-left: @threeCardSpacing;
     margin-right: @threeCardSpacing;
@@ -947,7 +905,6 @@ a.ui.card:hover,
     margin-right: @threeCardOffset;
   }
   .ui.ten.doubling.cards .card {
-    flex-basis: @threeCard;
     width: @threeCard;
     margin-left: @threeCardSpacing;
     margin-right: @threeCardSpacing;
@@ -961,7 +918,6 @@ a.ui.card:hover,
     margin-right: @oneCardOffset;
   }
   .ui.two.doubling.cards .card {
-    flex-basis: @oneCard;
     width: @oneCard;
     margin-left: @oneCardSpacing;
     margin-right: @oneCardSpacing;
@@ -971,7 +927,6 @@ a.ui.card:hover,
     margin-right: @twoCardOffset;
   }
   .ui.three.doubling.cards .card {
-    flex-basis: @twoCard;
     width: @twoCard;
     margin-left: @twoCardSpacing;
     margin-right: @twoCardSpacing;
@@ -981,7 +936,6 @@ a.ui.card:hover,
     margin-right: @twoCardOffset;
   }
   .ui.four.doubling.cards .card {
-    flex-basis: @twoCard;
     width: @twoCard;
     margin-left: @twoCardSpacing;
     margin-right: @twoCardSpacing;
@@ -991,7 +945,6 @@ a.ui.card:hover,
     margin-right: @threeCardOffset;
   }
   .ui.five.doubling.cards .card {
-    flex-basis: @threeCard;
     width: @threeCard;
     margin-left: @threeCardSpacing;
     margin-right: @threeCardSpacing;
@@ -1001,7 +954,6 @@ a.ui.card:hover,
     margin-right: @threeCardOffset;
   }
   .ui.six.doubling.cards .card {
-    flex-basis: @threeCard;
     width: @threeCard;
     margin-left: @threeCardSpacing;
     margin-right: @threeCardSpacing;
@@ -1011,7 +963,6 @@ a.ui.card:hover,
     margin-right: @threeCardOffset;
   }
   .ui.eight.doubling.cards .card {
-    flex-basis: @threeCard;
     width: @threeCard;
     margin-left: @threeCardSpacing;
     margin-right: @threeCardSpacing;
@@ -1021,7 +972,6 @@ a.ui.card:hover,
     margin-right: @fourCardOffset;
   }
   .ui.eight.doubling.cards .card {
-    flex-basis: @fourCard;
     width: @fourCard;
     margin-left: @fourCardSpacing;
     margin-right: @fourCardSpacing;
@@ -1031,7 +981,6 @@ a.ui.card:hover,
     margin-right: @fourCardOffset;
   }
   .ui.nine.doubling.cards .card {
-    flex-basis: @fourCard;
     width: @fourCard;
     margin-left: @fourCardSpacing;
     margin-right: @fourCardSpacing;
@@ -1041,7 +990,6 @@ a.ui.card:hover,
     margin-right: @fiveCardOffset;
   }
   .ui.ten.doubling.cards .card {
-    flex-basis: @fiveCard;
     width: @fiveCard;
     margin-left: @fiveCardSpacing;
     margin-right: @fiveCardSpacing;

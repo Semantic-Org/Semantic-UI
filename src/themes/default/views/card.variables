@@ -66,6 +66,8 @@
 @contentBorderRadius: 0em;
 @contentBoxShadow: none;
 
+@repeatedContentBorder: 1px solid @borderColor;
+
 /* Header */
 @headerMargin: 0em;
 @headerFontWeight: bold;
@@ -137,8 +139,8 @@
 @extraLinkHoverColor: @linkHoverColor;
 
 /* Buttons */
-@buttonMargin: 0em 0em -1px;
-@buttonWidth: 100%;
+@buttonMargin: 0px -@borderWidth;
+@buttonWidth: ~"calc(100% + "(@borderWidth * 2)~")";
 
 /*-------------------
       Variations
