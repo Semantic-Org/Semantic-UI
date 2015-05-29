@@ -87,14 +87,14 @@ $.fn.checkbox = function(parameters) {
             module.debug('Setting initial value to checked');
             module.set.checked();
             if(settings.fireOnInit) {
-              settings.onChecked.call($input.get());
+              settings.onChecked.call($input[0]);
             }
           }
           else {
             module.debug('Setting initial value to unchecked');
             module.remove.checked();
             if(settings.fireOnInit) {
-              settings.onUnchecked.call($input.get());
+              settings.onUnchecked.call($input[0]);
             }
           }
         },
