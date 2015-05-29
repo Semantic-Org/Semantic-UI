@@ -393,7 +393,7 @@ $.fn.form = function(parameters) {
               rules
             ;
             $.each(validation, function(fieldName, field) {
-              if( module.get.field(field.identifier).get(0) == $field.get(0) ) {
+              if( module.get.field(field.identifier)[0] == $field[0] ) {
                 rules = field;
               }
             });

@@ -57,8 +57,8 @@
   display: block;
   float: left;
   margin: 0em;
-  -webkit-transition: -webkit-transform 0.1s ease 0.1s;
-          transition: transform 0.1s ease 0.1s;
+  -webkit-transition: -webkit-transform 0.5s ease 0.1s;
+          transition: transform 0.5s ease 0.1s;
 }
 .ui.slide.reveal > .visible.content {
   position: relative !important;
@@ -206,8 +206,8 @@
 ---------------*/
 
 .ui.rotate.reveal > .visible.content {
-  -webkit-transition-duration: 0.1s;
-          transition-duration: 0.1s;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
   -webkit-transform: rotate(0deg);
       -ms-transform: rotate(0deg);
           transform: rotate(0deg);

@@ -67,7 +67,7 @@ $.api = $.fn.api = function(parameters) {
 
         // standard module
         element         = this,
-        context         = $context.get(),
+        context         = $context[0],
         instance        = $module.data(moduleNamespace),
         module
       ;

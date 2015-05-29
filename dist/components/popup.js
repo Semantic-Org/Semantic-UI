@@ -443,7 +443,7 @@ $.fn.popup = function(parameters) {
           },
           startEvent: function() {
             if(settings.on == 'hover') {
-              return (hasTouch)
+              return (hasTouch && settings.addTouchEvents)
                 ? 'touchstart mouseenter'
                 : 'mouseenter'
               ;
@@ -454,7 +454,7 @@ $.fn.popup = function(parameters) {
             return false;
           },
           scrollEvent: function() {
-            return (hasTouch)
+            return (hasTouch && settings.addTouchEvents)
               ? 'touchmove scroll'
               : 'scroll'
             ;
@@ -1136,6 +1136,9 @@ $.fn.popup.settings = {
 
   // when to show popup
   on           : 'hover',
+
+  // whether to add touchstart events when using hover
+  addTouchEvents : true,
 
   // default position relative to element
   position     : 'top left',

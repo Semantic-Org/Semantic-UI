@@ -231,6 +231,7 @@
 - **Feed** - Removed `extra text` pointer border
 - **Form** - `set value` no longer automatically calls `validate form`
 - **Grid** - Small computer `page grid` gutters have been adjusted from 8% to 3% to allow for roomier layouts on small screens.
+- **Grid** - Vertically divided grids now double row spacing to account for dividers
 - **Grid** - `center aligned` no longer centers rows, just text. Use `centered grid` to center a grid column on the page.
 - **Header/Table/Divider** - These components now pull border color defaults from `site.variables` instead of using their own values
 - **Image** - `avatar image` size has been slightly decreased

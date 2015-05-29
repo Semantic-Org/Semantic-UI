@@ -199,7 +199,7 @@ $.fn.sticky = function(parameters) {
           sticky: function() {
             var
               $element = $('<div/>'),
-              element = $element.get()
+              element = $element[0]
             ;
             $element.addClass(className.supported);
             return($element.css('position').match('sticky'));

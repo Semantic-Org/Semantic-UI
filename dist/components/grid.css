@@ -139,11 +139,6 @@
 --------------------*/
 
 
-/* Top level grid doesn't use negative margin */
-body > .ui.grid {
-  margin: 0em;
-}
-
 /* Collapse Margin on Consecutive Grid */
 .ui.grid > .ui.grid:first-child {
   margin-top: 0em;
@@ -1068,8 +1063,6 @@ body > .ui.grid {
 .ui[class*="vertically divided"].grid > .row {
   margin-top: 0em;
   margin-bottom: 0em;
-  padding-top: 0em;
-  padding-bottom: 0em;
 }
 
 /* No divider on first column on row */

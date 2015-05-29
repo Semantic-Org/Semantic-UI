@@ -890,7 +890,7 @@ $.fn.form = function(parameters) {
               rules
             ;
             $.each(validation, function(fieldName, field) {
-              if( module.get.field(field.identifier).get(0) == $field.get(0) ) {
+              if( module.get.field(field.identifier)[0] == $field[0] ) {
                 rules = field;
               }
             });
@@ -2421,14 +2421,14 @@ $.fn.checkbox = function(parameters) {
             module.debug('Setting initial value to checked');
             module.set.checked();
             if(settings.fireOnInit) {
-              settings.onChecked.call($input.get());
+              settings.onChecked.call($input[0]);
             }
           }
           else {
             module.debug('Setting initial value to unchecked');
             module.remove.checked();
             if(settings.fireOnInit) {
-              settings.onUnchecked.call($input.get());
+              settings.onUnchecked.call($input[0]);
             }
           }
         },
@@ -9052,7 +9052,7 @@ $.fn.popup = function(parameters) {
           },
           startEvent: function() {
             if(settings.on == 'hover') {
-              return (hasTouch)
+              return (hasTouch && settings.addTouchEvents)
                 ? 'touchstart mouseenter'
                 : 'mouseenter'
               ;
@@ -9063,7 +9063,7 @@ $.fn.popup = function(parameters) {
             return false;
           },
           scrollEvent: function() {
-            return (hasTouch)
+            return (hasTouch && settings.addTouchEvents)
               ? 'touchmove scroll'
               : 'scroll'
             ;
@@ -9745,6 +9745,9 @@ $.fn.popup.settings = {
 
   // when to show popup
   on           : 'hover',
+
+  // whether to add touchstart events when using hover
+  addTouchEvents : true,
 
   // default position relative to element
   position     : 'top left',
@@ -10745,14 +10748,7 @@ $.fn.rating = function(parameters) {
           else {
             module.disable();
           }
-          if(settings.initialRating) {
-            module.debug('Setting initial rating');
-            module.setRating(settings.initialRating);
-          }
-          if( $module.data(metadata.rating) ) {
-            module.debug('Rating found in metadata');
-            module.setRating( $module.data(metadata.rating) );
-          }
+          module.set.rating( module.get.initialRating() );
           module.instantiate();
         },
 
@@ -10779,11 +10775,12 @@ $.fn.rating = function(parameters) {
         setup: {
           layout: function() {
             var
-              maxRating = $module.data(metadata.maxRating) || settings.maxRating
+              maxRating = module.get.maxRating(),
+              html      = $.fn.rating.settings.templates.icon(maxRating)
             ;
             module.debug('Generating icon html dynamically');
             $module
-              .html($.fn.rating.settings.templates.icon(maxRating))
+              .html(html)
             ;
             module.refresh();
           }
@@ -10818,7 +10815,7 @@ $.fn.rating = function(parameters) {
           click: function() {
             var
               $activeIcon   = $(this),
-              currentRating = module.getRating(),
+              currentRating = module.get.rating(),
               rating        = $icon.index($activeIcon) + 1,
               canClear      = (settings.clearable == 'auto')
                ? ($icon.length === 1)
@@ -10828,22 +10825,14 @@ $.fn.rating = function(parameters) {
               module.clearRating();
             }
             else {
-              module.setRating( rating );
+              module.set.rating( rating );
             }
           }
         },
 
         clearRating: function() {
           module.debug('Clearing current rating');
-          module.setRating(0);
-        },
-
-        getRating: function() {
-          var
-            currentRating = $icon.filter('.' + className.active).length
-          ;
-          module.verbose('Current rating retrieved', currentRating);
-          return currentRating;
+          module.set.rating(0);
         },
 
         bind: {
@@ -10882,29 +10871,55 @@ $.fn.rating = function(parameters) {
           ;
         },
 
-        setRating: function(rating) {
-          var
-            ratingIndex = (rating - 1 >= 0)
-              ? (rating - 1)
-              : 0,
-            $activeIcon = $icon.eq(ratingIndex)
-          ;
-          $module
-            .removeClass(className.selected)
-          ;
-          $icon
-            .removeClass(className.selected)
-            .removeClass(className.active)
-          ;
-          if(rating > 0) {
-            module.verbose('Setting current rating to', rating);
-            $activeIcon
-              .prevAll()
-              .andSelf()
-                .addClass(className.active)
+        get: {
+          initialRating: function() {
+            if($module.data(metadata.rating) !== undefined) {
+              $module.removeData(metadata.rating);
+              return $module.data(metadata.rating);
+            }
+            return settings.initialRating;
+          },
+          maxRating: function() {
+            if($module.data(metadata.maxRating) !== undefined) {
+              $module.removeData(metadata.maxRating);
+              return $module.data(metadata.maxRating);
+            }
+            return settings.maxRating;
+          },
+          rating: function() {
+            var
+              currentRating = $icon.filter('.' + className.active).length
             ;
+            module.verbose('Current rating retrieved', currentRating);
+            return currentRating;
           }
-          settings.onRate.call(element, rating);
+        },
+
+        set: {
+          rating: function(rating) {
+            var
+              ratingIndex = (rating - 1 >= 0)
+                ? (rating - 1)
+                : 0,
+              $activeIcon = $icon.eq(ratingIndex)
+            ;
+            $module
+              .removeClass(className.selected)
+            ;
+            $icon
+              .removeClass(className.selected)
+              .removeClass(className.active)
+            ;
+            if(rating > 0) {
+              module.verbose('Setting current rating to', rating);
+              $activeIcon
+                .prevAll()
+                .andSelf()
+                  .addClass(className.active)
+              ;
+            }
+            settings.onRate.call(element, rating);
+          }
         },
 
         setting: function(name, value) {
@@ -12495,7 +12510,7 @@ $.fn.shape = function(parameters) {
         repaint: function() {
           module.verbose('Forcing repaint event');
           var
-            shape          = $sides.get(0) || document.createElement('div'),
+            shape          = $sides[0] || document.createElement('div'),
             fakeAssignment = shape.offsetWidth
           ;
         },
@@ -12510,7 +12525,7 @@ $.fn.shape = function(parameters) {
             module.reset();
             module.set.active();
           };
-          settings.beforeChange.call($nextSide.get());
+          settings.beforeChange.call($nextSide[0]);
           if(module.get.transitionEvent()) {
             module.verbose('Starting CSS animation');
             $module
@@ -12672,7 +12687,7 @@ $.fn.shape = function(parameters) {
             $nextSide
               .addClass(className.active)
             ;
-            settings.onChange.call($nextSide.get());
+            settings.onChange.call($nextSide[0]);
             module.set.defaultSide();
           }
         },
@@ -14591,7 +14606,7 @@ $.fn.sticky = function(parameters) {
           sticky: function() {
             var
               $element = $('<div/>'),
-              element = $element.get()
+              element = $element[0]
             ;
             $element.addClass(className.supported);
             return($element.css('position').match('sticky'));
@@ -17120,7 +17135,7 @@ $.api = $.fn.api = function(parameters) {
 
         // standard module
         element         = this,
-        context         = $context.get(),
+        context         = $context[0],
         instance        = $module.data(moduleNamespace),
         module
       ;
