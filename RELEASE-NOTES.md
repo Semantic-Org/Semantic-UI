@@ -1,5 +1,6 @@
 ## RELEASE NOTES
 
+<<<<<<< HEAD
 ### Version 2.0.0 - March xx, 2015
 
 -**Migration Guide**
@@ -265,6 +266,16 @@
 - **Table** - Horizontal cell padding has been slightly reduced, and cell borders are slightly lighter.
 - **Transition - Transition no longer checks for vendor prefixed `animation-name` css property. This was introduced in jQuery `1.8`
 - **Visibility** - In returned `calculations` object, `visible` and `hidden` are renamed to `onScreen` and `offScreen`, since this describes more accurately what the value represents.
+=======
+
+### Version 1.12.3 - May 20, 2015
+
+**Announcement**
+Version 2.0 will be launching on June 1st, which will include 100+ bug fixes, enhancements, new ui, and default theme improvements.
+
+**Bugs**
+- **Grid** - Fixes bug causing colored variations not to work on columns without row wrappers. Backport from `2.x`
+>>>>>>> 1f541d830bd40a5594621aedec8a326391430c15
 
 ### Version 1.12.2 - May 4, 2015
 
