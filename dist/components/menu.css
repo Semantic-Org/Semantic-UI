@@ -135,7 +135,7 @@
 .ui.menu .item > i.icon {
   opacity: 0.9;
   float: none;
-  margin: 0em 0.25em 0em 0em;
+  margin: 0em 0.35714em 0em 0em;
 }
 
 /*--------------
@@ -161,6 +161,11 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: inherit;
+      -ms-flex-direction: inherit;
+          flex-direction: inherit;
 }
 
 /*--------------
@@ -266,6 +271,8 @@
   display: block;
 }
 .ui.menu .ui.dropdown .menu > .item .icon:not(.dropdown) {
+  display: inline-block;
+  font-size: 1em !important;
   float: none;
   margin: 0em 0.75em 0em 0em;
 }
@@ -274,7 +281,7 @@
 .ui.secondary.menu .dropdown.item > .menu,
 .ui.text.menu .dropdown.item > .menu {
   border-radius: 0.285714rem;
-  margin-top: 0.25em;
+  margin-top: 0.35714em;
 }
 
 /* Pointing */
@@ -490,7 +497,15 @@ Floated Menu / Item
 ---------------*/
 
 .ui.vertical.menu {
-  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   background: #ffffff;
   box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
 }
@@ -499,6 +514,13 @@ Floated Menu / Item
 
 .ui.vertical.menu .item {
   display: block;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  -webkit-align-self: stretch !important;
+      -ms-flex-item-align: stretch !important;
+          align-self: stretch !important;
   background: none;
   border-top: none;
   border-right: none;
@@ -731,7 +753,7 @@ Floated Menu / Item
   box-shadow: none;
   border: none;
   background: none;
-  margin: 0em 0.25em;
+  margin: 0em 0.35714em;
   padding: 0.71428571em 0.92857143em;
   border-radius: 0.285714rem;
   -webkit-transition: color 0.1s ease;
@@ -839,7 +861,7 @@ Floated Menu / Item
   -webkit-align-self: flex-end;
       -ms-flex-item-align: end;
           align-self: flex-end;
-  margin-bottom: -2px;
+  margin: 0em 0em -2px;
   padding: 0.85714286em 1em;
   border-bottom-width: 2px;
   -webkit-transition: color 0.1s ease;
@@ -949,7 +971,7 @@ Floated Menu / Item
   border-radius: 0px;
   box-shadow: none;
   border: none;
-  margin: 1.14285714em -1em;
+  margin: 1.14285714em -0.5em;
 }
 .ui.text.menu .item {
   padding: 0em;
@@ -958,7 +980,7 @@ Floated Menu / Item
   -webkit-align-self: center;
       -ms-flex-item-align: center;
           align-self: center;
-  margin: 0em 1em;
+  margin: 0em 0.5em;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.6);
   -webkit-transition: opacity 0.1s ease;
@@ -1001,7 +1023,7 @@ Floated Menu / Item
 /*--- vertical text ---*/
 
 .ui.vertical.text.menu {
-  margin: 0.92857143em 0em;
+  margin: 1em 0em;
 }
 .ui.vertical.text.menu:first-child {
   margin-top: 0rem;
@@ -1010,14 +1032,14 @@ Floated Menu / Item
   margin-bottom: 0rem;
 }
 .ui.vertical.text.menu .item {
-  margin: 1.14285714em 0em;
+  margin: 0.5714em 0em;
 }
 .ui.vertical.text.menu .item > i.icon {
   float: none;
-  margin: 0em 0.25em 0em 0em;
+  margin: 0em 0.35714em 0em 0em;
 }
 .ui.vertical.text.menu .header.item {
-  margin: 1.14285714em 0em;
+  margin: 0.5714em 0em 0.71428em;
 }
 
 /*--- hover ---*/
@@ -1073,13 +1095,16 @@ Floated Menu / Item
 .ui.icon.menu .item {
   height: auto;
   text-align: center;
-  color: rgba(0, 0, 0, 0.87);
+  color: #1b1c1d;
 }
 .ui.icon.menu .item > .icon {
-  display: block;
-  float: none !important;
-  margin: 0em auto !important;
+  margin: 0em;
   opacity: 1;
+}
+.ui.vertical.icon.menu .item > .icon:not(.dropdown) {
+  display: block;
+  margin: 0em auto;
+  float: none;
 }
 .ui.icon.menu .icon:before {
   opacity: 1;
@@ -1087,16 +1112,12 @@ Floated Menu / Item
 
 /* Item Icon Only */
 .ui.menu .icon.item > .icon {
-  margin: 0em;
   width: auto;
 }
 
 /*--- inverted ---*/
 
 .ui.inverted.icon.menu .item {
-  color: rgba(255, 255, 255, 0.8);
-}
-.ui.inverted.icon.menu .icon {
   color: #ffffff;
 }
 
@@ -1117,13 +1138,13 @@ Floated Menu / Item
   padding-left: 1.71428571em;
   padding-right: 1.71428571em;
 }
-.ui.labeled.icon.menu .item > .icon {
+.ui.labeled.icon.menu .item > .icon:not(.dropdown) {
   height: 1em;
   display: block;
   font-size: 1.42857143em !important;
   margin: 0em 0.5rem 0em 0em !important;
 }
-.ui.vertical.labeled.icon.menu .item > .icon {
+.ui.vertical.labeled.icon.menu .item > .icon:not(.dropdown) {
   margin: 0em auto 0.5rem !important;
 }
 
@@ -1217,6 +1238,11 @@ Floated Menu / Item
 .ui.brown.menu .active.item {
   border-color: #a5673f !important;
   color: #a5673f !important;
+}
+.ui.menu .grey.active.item,
+.ui.grey.menu .active.item {
+  border-color: #757676 !important;
+  color: #757676 !important;
 }
 
 /*--------------
@@ -1457,6 +1483,17 @@ Floated Menu / Item
   background-color: rgba(34, 36, 38, 0.1);
 }
 .ui.inverted.brown.menu .active.item {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Grey */
+.ui.inverted.grey.menu {
+  background-color: #757676;
+}
+.ui.inverted.grey.menu .item:before {
+  background-color: rgba(34, 36, 38, 0.1);
+}
+.ui.inverted.grey.menu .active.item {
   background-color: rgba(0, 0, 0, 0.1) !important;
 }
 
