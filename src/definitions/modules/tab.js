@@ -70,8 +70,11 @@ $.fn.tab = function(parameters) {
         initialize: function() {
           module.debug('Initializing tab menu item', $module);
 
+          module.fix.callbacks();
+
           module.determineTabs();
           module.debug('Determining tabs', settings.context, $tabs);
+
 
           // set up automatic routing
           if(settings.auto) {
@@ -121,6 +124,24 @@ $.fn.tab = function(parameters) {
           else {
             $tabs = $context.find(selector.tabs);
             module.debug('Searching tab context for tabs', $context, $tabs);
+          }
+        },
+
+        fix: {
+          callbacks: function() {
+            if( $.isPlainObject(parameters) && (parameters.onTabLoad || parameters.onTabInit) ) {
+              if(parameters.onTabLoad) {
+                parameters.onLoad = parameters.onTabLoad;
+                delete parameters.onTabLoad;
+                module.error(error.legacyLoad, parameters.onLoad);
+              }
+              if(parameters.onTabInit) {
+                parameters.onFirstLoad = parameters.onTabInit;
+                delete parameters.onTabInit;
+                module.error(error.legacyInit, parameters.onFirstLoad);
+              }
+              settings = $.extend(true, {}, $.fn.tab.settings, parameters);
+            }
           }
         },
 
@@ -264,7 +285,7 @@ $.fn.tab = function(parameters) {
                   .removeClass(className.active + ' ' + className.loading)
               ;
               if($tab.length > 0) {
-                settings.onTabRequest.call($tab[0], tabPath);
+                settings.onRequest.call($tab[0], tabPath);
               }
             }
           },
@@ -329,8 +350,8 @@ $.fn.tab = function(parameters) {
                   firstLoad = false;
                   module.cache.add(tabPath, $tab.html());
                   module.activate.all(currentPath);
-                  settings.onTabInit.call($tab[0], currentPath, parameterArray, historyEvent);
-                  settings.onTabLoad.call($tab[0], currentPath, parameterArray, historyEvent);
+                  settings.onFirstLoad.call($tab[0], currentPath, parameterArray, historyEvent);
+                  settings.onLoad.call($tab[0], currentPath, parameterArray, historyEvent);
                 }
                 return false;
               }
@@ -340,9 +361,9 @@ $.fn.tab = function(parameters) {
                 if( !module.cache.read(currentPath) ) {
                   module.cache.add(currentPath, true);
                   module.debug('First time tab loaded calling tab init');
-                  settings.onTabInit.call($tab[0], currentPath, parameterArray, historyEvent);
+                  settings.onFirstLoad.call($tab[0], currentPath, parameterArray, historyEvent);
                 }
-                settings.onTabLoad.call($tab[0], currentPath, parameterArray, historyEvent);
+                settings.onLoad.call($tab[0], currentPath, parameterArray, historyEvent);
               }
 
             }
@@ -358,7 +379,7 @@ $.fn.tab = function(parameters) {
                 if( !module.cache.read(currentPath) ) {
                   module.cache.add(currentPath, true);
                   module.debug('First time tab loaded calling tab init');
-                  settings.onTabInit.call($tab[0], currentPath, parameterArray, historyEvent);
+                  settings.onFirstLoad.call($tab[0], currentPath, parameterArray, historyEvent);
                 }
 
                 return false;
@@ -410,8 +431,8 @@ $.fn.tab = function(parameters) {
                   else {
                     module.debug('Content loaded in background', tabPath);
                   }
-                  settings.onTabInit.call($tab[0], tabPath, parameterArray, historyEvent);
-                  settings.onTabLoad.call($tab[0], tabPath, parameterArray, historyEvent);
+                  settings.onFirstLoad.call($tab[0], tabPath, parameterArray, historyEvent);
+                  settings.onLoad.call($tab[0], tabPath, parameterArray, historyEvent);
                 },
                 urlData: {
                   tab: fullTabPath
@@ -436,7 +457,7 @@ $.fn.tab = function(parameters) {
               else {
                 module.update.content(tabPath, cachedContent);
               }
-              settings.onTabLoad.call($tab[0], tabPath, parameterArray, historyEvent);
+              settings.onLoad.call($tab[0], tabPath, parameterArray, historyEvent);
             }
             else if(existingRequest) {
               module.set.loading(tabPath);
@@ -475,7 +496,7 @@ $.fn.tab = function(parameters) {
                   .removeClass(className.active + ' ' + className.loading)
               ;
               if($tab.length > 0) {
-                settings.onTabVisible.call($tab[0], tabPath);
+                settings.onVisible.call($tab[0], tabPath);
               }
             }
           },
@@ -815,10 +836,10 @@ $.fn.tab.settings = {
   apiSettings     : false,  // settings for api call
   evaluateScripts : 'once', // whether inline scripts should be parsed (true/false/once). Once will not re-evaluate on cached content
 
-  onTabInit       : function(tabPath, parameterArray, historyEvent) {}, // called first time loaded
-  onTabLoad       : function(tabPath, parameterArray, historyEvent) {}, // called on every load
-  onTabVisible    : function(tabPath, parameterArray, historyEvent) {}, // called every time tab visible
-  onTabRequest    : function(tabPath, parameterArray, historyEvent) {}, // called ever time a tab beings loading remote content
+  onFirstLoad : function(tabPath, parameterArray, historyEvent) {}, // called first time loaded
+  onLoad      : function(tabPath, parameterArray, historyEvent) {}, // called on every load
+  onVisible   : function(tabPath, parameterArray, historyEvent) {}, // called every time tab visible
+  onRequest   : function(tabPath, parameterArray, historyEvent) {}, // called ever time a tab beings loading remote content
 
   templates    : {
     determineTitle: function(tabArray) {} // returns page title for path
@@ -831,6 +852,8 @@ $.fn.tab.settings = {
     noContent  : 'The tab you specified is missing a content url.',
     path       : 'History enabled, but no path was specified',
     recursion  : 'Max recursive depth reached',
+    legacyInit : 'onTabInit has been renamed to onFirstLoad in 2.0, please adjust your code.',
+    legacyLoad : 'onTabLoad has been renamed to onLoad in 2.0. Please adjust your code',
     state      : 'History requires Asual\'s Address library <https://github.com/asual/jquery-address>'
   },
 
