@@ -1204,6 +1204,11 @@ Floated Menu / Item
   border-color: @brown !important;
   color: @brown !important;
 }
+.ui.menu .grey.active.item,
+.ui.grey.menu .active.item {
+  border-color: @grey !important;
+  color: @grey !important;
+}
 
 
 /*--------------
@@ -1441,6 +1446,17 @@ Floated Menu / Item
   background-color: @invertedColoredDividerBackground;
 }
 .ui.inverted.brown.menu .active.item {
+  background-color: @invertedColoredActiveBackground !important;
+}
+
+/* Grey */
+.ui.inverted.grey.menu {
+  background-color: @grey;
+}
+.ui.inverted.grey.menu .item:before {
+  background-color: @invertedColoredDividerBackground;
+}
+.ui.inverted.grey.menu .active.item {
   background-color: @invertedColoredActiveBackground !important;
 }
 
