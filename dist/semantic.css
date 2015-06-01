@@ -900,8 +900,8 @@ input::selection {
 .ui.animated.button {
   position: relative;
   overflow: hidden;
-  vertical-align: middle;
   padding-right: 0em !important;
+  vertical-align: middle;
   z-index: 1;
 }
 
@@ -1643,40 +1643,6 @@ input::selection {
   vertical-align: baseline;
 }
 
-/*--------------
-     Attached
----------------*/
-
-.ui.attached.button {
-  display: block;
-  margin: 0em;
-  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) !important;
-  border-radius: 0em;
-}
-
-.ui.attached.top.button {
-  border-radius: 0.285714rem 0.285714rem 0em 0em;
-}
-
-.ui.attached.bottom.button {
-  border-radius: 0em 0em 0.285714rem 0.285714rem;
-}
-
-.ui.attached.left.button {
-  display: inline-block;
-  border-left: none;
-  padding-right: 0.75em;
-  text-align: right;
-  border-radius: 0.285714rem 0em 0em 0.285714rem;
-}
-
-.ui.attached.right.button {
-  display: inline-block;
-  padding-left: 0.75em;
-  text-align: left;
-  border-radius: 0em 0.285714rem 0.285714rem 0em;
-}
-
 /*-------------------
       Or Buttons
 --------------------*/
@@ -1726,91 +1692,153 @@ input::selection {
        Attached
 --------------------*/
 
-/* Plural Attached */
-
-.attached.ui.buttons {
-  margin: 0px;
-  border-radius: 0em 0em 0em 0em;
+.ui.attached.button,
+.ui.attached.buttons {
+  position: relative;
+  z-index: 2;
+  width: auto !important;
+  margin-left: -1px;
+  margin-right: -1px;
 }
 
-.attached.ui.buttons .button {
+/* Singular */
+
+.ui.attached.button {
+  display: block;
+  border-radius: 0em;
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) !important;
+}
+
+/* Top / Bottom */
+
+.ui.attached.top.button {
+  border-radius: 0.285714rem 0.285714rem 0em 0em;
+}
+
+.ui.attached.bottom.button {
+  border-radius: 0em 0em 0.285714rem 0.285714rem;
+}
+
+/* Left / Right */
+
+.ui.left.attached.button {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  border-left: none;
+  text-align: right;
+  padding-right: 0.75em;
+  border-radius: 0.285714rem 0em 0em 0.285714rem;
+}
+
+.ui.right.attached.button {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  text-align: left;
+  padding-left: 0.75em;
+  border-radius: 0em 0.285714rem 0.285714rem 0em;
+}
+
+/* Plural */
+
+.ui.attached.buttons {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 0em;
+  margin-left: -1px;
+  margin-right: -1px;
+}
+
+.ui.attached.buttons .button {
   margin: 0em;
 }
 
-.attached.ui.buttons .button:first-child {
-  border-radius: 0em 0em 0em 0em;
+.ui.attached.buttons .button:first-child {
+  border-radius: 0em;
 }
 
-.attached.ui.buttons .button:last-child {
-  border-radius: 0em 0em 0em 0em;
+.ui.attached.buttons .button:last-child {
+  border-radius: 0em;
 }
 
-/* Top Side */
+/* Top / Bottom */
 
-[class*="top attached"].ui.buttons {
+.ui[class*="top attached"].buttons {
   margin-bottom: -1px;
   border-radius: 0.285714rem 0.285714rem 0em 0em;
 }
 
-[class*="top attached"].ui.buttons .button:first-child {
+.ui[class*="top attached"].buttons .button:first-child {
   border-radius: 0.285714rem 0em 0em 0em;
 }
 
-[class*="top attached"].ui.buttons .button:last-child {
+.ui[class*="top attached"].buttons .button:last-child {
   border-radius: 0em 0.285714rem 0em 0em;
 }
 
-/* Bottom Side */
-
-[class*="bottom attached"].ui.buttons {
+.ui[class*="bottom attached"].buttons {
   margin-top: -1px;
   border-radius: 0em 0em 0.285714rem 0.285714rem;
 }
 
-[class*="bottom attached"].ui.buttons .button:first-child {
+.ui[class*="bottom attached"].buttons .button:first-child {
   border-radius: 0em 0em 0em 0.285714rem;
 }
 
-[class*="bottom attached"].ui.buttons .button:last-child {
+.ui[class*="bottom attached"].buttons .button:last-child {
   border-radius: 0em 0em 0.285714rem 0em;
 }
 
-/* Left Side */
+/* Left / Right */
 
-[class*="left attached"].ui.buttons {
+.ui[class*="left attached"].buttons {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  margin-right: 0em;
   margin-left: -1px;
   border-radius: 0em 0.285714rem 0.285714rem 0em;
 }
 
-[class*="left attached"].ui.buttons .button:first-child {
+.ui[class*="left attached"].buttons .button:first-child {
   margin-left: -1px;
   border-radius: 0em 0.285714rem 0em 0em;
 }
 
-[class*="left attached"].ui.buttons .button:last-child {
+.ui[class*="left attached"].buttons .button:last-child {
   margin-left: -1px;
   border-radius: 0em 0em 0.285714rem 0em;
 }
 
-/* Right Side */
-
-[class*="right attached"].ui.buttons,
-[class*="right attached"].ui.buttons .button {
+.ui[class*="right attached"].buttons {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  margin-left: 0em;
   margin-right: -1px;
   border-radius: 0.285714rem 0em 0em 0.285714rem;
 }
 
-[class*="right attached"].ui.buttons .button:first-child {
+.ui[class*="right attached"].buttons .button:first-child {
   margin-left: -1px;
   border-radius: 0.285714rem 0em 0em 0em;
 }
 
-[class*="right attached"].ui.buttons .button:last-child {
+.ui[class*="right attached"].buttons .button:last-child {
   margin-left: -1px;
   border-radius: 0em 0em 0em 0.285714rem;
 }
 
-/* Fluid */
+/*-------------------
+        Fluid
+--------------------*/
 
 .ui.fluid.buttons,
 .ui.button.fluid {
@@ -1944,7 +1972,10 @@ input::selection {
 
 .ui.fluid.vertical.buttons,
 .ui.fluid.vertical.buttons > .button {
-  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   width: auto;
 }
 
@@ -4302,6 +4333,12 @@ input::selection {
   position: relative;
 }
 
+.ui.buttons:not(.basic):not(.inverted) {
+  box-shadow: none;
+}
+
+/* Clearfix */
+
 .ui.buttons:after {
   content: ".";
   display: block;
@@ -4310,12 +4347,16 @@ input::selection {
   visibility: hidden;
 }
 
-.ui.buttons .button:first-child {
-  border-left: none;
-}
+/* Standard Group */
 
-.ui.buttons:not(.basic):not(.inverted) {
-  box-shadow: none;
+.ui.buttons .button {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+  margin: 0em;
+  border-radius: 0em;
+  margin: 0px 0px 0px 0px;
 }
 
 .ui.buttons > .ui.button:not(.basic):not(.inverted),
@@ -4323,13 +4364,8 @@ input::selection {
   box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
 }
 
-.ui.buttons .button {
-  margin: 0em;
-  border-radius: 0em;
-  margin: 0px 0px 0px 0px;
-}
-
 .ui.buttons .button:first-child {
+  border-left: none;
   margin-left: 0em;
   border-top-left-radius: 0.285714rem;
   border-bottom-left-radius: 0.285714rem;

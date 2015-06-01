@@ -127,6 +127,7 @@
 - **API** - API longer uses `readyState = 0` as sole check for request abort, this may accidentally trigger with `JSONP` or `CORS` requests.
 - **API** - Fixed `this` context of `beforeSend` to use `stateContext` not `element`
 - **API** - Fixed `loadingDuration` not correctly delaying requests when invoking with  `.api('query')`
+- **Button** - Fixed `attached buttons` 1px offset when attached to segment and menu (border vs box shadow border)
 - **Card** - IE11 now can correctly use  `flexbox` cards **THanks @Widcket**
 - **Checkbox** - Fix `disabled checkbox` sometimes displaying hand cursor
 - **Checkbox** - Fixes nested `dropdown` inside `checkbox` causing issues
