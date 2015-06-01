@@ -10,7 +10,7 @@
 @horizontalMargin: 0.25em;
 
 /* Style */
-@backgroundColor: #E0E2E4;
+@backgroundColor: #E0E1E2;
 @backgroundImage: none;
 @verticalPadding: 0.7857142em;
 @horizontalPadding: 1.5em;
@@ -84,7 +84,7 @@
 --------------------*/
 
 /* Hovered */
-@hoverBackgroundColor: #CACCCE;
+@hoverBackgroundColor: #CACBCD;
 @hoverBackgroundImage: @backgroundImage;
 @hoverBoxShadow: @boxShadow;
 @hoverColor: @hoveredTextColor;
@@ -98,7 +98,7 @@
 @iconFocusOpacity: 0.85;
 
 /* Pressed Down */
-@downBackgroundColor: #BABCBE;
+@downBackgroundColor: #BABBBC;
 @downBackgroundImage: '';
 @downPressedShadow: none;
 @downBoxShadow:
@@ -108,13 +108,13 @@
 @downColor: @pressedTextColor;
 
 /* Active */
-@activeBackgroundColor: #C0C0C0;
+@activeBackgroundColor: #C0C1C2;
 @activeBackgroundImage: none;
 @activeColor: @selectedTextColor;
 @activeBoxShadow: @borderBoxShadow;
 
 /* Active + Hovered */
-@activeHoverBackgroundColor: #C0C0C0;
+@activeHoverBackgroundColor: @activeBackgroundColor;
 @activeHoverBackgroundImage: none;
 @activeHoverColor: @activeColor;
 @activeHoverBoxShadow: @activeBoxShadow;
@@ -136,6 +136,7 @@
 
 @orGap: 0.3em;
 @orHeight: (@verticalPadding * 2) + 1em;
+@orZIndex: 3;
 
 @orCircleDistanceToEdge: (@verticalPadding);
 @orCircleSize: @orHeight - @orCircleDistanceToEdge;
@@ -318,12 +319,14 @@
 @attachedOffset: -1px;
 @attachedBoxShadow: 0px 0px 0px 1px @borderColor;
 @attachedHorizontalPadding: 0.75em;
+@attachedZIndex: 2;
 
 /* Floated */
 @floatedMargin: 0.25em;
 
 /* Animated */
 @animatedVerticalAlign: middle;
+@animatedZIndex: 1;
 @animationDuration: 0.3s;
 @animationEasing: ease;
 @fadeScaleHigh: 1.5;

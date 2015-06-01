@@ -229,9 +229,9 @@
 .ui.animated.button {
   position: relative;
   overflow: hidden;
-  vertical-align: @animatedVerticalAlign;
   padding-right: 0em !important;
-  z-index: 1;
+  vertical-align: @animatedVerticalAlign;
+  z-index: @animatedZIndex;
 }
 
 .ui.animated.button .content {
@@ -878,39 +878,6 @@
 }
 
 
-/*--------------
-     Attached
----------------*/
-
-.ui.attached.button {
-  display: block;
-  margin: 0em;
-  box-shadow: @attachedBoxShadow !important;
-  border-radius: 0em;
-}
-.ui.attached.top.button {
-  border-radius: @borderRadius @borderRadius 0em 0em;
-}
-.ui.attached.bottom.button {
-  border-radius: 0em 0em @borderRadius @borderRadius;
-}
-.ui.attached.left.button {
-  display: inline-block;
-  border-left: none;
-
-  padding-right: @attachedHorizontalPadding;
-  text-align: right;
-  border-radius: @borderRadius 0em 0em @borderRadius;
-}
-.ui.attached.right.button {
-  display: inline-block;
-  padding-left: @attachedHorizontalPadding;
-  text-align: left;
-  border-radius: 0em @borderRadius @borderRadius 0em;
-}
-
-
-
 /*-------------------
       Or Buttons
 --------------------*/
@@ -919,7 +886,7 @@
   position: relative;
   width: @orGap;
   height: @orHeight;
-  z-index: 3;
+  z-index: @orZIndex;
 }
 .ui.buttons .or:before {
   position: absolute;
@@ -963,76 +930,118 @@
        Attached
 --------------------*/
 
-/* Plural Attached */
-.attached.ui.buttons {
-  margin: 0px;
-  border-radius: 0em 0em 0em 0em;
-}
-.attached.ui.buttons .button {
+
+/* Singular */
+.ui.attached.button {
+  position: relative;
+  display: block;
   margin: 0em;
-}
-.attached.ui.buttons .button:first-child {
-  border-radius: 0em 0em 0em 0em;
-}
-.attached.ui.buttons .button:last-child {
-  border-radius: 0em 0em 0em 0em;
+  border-radius: 0em;
+  box-shadow: @attachedBoxShadow !important;
 }
 
-/* Top Side */
-[class*="top attached"].ui.buttons {
+/* Top / Bottom */
+.ui.attached.top.button {
+  border-radius: @borderRadius @borderRadius 0em 0em;
+}
+.ui.attached.bottom.button {
+  border-radius: 0em 0em @borderRadius @borderRadius;
+}
+
+/* Left / Right */
+.ui.left.attached.button {
+  display: inline-block;
+  border-left: none;
+  text-align: right;
+
+  padding-right: @attachedHorizontalPadding;
+  border-radius: @borderRadius 0em 0em @borderRadius;
+}
+.ui.right.attached.button {
+  display: inline-block;
+  text-align: left;
+  padding-left: @attachedHorizontalPadding;
+  border-radius: 0em @borderRadius @borderRadius 0em;
+}
+
+/* Plural */
+.ui.attached.buttons {
+  position: relative;
+  display: flex;
+  border-radius: 0em;
+  width: auto !important;
+  z-index: @attachedZIndex;
+  margin-left: @attachedOffset;
+  margin-right: @attachedOffset;
+}
+.ui.attached.buttons .button {
+  margin: 0em;
+}
+.ui.attached.buttons .button:first-child {
+  border-radius: 0em;
+}
+.ui.attached.buttons .button:last-child {
+  border-radius: 0em;
+}
+
+/* Top / Bottom */
+.ui[class*="top attached"].buttons {
   margin-bottom: @attachedOffset;
   border-radius: @borderRadius @borderRadius 0em 0em;
 }
-[class*="top attached"].ui.buttons .button:first-child {
+.ui[class*="top attached"].buttons .button:first-child {
   border-radius: @borderRadius 0em 0em 0em;
 }
-[class*="top attached"].ui.buttons .button:last-child {
+.ui[class*="top attached"].buttons .button:last-child {
   border-radius: 0em @borderRadius 0em 0em;
 }
 
-/* Bottom Side */
-[class*="bottom attached"].ui.buttons {
+.ui[class*="bottom attached"].buttons {
   margin-top: @attachedOffset;
   border-radius: 0em 0em @borderRadius @borderRadius;
 }
-[class*="bottom attached"].ui.buttons .button:first-child {
+.ui[class*="bottom attached"].buttons .button:first-child {
   border-radius: 0em 0em 0em @borderRadius;
 }
-[class*="bottom attached"].ui.buttons .button:last-child {
+.ui[class*="bottom attached"].buttons .button:last-child {
   border-radius: 0em 0em @borderRadius 0em;
 }
 
-/* Left Side */
-[class*="left attached"].ui.buttons {
+/* Left / Right */
+.ui[class*="left attached"].buttons {
+  display: inline-flex;
+  margin-right: 0em;
   margin-left: @attachedOffset;
   border-radius: 0em @borderRadius @borderRadius 0em;
 }
-[class*="left attached"].ui.buttons .button:first-child {
+.ui[class*="left attached"].buttons .button:first-child {
   margin-left: @attachedOffset;
   border-radius: 0em @borderRadius 0em 0em;
 }
-[class*="left attached"].ui.buttons .button:last-child {
+.ui[class*="left attached"].buttons .button:last-child {
   margin-left: @attachedOffset;
   border-radius: 0em 0em @borderRadius 0em;
 }
-/* Right Side */
-[class*="right attached"].ui.buttons,
-[class*="right attached"].ui.buttons .button {
+
+.ui[class*="right attached"].buttons {
+  display: inline-flex;
+  margin-left: 0em;
   margin-right: @attachedOffset;
   border-radius: @borderRadius 0em 0em @borderRadius;
 }
-[class*="right attached"].ui.buttons .button:first-child {
+.ui[class*="right attached"].buttons .button:first-child {
   margin-left: @attachedOffset;
   border-radius: @borderRadius 0em 0em 0em;
 }
-[class*="right attached"].ui.buttons .button:last-child {
+.ui[class*="right attached"].buttons .button:last-child {
   margin-left: @attachedOffset;
   border-radius: 0em 0em 0em @borderRadius;
 }
 
+/*-------------------
+        Fluid
+--------------------*/
 
-
-/* Fluid */
 .ui.fluid.buttons,
 .ui.button.fluid {
   display: flex;
@@ -1143,7 +1152,7 @@
 /* Fluid Vertical Buttons */
 .ui.fluid.vertical.buttons,
 .ui.fluid.vertical.buttons > .button {
-  display: block;
+  display: flex;
   width: auto;
 }
 
@@ -3171,6 +3180,11 @@
 .ui.buttons > .active.button {
   position: relative;
 }
+.ui.buttons:not(.basic):not(.inverted) {
+  box-shadow: @groupBoxShadow;
+}
+
+/* Clearfix */
 .ui.buttons:after {
   content: ".";
   display: block;
@@ -3178,26 +3192,21 @@
   clear: both;
   visibility: hidden;
 }
-.ui.buttons .button:first-child {
-  border-left: none;
-}
 
-.ui.buttons:not(.basic):not(.inverted) {
-  box-shadow: @groupBoxShadow;
+/* Standard Group */
+.ui.buttons .button {
+  flex: 1 0 auto;
+  margin: 0em;
+  border-radius: 0em;
+  margin: @groupButtonOffset;
 }
 .ui.buttons > .ui.button:not(.basic):not(.inverted),
 .ui.buttons:not(.basic):not(.inverted) > .button {
   box-shadow: @groupButtonBoxShadow;
 }
 
-
-.ui.buttons .button {
-  margin: 0em;
-  border-radius: 0em;
-  margin: @groupButtonOffset;
-}
-
-.ui.buttons .button:first-child  {
+.ui.buttons .button:first-child {
+  border-left: none;
   margin-left: 0em;
   border-top-left-radius: @borderRadius;
   border-bottom-left-radius: @borderRadius;
@@ -3206,7 +3215,6 @@
   border-top-right-radius: @borderRadius;
   border-bottom-right-radius: @borderRadius;
 }
-
 
 /* Vertical  Style */
 .ui.vertical.buttons {
