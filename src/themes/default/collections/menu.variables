@@ -334,10 +334,9 @@
 
 
 /* Text */
+@textMenuItemSpacing: 0.5em;
 @textMenuMargin: @relativeLarge -@textMenuItemSpacing;
-
-@textMenuItemSpacing: 1em;
-@textMenuItemColor: rgba(0, 0, 0, 0.6);
+@textMenuItemColor: @mutedTextColor;
 @textMenuItemFontWeight: normal;
 @textMenuItemMargin: 0em @textMenuItemSpacing;
 @textMenuItemTransition: opacity @defaultDuration @defaultEasing;
@@ -352,9 +351,9 @@
 @textMenuHeaderFontWeight: bold;
 @textMenuHeaderTextTransform: uppercase;
 
-@textVerticalMenuMargin: @relativeSmall 0em;
-@textVerticalMenuHeaderMargin: @relativeLarge 0em;
-@textVerticalMenuItemMargin: @relativeLarge 0em;
+@textVerticalMenuMargin: @relativeMedium 0em;
+@textVerticalMenuHeaderMargin: 0.4285em 0em 0.5714em;
+@textVerticalMenuItemMargin: 0.4285em 0em;
 
 @textVerticalMenuIconFloat: none;
 @textVerticalMenuIconMargin: @iconMargin;
