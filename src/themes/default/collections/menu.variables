@@ -62,7 +62,7 @@
 
 /* Icon */
 @iconFloat: none;
-@iconMargin: 0em 0.25em 0em 0em;
+@iconMargin: 0em 0.35714em 0em 0em;
 @iconOpacity: 0.9;
 
 /* Dropdown Icon */
@@ -155,7 +155,7 @@
 
 /* Dropdown Variations */
 @dropdownVerticalMenuBoxShadow: 0 1px 3px 0px rgba(0, 0, 0, 0.08);
-@secondaryDropdownMenuDistance: 0.25em;
+@secondaryDropdownMenuDistance: 0.35714em;
 @pointingDropdownMenuDistance: 0.75em;
 @invertedSelectionDropdownColor: @invertedTextColor;
 
@@ -216,7 +216,7 @@
 @secondaryBackground: none;
 
 @secondaryItemBackground: none;
-@secondaryItemMargin: 0em 0.25em;
+@secondaryItemMargin: 0em 0.35714em;
 @secondaryItemPadding: @relativeMini @relativeSmall;
 @secondaryItemBorderRadius: @defaultBorderRadius;
 @secondaryItemTransition: color @defaultDuration @defaultEasing;
