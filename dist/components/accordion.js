@@ -3,7 +3,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -546,6 +546,8 @@ $.fn.accordion.settings = {
   verbose         : false,
   performance     : true,
 
+  on              : 'click',
+
   exclusive       : true,
   collapsible     : true,
   closeNested     : false,
@@ -554,7 +556,6 @@ $.fn.accordion.settings = {
   duration        : 350,
   easing          : 'easeOutQuad',
 
-  on              : 'click',
 
   onOpening       : function(){},
   onOpen          : function(){},

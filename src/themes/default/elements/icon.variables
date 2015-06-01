@@ -17,7 +17,7 @@
 ;
 
 @opacity: 1;
-@width: 1.23em;
+@width: @iconWidth;
 @height: 1em;
 @distanceFromText: 0.25rem;
 
@@ -58,4 +58,3 @@
 @big: 2em;
 @huge: 4em;
 @massive: 8em;
-

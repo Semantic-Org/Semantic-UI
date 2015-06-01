@@ -1,0 +1,39 @@
+/*******************************
+             Video
+*******************************/
+
+/*-------------------
+       Element
+--------------------*/
+
+/* Simple */
+@background: @lightGrey;
+
+/* Placeholder */
+@placeholderBackground: @background;
+
+/* Icon */
+@iconSize: 7rem;
+@iconTransition: color @defaultDuration @defaultEasing;
+@iconColor: @invertedTextColor;
+@iconShadow: @subtleShadow;
+@iconZIndex: 10;
+
+/*-------------------
+       States
+--------------------*/
+
+/* Video */
+@hoverIconBackground: rgba(0, 0, 0, 0);
+@hoverIconColor: @white;
+
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Aspect Ratios */
+@squareRatio: (1/1) * 100%;
+@widescreenRatio: (9/16) * 100%;
+@ultraWidescreenRatio: (9/21) * 100%;
+@standardRatio: (3/4) * 100%;

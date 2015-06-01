@@ -27,8 +27,8 @@
 @border: none;
 @zIndex: '';
 @transition:
-  box-shadow @transitionDuration @transitionEasing,
-  transform @transitionDuration @transitionEasing
+  box-shadow @defaultDuration @defaultEasing,
+  transform @defaultDuration @defaultEasing
 ;
 
 /* Card Group */
@@ -66,6 +66,8 @@
 @contentBorderRadius: 0em;
 @contentBoxShadow: none;
 
+@repeatedContentBorder: 1px solid @borderColor;
+
 /* Header */
 @headerMargin: 0em;
 @headerFontWeight: bold;
@@ -81,7 +83,7 @@
 /* Icons */
 @actionOpacity: 0.75;
 @actionHoverOpacity: 1;
-@actionTransition: color @transitionDuration @transitionEasing;
+@actionTransition: color @defaultDuration @defaultEasing;
 
 @starColor: #FFB70A;
 @starActiveColor: #FFE623;
@@ -92,7 +94,7 @@
 /* Links */
 @contentLinkColor: '';
 @contentLinkHoverColor: '';
-@contentLinkTransition: color @transitionDuration @transitionEasing;
+@contentLinkTransition: color @defaultDuration @defaultEasing;
 
 @headerLinkColor: @headerColor;
 @headerLinkHoverColor: @linkHoverColor;
@@ -130,15 +132,15 @@
 @extraPadding: 0.75em 1em;
 @extraBoxShadow: none;
 @extraColor: @lightTextColor;
-@extraTransition: color @transitionDuration @transitionEasing;
+@extraTransition: color @defaultDuration @defaultEasing;
 
 /* Extra Links */
 @extraLinkColor: @unselectedTextColor;
 @extraLinkHoverColor: @linkHoverColor;
 
 /* Buttons */
-@buttonMargin: 0em 0em -1px;
-@buttonWidth: 100%;
+@buttonMargin: 0px -@borderWidth;
+@buttonWidth: ~"calc(100% + "(@borderWidth * 2)~")";
 
 /*-------------------
       Variations

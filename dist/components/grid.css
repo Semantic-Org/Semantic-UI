@@ -3,7 +3,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -138,11 +138,6 @@
     Loose Coupling
 --------------------*/
 
-
-/* Top level grid doesn't use negative margin */
-body > .ui.grid {
-  margin: 0em;
-}
 
 /* Collapse Margin on Consecutive Grid */
 .ui.grid > .ui.grid:first-child {
@@ -1610,8 +1605,6 @@ body > .ui.grid {
 .ui[class*="vertically divided"].grid > .row {
   margin-top: 0em;
   margin-bottom: 0em;
-  padding-top: 0em;
-  padding-bottom: 0em;
 }
 
 /* No divider on first column on row */
@@ -1684,8 +1677,6 @@ body > .ui.grid {
 -----------------------*/
 
 .ui.celled.grid {
-  display: table;
-  table-layout: fixed;
   width: 100%;
   margin: 1em 0em;
   box-shadow: 0px 0px 0px 1px #d4d4d5;
@@ -1693,8 +1684,6 @@ body > .ui.grid {
 .ui.celled.grid > .row,
 .ui.celled.grid > .column.row,
 .ui.celled.grid > .column.row:first-child {
-  display: table;
-  table-layout: fixed;
   width: 100% !important;
   margin: 0em;
   padding: 0em;
@@ -1702,7 +1691,6 @@ body > .ui.grid {
 }
 .ui.celled.grid > .column:not(.row),
 .ui.celled.grid > .row > .column {
-  display: table-cell;
   box-shadow: -1px 0px 0px 0px #d4d4d5;
 }
 .ui.celled.grid > .column:first-child,
@@ -1728,6 +1716,7 @@ body > .ui.grid {
 /* Internally Celled */
 .ui[class*="internally celled"].grid {
   box-shadow: none;
+  margin: 0em;
 }
 .ui[class*="internally celled"].grid > .row:first-child {
   box-shadow: none;
@@ -1742,7 +1731,7 @@ body > .ui.grid {
 
 
 /* Top Aligned */
-.ui[class*="top aligned"].grid .column,
+.ui[class*="top aligned"].grid .column:not(.row),
 .ui.grid > [class*="top aligned"].row > .column,
 .ui.grid > [class*="top aligned"].column:not(.row),
 .ui.grid > .row > [class*="top aligned"].column {
@@ -1758,7 +1747,7 @@ body > .ui.grid {
 }
 
 /* Middle Aligned */
-.ui[class*="middle aligned"].grid .column,
+.ui[class*="middle aligned"].grid .column:not(.row),
 .ui.grid > [class*="middle aligned"].row > .column,
 .ui.grid > [class*="middle aligned"].column:not(.row),
 .ui.grid > .row > [class*="middle aligned"].column {
@@ -1774,7 +1763,7 @@ body > .ui.grid {
 }
 
 /* Bottom Aligned */
-.ui[class*="bottom aligned"].grid .column,
+.ui[class*="bottom aligned"].grid .column:not(.row),
 .ui.grid > [class*="bottom aligned"].row > .column,
 .ui.grid > [class*="bottom aligned"].column:not(.row),
 .ui.grid > .row > [class*="bottom aligned"].column {
@@ -1827,7 +1816,7 @@ body > .ui.grid {
 /* Left Aligned */
 .ui[class*="left aligned"].grid .column,
 .ui.grid > [class*="left aligned"].row > .column,
-.ui.grid > [class*="left aligned"].column:not(.row),
+.ui.grid > [class*="left aligned"].column.column,
 .ui.grid > .row > [class*="left aligned"].column {
   text-align: left;
   -webkit-align-self: inherit;
@@ -1836,10 +1825,9 @@ body > .ui.grid {
 }
 
 /* Center Aligned */
-.ui[class*="center aligned"].grid,
 .ui[class*="center aligned"].grid .column,
 .ui.grid > [class*="center aligned"].row > .column,
-.ui.grid > [class*="center aligned"].column:not(.row),
+.ui.grid > [class*="center aligned"].column.column,
 .ui.grid > .row > [class*="center aligned"].column {
   text-align: center;
   -webkit-align-self: inherit;
@@ -1856,7 +1844,7 @@ body > .ui.grid {
 /* Right Aligned */
 .ui[class*="right aligned"].grid .column,
 .ui.grid > [class*="right aligned"].row > .column,
-.ui.grid > [class*="right aligned"].column:not(.row),
+.ui.grid > [class*="right aligned"].column.column,
 .ui.grid > .row > [class*="right aligned"].column {
   text-align: right;
   -webkit-align-self: inherit;
@@ -1888,124 +1876,127 @@ body > .ui.grid {
          Colored
 -----------------------*/
 
-.ui.grid > .white.row,
-.ui.grid > .white.column,
-.ui.grid > .row > .white.column {
-  background-color: #ffffff !important;
-  color: rgba(0, 0, 0, 0.87);
-}
-.ui.grid > .row > .white.column {
-  margin-top: -1rem;
-  margin-bottom: -1rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-.ui.grid > .black.row,
-.ui.grid > .black.column,
-.ui.grid > .row > .black.column {
-  background-color: #1b1c1d !important;
-  color: #ffffff;
-}
+.ui.grid > .row > .red.column,
+.ui.grid > .row > .orange.column,
+.ui.grid > .row > .yellow.column,
+.ui.grid > .row > .olive.column,
+.ui.grid > .row > .green.column,
+.ui.grid > .row > .teal.column,
+.ui.grid > .row > .blue.column,
+.ui.grid > .row > .violet.column,
+.ui.grid > .row > .purple.column,
+.ui.grid > .row > .pink.column,
+.ui.grid > .row > .brown.column,
+.ui.grid > .row > .grey.column,
 .ui.grid > .row > .black.column {
   margin-top: -1rem;
   margin-bottom: -1rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-.ui.grid > .blue.row,
-.ui.grid > .blue.column,
-.ui.grid > .row > .blue.column {
-  background-color: #2185d0 !important;
-  color: #ffffff;
-}
-.ui.grid > .row > .blue.column {
-  margin-top: -1rem;
-  margin-bottom: -1rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-.ui.grid > .green.row,
-.ui.grid > .green.column,
-.ui.grid > .row > .green.column {
-  background-color: #21ba45 !important;
-  color: #ffffff;
-}
-.ui.grid > .row > .green.column {
-  margin-top: -1rem;
-  margin-bottom: -1rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-.ui.grid > .orange.row,
-.ui.grid > .orange.column,
-.ui.grid > .row > .orange.column {
-  background-color: #f2711c !important;
-  color: #ffffff;
-}
-.ui.grid > .row > .orange.column {
-  margin-top: -1rem;
-  margin-bottom: -1rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-.ui.grid > .pink.row,
-.ui.grid .pink.column {
-  background-color: #e03997 !important;
-  color: #ffffff;
-}
-.ui.grid > .row > .pink.column {
-  margin-top: -1rem;
-  margin-bottom: -1rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-.ui.grid > .purple.row,
-.ui.grid > .purple.column,
-.ui.grid > .row > .purple.column {
-  background-color: #6a33c8 !important;
-  color: #ffffff;
-}
-.ui.grid > .row > .purple.column {
-  margin-top: -1rem;
-  margin-bottom: -1rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
+
+/* Red */
 .ui.grid > .red.row,
 .ui.grid > .red.column,
 .ui.grid > .row > .red.column {
   background-color: #db2828 !important;
   color: #ffffff;
 }
-.ui.grid > .row > .red.column {
-  margin-top: -1rem;
-  margin-bottom: -1rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-.ui.grid > .teal.row,
-.ui.grid > .teal.column,
-.ui.grid > .row > .teal.column {
-  background-color: #00b5ad !important;
+
+/* Orange */
+.ui.grid > .orange.row,
+.ui.grid > .orange.column,
+.ui.grid > .row > .orange.column {
+  background-color: #f2711c !important;
   color: #ffffff;
 }
-.ui.grid > .row > .teal.column {
-  margin-top: -1rem;
-  margin-bottom: -1rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
+
+/* Yellow */
 .ui.grid > .yellow.row,
 .ui.grid > .yellow.column,
 .ui.grid > .row > .yellow.column {
   background-color: #fbbd08 !important;
   color: #ffffff;
 }
-.ui.grid > .row > .yellow.column {
-  margin-top: -1rem;
-  margin-bottom: -1rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+
+/* Olive */
+.ui.grid > .olive.row,
+.ui.grid > .olive.column,
+.ui.grid > .row > .olive.column {
+  background-color: #b5cc18 !important;
+  color: #ffffff;
+}
+
+/* Green */
+.ui.grid > .green.row,
+.ui.grid > .green.column,
+.ui.grid > .row > .green.column {
+  background-color: #21ba45 !important;
+  color: #ffffff;
+}
+
+/* Teal */
+.ui.grid > .teal.row,
+.ui.grid > .teal.column,
+.ui.grid > .row > .teal.column {
+  background-color: #00b5ad !important;
+  color: #ffffff;
+}
+
+/* Blue */
+.ui.grid > .blue.row,
+.ui.grid > .blue.column,
+.ui.grid > .row > .blue.column {
+  background-color: #2185d0 !important;
+  color: #ffffff;
+}
+
+/* Violet */
+.ui.grid > .violet.row,
+.ui.grid > .violet.column,
+.ui.grid > .row > .violet.column {
+  background-color: #6435c9 !important;
+  color: #ffffff;
+}
+
+/* Purple */
+.ui.grid > .purple.row,
+.ui.grid > .purple.column,
+.ui.grid > .row > .purple.column {
+  background-color: #a333c8 !important;
+  color: #ffffff;
+}
+
+/* Pink */
+.ui.grid > .pink.row,
+.ui.grid > .pink.column,
+.ui.grid > .row > .pink.column {
+  background-color: #e03997 !important;
+  color: #ffffff;
+}
+
+/* Brown */
+.ui.grid > .brown.row,
+.ui.grid > .brown.column,
+.ui.grid > .row > .brown.column {
+  background-color: #a5673f !important;
+  color: #ffffff;
+}
+
+/* Grey */
+.ui.grid > .grey.row,
+.ui.grid > .grey.column,
+.ui.grid > .row > .grey.column {
+  background-color: #757676 !important;
+  color: #ffffff;
+}
+
+/* Black */
+.ui.grid > .black.row,
+.ui.grid > .black.column,
+.ui.grid > .row > .black.column {
+  background-color: #1b1c1d !important;
+  color: #ffffff;
 }
 
 /*----------------------
@@ -2266,11 +2257,6 @@ body > .ui.grid {
   .ui.segment:not(.vertical) .ui.stackable.page.grid {
     margin-left: -1rem !important;
     margin-right: -1rem !important;
-  }
-  
-/* Equal Height Stackable */
-  .ui[class*="equal height"].stackable.page.grid {
-    display: block !important;
   }
   
 /* Divided Stackable */

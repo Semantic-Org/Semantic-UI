@@ -41,11 +41,6 @@
   content: "\f0d9"/*rtl:"\f0da"*/;
 }
 
-/* Upward Dropdown */
-.ui.upward.dropdown > .dropdown.icon:before {
-  content: "\f0d8";
-}
-
 /* Vertical Menu Dropdown */
 .ui.vertical.menu .dropdown.item > .dropdown.icon:before {
   content: "\f0da"/*rtl:"\f0d9"*/;

@@ -13,10 +13,10 @@
 @promptBorderRadius: @circularRadius;
 @promptColor: @textColor;
 @promptTransition:
-  background-color @transitionDuration @transitionEasing,
-  color @transitionDuration @transitionEasing,
-  box-shadow @transitionDuration @transitionEasing,
-  border-color @transitionDuration @transitionEasing
+  background-color @defaultDuration @defaultEasing,
+  color @defaultDuration @defaultEasing,
+  box-shadow @defaultDuration @defaultEasing,
+  border-color @defaultDuration @defaultEasing
 ;
 @promptBoxShadow: 0em 0em 0em 0em transparent inset;
 

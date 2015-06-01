@@ -3,7 +3,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributorss
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -176,7 +176,7 @@ $.fn.sticky = function(parameters) {
           },
           scroll: function() {
             requestAnimationFrame(function() {
-              $scroll.trigger('scrollchange' + eventNamespace, $scroll.scrollTop() );
+              $scroll.triggerHandler('scrollchange' + eventNamespace, $scroll.scrollTop() );
             });
           },
           scrollchange: function(event, scrollPosition) {
@@ -199,7 +199,7 @@ $.fn.sticky = function(parameters) {
           sticky: function() {
             var
               $element = $('<div/>'),
-              element = $element.get()
+              element = $element[0]
             ;
             $element.addClass(className.supported);
             return($element.css('position').match('sticky'));
@@ -347,6 +347,9 @@ $.fn.sticky = function(parameters) {
           },
           scroll: function(scroll) {
             module.debug('Setting scroll on element', scroll);
+            if(module.elementScroll == scroll) {
+              return;
+            }
             if( module.is.top() ) {
               $module
                 .css('bottom', '')
@@ -418,10 +421,6 @@ $.fn.sticky = function(parameters) {
             elementVisible = (element.height !== 0)
           ;
 
-          // save current scroll for next run
-          module.save.lastScroll(scroll.top);
-          module.save.elementScroll(elementScroll);
-
           if(elementVisible) {
 
             if( module.is.initialPosition() ) {
@@ -487,6 +486,10 @@ $.fn.sticky = function(parameters) {
               }
             }
           }
+
+          // save current scroll for next run
+          module.save.lastScroll(scroll.top);
+          module.save.elementScroll(elementScroll);
         },
 
         bindTop: function() {

@@ -3,7 +3,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -59,6 +59,7 @@ $.fn.checkbox = function(parameters) {
           module.create.label();
           module.add.events();
 
+          module.set.tabbable();
           module.setup();
           module.observeChanges();
 
@@ -86,14 +87,14 @@ $.fn.checkbox = function(parameters) {
             module.debug('Setting initial value to checked');
             module.set.checked();
             if(settings.fireOnInit) {
-              settings.onChecked.call($input.get());
+              settings.onChecked.call($input[0]);
             }
           }
           else {
             module.debug('Setting initial value to unchecked');
             module.remove.checked();
             if(settings.fireOnInit) {
-              settings.onUnchecked.call($input.get());
+              settings.onUnchecked.call($input[0]);
             }
           }
         },
@@ -146,15 +147,14 @@ $.fn.checkbox = function(parameters) {
                 escape : 27
               }
             ;
-            if( key == keyCode.escape) {
+            if(key == keyCode.escape) {
               module.verbose('Escape key pressed blurring field');
-              $module
-                .blur()
-              ;
+              $input.blur();
+              event.preventDefault();
             }
             if(!event.ctrlKey && (key == keyCode.enter || key == keyCode.space)) {
               module.verbose('Enter key pressed, toggling checkbox');
-              module.toggle.call(this);
+              module.toggle();
               event.preventDefault();
             }
           }
@@ -205,7 +205,7 @@ $.fn.checkbox = function(parameters) {
             }
             $module.addClass(className.checked);
           },
-          tab: function() {
+          tabbable: function() {
             if( $input.attr('tabindex') === undefined) {
               $input
                 .attr('tabindex', 0)
@@ -253,9 +253,6 @@ $.fn.checkbox = function(parameters) {
               .off(eventNamespace)
               .removeData(moduleNamespace)
             ;
-            $input
-              .off(eventNamespace, module.event.keydown)
-            ;
             $label
               .off(eventNamespace)
             ;
@@ -283,7 +280,6 @@ $.fn.checkbox = function(parameters) {
             .trigger('change')
           ;
           module.set.checked();
-          $input.trigger('blur');
           settings.onChange.call($input[0]);
           settings.onChecked.call($input[0]);
         },
@@ -295,12 +291,11 @@ $.fn.checkbox = function(parameters) {
             .trigger('change')
           ;
           module.remove.checked();
-          $input.trigger('blur');
           settings.onChange.call($input[0]);
           settings.onUnchecked.call($input[0]);
         },
 
-        toggle: function(event) {
+        toggle: function() {
           if( !module.can.change() ) {
             if(!module.is.radio()) {
               module.debug('Checkbox is read-only or disabled, ignoring toggle');

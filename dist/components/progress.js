@@ -3,7 +3,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -127,7 +127,7 @@ $.fn.progress = function(parameters) {
             newValue
           ;
           if(total) {
-            startValue     = module.value || 0;
+            startValue     = module.value   || 0;
             incrementValue = incrementValue || 1;
             newValue       = startValue + incrementValue;
             edgeValue      = module.total;
@@ -183,7 +183,7 @@ $.fn.progress = function(parameters) {
             var
               value   = module.value                || 0,
               total   = module.total                || 0,
-              percent = (module.is.visible() && animating)
+              percent = (animating)
                 ? module.get.displayPercent()
                 : module.percent || 0,
               left = (module.total > 0)
@@ -233,10 +233,10 @@ $.fn.progress = function(parameters) {
                 ? (barWidth / totalWidth * 100)
                 : module.percent
             ;
-            if(settings.precision === 0) {
-              return Math.round(displayPercent);
-            }
-            return Math.round(displayPercent * (10 * settings.precision) / (10 * settings.precision) );
+            return (settings.precision > 0)
+              ? Math.round(displayPercent * (10 * settings.precision)) / (10 * settings.precision)
+              : Math.round(displayPercent)
+            ;
           },
 
           percent: function() {
@@ -357,15 +357,16 @@ $.fn.progress = function(parameters) {
               percent = percent * 100;
             }
             // round percentage
-            if(settings.precision === 0) {
-              percent = Math.round(percent);
-            }
-            else {
-              percent = Math.round(percent * (10 * settings.precision) / (10 * settings.precision) );
-            }
+            percent = (settings.precision > 0)
+              ? Math.round(percent * (10 * settings.precision)) / (10 * settings.precision)
+              : Math.round(percent)
+            ;
             module.percent = percent;
             if(module.total) {
-              module.value = Math.round( (percent / 100) * module.total);
+              module.value = (settings.precision > 0)
+                ? Math.round( (percent / 100) * module.total * (10 * settings.precision)) / (10 * settings.precision)
+                : Math.round( (percent / 100) * module.total * 10) / 10
+              ;
             }
             else if(settings.limitValues) {
               module.value = (module.value > 100)
@@ -376,9 +377,7 @@ $.fn.progress = function(parameters) {
               ;
             }
             module.set.barWidth(percent);
-            if( module.is.visible() ) {
-              module.set.labelInterval();
-            }
+            module.set.labelInterval();
             module.set.labels();
             settings.onChange.call(element, percent, module.value, module.total);
           },
@@ -727,7 +726,7 @@ $.fn.progress.settings = {
   limitValues  : true,
 
   label        : 'percent',
-  precision    : 1,
+  precision    : 0,
   framerate    : (1000 / 30), /// 30 fps
 
   percent      : false,

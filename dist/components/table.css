@@ -3,7 +3,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -22,7 +22,7 @@
   margin: 1em 0em;
   border: 1px solid rgba(34, 36, 38, 0.15);
   box-shadow: none;
-  border-radius: 0.2857rem;
+  border-radius: 0.285714rem;
   text-align: left;
   color: rgba(0, 0, 0, 0.87);
   border-collapse: separate;
@@ -44,8 +44,8 @@
 /* Table Content */
 .ui.table th,
 .ui.table td {
-  -webkit-transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-          transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  -webkit-transition: background 0.1s ease, border-color 0.1s ease, color 0.1s ease;
+          transition: background 0.1s ease, border-color 0.1s ease, color 0.1s ease;
 }
 
 /* Headers */
@@ -54,28 +54,28 @@
 }
 .ui.table thead th {
   cursor: auto;
-  background: #fafafa;
+  background: #f9fafb;
   text-align: inherit;
   color: rgba(0, 0, 0, 0.87);
-  padding: 1em 0.71428571em;
+  padding: 0.92857143em 0.71428571em;
   vertical-align: inherit;
   font-style: none;
   font-weight: bold;
   text-transform: none;
-  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+  border-bottom: 1px solid rgba(34, 36, 38, 0.1);
   border-left: none;
 }
 .ui.table thead tr > th:first-child {
   border-left: none;
 }
 .ui.table thead tr:first-child > th:first-child {
-  border-radius: 0.2857rem 0em 0em 0em;
+  border-radius: 0.285714rem 0em 0em 0em;
 }
 .ui.table thead tr:first-child > th:last-child {
-  border-radius: 0em 0.2857rem 0em 0em;
+  border-radius: 0em 0.285714rem 0em 0em;
 }
 .ui.table thead tr:first-child > th:only-child {
-  border-radius: 0.2857rem 0.2857rem 0em 0em;
+  border-radius: 0.285714rem 0.285714rem 0em 0em;
 }
 
 /* Footer */
@@ -85,7 +85,7 @@
 .ui.table tfoot th {
   cursor: auto;
   border-top: 1px solid rgba(34, 36, 38, 0.15);
-  background: #ffffff;
+  background: #f9fafb;
   text-align: inherit;
   color: rgba(0, 0, 0, 0.87);
   padding: 0.71428571em 0.71428571em;
@@ -98,13 +98,13 @@
   border-left: none;
 }
 .ui.table tfoot tr:first-child > th:first-child {
-  border-radius: 0em 0em 0em 0.2857rem;
+  border-radius: 0em 0em 0em 0.285714rem;
 }
 .ui.table tfoot tr:first-child > th:last-child {
-  border-radius: 0em 0em 0.2857rem 0em;
+  border-radius: 0em 0em 0.285714rem 0em;
 }
 .ui.table tfoot tr:first-child > th:only-child {
-  border-radius: 0em 0em 0.2857rem 0.2857rem;
+  border-radius: 0em 0em 0.285714rem 0.285714rem;
 }
 
 /* Table Row */
@@ -170,7 +170,7 @@
   .ui.table:not(.unstackable) tr > td {
     background: none;
     border: none !important;
-    padding: 0.25em 0.75em;
+    padding: 0.25em 0.75em !important;
     box-shadow: none !important;
   }
   .ui.table:not(.unstackable) th:first-child,
@@ -286,12 +286,12 @@
 
 .ui.table tr.positive,
 .ui.table td.positive {
-  box-shadow: 0px 0px 0px #b4d3a4 inset;
+  box-shadow: 0px 0px 0px #a3c293 inset;
 }
 .ui.table tr.positive,
 .ui.table td.positive {
-  background: #f3ffec !important;
-  color: #255f26 !important;
+  background: #fcfff5 !important;
+  color: #1d571e !important;
 }
 
 /*--------------
@@ -304,8 +304,8 @@
 }
 .ui.table tr.negative,
 .ui.table td.negative {
-  background: #fff0f0 !important;
-  color: #973230 !important;
+  background: #fff6f6 !important;
+  color: #922d2b !important;
 }
 
 /*--------------
@@ -318,8 +318,8 @@
 }
 .ui.table tr.error,
 .ui.table td.error {
-  background: #fff0f0 !important;
-  color: #973230 !important;
+  background: #fff6f6 !important;
+  color: #922d2b !important;
 }
 
 /*--------------
@@ -332,8 +332,8 @@
 }
 .ui.table tr.warning,
 .ui.table td.warning {
-  background: #fff8e2 !important;
-  color: #715422 !important;
+  background: #fffaf3 !important;
+  color: #664917 !important;
 }
 
 /*--------------
@@ -469,13 +469,13 @@
 /* Other States */
 .ui.selectable.table tr.error:hover,
 .ui.selectable.table tr:hover td.error {
-  background: #ffe1e1 !important;
-  color: #8b2e2c !important;
+  background: #ffe7e7 !important;
+  color: #862928 !important;
 }
 .ui.selectable.table tr.warning:hover,
 .ui.selectable.table tr:hover td.warning {
-  background: #fff4d3 !important;
-  color: #654b1e !important;
+  background: #fff4e4 !important;
+  color: #5a4014 !important;
 }
 .ui.selectable.table tr.active:hover,
 .ui.selectable.table tr:hover td.active {
@@ -484,13 +484,13 @@
 }
 .ui.selectable.table tr.positive:hover,
 .ui.selectable.table tr:hover td.positive {
-  background: #e9ffdd !important;
-  color: #215422 !important;
+  background: #f7ffe6 !important;
+  color: #194c1a !important;
 }
 .ui.selectable.table tr.negative:hover,
 .ui.selectable.table tr:hover td.negative {
-  background: #ffe1e1 !important;
-  color: #8b2e2c !important;
+  background: #ffe7e7 !important;
+  color: #862928 !important;
 }
 
 /*--------------
@@ -509,7 +509,7 @@
 /* Top */
 .ui[class*="top attached"].table {
   margin-top: 1em 0em;
-  border-radius: 0.2857rem 0.2857rem 0em 0em;
+  border-radius: 0.285714rem 0.285714rem 0em 0em;
 }
 .ui.table[class*="top attached"]:first-child {
   margin-top: 0em;
@@ -519,7 +519,7 @@
 .ui.table[class*="bottom attached"] {
   margin-top: 0em;
   margin-bottom: 1em 0em;
-  border-radius: 0em 0em 0.2857rem 0.2857rem;
+  border-radius: 0em 0em 0.285714rem 0.285714rem;
 }
 .ui.table[class*="bottom attached"]:last-child {
   margin-bottom: 0em;
@@ -555,73 +555,121 @@
        Colors
 --------------------*/
 
-.ui.black.table {
-  border-top: 0.2em solid #1b1c1d;
-}
-.ui.blue.table {
-  border-top: 0.2em solid #2185d0;
-}
-.ui.green.table {
-  border-top: 0.2em solid #21ba45;
-}
-.ui.orange.table {
-  border-top: 0.2em solid #f2711c;
-}
-.ui.pink.table {
-  border-top: 0.2em solid #e03997;
-}
-.ui.purple.table {
-  border-top: 0.2em solid #6a33c8;
-}
+
+/* Red */
 .ui.red.table {
   border-top: 0.2em solid #db2828;
-}
-.ui.teal.table {
-  border-top: 0.2em solid #00b5ad;
-}
-.ui.yellow.table {
-  border-top: 0.2em solid #fbbd08;
-}
-
-/*-------------------
-   Inverted Colors
---------------------*/
-
-.ui.inverted.table,
-.ui.inverted.black.table {
-  background-color: #1b1c1d !important;
-  color: #ffffff !important;
-}
-.ui.inverted.blue.table {
-  background-color: #2185d0 !important;
-  color: #ffffff !important;
-}
-.ui.inverted.green.table {
-  background-color: #21ba45 !important;
-  color: #ffffff !important;
-}
-.ui.inverted.orange.table {
-  background-color: #f2711c !important;
-  color: #ffffff !important;
-}
-.ui.inverted.pink.table {
-  background-color: #e03997 !important;
-  color: #ffffff !important;
-}
-.ui.inverted.purple.table {
-  background-color: #6a33c8 !important;
-  color: #ffffff !important;
 }
 .ui.inverted.red.table {
   background-color: #db2828 !important;
   color: #ffffff !important;
 }
+
+/* Orange */
+.ui.orange.table {
+  border-top: 0.2em solid #f2711c;
+}
+.ui.inverted.orange.table {
+  background-color: #f2711c !important;
+  color: #ffffff !important;
+}
+
+/* Yellow */
+.ui.yellow.table {
+  border-top: 0.2em solid #fbbd08;
+}
+.ui.inverted.yellow.table {
+  background-color: #fbbd08 !important;
+  color: #ffffff !important;
+}
+
+/* Olive */
+.ui.olive.table {
+  border-top: 0.2em solid #b5cc18;
+}
+.ui.inverted.olive.table {
+  background-color: #b5cc18 !important;
+  color: #ffffff !important;
+}
+
+/* Green */
+.ui.green.table {
+  border-top: 0.2em solid #21ba45;
+}
+.ui.inverted.green.table {
+  background-color: #21ba45 !important;
+  color: #ffffff !important;
+}
+
+/* Teal */
+.ui.teal.table {
+  border-top: 0.2em solid #00b5ad;
+}
 .ui.inverted.teal.table {
   background-color: #00b5ad !important;
   color: #ffffff !important;
 }
-.ui.inverted.yellow.table {
-  background-color: #fbbd08 !important;
+
+/* Blue */
+.ui.blue.table {
+  border-top: 0.2em solid #2185d0;
+}
+.ui.inverted.blue.table {
+  background-color: #2185d0 !important;
+  color: #ffffff !important;
+}
+
+/* Violet */
+.ui.violet.table {
+  border-top: 0.2em solid #6435c9;
+}
+.ui.inverted.violet.table {
+  background-color: #6435c9 !important;
+  color: #ffffff !important;
+}
+
+/* Purple */
+.ui.purple.table {
+  border-top: 0.2em solid #a333c8;
+}
+.ui.inverted.purple.table {
+  background-color: #a333c8 !important;
+  color: #ffffff !important;
+}
+
+/* Pink */
+.ui.pink.table {
+  border-top: 0.2em solid #e03997;
+}
+.ui.inverted.pink.table {
+  background-color: #e03997 !important;
+  color: #ffffff !important;
+}
+
+/* Brown */
+.ui.brown.table {
+  border-top: 0.2em solid #a5673f;
+}
+.ui.inverted.brown.table {
+  background-color: #a5673f !important;
+  color: #ffffff !important;
+}
+
+/* Grey */
+.ui.grey.table {
+  border-top: 0.2em solid #757676;
+}
+.ui.inverted.grey.table {
+  background-color: #757676 !important;
+  color: #ffffff !important;
+}
+
+/* Black */
+.ui.black.table {
+  border-top: 0.2em solid #1b1c1d;
+}
+.ui.inverted.black.table {
+  background-color: #1b1c1d !important;
   color: #ffffff !important;
 }
 

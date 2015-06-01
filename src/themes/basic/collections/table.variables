@@ -3,6 +3,7 @@
 --------------------*/
 
 @headerBackground: @white;
+@footerBackground: @white;
 
 @cellVerticalPadding: 1em;
 @cellHorizontalPadding: 1em;

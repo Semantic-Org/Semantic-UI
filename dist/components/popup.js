@@ -3,7 +3,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -155,11 +155,7 @@ $.fn.popup = function(parameters) {
                 : settings.delay
             ;
             clearTimeout(module.hideTimer);
-            module.showTimer = setTimeout(function() {
-              if(module.is.hidden() && !( module.is.active() && module.is.dropdown()) ) {
-                module.show();
-              }
-            }, delay);
+            module.showTimer = setTimeout(module.show, delay);
           },
           end:  function() {
             var
@@ -168,11 +164,7 @@ $.fn.popup = function(parameters) {
                 : settings.delay
             ;
             clearTimeout(module.showTimer);
-            module.hideTimer = setTimeout(function() {
-              if(module.is.visible() ) {
-                module.hide();
-              }
-            }, delay);
+            module.hideTimer = setTimeout(module.hide, delay);
           },
           resize: function() {
             if( module.is.visible() ) {
@@ -184,11 +176,12 @@ $.fn.popup = function(parameters) {
         // generates popup html from metadata
         create: function() {
           var
-            html      = $module.data(metadata.html)      || settings.html,
-            variation = $module.data(metadata.variation) || settings.variation,
-            title     = $module.data(metadata.title)     || settings.title,
-            content   = $module.data(metadata.content)   || $module.attr('title') || settings.content
+            html      = module.get.html(),
+            variation = module.get.variation(),
+            title     = module.get.title(),
+            content   = module.get.content()
           ;
+
           if(html || content || title) {
             module.debug('Creating pop-up html');
             if(!html) {
@@ -271,27 +264,38 @@ $.fn.popup = function(parameters) {
         show: function(callback) {
           callback = $.isFunction(callback) ? callback : function(){};
           module.debug('Showing pop-up', settings.transition);
-          if( !module.exists() ) {
-            module.create();
-          }
-          else if(!settings.preserve && !settings.popup) {
-            module.refresh();
-          }
-          if( $popup && module.set.position() ) {
-            module.save.conditions();
-            if(settings.exclusive) {
-              module.hideAll();
+
+          if(module.is.hidden() && !( module.is.active() && module.is.dropdown()) ) {
+            if( !module.exists() ) {
+              module.create();
             }
-            module.animate.show(callback);
+            if(settings.onShow.call($popup, element) === false) {
+              module.debug('onShow callback returned false, cancelling popup animation');
+              return;
+            }
+            else if(!settings.preserve && !settings.popup) {
+              module.refresh();
+            }
+            if( $popup && module.set.position() ) {
+              module.save.conditions();
+              if(settings.exclusive) {
+                module.hideAll();
+              }
+              module.animate.show(callback);
+            }
           }
         },
 
 
         hide: function(callback) {
           callback = $.isFunction(callback) ? callback : function(){};
-          module.remove.visible();
-          module.unbind.close();
-          if( module.is.visible() ) {
+          if( module.is.visible() || module.is.animating() ) {
+            if(settings.onHide.call($popup, element) === false) {
+              module.debug('onHide callback returned false, cancelling popup animation');
+              return;
+            }
+            module.remove.visible();
+            module.unbind.close();
             module.restore.conditions();
             module.animate.hide(callback);
           }
@@ -387,11 +391,14 @@ $.fn.popup = function(parameters) {
             else {
               module.error(error.noTransition);
             }
-            settings.onShow.call($popup, element);
           },
           hide: function(callback) {
             callback = $.isFunction(callback) ? callback : function(){};
             module.debug('Hiding pop-up');
+            if(settings.onShow.call($popup, element) === false) {
+              module.debug('onShow callback returned false, cancelling popup animation');
+              return;
+            }
             if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
               $popup
                 .transition({
@@ -411,17 +418,32 @@ $.fn.popup = function(parameters) {
             else {
               module.error(error.noTransition);
             }
-            settings.onHide.call($popup, element);
           }
         },
 
         get: {
+          html: function() {
+            $module.removeData(metadata.html);
+            return $module.data(metadata.html) || settings.html;
+          },
+          title: function() {
+            $module.removeData(metadata.title);
+            return $module.data(metadata.title) || settings.title;
+          },
+          content: function() {
+            $module.removeData(metadata.content);
+            return $module.data(metadata.content) || $module.attr('title') || settings.content;
+          },
+          variation: function() {
+            $module.removeData(metadata.variation);
+            return $module.data(metadata.variation) || settings.variation;
+          },
           id: function() {
             return id;
           },
           startEvent: function() {
             if(settings.on == 'hover') {
-              return (hasTouch)
+              return (hasTouch && settings.addTouchEvents)
                 ? 'touchstart mouseenter'
                 : 'mouseenter'
               ;
@@ -432,7 +454,7 @@ $.fn.popup = function(parameters) {
             return false;
           },
           scrollEvent: function() {
-            return (hasTouch)
+            return (hasTouch && settings.addTouchEvents)
               ? 'touchmove scroll'
               : 'scroll'
             ;
@@ -475,18 +497,24 @@ $.fn.popup = function(parameters) {
           },
           offstagePosition: function(position) {
             var
-              boundary  = {
+              screen = {
                 top    : $(window).scrollTop(),
-                bottom : $(window).scrollTop() + $(window).height(),
-                left   : 0,
-                right  : $(window).width()
+                left   : $(window).scrollLeft(),
+                width  : $(window).width(),
+                height : $(window).height()
               },
-              popup     = {
+              boundary = {
+                top    : screen.top,
+                bottom : screen.top + screen.height,
+                left   : screen.left,
+                right  : screen.left + screen.width
+              },
+              popup = {
                 width  : $popup.width(),
                 height : $popup.height(),
                 offset : $popup.offset()
               },
-              offstage  = {},
+              offstage = {},
               offstagePositions = []
             ;
             position = position || false;
@@ -747,7 +775,7 @@ $.fn.popup = function(parameters) {
 
             // recursively find new positioning
             if(offstagePosition) {
-              module.debug('Popup cant fit into viewport', offstagePosition);
+              module.debug('Popup cant fit into viewport', position, offstagePosition);
               if(searchDepth < settings.maxSearchDepth) {
                 searchDepth++;
                 position = module.get.nextPosition(position);
@@ -1109,6 +1137,9 @@ $.fn.popup.settings = {
   // when to show popup
   on           : 'hover',
 
+  // whether to add touchstart events when using hover
+  addTouchEvents : true,
+
   // default position relative to element
   position     : 'top left',
   // name of variation to use
@@ -1149,8 +1180,8 @@ $.fn.popup.settings = {
 
   // delay used to prevent accidental refiring of animations due to user error
   delay        : {
-    show : 30,
-    hide : 0
+    show : 50,
+    hide : 70
   },
 
   // whether fluid variation should assign width explicitly
@@ -1159,7 +1190,6 @@ $.fn.popup.settings = {
 
   // transition settings
   duration       : 200,
-  easing         : 'easeOutQuint',
   transition     : 'scale',
 
   // distance away from activating element in px

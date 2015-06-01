@@ -135,7 +135,7 @@
 @metadataActionCursor: pointer;
 @metadataActionOpacity: 1;
 @metadataActionColor: rgba(0, 0, 0, 0.5);
-@metadataActionTransition: color @transitionDuration @transitionEasing;
+@metadataActionTransition: color @defaultDuration @defaultEasing;
 
 @metadataActionHoverColor: @selectedTextColor;
 

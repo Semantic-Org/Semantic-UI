@@ -85,6 +85,7 @@ module.exports = {
     'checkbox',
     'dimmer',
     'dropdown',
+    'embed',
     'modal',
     'nag',
     'popup',
@@ -96,7 +97,6 @@ module.exports = {
     'sticky',
     'tab',
     'transition',
-    'video',
 
     // behaviors
     'api',

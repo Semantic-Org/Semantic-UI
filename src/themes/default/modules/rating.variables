@@ -2,8 +2,7 @@
              Rating
 *******************************/
 
-@display: inline-block;
-@margin: 0em 0.75rem;
+@margin: 0em @relativeMini;
 @whiteSpace: nowrap;
 
 @verticalAlign: middle;

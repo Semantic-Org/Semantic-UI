@@ -14,10 +14,10 @@
 @horizontalPadding: @relativeHuge;
 
 @transition:
-  background-color @transitionDuration @transitionEasing,
-  opacity @transitionDuration @transitionEasing,
-  color @transitionDuration @transitionEasing,
-  box-shadow @transitionDuration @transitionEasing
+  background-color @defaultDuration @defaultEasing,
+  opacity @defaultDuration @defaultEasing,
+  color @defaultDuration @defaultEasing,
+  box-shadow @defaultDuration @defaultEasing
 ;
 @borderRadius: @defaultBorderRadius;
 @lineHeight: @relativeLarge;

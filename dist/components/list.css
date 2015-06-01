@@ -3,7 +3,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributorss
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -49,8 +49,8 @@ ol.ui.list li,
   table-layout: fixed;
   list-style-type: none;
   list-style-position: outside;
-  padding: 0.3em 0em;
-  line-height: 1.2;
+  padding: 0.285714em 0em;
+  line-height: 1.14285714em;
 }
 ul.ui.list > li:first-child:after,
 ol.ui.list > li:first-child:after,
@@ -89,15 +89,11 @@ ol.ui.list ol,
 .ui.list > .item > i.icon {
   display: table-cell;
   margin: 0em;
-  padding-top: 0.1rem;
-  padding-right: 0.3em;
-  vertical-align: middle;
-  -webkit-transition: color 0.2s ease;
-          transition: color 0.2s ease;
-}
-.ui.list .list > .item i[class*="top aligned"].icon,
-.ui.list > .item > i[class*="top aligned"].icon {
+  padding-top: 0.07142857em;
+  padding-right: 0.285714em;
   vertical-align: top;
+  -webkit-transition: color 0.1s ease;
+          transition: color 0.1s ease;
 }
 .ui.list .list > .item > i.icon:only-child,
 .ui.list > .item > i.icon:only-child {
@@ -112,15 +108,11 @@ ol.ui.list ol,
   background-color: transparent;
   margin: 0em;
   padding-right: 0.5em;
-  vertical-align: middle;
-}
-.ui.list .list > .item > [class*="top aligned"].image,
-.ui.list > .item > [class*="top aligned"].image {
   vertical-align: top;
 }
 .ui.list .list > .item > .image img,
 .ui.list > .item > .image img {
-  vertical-align: middle;
+  vertical-align: top;
 }
 .ui.list .list > .item > img.image,
 .ui.list .list > .item > .image:only-child,
@@ -133,14 +125,7 @@ ol.ui.list ol,
 /* Content */
 .ui.list .list > .item > .content,
 .ui.list > .item > .content {
-  line-height: 1.2em;
-}
-.ui.list .list > .item > .image + .content,
-.ui.list .list > .item > .icon + .content .ui.list > .item > .image + .content,
-.ui.list > .item > .icon + .content {
-  display: table-cell;
-  padding: 0em 0em 0em 0.5em;
-  vertical-align: middle;
+  line-height: 1.14285714em;
 }
 .ui.list .list > .item > .image + .content,
 .ui.list .list > .item > .icon + .content,
@@ -148,15 +133,11 @@ ol.ui.list ol,
 .ui.list > .item > .icon + .content {
   display: table-cell;
   padding: 0em 0em 0em 0.5em;
-  vertical-align: middle;
+  vertical-align: top;
 }
 .ui.list .list > .item > img.image + .content,
 .ui.list > .item > img.image + .content {
   display: inline-block;
-}
-.ui.list .list > .item [class*="top aligned"].content,
-.ui.list > .item > [class*="top aligned"].content {
-  vertical-align: top;
 }
 .ui.list .list > .item > .content > .list,
 .ui.list > .item > .content > .list {
@@ -202,7 +183,7 @@ ol.ui.list ol,
 .ui.list .list > .item .description,
 .ui.list > .item .description {
   display: block;
-  color: rgba(0, 0, 0, 0.87);
+  color: rgba(0, 0, 0, 0.7);
 }
 
 /* Floated Content */
@@ -229,8 +210,8 @@ ol.ui.list ol,
   background-color: transparent;
   list-style-type: none;
   list-style-position: outside;
-  padding: 0.3em 0em;
-  line-height: 1.2;
+  padding: 0.285714em 0em;
+  line-height: 1.14285714em;
 }
 .ui.menu .ui.list .list > .item:before,
 .ui.menu .ui.list > .item:before {
@@ -273,12 +254,20 @@ ol.ui.list ol,
   padding-left: 0em;
   padding-bottom: 0em;
 }
+.ui.horizontal.list > .item > .image,
+.ui.horizontal.list .list > .item > .image,
+.ui.horizontal.list > .item > .icon,
+.ui.horizontal.list .list > .item > .icon,
+.ui.horizontal.list > .item > .content,
+.ui.horizontal.list .list > .item > .content {
+  vertical-align: middle;
+}
 
 /* Padding on all elements */
 .ui.horizontal.list > .item:first-child,
 .ui.horizontal.list > .item:last-child {
-  padding-top: 0.3em;
-  padding-bottom: 0.3em;
+  padding-top: 0.285714em;
+  padding-bottom: 0.285714em;
 }
 
 /* Horizontal List */
@@ -365,6 +354,23 @@ ol.ui.list ol,
 }
 
 /*-------------------
+       Aligned
+--------------------*/
+
+.ui.list[class*="top aligned"],
+.ui.list [class*="top aligned"] {
+  vertical-align: top;
+}
+.ui.list[class*="middle aligned"],
+.ui.list [class*="middle aligned"] {
+  vertical-align: middle;
+}
+.ui.list[class*="bottom aligned"],
+.ui.list [class*="bottom aligned"] {
+  vertical-align: bottom;
+}
+
+/*-------------------
        Link
 --------------------*/
 
@@ -372,8 +378,8 @@ ol.ui.list ol,
 .ui.link.list a.item,
 .ui.link.list .item a:not(.ui) {
   color: rgba(0, 0, 0, 0.4);
-  -webkit-transition: 0.2s color ease;
-          transition: 0.2s color ease;
+  -webkit-transition: 0.1s color ease;
+          transition: 0.1s color ease;
 }
 .ui.link.list a.item:hover,
 .ui.link.list .item a:not(.ui):hover {
@@ -419,8 +425,8 @@ ol.ui.list ol,
   margin: 0em;
   color: rgba(0, 0, 0, 0.4);
   border-radius: 0.5em;
-  -webkit-transition: 0.2s color ease, 0.2s padding-left ease, 0.2s background-color ease;
-          transition: 0.2s color ease, 0.2s padding-left ease, 0.2s background-color ease;
+  -webkit-transition: 0.1s color ease, 0.1s padding-left ease, 0.1s background-color ease;
+          transition: 0.1s color ease, 0.1s padding-left ease, 0.1s background-color ease;
 }
 .ui.selection.list .list > .item:last-child,
 .ui.selection.list > .item:last-child {
@@ -477,8 +483,8 @@ ol.ui.list ol,
 --------------------*/
 
 .ui.animated.list > .item {
-  -webkit-transition: 0.2s color ease, 0.2s padding-left ease, 0.2s background-color ease;
-          transition: 0.2s color ease, 0.2s padding-left ease, 0.2s background-color ease;
+  -webkit-transition: 0.1s color ease, 0.1s padding-left ease, 0.1s background-color ease;
+          transition: 0.1s color ease, 0.1s padding-left ease, 0.1s background-color ease;
 }
 .ui.animated.list:not(.horizontal) > .item:hover {
   padding-left: 1em;
@@ -662,7 +668,7 @@ ol.ui.horizontal.list li:before,
 .ui.divided.ordered.list .item .list {
   margin-left: 0em;
   margin-right: 0em;
-  padding-bottom: 0.3em;
+  padding-bottom: 0.285714em;
 }
 .ui.divided.ordered.list .item .list > .item {
   padding-left: 1em;
@@ -715,8 +721,8 @@ ol.ui.horizontal.list li:before,
 /* Padding on all elements */
 .ui.celled.list > .item:first-child,
 .ui.celled.list > .item:last-child {
-  padding-top: 0.3em;
-  padding-bottom: 0.3em;
+  padding-top: 0.285714em;
+  padding-bottom: 0.285714em;
 }
 
 /* Sub Menu */
@@ -738,7 +744,7 @@ ol.ui.horizontal.list li:before,
 .ui.celled.bulleted.list .item .list {
   margin-left: -1rem;
   margin-right: -1rem;
-  padding-bottom: 0.3em;
+  padding-bottom: 0.285714em;
 }
 
 /* Celled Ordered */
@@ -752,7 +758,7 @@ ol.ui.horizontal.list li:before,
 .ui.celled.ordered.list .item .list {
   margin-left: 0em;
   margin-right: 0em;
-  padding-bottom: 0.3em;
+  padding-bottom: 0.285714em;
 }
 .ui.celled.ordered.list .list > .item {
   padding-left: 1em;
@@ -792,31 +798,23 @@ ol.ui.horizontal.list li:before,
 --------------------*/
 
 .ui.relaxed.list:not(.horizontal) > .item {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-.ui.relaxed.list .list > .item .header,
-.ui.relaxed.list > .item .header {
-  /*margin-bottom: @relaxedHeaderMargin;*/
+  padding-top: 0.571428em;
+  padding-bottom: 0.571428em;
 }
 .ui.horizontal.relaxed.list > .item {
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 /* Very Relaxed */
 .ui[class*="very relaxed"].list:not(.horizontal) > .item {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-.ui[class*="very relaxed"].list .list > .item .header,
-.ui[class*="very relaxed"].list > .item .header {
-  /*margin-bottom: @veryRelaxedHeaderMargin;*/
+  padding-top: 1.142856em;
+  padding-bottom: 1.142856em;
 }
 .ui.horizontal[class*="very relaxed"].list .list > .item,
 .ui.horizontal[class*="very relaxed"].list > .item {
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 /*-------------------

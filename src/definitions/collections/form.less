@@ -3,7 +3,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -263,6 +263,28 @@
             States
 *******************************/
 
+/*--------------------
+      Autofilled
+---------------------*/
+
+.ui.form .field.field input:-webkit-autofill {
+  box-shadow: 0px 0px 0px 100px @inputAutoFillBackground inset !important;
+  border-color: @inputAutoFillBorder !important;
+}
+
+/* Focus */
+.ui.form .field.field input:-webkit-autofill:focus {
+  box-shadow: 0px 0px 0px 100px @inputAutoFillFocusBackground inset !important;
+  border-color: @inputAutoFillFocusBorder !important;
+}
+
+/* Error */
+.ui.form .error.error input:-webkit-autofill {
+  box-shadow: 0px 0px 0px 100px @inputAutoFillErrorBackground inset !important;
+  border-color: @inputAutoFillErrorBorder !important;
+}
+
+
 
 /*--------------------
       Placeholder
@@ -310,6 +332,7 @@
   color: @inputErrorPlaceholderFocusColor;
 }
 
+
 /*--------------------
         Focus
 ---------------------*/
@@ -339,6 +362,7 @@
   box-shadow: @textAreaFocusBoxShadow;
   -webkit-appearance: none;
 }
+
 
 /*--------------------
         Success
@@ -516,17 +540,17 @@
        Disabled
 ---------------------*/
 
-.ui.form .field :disabled,
-.ui.form .field.disabled {
-  opacity: 0.5;
+.ui.form .disabled.fields .field,
+.ui.form .disabled.field,
+.ui.form .field :disabled {
+  opacity: @disabledOpacity;
 }
 .ui.form .field.disabled label {
-  opacity: 0.5;
+  opacity: @disabledLabelOpacity;
 }
 .ui.form .field.disabled :disabled {
   opacity: 1;
 }
-
 
 /*--------------
     Loading

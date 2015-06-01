@@ -3,7 +3,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -32,8 +32,8 @@
   border: 1px solid rgba(34, 36, 38, 0.15);
   color: rgba(0, 0, 0, 0.87);
   box-shadow: 0em 0em 0em 0em transparent inset;
-  -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-          transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  -webkit-transition: background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, border-color 0.1s ease;
+          transition: background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, border-color 0.1s ease;
 }
 .ui.search .prompt {
   border-radius: 500rem;
@@ -59,7 +59,7 @@
   background: #ffffff;
   margin-top: 0.5em;
   width: 18em;
-  border-radius: 0.2857rem;
+  border-radius: 0.285714rem;
   box-shadow: 0px 1px 3px 1px rgba(34, 36, 38, 0.15);
   z-index: 998;
 }
@@ -105,7 +105,7 @@
   margin: 0em 6em 0em 0em;
 }
 .ui.search > .results .result .title {
-  margin: -0.165em 0em 0em;
+  margin: -0.14285em 0em 0em;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 1em;
@@ -144,7 +144,7 @@
 .ui.search > .results > .action {
   display: block;
   border-top: none;
-  background: #f0f0f0;
+  background: #f3f4f5;
   padding: 0.92857143em 1em;
   color: rgba(0, 0, 0, 0.87);
   font-weight: bold;
@@ -161,7 +161,7 @@
        Loading
 ---------------------*/
 
-.ui.loading.search .input > .icon:before {
+.ui.loading.search .input > i.icon:before {
   position: absolute;
   content: '';
   top: 50%;
@@ -172,7 +172,7 @@
   border-radius: 500rem;
   border: 0.2em solid rgba(0, 0, 0, 0.1);
 }
-.ui.loading.search .input > .icon:after {
+.ui.loading.search .input > i.icon:after {
   position: absolute;
   content: '';
   top: 50%;
@@ -185,7 +185,7 @@
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
   border-radius: 500rem;
-  border-color: #aaaaaa transparent transparent;
+  border-color: #757676 transparent transparent;
   border-style: solid;
   border-width: 0.2em;
   box-shadow: 0px 0px 0px 1px transparent;
@@ -197,7 +197,7 @@
 
 .ui.search > .results .result:hover,
 .ui.category.search > .results .category .result:hover {
-  background: #fafafa;
+  background: #f9fafb;
 }
 .ui.search .action:hover {
   background: #e0e0e0;
@@ -208,7 +208,7 @@
 ---------------*/
 
 .ui.search > .results .category.active {
-  background: #f0f0f0;
+  background: #f3f4f5;
 }
 .ui.search > .results .category.active > .name {
   color: rgba(0, 0, 0, 0.87);
@@ -217,7 +217,7 @@
 .ui.category.search > .results .category .result.active {
   position: relative;
   border-left-color: transparent;
-  background: #f0f0f0;
+  background: #f3f4f5;
   box-shadow: none;
 }
 .ui.search > .results .result.active .title {
@@ -243,7 +243,7 @@
 
 /* Category */
 .ui.category.search > .results .category {
-  background: #f0f0f0;
+  background: #f3f4f5;
   box-shadow: none;
   border-bottom: 1px solid rgba(34, 36, 38, 0.15);
   -webkit-transition: background 0.2s ease, border-color 0.2s ease;
@@ -270,7 +270,7 @@
 /* Category Result Name */
 .ui.category.search > .results .category > .name {
   width: 100px;
-  background: #f0f0f0;
+  background: #f3f4f5;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 1em;
   float: 1em;

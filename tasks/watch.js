@@ -56,12 +56,13 @@ module.exports = function(callback) {
     return;
   }
 
-  // check for right-to-left language
+  // check for right-to-left (RTL) language
+  if(config.rtl == 'both') {
+    gulp.start('watch-rtl');
+  }
   if(config.rtl === true || config.rtl === 'Yes') {
     gulp.start('watch-rtl');
-    if(config.rtl !== 'both') {
-      return;
-    }
+    return;
   }
 
   //console.clear();

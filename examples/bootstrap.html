@@ -7,11 +7,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <!-- Site Properities -->
-  <title>Basic - Semantic</title>
+  <title>Bootstrap - Semantic</title>
   <link rel="stylesheet" type="text/css" href="../dist/semantic.css">
 
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+  <script src="assets/library/jquery.min.js"></script>
   <script src="../dist/semantic.js"></script>
+
+  <script>
+  $(document)
+    .ready(function() {
+      $('.ui.selection.dropdown').dropdown();
+      $('.ui.menu .ui.dropdown').dropdown({
+        on: 'hover'
+      });
+    })
+  ;
+  </script>
 </head>
 <body>
 
@@ -33,31 +44,41 @@
   <div class="row">
     <div class="column">
       <h1 class="ui header">Buttons</h1>
-      <a class="ui button">Default</a>
-      <a class="ui primary button">Primary</a>
-      <a class="ui basic button">Basic</a>
-      <a class="ui positive button">Success</a>
-      <a class="ui negative button">Error</a>
+      <a class="ui button" tabindex="0">
+        Default
+      </a>
+      <a class="ui primary button" tabindex="0">
+        Primary
+      </a>
+      <a class="ui basic button" tabindex="0">
+        Basic
+      </a>
+      <a class="ui positive button" tabindex="0">
+        Success
+      </a>
+      <a class="ui negative button" tabindex="0">
+        Error
+      </a>
     </div>
   </div>
   <div class="row">
     <div class="column">
       <h1 class="ui header">Thumbnails</h1>
       <div class="ui divider"></div>
-      <img class="ui small image" src="images/wireframe/image.png">
+      <img class="ui small image" src="assets/images/wireframe/image.png">
     </div>
   </div>
   <div class="row">
     <div class="column">
       <h1 class="ui header">Dropdown</h1>
       <div class="ui divider"></div>
-      <div class="ui selection dropdown">Dropdown
+      <div class="ui selection dropdown">
+        <input type="hidden" name="selection">
         <i class="dropdown icon"></i>
+        <div class="default text">Select</div>
         <div class="menu">
-          <div class="item active">Action</div>
-          <div class="item">Another action</div>
-          <div class="item">Something else here</div>
-          <div class="item">One more link</div>
+          <div class="item" data-value="male">Male</div>
+          <div class="item" data-value="female">Female</div>
         </div>
       </div>
       <div class="ui vertical menu">
@@ -415,15 +436,6 @@
     </div>
   </div>
 </div>
-
-
-<script>
-$(document)
-  .ready(function() {
-    $('.ui.dropdown').dropdown();
-  })
-;
-</script>
 
 </body>
 

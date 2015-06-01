@@ -3,7 +3,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -43,9 +43,9 @@
   background: #ffffff;
   border: 1px solid rgba(34, 36, 38, 0.15);
   color: rgba(0, 0, 0, 0.87);
-  border-radius: 0.2857rem;
-  -webkit-transition: background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-          transition: background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  border-radius: 0.285714rem;
+  -webkit-transition: background-color 0.1s ease, box-shadow 0.1s ease, border-color 0.1s ease;
+          transition: background-color 0.1s ease, box-shadow 0.1s ease, border-color 0.1s ease;
   box-shadow: none;
 }
 
@@ -111,7 +111,7 @@
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
   border-radius: 500rem;
-  border-color: #aaaaaa transparent transparent;
+  border-color: #757676 transparent transparent;
   border-style: solid;
   border-width: 0.2em;
   box-shadow: 0px 0px 0px 1px transparent;
@@ -146,7 +146,7 @@
 ---------------------*/
 
 .ui.input.error input {
-  background-color: #fff0f0;
+  background-color: #fff6f6;
   border-color: #e0b4b4;
   color: #db2828;
   box-shadow: none;
@@ -228,6 +228,7 @@
 .ui.icon.input > i.icon {
   cursor: default;
   position: absolute;
+  line-height: 1;
   text-align: center;
   top: 0px;
   right: 0px;
@@ -235,7 +236,7 @@
   height: 100%;
   width: 2.82142em;
   opacity: 0.5;
-  border-radius: 0em 0.2857rem 0.2857rem 0em;
+  border-radius: 0em 0.285714rem 0.285714rem 0em;
   -webkit-transition: opacity 0.3s ease;
           transition: opacity 0.3s ease;
 }
@@ -263,7 +264,7 @@
 .ui[class*="left icon"].input > i.icon {
   right: auto;
   left: 1px;
-  border-radius: 0.2857rem 0em 0em 0.2857rem;
+  border-radius: 0.285714rem 0em 0em 0.285714rem;
 }
 .ui[class*="left icon"].input > i.circular.icon {
   right: auto;
@@ -325,7 +326,7 @@
   top: 1px;
   right: 1px;
   font-size: 0.64285em;
-  border-radius: 0em 0.2857rem 0em 0em;
+  border-radius: 0em 0.285714rem 0em 0em;
 }
 .ui.labeled.input input {
   padding-right: 2.5em !important;
@@ -379,7 +380,7 @@
 .ui.action.input:not([class*="left action"]) > .dropdown:last-child,
 .ui.action.input:not([class*="left action"]) > .button:last-child,
 .ui.action.input:not([class*="left action"]) > .buttons:last-child > .button {
-  border-radius: 0px 0.2857rem 0.2857rem 0px;
+  border-radius: 0px 0.285714rem 0.285714rem 0px;
 }
 
 /* Button on Left */
@@ -391,7 +392,7 @@
 .ui[class*="left action"].input > .dropdown:first-child,
 .ui[class*="left action"].input > .button:first-child,
 .ui[class*="left action"].input > .buttons:first-child > .button {
-  border-radius: 0.2857rem 0px 0px 0.2857rem;
+  border-radius: 0.285714rem 0px 0px 0.285714rem;
 }
 .ui[class*="left action"].input > input {
   border-left: none;

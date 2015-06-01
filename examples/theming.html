@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <!-- Site Properities -->
+  <title>Theming - Semantic</title>
+  <link rel="stylesheet" type="text/css" href="../dist/semantic.css">
+
+  <script src="assets/library/jquery.min.js"></script>
+  <script src="assets/library/iframe.js"></script>
+
+  <style type="text/css">
+    body > .ui.container {
+      margin-top: 3em;
+    }
+    iframe {
+      border: none;
+      width: calc(100% + 2em);
+      margin: 0em -1em;
+      height: 300px;
+    }
+    iframe html {
+      overflow: hidden;
+    }
+    iframe body {
+      padding: 0em;
+    }
+
+    .ui.container > h1 {
+      font-size: 3em;
+      text-align: center;
+      font-weight: normal;
+    }
+    .ui.container > h2.dividing.header {
+      font-size: 2em;
+      font-weight: normal;
+      margin: 4em 0em 3em;
+    }
+
+
+    .ui.table {
+      table-layout: fixed;
+    }
+  </style>
+</head>
+<body>
+
+<div class="ui container">
+
+  <h1>Theming Examples</h1>
+
+  <h2 class="ui dividing header">Site</h2>
+  <iframe src="components/site.html" width="100%" scrolling="no"></iframe>
+
+  <h2 class="ui dividing header">Menu</h2>
+  <iframe src="components/menu.html" width="100%" scrolling="no"></iframe>
+
+  <h2 class="ui dividing header">Buttons</h2>
+  <iframe src="components/button.html" width="100%" scrolling="no"></iframe>
+
+  <h2 class="ui dividing header">Table</h2>
+  <iframe src="components/table.html" width="100%" scrolling="no"></iframe>
+
+  <h2 class="ui dividing header">Input</h2>
+  <iframe src="components/input.html" width="100%" scrolling="no"></iframe>
+
+
+  <h2 class="ui dividing header">Card</h2>
+  <iframe src="components/card.html" width="100%" scrolling="no"></iframe>
+
+
+
+</div>
+
+
+<script>
+$('iframe').iFrameResize({
+  autoResize: true,
+  heightCalculationMethod: 'bodyScroll'
+});
+</script>
+</body>
+
+</html>

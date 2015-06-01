@@ -11,23 +11,23 @@
 @verticalMargin: 1em;
 @verticalPadding: 1em;
 @horizontalPadding: 1.5em;
-@background: @darkWhite;
+@background: #F8F8F9;
 @lineHeightOffset: ((@lineHeight - 1em) / 2);
 
 @borderRadius: @defaultBorderRadius;
 @borderWidth: 1px;
-@borderShadow: 0px 0px 0px @borderWidth @borderColor inset;
-@shadowShadow: @subtleShadow;
+@borderShadow: 0px 0px 0px @borderWidth @strongBorderColor inset;
+@shadowShadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
 @boxShadow:
   @borderShadow,
   @shadowShadow
 ;
 
 @transition:
-  opacity 0.2s ease,
-  color 0.2s ease,
-  background 0.2s ease,
-  box-shadow 0.2s ease
+  opacity @defaultDuration @defaultEasing,
+  color @defaultDuration @defaultEasing,
+  background @defaultDuration @defaultEasing,
+  box-shadow @defaultDuration @defaultEasing
 ;
 
 /* Header */
@@ -53,7 +53,7 @@
 @iconDistance: 0.6em;
 
 /* Close Icon */
-@closeTopDistance: (1em + @lineHeightOffset);
+@closeTopDistance: @verticalPadding - @lineHeightOffset;
 @closeRightDistance: 0.5em;
 @closeOpacity: 0.7;
 @closeTransition: opacity @defaultDuration @defaultEasing;
@@ -72,17 +72,16 @@
 /* Attached */
 @attachedXOffset: -1px;
 @attachedYOffset: -1px;
-@attachedBoxShadow: 0em 0em 0em @borderWidth rgba(0, 0, 0, 0.1) inset;
+@attachedBoxShadow: 0em 0em 0em @borderWidth @borderColor inset;
 @attachedBottomBoxShadow:
   @attachedBoxShadow,
   @subtleShadow
 ;
 
 /* Floating */
-@floatingShadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15);
 @floatingBoxShadow:
-  @floatingShadow,
-  @borderShadow
+  @borderShadow,
+  @floatingShadow
 ;
 
 /* Warning / Positive / Negative / Info */

@@ -3,7 +3,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -202,6 +202,8 @@ $.fn.modal = function(parameters) {
             module.verbose('Attaching events');
             $module
               .on('click' + eventNamespace, selector.close, module.event.close)
+              .on('click' + eventNamespace, selector.approve, module.event.approve)
+              .on('click' + eventNamespace, selector.deny, module.event.deny)
             ;
             $window
               .on('resize' + elementNamespace, module.event.resize)
@@ -216,30 +218,22 @@ $.fn.modal = function(parameters) {
         },
 
         event: {
+          approve: function() {
+            if(settings.onApprove.call(element, $(this)) === false) {
+              module.verbose('Approve callback returned false cancelling hide');
+              return;
+            }
+            module.hide();
+          },
+          deny: function() {
+            if(settings.onDeny.call(element, $(this)) === false) {
+              module.verbose('Deny callback returned false cancelling hide');
+              return;
+            }
+            module.hide();
+          },
           close: function() {
-            var
-              $element = $(this)
-            ;
-            module.verbose('Closing element activated');
-            if( $element.is(selector.approve) ) {
-              if(settings.onApprove.call(element, $element) !== false) {
-                module.hide();
-              }
-              else {
-                module.verbose('Approve callback returned false cancelling hide');
-              }
-            }
-            else if( $element.is(selector.deny) ) {
-              if(settings.onDeny.call(element, $element) !== false) {
-                module.hide();
-              }
-              else {
-                module.verbose('Deny callback returned false cancelling hide');
-              }
-            }
-            else {
-              module.hide();
-            }
+            module.hide();
           },
           click: function(event) {
             var
@@ -355,16 +349,7 @@ $.fn.modal = function(parameters) {
                 ;
               }
               else {
-                module.debug('Showing modal with javascript');
-                $module
-                  .fadeIn(settings.duration, settings.easing, function() {
-                    settings.onVisible.apply(element);
-                    module.add.keyboardShortcuts();
-                    module.save.focus();
-                    module.set.active();
-                    callback();
-                  })
-                ;
+                module.error(error.noTransition);
               }
             }
           }
@@ -406,18 +391,7 @@ $.fn.modal = function(parameters) {
               ;
             }
             else {
-              module.remove.active();
-              if( !module.othersActive() ) {
-                module.hideDimmer();
-              }
-              module.remove.keyboardShortcuts();
-              $module
-                .fadeOut(settings.duration, settings.easing, function() {
-                  settings.onHidden.call(element);
-                  module.restore.focus();
-                  callback();
-                })
-              ;
+              module.error(error.noTransition);
             }
           }
         },
@@ -884,7 +858,7 @@ $.fn.modal.settings = {
   onDeny     : function(){ return true; },
 
   selector    : {
-    close    : '.close, .actions .button',
+    close    : '.close',
     approve  : '.actions .positive, .actions .approve, .actions .ok',
     deny     : '.actions .negative, .actions .deny, .actions .cancel',
     modal    : '.ui.modal'

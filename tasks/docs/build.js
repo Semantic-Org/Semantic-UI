@@ -81,7 +81,7 @@ module.exports = function(callback) {
     .pipe(map(metadata.parser))
     .on('end', function() {
       fs.writeFile(output.metadata + '/metadata.json', JSON.stringify(metadata.result, null, 2));
-    });
+    })
   ;
 
   /*--------------

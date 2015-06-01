@@ -3,7 +3,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -341,121 +341,135 @@
 }
 
 /*-------------------
-       Fittted
+       Clearing
 --------------------*/
 
-.ui.fitted.segment {
-  padding: 0em;
+.ui.clearing.segment:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
 }
 
 /*-------------------
        Colors
 --------------------*/
 
-.ui.black.segment:not(.inverted) {
-  border-top: @coloredBorderSize solid @black;
-}
-.ui.blue.segment:not(.inverted) {
-  border-top: @coloredBorderSize solid @blue;
-}
-.ui.green.segment:not(.inverted) {
-  border-top: @coloredBorderSize solid @green;
-}
-.ui.orange.segment:not(.inverted) {
-  border-top: @coloredBorderSize solid @orange;
-}
-.ui.pink.segment:not(.inverted) {
-  border-top: @coloredBorderSize solid @pink;
-}
-.ui.purple.segment:not(.inverted) {
-  border-top: @coloredBorderSize solid @purple;
-}
+/* Red */
 .ui.red.segment:not(.inverted) {
   border-top: @coloredBorderSize solid @red;
-}
-.ui.teal.segment:not(.inverted) {
-  border-top: @coloredBorderSize solid @teal;
-}
-.ui.yellow.segment:not(.inverted) {
-  border-top: @coloredBorderSize solid @yellow;
-}
-
-.ui.black.segment:not(.inverted):not(.attached) {
-  border-top-left-radius: @coloredBorderRadius !important;
-  border-top-right-radius: @coloredBorderRadius !important;
-}
-.ui.blue.segment:not(.inverted):not(.attached) {
-  border-top-left-radius: @coloredBorderRadius !important;
-  border-top-right-radius: @coloredBorderRadius !important;
-}
-.ui.green.segment:not(.inverted):not(.attached) {
-  border-top-left-radius: @coloredBorderRadius !important;
-  border-top-right-radius: @coloredBorderRadius !important;
-}
-.ui.orange.segment:not(.inverted):not(.attached) {
-  border-top-left-radius: @coloredBorderRadius !important;
-  border-top-right-radius: @coloredBorderRadius !important;
-}
-.ui.pink.segment:not(.inverted):not(.attached) {
-  border-top-left-radius: @coloredBorderRadius !important;
-  border-top-right-radius: @coloredBorderRadius !important;
-}
-.ui.purple.segment:not(.inverted):not(.attached) {
-  border-top-left-radius: @coloredBorderRadius !important;
-  border-top-right-radius: @coloredBorderRadius !important;
-}
-.ui.red.segment:not(.inverted):not(.attached) {
-  border-top-left-radius: @coloredBorderRadius !important;
-  border-top-right-radius: @coloredBorderRadius !important;
-}
-.ui.teal.segment:not(.inverted):not(.attached) {
-  border-top-left-radius: @coloredBorderRadius !important;
-  border-top-right-radius: @coloredBorderRadius !important;
-}
-.ui.yellow.segment:not(.inverted):not(.attached) {
-  border-top-left-radius: @coloredBorderRadius !important;
-  border-top-right-radius: @coloredBorderRadius !important;
-}
-
-/*-------------------
-   Inverted Colors
---------------------*/
-
-.ui.inverted.segment,
-.ui.inverted.black.segment {
-  background-color: @black !important;
-  color: @white !important;
-}
-.ui.inverted.blue.segment {
-  background-color: @blue !important;
-  color: @white !important;
-}
-.ui.inverted.green.segment {
-  background-color: @green !important;
-  color: @white !important;
-}
-.ui.inverted.orange.segment {
-  background-color: @orange !important;
-  color: @white !important;
-}
-.ui.inverted.pink.segment {
-  background-color: @pink !important;
-  color: @white !important;
-}
-.ui.inverted.purple.segment {
-  background-color: @purple !important;
-  color: @white !important;
 }
 .ui.inverted.red.segment {
   background-color: @red !important;
   color: @white !important;
 }
+
+/* Orange */
+.ui.orange.segment:not(.inverted) {
+  border-top: @coloredBorderSize solid @orange;
+}
+.ui.inverted.orange.segment {
+  background-color: @orange !important;
+  color: @white !important;
+}
+
+/* Yellow */
+.ui.yellow.segment:not(.inverted) {
+  border-top: @coloredBorderSize solid @yellow;
+}
+.ui.inverted.yellow.segment {
+  background-color: @yellow !important;
+  color: @white !important;
+}
+
+/* Olive */
+.ui.olive.segment:not(.inverted) {
+  border-top: @coloredBorderSize solid @olive;
+}
+.ui.inverted.olive.segment {
+  background-color: @olive !important;
+  color: @white !important;
+}
+
+/* Green */
+.ui.green.segment:not(.inverted) {
+  border-top: @coloredBorderSize solid @green;
+}
+.ui.inverted.green.segment {
+  background-color: @green !important;
+  color: @white !important;
+}
+
+/* Teal */
+.ui.teal.segment:not(.inverted) {
+  border-top: @coloredBorderSize solid @teal;
+}
 .ui.inverted.teal.segment {
   background-color: @teal !important;
   color: @white !important;
 }
-.ui.inverted.yellow.segment {
-  background-color: @yellow !important;
+
+/* Blue */
+.ui.blue.segment:not(.inverted) {
+  border-top: @coloredBorderSize solid @blue;
+}
+.ui.inverted.blue.segment {
+  background-color: @blue !important;
+  color: @white !important;
+}
+
+/* Violet */
+.ui.violet.segment:not(.inverted) {
+  border-top: @coloredBorderSize solid @violet;
+}
+.ui.inverted.violet.segment {
+  background-color: @violet !important;
+  color: @white !important;
+}
+
+/* Purple */
+.ui.purple.segment:not(.inverted) {
+  border-top: @coloredBorderSize solid @purple;
+}
+.ui.inverted.purple.segment {
+  background-color: @purple !important;
+  color: @white !important;
+}
+
+/* Pink */
+.ui.pink.segment:not(.inverted) {
+  border-top: @coloredBorderSize solid @pink;
+}
+.ui.inverted.pink.segment {
+  background-color: @pink !important;
+  color: @white !important;
+}
+
+/* Brown */
+.ui.brown.segment:not(.inverted) {
+  border-top: @coloredBorderSize solid @brown;
+}
+.ui.inverted.brown.segment {
+  background-color: @brown !important;
+  color: @white !important;
+}
+
+/* Grey */
+.ui.grey.segment:not(.inverted) {
+  border-top: @coloredBorderSize solid @grey;
+}
+.ui.inverted.grey.segment {
+  background-color: @grey !important;
+  color: @white !important;
+}
+
+/* Black */
+.ui.black.segment:not(.inverted) {
+  border-top: @coloredBorderSize solid @black;
+}
+.ui.inverted.black.segment {
+  background-color: @black !important;
   color: @white !important;
 }
 
@@ -494,8 +508,6 @@
 
 .ui.inverted.segment {
   border: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
 }
 .ui.inverted.segment .segment {
@@ -526,7 +538,7 @@
 
 .ui.tertiary.segment {
   background: @tertiaryBackground;
-  color: @textColor;
+  color: @tertiaryColor;
 }
 
 .ui.secondary.inverted.segment {

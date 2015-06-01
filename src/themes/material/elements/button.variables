@@ -28,11 +28,11 @@
 @shadowBoxShadow: 0px 0px 0px 0px transparent;
 
 @transition:
-  opacity 0.3s @transitionEasing,
-  background-color 0.3s @transitionEasing,
-  color 0.3s @transitionEasing,
-  box-shadow 0.3s @transitionEasing,
-  background 0.3s @transitionEasing
+  opacity 0.3s @defaultEasing,
+  background-color 0.3s @defaultEasing,
+  color 0.3s @defaultEasing,
+  box-shadow 0.3s @defaultEasing,
+  background 0.3s @defaultEasing
 ;
 /*-------------------
         State

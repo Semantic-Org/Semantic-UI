@@ -11,9 +11,9 @@
 @borderSpacing: 0px;
 @borderRadius: @defaultBorderRadius;
 @transition:
-  background @transitionDuration @transitionEasing,
-  border-color @transitionDuration @transitionEasing,
-  color @transitionDuration @transitionEasing
+  background @defaultDuration @defaultEasing,
+  border-color @defaultDuration @defaultEasing,
+  color @defaultDuration @defaultEasing
 ;
 @background: @white;
 @color: @textColor;
@@ -37,13 +37,13 @@
 @cellBorder: 1px solid @internalBorderColor;
 
 /* Table Header */
-@headerBorder: 1px solid @borderColor;
+@headerBorder: 1px solid @internalBorderColor;
 @headerDivider: none;
 @headerBackground: @offWhite;
 @headerAlign: inherit;
 @headerVerticalAlign: inherit;
 @headerColor: @textColor;
-@headerVerticalPadding: @relativeMedium;
+@headerVerticalPadding: @relativeSmall;
 @headerHorizontalPadding: @cellHorizontalPadding;
 @headerFontStyle: none;
 @headerFontWeight: bold;
@@ -54,7 +54,7 @@
 @footerBoxShadow: none;
 @footerBorder: 1px solid @borderColor;
 @footerDivider: none;
-@footerBackground: @white;
+@footerBackground: @offWhite;
 @footerAlign: inherit;
 @footerVerticalAlign: middle;
 @footerColor: @textColor;

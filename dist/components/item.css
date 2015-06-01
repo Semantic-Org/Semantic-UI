@@ -3,7 +3,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributorss
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -32,8 +32,8 @@
   border: none;
   border-radius: 0rem;
   box-shadow: none;
-  -webkit-transition: box-shadow 0.2s ease;
-          transition: box-shadow 0.2s ease;
+  -webkit-transition: box-shadow 0.1s ease;
+          transition: box-shadow 0.1s ease;
   z-index: '';
 }
 .ui.items > .item a {
@@ -140,7 +140,7 @@
   padding-left: 1.5em;
 }
 .ui.items > .item > .content > .header {
-  display: block;
+  display: inline-block;
   margin: -0.21425em 0em 0em;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: bold;
@@ -232,8 +232,8 @@
 /* Generic */
 .ui.items > .item > .content a:not(.ui) {
   color: '';
-  -webkit-transition: color 0.2s ease;
-          transition: color 0.2s ease;
+  -webkit-transition: color 0.1s ease;
+          transition: color 0.1s ease;
 }
 .ui.items > .item > .content a:not(.ui):hover {
   color: '';
@@ -267,8 +267,8 @@
 .ui.items > .item > .content .favorite.icon {
   cursor: pointer;
   opacity: 0.75;
-  -webkit-transition: color 0.2s ease;
-          transition: color 0.2s ease;
+  -webkit-transition: color 0.1s ease;
+          transition: color 0.1s ease;
 }
 .ui.items > .item > .content .favorite.icon:hover {
   opacity: 1;
@@ -285,8 +285,8 @@
 .ui.items > .item > .content .like.icon {
   cursor: pointer;
   opacity: 0.75;
-  -webkit-transition: color 0.2s ease;
-          transition: color 0.2s ease;
+  -webkit-transition: color 0.1s ease;
+          transition: color 0.1s ease;
 }
 .ui.items > .item > .content .like.icon:hover {
   opacity: 1;
@@ -311,8 +311,8 @@
   left: 0em;
   color: rgba(0, 0, 0, 0.4);
   box-shadow: none;
-  -webkit-transition: color 0.2s ease;
-          transition: color 0.2s ease;
+  -webkit-transition: color 0.1s ease;
+          transition: color 0.1s ease;
   border-top: none;
 }
 .ui.items > .item .extra > * {
