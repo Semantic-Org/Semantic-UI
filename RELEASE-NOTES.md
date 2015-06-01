@@ -1,6 +1,5 @@
 ## RELEASE NOTES
 
-<<<<<<< HEAD
 ### Version 2.0.0 - March xx, 2015
 
 -**Migration Guide**
@@ -13,6 +12,7 @@
 - **Dropdown** - Dropdown item `description` now float right in default theme and should be included before other content
 - **Popup** - Popups are no longer exclusive by default. Opening a popup will not necessarily close other visible popups. You can change this behavior by using the setting `exclusive: true`. Additionally the default theme now uses `1em` size for `medium` popups.
 - **Colors** - Default colors have been slightly adjusted, and new colors have been added, which may cause slight changes in your design.
+- **Segment** - Segment no longer includes a [clearfix](http://learnlayout.com/clearfix.html) by default. You will need to specify a `clearing segment` to fix issues caused by floated content.
 
 **New UI**
 - **Container** - Containers are fixed width containers meant for holding page contents, and are a simpler alternative to `ui page grid`, view more [examples in docs](http://www.semantic-ui.com/elements/container.html#examples)
@@ -23,6 +23,7 @@
 - **Dropdown** - Added new dropdown variation `scrolling dropdown` and `scrolling menu`, see docs or try it out with the language menu in the navigation bar
 - **Image** - Images now include a `spaced` variation for adding whitespace around images when used inline with text.
 - **Dimmer** - Dimmers now have a `blurring` variation which apply a glass-like effect when dimmed
+- **Segment** - Added `clearing` segment for cases that need a [clearfix](http://learnlayout.com/clearfix.html).
 - **Steps** - Added `attached` steps, which can now be attached to other UI like `segment`
 - **Table** - Adds `selectable table` variation, which shows hover effect on row when hovering
 - **Visibility** - Visibility can now handle "sticky" `fixed` content, adding a placeholder duplicate element which will automatically appear when an element swaps to fixed position
@@ -267,7 +268,6 @@
 - **Table** - Horizontal cell padding has been slightly reduced, and cell borders are slightly lighter.
 - **Transition - Transition no longer checks for vendor prefixed `animation-name` css property. This was introduced in jQuery `1.8`
 - **Visibility** - In returned `calculations` object, `visible` and `hidden` are renamed to `onScreen` and `offScreen`, since this describes more accurately what the value represents.
-=======
 
 ### Version 1.12.3 - May 20, 2015
 
@@ -276,7 +276,6 @@ Version 2.0 will be launching on June 1st, which will include 100+ bug fixes, en
 
 **Bugs**
 - **Grid** - Fixes bug causing colored variations not to work on columns without row wrappers. Backport from `2.x`
->>>>>>> 1f541d830bd40a5594621aedec8a326391430c15
 
 ### Version 1.12.2 - May 4, 2015
 
