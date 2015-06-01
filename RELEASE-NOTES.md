@@ -116,7 +116,7 @@
 - **Statistic** - Added new evenly divided group variation, for example `three statistics` shows 3 per row
 - **Statistic** - Statitic group now use `flex`. Styles have been updated.
 - **Tabs** - Added new callbacks `onTabVisible` and `onRequest`
-- **Tabs* - Added `parseScripts` option, defaults to `once` parsing inline scripts only first load
+- **Tabs** - Added `parseScripts` option, defaults to `once` parsing inline scripts only first load
 - **Table** - Added `vertical alignment` variations to `ui table`
 - **Table** - Added `single line` table variation which prevents text from wrapping
 - **Visibility/Sticky** - Visibility and sticky now refresh automatically after page content loading to deal with changes in position from images loading
@@ -248,7 +248,7 @@
 - **Label** - Label size now varies by type. `pointing label` are now `1em` by default.
 - **Label** - Padding on `corner label` has been increased
 - **Input** - Input now use `em` instead of `rem` so they will inherit the size of the elements they are nested inside
-- **Progress* - Update contrast on `indicating`, update default styles. Fixed some examples
+- **Progress** - Update contrast on `indicating`, update default styles. Fixed some examples
 - **Menu** - Menu now uses `border` for borders instead of `box-shadow`
 - **Menu** - `secondary pointing menu` has had some slight design tweaks, thinner lines, more padding
 - **Menu** - Active sub-menu items are now `bold`
@@ -270,7 +270,7 @@
 - **Site** - Adjusted global line height to the closest even pixel value
 - **Table** - Table header colors and padding defaults have been slightly adjusted
 - **Table** - Horizontal cell padding has been slightly reduced, and cell borders are slightly lighter.
-- **Transition - Transition no longer checks for vendor prefixed `animation-name` css property. This was introduced in jQuery `1.8`
+- **Transition** - Transition no longer checks for vendor prefixed `animation-name` css property. This was introduced in jQuery `1.8`
 - **Visibility** - In returned `calculations` object, `visible` and `hidden` are renamed to `onScreen` and `offScreen`, since this describes more accurately what the value represents.
 
 ### Version 1.12.3 - May 20, 2015

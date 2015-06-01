@@ -155,6 +155,7 @@
 .ui.menu >  .grid,
 .ui.menu > .container {
   display: flex;
+  flex-direction: inherit;
 }
 
 /*--------------
@@ -265,6 +266,8 @@
   display: block;
 }
 .ui.menu .ui.dropdown .menu > .item .icon:not(.dropdown) {
+  display: inline-block;
+  font-size: @dropdownItemIconFontSize !important;
   float: @dropdownItemIconFloat;
   margin: @dropdownItemIconMargin;
 }
@@ -1066,10 +1069,13 @@ Floated Menu / Item
   color: @iconMenuItemColor;
 }
 .ui.icon.menu .item > .icon {
-  display: block;
-  float: none !important;
-  margin: 0em auto !important;
+  margin: 0em;
   opacity: 1;
+}
+.ui.vertical.icon.menu .item > .icon:not(.dropdown) {
+  display: block;
+  margin: 0em auto;
+  float: none;
 }
 .ui.icon.menu .icon:before {
   opacity: 1;
@@ -1077,16 +1083,12 @@ Floated Menu / Item
 
 /* Item Icon Only */
 .ui.menu .icon.item > .icon {
-  margin: 0em;
   width: auto;
 }
 
 /*--- inverted ---*/
 .ui.inverted.icon.menu .item {
-  color: rgba(255, 255, 255, 0.8);
-}
-.ui.inverted.icon.menu .icon {
-  color: rgba(255, 255, 255, 1);
+  color: @iconMenuInvertedItemColor;
 }
 
 /*--------------
@@ -1108,13 +1110,13 @@ Floated Menu / Item
   padding-right: @labeledIconItemHorizontalPadding;
 }
 
-.ui.labeled.icon.menu .item > .icon {
+.ui.labeled.icon.menu .item > .icon:not(.dropdown) {
   height: 1em;
   display: block;
   font-size: @labeledIconSize !important;
   margin: 0em @labeledIconTextMargin 0em 0em !important;
 }
-.ui.vertical.labeled.icon.menu .item > .icon {
+.ui.vertical.labeled.icon.menu .item > .icon:not(.dropdown) {
   margin: 0em auto @labeledIconTextMargin !important;
 }
 
