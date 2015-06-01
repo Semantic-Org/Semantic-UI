@@ -354,8 +354,8 @@
 @textMenuHeaderTextTransform: uppercase;
 
 @textVerticalMenuMargin: @relativeMedium 0em;
-@textVerticalMenuHeaderMargin: 0.4285em 0em 0.5714em;
-@textVerticalMenuItemMargin: 0.4285em 0em;
+@textVerticalMenuHeaderMargin: 0.5714em 0em 0.71428em;
+@textVerticalMenuItemMargin: 0.5714em 0em;
 
 @textVerticalMenuIconFloat: none;
 @textVerticalMenuIconMargin: @iconMargin;
