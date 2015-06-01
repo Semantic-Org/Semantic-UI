@@ -157,10 +157,6 @@
   display: flex;
 }
 
-.ui.menu > .ui.container > .item:first-child {
-  padding-left: 0em;
-}
-
 /*--------------
      Inputs
 ---------------*/
@@ -241,6 +237,7 @@
 
 /* Menu Items */
 .ui.menu .ui.dropdown .menu > .item {
+  margin: 0;
   font-size: @dropdownItemFontSize !important;
   padding: @dropdownItemPadding !important;
   background: @dropdownItemBackground !important;
@@ -309,7 +306,7 @@
   border-top-right-radius: 0em;
   border-bottom-right-radius: 0em;
 }
-.ui.vertical.menu .dropdown.item.active {
+.ui.vertical.menu .dropdown.active.item {
   box-shadow: none;
 }
 
@@ -376,7 +373,13 @@
   bottom: 0px;
 }
 
+/*--------------
+    Container
+---------------*/
 
+.ui.menu:not(.secondary):not(.text):not(.tabular) > .container > .item:not(.right):first-child {
+  border-left: @dividerSize solid @dividerBackground;
+}
 
 
 /*******************************
@@ -657,6 +660,15 @@ Floated Menu / Item
   border-radius: @tabularBorderRadius 0px 0px @tabularBorderRadius;
 }
 
+/* Dropdown */
+.ui.tabular.menu .active.dropdown.item {
+  margin-bottom: 0px;
+  border-left: @tabularBorderWidth solid transparent;
+  border-right: @tabularBorderWidth solid transparent;
+  border-top: @tabularOppositeBorderWidth solid transparent;
+  border-bottom: none;
+}
+
 
 
 /*--------------
@@ -707,8 +719,7 @@ Floated Menu / Item
 }
 
 /* Item */
-.ui.secondary.menu > .menu > .item,
-.ui.secondary.menu > .item {
+.ui.secondary.menu .item {
   align-self: center;
   box-shadow: none;
   border: none;
@@ -719,9 +730,8 @@ Floated Menu / Item
   transition: @secondaryItemTransition;
 }
 
-/* Border */
-.ui.secondary.menu > .menu > .item:before,
-.ui.secondary.menu > .item:before {
+/* No Divider */
+.ui.secondary.menu .item:before {
   display: none !important;
 }
 
@@ -746,8 +756,7 @@ Floated Menu / Item
 }
 
 /* Active */
-.ui.secondary.menu > .menu > .active.item,
-.ui.secondary.menu > .active.item {
+.ui.secondary.menu .active.item {
   box-shadow: none;
   background: @secondaryActiveItemBackground;
   color: @secondaryActiveItemColor;
@@ -755,8 +764,7 @@ Floated Menu / Item
 }
 
 /* Active Hover */
-.ui.secondary.menu > .menu > .active.item:hover,
-.ui.secondary.menu > .active.item:hover {
+.ui.secondary.menu .active.item:hover {
   box-shadow: none;
   background: @secondaryActiveHoverItemBackground;
   color: @secondaryActiveHoverItemColor;
@@ -780,7 +788,7 @@ Floated Menu / Item
 }
 
 /* Disable variations */
-.ui.secondary.item.menu > .item {
+.ui.secondary.item.menu .item {
   margin: 0em;
 }
 .ui.secondary.attached.menu {
@@ -819,8 +827,7 @@ Floated Menu / Item
   border-bottom: @secondaryPointingBorderWidth solid @secondaryPointingBorderColor;
 }
 
-.ui.secondary.pointing.menu > .item,
-.ui.secondary.pointing.menu .menu > .item {
+.ui.secondary.pointing.menu .item {
   border-bottom-color: transparent;
   border-bottom-style: solid;
   border-radius: 0em;
@@ -839,34 +846,28 @@ Floated Menu / Item
 .ui.secondary.pointing.menu .text.item {
   box-shadow: none !important;
 }
-.ui.secondary.pointing.menu > .menu > .item:after,
-.ui.secondary.pointing.menu > .item:after {
+.ui.secondary.pointing.menu .item:after {
   display: none;
 }
 
 /* Hover */
-.ui.secondary.pointing.menu > .menu > .dropdown.item:hover,
-.ui.secondary.pointing.menu > .menu > .link.item:hover,
-.ui.secondary.pointing.menu > .dropdown.item:hover,
-.ui.secondary.pointing.menu > .link.item:hover,
-.ui.secondary.pointing.menu > .menu > a.item:hover,
-.ui.secondary.pointing.menu > a.item:hover {
+.ui.secondary.pointing.menu .dropdown.item:hover,
+.ui.secondary.pointing.menu .link.item:hover,
+.ui.secondary.pointing.menu a.item:hover {
   background-color: transparent;
   color: @secondaryPointingHoverTextColor;
 }
 
 /* Pressed */
-.ui.secondary.pointing.menu > .menu > .link.item:active,
-.ui.secondary.pointing.menu > .link.item:active,
-.ui.secondary.pointing.menu > .menu > a.item:active,
-.ui.secondary.pointing.menu > a.item:active {
+.ui.secondary.pointing.menu .dropdown.item:active,
+.ui.secondary.pointing.menu .link.item:active,
+.ui.secondary.pointing.menu a.item:active {
   background-color: transparent;
   border-color: @secondaryPointingBorderColor;
 }
 
 /* Active */
-.ui.secondary.pointing.menu > .menu > .item.active,
-.ui.secondary.pointing.menu > .item.active {
+.ui.secondary.pointing.menu .active.item {
   background-color: transparent;
   box-shadow: none;
   border-color: @secondaryPointingActiveBorderColor;
@@ -875,10 +876,14 @@ Floated Menu / Item
 }
 
 /* Active Hover */
-.ui.secondary.pointing.menu > .menu > .item.active:hover,
-.ui.secondary.pointing.menu > .item.active:hover {
+.ui.secondary.pointing.menu .active.item:hover {
   border-color: @secondaryPointingActiveHoverBorderColor;
   color: @secondaryPointingActiveHoverTextColor;
+}
+
+/* Active Dropdown */
+.ui.secondary.pointing.menu .active.dropdown.item {
+  border-color: @secondaryPointingActiveDropdownBorderColor;
 }
 
 /* Vertical Pointing */
@@ -888,7 +893,7 @@ Floated Menu / Item
   border-right-style: solid;
   border-right-color: @secondaryPointingBorderColor;
 }
-.ui.secondary.vertical.pointing.menu > .item {
+.ui.secondary.vertical.pointing.menu .item {
   border-bottom: none;
   border-right-style: solid;
   border-right-color: transparent;
@@ -898,8 +903,7 @@ Floated Menu / Item
 }
 
 /* Vertical Active */
-.ui.secondary.vertical.pointing.menu > .menu > .item.active,
-.ui.secondary.vertical.pointing.menu > .item.active {
+.ui.secondary.vertical.pointing.menu .active.item {
   border-color: @secondaryPointingActiveBorderColor;
 }
 
@@ -912,22 +916,20 @@ Floated Menu / Item
   border-width: @secondaryPointingBorderWidth;
   border-color: @secondaryPointingBorderColor;
 }
-.ui.secondary.inverted.pointing.menu > .item {
+.ui.secondary.inverted.pointing.menu .item {
   color: @secondaryPointingInvertedItemTextColor;
 }
-.ui.secondary.inverted.pointing.menu > .header.item {
+.ui.secondary.inverted.pointing.menu .header.item {
   color: @secondaryPointingInvertedItemHeaderColor !important;
 }
 
 /* Hover */
-.ui.secondary.inverted.pointing.menu > .menu > .item:hover,
-.ui.secondary.inverted.pointing.menu > .item:hover {
+.ui.secondary.inverted.pointing.menu .item:hover {
   color: @secondaryPointingInvertedItemHoverTextColor;
 }
 
 /* Active */
-.ui.secondary.inverted.pointing.menu > .menu > .item.active,
-.ui.secondary.inverted.pointing.menu > .item.active {
+.ui.secondary.inverted.pointing.menu .active.item {
   border-color: @secondaryPointingInvertedActiveBorderColor;
   color: @secondaryPointingInvertedActiveColor;
 }
@@ -944,8 +946,7 @@ Floated Menu / Item
 
   margin: @textMenuMargin;
 }
-.ui.text.menu > .item,
-.ui.text.menu > .menu > .item {
+.ui.text.menu .item {
   padding: 0em;
   border-radius: 0px;
   box-shadow: none;
@@ -962,8 +963,8 @@ Floated Menu / Item
 }
 
 /* Border */
-.ui.text.menu > .item:before,
-.ui.text.menu .menu > .item:before {
+.ui.text.menu .item:before,
+.ui.text.menu .menu .item:before {
   display: none !important;
 }
 
@@ -984,7 +985,7 @@ Floated Menu / Item
 }
 
 /*--- fluid text ---*/
-.ui.text.item.menu > .item {
+.ui.text.item.menu .item {
   margin: 0em;
 }
 
@@ -1030,7 +1031,7 @@ Floated Menu / Item
   background-color: transparent;
 }
 
-/* disable variations */
+/* Disable Bariations */
 .ui.text.pointing.menu .active.item:after {
   box-shadow: none;
 }
@@ -1042,7 +1043,7 @@ Floated Menu / Item
 .ui.inverted.text.menu,
 .ui.inverted.text.menu .item,
 .ui.inverted.text.menu .item:hover,
-.ui.inverted.text.menu .item.active {
+.ui.inverted.text.menu .active.item {
   background-color: transparent !important;
 }
 
@@ -1056,12 +1057,12 @@ Floated Menu / Item
     Icon Only
 ---------------*/
 
-.ui.icon.menu > .item {
+.ui.icon.menu .item {
   height: auto;
   text-align: @iconMenuTextAlign;
   color: @iconMenuItemColor;
 }
-.ui.icon.menu > .item > .icon {
+.ui.icon.menu .item > .icon {
   display: block;
   float: none !important;
   margin: 0em auto !important;
@@ -1092,20 +1093,25 @@ Floated Menu / Item
 .ui.labeled.icon.menu {
   text-align: center;
 }
-.ui.fluid.labeled.icon.menu > .item {
+.ui.fluid.labeled.icon.menu .item {
   min-width: 0em;
 }
 
-.ui.labeled.icon.menu > .item {
+.ui.labeled.icon.menu .item {
   min-width: @labeledIconMinWidth;
 }
-.ui.labeled.icon.menu > .item > .icon {
+.ui.labeled.icon.menu:not(.vetical) .item {
+  padding-left: @labeledIconItemHorizontalPadding;
+  padding-right: @labeledIconItemHorizontalPadding;
+}
+
+.ui.labeled.icon.menu .item > .icon {
   height: 1em;
   display: block;
   font-size: @labeledIconSize !important;
   margin: 0em @labeledIconTextMargin 0em 0em !important;
 }
-.ui.vertical.labeled.icon.menu > .item > .icon {
+.ui.vertical.labeled.icon.menu .item > .icon {
   margin: 0em auto @labeledIconTextMargin !important;
 }
 

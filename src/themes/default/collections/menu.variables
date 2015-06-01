@@ -88,7 +88,7 @@
 @arrowBorderWidth: 1px;
 @arrowBorder: @arrowBorderWidth solid @solidBorderColor;
 @arrowTransition: background @defaultDuration @defaultEasing;
-@arrowZIndex: 11;
+@arrowZIndex: 2;
 
 @arrowHoverColor: #F4F4F4;
 @arrowActiveColor: #F4F4F4;
@@ -251,6 +251,8 @@
 @secondaryPointingActiveTextColor: @selectedTextColor;
 @secondaryPointingActiveFontWeight: bold;
 
+@secondaryPointingActiveDropdownBorderColor: transparent;
+
 @secondaryPointingActiveHoverBorderColor: @secondaryPointingActiveBorderColor;
 @secondaryPointingActiveHoverTextColor: @secondaryPointingActiveTextColor;
 
@@ -325,7 +327,8 @@
 @paginationActiveTextColor: @selectedTextColor;
 
 /* Labeled Icon */
-@labeledIconSize: @relativeMassive;
+@labeledIconItemHorizontalPadding: @relativeMassive;
+@labeledIconSize: @relativeHuge;
 @labeledIconMinWidth: 6em;
 @labeledIconTextMargin: 0.5rem;
 
