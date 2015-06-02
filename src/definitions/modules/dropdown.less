@@ -1025,7 +1025,8 @@ select.ui.dropdown {
   overflow-y: auto;
   backface-visibility: hidden;
   -webkit-overflow-scrolling: touch;
-  width: @scrollingMenuWidth !important;
+  min-width: 100% !important;
+  width: auto !important;
 }
 
 .ui.dropdown .scrolling.menu {
@@ -1035,7 +1036,8 @@ select.ui.dropdown {
   box-shadow: none !important;
   border-radius: 0 !important;
   margin: 0 !important;
-  width: @scrollingMenuWidth !important;
+  min-width: 100% !important;
+  width: auto !important;
   border-top: @menuBorder;
 }
 .ui.scrolling.dropdown .menu .item.item.item,
