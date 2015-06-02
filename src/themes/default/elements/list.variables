@@ -135,10 +135,12 @@
 @invertedSelectionListActiveColor: @invertedSelectedTextColor;
 
 /* Animated List */
+@animatedDuration: 0.25s;
+@animatedDelay: 0.1s;
 @animatedListTransition:
-  @defaultDuration color @defaultEasing,
-  @defaultDuration padding-left @defaultEasing,
-  @defaultDuration background-color @defaultEasing
+  @animatedDuration color @defaultEasing @animatedDelay,
+  @animatedDuration padding-left @defaultEasing @animatedDelay,
+  @animatedDuration background-color @defaultEasing @animatedDelay
 ;
 @animatedListIndent: 1em;
 
