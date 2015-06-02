@@ -731,7 +731,7 @@
     
     &{.forCols(3, 10); .-each(@num, @i) {
       .@{num}.fields > .fields:extend(.ui.form .two.fields > .field) {}
-      .@{num}.fields > .field:extend(.ui.form .two.fields > .field) {}
+      .@{num}.fields > .field :extend(.ui.form .two.fields > .field) {}
     }}
   }
 }
@@ -768,8 +768,8 @@
 /* Swap to full width on mobile */
 @media only screen and (max-width : @largestMobileScreen) {
   .ui.form {
-    .two.fields > .field,
-    .two.fields > .fields {
+    .two.fields > .fields,
+    .two.fields > .field {
       .fractionWidth(1, 1) !important;
       margin: @fieldMargin;
       padding-left: 0%;
@@ -777,10 +777,10 @@
     }
     
     &{.forCols(3, 5); .-each(@num, @i) {
-      .@{num}.fields > .field:extend(.ui.form .two.fields > .field) {}
       .@{num}.fields > .fields:extend(.ui.form .two.fields > .field) {}
+      .@{num}.fields > .field :extend(.ui.form .two.fields > .field) {}
     }}
-    &{.forCols(3); .-each(@num, @i) {
+    &{.forCols(2); .-each(@num, @i) {
       .fields > .@{num}.wide.field:extend(.ui.form .two.fields > .field) {}
     }}
   }

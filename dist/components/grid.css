@@ -2045,77 +2045,77 @@
     margin: 0em;
   }
   .ui[class*="two column"].doubling.grid > .row > .column,
-  .ui[class*="two column"].doubling.grid > .column:now(.row),
+  .ui[class*="two column"].doubling.grid > .column:not(.row),
   .ui.grid > [class*="two column"].doubling.row.row > .column {
     width: 100% !important;
   }
   .ui[class*="three column"].doubling.grid > .row > .column,
-  .ui[class*="three column"].doubling.grid > .column:now(.row),
+  .ui[class*="three column"].doubling.grid > .column:not(.row),
   .ui.grid > [class*="three column"].doubling.row.row > .column {
     width: 50% !important;
   }
   .ui[class*="four column"].doubling.grid > .row > .column,
-  .ui[class*="four column"].doubling.grid > .column:now(.row),
+  .ui[class*="four column"].doubling.grid > .column:not(.row),
   .ui.grid > [class*="four column"].doubling.row.row > .column {
     width: 50% !important;
   }
   .ui[class*="five column"].doubling.grid > .row > .column,
-  .ui[class*="five column"].doubling.grid > .column:now(.row),
+  .ui[class*="five column"].doubling.grid > .column:not(.row),
   .ui.grid > [class*="five column"].doubling.row.row > .column {
     width: 33.33333333% !important;
   }
   .ui[class*="six column"].doubling.grid > .row > .column,
-  .ui[class*="six column"].doubling.grid > .column:now(.row),
+  .ui[class*="six column"].doubling.grid > .column:not(.row),
   .ui.grid > [class*="six column"].doubling.row.row > .column {
     width: 33.33333333% !important;
   }
   .ui[class*="seven column"].doubling.grid > .row > .column,
-  .ui[class*="seven column"].doubling.grid > .column:now(.row),
+  .ui[class*="seven column"].doubling.grid > .column:not(.row),
   .ui.grid > [class*="seven column"].doubling.row.row > .column {
     width: 33.33333333% !important;
   }
   .ui[class*="eight column"].doubling.grid > .row > .column,
-  .ui[class*="eight column"].doubling.grid > .column:now(.row),
+  .ui[class*="eight column"].doubling.grid > .column:not(.row),
   .ui.grid > [class*="eight column"].doubling.row.row > .column {
     width: 25% !important;
   }
   .ui[class*="nine column"].doubling.grid > .row > .column,
-  .ui[class*="nine column"].doubling.grid > .column:now(.row),
+  .ui[class*="nine column"].doubling.grid > .column:not(.row),
   .ui.grid > [class*="nine column"].doubling.row.row > .column {
     width: 25% !important;
   }
   .ui[class*="ten column"].doubling.grid > .row > .column,
-  .ui[class*="ten column"].doubling.grid > .column:now(.row),
+  .ui[class*="ten column"].doubling.grid > .column:not(.row),
   .ui.grid > [class*="ten column"].doubling.row.row > .column {
     width: 20% !important;
   }
   .ui[class*="eleven column"].doubling.grid > .row > .column,
-  .ui[class*="eleven column"].doubling.grid > .column:now(.row),
+  .ui[class*="eleven column"].doubling.grid > .column:not(.row),
   .ui.grid > [class*="eleven column"].doubling.row.row > .column {
     width: 20% !important;
   }
   .ui[class*="twelve column"].doubling.grid > .row > .column,
-  .ui[class*="twelve column"].doubling.grid > .column:now(.row),
+  .ui[class*="twelve column"].doubling.grid > .column:not(.row),
   .ui.grid > [class*="twelve column"].doubling.row.row > .column {
     width: 16.66666667% !important;
   }
   .ui[class*="thirteen column"].doubling.grid > .row > .column,
-  .ui[class*="thirteen column"].doubling.grid > .column:now(.row),
+  .ui[class*="thirteen column"].doubling.grid > .column:not(.row),
   .ui.grid > [class*="thirteen column"].doubling.row.row > .column {
     width: 16.66666667% !important;
   }
   .ui[class*="fourteen column"].doubling.grid > .row > .column,
-  .ui[class*="fourteen column"].doubling.grid > .column:now(.row),
+  .ui[class*="fourteen column"].doubling.grid > .column:not(.row),
   .ui.grid > [class*="fourteen column"].doubling.row.row > .column {
     width: 14.28571429% !important;
   }
   .ui[class*="fifteen column"].doubling.grid > .row > .column,
-  .ui[class*="fifteen column"].doubling.grid > .column:now(.row),
+  .ui[class*="fifteen column"].doubling.grid > .column:not(.row),
   .ui.grid > [class*="fifteen column"].doubling.row.row > .column {
     width: 14.28571429% !important;
   }
   .ui[class*="sixteen column"].doubling.grid > .row > .column,
-  .ui[class*="sixteen column"].doubling.grid > .column:now(.row),
+  .ui[class*="sixteen column"].doubling.grid > .column:not(.row),
   .ui.grid > [class*="sixteen column"].doubling.row.row > .column {
     width: 12.5% !important;
   }

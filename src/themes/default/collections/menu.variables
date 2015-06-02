@@ -148,6 +148,7 @@
 @dropdownItemTransition: none;
 
 @dropdownItemIconFloat: none;
+@dropdownItemIconFontSize: @relativeMedium;
 @dropdownItemIconMargin: 0em 0.75em 0em 0em;
 
 @dropdownHoveredItemBackground: @transparentBlack;
@@ -298,7 +299,8 @@
 
 /* Icon */
 @iconMenuTextAlign: center;
-@iconMenuItemColor: @textColor;
+@iconMenuItemColor: @black;
+@iconMenuInvertedItemColor: @white;
 
 
 /* Tabular */
@@ -352,8 +354,8 @@
 @textMenuHeaderTextTransform: uppercase;
 
 @textVerticalMenuMargin: @relativeMedium 0em;
-@textVerticalMenuHeaderMargin: 0.4285em 0em 0.5714em;
-@textVerticalMenuItemMargin: 0.4285em 0em;
+@textVerticalMenuHeaderMargin: 0.5714em 0em 0.71428em;
+@textVerticalMenuItemMargin: 0.5714em 0em;
 
 @textVerticalMenuIconFloat: none;
 @textVerticalMenuIconMargin: @iconMargin;

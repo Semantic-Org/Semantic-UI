@@ -854,14 +854,15 @@
 
 /* Swap to full width on mobile */
 @media only screen and (max-width: 767px) {
-  .ui.form .two.fields > .field,
   .ui.form .two.fields > .fields,
-  .ui.form .three.fields > .field,
+  .ui.form .two.fields > .field,
   .ui.form .three.fields > .fields,
-  .ui.form .four.fields > .field,
+  .ui.form .three.fields > .field,
   .ui.form .four.fields > .fields,
-  .ui.form .five.fields > .field,
+  .ui.form .four.fields > .field,
   .ui.form .five.fields > .fields,
+  .ui.form .five.fields > .field,
+  .ui.form .fields > .two.wide.field,
   .ui.form .fields > .three.wide.field,
   .ui.form .fields > .four.wide.field,
   .ui.form .fields > .five.wide.field,

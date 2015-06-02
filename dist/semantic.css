@@ -16369,14 +16369,15 @@ ol.ui.horizontal.list li:before,
 /* Swap to full width on mobile */
 
 @media only screen and (max-width: 767px) {
-  .ui.form .two.fields > .field,
   .ui.form .two.fields > .fields,
-  .ui.form .three.fields > .field,
+  .ui.form .two.fields > .field,
   .ui.form .three.fields > .fields,
-  .ui.form .four.fields > .field,
+  .ui.form .three.fields > .field,
   .ui.form .four.fields > .fields,
-  .ui.form .five.fields > .field,
+  .ui.form .four.fields > .field,
   .ui.form .five.fields > .fields,
+  .ui.form .five.fields > .field,
+  .ui.form .fields > .two.wide.field,
   .ui.form .fields > .three.wide.field,
   .ui.form .fields > .four.wide.field,
   .ui.form .fields > .five.wide.field,
@@ -18866,91 +18867,91 @@ ol.ui.horizontal.list li:before,
   }
 
   .ui[class*="two column"].doubling.grid > .row > .column,
-  .ui[class*="two column"].doubling.grid > .column:now(.row),
+  .ui[class*="two column"].doubling.grid > .column:not(.row),
   .ui.grid > [class*="two column"].doubling.row.row > .column {
     width: 100% !important;
   }
 
   .ui[class*="three column"].doubling.grid > .row > .column,
-  .ui[class*="three column"].doubling.grid > .column:now(.row),
+  .ui[class*="three column"].doubling.grid > .column:not(.row),
   .ui.grid > [class*="three column"].doubling.row.row > .column {
     width: 50% !important;
   }
 
   .ui[class*="four column"].doubling.grid > .row > .column,
-  .ui[class*="four column"].doubling.grid > .column:now(.row),
+  .ui[class*="four column"].doubling.grid > .column:not(.row),
   .ui.grid > [class*="four column"].doubling.row.row > .column {
     width: 50% !important;
   }
 
   .ui[class*="five column"].doubling.grid > .row > .column,
-  .ui[class*="five column"].doubling.grid > .column:now(.row),
+  .ui[class*="five column"].doubling.grid > .column:not(.row),
   .ui.grid > [class*="five column"].doubling.row.row > .column {
     width: 33.33333333% !important;
   }
 
   .ui[class*="six column"].doubling.grid > .row > .column,
-  .ui[class*="six column"].doubling.grid > .column:now(.row),
+  .ui[class*="six column"].doubling.grid > .column:not(.row),
   .ui.grid > [class*="six column"].doubling.row.row > .column {
     width: 33.33333333% !important;
   }
 
   .ui[class*="seven column"].doubling.grid > .row > .column,
-  .ui[class*="seven column"].doubling.grid > .column:now(.row),
+  .ui[class*="seven column"].doubling.grid > .column:not(.row),
   .ui.grid > [class*="seven column"].doubling.row.row > .column {
     width: 33.33333333% !important;
   }
 
   .ui[class*="eight column"].doubling.grid > .row > .column,
-  .ui[class*="eight column"].doubling.grid > .column:now(.row),
+  .ui[class*="eight column"].doubling.grid > .column:not(.row),
   .ui.grid > [class*="eight column"].doubling.row.row > .column {
     width: 25% !important;
   }
 
   .ui[class*="nine column"].doubling.grid > .row > .column,
-  .ui[class*="nine column"].doubling.grid > .column:now(.row),
+  .ui[class*="nine column"].doubling.grid > .column:not(.row),
   .ui.grid > [class*="nine column"].doubling.row.row > .column {
     width: 25% !important;
   }
 
   .ui[class*="ten column"].doubling.grid > .row > .column,
-  .ui[class*="ten column"].doubling.grid > .column:now(.row),
+  .ui[class*="ten column"].doubling.grid > .column:not(.row),
   .ui.grid > [class*="ten column"].doubling.row.row > .column {
     width: 20% !important;
   }
 
   .ui[class*="eleven column"].doubling.grid > .row > .column,
-  .ui[class*="eleven column"].doubling.grid > .column:now(.row),
+  .ui[class*="eleven column"].doubling.grid > .column:not(.row),
   .ui.grid > [class*="eleven column"].doubling.row.row > .column {
     width: 20% !important;
   }
 
   .ui[class*="twelve column"].doubling.grid > .row > .column,
-  .ui[class*="twelve column"].doubling.grid > .column:now(.row),
+  .ui[class*="twelve column"].doubling.grid > .column:not(.row),
   .ui.grid > [class*="twelve column"].doubling.row.row > .column {
     width: 16.66666667% !important;
   }
 
   .ui[class*="thirteen column"].doubling.grid > .row > .column,
-  .ui[class*="thirteen column"].doubling.grid > .column:now(.row),
+  .ui[class*="thirteen column"].doubling.grid > .column:not(.row),
   .ui.grid > [class*="thirteen column"].doubling.row.row > .column {
     width: 16.66666667% !important;
   }
 
   .ui[class*="fourteen column"].doubling.grid > .row > .column,
-  .ui[class*="fourteen column"].doubling.grid > .column:now(.row),
+  .ui[class*="fourteen column"].doubling.grid > .column:not(.row),
   .ui.grid > [class*="fourteen column"].doubling.row.row > .column {
     width: 14.28571429% !important;
   }
 
   .ui[class*="fifteen column"].doubling.grid > .row > .column,
-  .ui[class*="fifteen column"].doubling.grid > .column:now(.row),
+  .ui[class*="fifteen column"].doubling.grid > .column:not(.row),
   .ui.grid > [class*="fifteen column"].doubling.row.row > .column {
     width: 14.28571429% !important;
   }
 
   .ui[class*="sixteen column"].doubling.grid > .row > .column,
-  .ui[class*="sixteen column"].doubling.grid > .column:now(.row),
+  .ui[class*="sixteen column"].doubling.grid > .column:not(.row),
   .ui.grid > [class*="sixteen column"].doubling.row.row > .column {
     width: 12.5% !important;
   }
@@ -19386,6 +19387,11 @@ ol.ui.horizontal.list li:before,
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: inherit;
+  -ms-flex-direction: inherit;
+  flex-direction: inherit;
 }
 
 /*--------------
@@ -19503,6 +19509,8 @@ ol.ui.horizontal.list li:before,
 }
 
 .ui.menu .ui.dropdown .menu > .item .icon:not(.dropdown) {
+  display: inline-block;
+  font-size: 1em !important;
   float: none;
   margin: 0em 0.75em 0em 0em;
 }
@@ -20146,7 +20154,7 @@ Floated Menu / Item
   -webkit-align-self: flex-end;
   -ms-flex-item-align: end;
   align-self: flex-end;
-  margin-bottom: -2px;
+  margin: 0em 0em -2px;
   padding: 0.85714286em 1em;
   border-bottom-width: 2px;
   -webkit-transition: color 0.1s ease;
@@ -20342,7 +20350,7 @@ Floated Menu / Item
 }
 
 .ui.vertical.text.menu .item {
-  margin: 0.4285em 0em;
+  margin: 0.5714em 0em;
 }
 
 .ui.vertical.text.menu .item > i.icon {
@@ -20351,7 +20359,7 @@ Floated Menu / Item
 }
 
 .ui.vertical.text.menu .header.item {
-  margin: 0.4285em 0em 0.5714em;
+  margin: 0.5714em 0em 0.71428em;
 }
 
 /*--- hover ---*/
@@ -20411,14 +20419,18 @@ Floated Menu / Item
 .ui.icon.menu .item {
   height: auto;
   text-align: center;
-  color: rgba(0, 0, 0, 0.87);
+  color: #1b1c1d;
 }
 
 .ui.icon.menu .item > .icon {
-  display: block;
-  float: none !important;
-  margin: 0em auto !important;
+  margin: 0em;
   opacity: 1;
+}
+
+.ui.vertical.icon.menu .item > .icon:not(.dropdown) {
+  display: block;
+  margin: 0em auto;
+  float: none;
 }
 
 .ui.icon.menu .icon:before {
@@ -20428,17 +20440,12 @@ Floated Menu / Item
 /* Item Icon Only */
 
 .ui.menu .icon.item > .icon {
-  margin: 0em;
   width: auto;
 }
 
 /*--- inverted ---*/
 
 .ui.inverted.icon.menu .item {
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.ui.inverted.icon.menu .icon {
   color: #ffffff;
 }
 
@@ -20463,14 +20470,14 @@ Floated Menu / Item
   padding-right: 1.71428571em;
 }
 
-.ui.labeled.icon.menu .item > .icon {
+.ui.labeled.icon.menu .item > .icon:not(.dropdown) {
   height: 1em;
   display: block;
   font-size: 1.42857143em !important;
   margin: 0em 0.5rem 0em 0em !important;
 }
 
-.ui.vertical.labeled.icon.menu .item > .icon {
+.ui.vertical.labeled.icon.menu .item > .icon:not(.dropdown) {
   margin: 0em auto 0.5rem !important;
 }
 
@@ -20572,6 +20579,12 @@ Floated Menu / Item
 .ui.brown.menu .active.item {
   border-color: #a5673f !important;
   color: #a5673f !important;
+}
+
+.ui.menu .grey.active.item,
+.ui.grey.menu .active.item {
+  border-color: #757676 !important;
+  color: #757676 !important;
 }
 
 /*--------------
@@ -20856,6 +20869,20 @@ Floated Menu / Item
 }
 
 .ui.inverted.brown.menu .active.item {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Grey */
+
+.ui.inverted.grey.menu {
+  background-color: #757676;
+}
+
+.ui.inverted.grey.menu .item:before {
+  background-color: rgba(34, 36, 38, 0.1);
+}
+
+.ui.inverted.grey.menu .active.item {
   background-color: rgba(0, 0, 0, 0.1) !important;
 }
 

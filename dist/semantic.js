@@ -15298,8 +15298,11 @@ $.fn.tab = function(parameters) {
         initialize: function() {
           module.debug('Initializing tab menu item', $module);
 
+          module.fix.callbacks();
+
           module.determineTabs();
           module.debug('Determining tabs', settings.context, $tabs);
+
 
           // set up automatic routing
           if(settings.auto) {
@@ -15349,6 +15352,24 @@ $.fn.tab = function(parameters) {
           else {
             $tabs = $context.find(selector.tabs);
             module.debug('Searching tab context for tabs', $context, $tabs);
+          }
+        },
+
+        fix: {
+          callbacks: function() {
+            if( $.isPlainObject(parameters) && (parameters.onTabLoad || parameters.onTabInit) ) {
+              if(parameters.onTabLoad) {
+                parameters.onLoad = parameters.onTabLoad;
+                delete parameters.onTabLoad;
+                module.error(error.legacyLoad, parameters.onLoad);
+              }
+              if(parameters.onTabInit) {
+                parameters.onFirstLoad = parameters.onTabInit;
+                delete parameters.onTabInit;
+                module.error(error.legacyInit, parameters.onFirstLoad);
+              }
+              settings = $.extend(true, {}, $.fn.tab.settings, parameters);
+            }
           }
         },
 
@@ -15479,6 +15500,23 @@ $.fn.tab = function(parameters) {
               };
             }
           },
+          loading: function(tabPath) {
+            var
+              $tab      = module.get.tabElement(tabPath),
+              isLoading = $tab.hasClass(className.loading)
+            ;
+            if(!isLoading) {
+              module.verbose('Setting loading state for', $tab);
+              $tab
+                .addClass(className.loading)
+                .siblings($tabs)
+                  .removeClass(className.active + ' ' + className.loading)
+              ;
+              if($tab.length > 0) {
+                settings.onRequest.call($tab[0], tabPath);
+              }
+            }
+          },
           state: function(state) {
             $.address.value(state);
           }
@@ -15514,7 +15552,6 @@ $.fn.tab = function(parameters) {
             ;
             module.verbose('Looking for tab', tab);
             if(isTab) {
-
               module.verbose('Tab was found', tab);
               // scope up
               activeTabPath  = currentPath;
@@ -15534,15 +15571,15 @@ $.fn.tab = function(parameters) {
               if(isLastTab && remoteContent) {
                 if(!shouldIgnoreLoad) {
                   module.activate.navigation(currentPath);
-                  module.content.fetch(currentPath, tabPath);
+                  module.fetch.content(currentPath, tabPath);
                 }
                 else {
                   module.debug('Ignoring remote content on first tab load', currentPath);
                   firstLoad = false;
                   module.cache.add(tabPath, $tab.html());
                   module.activate.all(currentPath);
-                  settings.onTabInit.call($tab, currentPath, parameterArray, historyEvent);
-                  settings.onTabLoad.call($tab, currentPath, parameterArray, historyEvent);
+                  settings.onFirstLoad.call($tab[0], currentPath, parameterArray, historyEvent);
+                  settings.onLoad.call($tab[0], currentPath, parameterArray, historyEvent);
                 }
                 return false;
               }
@@ -15552,10 +15589,11 @@ $.fn.tab = function(parameters) {
                 if( !module.cache.read(currentPath) ) {
                   module.cache.add(currentPath, true);
                   module.debug('First time tab loaded calling tab init');
-                  settings.onTabInit.call($tab, currentPath, parameterArray, historyEvent);
+                  settings.onFirstLoad.call($tab[0], currentPath, parameterArray, historyEvent);
                 }
-                settings.onTabLoad.call($tab, currentPath, parameterArray, historyEvent);
+                settings.onLoad.call($tab[0], currentPath, parameterArray, historyEvent);
               }
+
             }
             else if(tabPath.search('/') == -1 && tabPath !== '') {
               // look for in page anchor
@@ -15569,8 +15607,9 @@ $.fn.tab = function(parameters) {
                 if( !module.cache.read(currentPath) ) {
                   module.cache.add(currentPath, true);
                   module.debug('First time tab loaded calling tab init');
-                  settings.onTabInit.call($tab, currentPath, parameterArray, historyEvent);
+                  settings.onFirstLoad.call($tab[0], currentPath, parameterArray, historyEvent);
                 }
+
                 return false;
               }
             }
@@ -15581,72 +15620,8 @@ $.fn.tab = function(parameters) {
           });
         },
 
-        content: {
-
-          fetch: function(tabPath, fullTabPath) {
-            var
-              $tab        = module.get.tabElement(tabPath),
-              apiSettings = {
-                dataType  : 'html',
-                on        : 'now',
-                onSuccess : function(response) {
-                  module.cache.add(fullTabPath, response);
-                  module.content.update(tabPath, response);
-                  if(tabPath == activeTabPath) {
-                    module.debug('Content loaded', tabPath);
-                    module.activate.tab(tabPath);
-                  }
-                  else {
-                    module.debug('Content loaded in background', tabPath);
-                  }
-                  settings.onTabInit.call($tab, tabPath, parameterArray, historyEvent);
-                  settings.onTabLoad.call($tab, tabPath, parameterArray, historyEvent);
-                },
-                urlData: {
-                  tab: fullTabPath
-                }
-              },
-              request         = $tab.api('get request') || false,
-              existingRequest = ( request && request.state() === 'pending' ),
-              requestSettings,
-              cachedContent
-            ;
-
-            fullTabPath   = fullTabPath || tabPath;
-            cachedContent = module.cache.read(fullTabPath);
-
-
-            module.activate.tab(tabPath);
-
-            if(settings.cache && cachedContent) {
-              module.debug('Adding cached content', fullTabPath);
-              if(settings.evaluateScripts == 'once') {
-                module.content.update(tabPath, cachedContent, false);
-              }
-              else {
-                module.content.update(tabPath, cachedContent);
-              }
-              settings.onTabLoad.call($tab, tabPath, parameterArray, historyEvent);
-            }
-            else if(existingRequest) {
-              module.debug('Content is already loading', fullTabPath);
-              $tab.addClass(className.loading);
-            }
-            else if($.api !== undefined) {
-              requestSettings = $.extend(true, {
-                headers: {
-                  'X-Remote': true
-                }
-              }, settings.apiSettings, apiSettings);
-              module.debug('Retrieving remote content', fullTabPath, requestSettings);
-              $tab.api(requestSettings);
-            }
-            else {
-              module.error(error.api);
-            }
-          },
-
-          update: function(tabPath, html, evaluateScripts) {
+        update: {
+          content: function(tabPath, html, evaluateScripts) {
             var
               $tab = module.get.tabElement(tabPath),
               tab  = $tab[0]
@@ -15666,6 +15641,71 @@ $.fn.tab = function(parameters) {
           }
         },
 
+        fetch: {
+
+          content: function(tabPath, fullTabPath) {
+            var
+              $tab        = module.get.tabElement(tabPath),
+              apiSettings = {
+                dataType  : 'html',
+                on        : 'now',
+                onSuccess : function(response) {
+                  module.cache.add(fullTabPath, response);
+                  module.update.content(tabPath, response);
+                  if(tabPath == activeTabPath) {
+                    module.debug('Content loaded', tabPath);
+                    module.activate.tab(tabPath);
+                  }
+                  else {
+                    module.debug('Content loaded in background', tabPath);
+                  }
+                  settings.onFirstLoad.call($tab[0], tabPath, parameterArray, historyEvent);
+                  settings.onLoad.call($tab[0], tabPath, parameterArray, historyEvent);
+                },
+                urlData: {
+                  tab: fullTabPath
+                }
+              },
+              request         = $tab.api('get request') || false,
+              existingRequest = ( request && request.state() === 'pending' ),
+              requestSettings,
+              cachedContent
+            ;
+
+            fullTabPath   = fullTabPath || tabPath;
+            cachedContent = module.cache.read(fullTabPath);
+
+
+            if(settings.cache && cachedContent) {
+              module.activate.tab(tabPath);
+              module.debug('Adding cached content', fullTabPath);
+              if(settings.evaluateScripts == 'once') {
+                module.update.content(tabPath, cachedContent, false);
+              }
+              else {
+                module.update.content(tabPath, cachedContent);
+              }
+              settings.onLoad.call($tab[0], tabPath, parameterArray, historyEvent);
+            }
+            else if(existingRequest) {
+              module.set.loading(tabPath);
+              module.debug('Content is already loading', fullTabPath);
+            }
+            else if($.api !== undefined) {
+              requestSettings = $.extend(true, {
+                headers: {
+                  'X-Remote': true
+                }
+              }, settings.apiSettings, apiSettings);
+              module.debug('Retrieving remote content', fullTabPath, requestSettings);
+              $tab.api(requestSettings);
+            }
+            else {
+              module.error(error.api);
+            }
+          }
+        },
+
         activate: {
           all: function(tabPath) {
             module.activate.tab(tabPath);
@@ -15673,25 +15713,34 @@ $.fn.tab = function(parameters) {
           },
           tab: function(tabPath) {
             var
-              $tab = module.get.tabElement(tabPath)
+              $tab     = module.get.tabElement(tabPath),
+              isActive = $tab.hasClass(className.active)
             ;
             module.verbose('Showing tab content for', $tab);
-            $tab
-              .addClass(className.active)
-              .siblings($tabs)
-                .removeClass(className.active + ' ' + className.loading)
-            ;
+            if(!isActive) {
+              $tab
+                .addClass(className.active)
+                .siblings($tabs)
+                  .removeClass(className.active + ' ' + className.loading)
+              ;
+              if($tab.length > 0) {
+                settings.onVisible.call($tab[0], tabPath);
+              }
+            }
           },
           navigation: function(tabPath) {
             var
-              $navigation = module.get.navElement(tabPath)
+              $navigation = module.get.navElement(tabPath),
+              isActive    = $navigation.hasClass(className.active)
             ;
             module.verbose('Activating tab navigation for', $navigation, tabPath);
-            $navigation
-              .addClass(className.active)
-              .siblings($allModules)
-                .removeClass(className.active + ' ' + className.loading)
-            ;
+            if(!isActive) {
+              $navigation
+                .addClass(className.active)
+                .siblings($allModules)
+                  .removeClass(className.active + ' ' + className.loading)
+              ;
+            }
           }
         },
 
@@ -16015,8 +16064,10 @@ $.fn.tab.settings = {
   apiSettings     : false,  // settings for api call
   evaluateScripts : 'once', // whether inline scripts should be parsed (true/false/once). Once will not re-evaluate on cached content
 
-  onTabInit       : function(tabPath, parameterArray, historyEvent) {}, // called first time loaded
-  onTabLoad       : function(tabPath, parameterArray, historyEvent) {}, // called on every load
+  onFirstLoad : function(tabPath, parameterArray, historyEvent) {}, // called first time loaded
+  onLoad      : function(tabPath, parameterArray, historyEvent) {}, // called on every load
+  onVisible   : function(tabPath, parameterArray, historyEvent) {}, // called every time tab visible
+  onRequest   : function(tabPath, parameterArray, historyEvent) {}, // called ever time a tab beings loading remote content
 
   templates    : {
     determineTitle: function(tabArray) {} // returns page title for path
@@ -16029,6 +16080,8 @@ $.fn.tab.settings = {
     noContent  : 'The tab you specified is missing a content url.',
     path       : 'History enabled, but no path was specified',
     recursion  : 'Max recursive depth reached',
+    legacyInit : 'onTabInit has been renamed to onFirstLoad in 2.0, please adjust your code.',
+    legacyLoad : 'onTabLoad has been renamed to onLoad in 2.0. Please adjust your code',
     state      : 'History requires Asual\'s Address library <https://github.com/asual/jquery-address>'
   },
 

@@ -810,7 +810,7 @@
   
   .forCols(2); .-each(@name, @num) {
     .ui[class*="@{name} column"].doubling.grid > .row > .column,
-    .ui[class*="@{name} column"].doubling.grid > .column:now(.row),
+    .ui[class*="@{name} column"].doubling.grid > .column:not(.row),
     .ui.grid > [class*="@{name} column"].doubling.row.row > .column {
       .-doublingNumber(@num);
       .fractionWidth(1, @i) !important;

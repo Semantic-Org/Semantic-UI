@@ -13,6 +13,7 @@
 - **Popup** - Popups are no longer exclusive by default. Opening a popup will not necessarily close other visible popups. You can change this behavior by using the setting `exclusive: true`. Additionally the default theme now uses `1em` size for `medium` popups.
 - **Colors** - Default colors have been slightly adjusted, and new colors have been added, which may cause slight changes in your design.
 - **Segment** - Segment no longer includes a [clearfix](http://learnlayout.com/clearfix.html) by default. You will need to specify a `clearing segment` to fix issues caused by floated content.
+- **Tab** - `onTabInit` and `onTabLoad` have been renamed to `onFirstLoad` and `onLoad` respectively. This is to conform to the naming conventions of other modules. Previous callbacks will continue to work but will produce deprecation notices in console. Two new callbacks `onVisible` and `onRequest` have been added as well.
 
 **New UI**
 - **Container** - Containers are fixed width containers meant for holding page contents, and are a simpler alternative to `ui page grid`, view more [examples in docs](http://www.semantic-ui.com/elements/container.html#examples)
@@ -114,7 +115,8 @@
 - **Sticky** - Sticky now internally caches current scroll position when `cantFit = true` to avoid getting DOM property  on scroll.
 - **Statistic** - Added new evenly divided group variation, for example `three statistics` shows 3 per row
 - **Statistic** - Statitic group now use `flex`. Styles have been updated.
-- **Tabs* - Added `parseScripts` option, defaults to `once` parsing inline scripts only first load
+- **Tabs** - Added new callbacks `onTabVisible` and `onRequest`
+- **Tabs** - Added `parseScripts` option, defaults to `once` parsing inline scripts only first load
 - **Table** - Added `vertical alignment` variations to `ui table`
 - **Table** - Added `single line` table variation which prevents text from wrapping
 - **Visibility/Sticky** - Visibility and sticky now refresh automatically after page content loading to deal with changes in position from images loading
@@ -246,7 +248,7 @@
 - **Label** - Label size now varies by type. `pointing label` are now `1em` by default.
 - **Label** - Padding on `corner label` has been increased
 - **Input** - Input now use `em` instead of `rem` so they will inherit the size of the elements they are nested inside
-- **Progress* - Update contrast on `indicating`, update default styles. Fixed some examples
+- **Progress** - Update contrast on `indicating`, update default styles. Fixed some examples
 - **Menu** - Menu now uses `border` for borders instead of `box-shadow`
 - **Menu** - `secondary pointing menu` has had some slight design tweaks, thinner lines, more padding
 - **Menu** - Active sub-menu items are now `bold`
@@ -268,7 +270,7 @@
 - **Site** - Adjusted global line height to the closest even pixel value
 - **Table** - Table header colors and padding defaults have been slightly adjusted
 - **Table** - Horizontal cell padding has been slightly reduced, and cell borders are slightly lighter.
-- **Transition - Transition no longer checks for vendor prefixed `animation-name` css property. This was introduced in jQuery `1.8`
+- **Transition** - Transition no longer checks for vendor prefixed `animation-name` css property. This was introduced in jQuery `1.8`
 - **Visibility** - In returned `calculations` object, `visible` and `hidden` are renamed to `onScreen` and `offScreen`, since this describes more accurately what the value represents.
 
 ### Version 1.12.3 - May 20, 2015
