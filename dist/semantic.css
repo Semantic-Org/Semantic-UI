@@ -12629,19 +12629,22 @@ ol.ui.list ol,
        Aligned
 --------------------*/
 
-.ui.list[class*="top aligned"],
+.ui.list[class*="top aligned"] .image,
+.ui.list[class*="top aligned"] .content,
 .ui.list [class*="top aligned"] {
-  vertical-align: top;
+  vertical-align: top !important;
 }
 
-.ui.list[class*="middle aligned"],
+.ui.list[class*="middle aligned"] .image,
+.ui.list[class*="middle aligned"] .content,
 .ui.list [class*="middle aligned"] {
-  vertical-align: middle;
+  vertical-align: middle !important;
 }
 
-.ui.list[class*="bottom aligned"],
+.ui.list[class*="bottom aligned"] .image,
+.ui.list[class*="bottom aligned"] .content,
 .ui.list [class*="bottom aligned"] {
-  vertical-align: bottom;
+  vertical-align: bottom !important;
 }
 
 /*-------------------
@@ -12773,8 +12776,8 @@ ol.ui.list ol,
 --------------------*/
 
 .ui.animated.list > .item {
-  -webkit-transition: 0.1s color ease, 0.1s padding-left ease, 0.1s background-color ease;
-  transition: 0.1s color ease, 0.1s padding-left ease, 0.1s background-color ease;
+  -webkit-transition: 0.25s color ease 0.1s, 0.25s padding-left ease 0.1s, 0.25s background-color ease 0.1s;
+  transition: 0.25s color ease 0.1s, 0.25s padding-left ease 0.1s, 0.25s background-color ease 0.1s;
 }
 
 .ui.animated.list:not(.horizontal) > .item:hover {
@@ -19734,6 +19737,7 @@ Floated Menu / Item
 
 .ui.menu .icon.item > .icon {
   width: auto;
+  margin: 0em;
 }
 
 /*--- inverted ---*/
@@ -19791,10 +19795,15 @@ Floated Menu / Item
     flex-direction: column;
   }
 
+  .ui.stackable.menu .item {
+    width: 100% !important;
+  }
+
   .ui.stackable.menu .item:before {
     position: absolute;
     content: '';
-    top: 0%;
+    top: auto;
+    bottom: 0px;
     left: 0px;
     width: 100%;
     background: rgba(34, 36, 38, 0.1);
@@ -27483,7 +27492,8 @@ select.ui.dropdown {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-overflow-scrolling: touch;
-  width: 100% !important;
+  min-width: 100% !important;
+  width: auto !important;
 }
 
 .ui.dropdown .scrolling.menu {
@@ -27493,7 +27503,8 @@ select.ui.dropdown {
   box-shadow: none !important;
   border-radius: 0 !important;
   margin: 0 !important;
-  width: 100% !important;
+  min-width: 100% !important;
+  width: auto !important;
   border-top: 1px solid rgba(34, 36, 38, 0.15);
 }
 

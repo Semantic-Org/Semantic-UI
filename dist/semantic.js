@@ -14450,8 +14450,8 @@ $.fn.sticky = function(parameters) {
 
         $module               = $(this),
         $window               = $(window),
-        $container            = $module.offsetParent(),
         $scroll               = $(settings.scrollContext),
+        $container,
         $context,
 
         selector              = $module.selector || '',
@@ -14472,6 +14472,7 @@ $.fn.sticky = function(parameters) {
 
         initialize: function() {
 
+          module.determineContainer();
           module.determineContext();
           module.verbose('Initializing sticky', settings, $container);
 
@@ -14531,6 +14532,10 @@ $.fn.sticky = function(parameters) {
             });
             module.debug('Setting up mutation observer', observer);
           }
+        },
+
+        determineContainer: function() {
+          $container = $module.offsetParent();
         },
 
         determineContext: function() {
@@ -14594,8 +14599,11 @@ $.fn.sticky = function(parameters) {
 
         refresh: function(hardRefresh) {
           module.reset();
+          if(!settings.context) {
+            module.determineContext();
+          }
           if(hardRefresh) {
-            $container = $module.offsetParent();
+            module.determineContainer();
           }
           module.save.positions();
           module.stick();
@@ -14741,7 +14749,7 @@ $.fn.sticky = function(parameters) {
             if(tagName === 'HTML' || tagName == 'body') {
               // this can trigger for too many reasons
               //module.error(error.container, tagName, $module);
-              $container = $module.offsetParent();
+              module.determineContainer();
             }
             else {
               if( Math.abs($container.height() - module.cache.context.height) > 5) {

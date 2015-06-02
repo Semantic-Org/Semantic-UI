@@ -1027,7 +1027,8 @@ select.ui.dropdown {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   -webkit-overflow-scrolling: touch;
-  width: 100% !important;
+  min-width: 100% !important;
+  width: auto !important;
 }
 .ui.dropdown .scrolling.menu {
   position: static;
@@ -1036,7 +1037,8 @@ select.ui.dropdown {
   box-shadow: none !important;
   border-radius: 0 !important;
   margin: 0 !important;
-  width: 100% !important;
+  min-width: 100% !important;
+  width: auto !important;
   border-top: 1px solid rgba(34, 36, 38, 0.15);
 }
 .ui.scrolling.dropdown .menu .item.item.item,

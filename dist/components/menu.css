@@ -1113,6 +1113,7 @@ Floated Menu / Item
 /* Item Icon Only */
 .ui.menu .icon.item > .icon {
   width: auto;
+  margin: 0em;
 }
 
 /*--- inverted ---*/
@@ -1166,10 +1167,14 @@ Floated Menu / Item
         -ms-flex-direction: column;
             flex-direction: column;
   }
+  .ui.stackable.menu .item {
+    width: 100% !important;
+  }
   .ui.stackable.menu .item:before {
     position: absolute;
     content: '';
-    top: 0%;
+    top: auto;
+    bottom: 0px;
     left: 0px;
     width: 100%;
     background: rgba(34, 36, 38, 0.1);
