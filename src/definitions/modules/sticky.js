@@ -187,6 +187,9 @@ $.fn.sticky = function(parameters) {
 
         refresh: function(hardRefresh) {
           module.reset();
+          if(!settings.context) {
+            module.determineContext();
+          }
           if(hardRefresh) {
             $container = $module.offsetParent();
           }
