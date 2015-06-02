@@ -137,7 +137,7 @@ This version backports several bugs that were being packed in `2.0` to `1.x`.
 - **Icon** - added `@src` variable to make it adjustable with themes that dont support all types like `woff2`
 
 **Bugs**
-- **Dropdown** - Fixes issue where dropdown would not open after restoring previus value on failed `search dropdown` search
+- **Dropdown** - Fixes issue where dropdown would not open after restoring previous value on failed `search dropdown` search
 - **Grid** - Fixes specificity of grid `column` colors to not affect other elements with columns
 - **Icon** - Fix `clockwise rotated icon` causing `clockwise` icon to appear
 - **Popup** - Fix issue with `popup` not re-opening until another element gains focus on a mobile touchscreen
@@ -282,7 +282,7 @@ Importing `semantic.less` still does not require any special syntax
 **Enhancement**
 - **API** - API now has an ``onRequest`` callback setting that receives the XHR promise after initializing the request
 - **Button** - Loading buttons no longer receive `pointer-events` in default theme. Added variable for `loading button` opacity.
-- **Card** - Card now has colored variations **Tahnks @romuloctba**
+- **Card** - Card now has colored variations **Thanks @romuloctba**
 - **Dropdown** - `search selection dropdown` will now close the menu when a `dropdown icon` is clicked
 - **Dropdown** - Added new dropdown setting, `forceSelection` which forces `search selection` to a selected value on blur. Defaults to `true`.
 - **Flag** - Updated Burma/Myanmar flag to current flag (was pre-2010 flag)
