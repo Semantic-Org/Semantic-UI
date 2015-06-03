@@ -98,6 +98,7 @@
 - **Menu** - Menus items are now slightly more padded
 - **Menu** - The hover/active state of `dropdown item` have been adjusted to match `item`. Dropdown styles can be themed specifically inside `menu`.
 - **Menu** - Vertical dropdown menus are no longer 100% `min-width`
+- **Modal** - Modal now uses an adjusted `scale in` transition in the default theme, that should be more subtle and work better with long modal content.
 - **Modal** - Modal `onApprove` and `onDeny` now receive the activating element as the first parameter. Added documentation about using `return false` to avoid hiding element on click.
 - **Modal** - Modal content now uses flex, image content now requires `image content` class on parent to allow for flex stylings.
 - **Popup** - `onShow` and `onHide` callback can now cancel popup from showing or hiding by returning false
