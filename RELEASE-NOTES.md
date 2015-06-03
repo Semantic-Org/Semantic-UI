@@ -260,6 +260,7 @@
 - **Message** - Slightly increases `box-shadow`
 - **Popup** - Popups now default to `exclusive: false` and will not hide other popups when opening
 - **Popup** - Popup no longer produces a console error when a position cannot be found on the page.
+- **Rating** - Rating styles have been adjusted to use subtle transitions and tweaked color values.
 - **Segment** - **Clearfix** has been removed from `ui segment`
 - **Sidebar** - Sidebar now defaults to `useLegacy: false` to avoid the overhead of feature detection for most users
 - **Search** - Slightly adjusted search result theme for clarity
