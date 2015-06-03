@@ -91,7 +91,7 @@
 /* Icon Header */
 @iconHeaderSize: 3em;
 @iconHeaderOpacity: 1;
-@iconHeaderMargin: 0.25rem;
+@iconHeaderMargin: 0.5rem;
 @circularHeaderIconSize: 2em;
 @squareHeaderIconSize: 2em;
 
