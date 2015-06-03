@@ -112,6 +112,7 @@
 }
 .ui.modal > .image.content {
   display: flex;
+  flex-direction: row;
 }
 
 /* Image */
@@ -235,6 +236,9 @@
   }
 
   /*rtl:ignore*/
+  .ui.modal .image.content {
+    flex-direction: column;
+  }
   .ui.modal .content > .image {
     display: block;
     max-width: 100%;
