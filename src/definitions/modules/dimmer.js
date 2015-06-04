@@ -219,6 +219,7 @@ $.fn.dimmer = function(parameters) {
               $dimmer
                 .transition({
                   animation   : settings.transition + ' in',
+                  displayType : 'flex',
                   queue       : false,
                   duration    : module.get.duration(),
                   useFailSafe : true,
@@ -264,6 +265,7 @@ $.fn.dimmer = function(parameters) {
                 .transition({
                   animation   : settings.transition + ' out',
                   queue       : false,
+                  displayType : 'flex',
                   duration    : module.get.duration(),
                   useFailSafe : true,
                   onStart     : function() {

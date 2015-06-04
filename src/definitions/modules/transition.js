@@ -110,7 +110,7 @@ $.fn.transition = function() {
 
         refresh: function() {
           module.verbose('Refreshing display type on next animation');
-          delete module.displayType;
+          module.remove.displayType();
         },
 
         forceRepaint: function() {
@@ -136,7 +136,7 @@ $.fn.transition = function() {
 
         delay: function(interval) {
           var
-            isReverse = (settings.reverse === true),
+            isReverse     = (settings.reverse === true),
             shouldReverse = (settings.reverse == 'auto' && module.get.direction() == className.outward),
             delay
           ;
@@ -301,9 +301,11 @@ $.fn.transition = function() {
               displayType        = module.get.displayType(),
               overrideStyle      = style + 'display: ' + displayType + ' !important;'
             ;
-            $module.css('display', '');
-            module.refresh();
-            if( $module.css('display') !== displayType ) {
+            $module
+              .css('display', '')
+            ;
+            module.remove.displayType();
+            if( $module.css('display') !== displayType ) { // bad
               module.verbose('Setting inline visibility to', displayType);
               $module
                 .attr('style', overrideStyle)
@@ -333,13 +335,13 @@ $.fn.transition = function() {
             ;
           },
           hidden: function() {
-            if(!module.is.hidden()) {
+            if(!module.is.hidden()) { // bad
               $module
                 .addClass(className.transition)
                 .addClass(className.hidden)
               ;
             }
-            if($module.css('display') !== 'none') {
+            if($module.css('display') !== 'none') { // bad
               module.verbose('Overriding default display to hide element');
               $module
                 .css('display', 'none')
@@ -358,6 +360,11 @@ $.fn.transition = function() {
           displayType: function(displayType) {
             if(displayType !== 'none') {
               $module.data(metadata.displayType, displayType);
+            }
+          },
+          direction: function(direction) {
+            if(direction) {
+              $module.data(metadata.direction, direction);
             }
           },
           transitionExists: function(animation, exists) {
@@ -438,6 +445,9 @@ $.fn.transition = function() {
           display: function() {
             $module.css('display', '');
           },
+          displayType: function() {
+            delete module.displayType;
+          },
           direction: function() {
             $module
               .removeClass(className.inward)
@@ -516,17 +526,24 @@ $.fn.transition = function() {
           },
           direction: function(animation) {
             // quickest manually specified direction
+            var
+              direction
+            ;
             animation = animation || settings.animation;
             if(typeof animation === 'string') {
               animation = animation.split(' ');
               $.each(animation, function(index, word){
                 if(word === className.inward) {
-                  return className.inward;
+                  direction = className.inward;
                 }
                 else if(word === className.outward) {
-                  return className.outward;
+                  direction = className.outward;
                 }
               });
+            }
+            // return found direction
+            if(direction) {
+              return direction;
             }
             // slower backup
             if( !module.can.transition() ) {
@@ -640,18 +657,7 @@ $.fn.transition = function() {
                 .addClass(className.inward)
                 .css('animationName')
               ;
-              displayType = $clone
-                .attr('class', elementClass)
-                .removeAttr('style')
-                .removeClass(className.hidden)
-                .removeClass(className.visible)
-                .show()
-                .css('display')
-              ;
-              module.verbose('Determining final display state', displayType);
-              module.save.displayType(displayType);
 
-              $clone.remove();
               if(currentAnimation != inAnimation) {
                 module.debug('Direction exists for animation', animation);
                 directionExists = true;
@@ -664,6 +670,19 @@ $.fn.transition = function() {
                 module.debug('Static animation found', animation, displayType);
                 directionExists = false;
               }
+
+              displayType = $clone
+                .attr('class', elementClass)
+                .removeAttr('style')
+                .removeClass(className.hidden)
+                .removeClass(className.visible)
+                .show()
+                .css('display')
+              ;
+              module.verbose('Determining final display state', displayType);
+              module.save.displayType(displayType);
+
+              $clone.remove();
               module.save.transitionExists(animation, directionExists);
             }
             return (transitionExists !== undefined)

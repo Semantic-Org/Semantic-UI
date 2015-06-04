@@ -166,10 +166,6 @@ $.fn.modal = function(parameters) {
 
         refresh: function() {
           module.remove.scrolling();
-          module.cacheSizes();
-          module.set.screenHeight();
-          module.set.type();
-          module.set.position();
         },
 
         refreshModals: function() {
@@ -316,10 +312,6 @@ $.fn.modal = function(parameters) {
           if( module.is.animating() || !module.is.active() ) {
 
             module.showDimmer();
-            module.cacheSizes();
-            module.set.position();
-            module.set.screenHeight();
-            module.set.type();
             module.set.clickaway();
 
             if( !settings.allowMultiple && $otherModals.filter('.' + className.active).length > 0) {
@@ -411,7 +403,6 @@ $.fn.modal = function(parameters) {
             $dimmable.dimmer('hide', function() {
               if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
                 module.remove.clickaway();
-                module.remove.screenHeight();
               }
             });
           }
@@ -492,14 +483,6 @@ $.fn.modal = function(parameters) {
               ;
             }
           },
-          screenHeight: function() {
-            if(module.cache.height > module.cache.pageHeight) {
-              module.debug('Removing page height');
-              $body
-                .css('height', '')
-              ;
-            }
-          },
           keyboardShortcuts: function() {
             module.verbose('Removing keyboard shortcuts');
             $document
@@ -509,28 +492,6 @@ $.fn.modal = function(parameters) {
           scrolling: function() {
             $dimmable.removeClass(className.scrolling);
             $module.removeClass(className.scrolling);
-          }
-        },
-
-        cacheSizes: function() {
-          var
-            modalHeight = $module.outerHeight()
-          ;
-          if(module.cache === undefined || modalHeight !== 0) {
-            module.cache = {
-              pageHeight    : $(document).outerHeight(),
-              height        : modalHeight + settings.offset,
-              contextHeight : (settings.context == 'body')
-                ? $(window).height()
-                : $dimmable.height()
-            };
-          }
-          module.debug('Caching modal and container sizes', module.cache);
-        },
-
-        can: {
-          fit: function() {
-            return ( ( module.cache.height + (settings.padding * 2) ) < module.cache.contextHeight);
           }
         },
 
@@ -557,7 +518,7 @@ $.fn.modal = function(parameters) {
           autofocus: function() {
             if(settings.autofocus) {
               var
-                $inputs    = $module.find(':input:visible'),
+                $inputs    = $module.filter(':input').filter(':visible'),
                 $autofocus = $inputs.filter('[autofocus]'),
                 $input     = ($autofocus.length > 0)
                   ? $autofocus
@@ -573,54 +534,12 @@ $.fn.modal = function(parameters) {
               ;
             }
           },
-          screenHeight: function() {
-            if( module.can.fit() ) {
-              $body.css('height', '');
-            }
-            else {
-              module.debug('Modal is taller than page content, resizing page height');
-              $body
-                .css('height', module.cache.height + (settings.padding * 2) )
-              ;
-            }
-          },
           active: function() {
             $module.addClass(className.active);
           },
           scrolling: function() {
             $dimmable.addClass(className.scrolling);
             $module.addClass(className.scrolling);
-          },
-          type: function() {
-            if(module.can.fit()) {
-              module.verbose('Modal fits on screen');
-              if(!module.othersActive()) {
-                module.remove.scrolling();
-              }
-            }
-            else {
-              module.verbose('Modal cannot fit on screen setting to scrolling');
-              module.set.scrolling();
-            }
-          },
-          position: function() {
-            module.verbose('Centering modal on page', module.cache);
-            if(module.can.fit()) {
-              $module
-                .css({
-                  top: '',
-                  marginTop: -(module.cache.height / 2)
-                })
-              ;
-            }
-            else {
-              $module
-                .css({
-                  marginTop : '',
-                  top       : $document.scrollTop()
-                })
-              ;
-            }
           },
           undetached: function() {
             $dimmable.addClass(className.undetached);
@@ -831,9 +750,7 @@ $.fn.modal.settings = {
   context    : 'body',
 
   queue      : false,
-  duration   : 500,
-  easing     : 'easeOutExpo',
-  offset     : 0,
+  duration   : 400,
   transition : 'scale',
 
   // padding with edge of page

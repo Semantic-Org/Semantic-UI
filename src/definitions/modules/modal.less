@@ -25,12 +25,13 @@
 
 .ui.modal {
   display: none;
-  position: fixed;
+
+  text-align: left;
+  min-height: 0;
+  flex: 0 1 auto;
+
   z-index: @zIndex;
 
-  top: 50%;
-  left: 50%;
-  text-align: left;
 
   background: @background;
   border: @border;
@@ -38,7 +39,7 @@
 
   border-radius: @borderRadius;
   user-select: text;
-  will-change: top, left, margin, transform, opacity;
+  will-change: margin, transform, opacity;
 }
 
 .ui.modal > :first-child:not(.icon),
@@ -91,11 +92,14 @@
   padding: @headerPadding;
   box-shadow: @headerBoxShadow;
 
-  font-size: @headerFontSize;
   line-height: @headerLineHeight;
   font-weight: @headerFontWeight;
   color: @headerColor;
   border-bottom: @headerBorder;
+}
+
+.ui.modal > .header:not(.ui) {
+  font-size: @headerFontSize;
 }
 
 /*--------------
@@ -338,8 +342,6 @@
   overflow: hidden;
 }
 .scrolling.dimmable.dimmed > .dimmer {
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
 }
 .scrolling.dimmable > .dimmer {
   position: fixed;
@@ -347,25 +349,6 @@
 .modals.dimmer .ui.scrolling.modal {
   position: static !important;
   margin: @scrollingMargin auto !important;
-}
-
-/* undetached scrolling */
-.scrolling.undetached.dimmable.dimmed {
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-}
-.scrolling.undetached.dimmable.dimmed > .dimmer {
-  overflow: hidden;
-}
-.scrolling.undetached.dimmable .ui.scrolling.modal {
-  position: absolute;
-  left: 50%;
-  margin-top: @scrollingMargin !important;
-}
-
-/* Coupling with Sidebar */
-.undetached.dimmable.dimmed > .pusher {
-  z-index: auto;
 }
 
 @media only screen and (max-width : @computerBreakpoint) {

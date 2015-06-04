@@ -35,6 +35,13 @@
   width: 100%;
   height: 100%;
 
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
   text-align: @textAlign;
   vertical-align: @verticalAlign;
 
@@ -50,20 +57,6 @@
   will-change: opacity;
   z-index: @zIndex;
 }
-
-/* Dimmer Content */
-.ui.dimmer > .content {
-  width: 100%;
-  height: 100%;
-  display: @contentDisplay;
-  user-select: text;
-}
-.ui.dimmer > .content > * {
-  display: @contentChildDisplay;
-  vertical-align: @verticalAlign;
-  color: @textColor;
-}
-
 
 /* Loose Coupling */
 .ui.segment > .ui.dimmer {
@@ -82,7 +75,7 @@
 .dimmed.dimmable > .ui.animating.dimmer,
 .dimmed.dimmable > .ui.visible.dimmer,
 .ui.active.dimmer {
-  display: block;
+  display: flex !important;
   opacity: @visibleOpacity;
 }
 
