@@ -359,7 +359,7 @@
 }
 
 /*******************************
-             Coupling
+          Coupling
 *******************************/
 
 /*--------------
@@ -380,8 +380,16 @@
     Container
 ---------------*/
 
-.ui.menu:not(.secondary):not(.text):not(.tabular) > .container > .item:not(.right):first-child {
-  border-left: @dividerSize solid @dividerBackground;
+@media only screen and (max-width: @largestMobileScreen) {
+  .ui.menu > .ui.container {
+    margin-left: 0em !important;
+    margin-right: 0em !important;
+  }
+}
+@media only screen and (min-width: @tabletBreakpoint) {
+  .ui.menu:not(.secondary):not(.text):not(.tabular) > .container > .item:not(.right):first-child {
+    border-left: @dividerSize solid @dividerBackground;
+  }
 }
 
 
@@ -462,19 +470,20 @@ Floated Menu / Item
 -------------------*/
 
 /* Left Floated */
-.ui.menu:not(.vertical) .item.left,
-.ui.menu:not(.vertical) .menu.left {
+.ui.menu:not(.vertical) .left.item,
+.ui.menu:not(.vertical) .left.menu {
   display: flex;
   margin-right: auto !important;
 }
 /* Right Floated */
-.ui.menu:not(.vertical) .item.right,
-.ui.menu:not(.vertical) .menu.right {
+.ui.menu:not(.vertical) .right.item,
+.ui.menu:not(.vertical) .right.menu {
   display: flex;
   margin-left: auto !important;
 }
 
-/* Floated Borders */
+/* Swapped Borders */
+.ui.menu .right.item::before,
 .ui.menu .right.menu > .item::before {
   right: auto;
   left: 0;
@@ -1726,10 +1735,11 @@ Floated Menu / Item
   box-shadow: @attachedBoxShadow; /* avoid rgba multiplying */
 }
 
+/* Direction */
 .ui.attached.menu:not(.top):not(.bottom) {
-  margin: 0rem;
+  margin-top: 0em;
+  margin-bottom: 0em;
 }
-
 .ui.top.attached.menu {
   margin-bottom: 0em;
   border-radius: @borderRadius @borderRadius 0em 0em;
@@ -1740,10 +1750,10 @@ Floated Menu / Item
   border-radius: 0em 0em @borderRadius @borderRadius;
 }
 
+/* Tabular Attached */
 .ui.top.attached.menu:not(.tabular) {
   border-bottom: none;
 }
-
 .ui.attached.tabular.menu {
   margin-left: 0;
   margin-right: 0;

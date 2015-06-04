@@ -371,7 +371,7 @@
 @invertedHeaderBackground: transparent;
 
 @invertedItemBackground: transparent;
-@invertedItemTextColor: @invertedTextColor;
+@invertedItemTextColor: @white;
 
 /* Inverted Sub Menu */
 @invertedSubMenuBackground: transparent;
