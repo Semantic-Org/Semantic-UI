@@ -189,6 +189,7 @@
 - **Message** - Updated all message colors for legibility
 - **Message** - Close icon position adjusted to align with headers
 - **Menu** - Fixes divider appears on last element of `(x) item menu`
+- **Menu** - Fixed `top attached menu` not having margin-top, and `bottom attached menu` not having `margin-bottom`
 - **Menu** - Menu now has a `min-height` that matches standard item padding
 - **Menu** - `dropdown menu` in a `secondary pointing menu` or `tabular menu` now receive distinct active styling from other `active item`
 - **Menu** - Fixed arrow position in `pointing menu` to be more consistent, round to exact pixels and account for arrow border width
