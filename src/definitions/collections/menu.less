@@ -1718,18 +1718,24 @@ Floated Menu / Item
     Attached
 ---------------*/
 
-.ui.menu.attached {
-  margin: 0rem;
+.ui.attached.menu {
   border-radius: 0px;
   margin-left: -@borderWidth;
   margin-right: -@borderWidth;
   width: @attachedWidth;
   box-shadow: @attachedBoxShadow; /* avoid rgba multiplying */
 }
+
+.ui.attached.menu:not(.top):not(.bottom) {
+  margin: 0rem;
+}
+
 .ui.top.attached.menu {
+  margin-bottom: 0em;
   border-radius: @borderRadius @borderRadius 0em 0em;
 }
 .ui.bottom.attached.menu {
+  margin-top: 0em;
   border-top: none;
   border-radius: 0em 0em @borderRadius @borderRadius;
 }
