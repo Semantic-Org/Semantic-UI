@@ -310,7 +310,7 @@
   padding-bottom: @verticalPadding;
 }
 
-/* Label on Left */
+/* Regular Label on Left */
 .ui.labeled.input:not([class*="corner labeled"]):not([class*="right labeled"]) > input {
   border-left: none;
   border-top-left-radius: 0px;
@@ -321,7 +321,7 @@
   border-bottom-right-radius: 0px;
 }
 
-/* Label on Right */
+/* Regular Label on Right */
 .ui[class*="right labeled"].input  > input {
   border-right: none;
   border-top-right-radius: 0px !important;
@@ -339,16 +339,27 @@
   font-size: @labelCornerSize;
   border-radius: 0em @borderRadius 0em 0em;
 }
-.ui.labeled.input input {
-  padding-right: @labeledMargin !important;
-}
 
 /* Spacing with corner label */
+.ui[class*="corner labeled"]:not(.left).labeled.input input {
+  padding-right: @labeledMargin !important;
+}
 .ui[class*="corner labeled"].icon.input:not(.left) > input {
   padding-right: @labeledIconInputMargin !important;
 }
 .ui[class*="corner labeled"].icon.input:not(.left) > .icon {
   margin-right: @labeledIconMargin;
+}
+
+/* Left Labeled */
+.ui[class*="corner labeled"].left.labeled.input input {
+  padding-left: @labeledMargin !important;
+}
+.ui[class*="corner labeled"].icon.input.left > input {
+  padding-left: @labeledIconInputMargin !important;
+}
+.ui[class*="corner labeled"].icon.input.left > .icon {
+  margin-left: @labeledIconMargin;
 }
 
 /*--------------------
