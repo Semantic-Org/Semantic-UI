@@ -9,7 +9,7 @@
 @maxWidth: 100%;
 
 /* Devices */
-@mobileWidth: auto;
+@mobileWidth: 100%;
 @mobileGutter: 1em;
 @largestMobileScreen: 780px;
 
