@@ -170,6 +170,7 @@
 - **Icon** - Fixes phone icon only appearing as alias `call`
 - **Input** - Fixed improper left padding on `transparent left icon input` **Thanks @zxfwinder**
 - **Input** - Fixed `placeholder` color not changing correctly on focus **Thanks @zxfwinder**
+- **Input** - Fixed right padding on `labeled input` that were not `corner labeled`
 - **Label** - Labels inside `header` now vertical align better by accounting for line height offset
 - **List** - `horizontal list` are now aligned `middle` by default, while vertical lists are aligned `top`.
 - **List** - Fixes numbers not appearing when using `inverted ordered list` **Thanks @pcj**
