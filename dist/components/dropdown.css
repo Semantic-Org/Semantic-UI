@@ -226,12 +226,6 @@
   display: none;
 }
 
-
-/*******************************
-            Coupling
-*******************************/
-
-
 /*--------------
    Sub Elements
 ---------------*/
@@ -281,6 +275,12 @@
   max-height: 2em;
 }
 
+
+/*******************************
+            Coupling
+*******************************/
+
+
 /*--------------
       Menu
 ---------------*/
@@ -306,6 +306,16 @@
 }
 
 /*--------------
+      Label
+---------------*/
+
+
+/* Dropdown Menu */
+.ui.label.dropdown .menu {
+  min-width: 100%;
+}
+
+/*--------------
      Button
 ---------------*/
 
@@ -314,9 +324,8 @@
 .ui.dropdown.icon.button > .dropdown.icon {
   margin: 0em;
 }
-.ui.dropdown.button:not(.pointing):not(.floating).active {
-  border-bottom-left-radius: 0em;
-  border-bottom-right-radius: 0em;
+.ui.button.dropdown .menu {
+  min-width: 100%;
 }
 
 

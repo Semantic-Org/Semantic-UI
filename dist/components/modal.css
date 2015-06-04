@@ -103,6 +103,11 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 /* Image */
@@ -242,6 +247,13 @@
     right: 0.5rem !important;
   }
   /*rtl:ignore*/
+  .ui.modal .image.content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
   .ui.modal .content > .image {
     display: block;
     max-width: 100%;
@@ -485,6 +497,82 @@
          Theme Overrides
 *******************************/
 
+.ui.modal.scale.transition.in {
+  -webkit-animation-name: modalScaleIn;
+          animation-name: modalScaleIn;
+}
+.ui.modal.scale.transition.out {
+  -webkit-animation-name: modalScaleOut;
+          animation-name: modalScaleOut;
+}
+
+/* In */
+@-webkit-keyframes modalScaleIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+    -webkit-transform-origin: 50% 25%;
+            transform-origin: 50% 25%;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: 50% 25%;
+            transform-origin: 50% 25%;
+  }
+}
+@keyframes modalScaleIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+    -webkit-transform-origin: 50% 25%;
+            transform-origin: 50% 25%;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: 50% 25%;
+            transform-origin: 50% 25%;
+  }
+}
+
+/* Out */
+@-webkit-keyframes modalScaleOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: 50% 25%;
+            transform-origin: 50% 25%;
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+    -webkit-transform-origin: 50% 25%;
+            transform-origin: 50% 25%;
+  }
+}
+@keyframes modalScaleOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: 50% 25%;
+            transform-origin: 50% 25%;
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+    -webkit-transform-origin: 50% 25%;
+            transform-origin: 50% 25%;
+  }
+}
 
 
 /*******************************

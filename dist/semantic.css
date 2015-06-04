@@ -4437,13 +4437,13 @@ input::selection {
 
 @media only screen and (max-width: 780px) {
   .ui.container {
-    width: auto;
+    width: 100%;
     margin-left: 1em !important;
     margin-right: 1em !important;
   }
 
   .ui.grid.container {
-    width: auto !important;
+    width: 100% !important;
   }
 }
 
@@ -6333,7 +6333,7 @@ h5.ui.header .sub.header {
   line-height: 1;
   padding: 0em;
   font-size: 3em;
-  margin: 0em auto 0.25rem;
+  margin: 0em auto 0.5rem;
   opacity: 1;
 }
 
@@ -10819,7 +10819,7 @@ img.ui.bordered.image {
   padding-bottom: 0.78571em;
 }
 
-/* Label on Left */
+/* Regular Label on Left */
 
 .ui.labeled.input:not([class*="corner labeled"]):not([class*="right labeled"]) > input {
   border-left: none;
@@ -10832,7 +10832,7 @@ img.ui.bordered.image {
   border-bottom-right-radius: 0px;
 }
 
-/* Label on Right */
+/* Regular Label on Right */
 
 .ui[class*="right labeled"].input > input {
   border-right: none;
@@ -10854,11 +10854,11 @@ img.ui.bordered.image {
   border-radius: 0em 0.285714rem 0em 0em;
 }
 
-.ui.labeled.input input {
+/* Spacing with corner label */
+
+.ui[class*="corner labeled"]:not(.left).labeled.input input {
   padding-right: 2.5em !important;
 }
-
-/* Spacing with corner label */
 
 .ui[class*="corner labeled"].icon.input:not(.left) > input {
   padding-right: 3.25em !important;
@@ -10866,6 +10866,32 @@ img.ui.bordered.image {
 
 .ui[class*="corner labeled"].icon.input:not(.left) > .icon {
   margin-right: 1.25em;
+}
+
+/* Left Labeled */
+
+.ui[class*="corner labeled"].left.labeled.input input {
+  padding-left: 2.5em !important;
+}
+
+.ui[class*="corner labeled"].icon.input.left > input {
+  padding-left: 3.25em !important;
+}
+
+.ui[class*="corner labeled"].icon.input.left > .icon {
+  margin-left: 1.25em;
+}
+
+/* Corner Label Position  */
+
+.ui.input > .ui.corner.label {
+  top: 1px;
+  right: 1px;
+}
+
+.ui.input > .ui.left.corner.label {
+  right: auto;
+  left: 1px;
 }
 
 /*--------------------
@@ -11272,6 +11298,7 @@ a.ui.label {
 }
 
 .ui.corner.label .icon {
+  cursor: default;
   position: relative;
   top: 0.6428em;
   left: 0.7857em;
@@ -11309,18 +11336,6 @@ a.ui.label {
 .ui.segment > .ui.left.corner.label {
   right: auto;
   left: -1px;
-}
-
-/* Input */
-
-.ui.input > .ui.corner.label {
-  top: 1px;
-  right: 1px;
-}
-
-.ui.input > .ui.right.corner.label {
-  right: auto;
-  left: 1px;
 }
 
 /*-------------------
@@ -15472,8 +15487,8 @@ ol.ui.horizontal.list li:before,
 }
 
 .ui.form .field .field,
-.ui.form .fields:last-child,
-.ui.form .field:last-child {
+.ui.form .field:last-child,
+.ui.form .fields:last-child .field {
   margin-bottom: 0em;
 }
 
@@ -18909,7 +18924,7 @@ ol.ui.horizontal.list li:before,
 }
 
 /*******************************
-             Coupling
+          Coupling
 *******************************/
 
 /*--------------
@@ -18931,8 +18946,17 @@ ol.ui.horizontal.list li:before,
     Container
 ---------------*/
 
-.ui.menu:not(.secondary):not(.text):not(.tabular) > .container > .item:not(.right):first-child {
-  border-left: 1px solid rgba(34, 36, 38, 0.1);
+@media only screen and (max-width: 767px) {
+  .ui.menu > .ui.container {
+    margin-left: 0em !important;
+    margin-right: 0em !important;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .ui.menu:not(.secondary):not(.text):not(.tabular) > .container > .item:not(.right):first-child {
+    border-left: 1px solid rgba(34, 36, 38, 0.1);
+  }
 }
 
 /*******************************
@@ -19009,8 +19033,8 @@ Floated Menu / Item
 
 /* Left Floated */
 
-.ui.menu:not(.vertical) .item.left,
-.ui.menu:not(.vertical) .menu.left {
+.ui.menu:not(.vertical) .left.item,
+.ui.menu:not(.vertical) .left.menu {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -19020,8 +19044,8 @@ Floated Menu / Item
 
 /* Right Floated */
 
-.ui.menu:not(.vertical) .item.right,
-.ui.menu:not(.vertical) .menu.right {
+.ui.menu:not(.vertical) .right.item,
+.ui.menu:not(.vertical) .right.menu {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -19029,8 +19053,9 @@ Floated Menu / Item
   margin-left: auto !important;
 }
 
-/* Floated Borders */
+/* Swapped Borders */
 
+.ui.menu .right.item::before,
 .ui.menu .right.menu > .item::before {
   right: auto;
   left: 0;
@@ -19058,10 +19083,10 @@ Floated Menu / Item
 
 .ui.vertical.menu .item {
   display: block;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1 0 auto;
-  -ms-flex: 1 0 auto;
-  flex: 1 0 auto;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
   -webkit-align-self: stretch !important;
   -ms-flex-item-align: stretch !important;
   align-self: stretch !important;
@@ -20471,8 +20496,7 @@ Floated Menu / Item
     Attached
 ---------------*/
 
-.ui.menu.attached {
-  margin: 0rem;
+.ui.attached.menu {
   border-radius: 0px;
   margin-left: -1px;
   margin-right: -1px;
@@ -20481,14 +20505,25 @@ Floated Menu / Item
   /* avoid rgba multiplying */
 }
 
+/* Direction */
+
+.ui.attached.menu:not(.top):not(.bottom) {
+  margin-top: 0em;
+  margin-bottom: 0em;
+}
+
 .ui.top.attached.menu {
+  margin-bottom: 0em;
   border-radius: 0.285714rem 0.285714rem 0em 0em;
 }
 
 .ui.bottom.attached.menu {
+  margin-top: 0em;
   border-top: none;
   border-radius: 0em 0em 0.285714rem 0.285714rem;
 }
+
+/* Tabular Attached */
 
 .ui.top.attached.menu:not(.tabular) {
   border-bottom: none;
@@ -26614,10 +26649,6 @@ body.dimmable > .dimmer {
   display: none;
 }
 
-/*******************************
-            Coupling
-*******************************/
-
 /*--------------
    Sub Elements
 ---------------*/
@@ -26669,6 +26700,10 @@ body.dimmable > .dimmer {
   max-height: 2em;
 }
 
+/*******************************
+            Coupling
+*******************************/
+
 /*--------------
       Menu
 ---------------*/
@@ -26696,6 +26731,16 @@ body.dimmable > .dimmer {
 }
 
 /*--------------
+      Label
+---------------*/
+
+/* Dropdown Menu */
+
+.ui.label.dropdown .menu {
+  min-width: 100%;
+}
+
+/*--------------
      Button
 ---------------*/
 
@@ -26705,9 +26750,8 @@ body.dimmable > .dimmer {
   margin: 0em;
 }
 
-.ui.dropdown.button:not(.pointing):not(.floating).active {
-  border-bottom-left-radius: 0em;
-  border-bottom-right-radius: 0em;
+.ui.button.dropdown .menu {
+  min-width: 100%;
 }
 
 /*******************************
@@ -28145,6 +28189,11 @@ select.ui.dropdown {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
 }
 
 /* Image */
@@ -28303,6 +28352,14 @@ select.ui.dropdown {
   }
 
   /*rtl:ignore*/
+
+  .ui.modal .image.content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
 
   .ui.modal .content > .image {
     display: block;
@@ -28575,6 +28632,92 @@ select.ui.dropdown {
 /*******************************
          Theme Overrides
 *******************************/
+
+.ui.modal.scale.transition.in {
+  -webkit-animation-name: modalScaleIn;
+  animation-name: modalScaleIn;
+}
+
+.ui.modal.scale.transition.out {
+  -webkit-animation-name: modalScaleOut;
+  animation-name: modalScaleOut;
+}
+
+/* In */
+
+@-webkit-keyframes modalScaleIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+    -webkit-transform-origin: 50% 25%;
+    transform-origin: 50% 25%;
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: 50% 25%;
+    transform-origin: 50% 25%;
+  }
+}
+
+@keyframes modalScaleIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+    -webkit-transform-origin: 50% 25%;
+    transform-origin: 50% 25%;
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: 50% 25%;
+    transform-origin: 50% 25%;
+  }
+}
+
+/* Out */
+
+@-webkit-keyframes modalScaleOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: 50% 25%;
+    transform-origin: 50% 25%;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+    -webkit-transform-origin: 50% 25%;
+    transform-origin: 50% 25%;
+  }
+}
+
+@keyframes modalScaleOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: 50% 25%;
+    transform-origin: 50% 25%;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+    -webkit-transform-origin: 50% 25%;
+    transform-origin: 50% 25%;
+  }
+}
 
 /*******************************
          Site Overrides
@@ -29670,6 +29813,8 @@ a.ui.nag {
   cursor: pointer;
   width: 1.25em;
   height: auto;
+  -webkit-transition: opacity 0.1s ease, background 0.1s ease, text-shadow 0.1s ease, color 0.1s ease;
+  transition: opacity 0.1s ease, background 0.1s ease, text-shadow 0.1s ease, color 0.1s ease;
 }
 
 /*******************************
@@ -29713,6 +29858,7 @@ a.ui.nag {
   height: auto;
   background: transparent;
   color: rgba(0, 0, 0, 0.15);
+  text-shadow: none;
 }
 
 /* Active Star */
@@ -29720,7 +29866,7 @@ a.ui.nag {
 .ui.star.rating .active.icon {
   background: transparent !important;
   color: #ffe623 !important;
-  text-shadow: 0px -1px 0px #cfa300, -1px 0px 0px #cfa300, 0px 1px 0px #cfa300, 1px 0px 0px #cfa300;
+  text-shadow: 0px -1px 0px #ddc507, -1px 0px 0px #ddc507, 0px 1px 0px #ddc507, 1px 0px 0px #ddc507 !important;
 }
 
 /* Selected Star */
@@ -29728,7 +29874,8 @@ a.ui.nag {
 .ui.star.rating .icon.selected,
 .ui.star.rating .icon.selected.active {
   background: transparent !important;
-  color: #ffb70a !important;
+  color: #ffcc00 !important;
+  text-shadow: 0px -1px 0px #e6a200, -1px 0px 0px #e6a200, 0px 1px 0px #e6a200, 1px 0px 0px #e6a200 !important;
 }
 
 /*-------------------
@@ -29740,14 +29887,15 @@ a.ui.nag {
   height: auto;
   background: transparent;
   color: rgba(0, 0, 0, 0.15);
+  text-shadow: none !important;
 }
 
 /* Active Heart */
 
 .ui.heart.rating .active.icon {
   background: transparent !important;
-  color: #ff2733 !important;
-  text-shadow: 0px -1px 0px #9e0000, -1px 0px 0px #9e0000, 0px 1px 0px #9e0000, 1px 0px 0px #9e0000;
+  color: #ff6d75 !important;
+  text-shadow: 0px -1px 0px #cd0707, -1px 0px 0px #cd0707, 0px 1px 0px #cd0707, 1px 0px 0px #cd0707 !important;
 }
 
 /* Selected Heart */
@@ -29755,7 +29903,8 @@ a.ui.nag {
 .ui.heart.rating .icon.selected,
 .ui.heart.rating .icon.selected.active {
   background: transparent !important;
-  color: #ff2733 !important;
+  color: #ff3000 !important;
+  text-shadow: 0px -1px 0px #aa0101, -1px 0px 0px #aa0101, 0px 1px 0px #aa0101, 1px 0px 0px #aa0101 !important;
 }
 
 /*******************************
@@ -29779,7 +29928,7 @@ a.ui.nag {
 /* Selected Rating */
 
 .ui.rating.selected .active.icon {
-  opacity: 0.5;
+  opacity: 1;
 }
 
 .ui.rating.selected .icon.selected,
@@ -29792,15 +29941,15 @@ a.ui.nag {
 *******************************/
 
 .ui.mini.rating .icon {
-  font-size: 0.7rem;
+  font-size: 0.71428571rem;
 }
 
 .ui.tiny.rating .icon {
-  font-size: 0.8rem;
+  font-size: 0.85714286rem;
 }
 
 .ui.small.rating .icon {
-  font-size: 0.875rem;
+  font-size: 0.92857143rem;
 }
 
 .ui.rating .icon {
@@ -29808,11 +29957,11 @@ a.ui.nag {
 }
 
 .ui.large.rating .icon {
-  font-size: 1.1rem;
+  font-size: 1.14285714rem;
 }
 
 .ui.huge.rating .icon {
-  font-size: 1.5rem;
+  font-size: 1.42857143rem;
 }
 
 .ui.massive.rating .icon {

@@ -42,8 +42,8 @@
   margin: 0em 0em 1em;
 }
 .ui.form .field .field,
-.ui.form .fields:last-child,
-.ui.form .field:last-child {
+.ui.form .field:last-child,
+.ui.form .fields:last-child .field {
   margin-bottom: 0em;
 }
 

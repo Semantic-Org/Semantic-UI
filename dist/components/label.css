@@ -249,6 +249,7 @@ a.ui.label {
           transition: border-color 0.1s ease;
 }
 .ui.corner.label .icon {
+  cursor: default;
   position: relative;
   top: 0.6428em;
   left: 0.7857em;
@@ -281,16 +282,6 @@ a.ui.label {
 .ui.segment > .ui.left.corner.label {
   right: auto;
   left: -1px;
-}
-
-/* Input */
-.ui.input > .ui.corner.label {
-  top: 1px;
-  right: 1px;
-}
-.ui.input > .ui.right.corner.label {
-  right: auto;
-  left: 1px;
 }
 
 /*-------------------

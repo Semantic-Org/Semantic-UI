@@ -381,9 +381,9 @@ $.fn.popup = function(parameters) {
                   verbose    : settings.verbose,
                   duration   : settings.duration,
                   onComplete : function() {
-                    module.bind.close();
-                    callback.call($popup, element);
-                    settings.onVisible.call($popup, element);
+                    //module.bind.close();
+                    //callback.call($popup, element);
+                    //settings.onVisible.call($popup, element);
                   }
                 })
               ;
@@ -1138,7 +1138,7 @@ $.fn.popup.settings = {
   on           : 'hover',
 
   // whether to add touchstart events when using hover
-  addTouchEvents : true,
+  addTouchEvents : false,
 
   // default position relative to element
   position     : 'top left',

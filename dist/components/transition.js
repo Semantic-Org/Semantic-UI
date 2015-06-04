@@ -516,17 +516,24 @@ $.fn.transition = function() {
           },
           direction: function(animation) {
             // quickest manually specified direction
+            var
+              direction
+            ;
             animation = animation || settings.animation;
             if(typeof animation === 'string') {
               animation = animation.split(' ');
               $.each(animation, function(index, word){
                 if(word === className.inward) {
-                  return className.inward;
+                  direction = className.inward;
                 }
                 else if(word === className.outward) {
-                  return className.outward;
+                  direction = className.outward;
                 }
               });
+            }
+            // return found direction
+            if(direction) {
+              return direction;
             }
             // slower backup
             if( !module.can.transition() ) {

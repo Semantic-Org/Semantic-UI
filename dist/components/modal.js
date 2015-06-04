@@ -557,13 +557,15 @@ $.fn.modal = function(parameters) {
           autofocus: function() {
             if(settings.autofocus) {
               var
-                $inputs    = $module.find(':input:visible'),
+                $inputs    = $module.filter(':input').filter(':visible'),
                 $autofocus = $inputs.filter('[autofocus]'),
                 $input     = ($autofocus.length > 0)
-                  ? $autofocus
-                  : $inputs
+                  ? $autofocus.first()
+                  : $inputs.first()
               ;
-              $input.first().focus();
+              if($input.length > 0) {
+                $input.focus();
+              }
             }
           },
           clickaway: function() {
@@ -832,7 +834,6 @@ $.fn.modal.settings = {
 
   queue      : false,
   duration   : 500,
-  easing     : 'easeOutExpo',
   offset     : 0,
   transition : 'scale',
 

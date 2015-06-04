@@ -7807,13 +7807,15 @@ $.fn.modal = function(parameters) {
           autofocus: function() {
             if(settings.autofocus) {
               var
-                $inputs    = $module.find(':input:visible'),
+                $inputs    = $module.filter(':input').filter(':visible'),
                 $autofocus = $inputs.filter('[autofocus]'),
                 $input     = ($autofocus.length > 0)
-                  ? $autofocus
-                  : $inputs
+                  ? $autofocus.first()
+                  : $inputs.first()
               ;
-              $input.first().focus();
+              if($input.length > 0) {
+                $input.focus();
+              }
             }
           },
           clickaway: function() {
@@ -8082,7 +8084,6 @@ $.fn.modal.settings = {
 
   queue      : false,
   duration   : 500,
-  easing     : 'easeOutExpo',
   offset     : 0,
   transition : 'scale',
 
@@ -8990,9 +8991,9 @@ $.fn.popup = function(parameters) {
                   verbose    : settings.verbose,
                   duration   : settings.duration,
                   onComplete : function() {
-                    module.bind.close();
-                    callback.call($popup, element);
-                    settings.onVisible.call($popup, element);
+                    //module.bind.close();
+                    //callback.call($popup, element);
+                    //settings.onVisible.call($popup, element);
                   }
                 })
               ;
@@ -9747,7 +9748,7 @@ $.fn.popup.settings = {
   on           : 'hover',
 
   // whether to add touchstart events when using hover
-  addTouchEvents : true,
+  addTouchEvents : false,
 
   // default position relative to element
   position     : 'top left',
@@ -16630,17 +16631,24 @@ $.fn.transition = function() {
           },
           direction: function(animation) {
             // quickest manually specified direction
+            var
+              direction
+            ;
             animation = animation || settings.animation;
             if(typeof animation === 'string') {
               animation = animation.split(' ');
               $.each(animation, function(index, word){
                 if(word === className.inward) {
-                  return className.inward;
+                  direction = className.inward;
                 }
                 else if(word === className.outward) {
-                  return className.outward;
+                  direction = className.outward;
                 }
               });
+            }
+            // return found direction
+            if(direction) {
+              return direction;
             }
             // slower backup
             if( !module.can.transition() ) {
