@@ -93,7 +93,7 @@ This version backports several bugs that were being packed in `2.0` to `1.x`.
 
 **Enhancements**
 - **Accordion** - Accordion can now specify a trigger element instead of `title`, added an [example in docs](http://www.semantic-ui.com/modules/accordion.html#changing-trigger)
-- **Accordion** - Accordion can now hide while opening animation is still occuring
+- **Accordion** - Accordion can now hide while opening animation is still occurring
 - **Grid** - Equal width grids will now make column content stretch to full height, not just the column itself (requires flexbox). See examples [in the grid docs](http://www.semantic-ui.com/collections/grid.html#equal-height)
 - **Header** - Labels inside headers have been slightly increased in size
 - **Search** - Search now uses internally [fuzzy search](https://github.com/bevacqua/fuzzysearch) as its new full text search algorithm.
@@ -330,7 +330,7 @@ Importing `semantic.less` still does not require any special syntax
 **Key Features**
 
 - **Form** - Form now has new methods `reset`, `clear`, `set value(s)`, and `read value(s)` for modifying and reading form data. Check docs for details on implementation. **Thanks @mktm**
-- **Search** - Search `onSelect` now recieves JSON object matching currently selected element, you can now programmatically retrieve result JSON using `.search('get result', 'query')` or `.search('get results')`. `get result` will default to current value unless specified as first parameter.
+- **Search** - Search `onSelect` now receives JSON object matching currently selected element, you can now programmatically retrieve result JSON using `.search('get result', 'query')` or `.search('get results')`. `get result` will default to current value unless specified as first parameter.
 - **Transition** - Added many new transitions, and new directions for existing transitions **Thanks @ph7vc**
 - **Dropdown** - Dropdown now stores `placeholder text` (prompt text) as separate from `default text` (text set on page load). You can now reset placeholder conditions using `$('.ui.dropdown').dropdown('clear');``
 
@@ -356,7 +356,7 @@ Importing `semantic.less` still does not require any special syntax
 - **Dropdown** - Dropdown no longer will not show menu when no `item` are present in menu. Dropdown will now only filter results for `ui search dropdown` #1632 **Thanks PSyton**.
 - **Dropdown** - Dropdown will now produce an error if behaviors on an initialized `<select>` are not invoked on `ui dropdown`
 - **Dropdown** - Fixed bug where link items would not open in sub-menus due to `event.preventDefault`
-- **Label** - Fixed `ui corner label` appearing on-top of `ui dropdown` menu due to issue in z-index heirarchy
+- **Label** - Fixed `ui corner label` appearing on-top of `ui dropdown` menu due to issue in z-index hierarchy
 - **Label** - Fixed issue with `ui ribbon label` not positioning itself correctly when using sizes like `small` or `large`
 - **List** - `relaxed list` and `very relaxed list` no longer add padding to child menu items
 - **Popup** - Popup will now only use a max of one element when `settings.popup` mistakingly passes multiple DOM elements
@@ -409,7 +409,7 @@ Importing `semantic.less` still does not require any special syntax
 
 **Bugs**
 - **Video** - Video component now uses `//` instead of defaulting to `http`
-- **Dropdown** - `restore defaults` will now set placeholder styling and remove active elemenet. Added example in docs.
+- **Dropdown** - `restore defaults` will now set placeholder styling and remove active element. Added example in docs.
 - **Dropdown** - Fixed bug where sub menus may sometimes have dropdown icon overlap text
 - **Dropdown** - Fixes dropdown search input from filtering text values when input is inside menu, i.e "In-Menu Search"
 - **Dropdown** - Fix issue with search selection not correctly creating RegExp when select values are not strings **Thanks @alufers**
@@ -812,7 +812,7 @@ Importing `semantic.less` still does not require any special syntax
 - **Reveal** - Fixes reveal being broken in Chrome in ``0.15.5`` due to poor fix for reveal selectability
 
 **Fixes**
-- **Transition** - Fixes issue where transition hidden was sometimes overwriten by UI styles causing the element to stay visible
+- **Transition** - Fixes issue where transition hidden was sometimes overwritten by UI styles causing the element to stay visible
 - **Checkbox** - Fixes issue where checkboxes with multiple line labels were appearing formatted incorrectly.
 
 
@@ -1030,7 +1030,7 @@ Some updates to docs formatting
 **Fixes**
 - **Popup** - Native browser popups no longer if using ``title`` attribute
 - **Grid** - Fixes issue where stackable grid was not working correctly when using (x) wide column
-- **Modal** - Fixes element detatching sometimes in case where it is already inside a dimmer
+- **Modal** - Fixes element detaching sometimes in case where it is already inside a dimmer
 - **Input** - Removes duplicate sizes
 
 ### Version 0.10.2 - Dec 13, 2013
@@ -1065,9 +1065,9 @@ Some updates to docs formatting
 ### Version 0.9.6 - Dec 04, 2013
 
 **Updates**
-- **Rating** - Ratings now recieve class disabled when read only, instead of recieving ``active`` when rateable since active are much more common
+- **Rating** - Ratings now receive class disabled when read only, instead of receiving ``active`` when rateable since active are much more common
 - **Grid** - Fixes some instances where grid column width ``x wide`` was being overruled by parent element ``x column``.
-- **Header, Grid, Segment** - Adds justified alignemnt
+- **Header, Grid, Segment** - Adds justified alignment
 - **Message** - Fixes issues with attached icon message (thanks overra)
 
 ### Version 0.9.5 - Nov 25, 2013
@@ -1096,7 +1096,7 @@ Some updates to docs formatting
 **Fixes**
 - **Dropdown** - Fixes "falsey" values (like 0) not being processed correctly
 - **Segment** - Fixes segment text color when nested inside inverted segment
-- **Button** - Fixes improper active/visible state due to :not specificity (most noticiable in mousedown on a dropdown button)
+- **Button** - Fixes improper active/visible state due to :not specificity (most noticeable in mousedown on a dropdown button)
 
 ### Version 0.9.2 - Nov 8, 2013
 
@@ -1223,13 +1223,13 @@ Some updates to docs formatting
 ### Version 0.7.0 - Oct 22, 2013
 
 **New**
-- **Table** - Added aweosome new responsive style to ui tables
+- **Table** - Added awesome new responsive style to ui tables
 - **Button** - New social buttons for Instagram, LinkedIn, Google Plus, Pinterest
 - **List** - Adds documentation for module format
 - **List** - Adds onTabInit for local tabs on first load
 - **List** - Popups can now have a different target than itself
 - **Modal** - Modal hide can be cancelled from ``onApprove`` and ``onDeny`` by returning false from callback
-- **Transition** - onShow and onHide callbacks for visibilit changing transitions
+- **Transition** - onShow and onHide callbacks for visibility changing transitions
 - **Shape** - New 'cube' and 'text' shape type
 - **Shape** - Transition duration can now be set programatically
 - **Shape** - New beforeChange callback
