@@ -521,10 +521,12 @@ $.fn.modal = function(parameters) {
                 $inputs    = $module.filter(':input').filter(':visible'),
                 $autofocus = $inputs.filter('[autofocus]'),
                 $input     = ($autofocus.length > 0)
-                  ? $autofocus
-                  : $inputs
+                  ? $autofocus.first()
+                  : $inputs.first()
               ;
-              $input.first().focus();
+              if($input.length > 0) {
+                $input.focus();
+              }
             }
           },
           clickaway: function() {
