@@ -447,7 +447,8 @@ $.fn.popup = function(parameters) {
               targetPosition = (settings.inline || settings.popup)
                 ? $target.position()
                 : $target.offset(),
-              calculations = {}
+              calculations = {},
+              screen
             ;
             calculations = {
               // element which is launching popup
@@ -471,18 +472,15 @@ $.fn.popup = function(parameters) {
               },
               // screen boundaries
               screen : {
-                top    : $window.scrollTop(),
-                left   : $window.scrollLeft(),
-                width  : $body.width(),
-                height : $body.height()
-              },
-              boundary: {
-                top    : screen.top,
-                bottom : screen.top + screen.height,
-                left   : screen.left,
-                right  : screen.left + screen.width
-              },
+                scroll: {
+                  top  : $window.scrollTop(),
+                  left : $window.scrollLeft()
+                },
+                width  : $window.width(),
+                height : $window.height()
+              }
             };
+
             // add in margins if inline
             calculations.target.margin.top = (settings.inline)
               ? parseInt( window.getComputedStyle(targetElement).getPropertyValue('margin-top'), 10)
@@ -494,6 +492,14 @@ $.fn.popup = function(parameters) {
                 : parseInt( window.getComputedStyle(targetElement).getPropertyValue('margin-left') , 10)
               : 0
             ;
+            // calculate screen boundaries
+            screen = calculations.screen;
+            calculations.boundary = {
+              top    : screen.scroll.top,
+              bottom : screen.scroll.top + screen.height,
+              left   : screen.scroll.left,
+              right  : screen.scroll.left + screen.width
+            };
             return calculations;
           },
           id: function() {
@@ -825,14 +831,15 @@ $.fn.popup = function(parameters) {
 
             module.debug('Position is on stage', position);
             module.remove.attempts();
-            module.set.fluidWidth();
+            module.set.fluidWidth(calculations);
             module.remove.loading();
             return true;
           },
 
-          fluidWidth: function() {
+          fluidWidth: function(calculations) {
+            calculations = calculations || module.get.calculations();
             if( settings.setFluidWidth && $popup.hasClass(className.fluid) ) {
-              $popup.css('width', $offsetParent.width());
+              $popup.css('width', calculations.parent.width);
             }
           },
 
@@ -1171,14 +1178,19 @@ $.fn.popup.settings = {
 
   // callback only when element added to dom
   onCreate     : function(){},
+
   // callback before element removed from dom
   onRemove     : function(){},
+
   // callback before show animation
   onShow       : function(){},
+
   // callback after show animation
   onVisible    : function(){},
+
   // callback before hide animation
   onHide       : function(){},
+
   // callback after hide animation
   onHidden     : function(){},
 
@@ -1190,36 +1202,49 @@ $.fn.popup.settings = {
 
   // default position relative to element
   position     : 'top left',
+
   // name of variation to use
   variation    : '',
+
   // whether popup should be moved to context
   movePopup      : true,
+
   // element which popup should be relative to
   target         : false,
+
   // jq selector or element that should be used as popup
   popup          : false,
+
   // popup should remain inline next to activator
   inline         : false,
+
   // popup should be removed from page on hide
   preserve       : false,
+
   // popup should not close when being hovered on
   hoverable      : false,
 
   // explicitly set content
   content      : false,
+
   // explicitly set html
   html         : false,
+
   // explicitly set title
   title        : false,
 
   // whether automatically close on clickaway when on click
   closable     : true,
+
   // automatically hide on scroll
   hideOnScroll : 'auto',
+
   // hide other popups on show
   exclusive    : false,
+
   // context to attach popups
   context      : 'body',
+
   // position to prefer when calculating new position
   prefer       : 'opposite',
 
@@ -1235,7 +1260,6 @@ $.fn.popup.settings = {
   // whether fluid variation should assign width explicitly
   setFluidWidth  : true,
 
-
   // transition settings
   duration       : 200,
   transition     : 'scale',
@@ -1246,7 +1270,7 @@ $.fn.popup.settings = {
   // offset on aligning axis from calculated position
   offset         : 0,
 
-  // maximum times to look for a position before failing
+  // maximum times to look for a position before failing (9 positions total)
   maxSearchDepth : 20,
 
   error: {
@@ -1324,13 +1348,6 @@ $.fn.popup.settings = {
   }
 
 };
-
-// Adds easing
-$.extend( $.easing, {
-  easeOutQuad: function (x, t, b, c, d) {
-    return -c *(t/=d)*(t-2) + b;
-  }
-});
 
 
 })( jQuery, window , document );

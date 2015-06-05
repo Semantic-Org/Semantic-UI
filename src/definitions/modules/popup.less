@@ -82,17 +82,43 @@
 .ui.popup {
   margin: 0em;
 }
-.ui.popup.bottom {
-  margin: @popupDistanceAway 0em 0em;
-}
-.ui.popup.top {
+
+/* Extending from Top */
+.ui.top.popup {
   margin: 0em 0em @popupDistanceAway;
 }
-.ui.popup.left.center {
-  margin: 0em @popupDistanceAway 0em 0em;
+.ui.top.left.popup {
+  transform-origin: bottom left;
 }
-.ui.popup.right.center {
+.ui.top.center.popup {
+  transform-origin: bottom center;
+}
+.ui.top.right.popup {
+  transform-origin: bottom right;
+}
+
+/* Extending from Vertical Center */
+.ui.left.center.popup {
+  margin: 0em @popupDistanceAway 0em 0em;
+  transform-origin: right 50%;
+}
+.ui.right.center.popup {
   margin: 0em 0em 0em @popupDistanceAway;
+  transform-origin: left 50%;
+}
+
+/* Extending from Bottom */
+.ui.bottom.popup {
+  margin: @popupDistanceAway 0em 0em;
+}
+.ui.bottom.left.popup {
+  transform-origin: top left;
+}
+.ui.bottom.center.popup {
+  transform-origin: top center;
+}
+.ui.bottom.right.popup {
+  transform-origin: top right;
 }
 
 /*--------------
