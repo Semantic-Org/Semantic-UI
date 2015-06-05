@@ -32,6 +32,3 @@
 @splitDividingDistance: (@dividingDistance / 2);
 @dividingWidth: @width + @splitDividingDistance;
 
-
-@medium: 1em;
-
