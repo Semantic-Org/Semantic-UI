@@ -365,7 +365,9 @@ $.fn.search = function(parameters) {
           },
           value: function(value) {
             module.verbose('Setting search input value', value);
-            $prompt.val(value);
+            $prompt
+              .val(value)
+            ;
           },
           buttonPressed: function() {
             $searchButton.addClass(className.pressed);
@@ -1041,7 +1043,7 @@ $.fn.search.settings = {
 
   // transition settings
   transition     : 'scale',
-  duration       : 300,
+  duration       : 200,
   easing         : 'easeOutExpo',
 
   // callbacks
