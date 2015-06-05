@@ -45,6 +45,7 @@
 - **Modal** - Added new settings `blurring` and `inverted` which set a modals dimmer to either inverted or blurring.
 - **Menu** - Menu now uses flexbox. This allows menu items to match each others heights regardless of each items content size. `right menu` content should now follow other menu content instead of preceding it (no longer uses float).
 - **Grid** - Grids are now `flexbox` and `equal height` by default, the `equal height` variation can safely be removed
+- **Popup** - Popup has been rewritten to drastically improve performance, especially when testing multiple positions.
 - **Transition** - Fallback javascript animations have been removed from UI components like dropdown and popup to increase performance (can remove `:visible`, `:animated` and `:hidden`) and reduce filesize.
 - **Form Validation** - Form validation now uses a single `settings` object like other modules. Using `(fields, settings)` will continue to work but will produce a deprecation notifications in `console`
 - **Form Validation** - Form validation now supports several validation rules specifically for multiple selection
@@ -101,6 +102,7 @@
 - **Modal** - Modal now uses an adjusted `scale in` transition in the default theme, that should be more subtle and work better with long modal content.
 - **Modal** - Modal `onApprove` and `onDeny` now receive the activating element as the first parameter. Added documentation about using `return false` to avoid hiding element on click.
 - **Modal** - Modal content now uses flex, image content now requires `image content` class on parent to allow for flex stylings.
+- **Popup** - Popup now defines a `transform-origin` so animations will be affected by the direction the element is placed
 - **Popup** - `onShow` and `onHide` callback can now cancel popup from showing or hiding by returning false
 - **Popup** - Added more size variations for popup `mini`, `tiny`
 - **Progress** - `indicating` labels now are more legible use separate css variables from `indicating` bar color
@@ -275,6 +277,7 @@
 - **Table** - Table header colors and padding defaults have been slightly adjusted
 - **Table** - Horizontal cell padding has been slightly reduced, and cell borders are slightly lighter.
 - **Transition** - Transition no longer checks for vendor prefixed `animation-name` css property. This was introduced in jQuery `1.8`
+- **Transition** - Some transition have been modified so that the `in` animation is more telegraphed than the `out` animation, which may now recede more gently.
 - **Visibility** - In returned `calculations` object, `visible` and `hidden` are renamed to `onScreen` and `offScreen`, since this describes more accurately what the value represents.
 
 ### Version 1.12.3 - May 20, 2015
