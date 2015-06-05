@@ -13,6 +13,7 @@
 - **Popup** - Popups are no longer exclusive by default. Opening a popup will not necessarily close other visible popups. You can change this behavior by using the setting `exclusive: true`. Additionally the default theme now uses `1em` size for `medium` popups.
 - **Colors** - Default colors have been slightly adjusted, and new colors have been added, which may cause slight changes in your design.
 - **Segment** - Segment no longer includes a [clearfix](http://learnlayout.com/clearfix.html) by default. You will need to specify a `clearing segment` to fix issues caused by floated content.
+- **Rail** - Rail now uses `border-box` instead of previous `content-box`. This means any manually set rail widths will now need to account for padding. This fixes issues where rail height may be mismatched when using padding due to differences in `100%` height
 - **Tab** - `onTabInit` and `onTabLoad` have been renamed to `onFirstLoad` and `onLoad` respectively. This is to conform to the naming conventions of other modules. Previous callbacks will continue to work but will produce deprecation notices in console. Two new callbacks `onVisible` and `onRequest` have been added as well.
 
 **New UI**
@@ -205,6 +206,7 @@
 - **Popup** - Fixed bug which could cause pre-existing inline popup to be removed from DOM after hiding
 - **Popup** - Fixes popup offstage position calculations with pages including horizontal scrollbars
 - **Popup** - Added `addTouchEvents` to specify whether touch events should be added to trigger popup on mobile
+- **Rail** - Rail 100% height now uses `border-box` to ensure exact height match to container
 - **Rating** - Rating now correctly adjusts if `data` attributes change
 - **Reveal** - Removed `masked` reveal, all reveals are masked by default
 - **RTL** - Fixed `rtl: 'both'` in `semantic.json` not building both versions of source correctly.
@@ -221,6 +223,7 @@
 - **Steps** - Fixes bug where `ordered steps` had smaller numbers in `IE10`
 - **Steps** - Fixed bug where `stackable steps` were not working correctly
 - **Sticky** - Fix issue with sticky content scroll css transition causing element to scroll too slowly when cannot fit on screen.
+- **Sticky** - Fix issues when `pushing: true` with sticky content having incorrect bottom spacing, when container has bottom padding
 - **Sticky** - Fixed issue with sticky content animating width on display in some cases.
 - **Tab** - Tab name is no longer case sensitive
 - **Table** - Fixes `sorted` column are not correctly centered with `center aligned` due to margin on sort icon
