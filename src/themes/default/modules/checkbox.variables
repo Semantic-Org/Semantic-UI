@@ -6,6 +6,7 @@
 @fontSize: 1em;
 @checkboxLineHeight: 15px;
 
+
 /* Label */
 @labelPadding: 1.75em;
 
@@ -87,9 +88,11 @@
 
 /* Slider */
 @sliderHandleSize: 1.5rem;
-@sliderHandleOffset: (1rem - @sliderHandleSize) / 2;
-@sliderHandleTransition: left @defaultDuration @defaultEasing;
 @sliderLineWidth: 3.5rem;
+@sliderTransitionDuration: 0.3s;
+
+@sliderHandleOffset: (1rem - @sliderHandleSize) / 2;
+@sliderHandleTransition: left @sliderTransitionDuration @defaultEasing;
 
 @sliderWidth: @sliderLineWidth;
 @sliderHeight: (@sliderHandleSize + @sliderHandleOffset);
@@ -98,7 +101,7 @@
 @sliderLineVerticalOffset: 0.4rem;
 @sliderLineColor: @neutralCheckbox;
 @sliderLineRadius: @circularRadius;
-@sliderLineTransition: background @defaultDuration @defaultEasing;
+@sliderLineTransition: background @sliderTransitionDuration @defaultEasing;
 
 @sliderTravelDistance: @sliderLineWidth - @sliderHandleSize;
 
@@ -116,6 +119,7 @@
 /* Toggle */
 @toggleLaneWidth: 3.5rem;
 @toggleHandleSize: 1.5rem;
+@toggleTransitionDuration: 0.2s;
 
 @toggleWidth: @toggleLaneWidth;
 @toggleHeight: @toggleHandleSize;
@@ -123,8 +127,8 @@
 @toggleHandleRadius: @circularRadius;
 @toggleHandleOffset: 0rem;
 @toggleHandleTransition:
-  background @defaultDuration @defaultEasing,
-  left @defaultDuration @defaultEasing
+  background @sliderTransitionDuration @defaultEasing,
+  left @sliderTransitionDuration @defaultEasing
 ;
 
 @toggleLaneHeight: @toggleHandleSize;
