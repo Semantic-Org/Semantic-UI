@@ -15,9 +15,7 @@ Key Features
 
 ## 2.0 Announcement
 
-2.0 will be coming in June. 
-
-Get ready by checking out the [beta docs](http://beta.semantic-ui.com), and reading up on the 200+ new features, bug fixes and changes in the [release notes](https://github.com/Semantic-Org/Semantic-UI/blob/next/RELEASE-NOTES.md). 
+**2.0 will be coming in June.** Get ready by checking out the changes in the [beta docs](http://beta.semantic-ui.com), and reading up on the 200+ new features, bug fixes and changes in the [2.0 release notes](https://github.com/Semantic-Org/Semantic-UI/blob/next/RELEASE-NOTES.md). 
 
 Check out the code by forking the [`next`](https://github.com/Semantic-Org/Semantic-UI/tree/next) branch.
 
