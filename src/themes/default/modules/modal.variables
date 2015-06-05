@@ -6,6 +6,7 @@
 @border: none;
 @zIndex: 1001;
 @borderRadius: @defaultBorderRadius;
+@transformOrigin: 50% 25%;
 @boxShadow:
   1px 3px 3px 0px rgba(0, 0, 0, 0.2),
   1px 3px 15px 2px rgba(0, 0, 0, 0.2)
