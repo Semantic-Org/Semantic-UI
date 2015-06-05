@@ -26,12 +26,12 @@
 @closeWidth: @width + @splitCloseDistance;
 @veryCloseWidth: @width + @splitVeryCloseDistance;
 
-/* Divided */
-@dividedBorder: 1px solid @borderColor;
-@dividedDistance: 5rem;
-@splitDividedDistance: (@dividedDistance / 2);
+/* Dividing */
+@dividingBorder: 1px solid @borderColor;
+@dividingDistance: 5rem;
+@splitDividingDistance: (@dividingDistance / 2);
+@dividingWidth: @width + @splitDividingDistance;
 
-@dividedRailWidth:
 
 @medium: 1em;
 
