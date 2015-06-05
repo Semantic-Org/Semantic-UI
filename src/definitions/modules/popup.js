@@ -17,6 +17,8 @@ $.fn.popup = function(parameters) {
   var
     $allModules    = $(this),
     $document      = $(document),
+    $window        = $(window),
+    $body          = $('body'),
 
     moduleSelector = $allModules.selector || '',
 
@@ -52,8 +54,6 @@ $.fn.popup = function(parameters) {
           ? $(settings.target)
           : $module,
 
-        $window            = $(window),
-        $body              = $('body'),
         $popup,
         $offsetParent,
 
@@ -277,7 +277,7 @@ $.fn.popup = function(parameters) {
         },
 
         show: function(callback) {
-          callback = $.isFunction(callback) ? callback : function(){};
+          callback = callback || function(){};
           module.debug('Showing pop-up', settings.transition);
 
           if(module.is.hidden() && !( module.is.active() && module.is.dropdown()) ) {
@@ -303,7 +303,7 @@ $.fn.popup = function(parameters) {
 
 
         hide: function(callback) {
-          callback = $.isFunction(callback) ? callback : function(){};
+          callback = callback || function(){};
           if( module.is.visible() || module.is.animating() ) {
             if(settings.onHide.call($popup, element) === false) {
               module.debug('onHide callback returned false, cancelling popup animation');
@@ -441,44 +441,60 @@ $.fn.popup = function(parameters) {
             $module.removeData(metadata.variation);
             return $module.data(metadata.variation) || settings.variation;
           },
-          sizes: function() {
+          calculations: function() {
             var
-              targetElement = $target[0],
-              sizes = {}
+              targetElement  = $target[0],
+              targetPosition = (settings.inline || settings.popup)
+                ? $target.position()
+                : $target.offset(),
+              calculations = {}
             ;
-            // grab position
-            sizes.target = (settings.inline || settings.popup)
-              ? $target.position()
-              : $target.offset()
-            ;
-            sizes = {
-              target: {
+            calculations = {
+              // element which is launching popup
+              target : {
                 element : $target[0],
                 width   : $target.outerWidth(),
                 height  : $target.outerHeight(),
+                top     : targetPosition.top,
+                left    : targetPosition.left,
                 margin  : {}
               },
-              popup: {
-                width: $popup.outerWidth(),
-                height: $popup.outerHeight()
+              // popup itself
+              popup : {
+                width  : $popup.outerWidth(),
+                height : $popup.outerHeight()
               },
-              parent: {
-                width: $offsetParent.outerWidth(),
-                height: $offsetParent.outerHeight()
-              }
+              // offset container (or 3d context)
+              parent : {
+                width  : $offsetParent.outerWidth(),
+                height : $offsetParent.outerHeight()
+              },
+              // screen boundaries
+              screen : {
+                top    : $window.scrollTop(),
+                left   : $window.scrollLeft(),
+                width  : $body.width(),
+                height : $body.height()
+              },
+              boundary: {
+                top    : screen.top,
+                bottom : screen.top + screen.height,
+                left   : screen.left,
+                right  : screen.left + screen.width
+              },
             };
-
-            sizes.target.margin.top = (settings.inline)
+            // add in margins if inline
+            calculations.target.margin.top = (settings.inline)
               ? parseInt( window.getComputedStyle(targetElement).getPropertyValue('margin-top'), 10)
               : 0
             ;
-            sizes.target.margin.left = (settings.inline)
+            calculations.target.margin.left = (settings.inline)
               ? module.is.rtl()
                 ? parseInt( window.getComputedStyle(targetElement).getPropertyValue('margin-right'), 10)
                 : parseInt( window.getComputedStyle(targetElement).getPropertyValue('margin-left') , 10)
               : 0
             ;
-            return sizes;
+            return calculations;
           },
           id: function() {
             return id;
@@ -531,37 +547,28 @@ $.fn.popup = function(parameters) {
               : $()
             ;
           },
-          offstagePosition: function(position) {
+          offstagePosition: function(position, calculations) {
             var
-              screen = {
-                top    : $(window).scrollTop(),
-                left   : $(window).scrollLeft(),
-                width  : $(window).width(),
-                height : $(window).height()
-              },
-              boundary = {
-                top    : screen.top,
-                bottom : screen.top + screen.height,
-                left   : screen.left,
-                right  : screen.left + screen.width
-              },
-              popup = {
-                width  : $popup.outerWidth(),
-                height : $popup.outerHeight(),
-                offset : $popup.offset()
-              },
-              offstage = {},
-              offstagePositions = []
+              offset            = $popup.offset(),
+              offstage          = {},
+              offstagePositions = [],
+              popup,
+              boundary
             ;
-            position = position || false;
-            if(popup.offset && position) {
-              module.verbose('Checking if outside viewable area', popup.offset);
+            position     = position     || false;
+            calculations = calculations || module.get.calculations();
+            // shorthand
+            popup        = calculations.popup;
+            boundary     = calculations.boundary;
+
+            if(offset && position) {
               offstage = {
-                top    : (popup.offset.top < boundary.top),
-                bottom : (popup.offset.top + popup.height > boundary.bottom),
-                right  : (popup.offset.left + popup.width > boundary.right),
-                left   : (popup.offset.left < boundary.left)
+                top    : (offset.top < boundary.top),
+                bottom : (offset.top + popup.height > boundary.bottom),
+                right  : (offset.left + popup.width > boundary.right),
+                left   : (offset.left < boundary.left)
               };
+              module.verbose('Offstage positions determined', offset, offstage);
             }
             // return only boundaries that have been surpassed
             $.each(offstage, function(direction, isOffstage) {
@@ -646,7 +653,7 @@ $.fn.popup = function(parameters) {
         },
 
         set: {
-          position: function(position, sizes) {
+          position: function(position, calculations) {
 
             // exit conditions
             if($target.length === 0 || $popup.length === 0) {
@@ -663,16 +670,16 @@ $.fn.popup = function(parameters) {
               positioning,
               offstagePosition
             ;
-            sizes    = sizes    || module.get.sizes();
-            position = position || $module.data(metadata.position) || settings.position;
+            calculations = calculations || module.get.calculations();
+            position     = position     || $module.data(metadata.position) || settings.position;
 
             offset       = $module.data(metadata.offset) || settings.offset;
             distanceAway = settings.distanceAway;
 
             // shorthand
-            target = sizes.target;
-            popup  = sizes.popup;
-            parent = sizes.parent;
+            target = calculations.target;
+            popup  = calculations.popup;
+            parent = calculations.parent;
 
             if(target.top === 0 && target.left === 0) {
               module.debug('Popup target is hidden, no action taken');
@@ -680,9 +687,9 @@ $.fn.popup = function(parameters) {
             }
 
             if(settings.inline) {
-              module.debug('Adding targets margin to calculation');
+              module.debug('Adding margin to calculation', target.margin);
               if(position == 'left center' || position == 'right center') {
-                offset       += target.margin.top;
+                offset       +=  target.margin.top;
                 distanceAway += -target.margin.left;
               }
               else if (position == 'top left' || position == 'top center' || position == 'top right') {
@@ -695,7 +702,7 @@ $.fn.popup = function(parameters) {
               }
             }
 
-            module.debug('Calculating popup positioning', position);
+            module.debug('Determining popup position from calculations', position, calculations);
 
             if (module.is.rtl()) {
               position = position.replace(/left|right/g, function (match) {
@@ -704,11 +711,11 @@ $.fn.popup = function(parameters) {
                   : 'left'
                 ;
               });
-              module.debug('RTL: Popup positioning updated', position);
+              module.debug('RTL: Popup position updated', position);
             }
 
             if(searchDepth == settings.maxSearchDepth && settings.lastResort) {
-              module.debug('Using last resort position to display', settings.lastResort);
+              module.debug('Using "last resort" position to display', settings.lastResort);
               position = settings.lastResort;
             }
 
@@ -792,7 +799,7 @@ $.fn.popup = function(parameters) {
               .addClass(className.loading)
             ;
             // check if is offstage
-            offstagePosition = module.get.offstagePosition(position);
+            offstagePosition = module.get.offstagePosition(position, calculations);
 
             // recursively find new positioning
             if(offstagePosition) {
@@ -802,7 +809,7 @@ $.fn.popup = function(parameters) {
                 position = module.get.nextPosition(position);
                 module.debug('Trying new position', position);
                 return ($popup)
-                  ? module.set.position(position, sizes)
+                  ? module.set.position(position, calculations)
                   : false
                 ;
               }
