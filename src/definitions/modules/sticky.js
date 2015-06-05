@@ -350,7 +350,6 @@ $.fn.sticky = function(parameters) {
               module.determineContainer();
             }
             else {
-              console.log($container.outerHeight(), module.cache.context.height, $module);
               if( Math.abs($container.outerHeight() - module.cache.context.height) > settings.jitter) {
                 module.debug('Context has padding, specifying exact height for container', module.cache.context.height);
                 $container.css({
