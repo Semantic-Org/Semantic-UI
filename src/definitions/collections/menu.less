@@ -388,7 +388,7 @@
   }
 }
 @media only screen and (min-width: @tabletBreakpoint) {
-  .ui.menu:not(.secondary):not(.text):not(.tabular) > .container > .item:not(.right):first-child {
+  .ui.menu:not(.secondary):not(.text):not(.tabular):not(.borderless) > .container > .item:not(.right):not(.borderless):first-child {
     border-left: @dividerSize solid @dividerBackground;
   }
 }
@@ -1094,7 +1094,7 @@ Floated Menu / Item
 /* Item Icon Only */
 .ui.menu .icon.item > .icon {
   width: auto;
-  margin: 0em;
+  margin: 0em auto;
 }
 
 /*--- inverted ---*/
