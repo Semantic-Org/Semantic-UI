@@ -22,7 +22,7 @@
 @verticalPadding: 0em;
 
 /* Sub Heading */
-@subHeadingMargin: @headerTopMargin 0em 0.1428rem;
+@subHeadingDistance: 0.1428rem;
 @subHeadingFontSize: @relativeTiny;
 @subHeadingFontWeight: bold;
 @subHeadingTextTransform: uppercase;
