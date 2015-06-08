@@ -8,23 +8,37 @@
 
 /* Simple */
 @background: @lightGrey;
+@transitionDuration: 0.5s;
+@transitionEasing: @defaultEasing;
 
 /* Placeholder */
-@placeholderBackground: @background;
+@placeholderUnderlay: @background;
+
+/* Placeholder Overlayed Background */
+@placeholderBackground: radial-gradient(transparent 45%, rgba(0, 0, 0, 0.3));
+@placeholderBackgroundOpacity: 0.5;
+@placeholderBackgroundTransition: opacity @transitionDuration @transitionEasing;
 
 /* Icon */
-@iconSize: 7rem;
-@iconTransition: color @defaultDuration @defaultEasing;
-@iconColor: @invertedTextColor;
-@iconShadow: @subtleShadow;
+@iconBackground: @veryStrongTransparentBlack;
+@iconSize: 6rem;
+@iconTransition:
+  opacity @transitionDuration @transitionEasing,
+  color @transitionDuration @transitionEasing
+;
+@iconColor: @white;
+@iconShadow:
+  0px 2px 10px rgba(34, 36, 38, 0.2)
+;
 @iconZIndex: 10;
 
 /*-------------------
        States
 --------------------*/
 
-/* Video */
-@hoverIconBackground: rgba(0, 0, 0, 0);
+/* Hover */
+@hoverPlaceholderBackground: @placeholderBackground;
+@hoverPlaceholderBackgroundOpacity: 1;
 @hoverIconColor: @white;
 
 

@@ -65,6 +65,7 @@
 /* Placeholder Image */
 .ui.embed > .placeholder {
   position: absolute;
+  cursor: pointer;
   top: 0px;
   left: 0px;
   display: block;
@@ -85,11 +86,25 @@
   left: 0px;
   width: 100%;
   height: 100%;
+  z-index: 2;
+}
+.ui.embed > .icon:after {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  content: '';
+  background: @placeholderBackground;
+  opacity: @placeholderBackgroundOpacity;
+  transition: @placeholderBackgroundTransition;
 }
 .ui.embed > .icon:before {
   position: absolute;
   top: 50%;
   left: 50%;
+  z-index: 4;
   transform: translateX(-50%) translateY(-50%);
 
   color: @iconColor;
@@ -107,8 +122,9 @@
      Hover
 ---------------*/
 
-.ui.embed .icon:hover {
-  background: @hoverIconBackground;
+.ui.embed .icon:hover:after {
+  background: @hoverPlaceholderBackground;
+  opacity: @hoverPlaceholderBackgroundOpacity;
 }
 .ui.embed .icon:hover:before {
   color: @hoverIconColor;
