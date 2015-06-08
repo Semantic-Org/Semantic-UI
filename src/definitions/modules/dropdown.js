@@ -1508,6 +1508,7 @@ $.fn.dropdown = function(parameters) {
           item: function(value, strict) {
             var
               $selectedItem = false,
+              shouldSearch,
               isMultiple
             ;
             value = (value !== undefined)
@@ -1516,12 +1517,16 @@ $.fn.dropdown = function(parameters) {
                 ? module.get.values()
                 : module.get.text()
             ;
+            shouldSearch = (isMultiple)
+              ? (value.length > 0)
+              : (value !== undefined && value !== null)
+            ;
             isMultiple = (module.is.multiple() && $.isArray(value));
             strict     = (value === '' || value === 0)
               ? true
               : strict || false
             ;
-            if(value !== undefined && value !== null) {
+            if(shouldSearch) {
               $item
                 .each(function() {
                   var
@@ -1640,6 +1645,7 @@ $.fn.dropdown = function(parameters) {
             }
           },
           values: function() {
+            // prevents callbacks from occuring if specified for initial load
             module.set.initialLoad();
             if(settings.apiSettings) {
               if(settings.saveRemoteData) {
