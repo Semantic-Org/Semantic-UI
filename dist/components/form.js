@@ -272,15 +272,16 @@ $.fn.form = function(parameters) {
             },
             blur: function() {
               var
-                $field      = $(this),
-                $fieldGroup = $field.closest($group)
+                $field          = $(this),
+                $fieldGroup     = $field.closest($group),
+                validationRules = module.get.validation($field)
               ;
               if( $fieldGroup.hasClass(className.error) ) {
-                module.debug('Revalidating field', $field,  module.get.validation($field));
-                module.validate.field( module.get.validation($field) );
+                module.debug('Revalidating field', $field, validationRules);
+                module.validate.field( validationRules );
               }
               else if(settings.on == 'blur' || settings.on == 'change') {
-                module.validate.field( module.get.validation($field) );
+                module.validate.field( validationRules );
               }
             },
             change: function() {

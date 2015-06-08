@@ -53,6 +53,7 @@
 - **Item** - Items now uses `flexbox` for layout
 - **Message** - `icon message` now uses `flexbox` for layout
 - **Input** - All `input` types use `flexbox` for layout
+- **Sidebar** - Mobile sidebars will now correctly report `scrollTop` values for `document` or `body`. Chrome on iOS will now no longer have issues with fixed content not sticking immediately when using a sidebar.
 - **Shapes** - Shapes now correctly adjusts for margin on shape elements
 - **Steps** - Steps now use `flexbox`, the default horizontal theme has the active element point downward now instead of to the right.
 - **Steps** - Steps no longer need `item count` and will automatically divide evenly

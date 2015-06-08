@@ -131,6 +131,9 @@ $.fn.sidebar = function(parameters) {
             .off(eventNamespace)
             .removeData(moduleNamespace)
           ;
+          if(module.is.ios()) {
+            module.remove.ios();
+          }
           // bound by uuid
           $context.off(elementNamespace);
           $window.off(elementNamespace);
@@ -175,7 +178,7 @@ $.fn.sidebar = function(parameters) {
             module.verbose('Adding clickaway events to context', $context);
             if(settings.closable) {
               $context
-                .on('click' + elementNamespace, module.event.clickaway)
+                .on('click'    + elementNamespace, module.event.clickaway)
                 .on('touchend' + elementNamespace, module.event.clickaway)
               ;
             }
@@ -210,7 +213,7 @@ $.fn.sidebar = function(parameters) {
         },
 
         add: {
-          bodyCSS: function() {
+          inlineCSS: function() {
             var
               width     = module.cache.width  || $module.outerWidth(),
               height    = module.cache.height || $module.outerHeight(),
@@ -491,7 +494,7 @@ $.fn.sidebar = function(parameters) {
           module.repaint();
           animate = function() {
             module.bind.clickaway();
-            module.add.bodyCSS();
+            module.add.inlineCSS();
             module.set.animating();
             module.set.visible();
           };
@@ -547,7 +550,7 @@ $.fn.sidebar = function(parameters) {
               $transition.off(transitionEvent + elementNamespace, transitionEnd);
               module.remove.animating();
               module.remove.transition();
-              module.remove.bodyCSS();
+              module.remove.inlineCSS();
               if(transition == 'scale down' || (settings.returnScroll && module.is.mobile()) ) {
                 module.scrollBack();
               }
@@ -635,7 +638,8 @@ $.fn.sidebar = function(parameters) {
         },
 
         set: {
-          // html
+
+          // ios only (scroll on html not document). This prevent auto-resize canvas/scroll in ios
           ios: function() {
             $html.addClass(className.ios);
           },
@@ -677,11 +681,16 @@ $.fn.sidebar = function(parameters) {
         },
         remove: {
 
-          bodyCSS: function() {
-            module.debug('Removing body css styles', $style);
+          inlineCSS: function() {
+            module.debug('Removing inline css styles', $style);
             if($style && $style.length > 0) {
               $style.remove();
             }
+          },
+
+          // ios scroll on html not document
+          ios: function() {
+            $html.removeClass(className.ios);
           },
 
           // context
@@ -799,10 +808,11 @@ $.fn.sidebar = function(parameters) {
           },
           ios: function() {
             var
-              userAgent = navigator.userAgent,
-              isIOS     = userAgent.match(regExp.ios)
+              userAgent      = navigator.userAgent,
+              isIOS          = userAgent.match(regExp.ios),
+              isMobileChrome = userAgent.match(regExp.mobileChrome)
             ;
-            if(isIOS) {
+            if(isIOS && !isMobileChrome) {
               module.verbose('Browser was found to be iOS', userAgent);
               return true;
             }
@@ -1096,8 +1106,9 @@ $.fn.sidebar.settings = {
   },
 
   regExp: {
-    ios    : /(iPad|iPhone|iPod)/g,
-    mobile : /Mobile|iP(hone|od|ad)|Android|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/g
+    ios          : /(iPad|iPhone|iPod)/g,
+    mobileChrome : /(CriOS)/g,
+    mobile       : /Mobile|iP(hone|od|ad)|Android|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/g
   },
 
   error   : {

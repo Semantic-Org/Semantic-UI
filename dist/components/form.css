@@ -352,6 +352,12 @@
 .ui.form.success .success.message {
   display: block;
 }
+.ui.form.success .icon.success.message {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
 
 /*--------------------
         Error
@@ -362,6 +368,12 @@
 .ui.form.warning .warning.message {
   display: block;
 }
+.ui.form.warning .icon.warning.message {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
 
 /*--------------------
         Warning
@@ -371,6 +383,12 @@
 /* On Form */
 .ui.form.error .error.message {
   display: block;
+}
+.ui.form.error .icon.error.message {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 /* On Field(s) */

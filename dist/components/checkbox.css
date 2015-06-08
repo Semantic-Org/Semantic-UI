@@ -311,8 +311,8 @@
       -ms-transform: none;
           transform: none;
   border-radius: 500rem;
-  -webkit-transition: background 0.1s ease;
-          transition: background 0.1s ease;
+  -webkit-transition: background 0.3s ease;
+          transition: background 0.3s ease;
 }
 
 /* Handle */
@@ -334,8 +334,8 @@
       -ms-transform: none;
           transform: none;
   border-radius: 500rem;
-  -webkit-transition: left 0.1s ease;
-          transition: left 0.1s ease;
+  -webkit-transition: left 0.3s ease;
+          transition: left 0.3s ease;
 }
 
 /* Focus */
@@ -425,8 +425,8 @@
   top: 0rem;
   left: 0em;
   border-radius: 500rem;
-  -webkit-transition: background 0.1s ease, left 0.1s ease;
-          transition: background 0.1s ease, left 0.1s ease;
+  -webkit-transition: background 0.3s ease, left 0.3s ease;
+          transition: background 0.3s ease, left 0.3s ease;
 }
 .ui.toggle.checkbox input[type="checkbox"] ~ .box:after,
 .ui.toggle.checkbox input[type="checkbox"] ~ label:after,

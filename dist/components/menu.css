@@ -388,12 +388,13 @@
 
 @media only screen and (max-width: 767px) {
   .ui.menu > .ui.container {
+    width: 100%;
     margin-left: 0em !important;
     margin-right: 0em !important;
   }
 }
 @media only screen and (min-width: 768px) {
-  .ui.menu:not(.secondary):not(.text):not(.tabular) > .container > .item:not(.right):first-child {
+  .ui.menu:not(.secondary):not(.text):not(.tabular):not(.borderless) > .container > .item:not(.right):not(.borderless):first-child {
     border-left: 1px solid rgba(34, 36, 38, 0.1);
   }
 }
@@ -1122,7 +1123,7 @@ Floated Menu / Item
 /* Item Icon Only */
 .ui.menu .icon.item > .icon {
   width: auto;
-  margin: 0em;
+  margin: 0em auto;
 }
 
 /*--- inverted ---*/

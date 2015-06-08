@@ -20,12 +20,12 @@
 }
 @media only screen and (max-width: 780px) {
   .ui.container {
-    width: 100%;
+    width: auto;
     margin-left: 1em !important;
     margin-right: 1em !important;
   }
   .ui.grid.container {
-    width: 100% !important;
+    width: auto !important;
   }
 }
 @media only screen and (min-width: 781px) and (max-width: 991px) {
