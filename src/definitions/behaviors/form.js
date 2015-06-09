@@ -224,6 +224,20 @@ $.fn.form = function(parameters) {
           ;
         },
 
+        is: {
+          valid: function() {
+            var
+              allValid = true
+            ;
+            $.each(validation, function(fieldName, field) {
+              if( !( module.validate.field(field) ) ) {
+                allValid = false;
+              }
+            });
+            return allValid;
+          }
+        },
+
         removeEvents: function() {
           $module
             .off(eventNamespace)
@@ -664,7 +678,6 @@ $.fn.form = function(parameters) {
 
           form: function(event) {
             var
-              allValid = true,
               apiRequest
             ;
 
@@ -675,12 +688,7 @@ $.fn.form = function(parameters) {
 
             // reset errors
             formErrors = [];
-            $.each(validation, function(fieldName, field) {
-              if( !( module.validate.field(field) ) ) {
-                allValid = false;
-              }
-            });
-            if(allValid) {
+            if( module.is.valid() ) {
               module.debug('Form has no validation errors, submitting');
               module.set.success();
               return settings.onSuccess.call(element, event);
