@@ -81,6 +81,7 @@
 - **Form** - Added a host of new styles for form fields autocompleted by your browser, including autocompleted error, and focus states
 - **Form** - Added placeholder color rules for IE, `ms-input-placeholder`
 - **Form** - Fix `errored field` dropdown keyboard selection color
+- **Form Validation** - Added `is valid` behavior, returns `true/false` if form is valid
 - **Form Validation** - Added `different[field]` rule which requires a field to be different than another field
 - **Form Validation** - `data-validate` now takes precedence over other validation matching schemes like `name` or `id`
 - **Form Validation** - New rules for matching against custom regular expressions
