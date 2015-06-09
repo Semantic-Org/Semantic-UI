@@ -381,7 +381,6 @@ $.fn.tab = function(parameters) {
                   module.debug('First time tab loaded calling tab init');
                   settings.onFirstLoad.call($tab[0], currentPath, parameterArray, historyEvent);
                 }
-
                 return false;
               }
             }

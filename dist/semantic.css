@@ -4397,12 +4397,16 @@ input::selection {
             Container
 *******************************/
 
+/* All Sizes */
+
 .ui.container {
   display: block;
   max-width: 100% !important;
 }
 
-@media only screen and (max-width: 780px) {
+/* Mobile */
+
+@media only screen and (max-width: 767px) {
   .ui.container {
     width: auto;
     margin-left: 1em !important;
@@ -4414,39 +4418,45 @@ input::selection {
   }
 }
 
-@media only screen and (min-width: 781px) and (max-width: 991px) {
+/* Tablet */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
   .ui.container {
-    width: 752px;
+    width: 723px;
     margin-left: auto !important;
     margin-right: auto !important;
   }
 
   .ui.grid.container {
-    width: calc( 752px  +  2em ) !important;
+    width: calc( 723px  +  2em ) !important;
   }
 }
 
-@media only screen and (min-width: 988px) and (max-width: 1228px) {
+/* Small Monitor */
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
   .ui.container {
-    width: 960px;
+    width: 933px;
     margin-left: auto !important;
     margin-right: auto !important;
   }
 
   .ui.grid.container {
-    width: calc( 960px  +  2em ) !important;
+    width: calc( 933px  +  2em ) !important;
   }
 }
 
-@media only screen and (min-width: 1228px) {
+/* Large Monitor */
+
+@media only screen and (min-width: 1200px) {
   .ui.container {
-    width: 1200px;
+    width: 1127px;
     margin-left: auto !important;
     margin-right: auto !important;
   }
 
   .ui.grid.container {
-    width: calc( 1200px  +  2em ) !important;
+    width: calc( 1127px  +  2em ) !important;
   }
 }
 
@@ -4486,6 +4496,14 @@ input::selection {
 
 .ui[class*="right aligned"].container {
   text-align: right;
+}
+
+.ui.justified.container {
+  text-align: justify;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
 }
 /*!
  * # Semantic UI 2.0.0 - Divider
@@ -16688,7 +16706,7 @@ ol.ui.horizontal.list li:before,
   }
 }
 
-@media only screen and (min-width: 992px) and (max-width: 1399px) {
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
   .ui.page.grid {
     width: auto;
     margin-left: 0em;
@@ -16698,7 +16716,7 @@ ol.ui.horizontal.list li:before,
   }
 }
 
-@media only screen and (min-width: 1400px) and (max-width: 1919px) {
+@media only screen and (min-width: 1200px) and (max-width: 1919px) {
   .ui.page.grid {
     width: auto;
     margin-left: 0em;
@@ -17349,7 +17367,7 @@ ol.ui.horizontal.list li:before,
 
 /* Large Monitor Sizing Combinations */
 
-@media only screen and (min-width: 1400px) and (max-width: 1919px) {
+@media only screen and (min-width: 1200px) and (max-width: 1919px) {
   .ui.grid > .row > [class*="one wide large screen"].column,
   .ui.grid > .column.row > [class*="one wide large screen"].column,
   .ui.grid > [class*="one wide large screen"].column,
@@ -18698,6 +18716,10 @@ ol.ui.horizontal.list li:before,
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: inherit;
+  -webkit-align-items: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: inherit;
@@ -28335,7 +28357,7 @@ select.ui.dropdown {
   }
 }
 
-@media only screen and (min-width: 1400px) {
+@media only screen and (min-width: 1200px) {
   .ui.modal {
     width: 900px;
     margin: 0em 0em 0em -450px;
@@ -28604,7 +28626,7 @@ select.ui.dropdown {
   }
 }
 
-@media only screen and (min-width: 1400px) {
+@media only screen and (min-width: 1200px) {
   .ui.small.modal {
     width: 720px;
     margin: 0em 0em 0em -360px;
@@ -28645,7 +28667,7 @@ select.ui.dropdown {
   }
 }
 
-@media only screen and (min-width: 1400px) {
+@media only screen and (min-width: 1200px) {
   .ui.large.modal {
     width: 1080px;
     margin: 0em 0em 0em -540px;
