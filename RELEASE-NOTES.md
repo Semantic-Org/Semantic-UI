@@ -160,6 +160,7 @@
 - **Dropdown** - Fixed issue with matching boolean values, and using `set selected` with `true` or `false`
 - **Dropdown** - Fixed `search dropdown` submitting parent form when enter shortcut pressed
 - **Dropdown** - Fixed dropdown menu items should not center inside of a center aligned container.
+- **Form** - Form will no longer set a height for `textarea` using the `rows` property
 - **Form** - `field` inside `fields` no longer produce double sized margins.
 - **Form** - Form sizes and input sizes now inherit from `site.variables`
 - **Form Validation** - Fixed bug causing `match` rule not to work as expected.
