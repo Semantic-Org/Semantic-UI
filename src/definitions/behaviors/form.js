@@ -229,6 +229,7 @@ $.fn.form = function(parameters) {
             var
               allValid = true
             ;
+            module.verbose('Checking if form is valid');
             $.each(validation, function(fieldName, field) {
               if( !( module.validate.field(field) ) ) {
                 allValid = false;
