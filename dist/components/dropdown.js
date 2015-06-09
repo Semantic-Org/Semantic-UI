@@ -161,7 +161,40 @@ $.fn.dropdown = function(parameters) {
             elementNamespace = '.' + id;
             module.verbose('Creating unique id for element', id);
           },
-          userLabels: function() {
+          userChoice: function(values) {
+            var
+              $userChoices,
+              $userChoice,
+              isUserValue,
+              html
+            ;
+            values = values || module.get.userValues();
+            if(!values) {
+              return false;
+            }
+            values = $.isArray(values)
+              ? values
+              : [values]
+            ;
+            $.each(values, function(index, value) {
+              if(module.get.item(value) === false) {
+                html         = settings.templates.addition(value);
+                $userChoice  = $('<div />')
+                  .html(html)
+                  .data(metadata.value, value)
+                  .addClass(className.addition)
+                  .addClass(className.item)
+                ;
+                $userChoices = ($userChoices === undefined)
+                  ? $userChoice
+                  : $userChoices.add($userChoice)
+                ;
+                module.verbose('Creating user choices for value', value, $userChoice);
+              }
+            });
+            return $userChoices;
+          },
+          userLabels: function(value) {
             var
               userValues = module.get.userValues()
             ;
@@ -532,7 +565,7 @@ $.fn.dropdown = function(parameters) {
                 module.remove.message();
               }
               if(settings.allowAdditions) {
-                module.add.userChoice(query);
+                module.add.userSuggestion(query);
               }
               if(module.is.searchSelection() && module.can.show() && module.is.focusedOnSearch() ) {
                 module.show();
@@ -1505,9 +1538,24 @@ $.fn.dropdown = function(parameters) {
               : $item.eq(0)
             ;
           },
+          itemWithAdditions: function(value) {
+            var
+              $items       = module.get.item(value),
+              $userItems   = module.create.userChoice(value),
+              hasUserItems = ($userItems && $userItems.length > 0)
+            ;
+            if(hasUserItems) {
+              $items = ($items.length > 0)
+                ? $items.add($userItems)
+                : $userItems
+              ;
+            }
+            return $items;
+          },
           item: function(value, strict) {
             var
               $selectedItem = false,
+              shouldSearch,
               isMultiple
             ;
             value = (value !== undefined)
@@ -1516,12 +1564,16 @@ $.fn.dropdown = function(parameters) {
                 ? module.get.values()
                 : module.get.text()
             ;
+            shouldSearch = (isMultiple)
+              ? (value.length > 0)
+              : (value !== undefined && value !== '' && value !== null)
+            ;
             isMultiple = (module.is.multiple() && $.isArray(value));
             strict     = (value === '' || value === 0)
               ? true
               : strict || false
             ;
-            if(value !== undefined && value !== null) {
+            if(shouldSearch) {
               $item
                 .each(function() {
                   var
@@ -1640,6 +1692,7 @@ $.fn.dropdown = function(parameters) {
             }
           },
           values: function() {
+            // prevents callbacks from occuring if specified for initial load
             module.set.initialLoad();
             if(settings.apiSettings) {
               if(settings.saveRemoteData) {
@@ -1995,9 +2048,13 @@ $.fn.dropdown = function(parameters) {
           },
           selected: function(value, $selectedItem) {
             var
-              isMultiple = module.is.multiple()
+              isMultiple = module.is.multiple(),
+              $userSelectedItem
             ;
-            $selectedItem = $selectedItem || module.get.item(value);
+            $selectedItem = (settings.allowAdditions)
+              ? $selectedItem || module.get.itemWithAdditions(value)
+              : $selectedItem || module.get.item(value)
+            ;
             if(!$selectedItem) {
               return false;
             }
@@ -2009,6 +2066,7 @@ $.fn.dropdown = function(parameters) {
             else if(settings.useLabels) {
               module.remove.selectedItem();
             }
+            // select each item
             $selectedItem
               .each(function() {
                 var
@@ -2138,10 +2196,11 @@ $.fn.dropdown = function(parameters) {
               });
             }
           },
-          userChoice: function(value) {
+          userSuggestion: function(value) {
             var
-              alreadyHasValue = module.get.item(value),
-              $addition = $menu.children(selector.addition),
+              $addition         = $menu.children(selector.addition),
+              alreadyHasValue   = module.get.item(value),
+              hasUserSuggestion = $addition.length > 0,
               html
             ;
             if(module.has.maxSelections()) {
@@ -2151,27 +2210,26 @@ $.fn.dropdown = function(parameters) {
               $addition.remove();
               return;
             }
-            html = settings.templates.addition(value);
             $item
               .removeClass(className.selected)
             ;
-            if($addition.length > 0) {
+            if(hasUserSuggestion) {
+              html = settings.templates.addition(value);
               $addition
                 .html(html)
                 .data(metadata.value, value)
                 .removeClass(className.filtered)
                 .addClass(className.selected)
               ;
+              module.verbose('Replacing user suggestion with new value', $addition);
             }
             else {
-              $addition = $('<div/>')
-                .html(html)
-                .data(metadata.value, value)
-                .addClass(className.addition)
-                .addClass(className.item)
+              $addition = module.create.userChoice(value);
+              $addition
                 .prependTo($menu)
                 .addClass(className.selected)
               ;
+              module.verbose('Adding item choice to menu corresponding with user choice addition', $addition);
             }
           },
           variables: function(message) {
@@ -2183,6 +2241,7 @@ $.fn.dropdown = function(parameters) {
               count,
               query
             ;
+            module.verbose('Adding templated variables to message', message);
             if(hasCount) {
               count  = module.get.selectionCount();
               message = message.replace('{count}', count);
@@ -2279,35 +2338,45 @@ $.fn.dropdown = function(parameters) {
             $search.val('');
             module.set.filtered();
           },
-          selected: function(value) {
-            var
-              $selectedItem = module.get.item(value),
-              selectedText  = module.get.choiceText($selectedItem),
-              selectedValue = module.get.choiceValue($selectedItem, selectedText)
+          selected: function(value, $selectedItem) {
+            $selectedItem = (settings.allowAdditions)
+              ? $selectedItem || module.get.itemWithAdditions(value)
+              : $selectedItem || module.get.item(value)
             ;
+
             if(!$selectedItem) {
               return false;
             }
-            if(module.is.multiple()) {
-              if(settings.useLabels) {
-                module.remove.value(selectedValue, selectedText, $selectedItem);
-                module.remove.label(selectedValue);
-              }
-              else {
-                module.remove.value(selectedValue, selectedText, $selectedItem);
-                module.set.text(module.add.variables(message.count));
-              }
-            }
-            else {
-              module.remove.value(selectedValue, selectedText, $selectedItem);
-            }
+
             $selectedItem
-              .removeClass(className.filtered)
-              .removeClass(className.active)
+              .each(function() {
+                var
+                  $selected     = $(this),
+                  selectedText  = module.get.choiceText($selected),
+                  selectedValue = module.get.choiceValue($selected, selectedText)
+                ;
+                if(module.is.multiple()) {
+                  if(settings.useLabels) {
+                    module.remove.value(selectedValue, selectedText, $selected);
+                    module.remove.label(selectedValue);
+                  }
+                  else {
+                    module.remove.value(selectedValue, selectedText, $selected);
+                    module.set.text(module.add.variables(message.count));
+                  }
+                }
+                else {
+                  module.remove.value(selectedValue, selectedText, $selected);
+                }
+                $selected
+                  .removeClass(className.filtered)
+                  .removeClass(className.active)
+                ;
+                if(settings.useLabels) {
+                  $selected.removeClass(className.selected);
+                }
+              })
             ;
-            if(settings.useLabels) {
-              $selectedItem.removeClass(className.selected);
-            }
           },
           selectedItem: function() {
             $item.removeClass(className.selected);

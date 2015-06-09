@@ -3692,7 +3692,40 @@ $.fn.dropdown = function(parameters) {
             elementNamespace = '.' + id;
             module.verbose('Creating unique id for element', id);
           },
-          userLabels: function() {
+          userChoice: function(values) {
+            var
+              $userChoices,
+              $userChoice,
+              isUserValue,
+              html
+            ;
+            values = values || module.get.userValues();
+            if(!values) {
+              return false;
+            }
+            values = $.isArray(values)
+              ? values
+              : [values]
+            ;
+            $.each(values, function(index, value) {
+              if(module.get.item(value) === false) {
+                html         = settings.templates.addition(value);
+                $userChoice  = $('<div />')
+                  .html(html)
+                  .data(metadata.value, value)
+                  .addClass(className.addition)
+                  .addClass(className.item)
+                ;
+                $userChoices = ($userChoices === undefined)
+                  ? $userChoice
+                  : $userChoices.add($userChoice)
+                ;
+                module.verbose('Creating user choices for value', value, $userChoice);
+              }
+            });
+            return $userChoices;
+          },
+          userLabels: function(value) {
             var
               userValues = module.get.userValues()
             ;
@@ -4063,7 +4096,7 @@ $.fn.dropdown = function(parameters) {
                 module.remove.message();
               }
               if(settings.allowAdditions) {
-                module.add.userChoice(query);
+                module.add.userSuggestion(query);
               }
               if(module.is.searchSelection() && module.can.show() && module.is.focusedOnSearch() ) {
                 module.show();
@@ -5036,9 +5069,24 @@ $.fn.dropdown = function(parameters) {
               : $item.eq(0)
             ;
           },
+          itemWithAdditions: function(value) {
+            var
+              $items       = module.get.item(value),
+              $userItems   = module.create.userChoice(value),
+              hasUserItems = ($userItems && $userItems.length > 0)
+            ;
+            if(hasUserItems) {
+              $items = ($items.length > 0)
+                ? $items.add($userItems)
+                : $userItems
+              ;
+            }
+            return $items;
+          },
           item: function(value, strict) {
             var
               $selectedItem = false,
+              shouldSearch,
               isMultiple
             ;
             value = (value !== undefined)
@@ -5047,12 +5095,16 @@ $.fn.dropdown = function(parameters) {
                 ? module.get.values()
                 : module.get.text()
             ;
+            shouldSearch = (isMultiple)
+              ? (value.length > 0)
+              : (value !== undefined && value !== '' && value !== null)
+            ;
             isMultiple = (module.is.multiple() && $.isArray(value));
             strict     = (value === '' || value === 0)
               ? true
               : strict || false
             ;
-            if(value !== undefined && value !== null) {
+            if(shouldSearch) {
               $item
                 .each(function() {
                   var
@@ -5171,6 +5223,7 @@ $.fn.dropdown = function(parameters) {
             }
           },
           values: function() {
+            // prevents callbacks from occuring if specified for initial load
             module.set.initialLoad();
             if(settings.apiSettings) {
               if(settings.saveRemoteData) {
@@ -5526,9 +5579,13 @@ $.fn.dropdown = function(parameters) {
           },
           selected: function(value, $selectedItem) {
             var
-              isMultiple = module.is.multiple()
+              isMultiple = module.is.multiple(),
+              $userSelectedItem
             ;
-            $selectedItem = $selectedItem || module.get.item(value);
+            $selectedItem = (settings.allowAdditions)
+              ? $selectedItem || module.get.itemWithAdditions(value)
+              : $selectedItem || module.get.item(value)
+            ;
             if(!$selectedItem) {
               return false;
             }
@@ -5540,6 +5597,7 @@ $.fn.dropdown = function(parameters) {
             else if(settings.useLabels) {
               module.remove.selectedItem();
             }
+            // select each item
             $selectedItem
               .each(function() {
                 var
@@ -5669,10 +5727,11 @@ $.fn.dropdown = function(parameters) {
               });
             }
           },
-          userChoice: function(value) {
+          userSuggestion: function(value) {
             var
-              alreadyHasValue = module.get.item(value),
-              $addition = $menu.children(selector.addition),
+              $addition         = $menu.children(selector.addition),
+              alreadyHasValue   = module.get.item(value),
+              hasUserSuggestion = $addition.length > 0,
               html
             ;
             if(module.has.maxSelections()) {
@@ -5682,27 +5741,26 @@ $.fn.dropdown = function(parameters) {
               $addition.remove();
               return;
             }
-            html = settings.templates.addition(value);
             $item
               .removeClass(className.selected)
             ;
-            if($addition.length > 0) {
+            if(hasUserSuggestion) {
+              html = settings.templates.addition(value);
               $addition
                 .html(html)
                 .data(metadata.value, value)
                 .removeClass(className.filtered)
                 .addClass(className.selected)
               ;
+              module.verbose('Replacing user suggestion with new value', $addition);
             }
             else {
-              $addition = $('<div/>')
-                .html(html)
-                .data(metadata.value, value)
-                .addClass(className.addition)
-                .addClass(className.item)
+              $addition = module.create.userChoice(value);
+              $addition
                 .prependTo($menu)
                 .addClass(className.selected)
               ;
+              module.verbose('Adding item choice to menu corresponding with user choice addition', $addition);
             }
           },
           variables: function(message) {
@@ -5714,6 +5772,7 @@ $.fn.dropdown = function(parameters) {
               count,
               query
             ;
+            module.verbose('Adding templated variables to message', message);
             if(hasCount) {
               count  = module.get.selectionCount();
               message = message.replace('{count}', count);
@@ -5810,35 +5869,45 @@ $.fn.dropdown = function(parameters) {
             $search.val('');
             module.set.filtered();
           },
-          selected: function(value) {
-            var
-              $selectedItem = module.get.item(value),
-              selectedText  = module.get.choiceText($selectedItem),
-              selectedValue = module.get.choiceValue($selectedItem, selectedText)
+          selected: function(value, $selectedItem) {
+            $selectedItem = (settings.allowAdditions)
+              ? $selectedItem || module.get.itemWithAdditions(value)
+              : $selectedItem || module.get.item(value)
             ;
+
             if(!$selectedItem) {
               return false;
             }
-            if(module.is.multiple()) {
-              if(settings.useLabels) {
-                module.remove.value(selectedValue, selectedText, $selectedItem);
-                module.remove.label(selectedValue);
-              }
-              else {
-                module.remove.value(selectedValue, selectedText, $selectedItem);
-                module.set.text(module.add.variables(message.count));
-              }
-            }
-            else {
-              module.remove.value(selectedValue, selectedText, $selectedItem);
-            }
+
             $selectedItem
-              .removeClass(className.filtered)
-              .removeClass(className.active)
+              .each(function() {
+                var
+                  $selected     = $(this),
+                  selectedText  = module.get.choiceText($selected),
+                  selectedValue = module.get.choiceValue($selected, selectedText)
+                ;
+                if(module.is.multiple()) {
+                  if(settings.useLabels) {
+                    module.remove.value(selectedValue, selectedText, $selected);
+                    module.remove.label(selectedValue);
+                  }
+                  else {
+                    module.remove.value(selectedValue, selectedText, $selected);
+                    module.set.text(module.add.variables(message.count));
+                  }
+                }
+                else {
+                  module.remove.value(selectedValue, selectedText, $selected);
+                }
+                $selected
+                  .removeClass(className.filtered)
+                  .removeClass(className.active)
+                ;
+                if(settings.useLabels) {
+                  $selected.removeClass(className.selected);
+                }
+              })
             ;
-            if(settings.useLabels) {
-              $selectedItem.removeClass(className.selected);
-            }
           },
           selectedItem: function() {
             $item.removeClass(className.selected);
@@ -6663,6 +6732,7 @@ $.fn.embed = function(parameters) {
 
         initialize: function() {
           module.debug('Initializing embed');
+          module.determine.autoplay();
           module.create();
           module.bind.events();
           module.instantiate();
@@ -6694,7 +6764,7 @@ $.fn.embed = function(parameters) {
 
         bind: {
           events: function() {
-            if( module.is.video() ) {
+            if( module.has.placeholder() ) {
               module.debug('Adding placeholder events');
               $module
                 .on('click' + eventNamespace, selector.placeholder, module.createAndShow)
@@ -6735,6 +6805,7 @@ $.fn.embed = function(parameters) {
             .html( module.generate.embed(url) )
             .appendTo($module)
           ;
+          settings.onCreate.call(element, url);
           module.debug('Creating embed object', $embed);
         },
 
@@ -6752,7 +6823,6 @@ $.fn.embed = function(parameters) {
             .data(metadata.url, url)
           ;
           module.create();
-          settings.onChange.call(element);
         },
 
         // clears embed
@@ -6823,6 +6893,11 @@ $.fn.embed = function(parameters) {
         },
 
         determine: {
+          autoplay: function() {
+            if(module.should.autoplay()) {
+              settings.autoplay = true;
+            }
+          },
           source: function(url) {
             var
               matchedSource = false
@@ -6913,13 +6988,13 @@ $.fn.embed = function(parameters) {
           },
           parameters: function(source, extraParameters) {
             var
-              sourceParameters = (sources[source].parameters !== undefined)
+              parameters = (sources[source] && sources[source].parameters !== undefined)
                 ? sources[source].parameters(settings)
-                : {},
-              parameters
+                : {}
             ;
+            extraParameters = extraParameters || settings.parameters;
             if(extraParameters) {
-              parameters = $.extend({}, sourceParameters, extraParameters);
+              parameters = $.extend({}, parameters, extraParameters);
             }
             parameters = settings.onEmbed(parameters);
             return module.encode.parameters(parameters);
@@ -6932,13 +7007,16 @@ $.fn.embed = function(parameters) {
           }
         },
 
-        is: {
+        should: {
           autoplay: function() {
             return (settings.autoplay === 'auto')
-              ? ($module.data('image') !== undefined)
+              ? (settings.placeholder || $module.data(metadata.placeholder) !== undefined)
               : settings.autoplay
             ;
-          },
+          }
+        },
+
+        is: {
           video: function() {
             return module.get.type() == 'video';
           }
@@ -7138,29 +7216,21 @@ $.fn.embed.settings = {
   id       : false,
 
   // standard video settings
-  autoplay : 'auto',
-  color    : '#444444',
-  hd       : true,
-  showUI   : false,
-
-  onDisplay            : function() {},
-  onPlaceholderDisplay : function() {},
-  onReset              : function() {},
-  onChange             : function() {},
-  onEmbed              : function(parameters) {
-    return parameters;
-  },
-
-  width    : 'auto',
-  height   : 'auto',
+  autoplay  : 'auto',
+  color     : '#444444',
+  hd        : true,
+  brandedUI : false,
 
   // additional parameters to include with the embed
   parameters: false,
 
-  // callbacks not coded yet (needs to use jsapi)
-  api      : true,
-  onPause  : function() {},
-  onStop   : function() {},
+  onDisplay            : function() {},
+  onPlaceholderDisplay : function() {},
+  onReset              : function() {},
+  onCreate             : function(url) {},
+  onEmbed              : function(parameters) {
+    return parameters;
+  },
 
   metadata    : {
     id          : 'id',
@@ -7184,67 +7254,75 @@ $.fn.embed.settings = {
     embed       : '.embed',
     placeholder : '.placeholder',
     play        : '.play'
-  }
-};
+  },
 
-$.fn.embed.settings.sources = {
-  youtube: {
-    name   : 'youtube',
-    type   : 'video',
-    icon   : 'video play',
-    domain : 'youtube.com',
-    url    : '//www.youtube.com/embed/{id}',
-    parameters: function(settings) {
-      return {
-        autohide       : !settings.showUI,
-        autoplay       : settings.autoplay,
-        color          : settings.colors || undefined,
-        hq             : settings.hd,
-        jsapi          : settings.api,
-        modestbranding : 1
-      };
+  sources: {
+    youtube: {
+      name   : 'youtube',
+      type   : 'video',
+      icon   : 'video play',
+      domain : 'youtube.com',
+      url    : '//www.youtube.com/embed/{id}',
+      parameters: function(settings) {
+        return {
+          autohide       : !settings.brandedUI,
+          autoplay       : settings.autoplay,
+          color          : settings.colors || undefined,
+          hq             : settings.hd,
+          jsapi          : settings.api,
+          modestbranding : !settings.brandedUI
+        };
+      }
+    },
+    vimeo: {
+      name   : 'vimeo',
+      type   : 'video',
+      icon   : 'video play',
+      domain : 'vimeo.com',
+      url    : '//www.youtube.com/embed/{id}',
+      parameters: function(settings) {
+        return {
+          api      : settings.api,
+          autoplay : settings.autoplay,
+          byline   : settings.brandedUI,
+          color    : settings.colors || undefined,
+          portrait : settings.brandedUI,
+          title    : settings.brandedUI
+        };
+      }
     }
   },
-  vimeo: {
-    name   : 'vimeo',
-    type   : 'video',
-    icon   : 'video play',
-    domain : 'vimeo.com',
-    url    : '//www.youtube.com/embed/{id}',
-    parameters: function(settings) {
-      return {
-        api      : settings.api,
-        autoplay : settings.autoplay,
-        byline   : settings.showUI,
-        color    : settings.colors || undefined,
-        portrait : settings.showUI,
-        title    : settings.showUI
-      };
+
+  templates: {
+    iframe : function(url, parameters) {
+      return ''
+        + '<iframe src="' + url + '?=' + parameters + '"'
+        + ' width="100%" height="100%"'
+        + ' frameborder="0" scrolling="no" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
+      ;
+    },
+    placeholder : function(image, icon) {
+      var
+        html = ''
+      ;
+      if(icon) {
+        html += '<i class="' + icon + ' icon"></i>';
+      }
+      if(image) {
+        html += '<img class="placeholder" src="' + image + '">';
+      }
+      return html;
     }
-  }
+  },
+
+  // NOT YET IMPLEMENTED
+  api     : true,
+  onPause : function() {},
+  onPlay  : function() {},
+  onStop  : function() {}
+
 };
 
-$.fn.embed.settings.templates = {
-  iframe : function(url, parameters) {
-    return ''
-      + '<iframe src="' + url + '?=' + parameters + '"'
-      + ' width="100%" height="100%"'
-      + ' frameborder="0" scrolling="no" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
-    ;
-  },
-  placeholder : function(image, icon) {
-    var
-      html = ''
-    ;
-    if(icon) {
-      html += '<i class="' + icon + ' icon"></i>';
-    }
-    if(image) {
-      html += '<img class="placeholder" src="' + image + '">';
-    }
-    return html;
-  }
-};
 
 
 })( jQuery, window , document );
