@@ -15,6 +15,7 @@
 - **Segment** - Segment no longer includes a [clearfix](http://learnlayout.com/clearfix.html) by default. You will need to specify a `clearing segment` to fix issues caused by floated content.
 - **Rail** - Rail now uses `border-box` instead of previous `content-box`. This means any manually set rail widths will now need to account for padding. This fixes issues where rail height may be mismatched when using padding due to differences in `100%` height
 - **Tab** - `onTabInit` and `onTabLoad` have been renamed to `onFirstLoad` and `onLoad` respectively. This is to conform to the naming conventions of other modules. Previous callbacks will continue to work but will produce deprecation notices in console. Two new callbacks `onVisible` and `onRequest` have been added as well.
+- **Button** - `wide` variations using numbers `2 wide`, `3 wide` have been removed due to incompatibilities with build tools. Please use `two wide`, or `three wide` instead.
 
 **New UI**
 - **Container** - Containers are fixed width containers meant for holding page contents, and are a simpler alternative to `ui page grid`, view more [examples in docs](http://www.semantic-ui.com/elements/container.html#examples)
