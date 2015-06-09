@@ -6,30 +6,32 @@
        Element
 --------------------*/
 
+/* Minimum Gutter is used to determine  the maximum container width for a given device */
+
 @maxWidth: 100%;
 
 /* Devices */
+@mobileMinimumGutter: 0em;
 @mobileWidth: auto;
 @mobileGutter: 1em;
-@largestMobileScreen: 780px;
 
-@tabletWidth: 752px;
-@tabletBreakpoint: 781px;
+@tabletMinimumGutter: (@emSize  * 1);
+@tabletWidth: @tabletBreakpoint - (@tabletMinimumGutter * 2) - @scrollbarWidth;
 @tabletGutter: auto;
 
-@smallMonitorBreakpoint: 988px;
-@smallMonitorWidth: 960px;
-@smallMonitorGutter: auto;
+@computerMinimumGutter: (@emSize  * 1.5);
+@computerWidth: @computerBreakpoint - (@computerMinimumGutter * 2) - @scrollbarWidth;
+@computerGutter: auto;
 
-@largeMonitorWidth: 1200px;
-@largeMonitorBreakpoint: 1228px;
+@largeMonitorMinimumGutter: (@emSize  * 2);
+@largeMonitorWidth: @largeMonitorBreakpoint - (@largeMonitorMinimumGutter * 2) - @scrollbarWidth;
 @largeMonitorGutter: auto;
 
 /* Coupling (Add Negative Margin to container size) */
 @gridGutterWidth: 2em;
 @mobileGridWidth: @mobileWidth;
 @tabletGridWidth: ~"calc("@tabletWidth~" + "@gridGutterWidth~")";
-@smallMonitorGridWidth: ~"calc("@smallMonitorWidth~" + "@gridGutterWidth~")";
+@computerGridWidth: ~"calc("@computerWidth~" + "@gridGutterWidth~")";
 @largeMonitorGridWidth: ~"calc("@largeMonitorWidth~" + "@gridGutterWidth~")";
 
 /*-------------------
