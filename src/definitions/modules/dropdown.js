@@ -165,6 +165,7 @@ $.fn.dropdown = function(parameters) {
             var
               $userChoices,
               $userChoice,
+              isUserValue,
               html
             ;
             values = values || module.get.userValues();
@@ -172,19 +173,21 @@ $.fn.dropdown = function(parameters) {
               ? values
               : [values]
             ;
-            module.debug('Creating user choices for each value', values);
             $.each(values, function(index, value) {
-              html         = settings.templates.addition(value);
-              $userChoice  = $('<div />')
-                .html(html)
-                .data(metadata.value, value)
-                .addClass(className.addition)
-                .addClass(className.item)
-              ;
-              $userChoices = ($userChoices === undefined)
-                ? $userChoice
-                : $userChoices.add($userChoice)
-              ;
+              if(module.get.item(value) === false) {
+                html         = settings.templates.addition(value);
+                $userChoice  = $('<div />')
+                  .html(html)
+                  .data(metadata.value, value)
+                  .addClass(className.addition)
+                  .addClass(className.item)
+                ;
+                $userChoices = ($userChoices === undefined)
+                  ? $userChoice
+                  : $userChoices.add($userChoice)
+                ;
+                module.verbose('Creating user choices for value', value, $userChoice);
+              }
             });
             return $userChoices;
           },
@@ -1532,6 +1535,19 @@ $.fn.dropdown = function(parameters) {
               : $item.eq(0)
             ;
           },
+          itemWithAdditions: function(value) {
+            var
+              $items     = module.get.item(value),
+              $userItems = module.create.userChoice(value)
+            ;
+            if($userItems.length > 0) {
+              $items = ($items.length > 0)
+                ? $items.add($userItems)
+                : $userItems
+              ;
+            }
+            return $items;
+          },
           item: function(value, strict) {
             var
               $selectedItem = false,
@@ -2031,10 +2047,15 @@ $.fn.dropdown = function(parameters) {
               isMultiple = module.is.multiple(),
               $userSelectedItem
             ;
-            $selectedItem = $selectedItem || module.get.item(value);
+            $selectedItem = (settings.allowAdditions)
+              ? $selectedItem || module.get.itemWithAdditions(value)
+              : $selectedItem || module.get.item(value)
+            ;
+            console.log($selectedItem);
             if(!$selectedItem) {
               return false;
             }
+
             module.debug('Setting selected menu item to', $selectedItem);
             if(module.is.single()) {
               module.remove.activeItem();
@@ -2042,10 +2063,6 @@ $.fn.dropdown = function(parameters) {
             }
             else if(settings.useLabels) {
               module.remove.selectedItem();
-            }
-            if(settings.allowAdditions) {
-              $userSelectedItem = module.create.userChoice(value);
-              $selectedItem     = $selectedItem.add($userSelectedItem);
             }
             // select each item
             $selectedItem
