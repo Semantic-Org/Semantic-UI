@@ -169,6 +169,9 @@ $.fn.dropdown = function(parameters) {
               html
             ;
             values = values || module.get.userValues();
+            if(!values) {
+              return false;
+            }
             values = $.isArray(values)
               ? values
               : [values]
@@ -1537,10 +1540,11 @@ $.fn.dropdown = function(parameters) {
           },
           itemWithAdditions: function(value) {
             var
-              $items     = module.get.item(value),
-              $userItems = module.create.userChoice(value)
+              $items       = module.get.item(value),
+              $userItems   = module.create.userChoice(value),
+              hasUserItems = ($userItems && $userItems.length > 0)
             ;
-            if($userItems.length > 0) {
+            if(hasUserItems) {
               $items = ($items.length > 0)
                 ? $items.add($userItems)
                 : $userItems
@@ -1562,7 +1566,7 @@ $.fn.dropdown = function(parameters) {
             ;
             shouldSearch = (isMultiple)
               ? (value.length > 0)
-              : (value !== undefined && value !== null)
+              : (value !== undefined && value !== '' && value !== null)
             ;
             isMultiple = (module.is.multiple() && $.isArray(value));
             strict     = (value === '' || value === 0)
@@ -2051,11 +2055,9 @@ $.fn.dropdown = function(parameters) {
               ? $selectedItem || module.get.itemWithAdditions(value)
               : $selectedItem || module.get.item(value)
             ;
-            console.log($selectedItem);
             if(!$selectedItem) {
               return false;
             }
-
             module.debug('Setting selected menu item to', $selectedItem);
             if(module.is.single()) {
               module.remove.activeItem();
@@ -2336,35 +2338,45 @@ $.fn.dropdown = function(parameters) {
             $search.val('');
             module.set.filtered();
           },
-          selected: function(value) {
-            var
-              $selectedItem = module.get.item(value),
-              selectedText  = module.get.choiceText($selectedItem),
-              selectedValue = module.get.choiceValue($selectedItem, selectedText)
+          selected: function(value, $selectedItem) {
+            $selectedItem = (settings.allowAdditions)
+              ? $selectedItem || module.get.itemWithAdditions(value)
+              : $selectedItem || module.get.item(value)
             ;
+
             if(!$selectedItem) {
               return false;
             }
-            if(module.is.multiple()) {
-              if(settings.useLabels) {
-                module.remove.value(selectedValue, selectedText, $selectedItem);
-                module.remove.label(selectedValue);
-              }
-              else {
-                module.remove.value(selectedValue, selectedText, $selectedItem);
-                module.set.text(module.add.variables(message.count));
-              }
-            }
-            else {
-              module.remove.value(selectedValue, selectedText, $selectedItem);
-            }
+
             $selectedItem
-              .removeClass(className.filtered)
-              .removeClass(className.active)
+              .each(function() {
+                var
+                  $selected     = $(this),
+                  selectedText  = module.get.choiceText($selected),
+                  selectedValue = module.get.choiceValue($selected, selectedText)
+                ;
+                if(module.is.multiple()) {
+                  if(settings.useLabels) {
+                    module.remove.value(selectedValue, selectedText, $selected);
+                    module.remove.label(selectedValue);
+                  }
+                  else {
+                    module.remove.value(selectedValue, selectedText, $selected);
+                    module.set.text(module.add.variables(message.count));
+                  }
+                }
+                else {
+                  module.remove.value(selectedValue, selectedText, $selected);
+                }
+                $selected
+                  .removeClass(className.filtered)
+                  .removeClass(className.active)
+                ;
+                if(settings.useLabels) {
+                  $selected.removeClass(className.selected);
+                }
+              })
             ;
-            if(settings.useLabels) {
-              $selectedItem.removeClass(className.selected);
-            }
           },
           selectedItem: function() {
             $item.removeClass(className.selected);
