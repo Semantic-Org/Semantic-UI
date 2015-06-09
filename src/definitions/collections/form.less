@@ -142,7 +142,6 @@
 }
 
 /* Text Area */
-.ui.textarea,
 .ui.form textarea {
   margin: 0em;
   -webkit-appearance: none;
@@ -158,11 +157,13 @@
   box-shadow: @inputBoxShadow;
   transition: @textAreaTransition;
   font-size: @textAreaFontSize;
+  line-height: @textAreaLineHeight;
+  resize: @textAreaResize;
+}
+.ui.form textarea:not([rows]) {
   height: @textAreaHeight;
   min-height: @textAreaMinHeight;
   max-height: @textAreaMaxHeight;
-  line-height: @textAreaLineHeight;
-  resize: @textAreaResize;
 }
 
 .ui.form textarea,
