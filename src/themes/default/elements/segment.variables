@@ -63,10 +63,9 @@
 @tallStackedPadding: @verticalPadding + (0.8em);
 
 /* Raised */
-@raisedShadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.15);
 @raisedBoxShadow:
   @borderShadow,
-  @raisedShadow
+  @floatingShadow
 ;
 
 /* Padded */
