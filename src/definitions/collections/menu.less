@@ -1754,10 +1754,17 @@ Floated Menu / Item
   margin-bottom: 0em;
   border-radius: @borderRadius @borderRadius 0em 0em;
 }
+.ui.top.attached.menu > .item:first-child {
+  border-radius: @borderRadius 0em 0em 0em;
+}
+
 .ui.bottom.attached.menu {
   margin-top: 0em;
   border-top: none;
   border-radius: 0em 0em @borderRadius @borderRadius;
+}
+.ui.bottom.attached.menu > .item:first-child {
+  border-radius: 0em 0em 0em @borderRadius;
 }
 
 /* Tabular Attached */
