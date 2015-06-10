@@ -2103,6 +2103,9 @@ $.fn.dropdown = function(parameters) {
                   }
                 }
                 else {
+                  if(settings.apiSettings && settings.saveRemoteData) {
+                    module.save.remoteData(selectedText, selectedValue);
+                  }
                   module.set.value(selectedValue, selectedText, $selected);
                   module.set.text(selectedText);
                   $selected
