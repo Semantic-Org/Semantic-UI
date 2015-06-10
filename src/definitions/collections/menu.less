@@ -730,7 +730,8 @@ Floated Menu / Item
 
 .ui.secondary.menu {
   background: @secondaryBackground;
-  margin: @secondaryMargin;
+  margin-left: -@secondaryItemSpacing;
+  margin-right: -@secondaryItemSpacing;
   border-radius: 0em;
   border: none;
   box-shadow: none;
@@ -842,6 +843,7 @@ Floated Menu / Item
 -----------------------*/
 
 .ui.secondary.pointing.menu {
+  margin: 0em;
   border-bottom: @secondaryPointingBorderWidth solid @secondaryPointingBorderColor;
 }
 
