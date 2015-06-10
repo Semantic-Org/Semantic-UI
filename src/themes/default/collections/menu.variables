@@ -215,9 +215,10 @@
 
 /* Secondary */
 @secondaryBackground: none;
-
+@secondaryMargin: 0em -@secondaryItemSpacing;
 @secondaryItemBackground: none;
-@secondaryItemMargin: 0em 0.35714em;
+@secondaryItemSpacing: 0.35714em;
+@secondaryItemMargin: 0em @secondaryItemSpacing;
 @secondaryItemPadding: @relativeMini @relativeSmall;
 @secondaryItemBorderRadius: @defaultBorderRadius;
 @secondaryItemTransition: color @defaultDuration @defaultEasing;
@@ -235,9 +236,10 @@
 @secondaryActiveHoveredItemColor: @selectedTextColor;
 
 @secondaryHeaderBackground: none transparent;
-@secondaryHeaderBorder: 0.1em solid rgba(0, 0, 0, 0.1);
+@secondaryHeaderBorder: 1px solid @borderColor;
 
-@secondaryVerticalItemMargin: 0em 0em 0.3em;
+@secondaryItemVerticalSpacing: @secondaryItemSpacing;
+@secondaryVerticalItemMargin: 0em 0em @secondaryItemVerticalSpacing;
 @secondaryVerticalItemBorderRadius: @defaultBorderRadius;
 
 /* Pointing */
