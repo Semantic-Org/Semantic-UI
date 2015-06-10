@@ -2,7 +2,7 @@
 
 ### Version 2.0.0 - March xx, 2015
 
--**Migration Guide**
+**Migration Guide**
 
 - **Modal** - If you are using a modal with image content, you will need to use `image content` on the parent element. This is because `flex` rules require parent styling that the previous `table-row` rules did not.
 - **Modal** - Modal will now only close on buttons matching `deny` or `approve` selector. Any button that should hide modal on click should either match one of these selectors, or call `$('.ui.modal').modal('hide')` `onclick`.
