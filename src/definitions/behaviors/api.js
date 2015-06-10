@@ -76,7 +76,6 @@ $.api = $.fn.api = function(parameters) {
 
         initialize: function() {
           if(!methodInvoked) {
-            module.create.cache();
             module.bind.events();
           }
           module.instantiate();
@@ -121,28 +120,39 @@ $.api = $.fn.api = function(parameters) {
             var
               response
             ;
-            if(!module.cache) {
-              module.create.cache();
+            if(window.Storage === undefined) {
+              module.error(error.noStorage);
+              return;
             }
-            response = (module.cache.response[url] !== undefined)
-              ? module.cache.response[url]
-              : false
-            ;
+            response = sessionStorage.getItem(url);
             module.debug('Using cached response', url, response);
-            return response;
+            if(response !== undefined) {
+              try {
+               response = JSON.parse(response);
+              }
+              catch(e) {
+                // didnt store object
+              }
+              return response;
+            }
+            return false;
           }
         },
         write: {
           cachedResponse: function(url, response) {
-            if(!module.cache) {
-              module.create.cache();
-            }
             if(response && response === '') {
               module.debug('Response empty, not caching', response);
               return;
             }
+            if(window.Storage === undefined) {
+              module.error(error.noStorage);
+              return;
+            }
+            if( $.isPlainObject(response) ) {
+              response = JSON.stringify(response);
+            }
+            sessionStorage.setItem(url, response);
             module.verbose('Storing cached response for url', url, response);
-            module.cache.response[url] = response;
           }
         },
 
@@ -518,12 +528,6 @@ $.api = $.fn.api = function(parameters) {
 
         create: {
 
-          cache: function() {
-            module.verbose('Creating local response cache');
-            module.cache = {
-              response: {}
-            };
-          },
 
           // api promise
           request: function() {
@@ -552,7 +556,12 @@ $.api = $.fn.api = function(parameters) {
               else if( $.isFunction(settings.mockResponseAsync) ) {
                 callback = function(response) {
                   module.verbose('Async callback returned response', response);
-                  module.request.resolveWith(context, [response]);
+                  if(response) {
+                    module.request.resolveWith(context, [response]);
+                  }
+                  else {
+                    module.request.rejectWith(context, [true]);
+                  }
                 };
                 module.debug('Using async mocked response', settings.mockResponseAsync);
                 settings.mockResponseAsync.call(context, settings, callback);
@@ -968,6 +977,7 @@ $.api.settings = {
     missingSerialize  : 'Required dependency jquery-serialize-object missing, using basic serialize',
     missingURL        : 'No URL specified for api event',
     noReturnedValue   : 'The beforeSend callback must return a settings object, beforeSend ignored.',
+    noStorage         : 'Caching respopnses locally requires session storage',
     parseError        : 'There was an error parsing your request',
     requiredParameter : 'Missing a required URL parameter: ',
     statusMessage     : 'Server gave an error: ',
