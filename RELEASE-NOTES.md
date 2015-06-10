@@ -6,72 +6,67 @@
 
 - **Modal** - If you are using a modal with image content, you will need to use `image content` on the parent element. This is because `flex` rules require parent styling that the previous `table-row` rules did not.
 - **Modal** - Modal will now only close on buttons matching `deny` or `approve` selector. Any button that should hide modal on click should either match one of these selectors, or call `$('.ui.modal').modal('hide')` `onclick`.
-- **Grid** - `page grid` has been deprecated.  `page grids` used percentage gutters which made it unnecessarily difficult to style responsive page content. Moving forward we recommend using `ui container` a fixed width responsinve container for holding page contents.
-- **Dropdown** - Dropdowns will now change directions automatically, making `upward` variation obsolete. If you need  to force a dropdown direction use `dropdown({ direction: 'upward'})`
-- **Form Validation** - Form validation now passes settings through a `fields` object. This is to make form initialization match other components. The previous syntax will continue to work but produce deprecation notices in console
-- **Dropdown** - Dropdown item `description` now float right in default theme and should be included before other content
-- **Popup** - Popups are no longer exclusive by default. Opening a popup will not necessarily close other visible popups. You can change this behavior by using the setting `exclusive: true`. Additionally the default theme now uses `1em` size for `medium` popups.
-- **Colors** - Default colors have been slightly adjusted, and new colors have been added, which may cause slight changes in your design.
-- **Segment** - Segment no longer includes a [clearfix](http://learnlayout.com/clearfix.html) by default. You will need to specify a `clearing segment` to fix issues caused by floated content.
-- **Rail** - Rail now uses `border-box` instead of previous `content-box`. This means any manually set rail widths will now need to account for padding. This fixes issues where rail height may be mismatched when using padding due to differences in `100%` height
-- **Tab** - `onTabInit` and `onTabLoad` have been renamed to `onFirstLoad` and `onLoad` respectively. This is to conform to the naming conventions of other modules. Previous callbacks will continue to work but will produce deprecation notices in console. Two new callbacks `onVisible` and `onRequest` have been added as well.
-- **Button** - `wide` variations using numbers `2 wide`, `3 wide` have been removed due to incompatibilities with build tools. Please use `two wide`, or `three wide` instead.
+- **Grid** - `page grid` has been deprecated.  `page grids` used percentage gutters which made it unnecessarily difficult to style responsive page content. Moving forward we recommend using `ui container` a fixed width responsive container for holding page contents.
+- **Dropdown** - Dropdowns will now change opening directions automatically based on available screen space. If you need  to force a dropdown direction use `dropdown({ direction: 'upward'})`
+- **Form Validation** - Form validation now passes settings through a `fields` object. This is to make form initialization match other components. The previous syntax will continue to work but will produce deprecation notices in console
+- **Dropdown** - Dropdown item `description` now are floated in default theme and should be included before other `item` content
+- **Popup** - Popups are no longer exclusive by default. Opening a popup will not necessarily close other visible popups. You can change this behavior by using the setting `exclusive: true`. Additionally the default theme now uses `1rem` size for standard popups.
+- **Colors** - Default colors have been adjusted, which may cause slight changes in your design. New colors have also been added to fill in missing gaps in [color naming](http://en.wikipedia.org/wiki/Linguistic_relativity_and_the_color_naming_debate#Berlin_and_Kay).
+- **Segment** - Segment no longer includes a [clearfix](http://learnlayout.com/clearfix.html) by default. You will need to specify a `clearing segment` to clear floated content.
+- **Rail** - Rail now uses `border-box` instead of `content-box`. This means manually specified rail widths will now need to account for padding. This was added to fix issues where rail `height: 100%` would incorrectly match content when a rail had padding.
+- **Tab** - `onTabInit` and `onTabLoad` have been renamed to `onFirstLoad` and `onLoad` respectively. This is to conform to the naming conventions of other modules (no self reference). Previous callbacks will continue to work but will produce deprecation notices in console. Two new callbacks `onVisible` and `onRequest` have been added as well.
+- **Button** - `wide` variations using numbers `2 wide`, `3 wide` have been removed due to incompatibilities with some build tools. Please use `two wide`, or `three wide` instead.
+- **Video** - The undocumented `video` module has been renamed to `embed`. Behaviors remain the same, but users need to adjust their javascript init to `$('.ui.embed').embed();`
 
 **New UI**
 - **Container** - Containers are fixed width containers meant for holding page contents, and are a simpler alternative to `ui page grid`, view more [examples in docs](http://www.semantic-ui.com/elements/container.html#examples)
-- **Multiselect** - New `multiple` dropdown types have been added, including tagging/tokenizing features.
-- **Embed** - New embed component allows for responsive embeds that maintain aspect ratio. Javascript component allows simple embeds for third party video services like youtube or vimeo.
-- **Headers** - Added new header type `sub header`, useful for displaying small headers alongside text content. See examples [in the header docs](http://www.semantic-ui.com/elements/header.html#sub-headers)
-- **Menu** - `vertical tabular menu`, a vertical tab menu, has been added
-- **Dropdown** - Added new dropdown variation `scrolling dropdown` and `scrolling menu`, see docs or try it out with the language menu in the navigation bar
-- **Image** - Images now include a `spaced` variation for adding whitespace around images when used inline with text.
-- **Dimmer** - Dimmers now have a `blurring` variation which apply a glass-like effect when dimmed
-- **Segment** - Added `clearing` segment for cases that need a [clearfix](http://learnlayout.com/clearfix.html).
-- **Steps** - Added `attached` steps, which can now be attached to other UI like `segment`
-- **Table** - Adds `selectable table` variation, which shows hover effect on row when hovering
-- **Visibility** - Visibility can now handle "sticky" `fixed` content, adding a placeholder duplicate element which will automatically appear when an element swaps to fixed position
+- **Multiselect** - New `multiple` dropdown types have been added. Many new dropdown improvements have been added including tagging/tokenizing features and loading data through API requests.
+- **Embed** - New embed component allows for responsive iframe embeds that maintain their aspect ratio. Embed can be used with YouTube or Vimeo videos, along with placeholder content to avoid loading third party libraries until a user chooses to interact with the video.
 
-**Major Changes (Please Read)**
+**Major Enhancements (Please Read)**
 - **Site** - Added new colors `olive`, `violet`, `brown` and `grey`. These are available in all elements with color variations.  **Thanks @lemartialou**
-- **API** - API can now be used with mocked responses, and custom AJAX requests. `mockResponse` can be used to resolve request with a specified returned JSON object, or a function that receives the same request settings as the server. `mockResponseAsync` allows you to specify an asynchronous callback that can resolve a request using a custom XHR backend.
-- **API** - API callbacks now have an `onResponse` callback that can modified a server response before it is parsed by other callbacks for success or failure conditions. **Thanks @mnquintana**
-- **API** - API now provides a client-side cache setting to avoid server roundtrips for identical urls `cache: 'local'`. This is useful for caching results that will return the same results across a page view: things like autocomplete.
-- **Card** - Cards now support multiple `content` blocks. Content blocks can now appear above or below an image and will adjust formatting.
-- **Colors** - Global colors defaults have been adjusted to improve contrast with white text
+- **API** - API can now be used with mocked responses, and custom AJAX requests. `mockResponse` has been added to resolve request with a prespecified JSON object, or a synchronous function callback. 
+- **API** `mockResponseAsync` has been added for custom asynchronous requests. This allows you to specify a custom async callback to resolve an API request, helping with integration with libraries like Ember or Angular that may wrap AJAX requests.
+- **API** - API callbacks now have an `onResponse` callback that can adjust a servers response before it is parsed by other callbacks for success or failure conditions. **Thanks @mnquintana**
+- **API** - API now provides a local caching setting to avoid server roundtrips for identical urls by using `cache: 'local'`. This is not enabled by default.  Local caching is useful for results that should return the same values across a single session, for example when querying an autocomplete.
+- **Card** - Cards now support multiple custom `content` blocks. Content blocks and images can now appear in any order.
 - **Dropdown** - Added remote API integration with dropdown, to allow `search selection` to query against a remote dataset.
-- **Dropdown** - Nested scrolling menus can now use keyboard selection and filter with inline search. Nested menu scroll position will automatically adjust with keyboard selection.
+- **Dropdown** - Dropdowns now automatically observe changes in `menu` and will update selector cache with new additions
 - **Dropdowns** - Added ability to add custom choices to all search selection dropdowns (multi/single) using `allowAdditions: true` setting. Search now displays error messages on no results in all cases.
-- **Dropdown** - Dropdown will automatically animate upward if necessary to remain on screen
-- **Grid** - Grids are now based on `flexbox`, columns are now `equal height` by default. Flexbox alignment has been added for easier vertical alignment.
-- **Multiple UI** - Many components now use flexbox, which means previous confusing fixes like `font-size: 0;` to remove [white-space from inline block](https://css-tricks.com/fighting-the-space-between-inline-block-elements/) have been removed. This means any element can be a direct child of `grid` or `menu`.
-- **Modal** - Added new settings `blurring` and `inverted` which set a modals dimmer to either inverted or blurring.
+- **Dropdown** - Keyboard shortcuts have been added for selecting dropdown choices, for example "N" will scroll to "New York" in a state selection list, similar to native `<select>` behavior.
+- **Dropdown** - Dropdown will automatically animate upward if there is not enough space to appear below.
+- **Dropdown** - Using `page up` and `page down` keys will now scroll menus by a page at a time
+- **Grid** - Grids now use `flexbox`, columns are now all equal height by default. New flexbox alignment types like `stretch` have been added for easier vertical alignment.
+- **Multiple UI** - Many components now use flexbox, which means previous confusing fixes like `font-size: 0;` to remove [white-space from inline block](https://css-tricks.com/fighting-the-space-between-inline-block-elements/) is no longer necessary. Removing this hack, now means any element can be a direct child of `grid` or `menu`.
+- **Modal** - Added new settings `blurring` and `inverted` which automatically set a modal's dimmer to either inverted or blurring.
 - **Menu** - Menu now uses flexbox. This allows menu items to match each others heights regardless of each items content size. `right menu` content should now follow other menu content instead of preceding it (no longer uses float).
 - **Grid** - Grids are now `flexbox` and `equal height` by default, the `equal height` variation can safely be removed
 - **Popup** - Popup has been rewritten to drastically improve performance, especially when testing multiple positions.
-- **Transition** - Fallback javascript animations have been removed from UI components like dropdown and popup to increase performance (can remove `:visible`, `:animated` and `:hidden`) and reduce filesize.
+- **Transition** - Fallback javascript animations have been removed from UI components like dropdown and popup to increase performance. This removes need for expensive pseudo selectors like `:visible`, `:animated` and `:hidden` and reduces filesize.
 - **Form Validation** - Form validation now uses a single `settings` object like other modules. Using `(fields, settings)` will continue to work but will produce a deprecation notifications in `console`
-- **Form Validation** - Form validation now supports several validation rules specifically for multiple selection
-- **Item** - Items now uses `flexbox` for layout
+- **Form Validation** - Form validation now supports many new validation rules, including some specifically for use with multiple select values.
+- **Item** - Items now uses `flexbox` for layout.
 - **Message** - `icon message` now uses `flexbox` for layout
 - **Input** - All `input` types use `flexbox` for layout
-- **Sidebar** - Mobile sidebars will now correctly report `scrollTop` values for `document` or `body`. Chrome on iOS will now no longer have issues with fixed content not sticking immediately when using a sidebar.
-- **Shapes** - Shapes now correctly adjusts for margin on shape elements
+- **Sidebar** - iOS will now correctly report `scrollTop` values for `document` or `body` when using a sidebar. Chrome on iOS no longer has issues with fixed content not sticking immediately when using a sidebar.
+- **Shapes** - Shapes now correctly adjusts for margin on `sides`
 - **Steps** - Steps now use `flexbox`, the default horizontal theme has the active element point downward now instead of to the right.
 - **Steps** - Steps no longer need `item count` and will automatically divide evenly
-- **Transition** - Transition has been optimized for increased performance.
-- **Visibility** - Visibility and sticky now are much more performance and include two new callbacks `onOnScreen` and `onOffScreen`
+- **Transition** - Transition code has been optimized to increase performance.
+- **Visibility** - Using `.visibility({ type: 'fixed'})` will now automatically add a placeholder element which will swap places with an element when it is attached to the viewport. This should make fixed content drastically simpler.
+- **Visibility** - Visibility and sticky now use a more performant [pub/sub pattern](http://davidwalsh.name/pubsub-javascript) that will only attach a single event to context `scroll`.
+- **Visibility** - Added two new visibility callbacks `onOnScreen` and `onOffScreen`, which occur, most obviously when an element first appears in or out of a browser's viewport.
 
 **Enhancements**
 - **Accordion** - adds `onOpening` and `onClosing` callback (before animation) to go with `onOpen`, `onClose` (after animation) **Thanks @cluppric**
-- **Accordion** - Added `on` setting for accordion trigger event
-- **API** - API now has new settings `throttleFirstRequest` and `interruptRequests`. Interrupt requests will abort a previous request on an element when making a new request. `throttleFirstRequest`, sets whether the first request or only subsequent requests should be throttled when a `throttle` duration is specified
-- **Build Tools** - Build tools will now produce understandable errors when a theme file is missing or an element specifies an unavailable theme
+- **Accordion** - Added `on` setting for specifying accordion trigger event.
+- **API** - API now has new settings `throttleFirstRequest` and `interruptRequests`. Interrupt requests will abort a previous request on an element when making a new request. `throttleFirstRequest`, sets whether the first request or only subsequent requests should be throttled when a `throttle` duration is specified.
+- **Build Tools** - Build tools will now display pre-specified errors when a theme file is missing or an element specifies an unavailable theme.
 - **Build Tools** - Adjusting `site.variables` will now rebuild all UI, instead of just `site.less`
 - **Button** - Added `:focus` styles for all button types, all button examples in docs now are keyboard focusable using either `<button>` or `tabindex` where appropriate.
 - **Divider** - `vertical divider` inside `ui grid` now accounts for column padding
-- **Dropdown** - Using keyboard letter when any type of selection dropdown is used will
+- **Dropdown** - Nested `scrolling` menus now support keyboard selection, e.g. pressing "A" for apple, and keyboard scrolling.
 - **Dropdown** - Dropdowns now have `match` setting to specify whether to match on `text`, `value` or `both`
-- **Dropdown** - Dropdowns now automatically observe changes in `menu` and will update selector cache with new additions
 - **Dropdown** - Multi select dropdowns now have new settings for specifying maximum selection count
 - **Dropdown** - Dropdown has new `placeholder` setting for setting placeholder text in javascript
 - **Dropdown** - Added `showOnFocus` option that lets you specify whether dropdown menu should show on focus
@@ -86,8 +81,8 @@
 - **Form Validation** - `data-validate` now takes precedence over other validation matching schemes like `name` or `id`
 - **Form Validation** - New rules for matching against custom regular expressions
 - **Form Validation** - Form validation now has `minCount`, `maxCount`, and `exactCount` for validating multiple selections
-- **Grid** - `celled grid` now removes internal cells on mobile and tablet when used with `doubling` grid responsive variation
-- **Grid** - `equal width` now works without `row` wrappers
+- **Grid** - `celled grid` now removes internal cells on mobile and tablet when used with `doubling` grid responsive variation. 
+- **Grid** - `equal width` grids now works without `row` wrappers
 - **Grid** - rows can now be `stretched` as well as `middle aligned`, `bottom aligned` and `top aligned`!
 - **Grid** - Fixed margins on `internally celled` grid
 - **Grid** - `celled` and `internally celled` grid now use flexbox instead of `display: table;`
@@ -129,6 +124,16 @@
 - **Visibility/Sticky** - Visibility and sticky now refresh automatically after page content loading to deal with changes in position from images loading
 - **Visibility/Sticky** - Visibility now uses pub/sub pattern to greatly improve scroll performance when attaching multiple events
 - **Visibility** - Visibility `image` will now wait to lazy load images that are *above* the current screen position, not just below.
+
+**New Variations**
+- **Headers** - Added new header type `sub header`, useful for displaying small headers alongside text content. See examples [in the header docs](http://www.semantic-ui.com/elements/header.html#sub-headers)
+- **Menu** - `vertical tabular menu`, a vertical tab menu, has been added
+- **Dropdown** - Added new dropdown variation `scrolling dropdown` and `scrolling menu`, this can be used to include a scrollable section inside a dropdown menu. 
+- **Image** - Images now include a `spaced` variation for adding whitespace around images when used inline with text.
+- **Dimmer** - Dimmers now have a `blurring` variation which apply a glass-like effect when dimmed
+- **Segment** - Added `clearing` segment for cases that need a [clearfix](http://learnlayout.com/clearfix.html).
+- **Steps** - Added `attached` steps, which can now be attached to other UI like `segment`
+- **Table** - Adds `selectable table` variation, which shows hover effect on row when hovering
 
 **Bugs**
 - **All Modules** - Performance logging now delays 500ms instead of 100ms for console logging to ensure all logs are captured in one group
