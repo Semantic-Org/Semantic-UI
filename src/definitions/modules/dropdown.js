@@ -2951,7 +2951,7 @@ $.fn.dropdown.settings = {
 
   apiSettings            : false,
   saveRemoteData         : true,      // Whether remote name/value pairs should be stored in sessionStorage to allow remote data to be restored on page refresh
-  throttle               : 100,        // How long to wait after last user input to search remotely
+  throttle               : 200,       // How long to wait after last user input to search remotely
 
   direction              : 'auto',     // Whether dropdown should always open in one direction
   keepOnScreen           : true,       // Whether dropdown should check whether it is on screen before showing

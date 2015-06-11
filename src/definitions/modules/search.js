@@ -273,6 +273,7 @@ $.fn.search = function(parameters) {
               apiSettings = {
                 debug     : settings.debug,
                 on        : false,
+                cache     : 'local',
                 action    : 'search',
                 onError   : module.error
               },
