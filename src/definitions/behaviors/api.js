@@ -484,6 +484,7 @@ $.api = $.fn.api = function(parameters) {
                 errorMessage = (settings.error[status] !== undefined)
                   ? settings.error[status]
                   : httpMessage,
+                abortedRequest = false,
                 response
               ;
 
@@ -492,10 +493,10 @@ $.api = $.fn.api = function(parameters) {
                 module.debug('Request Aborted (Most likely caused by page navigation or CORS Policy)', status, httpMessage);
                 module.reset();
                 settings.onAbort.call(context, status, $module);
-                return;
+                abortedRequest = true;
               }
 
-              if(xhr !== undefined) {
+              if(xhr !== undefined && !abortedRequest) {
                 // if http status code returned and json returned error, look for it
                 if( xhr.status != 200 && httpMessage !== undefined && httpMessage !== '') {
                   module.error(error.statusMessage + httpMessage, ajaxSettings.url);
@@ -519,9 +520,10 @@ $.api = $.fn.api = function(parameters) {
                   module.set.error();
                   setTimeout(module.remove.error, settings.errorDuration);
                 }
-                module.debug('API Request error:', errorMessage);
+                module.debug('API Request errored', errorMessage);
                 settings.onError.call(context, errorMessage, $module);
               }
+              settings.onFailure.call(context, response, $module);
             }
           }
         },
