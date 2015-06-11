@@ -62,6 +62,8 @@ $.fn.search = function(parameters) {
           module.verbose('Initializing module');
           module.determine.searchFields();
           module.bind.events();
+          module.set.type();
+          module.create.results();
           module.instantiate();
         },
         instantiate: function() {
@@ -272,7 +274,7 @@ $.fn.search = function(parameters) {
                 debug     : settings.debug,
                 on        : false,
                 action    : 'search',
-                onFailure : module.error
+                onError   : module.error
               },
               searchHTML
             ;
@@ -369,6 +371,12 @@ $.fn.search = function(parameters) {
               .val(value)
             ;
           },
+          type: function(type) {
+            type || settings.type;
+            if(settings.type == 'category') {
+              $module.addClass(settings.type)
+            }
+          },
           buttonPressed: function() {
             $searchButton.addClass(className.pressed);
           }
@@ -443,6 +451,9 @@ $.fn.search = function(parameters) {
               apiSettings = {
                 onSuccess : function(response) {
                   module.parse.response.call(element, response, searchTerm);
+                },
+                onFailure: function() {
+                  module.displayMessage(error.serverError);
                 },
                 urlData: {
                   query: searchTerm
@@ -630,6 +641,14 @@ $.fn.search = function(parameters) {
             ;
             module.verbose('Creating unique id', id);
             return id;
+          },
+          results: function() {
+            if($results.length === 0) {
+              $results = $('<div />')
+                .addClass(className.results)
+                .appendTo($module)
+              ;
+            }
           }
         },
 
@@ -998,7 +1017,7 @@ $.fn.search = function(parameters) {
 
 $.fn.search.settings = {
 
-  name           : 'Search Module',
+  name           : 'Search',
   namespace      : 'search',
 
   debug          : false,
@@ -1061,6 +1080,7 @@ $.fn.search.settings = {
     empty   : 'empty',
     focus   : 'focus',
     loading : 'loading',
+    results : 'results',
     pressed : 'down'
   },
 
@@ -1070,7 +1090,7 @@ $.fn.search.settings = {
     logging     : 'Error in debug logging, exiting.',
     noEndpoint  : 'No search endpoint was specified',
     noTemplate  : 'A valid template name was not specified.',
-    serverError : 'There was an issue with querying the server.',
+    serverError : 'There was an issue querying the server.',
     maxResults  : 'Results must be an array to use maxResults setting',
     method      : 'The method you called is not defined.'
   },
