@@ -25,7 +25,8 @@
   min-width: -moz-min-content;
   min-width: min-content;
   z-index: 1900;
-  border: 1px solid #cccccc;
+  border: 1px solid #d4d4d5;
+  line-height: 1.4285em;
   max-width: 250px;
   background-color: #ffffff;
   padding: 0.833em 1em;
@@ -33,7 +34,7 @@
   font-style: normal;
   color: rgba(0, 0, 0, 0.87);
   border-radius: 0.285714rem;
-  box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.1), 0px 0px 10px 0px rgba(34, 36, 38, 0.05);
+  box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.08);
 }
 .ui.popup > .header {
   padding: 0em;
@@ -55,7 +56,7 @@
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
   z-index: 2;
-  box-shadow: 1px 1px 0px 0px #b3b3b3;
+  box-shadow: 1px 1px 0px 0px #bababc;
 }
 
 
@@ -139,7 +140,7 @@
   left: 50%;
   right: auto;
   bottom: auto;
-  box-shadow: -1px -1px 0px 0px #b3b3b3;
+  box-shadow: -1px -1px 0px 0px #bababc;
 }
 .ui.bottom.left.popup {
   margin-left: 0em;
@@ -150,7 +151,7 @@
   right: auto;
   bottom: auto;
   margin-left: 0em;
-  box-shadow: -1px -1px 0px 0px #b3b3b3;
+  box-shadow: -1px -1px 0px 0px #bababc;
 }
 .ui.bottom.right.popup {
   margin-right: 0em;
@@ -161,7 +162,7 @@
   bottom: auto;
   left: auto;
   margin-left: 0em;
-  box-shadow: -1px -1px 0px 0px #b3b3b3;
+  box-shadow: -1px -1px 0px 0px #bababc;
 }
 
 /*--- Above ---*/
@@ -202,7 +203,7 @@
   bottom: auto;
   left: auto;
   margin-top: -0.325em;
-  box-shadow: 1px -1px 0px 0px #b3b3b3;
+  box-shadow: 1px -1px 0px 0px #bababc;
 }
 
 /*--- Right Center  ---*/
@@ -213,7 +214,7 @@
   bottom: auto;
   right: auto;
   margin-top: -0.325em;
-  box-shadow: -1px 1px 0px 0px #b3b3b3;
+  box-shadow: -1px 1px 0px 0px #bababc;
 }
 
 

@@ -754,6 +754,8 @@ Floated Menu / Item
 
 .ui.secondary.menu {
   background: none;
+  margin-left: -0.35714em;
+  margin-right: -0.35714em;
   border-radius: 0em;
   border: none;
   box-shadow: none;
@@ -766,12 +768,12 @@ Floated Menu / Item
           align-self: center;
   box-shadow: none;
   border: none;
-  background: none;
-  margin: 0em 0.35714em;
   padding: 0.71428571em 0.92857143em;
-  border-radius: 0.285714rem;
+  margin: 0em 0.35714em;
+  background: none;
   -webkit-transition: color 0.1s ease;
           transition: color 0.1s ease;
+  border-radius: 0.285714rem;
 }
 
 /* No Divider */
@@ -782,7 +784,7 @@ Floated Menu / Item
 /* Header */
 .ui.secondary.menu .header.item {
   border-radius: 0em;
-  border-right: 0.1em solid rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(34, 36, 38, 0.15);
   background: none transparent;
 }
 
@@ -844,7 +846,7 @@ Floated Menu / Item
 
 .ui.secondary.vertical.menu > .item {
   border: none;
-  margin: 0em 0em 0.3em;
+  margin: 0em 0em 0.35714em;
   border-radius: 0.285714rem !important;
 }
 .ui.secondary.vertical.menu > .header.item {
@@ -866,6 +868,7 @@ Floated Menu / Item
 -----------------------*/
 
 .ui.secondary.pointing.menu {
+  margin: 0em;
   border-bottom: 2px solid rgba(34, 36, 38, 0.15);
 }
 .ui.secondary.pointing.menu .item {
@@ -1273,7 +1276,7 @@ Floated Menu / Item
 ---------------*/
 
 .ui.inverted.menu {
-  border-width: 0px;
+  border: 1px solid transparent;
   background: #1b1c1d;
   box-shadow: none;
 }
@@ -1788,10 +1791,16 @@ Floated Menu / Item
   margin-bottom: 0em;
   border-radius: 0.285714rem 0.285714rem 0em 0em;
 }
+.ui.top.attached.menu > .item:first-child {
+  border-radius: 0.285714rem 0em 0em 0em;
+}
 .ui.bottom.attached.menu {
   margin-top: 0em;
   border-top: none;
   border-radius: 0em 0em 0.285714rem 0.285714rem;
+}
+.ui.bottom.attached.menu > .item:first-child {
+  border-radius: 0em 0em 0em 0.285714rem;
 }
 
 /* Tabular Attached */

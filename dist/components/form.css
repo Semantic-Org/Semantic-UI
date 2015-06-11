@@ -130,7 +130,6 @@
 }
 
 /* Text Area */
-.ui.textarea,
 .ui.form textarea {
   margin: 0em;
   -webkit-appearance: none;
@@ -145,11 +144,13 @@
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
           transition: color 0.1s ease, border-color 0.1s ease;
   font-size: 1em;
+  line-height: 1.2857;
+  resize: vertical;
+}
+.ui.form textarea:not([rows]) {
   height: 12em;
   min-height: 8em;
   max-height: 24em;
-  line-height: 1.2857;
-  resize: vertical;
 }
 .ui.form textarea,
 .ui.form input[type="checkbox"] {
@@ -329,17 +330,17 @@
 .ui.form input[type="text"]:focus,
 .ui.form input[type="url"]:focus {
   color: rgba(0, 0, 0, 0.95);
-  border-color: rgba(34, 36, 38, 0.3);
+  border-color: rgba(34, 36, 38, 0.35);
   border-radius: 0.285714rem;
   background: #ffffff;
-  box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.3) inset;
+  box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.35) inset;
 }
 .ui.form textarea:focus {
   color: rgba(0, 0, 0, 0.95);
-  border-color: rgba(34, 36, 38, 0.3);
+  border-color: rgba(34, 36, 38, 0.35);
   border-radius: 0.285714rem;
   background: #ffffff;
-  box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.3) inset;
+  box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.35) inset;
   -webkit-appearance: none;
 }
 

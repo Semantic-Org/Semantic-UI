@@ -157,7 +157,7 @@
 }
 .ui.cards > .card > .content ~ .content,
 .ui.card > .content ~ .content {
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-top: 1px solid rgba(34, 36, 38, 0.1);
 }
 .ui.cards > .card > .content:after,
 .ui.card > .content:after {
@@ -269,7 +269,7 @@
 
 .ui.cards > .card .meta,
 .ui.card .meta {
-  font-size: 0.92857143em;
+  font-size: 1em;
   color: rgba(0, 0, 0, 0.4);
 }
 .ui.cards > .card .meta *,
@@ -404,6 +404,7 @@
   -webkit-flex-grow: 0;
       -ms-flex-positive: 0;
           flex-grow: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
   position: static;
   background: none;
   width: auto;
@@ -415,7 +416,6 @@
   box-shadow: none;
   -webkit-transition: color 0.1s ease;
           transition: color 0.1s ease;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 .ui.cards > .card > .extra a:not(.ui),
 .ui.card > .extra a:not(.ui) {

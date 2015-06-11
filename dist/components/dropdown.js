@@ -2103,6 +2103,9 @@ $.fn.dropdown = function(parameters) {
                   }
                 }
                 else {
+                  if(settings.apiSettings && settings.saveRemoteData) {
+                    module.save.remoteData(selectedText, selectedValue);
+                  }
                   module.set.value(selectedValue, selectedText, $selected);
                   module.set.text(selectedText);
                   $selected
@@ -2948,7 +2951,7 @@ $.fn.dropdown.settings = {
 
   apiSettings            : false,
   saveRemoteData         : true,      // Whether remote name/value pairs should be stored in sessionStorage to allow remote data to be restored on page refresh
-  throttle               : 100,        // How long to wait after last user input to search remotely
+  throttle               : 200,       // How long to wait after last user input to search remotely
 
   direction              : 'auto',     // Whether dropdown should always open in one direction
   keepOnScreen           : true,       // Whether dropdown should check whether it is on screen before showing
@@ -3022,7 +3025,7 @@ $.fn.dropdown.settings = {
     labels       : 'Allowing user additions currently requires the use of labels.',
     method       : 'The method you called is not defined.',
     noAPI        : 'The API module is required to load resources remotely',
-    noStorage    : 'Saving remote data requires local storage',
+    noStorage    : 'Saving remote data requires session storage',
     noTransition : 'This module requires ui transitions <https://github.com/Semantic-Org/UI-Transition>'
   },
 

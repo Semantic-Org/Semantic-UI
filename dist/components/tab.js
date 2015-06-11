@@ -420,6 +420,7 @@ $.fn.tab = function(parameters) {
               apiSettings = {
                 dataType  : 'html',
                 on        : 'now',
+                cache     : 'local',
                 onSuccess : function(response) {
                   module.cache.add(fullTabPath, response);
                   module.update.content(tabPath, response);

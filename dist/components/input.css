@@ -123,7 +123,7 @@
 
 .ui.input.focus input,
 .ui.input input:focus {
-  border-color: rgba(34, 36, 38, 0.3);
+  border-color: rgba(34, 36, 38, 0.35);
   background: #ffffff;
   color: rgba(0, 0, 0, 0.8);
   box-shadow: none;

@@ -5643,6 +5643,9 @@ $.fn.dropdown = function(parameters) {
                   }
                 }
                 else {
+                  if(settings.apiSettings && settings.saveRemoteData) {
+                    module.save.remoteData(selectedText, selectedValue);
+                  }
                   module.set.value(selectedValue, selectedText, $selected);
                   module.set.text(selectedText);
                   $selected
@@ -6488,7 +6491,7 @@ $.fn.dropdown.settings = {
 
   apiSettings            : false,
   saveRemoteData         : true,      // Whether remote name/value pairs should be stored in sessionStorage to allow remote data to be restored on page refresh
-  throttle               : 100,        // How long to wait after last user input to search remotely
+  throttle               : 200,       // How long to wait after last user input to search remotely
 
   direction              : 'auto',     // Whether dropdown should always open in one direction
   keepOnScreen           : true,       // Whether dropdown should check whether it is on screen before showing
@@ -6562,7 +6565,7 @@ $.fn.dropdown.settings = {
     labels       : 'Allowing user additions currently requires the use of labels.',
     method       : 'The method you called is not defined.',
     noAPI        : 'The API module is required to load resources remotely',
-    noStorage    : 'Saving remote data requires local storage',
+    noStorage    : 'Saving remote data requires session storage',
     noTransition : 'This module requires ui transitions <https://github.com/Semantic-Org/UI-Transition>'
   },
 
@@ -9917,7 +9920,7 @@ $.fn.popup.settings = {
   inline         : false,
 
   // popup should be removed from page on hide
-  preserve       : false,
+  preserve       : true,
 
   // popup should not close when being hovered on
   hoverable      : false,
@@ -11374,6 +11377,8 @@ $.fn.search = function(parameters) {
           module.verbose('Initializing module');
           module.determine.searchFields();
           module.bind.events();
+          module.set.type();
+          module.create.results();
           module.instantiate();
         },
         instantiate: function() {
@@ -11583,8 +11588,9 @@ $.fn.search = function(parameters) {
               apiSettings = {
                 debug     : settings.debug,
                 on        : false,
+                cache     : 'local',
                 action    : 'search',
-                onFailure : module.error
+                onError   : module.error
               },
               searchHTML
             ;
@@ -11681,6 +11687,12 @@ $.fn.search = function(parameters) {
               .val(value)
             ;
           },
+          type: function(type) {
+            type || settings.type;
+            if(settings.type == 'category') {
+              $module.addClass(settings.type)
+            }
+          },
           buttonPressed: function() {
             $searchButton.addClass(className.pressed);
           }
@@ -11755,6 +11767,9 @@ $.fn.search = function(parameters) {
               apiSettings = {
                 onSuccess : function(response) {
                   module.parse.response.call(element, response, searchTerm);
+                },
+                onFailure: function() {
+                  module.displayMessage(error.serverError);
                 },
                 urlData: {
                   query: searchTerm
@@ -11942,6 +11957,14 @@ $.fn.search = function(parameters) {
             ;
             module.verbose('Creating unique id', id);
             return id;
+          },
+          results: function() {
+            if($results.length === 0) {
+              $results = $('<div />')
+                .addClass(className.results)
+                .appendTo($module)
+              ;
+            }
           }
         },
 
@@ -12310,7 +12333,7 @@ $.fn.search = function(parameters) {
 
 $.fn.search.settings = {
 
-  name           : 'Search Module',
+  name           : 'Search',
   namespace      : 'search',
 
   debug          : false,
@@ -12373,6 +12396,7 @@ $.fn.search.settings = {
     empty   : 'empty',
     focus   : 'focus',
     loading : 'loading',
+    results : 'results',
     pressed : 'down'
   },
 
@@ -12382,7 +12406,7 @@ $.fn.search.settings = {
     logging     : 'Error in debug logging, exiting.',
     noEndpoint  : 'No search endpoint was specified',
     noTemplate  : 'A valid template name was not specified.',
-    serverError : 'There was an issue with querying the server.',
+    serverError : 'There was an issue querying the server.',
     maxResults  : 'Results must be an array to use maxResults setting',
     method      : 'The method you called is not defined.'
   },
@@ -15869,6 +15893,7 @@ $.fn.tab = function(parameters) {
               apiSettings = {
                 dataType  : 'html',
                 on        : 'now',
+                cache     : 'local',
                 onSuccess : function(response) {
                   module.cache.add(fullTabPath, response);
                   module.update.content(tabPath, response);
@@ -17424,7 +17449,6 @@ $.api = $.fn.api = function(parameters) {
 
         initialize: function() {
           if(!methodInvoked) {
-            module.create.cache();
             module.bind.events();
           }
           module.instantiate();
@@ -17469,28 +17493,39 @@ $.api = $.fn.api = function(parameters) {
             var
               response
             ;
-            if(!module.cache) {
-              module.create.cache();
+            if(window.Storage === undefined) {
+              module.error(error.noStorage);
+              return;
             }
-            response = (module.cache.response[url] !== undefined)
-              ? module.cache.response[url]
-              : false
-            ;
+            response = sessionStorage.getItem(url);
             module.debug('Using cached response', url, response);
-            return response;
+            if(response !== undefined) {
+              try {
+               response = JSON.parse(response);
+              }
+              catch(e) {
+                // didnt store object
+              }
+              return response;
+            }
+            return false;
           }
         },
         write: {
           cachedResponse: function(url, response) {
-            if(!module.cache) {
-              module.create.cache();
-            }
             if(response && response === '') {
               module.debug('Response empty, not caching', response);
               return;
             }
+            if(window.Storage === undefined) {
+              module.error(error.noStorage);
+              return;
+            }
+            if( $.isPlainObject(response) ) {
+              response = JSON.stringify(response);
+            }
+            sessionStorage.setItem(url, response);
             module.verbose('Storing cached response for url', url, response);
-            module.cache.response[url] = response;
           }
         },
 
@@ -17822,6 +17857,7 @@ $.api = $.fn.api = function(parameters) {
                 errorMessage = (settings.error[status] !== undefined)
                   ? settings.error[status]
                   : httpMessage,
+                abortedRequest = false,
                 response
               ;
 
@@ -17830,10 +17866,10 @@ $.api = $.fn.api = function(parameters) {
                 module.debug('Request Aborted (Most likely caused by page navigation or CORS Policy)', status, httpMessage);
                 module.reset();
                 settings.onAbort.call(context, status, $module);
-                return;
+                abortedRequest = true;
               }
 
-              if(xhr !== undefined) {
+              if(xhr !== undefined && !abortedRequest) {
                 // if http status code returned and json returned error, look for it
                 if( xhr.status != 200 && httpMessage !== undefined && httpMessage !== '') {
                   module.error(error.statusMessage + httpMessage, ajaxSettings.url);
@@ -17857,21 +17893,16 @@ $.api = $.fn.api = function(parameters) {
                   module.set.error();
                   setTimeout(module.remove.error, settings.errorDuration);
                 }
-                module.debug('API Request error:', errorMessage);
+                module.debug('API Request errored', errorMessage);
                 settings.onError.call(context, errorMessage, $module);
               }
+              settings.onFailure.call(context, response, $module);
             }
           }
         },
 
         create: {
 
-          cache: function() {
-            module.verbose('Creating local response cache');
-            module.cache = {
-              response: {}
-            };
-          },
 
           // api promise
           request: function() {
@@ -17900,7 +17931,12 @@ $.api = $.fn.api = function(parameters) {
               else if( $.isFunction(settings.mockResponseAsync) ) {
                 callback = function(response) {
                   module.verbose('Async callback returned response', response);
-                  module.request.resolveWith(context, [response]);
+                  if(response) {
+                    module.request.resolveWith(context, [response]);
+                  }
+                  else {
+                    module.request.rejectWith(context, [true]);
+                  }
                 };
                 module.debug('Using async mocked response', settings.mockResponseAsync);
                 settings.mockResponseAsync.call(context, settings, callback);
@@ -18316,6 +18352,7 @@ $.api.settings = {
     missingSerialize  : 'Required dependency jquery-serialize-object missing, using basic serialize',
     missingURL        : 'No URL specified for api event',
     noReturnedValue   : 'The beforeSend callback must return a settings object, beforeSend ignored.',
+    noStorage         : 'Caching respopnses locally requires session storage',
     parseError        : 'There was an error parsing your request',
     requiredParameter : 'Missing a required URL parameter: ',
     statusMessage     : 'Server gave an error: ',
