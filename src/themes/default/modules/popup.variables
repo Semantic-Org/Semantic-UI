@@ -10,7 +10,7 @@
 @background: @white;
 
 @maxWidth: 250px;
-@borderColor: #CCCCCC;
+@borderColor: @solidBorderColor;
 @borderWidth: 1px;
 @boxShadow: @floatingShadow;
 @color: @textColor;
