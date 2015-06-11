@@ -258,7 +258,7 @@
 ;
 @floatingShadow:
   0px 2px 4px 0px rgba(34, 36, 38, 0.12),
-  0px 0px 10px 0px rgba(34, 36, 38, 0.08)
+  0px 2px 10px 0px rgba(34, 36, 38, 0.08)
 ;
 
 /*******************************
@@ -380,7 +380,7 @@
 @borderColor                   : rgba(34, 36, 38, 0.15);
 @strongBorderColor             : rgba(34, 36, 38, 0.22);
 @internalBorderColor           : rgba(34, 36, 38, 0.1);
-@selectedBorderColor           : rgba(34, 36, 38, 0.3);
+@selectedBorderColor           : rgba(34, 36, 38, 0.35);
 @disabledBorderColor           : rgba(34, 36, 38, 0.5);
 
 @solidInternalBorderColor      : #FAFAFA;
