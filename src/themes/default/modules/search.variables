@@ -25,11 +25,12 @@
 @resultsBackground: #FFFFFF;
 @resultsDistance: 0.5em;
 @resultsBorderRadius: @defaultBorderRadius;
-@resultsBoxShadow: 0px 1px 3px 1px @borderColor;
+@resultsBorder: 1px solid @solidBorderColor;
+@resultsBoxShadow: @floatingShadow;
 
 /* Result */
 @resultFontSize: 1em;
-@resultVerticalPadding: @relativeMini;
+@resultVerticalPadding: @relativeTiny;
 @resultHorizontalPadding: @relativeLarge;
 @resultPadding: @resultVerticalPadding @resultHorizontalPadding;
 @resultTextColor: @textColor;
@@ -84,6 +85,11 @@
             States
 *******************************/
 
+/* Focus */
+@promptFocusBackground: @promptBackground;
+@promptFocusBorderColor: @selectedBorderColor;
+@promptFocusColor: @selectedTextColor;
+
 /* Hover */
 @resultHoverBackground: @offWhite;
 @actionHoverBackground: #E0E0E0;
@@ -99,7 +105,7 @@
 @categoryNameActiveColor: @textColor;
 
 /* Active Result */
-@resultActiveBorderLeft: transparent;
+@resultActiveBorderLeft: @internalBorderColor;
 @resultActiveBackground: @darkWhite;
 @resultActiveBoxShadow: none;
 @resultActiveTitleColor: @darkTextColor;
@@ -114,10 +120,10 @@
 /* Category */
 @categoryBackground: @darkWhite;
 @categoryBoxShadow: none;
-@categoryDivider: 1px solid @borderColor;
+@categoryDivider: 1px solid @internalBorderColor;
 @categoryTransition:
-  background 0.2s ease,
-  border-color 0.2s ease
+  background @defaultDuration @defaultEasing,
+  border-color @defaultDuration @defaultEasing
 ;
 
 @categoryResultsWidth: 28em;
@@ -137,7 +143,3 @@
 @categoryNamePadding: 0.4em 1em;
 @categoryNameFontWeight: bold;
 @categoryNameColor: @lightTextColor;
-
-/* Sizes */
-@medium: 1em;
-@large: 1.1em;

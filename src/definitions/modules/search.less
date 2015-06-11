@@ -80,7 +80,14 @@
 
   border-radius: @resultsBorderRadius;
   box-shadow: @resultsBoxShadow;
+  border: @resultsBorder;
   z-index: @resultsZIndex;
+}
+.ui.search > .results :first-child {
+  border-radius: @resultsBorderRadius @resultsBorderRadius 0em 0em;
+}
+.ui.search > .results :last-child {
+  border-radius: 0em 0em @resultsBorderRadius @resultsBorderRadius;
 }
 
 /*--------------
@@ -177,6 +184,16 @@
 *******************************/
 
 /*--------------------
+       Focus
+---------------------*/
+
+.ui.search > .prompt:focus {
+  border-color: @promptFocusBorderColor;
+  background: @promptFocusBackground;
+  color: @promptFocusColor;
+}
+
+/*--------------------
        Loading
 ---------------------*/
 
@@ -232,10 +249,10 @@
       Active
 ---------------*/
 
-.ui.search > .results .category.active {
+.ui.category.search > .results .category.active {
   background: @categoryActiveBackground;
 }
-.ui.search > .results .category.active > .name {
+.ui.category.search > .results .category.active > .name {
   color: @categoryNameActiveColor;
 }
 
@@ -272,8 +289,18 @@
   border-bottom: @categoryDivider;
   transition: @categoryTransition;
 }
+
+/* Last Category */
 .ui.category.search > .results .category:last-child {
   border-bottom: none;
+}
+
+/* First / Last */
+.ui.category.search > .results .category:first-child .name + .result {
+  border-radius: 0em @resultsBorderRadius 0em 0em;
+}
+.ui.category.search > .results .category:last-child .result:last-child {
+  border-radius: 0em 0em @resultsBorderRadius 0em;
 }
 
 /* Category Result */
