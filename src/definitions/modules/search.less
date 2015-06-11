@@ -83,10 +83,10 @@
   border: @resultsBorder;
   z-index: @resultsZIndex;
 }
-.ui.search > .results :first-child {
+.ui.search > .results > :first-child {
   border-radius: @resultsBorderRadius @resultsBorderRadius 0em 0em;
 }
-.ui.search > .results :last-child {
+.ui.search > .results > :last-child {
   border-radius: 0em 0em @resultsBorderRadius @resultsBorderRadius;
 }
 
@@ -105,7 +105,7 @@
   border-bottom: @resultDivider;
 }
 .ui.search > .results .result:last-child {
-  border-bottom: @resultLastDivider;
+  border-bottom: @resultLastDivider !important;
 }
 
 /* Image */

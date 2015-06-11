@@ -136,7 +136,7 @@
 @categoryResultTransition: @categoryTransition;
 
 @categoryNameWidth: 100px;
-@categoryNameBackground: @darkWhite;
+@categoryNameBackground: transparent;
 @categoryNameFont: @pageFont;
 @categoryNameFontSize: 1em;
 @categoryNameFloat: left;
