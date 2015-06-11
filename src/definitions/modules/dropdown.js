@@ -533,14 +533,14 @@ $.fn.dropdown = function(parameters) {
           },
           keydown: function(event) {
             var
-              $currentlySelected = $item.not(className.filtered).filter('.' + className.selected).eq(0),
+              $currentlySelected = $item.not('.disabled').not(className.filtered).filter('.' + className.selected).eq(0),
               $activeItem        = $menu.children('.' + className.active).eq(0),
               $selectedItem      = ($currentlySelected.length > 0)
                 ? $currentlySelected
                 : $activeItem,
               $visibleItems = ($selectedItem.length > 0)
-                ? $selectedItem.siblings(':not(.' + className.filtered +')').andSelf()
-                : $menu.children(':not(.' + className.filtered +')'),
+                ? $selectedItem.siblings(':not(.disabled):not(.' + className.filtered +')').andSelf()
+                : $menu.children(':not(.disabled):not(.' + className.filtered +')'),
               $subMenu      = $selectedItem.children(selector.menu),
               $parentMenu   = $selectedItem.closest(selector.menu),
               isSubMenuItem = $parentMenu[0] !== $menu[0],
@@ -606,7 +606,7 @@ $.fn.dropdown = function(parameters) {
               // up arrow (traverse menu up)
               if(pressedKey == keys.upArrow) {
                 $nextItem = (hasSelectedItem && inVisibleMenu)
-                  ? $selectedItem.prevAll(selector.item + ':not(.' + className.filtered + ')').eq(0)
+                  ? $selectedItem.prevAll(selector.item + ':not(.disabled):not(.' + className.filtered + ')').eq(0)
                   : $item.eq(0)
                 ;
                 if($visibleItems.index( $nextItem ) < 0) {
@@ -628,7 +628,7 @@ $.fn.dropdown = function(parameters) {
               // down arrow (traverse menu down)
               if(pressedKey == keys.downArrow) {
                 $nextItem = (hasSelectedItem && inVisibleMenu)
-                  ? $nextItem = $selectedItem.nextAll(selector.item + ':not(.' + className.filtered + ')').eq(0)
+                  ? $nextItem = $selectedItem.nextAll(selector.item + ':not(.disabled):not(.' + className.filtered + ')').eq(0)
                   : $item.eq(0)
                 ;
                 if($nextItem.length === 0) {
@@ -742,6 +742,11 @@ $.fn.dropdown = function(parameters) {
                 hasSubMenu     = ($subMenu.length > 0),
                 isBubbledEvent = ($subMenu.find($target).length > 0)
               ;
+	      module.verbose('Click received', $target);
+	      if ($target.is('.disabled')) {
+	        event.preventDefault();
+		return false;
+		}
               if(!isBubbledEvent && (!hasSubMenu || settings.allowCategorySelection)) {
                 callback();
               }
@@ -915,7 +920,8 @@ $.fn.dropdown = function(parameters) {
                     name  = $(this).html(),
                     value = ( $(this).attr('value') !== undefined )
                       ? $(this).attr('value')
-                      : name
+                      : name,
+		    disabled = ( $(this).attr('disabled') !== undefined )
                   ;
                   if(value === '') {
                     select.placeholder = name;
@@ -924,13 +930,15 @@ $.fn.dropdown = function(parameters) {
                     if(settings.sortSelect) {
                       select.values[value] = {
                         name  : name,
-                        value : value
+                        value : value,
+			disabled: disabled
                       };
                     }
                     else {
                       select.values.push({
                         name: name,
-                        value: value
+                        value: value,
+			disabled: disabled
                       });
                     }
                   }
@@ -1776,6 +1784,7 @@ $.fn.dropdown.settings.templates = {
   },
   dropdown: function(select) {
     var
+      classes     = '',
       placeholder = select.placeholder || false,
       values      = select.values || {},
       html        = ''
@@ -1789,7 +1798,8 @@ $.fn.dropdown.settings.templates = {
     }
     html += '<div class="menu">';
     $.each(select.values, function(index, option) {
-      html += '<div class="item" data-value="' + option.value + '">' + option.name + '</div>';
+      classes = (option.disabled) ? 'disabled item' : 'item';
+      html += '<div class="' + classes + '" data-value="' + option.value + '">' + option.name + '</div>';
     });
     html += '</div>';
     return html;
