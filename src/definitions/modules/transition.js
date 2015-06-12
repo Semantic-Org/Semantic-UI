@@ -280,10 +280,11 @@ $.fn.transition = function() {
             module.save.animation(animationClass);
 
             // override display if necessary so animation appears visibly
-            module.remove.hidden();
             module.set.display();
 
+            module.remove.hidden();
             module.remove.direction();
+
             $module
               .addClass(animationClass)
               .one(animationEnd + '.complete' + eventNamespace, module.complete)
@@ -316,8 +317,6 @@ $.fn.transition = function() {
               displayType        = module.get.displayType(),
               overrideStyle      = style + 'display: ' + displayType + ' !important;'
             ;
-            $module.css('display', '');
-            module.refresh();
             if( $module.css('display') !== displayType ) {
               module.verbose('Setting inline visibility to', displayType);
               $module
