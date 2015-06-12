@@ -155,6 +155,7 @@
 @bulletChildDistance: @bulletDistance;
 
 /* Horizontal Bullets */
+@horizontalBulletColor: @textColor;
 @horizontalBulletSpacing: 1.5rem;
 
 /* Ordered List */
