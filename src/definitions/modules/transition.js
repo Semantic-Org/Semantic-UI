@@ -136,15 +136,22 @@ $.fn.transition = function() {
 
         delay: function(interval) {
           var
-            isReverse = (settings.reverse === true),
-            shouldReverse = (settings.reverse == 'auto' && module.get.direction() == className.outward),
+            direction = module.get.animationDirection(),
+            shouldReverse,
             delay
           ;
-          interval = (typeof interval !== undefined)
+          if(!direction) {
+            direction = module.can.transition()
+              ? module.get.direction()
+              : 'static'
+            ;
+          }
+          interval = (interval !== undefined)
             ? interval
             : settings.interval
           ;
-          delay = (isReverse || shouldReverse)
+          shouldReverse = (settings.reverse == 'auto' && direction == className.outward);
+          delay = (shouldReverse || settings.reverse == true)
             ? ($allModules.length - index) * settings.interval
             : index * settings.interval
           ;
@@ -258,19 +265,27 @@ $.fn.transition = function() {
 
         set: {
           animating: function(animation) {
-            animation = animation || settings.animation;
-            if(!module.is.animating()) {
-              module.save.conditions();
-            }
-            module.remove.direction();
+            var
+              animationClass,
+              direction
+            ;
+            // remove previous callbacks
             module.remove.completeCallback();
-            if(module.can.transition() && !module.has.direction()) {
-              module.set.direction();
-            }
+
+            // determine exact animation
+            animation      = animation || settings.animation;
+            animationClass = module.get.animationClass(animation);
+
+            // save animation class in cache to restore class names
+            module.save.animation(animationClass);
+
+            // override display if necessary so animation appears visibly
             module.remove.hidden();
             module.set.display();
+
+            module.remove.direction();
             $module
-              .addClass(className.animating + ' ' + className.transition + ' ' + animation)
+              .addClass(animationClass)
               .one(animationEnd + '.complete' + eventNamespace, module.complete)
             ;
             if(settings.useFailSafe) {
@@ -310,20 +325,13 @@ $.fn.transition = function() {
               ;
             }
           },
-          direction: function() {
-            if($module.is(':visible') && !module.is.hidden()) {
-              module.debug('Automatically determining the direction of animation', 'Outward');
-              $module
-                .removeClass(className.inward)
-                .addClass(className.outward)
-              ;
+          direction: function(direction) {
+            direction = direction || module.get.direction();
+            if(direction == className.inward) {
+              module.set.inward();
             }
             else {
-              module.debug('Automatically determining the direction of animation', 'Inward');
-              $module
-                .removeClass(className.outward)
-                .addClass(className.inward)
-              ;
+              module.set.outward();
             }
           },
           looping: function() {
@@ -346,6 +354,20 @@ $.fn.transition = function() {
               ;
             }
           },
+          inward: function() {
+            module.debug('Setting direction to inward');
+            $module
+              .removeClass(className.outward)
+              .addClass(className.inward)
+            ;
+          },
+          outward: function() {
+            module.debug('Setting direction to outward');
+            $module
+              .removeClass(className.inward)
+              .addClass(className.outward)
+            ;
+          },
           visible: function() {
             $module
               .addClass(className.transition)
@@ -355,6 +377,12 @@ $.fn.transition = function() {
         },
 
         save: {
+          animation: function(animation) {
+            if(!module.cache) {
+              module.cache = {};
+            }
+            module.cache.animation = animation;
+          },
           displayType: function(displayType) {
             if(displayType !== 'none') {
               $module.data(metadata.displayType, displayType);
@@ -363,38 +391,18 @@ $.fn.transition = function() {
           transitionExists: function(animation, exists) {
             $.fn.transition.exists[animation] = exists;
             module.verbose('Saving existence of transition', animation, exists);
-          },
-          conditions: function() {
-            $module.removeClass(settings.animation);
-            module.remove.direction();
-            module.cache = {
-              className : $module.attr('class'),
-              style     : module.get.style()
-            };
-            module.verbose('Saving original attributes', module.cache);
           }
         },
 
         restore: {
           conditions: function() {
-            if(module.cache === undefined) {
-              return false;
+            var
+              animation = module.get.currentAnimation()
+            ;
+            if(animation) {
+              $module.removeClass(animation);
+              module.verbose('Removing animation class', module.cache);
             }
-            if(module.cache.className) {
-              $module.attr('class', module.cache.className);
-            }
-            else {
-              $module.removeAttr('class');
-            }
-            if(module.cache.style) {
-              module.verbose('Restoring original style attribute', module.cache.style);
-              $module.attr('style', module.cache.style);
-            }
-            else {
-              module.verbose('Clearing style attribute');
-              $module.removeAttr('style');
-            }
-            module.verbose('Restoring original attributes', module.cache);
           }
         },
 
@@ -514,14 +522,42 @@ $.fn.transition = function() {
             }
             return $.fn.transition.settings;
           },
-          direction: function(animation) {
-            // quickest manually specified direction
+          animationClass: function(animation) {
+            var
+              animationClass = animation || settings.animation,
+              directionClass = (module.can.transition() && !module.has.direction())
+                ? module.get.direction() + ' '
+                : ''
+            ;
+            return className.animating + ' '
+              + className.transition + ' '
+              + directionClass
+              + animationClass
+            ;
+          },
+          currentAnimation: function() {
+            return module.cache.animation || false;
+          },
+          currentDirection: function() {
+            return module.is.inward()
+              ? className.inward
+              : className.outward
+            ;
+          },
+          direction: function() {
+            return module.is.hidden() || !module.is.visible()
+              ? className.inward
+              : className.outward
+            ;
+          },
+          animationDirection: function(animation) {
             var
               direction
             ;
             animation = animation || settings.animation;
             if(typeof animation === 'string') {
               animation = animation.split(' ');
+              // search animation name for out/in class
               $.each(animation, function(index, word){
                 if(word === className.inward) {
                   direction = className.inward;
@@ -535,16 +571,7 @@ $.fn.transition = function() {
             if(direction) {
               return direction;
             }
-            // slower backup
-            if( !module.can.transition() ) {
-              return 'static';
-            }
-            if($module.is(':visible') && !module.is.hidden()) {
-              return className.outward;
-            }
-            else {
-              return className.inward;
-            }
+            return false;
           },
           duration: function(duration) {
             duration = duration || settings.duration;
