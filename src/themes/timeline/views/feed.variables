@@ -6,15 +6,15 @@
       Elements
 --------------------*/
 
-@eventMargin: 0em 0em 0em 2em;
+@eventMargin: 0em;
 @eventDivider: none;
 @eventPadding: 0em;
 
 /* Event Label */
 @labelWidth: 3em;
-@labelHeight: 3em;
+@labelHeight: auto;
 
-@labeledContentPadding: 0.75em 0em 2em 0.75em;
+@labeledContentMargin: 0.75em 0em 2em 0.75em;
 
 /* Icon */
 @iconLabelBackground: @primaryColor;
@@ -34,7 +34,3 @@
 /*-------------------
       Variations
 --------------------*/
-
-/* Size */
-@small: 0.9em;
-@medium: 1em;
