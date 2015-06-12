@@ -80,6 +80,7 @@ $.fn.dropdown = function(parameters) {
 
         initialize: function() {
           module.debug('Initializing dropdown', settings);
+
           if( module.is.alreadySetup() ) {
             module.setup.reference();
           }
@@ -98,6 +99,8 @@ $.fn.dropdown = function(parameters) {
             module.observeChanges();
             module.instantiate();
           }
+
+          module.refreshData();
         },
 
         instantiate: function() {
@@ -352,7 +355,24 @@ $.fn.dropdown = function(parameters) {
           ;
           $menu    = $module.children(selector.menu);
           $item    = $menu.find(selector.item);
+
+          module.refreshData();
         },
+
+        refreshData: function() {
+          $menu
+            .children()
+            .each(function() {
+              $(this).removeData(metadata.text);
+              $(this).removeData(metadata.value);
+            });
+
+          $module.removeData(metadata.defaultText);
+          $module.removeData(metadata.defaultValue);
+          $module.removeData(metadata.placeholderText);
+
+        },
+
 
         toggle: function() {
           module.verbose('Toggling menu visibility');
