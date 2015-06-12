@@ -17,6 +17,7 @@ $.fn.dropdown = function(parameters) {
   var
     $allModules    = $(this),
     $document      = $(document),
+    $window        = $(window),
 
     moduleSelector = $allModules.selector || '',
 
@@ -1492,9 +1493,11 @@ $.fn.dropdown = function(parameters) {
               .find('option')
                 .each(function() {
                   var
-                    name  = $(this).html(),
-                    value = ( $(this).attr('value') !== undefined )
-                      ? $(this).attr('value')
+                    $option  = $(this),
+                    name     = $option.html(),
+                    disabled = $option.attr('disabled'),
+                    value    = ( $option.attr('value') !== undefined )
+                      ? $option.attr('value')
                       : name
                   ;
                   if(settings.placeholder === 'auto' && value === '') {
@@ -1502,8 +1505,9 @@ $.fn.dropdown = function(parameters) {
                   }
                   else {
                     select.values.push({
-                      name: name,
-                      value: value
+                      name     : name,
+                      value    : value,
+                      disabled : disabled
                     });
                   }
                 })
@@ -2558,7 +2562,7 @@ $.fn.dropdown = function(parameters) {
             $currentMenu.addClass(className.loading);
             onScreen = ($.fn.visibility !== undefined)
               ? $currentMenu.visibility('bottom visible')
-              : $(window).scrollTop() + $(window).height() >= $currentMenu.offset().top + $currentMenu.height()
+              : $window.scrollTop() + $window.height() >= $currentMenu.offset().top + $currentMenu.height()
             ;
             module.debug('Checking if menu can fit on screen', onScreen, $menu);
             $currentMenu.removeClass(className.loading);
@@ -3101,7 +3105,10 @@ $.fn.dropdown.settings.templates = {
     }
     html += '<div class="menu">';
     $.each(select.values, function(index, option) {
-      html += '<div class="item" data-value="' + option.value + '">' + option.name + '</div>';
+      html += (option.disabled)
+        ? '<div class="disabled item" data-value="' + option.value + '">' + option.name + '</div>'
+        : '<div class="item" data-value="' + option.value + '">' + option.name + '</div>'
+      ;
     });
     html += '</div>';
     return html;

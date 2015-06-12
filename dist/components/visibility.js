@@ -59,6 +59,7 @@ $.fn.visibility = function(parameters) {
           || function(callback) { setTimeout(callback, 0); },
 
         element         = this,
+
         observer,
         module
       ;
@@ -123,9 +124,6 @@ $.fn.visibility = function(parameters) {
         },
 
         observeChanges: function() {
-          var
-            context = $context[0]
-          ;
           if('MutationObserver' in window) {
             observer = new MutationObserver(function(mutations) {
               module.verbose('DOM tree modified, updating visibility calculations');
