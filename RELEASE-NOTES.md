@@ -53,7 +53,7 @@
 - **Shapes** - Shapes now correctly adjusts for margin on `sides`
 - **Steps** - Steps now use `flexbox`, the default horizontal theme has the active element point downward now instead of to the right.
 - **Steps** - Steps no longer need `item count` and will automatically divide evenly
-- **Transition** - Transition code has been optimized to increase performance.
+- **Transition** - Transition code has been optimized to increase performance. 100% improvement on first animation, and 40% improvement on subsequent animations.
 - **Visibility** - Using `.visibility({ type: 'fixed'})` will now automatically add a placeholder element which will swap places with an element when it is attached to the viewport. This should make fixed content drastically simpler.
 - **Visibility** - Visibility and sticky now use a more performant [pub/sub pattern](http://davidwalsh.name/pubsub-javascript) that will only attach a single event to context `scroll`.
 - **Visibility** - Added two new visibility callbacks `onOnScreen` and `onOffScreen`, which occur, most obviously when an element first appears in or out of a browser's viewport.
@@ -126,6 +126,8 @@
 - **Tabs** - Added `parseScripts` option, defaults to `once` parsing inline scripts only first load
 - **Table** - Added `vertical alignment` variations to `ui table`
 - **Table** - Added `single line` table variation which prevents text from wrapping
+- **Transition** - Adjusting `style` or `class` during a transition, will no longer reset the change after transition completes.
+- **Transition** - Transition will no longer force visible/hidden with inline styles if `onComplete` callback sets visibility.
 - **Visibility/Sticky** - Visibility and sticky now refresh automatically after page content loading to deal with changes in position from images loading
 - **Visibility/Sticky** - Visibility now uses pub/sub pattern to greatly improve scroll performance when attaching multiple events
 - **Visibility** - Visibility `image` will now wait to lazy load images that are *above* the current screen position, not just below.
