@@ -73,6 +73,7 @@
 - **Dropdown** - Added `showOnFocus` option that lets you specify whether dropdown menu should show on focus
 - **Dropdown** - `fullTextSearch: true` now uses fuzzy search (same as `ui search`)
 - **Dropdown** - Page down and page up now works with dropdown menus
+- **Dropdown** - Dropdown initialized with `disabled` prop on an `option` will now correctly appear disabled
 - **Dropdown** - Added `disabled item` state, disabled items will automatically be skipped with keyboard selection
 - **Form** - Added a host of new styles for form fields autocompleted by your browser, including autocompleted error, and focus states
 - **Form** - Added placeholder color rules for IE, `ms-input-placeholder`
