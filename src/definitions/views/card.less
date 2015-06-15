@@ -101,6 +101,7 @@
 .ui.cards > .card > :first-child,
 .ui.card > :first-child {
   border-radius: @borderRadius @borderRadius 0em 0em !important;
+  border-top: none !important;
 }
 
 .ui.cards > .card > :last-child,
@@ -131,6 +132,9 @@
   width: 100%;
   height: auto;
   border-radius: inherit;
+}
+.ui.cards > .card > .image:not(.ui) > img,
+.ui.card > .image:not(.ui) > img {
   border: @imageBorder;
 }
 
@@ -141,17 +145,14 @@
 .ui.cards > .card > .content,
 .ui.card > .content {
   flex-grow: 1;
+  border: @contentBorder;
+  border-top: @contentDivider;
   background: @contentBackground;
   margin: @contentMargin;
   padding: @contentPadding;
   box-shadow: @contentBoxShadow;
   font-size: @contentFontSize;
-  border: @contentBorder;
   border-radius: @contentBorderRadius;
-}
-.ui.cards > .card > .content ~ .content,
-.ui.card > .content ~ .content {
-  border-top: @repeatedContentBorder;
 }
 
 .ui.cards > .card > .content:after,

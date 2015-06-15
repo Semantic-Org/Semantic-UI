@@ -59,15 +59,15 @@
 @imageBorder: none;
 
 /* Content */
+@contentDivider: @borderWidth solid @internalBorderColor;
 @contentMargin: 0em;
 @contentBackground: none;
 @contentPadding: 1em 1em;
 @contentFontSize: 1em;
-@contentBorder: none;
 @contentBorderRadius: 0em;
 @contentBoxShadow: none;
+@contentBorder: none;
 
-@repeatedContentBorder: @borderWidth solid @internalBorderColor;
 
 /* Header */
 @headerMargin: '';
