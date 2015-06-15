@@ -377,7 +377,7 @@ $.fn.modal = function(parameters) {
                   duration    : settings.duration,
                   useFailSafe : true,
                   onStart     : function() {
-                    if(!module.othersActive() && !keepDimmed) {
+                    if(!module.others.active() && !keepDimmed) {
                       module.hideDimmer();
                     }
                     module.remove.keyboardShortcuts();
@@ -423,7 +423,7 @@ $.fn.modal = function(parameters) {
 
         hideAll: function(callback) {
           var
-            $visibleModals = $allModals.filter(':visible')
+            $visibleModals = $allModals.filter('.' + className.active + ', .' + className.animating)
           ;
           callback = $.isFunction(callback)
             ? callback
@@ -440,7 +440,7 @@ $.fn.modal = function(parameters) {
 
         hideOthers: function(callback) {
           var
-            $visibleModals = $otherModals.filter(':visible')
+            $visibleModals = $otherModals.filter('.' + className.active + ', .' + className.animating)
           ;
           callback = $.isFunction(callback)
             ? callback
@@ -454,9 +454,15 @@ $.fn.modal = function(parameters) {
           }
         },
 
-        othersActive: function() {
-          return ($otherModals.filter('.' + className.active + ', .' + className.animating).length > 0);
+        others: {
+          active: function() {
+            return ($otherModals.filter('.' + className.active).length > 0);
+          },
+          animating: function() {
+            return ($otherModals.filter('.' + className.animating).length > 0);
+          }
         },
+
 
         add: {
           keyboardShortcuts: function() {
@@ -596,7 +602,7 @@ $.fn.modal = function(parameters) {
           type: function() {
             if(module.can.fit()) {
               module.verbose('Modal fits on screen');
-              if(!module.othersActive()) {
+              if(!module.others.active() && !module.others.animating()) {
                 module.remove.scrolling();
               }
             }
