@@ -20418,7 +20418,14 @@ Floated Menu / Item
   bottom: auto;
 }
 
+.ui[class*="top fixed"].menu {
+  border-left: none;
+  border-right: none;
+}
+
 .ui[class*="right fixed"].menu {
+  border-top: none;
+  border-bottom: none;
   border-right: none;
   top: 0px;
   right: 0px;
@@ -20430,6 +20437,8 @@ Floated Menu / Item
 
 .ui[class*="bottom fixed"].menu {
   border-bottom: none;
+  border-left: none;
+  border-right: none;
   bottom: 0px;
   left: 0px;
   top: auto;
@@ -20437,6 +20446,8 @@ Floated Menu / Item
 }
 
 .ui[class*="left fixed"].menu {
+  border-top: none;
+  border-bottom: none;
   border-left: none;
   top: 0px;
   left: 0px;
