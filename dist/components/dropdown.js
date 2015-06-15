@@ -1374,6 +1374,10 @@ $.fn.dropdown = function(parameters) {
             var
               values = module.get.values()
             ;
+            values = $.isArray(values)
+              ? values
+              : [values]
+            ;
             if(!values) {
               return false;
             }

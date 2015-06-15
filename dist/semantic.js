@@ -4914,6 +4914,10 @@ $.fn.dropdown = function(parameters) {
             var
               values = module.get.values()
             ;
+            values = $.isArray(values)
+              ? values
+              : [values]
+            ;
             if(!values) {
               return false;
             }
@@ -7748,7 +7752,7 @@ $.fn.modal = function(parameters) {
                   duration    : settings.duration,
                   useFailSafe : true,
                   onStart     : function() {
-                    if(!module.othersActive() && !keepDimmed) {
+                    if(!module.others.active() && !keepDimmed) {
                       module.hideDimmer();
                     }
                     module.remove.keyboardShortcuts();
@@ -7794,7 +7798,7 @@ $.fn.modal = function(parameters) {
 
         hideAll: function(callback) {
           var
-            $visibleModals = $allModals.filter(':visible')
+            $visibleModals = $allModals.filter('.' + className.active + ', .' + className.animating)
           ;
           callback = $.isFunction(callback)
             ? callback
@@ -7811,7 +7815,7 @@ $.fn.modal = function(parameters) {
 
         hideOthers: function(callback) {
           var
-            $visibleModals = $otherModals.filter(':visible')
+            $visibleModals = $otherModals.filter('.' + className.active + ', .' + className.animating)
           ;
           callback = $.isFunction(callback)
             ? callback
@@ -7825,9 +7829,15 @@ $.fn.modal = function(parameters) {
           }
         },
 
-        othersActive: function() {
-          return ($otherModals.filter('.' + className.active + ', .' + className.animating).length > 0);
+        others: {
+          active: function() {
+            return ($otherModals.filter('.' + className.active).length > 0);
+          },
+          animating: function() {
+            return ($otherModals.filter('.' + className.animating).length > 0);
+          }
         },
+
 
         add: {
           keyboardShortcuts: function() {
@@ -7967,7 +7977,7 @@ $.fn.modal = function(parameters) {
           type: function() {
             if(module.can.fit()) {
               module.verbose('Modal fits on screen');
-              if(!module.othersActive()) {
+              if(!module.others.active() && !module.others.animating()) {
                 module.remove.scrolling();
               }
             }
@@ -16602,22 +16612,56 @@ $.fn.transition = function() {
               module.verbose('Animation is outward, hiding element');
               module.restore.conditions();
               module.hide();
-              settings.onHide.call(this);
             }
             else if( module.is.inward() ) {
               module.verbose('Animation is outward, showing element');
               module.restore.conditions();
               module.show();
-              settings.onShow.call(this);
             }
             else {
               module.restore.conditions();
-              module.show();
             }
-            module.remove.animation();
-            module.remove.animating();
           }
-          settings.onComplete.call(this);
+        },
+
+        force: {
+          visible: function() {
+            var
+              style          = $module.attr('style'),
+              userStyle      = module.get.userStyle(),
+              displayType    = module.get.displayType(),
+              overrideStyle  = userStyle + 'display: ' + displayType + ' !important;',
+              currentDisplay = $module.css('display'),
+              emptyStyle     = (style === undefined || style === '')
+            ;
+            if(currentDisplay !== displayType) {
+              module.verbose('Overriding default display to show element', displayType);
+              $module
+                .attr('style', overrideStyle)
+              ;
+            }
+            else if(emptyStyle) {
+              $module.removeAttr('style');
+            }
+          },
+          hidden: function() {
+            var
+              style          = $module.attr('style'),
+              currentDisplay = $module.css('display'),
+              emptyStyle     = (style === undefined || style === '')
+            ;
+            if(currentDisplay !== 'none' && !module.is.hidden()) {
+              module.verbose('Overriding default display to hide element');
+              $module
+                .css('display', 'none')
+              ;
+            }
+            else if(emptyStyle) {
+              $module
+                .removeAttr('style')
+              ;
+            }
+          }
         },
 
         has: {
@@ -16661,21 +16705,13 @@ $.fn.transition = function() {
             module.save.animation(animationClass);
 
             // override display if necessary so animation appears visibly
-            module.set.display();
+            module.force.visible();
 
             module.remove.hidden();
             module.remove.direction();
 
-            $module
-              .addClass(animationClass)
-              .one(animationEnd + '.complete' + eventNamespace, module.complete)
-            ;
-            if(settings.useFailSafe) {
-              module.add.failSafe();
-            }
-            module.set.duration(settings.duration);
-            settings.onStart.call(this);
-            module.debug('Starting tween', animation);
+            module.start.animation(animationClass);
+
           },
           duration: function(animationName, duration) {
             duration = duration || settings.duration;
@@ -16689,19 +16725,6 @@ $.fn.transition = function() {
                 .css({
                   'animation-duration':  duration
                 })
-              ;
-            }
-          },
-          display: function() {
-            var
-              style              = module.get.style(),
-              displayType        = module.get.displayType(),
-              overrideStyle      = style + 'display: ' + displayType + ' !important;'
-            ;
-            if( $module.css('display') !== displayType ) {
-              module.verbose('Setting inline visibility to', displayType);
-              $module
-                .attr('style', overrideStyle)
               ;
             }
           },
@@ -16721,18 +16744,10 @@ $.fn.transition = function() {
             ;
           },
           hidden: function() {
-            if(!module.is.hidden()) {
-              $module
-                .addClass(className.transition)
-                .addClass(className.hidden)
-              ;
-            }
-            if($module.css('display') !== 'none') {
-              module.verbose('Overriding default display to hide element');
-              $module
-                .css('display', 'none')
-              ;
-            }
+            $module
+              .addClass(className.transition)
+              .addClass(className.hidden)
+            ;
           },
           inward: function() {
             module.debug('Setting direction to inward');
@@ -16753,6 +16768,22 @@ $.fn.transition = function() {
               .addClass(className.transition)
               .addClass(className.visible)
             ;
+          }
+        },
+
+        start: {
+          animation: function(animationClass) {
+            animationClass = animationClass || module.get.animationClass();
+            module.debug('Starting tween', animationClass);
+            $module
+              .addClass(animationClass)
+              .one(animationEnd + '.complete' + eventNamespace, module.complete)
+            ;
+            if(settings.useFailSafe) {
+              module.add.failSafe();
+            }
+            module.set.duration(settings.duration);
+            settings.onStart.call(this);
           }
         },
 
@@ -16780,9 +16811,12 @@ $.fn.transition = function() {
               animation = module.get.currentAnimation()
             ;
             if(animation) {
-              $module.removeClass(animation);
+              $module
+                .removeClass(animation)
+              ;
               module.verbose('Removing animation class', module.cache);
             }
+            module.remove.duration();
           }
         },
 
@@ -16802,17 +16836,6 @@ $.fn.transition = function() {
           animating: function() {
             $module.removeClass(className.animating);
           },
-          animation: function() {
-            $module
-              .css({
-                '-webkit-animation' : '',
-                '-moz-animation'    : '',
-                '-ms-animation'     : '',
-                '-o-animation'      : '',
-                'animation'         : ''
-              })
-            ;
-          },
           animationCallbacks: function() {
             module.remove.queueCallback();
             module.remove.completeCallback();
@@ -16830,6 +16853,11 @@ $.fn.transition = function() {
             $module
               .removeClass(className.inward)
               .removeClass(className.outward)
+            ;
+          },
+          duration: function() {
+            $module
+              .css('animation-duration', '')
             ;
           },
           failSafe: function() {
@@ -16975,11 +17003,9 @@ $.fn.transition = function() {
             }
             return $module.data(metadata.displayType);
           },
-          style: function() {
-            var
-              style = $module.attr('style') || ''
-            ;
-            return style.replace(/display.*?;/, '');
+          userStyle: function(style) {
+            style = style || $module.attr('style') || '';
+            return style.replace(/display.*?;/, '');;
           },
           transitionExists: function(animation) {
             return $.fn.transition.exists[animation];
@@ -17128,15 +17154,20 @@ $.fn.transition = function() {
           module.remove.display();
           module.remove.visible();
           module.set.hidden();
-          module.repaint();
+          settings.onHide.call(this);
+          settings.onComplete.call(this);
+          module.force.hidden();
+          // module.repaint();
         },
 
         show: function(display) {
           module.verbose('Showing element', display);
           module.remove.hidden();
           module.set.visible();
-          module.set.display();
-          module.repaint();
+          settings.onShow.call(this);
+          settings.onComplete.call(this);
+          module.force.visible();
+          // module.repaint();
         },
 
         toggle: function() {

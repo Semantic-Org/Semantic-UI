@@ -21,7 +21,7 @@
   margin-top: 0em;
 }
 .ui.feed:last-child {
-  margin-top: 0em;
+  margin-bottom: 0em;
 }
 
 
@@ -32,9 +32,17 @@
 
 /* Event */
 .ui.feed > .event {
-  display: table;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
   width: 100%;
-  padding: 0.5rem 0em;
+  padding: 0.214285rem 0em;
   margin: 0em;
   background: none;
   border-top: none;
@@ -49,10 +57,16 @@
 
 /* Event Label */
 .ui.feed > .event > .label {
-  display: table-cell;
+  display: block;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
   width: 2.5em;
-  height: 2.5em;
-  vertical-align: top;
+  height: auto;
+  -webkit-align-self: stretch;
+      -ms-flex-item-align: stretch;
+          align-self: stretch;
   text-align: left;
 }
 .ui.feed > .event > .label .icon {
@@ -71,13 +85,24 @@
   border-radius: 500rem;
 }
 .ui.feed > .event > .label + .content {
-  padding: 0.5em 0em 0.5em 1.25em;
+  margin: 0.5em 0em 0.35714em 1.14285714em;
 }
+
+/*--------------
+     Content
+---------------*/
+
 
 /* Content */
 .ui.feed > .event > .content {
-  display: table-cell;
-  vertical-align: top;
+  display: block;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  -webkit-align-self: stretch;
+      -ms-flex-item-align: stretch;
+          align-self: stretch;
   text-align: left;
   word-wrap: break-word;
 }
@@ -254,13 +279,13 @@
 *******************************/
 
 .ui.small.feed {
-  font-size: 0.9em;
+  font-size: 0.92857143rem;
 }
 .ui.feed {
-  font-size: 1em;
+  font-size: 1rem;
 }
 .ui.large.feed {
-  font-size: 1.1em;
+  font-size: 1.14285714rem;
 }
 
 

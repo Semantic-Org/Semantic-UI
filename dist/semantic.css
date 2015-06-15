@@ -12860,6 +12860,11 @@ ul.ui.horizontal.bulleted.list li:first-child,
   margin-left: 0em;
 }
 
+ul.ui.horizontal.bulleted.list li::before,
+.ui.horizontal.bulleted.list > .item::before {
+  color: rgba(0, 0, 0, 0.87);
+}
+
 ul.ui.horizontal.bulleted.list li:first-child::before,
 .ui.horizontal.bulleted.list > .item:first-child::before {
   display: none;
@@ -18945,7 +18950,7 @@ ol.ui.horizontal.list li:before,
   width: 2.5em;
 }
 
-.ui.vertical.menu .item > img:only-child {
+.ui.vertical.menu .item > img:not(.ui):only-child {
   display: block;
   max-width: 100%;
   width: auto;
@@ -22830,7 +22835,7 @@ Floated Menu / Item
 .ui.cards > .card > .content > .header,
 .ui.card > .content > .header {
   display: block;
-  margin: 0em;
+  margin: '';
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   color: rgba(0, 0, 0, 0.85);
 }
@@ -23986,7 +23991,7 @@ a.ui.card:hover,
 }
 
 .ui.feed:last-child {
-  margin-top: 0em;
+  margin-bottom: 0em;
 }
 
 /*******************************
@@ -23996,9 +24001,17 @@ a.ui.card:hover,
 /* Event */
 
 .ui.feed > .event {
-  display: table;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   width: 100%;
-  padding: 0.5rem 0em;
+  padding: 0.214285rem 0em;
   margin: 0em;
   background: none;
   border-top: none;
@@ -24016,10 +24029,16 @@ a.ui.card:hover,
 /* Event Label */
 
 .ui.feed > .event > .label {
-  display: table-cell;
+  display: block;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
   width: 2.5em;
-  height: 2.5em;
-  vertical-align: top;
+  height: auto;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
   text-align: left;
 }
 
@@ -24041,14 +24060,24 @@ a.ui.card:hover,
 }
 
 .ui.feed > .event > .label + .content {
-  padding: 0.5em 0em 0.5em 1.25em;
+  margin: 0.5em 0em 0.35714em 1.14285714em;
 }
+
+/*--------------
+     Content
+---------------*/
 
 /* Content */
 
 .ui.feed > .event > .content {
-  display: table-cell;
-  vertical-align: top;
+  display: block;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
   text-align: left;
   word-wrap: break-word;
 }
@@ -24239,15 +24268,15 @@ a.ui.card:hover,
 *******************************/
 
 .ui.small.feed {
-  font-size: 0.9em;
+  font-size: 0.92857143rem;
 }
 
 .ui.feed {
-  font-size: 1em;
+  font-size: 1rem;
 }
 
 .ui.large.feed {
-  font-size: 1.1em;
+  font-size: 1.14285714rem;
 }
 
 /*******************************
@@ -29346,30 +29375,30 @@ a.ui.nag {
 
 .ui.indicating.progress[data-percent^="1"] .label,
 .ui.indicating.progress[data-percent^="2"] .label {
-  color: #ca4d4d;
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .ui.indicating.progress[data-percent^="3"] .label {
-  color: #b27f22;
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .ui.indicating.progress[data-percent^="4"] .label,
 .ui.indicating.progress[data-percent^="5"] .label {
-  color: #c09522;
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .ui.indicating.progress[data-percent^="6"] .label {
-  color: #ada422;
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .ui.indicating.progress[data-percent^="7"] .label,
 .ui.indicating.progress[data-percent^="8"] .label {
-  color: #7a9f22;
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .ui.indicating.progress[data-percent^="9"] .label,
 .ui.indicating.progress[data-percent^="100"] .label {
-  color: #22963d;
+  color: rgba(0, 0, 0, 0.87);
 }
 
 /* Single Digits */
@@ -29395,7 +29424,7 @@ a.ui.nag {
 .ui.indicating.progress[data-percent="7"] .label,
 .ui.indicating.progress[data-percent="8"] .label,
 .ui.indicating.progress[data-percent="9"] .label {
-  color: #ca4d4d;
+  color: rgba(0, 0, 0, 0.87);
 }
 
 /* Indicating Success */
@@ -30769,6 +30798,8 @@ body.pushable {
 body.pushable > .pusher {
   background: #ffffff;
 }
+
+/* Pusher should inherit background from context */
 
 .pushable > .pusher {
   background: inherit;
