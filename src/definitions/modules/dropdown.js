@@ -87,6 +87,8 @@ $.fn.dropdown = function(parameters) {
           }
           else {
             module.setup.layout();
+            module.refreshData();
+
             module.save.defaults();
             module.restore.selected();
 
@@ -101,7 +103,6 @@ $.fn.dropdown = function(parameters) {
             module.instantiate();
           }
 
-          module.refreshData();
         },
 
         instantiate: function() {
@@ -345,6 +346,11 @@ $.fn.dropdown = function(parameters) {
         },
 
         refresh: function() {
+          module.refreshSelectors();
+          module.refreshData();
+        },
+
+        refreshSelectors: function() {
           module.verbose('Refreshing selector cache');
           $text   = $module.find(selector.text);
           $search = $module.find(selector.search);
@@ -356,22 +362,19 @@ $.fn.dropdown = function(parameters) {
           ;
           $menu    = $module.children(selector.menu);
           $item    = $menu.find(selector.item);
-
-          module.refreshData();
         },
 
         refreshData: function() {
-          $menu
-            .children()
-            .each(function() {
-              $(this).removeData(metadata.text);
-              $(this).removeData(metadata.value);
-            });
-
-          $module.removeData(metadata.defaultText);
-          $module.removeData(metadata.defaultValue);
-          $module.removeData(metadata.placeholderText);
-
+          module.verbose('Refreshing cached metadata');
+          $item
+            .removeData(metadata.text)
+            .removeData(metadata.value)
+          ;
+          $module
+            .removeData(metadata.defaultText)
+            .removeData(metadata.defaultValue)
+            .removeData(metadata.placeholderText)
+          ;
         },
 
 
