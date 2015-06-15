@@ -79,6 +79,7 @@
 - **Form** - Added a host of new styles for form fields autocompleted by your browser, including autocompleted error, and focus states
 - **Form** - Added placeholder color rules for IE, `ms-input-placeholder`
 - **Form** - Fix `errored field` dropdown keyboard selection color
+- **Form** - Adds form `success` state
 - **Form Validation** - Added `is valid` behavior, returns `true/false` if form is valid
 - **Form Validation** - Added `different[field]` rule which requires a field to be different than another field
 - **Form Validation** - `data-validate` now takes precedence over other validation matching schemes like `name` or `id`
@@ -94,6 +95,7 @@
 - **Label** - Labels now have `active` and `active hover` states
 - **Label** - Label now sets an `img` height even when not using an `image label`
 - **List** - Any content inside a `ui list` can now be vertically aligned
+- **Menu** - Add examples/documentation for `fixed menu`
 - **Menu** - Added `stackable` menu variation for simple responsive menus
 - **Menu** - Added many new variables to menu
 - **Menu** - Fixed several inheritance issues for `dropdown item` inside `menu` appearing as `menu item`.
@@ -167,6 +169,7 @@
 - **Dropdown** - Fixed issue with `search selection` not changing text when reselecting same value from list
 - **Dropdown** - Fixed `min-width` issues causing background to not appear behind unwrapped text with `white-space: nowrap`
 - **Dropdown** - Dropdown `menu` now use same font size as dropdown
+- **Dropdown** - Fixed dropdown `metadata` attribute caching causing issues with React integration
 - **Dropdown** - Fixed border radius on `sub menu` when aligned `left`
 - **Dropdown** - Fixed `inline dropdown` icon not aligning with content
 - **Dropdown** - Fixed behaviors called on `<select>` after initialization not being correctly applied to `ui dropdown`
