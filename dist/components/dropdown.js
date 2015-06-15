@@ -81,11 +81,14 @@ $.fn.dropdown = function(parameters) {
 
         initialize: function() {
           module.debug('Initializing dropdown', settings);
+
           if( module.is.alreadySetup() ) {
             module.setup.reference();
           }
           else {
             module.setup.layout();
+            module.refreshData();
+
             module.save.defaults();
             module.restore.selected();
 
@@ -99,6 +102,7 @@ $.fn.dropdown = function(parameters) {
             module.observeChanges();
             module.instantiate();
           }
+
         },
 
         instantiate: function() {
@@ -342,6 +346,11 @@ $.fn.dropdown = function(parameters) {
         },
 
         refresh: function() {
+          module.refreshSelectors();
+          module.refreshData();
+        },
+
+        refreshSelectors: function() {
           module.verbose('Refreshing selector cache');
           $text   = $module.find(selector.text);
           $search = $module.find(selector.search);
@@ -354,6 +363,20 @@ $.fn.dropdown = function(parameters) {
           $menu    = $module.children(selector.menu);
           $item    = $menu.find(selector.item);
         },
+
+        refreshData: function() {
+          module.verbose('Refreshing cached metadata');
+          $item
+            .removeData(metadata.text)
+            .removeData(metadata.value)
+          ;
+          $module
+            .removeData(metadata.defaultText)
+            .removeData(metadata.defaultValue)
+            .removeData(metadata.placeholderText)
+          ;
+        },
+
 
         toggle: function() {
           module.verbose('Toggling menu visibility');
