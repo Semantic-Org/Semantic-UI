@@ -4914,13 +4914,13 @@ $.fn.dropdown = function(parameters) {
             var
               values = module.get.values()
             ;
+            if(!values) {
+              return false;
+            }
             values = $.isArray(values)
               ? values
               : [values]
             ;
-            if(!values) {
-              return false;
-            }
             return $.grep(values, function(value) {
               return (module.get.item(value) === false);
             });
@@ -5115,6 +5115,7 @@ $.fn.dropdown = function(parameters) {
               $userItems   = module.create.userChoice(value),
               hasUserItems = ($userItems && $userItems.length > 0)
             ;
+            console.log(hasUserItems, value, $module);
             if(hasUserItems) {
               $items = ($items.length > 0)
                 ? $items.add($userItems)
@@ -5585,7 +5586,9 @@ $.fn.dropdown = function(parameters) {
             if(hasInput) {
               if(value == currentValue) {
                 module.verbose('Skipping value update already same value', value, currentValue);
-                return;
+                if(!module.is.initialLoad()) {
+                  return;
+                }
               }
               module.debug('Updating input value', value, currentValue);
               $input
@@ -5657,6 +5660,7 @@ $.fn.dropdown = function(parameters) {
                     }
                     if(settings.useLabels) {
                       module.add.value(selectedValue, selectedText, $selected);
+                      console.log(selectedValue);
                       module.add.label(selectedValue, selectedText, shouldAnimate);
                       $selected.addClass(className.active);
                       module.filterActive();
