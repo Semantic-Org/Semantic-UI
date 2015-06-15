@@ -77,6 +77,24 @@ module.exports = function () {
   ;
 
   /*--------------
+    Copy Examples
+  ---------------*/
+
+  gulp
+    .watch([
+      'examples/**/*.*'
+    ], function(file) {
+      console.clear();
+      return gulp.src(file.path, {
+          base: 'examples/'
+        })
+        .pipe(gulp.dest(output.examples))
+        .pipe(print(log.created))
+      ;
+    })
+  ;
+
+  /*--------------
       Watch CSS
   ---------------*/
 
