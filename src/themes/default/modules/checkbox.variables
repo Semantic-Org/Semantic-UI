@@ -8,7 +8,7 @@
 
 
 /* Label */
-@labelPadding: 1.75em;
+@labelDistance: 1.85714em;
 
 @neutralCheckbox: @transparentBlack;
 @positiveCheckbox: @positiveColor;
@@ -39,21 +39,21 @@
 --------------------*/
 
 @checkboxHoverBackground: @checkboxBackground;
-@checkboxHoverBorder: 1px solid @selectedBorderColor;
+@checkboxHoverBorderColor: @selectedBorderColor;
 @labelHoverColor: @hoveredTextColor;
 
 @checkboxPressedBackground: @offWhite;
-@checkboxPressedBorder: 1px solid @selectedBorderColor;
+@checkboxPressedBorderColor: @selectedBorderColor;
 @checkboxPressedColor: @selectedTextColor;
 @labelPressedColor: @selectedTextColor;
 
 @checkboxFocusedBackground: @offWhite;
-@checkboxFocusedBorder: 1px solid @selectedBorderColor;
+@checkboxFocusedBorderColor: @selectedBorderColor;
 @checkboxFocusedColor: @selectedTextColor;
 @labelFocusedColor: @selectedTextColor;
 
 @checkboxActiveBackground: #FFFFFF;
-@checkboxActiveBorder: 1px solid @borderColor;
+@checkboxActiveBorderColor: @selectedBorderColor;
 @checkboxActiveColor: @selectedTextColor;
 @labelActiveColor: @selectedTextColor;
 
@@ -67,17 +67,20 @@
 --------------------*/
 
 /* Radio */
-@checkboxRadioSize: 14px;
-@checkboxRadioCircleSize: 9px;
-@checkboxRadioTop: 1px;
-@checkboxRadioLeft: 0px;
+/* Uses px to avoid rounding issues with circles */
 
-@checkboxBulletScale: 0.428571428; /* 6px @ 14pxrem */
-@checkboxBulletColor: @textColor;
-@checkboxBulletRadius: @circularRadius;
+@radioSize: 14px;
+@radioCircleSize: 9px;
+@radioTop: 1px;
+@radioLeft: 0px;
+@radioLabelDistance: @labelDistance;
 
-@checkboxActiveBulletColor: @checkboxActiveColor;
-@checkboxRadioActiveBackground: @white;
+@bulletScale: (0.428571428); /* 6px @ 14pxrem */
+@bulletColor: @textColor;
+@bulletRadius: @circularRadius;
+
+@radioActiveBackground: @white;
+@radioActiveBulletColor: @checkboxActiveColor;
 
 /* Slider & Toggle Handle */
 @handleBackground: @white @subtleGradient;
