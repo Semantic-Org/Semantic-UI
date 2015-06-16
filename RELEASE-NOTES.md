@@ -37,6 +37,7 @@
 - **Dropdown** - Keyboard shortcuts have been added for selecting dropdown choices, for example "N" will scroll to "New York" in a state selection list, similar to native `<select>` behavior.
 - **Dropdown** - Dropdown will automatically animate upward if there is not enough space to appear below.
 - **Dropdown** - Using `page up` and `page down` keys will now scroll menus by a page at a time
+- **Form** - Forms now use `flexbox` for creating field groups. Inline fields now support `(x) wide` sizing using `flex`
 - **Grid** - Grids now use `flexbox`, columns are now all equal height by default. New flexbox alignment types like `stretch` have been added for easier vertical alignment.
 - **Multiple UI** - Many components now use flexbox, which means previous confusing fixes like `font-size: 0;` to remove [white-space from inline block](https://css-tricks.com/fighting-the-space-between-inline-block-elements/) is no longer necessary. Removing this hack, now means any element can be a direct child of `grid` or `menu`.
 - **Modal** - Added new settings `blurring` and `inverted` which automatically set a modal's dimmer to either inverted or blurring.
@@ -125,6 +126,7 @@
 - **Sticky** - Sticky now internally caches current scroll position when `cantFit = true` to avoid getting DOM property  on scroll.
 - **Statistic** - Added new evenly divided group variation, for example `three statistics` shows 3 per row
 - **Statistic** - Statitic group now use `flex`. Styles have been updated.
+- **Tabs** - Tab will now manually correct page scroll position when linking to an in-page anchor in a hidden tab
 - **Tabs** - Added new callbacks `onTabVisible` and `onRequest`
 - **Tabs** - Added `parseScripts` option, defaults to `once` parsing inline scripts only first load
 - **Table** - Added `vertical alignment` variations to `ui table`
@@ -178,6 +180,7 @@
 - **Dropdown** - Fixed `search dropdown` submitting parent form when enter shortcut pressed
 - **Dropdown** - Fixed dropdown menu items should not center inside of a center aligned container.
 - **Form** - Form will no longer set a height for `textarea` using the `rows` property
+- **Form** - `inline fields` are now `1em` and do not match label's reduced size
 - **Form** - `field` inside `fields` no longer produce double sized margins.
 - **Form** - Form sizes and input sizes now inherit from `site.variables`
 - **Form Validation** - Fixed bug causing `match` rule not to work as expected.
