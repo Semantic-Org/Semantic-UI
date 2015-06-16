@@ -35,6 +35,7 @@
   box-shadow: @stepsBoxShadow;
   line-height: @lineHeight;
   border-radius: @stepsBorderRadius;
+  border: @stepsBorder;
 }
 
 .ui.steps .step:first-child {
@@ -51,10 +52,11 @@
 }
 
 .ui.steps .step:last-child {
+  border-right: none;
   margin-right: 0em;
 }
 .ui.steps .step:last-child:after {
-  display: none;
+  display: @lastArrowDisplay;
 }
 
 /*******************************
@@ -69,6 +71,7 @@
   flex-direction: row;
   vertical-align: middle;
   align-items: center;
+  justify-content: @justifyContent;
 
   margin: @verticalMargin @horizontalMargin;
   padding: @verticalPadding @horizontalPadding;
@@ -76,6 +79,8 @@
   color: @textColor;
   box-shadow: @boxShadow;
   border-radius: @borderRadius;
+  border: @border;
+  border-right: @divider;
 }
 
 
@@ -199,12 +204,15 @@
 .ui.vertical.steps .step {
   border-radius: @borderRadius;
   padding: @verticalPadding @horizontalPadding;
+  border-bottom: @verticalDivider;
+  justify-content: @verticalJustifyContent;
 }
 .ui.vertical.steps .step:first-child {
   padding: @verticalPadding @horizontalPadding;
   border-radius: @stepsBorderRadius @stepsBorderRadius 0em 0em;
 }
 .ui.vertical.steps .step:last-child {
+  border-bottom: none;
   border-radius: 0em 0em @stepsBorderRadius @stepsBorderRadius;
 }
 
@@ -218,10 +226,14 @@
   border-width: @verticalArrowBorderWidth;
 }
 
-
-/* Active Arrow */
-.ui.steps .active.step:after {
-  display: block;
+.ui.vertical.steps .step:after {
+  display: @verticalArrowDisplay;
+}
+.ui.vertical.steps .active.step:after {
+  display: @verticalActiveArrowDisplay;
+}
+.ui.vertical.steps .step:last-child:after {
+  display: @verticalLastArrowDisplay;
 }
 
 
@@ -292,6 +304,15 @@
 .ui.steps .active.step .icon {
   color: @activeIconColor;
 }
+
+/* Active Arrow */
+.ui.steps .step:after {
+  display: @arrowDisplay;
+}
+.ui.steps .active.step:after {
+  display: @activeArrowDisplay;
+}
+
 
 /* Active Hover */
 .ui.steps .link.active.step:hover::after,
@@ -376,26 +397,28 @@
 ---------------*/
 
 /* Top */
-.attached.ui.steps {
-  margin: @attachedTopMargin;
+.ui.attached.steps {
+  width: @attachedWidth !important;
+  margin: 0em @attachedHorizontalOffset @attachedVerticalOffset;
+  max-width: @attachedWidth;
   border-radius: @stepsBorderRadius @stepsBorderRadius 0em 0em;
 }
-.attached.ui.steps .step:first-child {
+.ui.attached.steps .step:first-child {
   border-radius: @stepsBorderRadius 0em 0em 0em;
 }
-.attached.ui.steps .step:last-child {
+.ui.attached.steps .step:last-child {
   border-radius: 0em @stepsBorderRadius 0em 0em;
 }
 
 /* Bottom */
-.bottom.attached.ui.steps {
-  margin: @attachedBottomMargin;
+.ui.bottom.attached.steps {
+  margin: @attachedVerticalOffset @attachedHorizontalOffset 0em;
   border-radius: 0em 0em @stepsBorderRadius @stepsBorderRadius;
 }
-.bottom.attached.ui.steps .step:first-child {
+.ui.bottom.attached.steps .step:first-child {
   border-radius: 0em 0em 0em @stepsBorderRadius;
 }
-.bottom.attached.ui.steps .step:last-child {
+.ui.bottom.attached.steps .step:last-child {
   border-radius: 0em 0em @stepsBorderRadius 0em;
 }
 
