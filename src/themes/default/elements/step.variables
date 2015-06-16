@@ -18,8 +18,8 @@
 @verticalMargin: 0em;
 @horizontalMargin: 0em;
 
-@arrowSize: @relativeHuge;
-@verticalPadding: @relativeHuge;
+@arrowSize: @relativeLarge;
+@verticalPadding: @relativeLarge;
 @horizontalPadding: 2em;
 
 @transition:
@@ -72,7 +72,6 @@
        Types
 --------------------*/
 
-@verticalJustifyContent: 'flex-start';
 @verticalDivider: @divider;
 @verticalArrowTopOffset: 50%;
 @verticalArrowRightOffset: 0%;
