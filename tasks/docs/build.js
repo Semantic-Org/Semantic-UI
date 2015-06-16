@@ -138,7 +138,7 @@ module.exports = function(callback) {
     .pipe(replace(assets.source, assets.uncompressed))
     .pipe(header(banner, settings.header))
     .pipe(gulpif(config.hasPermission, chmod(config.permission)))
-    .pipe(gulp.dest(output.uncompressed))
+    .pipe(gulp.dest(output.uncompressed.css))
     .pipe(print(log.created))
     .on('end', function() {
       gulp.start('package uncompressed docs css');
@@ -153,7 +153,7 @@ module.exports = function(callback) {
     .pipe(rename(settings.rename.minCSS))
     .pipe(header(banner, settings.header))
     .pipe(gulpif(config.hasPermission, chmod(config.permission)))
-    .pipe(gulp.dest(output.compressed))
+    .pipe(gulp.dest(output.compressed.css))
     .pipe(print(log.created))
     .on('end', function() {
       callback();
@@ -171,13 +171,13 @@ module.exports = function(callback) {
   gulp.src(source.definitions + '/**/' + globs.components + '.js')
     .pipe(plumber())
     .pipe(flatten())
-    .pipe(gulp.dest(output.uncompressed))
+    .pipe(gulp.dest(output.uncompressed.js))
     .pipe(gulpif(config.hasPermission, chmod(config.permission)))
     .pipe(print(log.created))
     .pipe(uglify(settings.uglify))
     .pipe(rename(settings.rename.minJS))
     .pipe(header(banner, settings.header))
-    .pipe(gulp.dest(output.compressed))
+    .pipe(gulp.dest(output.compressed.js))
     .pipe(gulpif(config.hasPermission, chmod(config.permission)))
     .pipe(print(log.created))
     .on('end', function() {

@@ -72,7 +72,16 @@ module.exports = {
     }
     for(folder in config.paths.output) {
       if(config.paths.output.hasOwnProperty(folder)) {
-        outputPaths[folder] = path.resolve(path.join(configPath, config.base, config.paths.output[folder]));
+        if(typeof config.paths.output[folder] == "string") {
+            outputPaths[folder] = path.resolve(path.join(configPath, config.base, config.paths.output[folder]));
+        }
+        else if(typeof config.paths.output[folder] == "object") {
+            outputPaths[folder] = {};
+            for(subfolder in config.paths.output[folder]) {
+                outputPaths[folder][subfolder] = path.resolve(path.join(configPath, config.base, config.paths.output[folder][subfolder]));
+            }
+        }
+
       }
     }
 
@@ -92,9 +101,18 @@ module.exports = {
 
     config.paths.assets = {
       source       : '../../themes', // source asset path is always the same
-      uncompressed : path.relative(config.paths.output.uncompressed, config.paths.output.themes).replace(/\\/g,'/'),
-      compressed   : path.relative(config.paths.output.compressed, config.paths.output.themes).replace(/\\/g,'/'),
-      packaged     : path.relative(config.paths.output.packaged, config.paths.output.themes).replace(/\\/g,'/')
+      uncompressed : {
+        css : path.relative(config.paths.output.uncompressed.css, config.paths.output.themes).replace(/\\/g,'/'),
+        js  : path.relative(config.paths.output.uncompressed.js, config.paths.output.themes).replace(/\\/g,'/'),
+      },
+      compressed   : {
+        css : path.relative(config.paths.output.compressed.css, config.paths.output.themes).replace(/\\/g,'/'),
+        js  : path.relative(config.paths.output.compressed.js, config.paths.output.themes).replace(/\\/g,'/'),
+      },
+      packaged     : {
+        css : path.relative(config.paths.output.packaged.css, config.paths.output.themes).replace(/\\/g,'/'),
+        js  : path.relative(config.paths.output.packaged.js, config.paths.output.themes).replace(/\\/g,'/')
+      }
     };
 
 
@@ -139,4 +157,3 @@ module.exports = {
   }
 
 };
-
