@@ -51,6 +51,7 @@
 - **Item** - Items now uses `flexbox` for layout.
 - **Message** - `icon message` now uses `flexbox` for layout
 - **Input** - All `input` types use `flexbox` for layout
+- **Segment** - New `horizontal segment` groups make laying out auto resizing text columns much easier.
 - **Sidebar** - iOS will now correctly report `scrollTop` values for `document` or `body` when using a sidebar. Chrome on iOS no longer has issues with fixed content not sticking immediately when using a sidebar.
 - **Shapes** - Shapes now correctly adjusts for margin on `sides`
 - **Steps** - Steps now use `flexbox`, fluid steps now center content inside each step
