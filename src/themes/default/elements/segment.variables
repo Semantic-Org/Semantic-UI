@@ -8,11 +8,12 @@
 
 @background: @white;
 @borderWidth: 1px;
-@border: 1px solid @borderColor;
+@border: @borderWidth solid @borderColor;
 
 @boxShadow: @subtleShadow;
 @verticalPadding: 1em;
 @horizontalPadding: 1em;
+@padding: @verticalPadding @horizontalPadding;
 
 @margin: 1rem;
 @borderRadius: @defaultBorderRadius;
@@ -79,6 +80,12 @@
   @attachedBoxShadow,
   @subtleShadow
 ;
+
+/* Basic */
+@basicBackground: none transparent;
+@basicBorder: none;
+@basicBoxShadow: none;
+@basicBorderRadius: 0px;
 
 /* Colors */
 @coloredBorderSize: 2px;

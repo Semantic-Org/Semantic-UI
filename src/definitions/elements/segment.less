@@ -27,7 +27,7 @@
   background-color: @background;
   box-shadow: @boxShadow;
   margin: @margin 0em;
-  padding: @verticalPadding @horizontalPadding;
+  padding: @padding;
   border-radius: @borderRadius;
   border: @border;
 }
@@ -48,24 +48,29 @@
 
   background-color: transparent;
   border-radius: 0px;
+  box-shadow: none;
   border: none;
-  box-shadow: 0px -1px 0px @borderColor inset;
+  border-bottom: @borderWidth solid @borderColor;
 }
 .ui.vertical.segment:last-child {
-  box-shadow: none;
+  border-bottom: none;
 }
 
 /* Horizontal */
-.ui.horizontal.segment {
+.ui.horizontal.segment,
+.ui.horizontal.segments > .segment {
   margin: 0em;
   padding-top: 0em;
   padding-bottom: 0em;
+  min-width: 0px;
 
   background-color: transparent;
   border-radius: 0px;
   border: none;
-  box-shadow: 1px 0px 0px @borderColor;
+  box-shadow: none;
+  border-right: @borderWidth solid @borderColor;
 }
+
 
 /*-------------------
     Loose Coupling
@@ -112,7 +117,7 @@
   box-shadow: @boxShadow;
 }
 .ui[class*="very basic"].table.segment {
-  padding: @verticalPadding @horizontalPadding;
+  padding: @padding;
 }
 
 
@@ -267,6 +272,78 @@
 
 
 /*******************************
+            Groups
+*******************************/
+
+.ui.segments {
+  position: relative;
+  margin: @margin 0em;
+  box-shadow: @boxShadow;
+}
+.ui.segments:first-child {
+  margin-top: 0em;
+}
+.ui.segments:last-child {
+  margin-bottom: 0em;
+}
+
+.ui.segments > .segment {
+  top: 0px;
+  bottom: 0px;
+  margin: 0em @attachedHorizontalOffset;
+  width: @attachedWidth;
+  max-width: @attachedWidth;
+  border-radius: 0px;
+  box-shadow: @attachedBoxShadow;
+  border: @attachedBorder;
+}
+
+.ui.segments > .segment:not(:last-child) {
+  border-bottom: none;
+}
+
+
+/* Horizontal Group */
+.ui.horizontal.segments {
+  display: flex;
+  flex-direction: row;
+  padding: @padding;
+  background-color: @background;
+  box-shadow: @boxShadow;
+  margin: @margin 0em;
+  padding: @padding;
+  border-radius: @borderRadius;
+  border: @border;
+}
+.ui.horizontal.segments > .segment:first-child {
+  padding-left: 0px;
+}
+.ui.horizontal.segments > .segment:last-child {
+  padding-right: 0px;
+  border-right: none;
+}
+
+/* Top */
+.ui.segments > .segment:first-child {
+  margin-top: 0em;
+  bottom: 0px;
+  margin-bottom: 0em;
+  top: @attachedTopOffset;
+  border-radius: @borderRadius @borderRadius 0em 0em;
+}
+
+/* Bottom */
+.ui.segments > .segment:last-child {
+  bottom: 0px;
+  margin-top: 0em;
+  margin-bottom: 0em;
+  top: @attachedBottomOffset;
+  box-shadow: @attachedBottomBoxShadow;
+  border-radius: 0em 0em @borderRadius @borderRadius;
+}
+
+
+/*******************************
             States
 *******************************/
 
@@ -346,11 +423,10 @@
 --------------------*/
 
 .ui.basic.segment {
-  position: relative;
-  background-color: transparent;
-  box-shadow: none;
-
-  border-radius: 0px;
+  background-color: @basicBackground;
+  box-shadow: @basicBoxShadow;
+  border: @basicBorder;
+  border-radius: @basicBorderRadius;
 }
 
 /*-------------------
@@ -605,57 +681,6 @@
 }
 .ui.segment[class*="bottom attached"]:last-child {
   margin-bottom: 0em;
-}
-
-
-/*-------------------
-       Groups
---------------------*/
-
-.ui.segments {
-  position: relative;
-  margin: @margin 0em;
-  box-shadow: @boxShadow;
-}
-.ui.segments:first-child {
-  margin-top: 0em;
-}
-.ui.segments:last-child {
-  margin-bottom: 0em;
-}
-
-.ui.segments > .segment {
-  top: 0px;
-  bottom: 0px;
-  margin: 0em @attachedHorizontalOffset;
-  width: @attachedWidth;
-  max-width: @attachedWidth;
-  border-radius: 0px;
-  box-shadow: @attachedBoxShadow;
-  border: @attachedBorder;
-}
-
-.ui.segments > .segment:not(:last-child) {
-  border-bottom: none;
-}
-
-/* Top */
-.ui.segments > .segment:first-child {
-  margin-top: 0em;
-  bottom: 0px;
-  margin-bottom: 0em;
-  top: @attachedTopOffset;
-  border-radius: @borderRadius @borderRadius 0em 0em;
-}
-
-/* Bottom */
-.ui.segments > .segment:last-child {
-  bottom: 0px;
-  margin-top: 0em;
-  margin-bottom: 0em;
-  top: @attachedBottomOffset;
-  box-shadow: @attachedBottomBoxShadow;
-  border-radius: 0em 0em @borderRadius @borderRadius;
 }
 
 .loadUIOverrides();
