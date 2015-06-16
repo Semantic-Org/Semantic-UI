@@ -178,17 +178,15 @@
 
 
 /* Inline */
-@inlineLabelFontSize: @labelFontSize;
-@inlineLabelVerticalAlign: middle;
-@inlineGroupedFieldLabelDistance: 0.5rem;
-@inlineCheckboxLabelDistance: 1.75em;
+@inlineInputSize: @relativeMedium;
 
-@inlineLabelMargin: 0em 1em 0em 0em;
-@inlineLabelDistance: @labelDistance;
+@inlineLabelDistance: @relativeTiny;
 @inlineLabelColor: @labelColor;
 @inlineLabelFontSize: @labelFontSize;
 @inlineLabelFontWeight: @labelFontWeight;
 @inlineLabelTextTransform: @labelTextTransform;
+
+@groupedInlineLabelMargin: 0.035714em 1em 0em 0em;
 
 /*-------------------
        Groups
