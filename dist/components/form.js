@@ -408,6 +408,9 @@ $.fn.form = function(parameters) {
             var
               rules
             ;
+            if(!validation) {
+              return false;
+            }
             $.each(validation, function(fieldName, field) {
               if( module.get.field(field.identifier)[0] == $field[0] ) {
                 rules = field;

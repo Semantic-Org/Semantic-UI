@@ -374,13 +374,19 @@ $.fn.tab = function(parameters) {
               $tab        = module.get.tabElement(currentPath);
               // if anchor exists use parent tab
               if($anchor && $anchor.length > 0 && currentPath) {
-                module.debug('No tab found, but deep anchor link present, opening parent tab');
+                module.debug('Anchor link used, opening parent tab', $tab, $anchor);
+                if( !$tab.hasClass(className.active) ) {
+                  setTimeout(function() {
+                    module.scrollTo($anchor);
+                  }, 0);
+                }
                 module.activate.all(currentPath);
                 if( !module.cache.read(currentPath) ) {
                   module.cache.add(currentPath, true);
                   module.debug('First time tab loaded calling tab init');
                   settings.onFirstLoad.call($tab[0], currentPath, parameterArray, historyEvent);
                 }
+                settings.onLoad.call($tab[0], currentPath, parameterArray, historyEvent);
                 return false;
               }
             }
@@ -389,6 +395,18 @@ $.fn.tab = function(parameters) {
               return false;
             }
           });
+        },
+
+        scrollTo: function($element) {
+          var
+            scrollOffset = ($element && $element.length > 0)
+              ? $element.offset().top
+              : false
+          ;
+          if(scrollOffset !== false) {
+            module.debug('Forcing scroll to an in-page link in a hidden tab', scrollOffset, $element);
+            $(document).scrollTop(scrollOffset);
+          }
         },
 
         update: {

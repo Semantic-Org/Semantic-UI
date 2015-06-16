@@ -103,6 +103,7 @@
 .ui.cards > .card > :first-child,
 .ui.card > :first-child {
   border-radius: 0.285714rem 0.285714rem 0em 0em !important;
+  border-top: none !important;
 }
 .ui.cards > .card > :last-child,
 .ui.card > :last-child {
@@ -134,6 +135,9 @@
   width: 100%;
   height: auto;
   border-radius: inherit;
+}
+.ui.cards > .card > .image:not(.ui) > img,
+.ui.card > .image:not(.ui) > img {
   border: none;
 }
 
@@ -147,17 +151,14 @@
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+  border: none;
+  border-top: 1px solid rgba(34, 36, 38, 0.1);
   background: none;
   margin: 0em;
   padding: 1em 1em;
   box-shadow: none;
   font-size: 1em;
-  border: none;
   border-radius: 0em;
-}
-.ui.cards > .card > .content ~ .content,
-.ui.card > .content ~ .content {
-  border-top: 1px solid rgba(34, 36, 38, 0.1);
 }
 .ui.cards > .card > .content:after,
 .ui.card > .content:after {
