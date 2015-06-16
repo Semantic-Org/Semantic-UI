@@ -8,13 +8,9 @@
 
 @background: @white;
 @borderWidth: 1px;
-@border: none;
+@border: 1px solid @borderColor;
 
-@borderShadow: 0px 0px 0px @borderWidth @borderColor;
-@boxShadow:
-  @borderShadow,
-  @subtleShadow
-;
+@boxShadow: @subtleShadow;
 @verticalPadding: 1em;
 @horizontalPadding: 1em;
 
@@ -50,8 +46,9 @@
 /* Piled */
 @piledZIndex: auto;
 @piledMargin: 3em;
-@piledBoxShadow: 0px 0px 1px 1px @borderColor;
+@piledBoxShadow: '';
 @piledDegrees: 1.2deg;
+@piledBorder: @border;
 
 /* Circular */
 @circularPadding: 2em;
@@ -64,7 +61,6 @@
 
 /* Raised */
 @raisedBoxShadow:
-  @borderShadow,
   @floatingShadow
 ;
 

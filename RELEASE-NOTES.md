@@ -53,7 +53,7 @@
 - **Input** - All `input` types use `flexbox` for layout
 - **Sidebar** - iOS will now correctly report `scrollTop` values for `document` or `body` when using a sidebar. Chrome on iOS no longer has issues with fixed content not sticking immediately when using a sidebar.
 - **Shapes** - Shapes now correctly adjusts for margin on `sides`
-- **Steps** - Steps now use `flexbox`, the default horizontal theme has the active element point downward now instead of to the right.
+- **Steps** - Steps now use `flexbox`, fluid steps now center content inside each step
 - **Steps** - Steps no longer need `item count` and will automatically divide evenly
 - **Transition** - Transition code has been optimized to increase performance. 100% improvement on first animation, and 40% improvement on subsequent animations.
 - **Visibility** - Using `.visibility({ type: 'fixed'})` will now automatically add a placeholder element which will swap places with an element when it is attached to the viewport. This should make fixed content drastically simpler.
@@ -239,6 +239,7 @@
 - **Sidebar** - Top/Bottom sidebar will now show scroll bars correctly when taller than 100% page height
 - **Sidebar** - Fixed bug where having a `style[title]` in page causing page not to be pushed correctly
 - **Sidebar** - Last menu item now has a border when sidebar and menu are used together
+- **Segment** - Segment groups can now be `raised` or `piled` or `stacked`
 - **Search** - Fixed `category search` not applying active styles correctly to category names
 - **Search** - Fixed `onSelect` not returning the correct value when using `type: category`
 - **Search** - Fixed `onSelect` returning the first term that matches the beginining of the selected value not the exact value.
@@ -298,6 +299,7 @@
 - **Segment** - **Clearfix** has been removed from `ui segment`
 - **Sidebar** - Sidebar now defaults to `useLegacy: false` to avoid the overhead of feature detection for most users
 - **Search** - Slightly adjusted search result theme for clarity
+- **Segment** - Segment now uses `border` for border instead of a second `box-shadow`, this may adjust position by 1pixel
 - **Statistic** - Statistic label styles have been updated
 - **Site** - Additional font variables have been added to site to help clarify variable purpose.
 - **Site** - Increase contrast on default hovered/down colors for colored variations
