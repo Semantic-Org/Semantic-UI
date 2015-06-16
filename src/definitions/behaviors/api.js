@@ -202,27 +202,19 @@ $.api = $.fn.api = function(parameters) {
             module.cancelled = false;
           }
 
-          if(settings.url) {
-            // override with url if specified
-            module.debug('Using specified url', url);
-            url = module.add.urlData( settings.url );
-          }
-          else {
-            // otherwise find url from api endpoints
-            url = module.add.urlData( module.get.templateURL() );
-            module.debug('Added URL Data to url', url);
+          // get url
+          url = module.get.templatedURL();
+          if(!url) {
+            module.error(error.missingURL);
+            return;
           }
 
-          // exit conditions reached, missing url parameters
-          if( !url && !module.is.mocked()) {
-            if( module.is.form() ) {
-              url = $module.attr('action') || '';
-              module.debug('No url or action specified, defaulting to form action', url);
-            }
-            else {
-              module.error(error.missingURL, settings.action);
-              return;
-            }
+          // replace variables
+          url = module.add.urlData( url );
+
+          // missing url parameters
+          if( !url ) {
+            return;
           }
 
 
@@ -695,20 +687,24 @@ $.api = $.fn.api = function(parameters) {
             module.debug('Retrieved form data', formData);
             return formData;
           },
-          templateURL: function(action) {
-            var
-              url
-            ;
+          templatedURL: function(action) {
             action = action || $module.data(metadata.action) || settings.action || false;
+            url    = $module.data(metadata.url) || settings.url || false;
+            if(url) {
+              module.debug('Using specified url', url);
+              return url;
+            }
             if(action) {
               module.debug('Looking up url for action', action, settings.api);
-              if(settings.api[action] !== undefined) {
-                url = settings.api[action];
-                module.debug('Found template url', url);
-              }
-              else if( !module.is.form() && !module.is.mocked() ) {
+              if(!module.is.mocked() && settings.api[action] === undefined) {
                 module.error(error.missingAction, settings.action, settings.api);
+                return;
               }
+              url = settings.api[action];
+            }
+            else if( module.is.form() ) {
+              url = $module.attr('action') || false;
+              module.debug('No url or action specified, defaulting to form action', url);
             }
             return url;
           }
@@ -916,6 +912,9 @@ $.api.settings = {
   verbose           : false,
   performance       : true,
 
+  // api endpoints
+  api               : {},
+
   // cache
   cache             : true,
   interruptRequests : true,
@@ -1001,12 +1000,11 @@ $.api.settings = {
   },
 
   metadata: {
-    action  : 'action'
+    action  : 'action',
+    url     : 'url'
   }
 };
 
-
-$.api.settings.api = {};
 
 
 })( jQuery, window , document );
