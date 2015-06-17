@@ -83,12 +83,6 @@ $.fn.sidebar = function(parameters) {
 
           transitionEvent = module.get.transitionEvent();
 
-          // cache on initialize
-          if( ( settings.useLegacy == 'auto' && module.is.legacy() ) || settings.useLegacy === true) {
-            settings.transition = 'overlay';
-            settings.useLegacy = true;
-          }
-
           if(module.is.ios()) {
             module.set.ios();
           }
@@ -368,11 +362,6 @@ $.fn.sidebar = function(parameters) {
         },
 
         show: function(callback) {
-          var
-            animateMethod = (settings.useLegacy === true)
-              ? module.legacyPushPage
-              : module.pushPage
-          ;
           callback = $.isFunction(callback)
             ? callback
             : function(){}
@@ -400,7 +389,7 @@ $.fn.sidebar = function(parameters) {
                 settings.transition = 'overlay';
               }
             }
-            animateMethod(function() {
+            module.pushPage(function() {
               callback.call(element);
               settings.onShow.call(element);
             });
@@ -413,11 +402,6 @@ $.fn.sidebar = function(parameters) {
         },
 
         hide: function(callback) {
-          var
-            animateMethod = (settings.useLegacy === true)
-              ? module.legacyPullPage
-              : module.pullPage
-          ;
           callback = $.isFunction(callback)
             ? callback
             : function(){}
@@ -425,7 +409,7 @@ $.fn.sidebar = function(parameters) {
           if(module.is.visible() || module.is.animating()) {
             module.debug('Hiding sidebar', callback);
             module.refreshSidebars();
-            animateMethod(function() {
+            module.pullPage(function() {
               callback.call(element);
               settings.onHidden.call(element);
             });
@@ -474,11 +458,9 @@ $.fn.sidebar = function(parameters) {
         pushPage: function(callback) {
           var
             transition = module.get.transition(),
-            $transition = (transition == 'safe')
-              ? $context
-              : (transition === 'overlay' || module.othersActive())
-                ? $module
-                : $pusher,
+            $transition = (transition === 'overlay' || module.othersActive())
+              ? $module
+              : $pusher,
             animate,
             dim,
             transitionEnd
@@ -520,11 +502,9 @@ $.fn.sidebar = function(parameters) {
         pullPage: function(callback) {
           var
             transition = module.get.transition(),
-            $transition = (transition == 'safe')
-              ? $context
-              : (transition == 'overlay' || module.othersActive())
-                ? $module
-                : $pusher,
+            $transition = (transition == 'overlay' || module.othersActive())
+              ? $module
+              : $pusher,
             animate,
             transitionEnd
           ;
@@ -560,62 +540,6 @@ $.fn.sidebar = function(parameters) {
           $transition.off(transitionEvent + elementNamespace);
           $transition.on(transitionEvent + elementNamespace, transitionEnd);
           requestAnimationFrame(animate);
-        },
-
-        legacyPushPage: function(callback) {
-          var
-            distance   = $module.width(),
-            direction  = module.get.direction(),
-            properties = {}
-          ;
-          distance  = distance || $module.width();
-          callback  = $.isFunction(callback)
-            ? callback
-            : function(){}
-          ;
-          properties[direction] = distance;
-          module.debug('Using javascript to push context', properties);
-          module.set.visible();
-          module.set.transition();
-          module.set.animating();
-          if(settings.dimPage) {
-            $pusher.addClass(className.dimmed);
-          }
-          $context
-            .css('position', 'relative')
-            .animate(properties, settings.duration, settings.easing, function() {
-              module.remove.animating();
-              module.bind.clickaway();
-              callback.call(element);
-            })
-          ;
-        },
-        legacyPullPage: function(callback) {
-          var
-            distance   = 0,
-            direction  = module.get.direction(),
-            properties = {}
-          ;
-          distance  = distance || $module.width();
-          callback  = $.isFunction(callback)
-            ? callback
-            : function(){}
-          ;
-          properties[direction] = '0px';
-          module.debug('Using javascript to pull context', properties);
-          module.unbind.clickaway();
-          module.set.animating();
-          module.remove.visible();
-          if(settings.dimPage && !module.othersActive()) {
-            $pusher.removeClass(className.dimmed);
-          }
-          $context
-            .css('position', 'relative')
-            .animate(properties, settings.duration, settings.easing, function() {
-              module.remove.animating();
-              callback.call(element);
-            })
-          ;
         },
 
         scrollToTop: function() {
@@ -782,30 +706,6 @@ $.fn.sidebar = function(parameters) {
             return (isIE11 || isIE);
           },
 
-          legacy: function() {
-            var
-              element    = document.createElement('div'),
-              transforms = {
-                'webkitTransform' :'-webkit-transform',
-                'OTransform'      :'-o-transform',
-                'msTransform'     :'-ms-transform',
-                'MozTransform'    :'-moz-transform',
-                'transform'       :'transform'
-              },
-              has3D
-            ;
-
-            // Add it to the body to get the computed style.
-            document.body.insertBefore(element, null);
-            for (var transform in transforms) {
-              if (element.style[transform] !== undefined) {
-                element.style[transform] = "translate3d(1px,1px,1px)";
-                has3D = window.getComputedStyle(element).getPropertyValue(transforms[transform]);
-              }
-            }
-            document.body.removeChild(element);
-            return !(has3D !== undefined && has3D.length > 0 && has3D !== 'none');
-          },
           ios: function() {
             var
               userAgent      = navigator.userAgent,
@@ -1073,9 +973,7 @@ $.fn.sidebar.settings = {
   returnScroll      : false,
   delaySetup        : false,
 
-  useLegacy         : false,
   duration          : 500,
-  easing            : 'easeInOutQuint',
 
   onChange          : function(){},
   onShow            : function(){},
@@ -1120,14 +1018,6 @@ $.fn.sidebar.settings = {
   }
 
 };
-
-// Adds easing
-$.extend( $.easing, {
-  easeInOutQuint: function (x, t, b, c, d) {
-    if ((t/=d/2) < 1) return c/2*t*t*t*t*t + b;
-    return c/2*((t-=2)*t*t*t*t + 2) + b;
-  }
-});
 
 
 })( jQuery, window , document );
