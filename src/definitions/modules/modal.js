@@ -322,8 +322,7 @@ $.fn.modal = function(parameters) {
             module.set.type();
             module.set.clickaway();
 
-            if( !settings.allowMultiple && $otherModals.filter('.' + className.active).length > 0) {
-              module.debug('Other modals visible, queueing show animation');
+            if( !settings.allowMultiple && module.others.active() ) {
               module.hideOthers(module.showModal);
             }
             else {
