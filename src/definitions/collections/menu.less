@@ -642,7 +642,7 @@ Floated Menu / Item
   font-weight: @tabularActiveWeight;
   margin-bottom: -@tabularBorderWidth;
   box-shadow: @tabularActiveBoxShadow;
-  border-radius: @tabularBorderRadius @tabularBorderRadius 0px 0px;
+  border-radius: @tabularBorderRadius @tabularBorderRadius 0px 0px !important;
 }
 
 /* Coupling with segment for attachment */
@@ -650,6 +650,7 @@ Floated Menu / Item
 .ui.tabular.menu ~ .bottom.attached.segment + .bottom.attached.segment {
   border-top: none;
   margin: 0px;
+  width: 100%;
 }
 
 /* Vertical Tabular */
@@ -806,9 +807,13 @@ Floated Menu / Item
   color: @secondaryInvertedActiveColor !important;
 }
 
-/* Disable variations */
-.ui.secondary.item.menu .item {
-  margin: 0em;
+/* Fix item margins */
+.ui.secondary.item.menu {
+  margin-left: 0em;
+  margin-right: 0em;
+}
+.ui.secondary.item.menu .item:last-child {
+  margin-right: 0em;
 }
 .ui.secondary.attached.menu {
   box-shadow: none;

@@ -322,7 +322,7 @@
 @tabularMenuActiveColor: @selectedTextColor;
 
 @tabularActiveWeight: bold;
-@tabularBorderRadius: 5px;
+@tabularBorderRadius: 0.35714rem;
 
 
 /* Pagination */
