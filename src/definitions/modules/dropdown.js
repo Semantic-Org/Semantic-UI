@@ -1575,7 +1575,6 @@ $.fn.dropdown = function(parameters) {
               $userItems   = module.create.userChoice(value),
               hasUserItems = ($userItems && $userItems.length > 0)
             ;
-            console.log(hasUserItems, value, $module);
             if(hasUserItems) {
               $items = ($items.length > 0)
                 ? $items.add($userItems)
