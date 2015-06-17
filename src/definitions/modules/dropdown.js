@@ -2119,7 +2119,6 @@ $.fn.dropdown = function(parameters) {
                     }
                     if(settings.useLabels) {
                       module.add.value(selectedValue, selectedText, $selected);
-                      console.log(selectedValue);
                       module.add.label(selectedValue, selectedText, shouldAnimate);
                       $selected.addClass(className.active);
                       module.filterActive();
