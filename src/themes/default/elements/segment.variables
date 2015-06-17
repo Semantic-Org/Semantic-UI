@@ -86,7 +86,7 @@
 ;
 
 /* Padded */
-@paddedSegmentPadding: 2em;
+@paddedSegmentPadding: 1.5em;
 @veryPaddedSegmentPadding: 3em;
 
 /* Attached */
