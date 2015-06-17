@@ -15,8 +15,28 @@
 @horizontalPadding: 1em;
 @padding: @verticalPadding @horizontalPadding;
 
-@margin: 1rem;
+@verticalMargin: 1rem;
+@horizontalMargin: 0em;
+@margin: @verticalMargin @horizontalMargin;
 @borderRadius: @defaultBorderRadius;
+
+/*-------------------
+       Group
+--------------------*/
+
+@groupedMargin: @margin;
+@groupedBorder: @border;
+@groupedBoxShadow: @boxShadow;
+@groupedBorderRadius: @borderRadius;
+
+@nestedGroupMargin: @verticalMargin @verticalMargin;
+
+@groupedSegmentBorder: none;
+@groupedSegmentDivider: @border;
+@groupedSegmentMargin: 0em;
+@groupedSegmentWidth: auto;
+@groupedSegmentBoxShadow: none;
+
 
 /*-------------------
        Coupling
@@ -80,6 +100,9 @@
   @attachedBoxShadow,
   @subtleShadow
 ;
+
+/* Floated */
+@floatedDistance: 1em;
 
 /* Basic */
 @basicBackground: none transparent;

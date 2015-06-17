@@ -26,7 +26,7 @@
   position: relative;
   background-color: @background;
   box-shadow: @boxShadow;
-  margin: @margin 0em;
+  margin: @margin;
   padding: @padding;
   border-radius: @borderRadius;
   border: @border;
@@ -54,21 +54,6 @@
 }
 .ui.vertical.segment:last-child {
   border-bottom: none;
-}
-
-/* Horizontal */
-.ui.horizontal.segment,
-.ui.horizontal.segments > .segment {
-  margin: 0em;
-  padding-top: 0em;
-  padding-bottom: 0em;
-  min-width: 0px;
-
-  background-color: transparent;
-  border-radius: 0px;
-  border: none;
-  box-shadow: none;
-  border-right: @borderWidth solid @borderColor;
 }
 
 
@@ -106,7 +91,7 @@
   padding-bottom: @pageGridMargin;
 }
 .ui.grid.segment {
-  margin: @margin 0rem;
+  margin: @margin;
   border-radius: @borderRadius;
 }
 
@@ -275,10 +260,13 @@
             Groups
 *******************************/
 
+/* Group */
 .ui.segments {
   position: relative;
-  margin: @margin 0em;
-  box-shadow: @boxShadow;
+  margin: @groupedMargin;
+  border: @groupedBorder;
+  box-shadow: @groupedBoxShadow;
+  border-radius: @groupedBorderRadius;
 }
 .ui.segments:first-child {
   margin-top: 0em;
@@ -287,44 +275,23 @@
   margin-bottom: 0em;
 }
 
+
+/* Nested Segment */
 .ui.segments > .segment {
   top: 0px;
   bottom: 0px;
-  margin: 0em @attachedHorizontalOffset;
-  width: @attachedWidth;
-  max-width: @attachedWidth;
   border-radius: 0px;
-  box-shadow: @attachedBoxShadow;
-  border: @attachedBorder;
+  margin: @groupedSegmentMargin;
+  width: @groupedSegmentWidth;
+  box-shadow: @groupedSegmentBoxShadow;
+  border: @groupedSegmentBorder;
+  border-top: @groupedSegmentDivider;
 }
 
-.ui.segments > .segment:not(:last-child) {
-  border-bottom: none;
-}
-
-
-/* Horizontal Group */
-.ui.horizontal.segments {
-  display: flex;
-  flex-direction: row;
-  padding: @padding;
-  background-color: @background;
-  box-shadow: @boxShadow;
-  margin: @margin 0em;
-  padding: @padding;
-  border-radius: @borderRadius;
-  border: @border;
-}
-.ui.horizontal.segments > .segment:first-child {
-  padding-left: 0px;
-}
-.ui.horizontal.segments > .segment:last-child {
-  padding-right: 0px;
-  border-right: none;
-}
-
-/* Top */
-.ui.segments > .segment:first-child {
+.ui.segments:not(.horizontal) > .segment:first-child {
+  top: @attachedTopOffset;
+  bottom: 0px;
+  border-top: none;
   margin-top: 0em;
   bottom: 0px;
   margin-bottom: 0em;
@@ -333,13 +300,65 @@
 }
 
 /* Bottom */
-.ui.segments > .segment:last-child {
+.ui.segments:not(.horizontal) > .segment:last-child {
+  top: @attachedBottomOffset;
   bottom: 0px;
   margin-top: 0em;
   margin-bottom: 0em;
-  top: @attachedBottomOffset;
   box-shadow: @attachedBottomBoxShadow;
   border-radius: 0em 0em @borderRadius @borderRadius;
+}
+
+
+/* Nested Group */
+.ui.segments > .ui.segments {
+  border-top: @groupedSegmentDivider;
+  margin: @nestedGroupMargin;
+}
+.ui.segments > .segments:first-child {
+  border-top: none;
+}
+.ui.segments > .segment + .segments:not(.horizontal) {
+  margin-top: 0em;
+}
+
+/* Horizontal Group */
+.ui.horizontal.segments {
+  display: flex;
+  flex-direction: row;
+  background-color: transparent;
+  border-radius: 0px;
+  padding: 0em;
+  background-color: @background;
+  box-shadow: @boxShadow;
+  margin: @margin;
+  border-radius: @borderRadius;
+  border: @border;
+}
+
+/* Nested Horizontal Group */
+.ui.segments > .horizontal.segments {
+  margin: 0em;
+  background-color: transparent;
+  border-radius: 0px;
+  border: none;
+  box-shadow: none;
+  border-top: @groupedSegmentDivider;
+}
+
+/* Horizontal Segment */
+.ui.horizontal.segments > .segment {
+  flex: 1 1 auto;
+  margin: 0em;
+  min-width: 0px;
+  background-color: transparent;
+  border-radius: 0px;
+  border: none;
+  box-shadow: none;
+  border-left: @borderWidth solid @borderColor;
+}
+.ui.horizontal.segments > .segment:first-child {
+  border-left: none;
 }
 
 
@@ -583,11 +602,11 @@
 .ui.floated.segment,
 .ui[class*="left floated"].segment {
   float: left;
-  margin-right: @margin;
+  margin-right: @floatedDistance;
 }
 .ui[class*="right floated"].segment {
   float: right;
-  margin-left: @margin;
+  margin-left: @floatedDistance;
 }
 
 
