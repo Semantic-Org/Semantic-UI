@@ -51,6 +51,7 @@
 - **Item** - Items now uses `flexbox` for layout.
 - **Message** - `icon message` now uses `flexbox` for layout
 - **Input** - All `input` types use `flexbox` for layout
+- **Segment** - Segments now support complex nesting, many new rules for how segment groups should appear inside groups
 - **Segment** - New `horizontal segment` groups make laying out auto resizing text columns much easier.
 - **Sidebar** - iOS will now correctly report `scrollTop` values for `document` or `body` when using a sidebar. Chrome on iOS no longer has issues with fixed content not sticking immediately when using a sidebar.
 - **Shapes** - Shapes now correctly adjusts for margin on `sides`
@@ -298,7 +299,7 @@
 - **Popup** - Popup no longer produces a console error when a position cannot be found on the page.
 - **Rating** - Rating styles have been adjusted to use subtle transitions and tweaked color values.
 - **Segment** - **Clearfix** has been removed from `ui segment`
-- **Sidebar** - Sidebar now defaults to `useLegacy: false` to avoid the overhead of feature detection for most users
+- **Sidebar** - Sidebar `legacy` animations have been removed. 3D transforms are now available in all supported browsers.
 - **Search** - Slightly adjusted search result theme for clarity
 - **Segment** - Segment now uses `border` for border instead of a second `box-shadow`, this may adjust position by 1pixel
 - **Statistic** - Statistic label styles have been updated
