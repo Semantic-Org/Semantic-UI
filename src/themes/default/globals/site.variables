@@ -103,6 +103,7 @@
 @linkColor           : #4183C4;
 @linkUnderline       : none;
 @linkHoverColor      : darken(saturate(@linkColor, 10), 5);
+@linkHoverUnderline  : @linkUnderline;
 
 /*-------------------
   Highlighted Text
