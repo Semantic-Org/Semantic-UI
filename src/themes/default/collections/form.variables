@@ -17,9 +17,9 @@
 @fieldMargin: 0em 0em @rowDistance;
 
 /* Form Label */
-@labelDistance: 0.2857rem;
+@labelDistance: @4px;
 @labelMargin: 0em 0em @labelDistance 0em;
-@labelFontSize: 0.9285em;
+@labelFontSize: @relativeSmall;
 @labelFontWeight: bold;
 @labelTextTransform: none;
 @labelColor: @textColor;
@@ -28,11 +28,8 @@
 @inputFont: @pageFont;
 @inputWidth: 100%;
 @inputFontSize: 1em;
-@inputVerticalPadding: 0.78571em;
-@inputHorizontalPadding: 1em;
 @inputLineHeight: @defaultInputLineHeight;
 @inputPadding: (@inputVerticalPadding + ((1em - @inputLineHeight) / 2)) @inputHorizontalPadding;
-@inputBackground: #FFFFFF;
 @inputBorder: 1px solid @borderColor;
 @inputBorderRadius: @absoluteBorderRadius;
 @inputColor: @textColor;
@@ -143,8 +140,6 @@
 
 /* Loading Spinner */
 @loaderSize: 3em;
-@loaderOffset: -(@loaderSize / 2);
-@loaderMargin: @loaderOffset 0em 0em @loaderOffset;
 @loaderLineZIndex: 101;
 
 /*-------------------

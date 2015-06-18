@@ -4,8 +4,8 @@
 
 /* Search Prompt */
 @promptFontSize: @relativeMedium;
-@promptVerticalPadding: 0.78571em;
-@promptHorizontalPadding: 1em;
+@promptVerticalPadding: @inputVerticalPadding;
+@promptHorizontalPadding: @inputHorizontalPadding;
 @promptLineHeight: @defaultInputLineHeight;
 @promptPadding: (@promptVerticalPadding + ((1em - @promptLineHeight) / 2)) @promptHorizontalPadding;
 @promptBackground: @white;
@@ -95,9 +95,6 @@
 @actionHoverBackground: #E0E0E0;
 
 /* Loading */
-@loaderSize: 1.2857em;
-@loaderOffset: -(@loaderSize / 2);
-@loaderMargin: @loaderOffset 0em 0em @loaderOffset;
 @invertedLoaderFillColor: rgba(0, 0, 0, 0.15);
 
 /* Active Category */

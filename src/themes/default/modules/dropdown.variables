@@ -71,7 +71,7 @@
 
 /* Menu Header */
 @menuHeaderColor: @darkTextColor;
-@menuHeaderFontSize: 0.7857rem;
+@menuHeaderFontSize: @relative11px;
 @menuHeaderFontWeight: bold;
 @menuHeaderTextTransform: uppercase;
 @menuHeaderMargin: 1rem 0rem 0.75rem;
@@ -85,9 +85,9 @@
 
 /* Menu Input */
 @menuInputMargin: @large @mini;
-@menuInputMinWidth: 140px;
+@menuInputMinWidth: 10rem;
 @menuInputVerticalPadding: 0.5em;
-@menuInputHorizontalPadding: 1em;
+@menuInputHorizontalPadding: @inputHorizontalPadding;
 @menuInputPadding: @menuInputVerticalPadding @menuInputHorizontalPadding;
 
 /* Menu Image */
@@ -120,12 +120,12 @@
 --------------------*/
 /* Selection */
 @selectionMinWidth: 200px;
-@selectionBorderEmWidth:  0.0714285em; /* 1px / em size */
+@selectionBorderEmWidth:  @relative1px;
 @selectionMinHeight: @defaultInputLineHeight + (@selectionVerticalPadding * 2) - @selectionBorderEmWidth;
 @selectionBackground: @white;
 @selectionDisplay: inline-block;
-@selectionVerticalPadding: 0.78571em;
-@selectionHorizontalPadding: 1em;
+@selectionVerticalPadding: @inputVerticalPadding;
+@selectionHorizontalPadding: @inputHorizontalPadding;
 @selectionIconDistance: 2em;
 @selectionPadding: @selectionVerticalPadding @selectionIconDistance @selectionVerticalPadding @selectionHorizontalPadding;
 @selectionZIndex: 10;
@@ -239,7 +239,7 @@
 
 /* Child Elements */
 @multipleSelectionChildVerticalMargin: (@searchSelectionVerticalPadding * (2/3));
-@multipleSelectionChildSpacing: 0.4285em;
+@multipleSelectionChildSpacing: @relative6px;
 @multipleSelectionChildMargin: @multipleSelectionChildVerticalMargin 0em @multipleSelectionChildVerticalMargin @multipleSelectionChildSpacing;
 @multipleSelectionChildLineHeight: @searchSelectionLineHeight;
 @multipleSelectionSearchStartWidth: (@glyphWidth * 2);
@@ -250,12 +250,13 @@
 
 /* Selection Label */
 @labelSize: @relativeMedium;
-@labelHorizontalSpacing: 0.2857142rem; /* 4px @ 14px/rem */
-@labelVerticalSpacing: (0.2857142em / 2);
+@labelHorizontalSpacing: @4px;
+@labelVerticalSpacing: (@relative4px / 2);
 @labelMargin: @labelVerticalSpacing @labelHorizontalSpacing @labelVerticalSpacing 0em;
-@labelBoxShadow: 0px 0px 0px 1px @borderColor inset;
+@labelBorderWidth: 1px;
+@labelBoxShadow: 0px 0px 0px @labelBorderWidth @borderColor inset;
 
-@labelVerticalPadding: 0.35714em; /* 5px @ 14px/em */
+@labelVerticalPadding: @relative5px;
 @labelHorizontalPadding: @relativeMini;
 @labelPadding: @labelVerticalPadding @labelHorizontalPadding;
 
@@ -263,12 +264,6 @@
 /*-------------------
        States
 --------------------*/
-
-/* Loading */
-@loaderSize: 1.2857em;
-@loaderOffset: -(@loaderSize / 2);
-@loaderMargin: @loaderOffset 0em 0em @loaderOffset;
-
 
 /* Hovered */
 @hoveredItemBackground: @transparentBlack;

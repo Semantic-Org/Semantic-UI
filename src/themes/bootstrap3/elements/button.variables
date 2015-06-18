@@ -8,7 +8,7 @@
 @fontWeight: normal;
 @textColor: rgba(51, 51, 51, 1);
 
-@borderRadius: 0.2857rem;
+@borderRadius: @4px;
 
 @lineHeight: 1.42857;
 @verticalPadding: 0.8571em;

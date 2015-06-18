@@ -6,7 +6,7 @@
 @menuBorderColor: #DADADA;
 @menuBoxShadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 
-@menuPadding: 0.5714em 0em;
+@menuPadding: @relative8px 0em;
 @itemVerticalPadding: 1em;
 @itemHorizontalPadding: 1.5em;
 

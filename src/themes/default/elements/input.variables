@@ -7,8 +7,8 @@
 --------------------*/
 
 @inputFont: @pageFont;
-@verticalPadding: 0.78571em;
-@horizontalPadding: 1em;
+@verticalPadding: @inputVerticalPadding;
+@horizontalPadding: @inputHorizontalPadding;
 
 @lineHeight: @defaultInputLineHeight;
 @lineHeightOffset: ((@lineHeight - 1em) / 2);
@@ -35,8 +35,6 @@
 --------------------*/
 
 /* Icon Input */
-@glyphWidth: 1.25em;
-
 @iconWidth: (@verticalPadding * 2) + @glyphWidth;
 @iconOpacity: 0.5;
 @iconFocusOpacity: 1;
@@ -56,7 +54,7 @@
 /* Labeled Input */
 @labelCornerTop: @borderWidth;
 @labelCornerRight: @borderWidth;
-@labelCornerSize: 0.64285em;
+@labelCornerSize: @relative9px;
 @labelSize: 1em;
 @labelVerticalPadding: (@verticalPadding - @lineHeightOffset);
 
@@ -94,9 +92,6 @@
 @errorBoxShadow: none;
 
 /* Loader */
-@loaderSize: 1.2857em;
-@loaderOffset: -(@loaderSize / 2);
-@loaderMargin: @loaderOffset 0em 0em @loaderOffset;
 @invertedLoaderFillColor: rgba(0, 0, 0, 0.15);
 
 /*-------------------

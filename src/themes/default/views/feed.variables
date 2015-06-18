@@ -14,7 +14,7 @@
 
 /* Event */
 @eventWidth: 100%;
-@eventPadding: 0.214285rem 0em;
+@eventPadding: @3px 0em;
 @eventMargin: 0em;
 @eventBackground: none;
 @eventDivider: none;
@@ -41,7 +41,7 @@
 @imageLabelBorderRadius: @circularRadius;
 
 /* Content w/ Label */
-@labeledContentMargin: 0.5em 0em 0.35714em @relativeLarge;
+@labeledContentMargin: 0.5em 0em @relative5px @relativeLarge;
 @lastLabeledContentPadding: 0em;
 
 /* Content */

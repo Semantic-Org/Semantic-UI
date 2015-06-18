@@ -54,8 +54,6 @@
 
 /* Loading Spinner */
 @loaderSize: 3em;
-@loaderOffset: -(@loaderSize / 2);
-@loaderMargin: @loaderOffset 0em 0em @loaderOffset;
 @loaderLineZIndex: 101;
 
 

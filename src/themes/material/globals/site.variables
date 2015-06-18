@@ -116,5 +116,5 @@
 --------------------*/
 
 /* 4px @ default em */
-@relativeBorderRadius: 0.2857em;
-@absoluteBorderRadius: 2px;
+@relativeBorderRadius: @relative4px;
+@absoluteBorderRadius: 4px;

@@ -254,6 +254,9 @@
   border-radius: 0em @borderRadius @borderRadius 0em;
   transition: @iconTransition;
 }
+.ui.icon.input > i.icon:not(.link) {
+  pointer-events: none;
+}
 .ui.icon.input input {
   padding-right: @iconMargin !important;
 }

@@ -14,13 +14,12 @@
 @fieldMargin: 0em 0em 1em;
 
 /* Form Label */
-@labelFontSize: 0.7857em;
+@labelFontSize: @relative11px;
 @labelTextTransform: uppercase;
 
 @groupedLabelTextTransform: none;
 
 /* Input */
-@inputVerticalPadding: 0.7857em;
 @inputHorizontalPadding: 0.5em;
 @inputBackground: transparent;
 @inputBorder: none;

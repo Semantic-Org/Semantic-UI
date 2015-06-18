@@ -18,7 +18,7 @@
 @childListIndent: 1em;
 
 /* List Item */
-@itemVerticalPadding: 0.285714em;
+@itemVerticalPadding: @relative4px;
 @itemHorizontalPadding: 0em;
 @itemLineHeight: @relativeLarge;
 
@@ -27,7 +27,7 @@
 --------------------*/
 
 /* Icon */
-@iconDistance: 0.285714em;
+@iconDistance: @relative4px;
 @iconOffset: ((@itemLineHeight - 1rem) / 2);
 @iconTransition: color @defaultDuration @defaultEasing;
 @iconVerticalAlign: top;

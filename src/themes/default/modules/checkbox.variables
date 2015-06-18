@@ -8,7 +8,7 @@
 
 
 /* Label */
-@labelDistance: 1.85714em;
+@labelDistance: 1.85714em; /* 26px @ 14em */
 
 @neutralCheckbox: @transparentBlack;
 @positiveCheckbox: @positiveColor;
@@ -75,7 +75,7 @@
 @radioLeft: 0px;
 @radioLabelDistance: @labelDistance;
 
-@bulletScale: (0.428571428); /* 6px @ 14pxrem */
+@bulletScale: (6 / 14); /* 6px as unitless value from radio size */
 @bulletColor: @textColor;
 @bulletRadius: @circularRadius;
 
@@ -100,7 +100,7 @@
 @sliderWidth: @sliderLineWidth;
 @sliderHeight: (@sliderHandleSize + @sliderHandleOffset);
 
-@sliderLineHeight: 0.2142rem;
+@sliderLineHeight: @3px;
 @sliderLineVerticalOffset: 0.4rem;
 @sliderLineColor: @neutralCheckbox;
 @sliderLineRadius: @circularRadius;

@@ -9,5 +9,5 @@
 @testColor: @white;
 @testFontWeight: bold;
 @testText: 'Ad';
-@testFontSize: 1em;
-@testMobileFontSize: 0.85714em;
+@testFontSize: @relativeMedium;
+@testMobileFontSize: @relativeTiny;

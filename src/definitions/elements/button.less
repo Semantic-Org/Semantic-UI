@@ -44,7 +44,7 @@
   text-transform: @textTransform;
   text-shadow: @textShadow;
   font-weight: @fontWeight;
-  line-height: 1;
+  line-height: @lineHeight;
   font-style: normal;
   text-align: center;
   text-decoration: none;
@@ -258,7 +258,7 @@
   top: 50%;
   left: auto;
   right: -100%;
-  margin-top: -0.5em;
+  margin-top: -(@lineHeight / 2);
 }
 .ui.animated.button:focus .visible.content,
 .ui.animated.button:hover .visible.content {
@@ -811,7 +811,7 @@
   width: 100%;
   top: 50%;
   text-align: center;
-  margin-top: -0.5em;
+  margin-top: -(@lineHeight / 2);
 }
 
 .ui.labeled.icon.buttons .button > .icon {
