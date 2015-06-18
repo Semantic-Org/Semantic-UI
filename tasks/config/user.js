@@ -8,6 +8,7 @@ var
   fs              = require('fs'),
   path            = require('path'),
   requireDotFile  = require('require-dot-file'),
+  console         = require('better-console'),
 
   // semantic.json defaults
   defaults        = require('./defaults'),
@@ -29,6 +30,33 @@ var
 try {
   // looks for config file across all parent directories
   userConfig = requireDotFile('semantic.json');
+
+  // detect legacy semantic.json file and output deprication notice
+  var isLegacy = false;
+  if(typeof userConfig.paths.output.packaged == "string"){
+      userConfig.paths.output.packaged = {
+          "css" : userConfig.paths.output.packaged + "css/",
+          "js"  : userConfig.paths.output.packaged + "js/"
+      };
+      isLegacy = true;
+  }
+  if(typeof userConfig.paths.output.compressed == "string"){
+      userConfig.paths.output.compressed = {
+          "css" : userConfig.paths.output.compressed + "css/",
+          "js"  : userConfig.paths.output.compressed + "js/"
+      };
+      isLegacy = true;
+  }
+  if(typeof userConfig.paths.output.uncompressed == "string"){
+      userConfig.paths.output.uncompressed = {
+          "css" : userConfig.paths.output.uncompressed + "css/",
+          "js"  : userConfig.paths.output.uncompressed + "js/"
+      };
+      isLegacy = true;
+  }
+  if(isLegacy){
+      console.warn("You are using a legacy version of semantic.json.  Use 'gulp install' to update.");
+  }
 }
 catch(error) {
   if(error.code === 'MODULE_NOT_FOUND') {
@@ -55,4 +83,3 @@ config.addDerivedValues(gulpConfig);
 *******************************/
 
 module.exports = gulpConfig;
-

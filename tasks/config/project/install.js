@@ -214,18 +214,18 @@ module.exports = {
     }
     if(answers.packaged) {
       json.paths.output.packaged = {};
-      json.paths.output.packaged.css = path.posix.normalize(answers.packaged + '/css/');
-      json.paths.output.packaged.js = path.posix.normalize(answers.packaged + '/js/');
+      json.paths.output.packaged.css = path.normalize(answers.packaged + '/css/');
+      json.paths.output.packaged.js = path.normalize(answers.packaged + '/js/');
     }
     if(answers.compressed) {
       json.paths.output.compressed = {};
-      json.paths.output.compressed.css = path.posix.normalize(answers.compressed + '/css/');
-      json.paths.output.compressed.js = path.posix.normalize(answers.compressed + '/js/');
+      json.paths.output.compressed.css = path.normalize(answers.compressed + '/css/');
+      json.paths.output.compressed.js = path.normalize(answers.compressed + '/js/');
     }
     if(answers.uncompressed) {
       json.paths.output.uncompressed = {};
-      json.paths.output.uncompressed.css = path.posix.normalize(answers.uncompressed + '/css/');
-      json.paths.output.uncompressed.js = path.posix.normalize(answers.uncompressed + '/js/');
+      json.paths.output.uncompressed.css = path.normalize(answers.uncompressed + '/css/');
+      json.paths.output.uncompressed.js = path.normalize(answers.uncompressed + '/js/');
     }
     return json;
   },
@@ -481,7 +481,7 @@ module.exports = {
         type: 'input',
         name: 'packaged',
         message: 'Where should we output a packaged version?',
-        default: path.posix.join(defaults.paths.output.packaged.css, '..'),
+        default: path.join(defaults.paths.output.packaged.css, '..'),
         filter: filter.removeTrailingSlash,
         when: when.custom
       },
@@ -489,7 +489,7 @@ module.exports = {
         type: 'input',
         name: 'compressed',
         message: 'Where should we output compressed components?',
-        default: path.posix.join(defaults.paths.output.compressed.css, '..'),
+        default: path.join(defaults.paths.output.compressed.css, '..'),
         filter: filter.removeTrailingSlash,
         when: when.custom
       },
@@ -497,7 +497,7 @@ module.exports = {
         type: 'input',
         name: 'uncompressed',
         message: 'Where should we output uncompressed components?',
-        default: path.posix.join(defaults.paths.output.uncompressed.css, '..'),
+        default: path.join(defaults.paths.output.uncompressed.css, '..'),
         filter: filter.removeTrailingSlash,
         when: when.custom
       }
