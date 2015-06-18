@@ -12,6 +12,7 @@
 /* Style */
 @backgroundColor: #E0E1E2;
 @backgroundImage: none;
+@background: @backgroundColor @backgroundImage;
 @verticalPadding: 0.7857142em;
 @horizontalPadding: 1.5em;
 
@@ -182,7 +183,7 @@
 @basicTextColor: @textColor;
 @basicColoredBorderSize: 2px;
 
-@basicBackground: transparent;
+@basicBackground: transparent none;
 @basicFontWeight: normal;
 @basicBorder: 1px solid @borderColor;
 @basicBoxShadow: 0px 0px 0px @basicBorderSize @borderColor inset;
