@@ -62,11 +62,11 @@
 @headerFontWeight : bold;
 @headerLineHeight : 1.2857em;
 
-@h1               : 2rem;
-@h2               : 1.714rem;
-@h3               : 1.28rem;
-@h4               : 1.071rem;
-@h5               : 1rem;
+@h1 : 2rem;
+@h2 : 1.714rem;
+@h3 : 1.28rem;
+@h4 : 1.071rem;
+@h5 : 1rem;
 
 /*--------------
    Form Input
@@ -79,7 +79,7 @@
 @inputPadding           : @inputVerticalPadding @inputHorizontalPadding;
 
 /* Line Height Default For Inputs in Browser */
-@defaultInputLineHeight: 1.2142em;
+@inputLineHeight: 1.2142em;
 
 /*-------------------
         Sizes

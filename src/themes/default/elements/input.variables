@@ -10,13 +10,13 @@
 @verticalPadding: @inputVerticalPadding;
 @horizontalPadding: @inputHorizontalPadding;
 
-@lineHeight: @defaultInputLineHeight;
+@lineHeight: @inputLineHeight;
 @lineHeightOffset: ((@lineHeight - 1em) / 2);
 
 @padding: (@verticalPadding - @lineHeightOffset) @horizontalPadding;
 
 @textAlign: left;
-@background: #FFFFFF;
+@background: @inputBackground;
 @borderWidth: 1px;
 @border: @borderWidth solid @borderColor;
 @boxShadow: none;

@@ -3,12 +3,12 @@
 *******************************/
 
 /* Search Prompt */
-@promptFontSize: @relativeMedium;
+@promptBackground: @inputBackground;
 @promptVerticalPadding: @inputVerticalPadding;
 @promptHorizontalPadding: @inputHorizontalPadding;
-@promptLineHeight: @defaultInputLineHeight;
+@promptLineHeight: @inputLineHeight;
+@promptFontSize: @relativeMedium;
 @promptPadding: (@promptVerticalPadding + ((1em - @promptLineHeight) / 2)) @promptHorizontalPadding;
-@promptBackground: @white;
 @promptBorder: 1px solid @borderColor;
 @promptBorderRadius: @circularRadius;
 @promptColor: @textColor;
