@@ -37,7 +37,6 @@
 @groupedSegmentWidth: auto;
 @groupedSegmentBoxShadow: none;
 
-
 /*-------------------
        Coupling
 --------------------*/
