@@ -24,8 +24,14 @@
       Base Sizes
 --------------------*/
 
-@emSize   : 14px;
-@fontSize : 14px;
+/* This is the single variable that controls them all */
+@emValue  : 14;
+
+/* The size of all UI (14px) */
+@emSize   : unit(@emValue, px);
+
+/* The size of all page text (14px) */
+@fontSize : unit(@emValue, px);
 
 /*-------------------
     Border Radius
@@ -66,18 +72,20 @@
 
 /*
   To have sizing resolve to a specified pixel values adjust
-  the numerator to the desired font size and the denominator
-  to the base em size
+  the numerator to the desired pixel size
 */
 
-@miniSize        : (10 / 14);
-@tinySize        : (12 / 14);
-@smallSize       : (13 / 14);
-@mediumSize      : (14 / 14);
-@largeSize       : (16 / 14);
-@bigSize         : (18 / 14);
-@hugeSize        : (20 / 14);
-@massiveSize     : (24 / 14);
+@miniSize        : (10 / @emValue);
+@tinySize        : (12 / @emValue);
+@smallSize       : (13 / @emValue);
+@mediumSize      : (14 / @emValue);
+@largeSize       : (16 / @emValue);
+@bigSize         : (18 / @emValue);
+@hugeSize        : (20 / @emValue);
+@massiveSize     : (24 / @emValue);
+
+
+/* These are used to resolve *
 
 /*-------------------
         Page
@@ -266,6 +274,7 @@
            Power-User
 *******************************/
 
+
 /*-------------------
     Emotive Colors
 --------------------*/
@@ -328,6 +337,41 @@
 @relativeBig     : unit( round(@bigSize * @emSize) / @emSize, em);
 @relativeHuge    : unit( round(@hugeSize * @emSize) / @emSize, em);
 @relativeMassive : unit( round(@massiveSize * @emSize) / @emSize, em);
+
+
+/*-------------------
+  Exact Pixel Values
+--------------------*/
+
+/*
+  These are used to specify exact pixel values in em
+
+  Since there are many more sizes than names for sizes,
+  these are named by their original pixel values.
+
+*/
+
+@1px  : unit( (1 / @emSize), rem);
+@2px  : unit( (2 / @emSize), rem);
+@3px  : unit( (3 / @emSize), rem);
+@4px  : unit( (4 / @emSize), rem);
+@5px  : unit( (5 / @emSize), rem);
+@6px  : unit( (6 / @emSize), rem);
+@7px  : unit( (7 / @emSize), rem);
+@8px  : unit( (8 / @emSize), rem);
+@9px  : unit( (9 / @emSize), rem);
+@10px : unit( (10 / @emSize), rem);
+
+@relative1px  : unit( (1 / @emSize), em);
+@relative2px  : unit( (2 / @emSize), em);
+@relative3px  : unit( (3 / @emSize), em);
+@relative4px  : unit( (4 / @emSize), em);
+@relative5px  : unit( (5 / @emSize), em);
+@relative6px  : unit( (6 / @emSize), em);
+@relative7px  : unit( (7 / @emSize), em);
+@relative8px  : unit( (8 / @emSize), em);
+@relative9px  : unit( (9 / @emSize), em);
+@relative10px : unit( (10 / @emSize), em);
 
 /*-------------------
        Icons
