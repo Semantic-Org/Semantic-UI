@@ -755,7 +755,7 @@ $.fn.video.settings = {
   
   seekedDelay: 250, // ms
   
-  onTimeLookupStart: function() {console.log('plip');},
+  onTimeLookupStart: function() {},
   onTimeLookupStop: function() {}
   
 };
