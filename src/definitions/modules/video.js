@@ -70,12 +70,11 @@ $.fn.video = function(parameters) {
         $readyStateRadio            = $module.find(settings.selector.readyStateRadio),
         $networkStateRadio          = $module.find(settings.selector.networkStateRadio),
         $statesLabel                = $module.find(settings.selector.statesLabel),
-        $bufferCheckbox             = $module.find(settings.selector.bufferCheckbox),
-        $seekableCheckbox           = $module.find(settings.selector.seekableCheckbox),
-        $playedCheckbox             = $module.find(settings.selector.playedCheckbox),
+        $timeLookupBuffer           = $module.find(settings.selector.timeLookupBuffer),
+        $timeLookupSeekable         = $module.find(settings.selector.timeLookupSeekable),
+        $timeLookupPlayed           = $module.find(settings.selector.timeLookupPlayed),
         $seekingStateCheckbox       = $module.find(settings.selector.seekingStateCheckbox),
         $seekingStateDimmer         = $module.find(settings.selector.seekingStateDimmer),
-        $timeLookupActivator        = $timeRange.parent('.ui.input'),
         $timeLookupValue            = $module.find(settings.selector.timeLookupValue),
 
         timeRangeUpdateEnabled      = true,
@@ -96,7 +95,6 @@ $.fn.video = function(parameters) {
           module.debug('Initializing video');
           module.instantiate();
           module.bind.pushes();
-          module.bind.popups();
           module.bind.events();
           module.initialValues(); 
         },
@@ -119,14 +117,7 @@ $.fn.video = function(parameters) {
             $volumeUpButton.push();
             $volumeDownButton.push();
           },
-          popups: function() {
-            $timeLookupActivator.popup({
-              popup: $module.find(settings.selector.timeLookupPopup),
-              position: 'top center',
-              on: 'manual',
-              preserve: true,
-            });
-          },
+          
           events: function() {
             module.debug('Binding video module events');
             // from video to UI
@@ -364,9 +355,9 @@ $.fn.video = function(parameters) {
             // virtual time indicator based on the $timeRange "dragged" time
             module.debug('Update timelookup state');
             var time = module.get.timeRangeValue();
-            $bufferCheckbox.prop('checked', module.is.timeBuffered(time));
-            $seekableCheckbox.prop('checked', module.is.timeSeekable(time));
-            $playedCheckbox.prop('checked', module.is.timePlayed(time));
+            $timeLookupBuffer.prop('checked', module.is.timeBuffered(time));
+            $timeLookupSeekable.prop('checked', module.is.timeSeekable(time));
+            $timeLookupPlayed.prop('checked', module.is.timePlayed(time));
             $timeLookupValue.text(module.get.readableTime(time));
           }
         },
@@ -466,7 +457,7 @@ $.fn.video = function(parameters) {
           },
           timeLookup: function() {
             module.debug('Activate time lookup');
-            $timeLookupActivator.popup('show');
+            settings.onTimeLookupStart();
             timeRangeUpdateEnabled = false;
           }
         },
@@ -481,7 +472,7 @@ $.fn.video = function(parameters) {
           },
           timeLookup: function() {
             module.debug('Deactivate time lookup');
-            $timeLookupActivator.popup('hide');
+            settings.onTimeLookupStop();
             timeRangeUpdateEnabled = true;
           }
         },
@@ -733,12 +724,12 @@ $.fn.video.settings = {
     seekingStateDimmer:     '.seeking.dimmer',
     readyStateRadio:        '.ready.state input[type="radio"]',           // could work with <select>
     networkStateRadio:      '.network.state input[type="radio"]',         // |
-    bufferCheckbox:         '.buffer.checkbox input[type="checkbox"]',    // 
-    seekableCheckbox:       '.seekable.checkbox input[type="checkbox"]',  //
-    playedCheckbox:         '.played.checkbox input[type="checkbox"]',    //
-    statesLabel:            '.ready.state label, .network.state label, .buffer.checkbox label, .seekable.checkbox label, .played.checkbox label',
-    timeLookupPopup:        '.timelookup.popup',
-    timeLookupValue:        '.timelookup.popup .time'
+    timeLookupValue:        '.timelookup .time',
+    timeLookupBuffer:       '.timelookup .buffer.checkbox input[type="checkbox"]',
+    timeLookupSeekable:     '.timelookup .seekable.checkbox input[type="checkbox"]',
+    timeLookupPlayed:       '.timelookup .played.checkbox input[type="checkbox"]',
+    
+    statesLabel:            '.ready.state label, .network.state label, .timelookup .buffer.checkbox label, .timelookup .seekable.checkbox label, .timelookup .played.checkbox label'
     
   },
   
@@ -762,8 +753,10 @@ $.fn.video.settings = {
     NETWORK_NO_SOURCE: 3
   },
   
-  volumeStep: 0.1, // it moves from 0.0 to 1.0, TODO: use a data-* attribute
-  seekedDelay: 250 // ms
+  seekedDelay: 250, // ms
+  
+  onTimeLookupStart: function() {console.log('plip');},
+  onTimeLookupStop: function() {}
   
 };
 

@@ -228,7 +228,28 @@
 <script>
 $(document)
   .ready(function() {
-    $('.ui.video').video();
+    
+    var popup = $('input.time').parent()
+      .popup({
+         popup: $('.timelookup.popup'),
+         position: 'top center',
+         on: 'manual',
+         preserve: true,
+       })
+    ;
+    
+    $('.ui.video')
+     .video({
+        onTimeLookupStart: function() {
+          console.log('plop');
+          popup.popup('show');
+        },
+        onTimeLookupStop: function() {
+          popup.popup('hide');
+        },
+      })
+    ;
+    
   })
 ;
 </script>
