@@ -92,13 +92,13 @@ $.fn.push = function(parameters) {
         },
         
         tickLoop: function() {
-          module.debug('loop iterates');
-          
           // don't move on the first iteration (actual mousedown event)
           if(tickTimer !== null) {
+            module.debug('loop iterates');
             hadTicked = true;
             $module.click() // .trigger() seems not to be DOM related, but only jQuery internal (?)
           } else {
+            module.debug('loop starts');
             settings.onStart();
           }
           // (re)start the loop, bindings are made in order to later access $(this)
@@ -107,11 +107,12 @@ $.fn.push = function(parameters) {
         
         stopLoop: function(event) {
           if(tickTimer !== null) {
-            module.debug('loop stops');
             if(!hadTicked) {
               // one click if the loop hadn't ticked (~ real click)
+              module.debug('loop iterates');
               $module.click() // .trigger() seems not to be DOM related, but only jQuery internal (?)
             }
+            module.debug('loop stops');
             window.clearTimeout(tickTimer);
             tickTimer = null;
             hadTicked = false;
@@ -120,9 +121,9 @@ $.fn.push = function(parameters) {
         },
         
         filterClick: function(event) {
-           module.debug('click is filtered');
           // human clicks are void (though they are re-triggered through the mousedown/mouseup behaviors combination)
           if(event.isTrigger === undefined) {
+            module.debug('click is filtered');
             event.stopImmediatePropagation(); // it requires .push() event bindings to have been done before any other init
             event.preventDefault();
           }

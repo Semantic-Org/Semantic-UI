@@ -61,8 +61,7 @@ $.fn.video = function(parameters) {
         $currentTime                = $module.find(settings.selector.currentTime),
         $remainingTime              = $module.find(settings.selector.remainingTime),
         $timeRange                  = $module.find(settings.selector.timeRange),
-        $volumeUpButton             = $module.find(settings.selector.volumeUpButton),
-        $volumeDownButton           = $module.find(settings.selector.volumeDownButton),
+        $volumeChangeButton         = $module.find(settings.selector.volumeChangeButton),
         $volumeProgress             = $module.find(settings.selector.volumeProgress),
         $muteButton                 = $module.find(settings.selector.muteButton),
         $rateInput                  = $module.find(settings.selector.rateInput),
@@ -114,8 +113,7 @@ $.fn.video = function(parameters) {
               onStart: module.activate.holdPlayState,
               onStop: module.deactivate.holdPlayState
             });
-            $volumeUpButton.push();
-            $volumeDownButton.push();
+            $volumeChangeButton.push();
           },
           
           events: function() {
@@ -141,8 +139,7 @@ $.fn.video = function(parameters) {
               .on('input' + eventNamespace, module.update.timeLookup)
               .on('change' + eventNamespace, module.request.seek.fromRangeValue)
             ;
-            $volumeUpButton.on('click' + eventNamespace, module.request.volumeUp);
-            $volumeDownButton.on('click' + eventNamespace, module.request.volumeDown);
+            $volumeChangeButton.on('click' + eventNamespace, module.request.volume.shift);
             $volumeProgress.on('click' + eventNamespace, module.request.unmute);
             $muteButton.on('click' + eventNamespace, module.request.muteToggle);
             $rateInput.on('change' + eventNamespace, module.request.rate);
@@ -280,8 +277,9 @@ $.fn.video = function(parameters) {
         // the functions in this range will update the UI elements from the current video state, with no relevant return value
         update: {
           playState: function() {
-            module.debug('Update play state');
-            if(module.is.playing()) {
+            var playing = module.is.playing();
+            module.debug('Update play state', playing);
+            if(playing) {
               $playButton.addClass(settings.className.active);
             }
             else {
@@ -292,7 +290,7 @@ $.fn.video = function(parameters) {
             var
               currentTime = module.get.currentTime(),
               duration = module.get.duration();
-            module.debug('Update time');
+            module.debug('Update time', currentTime);
             // text displays
             $currentTime.text(module.get.readableTime(currentTime));
             $remainingTime.text( module.get.readableTime(duration - currentTime) );
@@ -302,20 +300,20 @@ $.fn.video = function(parameters) {
             }
           },
           seeking: function() {
-            module.debug('Update seek state (seeking)');
+            module.debug('Update seeking state', true);
             window.clearTimeout(seekedTimer);
             $seekingStateCheckbox.prop('checked', true);
             $seekingStateDimmer.dimmer('show');
           },
           seeked: function(event) {
-            module.debug('Update seek state (seeked)');
             // a seeking loop makes "seeking" and "seeked" events to fire alternatively, add a delay to prevent the elements to blink
             if(event !== undefined) {
-              // an real undelayed event has occured 
+              // an native undelayed event has occured 
               seekedTimer = window.setTimeout(module.update.seeked, settings.seekedDelay);
             }
             else {
               // it has been delayed and now is handled through the UI
+              module.debug('Update seeking state', false);
               $seekingStateCheckbox.prop('checked', false);
               $seekingStateDimmer.dimmer('hide');
             }
@@ -324,37 +322,38 @@ $.fn.video = function(parameters) {
             var 
               muted = module.is.muted(),
               volume = module.get.volume();
-            module.debug('Update volume and mute states');
+            module.debug('Update volume and mute states', volume, muted);
             if(muted) {
-              $volumeUpButton.addClass(settings.className.disabled);
-              $volumeDownButton.addClass(settings.className.disabled);
+              $volumeChangeButton.addClass(settings.className.disabled);
               $volumeProgress.addClass(settings.className.disabled);
               $muteButton.addClass(settings.className.active);
             } 
             else {
-              $volumeUpButton.removeClass(settings.className.disabled);
-              $volumeDownButton.removeClass(settings.className.disabled);
+              $volumeChangeButton.removeClass(settings.className.disabled);
               $volumeProgress.removeClass(settings.className.disabled);
               $muteButton.removeClass(settings.className.active);
             }
             $volumeProgress.progress({ percent: volume * 100 });
           },
           rate: function() {
-            module.debug('Update playBack rate');
-            $rateInput.val(module.get.playbackRate());
+            var rate = module.get.playbackRate();
+            module.debug('Update playBack rate', rate);
+            $rateInput.val(rate);
           },
           readyState: function() {
-            module.debug('Update ready state');
-            $readyStateRadio.filter('[value=' + module.get.readyState() + ']').prop('checked', true);
+            var state = module.get.readyState();
+            module.debug('Update ready state', state);
+            $readyStateRadio.filter('[value=' + state + ']').prop('checked', true);
           },
           networkState: function() {
-            module.debug('Update network state');
-            $networkStateRadio.filter('[value=' + module.get.networkState() + ']').prop('checked', true);
+            var state = module.get.networkState();
+            module.debug('Update network state', state);
+            $networkStateRadio.filter('[value=' + state + ']').prop('checked', true);
           },
           timeLookup: function(event) {
             // virtual time indicator based on the $timeRange "dragged" time
-            module.debug('Update timelookup state');
             var time = module.get.timeRangeValue();
+            module.debug('Update timelookup state', time);
             $timeLookupBuffer.prop('checked', module.is.timeBuffered(time));
             $timeLookupSeekable.prop('checked', module.is.timeSeekable(time));
             $timeLookupPlayed.prop('checked', module.is.timePlayed(time));
@@ -394,7 +393,7 @@ $.fn.video = function(parameters) {
           },
           seek: {
             toAbsoluteTime: function(time) {
-              module.debug('Request time absolute seek');
+              module.debug('Request time seek to', time);
               // use fastSeek if implemented
               if(video.fastSeek) {
                 video.fastSeek(time);
@@ -403,31 +402,37 @@ $.fn.video = function(parameters) {
                 video.currentTime = time;
               }
             },
-            toRelativeTime: function() {
-              module.debug('Request time relative seek from current position)');
-              var position = module.get.currentTime() + $(this).data(settings.matadata.seekStep);
+            toRelativeTime: function(shift) {
+              if(typeof shift != 'number') {
+                shift = parseFloat($(this).data(settings.matadata.seekStep));
+              }
+              module.debug('Request time seek with relative shift', shift);
+              var position = module.get.currentTime() + shift;
               module.request.seek.toAbsoluteTime(position);
             },
             fromRangeValue: function() {
               module.request.seek.toAbsoluteTime(module.get.timeRangeValue());
             }
           },
-          volumeUp: function() {
-            if(video.muted) {
-              module.request.unmute();
-            } 
-            else {
-              module.debug('Request volume up');
-              video.volume = Math.min(video.volume + $(this).data(settings.matadata.volumeStep), 1);
-            }
-          },
-          volumeDown: function() {
-            if(video.muted) {
-              module.request.unmute();
-            } 
-            else {
-              module.debug('Request volume down');
-              video.volume = Math.max(video.volume - $(this).data(settings.matadata.volumeStep), 0);
+          volume: {
+            value: function(volume) {
+              module.debug('Request volume value', volume);
+              volume = Math.min(volume, 1);
+              volume = Math.max(volume, 0);
+              video.volume = volume;
+            },
+            shift: function(shift) {
+              if(typeof shift != 'number') {
+                shift = parseFloat($(this).data(settings.matadata.volumeStep));
+              }
+              if(video.muted) {
+                module.request.unmute();
+              } 
+              else {
+                module.debug('Request volume shift', shift);
+                var volume = video.volume + shift;
+                module.request.volume.value(volume);
+              }
             }
           },
           mute: function() {
@@ -714,9 +719,8 @@ $.fn.video.settings = {
     currentTime:            '.current.time',
     remainingTime:          '.remaining.time',
     timeRange:              'input[type="range"].time',
-    volumeUpButton:         '.volume.up.button',    // could be a input[type="range"]
-    volumeDownButton:       '.volume.down.button',  // |
-    volumeProgress:         '.volume.progress',     // |
+    volumeChangeButton:     '.volume.push.button',
+    volumeProgress:         '.volume.progress', // could be a input[type="range"]
     muteButton:             '.mute.button',
     rateInput:              '.rate input[type="number"]',
     rateReset:              '.rate .reset',
