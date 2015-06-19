@@ -148,10 +148,10 @@ h5.ui.header {
 
 /* Sub Header */
 h1.ui.header .sub.header {
-  font-size: 1.1428rem;
+  font-size: 1.14285714rem;
 }
 h2.ui.header .sub.header {
-  font-size: 1.1428rem;
+  font-size: 1.14285714rem;
 }
 h3.ui.header .sub.header {
   font-size: 1rem;
@@ -160,7 +160,7 @@ h4.ui.header .sub.header {
   font-size: 1rem;
 }
 h5.ui.header .sub.header {
-  font-size: 0.9285rem;
+  font-size: 0.92857143rem;
 }
 
 /*--------------
@@ -186,10 +186,10 @@ h5.ui.header .sub.header {
 
 /* Sub Header */
 .ui.huge.header .sub.header {
-  font-size: 1.1428rem;
+  font-size: 1.14285714rem;
 }
 .ui.large.header .sub.header {
-  font-size: 1.1428rem;
+  font-size: 1.14285714rem;
 }
 .ui.header .sub.header {
   font-size: 1rem;
@@ -198,7 +198,7 @@ h5.ui.header .sub.header {
   font-size: 1rem;
 }
 .ui.tiny.header .sub.header {
-  font-size: 0.9285rem;
+  font-size: 0.92857143rem;
 }
 
 /*--------------
@@ -207,7 +207,7 @@ h5.ui.header .sub.header {
 
 .ui.sub.header {
   padding: 0em;
-  margin-bottom: 0.1428rem;
+  margin-bottom: 0.14285714rem;
   font-weight: bold;
   font-size: 0.85714286em;
   text-transform: uppercase;
@@ -611,11 +611,11 @@ a.ui.inverted.grey.header:hover {
 --------------------*/
 
 .ui.dividing.header {
-  padding-bottom: 0.25rem;
+  padding-bottom: 0.21428571rem;
   border-bottom: 1px solid rgba(34, 36, 38, 0.15);
 }
 .ui.dividing.header .sub.header {
-  padding-bottom: 0.25rem;
+  padding-bottom: 0.21428571rem;
 }
 .ui.dividing.header .icon {
   margin-bottom: 0em;
@@ -630,25 +630,25 @@ a.ui.inverted.grey.header:hover {
 
 .ui.block.header {
   background: #f3f4f5;
-  padding: 0.75rem 1rem;
+  padding: 0.71428571rem 1rem;
   box-shadow: none;
   border: 1px solid #d4d4d5;
-  border-radius: 0.3125rem;
+  border-radius: 0.28571429rem;
 }
 .ui.tiny.block.header {
-  font-size: 1em;
+  font-size: 0.85714286rem;
 }
 .ui.small.block.header {
-  font-size: 1.071em;
+  font-size: 0.92857143rem;
 }
 .ui.block.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
-  font-size: 1.28em;
+  font-size: 1rem;
 }
 .ui.large.block.header {
-  font-size: 1.714em;
+  font-size: 1.14285714rem;
 }
 .ui.huge.block.header {
-  font-size: 2em;
+  font-size: 1.42857143rem;
 }
 
 /*-------------------
@@ -657,7 +657,7 @@ a.ui.inverted.grey.header:hover {
 
 .ui.attached.header {
   background: #ffffff;
-  padding: 0.75rem 1rem;
+  padding: 0.71428571rem 1rem;
   margin-left: -1px;
   margin-right: -1px;
   box-shadow: none;
@@ -676,12 +676,12 @@ a.ui.inverted.grey.header:hover {
 .ui.top.attached.header {
   margin-bottom: 0em;
   border-bottom: none;
-  border-radius: 0.3125rem 0.3125rem 0em 0em;
+  border-radius: 0.28571429rem 0.28571429rem 0em 0em;
 }
 .ui.bottom.attached.header {
   margin-top: 0em;
   border-top: none;
-  border-radius: 0em 0em 0.3125rem 0.3125rem;
+  border-radius: 0em 0em 0.28571429rem 0.28571429rem;
 }
 
 /* Attached Sizes */

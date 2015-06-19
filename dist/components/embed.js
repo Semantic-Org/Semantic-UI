@@ -610,7 +610,7 @@ $.fn.embed.settings = {
       type   : 'video',
       icon   : 'video play',
       domain : 'vimeo.com',
-      url    : '//www.youtube.com/embed/{id}',
+      url    : '//player.vimeo.com/video/{id}',
       parameters: function(settings) {
         return {
           api      : settings.api,

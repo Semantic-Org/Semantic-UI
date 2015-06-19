@@ -53,9 +53,9 @@
 
 .ui.form .field > label {
   display: block;
-  margin: 0em 0em 0.2857rem 0em;
+  margin: 0em 0em 0.28571429rem 0em;
   color: rgba(0, 0, 0, 0.87);
-  font-size: 0.9285em;
+  font-size: 0.92857143em;
   font-weight: bold;
   text-transform: none;
 }
@@ -97,12 +97,12 @@
   -webkit-appearance: none;
   tap-highlight-color: rgba(255, 255, 255, 0);
   line-height: 1.2142em;
-  padding: 0.67861em 1em;
+  padding: 0.67861429em 1em;
   font-size: 1em;
   background: #ffffff;
   border: 1px solid rgba(34, 36, 38, 0.15);
   color: rgba(0, 0, 0, 0.87);
-  border-radius: 0.285714rem;
+  border-radius: 0.28571429rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
           transition: color 0.1s ease, border-color 0.1s ease;
@@ -118,12 +118,12 @@
   margin: 0em;
   -webkit-appearance: none;
   tap-highlight-color: rgba(255, 255, 255, 0);
-  padding: 0.78571em 1em;
+  padding: 0.78571429em 1em;
   background: #ffffff;
   border: 1px solid rgba(34, 36, 38, 0.15);
   outline: none;
   color: rgba(0, 0, 0, 0.87);
-  border-radius: 0.285714rem;
+  border-radius: 0.28571429rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
           transition: color 0.1s ease, border-color 0.1s ease;
@@ -159,7 +159,7 @@
   width: 100%;
   background: #ffffff;
   border: 1px solid rgba(34, 36, 38, 0.15);
-  border-radius: 0.285714rem;
+  border-radius: 0.28571429rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
   padding: 0.62em 1em;
   color: rgba(0, 0, 0, 0.87);
@@ -315,14 +315,14 @@
 .ui.form input[type="url"]:focus {
   color: rgba(0, 0, 0, 0.95);
   border-color: rgba(34, 36, 38, 0.35);
-  border-radius: 0.285714rem;
+  border-radius: 0.28571429rem;
   background: #ffffff;
   box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.35) inset;
 }
 .ui.form textarea:focus {
   color: rgba(0, 0, 0, 0.95);
   border-color: rgba(34, 36, 38, 0.35);
-  border-radius: 0.285714rem;
+  border-radius: 0.28571429rem;
   background: #ffffff;
   box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.35) inset;
   -webkit-appearance: none;
@@ -417,7 +417,7 @@
   background: #fff6f6;
   border-color: #e0b4b4;
   color: #922d2b;
-  border-radius: 0.285714rem;
+  border-radius: 0.28571429rem;
   box-shadow: none;
 }
 .ui.form .field.error textarea:focus,
@@ -663,9 +663,9 @@
   margin-bottom: 0em;
 }
 .ui.form .grouped.fields > label {
-  margin: 0em 0em 0.2857rem 0em;
+  margin: 0em 0em 0.28571429rem 0em;
   color: rgba(0, 0, 0, 0.87);
-  font-size: 0.9285em;
+  font-size: 0.92857143em;
   font-weight: bold;
   text-transform: none;
 }
@@ -897,7 +897,7 @@
   margin-top: 0em;
   margin-bottom: 0em;
   vertical-align: middle;
-  font-size: 0.9285em;
+  font-size: 0.92857143em;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.87);
   text-transform: none;

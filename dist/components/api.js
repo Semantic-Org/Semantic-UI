@@ -204,7 +204,7 @@ $.api = $.fn.api = function(parameters) {
 
           // get url
           url = module.get.templatedURL();
-          if(!url) {
+          if(!url && !module.is.mocked()) {
             module.error(error.missingURL);
             return;
           }
@@ -213,7 +213,7 @@ $.api = $.fn.api = function(parameters) {
           url = module.add.urlData( url );
 
           // missing url parameters
-          if( !url ) {
+          if( !url && !module.is.mocked()) {
             return;
           }
 
@@ -696,7 +696,7 @@ $.api = $.fn.api = function(parameters) {
             }
             if(action) {
               module.debug('Looking up url for action', action, settings.api);
-              if(!module.is.mocked() && settings.api[action] === undefined) {
+              if(settings.api[action] === undefined && !module.is.mocked()) {
                 module.error(error.missingAction, settings.action, settings.api);
                 return;
               }

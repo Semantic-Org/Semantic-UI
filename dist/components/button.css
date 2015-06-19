@@ -21,20 +21,19 @@
   outline: none;
   border: none;
   vertical-align: baseline;
-  background-color: #e0e1e2;
+  background: #e0e1e2 none;
   color: rgba(0, 0, 0, 0.6);
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   margin: 0em 0.25em 0em 0em;
-  padding: 0.7857142em 1.5em 0.7857142em;
+  padding: 0.78571429em 1.5em 0.78571429em;
   text-transform: none;
   text-shadow: none;
   font-weight: bold;
-  line-height: 1;
+  line-height: 1em;
   font-style: normal;
   text-align: center;
   text-decoration: none;
-  background-image: none;
-  border-radius: 0.285714rem;
+  border-radius: 0.28571429rem;
   box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -133,9 +132,9 @@
   content: '';
   top: 50%;
   left: 50%;
-  margin: -0.64285em 0em 0em -0.64285em;
-  width: 1.2857em;
-  height: 1.2857em;
+  margin: -0.64285714em 0em 0em -0.64285714em;
+  width: 1.28571429em;
+  height: 1.28571429em;
   border-radius: 500rem;
   border: 0.2em solid rgba(0, 0, 0, 0.15);
 }
@@ -144,9 +143,9 @@
   content: '';
   top: 50%;
   left: 50%;
-  margin: -0.64285em 0em 0em -0.64285em;
-  width: 1.2857em;
-  height: 1.2857em;
+  margin: -0.64285714em 0em 0em -0.64285714em;
+  width: 1.28571429em;
+  height: 1.28571429em;
   -webkit-animation: button-spin 0.6s linear;
           animation: button-spin 0.6s linear;
   -webkit-animation-iteration-count: infinite;
@@ -535,14 +534,14 @@
 .ui.button > .icon {
   height: 0.92857143em;
   opacity: 0.8;
-  margin: 0em 0.4285em 0em -0.21425em;
+  margin: 0em 0.42857143em 0em -0.21428571em;
   -webkit-transition: opacity 0.1s ease;
           transition: opacity 0.1s ease;
   vertical-align: '';
   color: '';
 }
 .ui.button > .right.icon {
-  margin: 0em -0.21425em 0em 0.4285em;
+  margin: 0em -0.21428571em 0em 0.42857143em;
 }
 
 
@@ -574,15 +573,15 @@
 
 .ui.compact.buttons .button,
 .ui.compact.button {
-  padding: 0.58928565em 1.125em 0.58928565em;
+  padding: 0.58928571em 1.125em 0.58928571em;
 }
 .ui.compact.icon.buttons .button,
 .ui.compact.icon.button {
-  padding: 0.58928565em 0.58928565em 0.58928565em;
+  padding: 0.58928571em 0.58928571em 0.58928571em;
 }
 .ui.compact.labeled.icon.buttons .button,
 .ui.compact.labeled.icon.button {
-  padding: 0.58928565em 3.6964284em 0.58928565em;
+  padding: 0.58928571em 3.69642857em 0.58928571em;
 }
 
 /*-------------------
@@ -636,7 +635,7 @@
 
 .ui.icon.buttons .button,
 .ui.icon.button {
-  padding: 0.7857142em 0.7857142em 0.7857142em;
+  padding: 0.78571429em 0.78571429em 0.78571429em;
 }
 .ui.icon.buttons .button > .icon,
 .ui.icon.button > .icon {
@@ -651,11 +650,10 @@
 
 .ui.basic.buttons .button,
 .ui.basic.button {
-  background: transparent !important;
-  background-image: none;
+  background: transparent none !important;
   color: rgba(0, 0, 0, 0.6) !important;
   font-weight: normal;
-  border-radius: 0.285714rem;
+  border-radius: 0.28571429rem;
   text-transform: none;
   text-shadow: none !important;
   box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset;
@@ -663,7 +661,7 @@
 .ui.basic.buttons {
   box-shadow: none;
   border: 1px solid rgba(34, 36, 38, 0.15);
-  border-radius: 0.285714rem;
+  border-radius: 0.28571429rem;
 }
 .ui.basic.buttons .button {
   border-radius: 0em;
@@ -768,7 +766,7 @@
 .ui.labeled.icon.buttons .button,
 .ui.labeled.icon.button {
   position: relative;
-  padding-left: 4.0714284em !important;
+  padding-left: 4.07142857em !important;
   padding-right: 1.5em !important;
 }
 
@@ -778,11 +776,11 @@
   position: absolute;
   height: 100%;
   line-height: 1;
-  width: 2.5714284em;
+  width: 2.57142857em;
   background-color: rgba(0, 0, 0, 0.05);
   text-align: center;
   color: '';
-  border-radius: 0.285714rem 0px 0px 0.285714rem;
+  border-radius: 0.28571429rem 0px 0px 0.28571429rem;
   box-shadow: -1px 0px 0px 0px transparent inset;
 }
 
@@ -795,13 +793,13 @@
 
 /* Right Labeled */
 .ui[class*="right labeled"].icon.button {
-  padding-right: 4.0714284em !important;
+  padding-right: 4.07142857em !important;
   padding-left: 1.5em !important;
 }
 .ui[class*="right labeled"].icon.button > .icon {
   left: auto;
   right: 0em;
-  border-radius: 0em 0.285714rem 0.285714rem 0em;
+  border-radius: 0em 0.28571429rem 0.28571429rem 0em;
   box-shadow: 1px 0px 0px 0px transparent inset;
 }
 .ui.labeled.icon.buttons > .button > .icon:before,
@@ -819,20 +817,20 @@
   border-radius: 0em;
 }
 .ui.labeled.icon.buttons .button:first-child > .icon {
-  border-top-left-radius: 0.285714rem;
-  border-bottom-left-radius: 0.285714rem;
+  border-top-left-radius: 0.28571429rem;
+  border-bottom-left-radius: 0.28571429rem;
 }
 .ui.labeled.icon.buttons .button:last-child > .icon {
-  border-top-right-radius: 0.285714rem;
-  border-bottom-right-radius: 0.285714rem;
+  border-top-right-radius: 0.28571429rem;
+  border-bottom-right-radius: 0.28571429rem;
 }
 .ui.vertical.labeled.icon.buttons .button:first-child > .icon {
   border-radius: 0em;
-  border-top-left-radius: 0.285714rem;
+  border-top-left-radius: 0.28571429rem;
 }
 .ui.vertical.labeled.icon.buttons .button:last-child > .icon {
   border-radius: 0em;
-  border-bottom-left-radius: 0.285714rem;
+  border-bottom-left-radius: 0.28571429rem;
 }
 
 /* Fluid Labeled */
@@ -881,7 +879,7 @@
 .ui.buttons .or {
   position: relative;
   width: 0.3em;
-  height: 2.5714284em;
+  height: 2.57142857em;
   z-index: 3;
 }
 .ui.buttons .or:before {
@@ -893,11 +891,11 @@
   left: 50%;
   background-color: #ffffff;
   text-shadow: none;
-  margin-top: -0.8928571em;
-  margin-left: -0.8928571em;
-  width: 1.7857142em;
-  height: 1.7857142em;
-  line-height: 1.7857142em;
+  margin-top: -0.89285714em;
+  margin-left: -0.89285714em;
+  width: 1.78571429em;
+  height: 1.78571429em;
+  line-height: 1.78571429em;
   color: rgba(0, 0, 0, 0.4);
   font-style: normal;
   font-weight: bold;
@@ -931,10 +929,10 @@
 
 /* Top / Bottom */
 .ui.attached.top.button {
-  border-radius: 0.285714rem 0.285714rem 0em 0em;
+  border-radius: 0.28571429rem 0.28571429rem 0em 0em;
 }
 .ui.attached.bottom.button {
-  border-radius: 0em 0em 0.285714rem 0.285714rem;
+  border-radius: 0em 0em 0.28571429rem 0.28571429rem;
 }
 
 /* Left / Right */
@@ -943,13 +941,13 @@
   border-left: none;
   text-align: right;
   padding-right: 0.75em;
-  border-radius: 0.285714rem 0em 0em 0.285714rem;
+  border-radius: 0.28571429rem 0em 0em 0.28571429rem;
 }
 .ui.right.attached.button {
   display: inline-block;
   text-align: left;
   padding-left: 0.75em;
-  border-radius: 0em 0.285714rem 0.285714rem 0em;
+  border-radius: 0em 0.28571429rem 0.28571429rem 0em;
 }
 
 /* Plural */
@@ -978,23 +976,23 @@
 /* Top / Bottom */
 .ui[class*="top attached"].buttons {
   margin-bottom: -1px;
-  border-radius: 0.285714rem 0.285714rem 0em 0em;
+  border-radius: 0.28571429rem 0.28571429rem 0em 0em;
 }
 .ui[class*="top attached"].buttons .button:first-child {
-  border-radius: 0.285714rem 0em 0em 0em;
+  border-radius: 0.28571429rem 0em 0em 0em;
 }
 .ui[class*="top attached"].buttons .button:last-child {
-  border-radius: 0em 0.285714rem 0em 0em;
+  border-radius: 0em 0.28571429rem 0em 0em;
 }
 .ui[class*="bottom attached"].buttons {
   margin-top: -1px;
-  border-radius: 0em 0em 0.285714rem 0.285714rem;
+  border-radius: 0em 0em 0.28571429rem 0.28571429rem;
 }
 .ui[class*="bottom attached"].buttons .button:first-child {
-  border-radius: 0em 0em 0em 0.285714rem;
+  border-radius: 0em 0em 0em 0.28571429rem;
 }
 .ui[class*="bottom attached"].buttons .button:last-child {
-  border-radius: 0em 0em 0.285714rem 0em;
+  border-radius: 0em 0em 0.28571429rem 0em;
 }
 
 /* Left / Right */
@@ -1005,15 +1003,15 @@
   display: inline-flex;
   margin-right: 0em;
   margin-left: -1px;
-  border-radius: 0em 0.285714rem 0.285714rem 0em;
+  border-radius: 0em 0.28571429rem 0.28571429rem 0em;
 }
 .ui[class*="left attached"].buttons .button:first-child {
   margin-left: -1px;
-  border-radius: 0em 0.285714rem 0em 0em;
+  border-radius: 0em 0.28571429rem 0em 0em;
 }
 .ui[class*="left attached"].buttons .button:last-child {
   margin-left: -1px;
-  border-radius: 0em 0em 0.285714rem 0em;
+  border-radius: 0em 0em 0.28571429rem 0em;
 }
 .ui[class*="right attached"].buttons {
   display: -webkit-inline-box;
@@ -1022,15 +1020,15 @@
   display: inline-flex;
   margin-left: 0em;
   margin-right: -1px;
-  border-radius: 0.285714rem 0em 0em 0.285714rem;
+  border-radius: 0.28571429rem 0em 0em 0.28571429rem;
 }
 .ui[class*="right attached"].buttons .button:first-child {
   margin-left: -1px;
-  border-radius: 0.285714rem 0em 0em 0em;
+  border-radius: 0.28571429rem 0em 0em 0em;
 }
 .ui[class*="right attached"].buttons .button:last-child {
   margin-left: -1px;
-  border-radius: 0em 0em 0em 0.285714rem;
+  border-radius: 0em 0em 0em 0.28571429rem;
 }
 
 /*-------------------
@@ -3187,12 +3185,12 @@
 .ui.buttons .button:first-child {
   border-left: none;
   margin-left: 0em;
-  border-top-left-radius: 0.285714rem;
-  border-bottom-left-radius: 0.285714rem;
+  border-top-left-radius: 0.28571429rem;
+  border-bottom-left-radius: 0.28571429rem;
 }
 .ui.buttons .button:last-child {
-  border-top-right-radius: 0.285714rem;
-  border-bottom-right-radius: 0.285714rem;
+  border-top-right-radius: 0.28571429rem;
+  border-bottom-right-radius: 0.28571429rem;
 }
 
 /* Vertical  Style */
@@ -3220,7 +3218,7 @@
 .ui.vertical.buttons .small.button:first-child,
 .ui.vertical.buttons .massive.button:first-child,
 .ui.vertical.buttons .huge.button:first-child {
-  border-radius: 0.285714rem 0.285714rem 0px 0px;
+  border-radius: 0.28571429rem 0.28571429rem 0px 0px;
 }
 .ui.vertical.buttons .button:last-child,
 .ui.vertical.buttons .mini.button:last-child,
@@ -3230,7 +3228,7 @@
 .ui.vertical.buttons .huge.button:last-child,
 .ui.vertical.buttons .gigantic.button:last-child {
   margin-bottom: 0px;
-  border-radius: 0px 0px 0.285714rem 0.285714rem;
+  border-radius: 0px 0px 0.28571429rem 0.28571429rem;
 }
 
 

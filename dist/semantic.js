@@ -5118,7 +5118,6 @@ $.fn.dropdown = function(parameters) {
               $userItems   = module.create.userChoice(value),
               hasUserItems = ($userItems && $userItems.length > 0)
             ;
-            console.log(hasUserItems, value, $module);
             if(hasUserItems) {
               $items = ($items.length > 0)
                 ? $items.add($userItems)
@@ -5663,7 +5662,6 @@ $.fn.dropdown = function(parameters) {
                     }
                     if(settings.useLabels) {
                       module.add.value(selectedValue, selectedText, $selected);
-                      console.log(selectedValue);
                       module.add.label(selectedValue, selectedText, shouldAnimate);
                       $selected.addClass(className.active);
                       module.filterActive();
@@ -7332,7 +7330,7 @@ $.fn.embed.settings = {
       type   : 'video',
       icon   : 'video play',
       domain : 'vimeo.com',
-      url    : '//www.youtube.com/embed/{id}',
+      url    : '//player.vimeo.com/video/{id}',
       parameters: function(settings) {
         return {
           api      : settings.api,
@@ -7704,8 +7702,7 @@ $.fn.modal = function(parameters) {
             module.set.type();
             module.set.clickaway();
 
-            if( !settings.allowMultiple && $otherModals.filter('.' + className.active).length > 0) {
-              module.debug('Other modals visible, queueing show animation');
+            if( !settings.allowMultiple && module.others.active() ) {
               module.hideOthers(module.showModal);
             }
             else {
@@ -11995,14 +11992,22 @@ $.fn.search = function(parameters) {
         create: {
           id: function(resultIndex, categoryIndex) {
             var
-              firstLetterCharCode = 97,
-              categoryID = (categoryIndex !== undefined)
-                ? String.fromCharCode(firstLetterCharCode + categoryIndex)
-                : '',
-              resultID   = resultIndex,
-              id         = categoryID + resultID
+              resultID      = (resultIndex + 1), // not zero indexed
+              categoryID    = (categoryIndex + 1),
+              firstCharCode,
+              letterID,
+              id
             ;
-            module.verbose('Creating unique id', id);
+            if(categoryIndex !== undefined) {
+              // start char code for "A"
+              letterID = String.fromCharCode(97 + categoryIndex);
+              id          = letterID + resultID;
+              module.verbose('Creating category result id', id);
+            }
+            else {
+              id = resultID;
+              module.verbose('Creating result id', id);
+            }
             return id;
           },
           results: function() {
@@ -12016,17 +12021,15 @@ $.fn.search = function(parameters) {
         },
 
         inject: {
-          result: function(result, resultID, categoryID) {
+          result: function(result, resultIndex, categoryIndex) {
             module.verbose('Injecting result into results');
             var
-              resultIndex     = (resultID - 1),
-              categoryIndex   = (categoryID - 1),
-              $selectedResult = (categoryID !== undefined)
+              $selectedResult = (categoryIndex !== undefined)
                 ? $results
                     .children().eq(categoryIndex)
-                      .children().eq(resultIndex)
+                      .children(selector.result).eq(resultIndex)
                 : $results
-                    .children().eq(resultIndex)
+                    .children(selector.result).eq(resultIndex)
             ;
             module.verbose('Injecting results metadata', $selectedResult);
             $selectedResult
@@ -12037,13 +12040,13 @@ $.fn.search = function(parameters) {
             module.debug('Injecting unique ids into results');
             var
               // since results may be object, we must use counters
-              categoryIndex = 1,
-              resultIndex   = 1
+              categoryIndex = 0,
+              resultIndex   = 0
             ;
             if(settings.type === 'category') {
               // iterate through each category result
-              resultIndex = 1;
               $.each(results, function(index, category) {
+                resultIndex = 0;
                 $.each(category.results, function(index, value) {
                   var
                     result = category.results[index]
@@ -13594,12 +13597,6 @@ $.fn.sidebar = function(parameters) {
 
           transitionEvent = module.get.transitionEvent();
 
-          // cache on initialize
-          if( ( settings.useLegacy == 'auto' && module.is.legacy() ) || settings.useLegacy === true) {
-            settings.transition = 'overlay';
-            settings.useLegacy = true;
-          }
-
           if(module.is.ios()) {
             module.set.ios();
           }
@@ -13879,11 +13876,6 @@ $.fn.sidebar = function(parameters) {
         },
 
         show: function(callback) {
-          var
-            animateMethod = (settings.useLegacy === true)
-              ? module.legacyPushPage
-              : module.pushPage
-          ;
           callback = $.isFunction(callback)
             ? callback
             : function(){}
@@ -13911,7 +13903,7 @@ $.fn.sidebar = function(parameters) {
                 settings.transition = 'overlay';
               }
             }
-            animateMethod(function() {
+            module.pushPage(function() {
               callback.call(element);
               settings.onShow.call(element);
             });
@@ -13924,11 +13916,6 @@ $.fn.sidebar = function(parameters) {
         },
 
         hide: function(callback) {
-          var
-            animateMethod = (settings.useLegacy === true)
-              ? module.legacyPullPage
-              : module.pullPage
-          ;
           callback = $.isFunction(callback)
             ? callback
             : function(){}
@@ -13936,7 +13923,7 @@ $.fn.sidebar = function(parameters) {
           if(module.is.visible() || module.is.animating()) {
             module.debug('Hiding sidebar', callback);
             module.refreshSidebars();
-            animateMethod(function() {
+            module.pullPage(function() {
               callback.call(element);
               settings.onHidden.call(element);
             });
@@ -13985,11 +13972,9 @@ $.fn.sidebar = function(parameters) {
         pushPage: function(callback) {
           var
             transition = module.get.transition(),
-            $transition = (transition == 'safe')
-              ? $context
-              : (transition === 'overlay' || module.othersActive())
-                ? $module
-                : $pusher,
+            $transition = (transition === 'overlay' || module.othersActive())
+              ? $module
+              : $pusher,
             animate,
             dim,
             transitionEnd
@@ -14031,11 +14016,9 @@ $.fn.sidebar = function(parameters) {
         pullPage: function(callback) {
           var
             transition = module.get.transition(),
-            $transition = (transition == 'safe')
-              ? $context
-              : (transition == 'overlay' || module.othersActive())
-                ? $module
-                : $pusher,
+            $transition = (transition == 'overlay' || module.othersActive())
+              ? $module
+              : $pusher,
             animate,
             transitionEnd
           ;
@@ -14071,62 +14054,6 @@ $.fn.sidebar = function(parameters) {
           $transition.off(transitionEvent + elementNamespace);
           $transition.on(transitionEvent + elementNamespace, transitionEnd);
           requestAnimationFrame(animate);
-        },
-
-        legacyPushPage: function(callback) {
-          var
-            distance   = $module.width(),
-            direction  = module.get.direction(),
-            properties = {}
-          ;
-          distance  = distance || $module.width();
-          callback  = $.isFunction(callback)
-            ? callback
-            : function(){}
-          ;
-          properties[direction] = distance;
-          module.debug('Using javascript to push context', properties);
-          module.set.visible();
-          module.set.transition();
-          module.set.animating();
-          if(settings.dimPage) {
-            $pusher.addClass(className.dimmed);
-          }
-          $context
-            .css('position', 'relative')
-            .animate(properties, settings.duration, settings.easing, function() {
-              module.remove.animating();
-              module.bind.clickaway();
-              callback.call(element);
-            })
-          ;
-        },
-        legacyPullPage: function(callback) {
-          var
-            distance   = 0,
-            direction  = module.get.direction(),
-            properties = {}
-          ;
-          distance  = distance || $module.width();
-          callback  = $.isFunction(callback)
-            ? callback
-            : function(){}
-          ;
-          properties[direction] = '0px';
-          module.debug('Using javascript to pull context', properties);
-          module.unbind.clickaway();
-          module.set.animating();
-          module.remove.visible();
-          if(settings.dimPage && !module.othersActive()) {
-            $pusher.removeClass(className.dimmed);
-          }
-          $context
-            .css('position', 'relative')
-            .animate(properties, settings.duration, settings.easing, function() {
-              module.remove.animating();
-              callback.call(element);
-            })
-          ;
         },
 
         scrollToTop: function() {
@@ -14293,30 +14220,6 @@ $.fn.sidebar = function(parameters) {
             return (isIE11 || isIE);
           },
 
-          legacy: function() {
-            var
-              element    = document.createElement('div'),
-              transforms = {
-                'webkitTransform' :'-webkit-transform',
-                'OTransform'      :'-o-transform',
-                'msTransform'     :'-ms-transform',
-                'MozTransform'    :'-moz-transform',
-                'transform'       :'transform'
-              },
-              has3D
-            ;
-
-            // Add it to the body to get the computed style.
-            document.body.insertBefore(element, null);
-            for (var transform in transforms) {
-              if (element.style[transform] !== undefined) {
-                element.style[transform] = "translate3d(1px,1px,1px)";
-                has3D = window.getComputedStyle(element).getPropertyValue(transforms[transform]);
-              }
-            }
-            document.body.removeChild(element);
-            return !(has3D !== undefined && has3D.length > 0 && has3D !== 'none');
-          },
           ios: function() {
             var
               userAgent      = navigator.userAgent,
@@ -14584,9 +14487,7 @@ $.fn.sidebar.settings = {
   returnScroll      : false,
   delaySetup        : false,
 
-  useLegacy         : false,
   duration          : 500,
-  easing            : 'easeInOutQuint',
 
   onChange          : function(){},
   onShow            : function(){},
@@ -14631,14 +14532,6 @@ $.fn.sidebar.settings = {
   }
 
 };
-
-// Adds easing
-$.extend( $.easing, {
-  easeInOutQuint: function (x, t, b, c, d) {
-    if ((t/=d/2) < 1) return c/2*t*t*t*t*t + b;
-    return c/2*((t-=2)*t*t*t*t + 2) + b;
-  }
-});
 
 
 })( jQuery, window , document );
@@ -17689,7 +17582,7 @@ $.api = $.fn.api = function(parameters) {
 
           // get url
           url = module.get.templatedURL();
-          if(!url) {
+          if(!url && !module.is.mocked()) {
             module.error(error.missingURL);
             return;
           }
@@ -17698,7 +17591,7 @@ $.api = $.fn.api = function(parameters) {
           url = module.add.urlData( url );
 
           // missing url parameters
-          if( !url ) {
+          if( !url && !module.is.mocked()) {
             return;
           }
 
@@ -18181,7 +18074,7 @@ $.api = $.fn.api = function(parameters) {
             }
             if(action) {
               module.debug('Looking up url for action', action, settings.api);
-              if(!module.is.mocked() && settings.api[action] === undefined) {
+              if(settings.api[action] === undefined && !module.is.mocked()) {
                 module.error(error.missingAction, settings.action, settings.api);
                 return;
               }

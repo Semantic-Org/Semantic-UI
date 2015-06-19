@@ -37,7 +37,7 @@
   background: #ffffff;
   padding: 0em;
   border: none;
-  border-radius: 0.285714rem;
+  border-radius: 0.28571429rem;
   box-shadow: 0px 1px 3px 0px #d4d4d5, 0px 0px 0px 1px #d4d4d5;
   -webkit-transition: box-shadow 0.1s ease, -webkit-transform 0.1s ease;
           transition: box-shadow 0.1s ease, transform 0.1s ease;
@@ -102,16 +102,16 @@
 
 .ui.cards > .card > :first-child,
 .ui.card > :first-child {
-  border-radius: 0.285714rem 0.285714rem 0em 0em !important;
+  border-radius: 0.28571429rem 0.28571429rem 0em 0em !important;
   border-top: none !important;
 }
 .ui.cards > .card > :last-child,
 .ui.card > :last-child {
-  border-radius: 0em 0em 0.285714rem 0.285714rem !important;
+  border-radius: 0em 0em 0.28571429rem 0.28571429rem !important;
 }
 .ui.cards > .card > :only-child,
 .ui.card > :only-child {
-  border-radius: 0.285714rem !important;
+  border-radius: 0.28571429rem !important;
 }
 
 /*--------------

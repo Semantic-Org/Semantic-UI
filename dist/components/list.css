@@ -49,7 +49,7 @@ ol.ui.list li,
   table-layout: fixed;
   list-style-type: none;
   list-style-position: outside;
-  padding: 0.285714em 0em;
+  padding: 0.28571429em 0em;
   line-height: 1.14285714em;
 }
 ul.ui.list > li:first-child:after,
@@ -90,7 +90,7 @@ ol.ui.list ol,
   display: table-cell;
   margin: 0em;
   padding-top: 0.07142857em;
-  padding-right: 0.285714em;
+  padding-right: 0.28571429em;
   vertical-align: top;
   -webkit-transition: color 0.1s ease;
           transition: color 0.1s ease;
@@ -210,7 +210,7 @@ ol.ui.list ol,
   background-color: transparent;
   list-style-type: none;
   list-style-position: outside;
-  padding: 0.285714em 0em;
+  padding: 0.28571429em 0em;
   line-height: 1.14285714em;
 }
 .ui.menu .ui.list .list > .item:before,
@@ -266,8 +266,8 @@ ol.ui.list ol,
 /* Padding on all elements */
 .ui.horizontal.list > .item:first-child,
 .ui.horizontal.list > .item:last-child {
-  padding-top: 0.285714em;
-  padding-bottom: 0.285714em;
+  padding-top: 0.28571429em;
+  padding-bottom: 0.28571429em;
 }
 
 /* Horizontal List */
@@ -675,7 +675,7 @@ ol.ui.horizontal.list li:before,
 .ui.divided.ordered.list .item .list {
   margin-left: 0em;
   margin-right: 0em;
-  padding-bottom: 0.285714em;
+  padding-bottom: 0.28571429em;
 }
 .ui.divided.ordered.list .item .list > .item {
   padding-left: 1em;
@@ -728,8 +728,8 @@ ol.ui.horizontal.list li:before,
 /* Padding on all elements */
 .ui.celled.list > .item:first-child,
 .ui.celled.list > .item:last-child {
-  padding-top: 0.285714em;
-  padding-bottom: 0.285714em;
+  padding-top: 0.28571429em;
+  padding-bottom: 0.28571429em;
 }
 
 /* Sub Menu */
@@ -751,7 +751,7 @@ ol.ui.horizontal.list li:before,
 .ui.celled.bulleted.list .item .list {
   margin-left: -1rem;
   margin-right: -1rem;
-  padding-bottom: 0.285714em;
+  padding-bottom: 0.28571429em;
 }
 
 /* Celled Ordered */
@@ -765,7 +765,7 @@ ol.ui.horizontal.list li:before,
 .ui.celled.ordered.list .item .list {
   margin-left: 0em;
   margin-right: 0em;
-  padding-bottom: 0.285714em;
+  padding-bottom: 0.28571429em;
 }
 .ui.celled.ordered.list .list > .item {
   padding-left: 1em;
@@ -805,8 +805,8 @@ ol.ui.horizontal.list li:before,
 --------------------*/
 
 .ui.relaxed.list:not(.horizontal) > .item {
-  padding-top: 0.571428em;
-  padding-bottom: 0.571428em;
+  padding-top: 0.57142857em;
+  padding-bottom: 0.57142857em;
 }
 .ui.horizontal.relaxed.list > .item {
   padding-left: 1rem;
@@ -815,8 +815,8 @@ ol.ui.horizontal.list li:before,
 
 /* Very Relaxed */
 .ui[class*="very relaxed"].list:not(.horizontal) > .item {
-  padding-top: 1.142856em;
-  padding-bottom: 1.142856em;
+  padding-top: 1.14285714em;
+  padding-bottom: 1.14285714em;
 }
 .ui.horizontal[class*="very relaxed"].list .list > .item,
 .ui.horizontal[class*="very relaxed"].list > .item {

@@ -42,7 +42,7 @@
       -ms-flex-direction: row;
           flex-direction: row;
   width: 100%;
-  padding: 0.214285rem 0em;
+  padding: 0.21428571rem 0em;
   margin: 0em;
   background: none;
   border-top: none;
@@ -85,7 +85,7 @@
   border-radius: 500rem;
 }
 .ui.feed > .event > .label + .content {
-  margin: 0.5em 0em 0.35714em 1.14285714em;
+  margin: 0.5em 0em 0.35714286em 1.14285714em;
 }
 
 /*--------------

@@ -20,7 +20,7 @@
   box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
   margin: 1rem 0em;
   padding: 1em 1em;
-  border-radius: 0.285714rem;
+  border-radius: 0.28571429rem;
   border: 1px solid rgba(34, 36, 38, 0.15);
 }
 .ui.segment:first-child {
@@ -43,20 +43,6 @@
 }
 .ui.vertical.segment:last-child {
   border-bottom: none;
-}
-
-/* Horizontal */
-.ui.horizontal.segment,
-.ui.horizontal.segments > .segment {
-  margin: 0em;
-  padding-top: 0em;
-  padding-bottom: 0em;
-  min-width: 0px;
-  background-color: transparent;
-  border-radius: 0px;
-  border: none;
-  box-shadow: none;
-  border-right: 1px solid rgba(34, 36, 38, 0.15);
 }
 
 /*-------------------
@@ -94,8 +80,8 @@
   padding-bottom: 2em;
 }
 .ui.grid.segment {
-  margin: 1rem 0rem;
-  border-radius: 0.285714rem;
+  margin: 1rem 0em;
+  border-radius: 0.28571429rem;
 }
 
 /* Table */
@@ -225,7 +211,7 @@
 --------------------*/
 
 .ui.padded.segment {
-  padding: 2em;
+  padding: 1.5em;
 }
 .ui[class*="very padded"].segment {
   padding: 3em;
@@ -265,10 +251,14 @@
             Groups
 *******************************/
 
+
+/* Group */
 .ui.segments {
   position: relative;
   margin: 1rem 0em;
+  border: 1px solid rgba(34, 36, 38, 0.15);
   box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
+  border-radius: 0.28571429rem;
 }
 .ui.segments:first-child {
   margin-top: 0em;
@@ -276,18 +266,47 @@
 .ui.segments:last-child {
   margin-bottom: 0em;
 }
+
+/* Nested Segment */
 .ui.segments > .segment {
   top: 0px;
   bottom: 0px;
-  margin: 0em -1px;
-  width: calc(100% +  2px );
-  max-width: calc(100% +  2px );
   border-radius: 0px;
+  margin: 0em;
+  width: auto;
   box-shadow: none;
-  border: 1px solid #d4d4d5;
+  border: none;
+  border-top: 1px solid rgba(34, 36, 38, 0.15);
 }
-.ui.segments > .segment:not(:last-child) {
-  border-bottom: none;
+.ui.segments:not(.horizontal) > .segment:first-child {
+  border-top: none;
+  margin-top: 0em;
+  bottom: 0px;
+  margin-bottom: 0em;
+  top: 0px;
+  border-radius: 0.28571429rem 0.28571429rem 0em 0em;
+}
+
+/* Bottom */
+.ui.segments:not(.horizontal) > .segment:last-child {
+  top: 0px;
+  bottom: 0px;
+  margin-top: 0em;
+  margin-bottom: 0em;
+  box-shadow: none, 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
+  border-radius: 0em 0em 0.28571429rem 0.28571429rem;
+}
+
+/* Nested Group */
+.ui.segments > .ui.segments {
+  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  margin: 1rem 1rem;
+}
+.ui.segments > .segments:first-child {
+  border-top: none;
+}
+.ui.segments > .segment + .segments:not(.horizontal) {
+  margin-top: 0em;
 }
 
 /* Horizontal Group */
@@ -301,38 +320,42 @@
   -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
+  background-color: transparent;
+  border-radius: 0px;
+  padding: 0em;
   background-color: #ffffff;
   box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
   margin: 1rem 0em;
-  padding: 1em 1em;
-  border-radius: 0.285714rem;
+  border-radius: 0.28571429rem;
   border: 1px solid rgba(34, 36, 38, 0.15);
 }
+
+/* Nested Horizontal Group */
+.ui.segments > .horizontal.segments {
+  margin: 0em;
+  background-color: transparent;
+  border-radius: 0px;
+  border: none;
+  box-shadow: none;
+  border-top: 1px solid rgba(34, 36, 38, 0.15);
+}
+
+/* Horizontal Segment */
+.ui.horizontal.segments > .segment {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  margin: 0em;
+  min-width: 0px;
+  background-color: transparent;
+  border-radius: 0px;
+  border: none;
+  box-shadow: none;
+  border-left: 1px solid rgba(34, 36, 38, 0.15);
+}
 .ui.horizontal.segments > .segment:first-child {
-  padding-left: 0px;
-}
-.ui.horizontal.segments > .segment:last-child {
-  padding-right: 0px;
-  border-right: none;
-}
-
-/* Top */
-.ui.segments > .segment:first-child {
-  margin-top: 0em;
-  bottom: 0px;
-  margin-bottom: 0em;
-  top: 0px;
-  border-radius: 0.285714rem 0.285714rem 0em 0em;
-}
-
-/* Bottom */
-.ui.segments > .segment:last-child {
-  bottom: 0px;
-  margin-top: 0em;
-  margin-bottom: 0em;
-  top: 0px;
-  box-shadow: none, 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
-  border-radius: 0em 0em 0.285714rem 0.285714rem;
+  border-left: none;
 }
 
 
@@ -371,7 +394,7 @@
   background: rgba(255, 255, 255, 0.8);
   width: 100%;
   height: 100%;
-  border-radius: 0.285714rem;
+  border-radius: 0.28571429rem;
   z-index: 100;
 }
 .ui.loading.segment:after {
@@ -587,11 +610,11 @@
 .ui.floated.segment,
 .ui[class*="left floated"].segment {
   float: left;
-  margin-right: 1rem;
+  margin-right: 1em;
 }
 .ui[class*="right floated"].segment {
   float: right;
-  margin-left: 1rem;
+  margin-left: 1em;
 }
 
 /*-------------------
@@ -619,21 +642,25 @@
 }
 
 /*-------------------
-     Ordinality
+     Emphasis
 --------------------*/
 
+
+/* Secondary */
 .ui.secondary.segment {
   background: #f3f4f5;
-  color: rgba(0, 0, 0, 0.6);
-}
-.ui.tertiary.segment {
-  background: #dcddde;
   color: rgba(0, 0, 0, 0.6);
 }
 .ui.secondary.inverted.segment {
   background: #4c4f52 -webkit-linear-gradient(rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%);
   background: #4c4f52 linear-gradient(rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%);
   color: rgba(255, 255, 255, 0.8);
+}
+
+/* Tertiary */
+.ui.tertiary.segment {
+  background: #dcddde;
+  color: rgba(0, 0, 0, 0.6);
 }
 .ui.tertiary.inverted.segment {
   background: #717579 -webkit-linear-gradient(rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.35) 100%);
@@ -663,9 +690,9 @@
 .ui[class*="top attached"].segment {
   top: 0px;
   bottom: 0px;
-  margin-top: 1rem;
+  margin-top: 1rem 0em;
   margin-bottom: 0em;
-  border-radius: 0.285714rem 0.285714rem 0em 0em;
+  border-radius: 0.28571429rem 0.28571429rem 0em 0em;
 }
 .ui.segment[class*="top attached"]:first-child {
   margin-top: 0em;
@@ -676,9 +703,9 @@
   top: 0px;
   bottom: 0px;
   margin-top: 0em;
-  margin-bottom: 1rem;
+  margin-bottom: 1rem 0em;
   box-shadow: none, 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
-  border-radius: 0em 0em 0.285714rem 0.285714rem;
+  border-radius: 0em 0em 0.28571429rem 0.28571429rem;
 }
 .ui.segment[class*="bottom attached"]:last-child {
   margin-bottom: 0em;

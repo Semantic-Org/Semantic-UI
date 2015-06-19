@@ -1575,7 +1575,6 @@ $.fn.dropdown = function(parameters) {
               $userItems   = module.create.userChoice(value),
               hasUserItems = ($userItems && $userItems.length > 0)
             ;
-            console.log(hasUserItems, value, $module);
             if(hasUserItems) {
               $items = ($items.length > 0)
                 ? $items.add($userItems)
@@ -2120,7 +2119,6 @@ $.fn.dropdown = function(parameters) {
                     }
                     if(settings.useLabels) {
                       module.add.value(selectedValue, selectedText, $selected);
-                      console.log(selectedValue);
                       module.add.label(selectedValue, selectedText, shouldAnimate);
                       $selected.addClass(className.active);
                       module.filterActive();

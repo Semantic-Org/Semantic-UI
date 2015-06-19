@@ -108,6 +108,7 @@ a {
 }
 a:hover {
   color: #2c76bf;
+  text-decoration: none;
 }
 
 

@@ -27,7 +27,7 @@
   -webkit-transform-origin: 50% 25%;
       -ms-transform-origin: 50% 25%;
           transform-origin: 50% 25%;
-  border-radius: 0.285714rem;
+  border-radius: 0.28571429rem;
   -webkit-user-select: text;
      -moz-user-select: text;
       -ms-user-select: text;
@@ -36,12 +36,12 @@
 }
 .ui.modal > :first-child:not(.icon),
 .ui.modal > .icon:first-child + * {
-  border-top-left-radius: 0.285714rem;
-  border-top-right-radius: 0.285714rem;
+  border-top-left-radius: 0.28571429rem;
+  border-top-right-radius: 0.28571429rem;
 }
 .ui.modal > :last-child {
-  border-bottom-left-radius: 0.285714rem;
-  border-bottom-right-radius: 0.285714rem;
+  border-bottom-left-radius: 0.28571429rem;
+  border-bottom-right-radius: 0.28571429rem;
 }
 
 
