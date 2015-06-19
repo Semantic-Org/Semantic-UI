@@ -120,33 +120,67 @@ $.fn.video = function(parameters) {
             module.debug('Binding video module events');
             // from video to UI
             $video
-              .on('play' + eventNamespace + ' playing' + eventNamespace + ' pause' + eventNamespace + ' ended' + eventNamespace, module.update.playState)
-              .on('ratechange' + eventNamespace, module.update.rate)
-              .on('timeupdate' + eventNamespace, module.update.time) // TODO limit throttle
-              .on('seeking' + eventNamespace, module.update.seeking)
-              .on('seeked' + eventNamespace, module.update.seeked)
-              .on('volumechange' + eventNamespace, module.update.volume)
-              .on('canplaythrough' + eventNamespace + ' canplay' + eventNamespace + ' loadeddata' + eventNamespace + ' emptied' + eventNamespace + ' waiting'+ eventNamespace, module.update.readyState)
-              .on('error' + eventNamespace + ' loadstart' + eventNamespace + ' emptied' + eventNamespace + ' stalled' + eventNamespace + ' suspend' + eventNamespace + ' waiting' + eventNamespace + ' loadedmetadata' + eventNamespace + ' loadeddata' + eventNamespace, module.update.networkState)
+              .on('play'            + eventNamespace + 
+                  ' playing'        + eventNamespace + 
+                  ' pause'          + eventNamespace +
+                  ' ended'          + eventNamespace, module.update.playState)
+              .on('canplaythrough'  + eventNamespace +
+                  ' canplay'        + eventNamespace +
+                  ' loadeddata'     + eventNamespace +
+                  ' emptied'        + eventNamespace +
+                  ' waiting'        + eventNamespace, module.update.readyState)
+              .on('error'           + eventNamespace +
+                  ' loadstart'      + eventNamespace +
+                  ' loadedmetadata' + eventNamespace + 
+                  ' loadeddata'     + eventNamespace +
+                  ' stalled'        + eventNamespace + 
+                  ' suspend'        + eventNamespace + 
+                  ' emptied'        + eventNamespace + 
+                  ' waiting'        + eventNamespace, module.update.networkState)
+              .on('ratechange'      + eventNamespace, module.update.rate)
+              .on('timeupdate'      + eventNamespace, module.update.time)
+              .on('seeking'         + eventNamespace, module.update.seeking)
+              .on('seeked'          + eventNamespace, module.update.seeked)
+              .on('volumechange'    + eventNamespace, module.update.volume)
             ;
             
             // from UI to video
-            $playButton.on('click' + eventNamespace, module.request.playToggle);
-            $seekButton.on('click' + eventNamespace, module.request.seek.toRelativeTime);
-            $timeRange
-              .on('mousedown' + eventNamespace, module.activate.timeLookup)
-              .on('mouseup' + eventNamespace, module.deactivate.timeLookup)
-              .on('input' + eventNamespace, module.update.timeLookup)
-              .on('change' + eventNamespace, module.request.seek.fromRangeValue)
+            $playButton
+              .on('click'           + eventNamespace, module.request.playToggle)
             ;
-            $volumeChangeButton.on('click' + eventNamespace, module.request.volume.shift);
-            $volumeProgress.on('click' + eventNamespace, module.request.unmute);
-            $muteButton.on('click' + eventNamespace, module.request.muteToggle);
-            $rateInput.on('change' + eventNamespace, module.request.rate);
-            $rateReset.on('click' + eventNamespace, module.reset.rate);
-            $readyStateRadio.on('click' + eventNamespace, module.request.denied);
-            $networkStateRadio.on('click' + eventNamespace, module.request.denied);
-            $statesLabel.on('click' + eventNamespace, module.request.denied);
+            $seekButton
+              .on('click'           + eventNamespace, module.request.seek.toRelativeTime)
+            ;
+            $timeRange
+              .on('mousedown'       + eventNamespace, module.activate.timeLookup)
+              .on('mouseup'         + eventNamespace, module.deactivate.timeLookup)
+              .on('input'           + eventNamespace, module.update.timeLookup)
+              .on('change'          + eventNamespace, module.request.seek.fromRangeValue)
+            ;
+            $volumeChangeButton
+              .on('click'           + eventNamespace, module.request.volume.shift)
+            ;
+            $volumeProgress
+              .on('click'           + eventNamespace, module.request.unmute)
+            ;
+            $muteButton
+              .on('click'           + eventNamespace, module.request.muteToggle)
+            ;
+            $rateInput
+              .on('change'          + eventNamespace, module.request.rate)
+            ;
+            $rateReset
+              .on('click'           + eventNamespace, module.reset.rate)
+            ;
+            $readyStateRadio
+              .on('click'           + eventNamespace, module.request.denied)
+            ;
+            $networkStateRadio
+              .on('click'           + eventNamespace, module.request.denied)
+            ;
+            $statesLabel
+              .on('click'           + eventNamespace, module.request.denied)
+            ;
           }
         },
         
@@ -210,7 +244,7 @@ $.fn.video = function(parameters) {
           networkState: function() {
             // use module related constants
             var state;
-            switch($module.prop('neworkState')) {
+            switch($module.prop('networkState')) {
               default:
               case $module.prop('NETWORK_EMPTY'): 
                 state = settings.constants.NETWORK_EMPTY; 
@@ -456,8 +490,8 @@ $.fn.video = function(parameters) {
          
         activate: {
           holdPlayState: function() {
-            module.debug('Hold play state (while an other operation is occuring)');
             seekLoopInitialPlayState = module.is.playing();
+            module.debug('Hold play state', seekLoopInitialPlayState);
             module.request.pause();
           },
           timeLookup: function() {
@@ -469,7 +503,7 @@ $.fn.video = function(parameters) {
         
         deactivate: {
           holdPlayState: function() {
-            module.debug('Unhold play state (after an other operation has occured)');
+            module.debug('Unhold play state', seekLoopInitialPlayState);
             if(seekLoopInitialPlayState) {
               module.request.play();
             }
