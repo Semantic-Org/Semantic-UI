@@ -70,7 +70,6 @@ $.fn.video = function(parameters) {
         $networkStateRadio          = $module.find(settings.selector.networkStateRadio),
         $statesLabel                = $module.find(settings.selector.statesLabel),
         $timeLookupBuffer           = $module.find(settings.selector.timeLookupBuffer),
-        $timeLookupSeekable         = $module.find(settings.selector.timeLookupSeekable),
         $timeLookupPlayed           = $module.find(settings.selector.timeLookupPlayed),
         $seekingStateCheckbox       = $module.find(settings.selector.seekingStateCheckbox),
         $seekingStateDimmer         = $module.find(settings.selector.seekingStateDimmer),
@@ -79,7 +78,7 @@ $.fn.video = function(parameters) {
         timeRangeUpdateEnabled      = true,
         timeRangeInterval           = $timeRange.prop('max') - $timeRange.prop('min'),
         
-        seekLoopInitialPlayState    = undefined, // it actually means undefined, see seek.tickLoop and seek.stopLoop functions,
+        seekLoopInitialPlayState    = undefined, // it actually means undefined, see activate.holdPlayState and deactivate.holdPlayState functions,
         seekedTimer                 = window.setTimeout(1, function(){} ), // subsequent calls to window.clearTimeout won't break
 
         element                     = this,
@@ -186,7 +185,11 @@ $.fn.video = function(parameters) {
         
         initialValues: function() {
           module.update.playState();
+          module.update.time();
           module.update.volume();
+          module.update.rate();
+          module.update.readyState();
+          module.update.networkState();
         },
         
         // the functions in the both 'get' and 'is' range will query the elements and return the current value
@@ -223,7 +226,8 @@ $.fn.video = function(parameters) {
             // use module related constants
             var state;
             switch($video.prop('readyState')) {
-              default: case $module.prop('HAVE_NOTHING'): 
+              default:
+              case $module.prop('HAVE_NOTHING'): 
                 state = settings.constants.HAVE_NOTHING;
                 break;
               case $video.prop('HAVE_METADATA'):
@@ -340,13 +344,13 @@ $.fn.video = function(parameters) {
             $seekingStateDimmer.dimmer('show');
           },
           seeked: function(event) {
-            // a seeking loop makes "seeking" and "seeked" events to fire alternatively, add a delay to prevent the elements to blink
+            // a seeking loop makes "seeking" and "seeked" events to fire alternatively, add a delay to prevent the sate to blink
             if(event !== undefined) {
               // an native undelayed event has occured 
               seekedTimer = window.setTimeout(module.update.seeked, settings.seekedDelay);
             }
             else {
-              // it has been delayed and now is handled through the UI
+              // a delayed call has occured
               module.debug('Update seeking state', false);
               $seekingStateCheckbox.prop('checked', false);
               $seekingStateDimmer.dimmer('hide');
@@ -389,7 +393,6 @@ $.fn.video = function(parameters) {
             var time = module.get.timeRangeValue();
             module.debug('Update timelookup state', time);
             $timeLookupBuffer.prop('checked', module.is.timeBuffered(time));
-            $timeLookupSeekable.prop('checked', module.is.timeSeekable(time));
             $timeLookupPlayed.prop('checked', module.is.timePlayed(time));
             $timeLookupValue.text(module.get.readableTime(time));
           }
@@ -406,7 +409,6 @@ $.fn.video = function(parameters) {
             video.pause();
           },
           playToggle: function() {
-            module.debug('Request play toggle');
             if(module.is.playing()) {
               video.pause();
             }
@@ -414,33 +416,39 @@ $.fn.video = function(parameters) {
               video.play();
             }
           },
-          rate: function() {
+          rate: function(value) {
             // see https://developer.mozilla.org/fr/docs/Web/API/HTMLMediaElement#playbackRate
             // seems to have a upper limit with some browsers : 
             // - 5 with FF 37.0.2
             // negative value seems to not be handled by some browsers :
             // - NS_ERROR_NOT_IMPLEMENTED with FF 37.0.2, 
             // - no visible effect with Chrome 42.0.2311.135
-            // TODO: add a ln/exp step behavior to the input[type=number] step attribtute
-            module.debug('Request playback rate (from button data)');
-            video.playbackRate = parseFloat( $(this).val() );
+            if(typeof value != 'number') {
+              value = parseFloat( $(this).val() );
+            }
+            module.debug('Request playback rate', value);
+            video.playbackRate = value;
           },
           seek: {
             toAbsoluteTime: function(time) {
-              module.debug('Request time seek to', time);
-              // use fastSeek if implemented
-              if(video.fastSeek) {
-                video.fastSeek(time);
+              if(module.is.timeSeekable(time)) {
+                module.debug('Request seek', time);
+                if(video.fastSeek) {
+                  // use fastSeek if implemented
+                  video.fastSeek(time);
+                }
+                else {
+                  video.currentTime = time;
+                }
               }
               else {
-                video.currentTime = time;
+                module.debug('Time out of seekable ranges', time);
               }
             },
             toRelativeTime: function(shift) {
               if(typeof shift != 'number') {
                 shift = parseFloat($(this).data(settings.matadata.seekStep));
               }
-              module.debug('Request time seek with relative shift', shift);
               var position = module.get.currentTime() + shift;
               module.request.seek.toAbsoluteTime(position);
             },
@@ -459,14 +467,7 @@ $.fn.video = function(parameters) {
               if(typeof shift != 'number') {
                 shift = parseFloat($(this).data(settings.matadata.volumeStep));
               }
-              if(video.muted) {
-                module.request.unmute();
-              } 
-              else {
-                module.debug('Request volume shift', shift);
-                var volume = video.volume + shift;
-                module.request.volume.value(volume);
-              }
+              module.request.volume.value(module.get.volume() + shift);
             }
           },
           mute: function() {
@@ -478,11 +479,14 @@ $.fn.video = function(parameters) {
             video.muted = false;
           },
           muteToggle: function() {
-            module.debug('Request mute toggle');
-            video.muted = !video.muted;
+            if(module.is.muted()) {
+              module.request.unmute();
+            }
+            else {
+              module.request.mute();
+            }
           },
           denied: function(event) {
-            module.debug('Request denied');
             event.preventDefault();
             $(this).blur();
           }
@@ -495,7 +499,6 @@ $.fn.video = function(parameters) {
             module.request.pause();
           },
           timeLookup: function() {
-            module.debug('Activate time lookup');
             settings.onTimeLookupStart();
             timeRangeUpdateEnabled = false;
           }
@@ -510,7 +513,6 @@ $.fn.video = function(parameters) {
             seekLoopInitialPlayState = undefined;
           },
           timeLookup: function() {
-            module.debug('Deactivate time lookup');
             settings.onTimeLookupStop();
             timeRangeUpdateEnabled = true;
           }
@@ -518,8 +520,9 @@ $.fn.video = function(parameters) {
         
         reset: {
           rate: function() {
-            module.debug('Reset playBack rate');
-            video.playbackRate = video.defaultPlaybackRate;
+            var defaultRate = video.defaultPlaybackRate;
+            module.debug('Reset playBack rate', defaultRate);
+            video.playbackRate = defaultRate;
           },
           all: function() {
             // TODO: check modules integration
@@ -764,10 +767,9 @@ $.fn.video.settings = {
     networkStateRadio:      '.network.state input[type="radio"]',         // |
     timeLookupValue:        '.timelookup .time',
     timeLookupBuffer:       '.timelookup .buffer.checkbox input[type="checkbox"]',
-    timeLookupSeekable:     '.timelookup .seekable.checkbox input[type="checkbox"]',
     timeLookupPlayed:       '.timelookup .played.checkbox input[type="checkbox"]',
     
-    statesLabel:            '.ready.state label, .network.state label, .timelookup .buffer.checkbox label, .timelookup .seekable.checkbox label, .timelookup .played.checkbox label'
+    statesLabel:            '.ready.state label, .network.state label, .timelookup .buffer.checkbox label, .timelookup .played.checkbox label'
     
   },
   

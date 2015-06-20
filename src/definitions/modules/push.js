@@ -94,7 +94,6 @@ $.fn.push = function(parameters) {
         tickLoop: function() {
           // don't move on the first iteration (actual mousedown event)
           if(tickTimer !== null) {
-            module.debug('loop iterates');
             hadTicked = true;
             $module.click() // .trigger() seems not to be DOM related, but only jQuery internal (?)
           } else {
@@ -341,8 +340,8 @@ $.fn.push.settings = {
   name        : 'Push',
   namespace   : 'push',
 
-  debug       : true,
-  verbose     : true,
+  debug       : false,
+  verbose     : false,
   performance : false,
 
   className   : {
