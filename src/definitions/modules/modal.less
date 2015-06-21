@@ -92,11 +92,13 @@
   padding: @headerPadding;
   box-shadow: @headerBoxShadow;
 
+  color: @headerColor;
+  border-bottom: @headerBorder;
+}
+.ui.modal > .header:not(.ui) {
   font-size: @headerFontSize;
   line-height: @headerLineHeight;
   font-weight: @headerFontWeight;
-  color: @headerColor;
-  border-bottom: @headerBorder;
 }
 
 /*--------------
@@ -408,7 +410,7 @@
 }
 
 /* Small */
-.ui.small.modal > .header {
+.ui.small.modal > .header:not(.ui) {
   font-size: @smallHeaderSize;
 }
 
