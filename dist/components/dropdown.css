@@ -402,6 +402,7 @@ select.ui.dropdown {
   width: auto;
   outline: none;
   margin: 0px -1px;
+  min-width: -webkit-calc(100% +  2px );
   min-width: calc(100% +  2px );
   border-radius: 0em 0em 0.28571429rem 0.28571429rem;
   box-shadow: 0px 2px 3px 0px rgba(34, 36, 38, 0.15);
@@ -424,6 +425,7 @@ select.ui.dropdown {
 /* Scrollbar in IE */
 @media all and (-ms-high-contrast: none) {
   .ui.selection.dropdown .menu {
+    min-width: -webkit-calc(100% -  17px );
     min-width: calc(100% -  17px );
   }
 }
@@ -871,7 +873,7 @@ select.ui.dropdown {
 .ui.dropdown.error,
 .ui.dropdown.error > .text,
 .ui.dropdown.error > .default.text {
-  color: #922d2b;
+  color: #9f3a38;
 }
 .ui.selection.dropdown.error {
   background: #fff6f6;
@@ -885,7 +887,7 @@ select.ui.dropdown {
   border-color: #e0b4b4;
 }
 .ui.dropdown.error > .menu > .item {
-  color: #922d2b;
+  color: #9f3a38;
 }
 .ui.multiple.selection.error.dropdown > .label {
   border-color: #e0b4b4;
@@ -1053,6 +1055,7 @@ select.ui.dropdown {
 .ui.scrolling.dropdown .menu .item.item.item,
 .ui.dropdown .scrolling.menu > .item.item.item {
   border-top: none;
+  padding-right: -webkit-calc( 1.14285714rem  +  17px ) !important;
   padding-right: calc( 1.14285714rem  +  17px ) !important;
 }
 .ui.scrolling.dropdown .menu .item:first-child,
@@ -1068,6 +1071,7 @@ select.ui.dropdown {
 @media all and (-ms-high-contrast: none) {
   .ui.scrolling.dropdown .menu,
   .ui.dropdown .scrolling.menu {
+    min-width: -webkit-calc(100% -  17px );
     min-width: calc(100% -  17px );
   }
 }

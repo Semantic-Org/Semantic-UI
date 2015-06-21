@@ -291,7 +291,7 @@
 .ui.table tr.positive,
 .ui.table td.positive {
   background: #fcfff5 !important;
-  color: #1d571e !important;
+  color: #2c662d !important;
 }
 
 /*--------------
@@ -305,7 +305,7 @@
 .ui.table tr.negative,
 .ui.table td.negative {
   background: #fff6f6 !important;
-  color: #922d2b !important;
+  color: #9f3a38 !important;
 }
 
 /*--------------
@@ -319,7 +319,7 @@
 .ui.table tr.error,
 .ui.table td.error {
   background: #fff6f6 !important;
-  color: #922d2b !important;
+  color: #9f3a38 !important;
 }
 
 /*--------------
@@ -333,7 +333,7 @@
 .ui.table tr.warning,
 .ui.table td.warning {
   background: #fffaf3 !important;
-  color: #664917 !important;
+  color: #573a08 !important;
 }
 
 /*--------------
@@ -470,12 +470,12 @@
 .ui.selectable.table tr.error:hover,
 .ui.selectable.table tr:hover td.error {
   background: #ffe7e7 !important;
-  color: #862928 !important;
+  color: #943634 !important;
 }
 .ui.selectable.table tr.warning:hover,
 .ui.selectable.table tr:hover td.warning {
   background: #fff4e4 !important;
-  color: #5a4014 !important;
+  color: #493107 !important;
 }
 .ui.selectable.table tr.active:hover,
 .ui.selectable.table tr:hover td.active {
@@ -485,12 +485,12 @@
 .ui.selectable.table tr.positive:hover,
 .ui.selectable.table tr:hover td.positive {
   background: #f7ffe6 !important;
-  color: #194c1a !important;
+  color: #275b28 !important;
 }
 .ui.selectable.table tr.negative:hover,
 .ui.selectable.table tr:hover td.negative {
   background: #ffe7e7 !important;
-  color: #862928 !important;
+  color: #943634 !important;
 }
 
 /*--------------
@@ -500,6 +500,7 @@
 
 /* All */
 .ui.attached.table {
+  width: -webkit-calc(100% +  2px );
   width: calc(100% +  2px );
   margin: 0em -1px;
   border-radius: 0px;
