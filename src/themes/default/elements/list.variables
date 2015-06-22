@@ -47,6 +47,10 @@
 @itemLinkColor: @textColor;
 @itemLinkHoverColor: @linkHoverColor;
 
+/* Link Inside */
+@itemSubLinkColor: @linkColor;
+@itemSubLinkHoverColor: @linkHoverColor;
+
 /* Linked Icon */
 @itemLinkIconColor: @lightTextColor;
 @itemLinkIconHoverColor: @textColor;
@@ -145,8 +149,8 @@
 @animatedListIndent: 1em;
 
 /* Bulleted */
-@bulletDistance: 1rem;
-@bulletOffset: -1rem;
+@bulletDistance: 1.25rem;
+@bulletOffset: -@bulletDistance;
 
 @bulletOpacity: 1;
 @bulletCharacter: '•';
