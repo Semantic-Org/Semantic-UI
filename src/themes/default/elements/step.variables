@@ -68,10 +68,14 @@
 @activeArrowDisplay: block;
 @lastArrowDisplay: none;
 
+/* Mobile */
+@mobileIconDistance: @iconDistance;
+
 /*-------------------
        Types
 --------------------*/
 
+/* Vertical */
 @verticalDivider: @divider;
 @verticalArrowTopOffset: 50%;
 @verticalArrowRightOffset: 0%;
