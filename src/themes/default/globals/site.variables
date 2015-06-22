@@ -25,13 +25,10 @@
 --------------------*/
 
 /* This is the single variable that controls them all */
-@emValue  : 14;
-
-/* The size of all UI */
-@emSize   : unit(@emValue, px);
+@emSize   : 14px;
 
 /* The size of page text  */
-@fontSize : unit(@emValue, px);
+@fontSize : 14px;
 
 /*-------------------
     Border Radius
@@ -86,18 +83,18 @@
 --------------------*/
 
 /*
-  To have sizing resolve to a specified pixel values adjust
-  the numerator to the desired pixel size
+  This ensures all relative sizes are exact pixels
+  expressed in em
 */
 
-@miniSize        : (10 / @emValue);
-@tinySize        : (12 / @emValue);
-@smallSize       : (13 / @emValue);
-@mediumSize      : (14 / @emValue);
-@largeSize       : (16 / @emValue);
-@bigSize         : (18 / @emValue);
-@hugeSize        : (20 / @emValue);
-@massiveSize     : (24 / @emValue);
+@miniSize        : (10 / unit(@emSize));
+@tinySize        : (12 / unit(@emSize));
+@smallSize       : (13 / unit(@emSize));
+@mediumSize      : (14 / unit(@emSize));
+@largeSize       : (16 / unit(@emSize));
+@bigSize         : (18 / unit(@emSize));
+@hugeSize        : (20 / unit(@emSize));
+@massiveSize     : (24 / unit(@emSize));
 
 
 /*-------------------
@@ -298,28 +295,28 @@
 @positiveBackgroundColor : #FCFFF5;
 @positiveBorderColor     : #A3C293;
 @positiveHeaderColor     : #1A531B;
-@positiveTextColor       : #1D571E;
+@positiveTextColor       : #2C662D;
 
 /* Negative */
 @negativeColor           : @red;
 @negativeBackgroundColor : #FFF6F6;
 @negativeBorderColor     : #E0B4B4;
 @negativeHeaderColor     : #912D2B;
-@negativeTextColor       : #922D2B;
+@negativeTextColor       : #9F3A38;
 
 /* Info */
 @infoColor              : #31CCEC;
 @infoBackgroundColor    : #F8FFFF;
-@infoBorderColor        : #9ECAD3;
+@infoBorderColor        : #A9D5DE;
 @infoHeaderColor        : #0E566C;
-@infoTextColor          : #0E566D;
+@infoTextColor          : #276F86;
 
 /* Warning */
 @warningColor           : #F2C037;
 @warningBorderColor     : #C9BA9B;
 @warningBackgroundColor : #FFFAF3;
 @warningHeaderColor     : #794B02;
-@warningTextColor       : #664917;
+@warningTextColor       : #573A08;
 
 /*-------------------
         Paths
