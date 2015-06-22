@@ -208,9 +208,11 @@
 - **List** - `horizontal list` are now aligned `middle` by default, while vertical lists are aligned `top`.
 - **List** - Fixes numbers not appearing when using `inverted ordered list` **Thanks @pcj**
 - **List** - `a` elements inside a `ui list` will no longer apply styles on `ui` elements like `button` **Thanks @ahtinurme**
+- **List** - Fixed `divided bulleted list` child lists getting wrong indent
 - **List** - Bullets and numbers are no longer selectable in `bulleted list` and `ordered list`
 - **List** - Fixed `inverted bulleted list` bullet color
 - **List** - Fix first element touches border on `ui horizontal celled list`
+- **List** - Added many new variables for link stylings inside list, added separate variables and defaults for child-list spacing
 - **Loader** - Fix position of `inline centered loader` to be centered correctly
 - **Message** - Message now uses `@lineHeight` from `site.variables`
 - **Menu** - Fixed menus like `left fixed` `right fixed` are all now class order dependent.
