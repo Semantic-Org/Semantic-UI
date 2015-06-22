@@ -276,10 +276,23 @@
 /* Mobile (Default) */
 @media only screen and (max-width: 767px) {
   .ui.steps {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
     overflow: visible;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
   .ui.steps .step {
-    display: block;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
     border-radius: 0em;
     padding: 1.14285714em 2em;
   }
@@ -293,7 +306,18 @@
   
 /* Arrow */
   .ui.steps .step:after {
-    display: none;
+    display: none !important;
+  }
+  
+/* Content */
+  .ui.steps .step .content {
+    text-align: center;
+  }
+  
+/* Icon */
+  .ui.steps .step > .icon,
+  .ui.ordered.steps .step:before {
+    margin: 0em 0em 1rem 0em;
   }
 }
 
@@ -390,6 +414,10 @@
 /* Tablet Or Below */
 @media only screen and (max-width: 992px) {
   .ui[class*="tablet stackable"].steps {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
     overflow: visible;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -397,7 +425,14 @@
         -ms-flex-direction: column;
             flex-direction: column;
   }
+  
+/* Steps */
   .ui[class*="tablet stackable"].steps .step {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
     border-radius: 0em;
     padding: 1.14285714em 2em;
   }
@@ -411,7 +446,18 @@
   
 /* Arrow */
   .ui[class*="tablet stackable"].steps .step:after {
-    display: none;
+    display: none !important;
+  }
+  
+/* Content */
+  .ui[class*="tablet stackable"].steps .step .content {
+    text-align: center;
+  }
+  
+/* Icon */
+  .ui[class*="tablet stackable"].steps .step > .icon,
+  .ui[class*="tablet stackable"].ordered.steps .step:before {
+    margin: 0em 0em 1rem 0em;
   }
 }
 
@@ -436,10 +482,8 @@
 
 /* Top */
 .ui.attached.steps {
-  width: -webkit-calc(100% +  2px ) !important;
   width: calc(100% +  2px ) !important;
   margin: 0em -1px -1px;
-  max-width: -webkit-calc(100% +  2px );
   max-width: calc(100% +  2px );
   border-radius: 0.28571429rem 0.28571429rem 0em 0em;
 }

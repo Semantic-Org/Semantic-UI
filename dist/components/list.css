@@ -49,7 +49,7 @@ ol.ui.list li,
   table-layout: fixed;
   list-style-type: none;
   list-style-position: outside;
-  padding: 0.28571429em 0em;
+  padding: 0.21428571em 0em;
   line-height: 1.14285714em;
 }
 ul.ui.list > li:first-child:after,
@@ -82,6 +82,14 @@ ol.ui.list ol,
   clear: both;
   margin: 0em;
   padding: 0.75em 0em 0.25em 0.5em;
+}
+
+/* Child Item */
+ul.ui.list ul li,
+ol.ui.list ol li,
+.ui.list .list > .item {
+  padding: 0.14285714em 0em;
+  line-height: inherit;
 }
 
 /* Icon */
@@ -145,32 +153,6 @@ ol.ui.list ol,
   padding-left: 0em;
 }
 
-/* Item Link */
-.ui.list .list > a.item,
-.ui.list > a.item {
-  cursor: pointer;
-  color: rgba(0, 0, 0, 0.87);
-}
-.ui.list .list > a.item:hover,
-.ui.list > a.item:hover {
-  color: #2c76bf;
-}
-
-/* Linked Item Icons */
-.ui.list .list > a.item i.icon,
-.ui.list > a.item i.icon {
-  color: rgba(0, 0, 0, 0.4);
-}
-
-/* Linking Content */
-.ui.list .item a:not(.ui) {
-  cursor: pointer;
-  color: rgba(0, 0, 0, 0.87) !important;
-}
-.ui.list .item a:not(.ui):hover {
-  color: #2c76bf !important;
-}
-
 /* Header */
 .ui.list .list > .item .header,
 .ui.list > .item .header {
@@ -180,10 +162,46 @@ ol.ui.list ol,
   font-weight: bold;
   color: rgba(0, 0, 0, 0.87);
 }
+
+/* Description */
 .ui.list .list > .item .description,
 .ui.list > .item .description {
   display: block;
   color: rgba(0, 0, 0, 0.7);
+}
+
+/* Child Link */
+.ui.list > .item a,
+.ui.list .list > .item a {
+  cursor: pointer;
+}
+
+/* Linking Item */
+.ui.list .list > a.item,
+.ui.list > a.item {
+  cursor: pointer;
+  color: #4183c4;
+}
+.ui.list .list > a.item:hover,
+.ui.list > a.item:hover {
+  color: #195d9f;
+}
+
+/* Linked Item Icons */
+.ui.list .list > a.item i.icon,
+.ui.list > a.item i.icon {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+/* Header Link */
+.ui.list .list > .item a.header,
+.ui.list > .item a.header {
+  cursor: pointer;
+  color: #4183c4 !important;
+}
+.ui.list .list > .item a.header:hover,
+.ui.list > .item a.header:hover {
+  color: #195d9f !important;
 }
 
 /* Floated Content */
@@ -210,7 +228,7 @@ ol.ui.list ol,
   background-color: transparent;
   list-style-type: none;
   list-style-position: outside;
-  padding: 0.28571429em 0em;
+  padding: 0.21428571em 0em;
   line-height: 1.14285714em;
 }
 .ui.menu .ui.list .list > .item:before,
@@ -266,8 +284,8 @@ ol.ui.list ol,
 /* Padding on all elements */
 .ui.horizontal.list > .item:first-child,
 .ui.horizontal.list > .item:last-child {
-  padding-top: 0.28571429em;
-  padding-bottom: 0.28571429em;
+  padding-top: 0.21428571em;
+  padding-bottom: 0.21428571em;
 }
 
 /* Horizontal List */
@@ -341,16 +359,15 @@ ol.ui.list ol,
 }
 .ui.inverted.list .list > a.item:hover,
 .ui.inverted.list > a.item:hover {
-  color: #2c76bf;
+  color: #195d9f;
 }
 
 /* Linking Content */
 .ui.inverted.list .item a:not(.ui) {
-  cursor: pointer;
   color: rgba(255, 255, 255, 0.9) !important;
 }
 .ui.inverted.list .item a:not(.ui):hover {
-  color: #2c76bf !important;
+  color: #195d9f !important;
 }
 
 /*-------------------
@@ -514,7 +531,7 @@ ol.ui.list ol,
 
 ul.ui.list,
 .ui.bulleted.list {
-  margin-left: 1rem;
+  margin-left: 1.25rem;
 }
 ul.ui.list li,
 .ui.bulleted.list .list > .item,
@@ -532,7 +549,7 @@ ul.ui.list li:before,
   position: absolute;
   top: auto;
   left: auto;
-  margin-left: -1rem;
+  margin-left: -1.25rem;
   content: '•';
   opacity: 1;
   color: inherit;
@@ -540,7 +557,7 @@ ul.ui.list li:before,
 }
 ul.ui.list ul,
 .ui.bulleted.list .list {
-  padding-left: 1rem;
+  padding-left: 1.25rem;
 }
 
 /* Horizontal Bulleted */
@@ -550,7 +567,7 @@ ul.ui.horizontal.bulleted.list,
 }
 ul.ui.horizontal.bulleted.list li,
 .ui.horizontal.bulleted.list > .item {
-  margin-left: 1.5rem;
+  margin-left: 1.75rem;
 }
 ul.ui.horizontal.bulleted.list li:first-child,
 .ui.horizontal.bulleted.list > .item:first-child {
@@ -659,9 +676,8 @@ ol.ui.horizontal.list li:before,
   margin-left: 0em;
   padding-left: 0em;
 }
-.ui.divided.bulleted.list .list > .item:not(.horizontal),
 .ui.divided.bulleted.list > .item:not(.horizontal) {
-  padding-left: 1rem;
+  padding-left: 1.25rem;
 }
 
 /* Divided Ordered */
@@ -675,7 +691,7 @@ ol.ui.horizontal.list li:before,
 .ui.divided.ordered.list .item .list {
   margin-left: 0em;
   margin-right: 0em;
-  padding-bottom: 0.28571429em;
+  padding-bottom: 0.21428571em;
 }
 .ui.divided.ordered.list .item .list > .item {
   padding-left: 1em;
@@ -728,8 +744,8 @@ ol.ui.horizontal.list li:before,
 /* Padding on all elements */
 .ui.celled.list > .item:first-child,
 .ui.celled.list > .item:last-child {
-  padding-top: 0.28571429em;
-  padding-bottom: 0.28571429em;
+  padding-top: 0.21428571em;
+  padding-bottom: 0.21428571em;
 }
 
 /* Sub Menu */
@@ -746,12 +762,12 @@ ol.ui.horizontal.list li:before,
 }
 .ui.celled.bulleted.list .list > .item,
 .ui.celled.bulleted.list > .item {
-  padding-left: 1rem;
+  padding-left: 1.25rem;
 }
 .ui.celled.bulleted.list .item .list {
-  margin-left: -1rem;
-  margin-right: -1rem;
-  padding-bottom: 0.28571429em;
+  margin-left: -1.25rem;
+  margin-right: -1.25rem;
+  padding-bottom: 0.21428571em;
 }
 
 /* Celled Ordered */
@@ -765,7 +781,7 @@ ol.ui.horizontal.list li:before,
 .ui.celled.ordered.list .item .list {
   margin-left: 0em;
   margin-right: 0em;
-  padding-bottom: 0.28571429em;
+  padding-bottom: 0.21428571em;
 }
 .ui.celled.ordered.list .list > .item {
   padding-left: 1em;
@@ -805,8 +821,12 @@ ol.ui.horizontal.list li:before,
 --------------------*/
 
 .ui.relaxed.list:not(.horizontal) > .item {
-  padding-top: 0.57142857em;
-  padding-bottom: 0.57142857em;
+  padding-top: 0.42857143em;
+  padding-bottom: 0.42857143em;
+}
+.ui.relaxed.list:not(.horizontal) .list > .item {
+  padding-top: 0.21428571em;
+  padding-bottom: 0.21428571em;
 }
 .ui.horizontal.relaxed.list > .item {
   padding-left: 1rem;
@@ -815,8 +835,12 @@ ol.ui.horizontal.list li:before,
 
 /* Very Relaxed */
 .ui[class*="very relaxed"].list:not(.horizontal) > .item {
-  padding-top: 1.14285714em;
-  padding-bottom: 1.14285714em;
+  padding-top: 0.85714286em;
+  padding-bottom: 0.85714286em;
+}
+.ui[class*="very relaxed"].list:not(.horizontal) .list > .item {
+  padding-top: 0.28571429em;
+  padding-bottom: 0.28571429em;
 }
 .ui.horizontal[class*="very relaxed"].list .list > .item,
 .ui.horizontal[class*="very relaxed"].list > .item {
