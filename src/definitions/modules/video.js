@@ -180,6 +180,7 @@ $.fn.video = function(parameters) {
             $statesLabel
               .on('click'           + eventNamespace, module.request.denied)
             ;
+            $seekButton.add()
           }
         },
         
@@ -227,7 +228,7 @@ $.fn.video = function(parameters) {
             var state;
             switch($video.prop('readyState')) {
               default:
-              case $module.prop('HAVE_NOTHING'): 
+              case $video.prop('HAVE_NOTHING'): 
                 state = settings.constants.HAVE_NOTHING;
                 break;
               case $video.prop('HAVE_METADATA'):
@@ -248,9 +249,9 @@ $.fn.video = function(parameters) {
           networkState: function() {
             // use module related constants
             var state;
-            switch($module.prop('networkState')) {
+            switch($video.prop('networkState')) {
               default:
-              case $module.prop('NETWORK_EMPTY'): 
+              case $video.prop('NETWORK_EMPTY'): 
                 state = settings.constants.NETWORK_EMPTY; 
                 break;
               case $video.prop('NETWORK_IDLE'):
