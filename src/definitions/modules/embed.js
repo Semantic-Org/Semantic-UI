@@ -51,7 +51,7 @@ $.fn.embed = function(parameters) {
         $window         = $(window),
         $module         = $(this),
         $placeholder    = $module.find(selector.placeholder),
-        $play           = $module.find(selector.play),
+        $icon           = $module.find(selector.icon),
         $embed          = $module.find(selector.embed),
 
         element         = this,
@@ -89,7 +89,7 @@ $.fn.embed = function(parameters) {
         refresh: function() {
           module.verbose('Refreshing selector cache');
           $placeholder = $module.find(selector.placeholder);
-          $play        = $module.find(selector.play);
+          $icon        = $module.find(selector.icon);
           $embed       = $module.find(selector.embed);
         },
 
@@ -97,9 +97,10 @@ $.fn.embed = function(parameters) {
           events: function() {
             if( module.has.placeholder() ) {
               module.debug('Adding placeholder events');
+              console.log($module, selector.placeholder);
               $module
                 .on('click' + eventNamespace, selector.placeholder, module.createAndShow)
-                .on('click' + eventNamespace, selector.play, module.createAndShow)
+                .on('click' + eventNamespace, selector.icon, module.createAndShow)
               ;
             }
           }
@@ -131,6 +132,7 @@ $.fn.embed = function(parameters) {
         createEmbed: function(url) {
           module.refresh();
           url = url || module.get.url();
+          console.log(url);
           $embed = $('<div/>')
             .addClass(className.embed)
             .html( module.generate.embed(url) )
@@ -141,6 +143,7 @@ $.fn.embed = function(parameters) {
         },
 
         createAndShow: function() {
+          console.log('cands');
           module.createEmbed();
           module.show();
         },
@@ -584,7 +587,7 @@ $.fn.embed.settings = {
   selector : {
     embed       : '.embed',
     placeholder : '.placeholder',
-    play        : '.play'
+    icon        : '.icon'
   },
 
   sources: {
