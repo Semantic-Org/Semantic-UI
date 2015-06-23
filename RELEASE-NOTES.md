@@ -259,7 +259,9 @@
 - **Sticky** - Fix issue with sticky content scroll css transition causing element to scroll too slowly when cannot fit on screen.
 - **Sticky** - Fix issues when `pushing: true` with sticky content having incorrect bottom spacing, when container has bottom padding
 - **Sticky** - Fixed issue with sticky content animating width on display in some cases.
+- **Tab** - multiple tab groups initialized together with `context: 'parent'` will now each use their own parent
 - **Tab** - Tab name is no longer case sensitive
+- **Tab** - Tabs now use the standard component design pattern internally
 - **Table** - Fixes `sorted` column are not correctly centered with `center aligned` due to margin on sort icon
 - **Table** - Fixes `ascending` and `descending` icons were reversed in table
 - **Table** - `very basic table` now works together with `padded table`
