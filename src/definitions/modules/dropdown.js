@@ -2040,10 +2040,13 @@ $.fn.dropdown = function(parameters) {
               hasInput     = ($input.length > 0),
               isAddition   = !module.has.value(value),
               currentValue = module.get.values(),
+              stringValue  = (typeof value == 'number')
+                ? value.toString()
+                : value,
               newValue
             ;
             if(hasInput) {
-              if(value == currentValue) {
+              if(stringValue == currentValue) {
                 module.verbose('Skipping value update already same value', value, currentValue);
                 if(!module.is.initialLoad()) {
                   return;

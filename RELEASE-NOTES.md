@@ -185,6 +185,7 @@
 - **Dropdown** - Fixed issue with matching boolean values, and using `set selected` with `true` or `false`
 - **Dropdown** - Fixed `search dropdown` submitting parent form when enter shortcut pressed
 - **Dropdown** - Fixed dropdown menu items should not center inside of a center aligned container.
+- **Dropdown** - Fixed some cases where onChange would not occur for values matching equality against '', for example `0`
 - **Form** - Form will no longer set a height for `textarea` using the `rows` property
 - **Form** - `inline fields` are now `1em` and do not match label's reduced size
 - **Form** - `field` inside `fields` no longer produce double sized margins.
