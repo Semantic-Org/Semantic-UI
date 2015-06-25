@@ -25,6 +25,7 @@
 .ui.checkbox input:indeterminate ~ .box:after,
 .ui.checkbox input:indeterminate ~ label:after {
   top: 1px; /* Rounding Error */
+  font-size: 12px; /* Slightly Smaller */
   content: '\e801';
 }
 

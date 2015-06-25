@@ -187,12 +187,16 @@
      Active
 ---------------*/
 
+.ui.checkbox input:indeterminate ~ .box:before,
+.ui.checkbox input:indeterminate ~ label:before,
 .ui.checkbox input:checked ~ .box:before,
 .ui.checkbox input:checked ~ label:before {
   background: @checkboxActiveBackground;
   border-color: @checkboxActiveBorderColor;
 }
 
+.ui.checkbox input:indeterminate ~ .box:after,
+.ui.checkbox input:indeterminate ~ label:after,
 .ui.checkbox input:checked ~ .box:after,
 .ui.checkbox input:checked ~ label:after {
   opacity: 1;
@@ -203,6 +207,8 @@
   Active Focus
 ---------------*/
 
+.ui.checkbox input[type="radio"]:indeterminate:focus ~ .box:before,
+.ui.checkbox input[type="radio"]:indeterminate:focus ~ label:before,
 .ui.checkbox input[type="radio"]:checked:focus ~ .box:before,
 .ui.checkbox input[type="radio"]:checked:focus ~ label:before  {
   background: @checkboxFocusedBackground;
