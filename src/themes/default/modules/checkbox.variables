@@ -15,7 +15,7 @@
 @negativeCheckbox: @negativeColor;
 
 /* Checkbox */
-@checkboxSize: 17px;
+@checkboxSize: 16px;
 @checkboxBackground: @white;
 @checkboxBorder: 1px solid @solidBorderColor;
 @checkboxBorderRadius: 0.25em;

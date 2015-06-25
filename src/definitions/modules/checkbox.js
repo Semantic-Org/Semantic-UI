@@ -173,6 +173,9 @@ $.fn.checkbox = function(parameters) {
           radio: function() {
             return ($input.hasClass(className.radio) || $input.attr('type') == 'radio');
           },
+          indeterminate: function() {
+            return $input.prop('indeterminate') !== undefined && $input.prop('indeterminate');
+          },
           checked: function() {
             return $input.prop('checked') !== undefined && $input.prop('checked');
           },
