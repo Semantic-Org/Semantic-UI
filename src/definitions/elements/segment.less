@@ -234,6 +234,16 @@
   display: table;
 }
 
+/* Compact Group */
+.ui.compact.segments {
+  display: inline-flex;
+}
+.ui.compact.segments .segment,
+.ui.segments .compact.segment {
+  display: block;
+  flex: 0 1 auto;
+}
+
 /*-------------------
        Circular
 --------------------*/
@@ -262,6 +272,7 @@
 
 /* Group */
 .ui.segments {
+  flex-direction: column;
   position: relative;
   margin: @groupedMargin;
   border: @groupedBorder;
