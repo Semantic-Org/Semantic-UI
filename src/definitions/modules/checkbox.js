@@ -140,6 +140,13 @@ $.fn.checkbox = function(parameters) {
         },
 
         event: {
+          click: function(event) {
+            if( $(event.target).is(selector.input) ) {
+              module.verbose('Using default check action on initialized checkbox');
+              return;
+            }
+            module.toggle();
+          },
           keydown: function(event) {
             var
               key     = event.which,
@@ -200,7 +207,7 @@ $.fn.checkbox = function(parameters) {
 
         can: {
           change: function() {
-            return !( $module.hasClass(className.disabled) || $module.hasClass(className.readOnly) || $input.prop('disabled') );
+            return !( $module.hasClass(className.disabled) || $module.hasClass(className.readOnly) || $input.prop('disabled') || $input.prop('readonly') );
           },
           uncheck: function() {
             return (typeof settings.uncheckable === 'boolean')
@@ -337,7 +344,7 @@ $.fn.checkbox = function(parameters) {
           events: function() {
             module.verbose('Attaching checkbox events');
             $module
-              .on('click'   + eventNamespace, module.toggle)
+              .on('click'   + eventNamespace, module.event.click)
               .on('keydown' + eventNamespace, selector.input, module.event.keydown)
             ;
           }
@@ -358,12 +365,16 @@ $.fn.checkbox = function(parameters) {
 
         check: function() {
           module.debug('Enabling checkbox', $input);
+          module.set.input.determinate();
           module.set.input.checked();
+          module.set.determinate();
           module.set.checked();
         },
 
         uncheck: function() {
           module.debug('Disabling checkbox');
+          module.set.input.determinate();
+          module.set.determinate();
           module.set.input.unchecked();
           module.set.unchecked();
         },

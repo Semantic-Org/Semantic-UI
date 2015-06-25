@@ -46,6 +46,8 @@
   position: absolute;
   top: 0px;
   left: 0px;
+  width: @checkboxSize;
+  height: @checkboxSize;
   opacity: 0 !important;
   outline: none;
   z-index: -1;
@@ -59,11 +61,14 @@
 
 .ui.checkbox .box,
 .ui.checkbox label {
+  position: relative;
   display: block;
   cursor: pointer;
   padding-left: @labelDistance;
   outline: none;
 }
+
+.ui.checkbox .box,
 .ui.checkbox label {
   font-size: @fontSize;
 }
@@ -72,9 +77,10 @@
 .ui.checkbox label:before {
   position: absolute;
 
-  line-height: 1;
-  width: @checkboxSize;
-  height: @checkboxSize;
+  line-height: @checkboxCheckLineHeight;
+
+  width: 17px;
+  height: 17px;
   top: 0em;
   left: 0em;
   content: '';
@@ -93,12 +99,14 @@
 .ui.checkbox .box:after,
 .ui.checkbox label:after {
   position: absolute;
+  font-size: @checkboxCheckFontSize;
   top: @checkboxCheckTop;
   left: @checkboxCheckLeft;
-  line-height: @checkboxSize;
-  width: @checkboxSize;
-  height: @checkboxSize;
+  line-height: @checkboxCheckLineHeight;
+  width: @checkboxCheckSize;
+  height: @checkboxCheckSize;
   text-align: center;
+  vertical-align: middle;
 
   opacity: 0;
   color: @checkboxColor;
@@ -312,6 +320,14 @@
   min-height: @sliderHeight;
 }
 
+/* Input */
+.ui.slider.checkbox input[type="checkbox"],
+.ui.slider.checkbox input[type="radio"] {
+  width: @sliderWidth;
+  height: @sliderHeight;
+}
+
+/* Label */
 .ui.slider.checkbox .box,
 .ui.slider.checkbox label {
   padding-left: @sliderLabelDistance;
@@ -404,6 +420,14 @@
   min-height: @toggleHeight;
 }
 
+/* Input */
+.ui.toggle.checkbox input[type="checkbox"],
+.ui.toggle.checkbox input[type="radio"] {
+  width: @toggleWidth;
+  height: @toggleHeight;
+}
+
+/* Label */
 .ui.toggle.checkbox .box,
 .ui.toggle.checkbox label {
   min-height: @toggleHandleSize;
