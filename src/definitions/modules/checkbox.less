@@ -76,11 +76,11 @@
 .ui.checkbox .box:before,
 .ui.checkbox label:before {
   position: absolute;
+  top: 0px;
+  left: 0px;
 
   width: @checkboxSize;
   height: @checkboxSize;
-  top: @checkboxTop;
-  left: @checkboxLeft;
   content: '';
 
   background: @checkboxBackground;
@@ -100,7 +100,6 @@
   font-size: @checkboxCheckFontSize;
   top: @checkboxCheckTop;
   left: @checkboxCheckLeft;
-  line-height: @checkboxCheckLineHeight;
   width: @checkboxCheckSize;
   height: @checkboxCheckSize;
   text-align: center;
@@ -192,20 +191,30 @@
      Active
 ---------------*/
 
-.ui.checkbox input:indeterminate ~ .box:before,
-.ui.checkbox input:indeterminate ~ label:before,
 .ui.checkbox input:checked ~ .box:before,
 .ui.checkbox input:checked ~ label:before {
   background: @checkboxActiveBackground;
   border-color: @checkboxActiveBorderColor;
 }
-
-.ui.checkbox input:indeterminate ~ .box:after,
-.ui.checkbox input:indeterminate ~ label:after,
 .ui.checkbox input:checked ~ .box:after,
 .ui.checkbox input:checked ~ label:after {
-  opacity: 1;
-  color: @checkboxActiveColor;
+  opacity: @checkboxActiveCheckOpacity;
+  color: @checkboxActiveCheckColor;
+}
+
+/*--------------
+  Indeterminate
+---------------*/
+
+.ui.checkbox input:indeterminate ~ .box:before,
+.ui.checkbox input:indeterminate ~ label:before {
+  background: @checkboxIndeterminateBackground;
+  border-color: @checkboxIndeterminateBorderColor;
+}
+.ui.checkbox input:indeterminate ~ .box:after,
+.ui.checkbox input:indeterminate ~ label:after {
+  opacity: @checkboxIndeterminateCheckOpacity;
+  color: @checkboxIndeterminateCheckColor;
 }
 
 /*--------------
@@ -276,7 +285,7 @@
   left: @radioLeft;
 }
 
-/* Circle */
+/* Bullet */
 .ui.radio.checkbox .box:after,
 .ui.radio.checkbox label:after {
   border: none;
@@ -284,14 +293,13 @@
   width: @radioSize;
   height: @radioSize;
   line-height: @radioSize;
-  top: @radioTop;
-  left: @radioLeft;
-  font-size: @radioCircleSize;
 }
 
 /* Radio Checkbox */
 .ui.radio.checkbox .box:after,
 .ui.radio.checkbox label:after {
+  top: @bulletTop;
+  left: @bulletLeft;
   width: @radioSize;
   height: @radioSize;
   border-radius: @bulletRadius;
@@ -338,6 +346,7 @@
   display: block;
   position: absolute;
   content: '';
+  transform: none;
   border: none !important;
   left: 0em;
   z-index: 1;
@@ -442,6 +451,7 @@
   position: absolute;
   content: '';
   z-index: 1;
+  transform: none;
   border: none;
 
   top: @toggleLaneVerticalOffset;

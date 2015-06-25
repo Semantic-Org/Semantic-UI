@@ -1,7 +1,7 @@
 /* Checkbox */
 @checkboxActiveBackground: @primaryColor;
-@checkboxActiveColor: @white;
 @checkboxActiveBorderColor: @primaryColor;
+@checkboxActiveCheckColor: @white;
 @checkboxTransition: none;
 
 /* Slider */
@@ -9,7 +9,6 @@
 
 /* Radio */
 @radioActiveBackground: @primaryColor;
-@checkboxActiveBulletColor: @primaryColor;
 
 /* Handle */
 @handleBackground: @white @subtleGradient;

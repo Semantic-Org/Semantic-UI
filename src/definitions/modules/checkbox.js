@@ -56,14 +56,16 @@ $.fn.checkbox = function(parameters) {
         initialize: function() {
           module.verbose('Initializing checkbox', settings);
 
+          module.fix.input();
+
           module.create.label();
           module.bind.events();
 
           module.set.input.tabbable();
-          module.setup();
           module.observeChanges();
 
           module.instantiate();
+          module.setup();
         },
 
         instantiate: function() {
@@ -80,6 +82,16 @@ $.fn.checkbox = function(parameters) {
           $module
             .removeData(moduleNamespace)
           ;
+        },
+
+        fix: {
+          input: function() {
+            if( $module.is(selector.input) ) {
+              module.debug('Fixing incorrect reference to module in invocation');
+              $module = $module.closest(selector.checkbox);
+              module.refresh();
+            }
+          }
         },
 
         setup: function() {
@@ -355,26 +367,34 @@ $.fn.checkbox = function(parameters) {
             module.debug('Removing events');
             $module
               .off(eventNamespace)
-              .removeData(moduleNamespace)
-            ;
-            $label
-              .off(eventNamespace)
             ;
           }
         },
 
         check: function() {
-          module.debug('Enabling checkbox', $input);
-          module.set.input.determinate();
+          module.debug('Checking checkbox', $input);
+          if(module.is.indeterminate()) {
+            module.set.input.determinate();
+            module.set.determinate();
+          }
+          if(module.is.checked()) {
+            module.debug('Module is already checked');
+            return;
+          }
           module.set.input.checked();
-          module.set.determinate();
           module.set.checked();
         },
 
         uncheck: function() {
-          module.debug('Disabling checkbox');
-          module.set.input.determinate();
-          module.set.determinate();
+          module.debug('Unchecking checkbox');
+          if(module.is.indeterminate()) {
+            module.set.input.determinate();
+            module.set.determinate();
+          }
+          if(module.is.unchecked()) {
+            module.debug('Module is already unchecked');
+            return;
+          }
           module.set.input.unchecked();
           module.set.unchecked();
         },
@@ -418,11 +438,12 @@ $.fn.checkbox = function(parameters) {
             }
             return;
           }
-          module.verbose('Determining new checkbox state');
-          if( module.is.indeterminate() || module.is.unchecked() ) {
+          if( module.is.unchecked() ) {
+            module.debug('Currently unchecked');
             module.check();
           }
           else if( module.is.checked() && module.can.uncheck() ) {
+            module.debug('Currently checked');
             module.uncheck();
           }
         },
@@ -614,7 +635,7 @@ $.fn.checkbox.settings = {
 
   // delegated event context
   uncheckable     : 'auto',
-  fireOnInit      : true,
+  fireOnInit      : false,
 
   onChange        : function(){},
 
@@ -636,7 +657,7 @@ $.fn.checkbox.settings = {
   },
 
   error     : {
-    method : 'The method you called is not defined'
+    method       : 'The method you called is not defined'
   },
 
   selector : {

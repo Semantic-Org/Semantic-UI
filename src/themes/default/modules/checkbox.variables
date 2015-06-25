@@ -10,23 +10,20 @@
 @labelDistance: 1.85714em; /* 26px @ 14/em */
 
 /* Checkbox */
-@checkboxTop: 0px;
-@checkboxLeft: 0px;
 @checkboxBackground: @white;
 @checkboxBorder: 1px solid @solidBorderColor;
-@checkboxBorderRadius: @defaultBorderRadius;
+@checkboxBorderRadius: @3px;
 @checkboxTransition:
-  background-color @defaultDuration @defaultEasing,
   border @defaultDuration @defaultEasing,
   opacity @defaultDuration @defaultEasing,
+  transform @defaultDuration @defaultEasing,
   box-shadow @defaultDuration @defaultEasing
 ;
 
 /* Checkmark */
 @checkboxCheckFontSize: 14px;
-@checkboxCheckTop: @checkboxTop;
-@checkboxCheckLeft: @checkboxLeft;
-@checkboxCheckLineHeight: @checkboxLineHeight;
+@checkboxCheckTop: 0px;
+@checkboxCheckLeft: 0px;
 @checkboxCheckSize: @checkboxSize;
 
 /* Label */
@@ -38,25 +35,35 @@
         States
 --------------------*/
 
+/* Hover */
 @checkboxHoverBackground: @checkboxBackground;
 @checkboxHoverBorderColor: @selectedBorderColor;
 @labelHoverColor: @hoveredTextColor;
 
+/* Pressed */
 @checkboxPressedBackground: @offWhite;
 @checkboxPressedBorderColor: @selectedBorderColor;
 @checkboxPressedColor: @selectedTextColor;
 @labelPressedColor: @selectedTextColor;
 
+/* Focused */
 @checkboxFocusedBackground: @offWhite;
 @checkboxFocusedBorderColor: @selectedBorderColor;
 @checkboxFocusedColor: @selectedTextColor;
 @labelFocusedColor: @selectedTextColor;
 
-@checkboxActiveBackground: #FFFFFF;
+/* Active */
+@checkboxActiveBackground: @white;
 @checkboxActiveBorderColor: @selectedBorderColor;
-@checkboxActiveColor: @selectedTextColor;
+@checkboxActiveCheckOpacity: 1;
+@checkboxActiveCheckColor: @selectedTextColor;
 @labelActiveColor: @selectedTextColor;
 
+/* Indeterminate */
+@checkboxIndeterminateBackground: @checkboxActiveBackground;
+@checkboxIndeterminateBorderColor: @checkboxActiveBorderColor;
+@checkboxIndeterminateCheckOpacity: 0.8;
+@checkboxIndeterminateCheckColor: @checkboxActiveCheckColor;
 
 /* Disabled */
 @disabledCheckboxOpacity: 0.5;
@@ -69,18 +76,19 @@
 /* Radio */
 /* Uses px to avoid rounding issues with circles */
 
-@radioSize: 14px;
-@radioCircleSize: 9px;
+@radioSize: 15px;
 @radioTop: 1px;
 @radioLeft: 0px;
 @radioLabelDistance: @labelDistance;
 
-@bulletScale: (6 / 14); /* 6px as unitless value from radio size */
+@bulletTop: 1px;
+@bulletLeft: 0px;
+@bulletScale: (7 / 15); /* 8px as unitless value from radio size */
 @bulletColor: @textColor;
 @bulletRadius: @circularRadius;
 
 @radioActiveBackground: @white;
-@radioActiveBulletColor: @checkboxActiveColor;
+@radioActiveBulletColor: @checkboxActiveCheckColor;
 
 /* Slider & Toggle Handle */
 @handleBackground: @white @subtleGradient;
