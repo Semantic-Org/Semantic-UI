@@ -185,6 +185,7 @@
 - **Dropdown** - Fixed issue with matching boolean values, and using `set selected` with `true` or `false`
 - **Dropdown** - Fixed `search dropdown` submitting parent form when enter shortcut pressed
 - **Dropdown** - Fixed dropdown menu items should not center inside of a center aligned container.
+- **Dropdown** - Fixed some cases where onChange would not occur for values matching equality against '', for example `0`
 - **Form** - Form will no longer set a height for `textarea` using the `rows` property
 - **Form** - `inline fields` are now `1em` and do not match label's reduced size
 - **Form** - `field` inside `fields` no longer produce double sized margins.
@@ -208,9 +209,11 @@
 - **List** - `horizontal list` are now aligned `middle` by default, while vertical lists are aligned `top`.
 - **List** - Fixes numbers not appearing when using `inverted ordered list` **Thanks @pcj**
 - **List** - `a` elements inside a `ui list` will no longer apply styles on `ui` elements like `button` **Thanks @ahtinurme**
+- **List** - Fixed `divided bulleted list` child lists getting wrong indent
 - **List** - Bullets and numbers are no longer selectable in `bulleted list` and `ordered list`
 - **List** - Fixed `inverted bulleted list` bullet color
 - **List** - Fix first element touches border on `ui horizontal celled list`
+- **List** - Added many new variables for link stylings inside list, added separate variables and defaults for child-list spacing
 - **Loader** - Fix position of `inline centered loader` to be centered correctly
 - **Message** - Message now uses `@lineHeight` from `site.variables`
 - **Menu** - Fixed menus like `left fixed` `right fixed` are all now class order dependent.
@@ -257,7 +260,9 @@
 - **Sticky** - Fix issue with sticky content scroll css transition causing element to scroll too slowly when cannot fit on screen.
 - **Sticky** - Fix issues when `pushing: true` with sticky content having incorrect bottom spacing, when container has bottom padding
 - **Sticky** - Fixed issue with sticky content animating width on display in some cases.
+- **Tab** - multiple tab groups initialized together with `context: 'parent'` will now each use their own parent
 - **Tab** - Tab name is no longer case sensitive
+- **Tab** - Tabs now use the standard component design pattern internally
 - **Table** - Fixes `sorted` column are not correctly centered with `center aligned` due to margin on sort icon
 - **Table** - Fixes `ascending` and `descending` icons were reversed in table
 - **Table** - `very basic table` now works together with `padded table`

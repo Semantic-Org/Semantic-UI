@@ -245,10 +245,12 @@
 @media only screen and (max-width: (@largestMobileScreen)) {
 
 .ui.steps {
+  display: inline-flex;
   overflow: visible;
+  flex-direction: column;
 }
 .ui.steps .step {
-  display: block;
+  flex-direction: column;
   border-radius: @borderRadius;
   padding: @verticalPadding @horizontalPadding;
 }
@@ -262,7 +264,18 @@
 
 /* Arrow */
 .ui.steps .step:after {
-  display: none;
+  display: none !important;
+}
+
+/* Content */
+.ui.steps .step .content {
+  text-align: center;
+}
+
+/* Icon */
+.ui.steps .step > .icon,
+.ui.ordered.steps .step:before {
+  margin: 0em 0em @mobileIconDistance 0em;
 }
 
 }
@@ -355,32 +368,46 @@
    Stackable
 ---------------*/
 
-
 /* Tablet Or Below */
 @media only screen and (max-width: @computerBreakpoint) {
 
-  .ui[class*="tablet stackable"].steps {
-    overflow: visible;
-    flex-direction: column;
-  }
-  .ui[class*="tablet stackable"].steps .step {
-    border-radius: @borderRadius;
-    padding: @verticalPadding @horizontalPadding;
-  }
-  .ui[class*="tablet stackable"].steps .step:first-child {
-    padding: @verticalPadding @horizontalPadding;
-    border-radius: @stepsBorderRadius @stepsBorderRadius 0em 0em;
-  }
-  .ui[class*="tablet stackable"].steps .step:last-child {
-    border-radius: 0em 0em @stepsBorderRadius @stepsBorderRadius;
-  }
-  /* Arrow */
-  .ui[class*="tablet stackable"].steps .step:after {
-    display: none;
-  }
-
+.ui[class*="tablet stackable"].steps {
+  display: inline-flex;
+  overflow: visible;
+  flex-direction: column;
 }
 
+/* Steps */
+.ui[class*="tablet stackable"].steps .step {
+  flex-direction: column;
+  border-radius: @borderRadius;
+  padding: @verticalPadding @horizontalPadding;
+}
+.ui[class*="tablet stackable"].steps .step:first-child {
+  padding: @verticalPadding @horizontalPadding;
+  border-radius: @stepsBorderRadius @stepsBorderRadius 0em 0em;
+}
+.ui[class*="tablet stackable"].steps .step:last-child {
+  border-radius: 0em 0em @stepsBorderRadius @stepsBorderRadius;
+}
+
+/* Arrow */
+.ui[class*="tablet stackable"].steps .step:after {
+  display: none !important;
+}
+
+/* Content */
+.ui[class*="tablet stackable"].steps .step .content {
+  text-align: center;
+}
+
+/* Icon */
+.ui[class*="tablet stackable"].steps .step > .icon,
+.ui[class*="tablet stackable"].ordered.steps .step:before {
+  margin: 0em 0em @mobileIconDistance 0em;
+}
+
+}
 
 /*--------------
       Fluid

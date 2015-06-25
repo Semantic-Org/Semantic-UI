@@ -246,7 +246,7 @@
 @secondaryPointingBorderWidth: 2px;
 @secondaryPointingBorderColor: @borderColor;
 @secondaryPointingItemVerticalPadding: @relativeTiny;
-@secondaryPointingItemHorizontalPadding: @relativeMedium;
+@secondaryPointingItemHorizontalPadding: @relativeLarge;
 
 @secondaryPointingHoverTextColor: @textColor;
 

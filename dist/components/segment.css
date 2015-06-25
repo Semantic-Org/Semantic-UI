@@ -676,9 +676,7 @@
   top: 0px;
   bottom: 0px;
   margin: 0em -1px;
-  width: -webkit-calc(100% +  2px );
   width: calc(100% +  2px );
-  max-width: -webkit-calc(100% +  2px );
   max-width: calc(100% +  2px );
   border-radius: 0px;
   box-shadow: none;

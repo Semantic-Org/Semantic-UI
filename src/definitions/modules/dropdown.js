@@ -17,7 +17,6 @@ $.fn.dropdown = function(parameters) {
   var
     $allModules    = $(this),
     $document      = $(document),
-    $window        = $(window),
 
     moduleSelector = $allModules.selector || '',
 
@@ -51,6 +50,7 @@ $.fn.dropdown = function(parameters) {
         moduleNamespace = 'module-' + namespace,
 
         $module         = $(this),
+        $context        = $(settings.context),
         $text           = $module.find(selector.text),
         $search         = $module.find(selector.search),
         $input          = $module.find(selector.input),
@@ -114,7 +114,7 @@ $.fn.dropdown = function(parameters) {
         },
 
         destroy: function() {
-          module.verbose('Destroying previous dropdown for', $module);
+          module.verbose('Destroying previous dropdown', $module);
           module.remove.tabbable();
           $module
             .off(eventNamespace)
@@ -2040,10 +2040,13 @@ $.fn.dropdown = function(parameters) {
               hasInput     = ($input.length > 0),
               isAddition   = !module.has.value(value),
               currentValue = module.get.values(),
+              stringValue  = (typeof value == 'number')
+                ? value.toString()
+                : value,
               newValue
             ;
             if(hasInput) {
-              if(value == currentValue) {
+              if(stringValue == currentValue) {
                 module.verbose('Skipping value update already same value', value, currentValue);
                 if(!module.is.initialLoad()) {
                   return;
@@ -2585,17 +2588,40 @@ $.fn.dropdown = function(parameters) {
           },
           onScreen: function($subMenu) {
             var
-              $currentMenu = $subMenu || $menu,
-              onScreen
+              $currentMenu   = $subMenu || $menu,
+              canOpenDownward = true,
+              onScreen = {},
+              calculations
             ;
             $currentMenu.addClass(className.loading);
-            onScreen = ($.fn.visibility !== undefined)
-              ? $currentMenu.visibility('bottom visible')
-              : $window.scrollTop() + $window.height() >= $currentMenu.offset().top + $currentMenu.height()
-            ;
-            module.debug('Checking if menu can fit on screen', onScreen, $menu);
+            calculations = {
+              context: {
+                scrollTop : $context.scrollTop(),
+                height    : $context.outerHeight()
+              },
+              menu : {
+                offset: $currentMenu.offset(),
+                height: $currentMenu.outerHeight()
+              }
+            };
+            onScreen = {
+              above : (calculations.context.scrollTop) <= calculations.menu.offset.top - calculations.menu.height,
+              below : (calculations.context.scrollTop + calculations.context.height) >= calculations.menu.offset.top + calculations.menu.height
+            };
+            if(onScreen.below) {
+              module.verbose('Dropdown can fit in context downward', onScreen);
+              canOpenDownward = true;
+            }
+            else if(!onScreen.below && !onScreen.above) {
+              module.verbose('Dropdown cannot fit in either direction, favoring downward', onScreen);
+              canOpenDownward = true;
+            }
+            else {
+              module.verbose('Dropdown cannot fit below, opening upward', onScreen);
+              canOpenDownward = false;
+            }
             $currentMenu.removeClass(className.loading);
-            return onScreen;
+            return canOpenDownward;
           },
           inObject: function(needle, object) {
             var
@@ -2982,10 +3008,12 @@ $.fn.dropdown.settings = {
   on                     : 'click',    // what event should show menu action on item selection
   action                 : 'activate', // action on item selection (nothing, activate, select, combo, hide, function(){})
 
+
   apiSettings            : false,
   saveRemoteData         : true,      // Whether remote name/value pairs should be stored in sessionStorage to allow remote data to be restored on page refresh
   throttle               : 200,       // How long to wait after last user input to search remotely
 
+  context                : window,      // Context to use when determining if on screen
   direction              : 'auto',     // Whether dropdown should always open in one direction
   keepOnScreen           : true,       // Whether dropdown should check whether it is on screen before showing
 

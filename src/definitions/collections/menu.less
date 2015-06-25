@@ -675,7 +675,7 @@ Floated Menu / Item
   color: @tabularMenuActiveColor;
   border-color: @tabularBorderColor;
   margin: 0px -@tabularBorderWidth 0px 0px;
-  border-radius: @tabularBorderRadius 0px 0px @tabularBorderRadius;
+  border-radius: @tabularBorderRadius 0px 0px @tabularBorderRadius !important;
 }
 
 /* Dropdown */
@@ -848,7 +848,8 @@ Floated Menu / Item
 -----------------------*/
 
 .ui.secondary.pointing.menu {
-  margin: 0em;
+  margin-left: 0em;
+  margin-right: 0em;
   border-bottom: @secondaryPointingBorderWidth solid @secondaryPointingBorderColor;
 }
 
@@ -1130,7 +1131,7 @@ Floated Menu / Item
 .ui.labeled.icon.menu .item {
   min-width: @labeledIconMinWidth;
 }
-.ui.labeled.icon.menu:not(.vetical) .item {
+.ui.labeled.icon.menu:not(.vertical) .item {
   padding-left: @labeledIconItemHorizontalPadding;
   padding-right: @labeledIconItemHorizontalPadding;
 }
@@ -1783,7 +1784,7 @@ Floated Menu / Item
 }
 
 /* Tabular Attached */
-.ui.top.attached.menu:not(.tabular) {
+.ui.top.attached.menu:not(.fixed):not(.tabular) {
   border-bottom: none;
 }
 .ui.attached.tabular.menu {
