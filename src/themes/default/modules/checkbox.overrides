@@ -24,13 +24,13 @@
 /* Indeterminate */
 .ui.checkbox input:indeterminate ~ .box:after,
 .ui.checkbox input:indeterminate ~ label:after {
-  top: 1px; /* Rounding Error */
-  font-size: 12px; /* Slightly Smaller */
+  font-size: 12px;
   content: '\e801';
 }
+
 
 /*  UTF Reference
 .check:before { content: '\e800'; }
 .dash:before  { content: '\e801'; }
-.pluss:before { content: '\e802'; }
+.plus:before { content: '\e802'; }
 */

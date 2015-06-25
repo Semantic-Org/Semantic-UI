@@ -2,8 +2,8 @@
             Checkbox
 *******************************/
 
+@checkboxSize: 17px;
 @checkboxColor: @textColor;
-@fontSize: 1em;
 @checkboxLineHeight: 15px;
 
 
@@ -15,10 +15,9 @@
 @negativeCheckbox: @negativeColor;
 
 /* Checkbox */
-@checkboxSize: 16px;
 @checkboxBackground: @white;
 @checkboxBorder: 1px solid @solidBorderColor;
-@checkboxBorderRadius: 0.25em;
+@checkboxBorderRadius: @defaultBorderRadius;
 @checkboxTransition:
   background-color @defaultDuration @defaultEasing,
   border @defaultDuration @defaultEasing,
@@ -27,10 +26,14 @@
 ;
 
 /* Checkmark */
+@checkboxCheckFontSize: 1em;
 @checkboxCheckTop: 0px;
 @checkboxCheckLeft: 0px;
+@checkboxCheckLineHeight: @checkboxSize;
+@checkboxCheckSize: @checkboxSize;
 
 /* Label */
+@labelFontSize: @relativeMedium;
 @labelColor: @textColor;
 @labelTransition: color @defaultDuration @defaultEasing;
 
