@@ -4,17 +4,14 @@
 
 @checkboxSize: 17px;
 @checkboxColor: @textColor;
-@checkboxLineHeight: 15px;
-
+@checkboxLineHeight: @checkboxSize;
 
 /* Label */
-@labelDistance: 1.85714em; /* 26px @ 14em */
-
-@neutralCheckbox: @transparentBlack;
-@positiveCheckbox: @positiveColor;
-@negativeCheckbox: @negativeColor;
+@labelDistance: 1.85714em; /* 26px @ 14/em */
 
 /* Checkbox */
+@checkboxTop: 0px;
+@checkboxLeft: 0px;
 @checkboxBackground: @white;
 @checkboxBorder: 1px solid @solidBorderColor;
 @checkboxBorderRadius: @defaultBorderRadius;
@@ -26,10 +23,10 @@
 ;
 
 /* Checkmark */
-@checkboxCheckFontSize: 1em;
-@checkboxCheckTop: 0px;
-@checkboxCheckLeft: 0px;
-@checkboxCheckLineHeight: @checkboxSize;
+@checkboxCheckFontSize: 14px;
+@checkboxCheckTop: @checkboxTop;
+@checkboxCheckLeft: @checkboxLeft;
+@checkboxCheckLineHeight: @checkboxLineHeight;
 @checkboxCheckSize: @checkboxSize;
 
 /* Label */
@@ -105,7 +102,7 @@
 
 @sliderLineHeight: @3px;
 @sliderLineVerticalOffset: 0.4rem;
-@sliderLineColor: @neutralCheckbox;
+@sliderLineColor: @transparentBlack;
 @sliderLineRadius: @circularRadius;
 @sliderLineTransition: background @sliderTransitionDuration @defaultEasing;
 
@@ -137,6 +134,7 @@
   left @sliderTransitionDuration @defaultEasing
 ;
 
+@toggleLaneBackground: @transparentBlack;
 @toggleLaneHeight: @toggleHandleSize;
 @toggleLaneVerticalOffset: 0rem;
 @toggleOffOffset: -0.05rem;

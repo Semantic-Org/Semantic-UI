@@ -77,12 +77,10 @@
 .ui.checkbox label:before {
   position: absolute;
 
-  line-height: @checkboxCheckLineHeight;
-
-  width: 17px;
-  height: 17px;
-  top: 0em;
-  left: 0em;
+  width: @checkboxSize;
+  height: @checkboxSize;
+  top: @checkboxTop;
+  left: @checkboxLeft;
   content: '';
 
   background: @checkboxBackground;
@@ -106,7 +104,6 @@
   width: @checkboxCheckSize;
   height: @checkboxCheckSize;
   text-align: center;
-  vertical-align: middle;
 
   opacity: 0;
   color: @checkboxColor;
@@ -449,7 +446,7 @@
 
   top: @toggleLaneVerticalOffset;
 
-  background-color: @neutralCheckbox;
+  background: @toggleLaneBackground;
   width: @toggleLaneWidth;
   height: @toggleLaneHeight;
   border-radius: @toggleHandleRadius;
