@@ -41,8 +41,8 @@ $.fn.checkbox = function(parameters) {
         moduleNamespace = 'module-' + namespace,
 
         $module         = $(this),
-        $label          = $(this).find(selector.label),
-        $input          = $(this).find(selector.input),
+        $label          = $(this).children(selector.label),
+        $input          = $(this).children(selector.input),
 
         instance        = $module.data(moduleNamespace),
 
@@ -100,8 +100,8 @@ $.fn.checkbox = function(parameters) {
         },
 
         refresh: function() {
-          $label  = $module.find(selector.label);
-          $input  = $module.find(selector.input);
+          $label  = $module.children(selector.label);
+          $input  = $module.children(selector.input);
         },
 
         observeChanges: function() {
@@ -514,13 +514,13 @@ $.fn.checkbox.settings = {
   },
 
   error     : {
-    method   : 'The method you called is not defined'
+    method : 'The method you called is not defined'
   },
 
   selector : {
     checkbox : '.ui.checkbox',
-    input    : '> input[type="checkbox"], > input[type="radio"]',
-    label    : '> label'
+    label    : 'label, .box',
+    input    : 'input[type="checkbox"], input[type="radio"]',
   }
 
 };
