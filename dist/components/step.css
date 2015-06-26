@@ -295,6 +295,7 @@
             flex-direction: column;
   }
   .ui.steps .step {
+    width: 100% !important;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
