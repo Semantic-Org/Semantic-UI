@@ -135,7 +135,7 @@ module.exports = function(callback) {
     .pipe(replace(comments.large.in, comments.large.out))
     .pipe(replace(comments.small.in, comments.small.out))
     .pipe(replace(comments.tiny.in, comments.tiny.out))
-    .pipe(replace(assets.source, assets.uncompressed))
+    .pipe(replace(assets.source, assets.uncompressed.css))
     .pipe(header(banner, settings.header))
     .pipe(gulpif(config.hasPermission, chmod(config.permission)))
     .pipe(gulp.dest(output.uncompressed.css))
@@ -148,7 +148,7 @@ module.exports = function(callback) {
   compressedStream = stream
     .pipe(plumber())
     .pipe(clone())
-    .pipe(replace(assets.source, assets.compressed))
+    .pipe(replace(assets.source, assets.compressed.css))
     .pipe(minifyCSS(settings.minify))
     .pipe(rename(settings.rename.minCSS))
     .pipe(header(banner, settings.header))

@@ -155,7 +155,7 @@ module.exports = function(callback) {
 
         uncompressedStream
           .pipe(plumber())
-          .pipe(replace(assets.source, assets.uncompressed))
+          .pipe(replace(assets.source, assets.uncompressed.css))
           .pipe(gulp.dest(output.uncompressed.css))
           .pipe(print(log.created))
           .on('end', function() {
@@ -165,7 +165,7 @@ module.exports = function(callback) {
 
         compressedStream = stream
           .pipe(plumber())
-          .pipe(replace(assets.source, assets.compressed))
+          .pipe(replace(assets.source, assets.compressed.css))
           .pipe(minifyCSS(settings.minify))
           .pipe(rename(settings.rename.minCSS))
           .pipe(gulp.dest(output.compressed.css))
