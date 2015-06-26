@@ -14,7 +14,6 @@
 @borderRadius: @defaultBorderRadius;
 @transition:
   background @defaultDuration @defaultEasing,
-  border-color @defaultDuration @defaultEasing,
   color @defaultDuration @defaultEasing
 ;
 @background: @white;
