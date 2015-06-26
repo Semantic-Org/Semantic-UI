@@ -225,6 +225,22 @@
   display: table;
 }
 
+/* Compact Group */
+.ui.compact.segments {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+.ui.compact.segments .segment,
+.ui.segments .compact.segment {
+  display: block;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 1 auto;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
+}
+
 /*-------------------
        Circular
 --------------------*/
@@ -254,6 +270,11 @@
 
 /* Group */
 .ui.segments {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   position: relative;
   margin: 1rem 0em;
   border: 1px solid rgba(34, 36, 38, 0.15);
@@ -449,7 +470,7 @@
 --------------------*/
 
 .ui.basic.segment {
-  background-color: none transparent;
+  background: none transparent;
   box-shadow: none;
   border: none;
   border-radius: 0px;

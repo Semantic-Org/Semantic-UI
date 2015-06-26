@@ -328,6 +328,12 @@ $.fn.sticky = function(parameters) {
         },
 
         remove: {
+          lastScroll: function() {
+            delete module.lastScroll;
+          },
+          elementScroll: function(scroll) {
+            delete module.elementScroll;
+          },
           offset: function() {
             $module.css('margin-top', '');
           }
@@ -617,6 +623,7 @@ $.fn.sticky = function(parameters) {
           module.unfix();
           module.resetCSS();
           module.remove.offset();
+          module.remove.lastScroll();
         },
 
         resetCSS: function() {

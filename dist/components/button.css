@@ -359,9 +359,6 @@
 .ui.inverted.vertical.buttons .button:first-child {
   margin-top: 0em;
 }
-.ui.inverted.buttons .button:hover {
-  position: relative;
-}
 
 /* States */
 .ui.inverted.button:hover {
@@ -3150,10 +3147,6 @@
   font-size: 0em;
   vertical-align: baseline;
   margin: 0em 0.25em 0em 0em;
-}
-.ui.buttons > .button:hover,
-.ui.buttons > .active.button {
-  position: relative;
 }
 .ui.buttons:not(.basic):not(.inverted) {
   box-shadow: none;

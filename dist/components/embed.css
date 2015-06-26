@@ -49,11 +49,9 @@
 }
 
 /*--------------
-  Placeholder
+   Placeholder
 ---------------*/
 
-
-/* Placeholder Image */
 .ui.embed > .placeholder {
   position: absolute;
   cursor: pointer;
@@ -66,11 +64,9 @@
 }
 
 /*--------------
-      Play
+      Icon
 ---------------*/
 
-
-/* Play Icon */
 .ui.embed > .icon {
   cursor: pointer;
   position: absolute;
@@ -133,11 +129,11 @@
      Active
 ---------------*/
 
-.ui.active.embed .play,
-.ui.active.embed .placeholder {
+.ui.active.embed > .icon,
+.ui.active.embed > .placeholder {
   display: none;
 }
-.ui.active.embed .embed {
+.ui.active.embed > .embed {
   display: block;
 }
 
