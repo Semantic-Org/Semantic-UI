@@ -62,7 +62,7 @@
 /* Indeterminate */
 @checkboxIndeterminateBackground: @checkboxActiveBackground;
 @checkboxIndeterminateBorderColor: @checkboxActiveBorderColor;
-@checkboxIndeterminateCheckOpacity: 0.8;
+@checkboxIndeterminateCheckOpacity: 1;
 @checkboxIndeterminateCheckColor: @checkboxActiveCheckColor;
 
 /* Disabled */
