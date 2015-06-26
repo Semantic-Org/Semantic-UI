@@ -313,7 +313,6 @@ $.fn.tab = function(parameters) {
           ;
           tabPath = module.utilities.arrayToPath(pathArray);
           $.each(pathArray, function(index, tab) {
-            console.log(tab, tabPath);
             var
               currentPathArray   = pathArray.slice(0, index + 1),
               currentPath        = module.utilities.arrayToPath(currentPathArray),
