@@ -6,6 +6,7 @@
        Group
 --------------------*/
 
+@stepMargin: 1em 0em;
 @stepsBorderRadius: @defaultBorderRadius;
 @stepsBackground: '';
 @stepsBoxShadow: none;
