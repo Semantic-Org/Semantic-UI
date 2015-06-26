@@ -35,22 +35,22 @@ try {
   var isLegacy = false;
   if(typeof userConfig.paths.output.packaged == "string"){
       userConfig.paths.output.packaged = {
-          "css" : userConfig.paths.output.packaged + "css/",
-          "js"  : userConfig.paths.output.packaged + "js/"
+          "css" : userConfig.paths.output.packaged,
+          "js"  : userConfig.paths.output.packaged
       };
       isLegacy = true;
   }
   if(typeof userConfig.paths.output.compressed == "string"){
       userConfig.paths.output.compressed = {
-          "css" : userConfig.paths.output.compressed + "css/",
-          "js"  : userConfig.paths.output.compressed + "js/"
+          "css" : userConfig.paths.output.compressed,
+          "js"  : userConfig.paths.output.compressed
       };
       isLegacy = true;
   }
   if(typeof userConfig.paths.output.uncompressed == "string"){
       userConfig.paths.output.uncompressed = {
-          "css" : userConfig.paths.output.uncompressed + "css/",
-          "js"  : userConfig.paths.output.uncompressed + "js/"
+          "css" : userConfig.paths.output.uncompressed,
+          "js"  : userConfig.paths.output.uncompressed
       };
       isLegacy = true;
   }
