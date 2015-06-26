@@ -1641,19 +1641,19 @@
   }
 
   .ui.stackable.celled.grid > .column:not(.row),
-  .ui.stackable.divided.grid > .column:not(.row),
+  .ui.stackable.divided:not(.vertically).grid > .column:not(.row),
   .ui.stackable.celled.grid > .row > .column,
-  .ui.stackable.divided.grid > .row > .column {
+  .ui.stackable.divided:not(.vertically).grid > .row > .column {
     border-top: @stackableMobileBorder;
     box-shadow: none !important;
     padding-top: @stackableRowSpacing !important;
     padding-bottom: @stackableRowSpacing !important;
   }
-  .ui.stackable.celled.grid > .column:not(.row):first-child,
-  .ui.stackable.divided.grid > .column:not(.row):first-child,
-  .ui.stackable.celled.grid > .row > .column:first-child,
-  .ui.stackable.divided.grid > .row > .column:first-child {
-    padding-top: 0em !important;
+
+  .ui.stackable.divided:not(.vertically).grid > .column:not(.row),
+  .ui.stackable.divided:not(.vertically).grid > .row > .column {
+    padding-left: 0em !important;
+    padding-right: 0em !important;
   }
 
 }
