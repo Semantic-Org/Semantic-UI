@@ -1404,7 +1404,7 @@
 /* Tablet Only */
 @media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
   .ui.doubling.grid {
-    width: 100% !important;
+    width: auto;
   }
   .ui.grid > .doubling.row,
   .ui.doubling.grid > .row {
@@ -1500,13 +1500,11 @@
 @media only screen and (max-width: @largestMobileScreen) {
   .ui.grid > .doubling.row,
   .ui.doubling.grid > .row {
-    display: block !important;
     margin: 0em !important;
     padding: 0em !important;
   }
   .ui.grid > .doubling.row > .column,
   .ui.doubling.grid > .row > .column {
-    display: inline-block !important;
     padding-top: (@rowSpacing / 2) !important;
     padding-bottom: (@rowSpacing / 2) !important;
     margin: 0em !important;
@@ -1595,27 +1593,21 @@
 
 @media only screen and (max-width: @largestMobileScreen) {
   .ui.stackable.grid {
-    display: block !important;
     width: auto;
-    margin-left: 0em !important;
-    margin-right: 0em !important;
-    padding: 0em;
   }
   .ui.stackable.grid > .row > .wide.column,
   .ui.stackable.grid > .wide.column,
   .ui.stackable.grid > .column.grid > .column,
   .ui.stackable.grid > .column.row > .column,
   .ui.stackable.grid > .row > .column,
-  .ui.stackable.grid > .column:not(.row) {
-    display: block !important;
-    width: auto !important;
+  .ui.stackable.grid > .column:not(.row),
+  .ui.grid > .stackable.stackable.row > .column {
+    width: 100%;
     margin: 0em 0em !important;
     box-shadow: none !important;
-    float: none !important;
     padding: (@stackableRowSpacing / 2) (@stackableGutter / 2) !important;
   }
-  .ui.stackable.grid > .row {
-    display: block !important;
+  .ui.stackable.grid:not(.vertically) > .row {
     margin: 0em;
     padding: 0em;
   }
