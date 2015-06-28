@@ -238,6 +238,7 @@
 /* Menu */
 .ui.menu .dropdown.item .menu {
   left: 0px;
+  min-width: -webkit-calc(100% - 1px);
   min-width: calc(100% - 1px);
   border-radius: 0em 0em 0.28571429rem 0.28571429rem;
   background: #ffffff;
@@ -635,6 +636,7 @@ Floated Menu / Item
   border-bottom: 1px solid #d4d4d5;
 }
 .ui.tabular.fluid.menu {
+  width: -webkit-calc(100% +  2px ) !important;
   width: calc(100% +  2px ) !important;
 }
 .ui.tabular.menu .item {
@@ -1792,6 +1794,7 @@ Floated Menu / Item
   border-radius: 0px;
   margin-left: -1px;
   margin-right: -1px;
+  width: -webkit-calc(100% +  2px );
   width: calc(100% +  2px );
   box-shadow: none;
   

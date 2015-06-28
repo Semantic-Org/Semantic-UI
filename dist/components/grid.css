@@ -162,6 +162,7 @@
   margin: 1rem 1rem;
 }
 .ui.grid .column + .ui.vertical.divider {
+  height: -webkit-calc(50% -  1rem );
   height: calc(50% -  1rem );
 }
 
@@ -1088,6 +1089,7 @@
   content: "";
   top: 0em;
   left: 0px;
+  width: -webkit-calc(100% -  2rem );
   width: calc(100% -  2rem );
   height: 1px;
   margin: 0% 1rem;
@@ -1122,11 +1124,13 @@
 .ui.relaxed[class*="vertically divided"].grid > .row:before {
   margin-left: 1.5rem;
   margin-right: 1.5rem;
+  width: -webkit-calc(100% -  3rem );
   width: calc(100% -  3rem );
 }
 .ui[class*="very relaxed"][class*="vertically divided"].grid > .row:before {
   margin-left: 5rem;
   margin-right: 5rem;
+  width: -webkit-calc(100% -  5rem );
   width: calc(100% -  5rem );
 }
 
@@ -1685,7 +1689,7 @@
   .ui.stackable.grid > .row > .column,
   .ui.stackable.grid > .column:not(.row),
   .ui.grid > .stackable.stackable.row > .column {
-    width: 100%;
+    width: 100% !important;
     margin: 0em 0em !important;
     box-shadow: none !important;
     padding: 1rem 1rem !important;
