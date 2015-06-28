@@ -502,7 +502,7 @@ $.fn.search = function(parameters) {
             }
 
             // exit conditions if no source
-            if(source === undefined) {
+            if(source === undefined || source === false) {
               module.error(error.source);
               return [];
             }
