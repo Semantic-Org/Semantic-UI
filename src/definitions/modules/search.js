@@ -373,9 +373,9 @@ $.fn.search = function(parameters) {
             ;
           },
           type: function(type) {
-            type || settings.type;
+            type = type || settings.type;
             if(settings.type == 'category') {
-              $module.addClass(settings.type)
+              $module.addClass(settings.type);
             }
           },
           buttonPressed: function() {
