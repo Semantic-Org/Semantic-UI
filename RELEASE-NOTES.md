@@ -77,6 +77,7 @@
 - **Build Tools** - Build tools will now display pre-specified errors when a theme file is missing or an element specifies an unavailable theme.
 - **Build Tools** - Adjusting `site.variables` will now rebuild all UI, instead of just `site.less`
 - **Button** - Added `:focus` styles for all button types, all button examples in docs now are keyboard focusable using either `<button>` or `tabindex` where appropriate.
+- **Card** - Card now includes a `centered` variation
 - **Checkbox** - Reduced size of icon font
 - **Divider** - `vertical divider` inside `ui grid` now accounts for column padding
 - **Dropdown** - Nested `scrolling` menus now support keyboard selection, e.g. pressing "A" for apple, and keyboard scrolling.
