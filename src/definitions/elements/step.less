@@ -31,11 +31,19 @@
   display: inline-flex;
   flex-direction: row;
   align-items: stretch;
+  margin: @stepMargin;
   background: @stepsBackground;
   box-shadow: @stepsBoxShadow;
   line-height: @lineHeight;
   border-radius: @stepsBorderRadius;
   border: @stepsBorder;
+}
+
+.ui.steps:first-child {
+  margin-top: 0em;
+}
+.ui.steps:last-child {
+  margin-bottom: 0em;
 }
 
 .ui.steps .step:first-child {
@@ -250,6 +258,7 @@
   flex-direction: column;
 }
 .ui.steps .step {
+  width: 100% !important;
   flex-direction: column;
   border-radius: @borderRadius;
   padding: @verticalPadding @horizontalPadding;

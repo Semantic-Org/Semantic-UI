@@ -44,8 +44,8 @@
 /* Table Content */
 .ui.table th,
 .ui.table td {
-  -webkit-transition: background 0.1s ease, border-color 0.1s ease, color 0.1s ease;
-          transition: background 0.1s ease, border-color 0.1s ease, color 0.1s ease;
+  -webkit-transition: background 0.1s ease, color 0.1s ease;
+          transition: background 0.1s ease, color 0.1s ease;
 }
 
 /* Headers */
@@ -494,7 +494,7 @@
 }
 
 /*--------------
-     Attached
+    Attached
 ---------------*/
 
 
@@ -508,7 +508,7 @@
 
 /* Top */
 .ui[class*="top attached"].table {
-  margin-top: 1em 0em;
+  margin-top: 1em;
   border-radius: 0.28571429rem 0.28571429rem 0em 0em;
 }
 .ui.table[class*="top attached"]:first-child {
@@ -518,7 +518,7 @@
 /* Bottom */
 .ui.table[class*="bottom attached"] {
   margin-top: 0em;
-  margin-bottom: 1em 0em;
+  margin-bottom: 1em;
   border-radius: 0em 0em 0.28571429rem 0.28571429rem;
 }
 .ui.table[class*="bottom attached"]:last-child {

@@ -636,9 +636,6 @@ $.fn.tab = function(parameters) {
             if(pathName === undefined) {
               pathName = activeTabPath;
             }
-            if(typeof pathName == 'string') {
-              pathName = pathName.toLowerCase();
-            }
             return typeof pathName == 'string'
               ? pathName.split('/')
               : [pathName]
@@ -870,7 +867,7 @@ $.fn.tab.settings = {
   error: {
     api        : 'You attempted to load content without API module',
     method     : 'The method you called is not defined',
-    missingTab : 'Activated tab cannot be found for this context.',
+    missingTab : 'Activated tab cannot be found. Tabs are case-sensitive.',
     noContent  : 'The tab you specified is missing a content url.',
     path       : 'History enabled, but no path was specified',
     recursion  : 'Max recursive depth reached',

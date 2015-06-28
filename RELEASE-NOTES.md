@@ -9,6 +9,7 @@
 - **Grid** - `page grid` has been deprecated.  `page grids` used percentage gutters which made it unnecessarily difficult to style responsive page content. Moving forward we recommend using `ui container` a fixed width responsive container for holding page contents.
 - **Dropdown** - Dropdowns will now change opening directions automatically based on available screen space. If you need  to force a dropdown direction use `dropdown({ direction: 'upward'})`
 - **Form Validation** - Form validation now passes settings through a `fields` object. This is to make form initialization match other components. The previous syntax will continue to work but will produce deprecation notices in console
+- **Checkbox** - Checkbox `fireOnInit` now defaults to false
 - **Dropdown** - Dropdown item `description` now are floated in default theme and should be included before other `item` content
 - **Form** - `grouped inline field` no longer display horizontally. Use `inline field` instead for horizontal inline field groups.
 - **Input** - `pointer-events` have been removed from `icon` in `icon input` unless a `link icon` is used. This is to make sure the hitbox for focusing an input includes the icon.
@@ -34,7 +35,9 @@
 - **API** - API now provides a local caching setting to avoid server roundtrips for identical urls by using `cache: 'local'`. This is not enabled by default.  Local caching is useful for results that should return the same values across a single session, for example when querying an autocomplete.
 - **Card** - Cards now support multiple custom `content` blocks. Content blocks and images can now appear in any order.
 - **Checkbox** - Added support for `indeterminate` checkboxes, along with new stylings.
-- **Checkbox** - Now includes separate behaviors for triggering state changes without callbacks
+- **Checkbox** - Now includes separate behaviors for triggering state changes without invoking callbacks `set checked` vs `checked`
+- **Checkbox** - Checkboxes now support `indeterminate` states
+- **Checkbox** - Checkbox will now gracefully correct behaviors invoked on the child input element instead of the `ui checkbox`.
 - **Dropdown** - Added remote API integration with dropdown, to allow `search selection` to query against a remote dataset.
 - **Dropdown** - Dropdowns now automatically observe changes in `menu` and will update selector cache with new additions
 - **Dropdowns** - Added ability to add custom choices to all search selection dropdowns (multi/single) using `allowAdditions: true` setting. Search now displays error messages on no results in all cases.
@@ -95,6 +98,7 @@
 - **Form Validation** - New rules for matching against custom regular expressions
 - **Form Validation** - Form validation now has `minCount`, `maxCount`, and `exactCount` for validating multiple selections
 - **Grid** - `celled grid` now removes internal cells on mobile and tablet when used with `doubling` grid responsive variation.
+- **Grid** - Added `large screen only` and `widescreen only` responsive variations for grid.
 - **Grid** - `equal width` grids now works without `row` wrappers
 - **Grid** - rows can now be `stretched` as well as `middle aligned`, `bottom aligned` and `top aligned`!
 - **Grid** - Fixed margins on `internally celled` grid
@@ -144,6 +148,7 @@
 - **Transition** - Transition will no longer force visible/hidden with inline styles if `onComplete` callback sets visibility.
 - **Visibility/Sticky** - Visibility and sticky now refresh automatically after page content loading to deal with changes in position from images loading
 - **Visibility/Sticky** - Visibility now uses pub/sub pattern to greatly improve scroll performance when attaching multiple events
+- **Visibility** - Visiblity includes a new setting `checkOnRefresh` which detemrines whether visibility callbacks should occur on resize or refresh
 - **Visibility** - Visibility `image` will now wait to lazy load images that are *above* the current screen position, not just below.
 
 **New Variations**
@@ -198,6 +203,7 @@
 - **Form Validation** - Form validation now validates correctly on `<select>` change
 - **Form** - Fixed autocompleted `ui selection dropdown` having dropdown icon z-index issues
 - **Form/Input** - `ui labeled input` inside `form` will no longer escape column width. `ui fluid input` will now use input widths shorter than browser default.
+- **Grid** - Fixed responsive styling for grid types, more consistent display for `divided`, `celled,` on mobile
 - **Grid** - Fix `doubling row` not working correctly inside a different `doubling grid` (css spec issue)
 - **Grid** - Fix `doubling grid` incorrectly applying width to `(x) column row`
 - **Grid** - First column on `stackable grid` no longer receives top margin
@@ -264,7 +270,6 @@
 - **Sticky** - Fix issues when `pushing: true` with sticky content having incorrect bottom spacing, when container has bottom padding
 - **Sticky** - Fixed issue with sticky content animating width on display in some cases.
 - **Tab** - multiple tab groups initialized together with `context: 'parent'` will now each use their own parent
-- **Tab** - Tab name is no longer case sensitive
 - **Tab** - Tabs now use the standard component design pattern internally
 - **Table** - Fixes `sorted` column are not correctly centered with `center aligned` due to margin on sort icon
 - **Table** - Fixes `ascending` and `descending` icons were reversed in table
