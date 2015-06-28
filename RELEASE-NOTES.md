@@ -12,6 +12,8 @@
 - **Checkbox** - Checkbox `fireOnInit` now defaults to false
 - **Dropdown** - Dropdown item `description` now are floated in default theme and should be included before other `item` content
 - **Form** - `grouped inline field` no longer display horizontally. Use `inline field` instead for horizontal inline field groups.
+- **List** - List now uses flex which means for **images to [preserve their intrinsic aspect ratio](https://github.com/philipwalton/flexbugs#5-column-flex-items-dont-always-preserve-intrinsic-aspect-ratios)** they will need to use `<div class="image">` wrappers when used with a `content` block.
+- **List** - Similar to menu, floated flexbox content blocks should now appear in normal content order, for example, right floated content should appear after other content instead of before.
 - **Input** - `pointer-events` have been removed from `icon` in `icon input` unless a `link icon` is used. This is to make sure the hitbox for focusing an input includes the icon.
 - **Popup** - Popups are no longer exclusive by default. Opening a popup will not necessarily close other visible popups. You can change this behavior by using the setting `exclusive: true`. Additionally the default theme now uses `1rem` size for standard popups.
 - **Colors** - Default colors have been adjusted, which may cause slight changes in your design. New colors have also been added to fill in missing gaps in [color naming](http://en.wikipedia.org/wiki/Linguistic_relativity_and_the_color_naming_debate#Berlin_and_Kay).
@@ -77,7 +79,6 @@
 - **Build Tools** - Build tools will now display pre-specified errors when a theme file is missing or an element specifies an unavailable theme.
 - **Build Tools** - Adjusting `site.variables` will now rebuild all UI, instead of just `site.less`
 - **Button** - Added `:focus` styles for all button types, all button examples in docs now are keyboard focusable using either `<button>` or `tabindex` where appropriate.
-- **Card** - Card now includes a `centered` variation
 - **Checkbox** - Reduced size of icon font
 - **Divider** - `vertical divider` inside `ui grid` now accounts for column padding
 - **Dropdown** - Nested `scrolling` menus now support keyboard selection, e.g. pressing "A" for apple, and keyboard scrolling.
@@ -153,6 +154,7 @@
 - **Visibility** - Visibility `image` will now wait to lazy load images that are *above* the current screen position, not just below.
 
 **New Variations**
+- **Card** - Card now includes a `centered` variation
 - **Headers** - Added new header type `sub header`, useful for displaying small headers alongside text content. See examples [in the header docs](http://www.semantic-ui.com/elements/header.html#sub-headers)
 - **Menu** - `vertical tabular menu`, a vertical tab menu, has been added
 - **Dropdown** - Added new dropdown variation `scrolling dropdown` and `scrolling menu`, this can be used to include a scrollable section inside a dropdown menu.
@@ -212,6 +214,7 @@
 - **Grid** - Fixes colored grid columns not appearing when not nested in rows
 - **Icon** - Fixes `ascending` and `descending` icon being swapped
 - **Icon** - Fixes phone icon only appearing as alias `call`
+- **Image** - `rounded image` and `circular image` now apply border radius to all child elements, fixing dimmers, and other content rounding
 - **Input** - Fixed improper left padding on `transparent left icon input` **Thanks @zxfwinder**
 - **Input** - Fixed `placeholder` color not changing correctly on focus **Thanks @zxfwinder**
 - **Input** - Fixed right padding on `labeled input` that were not `corner labeled`
