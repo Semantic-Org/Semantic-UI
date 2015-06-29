@@ -9,7 +9,7 @@
 - **Grid** - `page grid` has been deprecated.  `page grids` used percentage gutters which made it unnecessarily difficult to style responsive page content. Moving forward we recommend using `ui container` a fixed width responsive container for holding page contents.
 - **Dropdown** - Dropdowns will now change opening directions automatically based on available screen space. If you need  to force a dropdown direction use `dropdown({ direction: 'upward'})`
 - **Form Validation** - Form validation now passes settings through a `fields` object. This is to make form initialization match other components. The previous syntax will continue to work but will produce deprecation notices in console
-- **Checkbox** - Checkbox `fireOnInit` now defaults to false
+- **Checkbox** - Checkbox `fireOnInit` now defaults to false. Checkboxes now also *do not require javascript* to function.
 - **Dropdown** - Dropdown item `description` now are floated in default theme and should be included before other `item` content
 - **Form** - `grouped inline field` no longer display horizontally. Use `inline field` instead for horizontal inline field groups.
 - **List** - List now uses flex which means for **images to [preserve their intrinsic aspect ratio](https://github.com/philipwalton/flexbugs#5-column-flex-items-dont-always-preserve-intrinsic-aspect-ratios)** they will need to use `<div class="image">` wrappers when used with a `content` block.
@@ -36,10 +36,9 @@
 - **API** - API callbacks now have an `onResponse` callback that can adjust a servers response before it is parsed by other callbacks for success or failure conditions. **Thanks @mnquintana**
 - **API** - API now provides a local caching setting to avoid server roundtrips for identical urls by using `cache: 'local'`. This is not enabled by default.  Local caching is useful for results that should return the same values across a single session, for example when querying an autocomplete.
 - **Card** - Cards now support multiple custom `content` blocks. Content blocks and images can now appear in any order.
+- **Checkbox** - Checkbox no longer require javascript to function.
 - **Checkbox** - Added support for `indeterminate` checkboxes, along with new stylings.
 - **Checkbox** - Now includes separate behaviors for triggering state changes without invoking callbacks `set checked` vs `checked`
-- **Checkbox** - Checkboxes now support `indeterminate` states
-- **Checkbox** - Checkbox will now gracefully correct behaviors invoked on the child input element instead of the `ui checkbox`.
 - **Dropdown** - Added remote API integration with dropdown, to allow `search selection` to query against a remote dataset.
 - **Dropdown** - Dropdowns now automatically observe changes in `menu` and will update selector cache with new additions
 - **Dropdowns** - Added ability to add custom choices to all search selection dropdowns (multi/single) using `allowAdditions: true` setting. Search now displays error messages on no results in all cases.
@@ -79,7 +78,8 @@
 - **Build Tools** - Build tools will now display pre-specified errors when a theme file is missing or an element specifies an unavailable theme.
 - **Build Tools** - Adjusting `site.variables` will now rebuild all UI, instead of just `site.less`
 - **Button** - Added `:focus` styles for all button types, all button examples in docs now are keyboard focusable using either `<button>` or `tabindex` where appropriate.
-- **Checkbox** - Reduced size of icon font
+- **Checkbox** - Checkbox will now gracefully correct behaviors invoked on the child input element instead of the `ui checkbox`.
+- **Checkbox** - Reduced kb size of icon font
 - **Divider** - `vertical divider` inside `ui grid` now accounts for column padding
 - **Dropdown** - Nested `scrolling` menus now support keyboard selection, e.g. pressing "A" for apple, and keyboard scrolling.
 - **Dropdown** - Dropdowns now have `match` setting to specify whether to match on `text`, `value` or `both`
