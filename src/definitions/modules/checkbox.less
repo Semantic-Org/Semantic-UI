@@ -60,9 +60,9 @@
 
 .ui.checkbox .box,
 .ui.checkbox label {
+  cursor: auto;
   position: relative;
   display: block;
-  cursor: pointer;
   padding-left: @labelDistance;
   outline: none;
 }
@@ -115,10 +115,8 @@
 /* Inside */
 .ui.checkbox label,
 .ui.checkbox + label {
-  cursor: pointer;
   color: @labelColor;
   transition: @labelTransition;
-  user-select: none;
 }
 
 /* Outside */
@@ -262,6 +260,14 @@
 .ui.checkbox input[type="radio"].hidden {
   z-index: -1;
 }
+
+/* Selectable Label */
+.ui.checkbox input[type="checkbox"].hidden + label,
+.ui.checkbox input[type="radio"].hidden + label {
+  cursor: pointer;
+  user-select: none;
+}
+
 
 
 

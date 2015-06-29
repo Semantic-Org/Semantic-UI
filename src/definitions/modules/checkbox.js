@@ -78,13 +78,11 @@ $.fn.checkbox = function(parameters) {
         destroy: function() {
           module.verbose('Destroying module');
           module.unbind.events();
-          $module
-            .removeData(moduleNamespace)
-          ;
+          module.show.input();
+          $module.removeData(moduleNamespace);
         },
 
         fix: {
-
           reference: function() {
             if( $module.is(selector.input) ) {
               module.debug('Behavior called on <input> adjusting invoked element');
@@ -128,8 +126,14 @@ $.fn.checkbox = function(parameters) {
 
         hide: {
           input: function() {
-            module.verbose('Modfying <input> z-index');
+            module.verbose('Modfying <input> z-index to be unselectable');
             $input.addClass(className.hidden);
+          }
+        },
+        show: {
+          input: function() {
+            module.verbose('Modfying <input> z-index to be selectable');
+            $input.removeClass(className.hidden);
           }
         },
 
