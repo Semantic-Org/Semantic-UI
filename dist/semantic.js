@@ -11929,9 +11929,9 @@ $.fn.search = function(parameters) {
             ;
           },
           type: function(type) {
-            type || settings.type;
+            type = type || settings.type;
             if(settings.type == 'category') {
-              $module.addClass(settings.type)
+              $module.addClass(settings.type);
             }
           },
           buttonPressed: function() {
@@ -12058,7 +12058,7 @@ $.fn.search = function(parameters) {
             }
 
             // exit conditions if no source
-            if(source === undefined) {
+            if(source === undefined || source === false) {
               module.error(error.source);
               return [];
             }

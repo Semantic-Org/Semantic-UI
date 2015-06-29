@@ -93,11 +93,9 @@ img.ui.image {
 ---------------*/
 
 .ui.rounded.images .image,
-.ui.rounded.images img,
-.ui.rounded.images svg,
-.ui.rounded.image img,
-.ui.rounded.image svg,
-.ui.rounded.image {
+.ui.rounded.image,
+.ui.rounded.images .image > *,
+.ui.rounded.image > * {
   border-radius: 0.3125em;
 }
 
@@ -123,11 +121,9 @@ img.ui.bordered.image {
   overflow: hidden;
 }
 .ui.circular.images .image,
-.ui.circular.images img,
-.ui.circular.images svg,
-.ui.circular.image img,
-.ui.circular.image svg,
-.ui.circular.image {
+.ui.circular.image,
+.ui.circular.images .image > *,
+.ui.circular.image > * {
   border-radius: 500rem;
 }
 

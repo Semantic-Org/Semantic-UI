@@ -500,7 +500,7 @@ th {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI - Site
+ * # Semantic UI 2.0.0 - Site
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -547,7 +547,6 @@ h4,
 h5 {
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   line-height: 1.2857em;
-  margin: -webkit-calc(2rem -  0.14285em ) 0em 1rem;
   margin: calc(2rem -  0.14285em ) 0em 1rem;
   font-weight: bold;
   padding: 0em;
@@ -4419,7 +4418,6 @@ input::selection {
   }
 
   .ui.grid.container {
-    width: -webkit-calc( 723px  +  2em ) !important;
     width: calc( 723px  +  2em ) !important;
   }
 }
@@ -4434,7 +4432,6 @@ input::selection {
   }
 
   .ui.grid.container {
-    width: -webkit-calc( 933px  +  2em ) !important;
     width: calc( 933px  +  2em ) !important;
   }
 }
@@ -4449,7 +4446,6 @@ input::selection {
   }
 
   .ui.grid.container {
-    width: -webkit-calc( 1127px  +  2em ) !important;
     width: calc( 1127px  +  2em ) !important;
   }
 }
@@ -4615,7 +4611,6 @@ input::selection {
   border-left: 1px solid rgba(34, 36, 38, 0.15);
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   width: 0%;
-  height: -webkit-calc(100% -  1rem );
   height: calc(100% -  1rem );
 }
 
@@ -6056,7 +6051,6 @@ i.flag.zimbabwe:before {
 
 .ui.header {
   border: none;
-  margin: -webkit-calc(2rem -  0.14285em ) 0em 1rem;
   margin: calc(2rem -  0.14285em ) 0em 1rem;
   padding: 0em 0em;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
@@ -10264,11 +10258,9 @@ img.ui.image {
 ---------------*/
 
 .ui.rounded.images .image,
-.ui.rounded.images img,
-.ui.rounded.images svg,
-.ui.rounded.image img,
-.ui.rounded.image svg,
-.ui.rounded.image {
+.ui.rounded.image,
+.ui.rounded.images .image > *,
+.ui.rounded.image > * {
   border-radius: 0.3125em;
 }
 
@@ -10295,11 +10287,9 @@ img.ui.bordered.image {
 }
 
 .ui.circular.images .image,
-.ui.circular.images img,
-.ui.circular.images svg,
-.ui.circular.image img,
-.ui.circular.image svg,
-.ui.circular.image {
+.ui.circular.image,
+.ui.circular.images .image > *,
+.ui.circular.image > * {
   border-radius: 500rem;
 }
 
@@ -11363,19 +11353,15 @@ a.ui.label {
 /* Positioning */
 
 .ui.ribbon.label {
-  left: -webkit-calc( -1rem  -  1.2em );
   left: calc( -1rem  -  1.2em );
   margin-right: -1.2em;
-  padding-left: -webkit-calc( 1rem  +  1.2em );
   padding-left: calc( 1rem  +  1.2em );
   padding-right: 1.2em;
 }
 
 .ui[class*="right ribbon"].label {
-  left: -webkit-calc(100% +  1rem  +  1.2em );
   left: calc(100% +  1rem  +  1.2em );
   padding-left: 1.2em;
-  padding-right: -webkit-calc( 1rem  +  1.2em );
   padding-right: calc( 1rem  +  1.2em );
 }
 
@@ -11408,13 +11394,11 @@ a.ui.label {
 
 .ui.card .image > .ui.ribbon.label,
 .ui.image > .ui.ribbon.label {
-  left: -webkit-calc( 0.05rem  -  1.2em );
   left: calc( 0.05rem  -  1.2em );
 }
 
 .ui.card .image > .ui[class*="right ribbon"].label,
 .ui.image > .ui[class*="right ribbon"].label {
-  left: -webkit-calc(100% +  -0.05rem  +  1.2em );
   left: calc(100% +  -0.05rem  +  1.2em );
   padding-left: 0.833em;
 }
@@ -14838,9 +14822,7 @@ ol.ui.horizontal.list li:before,
   top: 0px;
   bottom: 0px;
   margin: 0em -1px;
-  width: -webkit-calc(100% +  2px );
   width: calc(100% +  2px );
-  max-width: -webkit-calc(100% +  2px );
   max-width: calc(100% +  2px );
   border-radius: 0px;
   box-shadow: none;
@@ -15423,10 +15405,8 @@ ol.ui.horizontal.list li:before,
 /* Top */
 
 .ui.attached.steps {
-  width: -webkit-calc(100% +  2px ) !important;
   width: calc(100% +  2px ) !important;
   margin: 0em -1px -1px;
-  max-width: -webkit-calc(100% +  2px );
   max-width: calc(100% +  2px );
   border-radius: 0.28571429rem 0.28571429rem 0em 0em;
 }
@@ -16939,7 +16919,6 @@ ol.ui.horizontal.list li:before,
 }
 
 .ui.grid .column + .ui.vertical.divider {
-  height: -webkit-calc(50% -  1rem );
   height: calc(50% -  1rem );
 }
 
@@ -18010,7 +17989,6 @@ ol.ui.horizontal.list li:before,
   content: "";
   top: 0em;
   left: 0px;
-  width: -webkit-calc(100% -  2rem );
   width: calc(100% -  2rem );
   height: 1px;
   margin: 0% 1rem;
@@ -18051,14 +18029,12 @@ ol.ui.horizontal.list li:before,
 .ui.relaxed[class*="vertically divided"].grid > .row:before {
   margin-left: 1.5rem;
   margin-right: 1.5rem;
-  width: -webkit-calc(100% -  3rem );
   width: calc(100% -  3rem );
 }
 
 .ui[class*="very relaxed"][class*="vertically divided"].grid > .row:before {
   margin-left: 5rem;
   margin-right: 5rem;
-  width: -webkit-calc(100% -  5rem );
   width: calc(100% -  5rem );
 }
 
@@ -19150,7 +19126,6 @@ ol.ui.horizontal.list li:before,
 
 .ui.menu .dropdown.item .menu {
   left: 0px;
-  min-width: -webkit-calc(100% - 1px);
   min-width: calc(100% - 1px);
   border-radius: 0em 0em 0.28571429rem 0.28571429rem;
   background: #ffffff;
@@ -19579,7 +19554,6 @@ Floated Menu / Item
 }
 
 .ui.tabular.fluid.menu {
-  width: -webkit-calc(100% +  2px ) !important;
   width: calc(100% +  2px ) !important;
 }
 
@@ -20903,7 +20877,6 @@ Floated Menu / Item
   border-radius: 0px;
   margin-left: -1px;
   margin-right: -1px;
-  width: -webkit-calc(100% +  2px );
   width: calc(100% +  2px );
   box-shadow: none;
   /* avoid rgba multiplying */
@@ -22079,7 +22052,6 @@ Floated Menu / Item
 /* All */
 
 .ui.attached.table {
-  width: -webkit-calc(100% +  2px );
   width: calc(100% +  2px );
   margin: 0em -1px;
   border-radius: 0px;
@@ -23374,7 +23346,6 @@ Floated Menu / Item
 .ui.cards > .card > .button,
 .ui.card > .button {
   margin: 0px -1px;
-  width: -webkit-calc(100% +  2px );
   width: calc(100% +  2px );
 }
 
@@ -23477,6 +23448,15 @@ Floated Menu / Item
 /*******************************
            Variations
 *******************************/
+
+/*-------------------
+       Centered
+--------------------*/
+
+.ui.centered.card {
+  margin-left: auto;
+  margin-right: auto;
+}
 
 /*-------------------
         Fluid
@@ -23719,7 +23699,6 @@ a.ui.card:hover,
 }
 
 .ui.two.cards > .card {
-  width: -webkit-calc( 50%  -  2em );
   width: calc( 50%  -  2em );
   margin-left: 1em;
   margin-right: 1em;
@@ -23731,7 +23710,6 @@ a.ui.card:hover,
 }
 
 .ui.three.cards > .card {
-  width: -webkit-calc( 33.33333333%  -  2em );
   width: calc( 33.33333333%  -  2em );
   margin-left: 1em;
   margin-right: 1em;
@@ -23743,7 +23721,6 @@ a.ui.card:hover,
 }
 
 .ui.four.cards > .card {
-  width: -webkit-calc( 25%  -  1.5em );
   width: calc( 25%  -  1.5em );
   margin-left: 0.75em;
   margin-right: 0.75em;
@@ -23755,7 +23732,6 @@ a.ui.card:hover,
 }
 
 .ui.five.cards > .card {
-  width: -webkit-calc( 20%  -  1.5em );
   width: calc( 20%  -  1.5em );
   margin-left: 0.75em;
   margin-right: 0.75em;
@@ -23767,7 +23743,6 @@ a.ui.card:hover,
 }
 
 .ui.six.cards > .card {
-  width: -webkit-calc( 16.66666667%  -  1.5em );
   width: calc( 16.66666667%  -  1.5em );
   margin-left: 0.75em;
   margin-right: 0.75em;
@@ -23779,7 +23754,6 @@ a.ui.card:hover,
 }
 
 .ui.seven.cards > .card {
-  width: -webkit-calc( 14.28571429%  -  1em );
   width: calc( 14.28571429%  -  1em );
   margin-left: 0.5em;
   margin-right: 0.5em;
@@ -23791,7 +23765,6 @@ a.ui.card:hover,
 }
 
 .ui.eight.cards > .card {
-  width: -webkit-calc( 12.5%  -  1em );
   width: calc( 12.5%  -  1em );
   margin-left: 0.5em;
   margin-right: 0.5em;
@@ -23804,7 +23777,6 @@ a.ui.card:hover,
 }
 
 .ui.nine.cards > .card {
-  width: -webkit-calc( 11.11111111%  -  1em );
   width: calc( 11.11111111%  -  1em );
   margin-left: 0.5em;
   margin-right: 0.5em;
@@ -23817,7 +23789,6 @@ a.ui.card:hover,
 }
 
 .ui.ten.cards > .card {
-  width: -webkit-calc( 10%  -  1em );
   width: calc( 10%  -  1em );
   margin-left: 0.5em;
   margin-right: 0.5em;
@@ -23847,7 +23818,6 @@ a.ui.card:hover,
   }
 
   .ui.three.doubling.cards .card {
-    width: -webkit-calc( 50%  -  2em );
     width: calc( 50%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -23859,7 +23829,6 @@ a.ui.card:hover,
   }
 
   .ui.four.doubling.cards .card {
-    width: -webkit-calc( 50%  -  2em );
     width: calc( 50%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -23871,7 +23840,6 @@ a.ui.card:hover,
   }
 
   .ui.five.doubling.cards .card {
-    width: -webkit-calc( 50%  -  2em );
     width: calc( 50%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -23883,7 +23851,6 @@ a.ui.card:hover,
   }
 
   .ui.six.doubling.cards .card {
-    width: -webkit-calc( 50%  -  2em );
     width: calc( 50%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -23895,7 +23862,6 @@ a.ui.card:hover,
   }
 
   .ui.seven.doubling.cards .card {
-    width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -23907,7 +23873,6 @@ a.ui.card:hover,
   }
 
   .ui.eight.doubling.cards .card {
-    width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -23919,7 +23884,6 @@ a.ui.card:hover,
   }
 
   .ui.nine.doubling.cards .card {
-    width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -23931,7 +23895,6 @@ a.ui.card:hover,
   }
 
   .ui.ten.doubling.cards .card {
-    width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -23958,7 +23921,6 @@ a.ui.card:hover,
   }
 
   .ui.three.doubling.cards .card {
-    width: -webkit-calc( 50%  -  2em );
     width: calc( 50%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -23970,7 +23932,6 @@ a.ui.card:hover,
   }
 
   .ui.four.doubling.cards .card {
-    width: -webkit-calc( 50%  -  2em );
     width: calc( 50%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -23982,7 +23943,6 @@ a.ui.card:hover,
   }
 
   .ui.five.doubling.cards .card {
-    width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -23994,7 +23954,6 @@ a.ui.card:hover,
   }
 
   .ui.six.doubling.cards .card {
-    width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -24006,7 +23965,6 @@ a.ui.card:hover,
   }
 
   .ui.eight.doubling.cards .card {
-    width: -webkit-calc( 33.33333333%  -  2em );
     width: calc( 33.33333333%  -  2em );
     margin-left: 1em;
     margin-right: 1em;
@@ -24018,7 +23976,6 @@ a.ui.card:hover,
   }
 
   .ui.eight.doubling.cards .card {
-    width: -webkit-calc( 25%  -  1.5em );
     width: calc( 25%  -  1.5em );
     margin-left: 0.75em;
     margin-right: 0.75em;
@@ -24030,7 +23987,6 @@ a.ui.card:hover,
   }
 
   .ui.nine.doubling.cards .card {
-    width: -webkit-calc( 25%  -  1.5em );
     width: calc( 25%  -  1.5em );
     margin-left: 0.75em;
     margin-right: 0.75em;
@@ -24042,7 +23998,6 @@ a.ui.card:hover,
   }
 
   .ui.ten.doubling.cards .card {
-    width: -webkit-calc( 20%  -  1.5em );
     width: calc( 20%  -  1.5em );
     margin-left: 0.75em;
     margin-right: 0.75em;
@@ -24067,7 +24022,6 @@ a.ui.card:hover,
     height: auto !important;
     margin: 1em 1em;
     padding: 0 !important;
-    width: -webkit-calc( 100%  -  2em ) !important;
     width: calc( 100%  -  2em ) !important;
   }
 }
@@ -27340,7 +27294,6 @@ select.ui.dropdown {
   width: auto;
   outline: none;
   margin: 0px -1px;
-  min-width: -webkit-calc(100% +  2px );
   min-width: calc(100% +  2px );
   border-radius: 0em 0em 0.28571429rem 0.28571429rem;
   box-shadow: 0px 2px 3px 0px rgba(34, 36, 38, 0.15);
@@ -27365,7 +27318,6 @@ select.ui.dropdown {
 
 @media all and (-ms-high-contrast: none) {
   .ui.selection.dropdown .menu {
-    min-width: -webkit-calc(100% -  17px );
     min-width: calc(100% -  17px );
   }
 }
@@ -28066,7 +28018,6 @@ select.ui.dropdown {
 .ui.scrolling.dropdown .menu .item.item.item,
 .ui.dropdown .scrolling.menu > .item.item.item {
   border-top: none;
-  padding-right: -webkit-calc( 1.14285714rem  +  17px ) !important;
   padding-right: calc( 1.14285714rem  +  17px ) !important;
 }
 
@@ -28085,7 +28036,6 @@ select.ui.dropdown {
 @media all and (-ms-high-contrast: none) {
   .ui.scrolling.dropdown .menu,
   .ui.dropdown .scrolling.menu {
-    min-width: -webkit-calc(100% -  17px );
     min-width: calc(100% -  17px );
   }
 }
@@ -28587,6 +28537,10 @@ select.ui.dropdown {
 
 /*******************************
         Video Overrides
+*******************************/
+
+/*******************************
+         Site Overrides
 *******************************/
 
 /*******************************
@@ -29555,7 +29509,6 @@ a.ui.nag {
 /* Immediate Nested Grid */
 
 .ui.popup > .ui.grid:not(.padded) {
-  width: -webkit-calc(100% + 1.75rem);
   width: calc(100% + 1.75rem);
   margin: -0.7rem -0.875rem;
 }
@@ -32514,7 +32467,6 @@ html.ios body {
 /* All */
 
 .ui.attached.table {
-  width: -webkit-calc(100% +  2px );
   width: calc(100% +  2px );
   margin: 0em -1px;
   border-radius: 0px;
