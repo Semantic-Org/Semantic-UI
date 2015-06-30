@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&subset=latin');
 /*!
- * # Semantic UI 2.0.0 - Site
+ * # Semantic UI - Site
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -14,7 +15,6 @@
              Page
 *******************************/
 
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&subset=latin');
 html,
 body {
   height: 100%;
@@ -47,6 +47,7 @@ h4,
 h5 {
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   line-height: 1.2857em;
+  margin: -webkit-calc(2rem -  0.14285em ) 0em 1rem;
   margin: calc(2rem -  0.14285em ) 0em 1rem;
   font-weight: bold;
   padding: 0em;

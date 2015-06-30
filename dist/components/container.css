@@ -41,6 +41,7 @@
     margin-right: auto !important;
   }
   .ui.grid.container {
+    width: -webkit-calc( 723px  +  2em ) !important;
     width: calc( 723px  +  2em ) !important;
   }
 }
@@ -53,6 +54,7 @@
     margin-right: auto !important;
   }
   .ui.grid.container {
+    width: -webkit-calc( 933px  +  2em ) !important;
     width: calc( 933px  +  2em ) !important;
   }
 }
@@ -65,6 +67,7 @@
     margin-right: auto !important;
   }
   .ui.grid.container {
+    width: -webkit-calc( 1127px  +  2em ) !important;
     width: calc( 1127px  +  2em ) !important;
   }
 }

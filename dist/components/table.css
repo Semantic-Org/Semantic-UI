@@ -500,6 +500,7 @@
 
 /* All */
 .ui.attached.table {
+  width: -webkit-calc(100% +  2px );
   width: calc(100% +  2px );
   margin: 0em -1px;
   border-radius: 0px;
