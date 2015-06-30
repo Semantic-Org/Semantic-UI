@@ -412,6 +412,7 @@ select.ui.dropdown {
   outline: none;
   margin: 0px -@menuBorderWidth;
   min-width: @menuMinWidth;
+  width: @menuMinWidth;
 
   border-radius: @selectionMenuBorderRadius;
   box-shadow: @selectionMenuBoxShadow;
@@ -428,13 +429,6 @@ select.ui.dropdown {
 
 .ui.selection.dropdown .menu > .message {
   padding: @selectionMessagePadding;
-}
-
-/* Scrollbar in IE */
-@media all and (-ms-high-contrast:none) {
-  .ui.selection.dropdown .menu {
-    min-width: ~"calc(100% - "@scrollbarWidth~")";
-  }
 }
 
 @media only screen and (max-width : @largestMobileScreen) {
