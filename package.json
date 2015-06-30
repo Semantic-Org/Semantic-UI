@@ -36,13 +36,15 @@
     "gulp-notify": "*",
     "gulp-plumber": "*",
     "gulp-print": "*",
-    "gulp-replace": "*",
     "gulp-rename": "*",
+    "gulp-replace": "*",
     "gulp-rtlcss": "*",
     "gulp-uglify": "*",
     "gulp-util": "*",
     "gulp-watch": "*",
-    "require-dot-file": "*"
+    "map-stream": "*",
+    "require-dot-file": "*",
+    "yamljs": "*"
   },
   "dependencies": {
     "better-console": "*",
