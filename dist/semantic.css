@@ -864,7 +864,7 @@ input::selection {
 }
 
 .ui.basic.loading.button:not(.inverted):after {
-  border-top-color: #757676;
+  border-top-color: #767676;
 }
 
 /*-------------------
@@ -2155,7 +2155,7 @@ input::selection {
 
 .ui.grey.buttons .button,
 .ui.grey.button {
-  background-color: #757676;
+  background-color: #767676;
   color: #ffffff;
   text-shadow: none;
   background-image: none;
@@ -2167,21 +2167,21 @@ input::selection {
 
 .ui.grey.buttons .button:hover,
 .ui.grey.button:hover {
-  background-color: #828383;
+  background-color: #838383;
   color: #ffffff;
   text-shadow: none;
 }
 
 .ui.grey.buttons .button:focus,
 .ui.grey.button:focus {
-  background-color: #898a8a;
+  background-color: #8a8a8a;
   color: #ffffff;
   text-shadow: none;
 }
 
 .ui.grey.buttons .button:active,
 .ui.grey.button:active {
-  background-color: #8f8f8f;
+  background-color: #909090;
   color: #ffffff;
   text-shadow: none;
 }
@@ -2190,7 +2190,7 @@ input::selection {
 .ui.grey.buttons .active.button:active,
 .ui.grey.active.button,
 .ui.grey.button .active.button:active {
-  background-color: #686969;
+  background-color: #696969;
   color: #ffffff;
   text-shadow: none;
 }
@@ -2206,27 +2206,27 @@ input::selection {
 .ui.basic.grey.buttons .button:hover,
 .ui.basic.grey.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #828383 inset !important;
-  color: #828383 !important;
+  box-shadow: 0px 0px 0px 2px #838383 inset !important;
+  color: #838383 !important;
 }
 
 .ui.basic.grey.buttons .button:focus,
 .ui.basic.grey.button:focus {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #898a8a inset !important;
+  box-shadow: 0px 0px 0px 2px #8a8a8a inset !important;
 }
 
 .ui.basic.grey.buttons .active.button,
 .ui.basic.grey.active.button {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #686969 inset !important;
-  color: #8f8f8f !important;
+  box-shadow: 0px 0px 0px 2px #696969 inset !important;
+  color: #909090 !important;
 }
 
 .ui.basic.grey.buttons .button:active,
 .ui.basic.grey.button:active {
-  box-shadow: 0px 0px 0px 2px #8f8f8f inset !important;
-  color: #8f8f8f !important;
+  box-shadow: 0px 0px 0px 2px #909090 inset !important;
+  color: #909090 !important;
 }
 
 .ui.buttons > .basic.grey.button:not(:first-child) {
@@ -6654,15 +6654,15 @@ a.ui.inverted.brown.header:hover {
 /*--- Grey ---*/
 
 .ui.grey.header {
-  color: #757676 !important;
+  color: #767676 !important;
 }
 
 a.ui.grey.header:hover {
-  color: #828383 !important;
+  color: #838383 !important;
 }
 
 .ui.grey.dividing.header {
-  border-bottom: 2px solid #757676;
+  border-bottom: 2px solid #767676;
 }
 
 /* Inverted */
@@ -7252,7 +7252,7 @@ i.inverted.circular.brown.icon {
 /* Grey */
 
 i.grey.icon {
-  color: #757676 !important;
+  color: #767676 !important;
 }
 
 i.inverted.grey.icon {
@@ -7261,7 +7261,7 @@ i.inverted.grey.icon {
 
 i.inverted.bordered.grey.icon,
 i.inverted.circular.grey.icon {
-  background-color: #757676 !important;
+  background-color: #767676 !important;
   color: #ffffff !important;
 }
 
@@ -10587,7 +10587,7 @@ img.ui.bordered.image {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
   border-radius: 500rem;
-  border-color: #757676 transparent transparent;
+  border-color: #767676 transparent transparent;
   border-style: solid;
   border-width: 0.2em;
   box-shadow: 0px 0px 0px 1px transparent;
@@ -11957,15 +11957,15 @@ a.ui.brown.label:hover:before {
 
 .ui.grey.labels .label,
 .ui.grey.label {
-  background-color: #757676 !important;
-  border-color: #757676 !important;
+  background-color: #767676 !important;
+  border-color: #767676 !important;
   color: #ffffff !important;
 }
 
 .ui.labels .grey.label:before,
 .ui.grey.labels .label:before,
 .ui.grey.label:before {
-  background-color: #757676 !important;
+  background-color: #767676 !important;
 }
 
 .ui.grey.corner.label,
@@ -11975,19 +11975,19 @@ a.ui.brown.label:hover:before {
 
 a.ui.grey.labels .label:hover,
 a.ui.grey.label:hover {
-  background-color: #828383 !important;
-  border-color: #828383 !important;
+  background-color: #838383 !important;
+  border-color: #838383 !important;
   color: #ffffff !important;
 }
 
 .ui.labels a.grey.label:hover:before,
 .ui.grey.labels a.label:hover:before,
 a.ui.grey.label:hover:before {
-  background-color: #828383 !important;
+  background-color: #838383 !important;
 }
 
 .ui.grey.ribbon.label {
-  border-color: #5c5c5c !important;
+  border-color: #5d5d5d !important;
 }
 
 /*--- Black ---*/
@@ -12024,7 +12024,7 @@ a.ui.black.label:hover:before {
 }
 
 .ui.black.ribbon.label {
-  border-color: #5c5c5c !important;
+  border-color: #5d5d5d !important;
 }
 
 /*-------------------
@@ -13332,7 +13332,7 @@ ol.ui.horizontal.list li:before,
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
   border-radius: 500rem;
-  border-color: #757676 transparent transparent;
+  border-color: #767676 transparent transparent;
   border-style: solid;
   border-width: 0.2em;
   box-shadow: 0px 0px 0px 1px transparent;
@@ -13429,7 +13429,7 @@ ol.ui.horizontal.list li:before,
 }
 
 .ui.inverted.dimmer .ui.loader:after {
-  border-color: #757676 transparent transparent;
+  border-color: #767676 transparent transparent;
 }
 
 /*******************************
@@ -14519,7 +14519,7 @@ ol.ui.horizontal.list li:before,
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
   border-radius: 500rem;
-  border-color: #757676 rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1);
+  border-color: #767676 rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1);
   border-style: solid;
   border-width: 0.2em;
   box-shadow: 0px 0px 0px 1px transparent;
@@ -14706,11 +14706,11 @@ ol.ui.horizontal.list li:before,
 /* Grey */
 
 .ui.grey.segment:not(.inverted) {
-  border-top: 2px solid #757676;
+  border-top: 2px solid #767676;
 }
 
 .ui.inverted.grey.segment {
-  background-color: #757676 !important;
+  background-color: #767676 !important;
   color: #ffffff !important;
 }
 
@@ -16279,7 +16279,7 @@ ol.ui.horizontal.list li:before,
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
   border-radius: 500rem;
-  border-color: #757676 rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1);
+  border-color: #767676 rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1);
   border-style: solid;
   border-width: 0.2em;
   box-shadow: 0px 0px 0px 1px transparent;
@@ -18384,7 +18384,7 @@ ol.ui.horizontal.list li:before,
 .ui.grid > .grey.row,
 .ui.grid > .grey.column,
 .ui.grid > .row > .grey.column {
-  background-color: #757676 !important;
+  background-color: #767676 !important;
   color: #ffffff;
 }
 
@@ -20276,8 +20276,8 @@ Floated Menu / Item
 
 .ui.menu .grey.active.item,
 .ui.grey.menu .active.item {
-  border-color: #757676 !important;
-  color: #757676 !important;
+  border-color: #767676 !important;
+  color: #767676 !important;
 }
 
 /*--------------
@@ -20568,7 +20568,7 @@ Floated Menu / Item
 /* Grey */
 
 .ui.inverted.grey.menu {
-  background-color: #757676;
+  background-color: #767676;
 }
 
 .ui.inverted.grey.menu .item:before {
@@ -22236,11 +22236,11 @@ Floated Menu / Item
 /* Grey */
 
 .ui.grey.table {
-  border-top: 0.2em solid #757676;
+  border-top: 0.2em solid #767676;
 }
 
 .ui.inverted.grey.table {
-  background-color: #757676 !important;
+  background-color: #767676 !important;
   color: #ffffff !important;
 }
 
@@ -23657,13 +23657,13 @@ a.ui.card:hover,
 .ui.grey.cards > .card,
 .ui.cards > .grey.card,
 .ui.grey.card {
-  box-shadow: 0px 0px 0px 1px #d4d4d5, 0px 2px 0px 0px #757676, 0px 1px 3px 0px #d4d4d5;
+  box-shadow: 0px 0px 0px 1px #d4d4d5, 0px 2px 0px 0px #767676, 0px 1px 3px 0px #d4d4d5;
 }
 
 .ui.grey.cards > .card:hover,
 .ui.cards > .grey.card:hover,
 .ui.grey.card:hover {
-  box-shadow: 0px 0px 0px 1px #d4d4d5, 0px 2px 0px 0px #828383, 0px 1px 3px 0px #bcbdbd;
+  box-shadow: 0px 0px 0px 1px #d4d4d5, 0px 2px 0px 0px #838383, 0px 1px 3px 0px #bcbdbd;
 }
 
 /* Black */
@@ -25577,7 +25577,7 @@ a.ui.card:hover,
 .ui.grey.statistics .statistic > .value,
 .ui.statistics .grey.statistic > .value,
 .ui.grey.statistic > .value {
-  color: #757676;
+  color: #767676;
 }
 
 /*--------------
@@ -26084,26 +26084,27 @@ a.ui.card:hover,
 .ui.checkbox {
   position: relative;
   display: inline-block;
-  min-height: 17px;
-  font-size: 1rem;
-  line-height: 17px;
-  min-width: 17px;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   outline: none;
   vertical-align: baseline;
+  min-height: 17px;
+  font-size: 1rem;
+  line-height: 17px;
+  min-width: 17px;
 }
 
 .ui.checkbox input[type="checkbox"],
 .ui.checkbox input[type="radio"] {
+  cursor: pointer;
   position: absolute;
   top: 0px;
   left: 0px;
-  width: 17px;
-  height: 17px;
   opacity: 0 !important;
   outline: none;
-  z-index: -1;
+  z-index: 3;
+  width: 17px;
+  height: 17px;
 }
 
 /*--------------
@@ -26112,9 +26113,9 @@ a.ui.card:hover,
 
 .ui.checkbox .box,
 .ui.checkbox label {
+  cursor: auto;
   position: relative;
   display: block;
-  cursor: pointer;
   padding-left: 1.85714em;
   outline: none;
 }
@@ -26166,14 +26167,9 @@ a.ui.card:hover,
 
 .ui.checkbox label,
 .ui.checkbox + label {
-  cursor: pointer;
   color: rgba(0, 0, 0, 0.87);
   -webkit-transition: color 0.1s ease;
   transition: color 0.1s ease;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 
 /* Outside */
@@ -26309,6 +26305,29 @@ a.ui.card:hover,
   cursor: default;
   opacity: 0.5;
   color: #000000;
+}
+
+/*--------------
+     Hidden
+---------------*/
+
+/* Initialized checkbox moves input below element
+ to prevent manually triggering */
+
+.ui.checkbox input[type="checkbox"].hidden,
+.ui.checkbox input[type="radio"].hidden {
+  z-index: -1;
+}
+
+/* Selectable Label */
+
+.ui.checkbox input[type="checkbox"].hidden + label,
+.ui.checkbox input[type="radio"].hidden + label {
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 /*******************************
@@ -27436,7 +27455,6 @@ select.ui.dropdown {
   background: none transparent !important;
   border: none !important;
   box-shadow: none !important;
-  border-radius: 0em !important;
   cursor: pointer;
   top: 0em;
   left: 0em;
@@ -27714,7 +27732,7 @@ select.ui.dropdown {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
   border-radius: 500rem;
-  border-color: #757676 transparent transparent;
+  border-color: #767676 transparent transparent;
   border-style: solid;
   border-width: 0.2em;
 }
@@ -28537,10 +28555,6 @@ select.ui.dropdown {
 
 /*******************************
         Video Overrides
-*******************************/
-
-/*******************************
-         Site Overrides
 *******************************/
 
 /*******************************
@@ -30148,7 +30162,7 @@ a.ui.nag {
 /* Grey */
 
 .ui.grey.progress .bar {
-  background-color: #757676;
+  background-color: #767676;
 }
 
 .ui.grey.inverted.progress .bar {
@@ -30723,7 +30737,7 @@ a.ui.nag {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
   border-radius: 500rem;
-  border-color: #757676 transparent transparent;
+  border-color: #767676 transparent transparent;
   border-style: solid;
   border-width: 0.2em;
   box-shadow: 0px 0px 0px 1px transparent;
@@ -31898,7 +31912,7 @@ html.ios body {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
   border-radius: 500rem;
-  border-color: #757676 transparent transparent;
+  border-color: #767676 transparent transparent;
   border-style: solid;
   border-width: 0.2em;
   box-shadow: 0px 0px 0px 1px transparent;
@@ -32651,11 +32665,11 @@ html.ios body {
 /* Grey */
 
 .ui.grey.table {
-  border-top: 0.2em solid #757676;
+  border-top: 0.2em solid #767676;
 }
 
 .ui.inverted.grey.table {
-  background-color: #757676 !important;
+  background-color: #767676 !important;
   color: #ffffff !important;
 }
 

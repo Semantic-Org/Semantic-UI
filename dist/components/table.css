@@ -657,10 +657,10 @@
 
 /* Grey */
 .ui.grey.table {
-  border-top: 0.2em solid #757676;
+  border-top: 0.2em solid #767676;
 }
 .ui.inverted.grey.table {
-  background-color: #757676 !important;
+  background-color: #767676 !important;
   color: #ffffff !important;
 }
 

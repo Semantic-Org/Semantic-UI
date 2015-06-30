@@ -2403,14 +2403,13 @@ $.fn.checkbox = function(parameters) {
         initialize: function() {
           module.verbose('Initializing checkbox', settings);
 
-          module.fix.input();
-
           module.create.label();
           module.bind.events();
+
           module.set.tabbable();
+          module.hide.input();
 
           module.observeChanges();
-
           module.instantiate();
           module.setup();
         },
@@ -2426,15 +2425,14 @@ $.fn.checkbox = function(parameters) {
         destroy: function() {
           module.verbose('Destroying module');
           module.unbind.events();
-          $module
-            .removeData(moduleNamespace)
-          ;
+          module.show.input();
+          $module.removeData(moduleNamespace);
         },
 
         fix: {
-          input: function() {
+          reference: function() {
             if( $module.is(selector.input) ) {
-              module.debug('Fixing incorrect reference to module in invocation');
+              module.debug('Behavior called on <input> adjusting invoked element');
               $module = $module.closest(selector.checkbox);
               module.refresh();
             }
@@ -2471,6 +2469,19 @@ $.fn.checkbox = function(parameters) {
         refresh: function() {
           $label = $module.children(selector.label);
           $input = $module.children(selector.input);
+        },
+
+        hide: {
+          input: function() {
+            module.verbose('Modfying <input> z-index to be unselectable');
+            $input.addClass(className.hidden);
+          }
+        },
+        show: {
+          input: function() {
+            module.verbose('Modfying <input> z-index to be selectable');
+            $input.removeClass(className.hidden);
+          }
         },
 
         observeChanges: function() {
@@ -3022,6 +3033,7 @@ $.fn.checkbox.settings = {
     checked       : 'checked',
     indeterminate : 'indeterminate',
     disabled      : 'disabled',
+    hidden        : 'hidden',
     radio         : 'radio',
     readOnly      : 'read-only'
   },
@@ -5432,7 +5444,7 @@ $.fn.dropdown = function(parameters) {
             }
           },
           values: function() {
-            // prevents callbacks from occuring if specified for initial load
+            // prevents callbacks from occuring on initial load
             module.set.initialLoad();
             if(settings.apiSettings) {
               if(settings.saveRemoteData) {
@@ -5491,14 +5503,27 @@ $.fn.dropdown = function(parameters) {
             module.save.defaultValue();
           },
           defaultValue: function() {
-            $module.data(metadata.defaultValue, module.get.value());
+            var
+              value = module.get.value()
+            ;
+            module.verbose('Saving default value as', value);
+            $module.data(metadata.defaultValue, value);
           },
           defaultText: function() {
-            $module.data(metadata.defaultText, $text.text() );
+            var
+              text = module.get.text()
+            ;
+            module.verbose('Saving default text as', text);
+            $module.data(metadata.defaultText, text);
           },
           placeholderText: function() {
+            var
+              text
+            ;
             if($text.hasClass(className.placeholder)) {
-              $module.data(metadata.placeholderText, $text.text());
+              text = module.get.text();
+              module.verbose('Saving placeholder text as', text);
+              $module.data(metadata.placeholderText, text);
             }
           },
           remoteData: function(name, value) {
@@ -5506,6 +5531,7 @@ $.fn.dropdown = function(parameters) {
               module.error(error.noStorage);
               return;
             }
+            module.verbose('Saving remote data to session storage', value, name);
             sessionStorage.setItem(value, name);
           }
         },
@@ -5601,10 +5627,12 @@ $.fn.dropdown = function(parameters) {
             $module.addClass(className.loading);
           },
           placeholderText: function(text) {
-            module.debug('Restoring placeholder text');
             text = text || $module.data(metadata.placeholderText);
-            module.set.text(text);
-            $text.addClass(className.placeholder);
+            if(text) {
+              module.debug('Restoring placeholder text');
+              module.set.text(text);
+              $text.addClass(className.placeholder);
+            }
           },
           tabbable: function() {
             if( module.has.search() ) {
@@ -17686,7 +17714,7 @@ $.api = $.fn.api = function(parameters) {
               triggerEvent = module.get.event()
             ;
             if( triggerEvent ) {
-              module.debug('Attaching API events to element', triggerEvent);
+              module.verbose('Attaching API events to element', triggerEvent);
               $module
                 .on(triggerEvent + eventNamespace, module.event.trigger)
               ;
@@ -17763,13 +17791,8 @@ $.api = $.fn.api = function(parameters) {
           }
 
           // Add form content
-          if(settings.serializeForm !== false || $context.is('form')) {
-            if(settings.serializeForm == 'json') {
-              $.extend(true, settings.data, module.get.formData());
-            }
-            else {
-              settings.data = module.get.formData();
-            }
+          if(settings.serializeForm) {
+            settings.data = module.add.formData(settings.data);
           }
 
           // call beforesend and get any settings changes
@@ -17787,6 +17810,7 @@ $.api = $.fn.api = function(parameters) {
 
           // get url
           url = module.get.templatedURL();
+
           if(!url && !module.is.mocked()) {
             module.error(error.missingURL);
             return;
@@ -17823,12 +17847,12 @@ $.api = $.fn.api = function(parameters) {
           }
 
           if( !settings.throttle ) {
-            module.debug('Sending data', data, ajaxSettings.method);
+            module.debug('Sending request', data, ajaxSettings.method);
             module.send.request();
           }
           else {
             if(!settings.throttleFirstRequest && !module.timer) {
-              module.debug('Sending data', data, ajaxSettings.method);
+              module.debug('Sending request', data, ajaxSettings.method);
               module.send.request();
               module.timer = setTimeout(function(){}, settings.throttle);
             }
@@ -17849,7 +17873,7 @@ $.api = $.fn.api = function(parameters) {
 
         is: {
           disabled: function() {
-            return ($module.filter(settings.filter).length > 0);
+            return ($module.filter(selector.disabled).length > 0);
           },
           form: function() {
             return $module.is('form');
@@ -17862,6 +17886,31 @@ $.api = $.fn.api = function(parameters) {
           },
           loading: function() {
             return (module.request && module.request.state() == 'pending');
+          },
+          abortedRequest: function(xhr) {
+            if(xhr && xhr.readyState !== undefined && xhr.readyState === 0) {
+              module.verbose('XHR request determined to be aborted');
+              return true;
+            }
+            else {
+              module.verbose('XHR request was not aborted');
+              return false;
+            }
+          },
+          validResponse: function(response) {
+            if( settings.dataType !== 'json' || !$.isFunction(settings.successTest) ) {
+              module.verbose('Response is not JSON, skipping validation', settings.successTest, response);
+              return true;
+            }
+            module.debug('Checking JSON returned success', settings.successTest, response);
+            if( settings.successTest(response) ) {
+              module.debug('Response passed success test', response);
+              return true;
+            }
+            else {
+              module.debug('Response failed success test', response);
+              return false;
+            }
           }
         },
 
@@ -17953,6 +18002,34 @@ $.api = $.fn.api = function(parameters) {
               }
             }
             return url;
+          },
+          formData: function(data) {
+            var
+              canSerialize = ($.fn.serializeObject !== undefined),
+              formData     = (canSerialize)
+                ? $form.serializeObject()
+                : $form.serialize(),
+              hasOtherData
+            ;
+            data         = data || settings.data;
+            hasOtherData = $.isPlainObject(data);
+
+            if(hasOtherData) {
+              if(canSerialize) {
+                module.debug('Extending existing data with form data', data, formData);
+                data = $.extend(true, {}, data, formData);
+              }
+              else {
+                module.error(error.missingSerialize);
+                module.debug('Cant extend data. Replacing data with form data', data, formData);
+                data = formData;
+              }
+            }
+            else {
+              module.debug('Adding form data', formData);
+              data = formData;
+            }
+            return data;
           }
         },
 
@@ -17960,11 +18037,15 @@ $.api = $.fn.api = function(parameters) {
           request: function() {
             module.set.loading();
             module.request = module.create.request();
-            module.xhr     = module.create.xhr();
+            if( module.is.mocked() ) {
+              module.mockedXHR = module.create.mockedXHR();
+            }
+            else {
+              module.xhr = module.create.xhr();
+            }
             settings.onRequest.call(context, module.request, module.xhr);
           }
         },
-
 
         event: {
           trigger: function(event) {
@@ -17977,18 +18058,33 @@ $.api = $.fn.api = function(parameters) {
             always: function() {
               // calculate if loading time was below minimum threshold
             },
-            done: function(response) {
+            done: function(response, textStatus, xhr) {
               var
                 context      = this,
                 elapsedTime  = (new Date().getTime() - requestStartTime),
-                timeLeft     = (settings.loadingDuration - elapsedTime)
+                timeLeft     = (settings.loadingDuration - elapsedTime),
+                translatedResponse = ( $.isFunction(settings.onResponse) )
+                  ? settings.onResponse.call(context, $.extend(true, {}, response))
+                  : false
               ;
               timeLeft = (timeLeft > 0)
                 ? timeLeft
                 : 0
               ;
+              if(translatedResponse) {
+                module.debug('Modified API response in onResponse callback', settings.onResponse, translatedResponse, response);
+                response = translatedResponse;
+              }
+              if(timeLeft > 0) {
+                module.debug('Response completed early delaying state change by', timeLeft);
+              }
               setTimeout(function() {
-                module.request.resolveWith(context, [response]);
+                if( module.is.validResponse(response) ) {
+                  module.request.resolveWith(context, [response]);
+                }
+                else {
+                  module.request.rejectWith(context, [xhr, 'invalid']);
+                }
               }, timeLeft);
             },
             fail: function(xhr, status, httpMessage) {
@@ -18001,13 +18097,15 @@ $.api = $.fn.api = function(parameters) {
                 ? timeLeft
                 : 0
               ;
-              // page triggers abort on navigation, dont show error
+              if(timeLeft > 0) {
+                module.debug('Response completed early delaying state change by', timeLeft);
+              }
               setTimeout(function() {
-                if(xhr.readyState !== undefined && xhr.readyState === 0) {
+                if( module.is.abortedRequest(xhr) ) {
                   module.request.rejectWith(context, [xhr, 'aborted', httpMessage]);
                 }
                 else {
-                  module.request.rejectWith(context, [xhr, status, httpMessage]);
+                  module.request.rejectWith(context, [xhr, 'error', status, httpMessage]);
                 }
               }, timeLeft);
             }
@@ -18018,86 +18116,48 @@ $.api = $.fn.api = function(parameters) {
               settings.onComplete.call(context, response, $module);
             },
             done: function(response) {
-              var
-                translatedResponse = ( $.isFunction(settings.onResponse) )
-                  ? settings.onResponse.call(context, $.extend(true, {}, response))
-                  : false
-              ;
-              module.debug('API Response Received', response);
-
+              module.debug('Successful API Response', response);
               if(settings.cache === 'local' && url) {
                 module.write.cachedResponse(url, response);
-                module.debug('Adding url to local cache', module.cache);
+                module.debug('Saving server response locally', module.cache);
               }
-
-              if(translatedResponse) {
-                module.debug('Modified API response in onResponse callback', settings.onResponse, translatedResponse, response);
-                response = translatedResponse;
-              }
-
-              if(settings.dataType == 'json') {
-                if( $.isFunction(settings.successTest) ) {
-                  module.debug('Checking JSON returned success', settings.successTest, response);
-                  if( settings.successTest(response) ) {
-                    settings.onSuccess.call(context, response, $module);
-                  }
-                  else {
-                    module.debug('JSON test specified by user and response failed', response);
-                    settings.onFailure.call(context, response, $module);
-                  }
-                }
-                else {
-                  settings.onSuccess.call(context, response, $module);
-                }
-              }
-              else {
-                settings.onSuccess.call(context, response, $module);
-              }
+              settings.onSuccess.call(context, response, $module);
             },
             fail: function(xhr, status, httpMessage) {
               var
-                errorMessage = (settings.error[status] !== undefined)
-                  ? settings.error[status]
-                  : httpMessage,
-                abortedRequest = false,
-                response
+                response = $.isPlainObject(xhr)
+                  ? (xhr.responseText)
+                  : false,
+                errorMessage = ($.isPlainObject(response) && response.error !== undefined)
+                  ? response.error // use json error message
+                  : (settings.error[status] !== undefined) // use server error message
+                    ? settings.error[status]
+                    : httpMessage
               ;
-
-              // request aborted, don't show error state
               if(status == 'aborted') {
-                module.debug('Request Aborted (Most likely caused by page navigation or CORS Policy)', status, httpMessage);
-                module.reset();
+                module.debug('XHR Aborted (Most likely caused by page navigation or CORS Policy)', status, httpMessage);
                 settings.onAbort.call(context, status, $module);
-                abortedRequest = true;
+                return;
               }
+              else if(status == 'invalid') {
+                module.debug('JSON did not pass success test. A server-side error has most likely occurred', response);
+              }
+              else if(status == 'error')  {
 
-              if(xhr !== undefined && !abortedRequest) {
-                // if http status code returned and json returned error, look for it
-                if( xhr.status != 200 && httpMessage !== undefined && httpMessage !== '') {
-                  module.error(error.statusMessage + httpMessage, ajaxSettings.url);
-                }
-                else {
-                  if(status == 'error' && settings.dataType == 'json') {
-                    try {
-                      response = $.parseJSON(xhr.responseText);
-                      if(response && response.error !== undefined) {
-                        errorMessage = response.error;
-                      }
-                    }
-                    catch(e) {
-                      module.error(error.JSONParse);
-                    }
+                if(xhr !== undefined) {
+                  module.debug('XHR produced a server error', status, httpMessage);
+                  // make sure we have an error to display to console
+                  if( xhr.status != 200 && httpMessage !== undefined && httpMessage !== '') {
+                    module.error(error.statusMessage + httpMessage, ajaxSettings.url);
                   }
+                  settings.onError.call(context, errorMessage, $module);
                 }
-                module.remove.loading();
-                // show error state if specified with length
-                if(settings.errorDuration !== false) {
-                  module.set.error();
-                  setTimeout(module.remove.error, settings.errorDuration);
-                }
-                module.debug('API Request errored', errorMessage);
-                settings.onError.call(context, errorMessage, $module);
               }
+              if(settings.errorDuration) {
+                module.set.error();
+                setTimeout(module.remove.error, settings.errorDuration);
+              }
+              module.debug('API Request failed', errorMessage, xhr);
               settings.onFailure.call(context, response, $module);
             }
           }
@@ -18105,52 +18165,73 @@ $.api = $.fn.api = function(parameters) {
 
         create: {
 
-
-          // api promise
           request: function() {
+            // api request promise
             return $.Deferred()
               .always(module.event.request.complete)
               .done(module.event.request.done)
               .fail(module.event.request.fail)
             ;
           },
-          // xhr promise
-          xhr: function() {
+
+          mockedXHR: function () {
             var
-              callback
+              // xhr does not simulate these properties of xhr but must return them
+              textStatus  = false,
+              status      = false,
+              httpMessage = false,
+              asyncCallback,
+              response,
+              mockedXHR
             ;
-            if( module.is.mocked() ) {
-              if(settings.mockResponse) {
-                if($.isFunction(settings.mockResponse)) {
-                  module.debug('Using sync mocked response callback', settings.mockResponse);
-                  module.request.resolveWith(context, [ settings.mockResponse.call(context, settings) ]);
+
+            mockedXHR = $.Deferred()
+              .always(module.event.xhr.complete)
+              .done(module.event.xhr.done)
+              .fail(module.event.xhr.fail)
+            ;
+
+            if(settings.mockResponse) {
+              if( $.isFunction(settings.mockResponse) ) {
+                module.debug('Using mocked callback returning response', settings.mockResponse);
+                response = settings.mockResponse.call(context, settings);
+              }
+              else {
+                module.debug('Using specified response', settings.mockResponse);
+                response = settings.mockResponse;
+              }
+              // simulating response
+              mockedXHR.resolveWith(context, [ response, textStatus, { responseText: response }]);
+            }
+            else if( $.isFunction(settings.mockResponseAsync) ) {
+              asyncCallback = function(response) {
+                module.debug('Async callback returned response', response);
+
+                if(response) {
+                  mockedXHR.resolveWith(context, [ response, textStatus, { responseText: response }]);
                 }
                 else {
-                  module.debug('Using mocked response', settings.mockResponse);
-                  module.request.resolveWith(context, [ settings.mockResponse ]);
+                  mockedXHR.rejectWith(context, [{ responseText: response }, status, httpMessage]);
                 }
-              }
-              else if( $.isFunction(settings.mockResponseAsync) ) {
-                callback = function(response) {
-                  module.verbose('Async callback returned response', response);
-                  if(response) {
-                    module.request.resolveWith(context, [response]);
-                  }
-                  else {
-                    module.request.rejectWith(context, [true]);
-                  }
-                };
-                module.debug('Using async mocked response', settings.mockResponseAsync);
-                settings.mockResponseAsync.call(context, settings, callback);
-              }
+              };
+              module.debug('Using async mocked response', settings.mockResponseAsync);
+              settings.mockResponseAsync.call(context, settings, asyncCallback);
             }
-            else {
-              return $.ajax(ajaxSettings)
-                .always(module.event.xhr.always)
-                .done(module.event.xhr.done)
-                .fail(module.event.xhr.fail)
-              ;
-            }
+            return mockedXHR;
+          },
+
+          xhr: function() {
+            var
+              xhr
+            ;
+            // ajax request promise
+            xhr = $.ajax(ajaxSettings)
+              .always(module.event.xhr.always)
+              .done(module.event.xhr.done)
+              .fail(module.event.xhr.fail)
+            ;
+            module.verbose('Created server request', xhr);
+            return xhr;
           }
         },
 
@@ -18255,20 +18336,6 @@ $.api = $.fn.api = function(parameters) {
             else {
               return settings.on;
             }
-          },
-          formData: function() {
-            var
-              formData
-            ;
-            if($module.serializeObject !== undefined) {
-              formData = $form.serializeObject();
-            }
-            else {
-              module.error(error.missingSerialize);
-              formData = $form.serialize();
-            }
-            module.debug('Retrieved form data', formData);
-            return formData;
           },
           templatedURL: function(action) {
             action = action || $module.data(metadata.action) || settings.action || false;
@@ -18504,7 +18571,6 @@ $.api.settings = {
 
   // event binding
   on                : 'auto',
-  filter            : '.disabled',
   stateContext      : false,
 
   // state
@@ -18541,10 +18607,20 @@ $.api.settings = {
 
   // after request
   onResponse  : false, // function(response) { },
+
+  // response was successful, if JSON passed validation
   onSuccess   : function(response, $module) {},
+
+  // request finished without aborting
   onComplete  : function(response, $module) {},
-  onFailure   : function(errorMessage, $module) {},
+
+  // failed JSON success test
+  onFailure   : function(response, $module) {},
+
+  // server error
   onError     : function(errorMessage, $module) {},
+
+  // request aborted
   onAbort     : function(errorMessage, $module) {},
 
   successTest : false,
@@ -18558,7 +18634,7 @@ $.api.settings = {
     legacyParameters  : 'You are using legacy API success callback names',
     method            : 'The method you called is not defined',
     missingAction     : 'API action used but no url was defined',
-    missingSerialize  : 'Required dependency jquery-serialize-object missing, using basic serialize',
+    missingSerialize  : 'jquery-serialize-object is required to add form data to an existing data object',
     missingURL        : 'No URL specified for api event',
     noReturnedValue   : 'The beforeSend callback must return a settings object, beforeSend ignored.',
     noStorage         : 'Caching respopnses locally requires session storage',
@@ -18579,7 +18655,8 @@ $.api.settings = {
   },
 
   selector: {
-    form: 'form'
+    disabled : '.disabled',
+    form      : 'form'
   },
 
   metadata: {

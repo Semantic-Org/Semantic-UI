@@ -22,25 +22,26 @@
 .ui.checkbox {
   position: relative;
   display: inline-block;
-  min-height: 17px;
-  font-size: 1rem;
-  line-height: 17px;
-  min-width: 17px;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   outline: none;
   vertical-align: baseline;
+  min-height: 17px;
+  font-size: 1rem;
+  line-height: 17px;
+  min-width: 17px;
 }
 .ui.checkbox input[type="checkbox"],
 .ui.checkbox input[type="radio"] {
+  cursor: pointer;
   position: absolute;
   top: 0px;
   left: 0px;
-  width: 17px;
-  height: 17px;
   opacity: 0 !important;
   outline: none;
-  z-index: -1;
+  z-index: 3;
+  width: 17px;
+  height: 17px;
 }
 
 /*--------------
@@ -49,9 +50,9 @@
 
 .ui.checkbox .box,
 .ui.checkbox label {
+  cursor: auto;
   position: relative;
   display: block;
-  cursor: pointer;
   padding-left: 1.85714em;
   outline: none;
 }
@@ -101,14 +102,9 @@
 /* Inside */
 .ui.checkbox label,
 .ui.checkbox + label {
-  cursor: pointer;
   color: rgba(0, 0, 0, 0.87);
   -webkit-transition: color 0.1s ease;
           transition: color 0.1s ease;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
 }
 
 /* Outside */
@@ -238,6 +234,28 @@
   cursor: default;
   opacity: 0.5;
   color: #000000;
+}
+
+/*--------------
+     Hidden
+---------------*/
+
+
+/* Initialized checkbox moves input below element
+ to prevent manually triggering */
+.ui.checkbox input[type="checkbox"].hidden,
+.ui.checkbox input[type="radio"].hidden {
+  z-index: -1;
+}
+
+/* Selectable Label */
+.ui.checkbox input[type="checkbox"].hidden + label,
+.ui.checkbox input[type="radio"].hidden + label {
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 
