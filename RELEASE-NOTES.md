@@ -252,6 +252,7 @@
 - **Popup** - Fixed bug which could cause pre-existing inline popup to be removed from DOM after hiding
 - **Popup** - Fixes popup offstage position calculations with pages including horizontal scrollbars
 - **Popup** - Added `addTouchEvents` to specify whether touch events should be added to trigger popup on mobile
+- **Progress** - Fixed bug where percentage complete values between 0-1% would display incorrectly (0.5% would show as 50%)
 - **Rail** - Rail 100% height now uses `border-box` to ensure exact height match to container
 - **Rating** - Rating now correctly adjusts if `data` attributes change
 - **Reveal** - Removed `masked` reveal, all reveals are masked by default
@@ -279,6 +280,7 @@
 - **Table** - Fixes `ascending` and `descending` icons were reversed in table
 - **Table** - `very basic table` now works together with `padded table`
 - **Table** - Fix inheritance of text alignment and vertical alignment
+- **Transition** - Fixed bug where transition out would cause unwanted focus event in IE if element has focus
 - **Transition** - Calling an `out` animation during an `in` animation with `queue: false` now correctly calls the `complete` event of the original animation
 - **Transition** - Fixed bug where transition could sometimes not occur when an element was determined to always be hidden
 
