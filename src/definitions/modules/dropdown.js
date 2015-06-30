@@ -31,7 +31,7 @@ $.fn.dropdown = function(parameters) {
   ;
 
   $allModules
-    .each(function() {
+    .each(function(elementIndex) {
       var
         settings          = ( $.isPlainObject(parameters) )
           ? $.extend(true, {}, $.fn.dropdown.settings, parameters)
@@ -266,6 +266,8 @@ $.fn.dropdown = function(parameters) {
           layout: function() {
             if( $module.is('select') ) {
               module.setup.select();
+              module.setup.returnedObject();
+              console.log($module);
             }
             if( module.is.search() && !module.has.search() ) {
               module.verbose('Adding search input');
@@ -313,6 +315,7 @@ $.fn.dropdown = function(parameters) {
                 .detach()
                 .prependTo($module)
               ;
+              console.log($module);
             }
             if($input.is('[multiple]')) {
               module.set.multiple();
@@ -324,24 +327,24 @@ $.fn.dropdown = function(parameters) {
             $item = $menu.find(selector.item);
           },
           reference: function() {
-            var
-              index = $allModules.index($module),
-              $firstModules,
-              $lastModules
-            ;
             module.debug('Dropdown behavior was called on select, replacing with closest dropdown');
             // replace module reference
             $module = $module.parent(selector.dropdown);
             module.refresh();
-            // adjust all modules to compensate
-            $firstModules = $allModules.slice(0, index);
-            $lastModules  = $allModules.slice(index + 1);
-            $allModules   = $firstModules.add($module).add($lastModules);
+            module.setup.returnedObject();
             // invoke method in context of current instance
             if(methodInvoked) {
               instance = module;
               module.invoke(query);
             }
+          },
+          returnedObject: function() {
+            var
+              $firstModules = $allModules.slice(0, elementIndex),
+              $lastModules = $allModules.slice(elementIndex + 1)
+            ;
+            // adjust all modules to use correct reference
+            $allModules = $firstModules.add($module).add($lastModules);
           }
         },
 
@@ -2108,7 +2111,7 @@ $.fn.dropdown = function(parameters) {
               : $selectedItem || module.get.item(value)
             ;
             if(!$selectedItem) {
-              return false;
+              return;
             }
             module.debug('Setting selected menu item to', $selectedItem);
             if(module.is.single()) {
