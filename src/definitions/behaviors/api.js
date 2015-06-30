@@ -527,7 +527,6 @@ $.api = $.fn.api = function(parameters) {
               if(status == 'aborted') {
                 module.debug('XHR Aborted (Most likely caused by page navigation or CORS Policy)', status, httpMessage);
                 settings.onAbort.call(context, status, $module);
-                return;
               }
               else if(status == 'invalid') {
                 module.debug('JSON did not pass success test. A server-side error has most likely occurred', response);
@@ -543,7 +542,9 @@ $.api = $.fn.api = function(parameters) {
                   settings.onError.call(context, errorMessage, $module);
                 }
               }
-              if(settings.errorDuration) {
+
+              if(settings.errorDuration && status !== 'aborted') {
+                module.debug('Adding error state');
                 module.set.error();
                 setTimeout(module.remove.error, settings.errorDuration);
               }
