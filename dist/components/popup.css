@@ -225,7 +225,6 @@
 
 /* Immediate Nested Grid */
 .ui.popup > .ui.grid:not(.padded) {
-  width: -webkit-calc(100% + 1.75rem);
   width: calc(100% + 1.75rem);
   margin: -0.7rem -0.875rem;
 }

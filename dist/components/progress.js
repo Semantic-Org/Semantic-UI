@@ -63,11 +63,12 @@ $.fn.progress = function(parameters) {
         initialize: function() {
           module.debug('Initializing progress bar', settings);
 
-          transitionEnd = module.get.transitionEnd();
+          module.set.duration();
+          module.set.transitionEvent();
 
           module.read.metadata();
-          module.set.duration();
-          module.set.initials();
+          module.read.settings();
+
           module.instantiate();
         },
 
@@ -98,84 +99,107 @@ $.fn.progress = function(parameters) {
 
         read: {
           metadata: function() {
-            if( $module.data(metadata.percent) ) {
-              module.verbose('Current percent value set from metadata');
-              module.percent = $module.data(metadata.percent);
+            var
+              data = {
+                percent : $module.data(metadata.percent),
+                total   : $module.data(metadata.total),
+                value   : $module.data(metadata.value)
+              }
+            ;
+            if(data.percent) {
+              module.debug('Current percent value set from metadata', data.percent);
+              module.set.percent(data.percent);
             }
-            if( $module.data(metadata.total) ) {
-              module.verbose('Total value set from metadata');
-              module.total = $module.data(metadata.total);
+            if(data.total) {
+              module.debug('Total value set from metadata', data.total);
+              module.set.total(data.total);
             }
-            if( $module.data(metadata.value) ) {
-              module.verbose('Current value set from metadata');
-              module.value = $module.data(metadata.value);
+            if(data.value) {
+              module.debug('Current value set from metadata', data.value);
+              module.set.value(data.value);
             }
           },
-          currentValue: function() {
-            return (module.value !== undefined)
-              ? module.value
-              : false
-            ;
+          settings: function() {
+            if(settings.total !== false) {
+              module.debug('Current total set in settings', settings.total);
+              module.set.total(settings.total);
+            }
+            if(settings.value !== false) {
+              module.debug('Current value set in settings', settings.value);
+              module.set.value(settings.value);
+              module.set.progress(module.value);
+            }
+            if(settings.percent !== false) {
+              module.debug('Current percent set in settings', settings.percent);
+              module.set.percent(settings.percent);
+            }
           }
         },
 
         increment: function(incrementValue) {
           var
-            total          = module.total || false,
-            edgeValue,
+            maxValue,
             startValue,
             newValue
           ;
-          if(total) {
-            startValue     = module.value   || 0;
+          if( module.has.total() ) {
+            startValue     = module.get.value();
             incrementValue = incrementValue || 1;
+
             newValue       = startValue + incrementValue;
-            edgeValue      = module.total;
-            module.debug('Incrementing value by', incrementValue, startValue, edgeValue);
-            if(newValue > edgeValue ) {
-              module.debug('Value cannot increment above total', edgeValue);
-              newValue = edgeValue;
+            maxValue       = module.get.total();
+
+            module.debug('Incrementing value', startValue, newValue, maxValue);
+            if(newValue > maxValue ) {
+              module.debug('Value cannot increment above total', maxValue);
+              newValue = maxValue;
             }
-            module.set.progress(newValue);
           }
           else {
-            startValue     = module.percent || 0;
+            startValue     = module.get.percent();
             incrementValue = incrementValue || module.get.randomValue();
+
             newValue       = startValue + incrementValue;
-            edgeValue      = 100;
-            module.debug('Incrementing percentage by', incrementValue, startValue);
-            if(newValue > edgeValue ) {
+            maxValue       = 100;
+
+            module.debug('Incrementing percentage by', startValue, newValue);
+            if(newValue > maxValue ) {
               module.debug('Value cannot increment above 100 percent');
-              newValue = edgeValue;
+              newValue = maxValue;
             }
-            module.set.progress(newValue);
           }
+          module.set.progress(newValue);
         },
         decrement: function(decrementValue) {
           var
-            total     = module.total || false,
-            edgeValue = 0,
+            total     = module.get.total(),
             startValue,
             newValue
           ;
           if(total) {
-            startValue     =  module.value   || 0;
+            startValue     =  module.get.value();
             decrementValue =  decrementValue || 1;
             newValue       =  startValue - decrementValue;
             module.debug('Decrementing value by', decrementValue, startValue);
           }
           else {
-            startValue     =  module.percent || 0;
+            startValue     =  module.get.percent();
             decrementValue =  decrementValue || module.get.randomValue();
             newValue       =  startValue - decrementValue;
             module.debug('Decrementing percentage by', decrementValue, startValue);
           }
 
-          if(newValue < edgeValue) {
+          if(newValue < 0) {
             module.debug('Value cannot decrement below 0');
             newValue = 0;
           }
           module.set.progress(newValue);
+        },
+
+        has: {
+          total: function() {
+            return (module.get.total() !== false);
+          }
         },
 
         get: {
@@ -243,7 +267,7 @@ $.fn.progress = function(parameters) {
             return module.percent || 0;
           },
           value: function() {
-            return module.value || false;
+            return module.value || 0;
           },
           total: function() {
             return module.total || false;
@@ -319,56 +343,28 @@ $.fn.progress = function(parameters) {
             module.verbose('Setting progress bar transition duration', duration);
             $bar
               .css({
-                '-webkit-transition-duration': duration,
-                '-moz-transition-duration': duration,
-                '-ms-transition-duration': duration,
-                '-o-transition-duration': duration,
                 'transition-duration':  duration
               })
             ;
-          },
-          initials: function() {
-            if(settings.total !== false) {
-              module.verbose('Current total set in settings', settings.total);
-              module.total = settings.total;
-            }
-            if(settings.value !== false) {
-              module.verbose('Current value set in settings', settings.value);
-              module.value = settings.value;
-            }
-            if(settings.percent !== false) {
-              module.verbose('Current percent set in settings', settings.percent);
-              module.percent = settings.percent;
-            }
-            if(module.percent !== undefined) {
-              module.set.percent(module.percent);
-            }
-            else if(module.value !== undefined) {
-              module.set.progress(module.value);
-            }
           },
           percent: function(percent) {
             percent = (typeof percent == 'string')
               ? +(percent.replace('%', ''))
               : percent
             ;
-            if(percent > 0 && percent < 1) {
-              module.verbose('Module percentage passed as decimal, converting');
-              percent = percent * 100;
-            }
-            // round percentage
+            // round display percentage
             percent = (settings.precision > 0)
               ? Math.round(percent * (10 * settings.precision)) / (10 * settings.precision)
               : Math.round(percent)
             ;
             module.percent = percent;
-            if(module.total) {
+            if( !module.has.total() ) {
               module.value = (settings.precision > 0)
                 ? Math.round( (percent / 100) * module.total * (10 * settings.precision)) / (10 * settings.precision)
                 : Math.round( (percent / 100) * module.total * 10) / 10
               ;
             }
-            else if(settings.limitValues) {
+            if(settings.limitValues) {
               module.value = (module.value > 100)
                 ? 100
                 : (module.value < 0)
@@ -499,8 +495,14 @@ $.fn.progress = function(parameters) {
             }
             settings.onError.call(element, module.value, module.total);
           },
+          transitionEvent: function() {
+            transitionEnd = module.get.transitionEnd();
+          },
           total: function(totalValue) {
             module.total = totalValue;
+          },
+          value: function(value) {
+            module.value = value;
           },
           progress: function(value) {
             var
@@ -514,8 +516,8 @@ $.fn.progress = function(parameters) {
             if(numericValue === false) {
               module.error(error.nonNumeric, value);
             }
-            if(module.total) {
-              module.value    = numericValue;
+            if( module.has.total() ) {
+              module.set.value(numericValue);
               percentComplete = (numericValue / module.total) * 100;
               module.debug('Calculating percent complete from total', percentComplete);
               module.set.percent( percentComplete );
