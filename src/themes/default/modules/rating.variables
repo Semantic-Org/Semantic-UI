@@ -4,7 +4,7 @@
 
 @margin: 0em @relativeMini;
 @whiteSpace: nowrap;
-@verticalAlign: middle;
+@verticalAlign: baseline;
 
 @iconCursor: pointer;
 @iconWidth: 1.25em;
