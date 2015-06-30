@@ -1723,7 +1723,7 @@ $.fn.dropdown = function(parameters) {
             }
           },
           values: function() {
-            // prevents callbacks from occuring if specified for initial load
+            // prevents callbacks from occuring on initial load
             module.set.initialLoad();
             if(settings.apiSettings) {
               if(settings.saveRemoteData) {
@@ -1782,14 +1782,27 @@ $.fn.dropdown = function(parameters) {
             module.save.defaultValue();
           },
           defaultValue: function() {
-            $module.data(metadata.defaultValue, module.get.value());
+            var
+              value = module.get.value()
+            ;
+            module.verbose('Saving default value as', value);
+            $module.data(metadata.defaultValue, value);
           },
           defaultText: function() {
-            $module.data(metadata.defaultText, $text.text() );
+            var
+              text = module.get.text()
+            ;
+            module.verbose('Saving default text as', text);
+            $module.data(metadata.defaultText, text);
           },
           placeholderText: function() {
+            var
+              text
+            ;
             if($text.hasClass(className.placeholder)) {
-              $module.data(metadata.placeholderText, $text.text());
+              text = module.get.text();
+              module.verbose('Saving placeholder text as', text);
+              $module.data(metadata.placeholderText, text);
             }
           },
           remoteData: function(name, value) {
@@ -1797,6 +1810,7 @@ $.fn.dropdown = function(parameters) {
               module.error(error.noStorage);
               return;
             }
+            module.verbose('Saving remote data to session storage', value, name);
             sessionStorage.setItem(value, name);
           }
         },
@@ -1892,10 +1906,12 @@ $.fn.dropdown = function(parameters) {
             $module.addClass(className.loading);
           },
           placeholderText: function(text) {
-            module.debug('Restoring placeholder text');
             text = text || $module.data(metadata.placeholderText);
-            module.set.text(text);
-            $text.addClass(className.placeholder);
+            if(text) {
+              module.debug('Restoring placeholder text');
+              module.set.text(text);
+              $text.addClass(className.placeholder);
+            }
           },
           tabbable: function() {
             if( module.has.search() ) {

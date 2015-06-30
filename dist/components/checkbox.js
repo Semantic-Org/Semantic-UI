@@ -56,14 +56,13 @@ $.fn.checkbox = function(parameters) {
         initialize: function() {
           module.verbose('Initializing checkbox', settings);
 
-          module.fix.input();
-
           module.create.label();
           module.bind.events();
+
           module.set.tabbable();
+          module.hide.input();
 
           module.observeChanges();
-
           module.instantiate();
           module.setup();
         },
@@ -79,15 +78,14 @@ $.fn.checkbox = function(parameters) {
         destroy: function() {
           module.verbose('Destroying module');
           module.unbind.events();
-          $module
-            .removeData(moduleNamespace)
-          ;
+          module.show.input();
+          $module.removeData(moduleNamespace);
         },
 
         fix: {
-          input: function() {
+          reference: function() {
             if( $module.is(selector.input) ) {
-              module.debug('Fixing incorrect reference to module in invocation');
+              module.debug('Behavior called on <input> adjusting invoked element');
               $module = $module.closest(selector.checkbox);
               module.refresh();
             }
@@ -124,6 +122,19 @@ $.fn.checkbox = function(parameters) {
         refresh: function() {
           $label = $module.children(selector.label);
           $input = $module.children(selector.input);
+        },
+
+        hide: {
+          input: function() {
+            module.verbose('Modfying <input> z-index to be unselectable');
+            $input.addClass(className.hidden);
+          }
+        },
+        show: {
+          input: function() {
+            module.verbose('Modfying <input> z-index to be selectable');
+            $input.removeClass(className.hidden);
+          }
         },
 
         observeChanges: function() {
@@ -675,6 +686,7 @@ $.fn.checkbox.settings = {
     checked       : 'checked',
     indeterminate : 'indeterminate',
     disabled      : 'disabled',
+    hidden        : 'hidden',
     radio         : 'radio',
     readOnly      : 'read-only'
   },

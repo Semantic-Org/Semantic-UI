@@ -244,7 +244,7 @@
   color: rgba(0, 0, 0, 0.85);
 }
 .ui.items > .item > .content > a.header:hover {
-  color: #195d9f;
+  color: #1e70bf;
 }
 
 /* Meta */
@@ -458,7 +458,7 @@
 }
 .ui.items a.item:hover .content .header,
 .ui.link.items > .item:hover .content .header {
-  color: #195d9f;
+  color: #1e70bf;
 }
 
 /*--------------
