@@ -224,9 +224,20 @@ $.fn.progress = function(parameters) {
             module.debug('Adding variables to progress bar text', templateText);
             return templateText;
           },
+
+
           randomValue: function() {
             module.debug('Generating random increment percentage');
             return Math.floor((Math.random() * settings.random.max) + settings.random.min);
+          },
+
+          numericValue: function(value) {
+            return (typeof value === 'string')
+              ? (value.replace(/[^\d.]/g, '') !== '')
+                ? +(value.replace(/[^\d.]/g, ''))
+                : false
+              : value
+            ;
           },
 
           transitionEnd: function() {
@@ -363,14 +374,14 @@ $.fn.progress = function(parameters) {
                 ? Math.round( (percent / 100) * module.total * (10 * settings.precision)) / (10 * settings.precision)
                 : Math.round( (percent / 100) * module.total * 10) / 10
               ;
-            }
-            if(settings.limitValues) {
-              module.value = (module.value > 100)
-                ? 100
-                : (module.value < 0)
-                  ? 0
-                  : module.value
-              ;
+              if(settings.limitValues) {
+                module.value = (module.value > 100)
+                  ? 100
+                  : (module.value < 0)
+                    ? 0
+                    : module.value
+                ;
+              }
             }
             module.set.barWidth(percent);
             module.set.labelInterval();
@@ -506,11 +517,7 @@ $.fn.progress = function(parameters) {
           },
           progress: function(value) {
             var
-              numericValue = (typeof value === 'string')
-                ? (value.replace(/[^\d.]/g, '') !== '')
-                  ? +(value.replace(/[^\d.]/g, ''))
-                  : false
-                : value,
+              numericValue = module.get.numericValue(value),
               percentComplete
             ;
             if(numericValue === false) {
@@ -712,7 +719,7 @@ $.fn.progress.settings = {
   name         : 'Progress',
   namespace    : 'progress',
 
-  debug        : false,
+  debug        : true,
   verbose      : false,
   performance  : true,
 
