@@ -25,14 +25,6 @@
 .ui.rating:last-child {
   margin-right: 0em;
 }
-.ui.rating:before {
-  display: block;
-  content: '';
-  visibility: hidden;
-  clear: both;
-  height: 0;
-  vertical-align: middle;
-}
 
 /* Icon */
 .ui.rating .icon {
@@ -173,25 +165,25 @@
           Variations
 *******************************/
 
-.ui.mini.rating .icon {
+.ui.mini.rating {
   font-size: 0.71428571rem;
 }
-.ui.tiny.rating .icon {
+.ui.tiny.rating {
   font-size: 0.85714286rem;
 }
-.ui.small.rating .icon {
+.ui.small.rating {
   font-size: 0.92857143rem;
 }
-.ui.rating .icon {
+.ui.rating {
   font-size: 1rem;
 }
-.ui.large.rating .icon {
+.ui.large.rating {
   font-size: 1.14285714rem;
 }
-.ui.huge.rating .icon {
+.ui.huge.rating {
   font-size: 1.42857143rem;
 }
-.ui.massive.rating .icon {
+.ui.massive.rating {
   font-size: 2rem;
 }
 

@@ -12,17 +12,16 @@
 - **Checkbox** - Checkbox `fireOnInit` now defaults to false. Checkboxes now also *do not require javascript* to function.
 - **Dropdown** - Dropdown item `description` now are floated in default theme and should be included before other `item` content
 - **Form** - `grouped inline field` no longer display horizontally. Use `inline field` instead for horizontal inline field groups.
-- **List** - List now uses flex which means for **images to [preserve their intrinsic aspect ratio](https://github.com/philipwalton/flexbugs#5-column-flex-items-dont-always-preserve-intrinsic-aspect-ratios)** they will need to use `<div class="image">` wrappers when used with a `content` block.
-- **List** - Similar to menu, floated flexbox content blocks should now appear in normal content order, for example, right floated content should appear after other content instead of before.
 - **Input** - `pointer-events` have been removed from `icon` in `icon input` unless a `link icon` is used. This is to make sure the hitbox for focusing an input includes the icon.
 - **Popup** - Popups are no longer exclusive by default. Opening a popup will not necessarily close other visible popups. You can change this behavior by using the setting `exclusive: true`. Additionally the default theme now uses `1rem` size for standard popups.
 - **Colors** - Default colors have been adjusted, which may cause slight changes in your design. New colors have also been added to fill in missing gaps in [color naming](http://en.wikipedia.org/wiki/Linguistic_relativity_and_the_color_naming_debate#Berlin_and_Kay).
 - **Segment** - Segment no longer includes a [clearfix](http://learnlayout.com/clearfix.html) by default. You will need to specify a `clearing segment` to clear floated content.
 - **Rail** - Rail now uses `border-box` instead of `content-box`. This means manually specified rail widths will now need to account for padding. This was added to fix issues where rail `height: 100%` would incorrectly match content when a rail had padding.
+- **Menu** - `tiered menu` has been removed in `2.0`. This may be rewritten in the future, but was not up to the standards of the rest of the library and has been removed.
 - **Tab** - `onTabInit` and `onTabLoad` have been renamed to `onFirstLoad` and `onLoad` respectively. This is to conform to the naming conventions of other modules (no self reference). Previous callbacks will continue to work but will produce deprecation notices in console. Two new callbacks `onVisible` and `onRequest` have been added as well.
 - **Button** - `wide` variations using numbers `2 wide`, `3 wide` have been removed due to incompatibilities with some build tools. Please use `two wide`, or `three wide` instead.
 - **Video** - The undocumented `video` module has been renamed to `embed`. Behaviors remain the same, but users need to adjust their javascript init to `$('.ui.embed').embed();`
-- **API** - API `onFailure` will now be called when a request is errored (504, 404 etc), aborted (page change or CORS), or JSON does not pass `successTest` function. `onError` and `onAbort` will also fire for each specific failure condition.
+- **API** - API `onFailure` will now be called **in all failure conditions**, when a request is errored (504, 404 etc), aborted (page change or CORS), or JSON does not pass `successTest` function. `onError` and `onAbort` will also fire for each specific failure condition.
 
 **New UI**
 - **Container** - Containers are fixed width containers meant for holding page contents, and are a simpler alternative to `ui page grid`, view more [examples in docs](http://www.semantic-ui.com/elements/container.html#examples)
@@ -40,9 +39,11 @@
 - **Checkbox** - Added support for `indeterminate` checkboxes, along with new stylings.
 - **Checkbox** - Now includes separate behaviors for triggering state changes without invoking callbacks `set checked` vs `checked`
 - **Dropdown** - Added remote API integration with dropdown, to allow `search selection` to query against a remote dataset.
+- **Dimmer** - Dimmers now have a `blurring` variation which apply a glass-like effect when dimmed
 - **Dropdown** - Dropdowns now automatically observe changes in `menu` and will update selector cache with new additions
 - **Dropdowns** - Added ability to add custom choices to all search selection dropdowns (multi/single) using `allowAdditions: true` setting. Search now displays error messages on no results in all cases.
 - **Dropdown** - Keyboard shortcuts have been added for selecting dropdown choices, for example "N" will scroll to "New York" in a state selection list, similar to native `<select>` behavior.
+- **Dropdown** - Added new dropdown variation `scrolling dropdown` and `scrolling menu`, this can be used to include a scrollable section inside a dropdown menu.
 - **Dropdown** - Dropdown will automatically animate upward if there is not enough space to appear below.
 - **Dropdown** - Using `page up` and `page down` keys will now scroll menus by a page at a time
 - **Form** - Forms now use `flexbox` for creating field groups. Inline fields now support `(x) wide` sizing using `flex`
@@ -57,6 +58,7 @@
 - **Form Validation** - Form validation now supports many new validation rules, including some specifically for use with multiple select values.
 - **Item** - Items now uses `flexbox` for layout.
 - **Message** - `icon message` now uses `flexbox` for layout
+- **Menu** - `vertical tabular menu`, a vertical tab menu, has been added
 - **Input** - All `input` types use `flexbox` for layout
 - **Segment** - Segments now support complex nesting, many new rules for how segment groups should appear inside groups
 - **Segment** - New `horizontal segment` groups make laying out auto resizing text columns much easier.
@@ -78,6 +80,7 @@
 - **Build Tools** - Build tools will now display pre-specified errors when a theme file is missing or an element specifies an unavailable theme.
 - **Build Tools** - Adjusting `site.variables` will now rebuild all UI, instead of just `site.less`
 - **Button** - Added `:focus` styles for all button types, all button examples in docs now are keyboard focusable using either `<button>` or `tabindex` where appropriate.
+- **Card** - Card now includes a `centered` variation
 - **Checkbox** - Checkbox will now gracefully correct behaviors invoked on the child input element instead of the `ui checkbox`.
 - **Checkbox** - Reduced kb size of icon font
 - **Divider** - `vertical divider` inside `ui grid` now accounts for column padding
@@ -105,6 +108,8 @@
 - **Grid** - rows can now be `stretched` as well as `middle aligned`, `bottom aligned` and `top aligned`!
 - **Grid** - Fixed margins on `internally celled` grid
 - **Grid** - `celled` and `internally celled` grid now use flexbox instead of `display: table;`
+- **Headers** - Added new header type `sub header`, useful for displaying small headers alongside text content. See examples [in the header docs](http://www.semantic-ui.com/elements/header.html#sub-headers)
+- **Image** - Images now include a `spaced` variation for adding whitespace around images when used inline with text.
 - **Input** - Added placeholder color rules for IE, `ms-input-placeholder`
 - **Input** - Action input now supports multiple buttons, and dropdown
 - **Label** - Labels now have `active` and `active hover` states
@@ -133,6 +138,7 @@
 - **Search** - Search will now generate `results` container if one is not present on init
 - **Search** - Search now uses `em` for resizes, making sure it will resize with the surrounding content
 - **Search** - Search `prompt` now has focus styles defined if not using `ui input`
+- **Segment** - Added `clearing` segment for cases that need a [clearfix](http://learnlayout.com/clearfix.html).
 - **Sidebar** - Improved animation performance through performance debugging. Sidebar now caches, width, height, rtl direction on load.
 - **Site** - Fixed mixed globals `@defaultDuration` and `@transitionDuration` usage to use a single variable across all UI `@defaultDuration`, the same for `@defaultEasing` and `@transitionEasing`
 - **Site** - Added in `pageOverflowX` variable, default theme hides horizontal scrollbars on `body`
@@ -141,9 +147,11 @@
 - **Sticky** - Sticky now internally caches current scroll position when `cantFit = true` to avoid getting DOM property  on scroll.
 - **Statistic** - Added new evenly divided group variation, for example `three statistics` shows 3 per row
 - **Statistic** - Statitic group now use `flex`. Styles have been updated.
+- **Steps** - Added `attached` steps, which can now be attached to other UI like `segment`
 - **Tabs** - Tab will now manually correct page scroll position when linking to an in-page anchor in a hidden tab
 - **Tabs** - Added new callbacks `onTabVisible` and `onRequest`
 - **Tabs** - Added `parseScripts` option, defaults to `once` parsing inline scripts only first load
+- **Table** - Adds `selectable table` variation, which shows hover effect on row when hovering
 - **Table** - Added `vertical alignment` variations to `ui table`
 - **Table** - Added `single line` table variation which prevents text from wrapping
 - **Transition** - Adjusting `style` or `class` during a transition, will no longer reset the change after transition completes.
@@ -152,17 +160,6 @@
 - **Visibility/Sticky** - Visibility now uses pub/sub pattern to greatly improve scroll performance when attaching multiple events
 - **Visibility** - Visiblity includes a new setting `checkOnRefresh` which detemrines whether visibility callbacks should occur on resize or refresh
 - **Visibility** - Visibility `image` will now wait to lazy load images that are *above* the current screen position, not just below.
-
-**New Variations**
-- **Card** - Card now includes a `centered` variation
-- **Headers** - Added new header type `sub header`, useful for displaying small headers alongside text content. See examples [in the header docs](http://www.semantic-ui.com/elements/header.html#sub-headers)
-- **Menu** - `vertical tabular menu`, a vertical tab menu, has been added
-- **Dropdown** - Added new dropdown variation `scrolling dropdown` and `scrolling menu`, this can be used to include a scrollable section inside a dropdown menu.
-- **Image** - Images now include a `spaced` variation for adding whitespace around images when used inline with text.
-- **Dimmer** - Dimmers now have a `blurring` variation which apply a glass-like effect when dimmed
-- **Segment** - Added `clearing` segment for cases that need a [clearfix](http://learnlayout.com/clearfix.html).
-- **Steps** - Added `attached` steps, which can now be attached to other UI like `segment`
-- **Table** - Adds `selectable table` variation, which shows hover effect on row when hovering
 
 **Bugs**
 - **All Modules** - Performance logging now delays 500ms instead of 100ms for console logging to ensure all logs are captured in one group

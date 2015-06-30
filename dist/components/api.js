@@ -514,6 +514,7 @@ $.api = $.fn.api = function(parameters) {
             },
             fail: function(xhr, status, httpMessage) {
               var
+                // pull response from xhr if available
                 response = $.isPlainObject(xhr)
                   ? (xhr.responseText)
                   : false,
@@ -951,36 +952,52 @@ $.api.settings = {
   verbose           : false,
   performance       : true,
 
-  // api endpoints
+  // object containing all templates endpoints
   api               : {},
 
-  // cache
+  // whether to cache responses
   cache             : true,
+
+  // whether new requests should abort previous requests
   interruptRequests : true,
 
   // event binding
   on                : 'auto',
+
+  // context for applying state classes
   stateContext      : false,
 
-  // state
+  // duration for loading state
   loadingDuration   : 0,
+
+  // duration for error state
   errorDuration     : 2000,
 
-  // templating
+  // API action to use
   action            : false,
+
+  // templated URL to use
   url               : false,
+
+  // base URL to apply to all endpoints
   base              : '',
 
-  // data
+  // data that will
   urlData           : {},
 
-  // ui
+  // whether to add default data to url data
   defaultData          : true,
+
+  // whether to serialize closest form
   serializeForm        : false,
+
+  // how long to wait before request should occur
   throttle             : 0,
+
+  // whether to throttle first request or only repeated
   throttleFirstRequest : true,
 
-  // jQ ajax
+  // standard ajax settings
   method            : 'get',
   data              : {},
   dataType          : 'json',

@@ -10548,9 +10548,20 @@ $.fn.progress = function(parameters) {
             module.debug('Adding variables to progress bar text', templateText);
             return templateText;
           },
+
+
           randomValue: function() {
             module.debug('Generating random increment percentage');
             return Math.floor((Math.random() * settings.random.max) + settings.random.min);
+          },
+
+          numericValue: function(value) {
+            return (typeof value === 'string')
+              ? (value.replace(/[^\d.]/g, '') !== '')
+                ? +(value.replace(/[^\d.]/g, ''))
+                : false
+              : value
+            ;
           },
 
           transitionEnd: function() {
@@ -10687,14 +10698,14 @@ $.fn.progress = function(parameters) {
                 ? Math.round( (percent / 100) * module.total * (10 * settings.precision)) / (10 * settings.precision)
                 : Math.round( (percent / 100) * module.total * 10) / 10
               ;
-            }
-            if(settings.limitValues) {
-              module.value = (module.value > 100)
-                ? 100
-                : (module.value < 0)
-                  ? 0
-                  : module.value
-              ;
+              if(settings.limitValues) {
+                module.value = (module.value > 100)
+                  ? 100
+                  : (module.value < 0)
+                    ? 0
+                    : module.value
+                ;
+              }
             }
             module.set.barWidth(percent);
             module.set.labelInterval();
@@ -10830,11 +10841,7 @@ $.fn.progress = function(parameters) {
           },
           progress: function(value) {
             var
-              numericValue = (typeof value === 'string')
-                ? (value.replace(/[^\d.]/g, '') !== '')
-                  ? +(value.replace(/[^\d.]/g, ''))
-                  : false
-                : value,
+              numericValue = module.get.numericValue(value),
               percentComplete
             ;
             if(numericValue === false) {
@@ -11036,7 +11043,7 @@ $.fn.progress.settings = {
   name         : 'Progress',
   namespace    : 'progress',
 
-  debug        : false,
+  debug        : true,
   verbose      : false,
   performance  : true,
 
@@ -17304,6 +17311,7 @@ $.fn.transition = function() {
           if( module.is.animating() ) {
             module.reset();
           }
+          element.blur(); // IE will trigger focus change if element is not blurred before hiding
           module.remove.display();
           module.remove.visible();
           module.set.hidden();
@@ -18127,6 +18135,7 @@ $.api = $.fn.api = function(parameters) {
             },
             fail: function(xhr, status, httpMessage) {
               var
+                // pull response from xhr if available
                 response = $.isPlainObject(xhr)
                   ? (xhr.responseText)
                   : false,
@@ -18564,36 +18573,52 @@ $.api.settings = {
   verbose           : false,
   performance       : true,
 
-  // api endpoints
+  // object containing all templates endpoints
   api               : {},
 
-  // cache
+  // whether to cache responses
   cache             : true,
+
+  // whether new requests should abort previous requests
   interruptRequests : true,
 
   // event binding
   on                : 'auto',
+
+  // context for applying state classes
   stateContext      : false,
 
-  // state
+  // duration for loading state
   loadingDuration   : 0,
+
+  // duration for error state
   errorDuration     : 2000,
 
-  // templating
+  // API action to use
   action            : false,
+
+  // templated URL to use
   url               : false,
+
+  // base URL to apply to all endpoints
   base              : '',
 
-  // data
+  // data that will
   urlData           : {},
 
-  // ui
+  // whether to add default data to url data
   defaultData          : true,
+
+  // whether to serialize closest form
   serializeForm        : false,
+
+  // how long to wait before request should occur
   throttle             : 0,
+
+  // whether to throttle first request or only repeated
   throttleFirstRequest : true,
 
-  // jQ ajax
+  // standard ajax settings
   method            : 'get',
   data              : {},
   dataType          : 'json',
