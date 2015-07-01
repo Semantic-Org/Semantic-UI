@@ -1675,6 +1675,7 @@ $.fn.dropdown = function(parameters) {
 
         restore: {
           defaults: function() {
+            module.clear();
             module.restore.defaultText();
             module.restore.defaultValue();
           },
