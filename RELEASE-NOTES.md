@@ -1,5 +1,12 @@
 ## RELEASE NOTES
 
+### Version 2.0.1 - June 30, 2015
+
+**Bugs**
+
+- **Modal** - `scrolling modal` now correctly inherits rules so that it appears at top of screen on mobile
+- **Dropdown** - Removes accidental console.log statement in dropdown
+
 ### Version 2.0.0 - June 30, 2015
 
 **Migration Guide**
