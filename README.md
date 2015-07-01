@@ -13,9 +13,9 @@ Key Features
 * Built with EM values for responsive design
 * Flexbox friendly
 
-## 2.0 Is Finally here
+## 2.0 Is Out!!!
 
-Semantic UI 2.0 is now out. Read up on [what's new](http://beta.semantic-ui.com/introduction/new.html) in the docs.
+Semantic UI 2.0 is now available. Read up on [what's new](http://beta.semantic-ui.com/introduction/new.html) in the docs.
 
 Migration info from `1.x` can be found in the [2.0 release notes](https://github.com/Semantic-Org/Semantic-UI/blob/master/RELEASE-NOTES.md#version-200---march-xx-2015)
 
