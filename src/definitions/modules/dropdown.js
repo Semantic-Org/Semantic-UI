@@ -267,7 +267,6 @@ $.fn.dropdown = function(parameters) {
             if( $module.is('select') ) {
               module.setup.select();
               module.setup.returnedObject();
-              console.log($module);
             }
             if( module.is.search() && !module.has.search() ) {
               module.verbose('Adding search input');
@@ -315,7 +314,6 @@ $.fn.dropdown = function(parameters) {
                 .detach()
                 .prependTo($module)
               ;
-              console.log($module);
             }
             if($input.is('[multiple]')) {
               module.set.multiple();
