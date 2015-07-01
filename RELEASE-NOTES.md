@@ -4,8 +4,9 @@
 
 **Bugs**
 
-- **Modal** - `scrolling modal` now correctly inherits rules so that it appears at top of screen on mobile
+- **Dropdown** - `restore defaults` in dropdown when used with multiple will now correctly clear other values selected that were not there on page load.
 - **Dropdown** - Removes accidental console.log statement in dropdown
+- **Modal** - `scrolling modal` now correctly inherits rules so that it appears at top of screen on mobile
 
 ### Version 2.0.0 - June 30, 2015
 
