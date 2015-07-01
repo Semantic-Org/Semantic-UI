@@ -68,6 +68,7 @@ module.exports = {
     'card',
     'checkbox',
     'comment',
+    'container',
     'dimmer',
     'divider',
     'dropdown',

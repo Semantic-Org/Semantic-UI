@@ -1,6 +1,6 @@
 ## RELEASE NOTES
 
-### Version 2.0.0 - March xx, 2015
+### Version 2.0.0 - June 30, 2015
 
 **Migration Guide**
 
