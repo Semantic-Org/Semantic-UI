@@ -5,6 +5,7 @@
 **Bugs**
 
 - **Dropdown** - `restore defaults` in dropdown when used with multiple will now correctly clear other values selected that were not there on page load.
+- **Dimmer** - Dimmer now removes variations like `blurring` and `inverted` when `destroy` is called.
 - **Dropdown** - Removes accidental console.log statement in dropdown
 - **Modal** - `scrolling modal` now correctly inherits rules so that it appears at top of screen on mobile
 
