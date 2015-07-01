@@ -614,7 +614,7 @@ $.fn.transition = function() {
           },
           userStyle: function(style) {
             style = style || $module.attr('style') || '';
-            return style.replace(/display.*?;/, '');;
+            return style.replace(/display.*?;/, '');
           },
           transitionExists: function(animation) {
             return $.fn.transition.exists[animation];
