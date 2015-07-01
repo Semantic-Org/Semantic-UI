@@ -20,7 +20,7 @@
   display: -ms-inline-flexbox;
   display: inline-flex;
   white-space: nowrap;
-  vertical-align: middle;
+  vertical-align: baseline;
 }
 .ui.rating:last-child {
   margin-right: 0em;

@@ -19416,10 +19416,10 @@ Floated Menu / Item
 ---------------*/
 
 .ui.vertical.menu {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
@@ -19433,10 +19433,6 @@ Floated Menu / Item
 
 .ui.vertical.menu .item {
   display: block;
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
   -webkit-align-self: stretch !important;
   -ms-flex-item-align: stretch !important;
   align-self: stretch !important;
@@ -28551,10 +28547,6 @@ select.ui.dropdown {
 *******************************/
 
 /*******************************
-         Site Overrides
-*******************************/
-
-/*******************************
           Variations
 *******************************/
 
@@ -30248,7 +30240,7 @@ a.ui.nag {
   display: -ms-inline-flexbox;
   display: inline-flex;
   white-space: nowrap;
-  vertical-align: middle;
+  vertical-align: baseline;
 }
 
 .ui.rating:last-child {
