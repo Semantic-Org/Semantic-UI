@@ -19416,15 +19416,7 @@ Floated Menu / Item
 ---------------*/
 
 .ui.vertical.menu {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
+  display: block;
   background: #ffffff;
   box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
 }
@@ -19433,9 +19425,6 @@ Floated Menu / Item
 
 .ui.vertical.menu .item {
   display: block;
-  -webkit-align-self: stretch !important;
-  -ms-flex-item-align: stretch !important;
-  align-self: stretch !important;
   background: none;
   border-top: none;
   border-right: none;
