@@ -221,7 +221,7 @@
 @tiny    : @10px;
 @small   : @11px;
 @medium  : @12px;
-@large   : @medium;
-@big     : @large;
-@huge    : @big;
-@massive : @huge;
+@large   : @absoluteMedium;
+@big     : @absoluteBig;
+@huge    : @absoluteHuge;
+@massive : @absoluteMassive;

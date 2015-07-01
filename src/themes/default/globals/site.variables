@@ -330,7 +330,7 @@
        Em Sizes
 --------------------*/
 
-/* Exact pixel values expressed in em */
+/* Rounds sizes to closest pixel, then expresses that exact value in terms of @emSize */
 @mini            : unit( round(@miniSize * @emSize) / @emSize, rem);
 @tiny            : unit( round(@tinySize * @emSize) / @emSize, rem);
 @small           : unit( round(@smallSize * @emSize) / @emSize, rem);
@@ -340,6 +340,7 @@
 @huge            : unit( round(@hugeSize * @emSize) / @emSize, rem);
 @massive         : unit( round(@massiveSize * @emSize) / @emSize, rem);
 
+/* em */
 @relativeMini    : unit( round(@miniSize * @emSize) / @emSize, em);
 @relativeTiny    : unit( round(@tinySize * @emSize) / @emSize, em);
 @relativeSmall   : unit( round(@smallSize * @emSize) / @emSize, em);
@@ -348,6 +349,16 @@
 @relativeBig     : unit( round(@bigSize * @emSize) / @emSize, em);
 @relativeHuge    : unit( round(@hugeSize * @emSize) / @emSize, em);
 @relativeMassive : unit( round(@massiveSize * @emSize) / @emSize, em);
+
+/* rem */
+@absoluteMini    : unit( round(@miniSize * @emSize) / @emSize, rem);
+@absoluteTiny    : unit( round(@tinySize * @emSize) / @emSize, rem);
+@absoluteSmall   : unit( round(@smallSize * @emSize) / @emSize, rem);
+@absoluteMedium  : unit( round(@mediumSize * @emSize) / @emSize, rem);
+@absoluteLarge   : unit( round(@largeSize * @emSize) / @emSize, rem);
+@absoluteBig     : unit( round(@bigSize * @emSize) / @emSize, rem);
+@absoluteHuge    : unit( round(@hugeSize * @emSize) / @emSize, rem);
+@absoluteMassive : unit( round(@massiveSize * @emSize) / @emSize, rem);
 
 
 /*-------------------
