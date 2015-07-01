@@ -13,11 +13,11 @@ Key Features
 * Built with EM values for responsive design
 * Flexbox friendly
 
-## 2.0 Announcement
+## 2.0 Is Finally here
 
-**2.0 will be coming in June.** Get ready by checking out the changes in the [beta docs](http://beta.semantic-ui.com), and reading up on the 200+ new features, bug fixes and changes in the [2.0 release notes](https://github.com/Semantic-Org/Semantic-UI/blob/next/RELEASE-NOTES.md). 
+Semantic UI 2.0 is now out. Read up on [what's new](http://beta.semantic-ui.com/introduction/new.html) in the docs.
 
-Check out the code by forking the [`next`](https://github.com/Semantic-Org/Semantic-UI/tree/next) branch.
+Migration info from `1.x` can be found in the [2.0 release notes](https://github.com/Semantic-Org/Semantic-UI/blob/master/RELEASE-NOTES.md#version-200---march-xx-2015)
 
 ## Install
 
@@ -32,25 +32,23 @@ For details on how work with Semantic theming please [read our customization gui
 
 #### Additional Versions
 
-Environment | Install Script | Repo 
---- | --- | --- | 
+Environment | Install Script | Repo
+--- | --- | --- |
 CSS Only | `npm install semantic-ui-css` | [CSS Repo](https://github.com/Semantic-Org/Semantic-UI-CSS)
 [LESS](https://github.com/less/less.js/) Only | `npm install semantic-ui-less` | [LESS Repo](https://github.com/Semantic-Org/Semantic-UI-LESS)
 [LESS](https://github.com/less/less.js/) plugin | `npm install less-plugin-semantic-ui` | [LESS Plugin Repo](https://github.com/bassjobsen/less-plugin-semantic-ui/)
 [EmberJS](http://emberjs.com/) | `ember install:addon semantic-ui-ember` | [Ember Repo](https://github.com/Semantic-Org/Semantic-UI-Ember)
 |[Meteor](https://www.meteor.com/) - [LESS](https://github.com/less/less.js/) | `meteor add semantic:ui` | [Meteor Repo](https://github.com/Semantic-Org/Semantic-UI-Meteor) |
 |[Meteor](https://www.meteor.com/) - CSS | `meteor add semantic:ui-css` | [CSS Repo](https://github.com/Semantic-Org/Semantic-UI-CSS) |
-[Bower](http://bower.io/) | `bower install semantic-ui` | 
+[Bower](http://bower.io/) | `bower install semantic-ui` |
 
 Check out our [integration wiki](https://github.com/Semantic-Org/Semantic-UI/wiki/Integration) for more options.
 
 #### Browser Support
 
-* Last 2 Versions FF, Chrome, IE 10+
-* Safari 6
-* IE 9+ (Browser prefix only)
+* Last 2 Versions FF, Chrome, IE 10+, Safari Mac
+* IE 10+
 * Android 4
-* Blackberry 10
 
 Browser prefixes are present for Internet Explorer 9, but the browser is not officially supported.
 
@@ -73,8 +71,8 @@ Additional Resources  | Submit a question on [StackOverflow](http://stackoverflo
 
 #### Places to Help
 
-Project | How To Help | Next Step 
---- | --- | --- | 
+Project | How To Help | Next Step
+--- | --- | --- |
 Localization | Help us translate Semantic UI into your language | [Join our Translation Community](https://github.com/Semantic-Org/Semantic-UI/wiki/Translating-Semantic-UI-Docs)
 [SCSS](http://sass-lang.com/) | SASS needs PR to support variables inside `@import` | [Add Pull Request](https://github.com/sass/sass/pulls) for [#739](https://github.com/sass/sass/issues/739#issuecomment-73984809)
 [Angular](https://angularjs.org/) | Help develop angular bindings | Reach Out on [GitHub Issues](https://github.com/Semantic-Org/Semantic-UI-Angular/issues/8)
