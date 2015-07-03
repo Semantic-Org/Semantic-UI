@@ -28,7 +28,7 @@ npm install semantic-ui  # Use themes, import build/watch tasks into your own gu
 
 ![Getting Started](https://dl.dropboxusercontent.com/u/2657007/install.gif)
 
-For details on how work with Semantic theming please [read our customization guide](http://www.semantic.com/usage/theming.html) on [semantic-ui.com](http://www.semantic-ui.com/)
+For details on how work with Semantic theming please [read our theming guide](http://www.semantic-ui.com/usage/theming.html) on [semantic-ui.com](http://www.semantic-ui.com/)
 
 #### Additional Versions
 
