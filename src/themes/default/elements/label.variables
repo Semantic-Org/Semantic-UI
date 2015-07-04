@@ -172,6 +172,9 @@
 @attachedVerticalPadding: 0.75em;
 @attachedHorizontalPadding: 1em;
 
+@attachedCornerBorderRadius: @3px;
+@attachedBorderRadius: @borderRadius;
+
 /* Corner */
 @cornerSizeRatio: 1;
 @cornerTransition: color @labelTransitionDuration @labelTransitionEasing;

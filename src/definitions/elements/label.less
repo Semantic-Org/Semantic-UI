@@ -403,31 +403,31 @@ a.ui.label {
 
   padding: @attachedVerticalPadding @attachedHorizontalPadding;
 
-  border-radius: @borderRadius @borderRadius 0em 0em;
+  border-radius: @attachedCornerBorderRadius @attachedCornerBorderRadius 0em 0em;
 }
 .ui.bottom.attached.label {
   top: auto;
   bottom: 0em;
-  border-radius: 0em 0em @borderRadius @borderRadius;
+  border-radius: 0em 0em @attachedCornerBorderRadius @attachedCornerBorderRadius;
 }
 
 .ui.top.left.attached.label {
   width: auto;
   margin-top: 0em !important;
-  border-radius: @borderRadius 0em @borderRadius 0em;
+  border-radius: @attachedCornerBorderRadius 0em @attachedBorderRadius 0em;
 }
 
 .ui.top.right.attached.label {
   width: auto;
   left: auto;
   right: 0em;
-  border-radius: 0em @borderRadius 0em @borderRadius;
+  border-radius: 0em @attachedCornerBorderRadius 0em @attachedBorderRadius;
 }
 .ui.bottom.left.attached.label {
   width: auto;
   top: auto;
   bottom: 0em;
-  border-radius: 0em @borderRadius 0em @borderRadius;
+  border-radius: 0em @attachedBorderRadius 0em @attachedCornerBorderRadius;
 }
 .ui.bottom.right.attached.label {
   top: auto;
@@ -435,7 +435,7 @@ a.ui.label {
   left: auto;
   right: 0em;
   width: auto;
-  border-radius: @borderRadius 0em @borderRadius 0em;
+  border-radius: @attachedBorderRadius 0em @attachedCornerBorderRadius 0em;
 }
 
 
