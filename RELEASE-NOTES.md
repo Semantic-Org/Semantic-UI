@@ -4,7 +4,9 @@
 
 **Bugs**
 
+- **Card** - `centered cards` variation now works similar to `centered card`. #2520
 - **Dropdown** - `restore defaults` in dropdown when used with multiple will now correctly clear other values selected that were not there on page load.
+- **Checkbox** - Fixed issue in chrome where radio checkbox would appear incorrectly when no default value was selected #2505
 - **Dimmer** - Dimmer now removes variations like `blurring` and `inverted` when `destroy` is called.
 - **Dropdown** - Removes accidental console.log statement in dropdown
 - **Modal** - `scrolling modal` now correctly inherits rules so that it appears at top of screen on mobile
