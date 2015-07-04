@@ -11,6 +11,7 @@
 - **Dropdown** - Removes accidental console.log statement in dropdown
 - **Modal** - `scrolling modal` now correctly inherits rules so that it appears at top of screen on mobile
 - **Label** - Fixes incorrect label sizing for `large` and bigger sizes #2486
+- **Label** - Attached labels now use a border-radius for corner-edges that matches more closely #2500
 - **Segment** - Fixed incorrect margin set on `attached segment` #2503
 
 ### Version 2.0.0 - June 30, 2015
