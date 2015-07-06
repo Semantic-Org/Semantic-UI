@@ -82,7 +82,7 @@ module.exports = function () {
   }
 
   // run update scripts if semantic.json exists
-  if(currentConfig) {
+  if(currentConfig && manager.name === 'NPM') {
 
     var
       updateFolder = path.join(manager.root, currentConfig.base),
