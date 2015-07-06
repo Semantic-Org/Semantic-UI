@@ -117,7 +117,7 @@ $.fn.progress = function(parameters) {
             if(data.value) {
               module.debug('Current value set from metadata', data.value);
               module.set.value(data.value);
-              module.set.progress(module.value);
+              module.set.progress(data.value);
             }
           },
           settings: function() {
