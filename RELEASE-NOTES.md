@@ -3,13 +3,14 @@
 ### Version 2.0.1 - June 30, 2015
 
 **Reported Bugs**
-
 - **Label** - Attached labels now use a border-radius for corner-edges that matches more closely #2500
 - **Label** - Fixes incorrect label sizing for `large` and bigger sizes #2486
 - **Segment** - Fixed incorrect margin set on `attached segment` #2503
 - **Card** - `centered cards` variation now works similar to `centered card`. #2520
 - **Checkbox** - Fixed issue in chrome where radio checkbox would appear incorrectly when no default value was selected #2505
+- **Checkbox** - Fixed issue where radio checkbox were not properly receiving `checked` class #2506
 - **Tab** - Tab now correctly obeys `cache` setting. Removed use of API's local caching by default. #2493
+- **Form** - `reset` will no longer clear values if no default value is found #2504
 
 **Additional Bugs**
 - **Dimmer** - Dimmer now removes variations like `blurring` and `inverted` when `destroy` is called.
@@ -23,6 +24,9 @@
 - **Tab** - Fixed bug where remote loaded tab content would not show `loading tab` on first load.
 
 **Docs**
+- **Form** - Clarified usage for `reset` in form docs #2504
+- **Docs** - `1.0` docs are now available at [http://1.semantic-ui.com](http://1.semantic-ui.com) Link in footer has been fixed.
+- **Image** - Fixed `mini image` having wrong pixel size in docs #2521
 - **Image** - Added docs for missing `fluid image` variation
 - **Modal** - Removed legacy JS animation settings still accidentally in docs
 - **Tab** - Added new examples for `evaluateScripts` and HTML5 state tabs
