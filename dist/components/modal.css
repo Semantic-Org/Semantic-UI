@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.0 - Modal
+ * # Semantic UI 2.0.1 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -390,9 +390,9 @@
   z-index: auto;
 }
 @media only screen and (max-width: 992px) {
-  .ui.scrolling.modal {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+  .modals.dimmer .ui.scrolling.modal {
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
   }
 }
 

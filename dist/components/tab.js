@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.0 - Tab
+ * # Semantic UI 2.0.1 - Tab
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -440,9 +440,12 @@ $.fn.tab = function(parameters) {
             var
               $tab        = module.get.tabElement(tabPath),
               apiSettings = {
-                dataType  : 'html',
-                on        : 'now',
-                cache     : 'local',
+                dataType : 'html',
+                on       : 'now',
+                cache    : settings.alwaysRefresh,
+                headers  : {
+                  'X-Remote': true
+                },
                 onSuccess : function(response) {
                   module.cache.add(fullTabPath, response);
                   module.update.content(tabPath, response);
@@ -486,12 +489,9 @@ $.fn.tab = function(parameters) {
               module.debug('Content is already loading', fullTabPath);
             }
             else if($.api !== undefined) {
-              requestSettings = $.extend(true, {
-                headers: {
-                  'X-Remote': true
-                }
-              }, settings.apiSettings, apiSettings);
+              requestSettings = $.extend(true, {}, settings.apiSettings, apiSettings);
               module.debug('Retrieving remote content', fullTabPath, requestSettings);
+              module.set.loading(tabPath);
               $tab.api(requestSettings);
             }
             else {

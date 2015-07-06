@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.0 - Item
+ * # Semantic UI 2.0.1 - Item
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -437,6 +437,12 @@
        Centered
 --------------------*/
 
+.ui.centered.cards {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
 .ui.centered.card {
   margin-left: auto;
   margin-right: auto;

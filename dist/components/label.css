@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.0 - Label
+ * # Semantic UI 2.0.1 - Label
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -369,29 +369,29 @@ a.ui.label {
   top: 0em;
   left: 0em;
   padding: 0.75em 1em;
-  border-radius: 0.28571429rem 0.28571429rem 0em 0em;
+  border-radius: 0.21428571rem 0.21428571rem 0em 0em;
 }
 .ui.bottom.attached.label {
   top: auto;
   bottom: 0em;
-  border-radius: 0em 0em 0.28571429rem 0.28571429rem;
+  border-radius: 0em 0em 0.21428571rem 0.21428571rem;
 }
 .ui.top.left.attached.label {
   width: auto;
   margin-top: 0em !important;
-  border-radius: 0.28571429rem 0em 0.28571429rem 0em;
+  border-radius: 0.21428571rem 0em 0.28571429rem 0em;
 }
 .ui.top.right.attached.label {
   width: auto;
   left: auto;
   right: 0em;
-  border-radius: 0em 0.28571429rem 0em 0.28571429rem;
+  border-radius: 0em 0.21428571rem 0em 0.28571429rem;
 }
 .ui.bottom.left.attached.label {
   width: auto;
   top: auto;
   bottom: 0em;
-  border-radius: 0em 0.28571429rem 0em 0.28571429rem;
+  border-radius: 0em 0.28571429rem 0em 0.21428571rem;
 }
 .ui.bottom.right.attached.label {
   top: auto;
@@ -399,7 +399,7 @@ a.ui.label {
   left: auto;
   right: 0em;
   width: auto;
-  border-radius: 0.28571429rem 0em 0.28571429rem 0em;
+  border-radius: 0.28571429rem 0em 0.21428571rem 0em;
 }
 
 
@@ -1086,19 +1086,19 @@ a.ui.black.label:hover:before {
 }
 .ui.large.labels .label,
 .ui.large.label {
-  font-size: 0.85714286rem;
+  font-size: 1rem;
 }
 .ui.big.labels .label,
 .ui.big.label {
-  font-size: 0.85714286rem;
+  font-size: 1.28571429rem;
 }
 .ui.huge.labels .label,
 .ui.huge.label {
-  font-size: 0.85714286rem;
+  font-size: 1.42857143rem;
 }
 .ui.massive.labels .label,
 .ui.massive.label {
-  font-size: 0.85714286rem;
+  font-size: 1.71428571rem;
 }
 
 

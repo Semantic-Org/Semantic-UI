@@ -19,7 +19,7 @@
 - **Dropdown** - `restore defaults` in dropdown when used with multiple will now correctly clear other values selected that were not there on page load.
 - **Dropdown** - Removes accidental console.log statement in dropdown
 - **Menu** - Fixed `pointing menu` arrow color slightly off
-- **Progress* - Progress included `debug: true` by default. This has been now correctly set to `false`
+- **Progress** - Progress included `debug: true` by default. This has been now correctly set to `false`
 - **Modal** - `scrolling modal` now correctly inherits rules so that it appears at top of screen on mobile
 - **Menu** - Inverted menu no longer includes a 1px transparent border.
 - **Menu** - Fixes `compact vertical menu` using `flex` style incorrectly

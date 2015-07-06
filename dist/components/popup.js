@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.0 - Popup
+ * # Semantic UI 2.0.1 - Popup
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -687,7 +687,7 @@ $.fn.popup = function(parameters) {
             popup  = calculations.popup;
             parent = calculations.parent;
 
-            if(target.top === 0 && target.left === 0) {
+            if(target.width === 0 && target.height === 0) {
               module.debug('Popup target is hidden, no action taken');
               return false;
             }

@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.0 - Checkbox
+ * # Semantic UI 2.0.1 - Checkbox
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -191,13 +191,13 @@
   Indeterminate
 ---------------*/
 
-.ui.checkbox input:indeterminate ~ .box:before,
-.ui.checkbox input:indeterminate ~ label:before {
+.ui.checkbox input[type="checkbox"]:indeterminate ~ .box:before,
+.ui.checkbox input[type="checkbox"]:indeterminate ~ label:before {
   background: #ffffff;
   border-color: rgba(34, 36, 38, 0.35);
 }
-.ui.checkbox input:indeterminate ~ .box:after,
-.ui.checkbox input:indeterminate ~ label:after {
+.ui.checkbox input[type="checkbox"]:indeterminate ~ .box:after,
+.ui.checkbox input[type="checkbox"]:indeterminate ~ label:after {
   opacity: 1;
   color: rgba(0, 0, 0, 0.95);
 }
@@ -206,10 +206,10 @@
   Active Focus
 ---------------*/
 
-.ui.checkbox input[type="radio"]:indeterminate:focus ~ .box:before,
-.ui.checkbox input[type="radio"]:indeterminate:focus ~ label:before,
-.ui.checkbox input[type="radio"]:checked:focus ~ .box:before,
-.ui.checkbox input[type="radio"]:checked:focus ~ label:before {
+.ui.checkbox input[type="checkbox"]:indeterminate:focus ~ .box:before,
+.ui.checkbox input[type="checkbox"]:indeterminate:focus ~ label:before,
+.ui.checkbox input[type="checkbox"]:checked:focus ~ .box:before,
+.ui.checkbox input[type="checkbox"]:checked:focus ~ label:before {
   background: #f9fafb;
   border-color: rgba(34, 36, 38, 0.35);
 }
