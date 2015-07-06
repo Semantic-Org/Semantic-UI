@@ -2,17 +2,27 @@
 
 ### Version 2.0.1 - June 30, 2015
 
-**Bugs**
+**Reported Bugs**
 
-- **Card** - `centered cards` variation now works similar to `centered card`. #2520
-- **Dropdown** - `restore defaults` in dropdown when used with multiple will now correctly clear other values selected that were not there on page load.
-- **Checkbox** - Fixed issue in chrome where radio checkbox would appear incorrectly when no default value was selected #2505
-- **Dimmer** - Dimmer now removes variations like `blurring` and `inverted` when `destroy` is called.
-- **Dropdown** - Removes accidental console.log statement in dropdown
-- **Modal** - `scrolling modal` now correctly inherits rules so that it appears at top of screen on mobile
-- **Label** - Fixes incorrect label sizing for `large` and bigger sizes #2486
 - **Label** - Attached labels now use a border-radius for corner-edges that matches more closely #2500
+- **Label** - Fixes incorrect label sizing for `large` and bigger sizes #2486
 - **Segment** - Fixed incorrect margin set on `attached segment` #2503
+- **Card** - `centered cards` variation now works similar to `centered card`. #2520
+- **Checkbox** - Fixed issue in chrome where radio checkbox would appear incorrectly when no default value was selected #2505
+
+**Additional Bugs**
+- **Dimmer** - Dimmer now removes variations like `blurring` and `inverted` when `destroy` is called.
+- **Dropdown** - `restore defaults` in dropdown when used with multiple will now correctly clear other values selected that were not there on page load.
+- **Dropdown** - Removes accidental console.log statement in dropdown
+- **Menu** - Fixed `pointing menu` arrow color slightly off
+- **Progress* - Progress included `debug: true` by default. This has been now correctly set to `false`
+- **Modal** - `scrolling modal` now correctly inherits rules so that it appears at top of screen on mobile
+- **Menu** - Inverted menu no longer includes a 1px transparent border.
+- **Menu** - Fixes `compact vertical menu` using `flex` style incorrectly
+
+**Docs**
+- **Image** - Added docs for missing `fluid image` variation
+- **Modal** - Removed legacy JS animation settings still accidentally in docs
 
 ### Version 2.0.0 - June 30, 2015
 
