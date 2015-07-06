@@ -498,6 +498,7 @@ Floated Menu / Item
 
 .ui.vertical.menu {
   display: block;
+  flex-direction: column;
   background: @verticalBackground;
   box-shadow: @verticalBoxShadow;
 }
@@ -1529,6 +1530,9 @@ Floated Menu / Item
   display: inline-flex;
   margin: 0em;
   vertical-align: middle;
+}
+.ui.compact.vertical.menu {
+  display: inline-block;
 }
 .ui.compact.menu .item:last-child {
   border-radius: 0em @borderRadius @borderRadius 0em;

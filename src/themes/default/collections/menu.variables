@@ -90,8 +90,8 @@
 @arrowTransition: background @defaultDuration @defaultEasing;
 @arrowZIndex: 2;
 
-@arrowHoverColor: #F4F4F4;
-@arrowActiveColor: #F4F4F4;
+@arrowHoverColor: #F2F2F2;
+@arrowActiveColor: @arrowHoverColor;
 @arrowActiveHoverColor: @arrowActiveColor;
 
 @arrowVerticalHoverColor: @arrowHoverColor;
@@ -370,7 +370,7 @@
 /* Inverted */
 @invertedBackground: @black;
 @invertedBoxShadow: none;
-@invertedBorder: 1px solid transparent;
+@invertedBorder: 0px solid transparent;
 @invertedHeaderBackground: transparent;
 
 @invertedItemBackground: transparent;
