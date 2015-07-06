@@ -3,17 +3,18 @@
 ### Version 2.0.1 - June 30, 2015
 
 **Reported Bugs**
-- **Label** - Attached labels now use a border-radius for corner-edges that matches more closely #2500
-- **Label** - Fixes incorrect label sizing for `large` and bigger sizes #2486
-- **Segment** - Fixed incorrect margin set on `attached segment` #2503
-- **Card** - `centered cards` variation now works similar to `centered card`. #2520
-- **Checkbox** - Fixed issue in chrome where radio checkbox would appear incorrectly when no default value was selected #2505
-- **Dropdown** - Fixed transparent tap color not being set correctly. Removed toggle behavior from touch events on multiple dropdown. #2524
-- **Checkbox** - Fixed issue where radio checkbox were not properly receiving `checked` class #2506
-- **Tab** - Tab now correctly obeys `cache` setting. Removed use of API's local caching by default. #2493
-- **Form** - `reset` will no longer clear values if no default value is found #2504
+- **Label** - Attached labels now use a border-radius for corner-edges that matches more closely [#2500](https://github.com/Semantic-Org/Semantic-UI/issues/2500)
+- **Label** - Fixes incorrect label sizing for `large` and bigger sizes [#2486](https://github.com/Semantic-Org/Semantic-UI/issues/2486)
+- **Segment** - Fixed incorrect margin set on `attached segment` [#2503](https://github.com/Semantic-Org/Semantic-UI/issues/2503)
+- **Card** - `centered cards` variation now works similar to `centered card`. [#2520](https://github.com/Semantic-Org/Semantic-UI/issues/2520)
+- **Checkbox** - Fixed issue in chrome where radio checkbox would appear incorrectly when no default value was selected [#2505](https://github.com/Semantic-Org/Semantic-UI/issues/2505)
+- **Dropdown** - Fixed transparent tap color not being set correctly. Removed toggle behavior from touch events on multiple dropdown. [#2524](https://github.com/Semantic-Org/Semantic-UI/issues/2524)
+- **Checkbox** - Fixed issue where radio checkbox were not properly receiving `checked` class [#2506](https://github.com/Semantic-Org/Semantic-UI/issues/2506)
+- **Tab** - Tab now correctly obeys `cache` setting. Removed use of API's local caching by default. [#2493](https://github.com/Semantic-Org/Semantic-UI/issues/2493)
+- **Form** - `reset` will no longer clear values if no default value is found [#2504](https://github.com/Semantic-Org/Semantic-UI/issues/2504)
 
 **Additional Bugs**
+- **Build Tools** - Running npm
 - **Dimmer** - Dimmer now removes variations like `blurring` and `inverted` when `destroy` is called.
 - **Dropdown** - `restore defaults` in dropdown when used with multiple will now correctly clear other values selected that were not there on page load.
 - **Dropdown** - Removes accidental console.log statement in dropdown
@@ -26,9 +27,9 @@
 - **Tab** - Fixed bug where remote loaded tab content would not show `loading tab` on first load.
 
 **Docs**
-- **Form** - Clarified usage for `reset` in form docs #2504
+- **Form** - Clarified usage for `reset` in form docs [#2504](https://github.com/Semantic-Org/Semantic-UI/issues/2504)
 - **Docs** - `1.0` docs are now available at [http://1.semantic-ui.com](http://1.semantic-ui.com) Link in footer has been fixed.
-- **Image** - Fixed `mini image` having wrong pixel size in docs #2521
+- **Image** - Fixed `mini image` having wrong pixel size in docs [#2521](https://github.com/Semantic-Org/Semantic-UI/issues/2521)
 - **Image** - Added docs for missing `fluid image` variation
 - **Modal** - Removed legacy JS animation settings still accidentally in docs
 - **Tab** - Added new examples for `evaluateScripts` and HTML5 state tabs
