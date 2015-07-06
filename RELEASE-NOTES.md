@@ -2,7 +2,7 @@
 
 ### Version 2.0.1 - June 30, 2015
 
-**Reported Bugs**
+**[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.0.x+is%3Aclosed)**
 - **Label** - Attached labels now use a border-radius for corner-edges that matches more closely [#2500](https://github.com/Semantic-Org/Semantic-UI/issues/2500)
 - **Label** - Fixes incorrect label sizing for `large` and bigger sizes [#2486](https://github.com/Semantic-Org/Semantic-UI/issues/2486)
 - **Segment** - Fixed incorrect margin set on `attached segment` [#2503](https://github.com/Semantic-Org/Semantic-UI/issues/2503)
@@ -18,6 +18,8 @@
 - **Dimmer** - Dimmer now removes variations like `blurring` and `inverted` when `destroy` is called.
 - **Dropdown** - `restore defaults` in dropdown when used with multiple will now correctly clear other values selected that were not there on page load.
 - **Dropdown** - Removes accidental console.log statement in dropdown
+- **Dropdown** - Dropdown no longer closes after max selections reached and enter key used for selection.
+- **Dropdown** - Dropdown will now show correctly when menu only includes a message with no other items
 - **Menu** - Fixed `pointing menu` arrow color slightly off
 - **Progress* - Progress included `debug: true` by default. This has been now correctly set to `false`
 - **Modal** - `scrolling modal` now correctly inherits rules so that it appears at top of screen on mobile
