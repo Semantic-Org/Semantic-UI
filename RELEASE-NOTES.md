@@ -9,6 +9,7 @@
 - **Segment** - Fixed incorrect margin set on `attached segment` #2503
 - **Card** - `centered cards` variation now works similar to `centered card`. #2520
 - **Checkbox** - Fixed issue in chrome where radio checkbox would appear incorrectly when no default value was selected #2505
+- **Tab** - Tab now correctly obeys `cache` setting. Removed use of API's local caching by default. #2493
 
 **Additional Bugs**
 - **Dimmer** - Dimmer now removes variations like `blurring` and `inverted` when `destroy` is called.
