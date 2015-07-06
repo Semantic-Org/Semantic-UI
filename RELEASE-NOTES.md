@@ -14,7 +14,6 @@
 - **Form** - `reset` will no longer clear values if no default value is found [#2504](https://github.com/Semantic-Org/Semantic-UI/issues/2504)
 
 **Additional Bugs**
-- **Build Tools** - Running npm
 - **Dimmer** - Dimmer now removes variations like `blurring` and `inverted` when `destroy` is called.
 - **Dropdown** - `restore defaults` in dropdown when used with multiple will now correctly clear other values selected that were not there on page load.
 - **Dropdown** - Removes accidental console.log statement in dropdown
