@@ -473,7 +473,7 @@ $.fn.dropdown = function(parameters) {
             if( module.is.searchSelection() ) {
               // do nothing special yet
             }
-            else {
+            else if( module.is.single() ) {
               $module
                 .on('touchstart' + eventNamespace, module.event.test.toggle)
               ;

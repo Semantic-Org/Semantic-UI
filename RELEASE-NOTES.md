@@ -8,6 +8,7 @@
 - **Segment** - Fixed incorrect margin set on `attached segment` #2503
 - **Card** - `centered cards` variation now works similar to `centered card`. #2520
 - **Checkbox** - Fixed issue in chrome where radio checkbox would appear incorrectly when no default value was selected #2505
+- **Dropdown** - Fixed transparent tap color not being set correctly. Removed toggle behavior from touch events on multiple dropdown. #2524
 - **Checkbox** - Fixed issue where radio checkbox were not properly receiving `checked` class #2506
 - **Tab** - Tab now correctly obeys `cache` setting. Removed use of API's local caching by default. #2493
 - **Form** - `reset` will no longer clear values if no default value is found #2504
