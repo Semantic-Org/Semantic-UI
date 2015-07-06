@@ -22,6 +22,7 @@
 - **Modal** - `scrolling modal` now correctly inherits rules so that it appears at top of screen on mobile
 - **Menu** - Inverted menu no longer includes a 1px transparent border.
 - **Menu** - Fixes `compact vertical menu` using `flex` style incorrectly
+- **Menu** - Fixes `border-top` not appearing on `bottom fixed` menu
 - **Tab** - Fixed bug where remote loaded tab content would not show `loading tab` on first load.
 
 **Docs**
