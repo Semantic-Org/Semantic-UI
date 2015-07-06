@@ -20,10 +20,12 @@
 - **Modal** - `scrolling modal` now correctly inherits rules so that it appears at top of screen on mobile
 - **Menu** - Inverted menu no longer includes a 1px transparent border.
 - **Menu** - Fixes `compact vertical menu` using `flex` style incorrectly
+- **Tab** - Fixed bug where remote loaded tab content would not show `loading tab` on first load.
 
 **Docs**
 - **Image** - Added docs for missing `fluid image` variation
 - **Modal** - Removed legacy JS animation settings still accidentally in docs
+- **Tab** - Added new examples for `evaluateScripts` and HTML5 state tabs
 
 ### Version 2.0.0 - June 30, 2015
 
