@@ -1118,10 +1118,7 @@ $.fn.dropdown = function(parameters) {
                   else if(selectedIsVisible) {
                     module.verbose('Selecting item from keyboard shortcut', $selectedItem);
                     module.event.item.click.call($selectedItem, event);
-                    if(settings.useLabels && module.is.searchSelection()) {
-                      module.hideAndClear();
-                    }
-                    else {
+                    if(!settings.useLabels && module.is.searchSelection()) {
                       module.remove.searchTerm();
                     }
                   }
@@ -2012,23 +2009,31 @@ $.fn.dropdown = function(parameters) {
           },
           selectedLetter: function(letter) {
             var
-              $selectedItem = $item.filter('.' + className.selected),
-              $nextValue    = false
+              $selectedItem         = $item.filter('.' + className.selected),
+              alreadySelectedLetter = $selectedItem.length > 0 && module.has.firstLetter($selectedItem, letter),
+              $nextValue            = false,
+              $nextItem
             ;
-            $item
-              .each(function(){
-                var
-                  $choice       = $(this),
-                  text          = module.get.choiceText($choice, false),
-                  firstLetter   = String(text).charAt(0).toLowerCase(),
-                  matchedLetter = letter.toLowerCase()
-                ;
-                if(firstLetter == matchedLetter) {
-                  $nextValue = $choice;
-                  return false;
-                }
-              })
-            ;
+            // check next of same letter
+            if(alreadySelectedLetter) {
+              $nextItem = $selectedItem.nextAll($item).eq(0);
+              console.log($nextItem, module.has.firstLetter($nextItem, letter));
+              if( module.has.firstLetter($nextItem, letter) ) {
+                $nextValue  = $nextItem;
+              }
+            }
+            // check all values
+            if(!$nextValue) {
+              $item
+                .each(function(){
+                  if(module.has.firstLetter($(this), letter)) {
+                    $nextValue = $(this);
+                    return false;
+                  }
+                })
+              ;
+            }
+            // set next value
             if($nextValue) {
               module.verbose('Scrolling to next value with letter', letter);
               module.set.scrollPosition($nextValue);
@@ -2540,6 +2545,19 @@ $.fn.dropdown = function(parameters) {
         has: {
           search: function() {
             return ($search.length > 0);
+          },
+          firstLetter: function($item, letter) {
+            var
+              text,
+              firstLetter
+            ;
+            if(!$item || $item.length === 0 || typeof letter !== 'string') {
+              return false;
+            }
+            text        = module.get.choiceText($item, false);
+            letter      = letter.toLowerCase();
+            firstLetter = String(text).charAt(0).toLowerCase();
+            return (letter == firstLetter);
           },
           input: function() {
             return ($input.length > 0);
