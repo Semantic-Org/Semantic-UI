@@ -955,7 +955,9 @@ $.fn.dropdown = function(parameters) {
               ;
               if(!isBubbledEvent && (!hasSubMenu || settings.allowCategorySelection)) {
                 if(!settings.useLabels) {
+                  module.remove.filteredItem();
                   module.remove.searchTerm();
+                  module.set.scrollPosition($choice);
                 }
                 module.determine.selectAction.call(this, text, value);
               }
@@ -1094,12 +1096,12 @@ $.fn.dropdown = function(parameters) {
                 $visibleItems = ($selectedItem.length > 0)
                   ? $selectedItem.siblings(':not(.' + className.filtered +')').andSelf()
                   : $menu.children(':not(.' + className.filtered +')'),
-                $subMenu          = $selectedItem.children(selector.menu),
-                $parentMenu       = $selectedItem.closest(selector.menu),
-                inVisibleMenu     = ($parentMenu.hasClass(className.visible) || $parentMenu.hasClass(className.animating) || $parentMenu.parent(selector.menu).length > 0),
-                hasSubMenu        = ($subMenu.length> 0),
-                hasSelectedItem   = ($selectedItem.length > 0),
-                selectedIsVisible = ($selectedItem.not(selector.unselectable).length > 0),
+                $subMenu             = $selectedItem.children(selector.menu),
+                $parentMenu          = $selectedItem.closest(selector.menu),
+                inVisibleMenu        = ($parentMenu.hasClass(className.visible) || $parentMenu.hasClass(className.animating) || $parentMenu.parent(selector.menu).length > 0),
+                hasSubMenu           = ($subMenu.length> 0),
+                hasSelectedItem      = ($selectedItem.length > 0),
+                selectedIsSelectable = ($selectedItem.not(selector.unselectable).length > 0),
                 $nextItem,
                 isSubMenuItem,
                 newIndex
@@ -1110,15 +1112,14 @@ $.fn.dropdown = function(parameters) {
 
                 // enter (select or open sub-menu)
                 if(pressedKey == keys.enter || pressedKey == keys.delimiter) {
-
                   if(pressedKey == keys.enter && hasSelectedItem && hasSubMenu && !settings.allowCategorySelection) {
                     module.verbose('Pressed enter on unselectable category, opening sub menu');
                     pressedKey = keys.rightArrow;
                   }
-                  else if(selectedIsVisible) {
+                  else if(selectedIsSelectable) {
                     module.verbose('Selecting item from keyboard shortcut', $selectedItem);
                     module.event.item.click.call($selectedItem, event);
-                    if(!settings.useLabels && module.is.searchSelection()) {
+                    if(module.is.searchSelection()) {
                       module.remove.searchTerm();
                     }
                   }
@@ -1262,11 +1263,17 @@ $.fn.dropdown = function(parameters) {
             }
           },
           eventInModule: function(event, callback) {
+            var
+              $target    = $(event.target),
+              inDocument = ($target.closest(document.documentElement).length > 0),
+              inModule   = ($target.closest($module).length > 0)
+            ;
             callback = $.isFunction(callback)
               ? callback
               : function(){}
             ;
-            if( $(event.target).closest($module).length === 0 ) {
+            console.log(inDocument, inModule);
+            if(inDocument && !inModule) {
               module.verbose('Triggering event', callback);
               callback();
               return true;
@@ -1278,13 +1285,15 @@ $.fn.dropdown = function(parameters) {
           },
           eventOnElement: function(event, callback) {
             var
-              $target = $(event.target)
+              $target    = $(event.target),
+              notOnLabel = ($target.closest(selector.siblingLabel).length === 0),
+              notInMenu  = ($target.closest($menu).length === 0)
             ;
             callback = $.isFunction(callback)
               ? callback
               : function(){}
             ;
-            if($target.closest($menu).length === 0) {
+            if(notOnLabel && notInMenu) {
               module.verbose('Triggering event', callback);
               callback();
               return true;
