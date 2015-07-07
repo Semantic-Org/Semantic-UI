@@ -1487,8 +1487,8 @@ $.fn.form.settings = {
     integer : /^\-?\d+$/,
     flags   : /^\/(.*)\/(.*)?/,
     url     : /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/i,
-    natural : /^\d*(\.\d+)?$/,
-    real    : /^\-?\d*(\.\d+)?$/
+    natural : /^\d+(\.\d+)?$/,
+    real    : /^\-?\d+(\.\d+)?$/
   },
 
   selector : {
