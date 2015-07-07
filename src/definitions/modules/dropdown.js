@@ -1272,7 +1272,6 @@ $.fn.dropdown = function(parameters) {
               ? callback
               : function(){}
             ;
-            console.log(inDocument, inModule);
             if(inDocument && !inModule) {
               module.verbose('Triggering event', callback);
               callback();
@@ -2026,7 +2025,6 @@ $.fn.dropdown = function(parameters) {
             // check next of same letter
             if(alreadySelectedLetter) {
               $nextItem = $selectedItem.nextAll($item).eq(0);
-              console.log($nextItem, module.has.firstLetter($nextItem, letter));
               if( module.has.firstLetter($nextItem, letter) ) {
                 $nextValue  = $nextItem;
               }
