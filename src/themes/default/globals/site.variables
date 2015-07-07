@@ -25,7 +25,7 @@
 --------------------*/
 
 /* This is the single variable that controls them all */
-@emSize   : 17px;
+@emSize   : 14px;
 
 /* The size of page text  */
 @fontSize : 14px;
