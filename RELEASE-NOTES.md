@@ -7,7 +7,7 @@
 - **Dropdown** - Fixed regression in `2.0.1` causing search dropdown not to clear values correctly.
 - **Site** - Sizing variables now are relative to `@emSize` adjusting all sizing variationss proportionately as `@emSize` changes.
 - **Dropdown** -  Pressing same key on dropdown with multiple choices with same first letter will now cycle selections. For example "California" then "Colorado" when pressing C #2516
-
+- **Dropdown** - Multiselect that do use text labels (e.g. "5 selected") will now remove filteres on selection and scroll to last selected value
 
 ### Version 2.0.1 - July 6, 2015
 
