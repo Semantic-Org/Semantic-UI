@@ -25,7 +25,7 @@
 --------------------*/
 
 /* This is the single variable that controls them all */
-@emSize   : 14px;
+@emSize   : 17px;
 
 /* The size of page text  */
 @fontSize : 14px;
@@ -83,18 +83,18 @@
 --------------------*/
 
 /*
-  This ensures all relative sizes are exact pixels
-  expressed in em
+  Sizes are all expressed in terms of 14px/em (default em)
+  This ensures these "ratios" remain constant despite changes in EM
 */
 
-@miniSize        : (10 / unit(@emSize));
-@tinySize        : (12 / unit(@emSize));
-@smallSize       : (13 / unit(@emSize));
-@mediumSize      : (14 / unit(@emSize));
-@largeSize       : (16 / unit(@emSize));
-@bigSize         : (18 / unit(@emSize));
-@hugeSize        : (20 / unit(@emSize));
-@massiveSize     : (24 / unit(@emSize));
+@miniSize        : (10 / 14);
+@tinySize        : (12 / 14);
+@smallSize       : (13 / 14);
+@mediumSize      : (14 / 14);
+@largeSize       : (16 / 14);
+@bigSize         : (18 / 14);
+@hugeSize        : (20 / 14);
+@massiveSize     : (24 / 14);
 
 
 /*-------------------
@@ -330,7 +330,10 @@
        Em Sizes
 --------------------*/
 
-/* Rounds sizes to closest pixel, then expresses that exact value in terms of @emSize */
+/*
+  This rounds @size values to the closest pixel then expresses that value in (r)em.
+  This ensures all size values round to exact pixels
+*/
 @mini            : unit( round(@miniSize * @emSize) / @emSize, rem);
 @tiny            : unit( round(@tinySize * @emSize) / @emSize, rem);
 @small           : unit( round(@smallSize * @emSize) / @emSize, rem);
@@ -366,7 +369,8 @@
 --------------------*/
 /*
   These are used to specify exact pixel values in em
-  for things like borders
+  for things like borders that remain constantly
+  sized as emSize adjusts
 
   Since there are many more sizes than names for sizes,
   these are named by their original pixel values.
