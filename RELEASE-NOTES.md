@@ -1,8 +1,17 @@
 ## RELEASE NOTES
 
-### Version 2.0.1 - June 30, 2015
+### Version 2.0.2 - July 7, 2015
 
-**[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.0.x+is%3Aclosed)**
+**[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.0.2+is%3Aclosed)**
+
+- **Dropdown** - Fixed regression in `2.0.1` causing search dropdown not to clear values correctly.
+- **Site** - Sizing variables now are relative to `@emSize` adjusting all sizing variationss proportionately as `@emSize` changes.
+- **Dropdown** -  Pressing same key on dropdown with multiple choices with same first letter will now cycle selections. For example "California" then "Colorado" when pressing C #2516
+
+
+### Version 2.0.1 - July 6, 2015
+
+**[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.0.1+is%3Aclosed)**
 - **Label** - Attached labels now use a border-radius for corner-edges that matches more closely [#2500](https://github.com/Semantic-Org/Semantic-UI/issues/2500)
 - **Label** - Fixes incorrect label sizing for `large` and bigger sizes [#2486](https://github.com/Semantic-Org/Semantic-UI/issues/2486)
 - **Segment** - Fixed incorrect margin set on `attached segment` [#2503](https://github.com/Semantic-Org/Semantic-UI/issues/2503)
