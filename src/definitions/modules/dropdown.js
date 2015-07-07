@@ -2816,18 +2816,17 @@ $.fn.dropdown = function(parameters) {
         },
 
         hideAndClear: function() {
+          module.remove.searchTerm();
           if( module.has.maxSelections() ) {
-            module.remove.searchTerm();
+            return;
+          }
+          if(module.has.search()) {
+            module.hide(function() {
+              module.remove.filteredItem();
+            });
           }
           else {
-            if(module.has.search()) {
-              module.hide(function() {
-                module.remove.filteredItem();
-              });
-            }
-            else {
-              module.hide();
-            }
+            module.hide();
           }
         },
 
