@@ -827,7 +827,6 @@ $.fn.dropdown = function(parameters) {
           },
           icon: {
             click: function(event) {
-              console.log('icon close');
               module.toggle();
               event.stopPropagation();
             }
