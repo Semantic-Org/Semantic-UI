@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.1 - Checkbox
+ * # Semantic UI 2.0.2 - Checkbox
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -55,10 +55,7 @@
   display: block;
   padding-left: 1.85714em;
   outline: none;
-}
-.ui.checkbox .box,
-.ui.checkbox label {
-  font-size: 14px;
+  font-size: 1em;
 }
 .ui.checkbox .box:before,
 .ui.checkbox label:before {
