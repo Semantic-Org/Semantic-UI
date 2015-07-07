@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.0 - Form Validation
+ * # Semantic UI 2.0.1 - Form Validation
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -201,7 +201,7 @@ $.fn.form = function(parameters) {
                 isErrored    = $fieldGroup.hasClass(className.error)
               ;
               if(defaultValue === undefined) {
-                defaultValue = '';
+                return;
               }
               if(isErrored) {
                 module.verbose('Resetting error on field', $fieldGroup);

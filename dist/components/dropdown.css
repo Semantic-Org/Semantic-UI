@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.0 - Dropdown
+ * # Semantic UI 2.0.1 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -18,11 +18,11 @@
   cursor: pointer;
   position: relative;
   display: inline-block;
-  tap-highlight-color: rgba(0, 0, 0, 0);
   outline: none;
   text-align: left;
   -webkit-transition: box-shadow 0.1s ease, width 0.1s ease;
           transition: box-shadow 0.1s ease, width 0.1s ease;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 

@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.0 - Input
+ * # Semantic UI 2.0.1 - Input
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -295,7 +295,7 @@
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
   margin: 0;
-  font-size: 1rem;
+  font-size: 1em;
 }
 .ui.labeled.input > .label:not(.corner) {
   padding-top: 0.78571429em;

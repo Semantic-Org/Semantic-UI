@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.0 - Dropdown
+ * # Semantic UI 2.0.1 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -267,7 +267,6 @@ $.fn.dropdown = function(parameters) {
             if( $module.is('select') ) {
               module.setup.select();
               module.setup.returnedObject();
-              console.log($module);
             }
             if( module.is.search() && !module.has.search() ) {
               module.verbose('Adding search input');
@@ -315,7 +314,6 @@ $.fn.dropdown = function(parameters) {
                 .detach()
                 .prependTo($module)
               ;
-              console.log($module);
             }
             if($input.is('[multiple]')) {
               module.set.multiple();
@@ -475,7 +473,7 @@ $.fn.dropdown = function(parameters) {
             if( module.is.searchSelection() ) {
               // do nothing special yet
             }
-            else {
+            else if( module.is.single() ) {
               $module
                 .on('touchstart' + eventNamespace, module.event.test.toggle)
               ;
@@ -1677,6 +1675,7 @@ $.fn.dropdown = function(parameters) {
 
         restore: {
           defaults: function() {
+            module.clear();
             module.restore.defaultText();
             module.restore.defaultValue();
           },
@@ -2545,6 +2544,9 @@ $.fn.dropdown = function(parameters) {
           input: function() {
             return ($input.length > 0);
           },
+          items: function() {
+            return ($item.length > 0);
+          },
           menu: function() {
             return ($menu.length > 0);
           },
@@ -2589,6 +2591,9 @@ $.fn.dropdown = function(parameters) {
               ? $subMenu.transition && $subMenu.transition('is animating')
               : $menu.transition    && $menu.transition('is animating')
             ;
+          },
+          disabled: function() {
+            $module.hasClass(className.disabled);
           },
           focused: function() {
             return (document.activeElement === $module[0]);
@@ -2701,7 +2706,7 @@ $.fn.dropdown = function(parameters) {
             return (hasTouch || settings.on == 'click');
           },
           show: function() {
-            return !$module.hasClass(className.disabled) && $item.length > 0;
+            return !module.is.disabled() && (module.has.items() || module.has.message());
           },
           useAPI: function() {
             return $.fn.api !== undefined;
@@ -2811,14 +2816,18 @@ $.fn.dropdown = function(parameters) {
         },
 
         hideAndClear: function() {
-          if(module.has.search()) {
+          if( module.has.maxSelections() ) {
             module.remove.searchTerm();
-            module.hide(function() {
-              module.remove.filteredItem();
-            });
           }
           else {
-            module.hide();
+            if(module.has.search()) {
+              module.hide(function() {
+                module.remove.filteredItem();
+              });
+            }
+            else {
+              module.hide();
+            }
           }
         },
 

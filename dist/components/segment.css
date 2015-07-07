@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.0 - Segment
+ * # Semantic UI 2.0.1 - Segment
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -711,7 +711,7 @@
 .ui[class*="top attached"].segment {
   top: 0px;
   bottom: 0px;
-  margin-top: 1rem 0em;
+  margin-top: 1rem;
   margin-bottom: 0em;
   border-radius: 0.28571429rem 0.28571429rem 0em 0em;
 }
@@ -724,7 +724,7 @@
   top: 0px;
   bottom: 0px;
   margin-top: 0em;
-  margin-bottom: 1rem 0em;
+  margin-bottom: 1rem;
   box-shadow: none, 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
   border-radius: 0em 0em 0.28571429rem 0.28571429rem;
 }

@@ -512,6 +512,11 @@ Floated Menu / Item
 
 .ui.vertical.menu {
   display: block;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   background: #ffffff;
   box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
 }
@@ -1267,7 +1272,7 @@ Floated Menu / Item
 ---------------*/
 
 .ui.inverted.menu {
-  border: 1px solid transparent;
+  border: 0px solid transparent;
   background: #1b1c1d;
   box-shadow: none;
 }
@@ -1558,6 +1563,9 @@ Floated Menu / Item
   margin: 0em;
   vertical-align: middle;
 }
+.ui.compact.vertical.menu {
+  display: inline-block;
+}
 .ui.compact.menu .item:last-child {
   border-radius: 0em 0.28571429rem 0.28571429rem 0em;
 }
@@ -1649,13 +1657,13 @@ Floated Menu / Item
 }
 .ui.fixed.menu,
 .ui[class*="top fixed"].menu {
-  border-top: none;
   top: 0px;
   left: 0px;
   right: auto;
   bottom: auto;
 }
 .ui[class*="top fixed"].menu {
+  border-top: none;
   border-left: none;
   border-right: none;
 }
@@ -1751,19 +1759,19 @@ Floated Menu / Item
 
 /* Colors */
 .ui.pointing.menu .active.item:hover:after {
-  background-color: #f4f4f4;
+  background-color: #f2f2f2;
 }
 .ui.pointing.menu .active.item:after {
-  background-color: #f4f4f4;
+  background-color: #f2f2f2;
 }
 .ui.pointing.menu .active.item:hover:after {
-  background-color: #f4f4f4;
+  background-color: #f2f2f2;
 }
 .ui.vertical.pointing.menu .active.item:hover:after {
-  background-color: #f4f4f4;
+  background-color: #f2f2f2;
 }
 .ui.vertical.pointing.menu .active.item:after {
-  background-color: #f4f4f4;
+  background-color: #f2f2f2;
 }
 .ui.vertical.pointing.menu .menu .active.item:after {
   background-color: #ffffff;
