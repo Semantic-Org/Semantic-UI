@@ -1,5 +1,9 @@
 ## RELEASE NOTES
 
+### Version 2.0.3 - July 8, 2015
+
+- **Popup** - Popup `preserve` setting (which preserves popup in DOM to avoid regenerating on each show/hide) was set to `true` by default causing generated popups to remain in DOM. #1369
+
 ### Version 2.0.2 - July 7, 2015
 
 **[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.0.2+is%3Aclosed)**
