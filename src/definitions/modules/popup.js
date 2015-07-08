@@ -1219,7 +1219,7 @@ $.fn.popup.settings = {
   inline         : false,
 
   // popup should be removed from page on hide
-  preserve       : true,
+  preserve       : false,
 
   // popup should not close when being hovered on
   hoverable      : false,
