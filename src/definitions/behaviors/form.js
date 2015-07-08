@@ -989,7 +989,9 @@ $.fn.form.settings = {
     email   : "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?",
     integer : /^\-?\d+$/,
     flags   : /^\/(.*)\/(.*)?/,
-    url     : /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/i
+    url     : /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/i,
+    natural : /^\d+(\.\d+)?$/,
+    real    : /^\-?\d+(\.\d+)?$/
   },
 
   selector : {
@@ -1248,6 +1250,22 @@ $.fn.form.settings = {
     // value is most likely url
     url: function(value) {
       return $.fn.form.settings.regExp.url.match(value);
+    },
+
+    // is valid float
+    float: function(value) {
+      var
+        floatRegExp = $.fn.form.settings.regExp.natural
+      ;
+      return floatRegExp.test(value);
+    },
+
+    // is real number
+    real: function(value) {
+      var
+        realRegExp = $.fn.form.settings.regExp.real
+      ;
+      return realRegExp.test(value);
     }
   }
 
