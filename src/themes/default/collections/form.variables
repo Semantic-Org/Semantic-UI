@@ -110,7 +110,7 @@
 
 
 /* Input Error */
-@inputErrorBorderRadius: @inputBorderRadius;
+@inputErrorBorderRadius: '';
 @inputErrorBoxShadow: none;
 
 /* Dropdown Error */
