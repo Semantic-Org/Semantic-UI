@@ -2,9 +2,13 @@
 
 ### Version 2.0.3 - July 8, 2015
 
+**[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.0.3+is%3Aclosed)**
+- **Steps** - Last `step` no longer incorrectly shows arrow #2552
 - **Popup** - Popup `preserve` setting (which preserves popup in DOM to avoid regenerating on each show/hide) was set to `true` by default causing generated popups to remain in DOM. #1369
-- **Form** - URL regexp will now match now works correctly, and matches against non `http://` prefixed urls like `www.google.com`
 - **Input** - Fixed errored input field having incorrect border radius with `labeled input`
+
+**Additional Bugs**
+- **Form** - URL regexp will now match now works correctly, and matches against non `http://` prefixed urls like `www.google.com`
 
 ### Version 2.0.2 - July 7, 2015
 
