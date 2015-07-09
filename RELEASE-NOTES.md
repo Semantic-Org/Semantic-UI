@@ -3,6 +3,8 @@
 ### Version 2.0.3 - July 8, 2015
 
 - **Popup** - Popup `preserve` setting (which preserves popup in DOM to avoid regenerating on each show/hide) was set to `true` by default causing generated popups to remain in DOM. #1369
+- **Form** - URL regexp will now match now works correctly, and matches against non `http://` prefixed urls like `www.google.com`
+- **Input** - Fixed errored input field having incorrect border radius with `labeled input`
 
 ### Version 2.0.2 - July 7, 2015
 
