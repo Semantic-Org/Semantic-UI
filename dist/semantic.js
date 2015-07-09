@@ -1486,7 +1486,7 @@ $.fn.form.settings = {
     email   : "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?",
     integer : /^\-?\d+$/,
     flags   : /^\/(.*)\/(.*)?/,
-    url     : /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/i
+    url     : /(https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,})/i
   },
 
   selector : {
@@ -1744,7 +1744,7 @@ $.fn.form.settings = {
 
     // value is most likely url
     url: function(value) {
-      return $.fn.form.settings.regExp.url.match(value);
+      return $.fn.form.settings.regExp.url.test(value);
     }
   }
 

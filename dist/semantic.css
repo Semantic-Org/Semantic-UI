@@ -16110,7 +16110,7 @@ ol.ui.horizontal.list li:before,
   background: #fff6f6;
   border-color: #e0b4b4;
   color: #9f3a38;
-  border-radius: 0.28571429rem;
+  border-radius: '';
   box-shadow: none;
 }
 
