@@ -51,7 +51,7 @@ function parser(file, callback) {
     var
       /** @type {string} */
       text     = String(file.contents.toString('utf8')),
-      lines    = text.split('\n')
+      lines    = text.split('\n'),
       filename = file.path.substring(0, file.path.length - 4),
       key      = 'server/documents',
       position = filename.indexOf(key)
@@ -106,11 +106,12 @@ function parser(file, callback) {
     // Parse yaml.
     meta = YAML.parse(yaml.join('\n'));
     if(meta && meta.type && meta.title && inArray(meta.type, categories) ) {
-      meta.category  = meta.type;
-      meta.filename  = filename;
-      meta.title     = meta.title;
+      meta.category = meta.type;
+      meta.filename = filename;
+      meta.url      = '/' + filename;
+      meta.title    = meta.title;
       // Primary key will by filepath
-      data[filename] = meta;
+      data[meta.element] = meta;
     }
     else {
       // skip
