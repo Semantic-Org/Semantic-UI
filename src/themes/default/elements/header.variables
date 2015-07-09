@@ -22,7 +22,7 @@
 @verticalPadding: 0em;
 
 /* Sub Heading */
-@subHeadingMargin: @headerTopMargin 0em 0.1428rem;
+@subHeadingDistance: @2px;
 @subHeadingFontSize: @relativeTiny;
 @subHeadingFontWeight: bold;
 @subHeadingTextTransform: uppercase;
@@ -69,18 +69,18 @@
 --------------------*/
 
 /* Sizing */
-@huge   : unit(@h1, em);
-@large  : unit(@h2, em);
-@medium : unit(@h3, em);
-@small  : unit(@h4, em);
-@tiny   : unit(@h5, em);
+@hugeFontSize   : unit(@h1, em);
+@largeFontSize  : unit(@h2, em);
+@mediumFontSize : unit(@h3, em);
+@smallFontSize  : unit(@h4, em);
+@tinyFontSize   : unit(@h5, em);
 
 /* Sub Header */
-@h1SubHeaderFontSize: 1.1428rem;
-@h2SubHeaderFontSize: 1.1428rem;
-@h3SubHeaderFontSize: 1rem;
-@h4SubHeaderFontSize: 1rem;
-@h5SubHeaderFontSize: 0.9285rem;
+@h1SubHeaderFontSize: @large;
+@h2SubHeaderFontSize: @large;
+@h3SubHeaderFontSize: @medium;
+@h4SubHeaderFontSize: @medium;
+@h5SubHeaderFontSize: @small;
 
 @hugeSubHeaderFontSize  : @h1SubHeaderFontSize;
 @largeSubHeaderFontSize : @h2SubHeaderFontSize;
@@ -91,7 +91,7 @@
 /* Icon Header */
 @iconHeaderSize: 3em;
 @iconHeaderOpacity: 1;
-@iconHeaderMargin: 0.25rem;
+@iconHeaderMargin: 0.5rem;
 @circularHeaderIconSize: 2em;
 @squareHeaderIconSize: 2em;
 
@@ -101,20 +101,22 @@
 @iconHeaderFirstMargin: 0em;
 
 /* Divided */
-@dividedBorder: 1px solid @borderColor;
+@dividedBorderWidth: 1px;
+@dividedBorder: @dividedBorderWidth solid @borderColor;
 @dividedColoredBorderWidth: 2px;
 
-@dividedBorderPadding: 0.25rem;
-@dividedSubHeaderPadding: 0.25rem;
+@dividedBorderPadding: @3px;
+@dividedSubHeaderPadding: @3px;
 @dividedIconPadding: 0em;
 
 /* Block */
 @blockBackground: @darkWhite;
 @blockBoxShadow: none;
-@blockBorder: 1px solid @solidBorderColor;
-@blockHorizontalPadding: 1rem;
-@blockVerticalPadding: 0.75rem;
-@blockBorderRadius: 0.3125rem;
+@blockBorderWidth: 1px;
+@blockBorder: @blockBorderWidth solid @solidBorderColor;
+@blockHorizontalPadding: @medium;
+@blockVerticalPadding: @mini;
+@blockBorderRadius: @defaultBorderRadius;
 
 @tinyBlock: @tiny;
 @smallBlock: @small;

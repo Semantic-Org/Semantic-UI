@@ -140,6 +140,7 @@ body.pushable > .pusher {
   background: @pageBackground;
 }
 
+/* Pusher should inherit background from context */
 .pushable > .pusher {
   background: inherit;
 }
@@ -247,6 +248,11 @@ body.pushable > .pusher {
 html.ios {
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
+}
+
+html.ios,
+html.ios body {
+  height: initial !important;
 }
 
 

@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.0 - Form Validation
+ * # Semantic UI 2.0.1 - Form Validation
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -201,7 +201,7 @@ $.fn.form = function(parameters) {
                 isErrored    = $fieldGroup.hasClass(className.error)
               ;
               if(defaultValue === undefined) {
-                defaultValue = '';
+                return;
               }
               if(isErrored) {
                 module.verbose('Resetting error on field', $fieldGroup);
@@ -222,6 +222,21 @@ $.fn.form = function(parameters) {
               }
             })
           ;
+        },
+
+        is: {
+          valid: function() {
+            var
+              allValid = true
+            ;
+            module.verbose('Checking if form is valid');
+            $.each(validation, function(fieldName, field) {
+              if( !( module.validate.field(field) ) ) {
+                allValid = false;
+              }
+            });
+            return allValid;
+          }
         },
 
         removeEvents: function() {
@@ -272,15 +287,16 @@ $.fn.form = function(parameters) {
             },
             blur: function() {
               var
-                $field      = $(this),
-                $fieldGroup = $field.closest($group)
+                $field          = $(this),
+                $fieldGroup     = $field.closest($group),
+                validationRules = module.get.validation($field)
               ;
               if( $fieldGroup.hasClass(className.error) ) {
-                module.debug('Revalidating field', $field,  module.get.validation($field));
-                module.validate.field( module.get.validation($field) );
+                module.debug('Revalidating field', $field, validationRules);
+                module.validate.field( validationRules );
               }
               else if(settings.on == 'blur' || settings.on == 'change') {
-                module.validate.field( module.get.validation($field) );
+                module.validate.field( validationRules );
               }
             },
             change: function() {
@@ -392,6 +408,9 @@ $.fn.form = function(parameters) {
             var
               rules
             ;
+            if(!validation) {
+              return false;
+            }
             $.each(validation, function(fieldName, field) {
               if( module.get.field(field.identifier)[0] == $field[0] ) {
                 rules = field;
@@ -663,7 +682,6 @@ $.fn.form = function(parameters) {
 
           form: function(event) {
             var
-              allValid = true,
               apiRequest
             ;
 
@@ -674,12 +692,7 @@ $.fn.form = function(parameters) {
 
             // reset errors
             formErrors = [];
-            $.each(validation, function(fieldName, field) {
-              if( !( module.validate.field(field) ) ) {
-                allValid = false;
-              }
-            });
-            if(allValid) {
+            if( module.is.valid() ) {
               module.debug('Form has no validation errors, submitting');
               module.set.success();
               return settings.onSuccess.call(element, event);

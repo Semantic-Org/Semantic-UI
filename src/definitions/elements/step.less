@@ -31,10 +31,19 @@
   display: inline-flex;
   flex-direction: row;
   align-items: stretch;
+  margin: @stepMargin;
   background: @stepsBackground;
   box-shadow: @stepsBoxShadow;
   line-height: @lineHeight;
   border-radius: @stepsBorderRadius;
+  border: @stepsBorder;
+}
+
+.ui.steps:first-child {
+  margin-top: 0em;
+}
+.ui.steps:last-child {
+  margin-bottom: 0em;
 }
 
 .ui.steps .step:first-child {
@@ -51,10 +60,11 @@
 }
 
 .ui.steps .step:last-child {
+  border-right: none;
   margin-right: 0em;
 }
 .ui.steps .step:last-child:after {
-  display: none;
+  display: @lastArrowDisplay;
 }
 
 /*******************************
@@ -69,6 +79,7 @@
   flex-direction: row;
   vertical-align: middle;
   align-items: center;
+  justify-content: @justifyContent;
 
   margin: @verticalMargin @horizontalMargin;
   padding: @verticalPadding @horizontalPadding;
@@ -76,6 +87,8 @@
   color: @textColor;
   box-shadow: @boxShadow;
   border-radius: @borderRadius;
+  border: @border;
+  border-right: @divider;
 }
 
 
@@ -197,14 +210,17 @@
   overflow: visible;
 }
 .ui.vertical.steps .step {
+  justify-content: flex-start;
   border-radius: @borderRadius;
   padding: @verticalPadding @horizontalPadding;
+  border-bottom: @verticalDivider;
 }
 .ui.vertical.steps .step:first-child {
   padding: @verticalPadding @horizontalPadding;
   border-radius: @stepsBorderRadius @stepsBorderRadius 0em 0em;
 }
 .ui.vertical.steps .step:last-child {
+  border-bottom: none;
   border-radius: 0em 0em @stepsBorderRadius @stepsBorderRadius;
 }
 
@@ -218,10 +234,14 @@
   border-width: @verticalArrowBorderWidth;
 }
 
-
-/* Active Arrow */
-.ui.steps .active.step:after {
-  display: block;
+.ui.vertical.steps .step:after {
+  display: @verticalArrowDisplay;
+}
+.ui.vertical.steps .active.step:after {
+  display: @verticalActiveArrowDisplay;
+}
+.ui.vertical.steps .step:last-child:after {
+  display: @verticalLastArrowDisplay;
 }
 
 
@@ -233,10 +253,13 @@
 @media only screen and (max-width: (@largestMobileScreen)) {
 
 .ui.steps {
+  display: inline-flex;
   overflow: visible;
+  flex-direction: column;
 }
 .ui.steps .step {
-  display: block;
+  width: 100% !important;
+  flex-direction: column;
   border-radius: @borderRadius;
   padding: @verticalPadding @horizontalPadding;
 }
@@ -250,7 +273,18 @@
 
 /* Arrow */
 .ui.steps .step:after {
-  display: none;
+  display: none !important;
+}
+
+/* Content */
+.ui.steps .step .content {
+  text-align: center;
+}
+
+/* Icon */
+.ui.steps .step > .icon,
+.ui.ordered.steps .step:before {
+  margin: 0em 0em @mobileIconDistance 0em;
 }
 
 }
@@ -293,6 +327,15 @@
   color: @activeIconColor;
 }
 
+/* Active Arrow */
+.ui.steps .step:after {
+  display: @arrowDisplay;
+}
+.ui.steps .active.step:after {
+  display: @activeArrowDisplay;
+}
+
+
 /* Active Hover */
 .ui.steps .link.active.step:hover::after,
 .ui.steps .link.active.step:hover,
@@ -334,32 +377,46 @@
    Stackable
 ---------------*/
 
-
 /* Tablet Or Below */
 @media only screen and (max-width: @computerBreakpoint) {
 
-  .ui[class*="tablet stackable"].steps {
-    overflow: visible;
-    flex-direction: column;
-  }
-  .ui[class*="tablet stackable"].steps .step {
-    border-radius: @borderRadius;
-    padding: @verticalPadding @horizontalPadding;
-  }
-  .ui[class*="tablet stackable"].steps .step:first-child {
-    padding: @verticalPadding @horizontalPadding;
-    border-radius: @stepsBorderRadius @stepsBorderRadius 0em 0em;
-  }
-  .ui[class*="tablet stackable"].steps .step:last-child {
-    border-radius: 0em 0em @stepsBorderRadius @stepsBorderRadius;
-  }
-  /* Arrow */
-  .ui[class*="tablet stackable"].steps .step:after {
-    display: none;
-  }
-
+.ui[class*="tablet stackable"].steps {
+  display: inline-flex;
+  overflow: visible;
+  flex-direction: column;
 }
 
+/* Steps */
+.ui[class*="tablet stackable"].steps .step {
+  flex-direction: column;
+  border-radius: @borderRadius;
+  padding: @verticalPadding @horizontalPadding;
+}
+.ui[class*="tablet stackable"].steps .step:first-child {
+  padding: @verticalPadding @horizontalPadding;
+  border-radius: @stepsBorderRadius @stepsBorderRadius 0em 0em;
+}
+.ui[class*="tablet stackable"].steps .step:last-child {
+  border-radius: 0em 0em @stepsBorderRadius @stepsBorderRadius;
+}
+
+/* Arrow */
+.ui[class*="tablet stackable"].steps .step:after {
+  display: none !important;
+}
+
+/* Content */
+.ui[class*="tablet stackable"].steps .step .content {
+  text-align: center;
+}
+
+/* Icon */
+.ui[class*="tablet stackable"].steps .step > .icon,
+.ui[class*="tablet stackable"].ordered.steps .step:before {
+  margin: 0em 0em @mobileIconDistance 0em;
+}
+
+}
 
 /*--------------
       Fluid
@@ -376,26 +433,28 @@
 ---------------*/
 
 /* Top */
-.attached.ui.steps {
-  margin: @attachedTopMargin;
+.ui.attached.steps {
+  width: @attachedWidth !important;
+  margin: 0em @attachedHorizontalOffset @attachedVerticalOffset;
+  max-width: @attachedWidth;
   border-radius: @stepsBorderRadius @stepsBorderRadius 0em 0em;
 }
-.attached.ui.steps .step:first-child {
+.ui.attached.steps .step:first-child {
   border-radius: @stepsBorderRadius 0em 0em 0em;
 }
-.attached.ui.steps .step:last-child {
+.ui.attached.steps .step:last-child {
   border-radius: 0em @stepsBorderRadius 0em 0em;
 }
 
 /* Bottom */
-.bottom.attached.ui.steps {
-  margin: @attachedBottomMargin;
+.ui.bottom.attached.steps {
+  margin: @attachedVerticalOffset @attachedHorizontalOffset 0em;
   border-radius: 0em 0em @stepsBorderRadius @stepsBorderRadius;
 }
-.bottom.attached.ui.steps .step:first-child {
+.ui.bottom.attached.steps .step:first-child {
   border-radius: 0em 0em 0em @stepsBorderRadius;
 }
-.bottom.attached.ui.steps .step:last-child {
+.ui.bottom.attached.steps .step:last-child {
   border-radius: 0em 0em @stepsBorderRadius 0em;
 }
 

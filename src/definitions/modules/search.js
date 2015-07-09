@@ -62,6 +62,8 @@ $.fn.search = function(parameters) {
           module.verbose('Initializing module');
           module.determine.searchFields();
           module.bind.events();
+          module.set.type();
+          module.create.results();
           module.instantiate();
         },
         instantiate: function() {
@@ -271,8 +273,9 @@ $.fn.search = function(parameters) {
               apiSettings = {
                 debug     : settings.debug,
                 on        : false,
+                cache     : 'local',
                 action    : 'search',
-                onFailure : module.error
+                onError   : module.error
               },
               searchHTML
             ;
@@ -365,7 +368,15 @@ $.fn.search = function(parameters) {
           },
           value: function(value) {
             module.verbose('Setting search input value', value);
-            $prompt.val(value);
+            $prompt
+              .val(value)
+            ;
+          },
+          type: function(type) {
+            type = type || settings.type;
+            if(settings.type == 'category') {
+              $module.addClass(settings.type);
+            }
           },
           buttonPressed: function() {
             $searchButton.addClass(className.pressed);
@@ -442,6 +453,9 @@ $.fn.search = function(parameters) {
                 onSuccess : function(response) {
                   module.parse.response.call(element, response, searchTerm);
                 },
+                onFailure: function() {
+                  module.displayMessage(error.serverError);
+                },
                 urlData: {
                   query: searchTerm
                 }
@@ -488,7 +502,7 @@ $.fn.search = function(parameters) {
             }
 
             // exit conditions if no source
-            if(source === undefined) {
+            if(source === undefined || source === false) {
               module.error(error.source);
               return [];
             }
@@ -619,30 +633,44 @@ $.fn.search = function(parameters) {
         create: {
           id: function(resultIndex, categoryIndex) {
             var
-              firstLetterCharCode = 97,
-              categoryID = (categoryIndex !== undefined)
-                ? String.fromCharCode(firstLetterCharCode + categoryIndex)
-                : '',
-              resultID   = resultIndex,
-              id         = categoryID + resultID
+              resultID      = (resultIndex + 1), // not zero indexed
+              categoryID    = (categoryIndex + 1),
+              firstCharCode,
+              letterID,
+              id
             ;
-            module.verbose('Creating unique id', id);
+            if(categoryIndex !== undefined) {
+              // start char code for "A"
+              letterID = String.fromCharCode(97 + categoryIndex);
+              id          = letterID + resultID;
+              module.verbose('Creating category result id', id);
+            }
+            else {
+              id = resultID;
+              module.verbose('Creating result id', id);
+            }
             return id;
+          },
+          results: function() {
+            if($results.length === 0) {
+              $results = $('<div />')
+                .addClass(className.results)
+                .appendTo($module)
+              ;
+            }
           }
         },
 
         inject: {
-          result: function(result, resultID, categoryID) {
+          result: function(result, resultIndex, categoryIndex) {
             module.verbose('Injecting result into results');
             var
-              resultIndex     = (resultID - 1),
-              categoryIndex   = (categoryID - 1),
-              $selectedResult = (categoryID !== undefined)
+              $selectedResult = (categoryIndex !== undefined)
                 ? $results
                     .children().eq(categoryIndex)
-                      .children().eq(resultIndex)
+                      .children(selector.result).eq(resultIndex)
                 : $results
-                    .children().eq(resultIndex)
+                    .children(selector.result).eq(resultIndex)
             ;
             module.verbose('Injecting results metadata', $selectedResult);
             $selectedResult
@@ -653,13 +681,13 @@ $.fn.search = function(parameters) {
             module.debug('Injecting unique ids into results');
             var
               // since results may be object, we must use counters
-              categoryIndex = 1,
-              resultIndex   = 1
+              categoryIndex = 0,
+              resultIndex   = 0
             ;
             if(settings.type === 'category') {
               // iterate through each category result
-              resultIndex = 1;
               $.each(results, function(index, category) {
+                resultIndex = 0;
                 $.each(category.results, function(index, value) {
                   var
                     result = category.results[index]
@@ -996,7 +1024,7 @@ $.fn.search = function(parameters) {
 
 $.fn.search.settings = {
 
-  name           : 'Search Module',
+  name           : 'Search',
   namespace      : 'search',
 
   debug          : false,
@@ -1041,7 +1069,7 @@ $.fn.search.settings = {
 
   // transition settings
   transition     : 'scale',
-  duration       : 300,
+  duration       : 200,
   easing         : 'easeOutExpo',
 
   // callbacks
@@ -1059,6 +1087,7 @@ $.fn.search.settings = {
     empty   : 'empty',
     focus   : 'focus',
     loading : 'loading',
+    results : 'results',
     pressed : 'down'
   },
 
@@ -1068,7 +1097,7 @@ $.fn.search.settings = {
     logging     : 'Error in debug logging, exiting.',
     noEndpoint  : 'No search endpoint was specified',
     noTemplate  : 'A valid template name was not specified.',
-    serverError : 'There was an issue with querying the server.',
+    serverError : 'There was an issue querying the server.',
     maxResults  : 'Results must be an array to use maxResults setting',
     method      : 'The method you called is not defined.'
   },

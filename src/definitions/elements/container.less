@@ -25,11 +25,13 @@
 *******************************/
 
 
+/* All Sizes */
 .ui.container {
   display: block;
   max-width: @maxWidth !important;
 }
 
+/* Mobile */
 @media only screen and (max-width: @largestMobileScreen) {
   .ui.container {
     width: @mobileWidth;
@@ -40,6 +42,8 @@
     width: @mobileGridWidth !important;
   }
 }
+
+/* Tablet */
 @media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
   .ui.container {
     width: @tabletWidth;
@@ -50,16 +54,20 @@
     width: @tabletGridWidth !important;
   }
 }
-@media only screen and (min-width: @smallMonitorBreakpoint) and (max-width: @largeMonitorBreakpoint) {
+
+/* Small Monitor */
+@media only screen and (min-width: @computerBreakpoint) and (max-width: @largestSmallMonitor) {
   .ui.container {
-    width: @smallMonitorWidth;
-    margin-left: @smallMonitorGutter !important;
-    margin-right: @smallMonitorGutter !important;
+    width: @computerWidth;
+    margin-left: @computerGutter !important;
+    margin-right: @computerGutter !important;
   }
   .ui.grid.container {
-    width: @smallMonitorGridWidth !important;
+    width: @computerGridWidth !important;
   }
 }
+
+/* Large Monitor */
 @media only screen and (min-width: @largeMonitorBreakpoint) {
   .ui.container {
     width: @largeMonitorWidth;
@@ -106,6 +114,12 @@
 .ui[class*="right aligned"].container {
   text-align: right;
 }
+.ui.justified.container {
+  text-align: justify;
+  hyphens: auto;
+}
 
+
+.loadUIOverrides();
 
 }

@@ -17,6 +17,7 @@ module.exports = {
       themes      : 'src/themes/'
     },
     output: {
+      examples     : '../docs/out/examples/',
       less         : '../docs/out/src/',
       metadata     : '../docs/out/',
       packaged     : '../docs/out/dist/',

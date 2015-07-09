@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.0 - Site
+ * # Semantic UI 2.0.1 - Site
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -442,6 +442,7 @@ $.site.settings = {
     'checkbox',
     'dimmer',
     'dropdown',
+    'embed',
     'form',
     'modal',
     'nag',
@@ -453,7 +454,6 @@ $.site.settings = {
     'sticky',
     'tab',
     'transition',
-    'video',
     'visit',
     'visibility'
   ],

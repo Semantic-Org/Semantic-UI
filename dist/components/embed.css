@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.0 - Video
+ * # Semantic UI 2.0.1 - Video
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -49,27 +49,24 @@
 }
 
 /*--------------
-  Placeholder
+   Placeholder
 ---------------*/
 
-
-/* Placeholder Image */
 .ui.embed > .placeholder {
   position: absolute;
+  cursor: pointer;
   top: 0px;
   left: 0px;
   display: block;
   width: 100%;
   height: 100%;
-  background-color: #dcddde;
+  background-color: radial-gradient(transparent 45%, rgba(0, 0, 0, 0.3));
 }
 
 /*--------------
-      Play
+      Icon
 ---------------*/
 
-
-/* Play Icon */
 .ui.embed > .icon {
   cursor: pointer;
   position: absolute;
@@ -77,19 +74,35 @@
   left: 0px;
   width: 100%;
   height: 100%;
+  z-index: 2;
+}
+.ui.embed > .icon:after {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  content: '';
+  background: -webkit-radial-gradient(transparent 45%, rgba(0, 0, 0, 0.3));
+  background: radial-gradient(transparent 45%, rgba(0, 0, 0, 0.3));
+  opacity: 0.5;
+  -webkit-transition: opacity 0.5s ease;
+          transition: opacity 0.5s ease;
 }
 .ui.embed > .icon:before {
   position: absolute;
   top: 50%;
   left: 50%;
+  z-index: 4;
   -webkit-transform: translateX(-50%) translateY(-50%);
       -ms-transform: translateX(-50%) translateY(-50%);
           transform: translateX(-50%) translateY(-50%);
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 7rem;
-  text-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
-  -webkit-transition: color 0.1s ease;
-          transition: color 0.1s ease;
+  color: #ffffff;
+  font-size: 6rem;
+  text-shadow: 0px 2px 10px rgba(34, 36, 38, 0.2);
+  -webkit-transition: opacity 0.5s ease, color 0.5s ease;
+          transition: opacity 0.5s ease, color 0.5s ease;
   z-index: 10;
 }
 
@@ -103,8 +116,10 @@
      Hover
 ---------------*/
 
-.ui.embed .icon:hover {
-  background: rgba(0, 0, 0, 0);
+.ui.embed .icon:hover:after {
+  background: -webkit-radial-gradient(transparent 45%, rgba(0, 0, 0, 0.3));
+  background: radial-gradient(transparent 45%, rgba(0, 0, 0, 0.3));
+  opacity: 1;
 }
 .ui.embed .icon:hover:before {
   color: #ffffff;
@@ -114,11 +129,11 @@
      Active
 ---------------*/
 
-.ui.active.embed .play,
-.ui.active.embed .placeholder {
+.ui.active.embed > .icon,
+.ui.active.embed > .placeholder {
   display: none;
 }
-.ui.active.embed .embed {
+.ui.active.embed > .embed {
   display: block;
 }
 

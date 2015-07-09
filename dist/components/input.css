@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.0 - Input
+ * # Semantic UI 2.0.1 - Input
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -39,11 +39,11 @@
   text-align: left;
   line-height: 1.2142em;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  padding: 0.67861em 1em;
+  padding: 0.67861429em 1em;
   background: #ffffff;
   border: 1px solid rgba(34, 36, 38, 0.15);
   color: rgba(0, 0, 0, 0.87);
-  border-radius: 0.285714rem;
+  border-radius: 0.28571429rem;
   -webkit-transition: background-color 0.1s ease, box-shadow 0.1s ease, border-color 0.1s ease;
           transition: background-color 0.1s ease, box-shadow 0.1s ease, border-color 0.1s ease;
   box-shadow: none;
@@ -92,9 +92,9 @@
   content: '';
   top: 50%;
   left: 50%;
-  margin: -0.64285em 0em 0em -0.64285em;
-  width: 1.2857em;
-  height: 1.2857em;
+  margin: -0.64285714em 0em 0em -0.64285714em;
+  width: 1.28571429em;
+  height: 1.28571429em;
   border-radius: 500rem;
   border: 0.2em solid rgba(0, 0, 0, 0.1);
 }
@@ -103,15 +103,15 @@
   content: '';
   top: 50%;
   left: 50%;
-  margin: -0.64285em 0em 0em -0.64285em;
-  width: 1.2857em;
-  height: 1.2857em;
+  margin: -0.64285714em 0em 0em -0.64285714em;
+  width: 1.28571429em;
+  height: 1.28571429em;
   -webkit-animation: button-spin 0.6s linear;
           animation: button-spin 0.6s linear;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
   border-radius: 500rem;
-  border-color: #757676 transparent transparent;
+  border-color: #767676 transparent transparent;
   border-style: solid;
   border-width: 0.2em;
   box-shadow: 0px 0px 0px 1px transparent;
@@ -123,7 +123,7 @@
 
 .ui.input.focus input,
 .ui.input input:focus {
-  border-color: rgba(34, 36, 38, 0.3);
+  border-color: rgba(34, 36, 38, 0.35);
   background: #ffffff;
   color: rgba(0, 0, 0, 0.8);
   box-shadow: none;
@@ -193,7 +193,7 @@
 
 /* Transparent Icon */
 .ui.transparent.icon.input > i.icon {
-  width: 1.25em;
+  width: 1.1em;
 }
 .ui.transparent.icon.input > input {
   padding-left: 0em !important;
@@ -234,14 +234,17 @@
   right: 0px;
   margin: 0em;
   height: 100%;
-  width: 2.82142em;
+  width: 2.67142857em;
   opacity: 0.5;
-  border-radius: 0em 0.285714rem 0.285714rem 0em;
+  border-radius: 0em 0.28571429rem 0.28571429rem 0em;
   -webkit-transition: opacity 0.3s ease;
           transition: opacity 0.3s ease;
 }
+.ui.icon.input > i.icon:not(.link) {
+  pointer-events: none;
+}
 .ui.icon.input input {
-  padding-right: 2.82142em !important;
+  padding-right: 2.67142857em !important;
 }
 .ui.icon.input > i.icon:before,
 .ui.icon.input > i.icon:after {
@@ -264,14 +267,14 @@
 .ui[class*="left icon"].input > i.icon {
   right: auto;
   left: 1px;
-  border-radius: 0.285714rem 0em 0em 0.285714rem;
+  border-radius: 0.28571429rem 0em 0em 0.28571429rem;
 }
 .ui[class*="left icon"].input > i.circular.icon {
   right: auto;
   left: 0.5em;
 }
 .ui[class*="left icon"].input > input {
-  padding-left: 2.82142em !important;
+  padding-left: 2.67142857em !important;
   padding-right: 1em !important;
 }
 
@@ -292,14 +295,14 @@
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
   margin: 0;
-  font-size: 1rem;
+  font-size: 1em;
 }
 .ui.labeled.input > .label:not(.corner) {
-  padding-top: 0.78571em;
-  padding-bottom: 0.78571em;
+  padding-top: 0.78571429em;
+  padding-bottom: 0.78571429em;
 }
 
-/* Label on Left */
+/* Regular Label on Left */
 .ui.labeled.input:not([class*="corner labeled"]):not([class*="right labeled"]) > input {
   border-left: none;
   border-top-left-radius: 0px;
@@ -310,7 +313,7 @@
   border-bottom-right-radius: 0px;
 }
 
-/* Label on Right */
+/* Regular Label on Right */
 .ui[class*="right labeled"].input > input {
   border-right: none;
   border-top-right-radius: 0px !important;
@@ -325,19 +328,40 @@
 .ui.labeled.input .corner.label {
   top: 1px;
   right: 1px;
-  font-size: 0.64285em;
-  border-radius: 0em 0.285714rem 0em 0em;
-}
-.ui.labeled.input input {
-  padding-right: 2.5em !important;
+  font-size: 0.64285714em;
+  border-radius: 0em 0.28571429rem 0em 0em;
 }
 
 /* Spacing with corner label */
+.ui[class*="corner labeled"]:not(.left).labeled.input input {
+  padding-right: 2.5em !important;
+}
 .ui[class*="corner labeled"].icon.input:not(.left) > input {
   padding-right: 3.25em !important;
 }
 .ui[class*="corner labeled"].icon.input:not(.left) > .icon {
   margin-right: 1.25em;
+}
+
+/* Left Labeled */
+.ui[class*="corner labeled"].left.labeled.input input {
+  padding-left: 2.5em !important;
+}
+.ui[class*="corner labeled"].icon.input.left > input {
+  padding-left: 3.25em !important;
+}
+.ui[class*="corner labeled"].icon.input.left > .icon {
+  margin-left: 1.25em;
+}
+
+/* Corner Label Position  */
+.ui.input > .ui.corner.label {
+  top: 1px;
+  right: 1px;
+}
+.ui.input > .ui.left.corner.label {
+  right: auto;
+  left: 1px;
 }
 
 /*--------------------
@@ -361,8 +385,8 @@
 }
 .ui.action.input > .button,
 .ui.action.input > .buttons > .button {
-  padding-top: 0.78571em;
-  padding-bottom: 0.78571em;
+  padding-top: 0.78571429em;
+  padding-bottom: 0.78571429em;
   margin: 0;
 }
 
@@ -380,7 +404,7 @@
 .ui.action.input:not([class*="left action"]) > .dropdown:last-child,
 .ui.action.input:not([class*="left action"]) > .button:last-child,
 .ui.action.input:not([class*="left action"]) > .buttons:last-child > .button {
-  border-radius: 0px 0.285714rem 0.285714rem 0px;
+  border-radius: 0px 0.28571429rem 0.28571429rem 0px;
 }
 
 /* Button on Left */
@@ -392,7 +416,7 @@
 .ui[class*="left action"].input > .dropdown:first-child,
 .ui[class*="left action"].input > .button:first-child,
 .ui[class*="left action"].input > .buttons:first-child > .button {
-  border-radius: 0.285714rem 0px 0px 0.285714rem;
+  border-radius: 0.28571429rem 0px 0px 0.28571429rem;
 }
 .ui[class*="left action"].input > input {
   border-left: none;

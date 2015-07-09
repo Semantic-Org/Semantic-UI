@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.0 - Form
+ * # Semantic UI 2.0.1 - Form
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -41,9 +41,8 @@
   clear: both;
   margin: 0em 0em 1em;
 }
-.ui.form .field .field,
-.ui.form .fields:last-child,
-.ui.form .field:last-child {
+.ui.form .field:last-child,
+.ui.form .fields:last-child .field {
   margin-bottom: 0em;
 }
 
@@ -53,25 +52,9 @@
 
 .ui.form .field > label {
   display: block;
-  margin: 0em 0em 0.2857rem 0em;
+  margin: 0em 0em 0.28571429rem 0em;
   color: rgba(0, 0, 0, 0.87);
-  font-size: 0.9285em;
-  font-weight: bold;
-  text-transform: none;
-}
-.ui.form .grouped.fields > label {
-  margin: 0em 0em 0.2857rem 0em;
-  color: rgba(0, 0, 0, 0.87);
-  font-size: 0.9285em;
-  font-weight: bold;
-  text-transform: none;
-}
-.ui.form .inline.fields > label {
-  display: inline-block;
-  vertical-align: middle;
-  margin: 0em 1em 0em 0em;
-  color: rgba(0, 0, 0, 0.87);
-  font-size: 0.9285em;
+  font-size: 0.92857143em;
   font-weight: bold;
   text-transform: none;
 }
@@ -113,12 +96,12 @@
   -webkit-appearance: none;
   tap-highlight-color: rgba(255, 255, 255, 0);
   line-height: 1.2142em;
-  padding: 0.67861em 1em;
+  padding: 0.67861429em 1em;
   font-size: 1em;
   background: #ffffff;
   border: 1px solid rgba(34, 36, 38, 0.15);
   color: rgba(0, 0, 0, 0.87);
-  border-radius: 0.285714rem;
+  border-radius: 0.28571429rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
           transition: color 0.1s ease, border-color 0.1s ease;
@@ -130,26 +113,27 @@
 }
 
 /* Text Area */
-.ui.textarea,
 .ui.form textarea {
   margin: 0em;
   -webkit-appearance: none;
   tap-highlight-color: rgba(255, 255, 255, 0);
-  padding: 0.78571em 1em;
+  padding: 0.78571429em 1em;
   background: #ffffff;
   border: 1px solid rgba(34, 36, 38, 0.15);
   outline: none;
   color: rgba(0, 0, 0, 0.87);
-  border-radius: 0.285714rem;
+  border-radius: 0.28571429rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
           transition: color 0.1s ease, border-color 0.1s ease;
   font-size: 1em;
+  line-height: 1.2857;
+  resize: vertical;
+}
+.ui.form textarea:not([rows]) {
   height: 12em;
   min-height: 8em;
   max-height: 24em;
-  line-height: 1.2857;
-  resize: vertical;
 }
 .ui.form textarea,
 .ui.form input[type="checkbox"] {
@@ -174,7 +158,7 @@
   width: 100%;
   background: #ffffff;
   border: 1px solid rgba(34, 36, 38, 0.15);
-  border-radius: 0.285714rem;
+  border-radius: 0.28571429rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
   padding: 0.62em 1em;
   color: rgba(0, 0, 0, 0.87);
@@ -295,22 +279,22 @@
 
 /* Error Placeholder */
 .ui.form .error ::-webkit-input-placeholder {
-  color: #b93937;
+  color: #bf4d4b;
 }
 .ui.form .error ::-ms-input-placeholder {
-  color: #b93937;
+  color: #bf4d4b;
 }
 .ui.form .error ::-moz-placeholder {
-  color: #b93937;
+  color: #bf4d4b;
 }
 .ui.form .error :focus::-webkit-input-placeholder {
-  color: #a63331;
+  color: #b2413f;
 }
 .ui.form .error :focus::-ms-input-placeholder {
-  color: #a63331;
+  color: #b2413f;
 }
 .ui.form .error :focus::-moz-placeholder {
-  color: #a63331;
+  color: #b2413f;
 }
 
 /*--------------------
@@ -329,17 +313,17 @@
 .ui.form input[type="text"]:focus,
 .ui.form input[type="url"]:focus {
   color: rgba(0, 0, 0, 0.95);
-  border-color: rgba(34, 36, 38, 0.3);
-  border-radius: 0.285714rem;
+  border-color: rgba(34, 36, 38, 0.35);
+  border-radius: 0.28571429rem;
   background: #ffffff;
-  box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.3) inset;
+  box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.35) inset;
 }
 .ui.form textarea:focus {
   color: rgba(0, 0, 0, 0.95);
-  border-color: rgba(34, 36, 38, 0.3);
-  border-radius: 0.285714rem;
+  border-color: rgba(34, 36, 38, 0.35);
+  border-radius: 0.28571429rem;
   background: #ffffff;
-  box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.3) inset;
+  box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.35) inset;
   -webkit-appearance: none;
 }
 
@@ -352,6 +336,12 @@
 .ui.form.success .success.message {
   display: block;
 }
+.ui.form.success .icon.success.message {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
 
 /*--------------------
         Error
@@ -361,6 +351,12 @@
 /* On Form */
 .ui.form.warning .warning.message {
   display: block;
+}
+.ui.form.warning .icon.warning.message {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 /*--------------------
@@ -372,17 +368,23 @@
 .ui.form.error .error.message {
   display: block;
 }
+.ui.form.error .icon.error.message {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
 
 /* On Field(s) */
 .ui.form .fields.error .field label,
 .ui.form .field.error label,
 .ui.form .fields.error .field .input,
 .ui.form .field.error .input {
-  color: #922d2b;
+  color: #9f3a38;
 }
 .ui.form .fields.error .field .corner.label,
 .ui.form .field.error .corner.label {
-  border-color: #922d2b;
+  border-color: #9f3a38;
   color: #ffffff;
 }
 .ui.form .fields.error .field textarea,
@@ -413,8 +415,8 @@
 .ui.form .field.error input[type="url"] {
   background: #fff6f6;
   border-color: #e0b4b4;
-  color: #922d2b;
-  border-radius: 0.285714rem;
+  color: #9f3a38;
+  border-radius: 0.28571429rem;
   box-shadow: none;
 }
 .ui.form .field.error textarea:focus,
@@ -432,7 +434,7 @@
 .ui.form .field.error input[type="url"]:focus {
   background: #fff6f6;
   border-color: #e0b4b4;
-  color: #922d2b;
+  color: #9f3a38;
   -webkit-appearance: none;
   box-shadow: none;
 }
@@ -452,7 +454,7 @@
 .ui.form .field.error .ui.dropdown .text,
 .ui.form .field.error .ui.dropdown .item {
   background: #fff6f6;
-  color: #922d2b;
+  color: #9f3a38;
 }
 .ui.form .fields.error .field .ui.dropdown,
 .ui.form .field.error .ui.dropdown {
@@ -469,7 +471,7 @@
 .ui.form .fields.error .field .ui.multiple.selection.dropdown > .label,
 .ui.form .field.error .ui.multiple.selection.dropdown > .label {
   background-color: #eacbcb;
-  color: #922d2b;
+  color: #9f3a38;
 }
 
 /* Hover */
@@ -498,7 +500,7 @@
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) label,
 .ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) .box,
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) .box {
-  color: #922d2b;
+  color: #9f3a38;
 }
 .ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) label:before,
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) label:before,
@@ -511,7 +513,7 @@
 .ui.form .field.error .checkbox label:after,
 .ui.form .fields.error .field .checkbox .box:after,
 .ui.form .field.error .checkbox .box:after {
-  color: #922d2b;
+  color: #9f3a38;
 }
 
 /*--------------------
@@ -567,7 +569,7 @@
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
   border-radius: 500rem;
-  border-color: #757676 rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1);
+  border-color: #767676 rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1);
   border-style: solid;
   border-width: 0.2em;
   box-shadow: 0px 0px 0px 1px transparent;
@@ -653,17 +655,22 @@
 
 /* Grouped Vertically */
 .ui.form .grouped.fields {
+  display: block;
   margin: 0em 0em 1em;
 }
 .ui.form .grouped.fields:last-child {
   margin-bottom: 0em;
 }
 .ui.form .grouped.fields > label {
-  font-size: 0.9285em;
+  margin: 0em 0em 0.28571429rem 0em;
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 0.92857143em;
+  font-weight: bold;
+  text-transform: none;
 }
-.ui.form .grouped.fields .field {
+.ui.form .grouped.fields .field,
+.ui.form .grouped.inline.fields .field {
   display: block;
-  float: none;
   margin: 0.5em 0em;
   padding: 0em;
 }
@@ -675,19 +682,21 @@
 
 /* Split fields */
 .ui.form .fields {
-  clear: both;
-}
-.ui.form .fields:after {
-  content: ' ';
-  display: block;
-  clear: both;
-  visibility: hidden;
-  line-height: 0;
-  height: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 .ui.form .fields > .field {
-  clear: none;
-  float: left;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 1 auto;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
@@ -760,6 +769,11 @@
 
 /* Swap to full width on mobile */
 @media only screen and (max-width: 767px) {
+  .ui.form .fields {
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+  }
   .ui.form .two.fields > .fields,
   .ui.form .two.fields > .field,
   .ui.form .three.fields > .fields,
@@ -890,20 +904,42 @@
 
 .ui.form .inline.fields {
   margin: 0em 0em 1em;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .ui.form .inline.fields .field {
-  display: inline-block;
-  float: none;
-  margin: 0em 1em 0em 0em;
-  padding: 0em;
+  margin: 0em;
+  padding: 0em 1em 0em 0em;
 }
+
+/* Inline Label */
+.ui.form .inline.fields > label,
 .ui.form .inline.fields .field > label,
 .ui.form .inline.fields .field > p,
+.ui.form .inline.field > label,
+.ui.form .inline.field > p {
+  display: inline-block;
+  width: auto;
+  margin-top: 0em;
+  margin-bottom: 0em;
+  vertical-align: baseline;
+  font-size: 0.92857143em;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.87);
+  text-transform: none;
+}
+
+/* Grouped Inline Label */
+.ui.form .inline.fields > label {
+  margin: 0.035714em 1em 0em 0em;
+}
+
+/* Inline Input */
 .ui.form .inline.fields .field > input,
 .ui.form .inline.fields .field > select,
 .ui.form .inline.fields .field > .ui.input,
-.ui.form .inline.field > label,
-.ui.form .inline.field > p,
 .ui.form .inline.field > input,
 .ui.form .inline.field > select,
 .ui.form .inline.field > .ui.input {
@@ -912,26 +948,34 @@
   margin-top: 0em;
   margin-bottom: 0em;
   vertical-align: middle;
-  font-size: 0.9285em;
-}
-.ui.form .inline.fields .field > input,
-.ui.form .inline.fields .field > .ui.input,
-.ui.form .inline.field > input,
-.ui.form .inline.field > .ui.input {
-  font-size: 0.9285em;
-}
-.ui.form .inline.fields .field > .ui.checkbox label {
-  padding-left: 1.75em;
+  font-size: 1em;
 }
 
 /* Label */
 .ui.form .inline.fields .field > :first-child,
 .ui.form .inline.field > :first-child {
-  margin: 0em 0.2857rem 0em 0em;
+  margin: 0em 0.85714286em 0em 0em;
 }
 .ui.form .inline.fields .field > :only-child,
 .ui.form .inline.field > :only-child {
   margin: 0em;
+}
+
+/* Wide */
+.ui.form .inline.fields .wide.field {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.ui.form .inline.fields .wide.field > input,
+.ui.form .inline.fields .wide.field > select,
+.ui.form .inline.fields .wide.field > .ui.input {
+  width: 100%;
 }
 
 /*--------------------

@@ -20,7 +20,7 @@
 <body>
 
   <div class="ui text container">
-      <h1 class="ui inverted block header">Using Grids</h1>
+      <h1 class="ui dividing header">Using Grids</h1>
 
       <h3 class="first">Container</h3>
       <p>A container is a fixed width element that wraps your site's content. It remains a constant size and uses <b>margin</b> to center. Containers are the simplest way to center page content inside a grid.</code>
@@ -49,32 +49,6 @@
   </div>
 
   <div class="ui text container">
-
-      <h3>Page Grid</h3>
-      <p>A <code>page grid</code> uses <code>padding</code> to create fluid page gutters. Each columns width will continuously adjust as your browser width changes to maintain the same percentage of overall browser width.</p>
-      <p>A page grid adjusts its gutters as a percentage of total page width for each device. This causes it to snap to a new width on each breakpoint.</p>
-  </div>
-
-  <div class="ui page grid">
-    <div class="column"></div>
-    <div class="column"></div>
-    <div class="column"></div>
-    <div class="column"></div>
-    <div class="column"></div>
-    <div class="column"></div>
-    <div class="column"></div>
-    <div class="column"></div>
-    <div class="column"></div>
-    <div class="column"></div>
-    <div class="column"></div>
-    <div class="column"></div>
-    <div class="column"></div>
-    <div class="column"></div>
-    <div class="column"></div>
-    <div class="column"></div>
-  </div>
-
-  <div class="ui text container">
     <h3 class="first">Text Container</h3>
     <p>Sometimes you just need to put a single column of centered text on a page. A <code>text container</code> is a special type of container optimized for a single flowing column of text, like this instructions on this page.
     </p>
@@ -90,7 +64,7 @@
 
   <div class="ui text container">
 
-      <h1 class="ui inverted block header">Grid Content</h1>
+      <h1 class="ui dividing header">Grid Content</h1>
 
       <h3 class="first">Column Flow</h3>
       <p>A grid does not necessarily need to specify rows. If you include <code>columns</code> as direct child of <code>ui grid</code> content will automatically flow to the next row when all the grid columns are taken in the current row</b>.</p>
@@ -208,7 +182,7 @@
         </div>
       </div>
 
-      <h1 class="ui inverted block header">Adjusting Grids</h1>
+      <h1 class="ui dividing header">Adjusting Grids</h1>
 
 
       <h3 class="first">Centering Content</h3>
@@ -251,14 +225,14 @@
         </div>
         <div class="center aligned two column row">
           <div class="column">
-            Center aligned row
+            center aligned row
           </div>
           <div class="column">
-            Center aligned row
+            center aligned row
           </div>
         </div>
-        <div class="sixteen wide column">
-          Right Aligned Grid
+        <div class="sixteen wide right aligned column">
+          right aligned column
         </div>
       </div>
 
@@ -372,19 +346,13 @@ code {
 .container {
   padding: 5em 0em;
 }
-.ui.block.header,
+.ui.dividing.header,
 .first {
   margin-top: 5em;
 }
 
-.ui.block.header:first-child {
+.ui.dividing.header:first-child {
   margin-top: 0em;
-}
-.ui.block.header {
-  margin-left: -4rem;
-  margin-right: -4rem;
-  padding-left: 4rem;
-  padding-right: 4rem;
 }
 
 h1,

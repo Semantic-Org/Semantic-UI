@@ -63,6 +63,7 @@
 @linkColor           : #009FDA;
 @linkUnderline       : none;
 @linkHoverColor      : lighten( @linkColor, 5);
+@linkHoverUnderline  : @linkUnderline;
 
 @highlightBackground : #FFFFCC;
 @highlightColor      : @textColor;

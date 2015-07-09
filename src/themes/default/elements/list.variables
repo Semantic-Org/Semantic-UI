@@ -13,21 +13,28 @@
 @verticalPadding: 0em;
 @horizontalPadding: 0em;
 
+/* List Item */
+@itemVerticalPadding: @relative3px;
+@itemHorizontalPadding: 0em;
+@itemPadding: @itemVerticalPadding @itemHorizontalPadding;
+@itemLineHeight: @relativeLarge;
+
 /* Sub List */
 @childListPadding: 0.75em 0em 0.25em 0.5em;
 @childListIndent: 1em;
 
-/* List Item */
-@itemVerticalPadding: 0.285714em;
-@itemHorizontalPadding: 0em;
-@itemLineHeight: @relativeLarge;
+/* Sub List Item */
+@childItemVerticalPadding: @relative2px;
+@childItemHorizontalPadding: 0em;
+@childItemPadding: @childItemVerticalPadding @childItemHorizontalPadding;
+@childItemLineHeight: inherit;
 
 /*-------------------
       Elements
 --------------------*/
 
 /* Icon */
-@iconDistance: 0.285714em;
+@iconDistance: @relative4px;
 @iconOffset: ((@itemLineHeight - 1rem) / 2);
 @iconTransition: color @defaultDuration @defaultEasing;
 @iconVerticalAlign: top;
@@ -43,15 +50,6 @@
 @contentLineHeightOffset: (@contentLineHeight - 1em) / 2;
 @contentVerticalAlign: top;
 
-/* Link */
-@itemLinkColor: @textColor;
-@itemLinkHoverColor: @linkHoverColor;
-
-/* Linked Icon */
-@itemLinkIconColor: @lightTextColor;
-@itemLinkIconHoverColor: @textColor;
-@invertedIconLinkColor: @invertedLightTextColor;
-
 /* Header */
 @itemHeaderFontFamily: @headerFont;
 @itemHeaderFontWeight: bold;
@@ -59,6 +57,19 @@
 
 /* Description */
 @itemDescriptionColor: rgba(0, 0, 0, 0.7);
+
+/* Link */
+@itemLinkColor: @linkColor;
+@itemLinkHoverColor: @linkHoverColor;
+
+/* Header Link */
+@itemHeaderLinkColor: @itemLinkColor;
+@itemHeaderLinkHoverColor: @itemLinkHoverColor;
+
+/* Linked Icon */
+@itemLinkIconColor: @lightTextColor;
+@itemLinkIconHoverColor: @textColor;
+@invertedIconLinkColor: @invertedLightTextColor;
 
 /*-------------------
         States
@@ -135,16 +146,18 @@
 @invertedSelectionListActiveColor: @invertedSelectedTextColor;
 
 /* Animated List */
+@animatedDuration: 0.25s;
+@animatedDelay: 0.1s;
 @animatedListTransition:
-  @defaultDuration color @defaultEasing,
-  @defaultDuration padding-left @defaultEasing,
-  @defaultDuration background-color @defaultEasing
+  @animatedDuration color @defaultEasing @animatedDelay,
+  @animatedDuration padding-left @defaultEasing @animatedDelay,
+  @animatedDuration background-color @defaultEasing @animatedDelay
 ;
 @animatedListIndent: 1em;
 
 /* Bulleted */
-@bulletDistance: 1rem;
-@bulletOffset: -1rem;
+@bulletDistance: 1.25rem;
+@bulletOffset: -@bulletDistance;
 
 @bulletOpacity: 1;
 @bulletCharacter: '•';
@@ -153,7 +166,8 @@
 @bulletChildDistance: @bulletDistance;
 
 /* Horizontal Bullets */
-@horizontalBulletSpacing: 1.5rem;
+@horizontalBulletColor: @textColor;
+@horizontalBulletSpacing: @bulletDistance + 0.5em;
 
 /* Ordered List */
 @orderedCountName: ordered;
@@ -196,12 +210,14 @@
 @horizontalCelledLineHeight: 0.6;
 
 /* Relaxed */
-@relaxedVerticalPadding: (2 * @itemVerticalPadding);
+@relaxedItemVerticalPadding: @relative6px;
+@relaxedChildItemVerticalPadding: @relative3px;
 @relaxedHeaderMargin: 0.25rem;
 @relaxedHorizontalPadding: 1rem;
 
 /* Very Relaxed */
-@veryRelaxedVerticalPadding: (4 * @itemVerticalPadding);
+@veryRelaxedItemVerticalPadding: @relative12px;
+@veryRelaxedChildItemVerticalPadding: @relative4px;
 @veryRelaxedHeaderMargin: 0.5rem;
 @veryRelaxedHorizontalPadding: 1.5rem;
 

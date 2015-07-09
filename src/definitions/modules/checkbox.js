@@ -41,8 +41,8 @@ $.fn.checkbox = function(parameters) {
         moduleNamespace = 'module-' + namespace,
 
         $module         = $(this),
-        $label          = $(this).find(selector.label),
-        $input          = $(this).find(selector.input),
+        $label          = $(this).children(selector.label),
+        $input          = $(this).children(selector.input),
 
         instance        = $module.data(moduleNamespace),
 
@@ -57,13 +57,14 @@ $.fn.checkbox = function(parameters) {
           module.verbose('Initializing checkbox', settings);
 
           module.create.label();
-          module.add.events();
+          module.bind.events();
 
           module.set.tabbable();
-          module.setup();
-          module.observeChanges();
+          module.hide.input();
 
+          module.observeChanges();
           module.instantiate();
+          module.setup();
         },
 
         instantiate: function() {
@@ -76,32 +77,64 @@ $.fn.checkbox = function(parameters) {
 
         destroy: function() {
           module.verbose('Destroying module');
-          module.remove.events();
-          $module
-            .removeData(moduleNamespace)
-          ;
+          module.unbind.events();
+          module.show.input();
+          $module.removeData(moduleNamespace);
+        },
+
+        fix: {
+          reference: function() {
+            if( $module.is(selector.input) ) {
+              module.debug('Behavior called on <input> adjusting invoked element');
+              $module = $module.closest(selector.checkbox);
+              module.refresh();
+            }
+          }
         },
 
         setup: function() {
-          if( module.is.checked() ) {
-            module.debug('Setting initial value to checked');
+          if( module.is.indeterminate() ) {
+            module.debug('Initial value is indeterminate');
+            module.set.indeterminate();
+            if(settings.fireOnInit) {
+              settings.onIndeterminate.call($input[0]);
+              settings.onChange.call($input[0]);
+            }
+          }
+          else if( module.is.checked() ) {
+            module.debug('Initial value is checked');
             module.set.checked();
             if(settings.fireOnInit) {
               settings.onChecked.call($input[0]);
+              settings.onChange.call($input[0]);
             }
           }
           else {
-            module.debug('Setting initial value to unchecked');
-            module.remove.checked();
+            module.debug('Initial value is unchecked');
+            module.set.unchecked();
             if(settings.fireOnInit) {
               settings.onUnchecked.call($input[0]);
+              settings.onChange.call($input[0]);
             }
           }
         },
 
         refresh: function() {
-          $label  = $module.find(selector.label);
-          $input  = $module.find(selector.input);
+          $label = $module.children(selector.label);
+          $input = $module.children(selector.input);
+        },
+
+        hide: {
+          input: function() {
+            module.verbose('Modfying <input> z-index to be unselectable');
+            $input.addClass(className.hidden);
+          }
+        },
+        show: {
+          input: function() {
+            module.verbose('Modfying <input> z-index to be selectable');
+            $input.removeClass(className.hidden);
+          }
         },
 
         observeChanges: function() {
@@ -138,6 +171,13 @@ $.fn.checkbox = function(parameters) {
         },
 
         event: {
+          click: function(event) {
+            if( $(event.target).is(selector.input) ) {
+              module.verbose('Using default check action on initialized checkbox');
+              return;
+            }
+            module.toggle();
+          },
           keydown: function(event) {
             var
               key     = event.which,
@@ -160,9 +200,79 @@ $.fn.checkbox = function(parameters) {
           }
         },
 
+        check: function() {
+          if( !module.is.indeterminate() && module.is.checked() ) {
+            module.debug('Checkbox is already checked');
+            return;
+          }
+          module.debug('Checking checkbox', $input);
+          module.set.checked();
+          settings.onChecked.call($input[0]);
+          settings.onChange.call($input[0]);
+        },
+
+        uncheck: function() {
+          if( !module.is.indeterminate() && module.is.unchecked() ) {
+            module.debug('Checkbox is already unchecked');
+            return;
+          }
+          module.debug('Unchecking checkbox');
+          module.set.unchecked();
+          settings.onUnchecked.call($input[0]);
+          settings.onChange.call($input[0]);
+        },
+
+        indeterminate: function() {
+          if( module.is.indeterminate() ) {
+            module.debug('Checkbox is already indeterminate');
+            return;
+          }
+          module.debug('Making checkbox indeterminate');
+          module.set.indeterminate();
+          settings.onIndeterminate.call($input[0]);
+          settings.onChange.call($input[0]);
+        },
+
+        determinate: function() {
+          if( module.is.determinate() ) {
+            module.debug('Checkbox is already determinate');
+            return;
+          }
+          module.debug('Making checkbox determinate');
+          module.set.determinate();
+          settings.onDeterminate.call($input[0]);
+          settings.onChange.call($input[0]);
+        },
+
+        enable: function() {
+          if( module.is.enabled() ) {
+            module.debug('Checkbox is already enabled');
+            return;
+          }
+          module.debug('Enabling checkbox');
+          module.set.enabled();
+          settings.onEnable.call($input[0]);
+        },
+
+        disable: function() {
+          if( module.is.disabled() ) {
+            module.debug('Checkbox is already disabled');
+            return;
+          }
+          module.debug('Disabling checkbox');
+          module.set.disabled();
+          settings.onDisable.call($input[0]);
+        },
+
         get: {
           radios: function() {
-            return $('input[name="' + module.get.name() + '"]').closest(selector.checkbox);
+            var
+              name = module.get.name()
+            ;
+            return $('input[name="' + name + '"]').closest(selector.checkbox);
+          },
+          otherRadios: function() {
+            return module.get.radios().not($module);
           },
           name: function() {
             return $input.attr('name');
@@ -173,8 +283,20 @@ $.fn.checkbox = function(parameters) {
           radio: function() {
             return ($input.hasClass(className.radio) || $input.attr('type') == 'radio');
           },
+          indeterminate: function() {
+            return $input.prop('indeterminate') !== undefined && $input.prop('indeterminate');
+          },
           checked: function() {
             return $input.prop('checked') !== undefined && $input.prop('checked');
+          },
+          disabled: function() {
+            return $input.prop('disabled') !== undefined && $input.prop('disabled');
+          },
+          enabled: function() {
+            return !module.is.disabled();
+          },
+          determinate: function() {
+            return !module.is.indeterminate();
           },
           unchecked: function() {
             return !module.is.checked();
@@ -183,7 +305,7 @@ $.fn.checkbox = function(parameters) {
 
         can: {
           change: function() {
-            return !( $module.hasClass(className.disabled) || $module.hasClass(className.readOnly) || $input.prop('disabled') );
+            return !( $module.hasClass(className.disabled) || $module.hasClass(className.readOnly) || $input.prop('disabled') || $input.prop('readonly') );
           },
           uncheck: function() {
             return (typeof settings.uncheckable === 'boolean')
@@ -195,24 +317,116 @@ $.fn.checkbox = function(parameters) {
 
         set: {
           checked: function() {
-            var
-              $radios
+            module.verbose('Setting class to checked');
+            $module
+              .removeClass(className.indeterminate)
+              .addClass(className.checked)
             ;
             if( module.is.radio() ) {
-              $radios = module.get.radios();
-              module.debug('Unchecking other radios', $radios);
-              $radios.removeClass(className.checked);
+              module.uncheckOthers();
             }
-            $module.addClass(className.checked);
+            if(!module.is.indeterminate() && module.is.checked()) {
+              module.debug('Input is already checked, skipping input property change');
+              return;
+            }
+            module.verbose('Setting state to checked', $input[0]);
+            $input
+              .prop('indeterminate', false)
+              .prop('checked', true)
+            ;
+            module.trigger.change();
+          },
+          unchecked: function() {
+            module.verbose('Removing checked class');
+            $module
+              .removeClass(className.indeterminate)
+              .removeClass(className.checked)
+            ;
+            if(!module.is.indeterminate() &&  module.is.unchecked() ) {
+              module.debug('Input is already unchecked');
+              return;
+            }
+            module.debug('Setting state to unchecked');
+            $input
+              .prop('indeterminate', false)
+              .prop('checked', false)
+            ;
+            module.trigger.change();
+          },
+          indeterminate: function() {
+            module.verbose('Setting class to indeterminate');
+            $module
+              .addClass(className.indeterminate)
+            ;
+            if( module.is.indeterminate() ) {
+              module.debug('Input is already indeterminate, skipping input property change');
+              return;
+            }
+            module.debug('Setting state to indeterminate');
+            $input
+              .prop('indeterminate', true)
+            ;
+            module.trigger.change();
+          },
+          determinate: function() {
+            module.verbose('Removing indeterminate class');
+            $module
+              .removeClass(className.indeterminate)
+            ;
+            if( module.is.determinate() ) {
+              module.debug('Input is already determinate, skipping input property change');
+              return;
+            }
+            module.debug('Setting state to determinate');
+            $input
+              .prop('indeterminate', false)
+            ;
+          },
+          disabled: function() {
+            module.verbose('Setting class to disabled');
+            $module
+              .addClass(className.disabled)
+            ;
+            if( module.is.disabled() ) {
+              module.debug('Input is already disabled, skipping input property change');
+              return;
+            }
+            module.debug('Setting state to disabled');
+            $input
+              .prop('disabled', 'disabled')
+            ;
+            module.trigger.change();
+          },
+          enabled: function() {
+            module.verbose('Removing disabled class');
+            $module.removeClass(className.disabled);
+            if( module.is.enabled() ) {
+              module.debug('Input is already enabled, skipping input property change');
+              return;
+            }
+            module.debug('Setting state to enabled');
+            $input
+              .prop('disabled', false)
+            ;
+            module.trigger.change();
           },
           tabbable: function() {
+            module.verbose('Adding tabindex to checkbox');
             if( $input.attr('tabindex') === undefined) {
-              $input
-                .attr('tabindex', 0)
-              ;
+              $input.attr('tabindex', 0);
             }
           }
         },
+
+        trigger: {
+          change: function() {
+            module.verbose('Triggering change event from programmatic change');
+            $input
+              .trigger('change')
+            ;
+          }
+        },
+
 
         create: {
           label: function() {
@@ -233,66 +447,31 @@ $.fn.checkbox = function(parameters) {
           }
         },
 
-        add: {
+        bind: {
           events: function() {
             module.verbose('Attaching checkbox events');
             $module
-              .on('click'   + eventNamespace, module.toggle)
+              .on('click'   + eventNamespace, module.event.click)
               .on('keydown' + eventNamespace, selector.input, module.event.keydown)
             ;
           }
         },
 
-        remove: {
-          checked: function() {
-            $module.removeClass(className.checked);
-          },
+        unbind: {
           events: function() {
             module.debug('Removing events');
             $module
-              .off(eventNamespace)
-              .removeData(moduleNamespace)
-            ;
-            $label
               .off(eventNamespace)
             ;
           }
         },
 
-        enable: function() {
-          module.debug('Enabling checkbox functionality');
-          $module.removeClass(className.disabled);
-          $input.prop('disabled', false);
-          settings.onEnabled.call($input[0]);
-        },
-
-        disable: function() {
-          module.debug('Disabling checkbox functionality');
-          $module.addClass(className.disabled);
-          $input.prop('disabled', 'disabled');
-          settings.onDisabled.call($input[0]);
-        },
-
-        check: function() {
-          module.debug('Enabling checkbox', $input);
-          $input
-            .prop('checked', true)
-            .trigger('change')
+        uncheckOthers: function() {
+          var
+            $radios = module.get.otherRadios()
           ;
-          module.set.checked();
-          settings.onChange.call($input[0]);
-          settings.onChecked.call($input[0]);
-        },
-
-        uncheck: function() {
-          module.debug('Disabling checkbox');
-          $input
-            .prop('checked', false)
-            .trigger('change')
-          ;
-          module.remove.checked();
-          settings.onChange.call($input[0]);
-          settings.onUnchecked.call($input[0]);
+          module.debug('Unchecking other radios', $radios);
+          $radios.removeClass(className.checked);
         },
 
         toggle: function() {
@@ -302,11 +481,12 @@ $.fn.checkbox = function(parameters) {
             }
             return;
           }
-          module.verbose('Determining new checkbox state');
-          if( module.is.unchecked() ) {
+          if( module.is.indeterminate() || module.is.unchecked() ) {
+            module.debug('Currently unchecked');
             module.check();
           }
           else if( module.is.checked() && module.can.uncheck() ) {
+            module.debug('Currently checked');
             module.uncheck();
           }
         },
@@ -489,38 +669,45 @@ $.fn.checkbox = function(parameters) {
 
 $.fn.checkbox.settings = {
 
-  name        : 'Checkbox',
-  namespace   : 'checkbox',
+  name            : 'Checkbox',
+  namespace       : 'checkbox',
 
-  debug       : false,
-  verbose     : true,
-  performance : true,
+  debug           : false,
+  verbose         : true,
+  performance     : true,
 
   // delegated event context
-  uncheckable : 'auto',
-  fireOnInit  : true,
+  uncheckable     : 'auto',
+  fireOnInit      : false,
 
-  onChange    : function(){},
-  onChecked   : function(){},
-  onUnchecked : function(){},
-  onEnabled   : function(){},
-  onDisabled  : function(){},
+  onChange        : function(){},
 
-  className   : {
-    checked  : 'checked',
-    disabled : 'disabled',
-    radio    : 'radio',
-    readOnly : 'read-only'
+  onChecked       : function(){},
+  onUnchecked     : function(){},
+
+  onDeterminate   : function() {},
+  onIndeterminate : function() {},
+
+  onEnabled       : function(){},
+  onDisabled      : function(){},
+
+  className       : {
+    checked       : 'checked',
+    indeterminate : 'indeterminate',
+    disabled      : 'disabled',
+    hidden        : 'hidden',
+    radio         : 'radio',
+    readOnly      : 'read-only'
   },
 
   error     : {
-    method   : 'The method you called is not defined'
+    method       : 'The method you called is not defined'
   },
 
   selector : {
     checkbox : '.ui.checkbox',
-    input    : '> input[type="checkbox"], > input[type="radio"]',
-    label    : '> label'
+    label    : 'label, .box',
+    input    : 'input[type="checkbox"], input[type="radio"]',
   }
 
 };

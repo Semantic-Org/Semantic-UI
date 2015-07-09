@@ -72,12 +72,12 @@
 @indicatingFifthColor: #B4D95C;
 @indicatingSixthColor: #66DA81;
 
-@indicatingFirstLabelColor: #CA4D4D;
-@indicatingSecondLabelColor: #B27F22;
-@indicatingThirdLabelColor: #C09522;
-@indicatingFourthLabelColor: #ADA422;
-@indicatingFifthLabelColor: #7A9F22;
-@indicatingSixthLabelColor: #22963D;
+@indicatingFirstLabelColor: @textColor;
+@indicatingSecondLabelColor: @textColor;
+@indicatingThirdLabelColor: @textColor;
+@indicatingFourthLabelColor: @textColor;
+@indicatingFifthLabelColor: @textColor;
+@indicatingSixthLabelColor: @textColor;
 
 /*-------------------
         States

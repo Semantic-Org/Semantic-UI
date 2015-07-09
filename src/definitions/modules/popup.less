@@ -1,3 +1,4 @@
+
 /*!
  * # Semantic UI - Popup
  * http://github.com/semantic-org/semantic-ui/
@@ -35,6 +36,7 @@
   z-index: @zIndex;
 
   border: @border;
+  line-height: @lineHeight;
   max-width: @maxWidth;
   background-color: @background;
 
@@ -82,17 +84,43 @@
 .ui.popup {
   margin: 0em;
 }
-.ui.popup.bottom {
-  margin: @popupDistanceAway 0em 0em;
-}
-.ui.popup.top {
+
+/* Extending from Top */
+.ui.top.popup {
   margin: 0em 0em @popupDistanceAway;
 }
-.ui.popup.left.center {
-  margin: 0em @popupDistanceAway 0em 0em;
+.ui.top.left.popup {
+  transform-origin: left bottom;
 }
-.ui.popup.right.center {
+.ui.top.center.popup {
+  transform-origin: center bottom;
+}
+.ui.top.right.popup {
+  transform-origin: right bottom;
+}
+
+/* Extending from Vertical Center */
+.ui.left.center.popup {
+  margin: 0em @popupDistanceAway 0em 0em;
+  transform-origin: right 50%;
+}
+.ui.right.center.popup {
   margin: 0em 0em 0em @popupDistanceAway;
+  transform-origin: left 50%;
+}
+
+/* Extending from Bottom */
+.ui.bottom.popup {
+  margin: @popupDistanceAway 0em 0em;
+}
+.ui.bottom.left.popup {
+  transform-origin: left top;
+}
+.ui.bottom.center.popup {
+  transform-origin: center top;
+}
+.ui.bottom.right.popup {
+  transform-origin: right top;
 }
 
 /*--------------
@@ -205,6 +233,11 @@
 .ui.animating.popup,
 .ui.visible.popup {
   display: block;
+}
+
+.ui.visible.popup {
+  transform: translateZ(0px);
+  backface-visibility: hidden;
 }
 
 

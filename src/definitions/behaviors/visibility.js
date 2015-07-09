@@ -59,6 +59,8 @@ $.fn.visibility = function(parameters) {
           || function(callback) { setTimeout(callback, 0); },
 
         element         = this,
+        disabled        = false,
+
         observer,
         module
       ;
@@ -123,9 +125,6 @@ $.fn.visibility = function(parameters) {
         },
 
         observeChanges: function() {
-          var
-            context = $context[0]
-          ;
           if('MutationObserver' in window) {
             observer = new MutationObserver(function(mutations) {
               module.verbose('DOM tree modified, updating visibility calculations');
@@ -165,7 +164,9 @@ $.fn.visibility = function(parameters) {
         event: {
           resize: function() {
             module.debug('Window resized');
-            requestAnimationFrame(module.refresh);
+            if(settings.refreshOnResize) {
+              requestAnimationFrame(module.refresh);
+            }
           },
           load: function() {
             module.debug('Page finished loading');
@@ -216,6 +217,16 @@ $.fn.visibility = function(parameters) {
             cacheImage.src     = images[imagesLength];
             cache.push(cacheImage);
           }
+        },
+
+        enableCallbacks: function() {
+          module.debug('Allowing callbacks to occur');
+          disabled = false;
+        },
+
+        disableCallbacks: function() {
+          module.debug('Disabling all callbacks temporarily');
+          disabled = true;
         },
 
         should: {
@@ -375,7 +386,9 @@ $.fn.visibility = function(parameters) {
           }
           module.reset();
           module.save.position();
-          module.checkVisibility();
+          if(settings.checkOnRefresh) {
+            module.checkVisibility();
+          }
           settings.onRefresh.call(element);
         },
 
@@ -390,7 +403,7 @@ $.fn.visibility = function(parameters) {
         checkVisibility: function(scroll) {
           module.verbose('Checking visibility of element', module.cache.element);
 
-          if( module.is.visible() ) {
+          if( !disabled && module.is.visible() ) {
 
             // save scroll position
             module.save.scroll(scroll);
@@ -1157,6 +1170,9 @@ $.fn.visibility.settings = {
 
   // array of callbacks for percentage
   onPassed               : {},
+
+  // should call callbacks on refresh event (resize, etc)
+  checkOnRefresh         : true,
 
   // standard callbacks
   onOnScreen             : false,

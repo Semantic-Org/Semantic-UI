@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.0 - Site
+ * # Semantic UI 2.0.1 - Site
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -107,7 +107,8 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #2c76bf;
+  color: #1e70bf;
+  text-decoration: none;
 }
 
 

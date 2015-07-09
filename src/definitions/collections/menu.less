@@ -155,6 +155,7 @@
 .ui.menu >  .grid,
 .ui.menu > .container {
   display: flex;
+  align-items: inherit;
   flex-direction: inherit;
 }
 
@@ -352,14 +353,14 @@
   margin: @imageMargin;
   width: @imageWidth;
 }
-.ui.vertical.menu .item > img:only-child {
+.ui.vertical.menu .item > img:not(.ui):only-child {
   display: block;
   max-width: 100%;
   width: @verticalImageWidth;
 }
 
 /*******************************
-             Coupling
+          Coupling
 *******************************/
 
 /*--------------
@@ -380,8 +381,17 @@
     Container
 ---------------*/
 
-.ui.menu:not(.secondary):not(.text):not(.tabular) > .container > .item:not(.right):first-child {
-  border-left: @dividerSize solid @dividerBackground;
+@media only screen and (max-width: @largestMobileScreen) {
+  .ui.menu > .ui.container {
+    width: 100%;
+    margin-left: 0em !important;
+    margin-right: 0em !important;
+  }
+}
+@media only screen and (min-width: @tabletBreakpoint) {
+  .ui.menu:not(.secondary):not(.text):not(.tabular):not(.borderless) > .container > .item:not(.right):not(.borderless):first-child {
+    border-left: @dividerSize solid @dividerBackground;
+  }
 }
 
 
@@ -462,19 +472,20 @@ Floated Menu / Item
 -------------------*/
 
 /* Left Floated */
-.ui.menu:not(.vertical) .item.left,
-.ui.menu:not(.vertical) .menu.left {
+.ui.menu:not(.vertical) .left.item,
+.ui.menu:not(.vertical) .left.menu {
   display: flex;
   margin-right: auto !important;
 }
 /* Right Floated */
-.ui.menu:not(.vertical) .item.right,
-.ui.menu:not(.vertical) .menu.right {
+.ui.menu:not(.vertical) .right.item,
+.ui.menu:not(.vertical) .right.menu {
   display: flex;
   margin-left: auto !important;
 }
 
-/* Floated Borders */
+/* Swapped Borders */
+.ui.menu .right.item::before,
 .ui.menu .right.menu > .item::before {
   right: auto;
   left: 0;
@@ -486,7 +497,7 @@ Floated Menu / Item
 ---------------*/
 
 .ui.vertical.menu {
-  display: flex;
+  display: block;
   flex-direction: column;
   background: @verticalBackground;
   box-shadow: @verticalBoxShadow;
@@ -495,8 +506,6 @@ Floated Menu / Item
 /*--- Item ---*/
 .ui.vertical.menu .item {
   display: block;
-  flex: 1 0 auto;
-  align-self: stretch !important;
   background: @verticalItemBackground;
   border-top: none;
   border-right: none;
@@ -631,7 +640,7 @@ Floated Menu / Item
   font-weight: @tabularActiveWeight;
   margin-bottom: -@tabularBorderWidth;
   box-shadow: @tabularActiveBoxShadow;
-  border-radius: @tabularBorderRadius @tabularBorderRadius 0px 0px;
+  border-radius: @tabularBorderRadius @tabularBorderRadius 0px 0px !important;
 }
 
 /* Coupling with segment for attachment */
@@ -639,6 +648,7 @@ Floated Menu / Item
 .ui.tabular.menu ~ .bottom.attached.segment + .bottom.attached.segment {
   border-top: none;
   margin: 0px;
+  width: 100%;
 }
 
 /* Vertical Tabular */
@@ -663,7 +673,7 @@ Floated Menu / Item
   color: @tabularMenuActiveColor;
   border-color: @tabularBorderColor;
   margin: 0px -@tabularBorderWidth 0px 0px;
-  border-radius: @tabularBorderRadius 0px 0px @tabularBorderRadius;
+  border-radius: @tabularBorderRadius 0px 0px @tabularBorderRadius !important;
 }
 
 /* Dropdown */
@@ -719,6 +729,8 @@ Floated Menu / Item
 
 .ui.secondary.menu {
   background: @secondaryBackground;
+  margin-left: -@secondaryItemSpacing;
+  margin-right: -@secondaryItemSpacing;
   border-radius: 0em;
   border: none;
   box-shadow: none;
@@ -729,11 +741,11 @@ Floated Menu / Item
   align-self: center;
   box-shadow: none;
   border: none;
-  background: @secondaryItemBackground;
-  margin: @secondaryItemMargin;
   padding: @secondaryItemPadding;
-  border-radius: @secondaryItemBorderRadius;
+  margin: @secondaryItemMargin;
+  background: @secondaryItemBackground;
   transition: @secondaryItemTransition;
+  border-radius: @secondaryItemBorderRadius;
 }
 
 /* No Divider */
@@ -793,9 +805,13 @@ Floated Menu / Item
   color: @secondaryInvertedActiveColor !important;
 }
 
-/* Disable variations */
-.ui.secondary.item.menu .item {
-  margin: 0em;
+/* Fix item margins */
+.ui.secondary.item.menu {
+  margin-left: 0em;
+  margin-right: 0em;
+}
+.ui.secondary.item.menu .item:last-child {
+  margin-right: 0em;
 }
 .ui.secondary.attached.menu {
   box-shadow: none;
@@ -830,6 +846,8 @@ Floated Menu / Item
 -----------------------*/
 
 .ui.secondary.pointing.menu {
+  margin-left: 0em;
+  margin-right: 0em;
   border-bottom: @secondaryPointingBorderWidth solid @secondaryPointingBorderColor;
 }
 
@@ -1084,9 +1102,15 @@ Floated Menu / Item
 /* Item Icon Only */
 .ui.menu .icon.item > .icon {
   width: auto;
+  margin: 0em auto;
 }
 
-/*--- inverted ---*/
+/* Vertical */
+.ui.vertical.icon.menu {
+  width: auto;
+}
+
+/* Inverted */
 .ui.inverted.icon.menu .item {
   color: @iconMenuInvertedItemColor;
 }
@@ -1105,7 +1129,7 @@ Floated Menu / Item
 .ui.labeled.icon.menu .item {
   min-width: @labeledIconMinWidth;
 }
-.ui.labeled.icon.menu:not(.vetical) .item {
+.ui.labeled.icon.menu:not(.vertical) .item {
   padding-left: @labeledIconItemHorizontalPadding;
   padding-right: @labeledIconItemHorizontalPadding;
 }
@@ -1129,15 +1153,18 @@ Floated Menu / Item
     Stackable
 ---------------*/
 
-
 @media only screen and (max-width: @largestMobileScreen) {
   .ui.stackable.menu {
     flex-direction: column;
   }
+  .ui.stackable.menu .item {
+    width: 100% !important;
+  }
   .ui.stackable.menu .item:before {
     position: absolute;
     content: '';
-    top: 0%;
+    top: auto;
+    bottom: 0px;
     left: 0px;
     width: 100%;
     height: @dividerSize;
@@ -1218,7 +1245,7 @@ Floated Menu / Item
 ---------------*/
 
 .ui.inverted.menu {
-  border-width: 0px;
+  border: @invertedBorder;
   background: @invertedBackground;
   box-shadow: @invertedBoxShadow;
 }
@@ -1504,6 +1531,9 @@ Floated Menu / Item
   margin: 0em;
   vertical-align: middle;
 }
+.ui.compact.vertical.menu {
+  display: inline-block;
+}
 .ui.compact.menu .item:last-child {
   border-radius: 0em @borderRadius @borderRadius 0em;
 }
@@ -1596,13 +1626,19 @@ Floated Menu / Item
 
 .ui.fixed.menu,
 .ui[class*="top fixed"].menu {
-  border-top: none;
   top: 0px;
   left: 0px;
   right: auto;
   bottom: auto;
 }
+.ui[class*="top fixed"].menu {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
 .ui[class*="right fixed"].menu {
+  border-top: none;
+  border-bottom: none;
   border-right: none;
   top: 0px;
   right: 0px;
@@ -1613,12 +1649,16 @@ Floated Menu / Item
 }
 .ui[class*="bottom fixed"].menu {
   border-bottom: none;
+  border-left: none;
+  border-right: none;
   bottom: 0px;
   left: 0px;
   top: auto;
   right: auto;
 }
 .ui[class*="left fixed"].menu {
+  border-top: none;
+  border-bottom: none;
   border-left: none;
   top: 0px;
   left: 0px;
@@ -1714,26 +1754,40 @@ Floated Menu / Item
     Attached
 ---------------*/
 
-.ui.menu.attached {
-  margin: 0rem;
+.ui.attached.menu {
   border-radius: 0px;
   margin-left: -@borderWidth;
   margin-right: -@borderWidth;
   width: @attachedWidth;
   box-shadow: @attachedBoxShadow; /* avoid rgba multiplying */
 }
+
+/* Direction */
+.ui.attached.menu:not(.top):not(.bottom) {
+  margin-top: 0em;
+  margin-bottom: 0em;
+}
 .ui.top.attached.menu {
+  margin-bottom: 0em;
   border-radius: @borderRadius @borderRadius 0em 0em;
 }
+.ui.top.attached.menu > .item:first-child {
+  border-radius: @borderRadius 0em 0em 0em;
+}
+
 .ui.bottom.attached.menu {
+  margin-top: 0em;
   border-top: none;
   border-radius: 0em 0em @borderRadius @borderRadius;
 }
-
-.ui.top.attached.menu:not(.tabular) {
-  border-bottom: none;
+.ui.bottom.attached.menu > .item:first-child {
+  border-radius: 0em 0em 0em @borderRadius;
 }
 
+/* Tabular Attached */
+.ui.top.attached.menu:not(.fixed):not(.tabular) {
+  border-bottom: none;
+}
 .ui.attached.tabular.menu {
   margin-left: 0;
   margin-right: 0;

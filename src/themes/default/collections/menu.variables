@@ -62,7 +62,7 @@
 
 /* Icon */
 @iconFloat: none;
-@iconMargin: 0em 0.35714em 0em 0em;
+@iconMargin: 0em @relative5px 0em 0em;
 @iconOpacity: 0.9;
 
 /* Dropdown Icon */
@@ -84,14 +84,14 @@
 @verticalHeaderFontWeight: bold;
 
 /* Pointing Arrow */
-@arrowSize: 0.5714em;
+@arrowSize: @relative8px;
 @arrowBorderWidth: 1px;
 @arrowBorder: @arrowBorderWidth solid @solidBorderColor;
 @arrowTransition: background @defaultDuration @defaultEasing;
 @arrowZIndex: 2;
 
-@arrowHoverColor: #F4F4F4;
-@arrowActiveColor: #F4F4F4;
+@arrowHoverColor: #F2F2F2;
+@arrowActiveColor: @arrowHoverColor;
 @arrowActiveHoverColor: @arrowActiveColor;
 
 @arrowVerticalHoverColor: @arrowHoverColor;
@@ -112,7 +112,7 @@
 @inputSize: @relativeMedium;
 @inputVerticalMargin: -0.5em;
 @inputOffset: 0em;
-@inputVerticalPadding: 0.57142em;
+@inputVerticalPadding: @relative8px;
 
 /* Image */
 @imageMargin: -0.3em 0em;
@@ -156,7 +156,7 @@
 
 /* Dropdown Variations */
 @dropdownVerticalMenuBoxShadow: 0 1px 3px 0px rgba(0, 0, 0, 0.08);
-@secondaryDropdownMenuDistance: 0.35714em;
+@secondaryDropdownMenuDistance: @relative5px;
 @pointingDropdownMenuDistance: 0.75em;
 @invertedSelectionDropdownColor: @invertedTextColor;
 
@@ -215,9 +215,10 @@
 
 /* Secondary */
 @secondaryBackground: none;
-
+@secondaryMargin: 0em -@secondaryItemSpacing;
 @secondaryItemBackground: none;
-@secondaryItemMargin: 0em 0.35714em;
+@secondaryItemSpacing: @relative5px;
+@secondaryItemMargin: 0em @secondaryItemSpacing;
 @secondaryItemPadding: @relativeMini @relativeSmall;
 @secondaryItemBorderRadius: @defaultBorderRadius;
 @secondaryItemTransition: color @defaultDuration @defaultEasing;
@@ -235,16 +236,17 @@
 @secondaryActiveHoveredItemColor: @selectedTextColor;
 
 @secondaryHeaderBackground: none transparent;
-@secondaryHeaderBorder: 0.1em solid rgba(0, 0, 0, 0.1);
+@secondaryHeaderBorder: 1px solid @borderColor;
 
-@secondaryVerticalItemMargin: 0em 0em 0.3em;
+@secondaryItemVerticalSpacing: @secondaryItemSpacing;
+@secondaryVerticalItemMargin: 0em 0em @secondaryItemVerticalSpacing;
 @secondaryVerticalItemBorderRadius: @defaultBorderRadius;
 
 /* Pointing */
 @secondaryPointingBorderWidth: 2px;
 @secondaryPointingBorderColor: @borderColor;
 @secondaryPointingItemVerticalPadding: @relativeTiny;
-@secondaryPointingItemHorizontalPadding: @relativeMedium;
+@secondaryPointingItemHorizontalPadding: @relativeLarge;
 
 @secondaryPointingHoverTextColor: @textColor;
 
@@ -320,7 +322,7 @@
 @tabularMenuActiveColor: @selectedTextColor;
 
 @tabularActiveWeight: bold;
-@tabularBorderRadius: 5px;
+@tabularBorderRadius: @defaultBorderRadius;
 
 
 /* Pagination */
@@ -354,8 +356,8 @@
 @textMenuHeaderTextTransform: uppercase;
 
 @textVerticalMenuMargin: @relativeMedium 0em;
-@textVerticalMenuHeaderMargin: 0.5714em 0em 0.71428em;
-@textVerticalMenuItemMargin: 0.5714em 0em;
+@textVerticalMenuHeaderMargin: @relative8px 0em @relative10px;
+@textVerticalMenuItemMargin: @relative8px 0em;
 
 @textVerticalMenuIconFloat: none;
 @textVerticalMenuIconMargin: @iconMargin;
@@ -368,6 +370,7 @@
 /* Inverted */
 @invertedBackground: @black;
 @invertedBoxShadow: none;
+@invertedBorder: 0px solid transparent;
 @invertedHeaderBackground: transparent;
 
 @invertedItemBackground: transparent;

@@ -76,7 +76,6 @@ $.api = $.fn.api = function(parameters) {
 
         initialize: function() {
           if(!methodInvoked) {
-            module.create.cache();
             module.bind.events();
           }
           module.instantiate();
@@ -104,7 +103,7 @@ $.api = $.fn.api = function(parameters) {
               triggerEvent = module.get.event()
             ;
             if( triggerEvent ) {
-              module.debug('Attaching API events to element', triggerEvent);
+              module.verbose('Attaching API events to element', triggerEvent);
               $module
                 .on(triggerEvent + eventNamespace, module.event.trigger)
               ;
@@ -121,28 +120,39 @@ $.api = $.fn.api = function(parameters) {
             var
               response
             ;
-            if(!module.cache) {
-              module.create.cache();
+            if(window.Storage === undefined) {
+              module.error(error.noStorage);
+              return;
             }
-            response = (module.cache.response[url] !== undefined)
-              ? module.cache.response[url]
-              : false
-            ;
+            response = sessionStorage.getItem(url);
             module.debug('Using cached response', url, response);
-            return response;
+            if(response !== undefined) {
+              try {
+               response = JSON.parse(response);
+              }
+              catch(e) {
+                // didnt store object
+              }
+              return response;
+            }
+            return false;
           }
         },
         write: {
           cachedResponse: function(url, response) {
-            if(!module.cache) {
-              module.create.cache();
-            }
             if(response && response === '') {
               module.debug('Response empty, not caching', response);
               return;
             }
+            if(window.Storage === undefined) {
+              module.error(error.noStorage);
+              return;
+            }
+            if( $.isPlainObject(response) ) {
+              response = JSON.stringify(response);
+            }
+            sessionStorage.setItem(url, response);
             module.verbose('Storing cached response for url', url, response);
-            module.cache.response[url] = response;
           }
         },
 
@@ -170,13 +180,8 @@ $.api = $.fn.api = function(parameters) {
           }
 
           // Add form content
-          if(settings.serializeForm !== false || $context.is('form')) {
-            if(settings.serializeForm == 'json') {
-              $.extend(true, settings.data, module.get.formData());
-            }
-            else {
-              settings.data = module.get.formData();
-            }
+          if(settings.serializeForm) {
+            settings.data = module.add.formData(settings.data);
           }
 
           // call beforesend and get any settings changes
@@ -192,27 +197,20 @@ $.api = $.fn.api = function(parameters) {
             module.cancelled = false;
           }
 
-          if(settings.url) {
-            // override with url if specified
-            module.debug('Using specified url', url);
-            url = module.add.urlData( settings.url );
-          }
-          else {
-            // otherwise find url from api endpoints
-            url = module.add.urlData( module.get.templateURL() );
-            module.debug('Added URL Data to url', url);
+          // get url
+          url = module.get.templatedURL();
+
+          if(!url && !module.is.mocked()) {
+            module.error(error.missingURL);
+            return;
           }
 
-          // exit conditions reached, missing url parameters
+          // replace variables
+          url = module.add.urlData( url );
+
+          // missing url parameters
           if( !url && !module.is.mocked()) {
-            if( module.is.form() ) {
-              url = $module.attr('action') || '';
-              module.debug('No url or action specified, defaulting to form action', url);
-            }
-            else {
-              module.error(error.missingURL, settings.action);
-              return;
-            }
+            return;
           }
 
 
@@ -238,12 +236,12 @@ $.api = $.fn.api = function(parameters) {
           }
 
           if( !settings.throttle ) {
-            module.debug('Sending data', data, ajaxSettings.method);
+            module.debug('Sending request', data, ajaxSettings.method);
             module.send.request();
           }
           else {
             if(!settings.throttleFirstRequest && !module.timer) {
-              module.debug('Sending data', data, ajaxSettings.method);
+              module.debug('Sending request', data, ajaxSettings.method);
               module.send.request();
               module.timer = setTimeout(function(){}, settings.throttle);
             }
@@ -264,7 +262,7 @@ $.api = $.fn.api = function(parameters) {
 
         is: {
           disabled: function() {
-            return ($module.filter(settings.filter).length > 0);
+            return ($module.filter(selector.disabled).length > 0);
           },
           form: function() {
             return $module.is('form');
@@ -277,6 +275,31 @@ $.api = $.fn.api = function(parameters) {
           },
           loading: function() {
             return (module.request && module.request.state() == 'pending');
+          },
+          abortedRequest: function(xhr) {
+            if(xhr && xhr.readyState !== undefined && xhr.readyState === 0) {
+              module.verbose('XHR request determined to be aborted');
+              return true;
+            }
+            else {
+              module.verbose('XHR request was not aborted');
+              return false;
+            }
+          },
+          validResponse: function(response) {
+            if( settings.dataType !== 'json' || !$.isFunction(settings.successTest) ) {
+              module.verbose('Response is not JSON, skipping validation', settings.successTest, response);
+              return true;
+            }
+            module.debug('Checking JSON returned success', settings.successTest, response);
+            if( settings.successTest(response) ) {
+              module.debug('Response passed success test', response);
+              return true;
+            }
+            else {
+              module.debug('Response failed success test', response);
+              return false;
+            }
           }
         },
 
@@ -368,6 +391,34 @@ $.api = $.fn.api = function(parameters) {
               }
             }
             return url;
+          },
+          formData: function(data) {
+            var
+              canSerialize = ($.fn.serializeObject !== undefined),
+              formData     = (canSerialize)
+                ? $form.serializeObject()
+                : $form.serialize(),
+              hasOtherData
+            ;
+            data         = data || settings.data;
+            hasOtherData = $.isPlainObject(data);
+
+            if(hasOtherData) {
+              if(canSerialize) {
+                module.debug('Extending existing data with form data', data, formData);
+                data = $.extend(true, {}, data, formData);
+              }
+              else {
+                module.error(error.missingSerialize);
+                module.debug('Cant extend data. Replacing data with form data', data, formData);
+                data = formData;
+              }
+            }
+            else {
+              module.debug('Adding form data', formData);
+              data = formData;
+            }
+            return data;
           }
         },
 
@@ -375,11 +426,15 @@ $.api = $.fn.api = function(parameters) {
           request: function() {
             module.set.loading();
             module.request = module.create.request();
-            module.xhr     = module.create.xhr();
+            if( module.is.mocked() ) {
+              module.mockedXHR = module.create.mockedXHR();
+            }
+            else {
+              module.xhr = module.create.xhr();
+            }
             settings.onRequest.call(context, module.request, module.xhr);
           }
         },
-
 
         event: {
           trigger: function(event) {
@@ -392,18 +447,33 @@ $.api = $.fn.api = function(parameters) {
             always: function() {
               // calculate if loading time was below minimum threshold
             },
-            done: function(response) {
+            done: function(response, textStatus, xhr) {
               var
                 context      = this,
                 elapsedTime  = (new Date().getTime() - requestStartTime),
-                timeLeft     = (settings.loadingDuration - elapsedTime)
+                timeLeft     = (settings.loadingDuration - elapsedTime),
+                translatedResponse = ( $.isFunction(settings.onResponse) )
+                  ? settings.onResponse.call(context, $.extend(true, {}, response))
+                  : false
               ;
               timeLeft = (timeLeft > 0)
                 ? timeLeft
                 : 0
               ;
+              if(translatedResponse) {
+                module.debug('Modified API response in onResponse callback', settings.onResponse, translatedResponse, response);
+                response = translatedResponse;
+              }
+              if(timeLeft > 0) {
+                module.debug('Response completed early delaying state change by', timeLeft);
+              }
               setTimeout(function() {
-                module.request.resolveWith(context, [response]);
+                if( module.is.validResponse(response) ) {
+                  module.request.resolveWith(context, [response]);
+                }
+                else {
+                  module.request.rejectWith(context, [xhr, 'invalid']);
+                }
               }, timeLeft);
             },
             fail: function(xhr, status, httpMessage) {
@@ -416,13 +486,15 @@ $.api = $.fn.api = function(parameters) {
                 ? timeLeft
                 : 0
               ;
-              // page triggers abort on navigation, dont show error
+              if(timeLeft > 0) {
+                module.debug('Response completed early delaying state change by', timeLeft);
+              }
               setTimeout(function() {
-                if(xhr.readyState !== undefined && xhr.readyState === 0) {
+                if( module.is.abortedRequest(xhr) ) {
                   module.request.rejectWith(context, [xhr, 'aborted', httpMessage]);
                 }
                 else {
-                  module.request.rejectWith(context, [xhr, status, httpMessage]);
+                  module.request.rejectWith(context, [xhr, 'error', status, httpMessage]);
                 }
               }, timeLeft);
             }
@@ -433,138 +505,124 @@ $.api = $.fn.api = function(parameters) {
               settings.onComplete.call(context, response, $module);
             },
             done: function(response) {
-              var
-                translatedResponse = ( $.isFunction(settings.onResponse) )
-                  ? settings.onResponse.call(context, $.extend(true, {}, response))
-                  : false
-              ;
-              module.debug('API Response Received', response);
-
+              module.debug('Successful API Response', response);
               if(settings.cache === 'local' && url) {
                 module.write.cachedResponse(url, response);
-                module.debug('Adding url to local cache', module.cache);
+                module.debug('Saving server response locally', module.cache);
               }
-
-              if(translatedResponse) {
-                module.debug('Modified API response in onResponse callback', settings.onResponse, translatedResponse, response);
-                response = translatedResponse;
-              }
-
-              if(settings.dataType == 'json') {
-                if( $.isFunction(settings.successTest) ) {
-                  module.debug('Checking JSON returned success', settings.successTest, response);
-                  if( settings.successTest(response) ) {
-                    settings.onSuccess.call(context, response, $module);
-                  }
-                  else {
-                    module.debug('JSON test specified by user and response failed', response);
-                    settings.onFailure.call(context, response, $module);
-                  }
-                }
-                else {
-                  settings.onSuccess.call(context, response, $module);
-                }
-              }
-              else {
-                settings.onSuccess.call(context, response, $module);
-              }
+              settings.onSuccess.call(context, response, $module);
             },
             fail: function(xhr, status, httpMessage) {
               var
-                errorMessage = (settings.error[status] !== undefined)
-                  ? settings.error[status]
-                  : httpMessage,
-                response
+                // pull response from xhr if available
+                response = $.isPlainObject(xhr)
+                  ? (xhr.responseText)
+                  : false,
+                errorMessage = ($.isPlainObject(response) && response.error !== undefined)
+                  ? response.error // use json error message
+                  : (settings.error[status] !== undefined) // use server error message
+                    ? settings.error[status]
+                    : httpMessage
               ;
-
-              // request aborted, don't show error state
               if(status == 'aborted') {
-                module.debug('Request Aborted (Most likely caused by page navigation or CORS Policy)', status, httpMessage);
-                module.reset();
+                module.debug('XHR Aborted (Most likely caused by page navigation or CORS Policy)', status, httpMessage);
                 settings.onAbort.call(context, status, $module);
-                return;
+              }
+              else if(status == 'invalid') {
+                module.debug('JSON did not pass success test. A server-side error has most likely occurred', response);
+              }
+              else if(status == 'error')  {
+
+                if(xhr !== undefined) {
+                  module.debug('XHR produced a server error', status, httpMessage);
+                  // make sure we have an error to display to console
+                  if( xhr.status != 200 && httpMessage !== undefined && httpMessage !== '') {
+                    module.error(error.statusMessage + httpMessage, ajaxSettings.url);
+                  }
+                  settings.onError.call(context, errorMessage, $module);
+                }
               }
 
-              if(xhr !== undefined) {
-                // if http status code returned and json returned error, look for it
-                if( xhr.status != 200 && httpMessage !== undefined && httpMessage !== '') {
-                  module.error(error.statusMessage + httpMessage, ajaxSettings.url);
-                }
-                else {
-                  if(status == 'error' && settings.dataType == 'json') {
-                    try {
-                      response = $.parseJSON(xhr.responseText);
-                      if(response && response.error !== undefined) {
-                        errorMessage = response.error;
-                      }
-                    }
-                    catch(e) {
-                      module.error(error.JSONParse);
-                    }
-                  }
-                }
-                module.remove.loading();
-                // show error state if specified with length
-                if(settings.errorDuration !== false) {
-                  module.set.error();
-                  setTimeout(module.remove.error, settings.errorDuration);
-                }
-                module.debug('API Request error:', errorMessage);
-                settings.onError.call(context, errorMessage, $module);
+              if(settings.errorDuration && status !== 'aborted') {
+                module.debug('Adding error state');
+                module.set.error();
+                setTimeout(module.remove.error, settings.errorDuration);
               }
+              module.debug('API Request failed', errorMessage, xhr);
+              settings.onFailure.call(context, response, $module);
             }
           }
         },
 
         create: {
 
-          cache: function() {
-            module.verbose('Creating local response cache');
-            module.cache = {
-              response: {}
-            };
-          },
-
-          // api promise
           request: function() {
+            // api request promise
             return $.Deferred()
               .always(module.event.request.complete)
               .done(module.event.request.done)
               .fail(module.event.request.fail)
             ;
           },
-          // xhr promise
-          xhr: function() {
+
+          mockedXHR: function () {
             var
-              callback
+              // xhr does not simulate these properties of xhr but must return them
+              textStatus  = false,
+              status      = false,
+              httpMessage = false,
+              asyncCallback,
+              response,
+              mockedXHR
             ;
-            if( module.is.mocked() ) {
-              if(settings.mockResponse) {
-                if($.isFunction(settings.mockResponse)) {
-                  module.debug('Using sync mocked response callback', settings.mockResponse);
-                  module.request.resolveWith(context, [ settings.mockResponse.call(context, settings) ]);
+
+            mockedXHR = $.Deferred()
+              .always(module.event.xhr.complete)
+              .done(module.event.xhr.done)
+              .fail(module.event.xhr.fail)
+            ;
+
+            if(settings.mockResponse) {
+              if( $.isFunction(settings.mockResponse) ) {
+                module.debug('Using mocked callback returning response', settings.mockResponse);
+                response = settings.mockResponse.call(context, settings);
+              }
+              else {
+                module.debug('Using specified response', settings.mockResponse);
+                response = settings.mockResponse;
+              }
+              // simulating response
+              mockedXHR.resolveWith(context, [ response, textStatus, { responseText: response }]);
+            }
+            else if( $.isFunction(settings.mockResponseAsync) ) {
+              asyncCallback = function(response) {
+                module.debug('Async callback returned response', response);
+
+                if(response) {
+                  mockedXHR.resolveWith(context, [ response, textStatus, { responseText: response }]);
                 }
                 else {
-                  module.debug('Using mocked response', settings.mockResponse);
-                  module.request.resolveWith(context, [ settings.mockResponse ]);
+                  mockedXHR.rejectWith(context, [{ responseText: response }, status, httpMessage]);
                 }
-              }
-              else if( $.isFunction(settings.mockResponseAsync) ) {
-                callback = function(response) {
-                  module.verbose('Async callback returned response', response);
-                  module.request.resolveWith(context, [response]);
-                };
-                module.debug('Using async mocked response', settings.mockResponseAsync);
-                settings.mockResponseAsync.call(context, settings, callback);
-              }
+              };
+              module.debug('Using async mocked response', settings.mockResponseAsync);
+              settings.mockResponseAsync.call(context, settings, asyncCallback);
             }
-            else {
-              return $.ajax(ajaxSettings)
-                .always(module.event.xhr.always)
-                .done(module.event.xhr.done)
-                .fail(module.event.xhr.fail)
-              ;
-            }
+            return mockedXHR;
+          },
+
+          xhr: function() {
+            var
+              xhr
+            ;
+            // ajax request promise
+            xhr = $.ajax(ajaxSettings)
+              .always(module.event.xhr.always)
+              .done(module.event.xhr.done)
+              .fail(module.event.xhr.fail)
+            ;
+            module.verbose('Created server request', xhr);
+            return xhr;
           }
         },
 
@@ -670,34 +728,24 @@ $.api = $.fn.api = function(parameters) {
               return settings.on;
             }
           },
-          formData: function() {
-            var
-              formData
-            ;
-            if($module.serializeObject !== undefined) {
-              formData = $form.serializeObject();
-            }
-            else {
-              module.error(error.missingSerialize);
-              formData = $form.serialize();
-            }
-            module.debug('Retrieved form data', formData);
-            return formData;
-          },
-          templateURL: function(action) {
-            var
-              url
-            ;
+          templatedURL: function(action) {
             action = action || $module.data(metadata.action) || settings.action || false;
+            url    = $module.data(metadata.url) || settings.url || false;
+            if(url) {
+              module.debug('Using specified url', url);
+              return url;
+            }
             if(action) {
               module.debug('Looking up url for action', action, settings.api);
-              if(settings.api[action] !== undefined) {
-                url = settings.api[action];
-                module.debug('Found template url', url);
-              }
-              else if( !module.is.form() && !module.is.mocked() ) {
+              if(settings.api[action] === undefined && !module.is.mocked()) {
                 module.error(error.missingAction, settings.action, settings.api);
+                return;
               }
+              url = settings.api[action];
+            }
+            else if( module.is.form() ) {
+              url = $module.attr('action') || false;
+              module.debug('No url or action specified, defaulting to form action', url);
             }
             return url;
           }
@@ -905,34 +953,52 @@ $.api.settings = {
   verbose           : false,
   performance       : true,
 
-  // cache
+  // object containing all templates endpoints
+  api               : {},
+
+  // whether to cache responses
   cache             : true,
+
+  // whether new requests should abort previous requests
   interruptRequests : true,
 
   // event binding
   on                : 'auto',
-  filter            : '.disabled',
+
+  // context for applying state classes
   stateContext      : false,
 
-  // state
+  // duration for loading state
   loadingDuration   : 0,
+
+  // duration for error state
   errorDuration     : 2000,
 
-  // templating
+  // API action to use
   action            : false,
+
+  // templated URL to use
   url               : false,
+
+  // base URL to apply to all endpoints
   base              : '',
 
-  // data
+  // data that will
   urlData           : {},
 
-  // ui
+  // whether to add default data to url data
   defaultData          : true,
+
+  // whether to serialize closest form
   serializeForm        : false,
+
+  // how long to wait before request should occur
   throttle             : 0,
+
+  // whether to throttle first request or only repeated
   throttleFirstRequest : true,
 
-  // jQ ajax
+  // standard ajax settings
   method            : 'get',
   data              : {},
   dataType          : 'json',
@@ -948,10 +1014,20 @@ $.api.settings = {
 
   // after request
   onResponse  : false, // function(response) { },
+
+  // response was successful, if JSON passed validation
   onSuccess   : function(response, $module) {},
+
+  // request finished without aborting
   onComplete  : function(response, $module) {},
-  onFailure   : function(errorMessage, $module) {},
+
+  // failed JSON success test
+  onFailure   : function(response, $module) {},
+
+  // server error
   onError     : function(errorMessage, $module) {},
+
+  // request aborted
   onAbort     : function(errorMessage, $module) {},
 
   successTest : false,
@@ -965,9 +1041,10 @@ $.api.settings = {
     legacyParameters  : 'You are using legacy API success callback names',
     method            : 'The method you called is not defined',
     missingAction     : 'API action used but no url was defined',
-    missingSerialize  : 'Required dependency jquery-serialize-object missing, using basic serialize',
+    missingSerialize  : 'jquery-serialize-object is required to add form data to an existing data object',
     missingURL        : 'No URL specified for api event',
     noReturnedValue   : 'The beforeSend callback must return a settings object, beforeSend ignored.',
+    noStorage         : 'Caching respopnses locally requires session storage',
     parseError        : 'There was an error parsing your request',
     requiredParameter : 'Missing a required URL parameter: ',
     statusMessage     : 'Server gave an error: ',
@@ -985,16 +1062,16 @@ $.api.settings = {
   },
 
   selector: {
-    form: 'form'
+    disabled : '.disabled',
+    form      : 'form'
   },
 
   metadata: {
-    action  : 'action'
+    action  : 'action',
+    url     : 'url'
   }
 };
 
-
-$.api.settings.api = {};
 
 
 })( jQuery, window , document );

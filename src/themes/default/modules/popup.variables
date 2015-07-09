@@ -10,9 +10,9 @@
 @background: @white;
 
 @maxWidth: 250px;
-@borderColor: #CCCCCC;
+@borderColor: @solidBorderColor;
 @borderWidth: 1px;
-@boxShadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+@boxShadow: @floatingShadow;
 @color: @textColor;
 
 @verticalPadding: 0.833em;

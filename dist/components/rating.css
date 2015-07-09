@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.0 - Rating
+ * # Semantic UI 2.0.1 - Rating
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -20,18 +20,10 @@
   display: -ms-inline-flexbox;
   display: inline-flex;
   white-space: nowrap;
-  vertical-align: middle;
+  vertical-align: baseline;
 }
 .ui.rating:last-child {
   margin-right: 0em;
-}
-.ui.rating:before {
-  display: block;
-  content: '';
-  visibility: hidden;
-  clear: both;
-  height: 0;
-  vertical-align: middle;
 }
 
 /* Icon */
@@ -48,6 +40,8 @@
   cursor: pointer;
   width: 1.25em;
   height: auto;
+  -webkit-transition: opacity 0.1s ease, background 0.1s ease, text-shadow 0.1s ease, color 0.1s ease;
+          transition: opacity 0.1s ease, background 0.1s ease, text-shadow 0.1s ease, color 0.1s ease;
 }
 
 
@@ -91,20 +85,22 @@
   height: auto;
   background: transparent;
   color: rgba(0, 0, 0, 0.15);
+  text-shadow: none;
 }
 
 /* Active Star */
 .ui.star.rating .active.icon {
   background: transparent !important;
   color: #ffe623 !important;
-  text-shadow: 0px -1px 0px #cfa300, -1px 0px 0px #cfa300, 0px 1px 0px #cfa300, 1px 0px 0px #cfa300;
+  text-shadow: 0px -1px 0px #ddc507, -1px 0px 0px #ddc507, 0px 1px 0px #ddc507, 1px 0px 0px #ddc507 !important;
 }
 
 /* Selected Star */
 .ui.star.rating .icon.selected,
 .ui.star.rating .icon.selected.active {
   background: transparent !important;
-  color: #ffb70a !important;
+  color: #ffcc00 !important;
+  text-shadow: 0px -1px 0px #e6a200, -1px 0px 0px #e6a200, 0px 1px 0px #e6a200, 1px 0px 0px #e6a200 !important;
 }
 
 /*-------------------
@@ -116,20 +112,22 @@
   height: auto;
   background: transparent;
   color: rgba(0, 0, 0, 0.15);
+  text-shadow: none !important;
 }
 
 /* Active Heart */
 .ui.heart.rating .active.icon {
   background: transparent !important;
-  color: #ff2733 !important;
-  text-shadow: 0px -1px 0px #9e0000, -1px 0px 0px #9e0000, 0px 1px 0px #9e0000, 1px 0px 0px #9e0000;
+  color: #ff6d75 !important;
+  text-shadow: 0px -1px 0px #cd0707, -1px 0px 0px #cd0707, 0px 1px 0px #cd0707, 1px 0px 0px #cd0707 !important;
 }
 
 /* Selected Heart */
 .ui.heart.rating .icon.selected,
 .ui.heart.rating .icon.selected.active {
   background: transparent !important;
-  color: #ff2733 !important;
+  color: #ff3000 !important;
+  text-shadow: 0px -1px 0px #aa0101, -1px 0px 0px #aa0101, 0px 1px 0px #aa0101, 1px 0px 0px #aa0101 !important;
 }
 
 
@@ -155,7 +153,7 @@
 
 /* Selected Rating */
 .ui.rating.selected .active.icon {
-  opacity: 0.5;
+  opacity: 1;
 }
 .ui.rating.selected .icon.selected,
 .ui.rating .icon.selected {
@@ -167,25 +165,25 @@
           Variations
 *******************************/
 
-.ui.mini.rating .icon {
-  font-size: 0.7rem;
+.ui.mini.rating {
+  font-size: 0.71428571rem;
 }
-.ui.tiny.rating .icon {
-  font-size: 0.8rem;
+.ui.tiny.rating {
+  font-size: 0.85714286rem;
 }
-.ui.small.rating .icon {
-  font-size: 0.875rem;
+.ui.small.rating {
+  font-size: 0.92857143rem;
 }
-.ui.rating .icon {
+.ui.rating {
   font-size: 1rem;
 }
-.ui.large.rating .icon {
-  font-size: 1.1rem;
+.ui.large.rating {
+  font-size: 1.14285714rem;
 }
-.ui.huge.rating .icon {
-  font-size: 1.5rem;
+.ui.huge.rating {
+  font-size: 1.42857143rem;
 }
-.ui.massive.rating .icon {
+.ui.massive.rating {
   font-size: 2rem;
 }
 

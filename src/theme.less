@@ -4,25 +4,32 @@
 
 @theme : @@element;
 
-/*------------------
-    Default Theme
--------------------*/
 
+/*--------------------
+   Site Variables
+---------------------*/
+
+/* Default */
 @import "@{themesFolder}/default/globals/site.variables";
+
+/* Packaged Theme */
+@import (optional) "@{themesFolder}/@{site}/globals/site.variables";
+
+/* Site Theme */
+@import (optional) "@{siteFolder}/globals/site.variables";
+
+
+/*-------------------
+ Component Variables
+---------------------*/
+
+/* Default */
 @import "@{themesFolder}/default/@{type}s/@{element}.variables";
 
-/*------------------
-   Packaged Theme
--------------------*/
-
-@import "@{themesFolder}/@{site}/globals/site.variables";
+/* Packaged Theme */
 @import "@{themesFolder}/@{theme}/@{type}s/@{element}.variables";
 
-/*------------------
-     Site Theme
--------------------*/
-
-@import (optional) "@{siteFolder}/globals/site.variables";
+/* Site Theme */
 @import (optional) "@{siteFolder}/@{type}s/@{element}.variables";
 
 

@@ -13,18 +13,16 @@
 --------------------*/
 
 /* Event */
-@eventDisplay: table;
 @eventWidth: 100%;
-@eventPadding: 0.5rem 0em;
+@eventPadding: @3px 0em;
 @eventMargin: 0em;
 @eventBackground: none;
 @eventDivider: none;
 
 /* Event Label */
-@labelDisplay: table-cell;
 @labelWidth: 2.5em;
-@labelHeight: 2.5em;
-@labelVerticalAlign: top;
+@labelHeight: auto;
+@labelAlignSelf: stretch;
 @labelTextAlign: left;
 
 /* Icon Label */
@@ -43,12 +41,11 @@
 @imageLabelBorderRadius: @circularRadius;
 
 /* Content w/ Label */
-@labeledContentPadding: 0.5em 0em 0.5em 1.25em;
+@labeledContentMargin: 0.5em 0em @relative5px @relativeLarge;
 @lastLabeledContentPadding: 0em;
 
 /* Content */
-@contentDisplay: table-cell;
-@contentVerticalAlign: top;
+@contentAlignSelf: stretch;
 @contentTextAlign: left;
 @contentWordWrap: break-word;
 
@@ -142,8 +139,3 @@
 /*-------------------
       Variations
 --------------------*/
-
-/* Size */
-@small: 0.9em;
-@medium: 1em;
-@large: 1.1em;

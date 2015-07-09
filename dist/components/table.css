@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.0 - Table
+ * # Semantic UI 2.0.1 - Table
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -22,7 +22,7 @@
   margin: 1em 0em;
   border: 1px solid rgba(34, 36, 38, 0.15);
   box-shadow: none;
-  border-radius: 0.285714rem;
+  border-radius: 0.28571429rem;
   text-align: left;
   color: rgba(0, 0, 0, 0.87);
   border-collapse: separate;
@@ -44,8 +44,8 @@
 /* Table Content */
 .ui.table th,
 .ui.table td {
-  -webkit-transition: background 0.1s ease, border-color 0.1s ease, color 0.1s ease;
-          transition: background 0.1s ease, border-color 0.1s ease, color 0.1s ease;
+  -webkit-transition: background 0.1s ease, color 0.1s ease;
+          transition: background 0.1s ease, color 0.1s ease;
 }
 
 /* Headers */
@@ -69,13 +69,13 @@
   border-left: none;
 }
 .ui.table thead tr:first-child > th:first-child {
-  border-radius: 0.285714rem 0em 0em 0em;
+  border-radius: 0.28571429rem 0em 0em 0em;
 }
 .ui.table thead tr:first-child > th:last-child {
-  border-radius: 0em 0.285714rem 0em 0em;
+  border-radius: 0em 0.28571429rem 0em 0em;
 }
 .ui.table thead tr:first-child > th:only-child {
-  border-radius: 0.285714rem 0.285714rem 0em 0em;
+  border-radius: 0.28571429rem 0.28571429rem 0em 0em;
 }
 
 /* Footer */
@@ -98,13 +98,13 @@
   border-left: none;
 }
 .ui.table tfoot tr:first-child > th:first-child {
-  border-radius: 0em 0em 0em 0.285714rem;
+  border-radius: 0em 0em 0em 0.28571429rem;
 }
 .ui.table tfoot tr:first-child > th:last-child {
-  border-radius: 0em 0em 0.285714rem 0em;
+  border-radius: 0em 0em 0.28571429rem 0em;
 }
 .ui.table tfoot tr:first-child > th:only-child {
-  border-radius: 0em 0em 0.285714rem 0.285714rem;
+  border-radius: 0em 0em 0.28571429rem 0.28571429rem;
 }
 
 /* Table Row */
@@ -291,7 +291,7 @@
 .ui.table tr.positive,
 .ui.table td.positive {
   background: #fcfff5 !important;
-  color: #1d571e !important;
+  color: #2c662d !important;
 }
 
 /*--------------
@@ -305,7 +305,7 @@
 .ui.table tr.negative,
 .ui.table td.negative {
   background: #fff6f6 !important;
-  color: #922d2b !important;
+  color: #9f3a38 !important;
 }
 
 /*--------------
@@ -319,7 +319,7 @@
 .ui.table tr.error,
 .ui.table td.error {
   background: #fff6f6 !important;
-  color: #922d2b !important;
+  color: #9f3a38 !important;
 }
 
 /*--------------
@@ -333,7 +333,7 @@
 .ui.table tr.warning,
 .ui.table td.warning {
   background: #fffaf3 !important;
-  color: #664917 !important;
+  color: #573a08 !important;
 }
 
 /*--------------
@@ -470,12 +470,12 @@
 .ui.selectable.table tr.error:hover,
 .ui.selectable.table tr:hover td.error {
   background: #ffe7e7 !important;
-  color: #862928 !important;
+  color: #943634 !important;
 }
 .ui.selectable.table tr.warning:hover,
 .ui.selectable.table tr:hover td.warning {
   background: #fff4e4 !important;
-  color: #5a4014 !important;
+  color: #493107 !important;
 }
 .ui.selectable.table tr.active:hover,
 .ui.selectable.table tr:hover td.active {
@@ -485,16 +485,16 @@
 .ui.selectable.table tr.positive:hover,
 .ui.selectable.table tr:hover td.positive {
   background: #f7ffe6 !important;
-  color: #194c1a !important;
+  color: #275b28 !important;
 }
 .ui.selectable.table tr.negative:hover,
 .ui.selectable.table tr:hover td.negative {
   background: #ffe7e7 !important;
-  color: #862928 !important;
+  color: #943634 !important;
 }
 
 /*--------------
-     Attached
+    Attached
 ---------------*/
 
 
@@ -508,8 +508,8 @@
 
 /* Top */
 .ui[class*="top attached"].table {
-  margin-top: 1em 0em;
-  border-radius: 0.285714rem 0.285714rem 0em 0em;
+  margin-top: 1em;
+  border-radius: 0.28571429rem 0.28571429rem 0em 0em;
 }
 .ui.table[class*="top attached"]:first-child {
   margin-top: 0em;
@@ -518,8 +518,8 @@
 /* Bottom */
 .ui.table[class*="bottom attached"] {
   margin-top: 0em;
-  margin-bottom: 1em 0em;
-  border-radius: 0em 0em 0.285714rem 0.285714rem;
+  margin-bottom: 1em;
+  border-radius: 0em 0em 0.28571429rem 0.28571429rem;
 }
 .ui.table[class*="bottom attached"]:last-child {
   margin-bottom: 0em;
@@ -533,13 +533,13 @@
 /* Table Striping */
 .ui.striped.table > tr:nth-child(2n),
 .ui.striped.table tbody tr:nth-child(2n) {
-  background-color: rgba(0, 0, 50, 0.03);
+  background-color: rgba(0, 0, 50, 0.02);
 }
 
 /* Stripes */
 .ui.inverted.striped.table > tr:nth-child(2n),
 .ui.inverted.striped.table tbody tr:nth-child(2n) {
-  background-color: rgba(255, 255, 255, 0.06);
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 /*--------------
@@ -657,10 +657,10 @@
 
 /* Grey */
 .ui.grey.table {
-  border-top: 0.2em solid #757676;
+  border-top: 0.2em solid #767676;
 }
 .ui.inverted.grey.table {
-  background-color: #757676 !important;
+  background-color: #767676 !important;
   color: #ffffff !important;
 }
 

@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.0 - Rail
+ * # Semantic UI 2.0.1 - Rail
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -19,7 +19,6 @@
   top: 0%;
   width: 300px;
   height: 100%;
-  box-sizing: content-box;
 }
 .ui.left.rail {
   left: auto;
@@ -58,9 +57,12 @@
 }
 
 /*--------------
-     Divided
+    Dividing
 ---------------*/
 
+.ui.dividing.rail {
+  width: 302.5px;
+}
 .ui.left.dividing.rail {
   padding: 0em 2.5rem 0em 0em;
   margin: 0em 2.5rem 0em 0em;
@@ -76,6 +78,9 @@
     Distance
 ---------------*/
 
+.ui.close.rail {
+  width: 301px;
+}
 .ui.close.left.rail {
   padding: 0em 1em 0em 0em;
   margin: 0em 1em 0em 0em;
@@ -83,6 +88,9 @@
 .ui.close.right.rail {
   padding: 0em 0em 0em 1em;
   margin: 0em 0em 0em 1em;
+}
+.ui.very.close.rail {
+  width: 300.5px;
 }
 .ui.very.close.left.rail {
   padding: 0em 0.5em 0em 0em;
@@ -108,7 +116,7 @@
 ---------------*/
 
 .ui.rail {
-  font-size: 1em;
+  font-size: 1rem;
 }
 
 

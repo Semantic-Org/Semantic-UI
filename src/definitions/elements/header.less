@@ -183,19 +183,19 @@ h5.ui.header .sub.header {
 
 .ui.huge.header {
   min-height: 1em;
-  font-size: @huge;
+  font-size: @hugeFontSize;
 }
 .ui.large.header {
-  font-size: @large;
+  font-size: @largeFontSize;
 }
 .ui.medium.header {
-  font-size: @medium;
+  font-size: @mediumFontSize;
 }
 .ui.small.header {
-  font-size: @small;
+  font-size: @smallFontSize;
 }
 .ui.tiny.header {
-  font-size: @tiny;
+  font-size: @tinyFontSize;
 }
 
 /* Sub Header */
@@ -221,7 +221,7 @@ h5.ui.header .sub.header {
 
 .ui.sub.header {
   padding: 0em;
-  margin: @subHeadingMargin;
+  margin-bottom: @subHeadingDistance;
   font-weight: @subHeadingFontWeight;
   font-size: @subHeadingFontSize;
   text-transform: @subHeadingTextTransform;
@@ -703,7 +703,7 @@ a.ui.inverted.grey.header:hover {
 --------------------*/
 
 .ui.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
-  font-size: @medium;
+  font-size: @mediumFontSize;
 }
 
 .loadUIOverrides();

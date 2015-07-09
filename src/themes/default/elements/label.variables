@@ -2,15 +2,13 @@
              Label
 *******************************/
 
-
 /*-------------------
        Element
 --------------------*/
 
-
 @verticalAlign: baseline;
 @verticalMargin: 0em;
-@horizontalMargin: 0.142857em;
+@horizontalMargin: @relative2px;
 @backgroundColor: #E8E8E8;
 @backgroundImage: none;
 @labelTextColor: rgba(0, 0, 0, 0.6);
@@ -30,23 +28,27 @@
 @groupVerticalMargin: 0.5em;
 @groupHorizontalMargin: 0.5em;
 
-
 /*-------------------
         Parts
 --------------------*/
 
+/* Link */
 @linkOpacity: 0.5;
 @linkTransition: @labelTransitionDuration opacity @labelTransitionEasing;
 
+/* Icon */
 @iconDistance: 0.75em;
 
+/* Image */
 @imageHeight: (1em + @verticalPadding * 2);
 
+/* Detail */
 @detailFontWeight: bold;
 @detailOpacity: 0.8;
 @detailIconDistance: 0.25em;
 @detailMargin: 1em;
 
+/* Delete */
 @deleteOpacity: @linkOpacity;
 @deleteSize: @relativeSmall;
 @deleteMargin: 0.5em;
@@ -78,11 +80,12 @@
         States
 --------------------*/
 
+/* Hover */
 @labelHoverBackgroundColor: #E0E0E0;
 @labelHoverBackgroundImage: none;
 @labelHoverTextColor: @hoveredTextColor;
 
-/* Hover */
+/* Active */
 @labelActiveBackgroundColor: #D0D0D0;
 @labelActiveBackgroundImage: none;
 @labelActiveTextColor: @selectedTextColor;
@@ -169,6 +172,9 @@
 @attachedVerticalPadding: 0.75em;
 @attachedHorizontalPadding: 1em;
 
+@attachedCornerBorderRadius: @3px;
+@attachedBorderRadius: @borderRadius;
+
 /* Corner */
 @cornerSizeRatio: 1;
 @cornerTransition: color @labelTransitionDuration @labelTransitionEasing;
@@ -177,8 +183,8 @@
 @cornerTriangleZIndex: 1;
 
 @cornerIconSize: @relativeLarge;
-@cornerIconTopOffset: 0.6428em;
-@cornerIconLeftOffset: 0.7857em;
+@cornerIconTopOffset: @relative9px;
+@cornerIconLeftOffset: @relative11px;
 
 /* Corner Text */
 @cornerTextWidth: 3em;
@@ -214,11 +220,11 @@
 --------------------*/
 
 /* Sizing */
-@mini    : 0.6428rem;
-@tiny    : 0.7142rem;
-@small   : 0.7857rem;
-@medium  : 0.8571rem;
-@large   : 1rem;
-@big     : 1.1428rem;
-@huge    : 1.2857rem;
-@massive : 1.4285rem;
+@mini    : @9px;
+@tiny    : @10px;
+@small   : @11px;
+@medium  : @12px;
+@large   : @absoluteMedium;
+@big     : @absoluteBig;
+@huge    : @absoluteHuge;
+@massive : @absoluteMassive;

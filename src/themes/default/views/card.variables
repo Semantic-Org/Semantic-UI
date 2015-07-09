@@ -11,6 +11,7 @@
 @shadowBoxShadow: 0px @shadowDistance 3px 0px @solidBorderColor;
 
 /* Card */
+@fontFamily: @pageFont;
 @display: flex;
 @background: @white;
 @borderRadius: @defaultBorderRadius;
@@ -58,25 +59,25 @@
 @imageBorder: none;
 
 /* Content */
+@contentDivider: @borderWidth solid @internalBorderColor;
 @contentMargin: 0em;
 @contentBackground: none;
 @contentPadding: 1em 1em;
 @contentFontSize: 1em;
-@contentBorder: none;
 @contentBorderRadius: 0em;
 @contentBoxShadow: none;
+@contentBorder: none;
 
-@repeatedContentBorder: 1px solid @borderColor;
 
 /* Header */
-@headerMargin: 0em;
+@headerMargin: '';
 @headerFontWeight: bold;
 @headerFontSize: @relativeBig;
 @headerLineHeightOffset: -(@lineHeight - 1em) / 2;
 @headerColor: @darkTextColor;
 
 /* Metadata */
-@metaFontSize: @relativeSmall;
+@metaFontSize: @relativeMedium;
 @metaSpacing: 0.3em;
 @metaColor: @lightTextColor;
 
@@ -148,7 +149,7 @@
 
 /* Link */
 @linkHoverBackground: @white;
-@linkHoverBorder: none;
+@linkHoverBorder: @border;
 @linkHoverZIndex: 5;
 @linkHoverRaiseDistance: 3px;
 @linkHoverTransform: translateY(-@linkHoverRaiseDistance);

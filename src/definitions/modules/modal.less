@@ -35,6 +35,7 @@
   background: @background;
   border: @border;
   box-shadow: @boxShadow;
+  transform-origin: @transformOrigin;
 
   border-radius: @borderRadius;
   user-select: text;
@@ -91,11 +92,13 @@
   padding: @headerPadding;
   box-shadow: @headerBoxShadow;
 
+  color: @headerColor;
+  border-bottom: @headerBorder;
+}
+.ui.modal > .header:not(.ui) {
   font-size: @headerFontSize;
   line-height: @headerLineHeight;
   font-weight: @headerFontWeight;
-  color: @headerColor;
-  border-bottom: @headerBorder;
 }
 
 /*--------------
@@ -112,6 +115,7 @@
 }
 .ui.modal > .image.content {
   display: flex;
+  flex-direction: row;
 }
 
 /* Image */
@@ -235,6 +239,9 @@
   }
 
   /*rtl:ignore*/
+  .ui.modal .image.content {
+    flex-direction: column;
+  }
   .ui.modal .content > .image {
     display: block;
     max-width: 100%;
@@ -365,9 +372,9 @@
 }
 
 @media only screen and (max-width : @computerBreakpoint) {
-  .ui.scrolling.modal {
-    margin-top: @mobileScrollingMargin;
-    margin-bottom: @mobileScrollingMargin;
+  .modals.dimmer .ui.scrolling.modal {
+    margin-top: @mobileScrollingMargin !important;
+    margin-bottom: @mobileScrollingMargin !important;
   }
 }
 
@@ -403,7 +410,7 @@
 }
 
 /* Small */
-.ui.small.modal > .header {
+.ui.small.modal > .header:not(.ui) {
   font-size: @smallHeaderSize;
 }
 

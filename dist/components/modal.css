@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.0 - Modal
+ * # Semantic UI 2.0.1 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -24,7 +24,10 @@
   background: #ffffff;
   border: none;
   box-shadow: 1px 3px 3px 0px rgba(0, 0, 0, 0.2), 1px 3px 15px 2px rgba(0, 0, 0, 0.2);
-  border-radius: 0.285714rem;
+  -webkit-transform-origin: 50% 25%;
+      -ms-transform-origin: 50% 25%;
+          transform-origin: 50% 25%;
+  border-radius: 0.28571429rem;
   -webkit-user-select: text;
      -moz-user-select: text;
       -ms-user-select: text;
@@ -33,12 +36,12 @@
 }
 .ui.modal > :first-child:not(.icon),
 .ui.modal > .icon:first-child + * {
-  border-top-left-radius: 0.285714rem;
-  border-top-right-radius: 0.285714rem;
+  border-top-left-radius: 0.28571429rem;
+  border-top-right-radius: 0.28571429rem;
 }
 .ui.modal > :last-child {
-  border-bottom-left-radius: 0.285714rem;
-  border-bottom-right-radius: 0.285714rem;
+  border-bottom-left-radius: 0.28571429rem;
+  border-bottom-right-radius: 0.28571429rem;
 }
 
 
@@ -79,11 +82,13 @@
   margin: 0em;
   padding: 1.25rem 1.5rem;
   box-shadow: none;
+  color: rgba(0, 0, 0, 0.85);
+  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+}
+.ui.modal > .header:not(.ui) {
   font-size: 1.42857143rem;
   line-height: 1.2857em;
   font-weight: bold;
-  color: rgba(0, 0, 0, 0.85);
-  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
 }
 
 /*--------------
@@ -103,6 +108,11 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 /* Image */
@@ -202,7 +212,7 @@
     margin: 0em 0em 0em -425px;
   }
 }
-@media only screen and (min-width: 1400px) {
+@media only screen and (min-width: 1200px) {
   .ui.modal {
     width: 900px;
     margin: 0em 0em 0em -450px;
@@ -242,6 +252,13 @@
     right: 0.5rem !important;
   }
   /*rtl:ignore*/
+  .ui.modal .image.content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
   .ui.modal .content > .image {
     display: block;
     max-width: 100%;
@@ -373,9 +390,9 @@
   z-index: auto;
 }
 @media only screen and (max-width: 992px) {
-  .ui.scrolling.modal {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+  .modals.dimmer .ui.scrolling.modal {
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
   }
 }
 
@@ -409,7 +426,7 @@
 }
 
 /* Small */
-.ui.small.modal > .header {
+.ui.small.modal > .header:not(.ui) {
   font-size: 1.3em;
 }
 
@@ -432,7 +449,7 @@
     margin: 0em 0em 0em -340px;
   }
 }
-@media only screen and (min-width: 1400px) {
+@media only screen and (min-width: 1200px) {
   .ui.small.modal {
     width: 720px;
     margin: 0em 0em 0em -360px;
@@ -467,7 +484,7 @@
     margin: 0em 0em 0em -510px;
   }
 }
-@media only screen and (min-width: 1400px) {
+@media only screen and (min-width: 1200px) {
   .ui.large.modal {
     width: 1080px;
     margin: 0em 0em 0em -540px;

@@ -6,14 +6,18 @@
        Element
 --------------------*/
 
+/* Button */
 @verticalMargin: 0em;
 @horizontalMargin: 0.25em;
-
-/* Style */
 @backgroundColor: #E0E1E2;
 @backgroundImage: none;
-@verticalPadding: 0.7857142em;
+@background: @backgroundColor @backgroundImage;
+@lineHeight: 1em;
+
+/* Button defaults to using same height as input globally */
+@verticalPadding: @inputVerticalPadding;
 @horizontalPadding: 1.5em;
+
 
 /* Text */
 @textTransform: none;
@@ -43,7 +47,7 @@
 /* Icon */
 @iconHeight: @relativeSmall;
 @iconOpacity: 0.8;
-@iconDistance: 0.4285em;
+@iconDistance: @relative6px;
 @iconColor: '';
 @iconTransition: opacity @defaultDuration @defaultEasing;
 @iconVerticalAlign: '';
@@ -52,9 +56,6 @@
 @rightIconMargin: 0em -(@iconDistance / 2) 0em @iconDistance;
 
 /* Loader */
-@loaderSize: 1.2857em;
-@loaderOffset: -(@loaderSize / 2);
-@loaderMargin: @loaderOffset 0em 0em @loaderOffset;
 @invertedLoaderFillColor: rgba(0, 0, 0, 0.15);
 
 @transition:
@@ -182,7 +183,7 @@
 @basicTextColor: @textColor;
 @basicColoredBorderSize: 2px;
 
-@basicBackground: transparent;
+@basicBackground: transparent none;
 @basicFontWeight: normal;
 @basicBorder: 1px solid @borderColor;
 @basicBoxShadow: 0px 0px 0px @basicBorderSize @borderColor inset;

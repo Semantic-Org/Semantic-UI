@@ -85,6 +85,17 @@ module.exports = function(callback) {
   ;
 
   /*--------------
+    Copy Examples
+  ---------------*/
+
+  console.info('Copying examples');
+  // copy src/ to server
+  gulp.src('examples/**/*.*')
+    .pipe(gulp.dest(output.examples))
+    .pipe(print(log.created))
+  ;
+
+  /*--------------
      Copy Source
   ---------------*/
 

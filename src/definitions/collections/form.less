@@ -49,9 +49,9 @@
   clear: both;
   margin: @fieldMargin;
 }
-.ui.form .field .field,
-.ui.form .fields:last-child,
-.ui.form .field:last-child {
+
+.ui.form .field:last-child,
+.ui.form .fields:last-child .field {
   margin-bottom: 0em;
 }
 
@@ -66,23 +66,6 @@
   font-size: @labelFontSize;
   font-weight: @labelFontWeight;
   text-transform: @labelTextTransform;
-}
-.ui.form .grouped.fields > label {
-  margin: @groupedLabelMargin;
-  color: @groupedLabelColor;
-  font-size: @groupedLabelFontSize;
-  font-weight: @groupedLabelFontWeight;
-  text-transform: @groupedLabelTextTransform;
-}
-.ui.form .inline.fields > label {
-  display: inline-block;
-  vertical-align: middle;
-
-  margin: @inlineLabelMargin;
-  color: @inlineLabelColor;
-  font-size: @inlineLabelFontSize;
-  font-weight: @inlineLabelFontWeight;
-  text-transform: @inlineLabelTextTransform;
 }
 
 /*--------------------
@@ -142,7 +125,6 @@
 }
 
 /* Text Area */
-.ui.textarea,
 .ui.form textarea {
   margin: 0em;
   -webkit-appearance: none;
@@ -158,11 +140,13 @@
   box-shadow: @inputBoxShadow;
   transition: @textAreaTransition;
   font-size: @textAreaFontSize;
+  line-height: @textAreaLineHeight;
+  resize: @textAreaResize;
+}
+.ui.form textarea:not([rows]) {
   height: @textAreaHeight;
   min-height: @textAreaMinHeight;
   max-height: @textAreaMaxHeight;
-  line-height: @textAreaLineHeight;
-  resize: @textAreaResize;
 }
 
 .ui.form textarea,
@@ -372,6 +356,9 @@
 .ui.form.success .success.message {
   display: block;
 }
+.ui.form.success .icon.success.message {
+  display: flex;
+}
 
 /*--------------------
         Error
@@ -381,6 +368,9 @@
 .ui.form.warning .warning.message {
   display: block;
 }
+.ui.form.warning .icon.warning.message {
+  display: flex;
+}
 
 /*--------------------
         Warning
@@ -389,6 +379,9 @@
 /* On Form */
 .ui.form.error .error.message {
   display: block;
+}
+.ui.form.error .icon.error.message {
+  display: flex;
 }
 
 /* On Field(s) */
@@ -666,17 +659,24 @@
 
 /* Grouped Vertically */
 .ui.form .grouped.fields {
+  display: block;
   margin: @groupedMargin;
 }
 .ui.form .grouped.fields:last-child {
   margin-bottom: 0em;
 }
+
 .ui.form .grouped.fields > label {
+  margin: @groupedLabelMargin;
+  color: @groupedLabelColor;
   font-size: @groupedLabelFontSize;
+  font-weight: @groupedLabelFontWeight;
+  text-transform: @groupedLabelTextTransform;
 }
-.ui.form .grouped.fields .field {
+
+.ui.form .grouped.fields .field,
+.ui.form .grouped.inline.fields .field {
   display: block;
-  float: none;
   margin: @groupedFieldMargin;
   padding: 0em;
 }
@@ -687,19 +687,11 @@
 
 /* Split fields */
 .ui.form .fields {
-  clear: both;
-}
-.ui.form .fields:after {
-  content: ' ';
-  display: block;
-  clear: both;
-  visibility: hidden;
-  line-height: 0;
-  height: 0;
+  display: flex;
+  flex-direction: row;
 }
 .ui.form .fields > .field {
-  clear: none;
-  float: left;
+  flex: 0 1 auto;
   padding-left: (@gutterWidth / 2);
   padding-right: (@gutterWidth / 2);
 }
@@ -720,6 +712,9 @@
 
 /* Swap to full width on mobile */
 @media only screen and (max-width : @largestMobileScreen) {
+  .ui.form .fields {
+    flex-wrap: wrap;
+  }
   .ui.form {
     .two.fields > .fields,
     .two.fields > .field {
@@ -792,20 +787,39 @@
 
 .ui.form .inline.fields {
   margin: @fieldMargin;
+  align-items: center;
 }
 .ui.form .inline.fields .field {
-  display: inline-block;
-  float: none;
-  margin: @inlineFieldsMargin;
-  padding: 0em;
+  margin: 0em;
+  padding: @inlineFieldsMargin;
 }
+
+/* Inline Label */
+.ui.form .inline.fields > label,
 .ui.form .inline.fields .field > label,
 .ui.form .inline.fields .field > p,
+.ui.form .inline.field > label,
+.ui.form .inline.field > p {
+  display: inline-block;
+  width: auto;
+  margin-top: 0em;
+  margin-bottom: 0em;
+  vertical-align: baseline;
+  font-size: @inlineLabelFontSize;
+  font-weight: @inlineLabelFontWeight;
+  color: @inlineLabelColor;
+  text-transform: @inlineLabelTextTransform;
+}
+
+/* Grouped Inline Label */
+.ui.form .inline.fields > label {
+  margin: @groupedInlineLabelMargin;
+}
+
+/* Inline Input */
 .ui.form .inline.fields .field > input,
 .ui.form .inline.fields .field > select,
 .ui.form .inline.fields .field > .ui.input,
-.ui.form .inline.field > label,
-.ui.form .inline.field > p,
 .ui.form .inline.field > input,
 .ui.form .inline.field > select,
 .ui.form .inline.field > .ui.input {
@@ -815,27 +829,30 @@
   margin-top: 0em;
   margin-bottom: 0em;
 
-  vertical-align: @inlineLabelVerticalAlign;
-  font-size: @inlineLabelFontSize;
+  vertical-align: middle;
+  font-size: @inlineInputSize;
 }
-.ui.form .inline.fields .field > input,
-.ui.form .inline.fields .field > .ui.input,
-.ui.form .inline.field > input,
-.ui.form .inline.field > .ui.input {
-  font-size: @inlineLabelFontSize;
-}
-.ui.form .inline.fields .field > .ui.checkbox label {
-  padding-left: @inlineCheckboxLabelDistance;
-}
+
 
 /* Label */
 .ui.form .inline.fields .field > :first-child,
 .ui.form .inline.field > :first-child {
-  margin: 0em @labelDistance 0em 0em;
+  margin: 0em @inlineLabelDistance 0em 0em;
 }
 .ui.form .inline.fields .field > :only-child,
 .ui.form .inline.field > :only-child {
   margin: 0em;
+}
+
+/* Wide */
+.ui.form .inline.fields .wide.field {
+  display: flex;
+  align-items: center;
+}
+.ui.form .inline.fields .wide.field > input,
+.ui.form .inline.fields .wide.field > select,
+.ui.form .inline.fields .wide.field > .ui.input {
+  width: 100%;
 }
 
 

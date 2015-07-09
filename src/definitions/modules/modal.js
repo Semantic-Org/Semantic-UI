@@ -322,8 +322,7 @@ $.fn.modal = function(parameters) {
             module.set.type();
             module.set.clickaway();
 
-            if( !settings.allowMultiple && $otherModals.filter('.' + className.active).length > 0) {
-              module.debug('Other modals visible, queueing show animation');
+            if( !settings.allowMultiple && module.others.active() ) {
               module.hideOthers(module.showModal);
             }
             else {
@@ -377,7 +376,7 @@ $.fn.modal = function(parameters) {
                   duration    : settings.duration,
                   useFailSafe : true,
                   onStart     : function() {
-                    if(!module.othersActive() && !keepDimmed) {
+                    if(!module.others.active() && !keepDimmed) {
                       module.hideDimmer();
                     }
                     module.remove.keyboardShortcuts();
@@ -423,7 +422,7 @@ $.fn.modal = function(parameters) {
 
         hideAll: function(callback) {
           var
-            $visibleModals = $allModals.filter(':visible')
+            $visibleModals = $allModals.filter('.' + className.active + ', .' + className.animating)
           ;
           callback = $.isFunction(callback)
             ? callback
@@ -440,7 +439,7 @@ $.fn.modal = function(parameters) {
 
         hideOthers: function(callback) {
           var
-            $visibleModals = $otherModals.filter(':visible')
+            $visibleModals = $otherModals.filter('.' + className.active + ', .' + className.animating)
           ;
           callback = $.isFunction(callback)
             ? callback
@@ -454,9 +453,15 @@ $.fn.modal = function(parameters) {
           }
         },
 
-        othersActive: function() {
-          return ($otherModals.filter('.' + className.active + ', .' + className.animating).length > 0);
+        others: {
+          active: function() {
+            return ($otherModals.filter('.' + className.active).length > 0);
+          },
+          animating: function() {
+            return ($otherModals.filter('.' + className.animating).length > 0);
+          }
         },
+
 
         add: {
           keyboardShortcuts: function() {
@@ -557,13 +562,15 @@ $.fn.modal = function(parameters) {
           autofocus: function() {
             if(settings.autofocus) {
               var
-                $inputs    = $module.find(':input:visible'),
+                $inputs    = $module.filter(':input').filter(':visible'),
                 $autofocus = $inputs.filter('[autofocus]'),
                 $input     = ($autofocus.length > 0)
-                  ? $autofocus
-                  : $inputs
+                  ? $autofocus.first()
+                  : $inputs.first()
               ;
-              $input.first().focus();
+              if($input.length > 0) {
+                $input.focus();
+              }
             }
           },
           clickaway: function() {
@@ -594,7 +601,7 @@ $.fn.modal = function(parameters) {
           type: function() {
             if(module.can.fit()) {
               module.verbose('Modal fits on screen');
-              if(!module.othersActive()) {
+              if(!module.others.active() && !module.others.animating()) {
                 module.remove.scrolling();
               }
             }
@@ -832,7 +839,6 @@ $.fn.modal.settings = {
 
   queue      : false,
   duration   : 500,
-  easing     : 'easeOutExpo',
   offset     : 0,
   transition : 'scale',
 
