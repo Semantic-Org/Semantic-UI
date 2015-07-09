@@ -1247,7 +1247,7 @@ $.fn.form.settings = {
 
     // value is most likely url
     url: function(value) {
-      return $.fn.form.settings.regExp.url.match(value);
+      return $.fn.form.settings.regExp.url.test(value);
     }
   }
 

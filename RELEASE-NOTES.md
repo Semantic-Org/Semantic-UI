@@ -3,6 +3,7 @@
 ### Version 2.0.3 - July 8, 2015
 
 - **Popup** - Popup `preserve` setting (which preserves popup in DOM to avoid regenerating on each show/hide) was set to `true` by default causing generated popups to remain in DOM. #1369
+- **Form** - Form url validation had a typo causing it not to work correctly.
 
 ### Version 2.0.2 - July 7, 2015
 
