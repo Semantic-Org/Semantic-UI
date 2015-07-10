@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 2.0.1
+ * # Semantic UI - 2.0.3
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -9,7 +9,7 @@
  *
  */
 /*!
- * # Semantic UI 2.0.1 - Site
+ * # Semantic UI 2.0.3 - Site
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -496,7 +496,7 @@ $.extend($.expr[ ":" ], {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 2.0.1 - Form Validation
+ * # Semantic UI 2.0.3 - Form Validation
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -1486,7 +1486,7 @@ $.fn.form.settings = {
     email   : "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?",
     integer : /^\-?\d+$/,
     flags   : /^\/(.*)\/(.*)?/,
-    url     : /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/i
+    url     : /(https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,})/i
   },
 
   selector : {
@@ -1744,7 +1744,7 @@ $.fn.form.settings = {
 
     // value is most likely url
     url: function(value) {
-      return $.fn.form.settings.regExp.url.match(value);
+      return $.fn.form.settings.regExp.url.test(value);
     }
   }
 
@@ -1753,7 +1753,7 @@ $.fn.form.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.1 - Accordion
+ * # Semantic UI 2.0.3 - Accordion
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -2346,7 +2346,7 @@ $.extend( $.easing, {
 
 
 /*!
- * # Semantic UI 2.0.1 - Checkbox
+ * # Semantic UI 2.0.3 - Checkbox
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -2524,6 +2524,7 @@ $.fn.checkbox = function(parameters) {
               return;
             }
             module.toggle();
+            event.preventDefault();
           },
           keydown: function(event) {
             var
@@ -3062,7 +3063,7 @@ $.fn.checkbox.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.1 - Dimmer
+ * # Semantic UI 2.0.3 - Dimmer
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -3755,7 +3756,7 @@ $.fn.dimmer.settings = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 2.0.1 - Dropdown
+ * # Semantic UI 2.0.3 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -4250,6 +4251,7 @@ $.fn.dropdown = function(parameters) {
               $module
                 .on('mousedown' + eventNamespace, selector.menu,   module.event.menu.mousedown)
                 .on('mouseup'   + eventNamespace, selector.menu,   module.event.menu.mouseup)
+                .on('click'     + eventNamespace, selector.icon,   module.event.icon.click)
                 .on('click'     + eventNamespace, selector.search, module.show)
                 .on('focus'     + eventNamespace, selector.search, module.event.search.focus)
                 .on('blur'      + eventNamespace, selector.search, module.event.search.blur)
@@ -4257,13 +4259,14 @@ $.fn.dropdown = function(parameters) {
               ;
               if(module.is.multiple()) {
                 $module
-                  .on('click'   + eventNamespace, module.event.click)
+                  .on('click' + eventNamespace, module.event.click)
                 ;
               }
             }
             else {
               if(settings.on == 'click') {
                 $module
+                  .on('click' + eventNamespace, selector.icon, module.event.icon.click)
                   .on('click' + eventNamespace, module.event.test.toggle)
                 ;
               }
@@ -4535,7 +4538,7 @@ $.fn.dropdown = function(parameters) {
               $target = $(event.target)
             ;
             // focus search
-            if(($target.is($module) || $target.is($icon)) && !module.is.focusedOnSearch()) {
+            if($target.is($module) && !module.is.focusedOnSearch()) {
               module.focusSearch();
             }
           },
@@ -4577,6 +4580,12 @@ $.fn.dropdown = function(parameters) {
                   module.hide();
                 }
               }
+            }
+          },
+          icon: {
+            click: function(event) {
+              module.toggle();
+              event.stopPropagation();
             }
           },
           text: {
@@ -4711,7 +4720,9 @@ $.fn.dropdown = function(parameters) {
               ;
               if(!isBubbledEvent && (!hasSubMenu || settings.allowCategorySelection)) {
                 if(!settings.useLabels) {
+                  module.remove.filteredItem();
                   module.remove.searchTerm();
+                  module.set.scrollPosition($choice);
                 }
                 module.determine.selectAction.call(this, text, value);
               }
@@ -4850,12 +4861,12 @@ $.fn.dropdown = function(parameters) {
                 $visibleItems = ($selectedItem.length > 0)
                   ? $selectedItem.siblings(':not(.' + className.filtered +')').andSelf()
                   : $menu.children(':not(.' + className.filtered +')'),
-                $subMenu          = $selectedItem.children(selector.menu),
-                $parentMenu       = $selectedItem.closest(selector.menu),
-                inVisibleMenu     = ($parentMenu.hasClass(className.visible) || $parentMenu.hasClass(className.animating) || $parentMenu.parent(selector.menu).length > 0),
-                hasSubMenu        = ($subMenu.length> 0),
-                hasSelectedItem   = ($selectedItem.length > 0),
-                selectedIsVisible = ($selectedItem.not(selector.unselectable).length > 0),
+                $subMenu             = $selectedItem.children(selector.menu),
+                $parentMenu          = $selectedItem.closest(selector.menu),
+                inVisibleMenu        = ($parentMenu.hasClass(className.visible) || $parentMenu.hasClass(className.animating) || $parentMenu.parent(selector.menu).length > 0),
+                hasSubMenu           = ($subMenu.length> 0),
+                hasSelectedItem      = ($selectedItem.length > 0),
+                selectedIsSelectable = ($selectedItem.not(selector.unselectable).length > 0),
                 $nextItem,
                 isSubMenuItem,
                 newIndex
@@ -4866,18 +4877,14 @@ $.fn.dropdown = function(parameters) {
 
                 // enter (select or open sub-menu)
                 if(pressedKey == keys.enter || pressedKey == keys.delimiter) {
-
                   if(pressedKey == keys.enter && hasSelectedItem && hasSubMenu && !settings.allowCategorySelection) {
                     module.verbose('Pressed enter on unselectable category, opening sub menu');
                     pressedKey = keys.rightArrow;
                   }
-                  else if(selectedIsVisible) {
+                  else if(selectedIsSelectable) {
                     module.verbose('Selecting item from keyboard shortcut', $selectedItem);
                     module.event.item.click.call($selectedItem, event);
-                    if(settings.useLabels && module.is.searchSelection()) {
-                      module.hideAndClear();
-                    }
-                    else {
+                    if(module.is.searchSelection()) {
                       module.remove.searchTerm();
                     }
                   }
@@ -5021,11 +5028,16 @@ $.fn.dropdown = function(parameters) {
             }
           },
           eventInModule: function(event, callback) {
+            var
+              $target    = $(event.target),
+              inDocument = ($target.closest(document.documentElement).length > 0),
+              inModule   = ($target.closest($module).length > 0)
+            ;
             callback = $.isFunction(callback)
               ? callback
               : function(){}
             ;
-            if( $(event.target).closest($module).length === 0 ) {
+            if(inDocument && !inModule) {
               module.verbose('Triggering event', callback);
               callback();
               return true;
@@ -5037,13 +5049,15 @@ $.fn.dropdown = function(parameters) {
           },
           eventOnElement: function(event, callback) {
             var
-              $target = $(event.target)
+              $target    = $(event.target),
+              notOnLabel = ($target.closest(selector.siblingLabel).length === 0),
+              notInMenu  = ($target.closest($menu).length === 0)
             ;
             callback = $.isFunction(callback)
               ? callback
               : function(){}
             ;
-            if($target.closest($menu).length === 0) {
+            if(notOnLabel && notInMenu) {
               module.verbose('Triggering event', callback);
               callback();
               return true;
@@ -5768,23 +5782,30 @@ $.fn.dropdown = function(parameters) {
           },
           selectedLetter: function(letter) {
             var
-              $selectedItem = $item.filter('.' + className.selected),
-              $nextValue    = false
+              $selectedItem         = $item.filter('.' + className.selected),
+              alreadySelectedLetter = $selectedItem.length > 0 && module.has.firstLetter($selectedItem, letter),
+              $nextValue            = false,
+              $nextItem
             ;
-            $item
-              .each(function(){
-                var
-                  $choice       = $(this),
-                  text          = module.get.choiceText($choice, false),
-                  firstLetter   = String(text).charAt(0).toLowerCase(),
-                  matchedLetter = letter.toLowerCase()
-                ;
-                if(firstLetter == matchedLetter) {
-                  $nextValue = $choice;
-                  return false;
-                }
-              })
-            ;
+            // check next of same letter
+            if(alreadySelectedLetter) {
+              $nextItem = $selectedItem.nextAll($item).eq(0);
+              if( module.has.firstLetter($nextItem, letter) ) {
+                $nextValue  = $nextItem;
+              }
+            }
+            // check all values
+            if(!$nextValue) {
+              $item
+                .each(function(){
+                  if(module.has.firstLetter($(this), letter)) {
+                    $nextValue = $(this);
+                    return false;
+                  }
+                })
+              ;
+            }
+            // set next value
             if($nextValue) {
               module.verbose('Scrolling to next value with letter', letter);
               module.set.scrollPosition($nextValue);
@@ -5902,8 +5923,8 @@ $.fn.dropdown = function(parameters) {
                       module.select.nextAvailable($selectedItem);
                     }
                     else {
-                      module.add.value(selectedValue, selectedText, $selected);
                       module.set.text(module.add.variables(message.count));
+                      module.add.value(selectedValue, selectedText, $selected);
                       $selected.addClass(className.active);
                     }
                   }
@@ -5916,8 +5937,8 @@ $.fn.dropdown = function(parameters) {
                   if(settings.apiSettings && settings.saveRemoteData) {
                     module.save.remoteData(selectedText, selectedValue);
                   }
-                  module.set.value(selectedValue, selectedText, $selected);
                   module.set.text(selectedText);
+                  module.set.value(selectedValue, selectedText, $selected);
                   $selected
                     .addClass(className.active)
                     .addClass(className.selected)
@@ -6297,6 +6318,19 @@ $.fn.dropdown = function(parameters) {
           search: function() {
             return ($search.length > 0);
           },
+          firstLetter: function($item, letter) {
+            var
+              text,
+              firstLetter
+            ;
+            if(!$item || $item.length === 0 || typeof letter !== 'string') {
+              return false;
+            }
+            text        = module.get.choiceText($item, false);
+            letter      = letter.toLowerCase();
+            firstLetter = String(text).charAt(0).toLowerCase();
+            return (letter == firstLetter);
+          },
           input: function() {
             return ($input.length > 0);
           },
@@ -6572,18 +6606,17 @@ $.fn.dropdown = function(parameters) {
         },
 
         hideAndClear: function() {
+          module.remove.searchTerm();
           if( module.has.maxSelections() ) {
-            module.remove.searchTerm();
+            return;
+          }
+          if(module.has.search()) {
+            module.hide(function() {
+              module.remove.filteredItem();
+            });
           }
           else {
-            if(module.has.search()) {
-              module.hide(function() {
-                module.remove.filteredItem();
-              });
-            }
-            else {
-              module.hide();
-            }
+            module.hide();
           }
         },
 
@@ -6988,7 +7021,7 @@ $.fn.dropdown.settings.templates = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.1 - Video
+ * # Semantic UI 2.0.3 - Video
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -7651,7 +7684,7 @@ $.fn.embed.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.1 - Modal
+ * # Semantic UI 2.0.3 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -8060,10 +8093,8 @@ $.fn.modal = function(parameters) {
         hideDimmer: function() {
           if( $dimmable.dimmer('is animating') || ($dimmable.dimmer('is active')) ) {
             $dimmable.dimmer('hide', function() {
-              if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
-                module.remove.clickaway();
-                module.remove.screenHeight();
-              }
+              module.remove.clickaway();
+              module.remove.screenHeight();
             });
           }
           else {
@@ -8149,13 +8180,17 @@ $.fn.modal = function(parameters) {
               ;
             }
           },
-          screenHeight: function() {
-            if(module.cache.height > module.cache.pageHeight) {
-              module.debug('Removing page height');
-              $body
-                .css('height', '')
-              ;
+          bodyStyle: function() {
+            if($body.attr('style') === '') {
+              module.verbose('Removing style attribute');
+              $body.removeAttr('style');
             }
+          },
+          screenHeight: function() {
+            module.debug('Removing page height');
+            $body
+              .css('height', '')
+            ;
           },
           keyboardShortcuts: function() {
             module.verbose('Removing keyboard shortcuts');
@@ -8539,7 +8574,7 @@ $.fn.modal.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.1 - Nag
+ * # Semantic UI 2.0.3 - Nag
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -9016,7 +9051,7 @@ $.fn.nag.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.1 - Popup
+ * # Semantic UI 2.0.3 - Popup
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -10236,7 +10271,7 @@ $.fn.popup.settings = {
   inline         : false,
 
   // popup should be removed from page on hide
-  preserve       : true,
+  preserve       : false,
 
   // popup should not close when being hovered on
   hoverable      : false,
@@ -10370,7 +10405,7 @@ $.fn.popup.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.1 - Progress
+ * # Semantic UI 2.0.3 - Progress
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -11164,7 +11199,7 @@ $.fn.progress.settings = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 2.0.1 - Rating
+ * # Semantic UI 2.0.3 - Rating
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -11640,7 +11675,7 @@ $.fn.rating.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.1 - Search
+ * # Semantic UI 2.0.3 - Search
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -12919,7 +12954,7 @@ $.fn.search.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.1 - Shape
+ * # Semantic UI 2.0.3 - Shape
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -13795,7 +13830,7 @@ $.fn.shape.settings = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 2.0.1 - Sidebar
+ * # Semantic UI 2.0.3 - Sidebar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -14819,7 +14854,7 @@ $.fn.sidebar.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.1 - Sticky
+ * # Semantic UI 2.0.3 - Sticky
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -15701,7 +15736,7 @@ $.fn.sticky.settings = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 2.0.1 - Tab
+ * # Semantic UI 2.0.3 - Tab
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -16598,7 +16633,7 @@ $.fn.tab.settings = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 2.0.1 - Transition
+ * # Semantic UI 2.0.3 - Transition
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -17152,7 +17187,10 @@ $.fn.transition = function() {
             ;
           },
           currentAnimation: function() {
-            return module.cache.animation || false;
+            return (module.cache && module.cache.animation !== undefined)
+              ? module.cache.animation
+              : false
+            ;
           },
           currentDirection: function() {
             return module.is.inward()
@@ -17668,7 +17706,7 @@ $.fn.transition.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.1 - API
+ * # Semantic UI 2.0.3 - API
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -18746,7 +18784,7 @@ $.api.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.1 - State
+ * # Semantic UI 2.0.3 - State
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -19442,7 +19480,7 @@ $.fn.state.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.1 - Visibility
+ * # Semantic UI 2.0.3 - Visibility
  * http://github.com/semantic-org/semantic-ui/
  *
  *
