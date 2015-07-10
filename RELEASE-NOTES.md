@@ -10,6 +10,7 @@
 - **Input** - Fixed errored input field having incorrect border radius with `labeled input`
 - **Divider/Grid** - `vertical divider` no longer has inexplicable right border when stacked on mobile #2558
 - **Icon** - `black icon` have been added back as a color option #2556
+- **Icon** - Adds missing `square` and `square outline` icon #2532
 
 **Additional Bugs**
 - **Form** - URL regexp will now match now works correctly, and matches against non `http://` prefixed urls like `www.google.com`
