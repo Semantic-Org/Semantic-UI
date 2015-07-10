@@ -2357,9 +2357,11 @@ $.fn.dropdown = function(parameters) {
               newValue = [addedValue];
             }
             // add values
-            if( $input.is('select') && (settings.allowAdditions || settings.apiSettings) ) {
-              module.add.optionValue(addedValue);
-              module.debug('Adding value to select', addedValue, newValue, $input);
+            if($input.is('select')) {
+              if(settings.allowAdditions || settings.apiSettings) {
+                module.debug('Adding value to select', addedValue, newValue, $input);
+                module.add.optionValue(addedValue);
+              }
             }
             else {
               newValue = newValue.join(settings.delimiter);
