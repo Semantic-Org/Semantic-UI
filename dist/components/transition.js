@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.2 - Transition
+ * # Semantic UI 2.0.3 - Transition
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -553,7 +553,10 @@ $.fn.transition = function() {
             ;
           },
           currentAnimation: function() {
-            return module.cache.animation || false;
+            return (module.cache && module.cache.animation !== undefined)
+              ? module.cache.animation
+              : false
+            ;
           },
           currentDirection: function() {
             return module.is.inward()

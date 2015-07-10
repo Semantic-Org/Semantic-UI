@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.2 - Step
+ * # Semantic UI 2.0.3 - Step
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -35,28 +35,15 @@
   border-radius: 0.28571429rem;
   border: 1px solid rgba(34, 36, 38, 0.15);
 }
+
+/* First Steps */
 .ui.steps:first-child {
   margin-top: 0em;
 }
+
+/* Last Steps */
 .ui.steps:last-child {
   margin-bottom: 0em;
-}
-.ui.steps .step:first-child {
-  padding-left: 2em;
-  border-radius: 0.28571429rem 0em 0em 0.28571429rem;
-}
-.ui.steps .step:last-child {
-  border-radius: 0em 0.28571429rem 0.28571429rem 0em;
-}
-.ui.steps .step:only-child {
-  border-radius: 0.28571429rem;
-}
-.ui.steps .step:last-child {
-  border-right: none;
-  margin-right: 0em;
-}
-.ui.steps .step:last-child:after {
-  display: none;
 }
 
 
@@ -99,7 +86,11 @@
   border-radius: 0em;
   border: none;
   border-right: 1px solid rgba(34, 36, 38, 0.15);
+  -webkit-transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
+          transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
 }
+
+/* Arrow */
 .ui.steps .step:after {
   display: none;
   position: absolute;
@@ -114,14 +105,31 @@
   border-style: solid;
   border-color: rgba(34, 36, 38, 0.15);
   border-width: 0px 1px 1px 0px;
+  -webkit-transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
+          transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
   -webkit-transform: translateY(-50%) translateX(50%) rotate(-45deg);
       -ms-transform: translateY(-50%) translateX(50%) rotate(-45deg);
           transform: translateY(-50%) translateX(50%) rotate(-45deg);
 }
-.ui.steps .step,
-.ui.steps .step:after {
-  -webkit-transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
-          transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
+
+/* First Step */
+.ui.steps .step:first-child {
+  padding-left: 2em;
+  border-radius: 0.28571429rem 0em 0em 0.28571429rem;
+}
+
+/* Only Step */
+.ui.steps .step:only-child {
+  border-radius: 0.28571429rem;
+}
+
+/* Last Step */
+.ui.steps .step:last-child {
+  border-radius: 0em 0.28571429rem 0.28571429rem 0em;
+}
+.ui.steps .step:last-child {
+  border-right: none;
+  margin-right: 0em;
 }
 
 
@@ -245,6 +253,7 @@
           justify-content: flex-start;
   border-radius: 0em;
   padding: 1.14285714em 2em;
+  border-right: none;
   border-bottom: 1px solid rgba(34, 36, 38, 0.15);
 }
 .ui.vertical.steps .step:first-child {
@@ -272,6 +281,9 @@
   display: block;
 }
 .ui.vertical.steps .step:last-child:after {
+  display: none;
+}
+.ui.vertical.steps .active.step:last-child:after {
   display: block;
 }
 
@@ -375,6 +387,12 @@
 }
 .ui.steps .active.step:after {
   display: block;
+}
+.ui.steps .step:last-child:after {
+  display: none;
+}
+.ui.steps .active.step:last-child:after {
+  display: none;
 }
 
 /* Active Hover */

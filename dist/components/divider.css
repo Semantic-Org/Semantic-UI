@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.2 - Divider
+ * # Semantic UI 2.0.3 - Divider
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -138,6 +138,7 @@
     position: static;
     left: 0;
     border-left: none;
+    border-right: none;
     content: '';
     display: table-cell;
     position: relative;

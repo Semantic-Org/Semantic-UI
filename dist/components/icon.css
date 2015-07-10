@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.2 - Icon
+ * # Semantic UI 2.0.3 - Icon
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -362,6 +362,19 @@ i.inverted.grey.icon {
 i.inverted.bordered.grey.icon,
 i.inverted.circular.grey.icon {
   background-color: #767676 !important;
+  color: #ffffff !important;
+}
+
+/* Black */
+i.black.icon {
+  color: #1b1c1d !important;
+}
+i.inverted.black.icon {
+  color: #545454 !important;
+}
+i.inverted.bordeblack.black.icon,
+i.inverted.circular.black.icon {
+  background-color: #1b1c1d !important;
   color: #ffffff !important;
 }
 
@@ -1069,6 +1082,12 @@ i.icon.circle.notched:before {
 }
 i.icon.circle.thin:before {
   content: "\f1db";
+}
+i.icon.square.outline:before {
+  content: "\f096";
+}
+i.icon.square:before {
+  content: "\f0c8";
 }
 
 /* Item Selection */

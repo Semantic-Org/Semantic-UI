@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.2 - Checkbox
+ * # Semantic UI 2.0.3 - Checkbox
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -177,6 +177,7 @@ $.fn.checkbox = function(parameters) {
               return;
             }
             module.toggle();
+            event.preventDefault();
           },
           keydown: function(event) {
             var
