@@ -4,6 +4,7 @@
 
 **[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.0.3+is%3Aclosed)**
 - **Steps** - Last `step` no longer incorrectly shows arrow #2552
+- **Modal** - Modal that is larger than page height will now correctly reset body height on remove #2576
 - **Popup** - Popup `preserve` setting (which preserves popup in DOM to avoid regenerating on each show/hide) was set to `true` by default causing generated popups to remain in DOM. #1369
 - **Input** - Fixed errored input field having incorrect border radius with `labeled input`
 
