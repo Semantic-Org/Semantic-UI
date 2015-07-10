@@ -2090,6 +2090,12 @@ $.fn.dropdown = function(parameters) {
                   return;
                 }
               }
+
+              if($input.is('select') && settings.apiSettings) {
+                module.debug('Adding an option to the select before setting the value', value);
+                module.add.optionValue(value);
+              }
+
               module.debug('Updating input value', value, currentValue);
               $input
                 .val(value)
