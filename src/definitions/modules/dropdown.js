@@ -2091,7 +2091,7 @@ $.fn.dropdown = function(parameters) {
                 }
               }
 
-              if($input.is('select') && settings.apiSettings) {
+              if( $input.is('select') && (settings.allowAdditions || settings.apiSettings) ) {
                 module.debug('Adding an option to the select before setting the value', value);
                 module.add.optionValue(value);
               }
@@ -2357,11 +2357,9 @@ $.fn.dropdown = function(parameters) {
               newValue = [addedValue];
             }
             // add values
-            if( $input.is('select')) {
-              if(settings.allowAdditions) {
-                module.add.optionValue(addedValue);
-                module.debug('Adding value to select', addedValue, newValue, $input);
-              }
+            if( $input.is('select') && (settings.allowAdditions || settings.apiSettings) ) {
+              module.add.optionValue(addedValue);
+              module.debug('Adding value to select', addedValue, newValue, $input);
             }
             else {
               newValue = newValue.join(settings.delimiter);
