@@ -177,6 +177,7 @@ $.fn.checkbox = function(parameters) {
               return;
             }
             module.toggle();
+            event.preventDefault();
           },
           keydown: function(event) {
             var

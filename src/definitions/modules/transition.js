@@ -553,7 +553,10 @@ $.fn.transition = function() {
             ;
           },
           currentAnimation: function() {
-            return module.cache.animation || false;
+            return (module.cache && module.cache.animation !== undefined)
+              ? module.cache.animation
+              : false
+            ;
           },
           currentDirection: function() {
             return module.is.inward()

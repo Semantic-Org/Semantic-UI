@@ -66,8 +66,10 @@
 @arrowBorderWidth: 0px @borderWidth @borderWidth 0px;
 
 @arrowDisplay: block;
-@activeArrowDisplay: block;
 @lastArrowDisplay: none;
+
+@activeArrowDisplay: block;
+@activeLastArrowDisplay: none;
 
 /* Mobile */
 @mobileIconDistance: @iconDistance;
@@ -83,8 +85,10 @@
 @verticalArrowBorderWidth: 0px @borderWidth @borderWidth 0px;
 
 @verticalArrowDisplay: none;
+@verticalLastArrowDisplay: @verticalArrowDisplay;
+
 @verticalActiveArrowDisplay: block;
-@verticalLastArrowDisplay: block;
+@verticalActiveLastArrowDisplay: block;
 
 /*-------------------
       Variations
