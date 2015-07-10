@@ -9,7 +9,7 @@
 - **Popup** - Popup `preserve` setting (which preserves popup in DOM to avoid regenerating on each show/hide) was set to `true` by default causing generated popups to remain in DOM. #1369
 - **Input** - Fixed errored input field having incorrect border radius with `labeled input`
 - **Divider/Grid** - `vertical divider` no longer has inexplicable right border when stacked on mobile #2558
-
+- **Icon** - `black icon` have been added back as a color option
 
 **Additional Bugs**
 - **Form** - URL regexp will now match now works correctly, and matches against non `http://` prefixed urls like `www.google.com`
