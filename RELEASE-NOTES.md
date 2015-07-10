@@ -3,7 +3,8 @@
 ### Version 2.0.3 - July 8, 2015
 
 **Docs Updates**
-- **Examples** - Source code examples have been greatly improved. Required class names for each example will be highlighted in yellow. Other UI elements used in examples will now link out to their respective by clicking on their respective html.
+- **Examples** - Source code examples have been greatly improved. Required class names for each example will be highlighted in yellow. Other UI elements used in examples will now link out to their definition pages.
+
 
 **[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.0.3+is%3Aclosed)**
 - **Checkbox** - Checkbox initialized with JS and with `for/id` matching would cause toggle to occur twice on click (making it seem as if nothing was updated) **thanks @malacalypse** #2572
