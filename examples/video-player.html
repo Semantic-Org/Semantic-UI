@@ -247,23 +247,7 @@ $(document)
           popup.popup('hide');
         },
       })
-    ;
-
-    var volume = $('.seek.push.button')
-      .push()
-    ;
-    var seek = $('.seek.push.button')
-      .push({
-        onStart: function() { 
-          video.video('activate.holdPlayState');
-        },
-        onStop: function() { 
-          video.video('deactivate.holdPlayState');
-        },
-      })
-    ;
-    
-    
+    ; 
     
   })
 ;
