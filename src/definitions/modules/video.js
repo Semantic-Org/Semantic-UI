@@ -74,6 +74,7 @@ $.fn.video = function(parameters) {
         $seekingStateCheckbox       = $module.find(settings.selector.seekingStateCheckbox),
         $seekingStateDimmer         = $module.find(settings.selector.seekingStateDimmer),
         $timeLookupValue            = $module.find(settings.selector.timeLookupValue),
+        $sourcePicker               = $module.find(settings.selector.sourcePicker),
 
         timeRangeUpdateEnabled      = true,
         timeRangeInterval           = $timeRange.prop('max') - $timeRange.prop('min'),
@@ -132,6 +133,9 @@ $.fn.video = function(parameters) {
               .on('seeking'         + eventNamespace, module.update.seeking)
               .on('seeked'          + eventNamespace, module.update.seeked)
               .on('volumechange'    + eventNamespace, module.update.volume)
+              .on('emptied'         + eventNamespace, module.reset.time)
+              .on('loadedmetadata'  + eventNamespace + 
+                  ' loadeddata'     + eventNamespace, module.update.time)
             ;
             
             // from UI to video
@@ -171,7 +175,9 @@ $.fn.video = function(parameters) {
             $statesLabel
               .on('click'           + eventNamespace, module.request.void)
             ;
-            $seekButton.add()
+            $sourcePicker
+              .on('change'           + eventNamespace, module.request.source)
+            ;
           }
         },
         
@@ -182,6 +188,7 @@ $.fn.video = function(parameters) {
           module.update.rate();
           module.update.readyState();
           module.update.networkState();
+          // TODO : filter sources by type
         },
         
         // the functions in the both 'get' and 'is' range will query the elements and return the current value
@@ -304,6 +311,21 @@ $.fn.video = function(parameters) {
               }
             }
             return false;
+          },
+          formatSupported: function(mime) {
+            var supported;
+            // see https://developer.mozilla.org/fr/docs/Web/API/HTMLMediaElement#Methods
+            console.log(video.canPlayType(mime));
+            switch(video.canPlayType(mime)) {
+              case 'probably':
+              case 'maybe':
+                supported = true;
+                break;
+              default: 
+                supported = false;
+                break;
+            }
+            return supported;
           }
         },
         
@@ -484,6 +506,22 @@ $.fn.video = function(parameters) {
           void: function(event) {
             event.preventDefault();
             $(this).blur();
+          },
+          source: function(source, type) {
+            if(typeof source != 'string') {
+              source = $(this).dropdown('get value');
+            }
+            if(typeof type != 'string') {
+              type = $(this).find('select option[value="' + source + '"]').data('video-type');
+            }
+            
+            if(module.is.formatSupported(type)) {
+              module.debug('Request source', source);
+              $video.empty().append($('<source>', {src: source, type: type}));
+              video.load()
+            } else {
+              module.error('Request unsupported type', type, source);
+            }
           }
         },
          
@@ -518,6 +556,15 @@ $.fn.video = function(parameters) {
             var defaultRate = video.defaultPlaybackRate;
             module.debug('Reset playBack rate', defaultRate);
             video.playbackRate = defaultRate;
+          },
+          source: function() {
+            module.debug('Reset (empty) source');
+            $video.empty();
+            video.load()
+          },
+          time: function() {
+            module.debug('Reset time');
+            $currentTime.add($remainingTime).empty()
           },
           all: function() {
             // TODO: check modules integration
@@ -762,6 +809,7 @@ $.fn.video.settings = {
     timeLookupValue:        '.timelookup .time',
     timeLookupBuffer:       '.timelookup .buffer.checkbox input[type="checkbox"]',
     timeLookupPlayed:       '.timelookup .played.checkbox input[type="checkbox"]',
+    sourcePicker:           '.source.picker', // it needs to be .dropdown() initialized
     
     statesLabel:            '.ready.state label, .network.state label, .timelookup .buffer.checkbox label, .timelookup .played.checkbox label'
     

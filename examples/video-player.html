@@ -30,10 +30,7 @@
         <div class="ui seeking dimmer" style="background: none;">
           <div class="ui loader"></div>
         </div>
-        <video id="video" style="width:100%">
-          <source src="http://mooplay.challet.eu/media/video/sintel-1024-stereo.mp4" type='video/mp4'>
-          <source src="http://mooplay.challet.eu/media/video/sintel-1024-stereo.ogv" type='video/ogg'>
-        </video>
+        <video id="video" style="width:100%"></video>
       </section>
       
       <aside class="ui bottom attached form">
@@ -76,7 +73,15 @@
             </div>
           
             <div class="five wide column">
-            
+              
+              <select class="ui dropdown source picker" name="source" autocomplete="off">
+                <option disabled="disabled" selected="selected" value="">Source picker</option>
+                <option value="http://mooplay.challet.eu/media/video/sintel-1024-stereo.mp4" data-video-type="video/mp4">Sintel (mp4)</option>
+                <option value="http://mooplay.challet.eu/media/video/sintel-1024-stereo.ogv" data-video-type="video/ogg">Sintel (ogv)</option>
+                <option value="https://upload.wikimedia.org/wikipedia/commons/c/c9/Mayer_and_Bettle_2_-_Creative_Commons.ogv" data-video-type="video/ogg">Mayer and Bettele 2 (ogv)</option>
+                
+              </select>
+              
               <!--
               <select id="subtitles_select">
                   <option value="" class="none">no</option>
@@ -223,9 +228,6 @@
 $(document)
   .ready(function() {
     
-     $('.seek.push.button').push();
-    
-    
     var popup = $('input.time').parent()
       .popup({
          popup: $('.timelookup.popup'),
@@ -234,6 +236,8 @@ $(document)
          preserve: true,
        })
     ;
+    
+    var moviepicker = $('.ui.dropdown.picker').dropdown();
     
     var video = $('.ui.video')
      .video({
@@ -259,6 +263,8 @@ $(document)
         },
       })
     ;
+    
+    
     
   })
 ;
