@@ -72,7 +72,7 @@ $.fn.video = function(parameters) {
         $timeLookupBuffer           = $module.find(settings.selector.timeLookupBuffer),
         $timeLookupPlayed           = $module.find(settings.selector.timeLookupPlayed),
         $seekingStateCheckbox       = $module.find(settings.selector.seekingStateCheckbox),
-        $seekingStateDimmer         = $module.find(settings.selector.seekingStateDimmer),
+        $loaderDimmer               = $module.find(settings.selector.loaderDimmer),
         $timeLookupValue            = $module.find(settings.selector.timeLookupValue),
         $sourcePicker               = $module.find(settings.selector.sourcePicker),
 
@@ -80,7 +80,7 @@ $.fn.video = function(parameters) {
         timeRangeInterval           = $timeRange.prop('max') - $timeRange.prop('min'),
         
         seekLoopInitialPlayState    = undefined, // it actually means undefined, see activate.holdPlayState and deactivate.holdPlayState functions,
-        seekedTimer                 = window.setTimeout(1, function(){} ), // subsequent calls to window.clearTimeout won't break
+        loaderDelay                 = window.setTimeout(1, function(){} ), // subsequent calls to window.clearTimeout won't break
 
         element                     = this,
         video                       = $video.get(0),
@@ -130,12 +130,20 @@ $.fn.video = function(parameters) {
                   ' waiting'        + eventNamespace, module.update.networkState)
               .on('ratechange'      + eventNamespace, module.update.rate)
               .on('timeupdate'      + eventNamespace, module.update.time)
-              .on('seeking'         + eventNamespace, module.update.seeking)
-              .on('seeked'          + eventNamespace, module.update.seeked)
+              .on('seeking'         + eventNamespace, module.activate.loader)
+              .on('seeked'          + eventNamespace, module.deactivate.loader)
               .on('volumechange'    + eventNamespace, module.update.volume)
-              .on('emptied'         + eventNamespace, module.reset.time)
+              .on('emptied'         + eventNamespace, function() {
+                module.reset.time();
+                module.activate.loader();
+                module.deactivate.timeRange();
+              })
               .on('loadedmetadata'  + eventNamespace + 
-                  ' loadeddata'     + eventNamespace, module.update.time)
+                  ' loadeddata'     + eventNamespace, function() {
+                module.update.time();
+                module.deactivate.loader();
+                module.activate.timeRange();
+              })
             ;
             
             // from UI to video
@@ -345,32 +353,17 @@ $.fn.video = function(parameters) {
             var
               currentTime = module.get.currentTime(),
               duration = module.get.duration();
-            module.debug('Update time', currentTime);
-            // text displays
-            $currentTime.text(module.get.readableTime(currentTime));
-            $remainingTime.text( module.get.readableTime(duration - currentTime) );
-            // range display, prevent it to update when it has been 'mousedown'ed but not 'change'd yet
-            if(timeRangeUpdateEnabled) {
-              $timeRange.val( timeRangeInterval * currentTime / duration );
-            }
-          },
-          seeking: function() {
-            module.debug('Update seeking state', true);
-            window.clearTimeout(seekedTimer);
-            $seekingStateCheckbox.prop('checked', true);
-            $seekingStateDimmer.dimmer('show');
-          },
-          seeked: function(event) {
-            // a seeking loop makes "seeking" and "seeked" events to fire alternatively, add a delay to prevent the state to blink
-            if(event !== undefined) {
-              // a native undelayed event has occured 
-              seekedTimer = window.setTimeout(module.update.seeked, settings.seekedDelay);
-            }
-            else {
-              // a delayed call has occured
-              module.debug('Update seeking state', false);
-              $seekingStateCheckbox.prop('checked', false);
-              $seekingStateDimmer.dimmer('hide');
+            if(isNaN(duration)) {
+              module.reset.time();
+            } else {
+              module.debug('Update time', currentTime);
+              // text displays
+              $currentTime.text( module.get.readableTime(currentTime) );
+              $remainingTime.text( module.get.readableTime(duration - currentTime) );
+              // range display, prevent it to update when it has been 'mousedown'ed but not 'change'd yet
+              if(timeRangeUpdateEnabled) {
+                $timeRange.val( timeRangeInterval * currentTime / duration );
+              }
             }
           },
           volume: function() {
@@ -531,10 +524,21 @@ $.fn.video = function(parameters) {
             module.debug('Hold play state', seekLoopInitialPlayState);
             module.request.pause();
           },
+          timeRange: function() {
+            module.debug('Enable timerange');
+            $timeRange.prop('disabled', false);
+          },
           timeLookup: function() {
             settings.onTimeLookupStart();
             timeRangeUpdateEnabled = false;
-          }
+          },
+          loader: function() {
+            module.debug('Activate loader');
+            window.clearTimeout(loaderDelay);
+            //$seekingStateCheckbox.prop('checked', true);
+            $loaderDimmer.dimmer('show');
+          },
+          
         },
         
         deactivate: {
@@ -548,6 +552,23 @@ $.fn.video = function(parameters) {
           timeLookup: function() {
             settings.onTimeLookupStop();
             timeRangeUpdateEnabled = true;
+          },
+          timeRange: function() {
+            module.debug('Disable timerange');
+            $timeRange.prop('disabled', true);
+          },
+          loader: function(event) {
+            // a seeking loop makes "seeking" and "seeked" events to fire alternatively, add a delay to prevent the state to blink
+            if(event !== undefined) {
+              // a native undelayed event has occured 
+              loaderDelay = window.setTimeout(module.update.seeked, settings.seekedDelay);
+            }
+            else {
+              // a delayed call has occured
+              module.debug('Unactivate loader');
+              //$seekingStateCheckbox.prop('checked', false);
+              $loaderDimmer.dimmer('hide');
+            }
           }
         },
         
@@ -564,7 +585,7 @@ $.fn.video = function(parameters) {
           },
           time: function() {
             module.debug('Reset time');
-            $currentTime.add($remainingTime).empty()
+            $currentTime.add($remainingTime).text(settings.timeResetText);
           },
           all: function() {
             // TODO: check modules integration
@@ -802,8 +823,8 @@ $.fn.video.settings = {
     muteButton:             '.mute.button',
     rateInput:              '.rate input[type="number"]',
     rateReset:              '.rate .reset',
-    seekingStateCheckbox:   '.seeking.checkbox input[type="checkbox"]',
-    seekingStateDimmer:     '.seeking.dimmer',
+    //seekingStateCheckbox:   '.seeking.checkbox input[type="checkbox"]',
+    loaderDimmer:           '.load.dimmer',
     readyStateRadio:        '.ready.state input[type="radio"]',           // could work with <select>
     networkStateRadio:      '.network.state input[type="radio"]',         // |
     timeLookupValue:        '.timelookup .time',
@@ -836,6 +857,7 @@ $.fn.video.settings = {
   },
   
   seekedDelay: 250, // ms
+  timeResetText: '0:00:00',
   
   onTimeLookupStart: function() {},
   onTimeLookupStop: function() {},
