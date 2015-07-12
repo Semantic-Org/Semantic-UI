@@ -75,6 +75,7 @@ $.fn.video = function(parameters) {
         $loaderDimmer               = $module.find(settings.selector.loaderDimmer),
         $timeLookupValue            = $module.find(settings.selector.timeLookupValue),
         $sourcePicker               = $module.find(settings.selector.sourcePicker),
+        $requirePlayableMode        = $playButton.add($seekButton).add($timeRange),
 
         timeRangeUpdateEnabled      = true,
         timeRangeInterval           = $timeRange.prop('max') - $timeRange.prop('min'),
@@ -133,17 +134,8 @@ $.fn.video = function(parameters) {
               .on('seeking'         + eventNamespace, module.activate.loader)
               .on('seeked'          + eventNamespace, module.deactivate.loader)
               .on('volumechange'    + eventNamespace, module.update.volume)
-              .on('emptied'         + eventNamespace, function() {
-                module.reset.time();
-                module.activate.loader();
-                module.deactivate.timeRange();
-              })
-              .on('loadedmetadata'  + eventNamespace + 
-                  ' loadeddata'     + eventNamespace, function() {
-                module.update.time();
-                module.deactivate.loader();
-                module.activate.timeRange();
-              })
+              .on('emptied'         + eventNamespace, module.deactivate.playable)
+              .on('loadedmetadata' +  eventNamespace, module.activate.playable)
             ;
             
             // from UI to video
@@ -524,10 +516,6 @@ $.fn.video = function(parameters) {
             module.debug('Hold play state', seekLoopInitialPlayState);
             module.request.pause();
           },
-          timeRange: function() {
-            module.debug('Enable timerange');
-            $timeRange.prop('disabled', false);
-          },
           timeLookup: function() {
             settings.onTimeLookupStart();
             timeRangeUpdateEnabled = false;
@@ -538,7 +526,12 @@ $.fn.video = function(parameters) {
             //$seekingStateCheckbox.prop('checked', true);
             $loaderDimmer.dimmer('show');
           },
-          
+          playable: function() {
+            module.debug('Activate playable mode');
+            module.update.time();
+            module.deactivate.loader();
+            $requirePlayableMode.removeClass(settings.className.disabled);
+          }
         },
         
         deactivate: {
@@ -553,10 +546,6 @@ $.fn.video = function(parameters) {
             settings.onTimeLookupStop();
             timeRangeUpdateEnabled = true;
           },
-          timeRange: function() {
-            module.debug('Disable timerange');
-            $timeRange.prop('disabled', true);
-          },
           loader: function(event) {
             // a seeking loop makes "seeking" and "seeked" events to fire alternatively, add a delay to prevent the state to blink
             if(event !== undefined) {
@@ -569,6 +558,13 @@ $.fn.video = function(parameters) {
               //$seekingStateCheckbox.prop('checked', false);
               $loaderDimmer.dimmer('hide');
             }
+          },
+          playable: function() {
+            module.debug('Deactivater playable mode');
+            module.request.pause();
+            module.reset.time();
+            module.activate.loader();
+            $requirePlayableMode.addClass(settings.className.disabled);
           }
         },
         
