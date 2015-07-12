@@ -92,7 +92,6 @@ $.fn.video = function(parameters) {
         initialize: function() {
           module.debug('Initializing video');
           module.instantiate();
-          module.bind.pushes();
           module.bind.events();
           module.initialValues(); 
         },
@@ -106,14 +105,6 @@ $.fn.video = function(parameters) {
         },
         
         bind: {
-          pushes: function() {
-            // sub-module init
-            $seekButton.push({
-              onStart: module.activate.holdPlayState,
-              onStop: module.deactivate.holdPlayState
-            });
-            $volumeChangeButton.push();
-          },
           
           events: function() {
             module.debug('Binding video module events');
@@ -172,13 +163,13 @@ $.fn.video = function(parameters) {
               .on('click'           + eventNamespace, module.reset.rate)
             ;
             $readyStateRadio
-              .on('click'           + eventNamespace, module.request.denied)
+              .on('click'           + eventNamespace, module.request.void)
             ;
             $networkStateRadio
-              .on('click'           + eventNamespace, module.request.denied)
+              .on('click'           + eventNamespace, module.request.void)
             ;
             $statesLabel
-              .on('click'           + eventNamespace, module.request.denied)
+              .on('click'           + eventNamespace, module.request.void)
             ;
             $seekButton.add()
           }
@@ -224,7 +215,6 @@ $.fn.video = function(parameters) {
             return $video.prop('playbackRate'); // float, limits depend on browsers implementations
           },
           readyState: function() {
-            // use module related constants
             var state;
             switch($video.prop('readyState')) {
               default:
@@ -244,10 +234,13 @@ $.fn.video = function(parameters) {
                 state = settings.constants.HAVE_ENOUGH_DATA;
                 break;
             }
+            // outputs SUI module related constants
             return state;
           },
           networkState: function() {
-            // use module related constants
+            // TODO check wether the browsers actually update this prop, primary tests look like it is stuck on
+            // - NETWORK_LOADING with FF 37.0.2, 
+            // - NETWORK_IDLE with Chrome 42.0.2311.135
             var state;
             switch($video.prop('networkState')) {
               default:
@@ -264,6 +257,7 @@ $.fn.video = function(parameters) {
                 state = settings.constants.NETWORK_NO_SOURCE; 
                 break;
             }
+            // outputs SUI module related constants
             return state;
           },
           timeRangeValue: function() { // as time
@@ -345,9 +339,9 @@ $.fn.video = function(parameters) {
             $seekingStateDimmer.dimmer('show');
           },
           seeked: function(event) {
-            // a seeking loop makes "seeking" and "seeked" events to fire alternatively, add a delay to prevent the sate to blink
+            // a seeking loop makes "seeking" and "seeked" events to fire alternatively, add a delay to prevent the state to blink
             if(event !== undefined) {
-              // an native undelayed event has occured 
+              // a native undelayed event has occured 
               seekedTimer = window.setTimeout(module.update.seeked, settings.seekedDelay);
             }
             else {
@@ -487,7 +481,7 @@ $.fn.video = function(parameters) {
               module.request.mute();
             }
           },
-          denied: function(event) {
+          void: function(event) {
             event.preventDefault();
             $(this).blur();
           }
@@ -535,7 +529,7 @@ $.fn.video = function(parameters) {
         destroy: function() {
           module.verbose('Destroying previous instance of video');
           $video = null;
-          module.reset();
+          module.reset.all(); // TODO : check module integration
           $module
             .removeData(moduleNamespace)
             .off(eventNamespace)
@@ -654,64 +648,63 @@ $.fn.video = function(parameters) {
               console.groupEnd();
             }
             performance = [];
-          },
-        
-          invoke: function(query, passedArguments, context) {
-            var
-              object = instance,
-              maxDepth,
-              found,
-              response
-            ;
-            passedArguments = passedArguments || queryArguments;
-            context         = element         || context;
-            if(typeof query == 'string' && object !== undefined) {
-              query    = query.split(/[\. ]/);
-              maxDepth = query.length - 1;
-              $.each(query, function(depth, value) {
-                var camelCaseValue = (depth != maxDepth)
-                  ? value + query[depth + 1].charAt(0).toUpperCase() + query[depth + 1].slice(1)
-                  : query
-                ;
-                if( $.isPlainObject( object[camelCaseValue] ) && (depth != maxDepth) ) {
-                  object = object[camelCaseValue];
-                }
-                else if( object[camelCaseValue] !== undefined ) {
-                  found = object[camelCaseValue];
-                  return false;
-                }
-                else if( $.isPlainObject( object[value] ) && (depth != maxDepth) ) {
-                  object = object[value];
-                }
-                else if( object[value] !== undefined ) {
-                  found = object[value];
-                  return false;
-                }
-                else {
-                  module.error(query);
-                  return false;
-                }
-              });
-            }
-            if ( $.isFunction( found ) ) {
-              response = found.apply(context, passedArguments);
-            }
-            else if(found !== undefined) {
-              response = found;
-            }
-            if($.isArray(returnedValue)) {
-              returnedValue.push(response);
-            }
-            else if(returnedValue !== undefined) {
-              returnedValue = [returnedValue, response];
-            }
-            else if(response !== undefined) {
-              returnedValue = response;
-            }
-            return found;
           }
+        },
         
-        } 
+        invoke: function(query, passedArguments, context) {
+          var
+            object = instance,
+            maxDepth,
+            found,
+            response
+          ;
+          passedArguments = passedArguments || queryArguments;
+          context         = element         || context;
+          if(typeof query == 'string' && object !== undefined) {
+            query    = query.split(/[\. ]/);
+            maxDepth = query.length - 1;
+            $.each(query, function(depth, value) {
+              var camelCaseValue = (depth != maxDepth)
+                ? value + query[depth + 1].charAt(0).toUpperCase() + query[depth + 1].slice(1)
+                : query
+              ;
+              if( $.isPlainObject( object[camelCaseValue] ) && (depth != maxDepth) ) {
+                object = object[camelCaseValue];
+              }
+              else if( object[camelCaseValue] !== undefined ) {
+                found = object[camelCaseValue];
+                return false;
+              }
+              else if( $.isPlainObject( object[value] ) && (depth != maxDepth) ) {
+                object = object[value];
+              }
+              else if( object[value] !== undefined ) {
+                found = object[value];
+                return false;
+              }
+              else {
+                module.error(query);
+                return false;
+              }
+            });
+          }
+          if ( $.isFunction( found ) ) {
+            response = found.apply(context, passedArguments);
+          }
+          else if(found !== undefined) {
+            response = found;
+          }
+          if($.isArray(returnedValue)) {
+            returnedValue.push(response);
+          }
+          else if(returnedValue !== undefined) {
+            returnedValue = [returnedValue, response];
+          }
+          else if(response !== undefined) {
+            returnedValue = response;
+          }
+          return found;
+        }
         
       }; 
 
@@ -797,7 +790,8 @@ $.fn.video.settings = {
   seekedDelay: 250, // ms
   
   onTimeLookupStart: function() {},
-  onTimeLookupStop: function() {}
+  onTimeLookupStop: function() {},
+  onReset: function() {}
   
 };
 

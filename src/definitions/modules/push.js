@@ -253,64 +253,63 @@ $.fn.push = function(parameters) {
               console.groupEnd();
             }
             performance = [];
-          },
-        
-          invoke: function(query, passedArguments, context) {
-            var
-              object = instance,
-              maxDepth,
-              found,
-              response
-            ;
-            passedArguments = passedArguments || queryArguments;
-            context         = element         || context;
-            if(typeof query == 'string' && object !== undefined) {
-              query    = query.split(/[\. ]/);
-              maxDepth = query.length - 1;
-              $.each(query, function(depth, value) {
-                var camelCaseValue = (depth != maxDepth)
-                  ? value + query[depth + 1].charAt(0).toUpperCase() + query[depth + 1].slice(1)
-                  : query
-                ;
-                if( $.isPlainObject( object[camelCaseValue] ) && (depth != maxDepth) ) {
-                  object = object[camelCaseValue];
-                }
-                else if( object[camelCaseValue] !== undefined ) {
-                  found = object[camelCaseValue];
-                  return false;
-                }
-                else if( $.isPlainObject( object[value] ) && (depth != maxDepth) ) {
-                  object = object[value];
-                }
-                else if( object[value] !== undefined ) {
-                  found = object[value];
-                  return false;
-                }
-                else {
-                  module.error(query);
-                  return false;
-                }
-              });
-            }
-            if ( $.isFunction( found ) ) {
-              response = found.apply(context, passedArguments);
-            }
-            else if(found !== undefined) {
-              response = found;
-            }
-            if($.isArray(returnedValue)) {
-              returnedValue.push(response);
-            }
-            else if(returnedValue !== undefined) {
-              returnedValue = [returnedValue, response];
-            }
-            else if(response !== undefined) {
-              returnedValue = response;
-            }
-            return found;
           }
+        },
         
-        } 
+        invoke: function(query, passedArguments, context) {
+          var
+            object = instance,
+            maxDepth,
+            found,
+            response
+          ;
+          passedArguments = passedArguments || queryArguments;
+          context         = element         || context;
+          if(typeof query == 'string' && object !== undefined) {
+            query    = query.split(/[\. ]/);
+            maxDepth = query.length - 1;
+            $.each(query, function(depth, value) {
+              var camelCaseValue = (depth != maxDepth)
+                ? value + query[depth + 1].charAt(0).toUpperCase() + query[depth + 1].slice(1)
+                : query
+              ;
+              if( $.isPlainObject( object[camelCaseValue] ) && (depth != maxDepth) ) {
+                object = object[camelCaseValue];
+              }
+              else if( object[camelCaseValue] !== undefined ) {
+                found = object[camelCaseValue];
+                return false;
+              }
+              else if( $.isPlainObject( object[value] ) && (depth != maxDepth) ) {
+                object = object[value];
+              }
+              else if( object[value] !== undefined ) {
+                found = object[value];
+                return false;
+              }
+              else {
+                module.error(query);
+                return false;
+              }
+            });
+          }
+          if ( $.isFunction( found ) ) {
+            response = found.apply(context, passedArguments);
+          }
+          else if(found !== undefined) {
+            response = found;
+          }
+          if($.isArray(returnedValue)) {
+            returnedValue.push(response);
+          }
+          else if(returnedValue !== undefined) {
+            returnedValue = [returnedValue, response];
+          }
+          else if(response !== undefined) {
+            returnedValue = response;
+          }
+          return found;
+        }
         
       }; 
 
@@ -355,6 +354,7 @@ $.fn.push.settings = {
   
   onStart: function() {},
   onStop: function() {},
+  onReset: function() {}
   
 };
 

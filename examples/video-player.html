@@ -223,6 +223,9 @@
 $(document)
   .ready(function() {
     
+     $('.seek.push.button').push();
+    
+    
     var popup = $('input.time').parent()
       .popup({
          popup: $('.timelookup.popup'),
@@ -232,13 +235,27 @@ $(document)
        })
     ;
     
-    $('.ui.video')
+    var video = $('.ui.video')
      .video({
         onTimeLookupStart: function() {
           popup.popup('show');
         },
         onTimeLookupStop: function() {
           popup.popup('hide');
+        },
+      })
+    ;
+
+    var volume = $('.seek.push.button')
+      .push()
+    ;
+    var seek = $('.seek.push.button')
+      .push({
+        onStart: function() { 
+          video.video('activate.holdPlayState');
+        },
+        onStop: function() { 
+          video.video('deactivate.holdPlayState');
         },
       })
     ;
