@@ -484,6 +484,14 @@ $.fn.popup = function(parameters) {
               }
             };
 
+            // add in container if fluid
+            if( settings.setFluidWidth && module.is.fluid() ) {
+              calculations.container = {
+                width: $popup.parent().outerWidth()
+              };
+              calculations.popup.width = calculations.container.width;
+            }
+
             // add in margins if inline
             calculations.target.margin.top = (settings.inline)
               ? parseInt( window.getComputedStyle(targetElement).getPropertyValue('margin-top'), 10)
@@ -669,6 +677,7 @@ $.fn.popup = function(parameters) {
               popupOffset,
               distanceFromBoundary
             ;
+
             calculations = calculations || module.get.calculations();
             position     = position     || $module.data(metadata.position) || settings.position;
 
@@ -830,16 +839,17 @@ $.fn.popup = function(parameters) {
             }
             module.debug('Position is on stage', position);
             module.remove.attempts();
-            module.set.fluidWidth(calculations);
             module.remove.loading();
+            if( settings.setFluidWidth && module.is.fluid() ) {
+              module.set.fluidWidth(calculations);
+            }
             return true;
           },
 
           fluidWidth: function(calculations) {
             calculations = calculations || module.get.calculations();
-            if( settings.setFluidWidth && $popup.hasClass(className.fluid) ) {
-              $popup.css('width', calculations.parent.width);
-            }
+            module.debug('Automatically setting element width to parent width', calculations.parent.width);
+            $popup.css('width', calculations.container.width);
           },
 
           visible: function() {
@@ -979,6 +989,9 @@ $.fn.popup = function(parameters) {
           },
           animating: function() {
             return ( $popup && $popup.hasClass(className.animating) );
+          },
+          fluid: function() {
+            return ( $popup && $popup.hasClass(className.fluid));
           },
           visible: function() {
             return $popup && $popup.hasClass(className.visible);
