@@ -8,9 +8,12 @@
 - **Popup** - `fluid` popup with `setFluidWidth: true` (default value), will now use `parent` width and not `offsetContext` width #2526
 - **Visibility** - `refreshOnResize` now correctly includes a default value #2615
 - **Button** - Fixed `fluid buttons` not working correctly with `<button>` due to button tags not supporting `flex` rules. #2617
+- **Sticky** - Fixed `sticky` element that cannot fit in viewport not scrolling correctly when fixed to viewport #2605
 
 **Additional Bugs**
 - **Popup** - `wide` and `very wide` popup will now limit themselves to normal popup widths on mobile so that they still appear on screen.
+- **Sticky** - Fixed `sticky` content jumping from `fixed` to `bount bottom` when scroll position has surpassed bottom of container during page refresh.
+- **Sticky** - Sticky no longer uses `bottomPadding` to determine bottom edge of container.
 
 ### Version 2.0.3 - July 8, 2015
 
