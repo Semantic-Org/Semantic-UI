@@ -1826,21 +1826,12 @@ input::selection {
 --------------------*/
 
 .ui.fluid.buttons,
-.ui.button.fluid {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
+.ui.fluid.button {
   width: 100%;
+}
+
+.ui.fluid.button {
+  display: block;
 }
 
 .ui.two.buttons {
