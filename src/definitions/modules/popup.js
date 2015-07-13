@@ -484,7 +484,7 @@ $.fn.popup = function(parameters) {
               }
             };
 
-            // add in container if fluid
+            // add in container calcs if fluid
             if( settings.setFluidWidth && module.is.fluid() ) {
               calculations.container = {
                 width: $popup.parent().outerWidth()
