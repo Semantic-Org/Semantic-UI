@@ -829,7 +829,7 @@ $.fn.popup = function(parameters) {
                 }
                 else {
                   module.debug('Popup could not find a position to display', $popup);
-                  module.error(error.cannotPlace, element, distanceFromBoundary);
+                  module.error(error.cannotPlace, element);
                   module.remove.attempts();
                   module.remove.loading();
                   module.reset();
