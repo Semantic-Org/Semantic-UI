@@ -1140,6 +1140,9 @@ $.fn.visibility.settings = {
   // whether to refresh calculations after all page images load
   refreshOnLoad          : true,
 
+  // whether to refresh calculations after page resize event
+  refreshOnResize        : true,
+
   // callback should only occur one time
   once                   : true,
 
