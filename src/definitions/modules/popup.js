@@ -1280,7 +1280,7 @@ $.fn.popup.settings = {
   distanceAway   : 0,
 
   // number of pixels an element is allowed to be "offstage" for a position to be chosen (allows for rounding)
-  jitter         : 1,
+  jitter         : 2,
 
   // offset on aligning axis from calculated position
   offset         : 0,
