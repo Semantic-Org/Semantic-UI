@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.3 - Popup
+ * # Semantic UI 2.0.4 - Popup
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -273,6 +273,12 @@
 }
 .ui[class*="very wide"].popup {
   max-width: 550px;
+}
+@media only screen and (max-width: 767px) {
+  .ui.wide.popup,
+  .ui[class*="very wide"].popup {
+    max-width: 250px;
+  }
 }
 
 /*--------------

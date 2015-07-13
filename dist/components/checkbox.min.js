@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.3 - Checkbox
+ * # Semantic UI 2.0.4 - Checkbox
  * http://github.com/semantic-org/semantic-ui/
  *
  *
