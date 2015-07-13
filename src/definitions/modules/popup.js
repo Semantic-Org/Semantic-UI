@@ -495,10 +495,10 @@ $.fn.popup = function(parameters) {
             // calculate screen boundaries
             screen = calculations.screen;
             calculations.boundary = {
-              top    : screen.scroll.top,
-              bottom : screen.scroll.top + screen.height,
-              left   : screen.scroll.left,
-              right  : screen.scroll.left + screen.width
+              top    : screen.scroll.top - settings.jitter,
+              bottom : screen.scroll.top + screen.height + settings.jitter,
+              left   : screen.scroll.left - settings.jitter,
+              right  : screen.scroll.left + screen.width + settings.jitter
             };
             return calculations;
           },
@@ -1171,7 +1171,7 @@ $.fn.popup.settings = {
   name         : 'Popup',
 
   // module settings
-  debug        : false,
+  debug        : true,
   verbose      : false,
   performance  : true,
   namespace    : 'popup',
@@ -1266,6 +1266,9 @@ $.fn.popup.settings = {
 
   // distance away from activating element in px
   distanceAway   : 0,
+
+  // number of pixels an element is allowed to be "offstage" (allows for rounding errors)
+  jitter         : 2,
 
   // offset on aligning axis from calculated position
   offset         : 0,
