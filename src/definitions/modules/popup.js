@@ -713,8 +713,8 @@ $.fn.popup = function(parameters) {
               module.debug('RTL: Popup position updated', position);
             }
 
-            if(searchDepth == settings.maxSearchDepth && settings.lastResort) {
-              module.debug('Using "last resort" position to display', settings.lastResort);
+            // if last attempt use specified last resort position
+            if(searchDepth == settings.maxSearchDepth && typeof settings.lastResort === 'string') {
               position = settings.lastResort;
             }
 
@@ -814,13 +814,18 @@ $.fn.popup = function(parameters) {
                   : false
                 ;
               }
-              else if(!settings.lastResort) {
-                module.debug('Popup could not find a position in view', $popup);
-                // module.error(error.cannotPlace, element);
-                module.remove.attempts();
-                module.remove.loading();
-                module.reset();
-                return false;
+              else {
+                if(settings.lastResort) {
+                  module.debug('No position found, showing with last position');
+                }
+                else {
+                  module.debug('Popup could not find a position to display', $popup);
+                  module.error(error.cannotPlace, element, distanceFromBoundary);
+                  module.remove.attempts();
+                  module.remove.loading();
+                  module.reset();
+                  return false;
+                }
               }
             }
             module.debug('Position is on stage', position);
@@ -1286,11 +1291,11 @@ $.fn.popup.settings = {
   offset         : 0,
 
   // maximum times to look for a position before failing (9 positions total)
-  maxSearchDepth : 20,
+  maxSearchDepth : 15,
 
   error: {
     invalidPosition : 'The position you specified is not a valid position',
-    cannotPlace     : 'No visible position could be found for the popup',
+    cannotPlace     : 'Popup does not fit within the boundaries of the viewport',
     method          : 'The method you called is not defined.',
     noTransition    : 'This module requires ui transitions <https://github.com/Semantic-Org/UI-Transition>',
     notFound        : 'The target or popup you specified does not exist on the page'
