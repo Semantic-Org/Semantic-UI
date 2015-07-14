@@ -11,6 +11,7 @@
 - **Segment* - `horizontal segments` in IE will no longer stretch to the natural width of child imgs #2550 [flexbug #1](https://github.com/philipwalton/flexbugs#1-minimum-content-sizing-of-flex-items-not-honored)
 - **Sticky** - Fixed `sticky` element that cannot fit in viewport not scrolling correctly when fixed to viewport #2605
 - **Form** - Fixed issue with `minLength[1]` validation not behaving same as `minLength > 2` #2636.
+- **Form** - Form fields will now error when a non-string identifier is used
 
 **Additional Bugs**
 - **Popup** - `wide` and `very wide` popup will now limit themselves to normal popup widths on mobile so that they still appear on screen.

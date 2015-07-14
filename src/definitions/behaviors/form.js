@@ -495,6 +495,9 @@ $.fn.form = function(parameters) {
 
           field: function(identifier) {
             module.verbose('Checking for existence of a field with identifier', identifier);
+            if(typeof identifier !== 'string') {
+              module.error(error.identifier, identifier);
+            }
             if( $field.filter('#' + identifier).length > 0 ) {
               return true;
             }
@@ -1017,9 +1020,10 @@ $.fn.form.settings = {
   },
 
   error: {
-    oldSyntax : 'Starting in 2.0 forms now only take a single settings object. Validation settings converted to new syntax automatically.',
-    noRule    : 'There is no rule matching the one you specified',
-    method    : 'The method you called is not defined.'
+    oldSyntax  : 'Starting in 2.0 forms now only take a single settings object. Validation settings converted to new syntax automatically.',
+    identifier : 'You must specify a string identifier for each field',
+    noRule     : 'There is no rule matching the one you specified',
+    method     : 'The method you called is not defined.'
   },
 
   templates: {
