@@ -760,9 +760,11 @@ $.fn.form = function(parameters) {
               ancillary,
               functionType
             ;
-            // cast to string
-            value = $.trim($field.val() + '');
-
+            // cast to string avoiding encoding special values
+            value = (value === undefined || value === '' || value === null)
+              ? ''
+              : $.trim(value + '')
+            ;
             // if bracket notation is used, pass in extra parameters
             if(bracket) {
               ancillary    = '' + bracket[1];
@@ -1185,19 +1187,34 @@ $.fn.form.settings = {
       ;
     },
 
-    maxCount: function(value, count) {
-      value = value.split(',');
-      return ($.isArray(value) && value.length <= count);
+    exactCount: function(value, exactCount) {
+      if(exactCount == 0) {
+        return (value === '');
+      }
+      if(exactCount == 1) {
+        return (value !== '' && value.search(',') === -1);
+      }
+      return (value.split(',').length == exactCount);
     },
 
-    exactCount: function(value, count) {
-      value = value.split(',');
-      return ($.isArray(value) && value.length == count);
+    minCount: function(value, minCount) {
+      if(minCount == 0) {
+        return true;
+      }
+      if(minCount == 1) {
+        return (value !== '');
+      }
+      return (value.split(',').length >= minCount);
     },
 
-    minCount: function(value, count) {
-      value = value.split(',');
-      return ($.isArray(value) && value.length >= count);
+    maxCount: function(value, maxCount) {
+      if(maxCount == 0) {
+        return false;
+      }
+      if(maxCount == 1) {
+        return (value.search(',') === -1);
+      }
+      return (value.split(',').length <= maxCount);
     },
 
     regExp: function(value, regExp) {
