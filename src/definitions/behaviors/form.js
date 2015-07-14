@@ -1051,9 +1051,40 @@ $.fn.form.settings = {
 
   rules: {
 
+    // is not empty or blank string
+    empty: function(value) {
+      return !(value === undefined || '' === value || $.isArray(value) && value.length === 0);
+    },
+
     // checkbox checked
     checked: function() {
       return ($(this).filter(':checked').length > 0);
+    },
+
+    // is most likely an email
+    email: function(value){
+      var
+        emailRegExp = new RegExp($.fn.form.settings.regExp.email, 'i')
+      ;
+      return emailRegExp.test(value);
+    },
+
+    // is value (case insensitive)
+    is: function(value, text) {
+      text = (typeof text == 'string')
+        ? text.toLowerCase()
+        : text
+      ;
+      value = (typeof value == 'string')
+        ? value.toLowerCase()
+        : value
+      ;
+      return (value == text);
+    },
+
+    // is value
+    isExactly: function(value, text) {
+      return (value == text);
     },
 
     // value contains text (insensitive)
@@ -1070,17 +1101,36 @@ $.fn.form.settings = {
       return (value.search( new RegExp(text) ) !== -1);
     },
 
-    // is most likely an email
-    email: function(value){
-      var
-        emailRegExp = new RegExp($.fn.form.settings.regExp.email, 'i')
-      ;
-      return emailRegExp.test(value);
+    // value contains text (insensitive)
+    doesntContain: function(value, text) {
+      // escape regex characters
+      text = text.replace($.fn.form.settings.regExp.escape, "\\$&");
+      return (value.search( new RegExp(text, 'i') ) === -1);
     },
 
-    // is not empty or blank string
-    empty: function(value) {
-      return !(value === undefined || '' === value || $.isArray(value) && value.length === 0);
+    // value contains text (case sensitive)
+    doesntContainExactly: function(value, text) {
+      // escape regex characters
+      text = text.replace($.fn.form.settings.regExp.escape, "\\$&");
+      return (value.search( new RegExp(text) ) === -1);
+    },
+
+    // value is not value (case insensitive)
+    not: function(value, notValue) {
+      value = (typeof value == 'string')
+        ? value.toLowerCase()
+        : value
+      ;
+      notValue = (typeof notValue == 'string')
+        ? notValue.toLowerCase()
+        : notValue
+      ;
+      return (value != notValue);
+    },
+
+    // value is not value (case sensitive)
+    notExactly: function(value, notValue) {
+      return (value != notValue);
     },
 
     // is valid integer
@@ -1113,24 +1163,6 @@ $.fn.form.settings = {
         (min === undefined || value >= min) &&
         (max === undefined || value <= max)
       );
-    },
-
-    // is value (case insensitive)
-    is: function(value, text) {
-      text = (typeof text == 'string')
-        ? text.toLowerCase()
-        : text
-      ;
-      value = (typeof value == 'string')
-        ? value.toLowerCase()
-        : value
-      ;
-      return (value == text);
-    },
-
-    // is value
-    isExactly: function(value, text) {
-      return (value == text);
     },
 
     // is at least string length
@@ -1246,24 +1278,6 @@ $.fn.form.settings = {
         ? (value.length <= maxLength)
         : false
       ;
-    },
-
-    // value is not value (case insensitive)
-    not: function(value, notValue) {
-      value = (typeof value == 'string')
-        ? value.toLowerCase()
-        : value
-      ;
-      notValue = (typeof notValue == 'string')
-        ? notValue.toLowerCase()
-        : notValue
-      ;
-      return (value != notValue);
-    },
-
-    // value is not value (case sensitive)
-    notExactly: function(value, notValue) {
-      return (value != notValue);
     },
 
     // value is most likely url
