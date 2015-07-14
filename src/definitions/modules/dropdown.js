@@ -2090,6 +2090,12 @@ $.fn.dropdown = function(parameters) {
                   return;
                 }
               }
+
+              if( $input.is('select') && (settings.allowAdditions || settings.apiSettings) ) {
+                module.debug('Adding an option to the select before setting the value', value);
+                module.add.optionValue(value);
+              }
+
               module.debug('Updating input value', value, currentValue);
               $input
                 .val(value)
@@ -2351,10 +2357,10 @@ $.fn.dropdown = function(parameters) {
               newValue = [addedValue];
             }
             // add values
-            if( $input.is('select')) {
-              if(settings.allowAdditions) {
-                module.add.optionValue(addedValue);
+            if($input.is('select')) {
+              if(settings.allowAdditions || settings.apiSettings) {
                 module.debug('Adding value to select', addedValue, newValue, $input);
+                module.add.optionValue(addedValue);
               }
             }
             else {

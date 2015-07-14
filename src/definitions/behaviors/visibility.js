@@ -1137,8 +1137,17 @@ $.fn.visibility.settings = {
   // whether to use mutation observers to follow changes
   observeChanges         : true,
 
+  // check position immediately on init
+  initialCheck           : true,
+
   // whether to refresh calculations after all page images load
   refreshOnLoad          : true,
+
+  // whether to refresh calculations after page resize event
+  refreshOnResize        : true,
+
+  // should call callbacks on refresh event (resize, etc)
+  checkOnRefresh         : true,
 
   // callback should only occur one time
   once                   : true,
@@ -1155,9 +1164,6 @@ $.fn.visibility.settings = {
   // scroll context for visibility checks
   context                : window,
 
-  // check position immediately on init
-  initialCheck           : true,
-
   // visibility check delay in ms (defaults to animationFrame)
   throttle               : false,
 
@@ -1170,9 +1176,6 @@ $.fn.visibility.settings = {
 
   // array of callbacks for percentage
   onPassed               : {},
-
-  // should call callbacks on refresh event (resize, etc)
-  checkOnRefresh         : true,
 
   // standard callbacks
   onOnScreen             : false,

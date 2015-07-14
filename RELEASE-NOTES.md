@@ -1,10 +1,41 @@
 ## RELEASE NOTES
 
+
+### Version 2.0.4 - July X, 2015
+
+**[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.0.4+is%3Aclosed)**
+- **Popup** - Fixed issues where rounding could cause elements that are against edge of page from not appearing. Add new `jitter` setting for allowing popups to escape page boundaries by a small margin #2526
+- **Popup** - `fluid` popup with `setFluidWidth: true` (default value), will now use `parent` width and not `offsetContext` width #2526
+- **Visibility** - `refreshOnResize` now correctly includes a default value #2615
+- **Button** - Fixed `fluid buttons` not working correctly with `<button>` due to button tags not supporting `flex` rules. #2617
+- **Sticky** - Fixed `sticky` element that cannot fit in viewport not scrolling correctly when fixed to viewport #2605
+
+**Additional Bugs**
+- **Popup** - `wide` and `very wide` popup will now limit themselves to normal popup widths on mobile so that they still appear on screen.
+- **Sticky** - Fixed `sticky` content jumping from `fixed` to `bount bottom` when scroll position has surpassed bottom of container during page refresh.
+- **Sticky** - Sticky no longer uses `bottomPadding` to determine bottom edge of container.
+
 ### Version 2.0.3 - July 8, 2015
 
-- **Popup** - Popup `preserve` setting (which preserves popup in DOM to avoid regenerating on each show/hide) was set to `true` by default causing generated popups to remain in DOM. #1369
-- **Form** - URL regexp will now match now works correctly, and matches against non `http://` prefixed urls like `www.google.com`
+**Docs Updates**
+- **Examples** - Source code examples have been greatly improved. Required class names for each example will be highlighted in yellow. Other UI elements used in examples will now link out to their definition pages.
+
+
+**[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.0.3+is%3Aclosed)**
+- **Checkbox** - Checkbox initialized with JS and with `for/id` matching would cause toggle to occur twice on click (making it seem as if nothing was updated) **thanks @malacalypse** [#2572](https://github.com/Semantic-Org/Semantic-UI/issues/2572)
+- **Divider/Grid** - `vertical divider` no longer has inexplicable right border when stacked on mobile [#2558](https://github.com/Semantic-Org/Semantic-UI/issues/2558)
+- **Dropdown** - Dropdown using `<select>` and `apiSettings` will now correctly add new `<option>` value when selections are made [#2573](https://github.com/Semantic-Org/Semantic-UI/issues/2573)
+- **Icon** - `black icon` have been added back as a color option [#2556](https://github.com/Semantic-Org/Semantic-UI/issues/2556)
+- **Icon** - Adds missing `square` and `square outline` icon [#2532](https://github.com/Semantic-Org/Semantic-UI/issues/2532)
 - **Input** - Fixed errored input field having incorrect border radius with `labeled input`
+- **Modal** - Modal that is larger than page height will now correctly reset body height on remove [#2576](https://github.com/Semantic-Org/Semantic-UI/issues/2576)
+- **Popup** - Popup `preserve` setting (which preserves popup in DOM to avoid regenerating on each show/hide) was set to `true` by default causing generated popups to remain in DOM. [#1369](https://github.com/Semantic-Org/Semantic-UI/issues/1369)
+- **Steps** - Fixed `github` theme for steps not displaying correctly in 2.0 [#2545](https://github.com/Semantic-Org/Semantic-UI/issues/2545)
+- **Steps** - Last `step` no longer incorrectly shows arrow [#2552](https://github.com/Semantic-Org/Semantic-UI/issues/2552)
+- **Transition** - Fixes `get current animation` erroring when `module cache` is cleared. [#2469](https://github.com/Semantic-Org/Semantic-UI/issues/2469)
+
+**Additional Bugs**
+- **Form** - URL regexp will now match now works correctly, and matches against non `http://` prefixed urls like `www.google.com`
 
 ### Version 2.0.2 - July 7, 2015
 

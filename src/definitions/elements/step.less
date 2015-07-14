@@ -39,33 +39,16 @@
   border: @stepsBorder;
 }
 
+/* First Steps */
 .ui.steps:first-child {
   margin-top: 0em;
 }
+
+/* Last Steps */
 .ui.steps:last-child {
   margin-bottom: 0em;
 }
 
-.ui.steps .step:first-child {
-  padding-left: @horizontalPadding;
-  border-radius: @stepsBorderRadius 0em 0em @stepsBorderRadius;
-}
-.ui.steps .step:last-child {
-  border-radius: 0em @stepsBorderRadius @stepsBorderRadius 0em;
-}
-.ui.steps .step:only-child {
-  -webkit-border-radius: @stepsBorderRadius;
-  -moz-border-radius: @stepsBorderRadius;
-  border-radius: @stepsBorderRadius;
-}
-
-.ui.steps .step:last-child {
-  border-right: none;
-  margin-right: 0em;
-}
-.ui.steps .step:last-child:after {
-  display: @lastArrowDisplay;
-}
 
 /*******************************
            Singular
@@ -89,9 +72,10 @@
   border-radius: @borderRadius;
   border: @border;
   border-right: @divider;
+  transition: @transition;
 }
 
-
+/* Arrow */
 .ui.steps .step:after {
   display: none;
   position: absolute;
@@ -108,13 +92,32 @@
   border-color: @borderColor;
   border-width: @arrowBorderWidth;
 
+  transition: @transition;
   transform: translateY(-50%) translateX(50%) rotate(-45deg);
 }
 
-.ui.steps .step,
-.ui.steps .step:after {
-  transition: @transition;
+/* First Step */
+.ui.steps .step:first-child {
+  padding-left: @horizontalPadding;
+  border-radius: @stepsBorderRadius 0em 0em @stepsBorderRadius;
 }
+
+/* Only Step */
+.ui.steps .step:only-child {
+  -webkit-border-radius: @stepsBorderRadius;
+  -moz-border-radius: @stepsBorderRadius;
+  border-radius: @stepsBorderRadius;
+}
+
+/* Last Step */
+.ui.steps .step:last-child {
+  border-radius: 0em @stepsBorderRadius @stepsBorderRadius 0em;
+}
+.ui.steps .step:last-child {
+  border-right: none;
+  margin-right: 0em;
+}
+
 
 /*******************************
             Content
@@ -213,6 +216,7 @@
   justify-content: flex-start;
   border-radius: @borderRadius;
   padding: @verticalPadding @horizontalPadding;
+  border-right: none;
   border-bottom: @verticalDivider;
 }
 .ui.vertical.steps .step:first-child {
@@ -242,6 +246,9 @@
 }
 .ui.vertical.steps .step:last-child:after {
   display: @verticalLastArrowDisplay;
+}
+.ui.vertical.steps .active.step:last-child:after {
+  display: @verticalActiveLastArrowDisplay;
 }
 
 
@@ -334,7 +341,12 @@
 .ui.steps .active.step:after {
   display: @activeArrowDisplay;
 }
-
+.ui.steps .step:last-child:after {
+  display: @lastArrowDisplay;
+}
+.ui.steps .active.step:last-child:after {
+  display: @activeLastArrowDisplay;
+}
 
 /* Active Hover */
 .ui.steps .link.active.step:hover::after,

@@ -219,7 +219,7 @@ module.exports = function(callback) {
               };
               npm.main = 'index.js';
             }
-            npm.name = npmName;
+            npm.name = packageName;
             if(version) {
               npm.version = version;
             }

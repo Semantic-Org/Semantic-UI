@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 2.0.1
+ * # Semantic UI - 2.0.4
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -9,7 +9,7 @@
  *
  */
 /*!
- * # Semantic UI 2.0.1 - Site
+ * # Semantic UI 2.0.4 - Site
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -496,7 +496,7 @@ $.extend($.expr[ ":" ], {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 2.0.1 - Form Validation
+ * # Semantic UI 2.0.4 - Form Validation
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -1753,7 +1753,7 @@ $.fn.form.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.1 - Accordion
+ * # Semantic UI 2.0.4 - Accordion
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -2346,7 +2346,7 @@ $.extend( $.easing, {
 
 
 /*!
- * # Semantic UI 2.0.1 - Checkbox
+ * # Semantic UI 2.0.4 - Checkbox
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -2524,6 +2524,7 @@ $.fn.checkbox = function(parameters) {
               return;
             }
             module.toggle();
+            event.preventDefault();
           },
           keydown: function(event) {
             var
@@ -3062,7 +3063,7 @@ $.fn.checkbox.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.1 - Dimmer
+ * # Semantic UI 2.0.4 - Dimmer
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -3755,7 +3756,7 @@ $.fn.dimmer.settings = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 2.0.1 - Dropdown
+ * # Semantic UI 2.0.4 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -5846,6 +5847,12 @@ $.fn.dropdown = function(parameters) {
                   return;
                 }
               }
+
+              if( $input.is('select') && (settings.allowAdditions || settings.apiSettings) ) {
+                module.debug('Adding an option to the select before setting the value', value);
+                module.add.optionValue(value);
+              }
+
               module.debug('Updating input value', value, currentValue);
               $input
                 .val(value)
@@ -6107,10 +6114,10 @@ $.fn.dropdown = function(parameters) {
               newValue = [addedValue];
             }
             // add values
-            if( $input.is('select')) {
-              if(settings.allowAdditions) {
-                module.add.optionValue(addedValue);
+            if($input.is('select')) {
+              if(settings.allowAdditions || settings.apiSettings) {
                 module.debug('Adding value to select', addedValue, newValue, $input);
+                module.add.optionValue(addedValue);
               }
             }
             else {
@@ -7020,7 +7027,7 @@ $.fn.dropdown.settings.templates = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.1 - Video
+ * # Semantic UI 2.0.4 - Video
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -7683,7 +7690,7 @@ $.fn.embed.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.1 - Modal
+ * # Semantic UI 2.0.4 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -8092,10 +8099,8 @@ $.fn.modal = function(parameters) {
         hideDimmer: function() {
           if( $dimmable.dimmer('is animating') || ($dimmable.dimmer('is active')) ) {
             $dimmable.dimmer('hide', function() {
-              if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
-                module.remove.clickaway();
-                module.remove.screenHeight();
-              }
+              module.remove.clickaway();
+              module.remove.screenHeight();
             });
           }
           else {
@@ -8181,13 +8186,17 @@ $.fn.modal = function(parameters) {
               ;
             }
           },
-          screenHeight: function() {
-            if(module.cache.height > module.cache.pageHeight) {
-              module.debug('Removing page height');
-              $body
-                .css('height', '')
-              ;
+          bodyStyle: function() {
+            if($body.attr('style') === '') {
+              module.verbose('Removing style attribute');
+              $body.removeAttr('style');
             }
+          },
+          screenHeight: function() {
+            module.debug('Removing page height');
+            $body
+              .css('height', '')
+            ;
           },
           keyboardShortcuts: function() {
             module.verbose('Removing keyboard shortcuts');
@@ -8571,7 +8580,7 @@ $.fn.modal.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.1 - Nag
+ * # Semantic UI 2.0.4 - Nag
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -9048,7 +9057,7 @@ $.fn.nag.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.1 - Popup
+ * # Semantic UI 2.0.4 - Popup
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -9169,7 +9178,7 @@ $.fn.popup = function(parameters) {
                 : $body
             ;
           }
-          if( $offsetParent.is('html') ) {
+          if( $offsetParent.is('html') && $offsetParent[0] !== $body[0] ) {
             module.debug('Setting page as offset parent');
             $offsetParent = $body;
           }
@@ -9490,6 +9499,9 @@ $.fn.popup = function(parameters) {
             $module.removeData(metadata.variation);
             return $module.data(metadata.variation) || settings.variation;
           },
+          popupOffset: function() {
+            return $popup.offset();
+          },
           calculations: function() {
             var
               targetElement  = $target[0],
@@ -9529,6 +9541,14 @@ $.fn.popup = function(parameters) {
                 height : $window.height()
               }
             };
+
+            // add in container calcs if fluid
+            if( settings.setFluidWidth && module.is.fluid() ) {
+              calculations.container = {
+                width: $popup.parent().outerWidth()
+              };
+              calculations.popup.width = calculations.container.width;
+            }
 
             // add in margins if inline
             calculations.target.margin.top = (settings.inline)
@@ -9575,6 +9595,30 @@ $.fn.popup = function(parameters) {
             }
             return false;
           },
+          distanceFromBoundary: function(offset, calculations) {
+            var
+              distanceFromBoundary = {},
+              popup,
+              boundary
+            ;
+            offset       = offset       || module.get.offset();
+            calculations = calculations || module.get.calculations();
+
+            // shorthand
+            popup        = calculations.popup;
+            boundary     = calculations.boundary;
+
+            if(offset) {
+              distanceFromBoundary = {
+                top    : (offset.top - boundary.top),
+                left   : (offset.left - boundary.left),
+                right  : (boundary.right - (offset.left + popup.width) ),
+                bottom : (boundary.bottom - (offset.top + popup.height) )
+              };
+              module.verbose('Distance from boundaries determined', offset, distanceFromBoundary);
+            }
+            return distanceFromBoundary;
+          },
           offsetParent: function($target) {
             var
               element = ($target !== undefined)
@@ -9600,40 +9644,6 @@ $.fn.popup = function(parameters) {
             return ($node && $node.length > 0)
               ? $node
               : $()
-            ;
-          },
-          offstagePosition: function(position, calculations) {
-            var
-              offset            = $popup.offset(),
-              offstage          = {},
-              offstagePositions = [],
-              popup,
-              boundary
-            ;
-            position     = position     || false;
-            calculations = calculations || module.get.calculations();
-            // shorthand
-            popup        = calculations.popup;
-            boundary     = calculations.boundary;
-
-            if(offset && position) {
-              offstage = {
-                top    : (offset.top < boundary.top),
-                bottom : (offset.top + popup.height > boundary.bottom),
-                right  : (offset.left + popup.width > boundary.right),
-                left   : (offset.left < boundary.left)
-              };
-              module.verbose('Offstage positions determined', offset, offstage);
-            }
-            // return only boundaries that have been surpassed
-            $.each(offstage, function(direction, isOffstage) {
-              if(isOffstage) {
-                offstagePositions.push(direction);
-              }
-            });
-            return (offstagePositions.length > 0)
-              ? offstagePositions.join(' ')
-              : false
             ;
           },
           positions: function() {
@@ -9721,10 +9731,11 @@ $.fn.popup = function(parameters) {
               target,
               popup,
               parent,
-              computedPosition,
               positioning,
-              offstagePosition
+              popupOffset,
+              distanceFromBoundary
             ;
+
             calculations = calculations || module.get.calculations();
             position     = position     || $module.data(metadata.position) || settings.position;
 
@@ -9769,8 +9780,8 @@ $.fn.popup = function(parameters) {
               module.debug('RTL: Popup position updated', position);
             }
 
-            if(searchDepth == settings.maxSearchDepth && settings.lastResort) {
-              module.debug('Using "last resort" position to display', settings.lastResort);
+            // if last attempt use specified last resort position
+            if(searchDepth == settings.maxSearchDepth && typeof settings.lastResort === 'string') {
               position = settings.lastResort;
             }
 
@@ -9853,12 +9864,14 @@ $.fn.popup = function(parameters) {
               .addClass(position)
               .addClass(className.loading)
             ;
-            // check if is offstage
-            offstagePosition = module.get.offstagePosition(position, calculations);
 
-            // recursively find new positioning
-            if(offstagePosition) {
-              module.debug('Popup cant fit into viewport', position, offstagePosition);
+            popupOffset = module.get.popupOffset();
+
+            // see if any boundaries are surpassed with this tentative position
+            distanceFromBoundary = module.get.distanceFromBoundary(popupOffset, calculations);
+
+            if( module.is.offstage(distanceFromBoundary, position) ) {
+              module.debug('Position is outside viewport', position);
               if(searchDepth < settings.maxSearchDepth) {
                 searchDepth++;
                 position = module.get.nextPosition(position);
@@ -9868,28 +9881,33 @@ $.fn.popup = function(parameters) {
                   : false
                 ;
               }
-              else if(!settings.lastResort) {
-                module.debug('Popup could not find a position in view', $popup);
-                // module.error(error.cannotPlace, element);
-                module.remove.attempts();
-                module.remove.loading();
-                module.reset();
-                return false;
+              else {
+                if(settings.lastResort) {
+                  module.debug('No position found, showing with last position');
+                }
+                else {
+                  module.debug('Popup could not find a position to display', $popup);
+                  module.error(error.cannotPlace, element);
+                  module.remove.attempts();
+                  module.remove.loading();
+                  module.reset();
+                  return false;
+                }
               }
             }
-
             module.debug('Position is on stage', position);
             module.remove.attempts();
-            module.set.fluidWidth(calculations);
             module.remove.loading();
+            if( settings.setFluidWidth && module.is.fluid() ) {
+              module.set.fluidWidth(calculations);
+            }
             return true;
           },
 
           fluidWidth: function(calculations) {
             calculations = calculations || module.get.calculations();
-            if( settings.setFluidWidth && $popup.hasClass(className.fluid) ) {
-              $popup.css('width', calculations.parent.width);
-            }
+            module.debug('Automatically setting element width to parent width', calculations.parent.width);
+            $popup.css('width', calculations.container.width);
           },
 
           visible: function() {
@@ -10006,11 +10024,32 @@ $.fn.popup = function(parameters) {
         },
 
         is: {
+          offstage: function(distanceFromBoundary, position) {
+            var
+              offstage = []
+            ;
+            // return boundaries that have been surpassed
+            $.each(distanceFromBoundary, function(direction, distance) {
+              if(distance < -settings.jitter) {
+                module.debug('Position exceeds allowable distance from edge', direction, distance, position);
+                offstage.push(direction);
+              }
+            });
+            if(offstage.length > 0) {
+              return true;
+            }
+            else {
+              return false;
+            }
+          },
           active: function() {
             return $module.hasClass(className.active);
           },
           animating: function() {
             return ( $popup && $popup.hasClass(className.animating) );
+          },
+          fluid: function() {
+            return ( $popup && $popup.hasClass(className.fluid));
           },
           visible: function() {
             return $popup && $popup.hasClass(className.visible);
@@ -10316,15 +10355,18 @@ $.fn.popup.settings = {
   // distance away from activating element in px
   distanceAway   : 0,
 
+  // number of pixels an element is allowed to be "offstage" for a position to be chosen (allows for rounding)
+  jitter         : 2,
+
   // offset on aligning axis from calculated position
   offset         : 0,
 
   // maximum times to look for a position before failing (9 positions total)
-  maxSearchDepth : 20,
+  maxSearchDepth : 15,
 
   error: {
     invalidPosition : 'The position you specified is not a valid position',
-    cannotPlace     : 'No visible position could be found for the popup',
+    cannotPlace     : 'Popup does not fit within the boundaries of the viewport',
     method          : 'The method you called is not defined.',
     noTransition    : 'This module requires ui transitions <https://github.com/Semantic-Org/UI-Transition>',
     notFound        : 'The target or popup you specified does not exist on the page'
@@ -10402,7 +10444,7 @@ $.fn.popup.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.1 - Progress
+ * # Semantic UI 2.0.4 - Progress
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -11196,7 +11238,7 @@ $.fn.progress.settings = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 2.0.1 - Rating
+ * # Semantic UI 2.0.4 - Rating
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -11672,7 +11714,7 @@ $.fn.rating.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.1 - Search
+ * # Semantic UI 2.0.4 - Search
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -12951,7 +12993,7 @@ $.fn.search.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.1 - Shape
+ * # Semantic UI 2.0.4 - Shape
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -13827,7 +13869,7 @@ $.fn.shape.settings = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 2.0.1 - Sidebar
+ * # Semantic UI 2.0.4 - Sidebar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -14851,7 +14893,7 @@ $.fn.sidebar.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.1 - Sticky
+ * # Semantic UI 2.0.4 - Sticky
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -15089,8 +15131,7 @@ $.fn.sticky = function(parameters) {
               },
               context = {
                 offset        : $context.offset(),
-                height        : $context.outerHeight(),
-                bottomPadding : parseInt($context.css('padding-bottom'), 10)
+                height        : $context.outerHeight()
               },
               container = {
                 height: $container.outerHeight()
@@ -15112,8 +15153,7 @@ $.fn.sticky = function(parameters) {
               context: {
                 top           : context.offset.top,
                 height        : context.height,
-                bottomPadding : context.bottomPadding,
-                bottom        : context.offset.top + context.height - context.bottomPadding
+                bottom        : context.offset.top + context.height
               }
             };
             module.set.containerSize();
@@ -15309,8 +15349,14 @@ $.fn.sticky = function(parameters) {
               }
               else if(scroll.top > element.top) {
                 module.debug('Element passed, fixing element to page');
-                module.fixTop();
+                if( (element.height + scroll.top - elementScroll) > context.bottom ) {
+                  module.bindBottom();
+                }
+                else {
+                  module.fixTop();
+                }
               }
+
             }
             else if( module.is.fixed() ) {
 
@@ -15327,6 +15373,8 @@ $.fn.sticky = function(parameters) {
                 // scroll element if larger than screen
                 else if(doesntFit) {
                   module.set.scroll(elementScroll);
+                  module.save.lastScroll(scroll.top);
+                  module.save.elementScroll(elementScroll);
                 }
               }
 
@@ -15346,6 +15394,8 @@ $.fn.sticky = function(parameters) {
                 // scroll element if larger than screen
                 else if(doesntFit) {
                   module.set.scroll(elementScroll);
+                  module.save.lastScroll(scroll.top);
+                  module.save.elementScroll(elementScroll);
                 }
 
               }
@@ -15365,10 +15415,6 @@ $.fn.sticky = function(parameters) {
               }
             }
           }
-
-          // save current scroll for next run
-          module.save.lastScroll(scroll.top);
-          module.save.elementScroll(elementScroll);
         },
 
         bindTop: function() {
@@ -15394,8 +15440,7 @@ $.fn.sticky = function(parameters) {
           $module
             .css({
               left         : '',
-              top          : '',
-              marginBottom : module.cache.context.bottomPadding
+              top          : ''
             })
             .removeClass(className.fixed)
             .removeClass(className.top)
@@ -15733,7 +15778,7 @@ $.fn.sticky.settings = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 2.0.1 - Tab
+ * # Semantic UI 2.0.4 - Tab
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -16630,7 +16675,7 @@ $.fn.tab.settings = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 2.0.1 - Transition
+ * # Semantic UI 2.0.4 - Transition
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -17184,7 +17229,10 @@ $.fn.transition = function() {
             ;
           },
           currentAnimation: function() {
-            return module.cache.animation || false;
+            return (module.cache && module.cache.animation !== undefined)
+              ? module.cache.animation
+              : false
+            ;
           },
           currentDirection: function() {
             return module.is.inward()
@@ -17700,7 +17748,7 @@ $.fn.transition.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.1 - API
+ * # Semantic UI 2.0.4 - API
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -18778,7 +18826,7 @@ $.api.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.1 - State
+ * # Semantic UI 2.0.4 - State
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -19474,7 +19522,7 @@ $.fn.state.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.1 - Visibility
+ * # Semantic UI 2.0.4 - Visibility
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -20612,8 +20660,17 @@ $.fn.visibility.settings = {
   // whether to use mutation observers to follow changes
   observeChanges         : true,
 
+  // check position immediately on init
+  initialCheck           : true,
+
   // whether to refresh calculations after all page images load
   refreshOnLoad          : true,
+
+  // whether to refresh calculations after page resize event
+  refreshOnResize        : true,
+
+  // should call callbacks on refresh event (resize, etc)
+  checkOnRefresh         : true,
 
   // callback should only occur one time
   once                   : true,
@@ -20630,9 +20687,6 @@ $.fn.visibility.settings = {
   // scroll context for visibility checks
   context                : window,
 
-  // check position immediately on init
-  initialCheck           : true,
-
   // visibility check delay in ms (defaults to animationFrame)
   throttle               : false,
 
@@ -20645,9 +20699,6 @@ $.fn.visibility.settings = {
 
   // array of callbacks for percentage
   onPassed               : {},
-
-  // should call callbacks on refresh event (resize, etc)
-  checkOnRefresh         : true,
 
   // standard callbacks
   onOnScreen             : false,
