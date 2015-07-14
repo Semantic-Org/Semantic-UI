@@ -21,6 +21,10 @@
 @avatarSize: 2em;
 @avatarMargin: 0.25em;
 
+/* Filters */
+@grayscale: 100%;
+@invert: 100%;
+@blur: 5px;
 
 /*-------------------
        Variations
