@@ -8,6 +8,7 @@
 - **Popup** - `fluid` popup with `setFluidWidth: true` (default value), will now use `parent` width and not `offsetContext` width #2526
 - **Visibility** - `refreshOnResize` now correctly includes a default value #2615
 - **Button** - Fixed `fluid buttons` not working correctly with `<button>` due to button tags not supporting `flex` rules. #2617
+- **Segment* - `horizontal segments` in IE will no longer stretch to the natural width of child imgs #2550 [flexbug #1](https://github.com/philipwalton/flexbugs#1-minimum-content-sizing-of-flex-items-not-honored)
 - **Sticky** - Fixed `sticky` element that cannot fit in viewport not scrolling correctly when fixed to viewport #2605
 
 **Additional Bugs**
