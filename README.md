@@ -13,7 +13,7 @@ Key Features
 * Built with EM values for responsive design
 * Flexbox friendly
 
-## 2.0 Is Out!!!
+## 2.0 Is Out!
 
 Semantic UI 2.0 is now available. Read up on [what's new](http://www.semantic-ui.com/introduction/new.html) in the docs.
 
