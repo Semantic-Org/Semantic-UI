@@ -12,6 +12,7 @@
 - **Sticky** - Fixed `sticky` element that cannot fit in viewport not scrolling correctly when fixed to viewport #2605
 - **Form** - Fixed issue with `minLength[1]` validation not behaving same as `minLength > 2` #2636.
 - **Form** - Form fields will now error when a non-string identifier is used
+- **Form** - Added `doesntContain` and `doesntContainExactly` #
 
 **Additional Bugs**
 - **Popup** - `wide` and `very wide` popup will now limit themselves to normal popup widths on mobile so that they still appear on screen.
