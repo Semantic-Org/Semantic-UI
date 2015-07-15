@@ -30,6 +30,9 @@ npm install semantic-ui  # Use themes, import build/watch tasks into your own gu
 
 For details on how work with Semantic theming please [read our theming guide](http://www.semantic-ui.com/usage/theming.html) on [semantic-ui.com](http://www.semantic-ui.com/)
 
+### Usage questions
+For usage questions please use [StackOverflow](http://stackoverflow.com/questions/tagged/semantic-ui) or our [Gitter chatroom](https://gitter.im/Semantic-Org/Semantic-UI). [GitHub Issues](https://github.com/Semantic-Org/Semantic-UI/issues) is only for suggesting enhancements and reporting bugs with test cases.
+
 #### Additional Versions
 
 Environment | Install Script | Repo
