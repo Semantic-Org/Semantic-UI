@@ -10,7 +10,7 @@
 @sliderOnLineColor: @primaryColor;
 
 /* Radio */
-@radioActiveBulletColor @primaryColor;
+@radioActiveBulletColor: @primaryColor;
 
 /* Handle */
 @handleBackground: @white @subtleGradient;

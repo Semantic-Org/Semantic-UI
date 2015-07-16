@@ -165,15 +165,15 @@
 
 .ui.checkbox input:focus ~ .box:before,
 .ui.checkbox input:focus ~ label:before {
-  background: @checkboxFocusedBackground;
-  border-color: @checkboxFocusedBorderColor;
+  background: @checkboxFocusBackground;
+  border-color: @checkboxFocusBorderColor;
 }
 .ui.checkbox input:focus ~ .box:after,
 .ui.checkbox input:focus ~ label:after {
-  color: @checkboxFocusedColor;
+  color: @checkboxFocusCheckColor;
 }
 .ui.checkbox input:focus ~ label {
-  color: @labelFocusedColor;
+  color: @labelFocusColor;
 }
 
 /*--------------
@@ -216,6 +216,10 @@
 .ui.checkbox input:checked:focus ~ label:before  {
   background: @checkboxActiveFocusBackground;
   border-color: @checkboxActiveFocusBorderColor;
+}
+.ui.checkbox input:checked ~ .box:after,
+.ui.checkbox input:checked ~ label:after {
+  color: @checkboxActiveFocusCheckColor;
 }
 
 
@@ -312,6 +316,16 @@
   background-color: @bulletColor;
 }
 
+/* Focus */
+.ui.radio.checkbox input:focus ~ .box:before,
+.ui.radio.checkbox input:focus ~ label:before {
+  background-color: @radioFocusBackground;
+}
+.ui.radio.checkbox input:checked ~ .box:after,
+.ui.radio.checkbox input:checked ~ label:after {
+  background-color: @radioFocusBulletColor;
+}
+
 /* Active */
 .ui.radio.checkbox input:checked ~ .box:before,
 .ui.radio.checkbox input:checked ~ label:before {
@@ -319,6 +333,16 @@
 }
 .ui.radio.checkbox input:checked ~ .box:after,
 .ui.radio.checkbox input:checked ~ label:after {
+  background-color: @radioActiveBulletColor;
+}
+
+/* Active Focus */
+.ui.radio.checkbox input:focus:checked ~ .box:before,
+.ui.radio.checkbox input:focus:checked ~ label:before {
+  background-color: @radioActiveBackground;
+}
+.ui.radio.checkbox input:focus:checked ~ .box:after,
+.ui.radio.checkbox input:focus:checked ~ label:after {
   background-color: @radioActiveBulletColor;
 }
 
@@ -517,11 +541,11 @@
 /* Active */
 .ui.toggle.checkbox input:checked ~ .box,
 .ui.toggle.checkbox input:checked ~ label {
-  color: @toggleOnLabelColor;
+  color: @toggleOnLabelColor !important;
 }
 .ui.toggle.checkbox input:checked ~ .box:before,
 .ui.toggle.checkbox input:checked ~ label:before {
-  background-color: @toggleOnLaneColor;
+  background-color: @toggleOnLaneColor !important;
 }
 .ui.toggle.checkbox input:checked ~ .box:after,
 .ui.toggle.checkbox input:checked ~ label:after {
@@ -532,11 +556,11 @@
 /* Active Focus */
 .ui.toggle.checkbox input:focus:checked ~ .box,
 .ui.toggle.checkbox input:focus:checked ~ label {
-  color: @toggleOnFocusLabelColor;
+  color: @toggleOnFocusLabelColor !important;
 }
 .ui.toggle.checkbox input:focus:checked ~ .box:before,
 .ui.toggle.checkbox input:focus:checked ~ label:before {
-  background-color: @toggleOnFocusLaneColor;
+  background-color: @toggleOnFocusLaneColor !important;
 }
 
 /*******************************

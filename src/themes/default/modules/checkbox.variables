@@ -47,11 +47,11 @@
 @checkboxPressedColor: @selectedTextColor;
 @labelPressedColor: @selectedTextColor;
 
-/* Focused */
-@checkboxFocusedBackground: @offWhite;
-@checkboxFocusedBorderColor: @selectedBorderColor;
-@checkboxFocusedColor: @selectedTextColor;
-@labelFocusedColor: @selectedTextColor;
+/* Focus */
+@checkboxFocusBackground: @offWhite;
+@checkboxFocusBorderColor: @selectedBorderColor;
+@checkboxFocusCheckColor: @selectedTextColor;
+@labelFocusColor: @selectedTextColor;
 
 /* Active */
 @labelActiveColor: @selectedTextColor;
@@ -61,8 +61,8 @@
 @checkboxActiveCheckOpacity: 1;
 
 /* Active Focus */
-@checkboxActiveFocusBackground: @checkboxFocusedBackground;
-@checkboxActiveFocusBorderColor: @checkboxFocusedBorderColor;
+@checkboxActiveFocusBackground: @checkboxFocusBackground;
+@checkboxActiveFocusBorderColor: @checkboxFocusBorderColor;
 @checkboxActiveFocusCheckColor: @selectedTextColor;
 
 /* Indeterminate */
@@ -93,10 +93,13 @@
 @bulletColor: @textColor;
 @bulletRadius: @circularRadius;
 
-@radioActiveBackground: @white;
+@radioFocusBackground: @checkboxFocusBackground;
+@radioFocusBulletColor: @checkboxFocusCheckColor;
+
+@radioActiveBackground: @checkboxActiveBackground;
 @radioActiveBulletColor: @checkboxActiveCheckColor;
 
-@radioActiveFocusBackground: @white;
+@radioActiveFocusBackground: @checkboxActiveFocusBackground;
 @radioActiveFocusBulletColor: @checkboxActiveFocusCheckColor;
 
 /* Slider & Toggle Handle */
