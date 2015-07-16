@@ -1,6 +1,8 @@
 /* Checkbox */
 @checkboxActiveBackground: @primaryColor;
 @checkboxActiveBorderColor: @primaryColor;
+@checkboxActiveFocusBackground: @primaryColorFocus;
+
 @checkboxActiveCheckColor: @white;
 @checkboxTransition: none;
 

@@ -177,6 +177,7 @@ $.fn.checkbox = function(parameters) {
               return;
             }
             module.toggle();
+            $input.focus();
             event.preventDefault();
           },
           keydown: function(event) {
@@ -193,7 +194,7 @@ $.fn.checkbox = function(parameters) {
               $input.blur();
               event.preventDefault();
             }
-            if(!event.ctrlKey && (key == keyCode.enter || key == keyCode.space)) {
+            if(!event.ctrlKey && (key == keyCode.enter)) {
               module.verbose('Enter key pressed, toggling checkbox');
               module.toggle();
               event.preventDefault();

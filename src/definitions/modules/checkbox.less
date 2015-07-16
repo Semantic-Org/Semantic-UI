@@ -39,6 +39,8 @@
   line-height: @checkboxLineHeight;
   min-width: @checkboxSize;
 }
+
+/* HTML Checkbox */
 .ui.checkbox input[type="checkbox"],
 .ui.checkbox input[type="radio"] {
   cursor: pointer;
@@ -153,8 +155,7 @@
 .ui.checkbox label:active::after {
   color: @checkboxPressedColor;
 }
-.ui.checkbox input[type="checkbox"]:active ~ label,
-.ui.checkbox input[type="radio"]:active ~ label {
+.ui.checkbox input:active ~ label {
   color: @labelPressedColor;
 }
 
@@ -162,21 +163,16 @@
      Focus
 ---------------*/
 
-.ui.checkbox input[type="checkbox"]:focus ~ .box:before,
-.ui.checkbox input[type="checkbox"]:focus ~ label:before,
-.ui.checkbox input[type="radio"]:focus ~ .box:before,
-.ui.checkbox input[type="radio"]:focus ~ label:before {
+.ui.checkbox input:focus ~ .box:before,
+.ui.checkbox input:focus ~ label:before {
   background: @checkboxFocusedBackground;
   border-color: @checkboxFocusedBorderColor;
 }
-.ui.checkbox input[type="checkbox"]:focus ~ .box:after,
-.ui.checkbox input[type="checkbox"]:focus ~ label:after,
-.ui.checkbox input[type="radio"]:focus ~ .box:after,
-.ui.checkbox input[type="radio"]:focus ~ label:after {
+.ui.checkbox input:focus ~ .box:after,
+.ui.checkbox input:focus ~ label:after {
   color: @checkboxFocusedColor;
 }
-.ui.checkbox input[type="checkbox"]:focus ~ label,
-.ui.checkbox input[type="radio"]:focus ~ label {
+.ui.checkbox input:focus ~ label {
   color: @labelFocusedColor;
 }
 
@@ -199,13 +195,13 @@
   Indeterminate
 ---------------*/
 
-.ui.checkbox input[type="checkbox"]:indeterminate ~ .box:before,
-.ui.checkbox input[type="checkbox"]:indeterminate ~ label:before {
+.ui.checkbox input:indeterminate ~ .box:before,
+.ui.checkbox input:indeterminate ~ label:before {
   background: @checkboxIndeterminateBackground;
   border-color: @checkboxIndeterminateBorderColor;
 }
-.ui.checkbox input[type="checkbox"]:indeterminate ~ .box:after,
-.ui.checkbox input[type="checkbox"]:indeterminate ~ label:after {
+.ui.checkbox input:indeterminate ~ .box:after,
+.ui.checkbox input:indeterminate ~ label:after {
   opacity: @checkboxIndeterminateCheckOpacity;
   color: @checkboxIndeterminateCheckColor;
 }
@@ -214,12 +210,12 @@
   Active Focus
 ---------------*/
 
-.ui.checkbox input[type="checkbox"]:indeterminate:focus ~ .box:before,
-.ui.checkbox input[type="checkbox"]:indeterminate:focus ~ label:before,
-.ui.checkbox input[type="checkbox"]:checked:focus ~ .box:before,
-.ui.checkbox input[type="checkbox"]:checked:focus ~ label:before  {
-  background: @checkboxFocusedBackground;
-  border-color: @checkboxFocusedBorderColor;
+.ui.checkbox input:indeterminate:focus ~ .box:before,
+.ui.checkbox input:indeterminate:focus ~ label:before,
+.ui.checkbox input:checked:focus ~ .box:before,
+.ui.checkbox input:checked:focus ~ label:before  {
+  background: @checkboxActiveFocusBackground;
+  border-color: @checkboxActiveFocusBorderColor;
 }
 
 
@@ -252,19 +248,15 @@
 
 /* Initialized checkbox moves input below element
  to prevent manually triggering */
-.ui.checkbox input[type="checkbox"].hidden,
-.ui.checkbox input[type="radio"].hidden {
+.ui.checkbox input.hidden {
   z-index: -1;
 }
 
 /* Selectable Label */
-.ui.checkbox input[type="checkbox"].hidden + label,
-.ui.checkbox input[type="radio"].hidden + label {
+.ui.checkbox input.hidden + label {
   cursor: pointer;
   user-select: none;
 }
-
-
 
 
 /*******************************
@@ -321,12 +313,12 @@
 }
 
 /* Active */
-.ui.radio.checkbox input[type="radio"]:checked ~ .box:before,
-.ui.radio.checkbox input[type="radio"]:checked ~ label:before {
+.ui.radio.checkbox input:checked ~ .box:before,
+.ui.radio.checkbox input:checked ~ label:before {
   background-color: @radioActiveBackground;
 }
-.ui.radio.checkbox input[type="radio"]:checked ~ .box:after,
-.ui.radio.checkbox input[type="radio"]:checked ~ label:after {
+.ui.radio.checkbox input:checked ~ .box:after,
+.ui.radio.checkbox input:checked ~ label:after {
   background-color: @radioActiveBulletColor;
 }
 
@@ -339,8 +331,7 @@
 }
 
 /* Input */
-.ui.slider.checkbox input[type="checkbox"],
-.ui.slider.checkbox input[type="radio"] {
+.ui.slider.checkbox input {
   width: @sliderWidth;
   height: @sliderHeight;
 }
@@ -398,10 +389,10 @@
 }
 
 /* Focus */
-.ui.slider.checkbox input[type="checkbox"]:focus ~ .box:before,
-.ui.slider.checkbox input[type="checkbox"]:focus ~ label:before,
-.ui.slider.checkbox input[type="radio"]:focus ~ .box:before,
-.ui.slider.checkbox input[type="radio"]:focus ~ label:before {
+.ui.slider.checkbox input:focus ~ .box:before,
+.ui.slider.checkbox input:focus ~ label:before,
+.ui.slider.checkbox input:focus ~ .box:before,
+.ui.slider.checkbox input:focus ~ label:before {
   background-color: @toggleFocusColor;
   border: none;
 }
@@ -419,15 +410,25 @@
 /* Active */
 .ui.slider.checkbox :checked ~ .box,
 .ui.slider.checkbox :checked ~ label {
-  color: @sliderOnLabelColor;
+  color: @sliderOnLabelColor !important;
 }
 .ui.slider.checkbox :checked ~ .box:before,
 .ui.slider.checkbox :checked ~ label:before {
-  background-color: @sliderOnLineColor;
+  background-color: @sliderOnLineColor !important;
 }
 .ui.slider.checkbox :checked ~ .box:after,
 .ui.slider.checkbox :checked ~ label:after {
   left: @sliderTravelDistance;
+}
+
+/* Active Focus */
+.ui.slider.checkbox :focus:checked ~ .box,
+.ui.slider.checkbox :focus:checked ~ label {
+  color: @sliderOnFocusLabelColor !important;
+}
+.ui.slider.checkbox :focus:checked ~ .box:before,
+.ui.slider.checkbox :focus:checked ~ label:before {
+  background-color: @sliderOnFocusLineColor !important;
 }
 
 
@@ -440,8 +441,7 @@
 }
 
 /* Input */
-.ui.toggle.checkbox input[type="checkbox"],
-.ui.toggle.checkbox input[type="radio"] {
+.ui.toggle.checkbox input {
   width: @toggleWidth;
   height: @toggleHeight;
 }
@@ -495,18 +495,14 @@
   transition: @toggleHandleTransition;
 }
 
-.ui.toggle.checkbox input[type="checkbox"] ~ .box:after,
-.ui.toggle.checkbox input[type="checkbox"] ~ label:after,
-.ui.toggle.checkbox input[type="radio"] ~ .box:after,
-.ui.toggle.checkbox input[type="radio"] ~ label:after {
+.ui.toggle.checkbox input ~ .box:after,
+.ui.toggle.checkbox input ~ label:after {
   left: @toggleOffOffset;
 }
 
 /* Focus */
-.ui.toggle.checkbox input[type="checkbox"]:focus ~ .box:before,
-.ui.toggle.checkbox input[type="checkbox"]:focus ~ label:before,
-.ui.toggle.checkbox input[type="radio"]:focus ~ .box:before,
-.ui.toggle.checkbox input[type="radio"]:focus ~ label:before {
+.ui.toggle.checkbox input:focus ~ .box:before,
+.ui.toggle.checkbox input:focus ~ label:before {
   background-color: @toggleFocusColor;
   border: none;
 }
@@ -530,6 +526,17 @@
 .ui.toggle.checkbox input:checked ~ .box:after,
 .ui.toggle.checkbox input:checked ~ label:after {
   left: @toggleOnOffset;
+}
+
+
+/* Active Focus */
+.ui.toggle.checkbox input:focus:checked ~ .box,
+.ui.toggle.checkbox input:focus:checked ~ label {
+  color: @toggleOnFocusLabelColor;
+}
+.ui.toggle.checkbox input:focus:checked ~ .box:before,
+.ui.toggle.checkbox input:focus:checked ~ label:before {
+  background-color: @toggleOnFocusLaneColor;
 }
 
 /*******************************
