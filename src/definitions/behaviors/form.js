@@ -341,7 +341,7 @@ $.fn.form = function(parameters) {
               var
                 keys             = Object.keys(parameters),
                 isLegacySettings = (keys.length > 0)
-                  ? (parameters[keys[0]].identifier !== undefined)
+                  ? (parameters[keys[0]].identifier !== undefined && parameters[keys[0]].rules !== undefined)
                   : false
               ;
               if(isLegacySettings) {

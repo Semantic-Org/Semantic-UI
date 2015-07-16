@@ -13,6 +13,7 @@
 - **Form** - Fixed issue with `minLength[1]` validation not behaving same as `minLength > 2` #2636.
 - **Form** - Form fields will now error when a non-string identifier is used
 - **Form** - Added `doesntContain` and `doesntContainExactly` #
+- **Form** - Fixes errors when a field identifier is named `identifier` #2629
 - **Formatting** - Fixed several source files that had `CR LF` (Windows) line endings #2649
 
 **Additional Bugs**
