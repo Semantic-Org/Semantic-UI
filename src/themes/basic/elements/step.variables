@@ -2,9 +2,17 @@
    Step Variables
 --------------------*/
 
-@background: transparent;
-@borderRadius: 500em;
-@boxShadow: none;
+/* Stepss */
+@stepsBorder: none;
+@stepsBorderRadius: @circularRadius;
 
-@activeBackground: #E5E5E5;
+/* Step */
+@border: none;
+@divider: none;
+@background: transparent;
+@borderRadius: @circularRadius;
 @iconDistance: 0.8em;
+@arrowDisplay: none;
+
+@activeBackground: @midWhite;
+@activeArrowDisplay: none;
