@@ -8,8 +8,13 @@ var
   // config
   config       = require('./config/user'),
   install      = require('./config/project/install')
-
 ;
+
+// add sub-tasks
+if(config.rtl) {
+  require('./collections/rtl')(gulp);
+}
+require('./collections/build')(gulp);
 
 module.exports = function(callback) {
 
