@@ -92,8 +92,8 @@
 @attachedBoxShadow: none;
 @attachedBorder: @borderWidth solid @solidBorderColor;
 @attachedBottomBoxShadow:
-  @attachedBoxShadow,
-  @subtleShadow
+  @boxShadow,
+  @attachedBoxShadow
 ;
 
 /* Inverted */

@@ -678,26 +678,27 @@
       Attached
 --------------------*/
 
-.ui.segment.attached {
+/* Middle */
+.ui.attached.segment {
   top: 0px;
   bottom: 0px;
+  border-radius: 0px;
   margin: 0em @attachedHorizontalOffset;
   width: @attachedWidth;
   max-width: @attachedWidth;
-  border-radius: 0px;
   box-shadow: @attachedBoxShadow;
   border: @attachedBorder;
 }
-.ui.segment.attached + .ui.segment.attached:not(.top) {
+.ui.attached + .ui.attached.segment:not(.top) {
   border-top: none;
 }
 
 /* Top */
 .ui[class*="top attached"].segment {
-  top: @attachedTopOffset;
   bottom: 0px;
-  margin-top: @verticalMargin;
   margin-bottom: 0em;
+  top: @attachedTopOffset;
+  margin-top: @verticalMargin;
   border-radius: @borderRadius @borderRadius 0em 0em;
 }
 .ui.segment[class*="top attached"]:first-child {
@@ -706,9 +707,9 @@
 
 /* Bottom */
 .ui.segment[class*="bottom attached"] {
-  top: @attachedBottomOffset;
   bottom: 0px;
   margin-top: 0em;
+  top: @attachedBottomOffset;
   margin-bottom: @verticalMargin;
   box-shadow: @attachedBottomBoxShadow;
   border-radius: 0em 0em @borderRadius @borderRadius;

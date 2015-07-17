@@ -2,21 +2,14 @@
              Menu
 *******************************/
 
-
-/*-------------------
-    Globals Used
---------------------*/
-
-// @textColor
-// @borderColor
-// @invertedUnselectedTextColor
-
 /*-------------------
       Collection
 --------------------*/
 
 /* Menu */
-@margin: 1em 0rem;
+@verticalMargin: @medium;
+@horizontalMargin: 0em;
+@margin: @verticalMargin @horizontalMargin;
 @background: #FFFFFF;
 @fontFamily: @pageFont;
 @itemBackground: none;
@@ -419,8 +412,16 @@
 @floatedDistance: 0.5rem;
 
 /* Attached */
+@attachedTopOffset: 0px;
+@attachedBottomOffset: 0px;
+@attachedHorizontalOffset: -@borderWidth;
+@attachedWidth: ~"calc(100% + "-@attachedHorizontalOffset * 2~")";
 @attachedBoxShadow: none;
-@attachedWidth: ~"calc(100% + "@borderWidth * 2~")";
+@attachedBorder: @borderWidth solid @solidBorderColor;
+@attachedBottomBoxShadow:
+  @boxShadow,
+  @attachedBoxShadow
+;
 
 /* Sizes */
 @smallWidth: 13rem;
