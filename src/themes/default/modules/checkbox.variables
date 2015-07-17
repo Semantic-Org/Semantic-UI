@@ -61,8 +61,8 @@
 @checkboxActiveCheckOpacity: 1;
 
 /* Active Focus */
-@checkboxActiveFocusBackground: @checkboxFocusBackground;
-@checkboxActiveFocusBorderColor: @checkboxFocusBorderColor;
+@checkboxActiveFocusBackground: @offWhite;
+@checkboxActiveFocusBorderColor: @strongSelectedBorderColor;
 @checkboxActiveFocusCheckColor: @selectedTextColor;
 
 /* Indeterminate */

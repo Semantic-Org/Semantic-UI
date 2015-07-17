@@ -3,15 +3,13 @@
 
 ### Version 2.0.4 - July X, 2015
 
-**Docs**
-
-- Fixed theme previews appearing incorrectly in all UI in docs. Regex parsing `.variable` files would ignore first variable after a comment.
-- Added individual examples of all form validation rules
-
 **[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.0.4+is%3Aclosed)**
 - **Build Tools** - Fixed issue where sub tasks were undefined when importing SUI's `build` and `watch` tasks into custom gulpfile #2648
 - **Button** - Fixed `fluid buttons` not working correctly with `<button>` due to button tags not supporting `flex` rules. #2617
 - **Button** - Fixed colored vertical basic buttons appearing 2px offset #2655
+- **Checkbox** - Checkbox now focus after click, allowing for tab navigation from current position #2610
+- **Checkbox** - Fixed checkbox not using javascript having incorrect colors on focus #2607
+- **Checkbox** - Updated `colored` theme to add new focus color variables.
 - **Form** - Added `doesntContain` and `doesntContainExactly` #2638
 - **Form** - Fixed issue with `minLength[1]` validation not behaving same as `minLength > 2` #2636.
 - **Form** - Fixes errors when a field identifier is named `identifier` #2629
@@ -28,10 +26,17 @@
 - **Visibility** - `refreshOnResize` now correctly includes a default value #2615
 
 **Additional Bugs**
+- **Checkbox** - Fixed `space` shortcut causing checkbox to trigger twice
 - **Popup** - `wide` and `very wide` popup will now limit themselves to normal popup widths on mobile so that they still appear on screen.
 - **Sticky** - Fixed `sticky` content jumping from `fixed` to `bount bottom` when scroll position has surpassed bottom of container during page refresh.
 - **Sticky** - Sticky no longer uses `bottomPadding` to determine bottom edge of container.
 - **Steps** - Updated `basic` steps theme to appear correctly
+
+**Docs**
+- Fixed theme previews appearing incorrectly in all UI in docs. Regex parsing `.variable` files would ignore first variable after a comment.
+- Added individual examples of all form validation rules
+- Partial rewriite of sidebar documentation
+- Updated example in theme guide to include checkbox focus colors
 
 ### Version 2.0.3 - July 8, 2015
 

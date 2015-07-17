@@ -456,15 +456,16 @@
 
 @circularRadius                : 500rem;
 
-@borderColor                   : rgba(34, 36, 38, 0.15);
-@strongBorderColor             : rgba(34, 36, 38, 0.22);
-@internalBorderColor           : rgba(34, 36, 38, 0.1);
-@selectedBorderColor           : rgba(34, 36, 38, 0.35);
-@disabledBorderColor           : rgba(34, 36, 38, 0.5);
+@borderColor               : rgba(34, 36, 38, 0.15);
+@strongBorderColor         : rgba(34, 36, 38, 0.22);
+@internalBorderColor       : rgba(34, 36, 38, 0.1);
+@selectedBorderColor       : rgba(34, 36, 38, 0.35);
+@strongSelectedBorderColor : rgba(34, 36, 38, 0.5);
+@disabledBorderColor       : rgba(34, 36, 38, 0.5);
 
-@solidInternalBorderColor      : #FAFAFA;
-@solidBorderColor              : #D4D4D5;
-@solidSelectedBorderColor      : #BCBDBD;
+@solidInternalBorderColor  : #FAFAFA;
+@solidBorderColor          : #D4D4D5;
+@solidSelectedBorderColor  : #BCBDBD;
 
 @whiteBorderColor              : rgba(255, 255, 255, 0.1);
 @selectedWhiteBorderColor      : rgba(255, 255, 255, 0.8);
