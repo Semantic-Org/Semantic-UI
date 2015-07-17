@@ -14083,7 +14083,7 @@ ol.ui.horizontal.list li:before,
 
 .ui.segment {
   position: relative;
-  background-color: #ffffff;
+  background: #ffffff;
   box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
   margin: 1rem 0em;
   padding: 1em 1em;
@@ -14105,7 +14105,7 @@ ol.ui.horizontal.list li:before,
   margin: 0em;
   padding-left: 0em;
   padding-right: 0em;
-  background-color: transparent;
+  background: none transparent;
   border-radius: 0px;
   box-shadow: none;
   border: none;
@@ -14267,7 +14267,7 @@ ol.ui.horizontal.list li:before,
   bottom: -3px;
   left: 0%;
   border-top: 1px solid rgba(34, 36, 38, 0.15);
-  background-color: rgba(0, 0, 0, 0.03);
+  background: rgba(0, 0, 0, 0.03);
   width: 100%;
   height: 6px;
   visibility: visible;
@@ -14411,7 +14411,7 @@ ol.ui.horizontal.list li:before,
   bottom: 0px;
   margin-top: 0em;
   margin-bottom: 0em;
-  box-shadow: none, 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15), none;
   border-radius: 0em 0em 0.28571429rem 0.28571429rem;
 }
 
@@ -14782,21 +14782,24 @@ ol.ui.horizontal.list li:before,
   box-shadow: none;
 }
 
+.ui.inverted.segment,
+.ui.primary.inverted.segment {
+  background: #1b1c1d;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Nested */
+
 .ui.inverted.segment .segment {
   color: rgba(0, 0, 0, 0.87);
 }
 
 .ui.inverted.segment .inverted.segment {
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.9);
 }
 
-.ui.inverted.segment,
-.ui.primary.inverted.segment {
-  background-color: #1b1c1d;
-  color: #ffffff;
-}
+/* Attached */
 
-.ui.inverted.block.segment,
 .ui.inverted.attached.segment {
   border-color: #555555;
 }
@@ -14835,28 +14838,30 @@ ol.ui.horizontal.list li:before,
       Attached
 --------------------*/
 
-.ui.segment.attached {
+/* Middle */
+
+.ui.attached.segment {
   top: 0px;
   bottom: 0px;
+  border-radius: 0px;
   margin: 0em -1px;
   width: calc(100% +  2px );
   max-width: calc(100% +  2px );
-  border-radius: 0px;
   box-shadow: none;
   border: 1px solid #d4d4d5;
 }
 
-.ui.segment.attached + .ui.segment.attached:not(.top) {
+.ui.attached + .ui.attached.segment:not(.top) {
   border-top: none;
 }
 
 /* Top */
 
 .ui[class*="top attached"].segment {
-  top: 0px;
   bottom: 0px;
-  margin-top: 1rem;
   margin-bottom: 0em;
+  top: 0px;
+  margin-top: 1rem;
   border-radius: 0.28571429rem 0.28571429rem 0em 0em;
 }
 
@@ -14867,11 +14872,11 @@ ol.ui.horizontal.list li:before,
 /* Bottom */
 
 .ui.segment[class*="bottom attached"] {
-  top: 0px;
   bottom: 0px;
   margin-top: 0em;
+  top: 0px;
   margin-bottom: 1rem;
-  box-shadow: none, 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15), none;
   border-radius: 0em 0em 0.28571429rem 0.28571429rem;
 }
 
@@ -18936,7 +18941,7 @@ ol.ui.horizontal.list li:before,
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin: 1em 0rem;
+  margin: 1rem 0em;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   background: #ffffff;
   font-weight: normal;
@@ -20906,35 +20911,55 @@ Floated Menu / Item
     Attached
 ---------------*/
 
+/* Middle */
+
 .ui.attached.menu {
+  top: 0px;
+  bottom: 0px;
   border-radius: 0px;
-  margin-left: -1px;
-  margin-right: -1px;
+  margin: 0em -1px;
   width: calc(100% +  2px );
+  max-width: calc(100% +  2px );
   box-shadow: none;
-  /* avoid rgba multiplying */
 }
 
-/* Direction */
-
-.ui.attached.menu:not(.top):not(.bottom) {
-  margin-top: 0em;
-  margin-bottom: 0em;
+.ui.attached + .ui.attached.menu:not(.top) {
+  border-top: none;
 }
 
-.ui.top.attached.menu {
+/* Top */
+
+.ui[class*="top attached"].menu {
+  bottom: 0px;
   margin-bottom: 0em;
+  top: 0px;
+  margin-top: 1rem;
   border-radius: 0.28571429rem 0.28571429rem 0em 0em;
 }
 
-.ui.top.attached.menu > .item:first-child {
-  border-radius: 0.28571429rem 0em 0em 0em;
+.ui.menu[class*="top attached"]:first-child {
+  margin-top: 0em;
 }
 
-.ui.bottom.attached.menu {
+/* Bottom */
+
+.ui[class*="bottom attached"].menu {
+  bottom: 0px;
   margin-top: 0em;
-  border-top: none;
+  top: 0px;
+  margin-bottom: 1rem;
+  box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15), none;
   border-radius: 0em 0em 0.28571429rem 0.28571429rem;
+}
+
+.ui[class*="bottom attached"].menu:last-child {
+  margin-bottom: 0em;
+}
+
+/* Attached Menu Item */
+
+.ui.top.attached.menu > .item:first-child {
+  border-radius: 0.28571429rem 0em 0em 0em;
 }
 
 .ui.bottom.attached.menu > .item:first-child {
@@ -20943,8 +20968,12 @@ Floated Menu / Item
 
 /* Tabular Attached */
 
-.ui.top.attached.menu:not(.fixed):not(.tabular) {
-  border-bottom: none;
+.ui.attached.menu:not(.tabular) {
+  border: 1px solid #d4d4d5;
+}
+
+.ui.attached.inverted.menu {
+  border: none;
 }
 
 .ui.attached.tabular.menu {
@@ -21224,7 +21253,6 @@ Floated Menu / Item
 }
 
 .ui.attached.icon.message {
-  display: block;
   width: auto;
 }
 
@@ -22078,22 +22106,33 @@ Floated Menu / Item
   color: #943634 !important;
 }
 
-/*--------------
-    Attached
----------------*/
+/*-------------------
+      Attached
+--------------------*/
 
-/* All */
+/* Middle */
 
 .ui.attached.table {
-  width: calc(100% +  2px );
-  margin: 0em -1px;
+  top: 0px;
+  bottom: 0px;
   border-radius: 0px;
+  margin: 0em -1px;
+  width: calc(100% +  2px );
+  max-width: calc(100% +  2px );
   box-shadow: none;
+  border: 1px solid #d4d4d5;
+}
+
+.ui.attached + .ui.attached.table:not(.top) {
+  border-top: none;
 }
 
 /* Top */
 
 .ui[class*="top attached"].table {
+  bottom: 0px;
+  margin-bottom: 0em;
+  top: 0px;
   margin-top: 1em;
   border-radius: 0.28571429rem 0.28571429rem 0em 0em;
 }
@@ -22104,13 +22143,16 @@ Floated Menu / Item
 
 /* Bottom */
 
-.ui.table[class*="bottom attached"] {
+.ui[class*="bottom attached"].table {
+  bottom: 0px;
   margin-top: 0em;
+  top: 0px;
   margin-bottom: 1em;
+  box-shadow: none, none;
   border-radius: 0em 0em 0.28571429rem 0.28571429rem;
 }
 
-.ui.table[class*="bottom attached"]:last-child {
+.ui[class*="bottom attached"].table:last-child {
   margin-bottom: 0em;
 }
 
@@ -32546,22 +32588,33 @@ html.ios body {
   color: #943634 !important;
 }
 
-/*--------------
-    Attached
----------------*/
+/*-------------------
+      Attached
+--------------------*/
 
-/* All */
+/* Middle */
 
 .ui.attached.table {
-  width: calc(100% +  2px );
-  margin: 0em -1px;
+  top: 0px;
+  bottom: 0px;
   border-radius: 0px;
+  margin: 0em -1px;
+  width: calc(100% +  2px );
+  max-width: calc(100% +  2px );
   box-shadow: none;
+  border: 1px solid #d4d4d5;
+}
+
+.ui.attached + .ui.attached.table:not(.top) {
+  border-top: none;
 }
 
 /* Top */
 
 .ui[class*="top attached"].table {
+  bottom: 0px;
+  margin-bottom: 0em;
+  top: 0px;
   margin-top: 1em;
   border-radius: 0.28571429rem 0.28571429rem 0em 0em;
 }
@@ -32572,13 +32625,16 @@ html.ios body {
 
 /* Bottom */
 
-.ui.table[class*="bottom attached"] {
+.ui[class*="bottom attached"].table {
+  bottom: 0px;
   margin-top: 0em;
+  top: 0px;
   margin-bottom: 1em;
+  box-shadow: none, none;
   border-radius: 0em 0em 0.28571429rem 0.28571429rem;
 }
 
-.ui.table[class*="bottom attached"]:last-child {
+.ui[class*="bottom attached"].table:last-child {
   margin-bottom: 0em;
 }
 
