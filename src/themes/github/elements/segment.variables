@@ -13,7 +13,6 @@
 @verticalPadding: 20px;
 @horizontalPadding: 20px;
 
-@margin: 1em;
 @borderRadius: 4px;
 
 /*******************************
