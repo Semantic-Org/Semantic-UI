@@ -44,7 +44,10 @@ var
 
 ;
 
-// add tasks that shouldn't be exposed to end-user
+// add tasks referenced using gulp.run (sub-tasks)
+if(config.rtl) {
+  require('./collections/rtl')(gulp);
+}
 require('./collections/internal')(gulp);
 
 

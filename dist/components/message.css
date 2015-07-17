@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.3 - Message
+ * # Semantic UI 2.0.4 - Message
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -201,7 +201,6 @@
   margin-bottom: 1em;
 }
 .ui.attached.icon.message {
-  display: block;
   width: auto;
 }
 

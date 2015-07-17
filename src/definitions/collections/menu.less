@@ -1754,39 +1754,59 @@ Floated Menu / Item
     Attached
 ---------------*/
 
+/* Middle */
 .ui.attached.menu {
+  top: 0px;
+  bottom: 0px;
   border-radius: 0px;
-  margin-left: -@borderWidth;
-  margin-right: -@borderWidth;
+  margin: 0em @attachedHorizontalOffset;
   width: @attachedWidth;
-  box-shadow: @attachedBoxShadow; /* avoid rgba multiplying */
+  max-width: @attachedWidth;
+  box-shadow: @attachedBoxShadow;
+}
+.ui.attached + .ui.attached.menu:not(.top) {
+  border-top: none;
 }
 
-/* Direction */
-.ui.attached.menu:not(.top):not(.bottom) {
-  margin-top: 0em;
+/* Top */
+.ui[class*="top attached"].menu {
+  bottom: 0px;
   margin-bottom: 0em;
-}
-.ui.top.attached.menu {
-  margin-bottom: 0em;
+  top: @attachedTopOffset;
+  margin-top: @verticalMargin;
   border-radius: @borderRadius @borderRadius 0em 0em;
 }
-.ui.top.attached.menu > .item:first-child {
-  border-radius: @borderRadius 0em 0em 0em;
+.ui.menu[class*="top attached"]:first-child {
+  margin-top: 0em;
 }
 
-.ui.bottom.attached.menu {
+/* Bottom */
+.ui[class*="bottom attached"].menu {
+  bottom: 0px;
   margin-top: 0em;
-  border-top: none;
+  top: @attachedBottomOffset;
+  margin-bottom: @verticalMargin;
+  box-shadow: @attachedBottomBoxShadow;
   border-radius: 0em 0em @borderRadius @borderRadius;
+}
+.ui[class*="bottom attached"].menu:last-child {
+  margin-bottom: 0em;
+}
+
+/* Attached Menu Item */
+.ui.top.attached.menu > .item:first-child {
+  border-radius: @borderRadius 0em 0em 0em;
 }
 .ui.bottom.attached.menu > .item:first-child {
   border-radius: 0em 0em 0em @borderRadius;
 }
 
 /* Tabular Attached */
-.ui.top.attached.menu:not(.fixed):not(.tabular) {
-  border-bottom: none;
+.ui.attached.menu:not(.tabular) {
+  border: @attachedBorder;
+}
+.ui.attached.inverted.menu {
+  border: none;
 }
 .ui.attached.tabular.menu {
   margin-left: 0;

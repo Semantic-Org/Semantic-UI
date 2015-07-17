@@ -29,7 +29,6 @@
   color @defaultDuration @defaultEasing,
   box-shadow @defaultDuration @defaultEasing
 ;
-@borderRadius: @defaultBorderRadius;
 @lineHeight: @relativeLarge;
 @alignItems: center;
 @justifyContent: center;

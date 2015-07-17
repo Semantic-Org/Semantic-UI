@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.3 - Table
+ * # Semantic UI 2.0.4 - Table
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -493,21 +493,31 @@
   color: #943634 !important;
 }
 
-/*--------------
-    Attached
----------------*/
+/*-------------------
+      Attached
+--------------------*/
 
 
-/* All */
+/* Middle */
 .ui.attached.table {
-  width: calc(100% +  2px );
-  margin: 0em -1px;
+  top: 0px;
+  bottom: 0px;
   border-radius: 0px;
+  margin: 0em -1px;
+  width: calc(100% +  2px );
+  max-width: calc(100% +  2px );
   box-shadow: none;
+  border: 1px solid #d4d4d5;
+}
+.ui.attached + .ui.attached.table:not(.top) {
+  border-top: none;
 }
 
 /* Top */
 .ui[class*="top attached"].table {
+  bottom: 0px;
+  margin-bottom: 0em;
+  top: 0px;
   margin-top: 1em;
   border-radius: 0.28571429rem 0.28571429rem 0em 0em;
 }
@@ -516,12 +526,15 @@
 }
 
 /* Bottom */
-.ui.table[class*="bottom attached"] {
+.ui[class*="bottom attached"].table {
+  bottom: 0px;
   margin-top: 0em;
+  top: 0px;
   margin-bottom: 1em;
+  box-shadow: none, none;
   border-radius: 0em 0em 0.28571429rem 0.28571429rem;
 }
-.ui.table[class*="bottom attached"]:last-child {
+.ui[class*="bottom attached"].table:last-child {
   margin-bottom: 0em;
 }
 

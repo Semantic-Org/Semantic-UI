@@ -18,8 +18,6 @@
 
 @import (multiple) '../../theme.config';
 
-& {
-
 /*******************************
             Button
 *******************************/
@@ -1038,11 +1036,11 @@
 --------------------*/
 
 .ui.fluid.buttons,
-.ui.button.fluid {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
+.ui.fluid.button {
   width: 100%;
+}
+.ui.fluid.button {
+  display: block;
 }
 
 .ui.two.buttons {
@@ -1234,7 +1232,7 @@
   box-shadow: 0px 0px 0px @basicColoredBorderSize @blackDown inset !important;
   color: @blackDown !important;
 }
-.ui.buttons > .basic.black.button:not(:first-child) {
+.ui.buttons:not(.vertical) > .basic.black.button:not(:first-child) {
   margin-left: -@basicColoredBorderSize;
 }
 
@@ -1372,7 +1370,7 @@
   box-shadow: 0px 0px 0px @basicColoredBorderSize @greyDown inset !important;
   color: @greyDown !important;
 }
-.ui.buttons > .basic.grey.button:not(:first-child) {
+.ui.buttons:not(.vertical) > .basic.grey.button:not(:first-child) {
   margin-left: -@basicColoredBorderSize;
 }
 
@@ -1511,7 +1509,7 @@
   box-shadow: 0px 0px 0px @basicColoredBorderSize @brownDown inset !important;
   color: @brownDown !important;
 }
-.ui.buttons > .basic.brown.button:not(:first-child) {
+.ui.buttons:not(.vertical) > .basic.brown.button:not(:first-child) {
   margin-left: -@basicColoredBorderSize;
 }
 
@@ -1649,7 +1647,7 @@
   box-shadow: 0px 0px 0px @basicColoredBorderSize @blueDown inset !important;
   color: @blueDown !important;
 }
-.ui.buttons > .basic.blue.button:not(:first-child) {
+.ui.buttons:not(.vertical) > .basic.blue.button:not(:first-child) {
   margin-left: -@basicColoredBorderSize;
 }
 
@@ -1788,7 +1786,7 @@
   box-shadow: 0px 0px 0px @basicColoredBorderSize @greenDown inset !important;
   color: @greenDown !important;
 }
-.ui.buttons > .basic.green.button:not(:first-child) {
+.ui.buttons:not(.vertical) > .basic.green.button:not(:first-child) {
   margin-left: -@basicColoredBorderSize;
 }
 
@@ -1926,7 +1924,7 @@
   box-shadow: 0px 0px 0px @basicColoredBorderSize @orangeDown inset !important;
   color: @orangeDown !important;
 }
-.ui.buttons > .basic.orange.button:not(:first-child) {
+.ui.buttons:not(.vertical) > .basic.orange.button:not(:first-child) {
   margin-left: -@basicColoredBorderSize;
 }
 
@@ -2064,7 +2062,7 @@
   box-shadow: 0px 0px 0px @basicColoredBorderSize @pinkDown inset !important;
   color: @pinkDown !important;
 }
-.ui.buttons > .basic.pink.button:not(:first-child) {
+.ui.buttons:not(.vertical) > .basic.pink.button:not(:first-child) {
   margin-left: -@basicColoredBorderSize;
 }
 
@@ -2203,7 +2201,7 @@
   box-shadow: 0px 0px 0px @basicColoredBorderSize @violetDown inset !important;
   color: @violetDown !important;
 }
-.ui.buttons > .basic.violet.button:not(:first-child) {
+.ui.buttons:not(.vertical) > .basic.violet.button:not(:first-child) {
   margin-left: -@basicColoredBorderSize;
 }
 
@@ -2341,7 +2339,7 @@
   box-shadow: 0px 0px 0px @basicColoredBorderSize @purpleDown inset !important;
   color: @purpleDown !important;
 }
-.ui.buttons > .basic.purple.button:not(:first-child) {
+.ui.buttons:not(.vertical) > .basic.purple.button:not(:first-child) {
   margin-left: -@basicColoredBorderSize;
 }
 
@@ -2479,7 +2477,7 @@
   box-shadow: 0px 0px 0px @basicColoredBorderSize @redDown inset !important;
   color: @redDown !important;
 }
-.ui.buttons > .basic.red.button:not(:first-child) {
+.ui.buttons:not(.vertical) > .basic.red.button:not(:first-child) {
   margin-left: -@basicColoredBorderSize;
 }
 
@@ -2618,7 +2616,7 @@
   box-shadow: 0px 0px 0px @basicColoredBorderSize @tealDown inset !important;
   color: @tealDown !important;
 }
-.ui.buttons > .basic.teal.button:not(:first-child) {
+.ui.buttons:not(.vertical) > .basic.teal.button:not(:first-child) {
   margin-left: -@basicColoredBorderSize;
 }
 
@@ -2757,7 +2755,7 @@
   box-shadow: 0px 0px 0px @basicColoredBorderSize @oliveDown inset !important;
   color: @oliveDown !important;
 }
-.ui.buttons > .basic.olive.button:not(:first-child) {
+.ui.buttons:not(.vertical) > .basic.olive.button:not(:first-child) {
   margin-left: -@basicColoredBorderSize;
 }
 
@@ -2895,7 +2893,7 @@
   box-shadow: 0px 0px 0px @basicColoredBorderSize @yellowDown inset !important;
   color: @yellowDown !important;
 }
-.ui.buttons > .basic.yellow.button:not(:first-child) {
+.ui.buttons:not(.vertical) > .basic.yellow.button:not(:first-child) {
   margin-left: -@basicColoredBorderSize;
 }
 
@@ -3207,4 +3205,3 @@
 
 .loadUIOverrides();
 
-}

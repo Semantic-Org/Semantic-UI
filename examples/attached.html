@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <!-- Site Properities -->
+  <title>Attached - Semantic</title>
+  <link rel="stylesheet" type="text/css" href="../dist/components/reset.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/site.css">
+
+  <link rel="stylesheet" type="text/css" href="../dist/components/container.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/divider.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/grid.css">
+
+  <link rel="stylesheet" type="text/css" href="../dist/components/segment.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/table.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/icon.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/menu.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/message.css">
+
+  <style type="text/css">
+  h2 {
+    margin: 2em 0em;
+  }
+  .ui.container {
+    padding-top: 5em;
+    padding-bottom: 5em;
+  }
+  </style>
+</head>
+<body>
+
+<div class="ui container">
+
+  <h2 class="ui header">Attached Content</h2>
+  <div class="ui three column grid">
+    <div class="column">
+      <div class="top attached ui segment">
+        Segment 1
+      </div>
+      <div class="attached ui segment">
+        Segment 2
+      </div>
+      <div class="attached ui segment">
+        Segment 2
+      </div>
+      <div class="bottom attached ui segment">
+        Segment 3
+      </div>
+      <div class="ui segments">
+        <div class="ui segment">
+          <p>Top</p>
+        </div>
+        <div class="ui segments">
+          <div class="ui segment">
+            <p>Nested Top</p>
+          </div>
+          <div class="ui segment">
+            <p>Nested Middle</p>
+          </div>
+          <div class="ui segment">
+            <p>Nested Bottom</p>
+          </div>
+        </div>
+        <div class="ui segment">
+          <p>Middle</p>
+        </div>
+        <div class="ui horizontal segments">
+          <div class="ui segment">
+            <p>Top</p>
+          </div>
+          <div class="ui segment">
+            <p>Middle</p>
+          </div>
+          <div class="ui segment">
+            <p>Bottom</p>
+          </div>
+        </div>
+        <div class="ui segment">
+          <p>Bottom</p>
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      <table class="top attached ui basic table">
+        <thead>
+          <th>Header</th>
+          <th>Header</th>
+          <th>Header</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+          </tr>
+          <tr>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+          </tr>
+          <tr>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="attached ui table">
+        <tbody>
+          <tr>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+          </tr>
+          <tr>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+          </tr>
+          <tr>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="attached ui celled selectable table">
+        <tbody>
+          <tr>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+          </tr>
+          <tr>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+          </tr>
+          <tr>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="bottom attached ui celled table">
+        <thead>
+          <th>Header</th>
+          <th>Header</th>
+          <th>Header</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+          </tr>
+          <tr>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+          </tr>
+          <tr>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="column">
+      <div class="top attached ui three item menu">
+        <a class="item">Item</a>
+        <a class="item">Item</a>
+        <a class="item">Item</a>
+      </div>
+      <div class="attached ui three item menu">
+        <a class="item">Item</a>
+        <a class="item">Item</a>
+        <a class="item">Item</a>
+      </div>
+      <div class="attached ui three item menu">
+        <a class="item">Item</a>
+        <a class="item">Item</a>
+        <a class="item">Item</a>
+      </div>
+      <div class="bottom attached ui three item menu">
+        <a class="item">Item</a>
+        <a class="item">Item</a>
+        <a class="item">Item</a>
+      </div>
+
+      <div class="ui top attached tabular menu">
+        <a class="active item">Active Item</a>
+        <a class="item">Item</a>
+        <a class="item">Item</a>
+      </div>
+      <div class="ui bottom attached segment">
+        Segment
+      </div>
+
+      <div class="ui top attached menu">
+        <a class="active item">Active Item</a>
+        <a class="item">Item</a>
+        <a class="item">Item</a>
+      </div>
+      <div class="ui bottom attached segment">
+        Segment
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="ui text container">
+
+  <h2 class="ui header">Mixed Attached Content</h2>
+
+  <div class="ui section divider"></div>
+
+  <div class="ui top attached segment">Segment</div>
+  <div class="ui attached three item menu">
+    <a class="item">Item</a>
+    <a class="item">Item</a>
+    <a class="item">Item</a>
+  </div>
+  <div class="ui attached segment">
+    1
+  </div>
+  <div class="ui attached icon info message">
+    <i class="help circle icon"></i>
+    <div class="content">
+      Message
+    </div>
+  </div>
+  <table class="ui bottom attached table">
+    <thead>
+      <th>Header</th>
+      <th>Header</th>
+      <th>Header</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Cell</td>
+        <td>Cell</td>
+        <td>Cell</td>
+      </tr>
+      <tr>
+        <td>Cell</td>
+        <td>Cell</td>
+        <td>Cell</td>
+      </tr>
+      <tr>
+        <td>Cell</td>
+        <td>Cell</td>
+        <td>Cell</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="ui section divider"></div>
+
+  <div class="ui top attached warning icon message">
+    <i class="attention icon"></i>
+    <div class="content">
+      Message
+    </div>
+  </div>
+  <table class="ui attached table">
+    <thead>
+      <th>Header</th>
+      <th>Header</th>
+      <th>Header</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Cell</td>
+        <td>Cell</td>
+        <td>Cell</td>
+      </tr>
+      <tr>
+        <td>Cell</td>
+        <td>Cell</td>
+        <td>Cell</td>
+      </tr>
+      <tr>
+        <td>Cell</td>
+        <td>Cell</td>
+        <td>Cell</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="ui bottom attached three item menu">
+    <a class="item">Item</a>
+    <a class="item">Item</a>
+    <a class="item">Item</a>
+  </div>
+
+  <div class="ui section divider"></div>
+
+  <div class="ui top attached three item inverted menu">
+    <a class="item">Item</a>
+    <a class="item">Item</a>
+    <a class="item">Item</a>
+  </div>
+  <table class="ui attached inverted table">
+    <thead>
+      <th>Header</th>
+      <th>Header</th>
+      <th>Header</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Cell</td>
+        <td>Cell</td>
+        <td>Cell</td>
+      </tr>
+      <tr>
+        <td>Cell</td>
+        <td>Cell</td>
+        <td>Cell</td>
+      </tr>
+      <tr>
+        <td>Cell</td>
+        <td>Cell</td>
+        <td>Cell</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="ui bottom attached inverted segment">
+    Segment
+  </div>
+
+
+</div>
+
+</body>
+
+</html>

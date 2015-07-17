@@ -506,22 +506,30 @@
 }
 
 
+/*-------------------
+      Attached
+--------------------*/
 
-/*--------------
-    Attached
----------------*/
-
-
-/* All */
+/* Middle */
 .ui.attached.table {
-  width: @attachedTableWidth;
-  margin: 0em @attachedHorizontalOffset;
+  top: 0px;
+  bottom: 0px;
   border-radius: 0px;
+  margin: 0em @attachedHorizontalOffset;
+  width: @attachedWidth;
+  max-width: @attachedWidth;
   box-shadow: @attachedBoxShadow;
+  border: @attachedBorder;
+}
+.ui.attached + .ui.attached.table:not(.top) {
+  border-top: none;
 }
 
 /* Top */
 .ui[class*="top attached"].table {
+  bottom: 0px;
+  margin-bottom: 0em;
+  top: @attachedTopOffset;
   margin-top: @verticalMargin;
   border-radius: @borderRadius @borderRadius 0em 0em;
 }
@@ -530,12 +538,15 @@
 }
 
 /* Bottom */
-.ui.table[class*="bottom attached"] {
+.ui[class*="bottom attached"].table {
+  bottom: 0px;
   margin-top: 0em;
+  top: @attachedBottomOffset;
   margin-bottom: @verticalMargin;
+  box-shadow: @attachedBottomBoxShadow;
   border-radius: 0em 0em @borderRadius @borderRadius;
 }
-.ui.table[class*="bottom attached"]:last-child {
+.ui[class*="bottom attached"].table:last-child {
   margin-bottom: 0em;
 }
 
@@ -895,7 +906,7 @@
 }
 .ui.inverted.table th {
   background-color: @invertedHeaderBackground;
-  border-color: @invertedCellBorderColor !important;
+  border-color: @invertedHeaderBorderColor !important;
   color: @invertedHeaderColor;
 }
 .ui.inverted.table tr td {

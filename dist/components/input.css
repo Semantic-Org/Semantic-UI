@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.3 - Input
+ * # Semantic UI 2.0.4 - Input
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -420,8 +420,8 @@
 }
 .ui[class*="left action"].input > input {
   border-left: none;
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
 }
 
 /*--------------------

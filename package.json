@@ -1,6 +1,6 @@
 {
   "name": "semantic-ui",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "title": "Semantic UI",
   "description": "Semantic empowers designers and developers by creating a shared vocabulary for UI.",
   "homepage": "http://www.semantic-ui.com",
@@ -73,7 +73,7 @@
     "gulp-rtlcss": "^0.1.4",
     "gulp-uglify": "^1.2.0",
     "gulp-util": "^3.0.6",
-    "gulp-watch": "^4.2.4",
+    "gulp-watch": "^4.3.1",
     "jquery": "^2.1.4",
     "map-stream": "^0.1.0",
     "mkdirp": "^0.5.1",

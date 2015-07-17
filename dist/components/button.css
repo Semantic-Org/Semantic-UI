@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.3 - Button
+ * # Semantic UI 2.0.4 - Button
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -1033,21 +1033,11 @@
 --------------------*/
 
 .ui.fluid.buttons,
-.ui.button.fluid {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
+.ui.fluid.button {
   width: 100%;
+}
+.ui.fluid.button {
+  display: block;
 }
 .ui.two.buttons {
   width: 100%;
@@ -1231,7 +1221,7 @@
   box-shadow: 0px 0px 0px 2px #343637 inset !important;
   color: #343637 !important;
 }
-.ui.buttons > .basic.black.button:not(:first-child) {
+.ui.buttons:not(.vertical) > .basic.black.button:not(:first-child) {
   margin-left: -2px;
 }
 
@@ -1370,7 +1360,7 @@
   box-shadow: 0px 0px 0px 2px #909090 inset !important;
   color: #909090 !important;
 }
-.ui.buttons > .basic.grey.button:not(:first-child) {
+.ui.buttons:not(.vertical) > .basic.grey.button:not(:first-child) {
   margin-left: -2px;
 }
 
@@ -1509,7 +1499,7 @@
   box-shadow: 0px 0px 0px 2px #805031 inset !important;
   color: #805031 !important;
 }
-.ui.buttons > .basic.brown.button:not(:first-child) {
+.ui.buttons:not(.vertical) > .basic.brown.button:not(:first-child) {
   margin-left: -2px;
 }
 
@@ -1648,7 +1638,7 @@
   box-shadow: 0px 0px 0px 2px #1a69a4 inset !important;
   color: #1a69a4 !important;
 }
-.ui.buttons > .basic.blue.button:not(:first-child) {
+.ui.buttons:not(.vertical) > .basic.blue.button:not(:first-child) {
   margin-left: -2px;
 }
 
@@ -1787,7 +1777,7 @@
   box-shadow: 0px 0px 0px 2px #198f35 inset !important;
   color: #198f35 !important;
 }
-.ui.buttons > .basic.green.button:not(:first-child) {
+.ui.buttons:not(.vertical) > .basic.green.button:not(:first-child) {
   margin-left: -2px;
 }
 
@@ -1926,7 +1916,7 @@
   box-shadow: 0px 0px 0px 2px #cf590c inset !important;
   color: #cf590c !important;
 }
-.ui.buttons > .basic.orange.button:not(:first-child) {
+.ui.buttons:not(.vertical) > .basic.orange.button:not(:first-child) {
   margin-left: -2px;
 }
 
@@ -2065,7 +2055,7 @@
   box-shadow: 0px 0px 0px 2px #c71f7e inset !important;
   color: #c71f7e !important;
 }
-.ui.buttons > .basic.pink.button:not(:first-child) {
+.ui.buttons:not(.vertical) > .basic.pink.button:not(:first-child) {
   margin-left: -2px;
 }
 
@@ -2204,7 +2194,7 @@
   box-shadow: 0px 0px 0px 2px #502aa1 inset !important;
   color: #502aa1 !important;
 }
-.ui.buttons > .basic.violet.button:not(:first-child) {
+.ui.buttons:not(.vertical) > .basic.violet.button:not(:first-child) {
   margin-left: -2px;
 }
 
@@ -2343,7 +2333,7 @@
   box-shadow: 0px 0px 0px 2px #82299f inset !important;
   color: #82299f !important;
 }
-.ui.buttons > .basic.purple.button:not(:first-child) {
+.ui.buttons:not(.vertical) > .basic.purple.button:not(:first-child) {
   margin-left: -2px;
 }
 
@@ -2482,7 +2472,7 @@
   box-shadow: 0px 0px 0px 2px #b21e1e inset !important;
   color: #b21e1e !important;
 }
-.ui.buttons > .basic.red.button:not(:first-child) {
+.ui.buttons:not(.vertical) > .basic.red.button:not(:first-child) {
   margin-left: -2px;
 }
 
@@ -2621,7 +2611,7 @@
   box-shadow: 0px 0px 0px 2px #00827c inset !important;
   color: #00827c !important;
 }
-.ui.buttons > .basic.teal.button:not(:first-child) {
+.ui.buttons:not(.vertical) > .basic.teal.button:not(:first-child) {
   margin-left: -2px;
 }
 
@@ -2760,7 +2750,7 @@
   box-shadow: 0px 0px 0px 2px #8d9e13 inset !important;
   color: #8d9e13 !important;
 }
-.ui.buttons > .basic.olive.button:not(:first-child) {
+.ui.buttons:not(.vertical) > .basic.olive.button:not(:first-child) {
   margin-left: -2px;
 }
 
@@ -2899,7 +2889,7 @@
   box-shadow: 0px 0px 0px 2px #cd9903 inset !important;
   color: #cd9903 !important;
 }
-.ui.buttons > .basic.yellow.button:not(:first-child) {
+.ui.buttons:not(.vertical) > .basic.yellow.button:not(:first-child) {
   margin-left: -2px;
 }
 

@@ -47,18 +47,23 @@
 @checkboxPressedColor: @selectedTextColor;
 @labelPressedColor: @selectedTextColor;
 
-/* Focused */
-@checkboxFocusedBackground: @offWhite;
-@checkboxFocusedBorderColor: @selectedBorderColor;
-@checkboxFocusedColor: @selectedTextColor;
-@labelFocusedColor: @selectedTextColor;
+/* Focus */
+@checkboxFocusBackground: @offWhite;
+@checkboxFocusBorderColor: @selectedBorderColor;
+@checkboxFocusCheckColor: @selectedTextColor;
+@labelFocusColor: @selectedTextColor;
 
 /* Active */
+@labelActiveColor: @selectedTextColor;
 @checkboxActiveBackground: @white;
 @checkboxActiveBorderColor: @selectedBorderColor;
-@checkboxActiveCheckOpacity: 1;
 @checkboxActiveCheckColor: @selectedTextColor;
-@labelActiveColor: @selectedTextColor;
+@checkboxActiveCheckOpacity: 1;
+
+/* Active Focus */
+@checkboxActiveFocusBackground: @offWhite;
+@checkboxActiveFocusBorderColor: @strongSelectedBorderColor;
+@checkboxActiveFocusCheckColor: @selectedTextColor;
 
 /* Indeterminate */
 @checkboxIndeterminateBackground: @checkboxActiveBackground;
@@ -84,12 +89,18 @@
 
 @bulletTop: 1px;
 @bulletLeft: 0px;
-@bulletScale: (7 / 15); /* 8px as unitless value from radio size */
+@bulletScale: (7 / 15); /* 7px as unitless value from radio size */
 @bulletColor: @textColor;
 @bulletRadius: @circularRadius;
 
-@radioActiveBackground: @white;
+@radioFocusBackground: @checkboxFocusBackground;
+@radioFocusBulletColor: @checkboxFocusCheckColor;
+
+@radioActiveBackground: @checkboxActiveBackground;
 @radioActiveBulletColor: @checkboxActiveCheckColor;
+
+@radioActiveFocusBackground: @checkboxActiveFocusBackground;
+@radioActiveFocusBulletColor: @checkboxActiveFocusCheckColor;
 
 /* Slider & Toggle Handle */
 @handleBackground: @white @subtleGradient;
@@ -120,12 +131,18 @@
 @sliderLabelDistance: @sliderLineWidth + 1rem;
 @sliderOffLabelColor: @unselectedTextColor;
 
-@sliderOnLineColor: @lightBlack;
-@sliderOnLabelColor: @selectedTextColor;
 @sliderLabelLineHeight: 1rem;
 
+/* Slider States */
 @sliderHoverLaneBackground: @veryStrongTransparentBlack;
 @sliderHoverLabelColor: @hoveredTextColor;
+
+@sliderOnLineColor: @lightBlack;
+@sliderOnLabelColor: @selectedTextColor;
+
+@sliderOnFocusLineColor: @lightBlackFocus;
+@sliderOnFocusLabelColor: @sliderOnLabelColor;
+
 
 
 /* Toggle */
@@ -158,8 +175,12 @@
 @toggleHoverColor: @toggleFocusColor;
 
 @toggleOffLabelColor: @checkboxColor;
+
 @toggleOnLabelColor: @selectedTextColor;
 @toggleOnLaneColor: @primaryColor;
+
+@toggleOnFocusLaneColor: @primaryColorFocus;
+@toggleOnFocusLabelColor: @toggleOnLabelColor;
 
 
 

@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.3 - Form
+ * # Semantic UI 2.0.4 - Form
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -36,7 +36,6 @@
         Field
 ---------------------*/
 
-.ui.form .fields .field,
 .ui.form .field {
   clear: both;
   margin: 0em 0em 1em;
@@ -44,6 +43,10 @@
 .ui.form .field:last-child,
 .ui.form .fields:last-child .field {
   margin-bottom: 0em;
+}
+.ui.form .fields .field {
+  clear: both;
+  margin: 0em 0em 1em;
 }
 
 /*--------------------

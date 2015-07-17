@@ -1,5 +1,47 @@
 ## RELEASE NOTES
 
+
+### Version 2.0.4 - July X, 2015
+
+**[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.0.4+is%3Aclosed)**
+- **Build Tools** - Fixed issue where sub tasks were undefined when importing SUI's `build` and `watch` tasks into custom gulpfile #2648
+- **Button** - Fixed `fluid buttons` not working correctly with `<button>` due to button tags not supporting `flex` rules. #2617
+- **Button** - Fixed colored vertical basic buttons appearing 2px offset #2655
+- **Checkbox** - Checkbox now focus after click, allowing for tab navigation from current position #2610
+- **Checkbox** - Fixed checkbox not using javascript having incorrect colors on focus #2607
+- **Dropdown** - Fixed `search selection` appearing incorrectly inside menu (default text would not disappear) #2624
+- **Form** - Added `doesntContain` and `doesntContainExactly` #2638
+- **Form** - Fixed issue with `minLength[1]` validation not behaving same as `minLength > 2` #2636.
+- **Form** - Fixes errors when a field identifier is named `identifier` #2629
+- **Form** - Form fields will now error when a non-string identifier is used
+- **Formatting** - Fixed several source files that had `CR LF` (Windows) line endings #2649
+- **Input** - Fixed `left action input` displaying with incorrect `input` border radius inside `ui form` #2638
+- **Modal** - Modal `action` now uses a more specific selector to prevent modifying `comment action`
+- **Popup** - `fluid` popup with `setFluidWidth: true` (default value), will now use `parent` width and not `offsetContext` width #2526
+- **Popup** - Fixed issues where rounding could cause elements that are against edge of page from not appearing. Add new `jitter` setting for allowing popups to escape page boundaries by a small margin #2526
+- **Segment** - Added additional variables for `inverted` segment.
+- **Segment* - `horizontal segments` in IE will no longer stretch to the natural width of child imgs #2550 [flexbug #1](https://github.com/philipwalton/flexbugs#1-minimum-content-sizing-of-flex-items-not-honored)
+- **Sidebar** - `right`, `top`, and `bottom` sidebar will not have their direction removed on `destroy` #2644
+- **Sticky** - Fixed `sticky` element that cannot fit in viewport not scrolling correctly when fixed to viewport #2605
+- **Transition** - Fixed issue where animating same element in its own `onComplete` would fail because animation had not yet called `force visible/hidden` #2583
+- **Visibility** - `refreshOnResize` now correctly includes a default value #2615
+- **Menu/Segment/Table** - Consolidated `attached` logic for all components using attached.
+
+**Additional Bugs**
+- **Checkbox** - Fixed `space` shortcut causing checkbox to trigger twice
+- **Checkbox** - Updated `colored` theme to add new focus color variables.
+- **Popup** - `wide` and `very wide` popup will now limit themselves to normal popup widths on mobile so that they still appear on screen.
+- **Message** - Fixes `attached icon message` not using `flex`
+- **Sticky** - Fixed `sticky` content jumping from `fixed` to `bount bottom` when scroll position has surpassed bottom of container during page refresh.
+- **Sticky** - Sticky no longer uses `bottomPadding` to determine bottom edge of container.
+- **Steps** - Updated `basic` steps theme to appear correctly
+
+**Docs**
+- Fixed theme previews appearing incorrectly in all UI in docs. Regex parsing `.variable` files would ignore first variable after a comment.
+- Added individual examples of all form validation rules
+- Partial rewriite of sidebar documentation
+- Updated example in theme guide to include checkbox focus colors
+
 ### Version 2.0.3 - July 8, 2015
 
 **Docs Updates**

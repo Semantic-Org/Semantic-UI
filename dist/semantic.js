@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 2.0.3
+ * # Semantic UI - 2.0.4
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -9,7 +9,7 @@
  *
  */
 /*!
- * # Semantic UI 2.0.3 - Site
+ * # Semantic UI 2.0.4 - Site
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -496,7 +496,7 @@ $.extend($.expr[ ":" ], {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 2.0.3 - Form Validation
+ * # Semantic UI 2.0.4 - Form Validation
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -838,7 +838,7 @@ $.fn.form = function(parameters) {
               var
                 keys             = Object.keys(parameters),
                 isLegacySettings = (keys.length > 0)
-                  ? (parameters[keys[0]].identifier !== undefined)
+                  ? (parameters[keys[0]].identifier !== undefined && parameters[keys[0]].rules !== undefined)
                   : false
               ;
               if(isLegacySettings) {
@@ -992,6 +992,9 @@ $.fn.form = function(parameters) {
 
           field: function(identifier) {
             module.verbose('Checking for existence of a field with identifier', identifier);
+            if(typeof identifier !== 'string') {
+              module.error(error.identifier, identifier);
+            }
             if( $field.filter('#' + identifier).length > 0 ) {
               return true;
             }
@@ -1257,9 +1260,11 @@ $.fn.form = function(parameters) {
               ancillary,
               functionType
             ;
-            // cast to string
-            value = $.trim($field.val() + '');
-
+            // cast to string avoiding encoding special values
+            value = (value === undefined || value === '' || value === null)
+              ? ''
+              : $.trim(value + '')
+            ;
             // if bracket notation is used, pass in extra parameters
             if(bracket) {
               ancillary    = '' + bracket[1];
@@ -1512,9 +1517,10 @@ $.fn.form.settings = {
   },
 
   error: {
-    oldSyntax : 'Starting in 2.0 forms now only take a single settings object. Validation settings converted to new syntax automatically.',
-    noRule    : 'There is no rule matching the one you specified',
-    method    : 'The method you called is not defined.'
+    oldSyntax  : 'Starting in 2.0 forms now only take a single settings object. Validation settings converted to new syntax automatically.',
+    identifier : 'You must specify a string identifier for each field',
+    noRule     : 'There is no rule matching the one you specified',
+    method     : 'The method you called is not defined.'
   },
 
   templates: {
@@ -1542,23 +1548,14 @@ $.fn.form.settings = {
 
   rules: {
 
+    // is not empty or blank string
+    empty: function(value) {
+      return !(value === undefined || '' === value || $.isArray(value) && value.length === 0);
+    },
+
     // checkbox checked
     checked: function() {
       return ($(this).filter(':checked').length > 0);
-    },
-
-    // value contains text (insensitive)
-    contains: function(value, text) {
-      // escape regex characters
-      text = text.replace($.fn.form.settings.regExp.escape, "\\$&");
-      return (value.search( new RegExp(text, 'i') ) !== -1);
-    },
-
-    // value contains text (case sensitive)
-    containsExactly: function(value, text) {
-      // escape regex characters
-      text = text.replace($.fn.form.settings.regExp.escape, "\\$&");
-      return (value.search( new RegExp(text) ) !== -1);
     },
 
     // is most likely an email
@@ -1569,12 +1566,32 @@ $.fn.form.settings = {
       return emailRegExp.test(value);
     },
 
-    // is not empty or blank string
-    empty: function(value) {
-      return !(value === undefined || '' === value || $.isArray(value) && value.length === 0);
+    // value is most likely url
+    url: function(value) {
+      return $.fn.form.settings.regExp.url.test(value);
     },
 
-    // is valid integer
+    // matches specified regExp
+    regExp: function(value, regExp) {
+      var
+        regExpParts = regExp.match($.fn.form.settings.regExp.flags),
+        flags
+      ;
+      // regular expression specified as /baz/gi (flags)
+      if(regExpParts) {
+        regExp = (regExpParts.length >= 2)
+          ? regExpParts[1]
+          : regExp
+        ;
+        flags = (regExpParts.length >= 3)
+          ? regExpParts[2]
+          : ''
+        ;
+      }
+      return value.match( new RegExp(regExp, flags) );
+    },
+
+    // is valid integer or matches range
     integer: function(value, range) {
       var
         intRegExp = $.fn.form.settings.regExp.integer,
@@ -1606,6 +1623,7 @@ $.fn.form.settings = {
       );
     },
 
+
     // is value (case insensitive)
     is: function(value, text) {
       text = (typeof text == 'string')
@@ -1624,15 +1642,101 @@ $.fn.form.settings = {
       return (value == text);
     },
 
-    // is at least string length
+    // value is not another value (case insensitive)
+    not: function(value, notValue) {
+      value = (typeof value == 'string')
+        ? value.toLowerCase()
+        : value
+      ;
+      notValue = (typeof notValue == 'string')
+        ? notValue.toLowerCase()
+        : notValue
+      ;
+      return (value != notValue);
+    },
+
+    // value is not another value (case sensitive)
+    notExactly: function(value, notValue) {
+      return (value != notValue);
+    },
+
+    // value contains text (insensitive)
+    contains: function(value, text) {
+      // escape regex characters
+      text = text.replace($.fn.form.settings.regExp.escape, "\\$&");
+      return (value.search( new RegExp(text, 'i') ) !== -1);
+    },
+
+    // value contains text (case sensitive)
+    containsExactly: function(value, text) {
+      // escape regex characters
+      text = text.replace($.fn.form.settings.regExp.escape, "\\$&");
+      return (value.search( new RegExp(text) ) !== -1);
+    },
+
+    // value contains text (insensitive)
+    doesntContain: function(value, text) {
+      // escape regex characters
+      text = text.replace($.fn.form.settings.regExp.escape, "\\$&");
+      return (value.search( new RegExp(text, 'i') ) === -1);
+    },
+
+    // value contains text (case sensitive)
+    doesntContainExactly: function(value, text) {
+      // escape regex characters
+      text = text.replace($.fn.form.settings.regExp.escape, "\\$&");
+      return (value.search( new RegExp(text) ) === -1);
+    },
+
+    // is exactly length
     length: function(value, requiredLength) {
+      return (value !== undefined)
+        ? (value.length == requiredLength)
+        : false
+      ;
+    },
+
+    // is at least string length
+    minLength: function(value, requiredLength) {
       return (value !== undefined)
         ? (value.length >= requiredLength)
         : false
       ;
     },
 
+    // is less than length
+    maxLength: function(value, maxLength) {
+      return (value !== undefined)
+        ? (value.length <= maxLength)
+        : false
+      ;
+    },
+
     // matches another field
+    match: function(value, identifier) {
+      var
+        $form = $(this),
+        matchingValue
+      ;
+      if( $('[data-validate="'+ identifier +'"]').length > 0 ) {
+        matchingValue = $('[data-validate="'+ identifier +'"]').val();
+      }
+      else if($('#' + identifier).length > 0) {
+        matchingValue = $('#' + identifier).val();
+      }
+      else if($('[name="' + identifier +'"]').length > 0) {
+        matchingValue = $('[name="' + identifier + '"]').val();
+      }
+      else if( $('[name="' + identifier +'[]"]').length > 0 ) {
+        matchingValue = $('[name="' + identifier +'[]"]');
+      }
+      return (matchingValue !== undefined)
+        ? ( value.toString() == matchingValue.toString() )
+        : false
+      ;
+    },
+
+    // different than another field
     different: function(value, identifier) {
       // use either id or name of field
       var
@@ -1657,94 +1761,34 @@ $.fn.form.settings = {
       ;
     },
 
-    // matches another field
-    match: function(value, identifier) {
-      // use either id or name of field
-      var
-        $form = $(this),
-        matchingValue
-      ;
-      if( $('[data-validate="'+ identifier +'"]').length > 0 ) {
-        matchingValue = $('[data-validate="'+ identifier +'"]').val();
+    exactCount: function(value, exactCount) {
+      if(exactCount == 0) {
+        return (value === '');
       }
-      else if($('#' + identifier).length > 0) {
-        matchingValue = $('#' + identifier).val();
+      if(exactCount == 1) {
+        return (value !== '' && value.search(',') === -1);
       }
-      else if($('[name="' + identifier +'"]').length > 0) {
-        matchingValue = $('[name="' + identifier + '"]').val();
+      return (value.split(',').length == exactCount);
+    },
+
+    minCount: function(value, minCount) {
+      if(minCount == 0) {
+        return true;
       }
-      else if( $('[name="' + identifier +'[]"]').length > 0 ) {
-        matchingValue = $('[name="' + identifier +'[]"]');
+      if(minCount == 1) {
+        return (value !== '');
       }
-      return (matchingValue !== undefined)
-        ? ( value.toString() == matchingValue.toString() )
-        : false
-      ;
+      return (value.split(',').length >= minCount);
     },
 
-    maxCount: function(value, count) {
-      value = value.split(',');
-      return ($.isArray(value) && value.length <= count);
-    },
-
-    exactCount: function(value, count) {
-      value = value.split(',');
-      return ($.isArray(value) && value.length == count);
-    },
-
-    minCount: function(value, count) {
-      value = value.split(',');
-      return ($.isArray(value) && value.length >= count);
-    },
-
-    regExp: function(value, regExp) {
-      var
-        regExpParts = regExp.match($.fn.form.settings.regExp.flags),
-        flags
-      ;
-      // regular expression specified as /baz/gi (flags)
-      if(regExpParts) {
-        regExp = (regExpParts.length >= 2)
-          ? regExpParts[1]
-          : regExp
-        ;
-        flags = (regExpParts.length >= 3)
-          ? regExpParts[2]
-          : ''
-        ;
+    maxCount: function(value, maxCount) {
+      if(maxCount == 0) {
+        return false;
       }
-      return value.match( new RegExp(regExp, flags) );
-    },
-
-    // string length is less than max length
-    maxLength: function(value, maxLength) {
-      return (value !== undefined)
-        ? (value.length <= maxLength)
-        : false
-      ;
-    },
-
-    // value is not value (case insensitive)
-    not: function(value, notValue) {
-      value = (typeof value == 'string')
-        ? value.toLowerCase()
-        : value
-      ;
-      notValue = (typeof notValue == 'string')
-        ? notValue.toLowerCase()
-        : notValue
-      ;
-      return (value != notValue);
-    },
-
-    // value is not value (case sensitive)
-    notExactly: function(value, notValue) {
-      return (value != notValue);
-    },
-
-    // value is most likely url
-    url: function(value) {
-      return $.fn.form.settings.regExp.url.test(value);
+      if(maxCount == 1) {
+        return (value.search(',') === -1);
+      }
+      return (value.split(',').length <= maxCount);
     }
   }
 
@@ -1753,7 +1797,7 @@ $.fn.form.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.3 - Accordion
+ * # Semantic UI 2.0.4 - Accordion
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -2346,7 +2390,7 @@ $.extend( $.easing, {
 
 
 /*!
- * # Semantic UI 2.0.3 - Checkbox
+ * # Semantic UI 2.0.4 - Checkbox
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -2524,6 +2568,7 @@ $.fn.checkbox = function(parameters) {
               return;
             }
             module.toggle();
+            $input.focus();
             event.preventDefault();
           },
           keydown: function(event) {
@@ -2540,7 +2585,7 @@ $.fn.checkbox = function(parameters) {
               $input.blur();
               event.preventDefault();
             }
-            if(!event.ctrlKey && (key == keyCode.enter || key == keyCode.space)) {
+            if(!event.ctrlKey && (key == keyCode.enter)) {
               module.verbose('Enter key pressed, toggling checkbox');
               module.toggle();
               event.preventDefault();
@@ -3063,7 +3108,7 @@ $.fn.checkbox.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.3 - Dimmer
+ * # Semantic UI 2.0.4 - Dimmer
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -3756,7 +3801,7 @@ $.fn.dimmer.settings = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 2.0.3 - Dropdown
+ * # Semantic UI 2.0.4 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -7027,7 +7072,7 @@ $.fn.dropdown.settings.templates = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.3 - Video
+ * # Semantic UI 2.0.4 - Video
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -7690,7 +7735,7 @@ $.fn.embed.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.3 - Modal
+ * # Semantic UI 2.0.4 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -8580,7 +8625,7 @@ $.fn.modal.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.3 - Nag
+ * # Semantic UI 2.0.4 - Nag
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -9057,7 +9102,7 @@ $.fn.nag.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.3 - Popup
+ * # Semantic UI 2.0.4 - Popup
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -9178,7 +9223,7 @@ $.fn.popup = function(parameters) {
                 : $body
             ;
           }
-          if( $offsetParent.is('html') ) {
+          if( $offsetParent.is('html') && $offsetParent[0] !== $body[0] ) {
             module.debug('Setting page as offset parent');
             $offsetParent = $body;
           }
@@ -9499,6 +9544,9 @@ $.fn.popup = function(parameters) {
             $module.removeData(metadata.variation);
             return $module.data(metadata.variation) || settings.variation;
           },
+          popupOffset: function() {
+            return $popup.offset();
+          },
           calculations: function() {
             var
               targetElement  = $target[0],
@@ -9538,6 +9586,14 @@ $.fn.popup = function(parameters) {
                 height : $window.height()
               }
             };
+
+            // add in container calcs if fluid
+            if( settings.setFluidWidth && module.is.fluid() ) {
+              calculations.container = {
+                width: $popup.parent().outerWidth()
+              };
+              calculations.popup.width = calculations.container.width;
+            }
 
             // add in margins if inline
             calculations.target.margin.top = (settings.inline)
@@ -9584,6 +9640,30 @@ $.fn.popup = function(parameters) {
             }
             return false;
           },
+          distanceFromBoundary: function(offset, calculations) {
+            var
+              distanceFromBoundary = {},
+              popup,
+              boundary
+            ;
+            offset       = offset       || module.get.offset();
+            calculations = calculations || module.get.calculations();
+
+            // shorthand
+            popup        = calculations.popup;
+            boundary     = calculations.boundary;
+
+            if(offset) {
+              distanceFromBoundary = {
+                top    : (offset.top - boundary.top),
+                left   : (offset.left - boundary.left),
+                right  : (boundary.right - (offset.left + popup.width) ),
+                bottom : (boundary.bottom - (offset.top + popup.height) )
+              };
+              module.verbose('Distance from boundaries determined', offset, distanceFromBoundary);
+            }
+            return distanceFromBoundary;
+          },
           offsetParent: function($target) {
             var
               element = ($target !== undefined)
@@ -9609,40 +9689,6 @@ $.fn.popup = function(parameters) {
             return ($node && $node.length > 0)
               ? $node
               : $()
-            ;
-          },
-          offstagePosition: function(position, calculations) {
-            var
-              offset            = $popup.offset(),
-              offstage          = {},
-              offstagePositions = [],
-              popup,
-              boundary
-            ;
-            position     = position     || false;
-            calculations = calculations || module.get.calculations();
-            // shorthand
-            popup        = calculations.popup;
-            boundary     = calculations.boundary;
-
-            if(offset && position) {
-              offstage = {
-                top    : (offset.top < boundary.top),
-                bottom : (offset.top + popup.height > boundary.bottom),
-                right  : (offset.left + popup.width > boundary.right),
-                left   : (offset.left < boundary.left)
-              };
-              module.verbose('Offstage positions determined', offset, offstage);
-            }
-            // return only boundaries that have been surpassed
-            $.each(offstage, function(direction, isOffstage) {
-              if(isOffstage) {
-                offstagePositions.push(direction);
-              }
-            });
-            return (offstagePositions.length > 0)
-              ? offstagePositions.join(' ')
-              : false
             ;
           },
           positions: function() {
@@ -9730,10 +9776,11 @@ $.fn.popup = function(parameters) {
               target,
               popup,
               parent,
-              computedPosition,
               positioning,
-              offstagePosition
+              popupOffset,
+              distanceFromBoundary
             ;
+
             calculations = calculations || module.get.calculations();
             position     = position     || $module.data(metadata.position) || settings.position;
 
@@ -9778,8 +9825,8 @@ $.fn.popup = function(parameters) {
               module.debug('RTL: Popup position updated', position);
             }
 
-            if(searchDepth == settings.maxSearchDepth && settings.lastResort) {
-              module.debug('Using "last resort" position to display', settings.lastResort);
+            // if last attempt use specified last resort position
+            if(searchDepth == settings.maxSearchDepth && typeof settings.lastResort === 'string') {
               position = settings.lastResort;
             }
 
@@ -9862,12 +9909,14 @@ $.fn.popup = function(parameters) {
               .addClass(position)
               .addClass(className.loading)
             ;
-            // check if is offstage
-            offstagePosition = module.get.offstagePosition(position, calculations);
 
-            // recursively find new positioning
-            if(offstagePosition) {
-              module.debug('Popup cant fit into viewport', position, offstagePosition);
+            popupOffset = module.get.popupOffset();
+
+            // see if any boundaries are surpassed with this tentative position
+            distanceFromBoundary = module.get.distanceFromBoundary(popupOffset, calculations);
+
+            if( module.is.offstage(distanceFromBoundary, position) ) {
+              module.debug('Position is outside viewport', position);
               if(searchDepth < settings.maxSearchDepth) {
                 searchDepth++;
                 position = module.get.nextPosition(position);
@@ -9877,28 +9926,33 @@ $.fn.popup = function(parameters) {
                   : false
                 ;
               }
-              else if(!settings.lastResort) {
-                module.debug('Popup could not find a position in view', $popup);
-                // module.error(error.cannotPlace, element);
-                module.remove.attempts();
-                module.remove.loading();
-                module.reset();
-                return false;
+              else {
+                if(settings.lastResort) {
+                  module.debug('No position found, showing with last position');
+                }
+                else {
+                  module.debug('Popup could not find a position to display', $popup);
+                  module.error(error.cannotPlace, element);
+                  module.remove.attempts();
+                  module.remove.loading();
+                  module.reset();
+                  return false;
+                }
               }
             }
-
             module.debug('Position is on stage', position);
             module.remove.attempts();
-            module.set.fluidWidth(calculations);
             module.remove.loading();
+            if( settings.setFluidWidth && module.is.fluid() ) {
+              module.set.fluidWidth(calculations);
+            }
             return true;
           },
 
           fluidWidth: function(calculations) {
             calculations = calculations || module.get.calculations();
-            if( settings.setFluidWidth && $popup.hasClass(className.fluid) ) {
-              $popup.css('width', calculations.parent.width);
-            }
+            module.debug('Automatically setting element width to parent width', calculations.parent.width);
+            $popup.css('width', calculations.container.width);
           },
 
           visible: function() {
@@ -10015,11 +10069,32 @@ $.fn.popup = function(parameters) {
         },
 
         is: {
+          offstage: function(distanceFromBoundary, position) {
+            var
+              offstage = []
+            ;
+            // return boundaries that have been surpassed
+            $.each(distanceFromBoundary, function(direction, distance) {
+              if(distance < -settings.jitter) {
+                module.debug('Position exceeds allowable distance from edge', direction, distance, position);
+                offstage.push(direction);
+              }
+            });
+            if(offstage.length > 0) {
+              return true;
+            }
+            else {
+              return false;
+            }
+          },
           active: function() {
             return $module.hasClass(className.active);
           },
           animating: function() {
             return ( $popup && $popup.hasClass(className.animating) );
+          },
+          fluid: function() {
+            return ( $popup && $popup.hasClass(className.fluid));
           },
           visible: function() {
             return $popup && $popup.hasClass(className.visible);
@@ -10325,15 +10400,18 @@ $.fn.popup.settings = {
   // distance away from activating element in px
   distanceAway   : 0,
 
+  // number of pixels an element is allowed to be "offstage" for a position to be chosen (allows for rounding)
+  jitter         : 2,
+
   // offset on aligning axis from calculated position
   offset         : 0,
 
   // maximum times to look for a position before failing (9 positions total)
-  maxSearchDepth : 20,
+  maxSearchDepth : 15,
 
   error: {
     invalidPosition : 'The position you specified is not a valid position',
-    cannotPlace     : 'No visible position could be found for the popup',
+    cannotPlace     : 'Popup does not fit within the boundaries of the viewport',
     method          : 'The method you called is not defined.',
     noTransition    : 'This module requires ui transitions <https://github.com/Semantic-Org/UI-Transition>',
     notFound        : 'The target or popup you specified does not exist on the page'
@@ -10411,7 +10489,7 @@ $.fn.popup.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.3 - Progress
+ * # Semantic UI 2.0.4 - Progress
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -11205,7 +11283,7 @@ $.fn.progress.settings = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 2.0.3 - Rating
+ * # Semantic UI 2.0.4 - Rating
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -11681,7 +11759,7 @@ $.fn.rating.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.3 - Search
+ * # Semantic UI 2.0.4 - Search
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -12960,7 +13038,7 @@ $.fn.search.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.3 - Shape
+ * # Semantic UI 2.0.4 - Shape
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -13836,7 +13914,7 @@ $.fn.shape.settings = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 2.0.3 - Sidebar
+ * # Semantic UI 2.0.4 - Sidebar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -13957,7 +14035,6 @@ $.fn.sidebar = function(parameters) {
 
         destroy: function() {
           module.verbose('Destroying previous module for', $module);
-          module.remove.direction();
           $module
             .off(eventNamespace)
             .removeData(moduleNamespace)
@@ -14860,7 +14937,7 @@ $.fn.sidebar.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.3 - Sticky
+ * # Semantic UI 2.0.4 - Sticky
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -15098,8 +15175,7 @@ $.fn.sticky = function(parameters) {
               },
               context = {
                 offset        : $context.offset(),
-                height        : $context.outerHeight(),
-                bottomPadding : parseInt($context.css('padding-bottom'), 10)
+                height        : $context.outerHeight()
               },
               container = {
                 height: $container.outerHeight()
@@ -15121,8 +15197,7 @@ $.fn.sticky = function(parameters) {
               context: {
                 top           : context.offset.top,
                 height        : context.height,
-                bottomPadding : context.bottomPadding,
-                bottom        : context.offset.top + context.height - context.bottomPadding
+                bottom        : context.offset.top + context.height
               }
             };
             module.set.containerSize();
@@ -15318,8 +15393,14 @@ $.fn.sticky = function(parameters) {
               }
               else if(scroll.top > element.top) {
                 module.debug('Element passed, fixing element to page');
-                module.fixTop();
+                if( (element.height + scroll.top - elementScroll) > context.bottom ) {
+                  module.bindBottom();
+                }
+                else {
+                  module.fixTop();
+                }
               }
+
             }
             else if( module.is.fixed() ) {
 
@@ -15336,6 +15417,8 @@ $.fn.sticky = function(parameters) {
                 // scroll element if larger than screen
                 else if(doesntFit) {
                   module.set.scroll(elementScroll);
+                  module.save.lastScroll(scroll.top);
+                  module.save.elementScroll(elementScroll);
                 }
               }
 
@@ -15355,6 +15438,8 @@ $.fn.sticky = function(parameters) {
                 // scroll element if larger than screen
                 else if(doesntFit) {
                   module.set.scroll(elementScroll);
+                  module.save.lastScroll(scroll.top);
+                  module.save.elementScroll(elementScroll);
                 }
 
               }
@@ -15374,10 +15459,6 @@ $.fn.sticky = function(parameters) {
               }
             }
           }
-
-          // save current scroll for next run
-          module.save.lastScroll(scroll.top);
-          module.save.elementScroll(elementScroll);
         },
 
         bindTop: function() {
@@ -15403,8 +15484,7 @@ $.fn.sticky = function(parameters) {
           $module
             .css({
               left         : '',
-              top          : '',
-              marginBottom : module.cache.context.bottomPadding
+              top          : ''
             })
             .removeClass(className.fixed)
             .removeClass(className.top)
@@ -15742,7 +15822,7 @@ $.fn.sticky.settings = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 2.0.3 - Tab
+ * # Semantic UI 2.0.4 - Tab
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -16639,7 +16719,7 @@ $.fn.tab.settings = {
 
 })( jQuery, window , document );
 /*!
- * # Semantic UI 2.0.3 - Transition
+ * # Semantic UI 2.0.4 - Transition
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -17407,9 +17487,9 @@ $.fn.transition = function() {
           module.remove.display();
           module.remove.visible();
           module.set.hidden();
+          module.force.hidden();
           settings.onHide.call(this);
           settings.onComplete.call(this);
-          module.force.hidden();
           // module.repaint();
         },
 
@@ -17417,9 +17497,9 @@ $.fn.transition = function() {
           module.verbose('Showing element', display);
           module.remove.hidden();
           module.set.visible();
+          module.force.visible();
           settings.onShow.call(this);
           settings.onComplete.call(this);
-          module.force.visible();
           // module.repaint();
         },
 
@@ -17712,7 +17792,7 @@ $.fn.transition.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.3 - API
+ * # Semantic UI 2.0.4 - API
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -18790,7 +18870,7 @@ $.api.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.3 - State
+ * # Semantic UI 2.0.4 - State
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -19486,7 +19566,7 @@ $.fn.state.settings = {
 })( jQuery, window , document );
 
 /*!
- * # Semantic UI 2.0.3 - Visibility
+ * # Semantic UI 2.0.4 - Visibility
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -20624,8 +20704,17 @@ $.fn.visibility.settings = {
   // whether to use mutation observers to follow changes
   observeChanges         : true,
 
+  // check position immediately on init
+  initialCheck           : true,
+
   // whether to refresh calculations after all page images load
   refreshOnLoad          : true,
+
+  // whether to refresh calculations after page resize event
+  refreshOnResize        : true,
+
+  // should call callbacks on refresh event (resize, etc)
+  checkOnRefresh         : true,
 
   // callback should only occur one time
   once                   : true,
@@ -20642,9 +20731,6 @@ $.fn.visibility.settings = {
   // scroll context for visibility checks
   context                : window,
 
-  // check position immediately on init
-  initialCheck           : true,
-
   // visibility check delay in ms (defaults to animationFrame)
   throttle               : false,
 
@@ -20657,9 +20743,6 @@ $.fn.visibility.settings = {
 
   // array of callbacks for percentage
   onPassed               : {},
-
-  // should call callbacks on refresh event (resize, etc)
-  checkOnRefresh         : true,
 
   // standard callbacks
   onOnScreen             : false,

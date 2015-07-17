@@ -767,9 +767,9 @@ $.fn.transition = function() {
           module.remove.display();
           module.remove.visible();
           module.set.hidden();
+          module.force.hidden();
           settings.onHide.call(this);
           settings.onComplete.call(this);
-          module.force.hidden();
           // module.repaint();
         },
 
@@ -777,9 +777,9 @@ $.fn.transition = function() {
           module.verbose('Showing element', display);
           module.remove.hidden();
           module.set.visible();
+          module.force.visible();
           settings.onShow.call(this);
           settings.onComplete.call(this);
-          module.force.visible();
           // module.repaint();
         },
 

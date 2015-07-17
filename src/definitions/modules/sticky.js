@@ -237,8 +237,7 @@ $.fn.sticky = function(parameters) {
               },
               context = {
                 offset        : $context.offset(),
-                height        : $context.outerHeight(),
-                bottomPadding : parseInt($context.css('padding-bottom'), 10)
+                height        : $context.outerHeight()
               },
               container = {
                 height: $container.outerHeight()
@@ -260,8 +259,7 @@ $.fn.sticky = function(parameters) {
               context: {
                 top           : context.offset.top,
                 height        : context.height,
-                bottomPadding : context.bottomPadding,
-                bottom        : context.offset.top + context.height - context.bottomPadding
+                bottom        : context.offset.top + context.height
               }
             };
             module.set.containerSize();
@@ -457,8 +455,14 @@ $.fn.sticky = function(parameters) {
               }
               else if(scroll.top > element.top) {
                 module.debug('Element passed, fixing element to page');
-                module.fixTop();
+                if( (element.height + scroll.top - elementScroll) > context.bottom ) {
+                  module.bindBottom();
+                }
+                else {
+                  module.fixTop();
+                }
               }
+
             }
             else if( module.is.fixed() ) {
 
@@ -475,6 +479,8 @@ $.fn.sticky = function(parameters) {
                 // scroll element if larger than screen
                 else if(doesntFit) {
                   module.set.scroll(elementScroll);
+                  module.save.lastScroll(scroll.top);
+                  module.save.elementScroll(elementScroll);
                 }
               }
 
@@ -494,6 +500,8 @@ $.fn.sticky = function(parameters) {
                 // scroll element if larger than screen
                 else if(doesntFit) {
                   module.set.scroll(elementScroll);
+                  module.save.lastScroll(scroll.top);
+                  module.save.elementScroll(elementScroll);
                 }
 
               }
@@ -513,10 +521,6 @@ $.fn.sticky = function(parameters) {
               }
             }
           }
-
-          // save current scroll for next run
-          module.save.lastScroll(scroll.top);
-          module.save.elementScroll(elementScroll);
         },
 
         bindTop: function() {
@@ -542,8 +546,7 @@ $.fn.sticky = function(parameters) {
           $module
             .css({
               left         : '',
-              top          : '',
-              marginBottom : module.cache.context.bottomPadding
+              top          : ''
             })
             .removeClass(className.fixed)
             .removeClass(className.top)
