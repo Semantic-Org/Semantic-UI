@@ -16,9 +16,10 @@
 - **Button** - Fixed `fluid buttons` not working correctly with `<button>` due to button tags not supporting `flex` rules. #2617
 - **Segment* - `horizontal segments` in IE will no longer stretch to the natural width of child imgs #2550 [flexbug #1](https://github.com/philipwalton/flexbugs#1-minimum-content-sizing-of-flex-items-not-honored)
 - **Sticky** - Fixed `sticky` element that cannot fit in viewport not scrolling correctly when fixed to viewport #2605
+- **Input** - Fixed `left action input` displaying with incorrect `input` border radius inside `ui form` #2638
 - **Form** - Fixed issue with `minLength[1]` validation not behaving same as `minLength > 2` #2636.
 - **Form** - Form fields will now error when a non-string identifier is used
-- **Form** - Added `doesntContain` and `doesntContainExactly` #
+- **Form** - Added `doesntContain` and `doesntContainExactly` #2638
 - **Form** - Fixes errors when a field identifier is named `identifier` #2629
 - **Modal** - Modal `action` now uses a more specific selector to prevent modifying `comment action`
 - **Formatting** - Fixed several source files that had `CR LF` (Windows) line endings #2649
