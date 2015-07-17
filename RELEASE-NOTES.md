@@ -9,7 +9,7 @@
 - **Button** - Fixed colored vertical basic buttons appearing 2px offset #2655
 - **Checkbox** - Checkbox now focus after click, allowing for tab navigation from current position #2610
 - **Checkbox** - Fixed checkbox not using javascript having incorrect colors on focus #2607
-- **Checkbox** - Updated `colored` theme to add new focus color variables.
+- **Dropdown** - Fixed `search selection` appearing incorrectly inside menu (default text would not disappear) #2624
 - **Form** - Added `doesntContain` and `doesntContainExactly` #2638
 - **Form** - Fixed issue with `minLength[1]` validation not behaving same as `minLength > 2` #2636.
 - **Form** - Fixes errors when a field identifier is named `identifier` #2629
@@ -29,6 +29,7 @@
 
 **Additional Bugs**
 - **Checkbox** - Fixed `space` shortcut causing checkbox to trigger twice
+- **Checkbox** - Updated `colored` theme to add new focus color variables.
 - **Popup** - `wide` and `very wide` popup will now limit themselves to normal popup widths on mobile so that they still appear on screen.
 - **Message** - Fixes `attached icon message` not using `flex`
 - **Sticky** - Fixed `sticky` content jumping from `fixed` to `bount bottom` when scroll position has surpassed bottom of container during page refresh.
