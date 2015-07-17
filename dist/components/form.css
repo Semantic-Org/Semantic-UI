@@ -36,7 +36,6 @@
         Field
 ---------------------*/
 
-.ui.form .fields .field,
 .ui.form .field {
   clear: both;
   margin: 0em 0em 1em;
@@ -44,6 +43,10 @@
 .ui.form .field:last-child,
 .ui.form .fields:last-child .field {
   margin-bottom: 0em;
+}
+.ui.form .fields .field {
+  clear: both;
+  margin: 0em 0em 1em;
 }
 
 /*--------------------

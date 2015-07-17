@@ -178,7 +178,7 @@
      Actions
 ---------------*/
 
-.ui.modal .actions {
+.ui.modal > .actions {
   background: #f9fafb;
   padding: 1rem 1rem;
   border-top: 1px solid rgba(34, 36, 38, 0.15);
