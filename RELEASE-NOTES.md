@@ -20,6 +20,7 @@
 - **Form** - Form fields will now error when a non-string identifier is used
 - **Form** - Added `doesntContain` and `doesntContainExactly` #
 - **Form** - Fixes errors when a field identifier is named `identifier` #2629
+- **Modal** - Modal `action` now uses a more specific selector to prevent modifying `comment action`
 - **Formatting** - Fixed several source files that had `CR LF` (Windows) line endings #2649
 - **Sidebar** - `right`, `top`, and `bottom` sidebar will not have their direction removed on `destroy` #2644
 
