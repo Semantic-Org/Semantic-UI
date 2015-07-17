@@ -21,6 +21,7 @@
 - **Form** - Added `doesntContain` and `doesntContainExactly` #
 - **Form** - Fixes errors when a field identifier is named `identifier` #2629
 - **Formatting** - Fixed several source files that had `CR LF` (Windows) line endings #2649
+- **Sidebar** - `right`, `top`, and `bottom` sidebar will not have their direction removed on `destroy` #2644
 
 **Additional Bugs**
 - **Popup** - `wide` and `very wide` popup will now limit themselves to normal popup widths on mobile so that they still appear on screen.
