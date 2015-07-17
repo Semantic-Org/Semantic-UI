@@ -1,7 +1,7 @@
 ## RELEASE NOTES
 
 
-### Version 2.0.4 - July X, 2015
+### Version 2.0.4 - July 17, 2015
 
 **[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.0.4+is%3Aclosed)**
 - **Build Tools** - Fixed issue where sub tasks were undefined when importing SUI's `build` and `watch` tasks into custom gulpfile #2648
