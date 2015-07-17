@@ -5,27 +5,27 @@
 
 **[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.0.4+is%3Aclosed)**
 - **Build Tools** - Fixed issue where sub tasks were undefined when importing SUI's `build` and `watch` tasks into custom gulpfile #2648
-- **Button** - Fixed `fluid buttons` not working correctly with `<button>` due to button tags not supporting `flex` rules. #2617
-- **Button** - Fixed colored vertical basic buttons appearing 2px offset #2655
-- **Checkbox** - Checkbox now focus after click, allowing for tab navigation from current position #2610
-- **Checkbox** - Fixed checkbox not using javascript having incorrect colors on focus #2607
-- **Dropdown** - Fixed `search selection` appearing incorrectly inside menu (default text would not disappear) #2624
-- **Form** - Added `doesntContain` and `doesntContainExactly` #2638
-- **Form** - Fixed issue with `minLength[1]` validation not behaving same as `minLength > 2` #2636.
-- **Form** - Fixes errors when a field identifier is named `identifier` #2629
+- **Button** - Fixed `fluid buttons` not working correctly with `<button>` due to button tags not supporting `flex` rules. [#2617](https://github.com/Semantic-Org/Semantic-UI/issues/2617)
+- **Button** - Fixed colored vertical basic buttons appearing 2px offset [#2655](https://github.com/Semantic-Org/Semantic-UI/issues/2655)
+- **Checkbox** - Checkbox now focus after click, allowing for tab navigation from current position [#2610](https://github.com/Semantic-Org/Semantic-UI/issues/2610)
+- **Checkbox** - Fixed checkbox not using javascript having incorrect colors on focus [#2607](https://github.com/Semantic-Org/Semantic-UI/issues/2607)
+- **Dropdown** - Fixed `search selection` appearing incorrectly inside menu (default text would not disappear) [#2624](https://github.com/Semantic-Org/Semantic-UI/issues/2624)
+- **Form** - Added `doesntContain` and `doesntContainExactly` [#2638](https://github.com/Semantic-Org/Semantic-UI/issues/2638)
+- **Form** - Fixed issue with `minLength[1]` validation not behaving same as `minLength > 2` [#2636](https://github.com/Semantic-Org/Semantic-UI/issues/2636).
+- **Form** - Fixes errors when a field identifier is named `identifier` [#2629](https://github.com/Semantic-Org/Semantic-UI/issues/2629)
 - **Form** - Form fields will now error when a non-string identifier is used
-- **Formatting** - Fixed several source files that had `CR LF` (Windows) line endings #2649
-- **Input** - Fixed `left action input` displaying with incorrect `input` border radius inside `ui form` #2638
+- **Formatting** - Fixed several source files that had `CR LF` (Windows) line endings [#2649](https://github.com/Semantic-Org/Semantic-UI/issues/2649)
+- **Input** - Fixed `left action input` displaying with incorrect `input` border radius inside `ui form` [#2638](https://github.com/Semantic-Org/Semantic-UI/issues/2638)
 - **Modal** - Modal `action` now uses a more specific selector to prevent modifying `comment action`
-- **Popup** - `fluid` popup with `setFluidWidth: true` (default value), will now use `parent` width and not `offsetContext` width #2526
-- **Popup** - Fixed issues where rounding could cause elements that are against edge of page from not appearing. Add new `jitter` setting for allowing popups to escape page boundaries by a small margin #2526
+- **Popup** - `fluid` popup with `setFluidWidth: true` (default value), will now use `parent` width and not `offsetContext` width [#2526](https://github.com/Semantic-Org/Semantic-UI/issues/2526)
+- **Popup** - Fixed issues where rounding could cause elements that are against edge of page from not appearing. Add new `jitter` setting for allowing popups to escape page boundaries by a small margin [#2526](https://github.com/Semantic-Org/Semantic-UI/issues/2526)
 - **Segment** - Added additional variables for `inverted` segment.
-- **Segment* - `horizontal segments` in IE will no longer stretch to the natural width of child imgs #2550 [flexbug #1](https://github.com/philipwalton/flexbugs#1-minimum-content-sizing-of-flex-items-not-honored)
-- **Sidebar** - `right`, `top`, and `bottom` sidebar will not have their direction removed on `destroy` #2644
-- **Sticky** - Fixed `sticky` element that cannot fit in viewport not scrolling correctly when fixed to viewport #2605
-- **Transition** - Fixed issue where animating same element in its own `onComplete` would fail because animation had not yet called `force visible/hidden` #2583
-- **Visibility** - `refreshOnResize` now correctly includes a default value #2615
-- **Menu/Segment/Table** - Consolidated `attached` logic for all components using attached.
+- **Segment* - `horizontal segments` in IE will no longer stretch to the natural width of child imgs [#2550](https://github.com/Semantic-Org/Semantic-UI/issues/2550) [flexbug [#1](h](https://github.com/Semantic-Org/Semantic-UI/issues/1](h)ttps://github.com/philipwalton/flexbugs[#1-mi](https://github.com/Semantic-Org/Semantic-UI/issues/1-mi)nimum-content-sizing-of-flex-items-not-honored)
+- **Sidebar** - `right`, `top`, and `bottom` sidebar will not have their direction removed on `destroy` [#2644](https://github.com/Semantic-Org/Semantic-UI/issues/2644)
+- **Sticky** - Fixed `sticky` element that cannot fit in viewport not scrolling correctly when fixed to viewport [#2605](https://github.com/Semantic-Org/Semantic-UI/issues/2605)
+- **Transition** - Fixed issue where animating same element in its own `onComplete` would fail because animation had not yet called `force visible/hidden` [#2583](https://github.com/Semantic-Org/Semantic-UI/issues/2583)
+- **Visibility** - `refreshOnResize` now correctly includes a default value [#2615](https://github.com/Semantic-Org/Semantic-UI/issues/2615)
+- **Menu/Segment/Table** - Consolidated `attached` logic for all components using attached. [#2599](https://github.com/Semantic-Org/Semantic-UI/issues/2599)
 
 **Additional Bugs**
 - **Checkbox** - Fixed `space` shortcut causing checkbox to trigger twice
