@@ -1,0 +1,143 @@
+/*******************************
+      Global Helper Mixins
+*******************************/
+
+/*------------------
+       Fonts
+-------------------*/
+
+.loadFonts() when (@importGoogleFonts) {
+  @import url('@{googleProtocol}fonts.googleapis.com/css?family=@{googleFontRequest}');
+}
+
+
+/*------------------
+   Grids & Columns
+-------------------*/
+
+// For-style mixin to generate n width rules
+// from a given template.
+// 
+// Useful to create .one.wide, .two.wide rules.
+// 
+// The syntax should be like this:
+// 
+//   &{.forCols(); .-each(@number, @i) {
+//     .my.custom .selector .@{number}.wide.column {
+//       .-nWide; //or .-nColumn
+//     }
+//   }}
+// 
+// First, the scope block &{ } ensures that
+// the each block is used only here, otherwise
+// you'll end up with unexpected invocations.
+// 
+// The for loop:
+//   .forCols(start, end)
+// Where start is 1 by default and 
+// end is @columnCount by default
+// 
+// Then, the each block:
+//   .-each(@numberName, @iterationNumber)
+// Where the first variable is the name of the
+// current iteration ('one', 'two', ..., 'fourteen')
+// and the second variable is the number itself.
+// 
+// Inside of the each block, there are two
+// mixins available:
+//   .-nWide   - equivalent of width: @numWide,
+//               it is the @i / @columnCount percentage
+//   .-nColumn - equivalent of width: @numColumn,
+//               it is the 1 / @i percentage
+// 
+.forCols(@i: 1, @n: @columnCount) {
+  @num: extract(@numbers, @i);
+  .-nWide(@divisor: @columnCount) {.fractionWidth(@i, @divisor);}
+  .-nColumn() {.fractionWidth(1, @i);}
+  .-each(@num, @i);
+}
+.forCols(@i: 1, @n: @columnCount) when not (@i = @n) {
+  .forCols(@i + 1, @n); //Call next iteration
+}
+
+// Column span permutation generator.
+// 
+// This will iterate through the each block
+// covering every fraction permutation up to
+// @n (by default @columnCount), like so:
+// 
+// 1/2, 2/2, 1/3, 2/3, ..., 1/@n, 2/@n, ..., @n/@n
+// 
+// Useful to create rules for non-standard column
+// divisions.
+//
+// Usage:
+// 
+//   &{.forColSpanPermutations(); .-each(@num, @n, @div, @d) {
+//     .my.@{div}.column.grid > .@{num}.wide.column {
+//       .-width !important;
+//     }
+//   }}
+// 
+// The scope block &{ } ensures that
+// the each block is used only here, otherwise
+// you'll end up with unexpected invocations.
+// 
+// The for loop:
+//   .forColSpanPermutations(@n, @i, @j)
+//   @n: (Default @columnCount) is the maximum denominator
+//       that will be generated
+//   @i: (Default 2) is the starting denominator.
+//   @j: (Default 1) is the starting numerator.
+// 
+// The each block:
+//   .-each(@num, @n, @den, @d)
+//   @num: The name of the current numerator
+//         (one, two, three, ...)
+//   @n:   The current numerator as an integer
+//   @den: The name of the current denominator
+//   @d:   The current denominator as an integer
+// 
+// Inside of the each block, there is a single
+// mixin available:
+//   .-width - the width as a percentage resulting
+//             from dividing the numerator by the
+//             denominator
+// 
+.forColSpanPermutations(@n: @columnCount, @i: 2, @j : 1) {
+  @numerator: extract(@numbers, @j);
+  @denominator: extract(@numbers, @i);
+  .-width(@divisor: @i) {.fractionWidth(@j, @divisor);}
+  .-each(@numerator, @j, @denominator, @i);
+}
+.forColSpanPermutations(@n: @columnCount, @i: 2, @j : 1) when not (@j = @i) {
+  .forColSpanPermutations(@n, @i, @j + 1); //Call next numerator
+}
+.forColSpanPermutations(@n: @columnCount, @i: 2, @j : 1) when (@j = @i) and not (@i = @n) {
+  .forColSpanPermutations(@n, @i + 1, 1); //Call next denominator
+}
+
+// Mixins to define any n/m column size.
+// 
+// Column variables
+// =================
+// 
+// Actually unit fractions (1/nth), so instead of:
+//   width: @threeColumn;
+// you can use:
+//   .fractionWidth(1, 3);
+// 
+// Wide (Spanning) Column Variables
+// =================================
+// 
+// The previous n-wide variables were n/columnCount
+// fractions, but you can calculate any fraction.
+// 
+// Instead of:
+//   width: @sixWide !important;
+// you can use:
+//   .fractionWidth(6, @columnCount) !important;
+// 
+.fractionWidth(@numerator, @denominator: @columnCount) {
+  width: percentage(@numerator / @denominator);
+}

@@ -34,16 +34,10 @@
 
 
 /*******************************
-             Mix-ins
+        Import Mix-ins
 *******************************/
 
-/*------------------
-       Fonts
--------------------*/
-
-.loadFonts() when (@importGoogleFonts) {
-  @import url('@{googleProtocol}fonts.googleapis.com/css?family=@{googleFontRequest}');
-}
+@import "@{definitionsFolder}/globals/mixins";
 
 /*------------------
      Overrides

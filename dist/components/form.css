@@ -742,6 +742,30 @@
 .ui.form .ten.fields > .field {
   width: 10%;
 }
+.ui.form .eleven.fields > .fields,
+.ui.form .eleven.fields > .field {
+  width: 9.09090909%;
+}
+.ui.form .twelve.fields > .fields,
+.ui.form .twelve.fields > .field {
+  width: 8.33333333%;
+}
+.ui.form .thirteen.fields > .fields,
+.ui.form .thirteen.fields > .field {
+  width: 7.69230769%;
+}
+.ui.form .fourteen.fields > .fields,
+.ui.form .fourteen.fields > .field {
+  width: 7.14285714%;
+}
+.ui.form .fifteen.fields > .fields,
+.ui.form .fifteen.fields > .field {
+  width: 6.66666667%;
+}
+.ui.form .sixteen.fields > .fields,
+.ui.form .sixteen.fields > .field {
+  width: 6.25%;
+}
 
 /* Swap to full width on mobile */
 @media only screen and (max-width: 767px) {

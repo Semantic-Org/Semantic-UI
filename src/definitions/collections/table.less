@@ -691,120 +691,21 @@
 ---------------*/
 
 /* Grid Based */
-.ui.one.column.table td {
-  width: @oneColumn;
-}
-.ui.two.column.table td {
-  width: @twoColumn;
-}
-.ui.three.column.table td {
-  width: @threeColumn;
-}
-.ui.four.column.table td {
-  width: @fourColumn;
-}
-.ui.five.column.table td {
-  width: @fiveColumn;
-}
-.ui.six.column.table td {
-  width: @sixColumn;
-}
-.ui.seven.column.table td {
-  width: @sevenColumn;
-}
-.ui.eight.column.table td {
-  width: @eightColumn;
-}
-.ui.nine.column.table td {
-  width: @nineColumn;
-}
-.ui.ten.column.table td {
-  width: @tenColumn;
-}
-.ui.eleven.column.table td {
-  width: @elevenColumn;
-}
-.ui.twelve.column.table td {
-  width: @twelveColumn;
-}
-.ui.thirteen.column.table td {
-  width: @thirteenColumn;
-}
-.ui.fourteen.column.table td {
-  width: @fourteenColumn;
-}
-.ui.fifteen.column.table td {
-  width: @fifteenColumn;
-}
-.ui.sixteen.column.table td {
-  width: @sixteenColumn;
-}
+&{.forCols(); .-each(@name, @i) {
+  .ui.@{num}.column.table td {
+    .-nColumn;
+  }
+}}
 
 /* Column Width */
-.ui.table th.one.wide,
-.ui.table td.one.wide {
-  width: @oneWide;
-}
-.ui.table th.two.wide,
-.ui.table td.two.wide {
-  width: @twoWide;
-}
-.ui.table th.three.wide,
-.ui.table td.three.wide {
-  width: @threeWide;
-}
-.ui.table th.four.wide,
-.ui.table td.four.wide {
-  width: @fourWide;
-}
-.ui.table th.five.wide,
-.ui.table td.five.wide {
-  width: @fiveWide;
-}
-.ui.table th.six.wide,
-.ui.table td.six.wide {
-  width: @sixWide;
-}
-.ui.table th.seven.wide,
-.ui.table td.seven.wide {
-  width: @sevenWide;
-}
-.ui.table th.eight.wide,
-.ui.table td.eight.wide {
-  width: @eightWide;
-}
-.ui.table th.nine.wide,
-.ui.table td.nine.wide {
-  width: @nineWide;
-}
-.ui.table th.ten.wide,
-.ui.table td.ten.wide {
-  width: @tenWide;
-}
-.ui.table th.eleven.wide,
-.ui.table td.eleven.wide {
-  width: @elevenWide;
-}
-.ui.table th.twelve.wide,
-.ui.table td.twelve.wide {
-  width: @twelveWide;
-}
-.ui.table th.thirteen.wide,
-.ui.table td.thirteen.wide {
-  width: @thirteenWide;
-}
-.ui.table th.fourteen.wide,
-.ui.table td.fourteen.wide {
-  width: @fourteenWide;
-}
-.ui.table th.fifteen.wide,
-.ui.table td.fifteen.wide {
-  width: @fifteenWide;
-}
-.ui.table th.sixteen.wide,
-.ui.table td.sixteen.wide {
-  width: @sixteenWide;
-}
+&{.forCols(); .-each(@name, @i) {
+  .ui.table {
+    th.@{num}.wide,
+    td.@{num}.wide {
+      .-nWide;
+    }
+  }
+}}
 
 /*--------------
     Sortable

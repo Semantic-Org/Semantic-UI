@@ -706,41 +706,13 @@
 }
 
 /* Other Combinations */
-.ui.form .two.fields > .fields,
-.ui.form .two.fields > .field {
-  width: @twoColumn;
-}
-.ui.form .three.fields > .fields,
-.ui.form .three.fields > .field {
-  width: @threeColumn;
-}
-.ui.form .four.fields > .fields,
-.ui.form .four.fields > .field {
-  width: @fourColumn;
-}
-.ui.form .five.fields > .fields,
-.ui.form .five.fields > .field {
-  width: @fiveColumn;
-}
-.ui.form .six.fields > .fields,
-.ui.form .six.fields > .field {
-  width: @sixColumn;
-}
-.ui.form .seven.fields > .fields,
-.ui.form .seven.fields > .field {
-  width: @sevenColumn;
-}
-.ui.form .eight.fields > .fields,
-.ui.form .eight.fields > .field {
-  width: @eightColumn;
-}
-.ui.form .nine.fields > .fields,
-.ui.form .nine.fields > .field {
-  width: @nineColumn;
-}
-.ui.form .ten.fields > .fields,
-.ui.form .ten.fields > .field {
-  width: @tenColumn;
+.ui.form {
+  &{.forCols(2); .-each(@num, @i) {
+    .@{num}.fields > .fields,
+    .@{num}.fields > .field {
+      .-nColumn;
+    }
+  }}
 }
 
 /* Swap to full width on mobile */
@@ -748,28 +720,19 @@
   .ui.form .fields {
     flex-wrap: wrap;
   }
-  .ui.form .two.fields > .fields,
-  .ui.form .two.fields > .field,
-  .ui.form .three.fields > .fields,
-  .ui.form .three.fields > .field,
-  .ui.form .four.fields > .fields,
-  .ui.form .four.fields > .field,
-  .ui.form .five.fields > .fields,
-  .ui.form .five.fields > .field,
-  .ui.form .six.fields > .fields,
-  .ui.form .six.fields > .field,
-  .ui.form .seven.fields > .fields,
-  .ui.form .seven.fields > .field,
-  .ui.form .eight.fields > .fields,
-  .ui.form .eight.fields > .field,
-  .ui.form .nine.fields > .fields,
-  .ui.form .nine.fields > .field,
-  .ui.form .ten.fields > .fields,
-  .ui.form .ten.fields > .field {
-    width: @oneColumn !important;
-    margin: @fieldMargin;
-    padding-left: 0%;
-    padding-right: 0%;
+  .ui.form {
+    .two.fields > .fields,
+    .two.fields > .field {
+      .fractionWidth(1, 1) !important;
+      margin: @fieldMargin;
+      padding-left: 0%;
+      padding-right: 0%;
+    }
+    
+    &{.forCols(3, 10); .-each(@num, @i) {
+      .@{num}.fields > .fields:extend(.ui.form .two.fields > .field) {}
+      .@{num}.fields > .field :extend(.ui.form .two.fields > .field) {}
+    }}
   }
 }
 
@@ -784,7 +747,7 @@
 /* Sizing Combinations */
 
 .ui.form .fields .wide.field {
-  width: @oneWide;
+  .fractionWidth(1, @columnCount);
   padding-left: (@gutterWidth / 2);
   padding-right: (@gutterWidth / 2);
 }
@@ -795,84 +758,31 @@
   padding-right: 0%;
 }
 
-.ui.form .one.wide.field {
-  width: @oneWide !important;
-}
-.ui.form .two.wide.field {
-  width: @twoWide !important;
-}
-.ui.form .three.wide.field {
-  width: @threeWide !important;
-}
-.ui.form .four.wide.field {
-  width: @fourWide !important;
-}
-.ui.form .five.wide.field {
-  width: @fiveWide !important;
-}
-.ui.form .six.wide.field {
-  width: @sixWide !important;
-}
-.ui.form .seven.wide.field {
-  width: @sevenWide !important;
-}
-.ui.form .eight.wide.field {
-  width: @eightWide !important;
-}
-.ui.form .nine.wide.field {
-  width: @nineWide !important;
-}
-.ui.form .ten.wide.field {
-  width: @tenWide !important;
-}
-.ui.form .eleven.wide.field {
-  width: @elevenWide !important;
-}
-.ui.form .twelve.wide.field {
-  width: @twelveWide !important;
-}
-.ui.form .thirteen.wide.field {
-  width: @thirteenWide !important;
-}
-.ui.form .fourteen.wide.field {
-  width: @fourteenWide !important;
-}
-.ui.form .fifteen.wide.field {
-  width: @fifteenWide !important;
-}
-.ui.form .sixteen.wide.field {
-  width: @sixteenWide !important;
-}
+& {.forCols(); .-each(@num, @i) {
+  .ui.form .@{num}.wide.field {
+    .-nWide !important;
+  }
+}}
+
 
 /* Swap to full width on mobile */
 @media only screen and (max-width : @largestMobileScreen) {
-  .ui.form .two.fields > .fields,
-  .ui.form .two.fields > .field,
-  .ui.form .three.fields > .fields,
-  .ui.form .three.fields > .field,
-  .ui.form .four.fields > .fields,
-  .ui.form .four.fields > .field,
-  .ui.form .five.fields > .fields,
-  .ui.form .five.fields > .field,
-  .ui.form .fields > .two.wide.field,
-  .ui.form .fields > .three.wide.field,
-  .ui.form .fields > .four.wide.field,
-  .ui.form .fields > .five.wide.field,
-  .ui.form .fields > .six.wide.field,
-  .ui.form .fields > .seven.wide.field,
-  .ui.form .fields > .eight.wide.field,
-  .ui.form .fields > .nine.wide.field,
-  .ui.form .fields > .ten.wide.field,
-  .ui.form .fields > .eleven.wide.field,
-  .ui.form .fields > .twelve.wide.field,
-  .ui.form .fields > .thirteen.wide.field,
-  .ui.form .fields > .fourteen.wide.field,
-  .ui.form .fields > .fifteen.wide.field,
-  .ui.form .fields > .sixteen.wide.field {
-    width: @oneColumn !important;
-    margin: @fieldMargin;
-    padding-left: 0%;
-    padding-right: 0%;
+  .ui.form {
+    .two.fields > .fields,
+    .two.fields > .field {
+      .fractionWidth(1, 1) !important;
+      margin: @fieldMargin;
+      padding-left: 0%;
+      padding-right: 0%;
+    }
+    
+    &{.forCols(3, 5); .-each(@num, @i) {
+      .@{num}.fields > .fields:extend(.ui.form .two.fields > .field) {}
+      .@{num}.fields > .field :extend(.ui.form .two.fields > .field) {}
+    }}
+    &{.forCols(2); .-each(@num, @i) {
+      .fields > .@{num}.wide.field:extend(.ui.form .two.fields > .field) {}
+    }}
   }
 }
 
