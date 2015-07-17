@@ -12,13 +12,19 @@
   <link rel="stylesheet" type="text/css" href="../dist/components/site.css">
 
   <link rel="stylesheet" type="text/css" href="../dist/components/container.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/divider.css">
   <link rel="stylesheet" type="text/css" href="../dist/components/grid.css">
 
   <link rel="stylesheet" type="text/css" href="../dist/components/segment.css">
   <link rel="stylesheet" type="text/css" href="../dist/components/table.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/icon.css">
   <link rel="stylesheet" type="text/css" href="../dist/components/menu.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/message.css">
 
   <style type="text/css">
+  h2 {
+    margin: 2em 0em;
+  }
   .ui.container {
     padding-top: 5em;
     padding-bottom: 5em;
@@ -28,6 +34,7 @@
 <body>
 
 <div class="ui container">
+
   <h2 class="ui header">Attached Content</h2>
   <div class="ui three column grid">
     <div class="column">
@@ -207,8 +214,11 @@
 
     </div>
   </div>
+</div>
 
-  <div class="ui section divider"></div>
+<div class="ui text container">
+
+  <h2 class="ui header">Mixed Attached Content</h2>
 
   <div class="ui section divider"></div>
 
@@ -220,6 +230,12 @@
   </div>
   <div class="ui attached segment">
     1
+  </div>
+  <div class="ui attached icon info message">
+    <i class="help circle icon"></i>
+    <div class="content">
+      Message
+    </div>
   </div>
   <table class="ui bottom attached table">
     <thead>
@@ -248,10 +264,11 @@
 
   <div class="ui section divider"></div>
 
-  <div class="ui top attached three item menu">
-    <a class="item">Item</a>
-    <a class="item">Item</a>
-    <a class="item">Item</a>
+  <div class="ui top attached warning icon message">
+    <i class="attention icon"></i>
+    <div class="content">
+      Message
+    </div>
   </div>
   <table class="ui attached table">
     <thead>
