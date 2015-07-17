@@ -768,8 +768,8 @@ $.fn.transition = function() {
           module.remove.visible();
           module.set.hidden();
           settings.onHide.call(this);
-          settings.onComplete.call(this);
           module.force.hidden();
+          settings.onComplete.call(this);
           // module.repaint();
         },
 
@@ -778,8 +778,8 @@ $.fn.transition = function() {
           module.remove.hidden();
           module.set.visible();
           settings.onShow.call(this);
-          settings.onComplete.call(this);
           module.force.visible();
+          settings.onComplete.call(this);
           // module.repaint();
         },
 
