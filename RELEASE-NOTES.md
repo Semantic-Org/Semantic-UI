@@ -19,15 +19,18 @@
 - **Modal** - Modal `action` now uses a more specific selector to prevent modifying `comment action`
 - **Popup** - `fluid` popup with `setFluidWidth: true` (default value), will now use `parent` width and not `offsetContext` width #2526
 - **Popup** - Fixed issues where rounding could cause elements that are against edge of page from not appearing. Add new `jitter` setting for allowing popups to escape page boundaries by a small margin #2526
+- **Segment** - Added additional variables for `inverted` segment.
 - **Segment* - `horizontal segments` in IE will no longer stretch to the natural width of child imgs #2550 [flexbug #1](https://github.com/philipwalton/flexbugs#1-minimum-content-sizing-of-flex-items-not-honored)
 - **Sidebar** - `right`, `top`, and `bottom` sidebar will not have their direction removed on `destroy` #2644
 - **Sticky** - Fixed `sticky` element that cannot fit in viewport not scrolling correctly when fixed to viewport #2605
 - **Transition** - Fixed issue where animating same element in its own `onComplete` would fail because animation had not yet called `force visible/hidden` #2583
 - **Visibility** - `refreshOnResize` now correctly includes a default value #2615
+- **Menu/Segment/Table** - Consolidated `attached` logic for all components using attached.
 
 **Additional Bugs**
 - **Checkbox** - Fixed `space` shortcut causing checkbox to trigger twice
 - **Popup** - `wide` and `very wide` popup will now limit themselves to normal popup widths on mobile so that they still appear on screen.
+- **Message** - Fixes `attached icon message` not using `flex`
 - **Sticky** - Fixed `sticky` content jumping from `fixed` to `bount bottom` when scroll position has surpassed bottom of container during page refresh.
 - **Sticky** - Sticky no longer uses `bottomPadding` to determine bottom edge of container.
 - **Steps** - Updated `basic` steps theme to appear correctly
