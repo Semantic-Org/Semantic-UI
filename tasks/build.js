@@ -3,7 +3,7 @@
 *******************************/
 
 var
-  gulp         = require('gulp'),
+  gulp         = require('gulp-help')(require('gulp')),
 
   // config
   config       = require('./config/user'),
