@@ -75,6 +75,11 @@ $.fn.video = function(parameters) {
         $loaderDimmer               = $module.find(settings.selector.loaderDimmer),
         $timeLookupValue            = $module.find(settings.selector.timeLookupValue),
         $sourcePicker               = $module.find(settings.selector.sourcePicker),
+        $fullScreenButton           = $module.find(settings.selector.fullScreenButton),
+        $autoplayCheckbox           = $module.find(settings.selector.autoplayCheckbox),
+        $loopCheckbox               = $module.find(settings.selector.loopCheckbox),
+        $preloadCheckbox            = $module.find(settings.selector.preloadCheckbox),
+        
         $requirePlayableMode        = $playButton.add($seekButton),
         
         loaderTimer                 = window.setTimeout(function(){}, 1), // subsequent calls to window.clearTimeout won't break
@@ -116,7 +121,7 @@ $.fn.video = function(parameters) {
               .on('play'            + eventNamespace + 
                   ' playing'        + eventNamespace + 
                   ' pause'          + eventNamespace +
-                  ' ended'          + eventNamespace +
+                  ' ended'          + eventNamespace + 
                   ' emptied'        + eventNamespace, module.update.playState)
               .on('canplaythrough'  + eventNamespace +
                   ' canplay'        + eventNamespace +
@@ -190,7 +195,19 @@ $.fn.video = function(parameters) {
               .on('click'           + eventNamespace, module.request.void)
             ;
             $sourcePicker
-              .on('change'           + eventNamespace, module.request.source)
+              .on('change'          + eventNamespace, module.request.source)
+            ;
+            $fullScreenButton
+              .on('click'           + eventNamespace, module.request.fullScreen)
+            ;
+            $autoplayCheckbox
+              .on('change'          + eventNamespace, module.request.autoplay)
+            ;
+            $loopCheckbox    
+              .on('change'          + eventNamespace, module.request.loop)
+            ;
+            $preloadCheckbox 
+              .on('change'          + eventNamespace, module.request.preload)
             ;
           }
         },
@@ -560,6 +577,39 @@ $.fn.video = function(parameters) {
             else {
               module.error('Request unsupported type', type, source);
             }
+          },
+          fullScreen: function() {
+            module.debug('Request full screen')
+            if (video.requestFullscreen) {
+              video.requestFullscreen();
+            } else if (video.msRequestFullscreen) {
+              video.msRequestFullscreen();
+            } else if (video.mozRequestFullScreen) {
+              video.mozRequestFullScreen();
+            } else if (video.webkitRequestFullscreen) {
+              video.webkitRequestFullscreen();
+            }
+          },
+          loop: function(flag) {
+            if(typeof flag != 'boolean') {
+              flag = $(this).prop('checked');
+            }
+            module.debug('Request loop', flag);
+            $video.prop('loop', flag);
+          },
+          preload: function(flag) {
+            if(typeof flag != 'boolean') {
+              flag = $(this).prop('checked');
+            }
+            module.debug('Request preload', flag);
+            $video.prop('preload', flag);
+          },
+          autoplay: function(flag) {
+            if(typeof flag != 'boolean') {
+              flag = $(this).prop('checked');
+            }
+            module.debug('Request autoplay', flag);
+            $video.prop('autoplay', flag);
           }
         },
         
@@ -617,7 +667,6 @@ $.fn.video = function(parameters) {
           },
           playable: function() {
             module.debug('Deactivate playable mode');
-            module.request.pause();
             module.reset.time();
             $requirePlayableMode.addClass(settings.className.disabled);
           }
@@ -883,6 +932,10 @@ $.fn.video.settings = {
     timeLookupBuffer:       '.timelookup .buffer.checkbox input[type="checkbox"]',
     timeLookupPlayed:       '.timelookup .played.checkbox input[type="checkbox"]',
     sourcePicker:           '.source.picker', // it needs to be .dropdown() initialized
+    fullScreenButton:       '.fullscreen.button',
+    autoplayCheckbox:       '.autoplay.checkbox input[type="checkbox"]',
+    loopCheckbox:           '.loop.checkbox input[type="checkbox"]',
+    preloadCheckbox:        '.preload.checkbox input[type="checkbox"]',
     
     statesLabel:            '.ready.state label, .network.state label, .timelookup .buffer.checkbox label, .timelookup .played.checkbox label'
     

@@ -54,13 +54,12 @@
               <div class="ui icon volume push button" style="margin-left: 0; pointer-events: auto;" data-volume-step="0.1" data-push-interval="500">
                 <i class="icon volume up"></i>
               </div>
+              <div class="ui icon fullscreen button" style="margin-left: 0; pointer-events: auto;">
+                <i class="icon maximize"></i>
+              </div>
             </div>
           
             <div class="six wide column" style="text-align: center;">
-              <div class="ui left icon mini rate input" style="width: 8em; vertical-align: bottom;" >
-                <input placeholder="play rate" type="number" min="-1" max="5" step="0.25" value="1.0" autocomplete="off" length="2" />
-                <i class="small undo link reset icon "></i>
-              </div>
               <div class="ui icon play button">
                 <i class="play icon"></i>
               </div>
@@ -70,6 +69,31 @@
               <div class="ui icon seek push button" data-seek-step="3" data-push-interval="250">
                 <i class="forward icon"></i>
               </div>
+              <div class="ui left icon mini rate input" style="width: 8em; vertical-align: bottom;" >
+                <input placeholder="play rate" type="number" min="-1" max="5" step="0.25" value="1.0" autocomplete="off" length="2" />
+                <i class="small undo link reset icon "></i>
+              </div>
+              <div class="grouped inline fields">
+                <div class="field">
+                  <div class="ui autoplay checkbox">
+                    <input name="autoplay" type="checkbox" id="autoplay" autocomplete="off" />
+                    <label for="autoplay">autoplay</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui loop checkbox">
+                    <input name="loop" type="checkbox" id="loop" autocomplete="off" />
+                    <label for="loop">loop</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui preload checkbox">
+                    <input name="preload" type="checkbox" id="preload" autocomplete="off" />
+                    <label for="preload">preload</label>
+                  </div>
+                </div>
+              </div>
+              
             </div>
           
             <div class="five wide column">
@@ -80,6 +104,8 @@
                 <option value="http://mooplay.challet.eu/media/video/sintel-1024-stereo.ogv" data-video-type="video/ogg">Sintel (ogv)</option>
                 <option value="https://upload.wikimedia.org/wikipedia/commons/c/c9/Mayer_and_Bettle_2_-_Creative_Commons.ogv" data-video-type="video/ogg">Mayer and Bettle 2 (ogv)</option>
               </select>
+              
+              
               
               <!--
               <select id="subtitles_select">
@@ -211,10 +237,6 @@
           </div>
         </div>
       </aside>
-
-      <!--
-      <a id="fullscreen" href="#"></a>
-      -->
       
     </div>
     
@@ -238,6 +260,7 @@ $(document)
     
     var moviepicker = $('.ui.dropdown.picker').dropdown();
     
+    // TODO : check how to handle it through the .popup() module
     var timeLookupDisplayTimer = window.setTimeout(function(){}, 1);
     var video = $('.ui.video')
       .video({
