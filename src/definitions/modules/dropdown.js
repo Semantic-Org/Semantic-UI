@@ -2509,7 +2509,6 @@ $.fn.dropdown = function(parameters) {
               module.verbose('Removing from delimited values', removedValue);
               newValue = module.remove.arrayValue(removedValue, values);
               newValue = newValue.join(settings.delimiter);
-              console.log(newValue);
             }
             if(settings.fireOnInit === false && module.is.initialLoad()) {
               module.verbose('No callback on initial load', settings.onRemove);
