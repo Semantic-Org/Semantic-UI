@@ -125,6 +125,8 @@ $.fn.video = function(parameters) {
                   ' emptied'        + eventNamespace +
                   ' waiting'        + eventNamespace, module.update.readyState)
               .on('error'           + eventNamespace +
+                  ' canplay'        + eventNamespace +
+                  ' canplaythrough' + eventNamespace +
                   ' loadstart'      + eventNamespace +
                   ' loadedmetadata' + eventNamespace + 
                   ' loadeddata'     + eventNamespace +
@@ -143,7 +145,8 @@ $.fn.video = function(parameters) {
                   ' canplay'        + eventNamespace + 
                   ' canplaythrough' + eventNamespace, module.deactivate.loader)
               .on('volumechange'    + eventNamespace, module.update.volume)
-              .on('emptied'         + eventNamespace, module.deactivate.playable)
+              .on('emptied'         + eventNamespace + 
+                  ' stalled'        + eventNamespace, module.deactivate.playable)
               .on('suspend'         + eventNamespace, module.activate.playable)
             ;
             
