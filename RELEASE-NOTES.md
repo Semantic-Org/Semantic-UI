@@ -9,7 +9,7 @@
 - **Dropdown** - Fixed regression causing `multiple search dropdown` using [`search` inside menu](http://www.semantic-ui.com/modules/dropdown.html[#search-in-menu) to break, caused by JS error using "split"](https://github.com/Semantic-Org/Semantic-UI/issues/lit")
 - **Message** - Fixed issues where icon would overlap in `icon message` when at mobile resolutions due to `flex-collapse` value being incorrect [#2665](https://github.com/Semantic-Org/Semantic-UI/issues/2665)
 
-- **Additional Fixes**
+**Additional Fixes**
 - **Dropdown** - `<select>` dropdowns intialized without `multiple` property set on `<select>` will now produce an error to alert users selection will not be preserved correctly. Related [#2573](https://github.com/Semantic-Org/Semantic-UI/issues/2573)
 - **Dropdown** - Dropdown `<option>` added with `userAddition` now recieve class name `addition` to distinguish from original `<select>` options. [#2573](https://github.com/Semantic-Org/Semantic-UI/issues/2573)
 - **Dropdown** - User additions now have their `<option>` removed if a user deselects an addition. [#2573](https://github.com/Semantic-Org/Semantic-UI/issues/2573)
