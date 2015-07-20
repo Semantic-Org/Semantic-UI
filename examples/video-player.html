@@ -232,22 +232,25 @@ $(document)
          popup: $('.timelookup.popup'),
          position: 'top center',
          on: 'manual',
-         preserve: true,
+         preserve: true
        })
     ;
     
     var moviepicker = $('.ui.dropdown.picker').dropdown();
     
-    // TODO: hide the popup even if it hasn't finish to show
+    var timeLookupDisplayTimer = window.setTimeout(function(){}, 1);
     var video = $('.ui.video')
-     .video({
+      .video({
         onTimeLookupStart: function() {
-          popup.popup('show');
+          timeLookupDisplayTimer = window.setTimeout(function() {
+            popup.popup('show');
+          }, 200);
         },
         onTimeLookupStop: function() {
+          window.clearTimeout(timeLookupDisplayTimer);
           popup.popup('hide');
         },
-      })
+     })
     ; 
     
   })

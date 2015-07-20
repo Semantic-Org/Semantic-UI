@@ -76,15 +76,13 @@ $.fn.video = function(parameters) {
         $timeLookupValue            = $module.find(settings.selector.timeLookupValue),
         $sourcePicker               = $module.find(settings.selector.sourcePicker),
         $requirePlayableMode        = $playButton.add($seekButton),
-
-        timeRangeUpdateEnabled      = true,
+        
+        loaderTimer                 = window.setTimeout(function(){}, 1), // subsequent calls to window.clearTimeout won't break
+        timeLookupActive            = false,
         timeRangeInterval           = $timeRange.prop('max') - $timeRange.prop('min'),
-        
         seekTickTimer               = null,
-        seekHadTicked                   = false,
-        
+        seekHadTicked               = false,
         seekLoopInitialPlayState    = undefined, // it actually means undefined, see activate.holdPlayState and deactivate.holdPlayState functions,
-        loaderDelay                 = window.setTimeout(1, function(){} ), // subsequent calls to window.clearTimeout won't break
 
         element                     = this,
         video                       = $video.get(0),
@@ -113,12 +111,13 @@ $.fn.video = function(parameters) {
           
           events: function() {
             module.debug('Binding video module events');
-            // from video to UI
+            // from video events
             $video
               .on('play'            + eventNamespace + 
                   ' playing'        + eventNamespace + 
                   ' pause'          + eventNamespace +
-                  ' ended'          + eventNamespace, module.update.playState)
+                  ' ended'          + eventNamespace +
+                  ' emptied'        + eventNamespace, module.update.playState)
               .on('canplaythrough'  + eventNamespace +
                   ' canplay'        + eventNamespace +
                   ' loadeddata'     + eventNamespace +
@@ -150,7 +149,7 @@ $.fn.video = function(parameters) {
               .on('suspend'         + eventNamespace, module.activate.playable)
             ;
             
-            // from UI to video
+            // from UI events
             $seekButton
               .on('mousedown'       + eventNamespace, module.request.seek.loop.tick)
               .on('mouseup'         + eventNamespace + 
@@ -325,7 +324,6 @@ $.fn.video = function(parameters) {
           formatSupported: function(mime) {
             var supported;
             // see https://developer.mozilla.org/fr/docs/Web/API/HTMLMediaElement#Methods
-            console.log(video.canPlayType(mime));
             switch(video.canPlayType(mime)) {
               case 'probably':
               case 'maybe':
@@ -364,7 +362,7 @@ $.fn.video = function(parameters) {
               $currentTime.text( module.get.readableTime(currentTime) );
               $remainingTime.text( module.get.readableTime(duration - currentTime) );
               // range display, prevent it to update when it has been 'mousedown'ed but not 'change'd yet
-              if(timeRangeUpdateEnabled) {
+              if(!timeLookupActive) {
                 $timeRange.val( timeRangeInterval * currentTime / duration );
               }
             }
@@ -572,11 +570,12 @@ $.fn.video = function(parameters) {
             module.request.pause();
           },
           timeLookup: function() {
+            module.debug('Activate time lookup');
+            timeLookupActive = true;
             settings.onTimeLookupStart();
-            timeRangeUpdateEnabled = false;
           },
           loader: function() {
-            window.clearTimeout(loaderDelay);
+            window.clearTimeout(loaderTimer);
             //$seekingStateCheckbox.prop('checked', true);
             $loaderDimmer.dimmer('show');
           },
@@ -600,14 +599,15 @@ $.fn.video = function(parameters) {
             seekLoopInitialPlayState = undefined;
           },
           timeLookup: function() {
+            module.debug('Deactivate time lookup');
+            timeLookupActive = false;
             settings.onTimeLookupStop();
-            timeRangeUpdateEnabled = true;
           },
           loader: function(event) {
             // a seeking loop makes "seeking" and "seeked" events to fire alternatively, add a delay to prevent the state to blink
             if(event !== undefined) {
               // a native undelayed event has occured 
-              loaderDelay = window.setTimeout(module.deactivate.loader, settings.seekedDelay);
+              loaderTimer = window.setTimeout(module.deactivate.loader, settings.seekedDelay);
             }
             else {
               // a delayed call has occured
@@ -616,7 +616,7 @@ $.fn.video = function(parameters) {
             }
           },
           playable: function() {
-            module.debug('Deactivater playable mode');
+            module.debug('Deactivate playable mode');
             module.request.pause();
             module.reset.time();
             $requirePlayableMode.addClass(settings.className.disabled);
