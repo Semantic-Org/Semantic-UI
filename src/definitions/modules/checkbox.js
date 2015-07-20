@@ -44,6 +44,8 @@ $.fn.checkbox = function(parameters) {
         $label          = $(this).children(selector.label),
         $input          = $(this).children(selector.input),
 
+        shortcutPressed = false,
+
         instance        = $module.data(moduleNamespace),
 
         observer,
@@ -192,11 +194,19 @@ $.fn.checkbox = function(parameters) {
             if(key == keyCode.escape) {
               module.verbose('Escape key pressed blurring field');
               $input.blur();
-              event.preventDefault();
+              shortcutPressed = true;
             }
-            if(!event.ctrlKey && (key == keyCode.enter)) {
-              module.verbose('Enter key pressed, toggling checkbox');
+            else if(!event.ctrlKey && ( key == keyCode.space || key == keyCode.enter) ) {
+              module.verbose('Enter/space key pressed, toggling checkbox');
               module.toggle();
+              shortcutPressed = true;
+            }
+            else {
+              shortcutPressed = false;
+            }
+          },
+          keyup: function(event) {
+            if(shortcutPressed) {
               event.preventDefault();
             }
           }
@@ -455,6 +465,7 @@ $.fn.checkbox = function(parameters) {
             $module
               .on('click'   + eventNamespace, module.event.click)
               .on('keydown' + eventNamespace, selector.input, module.event.keydown)
+              .on('keyup'   + eventNamespace, selector.input, module.event.keyup)
             ;
           }
         },
