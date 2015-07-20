@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.4 - API
+ * # Semantic UI 2.0.5 - API
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -352,7 +352,7 @@ $.api = $.fn.api = function(parameters) {
                   }
                   else {
                     module.verbose('Found required variable', variable, value);
-                    url = url.replace(templatedString, value);
+                    url = url.replace(templatedString, module.get.urlEncodedValue(value));
                   }
                 });
               }
@@ -685,6 +685,19 @@ $.api = $.fn.api = function(parameters) {
               ? runSettings
               : settings
             ;
+          },
+          urlEncodedValue: function(value) {
+            var
+              decodedValue   = window.decodeURIComponent(value),
+              encodedValue   = window.encodeURIComponent(value),
+              alreadyEncoded = (decodedValue !== value)
+            ;
+            if(alreadyEncoded) {
+              module.debug('URL value is already encoded, avoiding double encoding', value);
+              return value;
+            }
+            module.verbose('Encoding value for url', value, encodedValue);
+            return encodedValue;
           },
           defaultData: function() {
             var

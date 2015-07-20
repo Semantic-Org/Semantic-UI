@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.4 - Message
+ * # Semantic UI 2.0.5 - Message
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -222,9 +222,9 @@
 .ui.icon.message > .icon:not(.close) {
   display: block;
   -webkit-box-flex: 0;
-  -webkit-flex: 0 1 auto;
-      -ms-flex: 0 1 auto;
-          flex: 0 1 auto;
+  -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
   width: auto;
   line-height: 1;
   vertical-align: middle;
