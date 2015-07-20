@@ -1,5 +1,14 @@
 ## RELEASE NOTES
 
+### Version 2.0.5 - July 20, 2015
+**[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.0.5+is%3Aclosed)**
+
+- **Dropdown** - Fixed regression causing `multiple search dropdown` using [`search` inside menu](http://www.semantic-ui.com/modules/dropdown.html#search-in-menu) to break, caused by JS error using "split"
+
+- **Additional Fixes**
+- **Dropdown** - `<select>` dropdowns intialized without `multiple` property set on `<select>` will now produce an error to alert users selection will not be preserved correctly. Related #2573
+- **Dropdown** - Dropdown `<option>` added with `userAddition` now recieve class name `addition` to distinguish from original `<select>` options. #2573
+- **Dropdown** - User additions now have their `<option>` removed if a user deselects an addition. #2573
 
 ### Version 2.0.4 - July 17, 2015
 
