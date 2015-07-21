@@ -1325,12 +1325,14 @@ $.fn.dropdown = function(parameters) {
               ? value
               : text
             ;
-            module.set.selected(value, $(this));
-            if(module.is.multiple() && !module.is.allFiltered()) {
-              return;
-            }
-            else {
-              module.hideAndClear();
+            if( module.can.activate( $(this) ) ) {
+              module.set.selected(value, $(this));
+              if(module.is.multiple() && !module.is.allFiltered()) {
+                return;
+              }
+              else {
+                module.hideAndClear();
+              }
             }
           },
 
@@ -1369,9 +1371,10 @@ $.fn.dropdown = function(parameters) {
           },
           selectionCount: function() {
             var
-              values = module.get.values()
+              values = module.get.values(),
+              count
             ;
-            return ( module.is.multiple() )
+            count = ( module.is.multiple() )
               ? $.isArray(values)
                 ? values.length
                 : 0
@@ -1379,6 +1382,7 @@ $.fn.dropdown = function(parameters) {
                 ? 1
                 : 0
             ;
+            return count;
           },
           transition: function($subMenu) {
             return (settings.transition == 'auto')
@@ -1678,7 +1682,9 @@ $.fn.dropdown = function(parameters) {
               ;
               if(selectionCount >= settings.maxSelections) {
                 module.debug('Maximum selection count reached');
-                $item.addClass(className.filtered);
+                if(settings.useLabels) {
+                  $item.addClass(className.filtered);
+                }
                 module.add.message(message.maxSelections);
                 return true;
               }
@@ -2186,8 +2192,8 @@ $.fn.dropdown = function(parameters) {
                       module.select.nextAvailable($selectedItem);
                     }
                     else {
-                      module.set.text(module.add.variables(message.count));
                       module.add.value(selectedValue, selectedText, $selected);
+                      module.set.text(module.add.variables(message.count));
                       $selected.addClass(className.active);
                     }
                   }
@@ -2422,7 +2428,7 @@ $.fn.dropdown = function(parameters) {
             $item.removeClass(className.active);
           },
           filteredItem: function() {
-            if( module.has.maxSelections() ) {
+            if(settings.useLabels && module.has.maxSelections() ) {
               return;
             }
             if(settings.useLabels) {
@@ -2775,6 +2781,18 @@ $.fn.dropdown = function(parameters) {
         },
 
         can: {
+          activate: function($item) {
+            if(settings.useLabels) {
+              return true;
+            }
+            if(!module.has.maxSelections()) {
+              return true;
+            }
+            if(module.has.maxSelections() && $item.hasClass(className.active)) {
+              return true;
+            }
+            return false;
+          },
           click: function() {
             return (hasTouch || settings.on == 'click');
           },
