@@ -15,7 +15,7 @@ Key Features
 
 ## 2.0 Release
 
-Semantic UI 2.0 is now available. Read up on [what's new](http://www.semantic-ui.com/introduction/new.html) in the docs.
+Semantic UI `2.0` is now available. Read up on [what's new](http://www.semantic-ui.com/introduction/new.html) in the docs.
 
 Migration info from `1.x` can be found in the [2.0 release notes](https://github.com/Semantic-Org/Semantic-UI/blob/master/RELEASE-NOTES.md#version-200---march-xx-2015)
 
@@ -26,18 +26,11 @@ Migration info from `1.x` can be found in the [2.0 release notes](https://github
 npm install semantic-ui  # Use themes, import build/watch tasks into your own gulpfile.
 ```
 
-### Building For Your Project
-```bash
-npm install -g gulp # install gulp globally
-cd semantic/ # or path set in set-up
-gulp build # build all dist/
-# or
-gulp watch # watch for changes
-```
-
+Semantic UI includes an interactive installer to help setup your project
 ![Getting Started](https://dl.dropboxusercontent.com/u/2657007/install.gif)
 
-For details on how work with Semantic theming please [read our theming guide](http://www.semantic-ui.com/usage/theming.html) on [semantic-ui.com](http://www.semantic-ui.com/)
+* For more details on setup visit our [getting started guide](http://semantic-ui.com/introduction/getting-started.html).
+* To learn more about theming please read our [theming guide](http://www.semantic-ui.com/usage/theming.html)
 
 #### Additional Versions
 
