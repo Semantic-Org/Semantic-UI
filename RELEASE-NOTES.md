@@ -1,5 +1,11 @@
 ## RELEASE NOTES
 
+### Version 2.0.6 - July x, 2015
+**[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.0.6+is%3Aclosed)**
+
+- **Dropdown** - Fixed `restore value` sometimes now working correctly due to "animating out" label still being mistaken for selected.
+- **Dropdown** - Added `set exactly` to remedy confusion of `set selected` not removing current selections with multiple
+
 ### Version 2.0.5 - July 20, 2015
 **[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.0.5+is%3Aclosed)**
 
