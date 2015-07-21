@@ -53,7 +53,7 @@ Check out our [integration wiki](https://github.com/Semantic-Org/Semantic-UI/wik
 * IE 10+
 * Android 4
 
-Browser prefixes are present for Internet Explorer 9, but the browser is not officially supported.
+Although some components will work in IE9, [grids](http://semantic-ui.com/collections/grid.html) and other [flexbox](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes) components are not supported by IE9 and may not appear correctly.
 
 ## Community
 
