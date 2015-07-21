@@ -1441,10 +1441,16 @@ $.fn.dropdown = function(parameters) {
             };
           },
           value: function() {
-            return ($input.length > 0)
-              ? $input.val()
-              : $module.data(metadata.value)
+            var
+              value = ($input.length > 0)
+                ? $input.val()
+                : $module.data(metadata.value)
             ;
+            // prevents placeholder element from being selected when multiple
+            if($.isArray(value) && value.length === 1 && value[0] === '') {
+              return '';
+            }
+            return value;
           },
           values: function() {
             var
@@ -2099,7 +2105,6 @@ $.fn.dropdown = function(parameters) {
                 module.debug('Adding user option', value);
                 module.add.optionValue(value);
               }
-
               module.debug('Updating input value', value, currentValue);
               $input
                 .val(value)
@@ -2129,6 +2134,11 @@ $.fn.dropdown = function(parameters) {
           },
           visible: function() {
             $module.addClass(className.visible);
+          },
+          exactly: function(value, $selectedItem) {
+            module.debug('Setting selected to exact values');
+            module.clear();
+            module.set.selected(value, $selectedItem);
           },
           selected: function(value, $selectedItem) {
             var
@@ -2529,26 +2539,13 @@ $.fn.dropdown = function(parameters) {
             module.verbose('Removed value from delimited string', removedValue, values);
             return values;
           },
-          label: function(value) {
+          label: function(value, shouldAnimate) {
             var
               $labels       = $module.find(selector.label),
-              $removedLabel = $labels.filter('[data-value="' + value +'"]'),
-              labelCount    = $labels.length,
-              isLastLabel   = ($labels.index($removedLabel) + 1 == labelCount),
-              shouldAnimate = ( (!module.is.searchSelection() || !module.is.focusedOnSearch()) && isLastLabel)
+              $removedLabel = $labels.filter('[data-value="' + value +'"]')
             ;
-            if(shouldAnimate) {
-              module.verbose('Animating and removing label', $removedLabel);
-              $removedLabel
-                .transition(settings.label.transition, settings.label.duration, function() {
-                  $removedLabel.remove();
-                })
-              ;
-            }
-            else {
-              module.verbose('Removing label', $removedLabel);
-              $removedLabel.remove();
-            }
+            module.verbose('Removing label', $removedLabel);
+            $removedLabel.remove();
           },
           activeLabels: function($activeLabels) {
             $activeLabels = $activeLabels || $module.find(selector.label).filter('.' + className.active);
