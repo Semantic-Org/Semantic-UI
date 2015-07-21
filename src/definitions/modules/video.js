@@ -55,34 +55,33 @@ $.fn.video = function(parameters) {
 
         $window                     = $(window),
         $module                     = $(this),
-        $video                      = $module.find(settings.selector.video),
-        $playButton                 = $module.find(settings.selector.playButton),
-        $seekButton                 = $module.find(settings.selector.seekButton),
-        $currentTime                = $module.find(settings.selector.currentTime),
-        $remainingTime              = $module.find(settings.selector.remainingTime),
-        $timeRange                  = $module.find(settings.selector.timeRange),
-        $volumeChangeButton         = $module.find(settings.selector.volumeChangeButton),
-        $volumeProgress             = $module.find(settings.selector.volumeProgress),
-        $muteButton                 = $module.find(settings.selector.muteButton),
-        $rateInput                  = $module.find(settings.selector.rateInput),
-        $rateReset                  = $module.find(settings.selector.rateReset),
-        $readyStateRadio            = $module.find(settings.selector.readyStateRadio),
-        $networkStateRadio          = $module.find(settings.selector.networkStateRadio),
-        $statesLabel                = $module.find(settings.selector.statesLabel),
-        $timeLookupBuffer           = $module.find(settings.selector.timeLookupBuffer),
-        $timeLookupPlayed           = $module.find(settings.selector.timeLookupPlayed),
-        $seekingStateCheckbox       = $module.find(settings.selector.seekingStateCheckbox),
-        $loaderDimmer               = $module.find(settings.selector.loaderDimmer),
-        $timeLookupValue            = $module.find(settings.selector.timeLookupValue),
-        $sourcePicker               = $module.find(settings.selector.sourcePicker),
-        $fullScreenButton           = $module.find(settings.selector.fullScreenButton),
-        $autoplayCheckbox           = $module.find(settings.selector.autoplayCheckbox),
-        $loopCheckbox               = $module.find(settings.selector.loopCheckbox),
-        $preloadCheckbox            = $module.find(settings.selector.preloadCheckbox),
+        $video                      = $module.find(selector.video),
+        $playButton                 = $module.find(selector.playButton),
+        $seekButton                 = $module.find(selector.seekButton),
+        $currentTime                = $module.find(selector.currentTime),
+        $remainingTime              = $module.find(selector.remainingTime),
+        $timeRange                  = $module.find(selector.timeRange),
+        $volumeChangeButton         = $module.find(selector.volumeChangeButton),
+        $volumeProgress             = $module.find(selector.volumeProgress),
+        $muteButton                 = $module.find(selector.muteButton),
+        $rateInput                  = $module.find(selector.rateInput),
+        $rateReset                  = $module.find(selector.rateReset),
+        $readyStateRadio            = $module.find(selector.readyStateRadio),
+        $networkStateRadio          = $module.find(selector.networkStateRadio),
+        $statesLabel                = $module.find(selector.statesLabel),
+        $timeLookupBuffer           = $module.find(selector.timeLookupBuffer),
+        $timeLookupPlayed           = $module.find(selector.timeLookupPlayed),
+        $loaderDimmer               = $module.find(selector.loaderDimmer),
+        $timeLookupValue            = $module.find(selector.timeLookupValue),
+        $sourceDropdown             = $module.find(selector.sourceDropdown),
+        $fullScreenButton           = $module.find(selector.fullScreenButton),
+        $autoplayCheckbox           = $module.find(selector.autoplayCheckbox),
+        $loopCheckbox               = $module.find(selector.loopCheckbox),
+        $preloadCheckbox            = $module.find(selector.preloadCheckbox),
         
         $requirePlayableMode        = $playButton.add($seekButton),
         
-        loaderTimer                 = window.setTimeout(function(){}, 1), // subsequent calls to window.clearTimeout won't break
+        loaderTimer                 = setTimeout(function(){}, 1), // subsequent calls to clearTimeout won't break
         timeLookupActive            = false,
         timeRangeInterval           = $timeRange.prop('max') - $timeRange.prop('min'),
         seekTickTimer               = null,
@@ -194,7 +193,7 @@ $.fn.video = function(parameters) {
             $statesLabel
               .on('click'           + eventNamespace, module.request.void)
             ;
-            $sourcePicker
+            $sourceDropdown
               .on('change'          + eventNamespace, module.request.source)
             ;
             $fullScreenButton
@@ -214,7 +213,12 @@ $.fn.video = function(parameters) {
         
         initialValues: function() {
           module.deactivate.playable();
-          // TODO : filter sources by type
+          module.update.playState();
+          module.update.readyState();
+          module.update.networkState();
+          module.update.rate();
+          module.update.time();
+          module.update.volume();
         },
         
         // the functions in the both 'get' and 'is' range will query the elements and return the current value
@@ -360,10 +364,10 @@ $.fn.video = function(parameters) {
             var playing = module.is.playing();
             module.debug('Update play state', playing);
             if(playing) {
-              $playButton.addClass(settings.className.active);
+              $playButton.addClass(className.active);
             }
             else {
-              $playButton.removeClass(settings.className.active);
+              $playButton.removeClass(className.active);
             }
           },
           time: function() {
@@ -390,14 +394,14 @@ $.fn.video = function(parameters) {
               volume = module.get.volume();
             module.debug('Update volume and mute states', volume, muted);
             if(muted) {
-              $volumeChangeButton.addClass(settings.className.disabled);
-              $volumeProgress.addClass(settings.className.disabled);
-              $muteButton.addClass(settings.className.active);
+              $volumeChangeButton.addClass(className.disabled);
+              $volumeProgress.addClass(className.disabled);
+              $muteButton.addClass(className.active);
             } 
             else {
-              $volumeChangeButton.removeClass(settings.className.disabled);
-              $volumeProgress.removeClass(settings.className.disabled);
-              $muteButton.removeClass(settings.className.active);
+              $volumeChangeButton.removeClass(className.disabled);
+              $volumeProgress.removeClass(className.disabled);
+              $muteButton.removeClass(className.active);
             }
             $volumeProgress.progress({ percent: volume * 100 });
           },
@@ -416,7 +420,7 @@ $.fn.video = function(parameters) {
             module.debug('Update network state', state);
             $networkStateRadio.filter('[value=' + state + ']').prop('checked', true);
           },
-          timeLookup: function(event) {
+          timeLookup: function() {
             // virtual time indicator based on the $timeRange "dragged" time
             var time = module.get.timeRangeValue();
             module.debug('Update timelookup state', time);
@@ -475,7 +479,7 @@ $.fn.video = function(parameters) {
             },
             toRelativeTime: function(shift) {
               if(typeof shift != 'number') {
-                shift = parseFloat($(this).data(settings.metadata.seekStep));
+                shift = parseFloat($(this).data(metadata.seekStep));
               }
               var position = module.get.currentTime() + shift;
               module.request.seek.toAbsoluteTime(position);
@@ -484,8 +488,8 @@ $.fn.video = function(parameters) {
               module.request.seek.toAbsoluteTime(module.get.timeRangeValue());
             },
             loop: {
-              tick: function(event) {
-                if(seekTickTimer == null) {
+              tick: function() {
+                if(seekTickTimer === null) {
                   module.debug('seek loop starts');
                   module.activate.holdPlayState();
                 } 
@@ -494,16 +498,16 @@ $.fn.video = function(parameters) {
                   $(this).click();
                 }
                 // (re)start the loop, bindings are made in order to later access $(this)
-                seekTickTimer = window.setTimeout(module.request.seek.loop.tick.bind(this), parseInt( $(this).data(settings.metadata.seekLoopInterval) ));
+                seekTickTimer = setTimeout(module.request.seek.loop.tick.bind(this), parseInt( $(this).data(metadata.seekLoopInterval) ));
               },
-              stop: function(event) {
+              stop: function() {
                 if(seekTickTimer !== null) {
                   if(!seekHadTicked) {
                     // one click if the loop hadn't ticked (~ real click)
-                    $(this).click() // .trigger() seems not to be DOM related, but only jQuery internal (?)
+                    $(this).click(); // .trigger() seems not to be DOM related, but only jQuery internal (?)
                   }
                   module.debug('seek loop stops');
-                  window.clearTimeout(seekTickTimer);
+                  clearTimeout(seekTickTimer);
                   seekTickTimer = null;
                   seekHadTicked = false;
                   module.deactivate.holdPlayState();
@@ -512,14 +516,12 @@ $.fn.video = function(parameters) {
               filterClick: function(event) {
                 // human clicks are void (though they are re-triggered through the mousedown/mouseup behaviors combination), 
                 // in order to avoid the final one which looks like a double one
-                if( typeof event.isTrigger != undefined) {
+                if(typeof event.isTrigger != 'undefined') {
                   // make them also void if the current time isn't in buffer, letting it time to heat down
                   if( !module.is.timeBuffered(module.get.currentTime()) ) {
-                    
-                    //$(this).addClass(settings.className.loading);
+                    //$(this).addClass(className.loading);
                   } 
                   else {
-                    //$(this).removeClass(settings.className.loading);
                     module.update.time();
                     module.request.seek.toRelativeTime.call(this);
                   }
@@ -536,7 +538,7 @@ $.fn.video = function(parameters) {
             },
             shift: function(shift) {
               if(typeof shift != 'number') {
-                shift = parseFloat($(this).data(settings.metadata.volumeStep));
+                shift = parseFloat($(this).data(metadata.volumeStep));
               }
               module.request.volume.value(module.get.volume() + shift);
             }
@@ -566,20 +568,20 @@ $.fn.video = function(parameters) {
               source = $(this).dropdown('get value');
             }
             if(typeof type != 'string') {
-              type = $(this).find('select option[value="' + source + '"]').data(settings.metadata.videoType);
+              type = $(this).find('select option[value="' + source + '"]').data(metadata.videoType);
             }
             
             if(module.is.formatSupported(type)) {
               module.debug('Request source', source);
               $video.empty().append($('<source>', {src: source, type: type}));
-              window.setTimeout(video.load.bind(video), 1);
+              setTimeout(video.load.bind(video), 1);
             } 
             else {
               module.error('Request unsupported type', type, source);
             }
           },
           fullScreen: function() {
-            module.debug('Request full screen')
+            module.debug('Request full screen');
             if (video.requestFullscreen) {
               video.requestFullscreen();
             } else if (video.msRequestFullscreen) {
@@ -588,6 +590,8 @@ $.fn.video = function(parameters) {
               video.mozRequestFullScreen();
             } else if (video.webkitRequestFullscreen) {
               video.webkitRequestFullscreen();
+            } else {
+              module.error('Full screen is not available');
             }
           },
           loop: function(flag) {
@@ -625,16 +629,15 @@ $.fn.video = function(parameters) {
             settings.onTimeLookupStart();
           },
           loader: function() {
-            window.clearTimeout(loaderTimer);
-            //$seekingStateCheckbox.prop('checked', true);
+            clearTimeout(loaderTimer);
             $loaderDimmer.dimmer('show');
           },
           playable: function() {
-            if($requirePlayableMode.hasClass(settings.className.disabled)) {
+            if($requirePlayableMode.hasClass(className.disabled)) {
               module.debug('Activate playable mode');
               module.update.time();
               module.deactivate.loader();
-              $requirePlayableMode.removeClass(settings.className.disabled);
+              $requirePlayableMode.removeClass(className.disabled);
               module.request.seek.toAbsoluteTime(0);
             }
           }
@@ -657,18 +660,17 @@ $.fn.video = function(parameters) {
             // a seeking loop makes "seeking" and "seeked" events to fire alternatively, add a delay to prevent the state to blink
             if(event !== undefined) {
               // a native undelayed event has occured 
-              loaderTimer = window.setTimeout(module.deactivate.loader, settings.seekedDelay);
+              loaderTimer = setTimeout(module.deactivate.loader, settings.seekedDelay);
             }
             else {
               // a delayed call has occured
-              //$seekingStateCheckbox.prop('checked', false);
               $loaderDimmer.dimmer('hide');
             }
           },
           playable: function() {
             module.debug('Deactivate playable mode');
             module.reset.time();
-            $requirePlayableMode.addClass(settings.className.disabled);
+            $requirePlayableMode.addClass(className.disabled);
           }
         },
         
@@ -681,7 +683,7 @@ $.fn.video = function(parameters) {
           source: function() {
             module.debug('Reset (empty) source');
             $video.empty();
-            window.setTimeout(video.load.bind(video), 1);
+            setTimeout(video.load.bind(video), 1);
           },
           time: function() {
             module.debug('Reset time');
@@ -924,14 +926,13 @@ $.fn.video.settings = {
     muteButton:             '.mute.button',
     rateInput:              '.rate input[type="number"]',
     rateReset:              '.rate .reset',
-    //seekingStateCheckbox:   '.seeking.checkbox input[type="checkbox"]',
     loaderDimmer:           '.load.dimmer',
     readyStateRadio:        '.ready.state input[type="radio"]',           // could work with <select>
     networkStateRadio:      '.network.state input[type="radio"]',         // |
     timeLookupValue:        '.timelookup .time',
     timeLookupBuffer:       '.timelookup .buffer.checkbox input[type="checkbox"]',
     timeLookupPlayed:       '.timelookup .played.checkbox input[type="checkbox"]',
-    sourcePicker:           '.source.picker', // it needs to be .dropdown() initialized
+    sourceDropdown:         '.source.dropdown', // it needs to be .dropdown() initialized
     fullScreenButton:       '.fullscreen.button',
     autoplayCheckbox:       '.autoplay.checkbox input[type="checkbox"]',
     loopCheckbox:           '.loop.checkbox input[type="checkbox"]',

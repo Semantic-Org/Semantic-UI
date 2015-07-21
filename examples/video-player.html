@@ -39,15 +39,15 @@
           <div class="row">
           
             <!-- TODO move video specific deinitions in .less -->
-            <div class="five wide column" style="font-size: 0; white-space: nowrap;">
+            <div class="six wide column" style="font-size: 0; white-space: nowrap; text-align: center;">
               <div class="ui icon mute button">
                 <i class="icon volume off"></i>
               </div>
               <div class="ui icon volume push button" style="margin-right: 0; pointer-events: auto;" data-volume-step="-0.1" data-push-interval="500">
                 <i class="icon volume down"></i>
               </div>
-              <div class="ui volume progress" style="display: inline-block; width: 10em; height: 100%; margin:0; vertical-align: bottom;" id="volumeprogress">
-                <div class="bar" style="height: 100%;">
+              <div class="ui volume large progress" style="display: inline-block; width: 8em; margin:0; vertical-align: bottom; font-size: 1.05rem;" id="volumeprogress">
+                <div class="bar" style="">
                   <div class="progress"></div>
                 </div>
               </div>
@@ -59,7 +59,7 @@
               </div>
             </div>
           
-            <div class="six wide column" style="text-align: center;">
+            <div class="five wide column" style="text-align: center;">
               <div class="ui icon play button">
                 <i class="play icon"></i>
               </div>
@@ -73,7 +73,25 @@
                 <input placeholder="play rate" type="number" min="-1" max="5" step="0.25" value="1.0" autocomplete="off" length="2" />
                 <i class="small undo link reset icon "></i>
               </div>
+              
+            </div>
+          
+            <div class="five wide column" style="text-align: center;">
+              
+              <select class="ui fluid source dropdown" name="source" autocomplete="off">
+                <option disabled="disabled" selected="selected" value="">Source picker</option>
+                <option value="http://mooplay.challet.eu/media/video/sintel-1024-stereo.mp4" data-video-type="video/mp4">Sintel (mp4)</option>
+                <option value="http://mooplay.challet.eu/media/video/sintel-1024-stereo.ogv" data-video-type="video/ogg">Sintel (ogv)</option>
+                <option value="https://upload.wikimedia.org/wikipedia/commons/c/c9/Mayer_and_Bettle_2_-_Creative_Commons.ogv" data-video-type="video/ogg">Mayer and Bettle 2 (ogv)</option>
+              </select>
+              
               <div class="grouped inline fields">
+                <div class="field">
+                  <div class="ui preload checkbox">
+                    <input name="preload" type="checkbox" id="preload" autocomplete="off" />
+                    <label for="preload">preload</label>
+                  </div>
+                </div>
                 <div class="field">
                   <div class="ui autoplay checkbox">
                     <input name="autoplay" type="checkbox" id="autoplay" autocomplete="off" />
@@ -86,26 +104,7 @@
                     <label for="loop">loop</label>
                   </div>
                 </div>
-                <div class="field">
-                  <div class="ui preload checkbox">
-                    <input name="preload" type="checkbox" id="preload" autocomplete="off" />
-                    <label for="preload">preload</label>
-                  </div>
-                </div>
               </div>
-              
-            </div>
-          
-            <div class="five wide column">
-              
-              <select class="ui dropdown source picker" name="source" autocomplete="off">
-                <option disabled="disabled" selected="selected" value="">Source picker</option>
-                <option value="http://mooplay.challet.eu/media/video/sintel-1024-stereo.mp4" data-video-type="video/mp4">Sintel (mp4)</option>
-                <option value="http://mooplay.challet.eu/media/video/sintel-1024-stereo.ogv" data-video-type="video/ogg">Sintel (ogv)</option>
-                <option value="https://upload.wikimedia.org/wikipedia/commons/c/c9/Mayer_and_Bettle_2_-_Creative_Commons.ogv" data-video-type="video/ogg">Mayer and Bettle 2 (ogv)</option>
-              </select>
-              
-              
               
               <!--
               <select id="subtitles_select">
@@ -258,19 +257,19 @@ $(document)
        })
     ;
     
-    var moviepicker = $('.ui.dropdown.picker').dropdown();
+    var moviepicker = $('.ui.dropdown').dropdown();
     
     // TODO : check how to handle it through the .popup() module
-    var timeLookupDisplayTimer = window.setTimeout(function(){}, 1);
+    var timeLookupDisplayTimer = setTimeout(function(){}, 1);
     var video = $('.ui.video')
       .video({
         onTimeLookupStart: function() {
-          timeLookupDisplayTimer = window.setTimeout(function() {
+          timeLookupDisplayTimer = setTimeout(function() {
             popup.popup('show');
           }, 200);
         },
         onTimeLookupStop: function() {
-          window.clearTimeout(timeLookupDisplayTimer);
+          setTimeoutclearTimeout(timeLookupDisplayTimer);
           popup.popup('hide');
         },
      })
