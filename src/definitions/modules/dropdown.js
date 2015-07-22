@@ -2672,7 +2672,7 @@ $.fn.dropdown = function(parameters) {
             ;
           },
           disabled: function() {
-            $module.hasClass(className.disabled);
+            return $module.hasClass(className.disabled);
           },
           focused: function() {
             return (document.activeElement === $module[0]);
