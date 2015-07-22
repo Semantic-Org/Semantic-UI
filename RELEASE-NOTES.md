@@ -1,6 +1,6 @@
 ## RELEASE NOTES
 
-### Version 2.0.6 - July x, 2015
+### Version 2.0.6 - July 22, 2015
 
 **Important Notes**
 
@@ -11,7 +11,7 @@
 - **Dropdown** - Added `set exactly` to remedy confusion of `set selected` not removing current selections with multiple
 - **Dropdown** - Fixed issue where dropdowns using `useLabels: false` would not display correct values when displaying current count.
 
-- **Additional Fixes**
+**Additional Fixes**
 - **Dropdown** - Fixed condition with `useLabels: false` where `maxSelections` would make it impossible to select/remove values
 
 ### Version 2.0.5 - July 20, 2015
