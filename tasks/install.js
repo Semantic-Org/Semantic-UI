@@ -407,6 +407,7 @@ gulp.task('clean up install', function() {
   // Completion Message
   if(installFolder) {
     console.log('Install complete! Navigate to \033[92m' + answers.semanticRoot + '\033[0m and run "\033[92mgulp build\033[0m" to build');
+    process.exit();
   }
   else {
     console.log('');
