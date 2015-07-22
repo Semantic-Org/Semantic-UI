@@ -6,12 +6,14 @@
 - **Form Validation** - In `2.0.4` `length` rules were corrected to match "exact length" and not "minimum length". This may have caused issues for those who were using this rule as min length previously. We've remedied any breaking changes introduced by by returning `length` to functioning as "minimum length" and added a new rule `exactLenght` for matching exact length. #2681
 
 **[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.0.6+is%3Aclosed)**
-- **Dropdown** - Fixed `restore value` sometimes now working correctly due to "animating out" label still being mistaken for selected.
-- **Dropdown** - Added `set exactly` to remedy confusion of `set selected` not removing current selections with multiple
-- **Dropdown** - Fixed issue where dropdowns using `useLabels: false` would not display correct values when displaying current count.
+- **Dropdown** - Fixed issue where `disabled` dropdown would still receive focus #2699
+- **Dropdown** - Fixed `restore value` sometimes now working correctly due to "animating out" label still being mistaken for selected. #2690
+- **Dropdown** - Added `set exactly` to remedy confusion of `set selected` not removing current selections with multiple #2689
+- **List**- Fixed issue where using an image variation like `ui image label` as a direct child of an `item` would remove right padding #2691
 
 **Additional Fixes**
-- **Dropdown** - Fixed condition with `useLabels: false` where `maxSelections` would make it impossible to select/remove values
+- **Dropdown** - Fixed issue where using text labels, `useLabels: false`, would cause selection count to appear incorrect.
+- **Dropdown** - Text labels, `useLabels: false`, now works correctly with `maxSelections`, and receives special UX considerations
 
 ### Version 2.0.5 - July 20, 2015
 **[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.0.5+is%3Aclosed)**
