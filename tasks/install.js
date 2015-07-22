@@ -61,8 +61,8 @@ var
   currentConfig = requireDotFile('semantic.json'),
   manager       = install.getPackageManager(),
   rootQuestions = questions.root,
-  installFolder = false
-  answers,
+  installFolder = false,
+  answers
 ;
 
 console.clear();
