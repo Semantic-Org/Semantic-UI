@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.5 - List
+ * # Semantic UI 2.0.6 - List
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -115,8 +115,11 @@ ol.ui.list ol li,
   display: table-cell;
   background-color: transparent;
   margin: 0em;
-  padding-right: 0.5em;
   vertical-align: top;
+}
+.ui.list .list > .item > .image:not(:only-child):not(img),
+.ui.list > .item > .image:not(:only-child):not(img) {
+  padding-right: 0.5em;
 }
 .ui.list .list > .item > .image img,
 .ui.list > .item > .image img {
@@ -127,7 +130,6 @@ ol.ui.list ol li,
 .ui.list > .item > img.image,
 .ui.list > .item > .image:only-child {
   display: inline-block;
-  padding-right: 0em;
 }
 
 /* Content */
