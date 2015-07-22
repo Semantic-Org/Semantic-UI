@@ -1,6 +1,11 @@
 ## RELEASE NOTES
 
 ### Version 2.0.6 - July x, 2015
+
+**Important Notes**
+
+- **Form Validation** - In `2.0.4` `length` rules were corrected to match "exact length" and not "minimum length". This may have caused issues for those who were using this rule as min length previously. This may have caused accidental breaking changes. We've remedied this in `2.0.6.` by returning `length` to functioning as "minimum length" and added a new rule `exactLenght` for matching exact length.
+
 **[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.0.6+is%3Aclosed)**
 - **Dropdown** - Fixed `restore value` sometimes now working correctly due to "animating out" label still being mistaken for selected.
 - **Dropdown** - Added `set exactly` to remedy confusion of `set selected` not removing current selections with multiple
