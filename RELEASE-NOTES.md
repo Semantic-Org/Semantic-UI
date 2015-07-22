@@ -1,5 +1,16 @@
 ## RELEASE NOTES
 
+### Version 2.0.7 - July 22, 2015
+
+**[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.0.7+is%3Aclosed)**
+- **Build Tools** - Fixed issue where `npm install semantic-ui` would hang after setup in some version of NPM
+- **Build Tools** - Fixed `npm install` with CI or tests. Install will not stop to ask questions if project has an existing `semantic.json` file
+- **Dropdown** - Fixed border radius on `circular labeled icon button`  #2700
+
+**Additional Fixes**
+- **Checkbox** - Fix checkbox "check" appearing italicized when included inside italicized text
+- **Dropdown** - Fixed issue where dropdown nested inside `label` would not open.
+
 ### Version 2.0.6 - July 22, 2015
 
 **Important Notes**
