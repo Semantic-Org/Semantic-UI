@@ -375,7 +375,7 @@ module.exports = function () {
 
       // Completion Message
       if(installFolder) {
-        console.log('Install complete! Navigate to \033[92m' + answers.semanticRoot + '\033[0m and run "\033[92mgulp build\033[0m" to build');
+        console.log('Sinstall complete! Navigate to \033[92m' + answers.semanticRoot + '\033[0m and run "\033[92mgulp build\033[0m" to build');
       }
       else {
         console.log('');
@@ -390,6 +390,7 @@ module.exports = function () {
       if(answers.build == 'yes') {
         gulp.start('build');
       }
+      processs.exit();
     }))
   ;
 
