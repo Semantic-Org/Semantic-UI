@@ -390,7 +390,7 @@ module.exports = function () {
       if(answers.build == 'yes') {
         gulp.start('build');
       }
-      processs.exit();
+      process.exit();
     }))
   ;
 
