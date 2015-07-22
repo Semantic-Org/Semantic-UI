@@ -767,13 +767,14 @@
   position: absolute;
   height: 100%;
   line-height: 1;
+  border-radius: 0px;
+  border-top-left-radius: inherit;
+  border-bottom-left-radius: inherit;
 
   width: @labeledIconWidth;
   background-color: @labeledIconBackgroundColor;
   text-align: center;
   color: @labeledIconColor;
-
-  border-radius: @borderRadius 0px 0px @borderRadius;
   box-shadow: @labeledIconLeftShadow;
 }
 
@@ -792,7 +793,9 @@
 .ui[class*="right labeled"].icon.button > .icon {
   left: auto;
   right: 0em;
-  border-radius: 0em @borderRadius @borderRadius 0em;
+  border-radius: 0px;
+  border-top-right-radius: inherit;
+  border-bottom-right-radius: inherit;
   box-shadow: @labeledIconRightShadow;
 }
 
