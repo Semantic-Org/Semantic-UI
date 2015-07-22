@@ -193,11 +193,11 @@ gulp.task('run setup', function() {
   return gulp
     .src('gulpfile.js')
     .pipe(prompt.prompt(questions.setup, function(setupAnswers) {
-
+      // hoist
       answers = setupAnswers;
-
-    })
+    }))
   ;
+
 });
 
 gulp.task('create install files', function() {
