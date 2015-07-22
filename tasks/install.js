@@ -61,7 +61,8 @@ var
   currentConfig = requireDotFile('semantic.json'),
   manager       = install.getPackageManager(),
   rootQuestions = questions.root,
-  answers
+  installFolder = false
+  answers,
 ;
 
 console.clear();
@@ -227,8 +228,7 @@ gulp.task('create install files', function(callback) {
       site              : answers.site || folders.site,
       themeConfig       : files.themeConfig,
       themeConfigFolder : folders.themeConfig
-    },
-    installFolder = false
+    }
   ;
 
   /*--------------
@@ -406,7 +406,7 @@ gulp.task('clean up install', function() {
 
   // Completion Message
   if(installFolder) {
-    console.log('Sinstall complete! Navigate to \033[92m' + answers.semanticRoot + '\033[0m and run "\033[92mgulp build\033[0m" to build');
+    console.log('Install complete! Navigate to \033[92m' + answers.semanticRoot + '\033[0m and run "\033[92mgulp build\033[0m" to build');
   }
   else {
     console.log('');
