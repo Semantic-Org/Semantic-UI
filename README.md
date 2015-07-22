@@ -13,9 +13,9 @@ Key Features
 * Built with EM values for responsive design
 * Flexbox friendly
 
-## 2.0 Is Out!
+## 2.0 Release
 
-Semantic UI 2.0 is now available. Read up on [what's new](http://www.semantic-ui.com/introduction/new.html) in the docs.
+Semantic UI `2.0` is now available. Read up on [what's new](http://www.semantic-ui.com/introduction/new.html) in the docs.
 
 Migration info from `1.x` can be found in the [2.0 release notes](https://github.com/Semantic-Org/Semantic-UI/blob/master/RELEASE-NOTES.md#version-200---march-xx-2015)
 
@@ -26,12 +26,11 @@ Migration info from `1.x` can be found in the [2.0 release notes](https://github
 npm install semantic-ui  # Use themes, import build/watch tasks into your own gulpfile.
 ```
 
+Semantic UI includes an interactive installer to help setup your project
 ![Getting Started](https://dl.dropboxusercontent.com/u/2657007/install.gif)
 
-For details on how work with Semantic theming please [read our theming guide](http://www.semantic-ui.com/usage/theming.html) on [semantic-ui.com](http://www.semantic-ui.com/)
-
-### Usage questions
-For usage questions please use [StackOverflow](http://stackoverflow.com/questions/tagged/semantic-ui) or our [Gitter chatroom](https://gitter.im/Semantic-Org/Semantic-UI). [GitHub Issues](https://github.com/Semantic-Org/Semantic-UI/issues) is only for suggesting enhancements and reporting bugs with [test cases](http://jsfiddle.net/efp8z6Ln/).
+* For more details on setup visit our [getting started guide](http://semantic-ui.com/introduction/getting-started.html).
+* To learn more about theming please read our [theming guide](http://www.semantic-ui.com/usage/theming.html)
 
 #### Additional Versions
 
@@ -53,9 +52,23 @@ Check out our [integration wiki](https://github.com/Semantic-Org/Semantic-UI/wik
 * IE 10+
 * Android 4
 
-Browser prefixes are present for Internet Explorer 9, but the browser is not officially supported.
+Although some components will work in IE9, [grids](http://semantic-ui.com/collections/grid.html) and other [flexbox](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes) components are not supported by IE9 and may not appear correctly.
 
 ## Community
+
+#### Getting Help
+Please **do not post** usage questions to GitHub Issues. For these types of questions use [StackOverflow](http://stackoverflow.com/questions/tagged/semantic-ui) or join our [Gitter chatroom](https://gitter.im/Semantic-Org/Semantic-UI). 
+
+#### Submitting Bugs and Enhancements
+[GitHub Issues](https://github.com/Semantic-Org/Semantic-UI/issues) is for suggesting enhancements and reporting bugs. Before submiting a bug make sure you do the following:
+* Check out our [contributing guide](https://github.com/Semantic-Org/Semantic-UI/blob/master/CONTRIBUTING.md) for info on our release cycle
+* [Fork this boilerplate JSFiddle](http://jsfiddle.net/efp8z6Ln/) to create a test case for your bug. If a bug is demonstratable from the docs, that's ok as well. Only bugs that include a test case can be triaged. 
+
+
+#### Pull Requests
+
+When adding pull requests be sure to merge into [next](https://github.com/Semantic-Org/Semantic-UI/tree/next) branch. If you need to demonstrate a fix in ``next`` release, you can use [this jsfiddle](http://jsfiddle.net/rduvhn8u/1/)
+
 
 #### International
 
@@ -80,10 +93,6 @@ Localization | Help us translate Semantic UI into your language | [Join our Tran
 [SCSS](http://sass-lang.com/) | SASS needs PR to support variables inside `@import` | [Add Pull Request](https://github.com/sass/sass/pulls) for [#739](https://github.com/sass/sass/issues/739#issuecomment-73984809)
 [Angular](https://angularjs.org/) | Help develop angular bindings | Reach Out on [GitHub Issues](https://github.com/Semantic-Org/Semantic-UI-Angular/issues/8)
 Guides & Tutorials | Help write guides and tutorials | [Join the discussion](https://github.com/Semantic-Org/Semantic-UI/issues/1571)
-
-#### Pull Requests
-
-When adding pull requests be sure to merge into [next](https://github.com/Semantic-Org/Semantic-UI/tree/next) branch. If you need to demonstrate a fix in ``next`` release, you can use [this jsfiddle](http://jsfiddle.net/rduvhn8u/1/)
 
 #### Reaching Out
 
