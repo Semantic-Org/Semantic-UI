@@ -455,9 +455,9 @@ $.api = $.fn.api = function(parameters) {
             },
             done: function(response, textStatus, xhr) {
               var
-                context      = this,
-                elapsedTime  = (new Date().getTime() - requestStartTime),
-                timeLeft     = (settings.loadingDuration - elapsedTime),
+                context            = this,
+                elapsedTime        = (new Date().getTime() - requestStartTime),
+                timeLeft           = (settings.loadingDuration - elapsedTime),
                 translatedResponse = ( $.isFunction(settings.onResponse) )
                   ? settings.onResponse.call(context, $.extend(true, {}, response))
                   : false
@@ -475,7 +475,7 @@ $.api = $.fn.api = function(parameters) {
               }
               setTimeout(function() {
                 if( module.is.validResponse(response) ) {
-                  module.request.resolveWith(context, [response]);
+                  module.request.resolveWith(context, [response, xhr]);
                 }
                 else {
                   module.request.rejectWith(context, [xhr, 'invalid']);

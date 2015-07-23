@@ -293,7 +293,7 @@ $.api = $.fn.api = function(parameters) {
             }
           },
           validResponse: function(response) {
-            if( settings.dataType !== 'json' || !$.isFunction(settings.successTest) ) {
+            if( (settings.dataType !== 'json' && settings.dataType !== 'jsonp') || !$.isFunction(settings.successTest) ) {
               module.verbose('Response is not JSON, skipping validation', settings.successTest, response);
               return true;
             }
@@ -451,13 +451,13 @@ $.api = $.fn.api = function(parameters) {
           },
           xhr: {
             always: function() {
-              // calculate if loading time was below minimum threshold
+              // nothing special
             },
             done: function(response, textStatus, xhr) {
               var
-                context      = this,
-                elapsedTime  = (new Date().getTime() - requestStartTime),
-                timeLeft     = (settings.loadingDuration - elapsedTime),
+                context            = this,
+                elapsedTime        = (new Date().getTime() - requestStartTime),
+                timeLeft           = (settings.loadingDuration - elapsedTime),
                 translatedResponse = ( $.isFunction(settings.onResponse) )
                   ? settings.onResponse.call(context, $.extend(true, {}, response))
                   : false
@@ -475,7 +475,7 @@ $.api = $.fn.api = function(parameters) {
               }
               setTimeout(function() {
                 if( module.is.validResponse(response) ) {
-                  module.request.resolveWith(context, [response]);
+                  module.request.resolveWith(context, [response, xhr]);
                 }
                 else {
                   module.request.rejectWith(context, [xhr, 'invalid']);
@@ -506,10 +506,6 @@ $.api = $.fn.api = function(parameters) {
             }
           },
           request: {
-            complete: function(response) {
-              module.remove.loading();
-              settings.onComplete.call(context, response, $module);
-            },
             done: function(response) {
               module.debug('Successful API Response', response);
               if(settings.cache === 'local' && url) {
@@ -518,17 +514,18 @@ $.api = $.fn.api = function(parameters) {
               }
               settings.onSuccess.call(context, response, $module);
             },
+            complete: function(xhr) {
+              var
+                response = module.get.responseFromXHR(xhr)
+              ;
+              module.remove.loading();
+              settings.onComplete.call(context, response, $module, xhr);
+            },
             fail: function(xhr, status, httpMessage) {
               var
                 // pull response from xhr if available
-                response = $.isPlainObject(xhr)
-                  ? module.decode.json(xhr.responseText)
-                  : false,
-                errorMessage = ($.isPlainObject(response) && response.error !== undefined)
-                  ? response.error // use json error message
-                  : (settings.error[status] !== undefined) // use server error message
-                    ? settings.error[status]
-                    : httpMessage
+                response     = module.get.responseFromXHR(xhr),
+                errorMessage = module.get.errorFromRequest(response, status, httpMessage)
               ;
               if(status == 'aborted') {
                 module.debug('XHR Aborted (Most likely caused by page navigation or CORS Policy)', status, httpMessage);
@@ -538,7 +535,6 @@ $.api = $.fn.api = function(parameters) {
                 module.debug('JSON did not pass success test. A server-side error has most likely occurred', response);
               }
               else if(status == 'error')  {
-
                 if(xhr !== undefined) {
                   module.debug('XHR produced a server error', status, httpMessage);
                   // make sure we have an error to display to console
@@ -656,6 +652,22 @@ $.api = $.fn.api = function(parameters) {
         },
 
         get: {
+          responseFromXHR: function(xhr) {
+            return $.isPlainObject(xhr)
+              ? (settings.dataType == 'json' || settings.dataType == 'jsonp')
+                ? module.decode.json(xhr.responseText)
+                : xhr.responseText
+              : false
+            ;
+          },
+          errorFromRequest: function(response, status, httpMessage) {
+            return ($.isPlainObject(response) && response.error !== undefined)
+              ? response.error // use json error message
+              : (settings.error[status] !== undefined) // use server error message
+                ? settings.error[status]
+                : httpMessage
+            ;
+          },
           request: function() {
             return module.request || false;
           },
