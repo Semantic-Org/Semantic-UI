@@ -115,6 +115,20 @@ $.api = $.fn.api = function(parameters) {
           }
         },
 
+        decode: {
+          json: function(response) {
+            if(response !== undefined && typeof response == 'string') {
+              try {
+               response = JSON.parse(response);
+              }
+              catch(e) {
+                // isnt json string
+              }
+            }
+            return response;
+          }
+        },
+
         read: {
           cachedResponse: function(url) {
             var
@@ -126,15 +140,7 @@ $.api = $.fn.api = function(parameters) {
             }
             response = sessionStorage.getItem(url);
             module.debug('Using cached response', url, response);
-            if(response !== undefined) {
-              try {
-               response = JSON.parse(response);
-              }
-              catch(e) {
-                // didnt store object
-              }
-              return response;
-            }
+            response = module.decode.json(response);
             return false;
           }
         },
@@ -516,7 +522,7 @@ $.api = $.fn.api = function(parameters) {
               var
                 // pull response from xhr if available
                 response = $.isPlainObject(xhr)
-                  ? (xhr.responseText)
+                  ? module.decode.json(xhr.responseText)
                   : false,
                 errorMessage = ($.isPlainObject(response) && response.error !== undefined)
                   ? response.error // use json error message
