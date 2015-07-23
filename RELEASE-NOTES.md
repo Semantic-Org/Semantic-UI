@@ -6,10 +6,12 @@
 - **Build Tools** - Fixed issue where `npm install semantic-ui` would hang after setup in some version of NPM
 - **Build Tools** - Fixed `npm install` with CI or tests. Install will not stop to ask questions if project has an existing `semantic.json` file
 - **Dropdown** - Fixed border radius on `circular labeled icon button`  #2700
+- **Dropdown** - Fixed issue where dropdown nested inside `label` would not open. #2711
 
 **Additional Fixes**
 - **Checkbox** - Fix checkbox "check" appearing italicized when included inside italicized text
-- **Dropdown** - Fixed issue where dropdown nested inside `label` would not open.
+- **Popup** - Fixed terribly typo where popup `onShow` was mistakenly being called instead of `onHide` when hiding popup
+- **Popup** - Popup on `touchstart` now occurs immediately without waiting for `delay.show`
 
 ### Version 2.0.6 - July 22, 2015
 
