@@ -2,8 +2,7 @@
 
 ### Version 2.0.7 - July 22, 2015
 
-**Enhancements**
-
+**Minor Enhancements**
 - **API** - All API callbacks now recieve `xhr` from API request as the third calback parameter
 
 **[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.0.7+is%3Aclosed)**
