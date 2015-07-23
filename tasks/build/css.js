@@ -19,6 +19,7 @@ var
   minifyCSS    = require('gulp-minify-css'),
   plumber      = require('gulp-plumber'),
   print        = require('gulp-print'),
+  purifyCSS    = require('gulp-purifycss'),
   rename       = require('gulp-rename'),
   replace      = require('gulp-replace'),
 
@@ -57,10 +58,13 @@ module.exports = function(callback) {
     return;
   }
 
+  console.log(config.purify);
+
   // unified css stream
   stream = gulp.src(source.definitions + '/**/' + globs.components + '.less')
     .pipe(plumber(settings.plumber.less))
     .pipe(less(settings.less))
+    .pipe(gulpif(config.purify, purifyCSS(config.purify)))
     .pipe(autoprefixer(settings.prefix))
     .pipe(replace(comments.variables.in, comments.variables.out))
     .pipe(replace(comments.license.in, comments.license.out))
