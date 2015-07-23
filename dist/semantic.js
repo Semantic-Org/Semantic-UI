@@ -18376,17 +18376,18 @@ $.api = $.fn.api = function(parameters) {
             }
           },
           request: {
-            done: function(response) {
+            done: function(response, xhr) {
               module.debug('Successful API Response', response);
               if(settings.cache === 'local' && url) {
                 module.write.cachedResponse(url, response);
                 module.debug('Saving server response locally', module.cache);
               }
-              settings.onSuccess.call(context, response, $module);
+              settings.onSuccess.call(context, response, $module, xhr);
             },
-            complete: function(xhr) {
+            complete: function(maybeResponse, xhr) {
               var
-                response = module.get.responseFromXHR(xhr)
+                // ajax deferred returns either response or xhr depending on success/fail
+                response = module.get.responseFromXHR(maybeResponse)
               ;
               module.remove.loading();
               settings.onComplete.call(context, response, $module, xhr);
@@ -18399,7 +18400,7 @@ $.api = $.fn.api = function(parameters) {
               ;
               if(status == 'aborted') {
                 module.debug('XHR Aborted (Most likely caused by page navigation or CORS Policy)', status, httpMessage);
-                settings.onAbort.call(context, status, $module);
+                settings.onAbort.call(context, status, $module, xhr);
               }
               else if(status == 'invalid') {
                 module.debug('JSON did not pass success test. A server-side error has most likely occurred', response);
@@ -18411,7 +18412,7 @@ $.api = $.fn.api = function(parameters) {
                   if( xhr.status != 200 && httpMessage !== undefined && httpMessage !== '') {
                     module.error(error.statusMessage + httpMessage, ajaxSettings.url);
                   }
-                  settings.onError.call(context, errorMessage, $module);
+                  settings.onError.call(context, errorMessage, $module, xhr);
                 }
               }
 
@@ -18421,7 +18422,7 @@ $.api = $.fn.api = function(parameters) {
                 setTimeout(module.remove.error, settings.errorDuration);
               }
               module.debug('API Request failed', errorMessage, xhr);
-              settings.onFailure.call(context, response, $module);
+              settings.onFailure.call(context, response, $module, xhr);
             }
           }
         },
