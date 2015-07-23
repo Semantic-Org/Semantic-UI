@@ -4716,7 +4716,7 @@ $.fn.dropdown = function(parameters) {
                 toggleBehavior = (module.is.multiple())
                   ? module.show
                   : module.toggle
-                ;
+              ;
               if( module.determine.eventOnElement(event, toggleBehavior) ) {
                 event.preventDefault();
               }
@@ -5118,7 +5118,8 @@ $.fn.dropdown = function(parameters) {
           eventOnElement: function(event, callback) {
             var
               $target    = $(event.target),
-              notOnLabel = ($target.closest(selector.siblingLabel).length === 0),
+              $label     = $target.closest(selector.siblingLabel),
+              notOnLabel = ($module.find($label).length === 0),
               notInMenu  = ($target.closest($menu).length === 0)
             ;
             callback = $.isFunction(callback)
@@ -17983,6 +17984,20 @@ $.api = $.fn.api = function(parameters) {
           }
         },
 
+        decode: {
+          json: function(response) {
+            if(response !== undefined && typeof response == 'string') {
+              try {
+               response = JSON.parse(response);
+              }
+              catch(e) {
+                // isnt json string
+              }
+            }
+            return response;
+          }
+        },
+
         read: {
           cachedResponse: function(url) {
             var
@@ -17994,15 +18009,7 @@ $.api = $.fn.api = function(parameters) {
             }
             response = sessionStorage.getItem(url);
             module.debug('Using cached response', url, response);
-            if(response !== undefined) {
-              try {
-               response = JSON.parse(response);
-              }
-              catch(e) {
-                // didnt store object
-              }
-              return response;
-            }
+            response = module.decode.json(response);
             return false;
           }
         },
@@ -18384,7 +18391,7 @@ $.api = $.fn.api = function(parameters) {
               var
                 // pull response from xhr if available
                 response = $.isPlainObject(xhr)
-                  ? (xhr.responseText)
+                  ? module.decode.json(xhr.responseText)
                   : false,
                 errorMessage = ($.isPlainObject(response) && response.error !== undefined)
                   ? response.error // use json error message

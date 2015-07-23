@@ -293,7 +293,7 @@ $.api = $.fn.api = function(parameters) {
             }
           },
           validResponse: function(response) {
-            if( settings.dataType !== 'json' || !$.isFunction(settings.successTest) ) {
+            if( (settings.dataType !== 'json' && settings.dataType !== 'jsonp') || !$.isFunction(settings.successTest) ) {
               module.verbose('Response is not JSON, skipping validation', settings.successTest, response);
               return true;
             }
@@ -522,7 +522,9 @@ $.api = $.fn.api = function(parameters) {
               var
                 // pull response from xhr if available
                 response = $.isPlainObject(xhr)
-                  ? module.decode.json(xhr.responseText)
+                  ? (settings.dataType == 'json' || settings.dataType == 'jsonp')
+                    ? module.decode.json(xhr.responseText)
+                    : xhr.responseText
                   : false,
                 errorMessage = ($.isPlainObject(response) && response.error !== undefined)
                   ? response.error // use json error message

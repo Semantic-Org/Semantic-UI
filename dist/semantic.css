@@ -1530,11 +1530,13 @@ input::selection {
   position: absolute;
   height: 100%;
   line-height: 1;
+  border-radius: 0px;
+  border-top-left-radius: inherit;
+  border-bottom-left-radius: inherit;
   width: 2.57142857em;
   background-color: rgba(0, 0, 0, 0.05);
   text-align: center;
   color: '';
-  border-radius: 0.28571429rem 0px 0px 0.28571429rem;
   box-shadow: -1px 0px 0px 0px transparent inset;
 }
 
@@ -1556,7 +1558,9 @@ input::selection {
 .ui[class*="right labeled"].icon.button > .icon {
   left: auto;
   right: 0em;
-  border-radius: 0em 0.28571429rem 0.28571429rem 0em;
+  border-radius: 0px;
+  border-top-right-radius: inherit;
+  border-bottom-right-radius: inherit;
   box-shadow: 1px 0px 0px 0px transparent inset;
 }
 
@@ -26173,6 +26177,7 @@ a.ui.card:hover,
   backface-visibility: hidden;
   outline: none;
   vertical-align: baseline;
+  font-style: normal;
   min-height: 17px;
   font-size: 1rem;
   line-height: 17px;

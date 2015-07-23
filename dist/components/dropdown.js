@@ -895,7 +895,7 @@ $.fn.dropdown = function(parameters) {
                 toggleBehavior = (module.is.multiple())
                   ? module.show
                   : module.toggle
-                ;
+              ;
               if( module.determine.eventOnElement(event, toggleBehavior) ) {
                 event.preventDefault();
               }
@@ -1297,7 +1297,8 @@ $.fn.dropdown = function(parameters) {
           eventOnElement: function(event, callback) {
             var
               $target    = $(event.target),
-              notOnLabel = ($target.closest(selector.siblingLabel).length === 0),
+              $label     = $target.closest(selector.siblingLabel),
+              notOnLabel = ($module.find($label).length === 0),
               notInMenu  = ($target.closest($menu).length === 0)
             ;
             callback = $.isFunction(callback)

@@ -26,6 +26,7 @@
           backface-visibility: hidden;
   outline: none;
   vertical-align: baseline;
+  font-style: normal;
   min-height: 17px;
   font-size: 1rem;
   line-height: 17px;
