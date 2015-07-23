@@ -18384,11 +18384,20 @@ $.api = $.fn.api = function(parameters) {
               }
               settings.onSuccess.call(context, response, $module, xhr);
             },
-            complete: function(maybeResponse, xhr) {
+            complete: function(firstParameter, secondParameter) {
               var
-                // ajax deferred returns either response or xhr depending on success/fail
-                response = module.get.responseFromXHR(maybeResponse)
+                xhr,
+                response
               ;
+              // have to guess callback parameters based on request success
+              if( module.was.succesful() ) {
+                response = firstParameter;
+                xhr      = secondParameter;
+              }
+              else {
+                xhr      = firstParameter;
+                response = module.get.responseFromXHR(xhr);
+              }
               module.remove.loading();
               settings.onComplete.call(context, response, $module, xhr);
             },
