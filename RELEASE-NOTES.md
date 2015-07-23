@@ -1,6 +1,6 @@
 ## RELEASE NOTES
 
-### Version 2.0.7 - July 22, 2015
+### Version 2.0.7 - July 23, 2015
 
 **Important Note**
 This release should fix bugs some may have encountered with `npm install semantic-ui` hanging after set-up. See [this thread](https://github.com/Semantic-Org/Semantic-UI/issues/1816) for more details.
