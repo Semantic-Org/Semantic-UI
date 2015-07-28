@@ -14,6 +14,7 @@
 
 **Additional Bugs**
 - **Form Validation** - Fixed issue with `get value(s)` where unchecked checkboxes would not correctly retrieve values
+- **Grid / Container ** - `ui relaxed grid container` and `ui very relaxed grid container` will now all render at same container width
 - **Input** - `labeled input` now keeps border on label edge so that focus color appears correctly
 - **Input** - Input now will reset `font-weight` and `font-style` if set on parent;
 - **Menu** - Added `flex: 0 0 auto` to menu item to make sure menu do not collapse text content to reduce space
