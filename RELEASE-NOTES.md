@@ -18,6 +18,7 @@
 - **Menu** - Added `flex: 0 0 auto` to menu item to make sure menu do not collapse text content to reduce space
 - **Menu** - Fixed issue with `labeled input` text inside menu not appearing vertically centered
 - **Menu** - `@pressedItemColor` has been renamed to `@pressedItemTextColor` to match naming conventions of other variables
+- **Menu** - Fix text align on `dropdown item` inside `icon menu`
 
 **[Merged PR](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
 
