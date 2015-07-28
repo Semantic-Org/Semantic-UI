@@ -163,7 +163,7 @@
 
 /* Pressed Item */
 @pressedItemBackground: @subtleTransparentBlack;
-@pressedItemColor: @pressedTextColor;
+@pressedItemTextColor: @pressedTextColor;
 
 
 /* Active Item */
