@@ -13,6 +13,7 @@
 
 **Additional Bugs**
 
+- **Input** - Input now will reset `font-weight` and `font-style` if set on parent;
 - **Menu** - Added `flex: 0 0 auto` to menu item to make sure menu do not collapse text content to reduce space
 - **Menu** - Fixed issue with `labeled input` text inside menu not appearing vertically centered
 
