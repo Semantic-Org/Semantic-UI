@@ -10,6 +10,10 @@
 - **Modal** - Fix autofocus setting in modal not working due to improper selector #2737
 - **Modal** - Increased `close` specificity, modal will now only close on `> .close` #2736
 
+**Additional Bugs**
+
+- **Menu** - Added `flex: 0 0 auto` to menu item to make sure menu do not collapse text content to reduce space
+
 **[Merged PR](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
 
 - **Menu** - Fixes tabular menu missing variable for background. **Thanks @frontdevde**
