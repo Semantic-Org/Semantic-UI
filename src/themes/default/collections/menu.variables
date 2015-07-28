@@ -332,10 +332,11 @@
 
 /* Text */
 @textMenuItemSpacing: 0.5em;
-@textMenuMargin: @relativeLarge -@textMenuItemSpacing;
+@textMenuMargin: @relativeMedium -(@textMenuItemSpacing);
 @textMenuItemColor: @mutedTextColor;
 @textMenuItemFontWeight: normal;
-@textMenuItemMargin: 0em @textMenuItemSpacing;
+@textMenuItemMargin: 0em 0em;
+@textMenuItemPadding: @relative5px @textMenuItemSpacing;
 @textMenuItemTransition: opacity @defaultDuration @defaultEasing;
 
 @textMenuSubMenuMargin: 0em;

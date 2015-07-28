@@ -966,11 +966,11 @@ Floated Menu / Item
   margin: @textMenuMargin;
 }
 .ui.text.menu .item {
-  padding: 0em;
   border-radius: 0px;
   box-shadow: none;
   align-self: center;
   margin: @textMenuItemMargin;
+  padding: @textMenuItemPadding;
   font-weight: @textMenuItemFontWeight;
   color: @textMenuItemColor;
   transition: @textMenuItemTransition;
@@ -1038,9 +1038,9 @@ Floated Menu / Item
 /*--- active ---*/
 .ui.text.menu .active.item {
   background-color: transparent;
-  padding: 0em;
   border: none;
   box-shadow: none;
+  padding: @textMenuItemPadding;
   font-weight: @textMenuActiveItemFontWeight;
   color: @textMenuActiveItemColor;
 }
