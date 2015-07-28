@@ -1,5 +1,10 @@
 ## RELEASE NOTES
 
+### Version 2.x.x - July 23, 2015
+
+-**Modal** - Fix autofocus setting in modal not working due to improper selector #2737
+
+
 ### Version 2.0.7 - July 23, 2015
 
 **Important Note**
