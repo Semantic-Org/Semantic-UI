@@ -82,6 +82,7 @@
   line-height: 1;
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
+  flex: 0 0 auto;
   user-select: none;
 
   background: @itemBackground;
@@ -176,12 +177,6 @@
   padding-top: @inputVerticalPadding;
   padding-bottom: @inputVerticalPadding;
 }
-.ui.menu .item > .input .button,
-.ui.menu .item > .input .label {
-  padding-top: @inputVerticalPadding;
-  padding-bottom: @inputVerticalPadding;
-}
-
 
 
 /*--------------
@@ -240,6 +235,7 @@
 /* Menu Items */
 .ui.menu .ui.dropdown .menu > .item {
   margin: 0;
+  text-align: left;
   font-size: @dropdownItemFontSize !important;
   padding: @dropdownItemPadding !important;
   background: @dropdownItemBackground !important;
@@ -422,7 +418,7 @@
 .ui.menu .link.item:active,
 .ui.menu a.item:active {
   background: @pressedItemBackground;
-  color: @pressedItemColor;
+  color: @pressedItemTextColor;
 }
 
 
@@ -600,7 +596,7 @@ Floated Menu / Item
 ---------------*/
 
 .ui.tabular.menu {
-  background-color: transparent;
+  background-color: @tabularBackgroundColor;
   border-radius: 0em;
   box-shadow: none !important;
   border: none;
@@ -653,7 +649,7 @@ Floated Menu / Item
 
 /* Vertical Tabular */
 .ui.vertical.tabular.menu {
-  background-color: transparent;
+  background-color: @tabularBackgroundColor;
   border-radius: 0em;
   box-shadow: none !important;
   border-bottom: none;
@@ -971,11 +967,11 @@ Floated Menu / Item
   margin: @textMenuMargin;
 }
 .ui.text.menu .item {
-  padding: 0em;
   border-radius: 0px;
   box-shadow: none;
   align-self: center;
   margin: @textMenuItemMargin;
+  padding: @textMenuItemPadding;
   font-weight: @textMenuItemFontWeight;
   color: @textMenuItemColor;
   transition: @textMenuItemTransition;
@@ -1043,9 +1039,9 @@ Floated Menu / Item
 /*--- active ---*/
 .ui.text.menu .active.item {
   background-color: transparent;
-  padding: 0em;
   border: none;
   box-shadow: none;
+  padding: @textMenuItemPadding;
   font-weight: @textMenuActiveItemFontWeight;
   color: @textMenuActiveItemColor;
 }
@@ -1081,33 +1077,42 @@ Floated Menu / Item
     Icon Only
 ---------------*/
 
+/* Vertical Menu */
+.ui.vertical.icon.menu {
+  display: inline-block;
+  width: auto;
+}
+
+/* Item */
 .ui.icon.menu .item {
   height: auto;
   text-align: @iconMenuTextAlign;
   color: @iconMenuItemColor;
 }
-.ui.icon.menu .item > .icon {
-  margin: 0em;
+
+/* Icon */
+.ui.icon.menu .item > .icon:not(.dropdown) {
+  margin: 0;
   opacity: 1;
 }
-.ui.vertical.icon.menu .item > .icon:not(.dropdown) {
-  display: block;
-  margin: 0em auto;
-  float: none;
-}
+
+/* Icon Gylph */
 .ui.icon.menu .icon:before {
   opacity: 1;
 }
 
-/* Item Icon Only */
+/* (x) Item Icon */
 .ui.menu .icon.item > .icon {
   width: auto;
   margin: 0em auto;
 }
 
-/* Vertical */
-.ui.vertical.icon.menu {
-  width: auto;
+/* Vertical Icon */
+.ui.vertical.icon.menu .item > .icon:not(.dropdown) {
+  display: block;
+  opacity: 1;
+  margin: 0em auto;
+  float: none;
 }
 
 /* Inverted */
@@ -1119,29 +1124,28 @@ Floated Menu / Item
    Labeled Icon
 ---------------*/
 
+/* Menu */
 .ui.labeled.icon.menu {
   text-align: center;
 }
-.ui.fluid.labeled.icon.menu .item {
-  min-width: 0em;
-}
 
-.ui.labeled.icon.menu .item {
+/* Item */
+.ui.labeled.icon.menu  .item {
   min-width: @labeledIconMinWidth;
-}
-.ui.labeled.icon.menu:not(.vertical) .item {
-  padding-left: @labeledIconItemHorizontalPadding;
-  padding-right: @labeledIconItemHorizontalPadding;
+  flex-direction: column;
 }
 
+/* Icon */
 .ui.labeled.icon.menu .item > .icon:not(.dropdown) {
   height: 1em;
   display: block;
   font-size: @labeledIconSize !important;
-  margin: 0em @labeledIconTextMargin 0em 0em !important;
-}
-.ui.vertical.labeled.icon.menu .item > .icon:not(.dropdown) {
   margin: 0em auto @labeledIconTextMargin !important;
+}
+
+/* Fluid */
+.ui.fluid.labeled.icon.menu > .item {
+  min-width: 0em;
 }
 
 

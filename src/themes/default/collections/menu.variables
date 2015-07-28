@@ -163,7 +163,7 @@
 
 /* Pressed Item */
 @pressedItemBackground: @subtleTransparentBlack;
-@pressedItemColor: @pressedTextColor;
+@pressedItemTextColor: @hoverItemTextColor;
 
 
 /* Active Item */
@@ -300,7 +300,7 @@
 
 /* Tabular */
 @tabularBorderColor: @solidBorderColor;
-@tabularBackgroundColor: #FFFFFF;
+@tabularBackgroundColor: transparent;
 @tabularBorderWidth: 1px;
 @tabularOppositeBorderWidth: @tabularBorderWidth + 1px;
 @tabularHorizontalPadding: @relativeHuge;
@@ -325,17 +325,18 @@
 
 /* Labeled Icon */
 @labeledIconItemHorizontalPadding: @relativeMassive;
-@labeledIconSize: @relativeHuge;
+@labeledIconSize: @relativeMassive;
 @labeledIconMinWidth: 6em;
 @labeledIconTextMargin: 0.5rem;
 
 
 /* Text */
 @textMenuItemSpacing: 0.5em;
-@textMenuMargin: @relativeLarge -@textMenuItemSpacing;
+@textMenuMargin: @relativeMedium -(@textMenuItemSpacing);
 @textMenuItemColor: @mutedTextColor;
 @textMenuItemFontWeight: normal;
-@textMenuItemMargin: 0em @textMenuItemSpacing;
+@textMenuItemMargin: 0em 0em;
+@textMenuItemPadding: @relative5px @textMenuItemSpacing;
 @textMenuItemTransition: opacity @defaultDuration @defaultEasing;
 
 @textMenuSubMenuMargin: 0em;

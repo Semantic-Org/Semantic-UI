@@ -1,5 +1,31 @@
 ## RELEASE NOTES
 
+### Version 2.x.x - July 23, 2015
+
+**[Enhancements](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
+
+- **Breadcrumb** - Breadcrumb no longer receives vertical spacing by default. This may often cause vertical alignment issues when displayed next to other `inline-block` content.
+- **Menu** - Appearance of `labeled icon menu` has been modified. Horizontal menus now have icons above text, and icons are slightly larger than before.
+- **Menu** - `text menu` now uses padding for hitboxes to make target area for links larger
+
+**[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
+- **Modal** - Fix autofocus setting in modal not working due to improper selector #2737
+- **Modal** - Increased `close` specificity, modal will now only close on `> .close` #2736
+
+**Additional Bugs**
+- **Form Validation** - Fixed issue with `get value(s)` where unchecked checkboxes would not correctly retrieve values
+- **Grid / Container ** - `ui relaxed grid container` and `ui very relaxed grid container` will now all render at same container width
+- **Input** - `labeled input` now keeps border on label edge so that focus color appears correctly
+- **Input** - Input now will reset `font-weight` and `font-style` if set on parent;
+- **Menu** - Added `flex: 0 0 auto` to menu item to make sure menu do not collapse text content to reduce space
+- **Menu** - Fixed issue with `labeled input` text inside menu not appearing vertically centered
+- **Menu** - `@pressedItemColor` has been renamed to `@pressedItemTextColor` to match naming conventions of other variables
+- **Menu** - Fix text align on `dropdown item` inside `icon menu`
+
+**[Merged PR](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
+
+- **Menu** - Fixes tabular menu missing variable for background. **Thanks @frontdevde**
+
 ### Version 2.0.7 - July 23, 2015
 
 **Important Note**

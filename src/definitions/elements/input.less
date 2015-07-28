@@ -30,6 +30,8 @@
 
 .ui.input {
   position: relative;
+  font-weight: normal;
+  font-style: normal;
   display: inline-flex;
   color: @inputColor;
 }
@@ -315,7 +317,7 @@
 
 /* Regular Label on Left */
 .ui.labeled.input:not([class*="corner labeled"]):not([class*="right labeled"]) > input {
-  border-left: none;
+  /*border-left: none;*/
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
 }
@@ -326,7 +328,7 @@
 
 /* Regular Label on Right */
 .ui[class*="right labeled"].input  > input {
-  border-right: none;
+  /*border-right: none;*/
   border-top-right-radius: 0px !important;
   border-bottom-right-radius: 0px !important;
 }
