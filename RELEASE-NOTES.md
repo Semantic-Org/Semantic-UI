@@ -13,7 +13,7 @@
 - **Modal** - Increased `close` specificity, modal will now only close on `> .close` #2736
 
 **Additional Bugs**
-
+- **Input** - `labeled input` now keeps border on label edge so that focus color appears correctly
 - **Input** - Input now will reset `font-weight` and `font-style` if set on parent;
 - **Menu** - Added `flex: 0 0 auto` to menu item to make sure menu do not collapse text content to reduce space
 - **Menu** - Fixed issue with `labeled input` text inside menu not appearing vertically centered
