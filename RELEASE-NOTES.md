@@ -2,6 +2,10 @@
 
 ### Version 2.x.x - July 23, 2015
 
+**[Enhancements](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
+
+- **Menu** - Appearance of `labeled icon menu` has been modified. Horizontal menus now have icons above text, and icons are slightly larger than before.
+
 **[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
 - **Modal** - Fix autofocus setting in modal not working due to improper selector #2737
 - **Modal** - Increased `close` specificity, modal will now only close on `> .close` #2736
