@@ -300,7 +300,7 @@
 
 /* Tabular */
 @tabularBorderColor: @solidBorderColor;
-@tabularBackgroundColor: #FFFFFF;
+@tabularBackgroundColor: transparent;
 @tabularBorderWidth: 1px;
 @tabularOppositeBorderWidth: @tabularBorderWidth + 1px;
 @tabularHorizontalPadding: @relativeHuge;
