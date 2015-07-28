@@ -2,8 +2,12 @@
 
 ### Version 2.x.x - July 23, 2015
 
--**Modal** - Fix autofocus setting in modal not working due to improper selector #2737
+**[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
+- **Modal** - Fix autofocus setting in modal not working due to improper selector #2737
 
+**[Merged PR](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
+
+- **Menu** - Fixes tabular menu missing variable for background. **Thanks @frontdevde**
 
 ### Version 2.0.7 - July 23, 2015
 
