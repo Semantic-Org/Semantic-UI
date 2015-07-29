@@ -596,26 +596,24 @@ Floated Menu / Item
 ---------------*/
 
 .ui.tabular.menu {
-  background-color: @tabularBackgroundColor;
   border-radius: 0em;
   box-shadow: none !important;
   border: none;
+  background: @tabularBackground;
   border-bottom: @tabularBorderWidth solid @tabularBorderColor;
 }
 .ui.tabular.fluid.menu {
   width: @tabularFluidWidth !important;
 }
 .ui.tabular.menu .item {
-  background-color: transparent;
+  background: transparent;
+  border-bottom: none;
 
   border-left: @tabularBorderWidth solid transparent;
   border-right: @tabularBorderWidth solid transparent;
   border-top: @tabularOppositeBorderWidth solid transparent;
-  border-bottom: none;
-
-  padding-left: @tabularHorizontalPadding;
-  padding-right: @tabularHorizontalPadding;
-  color: @tabularMenuTextColor;
+  padding: @tabularVerticalPadding @tabularHorizontalPadding;
+  color: @tabularTextColor;
 }
 .ui.tabular.menu .item:before {
   display: none;
@@ -624,12 +622,12 @@ Floated Menu / Item
 /* Hover */
 .ui.tabular.menu .item:hover {
   background-color: transparent;
-  color: @hoveredTextColor;
+  color: @tabularHoveredTextColor;
 }
 
 /* Active */
 .ui.tabular.menu .active.item {
-  background-color: @tabularMenuActiveBackground;
+  background: @tabularActiveBackground;
   color: @tabularActiveColor;
   border-top-width: @tabularBorderWidth;
   border-color: @tabularBorderColor;
@@ -652,7 +650,7 @@ Floated Menu / Item
 
 /* Bottom Vertical Tabular */
 .ui.bottom.tabular.menu {
-  background-color: @tabularBackgroundColor;
+  background: @tabularBackground;
   border-radius: 0em;
   box-shadow: none !important;
   border-bottom: none;
@@ -666,8 +664,8 @@ Floated Menu / Item
   border-top: none;
 }
 .ui.bottom.tabular.menu .active.item {
-  background-color: @tabularMenuActiveBackground;
-  color: @tabularMenuActiveColor;
+  background: @tabularActiveBackground;
+  color: @tabularActiveColor;
   border-color: @tabularBorderColor;
   margin: -@tabularBorderWidth 0px 0px 0px;
   border-radius: 0px 0px @tabularBorderRadius @tabularBorderRadius !important;
@@ -675,7 +673,7 @@ Floated Menu / Item
 
 /* Vertical Tabular (Left) */
 .ui.vertical.tabular.menu {
-  background-color: @tabularBackgroundColor;
+  background: @tabularVerticalBackground;
   border-radius: 0em;
   box-shadow: none !important;
   border-bottom: none;
@@ -689,8 +687,8 @@ Floated Menu / Item
   border-right: none;
 }
 .ui.vertical.tabular.menu .active.item {
-  background-color: @tabularMenuActiveBackground;
-  color: @tabularMenuActiveColor;
+  background: @tabularActiveBackground;
+  color: @tabularActiveColor;
   border-color: @tabularBorderColor;
   margin: 0px -@tabularBorderWidth 0px 0px;
   border-radius: @tabularBorderRadius 0px 0px @tabularBorderRadius !important;
@@ -698,7 +696,7 @@ Floated Menu / Item
 
 /* Vertical Right Tabular */
 .ui.vertical.right.tabular.menu {
-  background-color: @tabularBackgroundColor;
+  background: @tabularVerticalBackground;
   border-radius: 0em;
   box-shadow: none !important;
   border-bottom: none;
@@ -713,8 +711,8 @@ Floated Menu / Item
   border-left: none;
 }
 .ui.vertical.right.tabular.menu .active.item {
-  background-color: @tabularMenuActiveBackground;
-  color: @tabularMenuActiveColor;
+  background: @tabularActiveBackground;
+  color: @tabularActiveColor;
   border-color: @tabularBorderColor;
   margin: 0px 0px 0px -@tabularBorderWidth;
   border-radius: 0px @tabularBorderRadius @tabularBorderRadius 0px !important;

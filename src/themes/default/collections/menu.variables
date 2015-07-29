@@ -301,21 +301,26 @@
 /* Tabular */
 @tabularBorderColor: @solidBorderColor;
 @tabularBackgroundColor: transparent;
+@tabularBackground: none @tabularBackgroundColor;
 @tabularBorderWidth: 1px;
 @tabularOppositeBorderWidth: @tabularBorderWidth + 1px;
+@tabularVerticalPadding: @itemVerticalPadding;
 @tabularHorizontalPadding: @relativeHuge;
-@tabularMenuTextColor: @itemTextColor;
+@tabularBorderRadius: @defaultBorderRadius;
+@tabularTextColor: @itemTextColor;
+
+@tabularHoveredTextColor: @hoveredTextColor;
+
+@tabularVerticalBackground: none @tabularBackgroundColor;
 
 @tabularFluidOffset: 1px;
 @tabularFluidWidth: ~"calc(100% + "(@tabularFluidOffset * 2)~")";
+
+@tabularActiveBackground: none @white;
 @tabularActiveColor: @selectedTextColor;
 @tabularActiveBoxShadow: none;
-
-@tabularMenuActiveBackground: @white;
-@tabularMenuActiveColor: @selectedTextColor;
-
 @tabularActiveWeight: bold;
-@tabularBorderRadius: @defaultBorderRadius;
+
 
 
 /* Pagination */
