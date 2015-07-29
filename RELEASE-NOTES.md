@@ -9,6 +9,7 @@
 - **Menu** - `text menu` now uses padding for hitboxes to make target area for links larger
 
 **[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
+- **Container** - Fix issue with `fluid container` being `100% + gutter` at mobile resolution (causing overflow)
 - **Modal** - Fix autofocus setting in modal not working due to improper selector #2737
 - **Modal** - Increased `close` specificity, modal will now only close on `> .close` #2736
 
