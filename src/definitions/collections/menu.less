@@ -640,14 +640,40 @@ Floated Menu / Item
 }
 
 /* Coupling with segment for attachment */
-.ui.tabular.menu + .bottom.attached.segment,
-.ui.tabular.menu ~ .bottom.attached.segment + .bottom.attached.segment {
+.ui.tabular.menu + .bottom.attached.segment {
   border-top: none;
   margin: 0px;
   width: 100%;
 }
+.top.attached.segment + .ui.bottom.tabular.menu {
+  width: @tabularFluidWidth;
+  margin: 0px 0px 0px -@tabularFluidOffset;
+}
 
-/* Vertical Tabular */
+/* Bottom Vertical Tabular */
+.ui.bottom.tabular.menu {
+  background-color: @tabularBackgroundColor;
+  border-radius: 0em;
+  box-shadow: none !important;
+  border-bottom: none;
+  border-top: @tabularBorderWidth solid @tabularBorderColor;
+}
+.ui.bottom.tabular.menu .item {
+  background: none;
+  border-left: @tabularBorderWidth solid transparent;
+  border-right: @tabularBorderWidth solid transparent;
+  border-bottom: @tabularBorderWidth solid transparent;
+  border-top: none;
+}
+.ui.bottom.tabular.menu .active.item {
+  background-color: @tabularMenuActiveBackground;
+  color: @tabularMenuActiveColor;
+  border-color: @tabularBorderColor;
+  margin: -@tabularBorderWidth 0px 0px 0px;
+  border-radius: 0px 0px @tabularBorderRadius @tabularBorderRadius !important;
+}
+
+/* Vertical Tabular (Left) */
 .ui.vertical.tabular.menu {
   background-color: @tabularBackgroundColor;
   border-radius: 0em;
@@ -662,14 +688,36 @@ Floated Menu / Item
   border-top: @tabularBorderWidth solid transparent;
   border-right: none;
 }
-
-/* Active */
 .ui.vertical.tabular.menu .active.item {
   background-color: @tabularMenuActiveBackground;
   color: @tabularMenuActiveColor;
   border-color: @tabularBorderColor;
   margin: 0px -@tabularBorderWidth 0px 0px;
   border-radius: @tabularBorderRadius 0px 0px @tabularBorderRadius !important;
+}
+
+/* Vertical Right Tabular */
+.ui.vertical.right.tabular.menu {
+  background-color: @tabularBackgroundColor;
+  border-radius: 0em;
+  box-shadow: none !important;
+  border-bottom: none;
+  border-right: none;
+  border-left: @tabularBorderWidth solid @tabularBorderColor;
+}
+.ui.vertical.right.tabular.menu .item {
+  background: none;
+  border-right: @tabularBorderWidth solid transparent;
+  border-bottom: @tabularBorderWidth solid transparent;
+  border-top: @tabularBorderWidth solid transparent;
+  border-left: none;
+}
+.ui.vertical.right.tabular.menu .active.item {
+  background-color: @tabularMenuActiveBackground;
+  color: @tabularMenuActiveColor;
+  border-color: @tabularBorderColor;
+  margin: 0px 0px 0px -@tabularBorderWidth;
+  border-radius: 0px @tabularBorderRadius @tabularBorderRadius 0px !important;
 }
 
 /* Dropdown */

@@ -6,6 +6,7 @@
 
 - **Breadcrumb** - Breadcrumb no longer receives vertical spacing by default. This may often cause vertical alignment issues when displayed next to other `inline-block` content.
 - **Menu** - Appearance of `labeled icon menu` has been modified. Horizontal menus now have icons above text, and icons are slightly larger than before.
+- **Menu** - Added new `tabular` menu types, `right tabular`, `bottom tabular`
 - **Menu** - `text menu` now uses padding for hitboxes to make target area for links larger
 
 **[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
@@ -22,6 +23,7 @@
 - **Menu** - Fixed issue with `labeled input` text inside menu not appearing vertically centered
 - **Menu** - `@pressedItemColor` has been renamed to `@pressedItemTextColor` to match naming conventions of other variables
 - **Menu** - Fix text align on `dropdown item` inside `icon menu`
+- **Icons** - Fixed issue where `active icon` or `emphasized icon` would not adjust opacity inside menus
 
 **[Merged PR](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
 
