@@ -32,12 +32,12 @@
   margin: @verticalMargin @horizontalMargin;
 
   background-color: @backgroundColor;
-  border-color: @backgroundColor;
+  border-color: @borderColor;
 
   background-image: @backgroundImage;
 
   padding: @verticalPadding @horizontalPadding;
-  color: @labelTextColor;
+  color: @color;
 
   text-transform: @textTransform;
   font-weight: @fontWeight;
@@ -952,6 +952,23 @@ a.ui.black.label:hover:before {
 }
 
 
+/*-------------------
+        Basic
+--------------------*/
+
+.ui.basic.label {
+  background: @basicBackground;
+  border: @basicBorder;
+  color: @basicColor;
+  box-shadow: @basicBoxShadow;
+}
+.ui.basic.label:hover {
+  text-decoration: none;
+  background: @basicHoverBackground;
+  color: @basicHoverColor;
+  box-shadow: @basicHoverBorder;
+  box-shadow: @basicHoverBoxShadow;
+}
 
 /*-------------------
        Fluid

@@ -18,7 +18,6 @@
 @verticalPadding: @inputVerticalPadding;
 @horizontalPadding: 1.5em;
 
-
 /* Text */
 @textTransform: none;
 @tapColor: transparent;
@@ -45,7 +44,7 @@
 ;
 
 /* Icon */
-@iconHeight: @relativeSmall;
+@iconHeight: @relativeTiny;
 @iconOpacity: 0.8;
 @iconDistance: @relative6px;
 @iconColor: '';
@@ -160,6 +159,11 @@
 /* Icon */
 @iconButtonOpacity: 0.9;
 
+/* Labeled */
+@labeledLabelPadding: @verticalPadding @horizontalPadding;
+@labeledLabelFontSize: @relativeMedium;
+@labeledLabelBorderColor: @borderColor;
+
 /* Labeled Icon */
 @labeledIconWidth: 1em + (@verticalPadding * 2);
 @labeledIconBackgroundColor: rgba(0, 0, 0, 0.05);
@@ -169,6 +173,7 @@
 
 @labeledIconLeftShadow: -1px 0px 0px 0px @labeledIconBorder inset;
 @labeledIconRightShadow: 1px 0px 0px 0px @labeledIconBorder inset;
+
 
 /* Inverted */
 @invertedBorderSize: 2px;

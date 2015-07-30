@@ -10,8 +10,9 @@
 @verticalMargin: 0em;
 @horizontalMargin: @relative2px;
 @backgroundColor: #E8E8E8;
+@color: @mutedTextColor;
+@borderColor: @backgroundColor;
 @backgroundImage: none;
-@labelTextColor: rgba(0, 0, 0, 0.6);
 @verticalPadding: 0.5833em;
 @horizontalPadding: 0.833em;
 @borderRadius: @absoluteBorderRadius;
@@ -99,6 +100,17 @@
 /*-------------------
       Variations
 --------------------*/
+
+/* Basic */
+@basicBackground: none @white;
+@basicBorder: 1px solid @borderColor;
+@basicColor: @textColor;
+@basicBoxShadow: none;
+
+@basicHoverBackground: @basicBackground;
+@basicHoverColor: @linkHoverColor;
+@basicHoverBorder: @basicBorder;
+@basicHoverBoxShadow: @basicBoxShadow;
 
 /* Tag */
 @tagCircleColor: @white;

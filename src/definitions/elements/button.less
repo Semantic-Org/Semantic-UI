@@ -363,6 +363,32 @@
   color: @focusColor;
 }
 
+/*-------------------
+    Labeled Button
+--------------------*/
+
+.ui.labeled.button:not(.icon) {
+  display: inline-flex;
+  flex-direction: row;
+  background: none !important;
+  padding: 0px !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.ui.labeled.button > .button {
+  margin: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.ui.labeled.button > .label {
+  margin: 0px 0px 0px -@borderBoxShadowWidth;
+  padding: @labeledLabelPadding;
+  font-size: @labeledLabelFontSize;
+  border-color: @labeledLabelBorderColor;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
 
 /*-------------------
        Social
