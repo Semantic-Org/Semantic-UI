@@ -7,6 +7,7 @@
 - **Breadcrumb** - Breadcrumb no longer receives vertical spacing by default. This may often cause vertical alignment issues when displayed next to other `inline-block` content.
 - **Menu** - Appearance of `labeled icon menu` has been modified. Horizontal menus now have icons above text, and icons are slightly larger than before.
 - **Menu** - Added new `tabular` menu types, `right tabular`, `bottom tabular`, added many new `tabular` menu variables for customizing
+- **Dropdown** - Dropdown `@arrowSize` will now automatically reposition itself if size is changed with variable
 - **Menu** - `text menu` now uses padding for hitboxes to make target area for links larger
 - **List** - Lists can now be `right floated` or `left floated`
 
