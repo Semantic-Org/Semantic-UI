@@ -378,16 +378,33 @@
 
 .ui.labeled.button > .button {
   margin: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
 }
 .ui.labeled.button > .label {
   margin: 0px 0px 0px -@borderBoxShadowWidth;
+  font-size: @labeledLabelFontSize;
   padding: @labeledLabelPadding;
   font-size: @labeledLabelFontSize;
   border-color: @labeledLabelBorderColor;
+}
+
+/* Right */
+.ui.labeled.button:not([class*="left labeled"]) > .button {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.ui.labeled.button:not([class*="left labeled"]) > .label {
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
+}
+
+/* Left Side */
+.ui[class*="left labeled"].button > .button {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.ui[class*="left labeled"].button > .label {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 
 /*-------------------

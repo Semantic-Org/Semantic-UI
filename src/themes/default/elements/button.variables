@@ -160,6 +160,7 @@
 @iconButtonOpacity: 0.9;
 
 /* Labeled */
+@labeledLabelFontSize: @medium;
 @labeledLabelPadding: @verticalPadding @horizontalPadding;
 @labeledLabelFontSize: @relativeMedium;
 @labeledLabelBorderColor: @borderColor;
