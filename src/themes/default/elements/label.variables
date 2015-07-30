@@ -11,13 +11,14 @@
 @horizontalMargin: @relative2px;
 @backgroundColor: #E8E8E8;
 @color: @mutedTextColor;
-@borderColor: @backgroundColor;
 @backgroundImage: none;
-@verticalPadding: 0.5833em;
+@verticalPadding: 0.5833em; /* medium is not @emSize custom value required */
 @horizontalPadding: 0.833em;
 @borderRadius: @absoluteBorderRadius;
 @textTransform: none;
 @fontWeight: bold;
+@borderWidth: 1px;
+@border: 0px solid transparent;
 
 @lineHeightOffset: -(@verticalPadding / 2);
 
@@ -103,7 +104,8 @@
 
 /* Basic */
 @basicBackground: none @white;
-@basicBorder: 1px solid @borderColor;
+@basicBorderWidth: 1px;
+@basicBorder: @basicBorderWidth solid @borderColor;
 @basicColor: @textColor;
 @basicBoxShadow: none;
 
@@ -214,6 +216,7 @@
 @emptyCircleSize: 0.5em;
 
 /* Pointing */
+@pointingBorderColor: inherit;
 @pointingVerticalDistance: 1em;
 @pointingTriangleSize: 0.6em;
 @pointingHorizontalDistance: @pointingTriangleSize;
