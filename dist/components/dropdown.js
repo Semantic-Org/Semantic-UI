@@ -1449,7 +1449,7 @@ $.fn.dropdown = function(parameters) {
             var
               value = ($input.length > 0)
                 ? $input.val()
-                : $module.data(metadata.value)
+                : $module.data(metadata.value) + ''
             ;
             // prevents placeholder element from being selected when multiple
             if($.isArray(value) && value.length === 1 && value[0] === '') {
@@ -2565,7 +2565,7 @@ $.fn.dropdown = function(parameters) {
             $labels
               .each(function(){
                 var
-                  value       = $(this).data('value'),
+                  value       = $(this).data('value') + '',
                   isUserValue = module.is.userValue(value)
                 ;
                 if(isUserValue) {
