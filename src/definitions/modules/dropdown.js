@@ -423,9 +423,7 @@ $.fn.dropdown = function(parameters) {
           ;
           if( module.is.active() ) {
             module.debug('Hiding dropdown');
-            var hideDropdown = settings.onHide.call(element);
-
-            if (hideDropdown === false) {
+            if(settings.onHide.call(element) === false) {
               module.animate.hide(function() {
                 module.remove.visible();
                 callback.call(element);
