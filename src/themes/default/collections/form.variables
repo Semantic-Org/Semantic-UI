@@ -27,7 +27,6 @@
 /* Input */
 @inputFont: @pageFont;
 @inputWidth: 100%;
-@maxInputHeight: (2 * @inputVerticalPadding) + @inputLineHeight;
 @inputFontSize: 1em;
 @inputPadding: (@inputVerticalPadding + ((1em - @inputLineHeight) / 2)) @inputHorizontalPadding;
 @inputBorder: 1px solid @borderColor;
