@@ -733,7 +733,6 @@ i.icon.dot.circle.outline:before { content: "\f192"; }
 i.icon.sliders:before { content: "\f1de"; }
 i.icon.wi-fi:before { content: "\f1eb"; }
 i.icon.graduation:before { content: "\f19d"; }
-i.icon.\33d:before { content: "\f1b2"; }
 i.icon.weixin:before { content: "\f1d7"; }
 i.icon.binoculars:before { content: "\f1e5"; }
 i.icon.gratipay:before { content: "\f184"; }

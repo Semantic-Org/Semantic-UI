@@ -9,6 +9,7 @@
 - **Label** - Added `basic` label variation, useful for item counts
 - **Button** - Added `labeled button` variation for display a count next to a button.
 - **Divider** - Vertical divider can now be used multiple times in a single column row (not just 50/50 split). #2808
+- **Icon** - Fixed typo in cube icon alias caused by bad grep #2765
 
 **Additional Enhancements**
 - **Menu** - `text menu` now uses padding for hitboxes to make target area for links larger
