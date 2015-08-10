@@ -1,5 +1,11 @@
 ## RELEASE NOTES
 
+
+### Version 2.0.8 - August 10, 2015
+
+**All UI** - This release should fix issues caused when importing individual component using `require`. See discussion in [#2816](https://github.com/Semantic-Org/Semantic-UI/pull/2816), and previously [#1156](https://github.com/Semantic-Org/Semantic-UI/pull/1156), and [#1878](https://github.com/Semantic-Org/Semantic-UI/pull/1878)
+
+
 ### Version 2.0.7 - July 23, 2015
 
 **Important Note**
