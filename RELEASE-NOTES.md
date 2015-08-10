@@ -9,7 +9,6 @@
 - **Label** - Added `basic` label variation, useful for item counts
 - **Button** - Added `labeled button` variation for display a count next to a button.
 - **Divider** - Vertical divider can now be used multiple times in a single column row (not just 50/50 split). #2808
-- **Icon** - Fixed typo in cube icon alias caused by bad grep #2765
 
 **Additional Enhancements**
 - **Menu** - `text menu` now uses padding for hitboxes to make target area for links larger
@@ -22,6 +21,9 @@
 - **Modal** - Fix autofocus setting in modal not working due to improper selector #2737
 - **Modal** - Increased `close` specificity, modal will now only close on `> .close` #2736
 - **Accordion** - Added missing notation for accordion docs #2812
+- **Icon** - Fixed typo in cube icon alias caused by bad grep #2765
+- **Embed** - Remove accidental `console.log` statements in js #2760
+- **Transition** - Transition callbacks now all have the correct `this` set. #2758
 
 **Additional Bugs**
 - **Build Tools** - Fixes issue on `win` platform where packaged theme would not correctly update when using watch due to regExp not matching windows path separators.
