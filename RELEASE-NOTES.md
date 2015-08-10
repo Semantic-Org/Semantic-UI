@@ -1,5 +1,6 @@
 ## RELEASE NOTES
 
+<<<<<<< HEAD
 ### Version 2.x.x - July 23, 2015
 
 **[Enhancements](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
@@ -37,6 +38,12 @@
 **[Merged PR](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
 
 - **Menu** - Fixes tabular menu missing variable for background. **Thanks @frontdevde**
+=======
+
+### Version 2.0.8 - August 10, 2015
+
+**All UI** - This release should fix issues caused when importing individual component using `require` when using [single component repos](https://github.com/Semantic-Org/). See discussion in [#2816](https://github.com/Semantic-Org/Semantic-UI/pull/2816), and previously [#1156](https://github.com/Semantic-Org/Semantic-UI/pull/1156), and [#1878](https://github.com/Semantic-Org/Semantic-UI/pull/1878)
+>>>>>>> bd48a09acc01d1f8d6c600616ebd10fce87b32d4
 
 ### Version 2.0.7 - July 23, 2015
 
