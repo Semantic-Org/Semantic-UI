@@ -8,7 +8,7 @@
 - **Menu** - Added new `tabular` menu types, `right tabular`, `bottom tabular`, added many new `tabular` menu variables for customizing
 - **Label** - Added `basic` label variation, useful for item counts
 - **Button** - Added `labeled button` variation for display a count next to a button.
-
+- **Divider** - Vertical divider can now be used multiple times in a single column row (not just 50/50 split). #2808
 
 **Additional Enhancements**
 - **Menu** - `text menu` now uses padding for hitboxes to make target area for links larger
@@ -16,11 +16,11 @@
 - **Dropdown** - Dropdown arrow now has a variable `@dropdownArrowSize`, and is slightly smaller than previously
 - **Dropdown** - Dropdown `@arrowSize` will now automatically reposition itself if size is changed with variable
 
-
 **[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
 - **Container** - Fix issue with `fluid container` being `100% + gutter` at mobile resolution (causing overflow)
 - **Modal** - Fix autofocus setting in modal not working due to improper selector #2737
 - **Modal** - Increased `close` specificity, modal will now only close on `> .close` #2736
+- **Accordion** - Added missing notation for accordion docs #2812
 
 **Additional Bugs**
 - **Build Tools** - Fixes issue on `win` platform where packaged theme would not correctly update when using watch due to regExp not matching windows path separators.
