@@ -129,9 +129,10 @@
 /* Placeholder */
 @inputPlaceholderColor: lighten(@inputColor, 55);
 @inputPlaceholderFocusColor: lighten(@inputColor, 35);
-@inputErrorPlaceholderColor: lighten(@formErrorColor, 10);
-@inputErrorPlaceholderFocusColor: lighten(@formErrorColor, 5);
 
+/* Placeholder Error */
+@inputErrorPlaceholderColor: lighten(@formErrorColor, 40);
+@inputErrorPlaceholderFocusColor: lighten(@formErrorColor, 30);
 
 /* Loading Dimmer */
 @loaderDimmerColor: rgba(255, 255, 255, 0.8);

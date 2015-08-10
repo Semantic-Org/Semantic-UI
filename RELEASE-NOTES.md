@@ -24,6 +24,7 @@
 - **Icon** - Fixed typo in cube icon alias caused by bad grep #2765
 - **Embed** - Remove accidental `console.log` statements in js #2760
 - **Transition** - Transition callbacks now all have the correct `this` set. #2758
+- **Form / Input** - Fixes `::placeholder` text color for `ui error input`, modifies form error placeholder color to distinguish from form value error color #2786
 
 **Additional Bugs**
 - **Build Tools** - Fixes issue on `win` platform where packaged theme would not correctly update when using watch due to regExp not matching windows path separators.
