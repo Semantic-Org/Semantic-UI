@@ -406,10 +406,8 @@ $.fn.dropdown = function(parameters) {
           ;
           if( module.can.show() && !module.is.active() ) {
             module.debug('Showing dropdown');
-            if(module.is.multiple()) {
-              if(!module.has.search() && module.is.allFiltered()) {
-                return true;
-              }
+            if(module.is.multiple() && !module.has.search() && module.is.allFiltered()) {
+              return true;
             }
             if(module.has.message() && !module.has.maxSelections()) {
               module.remove.message();
@@ -2664,7 +2662,7 @@ $.fn.dropdown = function(parameters) {
             return ($item.filter(selector.unselectable).length === $item.length);
           },
           query: function() {
-            return (module.get.query() != '');
+            return (module.get.query() !== '');
           },
           value: function(value) {
             var
