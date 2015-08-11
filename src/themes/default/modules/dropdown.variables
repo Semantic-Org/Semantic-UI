@@ -358,8 +358,13 @@
 
 @pointingArrowBackground: @white;
 @pointingArrowZIndex: 2;
-@pointingArrowBoxShadow: -1px -1px 0px 1px rgba(0, 0, 0, 0.1);
+@pointingArrowBoxShadow: -@menuBorderWidth -@menuBorderWidth 0px @menuBorderWidth @menuBorderColor;
 @pointingArrowSize: @relative7px;
 
 @pointingMenuDistance: @mini;
 @pointingMenuBorderRadius: @borderRadius;
+@pointingArrowBoxShadow: -@menuBorderWidth -@menuBorderWidth 0px @menuBorderWidth @menuBorderColor;
+
+/* Pointing Upward */
+@pointingUpwardMenuBorderRadius: @borderRadius;
+@pointingUpwardArrowBoxShadow: @menuBorderWidth @menuBorderWidth 0px @menuBorderWidth @menuBorderColor;

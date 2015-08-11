@@ -1314,4 +1314,21 @@ select.ui.dropdown {
   right: @pointingArrowDistanceFromEdge;
 }
 
+/* Upward pointing */
+.ui.upward.pointing.dropdown > .menu,
+.ui.upward.top.pointing.dropdown > .menu {
+  top: auto;
+  bottom: 100%;
+  margin: 0em 0em @pointingMenuDistance;
+  border-radius: @pointingUpwardMenuBorderRadius;
+}
+.ui.upward.pointing.dropdown > .menu:after,
+.ui.upward.top.pointing.dropdown > .menu:after {
+  top: 100%;
+  bottom: auto;
+  box-shadow: @pointingUpwardArrowBoxShadow;
+  margin: @pointingArrowOffset 0em 0em;
+}
+
+
 .loadUIOverrides();

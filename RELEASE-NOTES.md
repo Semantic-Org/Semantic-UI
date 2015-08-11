@@ -7,6 +7,7 @@
 - **Breadcrumb** - Breadcrumb no longer receives vertical spacing by default. This may often cause vertical alignment issues when displayed next to other `inline-block` content.
 - **Button** - Added `labeled button` variation for display a count next to a button.
 - **Divider** - Vertical divider can now be used multiple times in a single column row (not just 50/50 split). #2808
+- **Dropdown** - Pointing dropdown (dropdown with arrows) now support `upward`, and will automatically move pointer arrows when appearing upward #2733
 - **Input** - Added `disabled` state for inputs #2694
 - **Label** - Added `basic` label variation, useful for item counts
 - **Menu** - Added new `tabular` menu types, `right tabular`, `bottom tabular`, added many new `tabular` menu variables for customizing
