@@ -2121,8 +2121,13 @@ $.fn.dropdown = function(parameters) {
               module.debug('Updating input value', value, currentValue);
               $input
                 .val(value)
-                .trigger('change')
               ;
+              if(settings.fireOnInit === false && module.is.initialLoad()) {
+                module.debug('Input native change event ignored on initial load');
+              }
+              else {
+                $input.trigger('change');
+              }
             }
             else {
               module.verbose('Storing value in metadata', value, $input);
@@ -2401,7 +2406,7 @@ $.fn.dropdown = function(parameters) {
             }
 
             if(settings.fireOnInit === false && module.is.initialLoad()) {
-              module.verbose('No callback on initial load', settings.onAdd);
+              module.verbose('Skipping onadd callback on initial load', settings.onAdd);
             }
             else {
               settings.onAdd.call(element, addedValue, addedText, $selectedItem);
