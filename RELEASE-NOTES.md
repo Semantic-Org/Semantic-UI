@@ -45,6 +45,7 @@
 - **Menu** - Added `flex: 0 0 auto` to menu item to make sure menu do not collapse text content to reduce space
 - **Menu** - Fix text align on `dropdown item` inside `icon menu`
 - **Menu** - Fixed issue with `labeled input` text inside menu not appearing vertically centered
+- **Menu** - Fixed hybrid initialization not creating `menu` correctly. Fixed docs example of hybrid `<select>` initialization
 
 **[Merged PR](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
 
