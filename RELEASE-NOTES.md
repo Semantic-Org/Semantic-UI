@@ -21,6 +21,15 @@
 - **List** - Lists can now be `right floated` or `left floated`
 - **Menu** - `text menu` now uses padding for hitboxes to make target area for links larger
 
+**[Merged Pull Requests](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
+
+- **Menu** - Fixes tabular menu missing variable for background. **Thanks @frontdevde**
+- **Sticky** - Sticky now sets width and height with `!important` to avoid inheritance issues in some cases **Thanks @lauri-elevant** #2710
+- **Flag** - England flag alias is now correctly set #2770 **Thanks @eduardom**
+- **Popup** - Popup will now look for inline popup as any next adjacent sibling #2772 **Thanks @malacalypse**
+- **API** - API debug is now `false` by default, like other modules. #2817
+- **Dropdown** - Fixed issue where label could not be removed when using a numeric value due to mismatched types #2754 #2755 **Thanks @dgurkaynak**
+
 **[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
 - **Accordion** - Added missing notation for accordion docs #2812
 - **Container** - Fix issue with `fluid container` being `100% + gutter` at mobile resolution (causing overflow)
@@ -52,14 +61,6 @@
 - **Menu** - Fixed issue with `labeled input` text inside menu not appearing vertically centered
 - **Menu** - Fixed hybrid initialization not creating `menu` correctly. Fixed docs example of hybrid `<select>` initialization
 - **Dropdown/Tab** - Fixed an instance where `metadata` was not referencing settings metadata value
-
-**[Merged PR](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
-
-- **Menu** - Fixes tabular menu missing variable for background. **Thanks @frontdevde**
-- **Sticky** - Sticky now sets width and height with `!important` to avoid inheritance issues in some cases **Thanks @lauri-elevant** #2710
-- **Flag** - England flag alias is now correctly set #2770 **Thanks @eduardom**
-- **Popup** - Popup will now look for inline popup as any next adjacent sibling #2772 **Thanks @malacalypse**
-- **API** - API debug is now `false` by default, like other modules. #2817
 
 ### Version 2.0.8 - August 10, 2015
 

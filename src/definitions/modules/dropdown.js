@@ -2152,7 +2152,7 @@ $.fn.dropdown = function(parameters) {
             else {
               module.verbose('Storing value in metadata', value, $input);
               if(value !== currentValue) {
-                $module.data(metadata.value, value);
+                $module.data(metadata.value, stringValue);
               }
             }
             if(settings.fireOnInit === false && module.is.initialLoad()) {
@@ -2597,15 +2597,18 @@ $.fn.dropdown = function(parameters) {
               .each(function(){
                 var
                   value       = $(this).data(metadata.value),
-                  isUserValue = module.is.userValue(value)
+                  stringValue = (typeof value == 'number')
+                    ? value.toString()
+                    : value,
+                  isUserValue = module.is.userValue(stringValue)
                 ;
                 if(isUserValue) {
-                  module.remove.value(value);
-                  module.remove.label(value);
+                  module.remove.value(stringValue);
+                  module.remove.label(stringValue);
                 }
                 else {
                   // selected will also remove label
-                  module.remove.selected(value);
+                  module.remove.selected(stringValue);
                 }
               })
             ;
