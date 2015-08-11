@@ -40,6 +40,7 @@
 - **Form / Input** - Fixes `::placeholder` text color for `ui error input`, modifies form error placeholder color to distinguish from form value error color #2786
 - **Form** - Date input and other special input in chrome now are the same height as normal input (adds custom vendor shadow dom styling) #2704
 - **Icon** - Fixed typo in cube icon alias caused by bad grep #2765
+- **Item** - Fixed `bottom aligned` not working in item due to incorrect flex value #2826
 - **Menu** - Fixed `(x) column` nested grid with alignment stacking vertically (wrong flex-direction) #2810
 - **Modal** - Fix autofocus setting in modal not working due to improper selector #2737
 - **Modal** - Increased `close` specificity, modal will now only close on `> .close` #2736
