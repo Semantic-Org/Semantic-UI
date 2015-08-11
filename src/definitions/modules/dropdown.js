@@ -411,6 +411,9 @@ $.fn.dropdown = function(parameters) {
                 return true;
               }
             }
+            if(module.has.message() && !module.has.maxSelections()) {
+              module.remove.message();
+            }
             module.animate.show(function() {
               if( module.can.click() ) {
                 module.bind.intent();
