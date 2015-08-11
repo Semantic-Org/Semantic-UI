@@ -36,6 +36,7 @@
 
 **Additional Bugs**
 - **Build Tools** - Fixes issue on `win` platform where packaged theme would not correctly update when using watch due to regExp not matching windows path separators.
+- **Dropdown** - Dropdown will no longer fire native `onchange` event on hidden input when setting value during initial load (unless `fireOnInit: true`) #2795 **Thanks @lauri-elevant**
 - **Form Validation** - Fixed issue with `get value(s)` where unchecked checkboxes would not correctly retrieve values
 - **Grid / Container ** - `ui relaxed grid container` and `ui very relaxed grid container` will now all render at same container width
 - **Icons** - Fixed issue where `active icon` or `emphasized icon` would not adjust opacity inside menus
