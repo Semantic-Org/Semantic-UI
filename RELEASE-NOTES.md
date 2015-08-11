@@ -11,6 +11,7 @@
 - **Label** - Added `basic` label variation, useful for item counts
 - **Menu** - Added new `tabular` menu types, `right tabular`, `bottom tabular`, added many new `tabular` menu variables for customizing
 - **Menu** - Appearance of `labeled icon menu` has been modified. Horizontal menus now have icons above text, and icons are slightly larger than before.
+- **Site** - `html,body { height: 100% }` has been modified [based on reasonable feedback](http://stackoverflow.com/questions/17555682/height-100-or-min-height-100-for-html-and-body-elements)
 
 **Additional Enhancements**
 - **Dropdown** - Dropdown `@arrowSize` will now automatically reposition itself if size is changed with variable
@@ -46,6 +47,10 @@
 **[Merged PR](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
 
 - **Menu** - Fixes tabular menu missing variable for background. **Thanks @frontdevde**
+- **Sticky** - Sticky now sets width and height with `!important` to avoid inheritance issues in some cases **Thanks @lauri-elevant** #2710
+- **Flag** - England flag alias is now correctly set #2770 **Thanks @eduardom**
+- **Popup** - Popup will now look for inline popup as any next adjacent sibling #2772 **Thanks @malacalypse**
+- **API** - API debug is now `false` by default, like other modules. #2817
 
 ### Version 2.0.8 - August 10, 2015
 
