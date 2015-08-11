@@ -129,7 +129,6 @@ $.fn.sticky = function(parameters) {
 
         determineContainer: function() {
           $container = $module.offsetParent();
-          console.log($container);
         },
 
         determineContext: function() {
