@@ -3,45 +3,45 @@
 ### Version 2.x.x - July 23, 2015
 
 **[Enhancements](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
+- **API** - Added `encodeParameters` option to enable/disable parameters being encoded with `encodeURIComponent` #2752
 - **Breadcrumb** - Breadcrumb no longer receives vertical spacing by default. This may often cause vertical alignment issues when displayed next to other `inline-block` content.
-- **Menu** - Appearance of `labeled icon menu` has been modified. Horizontal menus now have icons above text, and icons are slightly larger than before.
-- **Menu** - Added new `tabular` menu types, `right tabular`, `bottom tabular`, added many new `tabular` menu variables for customizing
-- **Label** - Added `basic` label variation, useful for item counts
 - **Button** - Added `labeled button` variation for display a count next to a button.
 - **Divider** - Vertical divider can now be used multiple times in a single column row (not just 50/50 split). #2808
 - **Input** - Added `disabled` state for inputs #2694
-- **API** - Added `encodeParameters` option to enable/disable parameters being encoded with `encodeURIComponent` #2752
+- **Label** - Added `basic` label variation, useful for item counts
+- **Menu** - Added new `tabular` menu types, `right tabular`, `bottom tabular`, added many new `tabular` menu variables for customizing
+- **Menu** - Appearance of `labeled icon menu` has been modified. Horizontal menus now have icons above text, and icons are slightly larger than before.
 
 **Additional Enhancements**
-- **Menu** - `text menu` now uses padding for hitboxes to make target area for links larger
-- **List** - Lists can now be `right floated` or `left floated`
-- **Dropdown** - Dropdown arrow now has a variable `@dropdownArrowSize`, and is slightly smaller than previously
 - **Dropdown** - Dropdown `@arrowSize` will now automatically reposition itself if size is changed with variable
+- **Dropdown** - Dropdown arrow now has a variable `@dropdownArrowSize`, and is slightly smaller than previously
+- **List** - Lists can now be `right floated` or `left floated`
+- **Menu** - `text menu` now uses padding for hitboxes to make target area for links larger
 
 **[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
+- **Accordion** - Added missing notation for accordion docs #2812
 - **Container** - Fix issue with `fluid container` being `100% + gutter` at mobile resolution (causing overflow)
+- **Dropdown** - Remove use of `trim` which causes issues IE 11 and below #2806
+- **Embed** - Remove accidental `console.log` statements in js #2760
+- **Form / Input** - Fixes `::placeholder` text color for `ui error input`, modifies form error placeholder color to distinguish from form value error color #2786
+- **Form** - Date input and other special input in chrome now are the same height as normal input (adds custom vendor shadow dom styling) #2704
+- **Icon** - Fixed typo in cube icon alias caused by bad grep #2765
+- **Menu** - Fixed `(x) column` nested grid with alignment stacking vertically (wrong flex-direction) #2810
 - **Modal** - Fix autofocus setting in modal not working due to improper selector #2737
 - **Modal** - Increased `close` specificity, modal will now only close on `> .close` #2736
-- **Accordion** - Added missing notation for accordion docs #2812
-- **Icon** - Fixed typo in cube icon alias caused by bad grep #2765
-- **Embed** - Remove accidental `console.log` statements in js #2760
 - **Transition** - Transition callbacks now all have the correct `this` set. #2758
-- **Form / Input** - Fixes `::placeholder` text color for `ui error input`, modifies form error placeholder color to distinguish from form value error color #2786
-- **Menu** - Fixed `(x) column` nested grid with alignment stacking vertically (wrong flex-direction) #2810
-- **Form** - Date input and other special input in chrome now are the same height as normal input (adds custom vendor shadow dom styling) #2704
-- **Dropdown** - Remove use of `trim` which causes issues IE 11 and below #2806
 
 **Additional Bugs**
 - **Build Tools** - Fixes issue on `win` platform where packaged theme would not correctly update when using watch due to regExp not matching windows path separators.
 - **Form Validation** - Fixed issue with `get value(s)` where unchecked checkboxes would not correctly retrieve values
 - **Grid / Container ** - `ui relaxed grid container` and `ui very relaxed grid container` will now all render at same container width
+- **Icons** - Fixed issue where `active icon` or `emphasized icon` would not adjust opacity inside menus
 - **Input** - `labeled input` now keeps border on label edge so that focus color appears correctly
 - **Input** - Input now will reset `font-weight` and `font-style` if set on parent;
-- **Menu** - Added `flex: 0 0 auto` to menu item to make sure menu do not collapse text content to reduce space
-- **Menu** - Fixed issue with `labeled input` text inside menu not appearing vertically centered
 - **Menu** - `@pressedItemColor` has been renamed to `@pressedItemTextColor` to match naming conventions of other variables
+- **Menu** - Added `flex: 0 0 auto` to menu item to make sure menu do not collapse text content to reduce space
 - **Menu** - Fix text align on `dropdown item` inside `icon menu`
-- **Icons** - Fixed issue where `active icon` or `emphasized icon` would not adjust opacity inside menus
+- **Menu** - Fixed issue with `labeled input` text inside menu not appearing vertically centered
 
 **[Merged PR](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
 
