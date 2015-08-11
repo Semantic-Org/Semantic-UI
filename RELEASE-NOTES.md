@@ -33,6 +33,7 @@
 - **Modal** - Increased `close` specificity, modal will now only close on `> .close` #2736
 - **Transition** - Transition callbacks now all have the correct `this` set. #2758
 - **Dropdown** - Fix `left menu` inside `ui menu` appearing horizontally #2778
+- **Dropdown** - `forceSelection` no longer sets current value in search selection when current query is blank #2058
 
 **Additional Bugs**
 - **Build Tools** - Fixes issue on `win` platform where packaged theme would not correctly update when using watch due to regExp not matching windows path separators.

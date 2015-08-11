@@ -674,7 +674,7 @@ $.fn.dropdown = function(parameters) {
             beginsWithRegExp = new RegExp('^' + escapedTerm, 'igm')
           ;
           // avoid loop if we're matching nothing
-          if(searchTerm === '') {
+          if( !module.has.query() ) {
             $results = $item;
           }
           else {
@@ -771,7 +771,7 @@ $.fn.dropdown = function(parameters) {
               : $activeItem,
             hasSelected = ($selectedItem.size() > 0)
           ;
-          if(hasSelected) {
+          if( hasSelected && module.has.query() ) {
             module.debug('Forcing partial selection to selected item', $selectedItem);
             module.event.item.click.call($selectedItem);
           }
@@ -909,7 +909,9 @@ $.fn.dropdown = function(parameters) {
             touch: function(event) {
               module.determine.eventOnElement(event, function() {
                 if(event.type == 'touchstart') {
-                  module.timer = setTimeout(module.hide, settings.delay.touch);
+                  module.timer = setTimeout(function() {
+                    module.hide();
+                  }, settings.delay.touch);
                 }
                 else if(event.type == 'touchmove') {
                   clearTimeout(module.timer);
@@ -959,15 +961,17 @@ $.fn.dropdown = function(parameters) {
                 }, settings.delay.hide);
               }
             },
+            touchend: function() {
+            },
             click: function (event) {
               var
-                $choice  = $(this),
-                $target  = (event)
+                $choice        = $(this),
+                $target        = (event)
                   ? $(event.target)
                   : $(''),
-                $subMenu = $choice.find(selector.menu),
-                text     = module.get.choiceText($choice),
-                value    = module.get.choiceValue($choice, text),
+                $subMenu       = $choice.find(selector.menu),
+                text           = module.get.choiceText($choice),
+                value          = module.get.choiceValue($choice, text),
                 hasSubMenu     = ($subMenu.length > 0),
                 isBubbledEvent = ($subMenu.find($target).length > 0)
               ;
@@ -2655,6 +2659,9 @@ $.fn.dropdown = function(parameters) {
           },
           allResultsFiltered: function() {
             return ($item.filter(selector.unselectable).length === $item.length);
+          },
+          query: function() {
+            return (module.get.query() != '');
           },
           value: function(value) {
             var
