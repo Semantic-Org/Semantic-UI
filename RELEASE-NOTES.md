@@ -27,6 +27,7 @@
 - **Embed** - Remove accidental `console.log` statements in js #2760
 - **Transition** - Transition callbacks now all have the correct `this` set. #2758
 - **Form / Input** - Fixes `::placeholder` text color for `ui error input`, modifies form error placeholder color to distinguish from form value error color #2786
+- **Menu** - Fixed `(x) column` nested grid with alignment stacking vertically (wrong flex-direction) #2810
 - **Form** - Date input and other special input in chrome now are the same height as normal input (adds custom vendor shadow dom styling) #2704
 - **Dropdown** - Remove use of `trim` which causes issues IE 11 and below #2806
 
