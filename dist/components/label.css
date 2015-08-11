@@ -21,12 +21,12 @@
   vertical-align: baseline;
   margin: 0em 0.14285714em;
   background-color: #e8e8e8;
-  border-color: #e8e8e8;
   background-image: none;
   padding: 0.5833em 0.833em;
   color: rgba(0, 0, 0, 0.6);
   text-transform: none;
   font-weight: bold;
+  border: 0px solid transparent;
   border-radius: 0.28571429rem;
   -webkit-transition: background 0.1s ease;
           transition: background 0.1s ease;
@@ -429,8 +429,6 @@ a.ui.label:hover {
 }
 .ui.labels a.label:hover:before,
 a.ui.label:hover:before {
-  background-color: #e0e0e0;
-  background-image: none;
   color: rgba(0, 0, 0, 0.8);
 }
 
@@ -505,11 +503,6 @@ a.ui.active.label:ActiveHover:before {
   border-color: #db2828 !important;
   color: #ffffff !important;
 }
-.ui.labels .red.label:before,
-.ui.red.labels .label:before,
-.ui.red.label:before {
-  background-color: #db2828 !important;
-}
 .ui.red.corner.label,
 .ui.red.corner.label:hover {
   background-color: transparent !important;
@@ -519,11 +512,6 @@ a.ui.red.label:hover {
   background-color: #d01919 !important;
   border-color: #d01919 !important;
   color: #ffffff !important;
-}
-.ui.labels a.red.label:hover:before,
-.ui.red.labels a.label:hover:before,
-a.ui.red.label:hover:before {
-  background-color: #d01919 !important;
 }
 .ui.red.ribbon.label {
   border-color: #b21e1e !important;
@@ -537,11 +525,6 @@ a.ui.red.label:hover:before {
   border-color: #f2711c !important;
   color: #ffffff !important;
 }
-.ui.labels .orange.label:before,
-.ui.orange.labels .label:before,
-.ui.orange.label:before {
-  background-color: #f2711c !important;
-}
 .ui.orange.corner.label,
 .ui.orange.corner.label:hover {
   background-color: transparent !important;
@@ -551,11 +534,6 @@ a.ui.orange.label:hover {
   background-color: #f26202 !important;
   border-color: #f26202 !important;
   color: #ffffff !important;
-}
-.ui.labels a.orange.label:hover:before,
-.ui.orange.labels a.label:hover:before,
-a.ui.orange.label:hover:before {
-  background-color: #f26202 !important;
 }
 .ui.orange.ribbon.label {
   border-color: #cf590c !important;
@@ -569,11 +547,6 @@ a.ui.orange.label:hover:before {
   border-color: #fbbd08 !important;
   color: #ffffff !important;
 }
-.ui.labels .yellow.label:before,
-.ui.yellow.labels .label:before,
-.ui.yellow.label:before {
-  background-color: #fbbd08 !important;
-}
 .ui.yellow.corner.label,
 .ui.yellow.corner.label:hover {
   background-color: transparent !important;
@@ -583,11 +556,6 @@ a.ui.yellow.label:hover {
   background-color: #eaae00 !important;
   border-color: #eaae00 !important;
   color: #ffffff !important;
-}
-.ui.labels a.yellow.label:hover:before,
-.ui.yellow.labels a.label:hover:before,
-a.ui.yellow.label:hover:before {
-  background-color: #eaae00 !important;
 }
 .ui.yellow.ribbon.label {
   border-color: #cd9903 !important;
@@ -601,11 +569,6 @@ a.ui.yellow.label:hover:before {
   border-color: #b5cc18 !important;
   color: #ffffff !important;
 }
-.ui.labels .olive.label:before,
-.ui.olive.labels .label:before,
-.ui.olive.label:before {
-  background-color: #b5cc18 !important;
-}
 .ui.olive.corner.label,
 .ui.olive.corner.label:hover {
   background-color: transparent !important;
@@ -615,11 +578,6 @@ a.ui.olive.label:hover {
   background-color: #a7bd0d !important;
   border-color: #a7bd0d !important;
   color: #ffffff !important;
-}
-.ui.labels a.olive.label:hover:before,
-.ui.olive.labels a.label:hover:before,
-a.ui.olive.label:hover:before {
-  background-color: #a7bd0d !important;
 }
 .ui.olive.ribbon.label {
   border-color: #198f35 !important;
@@ -633,11 +591,6 @@ a.ui.olive.label:hover:before {
   border-color: #21ba45 !important;
   color: #ffffff !important;
 }
-.ui.labels .green.label:before,
-.ui.green.labels .label:before,
-.ui.green.label:before {
-  background-color: #21ba45 !important;
-}
 .ui.green.corner.label,
 .ui.green.corner.label:hover {
   background-color: transparent !important;
@@ -647,11 +600,6 @@ a.ui.green.label:hover {
   background-color: #16ab39 !important;
   border-color: #16ab39 !important;
   color: #ffffff !important;
-}
-.ui.labels a.green.label:hover:before,
-.ui.green.labels a.label:hover:before,
-a.ui.green.label:hover:before {
-  background-color: #16ab39 !important;
 }
 .ui.green.ribbon.label {
   border-color: #198f35 !important;
@@ -665,11 +613,6 @@ a.ui.green.label:hover:before {
   border-color: #00b5ad !important;
   color: #ffffff !important;
 }
-.ui.labels .teal.label:before,
-.ui.teal.labels .label:before,
-.ui.teal.label:before {
-  background-color: #00b5ad !important;
-}
 .ui.teal.corner.label,
 .ui.teal.corner.label:hover {
   background-color: transparent !important;
@@ -679,11 +622,6 @@ a.ui.teal.label:hover {
   background-color: #009c95 !important;
   border-color: #009c95 !important;
   color: #ffffff !important;
-}
-.ui.labels a.teal.label:hover:before,
-.ui.teal.labels a.label:hover:before,
-a.ui.teal.label:hover:before {
-  background-color: #009c95 !important;
 }
 .ui.teal.ribbon.label {
   border-color: #00827c !important;
@@ -697,11 +635,6 @@ a.ui.teal.label:hover:before {
   border-color: #2185d0 !important;
   color: #ffffff !important;
 }
-.ui.labels .blue.label:before,
-.ui.blue.labels .label:before,
-.ui.blue.label:before {
-  background-color: #2185d0 !important;
-}
 .ui.blue.corner.label,
 .ui.blue.corner.label:hover {
   background-color: transparent !important;
@@ -711,11 +644,6 @@ a.ui.blue.label:hover {
   background-color: #1678c2 !important;
   border-color: #1678c2 !important;
   color: #ffffff !important;
-}
-.ui.labels a.blue.label:hover:before,
-.ui.blue.labels a.label:hover:before,
-a.ui.blue.label:hover:before {
-  background-color: #1678c2 !important;
 }
 .ui.blue.ribbon.label {
   border-color: #1a69a4 !important;
@@ -729,11 +657,6 @@ a.ui.blue.label:hover:before {
   border-color: #6435c9 !important;
   color: #ffffff !important;
 }
-.ui.labels .violet.label:before,
-.ui.violet.labels .label:before,
-.ui.violet.label:before {
-  background-color: #6435c9 !important;
-}
 .ui.violet.corner.label,
 .ui.violet.corner.label:hover {
   background-color: transparent !important;
@@ -743,11 +666,6 @@ a.ui.violet.label:hover {
   background-color: #5829bb !important;
   border-color: #5829bb !important;
   color: #ffffff !important;
-}
-.ui.labels a.violet.label:hover:before,
-.ui.violet.labels a.label:hover:before,
-a.ui.violet.label:hover:before {
-  background-color: #5829bb !important;
 }
 .ui.violet.ribbon.label {
   border-color: #502aa1 !important;
@@ -761,11 +679,6 @@ a.ui.violet.label:hover:before {
   border-color: #a333c8 !important;
   color: #ffffff !important;
 }
-.ui.labels .purple.label:before,
-.ui.purple.labels .label:before,
-.ui.purple.label:before {
-  background-color: #a333c8 !important;
-}
 .ui.purple.corner.label,
 .ui.purple.corner.label:hover {
   background-color: transparent !important;
@@ -775,11 +688,6 @@ a.ui.purple.label:hover {
   background-color: #9627ba !important;
   border-color: #9627ba !important;
   color: #ffffff !important;
-}
-.ui.labels a.purple.label:hover:before,
-.ui.purple.labels a.label:hover:before,
-a.ui.purple.label:hover:before {
-  background-color: #9627ba !important;
 }
 .ui.purple.ribbon.label {
   border-color: #82299f !important;
@@ -793,11 +701,6 @@ a.ui.purple.label:hover:before {
   border-color: #e03997 !important;
   color: #ffffff !important;
 }
-.ui.labels .pink.label:before,
-.ui.pink.labels .label:before,
-.ui.pink.label:before {
-  background-color: #e03997 !important;
-}
 .ui.pink.corner.label,
 .ui.pink.corner.label:hover {
   background-color: transparent !important;
@@ -807,11 +710,6 @@ a.ui.pink.label:hover {
   background-color: #e61a8d !important;
   border-color: #e61a8d !important;
   color: #ffffff !important;
-}
-.ui.labels a.pink.label:hover:before,
-.ui.pink.labels a.label:hover:before,
-a.ui.pink.label:hover:before {
-  background-color: #e61a8d !important;
 }
 .ui.pink.ribbon.label {
   border-color: #c71f7e !important;
@@ -825,11 +723,6 @@ a.ui.pink.label:hover:before {
   border-color: #a5673f !important;
   color: #ffffff !important;
 }
-.ui.labels .brown.label:before,
-.ui.brown.labels .label:before,
-.ui.brown.label:before {
-  background-color: #a5673f !important;
-}
 .ui.brown.corner.label,
 .ui.brown.corner.label:hover {
   background-color: transparent !important;
@@ -839,11 +732,6 @@ a.ui.brown.label:hover {
   background-color: #975b33 !important;
   border-color: #975b33 !important;
   color: #ffffff !important;
-}
-.ui.labels a.brown.label:hover:before,
-.ui.brown.labels a.label:hover:before,
-a.ui.brown.label:hover:before {
-  background-color: #975b33 !important;
 }
 .ui.brown.ribbon.label {
   border-color: #805031 !important;
@@ -914,6 +802,31 @@ a.ui.black.label:hover:before {
 }
 
 /*-------------------
+        Basic
+--------------------*/
+
+.ui.basic.label {
+  background: none #ffffff;
+  border: 1px solid rgba(34, 36, 38, 0.15);
+  color: rgba(0, 0, 0, 0.87);
+  box-shadow: none;
+}
+
+/* Link */
+a.ui.basic.label:hover {
+  text-decoration: none;
+  background: none #ffffff;
+  color: #1e70bf;
+  box-shadow: 1px solid rgba(34, 36, 38, 0.15);
+  box-shadow: none;
+}
+
+/* Pointing */
+.ui.basic.pointing.label:before {
+  border-color: inherit;
+}
+
+/*-------------------
        Fluid
 --------------------*/
 
@@ -978,6 +891,13 @@ a.ui.black.label:hover:before {
   position: absolute;
 }
 .ui.pointing.label:before {
+  background-color: inherit;
+  background-image: inherit;
+  border-width: none;
+  border-style: solid;
+  border-color: inherit;
+}
+.ui.pointing.label:before {
   position: absolute;
   content: '';
   -webkit-transform: rotate(45deg);
@@ -993,16 +913,13 @@ a.ui.black.label:hover:before {
 
 /*--- Above ---*/
 
-.ui.pointing.label:before {
-  background-color: #e8e8e8;
-  background-image: none;
-}
 .ui.pointing.label,
 .ui.pointing.above.label {
   margin-top: 1em;
 }
 .ui.pointing.label:before,
 .ui.pointing.above.label:before {
+  border-width: 1px 0px 0px 1px;
   margin-left: -0.3em;
   top: -0.3em;
   left: 50%;
@@ -1017,6 +934,7 @@ a.ui.black.label:hover:before {
 }
 .ui.pointing.bottom.label:before,
 .ui.pointing.below.label:before {
+  border-width: 0px 1px 1px 0px;
   margin-left: -0.3em;
   top: auto;
   right: auto;
@@ -1031,6 +949,7 @@ a.ui.black.label:hover:before {
   margin-left: 0.6em;
 }
 .ui.pointing.left.label:before {
+  border-width: 0px 0px 1px 1px;
   margin-top: -0.3em;
   bottom: auto;
   right: auto;
@@ -1045,6 +964,7 @@ a.ui.black.label:hover:before {
   margin-right: 0.6em;
 }
 .ui.pointing.right.label:before {
+  border-width: 1px 1px 0px 0px;
   margin-top: -0.3em;
   right: -0.3em;
   top: 50%;

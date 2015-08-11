@@ -109,7 +109,7 @@ $.api = $.fn.api = function(parameters) {
               ;
             }
             else if(settings.on == 'now') {
-              module.debug('Querying API now', triggerEvent);
+              module.debug('Querying API endpoint immediately');
               module.query();
             }
           }
@@ -358,7 +358,11 @@ $.api = $.fn.api = function(parameters) {
                   }
                   else {
                     module.verbose('Found required variable', variable, value);
-                    url = url.replace(templatedString, module.get.urlEncodedValue(value));
+                    value = (settings.encodeParameters)
+                      ? module.get.urlEncodedValue(value)
+                      : value
+                    ;
+                    url = url.replace(templatedString, value);
                   }
                 });
               }
@@ -724,7 +728,7 @@ $.api = $.fn.api = function(parameters) {
               module.debug('URL value is already encoded, avoiding double encoding', value);
               return value;
             }
-            module.verbose('Encoding value for url', value, encodedValue);
+            module.verbose('Encoding value using encodeURIComponent', value, encodedValue);
             return encodedValue;
           },
           defaultData: function() {
@@ -990,7 +994,7 @@ $.api.settings = {
   name              : 'API',
   namespace         : 'api',
 
-  debug             : true,
+  debug             : false,
   verbose           : false,
   performance       : true,
 
@@ -1014,6 +1018,8 @@ $.api.settings = {
 
   // duration for error state
   errorDuration     : 2000,
+
+  encodeParameters  : true,
 
   // API action to use
   action            : false,

@@ -373,6 +373,55 @@
 }
 
 /*-------------------
+    Labeled Button
+--------------------*/
+
+.ui.labeled.button:not(.icon) {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background: none !important;
+  padding: 0px !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.ui.labeled.button > .button {
+  margin: 0px;
+}
+.ui.labeled.button > .label {
+  margin: 0px 0px 0px -1px;
+  padding: 0.78571429em 1.5em;
+  font-size: 1em;
+  border-color: rgba(34, 36, 38, 0.15);
+}
+
+/* Right */
+.ui.labeled.button:not([class*="left labeled"]) > .button {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.ui.labeled.button:not([class*="left labeled"]) > .label {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+/* Left Side */
+.ui[class*="left labeled"].button > .button {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.ui[class*="left labeled"].button > .label {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+/*-------------------
        Social
 --------------------*/
 
@@ -529,7 +578,7 @@
 ---------------*/
 
 .ui.button > .icon {
-  height: 0.92857143em;
+  height: 0.85714286em;
   opacity: 0.8;
   margin: 0em 0.42857143em 0em -0.21428571em;
   -webkit-transition: opacity 0.1s ease;

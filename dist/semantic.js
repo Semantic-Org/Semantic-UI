@@ -952,11 +952,10 @@ $.fn.form = function(parameters) {
                   }
                   if(isCheckbox) {
                     if(isChecked) {
-                      values[name].push(value);
+                      values[name].push(true);
                     }
                     else {
-                      module.debug('Omitted unchecked checkbox', $field);
-                      return true;
+                      values[name].push(false);
                     }
                   }
                   else {
@@ -974,8 +973,7 @@ $.fn.form = function(parameters) {
                       values[name] = true;
                     }
                     else {
-                      module.debug('Omitted unchecked checkbox', $field);
-                      return true;
+                      values[name] = false;
                     }
                   }
                   else {
@@ -1869,7 +1867,9 @@ $.fn.accordion = function(parameters) {
         initialize: function() {
           module.debug('Initializing', $module);
           module.bind.events();
-          module.observeChanges();
+          if(settings.observeChanges) {
+            module.observeChanges();
+          }
           module.instantiate();
         },
 
@@ -2352,22 +2352,24 @@ $.fn.accordion.settings = {
   verbose         : false,
   performance     : true,
 
-  on              : 'click',
+  on              : 'click', // event on title that opens accordion
 
-  exclusive       : true,
-  collapsible     : true,
-  closeNested     : false,
-  animateChildren : true,
+  observeChanges  : true,  // whether accordion should automatically refresh on DOM insertion
 
-  duration        : 350,
-  easing          : 'easeOutQuad',
+  exclusive       : true,  // whether a single accordion content panel should be open at once
+  collapsible     : true,  // whether accordion content can be closed
+  closeNested     : false, // whether nested content should be closed when a panel is closed
+  animateChildren : true,  // whether children opacity should be animated
+
+  duration        : 350, // duration of animation
+  easing          : 'easeOutQuad', // easing equation for animation
 
 
-  onOpening       : function(){},
-  onOpen          : function(){},
-  onClosing       : function(){},
-  onClose         : function(){},
-  onChange        : function(){},
+  onOpening       : function(){}, // callback before open animation
+  onOpen          : function(){}, // callback after open animation
+  onClosing       : function(){}, // callback before closing animation
+  onClose         : function(){}, // callback after closing animation
+  onChange        : function(){}, // callback after closing or opening animation
 
   error: {
     method : 'The method you called is not defined'
@@ -5330,8 +5332,8 @@ $.fn.dropdown = function(parameters) {
               return ($choice.data(metadata.text) !== undefined)
                 ? $choice.data(metadata.text)
                 : (preserveHTML)
-                  ? $choice.html().trim()
-                  : $choice.text().trim()
+                  ? $.trim($choice.html())
+                  : $.trim($choice.text())
               ;
             }
           },
@@ -5343,7 +5345,7 @@ $.fn.dropdown = function(parameters) {
             return ($choice.data(metadata.value) !== undefined)
               ? $choice.data(metadata.value)
               : (typeof choiceText === 'string')
-                ? choiceText.toLowerCase().trim()
+                ? $.trim(choiceText.toLowerCase())
                 : choiceText
             ;
           },
@@ -7246,7 +7248,6 @@ $.fn.embed = function(parameters) {
           events: function() {
             if( module.has.placeholder() ) {
               module.debug('Adding placeholder events');
-              console.log($module, selector.placeholder);
               $module
                 .on('click' + eventNamespace, selector.placeholder, module.createAndShow)
                 .on('click' + eventNamespace, selector.icon, module.createAndShow)
@@ -7281,7 +7282,6 @@ $.fn.embed = function(parameters) {
         createEmbed: function(url) {
           module.refresh();
           url = url || module.get.url();
-          console.log(url);
           $embed = $('<div/>')
             .addClass(className.embed)
             .html( module.generate.embed(url) )
@@ -7292,7 +7292,6 @@ $.fn.embed = function(parameters) {
         },
 
         createAndShow: function() {
-          console.log('cands');
           module.createEmbed();
           module.show();
         },
@@ -8153,7 +8152,9 @@ $.fn.modal = function(parameters) {
                       module.add.keyboardShortcuts();
                       module.save.focus();
                       module.set.active();
-                      module.set.autofocus();
+                      if(settings.autofocus) {
+                        module.set.autofocus();
+                      }
                       callback();
                     }
                   })
@@ -8374,17 +8375,15 @@ $.fn.modal = function(parameters) {
 
         set: {
           autofocus: function() {
-            if(settings.autofocus) {
-              var
-                $inputs    = $module.filter(':input').filter(':visible'),
-                $autofocus = $inputs.filter('[autofocus]'),
-                $input     = ($autofocus.length > 0)
-                  ? $autofocus.first()
-                  : $inputs.first()
-              ;
-              if($input.length > 0) {
-                $input.focus();
-              }
+            var
+              $inputs    = $module.find(':input').filter(':visible'),
+              $autofocus = $inputs.filter('[autofocus]'),
+              $input     = ($autofocus.length > 0)
+                ? $autofocus.first()
+                : $inputs.first()
+            ;
+            if($input.length > 0) {
+              $input.focus();
             }
           },
           clickaway: function() {
@@ -8678,7 +8677,7 @@ $.fn.modal.settings = {
   onDeny     : function(){ return true; },
 
   selector    : {
-    close    : '.close',
+    close    : '> .close',
     approve  : '.actions .positive, .actions .approve, .actions .ok',
     deny     : '.actions .negative, .actions .deny, .actions .cancel',
     modal    : '.ui.modal'
@@ -9275,7 +9274,7 @@ $.fn.popup = function(parameters) {
           }
           else {
             if(settings.inline) {
-              $popup = $target.next(selector.popup).eq(0);
+              $popup = $target.nextAll(selector.popup).eq(0);
               settings.popup = $popup;
             }
           }
@@ -12913,7 +12912,7 @@ $.fn.search.settings = {
   onSelect       : false,
   onResultsAdd   : false,
 
-  onSearchQuery  : function(){},
+  onSearchQuery  : function(query){},
   onResults      : function(response){},
 
   onResultsOpen  : function(){},
@@ -16340,10 +16339,11 @@ $.fn.tab = function(parameters) {
             var
               $tab        = module.get.tabElement(tabPath),
               apiSettings = {
-                dataType : 'html',
-                on       : 'now',
-                cache    : settings.alwaysRefresh,
-                headers  : {
+                dataType         : 'html',
+                encodeParameters : false,
+                on               : 'now',
+                cache            : settings.alwaysRefresh,
+                headers          : {
                   'X-Remote': true
                 },
                 onSuccess : function(response) {
@@ -17189,7 +17189,7 @@ $.fn.transition = function() {
               module.add.failSafe();
             }
             module.set.duration(settings.duration);
-            settings.onStart.call(this);
+            settings.onStart.call(element);
           }
         },
 
@@ -17565,8 +17565,8 @@ $.fn.transition = function() {
           module.remove.visible();
           module.set.hidden();
           module.force.hidden();
-          settings.onHide.call(this);
-          settings.onComplete.call(this);
+          settings.onHide.call(element);
+          settings.onComplete.call(element);
           // module.repaint();
         },
 
@@ -17575,8 +17575,8 @@ $.fn.transition = function() {
           module.remove.hidden();
           module.set.visible();
           module.force.visible();
-          settings.onShow.call(this);
-          settings.onComplete.call(this);
+          settings.onShow.call(element);
+          settings.onComplete.call(element);
           // module.repaint();
         },
 
@@ -17979,7 +17979,7 @@ $.api = $.fn.api = function(parameters) {
               ;
             }
             else if(settings.on == 'now') {
-              module.debug('Querying API now', triggerEvent);
+              module.debug('Querying API endpoint immediately');
               module.query();
             }
           }
@@ -18228,7 +18228,11 @@ $.api = $.fn.api = function(parameters) {
                   }
                   else {
                     module.verbose('Found required variable', variable, value);
-                    url = url.replace(templatedString, module.get.urlEncodedValue(value));
+                    value = (settings.encodeParameters)
+                      ? module.get.urlEncodedValue(value)
+                      : value
+                    ;
+                    url = url.replace(templatedString, value);
                   }
                 });
               }
@@ -18594,7 +18598,7 @@ $.api = $.fn.api = function(parameters) {
               module.debug('URL value is already encoded, avoiding double encoding', value);
               return value;
             }
-            module.verbose('Encoding value for url', value, encodedValue);
+            module.verbose('Encoding value using encodeURIComponent', value, encodedValue);
             return encodedValue;
           },
           defaultData: function() {
@@ -18860,7 +18864,7 @@ $.api.settings = {
   name              : 'API',
   namespace         : 'api',
 
-  debug             : true,
+  debug             : false,
   verbose           : false,
   performance       : true,
 
@@ -18884,6 +18888,8 @@ $.api.settings = {
 
   // duration for error state
   errorDuration     : 2000,
+
+  encodeParameters  : true,
 
   // API action to use
   action            : false,

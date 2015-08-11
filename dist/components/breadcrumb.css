@@ -16,8 +16,8 @@
 
 .ui.breadcrumb {
   line-height: 1;
-  margin: 1em 0em;
   display: inline-block;
+  margin: 0em 0em;
   vertical-align: middle;
 }
 .ui.breadcrumb:first-child {

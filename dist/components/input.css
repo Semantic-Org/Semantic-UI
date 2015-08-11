@@ -21,6 +21,8 @@
 
 .ui.input {
   position: relative;
+  font-weight: normal;
+  font-style: normal;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -70,6 +72,18 @@
             States
 *******************************/
 
+
+/*--------------------
+        Disabled
+---------------------*/
+
+.ui.disabled.input,
+.ui.input input[disabled] {
+  opacity: 0.45;
+}
+.ui.disabled.input input {
+  pointer-events: none;
+}
 
 /*--------------------
         Active
@@ -148,30 +162,30 @@
 .ui.input.error input {
   background-color: #fff6f6;
   border-color: #e0b4b4;
-  color: #db2828;
+  color: #9f3a38;
   box-shadow: none;
 }
 
 /* Error Placeholder */
-.ui.input.error input ::-webkit-input-placeholder {
-  color: rgba(255, 80, 80, 0.4);
+.ui.input.error input::-webkit-input-placeholder {
+  color: #e7bdbc;
 }
-.ui.input.error input ::-moz-placeholder {
-  color: rgba(255, 80, 80, 0.4);
+.ui.input.error input::-moz-placeholder {
+  color: #e7bdbc;
 }
-.ui.input.error input ::-ms-input-placeholder {
-  color: rgba(255, 80, 80, 0.4);
+.ui.input.error input::-ms-input-placeholder {
+  color: #e7bdbc;
 }
 
 /* Focused Error Placeholder */
-.ui.input.error input :focus::-webkit-input-placeholder {
-  color: rgba(255, 80, 80, 0.7);
+.ui.input.error input:focus::-webkit-input-placeholder {
+  color: #da9796;
 }
-.ui.input.error input :focus::-moz-placeholder {
-  color: rgba(255, 80, 80, 0.7);
+.ui.input.error input:focus::-moz-placeholder {
+  color: #da9796;
 }
-.ui.input.error input :focus::-ms-input-placeholder {
-  color: rgba(255, 80, 80, 0.7);
+.ui.input.error input:focus::-ms-input-placeholder {
+  color: #da9796;
 }
 
 
@@ -304,22 +318,24 @@
 
 /* Regular Label on Left */
 .ui.labeled.input:not([class*="corner labeled"]):not([class*="right labeled"]) > input {
-  border-left: none;
+  /*border-left: none;*/
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
 }
 .ui.labeled.input:not([class*="corner labeled"]):not([class*="right labeled"]) > .label {
+  border-right: none;
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
 }
 
 /* Regular Label on Right */
 .ui[class*="right labeled"].input > input {
-  border-right: none;
+  /*border-right: none;*/
   border-top-right-radius: 0px !important;
   border-bottom-right-radius: 0px !important;
 }
 .ui[class*="right labeled"].input > .label {
+  border-left: none;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
 }

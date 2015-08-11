@@ -89,13 +89,13 @@ i.icon.loading {
 *******************************/
 
 i.icon.hover {
-  opacity: 1;
+  opacity: 1 !important;
 }
 i.icon.active {
-  opacity: 1;
+  opacity: 1 !important;
 }
 i.emphasized.icon {
-  opacity: 1;
+  opacity: 1 !important;
 }
 i.disabled.icon {
   opacity: 0.45 !important;
@@ -2500,9 +2500,6 @@ i.icon.wi-fi:before {
 }
 i.icon.graduation:before {
   content: "\f19d";
-}
-i.icon.\33d:before {
-  content: "\f1b2";
 }
 i.icon.weixin:before {
   content: "\f1d7";

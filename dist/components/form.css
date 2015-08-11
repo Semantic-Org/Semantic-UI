@@ -82,6 +82,12 @@
   width: 100%;
   vertical-align: top;
 }
+
+/* Set max height on unusual input */
+.ui.form ::-webkit-datetime-edit,
+.ui.form ::-webkit-inner-spin-button {
+  height: 1.2142em;
+}
 .ui.form input:not([type]),
 .ui.form input[type="date"],
 .ui.form input[type="datetime-local"],
@@ -282,22 +288,22 @@
 
 /* Error Placeholder */
 .ui.form .error ::-webkit-input-placeholder {
-  color: #bf4d4b;
+  color: #e7bdbc;
 }
 .ui.form .error ::-ms-input-placeholder {
-  color: #bf4d4b;
+  color: #e7bdbc;
 }
 .ui.form .error ::-moz-placeholder {
-  color: #bf4d4b;
+  color: #e7bdbc;
 }
 .ui.form .error :focus::-webkit-input-placeholder {
-  color: #b2413f;
+  color: #da9796;
 }
 .ui.form .error :focus::-ms-input-placeholder {
-  color: #b2413f;
+  color: #da9796;
 }
 .ui.form .error :focus::-moz-placeholder {
-  color: #b2413f;
+  color: #da9796;
 }
 
 /*--------------------

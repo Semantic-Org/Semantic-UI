@@ -1076,7 +1076,7 @@ $.fn.search.settings = {
   onSelect       : false,
   onResultsAdd   : false,
 
-  onSearchQuery  : function(){},
+  onSearchQuery  : function(query){},
   onResults      : function(response){},
 
   onResultsOpen  : function(){},
