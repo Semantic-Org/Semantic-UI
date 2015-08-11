@@ -24,6 +24,7 @@
 - **Accordion** - Added missing notation for accordion docs #2812
 - **Container** - Fix issue with `fluid container` being `100% + gutter` at mobile resolution (causing overflow)
 - **Dropdown** - Remove use of `trim` which causes issues IE 11 and below #2806
+- **Dropdown** - Fixes issues with setting "" (empty quote) values when `placeholder: false` is used. Fixes issues with using `clear` and `restore defaults` without placeholders. #2637
 - **Embed** - Remove accidental `console.log` statements in js #2760
 - **Form / Input** - Fixes `::placeholder` text color for `ui error input`, modifies form error placeholder color to distinguish from form value error color #2786
 - **Form** - Date input and other special input in chrome now are the same height as normal input (adds custom vendor shadow dom styling) #2704
