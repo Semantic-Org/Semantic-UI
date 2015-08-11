@@ -440,10 +440,11 @@ $.fn.tab = function(parameters) {
             var
               $tab        = module.get.tabElement(tabPath),
               apiSettings = {
-                dataType : 'html',
-                on       : 'now',
-                cache    : settings.alwaysRefresh,
-                headers  : {
+                dataType         : 'html',
+                encodeParameters : false,
+                on               : 'now',
+                cache            : settings.alwaysRefresh,
+                headers          : {
                   'X-Remote': true
                 },
                 onSuccess : function(response) {
