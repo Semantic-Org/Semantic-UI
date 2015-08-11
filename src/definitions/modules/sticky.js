@@ -825,7 +825,7 @@ $.fn.sticky.settings = {
   name           : 'Sticky',
   namespace      : 'sticky',
 
-  debug          : true,
+  debug          : false,
   verbose        : true,
   performance    : true,
 
