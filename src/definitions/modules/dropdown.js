@@ -634,7 +634,6 @@ $.fn.dropdown = function(parameters) {
             apiSettings = {
               errorDuration        : false,
               throttle             : settings.throttle,
-              cache                : 'local',
               urlData              : {
                 query: query
               },
@@ -999,7 +998,7 @@ $.fn.dropdown = function(parameters) {
                 var
                   $label            = $module.find(selector.label),
                   $activeLabel      = $label.filter('.' + className.active),
-                  activeValue       = $activeLabel.data('value'),
+                  activeValue       = $activeLabel.data(metadata.value),
                   labelIndex        = $label.index($activeLabel),
                   labelCount        = $label.length,
                   hasActiveLabel    = ($activeLabel.length > 0),
@@ -1363,6 +1362,7 @@ $.fn.dropdown = function(parameters) {
           },
 
           hide: function() {
+            module.set.value(value);
             module.hideAndClear();
           }
 
@@ -2596,7 +2596,7 @@ $.fn.dropdown = function(parameters) {
             $labels
               .each(function(){
                 var
-                  value       = $(this).data('value'),
+                  value       = $(this).data(metadata.value),
                   isUserValue = module.is.userValue(value)
                 ;
                 if(isUserValue) {
