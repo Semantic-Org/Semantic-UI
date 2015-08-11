@@ -2113,10 +2113,10 @@ $.fn.dropdown = function(parameters) {
                 module.add.optionValue(value);
               }
               module.debug('Updating input value', value, currentValue);
-              $input
-                .val(value)
-                .trigger('change')
-              ;
+              $input.val(value);
+              if(!module.is.initialLoad()) {
+                $input.trigger('change');
+              }
             }
             else {
               module.verbose('Storing value in metadata', value, $input);
